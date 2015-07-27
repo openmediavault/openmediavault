@@ -8,10 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-11 22:38+0200\n"
-"PO-Revision-Date: 2015-06-11 20:38+0000\n"
+"POT-Creation-Date: 2015-07-20 21:19+0200\n"
+"PO-Revision-Date: 2015-07-20 19:19+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
-"Language-Team: Danish (http://www.transifex.com/p/openmediavault/language/da/)\n"
+"Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1280,9 +1280,6 @@ msgstr "Lykkedes ikke at hente liste over ubrugte netværks interface enheder"
 msgid "Failed to get list of users."
 msgstr "Lykkedes ikke at hente liste over brugere."
 
-msgid "Failed to get shadow password suite configuration."
-msgstr "Lykkedes ikke at hente tildækket adgangskode suite konfiguration."
-
 msgid "Failed to get storage device file from '%s'"
 msgstr "Lykkedes ikke at hente lager enheds fil fra '%s'"
 
@@ -1380,6 +1377,9 @@ msgstr "Fredag"
 msgid "Full"
 msgstr "Fuld"
 
+msgid "GID"
+msgstr ""
+
 msgid "Gabon"
 msgstr "Gabon"
 
@@ -1397,9 +1397,6 @@ msgstr "Generelle Indstillinger"
 
 msgid "General settings"
 msgstr "Generelle indstillinger"
-
-msgid "General users/groups"
-msgstr "Generelle brugere/grupper"
 
 msgid "Generating graphs ..."
 msgstr "Genererer grafer ..."
@@ -2253,9 +2250,6 @@ msgstr "Kun gæster"
 
 msgid "Operation"
 msgstr "Handling"
-
-msgid "Operation not allowed for user '%s'."
-msgstr "Handlingen er ikke tilladt for brugeren '%s'."
 
 msgid "Options"
 msgstr "Valgmuligheder"
@@ -3262,11 +3256,11 @@ msgstr "System Oplysninger"
 msgid "System Logs"
 msgstr "System Logs"
 
+msgid "System accounts"
+msgstr ""
+
 msgid "System time"
 msgstr "System tid"
-
-msgid "System users/groups"
-msgstr "Systembrugere/grupper"
 
 msgid "TAR"
 msgstr "TAR"
@@ -3758,6 +3752,9 @@ msgstr "U.S. Miscellaneous Pacific Islands"
 msgid "U.S. Virgin Islands"
 msgstr "U.S. Virgin Islands"
 
+msgid "UID"
+msgstr ""
+
 msgid "UNKNOWN"
 msgstr "UKENDT"
 
@@ -3766,6 +3763,9 @@ msgstr "Uganda"
 
 msgid "Ukraine"
 msgstr "Ukraine"
+
+msgid "Unauthorized attempt to modify the system account '%s'"
+msgstr ""
 
 msgid "Uncompressed"
 msgstr "Ukomprimeret"
@@ -3895,6 +3895,9 @@ msgstr "Bruger '%s' findes ikke"
 
 msgid "User ID '%d' already exist"
 msgstr "Bruger ID '%d' findes allerede"
+
+msgid "User accounts"
+msgstr ""
 
 msgid "User home directory"
 msgstr "Bruger hjemme bibliotek"

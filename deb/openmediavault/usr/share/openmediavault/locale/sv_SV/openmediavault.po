@@ -8,10 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-11 22:38+0200\n"
-"PO-Revision-Date: 2015-06-11 20:38+0000\n"
+"POT-Creation-Date: 2015-07-20 21:19+0200\n"
+"PO-Revision-Date: 2015-07-20 19:19+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
-"Language-Team: Swedish (http://www.transifex.com/p/openmediavault/language/sv/)\n"
+"Language-Team: Swedish (http://www.transifex.com/projects/p/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1280,9 +1280,6 @@ msgstr ""
 msgid "Failed to get list of users."
 msgstr ""
 
-msgid "Failed to get shadow password suite configuration."
-msgstr ""
-
 msgid "Failed to get storage device file from '%s'"
 msgstr ""
 
@@ -1380,6 +1377,9 @@ msgstr "Fredag"
 msgid "Full"
 msgstr "Full"
 
+msgid "GID"
+msgstr ""
+
 msgid "Gabon"
 msgstr "Gabon"
 
@@ -1397,9 +1397,6 @@ msgstr "Allmänna inställningar"
 
 msgid "General settings"
 msgstr "Allmänna inställningar"
-
-msgid "General users/groups"
-msgstr ""
 
 msgid "Generating graphs ..."
 msgstr "Genererar grafer ..."
@@ -2252,9 +2249,6 @@ msgid "Only guests"
 msgstr ""
 
 msgid "Operation"
-msgstr ""
-
-msgid "Operation not allowed for user '%s'."
 msgstr ""
 
 msgid "Options"
@@ -3262,11 +3256,11 @@ msgstr "Systeminformation"
 msgid "System Logs"
 msgstr "Systemloggar"
 
+msgid "System accounts"
+msgstr ""
+
 msgid "System time"
 msgstr "Systemtid"
-
-msgid "System users/groups"
-msgstr ""
 
 msgid "TAR"
 msgstr ""
@@ -3758,6 +3752,9 @@ msgstr "U.S. övriga stilla havsöar"
 msgid "U.S. Virgin Islands"
 msgstr "U.S. Jungfrööar"
 
+msgid "UID"
+msgstr ""
+
 msgid "UNKNOWN"
 msgstr ""
 
@@ -3766,6 +3763,9 @@ msgstr "Uganda"
 
 msgid "Ukraine"
 msgstr "Ukraina"
+
+msgid "Unauthorized attempt to modify the system account '%s'"
+msgstr ""
 
 msgid "Uncompressed"
 msgstr ""
@@ -3895,6 +3895,9 @@ msgstr "Användaren '%s' finns inte"
 
 msgid "User ID '%d' already exist"
 msgstr "Användar ID '%d' finns redan"
+
+msgid "User accounts"
+msgstr ""
 
 msgid "User home directory"
 msgstr "Användarens hemkatalog"

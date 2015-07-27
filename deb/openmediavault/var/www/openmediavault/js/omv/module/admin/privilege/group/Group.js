@@ -89,7 +89,7 @@ Ext.define("OMV.module.admin.privilege.group.group.Members", {
 
 	border: false,
 	title: _("Members"),
-	selType: "checkboxmodel",
+	selModel: "checkboxmodel",
 	stateful: true,
 	stateId: "1e683bee-2ad4-11e5-9c8d-0002b3a176b4",
 	features: [{
@@ -119,11 +119,17 @@ Ext.define("OMV.module.admin.privilege.group.group.Members", {
 		stateId: "name",
 		flex: 2
 	},{
+		text: _("UID"),
+		sortable: true,
+		dataIndex: "uid",
+		stateId: "uid",
+		hidden: true,
+		flex: 1
+	},{
 		xtype: "booleantextcolumn",
 		text: _("System"),
 		sortable: true,
 		groupable: true,
-		width: 60,
 		hidden: true,
 		dataIndex: "system",
 		stateId: "system",
@@ -141,6 +147,7 @@ Ext.define("OMV.module.admin.privilege.group.group.Members", {
 					idProperty: "name",
 					fields: [
 						{ name: "name", type: "string" },
+						{ name: "uid", type: "int" },
 						{ name: "system", type: "boolean" }
 					]
 				}),
@@ -162,16 +169,16 @@ Ext.define("OMV.module.admin.privilege.group.group.Members", {
 		// Mark the store as dirty whenever the selection has
 		// been changed.
 		me.on("selectionchange", function(c, selected) {
-			me.store.markDirty();
+			me.getStore().markDirty();
 		});
 	},
 
 	setValues: function(values) {
 		var me = this;
 		// Ensure the store is loaded to select the given groups.
-		if (me.store.isLoading() || !me.store.isLoaded()) {
+		if (me.getStore().isLoading() || !me.getStore().isLoaded()) {
 			var fn = Ext.Function.bind(me.setValues, me, arguments);
-			me.store.on({
+			me.getStore().on({
 				single: true,
 				load: fn
 			});
@@ -181,7 +188,7 @@ Ext.define("OMV.module.admin.privilege.group.group.Members", {
 		var records = [];
 		me.getSelectionModel().deselectAll(true);
 		Ext.Array.each(values.members, function(name) {
-			var record = me.store.findRecord("name", name);
+			var record = me.getStore().findRecord("name", name);
 			if (Ext.isObject(record) && record.isModel)
 				Ext.Array.push(records, [ record ]);
 		});

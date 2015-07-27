@@ -8,10 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-11 22:38+0200\n"
-"PO-Revision-Date: 2015-06-15 00:30+0000\n"
+"POT-Creation-Date: 2015-07-20 21:19+0200\n"
+"PO-Revision-Date: 2015-07-21 02:11+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
-"Language-Team: Japanese (Japan) (http://www.transifex.com/p/openmediavault/language/ja_JP/)\n"
+"Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1280,9 +1280,6 @@ msgstr "未使用のネットワークインタフェースデバイスのリス
 msgid "Failed to get list of users."
 msgstr "ユーザーリストの取得に失敗しました。"
 
-msgid "Failed to get shadow password suite configuration."
-msgstr "シャドウパスワードスイートの設定の取得に失敗しました。"
-
 msgid "Failed to get storage device file from '%s'"
 msgstr "'%s' からのストレージデバイスファイルの取得に失敗しました"
 
@@ -1380,6 +1377,9 @@ msgstr "金曜"
 msgid "Full"
 msgstr "フル"
 
+msgid "GID"
+msgstr "GID"
+
 msgid "Gabon"
 msgstr "ガボン"
 
@@ -1397,9 +1397,6 @@ msgstr "一般設定"
 
 msgid "General settings"
 msgstr "一般設定"
-
-msgid "General users/groups"
-msgstr "一般的な ユーザー/グループ"
 
 msgid "Generating graphs ..."
 msgstr "グラフ生成中 ..."
@@ -2253,9 +2250,6 @@ msgstr "ゲストのみ"
 
 msgid "Operation"
 msgstr "オペレーション"
-
-msgid "Operation not allowed for user '%s'."
-msgstr "この操作はユーザー '%s' には許可されていません。"
 
 msgid "Options"
 msgstr "オプション"
@@ -3262,11 +3256,11 @@ msgstr "システム情報"
 msgid "System Logs"
 msgstr "システムログ"
 
+msgid "System accounts"
+msgstr "システムアカウント"
+
 msgid "System time"
 msgstr "システム時間"
-
-msgid "System users/groups"
-msgstr "システムの ユーザー/グループ"
 
 msgid "TAR"
 msgstr "TAR"
@@ -3758,6 +3752,9 @@ msgstr "米領太平洋諸島"
 msgid "U.S. Virgin Islands"
 msgstr "アメリカ領ヴァージン諸島"
 
+msgid "UID"
+msgstr "UID"
+
 msgid "UNKNOWN"
 msgstr "UNKNOWN"
 
@@ -3766,6 +3763,9 @@ msgstr "ウガンダ"
 
 msgid "Ukraine"
 msgstr "ウクライナ"
+
+msgid "Unauthorized attempt to modify the system account '%s'"
+msgstr "システムアカウント '%s' を変更する権限がありません"
 
 msgid "Uncompressed"
 msgstr "非圧縮"
@@ -3895,6 +3895,9 @@ msgstr "ユーザー '%s' は存在しません"
 
 msgid "User ID '%d' already exist"
 msgstr "ユーザー ID '%d' はすでに存在します"
+
+msgid "User accounts"
+msgstr "ユーザーアカウント"
 
 msgid "User home directory"
 msgstr "ユーザーのホームディレクトリ"

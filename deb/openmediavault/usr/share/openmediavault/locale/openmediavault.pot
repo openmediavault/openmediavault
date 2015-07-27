@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-11 22:38+0200\n"
+"POT-Creation-Date: 2015-07-20 21:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1234,9 +1234,6 @@ msgstr ""
 msgid "Failed to get list of users."
 msgstr ""
 
-msgid "Failed to get shadow password suite configuration."
-msgstr ""
-
 msgid "Failed to get storage device file from '%s'"
 msgstr ""
 
@@ -1330,6 +1327,9 @@ msgstr ""
 msgid "Full"
 msgstr ""
 
+msgid "GID"
+msgstr ""
+
 msgid "Gabon"
 msgstr ""
 
@@ -1346,9 +1346,6 @@ msgid "General Settings"
 msgstr ""
 
 msgid "General settings"
-msgstr ""
-
-msgid "General users/groups"
 msgstr ""
 
 msgid "Generating graphs ..."
@@ -2165,9 +2162,6 @@ msgid "Only guests"
 msgstr ""
 
 msgid "Operation"
-msgstr ""
-
-msgid "Operation not allowed for user '%s'."
 msgstr ""
 
 msgid "Options"
@@ -3115,10 +3109,10 @@ msgstr ""
 msgid "System Logs"
 msgstr ""
 
-msgid "System time"
+msgid "System accounts"
 msgstr ""
 
-msgid "System users/groups"
+msgid "System time"
 msgstr ""
 
 msgid "TAR"
@@ -3527,6 +3521,9 @@ msgstr ""
 msgid "U.S. Virgin Islands"
 msgstr ""
 
+msgid "UID"
+msgstr ""
+
 msgid "UNKNOWN"
 msgstr ""
 
@@ -3534,6 +3531,9 @@ msgid "Uganda"
 msgstr ""
 
 msgid "Ukraine"
+msgstr ""
+
+msgid "Unauthorized attempt to modify the system account '%s'"
 msgstr ""
 
 msgid "Uncompressed"
@@ -3660,6 +3660,9 @@ msgid "User '%s' does not exist"
 msgstr ""
 
 msgid "User ID '%d' already exist"
+msgstr ""
+
+msgid "User accounts"
 msgstr ""
 
 msgid "User home directory"

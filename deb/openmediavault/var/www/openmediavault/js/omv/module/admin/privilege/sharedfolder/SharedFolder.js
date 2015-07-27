@@ -360,13 +360,13 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 				scope: me,
 				select: function(model, record, index, eOpts) {
 					// Display load mask.
-					this.getEl().mask(_("Loading ..."));
+					this.setLoading(_("Loading ..."));
 					// Load the ACL list.
 					OMV.Rpc.request({
 						scope: this,
 						callback: function(id, success, response) {
 							if(!success) {
-								this.getEl().unmask();
+								this.setLoading(false);
 								OMV.MessageBox.error(null, response);
 							} else {
 								// Set the form field values.
@@ -400,7 +400,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 								});
 								this.gp.store.load();
 								// Disable load mask.
-								this.getEl().unmask();
+								this.setLoading(false);
 							}
 						},
 						relayErrors: true,
@@ -649,7 +649,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 		stateId: "comment"
 	},{
 		xtype: "booleantextcolumn",
-		text: _("Used"),
+		text: _("Referenced"),
 		sortable: true,
 		dataIndex: "_used",
 		stateId: "_used"

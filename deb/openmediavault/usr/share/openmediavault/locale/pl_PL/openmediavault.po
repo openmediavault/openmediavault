@@ -12,10 +12,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-11 22:38+0200\n"
-"PO-Revision-Date: 2015-07-01 06:25+0000\n"
-"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
-"Language-Team: Polish (Poland) (http://www.transifex.com/p/openmediavault/language/pl_PL/)\n"
+"POT-Creation-Date: 2015-07-20 21:19+0200\n"
+"PO-Revision-Date: 2015-07-20 19:19+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1284,9 +1284,6 @@ msgstr ""
 msgid "Failed to get list of users."
 msgstr "Nie udało się pobrać listy użytkowników."
 
-msgid "Failed to get shadow password suite configuration."
-msgstr "Nie udało się uzyskać cienia hasła konfiguracji pakietu."
-
 msgid "Failed to get storage device file from '%s'"
 msgstr "Nie można pobrać pliku urządzenia dysku z "
 
@@ -1384,6 +1381,9 @@ msgstr "Piątek"
 msgid "Full"
 msgstr "Pełny"
 
+msgid "GID"
+msgstr ""
+
 msgid "Gabon"
 msgstr "Gabon"
 
@@ -1401,9 +1401,6 @@ msgstr "Ustawienia ogólne"
 
 msgid "General settings"
 msgstr "Ustawienia ogólne"
-
-msgid "General users/groups"
-msgstr "Ogólni użytkownicy/grupy"
 
 msgid "Generating graphs ..."
 msgstr "Tworzenie wykresów ..."
@@ -2257,9 +2254,6 @@ msgstr "Tylko goście"
 
 msgid "Operation"
 msgstr "Operacja"
-
-msgid "Operation not allowed for user '%s'."
-msgstr "Operacja niedozwolona dla użytkownika '%s'."
 
 msgid "Options"
 msgstr "Opcje"
@@ -3266,11 +3260,11 @@ msgstr "Informacje o systemie"
 msgid "System Logs"
 msgstr "Logi systemowe"
 
+msgid "System accounts"
+msgstr ""
+
 msgid "System time"
 msgstr "Czas systemowy"
-
-msgid "System users/groups"
-msgstr "Użytkownicy/grupy systemu"
 
 msgid "TAR"
 msgstr "TAR"
@@ -3762,6 +3756,9 @@ msgstr "U.S. Miscellaneous Pacific Islands"
 msgid "U.S. Virgin Islands"
 msgstr "U.S. Virgin Islands"
 
+msgid "UID"
+msgstr ""
+
 msgid "UNKNOWN"
 msgstr "NIEZNANY"
 
@@ -3770,6 +3767,9 @@ msgstr "Uganda"
 
 msgid "Ukraine"
 msgstr "Ukraine"
+
+msgid "Unauthorized attempt to modify the system account '%s'"
+msgstr ""
 
 msgid "Uncompressed"
 msgstr "Nieskomprezowane"
@@ -3899,6 +3899,9 @@ msgstr "Użytkownik '%s' nie istnieje"
 
 msgid "User ID '%d' already exist"
 msgstr "ID '%d' użytkownika już istnieje"
+
+msgid "User accounts"
+msgstr ""
 
 msgid "User home directory"
 msgstr "Katalog domowy użytkownika"

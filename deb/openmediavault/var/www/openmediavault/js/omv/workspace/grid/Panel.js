@@ -256,7 +256,8 @@ Ext.define("OMV.workspace.grid.Panel", {
 			scope: me,
 			disabled: true,
 			selectionConfig: {
-				minSelections: 1
+				minSelections: 1,
+				maxSelections: 1
 			}
 		},{
 			id: me.getId() + "-down",
@@ -269,7 +270,8 @@ Ext.define("OMV.workspace.grid.Panel", {
 			scope: me,
 			disabled: true,
 			selectionConfig: {
-				minSelections: 1
+				minSelections: 1,
+				maxSelections: 1
 			}
 		},{
 			id: me.getId() + "-apply",
@@ -436,15 +438,24 @@ Ext.define("OMV.workspace.grid.Panel", {
 		// the store is automatically sorted when an item is moved.
 		var autoSort = me.store.getData().getAutoSort();
 		me.store.getData().setAutoSort(false);
+		// Store the new added records in a seperate variable for later use.
+		newRecords = [];
 		Ext.Array.each(records, function(record) {
+			// Get the persistent data of the model.
+			var data = record.getData({
+				persist: true
+			});
+			// Remove the old record.
 			me.store.remove(record);
-			me.store.insert(index, record);
+			// Insert a new record.
+			newRecords = Ext.Array.merge(newRecords, me.store.insert(
+			  index, data));
 		});
 		// Restore auto-sort to previous state.
 		me.store.getData().setAutoSort(autoSort);
 		// Call custom method to allow derived classes to process
 		// the store after movement.
-		me.afterMoveRows(records, index);
+		me.afterMoveRows(newRecords, index);
 		// Resume all events after moving the rows. The suspended
 		// events will be triggered, thus the grid view will be
 		// updated automatically after inserting/deleting items.

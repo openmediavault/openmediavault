@@ -9,10 +9,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-11 22:38+0200\n"
-"PO-Revision-Date: 2015-06-30 00:37+0000\n"
+"POT-Creation-Date: 2015-07-20 21:19+0200\n"
+"PO-Revision-Date: 2015-07-22 13:36+0000\n"
 "Last-Translator: songming <by@songming.me>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/p/openmediavault/language/zh_CN/)\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1281,9 +1281,6 @@ msgstr "无法获取闲置网络接口设备列表"
 msgid "Failed to get list of users."
 msgstr "无法获得用户列表。"
 
-msgid "Failed to get shadow password suite configuration."
-msgstr "无法获得shadow password suite的配置。"
-
 msgid "Failed to get storage device file from '%s'"
 msgstr "无法由 '%s' 取得存储设备文件"
 
@@ -1381,6 +1378,9 @@ msgstr "星期五"
 msgid "Full"
 msgstr "全部"
 
+msgid "GID"
+msgstr "GID"
+
 msgid "Gabon"
 msgstr "加蓬"
 
@@ -1398,9 +1398,6 @@ msgstr "常规设置"
 
 msgid "General settings"
 msgstr "常规设置"
-
-msgid "General users/groups"
-msgstr "常规用户/组"
 
 msgid "Generating graphs ..."
 msgstr "生成图形 ..."
@@ -2254,9 +2251,6 @@ msgstr "仅访客"
 
 msgid "Operation"
 msgstr "操作"
-
-msgid "Operation not allowed for user '%s'."
-msgstr "不允许用户 '%s' 操作。"
 
 msgid "Options"
 msgstr "选项"
@@ -3263,11 +3257,11 @@ msgstr "系统信息"
 msgid "System Logs"
 msgstr "系统日志"
 
+msgid "System accounts"
+msgstr "系统账户"
+
 msgid "System time"
 msgstr "系统时间"
-
-msgid "System users/groups"
-msgstr "系统用户/组"
 
 msgid "TAR"
 msgstr "TAR"
@@ -3759,6 +3753,9 @@ msgstr "美国其他太平洋岛屿"
 msgid "U.S. Virgin Islands"
 msgstr "美属维尔京群岛"
 
+msgid "UID"
+msgstr " UID"
+
 msgid "UNKNOWN"
 msgstr "未知"
 
@@ -3767,6 +3764,9 @@ msgstr "乌干达"
 
 msgid "Ukraine"
 msgstr "乌克兰"
+
+msgid "Unauthorized attempt to modify the system account '%s'"
+msgstr "没有修改系统账户'%s'的权限"
 
 msgid "Uncompressed"
 msgstr "为压缩的"
@@ -3896,6 +3896,9 @@ msgstr "用户 '%s' 不存在"
 
 msgid "User ID '%d' already exist"
 msgstr "用户ID '%d' 已经存在"
+
+msgid "User accounts"
+msgstr "用户账户"
 
 msgid "User home directory"
 msgstr "使用主目录"

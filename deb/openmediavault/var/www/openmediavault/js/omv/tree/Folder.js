@@ -43,7 +43,7 @@ Ext.define("OMV.tree.Folder", {
 
 	type: "mntent",
 
-	autoScroll: true,
+	scrollable: true,
 	rootVisible: false,
 
 	initComponent: function() {

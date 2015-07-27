@@ -172,7 +172,7 @@ Ext.define("OMV.window.Execute", {
 						  });
 					  } else {
 						  // Display waiting mask.
-						  this.getEl().mask(_("Please wait ..."));
+						  this.setLoading(_("Please wait ..."));
 					  }
 					  // Update the button states.
 					  this.setButtonDisabled("stop", false);
@@ -210,7 +210,7 @@ Ext.define("OMV.window.Execute", {
 				  if (true === this.progress)
 					  this.contentCtrl.reset();
 				  else
-					  this.getEl().unmask();
+					  this.setLoading(false);
 				  if (success) {
 					  // Update the button states.
 					  this.setButtonDisabled("start", false);
@@ -255,7 +255,7 @@ Ext.define("OMV.window.Execute", {
 						  // Hide the waiting mask if the first content is
 						  // transmitted.
 						  if ((false === this.progress) && (0 < response.pos))
-							  this.getEl().unmask();
+							  this.setLoading(false);
 						  // Update the command content.
 						  this.appendValue(response.output);
 						  // If command is still running then do another RPC
@@ -267,7 +267,7 @@ Ext.define("OMV.window.Execute", {
 							  if (true === this.progress)
 								  this.contentCtrl.reset();
 							  else
-								  this.getEl().unmask();
+								  this.setLoading(false);
 							  this.fireEvent("finish", this, response);
 						  }
 						  // Update button states.
@@ -306,7 +306,7 @@ Ext.define("OMV.window.Execute", {
 							  this.setButtonDisabled("stop", true);
 							  this.setButtonDisabled("close", false);
 							  // Hide the waiting mask.
-							  this.getEl().unmask();
+							  this.setLoading(false);
 							  // Execute another RPC.
 							  Ext.Function.defer(this.doGetOutput,
 								this.rpcDelay, this);
@@ -316,7 +316,7 @@ Ext.define("OMV.window.Execute", {
 							  this.setButtonDisabled("stop", true);
 							  this.setButtonDisabled("close", false);
 							  // Hide the waiting mask.
-							  this.getEl().unmask();
+							  this.setLoading(false);
 							  // Fire exception to allow listeners to react
 							  // on errors.
 							  this.fireEvent("exception", this, response);

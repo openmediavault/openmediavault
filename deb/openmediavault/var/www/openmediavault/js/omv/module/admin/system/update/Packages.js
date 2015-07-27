@@ -52,7 +52,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 	hideDeleteButton: true,
 	stateful: true,
 	stateId: "1a2ca00e-37ac-4aa4-8cbe-290d8f95bd1b",
-	selType: "checkboxmodel",
+	selModel: "checkboxmodel",
 	columns: [{
 		text: _("Package information"),
 		sortable: true,

@@ -41,12 +41,14 @@ Ext.define("OMV.workspace.panel.Textarea", {
 		"OMV.window.MessageBox"
 	],
 
+	loadMsg: _("Loading ..."),
+
 	layout: "fit",
 	hideTopToolbar: false,
 	hideDownloadButton: true,
 	autoLoadData: true,
 	readOnly: true,
-	autoScroll: false,
+	scrollable: false,
 
 	initComponent: function() {
 		var me = this;
@@ -80,13 +82,13 @@ Ext.define("OMV.workspace.panel.Textarea", {
 	doLoad: function() {
 		var me = this;
 		// Display waiting dialog.
-		me.mask(_("Loading ..."));
+		me.setLoading(me.loadMsg);
 		// Execute RPC.
 		OMV.Rpc.request({
 			scope: me,
 			callback: function(id, success, response) {
-				me.unmask();
-				if(!success) {
+				me.setLoading(false);
+				if (!success) {
 					OMV.MessageBox.error(null, response);
 				} else {
 					me.setValue(response);
@@ -109,7 +111,7 @@ Ext.define("OMV.workspace.panel.Textarea", {
 	setValue: function(value) {
 		var me = this;
 		var c = me.queryById(me.getId() + "-content");
-		if(!Ext.isEmpty(c)) {
+		if (!Ext.isEmpty(c)) {
 			c.setValue(value);
 		}
 	},
@@ -121,7 +123,7 @@ Ext.define("OMV.workspace.panel.Textarea", {
 	getValue: function() {
 		var me = this;
 		var c = me.queryById(me.getId() + "-content");
-		if(!Ext.isEmpty(c)) {
+		if (!Ext.isEmpty(c)) {
 			value = c.getValue();
 		}
 		return value;

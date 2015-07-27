@@ -10,10 +10,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-11 22:38+0200\n"
-"PO-Revision-Date: 2015-06-11 20:38+0000\n"
+"POT-Creation-Date: 2015-07-20 21:19+0200\n"
+"PO-Revision-Date: 2015-07-20 19:19+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
-"Language-Team: Ukrainian (http://www.transifex.com/p/openmediavault/language/uk/)\n"
+"Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1282,9 +1282,6 @@ msgstr ""
 msgid "Failed to get list of users."
 msgstr "Не вдалося одержати список користувачів."
 
-msgid "Failed to get shadow password suite configuration."
-msgstr "Не вдалося отримати конфігурацію паролів."
-
 msgid "Failed to get storage device file from '%s'"
 msgstr "Не вдалося отримати файл з пристрою зберігання '%s'"
 
@@ -1382,6 +1379,9 @@ msgstr "П'ятниця"
 msgid "Full"
 msgstr "Повний"
 
+msgid "GID"
+msgstr ""
+
 msgid "Gabon"
 msgstr "Габон"
 
@@ -1399,9 +1399,6 @@ msgstr "Загальні Налаштування"
 
 msgid "General settings"
 msgstr "Загальні налаштування"
-
-msgid "General users/groups"
-msgstr ""
 
 msgid "Generating graphs ..."
 msgstr "Генерація графів..."
@@ -2255,9 +2252,6 @@ msgstr ""
 
 msgid "Operation"
 msgstr ""
-
-msgid "Operation not allowed for user '%s'."
-msgstr "Операція не дозволена для користувача  '%s'."
 
 msgid "Options"
 msgstr "Опції"
@@ -3264,11 +3258,11 @@ msgstr "Системна інформація"
 msgid "System Logs"
 msgstr "Системні журнали"
 
+msgid "System accounts"
+msgstr ""
+
 msgid "System time"
 msgstr "Cистемний час"
-
-msgid "System users/groups"
-msgstr ""
 
 msgid "TAR"
 msgstr "TAR"
@@ -3760,6 +3754,9 @@ msgstr "США Різне острови Тихого океану"
 msgid "U.S. Virgin Islands"
 msgstr "Віргінські острови СШ"
 
+msgid "UID"
+msgstr ""
+
 msgid "UNKNOWN"
 msgstr "НЕВІДОМЕ"
 
@@ -3768,6 +3765,9 @@ msgstr "Уганда"
 
 msgid "Ukraine"
 msgstr "Україна"
+
+msgid "Unauthorized attempt to modify the system account '%s'"
+msgstr ""
 
 msgid "Uncompressed"
 msgstr "Нестиснений"
@@ -3897,6 +3897,9 @@ msgstr "Користувача '%s' не існує"
 
 msgid "User ID '%d' already exist"
 msgstr "ID  '%d' користувача вже існує"
+
+msgid "User accounts"
+msgstr ""
 
 msgid "User home directory"
 msgstr "Домашній каталог користувача"

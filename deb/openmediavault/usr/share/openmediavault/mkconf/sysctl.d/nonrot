@@ -27,12 +27,13 @@
 set -e
 
 . /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
 
 OMV_SYSCTL_NONROT_CONFIG=${OMV_SYSCTL_NONROT_CONFIG:-"/etc/sysctl.d/99-openmediavault-nonrot.conf"}
-OMV_SYSCTL_VM_DIRTYBACKGROUNDRATIO=${OMV_SYSCTL_VM_DIRTYBACKGROUNDRATIO:-"3"}
-OMV_SYSCTL_VM_DIRTYRATIO=${OMV_SYSCTL_VM_DIRTYRATIO:-"10"}
-OMV_SYSCTL_VM_DIRTYWRITEBACKCENTISECS=${OMV_SYSCTL_VM_DIRTYWRITEBACKCENTISECS:-"1000"}
-OMV_SYSCTL_VM_DIRTYEXPIRECENTISECS=${OMV_SYSCTL_VM_DIRTYEXPIRECENTISECS:-"6000"}
+OMV_SYSCTL_VM_DIRTYBACKGROUNDRATIO=${OMV_SYSCTL_VM_DIRTYBACKGROUNDRATIO:-"1"}
+OMV_SYSCTL_VM_DIRTYRATIO=${OMV_SYSCTL_VM_DIRTYRATIO:-"20"}
+OMV_SYSCTL_VM_DIRTYWRITEBACKCENTISECS=${OMV_SYSCTL_VM_DIRTYWRITEBACKCENTISECS:-"12000"}
+OMV_SYSCTL_VM_DIRTYEXPIRECENTISECS=${OMV_SYSCTL_VM_DIRTYEXPIRECENTISECS:-"12000"}
 OMV_SYSCTL_VM_LAPTOPMODE=${OMV_SYSCTL_VM_LAPTOPMODE:-"5"}
 OMV_SYSCTL_VM_SWAPPINESS=${OMV_SYSCTL_VM_SWAPPINESS:-"1"}
 OMV_SYSCTL_VM_VFSCACHEPRESSURE=${OMV_SYSCTL_VM_VFSCACHEPRESSURE:-"50"}
@@ -43,7 +44,9 @@ rm -f ${OMV_SYSCTL_NONROT_CONFIG}
 # Modify some kernel parameters to reduce disk I/O for non-rotating devices.
 # The improvements are only done if the root device is a non-rotating
 # device, e.g. SSD or DOM.
-devicename=$(readlink /dev/root | sed 's/[1-9]//g')
+devicefile=$(omv_get_root_devicefile)
+devicefile=$(readlink -f ${devicefile})
+devicename=$(basename ${devicefile} | sed 's/[1-9]//g')
 filepath="/sys/block/${devicename}/queue/rotational"
 if [ -f "${filepath}" ]; then
 	if [ $(cat "${filepath}") -eq 0 ]; then

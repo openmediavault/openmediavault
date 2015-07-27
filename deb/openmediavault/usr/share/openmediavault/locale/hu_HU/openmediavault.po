@@ -9,10 +9,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-11 22:38+0200\n"
-"PO-Revision-Date: 2015-06-30 18:43+0000\n"
-"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
-"Language-Team: Hungarian (Hungary) (http://www.transifex.com/p/openmediavault/language/hu_HU/)\n"
+"POT-Creation-Date: 2015-07-20 21:19+0200\n"
+"PO-Revision-Date: 2015-07-20 19:19+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1281,9 +1281,6 @@ msgstr "Hálózati interfész eszközök listájának lekérdezése sikertelen"
 msgid "Failed to get list of users."
 msgstr "A felhasználók listájának lekérése sikertelen."
 
-msgid "Failed to get shadow password suite configuration."
-msgstr "Nem sikerült megszerezni az árnyékjelszó konfigurációját."
-
 msgid "Failed to get storage device file from '%s'"
 msgstr "Nem sikerült tárolóeszköznek fájlokat ´%s´-től szerezni"
 
@@ -1381,6 +1378,9 @@ msgstr "Péntek"
 msgid "Full"
 msgstr "Teljes"
 
+msgid "GID"
+msgstr ""
+
 msgid "Gabon"
 msgstr "Gabon"
 
@@ -1398,9 +1398,6 @@ msgstr "Általános beállítások"
 
 msgid "General settings"
 msgstr "Általános beállítások"
-
-msgid "General users/groups"
-msgstr "Általános felhasználó/csoport"
 
 msgid "Generating graphs ..."
 msgstr "Grafikonok generálása ..."
@@ -2254,9 +2251,6 @@ msgstr "Csak vendégek"
 
 msgid "Operation"
 msgstr "Művelet"
-
-msgid "Operation not allowed for user '%s'."
-msgstr "A művelet nem engedélyezett a felhasználó számára '%s'."
 
 msgid "Options"
 msgstr "Opciók"
@@ -3263,11 +3257,11 @@ msgstr "Rendszer-információ"
 msgid "System Logs"
 msgstr "Rendszernaplók"
 
+msgid "System accounts"
+msgstr ""
+
 msgid "System time"
 msgstr "Rendszeridő"
-
-msgid "System users/groups"
-msgstr "Rendszer felhasználó/csoport"
 
 msgid "TAR"
 msgstr "TAR"
@@ -3759,6 +3753,9 @@ msgstr "U.S. egyéb Csendes-óceáni szigetek"
 msgid "U.S. Virgin Islands"
 msgstr "U.S. Virgin-szigetek"
 
+msgid "UID"
+msgstr ""
+
 msgid "UNKNOWN"
 msgstr "ISMERETLEN"
 
@@ -3767,6 +3764,9 @@ msgstr "Uganda"
 
 msgid "Ukraine"
 msgstr "Ukrajna"
+
+msgid "Unauthorized attempt to modify the system account '%s'"
+msgstr ""
 
 msgid "Uncompressed"
 msgstr "Tömörítetlen"
@@ -3896,6 +3896,9 @@ msgstr "'%s' felhasználó nem létezik"
 
 msgid "User ID '%d' already exist"
 msgstr "Felhasználó ID '%d' már létezik"
+
+msgid "User accounts"
+msgstr ""
 
 msgid "User home directory"
 msgstr "Felhasználói saját könyvtár"

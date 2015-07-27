@@ -9,10 +9,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-11 22:38+0200\n"
-"PO-Revision-Date: 2015-06-11 20:38+0000\n"
+"POT-Creation-Date: 2015-07-20 21:19+0200\n"
+"PO-Revision-Date: 2015-07-20 19:19+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
-"Language-Team: Norwegian (http://www.transifex.com/p/openmediavault/language/no/)\n"
+"Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1281,9 +1281,6 @@ msgstr ""
 msgid "Failed to get list of users."
 msgstr "Klarte ikke å hente listen over brukere."
 
-msgid "Failed to get shadow password suite configuration."
-msgstr "Klarte ikke å hente shadow password suite konfigurasjon."
-
 msgid "Failed to get storage device file from '%s'"
 msgstr ""
 
@@ -1381,6 +1378,9 @@ msgstr "Fredag"
 msgid "Full"
 msgstr "Fullt"
 
+msgid "GID"
+msgstr ""
+
 msgid "Gabon"
 msgstr "Gabon"
 
@@ -1398,9 +1398,6 @@ msgstr "Generelle Innstillinger"
 
 msgid "General settings"
 msgstr "Generelle innstillinger"
-
-msgid "General users/groups"
-msgstr ""
 
 msgid "Generating graphs ..."
 msgstr "Grafer genereres ..."
@@ -2254,9 +2251,6 @@ msgstr ""
 
 msgid "Operation"
 msgstr ""
-
-msgid "Operation not allowed for user '%s'."
-msgstr "Handling ikke tillatt for bruker '%s'."
 
 msgid "Options"
 msgstr "Alternativer"
@@ -3263,11 +3257,11 @@ msgstr "System informasjon"
 msgid "System Logs"
 msgstr "Systemlogger"
 
+msgid "System accounts"
+msgstr ""
+
 msgid "System time"
 msgstr "Systemtid"
-
-msgid "System users/groups"
-msgstr ""
 
 msgid "TAR"
 msgstr "TAR"
@@ -3759,6 +3753,9 @@ msgstr "USAs stillehavsøyer"
 msgid "U.S. Virgin Islands"
 msgstr "De amerikanske Jomfruøyene"
 
+msgid "UID"
+msgstr ""
+
 msgid "UNKNOWN"
 msgstr "UKJENT"
 
@@ -3767,6 +3764,9 @@ msgstr "Uganda"
 
 msgid "Ukraine"
 msgstr "Ukraina"
+
+msgid "Unauthorized attempt to modify the system account '%s'"
+msgstr ""
 
 msgid "Uncompressed"
 msgstr "Ukomprimert"
@@ -3896,6 +3896,9 @@ msgstr "Bruker '%s' finnes ikke"
 
 msgid "User ID '%d' already exist"
 msgstr "Bruker ID '%d' finnes allerede"
+
+msgid "User accounts"
+msgstr ""
 
 msgid "User home directory"
 msgstr "Brukerens hjemmeområde"

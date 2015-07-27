@@ -296,12 +296,9 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 		stateId: "comment"
 	}],
 	viewConfig: {
-		autoScroll: true,
+		scrollable: true,
 		loadMask: true,
-		stripeRows: true,
-		plugins: {
-			ptype: "gridviewdragdrop"
-		}
+		stripeRows: true
 	},
 
 	initComponent: function() {
@@ -446,7 +443,7 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 	doDeletion: function(record) {
 		var me = this;
 		// Delete the local record only.
-		me.store.remove(record);
+		me.getStore().remove(record);
 		me.onDeletion(null, true, null);
 	},
 
@@ -457,14 +454,17 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 
 	afterMoveRows: function(records, index) {
 		var me = this;
-		me.updateRuleNums(); // Update the 'rulenum' fields.
+		// Update the 'rulenum' fields and sort the store using the
+		// new row numbers.
+		me.updateRuleNums();
+		me.getStore().sort();
 		me.callParent(arguments);
 	},
 
 	onApplyButton: function() {
 		var me = this;
 		// Get the rules.
-		var params = me.store.getModelData({
+		var params = me.getStore().getModelData({
 			persist: true
 		});
 		// Execute RPC.
@@ -488,12 +488,15 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 	 */
 	updateRuleNums: function() {
 		var me = this;
-		me.store.each(function(record, index) {
+		var store = me.getStore();
+		store.suspendEvents(true);
+		store.each(function(record, index) {
 			record.beginEdit();
 			record.set("rulenum", index);
 			record.endEdit();
 			record.commit();
 		});
+		store.resumeEvents();
 	}
 });
 

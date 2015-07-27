@@ -478,3 +478,19 @@ function inet_getnetmask($bits, $forceipv6 = FALSE) {
 	$inaddr = pack("H*", base_convert($binNetmask, 2, 16));
 	return inet_ntop($inaddr);
 }
+
+/**
+ * Check if the given integer value is in the range min <= var <= max.
+ * @param var The value to check.
+ * @param min The minimum value of the sequence.
+ * @param max The maximum value of the sequence.
+ * @return TRUE if the value is within the range, otherwise FALSE.
+ */
+function in_range($var, $min, $max) {
+	// See http://php.net/manual/en/filter.filters.validate.php.
+	return (FALSE !== filter_var($var, FILTER_VALIDATE_INT, array(
+	  'options' => array(
+		  'min_range' => $min,
+		  'max_range' => $max
+	  ))));
+}

@@ -167,7 +167,7 @@ Ext.define("OMV.module.admin.privilege.user.user.Groups", {
 
 	border: false,
 	title: _("Groups"),
-	selType: "checkboxmodel",
+	selModel: "checkboxmodel",
 	stateful: true,
 	stateId: "e44f12ea-b1ed-11e2-9a57-00221568ca88",
 	features: [{
@@ -197,11 +197,17 @@ Ext.define("OMV.module.admin.privilege.user.user.Groups", {
 		stateId: "name",
 		flex: 2
 	},{
+		text: _("GID"),
+		sortable: true,
+		dataIndex: "gid",
+		stateId: "gid",
+		hidden: true,
+		flex: 1
+	},{
 		xtype: "booleantextcolumn",
 		text: _("System"),
 		sortable: true,
 		groupable: true,
-		width: 60,
 		hidden: true,
 		dataIndex: "system",
 		stateId: "system",
@@ -219,6 +225,7 @@ Ext.define("OMV.module.admin.privilege.user.user.Groups", {
 					idProperty: "name",
 					fields: [
 						{ name: "name", type: "string" },
+						{ name: "gid", type: "int" },
 						{ name: "system", type: "boolean" }
 					]
 				}),
@@ -249,16 +256,16 @@ Ext.define("OMV.module.admin.privilege.user.user.Groups", {
 		// Mark the store as dirty whenever the selection has
 		// been changed.
 		me.on("selectionchange", function(c, selected) {
-			me.store.markDirty();
+			me.getStore().markDirty();
 		});
 	},
 
 	setValues: function(values) {
 		var me = this;
 		// Ensure the store is loaded to select the given groups.
-		if (me.store.isLoading() || !me.store.isLoaded()) {
+		if (me.getStore().isLoading() || !me.getStore().isLoaded()) {
 			var fn = Ext.Function.bind(me.setValues, me, arguments);
-			me.store.on({
+			me.getStore().on({
 				single: true,
 				load: fn
 			});
@@ -268,7 +275,7 @@ Ext.define("OMV.module.admin.privilege.user.user.Groups", {
 		var records = [];
 		me.getSelectionModel().deselectAll(true);
 		Ext.Array.each(values.groups, function(name) {
-			var record = me.store.findRecord("name", name);
+			var record = me.getStore().findRecord("name", name);
 			if (Ext.isObject(record) && record.isModel)
 				Ext.Array.push(records, [ record ]);
 		});
@@ -379,7 +386,7 @@ Ext.define("OMV.module.admin.privilege.user.user.SshPubKeys", {
 				scope: me,
 				submit: function(c, value) {
 					value = Ext.String.rtrim(value, " \n");
-					me.store.addRawData([ value ]);
+					me.getStore().addRawData([ value ]);
 				}
 			}
 		}).show();
@@ -387,14 +394,14 @@ Ext.define("OMV.module.admin.privilege.user.user.SshPubKeys", {
 
 	setValues: function(values) {
 		var me = this;
-		me.store.loadRawData(values.sshpubkeys);
+		me.getStore().loadRawData(values.sshpubkeys);
 		return values.sshpubkeys;
 	},
 
 	getValues: function() {
 		var me = this;
 		var sshpubkeys = [];
-		me.store.each(function(record) {
+		me.getStore().each(function(record) {
 			Ext.Array.push(sshpubkeys, record.get("sshpubkey"));
 		});
 		return {

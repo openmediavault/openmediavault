@@ -488,6 +488,10 @@ case "$1" in
 			omv_set_default "OMV_SSH_KEYS_DIR" "/var/lib/openmediavault/ssh/keys"
 			omv_set_default "OMV_SSH_KEY_PREFIX" "openmediavault-"
 		fi
+		if dpkg --compare-versions "$2" lt-nl "2.1.3"; then
+			omv-mkconf nginx
+			service nginx reload
+		fi
 	;;
 
 	triggered)

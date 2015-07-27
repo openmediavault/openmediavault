@@ -90,5 +90,15 @@ Ext.define("OMV.workspace.window.TextArea", {
 		if (true === me.readOnly)
 			return false;
 		return me.getTextArea().isDirty();
+	},
+
+	/**
+	 * Validate the text area values.
+	 * @return Returns TRUE if client-side validation on the tab
+	 *   is successful.
+	 */
+	isValid: function() {
+		var me = this;
+		return me.getTextArea().isValid();
 	}
 });

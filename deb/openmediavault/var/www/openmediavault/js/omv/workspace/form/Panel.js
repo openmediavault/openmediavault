@@ -70,6 +70,8 @@ Ext.define("OMV.workspace.form.Panel", {
 	resetButtonText: _("Reset"),
 	resetButtonIcon: "images/refresh.png",
 	autoLoadData: true,
+	loadMsg: _("Loading ..."),
+	submitMsg: _("Saving ..."),
 
 	constructor: function() {
 		var me = this;
@@ -197,10 +199,10 @@ Ext.define("OMV.workspace.form.Panel", {
 				params: me.getRpcGetParams()
 			}
 		};
-		if(me.fireEvent("beforeload", me, rpcOptions) === false)
+		if (me.fireEvent("beforeload", me, rpcOptions) === false)
 			return;
 		// Display waiting dialog.
-		me.mask(_("Loading ..."));
+		me.setLoading(me.loadMsg);
 		// Execute RPC.
 		OMV.Rpc.request(rpcOptions);
 	},
@@ -210,8 +212,8 @@ Ext.define("OMV.workspace.form.Panel", {
 	 */
 	onLoad: function(id, success, response) {
 		var me = this;
-		me.unmask();
-		if(!success) {
+		me.setLoading(false);
+		if (!success) {
 			me.fireEvent("exception", me, response);
 			OMV.MessageBox.error(null, response);
 		} else {
@@ -248,10 +250,10 @@ Ext.define("OMV.workspace.form.Panel", {
 
 	doSubmit: function() {
 		var me = this;
-		if(me.onlySubmitIfDirty && !me.isDirty())
+		if (me.onlySubmitIfDirty && !me.isDirty())
 			return;
 		// Validate values
-		if(!me.isValid()) {
+		if (!me.isValid()) {
 			me.markInvalid();
 			return;
 		}
@@ -265,10 +267,10 @@ Ext.define("OMV.workspace.form.Panel", {
 				params: me.getRpcSetParams()
 			}
 		};
-		if(me.fireEvent("beforesubmit", me, rpcOptions) === false)
+		if (me.fireEvent("beforesubmit", me, rpcOptions) === false)
 			return;
 		// Display waiting dialog.
-		me.mask(_("Saving ..."));
+		me.setLoading(me.submitMsg);
 		// Execute RPC.
 		OMV.Rpc.request(rpcOptions);
 	},
@@ -279,8 +281,8 @@ Ext.define("OMV.workspace.form.Panel", {
 	 */
 	onSubmit: function(id, success, response) {
 		var me = this;
-		me.unmask();
-		if(!success) {
+		me.setLoading(false);
+		if (!success) {
 			OMV.MessageBox.error(null, response);
 			me.fireEvent("exception", me, response);
 		} else {

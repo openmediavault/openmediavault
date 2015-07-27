@@ -58,7 +58,7 @@ Ext.define("OMV.workspace.window.Form", {
 		var me = this;
 		return Ext.create(me.formClassName, Ext.apply({
 			bodyPadding: "5 5 0",
-			autoScroll: true,
+			scrollable: true,
 			trackResetOnLoad: true,
 			fieldDefaults: {
 				readOnly: me.readOnly,

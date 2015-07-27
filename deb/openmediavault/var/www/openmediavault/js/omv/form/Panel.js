@@ -27,7 +27,7 @@
 Ext.define("OMV.form.Panel", {
 	extend: "Ext.form.Panel",
 
-	autoScroll: true,
+	scrollable: true,
 	frame: false,
 	border: false,
 	trackResetOnLoad: true,

@@ -40,7 +40,7 @@ Ext.define("OMV.workspace.panel.Panel", {
 	autoLoadData: false,
 
 	border: false,
-	autoScroll: true,
+	scrollable: true,
 	header: false,
 
 	initComponent: function() {

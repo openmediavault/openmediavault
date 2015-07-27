@@ -82,6 +82,7 @@ Ext.define("OMV.workspace.window.Container", {
 	readOnly: false,
 	closeIfNotDirty: true,
 	autoLoadData: true,
+	loadMsg: _("Loading ..."),
 	submitMsg: _("Saving ..."),
 
 	constructor: function(config) {
@@ -254,18 +255,18 @@ Ext.define("OMV.workspace.window.Container", {
 				params: me.getRpcGetParams()
 			}
 		};
-		if(me.fireEvent("beforeload", me, rpcOptions) === false)
+		if (me.fireEvent("beforeload", me, rpcOptions) === false)
 			return;
 		// Display waiting dialog.
-		me.mask(_("Loading ..."));
+		me.setLoading(me.loadMsg);
 		// Execute RPC.
 		OMV.Rpc.request(rpcOptions);
 	},
 
 	onLoad: function(id, success, response) {
 		var me = this;
-		me.unmask();
-		if(!success) {
+		me.setLoading(false);
+		if (!success) {
 			OMV.MessageBox.error(null, response);
 			me.fireEvent("exception", me, response);
 		} else {
@@ -310,7 +311,7 @@ Ext.define("OMV.workspace.window.Container", {
 			if(me.fireEvent("beforesubmit", me, rpcOptions) === false)
 				return;
 			// Display waiting dialog.
-			me.mask(me.submitMsg);
+			me.setLoading(me.submitMsg);
 			// Execute RPC.
 			OMV.Rpc.request(rpcOptions);
 		} else {
@@ -327,7 +328,7 @@ Ext.define("OMV.workspace.window.Container", {
 		// we can notify listeners and close the window.
 		if(me.rpcSetPollStatus) {
 			if(!success) {
-				me.unmask();
+				me.setLoading(false);
 				OMV.MessageBox.error(null, response);
 				me.fireEvent("exception", me, response);
 				return;
@@ -346,7 +347,7 @@ Ext.define("OMV.workspace.window.Container", {
 				}
 			});
 		} else {
-			me.unmask();
+			me.setLoading(false);
 			if(success) {
 				var values = me.getRpcSetParams();
 				me.fireEvent("submit", me, values, response);
@@ -361,7 +362,7 @@ Ext.define("OMV.workspace.window.Container", {
 	onIsRunning: function(id, success, response) {
 		var me = this;
 		if(!success) {
-			me.unmask();
+			me.setLoading(false);
 			OMV.MessageBox.error(null, response);
 			me.fireEvent("exception", me, response);
 		} else {
@@ -382,7 +383,7 @@ Ext.define("OMV.workspace.window.Container", {
 					});
 				}, 1000, me);
 			} else {
-				me.unmask();
+				me.setLoading(false);
 				var values = me.getRpcSetParams();
 				me.fireEvent("submit", me, values, response);
 				me.close();

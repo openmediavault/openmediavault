@@ -15,10 +15,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-11 22:38+0200\n"
-"PO-Revision-Date: 2015-06-16 09:21+0000\n"
-"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
-"Language-Team: Russian (Russia) (http://www.transifex.com/p/openmediavault/language/ru_RU/)\n"
+"POT-Creation-Date: 2015-07-20 21:19+0200\n"
+"PO-Revision-Date: 2015-07-20 19:19+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/openmediavault/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1287,9 +1287,6 @@ msgstr "Не удалось получить список сетевых инт�
 msgid "Failed to get list of users."
 msgstr "Не удалось получить список пользователей."
 
-msgid "Failed to get shadow password suite configuration."
-msgstr "Не удалось получить конфигурацию паролей."
-
 msgid "Failed to get storage device file from '%s'"
 msgstr "Ошибка получения файла устройства хранения данных из '% S'"
 
@@ -1387,6 +1384,9 @@ msgstr "Пятница"
 msgid "Full"
 msgstr "Полный"
 
+msgid "GID"
+msgstr ""
+
 msgid "Gabon"
 msgstr "Габон"
 
@@ -1404,9 +1404,6 @@ msgstr "Общие настройки"
 
 msgid "General settings"
 msgstr "Общие настройки"
-
-msgid "General users/groups"
-msgstr "Общие пользователи/группы"
 
 msgid "Generating graphs ..."
 msgstr "Создание графики..."
@@ -2260,9 +2257,6 @@ msgstr "Только гости"
 
 msgid "Operation"
 msgstr "Операция"
-
-msgid "Operation not allowed for user '%s'."
-msgstr "Операция не разрешена для пользователя '%s'."
 
 msgid "Options"
 msgstr "Опции"
@@ -3269,11 +3263,11 @@ msgstr "Системная информация"
 msgid "System Logs"
 msgstr "Системные журналы"
 
+msgid "System accounts"
+msgstr ""
+
 msgid "System time"
 msgstr "Системное время"
-
-msgid "System users/groups"
-msgstr "Системные пользователи/группы"
 
 msgid "TAR"
 msgstr "TAR"
@@ -3765,6 +3759,9 @@ msgstr "США Разные островах Тихого океана"
 msgid "U.S. Virgin Islands"
 msgstr "Американские Виргинские острова"
 
+msgid "UID"
+msgstr ""
+
 msgid "UNKNOWN"
 msgstr "НЕИЗВЕСТНЫЙ"
 
@@ -3773,6 +3770,9 @@ msgstr "Уганда"
 
 msgid "Ukraine"
 msgstr "Украина"
+
+msgid "Unauthorized attempt to modify the system account '%s'"
+msgstr ""
 
 msgid "Uncompressed"
 msgstr "Несжатый"
@@ -3902,6 +3902,9 @@ msgstr "Пользователь '%s' не существует"
 
 msgid "User ID '%d' already exist"
 msgstr "Идентификатор пользователя '%d' уже существует"
+
+msgid "User accounts"
+msgstr ""
 
 msgid "User home directory"
 msgstr "Домашний каталог пользователя"

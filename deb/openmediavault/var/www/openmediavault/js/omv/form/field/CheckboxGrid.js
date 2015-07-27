@@ -82,8 +82,8 @@ Ext.define("OMV.form.field.CheckboxGrid", {
 		var me = this;
 		var config = me.callParent(arguments);
 		Ext.apply(config, {
-			selType: "checkboxmodel",
 			selModel: {
+				type: "checkboxmodel",
 				showHeaderCheckbox: true
 			}
 		});

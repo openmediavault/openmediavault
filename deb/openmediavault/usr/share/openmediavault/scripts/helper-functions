@@ -864,6 +864,7 @@ omv_is_proc_running_pid() {
 # @return Returns 0 if the device is non-rotational, otherwise 1.
 omv_is_device_nonrotational() {
 	local _result
+	[ -z "$1" ] && return 1
 	_result=$(php5 -c /etc/openmediavault <<EOF
 <?php
 require_once("openmediavault/system.inc");
@@ -876,4 +877,19 @@ print \$result ? 1 : 0;
 EOF
 )
 	return ${_result}
+}
+
+# char omv_get_root_devicefile (void)
+# Get the root device file, e.g.
+# - /dev/sda1
+# - /dev/disk/by-uuid/deb31889-c394-4edc-bac5-c5174e39c404
+omv_get_root_devicefile() {
+	if [ -b "/dev/root" ]; then
+		readlink -f /dev/root
+		return $?
+	fi
+	findmnt -f -n -o SOURCE /
+	return $?
+	# Use udev to find the root devicefile.
+	#_devicenumber=$($(udevadm info --export --export-prefix=ROOT_ --device-id-of-file=/ || true)
 }

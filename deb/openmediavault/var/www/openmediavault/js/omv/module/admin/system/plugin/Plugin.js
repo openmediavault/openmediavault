@@ -53,7 +53,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 	deletionWaitMsg: "Uninstalling selected plugin",
 	stateful: true,
 	stateId: "2bd3835f-56c4-4047-942b-7d7b5163de2a",
-	selType: "checkboxmodel",
+	selModel: "checkboxmodel",
 	features: [{
 		ftype: "grouping"
 	}],

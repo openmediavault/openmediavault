@@ -36,7 +36,15 @@ class OMVSystem extends OMVObject {
 	 *   on or FALSE on failure.
 	 */
 	public static function getRootDeviceFile() {
-		return realpath("/dev/root");
+		if (is_block("/dev/root"))
+			return realpath("/dev/root");
+		@OMVUtil::exec("export LANG=C; findmnt -f -n -o SOURCE /",
+		  $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		return $output[0];
 	}
 
 	/**
@@ -3941,6 +3949,63 @@ class OMVATASMARTInformation extends OMVObject {
 	protected $type = "";
 	private $cmdOutput = NULL;
 	private $dataCached = FALSE;
+	private $attrDesc = array(
+		1 => "Frequency of errors while reading raw data from the disk",
+		2 => "Average efficiency of the disk",
+		3 => "Time needed to spin up the disk",
+		4 => "Number of spindle start/stop cycles",
+		5 => "Count of remapped sectors",
+		6 => "Margin of a channel while reading data",
+		7 => "Frequency of errors while positioning",
+		8 => "Average efficiency of operations while positioning",
+		9 => "Number of hours elapsed in the power-on state",
+		10 => "Number of retry attempts to spin up",
+		11 => "Number of attempts to calibrate the device",
+		12 => "Number of power-on events",
+		13 => "Frequency of errors while reading from the disk",
+		173 => "Counts the maximum worst erase count on any block",
+		187 => "Number of errors that could not be recovered using hardware ECC",
+		188 => "The count of aborted operations due to HDD timeout",
+		189 => "Number of times a recording head is flying outside its normal operating range",
+		190 => "Airflow temperature of the drive",
+		191 => "Frequency of mistakes as a result of impact loads",
+		192 => "Number of power-off or emergency retract cycles",
+		193 => "Number of cycles into landing zone position",
+		194 => "Current internal temperature of the drive",
+		195 => "Number of ECC on-the-fly errors",
+		196 => "Number of remapping operations",
+		197 => "Number of sectors waiting to be remapped",
+		198 => "The total number of uncorrectable errors when reading/writing a sector",
+		199 => "Number of CRC errors during UDMA mode",
+		200 => "Number of errors found when writing a sector",
+		201 => "Number of off-track errors",
+		203 => "Number of ECC errors",
+		204 => "Number of errors corrected by software ECC",
+		205 => "Number of errors due to high temperature",
+		206 => "Height of heads above the disk surface",
+		207 => "Amount of high current used to spin up the drive",
+		208 => "Number of buzz routines to spin up the drive",
+		209 => "Drive’s seek performance during offline operations",
+		220 => "Distance the disk has shifted relative to the spindle",
+		221 => "Number of errors as a result of impact loads as detected by a shock sensor",
+		222 => "Number of hours in general operational state",
+		223 => "Count of times head changes position",
+		224 => "Load on drive caused by friction in mechanical parts of the store",
+		225 => "Total number of load cycles",
+		226 => "General time for loading in a drive",
+		227 => "Count of attempts to compensate for platter speed variations",
+		228 => "Number of power-off retract events",
+		230 => "Amplitude of heads trembling in running mode",
+		231 => "Temperature of the drive",
+		232 => "Number of physical erase cycles completed on the drive as a percentage of the maximum physical erase cycles the drive supports",
+		233 => "Number of hours elapsed in the power-on state",
+		235 => "Number of available reserved blocks as a percentage of the total number of reserved blocks",
+		240 => "Time spent during the positioning of the drive heads",
+		250 => "Number of errors while reading from a disk",
+		251 => "Number of remaining spare blocks as a percentage of the total number of spare blocks available",
+		252 => "Total number of bad flash blocks the drive detected since it was first initialized in manufacturing",
+		254 => "Number of detected free fall events"
+	);
 
 	/**
 	 * Constructor
@@ -4034,15 +4099,18 @@ class OMVATASMARTInformation extends OMVObject {
 			$regex = '/^\s*(\d+)\s+(\S+)\s+([POSRCK-]+)\s+(\d+)\s+(\d+)\s+'.
 			  '(\d+)\s+(\S+)\s+(.+)$/i';
 			if (1 == preg_match($regex, $cmdOutputv, $matches)) {
+				$id = intval($matches[1]);
 				$result[] = array(
-					"id" => $matches[1],
+					"id" => $id,
 					"attrname" => $matches[2],
 					"flags" => $matches[3],
-					"value" => $matches[4],
-					"worst" => $matches[5],
-					"treshold" => $matches[6],
+					"value" => intval($matches[4]),
+					"worst" => intval($matches[5]),
+					"treshold" => intval($matches[6]),
 					"whenfailed" => $matches[7],
-					"rawvalue" => $matches[8]
+					"rawvalue" => $matches[8],
+					"description" => array_key_exists($id, $this->attrDesc) ?
+					  $this->attrDesc[$id] : ""
 				);
 			}
 		}
@@ -5199,6 +5267,22 @@ class OMVUserGroup extends OMVObject {
 		}
 		return $result;
 	}
+
+	/**
+	 * Check if the given group is a system account.
+	 * @return TRUE if the group is a system account, otherwise FALSE.
+	 */
+	public function isSystemAccount() {
+		if (FALSE === ($gid = $this->getGid()))
+			return FALSE;
+		// Get shadow password suite configuration.
+		$ld = OMVSystem::getLoginDefs();
+		// Get the min/max values of the non-system account ID sequence.
+		$min = array_key_exists("GID_MIN", $ld) ? $ld['GID_MIN'] : 1000;
+		$max = array_key_exists("GID_MAX", $ld) ? $ld['GID_MAX'] : 60000;
+		// Check if the given account ID is within the sequence.
+		return !in_range($gid, $min, $max);
+	}
 }
 
 /**
@@ -5535,6 +5619,22 @@ class OMVUser extends OMVObject {
 			return FALSE;
 		}
 		return TRUE;
+	}
+
+	/**
+	 * Check if the given user is a system account.
+	 * @return TRUE if the user is a system account, otherwise FALSE.
+	 */
+	public function isSystemAccount() {
+		if (FALSE === ($uid = $this->getUid()))
+			return FALSE;
+		// Get shadow password suite configuration.
+		$ld = OMVSystem::getLoginDefs();
+		// Get the min/max values of the non-system account ID sequence.
+		$min = array_key_exists("UID_MIN", $ld) ? $ld['UID_MIN'] : 1000;
+		$max = array_key_exists("UID_MAX", $ld) ? $ld['UID_MAX'] : 60000;
+		// Check if the given account ID is within the sequence.
+		return !in_range($uid, $min, $max);
 	}
 }
 

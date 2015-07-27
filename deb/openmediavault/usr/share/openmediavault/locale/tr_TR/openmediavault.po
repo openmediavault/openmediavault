@@ -8,10 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-11 22:38+0200\n"
-"PO-Revision-Date: 2015-06-14 21:31+0000\n"
+"POT-Creation-Date: 2015-07-20 21:19+0200\n"
+"PO-Revision-Date: 2015-07-21 20:49+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
-"Language-Team: Turkish (Turkey) (http://www.transifex.com/p/openmediavault/language/tr_TR/)\n"
+"Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1280,9 +1280,6 @@ msgstr "Kullanılmayan ağ arabirim cihaz listesi görüntülenemiyor"
 msgid "Failed to get list of users."
 msgstr "Kullanıcı listesi okuma hatası."
 
-msgid "Failed to get shadow password suite configuration."
-msgstr "Şifre yedekleme yazılım konfigürasyonu okuma hatası."
-
 msgid "Failed to get storage device file from '%s'"
 msgstr "Depolama cihaz dosyasına '%s' den erişim hatası"
 
@@ -1380,6 +1377,9 @@ msgstr "Cuma"
 msgid "Full"
 msgstr "Dolu"
 
+msgid "GID"
+msgstr "GID"
+
 msgid "Gabon"
 msgstr "Gabon"
 
@@ -1397,9 +1397,6 @@ msgstr "Genel Ayarlar"
 
 msgid "General settings"
 msgstr "Genel ayarlar"
-
-msgid "General users/groups"
-msgstr "Genel kullanıcılar/gruplar"
 
 msgid "Generating graphs ..."
 msgstr "Grafik oluşturuluyor ..."
@@ -2253,9 +2250,6 @@ msgstr "Sadece misafirler"
 
 msgid "Operation"
 msgstr "Operasyon"
-
-msgid "Operation not allowed for user '%s'."
-msgstr "'%s' kullanıcısı bu işlemi yapamaz."
 
 msgid "Options"
 msgstr "Seçenekler"
@@ -3262,11 +3256,11 @@ msgstr "Sistem Bilgisi"
 msgid "System Logs"
 msgstr "Sistem Kayıtları"
 
+msgid "System accounts"
+msgstr "Sistem hesapları"
+
 msgid "System time"
 msgstr "Sistem zamanı"
-
-msgid "System users/groups"
-msgstr "Sistem kullanıcıları/grupları"
 
 msgid "TAR"
 msgstr "TAR"
@@ -3758,6 +3752,9 @@ msgstr "ABD Çeşitli Pasifik Adaları"
 msgid "U.S. Virgin Islands"
 msgstr "Virgin Adaları"
 
+msgid "UID"
+msgstr "UID"
+
 msgid "UNKNOWN"
 msgstr "BİLİNMİYOR"
 
@@ -3766,6 +3763,9 @@ msgstr "Uganda"
 
 msgid "Ukraine"
 msgstr "Ukrayna"
+
+msgid "Unauthorized attempt to modify the system account '%s'"
+msgstr "'%s' sistem hesabını değiştirmeye yönelik yetkilendirilmemiş işlem girişimi"
 
 msgid "Uncompressed"
 msgstr "Sıkıştırılmamış"
@@ -3895,6 +3895,9 @@ msgstr "Kullanıcı '%s' mevcut değil"
 
 msgid "User ID '%d' already exist"
 msgstr "Kullanıcı ID '%d' zaten var "
+
+msgid "User accounts"
+msgstr "Kullanıcı hesapları"
 
 msgid "User home directory"
 msgstr "Kullanıcı ana dizini"

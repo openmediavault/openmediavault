@@ -87,26 +87,20 @@ class OMVRpcServiceUserMgmt extends OMVRpcServiceAbstract {
 				  "password" => array("type" => "string")
 			  )
 		  ));
-		// Get shadow password suite configuration.
-		if(FALSE === ($loginDefs = OMVSystem::getLoginDefs())) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  gettext("Failed to get shadow password suite configuration."));
-		}
 		// Authenticate the user.
 		$authenticated = FALSE;
 		$user = new OMVUser($params['username']);
-		if($user->exists()) {
-			if(FALSE === ($authenticated = $user->authenticate(
+		if ($user->exists()) {
+			if (FALSE === ($authenticated = $user->authenticate(
 			  $params['password'])))
 				goto finish;
-			if("admin" === $params['username'])
+			if ("admin" === $params['username'])
 				goto finish;
-			if(TRUE === $user->getInactive()) {
+			if (TRUE === $user->getInactive()) {
 				$authenticated = FALSE;
 				goto finish;
 			}
-			if(!(($user->getUid() >= $loginDefs['UID_MIN']) &&
-			  ($user->getUid() <= $loginDefs['UID_MAX']))) {
+			if (TRUE === $user->isSystemAccount()) {
 				$authenticated = FALSE;
 				goto finish;
 			}
@@ -128,11 +122,6 @@ finish:
 	 * @throw E_MISC_FAILURE
 	 */
 	final private function enumerateUsersByType($type) {
-		// Get shadow password suite configuration.
-		if(FALSE === ($loginDefs = OMVSystem::getLoginDefs())) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  gettext("Failed to get shadow password suite configuration."));
-		}
 		// Get list of user names.
 		if (FALSE === ($users = OMVUsers::enumerate())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
@@ -140,9 +129,9 @@ finish:
 		}
 		// Iterate through all users to filter the requested ones.
 		$result = array();
-		foreach($users as $userk => $userv) {
+		foreach ($users as $userk => $userv) {
 			$user = new OMVUser($userv);
-			if(!$user->exists())
+			if (!$user->exists())
 				continue;
 			// Append user 'root'?
 			if (0 == strcasecmp("root", $user->getName()) && FALSE == boolvalEx(
@@ -150,9 +139,8 @@ finish:
 				continue;
 			// Check if the current user is requested.
 			$append = FALSE;
-			$system = !(($user->getUid() >= $loginDefs['UID_MIN']) &&
-			  ($user->getUid() <= $loginDefs['UID_MAX']));
-			switch($type) {
+			$system = $user->isSystemAccount();
+			switch ($type) {
 			case "system":
 				$append = $system;
 				break;
@@ -163,7 +151,7 @@ finish:
 				$append = TRUE;
 				break;
 			}
-			if(TRUE === $append) {
+			if (TRUE === $append) {
 				$result[] = array(
 					"name" => $user->getName(),
 					"uid" => $user->getUid(),
@@ -239,11 +227,6 @@ finish:
 	 * @throw E_MISC_FAILURE
 	 */
 	private function enumerateGroupsByType($type) {
-		// Get shadow password suite configuration.
-		if(FALSE === ($loginDefs = OMVSystem::getLoginDefs())) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  gettext("Failed to get shadow password suite configuration."));
-		}
 		// Get list of group names.
 		if (FALSE === ($groups = OMVUserGroups::enumerate())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
@@ -251,15 +234,14 @@ finish:
 		}
 		// Get group information.
 		$result = array();
-		foreach($groups as $groupk => $groupv) {
+		foreach ($groups as $groupk => $groupv) {
 			$group = new OMVUserGroup($groupv);
-			if(!$group->exists())
+			if (!$group->exists())
 				continue;
 			// Check if the current group is requested
 			$append = FALSE;
-			$system = !(($group->getGid() >= $loginDefs['GID_MIN']) &&
-			  ($group->getGid() <= $loginDefs['GID_MAX']));
-			switch($type) {
+			$system = $group->isSystemAccount();
+			switch ($type) {
 			case "system":
 				$append = $system;
 				break;
@@ -270,7 +252,7 @@ finish:
 				$append = TRUE;
 				break;
 			}
-			if(TRUE === $append) {
+			if (TRUE === $append) {
 				$result[] = array(
 					"name" => $group->getName(),
 					"gid" => $group->getGid(),
@@ -465,7 +447,7 @@ finish:
 	}
 
 	/**
-	 * Set (add/update) an user.
+	 * Set (add/update) a non-system user account.
 	 * @param params An array containing the following fields:
 	 *   \em name The name of the user.
 	 *   \em uid The user ID. This field is optional.
@@ -514,10 +496,11 @@ finish:
 				  }
 			  }
 		  }');
-		// Do not allow to modify user 'root' via RPC.
-		if (0 == strcasecmp("root", $params['name'])) {
+		// Check if the given user is a system account. Abort this attempt.
+		$user = new OMVUser($params['name']);
+		if ($user->exists() && $user->isSystemAccount()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  gettext("Operation not allowed for user '%s'."),
+			  gettext("Unauthorized attempt to modify the system account '%s'"),
 			  $params['name']));
 		}
 		// Get additional information stored in database.
@@ -568,7 +551,6 @@ finish:
 			$cmdArgs[] = escapeshellarg(implode(",", $params['groups']));
 		}
 		// Does the user already exist?
-		$user = new OMVUser($params['name']);
 		if (!$user->exists()) {
 			// Get user management settings.
 			$xpath = "//system/usermanagement/homedirectory";
@@ -893,7 +875,7 @@ finish:
 	}
 
 	/**
-	 * Set (add/update) a group.
+	 * Set (add/update) a non-system group account.
 	 * @param params An array containing the following fields:
 	 *   \em name The name of the group.
 	 *   \em gid The group ID. This field is optional.
@@ -924,13 +906,20 @@ finish:
 				  }
 			  }
 		  }');
+ 		// Check if the given group is a system account. Abort this attempt.
+		$group = new OMVUserGroup($params['name']);
+		if ($group->exists() && $group->isSystemAccount()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
+			  gettext("Unauthorized attempt to modify the system account '%s'"),
+			  $params['name']));
+		}
 		// Try to get existing configuration object.
 		$xpath = sprintf("//system/usermanagement/groups/group[name='%s']",
 		  $params['name']);
 		$object = $xmlConfig->get($xpath);
 		// Set configuration object
 		$success = FALSE;
-		if(is_null($object)) {
+		if (is_null($object)) {
 			$object = array(
 				"uuid" => OMVUtil::uuid(),
 				"name" => $params['name'],
@@ -945,12 +934,11 @@ finish:
 			$success = $xmlConfig->replace("//system/usermanagement/groups/".
 			  "group[name='{$params['name']}']", $object);
 		}
-		if(FALSE === $success) {
+		if (FALSE === $success) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Does the group already exist?
-		$group = new OMVUserGroup($params['name']);
-		if(!$group->exists()) {
+		if (!$group->exists()) {
 			// Prepare command arguments.
 			$cmdArgs = array();
 			if(array_key_exists("gid", $params)) {
@@ -971,7 +959,7 @@ finish:
 			// Nothing to do here.
 		}
 		// Process members.
-		if(array_key_exists("members", $params)) {
+		if (array_key_exists("members", $params)) {
 			// Append additional fields to configuration object for
 			// the notification event.
 			$object = array_merge($object, array(

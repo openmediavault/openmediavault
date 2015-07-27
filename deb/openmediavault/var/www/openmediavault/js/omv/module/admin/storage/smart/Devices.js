@@ -163,10 +163,14 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 		resizable: false,
 		align: "right"
 	},{
+		xtype: "tooltipcolumn",
 		text: _("Attribute name"),
 		dataIndex: "attrname",
 		stateId: "attrname",
-		flex: 1
+		flex: 1,
+		getTooltipText: function(value, record) {
+			return record.get("description");
+		}
 	},{
 		text: _("Flags"),
 		dataIndex: "flags",
@@ -214,14 +218,15 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 				model: OMV.data.Model.createImplicit({
 					idProperty: "id",
 					fields: [
-						{ name: "id", type: "string" },
+						{ name: "id", type: "int" },
 						{ name: "attrname", type: "string" },
 						{ name: "flags", type: "string" },
-						{ name: "value", type: "string" },
-						{ name: "worst", type: "string" },
-						{ name: "treshold", type: "string" },
+						{ name: "value", type: "int" },
+						{ name: "worst", type: "int" },
+						{ name: "treshold", type: "int" },
 						{ name: "whenfailed", type: "string" },
-						{ name: "rawvalue", type: "string" }
+						{ name: "rawvalue", type: "string" },
+						{ name: "description", type: "string" }
 					]
 				}),
 				proxy: {
@@ -235,7 +240,13 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 						devicefile: me.devicefile
 					}
 				}
-			})
+			}),
+			listeners: {
+				scope: me,
+				itemmouseenter: function(c, record, item, index) {
+					var x = 0;
+				}
+			}
 		});
 		me.callParent(arguments);
 	}

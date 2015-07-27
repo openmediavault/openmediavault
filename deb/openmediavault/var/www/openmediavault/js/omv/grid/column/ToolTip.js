@@ -29,9 +29,17 @@ Ext.define("OMV.grid.column.ToolTip", {
 	extend: "Ext.grid.column.Column",
 	alias: [ "widget.tooltipcolumn" ],
 
-	defaultRenderer: function(value, metaData) {
-		metaData.tdAttr = Ext.String.format("data-qtip='{0}'",
-		  Ext.String.htmlEncode(value));
+	getTooltipText: function(value, record) {
+		return value;
+	},
+
+	defaultRenderer: function(value, metaData, record) {
+		var me = this;
+		var text = me.getTooltipText(value record);
+		if (!Ext.isEmpty(text)) {
+			metaData.tdAttr = Ext.String.format("data-qtip='{0}'",
+			  Ext.String.htmlEncode(text));
+		}
 		return value;
 	}
 });

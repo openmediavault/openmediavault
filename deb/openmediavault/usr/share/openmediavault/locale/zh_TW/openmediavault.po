@@ -9,10 +9,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-11 22:38+0200\n"
-"PO-Revision-Date: 2015-06-12 02:47+0000\n"
+"POT-Creation-Date: 2015-07-20 21:19+0200\n"
+"PO-Revision-Date: 2015-07-21 23:14+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/p/openmediavault/language/zh_TW/)\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1281,9 +1281,6 @@ msgstr "無法取得未用網路介面裝置的列表"
 msgid "Failed to get list of users."
 msgstr "無法取得用戶的列表。"
 
-msgid "Failed to get shadow password suite configuration."
-msgstr "無法取得 shadow password 套件的配置。"
-
 msgid "Failed to get storage device file from '%s'"
 msgstr "無法由 '%s' 取得儲存裝置檔案"
 
@@ -1381,6 +1378,9 @@ msgstr "星期五"
 msgid "Full"
 msgstr "完整"
 
+msgid "GID"
+msgstr "GID"
+
 msgid "Gabon"
 msgstr "加彭"
 
@@ -1398,9 +1398,6 @@ msgstr "一般設定"
 
 msgid "General settings"
 msgstr "一般設定"
-
-msgid "General users/groups"
-msgstr "一般用戶/群組"
 
 msgid "Generating graphs ..."
 msgstr "產生圖形 ..."
@@ -2254,9 +2251,6 @@ msgstr "只允許訪客"
 
 msgid "Operation"
 msgstr "操作"
-
-msgid "Operation not allowed for user '%s'."
-msgstr "不允許用戶 '%s' 執行此作業。"
 
 msgid "Options"
 msgstr "選項"
@@ -3263,11 +3257,11 @@ msgstr "系統資訊"
 msgid "System Logs"
 msgstr "系統日誌"
 
+msgid "System accounts"
+msgstr "系統帳户"
+
 msgid "System time"
 msgstr "系統時間"
-
-msgid "System users/groups"
-msgstr "系統用戶/群組"
 
 msgid "TAR"
 msgstr "TAR"
@@ -3759,6 +3753,9 @@ msgstr "美屬其他太平洋島嶼"
 msgid "U.S. Virgin Islands"
 msgstr "美屬維爾京群島"
 
+msgid "UID"
+msgstr "UID"
+
 msgid "UNKNOWN"
 msgstr "未知"
 
@@ -3767,6 +3764,9 @@ msgstr "烏干達"
 
 msgid "Ukraine"
 msgstr "烏克蘭"
+
+msgid "Unauthorized attempt to modify the system account '%s'"
+msgstr "未經授權試著要修改系統帳户 '%s'"
 
 msgid "Uncompressed"
 msgstr "未經壓縮"
@@ -3896,6 +3896,9 @@ msgstr "用戶 '%s' 並不存在"
 
 msgid "User ID '%d' already exist"
 msgstr "用戶 ID '%d' 已經存在"
+
+msgid "User accounts"
+msgstr "使用者帳户"
 
 msgid "User home directory"
 msgstr "用戶家目錄"

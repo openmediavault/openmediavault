@@ -9,10 +9,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-11 22:38+0200\n"
-"PO-Revision-Date: 2015-06-26 15:08+0000\n"
+"POT-Creation-Date: 2015-07-20 21:19+0200\n"
+"PO-Revision-Date: 2015-07-22 13:39+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
-"Language-Team: Czech (Czech Republic) (http://www.transifex.com/p/openmediavault/language/cs_CZ/)\n"
+"Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1281,9 +1281,6 @@ msgstr "Nezdařilo se získat seznam nevyužívaných síťových rozhraní"
 msgid "Failed to get list of users."
 msgstr "Nelze získat seznam uživatelů."
 
-msgid "Failed to get shadow password suite configuration."
-msgstr "Nelze získat nastavení nástrojů pro šifrovaná hesla."
-
 msgid "Failed to get storage device file from '%s'"
 msgstr "Z %s nelze získat soubor, představující úložné zařízení"
 
@@ -1381,6 +1378,9 @@ msgstr "pátek"
 msgid "Full"
 msgstr "Plný"
 
+msgid "GID"
+msgstr ""
+
 msgid "Gabon"
 msgstr "Gabon"
 
@@ -1398,9 +1398,6 @@ msgstr "Obecná nastavení"
 
 msgid "General settings"
 msgstr "Obecná nastavení"
-
-msgid "General users/groups"
-msgstr "Obecní uživatelé/skupiny"
 
 msgid "Generating graphs ..."
 msgstr "Vytváření grafů ..."
@@ -2254,9 +2251,6 @@ msgstr "Pouze hosté"
 
 msgid "Operation"
 msgstr "Operace"
-
-msgid "Operation not allowed for user '%s'."
-msgstr "Uživateli %s není tato operace povolena."
 
 msgid "Options"
 msgstr "Možnosti"
@@ -3263,11 +3257,11 @@ msgstr "Informace o systému"
 msgid "System Logs"
 msgstr "Protokoly o provozu systému"
 
+msgid "System accounts"
+msgstr ""
+
 msgid "System time"
 msgstr "Systémový čas"
-
-msgid "System users/groups"
-msgstr "Systémové účty/skupiny"
 
 msgid "TAR"
 msgstr "TAR"
@@ -3759,6 +3753,9 @@ msgstr ""
 msgid "U.S. Virgin Islands"
 msgstr "Americké Panenské ostrovy"
 
+msgid "UID"
+msgstr ""
+
 msgid "UNKNOWN"
 msgstr "NEZNÁMÉ"
 
@@ -3767,6 +3764,9 @@ msgstr "Uganda"
 
 msgid "Ukraine"
 msgstr "Ukrajina"
+
+msgid "Unauthorized attempt to modify the system account '%s'"
+msgstr "Neoprávněný pokus o úpravu systémového účtu %s"
 
 msgid "Uncompressed"
 msgstr "Nekomprimované"
@@ -3896,6 +3896,9 @@ msgstr "Uživatel %s neexistuje"
 
 msgid "User ID '%d' already exist"
 msgstr "ID uživatele %d je již použito"
+
+msgid "User accounts"
+msgstr "Uživatelské účty"
 
 msgid "User home directory"
 msgstr "Domovská složka uživatele"

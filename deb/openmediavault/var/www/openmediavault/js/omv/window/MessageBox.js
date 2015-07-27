@@ -206,7 +206,7 @@ Ext.define("OMV.window.MessageBox", {
 			}, details = Ext.create("Ext.panel.Panel", {
 				flex: 1,
 				hidden: true,
-				autoScroll: true,
+				scrollable: true,
 				height: 150
 			})]
 		});

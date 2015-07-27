@@ -10,10 +10,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-11 22:38+0200\n"
-"PO-Revision-Date: 2015-06-11 20:38+0000\n"
+"POT-Creation-Date: 2015-07-20 21:19+0200\n"
+"PO-Revision-Date: 2015-07-20 19:19+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
-"Language-Team: Korean (Korea) (http://www.transifex.com/p/openmediavault/language/ko_KR/)\n"
+"Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1282,9 +1282,6 @@ msgstr "사용되지 않은 네트워크 인터페이스 장치들의 목록을 
 msgid "Failed to get list of users."
 msgstr "사용자 목록을 가져오지 못했습니다."
 
-msgid "Failed to get shadow password suite configuration."
-msgstr "shadow 암호 구성 설정을 가져오지 못했습니다."
-
 msgid "Failed to get storage device file from '%s'"
 msgstr "'%s'에서 저장 장치 파일을 가져오지 못했습니다."
 
@@ -1382,6 +1379,9 @@ msgstr "금요일"
 msgid "Full"
 msgstr "전체"
 
+msgid "GID"
+msgstr ""
+
 msgid "Gabon"
 msgstr "가봉"
 
@@ -1399,9 +1399,6 @@ msgstr "일반 설정"
 
 msgid "General settings"
 msgstr "일반 설정"
-
-msgid "General users/groups"
-msgstr "일반 사용자/그룹"
 
 msgid "Generating graphs ..."
 msgstr "그래프 생성 중 ..."
@@ -2255,9 +2252,6 @@ msgstr "게스트만 허용"
 
 msgid "Operation"
 msgstr "작업"
-
-msgid "Operation not allowed for user '%s'."
-msgstr "사용자 '%s'에 대한 작업이 허용되지 않습니다."
 
 msgid "Options"
 msgstr "옵션"
@@ -3264,11 +3258,11 @@ msgstr "시스템 정보"
 msgid "System Logs"
 msgstr "시스템 로그"
 
+msgid "System accounts"
+msgstr ""
+
 msgid "System time"
 msgstr "시스템 시간"
-
-msgid "System users/groups"
-msgstr "시스템 사용자/그룹"
 
 msgid "TAR"
 msgstr "TAR"
@@ -3760,6 +3754,9 @@ msgstr "미국 기타 태평양 제도"
 msgid "U.S. Virgin Islands"
 msgstr "미국령 버진아일랜드"
 
+msgid "UID"
+msgstr ""
+
 msgid "UNKNOWN"
 msgstr "알 수 없는"
 
@@ -3768,6 +3765,9 @@ msgstr "우간다"
 
 msgid "Ukraine"
 msgstr "우크라이나"
+
+msgid "Unauthorized attempt to modify the system account '%s'"
+msgstr ""
 
 msgid "Uncompressed"
 msgstr "압축되지 않은"
@@ -3897,6 +3897,9 @@ msgstr "사용자 '%s'은(는) 존재하지 않습니다."
 
 msgid "User ID '%d' already exist"
 msgstr "'%d'는 이미 존재하는 사용자 ID입니다."
+
+msgid "User accounts"
+msgstr ""
 
 msgid "User home directory"
 msgstr "사용자 홈 디렉터리"

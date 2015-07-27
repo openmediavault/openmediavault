@@ -153,7 +153,6 @@ Ext.define("OMV.module.admin.storage.filesystem.Create", {
 					hideStopButton: true,
 					adaptButtonState: false,
 					listeners: {
-						scope: me,
 						start: function(wnd) {
 							wnd.appendValue(Ext.String.format("{0}\n",
 							  _("Creating the file system, please wait ...")));
@@ -439,7 +438,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 		text: _("Referenced"),
 		sortable: true,
 		dataIndex: "_used",
-		stateId: "referenced"
+		stateId: "_used"
 	},{
 		text: _("Status"),
 		sortable: true,

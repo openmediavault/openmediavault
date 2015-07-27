@@ -124,7 +124,7 @@ Ext.define("OMV.workspace.Workspace", {
 			margins: "0 0 0 0",
 			layout: "fit",
 			border: true,
-			autoScroll: true,
+			scrollable: true,
 			listeners: {
 				scope: me,
 				select: function(view, record, eOpts) {

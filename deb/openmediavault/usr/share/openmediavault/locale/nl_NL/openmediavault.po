@@ -11,10 +11,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-11 22:38+0200\n"
-"PO-Revision-Date: 2015-06-11 20:38+0000\n"
+"POT-Creation-Date: 2015-07-20 21:19+0200\n"
+"PO-Revision-Date: 2015-07-20 19:19+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
-"Language-Team: Dutch (Netherlands) (http://www.transifex.com/p/openmediavault/language/nl_NL/)\n"
+"Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1283,9 +1283,6 @@ msgstr ""
 msgid "Failed to get list of users."
 msgstr "Ophalen van de gebruikerslijst mislukt."
 
-msgid "Failed to get shadow password suite configuration."
-msgstr "Ophalen van shadow password suite-configuratie mislukt"
-
 msgid "Failed to get storage device file from '%s'"
 msgstr "Ophalen van opslagapparaatbestand van '%s' mislukt"
 
@@ -1383,6 +1380,9 @@ msgstr "Vrijdag"
 msgid "Full"
 msgstr "Vol"
 
+msgid "GID"
+msgstr ""
+
 msgid "Gabon"
 msgstr "Gabon"
 
@@ -1400,9 +1400,6 @@ msgstr "Algemene instellingen"
 
 msgid "General settings"
 msgstr "Algemene instellingen"
-
-msgid "General users/groups"
-msgstr "Algemene gebruikers/groepen"
 
 msgid "Generating graphs ..."
 msgstr "Genereren van grafieken ..."
@@ -2256,9 +2253,6 @@ msgstr "Alleen gasten"
 
 msgid "Operation"
 msgstr "Bewerking"
-
-msgid "Operation not allowed for user '%s'."
-msgstr "Bewerking niet toegestaan voor gebruiker '%s'."
 
 msgid "Options"
 msgstr "Opties"
@@ -3265,11 +3259,11 @@ msgstr "Systeeminformatie"
 msgid "System Logs"
 msgstr "Systeemlogbestanden"
 
+msgid "System accounts"
+msgstr ""
+
 msgid "System time"
 msgstr "Systeemtijd"
-
-msgid "System users/groups"
-msgstr "Systeemgebruikers/-groepen"
 
 msgid "TAR"
 msgstr "TAR"
@@ -3761,6 +3755,9 @@ msgstr "Amerikaanse Diversen Pacifische Eilanden"
 msgid "U.S. Virgin Islands"
 msgstr "Amerikaanse Maagdeneilanden"
 
+msgid "UID"
+msgstr ""
+
 msgid "UNKNOWN"
 msgstr "ONBEKEND"
 
@@ -3769,6 +3766,9 @@ msgstr "Uganda"
 
 msgid "Ukraine"
 msgstr "Ukraïne"
+
+msgid "Unauthorized attempt to modify the system account '%s'"
+msgstr ""
 
 msgid "Uncompressed"
 msgstr "Niet gecomprimeerd"
@@ -3898,6 +3898,9 @@ msgstr "Gebruiker '%s' kon niet worden gevonden."
 
 msgid "User ID '%d' already exist"
 msgstr "Gebruikers ID '%d' bestaat al."
+
+msgid "User accounts"
+msgstr ""
 
 msgid "User home directory"
 msgstr "Gebruikersthuismap"
