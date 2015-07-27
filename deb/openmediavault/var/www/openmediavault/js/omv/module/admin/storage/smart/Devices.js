@@ -240,13 +240,7 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 						devicefile: me.devicefile
 					}
 				}
-			}),
-			listeners: {
-				scope: me,
-				itemmouseenter: function(c, record, item, index) {
-					var x = 0;
-				}
-			}
+			})
 		});
 		me.callParent(arguments);
 	}

@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-07-20 21:19+0200\n"
-"PO-Revision-Date: 2015-07-20 19:19+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2015-07-25 19:20+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -225,7 +225,7 @@ msgid "Add module"
 msgstr "Tilføj modul"
 
 msgid "Add public key"
-msgstr ""
+msgstr "Tilføj offentlig nøgle"
 
 msgid "Add rsync job"
 msgstr "Tilføj rsync opgave"
@@ -1025,7 +1025,7 @@ msgid "Edit"
 msgstr "Rediger"
 
 msgid "Edit SSH certificate"
-msgstr ""
+msgstr "Rediger SSH certifikat"
 
 msgid "Edit SSL certificate"
 msgstr "Rediger SSL certifikat"
@@ -1378,7 +1378,7 @@ msgid "Full"
 msgstr "Fuld"
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Gabon"
 msgstr "Gabon"
@@ -1599,7 +1599,7 @@ msgid "Import"
 msgstr "Importer"
 
 msgid "Import SSH certificate"
-msgstr ""
+msgstr "Importer SSH certifikat"
 
 msgid "Import SSL certificate"
 msgstr "Importer SSL certifikat"
@@ -1679,7 +1679,7 @@ msgid "Interfaces"
 msgstr "Interfaces"
 
 msgid "Invalid SSH public key (RFC 4716)"
-msgstr ""
+msgstr "Ugyldig SSH offentlig nøgle (RFC 4716)"
 
 msgid "Invalid domain name"
 msgstr "Ugyldig domænenavn"
@@ -2536,13 +2536,13 @@ msgid "Public"
 msgstr "Offentlig"
 
 msgid "Public key"
-msgstr ""
+msgstr "Offentlig nøgle"
 
 msgid "Public key authentication"
 msgstr "Offentlig nøgle godkendelse"
 
 msgid "Public keys"
-msgstr ""
+msgstr "Offentlig nøgler"
 
 msgid "Puerto Rico"
 msgstr "Puerto Rico"
@@ -2788,7 +2788,7 @@ msgid "SSID"
 msgstr "SSID"
 
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -2866,7 +2866,7 @@ msgid "Security level"
 msgstr "Sikkerhedsniveau"
 
 msgid "Select a SSH certificate ..."
-msgstr ""
+msgstr "Vælg et SSH certifikat ..."
 
 msgid "Select a SSL certificate ..."
 msgstr "Vælg et SSL certifikat ..."
@@ -3257,7 +3257,7 @@ msgid "System Logs"
 msgstr "System Logs"
 
 msgid "System accounts"
-msgstr ""
+msgstr "System kontoer"
 
 msgid "System time"
 msgstr "System tid"
@@ -3299,7 +3299,7 @@ msgid "The RSA key length."
 msgstr "RSA nøgle længde."
 
 msgid "The RSA public key in OpenSSH format."
-msgstr ""
+msgstr "Den offentlige RSA nøgle i OpenSSH format. "
 
 msgid "The SSL certificate."
 msgstr "SSL certifikat."
@@ -3400,7 +3400,7 @@ msgid ""
 msgstr "Rettighederne på nye filer og mapper er normalt styret af oprette-maske og biblioteks-maske, men nedarv tilladelser parameteren tilsidesætter dette. Dette kan være særligt nyttigt på systemer med mange brugere for at tillade en enkelt deling i at blive anvendt fleksibelt af hver enkelt bruger."
 
 msgid "The private RSA key in X.509 PEM format."
-msgstr ""
+msgstr "Den private RSA nøgle i X.509 PEM format."
 
 msgid "The public key in RFC 4716 SSH public key file format."
 msgstr "Den offentlige nøgle i RFC 4716 SSH offentlig nøgle filformat."
@@ -3753,7 +3753,7 @@ msgid "U.S. Virgin Islands"
 msgstr "U.S. Virgin Islands"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "UNKNOWN"
 msgstr "UKENDT"
@@ -3765,7 +3765,7 @@ msgid "Ukraine"
 msgstr "Ukraine"
 
 msgid "Unauthorized attempt to modify the system account '%s'"
-msgstr ""
+msgstr "Ikke godkendt forsøg på, at modificere system kontoen '%s'"
 
 msgid "Uncompressed"
 msgstr "Ukomprimeret"
@@ -3897,7 +3897,7 @@ msgid "User ID '%d' already exist"
 msgstr "Bruger ID '%d' findes allerede"
 
 msgid "User accounts"
-msgstr ""
+msgstr "Bruger kontoer"
 
 msgid "User home directory"
 msgstr "Bruger hjemme bibliotek"
