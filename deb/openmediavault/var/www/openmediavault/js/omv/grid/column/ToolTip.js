@@ -35,7 +35,7 @@ Ext.define("OMV.grid.column.ToolTip", {
 
 	defaultRenderer: function(value, metaData, record) {
 		var me = this;
-		var text = me.getTooltipText(value record);
+		var text = me.getTooltipText(value, record);
 		if (!Ext.isEmpty(text)) {
 			metaData.tdAttr = Ext.String.format("data-qtip='{0}'",
 			  Ext.String.htmlEncode(text));
