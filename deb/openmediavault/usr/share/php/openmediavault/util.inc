@@ -83,25 +83,34 @@ class OMVUtil {
 	 * @param from The sender email address.
 	 * @param to The receiver email address(es), e.g. 'test@xzy.com' or
 	 *   'xzy@123.org,test@xzy.com'. Use the character , or ; as seperator.
+	 *   Additionally this can be an array of email adresses.
 	 * @param subject The subject.
 	 * @param message The message.
 	 * @return Return TRUE if successful, otherwise FALSE.
 	 */
 	public static function mail($from, $to, $subject, $message) {
-		// Get date in RFC 2882 format
-		$rfcdate = date('r');
+		if (TRUE === is_array($to))
+			$to = implode(',', $to);
 
 		// Prepare the receivers of the email. The formatting of this string
 		// must comply with RFC 2822.
-		$to = strtr($to, array(";" => ","));
+		$to = strtr($to, array(';' => ','));
 
-		// Prepare additional email headers
-		$headers = <<<EOD
-From: {$from}
-Date: {$rfcdate}
-EOD;
+		// Prepare additional email headers.
+		$headers = array();
+		// Set date in RFC 2882 format.
+		$headers[] = sprintf('Date: %s', date('r'));
+		// Set the subject.
+		if (!empty($fsubject)
+			$headers[] = sprintf('Subject: %s', $subject);
+		// Append the sender address.
+		if (!empty($from)) {
+			$headers[] = sprintf('From: %s', $from);
+			$headers[] = sprintf('Reply-To: %s', $from);
+			$headers[] = sprintf('Return-Path: %s', $from);
+		}
 
-	  return mail($to, $subject, $message, $headers);
+		return mail($to, $subject, $message, implode("\r\n", $headers));
 	}
 
 	/**

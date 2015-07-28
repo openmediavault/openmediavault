@@ -86,6 +86,7 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 			$authenticated = $session->isAuthenticated();
 			$session->commit();
 		}
+		// Log the login attempt via syslog.
 		openlog("openmediavault-webgui", LOG_PID | LOG_PERROR, LOG_AUTH);
 		if (TRUE === $authenticated) {
 			syslog(LOG_ALERT, sprintf("Authorized login from %s ".
