@@ -101,7 +101,7 @@ class OMVUtil {
 		// Set date in RFC 2882 format.
 		$headers[] = sprintf('Date: %s', date('r'));
 		// Set the subject.
-		if (!empty($fsubject)
+		if (!empty($subject))
 			$headers[] = sprintf('Subject: %s', $subject);
 		// Append the sender address.
 		if (!empty($from)) {
