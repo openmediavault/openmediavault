@@ -92,6 +92,22 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 			syslog(LOG_ALERT, sprintf("Authorized login from %s ".
 			  "[username=%s, user-agent=%s]", $_SERVER['REMOTE_ADDR'],
 			  $params['username'], $_SERVER['HTTP_USER_AGENT']));
+			// Send a email to the user if no cookie has been found.
+			if (!array_key_exists(session_name(), $_COOKIE)) {
+				$subject = "Your user account was used to log in to the control panel via a web browser.";
+				$message = sprintf("Dear %s,\n\n".
+				  "your user account was used to log in to %s (%s) via a web browser.\n\n".
+				  "Date and time: %s\n".
+				  "Remote address: %s\n".
+				  "User agent: %s\n\n".
+				  "If you recently logged in to the control panel, you can disregard this email. ".
+				  "If you have not logged in recently and believe someone may have accessed ".
+				  "your account, you should reset your password.",
+				  $params['username'], $_SERVER['HTTP_HOST'],
+				  $_SERVER['SERVER_ADDR'], date('r'), $_SERVER['REMOTE_ADDR'],
+				  $_SERVER['HTTP_USER_AGENT'], $_SERVER['HTTP_HOST']);
+				OMVUtil::mail('root', $params['username'], $subject, $message);
+			}
 		} else {
 			syslog(LOG_ALERT, sprintf("Unauthorized login attempt from %s ".
 			  "[username=%s, user-agent=%s]", $_SERVER['REMOTE_ADDR'],

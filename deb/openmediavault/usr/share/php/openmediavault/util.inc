@@ -100,15 +100,9 @@ class OMVUtil {
 		$headers = array();
 		// Set date in RFC 2882 format.
 		$headers[] = sprintf('Date: %s', date('r'));
-		// Set the subject.
-		if (!empty($subject))
-			$headers[] = sprintf('Subject: %s', $subject);
 		// Append the sender address.
-		if (!empty($from)) {
+		if (!empty($from))
 			$headers[] = sprintf('From: %s', $from);
-			$headers[] = sprintf('Reply-To: %s', $from);
-			$headers[] = sprintf('Return-Path: %s', $from);
-		}
 
 		return mail($to, $subject, $message, implode("\r\n", $headers));
 	}
