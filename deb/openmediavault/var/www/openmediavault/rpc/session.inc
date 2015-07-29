@@ -19,6 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+require_once("openmediavault/globals.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/session.inc");
@@ -86,14 +87,29 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 			$authenticated = $session->isAuthenticated();
 			$session->commit();
 		}
-		// Log the login attempt via syslog.
 		openlog("openmediavault-webgui", LOG_PID | LOG_PERROR, LOG_AUTH);
 		if (TRUE === $authenticated) {
+			// Log the successful login attempt via syslog.
 			syslog(LOG_ALERT, sprintf("Authorized login from %s ".
 			  "[username=%s, user-agent=%s]", $_SERVER['REMOTE_ADDR'],
 			  $params['username'], $_SERVER['HTTP_USER_AGENT']));
-			// Send a email to the user if no cookie has been found.
-			if (!array_key_exists(session_name(), $_COOKIE)) {
+			// Send an email to the user if a new web browser is used to log
+			// in to the control panel. If no special cookie is detected,
+			// then it is assumed that the web browser has not been used to
+			// log in until now. Note, the cookie expires after 60 days.
+			// The salted user name hash is used as identifier.
+			$firstLogIn = TRUE;
+			foreach ($_COOKIE as $cookiek => $cookiev) {
+				$regex = '/^X-OPENMEDIAVAULT-WEBGUI-(.+)$/';
+				if (1 !== preg_match($regex, $cookiek, $matches))
+					continue;
+				if (crypt($params['username'], $matches[1])) {
+					$firstLogIn = FALSE;
+					break;
+				}
+			}
+			if (TRUE === $firstLogIn) {
+				// Send the notification email to the user.
 				$subject = "Your user account was used to log in to the control panel via a web browser.";
 				$message = sprintf("Dear %s,\n\n".
 				  "your user account was used to log in to %s (%s) via a web browser.\n\n".
@@ -107,8 +123,14 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 				  $_SERVER['SERVER_ADDR'], date('r'), $_SERVER['REMOTE_ADDR'],
 				  $_SERVER['HTTP_USER_AGENT'], $_SERVER['HTTP_HOST']);
 				OMVUtil::mail('root', $params['username'], $subject, $message);
+				// Set a coockie. It will expire after 60 days.
+				$quotes = $GLOBALS['OMV_DUNE_QUOTES'];
+				setcookie(sprintf("X-OPENMEDIAVAULT-WEBGUI-%s", crypt(
+				  $params['username'])), $quotes[mt_rand(0, count(
+				  $quotes) - 1)], time() + 60 * 60 * 24 * 60);
 			}
 		} else {
+			// Log the unauthorized login attempt via syslog.
 			syslog(LOG_ALERT, sprintf("Unauthorized login attempt from %s ".
 			  "[username=%s, user-agent=%s]", $_SERVER['REMOTE_ADDR'],
 			  $params['username'], $_SERVER['HTTP_USER_AGENT']));

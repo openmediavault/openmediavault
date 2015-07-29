@@ -19,6 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+require_once("openmediavault/globals.inc");
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/functions.inc");
@@ -70,32 +71,8 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		// http://www.nightsolo.net/dune/god.html
-		$result = array(
-			"The beginning of knowledge is the discovery of something ".
-			  "we do not understand.",
-			"He who controls the spice controls the universe.",
-			"Try looking into that place where you dare not look! You'll ".
-			  "find me there, staring out at you!",
-			"A large populace held in check by a small but powerful force ".
-			  "is quite a common situation in our universe. And we know the ".
-			  "major conditions wherein this large populace may turn upon ".
-			  "its keepers: When they find a leader. This is the most ".
-			  "volatile threat to the powerful; they must retain control of ".
-			  "leaders. When the populace recognizes its chains. Keep the ".
-			  "populace blind and unquestioning. When the populace perceives ".
-			  "a hope of escape from bondage. They must never even believe ".
-			  "that escape is possible!",
-			"I must not fear. Fear is the mind-killer. Fear is the ".
-			  "little-death that brings total obliteration. I will face my ".
-			  "fear. I will permit it to pass over me and through me. And ".
-			  "when it has gone past I will turn the inner eye to see its ".
-			  "path. Where the fear has gone there will be nothing. Only I ".
-			  "will remain.",
-			"People always fear the unknown, if they are truthful about ".
-			  "it. But i can face my fears."
-		);
-		return $result[mt_rand(0, count($result) - 1)];
+		$quotes = $GLOBALS['OMV_DUNE_QUOTES'];
+		return $quotes[mt_rand(0, count($quotes) - 1)];
 	}
 
 	/**
