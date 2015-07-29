@@ -24,6 +24,7 @@ require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/session.inc");
 require_once("openmediavault/rpcservice.inc");
+require_once("openmediavault/product.inc");
 
 class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 	/**
@@ -87,7 +88,12 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 			$authenticated = $session->isAuthenticated();
 			$session->commit();
 		}
-		openlog("openmediavault-webgui", LOG_PID | LOG_PERROR, LOG_AUTH);
+		// Get the product information to customize the syslog identity
+		// and cookie name.
+		$prd = new OMVProduct();
+		$ident = sprintf("%s-webgui", $prd->getName());
+		// Open connection to system logger.
+		openlog(strtolower($ident), LOG_PID | LOG_PERROR, LOG_AUTH);
 		if (TRUE === $authenticated) {
 			// Log the successful login attempt via syslog.
 			syslog(LOG_ALERT, sprintf("Authorized login from %s ".
@@ -100,7 +106,7 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 			// The salted user name hash is used as identifier.
 			$firstLogIn = TRUE;
 			foreach ($_COOKIE as $cookiek => $cookiev) {
-				$regex = '/^X-OPENMEDIAVAULT-WEBGUI-(.+)$/';
+				$regex = sprintf('/^X-%s-(.+)\$/', strtoupper($ident));
 				if (1 !== preg_match($regex, $cookiek, $matches))
 					continue;
 				if (crypt($params['username'], $matches[1])) {
@@ -110,7 +116,8 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 			}
 			if (TRUE === $firstLogIn) {
 				// Send the notification email to the user.
-				$subject = "Your user account was used to log in to the control panel via a web browser.";
+				$subject = sprintf("Your user account was used to log in to ".
+				  "the %s control panel via a web browser.", $prd->getName());
 				$message = sprintf("Dear %s,\n\n".
 				  "your user account was used to log in to %s (%s) via a web browser.\n\n".
 				  "Date and time: %s\n".
@@ -118,14 +125,16 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 				  "User agent: %s\n\n".
 				  "If you recently logged in to the control panel, you can disregard this email. ".
 				  "If you have not logged in recently and believe someone may have accessed ".
-				  "your account, you should reset your password.",
+				  "your account, you should reset your password.\n\n".
+				  "Sincerely,\n".
+				  "your %s system",
 				  $params['username'], $_SERVER['HTTP_HOST'],
 				  $_SERVER['SERVER_ADDR'], date('r'), $_SERVER['REMOTE_ADDR'],
-				  $_SERVER['HTTP_USER_AGENT'], $_SERVER['HTTP_HOST']);
+				  $_SERVER['HTTP_USER_AGENT'], $prd->getName());
 				OMVUtil::mail('root', $params['username'], $subject, $message);
-				// Set a coockie. It will expire after 60 days.
+				// Set a cookie. It will expire after 60 days.
 				$quotes = $GLOBALS['OMV_DUNE_QUOTES'];
-				setcookie(sprintf("X-OPENMEDIAVAULT-WEBGUI-%s", crypt(
+				setcookie(sprintf("X-%s-%s", strtoupper($ident), crypt(
 				  $params['username'])), $quotes[mt_rand(0, count(
 				  $quotes) - 1)], time() + 60 * 60 * 24 * 60);
 			}
