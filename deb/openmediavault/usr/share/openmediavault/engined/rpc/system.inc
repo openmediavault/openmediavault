@@ -71,8 +71,7 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		$quotes = $GLOBALS['OMV_DUNE_QUOTES'];
-		return $quotes[mt_rand(0, count($quotes) - 1)];
+		return array_rand_value($GLOBALS['OMV_DUNE_QUOTES']);
 	}
 
 	/**

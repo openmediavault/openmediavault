@@ -94,6 +94,43 @@ function array_value($array, $key, $default = NULL) {
 }
 
 /**
+ * Pick one or more random entries out of an array.
+ * @param array The input array.
+ * @param num Specifies how many entries should be picked.
+ * @return When picking only one entry, the function returns the value
+ *   for a random entry. Otherwise, an array of values for the random
+ *   entries is returned. Trying to pick more elements than there are
+ *   in the array NULL will be returned.
+ */
+function array_rand_value($array, $num = 1) {
+	$keys = array_rand($array, $num);
+	if (is_null($keys))
+		return NULL;
+	if (!is_array($keys))
+		return $array[$keys];
+	$result = array();
+	foreach ($keys as $keyk => $keyv) {
+		$result[] = $array[$keyv];
+	}
+	return $result;
+/*
+	// Alternative implementation.
+	$count = count($array);
+	if ($num > $count)
+		return NULL;
+	$result = (1 == $num) ? "" : array();
+	for ($i = 0; $i < $num; $i++) {
+		$index = mt_rand(0, $count - 1);
+		if (1 == $num)
+			$result = $array[$index];
+		else
+			$result[] = $array[$index];
+	}
+	return $result;
+*/
+}
+
+/**
  * Get boolean value of an array element.
  * @ingroup api
  * @param array An array with keys.

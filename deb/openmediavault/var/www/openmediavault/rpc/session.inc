@@ -133,10 +133,9 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 				  $_SERVER['HTTP_USER_AGENT'], $prd->getName());
 				OMVUtil::mail('root', $params['username'], $subject, $message);
 				// Set a cookie. It will expire after 60 days.
-				$quotes = $GLOBALS['OMV_DUNE_QUOTES'];
 				setcookie(sprintf("X-%s-%s", strtoupper($ident), crypt(
-				  $params['username'])), $quotes[mt_rand(0, count(
-				  $quotes) - 1)], time() + 60 * 60 * 24 * 60);
+				  $params['username'])), array_rand_value(
+				  $GLOBALS['OMV_DUNE_QUOTES']), time() + 60 * 60 * 24 * 60);
 			}
 		} else {
 			// Log the unauthorized login attempt via syslog.
