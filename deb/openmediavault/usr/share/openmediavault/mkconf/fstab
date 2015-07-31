@@ -23,6 +23,8 @@ set -e
 
 . /etc/default/openmediavault
 
+OMV_MKCONF_SCRIPTS_DIR=${OMV_MKCONF_SCRIPTS_DIR:-"/usr/share/openmediavault/mkconf"}
+
 OMV_FSTAB_CONFIG=${OMV_FSTAB_CONFIG:-"/etc/fstab"}
 OMV_FSTAB_SECTIONNAME=${OMV_FSTAB_SECTIONNAME:-"openmediavault"}
 OMV_FSTAB_EXTENSIONS_DIR=${OMV_FSTAB_EXTENSIONS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/fstab.d"}
