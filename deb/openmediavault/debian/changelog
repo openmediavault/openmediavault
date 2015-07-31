@@ -5,9 +5,9 @@ openmediavault (2.1.6) stable; urgency=low
   * Fix an issue with the SSL and SSH certificate config scripts.
   * Update the S.M.A.R.T. attribute descriptions.
   * Send an email to the user if the account is used to log in to the
-    control panel. Please note, if an email can't be delivered to a user,
-    e.g. because of a missing email address, the email is redirected to
-    the administrator account.
+    control panel the first time via web browser. Please note, if an email
+    can't be delivered to an user, e.g. because of a missing email address,
+    the email is redirected to the administrator account.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 27 Jul 2015 23:16:49 +0200
 
