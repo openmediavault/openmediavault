@@ -25,6 +25,7 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/session.inc");
 require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/product.inc");
+require_once("openmediavault/system.inc");
 
 class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 	/**
@@ -128,7 +129,7 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 				  "your account, you should reset your password.\n\n".
 				  "Sincerely,\n".
 				  "your %s system",
-				  $params['username'], $_SERVER['HTTP_HOST'],
+				  $params['username'], OMVNetwork::getHostname('--fqdn'),
 				  $_SERVER['SERVER_ADDR'], date('r'), $_SERVER['REMOTE_ADDR'],
 				  $_SERVER['HTTP_USER_AGENT'], $prd->getName());
 				OMVUtil::mail('root', $params['username'], $subject, $message);
