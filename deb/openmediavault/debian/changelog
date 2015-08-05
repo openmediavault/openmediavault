@@ -1,3 +1,10 @@
+openmediavault (2.1.7) stable; urgency=low
+
+  * Modify sort algorithm in the OMVStorageDeviceAbstract::getDeviceFileById()
+    method.
+
+ -- Volker Theile <volker.theile@bintec-elmeg.com>  Wed, 05 Aug 2015 12:49:58 +0200
+
 openmediavault (2.1.6) stable; urgency=low
 
   * Update locales.

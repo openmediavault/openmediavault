@@ -2261,9 +2261,10 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 * \li /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
 	 * \li /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML
 	 * The following order of paths will be retured if available:
-	 * \li scsi-xxx
 	 * \li ata-xxx
-	 * \li wwn-xxx, ...
+	 * \li wwn-xxx
+	 * \li scsi-xxx
+	 * \li ...
 	 * @return The device path (/dev/disk/by-id/xxx) if available,
 	 *   otherwise /dev/xxx will be returned. In case of an error FALSE
 	 *   will be returned.
@@ -2283,15 +2284,25 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 			}
 			if (!empty($deviceNamesById)) {
 				// Sort the device names in the following order:
-				// s=[s]csi-xxx
+				// 1. ata-xxx
+				// 2. wwn-xxx
+				// 3. scsi-xxx
+				// 4. ...
+				//
+				// Legend:
 				// a=[a]ta-xxx
+				// w=[w]wn-xxx
+				// s=[s]csi-xxx
 				// x=any other device file name
 				// fn=call strnatcmp function
-				// |      | $a=s | $a=a | $a=x |
-				// |------|------|------|------|
-				// | $b=s |  fn  |  -1  |  -1  |
-				// | $b=a |   1  |  fn  |  -1  |
-				// | $b=x |   1  |   1  |  fn  |
+				//
+				// Compare function matrix:
+				// |      | $a=a | $a=w | $a=s | $a=x |
+				// |------|------|------|------|------|
+				// | $b=a |  fn  |  -1  |  -1  |  -1  |
+				// | $b=w |   1  |  fn  |  -1  |  -1  |
+				// | $b=s |   1  |   1  |  fn  |  -1  |
+				// | $b=x |   1  |   1  |   1  |  fn  |
 				//
 				// Example:
 				// xxx...
@@ -2300,12 +2311,12 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 				// ata-WDC_WD2002FAEX-007BA0_WD-WCAY01065572
 				// scsi-SATA_WDC_WD2002FAEX-_WD-WCAY01065572
 				usort($deviceNamesById, create_function('$a, $b',
-				  'if (($a[0] == "s") && ($b[0] == "a")) return 1;'.
-				  'if (($a[0] == "s") && (($b[0] !== "a") && ($b[0] !== "s"))) return 1;'.
-				  'if (($a[0] == "a") && ($b[0] == "s")) return -1;'.
-				  'if (($a[0] == "a") && (($b[0] !== "a") && ($b[0] !== "s"))) return 1;'.
-				  'if ((($a[0] !== "a") && ($a[0] !== "s")) && ($b[0] == "s")) return -1;'.
-				  'if ((($a[0] !== "a") && ($a[0] !== "s")) && ($b[0] == "a")) return -1;'.
+				  'if (( $a[0]  == "a") && ( $b[0] !== "a")) return 1;'.
+				  'if (( $a[0]  == "w") && ( $b[0]  == "a")) return -1;'.
+				  'if (( $a[0]  == "w") && (($b[0] !== "a") && ($b[0] !== "w"))) return 1;'.
+				  'if (( $a[0]  == "s") && (($b[0]  == "a") && ($b[0]  == "w"))) return -1;'.
+				  'if (( $a[0]  == "s") && (($b[0] !== "a") && ($b[0] !== "w")  && ( $b[0] !== "s"))) return 1;'.
+				  'if ((($a[0] !== "a") && ( $a[0] !== "w") && ($a[0] !== "s")) && (($b[0]  == "a") || ($b[0] == "w") || ($b[0] == "s"))) return -1;'.
 				  'return strnatcmp($a, $b);'));
 				// Finally build the whole path of the device file.
 				$this->deviceFileById = sprintf("/dev/disk/by-id/%s",
