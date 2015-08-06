@@ -261,6 +261,7 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Add", {
 			name: "name",
 			fieldLabel: _("Name"),
 			readOnly: true,
+			submitValue: false,
 			value: me.name
 		},{
 			xtype: "combo",
@@ -277,6 +278,7 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Add", {
 			editable: false,
 			triggerAction: "all",
 			readOnly: true,
+			submitValue: false,
 			value: me.level
 		},{
 			xtype: "checkboxgridfield",
@@ -308,7 +310,17 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Add", {
 				sorters: [{
 					direction: "ASC",
 					property: "devicefile"
-				}]
+				}],
+				listeners: {
+					scope: me,
+					load: function(store, records, successful, operation) {
+						// Remove the RAID device file.
+						var record = store.findRecord("devicefile",
+						  me.devicefile);
+						if (Ext.isObject(record) && record.isModel)
+							  store.remove(record);
+					}
+				}
 			}),
 			gridConfig: {
 				stateful: true,
@@ -347,16 +359,11 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Add", {
 				ptype: "fieldinfo",
 				text: _("Select devices to be added to the RAID device")
 			}]
+		},{
+			xtype: "hidden",
+			name: "devicefile",
+			value: me.devicefile
 		}];
-	},
-
-	getValues: function() {
-		var me = this;
-		var values = me.callParent(arguments);;
-		return {
-			"devicefile": me.devicefile,
-			"devices": values.devices
-		};
 	}
 });
 
@@ -797,7 +804,13 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			title: _("Add hot spares / recover RAID device"),
 			devicefile: record.get("devicefile"),
 			name: record.get("name"),
-			level: record.get("level")
+			level: record.get("level"),
+			listeners: {
+				scope: me,
+				submit: function() {
+					me.doReload();
+				}
+			}
 		}).show();
 	},
 
@@ -807,7 +820,13 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 		Ext.create("OMV.module.admin.storage.mdadm.device.Remove", {
 			devicefile: record.get("devicefile"),
 			name: record.get("name"),
-			level: record.get("level")
+			level: record.get("level"),
+			listeners: {
+				scope: me,
+				submit: function() {
+					me.doReload();
+				}
+			}
 		}).show();
 	},
 

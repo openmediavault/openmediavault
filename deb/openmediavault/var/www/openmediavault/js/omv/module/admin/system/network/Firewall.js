@@ -357,7 +357,7 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 			}],
 			listeners: {
 				scope: me,
-				load: function(store, records, options) {
+				load: function(store, records, successful, operation) {
 					this.setToolbarButtonDisabled("apply", true);
 				},
 				add: function(store, records, index) {

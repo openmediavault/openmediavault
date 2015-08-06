@@ -316,7 +316,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		  }');
 		// Get software RAID device details to create notification message.
 		$raid = new OMVStorageDeviceMdadm($params['devicefile']);
-		if(FALSE === $raid->exists()) {
+		if (FALSE === $raid->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $raid->getDeviceFile());
 		}
@@ -328,7 +328,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		// Add new devices to the RAID device.
 		$cmd = sprintf("export LANG=C; mdadm --manage %s --add %s 2>&1",
 		  $raid->getDeviceFile(), implode(" ", $newDevices));
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -340,8 +340,8 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		$cmdArgs[] = "--grow";
 		$cmdArgs[] = sprintf("--raid-devices=%d", $numDevices);
 		$cmd = sprintf("export LANG=C; mdadm %s %s 2>&1", implode(" ",
-		  $cmdArgs), $raid->getDeviceFile());
-		if(0 !== $this->exec($cmd, $output)) {
+		  $cmdArgs), escapeshellarg($raid->getDeviceFile()));
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -383,7 +383,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		  }');
 		// Get software RAID device details to create notification message.
 		$raid = new OMVStorageDeviceMdadm($params['devicefile']);
-		if(FALSE === $raid->exists()) {
+		if (FALSE === $raid->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $raid->getDeviceFile());
 		}
@@ -394,8 +394,8 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		$numDevices += count($newDevices);
 		// Add new devices to the RAID device.
 		$cmd = sprintf("export LANG=C; mdadm --manage %s --add %s 2>&1",
-		  $raid->getDeviceFile(), implode(" ", $newDevices));
-		if(0 !== $this->exec($cmd, $output)) {
+		  escapeshellarg($raid->getDeviceFile()), implode(" ", $newDevices));
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -412,7 +412,8 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 	}
 
 	/**
-	 * Remove devices from a RAID device.
+	 * Remove devices from a RAID device. The MD superblock of the removed
+	 * devices is not affected or removed.
 	 * @param params The method parameters.
 	 *   \em devicefile The RAID device file, e.g. /dev/md0.
 	 *   \em devices The devices to be removed. The devices must be seperated
@@ -450,13 +451,13 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		// must be marked as failed before they can be removed from the
 		// RAID device.
 		$cmd = sprintf("export LANG=C; mdadm --manage %s --fail %s 2>&1",
-		  $raid->getDeviceFile(), implode(" ", $rmDevices));
+		  escapeshellarg($raid->getDeviceFile()), implode(" ", $rmDevices));
 		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
 		$cmd = sprintf("export LANG=C; mdadm --manage %s --remove %s 2>&1",
-		  $raid->getDeviceFile(), implode(" ", $rmDevices));
+		  escapeshellarg($raid->getDeviceFile()), implode(" ", $rmDevices));
 		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			$cmd, implode("\n", $output));
