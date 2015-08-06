@@ -11,9 +11,9 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-07-20 21:19+0200\n"
-"PO-Revision-Date: 2015-07-20 19:19+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
-"Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
+"PO-Revision-Date: 2015-08-06 15:15+0000\n"
+"Last-Translator: Chang-Eon Byeon <ksna0827@gmail.com>\n"
+"Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -200,22 +200,22 @@ msgid "Add"
 msgstr "추가"
 
 msgid "Add VLAN connection"
-msgstr ""
+msgstr "VLAN 연결 추가"
 
 msgid "Add Wi-Fi connection"
-msgstr ""
+msgstr "Wi-Fi 연결 추가"
 
 msgid "Add bond connection"
-msgstr ""
+msgstr "본드 연결 추가"
 
 msgid "Add devices to RAID device"
 msgstr "RAID 장치에 디바이스를 추가"
 
 msgid "Add ethernet connection"
-msgstr ""
+msgstr "이더넷 연결 추가"
 
 msgid "Add firewall rule"
-msgstr "방화벽 규칙을 추가"
+msgstr "방화벽 규칙 추가"
 
 msgid "Add group"
 msgstr "그룹 추가"
@@ -227,7 +227,7 @@ msgid "Add module"
 msgstr "모듈 추가"
 
 msgid "Add public key"
-msgstr ""
+msgstr "공개 키 추가"
 
 msgid "Add rsync job"
 msgstr "rsync 작업 추가"
@@ -288,7 +288,7 @@ msgstr "아프가니스탄"
 
 msgid ""
 "After the RAID has been grown you can resize the containing file system."
-msgstr "RAID를 확장한 후에 해당 RAID에 포함된 파일 시스템을 확장시킬 수 있습니다."
+msgstr "RAID가 확장된 후에 해당 RAID에 포함된 파일 시스템을 조절할 수 있습니다."
 
 msgid "Aland Islands"
 msgstr "올란드 제도"
@@ -574,7 +574,7 @@ msgstr "다른 공유폴더도 참조하고 있기 때문에 공유 폴더 컨�
 msgid ""
 "Cannot unlink the shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr "다른 공유 폴더가 해당 폴더의 하위 디렉터리를 참조하고 있기 때문에 이 공유 폴더를 삭제할 수가 없습니다."
+msgstr "다른 공유 폴더가 해당 폴더의 하위 디렉터리를 참조하고 있기 때문에 이 공유 폴더를 삭제할 수 없습니다."
 
 msgid "Canton and Enderbury Islands"
 msgstr "피닉스 제도"
@@ -980,7 +980,7 @@ msgid "Domain name"
 msgstr "도메인 이름"
 
 msgid "Domains used when resolving host names."
-msgstr ""
+msgstr "도메인은 호스트 이름을 해석하는 데에 사용됩니다."
 
 msgid "Dominica"
 msgstr "도미니카"
@@ -1027,22 +1027,22 @@ msgid "Edit"
 msgstr "편집"
 
 msgid "Edit SSH certificate"
-msgstr ""
+msgstr "SSH 인증 편집"
 
 msgid "Edit SSL certificate"
 msgstr "SSL 인증 편집"
 
 msgid "Edit VLAN connection"
-msgstr ""
+msgstr "VLAN 연결 편집"
 
 msgid "Edit Wi-Fi connection"
-msgstr ""
+msgstr "Wi-Fi 연결 편집"
 
 msgid "Edit bond connection"
-msgstr ""
+msgstr "본드 연결 편집"
 
 msgid "Edit ethernet connection"
-msgstr ""
+msgstr "이더넷 연결 편집"
 
 msgid "Edit firewall rule"
 msgstr "방화벽 규칙 편집"
@@ -1203,7 +1203,7 @@ msgid "Estonia"
 msgstr "에스토니아"
 
 msgid "Ethernet"
-msgstr ""
+msgstr "이더넷"
 
 msgid "Ethiopia"
 msgstr "에티오피아"
@@ -1380,7 +1380,7 @@ msgid "Full"
 msgstr "전체"
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Gabon"
 msgstr "가봉"
@@ -1527,7 +1527,7 @@ msgid "ID"
 msgstr "ID"
 
 msgid "IP addresses of domain name servers used to resolve host names."
-msgstr ""
+msgstr "도메인 네임 서버의 IP주소는 호스트 이름을 해석하는 데에 사용됩니다."
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -1601,7 +1601,7 @@ msgid "Import"
 msgstr "불러오기"
 
 msgid "Import SSH certificate"
-msgstr ""
+msgstr "SSH 인증 불러오기"
 
 msgid "Import SSL certificate"
 msgstr "SSL 인증 불러오기"
@@ -1681,7 +1681,7 @@ msgid "Interfaces"
 msgstr "인터페이스"
 
 msgid "Invalid SSH public key (RFC 4716)"
-msgstr ""
+msgstr "잘못된 SSH 공개 키 (RFC 4716)"
 
 msgid "Invalid domain name"
 msgstr "잘못된 도메인 이름"
@@ -1693,7 +1693,7 @@ msgid "Invalid group name"
 msgstr "잘못된 그룹 이름"
 
 msgid "Invalid host name"
-msgstr "유효하지 않"
+msgstr "잘못된 호스트 이름"
 
 msgid "Invalid line: %s"
 msgstr "잘못된 줄: %s"
@@ -2116,10 +2116,10 @@ msgid "Network"
 msgstr "네트워크"
 
 msgid "Network interface '%s' (type=%s) already exists"
-msgstr ""
+msgstr "'%s' (방식=%s)는 이미 존재하는 네트워크 인터페이스입니다."
 
 msgid "Network interfaces"
-msgstr ""
+msgstr "네트워크 인터페이스"
 
 msgid "Neutral Zone"
 msgstr "뉴트럴 존"
@@ -2538,13 +2538,13 @@ msgid "Public"
 msgstr "공개"
 
 msgid "Public key"
-msgstr ""
+msgstr "공개 키"
 
 msgid "Public key authentication"
 msgstr "공개 키 인증"
 
 msgid "Public keys"
-msgstr ""
+msgstr "공개 키"
 
 msgid "Puerto Rico"
 msgstr "푸에르토리코"
@@ -2787,10 +2787,10 @@ msgid "SSH"
 msgstr "SSH"
 
 msgid "SSID"
-msgstr ""
+msgstr "SSID"
 
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -2868,7 +2868,7 @@ msgid "Security level"
 msgstr "보안 수준"
 
 msgid "Select a SSH certificate ..."
-msgstr ""
+msgstr "SSL 인증을 선택하세요 ..."
 
 msgid "Select a SSL certificate ..."
 msgstr "SSL 인증을 선택하세요 ..."
@@ -3259,7 +3259,7 @@ msgid "System Logs"
 msgstr "시스템 로그"
 
 msgid "System accounts"
-msgstr ""
+msgstr "시스템 계정"
 
 msgid "System time"
 msgstr "시스템 시간"
@@ -3301,7 +3301,7 @@ msgid "The RSA key length."
 msgstr "RSA 키 길이"
 
 msgid "The RSA public key in OpenSSH format."
-msgstr ""
+msgstr "OpenSSH 포맷의 RSA 공개 키"
 
 msgid "The SSL certificate."
 msgstr "SSL 인증"
@@ -3318,7 +3318,7 @@ msgstr "주석에 허용되지 않는 문자들이 포함되어 있습니다."
 msgid ""
 "The configuration has been changed. You must apply the changes in order for "
 "them to take effect."
-msgstr "설정이 변경되었습니다. 적용을 하기 전까지 이 설정은 반영되지 않습니다."
+msgstr "설정이 변경되었습니다. 적용 하기 전까지 이 설정은 반영되지 않습니다."
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr "기본 SMTP 메일 서버 포트, 예를 들어, 25 혹은 587."
@@ -3402,7 +3402,7 @@ msgid ""
 msgstr "새로운 파일과 경로의 권한은 기본적으로 생성 마스크와 디렉터리 마스크가 지배하지만 권한 상속 패러미터가 이것을 덮어씁니다. 많은 사용자에게 단일 공유를 허용하고 각 사용자에 의해 유동적으로 사용되는 시스템에 부분적으로 유용할 수 있습니다."
 
 msgid "The private RSA key in X.509 PEM format."
-msgstr ""
+msgstr "X.509 PEM 포맷의 개인 RSA 키"
 
 msgid "The public key in RFC 4716 SSH public key file format."
 msgstr "RFC 4716 공개 키 파일 포맷에 해당되는 공개 키."
@@ -3704,7 +3704,7 @@ msgid "Tonga"
 msgstr "통가"
 
 msgid "Total"
-msgstr ""
+msgstr "전체"
 
 msgid "Transfer log"
 msgstr "전송 기록"
@@ -3755,7 +3755,7 @@ msgid "U.S. Virgin Islands"
 msgstr "미국령 버진아일랜드"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "UNKNOWN"
 msgstr "알 수 없는"
@@ -3767,7 +3767,7 @@ msgid "Ukraine"
 msgstr "우크라이나"
 
 msgid "Unauthorized attempt to modify the system account '%s'"
-msgstr ""
+msgstr "시스템 계정 '%s'을 수정할 권한이 없는 시도"
 
 msgid "Uncompressed"
 msgstr "압축되지 않은"
@@ -3899,7 +3899,7 @@ msgid "User ID '%d' already exist"
 msgstr "'%d'는 이미 존재하는 사용자 ID입니다."
 
 msgid "User accounts"
-msgstr ""
+msgstr "사용자 계정"
 
 msgid "User home directory"
 msgstr "사용자 홈 디렉터리"
@@ -3965,7 +3965,7 @@ msgid "WINS support"
 msgstr "WINS 지원"
 
 msgid "WOL"
-msgstr ""
+msgstr "WOL"
 
 msgid "Wake Island"
 msgstr "웨이크 섬"
@@ -4012,7 +4012,7 @@ msgid "When failed"
 msgstr "실패 시"
 
 msgid "Wi-Fi"
-msgstr ""
+msgstr "Wi-Fi"
 
 msgid "Wipe"
 msgstr "지우기"

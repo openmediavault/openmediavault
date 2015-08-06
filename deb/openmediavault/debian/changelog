@@ -1,5 +1,6 @@
 openmediavault (2.1.7) stable; urgency=low
 
+  * Update locales.
   * Modify sort algorithm in the OMVStorageDeviceAbstract::getDeviceFileById()
     method.
   * Mantis 0001379: Do not display the RAID device itself in various dialogs.

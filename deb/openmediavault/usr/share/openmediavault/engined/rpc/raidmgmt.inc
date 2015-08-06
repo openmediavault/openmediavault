@@ -327,7 +327,8 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		$numDevices += count($newDevices);
 		// Add new devices to the RAID device.
 		$cmd = sprintf("export LANG=C; mdadm --manage %s --add %s 2>&1",
-		  $raid->getDeviceFile(), implode(" ", $newDevices));
+		  escapeshellarg($raid->getDeviceFile()), implode(" ",
+		  $newDevices));
 		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
