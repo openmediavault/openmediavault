@@ -2297,27 +2297,31 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 				// fn=call strnatcmp function
 				//
 				// Compare function matrix:
-				// |      | $a=a | $a=w | $a=s | $a=x |
+				// |      | $b=a | $b=w | $b=s | $b=x |
 				// |------|------|------|------|------|
-				// | $b=a |  fn  |  -1  |  -1  |  -1  |
-				// | $b=w |   1  |  fn  |  -1  |  -1  |
-				// | $b=s |   1  |   1  |  fn  |  -1  |
-				// | $b=x |   1  |   1  |   1  |  fn  |
+				// | $a=a |  fn  |  -1  |  -1  |  -1  |
+				// | $a=w |   1  |  fn  |  -1  |  -1  |
+				// | $a=s |   1  |   1  |  fn  |  -1  |
+				// | $a=x |   1  |   1  |   1  |  fn  |
 				//
 				// Example:
+				// ata-WDC_WD2002FAEX-007BA0_WD-WCAY01065572
+				// wwn-0x50014ee25d4cdecd
+				// scsi-SATA_WDC_WD2002FAEX-_WD-WCAY01065572
 				// xxx...
 				// yyy...
-				// wwn-0x50014ee25d4cdecd
-				// ata-WDC_WD2002FAEX-007BA0_WD-WCAY01065572
-				// scsi-SATA_WDC_WD2002FAEX-_WD-WCAY01065572
 				usort($deviceNamesById, create_function('$a, $b',
-				  'if (( $a[0]  == "a") && ( $b[0] !== "a")) return 1;'.
-				  'if (( $a[0]  == "w") && ( $b[0]  == "a")) return -1;'.
-				  'if (( $a[0]  == "w") && (($b[0] !== "a") && ($b[0] !== "w"))) return 1;'.
-				  'if (( $a[0]  == "s") && (($b[0]  == "a") && ($b[0]  == "w"))) return -1;'.
-				  'if (( $a[0]  == "s") && (($b[0] !== "a") && ($b[0] !== "w")  && ( $b[0] !== "s"))) return 1;'.
-				  'if ((($a[0] !== "a") && ( $a[0] !== "w") && ($a[0] !== "s")) && (($b[0]  == "a") || ($b[0] == "w") || ($b[0] == "s"))) return -1;'.
-				  'return strnatcmp($a, $b);'));
+				  '$map = array("a" => 0, "w" => 1, "s" => 2);'.
+				  '$indexA = array_key_exists($a[0], $map) ? $map[$a[0]] : 3;'.
+				  '$indexB = array_key_exists($b[0], $map) ? $map[$b[0]] : 3;'.
+				  '$cmpMatrix = array('.
+				  '    0 => array(0, -1, -1, -1),'.
+				  '    1 => array(1,  0, -1, -1),'.
+				  '    2 => array(1,  1,  0, -1),'.
+				  '    3 => array(1,  1,  1,  0)'.
+				  ');'.
+				  '$cmpResult = $cmpMatrix[$indexA][$indexB];'.
+				  'return (0 !== $cmpResult) ? $cmpResult : strnatcmp($a, $b);'));
 				// Finally build the whole path of the device file.
 				$this->deviceFileById = sprintf("/dev/disk/by-id/%s",
 				  array_pop($deviceNamesById));
