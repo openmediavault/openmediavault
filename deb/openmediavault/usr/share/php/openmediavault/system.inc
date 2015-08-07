@@ -2324,7 +2324,7 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 				  'return (0 !== $cmpResult) ? $cmpResult : strnatcmp($a, $b);'));
 				// Finally build the whole path of the device file.
 				$this->deviceFileById = sprintf("/dev/disk/by-id/%s",
-				  array_pop($deviceNamesById));
+				  array_shift($deviceNamesById));
 			}
 		}
 		return $this->deviceFileById;
