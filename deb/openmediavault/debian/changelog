@@ -1,6 +1,6 @@
 openmediavault (2.1.8) stable; urgency=low
 
-  *
+  * Add OMV_NFSD_DEFAULT_EXPORT_OPTIONS environment variable.
 
  -- Volker Theile <volker.theile@bintec-elmeg.com>  Fri, 07 Aug 2015 23:10:06 +0200
 
