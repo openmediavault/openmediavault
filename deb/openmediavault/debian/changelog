@@ -1,6 +1,8 @@
 openmediavault (2.1.8) stable; urgency=low
 
   * Add OMV_NFSD_DEFAULT_EXPORT_OPTIONS environment variable.
+  * Mantis 0001383: SSH authorized keys not added on user creation.
+  * Mantis 0001384: Duplicate SSH authorized keys written to file.
 
  -- Volker Theile <volker.theile@bintec-elmeg.com>  Fri, 07 Aug 2015 23:10:06 +0200
 

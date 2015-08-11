@@ -112,15 +112,21 @@ class OMVModuleSsh extends OMVModuleServiceAbstract
 	final public function onUser($type, $path, $object) {
 		switch ($type) {
 		case OMV_NOTIFY_CREATE:
+		case OMV_NOTIFY_DELETE:
+			// Set the module to dirty when public keys are defined.
+			if (!empty($object['sshpubkeys']))
+				$this->setDirty();
+			break;
 		case OMV_NOTIFY_MODIFY:
 			// If the 'sshpubkey' is set, then set this module to dirty.
 			// Note, it would be better to set the module to dirty only
 			// if the 'sshpubkey' field has been modified, but the
 			// current framework does not have the capability to do that.
-			if (!empty($object['sshpubkey']))
+			if (!empty($object['sshpubkeys']))
 				$this->setDirty();
 			break;
-		case OMV_NOTIFY_DELETE:
+		default:
+			// Nothing to do here.
 			break;
 		}
 	}
