@@ -1,3 +1,9 @@
+openmediavault (2.1.9) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 11 Aug 2015 23:33:06 +0200
+
 openmediavault (2.1.8) stable; urgency=low
 
   * Add OMV_NFSD_DEFAULT_EXPORT_OPTIONS environment variable.
@@ -8,7 +14,7 @@ openmediavault (2.1.8) stable; urgency=low
   * Mantis 0001385: Disable user home directory file share location
     causes error.
 
- -- Volker Theile <volker.theile@bintec-elmeg.com>  Fri, 07 Aug 2015 23:10:06 +0200
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 07 Aug 2015 23:10:06 +0200
 
 openmediavault (2.1.7) stable; urgency=low
 
@@ -17,7 +23,7 @@ openmediavault (2.1.7) stable; urgency=low
     algorithm in the OMVStorageDeviceAbstract::getDeviceFileById() method.
   * Mantis 0001379: Do not display the RAID device itself in various dialogs.
 
- -- Volker Theile <volker.theile@bintec-elmeg.com>  Wed, 05 Aug 2015 12:49:58 +0200
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 05 Aug 2015 12:49:58 +0200
 
 openmediavault (2.1.6) stable; urgency=low
 
