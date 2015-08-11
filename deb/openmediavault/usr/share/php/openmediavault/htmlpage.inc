@@ -331,9 +331,9 @@ class OMVControlPanel extends OMVHtmlPageAbstract {
 			// cookies to store the state of the UI components.
 			var provider;
 			if (Ext.util.LocalStorage.supported) {
-				provider = new Ext.state.LocalStorageProvider();
+				provider = Ext.create("Ext.state.LocalStorageProvider");
 			} else {
-				provider = new Ext.state.CookieProvider({
+				provider = Ext.create("Ext.state.CookieProvider", {
 					expires: new Date(new Date().getTime() +
 					  (1000*60*60*24*365))
 				});
