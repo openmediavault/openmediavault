@@ -1231,7 +1231,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Return the absolute shared folder path.
-		return sprintf("%s/%s", $meObject['dir'], $sfObject['reldirpath']);
+		return sprintf("%s/%s", rtrim($meObject['dir'], "/"), trim(
+		  $sfObject['reldirpath'], "/"));
 	}
 
 	/**

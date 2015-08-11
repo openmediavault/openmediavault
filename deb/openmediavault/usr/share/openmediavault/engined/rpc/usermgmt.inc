@@ -1191,11 +1191,12 @@ finish:
 				// the new directory.
 				$cmdArgs[] = "--move-home";
 				$cmdArgs[] = "--home";
-				$cmdArgs[] = sprintf("%s/%s", $homeDirPath, $userv['name']);
+				$cmdArgs[] = escapeshellarg(sprintf("%s/%s", $homeDirPath,
+				  $userv['name']));
 			} else {
 				// Unset home directory.
 				$cmdArgs[] = "--home";
-				$cmdArgs[] = $homeDirPath;
+				$cmdArgs[] = escapeshellarg($homeDirPath);
 			}
 			$cmd = sprintf("usermod %s %s 2>&1", implode(" ", $cmdArgs),
 			  escapeshellarg($userv['name']));
