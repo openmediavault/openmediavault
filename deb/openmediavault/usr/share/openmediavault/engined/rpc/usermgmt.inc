@@ -572,8 +572,8 @@ finish:
 				  "uuid" => $hdsobject['sharedfolderref']), $context);
 				$cmdArgs[] = "--create-home";
 				$cmdArgs[] = "--home";
-				$cmdArgs[] = escapeshellarg(sprintf("%s/%s", $sfpath,
-				  $params['name']));
+				$cmdArgs[] = escapeshellarg(build_path(array($sfpath,
+				  $params['name'])));
 			}
 			// Create a new user.
 			$cmd = sprintf("export LANG=C; useradd %s %s 2>&1",
@@ -1191,8 +1191,8 @@ finish:
 				// the new directory.
 				$cmdArgs[] = "--move-home";
 				$cmdArgs[] = "--home";
-				$cmdArgs[] = escapeshellarg(sprintf("%s/%s", $homeDirPath,
-				  $userv['name']));
+				$cmdArgs[] = escapeshellarg(build_path(array($homeDirPath,
+				  $userv['name'])));
 			} else {
 				// Unset home directory.
 				$cmdArgs[] = "--home";
@@ -1206,7 +1206,7 @@ finish:
 			}
 			// Create the home directory if it does not exist until now.
 			if(!empty($homeDirPath)) {
-				$path = sprintf("%s/%s", $homeDirPath, $userv['name']);
+				$path = build_path(array($homeDirPath, $userv['name']));
 				if(!file_exists($path)) {
 					if(!mkdir($path, 0755, TRUE)) {
 						throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,

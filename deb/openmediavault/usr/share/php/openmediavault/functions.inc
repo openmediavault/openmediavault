@@ -485,6 +485,25 @@ function strpdate($date, $format) {
 }
 
 /**
+ * Creates a path from a series of parts using separator as the separator
+ * between parts. At the boundary between two parts, any trailing occurrences
+ * of separator in the first part, or leading occurrences of separator in the
+ * second part are removed and exactly one copy of the separator is inserted.
+ * @param parts Array containing the parts to be joined.
+ * @param separator The directory seperator
+ * @return A string path built from the given parts.
+ */
+function build_path($parts, $separator = DIRECTORY_SEPARATOR) {
+	foreach ($parts as $partk => &$partv) {
+		if (0 == $partk) // First element
+			$partv = rtrim($partv, $separator);
+		else // Others
+			$partv = trim($partv, $separator);
+	}
+	return implode($separator, $parts);
+}
+
+/**
  * Create a directory with unique file name.
  * @ingroup api
  * @param prefix The prefix of the generated temporary directory.
@@ -492,10 +511,10 @@ function strpdate($date, $format) {
  * @return Returns the full path of the created directory, or FALSE on failure.
  */
 function mkdtemp($prefix = "", $mode = 0700) {
-	$pathname = sprintf("%s/%s", sys_get_temp_dir(), uniqid($prefix));
-	if(is_dir($pathname))
+	$pathname = build_path(array(sys_get_temp_dir(), uniqid($prefix)));
+	if (is_dir($pathname))
 		return FALSE;
-	if(FALSE === mkdir($pathname, $mode))
+	if (FALSE === mkdir($pathname, $mode))
 		return FALSE;
 	return $pathname;
 }

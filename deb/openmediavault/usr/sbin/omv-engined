@@ -340,7 +340,7 @@ if(TRUE === $debug) {
 // Include additional files and all module classes.
 ///////////////////////////////////////////////////////////////////////////////
 foreach(array("inc", "module") as $dirName) {
-	$dirPath = sprintf("%s/%s", $GLOBALS['OMV_ENGINED_DIR'], $dirName);
+	$dirPath = build_path(array($GLOBALS['OMV_ENGINED_DIR'], $dirName));
 	foreach(new DirectoryIterator($dirPath) as $item) {
 		if($item->isDot())
 			continue;

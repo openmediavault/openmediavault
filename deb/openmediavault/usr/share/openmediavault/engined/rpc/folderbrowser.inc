@@ -23,6 +23,7 @@ require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/rpcservice.inc");
+require_once("openmediavault/functions.inc");
 
 class OMVRpcServiceFolderBrowser extends OMVRpcServiceAbstract {
 	/**
@@ -95,7 +96,7 @@ class OMVRpcServiceFolderBrowser extends OMVRpcServiceAbstract {
 		}
 		// List the directory contents.
 		$result = array();
-		$path = sprintf("%s/%s", $rootPath, rtrim($params['path'], "/"));
+		$path = build_path(array($rootPath, $params['path']));
 		foreach (new DirectoryIterator($path) as $item) {
 			if ($item->isDot())
 				continue;

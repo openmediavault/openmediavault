@@ -1744,7 +1744,7 @@ class OMVFilesystemAbstract extends OMVObject {
 	 *   /media/85732966-949a-4d8b-87d7-d7e6681f787e.
 	 */
 	public static function buildMountPath($uuid) {
-		return sprintf("%s/%s", $GLOBALS['OMV_MOUNT_DIR'], $uuid);
+		return build_path(array($GLOBALS['OMV_MOUNT_DIR'], $uuid));
 	}
 
 	/**
@@ -5845,7 +5845,7 @@ class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
 	public function getPath() {
 		if ($this->getData() === FALSE)
 			return FALSE;
-		return sprintf("/dev/%s/%s", $this->getVGName(), $this->getName());
+		return build_path(array("/dev", $this->getVGName(), $this->getName()));
 	}
 
 	/**

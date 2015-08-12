@@ -23,6 +23,7 @@ require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/product.inc");
+require_once("openmediavault/functions.inc");
 
 class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 	/**
@@ -316,8 +317,8 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			  "no Debian binary package.", $params['filename']));
 		}
 		// Move file to local package archive.
-		if(!rename($params['filepath'], sprintf("%s/%s",
-		  $GLOBALS['OMV_DPKGARCHIVE_DIR'], $params['filename']))) {
+		if (!rename($params['filepath'], build_path(array(
+		  $GLOBALS['OMV_DPKGARCHIVE_DIR'], $params['filename'])))) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
 			  "Failed to move package '%s' to local package repository.",
 			  $params['filename']));
@@ -378,8 +379,8 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			$parts = explode("_", $params['filename']);
 			$packageName = $parts[0];
 			// Build the path to the archive.
-			$packageArchivePath = sprintf("%s/%s", "/var/cache/apt/archives",
-			  $params['filename']);
+			$packageArchivePath = build_path(array("/var/cache/apt/archives",
+			  $params['filename']));
 			// Force download of the package if it does not exist in the
 			// package archive (/var/cache/apt/archives). Do not redirect
 			// the command output to the backgropund output file. Only the
@@ -409,8 +410,8 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			// compressed.
 			$found = FALSE;
 			foreach (array("changelog.Debian.gz", "changelog.gz") as $filename) {
-				$filepath = sprintf("%s/usr/share/doc/%s/%s", $tmpDir,
-				  $packageName, $filename);
+				$filepath = build_path(array($tmpDir, "usr/share/doc",
+				  $packageName, $filename));
 				if (file_exists($filepath)) {
 					// Extract the changelog content and redirect it to the
 					// background output file.

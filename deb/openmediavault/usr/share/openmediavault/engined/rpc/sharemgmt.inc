@@ -403,7 +403,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Build the absolute shared folder path.
-		$pathName = sprintf("%s/%s", $meObject['dir'], $object['reldirpath']);
+		$pathName = build_path(array($meObject['dir'], $object['reldirpath']));
 		// Create the shared folder directory if necessary.
 		if(FALSE === file_exists($pathName)) {
 			// Create the directory. Note, the function seems to have a bug
@@ -513,8 +513,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 					  $xpath);
 				}
 				// Build the absolute shared folder path.
-				$absDirPath = OMVUtil::readlink(sprintf("%s/%s",
-				  $meObject['dir'], $object['reldirpath']));
+				$absDirPath = OMVUtil::readlink(build_path(array(
+				  $meObject['dir'], $object['reldirpath'])));
 				// Ensure the path ends with an slash, otherwise comparison
 				// may be false positive.
 				// Example:
@@ -542,8 +542,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 					//
 					// Deleting dir2 recursively will be forbidden when dir2.1
 					// is used by another shared folder.
-					$sfAbsDirPath = OMVUtil::readlink(sprintf("%s/%s",
-					  $meObject['dir'], $sfObjectv['reldirpath']));
+					$sfAbsDirPath = OMVUtil::readlink(build_path(array(
+					  $meObject['dir'], $sfObjectv['reldirpath'])));
 					if (0 === stripos($sfAbsDirPath, $absDirPath)) {
 						throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 						  gettext("Cannot unlink the shared folder content because another shared folder is referencing a subdirectory"));
@@ -568,7 +568,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 				  $xpath);
 			}
 			// Build the absolute shared folder path.
-			$dirPath = sprintf("%s/%s", $meObject['dir'], $object['reldirpath']);
+			$dirPath = build_path(array($meObject['dir'],
+			  $object['reldirpath']));
 			// Delete the shared folder directory.
 			$cmd = sprintf("rm -fr %s 2>&1", escapeshellarg($dirPath));
 			if(0 !== $this->exec($cmd, $output)) {
@@ -921,8 +922,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 		  "uuid" => $params['uuid']), $context);
 		// Execute command to get the file access control lists.
 		$cmd = sprintf("export LANG=C; getfacl --no-effective ".
-		  "--access -- %s 2>&1", escapeshellarg(sprintf("%s/%s", $sfpath,
-		  $params['file'])));
+		  "--access -- %s 2>&1", escapeshellarg(build_path(array($sfpath,
+		  $params['file']))));
 		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
@@ -1175,9 +1176,9 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 				$cmdargs[] = sprintf("-M %s", escapeshellarg($aclspecFile));
 			}
 			// Execute command to set the file access control lists.
-			$cmd = sprintf("export LANG=C; setfacl %s -- %s 2>&1",
-			  implode(" ", $cmdargs), escapeshellarg(sprintf("%s/%s",
-			  $sfpath, $params['file'])));
+			$cmd = sprintf("export LANG=C; setfacl %s -- %s 2>&1", implode(
+			  " ", $cmdargs), escapeshellarg(build_path(array($sfpath,
+			  $params['file']))));
 			if(0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
@@ -1231,8 +1232,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Return the absolute shared folder path.
-		return sprintf("%s/%s", rtrim($meObject['dir'], "/"), trim(
-		  $sfObject['reldirpath'], "/"));
+		return build_path(array($meObject['dir'], $sfObject['reldirpath']));
 	}
 
 	/**

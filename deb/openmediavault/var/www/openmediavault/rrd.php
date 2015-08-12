@@ -35,6 +35,7 @@ try {
 	require_once("openmediavault/globals.inc");
 	require_once("openmediavault/config.inc"); // Must be included here
 	require_once("openmediavault/session.inc");
+	require_once("openmediavault/functions.inc");
 
 	$session = &OMVSession::getInstance();
 	$session->start();
@@ -57,7 +58,7 @@ try {
 	}
 	// Build the image filename. If it does not exist, then display an error
 	// image by default.
-	$filename = sprintf("%s/%s", $GLOBALS['OMV_RRDGRAPH_DIR'], $_GET['name']);
+	$filename = build_path(array($GLOBALS['OMV_RRDGRAPH_DIR'], $_GET['name']));
 	if(!file_exists($filename))
 		$filename = $GLOBALS['OMV_RRDGRAPH_ERROR_IMAGE'];
 	$fd = fopen($filename, "r");

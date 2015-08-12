@@ -25,6 +25,7 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/notify.inc");
+require_once("openmediavault/functions.inc");
 
 class OMVRpcServiceNfs extends OMVRpcServiceAbstract {
 	/**
@@ -261,8 +262,8 @@ class OMVRpcServiceNfs extends OMVRpcServiceAbstract {
 			}
 			// Check if the required mount point already exists or if it is
 			// necessary to create it.
-			$dir = sprintf("%s/%s", $GLOBALS['OMV_NFSD_EXPORT_DIR'],
-			  $sfObject['name']);
+			$dir = build_path(array($GLOBALS['OMV_NFSD_EXPORT_DIR'],
+			  $sfObject['name']));
 			// Try to get the mount point configuration object.
 			$xpath = sprintf("//system/fstab/mntent[dir='%s']", $dir);
 			$meObject2 = $xmlConfig->get($xpath);
@@ -272,8 +273,8 @@ class OMVRpcServiceNfs extends OMVRpcServiceAbstract {
 				// directory.
 				$meObject2 = array(
 					"uuid" => $GLOBALS['OMV_UUID_UNDEFINED'],
-					"fsname" => sprintf("%s/%s", $meObject['dir'],
-					  $sfObject['reldirpath']),
+					"fsname" => build_path(array($meObject['dir'],
+					  $sfObject['reldirpath'])),
 					"dir" => $dir,
 					"type" => "none",
 					"opts" => "bind",
