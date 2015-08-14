@@ -467,8 +467,14 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,
 				model: OMV.data.Model.createImplicit({
-					idProperty: "devicefile",
+					// Note, do not use 'devicefile' as idProperty, because
+					// it is not guaranteed that the devicefile is set. This
+					// is the case when a device is configured for mounting
+					// but does not exist (e.g. USB).
+					identifier: "uuid", // Populate 'id' field automatically.
+					idProperty: "id",
 					fields: [
+						{ name: "id", type: "string", persist: false },
 						{ name: "uuid", type: "string" },
 						{ name: "devicefile", type: "string" },
 						{ name: "label", type: "string" },
