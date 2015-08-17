@@ -119,22 +119,15 @@ Ext.define("OMV.grid.Panel", {
 	},
 
 	/**
-	 * Returns an array of the currently selected records.
-	 * @return The selected records.
-	 */
-	getSelection: function() {
-		var selModel = this.getSelectionModel();
-		var records = selModel.getSelection();
-		return records;
-	},
-
-	/**
-	 * Get the selected record. If more rows are selected the first
+	 * Get the grid's selected record. If more rows are selected the first
 	 * one is returned.
-	 * @return The selected record.
+	 * @return The selected record, otherwise NULL.
 	 */
 	getSelected: function() {
-		var records = this.getSelection();
+		var me = this;
+		var records = me.getSelection();
+		if (!Ext.isArray())
+			return null;
 		return records[0];
 	},
 

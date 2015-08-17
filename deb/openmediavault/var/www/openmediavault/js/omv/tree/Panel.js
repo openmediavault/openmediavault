@@ -41,5 +41,17 @@ Ext.define("OMV.tree.Panel", {
 				record.isExpanded() ? record.collapse() : record.expand();
 			}, me);
 		}
+	},
+
+	/**
+	 * Get the tree's selected record.
+	 * @return The selected record, otherwise NULL.
+	 */
+	getSelected: function() {
+		var me = this;
+		var records = me.getSelection();
+		if (!Ext.isArray())
+			return null;
+		return records[0];
 	}
 });
