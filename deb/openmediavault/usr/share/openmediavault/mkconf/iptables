@@ -61,13 +61,13 @@ xmlstarlet sel -t \
 		  -b \
 		  -i "not(contains(source,'-'))" \
 			  -i "starts-with(source,'!')" -o " !" -b \
-              -o " --source " \
+			  -o " --source " \
 			  -v "translate(source,'!','')" \
 		  -b \
 	  -b \
 	  -i "string-length(sport) > 0" \
 		  -i "starts-with(sport,'!')" -o " !" -b \
-          -o " --sport " \
+		  -o " --sport " \
 		  -v "translate(translate(sport,'!',''),'-',':')" \
 	  -b \
 	  -i "string-length(destination) > 0" \
@@ -79,13 +79,13 @@ xmlstarlet sel -t \
 		  -b \
 		  -i "not(contains(destination,'-'))" \
 			  -i "starts-with(destination,'!')" -o " !" -b \
-              -o " --destination " \
+			  -o " --destination " \
 			  -v "translate(destination,'!','')" \
 		  -b \
 	  -b \
 	  -i "string-length(dport) > 0" \
 		  -i "starts-with(dport,'!')" -o " !" -b \
-          -o " --dport " \
+		  -o " --dport " \
 		  -v "translate(translate(dport,'!',''),'-',':')" \
 	  -b \
 	  -i "string-length(action) > 0" \
