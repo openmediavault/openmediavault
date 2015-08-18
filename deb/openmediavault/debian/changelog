@@ -1,6 +1,7 @@
 openmediavault (2.1.9) stable; urgency=low
 
   * Various improvements.
+  * Mantis 0001387: iptables '!' rule
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 11 Aug 2015 23:33:06 +0200
 

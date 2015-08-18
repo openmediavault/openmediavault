@@ -23,6 +23,7 @@
 # https://help.ubuntu.com/community/IptablesHowTo
 # http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_:_Ch14_:_Linux_Firewalls_Using_iptables
 # http://www.cyberciti.biz/tips/linux-iptables-how-to-specify-a-range-of-ip-addresses-or-ports.html
+# http://manpages.debian.org/cgi-bin/man.cgi?query=iptables&apropos=0&sektion=0&manpath=Debian+7.8+wheezy&format=html&locale=en
 
 set -e
 
@@ -59,14 +60,14 @@ xmlstarlet sel -t \
 			  -v "translate(source,'!','')" \
 		  -b \
 		  -i "not(contains(source,'-'))" \
-			  -o " -s " \
-			  -i "starts-with(source,'!')" -o "! " -b \
+			  -i "starts-with(source,'!')" -o " !" -b \
+              -o " --source " \
 			  -v "translate(source,'!','')" \
 		  -b \
 	  -b \
 	  -i "string-length(sport) > 0" \
-		  -o " --sport " \
-		  -i "starts-with(sport,'!')" -o "! " -b \
+		  -i "starts-with(sport,'!')" -o " !" -b \
+          -o " --sport " \
 		  -v "translate(translate(sport,'!',''),'-',':')" \
 	  -b \
 	  -i "string-length(destination) > 0" \
@@ -77,14 +78,14 @@ xmlstarlet sel -t \
 			  -v "translate(destination,'!','')" \
 		  -b \
 		  -i "not(contains(destination,'-'))" \
-			  -o " -d " \
-			  -i "starts-with(destination,'!')" -o "! " -b \
+			  -i "starts-with(destination,'!')" -o " !" -b \
+              -o " --destination " \
 			  -v "translate(destination,'!','')" \
 		  -b \
 	  -b \
 	  -i "string-length(dport) > 0" \
-		  -o " --dport " \
-		  -i "starts-with(dport,'!')" -o "! " -b \
+		  -i "starts-with(dport,'!')" -o " !" -b \
+          -o " --dport " \
 		  -v "translate(translate(dport,'!',''),'-',':')" \
 	  -b \
 	  -i "string-length(action) > 0" \
