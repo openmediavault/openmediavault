@@ -98,8 +98,8 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.smb.Audit", {
 		align: "center",
 		dataIndex: "result",
 		stateId: "result",
-		trueIcon: "led_blue.png",
-		falseIcon: "led_red.png"
+		trueIcon: Ext.supports.Svg ? "led_blue.svg" : "led_blue.png",
+		falseIcon: Ext.supports.Svg ? "led_red.svg" : "led_red.png"
 	}],
 	rpcParams: {
 		id: "smbdaudit"

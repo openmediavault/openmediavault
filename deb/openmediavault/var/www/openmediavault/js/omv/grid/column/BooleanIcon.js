@@ -32,8 +32,8 @@ Ext.define("OMV.grid.column.BooleanIcon", {
 		"OMV.util.Format"
 	],
 
-	trueIcon: "yes.png",
-	falseIcon: "no.png",
+	trueIcon: Ext.supports.Svg ? "yes.svg" : "yes.png",
+	falseIcon: Ext.supports.Svg ? "no.svg" : "no.png",
 	undefinedText: "&#160;",
 	trueValue: [ true, 1, "true", "ok", "1", "y", "yes", "on" ],
 

@@ -22,7 +22,6 @@
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/workspace/grid/Panel.js")
-// require("js/omv/util/Format.js")
 
 /**
  * @class OMV.module.admin.diagnostic.service.plugin.Overview
@@ -35,8 +34,7 @@ Ext.define("OMV.module.admin.diagnostic.service.plugin.Overview", {
 	requires: [
 		"OMV.data.Store",
 		"OMV.data.Model",
-		"OMV.data.proxy.Rpc",
-		"OMV.util.Format"
+		"OMV.data.proxy.Rpc"
 	],
 
 	title: _("Overview"),
@@ -60,6 +58,7 @@ Ext.define("OMV.module.admin.diagnostic.service.plugin.Overview", {
 				stateId: "title",
 				flex: 1
 			},{
+				xtype: "booleaniconcolumn",
 				text: _("Enabled"),
 				sortable: true,
 				dataIndex: "enabled",
@@ -67,8 +66,8 @@ Ext.define("OMV.module.admin.diagnostic.service.plugin.Overview", {
 				width: 80,
 				resizable: false,
 				align: "center",
-				renderer: OMV.util.Format.booleanIconRenderer(
-				  "switch_on.png", "switch_off.png")
+				trueIcon: "switch_on.png",
+				falseIcon: "switch_off.png"
 			},{
 				text: _("Running"),
 				sortable: true,
@@ -77,18 +76,19 @@ Ext.define("OMV.module.admin.diagnostic.service.plugin.Overview", {
 				width: 80,
 				resizable: false,
 				align: "center",
-				renderer: function(value, metaData, record, rowIndex,
-				  colIndex, store, view) {
+				renderer: function(value, metaData, record) {
 					var img;
-					switch(record.get("enabled")) {
+					switch (record.get("enabled")) {
 					case 1:
 					case true:
-						img = (true == value) ? "led_blue.png" :
-						  "led_red.png";
+						img = (true == value) ?
+						  (Ext.supports.Svg ? "led_blue.svg" : "led_blue.png" ) :
+						  (Ext.supports.Svg ? "led_red.svg" : "led_red.png" );
 						break;
 					default:
-						img = (true == value) ? "led_blue.png" :
-						  "led_gray.png";
+						img = (true == value) ?
+						  (Ext.supports.Svg ? "led_blue.svg" : "led_blue.png" ) :
+						  (Ext.supports.Svg ? "led_gray.svg" : "led_gray.png" );
 						break;
 					}
 					return "<img border='0' src='images/" + img + "'>";
