@@ -126,7 +126,7 @@ Ext.define("OMV.grid.Panel", {
 	getSelected: function() {
 		var me = this;
 		var records = me.getSelection();
-		if (!Ext.isArray())
+		if (!Ext.isArray(records))
 			return null;
 		return records[0];
 	},

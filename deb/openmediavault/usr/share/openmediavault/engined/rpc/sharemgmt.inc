@@ -1045,6 +1045,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 	 *   \em recursive Apply operations to all files and directories
 	 *     recursively.
 	 *   \em replace Replace all permissions.
+	 *   \em owner The directory/file owner. This field is optional.
+	 *   \em group The directory/file group. This field is optional.
 	 *   \em userperms The owner permissions as octal digit. This field is
 	 *     optional.
 	 *   \em groupperms The group permissions as octal digit. This field is
@@ -1077,6 +1079,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 				  "file":{"type":"string"},
 				  "recursive":{"type":"boolean"},
 				  "replace":{"type":"boolean"},
+				  "owner":{"type":"string","optional":true},
+				  "group":{"type":"string","optional":true},
 				  "userperms":{"type":"integer","enum":[0,1,2,3,4,5,6,7],'.
 					'"optional":true},
 				  "groupperms":{"type":"integer","enum":[0,1,2,3,4,5,6,7],'.
@@ -1122,6 +1126,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			return $bgStatusFilename;
 		}
 		// Child process.
+		$aclspecFile = tempnam(sys_get_temp_dir(), "setfacl");
 		try {
 			$bgOutputFilename = $this->createBgProcOutput();
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
@@ -1129,9 +1134,37 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			// Get the absolute shared folder path.
 			$sfpath = OMVRpc::exec("ShareMgmt", "getPath", array(
 			  "uuid" => $params['uuid']), $context);
+			////////////////////////////////////////////////////////////////////
+			// 1. Update the directory/file owner and group
+			////////////////////////////////////////////////////////////////////
+			// Set the directory owner and group.
+			if (array_key_exists("owner", $params) || array_key_exists(
+			  "group", $params)) {
+				$ownerGroupArg = "";
+				if (array_key_exists("owner", $params))
+					$ownerGroupArg = str_replace(' ', '\ ', $params['owner']);
+				if (array_key_exists("group", $params))
+					$ownerGroupArg = sprintf("%s:%s", $ownerGroupArg,
+					  str_replace(' ', '\ ', $params['group']));
+				// Build the command arguments list.
+				$cmdargs = array();
+				if (TRUE === boolvalEx($params['recursive']))
+					$cmdargs[] = "--recursive";
+				$cmdargs[] = $ownerGroupArg;
+				// Execute command to set the file owner/group.
+				$cmd = sprintf("export LANG=C; chown %s %s 2>&1", implode(
+				  " ", $cmdargs), escapeshellarg(build_path(array($sfpath,
+				  $params['file']))));
+				if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
+					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+					  $cmd, implode("\n", $output));
+				}
+			}
+			////////////////////////////////////////////////////////////////////
+			// 2. Update the directory/file access control lists
+			////////////////////////////////////////////////////////////////////
 			// Build the ACL specifications.
 			$aclspec = array();
-			$aclspecFile = tempnam(sys_get_temp_dir(), "setfacl");
 			// Set permissions of a named users and groups.
 			foreach (array("user", "group") as $typek => $typev) {
 				foreach($params["{$typev}s"] as $entryk => $entryv) {
@@ -1156,14 +1189,12 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 				$aclspec[] = sprintf("default:other::%d", $params['otherperms']);
 				$aclspec[] = sprintf("other::%d", $params['otherperms']);
 			}
-			// Build the command arguments.
+			// Build the command arguments list.
 			$cmdargs = array();
-			if (TRUE === boolvalEx($params['replace'])) {
+			if (TRUE === boolvalEx($params['replace']))
 				$cmdargs[] = "--remove-all";
-			}
-			if (TRUE === boolvalEx($params['recursive'])) {
+			if (TRUE === boolvalEx($params['recursive']))
 				$cmdargs[] = "--recursive";
-			}
 			if (!empty($aclspec)) {
 				if (FALSE === file_put_contents($aclspecFile, implode("\n",
 				  $aclspec))) {
@@ -1179,7 +1210,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			$cmd = sprintf("export LANG=C; setfacl %s -- %s 2>&1", implode(
 			  " ", $cmdargs), escapeshellarg(build_path(array($sfpath,
 			  $params['file']))));
-			if(0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
+			if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
 			}
@@ -1188,6 +1219,9 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			unlink($aclspecFile);
 			exit(0);
 		} catch(Exception $e) {
+			// Cleanup ACL entries file.
+			unlink($aclspecFile);
+			// Update the process status.
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
 			exit(1);
 		}

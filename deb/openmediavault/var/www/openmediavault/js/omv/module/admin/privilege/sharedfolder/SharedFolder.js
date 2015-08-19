@@ -34,6 +34,8 @@
 // require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/form/CompositeField.js")
 // require("js/omv/form/field/UnixFilePermComboBox.js")
+// require("js/omv/form/field/GroupComboBox.js")
+// require("js/omv/form/field/UserComboBox.js")
 
 /**
  * @class OMV.module.admin.privilege.sharedfolder.SharedFolder
@@ -329,7 +331,9 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 		"OMV.tree.Folder",
 		"OMV.util.Format",
 		"OMV.form.CompositeField",
-		"OMV.form.field.UnixFilePermComboBox"
+		"OMV.form.field.UnixFilePermComboBox",
+		"OMV.form.field.GroupComboBox",
+		"OMV.form.field.UserComboBox"
 	],
 
 	readOnly: false,
@@ -443,10 +447,8 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 				xtype: "compositefield",
 				fieldLabel: _("Owner"),
 				items: [{
-					xtype: "textfield",
-					name: "username",
-					readOnly: true,
-					submitValue: false,
+					xtype: "usercombo",
+					name: "owner",
 					flex: 1,
 					value: "root"
 				},{
@@ -463,10 +465,8 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 				xtype: "compositefield",
 				fieldLabel: _("Group"),
 				items: [{
-					xtype: "textfield",
-					name: "groupname",
-					readOnly: true,
-					submitValue: false,
+					xtype: "groupcombo",
+					name: "group",
 					flex: 1,
 					value: "users"
 				},{
@@ -569,6 +569,8 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 				file: me.tp.getPathFromNode(node),
 				recursive: options.recursive,
 				replace: options.replace,
+				owner: options.owner,
+				group: options.group,
 				userperms: options.userperms,
 				groupperms: options.groupperms,
 				otherperms: options.otherperms,
