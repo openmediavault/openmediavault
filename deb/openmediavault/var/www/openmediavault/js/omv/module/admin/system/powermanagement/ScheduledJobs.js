@@ -282,6 +282,7 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Jobs", {
 	stateful: true,
 	stateId: "7db7131c-a7ec-4048-88de-606fd587af8e",
 	columns: [{
+		xtype: "booleaniconcolumn",
 		text: _("Enabled"),
 		sortable: true,
 		dataIndex: "enable",
@@ -289,8 +290,10 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Jobs", {
 		align: "center",
 		width: 80,
 		resizable: false,
-		renderer: OMV.util.Format.booleanIconRenderer(
-		  "switch_on.png", "switch_off.png")
+		trueIcon: Ext.supports.Svg ? "switch_on.svg" :
+		  "switch_on.png",
+		falseIcon: Ext.supports.Svg ? "switch_off.svg" :
+		  "switch_off.png"
 	},{
 		xtype: "mapcolumn",
 		text: _("Type"),

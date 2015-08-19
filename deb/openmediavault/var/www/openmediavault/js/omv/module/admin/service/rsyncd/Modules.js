@@ -460,8 +460,10 @@ Ext.define("OMV.module.admin.service.rsyncd.Modules", {
 		align: "center",
 		width: 80,
 		resizable: false,
-		trueIcon: "switch_on.png",
-		falseIcon: "switch_off.png"
+		trueIcon: Ext.supports.Svg ? "switch_on.svg" :
+		  "switch_on.png",
+		falseIcon: Ext.supports.Svg ? "switch_off.svg" :
+		  "switch_off.png"
 	},{
 		text: _("Shared folder"),
 		sortable: true,

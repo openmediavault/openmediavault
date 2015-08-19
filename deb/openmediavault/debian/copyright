@@ -220,41 +220,56 @@ Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/switch_on.png
-Copyright: Orman Clark
-License: Free for use in both personal and commercial projects
-Comment: http://www.premiumpixels.com/freebies/onoff-switches-and-toggles-psd
+       /var/www/openmediavault/images/switch_on.svg
+Copyright: Volker Theile
+License: permissive
+ .Free for commercial use
+Comment: www.openmediavault.org
 
 Files: /var/www/openmediavault/images/switch_off.png
-Copyright: Orman Clark
+       /var/www/openmediavault/images/switch_off.svg
+Copyright: Volker Theile
 License: permissive
- Free for use in both personal and commercial projects.
-Comment: http://www.premiumpixels.com/freebies/onoff-switches-and-toggles-psd
+ .Free for commercial use
+Comment: www.openmediavault.org
 
 Files: /var/www/openmediavault/images/switch_green.png
-Copyright: Orman Clark
+       /var/www/openmediavault/images/switch_green.svg
+Copyright: Volker Theile
 License: permissive
- Free for use in both personal and commercial projects.
-Comment: http://www.premiumpixels.com/freebies/onoff-switches-and-toggles-psd
+ .Free for commercial use
+Comment: www.openmediavault.org
 
 Files: /var/www/openmediavault/images/switch_red.png
-Copyright: Orman Clark
+       /var/www/openmediavault/images/switch_red.svg
+Copyright: Volker Theile
 License: permissive
- Free for use in both personal and commercial projects.
-Comment: http://www.premiumpixels.com/freebies/onoff-switches-and-toggles-psd
+ .Free for commercial use
+Comment: www.openmediavault.org
+
+Files: /var/www/openmediavault/images/led_blue.png
+       /var/www/openmediavault/images/led_blue.svg
+Copyright: Volker Theile
+License: permissive
+ .Free for commercial use
+Comment: www.openmediavault.org
 
 Files: /var/www/openmediavault/images/led_gray.png
+       /var/www/openmediavault/images/led_gray.svg
 Copyright: Volker Theile
 License: permissive
  Free for commercial use.
 Comment: www.openmediavault.org
 
 Files: /var/www/openmediavault/images/led_green.png
+       /var/www/openmediavault/images/led_green.svg
 Copyright: Volker Theile
 License: permissive
  Free for commercial use.
 Comment: www.openmediavault.org
 
 Files: /var/www/openmediavault/images/led_red.png
+       /var/www/openmediavault/images/led_red.svg
 Copyright: Volker Theile
 License: permissive
  .Free for commercial use
