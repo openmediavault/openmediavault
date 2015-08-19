@@ -556,6 +556,24 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 				}
 			}
 		});
+		// Setup the RPC parameters.
+		rpcParams = {
+			uuid: me.uuid,
+			file: me.tp.getPathFromNode(node),
+			recursive: options.recursive,
+			replace: options.replace,
+			userperms: options.userperms,
+			groupperms: options.groupperms,
+			otherperms: options.otherperms,
+			users: users,
+			groups: groups
+		};
+		// Add these options only if their values have been changed.
+		// So unnecessary work is avoided.
+		Ext.Array.each([ "owner", "group" ], function(name) {
+			if (options.recursive || me.fp.isFieldDirty(name))
+				rpcParams[name] = options[name];
+		});
 		// Use the execute dialog to execute the RPC because it might
 		// take some time depending on how much files/dirs must be
 		// processed.
@@ -564,19 +582,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 			width: 350,
 			rpcService: "ShareMgmt",
 			rpcMethod: "setFileACL",
-			rpcParams: {
-				uuid: me.uuid,
-				file: me.tp.getPathFromNode(node),
-				recursive: options.recursive,
-				replace: options.replace,
-				owner: options.owner,
-				group: options.group,
-				userperms: options.userperms,
-				groupperms: options.groupperms,
-				otherperms: options.otherperms,
-				users: users,
-				groups: groups
-			},
+			rpcParams: rpcParams,
 			hideStartButton: true,
 			hideStopButton: true,
 			hideCloseButton: true,

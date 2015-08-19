@@ -111,15 +111,17 @@ Ext.define("OMV.form.Panel", {
 	/**
 	 * Retrieves the fields in the form as a set of key/value pairs.
 	 * Note, this method collects type-specific data values.
+	 * @param dirtyOnly If TRUE, only fields that are dirty will be included
+	 *   in the result. Defaults to FALSE.
 	 */
-	getValues: function() {
+	getValues: function(dirtyOnly) {
 		var me = this;
 		var basicForm = me.getForm();
 		// Get all field values.
-		var values = basicForm.getFieldValues();
+		var values = basicForm.getFieldValues(dirtyOnly);
 		// Purge values that have 'submitValue' set to FALSE.
 		basicForm.getFields().each(function(field) {
-			if(!field.submitValue) {
+			if (!field.submitValue) {
 				delete values[field.getName()];
 			}
 		});
@@ -128,13 +130,30 @@ Ext.define("OMV.form.Panel", {
 
 	/**
 	 * Find a specific Ext.form.field.Field in this form by id or name.
+	 * @param id The value to search for (specify either a id or name).
 	 * @return The first matching field, or null if none was found.
 	 */
 	findField: function(id) {
 		var me = this;
 		var basicForm = me.getForm();
-		if(Ext.isEmpty(basicForm))
+		if (Ext.isEmpty(basicForm))
 			return null;
 		return basicForm.findField(id);
+	},
+
+	/**
+	 * Check if a specific Ext.form.field.Field has changed from its
+	 * original value.
+	 * @param id The id or name of the form field.
+	 * @return Returns TRUE if the field has changed from its original,
+	 *   value, otherwise FALSE. If the field is not found, then NULL
+	 *   will be returned.
+	 */
+	isFieldDirty: function(id) {
+		var me = this;
+		var field = me.findField(id);
+		if (!field || !field.isFormField)
+			return null;
+		return field.isDirty();
 	}
 });
