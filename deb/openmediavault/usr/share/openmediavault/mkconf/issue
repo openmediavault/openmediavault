@@ -49,7 +49,7 @@ interface via a web browser:
 
 EOF
 
-	ifaces=$(ifquery --list -X lo)
+	ifaces=$(ifquery --list --allow=hotplug -X lo)
 	if [ -n "${ifaces}" ]; then
 		for iface in ${ifaces} ; do
 			ipaddr=$(omv_get_ipaddr ${iface})
