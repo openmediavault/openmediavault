@@ -139,17 +139,22 @@ Ext.define("OMV.grid.Privileges", {
 				width: 60,
 				resizable: false,
 				renderer: function(value, metaData) {
-					switch(value) {
+					var iconCls, text;
+					switch (value) {
 					case "user":
-						metaData.tdAttr = "data-qtip='" + _("User") + "'";
-						value = "<img border='0' src='images/user.png'>";
+						text = _("User");
+						iconCls = "grid-cell-usergroupiconcolumn-user";
 						break;
 					case "group":
-						metaData.tdAttr = "data-qtip='" + _("Group") + "'";
-						value = "<img border='0' src='images/group.png'>";
+						text = _("Group");
+						iconCls = "grid-cell-usergroupiconcolumn-group";
 						break;
 					}
-					return value;
+					metaData.tdAttr = "data-qtip='" + text + "'";
+					metaData.tdCls = Ext.baseCSSPrefix +
+					  "grid-cell-usergroupiconcolumn" + " " +
+					  Ext.baseCSSPrefix + iconCls;
+					return "";
 				}
 			},{
 				text: _("Name"),

@@ -24,6 +24,13 @@
  * @ingroup webgui
  * @class OMV.grid.column.BooleanIcon
  * @derived Ext.grid.column.Column
+ * @param iconCls A CSS class used to render the boolean value. This can
+ *   be for example:<ul>
+ *   \li x-grid-cell-booleaniconcolumn-yesno
+ *   \li x-grid-cell-booleaniconcolumn-led
+ *   \li x-grid-cell-booleaniconcolumn-switch
+ *   </ul>
+ *   Defaults to 'x-grid-cell-booleaniconcolumn-yesno'.
  */
 Ext.define("OMV.grid.column.BooleanIcon", {
 	extend: "Ext.grid.column.Column",
@@ -32,8 +39,8 @@ Ext.define("OMV.grid.column.BooleanIcon", {
 		"OMV.util.Format"
 	],
 
-	trueIcon: Ext.supports.Svg ? "yes.svg" : "yes.png",
-	falseIcon: Ext.supports.Svg ? "no.svg" : "no.png",
+	iconBaseCls: Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn",
+	iconCls: Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-yesno",
 	undefinedText: "&#160;",
 	trueValue: [ true, 1, "true", "ok", "1", "y", "yes", "on" ],
 
@@ -41,13 +48,13 @@ Ext.define("OMV.grid.column.BooleanIcon", {
 
 	defaultRenderer: function(value, metaData) {
 		var me = this;
+		var iconCls = me.iconCls + "-false";
 		if (!Ext.isDefined(value))
 			return me.undefinedText;
-		var img = me.falseIcon;
 		if (Ext.Array.contains(me.trueValue, value))
-			img = me.trueIcon;
-		return Ext.String.format("<img border='0' src='images/{0}' " +
-		  "alt='{1}'>", img, OMV.util.Format.boolean(value));
+			iconCls = me.iconCls + "-true";
+		metaData.tdCls = me.iconBaseCls + " " + iconCls;
+		return "";
 	},
 
 	updater: function(cell, value, record, view, dataSource) {

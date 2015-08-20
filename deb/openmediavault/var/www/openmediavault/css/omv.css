@@ -391,6 +391,63 @@ div#headerrlogo {
 	background-image: url("../images/page-refresh.svg"), none;
 }
 
+/* Grid columns */
+.x-grid-cell-booleaniconcolumn {
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.x-grid-cell-booleaniconcolumn-yesno-true,
+.x-grid-cell-booleaniconcolumn-yes {
+	background-image: url("../images/yes.png");
+	background-image: url("../images/yes.svg"), none;
+}
+.x-grid-cell-booleaniconcolumn-yesno-false,
+.x-grid-cell-booleaniconcolumn-no {
+	background-image: url("../images/no.png");
+	background-image: url("../images/no.svg"), none;
+}
+.x-grid-cell-booleaniconcolumn-led-true,
+.x-grid-cell-booleaniconcolumn-led-blue {
+	background-image: url("../images/led_blue.png");
+	background-image: url("../images/led_blue.svg"), none;
+}
+.x-grid-cell-booleaniconcolumn-led-false,
+.x-grid-cell-booleaniconcolumn-led-gray {
+	background-image: url("../images/led_gray.png");
+	background-image: url("../images/led_gray.svg"), none;
+}
+.x-grid-cell-booleaniconcolumn-led-green {
+	background-image: url("../images/led_green.png");
+	background-image: url("../images/led_green.svg"), none;
+}
+.x-grid-cell-booleaniconcolumn-led-red {
+	background-image: url("../images/led_red.png");
+	background-image: url("../images/led_red.svg"), none;
+}
+.x-grid-cell-booleaniconcolumn-switch-true,
+.x-grid-cell-booleaniconcolumn-switch-on {
+	background-image: url("../images/switch_on.png");
+	background-image: url("../images/switch_on.svg"), none;
+}
+.x-grid-cell-booleaniconcolumn-switch-false,
+.x-grid-cell-booleaniconcolumn-switch-off {
+	background-image: url("../images/switch_off.png");
+	background-image: url("../images/switch_off.svg"), none;
+}
+.x-grid-cell-usergroupiconcolumn {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 16px 16px;
+}
+.x-grid-cell-usergroupiconcolumn-user {
+	background-image: url("../images/user.png");
+	background-image: url("../images/user.svg"), none;
+}
+.x-grid-cell-usergroupiconcolumn-group {
+	background-image: url("../images/group.png");
+	background-image: url("../images/group.svg"), none;
+}
+
 /******************************************************************************/
 /* Bugfixes/Workarounds
 /******************************************************************************/

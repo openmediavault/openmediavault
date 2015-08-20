@@ -66,10 +66,7 @@ Ext.define("OMV.module.admin.dashboard.view.ServiceStatus", {
 					width: 80,
 					resizable: false,
 					align: "center",
-					trueIcon: Ext.supports.Svg ? "switch_on.svg" :
-					  "switch_on.png",
-					falseIcon: Ext.supports.Svg ? "switch_off.svg" :
-					  "switch_off.png"
+					iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
 				},{
 					text: _("Running"),
 					sortable: true,
@@ -79,21 +76,24 @@ Ext.define("OMV.module.admin.dashboard.view.ServiceStatus", {
 					resizable: false,
 					align: "center",
 					renderer: function(value, metaData, record) {
-						var img;
+						var iconCls;
 						switch (record.get("enabled")) {
 						case 1:
-						case true:
-							img = (true == value) ?
-							  (Ext.supports.Svg ? "led_blue.svg" : "led_blue.png" ) :
-							  (Ext.supports.Svg ? "led_red.svg" : "led_red.png" );
+						case true: // Service enabled
+							iconCls = (true == value) ?
+							  "grid-cell-booleaniconcolumn-led-blue" :
+							  "grid-cell-booleaniconcolumn-led-red";
 							break;
-						default:
-							img = (true == value) ?
-							  (Ext.supports.Svg ? "led_blue.svg" : "led_blue.png" ) :
-							  (Ext.supports.Svg ? "led_gray.svg" : "led_gray.png" );
+						default: // Service disabled
+							iconCls = (true == value) ?
+							  "grid-cell-booleaniconcolumn-led-blue" :
+							  "grid-cell-booleaniconcolumn-led-gray";
 							break;
 						}
-						return "<img border='0' src='images/" + img + "'>";
+						metaData.tdCls = Ext.baseCSSPrefix +
+						  "grid-cell-booleaniconcolumn" + " " +
+						  Ext.baseCSSPrefix + iconCls;
+						return "";
 					}
 				}],
 				viewConfig: {

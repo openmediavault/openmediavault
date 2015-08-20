@@ -433,10 +433,7 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 		align: "center",
 		width: 80,
 		resizable: false,
-		trueIcon: Ext.supports.Svg ? "switch_on.svg" :
-		  "switch_on.png",
-		falseIcon: Ext.supports.Svg ? "switch_off.svg" :
-		  "switch_off.png"
+		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
 	},{
 		text: _("Device"),
 		sortable: true,

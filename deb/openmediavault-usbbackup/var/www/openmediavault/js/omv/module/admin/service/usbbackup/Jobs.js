@@ -284,8 +284,7 @@ Ext.define("OMV.module.admin.service.usbbackup.Jobs", {
 		align: "center",
 		width: 80,
 		resizable: false,
-		trueIcon: "switch_on.png",
-		falseIcon: "switch_off.png"
+		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
 	},{
 		text: _("Shared folder"),
 		sortable: true,
