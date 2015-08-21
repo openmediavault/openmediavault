@@ -100,8 +100,6 @@ div#headerrlogo {
 .x-mask-msg {
 	padding: none;
     background: #333;
-	-webkit-border-radius: 8px;
-	-moz-border-radius: 8px;
 	border-radius: 4px;
 	border-style: solid;
 	border-width: 1px;
@@ -159,6 +157,7 @@ div#headerrlogo {
 	background-color: #eee;
 	font-family: "Myriad Pro","Myriad Web","Tahoma","Helvetica","Arial",sans-serif;
 	color: #393939;
+	border-radius: 4px;
 }
 .x-box-aboutbox a {
 	text-decoration: none !important;
