@@ -96,6 +96,30 @@ div#headerrlogo {
 .x-text-center {
 	text-align: center;
 }
+/* Loadmask */
+.x-mask-msg {
+	padding: none;
+    background: #333;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 4px;
+	border-style: solid;
+	border-width: 1px;
+    border-color: #333;
+}
+.x-mask-msg-inner {
+    padding: 0 5px;
+    border-style: solid;
+    border-width: 0px;
+    background-color: #333;
+    color: #fff;
+}
+.x-mask-msg-text {
+    padding: 5px 5px 5px 20px;
+    background-image: url("/images/loading.gif");
+    background-repeat: no-repeat;
+    background-position: 0 center;
+}
 /* Customize form fields */
 .x-form-text-wrap-noborder {
 	border-width: 0px

@@ -487,3 +487,7 @@ Files: /var/www/openmediavault/images/page-refresh.png
        /var/www/openmediavault/images/page-refresh.svg
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
+
+Files: /var/www/openmediavault/images/loading.gif
+Copyright: <http://www.ajaxload.info>
+License: WTFPL
