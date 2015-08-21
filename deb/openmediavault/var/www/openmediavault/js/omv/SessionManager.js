@@ -55,16 +55,27 @@ Ext.define("OMV.SessionManager", {
 
 	logout: function() {
 		var me = this;
+		// Mask the whole document body.
+		var bodyEl = Ext.getBody();
+		if (bodyEl && bodyEl.isElement)
+			bodyEl.mask("Logging out, please wait ...");
+		// Notify backend.
 		OMV.Rpc.request({
 			scope: me,
 			callback: function(id, success, response) {
-				if(success) {
+				if (success) {
+					// Force a page reload if the RPC returns successful.
+					// Do not unmask the document.
+
 					// Reset the session data.
 					this.username = null;
 					// Disable confirm dialog and reload the whole page.
 					OMV.confirmPageUnload = false;
 					document.location.reload(true);
 				} else {
+					// Unnask the document body and display the error.
+					if (bodyEl && bodyEl.isElement)
+						bodyEl.unmask();
 					OMV.MessageBox.error(null, error);
 				}
 			},
