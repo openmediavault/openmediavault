@@ -489,5 +489,6 @@ Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/loading.gif
+       /var/www/openmediavault/images/wait.gif
 Copyright: <http://www.ajaxload.info>
 License: WTFPL
