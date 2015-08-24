@@ -220,7 +220,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 				align: "center",
 				width: 60,
 				resizable: false,
-				renderer: function(value) {
+				renderer: function(value, metaData, record) {
 					var iconCls, text;
 					switch (value) {
 					case "user":
@@ -251,7 +251,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 				stateId: "bused",
 				flex: 1,
 				renderer: function(value) {
-					if(value <= 0)
+					if (value <= 0)
 						value = "--";
 					return value;
 				}
@@ -269,7 +269,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 				},
 				flex: 1,
 				renderer: function(value) {
-					if((value <= 0) || Ext.isEmpty(value))
+					if ((value <= 0) || Ext.isEmpty(value))
 						value = "--";
 					return value;
 				}
@@ -320,7 +320,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 					switch(e.field) {
 					case "bhardlimit":
 						// Display a empty number field if value is 0.
-						if(e.value == 0)
+						if (e.value == 0)
 							e.record.set("bhardlimit", "");
 						break;
 					}
@@ -328,7 +328,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 				validateedit: function(editor, e, eOpts) {
 					var bunit = e.record.get("bunit");
 					var bhardlimit = e.record.get("bhardlimit");
-					switch(e.field) {
+					switch (e.field) {
 					case "bhardlimit":
 						bhardlimit = !Ext.isEmpty(e.value) ? e.value : 0;
 						break;
@@ -338,7 +338,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 					}
 					// Validate quota with max. possible value (4TiB).
 					bhardlimit = bhardlimit.binaryConvert(bunit, "B");
-					if(bhardlimit > 4 * Math.pow(2, 40)) {
+					if (bhardlimit > 4 * Math.pow(2, 40)) {
 						OMV.MessageBox.failure(null, _("The specified quota exceeds the max. possible value of 4TiB."));
 						return false;
 					}
@@ -353,7 +353,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 		var values = me.getValues();
 		Ext.Array.each(values, function(value) {
 			// Only submit useful settings.
-			if((value.bhardlimit == 0) || Ext.isEmpty(value.bhardlimit))
+			if ((value.bhardlimit == 0) || Ext.isEmpty(value.bhardlimit))
 				return;
 			quota.push({
 				type: value.type,
