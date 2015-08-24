@@ -111,6 +111,7 @@ Ext.define("OMV.module.admin.dashboard.view.NetworkInterfaces", {
 					},
 					flex: 1
 				},{
+					xtype: "booleaniconcolumn",
 					text: _("Link"),
 					sortable: true,
 					dataIndex: "link",
@@ -118,18 +119,7 @@ Ext.define("OMV.module.admin.dashboard.view.NetworkInterfaces", {
 					align: "center",
 					width: 80,
 					resizable: false,
-					renderer: function(value) {
-						switch(value) {
-						case true:
-							img = "iflinkyes.png";
-							break;
-						default:
-							img = "iflinkno.png";
-							break;
-						}
-						return "<img border='0' src='images/" + img +
-						  "' alt='" + value + "'>";
-					}
+					iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-rj45"
 				}],
 				viewConfig: {
 					trackOver: false

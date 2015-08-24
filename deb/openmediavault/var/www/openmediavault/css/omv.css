@@ -471,6 +471,14 @@ div#headerrlogo {
 	background-image: url("../images/group.png");
 	background-image: url("../images/group.svg"), none;
 }
+.x-grid-cell-booleaniconcolumn-rj45-true {
+	background-image: url("../images/rj45_yes.png");
+	background-image: url("../images/rj45_yes.svg"), none;
+}
+.x-grid-cell-booleaniconcolumn-rj45-false {
+	background-image: url("../images/rj45_no.png");
+	background-image: url("../images/rj45_no.svg"), none;
+}
 
 /******************************************************************************/
 /* Bugfixes/Workarounds
