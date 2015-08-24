@@ -53,6 +53,7 @@ div#shutdownlogo {
 	top: 0px;
 	right: 0px;
 	background: url("/images/shutdown_64.png");
+	background: url("/images/shutdown_64.svg"), none;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-color: transparent;
