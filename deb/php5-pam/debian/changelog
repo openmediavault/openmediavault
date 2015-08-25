@@ -1,3 +1,12 @@
+php5-pam (1.0.3-3) stable; urgency=low
+
+  * Change source/format to 1.0 to avoid the dpkg-buildpackage error
+    'native package version may not have a revision' in Debian Jessie.
+    Otherwise it is not possible to show package improvements via x.x.x-yyy
+    version names.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 25 Aug 2015 09:43:37 +0000
+
 php5-pam (1.0.3-2) stable; urgency=low
 
   * Build for Debian Wheezy.
@@ -9,4 +18,3 @@ php5-pam (1.0.3-1) stable; urgency=low
   * Initial Release.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 22 Jun 2012 12:05:26 +0000
-
