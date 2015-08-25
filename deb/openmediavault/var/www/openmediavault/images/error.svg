@@ -15,12 +15,12 @@
    viewBox="0 0 16 16"
    id="svg2"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="no.svg"
-   inkscape:export-filename="./no.png"
+   sodipodi:docname="error.svg"
+   inkscape:export-filename="./error.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <metadata
-     id="metadata12">
+     id="metadata10">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -31,7 +31,7 @@
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs10" />
+     id="defs8" />
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -41,25 +41,20 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="973"
-     inkscape:window-height="480"
-     id="namedview8"
+     inkscape:window-width="1033"
+     inkscape:window-height="620"
+     id="namedview6"
      showgrid="false"
-     inkscape:zoom="7.375"
-     inkscape:cx="18.043735"
-     inkscape:cy="10.0922"
-     inkscape:window-x="1780"
-     inkscape:window-y="418"
+     inkscape:zoom="14.75"
+     inkscape:cx="8"
+     inkscape:cy="8"
+     inkscape:window-x="1883"
+     inkscape:window-y="183"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg2" />
-  <g
-     id="g4" />
   <path
-     d="M16 7v2q0 0.422-0.297 0.711t-0.703 0.289h-14q-0.406 0-0.703-0.289t-0.297-0.711v-2q0-0.406 0.289-0.703t0.711-0.297h14q0.406 0 0.703 0.297t0.297 0.703z"
-     fill="#ff0000"
-     id="path6"
-     style="fill:#db4437;fill-opacity:1"
-     inkscape:export-filename="./no.png"
-     inkscape:export-xdpi="90"
-     inkscape:export-ydpi="90" />
+     fill="#000000"
+     d="M8 16q-2.172 0-4.016-1.070t-2.914-2.914-1.070-4.016 1.070-4.016 2.914-2.914 4.016-1.070 4.016 1.070 2.914 2.914 1.070 4.016-1.070 4.016-2.914 2.914-4.016 1.070zM12 7.5q0-0.203-0.148-0.352t-0.352-0.148h-7q-0.203 0-0.352 0.148t-0.148 0.352v1q0 0.203 0.148 0.352t0.352 0.148h7q0.203 0 0.352-0.148t0.148-0.352v-1z"
+     id="path4"
+     style="fill:#db4437;fill-opacity:1" />
 </svg>

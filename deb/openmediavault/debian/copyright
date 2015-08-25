@@ -166,9 +166,16 @@ Copyright: David Ferreira (http://cargocollective.com/davidferreira)
 License: CC-BY-SA-3.0
 
 Files: /var/www/openmediavault/images/error.png
-Copyright: Alexander Moore (http://www.famfamfam.com)
-License: GPL
-Comment: http://www.iconfinder.com/icondetails/39516/16
+       /var/www/openmediavault/images/error.png
+Copyright: Volker Theile
+License: CC-BY-3.0
+Comment: Based on WebHostingHub
+
+Files: /var/www/openmediavault/images/warn.png
+       /var/www/openmediavault/images/warn.png
+Copyright: Volker Theile
+License: CC-BY-3.0
+Comment: Based on alert.svg from WebHostingHub
 
 Files: /var/www/openmediavault/images/logout.png
        /var/www/openmediavault/images/logout.svg
