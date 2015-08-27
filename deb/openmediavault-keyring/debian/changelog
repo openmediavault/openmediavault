@@ -1,4 +1,4 @@
-openmediavault-keyring (0.3) stable; urgency=low
+openmediavault-keyring (0.4) stable; urgency=low
 
   * Put openmediavault-keyring.gpg into trusted.gpg.d.
   * Remove key from trusted.gpg file.

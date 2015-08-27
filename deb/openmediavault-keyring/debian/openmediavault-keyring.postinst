@@ -25,7 +25,7 @@ case "$1" in
     configure)
         if [ -n "$2" ]; then
             # Remove keys from the trusted.gpg file as they are now shipped in fragment files in trusted.gpg.d
-        	if dpkg --compare-versions "$2" lt-nl "0.3" && which gpg > /dev/null && which apt-key > /dev/null; then
+        	if dpkg --compare-versions "$2" lt-nl "0.4" && which gpg > /dev/null && which apt-key > /dev/null; then
         		TRUSTEDFILE='/etc/apt/trusted.gpg'
         		eval $(apt-config shell TRUSTEDFILE Apt::GPGV::TrustedKeyring)
         		eval $(apt-config shell TRUSTEDFILE Dir::Etc::Trusted/f)
