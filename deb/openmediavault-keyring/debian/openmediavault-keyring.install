@@ -1,1 +1,2 @@
-keyrings/* usr/share/keyrings/
+usr/share/keyrings/*
+etc/apt/trusted.gpg.d/*

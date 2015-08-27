@@ -23,9 +23,19 @@ set -e
 
 case "$1" in
     configure)
-	if [ -x /usr/bin/apt-key ]; then
-	    apt-key add /usr/share/keyrings/openmediavault-keyring.gpg
-	fi
+        if [ -n "$2" ]; then
+            # Remove keys from the trusted.gpg file as they are now shipped in fragment files in trusted.gpg.d
+        	if dpkg --compare-versions "$2" lt-nl "0.3" && which gpg > /dev/null && which apt-key > /dev/null; then
+        		TRUSTEDFILE='/etc/apt/trusted.gpg'
+        		eval $(apt-config shell TRUSTEDFILE Apt::GPGV::TrustedKeyring)
+        		eval $(apt-config shell TRUSTEDFILE Dir::Etc::Trusted/f)
+        		if [ -e "$TRUSTEDFILE" ]; then
+        			for KEY in 2EF35D13; do
+        				apt-key --keyring "$TRUSTEDFILE" del $KEY > /dev/null 2>&1 || :
+        			done
+        		fi
+        	fi
+        fi
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

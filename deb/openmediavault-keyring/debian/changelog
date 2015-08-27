@@ -1,5 +1,12 @@
 openmediavault-keyring (0.3) stable; urgency=low
 
+  * Put openmediavault-keyring.gpg into trusted.gpg.d.
+  * Remove key from trusted.gpg file.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Aug 2015 23:47:18 +0200
+
+openmediavault-keyring (0.3) stable; urgency=low
+
   * Add udeb package.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 03 Aug 2014 02:05:55 +0200
