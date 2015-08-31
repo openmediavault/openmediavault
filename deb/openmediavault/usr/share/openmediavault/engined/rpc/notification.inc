@@ -39,6 +39,7 @@ class OMVRpcServiceNotification extends OMVRpcServiceAbstract {
 	public function initialize() {
 		$this->registerMethod("get");
 		$this->registerMethod("set");
+		$this->registerMethod("isEnabled");
 	}
 
 	/**
@@ -144,6 +145,39 @@ class OMVRpcServiceNotification extends OMVRpcServiceAbstract {
 		  "org.openmediavault.system.notification.notifications", $object);
 		// Return the configuration object.
 		return $object;
+	}
+
+	/**
+	 * Checks whether a notification is enabled.
+	 * @param params An array containing the following fields:
+	 *   \em id The notification identifier.
+	 * @param context The context of the caller.
+	 * @return TRUE if the serice is enabled, otherwise FALSE.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 */
+	function isEnabled($params, $context) {
+		global $xmlConfig;
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "id":{"type":"string"}
+			  }
+		  }');
+		// Get the configuration object.
+		$xpath = sprintf("//system/notification/notifications/%s",
+		  $params['id']);
+		$object = $xmlConfig->get($xpath);
+		if (is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		$result = boolvalEx($object);
+		return $result;
 	}
 }
 
