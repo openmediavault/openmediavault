@@ -379,7 +379,8 @@ Ext.apply(Ext.form.field.VTypes, {
 	sshPubKeyRFC4716: function(v) {
 		// See https://tools.ietf.org/html/rfc4716#section-3.4
 		return RegExp("^---- BEGIN SSH2 PUBLIC KEY ----(\n|\r|\f)((.+)?" +
-		  "((\n|\r|\f).+)*)(\n|\r|\f)---- END SSH2 PUBLIC KEY ----$").test(v);
+		  "((\n|\r|\f).+)*)(\n|\r|\f)---- END SSH2 PUBLIC KEY ----" +
+		  "[\n\r\f]*$").test(v);
 	},
 	sshPubKeyRFC4716Text: _("Invalid SSH public key (RFC 4716)"),
 	sshPubKeyRFC4716Mask: /[a-zA-Z0-9+/=\- ]/,
