@@ -175,6 +175,28 @@ div#headerrlogo {
 .x-form-folder-trigger {
 	background-image: url("../images/folder-trigger.png");
 }
+/* Checkbox */
+.x-form-checkbox-default,
+.x-form-radio-default {
+    width: 40px;
+    height: 16px;
+}
+.x-form-cb-default {
+    margin-top: 3px;
+}
+.x-form-cb-label-default.x-form-cb-label-after {
+    padding-left: 44px;
+}
+.x-form-checkbox-default {
+	background-position: left;
+	background-image: url("../images/switch_off.png");
+	background-image: url("../images/switch_off.svg"), none;
+}
+.x-form-cb-checked .x-form-checkbox-default {
+	background-position: left;
+	background-image: url("../images/switch_on.png");
+	background-image: url("../images/switch_on.svg"), none;
+}
 /* Checkbox field */
 .x-form-type-checkbox input.x-form-invalid-field {
 	border: 1px solid #cc3300;
@@ -446,7 +468,6 @@ div#headerrlogo {
 	background-image: url("../images/page-refresh.png");
 	background-image: url("../images/page-refresh.svg"), none;
 }
-
 /* Grid columns */
 .x-grid-cell-booleaniconcolumn {
 	background-repeat: no-repeat;
