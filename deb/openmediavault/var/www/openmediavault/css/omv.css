@@ -97,6 +97,15 @@ div#headerrlogo {
 .x-text-center {
 	text-align: center;
 }
+/* Tooltip - Default */
+.x-tip-default {
+	border-color: #333;
+	background-color: #333;
+	box-shadow: none !important;
+}
+.x-tip-body-default {
+	color: #fff;
+}
 /* Tooltip - Invalid form field */
 .x-tip-form-invalid {
 	border-color: #db4437;
@@ -116,15 +125,15 @@ div#headerrlogo {
 /* Loadmask */
 .x-mask-msg {
 	padding: none;
-    background: #333;
+	background: #333;
 	-webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
 	border-radius: 4px;
 	border-style: solid;
 	border-width: 1px;
-    border-color: #333;
+	border-color: #333;
 }
 .x-mask-msg-inner {
     padding: 0 5px;
