@@ -108,8 +108,8 @@ div#headerrlogo {
 }
 /* Tooltip - Invalid form field */
 .x-tip-form-invalid {
-	border-color: #db4437;
-	background-color: #db4437;
+	border-color: #ea4335;
+	background-color: #ea4335;
 	box-shadow: none !important;
 }
 .x-tip-body-form-invalid {
