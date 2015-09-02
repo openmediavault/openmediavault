@@ -108,8 +108,8 @@ div#headerrlogo {
 }
 /* Tooltip - Invalid form field */
 .x-tip-form-invalid {
-	border-color: #ea4335;
-	background-color: #ea4335;
+	border-color: #ff3b30;
+	background-color: #ff3b30;
 	box-shadow: none !important;
 }
 .x-tip-body-form-invalid {
@@ -211,6 +211,9 @@ div#headerrlogo {
 	border-top-color: #b3b3b3;
 	border-bottom-color: #b3b3b3;
 	border-right-color: #b3b3b3;
+}
+.x-progress-default {
+	border-width: 0px; /* Flat design */
 }
 .x-progress-default .x-progress-bar-default {
 	background-color: #98b7cf; /* Cooperate color */
@@ -461,8 +464,8 @@ div#headerrlogo {
 }
 .x-grid-cell-booleaniconcolumn-led-true,
 .x-grid-cell-booleaniconcolumn-led-blue {
-	background-image: url("../images/led_blue.png");
-	background-image: url("../images/led_blue.svg"), none;
+	background-image: url("../images/led_green.png");
+	background-image: url("../images/led_green.svg"), none;
 }
 .x-grid-cell-booleaniconcolumn-led-false,
 .x-grid-cell-booleaniconcolumn-led-gray {
