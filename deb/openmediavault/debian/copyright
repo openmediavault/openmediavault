@@ -456,16 +456,6 @@ Files: /var/www/openmediavault/images/share.png
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
 
-Files: /var/www/openmediavault/images/circledown.png
-       /var/www/openmediavault/images/circledown.svg
-Copyright: WebHostingHub <http://www.webhostinghub.com>
-License: CC-BY-3.0
-
-Files: /var/www/openmediavault/images/circleright.png
-       /var/www/openmediavault/images/circleright.svg
-Copyright: WebHostingHub <http://www.webhostinghub.com>
-License: CC-BY-3.0
-
 Files: /var/www/openmediavault/images/globe.png
        /var/www/openmediavault/images/globe.svg
 Copyright: WebHostingHub <http://www.webhostinghub.com>
@@ -514,3 +504,18 @@ Copyright: Volker Theile
 License: permissive
  .Free for commercial use
 Comment: www.openmediavault.org
+
+Files: /var/www/openmediavault/images/tree-folder.png
+       /var/www/openmediavault/images/tree-folder.svg
+Copyright: Google <https://www.google.com/design/icons>
+License: CC-BY-4.0
+
+Files: /var/www/openmediavault/images/tree-folder-open.png
+       /var/www/openmediavault/images/tree-folder-open.svg
+Copyright: Google <https://www.google.com/design/icons>
+License: CC-BY-4.0
+
+Files: /var/www/openmediavault/images/exclamation.png
+       /var/www/openmediavault/images/exclamation.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0

@@ -97,10 +97,27 @@ div#headerrlogo {
 .x-text-center {
 	text-align: center;
 }
+/* Tooltip - Invalid form field */
+.x-tip-form-invalid {
+	border-color: #db4437;
+    background-color: #db4437;
+	box-shadow: none !important;
+}
+.x-tip-body-form-invalid {
+	filter: invert(100%);
+	-webkit-filter: invert(100%);
+    color: #000;
+	background-image: url("../images/exclamation.png");
+	background-image: url("../images/exclamation.svg"), none;
+}
 /* Loadmask */
 .x-mask-msg {
 	padding: none;
     background: #333;
+	-webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
 	border-radius: 4px;
 	border-style: solid;
 	border-width: 1px;
@@ -264,13 +281,13 @@ div#headerrlogo {
 }
 .x-tree-lines .x-tree-elbow-plus,
 .x-tree-lines .x-tree-elbow-end-plus {
-	background-image: url("../images/circleright.png");
-	background-image: url("../images/circleright.svg"), none;
+	background-image: url("../images/tree-folder.png");
+	background-image: url("../images/tree-folder.svg"), none;
 }
 .x-tree-lines .x-grid-tree-node-expanded .x-tree-elbow-plus,
 .x-tree-lines .x-grid-tree-node-expanded .x-tree-elbow-end-plus {
-	background-image: url("../images/circledown.png");
-	background-image: url("../images/circledown.svg"), none;
+	background-image: url("../images/tree-folder-open.png");
+	background-image: url("../images/tree-folder-open.svg"), none;
 }
 /* Button */
 .x-btn-icon-el {
