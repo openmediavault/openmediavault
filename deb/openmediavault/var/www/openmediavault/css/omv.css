@@ -100,13 +100,16 @@ div#headerrlogo {
 /* Tooltip - Invalid form field */
 .x-tip-form-invalid {
 	border-color: #db4437;
-    background-color: #db4437;
+	background-color: #db4437;
 	box-shadow: none !important;
 }
 .x-tip-body-form-invalid {
 	filter: invert(100%);
 	-webkit-filter: invert(100%);
-    color: #000;
+	-moz-filter: invert(100%);
+	-o-filter: invert(100%);
+	-ms-filter: invert(100%);
+	color: #000;
 	background-image: url("../images/exclamation.png");
 	background-image: url("../images/exclamation.svg"), none;
 }
