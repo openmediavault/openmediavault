@@ -148,9 +148,10 @@ div#headerrlogo {
     background-repeat: no-repeat;
     background-position: 0 center;
 }
-/* Customize form fields */
-.x-form-text-wrap-noborder {
-	border-width: 0px
+/* Mark read-only form fields */
+.x-form-item-default.x-form-readonly input {
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+	opacity: 0.3;
 }
 /* Customize textarea fields */
 .x-form-textarea-monospaced textarea {
@@ -249,6 +250,7 @@ div#headerrlogo {
 .x-message-box-info, .x-message-box-warning, .x-message-box-question,
 .x-message-box-error {
 	background-size: 32px 32px;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
 	opacity: 0.7;
 }
 .x-message-box-info {
@@ -292,6 +294,7 @@ div#headerrlogo {
 }
 /* Tree */
 .x-tree-icon, .x-tree-elbow-img {
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
 	opacity: 0.7;
 }
 .x-tree-icon-16x16 {
@@ -328,6 +331,7 @@ div#headerrlogo {
 }
 /* Button */
 .x-btn-icon-el {
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
 	opacity: 0.7;
 }
 .x-btn-icon-16x16 {
@@ -344,6 +348,7 @@ div#headerrlogo {
 }
 /* Workspace node view */
 .x-workspace-node-view {
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
 	opacity: 0.7;
 }
 .x-workspace-node-view-category {
@@ -425,6 +430,7 @@ div#headerrlogo {
 */
 /* Menu */
 .x-menu-item-icon {
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
 	opacity: 0.7;
 }
 .x-menu-item-icon-16x16 {
@@ -439,6 +445,7 @@ div#headerrlogo {
 }
 /* Dashboard */
 .x-workspace-dashboard-widget-icon {
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
 	opacity: 0.7;
 	background-size: 16px 16px;
 }
