@@ -136,17 +136,17 @@ div#headerrlogo {
 	border-color: #333;
 }
 .x-mask-msg-inner {
-    padding: 0 5px;
-    border-style: solid;
-    border-width: 0px;
-    background-color: #333;
-    color: #fff;
+	padding: 0 5px;
+	border-style: solid;
+	border-width: 0px;
+	background-color: #333;
+	color: #fff;
 }
 .x-mask-msg-text {
-    padding: 5px 5px 5px 20px;
-    background-image: url("/images/loading.gif");
-    background-repeat: no-repeat;
-    background-position: 0 center;
+	padding: 5px 5px 5px 20px;
+	background-image: url("/images/loading.gif");
+	background-repeat: no-repeat;
+	background-position: 0 center;
 }
 /* Mark read-only form fields */
 .x-form-item-default.x-form-readonly input {
@@ -438,10 +438,10 @@ div#headerrlogo {
 }
 /* Form grid field */
 .x-form-invalid .x-form-gridfield-body .x-grid {
-  border: 1px solid #cc3300;
-  background-image: url("/extjs/resources/ext-theme-gray/images/grid/invalid_line.gif");
-  background-repeat: repeat-x;
-  background-position: bottom;
+	border: 1px solid #cc3300;
+	background-image: url("/extjs/resources/ext-theme-gray/images/grid/invalid_line.gif");
+	background-repeat: repeat-x;
+	background-position: bottom;
 }
 /* Dashboard */
 .x-workspace-dashboard-widget-icon {

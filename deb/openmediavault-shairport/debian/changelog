@@ -1,5 +1,6 @@
 openmediavault-shairport (2.3) stable; urgency=low
 
+  * Update locales.
   * Fix config script issue.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 02 Sep 2015 12:01:11 +0200

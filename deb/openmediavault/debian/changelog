@@ -1,5 +1,6 @@
 openmediavault (2.1.12) stable; urgency=low
 
+  * Update locales.
   * Various UI improvements.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 25 Aug 2015 15:44:24 +0200
