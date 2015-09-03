@@ -148,6 +148,17 @@ div#headerrlogo {
 	background-repeat: no-repeat;
 	background-position: 0 center;
 }
+/* Invalid form fields */
+.x-form-invalid-icon-default,
+.x-form-invalid-under-default,
+.x-form-invalid-icon-toolbar,
+.x-form-invalid-under-toolbar {
+	background-image: url("../images/exclamation.png");
+	background-image: url("../images/exclamation.svg"), none;
+}
+.x-form-invalid-icon-default {
+	background-repeat: no-repeat;
+}
 /* Mark read-only form fields */
 .x-form-item-default.x-form-readonly input {
 	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
