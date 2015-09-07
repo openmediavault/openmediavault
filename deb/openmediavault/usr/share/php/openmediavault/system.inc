@@ -792,6 +792,16 @@ class OMVFilesystemBackendXfs extends OMVFilesystemBackendAbstract {
 	/**
 	 * See parent class definition.
 	 */
+	public function getFstabMntOptions(OMVStorageDeviceAbstract $sd = null) {
+		$options = parent::getFstabMntOptions($sd);
+		if (TRUE === is_64bits())
+			$options[] = "inode64";
+		return $options;
+	}
+
+	/**
+	 * See parent class definition.
+	 */
 	function getImpl($args) {
 		return new OMVFilesystemXfs($args);
 	}

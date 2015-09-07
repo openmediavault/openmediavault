@@ -1,6 +1,8 @@
 openmediavault (2.1.13) stable; urgency=low
 
   * Various UI improvements.
+  * Mantis 0001392: Add mount option 'inode64' for xfs formatted file systems
+    on 64bit systems.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 03 Sep 2015 21:33:56 +0200
 
