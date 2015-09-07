@@ -1,3 +1,9 @@
+openmediavault-iscsitarget (2.1) stable; urgency=low
+
+  * Fix UI error when modifying an existing target.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 07 Sep 2015 06:56:21 +0200
+
 openmediavault-iscsitarget (2.0) stable; urgency=low
 
   * Update locales.

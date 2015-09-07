@@ -113,7 +113,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUsers", {
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: false,
 				model: OMV.data.Model.createImplicit({
-					idgen: "uuid", // Populate 'id' field automatically.
+					identifier: "uuid", // Populate 'id' field automatically.
 					idProperty: "id",
 					fields: [
 						{ name: "id", type: "string", persist: false },
@@ -140,6 +140,20 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUsers", {
 			})
 		});
 		me.callParent(arguments);
+	},
+
+	/**
+	 * Gets all values for each record in this store and returns an object
+	 * containing the current record values as described in the store's model.
+	 * Note, this method returns only the persistent record values.
+	 * @return An array of object hash containing all the values.
+	 */
+	getValues: function() {
+		var me = this;
+		var values = me.getStore().getModelData({
+			persist: true
+		});
+		return values;
 	},
 
 	onAddButton: function() {
