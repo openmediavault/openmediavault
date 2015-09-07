@@ -190,14 +190,14 @@ div#headerrlogo {
 /* Checkbox */
 .x-form-checkbox-default,
 .x-form-radio-default {
-    width: 40px;
+    width: 32px;
     height: 16px;
 }
 .x-form-cb-default {
     margin-top: 3px;
 }
 .x-form-cb-label-default.x-form-cb-label-after {
-    padding-left: 44px;
+    padding-left: 37px;
 }
 .x-form-checkbox-default {
 	background-position: left;

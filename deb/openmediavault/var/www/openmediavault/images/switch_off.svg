@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="40"
+   width="32"
    height="16"
-   viewBox="0 0 39.999999 16"
+   viewBox="0 0 31.999999 16"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -29,8 +29,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="7.919596"
-     inkscape:cx="21.81505"
-     inkscape:cy="15.302155"
+     inkscape:cx="20.678628"
+     inkscape:cy="13.534377"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -53,7 +53,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
         <dc:creator>
           <cc:Agent>
             <dc:title>Volker Theile</dc:title>
@@ -70,9 +70,9 @@
     <rect
        style="fill:#b2b2b2;fill-opacity:1;stroke:none;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4250"
-       width="40"
+       width="32"
        height="16"
-       x="-40.188183"
+       x="-32.188183"
        y="1020.0666"
        rx="8"
        ry="8"
