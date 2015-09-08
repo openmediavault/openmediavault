@@ -189,7 +189,7 @@ Ext.define("OMV.workspace.window.Tab", {
 		var values = {};
 		me.getTab().items.each(function(item) {
 			if(Ext.isFunction(item.getValues)) {
-				var v = item.getValues(arguments);
+				var v = item.getValues();
 				Ext.applyEx(values, v);
 			}
 		});

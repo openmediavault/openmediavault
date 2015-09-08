@@ -1,3 +1,9 @@
+openmediavault (2.1.14) stable; urgency=low
+
+  * Improve UI framework.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 Sep 2015 12:17:06 +0200
+
 openmediavault (2.1.13) stable; urgency=low
 
   * Various UI improvements.

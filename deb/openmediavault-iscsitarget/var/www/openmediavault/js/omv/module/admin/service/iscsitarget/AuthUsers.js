@@ -142,20 +142,6 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUsers", {
 		me.callParent(arguments);
 	},
 
-	/**
-	 * Gets all values for each record in this store and returns an object
-	 * containing the current record values as described in the store's model.
-	 * Note, this method returns only the persistent record values.
-	 * @return An array of object hash containing all the values.
-	 */
-	getValues: function() {
-		var me = this;
-		var values = me.getStore().getModelData({
-			persist: true
-		});
-		return values;
-	},
-
 	onAddButton: function() {
 		var me = this;
 		Ext.create("OMV.module.admin.service.iscsitarget.AuthUser", {

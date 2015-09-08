@@ -464,9 +464,7 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 	onApplyButton: function() {
 		var me = this;
 		// Get the rules.
-		var params = me.getStore().getModelData({
-			persist: true
-		});
+		var params = me.getValues();
 		// Execute RPC.
 		OMV.Rpc.request({
 			scope: me,

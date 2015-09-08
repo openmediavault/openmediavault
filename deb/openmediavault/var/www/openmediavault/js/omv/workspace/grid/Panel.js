@@ -697,5 +697,20 @@ Ext.define("OMV.workspace.grid.Panel", {
 	reset: function() {
 		var me = this;
 		me.store.rejectChanges();
+	},
+
+	/**
+	 * Gets all values for each record in this store and returns an object
+	 * containing the current persistent record values as described in the
+	 * store's model.
+	 * Note, this implementation is different to the parents class.
+	 * @return An array of object hash containing all the persistent values.
+	 */
+	getValues: function() {
+		var me = this;
+		var values = me.getStore().getModelData({
+			persist: true
+		});
+		return values;
 	}
 });
