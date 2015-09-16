@@ -33,7 +33,6 @@ OMV_MKCONF_SCRIPTS_DIR=${OMV_MKCONF_SCRIPTS_DIR:-"/usr/share/openmediavault/mkco
 
 OMV_PROFTPD_CONFIG=${OMV_PROFTPD_CONFIG:-"/etc/proftpd/proftpd.conf"}
 OMV_PROFTPD_EXTENSIONS_DIR=${OMV_PROFTPD_EXTENSIONS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/proftpd.d"}
-OMV_PROFTPD_DEFAULTROOT=${OMV_PROFTPD_DEFAULTROOT:-"/srv/ftp"}
 OMV_PROFTPD_USEIPV6=${OMV_PROFTPD_USEIPV6:-"on"}
 OMV_PROFTPD_DEFERWELCOME=${OMV_PROFTPD_DEFERWELCOME:-"on"}
 OMV_PROFTPD_MULTILINERFC2228=${OMV_PROFTPD_MULTILINERFC2228:-"on"}
@@ -49,7 +48,6 @@ OMV_PROFTPD_USER=${OMV_PROFTPD_USER:-"proftpd"}
 OMV_PROFTPD_GROUP=${OMV_PROFTPD_GROUP:-"nogroup"}
 OMV_PROFTPD_UMASK=${OMV_PROFTPD_UMASK:-"000 000"}
 OMV_PROFTPD_AUTHPAMCONFIG=${OMV_PROFTPD_AUTHPAMCONFIG:-"proftpd"}
-OMV_PROFTPD_USEFTPUSERS=${OMV_PROFTPD_USEFTPUSERS:-"off"}
 OMV_PROFTPD_PERSISTENTPASSWD=${OMV_PROFTPD_PERSISTENTPASSWD:-"off"}
 OMV_PROFTPD_TIMESGMT=${OMV_PROFTPD_TIMESGMT:-"off"}
 OMV_PROFTPD_DEFAULTTRANSFERMODE=${OMV_PROFTPD_DEFAULTTRANSFERMODE:-"ascii"}
@@ -89,9 +87,7 @@ xmlstarlet sel -t \
   -o "User ${OMV_PROFTPD_USER}" -n \
   -o "Group ${OMV_PROFTPD_GROUP}" -n \
   -o "Umask ${OMV_PROFTPD_UMASK}" -n \
-  -o "UseFtpUsers ${OMV_PROFTPD_USEFTPUSERS}" -n \
   -o "PersistentPasswd ${OMV_PROFTPD_PERSISTENTPASSWD}" -n \
-  -o "DefaultRoot ${OMV_PROFTPD_DEFAULTROOT}" -n \
   -o "TimesGMT ${OMV_PROFTPD_TIMESGMT}" -n \
   -o "AllowOverwrite ${OMV_PROFTPD_ALLOWOVERWRITE}" -n \
   -o "AuthOrder ${OMV_PROFTPD_AUTHORDER}" -n \
@@ -130,8 +126,6 @@ xmlstarlet sel -t \
 	  -v "concat('Port ',port)" -n \
 	  -i "transferlog[. = '0']" -o "TransferLog NONE" -n -b \
 	  -i "transferlog[. = '1']" -o "TransferLog ${OMV_PROFTPD_TRANSFERLOG}" -n -b \
-	  -i "requirevalidshell[. = '0']" -o "RequireValidShell off" -n -b \
-	  -i "requirevalidshell[. = '1']" -o "RequireValidShell on" -n -b \
 	  -i "identlookups[. = '0']" -o "IdentLookups off" -n -b \
 	  -i "identlookups[. = '1']" -o "IdentLookups on" -n -b \
 	  -i "usereversedns[. = '0']" -o "UseReverseDNS off" -n -b \
@@ -152,16 +146,13 @@ xmlstarlet sel -t \
 		  -i "maxuptransferrate[. > '0']" -v "concat('TransferRate STOR ',maxuptransferrate)" -n -b \
 		  -i "maxdowntransferrate[. > '0']" -v "concat('TransferRate RETR ',maxdowntransferrate)" -n -b \
 	  -b \
-	  -i "rootlogin[. = '1']" -o "RootLogin on" -n -b \
 	  -i "allowrestart[. = '1']" \
 		  -o "AllowRetrieveRestart on" -n \
 		  -o "AllowStoreRestart on" -n \
 	  -b \
 	  -o "DeleteAbortedStores ${OMV_PROFTPD_DELETEABORTEDSTORES}" -n \
 	  -i "allowforeignaddress[. = '1']" -o "AllowForeignAddress on" -n -b \
-	  -v "concat('MaxClients ',maxclients)" -n \
 	  -i "maxconnectionsperhost[. > '0']" -v "concat('MaxConnectionsPerHost ',maxconnectionsperhost)" -n -b \
-	  -i "maxloginattempts[. > '0']" -v "concat('MaxLoginAttempts ',maxloginattempts )" -n -b \
 	  -i "string-length(extraoptions) > 0" -v extraoptions -n -b \
 	  -o "<Directory />" -n \
 	  -o "  HideFiles (welcome.msg)" -n \
