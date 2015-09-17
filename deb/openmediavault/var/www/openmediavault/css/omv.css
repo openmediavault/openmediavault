@@ -213,6 +213,18 @@ div#headerrlogo {
 .x-form-type-checkbox input.x-form-invalid-field {
 	border: 1px solid #cc3300;
 }
+/* Grid checkbox column */
+.x-grid-checkcolumn {
+	width: 32px;
+    height: 16px;
+	background-position: inherit;
+    background-image: url("../images/switch_off.png");
+	background-image: url("../images/switch_off.svg"), none;
+}
+.x-grid-checkcolumn-checked {
+	background-image: url("../images/switch_on.png");
+	background-image: url("../images/switch_on.svg"), none;
+}
 /* About box */
 .x-box-aboutbox {
 	margin: 15px;
