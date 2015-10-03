@@ -28,7 +28,7 @@ OMV_COLLECTD_CONFIG=${OMV_COLLECTD_CONFIG:-"/etc/collectd/collectd.conf"}
 OMV_COLLECTD_RRDTOOL_MKGRAPH=${OMV_COLLECTD_RRDTOOL_MKGRAPH:-"/usr/sbin/omv-mkgraph"}
 
 IFACE=$(xmlstarlet sel -t \
-  -m "//system/network/interfaces/interface[type='ethernet']" \
+  -m "//system/network/interfaces/interface[type='ethernet' or type='wireless']" \
 	-i "count(//system/network/interfaces/interface/slaves[contains(.,current()/devicename)]) = 0" \
 		-v "concat(devicename,' ')" \
 	-b \
