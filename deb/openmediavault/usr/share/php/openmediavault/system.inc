@@ -3231,6 +3231,45 @@ class OMVStorageDeviceBackendVirtIO extends OMVStorageDeviceBackendAbstract {
 }
 
 /**
+ * Implements the storage device backend for Non Volatile Memory (NVM) devices.
+ * @ingroup api
+ */
+class OMVStorageDeviceBackendNVM extends OMVStorageDeviceBackendAbstract {
+	function getType() {
+		return OMV_STORAGE_DEVICE_TYPE_HDD;
+	}
+
+	function enumerate() {
+		// major minor  #blocks  name
+		// 259        0  781412184 nvme0n1
+		// 259        1  390705068 nvme0n1p1
+		// 259        2  390706008 nvme0n1p2
+		return $this->enumerateProcFs("nvme[0-9]+");
+	}
+
+	function isTypeOf($deviceFile) {
+		// Examples:
+		// - /dev/nvme0n1
+		// - /dev/nvme0n1p1
+		$regex = "nvme[0-9]+(p[0-9]+)*";
+		return $this->isTypeOfByName($deviceFile, $regex);
+	}
+
+	function getImpl($args) {
+		return new OMVStorageDeviceNVM($args);
+	}
+
+	function baseDeviceFile($deviceFile) {
+		return preg_replace("/(p\d+)$/", "", $deviceFile);
+	}
+
+	function fsDeviceFile($deviceFile) {
+		// E.g. /dev/nvme0n1p1
+		return sprintf("%sp1", $deviceFile);
+	}
+}
+
+/**
  * Helper class to get all existing devices of the given storage type.
  * @ingroup api
  */
@@ -3485,6 +3524,17 @@ class OMVStorageDeviceCDROM extends OMVStorageDeviceAbstract {
  * @ingroup api
  */
 class OMVStorageDeviceMMC extends OMVStorageDeviceAbstract {
+	public function isRotational() {
+		return FALSE;
+	}
+}
+
+/**
+ * This class provides a simple interface to handle Non Volatile Memory
+ * (NVM) devices.
+ * @ingroup api
+ */
+class OMVStorageDeviceNVM extends OMVStorageDeviceAbstract {
 	public function isRotational() {
 		return FALSE;
 	}
@@ -5996,6 +6046,7 @@ OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendFIO());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendMMC());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendVirtIO());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendCDROM());
+OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendNVM());
 
 ///////////////////////////////////////////////////////////////////////////////
 // Register default filesystem backends.
