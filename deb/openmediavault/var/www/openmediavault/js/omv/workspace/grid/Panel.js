@@ -310,7 +310,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 
 	onItemDblClick: function() {
 		var me = this;
-		if(!me.hideTopToolbar && !me.hideEditButton) {
+		if (!me.hideTopToolbar && !me.hideEditButton) {
 			me.onEditButton(me);
 		}
 	},
@@ -320,8 +320,9 @@ Ext.define("OMV.workspace.grid.Panel", {
 	 */
 	doLoad: function() {
 		var me = this;
-		if(me.mode === "remote") {
-			me.store.load();
+		if (me.mode === "remote") {
+			if (me.store && Ext.isObject(me.store) && me.store.isStore)
+				me.store.load();
 		}
 	},
 
@@ -330,8 +331,9 @@ Ext.define("OMV.workspace.grid.Panel", {
 	 */
 	doReload: function() {
 		var me = this;
-		if(me.mode === "remote") {
-			me.store.reload();
+		if (me.mode === "remote") {
+			if (me.store && Ext.isObject(me.store) && me.store.isStore)
+				me.store.reload();
 		}
 	},
 
