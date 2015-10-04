@@ -75,6 +75,13 @@ case "$1" in
 		# Action to be done depending on the previous version.
 		########################################################################
 		echo "Updating configuration ..."
+		if dpkg --compare-versions "$2" lt-nl "2.4"; then
+			rm -f /etc/default/shairport-sync
+			omv-mkconf shairport-sync
+			if [ "$(omv_config_get "/config/services/shairport/enable")" != "0" ]; then
+				invoke-rc.d shairport-sync restart
+			fi
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
