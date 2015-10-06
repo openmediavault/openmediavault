@@ -3244,14 +3244,15 @@ class OMVStorageDeviceBackendNVM extends OMVStorageDeviceBackendAbstract {
 		// 259        0  781412184 nvme0n1
 		// 259        1  390705068 nvme0n1p1
 		// 259        2  390706008 nvme0n1p2
-		return $this->enumerateProcFs("nvme[0-9]+");
+		return $this->enumerateProcFs("nvme[0-9]+n[0-9]+");
 	}
 
 	function isTypeOf($deviceFile) {
 		// Examples:
+		// - /dev/nvme<controller>n<namespace>p<partition>
 		// - /dev/nvme0n1
 		// - /dev/nvme0n1p1
-		$regex = "nvme[0-9]+(p[0-9]+)*";
+		$regex = "nvme[0-9]+n[0-9]+(p[0-9]+)*";
 		return $this->isTypeOfByName($deviceFile, $regex);
 	}
 
