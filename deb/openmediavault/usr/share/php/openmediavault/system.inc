@@ -3271,7 +3271,7 @@ class OMVStorageDeviceBackendNVM extends OMVStorageDeviceBackendAbstract {
 }
 
 /**
- * Implements the storage device backend for Ceph’s RADOS Block Devices (RBD).
+ * Implements the storage device backend for Ceph's RADOS Block Devices (RBD).
  * @ingroup api
  */
 class OMVStorageDeviceBackendRDB extends OMVStorageDeviceBackendAbstract {
@@ -3581,7 +3581,7 @@ class OMVStorageDeviceNVM extends OMVStorageDeviceAbstract {
 }
 
 /**
- * This class provides a simple interface to handle Ceph’s RADOS Block
+ * This class provides a simple interface to handle Ceph's RADOS Block
  * Devices (RBD).
  * @ingroup api
  */
