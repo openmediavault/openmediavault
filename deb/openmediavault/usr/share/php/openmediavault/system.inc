@@ -3271,6 +3271,45 @@ class OMVStorageDeviceBackendNVM extends OMVStorageDeviceBackendAbstract {
 }
 
 /**
+ * Implements the storage device backend for Ceph’s RADOS Block Devices (RBD).
+ * @ingroup api
+ */
+class OMVStorageDeviceBackendRDB extends OMVStorageDeviceBackendAbstract {
+	function getType() {
+		return OMV_STORAGE_DEVICE_TYPE_HDD;
+	}
+
+	function enumerate() {
+		// major minor  #blocks  name
+		// 251       32       1024 rbd2
+		// 251       33          0 rbd2p1
+		// 251       34          0 rbd2p2
+		return $this->enumerateProcFs("rbd[0-9]+");
+	}
+
+	function isTypeOf($deviceFile) {
+		// Examples:
+		// - /dev/rbd1
+		// - /dev/rbd1p1
+		$regex = "rbd[0-9]+(p[0-9]+)*";
+		return $this->isTypeOfByName($deviceFile, $regex);
+	}
+
+	function getImpl($args) {
+		return new OMVStorageDeviceRDB($args);
+	}
+
+	function baseDeviceFile($deviceFile) {
+		return preg_replace("/(p\d+)$/", "", $deviceFile);
+	}
+
+	function fsDeviceFile($deviceFile) {
+		// E.g. /dev/rbd2p1
+		return sprintf("%sp1", $deviceFile);
+	}
+}
+
+/**
  * Helper class to get all existing devices of the given storage type.
  * @ingroup api
  */
@@ -3536,6 +3575,17 @@ class OMVStorageDeviceMMC extends OMVStorageDeviceAbstract {
  * @ingroup api
  */
 class OMVStorageDeviceNVM extends OMVStorageDeviceAbstract {
+	public function isRotational() {
+		return FALSE;
+	}
+}
+
+/**
+ * This class provides a simple interface to handle Ceph’s RADOS Block
+ * Devices (RBD).
+ * @ingroup api
+ */
+class OMVStorageDeviceRDB extends OMVStorageDeviceAbstract {
 	public function isRotational() {
 		return FALSE;
 	}
@@ -6048,6 +6098,7 @@ OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendMMC());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendVirtIO());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendCDROM());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendNVM());
+OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendRDB());
 
 ///////////////////////////////////////////////////////////////////////////////
 // Register default filesystem backends.
