@@ -1,5 +1,6 @@
 openmediavault (2.1.17) stable; urgency=low
 
+  * Update locales.
   * Add support for Ceph's RADOS Block Devices (RBD).
   * Mantis 0001397: Add support for NVMe devices.
 

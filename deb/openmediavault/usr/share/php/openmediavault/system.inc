@@ -3587,6 +3587,7 @@ class OMVStorageDeviceNVM extends OMVStorageDeviceAbstract {
  */
 class OMVStorageDeviceRDB extends OMVStorageDeviceAbstract {
 	public function isRotational() {
+		// It is a virtual device.
 		return FALSE;
 	}
 }

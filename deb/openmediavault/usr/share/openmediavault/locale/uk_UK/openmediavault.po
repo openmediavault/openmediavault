@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Андрей Чапалда <ansilent@gmail.com>, 2012
-# zubr139, 2013-2014
+# zubr139, 2013-2015
 # Андрей Чапалда <ansilent@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-11 22:31+0200\n"
-"PO-Revision-Date: 2015-07-20 19:19+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2015-09-26 12:31+0000\n"
+"Last-Translator: zubr139\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,7 @@ msgid "%s (%s available)"
 msgstr "%s (%s доступно)"
 
 msgid "%s [on %s, %s]"
-msgstr ""
+msgstr "%s [на %s, %s]"
 
 msgid "'All' is not allowed"
 msgstr "'All' не дозволено"
@@ -158,7 +158,7 @@ msgid "9 months"
 msgstr "9 місяців"
 
 msgid "A module with the name '%s' already exists"
-msgstr ""
+msgstr "Модуль з іменем '%s' вже існує"
 
 msgid "A share with the name '%s' already exists"
 msgstr "Спільний ресурс з ім'ям '%s' вже існує"
@@ -1380,7 +1380,7 @@ msgid "Full"
 msgstr "Повний"
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Gabon"
 msgstr "Габон"
@@ -2477,7 +2477,7 @@ msgid "Prefix length"
 msgstr ""
 
 msgid "Preserve ACLs"
-msgstr ""
+msgstr "Зберігати списки ACLs"
 
 msgid "Preserve extended attributes"
 msgstr "Зберегти розширені атрибути"
@@ -2571,10 +2571,10 @@ msgid "RAID 10"
 msgstr "RAID 10"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
 msgstr "RAID 4"
@@ -2787,10 +2787,10 @@ msgid "SSH"
 msgstr "SSH"
 
 msgid "SSID"
-msgstr ""
+msgstr "SSID"
 
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -3016,7 +3016,7 @@ msgid "Shared folder must not be equal"
 msgstr "Спільні теки не повинні бути рівні"
 
 msgid "Shared folder name"
-msgstr ""
+msgstr "Ім’я спільної теки"
 
 msgid "Shared folder path"
 msgstr ""
@@ -3175,7 +3175,7 @@ msgid "Specifies which slave is the primary device."
 msgstr ""
 
 msgid "Speed"
-msgstr ""
+msgstr "Швидкість"
 
 msgid "Spindown time"
 msgstr ""
@@ -3755,7 +3755,7 @@ msgid "U.S. Virgin Islands"
 msgstr "Віргінські острови СШ"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "UNKNOWN"
 msgstr "НЕВІДОМЕ"
@@ -3831,7 +3831,7 @@ msgid "Updating ACL settings"
 msgstr ""
 
 msgid "Upgrade"
-msgstr ""
+msgstr "Оновити"
 
 msgid "Upload"
 msgstr "Завантажити"
@@ -3920,10 +3920,10 @@ msgid "Uzbekistan"
 msgstr "Узбекистан"
 
 msgid "VLAN"
-msgstr ""
+msgstr "VLAN"
 
 msgid "VLAN id"
-msgstr ""
+msgstr "VLAN id"
 
 msgid "Valid to"
 msgstr "Дійсний до"
@@ -3950,7 +3950,7 @@ msgid "Vietnam"
 msgstr "В'єтнам"
 
 msgid "VirtIO device"
-msgstr ""
+msgstr "VirtIO пристрій"
 
 msgid "Volume"
 msgstr "Об'єм"
@@ -3965,7 +3965,7 @@ msgid "WINS support"
 msgstr "Підтримка WINS"
 
 msgid "WOL"
-msgstr ""
+msgstr "WOL"
 
 msgid "Wake Island"
 msgstr "Острів Вейк"
@@ -4012,7 +4012,7 @@ msgid "When failed"
 msgstr ""
 
 msgid "Wi-Fi"
-msgstr ""
+msgstr "Wi-Fi"
 
 msgid "Wipe"
 msgstr "Стерти"
@@ -4075,4 +4075,4 @@ msgid "seconds"
 msgstr "секунди"
 
 msgid "web administration interface"
-msgstr ""
+msgstr "веб-інтерфейс адміністратора"
