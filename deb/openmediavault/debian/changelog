@@ -1,3 +1,9 @@
+openmediavault (2.1.18) stable; urgency=low
+
+  * Mantis 0001411: Use isLink() instead of isFile().
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 29 Oct 2015 23:49:23 +0100
+
 openmediavault (2.1.17) stable; urgency=low
 
   * Update locales.

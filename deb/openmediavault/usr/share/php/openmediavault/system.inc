@@ -3979,8 +3979,8 @@ class OMVStorageDeviceDM extends OMVStorageDeviceAbstract {
 			return FALSE;
 		$result = array();
 		$dir = new DirectoryIterator($path);
-		foreach($dir as $item) {
-			if($item->isDot() || !$item->isFile())
+		foreach ($dir as $item) {
+			if ($item->isDot() || !$item->isLink())
 				continue;
 			$result[] = sprintf("/dev/%s", $item->getFilename());
 		}
@@ -4030,8 +4030,8 @@ class OMVStorageDeviceBcache extends OMVStorageDeviceAbstract {
 			return FALSE;
 		$result = array();
 		$dir = new DirectoryIterator($path);
-		foreach($dir as $item) {
-			if($item->isDot() || !$item->isFile())
+		foreach ($dir as $item) {
+			if ($item->isDot() || !$item->isLink())
 				continue;
 			$result[] = sprintf("/dev/%s", $item->getFilename());
 		}
