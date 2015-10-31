@@ -85,6 +85,7 @@ class OMVRpcServiceShairport extends OMVRpcServiceAbstract {
 			  "type":"object",
 			  "properties":{
 				  "enable":{"type":"boolean"},
+				  "name":{"type":"string"},
 				  "passwordrequired":{"type":"boolean"},
 				  "password":{"type":"string"}
 			  }
@@ -99,6 +100,7 @@ class OMVRpcServiceShairport extends OMVRpcServiceAbstract {
 		// Update the configuration object.
 		$object = array_merge($oldObject, array(
 			  "enable" => array_boolval($params, 'enable'),
+			  "name" => $params['name'],
 			  "passwordrequired" => array_boolval($params, 'passwordrequired'),
 			  "password" => $params['password']
 		  ));

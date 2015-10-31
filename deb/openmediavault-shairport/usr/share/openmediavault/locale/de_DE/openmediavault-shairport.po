@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Volker <votdev@gmx.de>, 2014
+# Volker <votdev@gmx.de>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2014-06-23 16:22+0000\n"
+"POT-Creation-Date: 2015-10-31 16:23+0100\n"
+"PO-Revision-Date: 2015-10-31 15:27+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -30,6 +30,9 @@ msgstr "Aktivieren"
 msgid "General settings"
 msgstr "Allgemeine Einstellungen"
 
+msgid "Name"
+msgstr "Name"
+
 msgid "Password"
 msgstr "Passwort"
 
@@ -38,3 +41,6 @@ msgstr "Einstellungen"
 
 msgid "Shairport"
 msgstr "Shairport"
+
+msgid "The name the service will advertise to iTunes."
+msgstr "Der Name welchen der Dienst an iTunes annonciert."

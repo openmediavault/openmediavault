@@ -56,6 +56,15 @@ Ext.define("OMV.module.admin.service.shairport.Settings", {
 				fieldLabel: _("Enable"),
 				checked: false
 			},{
+				xtype: "textfield",
+				name: "name",
+				fieldLabel: _("Name"),
+				allowBlank: true,
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("The name the service will advertise to iTunes.")
+				}]
+			},{
 				xtype: "checkbox",
 				name: "passwordrequired",
 				fieldLabel: _("Authentication"),

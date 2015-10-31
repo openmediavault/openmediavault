@@ -1,3 +1,11 @@
+openmediavault-shairport (2.5) stable; urgency=low
+
+  * Update locales.
+  * Mantis 0001410: Add the possibillity to change the name the service
+    will advertise to iTunes.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 31 Oct 2015 16:16:49 +0100
+
 openmediavault-shairport (2.4) stable; urgency=low
 
   * Update locales.

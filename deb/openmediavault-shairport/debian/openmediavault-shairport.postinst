@@ -50,6 +50,7 @@ case "$1" in
 		#   <services>
 		#     <shairport>
 		#       <enable>0|1</enable>
+		#       <name></name>
 		#       <passwordrequired>0|1</passwordrequired>
 		#       <password></password>
 		#     </shairport>
@@ -81,6 +82,9 @@ case "$1" in
 			if [ "$(omv_config_get "/config/services/shairport/enable")" != "0" ]; then
 				invoke-rc.d shairport-sync restart
 			fi
+		fi
+		if dpkg --compare-versions "$2" lt-nl "2.5"; then
+			omv_config_add_element "/config/services/shairport" "name" ""
 		fi
 	;;
 
