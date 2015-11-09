@@ -1,3 +1,10 @@
+openmediavault (2.1.19) stable; urgency=low
+
+  * Mantis 0001413: Ordering of registered storage device backends. Thanks
+    to Ian Grant for the patch.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Nov 2015 18:16:41 +0100
+
 openmediavault (2.1.18) stable; urgency=low
 
   * Mantis 0001411: Use isLink() instead of isFile().

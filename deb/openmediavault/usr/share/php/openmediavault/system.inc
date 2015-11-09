@@ -3317,14 +3317,33 @@ class OMVStorageDevices extends OMVObject {
 	static private $backends = array();
 
 	/**
-	 * Register a storage device backend.
+	 * Register a storage device backend. If the registered backend class is
+	 * derived from another backend, then it will be inserted before this.
 	 * @param backend The storage device backend object to register.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	final static function registerBackend(OMVStorageDeviceBackendAbstract $backend) {
 		if (!isset($backend))
 			return FALSE;
-		self::$backends[] = $backend;
+		if (FALSE === ($parent = get_parent_class($backend))) {
+			self::$backends[] = $backend;
+		} else {
+			// Try to find the derived class and the position where to
+			// insert the storage device backend class to register.
+			$offset = FALSE;
+			foreach (self::$backends as $backendk => $backendv) {
+				if ( ("OMVStorageDeviceBackendAbstract" === $parent) ||
+				  (FALSE === ($backendv instanceof $parent)))
+					continue;
+				$offset = $backendk;
+				break;
+			}
+			if (FALSE === $offset) {
+				self::$backends[] = $backend;
+			} else {
+				array_splice(self::$backends, $offset, 0, array($backend));
+			}
+		}
 		return TRUE;
 	}
 
