@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-11 22:31+0200\n"
-"PO-Revision-Date: 2015-08-11 19:58+0000\n"
+"PO-Revision-Date: 2015-11-20 16:15+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -166,7 +166,7 @@ msgid "A shared folder with the given name already exists"
 msgstr "Sdílená složka s takovým názvem již existuje"
 
 msgid "ACL"
-msgstr ""
+msgstr "ACL"
 
 msgid "ASCII"
 msgstr "ASCII"
@@ -401,7 +401,7 @@ msgid "Attributes"
 msgstr "Atributy"
 
 msgid "Audit"
-msgstr ""
+msgstr "Prověrka"
 
 msgid "Audit file operations."
 msgstr "Auditovat operace se soubory."
@@ -1202,7 +1202,7 @@ msgid "Estonia"
 msgstr "Estonsko"
 
 msgid "Ethernet"
-msgstr ""
+msgstr "Ethernet"
 
 msgid "Ethiopia"
 msgstr "Etiopie"
@@ -1259,7 +1259,7 @@ msgid "FTP - Transfer log"
 msgstr "FTP - Protokol přenosů"
 
 msgid "FXP"
-msgstr ""
+msgstr "FXP"
 
 msgid ""
 "FXP allows transfers between two remote servers without any file data going "
@@ -1379,7 +1379,7 @@ msgid "Full"
 msgstr "Plný"
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Gabon"
 msgstr "Gabon"
@@ -1644,7 +1644,7 @@ msgid "Indonesia"
 msgstr "Indonésie"
 
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 msgid "Informal"
 msgstr "Pro informaci"
@@ -1877,7 +1877,7 @@ msgid "MII monitoring frequency"
 msgstr "Četnost hlídání rozhraní MII"
 
 msgid "MTU"
-msgstr ""
+msgstr "MTU"
 
 msgid "Macao S.A.R., China"
 msgstr "Macao, Čína"
@@ -2004,7 +2004,7 @@ msgid "Mexico"
 msgstr "Mexiko"
 
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 msgid "Micronesia"
 msgstr "Mikronésie"
@@ -2034,7 +2034,7 @@ msgid "Mode"
 msgstr "Režim"
 
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgid "Modify account"
 msgstr "Upravit účet"
@@ -2070,7 +2070,7 @@ msgid "Monthly"
 msgstr "Měsíčně"
 
 msgid "Montserrat"
-msgstr ""
+msgstr "Montserrat"
 
 msgid "Morocco"
 msgstr "Maroko"
@@ -2088,7 +2088,7 @@ msgid "Myanmar"
 msgstr "Barma"
 
 msgid "NFS"
-msgstr ""
+msgstr "NFS"
 
 msgid "Name"
 msgstr "Název"
@@ -2229,7 +2229,7 @@ msgid "Number of servers"
 msgstr "Počet serverů"
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid "Occurrence"
 msgstr "Výskyt"
@@ -2452,7 +2452,7 @@ msgid "Poland"
 msgstr "Polsko"
 
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 msgid "Port to listen on."
 msgstr "Port, na kterém očekávat spojení."
@@ -2570,25 +2570,25 @@ msgid "RAID 10"
 msgstr "RAID 10 (zrcadlení a rozložení zápisů)"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
-msgstr ""
+msgstr "RAID 5"
 
 msgid "RAID 6"
-msgstr ""
+msgstr "RAID 6"
 
 msgid "RAID Management"
 msgstr "Správa RAID"
 
 msgid "RFC931"
-msgstr ""
+msgstr "RFC931"
 
 msgid "RSync server"
 msgstr "RSync server"
@@ -2774,7 +2774,7 @@ msgid "SMTP settings"
 msgstr "Nastavení protokolu SMTP"
 
 msgid "SNMP"
-msgstr ""
+msgstr "SNMP"
 
 msgid "SNMP version 1/2c"
 msgstr "SNMP verze 1/2c"
@@ -2786,13 +2786,13 @@ msgid "SSH"
 msgstr "SSH"
 
 msgid "SSID"
-msgstr ""
+msgstr "SSID"
 
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 msgid "SSL/TLS"
-msgstr ""
+msgstr "SSL/TLS"
 
 msgid "Saint Helena"
 msgstr "Svatá Helena"
@@ -2957,7 +2957,7 @@ msgid "Serial number"
 msgstr "Sériové číslo"
 
 msgid "Server"
-msgstr ""
+msgstr "Server"
 
 msgid "Service"
 msgstr "Služba"
@@ -3270,7 +3270,7 @@ msgid "TCP forwarding"
 msgstr "Přeposílání TCP"
 
 msgid "TFTP"
-msgstr ""
+msgstr "TFTP"
 
 msgid "Taiwan"
 msgstr "Taiwan"
@@ -3748,13 +3748,13 @@ msgid "Type"
 msgstr "Typ"
 
 msgid "U.S. Miscellaneous Pacific Islands"
-msgstr ""
+msgstr "Menší odlehlé ostrovy Spojených států amerických"
 
 msgid "U.S. Virgin Islands"
 msgstr "Americké Panenské ostrovy"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "UNKNOWN"
 msgstr "NEZNÁMÉ"
@@ -3919,10 +3919,10 @@ msgid "Uzbekistan"
 msgstr "Uzbekistán"
 
 msgid "VLAN"
-msgstr ""
+msgstr "VLAN"
 
 msgid "VLAN id"
-msgstr ""
+msgstr "VLAN id"
 
 msgid "Valid to"
 msgstr "Platné do"
@@ -3964,7 +3964,7 @@ msgid "WINS support"
 msgstr "Podpora služby WINS"
 
 msgid "WOL"
-msgstr ""
+msgstr "WoL"
 
 msgid "Wake Island"
 msgstr "Wake Island"
@@ -4011,7 +4011,7 @@ msgid "When failed"
 msgstr "Kdy selhalo"
 
 msgid "Wi-Fi"
-msgstr ""
+msgstr "Wi-Fi"
 
 msgid "Wipe"
 msgstr "Kompletní smazání"
@@ -4068,7 +4068,7 @@ msgid "minutes"
 msgstr "minuty"
 
 msgid "n/a"
-msgstr ""
+msgstr "n/a"
 
 msgid "seconds"
 msgstr "sekundy"

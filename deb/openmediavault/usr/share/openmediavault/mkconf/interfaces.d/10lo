@@ -30,5 +30,12 @@ cat <<EOF >> ${OMV_INTERFACES_CONFIG}
 # The loopback network interface
 auto lo
 iface lo inet loopback
-iface lo inet6 loopback
 EOF
+
+# Only write the IPv6 loopback if there is another interface using IPv6.
+# See Mantis 0001419.
+xmlstarlet sel -t \
+  -i "count(//system/network/interfaces/interface[method6!='manual']) > 0" \
+    -o "iface lo inet6 loopback" \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_INTERFACES_CONFIG}

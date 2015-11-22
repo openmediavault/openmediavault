@@ -1,7 +1,10 @@
 openmediavault (2.1.19) stable; urgency=low
 
+  * Update locales.
   * Mantis 0001413: Ordering of registered storage device backends. Thanks
     to Ian Grant for the patch.
+  * Mantis 0001419: Deactivate IPv6 in the loopback interface if IPv6 is not
+    used somewhere else.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Nov 2015 18:16:41 +0100
 
