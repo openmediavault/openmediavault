@@ -667,9 +667,9 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 				// File systems that support TRIM.
 				// See https://wiki.archlinux.org/index.php/Solid_State_Drives#TRIM
 				if ($this->hasDiscardSupport())
-					array_push($opts, "discard");
-				//array_push($opts, "noatime");
-				//array_push($opts, "nodiratime");
+					array_push($options, "discard");
+				//array_push($options, "noatime");
+				//array_push($options, "nodiratime");
 			}
 		}
 		return array_unique($options);

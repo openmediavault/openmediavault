@@ -1,3 +1,10 @@
+openmediavault (2.1.20) stable; urgency=low
+
+  * Mantis 0001421: TRIM ('discard') is not enabled for SSDs. Thanks
+    to Ian Grant for the patch.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 02 Dec 2015 14:35:49 +0100
+
 openmediavault (2.1.19) stable; urgency=low
 
   * Update locales.
