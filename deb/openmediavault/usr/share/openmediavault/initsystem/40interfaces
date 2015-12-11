@@ -78,7 +78,7 @@ for dnsnameserver in $(grep -i "^\s*dns-nameservers.*$" ${OMV_INTERFACES_CONFIG}
 	dnsnameservers=$(omv_trim "${dnsnameservers} ${dnsnameserver}")
 done
 if [ -n "${dnsnameservers}" ]; then
-    omv_config_update "/config/system/network/interfaces/iface/dnsnameservers" "${dnsnameservers}"
+    omv_config_update "/config/system/network/interfaces/interface/dnsnameservers" "${dnsnameservers}"
 fi
 
 # Create a backup of the original configuration file.
