@@ -20,12 +20,11 @@
  */
 
 /******************************************************************************/
-/* Login page                                                                 */
+/* Common pages                                                               */
 /******************************************************************************/
-body#login-page {
-	background: #98b7cf;
-}
-div#projectlogo {
+.login-page .product-logo,
+.shutdown-page .product-logo,
+.error-page .product-logo {
 	position: absolute;
 	width: 330px;
 	height: 42px;
@@ -39,13 +38,20 @@ div#projectlogo {
 	background-color: transparent;
 	background-position: bottom right;
 }
+
+/******************************************************************************/
+/* Login page                                                                 */
+/******************************************************************************/
+.login-page {
+	background: #98b7cf;
+}
 /******************************************************************************/
 /* Shutdown page                                                                 */
 /******************************************************************************/
-body#shutdown-page {
+.shutdown-page {
 	background: #98b7cf;
 }
-div#shutdownlogo {
+.shutdown-page .shutdown-icon {
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -58,6 +64,36 @@ div#shutdownlogo {
 	background-repeat: no-repeat;
 	background-color: transparent;
 	background-position: center;
+}
+/******************************************************************************/
+/* 404 page                                                                   */
+/******************************************************************************/
+.error-page {
+	font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+	background: #98b7cf;
+	color: #ffffff;
+}
+.error-page hr {
+	border: none;
+	color: #ffffff;
+	background-color: #FFFFFF;
+	height: 1px;
+}
+.error-page .error-icon {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	background: url("/images/error.png");
+	background: url("/images/error.svg"), none;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-position: center;
+	background-size: 64px;
 }
 /******************************************************************************/
 /* Workspace page                                                             */

@@ -23,19 +23,22 @@ require_once("openmediavault/env.inc");
 require_once("openmediavault/product.inc");
 
 $prd = new OMVProduct();
-$title = sprintf("%s - %s", $prd->getName(),
-  gettext("Web administration interface"));
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><?=$title;?></title>
+		<title>Page not found</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
 		<link rel="stylesheet" type="text/css" href="css/omv.css"/>
 	</head>
-	<body class="shutdown-page">
-		<a href='/'><div class="shutdown-icon"></div></a>
+	<body class="error-page">
+		<div class="error-icon"></div>
+		<center>
+            <h1>Error 404</h1>
+            <p>Sorry, the page you requested was not found.</p>
+        </center>
+        <hr>
 		<a title='<?=$prd->getName();?>' href='<?=$prd->getURL();?>' target='_blank'><div class="product-logo"></div></a>
 	</body>
 </html>

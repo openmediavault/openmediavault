@@ -183,12 +183,12 @@ EOF;
 		}
 
 		// Get the body code to be rendered
-		$bodyId = $this->getBodyId();
+		$bodyClass = $this->getBodyClass();
 		$bodyContent = $this->getBodyContent();
 
 		echo <<<EOF
 	</head>
-	<body id='{$bodyId}'>
+	<body class='{$bodyClass}'>
 {$bodyContent}
 	</body>
 </html>
@@ -216,9 +216,9 @@ EOF;
 	}
 
 	/**
-	 * Get the body ID.
+	 * Get the body class.
 	 */
-	abstract protected function getBodyId();
+	abstract protected function getBodyClass();
 
 	/**
 	 * Get the HTML body code
@@ -282,7 +282,7 @@ class OMVControlPanel extends OMVHtmlPageAbstract {
 		return $this->mode;
 	}
 
-	protected function getBodyId() {
+	protected function getBodyClass() {
 		return "workspace-page";
 	}
 
@@ -361,14 +361,14 @@ class OMVLoginPage extends OMVHtmlPageAbstract {
 		return $incList;
 	}
 
-	protected function getBodyId() {
+	protected function getBodyClass() {
 		return "login-page";
 	}
 
 	protected function getBodyContent() {
 		$prd = new OMVProduct();
 		return <<<EOF
-		<a title='{$prd->getName()}' href='{$prd->getURL()}' target='_blank'><div id="projectlogo"></div></a>
+		<a title='{$prd->getName()}' href='{$prd->getURL()}' target='_blank'><div class="product-logo"></div></a>
 		<script type="application/javascript">
 			Ext.onReady(function() {
 				Ext.tip.QuickTipManager.init(true, {

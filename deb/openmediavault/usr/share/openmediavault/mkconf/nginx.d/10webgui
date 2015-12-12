@@ -68,6 +68,10 @@ xmlstarlet sel -t -m "//webadmin" \
   -o "    client_max_body_size ${OMV_NGINX_SITE_WEBGUI_CLIENT_MAX_BODY_SIZE};" -n \
   -o "    error_log ${OMV_NGINX_SITE_WEBGUI_LOG_DIR}/${OMV_NGINX_SITE_WEBGUI_SERVERNAME}_error.log ${OMV_NGINX_SITE_WEBGUI_LOGLEVEL};" -n \
   -o "    access_log ${OMV_NGINX_SITE_WEBGUI_LOG_DIR}/${OMV_NGINX_SITE_WEBGUI_SERVERNAME}_access.log combined;" -n \
+  -o "    error_page 404 = /404.php;" -n \
+  -o "    location /404.html {" -n \
+  -o "        internal;" -n \
+  -o "    }" -n \
   -o "    location /extjs/ {" -n \
   -o "        alias /usr/share/javascript/extjs5/;" -n \
   -o "    }" -n \
@@ -75,7 +79,7 @@ xmlstarlet sel -t -m "//webadmin" \
   -o "        alias ${OMV_DOCUMENTROOT_DIR}/images/;" -n \
   -o "    }" -n \
   -o "    location ~ \.php$ {" -n \
-  -o "        try_files \$uri = 404;" -n \
+  -o "        try_files \$uri =404;" -n \
   -o "        fastcgi_split_path_info ^(.+\.php)(/.+)$;" -n \
   -o "        fastcgi_pass unix:/var/run/php5-fpm-openmediavault-webgui.sock;" -n \
   -o "        fastcgi_index index.php;" -n \
