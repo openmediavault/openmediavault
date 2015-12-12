@@ -1,0 +1,177 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Pavel Borecki <pavel.borecki@gmail.com>, 2014-2015
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-06-26 15:11+0000\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
+"Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/openmediavault/language/cs_CZ/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgid "Add physical volume"
+msgstr "Přidat fyzický svazek"
+
+msgid ""
+"After the logical volume has been extended you can resize the containing "
+"filesystem."
+msgstr "Poté, co byl logický svazek rozšířen, je možné zvětšit i souborový systém, který nese. "
+
+msgid "Available"
+msgstr "K dispozici"
+
+msgid "Capacity"
+msgstr "Kapacita"
+
+msgid "Confirmation"
+msgstr "Potvrzení"
+
+msgid "Create logical volume"
+msgstr "Vytvořit logický svazek"
+
+msgid "Create volume group"
+msgstr "Vytvořit skupinu svazků"
+
+msgid "Description"
+msgstr "Popis"
+
+msgid "Device"
+msgstr "Zařízení"
+
+msgid "Devices"
+msgstr "Zařízení"
+
+msgid "Do you really want to create the logical volume?"
+msgstr "Opravdu chcete vytvořit logický svazek?"
+
+msgid "Do you really want to create the physical volume?"
+msgstr "Opravdu chcete vytvořit fyzický svazek?"
+
+msgid "Do you really want to create the volume group?"
+msgstr "Opravdu chcete vytvořit skupinu svazků?"
+
+msgid "Do you really want to resize the selected physical volume?"
+msgstr "Opravdu chcete změnit velikost označeného fyzického svazku?"
+
+msgid "Edit logical volume"
+msgstr "Upravit logický svazek"
+
+msgid "Edit volume group"
+msgstr "Upravit skupinu svazků"
+
+msgid "Extend"
+msgstr "Rozšířit"
+
+msgid "Extend logical volume"
+msgstr "Rozšířit logický svazek"
+
+msgid "Extend volume group"
+msgstr "Rozšířit skupinu svazků"
+
+msgid "Failed to create logical volume: %s"
+msgstr "Nezdařilo se vytvořit logický svazek: %s"
+
+msgid "Failed to create physical volume: %s"
+msgstr "Nezdařilo se vytvořit fyzický svazek: %s"
+
+msgid "Failed to create volume group: %s"
+msgstr "Nezdařilo se vytvořit skupinu svazků (vg): %s"
+
+msgid "Failed to extend logical volume: %s"
+msgstr "Nezdařilo se zvětšit logický svazek (lv): %s"
+
+msgid "Failed to extend volume group: %s"
+msgstr "Nezdařilo se rozšířit skupinu svazků (vg): %s"
+
+msgid "Failed to reduce logical volume: %s"
+msgstr "Nezdařilo se zmenšit velikost logického svazku (lv): %s"
+
+msgid "Failed to reduce volume group: %s"
+msgstr "Nezdařilo se zredukovat skupinu svazků (vg): %s"
+
+msgid "Failed to remove logical volume: %s"
+msgstr "Logický svazek nelze odebrat: %s"
+
+msgid "Failed to remove physical volume: %s"
+msgstr "Nelze odebrat fyzický svazek: %s"
+
+msgid "Failed to remove volume group: %s"
+msgstr "Nelze odebrat svazek skupin: %s"
+
+msgid "Failed to rename logical volume: %s"
+msgstr "Nezdařilo se přejmenovat logický svazek: %s"
+
+msgid "Failed to rename volume group: %s"
+msgstr "Nezdařilo se přejmenovat skupinu svazků: %s"
+
+msgid "Failed to resize physical volume: %s"
+msgstr "Nezdařilo se změnit velikost fyzického svazku: %s"
+
+msgid "Free"
+msgstr "Volné"
+
+msgid "Invalid name"
+msgstr "Neplatný název"
+
+msgid "Logical Volume Management"
+msgstr "Správa logických svazků"
+
+msgid "Logical volumes"
+msgstr "Logické svazky"
+
+msgid "Name"
+msgstr "Název"
+
+msgid "No free space available to create a logical volume."
+msgstr "Pro vytvoření logického svazku již nezbývá žádné volné místo."
+
+msgid "No free space available to extend the logical volume."
+msgstr "Pro zvětšení logického svazku již nezbývá žádné volné místo."
+
+msgid "No logical volume found on '%s'"
+msgstr "Na %s nebyl nalezen žádný logický svazek"
+
+msgid "No physical volume found on '%s'"
+msgstr "Na %s nebyl nalezen žádný fyzický svazek"
+
+msgid "Physical volumes"
+msgstr "Fyzické svazky"
+
+msgid "Reduce"
+msgstr "Zmenšit"
+
+msgid "Reduce volume group"
+msgstr "Zmenšit skupinu svazků"
+
+msgid "Resize"
+msgstr "Změnit velikost"
+
+msgid "Select a volume group ..."
+msgstr "Vybrat skupinu svazků (vg)..."
+
+msgid "Select an device ..."
+msgstr "Vyberte zařízení..."
+
+msgid "Size"
+msgstr "Velikost"
+
+msgid "Used"
+msgstr "Použito"
+
+msgid "Volume group"
+msgstr "Skupina svazků"
+
+msgid "Volume group '%s' not found"
+msgstr "Skupina svazků %s nenalezena"
+
+msgid "Volume groups"
+msgstr "Skupiny svazků"

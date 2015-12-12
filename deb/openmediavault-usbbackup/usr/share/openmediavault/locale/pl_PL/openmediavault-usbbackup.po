@@ -1,0 +1,182 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013-2014
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-06-01 19:40+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: Polish (Poland) (http://www.transifex.com/votdev/openmediavault/language/pl_PL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl_PL\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Add backup job"
+msgstr "Dodaj zadanie kopii"
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"administrator."
+msgstr "Wiadomość e-mail z danymi wyjściowymi polecenia (jeśli są) jest wysłana do administratora"
+
+msgid "Archive"
+msgstr "Archiwum"
+
+msgid "Backup jobs"
+msgstr "Zadania kopii"
+
+msgid "Comment"
+msgstr "Komentarz"
+
+msgid "Compress"
+msgstr "Kompresuj"
+
+msgid "Compress file data during the transfer."
+msgstr "Kompresja danych podczas transferu"
+
+msgid "Delete"
+msgstr "Usuń"
+
+msgid "Delete files on the receiving side that don't exist on sender."
+msgstr "Kasuj pliki po stronie odbiorczej, nie istniejące po stronie nadawczej"
+
+msgid "Device"
+msgstr "Urządzenie"
+
+msgid "Edit backup job"
+msgstr "Edytuj zadanie kopii"
+
+msgid "Enable"
+msgstr "Włącz"
+
+msgid "Enable archive mode."
+msgstr "Włącz tryb archiwizacji"
+
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr "Włącz tę opcję, aby zachować częściowo przesłane pliki, w przeciwnym razie zostaną one usunięte gdy transfer zostanie przerywany."
+
+msgid "Enabled"
+msgstr "Właczone"
+
+msgid "Execute backup job"
+msgstr "Wykonaj zadanie kopii"
+
+msgid "External storage device"
+msgstr "Zewnętrzne urządzenie pamięci masowej"
+
+msgid "Extra options"
+msgstr "Dodatkowe opcje"
+
+msgid "Failed to get filesystems"
+msgstr "Nie udało się uzyskać systemów plików"
+
+msgid "From external storage to shared folder"
+msgstr "Z zewnętrznej pamięci masowej do udostępnionego folderu"
+
+msgid "From shared folder to external storage"
+msgstr "Z folderu udostępnionego do zewnętrznej pamięci masowej"
+
+msgid "Keep partially transferred files"
+msgstr "Zachowaj częściowo przesłane pliki"
+
+msgid "Mode"
+msgstr "Opcja"
+
+msgid ""
+"Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Więcej informacji na <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manual page</a>."
+
+msgid ""
+"Please note that the web interface is blocked until the manually started "
+"backup job has been finished. However the backup job is automatically "
+"executed in the background when the storage device is connected to the host."
+msgstr "Należy pamiętać, że interfejs sieciowy jest blokowany do momentu ręcznego uruchomienia zadania kopii zapasowej gdy zostało zakończone. Jednak zadanie kopii zapasowej jest automatycznie wykonywana w tle, gdy urządzenie pamięci masowej jest podłączone do hosta."
+
+msgid "Preserve ACLs"
+msgstr "Zabezpieczenie ACL-ów"
+
+msgid "Preserve extended attributes"
+msgstr "Chroń rozszerzone atrybuty"
+
+msgid "Preserve modification times."
+msgstr "Chroń czasy modyfikacji"
+
+msgid "Preserve permissions"
+msgstr "Chroń uprawnienia"
+
+msgid "Quiet"
+msgstr "Cichy"
+
+msgid "Recurse into directories."
+msgstr "Przejście do katalogów"
+
+msgid "Recursive"
+msgstr "Rekursywnie"
+
+msgid "Run"
+msgstr "Uruchom"
+
+msgid "Scan"
+msgstr "Skanuj"
+
+msgid "Select a device ..."
+msgstr "Wybierz urządzenie ..."
+
+msgid "Send command output via email."
+msgstr "Wyślij wynik polecenia przez e-mail"
+
+msgid "Send email"
+msgstr "Wyślij email"
+
+msgid ""
+"Set the destination permissions to be the same as the source permissions."
+msgstr "Ustawić uprawnienia przeznaczenia na takie same, jak uprawnienia źródła"
+
+msgid "Shared folder"
+msgstr "Udostępniony folder"
+
+msgid "Suppress non-error messages."
+msgstr "Pomijaj inne komunikaty niż błędy"
+
+msgid "Synchronise from/to directory on external storage device."
+msgstr "Synchronizacji z/do katalogu na zewnętrznym urządzeniu pamięci masowej."
+
+msgid "The external storage device."
+msgstr "Zewnętrzne urządzenie pamięci masowej."
+
+msgid ""
+"The shared folder content is synchronised from/to the root of the external "
+"storage device if this option is not set. The name of the directory is taken"
+" from the shared folder."
+msgstr "Zawartość folderu udostępnionego jest zsynchronizowany do głównego zewnętrznego dysku, jeśli ta opcja nie jest ustawiona. Nazwa katalogu jest pobierana z folderu udostępnionego."
+
+msgid ""
+"The shared folder to synchronise when the external storage device is "
+"connected."
+msgstr "Udostępniony folder do synchronizacji, gdy zewnętrzne urządzenie pamięci masowej jest podłączone."
+
+msgid "Times"
+msgstr "Razy"
+
+msgid "USB Backup"
+msgstr "USB Backup "
+
+msgid "Update the destination ACLs to be the same as the source ACLs."
+msgstr "Aktualizuje przeznaczenia ACL aby były takie same jak źródła listy ACL"
+
+msgid ""
+"Update the destination extended attributes to be the same as the local ones."
+msgstr "Aktualizuje  przeznaczenia rozszerzone atrybuty, które mają być takie same jak lokalne reguły"
+
+msgid "n/a"
+msgstr "n/a"

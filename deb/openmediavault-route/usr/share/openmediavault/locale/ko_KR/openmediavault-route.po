@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Chang-Eon Byeon <ksna0827@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2014-11-01 19:27+0000\n"
+"Last-Translator: Chang-Eon Byeon <ksna0827@gmail.com>\n"
+"Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ko_KR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "A route with the network already exists"
+msgstr "네트워크와 경로는 이미 존재합니다."
+
+msgid "Add static route"
+msgstr "정적 경로 추가"
+
+msgid "Comment"
+msgstr "설명"
+
+msgid "Edit static route"
+msgstr "정적 경로 편집"
+
+msgid "Gateway"
+msgstr "게이트웨이"
+
+msgid "Gateway used to reach the above network address."
+msgstr "게이트웨이는 위의 네트워크 주소에 도달하는 데에 사용됩니다."
+
+msgid "IP or network address."
+msgstr "IP 또는 네트워크 주소"
+
+msgid "Network"
+msgstr "네트워크"
+
+msgid "Static Routes"
+msgstr "정적 경로"

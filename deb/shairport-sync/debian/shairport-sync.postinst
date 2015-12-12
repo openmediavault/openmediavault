@@ -1,0 +1,22 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+	configure)
+		if [ -x "/etc/init.d/shairport-sync" ]; then
+			update-rc.d shairport-sync defaults 25 >/dev/null
+			invoke-rc.d shairport-sync start || exit $?
+		fi
+		;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+		;;
+
+	*)
+		echo "postinst called with unknown argument '$1'" >&2
+		exit 1
+		;;
+esac
+
+exit 0

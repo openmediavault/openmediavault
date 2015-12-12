@@ -1,0 +1,7 @@
+php5-proctitle for Debian
+--------------------------
+
+This extension has been created with dh-make-pecl which is part
+of dh-make-php.
+
+ -- Volker Theile <volker.theile@openmediavault.org>, Wed, 24 Oct 2012 17:57:01 +0000

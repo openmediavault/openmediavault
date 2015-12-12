@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+%:
+	dh $@
+
+override_dh_auto_clean:
+	dh_auto_clean
+	[ ! -f Makefile ] || $(MAKE) distclean
+
+override_dh_auto_configure:
+	autoreconf -i -f
+	dh_auto_configure -- --prefix=/usr --with-alsa --with-avahi \
+	  --with-ssl=openssl

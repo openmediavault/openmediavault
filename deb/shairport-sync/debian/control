@@ -1,0 +1,20 @@
+Source: shairport-sync
+Section: sound
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>= 7), libavahi-client-dev, libssl-dev,
+ libasound2-dev [linux-any], libdaemon-dev, libpopt-dev, libconfig-dev,
+ autoconf, libtool
+Standards-Version: 3.9.4
+Homepage: https://github.com/mikebrady/shairport-sync
+
+Package: shairport-sync
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, avahi-daemon
+Description: An AirPlay-compatible audio receiver
+ This program emulates an AirPort Express for the purpose of streaming
+ audio from iTunes, iPods, iPhones, iPads and AppleTVs. Audio played by
+ a Shairport Sync-powered device stays synchronised with the source and
+ hence with similar devices playing the same source. Thus, for example,
+ synchronised multi-room audio is possible without difficulty.
+ This program does not support AirPlay video or photo streaming.

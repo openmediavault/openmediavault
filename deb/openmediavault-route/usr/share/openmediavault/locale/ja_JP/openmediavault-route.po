@@ -1,0 +1,45 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2014-01-24 01:10+0000\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
+"Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja_JP\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "A route with the network already exists"
+msgstr "ネットワークとのルートがすでに存在しています"
+
+msgid "Add static route"
+msgstr "静的ルートの追加"
+
+msgid "Comment"
+msgstr "コメント"
+
+msgid "Edit static route"
+msgstr "静的ルートの編集"
+
+msgid "Gateway"
+msgstr "ゲートウェイ"
+
+msgid "Gateway used to reach the above network address."
+msgstr "ゲートウェイは、上記のネットワークアドレスに到達するために使用されます。"
+
+msgid "IP or network address."
+msgstr "IPまたはネットワークアドレス。"
+
+msgid "Network"
+msgstr "ネットワーク"
+
+msgid "Static Routes"
+msgstr "静的ルート"

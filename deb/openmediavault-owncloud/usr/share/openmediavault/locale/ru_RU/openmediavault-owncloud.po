@@ -1,0 +1,84 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Alexander Savchenko, 2014
+# Alexander Savchenko, 2014
+# артур Мудрых <arturmon82@gmail.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-06-01 19:40+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/openmediavault/language/ru_RU/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru_RU\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+msgid "Add share"
+msgstr "Добавить каталог"
+
+msgid "Certificate"
+msgstr "Сертификат"
+
+msgid "Comment"
+msgstr "Коментарий"
+
+msgid "Data directory"
+msgstr "Каталог данных"
+
+msgid "Edit share"
+msgstr "Редактировать каталог"
+
+msgid "Enable"
+msgstr "Включить"
+
+msgid "Folder name"
+msgstr "Имя папки"
+
+msgid "General settings"
+msgstr "Общие параметры"
+
+msgid "Port"
+msgstr "Порт"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Shared folder"
+msgstr "Общий каталог"
+
+msgid "Shares"
+msgstr "Общие ресурсы"
+
+msgid "Show"
+msgstr ""
+
+msgid "The SSL certificate."
+msgstr "Сертификат SSL."
+
+msgid "The location of the files to share."
+msgstr "Расположение файлов общего доступа."
+
+msgid "The location where ownCloud stores its files."
+msgstr "Место, где OwnCloud хранит свои файлы."
+
+msgid "The name of the share."
+msgstr "Имя общего ресурса."
+
+msgid "The port '%d' is already in use"
+msgstr "Порт '%d' уже используется"
+
+msgid "The port which is used to access the ownCloud web interface."
+msgstr "Порт, который используется для доступа к веб-интерфейсу OwnCloud."
+
+msgid "n/a"
+msgstr "н / д"
+
+msgid "ownCloud"
+msgstr "ownCloud"

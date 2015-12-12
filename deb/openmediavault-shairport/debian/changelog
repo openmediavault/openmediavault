@@ -1,0 +1,109 @@
+openmediavault-shairport (2.5.1) stable; urgency=low
+
+  * Mantis 0001410: Add the possibillity to change the name the service
+    will advertise to iTunes.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 31 Oct 2015 16:52:10 +0100
+
+openmediavault-shairport (2.5) stable; urgency=low
+
+  * Update locales.
+  * Mantis 0001410: Add the possibillity to change the name the service
+    will advertise to iTunes.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 31 Oct 2015 16:16:49 +0100
+
+openmediavault-shairport (2.4) stable; urgency=low
+
+  * Update locales.
+  * Adapt plugin to shairport-sync 2.4.1.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 04 Oct 2015 10:09:13 +0200
+
+openmediavault-shairport (2.3) stable; urgency=low
+
+  * Update locales.
+  * Fix config script issue.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 02 Sep 2015 12:01:11 +0200
+
+openmediavault-shairport (2.2) stable; urgency=low
+
+  * Update locales.
+  * Adapt WebGUI to Sencha ExtJS 5.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 01 Jun 2015 21:50:03 +0200
+
+openmediavault-shairport (2.1) stable; urgency=low
+
+  * Update locales.
+  * Adapt plugin to shairport-sync.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 15 May 2015 10:07:25 +0200
+
+openmediavault-shairport (2.0) stable; urgency=low
+
+  * Adapt plugin to shairport-sync.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 22 Mar 2015 10:59:13 +0100
+
+openmediavault-shairport (1.4) stable; urgency=low
+
+  * Improve package postrm script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 22 Mar 2015 11:15:50 +0100
+
+openmediavault-shairport (1.3) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 16 Mar 2015 22:20:18 +0100
+
+openmediavault-shairport (1.2) stable; urgency=low
+
+  * Update locales.
+  * Introduce custom field XB-Plugin-Section in debian/control.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 07 Dec 2014 13:01:59 +0100
+
+openmediavault-shairport (1.1) stable; urgency=low
+
+  * Monitor service with monit to restart it in case of an crashes.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 07 Sep 2014 13:28:58 +0200
+
+openmediavault-shairport (1.0.2) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 06 Sep 2014 20:36:49 +0200
+
+openmediavault-shairport (1.0.1) stable; urgency=low
+
+  * Unmute master and PCM channels during package setup.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 03 Aug 2014 14:46:53 +0200
+
+openmediavault-shairport (1.0) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 07 Jul 2014 18:42:43 +0200
+
+openmediavault-shairport (0.6.2) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 28 Jun 2014 17:00:32 +0200
+
+openmediavault-shairport (0.6.1) stable; urgency=low
+
+  * Do not set AP name manually.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 23 Jun 2014 21:57:31 +0200
+
+openmediavault-shairport (0.6) stable; urgency=low
+
+  * Initial release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 21 Jun 2014 16:31:25 +0200

@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Tim <co_ti@hotmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-06-01 19:40+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl_NL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Add share"
+msgstr "Gedeelde bron toevoegen"
+
+msgid "Certificate"
+msgstr "Certificaat"
+
+msgid "Comment"
+msgstr "Opmerkingen"
+
+msgid "Data directory"
+msgstr "Datamap"
+
+msgid "Edit share"
+msgstr "Gedeelde bron bewerken"
+
+msgid "Enable"
+msgstr "Inschakelen"
+
+msgid "Folder name"
+msgstr "Mapnaam"
+
+msgid "General settings"
+msgstr "Algemene instellingen"
+
+msgid "Port"
+msgstr "poort"
+
+msgid "Settings"
+msgstr "Instellingen"
+
+msgid "Shared folder"
+msgstr "Gedeelde map"
+
+msgid "Shares"
+msgstr "Gedeelde bronnen"
+
+msgid "Show"
+msgstr ""
+
+msgid "The SSL certificate."
+msgstr "Het SSL-certificaat"
+
+msgid "The location of the files to share."
+msgstr "Locatie van de te delen bestanden."
+
+msgid "The location where ownCloud stores its files."
+msgstr "De locatie waar ownCloud bestanden opslaat"
+
+msgid "The name of the share."
+msgstr "Naam van de gedeelde bron"
+
+msgid "The port '%d' is already in use"
+msgstr "Poort '%d' is al in gebruik"
+
+msgid "The port which is used to access the ownCloud web interface."
+msgstr "De poort die gebruikt wordt voor toegang tot de ownCloud webtoepassing."
+
+msgid "n/a"
+msgstr "n.v.t."
+
+msgid "ownCloud"
+msgstr "ownCloud"

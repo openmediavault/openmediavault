@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# maurorulli <mauro.rulli@gmail.com>, 2012
+# Paolo Velati <paolo.velati@gmail.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2013-06-16 18:04+0000\n"
+"Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
+"Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A route with the network already exists"
+msgstr "Esiste già un percorso con la rete"
+
+msgid "Add static route"
+msgstr "Aggiungi rotta statica"
+
+msgid "Comment"
+msgstr "Commento"
+
+msgid "Edit static route"
+msgstr "Modifica rotta statica"
+
+msgid "Gateway"
+msgstr "Gateway"
+
+msgid "Gateway used to reach the above network address."
+msgstr "Gateway usato per raggiungere l'indirizzo di rete soprastante."
+
+msgid "IP or network address."
+msgstr "IP o indirizzo di rete."
+
+msgid "Network"
+msgstr "Rete"
+
+msgid "Static Routes"
+msgstr "Rotte Statiche"

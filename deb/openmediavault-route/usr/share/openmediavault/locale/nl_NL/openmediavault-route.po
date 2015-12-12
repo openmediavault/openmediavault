@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Milan Toet <milantoet@gmail.com>, 2013
+# Tim <co_ti@hotmail.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2013-12-21 11:33+0000\n"
+"Last-Translator: Tim <co_ti@hotmail.com>\n"
+"Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl_NL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A route with the network already exists"
+msgstr "Er bestaat al een route met het netwerk"
+
+msgid "Add static route"
+msgstr "Statische route toevoegen"
+
+msgid "Comment"
+msgstr "Geef commentaar"
+
+msgid "Edit static route"
+msgstr "Statische route aanpassen"
+
+msgid "Gateway"
+msgstr "Gateway"
+
+msgid "Gateway used to reach the above network address."
+msgstr "Gateway die wordt gebruikt om bovenstaand netwerkadres te bereiken."
+
+msgid "IP or network address."
+msgstr "IP- of netwerkadres"
+
+msgid "Network"
+msgstr "Netwerk"
+
+msgid "Static Routes"
+msgstr "Statische routes"

@@ -1,0 +1,20 @@
+php5-proctitle (0.1.2-3) stable; urgency=low
+
+  * Change source/format to 1.0 to avoid the dpkg-buildpackage error
+    'native package version may not have a revision' in Debian Jessie.
+    Otherwise it is not possible to show package improvements via x.x.x-yyy
+    version names.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 25 Aug 2015 09:51:04 +0000
+
+php5-proctitle (0.1.2-2) stable; urgency=low
+
+  * Build for Debian Wheezy.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 16 Mar 2014 19:26:37 +0100
+
+php5-proctitle (0.1.2-1) stable; urgency=low
+
+  * Initial Release.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 24 Oct 2012 17:57:01 +0000

@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Volker <votdev@gmx.de>, 2013-2014
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-06-01 19:40+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Add share"
+msgstr "Freigabe hinzufügen"
+
+msgid "Certificate"
+msgstr "Zertifikat"
+
+msgid "Comment"
+msgstr "Kommentar"
+
+msgid "Data directory"
+msgstr "Datenverzeichnis"
+
+msgid "Edit share"
+msgstr "Freigabe bearbeiten"
+
+msgid "Enable"
+msgstr "Aktivieren"
+
+msgid "Folder name"
+msgstr "Ordnername"
+
+msgid "General settings"
+msgstr "Allgemeine Einstellungen"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Shared folder"
+msgstr "Freigegebene Ordner"
+
+msgid "Shares"
+msgstr "Freigaben"
+
+msgid "Show"
+msgstr ""
+
+msgid "The SSL certificate."
+msgstr "Das SSL-Zertifikat."
+
+msgid "The location of the files to share."
+msgstr "Der Speicherort freizugebender Dateien."
+
+msgid "The location where ownCloud stores its files."
+msgstr "Der Ort, an dem ownCloud seine Dateien speichert."
+
+msgid "The name of the share."
+msgstr "Der Name der Freigabe."
+
+msgid "The port '%d' is already in use"
+msgstr "Der Port '%d' ist bereits in Benutzung"
+
+msgid "The port which is used to access the ownCloud web interface."
+msgstr "Der Port, der zum Zugriff auf die ownCloud Weboberfläche verwendet wird."
+
+msgid "n/a"
+msgstr "N/V"
+
+msgid "ownCloud"
+msgstr "ownCloud"

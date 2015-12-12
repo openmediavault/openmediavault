@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# songming <by@songming.me>, 2013-2015
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-06-04 01:13+0000\n"
+"Last-Translator: songming <by@songming.me>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Add share"
+msgstr "添加共享"
+
+msgid "Certificate"
+msgstr "证书"
+
+msgid "Comment"
+msgstr "注释"
+
+msgid "Data directory"
+msgstr "数据目录"
+
+msgid "Edit share"
+msgstr "编辑共享"
+
+msgid "Enable"
+msgstr "启用"
+
+msgid "Folder name"
+msgstr "文件夹名"
+
+msgid "General settings"
+msgstr "常规设置"
+
+msgid "Port"
+msgstr "端口"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Shared folder"
+msgstr "共享文件夹"
+
+msgid "Shares"
+msgstr "共享"
+
+msgid "Show"
+msgstr "显示"
+
+msgid "The SSL certificate."
+msgstr "SSL证书"
+
+msgid "The location of the files to share."
+msgstr "要共享的本地文件夹位置。"
+
+msgid "The location where ownCloud stores its files."
+msgstr "ownCloud存储文件的位置。"
+
+msgid "The name of the share."
+msgstr "共享名。"
+
+msgid "The port '%d' is already in use"
+msgstr "端口'%d'已被使用"
+
+msgid "The port which is used to access the ownCloud web interface."
+msgstr "将用于ownCloud web界面访问端口。"
+
+msgid "n/a"
+msgstr "n/a"
+
+msgid "ownCloud"
+msgstr "ownCloud"

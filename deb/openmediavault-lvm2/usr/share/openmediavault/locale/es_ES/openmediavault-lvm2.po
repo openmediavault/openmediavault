@@ -1,0 +1,179 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Antonio Pelaez Redondo <antorayman@gmail.com>, 2012
+# jmcainzos <jmcainzos@vodafone.es>, 2012
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2015
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-06-01 21:08+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
+"Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Add physical volume"
+msgstr "Añadir volúmen físico"
+
+msgid ""
+"After the logical volume has been extended you can resize the containing "
+"filesystem."
+msgstr "Después de que el volumen lógico se haya extendido podrá modificar el tamaño del sistema de archivos que contiene."
+
+msgid "Available"
+msgstr "Disponible"
+
+msgid "Capacity"
+msgstr "Capacidad"
+
+msgid "Confirmation"
+msgstr "Confirmación"
+
+msgid "Create logical volume"
+msgstr "Cear volumen lógico"
+
+msgid "Create volume group"
+msgstr "Crear grupo de volúmenes"
+
+msgid "Description"
+msgstr "Descripción"
+
+msgid "Device"
+msgstr "Dispositivo"
+
+msgid "Devices"
+msgstr "Dispositivos"
+
+msgid "Do you really want to create the logical volume?"
+msgstr "¿Está seguro de que quiere crear el volumen lógico?"
+
+msgid "Do you really want to create the physical volume?"
+msgstr "¿Está seguro de que quiere crear el volumen físico?"
+
+msgid "Do you really want to create the volume group?"
+msgstr "¿Está seguro de que quiere crear el grupo de volúmenes?"
+
+msgid "Do you really want to resize the selected physical volume?"
+msgstr "¿Realmente desea redimensionar el volumen seleccionado?"
+
+msgid "Edit logical volume"
+msgstr "Editar volumen lógico"
+
+msgid "Edit volume group"
+msgstr "Editar grupo de volúmenes"
+
+msgid "Extend"
+msgstr "Ampliar"
+
+msgid "Extend logical volume"
+msgstr "Ampliar volumen lógico"
+
+msgid "Extend volume group"
+msgstr "Ampliar grupo de volúmenes"
+
+msgid "Failed to create logical volume: %s"
+msgstr "Error al crear un volumen lógico: %s"
+
+msgid "Failed to create physical volume: %s"
+msgstr "Error al crear un volumen físico: %s"
+
+msgid "Failed to create volume group: %s"
+msgstr "Error al crear un grupo de volumenes: %s"
+
+msgid "Failed to extend logical volume: %s"
+msgstr "Error al extender un volumen lógico: %s"
+
+msgid "Failed to extend volume group: %s"
+msgstr "Error al extender un grupo de volumenes: %s"
+
+msgid "Failed to reduce logical volume: %s"
+msgstr "Error al reducir un volumen lógico: %s"
+
+msgid "Failed to reduce volume group: %s"
+msgstr "Error al reducir un grupo de volumenes: %s"
+
+msgid "Failed to remove logical volume: %s"
+msgstr "Fallo al borrar el volúmen lógico: %s"
+
+msgid "Failed to remove physical volume: %s"
+msgstr "Fallo al borrar el volúmen físico: %s"
+
+msgid "Failed to remove volume group: %s"
+msgstr "Fallo al borrar el grupo de volúmenes: %s"
+
+msgid "Failed to rename logical volume: %s"
+msgstr "Error al renombrar un volumen lógico: %s"
+
+msgid "Failed to rename volume group: %s"
+msgstr "Error al renombrar un grupo de volumenes: %s"
+
+msgid "Failed to resize physical volume: %s"
+msgstr "Error al redimensionar un volumen físico: %s"
+
+msgid "Free"
+msgstr "Libre"
+
+msgid "Invalid name"
+msgstr "Nombre inválido"
+
+msgid "Logical Volume Management"
+msgstr "Gestión de volúmenes lógicos"
+
+msgid "Logical volumes"
+msgstr "Volúmenes lógicos"
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "No free space available to create a logical volume."
+msgstr "No hay suficiente espacio libre para crear un volumen lógico."
+
+msgid "No free space available to extend the logical volume."
+msgstr "No hay suficiente espacio libre para extender el volumen lógico."
+
+msgid "No logical volume found on '%s'"
+msgstr "No se ha encontrado volúmen lógico en '%s'"
+
+msgid "No physical volume found on '%s'"
+msgstr "No se ha encontrado volúmen físico en '%s'"
+
+msgid "Physical volumes"
+msgstr "Volúmenes físicos"
+
+msgid "Reduce"
+msgstr "Reducir"
+
+msgid "Reduce volume group"
+msgstr "Reducir grupo de volúmenes"
+
+msgid "Resize"
+msgstr "Redimensionar"
+
+msgid "Select a volume group ..."
+msgstr "Seleccione un grupo de volúmenes ..."
+
+msgid "Select an device ..."
+msgstr "Seleccione un dispositivo"
+
+msgid "Size"
+msgstr "Tamaño"
+
+msgid "Used"
+msgstr "Utilizado"
+
+msgid "Volume group"
+msgstr "Grupo de volúmenes"
+
+msgid "Volume group '%s' not found"
+msgstr "Grupo de volúmenes '%s' no encontrado"
+
+msgid "Volume groups"
+msgstr "Grupos de volúmenes"

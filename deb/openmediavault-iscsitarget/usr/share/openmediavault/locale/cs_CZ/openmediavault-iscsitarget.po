@@ -1,0 +1,276 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Pavel Borecki <pavel.borecki@gmail.com>, 2014-2015
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-04-26 20:31+0000\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
+"Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgid "Add LUN"
+msgstr "Přidat iSCSI logickou jednotku (identifikátor LUN)"
+
+msgid "Add target"
+msgstr "Přidat cíl"
+
+msgid "Add user"
+msgstr "Přidat uživatele"
+
+msgid "Alias"
+msgstr "Alternativní název/adresa"
+
+msgid "Assign a unique identifier to the iSCSI volume optionally."
+msgstr "iSCSI svazku volitelně přiřadit jedinečný identifikátor."
+
+msgid "Assign a unique serial number to the iSCSI volume optionally."
+msgstr "iSCSI svazku volitelně přiřadit jedinečné sériové číslo."
+
+msgid "Authentication"
+msgstr "Ověřování"
+
+msgid "Block IO"
+msgstr "Vstup/Výstup blokového zařízení"
+
+msgid "Comment"
+msgstr "Komentář"
+
+msgid ""
+"Controls the maximum number of data transfers the target may request at "
+"once."
+msgstr "Určuje nejvyšší umožněný počet datových přenosů, který může být cílem požadován naráz."
+
+msgid "Data PDU in order"
+msgstr "Data v pořadí PDU"
+
+msgid "Data digest"
+msgstr "Otisk dat"
+
+msgid "Data sequence in order"
+msgstr "Posloupnost dat v pořadí"
+
+msgid "Device"
+msgstr "Zařízení"
+
+msgid "Discovery authentication"
+msgstr "Ověřování při propagaci služby"
+
+msgid "Edit LUN"
+msgstr "Upravit LUN"
+
+msgid "Edit target"
+msgstr "Upravit cíl"
+
+msgid "Edit user"
+msgstr "Upravit uživatele"
+
+msgid "Enable"
+msgstr "Zapnout"
+
+msgid "Error recovery level"
+msgstr "Stupeň obnovy z chyby"
+
+msgid "Extra options"
+msgstr "Rozšířené možnosti"
+
+msgid "File IO"
+msgstr "Souborový vst./výst."
+
+msgid "First burst length"
+msgstr "Délka první dávky"
+
+msgid "General"
+msgstr "Obecné"
+
+msgid "General settings"
+msgstr "Obecná nastavení"
+
+msgid "Header digest"
+msgstr "Otisk hlavičky"
+
+msgid "IO threads"
+msgstr "vstup./výst. vláken"
+
+msgid "IQN"
+msgstr ""
+
+msgid "Id"
+msgstr "Identifikátor"
+
+msgid "Identifier"
+msgstr "Identifikátor"
+
+msgid ""
+"If a non-zero 'NOP interval' is used to periodically 'ping' the initiator "
+"during phases of inactivity (i.e. no data transfers), the initiator must "
+"respond within N seconds, otherwise the connection will be closed."
+msgstr "Jestliže je nastaven časový úsek mezi povely NOP, pak jsou tyto použity jako pravidelné kontroly v obdobích, kdy nejsou přenášena data. Iniciátor musí odpovědět v nastaveném limitu, jinak bude spojení ukončeno."
+
+msgid ""
+"If enabled, the initiator has to wait for the target to solicit SCSI data "
+"before sending it. Disabling it allows the initiator to send a burst of N "
+"bytes unsolicited right after and/or together with the command. Thus "
+"disabling it may improve performance."
+msgstr "Když je povoleno, iniciátor musí čekat, než cíl získá SCSI data, než je odešle. Zakázání povolí iniciátoru poslat dávku N bajtů nevyžádaně právě po a/nebo společně s příkazem. Proto zakázání může vylepšit výkon."
+
+msgid ""
+"If set to 'CRC32C' and the initiator is configured accordingly, the "
+"integrity of an iSCSI PDU's data segment will be protected by a CRC32C "
+"checksum."
+msgstr "Při nastavení na hodnotu CRC32C a příslušně nastaveném iniciátoru, bude celistvost datového segmentu PDU chráněna kontrolním součtem CRC32C."
+
+msgid ""
+"If set to 'CRC32C' and the initiator is configured accordingly, the "
+"integrity of an iSCSI PDU's header segments will be protected by a CRC32C "
+"checksum."
+msgstr "Je-li nastaveno na CRC32C a iniciátor je příslušně nastaven, bude neporušenost hlavičkových segmentů PDU ověřována pomocí kontrolního součtu algoritmem CRC32C."
+
+msgid ""
+"If value is non-zero, the initiator will be 'ping'ed during phases of "
+"inactivity (i.e. no data transfers) every N seconds to verify the connection"
+" is still alive."
+msgstr "Při nenulové hodnotě, bude u iniciátoru v obdobích neaktivity (tzn. neprobíhajících přenosech dat) ověřováno, zda je stále k dispozici (pomocí dotazování nástrojem ping a to každých N sekund)."
+
+msgid "Immediate data"
+msgstr "Okamžitá data"
+
+msgid "Incoming"
+msgstr "Příchozí"
+
+msgid "Initial R2T"
+msgstr "Úvodní signalizace připravenosti k přenosu (R2T)"
+
+msgid "LUN"
+msgstr ""
+
+msgid "Max. burst length"
+msgstr "Nejdelší přijatelná dávka"
+
+msgid "Max. connections"
+msgstr "Nejvýše spojení"
+
+msgid "Max. outstanding R2T"
+msgstr "Nejvýše zbývajících datových jednotek protokolu iSCSI (PDU), připravených k přenosu (R2T)"
+
+msgid "Max. receive data segment length"
+msgstr "Nejdelší přijatelný úsek dat"
+
+msgid "Max. sessions"
+msgstr "Nejvýše relací"
+
+msgid "Max. transmit data segment length"
+msgstr "Největší velikost přenášeného úseku dat"
+
+msgid "NOP interval"
+msgstr "Rozmezí povelu NOP"
+
+msgid "NOP timeout"
+msgstr "Limit časové prodlevy povelu NOP"
+
+msgid "None"
+msgstr "Žádné"
+
+msgid "Only one outgoing user per target is supported."
+msgstr "Pro jeden cíl je možné použít jen jediného odchozího uživatele."
+
+msgid "Outgoing"
+msgstr "Odchozí"
+
+msgid "Password"
+msgstr "Heslo"
+
+msgid "Queued commands"
+msgstr "Zřetězené příkazy"
+
+msgid "R/W mode"
+msgstr "Režim čtení i zápisu"
+
+msgid "Read-only"
+msgstr "Pouze pro čtení"
+
+msgid "SCSI Id."
+msgstr "SCSI identifikátor"
+
+msgid "SCSI serial no."
+msgstr "SCSI sériové číslo"
+
+msgid "Select an device ..."
+msgstr "Zvolte zařízení ..."
+
+msgid ""
+"Sets the amount of unsolicited data the initiator may transmit in the first "
+"burst of a transfer either with and/or right after the command."
+msgstr "Nastaví množství nevyžádaných dat, které může iniciátor poslat v první přenosové dávce buď s a nebo hned po příkazu."
+
+msgid ""
+"Sets the maximum amount of either unsolicited or solicited data the "
+"initiator may send in a single burst."
+msgstr "Nastaví, kolik nejvýše vyžádaných či nevyžádaných dat může iniciátor poslat v jedné dávce."
+
+msgid "Sets the maximum data segment length that can be received."
+msgstr "Nastaví, jaké nejdelší datové segmenty budou přijímány."
+
+msgid "Sets the maximum data segment length that can be sent."
+msgstr "Nastaví, jaké nejdelší datové segmenty bude možné posílat."
+
+msgid "Settings"
+msgstr "Nastavení"
+
+msgid "Targets"
+msgstr "Cíle"
+
+msgid "The identifier of the target."
+msgstr "Identifikátor cíle."
+
+msgid "The maximum number of sessions for this target."
+msgstr "Nejvyšší umožněný počet relací pro tento cíl."
+
+msgid ""
+"The number of commands an initiator may send and that will be buffered by "
+"the target."
+msgstr "Počet příkazů, které iniciátor může posílat a které budou cílem uloženy v jeho vyrovnávací paměti."
+
+msgid "The number of connections within a session."
+msgstr "Počet spojení v rámci sezení."
+
+msgid "The number of threads to perform block I/O to the device."
+msgstr "Počet vláken pro blokový vstup/výstup na zařízení."
+
+msgid "The optional alias of the target."
+msgstr "Volitelný alternativní název cíle."
+
+msgid ""
+"This allows the initiator to append unsolicited data to a command. To "
+"achieve better performance, this should be enabled."
+msgstr "Toto povolí iniciátoru připojit k příkazu nevyžádaná data. Pro dosažení lepšího výkonu by toto mělo být zapnuté."
+
+msgid "Transfer mode"
+msgstr "Přenosový režim"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Username"
+msgstr "Přihlašovací jméno"
+
+msgid "Users"
+msgstr "Uživatelé"
+
+msgid "Write-back"
+msgstr "Dodatečný zápis"
+
+msgid "Write-through"
+msgstr "Průběžný zápis"
+
+msgid "iSCSI Target"
+msgstr "iSCSI cíl"

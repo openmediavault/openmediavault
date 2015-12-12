@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.9.4" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>proctitle</name>
+ <channel>pecl.php.net</channel>
+ <summary>Allows setting the current process name on Linux and BSD</summary>
+ <description>This extension allows changing the current process&apos; name on Linux and *BSD systems. This is useful when using pcntl_fork() to identify running processes in process list</description>
+ <lead>
+  <name>Mark Karpeles</name>
+  <user>magicaltux</user>
+  <email>magicaltux@php.net</email>
+  <active>yes</active>
+ </lead>
+ <date>2012-05-11</date>
+ <time>08:49:30</time>
+ <version>
+  <release>0.1.2</release>
+  <api>0.1.2</api>
+ </version>
+ <stability>
+  <release>alpha</release>
+  <api>alpha</api>
+ </stability>
+ <license uri="http://www.php.net/license">PHP License</license>
+ <notes>
+- Fixed package version by using a define (suggested by rza)
+- Added setthreadtitle() (bjori)
+- Fixed compatibility for PHP 5.4+ (johannes)
+ </notes>
+ <contents>
+  <dir name="/">
+   <file md5sum="c37f4bfb9c05ac99a8dcc0442f1ee5ba" name="README" role="doc" />
+   <file md5sum="120722ac328447294083a64f651c3ddc" name="LICENSE" role="doc" />
+   <file md5sum="e36a3da5fd2b5e8bc316c3feb8907850" name="config.m4" role="src" />
+   <file md5sum="2508c0ed309cd0a81a31136ac835a375" name="proctitle.c" role="src" />
+   <file md5sum="a16cb5380c8f8f4c053449fc6c1e3116" name="php_proctitle.h" role="src">
+    <tasks:replace from="@PACKAGE_VERSION@" to="version" type="package-info" />
+   </file>
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.2.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <providesextension>proctitle</providesextension>
+ <extsrcrelease />
+ <changelog>
+  <release>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <version>
+    <release>0.1.1</release>
+    <api>0.1.1</api>
+   </version>
+   <date>2009-01-30</date>
+   <notes>
+- Fixed copyright (thanks to Wez)
+- Added BSD system autodetection (native call &quot;setproctitle&quot;)
+   </notes>
+  </release>
+  <release>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <version>
+    <release>0.1.0</release>
+    <api>0.1.0</api>
+   </version>
+   <date>2009-01-29</date>
+   <notes>
+- Fixed/improved parts of the code based on suggestions by johannes
+- Merged code from various sources (initial wikipedia code, code found on bug report, etc)
+   </notes>
+  </release>
+ </changelog>
+</package>

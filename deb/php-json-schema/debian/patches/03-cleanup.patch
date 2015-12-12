@@ -1,0 +1,159 @@
+Index: php-json-schema/php/JsonSchema.php
+===================================================================
+--- php-json-schema.orig/php/JsonSchema.php	2011-06-17 23:16:22.979918398 +0200
++++ php-json-schema/php/JsonSchema.php	2011-06-17 23:21:08.249918399 +0200
+@@ -161,8 +161,12 @@
+         do {
+             $schema = json_decode($schema, true);
+             if (!is_array($schema) || !isset($schema['type'])) {
+-                $this->addError('schema parse error. (PHP 5 >= 5.3.0) see json_last_error(void).');
+-                break;
++                if (function_exists("json_last_error")) {
++					$this->addError(sprintf("Schema parse error (%d).",
++						json_last_error()));
++				} else {
++					$this->addError('Schema parse error.');
++				}
+             }
+             $isVali = $this->checkByType($this->json, $schema);
+         } while (false);
+@@ -182,19 +186,19 @@
+         do {
+ 
+             if (!is_string($value)) {
+-                $this->addError(sprintf('value: "%s" is not a string.', $value));
++                $this->addError(sprintf('%s is not a string.', $value));
+                 break;
+             }
+             $len = strlen($value);
+             if (isset($schema['minLength'])) {
+                 if ($schema['minLength'] > $len) {
+-                    $this->addError(sprintf('value: "%s" is too short.', $value));
++                    $this->addError(sprintf('%s is too short.', $value));
+                     break;
+                 }
+             }
+             if (isset($schema['maxLength'])) {
+                 if ($schema['maxLength'] < $len) {
+-                    $this->addError(sprintf('value: "%s" is too long.', $value));
++                    $this->addError(sprintf('%s is too long.', $value));
+                     break;
+                 }
+             }
+@@ -244,7 +248,7 @@
+                                 $this->addError(printf('"%s" does not match "%s"', $value, $pattern));
+                             }
+                         } else {
+-                            $this->addError('format-regex: pattern is undefined.');
++                            $this->addError('regex pattern is undefined.');
+                         }
+ 
+                         break;
+@@ -268,7 +272,7 @@
+                         if (preg_match("/^(\(0?[0-9]{2}\) \d{3,4}\s?\d{4}|\+\d{2} \d{2} \d{3,4}\s?\d{4})$/", $value)) {
+                             $isVali = true;
+                         } else {
+-                            $this->addError(sprintf('value: "%s" is not a phone number.', $value));
++                            $this->addError(sprintf('%s is not a phone number.', $value));
+                         }
+                         break;
+                     case 'uri':
+@@ -278,7 +282,7 @@
+                         if (filter_var($value, FILTER_VALIDATE_URL, FILTER_FLAG_QUERY_REQUIRED)) {
+                             $isVali = true;
+                         } else {
+-                            $this->addError(sprintf('value: "%s" is not a URI.', $value));
++                            $this->addError(sprintf('%s is not a URI.', $value));
+                         }
+                         break;
+                     case 'email':
+@@ -288,7 +292,7 @@
+                         if (filter_var($value, FILTER_VALIDATE_EMAIL)) {
+                             $isVali = true;
+                         } else {
+-                            $this->addError(sprintf('value: "%s" is not a email.', $value));
++                            $this->addError(sprintf('%s is not a email.', $value));
+                         }
+                         break;
+                     case 'ip-address':
+@@ -298,7 +302,7 @@
+                         if (filter_var($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+                             $isVali = true;
+                         } else {
+-                            $this->addError(sprintf('value: "%s" is not a ipv4 address.', $value));
++                            $this->addError(sprintf('%s is not a ipv4 address.', $value));
+                         }
+ 
+                         break;
+@@ -309,7 +313,7 @@
+                         if (filter_var($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+                             $isVali = true;
+                         } else {
+-                            $this->addError(sprintf('value: "%s" is not a ipv6 address.', $value));
++                            $this->addError(sprintf('%s is not a ipv6 address.', $value));
+                         }
+                         break;
+                     case 'host-name':
+@@ -319,7 +323,7 @@
+                         break;
+ 
+                     default:
+-                        $this->addError(sprintf('format: "%s" is undefined.', $schema['format']));
++                        $this->addError(sprintf('format %s is undefined.', $schema['format']));
+                         break;
+                 }
+                 break;
+@@ -417,7 +421,7 @@
+     private function checkInteger($value, $schema) {
+         // integer
+         if (!is_integer($value)) {
+-            $this->addError(sprintf('value:"%s" is not a integer.', $value));
++            $this->addError(sprintf('%s is not an integer.', $value));
+             return false;
+         }
+         return $this->checkNumber($value, $schema);
+@@ -433,7 +437,7 @@
+     private function checkBoolean($value, $schema) {
+         // boolean
+         if (!is_bool($value)) {
+-            $this->addError(sprintf('value: "%s" is not a boolean.', $value));
++            $this->addError(sprintf('%s is not a boolean.', $value));
+             return false;
+         }
+         return true;
+@@ -451,7 +455,7 @@
+         $isVali = false;
+         do {
+             if (!is_object($value)) {
+-                $this->addError(sprintf('value: "%s" is not an object.', $value));
++                $this->addError(sprintf('%s is not an object.', $value));
+                 break;
+             }
+             if (isset($schema['properties'])
+@@ -499,7 +503,7 @@
+         $isVali = false;
+         do {
+             if (!is_array($value)) {
+-                $this->addError(sprintf('value: "%s" is not an array.', $value));
++                $this->addError(sprintf('%s is not an array.', $value));
+                 break;
+             }
+ 
+@@ -581,7 +585,7 @@
+                         $isVali = true;
+                         break;
+                     default:
+-                        $this->addError(sprintf('type_schema: "%s" is undefined.', $value));
++                        $this->addError(sprintf('type_schema: %s is undefined.', $value));
+                         break;
+                 }
+             }
+@@ -606,7 +610,7 @@
+      * @param string $msg
+      */
+     protected function addError($msg) {
+-        $this->errors[] = htmlentities($msg);
++        $this->errors[] = $msg;
+     }
+ 
+ }

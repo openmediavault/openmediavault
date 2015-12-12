@@ -1,0 +1,5 @@
+APT::Update::Pre-Invoke { "run-parts /etc/apt/update-pre-invoke.d || true"; };
+APT::Update::Post-Invoke { "run-parts /etc/apt/update-post-invoke.d || true"; };
+APT::Update::Post-Invoke-Success { "run-parts /etc/apt/update-post-invoke-success.d || true"; };
+DPkg::Pre-Invoke { "run-parts /etc/apt/pre-invoke.d || true"; };
+DPkg::Post-Invoke { "run-parts /etc/apt/post-invoke.d || true"; };

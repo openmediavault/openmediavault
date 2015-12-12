@@ -1,0 +1,114 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2014
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2014-05-20 06:47+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Charge"
+msgstr "Ladning"
+
+msgid "Comment"
+msgstr "Kommentar"
+
+msgid "Date & Time"
+msgstr "Dato & Tid"
+
+msgid "Defines when the shutdown is initiated."
+msgstr "Definerer hvornår nedlukning påbegyndes."
+
+msgid "Driver configuration directives"
+msgstr "Driver konfiguration direktiver"
+
+msgid "Enable"
+msgstr "Aktiver"
+
+msgid "Enable remote monitoring of the local connected UPS."
+msgstr "Aktiver fjernovervågning af den lokal forbundet UPS."
+
+msgid "General settings"
+msgstr "Generelle indstillinger"
+
+msgid "Identifier"
+msgstr "Identifier"
+
+msgid "Load"
+msgstr "Indlæs"
+
+msgid "Message"
+msgstr "Besked"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "Password"
+msgstr "Adgangskode"
+
+msgid "Program"
+msgstr "Program"
+
+msgid "Remote monitoring"
+msgstr "Fjernovervågning"
+
+msgid "Service disabled"
+msgstr "Service deaktiveret"
+
+msgid "Settings"
+msgstr "Indstillinger"
+
+msgid "Shutdown mode"
+msgstr "Nedluknings tilstand"
+
+msgid "Shutdown timer"
+msgstr "Nedluknings timer"
+
+msgid "Temperature"
+msgstr "Temperatur"
+
+msgid "The name used to uniquely identify your UPS on this system."
+msgstr "Navnet, der anvendes til entydigt, at identificere dine UPS på dette system."
+
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr "Tiden i sekunder, inden nedlukning påbegyndes. Hvis UPS'en skulle komme tilbage inden tiden udløber bliver nedlukningen annulleret."
+
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr "For at få flere oplysninger om hvordan du konfigurerer dine UPS så kontroller venligst Network UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'> dokumentation </ a >."
+
+msgid "UPS"
+msgstr "UPS"
+
+msgid "UPS goes on battery"
+msgstr "UPS går på batteri"
+
+msgid "UPS reaches low battery"
+msgstr "UPS når lavt batteriniveau"
+
+msgid "Used for remote authentication."
+msgstr "Bruges til fjerngodkendelse"
+
+msgid "Username"
+msgstr "Brugernavn"
+
+msgid "Variables"
+msgstr "Variabler"
+
+msgid "Voltage"
+msgstr "Spænding"

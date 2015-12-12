@@ -1,0 +1,50 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2015 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+case "$1" in
+    configure)
+        if [ -n "$2" ]; then
+            # Remove keys from the trusted.gpg file as they are now shipped in fragment files in trusted.gpg.d
+        	if dpkg --compare-versions "$2" lt-nl "0.4" && which gpg > /dev/null && which apt-key > /dev/null; then
+        		TRUSTEDFILE='/etc/apt/trusted.gpg'
+        		eval $(apt-config shell TRUSTEDFILE Apt::GPGV::TrustedKeyring)
+        		eval $(apt-config shell TRUSTEDFILE Dir::Etc::Trusted/f)
+        		if [ -e "$TRUSTEDFILE" ]; then
+        			for KEY in 2EF35D13; do
+        				apt-key --keyring "$TRUSTEDFILE" del $KEY > /dev/null 2>&1 || :
+        			done
+        		fi
+        	fi
+        fi
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+exit 0
