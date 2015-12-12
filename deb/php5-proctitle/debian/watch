@@ -1,3 +1,0 @@
-version=3
-http://pecl.php.net/package/proctitle \
-  /get/proctitle-([\d\.]*).tgz  debian  uupdate
