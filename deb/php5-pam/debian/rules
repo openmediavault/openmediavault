@@ -30,6 +30,7 @@ SOURCE_DIR=$(shell ls -d $(PECL_PKG_REALNAME)-*)
 BINARYTARGETS=binary-arch-v5 
 BUILDTARGETS=build-v5 
 CLEANTARGETS=clean-v5 
+PHP55CONFD=true
 
 # Sarge doesn't support --phpapi option (Bug #365667)
 phpapiver4=$(shell /usr/bin/php-config4 --phpapi)
@@ -95,8 +96,13 @@ install-v4 install-v5: install-v%: build-v%
 	mkdir -p debian/$(BIN_PACKAGE_NAME)/$(EXT_DIR)
 	install -m 644 -o root -g root tmp/modules$*/$(PECL_PKG_NAME).so debian/$(BIN_PACKAGE_NAME)/$(EXT_DIR)/$(PECL_PKG_NAME).so
 	if [ -f "debian/$(PECL_PKG_NAME).ini" ]; then \
-		mkdir -p debian/$(BIN_PACKAGE_NAME)/etc/php$*/conf.d; \
-		cp debian/$(PECL_PKG_NAME).ini debian/$(BIN_PACKAGE_NAME)/etc/php$*/conf.d; \
+		if [ "$(PHP55CONFD)" = "true" ]; then \
+			mkdir -p debian/$(BIN_PACKAGE_NAME)/etc/php$*/mods-available; \
+			cp debian/$(PECL_PKG_NAME).ini debian/$(BIN_PACKAGE_NAME)/etc/php$*/mods-available; \
+		else \
+			mkdir -p debian/$(BIN_PACKAGE_NAME)/etc/php$*/conf.d; \
+			cp debian/$(PECL_PKG_NAME).ini debian/$(BIN_PACKAGE_NAME)/etc/php$*/conf.d; \
+		fi \
 	fi
 
 # Build architecture-independent files here.
