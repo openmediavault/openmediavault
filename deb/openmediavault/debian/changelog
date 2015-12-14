@@ -2,6 +2,7 @@ openmediavault (2.1.21) stable; urgency=low
 
   * Fixing bug in omv-initsystem.
   * Fixing various bugs.
+  * Mantis 0001425: Add support for Infiniband network interfaces.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 11 Dec 2015 13:01:04 +0100
 

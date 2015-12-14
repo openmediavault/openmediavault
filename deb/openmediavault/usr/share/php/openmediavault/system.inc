@@ -4548,6 +4548,14 @@ class OMVNetworkInterfaceBackendEthernet extends OMVNetworkInterfaceBackendAbstr
 }
 
 /**
+ * Implements the network interface backend for Infiniband devices.
+ * @ingroup api
+ */
+class OMVNetworkInterfaceBackendInfiniband extends OMVNetworkInterfaceBackendEthernet {
+	protected $regex = "/^ib[0-9]+$/i";
+}
+
+/**
  * Implements the network interface backend for bond devices.
  * @ingroup api
  */
@@ -6151,3 +6159,4 @@ OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendBridge);
 OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendWireless);
 OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendVirtual);
 OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendLoopback);
+OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendInfiniband);
