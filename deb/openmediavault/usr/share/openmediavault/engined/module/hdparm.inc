@@ -21,6 +21,7 @@
  */
 require_once("openmediavault/module.inc");
 require_once("openmediavault/error.inc");
+require_once("openmediavault/initscript.inc");
 
 class OMVModuleHdParm extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -37,7 +38,7 @@ class OMVModuleHdParm extends OMVModuleServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = "export LANG=C; omv-mkconf hdparm 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}

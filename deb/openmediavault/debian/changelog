@@ -1,6 +1,7 @@
 openmediavault (2.1.21) stable; urgency=low
 
-  * Fix bug in omv-initsystem.
+  * Fixing bug in omv-initsystem.
+  * Fixing various bugs.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 11 Dec 2015 13:01:04 +0100
 

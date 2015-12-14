@@ -65,15 +65,15 @@ class OMVModuleCPUFreqUtils extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//system/powermanagement";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		if (FALSE === boolvalEx($object['cpufreq']))
 			return;
-		$initd = new OMVSysVInitScript("loadcpufreq", TRUE, FALSE);
+		$initd = new OMVSysVInitScript("loadcpufreq", TRUE);
 		$initd->exec();
-		$initd = new OMVSysVInitScript("cpufrequtils", TRUE, FALSE);
+		$initd = new OMVSysVInitScript("cpufrequtils", TRUE);
 		$initd->exec();
 	}
 
