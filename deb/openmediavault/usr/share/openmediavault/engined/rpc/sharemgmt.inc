@@ -257,7 +257,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 		$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
 		  $params['uuid']);
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
@@ -266,7 +266,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
 		  $object['mntentref']);
 		$meObject = $xmlConfig->get($xpath);
-		if(is_null($meObject)) {
+		if (is_null($meObject)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
@@ -384,13 +384,13 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			// Update existing configuration object.
 			$success = $xmlConfig->replace($xpath, $object);
 		}
-		if(FALSE === $success) {
+		if (FALSE === $success) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Append the file mode field to the notification object if set.
 		// Defaults to 775.
 		$object['mode'] = "775";
-		if(array_key_exists("mode", $params)) {
+		if (array_key_exists("mode", $params)) {
 			$object['mode'] = $params['mode'];
 		}
 		// Get the mount point configuration object to build the absolute
@@ -398,44 +398,50 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
 		  $object['mntentref']);
 		$meObject = $xmlConfig->get($xpath);
-		if(is_null($meObject)) {
+		if (is_null($meObject)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		// Build the absolute shared folder path.
 		$pathName = build_path(array($meObject['dir'], $object['reldirpath']));
 		// Create the shared folder directory if necessary.
-		if(FALSE === file_exists($pathName)) {
+		if (FALSE === file_exists($pathName)) {
 			// Create the directory. Note, the function seems to have a bug
 			// when using the mask parameter. E.g. octdec("777") does not
 			// create the correct permissions as expected, thus change the
 			// mode using chmod.
-			if(FALSE === mkdir($pathName, 0700, TRUE)) {
+			if (FALSE === mkdir($pathName, 0700, TRUE)) {
+				$error = error_get_last();
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("Failed to create the directory '%s'", $pathName));
+				  sprintf("Failed to create the directory '%s': %s",
+				  $pathName, $error['message']));
 			}
 			// Change the directory mode.
-			if(FALSE === chmod($pathName, octdec($object['mode']))) {
+			if (FALSE === chmod($pathName, octdec($object['mode']))) {
+				$error = error_get_last();
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("Failed to set file mode to '%s' for '%s'",
-				  $object['mode'], $pathName));
+				  sprintf("Failed to set file mode to '%s' for '%s': %s",
+				  $object['mode'], $pathName, $error['message']));
 			}
 		}
 		// Change group owner of directory to configured default group,
 		// e.g. 'users'.
-		if(FALSE === chgrp($pathName, $GLOBALS['OMV_USERMGMT_DEFAULT_GROUP'])) {
+		if (FALSE === chgrp($pathName, $GLOBALS['OMV_USERMGMT_DEFAULT_GROUP'])) {
+			$error = error_get_last();
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to set file group to '%s' for '%s'",
-			  $GLOBALS['OMV_USERMGMT_DEFAULT_GROUP'], $pathName));
+			  sprintf("Failed to set file group to '%s' for '%s': %s",
+			  $GLOBALS['OMV_USERMGMT_DEFAULT_GROUP'], $pathName,
+			  $error['message']));
 		}
 		// Set the setgid bit. Setting this permission means that all files
 		// created in the folder will inherit the group of the folder rather
 		// than the primary group of the user who creates the file.
 		$mode = fileperms($pathName) | 02000;
-		if(FALSE === chmod($pathName, $mode)) {
+		if (FALSE === chmod($pathName, $mode)) {
+			$error = error_get_last();
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to set file mode to '%o' for '%s'",
-			  $mode, $pathName));
+			  sprintf("Failed to set file mode to '%o' for '%s': %s",
+			  $mode, $pathName, $error['message']));
 		}
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
