@@ -1205,24 +1205,29 @@ finish:
 				  $cmd, implode("\n", $output));
 			}
 			// Create the home directory if it does not exist until now.
-			if(!empty($homeDirPath)) {
+			if (!empty($homeDirPath)) {
 				$path = build_path(array($homeDirPath, $userv['name']));
-				if(!file_exists($path)) {
-					if(!mkdir($path, 0755, TRUE)) {
+				if (!file_exists($path)) {
+					if (!mkdir($path, 0755, TRUE)) {
+						$error = error_get_last();
 						throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-						  sprintf("Failed to create home directory '%s'."),
-						  $path);
+						  sprintf("Failed to create home directory '%s': %s",
+						  $path, $error['message']));
 					}
-					if(!chown($path, $userv['name'])) {
+					if (!chown($path, $userv['name'])) {
+						$error = error_get_last();
 						throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 						  sprintf("Failed to change owner of the ".
-						  "directory '%s' to '%s'."), $path, $userv['name']);
+						  "directory '%s' to '%s': %s", $path,
+						  $userv['name'], $error['message']));
 					}
-					if(!chgrp($path, $GLOBALS['OMV_USERMGMT_DEFAULT_GROUP'])) {
+					if (!chgrp($path, $GLOBALS['OMV_USERMGMT_DEFAULT_GROUP'])) {
+						$error = error_get_last();
 						throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 						  sprintf("Failed to change group of the ".
-						  "directory '%s' to '%s'."), $path,
-						  $GLOBALS['OMV_USERMGMT_DEFAULT_GROUP']);
+						  "directory '%s' to '%s': %s", $path,
+						  $GLOBALS['OMV_USERMGMT_DEFAULT_GROUP'],
+						  $error['message']));
 					}
 				}
 			}
