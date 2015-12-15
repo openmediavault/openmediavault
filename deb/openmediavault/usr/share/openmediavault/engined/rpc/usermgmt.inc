@@ -1227,7 +1227,7 @@ finish:
 						  sprintf("Failed to change group of the ".
 						  "directory '%s' to '%s': %s", $path,
 						  $GLOBALS['OMV_USERMGMT_DEFAULT_GROUP'],
-						  $error['message']);
+						  $error['message']));
 					}
 				}
 			}
