@@ -162,10 +162,6 @@ EOF
 
 	# Process the collectd plugins.
 	run-parts --exit-on-error ${OMV_COLLECTD_PLUGINS_DIR}
-
-	cat <<EOF >> ${OMV_COLLECTD_CONFIG}
-Include "/etc/collectd/thresholds.conf"
-EOF
 }
 
 case "$1" in

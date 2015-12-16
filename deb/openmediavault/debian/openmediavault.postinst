@@ -128,6 +128,7 @@ case "$1" in
 			omv-mkconf watchdog
 			omv-mkconf monit
 			omv-mkconf rrdcached
+			omv-mkconf avahi-daemon
 		fi
 		omv-mkconf collectd
 
@@ -143,6 +144,7 @@ case "$1" in
 			invoke-rc.d php5-fpm reload
 			invoke-rc.d nginx restart
 			invoke-rc.d monit restart
+			invoke-rc.d avahi-daemon restart
 		fi
 		dpkg-trigger restart-engined || monit restart omv-engined
 
