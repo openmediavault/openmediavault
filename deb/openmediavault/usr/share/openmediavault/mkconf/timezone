@@ -28,4 +28,3 @@ OMV_TIMEZONE_CONFIG=${OMV_TIMEZONE_CONFIG:-"/etc/timezone"}
 
 xmlstarlet sel -t -v "//system/time/timezone" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_TIMEZONE_CONFIG}
-dpkg-reconfigure -f noninteractive tzdata 2>&1
