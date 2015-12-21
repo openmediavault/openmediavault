@@ -31,14 +31,22 @@ OMV_FORKEDDAAPD_GENERAL_UID=${OMV_FORKEDDAAPD_GENERAL_UID:-"daapd"}
 OMV_FORKEDDAAPD_GENERAL_LOGFILE=${OMV_FORKEDDAAPD_GENERAL_LOGFILE:-"/var/log/forked-daapd.log"}
 OMV_FORKEDDAAPD_GENERAL_LOGLEVEL=${OMV_FORKEDDAAPD_GENERAL_LOGLEVEL:-"log"}
 OMV_FORKEDDAAPD_GENERAL_DBPATH=${OMV_FORKEDDAAPD_GENERAL_DBPATH:-"/var/cache/forked-daapd/songs3.db"}
+OMV_FORKEDDAAPD_LIBRARY_FILESCANDISABLE=${OMV_FORKEDDAAPD_LIBRARY_FILESCANDISABLE:-"false"}
 OMV_FORKEDDAAPD_LIBRARY_ITUNESOVERRIDES=${OMV_FORKEDDAAPD_LIBRARY_ITUNESOVERRIDES:-"false"}
 OMV_FORKEDDAAPD_AUDIO_NICKNAME=${OMV_FORKEDDAAPD_AUDIO_NICKNAME:-"Computer"}
 
 mkconf() {
+	local ipv6
+
 	# Create '/etc/default/forked-daapd' file
 	cat <<EOF > ${OMV_FORKEDDAAPD_DEFAULT}
 DAEMON_OPTS="${OMV_FORKEDDAAPD_DAEMONOPTS}"
 EOF
+
+	ipv6="no"
+	if ! omv_is_ipv6_enabled; then
+		ipv6="yes"
+	fi
 
 	# Create '/etc/forked-daapd.conf' file
 	xmlstarlet sel -t -m "//services/daap" \
@@ -52,6 +60,8 @@ EOF
 	  -o "    db_path = \"${OMV_FORKEDDAAPD_GENERAL_DBPATH}\"" -n \
 	  -o "    # Admin password for the non-existent web interface" -n \
 	  -v "concat('    admin_password = \"',adminpassword,'\"')" -n \
+	  -o "    # Enable/disable IPv6" -n \
+	  -o "    ipv6 = ${ipv6}" -n \
 	  -o "}" -n \
 	  -n \
 	  -o "# Library configuration" -n \
@@ -67,9 +77,15 @@ EOF
 	  -b \
 	  -o "    # Directories to index" -n \
 	  -o "    directories = \"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "\"" -n \
-	  -o "    # Directories containing compilations" -n \
-	  -o "    # Matches anywhere in the path (not a regexp, though)" -n \
-	  -o "#   compilations = { \"/compilations/\" }" -n \
+	  -o "    # Disable startup file scanning" -n \
+	  -o "    # When forked-daapd starts it will do an initial file scan of your" -n \
+	  -o "    # library (and then watch it for changes). If you are sure your library" -n \
+	  -o "    # never changes while forked-daapd is not running, you can disable the" -n \
+	  -o "    # initial file scan and save some system ressources. Disabling this scan" -n \
+	  -o "    # may lead to forked-daapd's database coming out of sync with the" -n \
+	  -o "    # library. If that happens read the instructions in the README on how" -n \
+	  -o "    # to trigger a full rescan." -n \
+	  -o "    filescan_disable = ${OMV_FORKEDDAAPD_LIBRARY_FILESCANDISABLE}" -n \
 	  -o "    # Should iTunes metadata override ours?" -n \
 	  -o "    itunes_overrides = ${OMV_FORKEDDAAPD_LIBRARY_ITUNESOVERRIDES}" -n \
 	  -o "    # Formats: mp4a, mp4v, mpeg, alac, flac, mpc, ogg, wma, wmal, wmav, aif$" -n \

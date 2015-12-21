@@ -23,7 +23,7 @@ require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/monit.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/systemctl.inc");
 
 class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleServiceStatus {
@@ -54,7 +54,7 @@ class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = "omv-mkconf forked-daapd 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -67,9 +67,9 @@ class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
 		// Disable monitoring of this service.
 		$monit = new OMVMonit();
 		$monit->unmonitor("forked-daapd", TRUE);
-		// Stop this service and unregister System-V style init script.
-		$initd = new OMVSysVInitScript("forked-daapd", FALSE);
-		$initd->exec();
+		// Stop this service and disable the unit file.
+		$systemCtl = new OMVSystemCtl("forked-daapd");
+		$systemCtl->disable(TRUE);
 	}
 
 	/**
@@ -80,15 +80,15 @@ class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//services/daap";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
-		// Start this service and register System-V style init script.
-		$initd = new OMVSysVInitScript("forked-daapd", TRUE);
-		$initd->exec();
+		// Start this service and enable the unit file.
+		$systemCtl = new OMVSystemCtl("forked-daapd");
+		$systemCtl->enable(TRUE);
 		// Enable monitoring of this service.
 		$monit = new OMVMonit();
 		$monit->monitor("forked-daapd");
@@ -102,7 +102,7 @@ class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//services/daap";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
@@ -127,7 +127,7 @@ class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = sprintf("//services/daap[sharedfolderref='%s']",
 		  $object['uuid']);
-		if(TRUE === $xmlConfig->exists($xpath))
+		if (TRUE === $xmlConfig->exists($xpath))
 			$this->setDirty();
 	}
 
@@ -145,7 +145,7 @@ class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
 		$this->setDirty();
 		// Check whether the monit daemon configuration needs to be updated.
 		// In this case mark the module as dirty.
-		if($oldObject['enable'] != $object['enable'])
+		if ($oldObject['enable'] != $object['enable'])
 			$this->setDirtyByName("monit");
 	}
 
