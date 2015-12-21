@@ -1,3 +1,9 @@
+openmediavault-shairport (3.0) stable; urgency=low
+
+  * Adapt to Debian 8 (Jessie).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 21 Dec 2015 19:45:42 +0100
+
 openmediavault-shairport (2.5.1) stable; urgency=low
 
   * Mantis 0001410: Add the possibillity to change the name the service

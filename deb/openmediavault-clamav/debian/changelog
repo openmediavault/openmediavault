@@ -1,3 +1,9 @@
+openmediavault-clamav (3.0) stable; urgency=low
+
+  * Adapt to Debian 8 (Jessie).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 21 Dec 2015 19:40:11 +0100
+
 openmediavault-clamav (2.1) stable; urgency=low
 
   * Adapt WebGUI to latest improvements.

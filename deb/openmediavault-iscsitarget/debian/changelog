@@ -1,3 +1,9 @@
+openmediavault-iscsitarget (3.0) stable; urgency=low
+
+  * Adapt to Debian 8 (Jessie).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 21 Dec 2015 19:42:45 +0100
+
 openmediavault-iscsitarget (2.2) stable; urgency=low
 
   * Adapt changes in the core UI framework.

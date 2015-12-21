@@ -1,3 +1,9 @@
+openmediavault-forkeddaapd (3.0) stable; urgency=low
+
+  * Adapt to Debian 8 (Jessie).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 21 Dec 2015 19:41:27 +0100
+
 openmediavault-forkeddaapd (2.0) stable; urgency=low
 
   * Update locales.

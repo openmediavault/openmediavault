@@ -22,7 +22,7 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/systemctl.inc");
 require_once("openmediavault/log.inc");
 
 class OMVModuleClamAV extends OMVModuleServiceAbstract
@@ -40,7 +40,7 @@ class OMVModuleClamAV extends OMVModuleServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = "omv-mkconf clamav 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -50,10 +50,10 @@ class OMVModuleClamAV extends OMVModuleServiceAbstract
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		$initd = new OMVSysVInitScript("clamav-daemon", FALSE);
-		$initd->exec();
-		$initd = new OMVSysVInitScript("clamav-freshclam", FALSE);
-		$initd->exec();
+		$systemCtl = new OMVSystemCtl("clamav-daemon");
+		$systemCtl->disable(TRUE);
+		$systemCtl = new OMVSystemCtl("clamav-freshclam");
+		$systemCtl->disable(TRUE);
 	}
 
 	/**
@@ -64,17 +64,17 @@ class OMVModuleClamAV extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//services/clamav";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
-		$initd = new OMVSysVInitScript("clamav-daemon", TRUE);
-		$initd->exec();
+		$systemCtl = new OMVSystemCtl("clamav-daemon");
+		$systemCtl->enable(TRUE);
 		if (TRUE === boolvalEx($object['freshclam']['enable'])) {
-			$initd = new OMVSysVInitScript("clamav-freshclam", TRUE);
-			$initd->exec();
+			$systemCtl = new OMVSystemCtl("clamav-freshclam");
+			$systemCtl->enable(TRUE);
 		}
 	}
 
@@ -86,16 +86,16 @@ class OMVModuleClamAV extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//services/clamav";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$initd = new OMVSysVInitScript("clamav-daemon");
+		$systemCtl = new OMVSystemCtl("clamav-daemon");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("Antivirus"),
 			"enabled" => boolvalEx($object['enable']),
-			"running" => ($initd->status() == 0)
+			"running" => $systemCtl->isActive()
 		);
 	}
 
@@ -111,7 +111,7 @@ class OMVModuleClamAV extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = sprintf("//services/clamav/jobs/job[sharedfolderref='%s']",
 		  $object['uuid']);
-		if(TRUE === $xmlConfig->exists($xpath))
+		if (TRUE === $xmlConfig->exists($xpath))
 			$this->setDirty();
 	}
 

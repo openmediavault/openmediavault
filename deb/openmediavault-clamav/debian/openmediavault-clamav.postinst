@@ -32,10 +32,10 @@ case "$1" in
 		########################################################################
 		if [ -z "$2" ]; then
 			echo "Updating init script links and actions"
-			invoke-rc.d --force clamav-freshclam stop
-			update-rc.d clamav-freshclam disable &>/dev/null
-			invoke-rc.d --force clamav-daemon stop
-			update-rc.d clamav-daemon disable &>/dev/null
+			systemctl stop clamav-freshclam
+			systemctl disable clamav-freshclam
+			systemctl stop clamav-daemon
+			systemctl disable clamav-daemon
 		fi
 
 		########################################################################

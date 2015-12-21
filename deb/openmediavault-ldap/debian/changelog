@@ -1,3 +1,9 @@
+openmediavault-ldap (3.0) stable; urgency=low
+
+  * Adapt to Debian 8 (Jessie).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 21 Dec 2015 19:43:07 +0100
+
 openmediavault-ldap (2.1) stable; urgency=low
 
   * Update locales.
