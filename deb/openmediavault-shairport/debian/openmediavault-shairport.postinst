@@ -32,8 +32,8 @@ case "$1" in
 		########################################################################
 		if [ -z "$2" ]; then
 			echo "Updating init script links and actions"
-			invoke-rc.d --force shairport-sync stop || :
-			update-rc.d shairport-sync disable &>/dev/null
+			systemctl stop shairport-sync
+			systemctl disable shairport-sync
 		fi
 
 		########################################################################

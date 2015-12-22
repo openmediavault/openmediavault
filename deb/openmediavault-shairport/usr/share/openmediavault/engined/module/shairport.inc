@@ -23,7 +23,7 @@ require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/monit.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/systemctl.inc");
 
 class OMVModuleShairport extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleServiceStatus {
@@ -67,9 +67,9 @@ class OMVModuleShairport extends OMVModuleServiceAbstract
 		// Disable monitoring of this service.
 		$monit = new OMVMonit();
 		$monit->unmonitor("shairport-sync", TRUE);
-		// Stop this service and unregister System-V style init script.
-		$initd = new OMVSysVInitScript("shairport-sync", FALSE);
-		$initd->exec();
+        // Stop this service and disable the unit file.
+        $systemCtl = new OMVSystemCtl("shairport-sync");
+        $systemCtl->disable(TRUE);
 	}
 
 	/**
@@ -86,9 +86,9 @@ class OMVModuleShairport extends OMVModuleServiceAbstract
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
-		// Start this service and register System-V style init script.
-		$initd = new OMVSysVInitScript("shairport-sync", TRUE);
-		$initd->exec();
+        // Start this service and enable the unit file.
+        $systemCtl = new OMVSystemCtl("shairport-sync");
+        $systemCtl->enable(TRUE);
 		// Enable monitoring of this service.
 		$monit = new OMVMonit();
 		$monit->monitor("shairport-sync");
@@ -106,12 +106,12 @@ class OMVModuleShairport extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$initd = new OMVSysVInitScript("shairport-sync");
+        $systemCtl = new OMVSystemCtl("shairport-sync");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("Shairport"),
 			"enabled" => boolvalEx($object['enable']),
-			"running" => ($initd->status() == 0)
+			"running" => $systemCtl->isActive()
 		);
 	}
 
