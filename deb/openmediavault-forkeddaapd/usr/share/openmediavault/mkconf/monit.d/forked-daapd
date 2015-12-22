@@ -32,8 +32,8 @@ rm -f ${OMV_MONIT_SERVICE_FORKEDDAAPD_CONFIG}
 
 cat <<EOF > ${OMV_MONIT_SERVICE_FORKEDDAAPD_CONFIG}
 check process forked-daapd with pidfile /var/run/forked-daapd.pid
-  start program = "/etc/init.d/forked-daapd start"
-  stop program = "/etc/init.d/forked-daapd stop"
+  start program = "/bin/systemctl start forked-daapd"
+  stop program = "/bin/systemctl stop forked-daapd"
   mode ${OMV_MONIT_SERVICE_FORKEDDAAPD_MODE}
 EOF
 

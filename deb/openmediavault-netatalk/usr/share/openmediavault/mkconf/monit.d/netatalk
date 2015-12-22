@@ -32,8 +32,8 @@ rm -f ${OMV_MONIT_SERVICE_NETATALK_CONFIG}
 
 cat <<EOF > ${OMV_MONIT_SERVICE_NETATALK_CONFIG}
 check process netatalk with pidfile /var/run/afpd.pid
-  start program = "/etc/init.d/netatalk start"
-  stop program = "/etc/init.d/netatalk stop"
+  start program = "/bin/systemctl start netatalk"
+  stop program = "/bin/systemctl stop netatalk"
 #  if failed host 127.0.0.1 port 548 type TCP then restart
 #  if 5 restarts within 5 cycles then timeout
   mode ${OMV_MONIT_SERVICE_NETATALK_MODE}
