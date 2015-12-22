@@ -23,7 +23,7 @@ require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/monit.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/systemctl.inc");
 
 class OMVModuleIscsiTarget extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleServiceStatus {
@@ -54,7 +54,7 @@ class OMVModuleIscsiTarget extends OMVModuleServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = "omv-mkconf iscsitarget 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -67,9 +67,9 @@ class OMVModuleIscsiTarget extends OMVModuleServiceAbstract
 		// Disable monitoring of this service.
 		$monit = new OMVMonit();
 		$monit->unmonitor("iscsitarget", TRUE);
-		// Stop this service and unregister System-V style init script.
-		$initd = new OMVSysVInitScript("iscsitarget", FALSE);
-		$initd->exec();
+        // Stop this service and disable the unit file.
+        $systemCtl = new OMVSystemCtl("iscsitarget");
+        $systemCtl->disable(TRUE);
 	}
 
 	/**
@@ -80,15 +80,17 @@ class OMVModuleIscsiTarget extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//services/iscsitarget";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
-		// Start this service and register System-V style init script.
-		$initd = new OMVSysVInitScript("iscsitarget", TRUE);
-		$initd->exec();
+        // Start this service and enable the unit file.
+        $systemCtl = new OMVSystemCtl("iscsitarget");
+        $systemCtl->enable(TRUE);
+        // Wait to allow the service to start.
+		sleep(1);
 		// Enable monitoring of this service.
 		$monit = new OMVMonit();
 		$monit->monitor("iscsitarget");
@@ -102,16 +104,16 @@ class OMVModuleIscsiTarget extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//services/iscsitarget";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$initd = new OMVSysVInitScript("iscsitarget");
+        $monit = new OMVMonit();
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("iSCSI Target"),
 			"enabled" => boolvalEx($object['enable']),
-			"running" => ($initd->status() == 0)
+			"running" => ($monit->status("iscsitarget") === "running")
 		);
 	}
 
@@ -129,7 +131,7 @@ class OMVModuleIscsiTarget extends OMVModuleServiceAbstract
 		$this->setDirty();
 		// Check whether the monit daemon configuration needs to be updated.
 		// In this case mark the module as dirty.
-		if($oldObject['enable'] != $object['enable'])
+		if ($oldObject['enable'] != $object['enable'])
 			$this->setDirtyByName("monit");
 	}
 
