@@ -69,9 +69,9 @@ class OMVModuleAFP extends OMVModuleServiceAbstract
 		// Disable monitoring of this service.
 		$monit = new OMVMonit();
 		$monit->unmonitor("netatalk", TRUE);
-        // Stop this service and disable the unit file.
-        $systemCtl = new OMVSystemCtl("netatalk");
-        $systemCtl->disable(TRUE);
+		// Stop this service and disable the unit file.
+		$systemCtl = new OMVSystemCtl("netatalk");
+		$systemCtl->disable(TRUE);
 	}
 
 	/**
@@ -89,9 +89,9 @@ class OMVModuleAFP extends OMVModuleServiceAbstract
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
-        // Start this service and enable the unit file.
-        $systemCtl = new OMVSystemCtl("netatalk");
-        $systemCtl->enable(TRUE);
+		// Start this service and enable the unit file.
+		$systemCtl = new OMVSystemCtl("netatalk");
+		$systemCtl->enable(TRUE);
 		// Enable monitoring of this service.
 		$monit = new OMVMonit();
 		$monit->monitor("netatalk");

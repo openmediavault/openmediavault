@@ -48,9 +48,10 @@ rm -f ${OMV_USBBACKUP_SCRIPTS_DIR}/rsync-*
 rm -f ${OMV_USBBACKUP_SCRIPTS_DIR}/sync-*
 
 # Create the scripts regardless if enabled or disabled.
-xmlstarlet sel -t -m "//services/usbbackup/jobs/job" \
-  -v "uuid" \
-  -i "position() != last()" -n -b \
+xmlstarlet sel -t \
+  -m "//services/usbbackup/jobs/job" \
+    -v "uuid" -n \
+  -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read uuid; do
 	  filename="${OMV_USBBACKUP_SCRIPTS_DIR}/rsync-${uuid}"
@@ -102,9 +103,10 @@ xmlstarlet sel -t -m "//services/usbbackup/jobs/job" \
 # Create the scripts executed by udev when the USB storage device is connected.
 # Process duplicate jobs per filesystem only once (emulate SQL 'DISTINCT' to
 # do this).
-xmlstarlet sel -t -m "//services/usbbackup/jobs/job[not(fsuuid=preceding-sibling::*/fsuuid)]" \
-  -v "fsuuid" \
-  -i "position() != last()" -n -b \
+xmlstarlet sel -t \
+  -m "//services/usbbackup/jobs/job[not(fsuuid=preceding-sibling::*/fsuuid)]" \
+    -v "fsuuid" -n \
+  -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read fsuuid; do
 	  filename="${OMV_USBBACKUP_SCRIPTS_DIR}/sync-${fsuuid}"

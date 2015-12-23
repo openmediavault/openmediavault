@@ -182,8 +182,10 @@ sfpath=$(omv_get_sharedfolder_path "${sfref}")
 
 # Create the cron jobs.
 rm -f ${OMV_CRONSCRIPTS_DIR}/${OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT_TEMPLATE}*
-xmlstarlet sel -t -m "//services/clamav/jobs/job[enable='1']" \
-  -v "uuid" -i "position() != last()" -n -b \
+xmlstarlet sel -t \
+  -m "//services/clamav/jobs/job[enable='1']" \
+    -v "uuid" -n \
+  -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read uuid; do
 	  filename="${OMV_CRONSCRIPTS_DIR}/${OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT_TEMPLATE}${uuid}"

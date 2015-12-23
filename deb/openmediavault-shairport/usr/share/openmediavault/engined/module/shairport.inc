@@ -67,9 +67,9 @@ class OMVModuleShairport extends OMVModuleServiceAbstract
 		// Disable monitoring of this service.
 		$monit = new OMVMonit();
 		$monit->unmonitor("shairport-sync", TRUE);
-        // Stop this service and disable the unit file.
-        $systemCtl = new OMVSystemCtl("shairport-sync");
-        $systemCtl->disable(TRUE);
+		// Stop this service and disable the unit file.
+		$systemCtl = new OMVSystemCtl("shairport-sync");
+		$systemCtl->disable(TRUE);
 	}
 
 	/**
@@ -86,9 +86,9 @@ class OMVModuleShairport extends OMVModuleServiceAbstract
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
-        // Start this service and enable the unit file.
-        $systemCtl = new OMVSystemCtl("shairport-sync");
-        $systemCtl->enable(TRUE);
+		// Start this service and enable the unit file.
+		$systemCtl = new OMVSystemCtl("shairport-sync");
+		$systemCtl->enable(TRUE);
 		// Enable monitoring of this service.
 		$monit = new OMVMonit();
 		$monit->monitor("shairport-sync");
@@ -106,12 +106,12 @@ class OMVModuleShairport extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-        $systemCtl = new OMVSystemCtl("shairport-sync");
+		$monit = new OMVMonit();
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("Shairport"),
 			"enabled" => boolvalEx($object['enable']),
-			"running" => $systemCtl->isActive()
+			"running" => ($monit->status("shairport-sync") === "running")
 		);
 	}
 
