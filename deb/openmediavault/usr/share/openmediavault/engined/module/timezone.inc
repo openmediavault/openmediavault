@@ -47,7 +47,7 @@ class OMVModuleTimezone extends OMVModuleServiceAbstract
 	 * Start the managed service.
 	 */
 	public function startService() {
-        $cmd = "export LANG=C; dpkg-reconfigure -f noninteractive tzdata 2>&1";
+		$cmd = "export LANG=C; dpkg-reconfigure -f noninteractive tzdata 2>&1";
 		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
