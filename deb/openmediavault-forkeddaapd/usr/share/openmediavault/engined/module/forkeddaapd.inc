@@ -65,8 +65,8 @@ class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
 	 */
 	public function stopService() {
 		// Disable monitoring of this service.
-		$monit = new OMVMonit();
-		$monit->unmonitor("forked-daapd", TRUE);
+		$monit = new OMVMonit("forked-daapd");
+		$monit->unmonitor(TRUE);
 		// Stop this service and disable the unit file.
 		$systemCtl = new OMVSystemCtl("forked-daapd");
 		$systemCtl->disable(TRUE);
@@ -90,8 +90,8 @@ class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
 		$systemCtl = new OMVSystemCtl("forked-daapd");
 		$systemCtl->enable(TRUE);
 		// Enable monitoring of this service.
-		$monit = new OMVMonit();
-		$monit->monitor("forked-daapd");
+		$monit = new OMVMonit("forked-daapd");
+		$monit->monitor();
 	}
 
 	/**
@@ -106,12 +106,12 @@ class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$monit = new OMVMonit();
+		$monit = new OMVMonit("forked-daapd");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("iTunes/DAAP"),
 			"enabled" => boolvalEx($object['enable']),
-			"running" => ($monit->status("forked-daapd") === "running")
+			"running" => $monit->isRunning()
 		);
 	}
 

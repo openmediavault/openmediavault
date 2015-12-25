@@ -67,8 +67,8 @@ class OMVModuleAFP extends OMVModuleServiceAbstract
 	 */
 	public function stopService() {
 		// Disable monitoring of this service.
-		$monit = new OMVMonit();
-		$monit->unmonitor("netatalk", TRUE);
+		$monit = new OMVMonit("netatalk");
+		$monit->unmonitor(TRUE);
 		// Stop this service and disable the unit file.
 		$systemCtl = new OMVSystemCtl("netatalk");
 		$systemCtl->disable(TRUE);
@@ -93,8 +93,8 @@ class OMVModuleAFP extends OMVModuleServiceAbstract
 		$systemCtl = new OMVSystemCtl("netatalk");
 		$systemCtl->enable(TRUE);
 		// Enable monitoring of this service.
-		$monit = new OMVMonit();
-		$monit->monitor("netatalk");
+		$monit = new OMVMonit("netatalk");
+		$monit->monitor();
 	}
 
 	/**
@@ -110,12 +110,12 @@ class OMVModuleAFP extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$monit = new OMVMonit();
+		$monit = new OMVMonit("netatalk");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("Apple Filing"),
 			"enabled" => boolvalEx($object['enable']),
-			"running" => ($monit->status("netatalk") === "running")
+			"running" => $monit->isRunning()
 		);
 	}
 

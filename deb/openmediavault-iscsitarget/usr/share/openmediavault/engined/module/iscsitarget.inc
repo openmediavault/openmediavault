@@ -65,8 +65,8 @@ class OMVModuleIscsiTarget extends OMVModuleServiceAbstract
 	 */
 	public function stopService() {
 		// Disable monitoring of this service.
-		$monit = new OMVMonit();
-		$monit->unmonitor("iscsitarget", TRUE);
+		$monit = new OMVMonit("iscsitarget");
+		$monit->unmonitor(TRUE);
 		// Stop this service and disable the unit file.
 		$systemCtl = new OMVSystemCtl("iscsitarget");
 		$systemCtl->disable(TRUE);
@@ -92,8 +92,8 @@ class OMVModuleIscsiTarget extends OMVModuleServiceAbstract
 		// Wait to allow the service to start.
 		sleep(1);
 		// Enable monitoring of this service.
-		$monit = new OMVMonit();
-		$monit->monitor("iscsitarget");
+		$monit = new OMVMonit("iscsitarget");
+		$monit->monitor();
 	}
 
 	/**
@@ -108,12 +108,12 @@ class OMVModuleIscsiTarget extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$monit = new OMVMonit();
+		$monit = new OMVMonit("iscsitarget");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("iSCSI Target"),
 			"enabled" => boolvalEx($object['enable']),
-			"running" => ($monit->status("iscsitarget") === "running")
+			"running" => $monit->isRunning()
 		);
 	}
 
