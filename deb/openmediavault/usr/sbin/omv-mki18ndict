@@ -81,7 +81,7 @@ if omv_checkyesno "${OMV_I18N_POPULATE_JS_DICT_FILE}"; then
 		[ $(find ${OMV_I18N_LOCALE_DIR}/${language} -iname \*.po | wc -l) = 0 ] && continue
 		printinfo -n "."
 		# Convert .po files into JSON.
-		json=$(find ${OMV_I18N_LOCALE_DIR}/${language} -iname \*.po -type f -print0 | xargs -0r omv-po2json)
+		json=$(find ${OMV_I18N_LOCALE_DIR}/${language} -iname \*.po -type f -print0 | xargs -0r omv-po2json || echo "{}")
 		cat <<EOF >> ${OMV_I18N_JS_DICT_FILE}
 OMV.util.i18nDict["${language}"] = ${json}
 EOF

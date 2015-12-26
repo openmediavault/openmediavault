@@ -1,3 +1,9 @@
+openmediavault (2.1.23) stable; urgency=low
+
+  * Mantis 0001430: omv-po2json crashes while converting .po files to JSON.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 26 Dec 2015 13:38:04 +0100
+
 openmediavault (2.1.22) stable; urgency=low
 
   * Mantis 0001428: Add support for I2O based RAID arrays.
