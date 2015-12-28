@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# kochin <kochinc@outlook.com>, 2014
+# kochin <kochinc@outlook.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-31 16:23+0100\n"
-"PO-Revision-Date: 2015-10-31 15:24+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2015-11-01 19:15+0000\n"
+"Last-Translator: kochin <kochinc@outlook.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/votdev/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +31,7 @@ msgid "General settings"
 msgstr "一般設定"
 
 msgid "Name"
-msgstr ""
+msgstr "名稱"
 
 msgid "Password"
 msgstr "密碼"
@@ -43,4 +43,4 @@ msgid "Shairport"
 msgstr "Shairport"
 
 msgid "The name the service will advertise to iTunes."
-msgstr ""
+msgstr "此服務將會把該名稱通告給 iTunes。"

@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2014
+# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-06-01 19:40+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
-"Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
+"PO-Revision-Date: 2015-07-25 19:49+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"Language-Team: Danish (http://www.transifex.com/votdev/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -60,7 +60,7 @@ msgid "Do you really want to create the volume group?"
 msgstr "Er du sikker på, du vil oprette drev gruppen?"
 
 msgid "Do you really want to resize the selected physical volume?"
-msgstr ""
+msgstr "Er du sikker på, at du vil tilpasse størrelsen på det valgte fysiske drev?"
 
 msgid "Edit logical volume"
 msgstr "Rediger logisk drev"
@@ -78,25 +78,25 @@ msgid "Extend volume group"
 msgstr "Udvidet drev gruppe"
 
 msgid "Failed to create logical volume: %s"
-msgstr ""
+msgstr "Lykkedes ikke at oprette logisk drev: %s"
 
 msgid "Failed to create physical volume: %s"
-msgstr ""
+msgstr "Lykkedes ikke at oprette fysisk drev: %s"
 
 msgid "Failed to create volume group: %s"
-msgstr ""
+msgstr "Lykkedes ikke at oprette drev gruppe: %s"
 
 msgid "Failed to extend logical volume: %s"
-msgstr ""
+msgstr "Lykkedes ikke at udvide logisk drev: %s"
 
 msgid "Failed to extend volume group: %s"
-msgstr ""
+msgstr "Lykkedes ikke at udvide drev gruppe: %s"
 
 msgid "Failed to reduce logical volume: %s"
-msgstr ""
+msgstr "Lykkedes ikke at reducere logisk drev: %s"
 
 msgid "Failed to reduce volume group: %s"
-msgstr ""
+msgstr "Lykkedes ikke at reducere drev gruppe: %s"
 
 msgid "Failed to remove logical volume: %s"
 msgstr "Lykkedes ikke at fjerne logisk drev: %s"
@@ -108,13 +108,13 @@ msgid "Failed to remove volume group: %s"
 msgstr "Lykkedes ikke at fjerne drev gruppe: %s"
 
 msgid "Failed to rename logical volume: %s"
-msgstr ""
+msgstr "Lykkedes ikke at omdøbe logisk drev: %s"
 
 msgid "Failed to rename volume group: %s"
-msgstr ""
+msgstr "Lykkedes ikke at omdøbe drev gruppe: %s"
 
 msgid "Failed to resize physical volume: %s"
-msgstr ""
+msgstr "Lykkedes ikke at tilpasse størrelse på fysisk drev: %s"
 
 msgid "Free"
 msgstr "Fri"
@@ -153,7 +153,7 @@ msgid "Reduce volume group"
 msgstr "Reducer drev gruppe"
 
 msgid "Resize"
-msgstr ""
+msgstr "Tilpas størrelsen"
 
 msgid "Select a volume group ..."
 msgstr "Vælg en drev gruppe ..."

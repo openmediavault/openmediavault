@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2014
+# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2014-05-20 06:47+0000\n"
+"PO-Revision-Date: 2015-08-28 09:24+0000\n"
 "Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
-"Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
+"Language-Team: Danish (http://www.transifex.com/votdev/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,7 +46,7 @@ msgid "Identifier"
 msgstr "Identifier"
 
 msgid "Load"
-msgstr "Indlæs"
+msgstr "Belastning"
 
 msgid "Message"
 msgstr "Besked"
@@ -84,7 +84,7 @@ msgstr "Navnet, der anvendes til entydigt, at identificere dine UPS på dette sy
 msgid ""
 "The time in seconds until shutdown is initiated. If the UPS happens to come "
 "back before the time is up the shutdown is canceled."
-msgstr "Tiden i sekunder, inden nedlukning påbegyndes. Hvis UPS'en skulle komme tilbage inden tiden udløber bliver nedlukningen annulleret."
+msgstr "Tiden i sekunder, inden nedlukning påbegyndes. Hvis UPS'en kommer tilbage, inden tiden udløber, bliver nedlukningen annulleret."
 
 msgid ""
 "To get more information how to configure your UPS please check the Network "

@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# zubr139, 2013
+# zubr139, 2013,2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2014-05-19 17:18+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
-"Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
+"PO-Revision-Date: 2015-09-26 12:22+0000\n"
+"Last-Translator: zubr139\n"
+"Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,7 +25,7 @@ msgid "Comment"
 msgstr "Коментар"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Дата і час"
 
 msgid "Defines when the shutdown is initiated."
 msgstr "Визначає, коли, почнеться відключення."
@@ -49,16 +49,16 @@ msgid "Load"
 msgstr "Завантаження"
 
 msgid "Message"
-msgstr ""
+msgstr "Повідомлення"
 
 msgid "PID"
-msgstr ""
+msgstr "PID"
 
 msgid "Password"
 msgstr "Пароль"
 
 msgid "Program"
-msgstr ""
+msgstr "Програма"
 
 msgid "Remote monitoring"
 msgstr "Віддалений моніторинг"
