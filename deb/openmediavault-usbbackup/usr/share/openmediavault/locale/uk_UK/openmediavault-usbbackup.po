@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# zubr139, 2013
+# zubr139, 2013,2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-06-01 19:40+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2015-09-26 12:17+0000\n"
+"Last-Translator: zubr139\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -100,10 +100,10 @@ msgid ""
 "Please note that the web interface is blocked until the manually started "
 "backup job has been finished. However the backup job is automatically "
 "executed in the background when the storage device is connected to the host."
-msgstr ""
+msgstr "Будь ласка, зверніть увагу, веб-інтерфейс блокується, поки вручну запущене резервне копіювання не буде завершене. Однак завдання резервного копіювання виконується автоматично у фоновому режимі, коли накопичувач підключений до хосту."
 
 msgid "Preserve ACLs"
-msgstr ""
+msgstr "Зберігати списки ACLs"
 
 msgid "Preserve extended attributes"
 msgstr "Зберігати розширені атрибути"
@@ -118,7 +118,7 @@ msgid "Quiet"
 msgstr "Тихий"
 
 msgid "Recurse into directories."
-msgstr ""
+msgstr "Рекурсіивно в каталогах."
 
 msgid "Recursive"
 msgstr "Рекурсивно"

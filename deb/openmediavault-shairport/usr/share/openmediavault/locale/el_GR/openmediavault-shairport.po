@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Kostas Moho <kgounaris@hotmail.com>, 2014
+# Kostas Moho <kgounaris@hotmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-31 16:23+0100\n"
-"PO-Revision-Date: 2015-10-31 15:24+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2015-11-21 11:25+0000\n"
+"Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/votdev/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +31,7 @@ msgid "General settings"
 msgstr "Γενικές ρυθμίσεις"
 
 msgid "Name"
-msgstr ""
+msgstr "Όνομα"
 
 msgid "Password"
 msgstr "Συνθηματικό"
@@ -43,4 +43,4 @@ msgid "Shairport"
 msgstr "Shairport"
 
 msgid "The name the service will advertise to iTunes."
-msgstr ""
+msgstr "Το όνομα που θα εμφανίζει η υπηρεσία στο iTunes."
