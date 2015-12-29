@@ -63,9 +63,10 @@ mkdir -p ${OMV_CRONTAB_CRONSCRIPTS_DIR}
 rm -f ${OMV_CRONTAB_CRONSCRIPTS_DIR}/userdefined-*
 
 # Create the user defined scripts.
-xmlstarlet sel -t -m "//system/crontab/job[enable='1' and type='userdefined']" \
-  -v "uuid" \
-  -i "position() != last()" -n -b \
+xmlstarlet sel -t \
+  -m "//system/crontab/job[enable='1' and type='userdefined']" \
+    -v "uuid" -n \
+  -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read uuid; do
 	  filename="${OMV_CRONTAB_CRONSCRIPTS_DIR}/userdefined-${uuid}"

@@ -22,7 +22,7 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/systemctl.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/log.inc");
 
@@ -48,7 +48,7 @@ class OMVModuleSmartMonTools extends OMVModuleServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = "export LANG=C; omv-mkconf smartmontools 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -58,8 +58,8 @@ class OMVModuleSmartMonTools extends OMVModuleServiceAbstract
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		$initd = new OMVSysVInitScript("smartmontools", FALSE);
-		$initd->exec();
+		$systemCtl = new OMVSystemCtl("smartd");
+		$systemCtl->disable(TRUE);
 	}
 
 	/**
@@ -70,14 +70,14 @@ class OMVModuleSmartMonTools extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//services/smart";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
-		$initd = new OMVSysVInitScript("smartmontools", TRUE);
-		$initd->exec();
+		$systemCtl = new OMVSystemCtl("smartd");
+		$systemCtl->enable(TRUE);
 	}
 
 	/**

@@ -41,8 +41,7 @@ find "${OMV_SSHD_AUTHORIZEDKEYSFILE_DIR}" -type f -print0 | xargs -0r rm -f
 # Create the users authorized_keys files.
 xmlstarlet sel -t \
   -m "//system/usermanagement/users/user" \
-	-v uuid \
-	-i "position() != last()" -n -b \
+	-v "uuid" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read uuid; do

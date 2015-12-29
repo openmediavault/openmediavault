@@ -1,6 +1,26 @@
+openmediavault (3.0) stable; urgency=low
+
+  * Adapt package to Debian 8 (Jessie).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 30 Nov 2015 15:53:40 +0100
+
+openmediavault (2.1.23) stable; urgency=low
+
+  * Mantis 0001430: omv-po2json crashes while converting .po files to JSON.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 26 Dec 2015 13:38:04 +0100
+
+openmediavault (2.1.22) stable; urgency=low
+
+  * Mantis 0001428: Add support for I2O based RAID arrays.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 24 Dec 2015 02:42:03 +0100
+
 openmediavault (2.1.21) stable; urgency=low
 
-  * Fix bug in omv-initsystem.
+  * Fixing bug in omv-initsystem.
+  * Fixing various bugs.
+  * Mantis 0001425: Add support for Infiniband network interfaces.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 11 Dec 2015 13:01:04 +0100
 

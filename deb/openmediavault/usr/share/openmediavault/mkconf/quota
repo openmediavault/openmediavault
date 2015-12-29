@@ -28,45 +28,48 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-xmlstarlet sel -t -m "//system/storage/filesystem/quota" \
-  -v "concat(uuid,' ',fsuuid)" \
-  -i "position() != last()" -n -b \
+xmlstarlet sel -t \
+  -m "//system/storage/filesystem/quota" \
+    -v "concat(uuid,' ',fsuuid)" -n \
+  -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read uuid fsuuid; do
 	  # Get the device file from the given filesystem UUID.
 	  devicefile=$(blkid -U ${fsuuid}) || true
 	  if [ -n "${devicefile}" ]; then
-          # Get the filesystem type, e.g. ext4 or xfs.
-          fstype=$(blkid -o value -s TYPE ${devicefile})
-		  # Turn filesystem quotas off.
-		  quotaoff -gu ${devicefile}
-		  # Check if there exists any user or group quota, otherwise it is not
-		  # necessary to turn on quota for this filesystem.
-		  quotaon=$(xmlstarlet sel -t -m "//system/storage/filesystem/quota[uuid='${uuid}']" \
-			-i "count(usrquota) > 0 or count(grpquota) > 0" -o "1" -b \
-			-i "count(usrquota) = 0 and count(grpquota) = 0" -o "0" -b \
-			${OMV_CONFIG_FILE})
-		  [ ${quotaon} -eq 0 ] && continue;
-		  # Create the quota files.
-          case ${fstype} in
-          xfs|XFS)
-              # XFS considers quota information as filesystem metadata, thus
-              # the quotacheck command has no effect on XFS filesystems.
-              ;;
-          *)
-	          quotacheck -cugnv ${devicefile}
-              ;;
-          esac
+		  # Get the filesystem type, e.g. ext4 or xfs.
+		  fstype=$(blkid -o value -s TYPE ${devicefile})
+			  # Turn filesystem quotas off.
+			  quotaoff -gu ${devicefile}
+			  # Check if there exists any user or group quota, otherwise it is not
+			  # necessary to turn on quota for this filesystem.
+			  quotaon=$(xmlstarlet sel -t -m "//system/storage/filesystem/quota[uuid='${uuid}']" \
+				-i "count(usrquota) > 0 or count(grpquota) > 0" -o "1" -b \
+				-i "count(usrquota) = 0 and count(grpquota) = 0" -o "0" -b \
+				${OMV_CONFIG_FILE})
+			  [ ${quotaon} -eq 0 ] && continue;
+			  # Create the quota files.
+		  case ${fstype} in
+		  xfs|XFS)
+		      # XFS considers quota information as filesystem metadata, thus
+		      # the quotacheck command has no effect on XFS filesystems.
+		      ;;
+		  *)
+			  quotacheck -cugnv ${devicefile}
+		      ;;
+		  esac
 		  # Set the user quotas.
-		  xmlstarlet sel -t -m "//system/storage/filesystem/quota[uuid='${uuid}']/usrquota" \
-			-v "concat(name,' ',bsoftlimit,' ',bhardlimit,' ',isoftlimit,' ',ihardlimit)" \
-			-i "position() != last()" -n -b \
-			${OMV_CONFIG_FILE} | xmlstarlet unesc | setquota -b -u ${devicefile}
+		  xmlstarlet sel -t \
+		    -m "//system/storage/filesystem/quota[uuid='${uuid}']/usrquota" \
+              -v "concat(name,' ',bsoftlimit,' ',bhardlimit,' ',isoftlimit,' ',ihardlimit)" -n \
+		    -b \
+		    ${OMV_CONFIG_FILE} | xmlstarlet unesc | setquota -b -u ${devicefile}
 		  # Set the group quotas.
-		  xmlstarlet sel -t -m "//system/storage/filesystem/quota[uuid='${uuid}']/grpquota" \
-			-v "concat(name,' ',bsoftlimit,' ',bhardlimit,' ',isoftlimit,' ',ihardlimit)" \
-			-i "position() != last()" -n -b \
-			${OMV_CONFIG_FILE} | xmlstarlet unesc | setquota -b -g ${devicefile}
+		  xmlstarlet sel -t \
+		    -m "//system/storage/filesystem/quota[uuid='${uuid}']/grpquota" \
+              -v "concat(name,' ',bsoftlimit,' ',bhardlimit,' ',isoftlimit,' ',ihardlimit)" -n \
+		    -b \
+		    ${OMV_CONFIG_FILE} | xmlstarlet unesc | setquota -b -g ${devicefile}
 		  # Turn filesystem quotas on.
 		  quotaon -gu ${devicefile}
 	  fi

@@ -34,8 +34,10 @@ rm -f ${OMV_AVAHIDAEMON_NFSSERVICE}
 # Announce duplicate shares only once (emulate SQL 'DISTINCT' to filter
 # duplicates).
 name=$(omv_config_get "//services/zeroconf/services/service[id='nfs']/name")
-xmlstarlet sel -t -m "//services/nfs/shares/share[not(sharedfolderref=preceding-sibling::*/sharedfolderref)]" \
-  -v sharedfolderref -i "position() != last()" -n -b \
+xmlstarlet sel -t \
+  -m "//services/nfs/shares/share[not(sharedfolderref=preceding-sibling::*/sharedfolderref)]" \
+    -v "sharedfolderref" -n \
+  -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read sfref; do
 	  sfname=$(omv_get_sharedfolder_name ${sfref})

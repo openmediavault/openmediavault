@@ -212,7 +212,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 			id: me.getId() + "-changelog",
 			xtype: "button",
 			text: _("Show changelog"),
-			icon: "images/changelog.png",
+			icon: "images/document.png",
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onChangelogButton, me, [ me ]),
 			scope: me,

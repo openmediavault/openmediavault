@@ -64,7 +64,7 @@ Ext.define("OMV.module.admin.diagnostic.system.plugin.DiskUsage", {
 						item.title = _("System");
 				});
 				items.sort([{
-					property: "title",
+					property: "devicefile",
 					direction: "ASC"
 				}]);
 				// Create a tab panel for each filesystem.
@@ -78,7 +78,7 @@ Ext.define("OMV.module.admin.diagnostic.system.plugin.DiskUsage", {
 				service: "FileSystemMgmt",
 				method: "enumerateMountedFilesystems",
 				params: {
-					includeRoot: false
+					includeRoot: true
 				}
 			}
 		});

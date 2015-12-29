@@ -221,11 +221,11 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		$result = array();
 		foreach ($objects as $objectk => $objectv) {
 			// Get the filesystem backend.
-			$fsb = OMVFilesystems::getBackendByType($objectv['type']);
+			$fsb = OMVFilesystems::getBackend($objectv['fsname']);
 			if (is_null($fsb)) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  sprintf("No filesystem backend exists for '%s'",
-				  $objectv['type']));
+				  $objectv['fsname']));
 			}
 			// Get the filesystem implementation.
 			$fs = $fsb->getImpl($objectv['fsname']);

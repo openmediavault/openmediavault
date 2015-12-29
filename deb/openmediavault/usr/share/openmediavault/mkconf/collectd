@@ -63,27 +63,23 @@ mkconf() {
 	cat <<EOF > ${OMV_COLLECTD_CONFIG}
 Hostname "${OMV_COLLECTD_HOSTNAME}"
 FQDNLookup ${OMV_COLLECTD_FQDNLOOKUP}
-
 LoadPlugin syslog
 <Plugin syslog>
   LogLevel ${OMV_COLLECTD_SYSLOG_LOGLEVEL}
 </Plugin>
-
 LoadPlugin rrdcached
 <Plugin rrdcached>
-	DaemonAddress "unix:${OMV_RRDCACHED_SOCKETFILE}"
-	DataDir "${OMV_RRDCACHED_BASEDIR}"
-	CreateFiles ${OMV_COLLECTD_RRDCACHED_CREATEFILES}
-	CollectStatistics ${OMV_COLLECTD_RRDCACHED_COLLECTSTATISTICS}
+  DaemonAddress "unix:${OMV_RRDCACHED_SOCKETFILE}"
+  DataDir "${OMV_RRDCACHED_BASEDIR}"
+  CreateFiles ${OMV_COLLECTD_RRDCACHED_CREATEFILES}
+  CollectStatistics ${OMV_COLLECTD_RRDCACHED_COLLECTSTATISTICS}
 </Plugin>
-
 LoadPlugin unixsock
 <Plugin unixsock>
   SocketFile "${OMV_COLLECTD_UNIXSOCK_SOCKETFILE}"
   SocketGroup "${OMV_COLLECTD_UNIXSOCK_SOCKETGROUP}"
   SocketPerms "${OMV_COLLECTD_UNIXSOCK_SOCKETPERMS}"
 </Plugin>
-
 EOF
 
 	# Create '/etc/default/collectd' file
@@ -162,10 +158,6 @@ EOF
 
 	# Process the collectd plugins.
 	run-parts --exit-on-error ${OMV_COLLECTD_PLUGINS_DIR}
-
-	cat <<EOF >> ${OMV_COLLECTD_CONFIG}
-Include "/etc/collectd/thresholds.conf"
-EOF
 }
 
 case "$1" in

@@ -22,7 +22,7 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/systemctl.inc");
 
 class OMVModuleNfs extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
@@ -53,7 +53,7 @@ class OMVModuleNfs extends OMVModuleServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = "export LANG=C; omv-mkconf nfsd 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -63,8 +63,8 @@ class OMVModuleNfs extends OMVModuleServiceAbstract
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		$initd = new OMVSysVInitScript("nfs-kernel-server", FALSE);
-		$initd->exec();
+		$systemCtl = new OMVSystemCtl("nfs-kernel-server");
+		$systemCtl->disable(TRUE);
 	}
 
 	/**
@@ -74,14 +74,14 @@ class OMVModuleNfs extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//services/nfs";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
-		$initd = new OMVSysVInitScript("nfs-kernel-server", TRUE);
-		$initd->exec();
+		$systemCtl = new OMVSystemCtl("nfs-kernel-server");
+		$systemCtl->enable(TRUE);
 	}
 
 	/**
@@ -92,16 +92,16 @@ class OMVModuleNfs extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//services/nfs";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$initd = new OMVSysVInitScript("nfs-kernel-server");
+		$systemCtl = new OMVSystemCtl("nfs-kernel-server");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("NFS"),
 			"enabled" => boolvalEx($object['enable']),
-			"running" => ($initd->status() == 0)
+			"running" => $systemCtl->isActive()
 		);
 	}
 
@@ -127,7 +127,7 @@ class OMVModuleNfs extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = sprintf("//services/nfs/shares/share[sharedfolderref='%s']",
 		  $object['uuid']);
-		if(TRUE === $xmlConfig->exists($xpath)) {
+		if (TRUE === $xmlConfig->exists($xpath)) {
 			$this->setDirty();
 			$this->setDirtyByName("fstab");
 		}

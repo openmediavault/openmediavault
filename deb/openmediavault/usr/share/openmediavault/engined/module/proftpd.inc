@@ -22,7 +22,7 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/systemctl.inc");
 require_once("openmediavault/log.inc");
 
 class OMVModuleProftpd extends OMVModuleServiceAbstract
@@ -57,8 +57,8 @@ class OMVModuleProftpd extends OMVModuleServiceAbstract
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		$initd = new OMVSysVInitScript("proftpd", FALSE);
-		$initd->exec();
+		$systemCtl = new OMVSystemCtl("proftpd");
+		$systemCtl->disable(TRUE);
 	}
 
 	/**
@@ -75,8 +75,8 @@ class OMVModuleProftpd extends OMVModuleServiceAbstract
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
-		$initd = new OMVSysVInitScript("proftpd", TRUE);
-		$initd->exec();
+		$systemCtl = new OMVSystemCtl("proftpd");
+		$systemCtl->enable(TRUE);
 	}
 
 	/**
@@ -91,12 +91,12 @@ class OMVModuleProftpd extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$initd = new OMVSysVInitScript("proftpd");
+		$systemCtl = new OMVSystemCtl("proftpd");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("FTP"),
 			"enabled" => boolvalEx($object['enable']),
-			"running" => ($initd->status() == 0)
+			"running" => $systemCtl->isActive()
 		);
 	}
 

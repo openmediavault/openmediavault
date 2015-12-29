@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <productinfo>
 	<name>openmediavault</name>
-	<versionname>Stone burner</versionname>
+	<versionname>Erasmus</versionname>
 	<url>http://www.openmediavault.org</url>
 	<copyright>Copyright (C) 2009-2015 by Volker Theile. All rights reserved.</copyright>
 	<packagename>openmediavault</packagename>
-	<distribution>stoneburner</distribution>
+	<distribution>erasmus</distribution>
 </productinfo>

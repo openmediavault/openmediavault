@@ -38,9 +38,10 @@ mkdir -p ${OMV_CRONSCRIPTS_DIR}
 rm -f ${OMV_CRONSCRIPTS_DIR}/${OMV_RSYNC_CRONSCRIPT_TEMPLATE}*
 
 # Create the scripts regardless if enabled or disabled.
-xmlstarlet sel -t -m "//services/rsync/jobs/job" \
-  -v "uuid" \
-  -i "position() != last()" -n -b \
+xmlstarlet sel -t \
+  -m "//services/rsync/jobs/job" \
+    -v "uuid" -n \
+  -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read uuid; do
 	  type=$(omv_config_get "//services/rsync/jobs/job[uuid='${uuid}']/type")

@@ -21,12 +21,24 @@
 
 set -e
 
-. /etc/default/openmediavault
-. /usr/share/openmediavault/scripts/helper-functions
+# debug, if UDEV_LOG=<debug>
+if [ -n "$UDEV_LOG" ]; then
+        if [ "$UDEV_LOG" -ge 7 ]; then
+                set -x
+        fi
+fi
 
-OMV_NTP_CONFIG=${OMV_NTP_CONFIG:-"/etc/systemd/timesyncd.conf"}
+RULES_FILE='/etc/udev/rules.d/60-openmediavault-dev-root-link.rules'
 
-xmlstarlet sel -t \
-  -o "[Time]" -n \
-  -v "concat('Servers=',//system/time/ntp/timeservers)" -n \
-  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NTP_CONFIG}
+. /lib/udev/rule_generator.functions
+
+[ -e "${RULES_FILE}" ] && exit 0
+
+eval $(udevadm info --export --export-prefix=ROOT_ --device-id-of-file=/ || true)
+[ "${ROOT_MAJOR}" -a "${ROOT_MINOR}" ] || exit 0
+
+lock_rules_file
+echo 'ACTION=="add", SUBSYSTEM=="block", ENV{MAJOR}=="'${ROOT_MAJOR}'", ENV{MINOR}=="'${ROOT_MINOR}'", SYMLINK+="root"' > ${RULES_FILE}
+unlock_rules_file
+
+exit 0

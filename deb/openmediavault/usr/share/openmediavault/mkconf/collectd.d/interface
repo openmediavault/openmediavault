@@ -48,7 +48,6 @@ done
 cat <<EOF >> ${OMV_COLLECTD_CONFIG}
   IgnoreSelected false
 </Plugin>
-
 EOF
 
 cat <<EOF >> ${OMV_COLLECTD_RRDTOOL_MKGRAPH}

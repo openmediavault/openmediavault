@@ -22,7 +22,7 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/systemctl.inc");
 
 class OMVModuleSnmp extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleServiceStatus {
@@ -49,8 +49,8 @@ class OMVModuleSnmp extends OMVModuleServiceAbstract
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		$initd = new OMVSysVInitScript("snmpd", FALSE);
-		$initd->exec();
+		$systemCtl = new OMVSystemCtl("snmpd");
+		$systemCtl->disable(TRUE);
 	}
 
 	/**
@@ -67,8 +67,8 @@ class OMVModuleSnmp extends OMVModuleServiceAbstract
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
-		$initd = new OMVSysVInitScript("snmpd", TRUE);
-		$initd->exec();
+		$systemCtl = new OMVSystemCtl("snmpd");
+		$systemCtl->enable(TRUE);
 	}
 
 	/**
@@ -83,16 +83,12 @@ class OMVModuleSnmp extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Check if process is running. Init script can't be used because
-		// it also checks snmptrapd which is not used. Do not check the
-		// command result.
-		$cmd = "export LANG=C; ps --no-heading -C snmpd";
-		$this->exec($cmd, $output);
+		$systemCtl = new OMVSystemCtl("snmpd");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("SNMP"),
 			"enabled" => boolvalEx($object['enable']),
-			"running" => !empty($output[0])
+			"running" => $systemCtl->isActive()
 		);
 	}
 

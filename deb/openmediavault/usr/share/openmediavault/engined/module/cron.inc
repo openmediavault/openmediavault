@@ -21,7 +21,7 @@
  */
 require_once("openmediavault/module.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/systemctl.inc");
 
 class OMVModuleCron extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -52,7 +52,7 @@ class OMVModuleCron extends OMVModuleServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = "export LANG=C; omv-mkconf cron 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -62,15 +62,15 @@ class OMVModuleCron extends OMVModuleServiceAbstract
 	 * Start the managed service.
 	 */
 	public function startService() {
-        // Changes to the cron files will be auto-detected by the cron
-        // daemon via inotify by default, but in some situations it is
-        // necessary to force a reload. According to the cron man-page,
-        // it is only refreshed once an hour.
-        // It is necessary to restart the service if the system time or
-        // timezone has been changed, so a simple 'reload' can't be
-        // used here.
-		$initd = new OMVSysVInitScript("cron");
-		$initd->restart();
+		// Changes to the cron files will be auto-detected by the cron
+		// daemon via inotify by default, but in some situations it is
+		// necessary to force a reload. According to the cron man-page,
+		// it is only refreshed once an hour.
+		// It is necessary to restart the service if the system time or
+		// timezone has been changed, so a simple 'reload' can't be
+		// used here.
+		$systemCtl = new OMVSystemCtl("cron");
+		$systemCtl->restart();
 	}
 
 	/**

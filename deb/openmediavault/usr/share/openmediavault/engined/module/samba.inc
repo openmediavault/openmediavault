@@ -22,7 +22,7 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/systemctl.inc");
 require_once("openmediavault/log.inc");
 
 class OMVModuleSamba extends OMVModuleServiceAbstract
@@ -42,7 +42,7 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = "export LANG=C; omv-mkconf samba 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -55,14 +55,14 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//services/smb";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		if (FALSE === boolvalEx($object['enable'])) {
-			$initd = new OMVSysVInitScript("samba", FALSE);
-			$initd->exec();
-		}
+		if (TRUE === boolvalEx($object['enable']))
+			return;
+		$systemCtl = new OMVSystemCtl("smbd");
+		$systemCtl->disable(TRUE);
 	}
 
 	/**
@@ -72,20 +72,17 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//services/smb";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
-		$initd = new OMVSysVInitScript("samba", TRUE);
-		switch($initd->status()) {
-		case 0: // running -> reload config
-			$initd->invoke("reload");
-			break;
-		default: // start service
-			$initd->exec();
-		}
+		$systemCtl = new OMVSystemCtl("smbd");
+		if ($systemCtl->isEnabled() && $systemCtl->isActive())
+			$systemCtl->reload(); // running -> reload config
+		else
+			$systemCtl->enable(TRUE);
 	}
 
 	/**
@@ -96,16 +93,16 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//services/smb";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$initd = new OMVSysVInitScript("samba");
+		$systemCtl = new OMVSystemCtl("smbd");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("SMB/CIFS"),
 			"enabled" => boolvalEx($object['enable']),
-			"running" => ($initd->status() == 0)
+			"running" => $systemCtl->isActive()
 		);
 	}
 
@@ -263,7 +260,7 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = sprintf("//services/smb/shares/share[sharedfolderref='%s']",
 		  $object['uuid']);
-		if(TRUE === $xmlConfig->exists($xpath))
+		if (TRUE === $xmlConfig->exists($xpath))
 			$this->setDirty();
 	}
 

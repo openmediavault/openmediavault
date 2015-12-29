@@ -22,7 +22,7 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/systemctl.inc");
 
 class OMVModulePostfix extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -39,7 +39,7 @@ class OMVModulePostfix extends OMVModuleServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = "export LANG=C; omv-mkconf postfix 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -49,8 +49,8 @@ class OMVModulePostfix extends OMVModuleServiceAbstract
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		$initd = new OMVSysVInitScript("postfix", FALSE);
-		$initd->exec();
+		$systemCtl = new OMVSystemCtl("postfix");
+		$systemCtl->disable(TRUE);
 	}
 
 	/**
@@ -61,14 +61,14 @@ class OMVModulePostfix extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//system/email";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
-		$initd = new OMVSysVInitScript("postfix", TRUE);
-		$initd->exec();
+		$systemCtl = new OMVSystemCtl("postfix");
+		$systemCtl->enable(TRUE);
 	}
 
 	/**

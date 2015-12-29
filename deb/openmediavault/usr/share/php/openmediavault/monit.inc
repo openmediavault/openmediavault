@@ -28,7 +28,16 @@ require_once("openmediavault/error.inc");
  * @ingroup api
  */
 class OMVMonit extends OMVObject {
+	private $name = "";
 	private $group = FALSE;
+
+	/**
+	 * Constructor
+	 * @param name The name of the service.
+	 */
+	public function __construct($name) {
+		$this->name = $name;
+	}
 
 	/**
 	 * Set the group option. If set, then the methods start, stop, restart,
@@ -42,70 +51,64 @@ class OMVMonit extends OMVObject {
 
 	/**
 	 * Start the named service and enable monitoring for it.
-	 * @param name The name of the service.
 	 * @param quiet Do not throw an error on failure. Defaults to FALSE.
 	 * @return None
 	 */
-	public function start($name, $quiet = FALSE) {
-		$this->action("start", $name, $quiet);
+	public function start($quiet = FALSE) {
+		$this->action("start", $quiet);
 	}
 
 	/**
 	 * Stop the named service and disable its monitoring.
-	 * @param name The name of the service.
 	 * @param quiet Do not throw an error on failure. Defaults to FALSE.
 	 * @return None
 	 */
-	public function stop($name, $quiet = FALSE) {
-		$this->action("stop", $name, $quiet);
+	public function stop($quiet = FALSE) {
+		$this->action("stop", $quiet);
 	}
 
 	/**
 	 * Restart the named service.
-	 * @param name The name of the service.
 	 * @param quiet Do not throw an error on failure. Defaults to FALSE.
 	 * @return None
 	 */
-	public function restart($name, $quiet = FALSE) {
-		$this->action("restart", $name, $quiet);
+	public function restart($quiet = FALSE) {
+		$this->action("restart", $quiet);
 	}
 
 	/**
 	 * Enable monitoring of the named service.
-	 * @param name The name of the service.
 	 * @param quiet Do not throw an error on failure. Defaults to FALSE.
 	 * @return None
 	 */
-	public function monitor($name, $quiet = FALSE) {
-		$this->action("monitor", $name, $quiet);
+	public function monitor($quiet = FALSE) {
+		$this->action("monitor", $quiet);
 	}
 
 	/**
 	 * Disable monitoring of the named service.
-	 * @param name The name of the service.
 	 * @param quiet Do not throw an error on failure. Defaults to FALSE.
 	 * @return None
 	 */
-	public function unmonitor($name, $quiet = FALSE) {
-		$this->action("unmonitor", $name, $quiet);
+	public function unmonitor($quiet = FALSE) {
+		$this->action("unmonitor", $quiet);
 	}
 
 	/**
 	 * Execute the given action.
 	 * @param action The action to execute, e.g. start, stop, restart, ...
-	 * @param name The name of the service.
 	 * @param quiet Do not throw an error on failure. Defaults to FALSE.
 	 * @return None
 	 */
-	private function action($action, $name, $quiet = FALSE) {
+	private function action($action, $quiet = FALSE) {
 		$cmdArgs = array();
 		if (TRUE === $this->group) {
 			$cmdArgs[] = "-g";
-			$cmdArgs[] = $name;
+			$cmdArgs[] = $this->name;
 			$cmdArgs[] = $action;
 		} else {
 			$cmdArgs[] = $action;
-			$cmdArgs[] = $name;
+			$cmdArgs[] = $this->name;
 		}
 		$cmd = sprintf("export LANG=C; monit %s 2>&1", implode(" ", $cmdArgs));
 		OMVUtil::exec($cmd, $output, $result);
@@ -122,14 +125,14 @@ class OMVMonit extends OMVObject {
 		// Create monit and monitored services configuration files.
 		$cmd = "omv-mkconf monit 2>&1";
 		OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
 		// Reinitialize monit.
 		$cmd = "export LANG=C; monit reload 2>&1";
 		OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -137,29 +140,36 @@ class OMVMonit extends OMVObject {
 
 	/**
 	 * Get the status of a monitored process.
-	 * @param name The name of the service.
 	 * @return The status of the monitored service, e.g. 'running',
 	 *   'does not exist' or 'not monitored'.
 	 */
-	public function status($name) {
+	public function status() {
 		$status = "unknown";
 		// Get status summary of monitored services.
 		$cmd = "export LANG=C; monit summary 2>&1";
 		OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
 		// Parse the command output.
-		foreach($output as $outputk => $outputv) {
+		foreach ($output as $outputk => $outputv) {
 			$regex = '/^Process\s+\'([^\']+)\'\s+(.+)$/i';
-			if(1 !== preg_match($regex, $outputv, $matches))
+			if (1 !== preg_match($regex, $outputv, $matches))
 				continue;
-			if($matches[1] != $name)
+			if ($matches[1] != $this->name)
 				continue;
 			$status = trim($matches[2]);
 			break;
 		}
 		return strtolower($status);
+	}
+
+	/**
+	 * Check whether the specified service is running.
+	 * @return TRUE if the service is running, otherwise FALSE.
+	 */
+	public function isRunning() {
+		return ("running" == $this->status());
 	}
 }

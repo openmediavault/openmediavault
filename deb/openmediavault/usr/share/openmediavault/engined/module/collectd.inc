@@ -23,7 +23,7 @@ require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/monit.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/systemctl.inc");
 
 class OMVModuleCollectd extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -65,11 +65,11 @@ class OMVModuleCollectd extends OMVModuleServiceAbstract
 	 */
 	public function stopService() {
 		// Disable monitoring of this service.
-		$monit = new OMVMonit();
-		$monit->unmonitor("collectd", TRUE);
-		// Stop this service and unregister System-V style init script.
-		$initd = new OMVSysVInitScript("collectd", FALSE);
-		$initd->exec();
+		$monit = new OMVMonit("collectd");
+		$monit->unmonitor(TRUE);
+		// Stop this service and disable the unit file.
+		$systemCtl = new OMVSystemCtl("collectd");
+		$systemCtl->disable(TRUE);
 	}
 
 	/**
@@ -86,12 +86,12 @@ class OMVModuleCollectd extends OMVModuleServiceAbstract
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
-		// Start this service and register System-V style init script.
-		$initd = new OMVSysVInitScript("collectd", TRUE);
-		$initd->exec();
+		// Start this service and enable the unit file.
+		$systemCtl = new OMVSystemCtl("collectd");
+		$systemCtl->enable(TRUE);
 		// Enable monitoring of this service.
-		$monit = new OMVMonit();
-		$monit->monitor("collectd");
+		$monit = new OMVMonit("collectd");
+		$monit->monitor();
 		// Generate RRD graph images based on the latest configuration as a
 		// background job (rendering may take some time).
 		$cmd = "export LANG=C; omv-mkgraph 2>&1 &";

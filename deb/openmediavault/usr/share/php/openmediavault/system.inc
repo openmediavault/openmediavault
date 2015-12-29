@@ -3060,6 +3060,36 @@ class OMVStorageDeviceBackendCCISS extends OMVStorageDeviceBackendAbstract {
 }
 
 /**
+ * Implements the storage device backend for I2O based HBA devices.
+ * @ingroup api
+ */
+class OMVStorageDeviceBackendI2O extends OMVStorageDeviceBackendAbstract {
+	function getType() {
+		return OMV_STORAGE_DEVICE_TYPE_HBA;
+	}
+
+	function enumerate() {
+		return $this->enumerateProcFs("i2o\/hd[a-z]+");
+	}
+
+	function isTypeOf($deviceFile) {
+		// Examples:
+		// - /dev/i2o/hda
+		// - /dev/i2o/hdb1
+		$regex = "i2o\/hd[a-z]+[0-9]*";
+		return $this->isTypeOfByName($deviceFile, $regex);
+	}
+
+	function getImpl($args) {
+		return new OMVStorageDeviceI2O($args);
+	}
+
+	function baseDeviceFile($deviceFile) {
+		return preg_replace("/(\d+)$/", "", $deviceFile);
+	}
+}
+
+/**
  * Implements the storage device backend for harddisk devices.
  * @ingroup api
  */
@@ -3645,6 +3675,17 @@ class OMVStorageDeviceCCISS extends OMVStorageDeviceSMARTAbstract {
 			}
 		}
 		return $type;
+	}
+}
+
+/**
+ * This class provides a simple interface to handle the I2O based hardware
+ * RAID devices.
+ * @ingroup api
+ */
+class OMVStorageDeviceI2O extends OMVStorageDeviceAbstract {
+	public function isRaid() {
+		return TRUE;
 	}
 }
 
@@ -4545,6 +4586,14 @@ class OMVNetworkInterfaceBackendEthernet extends OMVNetworkInterfaceBackendAbstr
 	function isTypeOf($deviceName) {
 		return $this->isTypeOfByName($deviceName, $this->regex);
 	}
+}
+
+/**
+ * Implements the network interface backend for Infiniband devices.
+ * @ingroup api
+ */
+class OMVNetworkInterfaceBackendInfiniband extends OMVNetworkInterfaceBackendEthernet {
+	protected $regex = "/^ib[0-9]+$/i";
 }
 
 /**
@@ -6119,6 +6168,7 @@ OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendVirtIO());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendCDROM());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendNVM());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendRDB());
+OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendI2O());
 
 ///////////////////////////////////////////////////////////////////////////////
 // Register default filesystem backends.
@@ -6151,3 +6201,4 @@ OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendBridge);
 OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendWireless);
 OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendVirtual);
 OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendLoopback);
+OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendInfiniband);

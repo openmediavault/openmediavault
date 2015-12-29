@@ -23,7 +23,7 @@ require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/monit.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/systemctl.inc");
 
 class OMVModuleRrdCached extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -79,11 +79,11 @@ class OMVModuleRrdCached extends OMVModuleServiceAbstract
 	 */
 	public function stopService() {
 		// Disable monitoring of this service.
-		$monit = new OMVMonit();
-		$monit->unmonitor("rrdcached", TRUE);
-		// Stop this service and unregister System-V style init script.
-		$initd = new OMVSysVInitScript("rrdcached", FALSE);
-		$initd->exec();
+		$monit = new OMVMonit("rrdcached");
+		$monit->unmonitor(TRUE);
+		// Stop this service and disable the unit file.
+		$systemCtl = new OMVSystemCtl("rrdcached");
+		$systemCtl->disable(TRUE);
 	}
 
 	/**
@@ -100,12 +100,14 @@ class OMVModuleRrdCached extends OMVModuleServiceAbstract
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
-		// Start this service and register System-V style init script.
-		$initd = new OMVSysVInitScript("rrdcached", TRUE);
-		$initd->exec();
+		// Start this service and enable the unit file.
+		$systemCtl = new OMVSystemCtl("rrdcached");
+		$systemCtl->enable(TRUE);
+		// Wait to allow the service to start.
+		sleep(1);
 		// Enable monitoring of this service.
-		$monit = new OMVMonit();
-		$monit->monitor("rrdcached");
+		$monit = new OMVMonit("rrdcached");
+		$monit->monitor();
 	}
 
 	/**

@@ -20,7 +20,8 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/error.inc");
+require_once("openmediavault/systemctl.inc");
 
 class OMVModuleMonit extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleNotification {
@@ -61,8 +62,8 @@ class OMVModuleMonit extends OMVModuleServiceAbstract
 	 * Start the managed service.
 	 */
 	public function startService() {
-		$initd = new OMVSysVInitScript("monit", TRUE);
-		$initd->invoke("reload");
+		$systemCtl = new OMVSystemCtl("monit");
+		$systemCtl->reload();
 	}
 
 	/**

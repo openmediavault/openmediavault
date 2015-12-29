@@ -22,7 +22,7 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/systemctl.inc");
 
 class OMVModuleCPUFreqUtils extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -39,7 +39,7 @@ class OMVModuleCPUFreqUtils extends OMVModuleServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = "export LANG=C; omv-mkconf cpufrequtils 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -51,10 +51,10 @@ class OMVModuleCPUFreqUtils extends OMVModuleServiceAbstract
 	public function stopService() {
 		// Note, when disabling the 'cpufrequtils' service the changes
 		// will not take effect before the system is rebooted.
-		$initd = new OMVSysVInitScript("loadcpufreq", FALSE);
-		$initd->exec();
-		$initd = new OMVSysVInitScript("cpufrequtils", FALSE);
-		$initd->exec();
+		$systemCtl = new OMVSystemCtl("loadcpufreq");
+		$systemCtl->disable(TRUE);
+		$systemCtl = new OMVSystemCtl("cpufrequtils");
+		$systemCtl->disable(TRUE);
 	}
 
 	/**
@@ -65,16 +65,16 @@ class OMVModuleCPUFreqUtils extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//system/powermanagement";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		if (FALSE === boolvalEx($object['cpufreq']))
 			return;
-		$initd = new OMVSysVInitScript("loadcpufreq", TRUE, FALSE);
-		$initd->exec();
-		$initd = new OMVSysVInitScript("cpufrequtils", TRUE, FALSE);
-		$initd->exec();
+		$systemCtl = new OMVSystemCtl("loadcpufreq");
+		$systemCtl->enable(TRUE);
+		$systemCtl = new OMVSystemCtl("cpufrequtils");
+		$systemCtl->enable(TRUE);
 	}
 
 	/**

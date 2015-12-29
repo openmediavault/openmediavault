@@ -117,8 +117,8 @@ while [ ${index} -gt 0 ]; do
 		  -o "force directory mode = ${OMV_SAMBA_SHARE_FORCEDIRECTORYMODE}" -n \
 		  -i "string-length(hostsallow) > 0" -v "concat('hosts allow = ',hostsallow)" -n -b \
 		  -i "string-length(hostsdeny) > 0" -v "concat('hosts deny = ',hostsdeny)" -n -b \
-		  -i "hidedotfiles[. = '0']" -o "hide dot files = no" -b \
-		  -i "hidedotfiles[. = '1']" -o "hide dot files = yes" -b \
+		  -i "hidedotfiles[. = '0']" -o "hide dot files = no" -n -b \
+		  -i "hidedotfiles[. = '1']" -o "hide dot files = yes" -n -b \
 		  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_SAMBA_CONFIG}
 
 		# Process the share privileges. Users with '0 = no permission' are added

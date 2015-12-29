@@ -20,6 +20,7 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
+require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 
 class OMVModuleTimezone extends OMVModuleServiceAbstract
@@ -37,6 +38,25 @@ class OMVModuleTimezone extends OMVModuleServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = "export LANG=C; omv-mkconf timezone 2>&1";
+		if (0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+	}
+
+	/**
+	 * Start the managed service.
+	 */
+	public function startService() {
+		global $xmlConfig;
+		$xpath = "//system/time/timezone";
+		$timezone = $xmlConfig->get($xpath);
+		if (is_null($timezone)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		$cmd = sprintf("export LANG=C; timedatectl set-timezone %s 2>&1",
+		  escapeshellarg($timezone));
 		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));

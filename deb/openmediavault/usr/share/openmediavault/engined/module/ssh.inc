@@ -22,7 +22,7 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/systemctl.inc");
 
 class OMVModuleSsh extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
@@ -49,8 +49,8 @@ class OMVModuleSsh extends OMVModuleServiceAbstract
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		$initd = new OMVSysVInitScript("ssh", FALSE);
-		$initd->exec();
+		$systemCtl = new OMVSystemCtl("ssh");
+		$systemCtl->disable(TRUE);
 	}
 
 	/**
@@ -67,8 +67,8 @@ class OMVModuleSsh extends OMVModuleServiceAbstract
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
-		$initd = new OMVSysVInitScript("ssh", TRUE);
-		$initd->exec();
+		$systemCtl = new OMVSystemCtl("ssh");
+		$systemCtl->enable(TRUE);
 	}
 
 	/**
@@ -83,12 +83,12 @@ class OMVModuleSsh extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$initd = new OMVSysVInitScript("ssh");
+		$systemCtl = new OMVSystemCtl("ssh");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("SSH"),
 			"enabled" => boolvalEx($object['enable']),
-			"running" => ($initd->status() == 0)
+			"running" => $systemCtl->isActive()
 		);
 	}
 

@@ -26,8 +26,7 @@ set -e
 
 xmlstarlet sel -t \
   -m "//system/fstab/mntent[hidden='0' and contains(opts,'loop')]" \
-	-v uuid \
-	-i "position() != last()" -n -b \
+	-v "uuid" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read uuid; do
@@ -40,6 +39,6 @@ xmlstarlet sel -t \
 	  # Print mount entry line.
 	  xmlstarlet sel -t -m "//system/fstab/mntent[uuid='${uuid}']" \
 		-o "${fsname// /\\\040} ${dir// /\\\040} " \
-		-v "concat(type,' ',opts,' ',freq,' ',passno)" \
+		-v "concat(type,' ',opts,' ',freq,' ',passno)" -n \
 		${OMV_CONFIG_FILE} | xmlstarlet unesc
   done;

@@ -38,7 +38,7 @@ class OMVModuleQuota extends OMVModuleServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = "export LANG=C; omv-mkconf quota 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -57,7 +57,7 @@ class OMVModuleQuota extends OMVModuleServiceAbstract
 		$xpath = sprintf("//system/storage/filesystem/quota[fsuuid='%s']",
 		  $object['uuid']);
 		$qObject = $xmlConfig->get($xpath);
-		if(!is_null($qObject)) {
+		if (!is_null($qObject)) {
 			// Execute RPC to delete the configuration object.
 			OMVRpc::exec("Quota", "delete", array("uuid" => $qObject['uuid']),
 			  $this->getAdminContext());

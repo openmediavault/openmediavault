@@ -21,7 +21,7 @@
  */
 require_once("openmediavault/module.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/systemctl.inc");
 
 class OMVModulePhp5fpm extends OMVModuleServiceAbstract {
 	/**
@@ -53,8 +53,8 @@ class OMVModulePhp5fpm extends OMVModuleServiceAbstract {
 	 * Start the managed service.
 	 */
 	public function startService() {
-		$initd = new OMVSysVInitScript("php5-fpm", TRUE);
-		$initd->invoke("reload");
+		$systemCtl = new OMVSystemCtl("php5-fpm");
+		$systemCtl->reload();
 	}
 }
 

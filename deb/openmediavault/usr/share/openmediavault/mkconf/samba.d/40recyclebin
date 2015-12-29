@@ -40,9 +40,10 @@ rm -f ${OMV_CRONSCRIPTS_DIR}/${OMV_SAMBA_SHARE_RECYCLE_CRONSCRIPT_TEMPLATE}*
 [ "$(omv_config_get "//services/smb/enable")" = "0" ] && exit 0
 
 # Create the script that purges the shared folder recylce bin.
-xmlstarlet sel -t -m "//services/smb/shares/share[recyclebin='1']" \
-  -v "concat(uuid,' ',sharedfolderref,' ',recyclemaxage)" \
-  -i "position() != last()" -n -b \
+xmlstarlet sel -t \
+  -m "//services/smb/shares/share[recyclebin='1']" \
+    -v "concat(uuid,' ',sharedfolderref,' ',recyclemaxage)" -n \
+  -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read uuid sharedfolderref recyclemaxage; do
 	  # Skip shared folders with recyclemaxage=0.

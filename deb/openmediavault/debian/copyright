@@ -319,12 +319,6 @@ Files: /var/www/openmediavault/images/menu.png
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
 
-Files: /var/www/openmediavault/images/changelog.png
-Copyright: Volker Theile
-License: permissive
- Free for commercial use.
-Comment: www.openmediavault.org
-
 Files: /var/www/openmediavault/images/refresh.png
        /var/www/openmediavault/images/refresh.svg
 Copyright: WebHostingHub <http://www.webhostinghub.com>
@@ -517,5 +511,10 @@ License: CC-BY-4.0
 
 Files: /var/www/openmediavault/images/exclamation.png
        /var/www/openmediavault/images/exclamation.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0
+
+Files: /var/www/openmediavault/images/document.png
+       /var/www/openmediavault/images/document.svg
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0

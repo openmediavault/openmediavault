@@ -33,8 +33,8 @@ OMV_MONIT_SERVICE_NGINX_MODE=${OMV_MONIT_SERVICE_NGINX_MODE:-"active"}
 
 cat <<EOF > ${OMV_MONIT_SERVICE_NGINX_CONFIG}
 check process nginx with pidfile /var/run/nginx.pid
-  start program = "/etc/init.d/nginx start"
-  stop program = "/etc/init.d/nginx stop"
+  start program = "/bin/systemctl start nginx"
+  stop program = "/bin/systemctl stop nginx"
   mode ${OMV_MONIT_SERVICE_NGINX_MODE}
   if cpu is greater than 40% for 2 cycles then alert
   if cpu is greater than 80% for 5 cycles then restart

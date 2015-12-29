@@ -47,12 +47,16 @@ priority = ${OMV_WATCHDOG_PRIORITY}
 EOF
 
 	cat <<EOF > ${OMV_WATCHDOG_DEFAULT}
-# Start watchdog at boot time? 0 or 1
-run_watchdog=${OMV_WATCHDOG_RUNWATCHDOG}
-# Load module before starting watchdog
-watchdog_module="${OMV_WATCHDOG_WATCHDOGMODULE}"
+# Set run_watchdog to 1 to start watchdog or 0 to disable it.
+# Not used with systemd for the time being.
+run_watchdog=1
 # Specify additional watchdog options here (see manpage).
 watchdog_options="${OMV_WATCHDOG_WATCHDOGOPTIONS}"
+# Load module before starting watchdog
+watchdog_module="${OMV_WATCHDOG_WATCHDOGMODULE}"
+# Set run_wd_keepalive to 1 to start wd_keepalive after stopping watchdog or 0
+# to disable it. Running it is the default.
+run_wd_keepalive=0
 EOF
 }
 

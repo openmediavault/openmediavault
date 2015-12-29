@@ -31,15 +31,7 @@ set -e
 OMV_MKCONF_SCRIPTS_DIR=${OMV_MKCONF_SCRIPTS_DIR:-"/usr/share/openmediavault/mkconf"}
 
 OMV_SAMBA_EXTENSIONS_DIR=${OMV_SAMBA_EXTENSIONS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/samba.d"}
-OMV_SAMBA_DEFAULT=${OMV_SAMBA_DEFAULT:-"/etc/default/samba"}
 OMV_SAMBA_CONFIG=${OMV_SAMBA_CONFIG:-"/etc/samba/smb.conf"}
-
-# Create '/etc/default/samba' file
-cat <<EOF > ${OMV_SAMBA_DEFAULT}
-# Defaults for samba initscript
-# sourced by /etc/init.d/samba
-RUN_MODE="daemons"
-EOF
 
 # Add additional extensions to the configuration file
 cat /dev/null > ${OMV_SAMBA_CONFIG}

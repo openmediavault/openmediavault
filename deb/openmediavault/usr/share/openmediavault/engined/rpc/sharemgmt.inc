@@ -315,7 +315,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 		// The field 'reldirpath' may not contain the characters '..'. This
 		// is because of security reasons: the given canonicalized absolute
 		// path MUST be below the given mount point.
-		if(1 == preg_match("/\.\./", $params['reldirpath'])) {
+		if (1 == preg_match("/\.\./", $params['reldirpath'])) {
 			throw new OMVException(
 			  OMVErrorMsg::E_RPC_SERVICE_METHOD_INVALID_PARAMS,
 			  sprintf(gettext("The field '%s' contains forbidden ".

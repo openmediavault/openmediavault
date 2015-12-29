@@ -21,7 +21,7 @@
  */
 require_once("openmediavault/module.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/systemctl.inc");
 
 class OMVModuleZeroconf extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -45,11 +45,23 @@ class OMVModuleZeroconf extends OMVModuleServiceAbstract
 	}
 
 	/**
+	 * Stop the managed service.
+	 */
+	public function stopService() {
+		// It is necessary to stop the service because the configuration
+		// is auto-reloaded otherwise and the 'reload' action in the
+		// startService() method will cause a SIGTERM which will lead in
+		// a non running daemon. Seems to be a strange race condition.
+		$systemCtl = new OMVSystemCtl("avahi-daemon");
+		$systemCtl->stop();
+	}
+
+	/**
 	 * Start the managed service.
 	 */
 	public function startService() {
-		$initd = new OMVSysVInitScript("avahi-daemon");
-		$initd->reload();
+		$systemCtl = new OMVSystemCtl("avahi-daemon");
+		$systemCtl->start();
 	}
 
 	/**

@@ -21,7 +21,7 @@
  */
 require_once("openmediavault/module.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/systemctl.inc");
 
 abstract class OMVModuleNginxAbstract extends OMVModuleServiceAbstract {
 	/**
@@ -47,8 +47,8 @@ abstract class OMVModuleNginxAbstract extends OMVModuleServiceAbstract {
 	 * Start the managed service.
 	 */
 	public function startService() {
-		$initd = new OMVSysVInitScript("nginx", TRUE);
-		$initd->invoke("restart");
+		$systemCtl = new OMVSystemCtl("nginx");
+		$systemCtl->restart();
 	}
 }
 

@@ -66,30 +66,30 @@ case "$1" in
 			# Setup services
 			####################################################################
 			echo "Updating init scripts actions ..."
-			invoke-rc.d --force ntp stop
-			update-rc.d ntp disable &>/dev/null
-			invoke-rc.d --force smartmontools stop
-			update-rc.d smartmontools disable &>/dev/null
-			invoke-rc.d --force tftpd-hpa stop
-			update-rc.d tftpd-hpa disable &>/dev/null
-			invoke-rc.d --force rsync stop
-			update-rc.d rsync disable &>/dev/null
-			invoke-rc.d --force ssh stop
-			update-rc.d ssh disable &>/dev/null
-			invoke-rc.d --force snmpd stop
-			update-rc.d snmpd disable &>/dev/null
-			invoke-rc.d --force proftpd stop
-			update-rc.d proftpd disable &>/dev/null
-			invoke-rc.d --force nfs-kernel-server stop
-			update-rc.d nfs-kernel-server disable &>/dev/null
-			invoke-rc.d --force samba stop
-			update-rc.d samba disable &>/dev/null
-			invoke-rc.d --force postfix stop
-			update-rc.d postfix disable &>/dev/null
+			systemctl stop systemd-timesyncd
+			systemctl disable systemd-timesyncd
+			systemctl stop smartmontools
+			systemctl disable smartmontools
+			systemctl stop tftpd-hpa
+			systemctl disable tftpd-hpa
+			systemctl stop rsync
+			systemctl disable rsync
+			systemctl stop ssh
+			systemctl disable ssh
+			systemctl stop snmpd
+			systemctl disable snmpd
+			systemctl stop proftpd
+			systemctl disable proftpd
+			systemctl stop nfs-kernel-server
+			systemctl disable nfs-kernel-server
+			systemctl stop smbd
+			systemctl disable smbd
+			systemctl stop postfix
+			systemctl disable postfix
 
-			update-rc.d openmediavault defaults &>/dev/null
-			update-rc.d openmediavault-beep defaults &>/dev/null
-			update-rc.d openmediavault-engined defaults &>/dev/null
+			systemctl enable openmediavault
+			systemctl enable openmediavault-beep
+			systemctl enable openmediavault-engined
 
 			####################################################################
 			# Setup webserver configuration
@@ -128,6 +128,7 @@ case "$1" in
 			omv-mkconf watchdog
 			omv-mkconf monit
 			omv-mkconf rrdcached
+			omv-mkconf avahi-daemon
 		fi
 		omv-mkconf collectd
 
@@ -136,13 +137,14 @@ case "$1" in
 		########################################################################
 		if [ -z "$2" ]; then
 			echo "Restarting services ..."
-			invoke-rc.d cron restart
-			invoke-rc.d watchdog restart
-			invoke-rc.d rrdcached restart
-			invoke-rc.d collectd restart
-			invoke-rc.d php5-fpm reload
-			invoke-rc.d nginx restart
-			invoke-rc.d monit restart
+			systemctl restart cron
+			systemctl restart watchdog
+			systemctl restart rrdcached
+			systemctl restart collectd
+			systemctl restart php5-fpm
+			systemctl restart nginx
+			systemctl restart monit
+			systemctl restart avahi-daemon
 		fi
 		dpkg-trigger restart-engined || monit restart omv-engined
 
@@ -492,6 +494,15 @@ case "$1" in
 			omv-mkconf nginx
 			service nginx reload
 		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0"; then
+			# Trigger the creation of the UDEV rule which creates the link
+			# /dev/root -> <devicefile>
+			devicefile=$(findmnt -f -n -o SOURCE /)
+			udevadm trigger --property-match=DEVNAME=${devicefile}
+			# Recreate and reload various configuration files.
+			omv-mkconf nginx
+			systemctl reload nginx
+		fi
 	;;
 
 	triggered)
@@ -518,7 +529,7 @@ case "$1" in
 
 				restart-engined)
 					echo "Restarting engine daemon ..."
-					monit restart omv-engined || invoke-rc.d openmediavault-engined restart
+					monit restart omv-engined || systemctl restart openmediavault-engined
 			esac
 		done
 	;;

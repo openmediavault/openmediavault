@@ -22,7 +22,7 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/systemctl.inc");
 
 class OMVModuleAcpid extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -39,7 +39,7 @@ class OMVModuleAcpid extends OMVModuleServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = "export LANG=C; omv-mkconf acpid 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -49,8 +49,8 @@ class OMVModuleAcpid extends OMVModuleServiceAbstract
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		$initd = new OMVSysVInitScript("acpid", FALSE, FALSE);
-		$initd->exec();
+		$systemCtl = new OMVSystemCtl("acpid");
+		$systemCtl->stop();
 	}
 
 	/**
@@ -61,14 +61,14 @@ class OMVModuleAcpid extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//system/powermanagement";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		if (FALSE === boolvalEx($object['powerbtn']))
 			return;
-		$initd = new OMVSysVInitScript("acpid", TRUE, FALSE);
-		$initd->exec();
+		$systemCtl = new OMVSystemCtl("acpid");
+		$systemCtl->start();
 	}
 
 	/**

@@ -301,13 +301,13 @@ class OMVControlPanel extends OMVHtmlPageAbstract {
 		  $GLOBALS['OMV_UUID_UNDEFINED'], OMV_ROLE_ADMINISTRATOR,
 		  $GLOBALS['OMV_HTTPREQUEST_TIMEOUT'], $prd->getName(),
 		  $prd->getURL(), $prd->getCopyright(), $prd->getPackageName());
-		$errorCodes = sprintf(
-		  "OMV.E_SESSION_NOT_AUTHENTICATED = %d; ".
-		  "OMV.E_SESSION_TIMEOUT = %d;".
-		  "OMV.E_ENGINED_CONNECT_SOCKET = %d",
-		  OMVErrorMsg::E_SESSION_NOT_AUTHENTICATED,
-		  OMVErrorMsg::E_SESSION_TIMEOUT,
-		  OMVErrorMsg::E_ENGINED_CONNECT_SOCKET);
+		// Process the RPC error codes.
+		$errorCodes = array();
+		$reflectionClass = new ReflectionClass("OMVErrorMsg");
+		foreach ($reflectionClass->getConstants() as $kConst => $vConst) {
+			$errorCodes[] = sprintf("OMV.%s = %s;", $kConst, $vConst);
+		}
+		$errorCodes = implode(" ", $errorCodes);
 		return <<<EOF
 		<script type="application/javascript">
 			// Global defines

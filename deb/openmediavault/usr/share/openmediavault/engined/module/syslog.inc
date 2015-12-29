@@ -21,7 +21,7 @@
  */
 require_once("openmediavault/module.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/systemctl.inc");
 
 class OMVModuleSyslog extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -48,8 +48,8 @@ class OMVModuleSyslog extends OMVModuleServiceAbstract
 	 * Start the managed service.
 	 */
 	public function startService() {
-		$initd = new OMVSysVInitScript("rsyslog");
-		$initd->restart();
+		$systemCtl = new OMVSystemCtl("rsyslog");
+		$systemCtl->restart();
 	}
 
 	/**

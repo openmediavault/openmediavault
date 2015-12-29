@@ -23,6 +23,7 @@
 # http://wiki.nginx.org/Pitfalls#Taxing_Rewrites
 # http://security.stackexchange.com/questions/54639/nginx-recommended-ssl-ciphers-for-security-compatibility-with-pfs
 # http://en.wikipedia.org/wiki/List_of_HTTP_header_fields
+# http://www.pedaldrivenprogramming.com/2015/04/upgrading-wheezy-to-jessie:-nginx-and-php-fpm/
 
 set -e
 
@@ -84,7 +85,7 @@ xmlstarlet sel -t -m "//webadmin" \
   -o "        fastcgi_pass unix:/var/run/php5-fpm-openmediavault-webgui.sock;" -n \
   -o "        fastcgi_index index.php;" -n \
   -o "        fastcgi_read_timeout ${OMV_NGINX_SITE_WEBGUI_FASTCGI_READ_TIMEOUT};" -n \
-  -o "        include fastcgi_params;" -n \
+  -o "        include fastcgi.conf;" -n \
   -o "    }" -n \
   -i "${ipv6enabled} = 0" \
     -v "concat('    listen ',port,' default_server;')" -n \

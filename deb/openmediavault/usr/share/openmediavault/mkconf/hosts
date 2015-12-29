@@ -57,9 +57,10 @@ ff02::3 ip6-allhosts
 
 EOF
 
-xmlstarlet sel -t -m "//system/network/interfaces/*" \
-  -v "concat(devicename,' ',address,' ',address6)" \
-  -i "position() != last()" -n -b \
+xmlstarlet sel -t \
+  -m "//system/network/interfaces/*" \
+    -v "concat(devicename,' ',address,' ',address6)" -n \
+  -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read devicename address address6; do
 	  if [ -n "${address}" ]; then

@@ -281,24 +281,26 @@ configure_webgui() {
 				fi
 			done
 			# Display dialog to choose SSL certificate
-			xmlstarlet sel -t -m "//system/certificates/sslcertificate" \
-			-v "concat(position(),' ',uuid,' ',comment)" -i "position() != last()" -n -b \
-			${OMV_CONFIG_FILE} | xmlstarlet unesc | {
-				local cmd
-				cmd="${OMV_FIRSTAID_DIALOG} --clear --menu 'Please select an SSL certificate:' 12 70 4 "
-				while read position uuid comment; do
-					# To be posix compliant use fake arrays
-					certs="certs"
-					eval ${certs}${position}=${uuid}
-					# Append menu entry. Use 'position' as 'tag' and 'comment' as
-					# 'item' values.
-					cmd="${cmd} ${position} '${comment}'"
-				done
-				eval "${cmd} 2>$tempfile"
-				[ $? -ne 0 ] && return 1
-				choice=$(cat $tempfile)
-				echo $(eval echo \$$certs${choice}) >$tempfile
-			}
+			xmlstarlet sel -t \
+			  -m "//system/certificates/sslcertificate" \
+			    -v "concat(position(),' ',uuid,' ',comment)" -n \
+			  -b \
+			  ${OMV_CONFIG_FILE} | xmlstarlet unesc | {
+				  local cmd
+				  cmd="${OMV_FIRSTAID_DIALOG} --clear --menu 'Please select an SSL certificate:' 12 70 4 "
+				  while read position uuid comment; do
+					  # To be posix compliant use fake arrays
+					  certs="certs"
+					  eval ${certs}${position}=${uuid}
+					  # Append menu entry. Use 'position' as 'tag' and 'comment' as
+					  # 'item' values.
+					  cmd="${cmd} ${position} '${comment}'"
+				  done
+				  eval "${cmd} 2>$tempfile"
+				  [ $? -ne 0 ] && return 1
+				  choice=$(cat $tempfile)
+				  echo $(eval echo \$$certs${choice}) >$tempfile
+			  }
 			[ $? -ne 0 ] && return 1
 			sslcertificateref=$(cat $tempfile)
 			# Enable HTTPS only?

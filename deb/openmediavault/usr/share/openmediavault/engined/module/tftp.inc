@@ -22,7 +22,7 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/systemctl.inc");
 
 class OMVModuleTftp extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
@@ -49,8 +49,8 @@ class OMVModuleTftp extends OMVModuleServiceAbstract
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		$initd = new OMVSysVInitScript("tftpd-hpa", FALSE);
-		$initd->exec();
+		$systemCtl = new OMVSystemCtl("tftpd-hpa");
+		$systemCtl->disable(TRUE);
 	}
 
 	/**
@@ -67,8 +67,8 @@ class OMVModuleTftp extends OMVModuleServiceAbstract
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
-		$initd = new OMVSysVInitScript("tftpd-hpa", TRUE);
-		$initd->exec();
+		$systemCtl = new OMVSystemCtl("tftpd-hpa");
+		$systemCtl->enable(TRUE);
 	}
 
 	/**
@@ -84,12 +84,12 @@ class OMVModuleTftp extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$initd = new OMVSysVInitScript("tftpd-hpa");
+		$systemCtl = new OMVSystemCtl("tftpd-hpa");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("TFTP"),
 			"enabled" => boolvalEx($object['enable']),
-			"running" => ($initd->status() == 0)
+			"running" => $systemCtl->isActive()
 		);
 	}
 

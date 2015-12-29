@@ -29,8 +29,8 @@ OMV_MONIT_SERVICE_OMVENGINED_MODE=${OMV_MONIT_SERVICE_OMVENGINED_MODE:-"active"}
 
 cat <<EOF > ${OMV_MONIT_SERVICE_OMVENGINED_CONFIG}
 check process omv-engined with pidfile /var/run/omv-engined.pid
-  start program = "/etc/init.d/openmediavault-engined start"
-  stop program = "/etc/init.d/openmediavault-engined stop"
+  start program = "/bin/systemctl start openmediavault-engined"
+  stop program = "/bin/systemctl stop openmediavault-engined"
   mode ${OMV_MONIT_SERVICE_OMVENGINED_MODE}
 EOF
 

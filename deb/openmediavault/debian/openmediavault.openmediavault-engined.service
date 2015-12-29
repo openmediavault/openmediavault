@@ -1,0 +1,11 @@
+[Unit]
+Description=The OpenMediaVault engine daemon that processes the RPC request
+After=sysinit.target
+
+[Service]
+Type=forking
+PIDFile=/var/run/omv-engined.pid
+ExecStart=/usr/sbin/omv-engined
+
+[Install]
+WantedBy=multi-user.target

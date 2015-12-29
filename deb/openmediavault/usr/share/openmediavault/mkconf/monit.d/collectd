@@ -32,8 +32,8 @@ rm -f ${OMV_MONIT_SERVICE_COLLECTD_CONFIG}
 
 cat <<EOF > ${OMV_MONIT_SERVICE_COLLECTD_CONFIG}
 check process collectd with pidfile /var/run/collectd.pid
-  start program = "/etc/init.d/collectd start"
-  stop program = "/etc/init.d/collectd stop"
+  start program = "/bin/systemctl start collectd"
+  stop program = "/bin/systemctl stop collectd"
   mode ${OMV_MONIT_SERVICE_COLLECTD_MODE}
 EOF
 

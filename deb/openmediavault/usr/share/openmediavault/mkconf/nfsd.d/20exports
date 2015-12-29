@@ -54,11 +54,10 @@ xmlstarlet sel -t \
 	-i "string-length(extraoptions) > 0" \
 	  -v "concat(',',extraoptions)" \
 	-b \
-    -i "string-length('${OMV_NFSD_DEFAULT_EXPORT_OPTIONS}') > 0" \
+	-i "string-length('${OMV_NFSD_DEFAULT_EXPORT_OPTIONS}') > 0" \
 	  -v "concat(',','${OMV_NFSD_DEFAULT_EXPORT_OPTIONS}')" \
 	-b \
-	-o ")" \
-	-i "position() != last()" -n -b \
+	-o ")" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_NFSD_CONFIG}
 
@@ -66,11 +65,9 @@ if omv_checkyesno "${OMV_NFSD_V4_ENABLE}"; then
 	# Export duplicate shares only once (emulate SQL 'DISTINCT' to filter
 	# duplicates).
 	xmlstarlet sel -t \
-		-n \
 		-o "# NFSv4 - pseudo filesystem root" -n \
 		-m "//services/nfs/shares/share[not(client=preceding-sibling::*/client)]" \
-		  -v "concat('${OMV_NFSD_EXPORT_DIR} ',normalize-space(client),'(${OMV_NFSD_V4_DEFAULT_EXPORT_OPTIONS})')" \
-		  -i "position() != last()" -n -b \
+		  -v "concat('${OMV_NFSD_EXPORT_DIR} ',normalize-space(client),'(${OMV_NFSD_V4_DEFAULT_EXPORT_OPTIONS})')" -n \
 		-b \
 	  -b \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_NFSD_CONFIG}

@@ -16,10 +16,10 @@ OMV_MONIT_STATEFILE=${OMV_MONIT_STATEFILE:-"/var/lib/monit/state"}
 
 do_start() {
 	log_action_begin_msg "Cleaning up"
-	# Remove the monit state file
+	# Remove the monit state file.
 	rm -f ${OMV_MONIT_STATEFILE}
-	# Cleanup PHP session files
-	rm -f /var/lib/php5/*
+	# Cleanup PHP session files.
+	rm -f /var/lib/php5/sessions/*
 	log_action_end_msg "$?"
 }
 

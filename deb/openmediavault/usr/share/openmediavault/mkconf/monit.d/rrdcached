@@ -32,8 +32,8 @@ rm -f ${OMV_MONIT_SERVICE_RRDCACHED_CONFIG}
 
 cat <<EOF > ${OMV_MONIT_SERVICE_RRDCACHED_CONFIG}
 check process rrdcached with pidfile /var/run/rrdcached.pid
-  start program = "/etc/init.d/rrdcached start"
-  stop program = "/etc/init.d/rrdcached stop"
+  start program = "/bin/systemctl start rrdcached"
+  stop program = "/bin/systemctl stop rrdcached"
   mode ${OMV_MONIT_SERVICE_RRDCACHED_MODE}
 EOF
 

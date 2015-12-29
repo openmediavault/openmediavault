@@ -4,3 +4,4 @@ usr/share/php/openmediavault/* usr/share/php/openmediavault/
 usr/lib/python3/* usr/lib/python3/
 etc/* etc/
 var/www/openmediavault var/www/
+lib/udev/* lib/udev/
