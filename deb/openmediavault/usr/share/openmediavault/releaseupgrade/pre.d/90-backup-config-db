@@ -23,7 +23,7 @@ set -e
 
 . /etc/default/openmediavault
 
-OMV_CONFIG_BACKUP_FILE=${OMV_CONFIG_BACKUP_FILE:-"${OMV_CONFIG_FILE}.1x.bak"}
+OMV_CONFIG_BACKUP_FILE=${OMV_CONFIG_BACKUP_FILE:-"${OMV_CONFIG_FILE}.2x.bak"}
 
 # Create a configuration backup.
 if [ ! -e "${OMV_CONFIG_BACKUP_FILE}" ]; then
