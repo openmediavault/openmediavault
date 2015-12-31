@@ -1,3 +1,9 @@
+openmediavault (3.0.1) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 30 Dec 2015 17:46:53 +0100
+
 openmediavault (3.0) stable; urgency=low
 
   * Adapt package to Debian 8 (Jessie).
