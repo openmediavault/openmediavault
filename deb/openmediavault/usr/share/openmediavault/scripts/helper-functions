@@ -884,12 +884,14 @@ EOF
 # - /dev/sda1
 # - /dev/disk/by-uuid/deb31889-c394-4edc-bac5-c5174e39c404
 omv_get_root_devicefile() {
+	local _deviceid
+	# Check whether the device file already exists.
 	if [ -b "/dev/root" ]; then
 		readlink -f /dev/root
 		return $?
 	fi
-	findmnt -f -n -o SOURCE /
+	# Use UDEV to find the root device file.
+	_deviceid=$(udevadm info --device-id-of-file=/ || true)
+	readlink -f /dev/block/${_deviceid}
 	return $?
-	# Use udev to find the root devicefile.
-	#_devicenumber=$($(udevadm info --export --export-prefix=ROOT_ --device-id-of-file=/ || true)
 }
