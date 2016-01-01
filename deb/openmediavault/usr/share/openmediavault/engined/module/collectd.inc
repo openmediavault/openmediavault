@@ -89,6 +89,8 @@ class OMVModuleCollectd extends OMVModuleServiceAbstract
 		// Start this service and enable the unit file.
 		$systemCtl = new OMVSystemCtl("collectd");
 		$systemCtl->enable(TRUE);
+		// Wait to allow the service to start.
+		sleep(1);
 		// Enable monitoring of this service.
 		$monit = new OMVMonit("collectd");
 		$monit->monitor();

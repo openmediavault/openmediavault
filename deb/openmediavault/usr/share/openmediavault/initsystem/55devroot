@@ -1,3 +1,5 @@
+#!/bin/sh
+#
 # This file is part of OpenMediaVault.
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
@@ -17,14 +19,17 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-# Testing:
-# udevadm test /sys/class/block/sda1
-# udevadm control --reload-rules
-# udevadm trigger --property-match=DEVNAME=/dev/sda1
+set -e
 
-ACTION!="add|change", GOTO="write_dev_root_link_rules_end"
-SUBSYSTEM!="block", GOTO="write_dev_root_link_rules_end"
-ENV{ID_BUS}!="scsi|ata", GOTO="write_dev_root_link_rules_end"
-NAME=="?*", GOTO="write_dev_root_link_rules_end"
-DRIVERS=="?*", IMPORT{program}="omv-write_dev_root_link_rules"
-LABEL="write_dev_root_link_rules_end"
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+# Get the root device file or exit immediatelly.
+devicefile=$(omv_get_root_devicefile || true)
+[ -z "${devicefile}" ] && exit 0
+
+# Trigger the creation of the UDEV rule which creates the link
+# /dev/root -> <devicefile>
+udevadm trigger --property-match=DEVNAME=${devicefile}
+
+exit 0
