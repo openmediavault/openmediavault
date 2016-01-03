@@ -1642,6 +1642,7 @@ class OMVFilesystemAbstract extends OMVObject {
 				"percentage" => intval(trim($matches[5], "%")),
 				"mountpoint" => $matches[6]
 			);
+			break;
 		}
 		return $result;
 	}
