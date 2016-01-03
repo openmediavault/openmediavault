@@ -1612,7 +1612,9 @@ class OMVFilesystemAbstract extends OMVObject {
 		// Get the mount point of the filesystem.
 		if (FALSE === ($mountPoint = $this->getMountPoint()))
 			return FALSE;
-		@OMVUtil::exec("export LANG=C; df -PT", $output, $result);
+		$cmd = sprintf("export LANG=C; df -PT %s",
+		  escapeshellarg($mountPoint));
+		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			$this->setLastError($output);
 			return FALSE;
@@ -1642,6 +1644,7 @@ class OMVFilesystemAbstract extends OMVObject {
 				"percentage" => intval(trim($matches[5], "%")),
 				"mountpoint" => $matches[6]
 			);
+			break;
 		}
 		return $result;
 	}
