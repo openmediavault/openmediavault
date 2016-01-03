@@ -6,9 +6,9 @@
 include ../openmediavault.mk
 
 %:
-	dh $@
+	dh $@ --with systemd
 
-override_dh_installinit:
-	dh_installinit -r --no-start --name=openmediavault
-	dh_installinit -r --no-start --name=openmediavault-beep
-	dh_installinit -r --no-start --name=openmediavault-engined
+override_dh_systemd_start:
+	dh_systemd_start -r --no-start --name=openmediavault
+	dh_systemd_start -r --no-start --name=openmediavault-beep
+	dh_systemd_start -r --no-start --name=openmediavault-engined

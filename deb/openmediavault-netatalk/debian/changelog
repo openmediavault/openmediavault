@@ -1,3 +1,9 @@
+openmediavault-netatalk (3.0.1) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 03 Jan 2016 00:59:50 +0100
+
 openmediavault-netatalk (3.0) stable; urgency=low
 
   * Adapt to Debian 8 (Jessie).

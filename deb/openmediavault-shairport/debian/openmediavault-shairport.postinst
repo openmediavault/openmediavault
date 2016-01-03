@@ -32,8 +32,8 @@ case "$1" in
 		########################################################################
 		if [ -z "$2" ]; then
 			echo "Updating init script links and actions"
-			systemctl stop shairport-sync
-			systemctl disable shairport-sync
+			deb-systemd-invoke stop shairport-sync || :
+			deb-systemd-helper disable shairport-sync || :
 		fi
 
 		########################################################################

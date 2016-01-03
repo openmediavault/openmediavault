@@ -32,8 +32,8 @@ case "$1" in
 		########################################################################
 		if [ -z "$2" ]; then
 			echo "Updating init script links and actions"
-			systemctl stop netatalk
-			systemctl disable netatalk
+			deb-systemd-invoke stop netatalk || :
+			deb-systemd-helper disable netatalk || :
 		fi
 
 		########################################################################

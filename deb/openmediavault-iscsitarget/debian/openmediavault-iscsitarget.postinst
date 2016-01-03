@@ -32,8 +32,8 @@ case "$1" in
 		########################################################################
 		if [ -z "$2" ]; then
 			echo "Updating init script links and actions"
-			systemctl stop iscsitarget
-			systemctl disable iscsitarget
+			deb-systemd-invoke stop iscsitarget || :
+			deb-systemd-helper disable iscsitarget || :
 		fi
 
 		########################################################################

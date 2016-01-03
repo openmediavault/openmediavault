@@ -32,8 +32,8 @@ case "$1" in
 		########################################################################
 		if [ -z "$2" ]; then
 			echo "Updating init script links and actions"
-			systemctl stop forked-daapd
-			systemctl disable forked-daapd
+			deb-systemd-invoke stop forked-daapd || :
+			deb-systemd-helper disable forked-daapd || :
 		fi
 
 		########################################################################

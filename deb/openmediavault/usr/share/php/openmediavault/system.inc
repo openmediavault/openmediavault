@@ -4213,6 +4213,23 @@ class OMVATASMARTInformation extends OMVObject {
 	}
 
 	/**
+	 * Get the device path, e.g. /dev/sda.
+	 * @return The device path.
+	 */
+	public function getDeviceFile() {
+		return $this->deviceFile;
+	}
+
+	/**
+	 * Get the type of the device, e.g. 'ata', 'sat', 'cciss' or '3ware'.
+	 * Note, this can be an empty string.
+	 * @return The device type.
+	 */
+	public function getType() {
+		return $this->type;
+	}
+
+	/**
 	 * Get S.M.A.R.T. information.
 	 * @private
 	 * @return TRUE if successful, otherwise FALSE.

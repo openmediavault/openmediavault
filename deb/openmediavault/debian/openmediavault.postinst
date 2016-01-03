@@ -66,30 +66,30 @@ case "$1" in
 			# Setup services
 			####################################################################
 			echo "Updating init scripts actions ..."
-			systemctl stop systemd-timesyncd
-			systemctl disable systemd-timesyncd
-			systemctl stop smartmontools
-			systemctl disable smartmontools
-			systemctl stop tftpd-hpa
-			systemctl disable tftpd-hpa
-			systemctl stop rsync
-			systemctl disable rsync
-			systemctl stop ssh
-			systemctl disable ssh
-			systemctl stop snmpd
-			systemctl disable snmpd
-			systemctl stop proftpd
-			systemctl disable proftpd
-			systemctl stop nfs-kernel-server
-			systemctl disable nfs-kernel-server
-			systemctl stop smbd
-			systemctl disable smbd
-			systemctl stop postfix
-			systemctl disable postfix
+			deb-systemd-invoke stop systemd-timesyncd || :
+			deb-systemd-helper disable systemd-timesyncd || :
+			deb-systemd-invoke stop smartmontools || :
+			deb-systemd-helper disable smartmontools || :
+			deb-systemd-invoke stop tftpd-hpa || :
+			deb-systemd-helper disable tftpd-hpa || :
+			deb-systemd-invoke stop rsync || :
+			deb-systemd-helper disable rsync || :
+			deb-systemd-invoke stop ssh || :
+			deb-systemd-helper disable ssh || :
+			deb-systemd-invoke stop snmpd || :
+			deb-systemd-helper disable snmpd || :
+			deb-systemd-invoke stop proftpd || :
+			deb-systemd-helper disable proftpd || :
+			deb-systemd-invoke stop nfs-kernel-server || :
+			deb-systemd-helper disable nfs-kernel-server || :
+			deb-systemd-invoke stop smbd || :
+			deb-systemd-helper disable smbd || :
+			deb-systemd-invoke stop postfix || :
+			deb-systemd-helper disable postfix || :
 
-			systemctl enable openmediavault
-			systemctl enable openmediavault-beep
-			systemctl enable openmediavault-engined
+			deb-systemd-helper enable openmediavault || :
+			deb-systemd-helper enable openmediavault-beep || :
+			deb-systemd-helper enable openmediavault-engined || :
 
 			####################################################################
 			# Setup webserver configuration
@@ -137,14 +137,14 @@ case "$1" in
 		########################################################################
 		if [ -z "$2" ]; then
 			echo "Restarting services ..."
-			systemctl restart cron
-			systemctl restart watchdog
-			systemctl restart rrdcached
-			systemctl restart collectd
-			systemctl restart php5-fpm
-			systemctl restart nginx
-			systemctl restart monit
-			systemctl restart avahi-daemon
+			deb-systemd-invoke restart cron || :
+			deb-systemd-invoke restart watchdog || :
+			deb-systemd-invoke restart rrdcached || :
+			deb-systemd-invoke restart collectd || :
+			deb-systemd-invoke restart php5-fpm || :
+			deb-systemd-invoke restart nginx || :
+			deb-systemd-invoke restart monit || :
+			deb-systemd-invoke restart avahi-daemon || :
 		fi
 		dpkg-trigger restart-engined || monit restart omv-engined
 
@@ -529,7 +529,7 @@ case "$1" in
 
 				restart-engined)
 					echo "Restarting engine daemon ..."
-					monit restart omv-engined || systemctl restart openmediavault-engined
+					monit restart omv-engined || deb-systemd-invoke restart openmediavault-engined
 			esac
 		done
 	;;

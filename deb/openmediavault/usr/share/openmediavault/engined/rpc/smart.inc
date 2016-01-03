@@ -443,25 +443,25 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 		  }');
 		// Get the S.M.A.R.T. information.
 		$sd = OMVStorageDeviceFactory::get($params['devicefile']);
-		if(is_null($sd) || !$sd->exists()) {
+		if (is_null($sd) || !$sd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $params['devicefile']);
 		}
-		if(FALSE === $sd->hasSMART()) {
+		if (FALSE === $sd->hasSMART()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Device does not support S.M.A.R.T. (device=%s)",
 			  $sd->getDeviceFile()));
 		}
-		if(is_null($smartInfo = $sd->getSMARTInformation())) {
+		if (is_null($smartInfo = $sd->getSMARTInformation())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to get S.M.A.R.T. interface (device=%s)",
 			  $sd->getDeviceFile()));
 		}
-		if(FALSE === ($result = $smartInfo->getExtendedInformation())) {
+		if (FALSE === ($result = $smartInfo->getExtendedInformation())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to get S.M.A.R.T. extended information ".
-			  "(device=%s): %s", $sd->getDeviceFile(),
-			  $smartInfo->getLastError()));
+			  "(device=%s, type=%s): %s", $smartInfo->getDeviceFile(),
+			  $smartInfo->getType(), $smartInfo->getLastError()));
 		}
 		return $result;
 	}
