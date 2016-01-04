@@ -503,7 +503,7 @@ case "$1" in
 			udevadm trigger --property-match=DEVNAME=${devicefile}
 			# Recreate and reload various configuration files.
 			omv-mkconf nginx
-			systemctl reload nginx
+			deb-systemd-invoke reload nginx || :
 		fi
 	;;
 
