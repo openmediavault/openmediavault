@@ -1,0 +1,12 @@
+[Unit]
+Description=Beep after system start
+DefaultDependencies=no
+After=graphical.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/beep -f 3000 -l 100 -n -f 3500 -l 100 -r 2
+ExecStop=/bin/true
+
+[Install]
+WantedBy=graphical.target multi-user.target

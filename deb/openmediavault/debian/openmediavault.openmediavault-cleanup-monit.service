@@ -1,0 +1,12 @@
+[Unit]
+Description=Cleanup monit state file
+DefaultDependencies=no
+Before=monit.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/rm -f /var/lib/monit/state
+ExecStop=/bin/true
+
+[Install]
+WantedBy=multi-user.target

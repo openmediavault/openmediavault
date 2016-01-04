@@ -8,7 +8,16 @@ include ../openmediavault.mk
 %:
 	dh $@ --with systemd
 
+override_dh_systemd_enable:
+	dh_systemd_enable --name=openmediavault-beep-up
+	dh_systemd_enable --name=openmediavault-beep-down
+	dh_systemd_enable --name=openmediavault-cleanup-monit
+	dh_systemd_enable --name=openmediavault-cleanup-php
+	dh_systemd_enable --name=openmediavault-engined
+
 override_dh_systemd_start:
-	dh_systemd_start -r --no-start --name=openmediavault
-	dh_systemd_start -r --no-start --name=openmediavault-beep
+	dh_systemd_start -r --no-start --name=openmediavault-beep-up
+	dh_systemd_start -r --no-start --name=openmediavault-beep-down
+	dh_systemd_start -r --no-start --name=openmediavault-cleanup-monit
+	dh_systemd_start -r --no-start --name=openmediavault-cleanup-php
 	dh_systemd_start -r --no-start --name=openmediavault-engined

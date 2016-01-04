@@ -1,0 +1,12 @@
+[Unit]
+Description=Cleanup PHP session files
+DefaultDependencies=no
+Before=nginx.service
+
+[Service]
+Type=oneshot
+ExecStart=rm -f /var/lib/php5/sessions/*
+ExecStop=/bin/true
+
+[Install]
+WantedBy=multi-user.target

@@ -87,10 +87,6 @@ case "$1" in
 			deb-systemd-invoke stop postfix || :
 			deb-systemd-helper disable postfix || :
 
-			deb-systemd-helper enable openmediavault || :
-			deb-systemd-helper enable openmediavault-beep || :
-			deb-systemd-helper enable openmediavault-engined || :
-
 			####################################################################
 			# Setup webserver configuration
 			####################################################################
@@ -99,10 +95,16 @@ case "$1" in
 			nginx_dissite default || :
 			nginx_ensite openmediavault-webgui
 		fi
-		# Create public/private SSH key pair for user root
+		# Create public/private SSH key pair for user root.
 		if [ ! -f "/root/.ssh/id_rsa.pub" ]; then
 			ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa
 		fi
+		# Enable all Systemd services.
+		deb-systemd-helper enable openmediavault-beep-up.service || :
+		deb-systemd-helper enable openmediavault-beep-down.service || :
+		deb-systemd-helper enable openmediavault-cleanup-monit.service || :
+		deb-systemd-helper enable openmediavault-cleanup-php.service || :
+		deb-systemd-helper enable openmediavault-engined.service || :
 
 		########################################################################
 		# Setup permissions
