@@ -1,7 +1,7 @@
 [Unit]
 Description=Cleanup monit state file
 DefaultDependencies=no
-Before=monit.service
+After=local-fs.target
 
 [Service]
 Type=oneshot

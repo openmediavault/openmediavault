@@ -96,7 +96,7 @@ xmlstarlet sel -t \
 		-o "[ -e ${runfile} ] && exit 1" -n \
 		-i "type[. = 'local'] or mode[. = 'pull']" \
 		  -o "if ! omv_is_mounted \"${destmntdir}\" ; then" -n \
-		  -o "    echo \"Destination storage device not mounted!\"" -n \
+		  -o "    echo \"Destination storage device <${destmntdir}> not mounted!\"" -n \
 		  -o "    exit 1" -n \
 		  -o "fi" -n \
 		-b \

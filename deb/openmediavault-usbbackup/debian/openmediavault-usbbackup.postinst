@@ -29,9 +29,7 @@ case "$1" in
 		########################################################################
 		# Set the default settings.
 		########################################################################
-		if [ -z "$2" ]; then
-			omv_set_default "OMV_USBBACKUP_SCRIPTS_DIR" "/var/lib/openmediavault/usbbackup.d"
-		fi
+		omv_set_default "OMV_USBBACKUP_SCRIPTS_DIR" "/var/lib/openmediavault/usbbackup.d" false
 
 		########################################################################
 		# Update the configuration.

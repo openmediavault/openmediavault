@@ -1,3 +1,9 @@
+openmediavault-usbbackup (3.0.1) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 04 Jan 2016 16:48:44 +0100
+
 openmediavault-usbbackup (3.0) stable; urgency=low
 
   * Adapt to Debian 8 (Jessie).

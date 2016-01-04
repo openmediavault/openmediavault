@@ -348,12 +348,12 @@ omv_config_get_count() {
 	return ${_result}
 }
 
-# void omv_config_add_element (char *xpath, char *name, char *value)
+# void omv_config_add_element (char *xpath, char *name, char *value, bool xml)
 # Add a new element to the configuration.
 # @param xpath The XPath to use
 # @param name The name of the element to add
 # @param value The element value. Special XML characters MUST be escaped.
-# @param xml Set to true when the value contains XML data. Defaults to false.
+# @param xml Set to TRUE when the value contains XML data. Defaults to FALSE.
 # @return None
 omv_config_add_element() {
 	local tmpconfig xpath name value xml
@@ -739,18 +739,26 @@ omv_purge_internal_cache() {
 	rm -f ${OMV_CACHE_DIR}/cache.*.json
 }
 
-# void omv_set_default (char *key, char* value)
+# void omv_set_default (char *key, char* value, bool override)
 # Set a default value in /etc/default/openmediavault.
+# @param key The environment variable name.
+# @param value The environment variable value.
+# @param override Set to FALSE to do not override an existing variable.
+#   Defaults to TRUE.
+# @return None
 omv_set_default() {
-	local _key _value
+	local _key _value _override
 	_key=$1
 	_value=$2
+	_override=${3:-"true"}
 	[ -z "${_key}" ] && return
 	if ! grep -E "^${_key}" /etc/default/openmediavault >/dev/null; then
 		echo "${_key}=\"${_value}\"" >> /etc/default/openmediavault
 	else
-		_value=$(omv_quotemeta ${_value})
-		sed -i "s/^${_key}=.*$/${_key}=\"${_value}\"/" /etc/default/openmediavault
+		if omv_checkyesno ${_override}; then
+			_value=$(omv_quotemeta ${_value})
+			sed -i "s/^${_key}=.*$/${_key}=\"${_value}\"/" /etc/default/openmediavault
+		fi
 	fi
 }
 
