@@ -191,5 +191,5 @@ xmlstarlet sel -t \
   -o "# Cleanup after device removal" -n \
   -o "ACTION==\"remove\", ENV{ID_FS_UUID}!=\"\", RUN+=\"/bin/umount -l ${OMV_MOUNT_DIR}/%E{ID_FS_UUID}\", RUN+=\"/bin/rmdir ${OMV_MOUNT_DIR}/%E{ID_FS_UUID}\"" -n \
   -o "# Exit" -n \
-  -o "LABEL=\"omv_automount_usb_end\"" \
+  -o "LABEL=\"omv_automount_usb_end\"" -n \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_USBBACKUP_UDEV_RULE_CONFIG}
