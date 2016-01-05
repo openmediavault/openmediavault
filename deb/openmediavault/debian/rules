@@ -8,6 +8,10 @@ include ../openmediavault.mk
 %:
 	dh $@ --with systemd
 
+override_dh_installinit:
+	# Install the /etc/default/openmediavault file.
+	dh_installinit --noscripts --name=openmediavault
+
 override_dh_systemd_enable:
 	dh_systemd_enable --name=openmediavault-beep-up
 	dh_systemd_enable --name=openmediavault-beep-down
