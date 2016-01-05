@@ -72,15 +72,15 @@ class OMVSystemCtl extends OMVObject {
 	 * @param now Set to TRUE to start the unit after it has been enabled.
 	 *   Defaults to FALSE.
 	 */
-	public function enable($now = FALSE) {
+	public function enable($now = FALSE, $quiet = FALSE) {
 /* The option '--now' is not supported in Debian Jessie.
 		if (TRUE === $now)
 			$this->setCmdArg("--now");
-		$this->exec("enable");
+		$this->exec("enable", $quiet);
 */
-		$this->exec("enable");
+		$this->exec("enable", $quiet);
 		if (TRUE === $now)
-			$this->exec("start");
+			$this->exec("start", $quiet);
 	}
 
 	/**
@@ -88,22 +88,22 @@ class OMVSystemCtl extends OMVObject {
 	 * @param now Set to TRUE to stop the unit after it has been disabled.
 	 *   Defaults to FALSE.
 	 */
-	public function disable($now = FALSE) {
+	public function disable($now = FALSE, $quiet = FALSE) {
 /* The option '--now' is not supported in Debian Jessie.
 		if (TRUE === $now)
 			$this->setCmdArg("--now");
-		$this->exec("disable");
+		$this->exec("disable", $quiet);
 */
-		$this->exec("disable");
+		$this->exec("disable", $quiet);
 		if (TRUE === $now)
-			$this->exec("stop");
+			$this->exec("stop", $quiet);
 	}
 
 	/**
 	 * Reenable the specified unit file.
 	 */
-	public function reenable() {
-		$this->exec("reenable");
+	public function reenable($quiet = FALSE) {
+		$this->exec("reenable", $quiet);
 	}
 
 	/**
@@ -117,29 +117,29 @@ class OMVSystemCtl extends OMVObject {
 	/**
 	 * Start (activate) the specified unit.
 	 */
-	public function start() {
-		$this->exec("start");
+	public function start($quiet = FALSE) {
+		$this->exec("start", $quiet);
 	}
 
 	/**
 	 * Stop (deactivate) the specified unit.
 	 */
-	public function stop() {
-		$this->exec("stop");
+	public function stop($quiet = FALSE) {
+		$this->exec("stop", $quiet);
 	}
 
 	/**
 	 * Restart the specified unit.
 	 */
-	public function restart() {
-		$this->exec("restart");
+	public function restart($quiet = FALSE) {
+		$this->exec("restart", $quiet);
 	}
 
 	/**
 	 * Asks the specified unit to reload its configuration.
 	 */
-	public function reload() {
-		$this->exec("reload");
+	public function reload($quiet = FALSE) {
+		$this->exec("reload", $quiet);
 	}
 
 	/**

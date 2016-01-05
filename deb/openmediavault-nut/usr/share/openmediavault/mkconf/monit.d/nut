@@ -33,8 +33,8 @@ rm -f ${OMV_MONIT_SERVICE_NUT_CONFIG}
 cat <<EOF > ${OMV_MONIT_SERVICE_NUT_CONFIG}
 check process nut-server with pidfile /var/run/nut/upsd.pid
   group nut
-  start program = "/etc/init.d/nut-server start"
-  stop program = "/etc/init.d/nut-server stop"
+  start program = "/bin/systemctl start nut-server"
+  stop program = "/bin/systemctl stop nut-server"
   mode ${OMV_MONIT_SERVICE_NUT_MODE}
 EOF
 
@@ -49,10 +49,10 @@ xmlstarlet sel -t -m "//system/email" \
 
 cat <<EOF >> ${OMV_MONIT_SERVICE_NUT_CONFIG}
 
-check process nut-client with pidfile /var/run/nut/upsmon.pid
+check process nut-monitor with pidfile /var/run/nut/upsmon.pid
   group nut
-  start program = "/etc/init.d/nut-client start"
-  stop program = "/etc/init.d/nut-client stop"
+  start program = "/bin/systemctl start nut-monitor"
+  stop program = "/bin/systemctl stop nut-monitor"
   mode ${OMV_MONIT_SERVICE_NUT_MODE}
 EOF
 

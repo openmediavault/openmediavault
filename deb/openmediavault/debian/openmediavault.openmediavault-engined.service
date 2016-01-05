@@ -1,6 +1,6 @@
 [Unit]
 Description=The OpenMediaVault engine daemon that processes the RPC request
-After=sysinit.target
+After=local-fs.target network.target
 
 [Service]
 Type=forking

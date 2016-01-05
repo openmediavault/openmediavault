@@ -34,10 +34,8 @@ case "$1" in
 			echo "Updating init script links and actions"
 			deb-systemd-invoke stop nut-server || :
 			deb-systemd-helper disable nut-server || :
-			deb-systemd-invoke stop nut-client || :
-			deb-systemd-helper disable nut-client || :
-			deb-systemd-invoke stop ups-monitor || :
-			deb-systemd-helper disable ups-monitor || :
+			deb-systemd-invoke stop nut-monitor || :
+			deb-systemd-helper disable nut-monitor || :
 		fi
 
 		########################################################################
@@ -113,6 +111,11 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.5.9"; then
 			invoke-rc.d rsyslog restart
+		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.1"; then
+			omv-mkconf nut
+			omv-mkconf monit
+			monit reload
 		fi
 	;;
 

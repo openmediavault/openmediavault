@@ -23,7 +23,8 @@ require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/monit.inc");
-require_once("openmediavault/initscript.inc");
+require_once("openmediavault/systemctl.inc");
+require_once("openmediavault/log.inc");
 
 class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleServiceStatus {
@@ -53,8 +54,8 @@ class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "omv-mkconf nut 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		$cmd = "export LANG=C; omv-mkconf nut 2>&1";
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -68,11 +69,11 @@ class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
 		$monit = new OMVMonit("nut");
 		$monit->setGroup(TRUE);
 		$monit->unmonitor(TRUE);
-		// Stop this service and unregister System-V style init script.
-		$initd = new OMVSysVInitScript("nut-client", FALSE);
-		$initd->exec();
-		$initd = new OMVSysVInitScript("nut-server", FALSE);
-		$initd->exec();
+		// Stop this service and disable the unit file.
+		$systemCtl = new OMVSystemCtl("nut-monitor");
+		$systemCtl->disable(TRUE);
+		$systemCtl = new OMVSystemCtl("nut-server");
+		$systemCtl->disable(TRUE);
 	}
 
 	/**
@@ -84,23 +85,25 @@ class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//services/nut";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
 		// Request device events from the kernel.
-		$cmd = "udevadm trigger 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		$cmd = "export LANG=C; udevadm trigger 2>&1";
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
-		// Start this service and register System-V style init script.
-		$initd = new OMVSysVInitScript("nut-server", TRUE);
-		$initd->exec();
-		$initd = new OMVSysVInitScript("nut-client", TRUE);
-		$initd->exec();
+		// Start this service and enable the unit file.
+		$systemCtl = new OMVSystemCtl("nut-server");
+		$systemCtl->enable(TRUE);
+		$systemCtl = new OMVSystemCtl("nut-monitor");
+		$systemCtl->enable(TRUE);
+		// Wait to allow the service to start.
+		sleep(1);
 		// Enable monitoring of this service.
 		$monit = new OMVMonit("nut");
 		$monit->setGroup(TRUE);
@@ -115,11 +118,11 @@ class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//services/nut";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$monit = new OMVMonit("nut");
+		$monit = new OMVMonit("nut-monitor");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("UPS"),
@@ -140,7 +143,7 @@ class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//services/nut";
 		$object2 = $xmlConfig->get($xpath);
-		if(is_null($object2)) {
+		if (is_null($object2)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}

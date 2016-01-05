@@ -53,7 +53,7 @@ class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "omv-mkconf forked-daapd 2>&1";
+		$cmd = "export LANG=C; omv-mkconf forked-daapd 2>&1";
 		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
@@ -89,6 +89,8 @@ class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
 		// Start this service and enable the unit file.
 		$systemCtl = new OMVSystemCtl("forked-daapd");
 		$systemCtl->enable(TRUE);
+		// Wait to allow the service to start.
+		sleep(1);
 		// Enable monitoring of this service.
 		$monit = new OMVMonit("forked-daapd");
 		$monit->monitor();
