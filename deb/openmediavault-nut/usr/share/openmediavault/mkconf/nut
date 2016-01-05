@@ -35,7 +35,6 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_NUT_NUT_DEFAULT=${OMV_NUT_NUT_DEFAULT:-"/etc/default/nut"}
 OMV_NUT_NUT_CONFIG=${OMV_NUT_NUT_CONFIG:-"/etc/nut/nut.conf"}
 OMV_NUT_UPS_CONFIG=${OMV_NUT_UPS_CONFIG:-"/etc/nut/ups.conf"}
 OMV_NUT_UPSD_CONFIG=${OMV_NUT_UPSD_CONFIG:-"/etc/nut/upsd.conf"}
@@ -64,12 +63,6 @@ OMV_NUT_UDEV_RULE_CONFIG=${OMV_NUT_UDEV_RULE_CONFIG:-"/etc/udev/rules.d/99-openm
 OMV_NUT_UDEV_RULE_GROUP=${OMV_NUT_UDEV_RULE_GROUP:-"nut"}
 
 mkconf() {
-	# Create '/etc/default/nut'
-	cat <<EOF > ${OMV_NUT_NUT_DEFAULT}
-UPSD_OPTIONS=""
-UPSMON_OPTIONS=""
-EOF
-
 	# Create the '/etc/nut/nut.conf' file.
 	xmlstarlet sel -t -m "//services/nut" \
 	  -i "remotemonitor[. = '0']" -o "MODE=standalone" -b \
@@ -121,7 +114,7 @@ EOF
 		  ${OMV_NUT_UPSMON_POLLFREQ} * 3 else ${OMV_NUT_UPSMON_POLLFREQALERT} * 3" | bc)
 	fi
 	xmlstarlet sel -t -m "//services/nut" \
-	  -v "concat('MONITOR ',upsname,'@localhost 1 ${OMV_NUT_UPSMON_USER} ${OMV_NUT_UPSMON_PASSWORD} master')" \
+	  -v "concat('MONITOR ',upsname,'@localhost 1 ${OMV_NUT_UPSMON_USER} ${OMV_NUT_UPSMON_PASSWORD} master')" -n \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NUT_UPSMON_CONFIG}
 	cat <<EOF >> ${OMV_NUT_UPSMON_CONFIG}
 MINSUPPLIES ${OMV_NUT_UPSMON_MINSUPPLIES}
@@ -191,7 +184,7 @@ EOF
 		-v "concat('OMV_NUT_UPSSCHEDCMD_SHUTDOWNTIMER=\"',shutdowntimer,'\"')" \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > /etc/default/upssched-cmd
 
-	# Modify file permissions
+	# Modify file permissions.
 	chown root:nut /etc/nut/*
 	chmod 640 /etc/nut/*
 
