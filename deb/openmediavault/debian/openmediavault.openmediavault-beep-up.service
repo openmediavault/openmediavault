@@ -6,7 +6,6 @@ After=multi-user.target
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/beep -f 3000 -l 100 -n -f 3500 -l 100 -r 2
-ExecStop=/bin/true
 
 [Install]
 WantedBy=multi-user.target

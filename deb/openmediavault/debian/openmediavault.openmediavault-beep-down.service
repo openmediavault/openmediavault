@@ -6,7 +6,6 @@ Before=exit.target
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/beep -f 3000 -l 100 -r 2 -n -f 2000 -l 150
-ExecStop=/bin/true
 
 [Install]
 WantedBy=reboot.target halt.target poweroff.target
