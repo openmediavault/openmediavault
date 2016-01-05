@@ -1,5 +1,6 @@
 openmediavault-shairport (3.0.1) stable; urgency=low
 
+  * Update locales.
   * Various improvements.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 03 Jan 2016 00:59:56 +0100
