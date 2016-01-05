@@ -505,6 +505,10 @@ case "$1" in
 			omv-mkconf nginx
 			deb-systemd-invoke reload nginx || :
 		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.4"; then
+			omv-mkconf postfix
+			deb-systemd-invoke reload postfix || :
+		fi
 	;;
 
 	triggered)

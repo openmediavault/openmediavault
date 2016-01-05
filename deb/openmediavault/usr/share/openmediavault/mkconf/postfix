@@ -110,6 +110,7 @@ xmlstarlet sel -t \
 	-m "//system/usermanagement/users/user[email != '']" \
 	  -v "concat(name,' ',email)" -n \
 	-b \
+	-v "concat('@',//system/network/hostname,'.local ',//system/email/primaryemail)" -n \
 	-v "concat('@',//system/network/hostname,'.localdomain ',//system/email/primaryemail)" \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_SMTP_GENERIC_MAPS}

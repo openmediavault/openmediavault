@@ -32,7 +32,7 @@ Execute the given command and send its output via email.
 
 OPTIONS:
   -e  Send command output via email.
-  -a  Append  given header to the message being sent.
+  -a  Append given header to the message being sent.
   -s  Send a message with the given subject.
   -u  The name of the user to whom the mail will be sent. Defaults to root.
   -h  Show this message.
