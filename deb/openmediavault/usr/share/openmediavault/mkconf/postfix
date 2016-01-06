@@ -110,7 +110,7 @@ xmlstarlet sel -t \
 	-m "//system/usermanagement/users/user[email != '']" \
 	  -v "concat(name,' ',email)" -n \
 	-b \
-	-v "concat('@',//system/network/hostname,'.localdomain ',//system/email/primaryemail)" \
+	-v "concat('@${fqdn} ',//system/email/primaryemail)" \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
 chown root:root ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
@@ -127,7 +127,7 @@ postmap ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
 #   logged in user {mp030} (in reply to MAIL FROM command))
 xmlstarlet sel -t \
   -i "//system/email/enable[. = '1']" \
-	-v "concat('@',//system/network/hostname,'.localdomain ',//system/email/sender)" -n \
+	-v "concat('@${fqdn} ',//system/email/sender)" -n \
 	-v "concat('\"\" ',//system/email/sender)" \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_SENDER_CANONICAL_MAPS}
