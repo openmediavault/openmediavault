@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-11 22:31+0200\n"
+"POT-Creation-Date: 2016-01-07 22:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2866,7 +2866,7 @@ msgstr ""
 msgid "Set write only"
 msgstr ""
 
-msgid "Sets the interval between disk checks to N seconds."
+msgid "Sets the interval between disk checks to N seconds, logging S.M.A.R.T. errors and changes of S.M.A.R.T. attributes."
 msgstr ""
 
 msgid "Settings"
@@ -3329,10 +3329,10 @@ msgstr ""
 msgid "This field should be a list of domain names or IP addresses"
 msgstr ""
 
-msgid "This field should be a list of domain names or IP addresses seperated by <,> or <;>"
+msgid "This field should be a list of domain names or IP addresses separated by <,> or <;>"
 msgstr ""
 
-msgid "This field should be a list of host names or IP addresses"
+msgid "This field should be a list of host names or IP addresses separated by <,> or <;>"
 msgstr ""
 
 msgid "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3362,13 +3362,13 @@ msgstr ""
 msgid "This field should only contain numbers"
 msgstr ""
 
-msgid "This field should only contain numbers seperated by <,> or <;>"
+msgid "This field should only contain numbers separated by <,> or <;>"
 msgstr ""
 
-msgid "This field should only contain ports (0 - 65535) seperated by <,> or <;>"
+msgid "This field should only contain ports (0 - 65535) separated by <,> or <;>"
 msgstr ""
 
-msgid "This field should only contain strings seperated by <,> or <;>"
+msgid "This field should only contain strings separated by <,> or <;>"
 msgstr ""
 
 msgid "This function is effective only if the hard drive supports it."

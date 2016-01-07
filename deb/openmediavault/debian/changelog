@@ -2,6 +2,7 @@ openmediavault (3.0.5) stable; urgency=low
 
   * Various improvements.
   * Mantis 0000870: Option to add more than one NTP server.
+  * Mantis 0001433: SMART settings description vague.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 06 Jan 2016 12:19:14 +0100
 

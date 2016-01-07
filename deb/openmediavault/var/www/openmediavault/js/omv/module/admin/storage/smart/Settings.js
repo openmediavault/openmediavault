@@ -54,7 +54,7 @@ Ext.define("OMV.module.admin.storage.smart.Settings", {
 				value: 1800,
 				plugins: [{
 					ptype: "fieldinfo",
-					text: _("Sets the interval between disk checks to N seconds.")
+					text: _("Sets the interval between disk checks to N seconds, logging S.M.A.R.T. errors and changes of S.M.A.R.T. attributes.")
 				}]
 			},{
 				xtype: "combo",
@@ -75,7 +75,6 @@ Ext.define("OMV.module.admin.storage.smart.Settings", {
 					ptype: "fieldinfo",
 					text: _("Prevent a disk from being spun-up when it is periodically polled.<br/><ul><li>Never - Poll (check) the device regardless of its power mode. This may cause a disk which is spun-down to be spun-up when it is checked.</li><li>Sleep - Check the device unless it is in SLEEP mode.</li><li>Standby - Check the device unless it is in SLEEP or STANDBY mode. In these modes most disks are not spinning, so if you want to prevent a disk from spinning up each poll, this is probably what you want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE mode. In the IDLE state, most disks are still spinning, so this is probably not what you want.</li></ul>")
 				}]
-			
 			}]
 		},{
 			xtype: "fieldset",

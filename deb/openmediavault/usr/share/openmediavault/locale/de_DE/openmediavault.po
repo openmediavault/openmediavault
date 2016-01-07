@@ -8,7 +8,7 @@
 # mattjes04 <mattjes04@googlemail.com>, 2013
 # mattjes04 <mattjes04@googlemail.com>, 2012
 # Stephan Steiner, 2014
-# Volker <votdev@gmx.de>, 2013-2015
+# Volker <votdev@gmx.de>, 2013-2016
 # Volker <votdev@gmx.de>, 2012
 # Volker <votdev@gmx.de>, 2012
 # warhog <warhog@gmx.de>, 2013
@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-11 22:31+0200\n"
-"PO-Revision-Date: 2015-07-20 19:23+0000\n"
+"POT-Creation-Date: 2016-01-07 22:30+0100\n"
+"PO-Revision-Date: 2016-01-07 21:34+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -3004,8 +3004,10 @@ msgstr "Setze die Ziel-Zugriffsrechte auf die selben wie die Quell-Zugriffsrecht
 msgid "Set write only"
 msgstr "Nur schreiben einstellen"
 
-msgid "Sets the interval between disk checks to N seconds."
-msgstr "Setzt den Intervall zwischen Plattenchecks auf N Sekunden."
+msgid ""
+"Sets the interval between disk checks to N seconds, logging S.M.A.R.T. "
+"errors and changes of S.M.A.R.T. attributes."
+msgstr "Setzt den Intervall zwischen Plattenchecks auf N Sekunden, um S.M.A.R.T. Fehler und Änderungen von S.M.A.R.T. Attributen zu protokollieren."
 
 msgid "Settings"
 msgstr "Einstellungen"
@@ -3515,12 +3517,14 @@ msgid "This field should be a list of domain names or IP addresses"
 msgstr "Dieses Feld erwartet einen Liste von Domainnamen oder IP Adressen"
 
 msgid ""
-"This field should be a list of domain names or IP addresses seperated by <,>"
+"This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
 msgstr "Dieses Feld erwartet einen Liste von Domainnamen oder IP Adressen welche mit <,> oder <;> getrennt werden"
 
-msgid "This field should be a list of host names or IP addresses"
-msgstr "Dieses Feld erwartet eine Liste von Hostnamen oder IP Adressen"
+msgid ""
+"This field should be a list of host names or IP addresses separated by <,> "
+"or <;>"
+msgstr "Dieses Feld erwartet eine Liste von Hostnamen oder IP Adressen welche mit <,> oder <;> getrennt werden"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3557,14 +3561,14 @@ msgstr "Dieses Feld sollte eine IPv6 Netzadresse (mit /Maske), einen IPv6 Bereic
 msgid "This field should only contain numbers"
 msgstr "Dieses Feld darf ausschließlich Nummern enthalten"
 
-msgid "This field should only contain numbers seperated by <,> or <;>"
+msgid "This field should only contain numbers separated by <,> or <;>"
 msgstr "Dieses Feld sollte ausschließlich Nummern separiert mit <,> oder <;>  enthalten"
 
 msgid ""
-"This field should only contain ports (0 - 65535) seperated by <,> or <;>"
+"This field should only contain ports (0 - 65535) separated by <,> or <;>"
 msgstr "Dieses Feld sollte ausschließlich Ports (0 - 65535) separiert mit <,> oder <;>  enthalten"
 
-msgid "This field should only contain strings seperated by <,> or <;>"
+msgid "This field should only contain strings separated by <,> or <;>"
 msgstr "Dieses Feld sollte ausschließlich Strings separiert mit <,> oder <;>  enthalten"
 
 msgid "This function is effective only if the hard drive supports it."
