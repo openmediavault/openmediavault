@@ -80,7 +80,7 @@ Ext.apply(Ext.form.field.VTypes, {
 		});
 		return valid;
 	},
-	IPListText: "This field should be a list of IP addresses seperated by <,> or <;>",
+	IPListText: "This field should be a list of IP addresses separated by <,> or <;>",
 	IPMask: /[0-9a-f\.:,;]/i,
 
 	IPNetCIDR: function(v) {
@@ -201,19 +201,19 @@ Ext.apply(Ext.form.field.VTypes, {
 	numList: function(v) {
 		return /^(\d+[,;])*\d+$/.test(v);
 	},
-	numListText: _("This field should only contain numbers seperated by <,> or <;>"),
+	numListText: _("This field should only contain numbers separated by <,> or <;>"),
 	numListMask: /[\d,;]/i,
 
 	textList: function(v) {
 		return /^(\w+[,;])*\w+$/.test(v);
 	},
-	textListText: _("This field should only contain strings seperated by <,> or <;>"),
+	textListText: _("This field should only contain strings separated by <,> or <;>"),
 	textListMask: /[\w,;]/i,
 
 	portList: function(v) {
 		return /^((0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])[,;])*(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$/.test(v);
 	},
-	portListText: _("This field should only contain ports (0 - 65535) seperated by <,> or <;>"),
+	portListText: _("This field should only contain ports (0 - 65535) separated by <,> or <;>"),
 	portListMask: /[\d,;]/i,
 
 	hostname: function(v) {
@@ -253,7 +253,7 @@ Ext.apply(Ext.form.field.VTypes, {
 		}, this);
 		return valid;
 	},
-	hostnameIPListText: _("This field should be a list of host names or IP addresses"),
+	hostnameIPListText: _("This field should be a list of host names or IP addresses separated by <,> or <;>"),
 	hostnameIPListMask: /[a-z0-9:\-\.,;]/i,
 
 	domainname: function(v) {
@@ -274,7 +274,7 @@ Ext.apply(Ext.form.field.VTypes, {
 		}, this);
 		return valid;
 	},
-	domainnameListText: _("This field should be a list of domain names or IP addresses seperated by <,> or <;>"),
+	domainnameListText: _("This field should be a list of domain names or IP addresses separated by <,> or <;>"),
 	domainnameListMask: /[a-z0-9:\-\.,;]/i,
 
 	domainnameIP: function(v) {

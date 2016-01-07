@@ -28,5 +28,5 @@ OMV_NTP_CONFIG=${OMV_NTP_CONFIG:-"/etc/systemd/timesyncd.conf"}
 
 xmlstarlet sel -t \
   -o "[Time]" -n \
-  -v "concat('Servers=',//system/time/ntp/timeservers)" -n \
+  -v "concat('Servers=',translate(translate(//system/time/ntp/timeservers,',',' '),';',' '))" -n \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NTP_CONFIG}

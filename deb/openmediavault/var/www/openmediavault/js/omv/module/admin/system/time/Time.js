@@ -136,7 +136,7 @@ Ext.define("OMV.module.admin.system.time.Time", {
 				xtype: "textfield",
 				name: "ntptimeservers",
 				fieldLabel: _("Time servers"),
-				vtype: "domainnameIP",
+				vtype: "domainnameIPList",
 				allowBlank: true,
 				readOnly: true,
 				value: "pool.ntp.org"
