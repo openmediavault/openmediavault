@@ -18,6 +18,11 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 # Testing:
+# deviceid=$(udevadm info --device-id-of-file=/); echo ${deviceid}
+# devicefile=$(readlink -f /dev/block/${deviceid}); echo $devicefile
+# udevadm trigger --property-match=DEVNAME=${devicefile}
+# udevadm test /sys/class/block/$(basename ${devicefile})
+#
 # udevadm test /sys/class/block/sda1
 # udevadm control --reload-rules
 # udevadm trigger --property-match=DEVNAME=/dev/sda1
