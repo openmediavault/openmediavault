@@ -21,11 +21,13 @@
 
 # Documentation/Howto:
 # http://www.postfix.org/postconf.5.html
+# http://www.postfix.org/pipe.8.html
 # http://www.gtkdb.de/index_7_727.html
 # http://irbs.net/internet/postfix/0503/2148.html
 # http://gate.io/blogpost34
 # http://www.cyberciti.biz/tips/howto-postfix-flush-mail-queue.html
 # http://www.tuxfutter.de/wiki/Einrichten_eines_Mailservers_mit_Postfix
+# http://dokuwiki.tachtler.net/doku.php?id=tachtler:postfix_centos_6
 
 # Testing:
 # echo "Test" | mail -s "Test subject" -a "From: xxx@yyy.zzz" root
@@ -44,6 +46,8 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_POSTFIX_CONFIG=${OMV_POSTFIX_CONFIG:-"/etc/postfix/main.cf"}
+OMV_POSTFIX_MASTER_CONFIG=${OMV_POSTFIX_MASTER_CONFIG:-"/etc/postfix/master.cf"}
+OMV_POSTFIX_MASTER_NOTIFICATION_RUNNER=${OMV_POSTFIX_MASTER_NOTIFICATION_RUNNER:-"/usr/share/openmediavault/notification/postfix-runner.sh"}
 OMV_POSTFIX_MYDESTINATION=${OMV_POSTFIX_MYDESTINATION:-""}
 OMV_POSTFIX_INET_INTERFACES=${OMV_POSTFIX_INET_INTERFACES:-"loopback-only"}
 OMV_POSTFIX_SMTP_GENERIC_MAPS=${OMV_POSTFIX_SMTP_GENERIC_MAPS:-"/etc/postfix/generic"}
@@ -68,7 +72,7 @@ fqdn=$(xmlstarlet sel -t -m "//system/network" \
   -i "string-length(domainname) > 0" -v "concat('.',domainname)" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc)
 
-# Create '/etc/postfix/main.cf' configuration file
+# Create '/etc/postfix/main.cf' configuration file.
 xmlstarlet sel -t -m "//system/email" \
   -o "mydestination = ${OMV_POSTFIX_MYDESTINATION}" -n \
   -o "inet_interfaces = ${OMV_POSTFIX_INET_INTERFACES}" -n \
@@ -90,7 +94,41 @@ xmlstarlet sel -t -m "//system/email" \
   -o "smtp_header_checks = regexp:${OMV_POSTFIX_SMTP_HEADER_CHECKS}" -n \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_CONFIG}
 
-# Create '/etc/postfix/sasl_passwd' configuration file
+# Create '/etc/postfix/master.cf' configuration file.
+xmlstarlet sel -t -m "//system/email" \
+  -o "# ==========================================================================" -n \
+  -o "# service type  private unpriv  chroot  wakeup  maxproc command + args" -n \
+  -o "#               (yes)   (yes)   (yes)   (never) (100)" -n \
+  -o "# ==========================================================================" -n \
+  -o "smtp      inet  n       -       -       -       -       smtpd" -n \
+  -o "  -o content_filter=notifyfilter:" -n \
+  -o "pickup    unix  n       -       -       60      1       pickup" -n \
+  -o "cleanup   unix  n       -       -       -       0       cleanup" -n \
+  -o "qmgr      unix  n       -       n       300     1       qmgr" -n \
+  -o "tlsmgr    unix  -       -       -       1000?   1       tlsmgr" -n \
+  -o "rewrite   unix  -       -       -       -       -       trivial-rewrite" -n \
+  -o "bounce    unix  -       -       -       -       0       bounce" -n \
+  -o "defer     unix  -       -       -       -       0       bounce" -n \
+  -o "trace     unix  -       -       -       -       0       bounce" -n \
+  -o "verify    unix  -       -       -       -       1       verify" -n \
+  -o "flush     unix  n       -       -       1000?   0       flush" -n \
+  -o "proxymap  unix  -       -       n       -       -       proxymap" -n \
+  -o "proxywrite unix -       -       n       -       1       proxymap" -n \
+  -o "smtp      unix  -       -       -       -       -       smtp" -n \
+  -o "relay     unix  -       -       -       -       -       smtp" -n \
+  -o "showq     unix  n       -       -       -       -       showq" -n \
+  -o "error     unix  -       -       -       -       -       error" -n \
+  -o "retry     unix  -       -       -       -       -       error" -n \
+  -o "discard   unix  -       -       -       -       -       discard" -n \
+  -o "local     unix  -       n       n       -       -       local" -n \
+  -o "virtual   unix  -       n       n       -       -       virtual" -n \
+  -o "lmtp      unix  -       -       -       -       -       lmtp" -n \
+  -o "anvil     unix  -       -       -       -       1       anvil" -n \
+  -o "scache    unix  -       -       -       -       1       scache" -n \
+  -o "notifyfilter unix  -       n       n       -       -       pipe flags=q user=nobody argv=${OMV_POSTFIX_MASTER_NOTIFICATION_RUNNER} --arg \${sender} --arg \${user} --arg \${recipient}" \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_MASTER_CONFIG}
+
+# Create '/etc/postfix/sasl_passwd' configuration file.
 xmlstarlet sel -t -m "//system/email" \
   -i "authentication[enable = '1']" \
     -v "concat(server,':',port,' ',authentication/username,':',authentication/password)" -n \
