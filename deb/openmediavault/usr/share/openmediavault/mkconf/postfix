@@ -125,7 +125,7 @@ xmlstarlet sel -t -m "//system/email" \
   -o "lmtp      unix  -       -       -       -       -       lmtp" -n \
   -o "anvil     unix  -       -       -       -       1       anvil" -n \
   -o "scache    unix  -       -       -       -       1       scache" -n \
-  -o "notifyfilter unix  -       n       n       -       -       pipe flags=q user=nobody argv=${OMV_POSTFIX_MASTER_NOTIFICATION_RUNNER} --arg \${sender} --arg \${user} --arg \${recipient}" \
+  -o "notifyfilter unix  -       n       n       -       -       pipe flags=q user=nobody argv=${OMV_POSTFIX_MASTER_NOTIFICATION_RUNNER} \${sender} \${user} \${recipient}" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_MASTER_CONFIG}
 
 # Create '/etc/postfix/sasl_passwd' configuration file.

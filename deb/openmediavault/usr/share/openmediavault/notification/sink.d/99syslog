@@ -24,10 +24,12 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-omv_checkyesno ${OMV_DEBUG_SCRIPT} && exit 0
+! omv_checkyesno "${OMV_DEBUG_SCRIPT}" && exit 0
 
 input=$1
-sender=$2
-receiver=$3
+from=$2
+user=$3
+shift 3
+recipient=$@
 
-logger -t "omv-notification" "sender=${sender}, user=${OMV_NOTIFICATION_USER}, receiver=${receiver}, subject=${OMV_NOTIFICATION_SUBJECT}, msgfile=${input}, msg=${OMV_NOTIFICATION_MESSAGE}"
+logger -t "omv-notification" "from=${from}, user=${OMV_NOTIFICATION_USER}, recipient=${recipient}, subject=${OMV_NOTIFICATION_SUBJECT}, msgfile=${input}, msg=${OMV_NOTIFICATION_MESSAGE}"
