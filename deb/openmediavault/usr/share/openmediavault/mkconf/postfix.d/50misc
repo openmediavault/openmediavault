@@ -29,6 +29,7 @@ OMV_POSTFIX_MAIN_RECIPIENT_BCC_MAPS=${OMV_POSTFIX_MAIN_RECIPIENT_BCC_MAPS:-"/etc
 OMV_POSTFIX_MAIN_SMTP_GENERIC_MAPS=${OMV_POSTFIX_MAIN_SMTP_GENERIC_MAPS:-"/etc/postfix/generic"}
 OMV_POSTFIX_MAIN_SMTP_SASL_PASSWORD_MAPS=${OMV_POSTFIX_MAIN_SMTP_SASL_PASSWORD_MAPS:-"/etc/postfix/sasl_passwd"}
 OMV_POSTFIX_MAIN_SMTP_HEADER_CHECKS=${OMV_POSTFIX_MAIN_SMTP_HEADER_CHECKS:-"/etc/postfix/smtp_header_checks"}
+OMV_POSTFIX_MAIN_TRANSPORT_MAPS=${OMV_POSTFIX_MAIN_TRANSPORT_MAPS:-"/etc/postfix/transport"}
 
 # Ensure that various required directories exist.
 [ ! -e "/var/spool/postfix/public/pickup" ] &&  mkfifo /var/spool/postfix/public/pickup
@@ -85,6 +86,7 @@ postmap ${OMV_POSTFIX_MAIN_SENDER_CANONICAL_MAPS}
 
 # Create the '/etc/postfix/recipient_bcc' configuration file.
 xmlstarlet sel -t -m "//system/email" \
+  -o "@${fqdn} openmediavault-notification@localhost" -n \
   -i "enable[. = '1'] and string-length(secondaryemail) > 0" \
 	  -v "concat(primaryemail,' ',secondaryemail)" \
   -b \
@@ -100,3 +102,11 @@ cat <<EOF > ${OMV_POSTFIX_SMTP_HEADER_CHECKS}
 EOF
 chown root:root ${OMV_POSTFIX_MAIN_SMTP_HEADER_CHECKS}
 chmod 0600 ${OMV_POSTFIX_MAIN_SMTP_HEADER_CHECKS}
+
+# Create the '/etc/postfix/transport' configuration file.
+cat <<EOF > ${OMV_POSTFIX_MAIN_TRANSPORT_MAPS}
+openmediavault-notification@localhost omvnotificationfilter:
+EOF
+chown root:root ${OMV_POSTFIX_MAIN_TRANSPORT_MAPS}
+chmod 0600 ${OMV_POSTFIX_MAIN_TRANSPORT_MAPS}
+postmap ${OMV_POSTFIX_MAIN_TRANSPORT_MAPS}
