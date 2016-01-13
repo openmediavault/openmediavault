@@ -65,7 +65,7 @@ OMV_POSTFIX_CRON_CONFIG=${OMV_POSTFIX_CRON_CONFIG:-"/etc/cron.hourly/openmediava
 # Build the full qualified domain name based on the network configuration.
 fqdn=$(xmlstarlet sel -t -m "//system/network" \
   -v "hostname" \
-  -i "string-length(domainname) > 0" -v "concat('.',domainname)" \
+  -i "string-length(domainname) > 0" -v "concat('.',domainname)" -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc)
 
 # Create '/etc/postfix/main.cf' configuration file
