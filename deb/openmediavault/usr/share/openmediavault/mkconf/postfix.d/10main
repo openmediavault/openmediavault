@@ -28,7 +28,7 @@ OMV_POSTFIX_MAIN_CONFIG=${OMV_POSTFIX_MAIN_CONFIG:-"/etc/postfix/main.cf"}
 OMV_POSTFIX_MAIN_MYDESTINATION=${OMV_POSTFIX_MAIN_MYDESTINATION:-""}
 OMV_POSTFIX_MAIN_INET_INTERFACES=${OMV_POSTFIX_MAIN_INET_INTERFACES:-"loopback-only"}
 OMV_POSTFIX_MAIN_SENDER_CANONICAL_MAPS=${OMV_POSTFIX_MAIN_SENDER_CANONICAL_MAPS:-"/etc/postfix/sender_canonical"}
-OMV_POSTFIX_MAIN_RECIPIENT_BCC_MAPS=${OMV_POSTFIX_MAIN_RECIPIENT_BCC_MAPS:-"/etc/postfix/recipient_bcc"}
+OMV_POSTFIX_MAIN_SENDER_BCC_MAPS=${OMV_POSTFIX_MAIN_SENDER_BCC_MAPS:-"/etc/postfix/sender_bcc"}
 OMV_POSTFIX_MAIN_SMTP_GENERIC_MAPS=${OMV_POSTFIX_MAIN_SMTP_GENERIC_MAPS:-"/etc/postfix/generic"}
 OMV_POSTFIX_MAIN_SMTP_SASL_AUTH_ENABLE=${OMV_POSTFIX_MAIN_SMTP_SASL_AUTH_ENABLE:-"yes"}
 OMV_POSTFIX_MAIN_SMTP_SASL_SECURITY_OPTIONS=${OMV_POSTFIX_MAIN_SMTP_SASL_SECURITY_OPTIONS:-"noanonymous"}
@@ -46,7 +46,7 @@ xmlstarlet sel -t -m "//system/email" \
   -o "inet_interfaces = ${OMV_POSTFIX_MAIN_INET_INTERFACES}" -n \
   -v "concat('relayhost = ',server,':',port)" -n \
   -o "sender_canonical_maps = hash:${OMV_POSTFIX_MAIN_SENDER_CANONICAL_MAPS}" -n \
-  -o "recipient_bcc_maps = hash:${OMV_POSTFIX_MAIN_RECIPIENT_BCC_MAPS}" -n \
+  -o "sender_bcc_maps = hash:${OMV_POSTFIX_MAIN_SENDER_BCC_MAPS}" -n \
   -o "smtp_generic_maps = hash:${OMV_POSTFIX_MAIN_SMTP_GENERIC_MAPS}" -n \
   -i "authentication[enable = '1']" \
     -o "smtp_sasl_auth_enable = ${OMV_POSTFIX_MAIN_SMTP_SASL_AUTH_ENABLE}" -n \
