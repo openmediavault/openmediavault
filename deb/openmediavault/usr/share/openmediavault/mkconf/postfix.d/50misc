@@ -27,6 +27,7 @@ set -e
 OMV_POSTFIX_MAIN_SENDER_CANONICAL_MAPS=${OMV_POSTFIX_MAIN_SENDER_CANONICAL_MAPS:-"/etc/postfix/sender_canonical"}
 OMV_POSTFIX_MAIN_SENDER_BCC_MAPS=${OMV_POSTFIX_MAIN_SENDER_BCC_MAPS:-"/etc/postfix/sender_bcc"}
 OMV_POSTFIX_MAIN_RECIPIENT_CANONICAL_MAPS=${OMV_POSTFIX_MAIN_RECIPIENT_CANONICAL_MAPS:-"/etc/postfix/recipient_canonical"}
+OMV_POSTFIX_MAIN_RECIPIENT_BCC_MAPS=${OMV_POSTFIX_MAIN_RECIPIENT_BCC_MAPS:-"/etc/postfix/recipient_bcc"}
 OMV_POSTFIX_MAIN_SMTP_SASL_PASSWORD_MAPS=${OMV_POSTFIX_MAIN_SMTP_SASL_PASSWORD_MAPS:-"/etc/postfix/sasl_passwd"}
 OMV_POSTFIX_MAIN_SMTP_HEADER_CHECKS=${OMV_POSTFIX_MAIN_SMTP_HEADER_CHECKS:-"/etc/postfix/smtp_header_checks"}
 OMV_POSTFIX_MAIN_TRANSPORT_MAPS=${OMV_POSTFIX_MAIN_TRANSPORT_MAPS:-"/etc/postfix/transport"}
@@ -95,11 +96,24 @@ chown root:root ${OMV_POSTFIX_MAIN_SENDER_CANONICAL_MAPS}
 chmod 0600 ${OMV_POSTFIX_MAIN_SENDER_CANONICAL_MAPS}
 postmap ${OMV_POSTFIX_MAIN_SENDER_CANONICAL_MAPS}
 
-# Create the '/etc/postfix/sender_bcc' configuration file.
+# Create the '/etc/postfix/recipient_bcc' configuration file.
+# BCC (blind carbon-copy) all emails send to the primary email address to
+# the given secondary email address. Do not use 'sender_bcc_maps' for that,
+# otherwise all emails, including local users, will be sent, too.
 xmlstarlet sel -t -m "//system/email" \
-  -o "@${fqdn} openmediavault-notification@localhost" -n \
   -i "enable[. = '1'] and string-length(secondaryemail) > 0" \
-	  -v "concat(sender,' ',secondaryemail)" -n \
+	  -v "concat(primaryemail,' ',secondaryemail)" -n \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_MAIN_RECIPIENT_BCC_MAPS}
+chown root:root ${OMV_POSTFIX_MAIN_RECIPIENT_BCC_MAPS}
+chmod 0600 ${OMV_POSTFIX_MAIN_RECIPIENT_BCC_MAPS}
+postmap ${OMV_POSTFIX_MAIN_RECIPIENT_BCC_MAPS}
+
+# Create the '/etc/postfix/sender_bcc' configuration file.
+# BCC (blind carbon-copy) all emails to the notification framework.
+xmlstarlet sel -t -m "//system/email" \
+  -i "enable[. = '1']" \
+    -v "concat(sender,' openmediavault-notification')" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_MAIN_SENDER_BCC_MAPS}
 chown root:root ${OMV_POSTFIX_MAIN_SENDER_BCC_MAPS}
@@ -116,7 +130,7 @@ chmod 0600 ${OMV_POSTFIX_MAIN_SMTP_HEADER_CHECKS}
 
 # Create the '/etc/postfix/transport' configuration file.
 cat <<EOF > ${OMV_POSTFIX_MAIN_TRANSPORT_MAPS}
-openmediavault-notification@localhost omvnotificationfilter:
+openmediavault-notification omvnotificationfilter:
 EOF
 chown root:root ${OMV_POSTFIX_MAIN_TRANSPORT_MAPS}
 chmod 0600 ${OMV_POSTFIX_MAIN_TRANSPORT_MAPS}
