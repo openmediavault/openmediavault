@@ -96,7 +96,7 @@ chmod 0600 ${OMV_POSTFIX_MAIN_RECIPIENT_BCC_MAPS}
 postmap ${OMV_POSTFIX_MAIN_RECIPIENT_BCC_MAPS}
 
 # Create the '/etc/postfix/smtp_header_checks' configuration file.
-cat <<EOF > ${OMV_POSTFIX_SMTP_HEADER_CHECKS}
+cat <<EOF > ${OMV_POSTFIX_MAIN_SMTP_HEADER_CHECKS}
 # Append the hostname to the email subject
 /^Subject: (.*)/ REPLACE Subject: \${1} [${fqdn}]
 EOF
@@ -110,3 +110,5 @@ EOF
 chown root:root ${OMV_POSTFIX_MAIN_TRANSPORT_MAPS}
 chmod 0600 ${OMV_POSTFIX_MAIN_TRANSPORT_MAPS}
 postmap ${OMV_POSTFIX_MAIN_TRANSPORT_MAPS}
+
+exit 0

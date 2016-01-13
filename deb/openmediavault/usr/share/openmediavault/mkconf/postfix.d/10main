@@ -62,3 +62,5 @@ xmlstarlet sel -t -m "//system/email" \
   -o "smtp_header_checks = regexp:${OMV_POSTFIX_MAIN_SMTP_HEADER_CHECKS}" -n \
   -o "transport_maps = hash:${OMV_POSTFIX_MAIN_TRANSPORT_MAPS}" -n \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_MAIN_CONFIG}
+
+exit 0

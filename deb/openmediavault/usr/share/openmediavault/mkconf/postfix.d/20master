@@ -59,3 +59,5 @@ xmlstarlet sel -t -m "//system/email" \
   -o "scache    unix  -       -       -       -       1       scache" -n \
   -o "omvnotificationfilter unix  -       n       n       -       -       pipe flags=Rq user=nobody argv=${OMV_POSTFIX_MASTER_NOTIFICATION_RUNNER} \${sender} \${user} \${recipient}" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_MASTER_CONFIG}
+
+exit 0

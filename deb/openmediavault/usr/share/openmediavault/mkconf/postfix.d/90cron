@@ -38,3 +38,5 @@ EOF
 else
 	rm -f ${OMV_POSTFIX_CRON_CONFIG}
 fi
+
+exit 0
