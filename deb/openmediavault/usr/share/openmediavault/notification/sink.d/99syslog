@@ -28,8 +28,7 @@ set -e
 
 input=$1
 from=$2
-user=$3
-shift 3
+shift 2
 recipient=$@
 
-logger -t "omv-notification" "from=${from}, user=${OMV_NOTIFICATION_USER}, recipient=${recipient}, subject=${OMV_NOTIFICATION_SUBJECT}, msgfile=${input}, msg=${OMV_NOTIFICATION_MESSAGE}"
+logger -t "omv-notification" "from=${from}, recipient=${recipient}, subject=${OMV_NOTIFICATION_SUBJECT}, msgfile=${input}"

@@ -113,7 +113,7 @@ postmap ${OMV_POSTFIX_MAIN_RECIPIENT_BCC_MAPS}
 # BCC (blind carbon-copy) all emails to the notification framework.
 xmlstarlet sel -t -m "//system/email" \
   -i "enable[. = '1']" \
-    -v "concat(sender,' openmediavault-notification')" -n \
+    -v "concat(sender,' openmediavault-notification@localhost.localdomain')" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_MAIN_SENDER_BCC_MAPS}
 chown root:root ${OMV_POSTFIX_MAIN_SENDER_BCC_MAPS}
@@ -130,7 +130,7 @@ chmod 0600 ${OMV_POSTFIX_MAIN_SMTP_HEADER_CHECKS}
 
 # Create the '/etc/postfix/transport' configuration file.
 cat <<EOF > ${OMV_POSTFIX_MAIN_TRANSPORT_MAPS}
-openmediavault-notification omvnotificationfilter:
+openmediavault-notification@localhost.localdomain omvnotificationfilter:
 EOF
 chown root:root ${OMV_POSTFIX_MAIN_TRANSPORT_MAPS}
 chmod 0600 ${OMV_POSTFIX_MAIN_TRANSPORT_MAPS}

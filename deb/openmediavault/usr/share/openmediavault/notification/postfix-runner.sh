@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # This file is part of OpenMediaVault.
 #
@@ -27,34 +27,35 @@ set -e
 OMV_NOTIFICATION_SINK_DIR=${OMV_NOTIFICATION_SINK_DIR:-"/usr/share/openmediavault/notification/sink.d"}
 
 OMV_NOTIFICATION_FROM=$1
-OMV_NOTIFICATION_USER=$2
-shift 2
-OMV_NOTIFICATION_RECIPIENT=$@
+OMV_NOTIFICATION_RECIPIENT=
 OMV_NOTIFICATION_SUBJECT=
-OMV_NOTIFICATION_MESSAGE=
+OMV_NOTIFICATION_DATE=
 OMV_NOTIFICATION_MESSAGE_FILE=$(tempfile)
 
 # Clean up when done or when aborting.
 trap "rm -f ${OMV_NOTIFICATION_MESSAGE_FILE}" 0 1 2 3 15
 
 # Read the email from stdin.
-read OMV_NOTIFICATION_MESSAGE
 cat >${OMV_NOTIFICATION_MESSAGE_FILE}
 
-# Extract the email subject.
-OMV_NOTIFICATION_SUBJECT="${OMV_NOTIFICATION_MESSAGE/Subject: /}"
+# Extract various header fields from the email.
+OMV_NOTIFICATION_RECIPIENT=$(sed -n -e 's/^To: \(.*\)/\1/p' ${OMV_NOTIFICATION_MESSAGE_FILE})
+OMV_NOTIFICATION_SUBJECT=$(sed -n -e 's/^Subject: \(.*\)/\1/p' ${OMV_NOTIFICATION_MESSAGE_FILE})
+OMV_NOTIFICATION_DATE=$(sed -n -e 's/^Date: \(.*\)/\1/p' ${OMV_NOTIFICATION_MESSAGE_FILE})
 
-# Export environment variables that can be used by the notification scripts.
+# Remove all header fields from the email to get the plain message part.
+sed -i -e '1,8d' ${OMV_NOTIFICATION_MESSAGE_FILE}
+
+# Export environment variables that can be used by the notification sinks.
 export OMV_NOTIFICATION_FROM
-export OMV_NOTIFICATION_USER
 export OMV_NOTIFICATION_RECIPIENT
 export OMV_NOTIFICATION_SUBJECT
-export OMV_NOTIFICATION_MESSAGE
+export OMV_NOTIFICATION_DATE
 export OMV_NOTIFICATION_MESSAGE_FILE
 
 # Execute the notification scripts.
 run-parts --report --lsbsysinit --arg="${OMV_NOTIFICATION_MESSAGE_FILE}" \
-  --arg="${OMV_NOTIFICATION_FROM}" --arg="${OMV_NOTIFICATION_USER}" \
-  --arg="${OMV_NOTIFICATION_RECIPIENT}" -- ${OMV_NOTIFICATION_SINK_DIR}
+  --arg="${OMV_NOTIFICATION_FROM}" --arg="${OMV_NOTIFICATION_RECIPIENT}" -- \
+  ${OMV_NOTIFICATION_SINK_DIR}
 
 exit 0
