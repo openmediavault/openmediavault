@@ -44,7 +44,7 @@ OMV_NOTIFICATION_SUBJECT=$(sed -n -e 's/^Subject: \(.*\)/\1/p' ${OMV_NOTIFICATIO
 OMV_NOTIFICATION_DATE=$(sed -n -e 's/^Date: \(.*\)/\1/p' ${OMV_NOTIFICATION_MESSAGE_FILE})
 
 # Remove all header fields from the email to get the plain message part.
-sed -i -e '1,8d' ${OMV_NOTIFICATION_MESSAGE_FILE}
+sed -i -e '1,/^$/d' ${OMV_NOTIFICATION_MESSAGE_FILE}
 
 # Export environment variables that can be used by the notification sinks.
 export OMV_NOTIFICATION_FROM
