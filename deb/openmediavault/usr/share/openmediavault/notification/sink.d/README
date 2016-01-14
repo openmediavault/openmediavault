@@ -1,0 +1,21 @@
+Put your notification sink scripts here. This can be a Perl, Python, PHP,
+Shell or any other script/executable.
+
+If a system notification is send via email, then the notification system is
+triggered and all scripts located in this directory are executed. This way
+it is possible to support additional notification systems beside email.
+
+The following environment variables are set and can be used:
+
+OMV_NOTIFICATION_FROM
+OMV_NOTIFICATION_RECIPIENT
+OMV_NOTIFICATION_SUBJECT
+OMV_NOTIFICATION_DATE
+OMV_NOTIFICATION_MESSAGE_FILE
+
+Additionaly the scripts/executables are executed with the following command
+line arguments:
+
+$1 The path of the file containing the message text (OMV_NOTIFICATION_MESSAGE_FILE)
+$2 The FROM email address (OMV_NOTIFICATION_FROM)
+$3 The TO recipient email adresses (OMV_NOTIFICATION_RECIPIENT)
