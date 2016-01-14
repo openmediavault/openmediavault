@@ -508,6 +508,7 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "3.0.5"; then
 			omv-mkconf postfix
 			deb-systemd-invoke reload postfix || :
+			dpkg-trigger update-initramfs || :
 		fi
 	;;
 
