@@ -118,6 +118,8 @@ function killChld() {
 
 /**
  * Daemonize the application.
+ * @see http://www.freedesktop.org/software/systemd/man/daemon.html
+ * @see http://stackoverflow.com/a/17955149
  */
 function daemonize() {
 	global $debug, $daemon, $pidFile, $stdIn, $stdOut, $stdErr;
@@ -150,6 +152,7 @@ function daemonize() {
 		exit(1);
 	}
 
+	// Ignore signals.
 	pcntl_signal(SIGHUP, SIG_IGN);
 
 	// If starting a process on the command line, the shell will become the
@@ -296,7 +299,6 @@ daemonize();
 
 pcntl_signal(SIGINT, "signalHandler");
 pcntl_signal(SIGTERM, "signalHandler");
-pcntl_signal(SIGHUP, "signalHandler");
 pcntl_signal(SIGCHLD, "signalHandler");
 
 ///////////////////////////////////////////////////////////////////////////////
