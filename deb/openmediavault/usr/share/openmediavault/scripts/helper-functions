@@ -903,3 +903,21 @@ omv_get_root_devicefile() {
 	readlink -f /dev/block/${_deviceid}
 	return $?
 }
+
+# omv_user_id_exists [USER]
+# Check if the given user exists.
+# @param user The name of the user.
+# @return 0 if the user exists, otherwise 1.
+omv_user_id_exists() {
+	getent passwd $1 >/dev/null 2>&1
+	return $?
+}
+
+# omv_group_id_exists [GROUP]
+# Check if the given group exists.
+# @param group The name of the group.
+# @return 0 if the group exists, otherwise 1.
+omv_group_id_exists() {
+	getent group $1 >/dev/null 2>&1
+	return $?
+}

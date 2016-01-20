@@ -383,8 +383,11 @@ if(FALSE === @socket_bind($socket, $GLOBALS['OMV_ENGINED_SO_ADDRESS'])) {
 	  socket_last_error()));
 	exit(1);
 }
-// Modify file permission to allow access for non-root users.
-chmod($GLOBALS['OMV_ENGINED_SO_ADDRESS'], 0777);
+// Modify file permission to allow access for the members of the
+// 'openmediavault-engined' group.
+chgrp($GLOBALS['OMV_ENGINED_SO_ADDRESS'],
+  $GLOBALS['OMV_ENGINED_SO_OWNERGROUP_NAME']);
+chmod($GLOBALS['OMV_ENGINED_SO_ADDRESS'], 0770);
 if(FALSE === @socket_listen($socket, $maxConnections)) {
 	error("Failed to listen to socket: %s\n", socket_strerror(
 	  socket_last_error()));

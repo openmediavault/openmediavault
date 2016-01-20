@@ -31,29 +31,61 @@ case "$1" in
 		########################################################################
 		if [ -z "$2" ]; then
 			####################################################################
-			# Install configuration file
+			# Create various users/groups.
+			####################################################################
+			echo "Creating users/groups ..."
+			####################################################################
+			# Create the group 'openmediavault-config' which is only allowed
+			# to access the configuration database.
+			####################################################################
+			if ! omv_group_id_exists openmediavault-config; then
+				groupadd --system openmediavault-config
+			fi
+			####################################################################
+			# Create the group 'openmediavault-engined' which is used to
+			# allow group members to execute RPC's.
+			####################################################################
+			if ! omv_group_id_exists openmediavault-engined; then
+				groupadd --system \
+				  --groups openmediavault-config \
+				  openmediavault-engined
+			fi
+			####################################################################
+			# Create the user/group 'openmediavault-webgui' which is used to
+			# run the web interface.
+			####################################################################
+			if ! omv_user_id_exists openmediavault-webgui; then
+				useradd --system --user-group \
+				  --groups openmediavault-config,openmediavault-engined \
+				  openmediavault-webgui
+			fi
+			####################################################################
+			# Create the user 'admin' which is used as the web interface
+			# administrator account. Default password is 'openmediavault'.
+			####################################################################
+			if ! omv_user_id_exists admin; then
+				useradd --system --no-user-group \
+				  --password '$1$PjiW4uIZ$agjyA0foLeAcHClwOuad1.' \
+				  --shell '/usr/sbin/nologin' \
+				  --comment 'WebGUI administrator' admin
+			fi
+
+			####################################################################
+			# Install the configuration file.
 			####################################################################
 			if [ ! -e "${OMV_CONFIG_FILE}" ]; then
 				echo "Installing default configuration"
 				cp ${OMV_CONFIG_TEMPLATE_FILE} ${OMV_CONFIG_FILE}
+				chmod 660 ${OMV_CONFIG_FILE}
+				chown :openmediavault-config ${OMV_CONFIG_FILE}
 			fi
 
 			####################################################################
-			# Create user 'openmediavault' which is used to run the web
-			# interface.
+			# Setup various file permissions.
 			####################################################################
-			if ! getent passwd openmediavault > /dev/null 2>&1; then
-				useradd --system --user-group openmediavault || :
-			fi
-
-			####################################################################
-			# Create user 'admin' which is used as the web interface
-			# administrator account. Default password is 'openmediavault'.
-			####################################################################
-			if ! getent passwd admin > /dev/null 2>&1; then
-				useradd --system --no-user-group --password '$1$PjiW4uIZ$agjyA0foLeAcHClwOuad1.' \
-				  --shell '/usr/sbin/nologin' --comment 'WebGUI administrator' admin || :
-			fi
+			# Allow the web interface to read/write cached files.
+			chmod 775 ${OMV_CACHE_DIR}
+			chown :${OMV_WEBGUI_FILE_OWNERGROUP_NAME} ${OMV_CACHE_DIR}
 
 			####################################################################
 			# Update the local plugin packages archive. The 'packages' command
@@ -63,7 +95,7 @@ case "$1" in
 			cd ${OMV_DPKGARCHIVE_DIR} && apt-ftparchive packages . > Packages
 
 			####################################################################
-			# Setup services
+			# Setup all services.
 			####################################################################
 			echo "Updating init scripts actions ..."
 			deb-systemd-invoke stop systemd-timesyncd || :
@@ -88,7 +120,7 @@ case "$1" in
 			deb-systemd-helper disable postfix || :
 
 			####################################################################
-			# Setup webserver configuration
+			# Setup the webserver configuration.
 			####################################################################
 			echo "Configuring web server"
 			omv-mkconf nginx
@@ -107,16 +139,12 @@ case "$1" in
 		deb-systemd-helper enable openmediavault-engined.service || :
 
 		########################################################################
-		# Setup permissions
+		# Trigger file permission update.
 		########################################################################
-		chown -R openmediavault:openmediavault /etc/openmediavault \
-		  /var/cache/openmediavault ${OMV_DOCUMENTROOT_DIR}
-		chmod 755 /var/www
-		chmod 600 ${OMV_CONFIG_FILE}
 		dpkg-trigger update-fixperms || omv_install_fixperms
 
 		########################################################################
-		# Install locale files.
+		# Trigger locale files creation/update.
 		########################################################################
 		dpkg-trigger update-locale || omv_install_locale
 
@@ -506,9 +534,37 @@ case "$1" in
 			deb-systemd-invoke reload nginx || :
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.0.5"; then
+			# Add/Update default envionment variables.
+			omv_set_default "OMV_ENGINED_SO_OWNERGROUP_NAME" "openmediavault-engined"
+			omv_set_default "OMV_WEBGUI_FILE_OWNERGROUP_NAME" "openmediavault-webgui"
+			. /etc/default/openmediavault
+			# Create various new system users/groups.
+			if ! omv_group_id_exists openmediavault-config; then
+				groupadd --system openmediavault-config
+			fi
+			if ! omv_group_id_exists openmediavault-engined; then
+				groupadd --system \
+				  --groups openmediavault-config \
+				  openmediavault-engined
+			fi
+			if ! omv_user_id_exists openmediavault-webgui; then
+				useradd --system --user-group \
+				  --groups openmediavault-config,openmediavault-engined \
+				  openmediavault-webgui
+			fi
+			# Update the configuration file permissions.
+			chmod 660 ${OMV_CONFIG_FILE}
+			chown :${OMV_ENGINED_SO_OWNERGROUP_NAME} ${OMV_CONFIG_FILE}
+			chmod 775 ${OMV_CACHE_DIR}
+			chown :${OMV_WEBGUI_FILE_OWNERGROUP_NAME} ${OMV_CACHE_DIR}
+			# Update postfix configuration because of the new
+			# notification framework.
 			omv-mkconf postfix
 			deb-systemd-invoke reload postfix || :
+			# Purge the floppy kernel module.
 			dpkg-trigger update-initramfs || :
+			# Reload the PHP FPM configuration.
+			deb-systemd-invoke reload php5-fpm || :
 		fi
 	;;
 
