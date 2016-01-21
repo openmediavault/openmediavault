@@ -199,10 +199,20 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	 */
 	final protected function validateMethodContext($context, $required) {
 //		$this->debug(var_export(func_get_args(), TRUE));
-		// Validate the method calling context.
-		if(!($context['role'] & $required['role'])) {
-			throw new OMVException(
-			  OMVErrorMsg::E_RPC_SERVICE_METHOD_INVALID_CONTEXT);
+		// Validate the method calling context:
+		// - Check the username
+		if (array_key_exists("username", $required)) {
+			if ($context['username'] !== $required['username']) {
+				throw new OMVException(
+				  OMVErrorMsg::E_RPC_SERVICE_METHOD_INVALID_CONTEXT);
+			}
+		}
+		// - Check the role
+		if (array_key_exists("role", $required)) {
+			if (!($context['role'] & $required['role'])) {
+				throw new OMVException(
+				  OMVErrorMsg::E_RPC_SERVICE_METHOD_INVALID_CONTEXT);
+			}
 		}
 	}
 
