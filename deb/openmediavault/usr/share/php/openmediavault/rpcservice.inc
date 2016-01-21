@@ -202,9 +202,13 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 		// Validate the method calling context:
 		// - Check the username
 		if (array_key_exists("username", $required)) {
-			if ($context['username'] !== $required['username']) {
-				throw new OMVException(
-				  OMVErrorMsg::E_RPC_SERVICE_METHOD_INVALID_CONTEXT);
+			if (!is_array($required['username']))
+				$required['username'] = array($required['username']);
+			foreach ($required['username'] as $usernamek => $usernamev) {
+				if ($context['username'] !== $usernamev) {
+					throw new OMVException(
+					  OMVErrorMsg::E_RPC_SERVICE_METHOD_INVALID_CONTEXT);
+				}
 			}
 		}
 		// - Check the role
