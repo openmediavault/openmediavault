@@ -6,14 +6,14 @@
 # Milan Toet <milantoet@gmail.com>, 2012-2014
 # sebak <seba.kerckhof@gmail.com>, 2012
 # stokerh <stoker.pc@home.nl>, 2012
-# Tim <co_ti@hotmail.com>, 2013-2014
+# Tim <co_ti@hotmail.com>, 2013-2014,2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-07 22:30+0100\n"
-"PO-Revision-Date: 2016-01-07 21:30+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2016-01-10 10:55+0000\n"
+"Last-Translator: Tim <co_ti@hotmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/votdev/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -201,19 +201,19 @@ msgid "Add"
 msgstr "Toevoegen"
 
 msgid "Add VLAN connection"
-msgstr ""
+msgstr "VLAN-verbinding toevoegen"
 
 msgid "Add Wi-Fi connection"
-msgstr ""
+msgstr "Wi-Fi-verbinding toevoegen"
 
 msgid "Add bond connection"
-msgstr ""
+msgstr "bond-verbinding toevoegen"
 
 msgid "Add devices to RAID device"
 msgstr "Apparaten aan de RAID toevoegen"
 
 msgid "Add ethernet connection"
-msgstr ""
+msgstr "Ethernet-verbinding toevoegen"
 
 msgid "Add firewall rule"
 msgstr "Een firewallregel toevoegen"
@@ -228,7 +228,7 @@ msgid "Add module"
 msgstr "Een module toevoegen"
 
 msgid "Add public key"
-msgstr ""
+msgstr "Publieke sleutel toevoegen"
 
 msgid "Add rsync job"
 msgstr "Een rsync-taak toevoegen"
@@ -508,7 +508,7 @@ msgid "Bolivia"
 msgstr "Bolivia"
 
 msgid "Bond"
-msgstr ""
+msgstr "Bond"
 
 msgid "Boot"
 msgstr "Opstart"
@@ -778,7 +778,7 @@ msgid "DHCP"
 msgstr "DHCP"
 
 msgid "DNS servers"
-msgstr ""
+msgstr "DNS-servers"
 
 msgid "Daemon"
 msgstr "Daemon"
@@ -981,7 +981,7 @@ msgid "Domain name"
 msgstr "Domeinnaam"
 
 msgid "Domains used when resolving host names."
-msgstr ""
+msgstr "Gebruikte domeinen tijdens het opzoeken van hostnamen"
 
 msgid "Dominica"
 msgstr "Dominica"
@@ -1028,22 +1028,22 @@ msgid "Edit"
 msgstr "Aanpassen"
 
 msgid "Edit SSH certificate"
-msgstr ""
+msgstr "SSH-certificaat bijwerken"
 
 msgid "Edit SSL certificate"
 msgstr "SSL-certificaat aanpassen"
 
 msgid "Edit VLAN connection"
-msgstr ""
+msgstr "VLAN-verbinding bijwerken"
 
 msgid "Edit Wi-Fi connection"
-msgstr ""
+msgstr "Wi-Fi-verbinding bijwerken"
 
 msgid "Edit bond connection"
-msgstr ""
+msgstr "Bond-verbinding bijwerken"
 
 msgid "Edit ethernet connection"
-msgstr ""
+msgstr "Ethernet-verbinding bijwerken"
 
 msgid "Edit firewall rule"
 msgstr "Firewallregel aanpassen"
@@ -1204,7 +1204,7 @@ msgid "Estonia"
 msgstr "Estland"
 
 msgid "Ethernet"
-msgstr ""
+msgstr "Ethernet"
 
 msgid "Ethiopia"
 msgstr "Ethiopië"
@@ -1278,7 +1278,7 @@ msgid "Failed to get list of network interface devices"
 msgstr "Ophalen van netwerkinterface-apparatenlijst mislukt"
 
 msgid "Failed to get list of unused network interface devices"
-msgstr ""
+msgstr "Ophalen van de lijst van ongebruikte netwerkkaarten mislukt"
 
 msgid "Failed to get list of users."
 msgstr "Ophalen van de gebruikerslijst mislukt."
@@ -1381,7 +1381,7 @@ msgid "Full"
 msgstr "Vol"
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Gabon"
 msgstr "Gabon"
@@ -1528,7 +1528,7 @@ msgid "ID"
 msgstr "ID"
 
 msgid "IP addresses of domain name servers used to resolve host names."
-msgstr ""
+msgstr "IP-adressen van gebruikte domeinnaamserververs bij het ophalen van hostnamen"
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -1602,7 +1602,7 @@ msgid "Import"
 msgstr "Importeren"
 
 msgid "Import SSH certificate"
-msgstr ""
+msgstr "SSH-certificaat importeren"
 
 msgid "Import SSL certificate"
 msgstr "SSL-certificaat importeren"
@@ -1682,7 +1682,7 @@ msgid "Interfaces"
 msgstr "Interfaces"
 
 msgid "Invalid SSH public key (RFC 4716)"
-msgstr ""
+msgstr "Ongeldige SSH publieke sleutel (RFC 4716)"
 
 msgid "Invalid domain name"
 msgstr "Ongeldige domeinnaam"
@@ -1694,7 +1694,7 @@ msgid "Invalid group name"
 msgstr "Ongeldige groepsnaam"
 
 msgid "Invalid host name"
-msgstr ""
+msgstr "Ongeldige hostnaam"
 
 msgid "Invalid line: %s"
 msgstr "Ongeldige regel: %s"
@@ -2117,10 +2117,10 @@ msgid "Network"
 msgstr "Netwerk"
 
 msgid "Network interface '%s' (type=%s) already exists"
-msgstr ""
+msgstr "Netwerkkaart '%s' (type=%s) bestaat al"
 
 msgid "Network interfaces"
-msgstr ""
+msgstr "Netwerkkaarten"
 
 msgid "Neutral Zone"
 msgstr "Neutrale Zone"
@@ -2309,7 +2309,7 @@ msgid "Paraguay"
 msgstr "Paraguay"
 
 msgid "Parent interface"
-msgstr ""
+msgstr "Hoofdnetwerkkaart"
 
 msgid "Passive FTP"
 msgstr "Passieve FTP"
@@ -2339,7 +2339,7 @@ msgid "Perform a trial run with no changes made"
 msgstr "Voer een test uit zonder gemaakte aanpassingen"
 
 msgid "Performance statistics"
-msgstr ""
+msgstr "Prestatiestatistieken"
 
 msgid "Period of validity"
 msgstr "Geldigheidsperiode"
@@ -2429,7 +2429,7 @@ msgstr "Gelieve eerst een schijf(deel) te selecteren."
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
 "are allowed."
-msgstr ""
+msgstr "Controleer of de gedeelde map schrijfrechten heeft indien nieuwe bestanden zijn toegestaan"
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2539,13 +2539,13 @@ msgid "Public"
 msgstr "Publiek"
 
 msgid "Public key"
-msgstr ""
+msgstr "Publieke sleutel"
 
 msgid "Public key authentication"
 msgstr "Public key authentication"
 
 msgid "Public keys"
-msgstr ""
+msgstr "Publieke sleutels"
 
 msgid "Puerto Rico"
 msgstr "Puerto Rico"
@@ -2572,10 +2572,10 @@ msgid "RAID 10"
 msgstr "RAID 10"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
 msgstr "RAID 4"
@@ -2662,7 +2662,7 @@ msgid "Remove"
 msgstr "Verwijderen"
 
 msgid "Remove devices from RAID device"
-msgstr ""
+msgstr "Apparaten van RAID-apparaat verwijderen"
 
 msgid "Replace"
 msgstr "Vervang"
@@ -2788,10 +2788,10 @@ msgid "SSH"
 msgstr "SSH"
 
 msgid "SSID"
-msgstr ""
+msgstr "SSID"
 
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -2848,7 +2848,7 @@ msgid "Scheduling"
 msgstr "Inplannen"
 
 msgid "Search domains"
-msgstr ""
+msgstr "Domeinen zoeken"
 
 msgid "Secondary email"
 msgstr "Secundair e-mailadres"
@@ -2869,7 +2869,7 @@ msgid "Security level"
 msgstr "Veiligheidsniveau"
 
 msgid "Select a SSH certificate ..."
-msgstr ""
+msgstr "Een SSH-certificaat selecteren ..."
 
 msgid "Select a SSL certificate ..."
 msgstr "Kies een SSL-certificaat ..."
@@ -2896,10 +2896,10 @@ msgid "Select a language ..."
 msgstr "Selecteer een taal ..."
 
 msgid "Select a parent interface ..."
-msgstr ""
+msgstr "Een hoofdnetwerkkaart selecteren ..."
 
 msgid "Select a primary interface ..."
-msgstr ""
+msgstr "Een primaire netwerkkaart selecteren ..."
 
 msgid "Select a protocol ..."
 msgstr "Selecteer een protocol ..."
@@ -2920,7 +2920,7 @@ msgid "Select devices to be added to the RAID device"
 msgstr "Kies de schijven die toegevoegd moeten worden aan de RAID-configuratie"
 
 msgid "Select devices to be removed from the RAID device."
-msgstr ""
+msgstr "Selecteer apparaten die van het RAID-apparaat verwijderd moet worden."
 
 msgid "Select or enter a user name ..."
 msgstr "Selecteer of voer een gebruikersnaam in..."
@@ -3001,7 +3001,7 @@ msgstr "Alleen schrijven aan"
 msgid ""
 "Sets the interval between disk checks to N seconds, logging S.M.A.R.T. "
 "errors and changes of S.M.A.R.T. attributes."
-msgstr ""
+msgstr "Stelt de interval tussen schijfcontroles op N seconden in, S.M.A.R.T-fouten wegschrijven en aanpassingen van S.M.A.R.T-attributen"
 
 msgid "Settings"
 msgstr "Instellingen"
@@ -3167,7 +3167,7 @@ msgstr "Geeft aan of het toegestaan is als hoofdgebruiker aan te melden."
 msgid ""
 "Specifies whether the system performance statistics are collected "
 "periodically."
-msgstr ""
+msgstr "Geeft aan of de systeemprestatiestatistieken periodiek worden opgehaald"
 
 msgid ""
 "Specifies whether to monitor the system status and select the most "
@@ -3178,7 +3178,7 @@ msgid "Specifies which slave is the primary device."
 msgstr "Specificeert welke slaaf het primaire apparaat is."
 
 msgid "Speed"
-msgstr ""
+msgstr "Snelheid"
 
 msgid "Spindown time"
 msgstr "Spindown-tijd"
@@ -3262,7 +3262,7 @@ msgid "System Logs"
 msgstr "Systeemlogbestanden"
 
 msgid "System accounts"
-msgstr ""
+msgstr "Systeemaccounts"
 
 msgid "System time"
 msgstr "Systeemtijd"
@@ -3304,7 +3304,7 @@ msgid "The RSA key length."
 msgstr "De RSA-sleutellengte."
 
 msgid "The RSA public key in OpenSSH format."
-msgstr ""
+msgstr "De RSA publieke sleutel in OpenSSH-opmaak"
 
 msgid "The SSL certificate."
 msgstr "Het SSL-certificaat"
@@ -3405,10 +3405,10 @@ msgid ""
 msgstr "De rechten op nieuwe bestanden en mappen worden normaal toegekend door het aanmaak- en mapmasker, maar de parameter voor het erven van rechten overschrijft dit. Dit is in het bijzonder handig voor het flexibel gebruik van een gedeelde bron op een systeem met veel gebruikers."
 
 msgid "The private RSA key in X.509 PEM format."
-msgstr ""
+msgstr "De privé RSA-sleutel in X.509 PEM-opmaak."
 
 msgid "The public key in RFC 4716 SSH public key file format."
-msgstr ""
+msgstr "De publieke sleutel in RFC 4716 SSH publieke sleutelbestand-opmaak"
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3496,29 +3496,29 @@ msgid "This field should be a IPv6 network address in CIDR notation"
 msgstr "Dit veld moet een IPv6-netwerkadres in CIDR-notatie zijn."
 
 msgid "This field should be a domain name or an IP address"
-msgstr ""
+msgstr "Dit veld dient een domeinnaam of een IP-adres te zijn"
 
 msgid "This field should be a domain name or an IPv4 address"
-msgstr ""
+msgstr "Dit veld dient een domeinnaam of een IPv4-adres te zijn"
 
 msgid "This field should be a host name or an IP address"
-msgstr ""
+msgstr "Dit veld dient een hostnaam of een IP-adres te zijn"
 
 msgid "This field should be a host name or an IPv4 address"
-msgstr ""
+msgstr "Dit veld dient een hostnaam of een IPv4-adres te zijn"
 
 msgid "This field should be a list of domain names or IP addresses"
-msgstr ""
+msgstr "Dit veld dient een lijst met domeinnamen of IP-adressen te zijn"
 
 msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
-msgstr ""
+msgstr "Dit veld dient een lijst te zijn met domeinnamen of IP-adressen te zijn die gescheiden worden door een <,> of een <;>"
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
 "or <;>"
-msgstr ""
+msgstr "Dit veld dient een lijst te zijn met hostnamen of IP-adressen die gescheiden worden door een <,> of een <;>"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3556,14 +3556,14 @@ msgid "This field should only contain numbers"
 msgstr "Dit veld mag alleen getallen bevatten"
 
 msgid "This field should only contain numbers separated by <,> or <;>"
-msgstr ""
+msgstr "Dit veld dient alleen nummers te bevatten die gescheiden worden door een <,> of een <;>"
 
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
-msgstr ""
+msgstr "Dit veld dient alleen poortnummers (0-65535) te bevatten, gescheiden door een <,> of een <;>"
 
 msgid "This field should only contain strings separated by <,> or <;>"
-msgstr ""
+msgstr "Dit veld dient alleen tekenreeksen te bevatten, gescheiden door <,> of een <;>"
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Deze functie is enkel werkzaam als de harde schijf het ondersteunt."
@@ -3709,7 +3709,7 @@ msgid "Tonga"
 msgstr "Tonga"
 
 msgid "Total"
-msgstr ""
+msgstr "Totaal"
 
 msgid "Transfer log"
 msgstr "Overdrachtslogbestand"
@@ -3760,7 +3760,7 @@ msgid "U.S. Virgin Islands"
 msgstr "Amerikaanse Maagdeneilanden"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "UNKNOWN"
 msgstr "ONBEKEND"
@@ -3772,7 +3772,7 @@ msgid "Ukraine"
 msgstr "Ukraïne"
 
 msgid "Unauthorized attempt to modify the system account '%s'"
-msgstr ""
+msgstr "Ongeautoriseerde poging om het systeemaccount '%s' aan te passen"
 
 msgid "Uncompressed"
 msgstr "Niet gecomprimeerd"
@@ -3904,7 +3904,7 @@ msgid "User ID '%d' already exist"
 msgstr "Gebruikers ID '%d' bestaat al."
 
 msgid "User accounts"
-msgstr ""
+msgstr "Gebruikersaccounts"
 
 msgid "User home directory"
 msgstr "Gebruikersthuismap"
@@ -3925,10 +3925,10 @@ msgid "Uzbekistan"
 msgstr "Oezbekistan"
 
 msgid "VLAN"
-msgstr ""
+msgstr "VLAN"
 
 msgid "VLAN id"
-msgstr ""
+msgstr "VLAN-id"
 
 msgid "Valid to"
 msgstr "Geldig tot"
@@ -3955,7 +3955,7 @@ msgid "Vietnam"
 msgstr "Vietnam"
 
 msgid "VirtIO device"
-msgstr ""
+msgstr "VirtIO-apparaat"
 
 msgid "Volume"
 msgstr "Schijf(deel)"
@@ -3970,7 +3970,7 @@ msgid "WINS support"
 msgstr "WINS-ondersteuning"
 
 msgid "WOL"
-msgstr ""
+msgstr "WOL"
 
 msgid "Wake Island"
 msgstr "Wake Eiland"
@@ -4017,7 +4017,7 @@ msgid "When failed"
 msgstr "Indien mislukt"
 
 msgid "Wi-Fi"
-msgstr ""
+msgstr "Wi-Fi"
 
 msgid "Wipe"
 msgstr "Wissen"

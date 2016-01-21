@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2015
+# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-07 22:30+0100\n"
-"PO-Revision-Date: 2016-01-07 21:30+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2016-01-08 10:07+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/votdev/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2998,7 +2998,7 @@ msgstr "Sæt kun skrivning"
 msgid ""
 "Sets the interval between disk checks to N seconds, logging S.M.A.R.T. "
 "errors and changes of S.M.A.R.T. attributes."
-msgstr ""
+msgstr "Indstiller intervallet mellem disk kontrol til N sekunder, logger S.M.A.R.T. fejl og ændringer af S.M.A.R.T. attributter."
 
 msgid "Settings"
 msgstr "Indstillinger"
@@ -3510,12 +3510,12 @@ msgstr "Dette felt skal være en liste af domænenavne eller IP adresser"
 msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
-msgstr ""
+msgstr "Dette felt skal være en liste af domænenavne eller IP adresser adskilt med <,> eller <;>"
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
 "or <;>"
-msgstr ""
+msgstr "Dette felt skal være en liste af værtsnavne eller IP adresser adskilt med <,> eller <;>"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3553,14 +3553,14 @@ msgid "This field should only contain numbers"
 msgstr "Dette felt kan kun indeholde tal"
 
 msgid "This field should only contain numbers separated by <,> or <;>"
-msgstr ""
+msgstr "Dette felt kan kun indeholde tal adskilt af <,> eller <;>"
 
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
-msgstr ""
+msgstr "Dette felt kan kun indeholde porte (0 - 65535) adskilt af <,> eller <;>"
 
 msgid "This field should only contain strings separated by <,> or <;>"
-msgstr ""
+msgstr "Dette felt kan kun indeholde strenge adskilt af <,> eller <;>"
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Denne funktion er kun effektiv hvis harddisken understøtter det."

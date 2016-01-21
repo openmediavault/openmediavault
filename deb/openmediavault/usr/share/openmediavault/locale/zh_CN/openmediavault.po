@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# songming <by@songming.me>, 2013-2015
+# songming <by@songming.me>, 2013-2016
 # Wei Ding <dyw.net@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-07 22:30+0100\n"
-"PO-Revision-Date: 2016-01-07 21:30+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2016-01-08 04:27+0000\n"
+"Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2999,7 +2999,7 @@ msgstr "设为只写"
 msgid ""
 "Sets the interval between disk checks to N seconds, logging S.M.A.R.T. "
 "errors and changes of S.M.A.R.T. attributes."
-msgstr ""
+msgstr "设定磁盘检查间隔时间为 N 秒，以记录S.M.A.R.T.错误或特性变化日志。"
 
 msgid "Settings"
 msgstr "设置"
@@ -3511,12 +3511,12 @@ msgstr "此处应该是域名或者IP地址列表"
 msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
-msgstr ""
+msgstr "此处应该是域名或者IP地址列表，使用 <,> 或 <;> 隔开"
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
 "or <;>"
-msgstr ""
+msgstr "此处应该是域名或者IP地址列表，使用 <,> 或 <;> 隔开"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3554,14 +3554,14 @@ msgid "This field should only contain numbers"
 msgstr "此处只能包含数字"
 
 msgid "This field should only contain numbers separated by <,> or <;>"
-msgstr ""
+msgstr "此处只能包含以 <,> 或 <;> 分割的数字"
 
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
-msgstr ""
+msgstr "此处只能包含以 <,> 或 <;> 分割的端口号(0 - 65535)"
 
 msgid "This field should only contain strings separated by <,> or <;>"
-msgstr ""
+msgstr "此处只能包含以 <,> 或 <;> 分割的字符串"
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "如果磁盘支持此功能才有效。"

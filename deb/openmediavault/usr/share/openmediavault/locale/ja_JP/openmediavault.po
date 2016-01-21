@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Toshihiro Kan <kansuke4649@gmail.com>, 2014-2015
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-07 22:30+0100\n"
-"PO-Revision-Date: 2016-01-07 21:30+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2016-01-13 05:06+0000\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/votdev/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2998,7 +2998,7 @@ msgstr "書き込み専用に設定"
 msgid ""
 "Sets the interval between disk checks to N seconds, logging S.M.A.R.T. "
 "errors and changes of S.M.A.R.T. attributes."
-msgstr ""
+msgstr "S.M.A.R.T.のエラーと属性の変化のロギングのためのディスクチェック間隔をN秒単位で設定します。"
 
 msgid "Settings"
 msgstr "設定"
@@ -3510,12 +3510,12 @@ msgstr "このフィールドはドメイン名かIPアドレスのリストで�
 msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
-msgstr ""
+msgstr "このフィールドは、<,>または<;>で区切られたドメイン名またはIPアドレスのリストである必要があります"
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
 "or <;>"
-msgstr ""
+msgstr "このフィールドは、<,>または<;>で区切られたホスト名またはIPアドレスのリストである必要があります"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3553,14 +3553,14 @@ msgid "This field should only contain numbers"
 msgstr "このフィールドは数字のみである必要があります"
 
 msgid "This field should only contain numbers separated by <,> or <;>"
-msgstr ""
+msgstr "このフィールドは、<,>または<;>で区切られた数字である必要があります"
 
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
-msgstr ""
+msgstr "このフィールドは、<,>または<;>で区切られたポート(0 - 65535)である必要があります"
 
 msgid "This field should only contain strings separated by <,> or <;>"
-msgstr ""
+msgstr "このフィールドは、<,>または<;>で区切られた文字列である必要があります"
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "この機能は、ハードドライブがサポートしている場合にのみ有効です。"

@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Kostas Moho <kgounaris@hotmail.com>, 2012-2015
+# Kostas Moho <kgounaris@hotmail.com>, 2012-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-07 22:30+0100\n"
-"PO-Revision-Date: 2016-01-07 21:30+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2016-01-09 12:27+0000\n"
+"Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/votdev/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2998,7 +2998,7 @@ msgstr "Ορισμός ως μόνο για εγγραφή"
 msgid ""
 "Sets the interval between disk checks to N seconds, logging S.M.A.R.T. "
 "errors and changes of S.M.A.R.T. attributes."
-msgstr ""
+msgstr "Ορίζει το διάστημα ανάμεσα στους ελέγχους των δίσκων σε Ν δευτερόλεπτα, καταγραφές σφαλμάτων S.M.A.R.T. και αλλαγές ιδιοτήτων S.M.A.R.T."
 
 msgid "Settings"
 msgstr "Ρυθμίσεις"
@@ -3510,12 +3510,12 @@ msgstr "Αυτό το πεδίο δέχεται λίστα ονομάτων το
 msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
-msgstr ""
+msgstr "Αυτό το πεδίο δέχεται λίστα ονομάτων τομέα ή διευθύνσεις ΙΡ διαχωρισμένα με <,> ή <;>"
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
 "or <;>"
-msgstr ""
+msgstr "Αυτό το πεδίο δέχεται λίστα ονομάτων ή διευθύνσεις ΙΡ διαχωρισμένα με <,> ή <;>"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3553,14 +3553,14 @@ msgid "This field should only contain numbers"
 msgstr "Το πεδίο πρέπει να περιέχει μόνο αριθμούς"
 
 msgid "This field should only contain numbers separated by <,> or <;>"
-msgstr ""
+msgstr "Το πεδίο πρέπει να περιέχει μόνο αριθμούς χωρισμένους με <,> ή <;>"
 
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
-msgstr ""
+msgstr "Το πεδίο πρέπει να περιέχει μόνο θύρες (0 - 65535) χωρισμένες με <,> ή <;>"
 
 msgid "This field should only contain strings separated by <,> or <;>"
-msgstr ""
+msgstr "Το πεδίο πρέπει να περιέχει μόνο λέξεις χωρισμένες με <,> ή <;>"
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Αυτή η λειτουργία θα ισχύει μόνο αν την υποστηρίζει ο οδηγός."

@@ -1,5 +1,6 @@
 openmediavault (3.0.5) stable; urgency=low
 
+  * Update locales.
   * Various improvements.
   * Add support for additional notification sinks.
   * Mantis 0000870: Option to add more than one NTP server.
