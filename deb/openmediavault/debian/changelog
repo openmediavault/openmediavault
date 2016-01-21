@@ -1,3 +1,9 @@
+openmediavault (3.0.6) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 21 Jan 2016 22:39:11 +0100
+
 openmediavault (3.0.5) stable; urgency=low
 
   * Update locales.

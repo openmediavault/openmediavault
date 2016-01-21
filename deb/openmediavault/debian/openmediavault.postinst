@@ -46,9 +46,7 @@ case "$1" in
 			# allow group members to execute RPC's.
 			####################################################################
 			if ! omv_group_id_exists openmediavault-engined; then
-				groupadd --system \
-				  --groups openmediavault-config \
-				  openmediavault-engined
+				groupadd --system openmediavault-engined
 			fi
 			####################################################################
 			# Create the user/group 'openmediavault-webgui' which is used to
@@ -543,9 +541,7 @@ case "$1" in
 				groupadd --system openmediavault-config
 			fi
 			if ! omv_group_id_exists openmediavault-engined; then
-				groupadd --system \
-				  --groups openmediavault-config \
-				  openmediavault-engined
+				groupadd --system openmediavault-engined
 			fi
 			if ! omv_user_id_exists openmediavault-webgui; then
 				useradd --system --user-group \
