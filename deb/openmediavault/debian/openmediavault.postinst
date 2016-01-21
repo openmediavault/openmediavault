@@ -494,6 +494,10 @@ case "$1" in
 			omv-mkconf nginx
 			service nginx reload
 		fi
+		if dpkg --compare-versions "$2" lt-nl "2.1.24"; then
+			omv-mkconf postfix
+			service postfix reload
+		fi
 	;;
 
 	triggered)
