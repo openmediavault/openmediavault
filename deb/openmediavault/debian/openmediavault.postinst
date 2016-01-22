@@ -53,8 +53,10 @@ case "$1" in
 			# run the web interface.
 			####################################################################
 			if ! omv_user_id_exists openmediavault-webgui; then
-				useradd --system --user-group \
+				useradd --system --user-group --no-create-home \
 				  --groups openmediavault-config,openmediavault-engined \
+				  --shell '/usr/sbin/nologin' \
+				  --comment 'openmediavault WebGUI Management' \
 				  openmediavault-webgui
 			fi
 			####################################################################
@@ -62,10 +64,11 @@ case "$1" in
 			# administrator account. Default password is 'openmediavault'.
 			####################################################################
 			if ! omv_user_id_exists admin; then
-				useradd --system --no-user-group \
+				useradd --system --no-user-group --no-create-home \
 				  --password '$1$PjiW4uIZ$agjyA0foLeAcHClwOuad1.' \
 				  --shell '/usr/sbin/nologin' \
-				  --comment 'WebGUI administrator' admin
+				  --comment 'openmediavault WebGUI Administrator' \
+				  admin
 			fi
 
 			####################################################################
@@ -544,8 +547,10 @@ case "$1" in
 				groupadd --system openmediavault-engined
 			fi
 			if ! omv_user_id_exists openmediavault-webgui; then
-				useradd --system --user-group \
+				useradd --system --user-group --no-create-home \
 				  --groups openmediavault-config,openmediavault-engined \
+				  --shell '/usr/sbin/nologin' \
+				  --comment 'openmediavault WebGUI Management' \
 				  openmediavault-webgui
 			fi
 			# Update the configuration file permissions.
