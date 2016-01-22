@@ -99,26 +99,26 @@ case "$1" in
 			# Setup all services.
 			####################################################################
 			echo "Updating init scripts actions ..."
-			deb-systemd-invoke stop systemd-timesyncd || :
-			deb-systemd-helper disable systemd-timesyncd || :
-			deb-systemd-invoke stop smartmontools || :
-			deb-systemd-helper disable smartmontools || :
-			deb-systemd-invoke stop tftpd-hpa || :
-			deb-systemd-helper disable tftpd-hpa || :
-			deb-systemd-invoke stop rsync || :
-			deb-systemd-helper disable rsync || :
-			deb-systemd-invoke stop ssh || :
-			deb-systemd-helper disable ssh || :
-			deb-systemd-invoke stop snmpd || :
-			deb-systemd-helper disable snmpd || :
-			deb-systemd-invoke stop proftpd || :
-			deb-systemd-helper disable proftpd || :
-			deb-systemd-invoke stop nfs-kernel-server || :
-			deb-systemd-helper disable nfs-kernel-server || :
-			deb-systemd-invoke stop smbd || :
-			deb-systemd-helper disable smbd || :
-			deb-systemd-invoke stop postfix || :
-			deb-systemd-helper disable postfix || :
+			deb-systemd-invoke stop systemd-timesyncd.service || :
+			deb-systemd-helper disable systemd-timesyncd.service || :
+			deb-systemd-invoke stop smartmontools.service || :
+			deb-systemd-helper disable smartmontools.service || :
+			deb-systemd-invoke stop tftpd-hpa.service || :
+			deb-systemd-helper disable tftpd-hpa.service || :
+			deb-systemd-invoke stop rsync.service || :
+			deb-systemd-helper disable rsync.service || :
+			deb-systemd-invoke stop ssh.service || :
+			deb-systemd-helper disable ssh.service || :
+			deb-systemd-invoke stop snmpd.service || :
+			deb-systemd-helper disable snmpd.service || :
+			deb-systemd-invoke stop proftpd.service || :
+			deb-systemd-helper disable proftpd.service || :
+			deb-systemd-invoke stop nfs-kernel-server.service || :
+			deb-systemd-helper disable nfs-kernel-server.service || :
+			deb-systemd-invoke stop smbd.service || :
+			deb-systemd-helper disable smbd.service || :
+			deb-systemd-invoke stop postfix.service || :
+			deb-systemd-helper disable postfix.service || :
 
 			####################################################################
 			# Setup the webserver configuration.
@@ -168,14 +168,14 @@ case "$1" in
 		########################################################################
 		if [ -z "$2" ]; then
 			echo "Restarting services ..."
-			deb-systemd-invoke restart cron || :
-			deb-systemd-invoke restart watchdog || :
-			deb-systemd-invoke restart rrdcached || :
-			deb-systemd-invoke restart collectd || :
-			deb-systemd-invoke restart php5-fpm || :
-			deb-systemd-invoke restart nginx || :
-			deb-systemd-invoke restart monit || :
-			deb-systemd-invoke restart avahi-daemon || :
+			deb-systemd-invoke restart cron.service || :
+			deb-systemd-invoke restart watchdog.service || :
+			deb-systemd-invoke restart rrdcached.service || :
+			deb-systemd-invoke restart collectd.service || :
+			deb-systemd-invoke restart php5-fpm.service || :
+			deb-systemd-invoke restart nginx.service || :
+			deb-systemd-invoke restart monit.service || :
+			deb-systemd-invoke restart avahi-daemon.service || :
 		fi
 		dpkg-trigger restart-engined || monit restart omv-engined
 
@@ -532,7 +532,7 @@ case "$1" in
 			udevadm trigger --property-match=DEVNAME=${devicefile}
 			# Recreate and reload various configuration files.
 			omv-mkconf nginx
-			deb-systemd-invoke reload nginx || :
+			deb-systemd-invoke reload nginx.service || :
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.0.5"; then
 			# Add/Update default envionment variables.
@@ -561,11 +561,11 @@ case "$1" in
 			# Update postfix configuration because of the new
 			# notification framework.
 			omv-mkconf postfix
-			deb-systemd-invoke reload postfix || :
+			deb-systemd-invoke reload postfix.service || :
 			# Purge the floppy kernel module.
 			dpkg-trigger update-initramfs || :
 			# Reload the PHP FPM configuration.
-			deb-systemd-invoke reload php5-fpm || :
+			deb-systemd-invoke reload php5-fpm.service || :
 		fi
 	;;
 
@@ -593,7 +593,9 @@ case "$1" in
 
 				restart-engined)
 					echo "Restarting engine daemon ..."
-					monit restart omv-engined || deb-systemd-invoke restart openmediavault-engined
+					monit restart omv-engined || ( \
+					  deb-systemd-invoke unmask openmediavault-engined.service; \
+					  deb-systemd-invoke restart openmediavault-engined.service)
 			esac
 		done
 	;;
@@ -606,5 +608,9 @@ case "$1" in
 		exit 1
 	;;
 esac
+
+
+#DEBHELPER#
+
 
 exit 0
