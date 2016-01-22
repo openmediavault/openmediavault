@@ -4465,6 +4465,27 @@ class OMVATASMARTInformation extends OMVObject {
 		}
 		return $temp;
 	}
+
+	/**
+	 * Get overall assessment.
+	 * @return Returns the 'OK' or 'FAILED' string, otherwise FALSE.
+	 */
+	public function getOverallAssessment() {
+		if (FALSE === ($attributes = $this->getAttributes()))
+			return FALSE;
+		$result = "OK";
+		// Process the attributes to get the temperature value.
+		foreach ($attributes as $attrk => $attrv) {
+			if (FALSE === stripos($attrv['flags'], "P")
+				continue;
+			// https://wiki.ubuntuusers.de/Festplattenstatus
+			if ($attrv['value'] <= $attrv['treshold']) {
+				$result = "FAILED";
+				break;
+			}
+		}
+		return $result;
+	}
 }
 
 /**
