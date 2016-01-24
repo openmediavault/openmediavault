@@ -53,7 +53,8 @@ Ext.define("OMV.grid.column.BooleanIcon", {
 			return me.undefinedText;
 		if (Ext.Array.contains(me.trueValue, value))
 			iconCls = me.iconCls + "-true";
-		metaData.tdCls = me.iconBaseCls + " " + iconCls;
+		metaData.tdCls = Ext.String.format("{0} {1}",
+		  me.iconBaseCls, iconCls);
 		return "";
 	},
 

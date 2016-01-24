@@ -4467,20 +4467,24 @@ class OMVATASMARTInformation extends OMVObject {
 	}
 
 	/**
-	 * Get overall assessment.
-	 * @return Returns the 'OK' or 'FAILED' string, otherwise FALSE.
+	 * Get the overall assessment of the device.
+	 * @return Returns the 'UNKNOWN', 'GOOD' or 'WARNING' string,
+	 *   otherwise FALSE.
 	 */
-	public function getOverallAssessment() {
+	public function getHealthState() {
 		if (FALSE === ($attributes = $this->getAttributes()))
 			return FALSE;
-		$result = "OK";
+		if (empty($attributes))
+			return "UNKNOWN";
 		// Process the attributes to get the temperature value.
+		$result = "GOOD";
 		foreach ($attributes as $attrk => $attrv) {
-			if (FALSE === stripos($attrv['flags'], "P")
+			// Is the prefailure warning flag set?
+			if (FALSE === stripos($attrv['flags'], "P"))
 				continue;
 			// https://wiki.ubuntuusers.de/Festplattenstatus
 			if ($attrv['value'] <= $attrv['treshold']) {
-				$result = "FAILED";
+				$result = "WARNING";
 				break;
 			}
 		}

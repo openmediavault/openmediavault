@@ -535,7 +535,8 @@ div#headerrlogo {
 	background-image: url("../images/page-refresh.svg"), none;
 }
 /* Grid columns */
-.x-grid-cell-booleaniconcolumn {
+.x-grid-cell-booleaniconcolumn,
+.x-grid-cell-iconcolumn {
 	background-repeat: no-repeat;
 	background-position: center;
 }
@@ -549,21 +550,25 @@ div#headerrlogo {
 	background-image: url("../images/no.png");
 	background-image: url("../images/no.svg"), none;
 }
-.x-grid-cell-booleaniconcolumn-led-true,
-.x-grid-cell-booleaniconcolumn-led-blue {
-	background-image: url("../images/led_green.png");
-	background-image: url("../images/led_green.svg"), none;
+.x-grid-cell-booleaniconcolumn-led-blue,
+.x-grid-cell-iconcolumn-led-blue {
+	background-image: url("../images/led_blue.png");
+	background-image: url("../images/led_blue.svg"), none;
 }
 .x-grid-cell-booleaniconcolumn-led-false,
-.x-grid-cell-booleaniconcolumn-led-gray {
+.x-grid-cell-booleaniconcolumn-led-gray,
+.x-grid-cell-iconcolumn-led-gray {
 	background-image: url("../images/led_gray.png");
 	background-image: url("../images/led_gray.svg"), none;
 }
-.x-grid-cell-booleaniconcolumn-led-green {
+.x-grid-cell-booleaniconcolumn-led-true,
+.x-grid-cell-booleaniconcolumn-led-green,
+.x-grid-cell-iconcolumn-led-green {
 	background-image: url("../images/led_green.png");
 	background-image: url("../images/led_green.svg"), none;
 }
-.x-grid-cell-booleaniconcolumn-led-red {
+.x-grid-cell-booleaniconcolumn-led-red,
+.x-grid-cell-iconcolumn-led-red {
 	background-image: url("../images/led_red.png");
 	background-image: url("../images/led_red.svg"), none;
 }

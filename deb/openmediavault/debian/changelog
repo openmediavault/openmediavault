@@ -1,6 +1,7 @@
 openmediavault (3.0.6) stable; urgency=low
 
   * Various improvements.
+  * Display the S.M.A.R.T. health status of the monitored devices.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 21 Jan 2016 22:39:11 +0100
 

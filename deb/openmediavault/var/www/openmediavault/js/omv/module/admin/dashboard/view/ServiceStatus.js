@@ -81,12 +81,12 @@ Ext.define("OMV.module.admin.dashboard.view.ServiceStatus", {
 						case 1:
 						case true: // Service enabled
 							iconCls = (true == value) ?
-							  "grid-cell-booleaniconcolumn-led-blue" :
+							  "grid-cell-booleaniconcolumn-led-green" :
 							  "grid-cell-booleaniconcolumn-led-red";
 							break;
 						default: // Service disabled
 							iconCls = (true == value) ?
-							  "grid-cell-booleaniconcolumn-led-blue" :
+							  "grid-cell-booleaniconcolumn-led-green" :
 							  "grid-cell-booleaniconcolumn-led-gray";
 							break;
 						}

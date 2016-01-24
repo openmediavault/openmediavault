@@ -109,7 +109,8 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 					"" : sprintf("%d°C", $temperature),
 				  "description" => $sd->getDescription(),
 				  "vendor" => $sd->getVendor(),
-				  "serialnumber" => $sd->getSerialNumber()
+				  "serialnumber" => $sd->getSerialNumber(),
+				  "healthstate" => $smartInfo->getHealthState()
 			  );
 		}
 		return $objects;
