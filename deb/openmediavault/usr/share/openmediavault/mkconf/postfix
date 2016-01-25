@@ -63,9 +63,20 @@ OMV_POSTFIX_CRON_CONFIG=${OMV_POSTFIX_CRON_CONFIG:-"/etc/cron.hourly/openmediava
 [ ! -e "/var/spool/postfix/public/pickup" ] &&  mkfifo /var/spool/postfix/public/pickup
 
 # Build the full qualified domain name based on the network configuration.
+# - host01
+# - host02.openmediavault.org
 fqdn=$(xmlstarlet sel -t -m "//system/network" \
   -v "hostname" \
   -i "string-length(domainname) > 0" -v "concat('.',domainname)" -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
+
+# Required in some postfix configuration files.
+# - host01.localdomain
+# - host02.openmediavault.org
+myhostname=$(xmlstarlet sel -t -m "//system/network" \
+  -v "hostname" \
+  -i "string-length(domainname) > 0" -v "concat('.',domainname)" -b \
+  -i "string-length(domainname) = 0" -o ".localdomain" -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc)
 
 # Create '/etc/postfix/main.cf' configuration file
@@ -110,7 +121,7 @@ xmlstarlet sel -t \
 	-m "//system/usermanagement/users/user[email != '']" \
 	  -v "concat(name,' ',email)" -n \
 	-b \
-	-v "concat('@${fqdn} ',//system/email/primaryemail)" \
+	-v "concat('@${myhostname} ',//system/email/primaryemail)" \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
 chown root:root ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
@@ -127,7 +138,7 @@ postmap ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
 #   logged in user {mp030} (in reply to MAIL FROM command))
 xmlstarlet sel -t \
   -i "//system/email/enable[. = '1']" \
-	-v "concat('@${fqdn} ',//system/email/sender)" -n \
+	-v "concat('@${myhostname} ',//system/email/sender)" -n \
 	-v "concat('\"\" ',//system/email/sender)" \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_SENDER_CANONICAL_MAPS}
