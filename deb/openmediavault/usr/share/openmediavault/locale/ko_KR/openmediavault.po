@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-07 22:30+0100\n"
-"PO-Revision-Date: 2016-01-07 21:30+0000\n"
+"POT-Creation-Date: 2016-01-25 22:46+0100\n"
+"PO-Revision-Date: 2016-01-25 21:47+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -454,6 +454,9 @@ msgstr "사용 가능"
 
 msgid "Azerbaijan"
 msgstr "아제르바이잔"
+
+msgid "Bad"
+msgstr ""
 
 msgid "Bahamas"
 msgstr "바하마"
@@ -1417,6 +1420,9 @@ msgstr "GiB"
 
 msgid "Gibraltar"
 msgstr "지브롤터"
+
+msgid "Good"
+msgstr ""
 
 msgid "Greece"
 msgstr "그리스"
@@ -3799,6 +3805,9 @@ msgstr "미국"
 
 msgid "United States Minor Outlying Islands"
 msgstr "미국령 군소 제도"
+
+msgid "Unknown"
+msgstr ""
 
 msgid "Unknown log file type (id=%s)"
 msgstr "알 수 없는 로그 파일 형식 (id=%s)"

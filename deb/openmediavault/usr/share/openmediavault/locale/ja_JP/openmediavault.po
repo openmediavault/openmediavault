@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-07 22:30+0100\n"
-"PO-Revision-Date: 2016-01-13 05:06+0000\n"
-"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
+"POT-Creation-Date: 2016-01-25 22:46+0100\n"
+"PO-Revision-Date: 2016-01-25 21:47+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/votdev/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -452,6 +452,9 @@ msgstr "利用可能"
 
 msgid "Azerbaijan"
 msgstr "アゼルバイジャン"
+
+msgid "Bad"
+msgstr ""
 
 msgid "Bahamas"
 msgstr "な浜"
@@ -1415,6 +1418,9 @@ msgstr "GiB"
 
 msgid "Gibraltar"
 msgstr "ジブラルタル"
+
+msgid "Good"
+msgstr ""
 
 msgid "Greece"
 msgstr "ギリシャ"
@@ -3797,6 +3803,9 @@ msgstr "アメリカ合衆国"
 
 msgid "United States Minor Outlying Islands"
 msgstr "合衆国領有小離島"
+
+msgid "Unknown"
+msgstr ""
 
 msgid "Unknown log file type (id=%s)"
 msgstr "未知のログファイルタイプ (id=%s)"

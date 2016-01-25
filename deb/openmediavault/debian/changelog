@@ -1,5 +1,6 @@
 openmediavault (3.0.6) stable; urgency=low
 
+  * Update locales.
   * Various improvements.
   * Display the S.M.A.R.T. health status of the monitored devices.
 

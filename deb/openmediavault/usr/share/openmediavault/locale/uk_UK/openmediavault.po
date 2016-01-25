@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-07 22:30+0100\n"
-"PO-Revision-Date: 2016-01-07 21:30+0000\n"
+"POT-Creation-Date: 2016-01-25 22:46+0100\n"
+"PO-Revision-Date: 2016-01-25 21:47+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -454,6 +454,9 @@ msgstr "Доступний"
 
 msgid "Azerbaijan"
 msgstr "Азербайджан"
+
+msgid "Bad"
+msgstr ""
 
 msgid "Bahamas"
 msgstr "Багами"
@@ -1417,6 +1420,9 @@ msgstr "ҐіБ"
 
 msgid "Gibraltar"
 msgstr "Ґібралтар"
+
+msgid "Good"
+msgstr ""
 
 msgid "Greece"
 msgstr "Греція"
@@ -3799,6 +3805,9 @@ msgstr "Сполучені Штати"
 
 msgid "United States Minor Outlying Islands"
 msgstr "Сполучені Штати Америки Зовнішні малі острови"
+
+msgid "Unknown"
+msgstr ""
 
 msgid "Unknown log file type (id=%s)"
 msgstr "Невідомий тип log-файлу (id=%s)"

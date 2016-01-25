@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-07 22:30+0100\n"
+"POT-Creation-Date: 2016-01-25 22:46+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -440,6 +440,9 @@ msgid "Available"
 msgstr ""
 
 msgid "Azerbaijan"
+msgstr ""
+
+msgid "Bad"
 msgstr ""
 
 msgid "Bahamas"
@@ -1364,6 +1367,9 @@ msgid "GiB"
 msgstr ""
 
 msgid "Gibraltar"
+msgstr ""
+
+msgid "Good"
 msgstr ""
 
 msgid "Greece"
@@ -3561,6 +3567,9 @@ msgid "United States"
 msgstr ""
 
 msgid "United States Minor Outlying Islands"
+msgstr ""
+
+msgid "Unknown"
 msgstr ""
 
 msgid "Unknown log file type (id=%s)"

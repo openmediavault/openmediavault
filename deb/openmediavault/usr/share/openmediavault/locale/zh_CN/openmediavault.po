@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-07 22:30+0100\n"
-"PO-Revision-Date: 2016-01-08 04:27+0000\n"
-"Last-Translator: songming <by@songming.me>\n"
+"POT-Creation-Date: 2016-01-25 22:46+0100\n"
+"PO-Revision-Date: 2016-01-25 21:47+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -453,6 +453,9 @@ msgstr "可用"
 
 msgid "Azerbaijan"
 msgstr "阿塞拜疆"
+
+msgid "Bad"
+msgstr ""
 
 msgid "Bahamas"
 msgstr "巴哈马"
@@ -1416,6 +1419,9 @@ msgstr "GB"
 
 msgid "Gibraltar"
 msgstr "直布罗陀"
+
+msgid "Good"
+msgstr ""
 
 msgid "Greece"
 msgstr "希腊"
@@ -3798,6 +3804,9 @@ msgstr "美国"
 
 msgid "United States Minor Outlying Islands"
 msgstr "美国本土外小岛屿"
+
+msgid "Unknown"
+msgstr ""
 
 msgid "Unknown log file type (id=%s)"
 msgstr "未知日志文件类型 (id=%s)"
