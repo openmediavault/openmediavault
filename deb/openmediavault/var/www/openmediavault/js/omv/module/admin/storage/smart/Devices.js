@@ -476,15 +476,20 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 		stateId: "healthstate",
 		align: "center",
 		renderer: function(value, metaData) {
-			var text = "Unknown", ledColor = "gray";
 			switch (value) {
 			case "GOOD":
 				text = _("Good"),
 				ledColor = "green";
 				break;
-			case "WARNING":
-				text = _("Warning"),
+			case "BAD_ATTRIBUTE_NOW":
+			case "BAD_SECTOR":
+			case "BAD_SECTOR_MANY":
+				text = _("Bad"),
 				ledColor = "red";
+				break;
+			default:
+				text = _("Unknown"),
+				ledColor = "gray";
 				break;
 			}
 			metaData.tdCls = Ext.String.format("{0} {1}-{2}",
