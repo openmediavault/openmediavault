@@ -469,6 +469,37 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 		sortable: true,
 		dataIndex: "temperature",
 		stateId: "temperature"
+	},{
+		text: _("Status"),
+		sortable: true,
+		dataIndex: "overallstatus",
+		stateId: "overallstatus",
+		align: "center",
+		renderer: function(value, metaData) {
+			switch (value) {
+			case "GOOD":
+				text = _("Good"),
+				ledColor = "green";
+				break;
+			case "BAD_ATTRIBUTE_NOW":
+			case "BAD_SECTOR":
+			case "BAD_SECTOR_MANY":
+				text = _("Bad"),
+				ledColor = "red";
+				break;
+			default:
+				text = _("Unknown"),
+				ledColor = "gray";
+				break;
+			}
+			metaData.tdCls = Ext.String.format("{0} {1}-{2}",
+			  Ext.baseCSSPrefix + "grid-cell-iconcolumn",
+			  Ext.baseCSSPrefix + "grid-cell-iconcolumn-led",
+			  ledColor);
+			metaData.tdAttr = Ext.String.format("data-qtip='{0}'",
+			  Ext.String.htmlEncode(text));
+			return "";
+		}
 	}],
 
 	initComponent: function() {
@@ -487,7 +518,8 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 						{ name: "serialnumber", type: "string" },
 						{ name: "size", type: "string" },
 						{ name: "temperature", type: "string" },
-						{ name: "monitor", type: "boolean" }
+						{ name: "monitor", type: "boolean" },
+						{ name: "overallstatus", type: "string" }
 					]
 				}),
 				proxy: {

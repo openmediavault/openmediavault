@@ -2672,7 +2672,7 @@ abstract class OMVStorageDeviceSMARTAbstract extends OMVStorageDeviceAbstract {
 
 	public function getSMARTInformation() {
 		return new OMVATASMARTInformation($this->getDeviceFile(),
-		  $this->getSMARTDeviceType());
+		  $this->getSMARTDeviceType(), $this);
 	}
 }
 
@@ -4135,6 +4135,7 @@ class OMVStorageDeviceVirtIO extends OMVStorageDeviceSMARTAbstract {
 class OMVATASMARTInformation extends OMVObject {
 	protected $deviceFile = "";
 	protected $type = "";
+	protected $sd = NULL;
 	private $cmdOutput = NULL;
 	private $dataCached = FALSE;
 	private $attrDesc = array(
@@ -4207,10 +4208,29 @@ class OMVATASMARTInformation extends OMVObject {
 	 * @param type Specifies the type of the device, e.g. 'ata', 'cciss'
 	 *   or '3ware'. For more details please check the option '-d' in
 	 *   http://smartmontools.sourceforge.net/man5/smartd.conf.5.html.
+	 * @param sd The storage device object. Defaults to NULL.
 	 */
-	public function __construct($deviceFile, $type) {
+	public function __construct($deviceFile, $type, $sd = null) {
 		$this->deviceFile = $deviceFile;
 		$this->type = $type;
+		$this->sd = $sd;
+	}
+
+	/**
+	 * Get the device path, e.g. /dev/sda.
+	 * @return The device path.
+	 */
+	public function getDeviceFile() {
+		return $this->deviceFile;
+	}
+
+	/**
+	 * Get the type of the device, e.g. 'ata', 'sat', 'cciss' or '3ware'.
+	 * Note, this can be an empty string.
+	 * @return The device type.
+	 */
+	public function getType() {
+		return $this->type;
 	}
 
 	/**
@@ -4300,6 +4320,23 @@ class OMVATASMARTInformation extends OMVObject {
 					"description" => array_key_exists($id, $this->attrDesc) ?
 					  $this->attrDesc[$id] : ""
 				);
+			}
+		}
+		return $result;
+	}
+
+	/**
+	 * Get a specific attribute by ID.
+	 * @return An object with the requested attribute data, otherwise FALSE.
+	 */
+	public function getAttribute($id) {
+		if (FALSE === ($attributes = $this->getAttributes()))
+			return FALSE;
+		$result = FALSE;
+		foreach ($attributes as $attrk => $attrv) {
+			if ($attrv['id'] == $id) {
+				$result = $attrv;
+				break;
 			}
 		}
 		return $result;
@@ -4404,23 +4441,37 @@ class OMVATASMARTInformation extends OMVObject {
 	public function getTemperature() {
 		if (FALSE === ($attributes = $this->getAttributes()))
 			return FALSE;
-		$temp = FALSE;
+		$result = 0;
 		$found = FALSE;
 		// Process the attributes to get the temperature value.
 		foreach ($attributes as $attrk => $attrv) {
 			switch ($attrv['id']) {
+			case 190:
+				// ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
+				// 190 Airflow_Temperature_Cel 0x0022   040   039   045    Old_age   Always   FAILING_NOW 60 (0 209 61 41)
+				//
+				// ID# ATTRIBUTE_NAME          FLAGS    VALUE WORST THRESH FAIL RAW_VALUE
+				// 190 Airflow_Temperature_Cel -O---K   065   044   045    Past 35 (0 3 35 35 0)
 			case 194:
-			case 231:
-				// The value may look like: '43 (Lifetime Min/Max 16/61)'
+				// ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
+				// 194 Temperature_Celsius     0x0002   214   214   000    Old_age   Always       -       28 (Lifetime Min/Max 21/32)
+				// 194 Temperature_Celsius     0x0022   060   061   000    Old_age   Always       -       60 (0 20 0 0)
+				// 194 Temperature_Celsius     0x0022   030   055   000    Old_age   Always       -       30 (Min/Max 17/55)
+			case 231: // temperature-celsius
+				// ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
+				// 231 Temperature_Celsius     0x0013   100   100   010    Pre-fail  Always       -       0
 				$regex = '/^(\d+)(\s+(.+))*$/';
 				if (1 !== preg_match($regex, $attrv['rawvalue'], $matches))
 					continue;
-				$temp = $matches[1];
+				// Verify temperature.
+				$temp = intval($matches[1]);
+				if ((-15 > $temp) || (100 < $temp))
+					continue;
+				if (!$found || ($temp > $result))
+					$result = $temp;
 				$found = TRUE;
 				break;
 			}
-			if ($found)
-				break;
 		}
 		// If the SMART attributes are not present then it may be an older
 		// SCSI device. Then the command output looks like:
@@ -4435,16 +4486,89 @@ class OMVATASMARTInformation extends OMVObject {
 		// Current Drive Temperature:     34 C
 		// Drive Trip Temperature:        65 C
 		// ...
+		//
+		// Alternative output:
+		//
+		// ...
+		// SCT Status Version:                  3
+		// SCT Version (vendor specific):       256 (0x0100)
+		// SCT Support Level:                   1
+		// Device State:                        DST executing in background (3)
+		// Current Temperature:                    28 Celsius
+		// Power Cycle Min/Max Temperature:     23/28 Celsius
+		// Lifetime    Min/Max Temperature:     21/32 Celsius
+		// ...
 		if (FALSE === $found) {
 			foreach ($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
-				$regex = '/^Current Drive Temperature:\s+(\d+)\s+C$/';
+				$regex = '/^(Current Drive Temperature|Current Temperature):'.
+				  '\s+(\d+)\s+(C|Celsius)$/i';
 				if (1 == preg_match($regex, $cmdOutputv, $matches)) {
-					$temp = $matches[1];
+					$result = $matches[2];
+					$found = TRUE;
 					break;
 				}
 			}
 		}
-		return $temp;
+		return (TRUE === $found) ? $result : FALSE;
+	}
+
+	/**
+	 * Get the overall assessment for the device.
+	 * @return Returns the following strings:
+	 *    <ul>
+	 *   \li GOOD
+	 *   \li BAD_ATTRIBUTE_NOW
+	 *   \li BAD_SECTOR
+	 *   \li BAD_SECTOR_MANY
+	 *   \li BAD_STATUS
+	 *   </ul>
+	 *   or otherwise FALSE.
+	 */
+	public function getOverallStatus() {
+		if (FALSE === ($attributes = $this->getAttributes()))
+			return FALSE;
+		if (empty($attributes))
+			return "BAD_STATUS";
+		// Checks are adapted from libatasmart.
+		// See http://git.0pointer.net/libatasmart.git
+		// Get number of bad sectors.
+		$numSectors = 0;
+		$attrData = $this->getAttribute(5); // Reallocated_Sector_Ct
+		if (is_array($attrData))
+			$numSectors += $attrData['rawvalue'];
+		$attrData = $this->getAttribute(197); // Current_Pending_Sector
+		if (is_array($attrData))
+			$numSectors += $attrData['rawvalue'];
+		// Check if the number of bad sectors is greater than a
+		// certain threshold.
+		// !!! Note, currently this check is only available on 64bit systems
+		// because i'm too lazy to implement the log function using the BC
+		// math library to support this check on 32bit systems (the getSize()
+		// method may return really big integers for storage devices nowadays
+		// which can't be handled on 32bit systems anymore).
+		if (is_64bits() && !is_null($this->sd)) {
+			// Get the size of the device in bytes.
+			$size = intval($this->sd->getSize());
+			$sectorThreshold = intval(log($size / 512) * 1024);
+			if ($numSectors >= $sectorThreshold)
+				return "BAD_SECTOR_MANY";
+		}
+		// Check if any of the SMART attributes is bad.
+		foreach ($attributes as $attrk => $attrv) {
+			// Is the prefailure warning flag set?
+			if (FALSE === stripos($attrv['flags'], "P"))
+				continue;
+			// See https://wiki.ubuntuusers.de/Festplattenstatus
+			if ($attrv['value'] <= $attrv['treshold']) {
+				return "BAD_ATTRIBUTE_NOW";
+				break;
+			}
+		}
+		// Check if there are any bad sectors at all.
+		if ($numSectors > 0)
+            return "BAD_SECTOR";
+		// There's really nothing to complain about, so give it a pass.
+		return "GOOD";
 	}
 }
 
