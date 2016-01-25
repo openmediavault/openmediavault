@@ -4515,10 +4515,15 @@ class OMVATASMARTInformation extends OMVObject {
 			$numSectors += $attrData['value'];
 		// Check if the number of bad sectors is greater than a
 		// certain threshold.
-		if (!is_null($this->sd)) {
+		// !!! Note, currently this check is only available on 64bit systems
+		// because i'm too lazy to implement the log function using the BC
+		// math library to support this check on 32bit systems (the getSize()
+		// method may return really big integers for storage devices nowadays
+		// which can't be handled on 32bit systems anymore).
+		if (is_64bits() && !is_null($this->sd)) {
 			// Get the size of the device in bytes.
-			$size = $this->sd->getSize();
-			$sectorThreshold = intval(log(floatval($size) / 512) * 1024);
+			$size = intval($this->sd->getSize());
+			$sectorThreshold = intval(log($size / 512) * 1024);
 			if ($numSectors >= $sectorThreshold)
 				return "BAD_SECTOR_MANY";
 		}
