@@ -4443,7 +4443,8 @@ class OMVATASMARTInformation extends OMVObject {
 	public function getTemperature() {
 		if (FALSE === ($attributes = $this->getAttributes()))
 			return FALSE;
-		$result = FALSE;
+		$result = 0;
+		$found = FALSE;
 		// Process the attributes to get the temperature value.
 		foreach ($attributes as $attrk => $attrv) {
 			switch ($attrv['id']) {
@@ -4466,12 +4467,13 @@ class OMVATASMARTInformation extends OMVObject {
 					continue;
 				// Verify temperature.
 				$temp = intval($matches[1]);
-				if (($temp > -15) && $temp < 100))
+				if ((-15 > $temp) || (100 < $temp))
+					continue;
+				if (!$found || ($temp > $result))
 					$result = $temp;
+				$found = TRUE;
 				break;
 			}
-			if (FALSE !== $result)
-				break;
 		}
 		// If the SMART attributes are not present then it may be an older
 		// SCSI device. Then the command output looks like:
@@ -4498,17 +4500,18 @@ class OMVATASMARTInformation extends OMVObject {
 		// Power Cycle Min/Max Temperature:     23/28 Celsius
 		// Lifetime    Min/Max Temperature:     21/32 Celsius
 		// ...
-		if (FALSE === $result) {
+		if (FALSE === $found) {
 			foreach ($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
 				$regex = '/^(Current Drive Temperature|Current Temperature):'.
 				  '\s+(\d+)\s+(C|Celsius)$/i';
 				if (1 == preg_match($regex, $cmdOutputv, $matches)) {
 					$result = $matches[2];
+					$found = TRUE;
 					break;
 				}
 			}
 		}
-		return $result;
+		return (TRUE === $found) ? $result : FALSE;
 	}
 
 	/**
@@ -4523,7 +4526,7 @@ class OMVATASMARTInformation extends OMVObject {
 	 *   </ul>
 	 *   or otherwise FALSE.
 	 */
-	public function getHealthState() {
+	public function getOverallStatus() {
 		if (FALSE === ($attributes = $this->getAttributes()))
 			return FALSE;
 		if (empty($attributes))
@@ -4534,10 +4537,10 @@ class OMVATASMARTInformation extends OMVObject {
 		$numSectors = 0;
 		$attrData = $this->getAttribute(5); // Reallocated_Sector_Ct
 		if (is_array($attrData))
-			$numSectors += $attrData['value'];
+			$numSectors += $attrData['rawvalue'];
 		$attrData = $this->getAttribute(197); // Current_Pending_Sector
 		if (is_array($attrData))
-			$numSectors += $attrData['value'];
+			$numSectors += $attrData['rawvalue'];
 		// Check if the number of bad sectors is greater than a
 		// certain threshold.
 		// !!! Note, currently this check is only available on 64bit systems

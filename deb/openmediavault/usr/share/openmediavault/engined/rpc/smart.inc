@@ -110,7 +110,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 				  "description" => $sd->getDescription(),
 				  "vendor" => $sd->getVendor(),
 				  "serialnumber" => $sd->getSerialNumber(),
-				  "healthstate" => $smartInfo->getHealthState()
+				  "overallstatus" => $smartInfo->getOverallStatus()
 			  );
 		}
 		return $objects;

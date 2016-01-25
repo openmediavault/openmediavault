@@ -472,8 +472,8 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 	},{
 		text: _("Status"),
 		sortable: true,
-		dataIndex: "healthstate",
-		stateId: "healthstate",
+		dataIndex: "overallstatus",
+		stateId: "overallstatus",
 		align: "center",
 		renderer: function(value, metaData) {
 			switch (value) {
@@ -519,7 +519,7 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 						{ name: "size", type: "string" },
 						{ name: "temperature", type: "string" },
 						{ name: "monitor", type: "boolean" },
-						{ name: "healthstate", type: "string" }
+						{ name: "overallstatus", type: "string" }
 					]
 				}),
 				proxy: {

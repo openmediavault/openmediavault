@@ -46,6 +46,19 @@ openmediavault (3.0) stable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 30 Nov 2015 15:53:40 +0100
 
+openmediavault (2.1.25) stable; urgency=low
+
+  * Fix postfix issue.
+  * Display the S.M.A.R.T. health status of the monitored devices.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 25 Jan 2016 14:01:23 +0100
+
+openmediavault (2.1.24) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 31 Dec 2015 13:45:41 +0100
+
 openmediavault (2.1.23) stable; urgency=low
 
   * Mantis 0001430: omv-po2json crashes while converting .po files to JSON.
