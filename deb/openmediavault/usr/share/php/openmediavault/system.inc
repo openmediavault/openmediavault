@@ -4443,22 +4443,34 @@ class OMVATASMARTInformation extends OMVObject {
 	public function getTemperature() {
 		if (FALSE === ($attributes = $this->getAttributes()))
 			return FALSE;
-		$temp = FALSE;
-		$found = FALSE;
+		$result = FALSE;
 		// Process the attributes to get the temperature value.
 		foreach ($attributes as $attrk => $attrv) {
 			switch ($attrv['id']) {
+			case 190:
+				// ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
+				// 190 Airflow_Temperature_Cel 0x0022   040   039   045    Old_age   Always   FAILING_NOW 60 (0 209 61 41)
+				//
+				// ID# ATTRIBUTE_NAME          FLAGS    VALUE WORST THRESH FAIL RAW_VALUE
+				// 190 Airflow_Temperature_Cel -O---K   065   044   045    Past 35 (0 3 35 35 0)
 			case 194:
-			case 231:
-				// The value may look like: '43 (Lifetime Min/Max 16/61)'
+				// ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
+				// 194 Temperature_Celsius     0x0002   214   214   000    Old_age   Always       -       28 (Lifetime Min/Max 21/32)
+				// 194 Temperature_Celsius     0x0022   060   061   000    Old_age   Always       -       60 (0 20 0 0)
+				// 194 Temperature_Celsius     0x0022   030   055   000    Old_age   Always       -       30 (Min/Max 17/55)
+			case 231: // temperature-celsius
+				// ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
+				// 231 Temperature_Celsius     0x0013   100   100   010    Pre-fail  Always       -       0
 				$regex = '/^(\d+)(\s+(.+))*$/';
 				if (1 !== preg_match($regex, $attrv['rawvalue'], $matches))
 					continue;
-				$temp = $matches[1];
-				$found = TRUE;
+				// Verify temperature.
+				$temp = intval($matches[1]);
+				if (($temp > -15) && $temp < 100))
+					$result = $temp;
 				break;
 			}
-			if ($found)
+			if (FALSE !== $result)
 				break;
 		}
 		// If the SMART attributes are not present then it may be an older
@@ -4474,16 +4486,29 @@ class OMVATASMARTInformation extends OMVObject {
 		// Current Drive Temperature:     34 C
 		// Drive Trip Temperature:        65 C
 		// ...
-		if (FALSE === $found) {
+		//
+		// Alternative output:
+		//
+		// ...
+		// SCT Status Version:                  3
+		// SCT Version (vendor specific):       256 (0x0100)
+		// SCT Support Level:                   1
+		// Device State:                        DST executing in background (3)
+		// Current Temperature:                    28 Celsius
+		// Power Cycle Min/Max Temperature:     23/28 Celsius
+		// Lifetime    Min/Max Temperature:     21/32 Celsius
+		// ...
+		if (FALSE === $result) {
 			foreach ($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
-				$regex = '/^Current Drive Temperature:\s+(\d+)\s+C$/';
+				$regex = '/^(Current Drive Temperature|Current Temperature):'.
+				  '\s+(\d+)\s+(C|Celsius)$/i';
 				if (1 == preg_match($regex, $cmdOutputv, $matches)) {
-					$temp = $matches[1];
+					$result = $matches[2];
 					break;
 				}
 			}
 		}
-		return $temp;
+		return $result;
 	}
 
 	/**
