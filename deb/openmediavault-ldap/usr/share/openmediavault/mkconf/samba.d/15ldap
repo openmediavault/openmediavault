@@ -28,6 +28,7 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_SAMBA_CONFIG=${OMV_SAMBA_CONFIG:-"/etc/samba/smb.conf"}
+OMV_SAMBA_SECURITY=${OMV_SAMBA_SECURITY:-"user"}
 OMV_SAMBA_LDAP_SSL=${OMV_SAMBA_LDAP_SSL:-"off"}
 OMV_SAMBA_LDAP_PASSWDSYNC=${OMV_SAMBA_LDAP_PASSWDSYNC:-"yes"}
 OMV_SAMBA_LDAP_LDAPSAMTRUSTED=${OMV_SAMBA_LDAP_LDAPSAMTRUSTED:-"no"}
@@ -39,7 +40,7 @@ rootbindpw=$(omv_config_get "//services/ldap/rootbindpw")
 
 xmlstarlet sel -t -m "//services/ldap" \
   -o "#======================= LDAP Settings =======================" -n \
-  -o "security = user" -n \
+  -o "security = ${OMV_SAMBA_SECURITY}" -n \
   -o "passdb backend = ldapsam:ldap" -i "enablessl[. = '1']" -o "s" -b -o "://" -v host -i "string-length(port) > 0" -v "concat(':',port)" -b -n \
   -v "concat('ldap suffix = ',base)" -n \
   -v "concat('ldap admin dn = ',rootbinddn)" -n \

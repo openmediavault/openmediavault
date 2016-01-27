@@ -1,3 +1,10 @@
+openmediavault-ldap (3.0.1) stable; urgency=low
+
+  * Mantis 0001444: Allow changing the security option via the environment
+    variable named OMV_SAMBA_SECURITY.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 27 Jan 2016 15:40:19 +0100
+
 openmediavault-ldap (3.0) stable; urgency=low
 
   * Adapt to Debian 8 (Jessie).
