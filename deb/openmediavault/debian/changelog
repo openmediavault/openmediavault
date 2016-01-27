@@ -1,3 +1,9 @@
+openmediavault (3.0.7) stable; urgency=low
+
+  * Mantis 0001443: Fix S.M.A.R.T. overall status issue.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 27 Jan 2016 01:17:43 +0100
+
 openmediavault (3.0.6) stable; urgency=low
 
   * Update locales.
@@ -46,6 +52,13 @@ openmediavault (3.0) stable; urgency=low
   * Adapt package to Debian 8 (Jessie).
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 30 Nov 2015 15:53:40 +0100
+
+openmediavault (2.1.26) stable; urgency=low
+
+  * Various improvements.
+  * Mantis 0001443: Fix S.M.A.R.T. overall status issue.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 27 Jan 2016 01:15:58 +0100
 
 openmediavault (2.1.25) stable; urgency=low
 
