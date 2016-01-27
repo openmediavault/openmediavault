@@ -4518,6 +4518,7 @@ class OMVATASMARTInformation extends OMVObject {
 	 *    <ul>
 	 *   \li GOOD
 	 *   \li BAD_ATTRIBUTE_NOW
+	 *   \li BAD_ATTRIBUTE_IN_THE_PAST
 	 *   \li BAD_SECTOR
 	 *   \li BAD_SECTOR_MANY
 	 *   \li BAD_STATUS
@@ -4558,9 +4559,17 @@ class OMVATASMARTInformation extends OMVObject {
 			// Is the prefailure warning flag set?
 			if (FALSE === stripos($attrv['flags'], "P"))
 				continue;
+			// Always-Fail and Always-Passing thresholds are not relevant
+	        	// for our assessment.
+		        if (!(1 <= $attrv['treshold']) && (0xFD >= $attrv['treshold']))
+				continue;
 			// See https://wiki.ubuntuusers.de/Festplattenstatus
 			if ($attrv['value'] <= $attrv['treshold']) {
 				return "BAD_ATTRIBUTE_NOW";
+				break;
+			}
+			if ($attrv['worst'] <= $attrv['treshold']) {
+				return "BAD_ATTRIBUTE_IN_THE_PAST";
 				break;
 			}
 		}

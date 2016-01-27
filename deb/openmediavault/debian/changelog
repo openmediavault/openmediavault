@@ -1,3 +1,10 @@
+openmediavault (2.1.26) stable; urgency=low
+
+  * Various improvements.
+  * Mantis 0001443: Fix S.M.A.R.T. overall status issue.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 27 Jan 2016 01:15:58 +0100
+
 openmediavault (2.1.25) stable; urgency=low
 
   * Fix postfix issue.
