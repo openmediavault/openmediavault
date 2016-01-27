@@ -207,7 +207,39 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 	},{
 		text: _("Raw value"),
 		dataIndex: "rawvalue",
-		stateId: "rawvalue"
+		stateId: "rawvalue",
+	},{
+		xtype: "booleantextcolumn",
+		text: _("Type"),
+		dataIndex: "prefailure",
+		stateId: "prefailure",
+		trueText: _("prefail"),
+		falseText: _("old-age")
+	},{
+		text: _("Status"),
+		sortable: true,
+		dataIndex: "assessment",
+		stateId: "assessment",
+		align: "center",
+		renderer: function(value, metaData, record) {
+			var ledColor = "gray";
+			if (true === record.get("prefailure")) {
+				switch (value) {
+				case "GOOD":
+					ledColor = "green";
+					break;
+				case "BAD_ATTRIBUTE_NOW":
+				case "BAD_ATTRIBUTE_IN_THE_PAST":
+					ledColor = "red";
+					break;
+				}
+			}
+			metaData.tdCls = Ext.String.format("{0} {1}-{2}",
+			  Ext.baseCSSPrefix + "grid-cell-iconcolumn",
+			  Ext.baseCSSPrefix + "grid-cell-iconcolumn-led",
+			  ledColor);
+			return "";
+		}
 	}],
 
 	initComponent: function() {
@@ -226,7 +258,9 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 						{ name: "treshold", type: "int" },
 						{ name: "whenfailed", type: "string" },
 						{ name: "rawvalue", type: "string" },
-						{ name: "description", type: "string" }
+						{ name: "description", type: "string" },
+						{ name: "prefailure", type: "boolean" },
+						{ name: "assessment", type: "string" }
 					]
 				}),
 				proxy: {

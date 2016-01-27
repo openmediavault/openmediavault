@@ -18,7 +18,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/util/Format.js")
 
 /**
  * @ingroup webgui
@@ -35,9 +34,6 @@
 Ext.define("OMV.grid.column.BooleanIcon", {
 	extend: "Ext.grid.column.Column",
 	alias: [ "widget.booleaniconcolumn" ],
-	uses: [
-		"OMV.util.Format"
-	],
 
 	iconBaseCls: Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn",
 	iconCls: Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-yesno",

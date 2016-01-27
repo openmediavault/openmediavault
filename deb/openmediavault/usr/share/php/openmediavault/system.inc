@@ -4310,7 +4310,7 @@ class OMVATASMARTInformation extends OMVObject {
 			  '(\d+)\s+(\S+)\s+(.+)$/i';
 			if (1 == preg_match($regex, $cmdOutputv, $matches)) {
 				$id = intval($matches[1]);
-				$result[] = array(
+				$attrData = array(
 					"id" => $id,
 					"attrname" => $matches[2],
 					"flags" => $matches[3],
@@ -4320,11 +4320,40 @@ class OMVATASMARTInformation extends OMVObject {
 					"whenfailed" => $matches[7],
 					"rawvalue" => $matches[8],
 					"description" => array_key_exists($id, $this->attrDesc) ?
-					  $this->attrDesc[$id] : ""
+					  $this->attrDesc[$id] : "",
+					// Additional fields used for the assessment.
+					"prefailure" => (FALSE !== stripos($matches[3], "P")),
+					"assessment" => "BAD_STATUS"
 				);
+				// Assess prefailure attributes.
+				if (TRUE === $attrData['prefailure'])
+					$this->assessPrefailureAttribute($attrData);
+				$result[] = $attrData;
 			}
 		}
 		return $result;
+	}
+
+	private function assessPrefailureAttribute(&$attrData) {
+		if (FALSE === $attrData['prefailure'])
+			return;
+		// Set the default assessment.
+		$attrData['assessment'] = "GOOD";
+		// Always-Fail and Always-Passing thresholds are not relevant
+		// for our assessment.
+		if (!(1 <= $attrData['treshold']) && (0xFD >= $attrData['treshold'])) {
+			$attrData['assessment'] = "BAD_STATUS";
+			return;
+		}
+		// See https://wiki.ubuntuusers.de/Festplattenstatus
+		if ($attrData['value'] <= $attrData['treshold']) {
+			$attrData['assessment'] = "BAD_ATTRIBUTE_NOW";
+			return;
+		}
+		if ($attrData['worst'] <= $attrData['treshold']) {
+			$attrData['assessment'] = "BAD_ATTRIBUTE_IN_THE_PAST";
+			return;
+		}
 	}
 
 	/**
@@ -4558,20 +4587,11 @@ class OMVATASMARTInformation extends OMVObject {
 		}
 		// Check if any of the SMART attributes is bad.
 		foreach ($attributes as $attrk => $attrv) {
-			// Is the prefailure warning flag set?
-			if (FALSE === stripos($attrv['flags'], "P"))
+			// Is it a prefailure attribute?
+			if (FALSE === $attrv['prefailure'])
 				continue;
-			// Always-Fail and Always-Passing thresholds are not relevant
-	        	// for our assessment.
-		        if (!(1 <= $attrv['treshold']) && (0xFD >= $attrv['treshold']))
-				continue;
-			// See https://wiki.ubuntuusers.de/Festplattenstatus
-			if ($attrv['value'] <= $attrv['treshold']) {
-				return "BAD_ATTRIBUTE_NOW";
-				break;
-			}
-			if ($attrv['worst'] <= $attrv['treshold']) {
-				return "BAD_ATTRIBUTE_IN_THE_PAST";
+			if ("GOOD" !== $attrv['assessment']) {
+				return $attrv['assessment'];
 				break;
 			}
 		}
