@@ -2,7 +2,7 @@ openmediavault (2.1.26) stable; urgency=low
 
   * Various improvements.
   * Mantis 0001443: Fix S.M.A.R.T. overall status issue.
-  * Mantis 0001453: Notifications send to wrong email-adress.
+  * Mantis 0001453: Notifications send to wrong email address.
   * Mantis 0001456: Send email notification on first login when using an
     unknown browser.
 
