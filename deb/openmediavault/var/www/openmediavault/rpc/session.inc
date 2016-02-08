@@ -107,10 +107,10 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 			// The salted user name hash is used as identifier.
 			$firstLogIn = TRUE;
 			foreach ($_COOKIE as $cookiek => $cookiev) {
-				$regex = sprintf('/^X-%s-(.+)\$/', strtoupper($ident));
+				$regex = sprintf('/^X-%s-(.+)$/', strtoupper($ident));
 				if (1 !== preg_match($regex, $cookiek, $matches))
 					continue;
-				if (crypt($params['username'], $matches[1])) {
+				if (crypt($params['username'], $matches[1]) == $matches[1]) {
 					$firstLogIn = FALSE;
 					break;
 				}
