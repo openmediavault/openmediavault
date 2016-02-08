@@ -74,9 +74,7 @@ fqdn=$(xmlstarlet sel -t -m "//system/network" \
 # - host01.localdomain
 # - host02.openmediavault.org
 myhostname=$(xmlstarlet sel -t -m "//system/network" \
-  -v "hostname" \
-  -i "string-length(domainname) > 0" -v "concat('.',domainname)" -b \
-  -i "string-length(domainname) = 0" -o ".localdomain" -b \
+  -v "hostname" -o ".localdomain" -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc)
 
 # Create '/etc/postfix/main.cf' configuration file
