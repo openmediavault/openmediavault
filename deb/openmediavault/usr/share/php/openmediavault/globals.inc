@@ -80,10 +80,10 @@ $GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE'] = "/var/lib/openmediavault/dirtymodul
 $GLOBALS['OMV_USERMGMT_ENUMERATE_USER_ROOT'] = TRUE;
 $GLOBALS['OMV_PLUGIN_ENUMERATE_GET_REPOSITORY'] = TRUE;
 $GLOBALS['OMV_MKFS_OPTIONS_EXT3'] = "-b 4096 -m 0";
-$GLOBALS['OMV_MKFS_OPTIONS_EXT4'] = "-b 4096 -m 0";
+$GLOBALS['OMV_MKFS_OPTIONS_EXT4'] = "-b 4096 -m 0 -E lazy_itable_init=0,lazy_journal_init=0";
 $GLOBALS['OMV_MKFS_OPTIONS_JFS'] = "-q";
 $GLOBALS['OMV_MKFS_OPTIONS_XFS'] = "-f";
-$GLOBALS['OMV_MKFS_EXTRAOPTIONS_EXT4_MDADM'] = "-E stride=128,stripe-width=256";
+$GLOBALS['OMV_MKFS_EXTRAOPTIONS_EXT4_MDADM'] = "-E lazy_itable_init=0,lazy_journal_init=0,stride=128,stripe-width=256";
 $GLOBALS['OMV_FSTAB_MNTOPS_EXT2'] = "defaults,nofail,user_xattr,noexec";
 $GLOBALS['OMV_FSTAB_MNTOPS_EXT3'] = "defaults,nofail,user_xattr,noexec,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0";
 $GLOBALS['OMV_FSTAB_MNTOPS_EXT4'] = "defaults,nofail,user_xattr,noexec,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0";
