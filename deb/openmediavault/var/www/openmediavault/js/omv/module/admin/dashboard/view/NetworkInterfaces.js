@@ -94,6 +94,13 @@ Ext.define("OMV.module.admin.dashboard.view.NetworkInterfaces", {
 					flex: 1
 				},{
 					xtype: "emptycolumn",
+					text: _("Hardware address"),
+					sortable: true,
+					dataIndex: "ether",
+					stateId: "ether",
+					flex: 1
+				},{
+					xtype: "emptycolumn",
 					text: _("MTU"),
 					sortable: true,
 					dataIndex: "mtu",
@@ -137,6 +144,7 @@ Ext.define("OMV.module.admin.dashboard.view.NetworkInterfaces", {
 							{ name: "address6", type: "string" },
 							{ name: "netmask6", type: "int" },
 							{ name: "gateway6", type: "string" },
+							{ name: "ether", type: "string" },
 							{ name: "mtu", type: "string" },
 							{ name: "link", type: "boolean" },
 							{ name: "speed", type: "int" }

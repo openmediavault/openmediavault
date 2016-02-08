@@ -1,6 +1,7 @@
 openmediavault (3.0.7) stable; urgency=low
 
   * Mantis 0001443: Fix S.M.A.R.T. overall status issue.
+  * Mantis 0001454: Add mac address to network widget.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 27 Jan 2016 01:17:43 +0100
 
