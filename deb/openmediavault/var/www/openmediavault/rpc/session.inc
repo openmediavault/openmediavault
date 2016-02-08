@@ -113,8 +113,8 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 				if (1 !== preg_match($regex, $cookiek, $matches))
 					continue;
 				$hashedUsername = urldecode($matches[1]);
-				if (hash_equals($hashedUsername, crypt($params['username'],
-				  $hashedUsername))) {
+				if (crypt($params['username'], $hashedUsername) ==
+				  $hashedUsername) {
 					$firstLogIn = FALSE;
 					break;
 				}

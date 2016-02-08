@@ -1,3 +1,10 @@
+openmediavault (2.1.27) stable; urgency=low
+
+  * Mantis 0001456: Send email notification on first login when using an
+    unknown browser.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 08 Feb 2016 22:40:36 +0100
+
 openmediavault (2.1.26) stable; urgency=low
 
   * Various improvements.
