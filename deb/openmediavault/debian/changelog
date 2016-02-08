@@ -1,7 +1,8 @@
 openmediavault (3.0.7) stable; urgency=low
 
+  * Update locales.
   * Mantis 0001443: Fix S.M.A.R.T. overall status issue.
-  * Mantis 0001454: Add mac address to network widget.
+  * Mantis 0001454: Add MAC address to network widget.
   * Mantis 0001455: Disable ext4lazyinit.
   * Mantis 0001456: Send email notification on first login when using an
     unknown browser.

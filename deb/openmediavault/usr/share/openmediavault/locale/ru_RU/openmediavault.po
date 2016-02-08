@@ -10,14 +10,14 @@
 # Ichi <ichiperm@gmail.com>, 2012
 # mictian <ffrants@gmail.com>, 2012
 # Александр <phg.azlk@gmail.com>, 2012
-# артур Мудрых <arturmon82@gmail.com>, 2012-2013,2015
+# артур Мудрых <arturmon82@gmail.com>, 2012-2013,2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-25 22:46+0100\n"
-"PO-Revision-Date: 2016-01-25 21:47+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2016-02-07 11:35+0000\n"
+"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/votdev/openmediavault/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -461,7 +461,7 @@ msgid "Azerbaijan"
 msgstr "Азербайджан"
 
 msgid "Bad"
-msgstr ""
+msgstr "Плохо"
 
 msgid "Bahamas"
 msgstr "Багамские острова"
@@ -1427,7 +1427,7 @@ msgid "Gibraltar"
 msgstr "Гибралтар"
 
 msgid "Good"
-msgstr ""
+msgstr "Хорошо"
 
 msgid "Greece"
 msgstr "Греция"
@@ -3523,12 +3523,12 @@ msgstr "Это поле должно быть список доменных им
 msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
-msgstr ""
+msgstr "Это поле должно быть список доменных имен или IP-адресов, разделенными  <,> или <;>"
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
 "or <;>"
-msgstr ""
+msgstr "Это поле должно быть список хост имен или IP-адресов, разделенными  <,> или <;>"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3566,14 +3566,14 @@ msgid "This field should only contain numbers"
 msgstr "Это поле должно содержать только цифры"
 
 msgid "This field should only contain numbers separated by <,> or <;>"
-msgstr ""
+msgstr "Это поле должно содержать только цифры, разделенные <,> или <;>"
 
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
-msgstr ""
+msgstr "Это поле должно содержать только порты (0 - 65535), разделенные <,> или <;>"
 
 msgid "This field should only contain strings separated by <,> or <;>"
-msgstr ""
+msgstr "Это поле должно только содержать строки, разделенные <,> или <;>"
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Эта функция эффективна только в том случае, если жесткий диск поддерживает ее."
@@ -3812,7 +3812,7 @@ msgid "United States Minor Outlying Islands"
 msgstr "США Внешние малые острова"
 
 msgid "Unknown"
-msgstr ""
+msgstr "Неизвестно"
 
 msgid "Unknown log file type (id=%s)"
 msgstr "Неизвестный тип файла журнала (id=%s)"

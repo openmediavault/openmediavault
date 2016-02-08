@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Chang-Eon Byeon <ksna0827@gmail.com>, 2014-2015
+# Chang-Eon Byeon <ksna0827@gmail.com>, 2014-2016
 # Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015
 # Volker <votdev@gmx.de>, 2014
 msgid ""
@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-25 22:46+0100\n"
-"PO-Revision-Date: 2016-01-25 21:47+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2016-01-29 18:00+0000\n"
+"Last-Translator: Chang-Eon Byeon <ksna0827@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -456,7 +456,7 @@ msgid "Azerbaijan"
 msgstr "아제르바이잔"
 
 msgid "Bad"
-msgstr ""
+msgstr "나쁨"
 
 msgid "Bahamas"
 msgstr "바하마"
@@ -1422,7 +1422,7 @@ msgid "Gibraltar"
 msgstr "지브롤터"
 
 msgid "Good"
-msgstr ""
+msgstr "좋음"
 
 msgid "Greece"
 msgstr "그리스"
@@ -2934,7 +2934,7 @@ msgid "Self-test logs"
 msgstr "자가진단 기록"
 
 msgid "Send a test email"
-msgstr "전자우편 보내기 시험"
+msgstr "시험용 전자우편 전송"
 
 msgid "Send command output via email"
 msgstr "전자우편으로 명령 결과 전송"
@@ -3006,7 +3006,7 @@ msgstr "쓰기 전용으로 설정"
 msgid ""
 "Sets the interval between disk checks to N seconds, logging S.M.A.R.T. "
 "errors and changes of S.M.A.R.T. attributes."
-msgstr ""
+msgstr "디스크 검사의 간격을 N초로 설정하고, S.M.A.R.T.의 에러와 S.M.A.R.T. 속성의 변경을 기록합니다."
 
 msgid "Settings"
 msgstr "설정"
@@ -3518,12 +3518,12 @@ msgstr "이 항목은 도메인 이름들이나 IP 주소들의 목록이어야 
 msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
-msgstr ""
+msgstr "이 항목은 <,> 또는 <;>으로 구분되는 도메인 이름의 목록이나 IP 주소여야 합니다."
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
 "or <;>"
-msgstr ""
+msgstr "이 항목은 <,> 또는 <;>으로 구분되는 호스트 이름의 목록이나 IP 주소여야 합니다."
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3561,14 +3561,14 @@ msgid "This field should only contain numbers"
 msgstr "이 영역은 숫자만을 포함할 수 있습니다."
 
 msgid "This field should only contain numbers separated by <,> or <;>"
-msgstr ""
+msgstr "이 영역은 <,> 또는 <;>으로 구분되는 숫자만을 포함할 수 있습니다."
 
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
-msgstr ""
+msgstr "이 영역은 <,> 또는 <;>으로 구분되는 포트 (0 - 65535)만을 포함할 수 있습니다."
 
 msgid "This field should only contain strings separated by <,> or <;>"
-msgstr ""
+msgstr "이 영역은 <,> 또는 <;>으로 구분되는 문자열만을 포함할 수 있습니다."
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "이 기능은 하드 드라이브가 지원 할 때에만 유효합니다."
@@ -3807,7 +3807,7 @@ msgid "United States Minor Outlying Islands"
 msgstr "미국령 군소 제도"
 
 msgid "Unknown"
-msgstr ""
+msgstr "알 수 없음"
 
 msgid "Unknown log file type (id=%s)"
 msgstr "알 수 없는 로그 파일 형식 (id=%s)"
