@@ -107,10 +107,14 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 			// The salted user name hash is used as identifier.
 			$firstLogIn = TRUE;
 			foreach ($_COOKIE as $cookiek => $cookiev) {
+				// Extract the hashed username. Note, the hash is encoded
+				// to meet RFC 2616.
 				$regex = sprintf('/^X-%s-(.+)$/', strtoupper($ident));
 				if (1 !== preg_match($regex, $cookiek, $matches))
 					continue;
-				if (crypt($params['username'], $matches[1]) == $matches[1]) {
+				$hashedUsername = urldecode($matches[1]);
+				if (hash_equals($hashedUsername, crypt($params['username'],
+				  $hashedUsername))) {
 					$firstLogIn = FALSE;
 					break;
 				}
@@ -133,10 +137,14 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 				  $_SERVER['SERVER_ADDR'], date('r'), $_SERVER['REMOTE_ADDR'],
 				  $_SERVER['HTTP_USER_AGENT'], $prd->getName());
 				OMVUtil::mail('root', $params['username'], $subject, $message);
-				// Set a cookie. It will expire after 60 days.
-				setcookie(sprintf("X-%s-%s", strtoupper($ident), crypt(
-				  $params['username'])), array_rand_value(
-				  $GLOBALS['OMV_DUNE_QUOTES']), time() + 60 * 60 * 24 * 60);
+				// Set a cookie. It will expire after 60 days. Encode the
+				// hashed username to meet RFC 2616.
+				$hashedUsername = crypt($params['username']);
+				$key = sprintf("X-%s-%s", strtoupper($ident), urlencode(
+				  $hashedUsername));
+				$value = array_rand_value($GLOBALS['OMV_DUNE_QUOTES']);
+				$expire = time() + 60 * 60 * 24 * 60;
+				setcookie($key, $value, $expire);
 			}
 		} else {
 			// Log the unauthorized login attempt via syslog.
