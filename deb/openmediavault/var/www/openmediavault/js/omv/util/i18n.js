@@ -27,10 +27,10 @@ Ext.ns("OMV.util");
  * is stored in a browser cookie.
  */
 OMV.util.i18n = function() {
-	var locale, dictionary = {};
+	var locale, dictionary = {}, cookieName = "X-OPENMEDIAVAULT-LOCALE";
 	return {
 		initialize: function() {
-			locale = Ext.util.Cookies.get("locale");
+			locale = Ext.util.Cookies.get(cookieName);
 			// Auto-detect browser language if locale is not set via cookie.
 			if (!Ext.isString(locale)) {
 				if (Ext.isArray(navigator.languages)) {
@@ -54,7 +54,7 @@ OMV.util.i18n = function() {
 			// Store the locale setting in a browser cookie which will expire
 			// after one year.
 			var expires = Ext.Date.add(new Date(), Ext.Date.YEAR, 1);
-			Ext.util.Cookies.set("locale", locale, expires);
+			Ext.util.Cookies.set(cookieName, locale, expires);
 		},
 
 		loadDictionary: function(data) {

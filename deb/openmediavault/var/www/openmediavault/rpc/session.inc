@@ -92,9 +92,10 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 		// Get the product information to customize the syslog identity
 		// and cookie name.
 		$prd = new OMVProduct();
-		$ident = sprintf("%s-webgui", $prd->getName());
+		$ident = strtolower(sprintf("%s-webgui", $prd->getName()));
+		$prefix = strtoupper(sprintf("X-%s-LOGIN", $prd->getName()));
 		// Open connection to system logger.
-		openlog(strtolower($ident), LOG_PID | LOG_PERROR, LOG_AUTH);
+		openlog($ident, LOG_PID | LOG_PERROR, LOG_AUTH);
 		if (TRUE === $authenticated) {
 			// Log the successful login attempt via syslog.
 			syslog(LOG_ALERT, sprintf("Authorized login from %s ".
@@ -109,7 +110,7 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 			foreach ($_COOKIE as $cookiek => $cookiev) {
 				// Extract the hashed username. Note, the hash is encoded
 				// to meet RFC 2616.
-				$regex = sprintf('/^X-%s-(.+)$/', strtoupper($ident));
+				$regex = sprintf('/^%s-(.+)$/', $prefix);
 				if (1 !== preg_match($regex, $cookiek, $matches))
 					continue;
 				$hashedUsername = urldecode($matches[1]);
@@ -137,11 +138,12 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 				  $_SERVER['SERVER_ADDR'], date('r'), $_SERVER['REMOTE_ADDR'],
 				  $_SERVER['HTTP_USER_AGENT'], $prd->getName());
 				OMVUtil::mail('root', $params['username'], $subject, $message);
-				// Set a cookie. It will expire after 60 days. Encode the
-				// hashed username to meet RFC 2616.
+				// Set a cookie. It will expire after 60 days. The user name
+				// is crypted/hashed to be unable to reverse engineer the
+				// account names from the cookie. Finally encode the hashed
+				// user name to meet RFC 2616.
 				$hashedUsername = crypt($params['username']);
-				$key = sprintf("X-%s-%s", strtoupper($ident), urlencode(
-				  $hashedUsername));
+				$key = sprintf("%s-%s", $prefix, urlencode($hashedUsername));
 				$value = array_rand_value($GLOBALS['OMV_DUNE_QUOTES']);
 				$expire = time() + 60 * 60 * 24 * 60;
 				setcookie($key, $value, $expire);
