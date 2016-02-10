@@ -88,7 +88,7 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get task overview.
-		OMVUtil::exec("top -b -n 1", $result);
+		OMVUtil::exec("export LANG=C; top -b -n 1", $result);
 		return implode("\n", $result);
 	}
 
@@ -331,7 +331,8 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Set the system date.
-		$cmd = sprintf("date --set='@%d' 2>&1", $params['timestamp']);
+		$cmd = sprintf("export LANG=C; date --set='@%d' 2>&1",
+		  $params['timestamp']);
 		OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -375,7 +376,7 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 		  ));
 		// Prepare list of time zone identifiers (for ComboBox store).
 		$timezoneIdentifiers = DateTimeZone::listIdentifiers();
-		natsort($timezoneIdentifiers);
+		sort($timezoneIdentifiers, SORT_NATURAL);
 		return $timezoneIdentifiers;
 	}
 
