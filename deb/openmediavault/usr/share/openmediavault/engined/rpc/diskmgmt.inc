@@ -350,8 +350,8 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 		  ));
 		// Execute shell script to rescan SCSI bus.
 		$cmd = "[ -x /sys/class/scsi_host ] && for hostdir in ".
-		  "/sys/class/scsi_host/host*; do echo \"- - -\" | ".
-		  "tee \${hostdir}/scan >/dev/null; done";
+		  "\$(find /sys/class/scsi_host -iname \"host*\" -type l); ".
+		  "do echo \"- - -\" | tee \${hostdir}/scan >/dev/null; done";
 		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));

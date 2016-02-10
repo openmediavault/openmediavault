@@ -3747,6 +3747,9 @@ class OMVStorageDeviceMdadm extends OMVStorageDeviceAbstract {
 		$this->uuid = $attributes['uuid'];
 		$this->devices = explode(",", $attributes['devices']);
 
+		// Sort the devices using a "natural order" algorithm.
+		sort($this->devices, SORT_NATURAL);
+
 		// Get more information.
 		$cmd = sprintf("export LANG=C; mdadm --detail %s",
 		  escapeshellarg($this->getDeviceFile()));
@@ -4047,6 +4050,9 @@ class OMVStorageDeviceDM extends OMVStorageDeviceAbstract {
 				continue;
 			$result[] = sprintf("/dev/%s", $item->getFilename());
 		}
+		// Sort the devices using a "natural order" algorithm.
+		if (!sort($result, SORT_NATURAL))
+			return FALSE;
 		return $result;
 	}
 
@@ -4089,7 +4095,7 @@ class OMVStorageDeviceBcache extends OMVStorageDeviceAbstract {
 		// Make sure the canonical device file is used to extract the name
 		// of the device.
 		$path = sprintf("/sys/block/%s/slaves", $this->getDeviceName(TRUE));
-		if(!file_exists($path))
+		if (!file_exists($path))
 			return FALSE;
 		$result = array();
 		$dir = new DirectoryIterator($path);
@@ -4098,6 +4104,9 @@ class OMVStorageDeviceBcache extends OMVStorageDeviceAbstract {
 				continue;
 			$result[] = sprintf("/dev/%s", $item->getFilename());
 		}
+		// Sort the devices using a "natural order" algorithm.
+		if (!sort($result, SORT_NATURAL))
+			return FALSE;
 		return $result;
 	}
 
@@ -4949,7 +4958,7 @@ class OMVNetworkInterfaces extends OMVObject {
 			$result = array_unique(array_merge($result, $devs));
 		}
 		// Sort the devices using a "natural order" algorithm.
-		if (!natsort($result))
+		if (!sort($result, SORT_NATURAL))
 			return FALSE;
 		return $result;
 	}
@@ -4978,7 +4987,7 @@ class OMVNetworkInterfaces extends OMVObject {
 			$result = array_diff($result, $slaves);
 		}
 		// Sort the devices using a "natural order" algorithm.
-		if (!natsort($result))
+		if (!sort($result, SORT_NATURAL))
 			return FALSE;
 		return $result;
 	}
@@ -5003,7 +5012,7 @@ class OMVNetworkInterfaces extends OMVObject {
 			$result = array_unique(array_merge($result, $slaves));
 		}
 		// Sort the devices using a "natural order" algorithm.
-		if (!natsort($result))
+		if (!sort($result, SORT_NATURAL))
 			return FALSE;
 		return $result;
 	}
