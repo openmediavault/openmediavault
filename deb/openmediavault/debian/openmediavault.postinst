@@ -98,7 +98,7 @@ case "$1" in
 			####################################################################
 			# Setup all services.
 			####################################################################
-			echo "Updating init scripts actions ..."
+			echo "Updating service units ..."
 			deb-systemd-invoke stop systemd-timesyncd.service || :
 			deb-systemd-helper disable systemd-timesyncd.service || :
 			deb-systemd-invoke stop smartmontools.service || :

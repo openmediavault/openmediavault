@@ -1,9 +1,4 @@
 etc/openmediavault
-etc/apt/pre-invoke.d
-etc/apt/post-invoke.d
-etc/apt/update-pre-invoke.d
-etc/apt/update-post-invoke.d
-etc/apt/update-post-invoke-success.d
 etc/nginx/openmediavault-webgui.d
 usr/share/openmediavault
 usr/share/php/openmediavault
