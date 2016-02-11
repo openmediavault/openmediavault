@@ -19,7 +19,8 @@
 
 # Testing:
 # deviceid=$(udevadm info --device-id-of-file=/); echo ${deviceid}
-# devicefile=$(readlink -f /dev/block/${deviceid}); echo $devicefile
+# devicefile=$(readlink -f /dev/block/${deviceid}); echo ${devicefile}
+# udevadm info -a --name=${devicefile}
 # udevadm trigger --property-match=DEVNAME=${devicefile}
 # udevadm test /sys/class/block/$(basename ${devicefile})
 #
@@ -29,9 +30,15 @@
 
 ACTION!="add|change", GOTO="write_dev_root_link_rules_end"
 SUBSYSTEM!="block", GOTO="write_dev_root_link_rules_end"
+
+# Multimedia Card (MMC) devices
+KERNEL=="mmcblk[0-9]p[0-9]", ENV{ID_NAME}=="?*", ENV{ID_SERIAL}=="?*", GOTO="write_dev_root_link_rules_start"
+
+# Skip everything else except ATA and SCSI devices
 ENV{ID_BUS}!="scsi|ata", GOTO="write_dev_root_link_rules_end"
 NAME=="?*", GOTO="write_dev_root_link_rules_end"
 
+LABEL="write_dev_root_link_rules_start"
 DRIVERS=="?*", IMPORT{program}="omv-write_dev_root_link_rules"
 
 LABEL="write_dev_root_link_rules_end"

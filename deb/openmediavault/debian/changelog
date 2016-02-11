@@ -2,6 +2,8 @@ openmediavault (3.0.8) stable; urgency=low
 
   * Update locales.
   * Various improvements.
+  * Improve UDEV rule '60-openmediavault-dev-root-link.rules' to identify
+    Multimedia Card (MMC) devices.
   * Mantis 0001458: Failed to scan for new devices.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 10 Feb 2016 19:25:07 +0100
