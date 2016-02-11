@@ -155,6 +155,11 @@ case "$1" in
 			omv_config_add_element "/config/services/clamav/jobs/job[remove='0']" "virusaction" "nothing"
 			omv_config_add_element "/config/services/clamav/jobs/job[remove='1']" "virusaction" "delete"
 		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.2"; then
+			omv-mkconf clamav
+			deb-systemd-invoke reload clamav-daemon || :
+			deb-systemd-invoke reload clamav-freshclam || :
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
