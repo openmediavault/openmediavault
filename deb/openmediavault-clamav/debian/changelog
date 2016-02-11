@@ -1,3 +1,9 @@
+openmediavault-clamav (3.0.2) stable; urgency=low
+
+  * Adapt logrotate configuration to systemd.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 11 Feb 2016 11:21:24 +0100
+
 openmediavault-clamav (3.0.1) stable; urgency=low
 
   * Various improvements.

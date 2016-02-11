@@ -244,7 +244,11 @@ xmlstarlet sel -t \
 chmod 644 ${OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT}
 
 # Create logrotate configuration files.
-cat <<EOF > ${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG}
+rm -f ${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG}
+if [ "${OMV_CLAMAV_FRESHCLAM_UPDATELOGFILE}" != "${OMV_CLAMAV_CLAMD_LOGFILE}" ]; then
+    # Only write a seperate logrotate configuration file for clamav-freshclam if
+    # it does not use the same logfile as clamd.
+    cat <<EOF > ${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG}
 ${OMV_CLAMAV_CLAMD_LOGFILE} {
 	rotate 12
 	weekly
@@ -252,17 +256,14 @@ ${OMV_CLAMAV_CLAMD_LOGFILE} {
 	delaycompress
 	create 640 ${OMV_CLAMAV_CLAMD_USER} adm
 	postrotate
-	/etc/init.d/clamav-daemon reload-log > /dev/null
+	if [ -d /run/systemd/system ]; then
+		systemctl -q is-active clamav-daemon && systemctl kill --signal=SIGHUP clamav-daemon
+	else
+		/etc/init.d/clamav-daemon reload-log > /dev/null
+	fi
 	endscript
 }
 EOF
-chown ${OMV_CLAMAV_CLAMD_USER}:root "${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG}"
-chmod 0644 "${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG}"
-
-# Only write a seperate logrotate configuration file for clamav-freshclam if
-# it does not use the same logfile as clamd.
-rm -f ${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG}
-if [ "${OMV_CLAMAV_FRESHCLAM_UPDATELOGFILE}" != "${OMV_CLAMAV_CLAMD_LOGFILE}" ]; then
 	cat <<EOF > ${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG}
 ${OMV_CLAMAV_FRESHCLAM_UPDATELOGFILE} {
 	rotate 12
@@ -272,10 +273,35 @@ ${OMV_CLAMAV_FRESHCLAM_UPDATELOGFILE} {
 	missingok
 	create 640 ${OMV_CLAMAV_FRESHCLAM_DATABASEOWNER} adm
 	postrotate
-	/etc/init.d/clamav-freshclam reload-log > /dev/null
+	if [ -d /run/systemd/system ]; then
+		systemctl -q is-active clamav-freshclam && systemctl kill --signal=SIGHUP clamav-freshclam
+	else
+		/etc/init.d/clamav-freshclam reload-log > /dev/null
+	fi
 	endscript
 }
 EOF
 	chown ${OMV_CLAMAV_FRESHCLAM_DATABASEOWNER}:root "${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG}"
 	chmod 0644 "${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG}"
+else
+    cat <<EOF > ${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG}
+${OMV_CLAMAV_CLAMD_LOGFILE} {
+	rotate 12
+	weekly
+	compress
+	delaycompress
+	create 640 ${OMV_CLAMAV_CLAMD_USER} adm
+	postrotate
+	if [ -d /run/systemd/system ]; then
+		systemctl -q is-active clamav-daemon && systemctl kill --signal=SIGHUP clamav-daemon
+		systemctl -q is-active clamav-freshclam && systemctl kill --signal=SIGHUP clamav-freshclam
+	else
+		/etc/init.d/clamav-daemon reload-log > /dev/null
+		/etc/init.d/clamav-freshclam reload-log > /dev/null
+	fi
+	endscript
+}
+EOF
 fi
+chown ${OMV_CLAMAV_CLAMD_USER}:root "${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG}"
+chmod 0644 "${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG}"
