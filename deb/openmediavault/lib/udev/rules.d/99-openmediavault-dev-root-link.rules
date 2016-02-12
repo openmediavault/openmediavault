@@ -39,6 +39,6 @@ ENV{ID_BUS}!="scsi|ata", GOTO="write_dev_root_link_rules_end"
 NAME=="?*", GOTO="write_dev_root_link_rules_end"
 
 LABEL="write_dev_root_link_rules_start"
-DRIVERS=="?*", IMPORT{program}="omv-write_dev_root_link_rules"
+DRIVERS=="?*", IMPORT{program}="openmediavault-write_dev_root_link_rules"
 
 LABEL="write_dev_root_link_rules_end"

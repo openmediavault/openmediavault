@@ -28,7 +28,7 @@ if [ -n "$UDEV_LOG" ]; then
         fi
 fi
 
-RULES_FILE='/etc/udev/rules.d/60-openmediavault-dev-root-link.rules'
+RULES_FILE="/etc/udev/rules.d/61-openmediavault-dev-root-link.rules"
 
 . /lib/udev/rule_generator.functions
 
@@ -36,9 +36,10 @@ RULES_FILE='/etc/udev/rules.d/60-openmediavault-dev-root-link.rules'
 
 eval $(udevadm info --export --export-prefix=ROOT_ --device-id-of-file=/ || true)
 [ "${ROOT_MAJOR}" -a "${ROOT_MINOR}" ] || exit 0
+[ "${ROOT_MAJOR}" != 0 ] || exit 0
 
 lock_rules_file
-echo 'ACTION!="remove", SUBSYSTEM=="block", ENV{MAJOR}=="'${ROOT_MAJOR}'", ENV{MINOR}=="'${ROOT_MINOR}'", SYMLINK+="root"' > ${RULES_FILE}
+echo 'ACTION=="add|change", SUBSYSTEM=="block", ENV{MAJOR}=="'${ROOT_MAJOR}'", ENV{MINOR}=="'${ROOT_MINOR}'", SYMLINK+="root"' > ${RULES_FILE}
 unlock_rules_file
 
 exit 0
