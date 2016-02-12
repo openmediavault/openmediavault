@@ -87,7 +87,8 @@ Ext.define("OMV.module.admin.system.certificate.ssh.Edit", {
 		},{
 			xtype: "textfield",
 			name: "comment",
-			fieldLabel: _("Comment")
+			fieldLabel: _("Comment"),
+			value: location.hostname
 		}];
 	}
 });
@@ -205,7 +206,8 @@ Ext.define("OMV.module.admin.system.certificate.ssh.Certificates", {
 					xtype: "textfield",
 					name: "comment",
 					fieldLabel: _("Comment"),
-					allowBlank: false
+					allowBlank: false,
+					value: location.hostname
 				}],
 				listeners: {
 					scope: me,
