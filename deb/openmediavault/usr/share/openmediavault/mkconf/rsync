@@ -27,6 +27,10 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+OMV_CRONSCRIPTS_DIR=${OMV_CRONSCRIPTS_DIR:-"/var/lib/openmediavault/cron.d"}
+OMV_SSH_KEYS_DIR=${OMV_SSH_KEYS_DIR:-"/etc/ssh"}
+OMV_SSH_KEY_PREFIX=${OMV_SSH_KEY_PREFIX:-"openmediavault-"}
+
 OMV_RSYNC_CRONSCRIPT=${OMV_RSYNC_CRONSCRIPT:-"/etc/cron.d/openmediavault-rsync"}
 OMV_RSYNC_CRONSCRIPT_MASK=${OMV_RSYNC_CRONSCRIPT_MASK:-"755"}
 OMV_RSYNC_CRONSCRIPT_TEMPLATE=${OMV_RSYNC_CRONSCRIPT_TEMPLATE:-"rsync-"}
@@ -103,9 +107,16 @@ xmlstarlet sel -t \
 		-o "trap cleanup 0 1 2 5 15" -n \
 		-o "touch ${runfile}" -n \
 		-o "echo \"Please wait, syncing <${srcuri}> to <${desturi}> ...\n\"" -n \
-		-i "string-length(password) > 0" -v "concat('env RSYNC_PASSWORD=\"',password,'\" ')" -b \
-		-o "rsync --verbose --log-file=\"${OMV_RSYNC_LOGFILE}\"" \
-		-i "recursive = '1'" -o " --recursive" -b \
+		-i "authentication = 'password'" \
+		  -i "string-length(password) > 0" -v "concat('env RSYNC_PASSWORD=\"',password,'\" ')" -b \
+		-b \
+		-i "authentication = 'pubkey'" \
+		  -o "eval \$(ssh-agent) >/dev/null" -n \
+		  -v "concat('ssh-add ${OMV_SSH_KEYS_DIR}/${OMV_SSH_KEY_PREFIX}',sshcertificateref,' >/dev/null')" -n \
+		-b \
+			-o "rsync --verbose --log-file=\"${OMV_RSYNC_LOGFILE}\"" \
+		-i "authentication = 'pubkey'" -o " --rsh ssh" -b \
+	    	-i "recursive = '1'" -o " --recursive" -b \
 		-i "times = '1'" -o " --times" -b \
 		-i "compress = '1'" -o " --compress" -b \
 		-i "archive = '1'" -o " --archive" -b \
@@ -134,7 +145,9 @@ xmlstarlet sel -t \
 	  -i "everynhour[. = '0']" -v "concat(hour,' ')" -b \
 	  -i "everyndayofmonth[. = '1']" -v "concat('*/',dayofmonth,' ')" -b \
 	  -i "everyndayofmonth[. = '0']" -v "concat(dayofmonth,' ')" -b \
-	  -v "concat(month,' ',dayofweek,' ${OMV_RSYNC_CRONUSER} ${OMV_CRONSCRIPTS_DIR}/${OMV_RSYNC_CRONSCRIPT_TEMPLATE}',uuid)" \
+	  -v "concat(month,' ',dayofweek,' ')" \
+	  -o "${OMV_RSYNC_CRONUSER} " \
+	  -v "concat('${OMV_CRONSCRIPTS_DIR}/${OMV_RSYNC_CRONSCRIPT_TEMPLATE}',uuid)" \
 	  -i "sendemail[. = '0']" \
 		-o " >/dev/null 2>&1" \
 	  -b \

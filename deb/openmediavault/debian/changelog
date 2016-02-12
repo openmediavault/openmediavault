@@ -1,5 +1,7 @@
 openmediavault (3.0.9) stable; urgency=low
 
+  * Mantis 0001294: Add the ability to execute a rsync job via SSH and
+    authenticate via public key.
   * Mantis 0001442: Add APT terminal output and history logs to log viewer.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 12 Feb 2016 15:32:52 +0100

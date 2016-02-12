@@ -265,7 +265,11 @@ class OMVRpcServiceRsync extends OMVRpcServiceAbstract {
 				  "extraoptions":{"type":"string"},
 				  "mode":{"type":"string","enum":["push","pull"],'.
 					'"optional":true},
-				  "password":{"type":"string","optional":true}
+				  "authentication":{"type":"string",'.'
+					"enum":["password","pubkey"],"optional":true},
+				  "password":{"type":"string","optional":true},
+				  "sshcertificateref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].
+					',"optional":true}
 			  }
 		  }');
 		// Prepare the configuration data.
@@ -303,7 +307,11 @@ class OMVRpcServiceRsync extends OMVRpcServiceAbstract {
 			"partial" => array_boolval($params, 'partial'),
 			"extraoptions" => $params['extraoptions'],
 			"mode" => isset($params['mode']) ? $params['mode'] : "",
-			"password" => isset($params['password']) ? $params['password'] : ""
+			"authentication" => isset($params['authentication']) ?
+			  $params['authentication'] : "",
+			"password" => isset($params['password']) ? $params['password'] : "",
+			"sshcertificateref" => isset($params['sshcertificateref']) ?
+			  $params['sshcertificateref'] : ""
 		);
 		// Set the configuration data.
 		$success = FALSE;

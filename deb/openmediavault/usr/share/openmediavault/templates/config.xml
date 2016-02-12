@@ -539,7 +539,9 @@
 					<extraoptions></extraoptions>
 					// remote
 					<mode>push|pull</mode>
+					<authentication>password|pubkey</authentication>
 					<password>xxx</password>
+					<sshcertificateref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sshcertificateref>
 				</job>
 				-->
 			</jobs>

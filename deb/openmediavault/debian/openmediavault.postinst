@@ -567,6 +567,13 @@ case "$1" in
 			# Reload the PHP FPM configuration.
 			deb-systemd-invoke reload php5-fpm.service || :
 		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.9"; then
+			# Add new config attributes.
+			omv_config_add_element "/config/services/rsync/jobs/job" "authentication" "password"
+			omv_config_add_element "/config/services/rsync/jobs/job" "sshcertificateref" ""
+			# Recreate certificates.
+			omv-mkconf certificates
+		fi
 	;;
 
 	triggered)

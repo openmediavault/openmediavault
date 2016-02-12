@@ -29,6 +29,7 @@
 // require("js/omv/window/Execute.js")
 // require("js/omv/form/field/Password.js")
 // require("js/omv/form/field/SharedFolderComboBox.js")
+// require("js/omv/form/field/SshCertificateComboBox.js")
 
 /**
  * @class OMV.module.admin.service.rsync.Job
@@ -39,6 +40,7 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 	uses: [
 		"OMV.form.field.Password",
 		"OMV.form.field.SharedFolderComboBox",
+		"OMV.form.field.SshCertificateComboBox",
 		"OMV.workspace.window.plugin.ConfigObject"
 	],
 
@@ -96,10 +98,7 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 						"!allowBlank"
 					]
 				},{
-					name: [
-						"mode",
-						"password"
-					],
+					name: "mode",
 					conditions: [
 						{ name: "type", value: "local" }
 					],
@@ -124,6 +123,26 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 						"show",
 						"!allowBlank"
 					]
+				},{
+					name: "authentication",
+					conditions: [
+						{ name: "type", value: "remote" }
+					],
+					properties: "show"
+				},{
+					name: "sshcertificateref",
+					conditions: [
+						{ name: "type", value: "remote" },
+						{ name: "authentication", value: "pubkey" }
+					],
+					properties: "show"
+				},{
+					name: "password",
+					conditions: [
+						{ name: "type", value: "remote" },
+						{ name: "authentication", value: "password" }
+					],
+					properties: "show"
 				}]
 			}]
 		};
@@ -208,6 +227,31 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or rsync://[USER@]HOST[:PORT]/DEST.")
+			}]
+		},{
+			xtype: "combo",
+			name: "authentication",
+			fieldLabel: _("Authentication"),
+			emptyText: _("Select an authentication mode ..."),
+			queryMode: "local",
+			store: [
+				[ "password", _("Password") ],
+				[ "pubkey", _("Public key") ]
+			],
+			allowBlank: false,
+			editable: false,
+			hidden: true,
+			triggerAction: "all",
+			value: "password"
+		},{
+			xtype: "sshcertificatecombo",
+			name: "sshcertificateref",
+			fieldLabel: _("SSH certificate"),
+			allowBlank: false,
+			hidden: true,
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("The SSH certificate used for authentication.")
 			}]
 		},{
 			xtype: "passwordfield",

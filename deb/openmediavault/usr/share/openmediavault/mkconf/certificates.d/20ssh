@@ -24,7 +24,7 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_SSH_KEYS_DIR=${OMV_SSH_KEYS_DIR:-"/var/lib/openmediavault/ssh/keys"}
+OMV_SSH_KEYS_DIR=${OMV_SSH_KEYS_DIR:-"/etc/ssh"}
 OMV_SSH_KEY_PREFIX=${OMV_SSH_KEY_PREFIX:-"openmediavault-"}
 
 # Remove all certificate files.
@@ -47,5 +47,5 @@ xmlstarlet sel -t \
 	  xmlstarlet sel -t -m "//system/certificates/sshcertificate[uuid='${uuid}']" \
 		-v publickey \
 		${OMV_CONFIG_FILE} | xmlstarlet unesc >"${pubkeyfile}"
-	  chmod 0600 "${pubkeyfile}"
+	  chmod 0644 "${pubkeyfile}"
   done
