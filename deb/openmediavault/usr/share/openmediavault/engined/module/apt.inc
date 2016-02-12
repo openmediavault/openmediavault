@@ -56,3 +56,31 @@ class OMVModuleApt extends OMVModuleServiceAbstract
 // Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
 $moduleMgr->registerModule(new OMVModuleApt());
+
+// /var/log/apt/term.log
+// Preparing to unpack .../base-files_8+deb8u3_amd64.deb ...
+// Unpacking base-files (8+deb8u3) over (8+deb8u2) ...
+// Processing triggers for install-info (5.2.0.dfsg.1-6) ...
+// Processing triggers for man-db (2.7.0.2-5) ...
+// Setting up base-files (8+deb8u3) ...
+// Installing new version of config file /etc/debian_version ...
+OMVLogFile::registerType("apt_term", array(
+  "filename" => "term.log",
+  "filepath" => "/var/log/apt/term.log",
+  "regex" => "/^(.+)$/",
+  "columns" => array(
+	  "message" => 1
+  )));
+
+// /var/log/apt/history.log
+// Start-Date: 2016-02-12  15:05:18
+// Commandline: apt-get --yes --force-yes --fix-missing --auto-remove ...
+// Upgrade: bind9-host:amd64 (9.9.5.dfsg-9+deb8u4, 9.9.5.dfsg-9+deb8u5), ...
+// End-Date: 2016-02-12  15:06:53
+OMVLogFile::registerType("apt_history", array(
+  "filename" => "history.log",
+  "filepath" => "/var/log/apt/history.log",
+  "regex" => "/^(.+)$/",
+  "columns" => array(
+	  "message" => 1
+  )));

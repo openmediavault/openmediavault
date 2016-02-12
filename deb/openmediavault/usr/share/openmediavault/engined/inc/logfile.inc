@@ -129,3 +129,25 @@ OMVLogFile::registerType("boot", array(
 	  ),
 	  "message" => 2
   )));
+
+// /var/log/dpkg.log
+// 2016-02-11 11:47:02 status unpacked openmediavault-clamav:all 3.0.2
+// 2016-02-11 11:47:02 status half-configured openmediavault-clamav:all 3.0.2
+// 2016-02-12 15:06:26 status unpacked php5-common:amd64 5.6.14+dfsg-0+deb8u1
+// 2016-02-12 15:06:26 status half-installed php5-common:amd64 5.6.14+dfsg-0+deb8u1
+OMVLogFile::registerType("dpkg", array(
+  "filename" => "dpkg.log",
+  "filepath" => "/var/log/dpkg.log",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2})\s+(.+)$/",
+  "columns" => array(
+	  "ts" => array(
+		  "index" => 1,
+		  "func" => create_function('$v', 'return strpdate($v,"Y-m-d H:i:s");')
+	  ),
+	  "date" => array(
+		  "index" => 1,
+		  "func" => create_function('$v',
+			'return strftime("%c", strpdate($v,"Y-m-d H:i:s"));')
+	  ),
+	  "message" => 2
+  )));
