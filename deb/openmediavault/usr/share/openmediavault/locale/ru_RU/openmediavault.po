@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-25 22:46+0100\n"
-"PO-Revision-Date: 2016-02-07 11:35+0000\n"
-"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
+"POT-Creation-Date: 2016-02-12 19:44+0100\n"
+"PO-Revision-Date: 2016-02-12 18:45+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/votdev/openmediavault/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -173,6 +173,12 @@ msgstr "Общий ресурс с таким именем уже существ
 
 msgid "ACL"
 msgstr "ACL"
+
+msgid "APT - History"
+msgstr ""
+
+msgid "APT - Terminal output"
+msgstr ""
 
 msgid "ASCII"
 msgstr "ASCII"
@@ -1489,6 +1495,9 @@ msgstr "Гайана"
 msgid "Haiti"
 msgstr "Гаити"
 
+msgid "Hardware address"
+msgstr ""
+
 msgid "Heard Island and McDonald Islands"
 msgstr "Остров Херд и острова Макдональд"
 
@@ -2797,6 +2806,9 @@ msgstr "SNMP версия 3"
 msgid "SSH"
 msgstr "SSH"
 
+msgid "SSH certificate"
+msgstr ""
+
 msgid "SSID"
 msgstr "SSID"
 
@@ -2925,6 +2937,9 @@ msgstr "Выберите имя пользователя ..."
 
 msgid "Select a volume ..."
 msgstr "Выберите том..."
+
+msgid "Select an authentication mode ..."
+msgstr ""
 
 msgid "Select devices to be added to the RAID device"
 msgstr "Выберите устройства для добавления в RAID"
@@ -3315,6 +3330,9 @@ msgstr "Длина RSA ключа"
 
 msgid "The RSA public key in OpenSSH format."
 msgstr "Открытый ключ RSA в формате OpenSSH."
+
+msgid "The SSH certificate used for authentication."
+msgstr ""
 
 msgid "The SSL certificate."
 msgstr "Сертификат SSL."
@@ -4088,6 +4106,12 @@ msgstr "минут"
 
 msgid "n/a"
 msgstr "n/a"
+
+msgid "old-age"
+msgstr ""
+
+msgid "prefail"
+msgstr ""
 
 msgid "seconds"
 msgstr "секунды"

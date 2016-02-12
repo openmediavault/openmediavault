@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-25 22:46+0100\n"
-"PO-Revision-Date: 2016-01-29 06:34+0000\n"
-"Last-Translator: songming <by@songming.me>\n"
+"POT-Creation-Date: 2016-02-12 19:44+0100\n"
+"PO-Revision-Date: 2016-02-12 18:45+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -167,6 +167,12 @@ msgstr "该共享文件夹已经存在"
 
 msgid "ACL"
 msgstr "ACL"
+
+msgid "APT - History"
+msgstr ""
+
+msgid "APT - Terminal output"
+msgstr ""
 
 msgid "ASCII"
 msgstr "ASCII"
@@ -1483,6 +1489,9 @@ msgstr "圭亚那"
 msgid "Haiti"
 msgstr "海地"
 
+msgid "Hardware address"
+msgstr ""
+
 msgid "Heard Island and McDonald Islands"
 msgstr "赫德岛和麦克唐纳群岛"
 
@@ -2791,6 +2800,9 @@ msgstr "SNMP版本3"
 msgid "SSH"
 msgstr "SSH"
 
+msgid "SSH certificate"
+msgstr ""
+
 msgid "SSID"
 msgstr " SSID"
 
@@ -2919,6 +2931,9 @@ msgstr "选择用户名 ..."
 
 msgid "Select a volume ..."
 msgstr "选择卷 ..."
+
+msgid "Select an authentication mode ..."
+msgstr ""
 
 msgid "Select devices to be added to the RAID device"
 msgstr "选择被添加到RAID的设备"
@@ -3309,6 +3324,9 @@ msgstr "RSA密钥长度。"
 
 msgid "The RSA public key in OpenSSH format."
 msgstr "OpenSSH格式的RSA公钥。"
+
+msgid "The SSH certificate used for authentication."
+msgstr ""
 
 msgid "The SSL certificate."
 msgstr "SSL证书。"
@@ -4082,6 +4100,12 @@ msgstr "分"
 
 msgid "n/a"
 msgstr "n/a"
+
+msgid "old-age"
+msgstr ""
+
+msgid "prefail"
+msgstr ""
 
 msgid "seconds"
 msgstr "秒"

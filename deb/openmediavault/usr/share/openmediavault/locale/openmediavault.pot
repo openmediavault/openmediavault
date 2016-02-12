@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-25 22:46+0100\n"
+"POT-Creation-Date: 2016-02-12 19:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -164,6 +164,12 @@ msgid "A shared folder with the given name already exists"
 msgstr ""
 
 msgid "ACL"
+msgstr ""
+
+msgid "APT - History"
+msgstr ""
+
+msgid "APT - Terminal output"
 msgstr ""
 
 msgid "ASCII"
@@ -1432,6 +1438,9 @@ msgstr ""
 msgid "Haiti"
 msgstr ""
 
+msgid "Hardware address"
+msgstr ""
+
 msgid "Heard Island and McDonald Islands"
 msgstr ""
 
@@ -2662,6 +2671,9 @@ msgstr ""
 msgid "SSH"
 msgstr ""
 
+msgid "SSH certificate"
+msgstr ""
+
 msgid "SSID"
 msgstr ""
 
@@ -2789,6 +2801,9 @@ msgid "Select a user name ..."
 msgstr ""
 
 msgid "Select a volume ..."
+msgstr ""
+
+msgid "Select an authentication mode ..."
 msgstr ""
 
 msgid "Select devices to be added to the RAID device"
@@ -3158,6 +3173,9 @@ msgid "The RSA key length."
 msgstr ""
 
 msgid "The RSA public key in OpenSSH format."
+msgstr ""
+
+msgid "The SSH certificate used for authentication."
 msgstr ""
 
 msgid "The SSL certificate."
@@ -3840,6 +3858,12 @@ msgid "minutes"
 msgstr ""
 
 msgid "n/a"
+msgstr ""
+
+msgid "old-age"
+msgstr ""
+
+msgid "prefail"
 msgstr ""
 
 msgid "seconds"

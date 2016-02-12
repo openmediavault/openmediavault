@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-25 22:46+0100\n"
-"PO-Revision-Date: 2016-01-25 21:47+0000\n"
+"POT-Creation-Date: 2016-02-12 19:44+0100\n"
+"PO-Revision-Date: 2016-02-12 18:45+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -167,6 +167,12 @@ msgstr "Sdílená složka s takovým názvem již existuje"
 
 msgid "ACL"
 msgstr "ACL"
+
+msgid "APT - History"
+msgstr ""
+
+msgid "APT - Terminal output"
+msgstr ""
 
 msgid "ASCII"
 msgstr "ASCII"
@@ -1483,6 +1489,9 @@ msgstr "Guyana"
 msgid "Haiti"
 msgstr "Haiti"
 
+msgid "Hardware address"
+msgstr ""
+
 msgid "Heard Island and McDonald Islands"
 msgstr "Heardův ostrov a McDonaldovy ostrovy"
 
@@ -2791,6 +2800,9 @@ msgstr "SNMP verze 3"
 msgid "SSH"
 msgstr "SSH"
 
+msgid "SSH certificate"
+msgstr ""
+
 msgid "SSID"
 msgstr "SSID"
 
@@ -2919,6 +2931,9 @@ msgstr "Vyberte uživatelské jméno ..."
 
 msgid "Select a volume ..."
 msgstr "Vyberte svazek ..."
+
+msgid "Select an authentication mode ..."
+msgstr ""
 
 msgid "Select devices to be added to the RAID device"
 msgstr "Vyberte zařízení, které má být přidáno do RAID pole"
@@ -3309,6 +3324,9 @@ msgstr "Délka RSA klíče."
 
 msgid "The RSA public key in OpenSSH format."
 msgstr "Veřejná část RSA klíče ve formátu, jaký používá OpenSSH."
+
+msgid "The SSH certificate used for authentication."
+msgstr ""
 
 msgid "The SSL certificate."
 msgstr "SSL certifikát."
@@ -4082,6 +4100,12 @@ msgstr "minuty"
 
 msgid "n/a"
 msgstr "n/a"
+
+msgid "old-age"
+msgstr ""
+
+msgid "prefail"
+msgstr ""
 
 msgid "seconds"
 msgstr "sekundy"

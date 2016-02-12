@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-25 22:46+0100\n"
-"PO-Revision-Date: 2016-01-25 21:47+0000\n"
+"POT-Creation-Date: 2016-02-12 19:44+0100\n"
+"PO-Revision-Date: 2016-02-12 18:45+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/votdev/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -166,6 +166,12 @@ msgstr "Υπάρχει ήδη κοινόχρηστος φάκελος με το 
 
 msgid "ACL"
 msgstr "Λίστα Διαχείρισης Πρόσβασης"
+
+msgid "APT - History"
+msgstr ""
+
+msgid "APT - Terminal output"
+msgstr ""
 
 msgid "ASCII"
 msgstr "ASCII"
@@ -1482,6 +1488,9 @@ msgstr "Guyana"
 msgid "Haiti"
 msgstr "Haiti"
 
+msgid "Hardware address"
+msgstr ""
+
 msgid "Heard Island and McDonald Islands"
 msgstr "Heard Island and McDonald Islands"
 
@@ -2790,6 +2799,9 @@ msgstr "SNMP έκδοση 3"
 msgid "SSH"
 msgstr "SSH"
 
+msgid "SSH certificate"
+msgstr ""
+
 msgid "SSID"
 msgstr "SSID"
 
@@ -2918,6 +2930,9 @@ msgstr "Επιλογή ονόματος χρήστη ..."
 
 msgid "Select a volume ..."
 msgstr "Επιλογή τόμου ..."
+
+msgid "Select an authentication mode ..."
+msgstr ""
 
 msgid "Select devices to be added to the RAID device"
 msgstr "Επιλογή συσκευών για προσθήκη σε συσκευή RAID"
@@ -3308,6 +3323,9 @@ msgstr "Το μήκος του κλειδιού RSA."
 
 msgid "The RSA public key in OpenSSH format."
 msgstr "Το δημόσιο κλειδί RSA σε μορφή OpenSSH."
+
+msgid "The SSH certificate used for authentication."
+msgstr ""
 
 msgid "The SSL certificate."
 msgstr "Το πιστοποιητικό SSL."
@@ -4081,6 +4099,12 @@ msgstr "λεπτά"
 
 msgid "n/a"
 msgstr "τίποτα"
+
+msgid "old-age"
+msgstr ""
+
+msgid "prefail"
+msgstr ""
 
 msgid "seconds"
 msgstr "δευτερόλεπτα"

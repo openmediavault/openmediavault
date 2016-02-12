@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-25 22:46+0100\n"
-"PO-Revision-Date: 2016-01-25 21:47+0000\n"
+"POT-Creation-Date: 2016-02-12 19:44+0100\n"
+"PO-Revision-Date: 2016-02-12 18:45+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/votdev/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -167,6 +167,12 @@ msgstr "En delt mappe med det gitte navnet eksisterer allerede"
 
 msgid "ACL"
 msgstr "ACL"
+
+msgid "APT - History"
+msgstr ""
+
+msgid "APT - Terminal output"
+msgstr ""
 
 msgid "ASCII"
 msgstr "ASCII"
@@ -1483,6 +1489,9 @@ msgstr "Guyana"
 msgid "Haiti"
 msgstr "Haiti"
 
+msgid "Hardware address"
+msgstr ""
+
 msgid "Heard Island and McDonald Islands"
 msgstr "Heard- og McDonaldøyene"
 
@@ -2791,6 +2800,9 @@ msgstr "SNMP versjon 3"
 msgid "SSH"
 msgstr "SSH"
 
+msgid "SSH certificate"
+msgstr ""
+
 msgid "SSID"
 msgstr ""
 
@@ -2919,6 +2931,9 @@ msgstr ""
 
 msgid "Select a volume ..."
 msgstr "Velg et volum ..."
+
+msgid "Select an authentication mode ..."
+msgstr ""
 
 msgid "Select devices to be added to the RAID device"
 msgstr "Velg en enhet som skal bli lagt til RAID enheten"
@@ -3308,6 +3323,9 @@ msgid "The RSA key length."
 msgstr "RSA nøkkellengde"
 
 msgid "The RSA public key in OpenSSH format."
+msgstr ""
+
+msgid "The SSH certificate used for authentication."
 msgstr ""
 
 msgid "The SSL certificate."
@@ -4082,6 +4100,12 @@ msgstr "minutter"
 
 msgid "n/a"
 msgstr "n/a"
+
+msgid "old-age"
+msgstr ""
+
+msgid "prefail"
+msgstr ""
 
 msgid "seconds"
 msgstr "sekunder"

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-25 22:46+0100\n"
-"PO-Revision-Date: 2016-01-26 02:22+0000\n"
-"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
+"POT-Creation-Date: 2016-02-12 19:44+0100\n"
+"PO-Revision-Date: 2016-02-12 18:45+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/votdev/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -166,6 +166,12 @@ msgstr "指定された名前の共有フォルダは既に存在します"
 
 msgid "ACL"
 msgstr "ACL"
+
+msgid "APT - History"
+msgstr ""
+
+msgid "APT - Terminal output"
+msgstr ""
 
 msgid "ASCII"
 msgstr "ASCII"
@@ -1482,6 +1488,9 @@ msgstr "ガイアナ"
 msgid "Haiti"
 msgstr "ハイチ"
 
+msgid "Hardware address"
+msgstr ""
+
 msgid "Heard Island and McDonald Islands"
 msgstr "ハード島とマクドナルド諸島"
 
@@ -2790,6 +2799,9 @@ msgstr "SNMP version 3"
 msgid "SSH"
 msgstr "SSH"
 
+msgid "SSH certificate"
+msgstr ""
+
 msgid "SSID"
 msgstr "SSID"
 
@@ -2918,6 +2930,9 @@ msgstr "ユーザー名を選択 ..."
 
 msgid "Select a volume ..."
 msgstr "ボリュームを選択 ..."
+
+msgid "Select an authentication mode ..."
+msgstr ""
 
 msgid "Select devices to be added to the RAID device"
 msgstr "RAIDデバイスに追加するデバイスを選択"
@@ -3308,6 +3323,9 @@ msgstr "RSAキーの長さ。"
 
 msgid "The RSA public key in OpenSSH format."
 msgstr "OpenSSH形式でのRSA公開鍵。"
+
+msgid "The SSH certificate used for authentication."
+msgstr ""
 
 msgid "The SSL certificate."
 msgstr "SSL証明書。"
@@ -4081,6 +4099,12 @@ msgstr "分"
 
 msgid "n/a"
 msgstr "n/a"
+
+msgid "old-age"
+msgstr ""
+
+msgid "prefail"
+msgstr ""
 
 msgid "seconds"
 msgstr "秒"

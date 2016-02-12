@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-25 22:46+0100\n"
-"PO-Revision-Date: 2016-02-10 18:32+0000\n"
+"POT-Creation-Date: 2016-02-12 19:44+0100\n"
+"PO-Revision-Date: 2016-02-12 18:51+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -175,6 +175,12 @@ msgstr "Ein freigegebener Ordner mit dem angegebenen Namen ist bereits vorhanden
 
 msgid "ACL"
 msgstr "ACL"
+
+msgid "APT - History"
+msgstr "APT - Historie"
+
+msgid "APT - Terminal output"
+msgstr "APT - Terminalausgabe"
 
 msgid "ASCII"
 msgstr "ASCII"
@@ -1491,6 +1497,9 @@ msgstr "Guyana"
 msgid "Haiti"
 msgstr "Haiti"
 
+msgid "Hardware address"
+msgstr "Geräteadresse"
+
 msgid "Heard Island and McDonald Islands"
 msgstr "Heard- und McDonaldinseln"
 
@@ -2799,6 +2808,9 @@ msgstr "SNMP version 3"
 msgid "SSH"
 msgstr "SSH"
 
+msgid "SSH certificate"
+msgstr "SSH Zertifikat"
+
 msgid "SSID"
 msgstr "SSID"
 
@@ -2927,6 +2939,9 @@ msgstr "Wähle einen Benutzernamen ..."
 
 msgid "Select a volume ..."
 msgstr "Wähle einen Datenträger ..."
+
+msgid "Select an authentication mode ..."
+msgstr "Wählen Sie eine Authentifizierungsmethode"
 
 msgid "Select devices to be added to the RAID device"
 msgstr "Zum RAID Laufwerk hinzuzufügenden Laufwerke auswählen"
@@ -3317,6 +3332,9 @@ msgstr "Die RSA Schlüssel-Länge."
 
 msgid "The RSA public key in OpenSSH format."
 msgstr "Der öffentliche RSA Schlüssel im OpenSSH Format."
+
+msgid "The SSH certificate used for authentication."
+msgstr "Das für die Authentifizierung zu verwendende SSH Zertifikat."
 
 msgid "The SSL certificate."
 msgstr "Das zu benutzende SSL-Zertifikat."
@@ -4090,6 +4108,12 @@ msgstr "Minuten"
 
 msgid "n/a"
 msgstr "N/V"
+
+msgid "old-age"
+msgstr ""
+
+msgid "prefail"
+msgstr ""
 
 msgid "seconds"
 msgstr "Sekunden"

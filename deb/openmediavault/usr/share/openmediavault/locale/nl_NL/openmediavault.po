@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-25 22:46+0100\n"
-"PO-Revision-Date: 2016-01-25 21:47+0000\n"
+"POT-Creation-Date: 2016-02-12 19:44+0100\n"
+"PO-Revision-Date: 2016-02-12 18:45+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/votdev/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -169,6 +169,12 @@ msgstr "Er bestaat al een gedeelde map met de opgegeven naam"
 
 msgid "ACL"
 msgstr "ACL"
+
+msgid "APT - History"
+msgstr ""
+
+msgid "APT - Terminal output"
+msgstr ""
 
 msgid "ASCII"
 msgstr "ASCII"
@@ -1485,6 +1491,9 @@ msgstr "Guyana "
 msgid "Haiti"
 msgstr "Haïti "
 
+msgid "Hardware address"
+msgstr ""
+
 msgid "Heard Island and McDonald Islands"
 msgstr "Heard Eilanden en McDonald Eilanden"
 
@@ -2793,6 +2802,9 @@ msgstr "SNMP-versie 3"
 msgid "SSH"
 msgstr "SSH"
 
+msgid "SSH certificate"
+msgstr ""
+
 msgid "SSID"
 msgstr "SSID"
 
@@ -2921,6 +2933,9 @@ msgstr "Selecteer een gebruikersnaam ..."
 
 msgid "Select a volume ..."
 msgstr "Selecteer een schijf(deel) ..."
+
+msgid "Select an authentication mode ..."
+msgstr ""
 
 msgid "Select devices to be added to the RAID device"
 msgstr "Kies de schijven die toegevoegd moeten worden aan de RAID-configuratie"
@@ -3311,6 +3326,9 @@ msgstr "De RSA-sleutellengte."
 
 msgid "The RSA public key in OpenSSH format."
 msgstr "De RSA publieke sleutel in OpenSSH-opmaak"
+
+msgid "The SSH certificate used for authentication."
+msgstr ""
 
 msgid "The SSL certificate."
 msgstr "Het SSL-certificaat"
@@ -4084,6 +4102,12 @@ msgstr "minuten"
 
 msgid "n/a"
 msgstr "n.v.t."
+
+msgid "old-age"
+msgstr ""
+
+msgid "prefail"
+msgstr ""
 
 msgid "seconds"
 msgstr "seconden"
