@@ -120,7 +120,7 @@ Ext.define("OMV.form.field.SslCertificateComboBox", {
 		if (me.disabled)
 			return;
 		var uuid = me.getValue();
-		if (!Ext.isUUID(uuid))
+		if (!Ext.isUuid(uuid))
 			return;
 		Ext.create("OMV.workspace.window.TextArea", {
 			rpcService: "CertificateMgmt",

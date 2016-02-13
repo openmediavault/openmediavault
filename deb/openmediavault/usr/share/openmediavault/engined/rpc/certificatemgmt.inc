@@ -96,8 +96,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 				$objectv['name'] = $certinfo['name'];
 				$objectv['validto'] = $certinfo['validTo_time_t'];
 			}
-			// Remove the certificate and the private key (not needed here).
-			unset($objectv['certificate']);
+			// Remove the private key. It should not leave the system.
 			unset($objectv['privatekey']);
 			// Set '_used' flag if the certificate is referenced.
 			if (TRUE === $xmlConfig->exists("//sslcertificateref[".
@@ -139,6 +138,8 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
+		// Remove the private key. It should not leave the system.
+		unset($objectv['privatekey']);
 		return $object;
 	}
 
@@ -163,55 +164,70 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  "properties":{
 				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
 				  "certificate":{"type":"string"},
-				  "privatekey":{"type":"string"},
+				  "privatekey":{"type":"string","optional":true},
 				  "comment":{"type":"string"}
 			  }
 		  }');
 		// Validate the certificate.
-		if(!($certificate = openssl_x509_read($params['certificate']))) {
+		if (!($certificate = openssl_x509_read($params['certificate']))) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Invalid certificate: %s", openssl_error_string()));
 		}
 		// Validate the private key.
-		if(!($privatekey = openssl_pkey_get_private($params['privatekey']))) {
-			openssl_x509_free($certificate);
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Invalid private key: %s", openssl_error_string()));
-		}
-		// Check if the private key corresponds to the certificate.
-		if(!openssl_x509_check_private_key($certificate, $privatekey)) {
-			openssl_x509_free($certificate);
+		if (array_key_exists($params, "privatekey")) {
+			if (!($privatekey = openssl_pkey_get_private(
+			  $params['privatekey']))) {
+				openssl_x509_free($certificate);
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf("Invalid private key: %s", openssl_error_string()));
+			}
+			// Check if the private key corresponds to the certificate.
+			if (!openssl_x509_check_private_key($certificate, $privatekey)) {
+				openssl_pkey_free($privatekey);
+				openssl_x509_free($certificate);
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf("Private key does not correspond to the certificate: %s",
+				  openssl_error_string()));
+			}
 			openssl_pkey_free($privatekey);
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Private key does not correspond to the certificate: %s",
-			  openssl_error_string()));
 		}
 		openssl_x509_free($certificate);
-		openssl_pkey_free($privatekey);
-		// Prepare configuration data.
-		$object = array(
-			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  OMVUtil::uuid() : $params['uuid'],
-			"certificate" => $params['certificate'],
-			"privatekey" => $params['privatekey'],
-			"comment" => $params['comment']
-		);
 		// Set the configuration data.
 		$success = FALSE;
-		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+		if ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+			// The private key is required here.
+			if (!array_key_exists($params, "privatekey"))
+				throw new OMVException(OMVErrorMsg::E_RPC_INVALID_PARAMS,
+				  "key: 'privatekey' does not exist.");
+			// Prepare configuration data.
+			$object = array(
+				"uuid" => OMVUtil::uuid(),
+				"certificate" => $params['certificate'],
+				"privatekey" => $params['privatekey'],
+				"comment" => $params['comment']
+			);
 			// Append object to configuration.
 			$success = $xmlConfig->set("//system/certificates",
 			  array("sslcertificate" => $object));
 		} else {
+			// Prepare configuration data.
+			$object = array(
+				"uuid" => $params['uuid'],
+				"certificate" => $params['certificate'],
+				"comment" => $params['comment']
+			);
+			// Private key is optional here.
+			if (array_key_exists($params, "privatekey"))
+				$object['privatekey'] = $params['privatekey'];
 			// Update existing configuration object.
-			$success = $xmlConfig->replace("//system/certificates/".
+			$success = $xmlConfig->update("//system/certificates/".
 			  "sslcertificate[uuid='{$params['uuid']}']", $object);
 		}
-		if(FALSE === $success) {
+		if (FALSE === $success) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Save the configuration.
-		if(FALSE === $xmlConfig->save()) {
+		if (FALSE === $xmlConfig->save()) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
 			  $xmlConfig->getLastError());
 		}
@@ -428,6 +444,8 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 		}
 		// Add additional informations.
 		foreach ($objects as $objectk => &$objectv) {
+			// Remove the private key. It should not leave the system.
+			unset($objectv['privatekey']);
 			// Set '_used' flag if the certificate is referenced.
 			if (TRUE === $xmlConfig->exists("//sshcertificateref[".
 			  "contains(.,'{$objectv['uuid']}')]")) {
@@ -519,6 +537,8 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
+		// Remove the private key. It should not leave the system.
+		unset($object['privatekey']);
 		return $object;
 	}
 
@@ -543,35 +563,51 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  "properties":{
 				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
 				  "publickey":{'.$GLOBALS['OMV_JSONSCHEMA_SSHPUBKEY_OPENSSH'].'},
-				  "privatekey":{'.$GLOBALS['OMV_JSONSCHEMA_SSHPRIVKEY_RSA'].'},
+				  "privatekey":{'.$GLOBALS['OMV_JSONSCHEMA_SSHPRIVKEY_RSA'].
+					',"optional":true},
 				  "comment":{"type":"string"}
 			  }
 		  }');
-		// Validate the keys.
-		if (!($privatekey = openssl_pkey_get_private($params['privatekey']))) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Invalid private key: %s", openssl_error_string()));
+		// Validate the private key.
+		if (array_key_exists($params, "privatekey")) {
+			if (!($privatekey = openssl_pkey_get_private(
+			  $params['privatekey']))) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf("Invalid private key: %s", openssl_error_string()));
+			}
+			openssl_pkey_free($privatekey);
 		}
-		openssl_pkey_free($privatekey);
-		// Prepare configuration data.
-		$object = array(
-			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  OMVUtil::uuid() : $params['uuid'],
-			"publickey" => $params['publickey'],
-			"privatekey" => $params['privatekey'],
-			"comment" => $params['comment']
-		);
 		// Set the configuration data.
 		$success = FALSE;
 		if ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+			// The private key is required here.
+			if (!array_key_exists($params, "privatekey"))
+				throw new OMVException(OMVErrorMsg::E_RPC_INVALID_PARAMS,
+				  "key: 'privatekey' does not exist.");
+			// Prepare configuration data.
+			$object = array(
+				"uuid" => OMVUtil::uuid(),
+				"publickey" => $params['publickey'],
+				"privatekey" => $params['privatekey'],
+				"comment" => $params['comment']
+			);
 			// Append object to configuration.
 			$success = $xmlConfig->set("//system/certificates",
 			  array("sshcertificate" => $object));
 		} else {
+			// Prepare configuration data.
+			$object = array(
+				"uuid" => $params['uuid'],
+				"publickey" => $params['publickey'],
+				"comment" => $params['comment']
+			);
+			// Private key is optional here.
+			if (array_key_exists($params, "privatekey"))
+				$object['privatekey'] = $params['privatekey'];
 			// Update existing configuration object.
 			$xpath = sprintf("//system/certificates/sshcertificate[uuid='%s']",
 			  $params['uuid']);
-			$success = $xmlConfig->replace($xpath, $object);
+			$success = $xmlConfig->update($xpath, $object);
 		}
 		if (FALSE === $success)
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);

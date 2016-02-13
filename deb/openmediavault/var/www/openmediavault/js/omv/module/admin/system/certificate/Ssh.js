@@ -44,7 +44,6 @@ Ext.define("OMV.module.admin.system.certificate.ssh.Edit", {
 		ptype: "configobject"
 	}],
 	width: 630,
-	height: 440,
 
 	/**
 	 * The class constructor.
@@ -62,13 +61,19 @@ Ext.define("OMV.module.admin.system.certificate.ssh.Edit", {
 	},
 
 	getFormItems: function() {
+		var me = this;
 		return [{
 			xtype: "textarea",
 			name: "privatekey",
 			fieldLabel: _("Private key"),
 			cls: "x-form-textarea-monospaced",
 			allowBlank: false,
-			flex: 2,
+			// Hide and do not submit/validate this field when an existing
+			// certificate is processed.
+			hidden: !me.isNew(),
+			disabled: !me.isNew(),
+			height: 150,
+			flex: 1,
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The private RSA key in X.509 PEM format.")
@@ -80,6 +85,9 @@ Ext.define("OMV.module.admin.system.certificate.ssh.Edit", {
 			cls: "x-form-textarea-monospaced",
 			vtype: "sshPubKeyOpenSSH",
 			allowBlank: false,
+			// Set this field to read-only when an existing certificate
+			// is processed.
+			readOnly: !me.isNew(),
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The RSA public key in OpenSSH format.")
@@ -87,8 +95,7 @@ Ext.define("OMV.module.admin.system.certificate.ssh.Edit", {
 		},{
 			xtype: "textfield",
 			name: "comment",
-			fieldLabel: _("Comment"),
-			value: location.hostname
+			fieldLabel: _("Comment")
 		}];
 	}
 });
@@ -206,8 +213,7 @@ Ext.define("OMV.module.admin.system.certificate.ssh.Certificates", {
 					xtype: "textfield",
 					name: "comment",
 					fieldLabel: _("Comment"),
-					allowBlank: false,
-					value: location.hostname
+					allowBlank: false
 				}],
 				listeners: {
 					scope: me,

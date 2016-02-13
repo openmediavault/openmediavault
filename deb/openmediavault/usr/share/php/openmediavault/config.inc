@@ -243,6 +243,42 @@ class OMVConfigEngine extends OMVObject {
 	}
 
 	/**
+	 * Update the existing configuration for the given XPath expression.
+	 * The given data will override the existing configuration. If the
+	 * given XPath expression does not exist, then the method will exit
+	 * immediatelly.
+	 * This function is protected by mutual exclusion, thus the function
+	 * will be blocked until it can acces the protected section.
+	 * @param xpath The XPath expression to execute.
+	 * @param data The data to set for the given XPath expression.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function update($xpath, $data) {
+		sem_acquire($this->semaphore);
+		$result = FALSE;
+		// Get the configuration for the given XPath expression.
+		$currentData = $this->get($xpath);
+		if (is_null($currentData))
+			goto finish;
+		// Merge the configuration.
+		$data = array_merge($currentData, $data);
+		// Replace the old configuration with the merged one.
+		$domxpath = new DOMXPath($this->domdoc);
+		$nodeList = $domxpath->query($xpath);
+		if (0 >= $nodeList->length)
+			goto finish;
+		foreach ($nodeList as $node) {
+			$this->deleteChildren($node);
+			$this->nodeFromArray($data, $node);
+		}
+		$result = TRUE;
+		$this->commit();
+	finish:
+		sem_release($this->semaphore);
+		return $result;
+	}
+
+	/**
 	 * Delete the nodes matching the given XPath expression. This function is
 	 * protected by mutual exclusion, thus the function will be blocked until
 	 * it can acces the protected section.

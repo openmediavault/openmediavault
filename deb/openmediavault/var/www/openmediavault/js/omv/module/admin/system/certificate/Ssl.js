@@ -436,7 +436,6 @@ Ext.define("OMV.module.admin.system.certificate.ssl.Edit", {
 		ptype: "configobject"
 	}],
 	width: 630,
-	height: 440,
 
 	/**
 	 * The class constructor.
@@ -454,13 +453,19 @@ Ext.define("OMV.module.admin.system.certificate.ssl.Edit", {
 	},
 
 	getFormItems: function() {
+		var me = this;
 		return [{
 			xtype: "textarea",
 			name: "privatekey",
 			fieldLabel: _("Private key"),
 			cls: "x-form-textarea-monospaced",
 			allowBlank: false,
-			flex: 2,
+			// Hide and do not submit/validate this field when an existing
+			// certificate is processed.
+			hidden: !me.isNew(),
+			disabled: !me.isNew(),
+			height: 150,
+			flex: 1,
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("Paste an private RSA key in X.509 PEM format here.")
@@ -471,7 +476,11 @@ Ext.define("OMV.module.admin.system.certificate.ssl.Edit", {
 			fieldLabel: _("Certificate"),
 			cls: "x-form-textarea-monospaced",
 			allowBlank: false,
-			flex: 2,
+			// Set this field to read-only when an existing certificate
+			// is processed.
+			readOnly: !me.isNew(),
+			height: 150,
+			flex: 1,
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("Paste a RSA certificate in X.509 PEM format here.")

@@ -148,7 +148,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 				// Get the UUID of the selected volume.
 				var field = me.findField("mntentref");
 				var value = field.getValue();
-				if (Ext.isUUID(value)) {
+				if (Ext.isUuid(value)) {
 					Ext.create("OMV.window.FolderBrowser", {
 						uuid: value,
 						listeners: {

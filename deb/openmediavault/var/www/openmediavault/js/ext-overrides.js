@@ -855,7 +855,8 @@ Ext.applyIf(Ext, {
 	 * Copies recursively all the properties of config to obj.
 	 * @param o The receiver of the properties
 	 * @param c The source of the properties
-	 * @param defaults A different object that will also be applied for default values
+	 * @param defaults A different object that will also be applied
+	 *   for default values.
 	 * @return Returns the receiver object.
 	 */
 	applyEx: function(o, c, defaults) {
@@ -880,9 +881,18 @@ Ext.applyIf(Ext, {
 	 * @param value The variable being evaluated.
 	 * @return TRUE if variable is a UUID, otherwise FALSE.
 	 */
-	isUUID: function(value) {
-		if(Ext.isEmpty(value) || !Ext.isString(value))
+	isUuid: function(value) {
+		if (!Ext.isDefined(value) || !Ext.isString(value) ||
+		  Ext.isEmpty(value))
 			return false;
 		return /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(value);
+	},
+
+	/**
+	 * Deprecated.
+	 */
+	isUUID: function(value) {
+		Ext.log.warn("Ext.isUUID() is deprecated. Use Ext.isUuid() instead.");
+		return Ext.isUuid(value);
 	}
 });
