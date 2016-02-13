@@ -1,3 +1,9 @@
+openmediavault (2.1.29) stable; urgency=low
+
+  * Fix bug in the package postinst script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 13 Feb 2016 19:41:24 +0100
+
 openmediavault (2.1.28) stable; urgency=low
 
   * Various improvements.
