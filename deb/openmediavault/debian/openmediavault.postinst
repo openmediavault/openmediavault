@@ -601,8 +601,9 @@ case "$1" in
 				restart-engined)
 					echo "Restarting engine daemon ..."
 					monit restart omv-engined || ( \
-					  deb-systemd-invoke unmask openmediavault-engined.service; \
+					  deb-systemd-helper unmask openmediavault-engined.service; \
 					  deb-systemd-invoke restart openmediavault-engined.service)
+				;;
 			esac
 		done
 	;;
