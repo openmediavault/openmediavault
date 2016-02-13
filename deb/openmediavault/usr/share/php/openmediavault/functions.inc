@@ -537,6 +537,7 @@ function inet_getnetmask($bits, $forceipv6 = FALSE) {
 
 /**
  * Check if the given integer value is in the range min <= var <= max.
+ * @ingroup api
  * @param var The value to check.
  * @param min The minimum value of the sequence.
  * @param max The maximum value of the sequence.
@@ -549,4 +550,31 @@ function in_range($var, $min, $max) {
 		  'min_range' => $min,
 		  'max_range' => $max
 	  ))));
+}
+
+/**
+ * Compare two UUID v4 strings.
+ * @ingroup api
+ * @param uuid1 The first UUID v4.
+ * @param uuid2 The second UUID v4.
+ * @return Returns TRUE when the two strings are equal, FALSE otherwise.
+ */
+function uuid_equals($uuid1, $uuid2) {
+	if (!is_uuid($uuid1) || !is_uuid($uuid2))
+		return FALSE;
+	return ($uuid1 == $uuid2);
+}
+
+/**
+ * Compare two file system UUID strings.
+ * @ingroup api
+ * @see http://wiki.ubuntuusers.de/UUID
+ * @param uuid1 The first file system UUID.
+ * @param uuid2 The second file system UUID.
+ * @return Returns TRUE when the two strings are equal, FALSE otherwise.
+ */
+function fs_uuid_equals($uuid1, $uuid2) {
+	if (!is_fs_uuid($uuid1) || !is_fs_uuid($uuid2))
+		return FALSE;
+	return ($uuid1 == $uuid2);
 }

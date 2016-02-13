@@ -1096,6 +1096,24 @@ class OMVFilesystems extends OMVObject {
 				continue;
 			if (FALSE == $backend->isBlkidEnumerated())
 				continue;
+			// Check if there are duplicate file systems. This seems to
+			// affect only BTRFS.
+			// ToDo: Find a smart way to relocate this check into the
+			// filesystems OMVFilesystemBackendAbstract implementation.
+			if (is_fs_uuid($data['uuid'])) {
+				$duplicate = FALSE;
+				foreach ($result as $resultk => $resultv) {
+					if (fs_uuid_equals($resultv['uuid'], $data['uuid'])) {
+						$duplicate = TRUE;
+						break;
+					}
+				}
+				// Skip this file system if another one with the same UUID
+				// is already processed and added. In this case the first
+				// by blkid listed file system wins.
+				if (TRUE === $duplicate)
+					continue;
+			}
 			// Append filesystem.
 			$result[$data['devicefile']] = $data;
 		}
