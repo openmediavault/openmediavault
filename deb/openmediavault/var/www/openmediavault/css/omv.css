@@ -196,7 +196,8 @@ div#headerrlogo {
 	background-repeat: no-repeat;
 }
 /* Mark read-only form fields */
-.x-form-item-default.x-form-readonly input {
+.x-form-item-default.x-form-readonly input,
+.x-form-item-default.x-form-readonly textarea {
 	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
 	opacity: 0.3;
 }

@@ -174,7 +174,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  sprintf("Invalid certificate: %s", openssl_error_string()));
 		}
 		// Validate the private key.
-		if (array_key_exists($params, "privatekey")) {
+		if (array_key_exists("privatekey", $params)) {
 			if (!($privatekey = openssl_pkey_get_private(
 			  $params['privatekey']))) {
 				openssl_x509_free($certificate);
@@ -196,7 +196,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 		$success = FALSE;
 		if ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
 			// The private key is required here.
-			if (!array_key_exists($params, "privatekey"))
+			if (!array_key_exists("privatekey", $params))
 				throw new OMVException(OMVErrorMsg::E_RPC_INVALID_PARAMS,
 				  "key: 'privatekey' does not exist.");
 			// Prepare configuration data.
@@ -217,7 +217,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 				"comment" => $params['comment']
 			);
 			// Private key is optional here.
-			if (array_key_exists($params, "privatekey"))
+			if (array_key_exists("privatekey", $params))
 				$object['privatekey'] = $params['privatekey'];
 			// Update existing configuration object.
 			$success = $xmlConfig->update("//system/certificates/".
@@ -569,7 +569,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Validate the private key.
-		if (array_key_exists($params, "privatekey")) {
+		if (array_key_exists("privatekey", $params)) {
 			if (!($privatekey = openssl_pkey_get_private(
 			  $params['privatekey']))) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
@@ -581,7 +581,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 		$success = FALSE;
 		if ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
 			// The private key is required here.
-			if (!array_key_exists($params, "privatekey"))
+			if (!array_key_exists("privatekey", $params))
 				throw new OMVException(OMVErrorMsg::E_RPC_INVALID_PARAMS,
 				  "key: 'privatekey' does not exist.");
 			// Prepare configuration data.
@@ -602,7 +602,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 				"comment" => $params['comment']
 			);
 			// Private key is optional here.
-			if (array_key_exists($params, "privatekey"))
+			if (array_key_exists("privatekey", $params))
 				$object['privatekey'] = $params['privatekey'];
 			// Update existing configuration object.
 			$xpath = sprintf("//system/certificates/sshcertificate[uuid='%s']",

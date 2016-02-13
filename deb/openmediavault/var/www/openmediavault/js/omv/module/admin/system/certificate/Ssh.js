@@ -82,7 +82,6 @@ Ext.define("OMV.module.admin.system.certificate.ssh.Edit", {
 			xtype: "textfield",
 			name: "publickey",
 			fieldLabel: _("Public key"),
-			cls: "x-form-textarea-monospaced",
 			vtype: "sshPubKeyOpenSSH",
 			allowBlank: false,
 			// Set this field to read-only when an existing certificate
