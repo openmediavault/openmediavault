@@ -121,6 +121,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Create", {
 			emptyText: _("Select a file system ..."),
 			queryMode: "local",
 			store: [
+				[ "btrfs", "BTRFS" ],
 				[ "ext3", "EXT3" ],
 				[ "ext4", "EXT4" ],
 				[ "xfs", "XFS" ],
