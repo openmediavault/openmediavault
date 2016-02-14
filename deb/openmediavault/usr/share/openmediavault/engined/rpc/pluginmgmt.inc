@@ -24,6 +24,7 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/product.inc");
 require_once("openmediavault/rpcservice.inc");
+require_once("openmediavault/systemctl.inc");
 
 class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 	/**
@@ -139,10 +140,21 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 				  "packages":{"type":"array","items":{"type":"string"}}
 			  }
 		  }');
+		// Validate package names.
+		$prd = new OMVProduct();
+		$regex = sprintf("/^%s-.+$/", $prd->getPackageName());
+		foreach ($params['packages'] as $packagek => $packagev) {
+			if (0 == preg_match($regex, $packagev)) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf("Failed to remove package '%s'. The name ".
+				  "of the package does not match the plugin naming ".
+				  "convention.", $packagev));
+			}
+		}
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
-		if($pid > 0) { // Parent process.
+		if ($pid > 0) { // Parent process.
 			$this->initializeBgProcStatus($bgStatusFilename, $pid);
 			return $bgStatusFilename;
 		}
@@ -151,27 +163,30 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 			$bgOutputFilename = $this->createBgProcOutput();
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
-			// Get product informations.
-			$prd = new OMVProduct();
-			// Validate package names.
-			$regex = sprintf("/^%s-.+$/", $prd->getPackageName());
-			foreach($params['packages'] as $packagek => $packagev) {
-				if(0 == preg_match($regex, $packagev)) {
-					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-					  sprintf("Failed to remove package '%s'. The name ".
-					  "of the package does not match the plugin naming ".
-					  "convention.", $packagev));
-				}
-			}
 			// Remove the packages.
-			$cmd = sprintf("export LANG=C; apt-get --yes --auto-remove ".
-			  "--purge remove %s 2>&1", implode(" ", $params['packages']));
-			if(0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
+			// Block the DPKG trigger 'restart-engined', otherwise this
+			// will kill this process which runs the apt-get command when
+			// the omv-engine is restarted by the DPKG trigger during the
+			// installation process.
+			// ToDo: Is there a more elegant solution?
+			$cmd = sprintf("export LANG=C; export OMV_DPKG_RESTARTENGINE=no; ".
+			  "export DEBIAN_FRONTEND=noninteractive; apt-get --yes ".
+			  "--auto-remove --purge remove %s 2>&1",
+			  implode(" ", $params['packages']));
+			if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
 			}
 			// Finalize the background process.
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
+			// Finally restart the 'omv-engined' process. This is done via
+			// a DPKG trigger by default, but we have blockend this using
+			// the OMV_DPKG_RESTARTENGINE environment variable.
+			// Note, we use systemd to restart the process, but this will
+			// lead into a PID changed notification from monit.
+			// ToDo: Is there a more elegant solution?
+			$systemCtl = new OMVSystemCtl("openmediavault-engined");
+			$systemCtl->restart();
 			exit(0);
 		} catch(Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
@@ -245,10 +260,21 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 				  "packages":{"type":"array","items":{"type":"string"}}
 			  }
 		  }');
+		// Validate package names.
+		$prd = new OMVProduct();
+		$regex = sprintf("/^%s-.+$/", $prd->getPackageName());
+		foreach ($params['packages'] as $packagek => $packagev) {
+			if (0 == preg_match($regex, $packagev)) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf("Failed to install package '%s'. The name ".
+				  "of the package does not match the plugin naming ".
+				  "convention.", $packagev));
+			}
+		}
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
-		if($pid > 0) { // Parent process.
+		if ($pid > 0) { // Parent process.
 			$this->initializeBgProcStatus($bgStatusFilename, $pid);
 			return $bgStatusFilename;
 		}
@@ -257,28 +283,30 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 			$bgOutputFilename = $this->createBgProcOutput();
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
-			// Get product informations.
-			$prd = new OMVProduct();
-			// Validate package names.
-			$regex = sprintf("/^%s-.+$/", $prd->getPackageName());
-			foreach($params['packages'] as $packagek => $packagev) {
-				if(0 == preg_match($regex, $packagev)) {
-					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-					  sprintf("Failed to install package '%s'. The name ".
-					  "of the package does not match the plugin naming ".
-					  "convention.", $packagev));
-				}
-			}
 			// Install the packages.
-			$cmd = sprintf("export LANG=C; export DEBIAN_FRONTEND=noninteractive; ".
-			  "apt-get --yes --force-yes --fix-missing --allow-unauthenticated ".
-			  "--reinstall install %s 2>&1", implode(" ", $params['packages']));
-			if(0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
+			// Block the DPKG trigger 'restart-engined', otherwise this
+			// will kill this process which runs the apt-get command when
+			// the omv-engine is restarted by the DPKG trigger during the
+			// installation process.
+			// ToDo: Is there a more elegant solution?
+			$cmd = sprintf("export LANG=C; export OMV_DPKG_RESTARTENGINE=no; ".
+			  "export DEBIAN_FRONTEND=noninteractive; apt-get --yes ".
+			  "--force-yes --fix-missing --allow-unauthenticated --reinstall ".
+			  "install %s 2>&1", implode(" ", $params['packages']));
+			if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
 			}
 			// Finalize the background process.
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
+			// Finally restart the 'omv-engined' process. This is done via
+			// a DPKG trigger by default, but we have blockend this using
+			// the OMV_DPKG_RESTARTENGINE environment variable.
+			// Note, we use systemd to restart the process, but this will
+			// lead into a PID changed notification from monit.
+			// ToDo: Is there a more elegant solution?
+			$systemCtl = new OMVSystemCtl("openmediavault-engined");
+			$systemCtl->restart();
 			exit(0);
 		} catch(Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);

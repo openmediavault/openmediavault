@@ -24,6 +24,8 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+OMV_DPKG_RESTARTENGINE=${OMV_DPKG_RESTARTENGINE:-"yes"}
+
 case "$1" in
 	configure)
 		########################################################################
@@ -142,12 +144,12 @@ case "$1" in
 		########################################################################
 		# Trigger file permission update.
 		########################################################################
-		dpkg-trigger update-fixperms || omv_install_fixperms
+		dpkg-trigger update-fixperms || :
 
 		########################################################################
 		# Trigger locale files creation/update.
 		########################################################################
-		dpkg-trigger update-locale || omv_install_locale
+		dpkg-trigger update-locale || :
 
 		########################################################################
 		# Generate configurations
@@ -177,7 +179,7 @@ case "$1" in
 			deb-systemd-invoke restart monit.service || :
 			deb-systemd-invoke restart avahi-daemon.service || :
 		fi
-		dpkg-trigger restart-engined || monit restart omv-engined
+		dpkg-trigger restart-engined || :
 
 		########################################################################
 		# Action to be done depending on the previous version.
@@ -236,7 +238,7 @@ case "$1" in
 			omv-mkconf monit
 			invoke-rc.d monit restart
 			update-rc.d openmediavault-engined defaults &>/dev/null
-			dpkg-trigger restart-engined || monit restart omv-engined
+			dpkg-trigger restart-engined || :
 			# Update apache2 configuration.
 			omv-mkconf apache2
 			invoke-rc.d apache2 graceful
@@ -599,10 +601,12 @@ case "$1" in
 				;;
 
 				restart-engined)
-					echo "Restarting engine daemon ..."
-					monit restart omv-engined || ( \
-					  deb-systemd-helper unmask openmediavault-engined.service; \
-					  deb-systemd-invoke restart openmediavault-engined.service)
+					if omv_checkyesno "${OMV_DPKG_RESTARTENGINE}"; then
+						echo "Restarting engine daemon ..."
+						monit restart omv-engined || ( \
+						  deb-systemd-helper unmask openmediavault-engined.service; \
+						  deb-systemd-invoke restart openmediavault-engined.service)
+					fi
 				;;
 			esac
 		done

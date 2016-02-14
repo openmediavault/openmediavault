@@ -1,6 +1,7 @@
 openmediavault (3.0.10) stable; urgency=low
 
   * Fix bug in the package postinst script.
+  * Fix issue that concerns the plugin add/remove procedure.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 13 Feb 2016 19:15:26 +0100
 
