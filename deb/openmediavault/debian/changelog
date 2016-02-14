@@ -1,5 +1,6 @@
 openmediavault (3.0.10) stable; urgency=low
 
+  * Update locales.
   * Fix bug in the package postinst script.
   * Improve openmediavault-engined systemd unit file to fix an issue that
     concerns the plugin add/remove procedure. Thanks to subzero79.
