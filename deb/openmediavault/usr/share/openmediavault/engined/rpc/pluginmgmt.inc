@@ -24,7 +24,6 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/product.inc");
 require_once("openmediavault/rpcservice.inc");
-require_once("openmediavault/systemctl.inc");
 
 class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 	/**
@@ -164,12 +163,7 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
 			// Remove the packages.
-			// Block the DPKG trigger 'restart-engined', otherwise this
-			// will kill this process which runs the apt-get command when
-			// the omv-engine is restarted by the DPKG trigger during the
-			// installation process.
-			// ToDo: Is there a more elegant solution?
-			$cmd = sprintf("export LANG=C; export OMV_DPKG_RESTARTENGINE=no; ".
+			$cmd = sprintf("export LANG=C; ".
 			  "export DEBIAN_FRONTEND=noninteractive; apt-get --yes ".
 			  "--auto-remove --purge remove %s 2>&1",
 			  implode(" ", $params['packages']));
@@ -179,14 +173,6 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 			}
 			// Finalize the background process.
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
-			// Finally restart the 'omv-engined' process. This is done via
-			// a DPKG trigger by default, but we have blockend this using
-			// the OMV_DPKG_RESTARTENGINE environment variable.
-			// Note, we use systemd to restart the process, but this will
-			// lead into a PID changed notification from monit.
-			// ToDo: Is there a more elegant solution?
-			$systemCtl = new OMVSystemCtl("openmediavault-engined");
-			$systemCtl->restart();
 			exit(0);
 		} catch(Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
@@ -284,12 +270,7 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
 			// Install the packages.
-			// Block the DPKG trigger 'restart-engined', otherwise this
-			// will kill this process which runs the apt-get command when
-			// the omv-engine is restarted by the DPKG trigger during the
-			// installation process.
-			// ToDo: Is there a more elegant solution?
-			$cmd = sprintf("export LANG=C; export OMV_DPKG_RESTARTENGINE=no; ".
+			$cmd = sprintf("export LANG=C; ".
 			  "export DEBIAN_FRONTEND=noninteractive; apt-get --yes ".
 			  "--force-yes --fix-missing --allow-unauthenticated --reinstall ".
 			  "install %s 2>&1", implode(" ", $params['packages']));
@@ -299,14 +280,6 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 			}
 			// Finalize the background process.
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
-			// Finally restart the 'omv-engined' process. This is done via
-			// a DPKG trigger by default, but we have blockend this using
-			// the OMV_DPKG_RESTARTENGINE environment variable.
-			// Note, we use systemd to restart the process, but this will
-			// lead into a PID changed notification from monit.
-			// ToDo: Is there a more elegant solution?
-			$systemCtl = new OMVSystemCtl("openmediavault-engined");
-			$systemCtl->restart();
 			exit(0);
 		} catch(Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);

@@ -4,6 +4,7 @@ After=local-fs.target network.target
 
 [Service]
 Type=forking
+KillMode=process
 PIDFile=/var/run/omv-engined.pid
 ExecStart=/usr/sbin/omv-engined
 
