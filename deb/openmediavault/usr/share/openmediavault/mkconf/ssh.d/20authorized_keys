@@ -1,3 +1,4 @@
+
 #!/bin/sh
 #
 # This file is part of OpenMediaVault.
@@ -46,6 +47,9 @@ xmlstarlet sel -t \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read uuid; do
 	  name=$(omv_config_get "//system/usermanagement/users/user[uuid='${uuid}']/name")
+	  # Check if the user exists.
+	  ! omv_user_id_exists "${name}" && continue;
+	  # Process all public SSH keys of the user.
 	  filename="${OMV_SSHD_AUTHORIZEDKEYSFILE_DIR}/${name}"
 	  index=$(omv_config_get_count "//system/usermanagement/users/user[uuid='${uuid}']/sshpubkeys/sshpubkey")
 	  touch "${filename}"
