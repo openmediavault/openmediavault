@@ -1,3 +1,9 @@
+openmediavault-netatalk (3.0.2) stable; urgency=low
+
+  * Mantis 0001463: All shares end up in one line in AppleVolumes.default.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 15 Feb 2016 12:11:50 +0100
+
 openmediavault-netatalk (3.0.1) stable; urgency=low
 
   * Various improvements.

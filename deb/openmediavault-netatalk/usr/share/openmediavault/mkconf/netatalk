@@ -222,6 +222,7 @@ EOF
 		  -b \
 		  -o "${accessrights}" \
 		  -i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
+		  -n \
 		  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_NETATALK_AVDEFAULT_CONFIG}
 
 		index=$(( ${index} - 1 ))
