@@ -135,7 +135,10 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 						{ name: "type", value: "remote" },
 						{ name: "authentication", value: "pubkey" }
 					],
-					properties: "show"
+					properties: [
+						"show",
+						"!allowBlank"
+					]
 				},{
 					name: "password",
 					conditions: [
