@@ -1,5 +1,7 @@
 openmediavault (3.0.11) stable; urgency=low
 
+  * Output more detailed S.M.A.R.T. error description via tooltip in
+    the device overview.
   * Mantis 0001464: Unable to create rsync rule.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 15 Feb 2016 17:37:51 +0100

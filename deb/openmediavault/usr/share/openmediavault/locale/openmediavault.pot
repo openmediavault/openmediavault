@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-12 19:44+0100\n"
+"POT-Creation-Date: 2016-02-16 10:15+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -448,9 +448,6 @@ msgstr ""
 msgid "Azerbaijan"
 msgstr ""
 
-msgid "Bad"
-msgstr ""
-
 msgid "Bahamas"
 msgstr ""
 
@@ -844,13 +841,25 @@ msgstr ""
 msgid "Device Mapper %s [%s, %s]"
 msgstr ""
 
+msgid "Device has a few bad sectors"
+msgstr ""
+
+msgid "Device has many bad sectors"
+msgstr ""
+
 msgid "Device information"
+msgstr ""
+
+msgid "Device is being used outside design parameters"
 msgstr ""
 
 msgid "Device model"
 msgstr ""
 
 msgid "Device properties"
+msgstr ""
+
+msgid "Device was used outside of design parameters in the past"
 msgstr ""
 
 msgid "Device/Label"
