@@ -478,18 +478,27 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 		renderer: function(value, metaData) {
 			switch (value) {
 			case "GOOD":
-				text = _("Good"),
+				text = _("Good");
 				ledColor = "green";
 				break;
 			case "BAD_ATTRIBUTE_NOW":
+				text = _("Device is being used outside design parameters");
+				ledColor = "red";
+				break;
 			case "BAD_ATTRIBUTE_IN_THE_PAST":
+				text = _("Device was used outside of design parameters in the past");
+				ledColor = "red";
+				break;
 			case "BAD_SECTOR":
+				text = _("Device has a few bad sectors");
+				ledColor = "red";
+				break;
 			case "BAD_SECTOR_MANY":
-				text = _("Bad"),
+				text = _("Device has many bad sectors");
 				ledColor = "red";
 				break;
 			default:
-				text = _("Unknown"),
+				text = _("Unknown");
 				ledColor = "gray";
 				break;
 			}
