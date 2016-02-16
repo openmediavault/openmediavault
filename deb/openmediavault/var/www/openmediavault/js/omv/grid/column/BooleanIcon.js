@@ -54,7 +54,11 @@ Ext.define("OMV.grid.column.BooleanIcon", {
 		return "";
 	},
 
-	updater: function(cell, value, record, view, dataSource) {
-        cell.firstChild.innerHTML = this.defaultRenderer(value, null);
+	updater: function(cell, value) {
+		var me = this;
+        var metaData = {};
+        cell.firstChild.innerHTML = me.defaultRenderer(value, metaData);
+        if (metaData.tdCls)
+            Ext.fly(cell).addCls(metaData.tdCls);
     }
 });
