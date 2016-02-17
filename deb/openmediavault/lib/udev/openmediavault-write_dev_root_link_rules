@@ -39,6 +39,7 @@ eval $(udevadm info --export --export-prefix=ROOT_ --device-id-of-file=/ || true
 [ "${ROOT_MAJOR}" != 0 ] || exit 0
 
 lock_rules_file
+choose_rules_file
 echo 'ACTION=="add|change", SUBSYSTEM=="block", ENV{MAJOR}=="'${ROOT_MAJOR}'", ENV{MINOR}=="'${ROOT_MINOR}'", SYMLINK+="root"' > ${RULES_FILE}
 unlock_rules_file
 
