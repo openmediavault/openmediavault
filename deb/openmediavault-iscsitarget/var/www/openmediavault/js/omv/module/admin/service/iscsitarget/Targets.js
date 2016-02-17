@@ -408,8 +408,13 @@ Ext.define("OMV.module.admin.service.iscsitarget.target.LUN", {
 			triggerAction: "all",
 			value: "wt"
 		},{
-			xtype: "hidden",
-			name: "id"
+			xtype: "numberfield",
+			name: "id",
+			hidden: true,
+			minValue: 0,
+			allowDecimals: false,
+			allowBlank: false,
+			value: 0
 		}];
 	}
 });
