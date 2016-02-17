@@ -90,6 +90,8 @@ function toArray($object) {
  *   does not exist.
  */
 function array_value($array, $key, $default = NULL) {
+	if (!is_array($array) || !array_key_exists($key, $array))
+		return $default;
 	return isset($array[$key]) ? $array[$key] : $default;
 }
 

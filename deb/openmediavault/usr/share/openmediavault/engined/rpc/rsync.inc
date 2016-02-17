@@ -78,24 +78,24 @@ class OMVRpcServiceRsync extends OMVRpcServiceAbstract {
 		// Get the configuration object.
 		$xpath = "//services/rsync/jobs/job";
 		$objects = $xmlConfig->getList($xpath);
-		if(is_null($objects)) {
+		if (is_null($objects)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		// Add additional informations.
-		foreach($objects as $objectk => &$objectv) {
+		foreach ($objects as $objectk => &$objectv) {
 			$objectv['srcname'] = gettext("n/a");
 			$objectv['destname'] = gettext("n/a");
-			switch($objectv['type']) {
+			switch ($objectv['type']) {
 			case "local":
 				$sfobject = $xmlConfig->get("//system/shares/sharedfolder[".
 				  "uuid='{$objectv['src']}']");
-				if(!is_null($sfobject) && !empty($sfobject)) {
+				if (!is_null($sfobject) && !empty($sfobject)) {
 					$objectv['srcname'] = $sfobject['name'];
 				}
 				$sfobject = $xmlConfig->get("//system/shares/sharedfolder[".
 				  "uuid='{$objectv['dest']}']");
-				if(!is_null($sfobject) && !empty($sfobject)) {
+				if (!is_null($sfobject) && !empty($sfobject)) {
 					$objectv['destname'] = $sfobject['name'];
 				}
 				break;
@@ -104,7 +104,7 @@ class OMVRpcServiceRsync extends OMVRpcServiceAbstract {
 				case "push":
 					$sfobject = $xmlConfig->get("//system/shares/" .
 					  "sharedfolder[uuid='{$objectv['src']}']");
-					if(!is_null($sfobject) && !empty($sfobject)) {
+					if (!is_null($sfobject) && !empty($sfobject)) {
 						$objectv['srcname'] = $sfobject['name'];
 					}
 					$objectv['destname'] = $objectv['dest'];
@@ -113,7 +113,7 @@ class OMVRpcServiceRsync extends OMVRpcServiceAbstract {
 					$objectv['srcname'] = $objectv['src'];
 					$sfobject = $xmlConfig->get("//system/shares/" .
 					  "sharedfolder[uuid='{$objectv['dest']}']");
-					if(!is_null($sfobject) && !empty($sfobject)) {
+					if (!is_null($sfobject) && !empty($sfobject)) {
 						$objectv['destname'] = $sfobject['name'];
 					}
 					break;
@@ -136,6 +136,7 @@ class OMVRpcServiceRsync extends OMVRpcServiceAbstract {
 			$objectv['everynhour'] = boolvalEx($objectv['everynhour']);
 			$objectv['everyndayofmonth'] = boolvalEx(
 			  $objectv['everyndayofmonth']);
+			$objectv['sshport'] = intval($objectv['sshport']);
 		}
 		// Filter result.
 		return $this->applyFilter($objects, $params['start'],
@@ -167,12 +168,12 @@ class OMVRpcServiceRsync extends OMVRpcServiceAbstract {
 		$xpath = sprintf("//services/rsync/jobs/job[uuid='%s']",
 		  $params['uuid']);
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		// Add additional informations.
-		switch($object['type']) {
+		switch ($object['type']) {
 		case "local":
 			$object['srcsharedfolderref'] = $object['src'];
 			$object['destsharedfolderref'] = $object['dest'];
@@ -206,6 +207,7 @@ class OMVRpcServiceRsync extends OMVRpcServiceAbstract {
 		$object['everynminute'] = boolvalEx($object['everynminute']);
 		$object['everynhour'] = boolvalEx($object['everynhour']);
 		$object['everyndayofmonth'] = boolvalEx($object['everyndayofmonth']);
+		$object['sshport'] = intval($object['sshport']);
 		return $object;
 	}
 
@@ -265,11 +267,13 @@ class OMVRpcServiceRsync extends OMVRpcServiceAbstract {
 				  "extraoptions":{"type":"string"},
 				  "mode":{"type":"string","enum":["push","pull"],'.
 					'"optional":true},
-				  "authentication":{"type":"string",'.'
-					"enum":["password","pubkey"],"optional":true},
+				  "authentication":{"type":"string",'.
+					'"enum":["password","pubkey"],"optional":true},
 				  "password":{"type":"string","optional":true},
-				  "sshcertificateref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].
-					',"optional":true}
+				  "sshcertificateref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].','.
+					'"optional":true},
+				  "sshport":{"type":"integer","minimum":1,"maximum":65535,'.
+					'"optional":true}
 			  }
 		  }');
 		// Prepare the configuration data.
@@ -306,16 +310,17 @@ class OMVRpcServiceRsync extends OMVRpcServiceAbstract {
 			"dryrun" => array_boolval($params, 'dryrun'),
 			"partial" => array_boolval($params, 'partial'),
 			"extraoptions" => $params['extraoptions'],
-			"mode" => isset($params['mode']) ? $params['mode'] : "",
-			"authentication" => isset($params['authentication']) ?
-			  $params['authentication'] : "",
-			"password" => isset($params['password']) ? $params['password'] : "",
-			"sshcertificateref" => isset($params['sshcertificateref']) ?
-			  $params['sshcertificateref'] : ""
+			"mode" => array_value($params, "mode", "push"),
+			"authentication" => array_value($params, "authentication",
+			  "password"),
+			"password" => array_value($params, "password", ""),
+			"sshcertificateref" => array_value($params, "sshcertificateref",
+			  ""),
+			"sshport" => array_value($params, "sshport", "22")
 		);
 		// Set the configuration data.
 		$success = FALSE;
-		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+		if ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
 			// Append object to configuration
 			$success = $xmlConfig->set("//services/rsync/jobs",
 			  array("job" => $object));
@@ -324,7 +329,7 @@ class OMVRpcServiceRsync extends OMVRpcServiceAbstract {
 			$success = $xmlConfig->replace("//services/rsync/jobs/job[" .
 			  "uuid='{$params['uuid']}']", $object);
 		}
-		if(FALSE === $success) {
+		if (FALSE === $success) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.

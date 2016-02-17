@@ -574,6 +574,9 @@ case "$1" in
 			# Recreate certificates.
 			omv-mkconf certificates
 		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.11"; then
+			omv_config_add_element "/config/services/rsync/jobs/job" "sshport" "22"
+		fi
 	;;
 
 	triggered)

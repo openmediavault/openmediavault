@@ -542,6 +542,7 @@
 					<authentication>password|pubkey</authentication>
 					<password>xxx</password>
 					<sshcertificateref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sshcertificateref>
+					<sshport>22</sshport>
 				</job>
 				-->
 			</jobs>

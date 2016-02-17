@@ -130,6 +130,16 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 					],
 					properties: "show"
 				},{
+					name: "sshport",
+					conditions: [
+						{ name: "type", value: "remote" },
+						{ name: "authentication", value: "pubkey" }
+					],
+					properties: [
+						"show",
+						"!allowBlank"
+					]
+				},{
 					name: "sshcertificateref",
 					conditions: [
 						{ name: "type", value: "remote" },
@@ -246,6 +256,16 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 			hidden: true,
 			triggerAction: "all",
 			value: "password"
+		},{
+			xtype: "numberfield",
+			name: "sshport",
+			fieldLabel: _("SSH port"),
+			vtype: "port",
+			minValue: 1,
+			maxValue: 65535,
+			allowDecimals: false,
+			allowBlank: false,
+			value: 22
 		},{
 			xtype: "sshcertificatecombo",
 			name: "sshcertificateref",
@@ -598,6 +618,16 @@ Ext.define("OMV.module.admin.service.rsync.Jobs", {
 		resizable: false,
 		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
 	},{
+		xtype: "mapcolumn",
+		text: _("Type"),
+		sortable: true,
+		dataIndex: "type",
+		stateId: "type",
+		mapItems: {
+			"local": _("Local"),
+			"remote": _("Remote")
+		}
+	},{
 		text: _("Source"),
 		sortable: true,
 		dataIndex: "srcname",
@@ -626,7 +656,8 @@ Ext.define("OMV.module.admin.service.rsync.Jobs", {
 						{ name: "enable", type: "boolean" },
 						{ name: "srcname", type: "string" },
 						{ name: "destname", type: "string" },
-						{ name: "comment", type: "string" }
+						{ name: "comment", type: "string" },
+						{ name: "type", type: "string" }
 					]
 				}),
 				proxy: {
