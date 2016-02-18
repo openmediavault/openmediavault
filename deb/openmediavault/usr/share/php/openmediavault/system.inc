@@ -485,6 +485,8 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 	const PROP_QUOTA = 0x8;
 	const PROP_RESIZE = 0x10;
 	const PROP_READ_ONLY = 0x20;
+	const PROP_COMPRESS = 0x40;
+	const PROP_AUTO_DEFRAG = 0x80;
 
 	protected $type;
 	protected $properties = self::PROP_NONE;
@@ -541,7 +543,8 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 		if (!is_devicefile($id)) {
 			// Get the device file containing the file system. This is
 			// required for the blkid low-level probing mode.
-			$cmd = sprintf("export LANG=C; findfs UUID=%s", $id);
+			$cmd = sprintf("export LANG=C; findfs UUID=%s",
+			  escapeshellarg($id));
 			@OMVUtil::exec($cmd, $output, $result);
 			if ($result !== 0)
 				return FALSE;
@@ -634,8 +637,24 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 	}
 
 	/**
+	 * Does the filesystem support compression?
+	 * @return TRUE if the filesystem supports compression, otherwise FALSE.
+	 */
+	public function hasCompressSupport() {
+		return $this->hasProperty(self::PROP_COMPRESS);
+	}
+
+	/**
+	 * Does the filesystem support auto defragmentation?
+	 * @return TRUE if the filesystem supports auto-defrag, otherwise FALSE.
+	 */
+	public function hasAutoDefragSupport() {
+		return $this->hasProperty(self::PROP_AUTO_DEFRAG);
+	}
+
+	/**
 	 * Does the filesystem have a device file? E.g. union mount or overlay
-	 * filesystems like UnionFS, aufs or mhddfs do not have such a device
+	 * file systems like UnionFS, aufs or mhddfs do not have such a device
 	 * file.
 	 * @return TRUE if the filesystem has a device file, otherwise FALSE.
 	 */
@@ -907,7 +926,7 @@ class OMVFilesystemBackendBtrfs extends OMVFilesystemBackendAbstract {
 		parent::__construct();
 		$this->type = "btrfs";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
-		  self::PROP_DISCARD;
+		  self::PROP_DISCARD | self::PROP_COMPRESS | self::PROP_AUTO_DEFRAG;
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_BTRFS']);
 	}
 
@@ -922,6 +941,13 @@ class OMVFilesystemBackendBtrfs extends OMVFilesystemBackendAbstract {
 		}
 		return $options;
 	}
+
+	/**
+	 * See parent class definition.
+	 */
+	function getImpl($args) {
+		return new OMVFilesystemBtrfs($args);
+	}
 }
 
 class OMVFilesystemBackendHfsplus extends OMVFilesystemBackendAbstract {
@@ -934,7 +960,7 @@ class OMVFilesystemBackendHfsplus extends OMVFilesystemBackendAbstract {
 }
 
 /**
- * Helper class that implements functions regarding filesystems.
+ * Helper class that implements functions regarding file systems.
  * @ingroup api
  */
 class OMVFilesystems extends OMVObject {
@@ -1044,19 +1070,19 @@ class OMVFilesystems extends OMVObject {
 
 	/**
 	 * Enumerate all available/detected file systems.
-	 * @return A list of filesystems, otherwise FALSE. The array elements
+	 * @return A list of file systems, otherwise FALSE. The array elements
 	 *   contain the fields: \em devicefile, \em uuid, \em label and \em type.
 	 *   The devicefile is used as key to access the array elements.
 	 */
 	public static function enumerate() {
-		// Get all filesystems that are identified by the block device
+		// Get all file systems that are identified by the block device
 		// identification library.
 		// !!! Note !!!
-		// Filesystems that are identified by the block device identification
+		// File systems that are identified by the block device identification
 		// library are processed in one step to increase performance. Otherwise
 		// each backend must implement the \ref enumerate method and call the
 		// command 'blkid -t TYPE=<xxx> -o full'.
-		$cmd = "export LANG=C; blkid -o full";
+		$cmd = "export LANG=C; blkid -o full 2>&1";
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0)
 			return FALSE;
@@ -1094,12 +1120,12 @@ class OMVFilesystems extends OMVObject {
 			// Is this filesystem processed via blkid?
 			if (NULL == ($backend = self::getBackendByType($data['type'])))
 				continue;
-			if (FALSE == $backend->isBlkidEnumerated())
+			if (FALSE === $backend->isBlkidEnumerated())
 				continue;
 			// Check if there are duplicate file systems. This seems to
 			// affect only BTRFS.
 			// ToDo: Find a smart way to relocate this check into the
-			// filesystems OMVFilesystemBackendAbstract implementation.
+			// file systems OMVFilesystemBackendAbstract implementation.
 			if (is_fs_uuid($data['uuid'])) {
 				$duplicate = FALSE;
 				foreach ($result as $resultk => $resultv) {
@@ -1117,13 +1143,13 @@ class OMVFilesystems extends OMVObject {
 			// Append filesystem.
 			$result[$data['devicefile']] = $data;
 		}
-		// Get the filesystems that are not identified by the block device
+		// Get the file systems that are not identified by the block device
 		// identification library.
 		foreach (self::$backends as $backendk => $backendv) {
 			if (TRUE === $backendv->isBlkidEnumerated())
 				continue;
 			if (FALSE === ($data = $backendv->enumerate()))
-				return FALSE;
+				continue;
 			if (empty($data))
 				continue;
 			$result = array_merge($result, $data);
@@ -1183,7 +1209,7 @@ class OMVFilesystemFactory extends OMVObject {
 }
 
 /**
- * Abstract class implementing generic filesystems.
+ * Abstract class implementing generic file systems.
  * @ingroup api
  */
 class OMVFilesystemAbstract extends OMVObject {
@@ -1217,13 +1243,21 @@ class OMVFilesystemAbstract extends OMVObject {
 			$this->deviceFile = $id;
 	}
 
+	protected function isCached() {
+		return $this->dataCached;
+	}
+
+	protected function setCached($cached) {
+		return $this->dataCached = $cached;
+	}
+
 	/**
 	 * Get the filesystem detailed information.
 	 * @private
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	protected function getData() {
-		if ($this->dataCached !== FALSE)
+		if (FALSE !== $this->isCached())
 			return TRUE;
 
 		if (!empty($this->uuid)) {
@@ -1236,7 +1270,8 @@ class OMVFilesystemAbstract extends OMVObject {
 			// - After a reboot a LVM2 logical volume is listed in
 			//   /dev/disk/by-uuid but pointing to /dev/dm-X and not to
 			//   /dev/mapper which is prefered.
-			$cmd = sprintf("export LANG=C; findfs UUID=%s", $this->uuid);
+			$cmd = sprintf("export LANG=C; findfs UUID=%s 2>&1",
+			  escapeshellarg($this->uuid));
 			@OMVUtil::exec($cmd, $output, $result);
 			if ($result !== 0) {
 				$this->setLastError($output);
@@ -1254,9 +1289,9 @@ class OMVFilesystemAbstract extends OMVObject {
 		if (1 == preg_match("/^\/dev\/disk\/by-.+$/", $this->deviceFile))
 			$this->deviceFile = realpath($this->deviceFile);
 
-		// Get the filesystem details.
-		$cmd = sprintf("export LANG=C; blkid -p -o full %s", escapeshellarg(
-		  $this->deviceFile));
+		// Get the file system information.
+		$cmd = sprintf("export LANG=C; blkid -p -o full %s 2>&1",
+		  escapeshellarg($this->deviceFile));
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			$this->setLastError($output);
@@ -1314,7 +1349,7 @@ class OMVFilesystemAbstract extends OMVObject {
 		);
 
 		// Set flag to mark information has been successfully read.
-		$this->dataCached = TRUE;
+		$this->setCached(TRUE);
 
 		return TRUE;
 	}
@@ -1324,7 +1359,7 @@ class OMVFilesystemAbstract extends OMVObject {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function refresh() {
-		$this->dataCached = FALSE;
+		$this->setCached(FALSE);
 		if ($this->getData() === FALSE)
 			return FALSE;
 		return TRUE;
@@ -1510,13 +1545,35 @@ class OMVFilesystemAbstract extends OMVObject {
 	}
 
 	/**
+	 * Get all devices that make up the filesystem.
+	 * @return Component devices of the filesystem, otherwise FALSE.
+	 */
+	public function getDeviceFiles() {
+		if ($this->getData() === FALSE)
+			return FALSE;
+		$deviceFile = $this->getDeviceFile();
+		return array($deviceFile);
+	}
+
+	/**
+	 * Check if the filesystem is a multi-device filesystem, e.g. (BTRFS).
+	 * @return Returns TRUE if the filesystem has multiple devices,
+	 *   otherwise FALSE.
+	 */
+	public function hasMultipleDevices() {
+		if (FALSE === ($devs = $this->getDeviceFiles()))
+			return FALSE;
+		return (1 < count($devs));
+	}
+
+	/**
 	 * Get the filesystem block size.
 	 * @return The block size, otherwise FALSE.
 	 */
 	public function getBlockSize() {
 		if ($this->getData() === FALSE)
 			return FALSE;
-		$cmd = sprintf("export LANG=C; blockdev --getbsz %s",
+		$cmd = sprintf("export LANG=C; blockdev --getbsz %s 2>&1",
 		  escapeshellarg($this->getDeviceFile()));
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
@@ -1630,7 +1687,7 @@ class OMVFilesystemAbstract extends OMVObject {
 		// Get the mount point of the filesystem.
 		if (FALSE === ($mountPoint = $this->getMountPoint()))
 			return FALSE;
-		$cmd = sprintf("export LANG=C; df -PT %s",
+		$cmd = sprintf("export LANG=C; df -PT %s 2>&1",
 		  escapeshellarg($mountPoint));
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
@@ -1856,6 +1913,249 @@ class OMVFilesystemJfs extends OMVFilesystem {
 		if ($result !== 0) {
 			$this->setLastError($output);
 			return FALSE;
+		}
+		return TRUE;
+	}
+}
+
+class OMVFilesystemBtrfs extends OMVFilesystem {
+	protected $numTotalDeviceFiles = 0;
+	protected $deviceFiles = array();
+
+	/**
+	 * Get the filesystem detailed information.
+	 * @private
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	protected function getData() {
+		if (FALSE !== $this->isCached())
+			return TRUE;
+
+		if (parent::getData() === FALSE)
+			return FALSE;
+
+		// We need to have the UUID of the file system.
+		if (!$this->hasUuid())
+			return FALSE;
+
+		// Reset flag to mark information has not been successfully read.
+		$this->setCached(FALSE);
+
+		// Get the file system information.
+		$cmd = sprintf("export LANG=C; btrfs fi show %s 2>&1",
+		  escapeshellarg($this->uuid));
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+
+		// Parse command output:
+		// warning devid 3 not found already
+		// Label: none  uuid: b304658e-0e41-45a9-bf54-c4939e151819
+		//        Total devices 3 FS bytes used 896.00KiB
+		//        devid    1 size 10.00GiB used 2.03GiB path /dev/sdb
+		//        devid    2 size 10.00GiB used 2.01GiB path /dev/sdc
+		//        *** Some devices missing
+		$regex = "/Total devices (\d+)/";
+		preg_match($regex, implode("\n", $output), $matches);
+		$this->numTotalDeviceFiles = intval($matches[1]);
+		$this->deviceFiles = array_fill(1, $this->numTotalDeviceFiles, "");
+		$regex = "/^\s+devid\s+(\d+)\s+size\s+\S+\s+used\s+\S+\s+path\s+(\S+)$/";
+		foreach (preg_filter($regex, "$1=$2", $output) as $rowk => $rowv) {
+			list($devId, $deviceFile) = explode('=', $rowv);
+			$this->deviceFiles[$devId] = $deviceFile;
+		}
+
+		// Set flag to mark information has been successfully read.
+		$this->setCached(TRUE);
+
+		return TRUE;
+	}
+
+	/**
+	 * See parent class definition.
+	 */
+	public function refresh() {
+		if (parent::refresh() === FALSE)
+			return FALSE;
+		$this->setCached(FALSE);
+		if ($this->getData() === FALSE)
+			return FALSE;
+		return TRUE;
+	}
+
+	/**
+	 * See parent class definition.
+	 */
+	public function getDeviceFiles() {
+		if ($this->getData() === FALSE)
+			return FALSE;
+		// Filter missing devices.
+		$deviceFiles = array_filter(array_values($this->deviceFiles),
+		  function($value) {
+			  return !empty($value);
+		  });
+		// Sort the devices using a "natural order" algorithm.
+		sort($deviceFiles, SORT_NATURAL);
+		return $deviceFiles;
+	}
+
+	/**
+	 * Get the list of all used device files. Note, the array index is the
+	 * device ID, thus the array starts with index 1.
+	 * This is BTRFS specific.
+	 * @return An associative array containing the used device files,
+	 *   otherwise FALSE.
+	 */
+	public function getDeviceFilesAssoc() {
+		if ($this->getData() === FALSE)
+			return FALSE;
+		return $this->deviceFiles;
+	}
+
+	/**
+	 * Get the total number of used device files.
+	 * @return The total number of device files, otherwise FALSE.
+	 */
+	public function getNumTotalDeviceFiles() {
+		if ($this->getData() === FALSE)
+			return FALSE;
+		return $this->numTotalDeviceFiles;
+	}
+
+	/**
+	/**
+	 * See parent class definition.
+	 *
+	 * For a btrfs filesystem, \em size is the raw size of the
+	 * filesystem (i.e. sum of all device sizes), \em used is the size of
+	 * data stored after accounting for DUP/RAID level, and \em available
+	 * is an estimate of remaining free space based on current data ratio.
+	 * e.g. Consider 25 GiB of data stored in a RAID1 filesystem made up of
+	 * two 100 GiB devices:
+	 *     Size:         200 GiB (total size of filesystem, 2x100 GiB)
+	 *     Used:         25 GiB  (data ratio: 2.0, so actually occupies 50 GiB)
+	 *     Available:    75 GiB  (raw space remaining: 150 GiB, but based on
+	 *                         current ratio will fit only 75 GiB of data)
+	 */
+	public function getStatistics() {
+		if (FALSE === ($stats = parent::getStatistics()))
+			return FALSE;
+/* @igrnt
+ * The code is fixed to btrfs tools shipped with Debian Jessie.
+ * If this tools are updated with Debian 9, then the code will be
+ * adapted. So for OMV3 we are fixed to 3.17.
+ *
+ * Please improve the following code, i'll get an division by zero
+ * when using a simple RAID1.
+ */
+		$cmd = sprintf("export LANG=C; btrfs fi df -b %s 2>&1",
+		  escapeshellarg($this->getMountPoint()));
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+
+		// Parse command output:
+		// System, RAID1: total=8.00MiB, used=4.00KiB
+		// System, single: total=4.00MiB, used=0.00B
+		// Data+Metadata, RAID1: total=64.00MiB, used=28.00KiB
+		// Data+Metadata, single: total=8.00MiB, used=0.00B
+		// GlobalReserve, single: total=4.00MiB, used=0.00B
+		$totalAllocated = 0;
+		$usedAdj = 0; // Data size (i.e. before RAID)
+		$usedRaw = 0; // Disk usage (i.e. inc. redundancy)
+		$regex = "/^\(\w\+\), \([a-zA-Z0156]\+\): total=\([0-9]\+\), ".
+		  "used=\([0-9]\+\)$/";
+		foreach (preg_filter($regex, "$1 $2 $3 $4", $output) as $rowv) {
+			list($type, $profile, $t, $u) = explode(" ", $rowv);
+			if ($type !== "Data")
+				continue;
+			switch ($profile) {
+				case "single":
+				case "RAID0":
+					$factor = 1.0;
+					break;
+				case "DUP":	// Though only metadata can be DUP
+				case "RAID1":
+				case "RAID10":
+					$factor = 2.0;
+					break;
+				case "RAID5":
+					$numDevices = $this->getNumTotalDeviceFiles();
+					$efficiency = 1 - (1 / $numDevices);
+					$factor = 1 / $efficiency;
+					break;
+				case "RAID6":
+					$numDevices = $this->getNumTotalDeviceFiles();
+					$efficiency = 1 - (2 / $numDevices);
+					$factor = 1 / $efficiency;
+					break;
+			}
+			$totalAllocated += $t;
+			$usedAdj += $u;
+			$usedRaw += $u * $factor;
+		}
+		$allocatedUnused = $totalAllocated - $usedRaw;
+
+		unset($cmd, $output, $result);
+		$cmd = sprintf("export LANG=C; btrfs-show-super %s 2>&1",
+		  escapeshellarg($this->getDeviceFile()));
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+
+		// Parse command output:
+		// superblock: bytenr=65536, device=/dev/sdb
+		// ---------------------------------------------------------
+		// csum			0x2013cfbe [match]
+		// bytenr			65536
+		// flags			0x1
+		// ...
+		// total_bytes		213909504
+		// bytes_used		32768
+		// sectorsize		4096
+		// nodesize		4096
+		// leafsize		4096
+		// ...
+		// num_devices		2
+		$regex = "/total_bytes\s+(\d+)/";
+		preg_match($regex, implode("\n", $output), $matches);
+		$totalBytes = intval($matches[1]);
+
+		$unallocated = $totalBytes - $totalAllocated;
+		$available = $unallocated + $allocatedUnused;
+//		$dataRatio = bcdiv($usedRaw, $usedAdj, 2); To be fixed, div by zeto
+
+		$stats['size'] = $totalBytes;
+		$stats['blocks'] = bcdiv($totalBytes, "1024", 0);
+		$stats['used'] = $usedAdj;
+//		$stats['available'] = bcdiv($available, $dataRatio, 0);
+//		$stats['percentage'] = bcdiv($usedRaw, $stats['size'], 0); To be fixed, div by zeto
+
+		return $stats;
+	}
+
+	/**
+	 * Remove the filesystem.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function remove() {
+		if ($this->getData() === FALSE)
+			return FALSE;
+		if ($this->hasMultipleDevices() === TRUE) {
+			while ($this->getDeviceFile()) {
+				if (parent::remove() === FALSE)
+					return FALSE;
+				$this->refresh();
+			}
+		} else {
+			if (parent::remove() === FALSE)
+				return FALSE;
 		}
 		return TRUE;
 	}
@@ -2262,7 +2562,7 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 * \li /dev/disk/by-id/wwn-0x5000cca211cc703c
 	 */
 	public function __construct($deviceFile) {
-		if(preg_match("/^\/dev\/disk\/by-id\/.+$/", $deviceFile)) {
+		if (preg_match("/^\/dev\/disk\/by-id\/.+$/", $deviceFile)) {
 			$this->deviceFileById = $deviceFile;
 		} else {
 			$this->deviceFile = $deviceFile;

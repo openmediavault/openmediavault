@@ -119,6 +119,10 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				"propresize" => $fsb->hasResizeSupport(),
 				"propfstab" => $fsb->hasFstabSupport(),
 				"propreadonly" => $fsb->hasReadOnlySupport(),
+				"propcompress" => $fsb->hasCompressSupport(),
+				"propautodefrag" => $fsb->hasAutoDefragSupport(),
+				"hasmultipledevices" => $fs->hasMultipleDevices(),
+				"devicefiles" => $fs->getDeviceFiles(),
 				"_readonly" => $fsb->hasReadOnlySupport(),
 				"_used" => FALSE
 			);
@@ -258,6 +262,10 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				"propquota" => $fsb->hasQuotaSupport(),
 				"propresize" => $fsb->hasResizeSupport(),
 				"propfstab" => $fsb->hasFstabSupport(),
+				"propcompress" => $fsb->hasCompressSupport(),
+				"propautodefrag" => $fsb->hasAutoDefragSupport(),
+				"hasmultipledevices" => $fs->hasMultipleDevices(),
+				"devicefiles" => $fs->getDeviceFiles()
 			);
 			// Get some more filesystem details if possible.
 			if (FALSE !== ($fsStats = $fs->getStatistics())) {
@@ -380,6 +388,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 					"propquota" => $fsb->hasQuotaSupport(),
 					"propresize" => $fsb->hasResizeSupport(),
 					"propfstab" => $fsb->hasFstabSupport(),
+					"propcompress" => $fsb->hasCompressSupport(),
+					"propautodefrag" => $fsb->hasAutoDefragSupport(),
 					"status" => 2,
 					"_used" => FALSE
 				);
@@ -432,6 +442,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				"propquota" => $fsb->hasQuotaSupport(),
 				"propresize" => $fsb->hasResizeSupport(),
 				"propfstab" => $fsb->hasFstabSupport(),
+				"propcompress" => $fsb->hasCompressSupport(),
+				"propautodefrag" => $fsb->hasAutoDefragSupport(),
 				"status" => 3,
 				"_used" => $xmlConfig->exists($xpath)
 			);
