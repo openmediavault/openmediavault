@@ -342,7 +342,7 @@ class OMVPowerManagement extends OMVObject {
 			"hibernate" => "export LANG=C; pm-hibernate 2>&1",
 			"suspend" => "export LANG=C; pm-suspend 2>&1"
 		);
-		OMVUtil::exec($mapCommand[$action], $output, $result);
+		@OMVUtil::exec($mapCommand[$action], $output, $result);
 		if ($result !== 0) {
 			$this->setLastError($output);
 			return FALSE;
@@ -505,7 +505,7 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 	const PROP_COMPRESS = 0x40;
 	const PROP_AUTO_DEFRAG = 0x80;
 
-	protected $type;
+	protected $type = "";
 	protected $properties = self::PROP_NONE;
 	protected $mkfsOptions = "";
 	protected $mntOptions = array();
@@ -3751,7 +3751,7 @@ class OMVStorageDevices extends OMVObject {
 	 *   Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.
 	 * @return A list of devicefile names, otherwise FALSE.
 	 */
-	final public function enumerateUnused($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
+	final static function enumerateUnused($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
 		// Append all available storage devices.
 		if (FALSE === ($result = self::enumerate($type)))
 			return FALSE;
@@ -3777,7 +3777,7 @@ class OMVStorageDevices extends OMVObject {
 	 *   Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.
 	 * @return A list of devicefile names, otherwise FALSE.
 	 */
-	final public function enumerateUsed($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
+	final static function enumerateUsed($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
 		$result = array();
 		foreach (self::$backends as $backendk => $backendv) {
 			if (!($type & $backendv->getType()))
@@ -3808,7 +3808,7 @@ class OMVStorageDevices extends OMVObject {
 	 * @return TRUE if the given device is used/consumed by another storage
 	 *   device, otherwise FALSE.
 	 */
-	final public function isUsed($deviceFile, $type = OMV_STORAGE_DEVICE_TYPE_ALL) {
+	final static function isUsed($deviceFile, $type = OMV_STORAGE_DEVICE_TYPE_ALL) {
 		$result = FALSE;
 		foreach (self::$backends as $backendk => $backendv) {
 			if (!($type & $backendv->getType()))
@@ -3890,8 +3890,8 @@ class OMVStorageDeviceHDD extends OMVStorageDeviceSMARTAbstract {
 	 */
 	public function getPowerModeState() {
 		$result = FALSE;
-		$cmd = sprintf("export LANG=C; hdparm -C %s", escapeshellarg(
-		  $this->getDeviceFile()));
+		$cmd = sprintf("export LANG=C; hdparm -C %s 2>&1",
+		  escapeshellarg($this->getDeviceFile()));
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			$this->setLastError($output);
@@ -5299,7 +5299,7 @@ class OMVNetworkInterfaces extends OMVObject {
 	 *   OMV_NETWORK_INTERFACE_TYPE_ALL.
 	 * @return A list of network interfaces, otherwise FALSE.
 	 */
-	final public function enumerateUnused($type = OMV_NETWORK_INTERFACE_TYPE_ALL) {
+	final static function enumerateUnused($type = OMV_NETWORK_INTERFACE_TYPE_ALL) {
 		// Get all existing network interfaces of the given type.
 		if (FALSE === ($result = self::enumerate($type)))
 			return FALSE;
@@ -5328,7 +5328,7 @@ class OMVNetworkInterfaces extends OMVObject {
 	 *   OMV_NETWORK_INTERFACE_TYPE_ALL.
 	 * @return A list of network interfaces, otherwise FALSE.
 	 */
-	final public function enumerateUsed($type = OMV_NETWORK_INTERFACE_TYPE_ALL) {
+	final static function enumerateUsed($type = OMV_NETWORK_INTERFACE_TYPE_ALL) {
 		$result = array();
 		foreach (self::$backends as $backendk => $backendv) {
 			if (!($type & $backendv->getType()))
@@ -5359,7 +5359,7 @@ class OMVNetworkInterfaces extends OMVObject {
 	 * @return TRUE if the given device is used by another network
 	 *   interface, otherwise FALSE.
 	 */
-	final public function isUsed($deviceName, $type = OMV_NETWORK_INTERFACE_TYPE_ALL) {
+	final static function isUsed($deviceName, $type = OMV_NETWORK_INTERFACE_TYPE_ALL) {
 		$result = FALSE;
 		foreach (self::$backends as $backendk => $backendv) {
 			if (!($type & $backendv->getType()))
@@ -5428,8 +5428,8 @@ class OMVNetworkInterface extends OMVObject {
 		case "ifconfig":
 			if (!is_null($this->ifconfig))
 				return TRUE;
-			$cmd = sprintf("export LANG=C; ifconfig %s",
-			  $this->getDeviceName());
+			$cmd = sprintf("export LANG=C; ifconfig %s 2>&1",
+			  escapeshellarg($this->getDeviceName()));
 			@OMVUtil::exec($cmd, $output, $result);
 			if (($result !== 0) || empty($output[0])) {
 				$this->setLastError($output);
@@ -5441,8 +5441,8 @@ class OMVNetworkInterface extends OMVObject {
 		case "ip":
 			if (!is_null($this->ip))
 				return TRUE;
-			$cmd = sprintf("export LANG=C; ip addr show dev %s",
-			  $this->getDeviceName());
+			$cmd = sprintf("export LANG=C; ip addr show dev %s 2>&1",
+			  escapeshellarg($this->getDeviceName()));
 			@OMVUtil::exec($cmd, $output, $result);
 			if (($result !== 0) || empty($output[0])) {
 				$this->setLastError($output);
@@ -5456,8 +5456,8 @@ class OMVNetworkInterface extends OMVObject {
 		case "ethtool":
 			if (!is_null($this->ethtool))
 				return TRUE;
-			$cmd = sprintf("export LANG=C; ethtool %s",
-			  $this->getDeviceName());
+			$cmd = sprintf("export LANG=C; ethtool %s 2>&1",
+			  escapeshellarg($this->getDeviceName()));
 			@OMVUtil::exec($cmd, $output, $result);
 			if (($result !== 0) || empty($output[0])) {
 				$this->setLastError($output);
@@ -5485,7 +5485,7 @@ class OMVNetworkInterface extends OMVObject {
 	 * @return TRUE if the network interface exists, otherwise FALSE.
 	 */
 	public function exists() {
-		if($this->getData("ifconfig") === FALSE)
+		if ($this->getData("ifconfig") === FALSE)
 			return FALSE;
 		return TRUE;
 	}
@@ -5495,9 +5495,9 @@ class OMVNetworkInterface extends OMVObject {
 	 * @return The network interface IPv4 address, otherwise FALSE.
 	 */
 	public function getIP() {
-		if($this->getData("ifconfig") === FALSE)
+		if ($this->getData("ifconfig") === FALSE)
 			return FALSE;
-		if(1 !== preg_match("/inet addr:\s*({$this->regex['ipv4']})/i",
+		if (1 !== preg_match("/inet addr:\s*({$this->regex['ipv4']})/i",
 		  $this->ifconfig, $matches))
 			return FALSE;
 		return $matches[1];
@@ -5508,9 +5508,9 @@ class OMVNetworkInterface extends OMVObject {
 	 * @return The network interface IPv6 address, otherwise FALSE.
 	 */
 	public function getIP6() {
-		if($this->getData("ifconfig") === FALSE)
+		if ($this->getData("ifconfig") === FALSE)
 			return FALSE;
-		if(1 !== preg_match("/inet6 addr:\s*({$this->regex['ipv6cidr']})".
+		if (1 !== preg_match("/inet6 addr:\s*({$this->regex['ipv6cidr']})".
 		  "\s*Scope:Global/i", $this->ifconfig, $matches))
 			return FALSE;
 		return $matches[2];
@@ -5521,9 +5521,9 @@ class OMVNetworkInterface extends OMVObject {
 	 * @return The network interface mask, otherwise FALSE.
 	 */
 	public function getMask() {
-		if($this->getData("ifconfig") === FALSE)
+		if ($this->getData("ifconfig") === FALSE)
 			return FALSE;
-		if(1 !== preg_match("/Mask:\s*({$this->regex['ipv4']})/i",
+		if (1 !== preg_match("/Mask:\s*({$this->regex['ipv4']})/i",
 		  $this->ifconfig, $matches))
 			return FALSE;
 		return $matches[1];
@@ -5535,9 +5535,9 @@ class OMVNetworkInterface extends OMVObject {
 	 *   otherwise FALSE.
 	 */
 	public function getMask6() {
-		if($this->getData("ifconfig") === FALSE)
+		if ($this->getData("ifconfig") === FALSE)
 			return FALSE;
-		if(1 !== preg_match("/inet6 addr:\s*({$this->regex['ipv6cidr']})".
+		if (1 !== preg_match("/inet6 addr:\s*({$this->regex['ipv6cidr']})".
 		  "\s*Scope:Global/i", $this->ifconfig, $matches))
 			return FALSE;
 		return intval($matches[3]);
@@ -5572,17 +5572,19 @@ class OMVNetworkInterface extends OMVObject {
 	 * @return The interface default gateway, or FALSE on failure.
 	 */
 	public function getGateway() {
-		$cmd = sprintf("export LANG=C; ip -4 route show dev %s",
-		  $this->getDeviceName());
+		$cmd = sprintf("export LANG=C; ip -4 route show dev %s 2>&1",
+		  escapeshellarg($this->getDeviceName()));
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0)
+		if ($result !== 0) {
+			$this->setLastError($output);
 			return FALSE;
+		}
 		$output = implode("\n", $output);
 		// Parse command output:
 		// 192.168.178.0/24  proto kernel  scope link  src 192.168.178.21
 		// default via 192.168.178.1
 		$regex = sprintf('/default via\s+(%s)/im', $this->regex['ipv4']);
-		if(1 !== preg_match($regex, $output, $matches))
+		if (1 !== preg_match($regex, $output, $matches))
 			return FALSE;
 		return $matches[1];
 	}
@@ -5592,17 +5594,19 @@ class OMVNetworkInterface extends OMVObject {
 	 * @return The interface default gateway, or FALSE on failure.
 	 */
 	public function getGateway6() {
-		$cmd = sprintf("export LANG=C; ip -6 route show dev %s",
-		  $this->getDeviceName());
+		$cmd = sprintf("export LANG=C; ip -6 route show dev %s 2>&1",
+		  escapeshellarg($this->getDeviceName()));
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0)
+		if ($result !== 0) {
+			$this->setLastError($output);
 			return FALSE;
+		}
 		$output = implode("\n", $output);
 		// Parse command output:
 		// fe80::/64  proto kernel  metric 256  mtu 1500 advmss 1440 hoplimit 4294967295
 		// default via fe80::21e:13ff:fef9:af0  metric 1024  mtu 1500 advmss 1440 hoplimit 4294967295
 		$regex = sprintf('/default via\s+(%s)\s+/im', $this->regex['ipv6']);
-		if(1 !== preg_match($regex, $output, $matches))
+		if (1 !== preg_match($regex, $output, $matches))
 			return FALSE;
 		return $matches[1];
 	}
@@ -5612,9 +5616,9 @@ class OMVNetworkInterface extends OMVObject {
 	 * @return The network interface state, otherwise FALSE.
 	 */
 	public function getState() {
-		if($this->getData("ethtool") === FALSE)
+		if ($this->getData("ethtool") === FALSE)
 			return FALSE;
-		if(1 !== preg_match("/state {$this->regex['state']}/i",
+		if (1 !== preg_match("/state {$this->regex['state']}/i",
 		  $this->ethtool, $matches))
 			return FALSE;
 		return $matches[0];
@@ -5660,7 +5664,7 @@ class OMVNetworkInterface extends OMVObject {
 		//   eth0:162137708  168681    0    0    0     0          0         0 15969317  103565    0    0    0     0       0          0
 		//   eth1:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
 		$regex = sprintf('/^\s*%s:(.*)$/im', $this->getDeviceName());
-		if(1 !== preg_match($regex, file_get_contents("/proc/net/dev"),
+		if (1 !== preg_match($regex, file_get_contents("/proc/net/dev"),
 		  $matches))
 			return FALSE;
 		$data = preg_split("/[\s]+/", $matches[1]);
@@ -5798,7 +5802,7 @@ class OMVUserGroups extends OMVObject {
 	 * @return An array of system group names, otherwise FALSE.
 	 */
 	public static function enumerate() {
-		$cmd = "export LANG=C; getent group";
+		$cmd = "export LANG=C; getent group 2>&1";
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0)
 			return FALSE;
@@ -5834,7 +5838,7 @@ class OMVUserGroup extends OMVObject {
 	 * @param id The name or GID of the system group.
 	 */
 	public function __construct($id) {
-		if(is_int($id))
+		if (is_int($id))
 			$this->gid = $id;
 		else
 			$this->name = $id;
@@ -5846,15 +5850,15 @@ class OMVUserGroup extends OMVObject {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	private function getData() {
-		if($this->dataCached !== FALSE)
+		if ($this->dataCached !== FALSE)
 			return TRUE;
 		// Query user information.
 		$groupInfo = FALSE;
-		if(!is_null($this->gid))
+		if (!is_null($this->gid))
 			$groupInfo = posix_getgrgid($this->gid);
 		else
 			$groupInfo = posix_getgrnam($this->name);
-		if(FALSE === $groupInfo) {
+		if (FALSE === $groupInfo) {
 			$this->setLastError(posix_strerror(posix_errno()));
 			return FALSE;
 		}
@@ -5872,7 +5876,7 @@ class OMVUserGroup extends OMVObject {
 	 */
 	public function refresh() {
 		$this->dataCached = FALSE;
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return TRUE;
 	}
@@ -5882,7 +5886,7 @@ class OMVUserGroup extends OMVObject {
 	 * @return TRUE if the system group exists, otherwise FALSE.
 	 */
 	public function exists() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return !is_null($this->name) && !is_null($this->gid);
 	}
@@ -5892,9 +5896,9 @@ class OMVUserGroup extends OMVObject {
 	 * @return The group name.
 	 */
 	public function getName() {
-		if(!is_null($this->name))
+		if (!is_null($this->name))
 			return $this->name;
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return $this->name;
 	}
@@ -5904,9 +5908,9 @@ class OMVUserGroup extends OMVObject {
 	 * @return The group ID, otherwise FALSE.
 	 */
 	public function getGid() {
-		if(!is_null($this->gid))
+		if (!is_null($this->gid))
 			return $this->gid;
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return $this->gid;
 	}
@@ -5917,7 +5921,7 @@ class OMVUserGroup extends OMVObject {
 	 * otherwise FALSE.
 	 */
 	public function getMembers() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return $this->members;
 	}
@@ -5927,7 +5931,7 @@ class OMVUserGroup extends OMVObject {
 	 * @return An array containing the quotas.
 	 */
 	public function getQuotas() {
-		$cmd = sprintf("export LANG=C; EDITOR=cat edquota -g %s",
+		$cmd = sprintf("export LANG=C; EDITOR=cat edquota -g %s 2>&1",
 		  escapeshellarg($this->getName()));
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
@@ -6055,13 +6059,13 @@ class OMVUser extends OMVObject {
 		$result = FALSE;
 		switch($type) {
 		case "shadow":
-			if(!is_null($this->password))
+			if (!is_null($this->password))
 				return TRUE;
 			// http://www.cyberciti.biz/faq/understanding-etcshadow-file
-			$cmd = sprintf("export LANG=C; getent shadow %s", escapeshellarg(
-			  $this->getName()));
+			$cmd = sprintf("export LANG=C; getent shadow %s 2>&1",
+			  escapeshellarg($this->getName()));
 			@OMVUtil::exec($cmd, $output, $result);
-			if(($result !== 0) || empty($output[0])) {
+			if (($result !== 0) || empty($output[0])) {
 				$this->setLastError($output);
 				return FALSE;
 			}
@@ -6077,15 +6081,15 @@ class OMVUser extends OMVObject {
 			$result = TRUE;
 			break;
 		case "passwd":
-			if(!is_null($this->name) && !is_null($this->uid))
+			if (!is_null($this->name) && !is_null($this->uid))
 				return TRUE;
 			// Query user information.
 			$userInfo = FALSE;
-			if(!is_null($this->uid))
+			if (!is_null($this->uid))
 				$userInfo = posix_getpwuid($this->uid);
 			else
 				$userInfo = posix_getpwnam($this->name);
-			if(FALSE === $userInfo) {
+			if (FALSE === $userInfo) {
 				$this->setLastError(posix_strerror(posix_errno()));
 				return FALSE;
 			}
@@ -6098,22 +6102,22 @@ class OMVUser extends OMVObject {
 			$result = TRUE;
 			break;
 		case "groups":
-			if(!is_null($this->groups))
+			if (!is_null($this->groups))
 				return TRUE;
 			// Get the group IDs the user is in as white-space separated
 			// numbers. Thus it is possible to correctly process group
 			// names that contain blanks (e.g. imported via LDAP or AD).
-			$cmd = sprintf("export LANG=C; id -G %s", escapeshellarg(
-			  $this->getName()));
+			$cmd = sprintf("export LANG=C; id -G %s 2>&1",
+			  escapeshellarg($this->getName()));
 			@OMVUtil::exec($cmd, $output, $result);
-			if(($result !== 0) || empty($output[0])) {
+			if (($result !== 0) || empty($output[0])) {
 				$this->setLastError($output);
 				return FALSE;
 			}
 			$gids = explode(" ", $output[0]);
 			// Resolve the group names.
 			$this->groups = array();
-			foreach($gids as $gidk => $gidv) {
+			foreach ($gids as $gidk => $gidv) {
 				$groupInfo = posix_getgrgid($gidv);
 				$this->groups[] = $groupInfo['name'];
 			}
@@ -6128,7 +6132,7 @@ class OMVUser extends OMVObject {
 	 * @return TRUE if the system user exists, otherwise FALSE.
 	 */
 	public function exists() {
-		if($this->getData("passwd") === FALSE)
+		if ($this->getData("passwd") === FALSE)
 			return FALSE;
 		return !is_null($this->name) && !is_null($this->uid);
 	}
@@ -6138,9 +6142,9 @@ class OMVUser extends OMVObject {
 	 * @return The user name.
 	 */
 	public function getName() {
-		if(!is_null($this->name))
+		if (!is_null($this->name))
 			return $this->name;
-		if($this->getData("passwd") === FALSE)
+		if ($this->getData("passwd") === FALSE)
 			return FALSE;
 		return $this->name;
 	}
@@ -6150,9 +6154,9 @@ class OMVUser extends OMVObject {
 	 * @return The user ID, otherwise FALSE.
 	 */
 	public function getUid() {
-		if(!is_null($this->uid))
+		if (!is_null($this->uid))
 			return $this->uid;
-		if($this->getData("passwd") === FALSE)
+		if ($this->getData("passwd") === FALSE)
 			return FALSE;
 		return $this->uid;
 	}
@@ -6162,7 +6166,7 @@ class OMVUser extends OMVObject {
 	 * @return The user group ID, otherwise FALSE.
 	 */
 	public function getGid() {
-		if($this->getData("passwd") === FALSE)
+		if ($this->getData("passwd") === FALSE)
 			return FALSE;
 		return $this->gid;
 	}
@@ -6172,7 +6176,7 @@ class OMVUser extends OMVObject {
 	 * @return The comment, otherwise FALSE.
 	 */
 	public function getGecos() {
-		if($this->getData("passwd") === FALSE)
+		if ($this->getData("passwd") === FALSE)
 			return FALSE;
 		return $this->gecos;
 	}
@@ -6182,7 +6186,7 @@ class OMVUser extends OMVObject {
 	 * @return The home directory, otherwise FALSE.
 	 */
 	public function getHomeDirectory() {
-		if($this->getData("passwd") === FALSE)
+		if ($this->getData("passwd") === FALSE)
 			return FALSE;
 		return $this->dir;
 	}
@@ -6192,7 +6196,7 @@ class OMVUser extends OMVObject {
 	 * @return The shell, otherwise FALSE.
 	 */
 	public function getShell() {
-		if($this->getData("passwd") === FALSE)
+		if ($this->getData("passwd") === FALSE)
 			return FALSE;
 		return $this->shell;
 	}
@@ -6202,49 +6206,49 @@ class OMVUser extends OMVObject {
 	 * @return The encrypted password, otherwise FALSE.
 	 */
 	public function getPassword() {
-		if($this->getData("shadow") === FALSE)
+		if ($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->password;
 	}
 
 	public function getLastChanged() {
-		if($this->getData("shadow") === FALSE)
+		if ($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->lastchanged;
 	}
 
 	public function getMinimum() {
-		if($this->getData("shadow") === FALSE)
+		if ($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->minimum;
 	}
 
 	public function getMaximum() {
-		if($this->getData("shadow") === FALSE)
+		if ($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->maximum;
 	}
 
 	public function getWarn() {
-		if($this->getData("shadow") === FALSE)
+		if ($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->warn;
 	}
 
 	public function getInactive() {
-		if($this->getData("shadow") === FALSE)
+		if ($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->inactive;
 	}
 
 	public function getExpire() {
-		if($this->getData("shadow") === FALSE)
+		if ($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->expire;
 	}
 
 	public function getReserved() {
-		if($this->getData("shadow") === FALSE)
+		if ($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->reserved;
 	}
@@ -6254,7 +6258,7 @@ class OMVUser extends OMVObject {
 	 * @return An array of groups the user is in, otherwise FALSE.
 	 */
 	public function getGroups() {
-		if($this->getData("groups") === FALSE)
+		if ($this->getData("groups") === FALSE)
 			return FALSE;
 		return $this->groups;
 	}
@@ -6264,7 +6268,7 @@ class OMVUser extends OMVObject {
 	 * @return An array containing the quotas.
 	 */
 	public function getQuotas() {
-		$cmd = sprintf("export LANG=C; EDITOR=cat edquota -u %s",
+		$cmd = sprintf("export LANG=C; EDITOR=cat edquota -u %s 2>&1",
 		  escapeshellarg($this->getName()));
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {

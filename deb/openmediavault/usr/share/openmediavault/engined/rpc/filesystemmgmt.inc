@@ -372,6 +372,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				// Add the filesystem to the result list.
 				$objects[] = array(
 					"devicefile" => $fsInfo['devicefile'],
+					"devicefiles" => array($fsInfo['devicefile']),
 					"uuid" => "", // Not available
 					"label" => $fsInfo['label'],
 					"type" => $fsInfo['type'],
@@ -390,6 +391,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 					"propfstab" => $fsb->hasFstabSupport(),
 					"propcompress" => $fsb->hasCompressSupport(),
 					"propautodefrag" => $fsb->hasAutoDefragSupport(),
+					"hasmultipledevices" => false,
 					"status" => 2,
 					"_used" => FALSE
 				);
@@ -425,6 +427,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			$objects[] = array(
 				"devicefile" => is_devicefile($mntentv['fsname']) ?
 				  $mntentv['fsname'] : "",
+				"devicefiles" => is_devicefile($mntentv['fsname']) ?
+				  array($mntentv['fsname']) : array(),
 				"uuid" => is_uuid($mntentv['fsname']) ?
 				  $mntentv['fsname'] : "",
 				"label" => gettext("n/a"),
@@ -444,6 +448,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				"propfstab" => $fsb->hasFstabSupport(),
 				"propcompress" => $fsb->hasCompressSupport(),
 				"propautodefrag" => $fsb->hasAutoDefragSupport(),
+				"hasMultipleDevices" => FALSE,
 				"status" => 3,
 				"_used" => $xmlConfig->exists($xpath)
 			);
