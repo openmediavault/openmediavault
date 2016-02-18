@@ -125,7 +125,8 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 	 * Reboot the system.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
-	 * @throw E_EXEC_FAILED
+	 * @return None.
+	 * @throw E_EXEC_MISC
 	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
 	public function reboot($params, $context) {
@@ -133,12 +134,10 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		// Reboot the system now.
-		$cmd = "export LANG=C; shutdown -r now 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+		$pm = new OMVPowerManagement();
+		if (FALSE === $pm->reboot()) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
+			  $pm->getLastError());
 		}
 	}
 
@@ -147,7 +146,7 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_EXEC_FAILED
+	 * @throw E_EXEC_MISC
 	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
 	public function shutdown($params, $context) {
@@ -155,12 +154,10 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		// Shutdown the system now.
-		$cmd = "export LANG=C; shutdown -h -P now 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+		$pm = new OMVPowerManagement();
+		if (FALSE === $pm->shutdown()) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
+			  $pm->getLastError());
 		}
 	}
 

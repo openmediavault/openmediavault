@@ -330,6 +330,27 @@ class OMVPowerManagement extends OMVObject {
 	const PM_STATE_SUSPENDHYBRID = 0x4;
 
 	/**
+	 * Helper function.
+	 * @return TRUE if command has been executed sucessfully, otherwise
+	 *   FALSE.
+	 */
+	private function exec($action) {
+		$mapCommand = array(
+			"reboot" => "export LANG=C; shutdown -r now 2>&1",
+			"shutdown" => "export LANG=C; shutdown -h -P now 2>&1",
+			"suspendhybrid" => "export LANG=C; pm-suspend-hybrid 2>&1",
+			"hibernate" => "export LANG=C; pm-hibernate 2>&1",
+			"suspend" => "export LANG=C; pm-suspend 2>&1"
+		);
+		OMVUtil::exec($mapCommand[$action], $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	/**
 	 * Checks if the given power management state is supported.
 	 * @param state The state to check for.
 	 * @return TRUE if the state is supported, if not then FALSE. In case
@@ -388,6 +409,24 @@ class OMVPowerManagement extends OMVObject {
 	}
 
 	/**
+	 * Reboot the machine.
+	 * @return TRUE if command has been executed sucessfully, otherwise
+	 *   FALSE.
+	 */
+	public function reboot() {
+		return $this->exec("reboot");
+	}
+
+	/**
+	 * Shut down the machine.
+	 * @return TRUE if command has been executed sucessfully, otherwise
+	 *   FALSE.
+	 */
+	public function shutdown() {
+		return $this->exec("shutdown");
+	}
+
+	/**
 	 * Put the machine in a sleep state. If suspend to disk (STD) or RAM (STR)
 	 * is not supported the system will be shut down. The system will be put
 	 * into one of the following state depending on which state is supported:
@@ -401,20 +440,14 @@ class OMVPowerManagement extends OMVObject {
 	 *   FALSE.
 	 */
 	public function standby() {
-		$result = FALSE;
-		$cmd = "export LANG=C; shutdown -h -P now 2>&1";
+		$action = "shutdown";
 		if (TRUE === $this->isStateSupported(self::PM_STATE_SUSPENDHYBRID))
-			$cmd = "export LANG=C; pm-suspend-hybrid 2>&1";
+			$action = "suspendhybrid";
 		else if (TRUE === $this->isStateSupported(self::PM_STATE_HIBERNATE))
-			$cmd = "export LANG=C; pm-hibernate 2>&1";
+			$action = "hibernate";
 		else if (TRUE === $this->isStateSupported(self::PM_STATE_SUSPEND))
-			$cmd = "export LANG=C; pm-suspend 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			$this->setLastError($output);
-			return FALSE;
-		}
-		return TRUE;
+			$action = "suspend";
+		return $this->exec($action);
 	}
 
 	/**
@@ -424,16 +457,10 @@ class OMVPowerManagement extends OMVObject {
 	 *   FALSE.
 	 */
 	public function suspend() {
-		$result = FALSE;
-		$cmd = "export LANG=C; shutdown -h -P now 2>&1";
+		$action = "shutdown";
 		if (TRUE === $this->isStateSupported(self::PM_STATE_SUSPEND))
-			$cmd = "export LANG=C; pm-suspend 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			$this->setLastError($output);
-			return FALSE;
-		}
-		return TRUE;
+			$action = "suspend";
+		return $this->exec($action);
 	}
 
 	/**
@@ -443,15 +470,10 @@ class OMVPowerManagement extends OMVObject {
 	 *   FALSE.
 	 */
 	public function hibernate() {
-		$cmd = "export LANG=C; shutdown -h -P now 2>&1";
+		$action = "shutdown";
 		if (TRUE === $this->isStateSupported(self::PM_STATE_HIBERNATE))
-			$cmd = "export LANG=C; pm-hibernate 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			$this->setLastError($output);
-			return FALSE;
-		}
-		return TRUE;
+			$action = "hibernate";
+		return $this->exec($action);
 	}
 
 	/**
@@ -461,15 +483,10 @@ class OMVPowerManagement extends OMVObject {
 	 *   FALSE.
 	 */
 	public function suspendHybrid() {
-		$cmd = "export LANG=C; shutdown -h -P now 2>&1";
+		$action = "shutdown";
 		if (TRUE === $this->isStateSupported(self::PM_STATE_SUSPENDHYBRID))
-			$cmd = "export LANG=C; pm-suspend-hybrid 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			$this->setLastError($output);
-			return FALSE;
-		}
-		return TRUE;
+			$action = "suspendhybrid";
+		return $this->exec($action);
 	}
 }
 
