@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-12 19:44+0100\n"
-"PO-Revision-Date: 2016-02-12 18:45+0000\n"
+"POT-Creation-Date: 2016-02-18 21:22+0100\n"
+"PO-Revision-Date: 2016-02-18 20:22+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/votdev/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -171,10 +171,10 @@ msgid "ACL"
 msgstr "ACL"
 
 msgid "APT - History"
-msgstr ""
+msgstr "APT - Geschienenis"
 
 msgid "APT - Terminal output"
-msgstr ""
+msgstr "APT - Vensteruitvoer"
 
 msgid "ASCII"
 msgstr "ASCII"
@@ -461,9 +461,6 @@ msgstr "Beschikbaar"
 
 msgid "Azerbaijan"
 msgstr "Azerbeidzjan"
-
-msgid "Bad"
-msgstr ""
 
 msgid "Bahamas"
 msgstr "Bahamas"
@@ -872,14 +869,29 @@ msgstr "Apparaat"
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Apparaatmapper %s [%s, %s]"
 
+msgid "Device has a few bad sectors"
+msgstr ""
+
+msgid "Device has many bad sectors"
+msgstr ""
+
 msgid "Device information"
 msgstr "Apparaat informatie"
+
+msgid "Device is being used outside design parameters"
+msgstr ""
 
 msgid "Device model"
 msgstr "Model van het apparaat"
 
 msgid "Device properties"
 msgstr "Apparaat eigenschappen"
+
+msgid "Device was used outside of design parameters in the past"
+msgstr ""
+
+msgid "Device(s)"
+msgstr ""
 
 msgid "Device/Label"
 msgstr "Apparaat/Naam"
@@ -1429,7 +1441,7 @@ msgid "Gibraltar"
 msgstr "Gibraltar"
 
 msgid "Good"
-msgstr ""
+msgstr "Goed"
 
 msgid "Greece"
 msgstr "Griekenland"
@@ -1492,7 +1504,7 @@ msgid "Haiti"
 msgstr "Haïti "
 
 msgid "Hardware address"
-msgstr ""
+msgstr "Hardware-adres"
 
 msgid "Heard Island and McDonald Islands"
 msgstr "Heard Eilanden en McDonald Eilanden"
@@ -2803,6 +2815,9 @@ msgid "SSH"
 msgstr "SSH"
 
 msgid "SSH certificate"
+msgstr "SSH-certificaat"
+
+msgid "SSH port"
 msgstr ""
 
 msgid "SSID"
@@ -2935,7 +2950,7 @@ msgid "Select a volume ..."
 msgstr "Selecteer een schijf(deel) ..."
 
 msgid "Select an authentication mode ..."
-msgstr ""
+msgstr "Kies een authenticatiewijze ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr "Kies de schijven die toegevoegd moeten worden aan de RAID-configuratie"
@@ -3328,7 +3343,7 @@ msgid "The RSA public key in OpenSSH format."
 msgstr "De RSA publieke sleutel in OpenSSH-opmaak"
 
 msgid "The SSH certificate used for authentication."
-msgstr ""
+msgstr "Het gebruikte SSH-certificaat voor authenticatie"
 
 msgid "The SSL certificate."
 msgstr "Het SSL-certificaat"
@@ -3826,7 +3841,7 @@ msgid "United States Minor Outlying Islands"
 msgstr "Amerikaanse Kleine Buitengelegen Eilanden"
 
 msgid "Unknown"
-msgstr ""
+msgstr "Onbekend"
 
 msgid "Unknown log file type (id=%s)"
 msgstr "Onbekend bestandstype van de log (id=%s)"
@@ -4104,13 +4119,13 @@ msgid "n/a"
 msgstr "n.v.t."
 
 msgid "old-age"
-msgstr ""
+msgstr "ouderdomssporen"
 
 msgid "prefail"
-msgstr ""
+msgstr "Foutgevoelig"
 
 msgid "seconds"
 msgstr "seconden"
 
 msgid "web administration interface"
-msgstr "web administration interface"
+msgstr "webonderhoudsscherm"

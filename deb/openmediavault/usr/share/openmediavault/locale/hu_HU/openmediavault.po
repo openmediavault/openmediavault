@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-12 19:44+0100\n"
-"PO-Revision-Date: 2016-02-12 18:45+0000\n"
+"POT-Creation-Date: 2016-02-18 21:22+0100\n"
+"PO-Revision-Date: 2016-02-18 20:22+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -460,9 +460,6 @@ msgstr "Elérhető"
 msgid "Azerbaijan"
 msgstr "Azerbaijan"
 
-msgid "Bad"
-msgstr ""
-
 msgid "Bahamas"
 msgstr "Bahamák"
 
@@ -870,14 +867,29 @@ msgstr "Meghajtó"
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Eszköz mappaló %s [%s, %s]"
 
+msgid "Device has a few bad sectors"
+msgstr ""
+
+msgid "Device has many bad sectors"
+msgstr ""
+
 msgid "Device information"
 msgstr "Eszközinformáció"
+
+msgid "Device is being used outside design parameters"
+msgstr ""
 
 msgid "Device model"
 msgstr "Meghajtó modell"
 
 msgid "Device properties"
 msgstr "Eszköz tulajdonságai"
+
+msgid "Device was used outside of design parameters in the past"
+msgstr ""
+
+msgid "Device(s)"
+msgstr ""
 
 msgid "Device/Label"
 msgstr "Eszköz/Címke"
@@ -2801,6 +2813,9 @@ msgid "SSH"
 msgstr "SSH"
 
 msgid "SSH certificate"
+msgstr ""
+
+msgid "SSH port"
 msgstr ""
 
 msgid "SSID"

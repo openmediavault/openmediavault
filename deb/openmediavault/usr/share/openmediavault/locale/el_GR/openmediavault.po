@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-12 19:44+0100\n"
-"PO-Revision-Date: 2016-02-12 18:45+0000\n"
+"POT-Creation-Date: 2016-02-18 21:22+0100\n"
+"PO-Revision-Date: 2016-02-18 20:22+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/votdev/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -168,10 +168,10 @@ msgid "ACL"
 msgstr "Λίστα Διαχείρισης Πρόσβασης"
 
 msgid "APT - History"
-msgstr ""
+msgstr "ΑΡΤ - Ιστορικό"
 
 msgid "APT - Terminal output"
-msgstr ""
+msgstr "ΑΡΤ - Λεπτομέρειες σε τερματικό"
 
 msgid "ASCII"
 msgstr "ASCII"
@@ -458,9 +458,6 @@ msgstr "Διαθέσιμο"
 
 msgid "Azerbaijan"
 msgstr "Azerbaijan"
-
-msgid "Bad"
-msgstr ""
 
 msgid "Bahamas"
 msgstr "Bahamas"
@@ -869,14 +866,29 @@ msgstr "Συσκευή"
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Αντιστόιχιση συσκευής %s [%s, %s]"
 
+msgid "Device has a few bad sectors"
+msgstr "Η συσκευή έχει μερικούς χαλασμένους τομείς"
+
+msgid "Device has many bad sectors"
+msgstr "Η συσκευή έχει πολλούς χαλασμένου τομείς"
+
 msgid "Device information"
 msgstr "Πληροφορίες συσκευής"
+
+msgid "Device is being used outside design parameters"
+msgstr "Η συσκευή χρησιμοποιείται τώρα εκτός προδιαγραφών"
 
 msgid "Device model"
 msgstr "Μοντέλο συσκευής"
 
 msgid "Device properties"
 msgstr "Ιδιότητες συσκευής"
+
+msgid "Device was used outside of design parameters in the past"
+msgstr "Η συσκευή έχει παλαιότερα χρησιμοποιηθεί εκτός προδιαγραφών"
+
+msgid "Device(s)"
+msgstr ""
 
 msgid "Device/Label"
 msgstr "Συσκευή/Ετικέτα"
@@ -1426,7 +1438,7 @@ msgid "Gibraltar"
 msgstr "Gibraltar"
 
 msgid "Good"
-msgstr ""
+msgstr "Καλό"
 
 msgid "Greece"
 msgstr "Greece"
@@ -1489,7 +1501,7 @@ msgid "Haiti"
 msgstr "Haiti"
 
 msgid "Hardware address"
-msgstr ""
+msgstr "Διεύθυνση υλικού"
 
 msgid "Heard Island and McDonald Islands"
 msgstr "Heard Island and McDonald Islands"
@@ -2800,7 +2812,10 @@ msgid "SSH"
 msgstr "SSH"
 
 msgid "SSH certificate"
-msgstr ""
+msgstr "Πιστοποιητικό SSH"
+
+msgid "SSH port"
+msgstr "Θύρα SSH"
 
 msgid "SSID"
 msgstr "SSID"
@@ -2932,7 +2947,7 @@ msgid "Select a volume ..."
 msgstr "Επιλογή τόμου ..."
 
 msgid "Select an authentication mode ..."
-msgstr ""
+msgstr "Επιλογή τρόπου πιστοποίησης ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr "Επιλογή συσκευών για προσθήκη σε συσκευή RAID"
@@ -3325,7 +3340,7 @@ msgid "The RSA public key in OpenSSH format."
 msgstr "Το δημόσιο κλειδί RSA σε μορφή OpenSSH."
 
 msgid "The SSH certificate used for authentication."
-msgstr ""
+msgstr "Το πιστοποιητικό SSH που θα χρησιμοποιείται."
 
 msgid "The SSL certificate."
 msgstr "Το πιστοποιητικό SSL."
@@ -3823,7 +3838,7 @@ msgid "United States Minor Outlying Islands"
 msgstr "United States Minor Outlying Islands"
 
 msgid "Unknown"
-msgstr ""
+msgstr "Άγνωστο"
 
 msgid "Unknown log file type (id=%s)"
 msgstr "Άγνωστο αρχείο καταγραφής (%s)"
@@ -4101,10 +4116,10 @@ msgid "n/a"
 msgstr "τίποτα"
 
 msgid "old-age"
-msgstr ""
+msgstr "old-age"
 
 msgid "prefail"
-msgstr ""
+msgstr "prefail"
 
 msgid "seconds"
 msgstr "δευτερόλεπτα"

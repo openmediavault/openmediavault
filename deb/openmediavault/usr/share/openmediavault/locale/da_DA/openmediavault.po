@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-12 19:44+0100\n"
-"PO-Revision-Date: 2016-02-13 12:20+0000\n"
-"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"POT-Creation-Date: 2016-02-18 21:22+0100\n"
+"PO-Revision-Date: 2016-02-18 20:22+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/votdev/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -168,10 +168,10 @@ msgid "ACL"
 msgstr "ACL"
 
 msgid "APT - History"
-msgstr ""
+msgstr "APT - Historie"
 
 msgid "APT - Terminal output"
-msgstr ""
+msgstr "APT - Terminal output"
 
 msgid "ASCII"
 msgstr "ASCII"
@@ -458,9 +458,6 @@ msgstr "Tilgængelig"
 
 msgid "Azerbaijan"
 msgstr "Azerbaijan"
-
-msgid "Bad"
-msgstr ""
 
 msgid "Bahamas"
 msgstr "Bahamas"
@@ -869,14 +866,29 @@ msgstr "Enhed"
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Enheds Mapper %s [%s, %s]"
 
+msgid "Device has a few bad sectors"
+msgstr "Enheden har få dårlige sektorer"
+
+msgid "Device has many bad sectors"
+msgstr "Enheden har mange dårlige sektorer"
+
 msgid "Device information"
 msgstr "Enheds oplysninger"
+
+msgid "Device is being used outside design parameters"
+msgstr "Enheden bliver brugt udenfor design parametre"
 
 msgid "Device model"
 msgstr "Enheds model"
 
 msgid "Device properties"
 msgstr "Enheds egenskaber"
+
+msgid "Device was used outside of design parameters in the past"
+msgstr "Enheden var før blevet brugt udenfor design parametre"
+
+msgid "Device(s)"
+msgstr ""
 
 msgid "Device/Label"
 msgstr "Enhed/Label"
@@ -1489,7 +1501,7 @@ msgid "Haiti"
 msgstr "Haiti"
 
 msgid "Hardware address"
-msgstr ""
+msgstr "Hardware adresse"
 
 msgid "Heard Island and McDonald Islands"
 msgstr "Heard Island og McDonald Islands"
@@ -2800,6 +2812,9 @@ msgid "SSH"
 msgstr "SSH"
 
 msgid "SSH certificate"
+msgstr "SSH certifikat"
+
+msgid "SSH port"
 msgstr ""
 
 msgid "SSID"
@@ -2932,7 +2947,7 @@ msgid "Select a volume ..."
 msgstr "Vælg et drev ..."
 
 msgid "Select an authentication mode ..."
-msgstr ""
+msgstr "Vælg en godkendelses metode ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr "Vælg enheder, der skal tilføjes til RAID enheden"
@@ -3325,7 +3340,7 @@ msgid "The RSA public key in OpenSSH format."
 msgstr "Den offentlige RSA nøgle i OpenSSH format. "
 
 msgid "The SSH certificate used for authentication."
-msgstr ""
+msgstr "SSH certifikatet brugt til godkendelse."
 
 msgid "The SSL certificate."
 msgstr "SSL certifikat."
@@ -4101,10 +4116,10 @@ msgid "n/a"
 msgstr "n/a"
 
 msgid "old-age"
-msgstr ""
+msgstr "ældre"
 
 msgid "prefail"
-msgstr ""
+msgstr "tæt på fejl"
 
 msgid "seconds"
 msgstr "sekunder"

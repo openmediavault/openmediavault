@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-12 19:44+0100\n"
-"PO-Revision-Date: 2016-02-12 18:51+0000\n"
+"POT-Creation-Date: 2016-02-18 21:22+0100\n"
+"PO-Revision-Date: 2016-02-18 20:23+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -468,9 +468,6 @@ msgstr "Verfügbar"
 msgid "Azerbaijan"
 msgstr "Aserbaidschan"
 
-msgid "Bad"
-msgstr "Schlecht"
-
 msgid "Bahamas"
 msgstr "Bahamas"
 
@@ -878,14 +875,29 @@ msgstr "Laufwerk"
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Device Mapper %s [%s, %s]"
 
+msgid "Device has a few bad sectors"
+msgstr "Das Laufwerk enthält einige fehlerhafte Sektoren"
+
+msgid "Device has many bad sectors"
+msgstr "Das Laufwerk hat viele fehlerhafte Sektoren"
+
 msgid "Device information"
 msgstr "Geräteinformationen"
+
+msgid "Device is being used outside design parameters"
+msgstr "Das Laufwerk wird außerhalb der erlaubten Betriebsbedingungen betrieben"
 
 msgid "Device model"
 msgstr "Gerätemodell"
 
 msgid "Device properties"
 msgstr "Geräteeigenschaften"
+
+msgid "Device was used outside of design parameters in the past"
+msgstr "Das Laufwerk wurde in der Vergangenheit außerhalb der erlaubten Betriebsbedingungen betrieben"
+
+msgid "Device(s)"
+msgstr "Laufwerk(e)"
 
 msgid "Device/Label"
 msgstr "Laufwerk/Datenträgerbezeichnung"
@@ -2811,6 +2823,9 @@ msgstr "SSH"
 msgid "SSH certificate"
 msgstr "SSH Zertifikat"
 
+msgid "SSH port"
+msgstr "SSH Port"
+
 msgid "SSID"
 msgstr "SSID"
 
@@ -4110,7 +4125,7 @@ msgid "n/a"
 msgstr "N/V"
 
 msgid "old-age"
-msgstr ""
+msgstr "Alterserscheinungen"
 
 msgid "prefail"
 msgstr ""

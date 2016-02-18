@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-12 19:44+0100\n"
-"PO-Revision-Date: 2016-02-12 18:45+0000\n"
+"POT-Creation-Date: 2016-02-18 21:22+0100\n"
+"PO-Revision-Date: 2016-02-18 20:22+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/votdev/openmediavault/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
@@ -466,9 +466,6 @@ msgstr "Доступное"
 msgid "Azerbaijan"
 msgstr "Азербайджан"
 
-msgid "Bad"
-msgstr "Плохо"
-
 msgid "Bahamas"
 msgstr "Багамские острова"
 
@@ -876,14 +873,29 @@ msgstr "Устройство"
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Device Mapper %s [%s, %s]"
 
+msgid "Device has a few bad sectors"
+msgstr ""
+
+msgid "Device has many bad sectors"
+msgstr ""
+
 msgid "Device information"
 msgstr "Информация об устройстве"
+
+msgid "Device is being used outside design parameters"
+msgstr ""
 
 msgid "Device model"
 msgstr "Модель устройства"
 
 msgid "Device properties"
 msgstr "Свойства устройства"
+
+msgid "Device was used outside of design parameters in the past"
+msgstr ""
+
+msgid "Device(s)"
+msgstr ""
 
 msgid "Device/Label"
 msgstr "Устройство / Метка"
@@ -2807,6 +2819,9 @@ msgid "SSH"
 msgstr "SSH"
 
 msgid "SSH certificate"
+msgstr ""
+
+msgid "SSH port"
 msgstr ""
 
 msgid "SSID"

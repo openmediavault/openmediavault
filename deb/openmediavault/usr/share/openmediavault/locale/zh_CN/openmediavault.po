@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-12 19:44+0100\n"
-"PO-Revision-Date: 2016-02-13 02:39+0000\n"
-"Last-Translator: songming <by@songming.me>\n"
+"POT-Creation-Date: 2016-02-18 21:22+0100\n"
+"PO-Revision-Date: 2016-02-18 20:22+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -460,9 +460,6 @@ msgstr "可用"
 msgid "Azerbaijan"
 msgstr "阿塞拜疆"
 
-msgid "Bad"
-msgstr "坏"
-
 msgid "Bahamas"
 msgstr "巴哈马"
 
@@ -870,14 +867,29 @@ msgstr "设备"
 msgid "Device Mapper %s [%s, %s]"
 msgstr "设备图 %s [%s, %s]"
 
+msgid "Device has a few bad sectors"
+msgstr "设备有几个坏道"
+
+msgid "Device has many bad sectors"
+msgstr "设备有许多坏道"
+
 msgid "Device information"
 msgstr "设备信息"
+
+msgid "Device is being used outside design parameters"
+msgstr "设备使用已超出设计参数"
 
 msgid "Device model"
 msgstr "设备型号"
 
 msgid "Device properties"
 msgstr "设备属性"
+
+msgid "Device was used outside of design parameters in the past"
+msgstr "设备使用曾超出设计参数"
+
+msgid "Device(s)"
+msgstr ""
 
 msgid "Device/Label"
 msgstr "设备/标签"
@@ -2803,6 +2815,9 @@ msgstr "SSH"
 msgid "SSH certificate"
 msgstr "SSH证书"
 
+msgid "SSH port"
+msgstr "SSH端口"
+
 msgid "SSID"
 msgstr " SSID"
 
@@ -4102,10 +4117,10 @@ msgid "n/a"
 msgstr "n/a"
 
 msgid "old-age"
-msgstr ""
+msgstr "正常老化"
 
 msgid "prefail"
-msgstr ""
+msgstr "故障前兆"
 
 msgid "seconds"
 msgstr "秒"

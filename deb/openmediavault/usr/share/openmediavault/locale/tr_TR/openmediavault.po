@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-12 19:44+0100\n"
-"PO-Revision-Date: 2016-02-12 18:45+0000\n"
+"POT-Creation-Date: 2016-02-18 21:22+0100\n"
+"PO-Revision-Date: 2016-02-18 20:22+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/votdev/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -168,10 +168,10 @@ msgid "ACL"
 msgstr "ACL"
 
 msgid "APT - History"
-msgstr ""
+msgstr "APT - Geçmiş"
 
 msgid "APT - Terminal output"
-msgstr ""
+msgstr "APT - Terminal çıktısı"
 
 msgid "ASCII"
 msgstr "ASCII"
@@ -458,9 +458,6 @@ msgstr "Mevcut"
 
 msgid "Azerbaijan"
 msgstr "Azerbaycan"
-
-msgid "Bad"
-msgstr "Kötü"
 
 msgid "Bahamas"
 msgstr "Bahamalar"
@@ -869,14 +866,29 @@ msgstr "Aygıt"
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Aygıt Bağlantılandırıcısı %s [%s, %s]"
 
+msgid "Device has a few bad sectors"
+msgstr "Aygıtta az bir miktar bozuk sektör var"
+
+msgid "Device has many bad sectors"
+msgstr "Aygıtta çok miktarda bozuk sektör var"
+
 msgid "Device information"
 msgstr "Aygıt bilgisi"
+
+msgid "Device is being used outside design parameters"
+msgstr "Aygıt tasarım parametrelerinin dışında kullanılıyor"
 
 msgid "Device model"
 msgstr "Aygıt modeli"
 
 msgid "Device properties"
 msgstr "Aygıt özellikleri"
+
+msgid "Device was used outside of design parameters in the past"
+msgstr "Aygıt geçmişte tadarım parametrelerinin dışında kullanılmış"
+
+msgid "Device(s)"
+msgstr ""
 
 msgid "Device/Label"
 msgstr "Aygıt/Etiket"
@@ -1489,7 +1501,7 @@ msgid "Haiti"
 msgstr "Haiti"
 
 msgid "Hardware address"
-msgstr ""
+msgstr "Donanım adresi"
 
 msgid "Heard Island and McDonald Islands"
 msgstr "Heard Adası ve McDonal Adası"
@@ -2800,7 +2812,10 @@ msgid "SSH"
 msgstr "SSH"
 
 msgid "SSH certificate"
-msgstr ""
+msgstr "SSH sertifikası"
+
+msgid "SSH port"
+msgstr "SSH portu"
 
 msgid "SSID"
 msgstr "SSID"
@@ -2932,7 +2947,7 @@ msgid "Select a volume ..."
 msgstr "Bir birim seçiniz ..."
 
 msgid "Select an authentication mode ..."
-msgstr ""
+msgstr "Doğrulama metodunu seçiniz ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr "RAID e eklemecek yeni aygıtları seçiniz"
@@ -3325,7 +3340,7 @@ msgid "The RSA public key in OpenSSH format."
 msgstr "OpenSSH biçeminde RSA açık anahtarı."
 
 msgid "The SSH certificate used for authentication."
-msgstr ""
+msgstr "SSH sertifikası kimlik doğrulama için kullanılır"
 
 msgid "The SSL certificate."
 msgstr "SSL sertifikası."
@@ -4101,10 +4116,10 @@ msgid "n/a"
 msgstr "yok"
 
 msgid "old-age"
-msgstr ""
+msgstr "Yaşlı"
 
 msgid "prefail"
-msgstr ""
+msgstr "Hata öncesi"
 
 msgid "seconds"
 msgstr "saniye"

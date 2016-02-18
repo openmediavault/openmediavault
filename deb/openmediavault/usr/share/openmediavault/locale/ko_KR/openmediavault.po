@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-12 19:44+0100\n"
-"PO-Revision-Date: 2016-02-12 18:45+0000\n"
+"POT-Creation-Date: 2016-02-18 21:22+0100\n"
+"PO-Revision-Date: 2016-02-18 20:22+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -461,9 +461,6 @@ msgstr "사용 가능"
 msgid "Azerbaijan"
 msgstr "아제르바이잔"
 
-msgid "Bad"
-msgstr "나쁨"
-
 msgid "Bahamas"
 msgstr "바하마"
 
@@ -871,14 +868,29 @@ msgstr "장치"
 msgid "Device Mapper %s [%s, %s]"
 msgstr "장치 매퍼 %s [%s, %s]"
 
+msgid "Device has a few bad sectors"
+msgstr ""
+
+msgid "Device has many bad sectors"
+msgstr ""
+
 msgid "Device information"
 msgstr "장치 정보"
+
+msgid "Device is being used outside design parameters"
+msgstr ""
 
 msgid "Device model"
 msgstr "장치 모델"
 
 msgid "Device properties"
 msgstr "장치 속성"
+
+msgid "Device was used outside of design parameters in the past"
+msgstr ""
+
+msgid "Device(s)"
+msgstr ""
 
 msgid "Device/Label"
 msgstr "장치/레이블"
@@ -2802,6 +2814,9 @@ msgid "SSH"
 msgstr "SSH"
 
 msgid "SSH certificate"
+msgstr ""
+
+msgid "SSH port"
 msgstr ""
 
 msgid "SSID"

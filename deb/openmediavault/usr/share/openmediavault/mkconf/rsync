@@ -118,7 +118,7 @@ xmlstarlet sel -t \
 		-i "authentication = 'pubkey'" \
 		  -v "concat(' --rsh \"ssh -p ',sshport,'\"')" \
 		-b \
-    	-i "recursive = '1'" -o " --recursive" -b \
+		-i "recursive = '1'" -o " --recursive" -b \
 		-i "times = '1'" -o " --times" -b \
 		-i "compress = '1'" -o " --compress" -b \
 		-i "archive = '1'" -o " --archive" -b \

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-12 19:44+0100\n"
-"PO-Revision-Date: 2016-02-12 18:45+0000\n"
+"POT-Creation-Date: 2016-02-18 21:22+0100\n"
+"PO-Revision-Date: 2016-02-18 20:22+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/votdev/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -168,10 +168,10 @@ msgid "ACL"
 msgstr "ACL"
 
 msgid "APT - History"
-msgstr ""
+msgstr "APT - ヒストリ"
 
 msgid "APT - Terminal output"
-msgstr ""
+msgstr "APT - ターミナル出力"
 
 msgid "ASCII"
 msgstr "ASCII"
@@ -458,9 +458,6 @@ msgstr "利用可能"
 
 msgid "Azerbaijan"
 msgstr "アゼルバイジャン"
-
-msgid "Bad"
-msgstr "悪い"
 
 msgid "Bahamas"
 msgstr "な浜"
@@ -869,14 +866,29 @@ msgstr "デバイス"
 msgid "Device Mapper %s [%s, %s]"
 msgstr "デバイスマッパー %s [%s, %s]"
 
+msgid "Device has a few bad sectors"
+msgstr "デバイスは、いくつかの不良セクタを持っています"
+
+msgid "Device has many bad sectors"
+msgstr "デバイスは、たくさんの不良セクタを持っています"
+
 msgid "Device information"
 msgstr "デバイス情報"
+
+msgid "Device is being used outside design parameters"
+msgstr "デバイスは、設計パラメータ外で使用されています"
 
 msgid "Device model"
 msgstr "デバイスモデル"
 
 msgid "Device properties"
 msgstr "デバイスプロパティ"
+
+msgid "Device was used outside of design parameters in the past"
+msgstr "デバイスは、過去に設計パラメータの外で使用しました"
+
+msgid "Device(s)"
+msgstr ""
 
 msgid "Device/Label"
 msgstr "デバイス/ラベル"
@@ -1489,7 +1501,7 @@ msgid "Haiti"
 msgstr "ハイチ"
 
 msgid "Hardware address"
-msgstr ""
+msgstr "ハードウェア　アドレス"
 
 msgid "Heard Island and McDonald Islands"
 msgstr "ハード島とマクドナルド諸島"
@@ -2800,7 +2812,10 @@ msgid "SSH"
 msgstr "SSH"
 
 msgid "SSH certificate"
-msgstr ""
+msgstr "SSH証明書"
+
+msgid "SSH port"
+msgstr "SSH ポート"
 
 msgid "SSID"
 msgstr "SSID"
@@ -2932,7 +2947,7 @@ msgid "Select a volume ..."
 msgstr "ボリュームを選択 ..."
 
 msgid "Select an authentication mode ..."
-msgstr ""
+msgstr "認証モードを選択 ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr "RAIDデバイスに追加するデバイスを選択"
@@ -3325,7 +3340,7 @@ msgid "The RSA public key in OpenSSH format."
 msgstr "OpenSSH形式でのRSA公開鍵。"
 
 msgid "The SSH certificate used for authentication."
-msgstr ""
+msgstr "SSH証明書が認証に使用されます。"
 
 msgid "The SSL certificate."
 msgstr "SSL証明書。"
@@ -4101,10 +4116,10 @@ msgid "n/a"
 msgstr "n/a"
 
 msgid "old-age"
-msgstr ""
+msgstr "old-age"
 
 msgid "prefail"
-msgstr ""
+msgstr "prefail"
 
 msgid "seconds"
 msgstr "秒"

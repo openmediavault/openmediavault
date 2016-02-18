@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-12 19:44+0100\n"
-"PO-Revision-Date: 2016-02-12 18:45+0000\n"
+"POT-Creation-Date: 2016-02-18 21:22+0100\n"
+"PO-Revision-Date: 2016-02-18 20:22+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Italian (http://www.transifex.com/votdev/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -173,10 +173,10 @@ msgid "ACL"
 msgstr "ACL"
 
 msgid "APT - History"
-msgstr ""
+msgstr "APT - Storico"
 
 msgid "APT - Terminal output"
-msgstr ""
+msgstr "APT - Ouput Terminale"
 
 msgid "ASCII"
 msgstr "ASCII"
@@ -463,9 +463,6 @@ msgstr "Disponibile"
 
 msgid "Azerbaijan"
 msgstr "Azerbaijan"
-
-msgid "Bad"
-msgstr "Male"
 
 msgid "Bahamas"
 msgstr "Bahamas"
@@ -874,14 +871,29 @@ msgstr "Dispositivo"
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Dispositivo Mapper %s [%s, %s]"
 
+msgid "Device has a few bad sectors"
+msgstr "Il dispositivo ha pochi settori danneggiati"
+
+msgid "Device has many bad sectors"
+msgstr "Il dispositivo ha molti settori danneggiati"
+
 msgid "Device information"
 msgstr "Informazione dispositivo"
+
+msgid "Device is being used outside design parameters"
+msgstr "Il dispositivo viene utilizzato al di fuori dei parametri definiti"
 
 msgid "Device model"
 msgstr "Modello del dispositivo"
 
 msgid "Device properties"
 msgstr "Proprietà dispositivo"
+
+msgid "Device was used outside of design parameters in the past"
+msgstr "In passato il dispositivo è stato utilizzato al di fuori dei parametri definiti"
+
+msgid "Device(s)"
+msgstr ""
 
 msgid "Device/Label"
 msgstr "Dispositivo/Etichetta"
@@ -1494,7 +1506,7 @@ msgid "Haiti"
 msgstr "Haiti"
 
 msgid "Hardware address"
-msgstr ""
+msgstr "Indirizzo Hardware (MAC)"
 
 msgid "Heard Island and McDonald Islands"
 msgstr "Isole Heard e McDonald"
@@ -2805,7 +2817,10 @@ msgid "SSH"
 msgstr "SSH"
 
 msgid "SSH certificate"
-msgstr ""
+msgstr "Certificato SSH"
+
+msgid "SSH port"
+msgstr "Porta SSH"
 
 msgid "SSID"
 msgstr "SSID"
@@ -2937,7 +2952,7 @@ msgid "Select a volume ..."
 msgstr "Scegli un volume ..."
 
 msgid "Select an authentication mode ..."
-msgstr ""
+msgstr "Seleziona una modalità di autenticazione ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr "Scegli i dispositivi che devono essere aggiunti al dispositivo RAID"
@@ -3330,7 +3345,7 @@ msgid "The RSA public key in OpenSSH format."
 msgstr "La chiave pubblica RSA nel formato OpenSSH."
 
 msgid "The SSH certificate used for authentication."
-msgstr ""
+msgstr "Il certificato SSH utilizzato per l'autenticazione."
 
 msgid "The SSL certificate."
 msgstr "Il certificato SSL."
@@ -4106,10 +4121,10 @@ msgid "n/a"
 msgstr "n/c"
 
 msgid "old-age"
-msgstr ""
+msgstr "old-age"
 
 msgid "prefail"
-msgstr ""
+msgstr "prefail"
 
 msgid "seconds"
 msgstr "secondi"
