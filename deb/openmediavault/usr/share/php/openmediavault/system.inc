@@ -2051,19 +2051,19 @@ class OMVFilesystemBtrfs extends OMVFilesystem {
 		}
 
 		// Parse command output:
-		// System, RAID1: total=8.00MiB, used=4.00KiB
-		// System, single: total=4.00MiB, used=0.00B
-		// Data+Metadata, RAID1: total=64.00MiB, used=28.00KiB
-		// Data+Metadata, single: total=8.00MiB, used=0.00B
-		// GlobalReserve, single: total=4.00MiB, used=0.00B
-		$totalAllocated = 0;
-		$usedAdj = 0; // Data size (i.e. before RAID)
-		$usedRaw = 0; // Disk usage (i.e. inc. redundancy)
+		// System, RAID1: total=8388608, used=4096
+		// System, single: total=4194304, used=0
+		// Data+Metadata, RAID1: total=67108864, used=28672
+		// Data+Metadata, single: total=8388608, used=0
+		// GlobalReserve, single: total=4194304, used=0
+		$totalAllocated = "0";
+		$usedAdj = "0"; // Data size (i.e. before RAID)
+		$usedRaw = "0"; // Disk usage (i.e. inc. redundancy)
 		$regex = "/^\(\w\+\), \([a-zA-Z0156]\+\): total=\([0-9]\+\), ".
 		  "used=\([0-9]\+\)$/";
 		foreach (preg_filter($regex, "$1 $2 $3 $4", $output) as $rowv) {
 			list($type, $profile, $t, $u) = explode(" ", $rowv);
-			if ($type !== "Data")
+			if ("Data" !== $type)
 				continue;
 			switch ($profile) {
 				case "single":
@@ -2086,11 +2086,11 @@ class OMVFilesystemBtrfs extends OMVFilesystem {
 					$factor = 1 / $efficiency;
 					break;
 			}
-			$totalAllocated += $t;
-			$usedAdj += $u;
-			$usedRaw += $u * $factor;
+			$totalAllocated = bcadd($totalAllocated, $t);
+			$usedAdj = bcadd($usedAdj, $u);
+			$usedRaw += bcadd($usedRaw, bcmul($u, strval($factor), 0));
 		}
-		$allocatedUnused = $totalAllocated - $usedRaw;
+		$allocatedUnused = bcsub($totalAllocated, $usedRaw);
 
 		unset($cmd, $output, $result);
 		$cmd = sprintf("export LANG=C; btrfs-show-super %s 2>&1",
@@ -2117,18 +2117,18 @@ class OMVFilesystemBtrfs extends OMVFilesystem {
 		// num_devices		2
 		$regex = "/total_bytes\s+(\d+)/";
 		preg_match($regex, implode("\n", $output), $matches);
-		$totalBytes = intval($matches[1]);
+		$totalBytes = $matches[1];
 
-		$unallocated = $totalBytes - $totalAllocated;
-		$available = $unallocated + $allocatedUnused;
-//		$dataRatio = bcdiv($usedRaw, $usedAdj, 2); To be fixed, div by zeto
+		$unallocated = bcsub($totalBytes, $totalAllocated);
+		$available = bcadd($unallocated, $allocatedUnused);
+//		$dataRatio = bcdiv($usedRaw, $usedAdj, 2); Division by zero
 
 		// Update the information.
 		$stats['size'] = $totalBytes;
 		$stats['blocks'] = bcdiv($totalBytes, "1024", 0);
 		$stats['used'] = $usedAdj;
-//		$stats['available'] = bcdiv($available, $dataRatio, 0);
-//		$stats['percentage'] = bcdiv($usedRaw, $stats['size'], 0); To be fixed, div by zeto
+//		$stats['available'] = bcdiv($available, $dataRatio, 0); Division by zero
+		$stats['percentage'] = bcdiv($usedRaw, $stats['size'], 0);
 
 		return $stats;
 	}
