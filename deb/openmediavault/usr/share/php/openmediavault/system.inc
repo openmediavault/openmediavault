@@ -2025,7 +2025,6 @@ class OMVFilesystemBtrfs extends OMVFilesystem {
 	}
 
 	/**
-	/**
 	 * See parent class definition.
 	 *
 	 * For a btrfs filesystem, \em size is the raw size of the
@@ -2042,14 +2041,7 @@ class OMVFilesystemBtrfs extends OMVFilesystem {
 	public function getStatistics() {
 		if (FALSE === ($stats = parent::getStatistics()))
 			return FALSE;
-/* @igrnt
- * The code is fixed to btrfs tools shipped with Debian Jessie.
- * If this tools are updated with Debian 9, then the code will be
- * adapted. So for OMV3 we are fixed to 3.17.
- *
- * Please improve the following code, i'll get an division by zero
- * when using a simple RAID1.
- */
+
 		$cmd = sprintf("export LANG=C; btrfs fi df -b %s 2>&1",
 		  escapeshellarg($this->getMountPoint()));
 		@OMVUtil::exec($cmd, $output, $result);
@@ -2131,6 +2123,7 @@ class OMVFilesystemBtrfs extends OMVFilesystem {
 		$available = $unallocated + $allocatedUnused;
 //		$dataRatio = bcdiv($usedRaw, $usedAdj, 2); To be fixed, div by zeto
 
+		// Update the information.
 		$stats['size'] = $totalBytes;
 		$stats['blocks'] = bcdiv($totalBytes, "1024", 0);
 		$stats['used'] = $usedAdj;
