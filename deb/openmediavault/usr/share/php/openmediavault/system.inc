@@ -944,6 +944,7 @@ class OMVFilesystemBackendBtrfs extends OMVFilesystemBackendAbstract {
 		$this->type = "btrfs";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
 		  self::PROP_DISCARD | self::PROP_COMPRESS | self::PROP_AUTO_DEFRAG;
+		$this->mkfsOptions = $GLOBALS['OMV_MKFS_OPTIONS_BTRFS'];
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_BTRFS']);
 	}
 
@@ -2076,12 +2077,10 @@ class OMVFilesystemBtrfs extends OMVFilesystem {
 		$totalAllocated = "0";
 		$usedAdj = "0"; // Data size (i.e. before RAID)
 		$usedRaw = "0"; // Disk usage (i.e. inc. redundancy)
-		$regex = "/^(\w+), ([a-zA-Z0156]+): total=([0-9]+), ".
-		  "used=([0-9]+)$/";
-		foreach (preg_filter($regex, "$1 $2 $3 $4", $output) as $rowv) {
-			list($type, $profile, $t, $u) = explode(" ", $rowv);
-			if ("Data" !== $type)
-				continue;
+		$regex = "/^(Data(\+Metadata)?), ([a-zA-Z0156]+): total=([0-9]+), ".
+		  "used=([0-9]+)$/i";
+		foreach (preg_filter($regex, "$3 $4 $5", $output) as $rowv) {
+			list($profile, $t, $u) = explode(" ", $rowv);
 			switch ($profile) {
 				case "single":
 				case "RAID0":
@@ -2138,13 +2137,13 @@ class OMVFilesystemBtrfs extends OMVFilesystem {
 
 		$unallocated = bcsub($totalBytes, $totalAllocated);
 		$available = bcadd($unallocated, $allocatedUnused);
-//		$dataRatio = bcdiv($usedRaw, $usedAdj, 2); Division by zero
+		$dataRatio = bcdiv($usedRaw, $usedAdj, 2);
 
 		// Update the information.
 		$stats['size'] = $totalBytes;
 		$stats['blocks'] = bcdiv($totalBytes, "1024", 0);
 		$stats['used'] = $usedAdj;
-//		$stats['available'] = bcdiv($available, $dataRatio, 0); Division by zero
+		$stats['available'] = bcdiv($available, $dataRatio, 0);
 		$stats['percentage'] = bcdiv($usedRaw, $stats['size'], 0);
 
 		return $stats;
