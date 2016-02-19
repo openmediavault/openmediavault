@@ -429,19 +429,23 @@ Files: /var/www/openmediavault/images/grid.png
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
 
-Files: /var/www/openmediavault/images/icon-info.svg
+Files: /var/www/openmediavault/images/icon-info.png
+       /var/www/openmediavault/images/icon-info.svg
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
 
-Files: /var/www/openmediavault/images/icon-warning.svg
+Files: /var/www/openmediavault/images/icon-warning.png
+       /var/www/openmediavault/images/icon-warning.svg
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
 
-Files: /var/www/openmediavault/images/icon-question.svg
+Files: /var/www/openmediavault/images/icon-question.png
+       /var/www/openmediavault/images/icon-question.svg
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
 
-Files: /var/www/openmediavault/images/icon-error.svg
+Files: /var/www/openmediavault/images/icon-error.png
+       /var/www/openmediavault/images/icon-error.svg
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
 
