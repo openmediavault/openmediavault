@@ -2076,8 +2076,8 @@ class OMVFilesystemBtrfs extends OMVFilesystem {
 		$totalAllocated = "0";
 		$usedAdj = "0"; // Data size (i.e. before RAID)
 		$usedRaw = "0"; // Disk usage (i.e. inc. redundancy)
-		$regex = "/^\(\w\+\), \([a-zA-Z0156]\+\): total=\([0-9]\+\), ".
-		  "used=\([0-9]\+\)$/";
+		$regex = "/^(\w+), ([a-zA-Z0156]+): total=([0-9]+), ".
+		  "used=([0-9]+)$/";
 		foreach (preg_filter($regex, "$1 $2 $3 $4", $output) as $rowv) {
 			list($type, $profile, $t, $u) = explode(" ", $rowv);
 			if ("Data" !== $type)
@@ -2161,6 +2161,7 @@ class OMVFilesystemBtrfs extends OMVFilesystem {
 			while ($this->getDeviceFile()) {
 				if (parent::remove() === FALSE)
 					return FALSE;
+				sleep(1);
 				$this->refresh();
 			}
 		} else {
