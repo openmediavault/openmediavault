@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-18 21:22+0100\n"
+"POT-Creation-Date: 2016-02-22 22:57+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -257,9 +257,6 @@ msgid "Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See
 msgstr ""
 
 msgid "Address"
-msgstr ""
-
-msgid "Administrator password"
 msgstr ""
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
@@ -1234,6 +1231,9 @@ msgstr ""
 msgid "FTP - Transfer log"
 msgstr ""
 
+msgid "FTP-Proxy"
+msgstr ""
+
 msgid "FXP"
 msgstr ""
 
@@ -1445,6 +1445,12 @@ msgid "Guinea-Bissau"
 msgstr ""
 
 msgid "Guyana"
+msgstr ""
+
+msgid "HTTP-Proxy"
+msgstr ""
+
+msgid "HTTPS-Proxy"
 msgstr ""
 
 msgid "Haiti"
@@ -2435,6 +2441,9 @@ msgid "Processor"
 msgstr ""
 
 msgid "Protocol"
+msgstr ""
+
+msgid "Proxy"
 msgstr ""
 
 msgid "Public"
