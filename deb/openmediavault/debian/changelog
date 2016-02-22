@@ -1,6 +1,6 @@
 openmediavault (2.2) stable; urgency=low
 
-  * Various improvements.
+  * Mantis 0001471: Updating smartmontools db fails due to address redirection.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 22 Feb 2016 10:40:04 +0100
 
