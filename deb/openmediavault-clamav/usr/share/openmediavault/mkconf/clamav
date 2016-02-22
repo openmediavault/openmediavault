@@ -146,34 +146,41 @@ xmlstarlet sel -t -m "//services/clamav/clamd" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CLAMAV_CLAMD_CONFIG}
 
 # Create '/etc/clamav/freshclam.conf' configuration file.
-xmlstarlet sel -t -m "//services/clamav/freshclam" \
-  -o "DatabaseOwner ${OMV_CLAMAV_FRESHCLAM_DATABASEOWNER}" -n \
-  -o "UpdateLogFile ${OMV_CLAMAV_FRESHCLAM_UPDATELOGFILE}" -n \
-  -o "LogVerbose ${OMV_CLAMAV_FRESHCLAM_LOGVERBOSE}" -n \
-  -o "LogSyslog ${OMV_CLAMAV_FRESHCLAM_LOGSYSLOG}" -n \
-  -o "LogFacility ${OMV_CLAMAV_FRESHCLAM_LOGFACILITY}" -n \
-  -o "LogFileMaxSize 0" -n \
-  -o "LogTime true" -n \
-  -o "Foreground false" -n \
-  -o "Debug false" -n \
-  -o "MaxAttempts 5" -n \
-  -o "DatabaseDirectory ${OMV_CLAMAV_FRESHCLAM_DATABASEDIRECTORY}" -n \
-  -o "DNSDatabaseInfo ${OMV_CLAMAV_FRESHCLAM_DNSDATABASEINFO}" -n \
-  -o "AllowSupplementaryGroups false" -n \
-  -o "PidFile /var/run/clamav/freshclam.pid" -n \
-  -o "ConnectTimeout 30" -n \
-  -o "ReceiveTimeout 30" -n \
-  -o "TestDatabases yes" -n \
-  -o "ScriptedUpdates yes" -n \
-  -o "CompressLocalDatabase ${OMV_CLAMAV_FRESHCLAM_COMPRESSLOCALDATABASE}" -n \
-  -o "Bytecode true" -n \
-  -o "NotifyClamd ${OMV_CLAMAV_FRESHCLAM_NOTIFYCLAMD}" -n \
-  -v "concat('Checks ',checks)" -n \
-  -o "DatabaseMirror ${OMV_CLAMAV_FRESHCLAM_DATABASEMIRROR}" -n \
-  -o "#HTTPProxyServer proxy" -n \
-  -o "#HTTPProxyPort port" -n \
-  -o "#HTTPProxyUsername username" -n \
-  -o "#HTTPProxyPassword password" \
+xmlstarlet sel -t
+  -m "//services/clamav/freshclam" \
+    -o "DatabaseOwner ${OMV_CLAMAV_FRESHCLAM_DATABASEOWNER}" -n \
+    -o "UpdateLogFile ${OMV_CLAMAV_FRESHCLAM_UPDATELOGFILE}" -n \
+    -o "LogVerbose ${OMV_CLAMAV_FRESHCLAM_LOGVERBOSE}" -n \
+    -o "LogSyslog ${OMV_CLAMAV_FRESHCLAM_LOGSYSLOG}" -n \
+    -o "LogFacility ${OMV_CLAMAV_FRESHCLAM_LOGFACILITY}" -n \
+    -o "LogFileMaxSize 0" -n \
+    -o "LogTime true" -n \
+    -o "Foreground false" -n \
+    -o "Debug false" -n \
+    -o "MaxAttempts 5" -n \
+    -o "DatabaseDirectory ${OMV_CLAMAV_FRESHCLAM_DATABASEDIRECTORY}" -n \
+    -o "DNSDatabaseInfo ${OMV_CLAMAV_FRESHCLAM_DNSDATABASEINFO}" -n \
+    -o "AllowSupplementaryGroups false" -n \
+    -o "PidFile /var/run/clamav/freshclam.pid" -n \
+    -o "ConnectTimeout 30" -n \
+    -o "ReceiveTimeout 30" -n \
+    -o "TestDatabases yes" -n \
+    -o "ScriptedUpdates yes" -n \
+    -o "CompressLocalDatabase ${OMV_CLAMAV_FRESHCLAM_COMPRESSLOCALDATABASE}" -n \
+    -o "Bytecode true" -n \
+    -o "NotifyClamd ${OMV_CLAMAV_FRESHCLAM_NOTIFYCLAMD}" -n \
+    -v "concat('Checks ',checks)" -n \
+    -o "DatabaseMirror ${OMV_CLAMAV_FRESHCLAM_DATABASEMIRROR}" -n \
+  -b \
+  -m "//system/network/proxy/http" \
+    -i "enable = '1' and string-length(host) > 0" \
+      -v "concat('HTTPProxyServer ',host)" -n \
+	  -v "concat('HTTPProxyPort ',port)" -n \
+      -i "string-length(username) > 0" \
+	    -v "concat('HTTPProxyUsername ',username)" -n \
+		-v "concat('HTTPProxyPassword ',password)" -n \
+	  -b \
+  -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CLAMAV_FRESHCLAM_CONFIG}
 
 # Get the quarantine shared folder.
