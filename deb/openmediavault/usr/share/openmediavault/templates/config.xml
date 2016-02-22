@@ -150,16 +150,22 @@
 			</iptables>
 			<proxy>
 				<http>
-					<name></name>
+					<host></host>
 					<port>8080</port>
+					<username></username>
+					<password></password>
 				</http>
 				<https>
-					<name></name>
+					<host></host>
 					<port>4443</port>
+					<username></username>
+					<password></password>
 				</https>
 				<ftp>
-					<name></name>
+					<host></host>
 					<port>2121</port>
+					<username></username>
+					<password></password>
 				</ftp>
 			</proxy>
 		</network>

@@ -28,4 +28,4 @@ OMV_MKCONF_SCRIPTS_DIR=${OMV_MKCONF_SCRIPTS_DIR:-"/usr/share/openmediavault/mkco
 OMV_PROFILE_EXTENSIONS_DIR=${OMV_PROFILE_EXTENSIONS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/profile.d"}
 
 # Build the configuration files.
-run-parts --exit-on-error ${OMV_APT_EXTENSIONS_DIR}
+run-parts --exit-on-error ${OMV_PROFILE_EXTENSIONS_DIR}

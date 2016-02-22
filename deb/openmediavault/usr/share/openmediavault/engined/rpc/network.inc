@@ -77,6 +77,8 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		$this->registerMethod("getWirelessCandidates");
 		$this->registerMethod("getWirelessIface");
 		$this->registerMethod("setWirelessIface");
+		$this->registerMethod("getProxy");
+		$this->registerMethod("setProxy");
 	}
 
 	/**
@@ -993,6 +995,126 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			"wpapsk" => $params['wpapsk']
 		));
     }
+
+	/**
+	 * Get the proxy settings.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 */
+	function getProxy($params, $context) {
+		global $xmlConfig;
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Get the network proxy settings.
+		$xpath = "//system/network/proxy";
+		$object = $xmlConfig->get($xpath);
+		if (is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		// Helper function to build the proxy URI.
+		// See http://tools.ietf.org/html/rfc3986#section-3.2
+		$buildUriAuthority = function($host, $port, $username, $password) {
+			$uri = "";
+			if (empty($host))
+				return "";
+			if (!empty($username))
+				$uri .= sprintf("%s:%s@", $username, $password);
+			$uri .= sprintf("%s:%s", $host, $port);
+			return $uri;
+		};
+		return array(
+			"httpuri" => $buildUriAuthority($object['http']['host'],
+			  $object['http']['port'], $object['http']['username'],
+			  $object['http']['password']),
+			"httpsuri" => $buildUriAuthority($object['https']['host'],
+			  $object['https']['port'], $object['https']['username'],
+			  $object['https']['password']),
+			"ftpuri" => $buildUriAuthority($object['ftp']['host'],
+			  $object['ftp']['port'], $object['ftp']['username'],
+			  $object['ftp']['password'])
+		);
+	}
+
+	/**
+	 * Set the proxy settings.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The stored configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 * @throw E_CONFIG_SET_OBJECT_FAILED
+	 */
+	function setProxy($params, $context) {
+		global $xmlConfig;
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "httpuri":{"type":"string"},
+				  "httpsuri":{"type":"string"},
+				  "ftpuri":{"type":"string"}
+			  }
+		  }');
+		// Helper function to parse the proxy URI.
+		// See http://tools.ietf.org/html/rfc3986#section-3.2
+		$parseUriAuthority = function($str) {
+			$matches = array_fill(0, 5, "");
+			if (!empty($str)) {
+				$regex = '/^((\S+):(\S*)@)?(\S+):(\d+)$/'; // Simplified
+				if (1 !== preg_match($regex, $str, $matches))
+					return FALSE;
+			}
+			return array(
+				"host" => $matches[4],
+				"port" => $matches[5],
+				"username" => $matches[2],
+				"password" => $matches[3]
+			);
+		};
+		// Validate and parse the URL's.
+		if (FALSE === $parseUriAuthority($params['httpuri'])) {
+			throw new OMVException(OMVErrorMsg::E_RPC_INVALID_PARAMS,
+			  "key: 'httpuri' is not valid.");
+		}
+		if (FALSE === $parseUriAuthority($params['httpsuri'])) {
+			throw new OMVException(OMVErrorMsg::E_RPC_INVALID_PARAMS,
+			  "key: 'httpsuri' is not valid.");
+		}
+		if (FALSE === $parseUriAuthority($params['ftpuri'])) {
+			throw new OMVException(OMVErrorMsg::E_RPC_INVALID_PARAMS,
+			  "key: 'ftpuri' is not valid.");
+		}
+		// Get existing configuration object.
+		$xpath = "//system/network/proxy";
+		$object = $xmlConfig->get($xpath);
+		if (is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		// Update the configuration object.
+		$object = array_merge($object, array(
+			"http" => $parseUriAuthority($params['httpuri']),
+			"https" => $parseUriAuthority($params['httpsuri']),
+			"ftp" => $parseUriAuthority($params['ftpuri'])
+		));
+		if (FALSE === $xmlConfig->replace($xpath, $object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
+		}
+		// Notify configuration changes.
+		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher->notify(OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.network.proxy", $object);
+		// Return the configuration object.
+		return $object;
+	}
 }
 
 // Register the RPC service.
