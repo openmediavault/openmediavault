@@ -46,7 +46,7 @@ version=$(sed -n 's/^VERSION="\(.*\)"$/\1/p' ${origscript})
 # APT control, we simply create a copy of the script, modify the URL and
 # finally execute it.
 cp -p ${origscript} ${tmpscript}
-sed -i "/^SRCEXPR/{s#=.*#='http://sourceforge.net/p/smartmontools/code/HEAD/tree/\$location/smartmontools/drivedb.h?format=raw'#}" ${tmpscript}
+sed -i "/^SRCEXPR/{s#=.*#='https://sourceforge.net/p/smartmontools/code/HEAD/tree/\$location/smartmontools/drivedb.h?format=raw'#}" ${tmpscript}
 echo "Updating smartmontools ${version} drive database ..."
 eval ${tmpscript}
 
