@@ -109,6 +109,20 @@ openmediavault (3.0) stable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 30 Nov 2015 15:53:40 +0100
 
+openmediavault (2.2) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 22 Feb 2016 10:40:04 +0100
+
+openmediavault (2.1.29) stable; urgency=low
+
+  * Fix bug in the package postinst script.
+  * Output more detailed S.M.A.R.T. error description via tooltip in
+    the device overview.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 13 Feb 2016 19:41:24 +0100
+
 openmediavault (2.1.28) stable; urgency=low
 
   * Various improvements.
