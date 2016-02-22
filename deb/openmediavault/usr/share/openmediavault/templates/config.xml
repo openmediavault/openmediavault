@@ -148,6 +148,20 @@
 				</rule>
 				-->
 			</iptables>
+			<proxy>
+				<http>
+					<name></name>
+					<port>8080</port>
+				</http>
+				<https>
+					<name></name>
+					<port>4443</port>
+				</https>
+				<ftp>
+					<name></name>
+					<port>2121</port>
+				</ftp>
+			</proxy>
 		</network>
 		<usermanagement>
 			<homedirectory>

@@ -1,6 +1,7 @@
 openmediavault (3.0.12) stable; urgency=low
 
   * Update locales.
+  * Add ability to configure HTTP/HTTPS/FTP proxy servers.
   * Mantis 0001424: Improve BTRFS file system backend.
   * Mantis 0001469: 20authorized_keys mkconf file typo.
 

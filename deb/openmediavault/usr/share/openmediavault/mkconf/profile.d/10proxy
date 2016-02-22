@@ -22,10 +22,18 @@
 set -e
 
 . /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
 
-OMV_MKCONF_SCRIPTS_DIR=${OMV_MKCONF_SCRIPTS_DIR:-"/usr/share/openmediavault/mkconf"}
+OMV_PROFILE_PROXY_CONFIG=${OMV_PROFILE_PROXY_CONFIG:-"/etc/profile.d/10openmediavault-proxy.sh"}
 
-OMV_APT_EXTENSIONS_DIR=${OMV_APT_EXTENSIONS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/apt.d"}
-
-# Build the configuration files.
-run-parts --exit-on-error ${OMV_APT_EXTENSIONS_DIR}
+xmlstarlet sel -t -m "//system/network/proxy" \
+  -i "string-length(http/name) > 0" \
+    -v "concat('http_proxy=\"',http/name,':',http/port,'\"')" - n \
+  -b \
+  -i "string-length(https/name) > 0" \
+    -v "concat('https_proxy=\"',https/name,':',https/port,'\"')" - n \
+  -b \
+  -i "string-length(ftp/name) > 0" \
+    -v "concat('ftp_proxy=\"',ftp/name,':',ftp/port,'\"')" - n \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_PROFILE_PROXY_CONFIG}
