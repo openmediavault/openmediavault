@@ -32,18 +32,11 @@ Ext.define("OMV.module.admin.system.monitoring.PerfStats", {
 
 	getFormItems: function() {
 		return [{
-			xtype: "fieldset",
-			title: _("General settings"),
-			fieldDefaults: {
-				labelSeparator: ""
-			},
-			items: [{
-				xtype: "checkbox",
-				name: "enable",
-				fieldLabel: _("Enable"),
-				checked: true,
-				boxLabel: _("Specifies whether the system performance statistics are collected periodically.")
-			}]
+			xtype: "checkbox",
+			name: "enable",
+			fieldLabel: _("Enable"),
+			checked: true,
+			boxLabel: _("Specifies whether the system performance statistics are collected periodically.")
 		}];
 	}
 });

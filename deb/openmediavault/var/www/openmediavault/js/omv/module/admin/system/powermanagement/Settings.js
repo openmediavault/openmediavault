@@ -32,40 +32,33 @@ Ext.define("OMV.module.admin.system.powermanagement.Settings", {
 
 	getFormItems: function() {
 		return [{
-			xtype: "fieldset",
-			title: _("General settings"),
-			fieldDefaults: {
-				labelSeparator: ""
-			},
-			items: [{
-				xtype: "checkbox",
-				name: "cpufreq",
-				fieldLabel: _("Monitoring"),
-				checked: true,
-				boxLabel: _("Specifies whether to monitor the system status and select the most appropriate CPU level.")
-			},{
-				xtype: "combo",
-				name: "powerbtn",
-				fieldLabel: _("Power button"),
-				queryMode: "local",
-				store: Ext.create("Ext.data.ArrayStore", {
-					fields: [ "value", "text" ],
-					data: [
-						[ "nothing", _("Nothing") ],
-						[ "shutdown", _("Shutdown") ],
-						[ "standby", _("Standby") ]
-					]
-				}),
-				displayField: "text",
-				valueField: "value",
-				allowBlank: false,
-				editable: false,
-				triggerAction: "all",
-				value: "nothing",
-				plugins: [{
-					ptype: "fieldinfo",
-					text: _("The action to be done when pressing the power button.")
-				}]
+			xtype: "checkbox",
+			name: "cpufreq",
+			fieldLabel: _("Monitoring"),
+			checked: true,
+			boxLabel: _("Specifies whether to monitor the system status and select the most appropriate CPU level.")
+		},{
+			xtype: "combo",
+			name: "powerbtn",
+			fieldLabel: _("Power button"),
+			queryMode: "local",
+			store: Ext.create("Ext.data.ArrayStore", {
+				fields: [ "value", "text" ],
+				data: [
+					[ "nothing", _("Nothing") ],
+					[ "shutdown", _("Shutdown") ],
+					[ "standby", _("Standby") ]
+				]
+			}),
+			displayField: "text",
+			valueField: "value",
+			allowBlank: false,
+			editable: false,
+			triggerAction: "all",
+			value: "nothing",
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("The action to be done when pressing the power button.")
 			}]
 		}];
 	}
