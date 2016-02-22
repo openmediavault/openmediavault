@@ -47,7 +47,7 @@ Ext.define("OMV.module.admin.system.network.Proxy", {
 				xtype: "textfield",
 				fieldLabel: _("Host"),
 				name: "httphost",
-				vytpe: "domainnameIP",
+				vtype: "domainnameIP",
 				allowBlank: true
 			},{
 				xtype: "numberfield",
@@ -63,6 +63,7 @@ Ext.define("OMV.module.admin.system.network.Proxy", {
 				xtype: "textfield",
 				fieldLabel: _("Username"),
 				name: "httpusername",
+				vtype: "username",
 				allowBlank: true
 			},{
 				xtype: "passwordfield",
@@ -80,7 +81,7 @@ Ext.define("OMV.module.admin.system.network.Proxy", {
 				xtype: "textfield",
 				fieldLabel: _("Host"),
 				name: "httpshost",
-				vytpe: "domainnameIP",
+				vtype: "domainnameIP",
 				allowBlank: true
 			},{
 				xtype: "numberfield",
@@ -96,6 +97,7 @@ Ext.define("OMV.module.admin.system.network.Proxy", {
 				xtype: "textfield",
 				fieldLabel: _("Username"),
 				name: "httpsusername",
+				vtype: "username",
 				allowBlank: true
 			},{
 				xtype: "passwordfield",
@@ -113,7 +115,7 @@ Ext.define("OMV.module.admin.system.network.Proxy", {
 				xtype: "textfield",
 				fieldLabel: _("Host"),
 				name: "ftphost",
-				vytpe: "domainnameIP",
+				vtype: "domainnameIP",
 				allowBlank: true
 			},{
 				xtype: "numberfield",
@@ -129,6 +131,7 @@ Ext.define("OMV.module.admin.system.network.Proxy", {
 				xtype: "textfield",
 				fieldLabel: _("Username"),
 				name: "ftpusername",
+				vtype: "username",
 				allowBlank: true
 			},{
 				xtype: "passwordfield",
