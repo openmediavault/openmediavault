@@ -34,35 +34,28 @@ Ext.define("OMV.module.admin.service.rsyncd.Settings", {
 
 	getFormItems: function() {
 		return [{
-			xtype: "fieldset",
-			title: _("General settings"),
-			fieldDefaults: {
-				labelSeparator: ""
-			},
-			items: [{
-				xtype: "checkbox",
-				name: "enable",
-				fieldLabel: _("Enable"),
-				checked: false
-			},{
-				xtype: "numberfield",
-				name: "port",
-				fieldLabel: _("Port"),
-				vtype: "port",
-				minValue: 1,
-				maxValue: 65535,
-				allowDecimals: false,
-				allowBlank: false,
-				value: 873
-			},{
-				xtype: "textarea",
-				name: "extraoptions",
-				fieldLabel: _("Extra options"),
-				allowBlank: true,
-				plugins: [{
-					ptype: "fieldinfo",
-					text: _("Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manual page</a> for more details."),
-				}]
+			xtype: "checkbox",
+			name: "enable",
+			fieldLabel: _("Enable"),
+			checked: false
+		},{
+			xtype: "numberfield",
+			name: "port",
+			fieldLabel: _("Port"),
+			vtype: "port",
+			minValue: 1,
+			maxValue: 65535,
+			allowDecimals: false,
+			allowBlank: false,
+			value: 873
+		},{
+			xtype: "textarea",
+			name: "extraoptions",
+			fieldLabel: _("Extra options"),
+			allowBlank: true,
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manual page</a> for more details."),
 			}]
 		}];
 	}

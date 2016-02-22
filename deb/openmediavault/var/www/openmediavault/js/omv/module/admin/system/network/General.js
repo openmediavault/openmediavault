@@ -23,7 +23,7 @@
 
 /**
  * @class OMV.module.admin.system.network.General
- * @derived OMV.workspace.grid.Panel
+ * @derived OMV.workspace.form.Panel
  */
 Ext.define("OMV.module.admin.system.network.General", {
 	extend: "OMV.workspace.form.Panel",
@@ -34,28 +34,21 @@ Ext.define("OMV.module.admin.system.network.General", {
 
 	getFormItems: function() {
 		return [{
-			xtype: "fieldset",
-			title: _("General settings"),
-			fieldDefaults: {
-				labelSeparator: ""
-			},
-			items: [{
-				xtype: "textfield",
-				name: "hostname",
-				fieldLabel: _("Hostname"),
-				vtype: "hostname",
-				allowBlank: false,
-				plugins: [{
-					ptype: "fieldinfo",
-					text: _("The hostname is a label that identifies the system to the network.")
-				}]
-			},{
-				xtype: "textfield",
-				name: "domainname",
-				fieldLabel: _("Domain name"),
-				vtype: "domainname",
-				allowBlank: true
+			xtype: "textfield",
+			name: "hostname",
+			fieldLabel: _("Hostname"),
+			vtype: "hostname",
+			allowBlank: false,
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("The hostname is a label that identifies the system to the network.")
 			}]
+		},{
+			xtype: "textfield",
+			name: "domainname",
+			fieldLabel: _("Domain name"),
+			vtype: "domainname",
+			allowBlank: true
 		}];
 	}
 });

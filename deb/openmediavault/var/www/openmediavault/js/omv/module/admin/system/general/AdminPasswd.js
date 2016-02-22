@@ -37,23 +37,16 @@ Ext.define("OMV.module.admin.system.general.AdminPasswd", {
 
 	getFormItems: function() {
 		return [{
-			xtype: "fieldset",
-			title: _("Administrator password"),
-			fieldDefaults: {
-				labelSeparator: ""
-			},
-			items: [{
-				xtype: "passwordfield",
-				name: "password",
-				fieldLabel: _("Password"),
-				allowBlank: true
-			},{
-				xtype: "passwordfield",
-				name: "passwordconf",
-				fieldLabel: _("Confirm password"),
-				allowBlank: true,
-				submitValue: false
-			}]
+			xtype: "passwordfield",
+			name: "password",
+			fieldLabel: _("Password"),
+			allowBlank: true
+		},{
+			xtype: "passwordfield",
+			name: "passwordconf",
+			fieldLabel: _("Confirm password"),
+			allowBlank: true,
+			submitValue: false
 		}];
 	},
 

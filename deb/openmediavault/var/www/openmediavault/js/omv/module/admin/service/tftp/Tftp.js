@@ -47,82 +47,75 @@ Ext.define("OMV.module.admin.service.tftp.Settings", {
 	getFormItems: function() {
 		var me = this;
 		return [{
-			xtype: "fieldset",
-			title: _("General settings"),
-			fieldDefaults: {
-				labelSeparator: ""
-			},
-			items: [{
-				xtype: "checkbox",
-				name: "enable",
-				fieldLabel: _("Enable"),
-				checked: false
-			},{
-				xtype: "numberfield",
-				name: "port",
-				fieldLabel: _("Port"),
-				vtype: "port",
-				minValue: 0,
-				maxValue: 65535,
-				allowDecimals: false,
-				allowBlank: false,
-				value: 69,
-				plugins: [{
-					ptype: "fieldinfo",
-					text: _("Port to listen on.")
-				}]
-			},{
-				xtype: "sharedfoldercombo",
-				name: "sharedfolderref",
-				fieldLabel: _("Shared folder"),
-				allowNone: true,
-				plugins: [{
-					ptype: "fieldinfo",
-					text: Ext.String.format("{0} {1}",
-					  _("The location of the files to share."),
-					  _("Please make sure that the shared folder is publicly writable if new files are allowed."))
-				}]
-			},{
-				xtype: "numberfield",
-				name: "blocksize",
-				fieldLabel: _("Blocksize"),
-				minValue: 512,
-				maxValue: 65464,
-				allowDecimals: false,
-				allowBlank: true,
-				value: 512,
-				plugins: [{
-					ptype: "fieldinfo",
-					text: _("Specifies the maximum permitted block size. The permitted range for this parameter is from 512 to 65464.")
-				}]
-			},{
-				xtype: "numberfield",
-				name: "retransmit",
-				fieldLabel: _("Retry timeout"),
-				minValue: 0,
-				allowDecimals: false,
-				allowBlank: false,
-				value: 1000000,
-				plugins: [{
-					ptype: "fieldinfo",
-					text: _("Determine the default timeout, in microseconds, before the first packet is retransmitted.")
-				}]
-			},{
-				xtype: "checkbox",
-				name: "allownewfiles",
-				fieldLabel: _("Allow new files"),
-				checked: false,
-				boxLabel: _("Allow new files to be created."),
-				plugins: [{
-					ptype: "fieldinfo",
-					text: _("By default, only files that already exist are allowed to be uploaded.")
-				}]
-			},{
-				xtype: "textfield",
-				name: "extraoptions",
-				fieldLabel: _("Extra options"),
-				allowBlank: true
+			xtype: "checkbox",
+			name: "enable",
+			fieldLabel: _("Enable"),
+			checked: false
+		},{
+			xtype: "numberfield",
+			name: "port",
+			fieldLabel: _("Port"),
+			vtype: "port",
+			minValue: 0,
+			maxValue: 65535,
+			allowDecimals: false,
+			allowBlank: false,
+			value: 69,
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("Port to listen on.")
 			}]
+		},{
+			xtype: "sharedfoldercombo",
+			name: "sharedfolderref",
+			fieldLabel: _("Shared folder"),
+			allowNone: true,
+			plugins: [{
+				ptype: "fieldinfo",
+				text: Ext.String.format("{0} {1}",
+				  _("The location of the files to share."),
+				  _("Please make sure that the shared folder is publicly writable if new files are allowed."))
+			}]
+		},{
+			xtype: "numberfield",
+			name: "blocksize",
+			fieldLabel: _("Blocksize"),
+			minValue: 512,
+			maxValue: 65464,
+			allowDecimals: false,
+			allowBlank: true,
+			value: 512,
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("Specifies the maximum permitted block size. The permitted range for this parameter is from 512 to 65464.")
+			}]
+		},{
+			xtype: "numberfield",
+			name: "retransmit",
+			fieldLabel: _("Retry timeout"),
+			minValue: 0,
+			allowDecimals: false,
+			allowBlank: false,
+			value: 1000000,
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("Determine the default timeout, in microseconds, before the first packet is retransmitted.")
+			}]
+		},{
+			xtype: "checkbox",
+			name: "allownewfiles",
+			fieldLabel: _("Allow new files"),
+			checked: false,
+			boxLabel: _("Allow new files to be created."),
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("By default, only files that already exist are allowed to be uploaded.")
+			}]
+		},{
+			xtype: "textfield",
+			name: "extraoptions",
+			fieldLabel: _("Extra options"),
+			allowBlank: true
 		}];
 	}
 });

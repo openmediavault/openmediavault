@@ -27,36 +27,29 @@
  */
 Ext.define("OMV.module.admin.service.nfs.Settings", {
 	extend: "OMV.workspace.form.Panel",
-	
+
 	rpcService: "NFS",
 	rpcGetMethod: "getSettings",
 	rpcSetMethod: "setSettings",
 
 	getFormItems: function() {
 		return [{
-			xtype: "fieldset",
-			title: _("General settings"),
-			fieldDefaults: {
-				labelSeparator: ""
-			},
-			items: [{
-				xtype: "checkbox",
-				name: "enable",
-				fieldLabel: _("Enable"),
-				checked: false
-			},{
-				xtype: "numberfield",
-				name: "numproc",
-				fieldLabel: _("Number of servers"),
-				minValue: 1,
-				maxValue: 65535,
-				allowDecimals: false,
-				allowBlank: false,
-				value: 8,
-				plugins: [{
-					ptype: "fieldinfo",
-					text: _("Specifies how many server threads to create.")
-				}]
+			xtype: "checkbox",
+			name: "enable",
+			fieldLabel: _("Enable"),
+			checked: false
+		},{
+			xtype: "numberfield",
+			name: "numproc",
+			fieldLabel: _("Number of servers"),
+			minValue: 1,
+			maxValue: 65535,
+			allowDecimals: false,
+			allowBlank: false,
+			value: 8,
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("Specifies how many server threads to create.")
 			}]
 		}];
 	}

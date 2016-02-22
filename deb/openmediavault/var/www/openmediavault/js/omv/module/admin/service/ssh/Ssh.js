@@ -32,67 +32,60 @@ Ext.define("OMV.module.admin.service.ssh.Settings", {
 
 	getFormItems: function() {
 		return [{
-			xtype: "fieldset",
-			title: _("General settings"),
-			fieldDefaults: {
-				labelSeparator: ""
-			},
-			items: [{
-				xtype: "checkbox",
-				name: "enable",
-				fieldLabel: _("Enable"),
-				checked: false
-			},{
-				xtype: "numberfield",
-				name: "port",
-				fieldLabel: _("Port"),
-				vtype: "port",
-				minValue: 0,
-				maxValue: 65535,
-				allowDecimals: false,
-				allowBlank: false,
-				value: 22
-			},{
-				xtype: "checkbox",
-				name: "permitrootlogin",
-				fieldLabel: _("Permit root login"),
-				checked: true,
-				boxLabel: _("Specifies whether it is allowed to login as superuser.")
-			},{
-				xtype: "checkbox",
-				name: "passwordauthentication",
-				fieldLabel: _("Password authentication"),
-				checked: true,
-				boxLabel: _("Enable keyboard-interactive authentication")
-			},{
-				xtype: "checkbox",
-				name: "pubkeyauthentication",
-				fieldLabel: _("Public key authentication"),
-				checked: true,
-				boxLabel: _("Enable public key authentication")
-			},{
-				xtype: "checkbox",
-				name: "tcpforwarding",
-				fieldLabel: _("TCP forwarding"),
-				boxLabel: _("Permit to do SSH tunneling")
-			},{
-				xtype: "checkbox",
-				name: "compression",
-				fieldLabel: _("Compression"),
-				boxLabel: _("Enable compression"),
-				plugins: [{
-					ptype: "fieldinfo",
-					text: _("Compression is worth using if your connection is slow. The efficiency of the compression depends on the type of the file, and varies widely. Useful for internet transfer only.")
-				}]
-			},{
-				xtype: "textarea",
-				name: "extraoptions",
-				fieldLabel: _("Extra options"),
-				allowBlank: true,
-				plugins: [{
-					ptype: "fieldinfo",
-					text: _("Please check the <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for more details."),
-				}]
+			xtype: "checkbox",
+			name: "enable",
+			fieldLabel: _("Enable"),
+			checked: false
+		},{
+			xtype: "numberfield",
+			name: "port",
+			fieldLabel: _("Port"),
+			vtype: "port",
+			minValue: 0,
+			maxValue: 65535,
+			allowDecimals: false,
+			allowBlank: false,
+			value: 22
+		},{
+			xtype: "checkbox",
+			name: "permitrootlogin",
+			fieldLabel: _("Permit root login"),
+			checked: true,
+			boxLabel: _("Specifies whether it is allowed to login as superuser.")
+		},{
+			xtype: "checkbox",
+			name: "passwordauthentication",
+			fieldLabel: _("Password authentication"),
+			checked: true,
+			boxLabel: _("Enable keyboard-interactive authentication")
+		},{
+			xtype: "checkbox",
+			name: "pubkeyauthentication",
+			fieldLabel: _("Public key authentication"),
+			checked: true,
+			boxLabel: _("Enable public key authentication")
+		},{
+			xtype: "checkbox",
+			name: "tcpforwarding",
+			fieldLabel: _("TCP forwarding"),
+			boxLabel: _("Permit to do SSH tunneling")
+		},{
+			xtype: "checkbox",
+			name: "compression",
+			fieldLabel: _("Compression"),
+			boxLabel: _("Enable compression"),
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("Compression is worth using if your connection is slow. The efficiency of the compression depends on the type of the file, and varies widely. Useful for internet transfer only.")
+			}]
+		},{
+			xtype: "textarea",
+			name: "extraoptions",
+			fieldLabel: _("Extra options"),
+			allowBlank: true,
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("Please check the <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for more details."),
 			}]
 		}];
 	}
