@@ -146,7 +146,7 @@ xmlstarlet sel -t -m "//services/clamav/clamd" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CLAMAV_CLAMD_CONFIG}
 
 # Create '/etc/clamav/freshclam.conf' configuration file.
-xmlstarlet sel -t
+xmlstarlet sel -t \
   -m "//services/clamav/freshclam" \
     -o "DatabaseOwner ${OMV_CLAMAV_FRESHCLAM_DATABASEOWNER}" -n \
     -o "UpdateLogFile ${OMV_CLAMAV_FRESHCLAM_UPDATELOGFILE}" -n \

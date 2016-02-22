@@ -131,6 +131,9 @@ class OMVModuleClamAV extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.shares.sharedfolder",
 		  array($this, "onSharedFolder"));
+		$dispatcher->addListener(OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.network.proxy",
+		  array($this, "setDirty"));
 	}
 }
 
