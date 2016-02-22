@@ -2,6 +2,7 @@ openmediavault (3.0.12) stable; urgency=low
 
   * Update locales.
   * Mantis 0001424: Improve BTRFS file system backend.
+  * Mantis 0001469: 20authorized_keys mkconf file typo.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 19 Feb 2016 11:07:29 +0100
 
