@@ -1016,27 +1016,19 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Helper function to build the proxy URI.
-		// See http://tools.ietf.org/html/rfc3986#section-3.2
-		$buildUriAuthority = function($host, $port, $username, $password) {
-			$uri = "";
-			if (empty($host))
-				return "";
-			if (!empty($username))
-				$uri .= sprintf("%s:%s@", $username, $password);
-			$uri .= sprintf("%s:%s", $host, $port);
-			return $uri;
-		};
 		return array(
-			"httpuri" => $buildUriAuthority($object['http']['host'],
-			  $object['http']['port'], $object['http']['username'],
-			  $object['http']['password']),
-			"httpsuri" => $buildUriAuthority($object['https']['host'],
-			  $object['https']['port'], $object['https']['username'],
-			  $object['https']['password']),
-			"ftpuri" => $buildUriAuthority($object['ftp']['host'],
-			  $object['ftp']['port'], $object['ftp']['username'],
-			  $object['ftp']['password'])
+			"httphost" => $object['http']['host'],
+			"httpport" => intval($object['http']['port']),
+			"httpusername" => $object['http']['username'],
+			"httppassword" => $object['http']['password'],
+			"httpshost" => $object['https']['host'],
+			"httpsport" => intval($object['https']['port']),
+			"httpsusername" => $object['https']['username'],
+			"httpspassword" => $object['https']['password'],
+			"ftphost" => $object['ftp']['host'],
+			"ftpport" => intval($object['ftp']['port']),
+			"ftpusername" => $object['ftp']['username'],
+			"ftppassword" => $object['ftp']['password']
 		);
 	}
 
@@ -1058,40 +1050,20 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		$this->validateMethodParams($params, '{
 			  "type":"object",
 			  "properties":{
-				  "httpuri":{"type":"string"},
-				  "httpsuri":{"type":"string"},
-				  "ftpuri":{"type":"string"}
+				  "httphost":{"type":"string"},
+				  "httpport":{"type":"integer","minimum":1,"maximum":65535},
+				  "httpusername":{"type":"string"},
+				  "httppassword":{"type":"string"},
+				  "httpshost":{"type":"string"},
+				  "httpsport":{"type":"integer","minimum":1,"maximum":65535},
+				  "httpsusername":{"type":"string"},
+				  "httpspassword":{"type":"string"},
+				  "ftphost":{"type":"string"},
+				  "ftpport":{"type":"integer","minimum":1,"maximum":65535},
+				  "ftpusername":{"type":"string"},
+				  "ftppassword":{"type":"string"}
 			  }
 		  }');
-		// Helper function to parse the proxy URI.
-		// See http://tools.ietf.org/html/rfc3986#section-3.2
-		$parseUriAuthority = function($str) {
-			$matches = array_fill(0, 5, "");
-			if (!empty($str)) {
-				$regex = '/^((\S+):(\S*)@)?(\S+):(\d+)$/'; // Simplified
-				if (1 !== preg_match($regex, $str, $matches))
-					return FALSE;
-			}
-			return array(
-				"host" => $matches[4],
-				"port" => $matches[5],
-				"username" => $matches[2],
-				"password" => $matches[3]
-			);
-		};
-		// Validate and parse the URL's.
-		if (FALSE === $parseUriAuthority($params['httpuri'])) {
-			throw new OMVException(OMVErrorMsg::E_RPC_INVALID_PARAMS,
-			  "key: 'httpuri' is not valid.");
-		}
-		if (FALSE === $parseUriAuthority($params['httpsuri'])) {
-			throw new OMVException(OMVErrorMsg::E_RPC_INVALID_PARAMS,
-			  "key: 'httpsuri' is not valid.");
-		}
-		if (FALSE === $parseUriAuthority($params['ftpuri'])) {
-			throw new OMVException(OMVErrorMsg::E_RPC_INVALID_PARAMS,
-			  "key: 'ftpuri' is not valid.");
-		}
 		// Get existing configuration object.
 		$xpath = "//system/network/proxy";
 		$object = $xmlConfig->get($xpath);
@@ -1101,9 +1073,24 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		}
 		// Update the configuration object.
 		$object = array_merge($object, array(
-			"http" => $parseUriAuthority($params['httpuri']),
-			"https" => $parseUriAuthority($params['httpsuri']),
-			"ftp" => $parseUriAuthority($params['ftpuri'])
+			"http" => array(
+				"host" => $params['httphost'],
+				"port" => $params['httpport'],
+				"username" => $params['httpusername'],
+				"password" => $params['httppassword']
+			),
+			"https" => array(
+				"host" => $params['httpshost'],
+				"port" => $params['httpsport'],
+				"username" => $params['httpsusername'],
+				"password" => $params['httpspassword']
+			),
+			"ftp" => array(
+				"host" => $params['ftphost'],
+				"port" => $params['ftpport'],
+				"username" => $params['ftpusername'],
+				"password" => $params['ftppassword']
+			)
 		));
 		if (FALSE === $xmlConfig->replace($xpath, $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);

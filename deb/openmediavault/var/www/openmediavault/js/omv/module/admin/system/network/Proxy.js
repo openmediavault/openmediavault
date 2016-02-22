@@ -20,6 +20,7 @@
  */
 // require("js/omv/WorkspaceManager.js")
 // require("js/omv/workspace/form/Panel.js")
+// require("js/omv/form/field/Password.js")
 
 /**
  * @class OMV.module.admin.system.network.Proxy
@@ -27,6 +28,9 @@
  */
 Ext.define("OMV.module.admin.system.network.Proxy", {
 	extend: "OMV.workspace.form.Panel",
+	requires: [
+		"OMV.form.field.Password",
+	],
 
 	rpcService: "Network",
 	rpcGetMethod: "getProxy",
@@ -34,23 +38,103 @@ Ext.define("OMV.module.admin.system.network.Proxy", {
 
 	getFormItems: function() {
 		return [{
-			xtype: "textfield",
-			fieldLabel: _("HTTP-Proxy"),
-			name: "httpuri",
-			allowBlank: true
+			xtype: "fieldset",
+			title: _("HTTP-Proxy"),
+			fieldDefaults: {
+				labelSeparator: ""
+			},
+			items: [{
+				xtype: "textfield",
+				fieldLabel: _("Host"),
+				name: "httphost",
+				vytpe: "domainnameIP",
+				allowBlank: true
+			},{
+				xtype: "numberfield",
+				name: "httpport",
+				fieldLabel: _("Port"),
+				vtype: "port",
+				minValue: 1,
+				maxValue: 65535,
+				allowDecimals: false,
+				allowBlank: false,
+				value: 8080
+			},{
+				xtype: "textfield",
+				fieldLabel: _("Username"),
+				name: "httpusername",
+				allowBlank: true
+			},{
+				xtype: "passwordfield",
+				fieldLabel: _("Password"),
+				name: "httppassword",
+				allowBlank: true
+			}]
 		},{
-			xtype: "textfield",
-			fieldLabel: _("HTTPS-Proxy"),
-			name: "httpsuri",
-			allowBlank: true
+			xtype: "fieldset",
+			title: _("HTTPS-Proxy"),
+			fieldDefaults: {
+				labelSeparator: ""
+			},
+			items: [{
+				xtype: "textfield",
+				fieldLabel: _("Host"),
+				name: "httpshost",
+				vytpe: "domainnameIP",
+				allowBlank: true
+			},{
+				xtype: "numberfield",
+				name: "httpsport",
+				fieldLabel: _("Port"),
+				vtype: "port",
+				minValue: 1,
+				maxValue: 65535,
+				allowDecimals: false,
+				allowBlank: false,
+				value: 8080
+			},{
+				xtype: "textfield",
+				fieldLabel: _("Username"),
+				name: "httpsusername",
+				allowBlank: true
+			},{
+				xtype: "passwordfield",
+				fieldLabel: _("Password"),
+				name: "httpspassword",
+				allowBlank: true
+			}]
 		},{
-			xtype: "textfield",
-			fieldLabel: _("FTP-Proxy"),
-			name: "ftpuri",
-			allowBlank: true,
-			plugins: [{
-				ptype: "fieldinfo",
-				text: _("The URI must look like [USERNAME:PASSWORD@]HOST[:PORT].")
+			xtype: "fieldset",
+			title: _("FTP-Proxy"),
+			fieldDefaults: {
+				labelSeparator: ""
+			},
+			items: [{
+				xtype: "textfield",
+				fieldLabel: _("Host"),
+				name: "ftphost",
+				vytpe: "domainnameIP",
+				allowBlank: true
+			},{
+				xtype: "numberfield",
+				name: "ftpport",
+				fieldLabel: _("Port"),
+				vtype: "port",
+				minValue: 1,
+				maxValue: 65535,
+				allowDecimals: false,
+				allowBlank: false,
+				value: 8080
+			},{
+				xtype: "textfield",
+				fieldLabel: _("Username"),
+				name: "ftpusername",
+				allowBlank: true
+			},{
+				xtype: "passwordfield",
+				fieldLabel: _("Password"),
+				name: "ftppassword",
+				allowBlank: true
 			}]
 		}];
 	}
