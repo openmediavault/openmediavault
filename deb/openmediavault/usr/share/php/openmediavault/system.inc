@@ -2077,9 +2077,9 @@ class OMVFilesystemBtrfs extends OMVFilesystem {
 		$totalAllocated = "0";
 		$usedAdj = "0"; // Data size (i.e. before RAID)
 		$usedRaw = "0"; // Disk usage (i.e. inc. redundancy)
-		$regex = "/^(Data(\+Metadata)?), ([a-zA-Z0156]+): total=([0-9]+), ".
+		$regex = "/^([\w\+]+), ([a-zA-Z0156]+): total=([0-9]+), ".
 		  "used=([0-9]+)$/i";
-		foreach (preg_filter($regex, "$3 $4 $5", $output) as $rowv) {
+		foreach (preg_filter($regex, "$2 $3 $4", $output) as $rowv) {
 			list($profile, $t, $u) = explode(" ", $rowv);
 			switch ($profile) {
 				case "single":
