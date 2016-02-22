@@ -26,29 +26,35 @@ set -e
 
 OMV_PROFILE_PROXY_CONFIG=${OMV_PROFILE_PROXY_CONFIG:-"/etc/profile.d/10openmediavault-proxy.sh"}
 
-xmlstarlet sel -t -m "//system/network/proxy" \
-  -i "string-length(http/host) > 0" \
-    -o "http_proxy=\"http://" \
-    -i "string-length(http/username) > 0" \
-	  -v "concat(http/username,':',http/password,'@')" \
-	-b \
-    -v "concat(http/host,':',http/port,'\"')" -n \
-	-o "HTTP_PROXY=\$http_proxy" -n \
+xmlstarlet sel -t \
+  -m "//system/network/proxy/http" \
+    -i "enable = '1' and string-length(host) > 0" \
+      -o "http_proxy=\"http://" \
+      -i "string-length(username) > 0" \
+	    -v "concat(username,':',password,'@')" \
+	  -b \
+      -v "concat(host,':',port,'\"')" -n \
+	  -o "HTTP_PROXY=\$http_proxy" -n \
+    -b \
   -b \
-  -i "string-length(https/host) > 0" \
-    -o "https_proxy=\"https://" \
-    -i "string-length(https/username) > 0" \
-	  -v "concat(https/username,':',https/password,'@')" \
-	-b \
-    -v "concat(https/host,':',https/port,'\"')" -n \
-	-o "HTTPS_PROXY=\$https_proxy" -n \
+  -m "//system/network/proxy/https" \
+    -i "enable = '1' and string-length(host) > 0" \
+      -o "https_proxy=\"https://" \
+      -i "string-length(username) > 0" \
+	    -v "concat(username,':',password,'@')" \
+	  -b \
+      -v "concat(host,':',port,'\"')" -n \
+	  -o "HTTPS_PROXY=\$https_proxy" -n \
+    -b \
   -b \
-  -i "string-length(ftp/host) > 0" \
-    -o "ftp_proxy=\"ftp://" \
-    -i "string-length(ftp/username) > 0" \
-	  -v "concat(ftp/username,':',ftp/password,'@')" \
-	-b \
-    -v "concat(ftp/host,':',ftp/port,'\"')" -n \
-	-o "FTP_PROXY=\$ftp_proxy" -n \
+  -m "//system/network/proxy/ftp" \
+    -i "enable = '1' and string-length(host) > 0" \
+      -o "ftp_proxy=\"ftp://" \
+      -i "string-length(username) > 0" \
+	    -v "concat(username,':',password,'@')" \
+	  -b \
+      -v "concat(host,':',port,'\"')" -n \
+	  -o "FTP_PROXY=\$ftp_proxy" -n \
+    -b \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_PROFILE_PROXY_CONFIG}

@@ -1017,14 +1017,17 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		return array(
+			"httpenable" => boolvalEx($object['http']['enable']),
 			"httphost" => $object['http']['host'],
 			"httpport" => intval($object['http']['port']),
 			"httpusername" => $object['http']['username'],
 			"httppassword" => $object['http']['password'],
+			"httpsenable" => boolvalEx($object['https']['enable']),
 			"httpshost" => $object['https']['host'],
 			"httpsport" => intval($object['https']['port']),
 			"httpsusername" => $object['https']['username'],
 			"httpspassword" => $object['https']['password'],
+			"ftpenable" => boolvalEx($object['ftp']['enable']),
 			"ftphost" => $object['ftp']['host'],
 			"ftpport" => intval($object['ftp']['port']),
 			"ftpusername" => $object['ftp']['username'],
@@ -1050,14 +1053,17 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		$this->validateMethodParams($params, '{
 			  "type":"object",
 			  "properties":{
+				  "httpenable":{"type":"boolean"},
 				  "httphost":{"type":"string"},
 				  "httpport":{"type":"integer","minimum":1,"maximum":65535},
 				  "httpusername":{"type":"string"},
 				  "httppassword":{"type":"string"},
+				  "httpsenable":{"type":"boolean"},
 				  "httpshost":{"type":"string"},
 				  "httpsport":{"type":"integer","minimum":1,"maximum":65535},
 				  "httpsusername":{"type":"string"},
 				  "httpspassword":{"type":"string"},
+				  "ftpenable":{"type":"boolean"},
 				  "ftphost":{"type":"string"},
 				  "ftpport":{"type":"integer","minimum":1,"maximum":65535},
 				  "ftpusername":{"type":"string"},
@@ -1074,18 +1080,21 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		// Update the configuration object.
 		$object = array_merge($object, array(
 			"http" => array(
+				"enable" => $params['httpenable'],
 				"host" => $params['httphost'],
 				"port" => $params['httpport'],
 				"username" => $params['httpusername'],
 				"password" => $params['httppassword']
 			),
 			"https" => array(
+				"enable" => $params['httpsenable'],
 				"host" => $params['httpshost'],
 				"port" => $params['httpsport'],
 				"username" => $params['httpsusername'],
 				"password" => $params['httpspassword']
 			),
 			"ftp" => array(
+				"enable" => $params['ftpenable'],
 				"host" => $params['ftphost'],
 				"port" => $params['ftpport'],
 				"username" => $params['ftpusername'],

@@ -35,6 +35,28 @@ Ext.define("OMV.module.admin.system.network.Proxy", {
 	rpcService: "Network",
 	rpcGetMethod: "getProxy",
 	rpcSetMethod: "setProxy",
+	plugins: [{
+		ptype: "linkedfields",
+		correlations: [{
+			name: "httphost",
+			conditions: [
+				{ name: "httpenable", value: true }
+			],
+			properties: "!allowBlank"
+		},{
+			name: "httpshost",
+			conditions: [
+				{ name: "httpsenable", value: true }
+			],
+			properties: "!allowBlank"
+		},{
+			name: "ftphost",
+			conditions: [
+				{ name: "ftpenable", value: true }
+			],
+			properties: "!allowBlank"
+		}]
+	}],
 
 	getFormItems: function() {
 		return [{
@@ -44,6 +66,11 @@ Ext.define("OMV.module.admin.system.network.Proxy", {
 				labelSeparator: ""
 			},
 			items: [{
+				xtype: "checkbox",
+				name: "httpenable",
+				fieldLabel: _("Enable"),
+				checked: false
+			},{
 				xtype: "textfield",
 				fieldLabel: _("Host"),
 				name: "httphost",
@@ -78,6 +105,11 @@ Ext.define("OMV.module.admin.system.network.Proxy", {
 				labelSeparator: ""
 			},
 			items: [{
+				xtype: "checkbox",
+				name: "httpsenable",
+				fieldLabel: _("Enable"),
+				checked: false
+			},{
 				xtype: "textfield",
 				fieldLabel: _("Host"),
 				name: "httpshost",
@@ -112,6 +144,11 @@ Ext.define("OMV.module.admin.system.network.Proxy", {
 				labelSeparator: ""
 			},
 			items: [{
+				xtype: "checkbox",
+				name: "ftpenable",
+				fieldLabel: _("Enable"),
+				checked: false
+			},{
 				xtype: "textfield",
 				fieldLabel: _("Host"),
 				name: "ftphost",
