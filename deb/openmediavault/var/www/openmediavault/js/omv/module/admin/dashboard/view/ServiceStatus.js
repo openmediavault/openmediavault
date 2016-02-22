@@ -97,6 +97,7 @@ Ext.define("OMV.module.admin.dashboard.view.ServiceStatus", {
 					}
 				}],
 				viewConfig: {
+					markDirty: false,
 					trackOver: false
 				},
 				store: Ext.create("OMV.data.Store", {

@@ -77,6 +77,7 @@ Ext.define("OMV.module.admin.diagnostic.system.Overview", {
 		}
 	}],
 	viewConfig: {
+		markDirty: false,
 		trackOver: false
 	},
 

@@ -129,6 +129,7 @@ Ext.define("OMV.module.admin.dashboard.view.NetworkInterfaces", {
 					iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-rj45"
 				}],
 				viewConfig: {
+					markDirty: false,
 					trackOver: false
 				},
 				store: Ext.create("OMV.data.Store", {

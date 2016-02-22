@@ -43,6 +43,7 @@ Ext.define("OMV.grid.Panel", {
 	rowLines: false,
 	forceFit: false,
 	viewConfig: {
+		markDirty: false,
 		scrollable: true,
 		stripeRows: true
 	},

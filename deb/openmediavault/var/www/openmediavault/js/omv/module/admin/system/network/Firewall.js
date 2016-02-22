@@ -296,6 +296,7 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 		stateId: "comment"
 	}],
 	viewConfig: {
+		markDirty: false,
 		scrollable: true,
 		loadMask: true,
 		stripeRows: true

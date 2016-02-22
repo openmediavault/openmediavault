@@ -85,6 +85,7 @@ Ext.define("OMV.module.admin.dashboard.view.SysInfo", {
 					}
 				}],
 				viewConfig: {
+					markDirty: false,
 					trackOver: false
 				},
 				store: Ext.create("OMV.data.Store", {
