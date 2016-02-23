@@ -109,6 +109,8 @@ Ext.define("OMV.module.admin.diagnostic.log.Logs", {
 				}
 			}
 		},{
+			xtype: "tbseparator"
+		},{
 			id: me.getId() + "-clear",
 			xtype: "button",
 			text: _("Clear"),
