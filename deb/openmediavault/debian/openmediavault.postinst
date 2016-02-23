@@ -527,10 +527,6 @@ case "$1" in
 			service nginx reload
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.0"; then
-			# Trigger the creation of the UDEV rule which creates the link
-			# /dev/root -> <devicefile>
-			devicefile=$(findmnt -f -n -o SOURCE /)
-			udevadm trigger --property-match=DEVNAME=${devicefile}
 			# Recreate and reload various configuration files.
 			omv-mkconf nginx
 			deb-systemd-invoke reload nginx.service || :
@@ -598,6 +594,13 @@ case "$1" in
 			omv_config_add_element "/config/system/network/proxy/ftp" "port" "2121"
 			omv_config_add_element "/config/system/network/proxy/ftp" "username" ""
 			omv_config_add_element "/config/system/network/proxy/ftp" "password" ""
+		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.13"; then
+			# Trigger the creation of the UDEV rule which creates the
+			# /dev/root device file.
+			/lib/udev/openmediavault-write_dev_root_link_rules || :
+			devicefile=$(findmnt -f -n -o SOURCE /)
+			udevadm trigger --property-match=DEVNAME=${devicefile}
 		fi
 	;;
 

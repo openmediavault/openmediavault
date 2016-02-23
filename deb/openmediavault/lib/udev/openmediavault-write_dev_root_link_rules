@@ -42,7 +42,7 @@ RULES_FILE="/etc/udev/rules.d/61-openmediavault-dev-root-link.rules"
 # rule is trigger during bootup, create a link to /run/udev/rules.d.
 ln_rules_file() {
 	RUNDIR="/run/udev"
-    [ -e "$RUNDIR" ] || return 0
+	[ -e "$RUNDIR" ] || return 0
 
 	local tmp_rules_file="${RUNDIR}/rules.d/${RO_RULES_FILE##*/}"
 	mkdir -p "${RUNDIR}/rules.d"
