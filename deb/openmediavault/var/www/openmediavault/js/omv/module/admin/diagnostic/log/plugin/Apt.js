@@ -33,7 +33,7 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.apt.Term", {
 	],
 
 	id: "apt_term",
-	text: _("APT - Terminal output"),
+	text: _("Update Management - Terminal output"),
 	stateful: true,
 	stateId: "aba0b41e-d196-11e5-88f3-175cc496a170",
 	columns: [{
@@ -65,7 +65,7 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.apt.History", {
 	],
 
 	id: "apt_history",
-	text: _("APT - History"),
+	text: _("Update Management - History"),
 	stateful: true,
 	stateId: "d0a40806-d196-11e5-87f2-ebedf5cb64a0",
 	columns: [{

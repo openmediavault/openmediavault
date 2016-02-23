@@ -88,6 +88,7 @@ Ext.define("OMV.module.admin.diagnostic.log.Logs", {
 			editable: false,
 			triggerAction: "all",
 			value: me.activePlugin.text,
+			flex: 1,
 			listeners: {
 				scope: me,
 				change: function(combo, value) {

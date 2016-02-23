@@ -23,7 +23,7 @@
 OMV.WorkspaceManager.registerNode({
 	id: "update",
 	path: "/system",
-	text: _("Update Manager"),
+	text: _("Update Management"),
 	icon16: "images/software.png",
 	iconSvg: "images/software.svg",
 	position: 80

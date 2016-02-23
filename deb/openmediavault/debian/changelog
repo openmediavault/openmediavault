@@ -1,7 +1,14 @@
+openmediavault (3.0.13) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 23 Feb 2016 12:01:34 +0100
+
 openmediavault (3.0.12) stable; urgency=low
 
   * Update locales.
-  * Add ability to configure HTTP/HTTPS/FTP proxy servers.
+  * Add ability to configure global HTTP/HTTPS/FTP proxy servers using the
+    menu 'System | Network | Proxy'.
   * Mantis 0001424: Improve BTRFS file system backend.
   * Mantis 0001469: 20authorized_keys mkconf file typo.
   * Mantis 0001471: Updating smartmontools db fails due to address redirection.
