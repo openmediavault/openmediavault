@@ -182,7 +182,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 	 * Enumerate all filesystems that have a mount point configuration
 	 * object, except binds, and that are actually mounted.
 	 * @param params The method parameters.
-	 *   \em includeRoot TRUE to append the filesystem '/dev/root' if mounted.
+	 *   \em includeroot TRUE to append the filesystem '/dev/root' if mounted.
 	 *     Defaults to FALSE.
 	 * @param context The context of the caller.
 	 * @return An array of objects with the following fields: \em uuid,
@@ -204,7 +204,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			$this->validateMethodParams($params, '{
 				  "type":"object",
 				  "properties":{
-					  "includeRoot":{"type":"boolean","optional":true}
+					  "includeroot":{"type":"boolean","optional":true}
 				  }
 			  }');
 		// Get list of mount points, except bind mounts.
@@ -215,32 +215,34 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Append '/dev/root'?
-		if (TRUE === array_boolval($params, "includeRoot", FALSE)) {
+		if (TRUE === array_boolval($params, "includeroot", FALSE)) {
 			array_unshift($objects, array(
 				"fsname" => "/dev/root",
 				"dir" => "/"
 			));
 		}
-		// Get the filesystem details for each mount point.
+		// Get the file system details for each mount point.
 		$result = array();
 		foreach ($objects as $objectk => $objectv) {
 			// Get the filesystem backend.
 			$fsb = OMVFilesystems::getBackend($objectv['fsname']);
 			if (is_null($fsb)) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("No filesystem backend exists for '%s'",
-				  $objectv['fsname']));
+// The device may not exist anymore, e.g. a USB device. Skip it.
+//				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+//				  sprintf("No file system backend exists for '%s'",
+//				  $objectv['fsname']));
+				continue;
 			}
-			// Get the filesystem implementation.
+			// Get the file system implementation.
 			$fs = $fsb->getImpl($objectv['fsname']);
 			if (is_null($fs) || !$fs->exists()) {
 //				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-//				  "Failed to get the '%s' filesystem implementation or '%s' ".
+//				  "Failed to get the '%s' file system implementation or '%s' ".
 //				  "does not exist", $fsb->getType(), $objectv['fsname']));
 				continue;
 			}
-			// Check if the given filesystem is mounted based on the configured
-			// mount point. Skip the filesystems that are not mounted at the
+			// Check if the given file system is mounted based on the configured
+			// mount point. Skip the file systems that are not mounted at the
 			// moment.
 			if (FALSE === $fs->isMounted())
 				continue;

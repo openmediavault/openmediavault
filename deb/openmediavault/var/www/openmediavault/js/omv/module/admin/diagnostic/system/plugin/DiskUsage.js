@@ -78,7 +78,7 @@ Ext.define("OMV.module.admin.diagnostic.system.plugin.DiskUsage", {
 				service: "FileSystemMgmt",
 				method: "enumerateMountedFilesystems",
 				params: {
-					includeRoot: true
+					includeroot: true
 				}
 			}
 		});
