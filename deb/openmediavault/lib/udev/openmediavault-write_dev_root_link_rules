@@ -21,16 +21,33 @@
 
 set -e
 
-# debug, if UDEV_LOG=<debug>
-if [ -n "$UDEV_LOG" ]; then
-        if [ "$UDEV_LOG" -ge 7 ]; then
-                set -x
-        fi
+
+if [ -e "/etc/udev/udev.conf" ]; then
+	. /etc/udev/udev.conf
+	if [ "${udev_log}" = "debug" ]; then
+		set -x
+	fi
 fi
 
 RULES_FILE="/etc/udev/rules.d/61-openmediavault-dev-root-link.rules"
 
 . /lib/udev/rule_generator.functions
+
+# Link the temporary rules file to /run/udev/rules.d to be triggered
+# by the systemd-udev-trigger.service systemd unit.
+# Note, temporary rules files are copied to the r/w file system by the
+# udev-finish.service systemd unit which is executed after the
+# systemd-udev-trigger.service unit. Because of that, such temporary
+# rules are not triggered during the boot process. To ensure that the
+# rule is trigger during bootup, create a link to /run/udev/rules.d.
+ln_rules_file() {
+	RUNDIR="/run/udev"
+    [ -e "$RUNDIR" ] || return 0
+
+	local tmp_rules_file="${RUNDIR}/rules.d/${RO_RULES_FILE##*/}"
+	mkdir -p "${RUNDIR}/rules.d"
+	ln -s "${RULES_FILE}" "${tmp_rules_file}"
+}
 
 [ -e "${RULES_FILE}" ] && exit 0
 
@@ -41,6 +58,7 @@ eval $(udevadm info --export --export-prefix=ROOT_ --device-id-of-file=/ || true
 lock_rules_file
 choose_rules_file
 echo 'ACTION=="add|change", SUBSYSTEM=="block", ENV{MAJOR}=="'${ROOT_MAJOR}'", ENV{MINOR}=="'${ROOT_MINOR}'", SYMLINK+="root"' > ${RULES_FILE}
+ln_rules_file
 unlock_rules_file
 
 exit 0
