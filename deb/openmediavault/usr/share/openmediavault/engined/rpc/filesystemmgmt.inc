@@ -433,7 +433,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				  array($mntentv['fsname']) : array(),
 				"uuid" => is_uuid($mntentv['fsname']) ?
 				  $mntentv['fsname'] : "",
-				"label" => gettext("n/a"),
+				"label" => "",
 				"type" => $mntentv['type'],
 				"blocks" => "-1", // as string
 				"mounted" => FALSE,
