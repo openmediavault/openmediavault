@@ -579,6 +579,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			switch ($sdb->getType()) {
 			case OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID:
 			case OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER:
+			case OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE:
 				// Wipe existing filesystems.
 				$cmd = sprintf("export LANG=C; wipefs -a %s 2>&1",
 				  $sd->getDeviceFile());

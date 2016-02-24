@@ -1,3 +1,9 @@
+openmediavault (2.2.1) stable; urgency=low
+
+  * Mantis 0001474: Cannot create a file system on a loop device.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 24 Feb 2016 11:56:20 +0100
+
 openmediavault (2.2) stable; urgency=low
 
   * Mantis 0001471: Updating smartmontools db fails due to address redirection.

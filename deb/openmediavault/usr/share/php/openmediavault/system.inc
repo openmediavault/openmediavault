@@ -2837,6 +2837,10 @@ class OMVStorageDeviceBackendLoop extends OMVStorageDeviceBackendAbstract {
 	function getImpl($args) {
 		return new OMVStorageDeviceLoop($args);
 	}
+
+	function fsDeviceFile($deviceFile) {
+		return $deviceFile;
+	}
 }
 
 /**
@@ -4569,8 +4573,8 @@ class OMVATASMARTInformation extends OMVObject {
 			if (FALSE === stripos($attrv['flags'], "P"))
 				continue;
 			// Always-Fail and Always-Passing thresholds are not relevant
-	        	// for our assessment.
-		        if (!(1 <= $attrv['treshold']) && (0xFD >= $attrv['treshold']))
+	        // for our assessment.
+		    if (!(1 <= $attrv['treshold']) && (0xFD >= $attrv['treshold']))
 				continue;
 			// See https://wiki.ubuntuusers.de/Festplattenstatus
 			if ($attrv['value'] <= $attrv['treshold']) {
