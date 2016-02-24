@@ -1,3 +1,9 @@
+openmediavault-nut (3.1) stable; urgency=low
+
+  * Mantis 0001475: Add administration user.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 24 Feb 2016 15:52:27 +0100
+
 openmediavault-nut (3.0.2) stable; urgency=low
 
   * Various improvements.
