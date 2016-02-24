@@ -307,7 +307,11 @@ Ext.define("OMV.module.admin.privilege.user.user.sshpubkeys.PubKey", {
 	height: 250,
 	hideOkButton: false,
 	mode: "local",
-	readOnly: false,
+	textAreaConfig: {
+		readOnly: false,
+		allowBlank: false,
+		vtype: "sshPubKeyRFC4716"
+	},
 
 	initComponent: function() {
 		var me = this;
@@ -319,13 +323,6 @@ Ext.define("OMV.module.admin.privilege.user.user.sshpubkeys.PubKey", {
 			ui: "footer",
 			text: _("The public key in RFC 4716 SSH public key file format.")
 		});
-	},
-
-	getTextAreaConfig: function(c) {
-		return {
-			allowBlank: false,
-			vtype: "sshPubKeyRFC4716"
-		};
 	}
 });
 

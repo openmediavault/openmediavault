@@ -56,7 +56,6 @@ Ext.define("OMV.workspace.panel.Textarea", {
 	initComponent: function() {
 		var me = this;
 		me.ta = Ext.create(Ext.apply({
-			id: me.getId() + "-content",
 			xtype: "textarea",
 			cls: Ext.baseCSSPrefix + "form-textarea-monospaced",
 			inputWrapCls: Ext.form.field.TextArea.prototype.inputWrapCls +
@@ -130,10 +129,7 @@ Ext.define("OMV.workspace.panel.Textarea", {
 	 */
 	setValue: function(value) {
 		var me = this;
-		var c = me.queryById(me.getId() + "-content");
-		if (!Ext.isEmpty(c)) {
-			c.setValue(value);
-		}
+		return me.getTextArea().setValue(value);
 	},
 
 	/**
@@ -142,11 +138,7 @@ Ext.define("OMV.workspace.panel.Textarea", {
 	 */
 	getValue: function() {
 		var me = this;
-		var c = me.queryById(me.getId() + "-content");
-		if (!Ext.isEmpty(c)) {
-			value = c.getValue();
-		}
-		return value;
+		return me.getTextArea().getValue();
 	},
 
 	/**

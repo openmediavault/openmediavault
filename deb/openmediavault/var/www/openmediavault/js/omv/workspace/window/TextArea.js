@@ -25,7 +25,8 @@
  * A workspace window used to display text.
  * @class OMV.workspace.window.TextArea
  * @derived OMV.workspace.window.Container
- * @param readOnly Mark the text area as readonly. Defaults to TRUE.
+ * @param textAreaConfig A config object that will be applied to the
+ *   textarea field.
  */
 Ext.define("OMV.workspace.window.TextArea", {
 	extend: "OMV.workspace.window.Container",
@@ -33,7 +34,10 @@ Ext.define("OMV.workspace.window.TextArea", {
 		"Ext.form.field.TextArea"
 	],
 
-	readOnly: true,
+	textAreaConfig: {
+		readOnly: true
+	},
+
 	border: false,
 
 	hideOkButton: true,
@@ -45,7 +49,6 @@ Ext.define("OMV.workspace.window.TextArea", {
 		var me = this;
 		me.ta = Ext.create(Ext.apply({
 			xtype: "textarea",
-			readOnly: me.readOnly,
 			cls: Ext.baseCSSPrefix + "form-textarea-monospaced"
 		}, me.getTextAreaConfig(me)));
 		return me.ta;

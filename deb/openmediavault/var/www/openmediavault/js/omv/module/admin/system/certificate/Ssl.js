@@ -505,7 +505,12 @@ Ext.define("OMV.module.admin.system.certificate.ssl.Detail", {
 	rpcGetMethod: "getDetail",
 	title: _("Certificate details"),
 	width: 600,
-	height: 400
+	height: 400,
+
+	textAreaConfig: {
+		readOnly: false,
+		editable: false
+	}
 });
 
 /**
