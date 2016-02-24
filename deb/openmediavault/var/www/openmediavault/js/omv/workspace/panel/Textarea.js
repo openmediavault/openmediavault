@@ -27,12 +27,13 @@
  * @class OMV.workspace.panel.Textarea
  * @derived OMV.workspace.panel.Panel
  * A panel that contains a text area.
- * @param readOnly Mark the text area as readonly. Defaults to TRUE.
  * @param rpcService The RPC service name. Required.
  * @param rpcMethod The RPC method to request the data. Required.
  * @param rpcParams The RPC parameters. Optional.
  * @param hideDownloadButton Hide the 'Download' button in the top toolbar.
  *   Defaults to TRUE.
+ * @param textAreaConfig A config object that will be applied to the
+ *   textarea field.
  */
 Ext.define("OMV.workspace.panel.Textarea", {
 	extend: "OMV.workspace.panel.Panel",
@@ -42,25 +43,44 @@ Ext.define("OMV.workspace.panel.Textarea", {
 	],
 
 	loadMsg: _("Loading ..."),
+	textAreaConfig: {
+		editable: false
+	},
 
 	layout: "fit",
 	hideTopToolbar: false,
 	hideDownloadButton: true,
 	autoLoadData: true,
-	readOnly: true,
 	scrollable: false,
 
 	initComponent: function() {
 		var me = this;
-		me.items = [{
+		me.ta = Ext.create(Ext.apply({
 			id: me.getId() + "-content",
 			xtype: "textarea",
-			readOnly: me.readOnly,
 			cls: Ext.baseCSSPrefix + "form-textarea-monospaced",
 			inputWrapCls: Ext.form.field.TextArea.prototype.inputWrapCls +
 			  " " + Ext.baseCSSPrefix + "form-text-wrap-noborder"
-		}]
+		}, me.getTextAreaConfig(me)));
+		me.items = [ me.ta ];
 		me.callParent(arguments);
+	},
+
+	/**
+	 * Returns additional textarea configuration options.
+	 * @param c This component object.
+	 * @return The textarea configuration object.
+	 */
+	getTextAreaConfig: function(c) {
+		return this.textAreaConfig;
+	},
+
+	/**
+	 * Returns the textarea field.
+	 * @return The textarea field object.
+	 */
+	getTextArea: function() {
+		return this.ta;
 	},
 
 	getTopToolbarItems: function(c) {

@@ -61,8 +61,8 @@ Ext.define("OMV.workspace.window.TextArea", {
 	},
 
 	/**
-	 * Returns the tab panel.
-	 * @return The tab panel object.
+	 * Returns the textarea field.
+	 * @return The textarea field object.
 	 */
 	getTextArea: function() {
 		return this.ta;

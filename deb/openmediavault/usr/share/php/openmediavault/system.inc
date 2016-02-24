@@ -3167,6 +3167,10 @@ class OMVStorageDeviceBackendLoop extends OMVStorageDeviceBackendAbstract {
 	function getImpl($args) {
 		return new OMVStorageDeviceLoop($args);
 	}
+
+	function fsDeviceFile($deviceFile) {
+		return $deviceFile;
+	}
 }
 
 /**
@@ -4535,6 +4539,13 @@ class OMVATASMARTInformation extends OMVObject {
 		254 => "Number of detected free fall events"
 	);
 
+	const SMART_ASSESSMENT_GOOD = "GOOD";
+	const SMART_ASSESSMENT_BAD_ATTRIBUTE_IN_THE_PAST = "BAD_ATTRIBUTE_IN_THE_PAST";
+	const SMART_ASSESSMENT_BAD_SECTOR = "BAD_SECTOR";
+	const SMART_ASSESSMENT_BAD_ATTRIBUTE_NOW = "BAD_ATTRIBUTE_NOW";
+	const SMART_ASSESSMENT_BAD_SECTOR_MANY = "BAD_SECTOR_MANY";
+	const SMART_ASSESSMENT_BAD_STATUS = "BAD_STATUS";
+
 	/**
 	 * Constructor
 	 * @param deviceFile Specifies the device file, e.g.
@@ -4660,7 +4671,7 @@ class OMVATASMARTInformation extends OMVObject {
 					  $this->attrDesc[$id] : "",
 					// Additional fields used for the assessment.
 					"prefailure" => (FALSE !== stripos($matches[3], "P")),
-					"assessment" => "BAD_STATUS"
+					"assessment" => self::SMART_ASSESSMENT_BAD_STATUS
 				);
 				// Assess prefailure attributes.
 				if (TRUE === $attrData['prefailure'])
@@ -4675,20 +4686,20 @@ class OMVATASMARTInformation extends OMVObject {
 		if (FALSE === $attrData['prefailure'])
 			return;
 		// Set the default assessment.
-		$attrData['assessment'] = "GOOD";
+		$attrData['assessment'] = self::SMART_ASSESSMENT_GOOD;
 		// Always-Fail and Always-Passing thresholds are not relevant
 		// for our assessment.
 		if (!(1 <= $attrData['treshold']) && (0xFD >= $attrData['treshold'])) {
-			$attrData['assessment'] = "BAD_STATUS";
+			$attrData['assessment'] = self::SMART_ASSESSMENT_BAD_STATUS;
 			return;
 		}
 		// See https://wiki.ubuntuusers.de/Festplattenstatus
 		if ($attrData['value'] <= $attrData['treshold']) {
-			$attrData['assessment'] = "BAD_ATTRIBUTE_NOW";
+			$attrData['assessment'] = self::SMART_ASSESSMENT_BAD_ATTRIBUTE_NOW;
 			return;
 		}
 		if ($attrData['worst'] <= $attrData['treshold']) {
-			$attrData['assessment'] = "BAD_ATTRIBUTE_IN_THE_PAST";
+			$attrData['assessment'] = self::SMART_ASSESSMENT_BAD_ATTRIBUTE_IN_THE_PAST;
 			return;
 		}
 	}
@@ -4897,7 +4908,7 @@ class OMVATASMARTInformation extends OMVObject {
 		if (FALSE === ($attributes = $this->getAttributes()))
 			return FALSE;
 		if (empty($attributes))
-			return "BAD_STATUS";
+			return self::SMART_ASSESSMENT_BAD_STATUS;
 		// Checks are adapted from libatasmart.
 		// See http://git.0pointer.net/libatasmart.git
 		// Get number of bad sectors.
@@ -4920,23 +4931,24 @@ class OMVATASMARTInformation extends OMVObject {
 			$size = intval($this->sd->getSize());
 			$sectorThreshold = intval(log($size / 512) * 1024);
 			if ($numSectors >= $sectorThreshold)
-				return "BAD_SECTOR_MANY";
+				return self::SMART_ASSESSMENT_BAD_SECTOR_MANY;
 		}
 		// Check if any of the SMART attributes is bad.
 		foreach ($attributes as $attrk => $attrv) {
-			// Is it a prefailure attribute?
+			// Skip non-prefailure attributes.
 			if (FALSE === $attrv['prefailure'])
 				continue;
-			if ("GOOD" !== $attrv['assessment']) {
+			// Skip attributes that do not have a valid assessment.
+			if (self::SMART_ASSESSMENT_BAD_STATUS == $attrv['assessment'])
+				continue;
+			if (self::SMART_ASSESSMENT_GOOD !== $attrv['assessment'])
 				return $attrv['assessment'];
-				break;
-			}
 		}
 		// Check if there are any bad sectors at all.
 		if ($numSectors > 0)
-            return "BAD_SECTOR";
+            return self::SMART_ASSESSMENT_BAD_SECTOR;
 		// There's really nothing to complain about, so give it a pass.
-		return "GOOD";
+		return self::SMART_ASSESSMENT_GOOD;
 	}
 }
 
