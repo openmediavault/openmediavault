@@ -3,6 +3,7 @@ openmediavault (3.0.13) stable; urgency=low
   * Various improvements.
   * Mantis 0001473: Improve S.M.A.R.T. health assessment.
   * Mantis 0001474: Cannot create a file system on a loop device.
+  * Mantis 0001476: Split the delete shared folder button.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 23 Feb 2016 12:01:34 +0100
 

@@ -223,6 +223,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 					msg: _("Do you really want to relocate the shared folder? The content of the shared folder will not be moved automatically, you have to do this yourself."),
 					icon: Ext.Msg.QUESTION,
 					buttons: Ext.Msg.YESNO,
+					defaultFocus: "no",
 					fn: function(answer) {
 						if (answer == "yes") // Continue ...
 							me.superclass.doSubmit.apply(this, arguments);
@@ -632,6 +633,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 	],
 
 	hidePagingToolbar: false,
+	hideDeleteButton: true,
 	stateful: true,
 	stateId: "9ab0d7f9-73e0-4815-8960-84157d4b85e5",
 	columns: [{
@@ -732,6 +734,47 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 					return (record.get("posixacl") === true);
 				}
 			}
+		},{
+			id: me.getId() + "-delete2",
+			xtype: "splitbutton",
+			text: me.deleteButtonText,
+			icon: me.deleteButtonIcon,
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			scope: me,
+			disabled: true,
+			handler: function(c) {
+				c.showMenu();
+			},
+			menu: Ext.create("Ext.menu.Menu", {
+				items: [{
+					text: _("Shared folder"),
+					value: false
+				},{
+					text: _("Shared folder + content"),
+					value: true
+				}],
+				listeners: {
+					scope: me,
+					click: function(menu, item) {
+						this.deleteRecursive = item.value;
+						this.onDeleteButton();
+					}
+				}
+			}),
+			selectionConfig: {
+				minSelections: 1,
+				enabledFn: function(c, records) {
+					var result = true;
+					Ext.Array.each(records, function(record) {
+						if ((true == record.get("_used")) || (true ==
+						  record.get("_readonly"))) {
+						  	result = false;
+							return false; // Abort loop
+						}
+					});
+					return result;
+				}
+			}
 		}]);
 		return items;
 	},
@@ -788,42 +831,24 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 
 	startDeletion: function(records) {
 		var me = this;
-		if(records.length <= 0)
+		if (records.length <= 0)
 			return;
+		if (false === me.deleteRecursive) {
+			// Delete the shared folder configuration only.
+			me.callParent(arguments);
+			return;
+		}
+		// Recursively delete the shared folder configuration and its content.
 		OMV.MessageBox.show({
-			title: _("Delete content"),
-			msg: _("Do you want to remove the content of the shared folder recursively? The shared folder content will be permanently removed and cannot be recovered. Select 'No' to delete the shared folder configuration only or 'Cancel' to abort."),
-			icon: Ext.Msg.QUESTION,
-			buttonText: {
-				yes: _("No"),
-				no: _("Yes"),
-				cancel: _("Cancel")
-			},
+			title: _("Confirmation"),
+			msg: _("Do you really want to remove the shared folder content? It will be permanently removed and cannot be recovered."),
+			icon: Ext.Msg.WARNING,
+			buttons: OMV.Msg.YESNO,
+			defaultFocus: "no",
 			scope: me,
 			fn: function(answer) {
-				me.deleteRecursive = false;
-				switch(answer) {
-				case "no": // Recursively delete data
-					OMV.MessageBox.show({
-						title: _("Confirmation"),
-						msg: _("Do you really want to remove the shared folder content? It will be permanently removed and cannot be recovered."),
-						buttons: OMV.Msg.YESCANCEL,
-						fn: function(answer) {
-							if(answer === "yes") {
-								me.deleteRecursive = true;
-								me.superclass.startDeletion.apply(this,
-								  [ records ]);
-							}
-						},
-						scope: this,
-						icon: Ext.Msg.WARNING
-					});
-					break;
-				case "yes": // Configuration only
+				if (answer === "yes") {
 					me.superclass.startDeletion.apply(this, [ records ]);
-					break;
-				case "cancel":
-					break;
 				}
 			}
 		});

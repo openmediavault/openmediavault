@@ -317,6 +317,7 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 			icon: Ext.Msg.QUESTION,
 			msg: _("Do you really want to wipe the selected device?"),
 			buttons: Ext.Msg.YESNO,
+			defaultFocus: "no",
 			scope: me,
 			fn: function(answer) {
 				if(answer !== "yes")

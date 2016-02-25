@@ -78,6 +78,7 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 							title: _("Confirmation"),
 							msg: _("Do you really want to apply the configuration changes?"),
 							buttons: Ext.Msg.YESNO,
+							defaultFocus: "yes",
 							fn: function(answer) {
 								if (answer !== "yes")
 									return;

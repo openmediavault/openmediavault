@@ -68,7 +68,14 @@
  * @param downButtonText The button text. Defaults to 'Down'.
  * @param applyButtonText The button text. Defaults to 'Save'.
  * @param refreshButtonText The button text. Defaults to 'Refresh'.
- * @param deletionConfirmRequired Set to TRUE to force the user to confirm
+ * @param addButtonIcon The button icon.
+ * @param editButtonIcon The button icon.
+ * @param deleteButtonIcon The button icon.
+ * @param upButtonIcon The button icon.
+ * @param downButtonIcon The button icon.
+ * @param applyButtonIcon The button icon.
+ * @param refreshButtonIcon The button icon.
+  * @param deletionConfirmRequired Set to TRUE to force the user to confirm
  *   the deletion request. Defaults to TRUE.
  * @param deletionWaitMsg The message displayed during the deletion process.
  * @param mode The mode how to retrieve the data displayed in the grid panel.
@@ -119,6 +126,13 @@ Ext.define("OMV.workspace.grid.Panel", {
 	downButtonText: _("Down"),
 	applyButtonText: _("Save"),
 	refreshButtonText: _("Refresh"),
+	addButtonIcon: "images/add.png",
+	editButtonIcon: "images/edit.png",
+	deleteButtonIcon: "images/delete.png",
+	upButtonIcon: "images/arrow-up.png",
+	downButtonIcon: "images/arrow-down.png",
+	applyButtonIcon: "images/checkmark.png",
+	refreshButtonIcon: "images/refresh.png",
 	deletionConfirmRequired: true,
 	deletionWaitMsg: _("Deleting selected item(s)"),
 	mode: "remote",
@@ -202,7 +216,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 			id: me.getId() + "-add",
 			xtype: "button",
 			text: me.addButtonText,
-			icon: "images/add.png",
+			icon: me.addButtonIcon,
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			hidden: me.hideAddButton,
 			handler: Ext.Function.bind(me.onAddButton, me, [ me ]),
@@ -211,7 +225,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 			id: me.getId() + "-edit",
 			xtype: "button",
 			text: me.editButtonText,
-			icon: "images/edit.png",
+			icon: me.editButtonIcon,
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			hidden: me.hideEditButton,
 			handler: Ext.Function.bind(me.onEditButton, me, [ me ]),
@@ -225,7 +239,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 			id: me.getId() + "-delete",
 			xtype: "button",
 			text: me.deleteButtonText,
-			icon: "images/delete.png",
+			icon: me.deleteButtonIcon,
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			hidden: me.hideDeleteButton,
 			handler: Ext.Function.bind(me.onDeleteButton, me, [ me ]),
@@ -249,7 +263,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 			id: me.getId() + "-up",
 			xtype: "button",
 			text: me.upButtonText,
-			icon: "images/arrow-up.png",
+			icon: me.upButtonIcon,
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			hidden: me.hideUpButton,
 			handler: Ext.Function.bind(me.onUpButton, me, [ me ]),
@@ -263,7 +277,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 			id: me.getId() + "-down",
 			xtype: "button",
 			text: me.downButtonText,
-			icon: "images/arrow-down.png",
+			icon: me.downButtonIcon,
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			hidden: me.hideDownButton,
 			handler: Ext.Function.bind(me.onDownButton, me, [ me ]),
@@ -277,7 +291,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 			id: me.getId() + "-apply",
 			xtype: "button",
 			text: me.applyButtonText,
-			icon: "images/checkmark.png",
+			icon: me.applyButtonIcon,
 			hidden: me.hideApplyButton,
 			handler: Ext.Function.bind(me.onApplyButton, me, [ me ]),
 			scope: me
@@ -285,7 +299,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 			id: me.getId() + "-refresh",
 			xtype: "button",
 			text: me.refreshButtonText,
-			icon: "images/refresh.png",
+			icon: me.refreshButtonIcon,
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			hidden: me.hideRefreshButton,
 			handler: Ext.Function.bind(me.onRefreshButton, me, [ me ]),
@@ -482,14 +496,15 @@ Ext.define("OMV.workspace.grid.Panel", {
 	onDeleteButton: function() {
 		var me = this;
 		var records = me.getSelection();
-		if(me.deletionConfirmRequired === true) {
+		if (me.deletionConfirmRequired === true) {
 			var msg = _("Do you really want to delete the selected item(s)?");
 			OMV.MessageBox.show({
 				title: _("Confirmation"),
 				msg: msg,
 				buttons: Ext.Msg.YESNO,
+				defaultFocus: "no",
 				fn: function(answer) {
-					if(answer !== "yes")
+					if (answer !== "yes")
 						return;
 					me.startDeletion(records);
 				},

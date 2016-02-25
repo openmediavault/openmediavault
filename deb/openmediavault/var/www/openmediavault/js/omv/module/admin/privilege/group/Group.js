@@ -449,11 +449,11 @@ Ext.define("OMV.module.admin.privilege.group.Groups", {
 		Ext.Array.insert(items, 0, [{
 			id: me.getId() + "-add",
 			xtype: "splitbutton",
-			text: _("Add"),
-			icon: "images/add.png",
+			text: me.addButtonText,
+			icon: me.addButtonIcon,
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
-			handler: function() {
-				this.showMenu();
+			handler: function(c) {
+				c.showMenu();
 			},
 			menu: Ext.create("Ext.menu.Menu", {
 				items: [

@@ -141,9 +141,10 @@ Ext.define("OMV.module.admin.diagnostic.log.Logs", {
 			msg: msg,
 			buttons: Ext.Msg.YESNO,
 			icon: Ext.Msg.QUESTION,
+			defaultFocus: "no",
 			scope: me,
 			fn: function(answer) {
-				if(answer !== "yes")
+				if (answer !== "yes")
 					return;
 				// Execute RPC.
 				OMV.Rpc.request({

@@ -140,8 +140,9 @@ Ext.define("OMV.module.admin.storage.filesystem.Create", {
 			title: _("Confirmation"),
 			msg: _("Do you really want to format this device? All data on it will be deleted. Please note that the file system creation may take some time."),
 			buttons: Ext.Msg.YESNO,
+			defaultFocus: "no",
 			fn: function(answer) {
-				if(answer === "no")
+				if (answer === "no")
 					return;
 				// Display dialog showing the file system creation progress.
 				var params = me.getRpcSetParams();
@@ -721,9 +722,10 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			msg: msg,
 			buttons: Ext.Msg.YESNO,
 			icon: Ext.Msg.QUESTION,
+			defaultFocus: "no",
 			scope: me,
 			fn: function(answer) {
-				if(answer !== "yes")
+				if (answer !== "yes")
 					return;
 				var record = me.getSelected();
 				// Execute RPC.
