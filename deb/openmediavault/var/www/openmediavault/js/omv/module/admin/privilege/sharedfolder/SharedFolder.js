@@ -710,7 +710,11 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: me.onPrivilegesButton,
 			scope: me,
-			disabled: true
+			disabled: true,
+			selectionConfig: {
+				minSelections: 1,
+				maxSelections: 1
+			}
 		},{
 			id: me.getId() + "-acl",
 			xtype: "button",
@@ -719,33 +723,17 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: me.onACLButton,
 			scope: me,
-			disabled: true
+			disabled: true,
+			selectionConfig: {
+				minSelections: 1,
+				maxSelections: 1,
+				enabledFn: function(c, records) {
+					var record = records[0];
+					return (record.get("posixacl") === true);
+				}
+			}
 		}]);
 		return items;
-	},
-
-	onSelectionChange: function(model, records) {
-		var me = this;
-		me.callParent(arguments);
-		// Process additional buttons.
-		var tbarBtnDisabled = {
-			"privileges": true,
-			"acl": true
-		};
-		if (records.length <= 0) {
-			tbarBtnDisabled["privileges"] = true;
-			tbarBtnDisabled["acl"] = true;
-		} else if(records.length == 1) {
-			tbarBtnDisabled["privileges"] = false;
-			tbarBtnDisabled["acl"] = !(records[0].get("posixacl") === true);
-		} else {
-			tbarBtnDisabled["privileges"] = true;
-			tbarBtnDisabled["acl"] = true;
-		}
-		// Update the button controls.
-		Ext.Object.each(tbarBtnDisabled, function(key, value) {
-			this.setToolbarButtonDisabled(key, value);
-		}, me);
 	},
 
 	onAddButton: function() {
