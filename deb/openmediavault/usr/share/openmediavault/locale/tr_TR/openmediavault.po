@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-18 21:22+0100\n"
-"PO-Revision-Date: 2016-02-18 21:16+0000\n"
-"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
+"POT-Creation-Date: 2016-02-25 20:15+0100\n"
+"PO-Revision-Date: 2016-02-25 19:15+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/votdev/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -167,12 +167,6 @@ msgstr "Bu isimde paylaşılan bir klasör mevcut"
 msgid "ACL"
 msgstr "ACL"
 
-msgid "APT - History"
-msgstr "APT - Geçmiş"
-
-msgid "APT - Terminal output"
-msgstr "APT - Terminal çıktısı"
-
 msgid "ASCII"
 msgstr "ASCII"
 
@@ -262,9 +256,6 @@ msgstr "Ek aygıt ayarları, örn.  'autoneg off speed 100 duplex full'. Daha fa
 
 msgid "Address"
 msgstr "Adres"
-
-msgid "Administrator password"
-msgstr "Yönetici şifresi"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
 msgstr "Yönetici:oku/yaz, Kullanıcılar:erişim yok, Diğerleri:erişim yok"
@@ -813,9 +804,6 @@ msgstr "Aralık"
 msgid "Delete"
 msgstr "Sil"
 
-msgid "Delete content"
-msgstr "İçeriği sil"
-
 msgid "Delete file system"
 msgstr "Dosya sistemini sil"
 
@@ -987,13 +975,6 @@ msgstr "Seçili ilave(leri) kaldırmak istediğinizden emin misiniz?"
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "Seçili aygıtı silmek istediğinizden emin misiniz?"
-
-msgid ""
-"Do you want to remove the content of the shared folder recursively? The "
-"shared folder content will be permanently removed and cannot be recovered. "
-"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
-"abort."
-msgstr "Paylaşılmış klasör içeriğini silmek mi istiyorsunuz? Paylaşılmış klasör içeriği tamamen silinecek ve geri kurtarmak mümkün olmayacaktır. Paylaşılmış klasör ayarlarını silmek için 'Hayır' a ya da vazgeçmek için 'İptal' tuşuna basınız."
 
 msgid "Domain name"
 msgstr "Alan adı"
@@ -1278,6 +1259,9 @@ msgstr "FTP"
 msgid "FTP - Transfer log"
 msgstr "FTP - Tansfer kaydı"
 
+msgid "FTP-Proxy"
+msgstr "FTP-Vekil Sunucu"
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1355,6 +1339,9 @@ msgstr "Dosya sistemi '%s' bulunamadı"
 
 msgid "Filesystem '%s' not supported"
 msgstr "Dosya sistemi '%s' desteklenmiyor"
+
+msgid "Filesystem Type"
+msgstr ""
 
 msgid "Filesystems"
 msgstr "Dosya sietemleri"
@@ -1497,6 +1484,12 @@ msgstr "Gine-Bissau"
 msgid "Guyana"
 msgstr "Guyana"
 
+msgid "HTTP-Proxy"
+msgstr "HTTP-Vekil Sunucu"
+
+msgid "HTTPS-Proxy"
+msgstr "HTTPS-Vekil Sunucu"
+
 msgid "Haiti"
 msgstr "Haiti"
 
@@ -1568,6 +1561,9 @@ msgstr "Ident iletişim kuralı"
 
 msgid "Identify"
 msgstr "Belirle"
+
+msgid "Identify As"
+msgstr ""
 
 msgid "Identify network interface device"
 msgstr "Ağ arabirim aygıtını tanımla"
@@ -2559,6 +2555,9 @@ msgstr "İşlemci"
 msgid "Protocol"
 msgstr "Protokol"
 
+msgid "Proxy"
+msgstr "Vekil Sunucu"
+
 msgid "Public"
 msgstr "Herkese açık"
 
@@ -3047,6 +3046,9 @@ msgstr "Paylaşılmış Klasörler"
 
 msgid "Shared folder"
 msgstr "Paylaşılmış klasör"
+
+msgid "Shared folder + content"
+msgstr ""
 
 msgid "Shared folder must not be equal"
 msgstr "Paylaşılan klasör eşit olmamalıdır"
@@ -3855,8 +3857,14 @@ msgstr "Çalışıyor"
 msgid "Up delay"
 msgstr "Çalışma gecikmesi"
 
-msgid "Update Manager"
-msgstr "Güncelleme Yöneticisi"
+msgid "Update Management"
+msgstr ""
+
+msgid "Update Management - History"
+msgstr ""
+
+msgid "Update Management - Terminal output"
+msgstr ""
 
 msgid "Update now"
 msgstr "Şimdi güncelle"

@@ -75,7 +75,7 @@
  * @param downButtonIcon The button icon.
  * @param applyButtonIcon The button icon.
  * @param refreshButtonIcon The button icon.
-  * @param deletionConfirmRequired Set to TRUE to force the user to confirm
+ * @param deletionConfirmRequired Set to TRUE to force the user to confirm
  *   the deletion request. Defaults to TRUE.
  * @param deletionWaitMsg The message displayed during the deletion process.
  * @param mode The mode how to retrieve the data displayed in the grid panel.

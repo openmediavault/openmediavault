@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-18 21:22+0100\n"
-"PO-Revision-Date: 2016-02-21 08:58+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
+"POT-Creation-Date: 2016-02-25 20:15+0100\n"
+"PO-Revision-Date: 2016-02-25 19:15+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/votdev/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -170,12 +170,6 @@ msgstr "Ya existe un directorio con ese nombre"
 msgid "ACL"
 msgstr "ACL"
 
-msgid "APT - History"
-msgstr "APT - Historia"
-
-msgid "APT - Terminal output"
-msgstr "APT - Terminal"
-
 msgid "ASCII"
 msgstr "ASCII"
 
@@ -265,9 +259,6 @@ msgstr "Opciones adicionales dispositivo, P.ej:. 'autoneg off speed 100 duplex f
 
 msgid "Address"
 msgstr "Dirección"
-
-msgid "Administrator password"
-msgstr "Contraseña de administrador"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
 msgstr "Administrador: Lectura/Escritura, Usuarios: Sin acceso, Otros: Sin acceso"
@@ -816,9 +807,6 @@ msgstr "Diciembre"
 msgid "Delete"
 msgstr "Borrar"
 
-msgid "Delete content"
-msgstr "Borrar contenido"
-
 msgid "Delete file system"
 msgstr "Borrar el sistema de archivos"
 
@@ -990,13 +978,6 @@ msgstr "¿Realmente desea desinstalar el plugin selecionado?"
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "¿Realmente quiere limpiar el dispositivo seleccionado?"
-
-msgid ""
-"Do you want to remove the content of the shared folder recursively? The "
-"shared folder content will be permanently removed and cannot be recovered. "
-"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
-"abort."
-msgstr "¿Desea eliminar el contenido de la carpeta compartida de forma recursiva?. Los datos serán permanentemente borrados y no podrán ser recuperados. Seleccione 'No' para borrar la configuración de la carpeta compartida unicamente y 'Cancelar' para abortar la operación."
 
 msgid "Domain name"
 msgstr "Nombre de dominio"
@@ -1281,6 +1262,9 @@ msgstr "FTP"
 msgid "FTP - Transfer log"
 msgstr "Log de transferencias FTP"
 
+msgid "FTP-Proxy"
+msgstr "FTP-Proxy"
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1358,6 +1342,9 @@ msgstr "Sistema de archivos '%s' no encontrado"
 
 msgid "Filesystem '%s' not supported"
 msgstr "Sistema de archivos '%s' no soportado"
+
+msgid "Filesystem Type"
+msgstr ""
 
 msgid "Filesystems"
 msgstr "Sistemas de archivos"
@@ -1500,6 +1487,12 @@ msgstr "Guinea-Bissau"
 msgid "Guyana"
 msgstr "República Cooperativa de Guyana"
 
+msgid "HTTP-Proxy"
+msgstr "HTTP-Proxy"
+
+msgid "HTTPS-Proxy"
+msgstr "HTTPS-Proxy"
+
 msgid "Haiti"
 msgstr "Haití"
 
@@ -1571,6 +1564,9 @@ msgstr "Protocolo de Identificación"
 
 msgid "Identify"
 msgstr "Identificar"
+
+msgid "Identify As"
+msgstr ""
 
 msgid "Identify network interface device"
 msgstr "Identificar dispositivo de red"
@@ -2562,6 +2558,9 @@ msgstr "Procesador"
 msgid "Protocol"
 msgstr "Protocolo"
 
+msgid "Proxy"
+msgstr "Proxy"
+
 msgid "Public"
 msgstr "Público"
 
@@ -3050,6 +3049,9 @@ msgstr "Carpetas Compartidas"
 
 msgid "Shared folder"
 msgstr "Carpeta Compartida"
+
+msgid "Shared folder + content"
+msgstr ""
 
 msgid "Shared folder must not be equal"
 msgstr "La Carpeta Compartida no debe ser igual"
@@ -3858,8 +3860,14 @@ msgstr "Subida"
 msgid "Up delay"
 msgstr "Retardo de subida"
 
-msgid "Update Manager"
-msgstr "Gestor de actualizaciones"
+msgid "Update Management"
+msgstr ""
+
+msgid "Update Management - History"
+msgstr ""
+
+msgid "Update Management - Terminal output"
+msgstr ""
 
 msgid "Update now"
 msgstr "Actualizar ahora"

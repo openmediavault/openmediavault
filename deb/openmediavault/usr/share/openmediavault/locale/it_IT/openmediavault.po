@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-18 21:22+0100\n"
-"PO-Revision-Date: 2016-02-18 20:22+0000\n"
+"POT-Creation-Date: 2016-02-25 20:15+0100\n"
+"PO-Revision-Date: 2016-02-25 19:15+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Italian (http://www.transifex.com/votdev/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -172,12 +172,6 @@ msgstr "Esiste già una cartella condivisa con il nome scelto"
 msgid "ACL"
 msgstr "ACL"
 
-msgid "APT - History"
-msgstr "APT - Storico"
-
-msgid "APT - Terminal output"
-msgstr "APT - Ouput Terminale"
-
 msgid "ASCII"
 msgstr "ASCII"
 
@@ -267,9 +261,6 @@ msgstr "Impostazioni dispositivo addizionale, es. 'autoneg off speed 100 duplex 
 
 msgid "Address"
 msgstr "Indirizzo"
-
-msgid "Administrator password"
-msgstr "Password di amministratore"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
 msgstr "Amministratore: lettura/scrittura, Utenti:accesso negato, Altri: accesso negato"
@@ -818,9 +809,6 @@ msgstr "Dicembre"
 msgid "Delete"
 msgstr "Cancella"
 
-msgid "Delete content"
-msgstr "Elimina contenuto"
-
 msgid "Delete file system"
 msgstr "Elimina file system"
 
@@ -893,7 +881,7 @@ msgid "Device was used outside of design parameters in the past"
 msgstr "In passato il dispositivo è stato utilizzato al di fuori dei parametri definiti"
 
 msgid "Device(s)"
-msgstr ""
+msgstr "Dispositivo(/i)"
 
 msgid "Device/Label"
 msgstr "Dispositivo/Etichetta"
@@ -992,13 +980,6 @@ msgstr "Sei sicuro di voler disinstallare il/i plugin(s) selezionato/i?"
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "Sei sicuro di voler ripristinare i dati di fabbrica sul dispositivo selezionato?"
-
-msgid ""
-"Do you want to remove the content of the shared folder recursively? The "
-"shared folder content will be permanently removed and cannot be recovered. "
-"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
-"abort."
-msgstr "Vuoi eliminare il contenuto della cartella condivisa e di tutte le sottocartelle? Il contenuto della cartella condivisa verrà cancellato in maniera permanente e non potrà essere ripristinato. Scegli 'No' per eliminare solo la configurazione di cartella condivisa oppure scegli 'Annulla' per interrompere l'operazione."
 
 msgid "Domain name"
 msgstr "Nome del dominio"
@@ -1283,6 +1264,9 @@ msgstr "FTP"
 msgid "FTP - Transfer log"
 msgstr "FTP - Log di trasferimento"
 
+msgid "FTP-Proxy"
+msgstr "FTP-Proxy"
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1360,6 +1344,9 @@ msgstr "Filesystem '%s' non trovato"
 
 msgid "Filesystem '%s' not supported"
 msgstr "Filesystem '%s' non supportato"
+
+msgid "Filesystem Type"
+msgstr ""
 
 msgid "Filesystems"
 msgstr "Filesystems"
@@ -1502,6 +1489,12 @@ msgstr "Guinea-Bissau"
 msgid "Guyana"
 msgstr "Guyana"
 
+msgid "HTTP-Proxy"
+msgstr "HTTP-Proxy"
+
+msgid "HTTPS-Proxy"
+msgstr "HTTPS-Proxy"
+
 msgid "Haiti"
 msgstr "Haiti"
 
@@ -1573,6 +1566,9 @@ msgstr "Protocollo d'identità"
 
 msgid "Identify"
 msgstr "Identifica"
+
+msgid "Identify As"
+msgstr ""
 
 msgid "Identify network interface device"
 msgstr "Identifica il dispositivo dell'interfaccia di rete"
@@ -2564,6 +2560,9 @@ msgstr "Processore"
 msgid "Protocol"
 msgstr "Protocollo"
 
+msgid "Proxy"
+msgstr "Proxy"
+
 msgid "Public"
 msgstr "Pubblico"
 
@@ -3052,6 +3051,9 @@ msgstr "Cartelle Condivise"
 
 msgid "Shared folder"
 msgstr "Cartella condivisa"
+
+msgid "Shared folder + content"
+msgstr ""
 
 msgid "Shared folder must not be equal"
 msgstr "Le cartelle condivise non possono essere uguali"
@@ -3860,8 +3862,14 @@ msgstr "Su"
 msgid "Up delay"
 msgstr "Up delay"
 
-msgid "Update Manager"
-msgstr "Gestore Aggiornamento"
+msgid "Update Management"
+msgstr ""
+
+msgid "Update Management - History"
+msgstr ""
+
+msgid "Update Management - Terminal output"
+msgstr ""
 
 msgid "Update now"
 msgstr "Aggiorna adesso"

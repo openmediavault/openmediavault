@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-18 21:22+0100\n"
-"PO-Revision-Date: 2016-02-18 20:22+0000\n"
+"POT-Creation-Date: 2016-02-25 20:15+0100\n"
+"PO-Revision-Date: 2016-02-25 19:15+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/votdev/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -172,12 +172,6 @@ msgstr "Un dossier partagé existe déjà avec ce nom"
 msgid "ACL"
 msgstr "ACL"
 
-msgid "APT - History"
-msgstr ""
-
-msgid "APT - Terminal output"
-msgstr ""
-
 msgid "ASCII"
 msgstr "ASCII"
 
@@ -267,9 +261,6 @@ msgstr "Paramètres supplémentaires (ex: 'autoneg off speed 100 duplex full'). 
 
 msgid "Address"
 msgstr "Adresse"
-
-msgid "Administrator password"
-msgstr "Mot de passe de l'administrateur"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
 msgstr "Administrateur: lect./écrit., Utilisateur: pas d'accès, Autres: pas d'accès"
@@ -818,9 +809,6 @@ msgstr "Décembre"
 msgid "Delete"
 msgstr "Supprimer"
 
-msgid "Delete content"
-msgstr "Supprimer le contenu"
-
 msgid "Delete file system"
 msgstr "Supprimer le système de fichiers"
 
@@ -992,13 +980,6 @@ msgstr "Voulez-vous vraiment désintaller le(s) plugin(s) sélectionné(s) ?"
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "Voulez-vous vraiment effacer le périphérique sélectionné ?"
-
-msgid ""
-"Do you want to remove the content of the shared folder recursively? The "
-"shared folder content will be permanently removed and cannot be recovered. "
-"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
-"abort."
-msgstr "Voulez-vous supprimer le contenu du dossier partagé de façon récursive ? Son contenu sera alors supprimé définitivement et ne pourra être récupéré.\nSélectionner 'Non' pour supprimer uniquement la configuration du dossier partagé ou 'Annuler' pour annuler."
 
 msgid "Domain name"
 msgstr "Nom de domaine"
@@ -1283,6 +1264,9 @@ msgstr "FTP"
 msgid "FTP - Transfer log"
 msgstr "FTP - Logs de transfert"
 
+msgid "FTP-Proxy"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1360,6 +1344,9 @@ msgstr "Système de fichiers '%s' non trouvé"
 
 msgid "Filesystem '%s' not supported"
 msgstr "Système de fichiers '%s' non supporté"
+
+msgid "Filesystem Type"
+msgstr ""
 
 msgid "Filesystems"
 msgstr "Systèmes de fichiers"
@@ -1502,6 +1489,12 @@ msgstr "Guinée-Bissau"
 msgid "Guyana"
 msgstr "Guyane"
 
+msgid "HTTP-Proxy"
+msgstr ""
+
+msgid "HTTPS-Proxy"
+msgstr ""
+
 msgid "Haiti"
 msgstr "Haitï"
 
@@ -1573,6 +1566,9 @@ msgstr "Protocole Ident"
 
 msgid "Identify"
 msgstr "Identifier"
+
+msgid "Identify As"
+msgstr ""
 
 msgid "Identify network interface device"
 msgstr "Identifier la prise réseau"
@@ -2564,6 +2560,9 @@ msgstr "Processeur"
 msgid "Protocol"
 msgstr "Protocole"
 
+msgid "Proxy"
+msgstr ""
+
 msgid "Public"
 msgstr "Public"
 
@@ -3052,6 +3051,9 @@ msgstr "Dossiers partagés"
 
 msgid "Shared folder"
 msgstr "Dossier partagé"
+
+msgid "Shared folder + content"
+msgstr ""
 
 msgid "Shared folder must not be equal"
 msgstr "Le dossier partagé ne doit pas être égal"
@@ -3860,8 +3862,14 @@ msgstr "Haut"
 msgid "Up delay"
 msgstr "Délai de reprise"
 
-msgid "Update Manager"
-msgstr "Gestionnaire de mises à jour"
+msgid "Update Management"
+msgstr ""
+
+msgid "Update Management - History"
+msgstr ""
+
+msgid "Update Management - Terminal output"
+msgstr ""
 
 msgid "Update now"
 msgstr "Mettre à jour"

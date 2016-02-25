@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-18 21:22+0100\n"
-"PO-Revision-Date: 2016-02-21 09:34+0000\n"
-"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
+"POT-Creation-Date: 2016-02-25 20:15+0100\n"
+"PO-Revision-Date: 2016-02-25 19:15+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -168,12 +168,6 @@ msgstr "Sdílená složka s takovým názvem již existuje"
 msgid "ACL"
 msgstr "ACL"
 
-msgid "APT - History"
-msgstr "APT – historie"
-
-msgid "APT - Terminal output"
-msgstr "APT – výstup z terminálu"
-
 msgid "ASCII"
 msgstr "ASCII"
 
@@ -263,9 +257,6 @@ msgstr "Další nastavení zařízení, např. „autoneg off speed 100 duplex f
 
 msgid "Address"
 msgstr "Adresa"
-
-msgid "Administrator password"
-msgstr "Heslo správce"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
 msgstr "Správce: čtení/zápis, Uživatelé: žádný přístup, Ostatní: žádný přístup"
@@ -814,9 +805,6 @@ msgstr "Prosinec"
 msgid "Delete"
 msgstr "Smazat"
 
-msgid "Delete content"
-msgstr "Smazat obsah"
-
 msgid "Delete file system"
 msgstr "Smazat souborový systém"
 
@@ -988,13 +976,6 @@ msgstr "Opravdu chcete odebrat vybrané doplňky?"
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "Opravdu chcete kompletně smazat označené zařízení?"
-
-msgid ""
-"Do you want to remove the content of the shared folder recursively? The "
-"shared folder content will be permanently removed and cannot be recovered. "
-"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
-"abort."
-msgstr "Opravdu chcete kompletně smazat obsah sdílené složky? Obsah sdílené složky bude trvale odebrán a nepůjde obnovit. Pokud chcete obsah zachovat a pouze zrušit jeho sdílení do sítě, klikněte na Ne. Jinak celou akci zrušte klinutím na Zrušit."
 
 msgid "Domain name"
 msgstr "Název domény"
@@ -1279,6 +1260,9 @@ msgstr "FTP"
 msgid "FTP - Transfer log"
 msgstr "FTP - Protokol přenosů"
 
+msgid "FTP-Proxy"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1356,6 +1340,9 @@ msgstr "Souborový systém %s nebyl nalezen"
 
 msgid "Filesystem '%s' not supported"
 msgstr "Souborový systém %s není podporován"
+
+msgid "Filesystem Type"
+msgstr ""
 
 msgid "Filesystems"
 msgstr "Souborové systémy"
@@ -1498,6 +1485,12 @@ msgstr "Guinea-Bissau"
 msgid "Guyana"
 msgstr "Guyana"
 
+msgid "HTTP-Proxy"
+msgstr ""
+
+msgid "HTTPS-Proxy"
+msgstr ""
+
 msgid "Haiti"
 msgstr "Haiti"
 
@@ -1569,6 +1562,9 @@ msgstr "Protokol ident"
 
 msgid "Identify"
 msgstr "Rozpoznat"
+
+msgid "Identify As"
+msgstr ""
 
 msgid "Identify network interface device"
 msgstr "Rozpoznat síťové rozhraní"
@@ -2560,6 +2556,9 @@ msgstr "Procesor"
 msgid "Protocol"
 msgstr "Protokol"
 
+msgid "Proxy"
+msgstr ""
+
 msgid "Public"
 msgstr "Veřejné"
 
@@ -3048,6 +3047,9 @@ msgstr "Sdílené složky"
 
 msgid "Shared folder"
 msgstr "Sdílená složka"
+
+msgid "Shared folder + content"
+msgstr ""
 
 msgid "Shared folder must not be equal"
 msgstr "Sdílená složka nesmí být stejná"
@@ -3856,8 +3858,14 @@ msgstr "Zapnuto"
 msgid "Up delay"
 msgstr "Prodleva zapnutí"
 
-msgid "Update Manager"
-msgstr "Správce aktualizací"
+msgid "Update Management"
+msgstr ""
+
+msgid "Update Management - History"
+msgstr ""
+
+msgid "Update Management - Terminal output"
+msgstr ""
 
 msgid "Update now"
 msgstr "Aktualizovat nyní"

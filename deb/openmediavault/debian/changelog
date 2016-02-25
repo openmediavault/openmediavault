@@ -1,5 +1,6 @@
 openmediavault (3.0.13) stable; urgency=low
 
+  * Update locales.
   * Various improvements.
   * Mantis 0001473: Improve S.M.A.R.T. health assessment.
   * Mantis 0001474: Cannot create a file system on a loop device.

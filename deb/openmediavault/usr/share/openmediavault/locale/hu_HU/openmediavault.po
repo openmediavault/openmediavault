@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-18 21:22+0100\n"
-"PO-Revision-Date: 2016-02-18 20:22+0000\n"
+"POT-Creation-Date: 2016-02-25 20:15+0100\n"
+"PO-Revision-Date: 2016-02-25 19:15+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -168,12 +168,6 @@ msgstr "Egy megosztott mappa már létezik a megadott névvel"
 msgid "ACL"
 msgstr "ACL"
 
-msgid "APT - History"
-msgstr ""
-
-msgid "APT - Terminal output"
-msgstr ""
-
 msgid "ASCII"
 msgstr "ASCII"
 
@@ -263,9 +257,6 @@ msgstr "További eszköz beállítások. Lásd a <a href='http://linux.die.net/m
 
 msgid "Address"
 msgstr "Cím"
-
-msgid "Administrator password"
-msgstr "Adminisztrátor jelszó"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
 msgstr "Adminisztrátor: olvasás/írás, Felhasználó: nincs hozzáférés, Mások: nincs hozzáférés"
@@ -814,9 +805,6 @@ msgstr "December"
 msgid "Delete"
 msgstr "Törlés"
 
-msgid "Delete content"
-msgstr "Tartalom törlése"
-
 msgid "Delete file system"
 msgstr "Fájlrendszer törlése"
 
@@ -988,13 +976,6 @@ msgstr "Valóban le szeretnéd törölni a kiválasztott bővítmény(ek)-et?"
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "Valóban törölni szeretnéd  kiválasztott meghajtót?"
-
-msgid ""
-"Do you want to remove the content of the shared folder recursively? The "
-"shared folder content will be permanently removed and cannot be recovered. "
-"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
-"abort."
-msgstr "El szeretnéd távolítani a rekurzívan megosztott mappa tartalmát? A megosztott mappa tartalma véglegesen el lesz távolítva és nem lehet azt visszaállítani. Válaszd a 'Nem'-et, ha csak a megosztott mappa konfigurációját akarod törölni vagy a 'Mégsem'-et a megszakításhoz."
 
 msgid "Domain name"
 msgstr "Tartománynév"
@@ -1279,6 +1260,9 @@ msgstr "FTP"
 msgid "FTP - Transfer log"
 msgstr "FTP - átviteli napló"
 
+msgid "FTP-Proxy"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1356,6 +1340,9 @@ msgstr "Fájlrendszer '%s' nem található"
 
 msgid "Filesystem '%s' not supported"
 msgstr "Fájlrendszer '%s' nem támogatott"
+
+msgid "Filesystem Type"
+msgstr ""
 
 msgid "Filesystems"
 msgstr "Fájlrendszerek"
@@ -1498,6 +1485,12 @@ msgstr "Guinea-Bissau"
 msgid "Guyana"
 msgstr "Guyana"
 
+msgid "HTTP-Proxy"
+msgstr ""
+
+msgid "HTTPS-Proxy"
+msgstr ""
+
 msgid "Haiti"
 msgstr "Haiti"
 
@@ -1569,6 +1562,9 @@ msgstr "Azonosító protokoll"
 
 msgid "Identify"
 msgstr "Azonosítás"
+
+msgid "Identify As"
+msgstr ""
 
 msgid "Identify network interface device"
 msgstr "Hálózati interfész eszköz azonosítása"
@@ -2560,6 +2556,9 @@ msgstr "Processzor"
 msgid "Protocol"
 msgstr "Protokoll"
 
+msgid "Proxy"
+msgstr ""
+
 msgid "Public"
 msgstr "Nyilvános"
 
@@ -3048,6 +3047,9 @@ msgstr "Megosztott mappák"
 
 msgid "Shared folder"
 msgstr "Megosztott mappa"
+
+msgid "Shared folder + content"
+msgstr ""
 
 msgid "Shared folder must not be equal"
 msgstr "Megosztott mappa nem lehet azonos"
@@ -3856,8 +3858,14 @@ msgstr "Fel"
 msgid "Up delay"
 msgstr "Engedélyezés késleltetése"
 
-msgid "Update Manager"
-msgstr "Frissítéskezelő"
+msgid "Update Management"
+msgstr ""
+
+msgid "Update Management - History"
+msgstr ""
+
+msgid "Update Management - Terminal output"
+msgstr ""
 
 msgid "Update now"
 msgstr "Frissítés most"

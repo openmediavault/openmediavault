@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-18 21:22+0100\n"
-"PO-Revision-Date: 2016-02-18 20:22+0000\n"
+"POT-Creation-Date: 2016-02-25 20:15+0100\n"
+"PO-Revision-Date: 2016-02-25 19:15+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/votdev/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -168,12 +168,6 @@ msgstr "En delt mappe med det gitte navnet eksisterer allerede"
 msgid "ACL"
 msgstr "ACL"
 
-msgid "APT - History"
-msgstr ""
-
-msgid "APT - Terminal output"
-msgstr ""
-
 msgid "ASCII"
 msgstr "ASCII"
 
@@ -263,9 +257,6 @@ msgstr "Ytterligere enhetsinstillinger, f.eks.. 'autoneg off speed 100 duplex fu
 
 msgid "Address"
 msgstr "Adresse"
-
-msgid "Administrator password"
-msgstr "Administratorpassord"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
 msgstr "Administrator: lese/skrive, Brukere: ingen tilgang, Andre: ingen tilgang"
@@ -814,9 +805,6 @@ msgstr "Desember"
 msgid "Delete"
 msgstr "Fjern"
 
-msgid "Delete content"
-msgstr "Slett innhold"
-
 msgid "Delete file system"
 msgstr ""
 
@@ -988,13 +976,6 @@ msgstr "Vil du avinstallere valgte plugin?"
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "Vil du virkelig slette den valgte enheten?"
-
-msgid ""
-"Do you want to remove the content of the shared folder recursively? The "
-"shared folder content will be permanently removed and cannot be recovered. "
-"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
-"abort."
-msgstr "Ønsker du rekursivt å fjerne innholdet i den delte mappen? Den delte mappen vil bli permanent fjernet og kan ikke gjenopprettes. Velg 'Nei' for kun å slette den delte mappekonfigurasjonen eller 'Avbryt' for å avbryte."
 
 msgid "Domain name"
 msgstr "Domenenavn"
@@ -1279,6 +1260,9 @@ msgstr "FTP"
 msgid "FTP - Transfer log"
 msgstr "FTP - Overføringslogg"
 
+msgid "FTP-Proxy"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1356,6 +1340,9 @@ msgstr "Filsystem '%s' ble ikke funnet"
 
 msgid "Filesystem '%s' not supported"
 msgstr "Filsystem '%s' er ikke støttet"
+
+msgid "Filesystem Type"
+msgstr ""
 
 msgid "Filesystems"
 msgstr "Filsystemer"
@@ -1498,6 +1485,12 @@ msgstr "Guinea-Bissau"
 msgid "Guyana"
 msgstr "Guyana"
 
+msgid "HTTP-Proxy"
+msgstr ""
+
+msgid "HTTPS-Proxy"
+msgstr ""
+
 msgid "Haiti"
 msgstr "Haiti"
 
@@ -1569,6 +1562,9 @@ msgstr "Ident protocol"
 
 msgid "Identify"
 msgstr "Identifiser"
+
+msgid "Identify As"
+msgstr ""
 
 msgid "Identify network interface device"
 msgstr "Identifiser nettverksinterface"
@@ -2560,6 +2556,9 @@ msgstr "Prosessor"
 msgid "Protocol"
 msgstr "Protokoll"
 
+msgid "Proxy"
+msgstr ""
+
 msgid "Public"
 msgstr "Offentlig"
 
@@ -3048,6 +3047,9 @@ msgstr "Delte Mapper"
 
 msgid "Shared folder"
 msgstr "Delt mappe"
+
+msgid "Shared folder + content"
+msgstr ""
 
 msgid "Shared folder must not be equal"
 msgstr "Delt mappe kan ikke være lik"
@@ -3856,8 +3858,14 @@ msgstr "Up"
 msgid "Up delay"
 msgstr "Tid til gjenopprettelse"
 
-msgid "Update Manager"
-msgstr "Oppdateringstjeneste"
+msgid "Update Management"
+msgstr ""
+
+msgid "Update Management - History"
+msgstr ""
+
+msgid "Update Management - Terminal output"
+msgstr ""
 
 msgid "Update now"
 msgstr "Oppdater nå"

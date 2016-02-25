@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-18 21:22+0100\n"
-"PO-Revision-Date: 2016-02-18 20:22+0000\n"
+"POT-Creation-Date: 2016-02-25 20:15+0100\n"
+"PO-Revision-Date: 2016-02-25 19:15+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -167,12 +167,6 @@ msgstr "En utdelad mapp med det givna namnet finns redan"
 msgid "ACL"
 msgstr "ACL"
 
-msgid "APT - History"
-msgstr ""
-
-msgid "APT - Terminal output"
-msgstr ""
-
 msgid "ASCII"
 msgstr ""
 
@@ -262,9 +256,6 @@ msgstr "Ytterligare enhetsinställningar, t.ex. 'autoneg off speed 100 duplex fu
 
 msgid "Address"
 msgstr "Adress"
-
-msgid "Administrator password"
-msgstr "Administratörlösenord"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
 msgstr "Administratör: läsa/skriva, Användare: ingen åtkomst, Övriga: ingen åtkomst"
@@ -813,9 +804,6 @@ msgstr "December"
 msgid "Delete"
 msgstr "Radera"
 
-msgid "Delete content"
-msgstr "Radera innehåll"
-
 msgid "Delete file system"
 msgstr ""
 
@@ -987,13 +975,6 @@ msgstr "Vill du verkligen avinstallera det valda tillägg(et/en)?"
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "Vill du verkligen rensa den valda enheten?"
-
-msgid ""
-"Do you want to remove the content of the shared folder recursively? The "
-"shared folder content will be permanently removed and cannot be recovered. "
-"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
-"abort."
-msgstr "Vill du ta bort innehållet i den delade mappen rekursivt? Den delade mappens innehåll kommer att tas bort permanent och kan inte återställas. Välj \"Nej\" för att endast ta bort den delade mappens konfiguration eller \"Avbryt\" för att avbryta."
 
 msgid "Domain name"
 msgstr "Domännamn"
@@ -1278,6 +1259,9 @@ msgstr "FTP"
 msgid "FTP - Transfer log"
 msgstr ""
 
+msgid "FTP-Proxy"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1355,6 +1339,9 @@ msgstr "Filsystem '%s' hittades inte"
 
 msgid "Filesystem '%s' not supported"
 msgstr "Filesystem '%s' stöds inte"
+
+msgid "Filesystem Type"
+msgstr ""
 
 msgid "Filesystems"
 msgstr "Filsystem"
@@ -1497,6 +1484,12 @@ msgstr "Guinea-Bissau"
 msgid "Guyana"
 msgstr "Guyana"
 
+msgid "HTTP-Proxy"
+msgstr ""
+
+msgid "HTTPS-Proxy"
+msgstr ""
+
 msgid "Haiti"
 msgstr "Haiti"
 
@@ -1568,6 +1561,9 @@ msgstr "\"Ident\"-protokoll"
 
 msgid "Identify"
 msgstr "Identifiera"
+
+msgid "Identify As"
+msgstr ""
 
 msgid "Identify network interface device"
 msgstr "Identifiera enhet för nätverksgränssnitt"
@@ -2559,6 +2555,9 @@ msgstr "Processor"
 msgid "Protocol"
 msgstr "Protokoll"
 
+msgid "Proxy"
+msgstr ""
+
 msgid "Public"
 msgstr "Publik"
 
@@ -3047,6 +3046,9 @@ msgstr "Delade mappar"
 
 msgid "Shared folder"
 msgstr "Delad mapp"
+
+msgid "Shared folder + content"
+msgstr ""
 
 msgid "Shared folder must not be equal"
 msgstr "Delad mapp får inte vara lika"
@@ -3855,8 +3857,14 @@ msgstr "Upp"
 msgid "Up delay"
 msgstr "Fördröjningstiden för på"
 
-msgid "Update Manager"
-msgstr "Uppdateringar"
+msgid "Update Management"
+msgstr ""
+
+msgid "Update Management - History"
+msgstr ""
+
+msgid "Update Management - Terminal output"
+msgstr ""
 
 msgid "Update now"
 msgstr "Uppdatera nu"

@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-18 21:22+0100\n"
-"PO-Revision-Date: 2016-02-18 20:22+0000\n"
+"POT-Creation-Date: 2016-02-25 20:15+0100\n"
+"PO-Revision-Date: 2016-02-25 19:15+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/votdev/openmediavault/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
@@ -174,12 +174,6 @@ msgstr "Общий ресурс с таким именем уже существ
 msgid "ACL"
 msgstr "ACL"
 
-msgid "APT - History"
-msgstr ""
-
-msgid "APT - Terminal output"
-msgstr ""
-
 msgid "ASCII"
 msgstr "ASCII"
 
@@ -269,9 +263,6 @@ msgstr "Дополнительные настройки устройства, н
 
 msgid "Address"
 msgstr "Адрес"
-
-msgid "Administrator password"
-msgstr "Пароль администратора"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
 msgstr "Администратор: чтение / запись, Пользователи: нет доступа, Другие: нет доступа"
@@ -820,9 +811,6 @@ msgstr "Декабрь"
 msgid "Delete"
 msgstr "Удалить"
 
-msgid "Delete content"
-msgstr "Удалить содержимое"
-
 msgid "Delete file system"
 msgstr "Удалить файловую систему"
 
@@ -994,13 +982,6 @@ msgstr "Вы действительно хотите удалить выбран
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "Вы действительно хотите удалить выбранное устройство?"
-
-msgid ""
-"Do you want to remove the content of the shared folder recursively? The "
-"shared folder content will be permanently removed and cannot be recovered. "
-"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
-"abort."
-msgstr "Вы хотите рекурсивно удалить содержимое общей папки? Содержимое папки будет безвозвратно удалено и не сможет быть восстановлено. Выберите 'Нет', чтобы удалить только конфигурацию общей папки или 'Отменить', чтобы прервать операцию."
 
 msgid "Domain name"
 msgstr "Доменное имя"
@@ -1285,6 +1266,9 @@ msgstr "FTP"
 msgid "FTP - Transfer log"
 msgstr "FTP - Протокол передачи"
 
+msgid "FTP-Proxy"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1362,6 +1346,9 @@ msgstr "Файловая система '%s' не найдена"
 
 msgid "Filesystem '%s' not supported"
 msgstr "Файловая система '%s' не поддерживается"
+
+msgid "Filesystem Type"
+msgstr ""
 
 msgid "Filesystems"
 msgstr "Файловые системы"
@@ -1504,6 +1491,12 @@ msgstr "Гвинея-Бисау"
 msgid "Guyana"
 msgstr "Гайана"
 
+msgid "HTTP-Proxy"
+msgstr ""
+
+msgid "HTTPS-Proxy"
+msgstr ""
+
 msgid "Haiti"
 msgstr "Гаити"
 
@@ -1575,6 +1568,9 @@ msgstr "Идентификационный протокол"
 
 msgid "Identify"
 msgstr "Идентифицировать"
+
+msgid "Identify As"
+msgstr ""
 
 msgid "Identify network interface device"
 msgstr "Определить сетевой интерфейс"
@@ -2566,6 +2562,9 @@ msgstr "Процессор"
 msgid "Protocol"
 msgstr "Протокол"
 
+msgid "Proxy"
+msgstr ""
+
 msgid "Public"
 msgstr "Опубликованный"
 
@@ -3054,6 +3053,9 @@ msgstr "Общие каталоги"
 
 msgid "Shared folder"
 msgstr "Общий каталог"
+
+msgid "Shared folder + content"
+msgstr ""
 
 msgid "Shared folder must not be equal"
 msgstr "Общий каталог не должен быть равным"
@@ -3862,8 +3864,14 @@ msgstr "Вверх"
 msgid "Up delay"
 msgstr "Задержка"
 
-msgid "Update Manager"
-msgstr "Менеджер обновлений"
+msgid "Update Management"
+msgstr ""
+
+msgid "Update Management - History"
+msgstr ""
+
+msgid "Update Management - Terminal output"
+msgstr ""
 
 msgid "Update now"
 msgstr "Обновить сейчас"

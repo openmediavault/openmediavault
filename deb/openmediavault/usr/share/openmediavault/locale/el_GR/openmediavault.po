@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-18 21:22+0100\n"
-"PO-Revision-Date: 2016-02-18 20:22+0000\n"
+"POT-Creation-Date: 2016-02-25 20:15+0100\n"
+"PO-Revision-Date: 2016-02-25 19:15+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/votdev/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -167,12 +167,6 @@ msgstr "Υπάρχει ήδη κοινόχρηστος φάκελος με το 
 msgid "ACL"
 msgstr "Λίστα Διαχείρισης Πρόσβασης"
 
-msgid "APT - History"
-msgstr "ΑΡΤ - Ιστορικό"
-
-msgid "APT - Terminal output"
-msgstr "ΑΡΤ - Λεπτομέρειες σε τερματικό"
-
 msgid "ASCII"
 msgstr "ASCII"
 
@@ -262,9 +256,6 @@ msgstr "Επιπρόσθετες ρυθμίσεις συσκευής, π.χ. 'au
 
 msgid "Address"
 msgstr "Διεύθυνση"
-
-msgid "Administrator password"
-msgstr "Κωδικός διαχειριστή"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
 msgstr "Διαχειριστής : ανάγνωση & εγγραφή , Χρήστες : τίποτα , Λοιποί : τίποτα"
@@ -813,9 +804,6 @@ msgstr "Δεκέμβριος"
 msgid "Delete"
 msgstr "Διαγραφή"
 
-msgid "Delete content"
-msgstr "Διαγραφή περιεχομένων"
-
 msgid "Delete file system"
 msgstr "Διαγραφή συστήματος αρχείων"
 
@@ -987,13 +975,6 @@ msgstr "Επιτρέπεται να διαφημίζεται ως ? σε πελ�
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "Εκκένωση της επιλεγμένης συσκευής;"
-
-msgid ""
-"Do you want to remove the content of the shared folder recursively? The "
-"shared folder content will be permanently removed and cannot be recovered. "
-"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
-"abort."
-msgstr "Να διαγραφούν όλα τα περιεχόμενα του κοινόχρηστου φακέλου; Ο φάκελος και όλα τα περιεχόμενά του θα διαγραφούν οριστικά και αμετάκλητα! Επιλέγοντας \"Όχι\" θα διαγραφούν μόνο οι ρυθμίσεις του κοινόχρηστου φακέλου. Με \"Άκυρο\" εγκαταλείπεται."
 
 msgid "Domain name"
 msgstr "Όνομα τομέα"
@@ -1278,6 +1259,9 @@ msgstr "FTP"
 msgid "FTP - Transfer log"
 msgstr "Καταγραφή μεταφορών FTP"
 
+msgid "FTP-Proxy"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1355,6 +1339,9 @@ msgstr "Το σύστημα αρχείων '%s' δεν βρέθηκε"
 
 msgid "Filesystem '%s' not supported"
 msgstr "Το σύστημα αρχείων '%s' δεν υποστηρίζεται"
+
+msgid "Filesystem Type"
+msgstr ""
 
 msgid "Filesystems"
 msgstr "Συστήματα αρχείων"
@@ -1497,6 +1484,12 @@ msgstr "Guinea-Bissau"
 msgid "Guyana"
 msgstr "Guyana"
 
+msgid "HTTP-Proxy"
+msgstr ""
+
+msgid "HTTPS-Proxy"
+msgstr ""
+
 msgid "Haiti"
 msgstr "Haiti"
 
@@ -1568,6 +1561,9 @@ msgstr "Πρωτόκολο αναγνώρισης"
 
 msgid "Identify"
 msgstr "Αναγνώριση"
+
+msgid "Identify As"
+msgstr ""
 
 msgid "Identify network interface device"
 msgstr "Αναγνώριση διεπαφής δικτύου"
@@ -2559,6 +2555,9 @@ msgstr "Επεξεργαστης"
 msgid "Protocol"
 msgstr "Πρωτόκολο"
 
+msgid "Proxy"
+msgstr ""
+
 msgid "Public"
 msgstr "Δημόσιο"
 
@@ -3047,6 +3046,9 @@ msgstr "Κοινόχρηστοι Φάκελοι"
 
 msgid "Shared folder"
 msgstr "Κοινόχρηστος φάκελος"
+
+msgid "Shared folder + content"
+msgstr ""
 
 msgid "Shared folder must not be equal"
 msgstr "Ο κοινόχρηστος φάκελος δνε πρέπει να είναι ίδιος"
@@ -3855,8 +3857,14 @@ msgstr "Έναρξη"
 msgid "Up delay"
 msgstr "Καθυστέρηση έναρξης"
 
-msgid "Update Manager"
-msgstr "Διαχείριση ενημερώσεων"
+msgid "Update Management"
+msgstr ""
+
+msgid "Update Management - History"
+msgstr ""
+
+msgid "Update Management - Terminal output"
+msgstr ""
 
 msgid "Update now"
 msgstr "Ενημέρωση τώρα"

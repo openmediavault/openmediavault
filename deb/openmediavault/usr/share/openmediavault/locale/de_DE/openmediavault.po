@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-18 21:22+0100\n"
-"PO-Revision-Date: 2016-02-18 20:23+0000\n"
+"POT-Creation-Date: 2016-02-25 20:15+0100\n"
+"PO-Revision-Date: 2016-02-25 19:21+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -176,12 +176,6 @@ msgstr "Ein freigegebener Ordner mit dem angegebenen Namen ist bereits vorhanden
 msgid "ACL"
 msgstr "ACL"
 
-msgid "APT - History"
-msgstr "APT - Historie"
-
-msgid "APT - Terminal output"
-msgstr "APT - Terminalausgabe"
-
 msgid "ASCII"
 msgstr "ASCII"
 
@@ -271,9 +265,6 @@ msgstr "Zusätzliche Geräteeinstellungen, Z.B. 'autoneg off speed 100 duplex fu
 
 msgid "Address"
 msgstr "Adresse"
-
-msgid "Administrator password"
-msgstr "Passwort des Administrators"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
 msgstr "Administrator: lesen/schreiben, Benutzer: kein Zugriff, Andere: kein Zugriff"
@@ -822,9 +813,6 @@ msgstr "Dezember"
 msgid "Delete"
 msgstr "Löschen"
 
-msgid "Delete content"
-msgstr "Lösche Inhalt"
-
 msgid "Delete file system"
 msgstr "Dateisystem löschen"
 
@@ -996,13 +984,6 @@ msgstr "Wollen Sie wirklich die markierten Erweiterungen entfernen?"
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "Wollen Sie das gewählte Laufwerk wirklich löschen?"
-
-msgid ""
-"Do you want to remove the content of the shared folder recursively? The "
-"shared folder content will be permanently removed and cannot be recovered. "
-"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
-"abort."
-msgstr "Soll der Inhalt des freigegebenen Ordners wirklich rekursiv gelöscht werden? Der Inhalt des freigegebenen Ordners wird unwiederbringlich gelöscht und kann nicht wiederhergestellt werden. Wählen Sie 'Nein' um nur die freigegebene Ordner-Konfiguration zu löschen und 'Abbrechen' zum Abbruch."
 
 msgid "Domain name"
 msgstr "Domainname"
@@ -1287,6 +1268,9 @@ msgstr "FTP"
 msgid "FTP - Transfer log"
 msgstr "FTP - Übertragungsprotokoll"
 
+msgid "FTP-Proxy"
+msgstr "FTP-Proxy"
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1364,6 +1348,9 @@ msgstr "Das Dateisystem '%s' wurde nicht gefunden"
 
 msgid "Filesystem '%s' not supported"
 msgstr "Das Dateisystem '%s' wird nicht unterstützt"
+
+msgid "Filesystem Type"
+msgstr "Dateisystemtyp"
 
 msgid "Filesystems"
 msgstr "Dateisysteme"
@@ -1506,6 +1493,12 @@ msgstr "Guinea-Bissau"
 msgid "Guyana"
 msgstr "Guyana"
 
+msgid "HTTP-Proxy"
+msgstr "HTTP-Proxy"
+
+msgid "HTTPS-Proxy"
+msgstr "HTTPS-Proxy"
+
 msgid "Haiti"
 msgstr "Haiti"
 
@@ -1577,6 +1570,9 @@ msgstr "Ident Protokoll"
 
 msgid "Identify"
 msgstr "Identifizieren"
+
+msgid "Identify As"
+msgstr "Identifizieren als"
 
 msgid "Identify network interface device"
 msgstr "Identifiziere Netzwerkinterface"
@@ -2568,6 +2564,9 @@ msgstr "Prozessor"
 msgid "Protocol"
 msgstr "Protokoll"
 
+msgid "Proxy"
+msgstr "Proxy"
+
 msgid "Public"
 msgstr "Öffentlich"
 
@@ -3056,6 +3055,9 @@ msgstr "Freigegebene Ordner"
 
 msgid "Shared folder"
 msgstr "Freigegebene Ordner"
+
+msgid "Shared folder + content"
+msgstr "Freigegebener Ordner + Inhalt"
 
 msgid "Shared folder must not be equal"
 msgstr "Freigegebener Ordner darf nicht gleich sein"
@@ -3864,8 +3866,14 @@ msgstr "Hoch"
 msgid "Up delay"
 msgstr "Zeit bis Wiederherstellung"
 
-msgid "Update Manager"
+msgid "Update Management"
 msgstr "Aktualisierungsverwaltung"
+
+msgid "Update Management - History"
+msgstr "Aktualisierungsverwaltung - Historie"
+
+msgid "Update Management - Terminal output"
+msgstr "Aktualisierungsverwaltung - Terminal-Ausgabe"
 
 msgid "Update now"
 msgstr "Jetzt aktualisieren"
@@ -4128,7 +4136,7 @@ msgid "old-age"
 msgstr "Alterserscheinungen"
 
 msgid "prefail"
-msgstr ""
+msgstr "prefail"
 
 msgid "seconds"
 msgstr "Sekunden"

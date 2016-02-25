@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-18 21:22+0100\n"
-"PO-Revision-Date: 2016-02-18 20:22+0000\n"
+"POT-Creation-Date: 2016-02-25 20:15+0100\n"
+"PO-Revision-Date: 2016-02-25 19:15+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -169,12 +169,6 @@ msgstr "해당 공유 폴더의 이름을 가진 폴더가 이미 존재합니�
 msgid "ACL"
 msgstr "접근 제어 목록"
 
-msgid "APT - History"
-msgstr ""
-
-msgid "APT - Terminal output"
-msgstr ""
-
 msgid "ASCII"
 msgstr "아스키"
 
@@ -264,9 +258,6 @@ msgstr "부가 장치 설정. 예를 들어, 'autoneg off speed 100 duplex full'
 
 msgid "Address"
 msgstr "주소"
-
-msgid "Administrator password"
-msgstr "관리자 암호"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
 msgstr "관리자: 읽기/쓰기, 사용자: 권한 없음, 기타: 권한 없음"
@@ -815,9 +806,6 @@ msgstr "12월"
 msgid "Delete"
 msgstr "삭제"
 
-msgid "Delete content"
-msgstr "내용 삭제"
-
 msgid "Delete file system"
 msgstr "파일 시스템 삭제"
 
@@ -989,13 +977,6 @@ msgstr "선택된 플러그인(들)을 정말 삭제하시겠습니까?"
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "선택된 장치를 정말 지우시겠습니까?"
-
-msgid ""
-"Do you want to remove the content of the shared folder recursively? The "
-"shared folder content will be permanently removed and cannot be recovered. "
-"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
-"abort."
-msgstr "공유 폴더의 내용을 재귀적으로 삭제하시겠습니까? 이 공유 폴더 내용은 영원히 삭제되고 복구될 수가 없습니다. 공유 폴더 설정만을 제거하려면 '아니오'를, 작업을 취소하시려면 '취소'를 선택하세요."
 
 msgid "Domain name"
 msgstr "도메인 이름"
@@ -1280,6 +1261,9 @@ msgstr "FTP"
 msgid "FTP - Transfer log"
 msgstr "FTP - 전송 기록"
 
+msgid "FTP-Proxy"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1357,6 +1341,9 @@ msgstr "'%s' 파일 시스템을 찾을 수 없습니다."
 
 msgid "Filesystem '%s' not supported"
 msgstr "'%s' 파일 시스템은 지원되지 않습니다."
+
+msgid "Filesystem Type"
+msgstr ""
 
 msgid "Filesystems"
 msgstr "파일 시스템"
@@ -1499,6 +1486,12 @@ msgstr "기니비사우"
 msgid "Guyana"
 msgstr "가이아나"
 
+msgid "HTTP-Proxy"
+msgstr ""
+
+msgid "HTTPS-Proxy"
+msgstr ""
+
 msgid "Haiti"
 msgstr "아이티"
 
@@ -1570,6 +1563,9 @@ msgstr "식별 프로토콜"
 
 msgid "Identify"
 msgstr "식별"
+
+msgid "Identify As"
+msgstr ""
 
 msgid "Identify network interface device"
 msgstr "네트워크 인터페이스 장치 식별"
@@ -2561,6 +2557,9 @@ msgstr "프로세서"
 msgid "Protocol"
 msgstr "프로토콜"
 
+msgid "Proxy"
+msgstr ""
+
 msgid "Public"
 msgstr "공개"
 
@@ -3049,6 +3048,9 @@ msgstr "공유 폴더"
 
 msgid "Shared folder"
 msgstr "공유 폴더"
+
+msgid "Shared folder + content"
+msgstr ""
 
 msgid "Shared folder must not be equal"
 msgstr "공유 폴더는 같을 수 없습니다."
@@ -3857,8 +3859,14 @@ msgstr "올리기"
 msgid "Up delay"
 msgstr "활성화 지연"
 
-msgid "Update Manager"
-msgstr "업데이트 관리자"
+msgid "Update Management"
+msgstr ""
+
+msgid "Update Management - History"
+msgstr ""
+
+msgid "Update Management - Terminal output"
+msgstr ""
 
 msgid "Update now"
 msgstr "지금 업데이트"

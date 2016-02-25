@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 22:57+0100\n"
+"POT-Creation-Date: 2016-02-25 20:15+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -164,12 +164,6 @@ msgid "A shared folder with the given name already exists"
 msgstr ""
 
 msgid "ACL"
-msgstr ""
-
-msgid "APT - History"
-msgstr ""
-
-msgid "APT - Terminal output"
 msgstr ""
 
 msgid "ASCII"
@@ -790,9 +784,6 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-msgid "Delete content"
-msgstr ""
-
 msgid "Delete file system"
 msgstr ""
 
@@ -950,9 +941,6 @@ msgid "Do you really want to uninstall the selected plugin(s)?"
 msgstr ""
 
 msgid "Do you really want to wipe the selected device?"
-msgstr ""
-
-msgid "Do you want to remove the content of the shared folder recursively? The shared folder content will be permanently removed and cannot be recovered. Select 'No' to delete the shared folder configuration only or 'Cancel' to abort."
 msgstr ""
 
 msgid "Domain name"
@@ -1306,6 +1294,9 @@ msgstr ""
 msgid "Filesystem '%s' not supported"
 msgstr ""
 
+msgid "Filesystem Type"
+msgstr ""
+
 msgid "Filesystems"
 msgstr ""
 
@@ -1523,6 +1514,9 @@ msgid "Ident protocol"
 msgstr ""
 
 msgid "Identify"
+msgstr ""
+
+msgid "Identify As"
 msgstr ""
 
 msgid "Identify network interface device"
@@ -2926,6 +2920,9 @@ msgstr ""
 msgid "Shared folder"
 msgstr ""
 
+msgid "Shared folder + content"
+msgstr ""
+
 msgid "Shared folder must not be equal"
 msgstr ""
 
@@ -3629,7 +3626,13 @@ msgstr ""
 msgid "Up delay"
 msgstr ""
 
-msgid "Update Manager"
+msgid "Update Management"
+msgstr ""
+
+msgid "Update Management - History"
+msgstr ""
+
+msgid "Update Management - Terminal output"
 msgstr ""
 
 msgid "Update now"

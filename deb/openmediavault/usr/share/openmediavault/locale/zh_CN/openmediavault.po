@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-18 21:22+0100\n"
-"PO-Revision-Date: 2016-02-19 00:58+0000\n"
-"Last-Translator: songming <by@songming.me>\n"
+"POT-Creation-Date: 2016-02-25 20:15+0100\n"
+"PO-Revision-Date: 2016-02-25 19:15+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -168,12 +168,6 @@ msgstr "该共享文件夹已经存在"
 msgid "ACL"
 msgstr "ACL"
 
-msgid "APT - History"
-msgstr "APT - 历史"
-
-msgid "APT - Terminal output"
-msgstr "APT - 终端输出"
-
 msgid "ASCII"
 msgstr "ASCII"
 
@@ -263,9 +257,6 @@ msgstr "附加设置，例如：'autoneg off speed 100 duplex full'。详情请�
 
 msgid "Address"
 msgstr "地址"
-
-msgid "Administrator password"
-msgstr "管理员密码"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
 msgstr "管理员：读/写，用户：无权限，其它：无权限"
@@ -814,9 +805,6 @@ msgstr "十二月"
 msgid "Delete"
 msgstr "删除"
 
-msgid "Delete content"
-msgstr "删除内容"
-
 msgid "Delete file system"
 msgstr "删除文件系统"
 
@@ -988,13 +976,6 @@ msgstr "确定卸载选中的插件(可复选)？"
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "确定擦除选中的设备？"
-
-msgid ""
-"Do you want to remove the content of the shared folder recursively? The "
-"shared folder content will be permanently removed and cannot be recovered. "
-"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
-"abort."
-msgstr "确认要以递归方式删除共享文件内容吗？该共享文件的内容将永久删除且无法恢复，选择'否'仅删除共享文件夹配置或者'取消'中止操作。"
 
 msgid "Domain name"
 msgstr "域名"
@@ -1279,6 +1260,9 @@ msgstr "FTP"
 msgid "FTP - Transfer log"
 msgstr "FTP - 传输日志"
 
+msgid "FTP-Proxy"
+msgstr "FTP-代理"
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1356,6 +1340,9 @@ msgstr "未找到 ‘%s’ 文件系统"
 
 msgid "Filesystem '%s' not supported"
 msgstr "不支持 '%s' 文件系统"
+
+msgid "Filesystem Type"
+msgstr ""
 
 msgid "Filesystems"
 msgstr "文件系统"
@@ -1498,6 +1485,12 @@ msgstr "几内亚比绍"
 msgid "Guyana"
 msgstr "圭亚那"
 
+msgid "HTTP-Proxy"
+msgstr "HTTP-代理"
+
+msgid "HTTPS-Proxy"
+msgstr "HTTPS-代理"
+
 msgid "Haiti"
 msgstr "海地"
 
@@ -1569,6 +1562,9 @@ msgstr "IDENT协议"
 
 msgid "Identify"
 msgstr "识别"
+
+msgid "Identify As"
+msgstr ""
 
 msgid "Identify network interface device"
 msgstr "识别网络接口设备"
@@ -2560,6 +2556,9 @@ msgstr "处理器"
 msgid "Protocol"
 msgstr "协议"
 
+msgid "Proxy"
+msgstr "代理"
+
 msgid "Public"
 msgstr "公开"
 
@@ -3048,6 +3047,9 @@ msgstr "共享文件夹"
 
 msgid "Shared folder"
 msgstr "共享文件夹"
+
+msgid "Shared folder + content"
+msgstr ""
 
 msgid "Shared folder must not be equal"
 msgstr "共享文件夹不能相同"
@@ -3856,8 +3858,14 @@ msgstr "上移"
 msgid "Up delay"
 msgstr "延时"
 
-msgid "Update Manager"
-msgstr "更新管理器"
+msgid "Update Management"
+msgstr ""
+
+msgid "Update Management - History"
+msgstr ""
+
+msgid "Update Management - Terminal output"
+msgstr ""
 
 msgid "Update now"
 msgstr "立即更新"

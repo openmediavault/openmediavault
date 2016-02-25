@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-18 21:22+0100\n"
-"PO-Revision-Date: 2016-02-18 20:22+0000\n"
+"POT-Creation-Date: 2016-02-25 20:15+0100\n"
+"PO-Revision-Date: 2016-02-25 19:15+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Galician (Spain) (http://www.transifex.com/votdev/openmediavault/language/gl_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -170,12 +170,6 @@ msgstr "Xa existe un cartafol compartido co mesmo nome"
 msgid "ACL"
 msgstr "ACL"
 
-msgid "APT - History"
-msgstr ""
-
-msgid "APT - Terminal output"
-msgstr ""
-
 msgid "ASCII"
 msgstr "ASCII"
 
@@ -265,9 +259,6 @@ msgstr "Outros axustes do dispositivo, p.ex. «negociación auomática  de veloc
 
 msgid "Address"
 msgstr "Enderezo"
-
-msgid "Administrator password"
-msgstr "Contrasinal do administrador"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
 msgstr "Administrador: lectura/escritura, Usuarios: sen acceso, Outros: sen acceso"
@@ -816,9 +807,6 @@ msgstr "decembro"
 msgid "Delete"
 msgstr "Eliminar"
 
-msgid "Delete content"
-msgstr "Eliminar contido"
-
 msgid "Delete file system"
 msgstr "Eliminar o sistema de ficheiros"
 
@@ -990,13 +978,6 @@ msgstr "Confirma que quere desinstalar o(s) engadidos(s) seleccionado(s)?"
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "Confirma que quere varrer o contido do dispositivo seleccionado?"
-
-msgid ""
-"Do you want to remove the content of the shared folder recursively? The "
-"shared folder content will be permanently removed and cannot be recovered. "
-"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
-"abort."
-msgstr "Confirma que quere eliminar o contido do cartafol compartido de forma recursiva? O contido do cartafol compartido eliminarase definitivamente e non se poderá recuperar. Seleccione «Non» para eliminar só a configuración dos cartafoles compartidos ou «Cancelar» para interromper."
 
 msgid "Domain name"
 msgstr "Nome de dominio"
@@ -1281,6 +1262,9 @@ msgstr "FTP"
 msgid "FTP - Transfer log"
 msgstr "Rexistro de transferencias FTP"
 
+msgid "FTP-Proxy"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1358,6 +1342,9 @@ msgstr "Non se atopou o sistema de ficheiros «%s»"
 
 msgid "Filesystem '%s' not supported"
 msgstr "O sistema de ficheiros «%s» non é compatíbel"
+
+msgid "Filesystem Type"
+msgstr ""
 
 msgid "Filesystems"
 msgstr "Sistemas de ficheiros"
@@ -1500,6 +1487,12 @@ msgstr "Guinea-Bissau"
 msgid "Guyana"
 msgstr "Guiana"
 
+msgid "HTTP-Proxy"
+msgstr ""
+
+msgid "HTTPS-Proxy"
+msgstr ""
+
 msgid "Haiti"
 msgstr "Haití"
 
@@ -1571,6 +1564,9 @@ msgstr "Protocolo de identificación"
 
 msgid "Identify"
 msgstr "Identificar"
+
+msgid "Identify As"
+msgstr ""
 
 msgid "Identify network interface device"
 msgstr "Identificar o dispositivo de interface de rede"
@@ -2562,6 +2558,9 @@ msgstr "Procesador"
 msgid "Protocol"
 msgstr "Protocolo"
 
+msgid "Proxy"
+msgstr ""
+
 msgid "Public"
 msgstr "Público"
 
@@ -3050,6 +3049,9 @@ msgstr "Cartafoles compartidos"
 
 msgid "Shared folder"
 msgstr "Cartafol compartido"
+
+msgid "Shared folder + content"
+msgstr ""
 
 msgid "Shared folder must not be equal"
 msgstr "O cartafol compartido non debe ser igual"
@@ -3858,8 +3860,14 @@ msgstr "Aumentar"
 msgid "Up delay"
 msgstr "Aumentar o atraso"
 
-msgid "Update Manager"
-msgstr "Xestor de actualización"
+msgid "Update Management"
+msgstr ""
+
+msgid "Update Management - History"
+msgstr ""
+
+msgid "Update Management - Terminal output"
+msgstr ""
 
 msgid "Update now"
 msgstr "Actualizar agora"

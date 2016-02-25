@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-18 21:22+0100\n"
-"PO-Revision-Date: 2016-02-18 20:22+0000\n"
+"POT-Creation-Date: 2016-02-25 20:15+0100\n"
+"PO-Revision-Date: 2016-02-25 19:15+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/votdev/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -170,12 +170,6 @@ msgstr "Er bestaat al een gedeelde map met de opgegeven naam"
 msgid "ACL"
 msgstr "ACL"
 
-msgid "APT - History"
-msgstr "APT - Geschienenis"
-
-msgid "APT - Terminal output"
-msgstr "APT - Vensteruitvoer"
-
 msgid "ASCII"
 msgstr "ASCII"
 
@@ -265,9 +259,6 @@ msgstr "Extra apparaatinstellingen, b.v. 'autoneg off speed 100 duplex full'. Ra
 
 msgid "Address"
 msgstr "Adres"
-
-msgid "Administrator password"
-msgstr "Administrator wachtwoord"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
 msgstr "Administrator: lezen/schrijven, Gebruikers: geen toegang, Anderen: geen toegang."
@@ -816,9 +807,6 @@ msgstr "December"
 msgid "Delete"
 msgstr "Verwijderen"
 
-msgid "Delete content"
-msgstr "Inhoud verwijderen"
-
 msgid "Delete file system"
 msgstr "Bestandssysteem verwijderen"
 
@@ -870,16 +858,16 @@ msgid "Device Mapper %s [%s, %s]"
 msgstr "Apparaatmapper %s [%s, %s]"
 
 msgid "Device has a few bad sectors"
-msgstr ""
+msgstr "Apparaat bevat een aantal slechte sectoren"
 
 msgid "Device has many bad sectors"
-msgstr ""
+msgstr "Apparaat bevat veel slechte sectoren"
 
 msgid "Device information"
 msgstr "Apparaat informatie"
 
 msgid "Device is being used outside design parameters"
-msgstr ""
+msgstr "Apparaat wordt gebruikt buiten de ontwerpparameters"
 
 msgid "Device model"
 msgstr "Model van het apparaat"
@@ -888,10 +876,10 @@ msgid "Device properties"
 msgstr "Apparaat eigenschappen"
 
 msgid "Device was used outside of design parameters in the past"
-msgstr ""
+msgstr "Apparaat werd in het verleden buiten de ontwerpparameters gebruikt"
 
 msgid "Device(s)"
-msgstr ""
+msgstr "Apparaat(en)"
 
 msgid "Device/Label"
 msgstr "Apparaat/Naam"
@@ -990,13 +978,6 @@ msgstr "Weet u zeker dat u de geselecteerde plug-in(s) wil verwijderen?"
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "Weet u zeker dat u de geselecteerde schijf wil  wissen?"
-
-msgid ""
-"Do you want to remove the content of the shared folder recursively? The "
-"shared folder content will be permanently removed and cannot be recovered. "
-"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
-"abort."
-msgstr "Weet u zeker dat u de inhoud van de gedeelde map recursief wil verwijderen? De inhoud zal permament verwijderd worden en kan niet worden hersteld. Kies 'Nee' om enkel de configuratie van de gedeelde map te verwijderen, of 'Annuleren' om geen actie te ondernemen."
 
 msgid "Domain name"
 msgstr "Domeinnaam"
@@ -1281,6 +1262,9 @@ msgstr "FTP"
 msgid "FTP - Transfer log"
 msgstr "FTP -overdrachtslogbestand"
 
+msgid "FTP-Proxy"
+msgstr "FTP-proxy"
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1358,6 +1342,9 @@ msgstr "Bestandssysteem '%s' niet gevonden"
 
 msgid "Filesystem '%s' not supported"
 msgstr "Bestandssysteem '%s' niet ondersteund"
+
+msgid "Filesystem Type"
+msgstr ""
 
 msgid "Filesystems"
 msgstr "Bestandssystemen"
@@ -1500,6 +1487,12 @@ msgstr "Guinee-Bissau"
 msgid "Guyana"
 msgstr "Guyana "
 
+msgid "HTTP-Proxy"
+msgstr "HTTP-proxy"
+
+msgid "HTTPS-Proxy"
+msgstr "HTTPS-proxy"
+
 msgid "Haiti"
 msgstr "Haïti "
 
@@ -1571,6 +1564,9 @@ msgstr "Ident protocol"
 
 msgid "Identify"
 msgstr "Identificeer"
+
+msgid "Identify As"
+msgstr ""
 
 msgid "Identify network interface device"
 msgstr "Identificeer netwerkinterface"
@@ -2562,6 +2558,9 @@ msgstr "Processor"
 msgid "Protocol"
 msgstr "Protocol"
 
+msgid "Proxy"
+msgstr "Proxy"
+
 msgid "Public"
 msgstr "Publiek"
 
@@ -2818,7 +2817,7 @@ msgid "SSH certificate"
 msgstr "SSH-certificaat"
 
 msgid "SSH port"
-msgstr ""
+msgstr "SSH-poort"
 
 msgid "SSID"
 msgstr "SSID"
@@ -3050,6 +3049,9 @@ msgstr "Gedeelde mappen"
 
 msgid "Shared folder"
 msgstr "Gedeelde map"
+
+msgid "Shared folder + content"
+msgstr ""
 
 msgid "Shared folder must not be equal"
 msgstr "Gedeelde mappen mogen niet gelijk zijn"
@@ -3858,8 +3860,14 @@ msgstr "Verhogen"
 msgid "Up delay"
 msgstr "Vertraging verhogen"
 
-msgid "Update Manager"
-msgstr "Updatebeheer"
+msgid "Update Management"
+msgstr ""
+
+msgid "Update Management - History"
+msgstr ""
+
+msgid "Update Management - Terminal output"
+msgstr ""
 
 msgid "Update now"
 msgstr "Nu bijwerken"
