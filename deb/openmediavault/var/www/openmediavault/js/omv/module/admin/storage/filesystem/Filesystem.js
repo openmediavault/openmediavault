@@ -405,17 +405,12 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			return tpl.apply(value);
 		}
 	},{
+		xtype: "emptycolumn",
 		text: _("Identify As"),
 		sortable: true,
 		hidden: true,
-		stateId: "identifyas",
-		renderer: function(value, metaData, record) {
-			var uuid = record.get("uuid");
-			if (!Ext.isEmpty(uuid))
-				return Ext.String.format("UUID={0}", uuid);
-			var devicefile = record.get("devicefile");
-			return devicefile;
-		}
+		dataIndex: "id",
+		stateId: "id"
 	},{
 		text: _("Label"),
 		sortable: true,
@@ -492,11 +487,6 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,
 				model: OMV.data.Model.createImplicit({
-					// Note, do not use 'devicefile' as idProperty, because
-					// it is not guaranteed that the devicefile is set. This
-					// is the case when a device is configured for mounting
-					// but does not exist (e.g. USB).
-					identifier: "uuid", // Populate 'id' field automatically.
 					idProperty: "id",
 					fields: [
 						{ name: "id", type: "string", persist: false },
@@ -529,6 +519,22 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 						options: {
 							updatelastaccess: false
 						}
+					},
+					reader: {
+						type: "rpcjson",
+					    transform: {
+					        fn: function(data) {
+					            return data.data.map(function(item) {
+							// Convert the 'id' field value.
+							item.id = item.devicefile;
+							if (!Ext.isEmpty(item.uuid)) {
+								item.id = Ext.String.format(
+								  "UUID={0}", item.uuid);
+							}
+					                return item;
+					            });
+					         }
+					      }
 					}
 				},
 				remoteSort: true,

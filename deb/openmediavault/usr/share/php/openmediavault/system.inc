@@ -4946,7 +4946,7 @@ class OMVATASMARTInformation extends OMVObject {
 		}
 		// Check if there are any bad sectors at all.
 		if ($numSectors > 0)
-            return self::SMART_ASSESSMENT_BAD_SECTOR;
+			return self::SMART_ASSESSMENT_BAD_SECTOR;
 		// There's really nothing to complain about, so give it a pass.
 		return self::SMART_ASSESSMENT_GOOD;
 	}
