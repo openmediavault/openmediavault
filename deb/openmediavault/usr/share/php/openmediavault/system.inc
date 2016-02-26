@@ -2104,7 +2104,7 @@ class OMVFilesystemBtrfs extends OMVFilesystem {
 			}
 			$totalAllocated = bcadd($totalAllocated, $t);
 			$usedAdj = bcadd($usedAdj, $u);
-			$usedRaw += bcadd($usedRaw, bcmul($u, strval($factor), 0));
+			$usedRaw = bcadd($usedRaw, bcmul($u, strval($factor), 0));
 		}
 		$allocatedUnused = bcsub($totalAllocated, $usedRaw);
 
