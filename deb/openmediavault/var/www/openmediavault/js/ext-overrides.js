@@ -757,6 +757,24 @@ Ext.apply(Ext.Array, {
 			a.push(fn(array[i]));
 		}
 		return a.reverse();
+	},
+
+	/**
+	 * @function findObject
+	 * Search an array of objects and find an object by its key/value.
+	 * @param array The array to process.
+	 * @param key The key of the element.
+	 * @param value The value to search for.
+	 * @return The first object in the array which matches the key/value,
+	 *   or NULL if none was found.
+	 */
+	findObject: function(array, key, value) {
+		var object = Ext.Array.findBy(array, function(item) {
+			if (!Ext.isObject(item))
+				return false;
+			return (item[key] == value);
+		});
+		return object;
 	}
 });
 

@@ -270,27 +270,23 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 			handler: me.onScanButton,
 			scope: me
 		}]);
-		return items;
-	},
-
-	onSelectionChange: function(model, records) {
-		var me = this;
-		me.callParent(arguments);
-		// Process additional buttons.
-		var tbarBtnDisabled = {
-			"edit": true
-		};
-		// Enable/disable buttons depending on the number of selected rows.
-		if (records.length == 1) {
-			// If the selected device is a (hardware) RAID, then disable
-			// the 'Edit' button because such devices do not support
-			// this additional customizations.
-			tbarBtnDisabled["edit"] = records[0].get("israid");
+		// Modify the 'Edit' button configuration.
+		var item = Ext.Array.findObject(items, "id", me.getId() + "-edit");
+		if (!Ext.isEmpty(item)) {
+			Ext.apply(item, {
+				selectionConfig: {
+					minSelections: 1,
+					maxSelections: 1,
+					enabledFn: function(c, records) {
+						// If the selected device is a (hardware) RAID, then
+						// disable the 'Edit' button because such devices do
+						// not support this additional customizations.
+						return !records[0].get("israid")
+					}
+				}
+			});
 		}
-		// Update the button controls.
-		Ext.Object.each(tbarBtnDisabled, function(key, value) {
-			this.setToolbarButtonDisabled(key, value);
-		}, me);
+		return items;
 	},
 
 	onEditButton: function() {

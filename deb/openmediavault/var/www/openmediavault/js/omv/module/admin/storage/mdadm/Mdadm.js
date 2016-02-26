@@ -65,6 +65,7 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Create", {
 	rpcService: "RaidMgmt",
 	rpcSetMethod: "create",
 	title: _("Create RAID device"),
+	okButtonText: _("Create"),
 	autoLoadData: false,
 	hideResetButton: true,
 	width: 550,
@@ -671,7 +672,19 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: me.onGrowButton,
 			scope: me,
-			disabled: true
+			disabled: true,
+			selectionConfig: {
+				minSelections: 1,
+				maxSelections: 1,
+				enabledFn: function(c, records) {
+					// Only RAID level 1/4/5/6 are able to grow.
+					var level = records[0].get("level");
+					var state = records[0].get("state");
+					return (([ "raid1", "stripe", "raid4", "raid5",
+					  "raid6" ].indexOf(level) !== -1) &&
+					  ([ "clean", "active" ].indexOf(state) !== -1));
+				}
+			}
 		},{
 			id: me.getId() + "-remove",
 			xtype: "button",
@@ -680,7 +693,21 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: me.onRemoveButton,
 			scope: me,
-			disabled: true
+			disabled: true,
+			selectionConfig: {
+				minSelections: 1,
+				maxSelections: 1,
+				enabledFn: function(c, records) {
+					var level = records[0].get("level");
+					var state = records[0].get("state");
+					// Only RAID level 1/2/3/4/5/6/10 are tolerant enough
+					// to be able to remove slave/component devices without
+					// loosing the whole array.
+					return (([ "raid1", "mirror", "raid2", "raid3", "raid4",
+					  "raid5", "raid6", "raid10" ].indexOf(level) !== -1) &&
+					  ([ "clean", "active" ].indexOf(state) !== -1));
+				}
+			}
 		},{
 			id: me.getId() + "-recover",
 			xtype: "button",
@@ -689,7 +716,11 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: me.onRecoverButton,
 			scope: me,
-			disabled: true
+			disabled: true,
+			selectionConfig: {
+				minSelections: 1,
+				maxSelections: 1
+			}
 		},{
 			id: me.getId() + "-detail",
 			xtype: "button",
@@ -698,51 +729,13 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: me.onDetailButton,
 			scope: me,
-			disabled: true
+			disabled: true,
+			selectionConfig: {
+				minSelections: 1,
+				maxSelections: 1
+			}
 		}]);
 		return items;
-	},
-
-	onSelectionChange: function(model, records) {
-		var me = this;
-		me.callParent(arguments);
-		// Process additional buttons.
-		var tbarBtnDisabled = {
-			"grow": true,
-			"recover": true,
-			"detail": true,
-			"remove": true
-		};
-		if (records.length <= 0) {
-			tbarBtnDisabled["grow"] = true;
-			tbarBtnDisabled["recover"] = true;
-			tbarBtnDisabled["detail"] = true;
-			tbarBtnDisabled["remove"] = true;
-		} else if(records.length == 1) {
-			tbarBtnDisabled["detail"] = false;
-			tbarBtnDisabled["recover"] = false;
-			// Only RAID level 1/4/5/6 are able to grow.
-			var level = records[0].get("level");
-			var state = records[0].get("state");
-			tbarBtnDisabled["grow"] = !(([ "raid1", "stripe", "raid4", "raid5",
-			  "raid6" ].indexOf(level) !== -1) &&
-			  ([ "clean", "active" ].indexOf(state) !== -1));
-			// Only RAID level 1/2/3/4/5/6/10 are tolerant enough to be able
-			// to remove slave/component devices without loosing the whole
-			// array.
-			tbarBtnDisabled["remove"] = !(([ "raid1", "mirror", "raid2",
-			  "raid3", "raid4", "raid5", "raid6", "raid10" ].indexOf(level)
-			  !== -1) && ([ "clean", "active" ].indexOf(state) !== -1));
-		} else {
-			tbarBtnDisabled["grow"] = true;
-			tbarBtnDisabled["recover"] = true;
-			tbarBtnDisabled["detail"] = true;
-			tbarBtnDisabled["remove"] = true;
-		}
-		// Update the button controls.
-		Ext.Object.each(tbarBtnDisabled, function(key, value) {
-			this.setToolbarButtonDisabled(key, value);
-		}, me);
 	},
 
 	onItemDblClick: function() {

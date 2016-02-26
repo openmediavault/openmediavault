@@ -245,7 +245,22 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onInstallButton, me, [ me ]),
 			scope: me,
-			disabled: true
+			disabled: true,
+			selectionConfig: {
+				minSelections: 1,
+				enabledFn: function(c, records) {
+					var enabled = true;
+					// Do not enable the 'Install' button if a plugin is
+					// already installed.
+					Ext.Array.each(records, function(record) {
+						if (true === record.get("installed")) {
+							enabled = false;
+							return false; // Abort loop
+						}
+					}, me);
+					return enabled;
+				}
+			}
 		}]);
 		Ext.Array.push(items, [{
 			xtype: "tbseparator"
@@ -303,30 +318,6 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 			}
 		}]);
 		return items;
-	},
-
-	onSelectionChange: function(model, records) {
-		var me = this;
-		me.callParent(arguments);
-		// Process additional buttons.
-		var tbarBtnDisabled = {
-			"install": true
-		};
-		if (records.length <= 0) {
-			tbarBtnDisabled["install"] = true;
-		} else {
-			tbarBtnDisabled["install"] = false;
-			// Do not enable the 'Install' button if a plugin is already
-			// installed.
-			Ext.Array.each(records, function(record) {
-				if (true === record.get("installed"))
-					tbarBtnDisabled["install"] = true;
-			}, me);
-		}
-		// Update the button controls.
-		Ext.Object.each(tbarBtnDisabled, function(key, value) {
-			this.setToolbarButtonDisabled(key, value);
-		}, me);
 	},
 
 	doReload: function() {
