@@ -783,7 +783,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			  ), $context);
 		}
 		// Finally erase the filesystem.
-		if ($fs->exists()) {
+		if (!is_null($fs) && $fs->exists()) {
 			if (FALSE === $fs->remove()) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  sprintf("Failed to remove filesystem '%s': %s",
