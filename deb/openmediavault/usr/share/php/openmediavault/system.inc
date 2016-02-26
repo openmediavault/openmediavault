@@ -2074,19 +2074,25 @@ class OMVFilesystemBtrfs extends OMVFilesystem {
 		// Data+Metadata, RAID1: total=67108864, used=28672
 		// Data+Metadata, single: total=8388608, used=0
 		// GlobalReserve, single: total=4194304, used=0
-		$totalAllocated = "0";
-		$usedAdj = "0"; // Data size (i.e. before RAID)
-		$usedRaw = "0"; // Disk usage (i.e. inc. redundancy)
+		// Initialize arrays
+		$allocated = $allocatedUnused = $used = $allocatedRaw =
+		  $allocatedUnusedRaw = $usedRaw = array(
+			"Data" => 0,
+			"Metadata" => 0,
+			"Data+Metadata"	=> 0,
+			"System" => 0,
+			"GlobalReserve"	=> 0
+		);
 		$regex = "/^([\w\+]+), ([a-zA-Z0156]+): total=([0-9]+), ".
 		  "used=([0-9]+)$/i";
-		foreach (preg_filter($regex, "$2 $3 $4", $output) as $rowv) {
-			list($profile, $t, $u) = explode(" ", $rowv);
+		foreach (preg_filter($regex, "$1 $2 $3 $4", $output) as $rowv) {
+			list($type, $profile, $t, $u) = explode(" ", $rowv);
 			switch ($profile) {
 				case "single":
 				case "RAID0":
 					$factor = 1.0;
 					break;
-				case "DUP":	// Though only metadata can be DUP
+				case "DUP":
 				case "RAID1":
 				case "RAID10":
 					$factor = 2.0;
@@ -2102,11 +2108,25 @@ class OMVFilesystemBtrfs extends OMVFilesystem {
 					$factor = 1 / $efficiency;
 					break;
 			}
-			$totalAllocated = bcadd($totalAllocated, $t);
-			$usedAdj = bcadd($usedAdj, $u);
-			$usedRaw = bcadd($usedRaw, bcmul($u, strval($factor), 0));
+
+			// Allocated extents size.
+			$allocated[$type] = bcadd($allocated[$type], $t);
+			// Allocated but unused extents size.
+			$allocatedUnused[$type] = bcadd($allocatedUnused[$type],
+			  bcsub($t, $u, 0));
+			// Actual data size.
+			$used[$type] = bcadd($used[$type], $u);
+
+			// Raw disk used by allocated extents.
+			$allocatedRaw[$type] = bcadd($allocatedRaw[$type],
+			  bcmul($t, strval($factor), 0));
+			// Raw disk used by allocated but unused extents.
+			$allocatedUnusedRaw[$type] = bcadd($allocatedUnusedRaw[$type],
+			  bcmul(bcsub($t, $u, 0), $factor, 0));
+			// Raw disk data usage, i.e. including redundancy.
+			$usedRaw[$type] = bcadd($usedRaw[$type], bcmul($u,
+			  strval($factor), 0));
 		}
-		$allocatedUnused = bcsub($totalAllocated, $usedRaw);
 
 		unset($cmd, $output, $result);
 		$cmd = sprintf("export LANG=C; btrfs-show-super %s 2>&1",
@@ -2133,18 +2153,39 @@ class OMVFilesystemBtrfs extends OMVFilesystem {
 		// num_devices		2
 		$regex = "/total_bytes\s+(\d+)/";
 		preg_match($regex, implode("\n", $output), $matches);
-		$totalBytes = $matches[1];
+		$totalBytes = $matches[1];	// Raw fs size
 
-		$unallocated = bcsub($totalBytes, $totalAllocated);
-		$available = bcadd($unallocated, $allocatedUnused);
-		$dataRatio = bcdiv($usedRaw, $usedAdj, 2);
+		// Unallocated raw disk space.
+		$unallocated = bcsub($totalBytes, array_sum($allocatedRaw));
+
+		// Available space is calculated as all unallocated space,
+		// plus allocated but unused space in Data or Data+Metadata.
+		// Allocated but unused space in Metadata alone (or System
+		// or GlobalReserve, although they are small) is not included
+		// as it is not directly available for data usage.
+		$available = bcadd($unallocated, array_sum(array_filter(
+		  $allocatedUnusedRaw, function($type) {
+			  return in_array($type, array('Data', 'Data+Metadata'));
+		  }, ARRAY_FILTER_USE_KEY)));
+		// Data ratio is calculated based only on Data (or Data+Metadata).
+		$dataRatio = bcdiv(array_sum(array_filter($usedRaw, function($type) {
+			  return in_array($type, array('Data', 'Data+Metadata'));
+		  }, ARRAY_FILTER_USE_KEY)),
+		  array_sum(array_filter($used, function($type) {
+			  return in_array($type, array('Data', 'Data+Metadata'));
+		  }, ARRAY_FILTER_USE_KEY)), 2);
 
 		// Update the information.
+		// Raw disk(s) size.
 		$stats['size'] = $totalBytes;
 		$stats['blocks'] = bcdiv($totalBytes, "1024", 0);
-		$stats['used'] = $usedAdj;
+		// Usage by all profiles (excluding redundancy).
+		$stats['used'] = array_sum($used);
+		// Space available for Data, adjusted for average data ratio.
 		$stats['available'] = bcdiv($available, $dataRatio, 0);
-		$stats['percentage'] = bcdiv($usedRaw, $stats['size'], 0);
+		// Raw disk usage, all profiles, divided by raw size.
+		$stats['percentage'] = bcmul(bcdiv(array_sum($usedRaw),
+		  $stats['size'], 3), 100, 0);
 
 		return $stats;
 	}
