@@ -2074,7 +2074,7 @@ class OMVFilesystemBtrfs extends OMVFilesystem {
 		// Data+Metadata, RAID1: total=67108864, used=28672
 		// Data+Metadata, single: total=8388608, used=0
 		// GlobalReserve, single: total=4194304, used=0
-		// Initialize arrays
+		// Initialize arrays.
 		$allocated = $allocatedUnused = $used = $allocatedRaw =
 		  $allocatedUnusedRaw = $usedRaw = array(
 			"Data" => 0,
