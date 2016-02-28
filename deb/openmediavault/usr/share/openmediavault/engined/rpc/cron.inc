@@ -275,7 +275,7 @@ class OMVRpcServiceCron extends OMVRpcServiceAbstract {
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
-		if($pid > 0) { // Parent process.
+		if ($pid > 0) { // Parent process.
 			$this->initializeBgProcStatus($bgStatusFilename, $pid);
 			return $bgStatusFilename;
 		}
@@ -288,9 +288,17 @@ class OMVRpcServiceCron extends OMVRpcServiceAbstract {
 			$object = $this->callMethod("get", array(
 			  "uuid" => $params['uuid']), $context);
 			// Execute the cron command line in a shell.
-			$cmd = "/bin/su";
-			$cmdArgs = array("-c", $object['command'], $object['username']);
-			if(FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename)) {
+			// Note, we need to set the shell, otherwise the users shell
+			// is used instead of the shebang of the command script.
+			$cmdArgs = array();
+			$cmdArgs[] = "--command";
+			$cmdArgs[] = $object['command'];
+			$cmdArgs[] = "--login";
+			$cmdArgs[] = "--shell";
+			$cmdArgs[] = "/bin/sh";
+			$cmdArgs[] = $object['username'];
+			if (FALSE === $this->execve("/bin/su", $cmdArgs,
+			  $bgOutputFilename)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd." ".implode(" ", $cmdArgs), "");
 			}

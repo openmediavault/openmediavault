@@ -62,10 +62,10 @@ class OMVSystemCtl extends OMVObject {
 	private function exec($command, $options = null, $quiet = FALSE) {
 		$cmdArgs = array();
 		// Append (global) command options.
-		if (!empty($this->options))
+		if (!empty($this->options) && is_array($this->options))
 			$cmdArgs = array_merge($cmdArgs, $this->options);
 		// Append optional command options.
-		if (!empty($options))
+		if (!empty($options) && is_array($options))
 			$cmdArgs = array_merge($cmdArgs, $options);
 		$cmdArgs[] = $command;
 		$cmdArgs[] = $this->name;

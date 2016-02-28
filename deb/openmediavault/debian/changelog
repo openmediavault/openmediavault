@@ -3,6 +3,7 @@ openmediavault (3.0.14) stable; urgency=low
   * Various improvements.
   * Fix bug in the FileSystemMgmt::delete RPC.
   * Mantis 0001477: New proxy feature, script needs export.
+  * Mantis 0001479: Set the shell when a scheduled tasks is manually executed.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 26 Feb 2016 11:53:00 +0100
 
