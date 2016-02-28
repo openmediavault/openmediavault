@@ -24,6 +24,7 @@ require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/log.inc");
 require_once("openmediavault/rpcservice.inc");
+require_once("openmediavault/systemctl.inc");
 
 class OMVRpcServiceLogFile extends OMVRpcServiceAbstract {
 	/**
@@ -118,8 +119,8 @@ class OMVRpcServiceLogFile extends OMVRpcServiceAbstract {
 		  $params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
- 	/**
-	 * Clear a log file.
+	/**
+	 * Clear a syslog file.
 	 * @param params An array containing the following fields:
 	 *   \em id The identifier of the registered log file type.
 	 * @param context The context of the caller.
@@ -140,30 +141,34 @@ class OMVRpcServiceLogFile extends OMVRpcServiceAbstract {
 		  }');
 		// Check if the given log file type if registered.
 		$logfile = new OMVLogFile($params['id']);
-		if(FALSE === $logfile->isRegistered()) {
+		if (FALSE === $logfile->isRegistered()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
 			  gettext("Unknown log file type (id=%s)"), $params['id']));
 		}
 		// Clear log file.
-		if(FALSE === ($fh = fopen($logfile->getFilePath(), "w"))) {
+		if (FALSE === ($fh = fopen($logfile->getFilePath(), "w"))) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to open the log file (filename=%s).",
 			  $logfile->getFilePath()));
 		}
-		if(FALSE === ftruncate($fh, 0)) {
+		if (FALSE === ftruncate($fh, 0)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to truncate the log file (filename=%s).",
 			  $logfile->getFilePath()));
 		}
 		rewind($fh);
-		if(FALSE === fclose($fh)) {
+		if (FALSE === fclose($fh)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to close the log file (filename=%s).",
 			  $logfile->getFilePath()));
 		}
+		// Force rsyslog to close and reopen the syslog files.
+		$systemCtl = new OMVSystemCtl("rsyslog.service");
+		if (TRUE === $systemCtl->isEnabled())
+			$systemCtl->kill("SIGHUP");
 	}
 
- 	/**
+	/**
 	 * Get the content of a log file. Note, the RPC does not return the
 	 * file content itself, instead the file path is returned which is
 	 * used by generic download RPC mechanism to deliver the file content.

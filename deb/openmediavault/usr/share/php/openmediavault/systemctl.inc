@@ -28,7 +28,7 @@ require_once("openmediavault/object.inc");
  */
 class OMVSystemCtl extends OMVObject {
 	private $name = "";
-	private $cmdArgs = [];
+	private $options = array();
 
 	/**
 	 * Constructor
@@ -39,22 +39,34 @@ class OMVSystemCtl extends OMVObject {
 	}
 
 	/**
-	 * Set an optional command line argument.
+	 * Set a command option.
 	 */
-	public function setCmdArg($arg) {
-		$this->cmdArgs[] = $arg;
+	public function setOption($arg) {
+		$this->options[] = $arg;
+	}
+
+	/**
+	 * Reset the list of command options.
+	 */
+	public function clearOptions() {
+		$this->options = array();
 	}
 
 	/**
 	 * Execute the given command.
 	 * @param command The command to execute, e.g. start, stop, restart, ...
+	 * @param options A list of optional command options.
 	 * @param quiet Do not throw an error on failure. Defaults to FALSE.
 	 * @return The exit code if \em quite is set to TRUE.
 	 */
-	private function exec($command, $quiet = FALSE) {
+	private function exec($command, $options = null, $quiet = FALSE) {
 		$cmdArgs = array();
-		if (!empty($this->cmdArgs))
-			$cmdArgs = array_merge($cmdArgs, $this->cmdArgs);
+		// Append (global) command options.
+		if (!empty($this->options))
+			$cmdArgs = array_merge($cmdArgs, $this->options);
+		// Append optional command options.
+		if (!empty($options))
+			$cmdArgs = array_merge($cmdArgs, $options);
 		$cmdArgs[] = $command;
 		$cmdArgs[] = $this->name;
 		$cmd = sprintf("export LANG=C; systemctl %s 2>&1",
@@ -74,13 +86,14 @@ class OMVSystemCtl extends OMVObject {
 	 */
 	public function enable($now = FALSE, $quiet = FALSE) {
 /* The option '--now' is not supported in Debian Jessie.
+		$options = array();
 		if (TRUE === $now)
-			$this->setCmdArg("--now");
-		$this->exec("enable", $quiet);
+			$options[] = "--now";
+		$this->exec("enable", $options, $quiet);
 */
-		$this->exec("enable", $quiet);
+		$this->exec("enable", null, $quiet);
 		if (TRUE === $now)
-			$this->exec("start", $quiet);
+			$this->exec("start", null, $quiet);
 	}
 
 	/**
@@ -90,20 +103,21 @@ class OMVSystemCtl extends OMVObject {
 	 */
 	public function disable($now = FALSE, $quiet = FALSE) {
 /* The option '--now' is not supported in Debian Jessie.
+		$options = array();
 		if (TRUE === $now)
-			$this->setCmdArg("--now");
-		$this->exec("disable", $quiet);
+			$options[] = "--now";
+		$this->exec("disable", $options, $quiet);
 */
-		$this->exec("disable", $quiet);
+		$this->exec("disable", null, $quiet);
 		if (TRUE === $now)
-			$this->exec("stop", $quiet);
+			$this->exec("stop", null, $quiet);
 	}
 
 	/**
 	 * Reenable the specified unit file.
 	 */
 	public function reenable($quiet = FALSE) {
-		$this->exec("reenable", $quiet);
+		$this->exec("reenable", null, $quiet);
 	}
 
 	/**
@@ -111,35 +125,35 @@ class OMVSystemCtl extends OMVObject {
 	 * @return TRUE if the unit is enabled, otherwise FALSE.
 	 */
 	public function isEnabled() {
-		return (0 == $this->exec("is-enabled", TRUE));
+		return (0 == $this->exec("is-enabled", null, TRUE));
 	}
 
 	/**
 	 * Start (activate) the specified unit.
 	 */
 	public function start($quiet = FALSE) {
-		$this->exec("start", $quiet);
+		$this->exec("start", null, $quiet);
 	}
 
 	/**
 	 * Stop (deactivate) the specified unit.
 	 */
 	public function stop($quiet = FALSE) {
-		$this->exec("stop", $quiet);
+		$this->exec("stop", null, $quiet);
 	}
 
 	/**
 	 * Restart the specified unit.
 	 */
 	public function restart($quiet = FALSE) {
-		$this->exec("restart", $quiet);
+		$this->exec("restart", null, $quiet);
 	}
 
 	/**
 	 * Asks the specified unit to reload its configuration.
 	 */
 	public function reload($quiet = FALSE) {
-		$this->exec("reload", $quiet);
+		$this->exec("reload", null, $quiet);
 	}
 
 	/**
@@ -147,6 +161,17 @@ class OMVSystemCtl extends OMVObject {
 	 * @return TRUE if the unit is active, otherwise FALSE.
 	 */
 	public function isActive() {
-		return (0 == $this->exec("is-active", TRUE));
+		return (0 == $this->exec("is-active", null, TRUE));
+	}
+
+	/**
+	 * Send a signal to the process of the unit.
+	 * @param signal Must be one of the well known signal specifiers such as
+	 *   SIGHUP, SIGTERM, SIGINT or SIGSTOP.
+	 */
+	public function kill($signal, $quiet = FALSE) {
+		$options = array();
+		$options[] = sprintf("--signal=%s", $signal);
+		return (0 == $this->exec("kill", $options, $quiet));
 	}
 }
