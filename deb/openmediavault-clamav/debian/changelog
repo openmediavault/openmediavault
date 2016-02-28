@@ -1,3 +1,9 @@
+openmediavault-clamav (3.1.1) stable; urgency=low
+
+  * Fix logrotate issue.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 28 Feb 2016 12:32:01 +0100
+
 openmediavault-clamav (3.1) stable; urgency=low
 
   * Use global HTTP proxy if configured.

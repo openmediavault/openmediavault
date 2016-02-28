@@ -250,8 +250,12 @@ xmlstarlet sel -t \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT}
 chmod 644 ${OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT}
 
-# Create the clamav-daemon logrotate configuration file.
-cat <<EOF > ${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG}
+# Create the logrotate configuration files.
+rm -f ${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG}
+rm -f ${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG}
+if [ "$(omv_config_get "//services/clamav/enable")" = "1" ]; then
+    # Create the clamav-daemon logrotate configuration file.
+    cat <<EOF > ${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG}
 ${OMV_CLAMAV_CLAMD_LOGFILE} {
 	rotate 12
 	weekly
@@ -267,11 +271,12 @@ ${OMV_CLAMAV_CLAMD_LOGFILE} {
 	endscript
 }
 EOF
-chown ${OMV_CLAMAV_CLAMD_USER}:root "${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG}"
-chmod 0644 "${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG}"
+    chown ${OMV_CLAMAV_CLAMD_USER}:root "${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG}"
+    chmod 0644 "${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG}"
 
-# Create the clamav-freshclam logrotate configuration file.
-cat <<EOF > ${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG}
+    # Create the clamav-freshclam logrotate configuration file.
+    if [ "$(omv_config_get "//services/clamav/freshclam/enable")" = "1" ]; then
+        cat <<EOF > ${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG}
 ${OMV_CLAMAV_FRESHCLAM_UPDATELOGFILE} {
 	rotate 12
 	weekly
@@ -288,5 +293,7 @@ ${OMV_CLAMAV_FRESHCLAM_UPDATELOGFILE} {
 	endscript
 }
 EOF
-chown ${OMV_CLAMAV_FRESHCLAM_DATABASEOWNER}:root "${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG}"
-chmod 0644 "${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG}"
+        chown ${OMV_CLAMAV_FRESHCLAM_DATABASEOWNER}:root "${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG}"
+        chmod 0644 "${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG}"
+    fi
+fi
