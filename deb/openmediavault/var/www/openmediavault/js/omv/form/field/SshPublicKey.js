@@ -33,6 +33,15 @@ Ext.define("OMV.form.field.SshPublicKey", {
 		copy: {
 			cls: Ext.baseCSSPrefix + "form-paste-trigger",
 			hideOnReadOnly: false,
+			onClick: function() {
+				var me = this;
+				var handler = me.handler;
+				var field = me.field;
+				if (handler && me.isFieldEnabled()) {
+					Ext.callback(me.handler, me.scope, [field, me ],
+					  0, field);
+				}
+			},
 			handler: "onTrigger1Click"
 		}
 	},
