@@ -224,6 +224,9 @@ div#headerrlogo {
 .x-form-folder-trigger {
 	background-image: url("../images/folder-trigger.png");
 }
+.x-form-paste-trigger {
+	background-image: url("../images/paste-trigger.png");
+}
 /* Checkbox */
 .x-form-checkbox-default,
 .x-form-radio-default {

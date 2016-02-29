@@ -26,6 +26,7 @@
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
+// require("js/omv/form/field/SshPublicKey.js")
 
 /**
  * @class OMV.module.admin.system.certificate.ssh.Edit
@@ -34,6 +35,7 @@
 Ext.define("OMV.module.admin.system.certificate.ssh.Edit", {
 	extend: "OMV.workspace.window.Form",
 	requires: [
+		"OMV.form.field.SshPublicKey",
 	    "OMV.workspace.window.plugin.ConfigObject"
 	],
 
@@ -79,7 +81,7 @@ Ext.define("OMV.module.admin.system.certificate.ssh.Edit", {
 				text: _("The private RSA key in X.509 PEM format.")
 			}]
 		},{
-			xtype: "textfield",
+			xtype: "sshpublickeyfield",
 			name: "publickey",
 			fieldLabel: _("Public key"),
 			vtype: "sshPubKeyOpenSSH",

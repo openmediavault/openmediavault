@@ -301,6 +301,7 @@ License: CC-BY-3.0
 Files: /var/www/openmediavault/images/add-trigger.png
        /var/www/openmediavault/images/folder-trigger.png
        /var/www/openmediavault/images/password-trigger.png
+	   /var/www/openmediavault/images/paste-trigger.png
 Copyright: Volker Theile, based on WebHostingHub and ExtJS trigger template
 License: GPL
 
