@@ -29,9 +29,10 @@ Ext.define("OMV.form.field.SshPublicKey", {
 	alias: [ "widget.sshpublickeyfield" ],
 
 	editable: false,
+	vtype: "sshPubKeyOpenSSH",
 	triggers: {
 		copy: {
-			cls: Ext.baseCSSPrefix + "form-paste-trigger",
+			cls: Ext.baseCSSPrefix + "form-copy-trigger",
 			hideOnReadOnly: false,
 			onClick: function() {
 				var me = this;
