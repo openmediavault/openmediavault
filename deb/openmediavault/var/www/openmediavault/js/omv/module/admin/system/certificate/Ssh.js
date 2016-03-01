@@ -89,6 +89,7 @@ Ext.define("OMV.module.admin.system.certificate.ssh.Edit", {
 			// Set this field to read-only when an existing certificate
 			// is processed.
 			readOnly: !me.isNew(),
+			editable: me.isNew(),
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The RSA public key in OpenSSH format.")
