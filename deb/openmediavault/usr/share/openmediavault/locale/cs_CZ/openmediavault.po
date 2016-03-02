@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-25 20:15+0100\n"
-"PO-Revision-Date: 2016-02-25 19:15+0000\n"
+"POT-Creation-Date: 2016-03-02 21:23+0100\n"
+"PO-Revision-Date: 2016-03-02 20:24+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -724,6 +724,9 @@ msgstr "Kontrola případného poškození při přepravě"
 msgid "Cook Islands"
 msgstr "Cookovy ostrovy"
 
+msgid "Copy to clipboard"
+msgstr ""
+
 msgid "Costa Rica"
 msgstr "Kostarika"
 
@@ -1261,7 +1264,7 @@ msgid "FTP - Transfer log"
 msgstr "FTP - Protokol přenosů"
 
 msgid "FTP-Proxy"
-msgstr ""
+msgstr "FTP proxy"
 
 msgid "FXP"
 msgstr "FXP"
@@ -1342,7 +1345,7 @@ msgid "Filesystem '%s' not supported"
 msgstr "Souborový systém %s není podporován"
 
 msgid "Filesystem Type"
-msgstr ""
+msgstr "Typ souborového systému"
 
 msgid "Filesystems"
 msgstr "Souborové systémy"
@@ -1486,10 +1489,10 @@ msgid "Guyana"
 msgstr "Guyana"
 
 msgid "HTTP-Proxy"
-msgstr ""
+msgstr "HTTP proxy"
 
 msgid "HTTPS-Proxy"
-msgstr ""
+msgstr "HTTPS proxy"
 
 msgid "Haiti"
 msgstr "Haiti"
@@ -1564,7 +1567,7 @@ msgid "Identify"
 msgstr "Rozpoznat"
 
 msgid "Identify As"
-msgstr ""
+msgstr "Identifikovat jako"
 
 msgid "Identify network interface device"
 msgstr "Rozpoznat síťové rozhraní"
@@ -2557,7 +2560,7 @@ msgid "Protocol"
 msgstr "Protokol"
 
 msgid "Proxy"
-msgstr ""
+msgstr "Proxy"
 
 msgid "Public"
 msgstr "Veřejné"
@@ -3049,7 +3052,7 @@ msgid "Shared folder"
 msgstr "Sdílená složka"
 
 msgid "Shared folder + content"
-msgstr ""
+msgstr "Sdílená složka + obsah"
 
 msgid "Shared folder must not be equal"
 msgstr "Sdílená složka nesmí být stejná"
@@ -3859,13 +3862,13 @@ msgid "Up delay"
 msgstr "Prodleva zapnutí"
 
 msgid "Update Management"
-msgstr ""
+msgstr "Správa aktualizací"
 
 msgid "Update Management - History"
-msgstr ""
+msgstr "Správa aktualizací – historie"
 
 msgid "Update Management - Terminal output"
-msgstr ""
+msgstr "Správa aktualizací – výstup z terminálu"
 
 msgid "Update now"
 msgstr "Aktualizovat nyní"

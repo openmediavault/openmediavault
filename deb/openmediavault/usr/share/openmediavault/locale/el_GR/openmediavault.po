@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-25 20:15+0100\n"
-"PO-Revision-Date: 2016-02-25 19:15+0000\n"
+"POT-Creation-Date: 2016-03-02 21:23+0100\n"
+"PO-Revision-Date: 2016-03-02 20:24+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/votdev/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -723,6 +723,9 @@ msgstr "Έλεγχος μετάδοσης"
 msgid "Cook Islands"
 msgstr "Cook Islands"
 
+msgid "Copy to clipboard"
+msgstr ""
+
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
@@ -876,7 +879,7 @@ msgid "Device was used outside of design parameters in the past"
 msgstr "Η συσκευή έχει παλαιότερα χρησιμοποιηθεί εκτός προδιαγραφών"
 
 msgid "Device(s)"
-msgstr ""
+msgstr "Συσκευή/ές"
 
 msgid "Device/Label"
 msgstr "Συσκευή/Ετικέτα"
@@ -1260,7 +1263,7 @@ msgid "FTP - Transfer log"
 msgstr "Καταγραφή μεταφορών FTP"
 
 msgid "FTP-Proxy"
-msgstr ""
+msgstr "Διαμεσολαβητής FTP"
 
 msgid "FXP"
 msgstr "FXP"
@@ -1341,7 +1344,7 @@ msgid "Filesystem '%s' not supported"
 msgstr "Το σύστημα αρχείων '%s' δεν υποστηρίζεται"
 
 msgid "Filesystem Type"
-msgstr ""
+msgstr "Τύπος Συστήματος Αρχείων"
 
 msgid "Filesystems"
 msgstr "Συστήματα αρχείων"
@@ -1485,10 +1488,10 @@ msgid "Guyana"
 msgstr "Guyana"
 
 msgid "HTTP-Proxy"
-msgstr ""
+msgstr "Διαμεσολαβητής HTTP"
 
 msgid "HTTPS-Proxy"
-msgstr ""
+msgstr "Διαμεσολαβητής HTTPS"
 
 msgid "Haiti"
 msgstr "Haiti"
@@ -1563,7 +1566,7 @@ msgid "Identify"
 msgstr "Αναγνώριση"
 
 msgid "Identify As"
-msgstr ""
+msgstr "Αναγνώριση ως"
 
 msgid "Identify network interface device"
 msgstr "Αναγνώριση διεπαφής δικτύου"
@@ -2556,7 +2559,7 @@ msgid "Protocol"
 msgstr "Πρωτόκολο"
 
 msgid "Proxy"
-msgstr ""
+msgstr "Διαμεσολαβητής "
 
 msgid "Public"
 msgstr "Δημόσιο"
@@ -3048,7 +3051,7 @@ msgid "Shared folder"
 msgstr "Κοινόχρηστος φάκελος"
 
 msgid "Shared folder + content"
-msgstr ""
+msgstr "Κοινόχρηστος φάκελος + περιεχόμενα"
 
 msgid "Shared folder must not be equal"
 msgstr "Ο κοινόχρηστος φάκελος δνε πρέπει να είναι ίδιος"
@@ -3858,13 +3861,13 @@ msgid "Up delay"
 msgstr "Καθυστέρηση έναρξης"
 
 msgid "Update Management"
-msgstr ""
+msgstr "Διαχείριση Ενημερώσεων"
 
 msgid "Update Management - History"
-msgstr ""
+msgstr "Διαχείριση Ενημερώσεων - Ιστορικό"
 
 msgid "Update Management - Terminal output"
-msgstr ""
+msgstr "Διαχείριση Ενημερώσεων - Λεπτομέρειες σε τερματικό"
 
 msgid "Update now"
 msgstr "Ενημέρωση τώρα"

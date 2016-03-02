@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-25 20:15+0100\n"
-"PO-Revision-Date: 2016-02-25 19:15+0000\n"
+"POT-Creation-Date: 2016-03-02 21:23+0100\n"
+"PO-Revision-Date: 2016-03-02 20:24+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Italian (http://www.transifex.com/votdev/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -728,6 +728,9 @@ msgstr "Trasmissione self-test"
 msgid "Cook Islands"
 msgstr "Isole Cook"
 
+msgid "Copy to clipboard"
+msgstr ""
+
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
@@ -1346,7 +1349,7 @@ msgid "Filesystem '%s' not supported"
 msgstr "Filesystem '%s' non supportato"
 
 msgid "Filesystem Type"
-msgstr ""
+msgstr "Tipo Filesystem"
 
 msgid "Filesystems"
 msgstr "Filesystems"
@@ -1568,7 +1571,7 @@ msgid "Identify"
 msgstr "Identifica"
 
 msgid "Identify As"
-msgstr ""
+msgstr "Identificato Come"
 
 msgid "Identify network interface device"
 msgstr "Identifica il dispositivo dell'interfaccia di rete"
@@ -3053,7 +3056,7 @@ msgid "Shared folder"
 msgstr "Cartella condivisa"
 
 msgid "Shared folder + content"
-msgstr ""
+msgstr "Cartella condivisa + contenuto"
 
 msgid "Shared folder must not be equal"
 msgstr "Le cartelle condivise non possono essere uguali"
@@ -3863,13 +3866,13 @@ msgid "Up delay"
 msgstr "Up delay"
 
 msgid "Update Management"
-msgstr ""
+msgstr "Gestione Aggiornamento"
 
 msgid "Update Management - History"
-msgstr ""
+msgstr "Gestione Aggiornamento - Storico"
 
 msgid "Update Management - Terminal output"
-msgstr ""
+msgstr "Gestione Aggiornamento - Output Terminale"
 
 msgid "Update now"
 msgstr "Aggiorna adesso"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-25 20:15+0100\n"
-"PO-Revision-Date: 2016-02-25 19:15+0000\n"
+"POT-Creation-Date: 2016-03-02 21:23+0100\n"
+"PO-Revision-Date: 2016-03-02 20:24+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/votdev/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -724,6 +724,9 @@ msgstr "運送自我測試"
 msgid "Cook Islands"
 msgstr "庫克群島"
 
+msgid "Copy to clipboard"
+msgstr ""
+
 msgid "Costa Rica"
 msgstr "哥斯達黎加"
 
@@ -1342,7 +1345,7 @@ msgid "Filesystem '%s' not supported"
 msgstr "不支援檔案系統 '%s'"
 
 msgid "Filesystem Type"
-msgstr ""
+msgstr "檔案系統型式"
 
 msgid "Filesystems"
 msgstr "檔案系統"
@@ -1564,7 +1567,7 @@ msgid "Identify"
 msgstr "辨識"
 
 msgid "Identify As"
-msgstr ""
+msgstr "識別"
 
 msgid "Identify network interface device"
 msgstr "辨識網路介面裝置"
@@ -3049,7 +3052,7 @@ msgid "Shared folder"
 msgstr "共享檔案夾"
 
 msgid "Shared folder + content"
-msgstr ""
+msgstr "共享檔案夾 + 內容"
 
 msgid "Shared folder must not be equal"
 msgstr "共享檔案夾必須不相同"
@@ -3859,13 +3862,13 @@ msgid "Up delay"
 msgstr "啟用延遲"
 
 msgid "Update Management"
-msgstr ""
+msgstr "更新管理"
 
 msgid "Update Management - History"
-msgstr ""
+msgstr "更新管理 - 歷史"
 
 msgid "Update Management - Terminal output"
-msgstr ""
+msgstr "更新管理 - 終端機輸出"
 
 msgid "Update now"
 msgstr "立即更新"

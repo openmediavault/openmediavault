@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Milan Toet <milantoet@gmail.com>, 2012-2014
+# Milan Toet <milantoet@gmail.com>, 2012-2014,2016
 # sebak <seba.kerckhof@gmail.com>, 2012
 # stokerh <stoker.pc@home.nl>, 2012
 # Tim <co_ti@hotmail.com>, 2013-2014,2016
@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-25 20:15+0100\n"
-"PO-Revision-Date: 2016-02-25 19:15+0000\n"
+"POT-Creation-Date: 2016-03-02 21:23+0100\n"
+"PO-Revision-Date: 2016-03-02 20:24+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/votdev/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -726,6 +726,9 @@ msgstr "Overdrachtszelftest"
 msgid "Cook Islands"
 msgstr "Kook eilanden"
 
+msgid "Copy to clipboard"
+msgstr ""
+
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
@@ -1344,7 +1347,7 @@ msgid "Filesystem '%s' not supported"
 msgstr "Bestandssysteem '%s' niet ondersteund"
 
 msgid "Filesystem Type"
-msgstr ""
+msgstr "Bestandssysteem type"
 
 msgid "Filesystems"
 msgstr "Bestandssystemen"
@@ -1566,7 +1569,7 @@ msgid "Identify"
 msgstr "Identificeer"
 
 msgid "Identify As"
-msgstr ""
+msgstr "Geïdentificeerd als"
 
 msgid "Identify network interface device"
 msgstr "Identificeer netwerkinterface"
@@ -3051,7 +3054,7 @@ msgid "Shared folder"
 msgstr "Gedeelde map"
 
 msgid "Shared folder + content"
-msgstr ""
+msgstr "Gedeelde map + inhoud"
 
 msgid "Shared folder must not be equal"
 msgstr "Gedeelde mappen mogen niet gelijk zijn"
@@ -3861,13 +3864,13 @@ msgid "Up delay"
 msgstr "Vertraging verhogen"
 
 msgid "Update Management"
-msgstr ""
+msgstr "Update Management"
 
 msgid "Update Management - History"
-msgstr ""
+msgstr "Update Management - Geschiedenis"
 
 msgid "Update Management - Terminal output"
-msgstr ""
+msgstr "Update Management - Terminal uitvoer"
 
 msgid "Update now"
 msgstr "Nu bijwerken"

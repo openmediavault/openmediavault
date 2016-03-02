@@ -1,5 +1,6 @@
 openmediavault (3.0.14) stable; urgency=low
 
+  * Update locales.
   * Various improvements.
   * Fix bug in the FileSystemMgmt::delete RPC.
   * Mantis 0001477: New proxy feature, script needs export.

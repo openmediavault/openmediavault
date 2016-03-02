@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-25 20:15+0100\n"
-"PO-Revision-Date: 2016-02-25 19:15+0000\n"
+"POT-Creation-Date: 2016-03-02 21:23+0100\n"
+"PO-Revision-Date: 2016-03-02 20:24+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/votdev/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -723,6 +723,9 @@ msgstr "Geri bildirimli iç kontrol"
 msgid "Cook Islands"
 msgstr "Cook Adaları"
 
+msgid "Copy to clipboard"
+msgstr ""
+
 msgid "Costa Rica"
 msgstr "Kostarika"
 
@@ -1341,7 +1344,7 @@ msgid "Filesystem '%s' not supported"
 msgstr "Dosya sistemi '%s' desteklenmiyor"
 
 msgid "Filesystem Type"
-msgstr ""
+msgstr "Dosya Sistemi Tipi"
 
 msgid "Filesystems"
 msgstr "Dosya sietemleri"
@@ -1563,7 +1566,7 @@ msgid "Identify"
 msgstr "Belirle"
 
 msgid "Identify As"
-msgstr ""
+msgstr "Tanımlama"
 
 msgid "Identify network interface device"
 msgstr "Ağ arabirim aygıtını tanımla"
@@ -3048,7 +3051,7 @@ msgid "Shared folder"
 msgstr "Paylaşılmış klasör"
 
 msgid "Shared folder + content"
-msgstr ""
+msgstr "Klasör ve içeriği paylaş"
 
 msgid "Shared folder must not be equal"
 msgstr "Paylaşılan klasör eşit olmamalıdır"
@@ -3858,13 +3861,13 @@ msgid "Up delay"
 msgstr "Çalışma gecikmesi"
 
 msgid "Update Management"
-msgstr ""
+msgstr "Yönetimi Güncelle"
 
 msgid "Update Management - History"
-msgstr ""
+msgstr "Yönetimi Güncelle - Geçmiş"
 
 msgid "Update Management - Terminal output"
-msgstr ""
+msgstr "Yönetimi Güncelle - Terminal çıktısı"
 
 msgid "Update now"
 msgstr "Şimdi güncelle"
