@@ -48,7 +48,7 @@ class OMVModuleApt extends OMVModuleServiceAbstract
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
 		$dispatcher->addListener(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.apt.distribution",
+		  "org.openmediavault.system.apt.distribution",
 		  array($this, "setDirty"));
 	}
 }
