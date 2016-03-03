@@ -111,7 +111,11 @@ class OMVDataModel extends OMVObject {
 	}
 
 	public function validateProperty($name, $value) {
-		return $this->getSchema()->validate($value, $name);
+		if (FALSE === $this->getSchema()->validate($value, $name)) {
+			$this->setLastError($this->getSchema()->getLastError());
+			return FALSE;
+		}
+		return TRUE;
 	}
 
 	public function convertProperty($name, $value) {
@@ -136,12 +140,15 @@ class OMVDataModel extends OMVObject {
 	}
 
 	public function propertyExists($name) {
-		if (FALSE === $this->getSchema()->getSchemaAssocByPath($name))
+		if (FALSE === $this->getSchema()->getSchemaAssocByPath($name)) {
+			$this->setLastError(
+			  sprintf("The property '%s' does not exist.", $name);
 			return FALSE;
+		}
 		return TRUE;
 	}
 
-	public function getDefaultAssoc() {
+	public function getDefaultsAssoc() {
 		$schemaAssoc = $this->getSchema()->getSchemaAssoc();
 		$object = array();
 		$this->_getDefaultAssoc($schemaAssoc, $object);

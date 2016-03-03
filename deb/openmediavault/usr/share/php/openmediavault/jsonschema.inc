@@ -87,31 +87,50 @@ class OMVJsonSchema extends OMVObject {
 		if (!array_key_exists($key, $schema))
 			return FALSE;
 		// Walk down the tree.
-		return $this->getSchemaAssocByPath(implode(".", $parts), $schema[$key]);
+		return $this->getSchemaAssocByPath(implode(".", $parts),
+		  $schema[$key]);
 	}
 
 	/**
 	 * Returns the JSON schema.
-	 * @return The JSON schema as associative array.
+	 * @return The JSON schema as associative array or FALSE on failure.
 	 */
 	final public function getSchemaAssoc() {
-		if (is_string($this->schema))
+		if (is_string($this->schema)) {
 			$this->schema = json_decode($this->schema, TRUE);
+			if (is_null($this->schema)) {
+				$this->setLastError(sprintf("Failed to decode schema: %s",
+				  json_last_error_msg()));
+				return FALSE;
+			}
+		}
 		return $this->schema;
 	}
 
 	/**
 	 * Returns the JSON schema by the given path.
-	 * @return The JSON schema as associative array.
+	 * @return The JSON schema as associative array or FALSE on failure.
 	 */
 	final public function getSchemaAssocByPath($name) {
 		// Get the schema.
 		if (FALSE === ($schema = $this->getSchemaAssoc()))
 			return FALSE;
 		// Navigate down to the given path.
-		return $this->_getSchemaAssocByPath($name, $schema);
+		if (FALSE === ($schema = $this->_getSchemaAssocByPath(
+		  $name, $schema)) {
+			$this->setLastError(sprintf("The path '%s' is invalid.", $name));
+			return FALSE;
+		}
+		return $schema;
 	}
 
+	/**
+	 * Validate the given value.
+	 * @param value The value to validate.
+	 * @param name The JSON path of the entity to validate, e.g. 'aa.bb.cc',
+	 *   defaults to an empty string.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
 	final public function validate($value, $name = "") {
 		if (is_string($value))
 			$value = json_decode($value);

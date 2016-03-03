@@ -47,7 +47,7 @@ class OMVConfigObject extends OMVObject {
 			return FALSE;
 		}
 		$this->model = $model;
-		$this->properties = $this->getModel()->getDefaultAssoc();
+		$this->properties = $this->getModel()->getDefaultsAssoc();
 		return TRUE;
 	}
 
