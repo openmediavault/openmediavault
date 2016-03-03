@@ -41,9 +41,9 @@ abstract class OMVObject {
 	 * @return Returns the previous error.
 	 */
 	final protected function setLastError($error) {
-		$result = $this->lastError;
+		$lastError = $this->lastError;
 		$this->lastError = $error;
-		return $result;
+		return $lastError;
 	}
 
 	/**
@@ -55,6 +55,14 @@ abstract class OMVObject {
 	final public function getLastError() {
 		return (is_array($this->lastError)) ? implode("\n",
 		  $this->lastError) : $this->lastError;
+	}
+
+	/**
+	 * Clear the last error.
+	 * @return Returns the previous error.
+	 */
+	final public function clearLastError() {
+		return $this->setLastError("");
 	}
 
 	/**
