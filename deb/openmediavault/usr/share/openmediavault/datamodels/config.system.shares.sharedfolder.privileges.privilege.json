@@ -1,0 +1,19 @@
+{
+	"type": "object",
+	"id": "sharedfolder.privilege",
+	"alias": "//system/shares/sharedfolder/privileges/privilege",
+	"title": "Shared folder privilege",
+	"properties": {
+		"type": {
+			"type": "string",
+			"enum": [ "user", "group" ]
+		},
+		"name": {
+			"type": "string"
+		},
+		"perms": {
+			"type": "integer",
+			"enum": [ 0, 5, 7 ]
+		}
+	}
+}

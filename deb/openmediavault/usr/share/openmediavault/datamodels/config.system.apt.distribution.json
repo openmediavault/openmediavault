@@ -1,0 +1,15 @@
+{
+	"type": "object",
+	"id": "apt.distribution",
+	"alias": "//system/apt/distribution",
+	"properties": {
+		"proposed": {
+			"type": "boolean",
+			"default": 0
+		},
+		"partner": {
+			"type": "boolean",
+			"default": 0
+		}
+	}
+}

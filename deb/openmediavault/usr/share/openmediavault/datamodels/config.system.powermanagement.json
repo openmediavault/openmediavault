@@ -1,0 +1,17 @@
+{
+	"type": "object",
+	"id": "powermanagement",
+	"alias": "//system/powermanagement",
+	"title": "Powermanagement",
+	"properties": {
+		"cpufreq": {
+			"type": "boolean",
+			"default": 1
+		},
+		"powerbtn": {
+			"type": "string",
+			"enum": [ "nothing", "shutdown", "standby" ],
+			"default": "nothing"
+		}
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"type": "object",
+	"id": "monitoring.perfstats",
+	"alias": "//system/monitoring/perfstats",
+	"title": "Powermanagement",
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": 1
+		}
+	}
+}

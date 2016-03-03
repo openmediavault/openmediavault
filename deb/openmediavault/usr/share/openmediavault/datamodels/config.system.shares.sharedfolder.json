@@ -1,0 +1,30 @@
+{
+	"type": "object",
+	"id": "sharedfolder",
+	"alias": "//system/shares/sharedfolder",
+	"title": "Shared folder",
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"name": {
+			"type": "string"
+		},
+		"comment": {
+			"type": "string"
+		},
+		"mntentref": {
+			"type": "string"
+		},
+		"reldirpath": {
+			"type": "string"
+		},
+		"privileges": {
+			"type": "array",
+			"items": {
+				"$ref": "//system/shares/sharedfolder/privileges/privilege"
+			}
+		}
+	}
+}

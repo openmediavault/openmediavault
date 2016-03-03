@@ -602,6 +602,9 @@ case "$1" in
 			devicefile=$(findmnt -f -n -o SOURCE /)
 			udevadm trigger --property-match=DEVNAME=${devicefile}
 		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.14"; then
+			omv_set_default "OMV_DATAMODELS_DIR" "/usr/share/openmediavault/datamodels"
+		fi
 	;;
 
 	triggered)

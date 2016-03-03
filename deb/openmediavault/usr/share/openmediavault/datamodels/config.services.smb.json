@@ -1,0 +1,68 @@
+{
+	"type": "object",
+	"id": "smb",
+	"alias": "//services/smb",
+	"title": "SMB/CIFS",
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": 0
+		},
+		"workgroup": {
+			"type": "string",
+			"default": "WORKGROUP"
+		},
+		"serverstring": {
+			"type": "string",
+			"default": "%h server"
+		},
+		"loglevel": {
+			"type": "integer",
+			"default": 0
+		},
+		"usesendfile": {
+			"type": "boolean",
+			"default": 1
+		},
+		"aio": {
+			"type": "boolean",
+			"default": 1
+		},
+		"nullpasswords": {
+			"type": "boolean",
+			"default": 0
+		},
+		"localmaster": {
+			"type": "boolean",
+			"default": 1
+		},
+		"timeserver": {
+			"type": "boolean",
+			"default": 0
+		},
+		"winssupport": {
+			"type": "boolean",
+			"default": 0
+		},
+		"winsserver": {
+			"type": "string"
+		},
+		"homesenable": {
+			"type": "boolean",
+			"default": 0
+		},
+		"homesbrowseable": {
+			"type": "boolean",
+			"default": 0
+		},
+		"extraoptions": {
+			"type": "string"
+		},
+		"shares": {
+			"type": "array",
+			"items": {
+				"$ref": "//services/smb/shares/share"
+			}
+		}
+	}
+}
