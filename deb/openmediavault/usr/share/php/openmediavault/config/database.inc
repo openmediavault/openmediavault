@@ -28,15 +28,15 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/config/object.inc");
 
-class Engine extends \OMVObject {
+class Database extends \OMVObject {
 	/**
-	 * Returns the configuration engine singleton.
+	 * Returns the configuration database singleton.
 	 * @return The singleton object.
 	 */
 	public static function &getInstance() {
 		static $instance = NULL;
 		if (!isset($instance))
-			$instance = new Engine();
+			$instance = new Database();
 		return $instance;
 	}
 
@@ -52,10 +52,16 @@ class Engine extends \OMVObject {
 		if (empty($id))
 			$id = $xpath;
 		$data = $xmlConfig->get($xpath);
-		if (is_null($data))
+		if (is_null($data)) {
+			$this->setLastError("XPath expression '%s' does not match.",
+			  $xpath);
 			return FALSE;
+		}
 		$object = new Object($id);
-		$object->initialize();
+		if (FALSE === $object->initialize()) {
+			$this->setLastError($object->getLastError());
+			return FALSE;
+		}
 		if (!$object->setAssoc($data, FALSE)) {
 			$this->setLastError($object->getLastError());
 			return FALSE;
@@ -65,13 +71,20 @@ class Engine extends \OMVObject {
 
 	public function replace($xpath, $object) {
 		global $xmlConfig;
-		if (!$object instanceof Object)
+		if (!$object instanceof Object) {
+			$this->setLastError("Incorrect type of object attribute.");
 			return FALSE;
-		if (!$object->isInitialized())
+		}
+		if (!$object->isInitialized()) {
+			$this->setLastError("The object attribute is not initialized.");
 			return FALSE;
+		}
 		$data = $object->getAssoc();
-		if (FALSE === $xmlConfig->replace($xpath, $data))
+		if (FALSE === $xmlConfig->replace($xpath, $data)) {
+			$this->setLastError("XPath expression '%s' does not match.",
+			  $xpath);
 			return FALSE;
+		}
 		return TRUE;
 	}
 }
