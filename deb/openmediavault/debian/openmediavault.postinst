@@ -603,7 +603,7 @@ case "$1" in
 			udevadm trigger --property-match=DEVNAME=${devicefile}
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.0.14"; then
-			omv_set_default "OMV_DATAMODELS_DIR" "/usr/share/openmediavault/datamodels"
+			omv_set_default "OMV_JSONSCHEMAS_DIR" "/usr/share/openmediavault/schemas"
 		fi
 	;;
 

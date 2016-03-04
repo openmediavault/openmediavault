@@ -24,7 +24,7 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/datamodel.inc");
 
 $modelMgr = &OMVDataModelManager::getInstance();
-if (FALSE === $modelMgr->load($GLOBALS['OMV_DATAMODELS_DIR'])) {
+if (FALSE === $modelMgr->load($GLOBALS['OMV_JSONSCHEMAS_DIR'])) {
 	throw new OMVException(OMVErrorMsg::E_DATAMODEL_LOAD_FAILED,
 	  $modelMgr->getLastError());
 }
