@@ -1,0 +1,9 @@
+{
+	"type": "object",
+	"id": "apt.getchangelog",
+	"properties": {
+		"filename": {
+			"type": "string"
+		}
+	}
+}

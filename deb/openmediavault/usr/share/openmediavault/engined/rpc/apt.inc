@@ -24,6 +24,7 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/json/file.inc");
+require_once("openmediavault/config/engine.inc");
 
 class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 	/**
@@ -87,7 +88,7 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "Apt.setSettings");
+		$this->validateMethodParams($params, "apt.setsettings");
 		// Prepare configuration objects
 		$object = array(
 			  "proposed" => array_boolval($params, 'proposed'),
@@ -171,15 +172,7 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "start":{"type":"integer"},
-				  "limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
-				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
-				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
-			  }
-		  }');
+		$this->validateMethodParams($params, "apt.getupgradedlist");
 		// Enumerate all packages that are to be upgraded.
 		$objects = $this->callMethod("enumerateUpgraded", NULL, $context);
 		// Filter result.
@@ -200,12 +193,7 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "packages":{"type":"array","items":{"type":"string"}}
-			  }
-		  }');
+		$this->validateMethodParams($params, "apt.upgrade");
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
@@ -296,13 +284,7 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "filename":{"type":"string"},
-				  "filepath":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "apt.upload");
 		// Check the file type.
 		$finfo = new finfo(FILEINFO_NONE);
 		$fileType = $finfo->file($params['filepath']);
@@ -347,12 +329,7 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "filename":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "apt.getchangelog");
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();

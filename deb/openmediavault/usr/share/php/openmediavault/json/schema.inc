@@ -71,6 +71,7 @@ class Schema extends \OMVObject {
 	 * )
 	 */
 	private function _getSchemaAssocByPath($path, $schema) {
+//		$this->debug(var_export(func_get_args(), TRUE));
 		// Validate the path. Something like "aa.bb.cc." or ".xx.yy"
 		// is invalid.
 		if (("." == substr($path, 1, 1)) || ("." == substr($path, -1)))
@@ -83,13 +84,13 @@ class Schema extends \OMVObject {
 		// Do we process an 'object' node? In this case step down to
 		// the 'properties' leaf.
 		if (array_key_exists("type", $schema) && ("object" == $schema['type']))
-			return $this->getSchemaAssocByPath($path, $schema['properties']);
+			return $this->_getSchemaAssocByPath($path, $schema['properties']);
 		$key = array_shift($parts);
 		// Check if the key/value pair exists.
 		if (!array_key_exists($key, $schema))
 			return FALSE;
 		// Walk down the tree.
-		return $this->getSchemaAssocByPath(implode(".", $parts),
+		return $this->_getSchemaAssocByPath(implode(".", $parts),
 		  $schema[$key]);
 	}
 

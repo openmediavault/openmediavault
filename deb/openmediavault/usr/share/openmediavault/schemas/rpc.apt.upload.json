@@ -1,0 +1,12 @@
+{
+	"type": "object",
+	"id": "apt.upload",
+	"properties": {
+		"filename": {
+			"type": "string"
+		},
+		"filepath": {
+			"type": "string"
+		}
+	}
+}

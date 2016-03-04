@@ -1,0 +1,12 @@
+{
+	"type": "object",
+	"id": "apt.upgrade",
+	"properties": {
+		"packages": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		}
+	}
+}
