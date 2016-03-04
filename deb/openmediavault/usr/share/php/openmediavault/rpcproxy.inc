@@ -141,7 +141,7 @@ class OMVJsonRpcProxy extends OMVObject {
 				"service":{"type":"string","required":true},
 				"method":{"type":"string","required":true},
 				"params":{"type":"any","required":true},
-				"options":{"type":["null","object"],"required":false}
+				"options":{"type":"any","required":false}
 			}
 		}');
 		if (FALSE === ($valid = $schema->validate(json_encode_safe(

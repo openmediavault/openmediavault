@@ -9,7 +9,7 @@ Homepage: http://www.openmediavault.org
 Package: openmediavault
 Architecture: all
 Depends: ${perl:Depends}, libjs-extjs5 (>= 5.1.1), php5-fpm, libpam-modules,
- php5-cgi, php5-cli (>= 5.6), php5-pam, php-json-schema, sudo, ethtool,
+ php5-cgi, php5-cli (>= 5.6), php5-pam, sudo, ethtool,
  acl, ifenslave, resolvconf, iproute2, xfsprogs, jfsutils, ntfs-3g, hdparm,
  sdparm, bootlogd, ifupdown, mdadm, postfix, libsasl2-modules, bsd-mailx,
  cpufrequtils, rsyslog, logrotate, smartmontools, openssl, openssh-server,

@@ -290,8 +290,8 @@ class OMVJsonSchema extends OMVObject {
 	protected function validateNull($value, $schema, $name) {
 		if (!is_null($value)) {
 			$this->setLastError(
-			  sprintf("%s: The value '%s' is not NULL.",
-			  $name, $value));
+			  sprintf("%s: The value is not NULL.",
+			  $name));
 			return FALSE;
 		}
 		return TRUE;

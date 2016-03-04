@@ -19,7 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("php-json-schema/JsonSchema.php");
+require_once("openmediavault/jsonschema.inc");
 
 /**
  * Sort an array by values using a user-defined key.
@@ -321,9 +321,9 @@ function is_64bits() {
  * @return TRUE if successful, otherwise FALSE.
  */
 function json_validate($json, $schema, &$errors = NULL) {
-	$jsonSchema = new JsonSchema($json);
-	if(false === ($result = $jsonSchema->validate($schema)))
-		$errors = $jsonSchema->getErrors();
+	$jsonSchema = new OMVJsonSchema($json);
+	if (FALSE === ($result = $jsonSchema->validate($schema)))
+		$errors = array($jsonSchema->getLastError());
 	return $result;
 }
 
