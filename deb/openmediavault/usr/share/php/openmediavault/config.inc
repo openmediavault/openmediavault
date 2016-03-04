@@ -23,7 +23,8 @@ require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/datamodel.inc");
+require_once("openmediavault/datamodel/model.inc");
+require_once("openmediavault/datamodel/manager.inc");
 
 class OMVConfigObject extends OMVObject {
 	private $model = NULL;
@@ -39,7 +40,7 @@ class OMVConfigObject extends OMVObject {
 	public function initialize() {
 		if (TRUE === $this->isInitialized())
 			return TRUE;
-		$modelMgr = &OMVDataModelManager::getInstance();
+		$modelMgr = &\OMV\DataModel\Manager::getInstance();
 		if (FALSE === ($model = $modelMgr->getModel($this->model))) {
 			$this->setLastError(
 			  sprintf("The model '%s' does not exist.",
@@ -52,7 +53,7 @@ class OMVConfigObject extends OMVObject {
 	}
 
 	public function isInitialized() {
-		return ($this->getModel() instanceof OMVDataModel);
+		return ($this->getModel() instanceof \OMV\DataModel\Model);
 	}
 
 	private function getModel() {

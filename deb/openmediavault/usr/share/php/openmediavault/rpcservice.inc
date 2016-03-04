@@ -23,7 +23,9 @@ require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/notify.inc");
-require_once("openmediavault/datamodel.inc");
+require_once("openmediavault/datamodel/manager.inc");
+require_once("openmediavault/datamodel/schema.inc");
+require_once("openmediavault/json/file.inc");
 
 /**
  * The core RPC service class.
@@ -183,7 +185,7 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 		$params = json_encode_safe($params);
 		// Get the data model/schema used to validate the parameters.
 		if (!is_json($schema) && is_string($schema)) {
-			$modelMgr = &OMVDataModelManager::getInstance();
+			$modelMgr = &\OMV\DataModel\Manager::getInstance();
 			if (FALSE === ($model = $modelMgr->getModel($schema))) {
 				throw new OMVException(OMVErrorMsg::E_DATAMODEL_NOT_EXISTS,
 				  $schema);
@@ -195,7 +197,7 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 			if (is_array($schema))
 				$schema = json_encode_safe($schema);
 			// Create the data model schema.
-			$schema = new OMVDataModelSchema($schema);
+			$schema = new \OMV\DataModel\Schema($schema);
 		}
 		if (FALSE === $schema->validate($params)) {
 			throw new OMVException(
@@ -310,7 +312,7 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	 * @throw E_MISC_FAILURE
 	 */
 	final protected function initializeBgProcStatus($filename, $pid) {
-		$jsonFile = new OMVJsonFile($filename);
+		$jsonFile = new \OMV\Json\File($filename);
 		$jsonFile->open("r+");
 		if($jsonFile->isEmpty()) {
 			$status = array(
@@ -340,7 +342,7 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	 */
 	final protected function finalizeBgProcStatus($filename,
 	  $result = NULL, $exception = NULL) {
-		$jsonFile = new OMVJsonFile($filename);
+		$jsonFile = new \OMV\Json\File($filename);
 		$jsonFile->open("r+");
 		$status = $jsonFile->read();
 		$status['pid'] = posix_getpid();
@@ -368,7 +370,7 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	 * @return The background process status.
 	 */
 	final protected function updateBgProcStatus($filename, $key, $value) {
-		$jsonFile = new OMVJsonFile($filename);
+		$jsonFile = new \OMV\Json\File($filename);
 		$jsonFile->open("r+");
 		$status = $jsonFile->read();
 		$status['pid'] = posix_getpid();
@@ -385,7 +387,7 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	 * @return The background process status.
 	 */
 	final protected function getBgProcStatus($filename) {
-		$jsonFile = new OMVJsonFile($filename);
+		$jsonFile = new \OMV\Json\File($filename);
 		$jsonFile->open("r");
 		$status = $jsonFile->read();
 		$jsonFile->close();
@@ -404,7 +406,7 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	 * @return None.
 	 */
 	final protected function unlinkBgProcStatus($filename) {
-		$jsonFile = new OMVJsonFile($filename);
+		$jsonFile = new \OMV\Json\File($filename);
 		$jsonFile->open("r");
 		$status = $jsonFile->read();
 		$jsonFile->close();

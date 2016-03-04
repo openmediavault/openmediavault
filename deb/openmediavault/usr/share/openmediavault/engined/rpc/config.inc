@@ -24,6 +24,8 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/notify.inc");
+require_once("openmediavault/json/file.inc");
+require_once("openmediavault/util/toplogicalsort.inc");
 
 class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 	/**
@@ -98,7 +100,7 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 		$notifyDispatcher = &OMVNotifyDispatcher::getInstance();
 		// Open the dirty modules file. Lock it to force all writers
 		// to wait until this RPC has been finished.
-		$jsonFile = new OMVJsonFile($GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
+		$jsonFile = new \OMV\Json\File($GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
 		$jsonFile->open("c+");
 		$dirtyModules = $jsonFile->read();
 		// Remove non-existing modules from list. It may happen that the
@@ -140,7 +142,7 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 			  array($modulev)));
 		}
 		// Build the dependency list and stop all services.
-		$tsort = new OMVToplogicalSort();
+		$tsort = new \OMV\Util\ToplogicalSort();
 		foreach($processModules as $name => $object) {
 			if(FALSE === $tsort->add($name, $object->shouldStop())) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
@@ -248,7 +250,7 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 		  }');
 		// Open the dirty modules file. Lock it to force all writers
 		// to wait until this RPC has been finished.
-		$jsonFile = new OMVJsonFile($GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
+		$jsonFile = new \OMV\Json\File($GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
 		$jsonFile->open("c+");
 		// Revert configuration changes. All existing revision files
 		// will be deleted.

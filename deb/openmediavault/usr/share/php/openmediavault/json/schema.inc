@@ -19,6 +19,8 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+namespace OMV\Json;
+
 require_once("openmediavault/object.inc");
 
 /**
@@ -27,7 +29,7 @@ require_once("openmediavault/object.inc");
  * @see http://json-schema.org/latest/json-schema-core.html
  * @see http://json-schema.org/latest/json-schema-validation.html
  */
-class OMVJsonSchema extends OMVObject {
+class Schema extends \OMVObject {
 	private $schema = array();
 
 	/**

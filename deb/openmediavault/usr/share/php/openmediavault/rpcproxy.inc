@@ -26,7 +26,7 @@ require_once("openmediavault/functions.inc");
 require_once("openmediavault/session.inc");
 require_once("openmediavault/rpc.inc");
 require_once("openmediavault/rpcservice.inc");
-require_once("openmediavault/jsonschema.inc");
+require_once("openmediavault/json/schema.inc");
 
 /**
  * The generic RPC proxy implementation that handles JSON RPC requests.
@@ -135,7 +135,7 @@ class OMVJsonRpcProxy extends OMVObject {
 	 * @throw E_RPC_INVALID_PARAMS
 	 */
 	protected function validate() {
-		$schema = new OMVJsonSchema('{
+		$schema = new \OMV\Json\Schema('{
 			"type":"object",
 			"properties":{
 				"service":{"type":"string","required":true},

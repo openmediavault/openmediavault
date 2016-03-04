@@ -25,6 +25,7 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/product.inc");
 require_once("openmediavault/system.inc");
 require_once("openmediavault/util.inc");
+require_once("openmediavault/json/file.inc");
 
 /**
  * Base class for a HTML page.
@@ -162,7 +163,7 @@ EOF;
 		$parts[] = strtolower(get_class($this));
 		$parts[] = $this->getCacheFileId();
 		$parts[] = "js";
-		$jsonFile = new OMVJsonFile(sprintf("%s/cache.%s.json",
+		$jsonFile = new \OMV\Json\File(sprintf("%s/cache.%s.json",
 		  $GLOBALS['OMV_CACHE_DIR'], implode("_", array_filter($parts))));
 		if ($jsonFile->exists() && !(boolvalEx($GLOBALS['OMV_DEBUG_PHP']) ||
 		  boolvalEx($GLOBALS['OMV_DEBUG_EXTJS']))) {

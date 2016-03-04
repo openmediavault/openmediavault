@@ -23,6 +23,7 @@ require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/functions.inc");
+require_once("openmediavault/json/file.inc");
 
 class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 	/**
@@ -133,7 +134,7 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 		  ));
 		// Read the plugin information from the plugin index. This will
 		// be updated automatically via APT trigger.
-		$indexFile = new OMVJsonFile($GLOBALS['OMV_APT_UPGRADE_INDEX_FILE']);
+		$indexFile = new \OMV\Json\File($GLOBALS['OMV_APT_UPGRADE_INDEX_FILE']);
 		if (!$indexFile->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  "The index of upgradeable packages does not exist. Please ".

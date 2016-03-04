@@ -27,6 +27,7 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/notify.inc");
+require_once("openmediavault/json/file.inc");
 
 class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 	/**
@@ -344,7 +345,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				$fileName = sprintf("/tmp/%s", $file->getFilename());
 				// Read the file content and decode JSON data into an
 				// associative array.
-				$jsonFile = new OMVJsonFile($fileName);
+				$jsonFile = new \OMV\Json\File($fileName);
 				$jsonFile->open("r");
 				$fsInfo = $jsonFile->read();
 				$jsonFile->close();
@@ -586,7 +587,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			// been finished).
 			$fileName = sprintf("/tmp/omv-initfs@%s.build", str_replace(
 			  $sd->getDeviceFile(), "/", "_"));
-			$jsonFile = new OMVJsonFile($fileName);
+			$jsonFile = new \OMV\Json\File($fileName);
 			$jsonFile->open("c");
 			$jsonFile->write(array(
 				"devicefile" => $fsDeviceFile,

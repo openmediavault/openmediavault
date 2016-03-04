@@ -25,6 +25,7 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/notify.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/functions.inc");
+require_once("openmediavault/json/file.inc");
 
 /**
  * The core module class.
@@ -108,7 +109,7 @@ abstract class OMVModuleAbstract extends OMVObject {
 		// create a new file.
 		$filename = sprintf("/var/lib/openmediavault/%s_tasks.json",
 		  $this->getName());
-		$jsonFile = new OMVJsonFile($filename);
+		$jsonFile = new \OMV\Json\File($filename);
 		$exists = $jsonFile->exists();
 		$jsonFile->open("c+");
 		if ($exists)
@@ -134,7 +135,7 @@ abstract class OMVModuleAbstract extends OMVObject {
 	final protected function execTasks($id) {
 		$filename = sprintf("/var/lib/openmediavault/%s_tasks.json",
 		  $this->getName());
-		$jsonFile = new OMVJsonFile($filename);
+		$jsonFile = new \OMV\Json\File($filename);
 		if (!$jsonFile->exists())
 			return;
 		$jsonFile->open("c+");
@@ -345,7 +346,7 @@ class OMVModuleMgr extends OMVObject {
 	 * @return An array containing the names of the dirty marked modules.
 	 */
 	final public function getDirtyModules() {
-		$jsonFile = new OMVJsonFile($GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
+		$jsonFile = new \OMV\Json\File($GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
 		if(!$jsonFile->exists())
 			return array();
 		$jsonFile->open("r", LOCK_SH);
@@ -360,7 +361,7 @@ class OMVModuleMgr extends OMVObject {
 	 * @return The list of dirty modules.
 	 */
 	final public function setModuleDirty($name) {
-		$jsonFile = new OMVJsonFile($GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
+		$jsonFile = new \OMV\Json\File($GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
 		$jsonFile->open("c+");
 		$modules = $jsonFile->read();
 		$modules[] = strtolower($name);
