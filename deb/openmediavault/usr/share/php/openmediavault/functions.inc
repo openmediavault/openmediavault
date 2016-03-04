@@ -262,7 +262,7 @@ function is_json($var) {
  * @return TRUE if the variable is an IP address, otherwise FALSE.
  */
 function is_ipaddr($var) {
-	if(!is_string($var))
+	if (!is_string($var))
 		return FALSE;
 	return filter_var($var, FILTER_VALIDATE_IP);
 }
@@ -274,7 +274,7 @@ function is_ipaddr($var) {
  * @return TRUE if the variable is an IPv4 address, otherwise FALSE.
  */
 function is_ipaddr4($var) {
-	if(!is_string($var))
+	if (!is_string($var))
 		return FALSE;
 	return filter_var($var, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4);
 }
@@ -286,7 +286,7 @@ function is_ipaddr4($var) {
  * @return TRUE if the variable is an IPv6 address, otherwise FALSE.
  */
 function is_ipaddr6($var) {
-	if(!is_string($var))
+	if (!is_string($var))
 		return FALSE;
 	return filter_var($var, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6);
 }
@@ -301,6 +301,14 @@ function is_multiarray($var) {
 	if (count($var, COUNT_RECURSIVE) !== count($var))
 		return TRUE;
 	return FALSE;
+}
+
+/**
+ * Finds out whether a variable is an associative array.
+ * @return TRUE if the variable is an associative array, otherwise FALSE.
+ */
+function is_assoc($var) {
+	return array_keys($var) !== range(0, count($var) - 1);
 }
 
 /**

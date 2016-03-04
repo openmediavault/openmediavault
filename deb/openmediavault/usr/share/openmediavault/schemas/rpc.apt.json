@@ -1,0 +1,62 @@
+[{
+	"type": "object",
+	"id": "apt.upload",
+	"properties": {
+		"filename": {
+			"type": "string"
+		},
+		"filepath": {
+			"type": "string"
+		}
+	}
+},{
+	"type": "object",
+	"id": "apt.upgrade",
+	"properties": {
+		"packages": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		}
+	}
+},{
+	"type": "object",
+	"id": "Apt.setSettings",
+	"properties": {
+		"proposed": {
+			"type": "boolean"
+		},
+		"partner": {
+			"type": "boolean"
+		}
+	}
+},{
+	"type": "object",
+	"id": "apt.getupgradedlist",
+	"properties": {
+		"start": {
+			"type": "integer",
+			"required": true
+		},
+		"limit": {
+			"type": [ "integer", "null" ],
+			"required": true
+		},
+		"sortfield": {
+			"type": [ "string", "null" ]
+		},
+		"sortdir": {
+			"type": [ "string", "null" ],
+			"enum": [ "asc", "desc" ]
+		}
+	}
+},{
+	"type": "object",
+	"id": "apt.getchangelog",
+	"properties": {
+		"filename": {
+			"type": "string"
+		}
+	}
+}]

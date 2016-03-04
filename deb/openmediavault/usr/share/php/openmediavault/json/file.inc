@@ -162,7 +162,7 @@ class File extends \OMVObject {
 	 *   the decoded content is returned.
 	 * @throw E_MISC_FAILURE
 	 */
-	public function read($decode = TRUE) {
+	public function read($decode = TRUE, $assoc = TRUE) {
 		if (FALSE === rewind($this->fh)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to rewind file (filename=%s).",
@@ -181,7 +181,7 @@ class File extends \OMVObject {
 		}
 		// Decode the content if requested.
 		if (TRUE === $decode) {
-			if (FALSE === ($content = json_decode_safe($content, TRUE))) {
+			if (FALSE === ($content = json_decode_safe($content, $assoc))) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  sprintf("Failed to decode content (filename=%s): %s",
 				  $this->filename, json_last_error_msg()));

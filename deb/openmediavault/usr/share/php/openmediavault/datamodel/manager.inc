@@ -55,15 +55,21 @@ class Manager extends \OMVObject {
 				continue;
 			if ("json" !== strtolower($item->getExtension()))
 				continue;
+			// Read the JSON content and decode it.
 			$file = new \OMV\Json\File($item->getPathname());
 			if (!$file->exists())
 				continue;
 			$file->open("r");
 			$schema = $file->read();
 			$file->close();
-			$model = new Model($schema);
-			if (!$this->registerModel($model))
-				return FALSE;
+			// Note, a schema file can contain multiple definitions.
+			if (is_assoc($schema))
+				$schema = array($schema);
+			foreach ($schema as $schemak => $schemav) {
+				$model = new Model($schemav);
+				if (!$this->registerModel($model))
+					return FALSE;
+			}
 		}
 		return TRUE;
 	}
@@ -91,6 +97,7 @@ class Manager extends \OMVObject {
 			}
 			// Append the model.
 			$this->map[strtolower($idv)] = $model;
+			ksort($this->map);
 		}
 		return TRUE;
 	}
