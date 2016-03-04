@@ -110,9 +110,19 @@ class OMVDataModel extends OMVObject {
 		return array_value($schemaAssoc, "description", "");
 	}
 
+	public function validate($value) {
+		$schema = $this->getSchema();
+		if (FALSE === $schema->validate($value)) {
+			$this->setLastError($schema->getLastError());
+			return FALSE;
+		}
+		return TRUE;
+	}
+
 	public function validateProperty($name, $value) {
-		if (FALSE === $this->getSchema()->validate($value, $name)) {
-			$this->setLastError($this->getSchema()->getLastError());
+		$schema = $this->getSchema();
+		if (FALSE === $schema->validate($value, $name)) {
+			$this->setLastError($schema->getLastError());
 			return FALSE;
 		}
 		return TRUE;
@@ -142,7 +152,7 @@ class OMVDataModel extends OMVObject {
 	public function propertyExists($name) {
 		if (FALSE === $this->getSchema()->getSchemaAssocByPath($name)) {
 			$this->setLastError(
-			  sprintf("The property '%s' does not exist.", $name);
+			  sprintf("The property '%s' does not exist.", $name));
 			return FALSE;
 		}
 		return TRUE;
@@ -228,10 +238,12 @@ class OMVDataModelManager extends OMVObject {
 		$ids[] = $model->getId();
 		$ids[] = $model->getAlias();
 		foreach ($ids as $idk => $idv) {
+			if (empty($idv))
+				continue;
 			// Check if the model already exists.
 			if (FALSE !== $this->getModel($idv)) {
 				$this->setLastError(
-				  sprintf("The data model is already registered (id=%s).",
+				  sprintf("The data model '%s' is already registered.",
 				  $idv));
 				return FALSE;
 			}

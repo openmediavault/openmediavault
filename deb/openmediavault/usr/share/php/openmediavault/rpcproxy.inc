@@ -26,6 +26,7 @@ require_once("openmediavault/functions.inc");
 require_once("openmediavault/session.inc");
 require_once("openmediavault/rpc.inc");
 require_once("openmediavault/rpcservice.inc");
+require_once("openmediavault/jsonschema.inc");
 
 /**
  * The generic RPC proxy implementation that handles JSON RPC requests.
@@ -40,15 +41,6 @@ require_once("openmediavault/rpcservice.inc");
  */
 class OMVJsonRpcProxy extends OMVObject {
 	protected $params = NULL;
-	protected $paramsSchema = '{
-		"type":"object",
-		"properties":{
-			"service":{"type":"string"},
-			"method":{"type":"string"},
-			"params":{"type":"any"},
-			"options":{"type":"object","optional":true}
-		}
-	}';
 
 	/**
 	 * Handle the RPC request.
@@ -64,11 +56,7 @@ class OMVJsonRpcProxy extends OMVObject {
 		}
 
 		// Validate RPC parameters.
-		$errors = NULL;
-		if(FALSE === $this->validate($errors)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_INVALID_PARAMS,
-			  implode("; ", $errors));
-		}
+		$this->validate();
 
 		// Process optional RPC options.
 		$updateLastAccess = TRUE;
@@ -142,12 +130,25 @@ class OMVJsonRpcProxy extends OMVObject {
 
 	/**
 	 * Validate the RPC parameters.
-	 * @param errors Contains the error messages if validation fails.
-	 * @return TRUE if valid, otherwise FALSE.
+	 * @return None.
+	 * @throw E_DATAMODEL_NOT_EXISTS
+	 * @throw E_RPC_INVALID_PARAMS
 	 */
-	protected function validate(&$errors) {
-		return json_validate(json_encode_safe($this->params),
-		  $this->paramsSchema, $errors);
+	protected function validate() {
+		$schema = new OMVJsonSchema('{
+			"type":"object",
+			"properties":{
+				"service":{"type":"string","required":true},
+				"method":{"type":"string","required":true},
+				"params":{"type":"any","required":true},
+				"options":{"type":["null","object"],"required":false}
+			}
+		}');
+		if (FALSE === ($valid = $schema->validate(json_encode_safe(
+		  $this->params)))) {
+			throw new OMVException(OMVErrorMsg::E_RPC_INVALID_PARAMS,
+			  $schema->getLastError());
+		}
 	}
 
 	/**

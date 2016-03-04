@@ -86,13 +86,7 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "proposed":{"type":"boolean"},
-				  "partner":{"type":"boolean"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "Apt.setSettings");
 		// Prepare configuration objects
 		$object = array(
 			  "proposed" => array_boolval($params, 'proposed'),

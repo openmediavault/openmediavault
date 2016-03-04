@@ -23,6 +23,7 @@ require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/notify.inc");
+require_once("openmediavault/datamodel.inc");
 
 /**
  * The core RPC service class.
@@ -171,22 +172,35 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	 * @param params The parameters to be validated.
 	 * @param schema The JSON schema that describes the method parameters.
 	 *   Can be given as UTF-8 encoded JSON or an associative array.
+	 *   Alternatively this can be the identifier of a data model used
+	 *   for validation.
 	 * @return None.
 	 * @throw E_RPC_SERVICE_METHOD_INVALID_PARAMS
 	 */
 	final protected function validateMethodParams($params, $schema) {
 //		$this->debug(var_export(func_get_args(), TRUE));
-		// Check if the schema is JSON. If it is an associative array,
-		// then auto-convert it into JSON.
-		if (is_array($schema))
-			$schema = json_encode_safe($schema);
 		// Convert the given paramaters into JSON.
 		$params = json_encode_safe($params);
-		// Validate parameters using the defined JSON schema.
-		if (FALSE === json_validate($params, $schema, $errors)) {
+		// Get the data model/schema used to validate the parameters.
+		if (!is_json($schema) && is_string($schema)) {
+			$modelMgr = &OMVDataModelManager::getInstance();
+			if (FALSE === ($model = $modelMgr->getModel($schema))) {
+				throw new OMVException(OMVErrorMsg::E_DATAMODEL_NOT_EXISTS,
+				  $schema);
+			}
+			$schema = $model->getSchema();
+		} else {
+			// Check if the schema is JSON. If it is an associative array,
+			// then auto-convert it into JSON.
+			if (is_array($schema))
+				$schema = json_encode_safe($schema);
+			// Create the data model schema.
+			$schema = new OMVDataModelSchema($schema);
+		}
+		if (FALSE === $schema->validate($params)) {
 			throw new OMVException(
 			  OMVErrorMsg::E_RPC_SERVICE_METHOD_INVALID_PARAMS,
-			  implode("; ", $errors));
+			  $model->getLastError());
 		}
 	}
 

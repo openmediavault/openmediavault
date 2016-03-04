@@ -117,7 +117,7 @@ class OMVJsonSchema extends OMVObject {
 			return FALSE;
 		// Navigate down to the given path.
 		if (FALSE === ($schema = $this->_getSchemaAssocByPath(
-		  $name, $schema)) {
+		  $name, $schema))) {
 			$this->setLastError(sprintf("The path '%s' is invalid.", $name));
 			return FALSE;
 		}
@@ -525,7 +525,11 @@ class OMVJsonSchema extends OMVObject {
         }
 		$valueProps = get_object_vars($value);
 		foreach ($schema['properties'] as $propk => $propv) {
-			$path = sprintf("%s.%s", $name, $propk);
+			// Build the new path. Strip empty parts.
+			$parts = array($name, $propk);
+			$parts = array_filter($parts, "strlen");
+			$path = implode(".", $parts);
+			// Check if the 'required' attribute is set.
 			if (!array_key_exists($propk, $valueProps)) {
 				if (isset($propv['required']) &&
 				  (TRUE === $propv['required'])) {

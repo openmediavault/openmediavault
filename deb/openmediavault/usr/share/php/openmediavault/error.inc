@@ -68,6 +68,9 @@ class OMVErrorMsg {
 	const E_ENGINED_CONNECT_SOCKET = 7001;
 	const E_ENGINED_WRITE_SOCKET = 7002;
 	const E_ENGINED_READ_SOCKET = 7003;
+	// Data model
+	const E_DATAMODEL_LOAD_FAILED = 8000;
+	const E_DATAMODEL_NOT_EXISTS = 8001;
 
 	static $msg = array(
 		self::E_RPC_GET_PARAMS_FAILED => "Failed to get RPC parameters",
@@ -105,7 +108,9 @@ class OMVErrorMsg {
 		self::E_ENGINED_CREATE_SOCKET => "Failed to create socket: %s",
 		self::E_ENGINED_CONNECT_SOCKET => "Failed to connect to socket: %s",
 		self::E_ENGINED_WRITE_SOCKET => "Failed to write to socket: %s",
-		self::E_ENGINED_READ_SOCKET => "Failed to read from socket: %s"
+		self::E_ENGINED_READ_SOCKET => "Failed to read from socket: %s",
+		self::E_DATAMODEL_LOAD_FAILED => "Failed to load data models: %s",
+		self::E_DATAMODEL_NOT_EXISTS => "The data model '%s' is not defined"
 	);
 
 	/**
