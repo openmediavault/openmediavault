@@ -24,6 +24,7 @@ namespace OMV\DataModel;
 require_once("openmediavault/object.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/json/file.inc");
+require_once("openmediavault/json/schema.inc");
 require_once("openmediavault/datamodel/model.inc");
 
 /**
@@ -82,6 +83,26 @@ class Manager extends \OMVObject {
 	final public function registerModel(Model $model) {
 		if (!isset($model))
 			return FALSE;
+		// Validate the data model definition.
+		$schema = new \OMV\Json\Schema('{
+			"type":"object",
+			"properties":{
+				"type":"object",
+				"properties":{
+					"type":{"type":"string","enum":["object"],"required":true},
+					"id":{"type":"string","required":true},
+					"alias":{"type":"string","required":false},
+					"title":{"type":"string","required":false},
+					"properties":{"type":"object","required":true}
+				}
+			}
+		}');
+		if (FALSE === ($valid = $schema->validate($model))) {
+			$this->setLastError(
+			sprintf("The data model definition is invalid: %s",
+			$schema->getLastError()));
+			return FALSE;
+		}
 		$ids = array();
 		$ids[] = $model->getId();
 		$ids[] = $model->getAlias();

@@ -25,7 +25,7 @@ require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/notify.inc");
 require_once("openmediavault/json/file.inc");
-require_once("openmediavault/util/toplogicalsort.inc");
+require_once("openmediavault/util/topologicalsort.inc");
 
 class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 	/**
@@ -142,7 +142,7 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 			  array($modulev)));
 		}
 		// Build the dependency list and stop all services.
-		$tsort = new \OMV\Util\ToplogicalSort();
+		$tsort = new \OMV\Util\TopologicalSort();
 		foreach($processModules as $name => $object) {
 			if(FALSE === $tsort->add($name, $object->shouldStop())) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,

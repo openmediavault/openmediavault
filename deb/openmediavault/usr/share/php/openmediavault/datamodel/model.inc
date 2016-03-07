@@ -42,22 +42,22 @@ class Model extends \OMVObject {
 	}
 
 	public function getId() {
-		$schemaAssoc = $this->getSchema()->getSchemaAssoc();
+		$schemaAssoc = $this->getSchema()->getAssoc();
 		return array_value($schemaAssoc, "id", FALSE);
 	}
 
 	public function getAlias() {
-		$schemaAssoc = $this->getSchema()->getSchemaAssoc();
+		$schemaAssoc = $this->getSchema()->getAssoc();
 		return array_value($schemaAssoc, "alias", FALSE);
 	}
 
 	public function getTitle() {
-		$schemaAssoc = $this->getSchema()->getSchemaAssoc();
+		$schemaAssoc = $this->getSchema()->getAssoc();
 		return array_value($schemaAssoc, "title", "");
 	}
 
 	public function getDescription() {
-		$schemaAssoc = $this->getSchema()->getSchemaAssoc();
+		$schemaAssoc = $this->getSchema()->getAssoc();
 		return array_value($schemaAssoc, "description", "");
 	}
 
@@ -101,7 +101,7 @@ class Model extends \OMVObject {
 	}
 
 	public function propertyExists($name) {
-		if (FALSE === $this->getSchema()->getSchemaAssocByPath($name)) {
+		if (FALSE === $this->getSchema()->getAssocByPath($name)) {
 			$this->setLastError(
 			  sprintf("The property '%s' does not exist.", $name));
 			return FALSE;
@@ -109,27 +109,17 @@ class Model extends \OMVObject {
 		return TRUE;
 	}
 
-	public function getDefaultsAssoc() {
-		$schemaAssoc = $this->getSchema()->getSchemaAssoc();
-		$object = array();
-		$this->_getDefaultAssoc($schemaAssoc, $object);
-		return $object;
-	}
-
-	/**
-	 * Helper method.
-	 */
-	private function _getDefaultAssoc($schema, &$object) {
+	public function walk($callback, &$userData = NULL, $schema = NULL) {
+		if (NULL == $schema)
+			$schema = $this->getSchema()->getAssoc();
 		if (array_key_exists("type", $schema) && ("object" == $schema['type'])) {
-			$object = array();
+			call_user_func_array($callback, array("", $schema, &$userData));
 			if (!array_key_exists("properties", $schema))
 				return;
 			foreach ($schema['properties'] as $propName => $propSchema) {
-				$default = NULL;
-				if (array_key_exists("default", $propSchema))
-					$default = $propSchema['default'];
-				$object[$propName] = $default;
-				$this->_getDefaultAssoc($propSchema, $object[$propName]);
+				call_user_func_array($callback, array($propName,
+				  $propSchema, &$userData));
+				$this->walk($callback, $userData, $propSchema);
 			}
 		}
 	}

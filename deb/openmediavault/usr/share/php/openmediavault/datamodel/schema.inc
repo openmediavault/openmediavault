@@ -27,7 +27,7 @@ require_once("openmediavault/json/schema.inc");
 
 class Schema extends \OMV\Json\Schema {
 	final public function getTypeByPath($name) {
-		if (FALSE === ($schema = $this->getSchemaAssocByPath($name)))
+		if (FALSE === ($schema = $this->getAssocByPath($name)))
 			return FALSE;
 		return $schema['type'];
 	}

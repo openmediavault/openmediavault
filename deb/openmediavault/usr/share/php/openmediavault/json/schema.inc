@@ -70,7 +70,7 @@ class Schema extends \OMVObject {
 	 *         )
 	 * )
 	 */
-	private function _getSchemaAssocByPath($path, $schema) {
+	private function _getAssocByPath($path, $schema) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Validate the path. Something like "aa.bb.cc." or ".xx.yy"
 		// is invalid.
@@ -84,13 +84,13 @@ class Schema extends \OMVObject {
 		// Do we process an 'object' node? In this case step down to
 		// the 'properties' leaf.
 		if (array_key_exists("type", $schema) && ("object" == $schema['type']))
-			return $this->_getSchemaAssocByPath($path, $schema['properties']);
+			return $this->_getAssocByPath($path, $schema['properties']);
 		$key = array_shift($parts);
 		// Check if the key/value pair exists.
 		if (!array_key_exists($key, $schema))
 			return FALSE;
 		// Walk down the tree.
-		return $this->_getSchemaAssocByPath(implode(".", $parts),
+		return $this->_getAssocByPath(implode(".", $parts),
 		  $schema[$key]);
 	}
 
@@ -98,7 +98,7 @@ class Schema extends \OMVObject {
 	 * Returns the JSON schema.
 	 * @return The JSON schema as associative array or FALSE on failure.
 	 */
-	final public function getSchemaAssoc() {
+	final public function getAssoc() {
 		if (is_string($this->schema)) {
 			$this->schema = json_decode($this->schema, TRUE);
 			if (is_null($this->schema)) {
@@ -114,12 +114,12 @@ class Schema extends \OMVObject {
 	 * Returns the JSON schema by the given path.
 	 * @return The JSON schema as associative array or FALSE on failure.
 	 */
-	final public function getSchemaAssocByPath($name) {
+	final public function getAssocByPath($name) {
 		// Get the schema.
-		if (FALSE === ($schema = $this->getSchemaAssoc()))
+		if (FALSE === ($schema = $this->getAssoc()))
 			return FALSE;
 		// Navigate down to the given path.
-		if (FALSE === ($schema = $this->_getSchemaAssocByPath(
+		if (FALSE === ($schema = $this->_getAssocByPath(
 		  $name, $schema))) {
 			$this->setLastError(sprintf("The path '%s' is invalid.", $name));
 			return FALSE;
@@ -137,7 +137,7 @@ class Schema extends \OMVObject {
 	final public function validate($value, $name = "") {
 		if (is_string($value))
 			$value = json_decode($value);
-		if (FALSE === ($schema = $this->getSchemaAssocByPath($name)))
+		if (FALSE === ($schema = $this->getAssocByPath($name)))
 			return FALSE;
 		return $this->validateType($value, $schema, $name);
 	}

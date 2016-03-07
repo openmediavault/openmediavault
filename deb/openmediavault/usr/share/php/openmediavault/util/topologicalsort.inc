@@ -27,7 +27,7 @@ require_once("openmediavault/functions.inc");
  * Sorts a series of dependencies in linear order (topological sort).
  * @ingroup api
  * @code
- * $tsort = new \OMV\Util\ToplogicalSort;
+ * $tsort = new \OMV\Util\TopologicalSort;
  * $tsort->add("node1", array());
  * $tsort->add("node2", "node1");
  * $tsort->add("node4", array("node2"));
@@ -44,7 +44,7 @@ require_once("openmediavault/functions.inc");
  * )
  * @endcode
  */
-class ToplogicalSort {
+class TopologicalSort {
 	private $nodes;
 	private $dependencies;
 

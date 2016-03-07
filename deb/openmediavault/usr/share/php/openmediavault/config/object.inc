@@ -49,12 +49,16 @@ class Object extends \OMVObject {
 			return FALSE;
 		}
 		$this->model = $model;
-		$this->properties = $this->getModel()->getDefaultsAssoc();
+		$this->properties = $this->getDefaultsAssoc();
 		return TRUE;
 	}
 
 	public function isInitialized() {
-		return ($this->getModel() instanceof \OMV\DataModel\Model);
+		if (!($this->getModel() instanceof \OMV\DataModel\Model)) {
+			$this->setLastError("Object is not initialized.");
+			return FALSE;
+		}
+		return TRUE;
 	}
 
 	private function getModel() {
@@ -67,10 +71,8 @@ class Object extends \OMVObject {
 	 * @return The property value, otherwise NULL.
 	 */
 	public function get($name) {
-		if (FALSE === $this->isInitialized()) {
-			$this->setLastError("Object is not initialized.");
+		if (FALSE === $this->isInitialized())
 			return FALSE;
-		}
 		$model = $this->getModel();
 		if (FALSE === $model->propertyExists($name)) {
 			$this->setLastError($model->getLastError());
@@ -88,6 +90,32 @@ class Object extends \OMVObject {
 	}
 
 	/**
+	 * Get the default properties.
+	 * @return The array of key/value pairs with the default values as
+	 *   described by the data model, otherwise FALSE.
+	 */
+	public function getDefaultsAssoc() {
+		if (FALSE === $this->isInitialized())
+			return FALSE;
+		$object = array();
+		$fn = function($name, $schema, &$userData) {
+			switch ($schema['type']) {
+			case "object":
+				$userData = array();
+				break;
+			default:
+				$default = NULL;
+				if (array_key_exists("default", $schema))
+					$default = $schema['default'];
+				$userData[$name] = $default;
+				break;
+			}
+		};
+		$this->getModel()->walk($fn, $object);
+		return $object;
+	}
+
+	/**
 	 * Set a property.
 	 * @param name The name of the property.
 	 * @param value The value of the property.
@@ -95,10 +123,8 @@ class Object extends \OMVObject {
 	 */
 	public function set($name, $value, $validate = TRUE) {
 //		$this->debug(var_export(func_get_args(), TRUE));
-		if (FALSE === $this->isInitialized()) {
-			$this->setLastError("Object is not initialized.");
+		if (FALSE === $this->isInitialized())
 			return FALSE;
-		}
 		$model = $this->getModel();
 		if (FALSE === $model->propertyExists($name)) {
 			$this->setLastError($model->getLastError());
