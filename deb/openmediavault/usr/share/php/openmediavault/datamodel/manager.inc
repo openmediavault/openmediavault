@@ -23,9 +23,6 @@ namespace OMV\DataModel;
 
 require_once("openmediavault/object.inc");
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/json/file.inc");
-require_once("openmediavault/json/schema.inc");
-require_once("openmediavault/datamodel/model.inc");
 
 /**
  * The data model manager keeps track of all model types.

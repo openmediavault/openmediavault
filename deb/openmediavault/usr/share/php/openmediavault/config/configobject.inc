@@ -24,8 +24,6 @@ namespace OMV\Config;
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/datamodel/model.inc");
-require_once("openmediavault/datamodel/manager.inc");
 
 class ConfigObject extends \OMVObject {
 	private $model = NULL;

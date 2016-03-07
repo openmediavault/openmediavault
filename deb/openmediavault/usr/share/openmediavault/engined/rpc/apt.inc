@@ -23,8 +23,6 @@ require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/json/file.inc");
-require_once("openmediavault/config/database.inc");
 
 class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 	/**

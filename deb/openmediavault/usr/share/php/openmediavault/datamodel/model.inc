@@ -23,7 +23,6 @@ namespace OMV\DataModel;
 
 require_once("openmediavault/object.inc");
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/datamodel/schema.inc");
 
 class Model extends \OMVObject {
 	private $schema = NULL;

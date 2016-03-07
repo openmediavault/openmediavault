@@ -19,14 +19,13 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/globals.inc");
-require_once("openmediavault/error.inc");
 
-$modelMgr = &\OMV\DataModel\Manager::getInstance();
-if (FALSE === $modelMgr->load($GLOBALS['OMV_JSONSCHEMAS_DIR'])) {
-	throw new OMVException(OMVErrorMsg::E_DATAMODEL_LOAD_FAILED,
-	  $modelMgr->getLastError());
-}
-if (TRUE === $debug) {
-	$modelMgr->dump();
-}
+spl_autoload_register(function($className) {
+	$parts = explode("\\", trim($className, "\\"));
+	$prefix = array_shift($parts);
+	if ("OMV" !== $prefix)
+		return;
+	array_unshift($parts, "openmediavault");
+	$pathName = strtolower(sprintf("%s.inc", implode("/", $parts)));
+	require_once $pathName;
+});

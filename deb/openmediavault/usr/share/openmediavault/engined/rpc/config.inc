@@ -24,8 +24,6 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/notify.inc");
-require_once("openmediavault/json/file.inc");
-require_once("openmediavault/util/topologicalsort.inc");
 
 class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 	/**

@@ -24,7 +24,6 @@ namespace OMV\DataModel;
 require_once("openmediavault/globals.inc");
 require_once("openmediavault/object.inc");
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/json/schema.inc");
 
 class Schema extends \OMV\Json\Schema {
 	final public function getTypeByPath($name) {
