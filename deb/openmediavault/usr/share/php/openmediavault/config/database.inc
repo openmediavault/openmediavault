@@ -88,7 +88,7 @@ class Database extends \OMVObject {
 	 */
 	public function set($xpath, $object) {
 		global $xmlConfig;
-		if (FALSE === $this->validateObject())
+		if (FALSE === $this->validateObject($object))
 			return FALSE;
 		$data = $object->getAssoc();
 		if (FALSE === $xmlConfig->set($xpath, $data)) {
@@ -107,7 +107,7 @@ class Database extends \OMVObject {
 	 */
 	public function replace($xpath, $object) {
 		global $xmlConfig;
-		if (FALSE === $this->validateObject())
+		if (FALSE === $this->validateObject($object))
 			return FALSE;
 		$data = $object->getAssoc();
 		if (FALSE === $xmlConfig->replace($xpath, $data)) {
@@ -129,7 +129,7 @@ class Database extends \OMVObject {
 	 */
 	public function update($xpath, $object) {
 		global $xmlConfig;
-		if (FALSE === $this->validateObject())
+		if (FALSE === $this->validateObject($object))
 			return FALSE;
 		$data = $object->getAssoc();
 		if (FALSE === $xmlConfig->update($xpath, $data)) {
