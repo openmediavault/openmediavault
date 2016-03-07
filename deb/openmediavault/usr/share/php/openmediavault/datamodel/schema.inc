@@ -21,6 +21,7 @@
  */
 namespace OMV\DataModel;
 
+require_once("openmediavault/globals.inc");
 require_once("openmediavault/object.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/json/schema.inc");
@@ -57,6 +58,16 @@ class Schema extends \OMV\Json\Schema {
 				  $name, $value));
 			}
 			break;
+		case "uuidv4-undefined":
+			if (!preg_match('/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-'.
+			  '[a-f0-9]{4}-[a-f0-9]{12}|'.$GLOBALS['OMV_UUID_UNDEFINED'].
+			  '$/i', $value)) {
+				$valid = FALSE;
+				$this->setLastError(
+				  sprintf("%s: The value '%s' is not an UUIDv4 or undefined.",
+				  $name, $value));
+			}
+			break;
 		case "fsuuid":
 			if (!is_fs_uuid($value)) {
 				$valid = FALSE;
@@ -82,7 +93,7 @@ class Schema extends \OMV\Json\Schema {
 				  $name, $value));
 			}
 			break;
-		case "sshpubkey-RFC4716":
+		case "sshpubkey-rfc4716":
 			if (!preg_match('/^---- BEGIN SSH2 PUBLIC KEY ----(\n|\r|\f)(.+)'.
 		      '(\n|\r|\f)---- END SSH2 PUBLIC KEY ----$/sm', $value)) {
 				$valid = FALSE;
@@ -91,7 +102,7 @@ class Schema extends \OMV\Json\Schema {
 				  $name, $value));
 			}
 			break;
-		case "sshprivkey-RSA":
+		case "sshprivkey-rsa":
 			if (!preg_match(/^-----BEGIN RSA PRIVATE KEY-----(\n|\r|\f)(.+)'.
 		      '(\n|\r|\f)-----END RSA PRIVATE KEY-----$/sm, $value)) {
 				$valid = FALSE;

@@ -3,10 +3,12 @@
 	"id": "apt.upload",
 	"properties": {
 		"filename": {
-			"type": "string"
+			"type": "string",
+			"required": true
 		},
 		"filepath": {
-			"type": "string"
+			"type": "string",
+			"required": true
 		}
 	}
 },{
@@ -17,7 +19,8 @@
 			"type": "array",
 			"items": {
 				"type": "string"
-			}
+			},
+			"required": true
 		}
 	}
 },{
@@ -25,10 +28,12 @@
 	"id": "apt.setsettings",
 	"properties": {
 		"proposed": {
-			"type": "boolean"
+			"type": "boolean",
+			"required": true
 		},
 		"partner": {
-			"type": "boolean"
+			"type": "boolean",
+			"required": true
 		}
 	}
 },{
@@ -56,7 +61,8 @@
 	"id": "apt.getchangelog",
 	"properties": {
 		"filename": {
-			"type": "string"
+			"type": "string",
+			"required": true
 		}
 	}
 }]
