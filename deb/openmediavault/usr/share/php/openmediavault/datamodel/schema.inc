@@ -95,7 +95,7 @@ class Schema extends \OMV\Json\Schema {
 			break;
 		case "sshpubkey-rfc4716":
 			if (!preg_match('/^---- BEGIN SSH2 PUBLIC KEY ----(\n|\r|\f)(.+)'.
-		      '(\n|\r|\f)---- END SSH2 PUBLIC KEY ----$/sm', $value)) {
+			  '(\n|\r|\f)---- END SSH2 PUBLIC KEY ----$/sm', $value)) {
 				$valid = FALSE;
 				$this->setLastError(
 				  sprintf("%s: The value '%s' is no SSH public key (RFC4716).",
@@ -103,8 +103,8 @@ class Schema extends \OMV\Json\Schema {
 			}
 			break;
 		case "sshprivkey-rsa":
-			if (!preg_match(/^-----BEGIN RSA PRIVATE KEY-----(\n|\r|\f)(.+)'.
-		      '(\n|\r|\f)-----END RSA PRIVATE KEY-----$/sm, $value)) {
+			if (!preg_match('/^-----BEGIN RSA PRIVATE KEY-----(\n|\r|\f)(.+)'.
+			  '(\n|\r|\f)-----END RSA PRIVATE KEY-----$/sm', $value)) {
 				$valid = FALSE;
 				$this->setLastError(
 				  sprintf("%s: The value '%s' is no SSH private key (RSA).",

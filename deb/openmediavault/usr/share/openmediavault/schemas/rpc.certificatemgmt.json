@@ -170,7 +170,7 @@
 	}
 },{
 	"type": "object",
-	"id": "certificatemgmt.delete",
+	"id": "certificatemgmt.deletessh",
 	"properties": {
 		"uuid": {
 			"type": "string",
