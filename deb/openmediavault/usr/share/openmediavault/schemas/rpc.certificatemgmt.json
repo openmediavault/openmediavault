@@ -1,0 +1,30 @@
+[{
+	"type": "object",
+	"id": "certificatemgmt.getlist",
+	"properties": {
+		"start": {
+			"type": "integer",
+			"required": true
+		},
+		"limit": {
+			"type": [ "integer", "null" ],
+			"required": true
+		},
+		"sortfield": {
+			"type": [ "string", "null" ]
+		},
+		"sortdir": {
+			"type": [ "string", "null" ],
+			"enum": [ "asc", "desc" ]
+		}
+	}
+},{
+	"type": "object",
+	"id": "certificatemgmt.get",
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		}
+	}
+}]

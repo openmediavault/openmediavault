@@ -65,6 +65,41 @@ class Schema extends \OMV\Json\Schema {
 				  $name, $value));
 			}
 			break;
+		case "devicefile":
+			if (!preg_match('/^\/dev(\/disk\/by-id)?\/.+$/i', $value)) {
+				$valid = FALSE;
+				$this->setLastError(
+				  sprintf("%s: The value '%s' is no device file name.",
+				  $name, $value));
+			}
+			break;
+		case "sshpubkey-openssh":
+			if (!preg_match('/^ssh-rsa AAAA[0-9A-Za-z+\/]+[=]{0,3}\s*'.
+			  '([^@]+@[^@]+|.+)*$/', $value)) {
+				$valid = FALSE;
+				$this->setLastError(
+				  sprintf("%s: The value '%s' is no SSH public key (OpenSSH).",
+				  $name, $value));
+			}
+			break;
+		case "sshpubkey-RFC4716":
+			if (!preg_match('/^---- BEGIN SSH2 PUBLIC KEY ----(\n|\r|\f)(.+)'.
+		      '(\n|\r|\f)---- END SSH2 PUBLIC KEY ----$/sm', $value)) {
+				$valid = FALSE;
+				$this->setLastError(
+				  sprintf("%s: The value '%s' is no SSH public key (RFC4716).",
+				  $name, $value));
+			}
+			break;
+		case "sshprivkey-RSA":
+			if (!preg_match(/^-----BEGIN RSA PRIVATE KEY-----(\n|\r|\f)(.+)'.
+		      '(\n|\r|\f)-----END RSA PRIVATE KEY-----$/sm, $value)) {
+				$valid = FALSE;
+				$this->setLastError(
+				  sprintf("%s: The value '%s' is no SSH private key (RSA).",
+				  $name, $value));
+			}
+			break;
 		default:
 			$valid = FALSE;
 			$this->setLastError(
