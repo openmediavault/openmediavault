@@ -26,7 +26,7 @@ require_once("openmediavault/functions.inc");
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/config.inc");
-require_once("openmediavault/config/object.inc");
+require_once("openmediavault/config/configobject.inc");
 
 class Database extends \OMVObject {
 	/**
@@ -41,7 +41,7 @@ class Database extends \OMVObject {
 	}
 
 	private function validateObject($object) {
-		if (FALSE === ($object instanceof Object)) {
+		if (FALSE === ($object instanceof ConfigObject)) {
 			$this->setLastError("Incorrect type of object attribute.");
 			return FALSE;
 		}
@@ -69,7 +69,7 @@ class Database extends \OMVObject {
 			  $xpath);
 			return FALSE;
 		}
-		$object = new Object($id);
+		$object = new ConfigObject($id);
 		if (FALSE === $object->initialize()) {
 			$this->setLastError($object->getLastError());
 			return FALSE;
