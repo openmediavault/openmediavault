@@ -40,8 +40,20 @@ class Database extends \OMVObject {
 		return $instance;
 	}
 
+	private function validateObject($object) {
+		if (FALSE === ($object instanceof Object)) {
+			$this->setLastError("Incorrect type of object attribute.");
+			return FALSE;
+		}
+		if (FALSE === $object->isInitialized()) {
+			$this->setLastError("The object attribute is not initialized.");
+			return FALSE;
+		}
+		return TRUE;
+	}
+
 	/**
-	 * Get the configuration object for the given XPath expression.
+	 * Get the configuration at the given XPath expression.
 	 * @param xpath The XPath expression to execute.
 	 * @param id The data model identifier. If \em id is not set, then
 	 *   the xpath will be used as identifier instead.
@@ -69,18 +81,73 @@ class Database extends \OMVObject {
 		return $object;
 	}
 
+	/**
+	 * Set the configuration at the given XPath expression.
+	 * @param xpath The XPath expression to execute.
+	 * @param object The configuration object to use.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function set($xpath, $object) {
+		global $xmlConfig;
+		if (FALSE === $this->validateObject())
+			return FALSE;
+		$data = $object->getAssoc();
+		if (FALSE === $xmlConfig->set($xpath, $data)) {
+			$this->setLastError("XPath expression '%s' does not match.",
+			  $xpath);
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	/**
+	 * Replace the configuration at the given XPath expression.
+	 * @param xpath The XPath expression to execute.
+	 * @param object The configuration object to use.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
 	public function replace($xpath, $object) {
 		global $xmlConfig;
-		if (!$object instanceof Object) {
-			$this->setLastError("Incorrect type of object attribute.");
+		if (FALSE === $this->validateObject())
 			return FALSE;
-		}
-		if (!$object->isInitialized()) {
-			$this->setLastError("The object attribute is not initialized.");
-			return FALSE;
-		}
 		$data = $object->getAssoc();
 		if (FALSE === $xmlConfig->replace($xpath, $data)) {
+			$this->setLastError("XPath expression '%s' does not match.",
+			  $xpath);
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	/**
+	 * Update the existing configuration at the given XPath expression.
+	 * The given data will override the existing configuration. If the
+	 * given XPath expression does not exist, then the method will exit
+	 * immediatelly.
+	 * @param xpath The XPath expression to execute.
+	 * @param object The configuration object to use.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function update($xpath, $object) {
+		global $xmlConfig;
+		if (FALSE === $this->validateObject())
+			return FALSE;
+		$data = $object->getAssoc();
+		if (FALSE === $xmlConfig->update($xpath, $data)) {
+			$this->setLastError("XPath expression '%s' does not match.",
+			  $xpath);
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	/**
+	 * Delete the nodes matching the given XPath expression.
+	 * @param xpath The XPath expression to execute.
+	 * @return Returns the deleted nodes, otherwise FALSE.
+	 */
+	public function delete($xpath) {
+		if (FALSE === $xmlConfig->delete($xpath)) {
 			$this->setLastError("XPath expression '%s' does not match.",
 			  $xpath);
 			return FALSE;
