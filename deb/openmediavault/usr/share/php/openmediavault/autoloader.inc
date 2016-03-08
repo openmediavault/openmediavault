@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-
 spl_autoload_register(function($className) {
 	$parts = explode("\\", trim($className, "\\"));
 	$prefix = array_shift($parts);

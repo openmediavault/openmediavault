@@ -27,16 +27,15 @@ require_once("openmediavault/exceptioncode.inc");
  * @ingroup api
  */
 class Session extends \OMV\BaseObject {
-	private static $instance = NULL;
-
 	/**
 	 * Returns the session singleton.
 	 * @return The session object.
 	 */
 	public static function &getInstance() {
-		if (is_null(self::$instance))
-			self::$instance = new Session();
-		return self::$instance;
+		static $instance = NULL;
+		if (!isset($instance))
+			$instance = new Session();
+		return $instance;
 	}
 
 	/**
@@ -140,7 +139,19 @@ class Session extends \OMV\BaseObject {
 	}
 
 	/**
-	 * Do some checks. In case of an error an exception is thrown.
+	 * Validate the authentication. If not valid, an exception is thrown.
+	 */
+	public function validateAuthentication() {
+		if (!$this->isAuthenticated()) {
+			throw new \OMV\Exception(
+			  \OMV\ExceptionCode::E_SESSION_NOT_AUTHENTICATED,
+			  "Session not authenticated.");
+		}
+	}
+
+	/**
+	 * Check if the session is valid. In case of an error the session is
+	 * destroyed and an exception is thrown.
 	 */
 	public function validate() {
 		$exception = null;

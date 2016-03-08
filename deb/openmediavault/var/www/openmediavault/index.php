@@ -22,7 +22,6 @@
 try {
 	require_once("openmediavault/autoloader.inc");
 	require_once("openmediavault/env.inc");
-	require_once("openmediavault/session.inc");
 	require_once("openmediavault/htmlpage.inc");
 
 	$session = &\OMV\Session::getInstance();

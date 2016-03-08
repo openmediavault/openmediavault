@@ -40,7 +40,6 @@ class Upload extends Json {
 	 * Copy the uploaded file to a temporary location. Modify this
 	 * filename to allow the RPC service method to process the correct
 	 * file.
-	 * @throw E_MISC_FAILURE
 	 */
 	protected function preExecute() {
 		// Is file successfully upload?

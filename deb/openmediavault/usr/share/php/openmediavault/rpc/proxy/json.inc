@@ -86,11 +86,7 @@ class Json extends \OMV\BaseObject {
 		if (FALSE === ($rpcService = $rpcServiceMgr->getService(
 		  $this->params['service']))) {
 			// Session MUST be authenticated at this point.
-			if (!$session->isAuthenticated()) {
-				throw new Exception(
-				  \OMV\ExceptionCode::E_SESSION_NOT_AUTHENTICATED,
-				  "Session not authenticated.");
-			}
+			$session->validateAuthentication();
 			// If service is not available locally, then we can commit
 			// the session due the fact that the RPC is redirected to
 			// the omv-engined daemon which does not have access to this
@@ -124,7 +120,8 @@ class Json extends \OMV\BaseObject {
 	}
 
 	/**
-	 * Validate the RPC parameters.
+	 * Validate the RPC parameters. An exception is thrown when
+	 * the validation fails.
 	 * @return None.
 	 */
 	protected function validate() {

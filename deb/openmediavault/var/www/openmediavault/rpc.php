@@ -24,9 +24,6 @@ try {
 	require_once("openmediavault/env.inc");
 	require_once("openmediavault/config.inc"); // Must be included here
 
-	$session = &\OMV\Session::getInstance();
-	$session->start();
-
 	// Load and initialize the RPC services that are not handled by the
 	// engine daemon.
 	$rpcServiceDir = sprintf("%s/rpc", $GLOBALS['OMV_DOCUMENTROOT_DIR']);
@@ -37,10 +34,14 @@ try {
 			continue;
 		if ("inc" !== strtolower($item->getExtension()))
 			continue;
-		require_once("{$rpcServiceDir}/{$item->getFilename()}");
+		$pathName = sprintf("%s/%s", $rpcServiceDir, $item->getFilename());
+		require_once $pathName;
 	}
 	$rpcServiceMgr = &\OMVRpcServiceMgr::getInstance();
 	$rpcServiceMgr->initializeServices();
+
+	$session = &\OMV\Session::getInstance();
+	$session->start();
 
 	$server = new OMV\Rpc\Proxy\Json();
 	$server->handle();
