@@ -31,27 +31,22 @@ try {
 	}
 	set_error_handler("exception_error_handler");
 
+	require_once("openmediavault/autoloader.inc");
 	require_once("openmediavault/env.inc");
 	require_once("openmediavault/globals.inc");
 	require_once("openmediavault/config.inc"); // Must be included here
-	require_once("openmediavault/session.inc");
 	require_once("openmediavault/functions.inc");
 
-	$session = &OMVSession::getInstance();
+	$session = &\OMV\Session::getInstance();
 	$session->start();
-
-	if($session->isAuthenticated()) {
-		$session->validate();
-		// Do not update last access time
-		//$session->updateLastAccess();
-	} else {
-		throw new OMVException(OMVErrorMsg::E_SESSION_NOT_AUTHENTICATED);
-	}
+	$session->validate();
+	// Do not update last access time
+	//$session->updateLastAccess();
 
 	// The parameter 'name' may not contain the characters '..'. This is
 	// because of security reasons: the given canonicalized absolute
 	// path MUST be below the given image directory.
-	if(1 == preg_match("/\.\./", $_GET['name'])) {
+	if (1 == preg_match("/\.\./", $_GET['name'])) {
 		throw new OMVException(OMVErrorMsg::E_RPC_INVALID_PARAMS,
 		  sprintf(gettext("The parameter '%s' contains forbidden two-dot symbols"),
 		  "name"));
@@ -59,12 +54,12 @@ try {
 	// Build the image filename. If it does not exist, then display an error
 	// image by default.
 	$filename = build_path(array($GLOBALS['OMV_RRDGRAPH_DIR'], $_GET['name']));
-	if(!file_exists($filename))
+	if (!file_exists($filename))
 		$filename = $GLOBALS['OMV_RRDGRAPH_ERROR_IMAGE'];
 	$fd = fopen($filename, "r");
 	header("Content-type: image/png");
 	fpassthru($fd);
-} catch(Exception $e) {
+} catch(\Exception $e) {
 	header("Content-Type: text/html");
 	printf("Error #".$e->getCode().":<br/>%s", str_replace("\n", "<br/>",
 	  $e->__toString()));

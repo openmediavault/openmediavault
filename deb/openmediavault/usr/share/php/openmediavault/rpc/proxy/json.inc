@@ -23,7 +23,6 @@ namespace OMV\Rpc\Proxy;
 
 require_once("openmediavault/util.inc");
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/session.inc");
 require_once("openmediavault/rpc.inc");
 require_once("openmediavault/rpcservice.inc");
 
@@ -67,13 +66,13 @@ class Json extends \OMV\BaseObject {
 		// done later if required. This is because there are several
 		// RPCs that must be executed without an authenticated
 		// session, e.g. the 'Login' RPC.
-		$session = &OMVSession::getInstance();
+		$session = &\OMV\Session::getInstance();
 		if ($session->isAuthenticated()) {
 			if ($session->isTimeout()) {
 				$session->destroy();
 				throw new Exception(
 				  \OMV\ExceptionCode::E_SESSION_TIMEOUT,
-				  "Session expired");
+				  "Session expired.");
 			}
 			if (TRUE === $updateLastAccess)
 				$session->updateLastAccess();
@@ -83,14 +82,14 @@ class Json extends \OMV\BaseObject {
 		// redirected from the WebGUI backend to the omv-engined daemon,
 		// then we can commit the session (these RPCs are executed in
 		// another process thus they can not access this session).
-		$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
+		$rpcServiceMgr = &\OMVRpcServiceMgr::getInstance();
 		if (FALSE === ($rpcService = $rpcServiceMgr->getService(
 		  $this->params['service']))) {
 			// Session MUST be authenticated at this point.
 			if (!$session->isAuthenticated()) {
 				throw new Exception(
 				  \OMV\ExceptionCode::E_SESSION_NOT_AUTHENTICATED,
-				  "Session not authenticated");
+				  "Session not authenticated.");
 			}
 			// If service is not available locally, then we can commit
 			// the session due the fact that the RPC is redirected to
@@ -105,7 +104,7 @@ class Json extends \OMV\BaseObject {
 			"username" => $session->getUsername(),
 			"role" => $session->getRole()
 		);
-		$response = OMVRpc::exec($this->params['service'],
+		$response = \OMVRpc::exec($this->params['service'],
 		  $this->params['method'], $this->params['params'], $context,
 		  OMV_RPC_MODE_LOCAL | OMV_RPC_MODE_REMOTE);
 		$this->postExecute($response);

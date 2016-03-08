@@ -20,27 +20,28 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 try {
+	require_once("openmediavault/autoloader.inc");
 	require_once("openmediavault/env.inc");
 	require_once("openmediavault/session.inc");
 	require_once("openmediavault/htmlpage.inc");
 
-	$session = &OMVSession::getInstance();
+	$session = &\OMV\Session::getInstance();
 	$session->start();
 
-	if($session->isAuthenticated() && !$session->isTimeout()) {
+	if ($session->isAuthenticated() && !$session->isTimeout()) {
 		$session->validate();
 		$session->updateLastAccess();
 
-		$page = new OMVControlPanel(($session->getRole() === OMV_ROLE_USER) ?
-		  OMVControlPanel::MODE_USER : OMVControlPanel::MODE_ADMINISTRATOR);
+		$page = new \OMVControlPanel(($session->getRole() === OMV_ROLE_USER) ?
+		  \OMVControlPanel::MODE_USER : \OMVControlPanel::MODE_ADMINISTRATOR);
 		$page->render();
 	} else {
 		$session->destroy();
 
-		$page = new OMVLoginPage();
+		$page = new \OMVLoginPage();
 		$page->render();
 	}
-} catch(Exception $e) {
+} catch(\Exception $e) {
 	// Send an error message to the web server's error log.
 	error_log($e->getMessage());
 	// Print the error message.

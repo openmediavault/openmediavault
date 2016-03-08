@@ -23,9 +23,8 @@ try {
 	require_once("openmediavault/autoloader.inc");
 	require_once("openmediavault/env.inc");
 	require_once("openmediavault/config.inc"); // Must be included here
-	require_once("openmediavault/session.inc");
 
-	$session = &OMVSession::getInstance();
+	$session = &\OMV\Session::getInstance();
 	$session->start();
 
 	// Load and initialize the RPC services that are not handled by the
@@ -40,10 +39,9 @@ try {
 			continue;
 		require_once("{$rpcServiceDir}/{$item->getFilename()}");
 	}
-	$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
+	$rpcServiceMgr = &\OMVRpcServiceMgr::getInstance();
 	$rpcServiceMgr->initializeServices();
 
-	// Start the proxy.
 	$server = new OMV\Rpc\Proxy\Json();
 	$server->handle();
 	$server->cleanup();

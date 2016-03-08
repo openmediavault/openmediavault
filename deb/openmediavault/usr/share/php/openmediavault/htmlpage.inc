@@ -20,12 +20,10 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/object.inc");
-require_once("openmediavault/session.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/product.inc");
 require_once("openmediavault/system.inc");
 require_once("openmediavault/util.inc");
-require_once("openmediavault/json/file.inc");
 
 /**
  * Base class for a HTML page.
@@ -289,7 +287,7 @@ class OMVControlPanel extends OMVHtmlPageAbstract {
 
 	protected function getBodyContent() {
 		$prd = new OMVProduct();
-		$session = &OMVSession::getInstance();
+		$session = &\OMV\Session::getInstance();
 		// Define global constants.
 		$globalDefs = sprintf(
 		  "OMV.UUID_UNDEFINED = '%s'; ".

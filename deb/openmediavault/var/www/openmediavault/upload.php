@@ -34,21 +34,13 @@ try {
 	require_once("openmediavault/autoloader.inc");
 	require_once("openmediavault/env.inc");
 	require_once("openmediavault/config.inc"); // Must be included here
-	require_once("openmediavault/session.inc");
 
-	$session = &OMVSession::getInstance();
+	$session = &\OMV\Session::getInstance();
 	$session->start();
+	$session->validate();
+	// Do not update last access time
+	//$session->updateLastAccess();
 
-	if ($session->isAuthenticated()) {
-		$session->validate();
-		// Do not update last access time
-		//$session->updateLastAccess();
-	} else {
-		throw new \OMV\Exception(
-		  \OMV\ExceptionCode::E_SESSION_NOT_AUTHENTICATED);
-	}
-
-	// Start the proxy.
 	$server = new \OMV\Rpc\Proxy\Upload();
 	$server->handle();
 	$server->cleanup();

@@ -1,0 +1,36 @@
+{
+	"type": "object",
+	"id": "webadmin",
+	"alias": "//webadmin",
+	"properties": {
+		"port":{
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 65535,
+			"default": 80
+		},
+		"enablessl": {
+			"type": "boolean",
+			"default": 0
+		},
+		"sslport": {
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 65535,
+			"default": 443
+		},
+		"forcesslonly": {
+			"type": "boolean",
+			"default": 0
+		},
+		"sslcertificateref": {
+			"type": "string"
+		},
+		"timeout": {
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 30,
+			"default": 5
+		}
+	}
+}

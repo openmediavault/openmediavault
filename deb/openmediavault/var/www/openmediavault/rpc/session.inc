@@ -22,7 +22,6 @@
 require_once("openmediavault/globals.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/session.inc");
 require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/product.inc");
 require_once("openmediavault/system.inc");
@@ -71,7 +70,7 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 		$object = OMVRpc::exec("UserMgmt", "authUser", $params,
 		  $this->getAdminContext(), OMV_RPC_MODE_REMOTE, TRUE);
 		if (!is_null($object) && (TRUE === $object['authenticated'])) {
-			$session = &OMVSession::getInstance();
+			$session = &\OMV\Session::getInstance();
 			if ($session->isAuthenticated()) {
 				// Is the current session registered to the user to be
 				// authenticated?
@@ -166,11 +165,7 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 	 */
 	final public function logout($params, $context) {
 		// Check permissions
-		$session = &OMVSession::getInstance();
-		if(!$session->isAuthenticated()) {
-			throw new OMVException(
-			  OMVErrorMsg::E_SESSION_NOT_AUTHENTICATED);
-		}
+		$session = &\OMV\Session::getInstance();
 		$session->validate();
 		$session->destroy();
 	}
