@@ -19,7 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/json/schema.inc");
+require_once("openmediavault/autoloader.inc");
 
 /**
  * Sort an array by values using a user-defined key.

@@ -60,11 +60,7 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 		  ));
 		// Get the configuration object.
 		$db = &\OMV\Config\Database::getInstance();
-		if (FALSE === ($object = $db->get("//system/apt/distribution",
-		  "apt.distribution"))) {
-			  throw new OMVException(OMVErrorMsg::E_CONFIG_DB_GET_FAILED,
-			    $db->getLastError());
-		}
+		$object = $db->get("//system/apt/distribution", "apt.distribution");
 		return $object->getAssoc();
 	}
 
@@ -84,14 +80,10 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 		$this->validateMethodParams($params, "apt.setsettings");
 		// Prepare configuration objects.
 		$object = new \OMV\Config\ConfigObject("apt.distribution");
-		$object->initialize();
 		$object->setAssoc($params);
 		// Update the configuration object.
 		$db = &\OMV\Config\Database::getInstance();
-		if (FALSE === $db->replace("//system/apt/distribution", $object)) {
-			  throw new OMVException(OMVErrorMsg::E_CONFIG_DB_SET_FAILED,
-			    $db->getLastError());
-		}
+		$db->replace("//system/apt/distribution", $object);
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,

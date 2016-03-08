@@ -50,11 +50,8 @@ class Database extends \OMV\BaseObject {
 		if (empty($id))
 			$id = $xpath;
 		$data = $xmlConfig->get($xpath);
-		if (is_null($data)) {
-			throw new DatabaseException(
-			  "XPath expression '%s' does not match.",
-			  $xpath);
-		}
+		if (is_null($data))
+			throw new DatabaseException("XPath '%s' does not exist.", $xpath);
 		$object = new ConfigObject($id);
 		$object->setAssoc($data, FALSE);
 		return $object;
@@ -69,11 +66,8 @@ class Database extends \OMV\BaseObject {
 	public function set($xpath, ConfigObject $object) {
 		global $xmlConfig;
 		$data = $object->getAssoc();
-		if (FALSE === $xmlConfig->set($xpath, $data)) {
-			throw new DatabaseException(
-			  "XPath expression '%s' does not match.",
-			  $xpath);
-		}
+		if (FALSE === $xmlConfig->set($xpath, $data))
+			throw new DatabaseException("XPath '%s' does not exist.", $xpath);
 	}
 
 	/**
@@ -85,11 +79,8 @@ class Database extends \OMV\BaseObject {
 	public function replace($xpath, ConfigObject $object) {
 		global $xmlConfig;
 		$data = $object->getAssoc();
-		if (FALSE === $xmlConfig->replace($xpath, $data)) {
-			throw new DatabaseException(
-			  "XPath expression '%s' does not match.",
-			  $xpath);
-		}
+		if (FALSE === $xmlConfig->replace($xpath, $data))
+			throw new DatabaseException("XPath '%s' does not exist.", $xpath);
 	}
 
 	/**
@@ -104,11 +95,8 @@ class Database extends \OMV\BaseObject {
 	public function update($xpath, ConfigObject $object) {
 		global $xmlConfig;
 		$data = $object->getAssoc();
-		if (FALSE === $xmlConfig->update($xpath, $data)) {
-			throw new DatabaseException(
-			  "XPath expression '%s' does not match.",
-			  $xpath);
-		}
+		if (FALSE === $xmlConfig->update($xpath, $data))
+			throw new DatabaseException("XPath '%s' does not exist.", $xpath);
 	}
 
 	/**
@@ -117,10 +105,7 @@ class Database extends \OMV\BaseObject {
 	 * @return None.
 	 */
 	public function delete($xpath) {
-		if (FALSE === $xmlConfig->delete($xpath)) {
-			throw new DatabaseException(
-			  "XPath expression '%s' does not match.",
-			  $xpath);
-		}
+		if (FALSE === $xmlConfig->delete($xpath))
+			throw new DatabaseException("XPath '%s' does not exist.", $xpath);
 	}
 }
