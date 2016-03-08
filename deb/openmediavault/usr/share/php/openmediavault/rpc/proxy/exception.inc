@@ -24,5 +24,4 @@ namespace OMV\Rpc\Proxy;
 /**
  * @ingroup api
  */
-class Exception extends \OMV\Exception {
-}
+class Exception extends \OMV\Exception {}

@@ -24,5 +24,4 @@ namespace OMV\Config;
 /**
  * @ingroup api
  */
-class DatabaseException extends \OMV\Exception {
-}
+class DatabaseException extends \OMV\Exception {}

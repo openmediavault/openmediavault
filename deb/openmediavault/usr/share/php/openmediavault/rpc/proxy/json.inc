@@ -21,7 +21,6 @@
  */
 namespace OMV\Rpc\Proxy;
 
-require_once("openmediavault/object.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/session.inc");
@@ -45,9 +44,6 @@ class Json extends \OMV\BaseObject {
 	/**
 	 * Handle the RPC request.
 	 * @return The RPC response as JSON encoded data.
-	 * @throw E_SESSION_TIMEOUT
-	 * @throw E_RPC_GET_PARAMS_FAILED
-	 * @throw E_RPC_INVALID_PARAMS
 	 */
 	public function handle() {
 		// Get the RPC params.

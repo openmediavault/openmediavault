@@ -24,5 +24,4 @@ namespace OMV\Json;
 /**
  * @ingroup api
  */
-class SchemaValidationException extends \OMV\Exception {
-}
+class SchemaValidationException extends \OMV\Exception {}
