@@ -43,7 +43,7 @@ if (array_keys_exists(array("service", "method"), $_POST)) {
 		$session = &\OMV\Session::getInstance();
 		$session->start();
 		$session->validate();
-		// Do not update last access time
+		// Do not update last access time.
 		//$session->updateLastAccess();
 
 		$server = new \OMV\Rpc\Proxy\Download();
