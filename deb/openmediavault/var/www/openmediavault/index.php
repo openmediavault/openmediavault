@@ -24,6 +24,10 @@ try {
 	require_once("openmediavault/env.inc");
 	require_once("openmediavault/htmlpage.inc");
 
+	// Display errors if debugging is enabled.
+	if (TRUE === boolvalEx($GLOBALS['OMV_DEBUG_PHP']))
+		ini_set("display_errors", 1);
+
 	$session = &\OMV\Session::getInstance();
 	$session->start();
 

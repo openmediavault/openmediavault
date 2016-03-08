@@ -161,38 +161,58 @@ class Session extends \OMV\BaseObject {
 	}
 
 	/**
+	 * Validate the user. In case of an error the session is
+	 * destroyed and an exception is thrown.
+	 */
+	public function validateUser() {
+		// Check if user still exists, maybe it has been deleted by the
+		// administrator in the meanwhile.
+		$userInfo = posix_getpwnam($_SESSION['username']);
+		if (FALSE === $userInfo) {
+			$this->destroy();
+			$exception = new \OMV\ErrorMsgException(
+			  \OMV\ErrorMsgException::E_SESSION_INVALID_USER);
+		}
+	}
+
+	/**
+	 * Validate the IP address. In case of an error the session is
+	 * destroyed and an exception is thrown.
+	 */
+	public function validateIpAddress() {
+		if (!array_key_exists("REMOTE_ADDR", $_SERVER))
+			return;
+		if ($_SESSION['ipaddress'] == $_SERVER['REMOTE_ADDR'])
+			return;
+		$this->destroy();
+		throw new \OMV\ErrorMsgException(
+		  \OMV\ErrorMsgException::E_SESSION_INVALID_IPADDRESS);
+	}
+
+	/**
+	 * Validate the browser user agent. In case of an error the session
+	 * is destroyed and an exception is thrown.
+	 */
+	public function validateUserAgent() {
+		if (!array_key_exists("HTTP_USER_AGENT", $_SERVER))
+			return;
+		if ($_SESSION['useragent'] == $_SERVER['HTTP_USER_AGENT'])
+			return;
+		$this->destroy();
+		throw new \OMV\ErrorMsgException(
+		  \OMV\ErrorMsgException::E_SESSION_INVALID_USERAGENT);
+	}
+
+	/**
 	 * Check if the session is valid. In case of an error the session is
 	 * destroyed and an exception is thrown.
 	 */
 	public function validate() {
-		$exception = null;
-		if (!$this->isAuthenticated()) {
-			$exception = new \OMV\ErrorMsgException(
-			  \OMV\ErrorMsgException::E_SESSION_NOT_AUTHENTICATED);
-		} else if (array_key_exists("REMOTE_ADDR", $_SERVER)) {
-			if ($_SESSION['ipaddress'] !== $_SERVER['REMOTE_ADDR'])
-				$exception = new \OMV\ErrorMsgException(
-				  \OMV\ErrorMsgException::E_SESSION_INVALID_IPADDRESS);
-		} else if (array_key_exists("HTTP_USER_AGENT", $_SERVER)) {
-			if ($_SESSION['useragent'] !== $_SERVER['HTTP_USER_AGENT'])
-				$exception = new \OMV\ErrorMsgException(
-				  \OMV\ErrorMsgException::E_SESSION_INVALID_USERAGENT);
-		} else if ($this->isTimeout()) {
-			$exception = new \OMV\ErrorMsgException(
-			  \OMV\ErrorMsgException::E_SESSION_TIMEOUT);
-		} else {
-			// Check if user still exists, maybe it has been deleted by the
-			// administrator in the meanwhile.
-			$userInfo = posix_getpwnam($_SESSION['username']);
-			if (FALSE === $userInfo) {
-				$exception = new \OMV\ErrorMsgException(
-				  \OMV\ErrorMsgException::E_SESSION_INVALID_USER);
-			}
-		}
-		if (!is_null($exception)) {
-			$this->destroy();
-			throw $exception;
-		}
+		$this->validateAuthentication();
+		$this->validateIpAddress();
+		$this->validateUserAgent();
+		$this->validateTimeout();
+		$this->validateUser();
 	}
 
 	/**

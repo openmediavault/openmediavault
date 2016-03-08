@@ -324,7 +324,8 @@ Ext.define("OMV.workspace.grid.Panel", {
 
 	onItemDblClick: function() {
 		var me = this;
-		if (!me.hideTopToolbar && !me.hideEditButton) {
+		if (!me.hideTopToolbar && !me.hideEditButton &&
+		  !me.isToolbarButtonDisabled("edit")) {
 			me.onEditButton(me);
 		}
 	},
@@ -618,19 +619,41 @@ Ext.define("OMV.workspace.grid.Panel", {
 	},
 
 	/**
+	 * Get the toolbar button.
+	 * @param name The name of the toolbar button.
+	 * @return The button component, otherwise NULL.
+	 */
+	getToolbarButton: function(name) {
+		var me = this;
+		return me.queryById(me.getId() + "-" + name);
+	},
+
+	/**
+	 * Check if the given toolbar button is disabled.
+	 * @param name The name of the toolbar button.
+	 * @return The button component, otherwise NULL.
+	 */
+	isToolbarButtonDisabled: function(name) {
+		var me = this;
+		var btnCtrl = me.getToolbarButton(name);
+		if (!Ext.isEmpty(btnCtrl) && btnCtrl.isButton)
+			return btnCtrl.isDisabled(disabled);
+		return null;
+	},
+
+	/**
 	 * Convenience function for setting the given toolbar button
 	 * disabled/enabled.
 	 * @param name The name of the toolbar button.
 	 * @param disabled TRUE to disable the button, FALSE to enable.
-	 * @return The button component, otherwise FALSE.
+	 * @return The button component, otherwise NULL.
 	 */
 	setToolbarButtonDisabled: function(name, disabled) {
 		var me = this;
-		var result = false;
-		var btnCtrl = me.queryById(me.getId() + "-" + name);
-		if(!Ext.isEmpty(btnCtrl) && btnCtrl.isButton)
-			result = btnCtrl.setDisabled(disabled);
-		return result;
+		var btnCtrl = me.getToolbarButton(name);
+		if (!Ext.isEmpty(btnCtrl) && btnCtrl.isButton)
+			return btnCtrl.setDisabled(disabled);
+		return null;
 	},
 
 	/**
