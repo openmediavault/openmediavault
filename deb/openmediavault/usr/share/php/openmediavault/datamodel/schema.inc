@@ -40,7 +40,7 @@ class Schema extends \OMV\Json\Schema {
 	protected function checkFormat($value, $schema, $name) {
 		try {
 			return parent::checkFormat($value, $schema, $name);
-		} catch (\OMV\Json\SchemaValidationException $e) {
+		} catch (\OMV\Json\SchemaException $e) {
 			switch ($schema['format']) {
 			case "ipv4":
 				if (!filter_var($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
@@ -112,7 +112,7 @@ class Schema extends \OMV\Json\Schema {
 				}
 				break;
 			default:
-				throw new \OMV\Json\SchemaValidationException(
+				throw new \OMV\Json\SchemaException(
 				  "%s: The type '%s' is not defined.",
 				  $name, $typev);
 				break;
