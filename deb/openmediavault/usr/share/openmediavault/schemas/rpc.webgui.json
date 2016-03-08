@@ -39,7 +39,8 @@
 	"id": "webgui.setpassword",
 	"properties": {
 		"password":{
-			"type": "string"
+			"type": "string",
+			"required": true
 		}
 	}
 }]

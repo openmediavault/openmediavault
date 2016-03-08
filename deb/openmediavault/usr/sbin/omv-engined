@@ -20,7 +20,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-
 require_once("openmediavault/autoloader.inc");
 require_once("openmediavault/globals.inc");
 require_once("openmediavault/error.inc");
@@ -276,7 +275,7 @@ foreach($options as $optionk => $optionv) {
 		break;
 	}
 }
-if($argc > 1) {
+if ($argc > 1) {
 	print gettext("ERROR: Invalid number of arguments\n");
 	usage();
 	exit(1);
@@ -304,6 +303,29 @@ pcntl_signal(SIGTERM, "signalHandler");
 pcntl_signal(SIGCHLD, "signalHandler");
 
 ///////////////////////////////////////////////////////////////////////////////
+// Load core include files.
+///////////////////////////////////////////////////////////////////////////////
+require_once("openmediavault/config.inc");
+require_once("openmediavault/rpc.inc");
+require_once("openmediavault/module.inc");
+
+///////////////////////////////////////////////////////////////////////////////
+// Load additional include files. This can be used to setup various
+// prerequirements.
+///////////////////////////////////////////////////////////////////////////////
+$path = build_path(array($GLOBALS['OMV_ENGINED_DIR'], "inc"));
+foreach (new DirectoryIterator($path) as $item) {
+	if ($item->isDot())
+		continue;
+	if (!$item->isFile())
+		continue;
+	if ("inc" !== strtolower($item->getExtension()))
+		continue;
+	$includePath = build_path(array($path, $item->getFilename()));
+	require_once $includePath;
+}
+
+///////////////////////////////////////////////////////////////////////////////
 // Include all RPC service classes.
 ///////////////////////////////////////////////////////////////////////////////
 // Including additional include files here is a workaround because of a bug
@@ -311,44 +333,36 @@ pcntl_signal(SIGCHLD, "signalHandler");
 // The workaround simply loads the include files using the sem_get function
 // after the daemon process has been forked.
 ///////////////////////////////////////////////////////////////////////////////
-
-require_once("openmediavault/config.inc");
-require_once("openmediavault/rpc.inc");
-require_once("openmediavault/module.inc");
-
-$rpcServiceDir = sprintf("%s/rpc", $GLOBALS['OMV_ENGINED_DIR']);
-foreach(new DirectoryIterator($rpcServiceDir) as $item) {
-	if($item->isDot())
+$path = build_path(array($GLOBALS['OMV_ENGINED_DIR'], "rpc"));
+foreach (new DirectoryIterator($path) as $item) {
+	if ($item->isDot())
 		continue;
-	if($item->isFile()) {
-		$pathInfo = pathinfo($item->getFilename());
-		if(strtolower($pathInfo['extension']) === "inc") {
-			require_once("{$rpcServiceDir}/{$item->getFilename()}");
-		}
-	}
+	if (!$item->isFile())
+		continue;
+	if ("inc" !== strtolower($item->getExtension()))
+		continue;
+	$includePath = build_path(array($path, $item->getFilename()));
+	require_once $includePath;
 }
 // Initialize the RPC sevices.
 $rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
 $rpcServiceMgr->initializeServices();
-if(TRUE === $debug) {
+if (TRUE === $debug)
 	$rpcServiceMgr->dump();
-}
 
 ///////////////////////////////////////////////////////////////////////////////
-// Include additional files and all module classes.
+// Load all module classes.
 ///////////////////////////////////////////////////////////////////////////////
-foreach(array("inc", "module") as $dirName) {
-	$dirPath = build_path(array($GLOBALS['OMV_ENGINED_DIR'], $dirName));
-	foreach(new DirectoryIterator($dirPath) as $item) {
-		if($item->isDot())
-			continue;
-		if($item->isFile()) {
-			$pathInfo = pathinfo($item->getFilename());
-			if(strtolower($pathInfo['extension']) === "inc") {
-				require_once("{$dirPath}/{$item->getFilename()}");
-			}
-		}
-	}
+$path = build_path(array($GLOBALS['OMV_ENGINED_DIR'], "module"));
+foreach (new DirectoryIterator($path) as $item) {
+	if ($item->isDot())
+		continue;
+	if (!$item->isFile())
+		continue;
+	if ("inc" !== strtolower($item->getExtension()))
+		continue;
+	$includePath = build_path(array($path, $item->getFilename()));
+	require_once $includePath;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -357,12 +371,11 @@ foreach(array("inc", "module") as $dirName) {
 $moduleMgr = &OMVModuleMgr::getInstance();
 $modules = $moduleMgr->getModules();
 $dispatcher = &OMVNotifyDispatcher::getInstance();
-foreach($modules as $module) {
+foreach ($modules as $module) {
 	$dispatcher->addListener($module);
 }
-if(TRUE === $debug) {
+if (TRUE === $debug)
 	$moduleMgr->dump();
-}
 
 ///////////////////////////////////////////////////////////////////////////////
 // Open the socket.

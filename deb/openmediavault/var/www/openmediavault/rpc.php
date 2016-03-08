@@ -23,19 +23,20 @@ try {
 	require_once("openmediavault/config.inc"); // Must be included here
 	require_once("openmediavault/autoloader.inc");
 	require_once("openmediavault/env.inc");
+	require_once("openmediavault/functions.inc");
 
 	// Load and initialize the RPC services that are not handled by the
 	// engine daemon.
-	$rpcServiceDir = sprintf("%s/rpc", $GLOBALS['OMV_DOCUMENTROOT_DIR']);
-	foreach (new \DirectoryIterator($rpcServiceDir) as $item) {
+	$path = sprintf("%s/rpc", $GLOBALS['OMV_DOCUMENTROOT_DIR']);
+	foreach (new \DirectoryIterator($path) as $item) {
 		if ($item->isDot())
 			continue;
 		if (!$item->isFile())
 			continue;
 		if ("inc" !== strtolower($item->getExtension()))
 			continue;
-		$pathName = sprintf("%s/%s", $rpcServiceDir, $item->getFilename());
-		require_once $pathName;
+		$includePath = build_path(array($path, $item->getFilename()));
+		require_once $includePath;
 	}
 	$rpcServiceMgr = &\OMVRpcServiceMgr::getInstance();
 	$rpcServiceMgr->initializeServices();
