@@ -21,13 +21,10 @@
  */
 namespace OMV\DataModel;
 
-require_once("openmediavault/object.inc");
-require_once("openmediavault/functions.inc");
-
 /**
  * The data model manager keeps track of all model types.
  */
-class Manager extends \OMVObject {
+class Manager extends \OMV\BaseObject {
 	private $map = array();
 
 	/**
@@ -43,7 +40,7 @@ class Manager extends \OMVObject {
 
 	/**
 	 * Load the data models.
-	 * @return Returns TRUE on success or FALSE on failure.
+	 * @return None.
 	 */
 	final public function load($path) {
 		foreach (new \DirectoryIterator($path) as $item) {
@@ -65,21 +62,17 @@ class Manager extends \OMVObject {
 				$schema = array($schema);
 			foreach ($schema as $schemak => $schemav) {
 				$model = new Model($schemav);
-				if (!$this->registerModel($model))
-					return FALSE;
+				$this->registerModel($model);
 			}
 		}
-		return TRUE;
 	}
 
 	/**
 	 * Register a model.
 	 * @param model The model class to be registered.
-	 * @return Returns TRUE on success or FALSE on failure.
+	 * @return None.
 	 */
 	final public function registerModel(Model $model) {
-		if (!isset($model))
-			return FALSE;
 		// Validate the data model definition.
 		$schema = new \OMV\Json\Schema('{
 			"type":"object",
@@ -94,11 +87,12 @@ class Manager extends \OMVObject {
 				}
 			}
 		}');
-		if (FALSE === ($valid = $schema->validate($model))) {
-			$this->setLastError(
-			sprintf("The data model definition is invalid: %s",
-			$schema->getLastError()));
-			return FALSE;
+		try {
+			$schema->validate($model->getSchema());
+		} catch(\OMV\Json\SchemaValidationException $e) {
+			throw new \OMV\Exception(
+			  "The data model definition is invalid: %s",
+			  $e->getMessage());
 		}
 		$ids = array();
 		$ids[] = $model->getId();
@@ -107,28 +101,37 @@ class Manager extends \OMVObject {
 			if (empty($idv))
 				continue;
 			// Check if the model already exists.
-			if (FALSE !== $this->getModel($idv)) {
-				$this->setLastError(
-				  sprintf("The data model '%s' is already registered.",
-				  $idv));
-				return FALSE;
+			if (TRUE === $this->isRegistered($idv)) {
+				throw new \OMV\Exception(
+				  "The data model '%s' is already registered.",
+				  $idv);
 			}
 			// Append the model.
 			$this->map[strtolower($idv)] = $model;
 			ksort($this->map);
 		}
-		return TRUE;
+	}
+
+	/**
+	 * Check if a data model is registered.
+	 * @return TRUE if the data model is already registered, otherwise FALSE.
+	 */
+	final public function isRegistered($id) {
+		return array_key_exists(strtolower($id), $this->map);
 	}
 
 	/**
 	 * Get a model.
-	 * @param id The id of the model to get.
-	 * @return The model object or FALSE on failure.
+	 * @param id The id of the data model to get.
+	 * @return The data model object.
 	 */
 	final public function getModel($id) {
 		$id = strtolower($id);
-		if (!array_key_exists($id, $this->map))
-			return FALSE;
+		if (!array_key_exists($id, $this->map)) {
+			throw new \OMV\Exception(
+			  "The data model '%s' does not exist.",
+			  $id);
+		}
 		return $this->map[$id];
 	}
 

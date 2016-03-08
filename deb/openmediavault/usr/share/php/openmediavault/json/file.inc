@@ -21,7 +21,6 @@
  */
 namespace OMV\Json;
 
-require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/functions.inc");
 
@@ -30,7 +29,7 @@ require_once("openmediavault/functions.inc");
  * it is opened and the lock is removed when it is closed.
  * @ingroup api
  */
-class File extends \OMVObject {
+class File extends \OMV\BaseObject {
 	private $filename = "";
 	private $fh = NULL;
 
@@ -69,14 +68,14 @@ class File extends \OMVObject {
 	 */
 	public function open($accessMode = "w+", $lockMode = LOCK_EX) {
 		if (FALSE === ($this->fh = fopen($this->filename, $accessMode))) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to open file (filename=%s, mode=%s).",
-			  $this->filename, $accessMode));
+			throw new \OMV\Exception(
+			  "Failed to open file (filename=%s, mode=%s).",
+			  $this->filename, $accessMode);
 		}
 		if (FALSE === flock($this->fh, $lockMode)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to lock file (filename=%s, mode=%d).",
-			  $this->filename, $lockMode));
+			throw new \OMV\Exception(
+			  "Failed to lock file (filename=%s, mode=%d).",
+			  $this->filename, $lockMode);
 		}
 		return $this->fh;
 	}
@@ -105,14 +104,12 @@ class File extends \OMVObject {
 	 */
 	public function close() {
 		if (FALSE === flock($this->fh, LOCK_UN)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to unlock file (filename=%s).",
-			  $this->filename));
+			throw new \OMV\Exception("Failed to unlock file (filename=%s).",
+			  $this->filename);
 		}
 		if (FALSE === fclose($this->fh)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to close file (filename=%s).",
-			  $this->filename));
+			throw new \OMV\Exception("Failed to close file (filename=%s).",
+			  $this->filename);
 		}
 		$this->fh = NULL;
 	}
@@ -128,29 +125,26 @@ class File extends \OMVObject {
 	 */
 	public function write($content) {
 		if (FALSE === rewind($this->fh)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to rewind file (filename=%s).",
-			  $this->filename));
+			throw new \OMV\Exception("Failed to rewind file (filename=%s).",
+			  $this->filename);
 		}
 		// Get the JSON representation of the content.
 		if (FALSE === ($content = json_encode_safe($content,
 		  JSON_PRETTY_PRINT))) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to encode content (filename=%s): %s",
-			  $this->filename, json_last_error_msg()));
+			throw new \OMV\Exception(
+			  "Failed to encode content (filename=%s): %s",
+			  $this->filename, json_last_error_msg());
 		}
 		// Empty the whole file.
 		$this->truncate(0);
 		// Now write the new content.
 		if (FALSE === fwrite($this->fh, $content)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to write file (filename=%s).",
-			  $this->filename));
+			throw new \OMV\Exception("Failed to write file (filename=%s).",
+			  $this->filename);
 		}
 		if (FALSE === fflush($this->fh)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to flush file (filename=%s).",
-			  $this->filename));
+			throw new \OMV\Exception("Failed to flush file (filename=%s).",
+			  $this->filename);
 		}
 		return $content;
 	}
@@ -164,27 +158,25 @@ class File extends \OMVObject {
 	 */
 	public function read($decode = TRUE, $assoc = TRUE) {
 		if (FALSE === rewind($this->fh)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to rewind file (filename=%s).",
-			  $this->filename));
+			throw new \OMV\Exception("Failed to rewind file (filename=%s).",
+			  $this->filename);
 		}
 		if (FALSE === ($content = stream_get_contents($this->fh))) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to read file (filename=%s).",
-			  $this->filename));
+			throw new \OMV\Exception("Failed to read file (filename=%s).",
+			  $this->filename);
 		}
 		// Validate JSON content.
 		if (!empty($content) && !is_json($content)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("File contains invalid JSON (filename=%s): %s",
-			  $this->filename, json_last_error_msg()));
+			throw new \OMV\Exception(
+			  "File contains invalid JSON (filename=%s): %s",
+			  $this->filename, json_last_error_msg());
 		}
 		// Decode the content if requested.
 		if (TRUE === $decode) {
 			if (FALSE === ($content = json_decode_safe($content, $assoc))) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("Failed to decode content (filename=%s): %s",
-				  $this->filename, json_last_error_msg()));
+				throw new \OMV\Exception(
+				  "Failed to decode content (filename=%s): %s",
+				  $this->filename, json_last_error_msg());
 			}
 		}
 		return $content;
@@ -198,9 +190,9 @@ class File extends \OMVObject {
 	 */
 	public function truncate($size) {
 		if (FALSE === ftruncate($this->fh, $size)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to truncate file (filename=%s, size=%d).",
-			  $this->filename, $size));
+			throw new \OMV\Exception(
+			  "Failed to truncate file (filename=%s, size=%d).",
+			  $this->filename, $size);
 		}
 	}
 

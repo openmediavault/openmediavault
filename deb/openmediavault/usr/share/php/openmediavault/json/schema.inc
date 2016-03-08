@@ -21,15 +21,13 @@
  */
 namespace OMV\Json;
 
-require_once("openmediavault/object.inc");
-
 /**
  * Implements a JSON schema validator.
  * @see https://tools.ietf.org/html/draft-zyp-json-schema-03
  * @see http://json-schema.org/latest/json-schema-core.html
  * @see http://json-schema.org/latest/json-schema-validation.html
  */
-class Schema extends \OMVObject {
+class Schema extends \OMV\BaseObject {
 	private $schema = array();
 
 	/**
@@ -96,15 +94,14 @@ class Schema extends \OMVObject {
 
 	/**
 	 * Returns the JSON schema.
-	 * @return The JSON schema as associative array or FALSE on failure.
+	 * @return The JSON schema as associative array.
 	 */
 	final public function getAssoc() {
 		if (is_string($this->schema)) {
 			$this->schema = json_decode($this->schema, TRUE);
 			if (is_null($this->schema)) {
-				$this->setLastError(sprintf("Failed to decode schema: %s",
-				  json_last_error_msg()));
-				return FALSE;
+				throw new SchemaException("Failed to decode schema: %s",
+				  json_last_error_msg());
 			}
 		}
 		return $this->schema;
@@ -112,17 +109,16 @@ class Schema extends \OMVObject {
 
 	/**
 	 * Returns the JSON schema by the given path.
-	 * @return The JSON schema as associative array or FALSE on failure.
+	 * @return The JSON schema as associative array.
 	 */
 	final public function getAssocByPath($name) {
 		// Get the schema.
-		if (FALSE === ($schema = $this->getAssoc()))
-			return FALSE;
+		$schema = $this->getAssoc();
 		// Navigate down to the given path.
 		if (FALSE === ($schema = $this->_getAssocByPath(
 		  $name, $schema))) {
-			$this->setLastError(sprintf("The path '%s' is invalid.", $name));
-			return FALSE;
+			throw new SchemaException("The path '%s' is invalid.",
+			  $name);
 		}
 		return $schema;
 	}
@@ -132,14 +128,16 @@ class Schema extends \OMVObject {
 	 * @param value The value to validate.
 	 * @param name The JSON path of the entity to validate, e.g. 'aa.bb.cc',
 	 *   defaults to an empty string.
-	 * @return TRUE if successful, otherwise FALSE.
+	 * @return None.
 	 */
 	final public function validate($value, $name = "") {
 		if (is_string($value))
 			$value = json_decode($value);
-		if (FALSE === ($schema = $this->getAssocByPath($name)))
-			return FALSE;
-		return $this->validateType($value, $schema, $name);
+		if (FALSE === ($schema = $this->getAssocByPath($name))) {
+			throw new SchemaException("The path '%s' is invalid.",
+			  $name);
+		}
+		$this->validateType($value, $schema, $name);
 	}
 
 	protected function validateType($value, $schema, $name) {
@@ -149,247 +147,195 @@ class Schema extends \OMVObject {
 	        $types = $schema['type'];
 		if (!is_array($types))
             $types = array($types);
-		$valid = FALSE;
 		foreach ($types as $typek => $typev) {
             switch ($typev) {
             case "any":
-                $valid = $this->validateAny($value, $schema, $name);
+                $this->validateAny($value, $schema, $name);
                 break;
             case "array":
-                $valid = $this->validateArray($value, $schema, $name);
+                $this->validateArray($value, $schema, $name);
                 break;
             case "boolean":
-                $valid = $this->validateBoolean($value, $schema, $name);
+                $this->validateBoolean($value, $schema, $name);
                 break;
             case "object":
-                $valid = $this->validateObject($value, $schema, $name);
+                $this->validateObject($value, $schema, $name);
                 break;
             case "integer":
-                $valid = $this->validateInteger($value, $schema, $name);
+                $this->validateInteger($value, $schema, $name);
                 break;
             case "number":
-                $valid = $this->validateNumber($value, $schema, $name);
+                $this->validateNumber($value, $schema, $name);
                 break;
             case "string":
-                $valid = $this->validateString($value, $schema, $name);
+                $this->validateString($value, $schema, $name);
                 break;
             case "null":
-                $valid = $this->validateNull($value, $schema, $name);
+                $this->validateNull($value, $schema, $name);
                 break;
             default:
-				$this->setLastError(
-				  sprintf("%s: The type '%s' is not defined.",
-				  $name, $typev));
-				return FALSE;
-            }
-			if (TRUE === $valid)
+				throw new SchemaValidationException(
+				  "%s: The type '%s' is not defined.",
+				  $name, $typev);
 				break;
+            }
         }
-		return $valid;
 	}
 
 	protected function validateAny($value, $schema, $name) {
-		return TRUE;
 	}
 
 	protected function validateBoolean($value, $schema, $name) {
 		if (!is_bool($value)) {
-			$this->setLastError(
-			  sprintf("%s: The value '%s' is not a boolean.",
-			  $name, $value));
-			return FALSE;
+			throw new SchemaValidationException(
+			  "%s: The value '%s' is not a boolean.",
+			  $name, $value);
 		}
-		return TRUE;
 	}
 
 	protected function validateInteger($value, $schema, $name) {
 		if (!is_integer($value)) {
-			$this->setLastError(
-			  sprintf("%s: The value '%s' is not an integer.",
-			  $name, $value));
-			return FALSE;
+			throw new SchemaValidationException(
+			  "%s: The value '%s' is not an integer.",
+			  $name, $value);
 		}
-		if (!$this->checkMinimum($value, $schema, $name))
-			return FALSE;
-		if (!$this->checkExclusiveMinimum($value, $schema, $name))
-			return FALSE;
-		if (!$this->checkMaximum($value, $schema, $name))
-			return FALSE;
-		if (!$this->checkExclusiveMaximum($value, $schema, $name))
-			return FALSE;
-		if (!$this->checkEnum($value, $schema, $name))
-			return FALSE;
-		return TRUE;
+		$this->checkMinimum($value, $schema, $name);
+		$this->checkExclusiveMinimum($value, $schema, $name);
+		$this->checkMaximum($value, $schema, $name);
+		$this->checkExclusiveMaximum($value, $schema, $name);
+		$this->checkEnum($value, $schema, $name);
 	}
 
 	protected function validateNumber($value, $schema, $name) {
 		if (!is_numeric($value)) {
-			$this->setLastError(
-			  sprintf("%s: The value '%s' is not a number.",
-			  $name, $value));
-			return FALSE;
+			throw new SchemaValidationException(
+			  "%s: The value '%s' is not a number.",
+			  $name, $value);
 		}
-		if (!$this->checkMinimum($value, $schema, $name))
-			return FALSE;
-		if (!$this->checkExclusiveMinimum($value, $schema, $name))
-			return FALSE;
-		if (!$this->checkMaximum($value, $schema, $name))
-			return FALSE;
-		if (!$this->checkExclusiveMaximum($value, $schema, $name))
-			return FALSE;
-		if (!$this->checkEnum($value, $schema, $name))
-			return FALSE;
-		return TRUE;
+		$this->checkMinimum($value, $schema, $name);
+		$this->checkExclusiveMinimum($value, $schema, $name);
+		$this->checkMaximum($value, $schema, $name);
+		$this->checkExclusiveMaximum($value, $schema, $name);
+		$this->checkEnum($value, $schema, $name);
 	}
 
 	protected function validateString($value, $schema, $name) {
 		if (!is_string($value)) {
-			$this->setLastError(
-			  sprintf("%s: The value '%s' is not a string.",
-			  $name, $value));
-			return FALSE;
+			throw new SchemaValidationException(
+			  "%s: The value '%s' is not a string.",
+			  $name, $value);
 		}
-		if (!$this->checkPattern($value, $schema, $name))
-			return FALSE;
-		if (!$this->checkMinLength($value, $schema, $name))
-			return FALSE;
-		if (!$this->checkMaxLength($value, $schema, $name))
-			return FALSE;
-		if (!$this->checkFormat($value, $schema, $name))
-			return FALSE;
-		if (!$this->checkEnum($value, $schema, $name))
-			return FALSE;
-		return TRUE;
+		$this->checkPattern($value, $schema, $name);
+		$this->checkMinLength($value, $schema, $name);
+		$this->checkMaxLength($value, $schema, $name);
+		$this->checkFormat($value, $schema, $name);
+		$this->checkEnum($value, $schema, $name);
 	}
 
 	protected function validateArray($value, $schema, $name) {
 		if (!is_array($value)) {
-			$this->setLastError(
-			  sprintf("%s: The value is not an array.",
-			  $name));
-			return FALSE;
+			throw new SchemaValidationException(
+			  "%s: The value is not an array.",
+			  $name);
 		}
-		if (!$this->checkMinItems($value, $schema, $name))
-			return FALSE;
-		if (!$this->checkMaxItems($value, $schema, $name))
-			return FALSE;
-		if (!$this->checkItems($value, $schema, $name))
-			return FALSE;
-		return TRUE;
+		$this->checkMinItems($value, $schema, $name);
+		$this->checkMaxItems($value, $schema, $name);
+		$this->checkItems($value, $schema, $name);
 	}
 
 	protected function validateObject($value, $schema, $name) {
 		if (!is_object($value)) {
-			$this->setLastError(
-			  sprintf("%s: The value is not an object.",
-			  $name));
-			return FALSE;
+			throw new SchemaValidationException(
+			  "%s: The value is not an object.",
+			  $name);
 		}
-		if (!$this->checkProperties($value, $schema, $name))
-			return FALSE;
-		return TRUE;
+		$this->checkProperties($value, $schema, $name);
 	}
 
 	protected function validateNull($value, $schema, $name) {
 		if (!is_null($value)) {
-			$this->setLastError(
-			  sprintf("%s: The value is not NULL.",
-			  $name));
-			return FALSE;
+			throw new SchemaValidationException(
+			  "%s: The value is not NULL.",
+			  $name);
 		}
-		return TRUE;
 	}
 
 	protected function checkMinimum($value, $schema, $name) {
 		if (!isset($schema['minimum']))
-			return TRUE;
+			return;
 		if ($schema['minimum'] > $value) {
-			$this->setLastError(
-			  sprintf("%s: The value %d is less than %d.",
-			  $value, $schema, $name['minimum']));
-			return FALSE;
+			throw new SchemaValidationException(
+			  "%s: The value %d is less than %d.",
+			  $value, $schema, $name['minimum']);
 		}
-		return TRUE;
 	}
 
 	protected function checkMaximum($value, $schema, $name) {
 		if (!isset($schema['maximum']))
-			return TRUE;
+			return;
 		if ($schema['maximum'] < $value) {
-			$this->setLastError(
-			  sprintf("%s: The value %d is bigger than %d.",
-			  $value, $schema, $name['maximum']));
-			return FALSE;
+			throw new SchemaValidationException(
+			  "%s: The value %d is bigger than %d.",
+			  $value, $schema, $name['maximum']);
 		}
-		return TRUE;
 	}
 
 	protected function checkExclusiveMinimum($value, $schema, $name) {
 		if (!isset($schema['minimum']))
-			return TRUE;
+			return;
 		if (!(isset($schema['exclusiveMinimum']) &&
 		  (TRUE === $schema['exclusiveMinimum'])))
-			return TRUE;
+			return;
 		if ($value == $schema['minimum']) {
-			$this->setLastError(
-			  sprintf("%s: Invalid value %d, must be greater than %d.",
-			  $value, $schema, $name['minimum']));
-			return FALSE;
+			throw new SchemaValidationException(
+			  "%s: Invalid value %d, must be greater than %d.",
+			  $value, $schema, $name['minimum']);
 		}
-		return TRUE;
 	}
 
 	protected function checkExclusiveMaximum($value, $schema, $name) {
 		if (!isset($schema['maximum']))
-			return TRUE;
+			return;
 		if (!(isset($schema['exclusiveMaximum']) &&
 		  (TRUE === $schema['exclusiveMaximum'])))
-			return TRUE;
+			return;
 		if ($value == $schema['maximum']) {
-			$this->setLastError(
-			  sprintf("%s: Invalid value %d, must be less than %d.",
-			  $value, $schema, $name['maximum']));
-			return FALSE;
+			throw new SchemaValidationException(
+			  "%s: Invalid value %d, must be less than %d.",
+			  $value, $schema, $name['maximum']);
 		}
-		return TRUE;
 	}
 
 	protected function checkMinLength($value, $schema, $name) {
 		if (!isset($schema['minLength']))
-			return TRUE;
+			return;
 		$length = strlen($value);
 		if ($schema['minLength'] > $length) {
-			$this->setLastError(
-			  sprintf("%s: The value '%s' is too short, minimum length is %d.",
-			  $value, $schema, $name['minLength']));
-			return FALSE;
+			throw new SchemaValidationException(
+			  "%s: The value '%s' is too short, minimum length is %d.",
+			  $value, $schema, $name['minLength']);
 		}
-		return TRUE;
 	}
 
 	protected function checkMaxLength($value, $schema, $name) {
 		if (!isset($schema['maxLength']))
-			return TRUE;
+			return;
 		$length = strlen($value);
 		if ($schema['maxLength'] < $length) {
-			$this->setLastError(
-			  sprintf("%s: The value '%s' is too long, maximum length is %d.",
-			  $value, $schema, $name['maxLength']));
-			return FALSE;
+			throw new SchemaValidationException(
+			  "%s: The value '%s' is too long, maximum length is %d.",
+			  $value, $schema, $name['maxLength']);
 		}
-		return TRUE;
 	}
 
 	protected function checkPattern($value, $schema, $name) {
 		if (!isset($schema['pattern']))
-			return TRUE;
+			return;
 		if (!preg_match($schema['pattern'], $value)) {
-			$this->setLastError(
-			  sprintf("%s: The value '%s' doesn't match the pattern '%s'.",
-			  $name, $value, $schema['pattern']));
-			return FALSE;
+			throw new SchemaValidationException(
+			  "%s: The value '%s' doesn't match the pattern '%s'.",
+			  $name, $value, $schema['pattern']);
 		}
-		return $this;
 	}
 
 	/**
@@ -397,31 +343,27 @@ class Schema extends \OMVObject {
 	 */
 	protected function checkFormat($value, $schema, $name) {
 		if (!isset($schema['format']))
-			return TRUE;
-		$valid = TRUE;
+			return;
 		switch ($schema['format']) {
 		case "date-time":
 			if (!preg_match('/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/', $value)) {
-				$valid = FALSE;
-				$this->setLastError(
-				  sprintf("%s: The value '%s' does not match to ISO 8601.",
-				  $name, $value));
+				throw new SchemaValidationException(
+				  "%s: The value '%s' does not match to ISO 8601.",
+				  $name, $value);
 			}
 			break;
 		case "date":
 			if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $value)) {
-				$valid = FALSE;
-				$this->setLastError(
-				  sprintf("%s: The value '%s' does not match to YYYY-MM-DD.",
-				  $name, $value));
+				throw new SchemaValidationException(
+				  "%s: The value '%s' does not match to YYYY-MM-DD.",
+				  $name, $value);
 			}
 			break;
 		case "time":
 			if (!preg_match('/^\d{2}:\d{2}:\d{2}$/', $value)) {
-				$valid = FALSE;
-				$this->setLastError(
-				  sprintf("%s: The value '%s' does not match to hh:mm:ss.",
-				  $name, $value));
+				throw new SchemaValidationException(
+				  "%s: The value '%s' does not match to hh:mm:ss.",
+				  $name, $value);
 			}
 			break;
 		case "host-name":
@@ -433,98 +375,84 @@ class Schema extends \OMVObject {
 		case "uri":
 			if (!filter_var($value, FILTER_VALIDATE_URL,
 			  FILTER_FLAG_QUERY_REQUIRED)) {
-				$valid = FALSE;
-				$this->setLastError(
-				  sprintf("%s: The value '%s' is not a URI.",
-				  $name, $value));
+				throw new SchemaValidationException(
+				  "%s: The value '%s' is not a URI.",
+				  $name, $value);
 			}
 			break;
 		case "email":
 			if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
-				$valid = FALSE;
-				$this->setLastError(
-				  sprintf("%s: The value '%s' is not an email.",
-				  $name, $value));
+				throw new SchemaValidationException(
+				  "%s: The value '%s' is not an email.",
+				  $name, $value);
 			}
 			break;
 		case "ip-address":
 			if (!filter_var($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
-				$valid = FALSE;
-				$this->setLastError(
-				  sprintf("%s: The value '%s' is not an IPv4 address.",
-				  $name, $value));
+				throw new SchemaValidationException(
+				  "%s: The value '%s' is not an IPv4 address.",
+				  $name, $value);
 			}
 			break;
 		case "ipv6":
 			if (filter_var($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
-				$valid = FALSE;
-				$this->setLastError(
-				  sprintf("%s: The value '%s' is not an IPv6 address.",
-				  $name, $value));
+				throw new SchemaValidationException(
+				  "%s: The value '%s' is not an IPv6 address.",
+				  $name, $value);
 			}
 			break;
 		default:
-			$valid = FALSE;
-			$this->setLastError(
-			  sprintf("%s: The format '%s' is not defined.",
-			  $name, $schema['format']));
+			throw new SchemaValidationException(
+			  "%s: The format '%s' is not defined.",
+			  $name, $schema['format']);
 			break;
 		}
-		return $valid;
 	}
 
 	protected function checkEnum($value, $schema, $name) {
 		if (!isset($schema['enum']))
-			return TRUE;
+			return;
 		if (!is_array($schema['enum'])) {
-			$this->setLastError(
-			  sprintf("%s: Enum property is not an array.",
-			  $name));
-			return FALSE;
+			throw new SchemaException(
+			  "%s: Enum property is not an array.",
+			  $name);
 		}
 		if (!is_array($value))
 			$value = array($value);
 		foreach ($value as $valuek => $valuev) {
 			if (!in_array($valuev, $schema['enum'])) {
-				$this->setLastError(
-				  sprintf("%s: Invalid value '%s', allowed values are '%s'.",
-				  $name, $valuev, implode(',', $schema['enum'])));
-				return FALSE;
+				throw new SchemaValidationException(
+				  "%s: Invalid value '%s', allowed values are '%s'.",
+				  $name, $valuev, implode(',', $schema['enum']));
 			}
 		}
-		return TRUE;
 	}
 
 	protected function checkMinItems($value, $schema, $name) {
 		if (!isset($schema['minItems']))
-			return TRUE;
+			return;
 		if (count($value) < $schema['minItems']) {
-			$this->setLastError(
-			  sprintf("%s: Not enough array items, minimum is %d",
-			  $value, $schema, $name['minItems']));
-			return FALSE;
+			throw new SchemaValidationException(
+			  "%s: Not enough array items, minimum is %d",
+			  $value, $schema, $name['minItems']);
 		}
-		return TRUE;
 	}
 
 	protected function checkMaxItems($value, $schema, $name) {
 		if (!isset($schema['maxItems']))
-			return TRUE;
+			return;
 		if (count($value) > $schema['maxItems']) {
-			$this->setLastError(
-			  sprintf("%s: Too many array items, maximum is %d",
-			  $value, $schema, $name['maxItems']));
-			return FALSE;
+			throw new SchemaValidationException(
+			  "%s: Too many array items, maximum is %d",
+			  $value, $schema, $name['maxItems']);
 		}
-		return TRUE;
 	}
 
 	protected function checkProperties($value, $schema, $name) {
 		if (!isset($schema['properties'])) {
-        	$this->setLastError(
-			  sprintf("%s: No properties defined.",
-			  $name));
-			return FALSE;
+        	throw new SchemaException(
+			  "%s: No properties defined.",
+			  $name);
         }
 		$valueProps = get_object_vars($value);
 		foreach ($schema['properties'] as $propk => $propv) {
@@ -536,58 +464,51 @@ class Schema extends \OMVObject {
 			if (!array_key_exists($propk, $valueProps)) {
 				if (isset($propv['required']) &&
 				  (TRUE === $propv['required'])) {
-					$this->setLastError(
-					  sprintf("%s: Missing required property '%s'.",
-					  $name, $path));
-					return FALSE;
+					throw new SchemaValidationException(
+					  "%s: Missing required property '%s'.",
+					  $name, $path);
                 }
 				continue;
 			}
-			if (!$this->validateType($valueProps[$propk], $propv, $path))
-				return FALSE;
+			$this->validateType($valueProps[$propk], $propv, $path);
 		}
-		return TRUE;
 	}
 
 	protected function checkItems($value, $schema, $name) {
 		if (!isset($schema['items'])) {
-        	$this->setLastError(
-			  sprintf("%s: No items defined.",
-			  $name));
-			return FALSE;
+        	throw new SchemaException(
+			  "%s: No items defined.",
+			  $name);
         }
         if (is_array($schema['items'])) {
 			foreach ($value as $itemk => $itemv) {
                 $path = sprintf("%s[%k]", $name, $itemk);
-				$valid = FALSE;
+				$valid = TRUE;
                 foreach ($schema['items'] as $itemSchema) {
-                    if ($this->validateType($path, $itemv, $itemSchema)) {
-						$valid = TRUE;
-						break;
+					try {
+	                    $this->validateType($path, $itemv, $itemSchema);
+					} catch (SchemaValidationException $e) {
+						$valid = FALSE;
 					}
                 }
                 if (!$valid) {
                     $types = array_map(function($item) {
                         return $item['type'];
                     }, $schema['items']);
-					$this->setLastError(
-					  sprintf("%s: Invalid value, must be one of the following types '%s'.",
-					  $path, implode(", ", $types)));
-					return FALSE;
+					throw new SchemaValidationException(
+					  "%s: Invalid value, must be one of the following types '%s'.",
+					  $path, implode(", ", $types));
                 }
             }
         } else if (is_object($schema['items'])) {
             foreach ($value as $itemk => $itemv) {
 				$path = sprintf("%s[%k]", $name, $itemk);
-				if (!$this->validateType($path, $itemv, $schema['items']))
-					return FALSE;
+				$this->validateType($path, $itemv, $schema['items']);
 			}
         } else {
-			$this->setLastError(
-			  sprintf("%s: Invalid items value.",
-			  $name));
-			return FALSE;
+			throw new SchemaValidationException(
+			  "%s: Invalid items value.",
+			  $name);
 		}
-		return TRUE;
 	}
 }

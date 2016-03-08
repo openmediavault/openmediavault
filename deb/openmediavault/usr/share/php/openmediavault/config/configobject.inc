@@ -22,10 +22,9 @@
 namespace OMV\Config;
 
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 
-class ConfigObject extends \OMVObject {
+class ConfigObject extends \OMV\BaseObject {
 	private $model = NULL;
 	private $properties = array();
 
@@ -33,30 +32,9 @@ class ConfigObject extends \OMVObject {
 	 * @param id The data model identifier.
 	 */
 	public function __construct($id) {
-		$this->model = $id;
-	}
-
-	public function initialize() {
-		if (TRUE === $this->isInitialized())
-			return TRUE;
 		$modelMgr = &\OMV\DataModel\Manager::getInstance();
-		if (FALSE === ($model = $modelMgr->getModel($this->model))) {
-			$this->setLastError(
-			  sprintf("The model '%s' does not exist.",
-			  $this->model));
-			return FALSE;
-		}
-		$this->model = $model;
+		$this->model = $modelMgr->getModel($id);
 		$this->properties = $this->getDefaultsAssoc();
-		return TRUE;
-	}
-
-	public function isInitialized() {
-		if (!($this->getModel() instanceof \OMV\DataModel\Model)) {
-			$this->setLastError("Object is not initialized.");
-			return FALSE;
-		}
-		return TRUE;
 	}
 
 	private function getModel() {
@@ -66,15 +44,14 @@ class ConfigObject extends \OMVObject {
 	/**
 	 * Get a property.
 	 * @param name The name of the property.
-	 * @return The property value, otherwise NULL.
+	 * @return The property value.
 	 */
 	public function get($name) {
-		if (FALSE === $this->isInitialized())
-			return FALSE;
 		$model = $this->getModel();
 		if (FALSE === $model->propertyExists($name)) {
-			$this->setLastError($model->getLastError());
-			return NULL;
+			throw new \OMV\Exception(
+			  "The property '%s' does not exist.",
+			  $name);
 		}
 		return $this->properties[$name];
 	}
@@ -93,8 +70,6 @@ class ConfigObject extends \OMVObject {
 	 *   described by the data model, otherwise FALSE.
 	 */
 	public function getDefaultsAssoc() {
-		if (FALSE === $this->isInitialized())
-			return FALSE;
 		$object = array();
 		$fn = function($name, $schema, &$userData) {
 			switch ($schema['type']) {
@@ -117,25 +92,19 @@ class ConfigObject extends \OMVObject {
 	 * Set a property.
 	 * @param name The name of the property.
 	 * @param value The value of the property.
-	 * @return TRUE if successful, otherwise FALSE.
+	 * @return None.
 	 */
 	public function set($name, $value, $validate = TRUE) {
 //		$this->debug(var_export(func_get_args(), TRUE));
-		if (FALSE === $this->isInitialized())
-			return FALSE;
 		$model = $this->getModel();
 		if (FALSE === $model->propertyExists($name)) {
-			$this->setLastError($model->getLastError());
-			return FALSE;
+			throw new \OMV\Exception(
+			  "The property '%s' does not exist.",
+			  $name);
 		}
-		if (TRUE === $validate) {
-			if (FALSE === $model->validateProperty($name, $value)) {
-				$this->setLastError($model->getLastError());
-				return FALSE;
-			}
-		}
+		if (TRUE === $validate)
+			$model->validateProperty($name, $value);
 		$this->properties[$name] = $model->convertProperty($name, $value);
-		return TRUE;
 	}
 
 	/**

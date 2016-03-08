@@ -21,10 +21,9 @@
  */
 namespace OMV\DataModel;
 
-require_once("openmediavault/object.inc");
 require_once("openmediavault/functions.inc");
 
-class Model extends \OMVObject {
+class Model extends \OMV\BaseObject {
 	private $schema = NULL;
 
 	/**
@@ -61,26 +60,15 @@ class Model extends \OMVObject {
 	}
 
 	public function validate($value) {
-		$schema = $this->getSchema();
-		if (FALSE === $schema->validate($value)) {
-			$this->setLastError($schema->getLastError());
-			return FALSE;
-		}
-		return TRUE;
+		$this->getSchema()->validate($value);
 	}
 
 	public function validateProperty($name, $value) {
-		$schema = $this->getSchema();
-		if (FALSE === $schema->validate($value, $name)) {
-			$this->setLastError($schema->getLastError());
-			return FALSE;
-		}
-		return TRUE;
+		$this->getSchema()->validate($value, $name);
 	}
 
 	public function convertProperty($name, $value) {
-		if (FALSE === ($type = $this->getSchema()->getTypeByPath($name)))
-			return $value;
+		$type = $this->getSchema()->getTypeByPath($name);
 		switch ($type) {
 		case "boolean":
 			$value = boolvalEx($value);
@@ -100,12 +88,13 @@ class Model extends \OMVObject {
 	}
 
 	public function propertyExists($name) {
-		if (FALSE === $this->getSchema()->getAssocByPath($name)) {
-			$this->setLastError(
-			  sprintf("The property '%s' does not exist.", $name));
-			return FALSE;
+		$exists = TRUE;
+		try {
+			$this->getSchema()->getAssocByPath($name);
+		} catch(\OMV\Json\SchemaException $e) {
+			$exists = FALSE;
 		}
-		return TRUE;
+		return $exists;
 	}
 
 	public function walk($callback, &$userData = NULL, $schema = NULL) {

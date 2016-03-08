@@ -22,13 +22,15 @@
 namespace OMV\DataModel;
 
 require_once("openmediavault/globals.inc");
-require_once("openmediavault/object.inc");
 require_once("openmediavault/functions.inc");
 
 class Schema extends \OMV\Json\Schema {
+	/**
+	 * Get the type at the given path.
+	 * @return The type, e.g. 'object', 'string' or 'boolean'.
+	 */
 	final public function getTypeByPath($name) {
-		if (FALSE === ($schema = $this->getAssocByPath($name)))
-			return FALSE;
+		$schema = $this->getAssocByPath($name);
 		return $schema['type'];
 	}
 
@@ -36,87 +38,86 @@ class Schema extends \OMV\Json\Schema {
 	 * Add some more formats than JSON schema supports.
 	 */
 	protected function checkFormat($value, $schema, $name) {
-		if (TRUE === parent::checkFormat($value, $schema, $name))
-			return TRUE;
-		$this->clearLastError();
-		$valid = TRUE;
-		switch ($schema['format']) {
-		case "ipv4":
-			if (!filter_var($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
-				$valid = FALSE;
-				$this->setLastError(
-				  sprintf("%s: The value '%s' is not an IPv4 address.",
-				  $name, $value));
+		try {
+			return parent::checkFormat($value, $schema, $name);
+		} catch (\OMV\Json\SchemaValidationException $e) {
+			switch ($schema['format']) {
+			case "ipv4":
+				if (!filter_var($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+					$valid = FALSE;
+					$this->setLastError(
+					  sprintf("%s: The value '%s' is not an IPv4 address.",
+					  $name, $value));
+				}
+				break;
+			case "uuidv4":
+				if (!is_uuid($value)) {
+					$valid = FALSE;
+					$this->setLastError(
+					  sprintf("%s: The value '%s' is not an UUIDv4.",
+					  $name, $value));
+				}
+				break;
+			case "uuidv4-undefined":
+				if (!preg_match('/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-'.
+				  '[a-f0-9]{4}-[a-f0-9]{12}|'.$GLOBALS['OMV_UUID_UNDEFINED'].
+				  '$/i', $value)) {
+					$valid = FALSE;
+					$this->setLastError(
+					  sprintf("%s: The value '%s' is not an UUIDv4 or undefined.",
+					  $name, $value));
+				}
+				break;
+			case "fsuuid":
+				if (!is_fs_uuid($value)) {
+					$valid = FALSE;
+					$this->setLastError(
+					  sprintf("%s: The value '%s' is not a valid filesystem UUID.",
+					  $name, $value));
+				}
+				break;
+			case "devicefile":
+				if (!preg_match('/^\/dev(\/disk\/by-id)?\/.+$/i', $value)) {
+					$valid = FALSE;
+					$this->setLastError(
+					  sprintf("%s: The value '%s' is no device file name.",
+					  $name, $value));
+				}
+				break;
+			case "sshpubkey-openssh":
+				if (!preg_match('/^ssh-rsa AAAA[0-9A-Za-z+\/]+[=]{0,3}\s*'.
+				  '([^@]+@[^@]+|.+)*$/', $value)) {
+					$valid = FALSE;
+					$this->setLastError(
+					  sprintf("%s: The value '%s' is no SSH public key (OpenSSH).",
+					  $name, $value));
+				}
+				break;
+			case "sshpubkey-rfc4716":
+				if (!preg_match('/^---- BEGIN SSH2 PUBLIC KEY ----(\n|\r|\f)(.+)'.
+				  '(\n|\r|\f)---- END SSH2 PUBLIC KEY ----$/sm', $value)) {
+					$valid = FALSE;
+					$this->setLastError(
+					  sprintf("%s: The value '%s' is no SSH public key (RFC4716).",
+					  $name, $value));
+				}
+				break;
+			case "sshprivkey-rsa":
+				if (!preg_match('/^-----BEGIN RSA PRIVATE KEY-----(\n|\r|\f)(.+)'.
+				  '(\n|\r|\f)-----END RSA PRIVATE KEY-----$/sm', $value)) {
+					$valid = FALSE;
+					$this->setLastError(
+					  sprintf("%s: The value '%s' is no SSH private key (RSA).",
+					  $name, $value));
+				}
+				break;
+			default:
+				throw new \OMV\Json\SchemaValidationException(
+				  "%s: The type '%s' is not defined.",
+				  $name, $typev);
+				break;
 			}
-			break;
-		case "uuidv4":
-			if (!is_uuid($value)) {
-				$valid = FALSE;
-				$this->setLastError(
-				  sprintf("%s: The value '%s' is not an UUIDv4.",
-				  $name, $value));
-			}
-			break;
-		case "uuidv4-undefined":
-			if (!preg_match('/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-'.
-			  '[a-f0-9]{4}-[a-f0-9]{12}|'.$GLOBALS['OMV_UUID_UNDEFINED'].
-			  '$/i', $value)) {
-				$valid = FALSE;
-				$this->setLastError(
-				  sprintf("%s: The value '%s' is not an UUIDv4 or undefined.",
-				  $name, $value));
-			}
-			break;
-		case "fsuuid":
-			if (!is_fs_uuid($value)) {
-				$valid = FALSE;
-				$this->setLastError(
-				  sprintf("%s: The value '%s' is not a valid filesystem UUID.",
-				  $name, $value));
-			}
-			break;
-		case "devicefile":
-			if (!preg_match('/^\/dev(\/disk\/by-id)?\/.+$/i', $value)) {
-				$valid = FALSE;
-				$this->setLastError(
-				  sprintf("%s: The value '%s' is no device file name.",
-				  $name, $value));
-			}
-			break;
-		case "sshpubkey-openssh":
-			if (!preg_match('/^ssh-rsa AAAA[0-9A-Za-z+\/]+[=]{0,3}\s*'.
-			  '([^@]+@[^@]+|.+)*$/', $value)) {
-				$valid = FALSE;
-				$this->setLastError(
-				  sprintf("%s: The value '%s' is no SSH public key (OpenSSH).",
-				  $name, $value));
-			}
-			break;
-		case "sshpubkey-rfc4716":
-			if (!preg_match('/^---- BEGIN SSH2 PUBLIC KEY ----(\n|\r|\f)(.+)'.
-			  '(\n|\r|\f)---- END SSH2 PUBLIC KEY ----$/sm', $value)) {
-				$valid = FALSE;
-				$this->setLastError(
-				  sprintf("%s: The value '%s' is no SSH public key (RFC4716).",
-				  $name, $value));
-			}
-			break;
-		case "sshprivkey-rsa":
-			if (!preg_match('/^-----BEGIN RSA PRIVATE KEY-----(\n|\r|\f)(.+)'.
-			  '(\n|\r|\f)-----END RSA PRIVATE KEY-----$/sm', $value)) {
-				$valid = FALSE;
-				$this->setLastError(
-				  sprintf("%s: The value '%s' is no SSH private key (RSA).",
-				  $name, $value));
-			}
-			break;
-		default:
-			$valid = FALSE;
-			$this->setLastError(
-			  sprintf("%s: The format '%s' is not defined.",
-			  $name, $schema['format']));
-			break;
+
 		}
-		return $valid;
 	}
 }
