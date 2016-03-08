@@ -304,7 +304,7 @@ class OMVControlPanel extends OMVHtmlPageAbstract {
 		  $prd->getURL(), $prd->getCopyright(), $prd->getPackageName());
 		// Process the RPC error codes.
 		$errorCodes = array();
-		$reflectionClass = new ReflectionClass("OMVErrorMsg");
+		$reflectionClass = new ReflectionClass("\OMV\ExceptionCode");
 		foreach ($reflectionClass->getConstants() as $kConst => $vConst) {
 			$errorCodes[] = sprintf("OMV.%s = %s;", $kConst, $vConst);
 		}

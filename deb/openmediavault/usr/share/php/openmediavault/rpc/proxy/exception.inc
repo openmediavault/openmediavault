@@ -19,21 +19,10 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV;
+namespace OMV\Rpc\Proxy;
 
 /**
  * @ingroup api
  */
-class Exception extends \Exception {
-	public function __construct() {
-		$code = 0;
-		$args = func_get_args();
-		$arg0 = array_shift($args);
-		if (TRUE === is_int($arg0)) {
-			$code = $arg0;
-			$arg0 = array_shift($args);
-		}
-		$message = vsprintf($arg0, $args);
-		parent::__construct($message, $code);
-	}
+class Exception extends \OMV\Exception {
 }
