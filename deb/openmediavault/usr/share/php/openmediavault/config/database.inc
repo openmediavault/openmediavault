@@ -38,6 +38,12 @@ class Database extends \OMV\BaseObject {
 		return $instance;
 	}
 
+	private function isLoaded() {
+		global $xmlConfig;
+		if (!$xmlConfig instanceof \OMVConfigEngine)
+			throw new DatabaseException("Database is not loaded.");
+	}
+
 	/**
 	 * Get the configuration at the given XPath expression.
 	 * @param xpath The XPath expression to execute.
@@ -49,6 +55,7 @@ class Database extends \OMV\BaseObject {
 		global $xmlConfig;
 		if (empty($id))
 			$id = $xpath;
+		$this->isLoaded();
 		$data = $xmlConfig->get($xpath);
 		if (is_null($data))
 			throw new DatabaseException("XPath '%s' does not exist.", $xpath);
@@ -65,6 +72,7 @@ class Database extends \OMV\BaseObject {
 	 */
 	public function set($xpath, ConfigObject $object) {
 		global $xmlConfig;
+		$this->isLoaded();
 		$data = $object->getAssoc();
 		if (FALSE === $xmlConfig->set($xpath, $data))
 			throw new DatabaseException("XPath '%s' does not exist.", $xpath);
@@ -78,6 +86,7 @@ class Database extends \OMV\BaseObject {
 	 */
 	public function replace($xpath, ConfigObject $object) {
 		global $xmlConfig;
+		$this->isLoaded();
 		$data = $object->getAssoc();
 		if (FALSE === $xmlConfig->replace($xpath, $data))
 			throw new DatabaseException("XPath '%s' does not exist.", $xpath);
@@ -94,6 +103,7 @@ class Database extends \OMV\BaseObject {
 	 */
 	public function update($xpath, ConfigObject $object) {
 		global $xmlConfig;
+		$this->isLoaded();
 		$data = $object->getAssoc();
 		if (FALSE === $xmlConfig->update($xpath, $data))
 			throw new DatabaseException("XPath '%s' does not exist.", $xpath);
@@ -105,6 +115,7 @@ class Database extends \OMV\BaseObject {
 	 * @return None.
 	 */
 	public function delete($xpath) {
+		$this->isLoaded();
 		if (FALSE === $xmlConfig->delete($xpath))
 			throw new DatabaseException("XPath '%s' does not exist.", $xpath);
 	}

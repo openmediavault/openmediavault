@@ -9,7 +9,8 @@
 			"format": "uuidv4"
 		},
 		"enable": {
-			"type": "boolean"
+			"type": "boolean",
+			"default": 0
 		},
 		"sharedfolderref": {
 			"type": "string",

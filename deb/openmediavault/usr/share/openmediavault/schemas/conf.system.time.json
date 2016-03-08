@@ -1,0 +1,23 @@
+{
+	"type": "object",
+	"id": "time",
+	"alias": "//system/time",
+	"properties": {
+		"timezone": {
+			"type": "string",
+			"default": "Etc/UTC"
+		},
+		"ntp": {
+			"type": "object",
+			"properties": {
+				"enable": {
+					"type": "boolean",
+					"default": 0
+				},
+				"timeservers": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

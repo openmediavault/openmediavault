@@ -23,9 +23,6 @@ require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/notify.inc");
-require_once("openmediavault/datamodel/manager.inc");
-require_once("openmediavault/datamodel/schema.inc");
-require_once("openmediavault/json/file.inc");
 
 /**
  * The core RPC service class.

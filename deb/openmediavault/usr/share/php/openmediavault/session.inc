@@ -21,8 +21,6 @@
  */
 namespace OMV;
 
-require_once("openmediavault/exceptioncode.inc");
-
 /**
  * @ingroup api
  */
@@ -139,13 +137,26 @@ class Session extends \OMV\BaseObject {
 	}
 
 	/**
-	 * Validate the authentication. If not valid, an exception is thrown.
+	 * Validate the authentication. In case of an error the session is
+	 * destroyed and an exception is thrown.
 	 */
 	public function validateAuthentication() {
 		if (!$this->isAuthenticated()) {
-			throw new \OMV\Exception(
-			  \OMV\ExceptionCode::E_SESSION_NOT_AUTHENTICATED,
-			  "Session not authenticated.");
+			$this->destroy();
+			throw new \OMV\ErrorMsgException(
+			  \OMV\ErrorMsgException::E_SESSION_NOT_AUTHENTICATED);
+		}
+	}
+
+	/**
+	 * Validate the timeout. In case of an error the session is
+	 * destroyed and an exception is thrown.
+	 */
+	public function validateTimeout() {
+		if ($this->isTimeout()) {
+			$this->destroy();
+			throw new \OMV\ErrorMsgException(
+			  \OMV\ErrorMsgException::E_SESSION_TIMEOUT);
 		}
 	}
 
@@ -156,31 +167,26 @@ class Session extends \OMV\BaseObject {
 	public function validate() {
 		$exception = null;
 		if (!$this->isAuthenticated()) {
-			$exception = new \OMV\Exception(
-			  \OMV\ExceptionCode::E_SESSION_NOT_AUTHENTICATED,
-			  "Session not authenticated.");
+			$exception = new \OMV\ErrorMsgException(
+			  \OMV\ErrorMsgException::E_SESSION_NOT_AUTHENTICATED);
 		} else if (array_key_exists("REMOTE_ADDR", $_SERVER)) {
 			if ($_SESSION['ipaddress'] !== $_SERVER['REMOTE_ADDR'])
-				$exception = new \OMV\Exception(
-				  \OMV\ExceptionCode::E_SESSION_INVALID_IPADDRESS,
-				  "Invalid IP address.");
+				$exception = new \OMV\ErrorMsgException(
+				  \OMV\ErrorMsgException::E_SESSION_INVALID_IPADDRESS);
 		} else if (array_key_exists("HTTP_USER_AGENT", $_SERVER)) {
 			if ($_SESSION['useragent'] !== $_SERVER['HTTP_USER_AGENT'])
-				$exception = new \OMV\Exception(
-				  \OMV\ExceptionCode::E_SESSION_INVALID_USERAGENT,
-				  "Invalid User-Agent.");
+				$exception = new \OMV\ErrorMsgException(
+				  \OMV\ErrorMsgException::E_SESSION_INVALID_USERAGENT);
 		} else if ($this->isTimeout()) {
-			$exception = new \OMV\Exception(
-			  \OMV\ExceptionCode::E_SESSION_TIMEOUT,
-			  "Session expired.");
+			$exception = new \OMV\ErrorMsgException(
+			  \OMV\ErrorMsgException::E_SESSION_TIMEOUT);
 		} else {
 			// Check if user still exists, maybe it has been deleted by the
 			// administrator in the meanwhile.
 			$userInfo = posix_getpwnam($_SESSION['username']);
 			if (FALSE === $userInfo) {
-				$exception = new \OMV\Exception(
-				  \OMV\ExceptionCode::E_SESSION_INVALID_USER,
-				  "Invalid user.");
+				$exception = new \OMV\ErrorMsgException(
+				  \OMV\ErrorMsgException::E_SESSION_INVALID_USER);
 			}
 		}
 		if (!is_null($exception)) {

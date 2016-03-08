@@ -68,12 +68,7 @@ class Json extends \OMV\BaseObject {
 		// session, e.g. the 'Login' RPC.
 		$session = &\OMV\Session::getInstance();
 		if ($session->isAuthenticated()) {
-			if ($session->isTimeout()) {
-				$session->destroy();
-				throw new Exception(
-				  \OMV\ExceptionCode::E_SESSION_TIMEOUT,
-				  "Session expired.");
-			}
+			$session->validateTimeout();
 			if (TRUE === $updateLastAccess)
 				$session->updateLastAccess();
 		}

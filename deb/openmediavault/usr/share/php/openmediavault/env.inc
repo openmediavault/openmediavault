@@ -19,19 +19,23 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/config.inc");
+require_once("openmediavault/autoloader.inc");
 
 // Set locale information.
 setlocale(LC_ALL, "");
 // Set timezone.
-$object = $xmlConfig->get("//system/time");
-if(!is_null($object)) {
-	if(in_array($object['timezone'], timezone_identifiers_list())) {
-		date_default_timezone_set($object['timezone']);
+try {
+	// Get session timeout from the configuration.
+	$db = &\OMV\Config\Database::getInstance();
+	$object = $db->get("//system/time", "time");
+	if (in_array($object->get("timezone"), timezone_identifiers_list())) {
+		date_default_timezone_set($object->get("timezone"));
 	} else {
 		// See http://php.net/manual/en/timezones.others.php for more
 		// information.
 		syslog(LOG_ERR, sprintf("Unknown or unsupported timezone [tz=%s]",
-		  $object['timezone']));
+		  $object->get("timezone")));
 	}
+} catch(Exception $e) {
+	// Nothing to do here.
 }
