@@ -22,7 +22,8 @@
 require_once("openmediavault/globals.inc");
 require_once("openmediavault/config.inc");
 
-// Load the configuration file and save it in a global variable.
+// Initialize the configuration engine. The configuration engine is stored
+// in a global variable, thus all forked chrildren can access it.
 $xmlConfig = new OMVConfigEngine($GLOBALS['OMV_CONFIG_FILE']);
 $xmlConfig->setVersioning(TRUE);
 if (FALSE === $xmlConfig->load()) {

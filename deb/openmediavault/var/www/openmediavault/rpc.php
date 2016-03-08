@@ -20,10 +20,18 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 try {
-	require_once("openmediavault/config.inc"); // Must be included here
 	require_once("openmediavault/autoloader.inc");
 	require_once("openmediavault/env.inc");
+	require_once("openmediavault/config.inc");
 	require_once("openmediavault/functions.inc");
+
+	// Initialize the configuration engine.
+	$xmlConfig = new OMVConfigEngine($GLOBALS['OMV_CONFIG_FILE']);
+	$xmlConfig->setVersioning(TRUE);
+	if (FALSE === $xmlConfig->load()) {
+		throw new OMVException(OMVErrorMsg::E_CONFIG_LOAD_FAILED,
+		  $xmlConfig->getLastError());
+	}
 
 	// Load and initialize the RPC services that are not handled by the
 	// engine daemon.
