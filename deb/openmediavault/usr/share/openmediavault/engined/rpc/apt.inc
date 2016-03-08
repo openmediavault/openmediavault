@@ -78,7 +78,7 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 		  ));
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "apt.setsettings");
-		// Prepare configuration objects.
+		// Prepare the configuration object.
 		$object = new \OMV\Config\ConfigObject("apt.distribution");
 		$object->setAssoc($params);
 		// Update the configuration object.

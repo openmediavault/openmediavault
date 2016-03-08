@@ -20,9 +20,9 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 try {
+	require_once("openmediavault/config.inc"); // Must be included here
 	require_once("openmediavault/autoloader.inc");
 	require_once("openmediavault/env.inc");
-	require_once("openmediavault/config.inc"); // Must be included here
 
 	// Load and initialize the RPC services that are not handled by the
 	// engine daemon.
@@ -39,6 +39,10 @@ try {
 	}
 	$rpcServiceMgr = &\OMVRpcServiceMgr::getInstance();
 	$rpcServiceMgr->initializeServices();
+
+	// Initialize the data models.
+	$modelMgr = &\OMV\DataModel\Manager::getInstance();
+	$modelMgr->load($GLOBALS['OMV_JSONSCHEMAS_DIR']);
 
 	$session = &\OMV\Session::getInstance();
 	$session->start();

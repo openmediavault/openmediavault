@@ -57,19 +57,9 @@ class OMVRpcServiceWebGui extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$xpath = "//webadmin";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify the result object.
-		$object['port'] = intval($object['port']);
-		$object['enablessl'] = boolvalEx($object['enablessl']);
-		$object['sslport'] = intval($object['sslport']);
-		$object['forcesslonly'] = boolvalEx($object['forcesslonly']);
-		$object['timeout'] = intval($object['timeout']);
-		return $object;
+		$db = &\OMV\Config\Database::getInstance();
+		$object = $db->get("//webadmin", "webadmin");
+		return $object->getAssoc();
 	}
 
 	/**
@@ -86,38 +76,19 @@ class OMVRpcServiceWebGui extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "port":{"type":"integer","minimum":1,"maximum":65535},
-				  "enablessl":{"type":"boolean"},
-				  "sslport":{"type":"integer","minimum":1,"maximum":65535},
-				  "forcesslonly":{"type":"boolean"},
-				  "sslcertificateref":{'.
-					$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].'},
-				  "timeout":{"type":"integer","minimum":0,"maximum":30}
-			  }
-		  }');
-		// Prepare configuration objects
-		$object = array(
-			"port" => $params['port'],
-			"enablessl" => array_boolval($params, 'enablessl'),
-			"sslport" => $params['sslport'],
-			"forcesslonly" => array_boolval($params, 'forcesslonly'),
-			"sslcertificateref" => $params['sslcertificateref'],
-			"timeout" => $params['timeout']
-		);
-		// Set the configuration object.
-		$xpath = "//webadmin";
-		if(FALSE === $xmlConfig->replace($xpath, $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$this->validateMethodParams($params, "webgui.setsettings");
+		// Prepare the configuration object.
+		$object = new \OMV\Config\ConfigObject("webadmin");
+		$object->setAssoc($params);
+		// Update the configuration object.
+		$db = &\OMV\Config\Database::getInstance();
+		$db->replace("//webadmin", $object);
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY, "org.openmediavault.webadmin",
-		  $object);
+		  $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -134,17 +105,13 @@ class OMVRpcServiceWebGui extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "password":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "webgui.setpassword");
 		// Modify user password.
 		$cmd = sprintf("usermod --password %s admin 2>&1",
 		  escapeshellarg(crypt($params['password'])));
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+		if (0 !== $this->exec($cmd, $output)) {
+			throw new \OMV\ErrorMsgException(
+			  \OMV\ErrorMsgException::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
 	}

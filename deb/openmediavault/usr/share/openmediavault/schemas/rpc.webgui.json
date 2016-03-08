@@ -1,0 +1,45 @@
+[{
+	"type": "object",
+	"id": "webgui.setsettings",
+	"properties": {
+		"port":{
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 65535,
+			"required": true
+		},
+		"enablessl": {
+			"type": "boolean",
+			"required": true
+		},
+		"sslport": {
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 65535,
+			"required": true
+		},
+		"forcesslonly": {
+			"type": "boolean",
+			"required": true
+		},
+		"sslcertificateref": {
+			"type": "string",
+			"required": true
+		},
+		"timeout": {
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 30,
+			"required": true
+		}
+	}
+},
+{
+	"type": "object",
+	"id": "webgui.setpassword",
+	"properties": {
+		"password":{
+			"type": "string"
+		}
+	}
+}]

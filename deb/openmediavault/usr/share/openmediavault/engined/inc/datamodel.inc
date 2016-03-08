@@ -20,13 +20,8 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/globals.inc");
-require_once("openmediavault/error.inc");
 
 $modelMgr = &\OMV\DataModel\Manager::getInstance();
-if (FALSE === $modelMgr->load($GLOBALS['OMV_JSONSCHEMAS_DIR'])) {
-	throw new OMVException(OMVErrorMsg::E_DATAMODEL_LOAD_FAILED,
-	  $modelMgr->getLastError());
-}
-if (TRUE === $debug) {
+$modelMgr->load($GLOBALS['OMV_JSONSCHEMAS_DIR']);
+if (TRUE === $debug)
 	$modelMgr->dump();
-}
