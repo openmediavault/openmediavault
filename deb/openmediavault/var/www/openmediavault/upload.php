@@ -31,26 +31,28 @@ try {
 	}
 	set_error_handler("exception_error_handler");
 
+	require_once("openmediavault/autoloader.inc");
 	require_once("openmediavault/env.inc");
 	require_once("openmediavault/config.inc"); // Must be included here
 	require_once("openmediavault/session.inc");
-	require_once("openmediavault/rpcproxy.inc");
 
 	$session = &OMVSession::getInstance();
 	$session->start();
 
-	if($session->isAuthenticated()) {
+	if ($session->isAuthenticated()) {
 		$session->validate();
 		// Do not update last access time
 		//$session->updateLastAccess();
 	} else {
-		throw new OMVException(OMVErrorMsg::E_SESSION_NOT_AUTHENTICATED);
+		throw new \OMV\Exception(
+		  \OMV\ExceptionCode::E_SESSION_NOT_AUTHENTICATED);
 	}
 
-	$server = new OMVUploadRpcProxy();
+	// Start the proxy.
+	$server = new \OMV\Rpc\Proxy\Upload();
 	$server->handle();
 	$server->cleanup();
-} catch(Exception $e) {
+} catch(\Exception $e) {
 	if (isset($server))
 		$server->cleanup();
 	header("Content-Type: text/html");

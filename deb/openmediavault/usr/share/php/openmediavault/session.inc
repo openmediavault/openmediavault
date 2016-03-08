@@ -36,7 +36,7 @@ class OMVSession extends OMVObject {
 	 */
 	public static function &getInstance() {
 		if(is_null(self::$instance)) {
-			self::$instance = new OMVSession();
+			self::$instance = new \OMVSession();
 		}
 		return self::$instance;
 	}

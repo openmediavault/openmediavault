@@ -20,18 +20,34 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 try {
+	require_once("openmediavault/autoloader.inc");
 	require_once("openmediavault/env.inc");
 	require_once("openmediavault/config.inc"); // Must be included here
 	require_once("openmediavault/session.inc");
-	require_once("openmediavault/rpcproxy.inc");
 
 	$session = &OMVSession::getInstance();
 	$session->start();
 
-	$server = new OMVJsonRpcProxy();
+	// Load and initialize the RPC services that are not handled by the
+	// engine daemon.
+	$rpcServiceDir = sprintf("%s/rpc", $GLOBALS['OMV_DOCUMENTROOT_DIR']);
+	foreach (new \DirectoryIterator($rpcServiceDir) as $item) {
+		if ($item->isDot())
+			continue;
+		if (!$item->isFile())
+			continue;
+		if ("inc" !== strtolower($item->getExtension()))
+			continue;
+		require_once("{$rpcServiceDir}/{$item->getFilename()}");
+	}
+	$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
+	$rpcServiceMgr->initializeServices();
+
+	// Start the proxy.
+	$server = new OMV\Rpc\Proxy\Json();
 	$server->handle();
 	$server->cleanup();
-} catch(Exception $e) {
+} catch(\Exception $e) {
 	if (isset($server))
 		$server->cleanup();
 	header("Content-Type: application/json");

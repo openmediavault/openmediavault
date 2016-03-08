@@ -19,10 +19,11 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+require_once("openmediavault/autoloader.inc");
 require_once("openmediavault/env.inc");
 require_once("openmediavault/functions.inc");
 
-if(array_keys_exists(array("service", "method"), $_POST)) {
+if (array_keys_exists(array("service", "method"), $_POST)) {
 	try {
 		function exception_error_handler($errno, $errstr, $errfile,
 		  $errline) {
@@ -39,23 +40,24 @@ if(array_keys_exists(array("service", "method"), $_POST)) {
 
 		require_once("openmediavault/config.inc"); // Must be included here
 		require_once("openmediavault/session.inc");
-		require_once("openmediavault/rpcproxy.inc");
 
 		$session = &OMVSession::getInstance();
 		$session->start();
 
-		if($session->isAuthenticated()) {
+		if ($session->isAuthenticated()) {
 			$session->validate();
 			// Do not update last access time
 			//$session->updateLastAccess();
 		} else {
-			throw new OMVException(OMVErrorMsg::E_SESSION_NOT_AUTHENTICATED);
+			throw new \OMV\Exception(
+			  \OMV\ExceptionCode::E_SESSION_NOT_AUTHENTICATED);
 		}
 
-		$server = new OMVDownloadRpcProxy();
+		// Start the proxy.
+		$server = new \OMV\Rpc\Proxy\Download();
 		$server->handle();
 		$server->cleanup();
-	} catch(Exception $e) {
+	} catch(\Exception $e) {
 		if (isset($server))
 			$server->cleanup();
 		header("Content-Type: text/html");

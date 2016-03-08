@@ -68,7 +68,7 @@ class Json extends \OMV\BaseObject {
 		// RPCs that must be executed without an authenticated
 		// session, e.g. the 'Login' RPC.
 		$session = &OMVSession::getInstance();
-		if($session->isAuthenticated()) {
+		if ($session->isAuthenticated()) {
 			if ($session->isTimeout()) {
 				$session->destroy();
 				throw new Exception(
