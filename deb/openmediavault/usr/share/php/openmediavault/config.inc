@@ -605,11 +605,3 @@ class OMVConfigEngine extends OMVObject {
 		return $result;
 	}
 }
-
-// Load the configuration file and save it in a global variable.
-$xmlConfig = new OMVConfigEngine($GLOBALS['OMV_CONFIG_FILE']);
-$xmlConfig->setVersioning(TRUE);
-if (FALSE === $xmlConfig->load()) {
-	throw new OMVException(OMVErrorMsg::E_CONFIG_LOAD_FAILED,
-	  $xmlConfig->getLastError());
-}
