@@ -22,7 +22,6 @@
 namespace OMV;
 
 require_once("openmediavault/globals.inc");
-require_once("openmediavault/util.inc");
 
 /**
  * This class provides a simple interface to get product information.
@@ -53,12 +52,13 @@ class ProductInfo {
 	 * @return The product version as string, otherwise FALSE.
 	 */
 	public function getVersion() {
-		$cmd = sprintf("dpkg-query -W -f='\${Version}' %s",
-		  $this->getPackageName());
-		\OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
-			throw new \OMV\ExecException($cmd, $output);
-		return $output[0];
+		$cmdArgs = array();
+		$cmdArgs[] = "-W";
+		$cmdArgs[] = "-f='\${Version}'";
+		$cmdArgs[] = $this->getPackageName();
+		// Execute the command.
+		$cmd = new \OMV\System\Process("dpkg-query", $cmdArgs);
+		return $cmd->execute($output);
 	}
 
 	/**

@@ -22,11 +22,12 @@
 require_once("openmediavault/env.inc");
 
 $prd = new \OMV\ProductInfo();
+$title = sprintf("%s - %s", $prd->getName(), gettext("Page not found"));
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Page not found</title>
+		<title><?=$title;?></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
 		<link rel="stylesheet" type="text/css" href="css/omv.css"/>

@@ -19,15 +19,11 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/globals.inc");
-require_once("openmediavault/util.inc");
-require_once("openmediavault/object.inc");
-require_once("openmediavault/error.inc");
 
 /**
  * @ingroup api
  */
-class OMVMonit extends OMVObject {
+class OMVMonit {
 	private $name = "";
 	private $group = FALSE;
 
@@ -102,6 +98,7 @@ class OMVMonit extends OMVObject {
 	 */
 	private function action($action, $quiet = FALSE) {
 		$cmdArgs = array();
+		// Append various command options.
 		if (TRUE === $this->group) {
 			$cmdArgs[] = "-g";
 			$cmdArgs[] = $this->name;
@@ -110,12 +107,11 @@ class OMVMonit extends OMVObject {
 			$cmdArgs[] = $action;
 			$cmdArgs[] = $this->name;
 		}
-		$cmd = sprintf("export LANG=C; monit %s 2>&1", implode(" ", $cmdArgs));
-		OMVUtil::exec($cmd, $output, $result);
-		if (!$quiet && ($result !== 0)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		// Execute the command.
+		$cmd = new \OMV\System\Process("monit", $cmdArgs);
+		$cmd->setQuiet($quiet);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
@@ -123,19 +119,13 @@ class OMVMonit extends OMVObject {
 	 */
 	public function update() {
 		// Create monit and monitored services configuration files.
-		$cmd = "omv-mkconf monit 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("omv-mkconf", "monit");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 		// Reinitialize monit.
-		$cmd = "export LANG=C; monit reload 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("monit", "reload");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
@@ -146,12 +136,9 @@ class OMVMonit extends OMVObject {
 	public function status() {
 		$status = "unknown";
 		// Get status summary of monitored services.
-		$cmd = "export LANG=C; monit summary 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("monit", "summary");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 		// Parse the command output.
 		foreach ($output as $outputk => $outputv) {
 			$regex = '/^Process\s+\'([^\']+)\'\s+(.+)$/i';

@@ -19,20 +19,30 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/env.inc");
+namespace OMV\System\Network;
 
-$prd = new \OMV\ProductInfo();
-?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<title><?=$prd->getName();?></title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
-		<link rel="stylesheet" type="text/css" href="css/omv.css"/>
-	</head>
-	<body class="shutdown-page">
-		<a href='/'><div class="shutdown-icon"></div></a>
-		<a title='<?=$prd->getName();?>' href='<?=$prd->getURL();?>' target='_blank'><div class="product-logo"></div></a>
-	</body>
-</html>
+/**
+ * @ingroup api
+ */
+class Network {
+	/**
+	 * Get the systems host name.
+	 * @param options Additional command parameters
+	 * @return The host name.
+	 */
+	final public static function getHostname($options = "") {
+		$cmd = new \OMV\System\Process("hostname", $options);
+		$cmd->execute($output);
+		return $output[0];
+	}
+
+	/**
+	 * Get the systems domain name.
+	 * @return The domain name.
+	 */
+	final public static function getDomain() {
+		$cmd = new \OMV\System\Process("hostname", "-d");
+		$cmd->execute($output);
+		return $output[0];
+	}
+}

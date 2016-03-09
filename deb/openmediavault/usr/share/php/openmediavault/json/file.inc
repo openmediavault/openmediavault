@@ -21,7 +21,6 @@
  */
 namespace OMV\Json;
 
-require_once("openmediavault/error.inc");
 require_once("openmediavault/functions.inc");
 
 /**

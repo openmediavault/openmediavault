@@ -22,7 +22,6 @@
 try {
 	require_once("openmediavault/autoloader.inc");
 	require_once("openmediavault/env.inc");
-	require_once("openmediavault/htmlpage.inc");
 
 	// Display errors if debugging is enabled.
 	if (TRUE === boolvalEx($GLOBALS['OMV_DEBUG_PHP']))
@@ -35,13 +34,15 @@ try {
 		$session->validate();
 		$session->updateLastAccess();
 
-		$page = new \OMVControlPanel(($session->getRole() === OMV_ROLE_USER) ?
-		  \OMVControlPanel::MODE_USER : \OMVControlPanel::MODE_ADMINISTRATOR);
+		$page = new \OMV\ControlPanel\Administration(
+		  ($session->getRole() === OMV_ROLE_USER) ?
+		  \OMV\ControlPanel\Administration::MODE_USER :
+		  \OMV\ControlPanel\Administration::MODE_ADMINISTRATOR);
 		$page->render();
 	} else {
 		$session->destroy();
 
-		$page = new \OMVLoginPage();
+		$page = new \OMV\ControlPanel\Login();
 		$page->render();
 	}
 } catch(\Exception $e) {

@@ -19,16 +19,14 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/error.inc");
-require_once("openmediavault/system.inc");
-require_once("openmediavault/util.inc");
+namespace OMV\ControlPanel;
+
+require_once("openmediavault/functions.inc");
 
 /**
- * Base class for a HTML page.
  * @ingroup api
  */
-abstract class OMVHtmlPageAbstract extends OMVObject {
+abstract class ControlPanelAbstract {
 	/**
 	 * Includes the given file
 	 * @param fileName The name of the file to add
@@ -41,7 +39,7 @@ abstract class OMVHtmlPageAbstract extends OMVObject {
 		array_unshift($incList, $fileName);
 		$fh = fopen($fileName, "r");
 		if ($fh === FALSE)
-			throw new Exception(sprintf("Failed to open file '%s'", $fileName));
+			throw new Exception("Failed to open file '%s'", $fileName);
 		$abort = FALSE;
 		$scanList = array();
 		$regex = "/^(\/\/\s+require\(\"([^\s]+)\"\)|\/\*+|\*\/|\*.*|\s*)$/";
@@ -59,8 +57,8 @@ abstract class OMVHtmlPageAbstract extends OMVObject {
 			// - Blank lines
 			if (1 !== preg_match($regex, $content))
 				break;
-			if (1 !== preg_match("/\/\/\s+require\(\"([^\s]+)\"\)/", $content,
-			  $matches))
+			if (1 !== preg_match("/\/\/\s+require\(\"([^\s]+)\"\)/",
+			  $content, $matches))
 				continue;
 			$scanList[] = $matches[1];
 		}
@@ -77,7 +75,7 @@ abstract class OMVHtmlPageAbstract extends OMVObject {
 	 * @param recursive Scan subdirs
 	 */
 	protected function scanDir($dirPath, &$incList, $recursive = TRUE) {
-		$dir = new DirectoryIterator($dirPath);
+		$dir = new \DirectoryIterator($dirPath);
 		foreach ($dir as $item) {
 			if ($item->isDot())
 				continue;
@@ -194,9 +192,8 @@ EOF;
 	 */
 	protected function getTitle() {
 		$prd = new \OMV\ProductInfo();
-		return sprintf("%s %s - %s", $prd->getName(),
-		  gettext("web administration interface"),
-		  OMVNetwork::getHostname("--fqdn"));
+		return sprintf("%s %s - %s", $prd->getName(), gettext("control panel"),
+		  \OMV\System\Network\Network::getHostname("--fqdn"));
 	}
 
 	/**
@@ -232,165 +229,5 @@ EOF;
 	 */
 	public function getCssIncludes() {
 		return array();
-	}
-}
-
-/**
- * @ingroup api
- */
-class OMVControlPanel extends OMVHtmlPageAbstract {
-	const MODE_ADMINISTRATOR = "admin";
-	const MODE_USER = "user";
-
-	protected $mode = null;
-
-	/**
-	 * Constructor
-	 * @param mode The mode of the WebGUI, e.g. MODE_ADMINISTRATOR or
-	 *   MODE_USER.
-	 */
-	public function __construct($mode = OMVControlPanel::MODE_USER) {
-		$this->setMode($mode);
-	}
-
-	/**
-	 * Set the control panel mode.
-	 * @param mode The mode of the WebGUI, e.g. MODE_ADMINISTRATOR or
-	 *   MODE_USER.
-	 */
-	public function setMode($mode) {
-		$this->mode = $mode;
-	}
-
-	public function getJavascriptIncludes() {
-		$incList = array();
-		$this->scanFiles("js/omv/SessionManager.js", $incList);
-		$this->scanFiles("js/omv/workspace/Workspace.js", $incList);
-		$this->scanDir("js/omv/module/public", $incList, TRUE);
-		$this->scanDir("js/omv/module/{$this->mode}", $incList, TRUE);
-		return $incList;
-	}
-
-	protected function getCacheFileId() {
-		return $this->mode;
-	}
-
-	protected function getBodyClass() {
-		return "workspace-page";
-	}
-
-	protected function getBodyContent() {
-		$prd = new \OMV\ProductInfo();
-		$session = &\OMV\Session::getInstance();
-		// Define global constants.
-		$globalDefs = sprintf(
-		  "OMV.UUID_UNDEFINED = '%s'; ".
-		  "OMV.ROLE_ADMINISTRATOR = %d; ".
-		  "OMV.HTTPREQUEST_TIMEOUT = %s; ".
-		  "OMV.PRODUCT_NAME = '%s'; ".
-		  "OMV.PRODUCT_URL = '%s'; ".
-		  "OMV.PRODUCT_COPYRIGHT = '%s'; ".
-		  "OMV.PRODUCT_PACKAGENAME = '%s';",
-		  $GLOBALS['OMV_UUID_UNDEFINED'], OMV_ROLE_ADMINISTRATOR,
-		  $GLOBALS['OMV_HTTPREQUEST_TIMEOUT'], $prd->getName(),
-		  $prd->getURL(), $prd->getCopyright(), $prd->getPackageName());
-		// Process the RPC error codes.
-		$errorCodes = array();
-		$reflectionClass = new ReflectionClass("\OMV\ErrorMsgException");
-		foreach ($reflectionClass->getConstants() as $kConst => $vConst) {
-			$errorCodes[] = sprintf("OMV.%s = %s;", $kConst, $vConst);
-		}
-		$errorCodes = implode(" ", $errorCodes);
-		return <<<EOF
-		<script type="application/javascript">
-			// Global defines
-			{$globalDefs}
-			// RPC error codes
-			{$errorCodes}
-			// Request user confirmation before leaving page.
-			OMV.confirmPageUnload = true;
-			window.onbeforeunload = function() {
-				if(true === OMV.confirmPageUnload) {
-					OMV.confirmPageUnload = false;
-					return _("Do you really want to leave the page?");
-				}
-			};
-			// Initialize default session data.
-			Ext.apply(OMV.SessionManager, {
-				username: "{$session->getUsername()}",
-				role: "{$session->getRole()}"
-			});
-			// Use LocalStorage API if available, otherwise use
-			// cookies to store the state of the UI components.
-			var provider;
-			if (Ext.util.LocalStorage.supported) {
-				provider = Ext.create("Ext.state.LocalStorageProvider");
-			} else {
-				provider = Ext.create("Ext.state.CookieProvider", {
-					expires: new Date(new Date().getTime() +
-					  (1000*60*60*24*365))
-				});
-			}
-			Ext.state.Manager.setProvider(provider);
-			// Create the viewport if the page is ready.
-			Ext.onReady(function() {
-				Ext.tip.QuickTipManager.init(true, {
-					dismissDelay: 0
-				});
-				OMV.viewport = Ext.create("OMV.workspace.Workspace");
-			});
-		</script>
-EOF;
-	}
-}
-
-/**
- * @ingroup api
- */
-class OMVLoginPage extends OMVHtmlPageAbstract {
-	public function getJavascriptIncludes() {
-		$incList = array();
-		$this->scanFiles("js/omv/window/Login.js", $incList);
-		return $incList;
-	}
-
-	protected function getBodyClass() {
-		return "login-page";
-	}
-
-	protected function getBodyContent() {
-		$prd = new \OMV\ProductInfo();
-		return <<<EOF
-		<a title='{$prd->getName()}' href='{$prd->getURL()}' target='_blank'><div class="product-logo"></div></a>
-		<script type="application/javascript">
-			Ext.onReady(function() {
-				Ext.tip.QuickTipManager.init(true, {
-					dismissDelay: 0
-				});
-				Ext.create("OMV.window.Login", {
-					listeners: {
-						login: function(wnd, response) {
-							if(response.authenticated === true) {
-								// Close the window now.
-								wnd.close();
-								// Display loading progress dialog. This will
-								// be displayed until the web administration
-								// interface is loaded and rendered.
-								Ext.getBody().mask(
-								  _("Loading, please wait ..."));
-								// Reload page to render the web
-								// administration interface.
-								document.location.reload(true);
-							} else {
-								OMV.MessageBox.guru({
-									msg: _("Incorrect username or password.")
-								});
-							}
-						}
-					}
-				}).show();
-			});
-		</script>
-EOF;
 	}
 }

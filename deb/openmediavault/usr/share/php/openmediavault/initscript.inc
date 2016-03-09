@@ -19,13 +19,11 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/util.inc");
-require_once("openmediavault/object.inc");
 
 /**
  * @ingroup api
  */
-class OMVSysVInitScript extends OMVObject {
+class OMVSysVInitScript {
 	private $name = "";
 	private $enable = FALSE;
 	private $update = TRUE;
@@ -51,7 +49,7 @@ class OMVSysVInitScript extends OMVObject {
 	 */
 	public function exec() {
 		$this->stop();
-		switch($this->enable) {
+		switch ($this->enable) {
 		case FALSE:
 			$this->update(TRUE);
 			break;
@@ -70,26 +68,22 @@ class OMVSysVInitScript extends OMVObject {
 	 * @throw E_EXEC_FAILED
 	 */
 	private function update($disable) {
-		if(!$this->update)
+		if (!$this->update)
 			return;
-		$cmdargs = array();
-		switch($disable) {
+		$cmdArgs = array();
+		switch ($disable) {
 		case FALSE:
-			$cmdargs[] = escapeshellarg($this->name);
-			$cmdargs[] = "enable";
+			$cmdArgs[] = escapeshellarg($this->name);
+			$cmdArgs[] = "enable";
 			break;
 		case TRUE:
-			$cmdargs[] = escapeshellarg($this->name);
-			$cmdargs[] = "disable";
+			$cmdArgs[] = escapeshellarg($this->name);
+			$cmdArgs[] = "disable";
 			break;
 		}
-		$cmd = sprintf("export LANG=C; update-rc.d %s 2>&1", implode(
-		  " ", $cmdargs));
-		OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("update-rc.d", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
@@ -111,13 +105,12 @@ class OMVSysVInitScript extends OMVObject {
 	 * @throw E_EXEC_FAILED
 	 */
 	public function defaults() {
-		$cmd = sprintf("export LANG=C; update-rc.d %s defaults 2>&1",
-		  escapeshellarg($this->name));
-		OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmdArgs = array();
+		$cmdArgs[] = escapeshellarg($this->name);
+		$cmdArgs[] = "defaults";
+		$cmd = new \OMV\System\Process("update-rc.d", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
@@ -125,13 +118,13 @@ class OMVSysVInitScript extends OMVObject {
 	 * @throw E_EXEC_FAILED
 	 */
 	public function remove() {
-		$cmd = sprintf("export LANG=C; update-rc.d --force %s ".
-		  "remove 2>&1", escapeshellarg($this->name));
-		OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmdArgs = array();
+		$cmdArgs[] = "--force";
+		$cmdArgs[] = escapeshellarg($this->name);
+		$cmdArgs[] = "remove";
+		$cmd = new \OMV\System\Process("update-rc.d", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
@@ -169,13 +162,12 @@ class OMVSysVInitScript extends OMVObject {
 	 * @throw E_EXEC_FAILED
 	 */
 	public function invoke($action) {
-		$cmd = sprintf("export LANG=C; invoke-rc.d %s %s 2>&1",
-		  escapeshellarg($this->name), $action);
-		OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmdArgs = array();
+		$cmdArgs[] = escapeshellarg($this->name);
+		$cmdArgs[] = $action;
+		$cmd = new \OMV\System\Process("invoke-rc.d", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
@@ -193,9 +185,13 @@ class OMVSysVInitScript extends OMVObject {
 	 * See http://refspecs.freestandards.org/LSB_3.1.0/LSB-Core-generic/LSB-Core-generic/iniscrptact.html
 	 */
 	public function status() {
-		$cmd = sprintf("export LANG=C; invoke-rc.d %s status 2>&1",
-		  escapeshellarg($this->name));
-		OMVUtil::exec($cmd, $output, $result);
+		$cmdArgs = array();
+		$cmdArgs[] = escapeshellarg($this->name);
+		$cmdArgs[] = "status";
+		$cmd = new \OMV\System\Process("invoke-rc.d", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->setQuiet(TRUE);
+		$cmd->execute($output, $result);
 		return $result;
 	}
 }

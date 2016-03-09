@@ -19,14 +19,12 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/util.inc");
-require_once("openmediavault/object.inc");
 
 /**
  * @ingroup api
  * Control the systemd system and service manager.
  */
-class OMVSystemCtl extends OMVObject {
+class OMVSystemCtl {
 	private $name = "";
 	private $options = array();
 
@@ -69,13 +67,11 @@ class OMVSystemCtl extends OMVObject {
 			$cmdArgs = array_merge($cmdArgs, $options);
 		$cmdArgs[] = $command;
 		$cmdArgs[] = $this->name;
-		$cmd = sprintf("export LANG=C; systemctl %s 2>&1",
-		  implode(" ", $cmdArgs));
-		OMVUtil::exec($cmd, $output, $result);
-		if (!$quiet && ($result !== 0)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		// Execute the command.
+		$cmd = new \OMV\System\Process("systemctl", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->setQuiet($quiet);
+		$cmd->execute($output, $result);
 		return $result;
 	}
 
