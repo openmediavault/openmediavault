@@ -22,7 +22,6 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/systemctl.inc");
 
 class OMVModuleTftp extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
@@ -38,18 +37,16 @@ class OMVModuleTftp extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "export LANG=C; omv-mkconf tftpd-hpa 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("omv-mkconf", "tftpd-hpa");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		$systemCtl = new OMVSystemCtl("tftpd-hpa");
+		$systemCtl = new \OMV\System\SystemCtl("tftpd-hpa");
 		$systemCtl->disable(TRUE);
 	}
 
@@ -67,7 +64,7 @@ class OMVModuleTftp extends OMVModuleServiceAbstract
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
-		$systemCtl = new OMVSystemCtl("tftpd-hpa");
+		$systemCtl = new \OMV\System\SystemCtl("tftpd-hpa");
 		$systemCtl->enable(TRUE);
 	}
 
@@ -84,7 +81,7 @@ class OMVModuleTftp extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$systemCtl = new OMVSystemCtl("tftpd-hpa");
+		$systemCtl = new \OMV\System\SystemCtl("tftpd-hpa");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("TFTP"),

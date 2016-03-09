@@ -277,7 +277,7 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 		// Prepare the configuration object.
 		$object = array(
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  OMVUtil::uuid() : $params['uuid'],
+			  \OMV\Uuid::uuid4() : $params['uuid'],
 			"enable" => array_boolval($params, 'enable'),
 			"mode" => $params['mode'],
 			"sendemail" => array_boolval($params, 'sendemail'),

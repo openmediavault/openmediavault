@@ -383,7 +383,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 		// Prepare the configuration data.
 		$object = array(
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  OMVUtil::uuid() : $params['uuid'],
+			  \OMV\Uuid::uuid4() : $params['uuid'],
 			"devicefile" => $sd->getDeviceFileById(),
 			"enable" => array_boolval($params, 'enable'),
 			"type" => $sd->getSMARTDeviceType()
@@ -748,7 +748,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 		// Prepare configuration data
 		$object = array(
 			  "uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-				OMVUtil::uuid() : $params['uuid'],
+				\OMV\Uuid::uuid4() : $params['uuid'],
 			  "enable" => array_boolval($params, 'enable'),
 			  "devicefile" => $sd->getDeviceFileById(),
 			  "type" => $params['type'],

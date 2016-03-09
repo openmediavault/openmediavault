@@ -20,8 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/error.inc");
-require_once("openmediavault/systemctl.inc");
 
 class OMVModuleZeroconf extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -37,11 +35,9 @@ class OMVModuleZeroconf extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "export LANG=C; omv-mkconf avahi-daemon 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("omv-mkconf", "avahi-daemon");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
@@ -52,7 +48,7 @@ class OMVModuleZeroconf extends OMVModuleServiceAbstract
 		// is auto-reloaded otherwise and the 'reload' action in the
 		// startService() method will cause a SIGTERM which will lead in
 		// a non running daemon. Seems to be a strange race condition.
-		$systemCtl = new OMVSystemCtl("avahi-daemon");
+		$systemCtl = new \OMV\System\SystemCtl("avahi-daemon");
 		$systemCtl->stop();
 	}
 
@@ -60,7 +56,7 @@ class OMVModuleZeroconf extends OMVModuleServiceAbstract
 	 * Start the managed service.
 	 */
 	public function startService() {
-		$systemCtl = new OMVSystemCtl("avahi-daemon");
+		$systemCtl = new \OMV\System\SystemCtl("avahi-daemon");
 		$systemCtl->start();
 	}
 

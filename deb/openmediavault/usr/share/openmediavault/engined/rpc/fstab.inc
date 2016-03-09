@@ -154,7 +154,7 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 		// Prepare the configuration object.
 		$object = array(
 			  "uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-				OMVUtil::uuid() : $params['uuid'],
+				\OMV\Uuid::uuid4() : $params['uuid'],
 			  "fsname" => $params['fsname'],
 			  "dir" => $params['dir'],
 			  "type" => $params['type'],

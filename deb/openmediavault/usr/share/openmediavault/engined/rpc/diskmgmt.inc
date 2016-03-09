@@ -221,7 +221,7 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 		// Prepare the configuration data.
 		$object = array(
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  OMVUtil::uuid() : $params['uuid'],
+			  \OMV\Uuid::uuid4() : $params['uuid'],
 			"devicefile" => $sd->getDeviceFileById(),
 			"apm" => $params['apm'],
 			"aam" => $params['aam'],

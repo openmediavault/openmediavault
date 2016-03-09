@@ -279,7 +279,7 @@ class OMVRpcServiceRsync extends OMVRpcServiceAbstract {
 		// Prepare the configuration data.
 		$object = array(
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  OMVUtil::uuid() : $params['uuid'],
+			  \OMV\Uuid::uuid4() : $params['uuid'],
 			"enable" => array_boolval($params, 'enable'),
 			"sendemail" => array_boolval($params, 'sendemail'),
 			"comment" => $params['comment'],

@@ -19,11 +19,12 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+namespace OMV\System;
 
 /**
  * @ingroup api
  */
-class OMVSysVInitScript {
+class SysVInitScript {
 	private $name = "";
 	private $enable = FALSE;
 	private $update = TRUE;

@@ -22,7 +22,6 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/systemctl.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/log.inc");
 
@@ -47,18 +46,16 @@ class OMVModuleSmartMonTools extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "export LANG=C; omv-mkconf smartmontools 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("omv-mkconf", "smartmontools");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		$systemCtl = new OMVSystemCtl("smartd");
+		$systemCtl = new \OMV\System\SystemCtl("smartd");
 		$systemCtl->disable(TRUE);
 	}
 
@@ -76,7 +73,7 @@ class OMVModuleSmartMonTools extends OMVModuleServiceAbstract
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
-		$systemCtl = new OMVSystemCtl("smartd");
+		$systemCtl = new \OMV\System\SystemCtl("smartd");
 		$systemCtl->enable(TRUE);
 	}
 

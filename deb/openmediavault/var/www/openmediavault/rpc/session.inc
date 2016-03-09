@@ -20,10 +20,8 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/globals.inc");
-require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/rpcservice.inc");
-require_once("openmediavault/system.inc");
 
 class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 	/**
@@ -132,10 +130,12 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 				  "your account, you should reset your password.\n\n".
 				  "Sincerely,\n".
 				  "your %s system",
-				  $params['username'], OMVNetwork::getHostname('--fqdn'),
+				  $params['username'], \OMV\System\Network\Network::getFqdn(),
 				  $_SERVER['SERVER_ADDR'], date('r'), $_SERVER['REMOTE_ADDR'],
 				  $_SERVER['HTTP_USER_AGENT'], $prd->getName());
-				OMVUtil::mail('root', $params['username'], $subject, $message);
+				$mail = new \OMV\Mail("root", $params['username'],
+				  $subject, $message);
+				$mail->send();
 				// Set a cookie. It will expire after 60 days. The user name
 				// is crypted/hashed to be unable to reverse engineer the
 				// account names from the cookie. Finally encode the hashed

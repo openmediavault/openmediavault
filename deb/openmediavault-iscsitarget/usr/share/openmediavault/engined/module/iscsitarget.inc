@@ -22,8 +22,6 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/monit.inc");
-require_once("openmediavault/systemctl.inc");
 
 class OMVModuleIscsiTarget extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleServiceStatus {
@@ -53,11 +51,9 @@ class OMVModuleIscsiTarget extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "omv-mkconf iscsitarget 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("omv-mkconf", "iscsitarget");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
@@ -65,10 +61,10 @@ class OMVModuleIscsiTarget extends OMVModuleServiceAbstract
 	 */
 	public function stopService() {
 		// Disable monitoring of this service.
-		$monit = new OMVMonit("iscsitarget");
+		$monit = new \OMV\System\Monit("iscsitarget");
 		$monit->unmonitor(TRUE);
 		// Stop this service and disable the unit file.
-		$systemCtl = new OMVSystemCtl("iscsitarget");
+		$systemCtl = new \OMV\System\SystemCtl("iscsitarget");
 		$systemCtl->disable(TRUE);
 	}
 
@@ -87,12 +83,12 @@ class OMVModuleIscsiTarget extends OMVModuleServiceAbstract
 		if (FALSE === boolvalEx($object['enable']))
 			return;
 		// Start this service and enable the unit file.
-		$systemCtl = new OMVSystemCtl("iscsitarget");
+		$systemCtl = new \OMV\System\SystemCtl("iscsitarget");
 		$systemCtl->enable(TRUE);
 		// Wait to allow the service to start.
 		sleep(1);
 		// Enable monitoring of this service.
-		$monit = new OMVMonit("iscsitarget");
+		$monit = new \OMV\System\Monit("iscsitarget");
 		$monit->monitor();
 	}
 
@@ -108,7 +104,7 @@ class OMVModuleIscsiTarget extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$monit = new OMVMonit("iscsitarget");
+		$monit = new \OMV\System\Monit("iscsitarget");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("iSCSI Target"),

@@ -21,7 +21,6 @@
  */
 require_once("openmediavault/module.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/systemctl.inc");
 
 class OMVModuleCron extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -51,11 +50,9 @@ class OMVModuleCron extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "export LANG=C; omv-mkconf cron 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("omv-mkconf", "cron");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
@@ -69,7 +66,7 @@ class OMVModuleCron extends OMVModuleServiceAbstract
 		// It is necessary to restart the service if the system time or
 		// timezone has been changed, so a simple 'reload' can't be
 		// used here.
-		$systemCtl = new OMVSystemCtl("cron");
+		$systemCtl = new \OMV\System\SystemCtl("cron");
 		$systemCtl->restart();
 	}
 

@@ -114,7 +114,7 @@ class OMVRpcServiceIptables extends OMVRpcServiceAbstract {
 		foreach($rules as $rulek => $rulev) {
 			$objects[] = array(
 				"uuid" => ($rulev['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-				  OMVUtil::uuid() : $rulev['uuid'],
+				  \OMV\Uuid::uuid4() : $rulev['uuid'],
 				"rulenum" => $rulev['rulenum'],
 				"chain" => $rulev['chain'],
 				"action" => $rulev['action'],
@@ -298,7 +298,7 @@ class OMVRpcServiceIptables extends OMVRpcServiceAbstract {
 		// Prepare the configuration object.
 		$object = array(
 			  "uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-				OMVUtil::uuid() : $params['uuid'],
+				\OMV\Uuid::uuid4() : $params['uuid'],
 			  "rulenum" => $params['rulenum'],
 			  "chain" => $params['chain'],
 			  "action" => $params['action'],

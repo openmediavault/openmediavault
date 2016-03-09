@@ -22,8 +22,6 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/monit.inc");
-require_once("openmediavault/systemctl.inc");
 
 class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleServiceStatus {
@@ -53,11 +51,9 @@ class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "export LANG=C; omv-mkconf forked-daapd 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("omv-mkconf", "forked-daapd");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
@@ -65,10 +61,10 @@ class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
 	 */
 	public function stopService() {
 		// Disable monitoring of this service.
-		$monit = new OMVMonit("forked-daapd");
+		$monit = new \OMV\System\Monit("forked-daapd");
 		$monit->unmonitor(TRUE);
 		// Stop this service and disable the unit file.
-		$systemCtl = new OMVSystemCtl("forked-daapd");
+		$systemCtl = new \OMV\System\SystemCtl("forked-daapd");
 		$systemCtl->disable(TRUE);
 	}
 
@@ -87,12 +83,12 @@ class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
 		if (FALSE === boolvalEx($object['enable']))
 			return;
 		// Start this service and enable the unit file.
-		$systemCtl = new OMVSystemCtl("forked-daapd");
+		$systemCtl = new \OMV\System\SystemCtl("forked-daapd");
 		$systemCtl->enable(TRUE);
 		// Wait to allow the service to start.
 		sleep(1);
 		// Enable monitoring of this service.
-		$monit = new OMVMonit("forked-daapd");
+		$monit = new \OMV\System\Monit("forked-daapd");
 		$monit->monitor();
 	}
 
@@ -108,7 +104,7 @@ class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$monit = new OMVMonit("forked-daapd");
+		$monit = new \OMV\System\Monit("forked-daapd");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("iTunes/DAAP"),

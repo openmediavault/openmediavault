@@ -20,7 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/systemctl.inc");
 
 class OMVModuleNetworking extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -35,7 +34,7 @@ class OMVModuleNetworking extends OMVModuleServiceAbstract
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		$systemCtl = new OMVSystemCtl("networking");
+		$systemCtl = new \OMV\System\SystemCtl("networking");
 		$systemCtl->stop();
 	}
 
@@ -43,7 +42,7 @@ class OMVModuleNetworking extends OMVModuleServiceAbstract
 	 * Start the managed service.
 	 */
 	public function startService() {
-		$systemCtl = new OMVSystemCtl("networking");
+		$systemCtl = new \OMV\System\SystemCtl("networking");
 		$systemCtl->start();
 	}
 

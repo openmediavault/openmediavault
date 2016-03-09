@@ -19,28 +19,26 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/module.inc");
-require_once("openmediavault/error.inc");
+namespace OMV\System;
 
-class OMVModulePAM extends OMVModuleServiceAbstract {
+/**
+ * @ingroup api
+ */
+class Os {
 	/**
-	 * Get the module name.
+	 * Returns the target of a symbolic link. Canonicalize by following
+	 * every symlink in every component of the given name recursively,
+	 * without requirements on components existence.
+	 * @param path The symbolic link path.
+	 * @return Returns the value of the symbolic link or FALSE on error.
 	 */
-	public function getName() {
-		return "pam";
-	}
-
-	/**
-	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
-	 */
-	public function applyConfig() {
-		$cmd = new \OMV\System\Process("omv-mkconf", "pam");
-		$cmd->setRedirect2to1(TRUE);
-		$cmd->execute();
+	final public static function readlink($path) {
+		$cmdArgs = array();
+		$cmdArgs[] = "-m";
+		$cmdArgs[] = "-n";
+		$cmdArgs[] = escapeshellarg($path);
+		$cmd = new \OMV\System\Process("readlink", $cmdArgs);
+		$cmd->execute($output);
+		return $output[0];
 	}
 }
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModulePAM());

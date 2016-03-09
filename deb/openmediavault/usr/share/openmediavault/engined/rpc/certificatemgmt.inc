@@ -180,7 +180,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 				  "key: 'privatekey' does not exist.");
 			// Prepare configuration data.
 			$object = array(
-				"uuid" => OMVUtil::uuid(),
+				"uuid" => \OMV\Uuid::uuid4(),
 				"certificate" => $params['certificate'],
 				"privatekey" => $params['privatekey'],
 				"comment" => $params['comment']
@@ -515,7 +515,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 				  "key: 'privatekey' does not exist.");
 			// Prepare configuration data.
 			$object = array(
-				"uuid" => OMVUtil::uuid(),
+				"uuid" => \OMV\Uuid::uuid4(),
 				"publickey" => $params['publickey'],
 				"privatekey" => $params['privatekey'],
 				"comment" => $params['comment']

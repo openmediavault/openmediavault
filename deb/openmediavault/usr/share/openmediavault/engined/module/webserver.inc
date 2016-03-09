@@ -20,8 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/error.inc");
-require_once("openmediavault/systemctl.inc");
 
 abstract class OMVModuleNginxAbstract extends OMVModuleServiceAbstract {
 	/**
@@ -29,25 +27,21 @@ abstract class OMVModuleNginxAbstract extends OMVModuleServiceAbstract {
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		# Build the configuration.
-		$cmd = "export LANG=C; omv-mkconf nginx 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
-		# Test the new configuration.
-		$cmd = "export LANG=C; nginx -t 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		// Build the configuration.
+		$cmd = new \OMV\System\Process("omv-mkconf", "nginx");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
+		// Test the new configuration.
+		$cmd = new \OMV\System\Process("nginx", "-t");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
 	 * Start the managed service.
 	 */
 	public function startService() {
-		$systemCtl = new OMVSystemCtl("nginx");
+		$systemCtl = new \OMV\System\SystemCtl("nginx");
 		$systemCtl->restart();
 	}
 }

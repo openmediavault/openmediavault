@@ -1,3 +1,9 @@
+openmediavault-ldap (3.0.2) stable; urgency=low
+
+  * Adapt to new framework.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 09 Mar 2016 17:18:45 +0100
+
 openmediavault-ldap (3.0.1) stable; urgency=low
 
   * Mantis 0001444: Allow changing the security option via the environment

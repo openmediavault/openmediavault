@@ -24,7 +24,7 @@ require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/log.inc");
 require_once("openmediavault/rpcservice.inc");
-require_once("openmediavault/systemctl.inc");
+
 
 class OMVRpcServiceLogFile extends OMVRpcServiceAbstract {
 	/**
@@ -163,7 +163,7 @@ class OMVRpcServiceLogFile extends OMVRpcServiceAbstract {
 			  $logfile->getFilePath()));
 		}
 		// Force rsyslog to close and reopen the syslog files.
-		$systemCtl = new OMVSystemCtl("rsyslog.service");
+		$systemCtl = new \OMV\System\SystemCtl("rsyslog.service");
 		if (TRUE === $systemCtl->isEnabled())
 			$systemCtl->kill("SIGHUP");
 	}

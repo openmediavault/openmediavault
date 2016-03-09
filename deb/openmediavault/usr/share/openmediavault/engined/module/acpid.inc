@@ -22,7 +22,6 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/systemctl.inc");
 
 class OMVModuleAcpid extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -38,18 +37,16 @@ class OMVModuleAcpid extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "export LANG=C; omv-mkconf acpid 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("omv-mkconf", "acpid");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		$systemCtl = new OMVSystemCtl("acpid");
+		$systemCtl = new \OMV\System\SystemCtl("acpid");
 		$systemCtl->stop();
 	}
 
@@ -67,7 +64,7 @@ class OMVModuleAcpid extends OMVModuleServiceAbstract
 		}
 		if (FALSE === boolvalEx($object['powerbtn']))
 			return;
-		$systemCtl = new OMVSystemCtl("acpid");
+		$systemCtl = new \OMV\System\SystemCtl("acpid");
 		$systemCtl->start();
 	}
 

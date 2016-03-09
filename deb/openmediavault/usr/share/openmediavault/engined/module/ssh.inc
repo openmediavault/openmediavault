@@ -22,7 +22,6 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/systemctl.inc");
 
 class OMVModuleSsh extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
@@ -38,18 +37,16 @@ class OMVModuleSsh extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "export LANG=C; omv-mkconf ssh 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("omv-mkconf", "ssh");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		$systemCtl = new OMVSystemCtl("ssh");
+		$systemCtl = new \OMV\System\SystemCtl("ssh");
 		$systemCtl->disable(TRUE);
 	}
 
@@ -67,7 +64,7 @@ class OMVModuleSsh extends OMVModuleServiceAbstract
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
-		$systemCtl = new OMVSystemCtl("ssh");
+		$systemCtl = new \OMV\System\SystemCtl("ssh");
 		$systemCtl->enable(TRUE);
 	}
 
@@ -83,7 +80,7 @@ class OMVModuleSsh extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$systemCtl = new OMVSystemCtl("ssh");
+		$systemCtl = new \OMV\System\SystemCtl("ssh");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("SSH"),

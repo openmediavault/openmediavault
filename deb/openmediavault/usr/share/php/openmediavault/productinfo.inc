@@ -58,7 +58,7 @@ class ProductInfo {
 		$cmdArgs[] = $this->getPackageName();
 		// Execute the command.
 		$cmd = new \OMV\System\Process("dpkg-query", $cmdArgs);
-		return $cmd->execute($output);
+		return $cmd->execute();
 	}
 
 	/**

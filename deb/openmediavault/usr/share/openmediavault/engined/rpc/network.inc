@@ -142,7 +142,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		// Append the generic network interface configuration attributes.
 		$object = array_merge(array(
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  OMVUtil::uuid() : $params['uuid'],
+			  \OMV\Uuid::uuid4() : $params['uuid'],
 			"devicename" => $params['devicename'],
 			"method" => $params['method'],
 			"address" => $params['address'],

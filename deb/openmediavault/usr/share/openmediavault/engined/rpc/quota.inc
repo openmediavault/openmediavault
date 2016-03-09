@@ -223,7 +223,7 @@ class OMVRpcServiceQuota extends OMVRpcServiceAbstract {
 		  $params['uuid']);
 		if(FALSE === $xmlConfig->exists($xpath)) {
 			// Create a new configuration object.
-			$object['uuid'] = OMVUtil::uuid();
+			$object['uuid'] = \OMV\Uuid::uuid4();
 			$object['fsuuid'] = $params['uuid'];
 			// Append object to configuration.
 			$success = $xmlConfig->set("//system/storage/filesystem",

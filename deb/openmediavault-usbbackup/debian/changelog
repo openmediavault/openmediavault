@@ -1,3 +1,9 @@
+openmediavault-usbbackup (3.0.2) stable; urgency=low
+
+  * Adapt to new framework.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 09 Mar 2016 17:19:50 +0100
+
 openmediavault-usbbackup (3.0.1) stable; urgency=low
 
   * Various improvements.

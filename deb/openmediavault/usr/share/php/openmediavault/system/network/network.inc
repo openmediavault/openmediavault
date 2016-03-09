@@ -36,12 +36,18 @@ class Network {
 		return $output[0];
 	}
 
+	final public static function getFqdn() {
+		$cmd = new \OMV\System\Process("hostname", "--fqdn");
+		$cmd->execute($output);
+		return $output[0];
+	}
+
 	/**
 	 * Get the systems domain name.
 	 * @return The domain name.
 	 */
 	final public static function getDomain() {
-		$cmd = new \OMV\System\Process("hostname", "-d");
+		$cmd = new \OMV\System\Process("hostname", "--domain");
 		$cmd->execute($output);
 		return $output[0];
 	}

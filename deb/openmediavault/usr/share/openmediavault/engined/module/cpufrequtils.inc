@@ -22,7 +22,6 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/systemctl.inc");
 
 class OMVModuleCPUFreqUtils extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -38,11 +37,9 @@ class OMVModuleCPUFreqUtils extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "export LANG=C; omv-mkconf cpufrequtils 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("omv-mkconf", "cpufrequtils");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
@@ -51,9 +48,9 @@ class OMVModuleCPUFreqUtils extends OMVModuleServiceAbstract
 	public function stopService() {
 		// Note, when disabling the 'cpufrequtils' service the changes
 		// will not take effect before the system is rebooted.
-		$systemCtl = new OMVSystemCtl("loadcpufreq");
+		$systemCtl = new \OMV\System\SystemCtl("loadcpufreq");
 		$systemCtl->disable(TRUE);
-		$systemCtl = new OMVSystemCtl("cpufrequtils");
+		$systemCtl = new \OMV\System\SystemCtl("cpufrequtils");
 		$systemCtl->disable(TRUE);
 	}
 
@@ -71,9 +68,9 @@ class OMVModuleCPUFreqUtils extends OMVModuleServiceAbstract
 		}
 		if (FALSE === boolvalEx($object['cpufreq']))
 			return;
-		$systemCtl = new OMVSystemCtl("loadcpufreq");
+		$systemCtl = new \OMV\System\SystemCtl("loadcpufreq");
 		$systemCtl->enable(TRUE);
-		$systemCtl = new OMVSystemCtl("cpufrequtils");
+		$systemCtl = new \OMV\System\SystemCtl("cpufrequtils");
 		$systemCtl->enable(TRUE);
 	}
 

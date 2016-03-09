@@ -1,3 +1,9 @@
+openmediavault-iscsitarget (3.0.3) stable; urgency=low
+
+  * Adapt to new framework.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 09 Mar 2016 17:18:35 +0100
+
 openmediavault-iscsitarget (3.0.2) stable; urgency=low
 
   * Fix bug when submitting a modifying target configuration.

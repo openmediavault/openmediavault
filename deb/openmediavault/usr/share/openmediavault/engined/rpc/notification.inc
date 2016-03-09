@@ -21,7 +21,6 @@
  */
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
 require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/notify.inc");
 
@@ -341,7 +340,8 @@ class OMVRpcServiceEmailNotification extends OMVRpcServiceAbstract {
 		$subject = sprintf("Test message from %s", $hostname);
 		$message = sprintf("This is an automatically generated mail message ".
 		  "from the system notification service running on %s.", $hostname);
-		if(!OMVUtil::mail($object['sender'], $to, $subject, $message)) {
+		$mail = new \OMV\Mail($object['sender'], $to, $subject, $message);
+		if (!$mail->send()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  "Failed to send email. Please check the logs.");
 		}

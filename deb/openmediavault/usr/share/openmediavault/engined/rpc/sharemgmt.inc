@@ -24,7 +24,6 @@ require_once("openmediavault/config.inc");
 require_once("openmediavault/system.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
 require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/notify.inc");
 
@@ -325,7 +324,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 		// folder as the relative directory name of the share.
 		$object = array(
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  OMVUtil::uuid() : $params['uuid'],
+			  \OMV\Uuid::uuid4() : $params['uuid'],
 			"name" => $params['name'],
 			"comment" => $params['comment'],
 			"mntentref" => $params['mntentref'],
@@ -519,7 +518,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 					  $xpath);
 				}
 				// Build the absolute shared folder path.
-				$absDirPath = OMVUtil::readlink(build_path(array(
+				$absDirPath = \OMV\System\Os::readlink(build_path(array(
 				  $meObject['dir'], $object['reldirpath'])));
 				// Ensure the path ends with an slash, otherwise comparison
 				// may be false positive.
@@ -548,7 +547,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 					//
 					// Deleting dir2 recursively will be forbidden when dir2.1
 					// is used by another shared folder.
-					$sfAbsDirPath = OMVUtil::readlink(build_path(array(
+					$sfAbsDirPath = \OMV\System\Os::readlink(build_path(array(
 					  $meObject['dir'], $sfObjectv['reldirpath'])));
 					if (0 === stripos($sfAbsDirPath, $absDirPath)) {
 						throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,

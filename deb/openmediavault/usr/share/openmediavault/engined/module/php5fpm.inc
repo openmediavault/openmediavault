@@ -21,7 +21,6 @@
  */
 require_once("openmediavault/module.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/systemctl.inc");
 
 class OMVModulePhp5fpm extends OMVModuleServiceAbstract {
 	/**
@@ -36,24 +35,21 @@ class OMVModulePhp5fpm extends OMVModuleServiceAbstract {
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "export LANG=C; omv-mkconf php5fpm 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
-		# Test the new configuration.
-		$cmd = "export LANG=C; php5-fpm -t 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		// Build the configuration.
+		$cmd = new \OMV\System\Process("omv-mkconf", "php5fpm");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
+		// Test the new configuration.
+		$cmd = new \OMV\System\Process("php5-fpm", "-t");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
 	 * Start the managed service.
 	 */
 	public function startService() {
-		$systemCtl = new OMVSystemCtl("php5-fpm");
+		$systemCtl = new \OMV\System\SystemCtl("php5-fpm");
 		$systemCtl->reload();
 	}
 }

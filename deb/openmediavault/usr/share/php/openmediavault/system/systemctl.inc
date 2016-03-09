@@ -19,12 +19,13 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+namespace OMV\System;
 
 /**
  * @ingroup api
  * Control the systemd system and service manager.
  */
-class OMVSystemCtl {
+class SystemCtl {
 	private $name = "";
 	private $options = array();
 

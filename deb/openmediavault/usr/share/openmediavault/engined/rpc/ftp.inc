@@ -308,7 +308,7 @@ class OMVRpcServiceFtp extends OMVRpcServiceAbstract {
 		// Prepare the configuration object.
 		$object = array(
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  OMVUtil::uuid() : $params['uuid'],
+			  \OMV\Uuid::uuid4() : $params['uuid'],
 			"sharedfolderref" => $params['sharedfolderref'],
 			"extraoptions" => $params['extraoptions'],
 			"comment" => $params['comment']
@@ -481,7 +481,7 @@ class OMVRpcServiceFtp extends OMVRpcServiceAbstract {
 		// Prepare the configuration object.
 		$object = array(
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  OMVUtil::uuid() : $params['uuid'],
+			  \OMV\Uuid::uuid4() : $params['uuid'],
 			"event" => $params['event'],
 			"occurrence" => $params['occurrence'],
 			"timeinterval" => $params['timeinterval'],

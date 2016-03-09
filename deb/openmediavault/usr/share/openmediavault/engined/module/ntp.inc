@@ -22,7 +22,6 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/systemctl.inc");
 
 class OMVModuleNtp extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -38,11 +37,9 @@ class OMVModuleNtp extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "export LANG=C; omv-mkconf ntp 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("omv-mkconf", "ntp");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
@@ -50,13 +47,11 @@ class OMVModuleNtp extends OMVModuleServiceAbstract
 	 */
 	public function stopService() {
 		// Disable NTP.
-		$cmd = "export LANG=C; timedatectl set-ntp no 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("timedatectl", "set-ntp no");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 		// Stop the timesyncd daemon.
-		$systemCtl = new OMVSystemCtl("systemd-timesyncd");
+		$systemCtl = new \OMV\System\SystemCtl("systemd-timesyncd");
 		$systemCtl->disable(TRUE);
 	}
 
@@ -75,13 +70,11 @@ class OMVModuleNtp extends OMVModuleServiceAbstract
 		if (FALSE === boolvalEx($object['enable']))
 			return;
 		// Enable NTP.
-		$cmd = "export LANG=C; timedatectl set-ntp yes 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("timedatectl", "set-ntp yes");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 		// Start the timesyncd daemon.
-		$systemCtl = new OMVSystemCtl("systemd-timesyncd");
+		$systemCtl = new \OMV\System\SystemCtl("systemd-timesyncd");
 		$systemCtl->enable(TRUE);
 	}
 

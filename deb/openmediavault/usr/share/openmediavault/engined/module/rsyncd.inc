@@ -22,7 +22,6 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/initscript.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/log.inc");
 
@@ -40,18 +39,16 @@ class OMVModuleRsyncd extends OMVModuleServiceAbstract
 	 * @throws E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "export LANG=C; omv-mkconf rsyncd 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("omv-mkconf", "rsyncd");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		$initd = new OMVSysVInitScript("rsync", FALSE);
+		$initd = new \OMV\System\SysVInitScript("rsync", FALSE);
 		$initd->exec();
 	}
 
@@ -69,7 +66,7 @@ class OMVModuleRsyncd extends OMVModuleServiceAbstract
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
-		$initd = new OMVSysVInitScript("rsync", TRUE);
+		$initd = new \OMV\System\SysVInitScript("rsync", TRUE);
 		$initd->exec();
 	}
 
@@ -85,7 +82,7 @@ class OMVModuleRsyncd extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$initd = new OMVSysVInitScript("rsync");
+		$initd = new \OMV\System\SysVInitScript("rsync");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("RSync server"),

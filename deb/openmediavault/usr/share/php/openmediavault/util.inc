@@ -19,107 +19,33 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
+require_once("openmediavault/autoloader.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/functions.inc");
 
 /**
  * This class provides various helper methods.
  * @ingroup api
+ * @deprecated
  */
 class OMVUtil {
 	/**
 	* Create a UUID Version 4 (random).
-	* @return A new UUID string if successful, otherwise FALSE.
+	* @return A new UUID string if successful, otherwise an exception
+	*   is thrown.
+	* @deprecated
 	*/
 	public static function uuid() {
-		@OMVUtil::exec("export LANG=C; uuid -v 4 -F STR", $output, $result);
-		if($result !== 0)
-			return FALSE;
-		return $output[0];
+		return \OMV\Uuid::uuid4();
 	}
 
 	/**
 	* Execute the given command.
+	* @deprecated
 	*/
 	public static function exec($command, &$output = NULL, &$exitStatus = NULL) {
-		putenv("PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin");
-		return exec($command, $output, $exitStatus);
-	}
-
-	/**
-	 * Write debug message to file '/tmp/phpdebug.log'.
-	 * Take care about the permissions:
-	 * touch /tmp/phpdebug.log
-	 * chmod openmediavault:openmediavault /tmp/phpdebug.log
-	 */
-	public static function debug() {
-		if(!file_exists("/tmp/phpdebug.log"))
-			return;
-
-		$args = func_get_args();
-		$fmt = array_shift($args);
-
-		// Get the backtrace
-		$bt = debug_backtrace();
-		$bt = $bt[1];
-
-		// Prepare debug output
-		$msg = sprintf("%s File: %s Line: %d", date(DATE_RFC822),
-			basename($bt['file']), $bt['line']);
-		if(isset($bt['class'])) {
-			$msg .= sprintf(" Method: %s::%s()", $bt['class'], $bt['function']);
-		} else if(isset($bt['function'])) {
-			$msg .= sprintf(" Function: %s()", $entry['function']);
-		}
-		$msg .= sprintf(" Message: %s\n", vsprintf($fmt, $args));
-
-		// Append debug output to log file
-		file_put_contents("/tmp/phpdebug.log", $msg, FILE_APPEND);
-	}
-
-	/**
-	 * Send an email.
-	 * @param from The sender email address.
-	 * @param to The receiver email address(es), e.g. 'test@xzy.com' or
-	 *   'xzy@123.org,test@xzy.com'. Use the character , or ; as seperator.
-	 *   Additionally this can be an array of email adresses.
-	 * @param subject The subject.
-	 * @param message The message.
-	 * @return Return TRUE if successful, otherwise FALSE.
-	 */
-	public static function mail($from, $to, $subject, $message) {
-		if (TRUE === is_array($to))
-			$to = implode(',', $to);
-
-		// Prepare the receivers of the email. The formatting of this string
-		// must comply with RFC 2822.
-		$to = strtr($to, array(';' => ','));
-
-		// Prepare additional email headers.
-		$headers = array();
-		// Set date in RFC 2882 format.
-		$headers[] = sprintf('Date: %s', date('r'));
-		// Append the sender address.
-		if (!empty($from))
-			$headers[] = sprintf('From: %s', $from);
-
-		return mail($to, $subject, $message, implode("\r\n", $headers));
-	}
-
-	/**
-	 * Returns the target of a symbolic link. Canonicalize by following
-	 * every symlink in every component of the given name recursively,
-	 * without requirements on components existence.
-	 * @param path The symbolic link path.
-	 * @return Returns the value of the symbolic link or FALSE on error.
-	 */
-	public static function readlink($path) {
-		$cmd = sprintf("export LANG=C; readlink -mn %s", escapeshellarg(
-		  $path));
-		@self::exec($cmd, $output, $result);
-		if($result !== 0)
-			return FALSE;
-		return $output[0];
+		$cmd = new \OMV\System\Process($command);
+		$cmd->setQuiet(TRUE);
+		return $cmd->execute($output, $exitStatus);
 	}
 }

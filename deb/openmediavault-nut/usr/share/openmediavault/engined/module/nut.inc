@@ -22,8 +22,6 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/monit.inc");
-require_once("openmediavault/systemctl.inc");
 require_once("openmediavault/log.inc");
 
 class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
@@ -54,11 +52,9 @@ class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "export LANG=C; omv-mkconf nut 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("omv-mkconf", "nut");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
@@ -66,13 +62,13 @@ class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
 	 */
 	public function stopService() {
 		// Disable monitoring of this service.
-		$monit = new OMVMonit("nut");
+		$monit = new \OMV\System\Monit("nut");
 		$monit->setGroup(TRUE);
 		$monit->unmonitor(TRUE);
 		// Stop this service and disable the unit file.
-		$systemCtl = new OMVSystemCtl("nut-monitor");
+		$systemCtl = new \OMV\System\SystemCtl("nut-monitor");
 		$systemCtl->disable(TRUE);
-		$systemCtl = new OMVSystemCtl("nut-server");
+		$systemCtl = new \OMV\System\SystemCtl("nut-server");
 		$systemCtl->disable(TRUE);
 	}
 
@@ -92,20 +88,18 @@ class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
 		if (FALSE === boolvalEx($object['enable']))
 			return;
 		// Request device events from the kernel.
-		$cmd = "export LANG=C; udevadm trigger 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("udevadm", "trigger");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 		// Start this service and enable the unit file.
-		$systemCtl = new OMVSystemCtl("nut-server");
+		$systemCtl = new \OMV\System\SystemCtl("nut-server");
 		$systemCtl->enable(TRUE);
-		$systemCtl = new OMVSystemCtl("nut-monitor");
+		$systemCtl = new \OMV\System\SystemCtl("nut-monitor");
 		$systemCtl->enable(TRUE);
 		// Wait to allow the service to start.
 		sleep(1);
 		// Enable monitoring of this service.
-		$monit = new OMVMonit("nut");
+		$monit = new \OMV\System\Monit("nut");
 		$monit->setGroup(TRUE);
 		$monit->monitor();
 	}
@@ -122,7 +116,7 @@ class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$monit = new OMVMonit("nut-monitor");
+		$monit = new \OMV\System\Monit("nut-monitor");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("UPS"),

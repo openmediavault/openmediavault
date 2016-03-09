@@ -263,7 +263,7 @@ class OMVRpcServiceAFP extends OMVRpcServiceAbstract {
 		// Prepare the configuration object.
 		$object = array(
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  OMVUtil::uuid() : $params['uuid'],
+			  \OMV\Uuid::uuid4() : $params['uuid'],
 			"sharedfolderref" => $params['sharedfolderref'],
 			"name" => $params['name'],
 			"comment" => $params['comment'],

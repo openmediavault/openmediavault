@@ -147,7 +147,7 @@ class OMVRpcServiceNetworkRoute extends OMVRpcServiceAbstract {
 		// Prepare the configuration data.
 		$object = array(
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  OMVUtil::uuid() : $params['uuid'],
+			  \OMV\Uuid::uuid4() : $params['uuid'],
 			"network" => $params['network'],
 			"gateway" => $params['gateway'],
 			"comment" => $params['comment']

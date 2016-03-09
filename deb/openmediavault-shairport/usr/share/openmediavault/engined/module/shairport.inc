@@ -22,8 +22,6 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/monit.inc");
-require_once("openmediavault/systemctl.inc");
 
 class OMVModuleShairport extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleServiceStatus {
@@ -53,11 +51,9 @@ class OMVModuleShairport extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "omv-mkconf shairport-sync 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("omv-mkconf", "shairport-sync");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
@@ -65,10 +61,10 @@ class OMVModuleShairport extends OMVModuleServiceAbstract
 	 */
 	public function stopService() {
 		// Disable monitoring of this service.
-		$monit = new OMVMonit("shairport-sync");
+		$monit = new \OMV\System\Monit("shairport-sync");
 		$monit->unmonitor(TRUE);
 		// Stop this service and disable the unit file.
-		$systemCtl = new OMVSystemCtl("shairport-sync");
+		$systemCtl = new \OMV\System\SystemCtl("shairport-sync");
 		$systemCtl->disable(TRUE);
 	}
 
@@ -87,10 +83,10 @@ class OMVModuleShairport extends OMVModuleServiceAbstract
 		if (FALSE === boolvalEx($object['enable']))
 			return;
 		// Start this service and enable the unit file.
-		$systemCtl = new OMVSystemCtl("shairport-sync");
+		$systemCtl = new \OMV\System\SystemCtl("shairport-sync");
 		$systemCtl->enable(TRUE);
 		// Enable monitoring of this service.
-		$monit = new OMVMonit("shairport-sync");
+		$monit = new \OMV\System\Monit("shairport-sync");
 		$monit->monitor();
 	}
 
@@ -106,7 +102,7 @@ class OMVModuleShairport extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$monit = new OMVMonit("shairport-sync");
+		$monit = new \OMV\System\Monit("shairport-sync");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("Shairport"),

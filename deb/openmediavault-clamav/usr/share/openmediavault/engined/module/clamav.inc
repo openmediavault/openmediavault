@@ -22,7 +22,6 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/systemctl.inc");
 require_once("openmediavault/log.inc");
 
 class OMVModuleClamAV extends OMVModuleServiceAbstract
@@ -39,20 +38,18 @@ class OMVModuleClamAV extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "omv-mkconf clamav 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("omv-mkconf", "clamav");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		$systemCtl = new OMVSystemCtl("clamav-daemon");
+		$systemCtl = new \OMV\System\SystemCtl("clamav-daemon");
 		$systemCtl->disable(TRUE);
-		$systemCtl = new OMVSystemCtl("clamav-freshclam");
+		$systemCtl = new \OMV\System\SystemCtl("clamav-freshclam");
 		$systemCtl->disable(TRUE);
 	}
 
@@ -70,10 +67,10 @@ class OMVModuleClamAV extends OMVModuleServiceAbstract
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
-		$systemCtl = new OMVSystemCtl("clamav-daemon");
+		$systemCtl = new \OMV\System\SystemCtl("clamav-daemon");
 		$systemCtl->enable(TRUE);
 		if (TRUE === boolvalEx($object['freshclam']['enable'])) {
-			$systemCtl = new OMVSystemCtl("clamav-freshclam");
+			$systemCtl = new \OMV\System\SystemCtl("clamav-freshclam");
 			$systemCtl->enable(TRUE);
 		}
 	}
@@ -90,7 +87,7 @@ class OMVModuleClamAV extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$systemCtl = new OMVSystemCtl("clamav-daemon");
+		$systemCtl = new \OMV\System\SystemCtl("clamav-daemon");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("Antivirus"),

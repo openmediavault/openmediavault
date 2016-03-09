@@ -21,7 +21,6 @@
  */
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
 
 class OMVModuleUsbBackup extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -37,16 +36,12 @@ class OMVModuleUsbBackup extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "omv-mkconf usbbackup 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
-		$cmd = "udevadm control --reload-rules 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("omv-mkconf", "usbbackup");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
+		$cmd = new \OMV\System\Process("udevadm", "control", "--reload-rules");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**

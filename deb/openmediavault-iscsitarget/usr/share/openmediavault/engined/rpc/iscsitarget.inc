@@ -131,7 +131,7 @@ class OMVRpcServiceIscsiTarget extends OMVRpcServiceAbstract {
 			foreach($object['authentication']['user'] as $userk => &$userv) {
 				$userv['uuid'] = ($userv['uuid'] ==
 				  $GLOBALS['OMV_UUID_UNDEFINED']) ?
-				  OMVUtil::uuid() : $userv['uuid'];
+				  \OMV\Uuid::uuid4() : $userv['uuid'];
 			}
 		}
 		// Set the configuration object.
@@ -366,7 +366,7 @@ class OMVRpcServiceIscsiTarget extends OMVRpcServiceAbstract {
 		// Prepare the configuration object.
 		$object = array(
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  OMVUtil::uuid() : $params['uuid'],
+			  \OMV\Uuid::uuid4() : $params['uuid'],
 			"activation" => $params['activation'],
 			"identifier" => $params['identifier'],
 			"alias" => $params['alias'],
@@ -400,7 +400,7 @@ class OMVRpcServiceIscsiTarget extends OMVRpcServiceAbstract {
 			foreach($object['luns']['lun'] as $lunk => &$lunv) {
 				$lunv['uuid'] = ($lunv['uuid'] ==
 				  $GLOBALS['OMV_UUID_UNDEFINED']) ?
-				  OMVUtil::uuid() : $lunv['uuid'];
+				  \OMV\Uuid::uuid4() : $lunv['uuid'];
 			}
 		}
 		// Update the authentication users uuid's (only necessary if the
@@ -409,7 +409,7 @@ class OMVRpcServiceIscsiTarget extends OMVRpcServiceAbstract {
 			foreach($object['authentication']['user'] as $userk => &$userv) {
 				$userv['uuid'] = ($userv['uuid'] ==
 				  $GLOBALS['OMV_UUID_UNDEFINED']) ?
-				  OMVUtil::uuid() : $userv['uuid'];
+				  \OMV\Uuid::uuid4() : $userv['uuid'];
 			}
 		}
 		// Set configuration object.

@@ -22,8 +22,6 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/monit.inc");
-require_once("openmediavault/systemctl.inc");
 
 class OMVModuleAFP extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
@@ -55,11 +53,9 @@ class OMVModuleAFP extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "omv-mkconf netatalk 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("omv-mkconf", "netatalk");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
@@ -67,10 +63,10 @@ class OMVModuleAFP extends OMVModuleServiceAbstract
 	 */
 	public function stopService() {
 		// Disable monitoring of this service.
-		$monit = new OMVMonit("netatalk");
+		$monit = new \OMV\System\Monit("netatalk");
 		$monit->unmonitor(TRUE);
 		// Stop this service and disable the unit file.
-		$systemCtl = new OMVSystemCtl("netatalk");
+		$systemCtl = new \OMV\System\SystemCtl("netatalk");
 		$systemCtl->disable(TRUE);
 	}
 
@@ -90,10 +86,10 @@ class OMVModuleAFP extends OMVModuleServiceAbstract
 		if (FALSE === boolvalEx($object['enable']))
 			return;
 		// Start this service and enable the unit file.
-		$systemCtl = new OMVSystemCtl("netatalk");
+		$systemCtl = new \OMV\System\SystemCtl("netatalk");
 		$systemCtl->enable(TRUE);
 		// Enable monitoring of this service.
-		$monit = new OMVMonit("netatalk");
+		$monit = new \OMV\System\Monit("netatalk");
 		$monit->monitor();
 	}
 
@@ -110,7 +106,7 @@ class OMVModuleAFP extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$monit = new OMVMonit("netatalk");
+		$monit = new \OMV\System\Monit("netatalk");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("Apple Filing"),

@@ -22,7 +22,6 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/systemctl.inc");
 require_once("openmediavault/log.inc");
 
 class OMVModuleSamba extends OMVModuleServiceAbstract
@@ -41,11 +40,9 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "export LANG=C; omv-mkconf samba 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("omv-mkconf", "samba");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
@@ -61,7 +58,7 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 		}
 		if (TRUE === boolvalEx($object['enable']))
 			return;
-		$systemCtl = new OMVSystemCtl("smbd");
+		$systemCtl = new \OMV\System\SystemCtl("smbd");
 		$systemCtl->disable(TRUE);
 	}
 
@@ -78,7 +75,7 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
-		$systemCtl = new OMVSystemCtl("smbd");
+		$systemCtl = new \OMV\System\SystemCtl("smbd");
 		if ($systemCtl->isEnabled() && $systemCtl->isActive())
 			$systemCtl->reload(); // running -> reload config
 		else
@@ -97,7 +94,7 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$systemCtl = new OMVSystemCtl("smbd");
+		$systemCtl = new \OMV\System\SystemCtl("smbd");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("SMB/CIFS"),

@@ -511,7 +511,7 @@ finish:
 		$success = FALSE;
 		if (is_null($object)) {
 			$object = array(
-				"uuid" => OMVUtil::uuid(),
+				"uuid" => \OMV\Uuid::uuid4(),
 				"name" => $params['name'],
 				"email" => $params['email'],
 				"disallowusermod" => array_boolval($params,
@@ -921,7 +921,7 @@ finish:
 		$success = FALSE;
 		if (is_null($object)) {
 			$object = array(
-				"uuid" => OMVUtil::uuid(),
+				"uuid" => \OMV\Uuid::uuid4(),
 				"name" => $params['name'],
 				"comment" => $params['comment']
 			);

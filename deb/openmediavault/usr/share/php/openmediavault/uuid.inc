@@ -19,28 +19,32 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/module.inc");
-require_once("openmediavault/error.inc");
+namespace OMV;
 
-class OMVModulePAM extends OMVModuleServiceAbstract {
-	/**
-	 * Get the module name.
-	 */
-	public function getName() {
-		return "pam";
+/**
+ * @ingroup api
+ */
+class Uuid {
+	private function uuid($version) {
+		$cmdArgs = array();
+		$cmdArgs[] = sprintf("-v %d", $version);
+		$cmd = new \OMV\System\Process("uuid", $cmdArgs);
+		return $cmd->execute();
 	}
 
 	/**
-	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
+	 * Generate a UUID from a host ID, sequence number, and the current time.
+	 * @return The UUID string.
 	 */
-	public function applyConfig() {
-		$cmd = new \OMV\System\Process("omv-mkconf", "pam");
-		$cmd->setRedirect2to1(TRUE);
-		$cmd->execute();
+	final public static function uuid1() {
+		return self::uuid(1);
+	}
+
+	/**
+	* Create a UUID Version 4 (random).
+	* @return The UUID string.
+	*/
+	final public static function uuid4() {
+		return self::uuid(4);
 	}
 }
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModulePAM());

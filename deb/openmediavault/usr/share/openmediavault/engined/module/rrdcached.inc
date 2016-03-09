@@ -22,8 +22,6 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/monit.inc");
-require_once("openmediavault/systemctl.inc");
 
 class OMVModuleRrdCached extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -67,11 +65,9 @@ class OMVModuleRrdCached extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "export LANG=C; omv-mkconf rrdcached 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("omv-mkconf", "rrdcached");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
@@ -79,10 +75,10 @@ class OMVModuleRrdCached extends OMVModuleServiceAbstract
 	 */
 	public function stopService() {
 		// Disable monitoring of this service.
-		$monit = new OMVMonit("rrdcached");
+		$monit = new \OMV\System\Monit("rrdcached");
 		$monit->unmonitor(TRUE);
 		// Stop this service and disable the unit file.
-		$systemCtl = new OMVSystemCtl("rrdcached");
+		$systemCtl = new \OMV\System\SystemCtl("rrdcached");
 		$systemCtl->disable(TRUE);
 	}
 
@@ -101,12 +97,12 @@ class OMVModuleRrdCached extends OMVModuleServiceAbstract
 		if (FALSE === boolvalEx($object['enable']))
 			return;
 		// Start this service and enable the unit file.
-		$systemCtl = new OMVSystemCtl("rrdcached");
+		$systemCtl = new \OMV\System\SystemCtl("rrdcached");
 		$systemCtl->enable(TRUE);
 		// Wait to allow the service to start.
 		sleep(1);
 		// Enable monitoring of this service.
-		$monit = new OMVMonit("rrdcached");
+		$monit = new \OMV\System\Monit("rrdcached");
 		$monit->monitor();
 	}
 
