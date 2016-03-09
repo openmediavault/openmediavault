@@ -25,7 +25,6 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/system.inc");
-require_once("openmediavault/product.inc");
 require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/notify.inc");
 
@@ -391,7 +390,7 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get various system informations.
-		$prd = new OMVProduct();
+		$prd = new \OMV\ProductInfo();
 		$uname = posix_uname();
 		$memStats = OMVSystem::getMemoryStats();
 		$memStats['wobufferscache']['percentage'] = round(

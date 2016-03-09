@@ -20,9 +20,8 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/env.inc");
-require_once("openmediavault/product.inc");
 
-$prd = new OMVProduct();
+$prd = new \OMV\ProductInfo();
 ?>
 <!DOCTYPE html>
 <html>

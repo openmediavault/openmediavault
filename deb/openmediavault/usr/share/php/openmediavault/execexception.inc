@@ -19,22 +19,15 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/env.inc");
+namespace OMV;
 
-$prd = new \OMV\ProductInfo();
-$title = sprintf("%s - %s", $prd->getName(),
-  gettext("Web administration interface"));
-?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<title><?=$title;?></title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
-		<link rel="stylesheet" type="text/css" href="css/omv.css"/>
-	</head>
-	<body class="shutdown-page">
-		<a href='/'><div class="shutdown-icon"></div></a>
-		<a title='<?=$prd->getName();?>' href='<?=$prd->getURL();?>' target='_blank'><div class="product-logo"></div></a>
-	</body>
-</html>
+/**
+ * @ingroup api
+ */
+class ExecException extends \Exception {
+	public function __construct($cmd, $output) {
+		$message = sprintf("Failed to execute command '%s': %s", $cmd,
+		  implode("\n", $output));
+		parent::__construct($message);
+	}
+}

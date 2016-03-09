@@ -21,7 +21,6 @@
  */
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/product.inc");
 require_once("openmediavault/system.inc");
 require_once("openmediavault/util.inc");
 
@@ -194,7 +193,7 @@ EOF;
 	 * @return The page title string.
 	 */
 	protected function getTitle() {
-		$prd = new OMVProduct();
+		$prd = new \OMV\ProductInfo();
 		return sprintf("%s %s - %s", $prd->getName(),
 		  gettext("web administration interface"),
 		  OMVNetwork::getHostname("--fqdn"));
@@ -281,7 +280,7 @@ class OMVControlPanel extends OMVHtmlPageAbstract {
 	}
 
 	protected function getBodyContent() {
-		$prd = new OMVProduct();
+		$prd = new \OMV\ProductInfo();
 		$session = &\OMV\Session::getInstance();
 		// Define global constants.
 		$globalDefs = sprintf(
@@ -360,7 +359,7 @@ class OMVLoginPage extends OMVHtmlPageAbstract {
 	}
 
 	protected function getBodyContent() {
-		$prd = new OMVProduct();
+		$prd = new \OMV\ProductInfo();
 		return <<<EOF
 		<a title='{$prd->getName()}' href='{$prd->getURL()}' target='_blank'><div class="product-logo"></div></a>
 		<script type="application/javascript">

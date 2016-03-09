@@ -23,7 +23,6 @@ require_once("openmediavault/globals.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/rpcservice.inc");
-require_once("openmediavault/product.inc");
 require_once("openmediavault/system.inc");
 
 class OMVRpcServiceSession extends OMVRpcServiceAbstract {
@@ -90,7 +89,7 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 		}
 		// Get the product information to customize the syslog identity
 		// and cookie name.
-		$prd = new OMVProduct();
+		$prd = new \OMV\ProductInfo();
 		$ident = strtolower(sprintf("%s-webgui", $prd->getName()));
 		$prefix = strtoupper(sprintf("X-%s-LOGIN", $prd->getName()));
 		// Open connection to system logger.

@@ -22,7 +22,6 @@
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
-require_once("openmediavault/product.inc");
 require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/json/file.inc");
 
@@ -141,7 +140,7 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Validate package names.
-		$prd = new OMVProduct();
+		$prd = new \OMV\ProductInfo();
 		$regex = sprintf("/^%s-.+$/", $prd->getPackageName());
 		foreach ($params['packages'] as $packagek => $packagev) {
 			if (0 == preg_match($regex, $packagev)) {
@@ -215,7 +214,7 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 		}
 		$packageName = end($output);
 		// Get product informations.
-		$prd = new OMVProduct();
+		$prd = new \OMV\ProductInfo();
 		// Validate package name
 		$regex = sprintf("/^%s-.+$/", $prd->getPackageName());
 		if(0 == preg_match($regex, $packageName)) {
@@ -248,7 +247,7 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Validate package names.
-		$prd = new OMVProduct();
+		$prd = new \OMV\ProductInfo();
 		$regex = sprintf("/^%s-.+$/", $prd->getPackageName());
 		foreach ($params['packages'] as $packagek => $packagev) {
 			if (0 == preg_match($regex, $packagev)) {
