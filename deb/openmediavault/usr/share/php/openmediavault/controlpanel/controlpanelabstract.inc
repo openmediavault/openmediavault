@@ -38,8 +38,10 @@ abstract class ControlPanelAbstract {
 		// the prerequisite order.
 		array_unshift($incList, $fileName);
 		$fh = fopen($fileName, "r");
-		if ($fh === FALSE)
-			throw new Exception("Failed to open file '%s'", $fileName);
+		if ($fh === FALSE) {
+			throw new \OMV\Exception("Failed to open include file '%s'",
+			  $fileName);
+		}
 		$abort = FALSE;
 		$scanList = array();
 		$regex = "/^(\/\/\s+require\(\"([^\s]+)\"\)|\/\*+|\*\/|\*.*|\s*)$/";
