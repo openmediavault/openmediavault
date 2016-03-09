@@ -103,7 +103,7 @@ if($argc > 3) {
 // Execute the RPC and print the response.
 $fh = STDOUT;
 try {
-	$response = OMVRpc::exec($service, $method, $params, $context,
+	$response = \OMV\Rpc\Rpc::call($service, $method, $params, $context,
 	  OMV_RPC_MODE_REMOTE);
 } catch(Exception $e) {
 	$response = array(

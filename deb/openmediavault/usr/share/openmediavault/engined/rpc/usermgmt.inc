@@ -568,7 +568,7 @@ finish:
 			}
 			if (TRUE === boolvalEx($hdsobject['enable'])) {
 				// Get the absolute shared folder path.
-				$sfpath = OMVRpc::exec("ShareMgmt", "getPath", array(
+				$sfpath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", array(
 				  "uuid" => $hdsobject['sharedfolderref']), $context);
 				$cmdArgs[] = "--create-home";
 				$cmdArgs[] = "--home";
@@ -1179,7 +1179,7 @@ finish:
 		$homeDirPath = "";
 		if (TRUE === boolvalEx($params['enable'])) {
 			// Get the absolute shared folder path.
-			$homeDirPath = OMVRpc::exec("ShareMgmt", "getPath", array(
+			$homeDirPath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", array(
 			  "uuid" => $object['sharedfolderref']), $context);
 		}
 		// Update the non-system user.

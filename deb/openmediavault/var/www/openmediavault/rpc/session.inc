@@ -64,7 +64,7 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 		// Authenticate the given user. Note, the OMV engine RPC is
 		// executed in another context which allows reading the shadow
 		// file, otherwise pam_auth() will fail.
-		$object = OMVRpc::exec("UserMgmt", "authUser", $params,
+		$object = \OMV\Rpc\Rpc::call("UserMgmt", "authUser", $params,
 		  $this->getAdminContext(), OMV_RPC_MODE_REMOTE, TRUE);
 		if (!is_null($object) && (TRUE === $object['authenticated'])) {
 			$session = &\OMV\Session::getInstance();

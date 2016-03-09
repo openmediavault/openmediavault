@@ -110,7 +110,7 @@ class OMVRpcServicePowerMgmt extends OMVRpcServiceAbstract {
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getScheduleList($params, $context) {
-		return OMVRpc::exec("cron", "getList", $params, $context);
+		return \OMV\Rpc\Rpc::call("cron", "getList", $params, $context);
 	}
 
 	/**
@@ -122,7 +122,7 @@ class OMVRpcServicePowerMgmt extends OMVRpcServiceAbstract {
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getScheduledJob($params, $context) {
-		return OMVRpc::exec("cron", "get", $params, $context);
+		return \OMV\Rpc\Rpc::call("cron", "get", $params, $context);
 	}
 
 	/**
@@ -152,7 +152,7 @@ class OMVRpcServicePowerMgmt extends OMVRpcServiceAbstract {
 			$params['command'] = "omv-pm-standby";
 			break;
 		}
-		return OMVRpc::exec("cron", "set", $params, $context);
+		return \OMV\Rpc\Rpc::call("cron", "set", $params, $context);
 	}
 
 	/**
@@ -163,7 +163,7 @@ class OMVRpcServicePowerMgmt extends OMVRpcServiceAbstract {
 	 * @return The deleted configuration object.
 	 */
 	public function deleteScheduledJob($params, $context) {
-		return OMVRpc::exec("cron", "delete", $params, $context);
+		return \OMV\Rpc\Rpc::call("cron", "delete", $params, $context);
 	}
 
 	/**
@@ -174,7 +174,7 @@ class OMVRpcServicePowerMgmt extends OMVRpcServiceAbstract {
 	 * @return The name of the background process status file.
 	 */
 	public function executeScheduledJob($params, $context) {
-		return OMVRpc::exec("cron", "execute", $params, $context);
+		return \OMV\Rpc\Rpc::call("cron", "execute", $params, $context);
 	}
 }
 

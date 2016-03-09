@@ -127,7 +127,7 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 		if(array_key_exists($name, $this->registeredMethodSequences)) {
 			foreach($this->registeredMethodSequences[$name] as
 			  $hookk => $hookv) {
-				OMVRpc::exec($hookv['service'], $hookv['method'],
+				\OMV\Rpc\Rpc::call($hookv['service'], $hookv['method'],
 				  $params, $context);
 			}
 		}

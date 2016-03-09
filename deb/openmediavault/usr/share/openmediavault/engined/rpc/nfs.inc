@@ -283,7 +283,7 @@ class OMVRpcServiceNfs extends OMVRpcServiceAbstract {
 				);
 				// Append associated fstab mount point entry configuration
 				// object.
-				$meObject2 = OMVRpc::exec("FsTab", "set", $meObject2,
+				$meObject2 = \OMV\Rpc\Rpc::call("FsTab", "set", $meObject2,
 				  $context);
 			}
 			// Modify the share configuration object.
@@ -342,7 +342,7 @@ class OMVRpcServiceNfs extends OMVRpcServiceAbstract {
 		if(0 < $xmlConfig->count($xpath))
 			return $object;
 		// Delete the associated fstab mount point entry.
-		OMVRpc::exec("FsTab", "delete", array("uuid" => $object['mntentref']),
+		\OMV\Rpc\Rpc::call("FsTab", "delete", array("uuid" => $object['mntentref']),
 		  $context);
 		// Return the deleted configuration object.
 		return $object;

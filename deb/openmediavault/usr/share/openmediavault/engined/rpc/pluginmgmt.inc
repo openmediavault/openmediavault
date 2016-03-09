@@ -224,7 +224,7 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 			  $params['filename']));
 		}
 		// Continue to upload the package.
-		return OMVRpc::exec("Apt", "upload", $params, $context);
+		return \OMV\Rpc\Rpc::call("Apt", "upload", $params, $context);
 	}
 
 	/**

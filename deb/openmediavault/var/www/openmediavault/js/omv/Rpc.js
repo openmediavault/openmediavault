@@ -60,7 +60,7 @@ Ext.define("OMV.Rpc", {
 	 */
 	request: function(options) {
 		var me = this;
-		if(true === me.disabled)
+		if (true === me.disabled)
 			return null;
 		// Apply default values.
 		options = Ext.apply({
@@ -101,7 +101,7 @@ Ext.define("OMV.Rpc", {
 		var me = this;
 		var rpcResponse = null;
 
-		if(success) {
+		if (success) {
 			try {
 				// Decode RPC response. It contains the fields called
 				// response and error.
@@ -138,7 +138,7 @@ Ext.define("OMV.Rpc", {
 			var reload = false;
 			// Translate various error messages and decide if RPC response
 			// delivery is aborted.
-			switch(rpcResponse.code) {
+			switch (rpcResponse.code) {
 			case OMV.E_SESSION_NOT_AUTHENTICATED:
 				abort = true;
 				reload = true;
@@ -151,7 +151,7 @@ Ext.define("OMV.Rpc", {
 				break;
 			}
 			// Reload page and display a message box?
-			if(true === reload) {
+			if (true === reload) {
 				// Disable further request, otherwise error message dialogs
 				// (e.g. 'Invalid context') will pop up.
 				me.setDisabled(true);
@@ -168,23 +168,23 @@ Ext.define("OMV.Rpc", {
 				});
 			}
 			// Abort RPC response delivery?
-			if(true === abort)
+			if (true === abort)
 				return;
 		}
 
 		// Handle other errors.
-		if(!success) {
+		if (!success) {
 			// Relay/Forward the error?
-			if(Ext.isDefined(options.relayErrors) && !options.relayErrors) {
+			if (Ext.isDefined(options.relayErrors) && !options.relayErrors) {
 				// Display an error message dialog.
-				if(options.showErrors)
+				if (options.showErrors)
 					OMV.MessageBox.error(null, rpcResponse);
 				return;
 			}
 		}
 
 		// Call the given callback function.
-		if(Ext.isFunction(options.callback)) {
+		if (Ext.isFunction(options.callback)) {
 			options.callback.call(options.scope || me, response.requestId,
 			  success, rpcResponse, options);
 		}

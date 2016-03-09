@@ -487,7 +487,7 @@ while(FALSE === $sigTerm) {
 			  $request['context']));
 
 			try {
-				$response = OMVRpc::exec($request['service'],
+				$response = \OMV\Rpc\Rpc::call($request['service'],
 				  $request['method'], $request['params'],
 				  $request['context'], OMV_RPC_MODE_LOCAL);
 

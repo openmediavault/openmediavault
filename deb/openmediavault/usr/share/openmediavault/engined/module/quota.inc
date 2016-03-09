@@ -57,7 +57,7 @@ class OMVModuleQuota extends OMVModuleServiceAbstract
 		$qObject = $xmlConfig->get($xpath);
 		if (!is_null($qObject)) {
 			// Execute RPC to delete the configuration object.
-			OMVRpc::exec("Quota", "delete", array("uuid" => $qObject['uuid']),
+			\OMV\Rpc\Rpc::call("Quota", "delete", array("uuid" => $qObject['uuid']),
 			  $this->getAdminContext());
 		}
 	}

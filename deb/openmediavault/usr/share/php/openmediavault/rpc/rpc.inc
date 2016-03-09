@@ -19,8 +19,8 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/error.inc");
+namespace OMV\Rpc;
+
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/rpcservice.inc");
 
@@ -28,7 +28,18 @@ require_once("openmediavault/rpcservice.inc");
  * This class provides methods regarding remote procedure calls.
  * @ingroup api
  */
-class OMVRpc extends OMVObject {
+class Rpc {
+	/**
+	 * Create a context.
+	 * @return The context using the specified parameters.
+	 */
+	public static function createContext($username, $role) {
+		return array(
+			"username" => $username,
+			"role" => $role
+		);
+	}
+
 	/**
 	 * Execute the given RPC.
 	 * @param service The name of the service.
@@ -48,25 +59,18 @@ class OMVRpc extends OMVObject {
 	 *   these information are required in the engine backend. Note, this
 	 *   only takes action when mode is OMV_RPC_MODE_REMOTE. Defauts to FALSE.
 	 * @return The RPC response.
-	 * @throw E_RPC_SERVICE_NOT_FOUND
-	 * @throw E_RPC_SERVICE_METHOD_NOT_EXISTS
-	 * @throw E_MISC_FAILURE
-	 * @throw E_ENGINED_CREATE_SOCKET
-	 * @throw E_ENGINED_CONNECT_SOCKET
-	 * @throw E_ENGINED_WRITE_SOCKET
-	 * @throw E_ENGINED_READ_SOCKET
 	 */
-	public static function exec($service, $method, $params, $context,
+	public static function call($service, $method, $params, $context,
 	  $mode = OMV_RPC_MODE_LOCAL, $restoreSrvEnv = FALSE) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		///////////////////////////////////////////////////////////////////////
 		// Try to execute local RPC first.
 		///////////////////////////////////////////////////////////////////////
-		if($mode & OMV_RPC_MODE_LOCAL) {
-			$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-			if(FALSE !== ($rpcService = $rpcServiceMgr->getService(
+		if ($mode & OMV_RPC_MODE_LOCAL) {
+			$rpcServiceMgr = &\OMVRpcServiceMgr::getInstance();
+			if (FALSE !== ($rpcService = $rpcServiceMgr->getService(
 			  $service))) {
-				if(TRUE === $rpcService->hasMethod($method)) {
+				if (TRUE === $rpcService->hasMethod($method)) {
 					// Restore server and execution environment information
 					// if exists.
 					if (array_key_exists("_SERVER", $context)) {
@@ -80,18 +84,17 @@ class OMVRpc extends OMVObject {
 				} else {
 					// Throw an exception if the RPC service method has not
 					// been found and redirection to omv-engined is disabled.
-					if(~$mode & OMV_RPC_MODE_REMOTE) {
-						throw new OMVException(
-						  OMVErrorMsg::E_RPC_SERVICE_METHOD_NOT_EXISTS,
+					if (~$mode & OMV_RPC_MODE_REMOTE) {
+						throw new Exception(
+						  "The method '%s' does not exist for the RPC service '%s'.",
 						  $method, $service);
 					}
 				}
 			} else {
 				// Throw an exception if the RPC service has not been found
 				// and redirection to omv-engined is disabled.
-				if(~$mode & OMV_RPC_MODE_REMOTE) {
-					throw new OMVException(
-					  OMVErrorMsg::E_RPC_SERVICE_NOT_FOUND,
+				if (~$mode & OMV_RPC_MODE_REMOTE) {
+					throw new Exception("RPC service '%s' not found.",
 					  $service);
 				}
 			}
@@ -100,7 +103,7 @@ class OMVRpc extends OMVObject {
 		///////////////////////////////////////////////////////////////////////
 		// Redirect RPC to omv-engined daemon to execute it remote.
 		///////////////////////////////////////////////////////////////////////
-		if($mode & OMV_RPC_MODE_REMOTE) {
+		if ($mode & OMV_RPC_MODE_REMOTE) {
 			// Store the web server and execution environment information?
 			// The information is stored in the given context.
 			if (TRUE === $restoreSrvEnv) {
@@ -117,9 +120,8 @@ class OMVRpc extends OMVObject {
 				}
 			}
 			// Create and connect to the socket.
-			if(FALSE === ($socket = @socket_create(AF_UNIX, SOCK_STREAM, 0))) {
-				throw new OMVException(
-				  OMVErrorMsg::E_ENGINED_CREATE_SOCKET,
+			if (FALSE === ($socket = @socket_create(AF_UNIX, SOCK_STREAM, 0))) {
+				throw new Exception("Failed to create socket: %s",
 				  socket_strerror(socket_last_error()));
 			}
 			// Try to connect to the socket. If the connection fails, then try
@@ -132,8 +134,7 @@ class OMVRpc extends OMVObject {
 				sleep($attempt);
 			}
 			if (FALSE === $success) {
-				throw new OMVException(
-				  OMVErrorMsg::E_ENGINED_CONNECT_SOCKET,
+				throw new Exception("Failed to connect to socket: %s",
 				  socket_strerror(socket_last_error()));
 			}
 			// Set send and receive timeouts.
@@ -153,20 +154,18 @@ class OMVRpc extends OMVObject {
 			// Build the buffer to be written to the socket.
 			$request = $header . $request;
 			// Write to socket.
-			if(FALSE === @socket_write($socket, $request, strlen($request))) {
-				throw new OMVException(
-				  OMVErrorMsg::E_ENGINED_WRITE_SOCKET,
+			if (FALSE === @socket_write($socket, $request, strlen($request))) {
+				throw new OMVException("Failed to write to socket: %s",
 				  socket_strerror(socket_last_error()));
 			}
 			// Read the RPC response header.
 			$header = "";
 			$headerLen = $GLOBALS['OMV_ENGINED_SO_RPC_HEADER_LENGTH'];
-			while(($read = strlen($header)) < $headerLen) {
+			while (($read = strlen($header)) < $headerLen) {
 				$data = @socket_read($socket, $headerLen - $read,
 				  PHP_BINARY_READ);
-				if(FALSE === $data) {
-					throw new OMVException(
-					  OMVErrorMsg::E_ENGINED_READ_SOCKET,
+				if (FALSE === $data) {
+					throw new Exception("Failed to read from socket: %s",
 					  socket_strerror(socket_last_error()));
 				}
 				$header .= $data;
@@ -175,22 +174,21 @@ class OMVRpc extends OMVObject {
 			$header = unpack("Nlength/H*crc32", $header);
 			// Read the RPC response data.
 			$response = "";
-			while(($read = strlen($response)) < $header['length']) {
+			while (($read = strlen($response)) < $header['length']) {
 				$data = @socket_read($socket, $header['length'] - $read,
 				  PHP_BINARY_READ);
-				if(FALSE === $data) {
-					throw new OMVException(
-					  OMVErrorMsg::E_ENGINED_READ_SOCKET,
+				if (FALSE === $data) {
+					throw new Exception("Failed to read from socket: %s",
 					  socket_strerror(socket_last_error()));
 				}
 				$response .= $data;
 			}
 			// Check RPC response data.
 			$crc32 = hash("crc32", $response);
-			if($header['crc32'] != $crc32) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("Invalid checksum (required=0x%s, calculated=0x%s) ".
-				  "of RPC response.", $header['crc32'], $crc32));
+			if ($header['crc32'] != $crc32) {
+				throw new Exception(
+				  "Invalid checksum (required=0x%s, calculated=0x%s) of RPC response.",
+				  $header['crc32'], $crc32);
 			}
 			// Close the socket.
 			@socket_close($socket);
@@ -198,10 +196,10 @@ class OMVRpc extends OMVObject {
 			$response = json_decode($response, TRUE);
 			// Trigger an exception if the RPC has been failed. Inject the
 			// stack trace coming with the remote RPC response.
-			if(array_key_exists("error", $response) && !is_null(
+			if (array_key_exists("error", $response) && !is_null(
 			  $response['error'])) {
 				$error = $response['error'];
-				throw new OMVException2($error['code'], $error['message'],
+				throw new TraceException($error['message'], $error['code'],
 				  $error['trace']);
 			}
 			return $response['response'];

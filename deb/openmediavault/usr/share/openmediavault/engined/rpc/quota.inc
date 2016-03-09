@@ -81,7 +81,7 @@ class OMVRpcServiceQuota extends OMVRpcServiceAbstract {
 		// their quota configuration for the given filesystem.
 		$result = array();
 		// Get non-system users
-		$users = OMVRpc::exec("UserMgmt", "enumerateUsers", NULL, $context);
+		$users = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateUsers", NULL, $context);
 		foreach($users as $userk => $userv) {
 			// Set default values.
 			$resObj = array(
@@ -118,7 +118,7 @@ class OMVRpcServiceQuota extends OMVRpcServiceAbstract {
 			$result[] = $resObj;
 		}
 		// Get non-system groups
-		$groups = OMVRpc::exec("UserMgmt", "enumerateGroups", NULL, $context);
+		$groups = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateGroups", NULL, $context);
 		foreach($groups as $groupk => $groupv) {
 			// Set default values.
 			$resObj = array(

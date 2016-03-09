@@ -628,7 +628,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 		// Prepare result object.
 		$result = array();
 		// Process non-system users.
-		$users = OMVRpc::exec("UserMgmt", "enumerateUsers", NULL, $context);
+		$users = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateUsers", NULL, $context);
 		foreach($users as $userk => $userv) {
 			$privilege = array(
 				"type" => "user",
@@ -649,7 +649,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			$result[] = $privilege;
 		}
 		// Process non-system groups.
-		$groups = OMVRpc::exec("UserMgmt", "enumerateGroups", NULL, $context);
+		$groups = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateGroups", NULL, $context);
 		foreach ($groups as $groupk => $groupv) {
 			// Set default values.
 			$privilege = array(
@@ -923,7 +923,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			  "two-dot symbols"), "file"));
 		}
 		// Get the absolute shared folder path.
-		$sfpath = OMVRpc::exec("ShareMgmt", "getPath", array(
+		$sfpath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", array(
 		  "uuid" => $params['uuid']), $context);
 		// Execute command to get the file access control lists.
 		$cmd = sprintf("export LANG=C; getfacl --no-effective ".
@@ -990,7 +990,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			}
 		}
 		// Add missing users.
-		$users = OMVRpc::exec("UserMgmt", "enumerateAllUsers", NULL, $context);
+		$users = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateAllUsers", NULL, $context);
 		foreach($users as $userk => $userv) {
 			$found = FALSE;
 			foreach($result['acl']['users'] as &$resultv) {
@@ -1015,7 +1015,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			);
 		}
 		// Add missing groups.
-		$groups = OMVRpc::exec("UserMgmt", "enumerateAllGroups", NULL, $context);
+		$groups = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateAllGroups", NULL, $context);
 		foreach($groups as $groupk => $groupv) {
 			$found = FALSE;
 			foreach($result['acl']['groups'] as &$resultv) {
@@ -1137,7 +1137,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
 			// Get the absolute shared folder path.
-			$sfpath = OMVRpc::exec("ShareMgmt", "getPath", array(
+			$sfpath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", array(
 			  "uuid" => $params['uuid']), $context);
 			////////////////////////////////////////////////////////////////////
 			// 1. Update the directory/file owner and group

@@ -79,7 +79,7 @@ class OMVRpcServiceFolderBrowser extends OMVRpcServiceAbstract {
 		switch ($params['type']) {
 		case "sharedfolder":
 			// Get the absolute shared folder path.
-			$rootPath = OMVRpc::exec("ShareMgmt", "getPath", array(
+			$rootPath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", array(
 			  "uuid" => $params['uuid']), $context);
 			break;
 		case "mntent":

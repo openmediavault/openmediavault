@@ -91,11 +91,9 @@ class Json extends \OMV\BaseObject {
 
 		// Execute the RPC.
 		$this->preExecute();
-		$context = array(
-			"username" => $session->getUsername(),
-			"role" => $session->getRole()
-		);
-		$response = \OMVRpc::exec($this->params['service'],
+		$context = \OMV\Rpc\Rpc::createContext($session->getUsername(),
+		  $session->getRole());
+		$response = \OMV\Rpc\Rpc::call($this->params['service'],
 		  $this->params['method'], $this->params['params'], $context,
 		  OMV_RPC_MODE_LOCAL | OMV_RPC_MODE_REMOTE);
 		$this->postExecute($response);

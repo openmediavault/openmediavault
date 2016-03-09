@@ -90,7 +90,7 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 		  "org.openmediavault.system.apt.distribution",
 		  $object->getAssoc());
 		// Apply the changes immediatelly (no user interaction is wanted).
-		OMVRpc::exec("Config", "applyChanges", array(
+		\OMV\Rpc\Rpc::call("Config", "applyChanges", array(
 			  "modules" => array("apt"),
 			  "force" => TRUE
 		  ), $context);

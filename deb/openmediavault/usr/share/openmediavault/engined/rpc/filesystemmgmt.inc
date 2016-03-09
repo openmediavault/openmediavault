@@ -139,7 +139,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			$fsId = $fs->getDeviceFile();
 			if (FALSE === $fsb->hasDeviceFile())
 				$fsId = $fs->getUuid();
-			if (FALSE !== ($meObject = OMVRpc::exec("FsTab", "getByFsName",
+			if (FALSE !== ($meObject = \OMV\Rpc\Rpc::call("FsTab", "getByFsName",
 			  array("id" => $fsId), $context))) {
 			  	$xpath = sprintf("//mntentref[contains(.,'%s')]",
 			  	  $meObject['uuid']);
@@ -545,7 +545,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		}
 		// Check uniqueness. If there exists a mount point for the given
 		// device then it has already a filesystem that is in use.
-		if (FALSE !== OMVRpc::exec("FsTab", "getByFsName", array(
+		if (FALSE !== \OMV\Rpc\Rpc::call("FsTab", "getByFsName", array(
 		  "id" => $sd->getDeviceFile()), $context)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
 			  sprintf(gettext("There already exists a mount point for %s"),
@@ -795,9 +795,9 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			// Delete the mount point configuration object. Unmount the
 			// filesystem and unlink the mount point. Changes to the fstab
 			// module must not be applied immediately.
-			OMVRpc::exec("FsTab", "delete", array(
+			\OMV\Rpc\Rpc::call("FsTab", "delete", array(
 			  "uuid" => $meObject['uuid']), $context);
-			OMVRpc::exec("Config", "applyChanges", array(
+			\OMV\Rpc\Rpc::call("Config", "applyChanges", array(
 				  "modules" => array("fstab"),
 				  "force" => TRUE
 			  ), $context);
@@ -896,14 +896,14 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			break;
 		}
 		// Try to obtain the mount point configuration object if this exists.
-		$meObject = OMVRpc::exec("FsTab", "getByFsName", array(
+		$meObject = \OMV\Rpc\Rpc::call("FsTab", "getByFsName", array(
 		  "id" => $fsName), $context);
 		// Create fstab entry?
 		if (TRUE === boolvalEx($params['fstab'])) {
 			// Check for duplicates. Create a new mount point configuration
 			// object if necessary.
 			if (FALSE === $meObject) {
-				OMVRpc::exec("FsTab", "set", array(
+				\OMV\Rpc\Rpc::call("FsTab", "set", array(
 					  "uuid" => $GLOBALS['OMV_UUID_UNDEFINED'],
 					  "fsname" => $fsName,
 					  "dir" => OMVFilesystem::buildMountPath($fs->getUuid()),
@@ -914,7 +914,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				  ), $context);
 				// Apply the changes to the '/etc/fstab' file immediately
 				// to mount the filesystem.
-				OMVRpc::exec("Config", "applyChanges", array(
+				\OMV\Rpc\Rpc::call("Config", "applyChanges", array(
 					  "modules" => array("fstab"),
 					  "force" => TRUE
 				  ), $context);
@@ -1022,9 +1022,9 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			// Delete the mount point configuration object. Unmount the
 			// filesystem and unlink the mount point. Changes to the fstab
 			// module must not be applied immediately.
-			OMVRpc::exec("FsTab", "delete", array(
+			\OMV\Rpc\Rpc::call("FsTab", "delete", array(
 			  "uuid" => $object['uuid']), $context);
-			OMVRpc::exec("Config", "applyChanges", array(
+			\OMV\Rpc\Rpc::call("Config", "applyChanges", array(
 				  "modules" => array("fstab"),
 				  "force" => TRUE
 			  ), $context);
