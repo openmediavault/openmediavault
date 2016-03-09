@@ -40,18 +40,13 @@ class Manager extends \OMV\BaseObject {
 
 	/**
 	 * Load the data models.
+	 * @param directory The directory that contains the data model schemas.
 	 * @return None.
 	 */
-	final public function load($path) {
-		foreach (new \DirectoryIterator($path) as $item) {
-			if ($item->isDot())
-				continue;
-			if (!$item->isFile())
-				continue;
-			if ("json" !== strtolower($item->getExtension()))
-				continue;
+	final public function load($directory) {
+		foreach (listdir($directory, "json") as $path) {
 			// Read the JSON content and decode it.
-			$file = new \OMV\Json\File($item->getPathname());
+			$file = new \OMV\Json\File($path);
 			if (!$file->exists())
 				continue;
 			$file->open("r");

@@ -83,17 +83,12 @@ abstract class OMVHtmlPageAbstract extends OMVObject {
 			if ($item->isDot())
 				continue;
 			if ($item->isFile()) {
-				$pathInfo = pathinfo($item->getFilename());
-				if (array_key_exists("extension", $pathInfo) &&
-				  (strtolower($pathInfo['extension']) === "js")) {
-					$this->scanFiles("{$dirPath}/{$pathInfo['basename']}",
-					  $incList);
-				}
+				if ("js" !== strtolower($item->getExtension()))
+					continue;
+				$this->scanFiles($item->getPathname(), $incList);
 			}
 			if ($item->isDir() && (TRUE === $recursive)) {
-				$newIncPath = $dirPath . "/" . $item->getFilename();
 				$this->scanDir($item->getPathname(), $incList, $recursive);
-				continue;
 			}
 		}
 	}

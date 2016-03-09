@@ -35,16 +35,9 @@ try {
 
 	// Load and initialize the RPC services that are not handled by the
 	// engine daemon.
-	$path = sprintf("%s/rpc", $GLOBALS['OMV_DOCUMENTROOT_DIR']);
-	foreach (new \DirectoryIterator($path) as $item) {
-		if ($item->isDot())
-			continue;
-		if (!$item->isFile())
-			continue;
-		if ("inc" !== strtolower($item->getExtension()))
-			continue;
-		$includePath = build_path(array($path, $item->getFilename()));
-		require_once $includePath;
+	$directory = build_path(array($GLOBALS['OMV_DOCUMENTROOT_DIR'], "rpc"));
+	foreach (listdir($directory, "inc") as $path) {
+		require_once $path;
 	}
 	$rpcServiceMgr = &\OMVRpcServiceMgr::getInstance();
 	$rpcServiceMgr->initializeServices();

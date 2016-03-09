@@ -514,6 +514,29 @@ function build_path($parts, $separator = DIRECTORY_SEPARATOR) {
 }
 
 /**
+ * List files inside the specified path.
+ * @param directory The directory that will be scanned.
+ * @param extension The file extension of the files to search for.
+ * @param sortFlags Modify the sorting behavior.
+ * @return Returns an array of files from the directory.
+ */
+function listdir($directory, $extension = "", $sortFlags = SORT_NATURAL) {
+	$files = array();
+	foreach (new DirectoryIterator($directory) as $item) {
+		if ($item->isDot())
+			continue;
+		if (!$item->isFile())
+			continue;
+		if (!empty($extension) && ($extension !== strtolower(
+		  $item->getExtension())))
+			continue;
+		$files[] = $item->getPathname();
+	}
+	sort($files, $sortFlags);
+	return $files;
+}
+
+/**
  * Create a directory with unique file name.
  * @ingroup api
  * @param prefix The prefix of the generated temporary directory.

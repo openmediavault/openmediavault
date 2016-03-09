@@ -312,16 +312,9 @@ require_once("openmediavault/module.inc");
 // Load additional include files. This can be used to setup various
 // prerequirements.
 ///////////////////////////////////////////////////////////////////////////////
-$path = build_path(array($GLOBALS['OMV_ENGINED_DIR'], "inc"));
-foreach (new DirectoryIterator($path) as $item) {
-	if ($item->isDot())
-		continue;
-	if (!$item->isFile())
-		continue;
-	if ("inc" !== strtolower($item->getExtension()))
-		continue;
-	$includePath = build_path(array($path, $item->getFilename()));
-	require_once $includePath;
+$directory = build_path(array($GLOBALS['OMV_ENGINED_DIR'], "inc"));
+foreach (listdir($directory, "inc") as $path) {
+	require_once $path;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -332,16 +325,9 @@ foreach (new DirectoryIterator($path) as $item) {
 // The workaround simply loads the include files using the sem_get function
 // after the daemon process has been forked.
 ///////////////////////////////////////////////////////////////////////////////
-$path = build_path(array($GLOBALS['OMV_ENGINED_DIR'], "rpc"));
-foreach (new DirectoryIterator($path) as $item) {
-	if ($item->isDot())
-		continue;
-	if (!$item->isFile())
-		continue;
-	if ("inc" !== strtolower($item->getExtension()))
-		continue;
-	$includePath = build_path(array($path, $item->getFilename()));
-	require_once $includePath;
+$directory = build_path(array($GLOBALS['OMV_ENGINED_DIR'], "rpc"));
+foreach (listdir($directory, "inc") as $path) {
+	require_once $path;
 }
 // Initialize the RPC sevices.
 $rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
@@ -352,16 +338,9 @@ if (TRUE === $debug)
 ///////////////////////////////////////////////////////////////////////////////
 // Load all module classes.
 ///////////////////////////////////////////////////////////////////////////////
-$path = build_path(array($GLOBALS['OMV_ENGINED_DIR'], "module"));
-foreach (new DirectoryIterator($path) as $item) {
-	if ($item->isDot())
-		continue;
-	if (!$item->isFile())
-		continue;
-	if ("inc" !== strtolower($item->getExtension()))
-		continue;
-	$includePath = build_path(array($path, $item->getFilename()));
-	require_once $includePath;
+$directory = build_path(array($GLOBALS['OMV_ENGINED_DIR'], "module"));
+foreach (listdir($directory, "inc") as $path) {
+	require_once $path;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
