@@ -20,8 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
 
 class OMVModuleAcpid extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -55,14 +53,9 @@ class OMVModuleAcpid extends OMVModuleServiceAbstract
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function startService() {
-		global $xmlConfig;
-		$xpath = "//system/powermanagement";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		if (FALSE === boolvalEx($object['powerbtn']))
+		$db = &\OMV\Config\Database::getInstance();
+		$object = $db->get("//system/powermanagement", "powermanagement");
+		if (FALSE === $object->get("powerbtn"))
 			return;
 		$systemCtl = new \OMV\System\SystemCtl("acpid");
 		$systemCtl->start();

@@ -1,0 +1,29 @@
+[{
+	"type": "object",
+	"id": "cron.getlist",
+	"properties": {
+		"start": {
+			"type": "integer",
+			"required": true
+		},
+		"limit": {
+			"type": [ "integer", "null" ],
+			"required": true
+		},
+		"sortfield": {
+			"type": [ "string", "null" ]
+		},
+		"sortdir": {
+			"type": [ "string", "null" ],
+			"enum": [ "asc", "desc" ]
+		},
+		"type": {
+			"type": "array",
+			"required": true,
+			"items": {
+				"type": "string",
+				"enum": [ "reboot", "shutdown", "standby", "userdefined" ]
+			}
+		}
+	}
+}]

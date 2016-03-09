@@ -489,11 +489,11 @@ class Schema extends \OMV\BaseObject {
         }
         if (is_array($schema['items'])) {
 			foreach ($value as $itemk => $itemv) {
-                $path = sprintf("%s[%k]", $name, $itemk);
+                $path = sprintf("%s[%d]", $name, $itemk);
 				$valid = TRUE;
                 foreach ($schema['items'] as $itemSchema) {
 					try {
-	                    $this->validateType($path, $itemv, $itemSchema);
+	                    $this->validateType($itemv, $itemSchema, $path);
 					} catch (SchemaValidationException $e) {
 						$valid = FALSE;
 					}
@@ -509,8 +509,8 @@ class Schema extends \OMV\BaseObject {
             }
         } else if (is_object($schema['items'])) {
             foreach ($value as $itemk => $itemv) {
-				$path = sprintf("%s[%k]", $name, $itemk);
-				$this->validateType($path, $itemv, $schema['items']);
+				$path = sprintf("%s[%d]", $name, $itemk);
+				$this->validateType($itemv, $schema['items'], $path);
 			}
         } else {
 			throw new SchemaValidationException(

@@ -55,21 +55,14 @@ class OMVRpcServicePowerMgmt extends OMVRpcServiceAbstract {
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function get($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$xpath = "//system/powermanagement";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify result data.
-		$object['cpufreq'] = boolvalEx($object['cpufreq']);
-		return $object;
+		$db = &\OMV\Config\Database::getInstance();
+		$object = $db->get("//system/powermanagement", "powermanagement");
+		return $object->getAssoc();
 	}
 
 	/**
@@ -80,36 +73,25 @@ class OMVRpcServicePowerMgmt extends OMVRpcServiceAbstract {
 	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function set($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "cpufreq":{"type":"boolean"},
-				  "powerbtn":{"type":"string","enum":["nothing","shutdown",'.
-					'"standby"]}
-			  }
-		  }');
+		$this->validateMethodParams($params, "powermgmt.set");
+		// Prepare the configuration object.
+		$object = new \OMV\Config\ConfigObject("powermanagement");
+		$object->setAssoc($params);
 		// Update the configuration object.
-		$object = array(
-			"cpufreq" => array_boolval($params, "cpufreq"),
-			"powerbtn" => $params['powerbtn']
-		);
-		// Set the configuration object.
-		$success = $xmlConfig->replace("//system/powermanagement", $object);
-		if (FALSE === $success) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$db = &\OMV\Config\Database::getInstance();
+		$db->replace("//system/powermanagement", $object);
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.powermanagement", $object);
+		  "org.openmediavault.system.powermanagement",
+		  $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -155,32 +137,7 @@ class OMVRpcServicePowerMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-				  "enable":{"type":"boolean"},
-				  "type":{"type":["string","null"],"format":"regex",'.
-					'"pattern":"\/^reboot|shutdown|standby$\/i"},
-				  "execution":{"type":"string","enum":["exactly","hourly",'.
-					'"daily","weekly","monthly","yearly"]},
-				  "minute":{"type":"string","format":"regex",'.
-					'"pattern":"\/^[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|'.
-					'5[0-9]|[*]$\/"},
-				  "everynminute":{"type":"boolean"},
-				  "hour":{"type":"string","format":"regex",'.
-					'"pattern":"\/^[0-9]|1[0-9]|2[0-3]|[*]$\/"},
-				  "everynhour":{"type":"boolean"},
-				  "month":{"type":"string","format":"regex",'.
-					'"pattern":"\/^[1-9]|1[0-2]|[*]$\/"},
-				  "dayofmonth":{"type":"string","format":"regex",'.
-					'"pattern":"\/^[1-9]|1[0-9]|2[0-9]|3[0-1]|[*]$\/"},
-				  "everyndayofmonth":{"type":"boolean"},
-				  "dayofweek":{"type":"string","format":"regex",'.
-					'"pattern":"\/^[1-7]|[*]$\/"},
-				  "comment":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "powermgmt.setscheduledjob");
 		// Set missing configuration object fields.
 		$params['username'] = "root";
 		$params['sendemail'] = FALSE;
