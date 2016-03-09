@@ -487,7 +487,7 @@ class Schema extends \OMV\BaseObject {
 			  "%s: No items defined.",
 			  $name);
         }
-        if (is_array($schema['items'])) {
+        if (is_object($schema['items'])) {
 			foreach ($value as $itemk => $itemv) {
                 $path = sprintf("%s[%d]", $name, $itemk);
 				$valid = TRUE;
@@ -507,7 +507,7 @@ class Schema extends \OMV\BaseObject {
 					  $path, implode(", ", $types));
                 }
             }
-        } else if (is_object($schema['items'])) {
+        } else if (is_array($schema['items'])) {
             foreach ($value as $itemk => $itemv) {
 				$path = sprintf("%s[%d]", $name, $itemk);
 				$this->validateType($itemv, $schema['items'], $path);
