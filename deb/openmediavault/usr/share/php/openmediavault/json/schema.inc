@@ -75,21 +75,29 @@ class Schema extends \OMV\BaseObject {
 		// Validate the path. Something like "aa.bb.cc." or ".xx.yy"
 		// is invalid.
 		if (("." == substr($path, 1, 1)) || ("." == substr($path, -1)))
-			return FALSE;
+			throw new SchemaPathException("Invalid path '%s'.", $path);
 		// Explode the path parts.
 		$parts = explode(".", $path);
 		// Do we have reached the end of the path?
 		if ((1 >= count($parts)) && empty($parts[0]))
 			return $schema;
-		// Do we process an 'object' node? In this case step down to
-		// the 'properties' leaf.
+		// Do we process an 'object' node? In this case step down to the
+		// 'properties' leaf. Note, 'type' can be an array.
 		if (array_key_exists("type", $schema) && is_string($schema['type']) &&
-		  ("object" == $schema['type']))
+		  ("object" == $schema['type'])) {
+			// Does 'properties' exist and is it an array?
+			if (!(array_key_exists("properties", $schema) && is_array(
+			  $schema['properties']))) {
+				throw new SchemaPathException(
+				  "No 'properties' defined for path '%s'.",
+				  $path);
+			}
 			return $this->_getSchemaByPath($path, $schema['properties']);
+		}
 		$key = array_shift($parts);
 		// Check if the node has the requested key/value pair.
 		if (!array_key_exists($key, $schema))
-			return FALSE;
+			throw new SchemaPathException("Invalid path '%s'.", $path);
 		// Do we have found the requested node?
 		if (0 == count($parts))
 			return $schema[$key];
@@ -120,12 +128,7 @@ class Schema extends \OMV\BaseObject {
 		// Get the schema.
 		$schema = $this->getAssoc();
 		// Navigate down to the given path.
-		if (FALSE === ($schema = $this->_getSchemaByPath(
-		  $name, $schema))) {
-			throw new SchemaException("The path '%s' is invalid.",
-			  $name);
-		}
-		return $schema;
+		return $this->_getSchemaByPath($name, $schema);
 	}
 
 	/**
@@ -138,10 +141,7 @@ class Schema extends \OMV\BaseObject {
 	final public function validate($value, $name = "") {
 		if (is_string($value))
 			$value = json_decode($value);
-		if (FALSE === ($schema = $this->getAssocByPath($name))) {
-			throw new SchemaException("The path '%s' is invalid.",
-			  $name);
-		}
+		$schema = $this->getAssocByPath($name);
 		$this->validateType($value, $schema, $name);
 	}
 
@@ -361,6 +361,7 @@ class Schema extends \OMV\BaseObject {
 			return;
 		switch ($schema['format']) {
 		case "date-time":
+		case "datetime":
 			if (!preg_match('/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/', $value)) {
 				throw new SchemaValidationException(
 				  "%s: The value '%s' does not match to ISO 8601.",
@@ -472,7 +473,7 @@ class Schema extends \OMV\BaseObject {
 	protected function checkProperties($value, $schema, $name) {
 		if (!isset($schema['properties'])) {
         	throw new SchemaException(
-			  "%s: No properties defined.",
+			  "%s: No 'properties' defined.",
 			  $name);
         }
 		$valueProps = get_object_vars($value);
@@ -498,7 +499,7 @@ class Schema extends \OMV\BaseObject {
 	protected function checkItems($value, $schema, $name) {
 		if (!isset($schema['items'])) {
         	throw new SchemaException(
-			  "%s: No items defined.",
+			  "%s: No 'items' defined.",
 			  $name);
         }
         if (is_object($schema['items'])) {

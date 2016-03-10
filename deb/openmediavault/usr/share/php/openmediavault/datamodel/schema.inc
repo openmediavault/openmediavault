@@ -27,10 +27,18 @@ require_once("openmediavault/functions.inc");
 class Schema extends \OMV\Json\Schema {
 	/**
 	 * Get the type at the given path.
-	 * @return The type, e.g. 'object', 'string' or 'boolean'.
+	 * @return The type, e.g. 'object', 'string', 'boolean', ...
 	 */
 	final public function getTypeByPath($name) {
 		$schema = $this->getAssocByPath($name);
+/*
+		// A data model can not have multiple types.
+		if (is_array($schema)) {
+			throw new \OMV\Json\Schema(
+			  "%s: The property 'type' must not be an array.",
+			  $name);
+		}
+*/
 		return $schema['type'];
 	}
 

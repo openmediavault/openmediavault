@@ -116,6 +116,34 @@ class ConfigObject extends \OMV\BaseObject {
 				$default = NULL;
 				if (array_key_exists("default", $schema))
 					$default = $schema['default'];
+				else {
+					$type = "any";
+					if (array_key_exists("type", $schema))
+						$type = $schema['type'];
+					switch ($type) {
+					case "array":
+						$default = array();
+						break;
+					case "boolean":
+						$default = FALSE;
+						break;
+					case "integer":
+						$default = 0;
+						break;
+					case "number":
+					case "double":
+						$default = 0.0;
+						break;
+					case "string":
+						$default = "";
+						break;
+					case "any":
+					case "object":
+					case "null":
+						$default = NULL;
+						break;
+					}
+				}
 				$userData[$name] = $default;
 				break;
 			}
