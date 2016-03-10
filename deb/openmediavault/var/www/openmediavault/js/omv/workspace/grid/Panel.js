@@ -637,7 +637,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 		var me = this;
 		var btnCtrl = me.getToolbarButton(name);
 		if (!Ext.isEmpty(btnCtrl) && btnCtrl.isButton)
-			return btnCtrl.isDisabled(disabled);
+			return btnCtrl.isDisabled();
 		return null;
 	},
 
