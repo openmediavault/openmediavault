@@ -57,7 +57,3 @@ class OMVModuleWebadmin extends OMVModuleAbstract
           array($moduleMgr->getModule("monit"), "setDirty"));
     }
 }
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleWebadmin());

@@ -134,10 +134,6 @@ class OMVModuleClamAV extends OMVModuleServiceAbstract
 	}
 }
 
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleClamAV());
-
 // Register new logfile type.
 OMVLogFile::registerType("clamav", array(
   "filename" => "clamav",

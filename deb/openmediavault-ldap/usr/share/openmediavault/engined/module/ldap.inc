@@ -59,7 +59,3 @@ class OMVModuleLDAP extends OMVModuleServiceAbstract
 		  array($moduleMgr->getModule("pam"), "setDirty"));
     }
 }
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleLDAP());

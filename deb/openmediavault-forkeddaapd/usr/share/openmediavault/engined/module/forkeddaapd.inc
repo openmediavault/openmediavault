@@ -161,7 +161,3 @@ class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
 		  array($this, "onModifySharedFolder"));
 	}
 }
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleForkedDaapd());

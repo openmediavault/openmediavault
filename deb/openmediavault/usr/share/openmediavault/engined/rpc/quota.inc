@@ -277,7 +277,3 @@ class OMVRpcServiceQuota extends OMVRpcServiceAbstract {
 		  "org.openmediavault.system.storage.filesystem.quota");
 	}
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceQuota());

@@ -157,7 +157,3 @@ class OMVRpcServiceNetworkUPSTools extends OMVRpcServiceAbstract {
 		return $stats;
 	}
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceNetworkUPSTools());

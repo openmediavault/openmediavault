@@ -20,7 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/error.inc");
 
 class OMVModulePAM extends OMVModuleServiceAbstract {
 	/**
@@ -40,7 +39,3 @@ class OMVModulePAM extends OMVModuleServiceAbstract {
 		$cmd->execute();
 	}
 }
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModulePAM());

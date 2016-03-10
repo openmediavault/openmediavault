@@ -60,7 +60,8 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 		  ));
 		// Get the configuration object.
 		$db = &\OMV\Config\Database::getInstance();
-		$object = $db->get("//system/apt/distribution", "apt.distribution");
+		$object = $db->get("//system/apt/distribution",
+		  "conf.system.apt.distribution");
 		return $object->getAssoc();
 	}
 
@@ -77,9 +78,9 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "apt.setsettings");
+		$this->validateMethodParams($params, "rpc.apt.setsettings");
 		// Prepare the configuration object.
-		$object = new \OMV\Config\ConfigObject("apt.distribution");
+		$object = new \OMV\Config\ConfigObject("conf.system.apt.distribution");
 		$object->setAssoc($params);
 		// Update the configuration object.
 		$db = &\OMV\Config\Database::getInstance();
@@ -158,7 +159,7 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "apt.getupgradedlist");
+		$this->validateMethodParams($params, "rpc.apt.getupgradedlist");
 		// Enumerate all packages that are to be upgraded.
 		$objects = $this->callMethod("enumerateUpgraded", NULL, $context);
 		// Filter result.
@@ -179,7 +180,7 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "apt.upgrade");
+		$this->validateMethodParams($params, "rpc.apt.upgrade");
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
@@ -270,7 +271,7 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "apt.upload");
+		$this->validateMethodParams($params, "rpc.apt.upload");
 		// Check the file type.
 		$finfo = new finfo(FILEINFO_NONE);
 		$fileType = $finfo->file($params['filepath']);
@@ -315,7 +316,7 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "apt.getchangelog");
+		$this->validateMethodParams($params, "rpc.apt.getchangelog");
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
@@ -395,7 +396,3 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 		}
 	}
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceApt());

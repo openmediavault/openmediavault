@@ -73,7 +73,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "certificatemgmt.getlist");
+		$this->validateMethodParams($params, "rpc.certificatemgmt.getlist");
 		// Get list of SSL certificate configuration objects.
 		$xpath = "//system/certificates/sslcertificate";
 		$objects = $xmlConfig->getList($xpath);
@@ -116,7 +116,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "certificatemgmt.get");
+		$this->validateMethodParams($params, "rpc.certificatemgmt.get");
 		// Get the configuration object.
 		$xpath = sprintf("//system/certificates/sslcertificate[uuid='%s']",
 		  $params['uuid']);
@@ -146,7 +146,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "certificatemgmt.set");
+		$this->validateMethodParams($params, "rpc.certificatemgmt.set");
 		// Validate the certificate.
 		if (!($certificate = openssl_x509_read($params['certificate']))) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
@@ -234,7 +234,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "certificatemgmt.delete");
+		$this->validateMethodParams($params, "rpc.certificatemgmt.delete");
 		// Check if the certificate is used somewhere.
 		$xpath = sprintf("//sslcertificateref[contains(.,'%s')]",
 		  $params['uuid']);
@@ -263,7 +263,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "certificatemgmt.getdetail");
+		$this->validateMethodParams($params, "rpc.certificatemgmt.getdetail");
 		// Check if the module is marked as dirty. This is an indication
 		// that the certificate has not been created or updated until now.
 		if ($this->isModuleDirty("certificatemgmt"))
@@ -301,7 +301,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "certificatemgmt.create");
+		$this->validateMethodParams($params, "rpc.certificatemgmt.create");
 		// Generate the certificate subject string.
 		$rdnfields = array("c", "st", "l", "o", "ou", "cn");
 		$subject = "";
@@ -382,7 +382,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "certificatemgmt.getsshlist");
+		$this->validateMethodParams($params, "rpc.certificatemgmt.getsshlist");
 		// Get list of SSH certificate configuration objects.
 		$xpath = "//system/certificates/sshcertificate";
 		$objects = $xmlConfig->getList($xpath);
@@ -419,7 +419,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "certificatemgmt.createssh");
+		$this->validateMethodParams($params, "rpc.certificatemgmt.createssh");
 		// Create the requested certificate.
 		$file = tempnam(sys_get_temp_dir(), "id_rsa");
 		$cmdArgs = array();
@@ -466,7 +466,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "certificatemgmt.getssh");
+		$this->validateMethodParams($params, "rpc.certificatemgmt.getssh");
 		// Get the configuration object.
 		$xpath = sprintf("//system/certificates/sshcertificate[uuid='%s']",
 		  $params['uuid']);
@@ -496,7 +496,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "certificatemgmt.setssh");
+		$this->validateMethodParams($params, "rpc.certificatemgmt.setssh");
 		// Validate the private key.
 		if (array_key_exists("privatekey", $params)) {
 			if (!($privatekey = openssl_pkey_get_private(
@@ -569,7 +569,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "certificatemgmt.deletessh");
+		$this->validateMethodParams($params, "rpc.certificatemgmt.deletessh");
 		// Check if the certificate is used somewhere.
 		$xpath = sprintf("//sshcertificateref[contains(.,'%s')]",
 		  $params['uuid']);
@@ -582,7 +582,3 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 		  "org.openmediavault.system.certificates.sshcertificate");
 	}
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceCertificateMgmt());

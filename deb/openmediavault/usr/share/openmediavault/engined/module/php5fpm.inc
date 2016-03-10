@@ -53,7 +53,3 @@ class OMVModulePhp5fpm extends OMVModuleServiceAbstract {
 		$systemCtl->reload();
 	}
 }
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModulePhp5fpm());

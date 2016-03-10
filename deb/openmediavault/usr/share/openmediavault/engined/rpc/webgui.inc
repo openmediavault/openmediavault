@@ -58,7 +58,7 @@ class OMVRpcServiceWebGui extends OMVRpcServiceAbstract {
 		  ));
 		// Get the configuration object.
 		$db = &\OMV\Config\Database::getInstance();
-		$object = $db->get("//webadmin", "webadmin");
+		$object = $db->get("//webadmin", "conf.webadmin");
 		return $object->getAssoc();
 	}
 
@@ -76,9 +76,9 @@ class OMVRpcServiceWebGui extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "webgui.setsettings");
+		$this->validateMethodParams($params, "rpc.webgui.setsettings");
 		// Prepare the configuration object.
-		$object = new \OMV\Config\ConfigObject("webadmin");
+		$object = new \OMV\Config\ConfigObject("conf.webadmin");
 		$object->setAssoc($params);
 		// Update the configuration object.
 		$db = &\OMV\Config\Database::getInstance();
@@ -105,7 +105,7 @@ class OMVRpcServiceWebGui extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "webgui.setpassword");
+		$this->validateMethodParams($params, "rpc.webgui.setpassword");
 		// Modify user password.
 		$cmd = sprintf("usermod --password %s admin 2>&1",
 		  escapeshellarg(crypt($params['password'])));
@@ -116,7 +116,3 @@ class OMVRpcServiceWebGui extends OMVRpcServiceAbstract {
 		}
 	}
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceWebGui());

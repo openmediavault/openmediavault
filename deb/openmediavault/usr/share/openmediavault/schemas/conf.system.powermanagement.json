@@ -1,6 +1,6 @@
 {
 	"type": "object",
-	"id": "powermanagement",
+	"id": "conf.system.powermanagement",
 	"alias": "//system/powermanagement",
 	"title": "Powermanagement",
 	"properties": {

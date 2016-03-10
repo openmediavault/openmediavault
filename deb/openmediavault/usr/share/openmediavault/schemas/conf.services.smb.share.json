@@ -1,6 +1,6 @@
 {
 	"type": "object",
-	"id": "smb.share",
+	"id": "conf.service.smb.share",
 	"alias": "//services/smb/shares/share",
 	"title": "SMB/CIFS share",
 	"properties": {

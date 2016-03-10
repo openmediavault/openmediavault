@@ -23,7 +23,6 @@ require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/log.inc");
 
 class OMVModuleSmartMonTools extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleNotification {
@@ -116,25 +115,3 @@ class OMVModuleSmartMonTools extends OMVModuleServiceAbstract
 		  array($this, "setDirty"));
     }
 }
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleSmartMonTools());
-
-// Register new logfile type.
-OMVLogFile::registerType("smartd", array(
-  "filename" => "smartd.log",
-  "filepath" => "/var/log/smartd.log",
-  "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\ssmartd\[\d+\]:\s+(.*)$/",
-  "columns" => array(
-	  "ts" => array(
-		  "index" => 1,
-		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
-	  ),
-	  "date" => array(
-		  "index" => 1,
-		  "func" => create_function('$v',
-			'return strftime("%c", strpdate($v,"M j G:i:s"));')
-	  ),
-	  "message" => 3
-  )));

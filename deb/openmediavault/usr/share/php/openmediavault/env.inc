@@ -27,7 +27,7 @@ setlocale(LC_ALL, "");
 try {
 	// Get session timeout from the configuration.
 	$db = &\OMV\Config\Database::getInstance();
-	$object = $db->get("//system/time", "time");
+	$object = $db->get("//system/time", "conf.system.time");
 	if (in_array($object->get("timezone"), timezone_identifiers_list())) {
 		date_default_timezone_set($object->get("timezone"));
 	} else {

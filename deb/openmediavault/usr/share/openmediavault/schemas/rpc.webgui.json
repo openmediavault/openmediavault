@@ -1,6 +1,6 @@
 [{
 	"type": "object",
-	"id": "webgui.setsettings",
+	"id": "rpc.webgui.setsettings",
 	"properties": {
 		"port":{
 			"type": "integer",
@@ -36,7 +36,7 @@
 },
 {
 	"type": "object",
-	"id": "webgui.setpassword",
+	"id": "rpc.webgui.setpassword",
 	"properties": {
 		"password":{
 			"type": "string",

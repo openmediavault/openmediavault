@@ -1,6 +1,6 @@
 {
 	"type": "object",
-	"id": "time",
+	"id": "conf.system.time",
 	"alias": "//system/time",
 	"properties": {
 		"timezone": {

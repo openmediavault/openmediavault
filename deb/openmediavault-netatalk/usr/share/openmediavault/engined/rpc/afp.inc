@@ -331,7 +331,3 @@ class OMVRpcServiceAFP extends OMVRpcServiceAbstract {
 		  "org.openmediavault.services.afp.shares.share");
 	}
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceAFP());

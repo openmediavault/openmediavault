@@ -1,6 +1,6 @@
 [{
 	"type": "object",
-	"id": "certificatemgmt.getlist",
+	"id": "rpc.certificatemgmt.getlist",
 	"properties": {
 		"start": {
 			"type": "integer",
@@ -20,7 +20,7 @@
 	}
 },{
 	"type": "object",
-	"id": "certificatemgmt.get",
+	"id": "rpc.certificatemgmt.get",
 	"properties": {
 		"uuid": {
 			"type": "string",
@@ -30,7 +30,7 @@
 	}
 },{
 	"type": "object",
-	"id": "certificatemgmt.set",
+	"id": "rpc.certificatemgmt.set",
 	"properties": {
 		"uuid": {
 			"type": "string",
@@ -52,7 +52,7 @@
 	}
 },{
 	"type": "object",
-	"id": "certificatemgmt.delete",
+	"id": "rpc.certificatemgmt.delete",
 	"properties": {
 		"uuid": {
 			"type": "string",
@@ -62,7 +62,7 @@
 	}
 },{
 	"type": "object",
-	"id": "certificatemgmt.getdetail",
+	"id": "rpc.certificatemgmt.getdetail",
 	"properties": {
 		"uuid": {
 			"type": "string",
@@ -72,7 +72,7 @@
 	}
 },{
 	"type": "object",
-	"id": "certificatemgmt.create",
+	"id": "rpc.certificatemgmt.create",
 	"properties": {
 		 "size": {
 			 "type": "integer",
@@ -108,7 +108,7 @@
 	}
 },{
 	"type": "object",
-	"id": "certificatemgmt.getsshlist",
+	"id": "rpc.certificatemgmt.getsshlist",
 	"properties": {
 		"start": {
 			"type": "integer",
@@ -128,7 +128,7 @@
 	}
 },{
 	"type": "object",
-	"id": "certificatemgmt.createssh",
+	"id": "rpc.certificatemgmt.createssh",
 	"properties": {
 		"comment": {
 			"type": "string"
@@ -136,7 +136,7 @@
 	}
 },{
 	"type": "object",
-	"id": "certificatemgmt.getssh",
+	"id": "rpc.certificatemgmt.getssh",
 	"properties": {
 		"uuid": {
 			"type": "string",
@@ -146,7 +146,7 @@
 	}
 },{
 	"type": "object",
-	"id": "certificatemgmt.setssh",
+	"id": "rpc.certificatemgmt.setssh",
 	"properties": {
 		"uuid": {
 			"type": "string",
@@ -170,7 +170,7 @@
 	}
 },{
 	"type": "object",
-	"id": "certificatemgmt.deletessh",
+	"id": "rpc.certificatemgmt.deletessh",
 	"properties": {
 		"uuid": {
 			"type": "string",

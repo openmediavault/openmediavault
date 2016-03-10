@@ -74,7 +74,3 @@ class OMVModuleUsbBackup extends OMVModuleServiceAbstract
 		  array($this, "onSharedFolder"));
     }
 }
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleUsbBackup());

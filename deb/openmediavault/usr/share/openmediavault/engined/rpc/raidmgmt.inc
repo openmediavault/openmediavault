@@ -551,7 +551,3 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		return $raid->getDetail();
 	}
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceRaidMgmt());

@@ -21,7 +21,6 @@
  */
 require_once("openmediavault/module.inc");
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/log.inc");
 
 class OMVModuleRsync extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -93,25 +92,3 @@ class OMVModuleRsync extends OMVModuleServiceAbstract
 		  array($this, "onSharedFolder"));
     }
 }
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleRsync());
-
-// Register new logfile type.
-OMVLogFile::registerType("rsync", array(
-  "filename" => "rsync",
-  "filepath" => "/var/log/rsync.log",
-  "regex" => "/^(\S+\s+\S+) \[\d+\] (.*)$/",
-  "columns" => array(
-	  "ts" => array(
-		  "index" => 1,
-		  "func" => create_function('$v', 'return strpdate($v,"Y/m/d G:i:s");')
-	  ),
-	  "date" => array(
-		  "index" => 1,
-		  "func" => create_function('$v',
-			'return strftime("%c", strpdate($v,"Y/m/d G:i:s"));')
-	  ),
-	  "message" => 2
-  )));

@@ -59,7 +59,8 @@ class OMVRpcServicePowerMgmt extends OMVRpcServiceAbstract {
 		  ));
 		// Get the configuration object.
 		$db = &\OMV\Config\Database::getInstance();
-		$object = $db->get("//system/powermanagement", "powermanagement");
+		$object = $db->get("//system/powermanagement",
+		  "conf.system.powermanagement");
 		return $object->getAssoc();
 	}
 
@@ -76,9 +77,9 @@ class OMVRpcServicePowerMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "powermgmt.set");
+		$this->validateMethodParams($params, "rpc.powermgmt.set");
 		// Prepare the configuration object.
-		$object = new \OMV\Config\ConfigObject("powermanagement");
+		$object = new \OMV\Config\ConfigObject("conf.system.powermanagement");
 		$object->setAssoc($params);
 		// Update the configuration object.
 		$db = &\OMV\Config\Database::getInstance();
@@ -135,7 +136,7 @@ class OMVRpcServicePowerMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "powermgmt.setscheduledjob");
+		$this->validateMethodParams($params, "rpc.powermgmt.setscheduledjob");
 		// Set missing configuration object fields.
 		$params['username'] = "root";
 		$params['sendemail'] = FALSE;
@@ -175,7 +176,3 @@ class OMVRpcServicePowerMgmt extends OMVRpcServiceAbstract {
 		return \OMV\Rpc\Rpc::call("cron", "execute", $params, $context);
 	}
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServicePowerMgmt());

@@ -1,6 +1,6 @@
 {
 	"type": "object",
-	"id": "apt.distribution",
+	"id": "conf.system.apt.distribution",
 	"alias": "//system/apt/distribution",
 	"properties": {
 		"proposed": {

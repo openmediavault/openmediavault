@@ -1070,7 +1070,3 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		  $params['devicefile']));
 	}
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceFileSystemMgmt());

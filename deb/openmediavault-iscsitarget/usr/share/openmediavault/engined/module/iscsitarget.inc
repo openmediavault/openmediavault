@@ -153,7 +153,3 @@ class OMVModuleIscsiTarget extends OMVModuleServiceAbstract
 // Add config enums (elements that must be handled as arrays).
 $xmlConfig->addEnum("lun");
 $xmlConfig->addEnum("target");
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleIscsiTarget());

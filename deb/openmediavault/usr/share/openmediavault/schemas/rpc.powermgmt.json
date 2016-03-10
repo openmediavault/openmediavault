@@ -1,6 +1,6 @@
 [{
 	"type": "object",
-	"id": "powermgmt.set",
+	"id": "rpc.powermgmt.set",
 	"properties": {
 		"cpufreq": {
 			"type": "boolean",
@@ -14,7 +14,7 @@
 	}
 },{
 	"type": "object",
-	"id": "powermgmt.setscheduledjob",
+	"id": "rpc.powermgmt.setscheduledjob",
 	"properties": {
 		"uuid": {
 			"type": "string",

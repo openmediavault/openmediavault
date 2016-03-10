@@ -1305,7 +1305,3 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 		return $objects;
 	}
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceShareMgmt());

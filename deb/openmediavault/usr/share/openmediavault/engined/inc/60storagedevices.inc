@@ -19,22 +19,13 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+require_once("openmediavault/functions.inc");
 require_once("openmediavault/system.inc");
 
 ///////////////////////////////////////////////////////////////////////////////
 // Register default storage device backends.
 ///////////////////////////////////////////////////////////////////////////////
-OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendHDD());
-OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendCCISS());
-OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendMdadm());
-OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendLVM());
-OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendDM());
-OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendLoop());
-OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendBcache());
-OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendFIO());
-OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendMMC());
-OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendVirtIO());
-OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendCDROM());
-OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendNVM());
-OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendRDB());
-OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendI2O());
+$classes = get_declared_subclasses("OMVStorageDeviceBackendAbstract");
+foreach ($classes as $classk => $classv) {
+	OMVStorageDevices::registerBackend(new $classv());
+}

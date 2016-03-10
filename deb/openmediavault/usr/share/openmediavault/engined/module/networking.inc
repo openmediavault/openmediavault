@@ -54,7 +54,3 @@ class OMVModuleNetworking extends OMVModuleServiceAbstract
 		// module for example.
 	}
 }
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleNetworking());

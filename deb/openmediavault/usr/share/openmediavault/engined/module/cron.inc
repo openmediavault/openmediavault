@@ -83,7 +83,3 @@ class OMVModuleCron extends OMVModuleServiceAbstract
 		  array($this, "setDirty"));
     }
 }
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleCron());

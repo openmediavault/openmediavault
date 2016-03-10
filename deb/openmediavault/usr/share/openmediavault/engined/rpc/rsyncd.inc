@@ -344,7 +344,3 @@ class OMVRpcServiceRsyncd extends OMVRpcServiceAbstract {
 		  "org.openmediavault.services.rsync.server.modules.module");
 	}
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceRsyncd());

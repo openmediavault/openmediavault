@@ -54,7 +54,8 @@ class OMVModuleAcpid extends OMVModuleServiceAbstract
 	 */
 	public function startService() {
 		$db = &\OMV\Config\Database::getInstance();
-		$object = $db->get("//system/powermanagement", "powermanagement");
+		$object = $db->get("//system/powermanagement",
+		  "conf.system.powermanagement");
 		if (FALSE === $object->get("powerbtn"))
 			return;
 		$systemCtl = new \OMV\System\SystemCtl("acpid");
@@ -70,7 +71,3 @@ class OMVModuleAcpid extends OMVModuleServiceAbstract
 		  array($this, "setDirty"));
 	}
 }
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleAcpid());

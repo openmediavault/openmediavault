@@ -169,7 +169,3 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 		$session->destroy();
 	}
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceSession());

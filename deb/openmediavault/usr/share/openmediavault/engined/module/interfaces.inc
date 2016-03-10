@@ -103,7 +103,3 @@ class OMVModuleInterfaces extends OMVModuleServiceAbstract
 		  array($moduleMgr->getModule("networking"), "setDirty"));
     }
 }
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleInterfaces());

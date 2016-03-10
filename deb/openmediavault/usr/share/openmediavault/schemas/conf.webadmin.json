@@ -1,6 +1,6 @@
 {
 	"type": "object",
-	"id": "webadmin",
+	"id": "conf.webadmin",
 	"alias": "//webadmin",
 	"properties": {
 		"port":{

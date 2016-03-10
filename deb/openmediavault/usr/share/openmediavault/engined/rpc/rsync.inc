@@ -421,7 +421,3 @@ class OMVRpcServiceRsync extends OMVRpcServiceAbstract {
 		}
 	}
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceRsync());

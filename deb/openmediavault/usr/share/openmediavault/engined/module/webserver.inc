@@ -88,7 +88,3 @@ class OMVModuleWebserver extends OMVModuleNginxAbstract
 		  array($this, "onModifySslCertificate"));
 	}
 }
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleWebserver());

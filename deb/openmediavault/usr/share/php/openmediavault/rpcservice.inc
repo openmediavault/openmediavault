@@ -620,13 +620,21 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 class OMVRpcServiceMgr extends OMVObject {
 	private $map = array();
 
+	public function __construct() {
+		// Get a list of all classes that are implementing a RPC service.
+		$classes = get_declared_subclasses("OMVRpcServiceAbstract");
+		foreach ($classes as $classk => $classv) {
+			$this->registerService(new $classv());
+		}
+	}
+
 	/**
 	 * Returns a RPC manager singleton.
 	 * @return The RPC manager object.
 	 */
 	public static function &getInstance() {
 		static $instance = NULL;
-		if(!isset($instance)) {
+		if (!isset($instance)) {
 			$instance = new OMVRpcServiceMgr();
 		}
 		return $instance;
@@ -638,15 +646,14 @@ class OMVRpcServiceMgr extends OMVObject {
 	 * @return Returns TRUE on success or FALSE on failure.
 	 * @throw E_RPC_SERVICE_ALREADY_EXISTS
 	 */
-	final public function registerService(OMVRpcServiceAbstract $service) {
-		if(!isset($service))
+	private function registerService(OMVRpcServiceAbstract $service) {
+		if (!isset($service))
 			return FALSE;
 		$name = $service->getName();
 		// Check if RPC service already exists.
-		if(FALSE !== $this->getService($name)) {
-//			$this->debug("RPC service '{$name}' already registered");
-			throw new OMVException(
-			  OMVErrorMsg::E_RPC_SERVICE_ALREADY_EXISTS,
+		if (FALSE !== $this->getService($name)) {
+			throw new \OMV\Exception(
+			  "The RPC service already exists (name=%s, class=%s)",
 			  $name, get_class($service));
 		}
 		$this->map[strtolower($name)] = $service;
@@ -661,7 +668,7 @@ class OMVRpcServiceMgr extends OMVObject {
 	 */
 	final public function getService($name) {
 		$name = strtolower($name);
-		if(!array_key_exists($name, $this->map))
+		if (!array_key_exists($name, $this->map))
 			return FALSE;
 		return $this->map[$name];
 	}
@@ -678,7 +685,7 @@ class OMVRpcServiceMgr extends OMVObject {
 	 * Initialize the services.
 	 */
 	final public function initializeServices() {
-		foreach($this->map as $servicek => $servicev) {
+		foreach ($this->map as $servicek => $servicev) {
 			$servicev->initialize();
 		}
 	}
@@ -688,7 +695,7 @@ class OMVRpcServiceMgr extends OMVObject {
 	 */
 	final public function dump() {
 		print("Registered RPC services:\n");
-		foreach($this->map as $servicek => $servicev) {
+		foreach ($this->map as $servicek => $servicev) {
 			printf("  %s\n", $servicek);
 		}
 	}

@@ -360,7 +360,3 @@ class OMVRpcServiceIptables extends OMVRpcServiceAbstract {
 		  "org.openmediavault.system.network.iptables.rule");
 	}
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceIptables());

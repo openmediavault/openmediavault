@@ -20,7 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/error.inc");
 
 class OMVModuleHalt extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -51,7 +50,3 @@ class OMVModuleHalt extends OMVModuleServiceAbstract
 		  array($this, "setDirty"));
 	}
 }
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleHalt());

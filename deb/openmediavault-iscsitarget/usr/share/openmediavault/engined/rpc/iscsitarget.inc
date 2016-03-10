@@ -464,7 +464,3 @@ class OMVRpcServiceIscsiTarget extends OMVRpcServiceAbstract {
 		  "org.openmediavault.services.iscsitarget.targets.target");
 	}
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceIscsiTarget());

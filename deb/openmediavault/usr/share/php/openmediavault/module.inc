@@ -287,13 +287,21 @@ interface OMVIModuleService {
 class OMVModuleMgr extends OMVObject {
 	private $map = array();
 
+	public function __construct() {
+		// Get a list of all classes that are implementing a RPC service.
+		$classes = get_declared_subclasses("OMVModuleAbstract");
+		foreach ($classes as $classk => $classv) {
+			$this->registerModule(new $classv());
+		}
+	}
+
 	/**
 	 * Returns a module manager singleton.
 	 * @return The module manager object.
 	 */
 	public static function &getInstance() {
 		static $instance = NULL;
-		if(!isset($instance))
+		if (!isset($instance))
 			$instance = new OMVModuleMgr();
 		return $instance;
 	}
@@ -304,17 +312,15 @@ class OMVModuleMgr extends OMVObject {
 	 * @return Returns TRUE on success or FALSE on failure.
 	 * @throw E_MISC_FAILURE
 	 */
-	final public function registerModule(OMVModuleAbstract $module) {
+	private function registerModule(OMVModuleAbstract $module) {
 		if(!isset($module))
 			return FALSE;
 		$name = $module->getName();
 		// Check if module already exists.
-		if(FALSE !== $this->getModule($name)) {
-//			$this->debug("Module '{$name}' already registered");
-			throw new OMVException(
-			  OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Module already registered (name=%s, class=%s)",
-			  $name, get_class($module)));
+		if (FALSE !== $this->getModule($name)) {
+			throw new \OMV\Exception(
+			  "The module already exists (name=%s, class=%s)",
+			  $name, get_class($module));
 		}
 		$this->map[strtolower($name)] = $module;
 		ksort($this->map);
@@ -328,7 +334,7 @@ class OMVModuleMgr extends OMVObject {
 	 */
 	final public function getModule($name) {
 		$name = strtolower($name);
-		if(!array_key_exists($name, $this->map))
+		if (!array_key_exists($name, $this->map))
 			return FALSE;
 		return $this->map[$name];
 	}
@@ -347,7 +353,7 @@ class OMVModuleMgr extends OMVObject {
 	 */
 	final public function getDirtyModules() {
 		$jsonFile = new \OMV\Json\File($GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
-		if(!$jsonFile->exists())
+		if (!$jsonFile->exists())
 			return array();
 		$jsonFile->open("r", LOCK_SH);
 		$modules = array_unique($jsonFile->read());
@@ -386,7 +392,7 @@ class OMVModuleMgr extends OMVObject {
 	 */
 	final public function dump() {
 		print("Registered modules:\n");
-		foreach($this->map as $modulek => $modulev) {
+		foreach ($this->map as $modulek => $modulev) {
 			printf("  %s\n", $modulek);
 		}
 	}

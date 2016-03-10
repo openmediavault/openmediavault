@@ -179,10 +179,6 @@ class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
 	}
 }
 
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleNetworkUPSTools());
-
 // Register new logfile type.
 OMVLogFile::registerType("nut", array(
   "filename" => "nut.log",

@@ -1,6 +1,6 @@
 [{
 	"type": "object",
-	"id": "cron.getlist",
+	"id": "rpc.cron.getlist",
 	"properties": {
 		"start": {
 			"type": "integer",

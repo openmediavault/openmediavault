@@ -1,6 +1,6 @@
 {
 	"type": "object",
-	"id": "sharedfolder",
+	"id": "conf.system.sharedfolder",
 	"alias": "//system/shares/sharedfolder",
 	"title": "Shared folder",
 	"properties": {

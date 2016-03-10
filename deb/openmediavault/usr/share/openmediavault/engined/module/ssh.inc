@@ -147,7 +147,3 @@ class OMVModuleSsh extends OMVModuleServiceAbstract
 		  array($moduleMgr->getModule("zeroconf"), "setDirty"));
     }
 }
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleSsh());

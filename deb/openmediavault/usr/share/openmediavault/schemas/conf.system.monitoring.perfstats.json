@@ -1,6 +1,6 @@
 {
 	"type": "object",
-	"id": "monitoring.perfstats",
+	"id": "conf.system.monitoring.perfstats",
 	"alias": "//system/monitoring/perfstats",
 	"title": "Powermanagement",
 	"properties": {

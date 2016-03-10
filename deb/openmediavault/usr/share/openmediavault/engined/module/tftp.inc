@@ -135,7 +135,3 @@ class OMVModuleTftp extends OMVModuleServiceAbstract
 		  array($moduleMgr->getModule("zeroconf"), "setDirty"));
 	}
 }
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleTftp());

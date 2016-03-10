@@ -611,3 +611,27 @@ function fs_uuid_equals($uuid1, $uuid2) {
 		return FALSE;
 	return ($uuid1 == $uuid2);
 }
+
+/**
+ * Returns an array with the name of the defined classes that are
+ * a subclass of the specified class.
+ * @param class The class name being checked against.
+ * @return Returns an array of the names of the declared classes in the
+ *   current script that match the specified criteria.
+ */
+function get_declared_subclasses($class) {
+	$classNames = array();
+	foreach (get_declared_classes() as $className) {
+		$wanted = TRUE;
+		$classObject = new ReflectionClass($className);
+		if (!$classObject->isSubclassOf($class))
+			$wanted = FALSE;
+		if ($classObject->isAbstract())
+			$wanted = FALSE;
+		unset($classObject);
+		if (!$wanted)
+			continue;
+		$classNames[] = $className;
+	}
+	return $classNames;
+}

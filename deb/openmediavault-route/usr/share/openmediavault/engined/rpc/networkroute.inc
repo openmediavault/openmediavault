@@ -208,7 +208,3 @@ class OMVRpcServiceNetworkRoute extends OMVRpcServiceAbstract {
 		  "org.openmediavault.services.staticroutes.route");
 	}
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceNetworkRoute());

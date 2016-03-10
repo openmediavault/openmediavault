@@ -1,6 +1,6 @@
 {
 	"type": "object",
-	"id": "sharedfolder.privilege",
+	"id": "conf.system.sharedfolder.privilege",
 	"alias": "//system/shares/sharedfolder/privileges/privilege",
 	"title": "Shared folder privilege",
 	"properties": {

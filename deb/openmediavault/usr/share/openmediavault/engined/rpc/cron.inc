@@ -67,7 +67,7 @@ class OMVRpcServiceCron extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "cron.getlist");
+		$this->validateMethodParams($params, "rpc.cron.getlist");
 		// Get configuration data.
 		$xpath = "//system/crontab/job";
 		$objects = $xmlConfig->getList($xpath);
@@ -298,7 +298,3 @@ class OMVRpcServiceCron extends OMVRpcServiceAbstract {
 		}
 	}
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceCron());

@@ -19,25 +19,13 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+require_once("openmediavault/functions.inc");
 require_once("openmediavault/system.inc");
 
 ///////////////////////////////////////////////////////////////////////////////
 // Register default filesystem backends.
 ///////////////////////////////////////////////////////////////////////////////
-OMVFilesystems::registerBackend(new OMVFilesystemBackendExt4);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendExt3);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendExt2);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendExt);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendXfs);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendJfs);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendVfat);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendNtfs);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendMsdos);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendHfsplus);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendBtrfs);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendIso9660);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendUdf);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendReiserfs);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendUmsdos);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendUfs);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendNone);
+$classes = get_declared_subclasses("OMVFilesystemBackendAbstract");
+foreach ($classes as $classk => $classv) {
+	OMVFilesystems::registerBackend(new $classv());
+}

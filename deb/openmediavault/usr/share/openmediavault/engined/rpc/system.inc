@@ -473,7 +473,3 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 		return implode("\n", $result);
 	}
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceSystem());

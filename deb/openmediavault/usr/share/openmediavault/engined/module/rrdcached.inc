@@ -121,7 +121,3 @@ class OMVModuleRrdCached extends OMVModuleServiceAbstract
 		  array($moduleMgr->getModule("monit"), "setDirty"));
 	}
 }
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleRrdCached());

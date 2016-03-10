@@ -49,7 +49,3 @@ class OMVModuleSysctl extends OMVModuleServiceAbstract {
 		$cmd->execute();
 	}
 }
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleSysctl());

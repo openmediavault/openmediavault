@@ -20,7 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/error.inc");
 
 class OMVModuleHostname extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -46,11 +45,9 @@ class OMVModuleHostname extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function startService() {
-		$cmd = "export LANG=C; hostname --file /etc/hostname 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("hostname", "--file /etc/hostname");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
@@ -63,7 +60,3 @@ class OMVModuleHostname extends OMVModuleServiceAbstract
 		  array($this, "setDirty"));
     }
 }
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleHostname());

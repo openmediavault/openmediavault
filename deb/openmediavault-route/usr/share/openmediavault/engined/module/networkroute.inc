@@ -117,7 +117,3 @@ class OMVModuleNetworkRoute extends OMVModuleServiceAbstract
 
 // Add config enums (elements that must be handled as arrays)-
 $xmlConfig->addEnum("route");
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleNetworkRoute());

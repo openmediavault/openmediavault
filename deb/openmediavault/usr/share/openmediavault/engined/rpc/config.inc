@@ -272,7 +272,3 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 		return $this->callMethodBg("revertChanges", $params, $context);
 	}
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceConfig());

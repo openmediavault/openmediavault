@@ -1,6 +1,6 @@
 [{
 	"type": "object",
-	"id": "apt.upload",
+	"id": "rpc.apt.upload",
 	"properties": {
 		"filename": {
 			"type": "string",
@@ -13,7 +13,7 @@
 	}
 },{
 	"type": "object",
-	"id": "apt.upgrade",
+	"id": "rpc.apt.upgrade",
 	"properties": {
 		"packages": {
 			"type": "array",
@@ -25,7 +25,7 @@
 	}
 },{
 	"type": "object",
-	"id": "apt.setsettings",
+	"id": "rpc.apt.setsettings",
 	"properties": {
 		"proposed": {
 			"type": "boolean",
@@ -38,7 +38,7 @@
 	}
 },{
 	"type": "object",
-	"id": "apt.getupgradedlist",
+	"id": "rpc.apt.getupgradedlist",
 	"properties": {
 		"start": {
 			"type": "integer",
@@ -58,7 +58,7 @@
 	}
 },{
 	"type": "object",
-	"id": "apt.getchangelog",
+	"id": "rpc.apt.getchangelog",
 	"properties": {
 		"filename": {
 			"type": "string",

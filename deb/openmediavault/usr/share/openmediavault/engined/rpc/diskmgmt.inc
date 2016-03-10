@@ -358,7 +358,3 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 		}
 	}
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceDiskMgmt());

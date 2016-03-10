@@ -320,7 +320,3 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 		return $result;
 	}
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceFsTab());

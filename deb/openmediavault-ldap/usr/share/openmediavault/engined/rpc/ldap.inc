@@ -137,7 +137,3 @@ class OMVRpcServiceLDAP extends OMVRpcServiceAbstract {
 		return $object;
 	}
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceLDAP());
