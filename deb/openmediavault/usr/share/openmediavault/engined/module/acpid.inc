@@ -56,7 +56,7 @@ class OMVModuleAcpid extends OMVModuleServiceAbstract
 		$db = &\OMV\Config\Database::getInstance();
 		$object = $db->get("//system/powermanagement",
 		  "conf.system.powermanagement");
-		if (FALSE === $object->get("powerbtn"))
+		if (TRUE !== $object->get("powerbtn"))
 			return;
 		$systemCtl = new \OMV\System\SystemCtl("acpid");
 		$systemCtl->start();

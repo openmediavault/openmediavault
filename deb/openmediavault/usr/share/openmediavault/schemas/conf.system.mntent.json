@@ -1,0 +1,41 @@
+{
+	"type": "object",
+	"id": "conf.system.mntent",
+	"alias": "//system/fstab/mntent",
+	"title": "Mount point",
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"fsname": {
+			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "fsuuid"
+			},{
+				"type": "string",
+				"format": "devicefile"
+			}]
+		},
+		"dir": {
+			"type": "string"
+		},
+		"type": {
+			"type": "string"
+		},
+		"opts": {
+			"type": "string"
+		},
+		"freq": {
+			"type": "integer"
+		},
+		"passno": {
+			"type": "integer",
+			"enum": [ 0, 1, 2 ]
+		},
+		"hidden": {
+			"type": "boolean"
+		}
+	}
+}

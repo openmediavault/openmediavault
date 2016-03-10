@@ -20,8 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
 require_once("openmediavault/system.inc");
 
 class OMVModuleFsTab extends OMVModuleServiceAbstract
@@ -56,38 +54,30 @@ class OMVModuleFsTab extends OMVModuleServiceAbstract
 	 * @throw E_MISC_FAILURE
 	 */
 	public function startService() {
-		global $xmlConfig;
-		// Make sure all mount points are mounted.
-		$xpath = "//system/fstab/mntent";
-		$objects = $xmlConfig->getList($xpath);
-		if (is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = &\OMV\Config\Database::getInstance();
+		$objects = $db->getList("//system/fstab/mntent", "conf.system.mntent");
 		// Process all configured mount points and mount them if necessary.
 		foreach ($objects as $objectk => $objectv) {
-			$me = new OMVMntEnt($objectv['fsname'], $objectv['dir']);
+			$me = new OMVMntEnt($objectv->get("fsname"), $objectv->get("dir"));
 			// Does the directory exist?
 			if (FALSE === $me->mkDir()) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("Failed to create the directory '%s'",
-				  $me->getMountPoint()));
+				throw new \OMV\Exception("Failed to create the directory '%s'",
+				  $me->getMountPoint());
 			}
 			// Is it mounted?
 			if (FALSE === $me->isMounted()) {
 				// If it's no loop or bind mount then skip mounting if the
 				// filesystem does not exist.
-				if (is_uuid($objectv['fsname']) || is_devicefile(
-				  $objectv['fsname'])) {
-					$fs = OMVFilesystemFactory::get($objectv['fsname']);
+				if (is_uuid($objectv->get("fsname")) || is_devicefile(
+				  $objectv->get("fsname"))) {
+					$fs = OMVFilesystemFactory::get($objectv->get("fsname"));
 					if (is_null($fs) || !$fs->exists())
 						continue;
 				}
 				// Mount it.
 				if (FALSE === $me->mount()) {
-					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-					  sprintf("Failed to mount '%s': %s", $objectv['fsname'],
-					  $me->getLastError()));
+					throw new \OMV\Exception("Failed to mount '%s': %s",
+					  $objectv->get("fsname"), $me->getLastError());
 				}
 			}
 		}
@@ -115,9 +105,8 @@ class OMVModuleFsTab extends OMVModuleServiceAbstract
 		// necessary.
 		if (TRUE === $me->isMounted()) {
 			if (FALSE === $me->umount(TRUE, TRUE)) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("Failed to unmount '%s': %s", $params['fsname'],
-				  $me->getLastError()));
+				throw new \OMV\Exception("Failed to unmount '%s': %s",
+				  $params['fsname'], $me->getLastError());
 			}
 		}
 		// Check whether the directory is still a mount point. If this is
@@ -125,15 +114,13 @@ class OMVModuleFsTab extends OMVModuleServiceAbstract
 		// directory might delete the file systems data. This can happen
 		// when the file system is unmounted but busy (e.g. NFS exports).
 		if (TRUE === $me->isMountPoint()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Removing the directory '%s' has been aborted, ".
-			  "the resource is busy", $params['dir']));
+			throw new \OMV\Exception("Removing the directory '%s' has ".
+			  "been aborted, the resource is busy", $params['dir']);
 		}
 		// Unlink the mount point directory.
 		if (FALSE === $me->unlinkDir()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to unlink the directory '%s': %s",
-			  $params['dir'], $me->getLastError()));
+			throw new \OMV\Exception("Failed to unlink the directory '%s': %s",
+			  $params['dir'], $me->getLastError());
 		}
 	}
 

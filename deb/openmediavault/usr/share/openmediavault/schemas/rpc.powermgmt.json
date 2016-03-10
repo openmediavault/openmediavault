@@ -18,7 +18,13 @@
 	"properties": {
 		"uuid": {
 			"type": "string",
-			"format": "uuidv4-undefined",
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string",
+				"format": "undefined"
+			}],
 			"required": true
 		},
 		"enable": {

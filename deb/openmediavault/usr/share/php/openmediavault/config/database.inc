@@ -44,7 +44,7 @@ class Database extends \OMV\BaseObject {
 	}
 
 	/**
-	 * Get the configuration at the given XPath expression.
+	 * Get the configuration object at the specified XPath expression.
 	 * @param xpath The XPath expression to execute.
 	 * @param id The data model identifier. If \em id is not set, then
 	 *   the xpath will be used as identifier instead.
@@ -56,15 +56,45 @@ class Database extends \OMV\BaseObject {
 			$id = $xpath;
 		$this->isLoaded();
 		$data = $xmlConfig->get($xpath);
-		if (is_null($data))
-			throw new DatabaseException("XPath '%s' does not exist.", $xpath);
+		if (!is_array($data)) {
+			throw new DatabaseException("Failed to execute query '%s'.",
+			  $xpath);
+		}
 		$object = new ConfigObject($id);
 		$object->setAssoc($data, FALSE);
 		return $object;
 	}
 
 	/**
-	 * Set the configuration at the given XPath expression.
+	 * Get the configuration objects at the specified XPath expression
+	 * as an array.
+	 * @param xpath The XPath expression to execute.
+	 * @param id The data model identifier. If \em id is not set, then
+	 *   the xpath will be used as identifier instead.
+	 * @return An array containing the requested configuration objects,
+	 *   otherwise an empty array.
+	 */
+	public function getList($xpath, $id = "") {
+		global $xmlConfig;
+		if (empty($id))
+			$id = $xpath;
+		$this->isLoaded();
+		$data = $xmlConfig->getList($xpath);
+		if (!is_array($data)) {
+			throw new DatabaseException("Failed to execute query '%s'.",
+			  $xpath);
+		}
+		$objects = array();
+		foreach ($data as $datak => $datav) {
+			$object = new ConfigObject($id);
+			$object->setAssoc($datav, FALSE);
+			$objects[] = $object;
+		}
+		return $objects;
+	}
+
+	/**
+	 * Set the configuration object at the specified XPath expression.
 	 * @param xpath The XPath expression to execute.
 	 * @param object The configuration object to use.
 	 * @return None.
@@ -78,7 +108,7 @@ class Database extends \OMV\BaseObject {
 	}
 
 	/**
-	 * Replace the configuration at the given XPath expression.
+	 * Replace the configuration at the specified XPath expression.
 	 * @param xpath The XPath expression to execute.
 	 * @param object The configuration object to use.
 	 * @return None.
@@ -92,8 +122,8 @@ class Database extends \OMV\BaseObject {
 	}
 
 	/**
-	 * Update the existing configuration at the given XPath expression.
-	 * The given data will override the existing configuration. If the
+	 * Update the existing configuration at the specified XPath expression.
+	 * The specified data will override the existing configuration. If the
 	 * given XPath expression does not exist, then the method will exit
 	 * immediatelly.
 	 * @param xpath The XPath expression to execute.
@@ -109,7 +139,7 @@ class Database extends \OMV\BaseObject {
 	}
 
 	/**
-	 * Delete the nodes matching the given XPath expression.
+	 * Delete the nodes matching the specified XPath expression.
 	 * @param xpath The XPath expression to execute.
 	 * @return None.
 	 */

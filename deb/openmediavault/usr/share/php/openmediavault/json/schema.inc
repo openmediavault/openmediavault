@@ -211,6 +211,7 @@ class Schema extends \OMV\BaseObject {
 		$this->checkMaximum($value, $schema, $name);
 		$this->checkExclusiveMaximum($value, $schema, $name);
 		$this->checkEnum($value, $schema, $name);
+		$this->checkOneOf($value, $schema, $name);
 	}
 
 	protected function validateNumber($value, $schema, $name) {
@@ -224,6 +225,7 @@ class Schema extends \OMV\BaseObject {
 		$this->checkMaximum($value, $schema, $name);
 		$this->checkExclusiveMaximum($value, $schema, $name);
 		$this->checkEnum($value, $schema, $name);
+		$this->checkOneOf($value, $schema, $name);
 	}
 
 	protected function validateString($value, $schema, $name) {
@@ -237,6 +239,7 @@ class Schema extends \OMV\BaseObject {
 		$this->checkMaxLength($value, $schema, $name);
 		$this->checkFormat($value, $schema, $name);
 		$this->checkEnum($value, $schema, $name);
+		$this->checkOneOf($value, $schema, $name);
 	}
 
 	protected function validateArray($value, $schema, $name) {
@@ -374,7 +377,12 @@ class Schema extends \OMV\BaseObject {
 			}
 			break;
 		case "host-name":
-			// ToDo ...
+		case "hostname":
+			if (!preg_match('/^[_a-z]+\.([_a-z]+\.?)+$/i', $value)) {
+				throw new SchemaValidationException(
+				  "%s: The value '%s' is not a valid hostname.",
+				  $name, $value);
+			}
 			break;
 		case "regex":
 			// ToDo ...
@@ -383,7 +391,7 @@ class Schema extends \OMV\BaseObject {
 			if (!filter_var($value, FILTER_VALIDATE_URL,
 			  FILTER_FLAG_QUERY_REQUIRED)) {
 				throw new SchemaValidationException(
-				  "%s: The value '%s' is not a URI.",
+				  "%s: The value '%s' is not an URI.",
 				  $name, $value);
 			}
 			break;
@@ -395,6 +403,7 @@ class Schema extends \OMV\BaseObject {
 			}
 			break;
 		case "ip-address":
+		case "ipv4":
 			if (!filter_var($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
 				throw new SchemaValidationException(
 				  "%s: The value '%s' is not an IPv4 address.",
@@ -421,7 +430,7 @@ class Schema extends \OMV\BaseObject {
 			return;
 		if (!is_array($schema['enum'])) {
 			throw new SchemaException(
-			  "%s: Enum property is not an array.",
+			  "%s: The 'enum' property is not an array.",
 			  $name);
 		}
 		if (!is_array($value))
@@ -515,6 +524,33 @@ class Schema extends \OMV\BaseObject {
         } else {
 			throw new SchemaValidationException(
 			  "%s: Invalid items value.",
+			  $name);
+		}
+	}
+
+	protected function checkOneOf($value, $schema, $name) {
+		if (!isset($schema['oneOf']))
+			return;
+		if (!is_array($schema['oneOf'])) {
+			throw new SchemaException(
+			  "%s: The 'oneOf' property is not an array.",
+			  $name);
+		}
+		$valid = FALSE;
+		foreach ($schema['oneOf'] as $subSchemak => $subSchemav) {
+			try {
+				$this->validateType($value, $subSchemav, $name);
+				// If validation succeeds for one of the schema, then we
+				// can exit immediatelly.
+				$valid = TRUE;
+				break;
+			} catch (SchemaValidationException $e) {
+				// Nothing to do here.
+			}
+		}
+		if (!$valid) {
+			throw new SchemaValidationException(
+			  "%s: Failed to match exactly one schema.",
 			  $name);
 		}
 	}

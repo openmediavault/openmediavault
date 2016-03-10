@@ -133,7 +133,7 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 				  $params['username'], \OMV\System\Network\Network::getFqdn(),
 				  $_SERVER['SERVER_ADDR'], date('r'), $_SERVER['REMOTE_ADDR'],
 				  $_SERVER['HTTP_USER_AGENT'], $prd->getName());
-				$mail = new \OMV\Mail("root", $params['username'],
+				$mail = new \OMV\Email("root", $params['username'],
 				  $subject, $message);
 				$mail->send();
 				// Set a cookie. It will expire after 60 days. The user name

@@ -20,8 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
 
 class OMVModuleCollectd extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -73,14 +71,10 @@ class OMVModuleCollectd extends OMVModuleServiceAbstract
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function startService() {
-		global $xmlConfig;
-		$xpath = "//system/monitoring/perfstats";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		if (FALSE === boolvalEx($object['enable']))
+		$db = &\OMV\Config\Database::getInstance();
+		$object = $db->get("//system/monitoring/perfstats",
+		  "conf.system.monitoring.perfstats");
+		if (TRUE !== $object->get("enable"))
 			return;
 		// Start this service and enable the unit file.
 		$systemCtl = new \OMV\System\SystemCtl("collectd");
@@ -92,11 +86,10 @@ class OMVModuleCollectd extends OMVModuleServiceAbstract
 		$monit->monitor();
 		// Generate RRD graph images based on the latest configuration as a
 		// background job (rendering may take some time).
-		$cmd = "export LANG=C; omv-mkgraph 2>&1 &";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("omv-mkgraph");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->setBackground(TRUE);
+		$cmd->execute();
 	}
 
 	/**

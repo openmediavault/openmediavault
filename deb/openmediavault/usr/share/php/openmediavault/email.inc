@@ -24,7 +24,7 @@ namespace OMV;
 /**
  * @ingroup api
  */
-class Mail {
+class Email {
 	private $from;
 	private $to;
 	private $subject;

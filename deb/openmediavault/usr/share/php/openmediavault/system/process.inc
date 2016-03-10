@@ -28,6 +28,7 @@ class Process {
 	private $command;
 	private $redirect2to1 = FALSE;
 	private $quiet = FALSE;
+	private $background = FALSE;
 	private $env = array(
 		"PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin",
 		"LANG=C"
@@ -61,6 +62,10 @@ class Process {
 		$this->quiet = $quiet;
 	}
 
+	public function setBackground($background = TRUE) {
+		$this->background = $background;
+	}
+
 	public function execute(&$output = NULL, &$exitStatus = NULL) {
 		$parts = array();
 		foreach ($this->env as $env)
@@ -68,6 +73,8 @@ class Process {
 		$parts[] = $this->command;
 		if (TRUE === $this->redirect2to1)
 			$parts[] = "2>&1";
+		if (TRUE === $this->background)
+			$parts[] = "&";
 		$command = implode(" ", $parts);
 		$result = exec($command, $output, $exitStatus);
 		if ((FALSE === $this->quiet) && ($exitStatus !== 0))
