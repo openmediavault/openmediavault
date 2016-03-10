@@ -1,0 +1,55 @@
+{
+	"type": "object",
+	"id": "conf.system.email",
+	"alias": "//system/email",
+	"title": "Mount point",
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": 0
+		},
+		"server": {
+			"type": "string",
+			"default": ""
+		},
+		"port":{
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 65535,
+			"default": 25
+		},
+		"tls": {
+			"type": "boolean",
+			"default": 0
+		},
+		"sender": {
+			"type": "string",
+			"default": ""
+		},
+		"authentication": {
+			"type": "object",
+			"properties": {
+				"enable": {
+					"type": "boolean",
+					"default": 0
+				},
+				"username": {
+					"type": "string",
+					"default": ""
+				},
+				"password": {
+					"type": "string",
+					"default": ""
+				}
+			}
+		},
+		"primaryemail": {
+			"type": "string",
+			"default": ""
+		},
+		"secondaryemail": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}

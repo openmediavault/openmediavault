@@ -20,7 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/error.inc");
 
 class OMVModulePhp5fpm extends OMVModuleServiceAbstract {
 	/**
@@ -32,7 +31,6 @@ class OMVModulePhp5fpm extends OMVModuleServiceAbstract {
 
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		// Build the configuration.

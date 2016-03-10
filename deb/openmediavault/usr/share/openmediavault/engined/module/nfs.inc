@@ -20,8 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
 
 class OMVModuleNfs extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
@@ -48,7 +46,6 @@ class OMVModuleNfs extends OMVModuleServiceAbstract
 
 	/**
 	 * Generate the configuration.
-	 * @throws E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "nfsd");
@@ -68,14 +65,9 @@ class OMVModuleNfs extends OMVModuleServiceAbstract
 	 * Start the managed service.
 	 */
 	public function startService() {
-		global $xmlConfig;
-		$xpath = "//services/nfs";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		if (FALSE === boolvalEx($object['enable']))
+		$db = &\OMV\Config\Database::getInstance();
+		$object = $db->get("//services/nfs", "conf.service.nfs");
+		if (TRUE !== $object->get("enable"))
 			return;
 		$systemCtl = new \OMV\System\SystemCtl("nfs-kernel-server");
 		$systemCtl->enable(TRUE);
@@ -83,21 +75,15 @@ class OMVModuleNfs extends OMVModuleServiceAbstract
 
 	/**
 	 * Get the status of the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getStatus() {
-		global $xmlConfig;
-		$xpath = "//services/nfs";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = &\OMV\Config\Database::getInstance();
+		$object = $db->get("//services/nfs", "conf.service.nfs");
 		$systemCtl = new \OMV\System\SystemCtl("nfs-kernel-server");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("NFS"),
-			"enabled" => boolvalEx($object['enable']),
+			"enabled" => $object->get("enable"),
 			"running" => $systemCtl->isActive()
 		);
 	}

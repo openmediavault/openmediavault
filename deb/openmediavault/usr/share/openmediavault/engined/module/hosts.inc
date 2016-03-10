@@ -33,7 +33,6 @@ class OMVModuleHosts extends OMVModuleServiceAbstract
 
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "hosts");

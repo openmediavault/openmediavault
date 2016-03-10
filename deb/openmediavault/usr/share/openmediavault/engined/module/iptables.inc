@@ -32,7 +32,6 @@ class OMVModuleIptables extends OMVModuleServiceAbstract
 
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "iptables");
@@ -42,7 +41,6 @@ class OMVModuleIptables extends OMVModuleServiceAbstract
 
 	/**
 	 * Start the managed service.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function startService() {
 		$cmd = new \OMV\System\Process("/etc/network/if-pre-up.d/openmediavault-iptables");

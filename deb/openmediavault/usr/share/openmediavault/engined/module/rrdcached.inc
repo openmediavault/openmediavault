@@ -62,7 +62,6 @@ class OMVModuleRrdCached extends OMVModuleServiceAbstract
 
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "rrdcached");
@@ -84,17 +83,12 @@ class OMVModuleRrdCached extends OMVModuleServiceAbstract
 
 	/**
 	 * Start the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function startService() {
-		global $xmlConfig;
-		$xpath = "//system/monitoring/perfstats";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		if (FALSE === boolvalEx($object['enable']))
+        $db = &\OMV\Config\Database::getInstance();
+		$object = $db->get("//system/monitoring/perfstats",
+		  "conf.system.monitoring.perfstats");
+		if (TRUE !== $object->get("enable"))
 			return;
 		// Start this service and enable the unit file.
 		$systemCtl = new \OMV\System\SystemCtl("rrdcached");

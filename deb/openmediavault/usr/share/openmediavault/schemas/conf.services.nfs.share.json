@@ -1,0 +1,32 @@
+{
+	"type": "object",
+	"id": "conf.service.nfs.share",
+	"alias": "//services/nfs/shares/share",
+	"title": "NFS share",
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"sharedfolderref": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"mntentref": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"client": {
+			"type": "string"
+		},
+		"options": {
+			"type": "string"
+		},
+		"comment": {
+			"type": "string"
+		},
+		"extraoptions": {
+			"type": "string"
+		}
+	}
+}

@@ -33,7 +33,6 @@ class OMVModuleFsTab extends OMVModuleServiceAbstract
 
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "fstab");
@@ -50,8 +49,6 @@ class OMVModuleFsTab extends OMVModuleServiceAbstract
 
 	/**
 	 * Start the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_MISC_FAILURE
 	 */
 	public function startService() {
 		$db = &\OMV\Config\Database::getInstance();
@@ -97,7 +94,6 @@ class OMVModuleFsTab extends OMVModuleServiceAbstract
 	/**
 	 * Helper method to umount a fstab entry and remove it.
 	 * @param params The method parameters.
-	 * @throw E_MISC_FAILURE
 	 */
 	final public function deleteEntry($params) {
 		$me = new OMVMntEnt($params['fsname'], $params['dir']);

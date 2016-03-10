@@ -21,7 +21,6 @@
  */
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
 
 class OMVModuleSamba extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
@@ -36,7 +35,6 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "samba");
@@ -48,14 +46,9 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		global $xmlConfig;
-		$xpath = "//services/smb";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		if (TRUE === boolvalEx($object['enable']))
+		$db = &\OMV\Config\Database::getInstance();
+		$object = $db->get("//services/smb", "conf.service.smb");
+		if (TRUE !== $object->get("enable"))
 			return;
 		$systemCtl = new \OMV\System\SystemCtl("smbd");
 		$systemCtl->disable(TRUE);
@@ -65,14 +58,9 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 	 * Start the managed service.
 	 */
 	public function startService() {
-		global $xmlConfig;
-		$xpath = "//services/smb";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		if (FALSE === boolvalEx($object['enable']))
+        $db = &\OMV\Config\Database::getInstance();
+		$object = $db->get("//services/smb", "conf.service.smb");
+		if (TRUE !== $object->get("enable"))
 			return;
 		$systemCtl = new \OMV\System\SystemCtl("smbd");
 		if ($systemCtl->isEnabled() && $systemCtl->isActive())
@@ -83,21 +71,15 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 
 	/**
 	 * Get the status of the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getStatus() {
-		global $xmlConfig;
-		$xpath = "//services/smb";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = &\OMV\Config\Database::getInstance();
+		$object = $db->get("//services/smb", "conf.service.smb");
 		$systemCtl = new \OMV\System\SystemCtl("smbd");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("SMB/CIFS"),
-			"enabled" => boolvalEx($object['enable']),
+			"enabled" => $object->get("enable"),
 			"running" => $systemCtl->isActive()
 		);
 	}
@@ -110,7 +92,6 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	final private function existsUser($username) {
-		$found = FALSE;
 		$cmd = sprintf("pdbedit --list | grep '%s:'", $username);
 		return (0 !== $this->exec($cmd, $output)) ? FALSE : TRUE;
 	}
@@ -140,10 +121,8 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 		$cmd = sprintf("export LANG=C; (echo %s; echo %s) | pdbedit %s 2>&1",
 		  escapeshellarg($object['password']), escapeshellarg(
 		  $object['password']), implode(" ", $cmdArgs));
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		if (0 !== $this->exec($cmd, $output))
+			throw new \OMV\ExecException($cmd, $output);
 		// Start/Reload service.
 		$this->startService();
 	}
@@ -177,10 +156,8 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 		$cmdArgs[] = escapeshellarg($object['name']);
 		$cmdArgs[] = "2>&1";
 		$cmd = implode(" ", $cmdArgs);
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		if (0 !== $this->exec($cmd, $output))
+			throw new \OMV\ExecException($cmd, $output);
 		// Update the user password. Check whether the password has been
 		// changed (in this case it is not empty).
 		if (array_key_exists("password", $object) &&
@@ -195,10 +172,8 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 			$cmdArgs[] = escapeshellarg($object['name']);
 			$cmdArgs[] = "2>&1";
 			$cmd = implode(" ", $cmdArgs);
-			if (0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			if (0 !== $this->exec($cmd, $output))
+				throw new \OMV\ExecException($cmd, $output);
 		}
 		// Start/Reload service.
 		$this->startService();
@@ -226,10 +201,8 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 		$cmdArgs[] = escapeshellarg($object['name']);
 		$cmd = sprintf("export LANG=C; pdbedit %s 2>&1", implode(" ",
 		  $cmdArgs));
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		if (0 !== $this->exec($cmd, $output))
+			throw new \OMV\ExecException($cmd, $output);
 		// Start/Reload service.
 		$this->startService();
 	}

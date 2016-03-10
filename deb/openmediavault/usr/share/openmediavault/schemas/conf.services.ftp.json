@@ -1,0 +1,201 @@
+{
+	"type": "object",
+	"id": "conf.service.ftp",
+	"alias": "//services/ft",
+	"title": "FTP",
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": 0
+		},
+		"port":{
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 65535,
+			"default": 21
+		},
+		"maxclients": {
+			"type": "integer",
+			"minimum": 0,
+			"default": 5
+		},
+		"maxconnectionsperhost": {
+			"type": "integer",
+			"minimum": 0,
+			"default": 2
+		},
+		"maxloginattempts": {
+			"type": "integer",
+			"minimum": 0,
+			"default": 1
+		},
+		"timeoutidle": {
+			"type": "integer",
+			"minimum": 0,
+			"default": 1200
+		},
+		"displaylogin": {
+			"type": "string",
+			"default": ""
+		},
+		"allowforeignaddress": {
+			"type": "boolean",
+			"default": 0
+		},
+		"allowrestart": {
+			"type": "boolean",
+			"default": 0
+		},
+		"identlookups": {
+			"type": "boolean",
+			"default": 0
+		},
+		"usereversedns": {
+			"type": "boolean",
+			"default": 0
+		},
+		"rootlogin": {
+			"type": "boolean",
+			"default": 0
+		},
+		"masqueradeaddress": {
+			"type": "string",
+			"default": ""
+		},
+		"dynmasqrefresh": {
+			"type": "boolean",
+			"default": 0
+		},
+		"usepassiveports": {
+			"type": "boolean",
+			"default": 0
+		},
+		"minpassiveports":{
+			"type": "integer",
+			"minimum": 1025,
+			"maximum": 65535,
+			"default": 49152
+		},
+		"maxpassiveports":{
+			"type": "integer",
+			"minimum": 1025,
+			"maximum": 65535,
+			"default": 65534
+		},
+		"limittransferrate": {
+			"type": "boolean",
+			"default": 0
+		},
+		"maxuptransferrate": {
+			"type": "integer",
+			"minimum": 0,
+			"default": 0
+		},
+		"maxdowntransferrate": {
+			"type": "integer",
+			"minimum": 0,
+			"default": 0
+		},
+		"anonymous": {
+			"type": "boolean",
+			"default": 0
+		},
+		"requirevalidshell": {
+			"type": "boolean",
+			"default": 1
+		},
+		"transferlog": {
+			"type": "boolean",
+			"default": 0
+		},
+		"extraoptions": {
+			"type": "string",
+			"default": ""
+		},
+		"shares": {
+			"type": "array",
+			"items": {
+				"$ref": "//services/ftp/shares/share"
+			}
+		},
+		"modules": {
+			"type": "object",
+			"properties": {
+				"mod_ban": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"uuid": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"event": {
+								"type": "string",
+								"enum": [
+									"AnonRejectPasswords",
+									"ClientConnectRate",
+									"MaxClientsPerClass",
+									"MaxClientsPerHost",
+									"MaxClientsPerUser",
+									"MaxConnectionsPerHost",
+									"MaxHostsPerUser",
+									"MaxLoginAttempts",
+									"TimeoutIdle",
+									"TimeoutNoTransfer"
+								]
+							},
+							"event": {
+								"type": "string",
+								"default": ""
+							},
+							"timeinterval": {
+								"type": "string",
+								"format": "time",
+								"default": ""
+							},
+							"expire": {
+								"type": "string",
+								"format": "time",
+								"default": ""
+							}
+						}
+					}
+				},
+				"mod_tls": {
+					"type": "object",
+					"properties": {
+						"enable": {
+							"type": "boolean",
+							"default": 0
+						},
+						"required": {
+							"type": "boolean",
+							"default": 0
+						},
+						"sslcertificateref": {
+							"type": "string",
+							"format": "uuidv4"
+						},
+						"nocertrequest": {
+							"type": "boolean",
+							"default": 0
+						},
+						"nosessionreuserequired": {
+							"type": "boolean",
+							"default": 0
+						},
+						"useimplicitssl": {
+							"type": "boolean",
+							"default": 0
+						},
+						"extraoptions": {
+							"type": "string",
+							"default": ""
+						}
+					}
+				}
+			}
+		}
+	}
+}

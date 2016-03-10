@@ -20,7 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/error.inc");
 
 class OMVModuleProfile extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -33,7 +32,6 @@ class OMVModuleProfile extends OMVModuleServiceAbstract
 
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "profile");

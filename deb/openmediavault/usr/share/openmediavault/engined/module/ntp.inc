@@ -32,7 +32,6 @@ class OMVModuleNtp extends OMVModuleServiceAbstract
 
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "ntp");
@@ -55,7 +54,6 @@ class OMVModuleNtp extends OMVModuleServiceAbstract
 
 	/**
 	 * Start the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function startService() {
 		$db = &\OMV\Config\Database::getInstance();

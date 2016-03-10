@@ -32,7 +32,6 @@ class OMVModuleCPUFreqUtils extends OMVModuleServiceAbstract
 
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "cpufrequtils");
@@ -54,7 +53,6 @@ class OMVModuleCPUFreqUtils extends OMVModuleServiceAbstract
 
 	/**
 	 * Start the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function startService() {
 		$db = &\OMV\Config\Database::getInstance();

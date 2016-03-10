@@ -1,0 +1,22 @@
+{
+	"type": "object",
+	"id": "conf.service.nfs",
+	"alias": "//services/nfs",
+	"title": "NFS",
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": 0
+		},
+		"numproc": {
+			"type": "integer",
+			"default": 8
+		},
+		"shares": {
+			"type": "array",
+			"items": {
+				"$ref": "//services/nfs/shares/share"
+			}
+		}
+	}
+}
