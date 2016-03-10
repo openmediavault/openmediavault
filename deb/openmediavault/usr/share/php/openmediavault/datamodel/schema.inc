@@ -26,23 +26,6 @@ require_once("openmediavault/functions.inc");
 
 class Schema extends \OMV\Json\Schema {
 	/**
-	 * Get the type at the given path.
-	 * @return The type, e.g. 'object', 'string', 'boolean', ...
-	 */
-	final public function getTypeByPath($name) {
-		$schema = $this->getAssocByPath($name);
-/*
-		// A data model can not have multiple types.
-		if (is_array($schema)) {
-			throw new \OMV\Json\Schema(
-			  "%s: The property 'type' must not be an array.",
-			  $name);
-		}
-*/
-		return $schema['type'];
-	}
-
-	/**
 	 * Add some more formats than JSON schema supports.
 	 */
 	protected function checkFormat($value, $schema, $name) {
@@ -104,8 +87,8 @@ class Schema extends \OMV\Json\Schema {
 				break;
 			default:
 				throw new \OMV\Json\SchemaException(
-				  "%s: The type '%s' is not defined.",
-				  $name, $typev);
+				  "%s: The format '%s' is not defined.",
+				  $name, $schema['format']);
 				break;
 			}
 		}

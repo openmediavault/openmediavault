@@ -60,14 +60,17 @@ class ConfigObject extends \OMV\BaseObject {
 		$key = array_shift($parts);
 		// Check if the key/value pair exists.
 		if (!array_key_exists($key, $node))
-			return FALSE;
+			throw new \OMV\Exception("Invalid path '%s'.", $path);
 		// Do we have found the requested node?
 		if (0 == count($parts))
 			return $node[$key];
 		// If the path is not finally reached, then check if the node
 		// is an array that we can walk down.
-		if (!is_array($node[$key]))
-			return FALSE;
+		if (!is_array($node[$key])) {
+			throw new \OMV\Exception(
+			  "Invalid path '%s', node '%s' is no array.",
+			  $path);
+		}
 		return $this->_getPropertyByPath(implode(".", $parts), $node[$key]);
 	}
 
@@ -80,16 +83,10 @@ class ConfigObject extends \OMV\BaseObject {
 		$model = $this->getModel();
 		if (FALSE === $model->propertyExists($name)) {
 			throw new \OMV\Exception(
-			  "The property '%s' does not exist in the model.",
-			  $name);
+			  "The property '%s' does not exist in the model '%s'.",
+			  $name, $model->getId());
 		}
-		if (FALSE === ($value = $this->_getPropertyByPath($name,
-		  $this->properties))) {
-			throw new \OMV\Exception(
-			  "The property '%s' does not exist.",
-			  $name);
-		}
-		return $value;
+		return $this->_getPropertyByPath($name, $this->properties);
 	}
 
 	/**

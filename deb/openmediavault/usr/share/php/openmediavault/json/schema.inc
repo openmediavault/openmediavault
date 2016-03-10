@@ -75,7 +75,7 @@ class Schema extends \OMV\BaseObject {
 		// Validate the path. Something like "aa.bb.cc." or ".xx.yy"
 		// is invalid.
 		if (("." == substr($path, 1, 1)) || ("." == substr($path, -1)))
-			throw new SchemaPathException("Invalid path '%s'.", $path);
+			throw new SchemaPathException("Invalid path '%s' syntax.", $path);
 		// Explode the path parts.
 		$parts = explode(".", $path);
 		// Do we have reached the end of the path?
@@ -89,7 +89,7 @@ class Schema extends \OMV\BaseObject {
 			if (!(array_key_exists("properties", $schema) && is_array(
 			  $schema['properties']))) {
 				throw new SchemaPathException(
-				  "No 'properties' defined for path '%s'.",
+				  "No 'properties' attribute defined for path '%s'.",
 				  $path);
 			}
 			return $this->_getSchemaByPath($path, $schema['properties']);
@@ -436,7 +436,7 @@ class Schema extends \OMV\BaseObject {
 			return;
 		if (!is_array($schema['enum'])) {
 			throw new SchemaException(
-			  "%s: The 'enum' property is not an array.",
+			  "%s: The attribute 'enum' is not an array.",
 			  $name);
 		}
 		if (!is_array($value))
@@ -473,7 +473,7 @@ class Schema extends \OMV\BaseObject {
 	protected function checkProperties($value, $schema, $name) {
 		if (!isset($schema['properties'])) {
         	throw new SchemaException(
-			  "%s: No 'properties' defined.",
+			  "%s: No 'properties' attribute defined.",
 			  $name);
         }
 		$valueProps = get_object_vars($value);
@@ -487,7 +487,7 @@ class Schema extends \OMV\BaseObject {
 				if (isset($propv['required']) &&
 				  (TRUE === $propv['required'])) {
 					throw new SchemaValidationException(
-					  "%s: Missing required property '%s'.",
+					  "%s: Missing 'required' attribute '%s'.",
 					  $name, $path);
                 }
 				continue;
@@ -499,7 +499,7 @@ class Schema extends \OMV\BaseObject {
 	protected function checkItems($value, $schema, $name) {
 		if (!isset($schema['items'])) {
         	throw new SchemaException(
-			  "%s: No 'items' defined.",
+			  "%s: No 'items' attribute defined.",
 			  $name);
         }
         if (is_object($schema['items'])) {
@@ -518,7 +518,8 @@ class Schema extends \OMV\BaseObject {
                         return $item['type'];
                     }, $schema['items']);
 					throw new SchemaValidationException(
-					  "%s: Invalid value, must be one of the following types '%s'.",
+					  "%s: Invalid 'items' value, must be one of the ".
+					  "following types '%s'.",
 					  $path, implode(", ", $types));
                 }
             }
@@ -529,7 +530,7 @@ class Schema extends \OMV\BaseObject {
 			}
         } else {
 			throw new SchemaValidationException(
-			  "%s: Invalid items value.",
+			  "%s: Invalid 'items' value.",
 			  $name);
 		}
 	}
@@ -539,7 +540,7 @@ class Schema extends \OMV\BaseObject {
 			return;
 		if (!is_array($schema['oneOf'])) {
 			throw new SchemaException(
-			  "%s: The 'oneOf' property is not an array.",
+			  "%s: The 'oneOf' attribute is not an array.",
 			  $name);
 		}
 		$valid = FALSE;

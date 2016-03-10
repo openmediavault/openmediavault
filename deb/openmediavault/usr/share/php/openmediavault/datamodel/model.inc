@@ -68,8 +68,13 @@ class Model extends \OMV\BaseObject {
 	}
 
 	public function convertProperty($name, $value) {
-		$type = $this->getSchema()->getTypeByPath($name);
-		switch ($type) {
+		$propSchema = $schema = $this->getSchema()->getAssocByPath($name);
+		if (is_array($propSchema['type'])) {
+			throw new \OMV\Json\SchemaException(
+			  "%s: The attribute 'type' must not be an array.",
+			  $name);
+		}
+		switch ($propSchema['type']) {
 		case "boolean":
 			$value = boolvalEx($value);
 			break;
@@ -92,6 +97,8 @@ class Model extends \OMV\BaseObject {
 		try {
 			$this->getSchema()->getAssocByPath($name);
 		} catch(\OMV\Json\SchemaException $e) {
+			$exists = FALSE;
+		} catch(\OMV\Json\SchemaPathException $e) {
 			$exists = FALSE;
 		}
 		return $exists;
