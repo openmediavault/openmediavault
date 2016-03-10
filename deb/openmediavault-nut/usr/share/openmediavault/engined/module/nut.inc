@@ -22,7 +22,6 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/log.inc");
 
 class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleServiceStatus {
@@ -178,24 +177,3 @@ class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
 		  array($moduleMgr->getModule("monit"), "setDirty"));
 	}
 }
-
-// Register new logfile type.
-OMVLogFile::registerType("nut", array(
-  "filename" => "nut.log",
-  "filepath" => "/var/log/nut.log",
-  "regex" => "/^(\S+\s+\d+\s+\d{2}:\d{2}:\d{2})\s+(\S+)\s([a-zA-Z-]+)(\[(\d+)\])?:\s+(.*)$/",
-  "columns" => array(
-	  "ts" => array(
-		  "index" => 1,
-		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
-	  ),
-	  "date" => array(
-		  "index" => 1,
-		  "func" => create_function('$v',
-			'return strftime("%c", strpdate($v,"M j G:i:s"));')
-	  ),
-	  "hostname" => 2,
-	  "program" => 3,
-	  "pid" => 5,
-	  "message" => 6
-  )));

@@ -22,7 +22,6 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/log.inc");
 
 class OMVModuleClamAV extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleServiceStatus {
@@ -133,22 +132,3 @@ class OMVModuleClamAV extends OMVModuleServiceAbstract
 		  array($this, "setDirty"));
 	}
 }
-
-// Register new logfile type.
-OMVLogFile::registerType("clamav", array(
-  "filename" => "clamav",
-  "filepath" => "/var/log/clamav/clamav.log",
-  "regex" => "/^(\S+\s+\S+\s+\d+\s+\S+\s+\d+)\s+->\s+(.*)$/",
-  "columns" => array(
-	  "ts" => array(
-		  "index" => 1,
-		  "func" => create_function('$v',
-			'return strpdate($v,"D M j H:i:s Y");')
-	  ),
-	  "date" => array(
-		  "index" => 1,
-		  "func" => create_function('$v',
-			'return strftime("%c", strpdate($v,"D M j H:i:s Y"));')
-	  ),
-	  "message" => 2
-  )));

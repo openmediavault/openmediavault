@@ -22,10 +22,6 @@
 require_once("openmediavault/log.inc");
 require_once("openmediavault/functions.inc");
 
-///////////////////////////////////////////////////////////////////////////////
-// Register default logfile types.
-///////////////////////////////////////////////////////////////////////////////
-
 // /var/log/syslog:
 // Oct 19 04:24:36 openmediavault init: Switching to runlevel: 6
 // Oct 19 04:24:38 openmediavault watchdog[1589]: stopping daemon (5.9)

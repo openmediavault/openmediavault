@@ -313,7 +313,7 @@ class OMVModuleMgr extends OMVObject {
 	 * @throw E_MISC_FAILURE
 	 */
 	private function registerModule(OMVModuleAbstract $module) {
-		if(!isset($module))
+		if (!isset($module))
 			return FALSE;
 		$name = $module->getName();
 		// Check if module already exists.
