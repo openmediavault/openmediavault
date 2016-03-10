@@ -42,6 +42,36 @@ class ConfigObject extends \OMV\BaseObject {
 	}
 
 	/**
+	 * Array
+	 * (
+	 *     [enable] => 0
+	 *     [timeservers] =>
+	 *     [timezone] => Europe/Berlin
+	 *     [ntp] => Array
+	 *         (
+	 *             [enable] => 1
+	 *             [timeservers] => ntp1.webart.de
+	 *         )
+	 * )
+	 */
+	private function _getPropertyByPath($path, $node) {
+		$parts = explode(".", $path);
+		// Get the key of the node.
+		$key = array_shift($parts);
+		// Check if the key/value pair exists.
+		if (!array_key_exists($key, $node))
+			return FALSE;
+		// Do we have found the requested node?
+		if (0 == count($parts))
+			return $node[$key];
+		// If the path is not finally reached, then check if the node
+		// is an array that we can walk down.
+		if (!is_array($node[$key]))
+			return FALSE;
+		return $this->_getPropertyByPath(implode(".", $parts), $node[$key]);
+	}
+
+	/**
 	 * Get a property.
 	 * @param name The name of the property.
 	 * @return The property value.
@@ -50,10 +80,16 @@ class ConfigObject extends \OMV\BaseObject {
 		$model = $this->getModel();
 		if (FALSE === $model->propertyExists($name)) {
 			throw new \OMV\Exception(
+			  "The property '%s' does not exist in the model.",
+			  $name);
+		}
+		if (FALSE === ($value = $this->_getPropertyByPath($name,
+		  $this->properties))) {
+			throw new \OMV\Exception(
 			  "The property '%s' does not exist.",
 			  $name);
 		}
-		return $this->properties[$name];
+		return $value;
 	}
 
 	/**
@@ -99,7 +135,7 @@ class ConfigObject extends \OMV\BaseObject {
 		$model = $this->getModel();
 		if (FALSE === $model->propertyExists($name)) {
 			throw new \OMV\Exception(
-			  "The property '%s' does not exist.",
+			  "The property '%s' does not exist in the model.",
 			  $name);
 		}
 		if (TRUE === $validate)

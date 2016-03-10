@@ -38,37 +38,39 @@ class Schema extends \OMV\BaseObject {
 	}
 
 	/**
-	 * Navigate to the given JSONPath, e.g. 'a1.b2' will return
-	 * '[type] => number'.
+	 * Navigate to the given JSON path, e.g. 'a1.b2' or 'ntp.enable'.
 	 * Example:
-	 * Array
-	 * (
-	 *     [type] => object
-	 *     [properties] => Array
-	 *         (
-	 *             [a1] => Array
-	 *                 (
-	 *                     [type] => object
-	 *                     [properties] => Array
-	 *                         (
-	 *                             [b1] => Array
-	 *                                 (
-	 *                                     [type] => string
-	 *                                 )
-	 *                             [b2] => Array
-	 *                                 (
-	 *                                     [type] => number
-	 *                                 )
-	 *                         )
-	 *                 )
-	 *             [a2] => Array
-	 *                 (
-	 *                     [type] => string
-	 *                 )
-	 *         )
+	 * array (
+	 * 	'type' => 'object',
+	 * 	'id' => 'conf.system.time',
+	 * 	'alias' => '//system/time',
+	 * 	'properties' =>
+	 * 	array (
+	 * 	  'timezone' =>
+	 * 	  array (
+	 * 	    'type' => 'string',
+	 * 	    'default' => 'Etc/UTC',
+	 * 	  ),
+	 * 	  'ntp' =>
+	 * 	  array (
+	 * 	    'type' => 'object',
+	 * 	    'properties' =>
+	 * 	    array (
+	 * 	      'enable' =>
+	 * 	      array (
+	 * 	        'type' => 'boolean',
+	 * 	        'default' => 0,
+	 * 	      ),
+	 * 	      'timeservers' =>
+	 * 	      array (
+	 * 	        'type' => 'string',
+	 * 	      ),
+	 * 	  ),
+	 * 	  ),
+	 * 	),
 	 * )
 	 */
-	private function _getAssocByPath($path, $schema) {
+	private function _getSchemaByPath($path, $schema) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Validate the path. Something like "aa.bb.cc." or ".xx.yy"
 		// is invalid.
@@ -81,15 +83,18 @@ class Schema extends \OMV\BaseObject {
 			return $schema;
 		// Do we process an 'object' node? In this case step down to
 		// the 'properties' leaf.
-		if (array_key_exists("type", $schema) && ("object" == $schema['type']))
-			return $this->_getAssocByPath($path, $schema['properties']);
+		if (array_key_exists("type", $schema) && is_string($schema['type']) &&
+		  ("object" == $schema['type']))
+			return $this->_getSchemaByPath($path, $schema['properties']);
 		$key = array_shift($parts);
-		// Check if the key/value pair exists.
+		// Check if the node has the requested key/value pair.
 		if (!array_key_exists($key, $schema))
 			return FALSE;
-		// Walk down the tree.
-		return $this->_getAssocByPath(implode(".", $parts),
-		  $schema[$key]);
+		// Do we have found the requested node?
+		if (0 == count($parts))
+			return $schema[$key];
+		// Continue to walk down the tree.
+		return $this->_getSchemaByPath(implode(".", $parts), $schema[$key]);
 	}
 
 	/**
@@ -115,7 +120,7 @@ class Schema extends \OMV\BaseObject {
 		// Get the schema.
 		$schema = $this->getAssoc();
 		// Navigate down to the given path.
-		if (FALSE === ($schema = $this->_getAssocByPath(
+		if (FALSE === ($schema = $this->_getSchemaByPath(
 		  $name, $schema))) {
 			throw new SchemaException("The path '%s' is invalid.",
 			  $name);

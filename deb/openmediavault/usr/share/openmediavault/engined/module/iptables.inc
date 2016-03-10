@@ -20,7 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/error.inc");
 
 class OMVModuleIptables extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -46,11 +45,9 @@ class OMVModuleIptables extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function startService() {
-		$cmd = "export LANG=C; /etc/network/if-pre-up.d/openmediavault-iptables 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = new \OMV\System\Process("/etc/network/if-pre-up.d/openmediavault-iptables");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**

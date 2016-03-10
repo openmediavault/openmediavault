@@ -20,8 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
 
 class OMVModuleNtp extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -60,14 +58,9 @@ class OMVModuleNtp extends OMVModuleServiceAbstract
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function startService() {
-		global $xmlConfig;
-		$xpath = "//system/time/ntp";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		if (FALSE === boolvalEx($object['enable']))
+		$db = &\OMV\Config\Database::getInstance();
+		$object = $db->get("//system/time", "conf.system.time");
+		if (TRUE !== $object->get("ntp.enable"))
 			return;
 		// Enable NTP.
 		$cmd = new \OMV\System\Process("timedatectl", "set-ntp yes");
