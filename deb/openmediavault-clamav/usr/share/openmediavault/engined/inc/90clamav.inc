@@ -20,9 +20,8 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/log.inc");
 
-OMVLogFile::registerType("clamav", array(
+\OMV\System\LogFileSpec::registerSpecification("clamav", array(
   "filename" => "clamav",
   "filepath" => "/var/log/clamav/clamav.log",
   "regex" => "/^(\S+\s+\S+\s+\d+\s+\S+\s+\d+)\s+->\s+(.*)$/",

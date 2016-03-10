@@ -19,13 +19,13 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
+namespace OMV\System;
 
 /**
- * This class handles log file access and modifications.
+ * This class that handles the log file specification.
  * @ingroup api
  */
-class OMVLogFile extends OMVObject {
+class LogFileSpec {
 	/**
 	 * Preconfigured log file types. A type has the following structure:
 	 * @param filename The name of the log file. This will be used when
@@ -39,7 +39,7 @@ class OMVLogFile extends OMVObject {
 	 *   defined function that is called while processing. It can be used
 	 *   to convert a time/date string to an Unix timestamp for example.
 	 */
-	static private $types = array(
+	static private $specs = array(
 /* Example:
 		"syslog" => array(
 			"filename" => "syslog",
@@ -61,29 +61,29 @@ class OMVLogFile extends OMVObject {
 
 	/**
 	 * Constructor
-	 * @param id The identifier of the log file configuration.
+	 * @param id The identifier of the log file specification.
 	 */
 	function __construct($id) {
 		$this->id = $id;
 	}
 
 	/**
-	 * Register a new log file type.
-	 * @param id The identifier of the log file configuration, e.g.
-	 * syslog or auth.
-	 * @param config The type configuration.
+	 * Register a new log file specification.
+	 * @param id The identifier of the log file specification, e.g.
+	 *   'syslog' or 'auth'.
+	 * @param config The log file specification.
 	 * @return None
 	 */
-	public static function registerType($id, $config) {
-		self::$types[$id] = $config;
+	public static function registerSpecification($id, $config) {
+		self::$specs[$id] = $config;
 	}
 
 	/**
-	 * Checks if a log file type is registered.
+	 * Checks if a log file specification is registered.
 	 * @return TRUE if the log file type is registered, otherwise FALSE.
 	 */
 	public function isRegistered() {
-		return array_key_exists($this->id, self::$types);
+		return array_key_exists($this->id, self::$specs);
 	}
 
 	/**
@@ -91,7 +91,7 @@ class OMVLogFile extends OMVObject {
 	 * @return The file name of the log file, otherwise FALSE.
 	 */
 	public function getFileName() {
-		$type = self::$types[$this->id];
+		$type = self::$specs[$this->id];
 		return $type['filename'];
 	}
 
@@ -100,7 +100,7 @@ class OMVLogFile extends OMVObject {
 	 * @return The file path of the log file, otherwise FALSE.
 	 */
 	public function getFilePath() {
-		$type = self::$types[$this->id];
+		$type = self::$specs[$this->id];
 		return $type['filepath'];
 	}
 
@@ -108,7 +108,7 @@ class OMVLogFile extends OMVObject {
 	 * Get the regular expression used to parse a log file line.
 	 */
 	public function getRegex() {
-		$type = self::$types[$this->id];
+		$type = self::$specs[$this->id];
 		return $type['regex'];
 	}
 
@@ -116,7 +116,7 @@ class OMVLogFile extends OMVObject {
 	 * Get the column configuration.
 	 */
 	public function getColumns() {
-		$type = self::$types[$this->id];
+		$type = self::$specs[$this->id];
 		return $type['columns'];
 	}
 }

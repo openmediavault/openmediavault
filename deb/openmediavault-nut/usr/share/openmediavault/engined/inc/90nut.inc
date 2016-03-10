@@ -20,9 +20,8 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/log.inc");
 
-OMVLogFile::registerType("nut", array(
+\OMV\System\LogFileSpec::registerSpecification("nut", array(
   "filename" => "nut.log",
   "filepath" => "/var/log/nut.log",
   "regex" => "/^(\S+\s+\d+\s+\d{2}:\d{2}:\d{2})\s+(\S+)\s([a-zA-Z-]+)(\[(\d+)\])?:\s+(.*)$/",

@@ -22,9 +22,7 @@
 require_once("openmediavault/globals.inc");
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/log.inc");
 require_once("openmediavault/rpcservice.inc");
-
 
 class OMVRpcServiceLogFile extends OMVRpcServiceAbstract {
 	/**
@@ -74,7 +72,7 @@ class OMVRpcServiceLogFile extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Check if the given log file type if registered.
-		$logfile = new OMVLogFile($params['id']);
+		$logfile = new \OMV\System\LogFileSpec($params['id']);
 		if(FALSE === $logfile->isRegistered()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
 			  gettext("Unknown log file type (id=%s)"), $params['id']));
@@ -100,7 +98,9 @@ class OMVRpcServiceLogFile extends OMVRpcServiceAbstract {
 			foreach($logfile->getColumns() as $columnk => $columnv) {
 				// Execute user defined function, e.g. to convert
 				// column content?
-				if(is_array($columnv)) {
+				if (is_array($columnv)) {
+					if (!is_callable($columnv['func']))
+						continue;
 					$object[$columnk] = $columnv['func'](
 					  $matches[$columnv['index']]);
 				} else {
@@ -140,7 +140,7 @@ class OMVRpcServiceLogFile extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Check if the given log file type if registered.
-		$logfile = new OMVLogFile($params['id']);
+		$logfile = new \OMV\System\LogFileSpec($params['id']);
 		if (FALSE === $logfile->isRegistered()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
 			  gettext("Unknown log file type (id=%s)"), $params['id']));
@@ -192,7 +192,7 @@ class OMVRpcServiceLogFile extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Check if the given log file type if registered.
-		$logfile = new OMVLogFile($params['id']);
+		$logfile = new \OMV\System\LogFileSpec($params['id']);
 		if(FALSE === $logfile->isRegistered()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
 			  gettext("Unknown log file type (id=%s)"), $params['id']));

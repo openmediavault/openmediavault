@@ -19,13 +19,12 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/log.inc");
 require_once("openmediavault/functions.inc");
 
 // /var/log/syslog:
 // Oct 19 04:24:36 openmediavault init: Switching to runlevel: 6
 // Oct 19 04:24:38 openmediavault watchdog[1589]: stopping daemon (5.9)
-OMVLogFile::registerType("syslog", array(
+\OMV\System\LogFileSpec::registerSpecification("syslog", array(
   "filename" => "syslog",
   "filepath" => "/var/log/syslog",
   "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/",
@@ -46,7 +45,7 @@ OMVLogFile::registerType("syslog", array(
 // /var/log/daemon.log:
 // Oct 19 04:25:07 openmediavault dhclient: Sending on   Socket/fallback
 // Oct 19 04:25:08 openmediavault wd_keepalive[1164]: stopping watchdog keepalive daemon (5.9)
-OMVLogFile::registerType("daemon", array(
+\OMV\System\LogFileSpec::registerSpecification("daemon", array(
   "filename" => "daemon.log",
   "filepath" => "/var/log/daemon.log",
   "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/",
@@ -67,7 +66,7 @@ OMVLogFile::registerType("daemon", array(
 // /var/log/auth.log:
 // Oct 19 04:24:44 openmediavault sshd[1550]: Received signal 15; terminating.
 // Oct 19 04:24:44 openmediavault sshd[2472]: Exiting on signal 15
-OMVLogFile::registerType("auth", array(
+\OMV\System\LogFileSpec::registerSpecification("auth", array(
   "filename" => "auth.log",
   "filepath" => "/var/log/auth.log",
   "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/",
@@ -88,7 +87,7 @@ OMVLogFile::registerType("auth", array(
 // /var/log/messages:
 // Oct 19 04:24:36 openmediavault shutdown[9419]: shutting down for system reboot
 // Oct 19 04:24:49 openmediavault kernel: Kernel logging (proc) stopped.
-OMVLogFile::registerType("messages", array(
+\OMV\System\LogFileSpec::registerSpecification("messages", array(
   "filename" => "messages",
   "filepath" => "/var/log/messages",
   "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/",
@@ -109,7 +108,7 @@ OMVLogFile::registerType("messages", array(
 // /var/log/boot:
 // Fri Oct 19 04:25:05 2012: Setting parameters of disc: (none).
 // Fri Oct 19 04:25:05 2012: Setting preliminary keymap...done.
-OMVLogFile::registerType("boot", array(
+\OMV\System\LogFileSpec::registerSpecification("boot", array(
   "filename" => "boot",
   "filepath" => "/var/log/boot",
   "regex" => "/^(\S+\s+\S+\s+\d+\s+\S+\s+\d+):\s+(.*)$/",
@@ -131,7 +130,7 @@ OMVLogFile::registerType("boot", array(
 // 2016-02-11 11:47:02 status half-configured openmediavault-clamav:all 3.0.2
 // 2016-02-12 15:06:26 status unpacked php5-common:amd64 5.6.14+dfsg-0+deb8u1
 // 2016-02-12 15:06:26 status half-installed php5-common:amd64 5.6.14+dfsg-0+deb8u1
-OMVLogFile::registerType("dpkg", array(
+\OMV\System\LogFileSpec::registerSpecification("dpkg", array(
   "filename" => "dpkg.log",
   "filepath" => "/var/log/dpkg.log",
   "regex" => "/^(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2})\s+(.+)$/",
@@ -148,7 +147,7 @@ OMVLogFile::registerType("dpkg", array(
 	  "message" => 2
   )));
 
-OMVLogFile::registerType("rsyncd", array(
+\OMV\System\LogFileSpec::registerSpecification("rsyncd", array(
   "filename" => "rsyncd",
   "filepath" => "/var/log/rsyncd.log",
   "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+rsyncd\[\d+\]:\s+(.*)$/",
@@ -166,7 +165,7 @@ OMVLogFile::registerType("rsyncd", array(
 	  "message" => 3
   )));
 
-OMVLogFile::registerType("smartd", array(
+\OMV\System\LogFileSpec::registerSpecification("smartd", array(
   "filename" => "smartd.log",
   "filepath" => "/var/log/smartd.log",
   "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\ssmartd\[\d+\]:\s+(.*)$/",
@@ -185,7 +184,7 @@ OMVLogFile::registerType("smartd", array(
 
 // Oct 17 18:19:00 vmomv5 proftpd[17127]: 192.167.178.101 (::ffff:192.168.178.254[::ffff:192.168.178.254]) - USER test: Login successful.
 // Oct 17 18:20:00 vmomv5 proftpd: pam_unix(proftpd:session): session closed for user test
-OMVLogFile::registerType("proftpd", array(
+\OMV\System\LogFileSpec::registerSpecification("proftpd", array(
   "filename" => "proftpd.log",
   "filepath" => "/var/log/proftpd/proftpd.log",
   "regex" => "/^(\S+\s+\d+\s+\d{2}:\d{2}:\d{2})\s+(\S+)\sproftpd\[\d+\]:\s+(.*)$/",
@@ -205,7 +204,7 @@ OMVLogFile::registerType("proftpd", array(
 
 // <currenttime> <transfertime> <remotehost> <filesize> <filename> <transfertype> <specialactionflag> <direction> <accessmode> <username> <servicename> <authenticationmethod> <authenticateduserid> <completionstatus>
 // Thu Oct 17 18:19:00 2013 0 ::ffff:192.168.178.254 56374 /home/ftp/test/testfile b _ i r test ftp 0 * c
-OMVLogFile::registerType("proftpd_xferlog", array(
+\OMV\System\LogFileSpec::registerSpecification("proftpd_xferlog", array(
   "filename" => "xferlog",
   "filepath" => "/var/log/proftpd/xferlog",
   "regex" => "/^(\S+\s+\S+\s+\d+\s+\d{2}:\d{2}:\d{2}\s+\d+)\s+(\d+)\s+(\S+)\s+(\d+)\s+(\S+)\s+(a|b)\s+(C|U|T|_)\s+(o|i)\s+(a|g|r)\s+(\S+)\s+(\S+)\s+(0|1)\s+(\d+|\*)\s+(c|i)$/",
@@ -236,7 +235,7 @@ OMVLogFile::registerType("proftpd_xferlog", array(
 
 // Mar 13 23:50:48 vmomv5 smbd[4192]: <username>|<ipaddr>|<clientnetbiosname>|<servicerootdir>|<servicename>|<operation>|<result>|<filename>
 // Mar 13 23:50:48 vmomv5 smbd[4192]: test|192.168.178.30|pc01|/media/1622d31c-7f5d-4add-be13-20e382a9f5cb/test|download|pwrite|ok|xyz.tar.gz
-OMVLogFile::registerType("smbdaudit", array(
+\OMV\System\LogFileSpec::registerSpecification("smbdaudit", array(
   "filename" => "smbd_audit.log",
   "filepath" => "/var/log/samba/audit.log",
   "regex" => "/^(\S+\s+\d+\s+\d{2}:\d{2}:\d{2})\s+(\S+)\ssmbd\[\d+\]:\s+([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)$/",
@@ -261,7 +260,7 @@ OMVLogFile::registerType("smbdaudit", array(
 	  "filename" => 10
   )));
 
-OMVLogFile::registerType("rsync", array(
+\OMV\System\LogFileSpec::registerSpecification("rsync", array(
   "filename" => "rsync",
   "filepath" => "/var/log/rsync.log",
   "regex" => "/^(\S+\s+\S+) \[\d+\] (.*)$/",
@@ -285,7 +284,7 @@ OMVLogFile::registerType("rsync", array(
 // Processing triggers for man-db (2.7.0.2-5) ...
 // Setting up base-files (8+deb8u3) ...
 // Installing new version of config file /etc/debian_version ...
-OMVLogFile::registerType("apt_term", array(
+\OMV\System\LogFileSpec::registerSpecification("apt_term", array(
   "filename" => "term.log",
   "filepath" => "/var/log/apt/term.log",
   "regex" => "/^(.+)$/",
@@ -298,7 +297,7 @@ OMVLogFile::registerType("apt_term", array(
 // Commandline: apt-get --yes --force-yes --fix-missing --auto-remove ...
 // Upgrade: bind9-host:amd64 (9.9.5.dfsg-9+deb8u4, 9.9.5.dfsg-9+deb8u5), ...
 // End-Date: 2016-02-12  15:06:53
-OMVLogFile::registerType("apt_history", array(
+\OMV\System\LogFileSpec::registerSpecification("apt_history", array(
   "filename" => "history.log",
   "filepath" => "/var/log/apt/history.log",
   "regex" => "/^(.+)$/",
