@@ -92,6 +92,56 @@ class Model extends \OMV\BaseObject {
 		return $value;
 	}
 
+	/**
+	 * Get the default value of the specified property as defined in
+	 * the schema.
+	 * @param name The name of the property, e.g. "aaa.bbb.ccc".
+	 * @return The default value as specified in the schema or by
+	 *   the properties type.
+	 */
+	public function getPropertyDefault($name) {
+		$propSchema = $schema = $this->getSchema()->getAssocByPath($name);
+		$default = NULL;
+		if (array_key_exists("default", $propSchema))
+			$default = $propSchema['default'];
+		else {
+			if (is_array($propSchema['type'])) {
+				throw new \OMV\Json\SchemaException(
+				  "%s: The attribute 'type' must not be an array.",
+				  $name);
+			}
+			$type = "any";
+			if (array_key_exists("type", $propSchema))
+				$type = $propSchema['type'];
+			switch ($type) {
+			case "array":
+				$default = array();
+				break;
+			case "object":
+				$default = new stdClass();
+				break;
+			case "boolean":
+				$default = FALSE;
+				break;
+			case "integer":
+				$default = 0;
+				break;
+			case "number":
+			case "double":
+				$default = 0.0;
+				break;
+			case "string":
+				$default = "";
+				break;
+			case "any":
+			case "null":
+				$default = NULL;
+				break;
+			}
+		}
+		return $default;
+	}
+
 	public function propertyExists($name) {
 		$exists = TRUE;
 		try {

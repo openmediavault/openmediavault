@@ -44,8 +44,6 @@ class ConfigObject extends \OMV\BaseObject {
 	/**
 	 * Array
 	 * (
-	 *     [enable] => 0
-	 *     [timeservers] =>
 	 *     [timezone] => Europe/Berlin
 	 *     [ntp] => Array
 	 *         (
@@ -171,14 +169,12 @@ class ConfigObject extends \OMV\BaseObject {
 	/**
 	 * Set properties.
 	 * @param data The array of key/value pairs.
-	 * @return TRUE if successful, otherwise FALSE.
+	 * @return None.
 	 */
 	public function setAssoc($data, $validate = TRUE) {
 //		$this->debug(var_export(func_get_args(), TRUE));
-		foreach ($data as $datak => $datav) {
-			if (FALSE === $this->set($datak, $datav, $validate))
-				return FALSE;
-		}
-		return TRUE;
+		if (TRUE === $validate)
+			$this->getModel()->validate($data);
+		$this->properties = $data;
 	}
 }

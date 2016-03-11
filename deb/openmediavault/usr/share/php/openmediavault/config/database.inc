@@ -61,7 +61,7 @@ class Database extends \OMV\BaseObject {
 			  $xpath);
 		}
 		$object = new ConfigObject($id);
-		$object->setAssoc($data, FALSE);
+		$object->setAssoc($data);
 		return $object;
 	}
 
