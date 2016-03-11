@@ -20,7 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/globals.inc");
-require_once("openmediavault/error.inc");
 require_once("openmediavault/rpcservice.inc");
 
 class OMVRpcServiceSession extends OMVRpcServiceAbstract {
@@ -51,7 +50,6 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
 	final public function login($params, $context) {
-//		$this->debug(var_export(func_get_args(), TRUE));
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, '{
 			  "type":"object",
@@ -73,8 +71,8 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 				// authenticated?
 				if ($session->getUsername() !== $params['username']) {
 					$session->commit();
-					throw new OMVException(
-					  OMVErrorMsg::E_SESSION_ALREADY_AUTHENTICATED);
+					throw new \OMV\ErrorMsgException(
+					  \OMV\ErrorMsgException::E_SESSION_ALREADY_AUTHENTICATED);
 				}
 			} else {
 				// Initialize session.
@@ -140,7 +138,8 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 				// is crypted/hashed to be unable to reverse engineer the
 				// account names from the cookie. Finally encode the hashed
 				// user name to meet RFC 2616.
-				$hashedUsername = crypt($params['username']);
+				$hashedUsername = password_hash($params['username'],
+				  PASSWORD_DEFAULT);
 				$key = sprintf("%s-%s", $prefix, urlencode($hashedUsername));
 				$value = array_rand_value($GLOBALS['OMV_DUNE_QUOTES']);
 				$expire = time() + 60 * 60 * 24 * 60;
