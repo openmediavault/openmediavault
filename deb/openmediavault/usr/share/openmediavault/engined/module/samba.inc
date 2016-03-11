@@ -93,7 +93,7 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 	 */
 	final private function existsUser($username) {
 		$cmd = sprintf("pdbedit --list | grep '%s:'", $username);
-		return (0 !== $this->exec($cmd, $output)) ? FALSE : TRUE;
+		return (0 !== $this->exec($cmd)) ? FALSE : TRUE;
 	}
 
 	/**

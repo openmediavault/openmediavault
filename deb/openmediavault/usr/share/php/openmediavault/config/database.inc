@@ -22,10 +22,16 @@
 namespace OMV\Config;
 
 require_once("openmediavault/globals.inc");
-require_once("openmediavault/functions.inc");
-require_once("openmediavault/config.inc");
 
 class Database extends \OMV\BaseObject {
+	private $backend = NULL;
+
+	public function __construct() {
+		$this->backend = new DatabaseBackend($GLOBALS['OMV_CONFIG_FILE']);
+		$this->backend->setVersioning(TRUE);
+		$this->backend->load();
+	}
+
 	/**
 	 * Returns the configuration database singleton.
 	 * @return The singleton object.
@@ -37,10 +43,8 @@ class Database extends \OMV\BaseObject {
 		return $instance;
 	}
 
-	private function isLoaded() {
-		global $xmlConfig;
-		if (!$xmlConfig instanceof \OMVConfigEngine)
-			throw new DatabaseException("Database is not loaded.");
+	public function getBackend() {
+		return $this->backend;
 	}
 
 	/**
@@ -51,11 +55,9 @@ class Database extends \OMV\BaseObject {
 	 * @return The configuration object.
 	 */
 	public function get($xpath, $id = "") {
-		global $xmlConfig;
 		if (empty($id))
 			$id = $xpath;
-		$this->isLoaded();
-		$data = $xmlConfig->get($xpath);
+		$data = $this->getBackend()->get($xpath);
 		if (!is_array($data)) {
 			throw new DatabaseException("Failed to execute query '%s'.",
 			  $xpath);
@@ -75,11 +77,9 @@ class Database extends \OMV\BaseObject {
 	 *   otherwise an empty array.
 	 */
 	public function getList($xpath, $id = "") {
-		global $xmlConfig;
 		if (empty($id))
 			$id = $xpath;
-		$this->isLoaded();
-		$data = $xmlConfig->getList($xpath);
+		$data = $this->getBackend()->getList($xpath);
 		if (!is_array($data)) {
 			throw new DatabaseException("Failed to execute query '%s'.",
 			  $xpath);
@@ -100,10 +100,8 @@ class Database extends \OMV\BaseObject {
 	 * @return None.
 	 */
 	public function set($xpath, ConfigObject $object) {
-		global $xmlConfig;
-		$this->isLoaded();
 		$data = $object->getAssoc();
-		if (FALSE === $xmlConfig->set($xpath, $data))
+		if (FALSE === $this->getBackend()->set($xpath, $data))
 			throw new DatabaseException("XPath '%s' does not exist.", $xpath);
 	}
 
@@ -114,10 +112,8 @@ class Database extends \OMV\BaseObject {
 	 * @return None.
 	 */
 	public function replace($xpath, ConfigObject $object) {
-		global $xmlConfig;
-		$this->isLoaded();
 		$data = $object->getAssoc();
-		if (FALSE === $xmlConfig->replace($xpath, $data))
+		if (FALSE === $this->getBackend()->replace($xpath, $data))
 			throw new DatabaseException("XPath '%s' does not exist.", $xpath);
 	}
 
@@ -131,10 +127,8 @@ class Database extends \OMV\BaseObject {
 	 * @return None.
 	 */
 	public function update($xpath, ConfigObject $object) {
-		global $xmlConfig;
-		$this->isLoaded();
 		$data = $object->getAssoc();
-		if (FALSE === $xmlConfig->update($xpath, $data))
+		if (FALSE === $this->getBackend()->update($xpath, $data))
 			throw new DatabaseException("XPath '%s' does not exist.", $xpath);
 	}
 
@@ -144,8 +138,7 @@ class Database extends \OMV\BaseObject {
 	 * @return None.
 	 */
 	public function delete($xpath) {
-		$this->isLoaded();
-		if (FALSE === $xmlConfig->delete($xpath))
+		if (FALSE === $this->getBackend()->delete($xpath))
 			throw new DatabaseException("XPath '%s' does not exist.", $xpath);
 	}
 }

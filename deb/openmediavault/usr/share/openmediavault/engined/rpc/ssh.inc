@@ -20,8 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/object.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/notify.inc");
@@ -57,23 +55,9 @@ class OMVRpcServiceSsh extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$xpath = "//services/ssh";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify result data.
-		$object['enable'] = boolvalEx($object['enable']);
-		$object['port'] = intval($object['port']);
-		$object['passwordauthentication'] = boolvalEx(
-		  $object['passwordauthentication']);
-		$object['pubkeyauthentication'] = boolvalEx(
-		  $object['pubkeyauthentication']);
-		$object['permitrootlogin'] = boolvalEx($object['permitrootlogin']);
-		$object['tcpforwarding'] = boolvalEx($object['tcpforwarding']);
-		$object['compression'] = boolvalEx($object['compression']);
-		return $object;
+		$db = &\OMV\Config\Database::getInstance();
+		$object = $db->get("//services/ssh", "conf.service.ssh");
+		return $object->getAssoc();
 	}
 
 	/**
@@ -90,42 +74,20 @@ class OMVRpcServiceSsh extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "enable":{"type":"boolean"},
-				  "port":{"type":"integer","minimum":1,"maximum":65535},
-				  "passwordauthentication":{"type":"boolean"},
-				  "pubkeyauthentication":{"type":"boolean"},
-				  "permitrootlogin":{"type":"boolean"},
-				  "tcpforwarding":{"type":"boolean"},
-				  "compression":{"type":"boolean"},
-				  "extraoptions":{"type":"string"}
-			  }
-		  }');
-		// Update the configuration.
-		$xpath = "//services/ssh";
-		$object = array(
-			"enable" => array_boolval($params, 'enable'),
-			"port" => $params['port'],
-			"extraoptions" => $params['extraoptions'],
-			"passwordauthentication" => array_boolval($params,
-			  'passwordauthentication'),
-			"pubkeyauthentication" => array_boolval($params,
-			  'pubkeyauthentication'),
-			"permitrootlogin" => array_boolval($params, 'permitrootlogin'),
-			"tcpforwarding" => array_boolval($params, 'tcpforwarding'),
-			"compression" => array_boolval($params, 'compression')
-		);
-		if(FALSE === $xmlConfig->replace($xpath, $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$this->validateMethodParams($params, "rpc.ssh.set");
+		// Prepare the configuration object.
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->setAssoc($params);
+		// Update the configuration object.
+		$db = &\OMV\Config\Database::getInstance();
+		$db->replace("//services/ssh", $object);
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.ssh", $object);
+		  "org.openmediavault.services.ssh",
+		  $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -142,32 +104,29 @@ class OMVRpcServiceSsh extends OMVRpcServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
+		// Get the configuration object.
+		$db = &\OMV\Config\Database::getInstance();
+		$object = $db->get("//services/ssh", "conf.service.ssh");
 		// Is service enabled?
-		$xpath = "//services/ssh";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		if (!boolvalEx($object['enable'])) {
+		if (!$object->get("enable")) {
 			$stats = gettext("Service disabled");
 		} else {
 			// Get users currently logged in.
 			$stats = sprintf("%s:\n", gettext("Currently logged in users"));
-			$cmd = "export LANG=C; who -u 2>&1";
-			if(0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			$cmd = new \OMV\System\Process("who", "-u");
+			$cmd->setRedirect2to1(TRUE);
+			$cmd->execute($output);
 			$stats .= empty($output) ? gettext("No users connected") :
 			  implode("\n", $output);
-			// Get connections.
-			$cmd = sprintf("export LANG=C; lsof -n -s TCP:ESTABLISHED ".
-			  "-i :%d 2>&1 || true", $object['port']);
-			if(0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			unset($output);
+			// Get the current connections.
+			$cmdArgs = array();
+			$cmdArgs[] = "-n";
+			$cmdArgs[] = "-s TCP:ESTABLISHED";
+			$cmdArgs[] = sprintf("-i :%d", $object->get("port"));
+			$cmd = new \OMV\System\Process("lsof", $cmdArgs);
+			$cmd->setRedirect2to1(TRUE);
+			$cmd->execute($output);
 			$stats .= sprintf("\n\n%s:\n", gettext("Connections"));
 			$stats .= empty($output) ? gettext("No connections") :
 			  implode("\n", $output);

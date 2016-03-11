@@ -1,42 +1,40 @@
-{
+[{
 	"type": "object",
-	"id": "conf.service.ssh",
-	"alias": "//services/ssh",
-	"title": "SSH",
+	"id": "rpc.ssh.set",
 	"properties": {
 		"enable": {
 			"type": "boolean",
-			"default": 0
+			"required": true
 		},
 		"port":{
 			"type": "integer",
 			"minimum": 1,
 			"maximum": 65535,
-			"default": 22
+			"required": true
 		},
 		"passwordauthentication": {
 			"type": "boolean",
-			"default": 1
+			"required": true
 		},
 		"pubkeyauthentication": {
 			"type": "boolean",
-			"default": 1
+			"required": true
 		},
 		"permitrootlogin": {
 			"type": "boolean",
-			"default": 1
+			"required": true
 		},
 		"tcpforwarding": {
 			"type": "boolean",
-			"default": 0
+			"required": true
 		},
 		"compression": {
 			"type": "boolean",
-			"default": 0
+			"required": true
 		},
 		"extraoptions": {
 			"type": "string",
-			"default": ""
+			"required": true
 		}
 	}
-}
+}]

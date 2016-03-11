@@ -20,13 +20,13 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/globals.inc");
-require_once("openmediavault/config.inc");
 
-// Initialize the configuration engine. The configuration engine is stored
-// in a global variable, thus all forked chrildren can access it.
-$xmlConfig = new OMVConfigEngine($GLOBALS['OMV_CONFIG_FILE']);
-$xmlConfig->setVersioning(TRUE);
-if (FALSE === $xmlConfig->load()) {
-	throw new OMVException(OMVErrorMsg::E_CONFIG_LOAD_FAILED,
-	  $xmlConfig->getLastError());
-}
+// Get the configuration database backend.
+$db = &\OMV\Config\Database::getInstance();
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// The configuration engine is stored in a global variable, thus all
+// forked chrildren can access it.
+// This can be removed someday after the whole code has been adapted.
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+$xmlConfig = $db->getBackend();
