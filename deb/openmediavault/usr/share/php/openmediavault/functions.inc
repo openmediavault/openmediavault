@@ -27,7 +27,9 @@ require_once("openmediavault/autoloader.inc");
  * @param array The array to flatten.
  * @return A single-dimensional array.
  */
-function array_flatten($array, $separator = ".", $prefix = "") {
+function array_flatten(array $array, $separator = ".", $prefix = "") {
+	if (!is_array($array))
+        return FALSE;
 	$result = array();
     foreach ($array as $key => $value) {
         if (is_array($value))
@@ -44,8 +46,25 @@ function array_flatten($array, $separator = ".", $prefix = "") {
  * @param array The array to expand.
  * @return A multi-dimensional array.
  */
-function array_expand($array, $separator = ".") {
-	// ToDo...
+function array_expand(array $array, $separator = ".") {
+	if (!is_array($array))
+        return FALSE;
+    $return = array();
+    foreach ($array as $key => $value) {
+        $parts = explode($separator, $key);
+        $leafKey = array_pop($parts);
+        $parent = &$return;
+        foreach ($parts as $partk => $partv) {
+            if (!isset($parent[$partv]))
+                $parent[$partv] = array();
+            else if (!is_array($parent[$partv]))
+                $parent[$partv] = array();
+            $parent = &$parent[$partv];
+        }
+        if (empty($parent[$leafKey]))
+            $parent[$leafKey] = $value;
+    }
+    return $return;
 }
 
 /**
@@ -102,9 +121,8 @@ function array_keys_exists($keys, $search, &$missing = NULL) {
  * non-static properties for the specified object  in scope.
  */
 function toArray($object) {
-	if(is_object($object)) {
-	  $object = get_object_vars($object);
-	}
+	if (is_object($object))
+		$object = get_object_vars($object);
 	return is_array($object) ? array_map(__FUNCTION__, $object) : $object;
 }
 

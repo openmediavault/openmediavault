@@ -77,7 +77,7 @@ class ConfigObject extends \OMV\BaseObject {
 				break;
 			}
 		};
-		$this->getModel()->walk("", $fn, $data);
+		$this->getModel()->walkRecursive("", $fn, $data);
 		return $data;
 	}
 

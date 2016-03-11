@@ -185,7 +185,7 @@ class Model extends \OMV\BaseObject {
 	 * @param userdata If the optional userdata parameter is supplied, it
 	 *   will be passed to the callback function.
 	 */
-	public function walk($path, $callback, &$userData = NULL) {
+	public function walkRecursive($path, $callback, &$userData = NULL) {
 		$propSchema = $this->getSchema()->getAssocByPath($path);
 		$this->_walk("", $path, $propSchema, $callback, $userData);
 	}
