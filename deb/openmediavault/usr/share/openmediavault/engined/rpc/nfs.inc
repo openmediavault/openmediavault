@@ -61,18 +61,9 @@ class OMVRpcServiceNfs extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$xpath = "//services/nfs";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify the result object.
-		$object['enable'] = boolvalEx($object['enable']);
-		$object['numproc'] = intval($object['numproc']);
-		// Remove useless fields from object.
-		unset($object['shares']);
-		return $object;
+		$db = &\OMV\Config\Database::getInstance();
+		$object = $db->get("//services/nfs", "conf.service.nfs");
+		return $object->getAssoc();
 	}
 
 	/**

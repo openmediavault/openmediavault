@@ -101,8 +101,8 @@ class ConfigObject extends \OMV\BaseObject {
 		$model = $this->getModel();
 		if (FALSE === $model->propertyExists($name)) {
 			throw new \OMV\Exception(
-			  "The property '%s' does not exist in the model.",
-			  $name);
+			  "The property '%s' does not exist in the model '%s'.",
+			  $name, $model->getId());
 		}
 		if (TRUE === $validate)
 			$model->validateProperty($name, $value);
