@@ -31,7 +31,6 @@ class OMVModuleSysctl extends OMVModuleServiceAbstract {
 
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "sysctl");
@@ -41,7 +40,6 @@ class OMVModuleSysctl extends OMVModuleServiceAbstract {
 
 	/**
 	 * Start the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function startService() {
 		$cmd = new \OMV\System\Process("sysctl", "-p");

@@ -21,7 +21,6 @@
  */
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
 
 class OMVModuleTftp extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
@@ -34,7 +33,6 @@ class OMVModuleTftp extends OMVModuleServiceAbstract
 
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "tftpd-hpa");
@@ -52,17 +50,11 @@ class OMVModuleTftp extends OMVModuleServiceAbstract
 
 	/**
 	 * Start the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function startService() {
-		global $xmlConfig;
-		$xpath = "//services/tftp";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		if (FALSE === boolvalEx($object['enable']))
+		$db = &\OMV\Config\Database::getInstance();
+		$object = $db->get("//services/tftp", "conf.service.tftp");
+		if (TRUE !== $object->get("enable"))
 			return;
 		$systemCtl = new \OMV\System\SystemCtl("tftpd-hpa");
 		$systemCtl->enable(TRUE);
@@ -70,22 +62,15 @@ class OMVModuleTftp extends OMVModuleServiceAbstract
 
 	/**
 	 * Get the status of the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getStatus() {
-		global $xmlConfig;
-		// Get the configuration object
-		$xpath = "//services/tftp";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = &\OMV\Config\Database::getInstance();
+		$object = $db->get("//services/tftp", "conf.service.tftp");
 		$systemCtl = new \OMV\System\SystemCtl("tftpd-hpa");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("TFTP"),
-			"enabled" => boolvalEx($object['enable']),
+			"enabled" => $object->get("enable"),
 			"running" => $systemCtl->isActive()
 		);
 	}

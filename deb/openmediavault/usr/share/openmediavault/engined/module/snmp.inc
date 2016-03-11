@@ -34,7 +34,6 @@ class OMVModuleSnmp extends OMVModuleServiceAbstract
 
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "snmpd");
@@ -52,17 +51,11 @@ class OMVModuleSnmp extends OMVModuleServiceAbstract
 
 	/**
 	 * Start the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function startService() {
-		global $xmlConfig;
-		$xpath = "//services/snmp";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		if (FALSE === boolvalEx($object['enable']))
+		$db = &\OMV\Config\Database::getInstance();
+		$object = $db->get("//services/snmp", "conf.service.snmp");
+		if (TRUE !== $object->get("enable"))
 			return;
 		$systemCtl = new \OMV\System\SystemCtl("snmpd");
 		$systemCtl->enable(TRUE);
@@ -70,21 +63,15 @@ class OMVModuleSnmp extends OMVModuleServiceAbstract
 
 	/**
 	 * Get the status of the managed service.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function getStatus() {
-		global $xmlConfig;
-		$xpath = "//services/snmp";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = &\OMV\Config\Database::getInstance();
+		$object = $db->get("//services/snmp", "conf.service.snmp");
 		$systemCtl = new \OMV\System\SystemCtl("snmpd");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("SNMP"),
-			"enabled" => boolvalEx($object['enable']),
+			"enabled" => $object->get("enable"),
 			"running" => $systemCtl->isActive()
 		);
 	}

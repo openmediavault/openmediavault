@@ -20,6 +20,7 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
+require_once("openmediavault/config.inc");
 
 class OMVModuleWebadmin extends OMVModuleAbstract
   implements OMVINotifyListener, OMVIModuleZeroconf {

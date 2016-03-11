@@ -24,7 +24,6 @@ require_once("openmediavault/module.inc");
 abstract class OMVModuleNginxAbstract extends OMVModuleServiceAbstract {
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		// Build the configuration.

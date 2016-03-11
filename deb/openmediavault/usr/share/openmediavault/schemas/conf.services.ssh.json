@@ -1,0 +1,38 @@
+{
+	"type": "object",
+	"id": "conf.service.ssh",
+	"alias": "//services/ssh",
+	"title": "SSH",
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": 0
+		},
+		"port":{
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 65535,
+			"default": 22
+		},
+		"passwordauthentication": {
+			"type": "boolean",
+			"default": 1
+		},
+		"pubkeyauthentication": {
+			"type": "boolean",
+			"default": 1
+		},
+		"permitrootlogin": {
+			"type": "boolean",
+			"default": 1
+		},
+		"tcpforwarding": {
+			"type": "boolean",
+			"default": 0
+		},
+		"compression": {
+			"type": "boolean",
+			"default": 0
+		}
+	}
+}

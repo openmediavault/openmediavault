@@ -1,7 +1,7 @@
 {
 	"type": "object",
 	"id": "conf.service.ftp",
-	"alias": "//services/ft",
+	"alias": "//services/ftp",
 	"title": "FTP",
 	"properties": {
 		"enable": {

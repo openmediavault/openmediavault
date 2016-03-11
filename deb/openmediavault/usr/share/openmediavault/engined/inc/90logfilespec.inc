@@ -31,12 +31,13 @@ require_once("openmediavault/functions.inc");
   "columns" => array(
 	  "ts" => array(
 		  "index" => 1,
-		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+		  "func" => function($v) { return strpdate($v,"M j G:i:s"); }
 	  ),
 	  "date" => array(
 		  "index" => 1,
-		  "func" => create_function('$v',
-			'return strftime("%c", strpdate($v,"M j G:i:s"));')
+		  "func" => function($v) {
+			  return strftime("%c", strpdate($v,"M j G:i:s"));
+		  }
 	  ),
 	  "hostname" => 2,
 	  "message" => 3
@@ -52,12 +53,13 @@ require_once("openmediavault/functions.inc");
   "columns" => array(
 	  "ts" => array(
 		  "index" => 1,
-		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+		  "func" => function($v) { return strpdate($v,"M j G:i:s"); }
 	  ),
 	  "date" => array(
 		  "index" => 1,
-		  "func" => create_function('$v',
-			'return strftime("%c", strpdate($v,"M j G:i:s"));')
+		  "func" => function($v) {
+			  return strftime("%c", strpdate($v,"M j G:i:s"));
+		  }
 	  ),
 	  "hostname" => 2,
 	  "message" => 3
@@ -73,12 +75,13 @@ require_once("openmediavault/functions.inc");
   "columns" => array(
 	  "ts" => array(
 		  "index" => 1,
-		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+		  "func" => function($v) { return strpdate($v,"M j G:i:s"); }
 	  ),
 	  "date" => array(
 		  "index" => 1,
-		  "func" => create_function('$v',
-			'return strftime("%c", strpdate($v,"M j G:i:s"));')
+		  "func" => function($v) {
+			  return strftime("%c", strpdate($v,"M j G:i:s"));
+		  }
 	  ),
 	  "hostname" => 2,
 	  "message" => 3
@@ -94,12 +97,13 @@ require_once("openmediavault/functions.inc");
   "columns" => array(
 	  "ts" => array(
 		  "index" => 1,
-		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+		  "func" => function($v) { return strpdate($v,"M j G:i:s"); }
 	  ),
 	  "date" => array(
 		  "index" => 1,
-		  "func" => create_function('$v',
-			'return strftime("%c", strpdate($v,"M j G:i:s"));')
+		  "func" => function($v) {
+			  return strftime("%c", strpdate($v,"M j G:i:s"));
+		  }
 	  ),
 	  "hostname" => 2,
 	  "message" => 3
@@ -115,12 +119,13 @@ require_once("openmediavault/functions.inc");
   "columns" => array(
 	  "ts" => array(
 		  "index" => 1,
-		  "func" => create_function('$v', 'return strpdate($v,"D M j H:i:s Y");')
+		  "func" => function($v) { return strpdate($v,"D M j H:i:s Y"); }
 	  ),
 	  "date" => array(
 		  "index" => 1,
-		  "func" => create_function('$v',
-			'return strftime("%c", strpdate($v,"D M j H:i:s Y"));')
+		  "func" => function($v) {
+			  return strftime("%c", strpdate($v,"D M j H:i:s Y"));
+		  }
 	  ),
 	  "message" => 2
   )));
@@ -137,12 +142,13 @@ require_once("openmediavault/functions.inc");
   "columns" => array(
 	  "ts" => array(
 		  "index" => 1,
-		  "func" => create_function('$v', 'return strpdate($v,"Y-m-d H:i:s");')
+		  "func" => function($v) { return strpdate($v,"Y-m-d H:i:s"); }
 	  ),
 	  "date" => array(
 		  "index" => 1,
-		  "func" => create_function('$v',
-			'return strftime("%c", strpdate($v,"Y-m-d H:i:s"));')
+		  "func" => function($v) {
+			  return strftime("%c", strpdate($v,"Y-m-d H:i:s"));
+		  }
 	  ),
 	  "message" => 2
   )));
@@ -154,12 +160,13 @@ require_once("openmediavault/functions.inc");
   "columns" => array(
 	  "ts" => array(
 		  "index" => 1,
-		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+		  "func" => function($v) { return strpdate($v,"M j G:i:s"); }
 	  ),
 	  "date" => array(
 		  "index" => 1,
-		  "func" => create_function('$v',
-			'return strftime("%c", strpdate($v,"M j G:i:s"));')
+		  "func" => function($v) {
+			  return strftime("%c", strpdate($v,"M j G:i:s"));
+		  }
 	  ),
 	  "hostname" => 2,
 	  "message" => 3
@@ -172,12 +179,13 @@ require_once("openmediavault/functions.inc");
   "columns" => array(
 	  "ts" => array(
 		  "index" => 1,
-		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+		  "func" => function($v) { return strpdate($v,"M j G:i:s"); }
 	  ),
 	  "date" => array(
 		  "index" => 1,
-		  "func" => create_function('$v',
-			'return strftime("%c", strpdate($v,"M j G:i:s"));')
+		  "func" => function($v) {
+			  return strftime("%c", strpdate($v,"M j G:i:s"));
+		  }
 	  ),
 	  "message" => 3
   )));
@@ -191,12 +199,13 @@ require_once("openmediavault/functions.inc");
   "columns" => array(
 	  "ts" => array(
 		  "index" => 1,
-		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+		  "func" => function($v) { return strpdate($v,"M j G:i:s"); }
 	  ),
 	  "date" => array(
 		  "index" => 1,
-		  "func" => create_function('$v',
-			'return strftime("%c", strpdate($v,"M j G:i:s"));')
+		  "func" => function($v) {
+			  return strftime("%c", strpdate($v,"M j G:i:s"));
+		  }
 	  ),
 	  "hostname" => 2,
 	  "message" => 3
@@ -211,12 +220,13 @@ require_once("openmediavault/functions.inc");
   "columns" => array(
 	  "ts" => array(
 		  "index" => 1,
-		  "func" => create_function('$v', 'return strpdate($v,"D M d H:i:s Y");')
+		  "func" => function($v) { return strpdate($v,"D M d H:i:s Y"); }
 	  ),
 	  "date" => array(
 		  "index" => 1,
-		  "func" => create_function('$v',
-			'return strftime("%c", strpdate($v,"D M d H:i:s Y"));')
+		  "func" => function($v) {
+			  return strftime("%c", strpdate($v,"D M d H:i:s Y"));
+		  }
 	  ),
 	  "transfertime" => 2,
 	  "remotehost" => 3,
@@ -242,12 +252,13 @@ require_once("openmediavault/functions.inc");
   "columns" => array(
 	  "ts" => array(
 		  "index" => 1,
-		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+		  "func" => function($v) { return strpdate($v,"M j G:i:s"); }
 	  ),
 	  "date" => array(
 		  "index" => 1,
-		  "func" => create_function('$v',
-			'return strftime("%c", strpdate($v,"M j G:i:s"));')
+		  "func" => function($v) {
+			  return strftime("%c", strpdate($v,"M j G:i:s"));
+		  }
 	  ),
 	  "hostname" => 2,
 	  "username" => 3,
@@ -267,12 +278,13 @@ require_once("openmediavault/functions.inc");
   "columns" => array(
 	  "ts" => array(
 		  "index" => 1,
-		  "func" => create_function('$v', 'return strpdate($v,"Y/m/d G:i:s");')
+		  "func" => function($v) { return strpdate($v,"Y/m/d G:i:s"); }
 	  ),
 	  "date" => array(
 		  "index" => 1,
-		  "func" => create_function('$v',
-			'return strftime("%c", strpdate($v,"Y/m/d G:i:s"));')
+		  "func" => function($v) {
+			  return strftime("%c", strpdate($v,"Y/m/d G:i:s"));
+		  }
 	  ),
 	  "message" => 2
   )));

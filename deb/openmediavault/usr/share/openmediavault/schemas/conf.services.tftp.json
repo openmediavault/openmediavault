@@ -1,0 +1,41 @@
+{
+	"type": "object",
+	"id": "conf.service.tftp",
+	"alias": "//services/tftp",
+	"title": "TFTP",
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": 0
+		},
+		"port":{
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 65535,
+			"default": 69
+		},
+		"retransmit": {
+			"type": "integer",
+			"minimum": 0,
+			"default": 1000000
+		},
+		"blocksize": {
+			"type": "integer",
+			"minimum": 512,
+			"maximum": 65464,
+			"default": 512
+		},
+		"allownewfiles": {
+			"type": "boolean",
+			"default": 0
+		},
+		"sharedfolderref": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"extraoptions": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}

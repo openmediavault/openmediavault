@@ -1,0 +1,111 @@
+{
+	"type": "object",
+	"id": "conf.service.smartmontools",
+	"alias": "//services/smart",
+	"title": "S.M.A.R.T.",
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": 0
+		},
+		"interval":{
+			"type": "integer",
+			"minimum": 10,
+			"default": 1800
+		},
+		"powermode": {
+			"type": "string",
+			"default": "never",
+			"enum": [ "never", "sleep", "standby", "idle" ]
+		},
+		"tempdiff":{
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 255,
+			"default": 0
+		},
+		"tempinfo":{
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 255,
+			"default": 0
+		},
+		"tempcrit":{
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 255,
+			"default": 0
+		},
+		"monitor": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"uuid": {
+						"type": "string",
+						"format": "uuidv4"
+					},
+					"devicefile": {
+						"type": "string",
+						"format": "devicefile",
+						"default": ""
+					},
+					"enable": {
+						"type": "boolean",
+						"default": 1
+					},
+					"type": {
+						"type": "string",
+						"default": ""
+					}
+				}
+			}
+		},
+		"scheduledtests": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"uuid": {
+						"type": "string",
+						"format": "uuidv4"
+					},
+					"enable": {
+						"type": "boolean",
+						"default": 1
+					},
+					"devicefile": {
+						"type": "string",
+						"format": "devicefile",
+						"default": ""
+					},
+					"type": {
+						"type": "string",
+						"default": "S",
+						"enum": [ "S", "L", "C", "O" ]
+					},
+					"hour": {
+						"type": "string",
+						"pattern": "/^0[0-9]|1[0-9]|2[0-3]|[*]$/"
+					},
+					"month": {
+						"type": "string",
+						"pattern": "/^0[1-9]|1[0-2]|[*]$/"
+					},
+					"dayofmonth": {
+						"type": "string",
+						"pattern": "/^0[1-9]|1[0-9]|2[0-9]|3[0-1]|[*]$/"
+					},
+					"dayofweek": {
+						"type": "string",
+						"pattern": "/^[1-7]|[*]$/"
+					},
+					"comment": {
+						"type": "string",
+						"default": ""
+					}
+				}
+			}
+		}
+	}
+}

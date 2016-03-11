@@ -1,0 +1,83 @@
+{
+	"type": "object",
+	"id": "conf.service.snmp",
+	"alias": "//services/snmp",
+	"title": "SNMP",
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": 0
+		},
+		"community": {
+			"type": "string",
+			"default": "public"
+		},
+		"syslocation": {
+			"type": "string",
+			"default": ""
+		},
+		"syscontact": {
+			"type": "string",
+			"default": ""
+		},
+		"version": {
+			"type": "string",
+			"default": "2c",
+			"enum": [ "2c", "3" ]
+		},
+		"username": {
+			"type": "string",
+			"default": ""
+		},
+		"securitylevel": {
+			"type": "string",
+			"default": "noauth",
+			"enum": [ "noauth", "auth", "priv" ]
+		},
+		"authtype": {
+			"type": "string",
+			"default": "MD5",
+			"enum": [ "MD5", "SHA" ]
+		},
+		"authpassphrase": {
+			"type": "string",
+			"default": ""
+		},
+		"privtype": {
+			"type": "string",
+			"default": "DES",
+			"enum": [ "DES", "AES" ]
+		},
+		"privpassphrase": {
+			"type": "string",
+			"default": ""
+		},
+		"extraoptions": {
+			"type": "string",
+			"default": ""
+		},
+		"trap": {
+			"type": "object",
+			"properties": {
+				"enable": {
+					"type": "boolean",
+					"default": 0
+				},
+				"community": {
+					"type": "string",
+					"default": "public"
+				},
+				"host": {
+					"type": "string",
+					"default": "localhost"
+				},
+				"port":{
+					"type": "integer",
+					"minimum": 1,
+					"maximum": 65535,
+					"default": 162
+				}
+			}
+		}
+	}
+}

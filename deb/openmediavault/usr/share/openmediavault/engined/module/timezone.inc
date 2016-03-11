@@ -20,8 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
 
 class OMVModuleTimezone extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
@@ -34,7 +32,6 @@ class OMVModuleTimezone extends OMVModuleServiceAbstract
 
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "timezone");
@@ -46,15 +43,11 @@ class OMVModuleTimezone extends OMVModuleServiceAbstract
 	 * Start the managed service.
 	 */
 	public function startService() {
-		global $xmlConfig;
-		$xpath = "//system/time/timezone";
-		$timezone = $xmlConfig->get($xpath);
-		if (is_null($timezone)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = &\OMV\Config\Database::getInstance();
+		$object = $db->get("//system/time", "conf.system.time");
 		$cmdArgs = array();
-		$cmdArgs[] = sprintf("set-timezone %s", escapeshellarg($timezone));
+		$cmdArgs[] = sprintf("set-timezone %s", escapeshellarg(
+		  $object->get("timezone")));
 		$cmd = new \OMV\System\Process("timedatectl", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);
 		$cmd->execute();
