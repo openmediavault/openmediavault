@@ -13,9 +13,40 @@
 			"default": 8
 		},
 		"shares": {
-			"type": "array",
-			"items": {
-				"$ref": "//services/nfs/shares/share"
+			"type": "object",
+			"properties": {
+				"share": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"uuid": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"sharedfolderref": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"mntentref": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"client": {
+								"type": "string"
+							},
+							"options": {
+								"type": "string"
+							},
+							"comment": {
+								"type": "string"
+							},
+							"extraoptions": {
+								"type": "string"
+							}
+						}
+					}
+				}
 			}
 		}
 	}

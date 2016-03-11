@@ -59,9 +59,78 @@
 			"type": "string"
 		},
 		"shares": {
-			"type": "array",
-			"items": {
-				"$ref": "//services/smb/shares/share"
+			"type": "object",
+			"properties": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"uuid": {
+							"type": "string",
+							"format": "uuidv4"
+						},
+						"enable": {
+							"type": "boolean",
+							"default": 0
+						},
+						"sharedfolderref": {
+							"type": "string",
+							"format": "uuidv4"
+						},
+						"name": {
+							"type": "string"
+						},
+						"comment": {
+							"type": "string"
+						},
+						"guest": {
+							"type": "string",
+							"enum": [ "no", "allow", "only" ]
+						},
+						"readonly": {
+							"type": "boolean"
+						},
+						"browseable": {
+							"type": "boolean"
+						},
+						"recyclebin": {
+							"type": "boolean"
+						},
+						"recyclemaxsize": {
+							"type": "boolean"
+						},
+						"recyclemaxage": {
+							"type": "boolean"
+						},
+						"hidedotfiles": {
+							"type": "boolean"
+						},
+						"inheritacls": {
+							"type": "boolean"
+						},
+						"inheritpermissions": {
+							"type": "boolean"
+						},
+						"easupport": {
+							"type": "boolean"
+						},
+						"storedosattributes": {
+							"type": "boolean"
+						},
+						"hostsallow": {
+							"type": "string"
+						},
+						"hostsdeny": {
+							"type": "string"
+						},
+						"audit": {
+							"type": "boolean"
+						},
+						"extraoptions": {
+							"type": "string"
+						}
+					}
+				}
 			}
 		}
 	}

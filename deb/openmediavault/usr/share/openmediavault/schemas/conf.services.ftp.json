@@ -113,9 +113,32 @@
 			"default": ""
 		},
 		"shares": {
-			"type": "array",
-			"items": {
-				"$ref": "//services/ftp/shares/share"
+			"type": "object",
+			"properties": {
+				"share": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"uuid": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"sharedfolderref": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"extraoptions": {
+								"type": "string",
+								"default": ""
+							},
+							"comment": {
+								"type": "string",
+								"default": ""
+							}
+						}
+					}
+				}
 			}
 		},
 		"modules": {
