@@ -22,10 +22,37 @@
 require_once("openmediavault/autoloader.inc");
 
 /**
+ * Collapses a multi-dimensional array into a single dimension.
+ * @ingroup api
+ * @param array The array to flatten.
+ * @return A single-dimensional array.
+ */
+function array_flatten($array, $separator = ".", $prefix = "") {
+	$result = array();
+    foreach ($array as $key => $value) {
+        if (is_array($value))
+            $result = array_merge($result, array_flatten($value, $separator,
+			  $prefix.$key.$separator));
+        else
+            $result[$prefix.$key] = $value;
+    }
+    return $result;
+}
+
+/**
+ * Expands a flat array to a multi-dimensional array.
+ * @param array The array to expand.
+ * @return A multi-dimensional array.
+ */
+function array_expand($array, $separator = ".") {
+	// ToDo...
+}
+
+/**
  * Sort an array by values using a user-defined key.
  * @ingroup api
- * @param array The array to sort
- * @param key The key used as sort criteria
+ * @param array The array to sort.
+ * @param key The key used as sort criteria.
  * @return Returns TRUE on success or FALSE on failure.
  */
 function array_sort_key(array &$array, $key) {

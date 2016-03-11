@@ -63,16 +63,16 @@ class Model extends \OMV\BaseObject {
 		$this->getSchema()->validate($value);
 	}
 
-	public function validateProperty($name, $value) {
-		$this->getSchema()->validate($value, $name);
+	public function validateProperty($path, $value) {
+		$this->getSchema()->validate($value, $path);
 	}
 
-	public function convertProperty($name, $value) {
-		$propSchema = $schema = $this->getSchema()->getAssocByPath($name);
+	public function convertProperty($path, $value) {
+		$propSchema = $schema = $this->getSchema()->getAssocByPath($path);
 		if (is_array($propSchema['type'])) {
 			throw new \OMV\Json\SchemaException(
 			  "%s: The attribute 'type' must not be an array.",
-			  $name);
+			  $path);
 		}
 		switch ($propSchema['type']) {
 		case "boolean":
@@ -95,12 +95,12 @@ class Model extends \OMV\BaseObject {
 	/**
 	 * Get the default value of the specified property as defined in
 	 * the schema.
-	 * @param name The name of the property, e.g. "aaa.bbb.ccc".
+	 * @param path The path of the property, e.g. "aaa.bbb.ccc".
 	 * @return The default value as specified in the schema or by
 	 *   the properties type.
 	 */
-	public function getPropertyDefault($name) {
-		$propSchema = $schema = $this->getSchema()->getAssocByPath($name);
+	public function getPropertyDefault($path) {
+		$propSchema = $schema = $this->getSchema()->getAssocByPath($path);
 		$default = NULL;
 		if (array_key_exists("default", $propSchema))
 			$default = $propSchema['default'];
@@ -108,7 +108,7 @@ class Model extends \OMV\BaseObject {
 			if (is_array($propSchema['type'])) {
 				throw new \OMV\Json\SchemaException(
 				  "%s: The attribute 'type' must not be an array.",
-				  $name);
+				  $path);
 			}
 			$type = "any";
 			if (array_key_exists("type", $propSchema))
@@ -142,10 +142,10 @@ class Model extends \OMV\BaseObject {
 		return $default;
 	}
 
-	public function propertyExists($name) {
+	public function propertyExists($path) {
 		$exists = TRUE;
 		try {
-			$this->getSchema()->getAssocByPath($name);
+			$this->getSchema()->getAssocByPath($path);
 		} catch(\OMV\Json\SchemaException $e) {
 			$exists = FALSE;
 		} catch(\OMV\Json\SchemaPathException $e) {
@@ -154,18 +154,39 @@ class Model extends \OMV\BaseObject {
 		return $exists;
 	}
 
-	public function walk($callback, &$userData = NULL, $schema = NULL) {
-		if (NULL == $schema)
-			$schema = $this->getSchema()->getAssoc();
+	/**
+	 * Helper function.
+	 */
+	private function _walk($name, $path, $schema, $callback, &$userData = NULL) {
+//		$this->debug(var_export(func_get_args(), TRUE));
 		if (array_key_exists("type", $schema) && ("object" == $schema['type'])) {
-			call_user_func_array($callback, array("", $schema, &$userData));
+			call_user_func_array($callback, array($this, $name, $path,
+			  $schema, &$userData));
 			if (!array_key_exists("properties", $schema))
 				return;
 			foreach ($schema['properties'] as $propName => $propSchema) {
-				call_user_func_array($callback, array($propName,
-				  $propSchema, &$userData));
-				$this->walk($callback, $userData, $propSchema);
+				// Build the property path. Take care that a valid path
+				// is generated. To ensure this, empty parts are removed.
+				$propPath = implode(".", array_filter(array($path, $propName)));
+				// Call the callback function.
+				call_user_func_array($callback, array($this, $propName,
+				  $propPath, $propSchema, &$userData));
+				// Process the property node.
+				$this->_walk($propName, $propPath, $propSchema, $callback,
+				  $userData);
 			}
 		}
+	}
+
+	/**
+	 * Apply a user function recursively to every property of the schema.
+	 * @param path The path of the property, e.g. "aaa.bbb.ccc".
+	 * @param callback The callback function.
+	 * @param userdata If the optional userdata parameter is supplied, it
+	 *   will be passed to the callback function.
+	 */
+	public function walk($path, $callback, &$userData = NULL) {
+		$propSchema = $this->getSchema()->getAssocByPath($path);
+		$this->_walk("", $path, $propSchema, $callback, $userData);
 	}
 }

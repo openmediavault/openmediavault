@@ -34,42 +34,11 @@ class ConfigObject extends \OMV\BaseObject {
 	public function __construct($id) {
 		$modelMgr = &\OMV\DataModel\Manager::getInstance();
 		$this->model = $modelMgr->getModel($id);
-		$this->properties = $this->getDefaultsAssoc();
+		$this->properties = $this->getDefaults();
 	}
 
 	private function getModel() {
 		return $this->model;
-	}
-
-	/**
-	 * Array
-	 * (
-	 *     [timezone] => Europe/Berlin
-	 *     [ntp] => Array
-	 *         (
-	 *             [enable] => 1
-	 *             [timeservers] => ntp1.webart.de
-	 *         )
-	 * )
-	 */
-	private function _getPropertyByPath($path, $node) {
-		$parts = explode(".", $path);
-		// Get the key of the node.
-		$key = array_shift($parts);
-		// Check if the key/value pair exists.
-		if (!array_key_exists($key, $node))
-			throw new \OMV\Exception("Invalid path '%s'.", $path);
-		// Do we have found the requested node?
-		if (0 == count($parts))
-			return $node[$key];
-		// If the path is not finally reached, then check if the node
-		// is an array that we can walk down.
-		if (!is_array($node[$key])) {
-			throw new \OMV\Exception(
-			  "Invalid path '%s', node '%s' is no array.",
-			  $path);
-		}
-		return $this->_getPropertyByPath(implode(".", $parts), $node[$key]);
 	}
 
 	/**
@@ -84,7 +53,7 @@ class ConfigObject extends \OMV\BaseObject {
 			  "The property '%s' does not exist in the model '%s'.",
 			  $name, $model->getId());
 		}
-		return $this->_getPropertyByPath($name, $this->properties);
+		return $this->properties[$name];
 	}
 
 	/**
@@ -92,7 +61,24 @@ class ConfigObject extends \OMV\BaseObject {
 	 * @return The array of key/value pairs.
 	 */
 	public function getAssoc() {
-		return $this->properties;
+		return array_expand($this->properties);
+	}
+
+	public function getDefaults() {
+		// Create a flat representation of the data.
+		$data = array();
+		$fn = function($model, $name, $path, $schema, &$userData) {
+			switch ($schema['type']) {
+			case "object":
+				// Nothing to do here.
+				break;
+			default:
+				$userData[$path] = $model->getPropertyDefault($path);
+				break;
+			}
+		};
+		$this->getModel()->walk("", $fn, $data);
+		return $data;
 	}
 
 	/**
@@ -101,50 +87,7 @@ class ConfigObject extends \OMV\BaseObject {
 	 *   described by the data model, otherwise FALSE.
 	 */
 	public function getDefaultsAssoc() {
-		$object = array();
-		$fn = function($name, $schema, &$userData) {
-			switch ($schema['type']) {
-			case "object":
-				$userData = array();
-				break;
-			default:
-				$default = NULL;
-				if (array_key_exists("default", $schema))
-					$default = $schema['default'];
-				else {
-					$type = "any";
-					if (array_key_exists("type", $schema))
-						$type = $schema['type'];
-					switch ($type) {
-					case "array":
-						$default = array();
-						break;
-					case "boolean":
-						$default = FALSE;
-						break;
-					case "integer":
-						$default = 0;
-						break;
-					case "number":
-					case "double":
-						$default = 0.0;
-						break;
-					case "string":
-						$default = "";
-						break;
-					case "any":
-					case "object":
-					case "null":
-						$default = NULL;
-						break;
-					}
-				}
-				$userData[$name] = $default;
-				break;
-			}
-		};
-		$this->getModel()->walk($fn, $object);
-		return $object;
+		return array_expand($this->getDefaults());
 	}
 
 	/**
@@ -168,13 +111,25 @@ class ConfigObject extends \OMV\BaseObject {
 
 	/**
 	 * Set properties.
-	 * @param data The array of key/value pairs.
+	 * @param data The associative array of key/value pairs.
 	 * @return None.
 	 */
 	public function setAssoc($data, $validate = TRUE) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		if (TRUE === $validate)
 			$this->getModel()->validate($data);
-		$this->properties = $data;
+		// Create a flat representation of the data.
+		$this->setIndexed(array_flatten($data), $validate);
+	}
+
+	/**
+	 * Set properties.
+	 * @param data The single dimension array of path/value pairs.
+	 * @return None.
+	 */
+	public function setIndexed($data, $validate = TRUE) {
+//		$this->debug(var_export(func_get_args(), TRUE));
+		foreach ($data as $path => $value)
+			$this->set($path, $value, $validate);
 	}
 }
