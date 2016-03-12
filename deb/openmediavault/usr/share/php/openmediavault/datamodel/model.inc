@@ -177,11 +177,11 @@ class Model extends \OMV\BaseObject {
 				// Build the property path. Take care that a valid path
 				// is generated. To ensure this, empty parts are removed.
 				$propPath = implode(".", array_filter(array($path, $propName)));
-				// Call the callback function. Abort if the callback function
-				// returns FALSE.
+				// Call the callback function. Stop processing this property
+				// if the callback function returns FALSE.
 				if (FALSE === call_user_func_array($callback, array($this,
 				  $propName, $propPath, $propSchema, &$userData)))
-					return;
+					continue;
 				// Process the property node.
 				$this->_walk($propName, $propPath, $propSchema, $callback,
 				  $userData);
