@@ -159,7 +159,11 @@ class Model extends \OMV\BaseObject {
 	 */
 	private function _walk($name, $path, $schema, $callback, &$userData = NULL) {
 //		$this->debug(var_export(func_get_args(), TRUE));
-		if (array_key_exists("type", $schema) && ("object" == $schema['type'])) {
+		if (!array_key_exists("type", $schema)) {
+			throw new SchemaException(
+			  "No 'type' attribute defined at '%s'.", $path);
+		}
+		if ("object" == $schema['type']) {
 			if (!array_key_exists("properties", $schema)) {
 				throw new SchemaException(
 				  "No 'properties' attribute defined at '%s'.", $path);
