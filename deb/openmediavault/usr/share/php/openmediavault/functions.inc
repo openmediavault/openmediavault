@@ -354,7 +354,7 @@ function is_multiarray($var) {
  * @return TRUE if the variable is an associative array, otherwise FALSE.
  */
 function is_assoc($var) {
-	$keys = array_keys($array);
+	$keys = array_keys($var);
 	return array_keys($keys) !== $keys;
 }
 
