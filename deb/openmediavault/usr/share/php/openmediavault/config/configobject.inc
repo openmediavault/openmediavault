@@ -43,7 +43,7 @@ class ConfigObject extends \OMV\BaseObject {
 
 	/**
 	 * Get a property.
-	 * @param name The name of the property.
+	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
 	 * @return The property value.
 	 */
 	public function get($name) {
@@ -127,7 +127,7 @@ class ConfigObject extends \OMV\BaseObject {
 
 	/**
 	 * Set a property.
-	 * @param name The name of the property.
+	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
 	 * @param value The value of the property.
 	 * @return None.
 	 */

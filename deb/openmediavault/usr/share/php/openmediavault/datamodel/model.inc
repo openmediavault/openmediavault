@@ -81,8 +81,9 @@ class Model extends \OMV\BaseObject {
 		case "integer":
 			$value = intval($value);
 			break;
-		case "double":
 		case "number":
+		case "double":
+		case "float":
 			$value = doubleval($value);
 			break;
 		case "string":
@@ -128,6 +129,7 @@ class Model extends \OMV\BaseObject {
 				break;
 			case "number":
 			case "double":
+			case "float":
 				$default = 0.0;
 				break;
 			case "string":
