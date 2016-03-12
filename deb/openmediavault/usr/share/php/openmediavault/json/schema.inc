@@ -102,19 +102,19 @@ class Schema extends \OMV\BaseObject {
 	 */
 	private function _getSchemaByPath($path, $schema) {
 //		$this->debug(var_export(func_get_args(), TRUE));
-		// Validate the path. Something like "aa.bb.cc." or ".xx.yy"
-		// is invalid.
-		if (("." == substr($path, 1, 1)) || ("." == substr($path, -1)))
-			throw new SchemaPathException("Invalid path '%s' syntax.", $path);
-		// Explode the path parts.
+		// Do we have reached the end of the requested path (path is empty)?
+		if (empty($path))
+			return $schema;
+		// Explode the path in dot notation into its parts.
 		$parts = explode(".", $path);
 		// Filter array indices from the path in dot notation.
 		// Example: shares.share.0.uuid
 		// To access the schema of an array we do not need them.
 		$parts = array_filter($parts, function($v) { return !is_numeric($v); });
-		// Do we have reached the end of the path?
-		if ((1 >= count($parts)) && empty($parts[0]))
-			return $schema;
+		// Validate the path. Something like "aa.bb.cc." "a..b.c", or ".xx.yy"
+		// is invalid.
+		if (count(array_filter($parts, function($v) { return empty($v); })))
+			throw new SchemaPathException("Invalid path '%s' syntax.", $path);
 		// Do we process an 'object' or 'array' node?
 		// !!! Note, the 'type' can be an array. How to handles them here?
 		// ToDo: Handle types like '{ "type": [ "string", "object" ] }'
