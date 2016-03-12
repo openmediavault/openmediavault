@@ -22,7 +22,6 @@
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/rpcservice.inc");
-require_once("openmediavault/notify.inc");
 
 class OMVRpcServiceNotification extends OMVRpcServiceAbstract {
 	/**
@@ -139,7 +138,7 @@ class OMVRpcServiceNotification extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify the configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.notification.notifications", $object);
 		// Return the configuration object.
@@ -282,7 +281,7 @@ class OMVRpcServiceEmailNotification extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify the configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.email", $object);
 		// Return the configuration object.

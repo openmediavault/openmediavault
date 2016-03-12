@@ -25,7 +25,7 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/functions.inc");
 
 class OMVModuleRsyncd extends OMVModuleServiceAbstract
-  implements OMVINotifyListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
+  implements \OMV\Notify\IListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
 	/**
 	 * Get the module name.
 	 */
@@ -119,7 +119,7 @@ class OMVModuleRsyncd extends OMVModuleServiceAbstract
 	/**
 	 * Bind listeners.
 	 */
-	function bindListeners(OMVNotifyDispatcher $dispatcher) {
+	function bindListeners(\OMV\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.rsync.server",

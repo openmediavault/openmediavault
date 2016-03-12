@@ -23,7 +23,6 @@ require_once("openmediavault/object.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/rpcservice.inc");
-require_once("openmediavault/notify.inc");
 
 class OMVRpcServiceShairport extends OMVRpcServiceAbstract {
 	/**
@@ -108,7 +107,7 @@ class OMVRpcServiceShairport extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.shairport", $object, $oldObject);
 		// Return the configuration object.

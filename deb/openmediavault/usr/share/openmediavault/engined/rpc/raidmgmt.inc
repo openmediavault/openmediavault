@@ -25,7 +25,6 @@ require_once("openmediavault/system.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/rpcservice.inc");
-require_once("openmediavault/notify.inc");
 
 class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 	/**
@@ -270,7 +269,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		if (0 !== $this->exec($cmd, $output))
 			throw new \OMV\ExecException($cmd, $output);
 		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_CREATE,
 		  "org.openmediavault.system.storage.raid.device", array(
 			  "name" => $params['name'],
@@ -334,7 +333,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		if (0 !== $this->exec($cmd, $output))
 			throw new \OMV\ExecException($cmd, $output);
 		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.storage.raid.device", array(
 			  "name" => $raid->getName(),
@@ -386,7 +385,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		if (0 !== $this->exec($cmd, $output))
 			throw new \OMV\ExecException($cmd, $output);
 		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.storage.raid.device", array(
 			  "name" => $raid->getName(),
@@ -445,7 +444,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		if (0 !== $this->exec($cmd, $output))
 			throw new \OMV\ExecException($cmd, $output);
 		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.storage.raid.device", array(
 			  "name" => $raid->getName(),
@@ -496,7 +495,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		if (0 !== $this->exec($cmd, $output))
 			throw new \OMV\ExecException($cmd, $output);
 		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.storage.raid.device", $object);
 	}

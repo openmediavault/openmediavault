@@ -46,7 +46,7 @@ abstract class OMVModuleNginxAbstract extends OMVModuleServiceAbstract {
 }
 
 class OMVModuleWebserver extends OMVModuleNginxAbstract
-  implements OMVINotifyListener {
+  implements \OMV\Notify\IListener {
 	/**
 	 * Get the module name.
 	 */
@@ -80,7 +80,7 @@ class OMVModuleWebserver extends OMVModuleNginxAbstract
 	/**
 	 * Bind listeners.
 	 */
-	function bindListeners(OMVNotifyDispatcher $dispatcher) {
+	function bindListeners(\OMV\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.certificates.sslcertificate",

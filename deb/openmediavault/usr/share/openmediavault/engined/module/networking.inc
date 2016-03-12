@@ -22,7 +22,7 @@
 require_once("openmediavault/module.inc");
 
 class OMVModuleNetworking extends OMVModuleServiceAbstract
-  implements OMVINotifyListener {
+  implements \OMV\Notify\IListener {
 	/**
 	 * Get the module name.
 	 */
@@ -49,7 +49,7 @@ class OMVModuleNetworking extends OMVModuleServiceAbstract
 	/**
 	 * Bind listeners.
 	 */
-	function bindListeners(OMVNotifyDispatcher $dispatcher) {
+	function bindListeners(\OMV\Notify\Dispatcher $dispatcher) {
 		// Bind listeners from within your modules. Check the 'interfaces'
 		// module for example.
 	}

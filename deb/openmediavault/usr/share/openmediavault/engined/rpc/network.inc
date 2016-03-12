@@ -25,7 +25,6 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/system.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/rpcservice.inc");
-require_once("openmediavault/notify.inc");
 
 $GLOBALS['OMV_JSONSCHEMA_NETWORK_INTERFACE_GENERIC'] =
   '"devicename":{"type":"string"},'.
@@ -184,7 +183,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		if (FALSE === $success)
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.network.interfaces.interface", $object);
@@ -256,7 +255,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.network.hostname", $object);
 		// Return the configuration object.
@@ -1077,7 +1076,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.network.proxy", $object);
 		// Return the configuration object.

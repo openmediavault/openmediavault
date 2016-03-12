@@ -20,7 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/rpcservice.inc");
-require_once("openmediavault/notify.inc");
 
 class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 	/**
@@ -82,7 +81,7 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 		$db = &\OMV\Config\Database::getInstance();
 		$db->replace("//system/apt/distribution", $object);
 		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.apt.distribution",
 		  $object->getAssoc());

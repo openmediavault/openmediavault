@@ -26,7 +26,6 @@ require_once("openmediavault/functions.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/system.inc");
 require_once("openmediavault/rpcservice.inc");
-require_once("openmediavault/notify.inc");
 
 class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 	/**
@@ -299,7 +298,7 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.time", $object);
 	}

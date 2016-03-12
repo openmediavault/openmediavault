@@ -24,7 +24,6 @@ require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/rpcservice.inc");
-require_once("openmediavault/notify.inc");
 require_once("openmediavault/functions.inc");
 
 class OMVRpcServiceNfs extends OMVRpcServiceAbstract {
@@ -104,7 +103,7 @@ class OMVRpcServiceNfs extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.nfs", $object);
 		// Return the configuration object.
@@ -278,7 +277,7 @@ class OMVRpcServiceNfs extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.nfs.shares.share", $object);

@@ -24,7 +24,7 @@ require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 
 class OMVModuleShairport extends OMVModuleServiceAbstract
-  implements OMVINotifyListener, OMVIModuleServiceStatus {
+  implements \OMV\Notify\IListener, OMVIModuleServiceStatus {
 	/**
 	 * Get the module name.
 	 */
@@ -114,7 +114,7 @@ class OMVModuleShairport extends OMVModuleServiceAbstract
 	/**
 	 * Bind listeners.
 	 */
-	function bindListeners(OMVNotifyDispatcher $dispatcher) {
+	function bindListeners(\OMV\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.shairport",

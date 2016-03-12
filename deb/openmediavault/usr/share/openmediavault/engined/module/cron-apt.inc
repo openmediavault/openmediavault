@@ -22,7 +22,7 @@
 require_once("openmediavault/module.inc");
 
 class OMVModuleCronApt extends OMVModuleServiceAbstract
-  implements OMVINotifyListener, OMVIModuleNotification {
+  implements \OMV\Notify\IListener, OMVIModuleNotification {
 	/**
 	 * Get the module name.
 	 */
@@ -62,7 +62,7 @@ class OMVModuleCronApt extends OMVModuleServiceAbstract
 	/**
 	 * Bind listeners.
 	 */
-	function bindListeners(OMVNotifyDispatcher $dispatcher) {
+	function bindListeners(\OMV\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.email",

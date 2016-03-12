@@ -22,7 +22,6 @@
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/rpcservice.inc");
-require_once("openmediavault/notify.inc");
 
 class OMVRpcServiceZeroconf extends OMVRpcServiceAbstract {
 	/**
@@ -142,7 +141,7 @@ class OMVRpcServiceZeroconf extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify the configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.zeroconf.services", $object);
 		// Return the configuration object.

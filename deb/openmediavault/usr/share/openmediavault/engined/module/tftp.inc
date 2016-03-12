@@ -23,7 +23,7 @@ require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 
 class OMVModuleTftp extends OMVModuleServiceAbstract
-  implements OMVINotifyListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
+  implements \OMV\Notify\IListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
 	/**
 	 * Get the module name.
 	 */
@@ -104,7 +104,7 @@ class OMVModuleTftp extends OMVModuleServiceAbstract
 	/**
 	 * Bind listeners.
 	 */
-	function bindListeners(OMVNotifyDispatcher $dispatcher) {
+	function bindListeners(\OMV\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.tftp",

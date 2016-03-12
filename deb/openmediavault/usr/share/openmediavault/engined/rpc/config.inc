@@ -23,7 +23,6 @@ require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/util.inc");
-require_once("openmediavault/notify.inc");
 
 class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 	/**
@@ -95,7 +94,7 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		$moduleMgr = &OMVModuleMgr::getInstance();
-		$notifyDispatcher = &OMVNotifyDispatcher::getInstance();
+		$notifyDispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		// Open the dirty modules file. Lock it to force all writers
 		// to wait until this RPC has been finished.
 		$jsonFile = new \OMV\Json\File($GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);

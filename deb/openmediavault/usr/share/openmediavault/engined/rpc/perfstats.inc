@@ -24,7 +24,6 @@ require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/rpcservice.inc");
-require_once("openmediavault/notify.inc");
 
 class OMVRpcServicePerfStats extends OMVRpcServiceAbstract {
 	/**
@@ -98,7 +97,7 @@ class OMVRpcServicePerfStats extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.monitoring.perfstats", $object);
 		// Return the configuration object.

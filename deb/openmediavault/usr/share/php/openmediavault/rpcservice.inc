@@ -23,7 +23,6 @@ require_once("openmediavault/autoloader.inc");
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/notify.inc");
 
 /**
  * The core RPC service class.
@@ -580,7 +579,7 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 			  $xpath);
 		}
 		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_PREDELETE, $message, $object);
 		// Delete configuration object.
 		if(FALSE === ($object = $xmlConfig->delete($xpath))) {

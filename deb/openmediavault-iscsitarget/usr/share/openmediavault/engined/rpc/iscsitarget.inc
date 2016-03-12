@@ -25,7 +25,6 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/system.inc");
-require_once("openmediavault/notify.inc");
 
 class OMVRpcServiceIscsiTarget extends OMVRpcServiceAbstract {
 	/**
@@ -139,7 +138,7 @@ class OMVRpcServiceIscsiTarget extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.iscsitarget", $object, $oldObject);
 		// Return the configuration object.
@@ -416,7 +415,7 @@ class OMVRpcServiceIscsiTarget extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.iscsitarget.targets.target", $object);

@@ -22,7 +22,7 @@
 require_once("openmediavault/module.inc");
 
 class OMVModuleMdadm extends OMVModuleServiceAbstract
-  implements OMVINotifyListener, OMVIModuleNotification {
+  implements \OMV\Notify\IListener, OMVIModuleNotification {
 	/**
 	 * Get the module name.
 	 */
@@ -62,7 +62,7 @@ class OMVModuleMdadm extends OMVModuleServiceAbstract
 	/**
 	 * Bind listeners.
 	 */
-	function bindListeners(OMVNotifyDispatcher $dispatcher) {
+	function bindListeners(\OMV\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.storage.raid.device",

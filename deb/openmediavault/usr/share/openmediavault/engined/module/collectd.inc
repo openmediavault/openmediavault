@@ -22,7 +22,7 @@
 require_once("openmediavault/module.inc");
 
 class OMVModuleCollectd extends OMVModuleServiceAbstract
-  implements OMVINotifyListener {
+  implements \OMV\Notify\IListener {
 	/**
 	 * Get the module name.
 	 */
@@ -93,7 +93,7 @@ class OMVModuleCollectd extends OMVModuleServiceAbstract
 	/**
 	 * Bind listeners.
 	 */
-	function bindListeners(OMVNotifyDispatcher $dispatcher) {
+	function bindListeners(\OMV\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.monitoring.perfstats",

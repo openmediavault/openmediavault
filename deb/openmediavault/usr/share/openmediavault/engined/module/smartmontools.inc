@@ -22,7 +22,7 @@
 require_once("openmediavault/module.inc");
 
 class OMVModuleSmartMonTools extends OMVModuleServiceAbstract
-  implements OMVINotifyListener, OMVIModuleNotification {
+  implements \OMV\Notify\IListener, OMVIModuleNotification {
 	/**
 	 * Get the module name.
 	 */
@@ -82,7 +82,7 @@ class OMVModuleSmartMonTools extends OMVModuleServiceAbstract
 	/**
 	 * Bind listeners.
 	 */
-	function bindListeners(OMVNotifyDispatcher $dispatcher) {
+	function bindListeners(\OMV\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.smart",

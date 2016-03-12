@@ -22,7 +22,7 @@
 require_once("openmediavault/module.inc");
 
 class OMVModuleSyslog extends OMVModuleServiceAbstract
-  implements OMVINotifyListener {
+  implements \OMV\Notify\IListener {
 	/**
 	 * Get the module name.
 	 */
@@ -50,7 +50,7 @@ class OMVModuleSyslog extends OMVModuleServiceAbstract
 	/**
 	 * Bind listeners.
 	 */
-	function bindListeners(OMVNotifyDispatcher $dispatcher) {
+	function bindListeners(\OMV\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.syslog",

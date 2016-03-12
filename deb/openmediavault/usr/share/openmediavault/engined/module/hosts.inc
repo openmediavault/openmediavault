@@ -23,7 +23,7 @@ require_once("openmediavault/module.inc");
 require_once("openmediavault/error.inc");
 
 class OMVModuleHosts extends OMVModuleServiceAbstract
-  implements OMVINotifyListener {
+  implements \OMV\Notify\IListener {
 	/**
 	 * Get the module name.
 	 */
@@ -43,7 +43,7 @@ class OMVModuleHosts extends OMVModuleServiceAbstract
 	/**
 	 * Bind listeners.
 	 */
-	function bindListeners(OMVNotifyDispatcher $dispatcher) {
+	function bindListeners(\OMV\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.network.hostname",

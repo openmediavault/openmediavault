@@ -24,7 +24,6 @@ require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/rpcservice.inc");
-require_once("openmediavault/notify.inc");
 
 class OMVRpcServiceCron extends OMVRpcServiceAbstract {
 	/**
@@ -203,7 +202,7 @@ class OMVRpcServiceCron extends OMVRpcServiceAbstract {
 		if (FALSE === $success)
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.crontab.job", $object);

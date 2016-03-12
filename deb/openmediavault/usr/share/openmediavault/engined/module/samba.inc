@@ -23,7 +23,7 @@ require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 
 class OMVModuleSamba extends OMVModuleServiceAbstract
-  implements OMVINotifyListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
+  implements \OMV\Notify\IListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
 	private $invalidUsers = array("admin");
 
 	/**
@@ -232,7 +232,7 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 	/**
 	 * Bind listeners.
 	 */
-	function bindListeners(OMVNotifyDispatcher $dispatcher) {
+	function bindListeners(\OMV\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.smb",

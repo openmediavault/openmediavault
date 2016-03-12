@@ -24,7 +24,7 @@ require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 
 class OMVModuleQuota extends OMVModuleServiceAbstract
-  implements OMVINotifyListener {
+  implements \OMV\Notify\IListener {
 	/**
 	 * Get the module name.
 	 */
@@ -64,7 +64,7 @@ class OMVModuleQuota extends OMVModuleServiceAbstract
 	/**
 	 * Bind listeners.
 	 */
-	function bindListeners(OMVNotifyDispatcher $dispatcher) {
+	function bindListeners(\OMV\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.storage.filesystem",

@@ -26,7 +26,6 @@ require_once("openmediavault/functions.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/rpcservice.inc");
-require_once("openmediavault/notify.inc");
 
 class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 	/**
@@ -211,7 +210,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  $xmlConfig->getLastError());
 		}
 		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.certificates.sslcertificate", $object);
@@ -560,7 +559,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  $xmlConfig->getLastError());
 		}
 		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.certificates.sshcertificate", $object);

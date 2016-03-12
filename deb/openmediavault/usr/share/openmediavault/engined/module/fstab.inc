@@ -23,7 +23,7 @@ require_once("openmediavault/module.inc");
 require_once("openmediavault/system.inc");
 
 class OMVModuleFsTab extends OMVModuleServiceAbstract
-  implements OMVINotifyListener {
+  implements \OMV\Notify\IListener {
 	/**
 	 * Get the module name.
 	 */
@@ -123,7 +123,7 @@ class OMVModuleFsTab extends OMVModuleServiceAbstract
 	/**
 	 * Bind listeners.
 	 */
-	function bindListeners(OMVNotifyDispatcher $dispatcher) {
+	function bindListeners(\OMV\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.fstab.mntent",

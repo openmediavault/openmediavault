@@ -22,7 +22,6 @@
 require_once("openmediavault/object.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/rpcservice.inc");
-require_once("openmediavault/notify.inc");
 
 class OMVRpcServicePowerMgmt extends OMVRpcServiceAbstract {
 	/**
@@ -85,7 +84,7 @@ class OMVRpcServicePowerMgmt extends OMVRpcServiceAbstract {
 		$db = &\OMV\Config\Database::getInstance();
 		$db->replace("//system/powermanagement", $object);
 		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.powermanagement",
 		  $object->getAssoc());

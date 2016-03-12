@@ -24,7 +24,7 @@ require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 
 class OMVModuleAFP extends OMVModuleServiceAbstract
-  implements OMVINotifyListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
+  implements \OMV\Notify\IListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
 	private $invalidUsers = array("admin");
 
 	/**
@@ -160,7 +160,7 @@ class OMVModuleAFP extends OMVModuleServiceAbstract
 	/**
 	 * Bind listeners.
 	 */
-	function bindListeners(OMVNotifyDispatcher $dispatcher) {
+	function bindListeners(\OMV\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.afp",

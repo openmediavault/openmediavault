@@ -19,15 +19,16 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+namespace OMV\Notify;
+
 require_once("openmediavault/globals.inc");
-require_once("openmediavault/object.inc");
 
 /**
- * OMVNotifyDispatcher is an configuration notification technology. It provides
+ * \OMV\Notify\Dispatcher is an configuration notification technology. It provides
  * the possibility to simply monitor various events, e.g. on the configuration.
  * @ingroup api
  */
-class OMVNotifyDispatcher extends OMVObject {
+class Dispatcher extends \OMV\BaseObject {
 	private static $instances = array();
 	private $name = null;
 	private $listeners = null;
@@ -65,8 +66,8 @@ class OMVNotifyDispatcher extends OMVObject {
 	 * @return The dispatcher object.
 	 */
 	public static function &getInstance($name = "default") {
-		if(!isset(self::$instances[$name]))
-			self::$instances[$name] = new OMVNotifyDispatcher($name);
+		if (!isset(self::$instances[$name]))
+			self::$instances[$name] = new Dispatcher($name);
 		return self::$instances[$name];
 	}
 
@@ -83,7 +84,7 @@ class OMVNotifyDispatcher extends OMVObject {
 	 *   then set it to 1.
 	 */
 	function addListener($arg1, $arg2 = null, $arg3 = null, $arg4 = 20) {
-		if(is_a($arg1, "OMVINotifyListener"))
+		if (is_a($arg1, "\OMV\Notify\IListener"))
 			return $arg1->bindListeners($this);
 		// Add the listerer.
 //		$this->debug(sprintf("Add listener (type=%s, message=%s, " .
@@ -112,9 +113,9 @@ class OMVNotifyDispatcher extends OMVObject {
 		// Sort list of registered listeners.
 		array_sort_key($listeners, "seqnum");
 		// Call registered listeners.
-		if(!empty($listeners)) {
-			foreach($listeners as $listenerk => $listenerv) {
-				if($listenerv['type'] & $type) {
+		if (!empty($listeners)) {
+			foreach ($listeners as $listenerk => $listenerv) {
+				if ($listenerv['type'] & $type) {
 //					$this->debug(sprintf("Notify listener (type=%s, " .
 //					  "path=%s, callback=%s::%s, seqnum=%s",
 //					  $listenerv['type'], $listenerv['path'],
@@ -134,24 +135,11 @@ class OMVNotifyDispatcher extends OMVObject {
 	function dumpListeners($path = "") {
 		$listeners = $this->listeners;
 		// Filter list of registered listeners.
-		if(!empty($path))
+		if (!empty($path))
 			$listeners = array_filter_ex($listeners, "path", $path);
 		// Sort list of registered listeners.
 		array_sort_key($listeners, "path");
 		// Dump registered listeners.
 		$this->debug($listeners);
 	}
-}
-
-/**
- * Interface that must be implemented to be able to listen for event
- * notifications.
- * @ingroup api
- */
-interface OMVINotifyListener {
-	/**
-	 * Bind listeners.
-	 * @param dispatcher The dispatcher object.
-	 */
-	function bindListeners(OMVNotifyDispatcher $dispatcher);
 }
