@@ -69,6 +69,7 @@ class ConfigObject extends \OMV\BaseObject {
 		$data = array();
 		$fn = function($model, $name, $path, $schema, &$userData) {
 			switch ($schema['type']) {
+			case "array":
 			case "object":
 				// Nothing to do here.
 				break;

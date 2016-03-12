@@ -160,17 +160,24 @@ class Model extends \OMV\BaseObject {
 	private function _walk($name, $path, $schema, $callback, &$userData = NULL) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		if (array_key_exists("type", $schema) && ("object" == $schema['type'])) {
-			call_user_func_array($callback, array($this, $name, $path,
-			  $schema, &$userData));
-			if (!array_key_exists("properties", $schema))
+			if (!array_key_exists("properties", $schema)) {
+				throw new SchemaException(
+				  "No 'properties' attribute defined at '%s'.", $path);
+			}
+			// Call the callback function. Abort if the callback function
+			// returns FALSE.
+			if (FALSE === call_user_func_array($callback, array($this, $name,
+			  $path, $schema, &$userData)))
 				return;
 			foreach ($schema['properties'] as $propName => $propSchema) {
 				// Build the property path. Take care that a valid path
 				// is generated. To ensure this, empty parts are removed.
 				$propPath = implode(".", array_filter(array($path, $propName)));
-				// Call the callback function.
-				call_user_func_array($callback, array($this, $propName,
-				  $propPath, $propSchema, &$userData));
+				// Call the callback function. Abort if the callback function
+				// returns FALSE.
+				if (FALSE === call_user_func_array($callback, array($this,
+				  $propName, $propPath, $propSchema, &$userData)))
+					return;
 				// Process the property node.
 				$this->_walk($propName, $propPath, $propSchema, $callback,
 				  $userData);
