@@ -60,12 +60,7 @@ class OMVRpcServiceQuota extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get filesystem details.
 		$fs = OMVFilesystemFactory::get($params['uuid']);
 		if (is_null($fs) || !$fs->exists()) {
@@ -264,12 +259,7 @@ class OMVRpcServiceQuota extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
 		$xpath = sprintf("//system/storage/filesystem/quota[uuid='%s']",
 		  $params['uuid']);

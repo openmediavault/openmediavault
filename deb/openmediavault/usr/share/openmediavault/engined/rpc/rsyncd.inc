@@ -185,12 +185,7 @@ class OMVRpcServiceRsyncd extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
 		$xpath = sprintf("//services/rsync/server/modules/module[uuid='%s']",
 		  $params['uuid']);
@@ -323,12 +318,7 @@ class OMVRpcServiceRsyncd extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
 		$xpath = sprintf("//services/rsync/server/modules/module[uuid='%s']",
 		  $params['uuid']);

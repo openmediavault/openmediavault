@@ -1,15 +1,5 @@
 [{
 	"type": "object",
-	"id": "rpc.certificatemgmt.get",
-	"properties": {
-		"uuid": {
-			"type": "string",
-			"format": "uuidv4",
-			"required": true
-		}
-	}
-},{
-	"type": "object",
 	"id": "rpc.certificatemgmt.set",
 	"properties": {
 		"uuid": {
@@ -27,26 +17,6 @@
 		},
 		"comment": {
 			"type": "string",
-			"required": true
-		}
-	}
-},{
-	"type": "object",
-	"id": "rpc.certificatemgmt.delete",
-	"properties": {
-		"uuid": {
-			"type": "string",
-			"format": "uuidv4",
-			"required": true
-		}
-	}
-},{
-	"type": "object",
-	"id": "rpc.certificatemgmt.getdetail",
-	"properties": {
-		"uuid": {
-			"type": "string",
-			"format": "uuidv4",
 			"required": true
 		}
 	}
@@ -96,16 +66,6 @@
 	}
 },{
 	"type": "object",
-	"id": "rpc.certificatemgmt.getssh",
-	"properties": {
-		"uuid": {
-			"type": "string",
-			"format": "uuidv4",
-			"required": true
-		}
-	}
-},{
-	"type": "object",
 	"id": "rpc.certificatemgmt.setssh",
 	"properties": {
 		"uuid": {
@@ -125,16 +85,6 @@
 		},
 		"comment": {
 			"type": "string",
-			"required": true
-		}
-	}
-},{
-	"type": "object",
-	"id": "rpc.certificatemgmt.deletessh",
-	"properties": {
-		"uuid": {
-			"type": "string",
-			"format": "uuidv4",
 			"required": true
 		}
 	}

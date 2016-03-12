@@ -238,12 +238,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
 		$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
 		  $params['uuid']);
@@ -601,12 +596,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get shared folder privileges configuration object.
 		$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
 		  $params['uuid']);
@@ -1231,12 +1221,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get shared folder configuration object.
 		$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
 		  $params['uuid']);
@@ -1274,12 +1259,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get a list of XPath's to the configuration objects referencing
 		// the given shared folder. Shared folder references are named
 		// 'sharedfolderref'.

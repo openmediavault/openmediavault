@@ -196,12 +196,7 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
 		$xpath = sprintf("//services/usbbackup/jobs/job[uuid='%s']",
 		  $params['uuid']);
@@ -325,12 +320,7 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
 		$xpath = sprintf("//services/usbbackup/jobs/job[uuid='%s']",
 		  $params['uuid']);
@@ -352,12 +342,7 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Check if the module is marked as dirty. This is an indication
 		// that the rsync cron script has not been created or updated
 		// until now.

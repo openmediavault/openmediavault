@@ -116,7 +116,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.certificatemgmt.get");
+		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
 		$xpath = sprintf("//system/certificates/sslcertificate[uuid='%s']",
 		  $params['uuid']);
@@ -234,7 +234,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.certificatemgmt.delete");
+		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Check if the certificate is used somewhere.
 		$xpath = sprintf("//sslcertificateref[contains(.,'%s')]",
 		  $params['uuid']);
@@ -263,7 +263,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.certificatemgmt.getdetail");
+		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Check if the module is marked as dirty. This is an indication
 		// that the certificate has not been created or updated until now.
 		if ($this->isModuleDirty("certificatemgmt"))
@@ -480,7 +480,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.certificatemgmt.getssh");
+		$this->validateMethodParams($params, "rpc.certificatemgmt.get");
 		// Get the configuration object.
 		$xpath = sprintf("//system/certificates/sshcertificate[uuid='%s']",
 		  $params['uuid']);
@@ -583,7 +583,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.certificatemgmt.deletessh");
+		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Check if the certificate is used somewhere.
 		$xpath = sprintf("//sshcertificateref[contains(.,'%s')]",
 		  $params['uuid']);

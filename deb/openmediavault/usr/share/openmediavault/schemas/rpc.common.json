@@ -1,5 +1,16 @@
 [{
 	"type": "object",
+	"id": "rpc.common.objectuuid",
+	"description": "Identify an configuration object by its UUID",
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4",
+			"required": true
+		}
+	}
+},{
+	"type": "object",
 	"id": "rpc.common.getlist",
 	"properties": {
 		"start": {
