@@ -73,7 +73,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.certificatemgmt.getlist");
+		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get list of SSL certificate configuration objects.
 		$xpath = "//system/certificates/sslcertificate";
 		$objects = $xmlConfig->getList($xpath);
@@ -397,7 +397,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.certificatemgmt.getsshlist");
+		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get list of SSH certificate configuration objects.
 		$xpath = "//system/certificates/sshcertificate";
 		$objects = $xmlConfig->getList($xpath);

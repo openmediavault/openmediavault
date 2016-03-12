@@ -38,26 +38,6 @@
 	}
 },{
 	"type": "object",
-	"id": "rpc.apt.getupgradedlist",
-	"properties": {
-		"start": {
-			"type": "integer",
-			"required": true
-		},
-		"limit": {
-			"type": [ "integer", "null" ],
-			"required": true
-		},
-		"sortfield": {
-			"type": [ "string", "null" ]
-		},
-		"sortdir": {
-			"type": [ "string", "null" ],
-			"enum": [ "asc", "desc" ]
-		}
-	}
-},{
-	"type": "object",
 	"id": "rpc.apt.getchangelog",
 	"properties": {
 		"filename": {

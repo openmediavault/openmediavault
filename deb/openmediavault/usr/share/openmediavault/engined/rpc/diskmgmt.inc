@@ -117,15 +117,7 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "start":{"type":"integer"},
-				  "limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
-				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
-				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Enumerate all disk devices on the system.
 		$objects = $this->callMethod("enumerateDevices", NULL, $context);
 		// Append additional configuration data.

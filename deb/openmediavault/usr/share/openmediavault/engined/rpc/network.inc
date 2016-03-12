@@ -358,15 +358,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "start":{"type":"integer"},
-				  "limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
-				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
-				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the system network interface devices.
 		$result = $this->callMethod("enumerateDevices", NULL, $context);
 		// Filter the result.
@@ -490,15 +482,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "start":{"type":"integer"},
-				  "limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
-				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
-				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get all network interface configuration objects.
 		$result = $this->callMethod("enumerateConfiguredDevices",
 		  $params, $context);

@@ -1,25 +1,5 @@
 [{
 	"type": "object",
-	"id": "rpc.certificatemgmt.getlist",
-	"properties": {
-		"start": {
-			"type": "integer",
-			"required": true
-		},
-		"limit": {
-			"type": [ "integer", "null" ],
-			"required": true
-		},
-		"sortfield": {
-			"type": [ "string", "null" ]
-		},
-		"sortdir": {
-			"type": [ "string", "null" ],
-			"enum": [ "asc", "desc" ]
-		}
-	}
-},{
-	"type": "object",
 	"id": "rpc.certificatemgmt.get",
 	"properties": {
 		"uuid": {
@@ -105,26 +85,6 @@
 			 "type": "string",
 			 "format": "email"
 		 }
-	}
-},{
-	"type": "object",
-	"id": "rpc.certificatemgmt.getsshlist",
-	"properties": {
-		"start": {
-			"type": "integer",
-			"required": true
-		},
-		"limit": {
-			"type": [ "integer", "null" ],
-			"required": true
-		},
-		"sortfield": {
-			"type": [ "string", "null" ]
-		},
-		"sortdir": {
-			"type": [ "string", "null" ],
-			"enum": [ "asc", "desc" ]
-		}
 	}
 },{
 	"type": "object",

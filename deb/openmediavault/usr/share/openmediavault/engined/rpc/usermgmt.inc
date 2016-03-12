@@ -328,15 +328,7 @@ finish:
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "start":{"type":"integer"},
-				  "limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
-				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
-				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the list of non-system user.
 		$users = $this->enumerateUsersByType("normal");
 		// Process users and append additional information stored in
@@ -801,15 +793,7 @@ finish:
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "start":{"type":"integer"},
-				  "limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
-				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
-				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the list of non-system groups.
 		$groups = $this->enumerateGroupsByType("normal");
 		foreach($groups as $groupk => &$groupv) {

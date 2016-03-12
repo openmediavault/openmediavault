@@ -153,7 +153,7 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.apt.getupgradedlist");
+		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Enumerate all packages that are to be upgraded.
 		$objects = $this->callMethod("enumerateUpgraded", NULL, $context);
 		// Filter result.
