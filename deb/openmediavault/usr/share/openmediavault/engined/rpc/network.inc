@@ -459,10 +459,8 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			// to easily identify the adapter by sight.
 			$cmd = sprintf("export LANG=C; ethtool --identify %s %d 2>&1",
 			  $params['devicename'], $params['seconds']);
-			if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
+				throw new \OMV\ExecException($cmd, $output);
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
 		} catch(Exception $e) {

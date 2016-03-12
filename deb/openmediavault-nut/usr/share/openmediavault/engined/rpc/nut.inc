@@ -148,10 +148,8 @@ class OMVRpcServiceNetworkUPSTools extends OMVRpcServiceAbstract {
 		} else {
 			$cmd = sprintf("export LANG=C; upsc %s 2>&1", escapeshellarg(
 			  $object['upsname']));
-			if (0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			if (0 !== $this->exec($cmd, $output))
+				throw new \OMV\ExecException($cmd, $output);
 			$stats = implode("\n", $output);
 		}
 		return $stats;

@@ -853,10 +853,8 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			$cmd = "/usr/sbin/smartctl";
 			$cmdArgs = array("-t", $test[$object['type']],
 			  $object['devicefile']);
-			if(FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd." ".implode(" ", $cmdArgs), "");
-			}
+			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename))
+				throw new \OMV\ExecException($cmd." ".implode(" ", $cmdArgs));
 		} catch(Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
 			exit(1);

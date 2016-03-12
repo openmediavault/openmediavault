@@ -301,33 +301,25 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 				// Secure wipe the device.
 				$cmd = sprintf("export LANG=C; shred -v -n 1 %s 2>&1",
 				  escapeshellarg($params['devicefile']));
-				if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
-					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-					  $cmd, implode("\n", $output));
-				}
+				if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
+					throw new \OMV\ExecException($cmd, $output);
 			} else {
 				// Quick wipe the device (see omv-initfs).
 				$cmd = sprintf("export LANG=C; sgdisk --zap-all ".
 				  "%s 2>&1", escapeshellarg($params['devicefile']));
-				if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
-					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-					  $cmd, implode("\n", $output));
-				}
+				if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
+					throw new \OMV\ExecException($cmd, $output);
 				// To make sure really everything is wiped ...
 				$cmd = sprintf("export LANG=C; dd if=/dev/zero of=%s bs=4M ".
 				  "count=1 2>&1", escapeshellarg($params['devicefile']));
-				if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
-					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-					  $cmd, implode("\n", $output));
-				}
+				if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
+					throw new \OMV\ExecException($cmd, $output);
 			}
 			// Reread partition table.
 			$cmd = sprintf("export LANG=C; blockdev --rereadpt %s 2>&1",
 			  escapeshellarg($params['devicefile']));
-			if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
+				throw new \OMV\ExecException($cmd, $output);
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
 		} catch(Exception $e) {
@@ -341,7 +333,6 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function rescan($params, $context) {
 		// Validate the RPC caller context.
@@ -349,12 +340,10 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Execute shell script to rescan SCSI bus.
-		$cmd = "[ -x /sys/class/scsi_host ] && for hostdir in ".
+		$script = new \OMV\System\ShellScript(
+		  "[ -x /sys/class/scsi_host ] && for hostdir in ".
 		  "\$(find /sys/class/scsi_host -iname \"host*\" -type l); ".
-		  "do echo \"- - -\" | tee \${hostdir}/scan >/dev/null; done";
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		  "do echo \"- - -\" | tee \${hostdir}/scan >/dev/null; done");
+		$script->execute();
 	}
 }

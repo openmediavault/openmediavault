@@ -329,11 +329,8 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 		// Set the system date.
 		$cmd = sprintf("export LANG=C; date --set='@%d' 2>&1",
 		  $params['timestamp']);
-		OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		if (0 !== $this->exec($cmd, $output))
+			throw new \OMV\ExecException($cmd, $output);
 	}
 
 	/**
@@ -350,12 +347,9 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Set the system date via NTP.
-		$cmd = "ntpd -gq 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = "export LANG=C; ntpd -gq 2>&1";
+		if (0 !== $this->exec($cmd, $output))
+			throw new \OMV\ExecException($cmd, $output);
 	}
 
 	/**

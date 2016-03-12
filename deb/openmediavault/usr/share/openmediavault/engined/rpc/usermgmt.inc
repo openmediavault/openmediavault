@@ -578,10 +578,8 @@ finish:
 			// Create a new user.
 			$cmd = sprintf("export LANG=C; useradd %s %s 2>&1",
 			  implode(" ", $cmdArgs), escapeshellarg($params['name']));
-			if (0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			if (0 !== $this->exec($cmd, $output))
+				throw new \OMV\ExecException($cmd, $output);
 		} else {
 			// Append additional arguments.
 			if (array_key_exists("password", $params) &&
@@ -592,10 +590,8 @@ finish:
 			// Modify existing user.
 			$cmd = sprintf("export LANG=C; usermod %s %s 2>&1",
 			  implode(" ", $cmdArgs), escapeshellarg($params['name']));
-			if (0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			if (0 !== $this->exec($cmd, $output))
+				throw new \OMV\ExecException($cmd, $output);
 		}
 		// Append some more information to the notification object.
 		$object = array_merge($object, $params);
@@ -676,10 +672,8 @@ finish:
 		// Delete the user.
 		$cmd = sprintf("export LANG=C; userdel --force %s 2>&1",
 		  escapeshellarg($params['name']));
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		if (0 !== $this->exec($cmd, $output))
+			throw new \OMV\ExecException($cmd, $output);
 		// Delete additional user information stored in database.
 		$xpath = sprintf("//system/usermanagement/users/user[name='%s']",
 		  $params['name']);
@@ -951,10 +945,8 @@ finish:
 			// Create new group.
 			$cmd = sprintf("export LANG=C; groupadd %s %s 2>&1",
 			  implode(" ", $cmdArgs), escapeshellarg($params['name']));
-			if(0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			if (0 !== $this->exec($cmd, $output))
+				throw new \OMV\ExecException($cmd, $output);
 		} else {
 			// Nothing to do here.
 		}
@@ -971,10 +963,8 @@ finish:
 			$cmdArgs[] = escapeshellarg(implode(",", $params['members']));
 			$cmd = sprintf("export LANG=C; gpasswd %s %s 2>&1",
 			  implode(" ", $cmdArgs), escapeshellarg($params['name']));
-			if(0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			if (0 !== $this->exec($cmd, $output))
+				throw new \OMV\ExecException($cmd, $output);
 		}
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
@@ -1013,10 +1003,8 @@ finish:
 		// Delete the group.
 		$cmd = sprintf("export LANG=C; delgroup --only-if-empty %s 2>&1",
 		  escapeshellarg($params['name']));
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		if (0 !== $this->exec($cmd, $output))
+			throw new \OMV\ExecException($cmd, $output);
 		// Delete configuration object.
 		$xpath = sprintf("//system/usermanagement/groups/group[name='%s']",
 		  $params['name']);
@@ -1200,10 +1188,8 @@ finish:
 			}
 			$cmd = sprintf("usermod %s %s 2>&1", implode(" ", $cmdArgs),
 			  escapeshellarg($userv['name']));
-			if(0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			if (0 !== $this->exec($cmd, $output))
+				throw new \OMV\ExecException($cmd, $output);
 			// Create the home directory if it does not exist until now.
 			if (!empty($homeDirPath)) {
 				$path = build_path(array($homeDirPath, $userv['name']));

@@ -25,7 +25,7 @@ namespace OMV\System;
  * @ingroup api
  */
 class Process {
-	private $command;
+	private $cmdArgs = array();
 	private $redirect2to1 = FALSE;
 	private $quiet = FALSE;
 	private $background = FALSE;
@@ -34,24 +34,28 @@ class Process {
 		"LANG=C"
 	);
 
+	/**
+	 * Example:
+	 * $cmd = new \OMV\System\Process("ls -alh");
+	 * $cmd = new \OMV\System\Process("ls", "-al", "-h");
+	 * $cmd = new \OMV\System\Process(array("ls", "-alh"));
+	 * $cmd = new \OMV\System\Process("ls", array("-a", "-l", "-h"));
+	 */
 	public function __construct() {
 		$args = func_get_args();
 		if (1 == func_num_args() && is_string($args[0])) {
-			$this->command = $args[0];
+			$this->cmdArgs[] = $args[0];
 		} else if (1 == func_num_args() && is_array($args[0])) {
-			$this->command = $args[0];
+			$this->cmdArgs = $args[0];
 		} else if (2 == func_num_args() && is_string($args[0])) {
-			$this->command = array();
-			$this->command[] = $args[0];
+			$this->cmdArgs[] = $args[0];
 			if (is_array($args[1]))
-				$this->command = array_merge($this->command, $args[1]);
+				$this->cmdArgs = array_merge($this->cmdArgs, $args[1]);
 			else
-				$this->command[] = $args[1];
+				$this->cmdArgs[] = $args[1];
 		} else {
-			$this->command = $args;
+			$this->cmdArgs = $args;
 		}
-		if (is_array($this->command))
-			$this->command = implode(" ", $this->command);
 	}
 
 	public function setRedirect2to1($enable = TRUE) {
@@ -66,19 +70,23 @@ class Process {
 		$this->background = $background;
 	}
 
-	public function execute(&$output = NULL, &$exitStatus = NULL) {
-		$parts = array();
+	public function getCommandLine() {
+		$cmdArgs = array();
 		foreach ($this->env as $env)
-			$parts[] = sprintf("export %s;", $env);
-		$parts[] = $this->command;
+			$cmdArgs[] = sprintf("export %s;", $env);
+		$cmdArgs = array_merge($cmdArgs, $this->cmdArgs);
 		if (TRUE === $this->redirect2to1)
-			$parts[] = "2>&1";
+			$cmdArgs[] = "2>&1";
 		if (TRUE === $this->background)
-			$parts[] = "&";
-		$command = implode(" ", $parts);
-		$result = exec($command, $output, $exitStatus);
-		if ((FALSE === $this->quiet) && ($exitStatus !== 0))
-			throw new \OMV\ExecException($command, $output);
+			$cmdArgs[] = "&";
+		return implode(" ", $cmdArgs);
+	}
+
+	public function execute(&$output = NULL, &$exitStatus = NULL) {
+		$cmdLine = $this->getCommandLine();
+		$result = exec($cmdLine, $output, $exitStatus);
+		if ((FALSE === $this->quiet) && (0 !== $exitStatus))
+			throw new \OMV\ExecException($cmdLine, $output);
 		return $result;
 	}
 }

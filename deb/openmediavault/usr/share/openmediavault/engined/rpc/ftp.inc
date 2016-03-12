@@ -642,24 +642,20 @@ class OMVRpcServiceFtp extends OMVRpcServiceAbstract {
 		} else {
 			// Get users currently logged in.
 			$stats = sprintf("%s\n", gettext("Currently logged in users:"));
-			$cmd = "ftpwho -v 2>&1";
-			if(0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			$cmd = "export LANG=C; ftpwho -v 2>&1";
+			if (0 !== $this->exec($cmd, $output))
+				throw new \OMV\ExecException($cmd, $output);
 			array_shift($output);
 			$stats .= implode("\n", $output);
 			// Get ban list if module is enabled.
 			$xpath = "//services/ftp/modules/mod_ban/rule";
 			if(TRUE === $xmlConfig->exists($xpath)) {
 				$stats .= sprintf("\n\n%s\n", gettext("Ban statistics:"));
-				$cmd = "ftpdctl -s /var/run/proftpd/proftpd.sock ".
+				$cmd = "export LANG=C; ftpdctl -s /var/run/proftpd/proftpd.sock ".
 				  "ban info -v -e 2>&1";
-				if(0 !== $this->exec($cmd, $output)) {
-					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-					  $cmd, implode("\n", $output));
-				}
-				foreach($output as &$outputv) {
+				if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
+					throw new \OMV\ExecException($cmd, $output);
+				foreach ($output as &$outputv) {
 					$outputv = preg_replace("/^ftpdctl:/", "", $outputv);
 				}
 				$stats .= implode("\n", $output);

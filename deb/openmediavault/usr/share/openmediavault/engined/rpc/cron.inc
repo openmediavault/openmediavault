@@ -280,6 +280,7 @@ class OMVRpcServiceCron extends OMVRpcServiceAbstract {
 			// Execute the cron command line in a shell.
 			// Note, we need to set the shell, otherwise the users shell
 			// is used instead of the shebang of the command script.
+			$cmd = "/bin/su";
 			$cmdArgs = array();
 			$cmdArgs[] = "--command";
 			$cmdArgs[] = $object['command'];
@@ -287,11 +288,8 @@ class OMVRpcServiceCron extends OMVRpcServiceAbstract {
 			$cmdArgs[] = "--shell";
 			$cmdArgs[] = "/bin/sh";
 			$cmdArgs[] = $object['username'];
-			if (FALSE === $this->execve("/bin/su", $cmdArgs,
-			  $bgOutputFilename)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd." ".implode(" ", $cmdArgs), "");
-			}
+			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename))
+				throw new \OMV\ExecException($cmd." ".implode(" ", $cmdArgs));
 		} catch(Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
 			exit(1);

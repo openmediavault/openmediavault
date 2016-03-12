@@ -61,10 +61,8 @@ class OMVRpcServiceRrd extends OMVRpcServiceAbstract {
 		// Child process.
 		try {
 			$cmd = "export LANG=C; omv-mkgraph 2>&1";
-			if(0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			if (0 !== $this->exec($cmd, $output))
+				throw new \OMV\ExecException($cmd, $output);
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
 		} catch(Exception $e) {

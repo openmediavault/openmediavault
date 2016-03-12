@@ -436,10 +436,8 @@ class OMVRpcServiceSmb extends OMVRpcServiceAbstract {
 			$cmdArgs[] = sprintf("%s/samba-recycle-%s",
 			  $GLOBALS['OMV_CRONSCRIPTS_DIR'], $params['uuid']);
 			$cmdArgs[] = "-f";
-			if(FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd." ".implode(" ", $cmdArgs), "");
-			}
+			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename))
+				throw new \OMV\ExecException($cmd." ".implode(" ", $cmdArgs));
 		} catch(Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
 			exit(1);
@@ -470,11 +468,9 @@ class OMVRpcServiceSmb extends OMVRpcServiceAbstract {
 		if (!boolvalEx($object['enable'])) {
 			$stats = gettext("Service disabled");
 		} else {
-			$cmd = "smbstatus -u 2>&1";
-			if(0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			$cmd = "export LANG=C; smbstatus -u 2>&1";
+			if (0 !== $this->exec($cmd, $output))
+				throw new \OMV\ExecException($cmd, $output);
 			array_shift($output);
 			array_shift($output);
 			$stats = implode("\n", $output);

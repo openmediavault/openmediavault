@@ -19,15 +19,28 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV;
+namespace OMV\System;
 
 /**
  * @ingroup api
  */
-class ExecException extends \Exception {
-	public function __construct($command, array $output = array()) {
-		$message = sprintf("Failed to execute command '%s': %s", $command,
-		  implode("\n", $output));
-		parent::__construct($message);
+class ShellScript {
+	private $script = array();
+	private $quiet = FALSE;
+
+	public function __construct($script) {
+		$this->script = $script;
+	}
+
+	public function setQuiet($quiet = TRUE) {
+		$this->quiet = $quiet;
+	}
+
+	public function execute(&$output = NULL, &$exitStatus = NULL) {
+		$cmdLine = $this->script;
+		$result = exec($cmdLine, $output, $exitStatus);
+		if ((FALSE === $this->quiet) && (0 !== $exitStatus))
+			throw new \OMV\ExecException($cmdLine, $output);
+		return $result;
 	}
 }

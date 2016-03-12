@@ -273,11 +273,10 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 			$cmdArgs[] = $params['name'];
 		}
 		$cmdArgs[] = implode(" ", $devices);
-		$cmd = sprintf("omv-mkraid %s 2>&1", implode(" ", $cmdArgs));
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = sprintf("export LANG=C;omv-mkraid %s 2>&1",
+		  implode(" ", $cmdArgs));
+		if (0 !== $this->exec($cmd, $output))
+			throw new \OMV\ExecException($cmd, $output);
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_CREATE,
@@ -329,10 +328,8 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		$cmd = sprintf("export LANG=C; mdadm --manage %s --add %s 2>&1",
 		  escapeshellarg($raid->getDeviceFile()), implode(" ",
 		  $newDevices));
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		if (0 !== $this->exec($cmd, $output))
+			throw new \OMV\ExecException($cmd, $output);
 		// Now grow the RAID.
 		// See for more details:
 		// https://raid.wiki.kernel.org/index.php/Growing
@@ -342,10 +339,8 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		$cmdArgs[] = sprintf("--raid-devices=%d", $numDevices);
 		$cmd = sprintf("export LANG=C; mdadm %s %s 2>&1", implode(" ",
 		  $cmdArgs), escapeshellarg($raid->getDeviceFile()));
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		if (0 !== $this->exec($cmd, $output))
+			throw new \OMV\ExecException($cmd, $output);
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
@@ -396,10 +391,8 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		// Add new devices to the RAID device.
 		$cmd = sprintf("export LANG=C; mdadm --manage %s --add %s 2>&1",
 		  escapeshellarg($raid->getDeviceFile()), implode(" ", $newDevices));
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		if (0 !== $this->exec($cmd, $output))
+			throw new \OMV\ExecException($cmd, $output);
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
@@ -453,16 +446,12 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		// RAID device.
 		$cmd = sprintf("export LANG=C; mdadm --manage %s --fail %s 2>&1",
 		  escapeshellarg($raid->getDeviceFile()), implode(" ", $rmDevices));
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		if (0 !== $this->exec($cmd, $output))
+			throw new \OMV\ExecException($cmd, $output);
 		$cmd = sprintf("export LANG=C; mdadm --manage %s --remove %s 2>&1",
 		  escapeshellarg($raid->getDeviceFile()), implode(" ", $rmDevices));
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			$cmd, implode("\n", $output));
-		}
+		if (0 !== $this->exec($cmd, $output))
+			throw new \OMV\ExecException($cmd, $output);
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
@@ -511,11 +500,9 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 			"devices" => $raid->getSlaves()
 		);
 		// Delete the RAID device.
-		$cmd = sprintf("omv-rmraid %s", $raid->getDeviceFile());
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmd = sprintf("export LANG=C; omv-rmraid %s", $raid->getDeviceFile());
+		if (0 !== $this->exec($cmd, $output))
+			throw new \OMV\ExecException($cmd, $output);
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,

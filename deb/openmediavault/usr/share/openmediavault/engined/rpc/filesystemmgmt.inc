@@ -603,38 +603,30 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				// Wipe existing filesystems.
 				$cmd = sprintf("export LANG=C; wipefs -a %s 2>&1",
 				  $sd->getDeviceFile());
-				if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
-					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-					  $cmd, implode("\n", $output));
-				}
+				if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
+					throw new \OMV\ExecException($cmd, $output);
 				// No need to create a partition.
 				break;
 			default:
 				// Wipe existing filesystems.
 				$cmd = sprintf("export LANG=C; sgdisk --zap-all %s 2>&1",
 				  escapeshellarg($sd->getDeviceFile()));
-				if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
-					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-					  $cmd, implode("\n", $output));
-				}
+				if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
+					throw new \OMV\ExecException($cmd, $output);
 				// Use entire device.
 				$cmd = sprintf("export LANG=C; sgdisk --new=1:0:0 ".
 				  "--typecode=1:8300 --print %s 2>&1", escapeshellarg(
 				  $sd->getDeviceFile()));
-				if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
-					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-					  $cmd, implode("\n", $output));
-				}
+				if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
+					throw new \OMV\ExecException($cmd, $output);
 				sleep(2);
 				break;
 			}
 			// Reread partition table.
 			$cmd = sprintf("export LANG=C; partprobe %s", escapeshellarg(
 			  $sd->getDeviceFile()));
-			if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
+				throw new \OMV\ExecException($cmd, $output);
 			// Create the filesystem.
 			$cmdArgs = array();
 			$cmdArgs[] = "-V";
@@ -647,10 +639,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			$cmdArgs[] = $fsDeviceFile;
 			$cmd = sprintf("export LANG=C; mkfs %s 2>&1", implode(" ",
 			  $cmdArgs));
-			if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
+				throw new \OMV\ExecException($cmd, $output);
 			// Notify configuration changes.
 			$dispatcher = &OMVNotifyDispatcher::getInstance();
 			$dispatcher->notify(OMV_NOTIFY_CREATE,
@@ -1036,10 +1026,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				  $params['id']));
 			}
 			if (TRUE === $fs->isMounted()) {
-				if (FALSE === $fs->umount(TRUE)) {
-					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-					  $cmd, $fs->getLastError());
-				}
+				if (FALSE === $fs->umount(TRUE))
+					throw new \OMV\ExecException($cmd, $fs->getLastError());
 			}
 		}
 	}

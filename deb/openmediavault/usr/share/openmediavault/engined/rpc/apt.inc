@@ -234,9 +234,9 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
 			// Update package database.
-			$cmd = "export LANG=C; apt-get update 2>&1";
-			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
-				throw new \OMV\ExecException($cmd, $output);
+			$cmd = new \OMV\System\Process("apt-get", "update");
+			$cmd->setRedirect2to1(TRUE);
+			$cmd->execute();
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
 		} catch(Exception $e) {
@@ -329,11 +329,16 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			// the command output to the backgropund output file. Only the
 			// changelog will be redirected to this file.
 			if (!file_exists($packageArchivePath)) {
-				$cmd = sprintf("export LANG=C; apt-get --yes --force-yes ".
-				  "--download-only --reinstall install %s 2>&1",
-				  escapeshellarg($packageName));
-				if (0 !== $this->exec($cmd, $output))
-					throw new \OMV\ExecException($cmd, $output);
+				$cmdArgs = array();
+				$cmdArgs[] = "--yes";
+				$cmdArgs[] = "--force-yes";
+				$cmdArgs[] = "--download-only";
+				$cmdArgs[] = "--reinstall";
+				$cmdArgs[] = "install";
+				$cmdArgs[] = escapeshellarg($packageName);
+				$cmd = new \OMV\System\Process("apt-get", $cmdArgs);
+				$cmd->setRedirect2to1(TRUE);
+				$cmd->execute();
 			}
 			// Extract the changelog from the Debian package.
 			if (FALSE === ($tmpDir = mkdtemp())) {

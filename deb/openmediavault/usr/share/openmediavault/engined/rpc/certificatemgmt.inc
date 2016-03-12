@@ -269,13 +269,18 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 		if ($this->isModuleDirty("certificatemgmt"))
 			throw new OMVException(OMVErrorMsg::E_CONFIG_DIRTY);
 		// Get certificate details.
-		$cmd = sprintf("openssl x509 -text -noout -in ".
-		  "%s/certs/%s%s.crt 2>&1", $GLOBALS['OMV_SSL_CERTIFICATE_DIR'],
-		  $GLOBALS['OMV_SSL_CERTIFICATE_PREFIX'], $params['uuid']);
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$cmdArgs = array();
+		$cmdArgs[] = "x509";
+		$cmdArgs[] = "-text";
+		$cmdArgs[] = "-noout";
+		$cmdArgs[] = "-in";
+		$cmdArgs[] = sprintf("%s/certs/%s%s.crt",
+		  $GLOBALS['OMV_SSL_CERTIFICATE_DIR'],
+		  $GLOBALS['OMV_SSL_CERTIFICATE_PREFIX'],
+		  $params['uuid']);
+		$cmd = new \OMV\System\Process("openssl", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute($output);
 		return implode("\n", $output);
 	}
 
@@ -335,18 +340,28 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 		// http://www.zytrax.com/tech/survival/ssl.html
 		$keyfile = tempnam(sys_get_temp_dir(), "cert");
 		$crtfile = tempnam(sys_get_temp_dir(), "cert");
-		$cmd = sprintf("export LANG=C; openssl req -x509 -nodes -days %d ".
-		  "-sha256 -batch -newkey rsa:%d -keyout %s -out %s",
-		  $params['days'], $params['size'], $keyfile, $crtfile);
+
+
+		$cmdArgs = array();
+		$cmdArgs[] = "req";
+		$cmdArgs[] = "-x509";
+		$cmdArgs[] = sprintf("-days %d", $params['days']);
+		$cmdArgs[] = "-sha256";
+		$cmdArgs[] = "-batch";
+		$cmdArgs[] = sprintf("-newkey rsa:%d", $params['size']);
+		$cmdArgs[] = sprintf("-keyout %s", escapeshellarg($keyfile));
+		$cmdArgs[] = sprintf("-out %s", escapeshellarg($crtfile));
 		if (!empty($subject))
-			$cmd .= sprintf(" -subj '%s'", $subject);
-		$cmd .= " 2>&1";
-		if (0 !== $this->exec($cmd, $output)) {
+			$cmdArgs[] = sprintf("-subj %s", escapeshellarg($subject));
+		$cmd = new \OMV\System\Process("openssl", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->setQuiet(TRUE);
+		$cmd->execute($output, $exitStatus);
+		if (0 !== $exitStatus) {
 			// Unlink the temporary files.
 			unlink($keyfile);
 			unlink($crtfile);
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+			throw new \OMV\ExecException($cmd->getCommandLine(), $output);
 		}
 		// Read certificate and key content, then unlink the temporary files.
 		$keydata = file_get_contents($keyfile);
@@ -434,8 +449,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			// Unlink the temporary files.
 			unlink($file);
 			unlink($file.".pub");
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+			throw new \OMV\ExecException($cmd, $output);
 		}
 		// Read certificate and key content, then unlink the temporary files.
 		$privatekey = file_get_contents($file);

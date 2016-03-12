@@ -577,10 +577,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			  $object['reldirpath']));
 			// Delete the shared folder directory.
 			$cmd = sprintf("rm -fr %s 2>&1", escapeshellarg($dirPath));
-			if(0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			if (0 !== $this->exec($cmd, $output))
+				throw new \OMV\ExecException($cmd, $output);
 		}
 		// Delete the configuration object.
 		$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
@@ -929,10 +927,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 		$cmd = sprintf("export LANG=C; getfacl --no-effective ".
 		  "--access -- %s 2>&1", escapeshellarg(build_path(array($sfpath,
 		  $params['file']))));
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		if (0 !== $this->exec($cmd, $output))
+			throw new \OMV\ExecException($cmd, $output);
 		// Prepare result object.
 		$result = array(
 			"file" => NULL,
@@ -1160,10 +1156,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 				$cmd = sprintf("export LANG=C; chown %s %s 2>&1", implode(
 				  " ", $cmdargs), escapeshellarg(build_path(array($sfpath,
 				  $params['file']))));
-				if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
-					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-					  $cmd, implode("\n", $output));
-				}
+				if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
+					throw new \OMV\ExecException($cmd, $output);
 			}
 			////////////////////////////////////////////////////////////////////
 			// 2. Update the directory/file access control lists
@@ -1215,10 +1209,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			$cmd = sprintf("export LANG=C; setfacl %s -- %s 2>&1", implode(
 			  " ", $cmdargs), escapeshellarg(build_path(array($sfpath,
 			  $params['file']))));
-			if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
+				throw new \OMV\ExecException($cmd, $output);
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			// Cleanup ACL entries file.
 			unlink($aclspecFile);

@@ -453,10 +453,8 @@ class OMVRpcServiceClamAV extends OMVRpcServiceAbstract {
 			$cmdArgs = array();
 			$cmdArgs[] = sprintf("%s/clamdscan-%s",
 			  $GLOBALS['OMV_CRONSCRIPTS_DIR'], $params['uuid']);
-			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd." ".implode(" ", $cmdArgs), "");
-			}
+			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename))
+				throw new \OMV\ExecException($cmd." ".implode(" ", $cmdArgs));
 		} catch(Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
 			exit(1);

@@ -167,10 +167,8 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 			  "export DEBIAN_FRONTEND=noninteractive; apt-get --yes ".
 			  "--auto-remove --purge remove %s 2>&1",
 			  implode(" ", $params['packages']));
-			if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
+				throw new \OMV\ExecException($cmd, $output);
 			// Finalize the background process.
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
@@ -208,10 +206,8 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 		$cmd = sprintf("export LANG=C; dpkg --field %s | ".
 		  "grep 'Package: ' | awk '{print \$2}'", escapeshellarg(
 		  $params['filepath']));
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		if (0 !== $this->exec($cmd, $output))
+			throw new \OMV\ExecException($cmd, $output);
 		$packageName = end($output);
 		// Get product informations.
 		$prd = new \OMV\ProductInfo();
@@ -274,10 +270,8 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 			  "export DEBIAN_FRONTEND=noninteractive; apt-get --yes ".
 			  "--force-yes --fix-missing --allow-unauthenticated --reinstall ".
 			  "install %s 2>&1", implode(" ", $params['packages']));
-			if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
+				throw new \OMV\ExecException($cmd, $output);
 			// Finalize the background process.
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);

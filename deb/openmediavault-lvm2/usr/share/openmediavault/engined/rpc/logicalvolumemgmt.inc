@@ -208,12 +208,10 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 		  }');
 		// Make sure the disk device is clean, no partition table
 		// should exist, otherwise pvcreate fails.
-		$cmd = sprintf("dd if=/dev/zero of=%s bs=512 count=1 2>&1",
+		$cmd = sprintf("export LANG=C; dd if=/dev/zero of=%s bs=512 count=1 2>&1",
 		  $params['devicefile']);
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		if (0 !== $this->exec($cmd, $output))
+			throw new \OMV\ExecException($cmd, $output);
 		// Create the physical volume.
 		$pv = new OMVLvmPhysicalVolume($params['devicefile']);
 		if (!$pv->create()) {
