@@ -22,7 +22,8 @@
 require_once("openmediavault/autoloader.inc");
 
 /**
- * Collapses a multi-dimensional array into a single dimension.
+ * Collapses a multi-dimensional array into a single dimension using
+ * dot notation.
  * @ingroup api
  * @param array The array to flatten.
  * @return A single-dimensional array.
@@ -353,7 +354,8 @@ function is_multiarray($var) {
  * @return TRUE if the variable is an associative array, otherwise FALSE.
  */
 function is_assoc($var) {
-	return array_keys($var) !== range(0, count($var) - 1);
+	$keys = array_keys($array);
+	return array_keys($keys) !== $keys;
 }
 
 /**
