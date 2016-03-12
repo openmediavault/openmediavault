@@ -70,6 +70,10 @@ class ConfigObject extends \OMV\BaseObject {
 		$fn = function($model, $name, $path, $schema, &$userData) {
 			switch ($schema['type']) {
 			case "array":
+				$userData[$path] = $model->getPropertyDefault($path);
+				// Do not process the array items.
+				return FALSE;
+				break;
 			case "object":
 				// Nothing to do here.
 				break;

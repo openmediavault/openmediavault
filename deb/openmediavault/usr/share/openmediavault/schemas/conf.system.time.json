@@ -15,7 +15,8 @@
 					"default": 0
 				},
 				"timeservers": {
-					"type": "string"
+					"type": "string",
+					"defaults": "pool.ntp.org,pool1.ntp.org;pool2.ntp.org"
 				}
 			}
 		}

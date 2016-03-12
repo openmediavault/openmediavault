@@ -78,6 +78,13 @@ class Schema extends \OMV\BaseObject {
 			throw new SchemaPathException("Invalid path '%s' syntax.", $path);
 		// Explode the path parts.
 		$parts = explode(".", $path);
+
+
+		// Filter array indices from the path in dot notation.
+		// Example: shares.share.0.uuid
+		$parts = array_filter($parts, function($v) { return !is_numeric($v); });
+
+
 		// Do we have reached the end of the path?
 		if ((1 >= count($parts)) && empty($parts[0]))
 			return $schema;
@@ -94,6 +101,17 @@ class Schema extends \OMV\BaseObject {
 			}
 			return $this->_getSchemaByPath($path, $schema['properties']);
 		}
+
+		// Do we process an 'array' node?
+		if (array_key_exists("type", $schema) && is_string($schema['type']) &&
+		  ("array" == $schema['type'])) {
+
+print_r($path);
+print_r($schema);
+
+			return $this->_getSchemaByPath(implode(".", $parts), $schema['items']);
+		}
+
 		$key = array_shift($parts);
 		// Check if the node has the requested key/value pair.
 		if (!array_key_exists($key, $schema))
