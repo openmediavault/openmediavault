@@ -19,8 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/error.inc");
 require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/notify.inc");
 
@@ -45,7 +43,6 @@ class OMVRpcServiceTftp extends OMVRpcServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function get($params, $context) {
 		global $xmlConfig;
@@ -54,19 +51,9 @@ class OMVRpcServiceTftp extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$xpath = "//services/tftp";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify the result data.
-		$object['enable'] = boolvalEx($object['enable']);
-		$object['port'] = intval($object['port']);
-		$object['blocksize'] = intval($object['blocksize']);
-		$object['retransmit'] = intval($object['retransmit']);
-		$object['allownewfiles'] = boolvalEx($object['allownewfiles']);
-		return $object;
+		$db = &\OMV\Config\Database::getInstance();
+		$object = $db->get("//services/tftp", "conf.service.tftp");
+		return $object->getAssoc();
 	}
 
 	/**
@@ -74,7 +61,6 @@ class OMVRpcServiceTftp extends OMVRpcServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function set($params, $context) {
 		global $xmlConfig;
@@ -83,39 +69,19 @@ class OMVRpcServiceTftp extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "enable":{"type":"boolean"},
-				  "port":{"type":"integer","minimum":1,"maximum":65535},
-				  "retransmit":{"type":"integer","minimum":0},
-				  "blocksize":{"type":"integer","minimum":512,"maximum":65464},
-				  "allownewfiles":{"type":"boolean"},
-				  "sharedfolderref":{'.
-					$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].'},
-				  "extraoptions":{"type":"string"}
-			  }
-		  }');
-		// Prepare the configuration data.
-		$object = array(
-			"enable" => array_boolval($params, 'enable'),
-			"port" => $params['port'],
-			"retransmit" => $params['retransmit'],
-			"blocksize" => $params['blocksize'],
-			"allownewfiles" => array_boolval($params, 'allownewfiles'),
-			"sharedfolderref" => $params['sharedfolderref'],
-			"extraoptions" => $params['extraoptions']
-		);
-		// Set the configuration object.
-		$xpath = "//services/tftp";
-		if(FALSE === $xmlConfig->replace($xpath, $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$this->validateMethodParams($params, "rpc.tftp.set");
+		// Prepare the configuration object.
+		$object = new \OMV\Config\ConfigObject("conf.service.tftp");
+		$object->setAssoc($params);
+		// Update the configuration object.
+		$db = &\OMV\Config\Database::getInstance();
+		$db->replace("//services/tftp", $object);
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.tftp", $object);
+		  "org.openmediavault.services.tftp",
+		  $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 }

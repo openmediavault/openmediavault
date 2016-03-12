@@ -145,9 +145,6 @@ class Schema extends \OMV\BaseObject {
 		// Check if the node has the requested key/value pair.
 		if (!array_key_exists($key, $schema))
 			throw new SchemaPathException("Invalid path '%s'.", $path);
-		// Do we have found the requested node?
-		if (0 == count($parts))
-			return $schema[$key];
 		// Continue to walk down the tree.
 		return $this->_getSchemaByPath(implode(".", $parts), $schema[$key]);
 	}

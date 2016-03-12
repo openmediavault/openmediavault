@@ -19,10 +19,8 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/error.inc");
 require_once("openmediavault/rpcservice.inc");
-require_once("openmediavault/functions.inc");
+require_once("openmediavault/notify.inc");
 
 class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 	/**
@@ -51,7 +49,6 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function getSettings($params, $context) {
 		// Validate the RPC caller context.
@@ -70,7 +67,6 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function setSettings($params, $context) {
 		// Validate the RPC caller context.
@@ -113,7 +109,6 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 	 *   \em abstract and \em homepage. The following fields are
 	 *   optional: \em description, \em depends, \em replaces and
 	 *   \em conflicts.
-	 * @throw E_EXEC_FAILED
 	 */
 	function enumerateUpgraded($params, $context) {
 		// Validate the RPC caller context.
@@ -124,7 +119,7 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 		// be updated automatically via APT trigger.
 		$indexFile = new \OMV\Json\File($GLOBALS['OMV_APT_UPGRADE_INDEX_FILE']);
 		if (!$indexFile->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			throw new \OMV\Exception(
 			  "The index of upgradeable packages does not exist. Please ".
 			  "re-synchronize the package index files from their sources.");
 		}
@@ -151,7 +146,6 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 	 *   \em abstract and \em homepage. The following fields are
 	 *   optional: \em description, \em extendeddescription, \em depends,
 	 *   \em replaces and \em conflicts.
-	 * @throw E_EXEC_FAILED
 	 */
 	function getUpgradedList($params, $context) {
 		// Validate the RPC caller context.
@@ -202,10 +196,8 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			  "--allow-unauthenticated --show-upgraded --option ".
 			  "DPkg::Options::=\"--force-confold\" install %s 2>&1",
 			  implode(" ", $params['packages']));
-			if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
+				throw new \OMV\ExecException($cmd, $output);
 			// Finalize the background process.
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
@@ -243,10 +235,8 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			  $bgOutputFilename);
 			// Update package database.
 			$cmd = "export LANG=C; apt-get update 2>&1";
-			if(0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
+				throw new \OMV\ExecException($cmd, $output);
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
 		} catch(Exception $e) {
@@ -262,8 +252,6 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 	 *   \em filepath The path to the uploaded file.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_MISC_FAILURE
-	 * @throw E_EXEC_FAILED
 	 */
 	function upload($params, $context) {
 		// Validate the RPC caller context.
@@ -275,26 +263,24 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 		// Check the file type.
 		$finfo = new finfo(FILEINFO_NONE);
 		$fileType = $finfo->file($params['filepath']);
-		if(0 == preg_match("/^Debian binary package.+$/", $fileType)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to upload file '%s'. The file is " .
-			  "no Debian binary package.", $params['filename']));
+		if (0 == preg_match("/^Debian binary package.+$/", $fileType)) {
+			throw new \OMV\Exception(
+			  "Failed to upload the file '%s'. It is no Debian binary package.",
+			  $params['filename']);
 		}
 		// Move file to local package archive.
 		if (!rename($params['filepath'], build_path(array(
 		  $GLOBALS['OMV_DPKGARCHIVE_DIR'], $params['filename'])))) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  "Failed to move package '%s' to local package repository.",
-			  $params['filename']));
+			throw new \OMV\Exception(
+			  "Failed to move the package '%s' to local package repository.",
+			  $params['filename']);
 		}
 		// Create the 'Packages' file required by local APT archives.
 		// The 'packages' command should be run in the root of the tree.
 		$cmd = sprintf("export LANG=C; cd %s && apt-ftparchive " .
 		  "packages . > Packages", $GLOBALS['OMV_DPKGARCHIVE_DIR']);
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		if (0 !== $this->exec($cmd, $output))
+			throw new \OMV\ExecException($cmd, $output);
 	}
 
 	/**
@@ -307,8 +293,6 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 	 *   </ul>
 	 * @param context The context of the caller.
 	 * @return The name of the background process status file.
-	 * @throw E_EXEC_FAILED
-	 * @throw E_MISC_FAILURE
 	 */
 	function getChangeLog($params, $context) {
 		// Validate the RPC caller context.
@@ -348,23 +332,19 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 				$cmd = sprintf("export LANG=C; apt-get --yes --force-yes ".
 				  "--download-only --reinstall install %s 2>&1",
 				  escapeshellarg($packageName));
-				if (0 !== $this->exec($cmd, $output)) {
-					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-					  $cmd, implode("\n", $output));
-				}
+				if (0 !== $this->exec($cmd, $output))
+					throw new \OMV\ExecException($cmd, $output);
 			}
 			// Extract the changelog from the Debian package.
 			if (FALSE === ($tmpDir = mkdtemp())) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  "Failed to created temporary directory.");
+				throw new \OMV\Exception(
+				  "Failed to created a temporary directory.");
 			}
 			$cmd = sprintf("export LANG=C; dpkg-deb --fsys-tarfile %s | ".
 			  "tar -x --wildcards -C %s ./usr/share/doc/%s/changelog* 2>&1",
 			  escapeshellarg($packageArchivePath), $tmpDir, $packageName);
-			if (0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+			if (0 !== $this->exec($cmd, $output))
+				throw new \OMV\ExecException($cmd, $output);
 			// Process the extracted changelog. Note, the file is also
 			// compressed.
 			$found = FALSE;
@@ -375,19 +355,15 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 					// Extract the changelog content and redirect it to the
 					// background output file.
 					$cmd = sprintf("export LANG=C; gzip -dc < %s", $filepath);
-					if(0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
-						throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-						  $cmd, implode("\n", $output));
-					}
+					if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
+						throw new \OMV\ExecException($cmd, $output);
 					$found = TRUE;
 					break;
 				}
 			}
 			// Changelog found?
-			if (FALSE === $found) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  "No changelog found.");
-			}
+			if (FALSE === $found)
+				throw new \OMV\Exception("No changelog found.");
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
 		} catch(Exception $e) {
