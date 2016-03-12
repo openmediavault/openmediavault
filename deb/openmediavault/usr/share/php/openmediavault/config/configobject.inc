@@ -57,11 +57,41 @@ class ConfigObject extends \OMV\BaseObject {
 	}
 
 	/**
-	 * Get all properties.
+	 * Get all properties as an associative array.
+	 * Example:
+	 * Array
+	 * (
+	 *     [timezone] => Europe/Berlin
+	 *     [ntp] => Array
+	 *         (
+	 *             [enable] => 1
+	 *             [timeservers] => pool.ntp.org,pool1.ntp.org;pool2.ntp.org,sss
+	 *         )
+	 * )
 	 * @return The array of key/value pairs.
 	 */
 	public function getAssoc() {
-		return array_expand($this->properties);
+		return array_expand($this->getIndexed());
+	}
+
+	/**
+	 * Get all properties as an array with the keys in dot notation.
+	 * Example:
+	 * [winssupport] =>
+	 * [winsserver] =>
+	 * [homesenable] =>
+	 * [homesbrowseable] => 1
+	 * [extraoptions] =>
+	 * [shares.share.0.uuid] => 1837f560-2589-47ff-98ba-287dc3b73c3f
+	 * [shares.share.0.enable] => 1
+	 * [shares.share.0.sharedfolderref] => e03ee0fc-4c82-4bbe-ad2e-2d7f76774be0
+	 * [shares.share.0.name] => dfsdfs
+	 * [shares.share.0.comment] =>
+	 * [shares.share.0.guest] => no
+	 * @return The array of key/value pairs in dot notation.
+	 */
+	public function getIndexed() {
+		return $this->properties;
 	}
 
 	public function getDefaults() {

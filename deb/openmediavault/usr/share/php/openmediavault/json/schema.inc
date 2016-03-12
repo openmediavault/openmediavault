@@ -69,6 +69,36 @@ class Schema extends \OMV\BaseObject {
 	 * 	  ),
 	 * 	),
 	 * )
+	 *
+	 * Example:
+	 * 'extraoptions' =>
+	 *  array (
+	 *     'type' => 'string',
+	 *  ),
+	 *  'shares' =>
+	 *  array (
+	 *     'type' => 'object',
+	 *     'properties' =>
+	 *     array (
+	 *       'share' =>
+	 *       array (
+	 *         'type' => 'array',
+	 *         'items' =>
+	 *         array (
+	 *           'type' => 'object',
+	 *           'properties' =>
+	 *           array (
+	 *             'uuid' =>
+	 *             array (
+	 *               'type' => 'string',
+	 *               'format' => 'uuidv4',
+	 *             ),
+	 *             'enable' =>
+	 *             array (
+	 *               'type' => 'boolean',
+	 *               'default' => 0,
+	 *                 ),
+	 * ...
 	 */
 	private function _getSchemaByPath($path, $schema) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -78,21 +108,38 @@ class Schema extends \OMV\BaseObject {
 			throw new SchemaPathException("Invalid path '%s' syntax.", $path);
 		// Explode the path parts.
 		$parts = explode(".", $path);
+		// Filter array indices from the path in dot notation.
+		// Example: shares.share.0.uuid
+		// To access the schema of an array we do not need them.
+		$parts = array_filter($parts, function($v) { return !is_numeric($v); });
 		// Do we have reached the end of the path?
 		if ((1 >= count($parts)) && empty($parts[0]))
 			return $schema;
-		// Do we process an 'object' node? In this case step down to the
-		// 'properties' leaf. Note, 'type' can be an array.
-		if (array_key_exists("type", $schema) && is_string($schema['type']) &&
-		  ("object" == $schema['type'])) {
-			// Does 'properties' exist and is it an array?
-			if (!(array_key_exists("properties", $schema) && is_array(
-			  $schema['properties']))) {
-				throw new SchemaPathException(
-				  "No 'properties' attribute defined for path '%s'.",
-				  $path);
+		// Do we process an 'object' or 'array' node?
+		// !!! Note, the 'type' can be an array. How to handles them here?
+		// ToDo: Handle types like '{ "type": [ "string", "object" ] }'
+		if (array_key_exists("type", $schema) && is_string($schema['type'])) {
+			switch ($schema['type']) {
+			case "array":
+				// Does 'properties' exist and is it an array?
+				if (!array_key_exists("items", $schema)) {
+					throw new SchemaPathException(
+					  "No 'items' attribute defined for path '%s'.",
+					  $path);
+				}
+				return $this->_getSchemaByPath($path, $schema['items']);
+				break;
+			case "object":
+				// Does 'properties' exist and is it an array?
+				if (!(array_key_exists("properties", $schema) && is_array(
+				  $schema['properties']))) {
+					throw new SchemaPathException(
+					  "No 'properties' attribute defined for path '%s'.",
+					  $path);
+				}
+				return $this->_getSchemaByPath($path, $schema['properties']);
+				break;
 			}
-			return $this->_getSchemaByPath($path, $schema['properties']);
 		}
 		$key = array_shift($parts);
 		// Check if the node has the requested key/value pair.
