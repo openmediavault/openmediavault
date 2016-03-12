@@ -92,7 +92,7 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	final private function existsUser($username) {
-		$cmd = sprintf("pdbedit --list | grep '%s:'", $username);
+		$cmd = sprintf("export LANG=C; pdbedit --list | grep '%s:'", $username);
 		return (0 !== $this->exec($cmd)) ? FALSE : TRUE;
 	}
 
@@ -145,8 +145,6 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 			return $this->onAddUser($type, $path, $object);
 		// Modify the user in the database.
 		$cmdArgs = array();
-		$cmdArgs[] = "export LANG=C;";
-		$cmdArgs[] = "pdbedit";
 		$cmdArgs[] = "--modify";
 		$cmdArgs[] = "--verbose";
 		$cmdArgs[] = sprintf("--fullname=%s", escapeshellarg($object['name']));
@@ -154,10 +152,9 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 			$cmdArgs[] = sprintf("--account-desc=%s", escapeshellarg(
 			  $object['comment']));
 		$cmdArgs[] = escapeshellarg($object['name']);
-		$cmdArgs[] = "2>&1";
-		$cmd = implode(" ", $cmdArgs);
-		if (0 !== $this->exec($cmd, $output))
-			throw new \OMV\ExecException($cmd, $output);
+		$cmd = new \OMV\System\Process("pdbedit", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 		// Update the user password. Check whether the password has been
 		// changed (in this case it is not empty).
 		if (array_key_exists("password", $object) &&
@@ -199,10 +196,9 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 		$cmdArgs[] = "--delete";
 		$cmdArgs[] = "--verbose";
 		$cmdArgs[] = escapeshellarg($object['name']);
-		$cmd = sprintf("export LANG=C; pdbedit %s 2>&1", implode(" ",
-		  $cmdArgs));
-		if (0 !== $this->exec($cmd, $output))
-			throw new \OMV\ExecException($cmd, $output);
+		$cmd = new \OMV\System\Process("pdbedit", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 		// Start/Reload service.
 		$this->startService();
 	}
@@ -226,10 +222,10 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 	 * @param object The configuration object.
 	 */
 	final public function onSharedFolder($type, $path, $object) {
-		global $xmlConfig;
-		$xpath = sprintf("//services/smb/shares/share[sharedfolderref='%s']",
-		  $object['uuid']);
-		if (TRUE === $xmlConfig->exists($xpath))
+		$db = &\OMV\Config\Database::getInstance();
+		if (TRUE === $db->getBackend()->exists(sprintf(
+		  "//services/smb/shares/share[sharedfolderref='%s']",
+		  $object['uuid'])))
 			$this->setDirty();
 	}
 
