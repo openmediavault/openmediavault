@@ -102,8 +102,8 @@ class OMVRpcServiceExec extends \OMV\Rpc\ServiceAbstract {
 		// process.
 		if ($status->hasError()) {
 			$error = $status->getError();
-			throw new OMVException2($error['code'], $error['message'],
-			  $error['trace']);
+			throw new \OMV\Rpc\TraceException($error['code'],
+			  $error['message'], $error['trace']);
 		}
 		// Prepare the result object.
 		$result = array(
@@ -134,9 +134,8 @@ class OMVRpcServiceExec extends \OMV\Rpc\ServiceAbstract {
 			fclose($fp);
 		}
 		// Cleanup if process is not running anymore.
-		if (FALSE === $status->isRunning()) {
+		if (FALSE === $status->isRunning())
 			$this->unlinkBgProcStatus($params['filename']);
-		}
 		return $result;
 	}
 
@@ -169,13 +168,12 @@ class OMVRpcServiceExec extends \OMV\Rpc\ServiceAbstract {
 		// process.
 		if ($status->hasError()) {
 			$error = $status->getError();
-			throw new OMVException2($error['code'], $error['message'],
-			  $error['trace']);
+			throw new \OMV\Rpc\TraceException($error['code'],
+			  $error['message'], $error['trace']);
 		}
 		// Cleanup if process is not running anymore.
-		if (FALSE === $status->isRunning()) {
+		if (FALSE === $status->isRunning())
 			$this->unlinkBgProcStatus($params['filename']);
-		}
 		// Return the running state.
 		return array(
 			"filename" => $params['filename'],

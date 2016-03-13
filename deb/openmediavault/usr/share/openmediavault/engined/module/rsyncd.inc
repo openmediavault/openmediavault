@@ -34,7 +34,6 @@ class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Generate the configuration.
-	 * @throws E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "rsyncd");
@@ -52,7 +51,6 @@ class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Start the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function startService() {
 		global $xmlConfig;
@@ -70,7 +68,6 @@ class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Get the status of the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getStatus() {
 		global $xmlConfig;

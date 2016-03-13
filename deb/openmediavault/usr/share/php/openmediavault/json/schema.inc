@@ -179,7 +179,7 @@ class Schema extends \OMV\BaseObject {
 	 * Validate the given value.
 	 * @param value The value to validate.
 	 * @param name The JSON path of the entity to validate, e.g. 'aa.bb.cc',
-	 *   defaults to an empty string.
+	 *   defaults to an empty string. Use an empty value for the root.
 	 * @return None.
 	 * @throw \OMV\Json\SchemaException
 	 * @throw \OMV\Json\SchemaValidationException
@@ -197,40 +197,40 @@ class Schema extends \OMV\BaseObject {
 		if (array_key_exists("type", $schema))
 	        $types = $schema['type'];
 		if (!is_array($types))
-            $types = array($types);
+			$types = array($types);
 		foreach ($types as $typek => $typev) {
 			try {
-	            switch ($typev) {
-	            case "any":
-	                $this->validateAny($value, $schema, $name);
-	                break;
-	            case "array":
-	                $this->validateArray($value, $schema, $name);
-	                break;
-	            case "boolean":
-	                $this->validateBoolean($value, $schema, $name);
-	                break;
-	            case "object":
-	                $this->validateObject($value, $schema, $name);
-	                break;
-	            case "integer":
-	                $this->validateInteger($value, $schema, $name);
-	                break;
-	            case "number":
-	                $this->validateNumber($value, $schema, $name);
-	                break;
-	            case "string":
-	                $this->validateString($value, $schema, $name);
-	                break;
-	            case "null":
-	                $this->validateNull($value, $schema, $name);
-	                break;
-	            default:
+				switch ($typev) {
+				case "any":
+					$this->validateAny($value, $schema, $name);
+					break;
+				case "array":
+					$this->validateArray($value, $schema, $name);
+					break;
+				case "boolean":
+					$this->validateBoolean($value, $schema, $name);
+					break;
+				case "object":
+					$this->validateObject($value, $schema, $name);
+					break;
+				case "integer":
+					$this->validateInteger($value, $schema, $name);
+					break;
+				case "number":
+					$this->validateNumber($value, $schema, $name);
+					break;
+				case "string":
+					$this->validateString($value, $schema, $name);
+					break;
+				case "null":
+					$this->validateNull($value, $schema, $name);
+					break;
+				default:
 					throw new SchemaException(
 					  "%s: The type '%s' is not defined.",
 					  $name, $typev);
 					break;
-	            }
+				}
 				// Break the foreach loop here because one of the
 				// defined types is successfully validated.
 				break;

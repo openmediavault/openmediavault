@@ -59,8 +59,15 @@ class Model extends \OMV\BaseObject {
 		return array_value($schemaAssoc, "description", "");
 	}
 
-	public function validate($value) {
-		$this->getSchema()->validate($value);
+	/**
+	 * Validate the specified data against the data model.
+	 * @param data The JSON data to validate.
+	 * @return None.
+	 * @throw \OMV\Json\SchemaException
+	 * @throw \OMV\Json\SchemaValidationException
+	 */
+	public function validate($data) {
+		$this->getSchema()->validate($data);
 	}
 
 	public function validateProperty($path, $value) {
