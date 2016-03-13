@@ -19,10 +19,9 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 
-class OMVModuleRsync extends OMVModuleServiceAbstract
+class OMVModuleRsync extends \OMV\Engine\Module\ServiceAbstract
   implements \OMV\Notify\IListener {
 	/**
 	 * Get the module name.

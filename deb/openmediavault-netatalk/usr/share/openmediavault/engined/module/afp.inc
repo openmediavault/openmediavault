@@ -19,12 +19,11 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 
-class OMVModuleAFP extends OMVModuleServiceAbstract
-  implements \OMV\Notify\IListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
+class OMVModuleAFP extends \OMV\Engine\Module\ServiceAbstract
+  implements \OMV\Notify\IListener, \OMV\Engine\Module\IServiceStatus, \OMV\Engine\Module\IZeroconf {
 	private $invalidUsers = array("admin");
 
 	/**
@@ -177,7 +176,7 @@ class OMVModuleAFP extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.shares.sharedfolder.privileges",
 		  array($this, "onSharedFolder"));
-		$moduleMgr = &OMVModuleMgr::getInstance();
+		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.afp",

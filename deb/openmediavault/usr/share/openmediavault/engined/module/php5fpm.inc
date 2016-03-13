@@ -19,9 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/module.inc");
-
-class OMVModulePhp5fpm extends OMVModuleServiceAbstract {
+class OMVModulePhp5fpm extends \OMV\Engine\Module\ServiceAbstract {
 	/**
 	 * Get the module name.
 	 */

@@ -61,12 +61,12 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 			  $xpath);
 		}
 		// Get the list of registered modules.
-		$moduleMgr = &OMVModuleMgr::getInstance();
+		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMgr->getModules();
 		foreach($modules as $modulev) {
-			// Check if the module implements the OMVIModuleNotification
+			// Check if the module implements the \OMV\Engine\Module\INotification
 			// interface.
-			if($modulev instanceof OMVIModuleNotification) {
+			if($modulev instanceof \OMV\Engine\Module\INotification) {
 				$config = $modulev->getNotificationConfig();
 				foreach($config as $configk => $configv) {
 					$enable = FALSE; // Default value.
@@ -112,12 +112,12 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 		// Prepare the configuration object.
 		$object = array();
 		// Get the list of registered modules.
-		$moduleMgr = &OMVModuleMgr::getInstance();
+		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMgr->getModules();
 		foreach($modules as $modulev) {
-			// Check if the module implements the OMVIModuleNotification
+			// Check if the module implements the \OMV\Engine\Module\INotification
 			// interface.
-			if($modulev instanceof OMVIModuleNotification) {
+			if($modulev instanceof \OMV\Engine\Module\INotification) {
 				$config = $modulev->getNotificationConfig();
 				foreach($config as $configk => $configv) {
 					$enable = FALSE; // Default value.

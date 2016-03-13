@@ -19,11 +19,10 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 
-class OMVModuleWebadmin extends OMVModuleAbstract
-  implements \OMV\Notify\IListener, OMVIModuleZeroconf {
+class OMVModuleWebadmin extends \OMV\Engine\Module\ModuleAbstract
+  implements \OMV\Notify\IListener, \OMV\Engine\Module\IZeroconf {
 	/**
 	 * Get the module name.
 	 */
@@ -45,7 +44,7 @@ class OMVModuleWebadmin extends OMVModuleAbstract
 	 * Bind listeners.
 	 */
 	function bindListeners(\OMV\Notify\Dispatcher $dispatcher) {
-		$moduleMgr = &OMVModuleMgr::getInstance();
+		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.webadmin",

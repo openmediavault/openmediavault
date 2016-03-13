@@ -19,40 +19,17 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-class OMVModuleHostname extends \OMV\Engine\Module\ServiceAbstract
-  implements \OMV\Notify\IListener {
-	/**
-	 * Get the module name.
-	 */
-	public function getName() {
-		return "hostname";
-	}
+namespace OMV\Engine\Module;
 
+/**
+ * Interface to get the Zeroconf service configuration for this module.
+ */
+interface IZeroconf {
 	/**
-	 * Generate the configuration.
+	 * Get the Zeroconf service configuration.
+	 * @return An array of arrays containing the following fields:
+	 *   \em id (string) The identifier of the service.
+	 *   \em title (string) A title displayed in the WebGUI.
 	 */
-	public function applyConfig() {
-		$cmd = new \OMV\System\Process("omv-mkconf", "hostname");
-		$cmd->setRedirect2to1(TRUE);
-		$cmd->execute();
-	}
-
-	/**
-	 * Start the managed service.
-	 */
-	public function startService() {
-		$cmd = new \OMV\System\Process("hostname", "--file /etc/hostname");
-		$cmd->setRedirect2to1(TRUE);
-		$cmd->execute();
-	}
-
-	/**
-	 * Bind listeners.
-	 */
-	function bindListeners(\OMV\Notify\Dispatcher $dispatcher) {
-		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.hostname",
-		  array($this, "setDirty"));
-    }
+	function getZeroconfConfig();
 }

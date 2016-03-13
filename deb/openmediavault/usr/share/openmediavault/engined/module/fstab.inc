@@ -19,10 +19,9 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/module.inc");
 require_once("openmediavault/system.inc");
 
-class OMVModuleFsTab extends OMVModuleServiceAbstract
+class OMVModuleFsTab extends \OMV\Engine\Module\ServiceAbstract
   implements \OMV\Notify\IListener {
 	/**
 	 * Get the module name.
@@ -132,7 +131,7 @@ class OMVModuleFsTab extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.fstab.mntent",
 		  array($this, "onDelete"));
-        $moduleMgr = &OMVModuleMgr::getInstance();
+        $moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
         $dispatcher->addListener(
           OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
           "org.openmediavault.system.fstab.mntent",

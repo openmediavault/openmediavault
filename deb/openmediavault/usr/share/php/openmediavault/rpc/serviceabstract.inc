@@ -573,7 +573,7 @@ abstract class ServiceAbstract extends \OMV\BaseObject {
 	 * @return The list of dirty modules.
 	 */
 	final protected function setModuleDirty($name) {
-		$moduleMgr = &OMVModuleMgr::getInstance();
+		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
 		return $moduleMgr->setModuleDirty($name);
 	}
 
@@ -583,7 +583,7 @@ abstract class ServiceAbstract extends \OMV\BaseObject {
 	 * @return TRUE if the module is marked dirty, otherwise FALSE.
 	 */
 	final protected function isModuleDirty($name) {
-		$moduleMgr = &OMVModuleMgr::getInstance();
+		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
 		return $moduleMgr->isModuleDirty($name);
 	}
 }

@@ -19,9 +19,8 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/module.inc");
 
-class OMVModuleLDAP extends OMVModuleServiceAbstract
+class OMVModuleLDAP extends \OMV\Engine\Module\ServiceAbstract
   implements \OMV\Notify\IListener {
 	/**
 	 * Get the module name.
@@ -48,7 +47,7 @@ class OMVModuleLDAP extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.ldap",
 		  array($this, "setDirty"));
-		$moduleMgr = &OMVModuleMgr::getInstance();
+		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.ldap",

@@ -19,12 +19,11 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 
-class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
-  implements \OMV\Notify\IListener, OMVIModuleServiceStatus {
+class OMVModuleNetworkUPSTools extends \OMV\Engine\Module\ServiceAbstract
+  implements \OMV\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
 	/**
 	 * Get the module name.
 	 */
@@ -166,7 +165,7 @@ class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.network.interfaces.bondiface",
 		  array($this, "onUpdateInterface"));
-		$moduleMgr = &OMVModuleMgr::getInstance();
+		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.nut",

@@ -19,13 +19,13 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/module.inc");
+namespace OMV\Engine\Module;
 
 /**
  * Interface to get the state of the service implemented by the module, e.g.
  * is the service enabled and running.
  */
-interface OMVIModuleServiceStatus {
+interface IServiceStatus {
 	/**
 	 * Get the status of the managed service.
 	 * @return An array containing the following fields:
@@ -35,32 +35,4 @@ interface OMVIModuleServiceStatus {
 	 *   \em running (boolean) Is the implemented service running?
 	 */
 	function getStatus();
-}
-
-/**
- * Interface to get the notification configuration for this module. This is
- * used to enable/disable notifications send via email for example.
- */
-interface OMVIModuleNotification {
-	/**
-	 * Get the notification configuration.
-	 * @return An array of arrays containing the following fields:
-	 *   \em id (string) The identifier of the notification.
-	 *   \em type (string) The type displayed in the WebGUI.
-	 *   \em title (string) A title displayed in the WebGUI.
-	 */
-	function getNotificationConfig();
-}
-
-/**
- * Interface to get the Zeroconf service configuration for this module.
- */
-interface OMVIModuleZeroconf {
-	/**
-	 * Get the Zeroconf service configuration.
-	 * @return An array of arrays containing the following fields:
-	 *   \em id (string) The identifier of the service.
-	 *   \em title (string) A title displayed in the WebGUI.
-	 */
-	function getZeroconfConfig();
 }

@@ -19,12 +19,11 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 
-class OMVModuleShairport extends OMVModuleServiceAbstract
-  implements \OMV\Notify\IListener, OMVIModuleServiceStatus {
+class OMVModuleShairport extends \OMV\Engine\Module\ServiceAbstract
+  implements \OMV\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
 	/**
 	 * Get the module name.
 	 */
@@ -123,7 +122,7 @@ class OMVModuleShairport extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.network.hostname",
 		  array($this, "setDirty"));
-		$moduleMgr = &OMVModuleMgr::getInstance();
+		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.shairport",

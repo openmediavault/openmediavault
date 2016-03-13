@@ -19,11 +19,10 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 
-class OMVModuleRrdCached extends OMVModuleServiceAbstract
+class OMVModuleRrdCached extends \OMV\Engine\Module\ServiceAbstract
   implements \OMV\Notify\IListener {
 	/**
 	 * Get the module name.
@@ -108,7 +107,7 @@ class OMVModuleRrdCached extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.monitoring.perfstats",
 		  array($this, "setDirty"));
-		$moduleMgr = &OMVModuleMgr::getInstance();
+		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.monitoring.perfstats",

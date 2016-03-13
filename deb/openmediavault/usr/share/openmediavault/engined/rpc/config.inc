@@ -52,7 +52,7 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		$moduleMgr = &OMVModuleMgr::getInstance();
+		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMgr->getDirtyModules();
 		return !empty($modules);
 	}
@@ -92,7 +92,7 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 				  "force":{"type":"boolean"}
 			  }
 		  }');
-		$moduleMgr = &OMVModuleMgr::getInstance();
+		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
 		$notifyDispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		// Open the dirty modules file. Lock it to force all writers
 		// to wait until this RPC has been finished.

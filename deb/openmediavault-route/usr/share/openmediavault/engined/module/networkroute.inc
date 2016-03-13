@@ -19,11 +19,10 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 
-class OMVModuleNetworkRoute extends OMVModuleServiceAbstract
+class OMVModuleNetworkRoute extends \OMV\Engine\Module\ServiceAbstract
   implements \OMV\Notify\IListener {
 	/**
 	 * Get the module name.

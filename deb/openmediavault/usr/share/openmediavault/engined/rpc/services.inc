@@ -21,7 +21,6 @@
  */
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/module.inc");
 
 class OMVRpcServiceServices extends \OMV\Rpc\ServiceAbstract {
 	/**
@@ -40,7 +39,7 @@ class OMVRpcServiceServices extends \OMV\Rpc\ServiceAbstract {
 
 	/**
 	 * Get the status of the modules that implement the
-	 * OMVIModuleServiceStatus interface.
+	 * \OMV\Engine\Module\IServiceStatus interface.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array containing the module statistics.
@@ -53,12 +52,12 @@ class OMVRpcServiceServices extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		$status = array();
 		// Get the list of registered modules.
-		$moduleMgr = &OMVModuleMgr::getInstance();
+		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMgr->getModules();
 		foreach($modules as $modulev) {
-			// Check if the module implements the OMVIModuleServiceStatus
+			// Check if the module implements the \OMV\Engine\Module\IServiceStatus
 			// interface.
-			if($modulev instanceof OMVIModuleServiceStatus) {
+			if($modulev instanceof \OMV\Engine\Module\IServiceStatus) {
 				$status[] = $modulev->getStatus();
 			}
 		}

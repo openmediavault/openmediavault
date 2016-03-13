@@ -19,11 +19,10 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 
-class OMVModuleTftp extends OMVModuleServiceAbstract
-  implements \OMV\Notify\IListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
+class OMVModuleTftp extends \OMV\Engine\Module\ServiceAbstract
+  implements \OMV\Notify\IListener, \OMV\Engine\Module\IServiceStatus, \OMV\Engine\Module\IZeroconf {
 	/**
 	 * Get the module name.
 	 */
@@ -113,7 +112,7 @@ class OMVModuleTftp extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.shares.sharedfolder",
 		  array($this, "onSharedFolder"));
-		$moduleMgr = &OMVModuleMgr::getInstance();
+		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.tftp",

@@ -53,12 +53,12 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		$result = array();
 		// Get the list of registered modules.
-		$moduleMgr = &OMVModuleMgr::getInstance();
+		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMgr->getModules();
 		foreach($modules as $modulev) {
-			// Check if the module implements the OMVIModuleZeroconf
+			// Check if the module implements the \OMV\Engine\Module\IZeroconf
 			// interface.
-			if($modulev instanceof OMVIModuleZeroconf) {
+			if($modulev instanceof \OMV\Engine\Module\IZeroconf) {
 				$config = $modulev->getZeroconfConfig();
 				// Try to get the Zeroconf service configuration object.
 				$xpath = sprintf("//services/zeroconf/services/".
@@ -108,12 +108,12 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 		// Prepare the configuration object.
 		$object = array();
 		// Get the list of registered modules.
-		$moduleMgr = &OMVModuleMgr::getInstance();
+		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMgr->getModules();
 		foreach($modules as $modulev) {
-			// Check if the module implements the OMVIModuleZeroconf
+			// Check if the module implements the \OMV\Engine\Module\IZeroconf
 			// interface.
-			if($modulev instanceof OMVIModuleZeroconf) {
+			if($modulev instanceof \OMV\Engine\Module\IZeroconf) {
 				$config = $modulev->getZeroconfConfig();
 				// Set default values.
 				$service = array(

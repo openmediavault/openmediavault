@@ -1,0 +1,142 @@
+<?php
+/**
+ * This file is part of OpenMediaVault.
+ *
+ * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @author    Volker Theile <volker.theile@openmediavault.org>
+ * @copyright Copyright (c) 2009-2016 Volker Theile
+ *
+ * OpenMediaVault is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * OpenMediaVault is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ */
+namespace OMV\Engine\Module;
+
+require_once("openmediavault/globals.inc");
+require_once("openmediavault/functions.inc");
+
+/**
+ * The module manager.
+ * @ingroup api
+ */
+class Manager extends \OMV\BaseObject {
+	private $map = array();
+
+	public function __construct() {
+		// Get a list of all classes that are implementing a RPC service.
+		$classes = get_declared_subclasses("\OMV\Engine\Module\ModuleAbstract");
+		foreach ($classes as $classk => $classv) {
+			$this->registerModule(new $classv());
+		}
+	}
+
+	/**
+	 * Returns a module manager singleton.
+	 * @return The module manager object.
+	 */
+	public static function &getInstance() {
+		static $instance = NULL;
+		if (!isset($instance))
+			$instance = new Manager();
+		return $instance;
+	}
+
+	/**
+	 * Register a module.
+	 * @param module The module class to be registered.
+	 * @return Returns TRUE on success or FALSE on failure.
+	 */
+	private function registerModule(ModuleAbstract $module) {
+		if (!isset($module))
+			return FALSE;
+		$name = $module->getName();
+		// Check if module already exists.
+		if (FALSE !== $this->getModule($name)) {
+			throw new \OMV\Exception(
+			  "The module already exists (name=%s, class=%s)",
+			  $name, get_class($module));
+		}
+		$this->map[strtolower($name)] = $module;
+		ksort($this->map);
+		return TRUE;
+	}
+
+	/**
+	 * Get a module.
+	 * @param name The name of the module to get.
+	 * @return The module object or FALSE on failure.
+	 */
+	final public function getModule($name) {
+		$name = strtolower($name);
+		if (!array_key_exists($name, $this->map))
+			return FALSE;
+		return $this->map[$name];
+	}
+
+	/**
+	 * Get all registered modules.
+	 * @return An array containing all registered modules.
+	 */
+	final public function getModules() {
+		return $this->map;
+	}
+
+	/**
+	 * Helper function to get a list of dirty modules.
+	 * @return An array containing the names of the dirty marked modules.
+	 */
+	final public function getDirtyModules() {
+		$jsonFile = new \OMV\Json\File($GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
+		if (!$jsonFile->exists())
+			return array();
+		$jsonFile->open("r", LOCK_SH);
+		$modules = array_unique($jsonFile->read());
+		$jsonFile->close();
+		return $modules;
+	}
+
+	/**
+	 * Helper function to mark a module as dirty.
+	 * @param name The name of the module.
+	 * @return The list of dirty modules.
+	 */
+	final public function setModuleDirty($name) {
+		$jsonFile = new \OMV\Json\File($GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
+		$jsonFile->open("c+");
+		$modules = $jsonFile->read();
+		$modules[] = strtolower($name);
+		$modules = array_unique($modules);
+		$jsonFile->write($modules);
+		$jsonFile->close();
+		return $modules;
+	}
+
+	/**
+	 * Helper function to check whether a module is marked dirty.
+	 * @param name The name of the module.
+	 * @return TRUE if the module is marked dirty, otherwise FALSE.
+	 */
+	final public function isModuleDirty($name) {
+		$modules = $this->getDirtyModules();
+		return in_array(strtolower($name), $modules);
+	}
+
+	/**
+	 * Dump all registered modules.
+	 */
+	final public function dump() {
+		print("Registered modules:\n");
+		foreach ($this->map as $modulek => $modulev) {
+			printf("  %s\n", $modulek);
+		}
+	}
+}

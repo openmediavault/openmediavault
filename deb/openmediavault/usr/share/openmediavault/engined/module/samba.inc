@@ -19,11 +19,10 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 
-class OMVModuleSamba extends OMVModuleServiceAbstract
-  implements \OMV\Notify\IListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
+class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
+  implements \OMV\Notify\IListener, \OMV\Engine\Module\IServiceStatus, \OMV\Engine\Module\IZeroconf {
 	private $invalidUsers = array("admin");
 
 	/**
@@ -261,7 +260,7 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.usermanagement.users.user",
 		  array($this, "onDeleteUser"));
-		$moduleMgr = &OMVModuleMgr::getInstance();
+		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.smb",
