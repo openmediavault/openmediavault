@@ -20,7 +20,7 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 class OMVModuleNtp extends \OMV\Engine\Module\ServiceAbstract
-  implements \OMV\Notify\IListener {
+  implements \OMV\Engine\Notify\IListener {
 	/**
 	 * Get the module name.
 	 */
@@ -70,7 +70,7 @@ class OMVModuleNtp extends \OMV\Engine\Module\ServiceAbstract
 	/**
 	 * Bind listeners.
 	 */
-	function bindListeners(\OMV\Notify\Dispatcher $dispatcher) {
+	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.time",

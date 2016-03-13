@@ -23,7 +23,7 @@ require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 
 class OMVModuleNetworkUPSTools extends \OMV\Engine\Module\ServiceAbstract
-  implements \OMV\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
+  implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
 	/**
 	 * Get the module name.
 	 */
@@ -148,7 +148,7 @@ class OMVModuleNetworkUPSTools extends \OMV\Engine\Module\ServiceAbstract
 	/**
 	 * Bind listeners.
 	 */
-	function bindListeners(\OMV\Notify\Dispatcher $dispatcher) {
+	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.nut",

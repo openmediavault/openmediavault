@@ -109,7 +109,7 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.
-		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
+		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.rsync.server", $object);
 		// Return the configuration object.
@@ -295,7 +295,7 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.
-		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
+		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.rsync.server.modules.module", $object);

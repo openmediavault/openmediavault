@@ -80,7 +80,7 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 		$db = &\OMV\Config\Database::getInstance();
 		$db->replace("//system/apt/distribution", $object);
 		// Notify configuration changes.
-		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
+		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.apt.distribution",
 		  $object->getAssoc());

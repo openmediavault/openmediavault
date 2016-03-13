@@ -554,7 +554,7 @@ abstract class ServiceAbstract extends \OMV\BaseObject {
 			  "Failed to execute query '%s'.", $xpath);
 		}
 		// Notify configuration changes.
-		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
+		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_PREDELETE, $message, $object);
 		// Delete configuration object.
 		if (FALSE === ($object = $xmlConfig->delete($xpath))) {

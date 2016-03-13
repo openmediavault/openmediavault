@@ -342,7 +342,7 @@ foreach (listdir($directory, "inc") as $path) {
 ///////////////////////////////////////////////////////////////////////////////
 $moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
 $modules = $moduleMgr->getModules();
-$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
+$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
 foreach ($modules as $module) {
 	$dispatcher->addListener($module);
 }

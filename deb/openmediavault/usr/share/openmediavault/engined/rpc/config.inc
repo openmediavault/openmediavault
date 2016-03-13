@@ -93,7 +93,7 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
-		$notifyDispatcher = &\OMV\Notify\Dispatcher::getInstance();
+		$notifyDispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
 		// Open the dirty modules file. Lock it to force all writers
 		// to wait until this RPC has been finished.
 		$jsonFile = new \OMV\Json\File($GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);

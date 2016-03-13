@@ -20,7 +20,7 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 class OMVModuleNetworking extends \OMV\Engine\Module\ServiceAbstract
-  implements \OMV\Notify\IListener {
+  implements \OMV\Engine\Notify\IListener {
 	/**
 	 * Get the module name.
 	 */
@@ -47,7 +47,7 @@ class OMVModuleNetworking extends \OMV\Engine\Module\ServiceAbstract
 	/**
 	 * Bind listeners.
 	 */
-	function bindListeners(\OMV\Notify\Dispatcher $dispatcher) {
+	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		// Bind listeners from within your modules. Check the 'interfaces'
 		// module for example.
 	}

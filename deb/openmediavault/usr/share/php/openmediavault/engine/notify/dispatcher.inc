@@ -19,12 +19,12 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\Notify;
+namespace OMV\Engine\Notify;
 
 require_once("openmediavault/globals.inc");
 
 /**
- * \OMV\Notify\Dispatcher is an configuration notification technology. It provides
+ * \OMV\Engine\Notify\Dispatcher is an configuration notification technology. It provides
  * the possibility to simply monitor various events, e.g. on the configuration.
  * @ingroup api
  */
@@ -84,7 +84,7 @@ class Dispatcher extends \OMV\BaseObject {
 	 *   then set it to 1.
 	 */
 	function addListener($arg1, $arg2 = null, $arg3 = null, $arg4 = 20) {
-		if (is_a($arg1, "\OMV\Notify\IListener"))
+		if (is_a($arg1, "\OMV\Engine\Notify\IListener"))
 			return $arg1->bindListeners($this);
 		// Add the listerer.
 //		$this->debug(sprintf("Add listener (type=%s, message=%s, " .
