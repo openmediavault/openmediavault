@@ -174,7 +174,7 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Add additional share informations.
 		$rdomainname = strtolower(implode(".", array_reverse(explode(".",
-		  OMVNetwork::getHostname("--fqdn")))));
+		  \OMV\System\Network\Network::getFqdn()))));
 		foreach($objects as $objectk => &$objectv) {
 			$objectv['iqn'] = sprintf("iqn.%s.%s", $objectv['activation'],
 			  $rdomainname);

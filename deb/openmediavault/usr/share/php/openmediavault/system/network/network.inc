@@ -27,17 +27,22 @@ namespace OMV\System\Network;
 class Network {
 	/**
 	 * Get the systems host name.
-	 * @param options Additional command parameters
 	 * @return The host name.
 	 */
-	final public static function getHostname($options = "") {
+	final public static function getHostname() {
 		$cmd = new \OMV\System\Process("hostname", $options);
+		$cmd->setRedirect2to1(TRUE);
 		$cmd->execute($output);
 		return $output[0];
 	}
 
+	/**
+	 * Get the systems fully qualified domain name (FQDN).
+	 * @return The fully qualified domain name.
+	 */
 	final public static function getFqdn() {
 		$cmd = new \OMV\System\Process("hostname", "--fqdn");
+		$cmd->setRedirect2to1(TRUE);
 		$cmd->execute($output);
 		return $output[0];
 	}
@@ -48,6 +53,7 @@ class Network {
 	 */
 	final public static function getDomain() {
 		$cmd = new \OMV\System\Process("hostname", "--domain");
+		$cmd->setRedirect2to1(TRUE);
 		$cmd->execute($output);
 		return $output[0];
 	}
