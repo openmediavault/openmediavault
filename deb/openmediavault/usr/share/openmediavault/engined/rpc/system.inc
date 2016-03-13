@@ -23,7 +23,6 @@ require_once("openmediavault/globals.inc");
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/util.inc");
 require_once("openmediavault/system.inc");
 
 class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
@@ -85,8 +84,10 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get task overview.
-		OMVUtil::exec("export LANG=C; top -b -n 1", $result);
-		return implode("\n", $result);
+		$cmd = new \OMV\System\Process("top", "-b", "-n 1");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute($output);
+		return implode("\n", $output);
 	}
 
 	/**
@@ -461,7 +462,9 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		OMVUtil::exec("omv-sysinfo", $result);
-		return implode("\n", $result);
+		$cmd = new \OMV\System\Process("omv-sysinfo");
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute($output);
+		return implode("\n", $output);
 	}
 }

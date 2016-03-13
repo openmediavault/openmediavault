@@ -24,7 +24,6 @@ require_once("openmediavault/config.inc");
 require_once("openmediavault/system.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
 
 class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 	/**
