@@ -39,7 +39,7 @@ try {
 	foreach (listdir($directory, "inc") as $path) {
 		require_once $path;
 	}
-	$rpcServiceMgr = &\OMVRpcServiceMgr::getInstance();
+	$rpcServiceMgr = &\OMV\Rpc\ServiceManager::getInstance();
 	$rpcServiceMgr->initializeServices();
 
 	// Initialize the data models.

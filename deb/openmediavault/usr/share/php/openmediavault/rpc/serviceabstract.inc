@@ -19,8 +19,8 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/autoloader.inc");
-require_once("openmediavault/object.inc");
+namespace OMV\Rpc;
+
 require_once("openmediavault/error.inc");
 require_once("openmediavault/functions.inc");
 
@@ -28,7 +28,7 @@ require_once("openmediavault/functions.inc");
  * The core RPC service class.
  * @ingroup api
  */
-abstract class OMVRpcServiceAbstract extends OMVObject {
+abstract class ServiceAbstract extends \OMV\BaseObject {
 	private $registeredMethods = array();
 	private $registeredMethodSequences = array();
 
@@ -51,13 +51,12 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	 *   RPC sevice method. If set to NULL the name given in \em rpcName
 	 *   is used. Defaults to NULL.
 	 * @return TRUE on success, otherwise an error is thrown.
-	 * @throw E_RPC_SERVICE_METHOD_NOT_EXISTS
 	 */
 	final protected function registerMethod($rpcName, $methodName = NULL) {
 		$methodName = is_null($methodName) ? $rpcName : $methodName;
 		if(!method_exists($this, $methodName)) {
-			throw new OMVException(
-			  OMVErrorMsg::E_RPC_SERVICE_METHOD_NOT_EXISTS,
+			throw new Exception(
+			  "The method '%s' does not exist for RPC service '%s'",
 			  $methodName, $this->getName());
 		}
 		$this->registeredMethods[$rpcName] = $methodName;
@@ -73,20 +72,18 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	 * @param method2 The name of the method that should be called after
 	 *   the original RPC service method.
 	 * @return TRUE on success, otherwise an exception is thrown.
-	 * @throw E_RPC_SERVICE_NOT_FOUND
-	 * @throw E_RPC_SERVICE_METHOD_NOT_EXISTS
 	 */
 	final protected function registerMethodSequence($service, $method,
 	  $method2) {
-		$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-		if(FALSE === ($rpcService = $rpcServiceMgr->getService(
+		$rpcServiceMgr = &\OMV\Rpc\ServiceManager::getInstance();
+		if (FALSE === ($rpcService = $rpcServiceMgr->getService(
 		  $service))) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_NOT_FOUND,
+			throw new Exception("RPC service not found (name=%s)",
 			  $service);
 		}
-		if(FALSE === $rpcService->hasMethod($method)) {
-			throw new OMVException(
-			  OMVErrorMsg::E_RPC_SERVICE_METHOD_NOT_EXISTS,
+		if (FALSE === $rpcService->hasMethod($method)) {
+			throw new Exception(
+			  "The method '%s' does not exist for RPC service '%s'",
 			  $method, $service);
 		}
 		$rpcService->registeredMethodSequences[$method] = array(
@@ -109,23 +106,22 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return Returns the return value of the RPC service method.
-	 * @throw E_RPC_SERVICE_METHOD_NOT_EXISTS
 	 */
 	final public function callMethod($name, $params, $context) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Do not check if the method is registered, but ensure that the
 		// class implements the given method. Thus we can call other public
 		// PHP class methods from within the service class.
-		if(!method_exists($this, $name)) {
-			throw new OMVException(
-			  OMVErrorMsg::E_RPC_SERVICE_METHOD_NOT_EXISTS,
+		if (!method_exists($this, $name)) {
+			throw new Exception(
+			  "The method '%s' does not exist for RPC service '%s'",
 			  $name, $this->getName());
 		}
 		$result = call_user_func_array(array($this, $name),
 		  array($params, $context));
 		// Process registered RPC service method hooks.
-		if(array_key_exists($name, $this->registeredMethodSequences)) {
-			foreach($this->registeredMethodSequences[$name] as
+		if (array_key_exists($name, $this->registeredMethodSequences)) {
+			foreach ($this->registeredMethodSequences[$name] as
 			  $hookk => $hookv) {
 				\OMV\Rpc\Rpc::call($hookv['service'], $hookv['method'],
 				  $params, $context);
@@ -142,7 +138,6 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The name of the background process status file.
-	 * @throw E_RPC_SERVICE_METHOD_NOT_EXISTS
 	 */
 	final public function callMethodBg($name, $params, $context) {
 		// Create a background process.
@@ -174,7 +169,6 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	 *   Alternatively this can be the identifier of a data model used
 	 *   for validation.
 	 * @return None.
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_PARAMS
 	 */
 	final protected function validateMethodParams($params, $schema) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -183,10 +177,7 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 		// Get the data model/schema used to validate the parameters.
 		if (!is_json($schema) && is_string($schema)) {
 			$modelMgr = &\OMV\DataModel\Manager::getInstance();
-			if (FALSE === ($model = $modelMgr->getModel($schema))) {
-				throw new OMVException(OMVErrorMsg::E_DATAMODEL_NOT_EXISTS,
-				  $schema);
-			}
+			$model = $modelMgr->getModel($schema);
 			$schema = $model->getSchema();
 		} else {
 			// Check if the schema is JSON. If it is an associative array,
@@ -196,11 +187,7 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 			// Create the data model schema.
 			$schema = new \OMV\DataModel\Schema($schema);
 		}
-		if (FALSE === $schema->validate($params)) {
-			throw new OMVException(
-			  OMVErrorMsg::E_RPC_SERVICE_METHOD_INVALID_PARAMS,
-			  $model->getLastError());
-		}
+		$schema->validate($params);
 	}
 
 	/**
@@ -208,7 +195,7 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	 * @param context The caller context to be validated.
 	 * @param required The required context.
 	 * @return None.
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
+	 * @throw \OMV\Rpc\Exception
 	 */
 	final protected function validateMethodContext($context, $required) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -218,18 +205,14 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 			if (!is_array($required['username']))
 				$required['username'] = array($required['username']);
 			foreach ($required['username'] as $usernamek => $usernamev) {
-				if ($context['username'] !== $usernamev) {
-					throw new OMVException(
-					  OMVErrorMsg::E_RPC_SERVICE_METHOD_INVALID_CONTEXT);
-				}
+				if ($context['username'] !== $usernamev)
+					throw new Exception("Invalid context");
 			}
 		}
 		// - Check the role
 		if (array_key_exists("role", $required)) {
-			if (!($context['role'] & $required['role'])) {
-				throw new OMVException(
-				  OMVErrorMsg::E_RPC_SERVICE_METHOD_INVALID_CONTEXT);
-			}
+			if (!($context['role'] & $required['role']))
+				throw new Exception("Invalid context");
 		}
 	}
 
@@ -246,15 +229,14 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 
 	/**
 	 * Helper function to fork the current running process.
-	 * @throw E_MISC_FAILURE
 	 * @return The PID of the child process.
+	 * @throw \OMV\Rpc\Exception
 	 */
 	final protected function fork() {
 		$pid = pcntl_fork();
-		if($pid == -1) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  "Failed to fork process.");
-		} else if($pid > 0) { // Parent process
+		if ($pid == -1) {
+			throw new Exception("Failed to fork process.");
+		} else if ($pid > 0) { // Parent process
 //			$this->debug("Child process forked (pid=%d)", $pid);
 		}
 		return $pid;
@@ -264,13 +246,14 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	 * Helper function to create the file containing the background
 	 * process status.
 	 * @return The name of the background process status file.
-	 * @throw E_MISC_FAILURE
+	 * @throw \OMV\Rpc\Exception
 	 */
 	final protected function createBgProcStatus() {
 		$filename = tempnam(sys_get_temp_dir(), "bgstatus");
-		if(FALSE === touch($filename)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to create file (filename=%s).", $filename));
+		if (FALSE === touch($filename)) {
+			throw new Exception(
+			  "Failed to create background process status file (filename=%s).",
+			  $filename);
 		}
 		return $filename;
 	}
@@ -279,13 +262,14 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	 * Helper function to create the file containing the background
 	 * process output.
 	 * @return The name of the background process output file.
-	 * @throw E_MISC_FAILURE
+	 * @throw \OMV\Rpc\Exception
 	 */
 	final protected function createBgProcOutput($prefix = "bgoutput") {
 		$filename = tempnam(sys_get_temp_dir(), $prefix);
-		if(FALSE === touch($filename)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to create file (filename=%s).", $filename));
+		if (FALSE === touch($filename)) {
+			throw new Exception(
+			  "Failed to create file background process output (filename=%s).",
+			  $filename);
 		}
 		return $filename;
 	}
@@ -306,12 +290,11 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	 * @param filename The name of the status file.
 	 * @param pid The PID of the background process.
 	 * @return The background process status.
-	 * @throw E_MISC_FAILURE
 	 */
 	final protected function initializeBgProcStatus($filename, $pid) {
 		$jsonFile = new \OMV\Json\File($filename);
 		$jsonFile->open("r+");
-		if($jsonFile->isEmpty()) {
+		if ($jsonFile->isEmpty()) {
 			$status = array(
 				  "pid" => $pid,
 				  "running" => TRUE
@@ -335,7 +318,6 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	 * @param exception The exception that has been thrown. Defaults
 	 *   to NULL.
 	 * @return The background process status.
-	 * @throw E_MISC_FAILURE
 	 */
 	final protected function finalizeBgProcStatus($filename,
 	  $result = NULL, $exception = NULL) {
@@ -346,7 +328,7 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 		$status['running'] = FALSE;
 		$status['result'] = $result;
 		$status['error'] = NULL;
-		if(!is_null($exception)) {
+		if (!is_null($exception)) {
 			$status['error'] = array(
 				"code" => $exception->getCode(),
 				"message" => $exception->getMessage(),
@@ -389,10 +371,9 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 		$status = $jsonFile->read();
 		$jsonFile->close();
 		// Check if the process is really still running.
-		if(TRUE === $status['running']) {
-			if(!is_dir(sprintf("/proc/%d", $status['pid']))) {
+		if (TRUE === $status['running']) {
+			if (!is_dir(sprintf("/proc/%d", $status['pid'])))
 				$status['running'] = FALSE;
-			}
 		}
 		return $status;
 	}
@@ -408,7 +389,7 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 		$status = $jsonFile->read();
 		$jsonFile->close();
 		// Unlink the command output file if defined.
-		if(array_key_exists("outputfilename", $status) && !empty(
+		if (array_key_exists("outputfilename", $status) && !empty(
 		  $status['outputfilename'])) {
 			@unlink($status['outputfilename']);
 		}
@@ -438,9 +419,8 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 		  );
 		// Execute the command.
 		$process = proc_open($command, $descriptors, $pipes);
-		if((FALSE === $process) || !is_resource($process)) {
+		if ((FALSE === $process) || !is_resource($process))
 			return -1;
-		}
 		// Immediatelly close STDIN.
 		fclose($pipes[0]);
 		$pipes[0] = NULL;
@@ -448,43 +428,42 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 		stream_set_blocking($pipes[1], 0);
 		stream_set_blocking($pipes[2], 0);
 		// Read the output from STDOUT/STDERR.
-		while(TRUE) {
+		while (TRUE) {
 			$read = array();
 			// Collect the reading streams to monitor.
 			if(!is_null($pipes[1])) $read[] = $pipes[1];
 			if(!is_null($pipes[2])) $read[] = $pipes[2];
-			if(FALSE === ($r = stream_select($read, $write = NULL,
-			  $except = NULL, 1))) {
+			if (FALSE === ($r = stream_select($read, $write = NULL,
+			  $except = NULL, 1)))
 				break;
-			}
-			foreach($read as $readk => $readv) {
-				if($readv == $pipes[1]) { // STDOUT
+			foreach ($read as $readk => $readv) {
+				if ($readv == $pipes[1]) { // STDOUT
 					// Read the STDOUT command output.
-					if(FALSE !== ($line = fgets($pipes[1]))) {
+					if (FALSE !== ($line = fgets($pipes[1]))) {
 						// Redirect command output to file?
-						if(is_string($outputFilename) && !empty(
+						if (is_string($outputFilename) && !empty(
 						  $outputFilename)) {
 							$this->writeBgProcOutput($outputFilename, $line);
 						}
 						$output[] = rtrim($line);
 					}
 					// Close the pipe if EOF has been detected.
-					if(TRUE === feof($pipes[1])) {
+					if (TRUE === feof($pipes[1])) {
 						fclose($pipes[1]);
 						$pipes[1] = NULL;
 					}
-				} else if($readv == $pipes[2]) { // STDERR
+				} else if ($readv == $pipes[2]) { // STDERR
 					// Read the STDERR command output.
 					$line = fgets($pipes[2]);
 					// Close the pipe if EOF has been detected.
-					if(TRUE === feof($pipes[2])) {
+					if (TRUE === feof($pipes[2])) {
 						fclose($pipes[2]);
 						$pipes[2] = NULL;
 					}
 				}
 			}
 			// Everything read?
-			if(is_null($pipes[1]) && is_null($pipes[2]))
+			if (is_null($pipes[1]) && is_null($pipes[2]))
 				break;
 		}
 		return proc_close($process);
@@ -507,7 +486,7 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 		// Redirect command output to file?
 		$redirectOutput = (is_string($outputFilename) && !empty(
 		  $outputFilename));
-		if(TRUE === $redirectOutput) {
+		if (TRUE === $redirectOutput) {
 			// Close STDOUT and STDERR and create new files that will use
 			// the file descriptors no. 1 and 2.
 			(is_resource($stdOut)) ? fclose($stdOut) : fclose(STDOUT);
@@ -517,7 +496,7 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 		}
 		$result = pcntl_exec($path, $args);
 		// Note, this code path is only reached if pcntl_exec fails.
-		if((FALSE === $result) && (TRUE === $redirectOutput)) {
+		if ((FALSE === $result) && (TRUE === $redirectOutput)) {
 			// Note, STDOUT and STDERR are destroyed and can't be
 			// used anymore.
 			fclose($stdOut);
@@ -543,16 +522,13 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	  $sortField = NULL, $sortDir = NULL) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		$total = count($array);
-		if($total > 0) {
-			if(!is_null($sortField)) {
+		if ($total > 0) {
+			if (!is_null($sortField))
 				array_sort_key($array, $sortField);
-			}
-			if(!is_null($sortDir) && $sortDir === "DESC") {
+			if (!is_null($sortDir) && $sortDir === "DESC")
 				$array = array_reverse($array);
-			}
-			if(($start >= 0) && ($limit >= 0)) {
+			if (($start >= 0) && ($limit >= 0))
 				$array = array_slice($array, $start, $limit);
-			}
 		}
 		return array(
 			"total" => $total,
@@ -567,24 +543,23 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	 * @param xpath The XPath expression of the object to delete.
 	 * @param message The message of the notification to be submitted.
 	 * @return The deleted configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_CONFIG_OBJECT_NOT_FOUND
+	 * @throw \OMV\Config\DatabaseException
 	 */
 	protected function deleteConfigObjectByPath($xpath, $message) {
 		global $xmlConfig;
 		// Get the configuration object.
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
+		if (is_null($object)) {
+			throw new \OMV\Config\DatabaseException(
+			  "Failed to execute query '%s'.", $xpath);
 		}
 		// Notify configuration changes.
 		$dispatcher = &\OMV\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_PREDELETE, $message, $object);
 		// Delete configuration object.
-		if(FALSE === ($object = $xmlConfig->delete($xpath))) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
-			  $xpath);
+		if (FALSE === ($object = $xmlConfig->delete($xpath))) {
+			throw new \OMV\Config\DatabaseException(
+			  "Failed to delete configuration (xpath=%s).", $xpath);
 		}
 		// Notify configuration changes.
 		$dispatcher->notify(OMV_NOTIFY_DELETE, $message, $object);
@@ -610,184 +585,5 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	final protected function isModuleDirty($name) {
 		$moduleMgr = &OMVModuleMgr::getInstance();
 		return $moduleMgr->isModuleDirty($name);
-	}
-}
-
-/**
- * Helper class to handle RPC services.
- * @ingroup api
- */
-class OMVRpcServiceMgr extends OMVObject {
-	private $map = array();
-
-	public function __construct() {
-		// Get a list of all classes that are implementing a RPC service.
-		$classes = get_declared_subclasses("OMVRpcServiceAbstract");
-		foreach ($classes as $classk => $classv) {
-			$this->registerService(new $classv());
-		}
-	}
-
-	/**
-	 * Returns a RPC manager singleton.
-	 * @return The RPC manager object.
-	 */
-	public static function &getInstance() {
-		static $instance = NULL;
-		if (!isset($instance)) {
-			$instance = new OMVRpcServiceMgr();
-		}
-		return $instance;
-	}
-
-	/**
-	 * Register a RPC service.
-	 * @param service The RPC service class to be registered.
-	 * @return Returns TRUE on success or FALSE on failure.
-	 * @throw E_RPC_SERVICE_ALREADY_EXISTS
-	 */
-	private function registerService(OMVRpcServiceAbstract $service) {
-		if (!isset($service))
-			return FALSE;
-		$name = $service->getName();
-		// Check if RPC service already exists.
-		if (FALSE !== $this->getService($name)) {
-			throw new \OMV\Exception(
-			  "The RPC service already exists (name=%s, class=%s)",
-			  $name, get_class($service));
-		}
-		$this->map[strtolower($name)] = $service;
-		ksort($this->map);
-		return TRUE;
-	}
-
-	/**
-	 * Get a RPC service.
-	 * @param name The name of the RPC service to get.
-	 * @return The RPC service object or FALSE on failure.
-	 */
-	final public function getService($name) {
-		$name = strtolower($name);
-		if (!array_key_exists($name, $this->map))
-			return FALSE;
-		return $this->map[$name];
-	}
-
-	/**
-	 * Get all registered RPC services.
-	 * @return An array containing all registered RPC services.
-	 */
-	final public function getServices() {
-		return $this->map;
-	}
-
-	/**
-	 * Initialize the services.
-	 */
-	final public function initializeServices() {
-		foreach ($this->map as $servicek => $servicev) {
-			$servicev->initialize();
-		}
-	}
-
-	/**
-	 * Dump all registered RPC services.
-	 */
-	final public function dump() {
-		print("Registered RPC services:\n");
-		foreach ($this->map as $servicek => $servicev) {
-			printf("  %s\n", $servicek);
-		}
-	}
-}
-
-/**
- * Helper class to handle the background process status.
- * @ingroup api
- */
-class OMVRpcBgStatus extends OMVObject {
-	private $status = array();
-
-	/**
-	 * Constructor
-	 * @param status An array of status informations.
-	 */
-	public function __construct($status) {
-		$this->status = $status;
-	}
-
-	/**
-	 * Get the PID of the background process.
-	 * @return The PID of the background process.
-	 */
-	public function getPid() {
-		return $this->get("pid");
-	}
-
-	/**
-	 * Check whether the background process is running.
-	 * @return Returns TRUE if the background process is runnig, otherwise
-	 *   FALSE.
-	 */
-	public function isRunning() {
-		return $this->get("running");
-	}
-
-	/**
-	 * Check whether the background process is has thrown an error.
-	 * @return Returns TRUE if the background process has been thrown an
-	 *   error, otherwise FALSE.
-	 */
-	public function hasError() {
-		return array_key_exists("error", $this->status) && !is_null(
-		  $this->status['error']);
-	}
-
-	/**
-	 * Get the error object.
-	 * @return The error object containing the fields \em code, \em message
-	 *   and \em trace.
-	 */
-	public function getError() {
-		return $this->get("error");
-	}
-
-	/**
-	 * Check whether the background process output is written to a temporary
-	 * file.
-	 * @return Returns TRUE if the background process writes his output to a
-	 *   temporary file, otherwise FALSE.
-	 */
-	public function hasOutputFilename() {
-		return array_key_exists("outputfilename", $this->status);
-	}
-
-	/**
-	 * Get the name of the temporary file that contains the output of the
-	 * background job.
-	 * @return Returns the name of the temporary file.
-	 */
-	public function getOutputFilename() {
-		return $this->get("outputfilename");
-	}
-
-	/**
-	 * Helper method to access the status fields.
-	 * @param key The name of the status field.
-	 * @return The value of the given status field.
-	 */
-	public function get($key) {
-		return $this->status[$key];
-	}
-
-	/**
-	 * Helper method to set the status fields.
-	 * @param key The name of the status field.
-	 * @param value The value of the status field.
-	 * @return The value of the given status field.
-	 */
-	public function set($key, $value) {
-		$this->status[$key] = $value;
-		return $this->get($key);
 	}
 }

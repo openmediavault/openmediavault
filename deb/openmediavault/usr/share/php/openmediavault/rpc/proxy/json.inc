@@ -24,7 +24,6 @@ namespace OMV\Rpc\Proxy;
 require_once("openmediavault/util.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/rpc.inc");
-require_once("openmediavault/rpcservice.inc");
 
 /**
  * The generic RPC proxy implementation that handles JSON RPC requests.
@@ -77,7 +76,7 @@ class Json extends \OMV\BaseObject {
 		// redirected from the WebGUI backend to the omv-engined daemon,
 		// then we can commit the session (these RPCs are executed in
 		// another process thus they can not access this session).
-		$rpcServiceMgr = &\OMVRpcServiceMgr::getInstance();
+		$rpcServiceMgr = &\OMV\Rpc\ServiceManager::getInstance();
 		if (FALSE === ($rpcService = $rpcServiceMgr->getService(
 		  $this->params['service']))) {
 			// Session MUST be authenticated at this point.

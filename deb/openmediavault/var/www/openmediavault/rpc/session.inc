@@ -20,9 +20,8 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/globals.inc");
-require_once("openmediavault/rpcservice.inc");
 
-class OMVRpcServiceSession extends OMVRpcServiceAbstract {
+class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
 	 */

@@ -119,6 +119,7 @@ class Manager extends \OMV\BaseObject {
 	 * Get a model.
 	 * @param id The id of the data model to get.
 	 * @return The data model object.
+	 * @throw \OMV\Exception
 	 */
 	final public function getModel($id) {
 		$id = strtolower($id);

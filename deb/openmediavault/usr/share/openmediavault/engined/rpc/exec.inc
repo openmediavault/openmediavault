@@ -21,9 +21,8 @@
  */
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/rpcservice.inc");
 
-class OMVRpcServiceExec extends OMVRpcServiceAbstract {
+class OMVRpcServiceExec extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
 	 */
@@ -60,10 +59,10 @@ class OMVRpcServiceExec extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Get the background process status.
-		$status = new OMVRpcBgStatus($this->getBgProcStatus(
+		$status = new \OMV\Rpc\BgStatusFile($this->getBgProcStatus(
 		  $params['filename']));
 		// Kill the background process.
-		if(!posix_kill($status->getPid(), SIGTERM)) {
+		if (!posix_kill($status->getPid(), SIGTERM)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to kill process (pid=%d).", $status->getPid()));
 		}
@@ -96,12 +95,12 @@ class OMVRpcServiceExec extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Get the background process status file.
-		$status = new OMVRpcBgStatus($this->getBgProcStatus(
+		$status = new \OMV\Rpc\BgStatusFile($this->getBgProcStatus(
 		  $params['filename']));
 		// Check if there was an error and trigger an exception if
 		// necessary. Inject the stack trace coming from the background
 		// process.
-		if($status->hasError()) {
+		if ($status->hasError()) {
 			$error = $status->getError();
 			throw new OMVException2($error['code'], $error['message'],
 			  $error['trace']);
@@ -116,10 +115,10 @@ class OMVRpcServiceExec extends OMVRpcServiceAbstract {
 		// Check if there is a background process output file and try to
 		// read the content starting from the given position to the end
 		// of the file.
-		if($status->hasOutputFilename()) {
+		if ($status->hasOutputFilename()) {
 			$bgOutputFilename = $status->getOutputFilename();
 			// Read the command output from the given file.
-			if(FALSE === ($fp = fopen($bgOutputFilename, "r"))) {
+			if (FALSE === ($fp = fopen($bgOutputFilename, "r"))) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  sprintf("Failed to open the command output file ".
 					"(filename=%s).", $bgOutputFilename));
@@ -127,7 +126,7 @@ class OMVRpcServiceExec extends OMVRpcServiceAbstract {
 			// Get the requested command output from the given position to
 			// the end of the file.
 			fseek($fp, $params['pos'], SEEK_SET);
-			while(!feof($fp)) {
+			while (!feof($fp)) {
 				$result['output'] .= fread($fp, 1024);
 			}
 			// Get the current position within the command output file.
@@ -135,7 +134,7 @@ class OMVRpcServiceExec extends OMVRpcServiceAbstract {
 			fclose($fp);
 		}
 		// Cleanup if process is not running anymore.
-		if(FALSE === $status->isRunning()) {
+		if (FALSE === $status->isRunning()) {
 			$this->unlinkBgProcStatus($params['filename']);
 		}
 		return $result;
@@ -163,18 +162,18 @@ class OMVRpcServiceExec extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Get the background process status.
-		$status = new OMVRpcBgStatus($this->getBgProcStatus(
+		$status = new \OMV\Rpc\BgStatusFile($this->getBgProcStatus(
 		  $params['filename']));
 		// Check if there was an error and trigger an exception if
 		// necessary. Inject the stack trace coming from the background
 		// process.
-		if($status->hasError()) {
+		if ($status->hasError()) {
 			$error = $status->getError();
 			throw new OMVException2($error['code'], $error['message'],
 			  $error['trace']);
 		}
 		// Cleanup if process is not running anymore.
-		if(FALSE === $status->isRunning()) {
+		if (FALSE === $status->isRunning()) {
 			$this->unlinkBgProcStatus($params['filename']);
 		}
 		// Return the running state.

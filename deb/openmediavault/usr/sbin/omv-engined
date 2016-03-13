@@ -330,7 +330,7 @@ foreach (listdir($directory, "inc") as $path) {
 	require_once $path;
 }
 // Initialize the RPC sevices.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
+$rpcServiceMgr = &\OMV\Rpc\ServiceManager::getInstance();
 $rpcServiceMgr->initializeServices();
 if (TRUE === $debug)
 	$rpcServiceMgr->dump();

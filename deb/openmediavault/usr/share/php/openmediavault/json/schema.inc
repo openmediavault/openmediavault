@@ -181,6 +181,8 @@ class Schema extends \OMV\BaseObject {
 	 * @param name The JSON path of the entity to validate, e.g. 'aa.bb.cc',
 	 *   defaults to an empty string.
 	 * @return None.
+	 * @throw \OMV\Json\SchemaException
+	 * @throw \OMV\Json\SchemaValidationException
 	 */
 	final public function validate($value, $name = "") {
 		if (is_string($value))

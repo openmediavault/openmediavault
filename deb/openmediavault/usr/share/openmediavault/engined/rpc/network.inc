@@ -24,7 +24,6 @@ require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/system.inc");
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/rpcservice.inc");
 
 $GLOBALS['OMV_JSONSCHEMA_NETWORK_INTERFACE_GENERIC'] =
   '"devicename":{"type":"string"},'.
@@ -43,7 +42,7 @@ $GLOBALS['OMV_JSONSCHEMA_NETWORK_INTERFACE_GENERIC'] =
   '"options":{"type":"string"},'.
   '"comment":{"type":"string"}';
 
-class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
+class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
 	 */

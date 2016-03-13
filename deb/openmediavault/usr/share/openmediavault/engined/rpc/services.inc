@@ -22,9 +22,8 @@
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/module.inc");
-require_once("openmediavault/rpcservice.inc");
 
-class OMVRpcServiceServices extends OMVRpcServiceAbstract {
+class OMVRpcServiceServices extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
 	 */

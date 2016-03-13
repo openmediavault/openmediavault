@@ -22,7 +22,6 @@
 namespace OMV\Rpc;
 
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/rpcservice.inc");
 
 /**
  * This class provides methods regarding remote procedure calls.
@@ -67,16 +66,15 @@ class Rpc {
 		// Try to execute local RPC first.
 		///////////////////////////////////////////////////////////////////////
 		if ($mode & OMV_RPC_MODE_LOCAL) {
-			$rpcServiceMgr = &\OMVRpcServiceMgr::getInstance();
+			$rpcServiceMgr = &\OMV\Rpc\ServiceManager::getInstance();
 			if (FALSE !== ($rpcService = $rpcServiceMgr->getService(
 			  $service))) {
 				if (TRUE === $rpcService->hasMethod($method)) {
 					// Restore server and execution environment information
 					// if exists.
 					if (array_key_exists("_SERVER", $context)) {
-						foreach ($context['_SERVER'] as $key => $value) {
+						foreach ($context['_SERVER'] as $key => $value)
 							$_SERVER[$key] = $value;
-						}
 						unset($context['_SERVER']);
 					}
 					// Execute the RPC service method.
