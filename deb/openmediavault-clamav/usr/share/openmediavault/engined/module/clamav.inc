@@ -103,10 +103,10 @@ class OMVModuleClamAV extends \OMV\Engine\Module\ServiceAbstract
 	 * @param object The configuration object.
 	 */
 	final public function onSharedFolder($type, $path, $object) {
-		global $xmlConfig;
-		$xpath = sprintf("//services/clamav/jobs/job[sharedfolderref='%s']",
-		  $object['uuid']);
-		if (TRUE === $xmlConfig->exists($xpath))
+		$db = &\OMV\Config\Database::getInstance();
+		if (TRUE === $db->getBackend()->exists(sprintf(
+		  "//services/clamav/jobs/job[sharedfolderref='%s']",
+		  $object['uuid'])))
 			$this->setDirty();
 	}
 

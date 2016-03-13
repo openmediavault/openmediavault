@@ -19,8 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/config.inc");
-
 class OMVModuleRsync extends \OMV\Engine\Module\ServiceAbstract
   implements \OMV\Engine\Notify\IListener {
 	/**
@@ -69,10 +67,10 @@ class OMVModuleRsync extends \OMV\Engine\Module\ServiceAbstract
 	 * @param object The configuration object.
 	 */
 	final public function onSharedFolder($type, $path, $object) {
-		global $xmlConfig;
-		$xpath = sprintf("//services/rsync/jobs/job[src='%s' or dest='%s']",
-		  $object['uuid']);
-		if (TRUE === $xmlConfig->exists($xpath))
+		$db = &\OMV\Config\Database::getInstance();
+		if (TRUE === $db->getBackend()->exists(sprintf(
+		  "//services/rsync/jobs/job[src='%s' or dest='%s']",
+		  $object['uuid'])))
 			$this->setDirty();
 	}
 
