@@ -22,7 +22,6 @@
 try {
 	require_once("openmediavault/autoloader.inc");
 	require_once("openmediavault/env.inc");
-	require_once("openmediavault/config.inc");
 	require_once("openmediavault/functions.inc");
 
 	// Initialize the configuration engine.
