@@ -87,6 +87,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 *   netmask, netmask6, ether, mtu, state, link, vlan and vlanid.
 	 */
 	private function getIfaceInfo($deviceName) {
+		// Set the default values.
 		$obj = array();
 		$obj['devicename'] = $deviceName;
 		$obj['gateway'] = "";
@@ -102,7 +103,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		$obj['vlan'] = FALSE;
 		$obj['vlanid'] = -1;
 		$obj['speed'] = -1;
-		$iface = \OMV\System\Net\NetworkInterfaceBackend\Manager::getImpl($deviceName);
+		// Get the network interface object.
+		$mngr = &\OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
+		$iface = $mngr->getImpl($deviceName);
 		if (!is_null($iface) && $iface->exists()) {
 			$gateway = $iface->getGateway();
 			$gateway6 = $iface->getGateway6();
@@ -277,8 +280,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
+		$mngr = &\OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
 		// Enumerate all network interface devices on the system.
-		if (FALSE === ($devs = \OMV\System\Net\NetworkInterfaceBackend\Manager::enumerate(
+		if (FALSE === ($devs = $mngr->enumerate(
 		  OMV_NETWORK_INTERFACE_TYPE_ALL))) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  gettext("Failed to get list of network interface devices"));
@@ -288,7 +292,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		$result = array();
 		foreach ($devs as $devk => $devv) {
 			// Get the network interface backend.
-			$nib = \OMV\System\Net\NetworkInterfaceBackend\Manager::getBackend($devv);
+			$nib = $mngr->getBackend($devv);
 			if (is_null($nib)) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  sprintf("No network interface backend exists for '%s'",
@@ -559,9 +563,10 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
+		$mngr = &\OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
 		// Get all unused network interface devices, except loopback and
 		// VLAN network interfaces.
-		if (FALSE === ($devs = \OMV\System\Net\NetworkInterfaceBackend\Manager::enumerateUnused(
+		if (FALSE === ($devs = $mngr->enumerateUnused(
 		  OMV_NETWORK_INTERFACE_TYPE_ETHERNET))) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  gettext("Failed to get list of unused network interface devices"));
@@ -658,7 +663,8 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		if (array_key_exists("unused", $params) && $params['unused'] === TRUE) {
 			// Get all unused network interface devices, except loopback and
 			// VLAN network interfaces.
-			if (FALSE === ($devs = \OMV\System\Net\NetworkInterfaceBackend\Manager::enumerateUnused(
+			$mngr = &\OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
+			if (FALSE === ($devs = $mngr->enumerateUnused(
 			  OMV_NETWORK_INTERFACE_TYPE_ALL & ~(OMV_NETWORK_INTERFACE_TYPE_VLAN |
 			  OMV_NETWORK_INTERFACE_TYPE_LOOPBACK)))) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
@@ -818,7 +824,8 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Get all unused network interface devices, except loopback and
 		// VLAN network interfaces.
-		if (FALSE === ($devs = \OMV\System\Net\NetworkInterfaceBackend\Manager::enumerateUnused(
+		$mngr = &\OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
+		if (FALSE === ($devs = $mngr->enumerateUnused(
 		  OMV_NETWORK_INTERFACE_TYPE_ALL & ~(OMV_NETWORK_INTERFACE_TYPE_VLAN |
 		  OMV_NETWORK_INTERFACE_TYPE_LOOPBACK)))) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
@@ -900,7 +907,8 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Get all unused network interface devices, except loopback and
 		// VLAN network interfaces.
-		if (FALSE === ($devs = \OMV\System\Net\NetworkInterfaceBackend\Manager::enumerateUnused(
+		$mngr = &\OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
+		if (FALSE === ($devs = $mngr->enumerateUnused(
 		  OMV_NETWORK_INTERFACE_TYPE_WIRELESS))) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  gettext("Failed to get list of unused network interface devices"));

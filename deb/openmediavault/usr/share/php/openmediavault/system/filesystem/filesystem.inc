@@ -45,7 +45,7 @@ class Filesystem extends FilesystemAbstract {
 	 */
 	public static function getImpl($id) {
 		$mngr = &Backend\Manager::getInstance();
-		if (NULL == ($backend = $mngr->getBackend($id)))
+		if (NULL == ($backend = $mngr->getBackendById($id)))
 			return NULL;
 		return $backend->getImpl($id);
 	}
