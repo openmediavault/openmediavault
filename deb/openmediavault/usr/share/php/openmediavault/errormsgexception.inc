@@ -21,6 +21,11 @@
  */
 namespace OMV;
 
+/**
+ * Use this exception type if your exception must have an fixed error code
+ * to allow you to react on this somewhere, e.g. in the Javascript web UI.
+ * This is used for session timeout exceptions for example.
+ */
 class ErrorMsgException extends \Exception {
 	// RPC
 	const E_RPC_GET_PARAMS_FAILED = 1000;
@@ -122,5 +127,18 @@ class ErrorMsgException extends \Exception {
 			$format = self::$messages[$code];
 		$message = vsprintf($format, $args);
 		parent::__construct($message, $code);
+	}
+
+	/**
+	 * Register a new code and message.
+	 * @param code The exception code.
+	 * @param message The message text.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public static function registerMessage($code, $message) {
+		if (array_key_exists($code, self::$messages))
+			return FALSE;
+		self::$messages[$code] = $message;
+		return TRUE;
 	}
 }

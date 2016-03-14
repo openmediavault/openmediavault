@@ -20,12 +20,11 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/system.inc");
 
 ///////////////////////////////////////////////////////////////////////////////
 // Register default filesystem backends.
 ///////////////////////////////////////////////////////////////////////////////
-$classes = get_declared_subclasses("OMVFilesystemBackendAbstract");
+$classes = get_declared_subclasses("\OMV\System\Filesystem\Backend\BackendAbstract");
 foreach ($classes as $classk => $classv) {
-	OMVFilesystems::registerBackend(new $classv());
+	\OMV\System\Filesystem\Filesystem::registerBackend(new $classv());
 }

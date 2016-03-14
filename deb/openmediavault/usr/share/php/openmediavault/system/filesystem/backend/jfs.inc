@@ -19,27 +19,24 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System;
+namespace OMV\System\Filesystem\Backend;
 
-/**
- * @ingroup api
- */
-class Os {
+require_once("openmediavault/globals.inc");
+
+class Jfs extends BackendAbstract {
+	public function __construct() {
+		parent::__construct();
+		$this->type = "jfs";
+		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
+		  self::PROP_DISCARD | self::PROP_QUOTA | self::PROP_RESIZE;
+		$this->mkfsOptions = $GLOBALS['OMV_MKFS_OPTIONS_JFS'];
+		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_JFS']);
+	}
+
 	/**
-	 * Returns the target of a symbolic link. Canonicalize by following
-	 * every symlink in every component of the given name recursively,
-	 * without requirements on components existence.
-	 * @param path The symbolic link path.
-	 * @return Returns the value of the symbolic link.
-	 * @throw \OMV\ExecException
+	 * See parent class definition.
 	 */
-	final public static function readlink($path) {
-		$cmdArgs = array();
-		$cmdArgs[] = "-m";
-		$cmdArgs[] = "-n";
-		$cmdArgs[] = escapeshellarg($path);
-		$cmd = new \OMV\System\Process("readlink", $cmdArgs);
-		$cmd->execute($output);
-		return $output[0];
+	function getImpl($args) {
+		return new OMVFilesystemJfs($args);
 	}
 }

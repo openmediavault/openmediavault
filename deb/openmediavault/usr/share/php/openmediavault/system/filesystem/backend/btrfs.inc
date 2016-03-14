@@ -19,27 +19,34 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System;
+namespace OMV\System\Filesystem\Backend;
 
-/**
- * @ingroup api
- */
-class Os {
+class Btrfs extends BackendAbstract {
+	public function __construct() {
+		parent::__construct();
+		$this->type = "btrfs";
+		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
+		  self::PROP_DISCARD | self::PROP_COMPRESS | self::PROP_AUTO_DEFRAG;
+		$this->mkfsOptions = $GLOBALS['OMV_MKFS_OPTIONS_BTRFS'];
+		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_BTRFS']);
+	}
+
 	/**
-	 * Returns the target of a symbolic link. Canonicalize by following
-	 * every symlink in every component of the given name recursively,
-	 * without requirements on components existence.
-	 * @param path The symbolic link path.
-	 * @return Returns the value of the symbolic link.
-	 * @throw \OMV\ExecException
+	 * See parent class definition.
 	 */
-	final public static function readlink($path) {
-		$cmdArgs = array();
-		$cmdArgs[] = "-m";
-		$cmdArgs[] = "-n";
-		$cmdArgs[] = escapeshellarg($path);
-		$cmd = new \OMV\System\Process("readlink", $cmdArgs);
-		$cmd->execute($output);
-		return $output[0];
+	public function getFstabMntOptions(OMVStorageDeviceAbstract $sd = null) {
+		$options = parent::getFstabMntOptions($sd);
+		if (!is_null($sd)) {
+			if (!$sd->isRotational())
+				$options[] = "ssd";
+		}
+		return $options;
+	}
+
+	/**
+	 * See parent class definition.
+	 */
+	function getImpl($args) {
+		return new OMVFilesystemBtrfs($args);
 	}
 }
