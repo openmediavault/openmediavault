@@ -24,7 +24,7 @@ namespace OMV\System\Network;
 /**
  * @ingroup api
  */
-class Network {
+class Dns {
 	/**
 	 * Get the systems host name.
 	 * @return The host name.

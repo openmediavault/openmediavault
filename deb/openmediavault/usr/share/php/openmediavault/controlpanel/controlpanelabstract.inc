@@ -195,7 +195,7 @@ EOF;
 	protected function getTitle() {
 		$prd = new \OMV\ProductInfo();
 		return sprintf("%s %s - %s", $prd->getName(), gettext("control panel"),
-		  \OMV\System\Network\Network::getFqdn());
+		  \OMV\System\Network\Dns::getFqdn());
 	}
 
 	/**

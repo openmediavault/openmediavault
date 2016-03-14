@@ -127,7 +127,7 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 				  "your account, you should reset your password.\n\n".
 				  "Sincerely,\n".
 				  "your %s system",
-				  $params['username'], \OMV\System\Network\Network::getFqdn(),
+				  $params['username'], \OMV\System\Network\Dns::getFqdn(),
 				  $_SERVER['SERVER_ADDR'], date('r'), $_SERVER['REMOTE_ADDR'],
 				  $_SERVER['HTTP_USER_AGENT'], $prd->getName());
 				$mail = new \OMV\Email("root", $params['username'],
