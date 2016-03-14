@@ -19,19 +19,19 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Network\NetworkInterfaceBackend;
+namespace OMV\System\Net\Backend;
 
 require_once("openmediavault/globals.inc");
 
 /**
- * Implements the network interface backend for VLAN devices.
+ * Implements the network interface backend for bridge devices.
  * @ingroup api
  */
-class Vlan extends BackendAbstract {
-	protected $regex = "/^(\S+\d+)\.(\d+)$/i";
+class Wireless extends BackendAbstract {
+	protected $regex = "/^wlan[0-9]+$/i";
 
 	function getType() {
-		return OMV_NETWORK_INTERFACE_TYPE_VLAN;
+		return OMV_NETWORK_INTERFACE_TYPE_WIRELESS;
 	}
 
 	function enumerate() {

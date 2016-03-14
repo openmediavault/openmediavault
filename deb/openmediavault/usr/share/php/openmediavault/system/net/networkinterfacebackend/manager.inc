@@ -19,7 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Network\NetworkInterfaceBackend;
+namespace OMV\System\Net\NetworkInterfaceBackend;
 
 require_once("openmediavault/globals.inc");
 

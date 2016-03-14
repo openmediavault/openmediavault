@@ -369,7 +369,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 		return array(
 			array(
 				"name" => gettext("Hostname"),
-				"value" => \OMV\System\Network\Dns::getFqdn(),
+				"value" => \OMV\System\Net\Dns::getFqdn(),
 				"type" => "string",
 				"index" => $index++),
 			array(

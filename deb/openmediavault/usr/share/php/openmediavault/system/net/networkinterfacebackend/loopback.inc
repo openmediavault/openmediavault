@@ -19,12 +19,26 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Network\NetworkInterfaceBackend;
+namespace OMV\System\Net\NetworkInterfaceBackend;
+
+require_once("openmediavault/globals.inc");
 
 /**
- * Implements the network interface backend for Infiniband devices.
+ * Implements the network interface backend for loopback devices.
  * @ingroup api
  */
-class Infiniband extends BackendAbstract {
-	protected $regex = "/^ib[0-9]+$/i";
+class Loopback extends BackendAbstract {
+	protected $regex = "/^lo[0-9]*$/i";
+
+	function getType() {
+		return OMV_NETWORK_INTERFACE_TYPE_LOOPBACK;
+	}
+
+	function enumerate() {
+		return $this->enumerateSysFs($this->regex);
+	}
+
+	function isTypeOf($deviceName) {
+		return $this->isTypeOfByName($deviceName, $this->regex);
+	}
 }

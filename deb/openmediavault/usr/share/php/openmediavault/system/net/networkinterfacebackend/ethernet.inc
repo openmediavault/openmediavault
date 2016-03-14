@@ -19,42 +19,26 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Network;
+namespace OMV\System\Net\NetworkInterfaceBackend;
+
+require_once("openmediavault/globals.inc");
 
 /**
+ * Implements the network interface backend for ethernet devices.
  * @ingroup api
  */
-class Dns {
-	/**
-	 * Get the systems host name.
-	 * @return The host name.
-	 */
-	final public static function getHostname() {
-		$cmd = new \OMV\System\Process("hostname", $options);
-		$cmd->setRedirect2to1(TRUE);
-		$cmd->execute($output);
-		return $output[0];
+class Ethernet extends BackendAbstract {
+	protected $regex = "/^(eth|venet)[0-9]+|veth[a-z0-9]+$/i";
+
+	function getType() {
+		return OMV_NETWORK_INTERFACE_TYPE_ETHERNET;
 	}
 
-	/**
-	 * Get the systems fully qualified domain name (FQDN).
-	 * @return The fully qualified domain name.
-	 */
-	final public static function getFqdn() {
-		$cmd = new \OMV\System\Process("hostname", "--fqdn");
-		$cmd->setRedirect2to1(TRUE);
-		$cmd->execute($output);
-		return $output[0];
+	function enumerate() {
+		return $this->enumerateSysFs($this->regex);
 	}
 
-	/**
-	 * Get the systems domain name.
-	 * @return The domain name.
-	 */
-	final public static function getDomain() {
-		$cmd = new \OMV\System\Process("hostname", "--domain");
-		$cmd->setRedirect2to1(TRUE);
-		$cmd->execute($output);
-		return $output[0];
+	function isTypeOf($deviceName) {
+		return $this->isTypeOfByName($deviceName, $this->regex);
 	}
 }
