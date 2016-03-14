@@ -249,7 +249,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Generate the RAID device name.
-		$deviceName = OMVSystem::getNextDevice("disk", "md");
+		$deviceName = \OMV\System\System::getNextDevice("disk", "md");
 		$devices = preg_split("/[,;]/", $params['devices']);
 		// Create the RAID device.
 		$cmdArgs = array();

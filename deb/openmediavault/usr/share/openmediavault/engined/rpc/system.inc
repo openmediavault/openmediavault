@@ -124,19 +124,14 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_EXEC_MISC
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
 	public function reboot($params, $context) {
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		$pm = new OMVPowerManagement();
-		if (FALSE === $pm->reboot()) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
-			  $pm->getLastError());
-		}
+		$pm = new \OMV\System\PowerManagement();
+		$pm->reboot();
 	}
 
 	/**
@@ -144,19 +139,14 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_EXEC_MISC
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
 	public function shutdown($params, $context) {
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		$pm = new OMVPowerManagement();
-		if (FALSE === $pm->shutdown()) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
-			  $pm->getLastError());
-		}
+		$pm = new \OMV\System\PowerManagement();
+		$pm->shutdown();
 	}
 
 	/**
@@ -171,19 +161,14 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_EXEC_FAILED
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
 	public function standby($params, $context) {
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		$pm = new OMVPowerManagement();
-		if (FALSE === $pm->standby()) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
-			  $pm->getLastError());
-		}
+		$pm = new \OMV\System\PowerManagement();
+		$pm->standby();
 	}
 
 	/**
@@ -192,19 +177,14 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_EXEC_FAILED
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
 	public function suspend($params, $context) {
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		$pm = new OMVPowerManagement();
-		if (FALSE === $pm->suspend()) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
-			  $pm->getLastError());
-		}
+		$pm = new \OMV\System\PowerManagement();
+		$pm->suspend();
 	}
 
 	/**
@@ -213,19 +193,14 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_EXEC_MISC
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
 	public function hibernate($params, $context) {
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		$pm = new OMVPowerManagement();
-		if (FALSE === $pm->hibernate()) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
-			  $pm->getLastError());
-		}
+		$pm = new \OMV\System\PowerManagement();
+		$pm->hibernate();
 	}
 
 	/**
@@ -385,11 +360,11 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 		// Get various system informations.
 		$prd = new \OMV\ProductInfo();
 		$uname = posix_uname();
-		$memStats = OMVSystem::getMemoryStats();
+		$memStats = \OMV\System\System::getMemoryStats();
 		$memStats['wobufferscache']['percentage'] = round(
 		  ($memStats['wobufferscache']['used'] * 100) /
 		  $memStats['mem']['total']);
-		$cpuStats = OMVSystem::getCPUStats();
+		$cpuStats = \OMV\System\System::getCPUStats();
 		$index = 0;
 		return array(
 			array(
@@ -421,12 +396,12 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 				"index" => $index++),
 			array(
 				"name" => gettext("Uptime"),
-				"value" => OMVSystem::uptime(),
+				"value" => \OMV\System\System::uptime(),
 				"type" => "string",
 				"index" => $index++),
 			array(
 				"name" => gettext("Load average"),
-				"value" => OMVSystem::getLoadAverage(),
+				"value" => \OMV\System\System::getLoadAverage(),
 				"type" => "string",
 				"index" => $index++),
 			array(

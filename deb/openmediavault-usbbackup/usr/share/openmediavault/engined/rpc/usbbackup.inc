@@ -72,7 +72,7 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 			if (!OMVFilesystems::isSupported($objectv['type']))
 				continue;
 			// Skip the device where the operating system is installed on.
-			if (OMVSystem::isRootDeviceFile($objectv['devicefile']))
+			if (\OMV\System\System::isRootDeviceFile($objectv['devicefile']))
 				continue;
 			// Get the filesystem backend.
 			$fsb = OMVFilesystems::getBackendByType($objectv['type']);

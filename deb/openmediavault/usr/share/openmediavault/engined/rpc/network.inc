@@ -788,7 +788,8 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 				}
 			}
 			// Get the next free device name.
-			$params['devicename'] = OMVSystem::getNextDevice("iface", "bond");
+			$params['devicename'] = \OMV\System\System::getNextDevice(
+			  "iface", "bond");
 		}
 		// Set the configuration object.
 		return $this->setInterfaceConfig($params, array(

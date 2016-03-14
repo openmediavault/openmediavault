@@ -25,8 +25,12 @@ namespace OMV;
  * @ingroup api
  */
 class ExecException extends \Exception {
-	public function __construct($command, array $output = array()) {
-		$message = sprintf("Failed to execute command '%s': %s", $command,
+	/**
+	 * @param cmdLine The command line string.
+	 * @param The command output.
+	 */
+	public function __construct($cmdLine, array $output = array()) {
+		$message = sprintf("Failed to execute command '%s': %s", $cmdLine,
 		  implode("\n", $output));
 		parent::__construct($message);
 	}

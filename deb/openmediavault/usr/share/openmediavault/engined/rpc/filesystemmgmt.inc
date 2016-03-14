@@ -144,7 +144,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			}
 			// Mark the device where the operating system is installed on
 			// as used and read-only.
-			if (OMVSystem::isRootDeviceFile($object['devicefile'])) {
+			if (\OMV\System\System::isRootDeviceFile($object['devicefile'])) {
 				$object['_used'] = TRUE;
 				$object['_readonly'] = TRUE;
 			}

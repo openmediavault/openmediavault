@@ -28,12 +28,13 @@ require_once("openmediavault/functions.inc");
   "columns" => array(
 	  "ts" => array(
 		  "index" => 1,
-		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+		  "func" => function($v) { return strpdate($v,"M j G:i:s"); }
 	  ),
 	  "date" => array(
 		  "index" => 1,
-		  "func" => create_function('$v',
-			'return strftime("%c", strpdate($v,"M j G:i:s"));')
+		  "func" => function($v) {
+			  return strftime("%c", strpdate($v,"M j G:i:s"));
+		  }
 	  ),
 	  "hostname" => 2,
 	  "program" => 3,
