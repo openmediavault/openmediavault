@@ -62,7 +62,7 @@ class Manager {
 	}
 
 	/**
-	 * Get the backend of the given filesystem.
+	 * Get the backend of the specified filesystem identifier.
 	 * @param id The UUID or device path of the filesystem, e.g.
 	 *   <ul>
 	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
@@ -80,7 +80,7 @@ class Manager {
 	 * @return The backend that implements the given filesystem, otherwise
 	 *   NULL.
 	 */
-	final public function getBackend($id) {
+	final public function getBackendById($id) {
 		$result = NULL;
 		$enums = $this->enumerate();
 		foreach ($enums as $enumk => $enumv) {
@@ -105,7 +105,7 @@ class Manager {
 	}
 
 	/**
-	 * Get the backend of the given filesystem type.
+	 * Get the backend of the specified filesystem type.
 	 * @param type Specifies the filesystem type, e.g. 'ext3', 'vfat', ...
 	 * @return The backend that implements the given filesystem, otherwise
 	 *   NULL.

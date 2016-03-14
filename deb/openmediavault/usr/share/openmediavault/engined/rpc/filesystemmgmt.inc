@@ -224,7 +224,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		foreach ($objects as $objectk => $objectv) {
 			// Get the filesystem backend.
 			$fsbMngr = &\OMV\System\Filesystem\Backend\Manager::getInstance();
-			$fsb = $fsbMngr->getBackend($objectv['fsname']);
+			$fsb = $fsbMngr->getBackendById($objectv['fsname']);
 			if (is_null($fsb)) {
 // The device may not exist anymore, e.g. a USB device. Skip it.
 //				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
@@ -680,7 +680,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		  }');
 		// Get the filesystem backend.
 		$fsbMngr = &\OMV\System\Filesystem\Backend\Manager::getInstance();
-		$fsb = $fsbMngr->getBackend($params['id']);
+		$fsb = $fsbMngr->getBackendById($params['id']);
 		if (is_null($fsb)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("No filesystem backend exists for '%s'",
@@ -828,7 +828,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		  }');
 		// Get the corresponding filesystem backend.
 		$fsbMngr = &\OMV\System\Filesystem\Backend\Manager::getInstance();
-		$fsb = $fsbMngr->getBackend($params['id']);
+		$fsb = $fsbMngr->getBackendById($params['id']);
 		if (is_null($fsb)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
 			  "Filesystem '%s' not found or no backend exists",
