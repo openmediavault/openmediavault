@@ -19,19 +19,19 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Network\Device\Backend;
+namespace OMV\System\Network\NetworkInterfaceBackend;
 
 require_once("openmediavault/globals.inc");
 
 /**
- * Implements the network interface backend for bond devices.
+ * Implements the network interface backend for TUN/TAP devices.
  * @ingroup api
  */
-class Bond extends BackendAbstract {
-	protected $regex = "/^bond[0-9]+$/i";
+class Virtual extends BackendAbstract {
+	protected $regex = "/^(tun|tap)[0-9]+$/i";
 
 	function getType() {
-		return OMV_NETWORK_INTERFACE_TYPE_BOND;
+		return OMV_NETWORK_INTERFACE_TYPE_VIRTUAL;
 	}
 
 	function enumerate() {
@@ -40,25 +40,5 @@ class Bond extends BackendAbstract {
 
 	function isTypeOf($deviceName) {
 		return $this->isTypeOfByName($deviceName, $this->regex);
-	}
-
-	function enumerateSlaves() {
-		if (FALSE === ($devs = $this->enumerate()))
-			return FALSE;
-		$result = array();
-		foreach ($devs as $devk => $devv) {
-			$object = $this->getImpl($devv);
-			if (!$object->exists())
-				continue;
-			$slaves = $object->getSlaves();
-			if (FALSE === $slaves)
-				continue;
-			$result = array_merge($result, $slaves);
-		}
-		return $result;
-	}
-
-	function getImpl($args) {
-		return new OMVNetworkInterfaceBond($args);
 	}
 }

@@ -19,19 +19,19 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Network\Device\Backend;
+namespace OMV\System\Network\NetworkInterfaceBackend;
 
 require_once("openmediavault/globals.inc");
 
 /**
- * Implements the network interface backend for ethernet devices.
+ * Implements the network interface backend for bridge devices.
  * @ingroup api
  */
-class Ethernet extends BackendAbstract {
-	protected $regex = "/^(eth|venet)[0-9]+|veth[a-z0-9]+$/i";
+class Bridge extends BackendAbstract {
+	protected $regex = "/^br[0-9]+$/i";
 
 	function getType() {
-		return OMV_NETWORK_INTERFACE_TYPE_ETHERNET;
+		return OMV_NETWORK_INTERFACE_TYPE_BRIDGE;
 	}
 
 	function enumerate() {

@@ -19,23 +19,26 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Network\Device;
+namespace OMV\System\Network\NetworkInterfaceBackend;
+
+require_once("openmediavault/globals.inc");
 
 /**
- * This class provides a interface to handle Linux bond network interfaces.
+ * Implements the network interface backend for VLAN devices.
  * @ingroup api
  */
-class Bond extends Common {
-	/**
-	 * Get the slave devices.
-	 * @return A list of device names used in the array, otherwise FALSE.
-	 */
-	public function getSlaves() {
-		$filename = sprintf("/sys/class/net/%s/bonding/slaves",
-		  $this->getDeviceName());
-		if (!file_exists($filename))
-			return FALSE;
-		$slaves = file($filename);
-		return $slaves;
+class Vlan extends BackendAbstract {
+	protected $regex = "/^(\S+\d+)\.(\d+)$/i";
+
+	function getType() {
+		return OMV_NETWORK_INTERFACE_TYPE_VLAN;
+	}
+
+	function enumerate() {
+		return $this->enumerateSysFs($this->regex);
+	}
+
+	function isTypeOf($deviceName) {
+		return $this->isTypeOfByName($deviceName, $this->regex);
 	}
 }

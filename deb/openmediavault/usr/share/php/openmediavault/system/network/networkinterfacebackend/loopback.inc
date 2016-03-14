@@ -19,19 +19,19 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Network\Device\Backend;
+namespace OMV\System\Network\NetworkInterfaceBackend;
 
 require_once("openmediavault/globals.inc");
 
 /**
- * Implements the network interface backend for TUN/TAP devices.
+ * Implements the network interface backend for loopback devices.
  * @ingroup api
  */
-class Virtual extends BackendAbstract {
-	protected $regex = "/^(tun|tap)[0-9]+$/i";
+class Loopback extends BackendAbstract {
+	protected $regex = "/^lo[0-9]*$/i";
 
 	function getType() {
-		return OMV_NETWORK_INTERFACE_TYPE_VIRTUAL;
+		return OMV_NETWORK_INTERFACE_TYPE_LOOPBACK;
 	}
 
 	function enumerate() {

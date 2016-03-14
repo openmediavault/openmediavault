@@ -19,19 +19,19 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Network\Device\Backend;
+namespace OMV\System\Network\NetworkInterfaceBackend;
 
 require_once("openmediavault/globals.inc");
 
 /**
- * Implements the network interface backend for loopback devices.
+ * Implements the network interface backend for bond devices.
  * @ingroup api
  */
-class Loopback extends BackendAbstract {
-	protected $regex = "/^lo[0-9]*$/i";
+class Bond extends BackendAbstract {
+	protected $regex = "/^bond[0-9]+$/i";
 
 	function getType() {
-		return OMV_NETWORK_INTERFACE_TYPE_LOOPBACK;
+		return OMV_NETWORK_INTERFACE_TYPE_BOND;
 	}
 
 	function enumerate() {
@@ -40,5 +40,25 @@ class Loopback extends BackendAbstract {
 
 	function isTypeOf($deviceName) {
 		return $this->isTypeOfByName($deviceName, $this->regex);
+	}
+
+	function enumerateSlaves() {
+		if (FALSE === ($devs = $this->enumerate()))
+			return FALSE;
+		$result = array();
+		foreach ($devs as $devk => $devv) {
+			$object = $this->getImpl($devv);
+			if (!$object->exists())
+				continue;
+			$slaves = $object->getSlaves();
+			if (FALSE === $slaves)
+				continue;
+			$result = array_merge($result, $slaves);
+		}
+		return $result;
+	}
+
+	function getImpl($args) {
+		return new OMVNetworkInterfaceBond($args);
 	}
 }
