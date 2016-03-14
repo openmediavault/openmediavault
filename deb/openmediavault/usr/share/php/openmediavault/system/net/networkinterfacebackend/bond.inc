@@ -59,6 +59,6 @@ class Bond extends BackendAbstract {
 	}
 
 	function getImpl($args) {
-		return new OMVNetworkInterfaceBond($args);
+		return new \OMV\System\Net\NetworkInterfaceBond($args);
 	}
 }

@@ -21,7 +21,6 @@
  */
 namespace OMV\System\Net;
 
-require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 
 /**
@@ -51,53 +50,47 @@ class NetworkInterface {
 	/**
 	 * Get the network interface configuration
 	 * @private
-	 * @return TRUE if successful, otherwise FALSE.
+	 * @return None.
+	 * @throw \OMV\ExecException
 	 */
 	private function getData($type) {
-		$result = FALSE;
 		switch ($type) {
 		case "ifconfig":
 			if (!is_null($this->ifconfig))
-				return TRUE;
-			$cmd = sprintf("export LANG=C; ifconfig %s 2>&1",
-			  escapeshellarg($this->getDeviceName()));
-			@OMVUtil::exec($cmd, $output, $result);
-			if (($result !== 0) || empty($output[0])) {
-				$this->setLastError($output);
-				return FALSE;
-			}
+				return;
+			$cmdArgs = array();
+			$cmdArgs[] = escapeshellarg($this->getDeviceName());
+			$cmd = new \OMV\System\Process("ifconfig", $cmdArgs);
+			$cmd->setRedirect2to1(TRUE);
+			$cmd->execute($output);
 			$this->ifconfig = implode("|", $output);
-			$result = TRUE;
 			break;
 		case "ip":
 			if (!is_null($this->ip))
-				return TRUE;
-			$cmd = sprintf("export LANG=C; ip addr show dev %s 2>&1",
-			  escapeshellarg($this->getDeviceName()));
-			@OMVUtil::exec($cmd, $output, $result);
-			if (($result !== 0) || empty($output[0])) {
-				$this->setLastError($output);
-				return FALSE;
-			}
+				return;
+			$cmdArgs = array();
+			$cmdArgs[] = "addr";
+			$cmdArgs[] = "show";
+			$cmdArgs[] = "dev";
+			$cmdArgs[] = escapeshellarg($this->getDeviceName());
+			$cmd = new \OMV\System\Process("ip", $cmdArgs);
+			$cmd->setRedirect2to1(TRUE);
+			$cmd->execute($output);
 			foreach ($output as $outputk => &$outputv)
 				$outputv = trim($outputv);
 			$this->ip = implode("|", $output);
-			$result = TRUE;
 			break;
 		case "ethtool":
 			if (!is_null($this->ethtool))
-				return TRUE;
-			$cmd = sprintf("export LANG=C; ethtool %s 2>&1",
-			  escapeshellarg($this->getDeviceName()));
-			@OMVUtil::exec($cmd, $output, $result);
-			if (($result !== 0) || empty($output[0])) {
-				$this->setLastError($output);
-				return FALSE;
-			}
+				return;
+			$cmdArgs = array();
+			$cmdArgs[] = escapeshellarg($this->getDeviceName());
+			$cmd = new \OMV\System\Process("ethtool", $cmdArgs);
+			$cmd->setRedirect2to1(TRUE);
+			$cmd->execute($output);
 			foreach ($output as $outputk => &$outputv)
 				$outputv = trim($outputv);
 			$this->ethtool = implode("|", $output);
-			$result = TRUE;
 			break;
 		}
 		return $result;
@@ -116,18 +109,21 @@ class NetworkInterface {
 	 * @return TRUE if the network interface exists, otherwise FALSE.
 	 */
 	public function exists() {
-		if ($this->getData("ifconfig") === FALSE)
+		try {
+			$this->getData("ifconfig");
+		} catch(Exception $e) {
 			return FALSE;
+		}
 		return TRUE;
 	}
 
 	/**
 	 * Get the network interface IPv4 address.
 	 * @return The network interface IPv4 address, otherwise FALSE.
+	 * @throw \OMV\ExecException
 	 */
 	public function getIP() {
-		if ($this->getData("ifconfig") === FALSE)
-			return FALSE;
+		$this->getData("ifconfig");
 		if (1 !== preg_match("/inet addr:\s*({$this->regex['ipv4']})/i",
 		  $this->ifconfig, $matches))
 			return FALSE;
@@ -137,10 +133,10 @@ class NetworkInterface {
 	/**
 	 * Get the network interface IPv6 address.
 	 * @return The network interface IPv6 address, otherwise FALSE.
+	 * @throw \OMV\ExecException
 	 */
 	public function getIP6() {
-		if ($this->getData("ifconfig") === FALSE)
-			return FALSE;
+		$this->getData("ifconfig");
 		if (1 !== preg_match("/inet6 addr:\s*({$this->regex['ipv6cidr']})".
 		  "\s*Scope:Global/i", $this->ifconfig, $matches))
 			return FALSE;
@@ -150,10 +146,10 @@ class NetworkInterface {
 	/**
 	 * Get the network interface mask.
 	 * @return The network interface mask, otherwise FALSE.
+	 * @throw \OMV\ExecException
 	 */
 	public function getMask() {
-		if ($this->getData("ifconfig") === FALSE)
-			return FALSE;
+		$this->getData("ifconfig");
 		if (1 !== preg_match("/Mask:\s*({$this->regex['ipv4']})/i",
 		  $this->ifconfig, $matches))
 			return FALSE;
@@ -164,10 +160,10 @@ class NetworkInterface {
 	 * Get the network interface IPv6 mask/prefix length.
 	 * @return The network interface IPv6 mask/prefix length as integer,
 	 *   otherwise FALSE.
+	 * @throw \OMV\ExecException
 	 */
 	public function getMask6() {
-		if ($this->getData("ifconfig") === FALSE)
-			return FALSE;
+		$this->getData("ifconfig");
 		if (1 !== preg_match("/inet6 addr:\s*({$this->regex['ipv6cidr']})".
 		  "\s*Scope:Global/i", $this->ifconfig, $matches))
 			return FALSE;
@@ -201,15 +197,18 @@ class NetworkInterface {
 	/**
 	 * Get the network interface IPv4 default gateway.
 	 * @return The interface default gateway, or FALSE on failure.
+	 * @throw \OMV\ExecException
 	 */
 	public function getGateway() {
-		$cmd = sprintf("export LANG=C; ip -4 route show dev %s 2>&1",
-		  escapeshellarg($this->getDeviceName()));
-		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			$this->setLastError($output);
-			return FALSE;
-		}
+		$cmdArgs = array();
+		$cmdArgs[] = "-4";
+		$cmdArgs[] = "route";
+		$cmdArgs[] = "show";
+		$cmdArgs[] = "dev";
+		$cmdArgs[] = escapeshellarg($this->getDeviceName());
+		$cmd = new \OMV\System\Process("ip", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute($output);
 		$output = implode("\n", $output);
 		// Parse command output:
 		// 192.168.178.0/24  proto kernel  scope link  src 192.168.178.21
@@ -223,15 +222,18 @@ class NetworkInterface {
 	/**
 	 * Get the network interface IPv6 default gateway.
 	 * @return The interface default gateway, or FALSE on failure.
+	 * @throw \OMV\ExecException
 	 */
 	public function getGateway6() {
-		$cmd = sprintf("export LANG=C; ip -6 route show dev %s 2>&1",
-		  escapeshellarg($this->getDeviceName()));
-		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			$this->setLastError($output);
-			return FALSE;
-		}
+		$cmdArgs = array();
+		$cmdArgs[] = "-6";
+		$cmdArgs[] = "route";
+		$cmdArgs[] = "show";
+		$cmdArgs[] = "dev";
+		$cmdArgs[] = escapeshellarg($this->getDeviceName());
+		$cmd = new \OMV\System\Process("ip", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute($output);
 		$output = implode("\n", $output);
 		// Parse command output:
 		// fe80::/64  proto kernel  metric 256  mtu 1500 advmss 1440 hoplimit 4294967295
@@ -245,10 +247,10 @@ class NetworkInterface {
 	/**
 	 * Get the network interface state.
 	 * @return The network interface state, otherwise FALSE.
+	 * @throw \OMV\ExecException
 	 */
 	public function getState() {
-		if ($this->getData("ethtool") === FALSE)
-			return FALSE;
+		$this->getData("ethtool");
 		if (1 !== preg_match("/state {$this->regex['state']}/i",
 		  $this->ethtool, $matches))
 			return FALSE;

@@ -71,7 +71,7 @@ abstract class BackendAbstract {
 	 *   interface type, otherwise NULL.
 	 */
 	public function getImpl($args) {
-		return new \OMV\System\Net\Device\Common($args);
+		return new \OMV\System\Net\NetworkInterface($args);
 	}
 
 	/**

@@ -19,13 +19,15 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/functions.inc");
-require_once("openmediavault/system.inc");
+namespace OMV\System\Net\NetworkInterfaceBackend;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Register default network interface backends.
 ///////////////////////////////////////////////////////////////////////////////
-$classes = get_declared_subclasses("OMVNetworkInterfaceBackendAbstract");
-foreach ($classes as $classk => $classv) {
-	OMVNetworkInterfaces::registerBackend(new $classv());
+$backends = array("Bond", "Bridge", "Ethernet", "Infiniband", "Loopback",
+  "Virtual", "Vlan", "Wireless");
+$mngr = &Manager::getInstance();
+foreach ($backends as $backendk => $backendv) {
+	$className = sprintf("%s\%s", __NAMESPACE__, $backendv);
+	$mngr->registerBackend(new $className());
 }

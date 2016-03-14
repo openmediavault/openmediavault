@@ -25,6 +25,6 @@ namespace OMV\System\Net\NetworkInterfaceBackend;
  * Implements the network interface backend for Infiniband devices.
  * @ingroup api
  */
-class Infiniband extends BackendAbstract {
+class Infiniband extends Ethernet {
 	protected $regex = "/^ib[0-9]+$/i";
 }
