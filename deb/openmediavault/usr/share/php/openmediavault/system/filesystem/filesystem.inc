@@ -27,6 +27,37 @@ namespace OMV\System\Filesystem;
  */
 class Filesystem extends FilesystemAbstract {
 	/**
+	 * Get all available/detected filesystems.
+	 * @return An array of \ref Filesystem objects.
+	 * @throw \OMV\Exception
+	 */
+	public static function getFilesystems() {
+		$result = array();
+		$mngr = &Backend\Manager::getInstance();
+		foreach ($mngr->enumerate() as $datak => $datav) {
+			// Get the filesystem backend.
+			$backend = $mngr->getBackendByType($datav['type']);
+			if (is_null($backend)) {
+				throw new \OMV\Exception(
+				  "No filesystem backend exists for '%s'.",
+				  $datav['type']);
+			}
+			// Get the filesystem implementation. Use the devicefile to get
+			// the filesystem details because VFAT filesystems do not have
+			// a valid UUID.
+			$fs = $backend->getImpl($datav['devicefile']);
+			if (is_null($fs) || !$fs->exists()) {
+				throw new \OMV\Exception(
+				  "Failed to get the '%s' filesystem implementation ".
+				  "or '%s' does not exist.", $backend->getType(),
+				  $datav['devicefile']);
+			}
+			$result[] = $fs;
+		}
+		return $result;
+	}
+
+	/**
 	 * Get the object of the class implementing the given filesystem.
 	 * @param id The UUID or device path of the filesystem, e.g.
 	 *   <ul>

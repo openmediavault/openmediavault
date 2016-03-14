@@ -49,10 +49,14 @@ abstract class BackendAbstract {
 	}
 
 	/**
-	 * Get a list of filesystem devices of the given filesystem backend.
+	 * Get a list of filesystem device files or identifiers that are
+	 * managed by this filesystem backend.
 	 * Override this method if the filesystem implemented by this backend
 	 * is not identified by the block device identification library.
-	 * @return A list of devicefile names, otherwise FALSE.
+	 * This method is only called when the method \ref isBlkidEnumerated
+	 * returns FALSE.
+	 * @return An array of objects with the fields \em devicefile, \em uuid,
+	 *   \em label and \em type, otherwise FALSE.
 	 */
 	public function enumerate() {
 		return FALSE;

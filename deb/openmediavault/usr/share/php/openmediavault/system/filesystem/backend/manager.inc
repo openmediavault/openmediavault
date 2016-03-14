@@ -62,8 +62,21 @@ class Manager {
 	}
 
 	/**
+	 * Get the backend of the specified filesystem type.
+	 * @param type Specifies the filesystem type, e.g. 'ext3', 'vfat', ...
+	 * @return The backend that implements the given filesystem, otherwise
+	 *   NULL.
+	 */
+	final public function getBackendByType($type) {
+		$type = strtolower($type);
+		if (!array_key_exists($type, $this->map))
+			return NULL;
+		return $this->map[$type];
+	}
+
+	/**
 	 * Get the backend of the specified filesystem identifier.
-	 * @param id The UUID or device path of the filesystem, e.g.
+	 * @param id The UUID, label or device path of the filesystem, e.g.
 	 *   <ul>
 	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
 	 *   \li 7A48-BA97 (FAT)
@@ -94,7 +107,7 @@ class Manager {
 				// Compare the filesystem UUID.
 				$found = ($id == $enumv['uuid']);
 			} else {
-				$found = ($id == $enumv['devicefile']);
+				$found = ($id == $enumv['label']);
 			}
 			if (TRUE === $found) {
 				$result = $this->getBackendByType($enumv['type']);
@@ -102,19 +115,6 @@ class Manager {
 			}
 		}
 		return $result;
-	}
-
-	/**
-	 * Get the backend of the specified filesystem type.
-	 * @param type Specifies the filesystem type, e.g. 'ext3', 'vfat', ...
-	 * @return The backend that implements the given filesystem, otherwise
-	 *   NULL.
-	 */
-	final public function getBackendByType($type) {
-		$type = strtolower($type);
-		if (!array_key_exists($type, $this->map))
-			return FALSE;
-		return $this->map[$type];
 	}
 
 	/**
@@ -130,11 +130,12 @@ class Manager {
 
 	/**
 	 * Enumerate all available/detected file systems.
-	 * @return A list of file systems, otherwise FALSE. The array elements
-	 *   contain the fields: \em devicefile, \em uuid, \em label and \em type.
-	 *   The devicefile is used as key to access the array elements.
+	 * @return An array of objects with the fields \em devicefile, \em uuid,
+	 *   \em label and \em type, otherwise FALSE.
+	 * @throw \OMV\ExecException
 	 */
 	final public function enumerate() {
+		$result = array();
 		// Get all file systems that are identified by the block device
 		// identification library.
 		// !!! Note !!!
@@ -145,7 +146,6 @@ class Manager {
 		$cmd = new \OMV\System\Process("blkid", "-o full");
 		$cmd->setRedirect2to1(TRUE);
 		$cmd->execute($output);
-		$result = array();
 		foreach ($output as $outputk => $outputv) {
 			// Parse command output:
 			// /dev/sdb: UUID="e6a0f61e-d969-ffcb-d4c5-06e7711285a3" LABEL="dhcppc4:0" TYPE="linux_raid_member"
@@ -176,34 +176,17 @@ class Manager {
 					continue;
 				$data[strtolower($keyValue[0])] = substr($keyValue[1], 1, -1);
 			}
-			// Is this filesystem processed via blkid?
+			// Get the backend implementation. If the backend exists, then
+			// we are sure this filesystem is supported by this framework.
 			if (NULL == ($backend = $this->getBackendByType($data['type'])))
 				continue;
+			// Is this filesystem detected via the block device identification
+			// library?
 			if (FALSE === $backend->isBlkidEnumerated())
 				continue;
-			// Check if there are duplicate file systems. This seems to
-			// affect only BTRFS.
-			// ToDo: Find a smart way to relocate this check into the
-			// file systems \OMV\System\Filesystem\Backend\BackendAbstract
-			// implementation.
-			if (is_fs_uuid($data['uuid'])) {
-				$duplicate = FALSE;
-				foreach ($result as $resultk => $resultv) {
-					if (fs_uuid_equals($resultv['uuid'], $data['uuid'])) {
-						$duplicate = TRUE;
-						break;
-					}
-				}
-				// Skip this file system if another one with the same UUID
-				// is already processed and added. In this case the first
-				// by blkid listed file system wins.
-				if (TRUE === $duplicate)
-					continue;
-			}
-			// Append filesystem.
-			$result[$data['devicefile']] = $data;
+			$result[] = $data;
 		}
-		// Get the file systems that are not identified by the block device
+		// Get the filesystems that are not identified by the block device
 		// identification library.
 		foreach ($this->map as $backendk => $backendv) {
 			if (TRUE === $backendv->isBlkidEnumerated())
