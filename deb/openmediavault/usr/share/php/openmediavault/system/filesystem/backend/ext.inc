@@ -23,7 +23,6 @@ namespace OMV\System\Filesystem\Backend;
 
 class Ext extends BackendAbstract {
 	public function __construct() {
-		parent::__construct();
 		$this->type = "ext";
 		$this->properties = self::PROP_MNTENT;
 	}

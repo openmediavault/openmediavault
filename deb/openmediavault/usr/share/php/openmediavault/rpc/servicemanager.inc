@@ -54,7 +54,7 @@ class ServiceManager extends \OMV\BaseObject {
 	 * @param service The RPC service class to be registered.
 	 * @return Returns TRUE on success or FALSE on failure.
 	 */
-	private function registerService(\OMV\Rpc\ServiceAbstract $service) {
+	private function registerService(ServiceAbstract $service) {
 		if (!isset($service))
 			return FALSE;
 		$name = $service->getName();

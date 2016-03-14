@@ -28,14 +28,7 @@ require_once("openmediavault/functions.inc");
  * @ingroup api
  */
 class Manager {
-	static private $backends = array();
-
-	public function __construct() {
-		$classes = get_declared_subclasses("\OMV\System\Filesystem\Backend\BackendAbstract");
-		foreach ($classes as $classk => $classv) {
-			$this->registerBackend(new $classv());
-		}
-	}
+	private $map = array();
 
 	/**
 	 * Returns a manager singleton.
@@ -53,10 +46,18 @@ class Manager {
 	 * @param backend The filesystem backend object to register.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
-	private function registerBackend(BackendAbstract $backend) {
+	public function registerBackend(BackendAbstract $backend) {
 		if (!isset($backend))
 			return FALSE;
-		$this->backends[] = $backend;
+		$type = $backend->getType();
+		// Check if the filesystem backend already exists.
+		if (FALSE !== $this->getBackendByType($type)) {
+			throw new \OMV\Exception(
+			  "The filesystem backend already exists (type=%s, class=%s)",
+			  $type, get_class($backend));
+		}
+		$this->map[strtolower($type)] = $backend;
+		ksort($this->map);
 		return TRUE;
 	}
 
@@ -81,7 +82,7 @@ class Manager {
 	 */
 	final public function getBackend($id) {
 		$result = NULL;
-		$enums = self::enumerate();
+		$enums = $this->enumerate();
 		foreach ($enums as $enumk => $enumv) {
 			$found = FALSE;
 			if (is_devicefile($id)) {
@@ -96,7 +97,7 @@ class Manager {
 				$found = ($id == $enumv['devicefile']);
 			}
 			if (TRUE === $found) {
-				$result = self::getBackendByType($enumv['type']);
+				$result = $this->getBackendByType($enumv['type']);
 				break;
 			}
 		}
@@ -110,14 +111,10 @@ class Manager {
 	 *   NULL.
 	 */
 	final public function getBackendByType($type) {
-		$result = NULL;
-		foreach ($this->backends as $backendk => $backendv) {
-			if (strtolower($type) !== $backendv->getType())
-				continue;
-			$result = $backendv;
-			break;
-		}
-		return $result;
+		$type = strtolower($type);
+		if (!array_key_exists($type, $this->map))
+			return FALSE;
+		return $this->map[$type];
 	}
 
 	/**
@@ -126,7 +123,7 @@ class Manager {
 	 * @return TRUE if the file system is supported, otherwise FALSE.
 	 */
 	final public function isSupported($type) {
-		if (NULL == ($backend = self::getBackendByType($type)))
+		if (NULL == ($backend = $this->getBackendByType($type)))
 			return FALSE;
 		return TRUE;
 	}
@@ -137,7 +134,7 @@ class Manager {
 	 *   contain the fields: \em devicefile, \em uuid, \em label and \em type.
 	 *   The devicefile is used as key to access the array elements.
 	 */
-	public public function enumerate() {
+	final public function enumerate() {
 		// Get all file systems that are identified by the block device
 		// identification library.
 		// !!! Note !!!
@@ -208,7 +205,7 @@ class Manager {
 		}
 		// Get the file systems that are not identified by the block device
 		// identification library.
-		foreach ($this->backends as $backendk => $backendv) {
+		foreach ($this->map as $backendk => $backendv) {
 			if (TRUE === $backendv->isBlkidEnumerated())
 				continue;
 			if (FALSE === ($data = $backendv->enumerate()))
@@ -218,5 +215,14 @@ class Manager {
 			$result = array_merge($result, $data);
 		}
 		return $result;
+	}
+
+	/**
+	 * Dump all registered RPC services.
+	 */
+	final public function dump() {
+		print("Registered filesystem backends:\n");
+		foreach ($this->map as $backendk => $backendv)
+			printf("  %s\n", $backendv->getType());
 	}
 }

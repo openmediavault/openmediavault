@@ -23,7 +23,6 @@ namespace OMV\System\Filesystem\Backend;
 
 class Msdos extends BackendAbstract {
 	public function __construct() {
-		parent::__construct();
 		$this->type = "msdos";
 		$this->properties = self::PROP_MNTENT;
 	}

@@ -21,18 +21,16 @@
  */
 namespace OMV\System\Filesystem\Backend;
 
-class Reiserfs extends BackendAbstract {
-	public function __construct() {
-		$this->type = "reiserfs";
-		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL;
-	}
-
-	/**
-	 * See parent class definition.
-	 */
-	public function getFstabMntOptions(OMVStorageDeviceAbstract $sd = null) {
-		$options = parent::getFstabMntOptions($sd);
-		$options[] = "acl";
-		return $options;
-	}
+///////////////////////////////////////////////////////////////////////////////
+// Register default filesystem backends.
+///////////////////////////////////////////////////////////////////////////////
+$fsBackends = array("Btrfs", "Ext", "Ext2", "Ext3", "Ext4", "Hfsplus",
+  "Iso9660", "Jfs", "Msdos", "None", "Ntfs", "Reiserfs", "Udf", "Ufs",
+  "Umsdos", "Vfat", "Xfs");
+$fsbMngr = &Manager::getInstance();
+foreach ($fsBackends as $classk => $classv) {
+	$className = sprintf("%s\%s", __NAMESPACE__, $classv);
+	$fsbMngr->registerBackend(new $className());
 }
+if (TRUE === $debug)
+	$fsbMngr->dump();

@@ -23,7 +23,6 @@ namespace OMV\System\Filesystem\Backend;
 
 class Umsdos extends BackendAbstract {
 	public function __construct() {
-		parent::__construct();
 		$this->type = "umsdos";
 		$this->properties = self::PROP_MNTENT;
 	}

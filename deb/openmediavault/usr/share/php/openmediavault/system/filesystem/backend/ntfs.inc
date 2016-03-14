@@ -25,7 +25,6 @@ require_once("openmediavault/globals.inc");
 
 class Ntfs extends BackendAbstract {
 	public function __construct() {
-		parent::__construct();
 		$this->type = "ntfs";
 		$this->properties = self::PROP_MNTENT;
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_NTFS']);

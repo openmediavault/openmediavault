@@ -25,7 +25,6 @@ require_once("openmediavault/globals.inc");
 
 class Jfs extends BackendAbstract {
 	public function __construct() {
-		parent::__construct();
 		$this->type = "jfs";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
 		  self::PROP_DISCARD | self::PROP_QUOTA | self::PROP_RESIZE;

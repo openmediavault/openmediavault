@@ -25,7 +25,6 @@ require_once("openmediavault/globals.inc");
 
 class Udf extends BackendAbstract {
 	public function __construct() {
-		parent::__construct();
 		$this->type = "udf";
 		$this->properties = self::PROP_MNTENT | self::PROP_READ_ONLY;
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_UDF']);

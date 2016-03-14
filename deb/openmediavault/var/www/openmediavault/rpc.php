@@ -25,12 +25,8 @@ try {
 	require_once("openmediavault/functions.inc");
 
 	// Initialize the configuration engine.
-	$xmlConfig = new OMVConfigEngine($GLOBALS['OMV_CONFIG_FILE']);
-	$xmlConfig->setVersioning(TRUE);
-	if (FALSE === $xmlConfig->load()) {
-		throw new OMVException(OMVErrorMsg::E_CONFIG_LOAD_FAILED,
-		  $xmlConfig->getLastError());
-	}
+	$db = &\OMV\Config\Database::getInstance();
+	$xmlConfig = $db->getBackend();
 
 	// Load and initialize the RPC services that are not handled by the
 	// engine daemon.

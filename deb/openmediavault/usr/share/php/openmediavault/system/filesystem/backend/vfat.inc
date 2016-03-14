@@ -23,7 +23,6 @@ namespace OMV\System\Filesystem\Backend;
 
 class Vfat extends BackendAbstract {
 	public function __construct() {
-		parent::__construct();
 		$this->type = "vfat";
 		$this->properties = self::PROP_MNTENT | self::PROP_DISCARD;
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_VFAT']);

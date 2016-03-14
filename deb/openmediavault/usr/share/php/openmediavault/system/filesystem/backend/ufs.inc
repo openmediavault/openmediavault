@@ -23,7 +23,6 @@ namespace OMV\System\Filesystem\Backend;
 
 class Ufs extends BackendAbstract {
 	public function __construct() {
-		parent::__construct();
 		$this->type = "ufs";
 		$this->properties = self::PROP_MNTENT;
 	}
