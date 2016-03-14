@@ -66,7 +66,7 @@ class OMVModuleFsTab extends \OMV\Engine\Module\ServiceAbstract
 				// filesystem does not exist.
 				if (is_uuid($objectv->get("fsname")) || is_devicefile(
 				  $objectv->get("fsname"))) {
-					$fs = \OMV\System\Filesystem\Filesystems::getImpl($objectv->get("fsname"));
+					$fs = \OMV\System\Filesystem\Backend\Manager::getImpl($objectv->get("fsname"));
 					if (is_null($fs) || !$fs->exists())
 						continue;
 				}

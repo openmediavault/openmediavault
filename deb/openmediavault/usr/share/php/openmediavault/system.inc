@@ -1166,7 +1166,7 @@ class OMVMntEnt extends OMVObject {
 			// /dev/sde1 /media/46607e80-dc8e-427e-9939-7909985dfe5b ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
 			$matches = explode(" ", $rowv);
 			if ($matches[1] == $dir) {
-				$result = \OMV\System\Filesystem\Filesystems::getImpl($matches[0]);
+				$result = \OMV\System\Filesystem\Backend\Manager::getImpl($matches[0]);
 				break;
 			}
 		}
@@ -1190,7 +1190,7 @@ class OMVMntEnt extends OMVObject {
 			// /dev/sde1 /media/46607e80-dc8e-427e-9939-7909985dfe5b ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
 			$matches = explode(" ", $rowv);
 			if ($matches[0] == $name) {
-				$result = \OMV\System\Filesystem\Filesystems::getImpl($matches[0]);
+				$result = \OMV\System\Filesystem\Backend\Manager::getImpl($matches[0]);
 				break;
 			}
 		}

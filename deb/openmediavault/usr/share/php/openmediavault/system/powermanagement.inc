@@ -74,10 +74,10 @@ class PowerManagement {
 		$cmd = new \OMV\System\Process("pm-is-supported", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);
 		$cmd->setQuiet(TRUE);
-		$cmd->execute($output, $result);
-		if (!(($result == 0) || ($result == 1)))
+		$cmd->execute($output, $exitStatus);
+		if (!(($exitStatus == 0) || ($exitStatus == 1)))
 			throw new \OMV\ExecException($cmd->getCommandLine(), $output);
-		$supported = ($result == 0) ? TRUE : FALSE;
+		$supported = ($exitStatus == 0) ? TRUE : FALSE;
 /*
 		// In case of PM_STATE_HIBERNATE and PM_STATE_SUSPENDHYBRID the
 		// swap space must be greater than the physical memory size to

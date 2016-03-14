@@ -72,8 +72,8 @@ class SystemCtl {
 		$cmd = new \OMV\System\Process("systemctl", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);
 		$cmd->setQuiet($quiet);
-		$cmd->execute($output, $result);
-		return $result;
+		$cmd->execute($output, $exitStatus);
+		return $exitStatus;
 	}
 
 	/**

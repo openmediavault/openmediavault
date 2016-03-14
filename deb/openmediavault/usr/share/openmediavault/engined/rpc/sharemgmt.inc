@@ -78,7 +78,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Get the filesystem details for each mount point.
 		$result = array();
 		foreach($objects as $objectk => $objectv) {
-			$fs = \OMV\System\Filesystem\Filesystems::getImpl($objectv['fsname']);
+			$fs = \OMV\System\Filesystem\Backend\Manager::getImpl($objectv['fsname']);
 			if (is_null($fs) || !$fs->exists()) {
 //				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 //				  sprintf(gettext("Filesystem '%s' not found"),
@@ -156,7 +156,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 					"type" => $meObject['type']
 				));
 				// Get the filesystem backend.
-				$fsb = \OMV\System\Filesystem\Filesystems::getBackendByType($meObject['type']);
+				$fsb = \OMV\System\Filesystem\Backend\Manager::getBackendByType($meObject['type']);
 				if (is_null($fsb)) {
 					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 					  sprintf("No filesystem backend exists for '%s'",

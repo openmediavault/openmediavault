@@ -192,7 +192,7 @@ class SysVInitScript {
 		$cmd = new \OMV\System\Process("invoke-rc.d", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);
 		$cmd->setQuiet(TRUE);
-		$cmd->execute($output, $result);
-		return $result;
+		$cmd->execute($output, $exitStatus);
+		return $exitStatus;
 	}
 }

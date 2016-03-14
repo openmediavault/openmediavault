@@ -19,7 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Filesystem;
+namespace OMV\System\Filesystem\Backend;
 
 require_once("openmediavault/functions.inc");
 
@@ -27,7 +27,7 @@ require_once("openmediavault/functions.inc");
  * Helper class that implements functions regarding file systems.
  * @ingroup api
  */
-class Filesystems {
+class Manager {
 	static private $backends = array();
 
 	/**
@@ -35,7 +35,7 @@ class Filesystems {
 	 * @param backend The filesystem backend object to register.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
-	final static function registerBackend(Backend\BackendAbstract $backend) {
+	final static function registerBackend(BackendAbstract $backend) {
 		if (!isset($backend))
 			return FALSE;
 		self::$backends[] = $backend;
