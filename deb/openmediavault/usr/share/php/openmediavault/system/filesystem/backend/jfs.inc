@@ -37,6 +37,6 @@ class Jfs extends BackendAbstract {
 	 * See parent class definition.
 	 */
 	function getImpl($args) {
-		return new OMVFilesystemJfs($args);
+		return new \OMV\System\Filesystem\Jfs($args);
 	}
 }

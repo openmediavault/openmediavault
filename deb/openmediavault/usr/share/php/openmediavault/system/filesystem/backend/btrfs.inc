@@ -47,6 +47,6 @@ class Btrfs extends BackendAbstract {
 	 * See parent class definition.
 	 */
 	function getImpl($args) {
-		return new OMVFilesystemBtrfs($args);
+		return new \OMV\System\Filesystem\Btrfs($args);
 	}
 }

@@ -19,32 +19,20 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Filesystem\Backend;
+namespace OMV\System\Filesystem;
 
-class Xfs extends BackendAbstract {
-	public function __construct() {
-		parent::__construct();
-		$this->type = "xfs";
-		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
-		  self::PROP_DISCARD | self::PROP_QUOTA | self::PROP_RESIZE;
-		$this->mkfsOptions = $GLOBALS['OMV_MKFS_OPTIONS_XFS'];
-		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_XFS']);
-	}
-
+class Ext extends Filesystem {
 	/**
-	 * See parent class definition.
+	 * Grow the filesystem.
+	 * @return None.
+	 * @throw \OMV\ExecException
 	 */
-	public function getFstabMntOptions(OMVStorageDeviceAbstract $sd = null) {
-		$options = parent::getFstabMntOptions($sd);
-		if (TRUE === is_64bits())
-			$options[] = "inode64";
-		return $options;
-	}
-
-	/**
-	 * See parent class definition.
-	 */
-	function getImpl($args) {
-		return new \OMV\System\Filesystem\Xfs($args);
+	final public function grow() {
+		$this->getData();
+		$cmdArgs = array();
+		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
+		$cmd = new \OMV\System\Process("resize2fs", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 }

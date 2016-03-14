@@ -45,6 +45,6 @@ class Ext2 extends Ext {
 	 * See parent class definition.
 	 */
 	function getImpl($args) {
-		return new OMVFilesystemExt($args);
+		return new \OMV\System\Filesystem\Ext($args);
 	}
 }
