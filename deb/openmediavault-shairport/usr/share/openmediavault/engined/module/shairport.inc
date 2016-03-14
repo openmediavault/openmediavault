@@ -122,10 +122,10 @@ class OMVModuleShairport extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.network.hostname",
 		  array($this, "setDirty"));
-		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
+		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.shairport",
-		  array($moduleMgr->getModule("monit"), "setDirty"));
+		  array($moduleMngr->getModule("monit"), "setDirty"));
 	}
 }

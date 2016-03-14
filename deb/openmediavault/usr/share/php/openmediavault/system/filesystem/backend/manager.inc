@@ -30,15 +30,33 @@ require_once("openmediavault/functions.inc");
 class Manager {
 	static private $backends = array();
 
+	public function __construct() {
+		$classes = get_declared_subclasses("\OMV\System\Filesystem\Backend\BackendAbstract");
+		foreach ($classes as $classk => $classv) {
+			$this->registerBackend(new $classv());
+		}
+	}
+
+	/**
+	 * Returns a manager singleton.
+	 * @return The manager object.
+	 */
+	public static function &getInstance() {
+		static $instance = NULL;
+		if (!isset($instance))
+			$instance = new Manager();
+		return $instance;
+	}
+
 	/**
 	 * Register a filesystem backend.
 	 * @param backend The filesystem backend object to register.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
-	final static function registerBackend(BackendAbstract $backend) {
+	private function registerBackend(BackendAbstract $backend) {
 		if (!isset($backend))
 			return FALSE;
-		self::$backends[] = $backend;
+		$this->backends[] = $backend;
 		return TRUE;
 	}
 
@@ -61,7 +79,7 @@ class Manager {
 	 * @return The backend that implements the given filesystem, otherwise
 	 *   NULL.
 	 */
-	final static function getBackend($id) {
+	final public function getBackend($id) {
 		$result = NULL;
 		$enums = self::enumerate();
 		foreach ($enums as $enumk => $enumv) {
@@ -82,14 +100,6 @@ class Manager {
 				break;
 			}
 		}
-		/* Slow, but the more correct implementation.
-		foreach (self::$backends as $backendk => $backendv) {
-			if (FALSE === $backendv->isTypeOf($id))
-				continue;
-			$result = $backendv;
-			break;
-		}
-		*/
 		return $result;
 	}
 
@@ -99,9 +109,9 @@ class Manager {
 	 * @return The backend that implements the given filesystem, otherwise
 	 *   NULL.
 	 */
-	final static function getBackendByType($type) {
+	final public function getBackendByType($type) {
 		$result = NULL;
-		foreach (self::$backends as $backendk => $backendv) {
+		foreach ($this->backends as $backendk => $backendv) {
 			if (strtolower($type) !== $backendv->getType())
 				continue;
 			$result = $backendv;
@@ -115,21 +125,10 @@ class Manager {
 	 * @param type The file system type, e.g. 'ext4', 'iso9660', ...
 	 * @return TRUE if the file system is supported, otherwise FALSE.
 	 */
-	final static function isSupported($type) {
+	final public function isSupported($type) {
 		if (NULL == ($backend = self::getBackendByType($type)))
 			return FALSE;
 		return TRUE;
-	}
-
-	/**
-	 * Get a list of all detected file systems.
-	 * @deprecated
-	 * @return A list of file systems, otherwise FALSE. The array elements
-	 *   contain the fields: \em devicefile, \em uuid, \em label and \em type.
-	 *   The devicefile is used as key to access the array elements.
-	 */
-	public static function get() {
-		return $this->enumerate();
 	}
 
 	/**
@@ -138,7 +137,7 @@ class Manager {
 	 *   contain the fields: \em devicefile, \em uuid, \em label and \em type.
 	 *   The devicefile is used as key to access the array elements.
 	 */
-	public static function enumerate() {
+	public public function enumerate() {
 		// Get all file systems that are identified by the block device
 		// identification library.
 		// !!! Note !!!
@@ -181,7 +180,7 @@ class Manager {
 				$data[strtolower($keyValue[0])] = substr($keyValue[1], 1, -1);
 			}
 			// Is this filesystem processed via blkid?
-			if (NULL == ($backend = self::getBackendByType($data['type'])))
+			if (NULL == ($backend = $this->getBackendByType($data['type'])))
 				continue;
 			if (FALSE === $backend->isBlkidEnumerated())
 				continue;
@@ -209,7 +208,7 @@ class Manager {
 		}
 		// Get the file systems that are not identified by the block device
 		// identification library.
-		foreach (self::$backends as $backendk => $backendv) {
+		foreach ($this->backends as $backendk => $backendv) {
 			if (TRUE === $backendv->isBlkidEnumerated())
 				continue;
 			if (FALSE === ($data = $backendv->enumerate()))
@@ -219,28 +218,5 @@ class Manager {
 			$result = array_merge($result, $data);
 		}
 		return $result;
-	}
-
-	/**
-	 * Get the object of the class implementing the given filesystem.
-	 * @param id The UUID or device path of the filesystem, e.g.
-	 *   <ul>
-	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
-	 *   \li 7A48-BA97 (FAT)
-	 *   \li 2ED43920D438EC29 (NTFS)
-	 *   \li /dev/sde1
-	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6-part1
-	 *   \li /dev/disk/by-label/DATA
-	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0-part2
-	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
-	 *   \li /dev/cciss/c0d0p2
-	 *   </ul>
-	 * @return The object of the class implementing the given filesystem,
-	 *   otherwise NULL.
-	 */
-	public static function getImpl($id) {
-		if (NULL == ($backend = self::getBackend($id)))
-			return NULL;
-		return $backend->getImpl($id);
 	}
 }

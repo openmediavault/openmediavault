@@ -163,7 +163,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			if (TRUE === $xmlConfig->exists($xpath))
 				continue;
 			// Does this device already contain a filesystem?
-			if (FALSE !== OMVFilesystem::hasFileSystem($sd->getDeviceFile()))
+			if (FALSE !== \OMV\System\Filesystem\Filesystem::hasFileSystem($sd->getDeviceFile()))
 				continue;
 			// The device is a potential candidate to be used as a
 			// physical volume.

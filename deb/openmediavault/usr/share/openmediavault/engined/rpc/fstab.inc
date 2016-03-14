@@ -138,7 +138,8 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Get the filesystem backend.
-		$fsb = \OMV\System\Filesystem\Backend\Manager::getBackendByType($params['type']);
+		$fsbMngr = &\OMV\System\Filesystem\Backend\Manager::getInstance();
+		$fsb = $fsbMngr->getBackendByType($params['type']);
 		if (is_null($fsb)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
 			  "No filesystem backend exists for type '%s'",
@@ -241,7 +242,7 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 		// file system UUID and add it to the search argument list. This is
 		// done to increase the probability to find the fstab config object.
 		if (is_devicefile($params['id'])) {
-			$fs = \OMV\System\Filesystem\Backend\Manager::getImpl($params['id']);
+			$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['id']);
 			if (!is_null($fs) && $fs->exists() && $fs->hasUuid())
 				$args[] = $fs->getUuid();
 		}

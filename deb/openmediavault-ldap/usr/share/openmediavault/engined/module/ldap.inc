@@ -47,14 +47,14 @@ class OMVModuleLDAP extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.ldap",
 		  array($this, "setDirty"));
-		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
+		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.ldap",
-		  array($moduleMgr->getModule("samba"), "setDirty"));
+		  array($moduleMngr->getModule("samba"), "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.ldap",
-		  array($moduleMgr->getModule("pam"), "setDirty"));
+		  array($moduleMngr->getModule("pam"), "setDirty"));
     }
 }

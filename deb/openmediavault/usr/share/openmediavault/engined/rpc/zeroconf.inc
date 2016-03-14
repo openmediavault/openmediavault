@@ -53,8 +53,8 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		$result = array();
 		// Get the list of registered modules.
-		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
-		$modules = $moduleMgr->getModules();
+		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
+		$modules = $moduleMngr->getModules();
 		foreach($modules as $modulev) {
 			// Check if the module implements the \OMV\Engine\Module\IZeroconf
 			// interface.
@@ -108,8 +108,8 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 		// Prepare the configuration object.
 		$object = array();
 		// Get the list of registered modules.
-		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
-		$modules = $moduleMgr->getModules();
+		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
+		$modules = $moduleMngr->getModules();
 		foreach($modules as $modulev) {
 			// Check if the module implements the \OMV\Engine\Module\IZeroconf
 			// interface.

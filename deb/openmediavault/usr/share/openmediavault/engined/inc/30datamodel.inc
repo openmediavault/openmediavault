@@ -21,7 +21,7 @@
  */
 require_once("openmediavault/globals.inc");
 
-$modelMgr = &\OMV\DataModel\Manager::getInstance();
-$modelMgr->load($GLOBALS['OMV_JSONSCHEMAS_DIR']);
+$modelMngr = &\OMV\DataModel\Manager::getInstance();
+$modelMngr->load($GLOBALS['OMV_JSONSCHEMAS_DIR']);
 if (TRUE === $debug)
-	$modelMgr->dump();
+	$modelMngr->dump();

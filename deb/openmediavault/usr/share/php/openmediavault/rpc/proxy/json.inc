@@ -76,8 +76,8 @@ class Json extends \OMV\BaseObject {
 		// redirected from the WebGUI backend to the omv-engined daemon,
 		// then we can commit the session (these RPCs are executed in
 		// another process thus they can not access this session).
-		$rpcServiceMgr = &\OMV\Rpc\ServiceManager::getInstance();
-		if (FALSE === ($rpcService = $rpcServiceMgr->getService(
+		$rpcServiceMngr = &\OMV\Rpc\ServiceManager::getInstance();
+		if (FALSE === ($rpcService = $rpcServiceMngr->getService(
 		  $this->params['service']))) {
 			// Session MUST be authenticated at this point.
 			$session->validateAuthentication();

@@ -774,7 +774,7 @@ openmediavault (1.0.30) stable; urgency=low
   * Refactor filesystem backend. Introduce class OMVFilesystemBackendAbstract,
     OMVFilesystemFactory and OMVFilesystemAbstract.
     All supported filesystems must extend this class. Backends must be
-    registered via \OMV\System\Filesystem\Backend\Manager::registerBackend.
+    registered via OMVFilesystems::registerBackend.
   * Enhance OMVStorageDeviceBackendAbstract class.
   * Mantis 0001142: Shares with spaces in the path/directory don't appear
     when using FTP/FTPS.

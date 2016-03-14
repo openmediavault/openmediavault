@@ -52,8 +52,8 @@ abstract class ModuleAbstract extends \OMV\BaseObject {
 	 * @return The list of dirty modules.
 	 */
 	final public function setDirtyByName($name) {
-		$moduleMgr = &Manager::getInstance();
-		return $moduleMgr->setModuleDirty($name);
+		$moduleMngr = &Manager::getInstance();
+		return $moduleMngr->setModuleDirty($name);
 	}
 
 	/**
@@ -61,8 +61,8 @@ abstract class ModuleAbstract extends \OMV\BaseObject {
 	 * @return TRUE if the module is marked dirty, otherwise FALSE.
 	 */
 	final public function isDirty() {
-		$moduleMgr = &Manager::getInstance();
-		return $moduleMgr->isModuleDirty($this->getName());
+		$moduleMngr = &Manager::getInstance();
+		return $moduleMngr->isModuleDirty($this->getName());
 	}
 
 	/**

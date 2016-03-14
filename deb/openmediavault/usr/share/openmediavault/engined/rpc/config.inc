@@ -52,8 +52,8 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
-		$modules = $moduleMgr->getDirtyModules();
+		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
+		$modules = $moduleMngr->getDirtyModules();
 		return !empty($modules);
 	}
 
@@ -92,7 +92,7 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 				  "force":{"type":"boolean"}
 			  }
 		  }');
-		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
+		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
 		$notifyDispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
 		// Open the dirty modules file. Lock it to force all writers
 		// to wait until this RPC has been finished.
@@ -102,7 +102,7 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 		// Remove non-existing modules from list. It may happen that the
 		// list contains entries from already deinstalled plugins.
 		$removeDirtyModules = array();
-		$modules = array_keys($moduleMgr->getModules());
+		$modules = array_keys($moduleMngr->getModules());
 		foreach($dirtyModules as $dirtyModulek => $dirtyModulev) {
 			if(!in_array($dirtyModulev, $modules))
 				$removeDirtyModules[] = $dirtyModulev;
@@ -117,7 +117,7 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 		// is empty, then process all registered modules.
 		$modules = $params['modules'];
 		if(empty($params['modules']))
-			$modules = array_keys($moduleMgr->getModules());
+			$modules = array_keys($moduleMngr->getModules());
 		$processModules = array();
 		foreach($modules as $modulek => $modulev) {
 			// Skip module if 'force' is disabled and module is not marked
@@ -126,7 +126,7 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 			  (FALSE === $params['force']))
 				continue;
 			// Get the module object and apply the configuration.
-			if(FALSE === ($object = $moduleMgr->getModule($modulev))) {
+			if(FALSE === ($object = $moduleMngr->getModule($modulev))) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  sprintf("Module '%s' not found", $modulev));
 			}

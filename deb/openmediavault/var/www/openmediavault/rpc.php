@@ -38,12 +38,12 @@ try {
 	foreach (listdir($directory, "inc") as $path) {
 		require_once $path;
 	}
-	$rpcServiceMgr = &\OMV\Rpc\ServiceManager::getInstance();
-	$rpcServiceMgr->initializeServices();
+	$rpcServiceMngr = &\OMV\Rpc\ServiceManager::getInstance();
+	$rpcServiceMngr->initializeServices();
 
 	// Initialize the data models.
-	$modelMgr = &\OMV\DataModel\Manager::getInstance();
-	$modelMgr->load($GLOBALS['OMV_JSONSCHEMAS_DIR']);
+	$modelMngr = &\OMV\DataModel\Manager::getInstance();
+	$modelMngr->load($GLOBALS['OMV_JSONSCHEMAS_DIR']);
 
 	$session = &\OMV\Session::getInstance();
 	$session->start();

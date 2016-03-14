@@ -808,8 +808,8 @@ omv_kill_children() {
 omv_module_set_dirty() {
 	php5 -c /etc/openmediavault <<EOF
 <?php
-\$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
-\$moduleMgr->setModuleDirty("$1");
+\$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
+\$moduleMngr->setModuleDirty("$1");
 ?>
 EOF
 }
@@ -820,8 +820,8 @@ omv_module_is_dirty() {
 	local _dirty
 	_dirty=$(php5 -c /etc/openmediavault -r \
 	  "require_once('openmediavault/module.inc'); \
-	  \$moduleMgr = &\OMV\Engine\Module\Manager::getInstance(); \
-	  \$dirtyModules = \$moduleMgr->getDirtyModules(); \
+	  \$moduleMngr = &\OMV\Engine\Module\Manager::getInstance(); \
+	  \$dirtyModules = \$moduleMngr->getDirtyModules(); \
 	  !empty(\$dirtyModules) ? print 0 : print 1;")
 	return ${_dirty}
 }

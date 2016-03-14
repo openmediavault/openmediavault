@@ -266,6 +266,6 @@ abstract class BackendAbstract {
 	 *   otherwise NULL.
 	 */
 	function getImpl($args) {
-		return new OMVFilesystem($args);
+		return new \OMV\System\Filesystem\Filesystem($args);
 	}
 }

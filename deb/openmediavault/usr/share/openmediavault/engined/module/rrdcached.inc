@@ -107,10 +107,10 @@ class OMVModuleRrdCached extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.monitoring.perfstats",
 		  array($this, "setDirty"));
-		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
+		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.monitoring.perfstats",
-		  array($moduleMgr->getModule("monit"), "setDirty"));
+		  array($moduleMngr->getModule("monit"), "setDirty"));
 	}
 }

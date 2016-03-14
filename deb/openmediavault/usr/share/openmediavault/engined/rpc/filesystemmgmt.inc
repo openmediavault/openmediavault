@@ -68,9 +68,10 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
+		$fsbMngr = &\OMV\System\Filesystem\Backend\Manager::getInstance();
 		// Get list of all detected filesystems. Note, the list may also
 		// contain RAID and LVM volumes, so the list must be filtered.
-		if (FALSE === ($objects = \OMV\System\Filesystem\Backend\Manager::enumerate())) {
+		if (FALSE === ($objects = $fsbMngr->enumerate())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  gettext("Failed to get filesystems"));
 		}
@@ -78,10 +79,10 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$result = array();
 		foreach ($objects as $objectk => $objectv) {
 			// Is it a filesystem of interest?
-			if (!\OMV\System\Filesystem\Backend\Manager::isSupported($objectv['type']))
+			if (!$fsbMngr->isSupported($objectv['type']))
 				continue;
 			// Get the filesystem backend.
-			$fsb = \OMV\System\Filesystem\Backend\Manager::getBackendByType($objectv['type']);
+			$fsb = $fsbMngr->getBackendByType($objectv['type']);
 			if (is_null($fsb)) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  sprintf("No filesystem backend exists for '%s'",
@@ -222,7 +223,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$result = array();
 		foreach ($objects as $objectk => $objectv) {
 			// Get the filesystem backend.
-			$fsb = \OMV\System\Filesystem\Backend\Manager::getBackend($objectv['fsname']);
+			$fsbMngr = &\OMV\System\Filesystem\Backend\Manager::getInstance();
+			$fsb = $fsbMngr->getBackend($objectv['fsname']);
 			if (is_null($fsb)) {
 // The device may not exist anymore, e.g. a USB device. Skip it.
 //				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
@@ -355,7 +357,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				continue;
 			}
 			// Get the filesystem backend.
-			$fsb = \OMV\System\Filesystem\Backend\Manager::getBackendByType($fsInfo['type']);
+			$fsbMngr = &\OMV\System\Filesystem\Backend\Manager::getInstance();
+			$fsb = $fsbMngr->getBackendByType($fsInfo['type']);
 			if (is_null($fsb)) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  sprintf("No filesystem backend exists for '%s'",
@@ -400,7 +403,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		foreach ($mntents as $mntentk => $mntentv) {
 			// Get the filesystem backend.
-			$fsb = \OMV\System\Filesystem\Backend\Manager::getBackendByType($mntentv['type']);
+			$fsbMngr = &\OMV\System\Filesystem\Backend\Manager::getInstance();
+			$fsb = $fsbMngr->getBackendByType($mntentv['type']);
 			if (is_null($fsb)) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  sprintf("No filesystem backend exists for '%s'",
@@ -484,7 +488,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			if (TRUE === $xmlConfig->exists($xpath))
 				continue;
 			// Does this device already contain a filesystem?
-			if (FALSE !== OMVFilesystem::hasFileSystem($sd->getDeviceFile()))
+			if (FALSE !== \OMV\System\Filesystem\Filesystem::hasFileSystem($sd->getDeviceFile()))
 				continue;
 			// The device is a potential candidate to create a filesystem
 			// on it.
@@ -547,7 +551,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			  $sd->getDeviceFile()));
 		}
 		// Get the corresponding filesystem backend.
-		$fsb = \OMV\System\Filesystem\Backend\Manager::getBackendByType($params['type']);
+		$fsbMngr = &\OMV\System\Filesystem\Backend\Manager::getInstance();
+		$fsb = $fsbMngr->getBackendByType($params['type']);
 		if (is_null($fsb)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
 			  "No filesystem backend exists for type '%s'", $params['type']));
@@ -674,7 +679,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Get the filesystem backend.
-		$fsb = \OMV\System\Filesystem\Backend\Manager::getBackend($params['id']);
+		$fsbMngr = &\OMV\System\Filesystem\Backend\Manager::getInstance();
+		$fsb = $fsbMngr->getBackend($params['id']);
 		if (is_null($fsb)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("No filesystem backend exists for '%s'",
@@ -748,11 +754,11 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// /media/74A225C8A2258F (NTFS)
 			// /media/9e8aaee0-ab3a-467f-9bdb-7cced3b8afc4 (EXT2/3/4, JFS, XFS)
 			$xpath = sprintf("//system/fstab/mntent[dir='%s']",
-			  OMVFilesystem::buildMountPath($params['id']));
+			  \OMV\System\Filesystem\Filesystem::buildMountPath($params['id']));
 		}
 		$meObject = $xmlConfig->get($xpath);
 		// Get the filesystem if available.
-		$fs = \OMV\System\Filesystem\Backend\Manager::getImpl($params['id']);
+		$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['id']);
 		// Update the notification object.
 		if (!is_null($fs) && $fs->exists()) {
 			$fsObject = array(
@@ -821,7 +827,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Get the corresponding filesystem backend.
-		$fsb = \OMV\System\Filesystem\Backend\Manager::getBackend($params['id']);
+		$fsbMngr = &\OMV\System\Filesystem\Backend\Manager::getInstance();
+		$fsb = $fsbMngr->getBackend($params['id']);
 		if (is_null($fsb)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
 			  "Filesystem '%s' not found or no backend exists",
@@ -884,7 +891,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				\OMV\Rpc\Rpc::call("FsTab", "set", array(
 					  "uuid" => $GLOBALS['OMV_UUID_UNDEFINED'],
 					  "fsname" => $fsName,
-					  "dir" => OMVFilesystem::buildMountPath($fs->getUuid()),
+					  "dir" => \OMV\System\Filesystem\Filesystem::buildMountPath($fs->getUuid()),
 					  "type" => $fs->getType(),
 					  "opts" => implode(",", $opts),
 					  "freq" => 0,
@@ -990,7 +997,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				// /media/9e8aaee0-ab3a-467f-9bdb-7cced3b8afc4 (EXT2/3/4, JFS, XFS)
 				// /media/2015-04-25-12-52-13-00 (ISO9660, UDF)
 				$xpath = sprintf("//system/fstab/mntent[dir='%s']",
-				  OMVFilesystem::buildMountPath($params['id']));
+				  \OMV\System\Filesystem\Filesystem::buildMountPath($params['id']));
 			}
 			$object = $xmlConfig->get($xpath);
 			if (is_null($object)) {
@@ -1007,7 +1014,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				  "force" => TRUE
 			  ), $context);
 		} else { // Only unmount the filesystem.
-			$fs = \OMV\System\Filesystem\Backend\Manager::getImpl($params['id']);
+			$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['id']);
 			if (is_null($fs) || !$fs->exists()) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  sprintf(gettext("Filesystem '%s' not found"),
@@ -1042,7 +1049,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Check if the given device file contains a filesystem.
-		return (FALSE !== OMVFilesystem::hasFileSystem(
+		return (FALSE !== \OMV\System\Filesystem\Filesystem::hasFileSystem(
 		  $params['devicefile']));
 	}
 }

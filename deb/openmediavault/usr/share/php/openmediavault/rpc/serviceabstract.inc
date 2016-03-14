@@ -75,8 +75,8 @@ abstract class ServiceAbstract extends \OMV\BaseObject {
 	 */
 	final protected function registerMethodSequence($service, $method,
 	  $method2) {
-		$rpcServiceMgr = &\OMV\Rpc\ServiceManager::getInstance();
-		if (FALSE === ($rpcService = $rpcServiceMgr->getService(
+		$rpcServiceMngr = &\OMV\Rpc\ServiceManager::getInstance();
+		if (FALSE === ($rpcService = $rpcServiceMngr->getService(
 		  $service))) {
 			throw new Exception("RPC service not found (name=%s)",
 			  $service);
@@ -176,8 +176,8 @@ abstract class ServiceAbstract extends \OMV\BaseObject {
 		$params = json_encode_safe($params);
 		// Get the data model/schema used to validate the parameters.
 		if (!is_json($schema) && is_string($schema)) {
-			$modelMgr = &\OMV\DataModel\Manager::getInstance();
-			$model = $modelMgr->getModel($schema);
+			$modelMngr = &\OMV\DataModel\Manager::getInstance();
+			$model = $modelMngr->getModel($schema);
 			$schema = $model->getSchema();
 		} else {
 			// Check if the schema is JSON. If it is an associative array,
@@ -573,8 +573,8 @@ abstract class ServiceAbstract extends \OMV\BaseObject {
 	 * @return The list of dirty modules.
 	 */
 	final protected function setModuleDirty($name) {
-		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
-		return $moduleMgr->setModuleDirty($name);
+		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
+		return $moduleMngr->setModuleDirty($name);
 	}
 
 	/**
@@ -583,7 +583,7 @@ abstract class ServiceAbstract extends \OMV\BaseObject {
 	 * @return TRUE if the module is marked dirty, otherwise FALSE.
 	 */
 	final protected function isModuleDirty($name) {
-		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
-		return $moduleMgr->isModuleDirty($name);
+		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
+		return $moduleMngr->isModuleDirty($name);
 	}
 }

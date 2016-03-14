@@ -59,9 +59,10 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
+		$fsbMngr = &\OMV\System\Filesystem\Backend\Manager::getInstance();
 		// Get list of all detected filesystems. Note, the list may also
 		// contain RAID and LVM volumes, so the list must be filtered.
-		if (FALSE === ($objects = \OMV\System\Filesystem\Backend\Manager::enumerate())) {
+		if (FALSE === ($objects = $fsbMngr->enumerate())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  gettext("Failed to get filesystems"));
 		}
@@ -69,13 +70,13 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 		$result = array();
 		foreach ($objects as $objectk => $objectv) {
 			// Skip filesystem we do not support.
-			if (!\OMV\System\Filesystem\Backend\Manager::isSupported($objectv['type']))
+			if (!$fsbMngr->isSupported($objectv['type']))
 				continue;
 			// Skip the device where the operating system is installed on.
 			if (\OMV\System\System::isRootDeviceFile($objectv['devicefile']))
 				continue;
 			// Get the filesystem backend.
-			$fsb = \OMV\System\Filesystem\Backend\Manager::getBackendByType($objectv['type']);
+			$fsb = $fsbMngr->getBackendByType($objectv['type']);
 			if (is_null($fsb)) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  sprintf("No filesystem backend exists for '%s'",

@@ -66,7 +66,7 @@ class OMVModuleFsTab extends \OMV\Engine\Module\ServiceAbstract
 				// filesystem does not exist.
 				if (is_uuid($objectv->get("fsname")) || is_devicefile(
 				  $objectv->get("fsname"))) {
-					$fs = \OMV\System\Filesystem\Backend\Manager::getImpl($objectv->get("fsname"));
+					$fs = \OMV\System\Filesystem\Filesystem::getImpl($objectv->get("fsname"));
 					if (is_null($fs) || !$fs->exists())
 						continue;
 				}
@@ -131,10 +131,10 @@ class OMVModuleFsTab extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.fstab.mntent",
 		  array($this, "onDelete"));
-        $moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
+        $moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
         $dispatcher->addListener(
           OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
           "org.openmediavault.system.fstab.mntent",
-          array($moduleMgr->getModule("monit"), "setDirty"));
+          array($moduleMngr->getModule("monit"), "setDirty"));
 	}
 }

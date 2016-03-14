@@ -260,10 +260,10 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.usermanagement.users.user",
 		  array($this, "onDeleteUser"));
-		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
+		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.smb",
-		  array($moduleMgr->getModule("zeroconf"), "setDirty"));
+		  array($moduleMngr->getModule("zeroconf"), "setDirty"));
     }
 }

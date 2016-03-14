@@ -123,10 +123,10 @@ class OMVModuleSsh extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.usermanagement.users.user",
 		  array($this, "onUser"));
-		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
+		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.ssh",
-		  array($moduleMgr->getModule("zeroconf"), "setDirty"));
+		  array($moduleMngr->getModule("zeroconf"), "setDirty"));
     }
 }

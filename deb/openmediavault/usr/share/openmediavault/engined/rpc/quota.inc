@@ -60,7 +60,7 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get filesystem details.
-		$fs = \OMV\System\Filesystem\Backend\Manager::getImpl($params['uuid']);
+		$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['uuid']);
 		if (is_null($fs) || !$fs->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf(gettext("Filesystem '%s' not found"), $params['uuid']));

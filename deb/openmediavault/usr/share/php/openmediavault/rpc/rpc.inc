@@ -66,8 +66,8 @@ class Rpc {
 		// Try to execute local RPC first.
 		///////////////////////////////////////////////////////////////////////
 		if ($mode & OMV_RPC_MODE_LOCAL) {
-			$rpcServiceMgr = &\OMV\Rpc\ServiceManager::getInstance();
-			if (FALSE !== ($rpcService = $rpcServiceMgr->getService(
+			$rpcServiceMngr = &\OMV\Rpc\ServiceManager::getInstance();
+			if (FALSE !== ($rpcService = $rpcServiceMngr->getService(
 			  $service))) {
 				if (TRUE === $rpcService->hasMethod($method)) {
 					// Restore server and execution environment information

@@ -165,14 +165,14 @@ class OMVModuleNetworkUPSTools extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.network.interfaces.bondiface",
 		  array($this, "onUpdateInterface"));
-		$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
+		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.nut",
-		  array($moduleMgr->getModule("collectd"), "setDirty"));
+		  array($moduleMngr->getModule("collectd"), "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.nut",
-		  array($moduleMgr->getModule("monit"), "setDirty"));
+		  array($moduleMngr->getModule("monit"), "setDirty"));
 	}
 }

@@ -324,10 +324,10 @@ foreach (listdir($directory, "inc") as $path) {
 	require_once $path;
 }
 // Initialize the RPC sevices.
-$rpcServiceMgr = &\OMV\Rpc\ServiceManager::getInstance();
-$rpcServiceMgr->initializeServices();
+$rpcServiceMngr = &\OMV\Rpc\ServiceManager::getInstance();
+$rpcServiceMngr->initializeServices();
 if (TRUE === $debug)
-	$rpcServiceMgr->dump();
+	$rpcServiceMngr->dump();
 
 ///////////////////////////////////////////////////////////////////////////////
 // Load all module classes.
@@ -340,14 +340,14 @@ foreach (listdir($directory, "inc") as $path) {
 ///////////////////////////////////////////////////////////////////////////////
 // Bind listeners.
 ///////////////////////////////////////////////////////////////////////////////
-$moduleMgr = &\OMV\Engine\Module\Manager::getInstance();
-$modules = $moduleMgr->getModules();
+$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
+$modules = $moduleMngr->getModules();
 $dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
 foreach ($modules as $module) {
 	$dispatcher->addListener($module);
 }
 if (TRUE === $debug)
-	$moduleMgr->dump();
+	$moduleMngr->dump();
 
 ///////////////////////////////////////////////////////////////////////////////
 // Open the socket.
