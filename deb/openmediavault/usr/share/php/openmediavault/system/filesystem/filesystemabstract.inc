@@ -88,12 +88,12 @@ class FilesystemAbstract {
 			//   /dev/disk/by-uuid but pointing to /dev/dm-X and not to
 			//   /dev/mapper which is prefered.
 			$cmdArgs = array();
-			$cmdArgs[] = escapeshellarg($this->uuid);
+			$cmdArgs[] = sprintf("UUID=%s", escapeshellarg($this->uuid));
 			$cmd = new \OMV\System\Process("findfs", $cmdArgs);
 			$cmd->setRedirect2to1(TRUE);
 			$cmd->execute($output);
 			$this->deviceFile = $output[0];
-			unset($output);
+			unset($cmdArgs, $output);
 		}
 
 		// If the device file looks like /dev/disk/by-(id|label|path|uuid)/*

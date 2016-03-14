@@ -28,8 +28,8 @@ $fsBackends = array("Btrfs", "Ext", "Ext2", "Ext3", "Ext4", "Hfsplus",
   "Iso9660", "Jfs", "Msdos", "None", "Ntfs", "Reiserfs", "Udf", "Ufs",
   "Umsdos", "Vfat", "Xfs");
 $fsbMngr = &Manager::getInstance();
-foreach ($fsBackends as $classk => $classv) {
-	$className = sprintf("%s\%s", __NAMESPACE__, $classv);
+foreach ($fsBackends as $typek => $typev) {
+	$className = sprintf("%s\%s", __NAMESPACE__, $typev);
 	$fsbMngr->registerBackend(new $className());
 }
 if (TRUE === $debug)

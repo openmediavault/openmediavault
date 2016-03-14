@@ -2806,38 +2806,6 @@ class OMVATASMARTInformation extends OMVObject {
 }
 
 /**
- * Helper class that provides various functions regarding the systems network
- * configuration.
- * @ingroup api
- */
-class OMVNetwork extends OMVObject {
-	/**
-	 * Get the systems host name.
-	 * @param options Additional command parameters
-	 * @return The host name if successful, otherwise FALSE.
-	 */
-	public static function getHostname($options) {
-		$cmd = sprintf("export LANG=C; hostname %s", $options);
-		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0)
-			return FALSE;
-		return $output[0];
-	}
-
-	/**
-	 * Get the systems domain name.
-	 * @return The domain name if successful, otherwise FALSE.
-	 */
-	public static function getDomain() {
-		$cmd = "export LANG=C; hostname -d";
-		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0)
-			return FALSE;
-		return $output[0];
-	}
-}
-
-/**
  * The generic class that represents a network interface backend.
  * @ingroup api
  */
