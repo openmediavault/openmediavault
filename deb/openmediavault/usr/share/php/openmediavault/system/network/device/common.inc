@@ -19,7 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Network\Backend;
+namespace OMV\System\Network\Device;
 
 require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
@@ -28,7 +28,7 @@ require_once("openmediavault/functions.inc");
  * This class provides a simple interface to handle Linux network interfaces.
  * @ingroup api
  */
-class NetworkInterface {
+class Common {
 	protected $name = "";
 	protected $ifconfig = null;
 	protected $ip = null;

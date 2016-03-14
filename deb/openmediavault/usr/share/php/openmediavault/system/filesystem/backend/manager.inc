@@ -46,7 +46,7 @@ class Manager {
 	 * @param backend The filesystem backend object to register.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
-	public function registerBackend(BackendAbstract $backend) {
+	final public function registerBackend(BackendAbstract $backend) {
 		if (!isset($backend))
 			return FALSE;
 		$type = $backend->getType();
