@@ -636,7 +636,8 @@ class FilesystemAbstract {
 		// An alternative implementation is:
 		// blkid -p -u filesystem <devicefile>
 		// Scan output for tag PTTYPE.
-		$cmd = new \OMV\System\Process("blkid | grep -E '^%s.*:.+\sTYPE=.+$'");
+		$cmd = new \OMV\System\Process("env LANG=C; blkid | ".
+		  "grep -E '^%s.*:.+\sTYPE=.+$'");
 		$cmd->setQuiet(TRUE);
 		$cmd->execute($output, $exitStatus);
 		if ($exitStatus !== 0)

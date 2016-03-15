@@ -707,7 +707,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			switch($privilegev['type']) {
 			case "user":
 				// Check if user exists
-				$user = new OMVUser($privilegev['name']);
+				$user = new \OMV\System\User($privilegev['name']);
 				if(!$user->exists()) {
 					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 					  sprintf(gettext("The user '%s' does not exist"),
@@ -723,7 +723,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				break;
 			case "group":
 				// Check if group exists.
-				$group = new OMVUserGroup($privilegev['name']);
+				$group = new \OMV\System\Group($privilegev['name']);
 				if(!$group->exists()) {
 					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 					  sprintf(gettext("The group '%s' does not exist"),

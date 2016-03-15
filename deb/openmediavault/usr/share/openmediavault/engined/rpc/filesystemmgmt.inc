@@ -887,54 +887,35 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 					  "force" => TRUE
 				  ), $context);
 			} else {
-				$me = new OMVMntEnt($meObject['fsname'], $meObject['dir']);
+				$me = new \OMV\System\MountPoint($meObject['fsname'],
+				  $meObject['dir']);
 				// Umount the mount point if it is already in use, which
 				// is the case when an USB device is unplugged without
 				// unmounting it.
-				if (TRUE == $me->isMounted()) {
-					if (FALSE === $me->umount()) {
-						throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-						  sprintf("Failed to umount '%s': %s",
-						  $me->getMountPoint(), $me->getLastError()));
-					}
-				}
+				if (TRUE == $me->isMounted())
+					$me->umount();
 				// Does the mount directory exist? Re-create it if
 				// necessary.
-				if (FALSE === $me->mkDir()) {
-					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-					  sprintf("Failed to create the mount directory '%s'",
-					  $me->getMountPoint()));
-				}
+				$me->mkDir();
 				// Mount the filesystem.
-				if (FALSE === $me->mount()) {
-					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-					  sprintf("Failed to mount '%s': %s",
-					  $me->getDevice(), $me->getLastError()));
-				}
+				$me->mount();
 			}
 		} else {
 			// Try to create/re-create the mount directory. This is only
 			// possible if a appropriate mount point configuration object
 			// exists.
 			if ((FALSE !== $meObject) && is_object($meObject)) {
-				$me = new OMVMntEnt($meObject['fsname'], $meObject['dir']);
-				if (FALSE === $me->mkDir()) {
-					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-					  sprintf("Failed to create the mount directory '%s'",
-					  $me->getMountPoint()));
-				}
+				$me = new \OMV\System\MountPoint($meObject['fsname'],
+				  $meObject['dir']);
+				$me->mkDir();
 			}
 			// Mount the filesystem.
 			if (TRUE === $fs->isMounted()) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("The filesystem '%s' is already mounted",
-				  $fsName));
+				throw new \OMV\Exception(
+				  "The filesystem '%s' is already mounted",
+				  $fsName);
 			}
-			if (FALSE === $fs->mount()) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("Failed to mount '%s': %s", $fsName,
-				  $fs->getLastError()));
-			}
+			$fs->mount();
 		}
 	}
 

@@ -87,7 +87,7 @@ class OMVRpcServiceUserMgmt extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Authenticate the user.
 		$authenticated = FALSE;
-		$user = new OMVUser($params['username']);
+		$user = new \OMV\System\User($params['username']);
 		if ($user->exists()) {
 			if (FALSE === ($authenticated = $user->authenticate(
 			  $params['password'])))
@@ -121,14 +121,11 @@ finish:
 	 */
 	final private function enumerateUsersByType($type) {
 		// Get list of user names.
-		if (FALSE === ($users = OMVUsers::enumerate())) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  gettext("Failed to get list of users."));
-		}
+		$users = \OMV\System\User::getUsers();
 		// Iterate through all users to filter the requested ones.
 		$result = array();
 		foreach ($users as $userk => $userv) {
-			$user = new OMVUser($userv);
+			$user = new \OMV\System\User($userv);
 			if (!$user->exists())
 				continue;
 			// Append user 'root'?
@@ -226,14 +223,11 @@ finish:
 	 */
 	private function enumerateGroupsByType($type) {
 		// Get list of group names.
-		if (FALSE === ($groups = OMVUserGroups::enumerate())) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  gettext("Failed to get list of groups."));
-		}
+		$groups = \OMV\System\Group::getGroups();
 		// Get group information.
 		$result = array();
 		foreach ($groups as $groupk => $groupv) {
-			$group = new OMVUserGroup($groupv);
+			$group = new \OMV\System\Group($groupv);
 			if (!$group->exists())
 				continue;
 			// Check if the current group is requested
@@ -371,7 +365,7 @@ finish:
 			  }
 		  }');
 		// Get the user information.
-		$user = new OMVUser($params['name']);
+		$user = new \OMV\System\User($params['name']);
 		if (!$user->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf(gettext("User '%s' does not exist"),
@@ -487,7 +481,7 @@ finish:
 			  }
 		  }');
 		// Check if the given user is a system account. Abort this attempt.
-		$user = new OMVUser($params['name']);
+		$user = new \OMV\System\User($params['name']);
 		if ($user->exists() && $user->isSystemAccount()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
 			  gettext("Unauthorized attempt to modify the system account '%s'"),
@@ -744,7 +738,7 @@ finish:
 			// Check if the users does not exist until now.
 			foreach($objects as $objectk => $objectv) {
 				// Check if an user with the given name already exists.
-				$user = new OMVUser($objectv['name']);
+				$user = new \OMV\System\User($objectv['name']);
 				if($user->exists()) {
 					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 					  sprintf(gettext("User '%s' already exist"),
@@ -752,7 +746,7 @@ finish:
 				}
 				// Check if an user with the given UID already exists.
 				if(array_key_exists("uid", $object)) {
-					$user = new OMVUser($objectv['uid']);
+					$user = new \OMV\System\User($objectv['uid']);
 					if($user->exists()) {
 						throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 						  sprintf(gettext("User ID '%d' already exist"),
@@ -830,7 +824,7 @@ finish:
 			  }
 		  }');
 		// Get the group information.
-		$group = new OMVUserGroup($params['name']);
+		$group = new \OMV\System\Group($params['name']);
 		if(!$group->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf(gettext("Group '%s' does not exist"),
@@ -883,7 +877,7 @@ finish:
 			  }
 		  }');
  		// Check if the given group is a system account. Abort this attempt.
-		$group = new OMVUserGroup($params['name']);
+		$group = new \OMV\System\Group($params['name']);
 		if ($group->exists() && $group->isSystemAccount()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
 			  gettext("Unauthorized attempt to modify the system account '%s'"),
@@ -1060,7 +1054,7 @@ finish:
 			// Check if the users does not exist until now.
 			foreach($objects as $objectk => $objectv) {
 				// Check if an group with the given name already exists.
-				$group = new OMVUserGroup($objectv['name']);
+				$group = new \OMV\System\Group($objectv['name']);
 				if($group->exists()) {
 					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 					  sprintf(gettext("Group '%s' already exist"),
@@ -1068,7 +1062,7 @@ finish:
 				}
 				// Check if an group with the given GID already exists.
 				if(array_key_exists("gid", $object)) {
-					$group = new OMVUserGroup($objectv['gid']);
+					$group = new \OMV\System\Group($objectv['gid']);
 					if($group->exists()) {
 						throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 						  sprintf(gettext("Group ID '%d' already exist"),

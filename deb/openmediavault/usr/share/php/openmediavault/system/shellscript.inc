@@ -25,7 +25,7 @@ namespace OMV\System;
  * @ingroup api
  */
 class ShellScript {
-	private $script = array();
+	private $script = "";
 	private $quiet = FALSE;
 
 	public function __construct($script) {
@@ -36,7 +36,7 @@ class ShellScript {
 		$this->quiet = $quiet;
 	}
 
-	public function execute(&$output = NULL, &$exitStatus = NULL) {
+	public function execute(array &$output = NULL, &$exitStatus = NULL) {
 		$cmdLine = $this->script;
 		$result = exec($cmdLine, $output, $exitStatus);
 		if ((FALSE === $this->quiet) && (0 !== $exitStatus))

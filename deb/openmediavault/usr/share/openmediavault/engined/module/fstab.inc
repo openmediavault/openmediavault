@@ -54,27 +54,23 @@ class OMVModuleFsTab extends \OMV\Engine\Module\ServiceAbstract
 		$objects = $db->getList("//system/fstab/mntent", "conf.system.mntent");
 		// Process all configured mount points and mount them if necessary.
 		foreach ($objects as $objectk => $objectv) {
-			$me = new OMVMntEnt($objectv->get("fsname"), $objectv->get("dir"));
+			$me = new \OMV\System\MountPoint($objectv->get("fsname"),
+			  $objectv->get("dir"));
 			// Does the directory exist?
-			if (FALSE === $me->mkDir()) {
-				throw new \OMV\Exception("Failed to create the directory '%s'",
-				  $me->getMountPoint());
-			}
+			$me->mkDir();
 			// Is it mounted?
 			if (FALSE === $me->isMounted()) {
 				// If it's no loop or bind mount then skip mounting if the
 				// filesystem does not exist.
 				if (is_uuid($objectv->get("fsname")) || is_devicefile(
 				  $objectv->get("fsname"))) {
-					$fs = \OMV\System\Filesystem\Filesystem::getImpl($objectv->get("fsname"));
+					$fs = \OMV\System\Filesystem\Filesystem::getImpl(
+					  $objectv->get("fsname"));
 					if (is_null($fs) || !$fs->exists())
 						continue;
 				}
 				// Mount it.
-				if (FALSE === $me->mount()) {
-					throw new \OMV\Exception("Failed to mount '%s': %s",
-					  $objectv->get("fsname"), $me->getLastError());
-				}
+				$me->mount();
 			}
 		}
 	}
@@ -95,7 +91,7 @@ class OMVModuleFsTab extends \OMV\Engine\Module\ServiceAbstract
 	 * @param params The method parameters.
 	 */
 	final public function deleteEntry($params) {
-		$me = new OMVMntEnt($params['fsname'], $params['dir']);
+		$me = new \OMV\System\MountPoint($params['fsname'], $params['dir']);
 		// Check whether the file system is mounted and unmount it if
 		// necessary.
 		if (TRUE === $me->isMounted()) {

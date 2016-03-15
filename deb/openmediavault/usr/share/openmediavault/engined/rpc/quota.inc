@@ -91,7 +91,7 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 						continue;
 					// Get user quotas and get the number of used disk space
 					// if available. Note, 'blocks' are given in KiB.
-					$sysUser = new OMVUser($userv['name']);
+					$sysUser = new \OMV\System\User($userv['name']);
 					if(FALSE !== ($quotas = $sysUser->getQuotas())) {
 						if(array_key_exists($devicefile, $quotas)) {
 							$resObj['bused'] = binary_format(
@@ -128,7 +128,7 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 						continue;
 					// Get user quotas and get the number of used disk space
 					// if available. Note, 'blocks' are given in KiB.
-					$sysGroup = new OMVUserGroup($groupv['name']);
+					$sysGroup = new \OMV\System\Group($groupv['name']);
 					if(FALSE !== ($quotas = $sysGroup->getQuotas())) {
 						if(array_key_exists($devicefile, $quotas)) {
 							$resObj['bused'] = binary_format(

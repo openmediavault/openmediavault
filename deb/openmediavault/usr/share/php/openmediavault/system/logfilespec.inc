@@ -74,7 +74,7 @@ class LogFileSpec {
 	 * @param config The log file specification.
 	 * @return None
 	 */
-	public static function registerSpecification($id, $config) {
+	public static function registerSpecification($id, array $config) {
 		self::$specs[$id] = $config;
 	}
 

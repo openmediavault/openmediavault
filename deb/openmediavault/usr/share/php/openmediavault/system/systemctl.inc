@@ -58,7 +58,7 @@ class SystemCtl {
 	 * @param quiet Do not throw an error on failure. Defaults to FALSE.
 	 * @return The exit code if \em quite is set to TRUE.
 	 */
-	private function exec($command, $options = null, $quiet = FALSE) {
+	private function exec($command, array $options = null, $quiet = FALSE) {
 		$cmdArgs = array();
 		// Append (global) command options.
 		if (!empty($this->options) && is_array($this->options))

@@ -70,6 +70,10 @@ class Process {
 		$this->background = $background;
 	}
 
+	public function setEnv($string) {
+		$this->env[] = $string;
+	}
+
 	public function getCommandLine() {
 		$cmdArgs = array();
 		foreach ($this->env as $env)
@@ -82,7 +86,7 @@ class Process {
 		return implode(" ", $cmdArgs);
 	}
 
-	public function execute(&$output = NULL, &$exitStatus = NULL) {
+	public function execute(array &$output = NULL, &$exitStatus = NULL) {
 		$cmdLine = $this->getCommandLine();
 		$result = exec($cmdLine, $output, $exitStatus);
 		if ((FALSE === $this->quiet) && (0 !== $exitStatus))
