@@ -21,6 +21,8 @@
  */
 namespace OMV\System\Storage;
 
+require_once("openmediavault/functions.inc");
+
 /**
  * This class provides a simple interface to handle a LVM logical volume.
  * @ingroup api
@@ -41,7 +43,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	 * @throw \OMV\ExecException
 	 */
 	private function getData() {
-		if ($this->dataCached !== FALSE)
+		if (FALSE !== $this->dataCached)
 			return;
 
 		// Parse command output:
@@ -118,7 +120,8 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	 */
 	public function getPath() {
 		$this->getData();
-		return build_path(array("/dev", $this->getVGName(), $this->getName()));
+		return build_path(array("/dev", $this->getVGName(),
+		  $this->getName()));
 	}
 
 	/**
