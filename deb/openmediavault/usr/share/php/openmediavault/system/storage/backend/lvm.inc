@@ -33,7 +33,7 @@ class LVM extends DM {
 		$result = array();
 		foreach ($devs as $devk => $devv) {
 			// Check if the given device is a LVM logical volume.
-			$object = new \OMV\System\Storage\LvmLogicalVolume($devv);
+			$object = new \OMV\System\Storage\StorageDeviceLvm($devv);
 			if (!$object->exists())
 				continue;
 			$result[] = $object->getDeviceFile();
@@ -66,11 +66,11 @@ class LVM extends DM {
 		if (FALSE === parent::isTypeOf($deviceFile))
 			return FALSE;
 		// Check if it is a LVM logical volume.
-		$object = new \OMV\System\Storage\LvmLogicalVolume($deviceFile);
+		$object = new \OMV\System\Storage\StorageDeviceLvm($deviceFile);
 		return $object->exists();
 	}
 
 	function getImpl($args) {
-		return new \OMV\System\Storage\LvmLogicalVolume($args);
+		return new \OMV\System\Storage\StorageDeviceLvm($args);
 	}
 }
