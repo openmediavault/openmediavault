@@ -270,6 +270,8 @@ abstract class BackendAbstract {
 	 *   otherwise NULL.
 	 */
 	function getImpl($args) {
-		return new \OMV\System\Filesystem\Filesystem($args);
+		$object = new \OMV\System\Filesystem\Filesystem($args);
+		$object->setBackend($this);
+		return $object;
 	}
 }

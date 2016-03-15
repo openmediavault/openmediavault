@@ -60,7 +60,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em propposixacl, \em propquota, \em propresize, \em propfstab,
 	 *   \em mounted and \em percentage. Additional the internal fields
 	 *   \em _used and \em _readonly are set.
-	 * @throw E_MISC_FAILURE
+	 * @throw \OMV\Exception
 	 */
 	public function enumerateFilesystems($params, $context) {
 		global $xmlConfig;
@@ -68,34 +68,17 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		$fsbMngr = &\OMV\System\Filesystem\Backend\Manager::getInstance();
-		// Get list of all detected filesystems. Note, the list may also
-		// contain RAID and LVM volumes, so the list must be filtered.
-		if (FALSE === ($objects = $fsbMngr->enumerate())) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  gettext("Failed to get filesystems"));
-		}
+		// Get list of all detected filesystems.
+		$filesystems = \OMV\System\Filesystem\Filesystem::getFilesystems();
 		// Process the detected filesystems and skip unwanted ones.
 		$result = array();
-		foreach ($objects as $objectk => $objectv) {
-			// Is it a filesystem of interest?
-			if (!$fsbMngr->isSupported($objectv['type']))
-				continue;
+		foreach ($filesystems as $fs) {
 			// Get the filesystem backend.
-			$fsb = $fsbMngr->getBackendByType($objectv['type']);
+			$fsb = $fs->getBackend();
 			if (is_null($fsb)) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("No filesystem backend exists for '%s'",
-				  $objectv['type']));
-			}
-			// Get the filesystem implementation. Use the devicefile to get
-			// the filesystem details because VFAT filesystems do not have
-			// a valid UUID.
-			$fs = $fsb->getImpl($objectv['devicefile']);
-			if (is_null($fs) || !$fs->exists()) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-				  "Failed to get the '%s' filesystem implementation or '%s' ".
-				  "does not exist", $fsb->getType(), $objectv['devicefile']));
+				throw new \OMV\Exception(
+				  "No filesystem backend set for '%s'.",
+				  $fs->getDeviceFile());
 			}
 			// Set default values.
 			$object = array(

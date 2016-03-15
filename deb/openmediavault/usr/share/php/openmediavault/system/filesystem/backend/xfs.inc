@@ -44,6 +44,8 @@ class Xfs extends BackendAbstract {
 	 * See parent class definition.
 	 */
 	function getImpl($args) {
-		return new \OMV\System\Filesystem\Xfs($args);
+		$object = new \OMV\System\Filesystem\Xfs($args);
+		$object->setBackend($this);
+		return $object;
 	}
 }

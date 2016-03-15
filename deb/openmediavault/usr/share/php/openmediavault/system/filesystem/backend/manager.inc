@@ -51,10 +51,10 @@ class Manager {
 			return FALSE;
 		$type = $backend->getType();
 		// Check if the filesystem backend already exists.
-		if (FALSE !== $this->getBackendByType($type)) {
-			throw new \OMV\Exception(
-			  "The filesystem backend already exists (type=%s, class=%s)",
-			  $type, get_class($backend));
+		if (NULL !== ($registeredBackend = $this->getBackendByType($type))) {
+			throw new \OMV\Exception("The filesystem backend (type=%s, ".
+			  "class=%s) is already registered (class=%s).", $type,
+			  get_class($backend), get_class($registeredBackend));
 		}
 		$this->map[strtolower($type)] = $backend;
 		ksort($this->map);

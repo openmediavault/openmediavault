@@ -36,6 +36,7 @@ class FilesystemAbstract {
 	protected $partEntry = NULL;
 	protected $usage = "";
 	private $dataCached = FALSE;
+	private $backend = NULL;
 
 	/**
 	 * Constructor
@@ -641,5 +642,19 @@ class FilesystemAbstract {
 		if ($exitStatus !== 0)
 			return FALSE;
 		return TRUE;
+	}
+
+	/**
+	 * Set the backend of this filesystem.
+	 */
+	final public function setBackend(Backend\BackendAbstract $backend) {
+		$this->backend = $backend;
+	}
+
+	/**
+	 * Get the backend of this filesystem.
+	 */
+	final public function getBackend() {
+		return $this->backend;
 	}
 }
