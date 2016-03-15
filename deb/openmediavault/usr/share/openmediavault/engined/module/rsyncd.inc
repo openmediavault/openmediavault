@@ -19,10 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
-require_once("openmediavault/functions.inc");
-
 class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
   implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus, \OMV\Engine\Module\IZeroconf {
 	/**
@@ -53,14 +49,9 @@ class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
 	 * Start the managed service.
 	 */
 	public function startService() {
-		global $xmlConfig;
-		$xpath = "//services/rsync/server";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		if (FALSE === boolvalEx($object['enable']))
+        $db = &\OMV\Config\Database::getInstance();
+		$object = $db->get("//services/rsync/server", "conf.service.rsyncd");
+		if (TRUE !== $object->get("enable"))
 			return;
 		$initd = new \OMV\System\SysVInitScript("rsync", TRUE);
 		$initd->exec();
@@ -70,18 +61,13 @@ class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
 	 * Get the status of the managed service.
 	 */
 	public function getStatus() {
-		global $xmlConfig;
-		$xpath = "//services/rsync/server";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+        $db = &\OMV\Config\Database::getInstance();
+		$object = $db->get("//services/rsync/server", "conf.service.rsyncd");
 		$initd = new \OMV\System\SysVInitScript("rsync");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("RSync server"),
-			"enabled" => boolvalEx($object['enable']),
+			"enabled" => $object->get("enable"),
 			"running" => ($initd->status() == 0)
 		);
 	}
