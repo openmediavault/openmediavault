@@ -143,7 +143,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get a list of all potential usable devices.
-		if (FALSE === ($devs = OMVStorageDevices::enumerateUnused())) {
+		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerateUnused())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of devices");
 		}
@@ -151,7 +151,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 		$result = array();
 		foreach ($devs as $devk => $devv) {
 			// Get the object that implements the given storage device.
-			$sd = OMVStorageDeviceFactory::get($devv);
+			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
 			if (is_null($sd) || !$sd->exists())
 				continue;
 			// Skip read-only devices like CDROM.

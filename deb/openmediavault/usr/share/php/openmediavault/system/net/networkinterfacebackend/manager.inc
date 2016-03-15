@@ -27,7 +27,7 @@ require_once("openmediavault/globals.inc");
  * Helper class to get all existing Linux network interfaces.
  * @ingroup api
  */
-class Manager {
+class Manager implements IteratorAggregate {
 	private $backends = array();
 
 	/**
@@ -39,6 +39,10 @@ class Manager {
 		if (!isset($instance))
 			$instance = new Manager();
 		return $instance;
+	}
+
+	public function getIterator() {
+		return new ArrayIterator($this->backends);
 	}
 
 	/**

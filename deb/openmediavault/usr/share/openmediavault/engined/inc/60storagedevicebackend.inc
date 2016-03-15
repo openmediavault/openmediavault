@@ -19,13 +19,15 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/functions.inc");
-require_once("openmediavault/system.inc");
+namespace OMV\System\Storage\Backend;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Register default storage device backends.
 ///////////////////////////////////////////////////////////////////////////////
-$classes = get_declared_subclasses("OMVStorageDeviceBackendAbstract");
-foreach ($classes as $classk => $classv) {
-	OMVStorageDevices::registerBackend(new $classv());
+$backends = array("Bcache", "CCISS", "CDROM", "DM", "FIO", "HDD", "I2O",
+  "Loop", "LVM", "Mdadm", "MMC", "NVM", "RDB", "Virtio");
+$mngr = &Manager::getInstance();
+foreach ($backends as $backendk => $backendv) {
+	$className = sprintf("%s\%s", __NAMESPACE__, $backendv);
+	$mngr->registerBackend(new $className());
 }

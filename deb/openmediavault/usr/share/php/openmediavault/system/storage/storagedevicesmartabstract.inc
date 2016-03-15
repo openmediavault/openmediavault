@@ -47,8 +47,7 @@ abstract class StorageDeviceSMARTAbstract extends StorageDeviceAbstract {
 	}
 
 	public function getSMARTInformation() {
-		return new \OMV\System\Storage\ATASMARTInformation(
-		  $this->getDeviceFile(), $this->getSMARTDeviceType(),
-		  $this);
+		return new SMARTInformation($this->getDeviceFile(),
+		  $this->getSMARTDeviceType(), $this);
 	}
 }

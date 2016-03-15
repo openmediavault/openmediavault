@@ -64,7 +64,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get all existing software RAID devices.
-		if(FALSE === ($devs = OMVStorageDevices::enumerate(
+		if(FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerate(
 		  OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID))) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of software RAID devices");
@@ -77,7 +77,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 				continue;
 			$used = FALSE;
 			// Is this RAID device used by another storage device?
-			if(OMVStorageDevices::isUsed($raid->getDeviceFile())) {
+			if (\OMV\System\Storage\StorageDevice::isUsed($raid->getDeviceFile())) {
 				$used = TRUE;
 			// Does the RAID device contain a filesystem and is it used?
 			} else if(FALSE !== \OMV\Rpc\Rpc::call("FsTab", "getByFsName",
@@ -157,7 +157,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Prepare the result list.
 		$result = array();
 		foreach ($devs as $devk => $devv) {
-			$sd = OMVStorageDeviceFactory::get($devv);
+			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
 			if (is_null($sd) || !$sd->exists())
 				continue;
 			$result[] = array(
@@ -186,7 +186,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get a list of all potential usable devices.
-		if (FALSE === ($devs = OMVStorageDevices::enumerateUnused())) {
+		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerateUnused())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of unused devices");
 		}
@@ -194,7 +194,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		$result = array();
 		foreach ($devs as $devk => $devv) {
 			// Get the object that implements the given storage device.
-			$sd = OMVStorageDeviceFactory::get($devv);
+			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
 			if (is_null($sd) || !$sd->exists())
 				continue;
 			// Skip read-only devices like CDROM.

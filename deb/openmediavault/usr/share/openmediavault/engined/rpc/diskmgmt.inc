@@ -64,7 +64,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 		// read-only to deny wiping this device.
 		$rootDeviceFile = \OMV\System\System::getRootDeviceFile();
 		// Get all existing devices except software RAID devices.
-		if (FALSE === ($devs = OMVStorageDevices::enumerate(
+		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerate(
 		  OMV_STORAGE_DEVICE_TYPE_HDD | OMV_STORAGE_DEVICE_TYPE_HBA))) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, "Failed to ".
 			  "get list of hard disks and hardware RAID devices");
@@ -72,7 +72,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Prepare result list.
 		$objects = array();
 		foreach($devs as $devk => $devv) {
-			$sd = OMVStorageDeviceFactory::get($devv);
+			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
 			if(!is_null($sd) && $sd->exists()) {
 				// Prepare device object.
 				$objects[] = array(
@@ -198,7 +198,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Check if the given device exists.
-		$sd = OMVStorageDeviceFactory::get($params['devicefile']);
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($params['devicefile']);
 		if(is_null($sd) || !$sd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $params['devicefile']);

@@ -70,7 +70,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get all existing hard disks devices.
-		if(FALSE === ($devs = OMVStorageDevices::enumerate(
+		if(FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerate(
 		  OMV_STORAGE_DEVICE_TYPE_ALL & ~(OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE |
 		  OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID)))) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
@@ -80,7 +80,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		$objects = array();
 		foreach($devs as $devk => $devv) {
 			// Get the storage device object.
-			$sd = OMVStorageDeviceFactory::get($devv);
+			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
 			if(is_null($sd) || !$sd->exists()) {
 				throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 				  $devv);
@@ -360,7 +360,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Check if the given device exists and supports S.M.A.R.T.
-		$sd = OMVStorageDeviceFactory::get($params['devicefile']);
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($params['devicefile']);
 		if(is_null($sd) || !$sd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $params['devicefile']);
@@ -433,7 +433,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Get the S.M.A.R.T. information.
-		$sd = OMVStorageDeviceFactory::get($params['devicefile']);
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($params['devicefile']);
 		if (is_null($sd) || !$sd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $params['devicefile']);
@@ -479,7 +479,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Get the S.M.A.R.T. information.
-		$sd = OMVStorageDeviceFactory::get($params['devicefile']);
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($params['devicefile']);
 		if(is_null($sd) || !$sd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $params['devicefile']);
@@ -524,7 +524,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Get the S.M.A.R.T. information.
-		$sd = OMVStorageDeviceFactory::get($params['devicefile']);
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($params['devicefile']);
 		if(is_null($sd) || !$sd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $params['devicefile']);
@@ -569,7 +569,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Get the S.M.A.R.T. information.
-		$sd = OMVStorageDeviceFactory::get($params['devicefile']);
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($params['devicefile']);
 		if(is_null($sd) || !$sd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $params['devicefile']);
@@ -631,7 +631,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 				"size" => "-1" // as string
 			);
 			// Get the storage device object.
-			$sd = OMVStorageDeviceFactory::get($objectv['devicefile']);
+			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($objectv['devicefile']);
 			if (!is_null($sd) && $sd->exists()) {
 				// Update storage device information.
 				$objectv['volume'] = array(
@@ -711,7 +711,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Check if the given device exists.
-		$sd = OMVStorageDeviceFactory::get($params['devicefile']);
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($params['devicefile']);
 		if(is_null($sd) || !$sd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $params['devicefile']);

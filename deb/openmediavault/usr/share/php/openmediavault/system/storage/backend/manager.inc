@@ -25,7 +25,7 @@ namespace OMV\System\Storage\Backend;
  * Helper class to get all existing devices of the given storage type.
  * @ingroup api
  */
-class Manager {
+class Manager implements IteratorAggregate {
 	private $backends = array();
 
 	/**
@@ -37,6 +37,10 @@ class Manager {
 		if (!isset($instance))
 			$instance = new Manager();
 		return $instance;
+	}
+
+	public function getIterator() {
+		return new ArrayIterator($this->backends);
 	}
 
 	/**
@@ -85,124 +89,5 @@ class Manager {
 			break;
 		}
 		return $result;
-	}
-
-	/**
-	 * Enumerate devices matching the given storage device type.
-	 * @param type Defines the storage device type, e.g. hard disk, hard or
-	 *   Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.
-	 * @return A list of devicefile names, otherwise FALSE.
-	 */
-	public public function enumerate($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
-		$result = array();
-		foreach ($this->backends as $backendk => $backendv) {
-			if (!($type & $backendv->getType()))
-				continue;
-			if (FALSE === ($devs = $backendv->enumerate()))
-				return FALSE;
-			$result = array_unique(array_merge($result, $devs));
-		}
-		return $result;
-	}
-
-	/**
-	 * Enumerate all unused devices. This list contains all devices of the
-	 * given type except the devices that are used by other storage devices
-	 * (e.g. LVM as physical volume or a member of a Software RAID).
-	 * @param type Defines the storage device type, e.g. hard disk, hard or
-	 *   Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.
-	 * @return A list of devicefile names, otherwise FALSE.
-	 */
-	final public function enumerateUnused($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
-		// Append all available storage devices.
-		if (FALSE === ($result = $this->enumerate($type)))
-			return FALSE;
-		// Remove used devices.
-		foreach ($this->backends as $backendk => $backendv) {
-// Always collect and remove all slave devices.
-//			if (!($type & $backendv->getType()))
-//				continue;
-			if (FALSE === ($slaves = $backendv->enumerateSlaves()))
-				return FALSE;
-			if (empty($slaves))
-				continue;
-			$result = array_diff($result, $slaves);
-		}
-		return $result;
-	}
-
-	/**
-	 * Enumerate all used devices. The list contains all those devices that
-	 * are used by the given storage devices, e.g. all members of a LVM
-	 * or Software RAID.
-	 * @param type Defines the storage device type, e.g. hard disk, hard or
-	 *   Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.
-	 * @return A list of devicefile names, otherwise FALSE.
-	 */
-	final public function enumerateUsed($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
-		$result = array();
-		foreach ($this->backends as $backendk => $backendv) {
-			if (!($type & $backendv->getType()))
-				continue;
-			if (FALSE === ($slaves = $backendv->enumerateSlaves()))
-				return FALSE;
-			if (empty($slaves))
-				continue;
-			$result = array_unique(array_merge($result, $slaves));
-		}
-		return $result;
-	}
-
-	/**
-	 * Check if the given device is used/consumed by another storage device.
-	 * @param deviceFile Specifies the device file, e.g.
-	 *   <ul>
-	 *   \li /dev/sdb
-	 *   \li /dev/md1
-	 *   \li /dev/cciss/c0d0
-	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6
-	 *   \li /dev/disk/by-label/DATA
-	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
-	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
-	 *   </ul>
-	 * @param type Defines the storage device type, e.g. hard disk, hard or
-	 *   Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.
-	 * @return TRUE if the given device is used/consumed by another storage
-	 *   device, otherwise FALSE.
-	 */
-	final public function isUsed($deviceFile, $type = OMV_STORAGE_DEVICE_TYPE_ALL) {
-		$result = FALSE;
-		foreach ($this->backends as $backendk => $backendv) {
-			if (!($type & $backendv->getType()))
-				continue;
-			if (FALSE === ($slaves = $backendv->enumerateSlaves()))
-				return FALSE;
-			if (in_array($deviceFile, $slaves)) {
-				$result = TRUE;
-				break;
-			}
-		}
-		return $result;
-	}
-
-	/**
-	 * Get the object of the class which implements the given storage device.
-	 * @param deviceFile Specifies the device file, e.g.
-	 *   <ul>
-	 *   \li /dev/sdb
-	 *   \li /dev/md1
-	 *   \li /dev/cciss/c0d0
-	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6
-	 *   \li /dev/disk/by-label/DATA
-	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
-	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
-	 *   </ul>
-	 * @return The object of the class implementing the given storage device,
-	 *   otherwise NULL.
-	 */
-	public public function getImpl($deviceFile) {
-		if (NULL == ($backend = $this->getBackend($deviceFile)))
-			return NULL;
-		return $backend->getImpl($deviceFile);
 	}
 }

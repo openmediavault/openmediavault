@@ -451,7 +451,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get a list of all potential usable devices.
-		if (FALSE === ($devs = OMVStorageDevices::enumerateUnused())) {
+		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerateUnused())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of unused devices");
 		}
@@ -459,7 +459,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$result = array();
 		foreach ($devs as $devk => $devv) {
 			// Get the object that implements the given storage device.
-			$sd = OMVStorageDeviceFactory::get($devv);
+			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
 			if (is_null($sd) || !$sd->exists())
 				continue;
 			// Skip read-only devices like CDROM.
@@ -513,7 +513,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Get the storage device object.
-		$sd = OMVStorageDeviceFactory::get($params['devicefile']);
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($params['devicefile']);
 		if (is_null($sd) || !$sd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $params['devicefile']);
@@ -527,7 +527,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			  $sd->getDeviceFile()));
 		}
 		// Get the storage device backend of the given device.
-		$sdb = OMVStorageDevices::getBackend($sd->getDeviceFile());
+		$sdb = \OMV\System\Storage\Backend\Manager::getBackend($sd->getDeviceFile());
 		if (is_null($sdb)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
 			  "No storage device backend exists for device %s",
@@ -832,7 +832,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			  $fs->getDeviceFile()));
 		}
 		// Get the according storage device object.
-		$sd = OMVStorageDeviceFactory::get($storageDeviceFile);
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($storageDeviceFile);
 		if (is_null($sd) || !$sd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $storageDeviceFile);

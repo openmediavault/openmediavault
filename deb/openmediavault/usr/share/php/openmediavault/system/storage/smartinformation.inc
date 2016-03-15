@@ -26,7 +26,7 @@ namespace OMV\System\Storage;
  * AT Attachment (ATA) information and properties.
  * @ingroup api
  */
-class ATASMARTInformation {
+class SMARTInformation {
 	protected $deviceFile = "";
 	protected $type = "";
 	protected $sd = NULL;

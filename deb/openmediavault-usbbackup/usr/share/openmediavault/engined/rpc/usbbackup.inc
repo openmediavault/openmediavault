@@ -101,7 +101,7 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 //				  $objectv['devicefile']));
 				continue;
 			}
-			$sd = OMVStorageDeviceFactory::get($storageDeviceFile);
+			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($storageDeviceFile);
 			if (is_null($sd) || !$sd->exists()) {
 				throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  	  $storageDeviceFile);
