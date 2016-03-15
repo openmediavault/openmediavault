@@ -25,7 +25,7 @@ namespace OMV\Rpc;
  * Helper class to handle the background process status.
  * @ingroup api
  */
-class BgStatusFile extends OMVObject {
+class BgStatusFile {
 	private $status = array();
 
 	/**

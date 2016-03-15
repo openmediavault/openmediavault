@@ -31,7 +31,7 @@ class StorageDevice extends StorageDeviceAbstract {
 	 *   Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.
 	 * @return A list of devicefile names, otherwise FALSE.
 	 */
-	public public function enumerate($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
+	final public function enumerate($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
 		$result = array();
 		$mngr = &Backend\Manager::getInstance();
 		foreach ($mngr as $backendk => $backendv) {
@@ -142,7 +142,7 @@ class StorageDevice extends StorageDeviceAbstract {
 	 * @return The object of the class implementing the given storage device,
 	 *   otherwise NULL.
 	 */
-	final public function getImpl($deviceFile) {
+	final public function getStorageDevice($deviceFile) {
 		$mngr = &Backend\Manager::getInstance();
 		if (NULL == ($backend = $mngr->getBackend($deviceFile)))
 			return NULL;

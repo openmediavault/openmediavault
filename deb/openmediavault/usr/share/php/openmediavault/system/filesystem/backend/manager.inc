@@ -27,7 +27,7 @@ require_once("openmediavault/functions.inc");
  * Helper class that implements functions regarding file systems.
  * @ingroup api
  */
-class Manager implements IteratorAggregate {
+class Manager implements \IteratorAggregate {
 	private $map = array();
 
 	/**
@@ -42,7 +42,7 @@ class Manager implements IteratorAggregate {
 	}
 
 	public function getIterator() {
-		return new ArrayIterator($this->map);
+		return new \ArrayIterator($this->map);
 	}
 
 	/**
