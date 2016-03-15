@@ -63,7 +63,6 @@ class System {
 	 *   FALSE on failure.
 	 */
 	public static function getLoginDefs() {
-		$defs = array();
 		// Extract the lines that are not commented out.
 		// Parse file content:
 		// #
@@ -74,18 +73,8 @@ class System {
 		// # System accounts
 		// #SYS_UID_MIN              100
 		// #SYS_UID_MAX              999
-		$rows = file("/etc/login.defs");
-		foreach ($rows as $rowk => $rowv) {
-			// Skip comments.
-			if ("#" == substr($rowv, 0, 1))
-				continue;
-			// Extract key/value.
-			$regex = '/^(\S+)\s+(\S+)$/i';
-			if (1 !== preg_match($regex, $rowv, $matches))
-				continue;
-			$defs[$matches[1]] = $matches[2];
-		}
-		return $defs;
+		$file = new \OMV\Util\KeyValueFile("/etc/login.defs", "\s\t");
+		return $file->getAssoc();
 	}
 
 	/**

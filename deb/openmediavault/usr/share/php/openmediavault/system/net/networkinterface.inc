@@ -93,7 +93,6 @@ class NetworkInterface {
 			$this->ethtool = implode("|", $output);
 			break;
 		}
-		return $result;
 	}
 
 	/**
