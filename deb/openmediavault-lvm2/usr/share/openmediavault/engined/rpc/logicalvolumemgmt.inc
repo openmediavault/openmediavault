@@ -21,7 +21,6 @@
  */
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/system.inc");
 require_once("openmediavault/lvm.inc");
 
 class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
@@ -76,15 +75,15 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Enumerate all physical volumes on the system.
-		if (FALSE === ($devs = OMVLvmPhysicalVolumes::enumerate())) {
+		if (FALSE === ($devs = \OMV\System\Storage\Lvm\PhysicalVolume::enumerate())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of physical volumes");
 		}
 		$result = array();
-		foreach($devs as $devk => $devv) {
+		foreach ($devs as $devk => $devv) {
 			// Get the physical volume details.
-			$pv = new OMVLvmPhysicalVolume($devv);
-			if(!$pv->exists())
+			$pv = new \OMV\System\Storage\Lvm\PhysicalVolume($devv);
+			if (!$pv->exists())
 				continue;
 			$result[] = array(
 				"devicefile" => $pv->getDeviceFile(),
@@ -203,7 +202,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 		if (0 !== $this->exec($cmd, $output))
 			throw new \OMV\ExecException($cmd, $output);
 		// Create the physical volume.
-		$pv = new OMVLvmPhysicalVolume($params['devicefile']);
+		$pv = new \OMV\System\Storage\Lvm\PhysicalVolume($params['devicefile']);
 		if (!$pv->create()) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, sprintf(
 			  gettext("Failed to create physical volume: %s"),
@@ -239,7 +238,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Check if the physical volume exists.
-		$pv = new OMVLvmPhysicalVolume($params['devicefile']);
+		$pv = new \OMV\System\Storage\Lvm\PhysicalVolume($params['devicefile']);
 		if (!$pv->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf(gettext("No physical volume found on '%s'"),
@@ -281,7 +280,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Check if the physical volume exists.
-		$pv = new OMVLvmPhysicalVolume($params['devicefile']);
+		$pv = new \OMV\System\Storage\Lvm\PhysicalVolume($params['devicefile']);
 		if (FALSE === $pv->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf(gettext("No physical volume found on '%s'"),
@@ -395,23 +394,23 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of volume groups");
 		}
-		foreach($vgs as $vgk => $vgv) {
+		foreach ($vgs as $vgk => $vgv) {
 			$vg = new OMVLvmVolumeGroup($vgv);
 			// Add the physical volumes assigned to the volume group to the
 			// list of already used physical volumes.
 			$usedDevs = array_merge($usedDevs, $vg->getPVName());
 		}
 		// Get all physical physical volumes.
-		if (FALSE === ($pvs = OMVLvmPhysicalVolumes::enumerate())) {
+		if (FALSE === ($pvs = \OMV\System\Storage\Lvm\PhysicalVolume::enumerate())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of physical volumes");
 		}
-		foreach($pvs as $pvk => $pvv) {
-			$pv = new OMVLvmPhysicalVolume($pvv);
-			if(!$pv->exists())
+		foreach ($pvs as $pvk => $pvv) {
+			$pv = new \OMV\System\Storage\Lvm\PhysicalVolume($pvv);
+			if (!$pv->exists())
 				continue;
 			// Is this physical volume already used?
-			if(in_array($pv->getDeviceFile(), $usedDevs))
+			if (in_array($pv->getDeviceFile(), $usedDevs))
 				continue;
 			$result[] = array(
 				"devicefile" => $pv->getDeviceFile(),
@@ -569,14 +568,14 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 		  }');
 		// Get the volume groups physical volumes.
 		$vg = new OMVLvmVolumeGroup($params['name']);
-		if(FALSE === $vg->exists()) {
+		if (FALSE === $vg->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Volume group '%s' not found", $vg->getName()));
 		}
 		$result = array();
-		foreach($vg->getPVName() as $pvk => $pvv) {
-			$pv = new OMVLvmPhysicalVolume($pvv);
-			if(!$pv->exists())
+		foreach ($vg->getPVName() as $pvk => $pvv) {
+			$pv = new \OMV\System\Storage\Lvm\PhysicalVolume($pvv);
+			if (!$pv->exists())
 				continue;
 			$result[] = array(
 				"devicefile" => $pv->getDeviceFile(),
@@ -758,10 +757,10 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "Failed to get list of logical volumes");
 		}
 		$result = array();
-		foreach($lvs as $lvk => $lvv) {
+		foreach ($lvs as $lvk => $lvv) {
 			// Get the physical volume details.
-			$lv = new OMVLvmLogicalVolume($lvv);
-			if($lv->exists()) {
+			$lv = new OMV\System\Storage\Lvm\LogicalVolume($lvv);
+			if ($lv->exists()) {
 				$result[] = array(
 					"devicefile" => $lv->getDeviceFile(),
 					"uuid" => $lv->getUuid(),

@@ -23,7 +23,6 @@ require_once("openmediavault/object.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
-require_once("openmediavault/system.inc");
 
 class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 	/**

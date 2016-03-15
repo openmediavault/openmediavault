@@ -21,7 +21,6 @@
  */
 require_once("openmediavault/object.inc");
 require_once("openmediavault/config.inc");
-require_once("openmediavault/system.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/error.inc");
 

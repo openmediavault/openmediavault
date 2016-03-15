@@ -874,7 +874,6 @@ omv_is_device_nonrotational() {
 	[ -z "$1" ] && return 1
 	_result=$(php5 -c /etc/openmediavault <<EOF
 <?php
-require_once("openmediavault/system.inc");
 \$result = TRUE;
 \$sd = \OMV\System\Storage\StorageDevice::getStorageDevice("$1");
 if (!is_null(\$sd))

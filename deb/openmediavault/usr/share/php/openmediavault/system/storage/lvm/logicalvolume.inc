@@ -19,13 +19,13 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Storage;
+namespace OMV\System\Storage\Lvm;
 
 /**
  * This class provides a simple interface to handle a LVM logical volume.
  * @ingroup api
  */
-class LvmLogicalVolume extends StorageDeviceDM {
+class LogicalVolume extends \OMV\System\Storage\StorageDeviceDM {
 	protected $uuid = "";
 	protected $attr = "";
 	protected $kernelMajor = "";
@@ -38,6 +38,7 @@ class LvmLogicalVolume extends StorageDeviceDM {
 	 * Get the logical volume detailed information.
 	 * @private
 	 * @return None.
+	 * @throw \OMV\ExecException
 	 */
 	private function getData() {
 		if ($this->dataCached !== FALSE)
@@ -113,8 +114,7 @@ class LvmLogicalVolume extends StorageDeviceDM {
 
 	/**
 	 * Get the path of the logical volume.
-	 * @return The logical volume path, e.g. /dev/vg0/lvol0, or FALSE on
-	 * failure.
+	 * @return The logical volume path, e.g. /dev/vg0/lvol0.
 	 */
 	public function getPath() {
 		$this->getData();
@@ -123,8 +123,7 @@ class LvmLogicalVolume extends StorageDeviceDM {
 
 	/**
 	 * Get the size of the logical volume in bytes.
-	 * @return The size of the logical volume in bytes as string,
-	 * FALSE on failure.
+	 * @return The size of the logical volume in bytes as string.
 	 */
 	public function getSize() {
 		$this->getData();
@@ -133,7 +132,7 @@ class LvmLogicalVolume extends StorageDeviceDM {
 
 	/**
 	 * Get the UUID of the array.
-	 * @return The UUID of the array, FALSE on failure.
+	 * @return The UUID of the array.
 	 */
 	public function getUuid() {
 		$this->getData();
@@ -142,7 +141,7 @@ class LvmLogicalVolume extends StorageDeviceDM {
 
 	/**
 	 * Get the description of the logical volume.
-	 * @return The logical volume description, FALSE on failure.
+	 * @return The logical volume description.
 	 */
 	public function getDescription() {
 		$this->getData();
@@ -231,5 +230,36 @@ class LvmLogicalVolume extends StorageDeviceDM {
 		$cmd = new \OMV\System\Process("lvreduce", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);
 		$cmd->execute();
+	}
+
+	/**
+	 * Enumerate LVM logical volumes.
+	 * @return A list of LVM logical volumes, otherwise FALSE.
+	 * Example: array(
+	 *   0 => /dev/mapper/vgName-lvName
+	 *   1 => /dev/mapper/...
+	 * )
+	 * @throw \OMV\ExecException
+	 */
+	public static function enumerate() {
+		$cmdArgs = array();
+		$cmdArgs[] = "--noheadings";
+		$cmdArgs[] = "--separator '|'";
+		$cmdArgs[] = "-C";
+		$cmdArgs[] = "-o vg_name,lv_name";
+		$cmd = new \OMV\System\Process("lvdisplay", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute($output);
+		$result = array();
+		foreach ($output as $outputk => $outputv) {
+			$outputv = explode("|", trim($outputv));
+			// Replace '-' with '--' in volume group name.
+			$result[] = sprintf("/dev/mapper/%s-%s",
+			  str_replace("-", "--", $outputv[0]),
+			  str_replace("-", "--", $outputv[1]));
+			// Alternative device path: /dev/<vg_name>/<lv_name>
+			//$list[] = sprintf("/dev/%s/%s", $outputv[0], $outputv[1]);
+		}
+		return $result;
 	}
 }
