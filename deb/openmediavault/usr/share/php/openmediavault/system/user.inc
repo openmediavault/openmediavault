@@ -305,8 +305,8 @@ class User {
 		// Get shadow password suite configuration.
 		$ld = \OMV\System\System::getLoginDefs();
 		// Get the min/max values of the non-system account ID sequence.
-		$min = array_key_exists("UID_MIN", $ld) ? $ld['UID_MIN'] : 1000;
-		$max = array_key_exists("UID_MAX", $ld) ? $ld['UID_MAX'] : 60000;
+		$min = intval(array_value($ld, "UID_MIN", 1000));
+		$max = intval(array_value($ld, "UID_MAX", 60000));
 		// Check if the given account ID is within the sequence.
 		return !in_range($uid, $min, $max);
 	}

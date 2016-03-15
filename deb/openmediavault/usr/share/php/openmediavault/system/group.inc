@@ -164,8 +164,8 @@ class Group {
 		// Get shadow password suite configuration.
 		$ld = \OMV\System\System::getLoginDefs();
 		// Get the min/max values of the non-system account ID sequence.
-		$min = array_key_exists("GID_MIN", $ld) ? $ld['GID_MIN'] : 1000;
-		$max = array_key_exists("GID_MAX", $ld) ? $ld['GID_MAX'] : 60000;
+		$min = intval(array_value($ld, "GID_MIN", 1000));
+		$max = intval(array_value($ld, "GID_MAX", 60000));
 		// Check if the given account ID is within the sequence.
 		return !in_range($gid, $min, $max);
 	}
