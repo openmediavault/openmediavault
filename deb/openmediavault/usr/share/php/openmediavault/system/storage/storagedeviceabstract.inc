@@ -145,17 +145,18 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 	* \li /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
 	* \li /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML
 	* \li /dev/disk/by-path/pci-0000:00:02.5-scsi-0:0:0:0
-	* @return The device file symlinks as an array of strings. In case
-	*   of an error FALSE will be returned.
+	* @return The device file symlinks as an array of strings.
+	* @throw \OMV\ExecException
 	*/
 	public function getDeviceFileSymlinks() {
-		$cmd = sprintf("export LANG=C; udevadm info --query=symlink ".
-		  "--name=%s", escapeshellarg($this->getDeviceFile()));
-		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			$this->setLastError($output);
-			return FALSE;
-		}
+		$cmdArgs = array();
+		$cmdArgs[] = "info";
+		$cmdArgs[] = "--query=symlink";
+		$cmdArgs[] = sprintf("--name=%s", escapeshellarg(
+		  $this->getDeviceFile()));
+		$cmd = new \OMV\System\Process("udevadm", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute($output);
 		$result = explode(" ", $output[0]);
 		foreach ($result as &$deviceFile) {
 			$deviceFile = sprintf("/dev/%s", $deviceFile);
@@ -166,16 +167,16 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 	/**
 	 * Get the size of the device in bytes.
 	 * @return The size (64bit) of the device in bytes as string.
+	 * @throw \OMV\ExecException
 	 */
 	public function getSize() {
 		if ($this->size === FALSE) {
-			$cmd = sprintf("export LANG=C; blockdev --getsize64 %s",
-			  escapeshellarg($this->getDeviceFile()));
-			@OMVUtil::exec($cmd, $output, $result);
-			if ($result !== 0) {
-				$this->setLastError($output);
-				return FALSE;
-			}
+			$cmdArgs = array();
+			$cmdArgs[] = "--getsize64";
+			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
+			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
+			$cmd->setRedirect2to1(TRUE);
+			$cmd->execute($output);
 			$this->size = $output[0];
 		}
 		return $this->size;
@@ -183,17 +184,17 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 
 	/**
 	 * Get the blocksize of the device in bytes.
-	 * @return The blocksize of the device in bytes, otherwise FALSE.
+	 * @return The blocksize of the device in bytes.
+	 * @throw \OMV\ExecException
 	 */
 	public function getBlockSize() {
 		if ($this->blockSize === FALSE) {
-			$cmd = sprintf("export LANG=C; blockdev --getbsz %s",
-			  escapeshellarg($this->getDeviceFile()));
-			@OMVUtil::exec($cmd, $output, $result);
-			if ($result !== 0) {
-				$this->setLastError($output);
-				return FALSE;
-			}
+			$cmdArgs = array();
+			$cmdArgs[] = "--getbsz";
+			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
+			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
+			$cmd->setRedirect2to1(TRUE);
+			$cmd->execute($output);
 			$this->blockSize = intval($output[0]);
 		}
 		return $this->blockSize;
@@ -201,17 +202,17 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 
 	/**
 	 * Get the sectorsize of the device in bytes.
-	 * @return The sectorsize of the device in bytes, otherwise FALSE.
+	 * @return The sectorsize of the device in bytes.
+	 * @throw \OMV\ExecException
 	 */
 	public function getSectorSize() {
 		if ($this->sectorSize === FALSE) {
-			$cmd = sprintf("export LANG=C; blockdev --getss %s",
-			  escapeshellarg($this->getDeviceFile()));
-			@OMVUtil::exec($cmd, $output, $result);
-			if ($result !== 0) {
-				$this->setLastError($output);
-				return FALSE;
-			}
+			$cmdArgs = array();
+			$cmdArgs[] = "--getss";
+			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
+			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
+			$cmd->setRedirect2to1(TRUE);
+			$cmd->execute($output);
 			$this->sectorSize = intval($output[0]);
 		}
 		return $this->sectorSize;
@@ -347,7 +348,7 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 	 * @return TRUE if the device is connected via ATA, otherwise FALSE.
 	 */
 	public function isAta() {
-		if(FALSE === ($property = $this->getUdevProperty("ID_BUS")))
+		if (FALSE === ($property = $this->getUdevProperty("ID_BUS")))
 			return FALSE;
 		return (0 == strcasecmp("ata", $property)) ? TRUE : FALSE;
 	}
@@ -366,16 +367,18 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 	 * @param id The name of the property, e.g. ID_VENDOR, ID_MODEL or
 	 *   ID_SERIAL_SHORT.
 	 * @return The requested property, otherwise FALSE.
+	 * @throw \OMV\ExecException
 	 */
 	protected function getUdevProperty($id) {
 		if ($this->udevInfo === FALSE) {
-			$cmd = sprintf("export LANG=C; udevadm info --query=property ".
-			  "--name=%s", escapeshellarg($this->getDeviceFile()));
-			@OMVUtil::exec($cmd, $output, $result);
-			if ($result !== 0) {
-				$this->setLastError($output);
-				return FALSE;
-			}
+			$cmdArgs = array();
+			$cmdArgs[] = "info";
+			$cmdArgs[] = "--query=property";
+			$cmdArgs[] = sprintf("--name=%s", escapeshellarg(
+			  $this->getDeviceFile()));
+			$cmd = new \OMV\System\Process("udevadm", $cmdArgs);
+			$cmd->setRedirect2to1(TRUE);
+			$cmd->execute($output);
 			// Parse output:
 			// UDEV_LOG=3
 			// DEVPATH=/devices/pci0000:00/0000:00:10.0/host2/target2:0:1/2:0:1:0/block/sdb
