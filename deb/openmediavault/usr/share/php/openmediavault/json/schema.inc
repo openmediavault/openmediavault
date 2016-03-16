@@ -100,7 +100,7 @@ class Schema extends \OMV\BaseObject {
 	 *                 ),
 	 * ...
 	 */
-	private function _getSchemaByPath($path, $schema) {
+	private function &_getSchemaByPath($path, $schema) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Do we have reached the end of the requested path (path is empty)?
 		if (empty($path))
@@ -147,6 +147,20 @@ class Schema extends \OMV\BaseObject {
 			throw new SchemaPathException("Invalid path '%s'.", $path);
 		// Continue to walk down the tree.
 		return $this->_getSchemaByPath(implode(".", $parts), $schema[$key]);
+	}
+
+	/**
+	 * Add a new property to the model.
+	 * @param path The path of the property, e.g. "aaa.bbb.ccc", where 'ccc'
+	 *   is the name of the property to add.
+	 * @param properties The properties of the property to add, e.g.
+	 *   array("type" => "integer", "default" => 100)
+	 */
+	public function addProperty($path, array $properties = array()) {
+		$parts = explode(".", $path);
+		$name = array_pop($parts);
+		$propSchema = $this->getSchema()->getAssocByPath(implode(".", $parts));
+		$propSchema[$name] = $properties;
 	}
 
 	/**

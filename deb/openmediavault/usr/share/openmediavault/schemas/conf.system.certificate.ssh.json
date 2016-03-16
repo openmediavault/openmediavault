@@ -1,0 +1,23 @@
+{
+	"type": "object",
+	"id": "conf.system.certificate.ssh",
+	"alias": "//system/certificates/sshcertificate",
+	"title": "SSH certificate",
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"publickey": {
+			"type": "string",
+			"format": "sshpubkey-openssh"
+		},
+		"privatekey": {
+			"type": "string",
+			"format": "sshprivkey-rsa"
+		},
+		"comment": {
+			"type": "string"
+		}
+	}
+}

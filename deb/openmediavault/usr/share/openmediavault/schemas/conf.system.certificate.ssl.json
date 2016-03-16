@@ -1,0 +1,21 @@
+{
+	"type": "object",
+	"id": "conf.system.certificate.ssl",
+	"alias": "//system/certificates/sslcertificate",
+	"title": "SSL certificate",
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"certificate": {
+			"type": "string"
+		},
+		"privatekey": {
+			"type": "string"
+		},
+		"comment": {
+			"type": "string"
+		}
+	}
+}

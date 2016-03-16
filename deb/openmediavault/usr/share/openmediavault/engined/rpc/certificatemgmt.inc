@@ -72,29 +72,30 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get list of SSL certificate configuration objects.
-		$xpath = "//system/certificates/sslcertificate";
-		$objects = $xmlConfig->getList($xpath);
-		if (is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Add additional informations.
-		foreach ($objects as $objectk => &$objectv) {
-			// Parse the certificate
-			if ($certinfo = openssl_x509_parse($objectv['certificate'])) {
-				$objectv['name'] = $certinfo['name'];
-				$objectv['validto'] = $certinfo['validTo_time_t'];
-			}
+		$db = &\OMV\Config\Database::getInstance();
+		$objects = $db->getList("//system/certificates/sslcertificate",
+		  "conf.system.certificate.ssl");
+		// Process the list of objects.
+		$result = array();
+		foreach ($objects as $objectk => $objectv) {
 			// Remove the private key. It should not leave the system.
-			unset($objectv['privatekey']);
-			// Set '_used' flag if the certificate is referenced.
-			if (TRUE === $xmlConfig->exists("//sslcertificateref[".
-			  "contains(.,'{$objectv['uuid']}')]")) {
-				$objectv['_used'] = TRUE;
+			$objectv->remove("privatekey");
+			// Get the values.
+			$objectData = $objectv->getAssoc();
+			// Parse the certificate
+			if ($certinfo = openssl_x509_parse($objectData['certificate'])) {
+				$objectData['name'] = $certinfo['name'];
+				$objectData['validto'] = $certinfo['validTo_time_t'];
 			}
+			// Set '_used' flag if the certificate is referenced.
+			$xpath = sprintf("//sslcertificateref[contains(.,'%s')]",
+			  $objectData['uuid']);
+			if (TRUE === $xmlConfig->exists($xpath))
+				$objectData['_used'] = TRUE;
+			$result[] = $objectData;
 		}
-		// Filter result.
-		return $this->applyFilter($objects, $params['start'], $params['limit'],
+		// Filter the result.
+		return $this->applyFilter($result, $params['start'], $params['limit'],
 		  $params['sortfield'], $params['sortdir']);
 	}
 
@@ -337,11 +338,10 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// http://www.zytrax.com/tech/survival/ssl.html
 		$keyfile = tempnam(sys_get_temp_dir(), "cert");
 		$crtfile = tempnam(sys_get_temp_dir(), "cert");
-
-
 		$cmdArgs = array();
 		$cmdArgs[] = "req";
 		$cmdArgs[] = "-x509";
+		$cmdArgs[] = "-nodes";
 		$cmdArgs[] = sprintf("-days %d", $params['days']);
 		$cmdArgs[] = "-sha256";
 		$cmdArgs[] = "-batch";
@@ -396,24 +396,25 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get list of SSH certificate configuration objects.
-		$xpath = "//system/certificates/sshcertificate";
-		$objects = $xmlConfig->getList($xpath);
-		if (is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Add additional informations.
-		foreach ($objects as $objectk => &$objectv) {
+		$db = &\OMV\Config\Database::getInstance();
+		$objects = $db->getList("//system/certificates/sshcertificate",
+		  "conf.system.certificate.ssh");
+		// Process the list of objects.
+		$result = array();
+		foreach ($objects as $objectk => $objectv) {
 			// Remove the private key. It should not leave the system.
-			unset($objectv['privatekey']);
+			$objectv->remove("privatekey");
+			// Get the values.
+			$objectData = $objectv->getAssoc();
 			// Set '_used' flag if the certificate is referenced.
-			if (TRUE === $xmlConfig->exists("//sshcertificateref[".
-			  "contains(.,'{$objectv['uuid']}')]")) {
-				$objectv['_used'] = TRUE;
-			}
+			$xpath = sprintf("//sshcertificateref[contains(.,'%s')]",
+			  $objectData['uuid']);
+			if (TRUE === $xmlConfig->exists($xpath))
+				$objectData['_used'] = TRUE;
+			$result[] = $objectData;
 		}
-		// Filter result.
-		return $this->applyFilter($objects, $params['start'], $params['limit'],
+		// Filter the result.
+		return $this->applyFilter($result, $params['start'], $params['limit'],
 		  $params['sortfield'], $params['sortdir']);
 	}
 

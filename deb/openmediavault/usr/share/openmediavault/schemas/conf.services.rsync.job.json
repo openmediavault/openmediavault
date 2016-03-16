@@ -1,0 +1,121 @@
+{
+	"type": "object",
+	"id": "conf.service.rsync.job",
+	"alias": "//services/rsync/jobs/job",
+	"title": "Rsync job",
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"enable": {
+			"type": "boolean",
+			"default": 0
+		},
+		"sendemail": {
+			"type": "boolean",
+			"default": 0
+		},
+		"comment": {
+			"type": "string"
+		},
+		"type":{
+			"type": "string",
+			"enum": [ "local", "remote" ]
+		},
+		"src": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"dest": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"minute": {
+			"type": "string",
+			"pattern": "/^[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[*]$/"
+		},
+		"everynminute": {
+			"type": "boolean"
+		},
+		"hour": {
+			"type": "string",
+			"pattern":"/^[0-9]|1[0-9]|2[0-3]|[*]$/"
+		},
+		"everynhour": {
+			"type":"boolean"
+		},
+		"month": {
+			"type": "string",
+			"pattern": "/^[1-9]|1[0-2]|[*]$/"
+		},
+		"dayofmonth": {
+			"type": "string",
+			"pattern": "/^[1-9]|1[0-9]|2[0-9]|3[0-1]|[*]$/"
+		},
+		"everyndayofmonth": {
+			"type": "boolean"
+		},
+		"dayofweek": {
+			"type": "string",
+			"pattern": "/^[1-7]|[*]$/"
+		},
+		"recursive": {
+			"type": "boolean"
+		},
+		"times": {
+			"type": "boolean"
+		},
+		"compress": {
+			"type": "boolean"
+		},
+		"archive": {
+			"type": "boolean"
+		},
+		"delete": {
+			"type": "boolean"
+		},
+		"quiet": {
+			"type":"boolean"
+		},
+		"perms": {
+			"type": "boolean"
+		},
+		"acls": {
+			"type": "boolean"
+		},
+		"xattrs":{
+			"type": "boolean"
+		},
+		"dryrun": {
+			"type": "boolean"
+		},
+		"partial": {
+			"type": "boolean"
+		},
+		"extraoptions": {
+			"type": "string"
+		},
+		"mode": {
+			"type": "string",
+			"enum": [ "push", "pull" ]
+		},
+		"authentication": {
+			"type": "string",
+			"enum": [ "password", "pubkey" ]
+		},
+		"password": {
+			"type": "string"
+		},
+		"sshcertificateref":{
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"sshport": {
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 65535,
+			"default": 22
+		}
+	}
+}

@@ -74,8 +74,33 @@ class Model extends \OMV\BaseObject {
 		$this->getSchema()->validate($value, $path);
 	}
 
+	/**
+	 * Add a new property to the model.
+	 * @param name The path of the property, e.g. "aaa.bbb.ccc".
+	 * @param type The type of the property.
+	 */
+	public function addProperty($path, $type, array $properties = array()) {
+		switch ($type) {
+		case "boolean":
+		case "integer":
+		case "number":
+		case "double":
+		case "string":
+			break;
+		case "float":
+			$type = "number";
+			break;
+		default:
+			throw new \OMV\SchemaException("The type '%s' is not supported.",
+			  $type);
+			break;
+		}
+		$properties['type'] = $type;
+		$schema = $this->getSchema()->addProperty($path, $properties);
+	}
+
 	public function convertProperty($path, $value) {
-		$propSchema = $schema = $this->getSchema()->getAssocByPath($path);
+		$propSchema = $this->getSchema()->getAssocByPath($path);
 		if (is_array($propSchema['type'])) {
 			throw new \OMV\Json\SchemaException(
 			  "%s: The attribute 'type' must not be an array.",
@@ -108,7 +133,7 @@ class Model extends \OMV\BaseObject {
 	 *   the properties type.
 	 */
 	public function getPropertyDefault($path) {
-		$propSchema = $schema = $this->getSchema()->getAssocByPath($path);
+		$propSchema = $this->getSchema()->getAssocByPath($path);
 		$default = NULL;
 		if (array_key_exists("default", $propSchema))
 			$default = $propSchema['default'];
@@ -123,10 +148,10 @@ class Model extends \OMV\BaseObject {
 				$type = $propSchema['type'];
 			switch ($type) {
 			case "array":
-				$default = array();
+				$default = array(); // Indexed array
 				break;
 			case "object":
-				$default = new stdClass();
+				$default = array(); // Associative array
 				break;
 			case "boolean":
 				$default = FALSE;

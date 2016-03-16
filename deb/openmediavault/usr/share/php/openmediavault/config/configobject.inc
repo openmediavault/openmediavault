@@ -41,18 +41,22 @@ class ConfigObject extends \OMV\BaseObject {
 		return $this->model;
 	}
 
-	/**
-	 * Get a property.
-	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
-	 * @return The property value.
-	 */
-	public function get($name) {
+	private function exists($name) {
 		$model = $this->getModel();
 		if (FALSE === $model->propertyExists($name)) {
 			throw new \OMV\Exception(
 			  "The property '%s' does not exist in the model '%s'.",
 			  $name, $model->getId());
 		}
+	}
+
+	/**
+	 * Get a property.
+	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
+	 * @return The property value.
+	 */
+	public function get($name) {
+		$this->exists($name);
 		return $this->properties[$name];
 	}
 
@@ -133,12 +137,8 @@ class ConfigObject extends \OMV\BaseObject {
 	 */
 	public function set($name, $value, $validate = TRUE) {
 //		$this->debug(var_export(func_get_args(), TRUE));
+		$this->exists($name);
 		$model = $this->getModel();
-		if (FALSE === $model->propertyExists($name)) {
-			throw new \OMV\Exception(
-			  "The property '%s' does not exist in the model '%s'.",
-			  $name, $model->getId());
-		}
 		if (TRUE === $validate)
 			$model->validateProperty($name, $value);
 		$this->properties[$name] = $model->convertProperty($name, $value);
@@ -166,5 +166,14 @@ class ConfigObject extends \OMV\BaseObject {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		foreach ($data as $path => $value)
 			$this->set($path, $value, $validate);
+	}
+
+	/**
+	 * Remove/unset a given property.
+	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
+	 */
+	public function remove($name) {
+		$this->exists($name);
+		unset($this->properties[$name]);
 	}
 }
