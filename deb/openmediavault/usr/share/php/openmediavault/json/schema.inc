@@ -150,7 +150,7 @@ class Schema extends \OMV\BaseObject {
 	}
 
 	/**
-	 * Add a new property to the model.
+	 * Add a new property to the schema at runtime.
 	 * @param path The path of the property, e.g. "aaa.bbb.ccc", where 'ccc'
 	 *   is the name of the property to add.
 	 * @param properties The properties of the property to add, e.g.
@@ -176,6 +176,15 @@ class Schema extends \OMV\BaseObject {
 			break;
 		}
 		$propSchema[$name] = $properties;
+	}
+
+	/**
+	 * Remove a property from the schema at runtime.
+	 * @param path The path of the property to remove.
+	 */
+	public function removeProperty($path) {
+		$propSchema = &$this->_getSchemaByPath($path, $this->schema);
+		unset($propSchema);
 	}
 
 	/**

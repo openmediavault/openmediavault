@@ -76,7 +76,7 @@ class Model extends \OMV\BaseObject {
 
 	/**
 	 * Add a new property to the model.
-	 * @param name The path of the property, e.g. "aaa.bbb.ccc".
+	 * @param path The path of the property, e.g. "aaa.bbb.ccc".
 	 * @param type The type of the property, e.g. 'string' or 'boolean'.
 	 */
 	public function addProperty($path, $type, array $properties = array()) {
@@ -99,6 +99,21 @@ class Model extends \OMV\BaseObject {
 		$schema = $this->getSchema()->addProperty($path, $properties);
 	}
 
+	/**
+	 * Add a property from the model.
+	 * @param path The path of the property, e.g. "aaa.bbb.ccc".
+	 */
+	public function removeProperty($path) {
+		$this->getSchema()->removeProperty($path);
+	}
+
+	/**
+	 * Convert the given value into the type which is declared in the
+	 * property schema at the specified path.
+	 * @param name The path of the property, e.g. "aaa.bbb.ccc".
+	 * @param value The value to convert.
+	 * @return The converted value.
+	 */
 	public function convertProperty($path, $value) {
 		$propSchema = $this->getSchema()->getAssocByPath($path);
 		if (is_array($propSchema['type'])) {

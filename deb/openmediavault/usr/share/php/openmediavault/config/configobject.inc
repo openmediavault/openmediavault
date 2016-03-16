@@ -97,6 +97,12 @@ class ConfigObject extends \OMV\BaseObject {
 		return $this->properties;
 	}
 
+	/**
+	 * Get the default properties as an indexed array. The property keys
+	 * may look like 'a.b.c' or 'shares.share.0.uuid'.
+	 * @return The array of key/value pairs with the default values as
+	 *   described by the data model.
+	 */
 	public function getDefaults() {
 		// Create a flat representation of the data.
 		$data = array();
@@ -120,9 +126,9 @@ class ConfigObject extends \OMV\BaseObject {
 	}
 
 	/**
-	 * Get the default properties.
+	 * Get the default properties as an associative array.
 	 * @return The array of key/value pairs with the default values as
-	 *   described by the data model, otherwise FALSE.
+	 *   described by the data model.
 	 */
 	public function getDefaultsAssoc() {
 		return array_expand($this->getDefaults());
@@ -168,21 +174,29 @@ class ConfigObject extends \OMV\BaseObject {
 	}
 
 	/**
-	 * Remove/unset a given property.
+	 * Remove/unset the specified property. Note, this will modify the data
+	 * model of this object.
 	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
 	 */
 	public function remove($name) {
 		$this->exists($name);
+		// Remove the property from the data model schema.
+		$this->getModel()->removeProperty($name);
+		// Unset the property.
 		unset($this->properties[$name]);
 	}
 
 	/**
 	* Add a new property. This can be accessed by the get/set methods.
+	* Note, this will modify the data model of this object.
 	* @param name The name of the property in dot notation, e.g. 'a.b.c'.
 	* @param type The type of the property, e.g. 'string' or 'boolean'.
+	* @param default An optional default value.
 	*/
 	public function add($name, $type, $default = NULL) {
+		// Add the property to the data model schema.
 		$this->getModel()->addProperty($name, $type);
+		// Set the default value of the property.
 		if (!is_null($default))
 			$this->set($name, $default);
 	}
