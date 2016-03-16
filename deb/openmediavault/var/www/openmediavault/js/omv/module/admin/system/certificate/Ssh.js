@@ -142,7 +142,7 @@ Ext.define("OMV.module.admin.system.certificate.ssh.Certificates", {
 				remoteSort: true,
 				sorters: [{
 					direction: "ASC",
-					property: "name"
+					property: "comment"
 				}]
 			})
 		});
