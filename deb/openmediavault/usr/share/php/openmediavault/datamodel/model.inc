@@ -77,7 +77,7 @@ class Model extends \OMV\BaseObject {
 	/**
 	 * Add a new property to the model.
 	 * @param name The path of the property, e.g. "aaa.bbb.ccc".
-	 * @param type The type of the property.
+	 * @param type The type of the property, e.g. 'string' or 'boolean'.
 	 */
 	public function addProperty($path, $type, array $properties = array()) {
 		switch ($type) {

@@ -100,7 +100,7 @@ class Schema extends \OMV\BaseObject {
 	 *                 ),
 	 * ...
 	 */
-	private function &_getSchemaByPath($path, $schema) {
+	private function _getSchemaByPath($path, $schema) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Do we have reached the end of the requested path (path is empty)?
 		if (empty($path))
@@ -159,7 +159,22 @@ class Schema extends \OMV\BaseObject {
 	public function addProperty($path, array $properties = array()) {
 		$parts = explode(".", $path);
 		$name = array_pop($parts);
-		$propSchema = $this->getSchema()->getAssocByPath(implode(".", $parts));
+		// Get the property schema.
+		$propSchema = $this->_getSchemaByPath(implode(".", $parts),
+		  $this->getAssoc());
+		switch ($propSchema['type']) {
+		case "array":
+			$propSchema = &$propSchema['items'];
+			break;
+		case "object":
+			$propSchema = &$propSchema['properties'];
+			break;
+		default:
+			throw new SchemaPathException(
+			  "Can not add property at path '%s'.",
+			  $path);
+			break;
+		}
 		$propSchema[$name] = $properties;
 	}
 

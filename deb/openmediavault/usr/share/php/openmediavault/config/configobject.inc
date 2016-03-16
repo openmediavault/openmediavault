@@ -22,7 +22,6 @@
 namespace OMV\Config;
 
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/error.inc");
 
 class ConfigObject extends \OMV\BaseObject {
 	private $model = NULL;
@@ -175,5 +174,14 @@ class ConfigObject extends \OMV\BaseObject {
 	public function remove($name) {
 		$this->exists($name);
 		unset($this->properties[$name]);
+	}
+
+	/**
+	* Add a new property. This can be accessed by the get/set methods.
+	* @param name The name of the property in dot notation, e.g. 'a.b.c'.
+	* @param type The type of the property, e.g. 'string' or 'boolean'.
+	*/
+	public function add($name, $type) {
+		$this->getModel()->addProperty($name, $type);
 	}
 }
