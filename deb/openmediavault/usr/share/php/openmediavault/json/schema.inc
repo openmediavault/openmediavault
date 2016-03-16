@@ -100,7 +100,7 @@ class Schema extends \OMV\BaseObject {
 	 *                 ),
 	 * ...
 	 */
-	private function _getSchemaByPath($path, $schema) {
+	private function &_getSchemaByPath($path, &$schema) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Do we have reached the end of the requested path (path is empty)?
 		if (empty($path))
@@ -160,8 +160,8 @@ class Schema extends \OMV\BaseObject {
 		$parts = explode(".", $path);
 		$name = array_pop($parts);
 		// Get the property schema.
-		$propSchema = $this->_getSchemaByPath(implode(".", $parts),
-		  $this->getAssoc());
+		$propSchema = &$this->_getSchemaByPath(implode(".", $parts),
+		  $this->schema);
 		switch ($propSchema['type']) {
 		case "array":
 			$propSchema = &$propSchema['items'];

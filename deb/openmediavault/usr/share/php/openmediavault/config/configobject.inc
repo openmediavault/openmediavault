@@ -181,7 +181,9 @@ class ConfigObject extends \OMV\BaseObject {
 	* @param name The name of the property in dot notation, e.g. 'a.b.c'.
 	* @param type The type of the property, e.g. 'string' or 'boolean'.
 	*/
-	public function add($name, $type) {
+	public function add($name, $type, $default = NULL) {
 		$this->getModel()->addProperty($name, $type);
+		if (!is_null($default))
+			$this->set($name, $default);
 	}
 }

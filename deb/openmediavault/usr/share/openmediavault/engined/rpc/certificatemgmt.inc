@@ -78,21 +78,23 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Process the list of objects.
 		$result = array();
 		foreach ($objects as $objectk => $objectv) {
+			// Add additional properties.
+			$objectv->add("name", "string", "");
+			$objectv->add("validto", "integer", 0);
+			$objectv->add("_used", "boolean");
 			// Remove the private key. It should not leave the system.
 			$objectv->remove("privatekey");
-			// Get the values.
-			$objectData = $objectv->getAssoc();
-			// Parse the certificate
-			if ($certinfo = openssl_x509_parse($objectData['certificate'])) {
-				$objectData['name'] = $certinfo['name'];
-				$objectData['validto'] = $certinfo['validTo_time_t'];
+			// Parse the certificate.
+			if ($certinfo = openssl_x509_parse($objectv->get("certificate"))) {
+				$objectv->set("name", $certinfo['name']);
+				$objectv->set("validto", $certinfo['validTo_time_t']);
 			}
 			// Set '_used' flag if the certificate is referenced.
 			$xpath = sprintf("//sslcertificateref[contains(.,'%s')]",
-			  $objectData['uuid']);
-			if (TRUE === $xmlConfig->exists($xpath))
-				$objectData['_used'] = TRUE;
-			$result[] = $objectData;
+			  $objectv->get("uuid"));
+			$objectv->set("_used", $xmlConfig->exists($xpath));
+			// Get the values.
+			$result[] = $objectv->getAssoc();
 		}
 		// Filter the result.
 		return $this->applyFilter($result, $params['start'], $params['limit'],
@@ -402,16 +404,16 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Process the list of objects.
 		$result = array();
 		foreach ($objects as $objectk => $objectv) {
+			// Add additional properties.
+			$objectv->add("_used", "boolean");
 			// Remove the private key. It should not leave the system.
 			$objectv->remove("privatekey");
-			// Get the values.
-			$objectData = $objectv->getAssoc();
 			// Set '_used' flag if the certificate is referenced.
 			$xpath = sprintf("//sshcertificateref[contains(.,'%s')]",
-			  $objectData['uuid']);
-			if (TRUE === $xmlConfig->exists($xpath))
-				$objectData['_used'] = TRUE;
-			$result[] = $objectData;
+			  $objectv->get("uuid"));
+			$objectv->set("_used", $xmlConfig->exists($xpath));
+			// Get the values.
+			$result[] = $objectv->getAssoc();
 		}
 		// Filter the result.
 		return $this->applyFilter($result, $params['start'], $params['limit'],
