@@ -129,88 +129,65 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_MISC_FAILURE
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
-	 * @throw E_CONFIG_SAVE_FAILED
 	 */
 	function set($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.certificatemgmt.set");
+		// Prepare the configuration object.
+		$object = new \OMV\Config\ConfigObject("conf.system.certificate.ssl");
+		$object->setAssoc($params);
 		// Validate the certificate.
-		if (!($certificate = openssl_x509_read($params['certificate']))) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Invalid certificate: %s", openssl_error_string()));
+		if (!($certificate = openssl_x509_read($object->get("certificate")))) {
+			throw new \OMV\Exception("Invalid certificate: %s",
+			  openssl_error_string());
 		}
 		// Validate the private key.
-		if (array_key_exists("privatekey", $params)) {
+		if (!$object->isEmpty("privatekey")) {
 			if (!($privatekey = openssl_pkey_get_private(
-			  $params['privatekey']))) {
+			  $object->get("privatekey")))) {
 				openssl_x509_free($certificate);
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("Invalid private key: %s", openssl_error_string()));
+				throw new \OMV\Exception("Invalid private key: %s",
+				  openssl_error_string());
 			}
 			// Check if the private key corresponds to the certificate.
 			if (!openssl_x509_check_private_key($certificate, $privatekey)) {
 				openssl_pkey_free($privatekey);
 				openssl_x509_free($certificate);
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("Private key does not correspond to the certificate: %s",
-				  openssl_error_string()));
+				throw new \OMV\Exception(
+				  "Private key does not correspond to the certificate: %s",
+				  openssl_error_string());
 			}
 			openssl_pkey_free($privatekey);
 		}
 		openssl_x509_free($certificate);
 		// Set the configuration data.
-		$success = FALSE;
-		if ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+		if ($object->get("uuid") == $GLOBALS['OMV_UUID_UNDEFINED']) {
 			// The private key is required here.
-			if (!array_key_exists("privatekey", $params))
-				throw new OMVException(OMVErrorMsg::E_RPC_INVALID_PARAMS,
-				  "key: 'privatekey' does not exist.");
+			if ($object->isEmpty("privatekey"))
+				throw new \OMV\Exception("Private key does not exist.");
 			// Prepare configuration data.
-			$object = array(
-				"uuid" => \OMV\Uuid::uuid4(),
-				"certificate" => $params['certificate'],
-				"privatekey" => $params['privatekey'],
-				"comment" => $params['comment']
-			);
+			$object->set("uuid", \OMV\Uuid::uuid4());
 			// Append object to configuration.
-			$success = $xmlConfig->set("//system/certificates",
-			  array("sslcertificate" => $object));
+			$db = \OMV\Config\Database::getInstance();
+			$db->setItem("//system/certificates", "sslcertificate", $object);
 		} else {
-			// Prepare configuration data.
-			$object = array(
-				"uuid" => $params['uuid'],
-				"certificate" => $params['certificate'],
-				"comment" => $params['comment']
-			);
-			// Private key is optional here.
-			if (array_key_exists("privatekey", $params))
-				$object['privatekey'] = $params['privatekey'];
-			// Update existing configuration object.
-			$success = $xmlConfig->update("//system/certificates/".
-			  "sslcertificate[uuid='{$params['uuid']}']", $object);
-		}
-		if (FALSE === $success) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
-		// Save the configuration.
-		if (FALSE === $xmlConfig->save()) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-			  $xmlConfig->getLastError());
+			$xpath = sprintf("//system/certificates/sslcertificate[".
+			  "uuid='%s']", $object->get("uuid"));
+			$db = \OMV\Config\Database::getInstance();
+			$db->update($xpath, $object);
 		}
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.certificates.sslcertificate", $object);
+		$dispatcher->notify(($GLOBALS['OMV_UUID_UNDEFINED'] ==
+		  $object->get("uuid")) ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.certificates.sslcertificate",
+		  $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**

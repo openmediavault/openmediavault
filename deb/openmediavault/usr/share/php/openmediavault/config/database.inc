@@ -106,6 +106,18 @@ class Database extends \OMV\BaseObject {
 	}
 
 	/**
+	 * Set the configuration object at the specified XPath expression.
+	 * @param xpath The XPath expression to execute.
+	 * @param object The configuration object to use.
+	 * @return None.
+	 */
+	public function setItem($xpath, $elemName, ConfigObject $object) {
+		$data = array($elemName => $object->getAssoc());
+		if (FALSE === $this->getBackend()->set($xpath, $data))
+			throw new DatabaseException("XPath '%s' does not exist.", $xpath);
+	}
+
+	/**
 	 * Replace the configuration at the specified XPath expression.
 	 * @param xpath The XPath expression to execute.
 	 * @param object The configuration object to use.
