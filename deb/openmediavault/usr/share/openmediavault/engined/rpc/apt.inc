@@ -54,7 +54,7 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("//system/apt/distribution",
 		  "conf.system.apt.distribution");
 		return $object->getAssoc();
@@ -77,10 +77,10 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 		$object = new \OMV\Config\ConfigObject("conf.system.apt.distribution");
 		$object->setAssoc($params);
 		// Update the configuration object.
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$db->replace("//system/apt/distribution", $object);
 		// Notify configuration changes.
-		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
+		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.apt.distribution",
 		  $object->getAssoc());

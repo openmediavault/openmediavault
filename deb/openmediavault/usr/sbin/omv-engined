@@ -340,9 +340,9 @@ foreach (listdir($directory, "inc") as $path) {
 ///////////////////////////////////////////////////////////////////////////////
 // Bind listeners.
 ///////////////////////////////////////////////////////////////////////////////
-$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
+$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 $modules = $moduleMngr->getModules();
-$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
+$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 foreach ($modules as $module) {
 	$dispatcher->addListener($module);
 }

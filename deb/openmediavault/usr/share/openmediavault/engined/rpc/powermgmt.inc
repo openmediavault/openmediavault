@@ -56,7 +56,7 @@ class OMVRpcServicePowerMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("//system/powermanagement",
 		  "conf.system.powermanagement");
 		return $object->getAssoc();
@@ -80,10 +80,10 @@ class OMVRpcServicePowerMgmt extends \OMV\Rpc\ServiceAbstract {
 		$object = new \OMV\Config\ConfigObject("conf.system.powermanagement");
 		$object->setAssoc($params);
 		// Update the configuration object.
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$db->replace("//system/powermanagement", $object);
 		// Notify configuration changes.
-		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
+		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.powermanagement",
 		  $object->getAssoc());

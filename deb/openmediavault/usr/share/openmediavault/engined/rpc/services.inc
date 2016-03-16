@@ -52,7 +52,7 @@ class OMVRpcServiceServices extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		$status = array();
 		// Get the list of registered modules.
-		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
+		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getModules();
 		foreach($modules as $modulev) {
 			// Check if the module implements the \OMV\Engine\Module\IServiceStatus

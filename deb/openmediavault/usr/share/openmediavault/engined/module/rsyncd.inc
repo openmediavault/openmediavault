@@ -49,7 +49,7 @@ class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
 	 * Start the managed service.
 	 */
 	public function startService() {
-        $db = &\OMV\Config\Database::getInstance();
+        $db = \OMV\Config\Database::getInstance();
 		$object = $db->get("//services/rsync/server", "conf.service.rsyncd");
 		if (TRUE !== $object->get("enable"))
 			return;
@@ -61,7 +61,7 @@ class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
 	 * Get the status of the managed service.
 	 */
 	public function getStatus() {
-        $db = &\OMV\Config\Database::getInstance();
+        $db = \OMV\Config\Database::getInstance();
 		$object = $db->get("//services/rsync/server", "conf.service.rsyncd");
 		$initd = new \OMV\System\SysVInitScript("rsync");
 		return array(
@@ -91,7 +91,7 @@ class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
 	 * @param object The configuration object.
 	 */
 	final public function onSharedFolder($type, $path, $object) {
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		if (TRUE === $db->getBackend()->exists(sprintf(
 		  "//services/rsync/server/modules/module[sharedfolderref='%s']",
 		  $object['uuid'])))
@@ -118,7 +118,7 @@ class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.shares.sharedfolder.privileges",
 		  array($this, "onSharedFolder"));
-		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
+		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.rsync.server",

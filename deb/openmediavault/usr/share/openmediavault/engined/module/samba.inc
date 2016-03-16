@@ -45,7 +45,7 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("//services/smb", "conf.service.smb");
 		if (TRUE !== $object->get("enable"))
 			return;
@@ -57,7 +57,7 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 	 * Start the managed service.
 	 */
 	public function startService() {
-        $db = &\OMV\Config\Database::getInstance();
+        $db = \OMV\Config\Database::getInstance();
 		$object = $db->get("//services/smb", "conf.service.smb");
 		if (TRUE !== $object->get("enable"))
 			return;
@@ -72,7 +72,7 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 	 * Get the status of the managed service.
 	 */
 	public function getStatus() {
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("//services/smb", "conf.service.smb");
 		$systemCtl = new \OMV\System\SystemCtl("smbd");
 		return array(
@@ -221,7 +221,7 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 	 * @param object The configuration object.
 	 */
 	final public function onSharedFolder($type, $path, $object) {
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		if (TRUE === $db->getBackend()->exists(sprintf(
 		  "//services/smb/shares/share[sharedfolderref='%s']",
 		  $object['uuid'])))
@@ -260,7 +260,7 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.usermanagement.users.user",
 		  array($this, "onDeleteUser"));
-		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
+		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.smb",

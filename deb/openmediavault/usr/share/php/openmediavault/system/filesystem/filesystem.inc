@@ -33,7 +33,7 @@ class Filesystem extends FilesystemAbstract {
 	 */
 	public static function getFilesystems() {
 		$result = array();
-		$mngr = &Backend\Manager::getInstance();
+		$mngr = Backend\Manager::getInstance();
 		foreach ($mngr->enumerate() as $datak => $datav) {
 			// Get the filesystem backend.
 			$backend = $mngr->getBackendByType($datav['type']);
@@ -75,7 +75,7 @@ class Filesystem extends FilesystemAbstract {
 	 *   otherwise NULL.
 	 */
 	public static function getImpl($id) {
-		$mngr = &Backend\Manager::getInstance();
+		$mngr = Backend\Manager::getInstance();
 		if (NULL == ($backend = $mngr->getBackendById($id)))
 			return NULL;
 		return $backend->getImpl($id);

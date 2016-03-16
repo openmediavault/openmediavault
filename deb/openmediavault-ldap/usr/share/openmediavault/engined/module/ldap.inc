@@ -47,7 +47,7 @@ class OMVModuleLDAP extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.ldap",
 		  array($this, "setDirty"));
-		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
+		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.ldap",

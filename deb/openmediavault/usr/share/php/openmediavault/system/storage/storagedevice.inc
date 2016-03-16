@@ -33,7 +33,7 @@ class StorageDevice extends StorageDeviceAbstract {
 	 */
 	final public function enumerate($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
 		$result = array();
-		$mngr = &Backend\Manager::getInstance();
+		$mngr = Backend\Manager::getInstance();
 		foreach ($mngr as $backendk => $backendv) {
 			if (!($type & $backendv->getType()))
 				continue;
@@ -57,7 +57,7 @@ class StorageDevice extends StorageDeviceAbstract {
 		if (FALSE === ($result = self::enumerate($type)))
 			return FALSE;
 		// Remove used devices.
-		$mngr = &Backend\Manager::getInstance();
+		$mngr = Backend\Manager::getInstance();
 		foreach ($mngr as $backendk => $backendv) {
 // Always collect and remove all slave devices.
 //			if (!($type & $backendv->getType()))
@@ -81,7 +81,7 @@ class StorageDevice extends StorageDeviceAbstract {
 	 */
 	final public function enumerateUsed($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
 		$result = array();
-		$mngr = &Backend\Manager::getInstance();
+		$mngr = Backend\Manager::getInstance();
 		foreach ($mngr as $backendk => $backendv) {
 			if (!($type & $backendv->getType()))
 				continue;
@@ -113,7 +113,7 @@ class StorageDevice extends StorageDeviceAbstract {
 	 */
 	final public function isUsed($deviceFile, $type = OMV_STORAGE_DEVICE_TYPE_ALL) {
 		$result = FALSE;
-		$mngr = &Backend\Manager::getInstance();
+		$mngr = Backend\Manager::getInstance();
 		foreach ($mngr as $backendk => $backendv) {
 			if (!($type & $backendv->getType()))
 				continue;
@@ -143,7 +143,7 @@ class StorageDevice extends StorageDeviceAbstract {
 	 *   otherwise NULL.
 	 */
 	final public function getStorageDevice($deviceFile) {
-		$mngr = &Backend\Manager::getInstance();
+		$mngr = Backend\Manager::getInstance();
 		if (NULL == ($backend = $mngr->getBackend($deviceFile)))
 			return NULL;
 		return $backend->getImpl($deviceFile);

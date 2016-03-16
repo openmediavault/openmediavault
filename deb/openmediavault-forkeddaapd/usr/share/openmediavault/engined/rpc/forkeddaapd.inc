@@ -112,7 +112,7 @@ class OMVRpcServiceForkedDaapd extends \OMV\Rpc\ServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.
-		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
+		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.daap", $object, $oldObject);
 		// Return the configuration object.

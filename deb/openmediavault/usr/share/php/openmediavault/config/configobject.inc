@@ -31,7 +31,7 @@ class ConfigObject extends \OMV\BaseObject {
 	 * @param id The data model identifier.
 	 */
 	public function __construct($id) {
-		$modelMngr = &\OMV\DataModel\Manager::getInstance();
+		$modelMngr = \OMV\DataModel\Manager::getInstance();
 		$this->model = $modelMngr->getModel($id);
 		$this->properties = $this->getDefaults();
 	}

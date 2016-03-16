@@ -579,7 +579,7 @@ finish:
 		// Append some more information to the notification object.
 		$object = array_merge($object, $params);
 		// Notify configuration changes.
-		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
+		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify((!$user->exists()) ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.usermanagement.users.user", $object);
@@ -662,7 +662,7 @@ finish:
 		  $params['name']);
 		$xmlConfig->delete($xpath);
 		// Notify configuration changes.
-		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
+		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.usermanagement.users.user", $object);
 		// Return the deleted configuration object.
@@ -942,7 +942,7 @@ finish:
 				throw new \OMV\ExecException($cmd, $output);
 		}
 		// Notify configuration changes.
-		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
+		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(!$group->exists() ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.usermanagement.groups.group", $object);
@@ -985,7 +985,7 @@ finish:
 		  $params['name']);
 		$xmlConfig->delete($xpath);
 		// Notify configuration changes.
-		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
+		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.usermanagement.groups.group", $object);
 		// Return the deleted configuration object.
@@ -1194,7 +1194,7 @@ finish:
 			}
 		}
 		// Notify configuration changes.
-		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
+		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.usermanagement.homedirectory", $object);
 		// Return the configuration object.

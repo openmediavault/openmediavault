@@ -49,7 +49,7 @@ class OMVModuleAcpid extends \OMV\Engine\Module\ServiceAbstract
 	 * Start the managed service.
 	 */
 	public function startService() {
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("//system/powermanagement",
 		  "conf.system.powermanagement");
 		if (TRUE !== $object->get("powerbtn"))

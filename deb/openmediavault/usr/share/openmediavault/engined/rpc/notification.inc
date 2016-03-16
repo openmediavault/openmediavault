@@ -61,7 +61,7 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 			  $xpath);
 		}
 		// Get the list of registered modules.
-		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
+		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getModules();
 		foreach($modules as $modulev) {
 			// Check if the module implements the \OMV\Engine\Module\INotification
@@ -112,7 +112,7 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 		// Prepare the configuration object.
 		$object = array();
 		// Get the list of registered modules.
-		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
+		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getModules();
 		foreach($modules as $modulev) {
 			// Check if the module implements the \OMV\Engine\Module\INotification
@@ -137,7 +137,7 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify the configuration changes.
-		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
+		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.notification.notifications", $object);
 		// Return the configuration object.
@@ -280,7 +280,7 @@ class OMVRpcServiceEmailNotification extends \OMV\Rpc\ServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify the configuration changes.
-		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
+		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.email", $object);
 		// Return the configuration object.

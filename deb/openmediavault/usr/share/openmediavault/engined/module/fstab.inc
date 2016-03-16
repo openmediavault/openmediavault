@@ -48,7 +48,7 @@ class OMVModuleFsTab extends \OMV\Engine\Module\ServiceAbstract
 	 * Start the managed service.
 	 */
 	public function startService() {
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->getList("//system/fstab/mntent", "conf.system.mntent");
 		// Process all configured mount points and mount them if necessary.
 		foreach ($objects as $objectk => $objectv) {
@@ -125,7 +125,7 @@ class OMVModuleFsTab extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.fstab.mntent",
 		  array($this, "onDelete"));
-        $moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
+        $moduleMngr = \OMV\Engine\Module\Manager::getInstance();
         $dispatcher->addListener(
           OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
           "org.openmediavault.system.fstab.mntent",

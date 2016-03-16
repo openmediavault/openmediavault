@@ -205,7 +205,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$result = array();
 		foreach ($objects as $objectk => $objectv) {
 			// Get the filesystem backend.
-			$fsbMngr = &\OMV\System\Filesystem\Backend\Manager::getInstance();
+			$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
 			$fsb = $fsbMngr->getBackendById($objectv['fsname']);
 			if (is_null($fsb)) {
 // The device may not exist anymore, e.g. a USB device. Skip it.
@@ -339,7 +339,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				continue;
 			}
 			// Get the filesystem backend.
-			$fsbMngr = &\OMV\System\Filesystem\Backend\Manager::getInstance();
+			$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
 			$fsb = $fsbMngr->getBackendByType($fsInfo['type']);
 			if (is_null($fsb)) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
@@ -385,7 +385,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		foreach ($mntents as $mntentk => $mntentv) {
 			// Get the filesystem backend.
-			$fsbMngr = &\OMV\System\Filesystem\Backend\Manager::getInstance();
+			$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
 			$fsb = $fsbMngr->getBackendByType($mntentv['type']);
 			if (is_null($fsb)) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
@@ -533,7 +533,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			  $sd->getDeviceFile()));
 		}
 		// Get the corresponding filesystem backend.
-		$fsbMngr = &\OMV\System\Filesystem\Backend\Manager::getInstance();
+		$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
 		$fsb = $fsbMngr->getBackendByType($params['type']);
 		if (is_null($fsb)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
@@ -617,7 +617,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
 				throw new \OMV\ExecException($cmd, $output);
 			// Notify configuration changes.
-			$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
+			$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 			$dispatcher->notify(OMV_NOTIFY_CREATE,
 			  "org.openmediavault.system.storage.filesystem", array(
 				  "devicefile" => $sd->getDeviceFile(),
@@ -661,7 +661,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Get the filesystem backend.
-		$fsbMngr = &\OMV\System\Filesystem\Backend\Manager::getInstance();
+		$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
 		$fsb = $fsbMngr->getBackendById($params['id']);
 		if (is_null($fsb)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
@@ -753,7 +753,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			$fsObject['type'] = $meObject['type'];
 		}
 		// Notify configuration changes.
-		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
+		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_PREDELETE,
 		  "org.openmediavault.system.storage.filesystem", $fsObject);
 		// Delete the associated fstab mount point entry.
@@ -809,7 +809,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Get the corresponding filesystem backend.
-		$fsbMngr = &\OMV\System\Filesystem\Backend\Manager::getInstance();
+		$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
 		$fsb = $fsbMngr->getBackendById($params['id']);
 		if (is_null($fsb)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(

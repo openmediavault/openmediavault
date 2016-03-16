@@ -176,7 +176,7 @@ abstract class ServiceAbstract extends \OMV\BaseObject {
 		$params = json_encode_safe($params);
 		// Get the data model/schema used to validate the parameters.
 		if (!is_json($schema) && is_string($schema)) {
-			$modelMngr = &\OMV\DataModel\Manager::getInstance();
+			$modelMngr = \OMV\DataModel\Manager::getInstance();
 			$model = $modelMngr->getModel($schema);
 			$schema = $model->getSchema();
 		} else {
@@ -554,7 +554,7 @@ abstract class ServiceAbstract extends \OMV\BaseObject {
 			  "Failed to execute query '%s'.", $xpath);
 		}
 		// Notify configuration changes.
-		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
+		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_PREDELETE, $message, $object);
 		// Delete configuration object.
 		if (FALSE === ($object = $xmlConfig->delete($xpath))) {
@@ -573,7 +573,7 @@ abstract class ServiceAbstract extends \OMV\BaseObject {
 	 * @return The list of dirty modules.
 	 */
 	final protected function setModuleDirty($name) {
-		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
+		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		return $moduleMngr->setModuleDirty($name);
 	}
 
@@ -583,7 +583,7 @@ abstract class ServiceAbstract extends \OMV\BaseObject {
 	 * @return TRUE if the module is marked dirty, otherwise FALSE.
 	 */
 	final protected function isModuleDirty($name) {
-		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
+		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		return $moduleMngr->isModuleDirty($name);
 	}
 }

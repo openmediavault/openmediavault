@@ -56,7 +56,7 @@ class OMVModuleSmartMonTools extends \OMV\Engine\Module\ServiceAbstract
 	 * Start the managed service.
 	 */
 	public function startService() {
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("//services/smart", "conf.service.smartmontools");
 		if (TRUE !== $object->get("enable"))
 			return;

@@ -55,7 +55,7 @@ class OMVRpcServiceWebGui extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("//webadmin", "conf.webadmin");
 		return $object->getAssoc();
 	}
@@ -79,10 +79,10 @@ class OMVRpcServiceWebGui extends \OMV\Rpc\ServiceAbstract {
 		$object = new \OMV\Config\ConfigObject("conf.webadmin");
 		$object->setAssoc($params);
 		// Update the configuration object.
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$db->replace("//webadmin", $object);
 		// Notify configuration changes.
-		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
+		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY, "org.openmediavault.webadmin",
 		  $object->getAssoc());
 		// Return the configuration object.

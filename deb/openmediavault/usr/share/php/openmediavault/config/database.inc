@@ -141,4 +141,13 @@ class Database extends \OMV\BaseObject {
 		if (FALSE === $this->getBackend()->delete($xpath))
 			throw new DatabaseException("XPath '%s' does not exist.", $xpath);
 	}
+
+	/**
+	 * Check if the configuration at the given XPath expression exists.
+	 * @param xpath The XPath expression to execute.
+	 * @return TRUE if the configuration exists, otherwise FALSE.
+	 */
+	public function exists($xpath) {
+		return $this->getBackend()->exists($xpath);
+	}
 }

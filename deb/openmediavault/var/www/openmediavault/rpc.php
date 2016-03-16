@@ -38,7 +38,7 @@ try {
 	$rpcServiceMngr->initializeServices();
 
 	// Initialize the data models.
-	$modelMngr = &\OMV\DataModel\Manager::getInstance();
+	$modelMngr = \OMV\DataModel\Manager::getInstance();
 	$modelMngr->load($GLOBALS['OMV_JSONSCHEMAS_DIR']);
 
 	$session = &\OMV\Session::getInstance();

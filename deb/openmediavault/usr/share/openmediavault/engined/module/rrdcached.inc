@@ -84,7 +84,7 @@ class OMVModuleRrdCached extends \OMV\Engine\Module\ServiceAbstract
 	 * Start the managed service.
 	 */
 	public function startService() {
-        $db = &\OMV\Config\Database::getInstance();
+        $db = \OMV\Config\Database::getInstance();
 		$object = $db->get("//system/monitoring/perfstats",
 		  "conf.system.monitoring.perfstats");
 		if (TRUE !== $object->get("enable"))
@@ -107,7 +107,7 @@ class OMVModuleRrdCached extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.monitoring.perfstats",
 		  array($this, "setDirty"));
-		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
+		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.monitoring.perfstats",

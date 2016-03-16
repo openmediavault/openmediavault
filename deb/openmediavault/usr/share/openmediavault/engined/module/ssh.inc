@@ -49,7 +49,7 @@ class OMVModuleSsh extends \OMV\Engine\Module\ServiceAbstract
 	 * Start the managed service.
 	 */
 	public function startService() {
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("//services/ssh", "conf.service.ssh");
 		if (TRUE !== $object->get("enable"))
 			return;
@@ -61,7 +61,7 @@ class OMVModuleSsh extends \OMV\Engine\Module\ServiceAbstract
 	 * Get the status of the managed service.
 	 */
 	public function getStatus() {
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("//services/ssh", "conf.service.ssh");
 		$systemCtl = new \OMV\System\SystemCtl("ssh");
 		return array(
@@ -123,7 +123,7 @@ class OMVModuleSsh extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.usermanagement.users.user",
 		  array($this, "onUser"));
-		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
+		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.ssh",

@@ -44,7 +44,7 @@ class OMVModuleWebadmin extends \OMV\Engine\Module\ModuleAbstract
 	 * Bind listeners.
 	 */
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
-		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
+		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.webadmin",

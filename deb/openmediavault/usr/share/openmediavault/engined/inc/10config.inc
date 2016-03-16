@@ -22,7 +22,7 @@
 require_once("openmediavault/globals.inc");
 
 // Get the configuration database backend.
-$db = &\OMV\Config\Database::getInstance();
+$db = \OMV\Config\Database::getInstance();
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // The configuration engine is stored in a global variable, thus all

@@ -63,7 +63,7 @@ class OMVModuleNfs extends \OMV\Engine\Module\ServiceAbstract
 	 * Start the managed service.
 	 */
 	public function startService() {
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("//services/nfs", "conf.service.nfs");
 		if (TRUE !== $object->get("enable"))
 			return;
@@ -75,7 +75,7 @@ class OMVModuleNfs extends \OMV\Engine\Module\ServiceAbstract
 	 * Get the status of the managed service.
 	 */
 	public function getStatus() {
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("//services/nfs", "conf.service.nfs");
 		$systemCtl = new \OMV\System\SystemCtl("nfs-kernel-server");
 		return array(
@@ -105,7 +105,7 @@ class OMVModuleNfs extends \OMV\Engine\Module\ServiceAbstract
 	 * @param object The configuration object.
 	 */
 	final public function onSharedFolder($type, $path, $object) {
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		if (TRUE === $db->getBackend()->exists(sprintf(
 		  "//services/nfs/shares/share[sharedfolderref='%s']",
 		  $object['uuid']))) {
@@ -130,7 +130,7 @@ class OMVModuleNfs extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.shares.sharedfolder",
 		  array($this, "onSharedFolder"));
-		$moduleMngr = &\OMV\Engine\Module\Manager::getInstance();
+		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.nfs",

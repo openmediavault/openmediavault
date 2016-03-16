@@ -49,7 +49,7 @@ class OMVRpcServiceTftp extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("//services/tftp", "conf.service.tftp");
 		return $object->getAssoc();
 	}
@@ -72,10 +72,10 @@ class OMVRpcServiceTftp extends \OMV\Rpc\ServiceAbstract {
 		$object = new \OMV\Config\ConfigObject("conf.service.tftp");
 		$object->setAssoc($params);
 		// Update the configuration object.
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$db->replace("//services/tftp", $object);
 		// Notify configuration changes.
-		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
+		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.tftp",
 		  $object->getAssoc());

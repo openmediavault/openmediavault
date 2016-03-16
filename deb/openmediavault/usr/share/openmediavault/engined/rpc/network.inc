@@ -103,7 +103,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		$obj['vlanid'] = -1;
 		$obj['speed'] = -1;
 		// Get the network interface object.
-		$mngr = &\OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
+		$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
 		$iface = $mngr->getImpl($deviceName);
 		if (!is_null($iface) && $iface->exists()) {
 			$gateway = $iface->getGateway();
@@ -184,7 +184,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		if (FALSE === $success)
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		// Notify configuration changes.
-		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
+		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.network.interfaces.interface", $object);
@@ -256,7 +256,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.
-		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
+		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.network.hostname", $object);
 		// Return the configuration object.
@@ -279,7 +279,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		$mngr = &\OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
+		$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
 		// Enumerate all network interface devices on the system.
 		if (FALSE === ($devs = $mngr->enumerate(
 		  OMV_NETWORK_INTERFACE_TYPE_ALL))) {
@@ -562,7 +562,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		$mngr = &\OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
+		$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
 		// Get all unused network interface devices, except loopback and
 		// VLAN network interfaces.
 		if (FALSE === ($devs = $mngr->enumerateUnused(
@@ -662,7 +662,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		if (array_key_exists("unused", $params) && $params['unused'] === TRUE) {
 			// Get all unused network interface devices, except loopback and
 			// VLAN network interfaces.
-			$mngr = &\OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
+			$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
 			if (FALSE === ($devs = $mngr->enumerateUnused(
 			  OMV_NETWORK_INTERFACE_TYPE_ALL & ~(OMV_NETWORK_INTERFACE_TYPE_VLAN |
 			  OMV_NETWORK_INTERFACE_TYPE_LOOPBACK)))) {
@@ -823,7 +823,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Get all unused network interface devices, except loopback and
 		// VLAN network interfaces.
-		$mngr = &\OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
+		$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
 		if (FALSE === ($devs = $mngr->enumerateUnused(
 		  OMV_NETWORK_INTERFACE_TYPE_ALL & ~(OMV_NETWORK_INTERFACE_TYPE_VLAN |
 		  OMV_NETWORK_INTERFACE_TYPE_LOOPBACK)))) {
@@ -906,7 +906,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Get all unused network interface devices, except loopback and
 		// VLAN network interfaces.
-		$mngr = &\OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
+		$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
 		if (FALSE === ($devs = $mngr->enumerateUnused(
 		  OMV_NETWORK_INTERFACE_TYPE_WIRELESS))) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
@@ -1083,7 +1083,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.
-		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
+		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.network.proxy", $object);
 		// Return the configuration object.

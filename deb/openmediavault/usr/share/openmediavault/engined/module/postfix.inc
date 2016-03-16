@@ -49,7 +49,7 @@ class OMVModulePostfix extends \OMV\Engine\Module\ServiceAbstract
 	 * Start the managed service.
 	 */
 	public function startService() {
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("//system/email", "conf.system.email");
 		if (TRUE !== $object->get("enable"))
 			return;

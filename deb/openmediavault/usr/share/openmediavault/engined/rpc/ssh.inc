@@ -53,7 +53,7 @@ class OMVRpcServiceSsh extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("//services/ssh", "conf.service.ssh");
 		return $object->getAssoc();
 	}
@@ -77,10 +77,10 @@ class OMVRpcServiceSsh extends \OMV\Rpc\ServiceAbstract {
 		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
 		$object->setAssoc($params);
 		// Update the configuration object.
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$db->replace("//services/ssh", $object);
 		// Notify configuration changes.
-		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
+		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.ssh",
 		  $object->getAssoc());
@@ -103,7 +103,7 @@ class OMVRpcServiceSsh extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("//services/ssh", "conf.service.ssh");
 		// Is service enabled?
 		if (!$object->get("enable")) {

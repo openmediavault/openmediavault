@@ -61,10 +61,8 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getList($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -72,7 +70,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get list of SSL certificate configuration objects.
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->getList("//system/certificates/sslcertificate",
 		  "conf.system.certificate.ssl");
 		// Process the list of objects.
@@ -92,7 +90,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Set '_used' flag if the certificate is referenced.
 			$xpath = sprintf("//sslcertificateref[contains(.,'%s')]",
 			  $objectv->get("uuid"));
-			$objectv->set("_used", $xmlConfig->exists($xpath));
+			$objectv->set("_used", $db->exists($xpath));
 			// Get the values.
 			$result[] = $objectv->getAssoc();
 		}
@@ -107,10 +105,8 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function get($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -120,14 +116,12 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Get the configuration object.
 		$xpath = sprintf("//system/certificates/sslcertificate[uuid='%s']",
 		  $params['uuid']);
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get($xpath, "conf.system.certificate.ssl");
 		// Remove the private key. It should not leave the system.
-		unset($objectv['privatekey']);
-		return $object;
+		$object->remove("privatekey");
+		// Return the values.
+		return $object->getAssoc();
 	}
 
 	/**
@@ -211,7 +205,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			  $xmlConfig->getLastError());
 		}
 		// Notify configuration changes.
-		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
+		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.certificates.sslcertificate", $object);
@@ -387,10 +381,8 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getSshList($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -398,7 +390,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get list of SSH certificate configuration objects.
-		$db = &\OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->getList("//system/certificates/sshcertificate",
 		  "conf.system.certificate.ssh");
 		// Process the list of objects.
@@ -411,7 +403,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Set '_used' flag if the certificate is referenced.
 			$xpath = sprintf("//sshcertificateref[contains(.,'%s')]",
 			  $objectv->get("uuid"));
-			$objectv->set("_used", $xmlConfig->exists($xpath));
+			$objectv->set("_used", $db->exists($xpath));
 			// Get the values.
 			$result[] = $objectv->getAssoc();
 		}
@@ -471,27 +463,23 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function getSsh($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.certificatemgmt.get");
+		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
 		$xpath = sprintf("//system/certificates/sshcertificate[uuid='%s']",
 		  $params['uuid']);
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get($xpath, "conf.system.certificate.ssh");
 		// Remove the private key. It should not leave the system.
-		unset($object['privatekey']);
-		return $object;
+		$object->remove("privatekey");
+		// Return the values.
+		return $object->getAssoc();
 	}
 
 	/**
@@ -560,7 +548,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			  $xmlConfig->getLastError());
 		}
 		// Notify configuration changes.
-		$dispatcher = &\OMV\Engine\Notify\Dispatcher::getInstance();
+		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.certificates.sshcertificate", $object);
