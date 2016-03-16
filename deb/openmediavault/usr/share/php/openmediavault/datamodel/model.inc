@@ -79,24 +79,9 @@ class Model extends \OMV\BaseObject {
 	 * @param path The path of the property, e.g. "aaa.bbb.ccc".
 	 * @param type The type of the property, e.g. 'string' or 'boolean'.
 	 */
-	public function addProperty($path, $type, array $properties = array()) {
-		switch ($type) {
-		case "boolean":
-		case "integer":
-		case "number":
-		case "double":
-		case "string":
-			break;
-		case "float":
-			$type = "number";
-			break;
-		default:
-			throw new \OMV\SchemaException("The type '%s' is not supported.",
-			  $type);
-			break;
-		}
-		$properties['type'] = $type;
-		$schema = $this->getSchema()->addProperty($path, $properties);
+	public function addProperty($path, $type, array $schema = array()) {
+		$schema['type'] = $type;
+		$schema = $this->getSchema()->addProperty($path, $schema);
 	}
 
 	/**
@@ -109,7 +94,9 @@ class Model extends \OMV\BaseObject {
 
 	/**
 	 * Convert the given value into the type which is declared in the
-	 * property schema at the specified path.
+	 * property schema at the specified path. The original value is returned
+	 * when the property type can not be processed, e.g. 'any', 'array',
+	 * 'object' or 'null'.
 	 * @param name The path of the property, e.g. "aaa.bbb.ccc".
 	 * @param value The value to convert.
 	 * @return The converted value.

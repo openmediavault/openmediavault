@@ -153,21 +153,24 @@ class Schema extends \OMV\BaseObject {
 	 * Add a new property to the schema at runtime.
 	 * @param path The path of the property, e.g. "aaa.bbb.ccc", where 'ccc'
 	 *   is the name of the property to add.
-	 * @param properties The properties of the property to add, e.g.
+	 * @param schema The schema of the property to add, e.g.
 	 *   array("type" => "integer", "default" => 100)
 	 */
-	public function addProperty($path, array $properties = array()) {
+	public function addProperty($path, array $schema = array()) {
+		// Validate the schema.
+		$this->validate($schema);
+		// Add the property.
 		$parts = explode(".", $path);
 		$name = array_pop($parts);
 		// Get the property schema.
-		$propSchema = &$this->_getSchemaByPath(implode(".", $parts),
+		$parentSchema = &$this->_getSchemaByPath(implode(".", $parts),
 		  $this->schema);
-		switch ($propSchema['type']) {
+		switch ($parentSchema['type']) {
 		case "array":
-			$propSchema = &$propSchema['items'];
+			$parentSchema = &$parentSchema['items'];
 			break;
 		case "object":
-			$propSchema = &$propSchema['properties'];
+			$parentSchema = &$parentSchema['properties'];
 			break;
 		default:
 			throw new SchemaPathException(
@@ -175,7 +178,7 @@ class Schema extends \OMV\BaseObject {
 			  $path);
 			break;
 		}
-		$propSchema[$name] = $properties;
+		$parentSchema[$name] = $schema;
 	}
 
 	/**

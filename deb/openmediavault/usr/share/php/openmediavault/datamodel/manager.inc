@@ -24,7 +24,7 @@ namespace OMV\DataModel;
 /**
  * The data model manager keeps track of all model types.
  */
-class Manager extends \OMV\BaseObject {
+class Manager {
 	private $map = array();
 
 	/**

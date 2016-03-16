@@ -6,16 +6,20 @@
 	"properties": {
 		"uuid": {
 			"type": "string",
-			"format": "uuidv4"
+			"format": "uuidv4",
+			"default": ""
 		},
 		"certificate": {
-			"type": "string"
+			"type": "string",
+			"default": ""
 		},
 		"privatekey": {
-			"type": "string"
+			"type": "string",
+			"default": ""
 		},
 		"comment": {
-			"type": "string"
+			"type": "string",
+			"default": ""
 		}
 	}
 }

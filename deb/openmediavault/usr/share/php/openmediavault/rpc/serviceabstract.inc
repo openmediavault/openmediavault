@@ -172,22 +172,11 @@ abstract class ServiceAbstract extends \OMV\BaseObject {
 	 */
 	final protected function validateMethodParams($params, $schema) {
 //		$this->debug(var_export(func_get_args(), TRUE));
-		// Convert the given paramaters into JSON.
-		$params = json_encode_safe($params);
-		// Get the data model/schema used to validate the parameters.
-		if (!is_json($schema) && is_string($schema)) {
-			$modelMngr = \OMV\DataModel\Manager::getInstance();
-			$model = $modelMngr->getModel($schema);
-			$schema = $model->getSchema();
-		} else {
-			// Check if the schema is JSON. If it is an associative array,
-			// then auto-convert it into JSON.
-			if (is_array($schema))
-				$schema = json_encode_safe($schema);
-			// Create the data model schema.
-			$schema = new \OMV\DataModel\Schema($schema);
-		}
-		$schema->validate($params);
+		// Convert the given paramaters into JSON. This is necessary because
+		// the 'params' variable contains an associative array which can not
+		// be processed by the validator.
+		$validator = new ParamsValidator($schema);
+		$validator->validate(json_encode_safe($params));
 	}
 
 	/**

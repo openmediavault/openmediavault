@@ -6,18 +6,22 @@
 	"properties": {
 		"uuid": {
 			"type": "string",
-			"format": "uuidv4"
+			"format": "uuidv4",
+			"default": ""
 		},
 		"publickey": {
 			"type": "string",
-			"format": "sshpubkey-openssh"
+			"format": "sshpubkey-openssh",
+			"default": ""
 		},
 		"privatekey": {
 			"type": "string",
-			"format": "sshprivkey-rsa"
+			"format": "sshprivkey-rsa",
+			"default": ""
 		},
 		"comment": {
-			"type": "string"
+			"type": "string",
+			"default": ""
 		}
 	}
 }

@@ -200,4 +200,16 @@ class ConfigObject extends \OMV\BaseObject {
 		if (!is_null($default))
 			$this->set($name, $default);
 	}
+
+	/**
+	 * Determine whether a property value is empty.
+	 * @return Returns FALSE if the property exists and has a non-empty,
+	 *   non-zero value. Otherwise returns TRUE. If the property does not
+	 *   exist an exception is thrown.
+	 * @throw \OMV\Exception
+	 */
+	public function isEmpty($name) {
+		$value = $this->get($name);
+		return empty($value);
+	}
 }
