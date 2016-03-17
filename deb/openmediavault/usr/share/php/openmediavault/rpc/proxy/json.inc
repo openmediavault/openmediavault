@@ -36,7 +36,7 @@ require_once("openmediavault/rpc.inc");
  *     the last access took place.
  * @ingroup api
  */
-class Json extends \OMV\BaseObject {
+class Json {
 	protected $params = NULL;
 
 	/**

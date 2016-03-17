@@ -1,7 +1,10 @@
 {
 	"type": "config",
 	"id": "conf.webadmin",
-	"alias": "//webadmin",
+	"dbbackend": {
+		"xpath": "//webadmin",
+		"iterable": false
+	},
 	"properties": {
 		"port":{
 			"type": "integer",

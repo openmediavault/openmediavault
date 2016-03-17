@@ -31,7 +31,7 @@
 			},
 			"sortdir": {
 				"type": [ "string", "null" ],
-				"enum": [ "asc", "desc" ]
+				"enum": [ "asc", "ASC", "desc", "DESC" ]
 			}
 		}
 	}

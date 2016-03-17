@@ -23,7 +23,7 @@ namespace OMV\Config;
 
 require_once("openmediavault/globals.inc");
 
-class Database extends \OMV\BaseObject {
+class Database {
 	private $backend = NULL;
 
 	public function __construct() {
@@ -54,43 +54,29 @@ class Database extends \OMV\BaseObject {
 	 *   the xpath will be used as identifier instead.
 	 * @return The configuration object.
 	 */
-	public function get($xpath, $id = "") {
-		if (empty($id))
-			$id = $xpath;
-		$data = $this->getBackend()->get($xpath);
+	public function get($id, ...$args) {
+		$queryBuilder = new DatabaseBackendQueryBuilder($id);
+		$xpath = $queryBuilder->getGetQuery($args);
+		if (0 < count($args))
+			$data = $this->getBackend()->get($xpath, ...$args);
+		else
+			$data = $this->getBackend()->getList($xpath);
 		if (!is_array($data)) {
 			throw new DatabaseException("Failed to execute query '%s'.",
 			  $xpath);
 		}
-		$object = new ConfigObject($id);
-		$object->setAssoc($data);
-		return $object;
-	}
-
-	/**
-	 * Get the configuration objects at the specified XPath expression
-	 * as an array.
-	 * @param xpath The XPath expression to execute.
-	 * @param id The data model identifier. If \em id is not set, then
-	 *   the xpath will be used as identifier instead.
-	 * @return An array containing the requested configuration objects,
-	 *   otherwise an empty array.
-	 */
-	public function getList($xpath, $id = "") {
-		if (empty($id))
-			$id = $xpath;
-		$data = $this->getBackend()->getList($xpath);
-		if (!is_array($data)) {
-			throw new DatabaseException("Failed to execute query '%s'.",
-			  $xpath);
+		if (0 < count($args)) {
+			$result = array();
+			foreach ($data as $datak => $datav) {
+				$object = new ConfigObject($id);
+				$object->setAssoc($datav, FALSE);
+				$objects[] = $object;
+			}
+		} else {
+			$result = new ConfigObject($id);
+			$result->setAssoc($data);
 		}
-		$objects = array();
-		foreach ($data as $datak => $datav) {
-			$object = new ConfigObject($id);
-			$object->setAssoc($datav, FALSE);
-			$objects[] = $object;
-		}
-		return $objects;
+		return $result;
 	}
 
 	/**
@@ -99,49 +85,21 @@ class Database extends \OMV\BaseObject {
 	 * @param object The configuration object to use.
 	 * @return None.
 	 */
-	public function set($xpath, ConfigObject $object) {
-		$data = $object->getAssoc();
-		if (FALSE === $this->getBackend()->set($xpath, $data))
-			throw new DatabaseException("XPath '%s' does not exist.", $xpath);
-	}
-
-	/**
-	 * Set the configuration object at the specified XPath expression.
-	 * @param xpath The XPath expression to execute.
-	 * @param object The configuration object to use.
-	 * @return None.
-	 */
-	public function setItem($xpath, $elemName, ConfigObject $object) {
-		$data = array($elemName => $object->getAssoc());
-		if (FALSE === $this->getBackend()->set($xpath, $data))
-			throw new DatabaseException("XPath '%s' does not exist.", $xpath);
-	}
-
-	/**
-	 * Replace the configuration at the specified XPath expression.
-	 * @param xpath The XPath expression to execute.
-	 * @param object The configuration object to use.
-	 * @return None.
-	 */
-	public function replace($xpath, ConfigObject $object) {
-		$data = $object->getAssoc();
-		if (FALSE === $this->getBackend()->replace($xpath, $data))
-			throw new DatabaseException("XPath '%s' does not exist.", $xpath);
-	}
-
-	/**
-	 * Update the existing configuration at the specified XPath expression.
-	 * The specified data will override the existing configuration. If the
-	 * given XPath expression does not exist, then the method will exit
-	 * immediatelly.
-	 * @param xpath The XPath expression to execute.
-	 * @param object The configuration object to use.
-	 * @return None.
-	 */
-	public function update($xpath, ConfigObject $object) {
-		$data = $object->getAssoc();
-		if (FALSE === $this->getBackend()->update($xpath, $data))
-			throw new DatabaseException("XPath '%s' does not exist.", $xpath);
+	public function set(ConfigObject $object) {
+		$queryBuilder = new DatabaseBackendQueryBuilder(
+		  $object->getModel()->getId());
+		$xpath = $queryBuilder->getSetQuery($object);
+		if (TRUE === $object->isNew()) {
+			$success = $this->getBackend()->set($xpath,
+			  $queryBuilder->getValue($object));
+		} else {
+			$success = $this->getBackend()->replace($xpath,
+			  $queryBuilder->getValue($object));
+		}
+		if (FALSE === $success) {
+			throw new DatabaseException("Failed to execute query '%s'.",
+			  $xpath);
+		}
 	}
 
 	/**
@@ -149,9 +107,14 @@ class Database extends \OMV\BaseObject {
 	 * @param xpath The XPath expression to execute.
 	 * @return None.
 	 */
-	public function delete($xpath) {
-		if (FALSE === $this->getBackend()->delete($xpath))
-			throw new DatabaseException("XPath '%s' does not exist.", $xpath);
+	public function delete(ConfigObject $object) {
+		$queryBuilder = new DatabaseBackendQueryBuilder(
+		  $object->getModel()->getId());
+		$xpath = $queryBuilder->getDeleteQuery($object);
+		if (FALSE === $this->getBackend()->delete($xpath)) {
+			throw new DatabaseException("Failed to execute query '%s'.",
+			  $xpath);
+		}
 	}
 
 	/**
@@ -161,5 +124,19 @@ class Database extends \OMV\BaseObject {
 	 */
 	public function exists($xpath) {
 		return $this->getBackend()->exists($xpath);
+	}
+
+	public function isReferenced(ConfigObject $object) {
+		if (FALSE === $this->getModel()->isReferenceable()) {
+			throw new DatabaseException(
+			  "The configuration object can not be referenced.");
+		}
+		$queryBuilder = new DatabaseBackendQueryBuilder(
+		  $object->getModel()->getId());
+		$xpath = $queryBuilder->getIsReferencedQuery($object);
+		if (FALSE === $this->getBackend()->exists($xpath)) {
+			throw new DatabaseException("Failed to execute query '%s'.",
+			  $xpath);
+		}
 	}
 }

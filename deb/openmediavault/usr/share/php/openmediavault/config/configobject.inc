@@ -23,7 +23,9 @@ namespace OMV\Config;
 
 require_once("openmediavault/functions.inc");
 
-class ConfigObject extends \OMV\BaseObject {
+class ConfigObject {
+	use \OMV\Debugable;
+
 	private $model = NULL;
 	private $properties = array();
 
@@ -40,13 +42,15 @@ class ConfigObject extends \OMV\BaseObject {
 		return $this->model;
 	}
 
-	private function exists($name) {
+	private function exists($name, $quiet = FALSE) {
 		$model = $this->getModel();
-		if (FALSE === $model->propertyExists($name)) {
+		$exists = $model->propertyExists($name);
+		if ((FALSE === $quiet) && (FALSE === $exists)) {
 			throw new \OMV\Exception(
 			  "The property '%s' does not exist in the model '%s'.",
 			  $name, $model->getId());
 		}
+		return $exists;
 	}
 
 	/**
@@ -211,5 +215,27 @@ class ConfigObject extends \OMV\BaseObject {
 	public function isEmpty($name) {
 		$value = $this->get($name);
 		return empty($value);
+	}
+
+	/**
+	 * Check if the configuration object is new. Use this method only if
+	 * the object has an 'uuid' property.
+	 */
+	public function isNew() {
+		$model = $this->getModel();
+		if (FALSE === $model->isIdentifiable()) {
+			throw new \OMV\Exception(
+			  "The configuration object is not identifiable.");
+		}
+		$uuid = $this->get($model->getIdProperty());
+		return \OMV\Uuid::isUuid4($uuid);
+	}
+
+	public function isIterable() {
+		return $this->getModel()->isIterable();
+	}
+
+	public function isReferenceable() {
+		return $this->getModel()->isReferenceable();
 	}
 }

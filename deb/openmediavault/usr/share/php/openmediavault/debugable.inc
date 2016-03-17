@@ -27,13 +27,7 @@ require_once("openmediavault/functions.inc");
 /**
  * @ingroup api
  */
-class BaseObject {
-	/**
-	 * Constructor
-	 */
-	public function __construct() {
-	}
-
+trait Debugable {
 	/**
 	 * Print debug message to stdout and file if debugging is enabled.
 	 */

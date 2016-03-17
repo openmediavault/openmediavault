@@ -1,8 +1,11 @@
 {
 	"type": "config",
 	"id": "conf.system.sharedfolder.privilege",
-	"alias": "//system/shares/sharedfolder/privileges/privilege",
 	"title": "Shared folder privilege",
+	"dbbackend": {
+		"xpath": "//system/shares/sharedfolder/privileges/privilege",
+		"iterable": true
+	},
 	"properties": {
 		"type": {
 			"type": "string",

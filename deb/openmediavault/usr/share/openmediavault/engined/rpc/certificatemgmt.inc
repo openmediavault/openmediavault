@@ -71,8 +71,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get list of SSL certificate configuration objects.
 		$db = \OMV\Config\Database::getInstance();
-		$objects = $db->getList("//system/certificates/sslcertificate",
-		  "conf.system.certificate.ssl");
+		$objects = $db->get("conf.system.certificate.ssl");
 		// Process the list of objects.
 		$result = array();
 		foreach ($objects as $objectk => $objectv) {
@@ -88,9 +87,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 				$objectv->set("validto", $certinfo['validTo_time_t']);
 			}
 			// Set '_used' flag if the certificate is referenced.
-			$xpath = sprintf("//sslcertificateref[contains(.,'%s')]",
-			  $objectv->get("uuid"));
-			$objectv->set("_used", $db->exists($xpath));
+			$objectv->set("_used", $db->isReferenced($objectv));
 			// Get the values.
 			$result[] = $objectv->getAssoc();
 		}
@@ -114,10 +111,8 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
-		$xpath = sprintf("//system/certificates/sslcertificate[uuid='%s']",
-		  $params['uuid']);
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get($xpath, "conf.system.certificate.ssl");
+		$object = $db->get("conf.system.certificate.ssl", $params['uuid']);
 		// Remove the private key. It should not leave the system.
 		$object->remove("privatekey");
 		// Return the values.
@@ -164,22 +159,17 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			openssl_pkey_free($privatekey);
 		}
 		openssl_x509_free($certificate);
-		// Set the configuration data.
-		if ($object->get("uuid") == $GLOBALS['OMV_UUID_UNDEFINED']) {
+		// Update the configuration data.
+		if ($object->isNew()) {
 			// The private key is required here.
 			if ($object->isEmpty("privatekey"))
 				throw new \OMV\Exception("Private key does not exist.");
-			// Prepare configuration data.
+			// Assign a new UUID.
 			$object->set("uuid", \OMV\Uuid::uuid4());
-			// Append object to configuration.
-			$db = \OMV\Config\Database::getInstance();
-			$db->setItem("//system/certificates", "sslcertificate", $object);
-		} else {
-			$xpath = sprintf("//system/certificates/sslcertificate[".
-			  "uuid='%s']", $object->get("uuid"));
-			$db = \OMV\Config\Database::getInstance();
-			$db->update($xpath, $object);
 		}
+		// Set the configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(($GLOBALS['OMV_UUID_UNDEFINED'] ==
@@ -368,8 +358,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get list of SSH certificate configuration objects.
 		$db = \OMV\Config\Database::getInstance();
-		$objects = $db->getList("//system/certificates/sshcertificate",
-		  "conf.system.certificate.ssh");
+		$objects = $db->get("conf.system.certificate.ssh");
 		// Process the list of objects.
 		$result = array();
 		foreach ($objects as $objectk => $objectv) {
@@ -378,9 +367,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Remove the private key. It should not leave the system.
 			$objectv->remove("privatekey");
 			// Set '_used' flag if the certificate is referenced.
-			$xpath = sprintf("//sshcertificateref[contains(.,'%s')]",
-			  $objectv->get("uuid"));
-			$objectv->set("_used", $db->exists($xpath));
+			$objectv->set("_used", $db->isReferenced($objectv));
 			// Get the values.
 			$result[] = $objectv->getAssoc();
 		}
@@ -449,10 +436,8 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
-		$xpath = sprintf("//system/certificates/sshcertificate[uuid='%s']",
-		  $params['uuid']);
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get($xpath, "conf.system.certificate.ssh");
+		$object = $db->get("conf.system.certificate.ssh", $params['uuid']);
 		// Remove the private key. It should not leave the system.
 		$object->remove("privatekey");
 		// Return the values.

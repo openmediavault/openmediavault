@@ -31,7 +31,7 @@ require_once("openmediavault/functions.inc");
  * The core module class.
  * @ingroup api
  */
-abstract class ModuleAbstract extends \OMV\BaseObject {
+abstract class ModuleAbstract {
 	/**
 	 * Get the name of the module.
 	 * @return The name of the module.

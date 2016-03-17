@@ -28,7 +28,7 @@ require_once("openmediavault/functions.inc");
  * it is opened and the lock is removed when it is closed.
  * @ingroup api
  */
-class File extends \OMV\BaseObject {
+class File {
 	private $filename = "";
 	private $fh = NULL;
 

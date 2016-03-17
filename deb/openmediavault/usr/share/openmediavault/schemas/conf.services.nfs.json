@@ -3,6 +3,10 @@
 	"id": "conf.service.nfs",
 	"alias": "//services/nfs",
 	"title": "NFS",
+	"dbbackend": {
+		"xpath": "//services/nfs",
+		"iterable": false
+	},
 	"properties": {
 		"enable": {
 			"type": "boolean",

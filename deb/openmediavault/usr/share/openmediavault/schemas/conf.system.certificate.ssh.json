@@ -1,8 +1,13 @@
 {
 	"type": "config",
 	"id": "conf.system.certificate.ssh",
-	"alias": "//system/certificates/sshcertificate",
 	"title": "SSH certificate",
+	"dbbackend": {
+		"xpath": "//system/certificates/sshcertificate",
+		"iterable": true,
+		"idproperty": "uuid",
+		"refproperty": "sshcertificateref"
+	},
 	"properties": {
 		"uuid": {
 			"type": "string",

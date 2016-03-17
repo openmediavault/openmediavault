@@ -1,8 +1,11 @@
 {
 	"type": "config",
 	"id": "conf.service.rsyncd",
-	"alias": "//services/rsync/server",
 	"title": "Rsync server",
+	"dbbackend": {
+		"xpath": "//services/rsync/server",
+		"iterable": false
+	},
 	"properties": {
 		"enable": {
 			"type": "boolean",

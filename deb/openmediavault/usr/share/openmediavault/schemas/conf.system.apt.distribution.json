@@ -1,7 +1,10 @@
 {
 	"type": "config",
 	"id": "conf.system.apt.distribution",
-	"alias": "//system/apt/distribution",
+	"dbbackend": {
+		"xpath": "//system/apt/distribution",
+		"iterable": false
+	},
 	"properties": {
 		"proposed": {
 			"type": "boolean",

@@ -1,8 +1,11 @@
 {
 	"type": "config",
 	"id": "conf.service.smb",
-	"alias": "//services/smb",
 	"title": "SMB/CIFS",
+	"dbbackend": {
+		"xpath": "//services/smb",
+		"iterable": false
+	},
 	"properties": {
 		"enable": {
 			"type": "boolean",

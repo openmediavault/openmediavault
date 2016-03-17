@@ -27,7 +27,7 @@ require_once("openmediavault/functions.inc");
  * Helper class to handle RPC services.
  * @ingroup api
  */
-class ServiceManager extends \OMV\BaseObject {
+class ServiceManager {
 	private $map = array();
 
 	public function __construct() {

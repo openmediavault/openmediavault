@@ -1,14 +1,17 @@
 {
 	"type": "config",
 	"id": "conf.service.ftp",
-	"alias": "//services/ftp",
 	"title": "FTP",
+	"dbbackend": {
+		"xpath": "//services/ftp",
+		"iterable": false
+	},
 	"properties": {
 		"enable": {
 			"type": "boolean",
 			"default": 0
 		},
-		"port":{
+		"port": {
 			"type": "integer",
 			"minimum": 1,
 			"maximum": 65535,

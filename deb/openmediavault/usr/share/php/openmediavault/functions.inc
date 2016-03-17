@@ -235,10 +235,7 @@ function boolvalEx($var) {
  * @return TRUE if the variable is an UUID, otherwise FALSE.
  */
 function is_uuid($var) {
-	if (!is_string($var))
-		return FALSE;
-	return preg_match('/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-'.
-	  '[a-f0-9]{12}$/i', $var) ? TRUE : FALSE;
+	return \OMV\Uuid::isUuid4($var);
 }
 
 /**

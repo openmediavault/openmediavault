@@ -1,8 +1,11 @@
 {
 	"type": "config",
 	"id": "conf.service.smartmontools",
-	"alias": "//services/smart",
 	"title": "S.M.A.R.T.",
+	"dbbackend": {
+		"xpath": "//services/smart",
+		"iterable": false
+	},
 	"properties": {
 		"enable": {
 			"type": "boolean",

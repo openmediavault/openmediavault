@@ -34,7 +34,17 @@ class DataModel extends \OMV\DataModel\DataModel {
 				"alias":{"type":"string","required":false},
 				"title":{"type":"string","required":false},
 				"description":{"type":"string","required":false},
-				"properties":{"type":"any","required":true}
+				"properties":{"type":"any","required":true},
+				"dbbackend":{
+					"type":"object",
+					"required":false,
+					"properties":{
+						"xpath":{"type":"string","required":true},
+						"iterable":{"type":"boolean","required":true},
+						"idproperty":{"type":"string","required":false},
+						"refproperty":{"type":"string","required":false}
+					}
+				}
 			}
 		}');
 		try {
@@ -47,12 +57,47 @@ class DataModel extends \OMV\DataModel\DataModel {
 		// Call the parent constructor.
 		parent::__construct($model);
 		// Create the schema describing the RPC parameters.
-		$this->propertiesSchema = new \OMV\DataModel\Schema(
-		  $model['properties']);
+		$this->propertiesSchema = new \OMV\DataModel\Schema(array(
+			"type" => "object",
+			"properties" => $model['properties']
+		));
 	}
 
 	public function getPropertiesSchema() {
 		return $this->propertiesSchema;
+	}
+
+	public function getDbBackendInfo() {
+		$model = $this->getModel();
+		return $model['dbbackend'];
+	}
+
+	public function isIdentifiable() {
+		$config = $this->getDbBackendInfo();
+		return array_key_exists("idproperty", $config);
+	}
+
+	public function getIdProperty() {
+		$config = $this->getDbBackendInfo();
+		return $config['idproperty'];
+	}
+
+	public function isIterable() {
+		$config = $this->getDbBackendInfo();
+		if (!array_key_exists("iterable", $config))
+			return FALSE;
+		return $config['iterable'];
+	}
+
+	public function isReferenceable() {
+		$config = $this->getDbBackendInfo();
+		return (array_key_exists("idproperty", $config) && array_key_exists(
+		  "refproperty", $config));
+	}
+
+	public function getRefProperty() {
+		$config = $this->getDbBackendInfo();
+		return $config['refproperty'];
 	}
 
 	/**
@@ -192,12 +237,12 @@ class DataModel extends \OMV\DataModel\DataModel {
 	private function _walk($name, $path, $schema, $callback, &$userData = NULL) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		if (!array_key_exists("type", $schema)) {
-			throw new SchemaException(
+			throw new \OMV\Json\SchemaException(
 			  "No 'type' attribute defined at '%s'.", $path);
 		}
 		if ("object" == $schema['type']) {
 			if (!array_key_exists("properties", $schema)) {
-				throw new SchemaException(
+				throw new \OMV\Json\SchemaException(
 				  "No 'properties' attribute defined at '%s'.", $path);
 			}
 			// Call the callback function. Abort if the callback function

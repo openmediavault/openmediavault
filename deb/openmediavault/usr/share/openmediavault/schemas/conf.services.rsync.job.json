@@ -3,6 +3,11 @@
 	"id": "conf.service.rsync.job",
 	"alias": "//services/rsync/jobs/job",
 	"title": "Rsync job",
+	"dbbackend": {
+		"xpath": "//services/rsync/jobs/job",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
 	"properties": {
 		"uuid": {
 			"type": "string",

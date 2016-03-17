@@ -1,8 +1,11 @@
 {
 	"type": "config",
 	"id": "conf.system.email",
-	"alias": "//system/email",
-	"title": "Mount point",
+	"title": "Email settings",
+	"dbbackend": {
+		"xpath": "//system/email",
+		"iterable": false
+	},
 	"properties": {
 		"enable": {
 			"type": "boolean",

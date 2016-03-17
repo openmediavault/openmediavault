@@ -1,8 +1,11 @@
 {
 	"type": "config",
 	"id": "conf.system.powermanagement",
-	"alias": "//system/powermanagement",
 	"title": "Powermanagement",
+	"dbbackend": {
+		"xpath": "//system/powermanagement",
+		"iterable": false
+	},
 	"properties": {
 		"cpufreq": {
 			"type": "boolean",

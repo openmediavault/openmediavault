@@ -28,7 +28,9 @@ require_once("openmediavault/functions.inc");
  * The core RPC service class.
  * @ingroup api
  */
-abstract class ServiceAbstract extends \OMV\BaseObject {
+abstract class ServiceAbstract {
+	use \OMV\Debugable;
+
 	private $registeredMethods = array();
 	private $registeredMethodSequences = array();
 

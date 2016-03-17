@@ -1,8 +1,11 @@
 {
 	"type": "config",
 	"id": "conf.service.ssh",
-	"alias": "//services/ssh",
 	"title": "SSH",
+	"dbbackend": {
+		"xpath": "//services/ssh",
+		"iterable": false
+	},
 	"properties": {
 		"enable": {
 			"type": "boolean",

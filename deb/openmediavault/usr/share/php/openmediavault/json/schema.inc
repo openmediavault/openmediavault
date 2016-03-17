@@ -29,7 +29,9 @@ require_once("openmediavault/functions.inc");
  * @see http://json-schema.org/latest/json-schema-core.html
  * @see http://json-schema.org/latest/json-schema-validation.html
  */
-class Schema extends \OMV\BaseObject {
+class Schema {
+	use \OMV\Debugable;
+
 	private $schema = array();
 
 	/**
@@ -115,7 +117,7 @@ class Schema extends \OMV\BaseObject {
 		$parts = array_filter($parts, function($v) { return !is_numeric($v); });
 		// Validate the path. Something like "aa.bb.cc." "a..b.c", or ".xx.yy"
 		// is invalid.
-		if (count(array_filter($parts, "strlen")))
+		if (0 < count(array_filter($parts, function($v) { return empty($v); })))
 			throw new SchemaPathException("Invalid path '%s' syntax.", $path);
 		// Do we process an 'object' or 'array' node?
 		// !!! Note, the 'type' can be an array. How to handles them here?
@@ -289,13 +291,14 @@ class Schema extends \OMV\BaseObject {
 					  $name, $typev);
 					break;
 				}
-				// Break the foreach loop here because one of the
-				// defined types is successfully validated.
-				break;
 			} catch(SchemaValidationException $e) {
 				// Continue with the next type but remember the exception.
 				$lastException = $e;
 			}
+			// Break the foreach loop here because one of the defined types
+			// is successfully validated.
+			if (TRUE === $valid)
+				break;
         }
 		// If the validation is not successful, then trow the
 		// last exception.

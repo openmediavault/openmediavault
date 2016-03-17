@@ -47,4 +47,11 @@ class Uuid {
 	final public static function uuid4() {
 		return self::uuid(4);
 	}
+
+	final public static function isUuid4($var) {
+		if (!is_string($var))
+			return FALSE;
+		return preg_match('/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-'.
+		  '[a-f0-9]{12}$/i', $var) ? TRUE : FALSE;
+	}
 }

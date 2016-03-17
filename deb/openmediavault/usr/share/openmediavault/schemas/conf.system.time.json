@@ -1,7 +1,10 @@
 {
 	"type": "config",
 	"id": "conf.system.time",
-	"alias": "//system/time",
+	"dbbackend": {
+		"xpath": "//system/time",
+		"iterable": false
+	},
 	"properties": {
 		"timezone": {
 			"type": "string",

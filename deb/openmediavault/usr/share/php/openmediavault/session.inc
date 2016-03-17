@@ -24,7 +24,7 @@ namespace OMV;
 /**
  * @ingroup api
  */
-class Session extends \OMV\BaseObject {
+class Session {
 	/**
 	 * Returns the session singleton.
 	 * @return The session object.

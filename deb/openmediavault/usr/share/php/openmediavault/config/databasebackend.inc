@@ -29,7 +29,7 @@ require_once("openmediavault/functions.inc");
  * some helpful XPath examples.
  * @ingroup api
  */
-class DatabaseBackend extends \OMV\BaseObject{
+class DatabaseBackend {
 	private $forceReload = TRUE;
 	private $autoCommit = TRUE;
 	private $versioning = FALSE;

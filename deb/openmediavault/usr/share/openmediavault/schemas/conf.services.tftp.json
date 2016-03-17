@@ -1,8 +1,11 @@
 {
 	"type": "config",
 	"id": "conf.service.tftp",
-	"alias": "//services/tftp",
 	"title": "TFTP",
+	"dbbackend": {
+		"xpath": "//services/tftp",
+		"iterable": false
+	},
 	"properties": {
 		"enable": {
 			"type": "boolean",

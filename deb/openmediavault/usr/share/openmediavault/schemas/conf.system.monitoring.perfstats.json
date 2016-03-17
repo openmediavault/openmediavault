@@ -1,8 +1,11 @@
 {
 	"type": "config",
 	"id": "conf.system.monitoring.perfstats",
-	"alias": "//system/monitoring/perfstats",
 	"title": "Powermanagement",
+	"dbbackend": {
+		"xpath": "//system/monitoring/perfstats",
+		"iterable": false
+	},
 	"properties": {
 		"enable": {
 			"type": "boolean",

@@ -1,8 +1,12 @@
 {
 	"type": "config",
 	"id": "conf.service.smb.share",
-	"alias": "//services/smb/shares/share",
 	"title": "SMB/CIFS share",
+	"dbbackend": {
+		"xpath": "//services/smb/shares/share",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
 	"properties": {
 		"uuid": {
 			"type": "string",

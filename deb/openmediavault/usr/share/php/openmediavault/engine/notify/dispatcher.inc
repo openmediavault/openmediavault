@@ -28,7 +28,9 @@ require_once("openmediavault/globals.inc");
  * the possibility to simply monitor various events, e.g. on the configuration.
  * @ingroup api
  */
-class Dispatcher extends \OMV\BaseObject {
+class Dispatcher {
+	use \OMV\Debugable;
+
 	private static $instances = array();
 	private $name = null;
 	private $listeners = null;

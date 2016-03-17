@@ -1,8 +1,13 @@
 {
 	"type": "config",
 	"id": "conf.system.mntent",
-	"alias": "//system/fstab/mntent",
 	"title": "Mount point",
+	"dbbackend": {
+		"xpath": "//system/fstab/mntent",
+		"iterable": true,
+		"idproperty": "uuid",
+		"refproperty": "mntentref"
+	},
 	"properties": {
 		"uuid": {
 			"type": "string",

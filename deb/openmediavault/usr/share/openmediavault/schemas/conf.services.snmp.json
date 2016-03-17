@@ -1,8 +1,11 @@
 {
 	"type": "config",
 	"id": "conf.service.snmp",
-	"alias": "//services/snmp",
 	"title": "SNMP",
+	"dbbackend": {
+		"xpath": "//services/snmp",
+		"iterable": false
+	},
 	"properties": {
 		"enable": {
 			"type": "boolean",

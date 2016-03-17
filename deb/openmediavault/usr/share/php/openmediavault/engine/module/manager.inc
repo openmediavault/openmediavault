@@ -28,7 +28,7 @@ require_once("openmediavault/functions.inc");
  * The module manager.
  * @ingroup api
  */
-class Manager extends \OMV\BaseObject {
+class Manager {
 	private $map = array();
 
 	public function __construct() {
