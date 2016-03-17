@@ -1,5 +1,5 @@
 {
-	"type": "object",
+	"type": "config",
 	"id": "conf.service.ftp",
 	"alias": "//services/ftp",
 	"title": "FTP",

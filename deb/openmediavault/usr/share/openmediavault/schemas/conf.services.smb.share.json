@@ -1,5 +1,5 @@
 {
-	"type": "object",
+	"type": "config",
 	"id": "conf.service.smb.share",
 	"alias": "//services/smb/shares/share",
 	"title": "SMB/CIFS share",

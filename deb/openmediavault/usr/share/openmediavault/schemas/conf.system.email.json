@@ -1,5 +1,5 @@
 {
-	"type": "object",
+	"type": "config",
 	"id": "conf.system.email",
 	"alias": "//system/email",
 	"title": "Mount point",

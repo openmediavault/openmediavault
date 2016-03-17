@@ -1,5 +1,5 @@
 {
-	"type": "object",
+	"type": "config",
 	"id": "conf.service.snmp",
 	"alias": "//services/snmp",
 	"title": "SNMP",

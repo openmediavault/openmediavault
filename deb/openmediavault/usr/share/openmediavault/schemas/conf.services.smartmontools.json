@@ -1,5 +1,5 @@
 {
-	"type": "object",
+	"type": "config",
 	"id": "conf.service.smartmontools",
 	"alias": "//services/smart",
 	"title": "S.M.A.R.T.",

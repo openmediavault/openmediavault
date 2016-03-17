@@ -21,6 +21,8 @@
  */
 namespace OMV\Json;
 
+require_once("openmediavault/functions.inc");
+
 /**
  * Implements a JSON schema validator.
  * @see https://tools.ietf.org/html/draft-zyp-json-schema-03
@@ -113,7 +115,7 @@ class Schema extends \OMV\BaseObject {
 		$parts = array_filter($parts, function($v) { return !is_numeric($v); });
 		// Validate the path. Something like "aa.bb.cc." "a..b.c", or ".xx.yy"
 		// is invalid.
-		if (count(array_filter($parts, function($v) { return empty($v); })))
+		if (count(array_filter($parts, "strlen")))
 			throw new SchemaPathException("Invalid path '%s' syntax.", $path);
 		// Do we process an 'object' or 'array' node?
 		// !!! Note, the 'type' can be an array. How to handles them here?
@@ -226,6 +228,11 @@ class Schema extends \OMV\BaseObject {
 	 * @throw \OMV\Json\SchemaValidationException
 	 */
 	final public function validate($value, $name = "") {
+		// Convert associative arrays to JSON.
+		if (is_assoc($value))
+			$value = json_encode_safe($value);
+		// Convert JSON string to array.
+		// !!! Note, this is no associative array. !!!
 		if (is_string($value))
 			$value = json_decode($value);
 		$schema = $this->getAssocByPath($name);
@@ -239,32 +246,42 @@ class Schema extends \OMV\BaseObject {
 	        $types = $schema['type'];
 		if (!is_array($types))
 			$types = array($types);
+		$valid = FALSE;
+		$lastException = NULL;
 		foreach ($types as $typek => $typev) {
 			try {
 				switch ($typev) {
 				case "any":
 					$this->validateAny($value, $schema, $name);
+					$valid = TRUE;
 					break;
 				case "array":
 					$this->validateArray($value, $schema, $name);
+					$valid = TRUE;
 					break;
 				case "boolean":
 					$this->validateBoolean($value, $schema, $name);
+					$valid = TRUE;
 					break;
 				case "object":
 					$this->validateObject($value, $schema, $name);
+					$valid = TRUE;
 					break;
 				case "integer":
 					$this->validateInteger($value, $schema, $name);
+					$valid = TRUE;
 					break;
 				case "number":
 					$this->validateNumber($value, $schema, $name);
+					$valid = TRUE;
 					break;
 				case "string":
 					$this->validateString($value, $schema, $name);
+					$valid = TRUE;
 					break;
 				case "null":
 					$this->validateNull($value, $schema, $name);
+					$valid = TRUE;
 					break;
 				default:
 					throw new SchemaException(
@@ -276,9 +293,14 @@ class Schema extends \OMV\BaseObject {
 				// defined types is successfully validated.
 				break;
 			} catch(SchemaValidationException $e) {
-				// Continue with the next type.
+				// Continue with the next type but remember the exception.
+				$lastException = $e;
 			}
         }
+		// If the validation is not successful, then trow the
+		// last exception.
+		if (FALSE === $valid)
+			throw $lastException;
 	}
 
 	protected function validateAny($value, $schema, $name) {

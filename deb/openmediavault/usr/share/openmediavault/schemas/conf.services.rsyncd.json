@@ -1,5 +1,5 @@
 {
-	"type": "object",
+	"type": "config",
 	"id": "conf.service.rsyncd",
 	"alias": "//services/rsync/server",
 	"title": "Rsync server",

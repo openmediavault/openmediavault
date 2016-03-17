@@ -1,5 +1,5 @@
 {
-	"type": "object",
+	"type": "config",
 	"id": "conf.system.mntent",
 	"alias": "//system/fstab/mntent",
 	"title": "Mount point",

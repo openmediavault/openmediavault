@@ -1,5 +1,5 @@
 {
-	"type": "object",
+	"type": "config",
 	"id": "conf.system.apt.distribution",
 	"alias": "//system/apt/distribution",
 	"properties": {

@@ -63,6 +63,7 @@ class Manager {
 						"type":{"type":"string","enum":["rpc","config"],"required":true},
 						"id":{"type":"string","required":true},
 						"alias":{"type":"string","required":false},
+						"title":{"type":"string","required":false},
 						"description":{"type":"string","required":false}
 					}
 				}');
@@ -70,17 +71,21 @@ class Manager {
 					$schema->validate($jsonModelv);
 				} catch(\OMV\Json\SchemaValidationException $e) {
 					throw new \OMV\Exception(
-					  "The data model definition is invalid: %s",
-					  $e->getMessage());
+					  "The data model definition in file '%s' is invalid: %s",
+					  $path, $e->getMessage());
 				}
 				// Create the data model.
 				switch ($jsonModelv['type']) {
 				case "rpc":
 					$model = new \OMV\Rpc\DataModel($jsonModelv);
 					break;
-				case "object": // ToDo: Remove
 				case "config":
 					$model = new \OMV\Config\DataModel($jsonModelv);
+					break;
+				default:
+					throw new \OMV\Exception(
+					  "Unknown data model type '%s' in file '%s'.",
+					  $jsonModelv['type'], $path);
 					break;
 				}
 				$this->registerModel($model);

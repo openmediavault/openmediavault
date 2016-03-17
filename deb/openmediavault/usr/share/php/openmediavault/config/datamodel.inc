@@ -29,11 +29,12 @@ class DataModel extends \OMV\DataModel\DataModel {
 		$schema = new \OMV\Json\Schema('{
 			"type":"object",
 			"properties":{
-				"type":{"type":"string","enum":["object"],"required":true},
+				"type":{"type":"string","enum":["config"],"required":true},
 				"id":{"type":"string","required":true},
 				"alias":{"type":"string","required":false},
+				"title":{"type":"string","required":false},
 				"description":{"type":"string","required":false},
-				"properties":{"type":"object","required":true}
+				"properties":{"type":"any","required":true}
 			}
 		}');
 		try {
@@ -46,7 +47,8 @@ class DataModel extends \OMV\DataModel\DataModel {
 		// Call the parent constructor.
 		parent::__construct($model);
 		// Create the schema describing the RPC parameters.
-		$this->propertiesSchema = new \OMV\DataModel\Schema($model);
+		$this->propertiesSchema = new \OMV\DataModel\Schema(
+		  $model['properties']);
 	}
 
 	public function getPropertiesSchema() {

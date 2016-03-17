@@ -1,5 +1,5 @@
 {
-	"type": "object",
+	"type": "config",
 	"id": "conf.service.ftp.share",
 	"alias": "//services/ftp/shares/share",
 	"title": "FTP share",

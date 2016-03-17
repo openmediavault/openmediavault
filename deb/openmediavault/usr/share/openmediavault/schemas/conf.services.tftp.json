@@ -1,5 +1,5 @@
 {
-	"type": "object",
+	"type": "config",
 	"id": "conf.service.tftp",
 	"alias": "//services/tftp",
 	"title": "TFTP",

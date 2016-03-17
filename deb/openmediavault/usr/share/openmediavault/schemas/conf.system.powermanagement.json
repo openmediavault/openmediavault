@@ -1,5 +1,5 @@
 {
-	"type": "object",
+	"type": "config",
 	"id": "conf.system.powermanagement",
 	"alias": "//system/powermanagement",
 	"title": "Powermanagement",

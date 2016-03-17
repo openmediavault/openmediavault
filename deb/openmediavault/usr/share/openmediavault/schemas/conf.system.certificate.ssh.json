@@ -1,5 +1,5 @@
 {
-	"type": "object",
+	"type": "config",
 	"id": "conf.system.certificate.ssh",
 	"alias": "//system/certificates/sshcertificate",
 	"title": "SSH certificate",

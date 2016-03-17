@@ -1,5 +1,5 @@
 {
-	"type": "object",
+	"type": "config",
 	"id": "conf.service.nfs.share",
 	"alias": "//services/nfs/shares/share",
 	"title": "NFS share",

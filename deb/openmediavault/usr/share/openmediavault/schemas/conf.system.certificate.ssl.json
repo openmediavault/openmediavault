@@ -1,5 +1,5 @@
 {
-	"type": "object",
+	"type": "config",
 	"id": "conf.system.certificate.ssl",
 	"alias": "//system/certificates/sslcertificate",
 	"title": "SSL certificate",

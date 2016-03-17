@@ -1,5 +1,5 @@
 {
-	"type": "object",
+	"type": "config",
 	"id": "conf.service.nfs",
 	"alias": "//services/nfs",
 	"title": "NFS",

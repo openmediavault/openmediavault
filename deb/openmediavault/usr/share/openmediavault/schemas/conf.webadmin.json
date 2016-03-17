@@ -1,5 +1,5 @@
 {
-	"type": "object",
+	"type": "config",
 	"id": "conf.webadmin",
 	"alias": "//webadmin",
 	"properties": {

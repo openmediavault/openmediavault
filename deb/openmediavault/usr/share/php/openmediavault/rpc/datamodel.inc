@@ -33,7 +33,7 @@ class DataModel extends \OMV\DataModel\DataModel {
 				"id":{"type":"string","required":true},
 				"alias":{"type":"string","required":false},
 				"description":{"type":"string","required":false},
-				"params":{"type":"object","required":true}
+				"params":{"type":"any","required":true}
 			}
 		}');
 		try {
