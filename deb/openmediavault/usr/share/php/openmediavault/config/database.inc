@@ -49,12 +49,16 @@ class Database {
 
 	/**
 	 * Get the configuration object at the specified XPath expression.
-	 * @param xpath The XPath expression to execute.
 	 * @param id The data model identifier. If \em id is not set, then
 	 *   the xpath will be used as identifier instead.
+	 * @param ...args Additional arguments, e.g. the object UUID.
 	 * @return The configuration object.
 	 */
 	public function get($id, ...$args) {
+		// Check if we have to add additional arguments to the query.
+		// In most cases this is the UUID of the requested configuration
+		// object.
+		$hasArgs = (0 < count($args));
 		// Get the specified data model.
 		$mngr = \OMV\DataModel\Manager::getInstance();
 		$model = $mngr->getModel($id);
@@ -62,7 +66,7 @@ class Database {
 		$queryBuilder = new DatabaseBackendQueryBuilder($id);
 		$xpath = $queryBuilder->buildGetQuery(...$args);
 		// Redirect the query to the database backend.
-		if ($model->isIterable())
+		if ($model->isIterable() && (FALSE === $hasArgs))
 			$data = $this->getBackend()->getList($xpath);
 		else
 			$data = $this->getBackend()->get($xpath);
@@ -70,7 +74,7 @@ class Database {
 			throw new DatabaseException("Failed to execute query '%s'.",
 			  $xpath);
 		}
-		if ($model->isIterable()) {
+		if ($model->isIterable() && (FALSE === $hasArgs)) {
 			$result = array();
 			foreach ($data as $datak => $datav) {
 				$object = new ConfigObject($id);
@@ -86,7 +90,6 @@ class Database {
 
 	/**
 	 * Set the configuration object at the specified XPath expression.
-	 * @param xpath The XPath expression to execute.
 	 * @param object The configuration object to use.
 	 * @return None.
 	 */
@@ -109,7 +112,7 @@ class Database {
 
 	/**
 	 * Delete the nodes matching the specified XPath expression.
-	 * @param xpath The XPath expression to execute.
+	 * @param object The configuration object to use.
 	 * @return None.
 	 */
 	public function delete(ConfigObject $object) {
@@ -122,6 +125,11 @@ class Database {
 		}
 	}
 
+	/**
+	 * Check if the specified object is referenced.
+	 * @param object The configuration object to use.
+	 * @return TRUE if the object is referenced, otherwise FALSE.
+	 */
 	public function isReferenced(ConfigObject $object) {
 		if (FALSE === $object->isReferenceable()) {
 			throw new DatabaseException(
