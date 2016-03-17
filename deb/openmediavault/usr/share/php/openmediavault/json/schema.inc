@@ -161,8 +161,6 @@ class Schema {
 	 *   array("type" => "integer", "default" => 100)
 	 */
 	public function addProperty($path, array $schema = array()) {
-		// Validate the schema.
-		$this->validate($schema);
 		// Add the property.
 		$parts = explode(".", $path);
 		$name = array_pop($parts);

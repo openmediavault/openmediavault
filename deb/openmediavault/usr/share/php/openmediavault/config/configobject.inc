@@ -38,7 +38,7 @@ class ConfigObject {
 		$this->properties = $this->getDefaults();
 	}
 
-	private function getModel() {
+	public function getModel() {
 		return $this->model;
 	}
 

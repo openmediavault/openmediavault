@@ -60,12 +60,12 @@ class Database {
 		$model = $mngr->getModel($id);
 		// Create the query builder.
 		$queryBuilder = new DatabaseBackendQueryBuilder($id);
-		$xpath = $queryBuilder->getGetQuery($args);
+		$xpath = $queryBuilder->getGetQuery(...$args);
 		// Redirect the query to the database backend.
 		if ($model->isIterable())
 			$data = $this->getBackend()->getList($xpath);
 		else
-			$data = $this->getBackend()->get($xpath, ...$args);
+			$data = $this->getBackend()->get($xpath);
 		if (is_null($data) || (is_array($data) && empty($data))) {
 			throw new DatabaseException("Failed to execute query '%s'.",
 			  $xpath);
@@ -75,11 +75,11 @@ class Database {
 			foreach ($data as $datak => $datav) {
 				$object = new ConfigObject($id);
 				$object->setAssoc($datav, FALSE);
-				$objects[] = $object;
+				$result[] = $object;
 			}
 		} else {
 			$result = new ConfigObject($id);
-			$result->setAssoc($data);
+			$result->setAssoc($data, FALSE);
 		}
 		return $result;
 	}
@@ -132,16 +132,13 @@ class Database {
 	}
 
 	public function isReferenced(ConfigObject $object) {
-		if (FALSE === $this->getModel()->isReferenceable()) {
+		if (FALSE === $object->isReferenceable()) {
 			throw new DatabaseException(
 			  "The configuration object can not be referenced.");
 		}
 		$queryBuilder = new DatabaseBackendQueryBuilder(
 		  $object->getModel()->getId());
 		$xpath = $queryBuilder->getIsReferencedQuery($object);
-		if (FALSE === $this->getBackend()->exists($xpath)) {
-			throw new DatabaseException("Failed to execute query '%s'.",
-			  $xpath);
-		}
+		return $this->getBackend()->exists($xpath);
 	}
 }

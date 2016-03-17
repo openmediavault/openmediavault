@@ -62,9 +62,6 @@ class DatabaseBackendQueryBuilder {
 				// Get the element with the specified identifier.
 				$xpath = sprintf("%s[%s='%s']", $qc['xpath'],
 				  $qc['idproperty'], $args[0]);
-			} else {
-				$xpath = sprintf("%s/%s", $qc['xpath'],
-				  $qc['idproperty']);
 			}
 		}
 		return $xpath;

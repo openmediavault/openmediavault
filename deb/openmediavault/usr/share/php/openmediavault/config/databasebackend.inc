@@ -307,7 +307,7 @@ class DatabaseBackend {
 	 * Check if the data at the given XPath expression exists.
 	 * @param xpath The XPath expression to execute.
 	 * @return TRUE if data exists, otherwise FALSE. If the XPath expression
-	 *   is malformed FALSE will be returned.
+	 *   is malformed FALSE will be returned, too.
 	 */
 	public function exists($xpath) {
 		$this->reload();
