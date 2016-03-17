@@ -55,17 +55,22 @@ class Database {
 	 * @return The configuration object.
 	 */
 	public function get($id, ...$args) {
+		// Get the specified data model.
+		$mngr = \OMV\DataModel\Manager::getInstance();
+		$model = $mngr->getModel($id);
+		// Create the query builder.
 		$queryBuilder = new DatabaseBackendQueryBuilder($id);
 		$xpath = $queryBuilder->getGetQuery($args);
-		if (0 < count($args))
-			$data = $this->getBackend()->get($xpath, ...$args);
-		else
+		// Redirect the query to the database backend.
+		if ($model->isIterable())
 			$data = $this->getBackend()->getList($xpath);
-		if (!is_array($data)) {
+		else
+			$data = $this->getBackend()->get($xpath, ...$args);
+		if (is_null($data) || (is_array($data) && empty($data))) {
 			throw new DatabaseException("Failed to execute query '%s'.",
 			  $xpath);
 		}
-		if (0 < count($args)) {
+		if ($model->isIterable()) {
 			$result = array();
 			foreach ($data as $datak => $datav) {
 				$object = new ConfigObject($id);

@@ -37,7 +37,9 @@ class DataModel extends \OMV\DataModel\DataModel {
 			}
 		}');
 		try {
-			$schema->validate($model);
+			// Convert the associative array into a JSON string
+			// before validating the model definition.
+			$schema->validate(json_encode_safe($model));
 		} catch(\OMV\Json\SchemaValidationException $e) {
 			throw new \OMV\Exception(
 			  "The RPC data model definition is invalid: %s",

@@ -52,7 +52,7 @@ class Manager {
 			$file->open("r");
 			$jsonModel = $file->read();
 			$file->close();
-			// Note, a schema file can contain multiple definitions.
+			// Note, a file can contain multiple model definitions.
 			if (is_assoc($jsonModel))
 				$jsonModel = array($jsonModel);
 			foreach ($jsonModel as $jsonModelk => $jsonModelv) {
@@ -68,7 +68,9 @@ class Manager {
 					}
 				}');
 				try {
-					$schema->validate($jsonModelv);
+					// Convert the associative array into a JSON string
+					// before validating the model definition.
+					$schema->validate(json_encode_safe($jsonModelv));
 				} catch(\OMV\Json\SchemaValidationException $e) {
 					throw new \OMV\Exception(
 					  "The data model definition in file '%s' is invalid: %s",

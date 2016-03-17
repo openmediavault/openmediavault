@@ -230,12 +230,9 @@ class Schema {
 	 * @throw \OMV\Json\SchemaValidationException
 	 */
 	final public function validate($value, $name = "") {
-		// Convert associative arrays to JSON.
-		if (is_assoc($value))
-			$value = json_encode_safe($value);
 		// Convert JSON string to array.
 		// !!! Note, this is no associative array. !!!
-		if (is_string($value))
+		if (is_json($value))
 			$value = json_decode($value);
 		$schema = $this->getAssocByPath($name);
 		$this->validateType($value, $schema, $name);

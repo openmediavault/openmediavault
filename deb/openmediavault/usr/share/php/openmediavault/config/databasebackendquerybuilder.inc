@@ -28,11 +28,15 @@ class DatabaseBackendQueryBuilder {
 	private $model = null;
 
 	/**
-	 * @param id The data model identifier.
+	 * @param model The data model identifier or object.
 	 */
-	public function __construct($id) {
-		$mngr = \OMV\DataModel\Manager::getInstance();
-		$this->model = $mngr->getModel($id);
+	public function __construct($model) {
+		if ($model instanceof DataModel) {
+			$this->model = $model;
+		} else {
+			$mngr = \OMV\DataModel\Manager::getInstance();
+			$this->model = $mngr->getModel($model);
+		}
 	}
 
 	private function getModel() {

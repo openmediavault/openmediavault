@@ -160,8 +160,6 @@ class ConfigObject {
 	 */
 	public function setAssoc($data, $validate = TRUE) {
 //		$this->debug(var_export(func_get_args(), TRUE));
-		if (TRUE === $validate)
-			$this->getModel()->validate($data);
 		// Create a flat representation of the data.
 		$this->setIndexed(array_flatten($data), $validate);
 	}
