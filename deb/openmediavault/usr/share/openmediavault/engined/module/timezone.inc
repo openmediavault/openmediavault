@@ -42,7 +42,7 @@ class OMVModuleTimezone extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function startService() {
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//system/time", "conf.system.time");
+		$object = $db->get("conf.system.time");
 		$cmdArgs = array();
 		$cmdArgs[] = sprintf("set-timezone %s", escapeshellarg(
 		  $object->get("timezone")));

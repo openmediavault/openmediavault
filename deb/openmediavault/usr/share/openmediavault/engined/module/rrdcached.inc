@@ -85,8 +85,7 @@ class OMVModuleRrdCached extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function startService() {
         $db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//system/monitoring/perfstats",
-		  "conf.system.monitoring.perfstats");
+		$object = $db->get("conf.system.monitoring.perfstats");
 		if (TRUE !== $object->get("enable"))
 			return;
 		// Start this service and enable the unit file.

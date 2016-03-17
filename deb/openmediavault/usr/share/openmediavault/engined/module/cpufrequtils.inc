@@ -54,8 +54,7 @@ class OMVModuleCPUFreqUtils extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function startService() {
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//system/powermanagement",
-		  "conf.system.powermanagement");
+		$object = $db->get("conf.system.powermanagement");
 		if (TRUE !== $object->get("cpufreq"))
 			return;
 		$systemCtl = new \OMV\System\SystemCtl("loadcpufreq");

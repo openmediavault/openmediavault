@@ -54,7 +54,7 @@ class OMVRpcServiceSsh extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//services/ssh", "conf.service.ssh");
+		$object = $db->get("conf.service.ssh");
 		return $object->getAssoc();
 	}
 
@@ -104,7 +104,7 @@ class OMVRpcServiceSsh extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//services/ssh", "conf.service.ssh");
+		$object = $db->get("conf.service.ssh");
 		// Is service enabled?
 		if (!$object->get("enable")) {
 			$stats = gettext("Service disabled");

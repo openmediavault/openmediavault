@@ -123,7 +123,7 @@ class Session {
 		try {
 			// Get session timeout from the configuration.
 			$db = &\OMV\Config\Database::getInstance();
-			$object = $db->get("//webadmin", "conf.webadmin");
+			$object = $db->get("conf.webadmin");
 			$timeout = $object->get("timeout") * 60;
 		} catch(Exception $e) {
 			// Set default to 5 minutes.

@@ -50,7 +50,7 @@ class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function startService() {
         $db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//services/rsync/server", "conf.service.rsyncd");
+		$object = $db->get("conf.service.rsyncd");
 		if (TRUE !== $object->get("enable"))
 			return;
 		$initd = new \OMV\System\SysVInitScript("rsync", TRUE);
@@ -62,7 +62,7 @@ class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function getStatus() {
         $db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//services/rsync/server", "conf.service.rsyncd");
+		$object = $db->get("conf.service.rsyncd");
 		$initd = new \OMV\System\SysVInitScript("rsync");
 		return array(
 			"name" => $this->getName(),

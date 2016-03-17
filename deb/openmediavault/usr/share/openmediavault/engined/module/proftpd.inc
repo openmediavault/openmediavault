@@ -57,7 +57,7 @@ class OMVModuleProftpd extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function startService() {
         $db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//services/ftp", "conf.service.ftp");
+		$object = $db->get("conf.service.ftp");
 		if (TRUE !== $object->get("enable"))
 			return;
 		$systemCtl = new \OMV\System\SystemCtl("proftpd");
@@ -69,7 +69,7 @@ class OMVModuleProftpd extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//services/ftp", "conf.service.ftp");
+		$object = $db->get("conf.service.ftp");
 		$systemCtl = new \OMV\System\SystemCtl("proftpd");
 		return array(
 			"name" => $this->getName(),

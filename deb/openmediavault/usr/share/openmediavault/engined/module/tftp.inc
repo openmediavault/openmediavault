@@ -50,7 +50,7 @@ class OMVModuleTftp extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function startService() {
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//services/tftp", "conf.service.tftp");
+		$object = $db->get("conf.service.tftp");
 		if (TRUE !== $object->get("enable"))
 			return;
 		$systemCtl = new \OMV\System\SystemCtl("tftpd-hpa");
@@ -62,7 +62,7 @@ class OMVModuleTftp extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//services/tftp", "conf.service.tftp");
+		$object = $db->get("conf.service.tftp");
 		$systemCtl = new \OMV\System\SystemCtl("tftpd-hpa");
 		return array(
 			"name" => $this->getName(),

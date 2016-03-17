@@ -50,7 +50,7 @@ class OMVRpcServiceTftp extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//services/tftp", "conf.service.tftp");
+		$object = $db->get("conf.service.tftp");
 		return $object->getAssoc();
 	}
 

@@ -2,7 +2,7 @@
 	"type": "config",
 	"id": "conf.system.certificate.ssl",
 	"title": "SSL certificate",
-	"dbbackend": {
+	"queryinfo": {
 		"xpath": "//system/certificates/sslcertificate",
 		"iterable": true,
 		"idproperty": "uuid",

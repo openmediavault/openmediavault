@@ -60,7 +60,7 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//services/nfs", "conf.service.nfs");
+		$object = $db->get("conf.service.nfs");
 		return $object->getAssoc();
 	}
 

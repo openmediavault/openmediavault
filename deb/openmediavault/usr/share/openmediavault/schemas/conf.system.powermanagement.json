@@ -2,7 +2,7 @@
 	"type": "config",
 	"id": "conf.system.powermanagement",
 	"title": "Powermanagement",
-	"dbbackend": {
+	"queryinfo": {
 		"xpath": "//system/powermanagement",
 		"iterable": false
 	},

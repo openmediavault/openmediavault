@@ -46,7 +46,7 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function stopService() {
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//services/smb", "conf.service.smb");
+		$object = $db->get("conf.service.smb");
 		if (TRUE !== $object->get("enable"))
 			return;
 		$systemCtl = new \OMV\System\SystemCtl("smbd");
@@ -58,7 +58,7 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function startService() {
         $db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//services/smb", "conf.service.smb");
+		$object = $db->get("conf.service.smb");
 		if (TRUE !== $object->get("enable"))
 			return;
 		$systemCtl = new \OMV\System\SystemCtl("smbd");
@@ -73,7 +73,7 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//services/smb", "conf.service.smb");
+		$object = $db->get("conf.service.smb");
 		$systemCtl = new \OMV\System\SystemCtl("smbd");
 		return array(
 			"name" => $this->getName(),

@@ -53,7 +53,7 @@ class OMVModuleSnmp extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function startService() {
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//services/snmp", "conf.service.snmp");
+		$object = $db->get("conf.service.snmp");
 		if (TRUE !== $object->get("enable"))
 			return;
 		$systemCtl = new \OMV\System\SystemCtl("snmpd");
@@ -65,7 +65,7 @@ class OMVModuleSnmp extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//services/snmp", "conf.service.snmp");
+		$object = $db->get("conf.service.snmp");
 		$systemCtl = new \OMV\System\SystemCtl("snmpd");
 		return array(
 			"name" => $this->getName(),

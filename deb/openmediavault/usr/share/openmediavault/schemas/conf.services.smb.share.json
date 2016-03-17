@@ -2,7 +2,7 @@
 	"type": "config",
 	"id": "conf.service.smb.share",
 	"title": "SMB/CIFS share",
-	"dbbackend": {
+	"queryinfo": {
 		"xpath": "//services/smb/shares/share",
 		"iterable": true,
 		"idproperty": "uuid"

@@ -55,7 +55,7 @@ class OMVModuleNtp extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function startService() {
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//system/time", "conf.system.time");
+		$object = $db->get("conf.system.time");
 		if (TRUE !== $object->get("ntp.enable"))
 			return;
 		// Enable NTP.

@@ -55,8 +55,7 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//system/apt/distribution",
-		  "conf.system.apt.distribution");
+		$object = $db->get("conf.system.apt.distribution");
 		return $object->getAssoc();
 	}
 

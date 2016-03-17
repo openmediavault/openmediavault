@@ -2,7 +2,7 @@
 	"type": "config",
 	"id": "conf.service.ftp.share",
 	"title": "FTP share",
-	"dbbackend": {
+	"queryinfo": {
 		"xpath": "//services/ftp/shares/share",
 		"iterable": true,
 		"idproperty": "uuid"

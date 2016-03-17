@@ -2,7 +2,7 @@
 	"type": "config",
 	"id": "conf.service.rsyncd",
 	"title": "Rsync server",
-	"dbbackend": {
+	"queryinfo": {
 		"xpath": "//services/rsync/server",
 		"iterable": false
 	},
@@ -86,16 +86,21 @@
 								"type": "boolean",
 								"default": 0
 							},
-							"module": {
-								"type": "array",
-								"items": {
-									"type": "object",
-									"properties": {
-										"name": {
-											"type": "string"
-										},
-										"password": {
-											"type": "string"
+							"users": {
+								"type": "object",
+								"properties": {
+									"user": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"name": {
+													"type": "string"
+												},
+												"password": {
+													"type": "string"
+												}
+											}
 										}
 									}
 								}

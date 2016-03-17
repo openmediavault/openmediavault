@@ -2,7 +2,7 @@
 	"type": "config",
 	"id": "conf.system.sharedfolder",
 	"title": "Shared folder",
-	"dbbackend": {
+	"queryinfo": {
 		"xpath": "//system/shares/sharedfolder",
 		"iterable": true,
 		"idproperty": "uuid",

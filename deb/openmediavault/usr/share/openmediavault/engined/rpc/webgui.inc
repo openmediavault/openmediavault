@@ -56,7 +56,7 @@ class OMVRpcServiceWebGui extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//webadmin", "conf.webadmin");
+		$object = $db->get("conf.webadmin");
 		return $object->getAssoc();
 	}
 

@@ -2,7 +2,7 @@
 	"type": "config",
 	"id": "conf.service.snmp",
 	"title": "SNMP",
-	"dbbackend": {
+	"queryinfo": {
 		"xpath": "//services/snmp",
 		"iterable": false
 	},

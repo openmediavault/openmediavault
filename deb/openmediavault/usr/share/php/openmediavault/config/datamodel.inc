@@ -35,7 +35,7 @@ class DataModel extends \OMV\DataModel\DataModel {
 				"title":{"type":"string","required":false},
 				"description":{"type":"string","required":false},
 				"properties":{"type":"any","required":true},
-				"dbbackend":{
+				"queryinfo":{
 					"type":"object",
 					"required":false,
 					"properties":{
@@ -69,37 +69,37 @@ class DataModel extends \OMV\DataModel\DataModel {
 		return $this->propertiesSchema;
 	}
 
-	public function getDbBackendInfo() {
+	public function getQueryInfo() {
 		$model = $this->getModel();
-		return $model['dbbackend'];
+		return $model['queryinfo'];
 	}
 
 	public function isIdentifiable() {
-		$config = $this->getDbBackendInfo();
-		return array_key_exists("idproperty", $config);
+		$qi = $this->getQueryInfo();
+		return array_key_exists("idproperty", $qi);
 	}
 
 	public function getIdProperty() {
-		$config = $this->getDbBackendInfo();
-		return $config['idproperty'];
+		$qi = $this->getQueryInfo();
+		return $qi['idproperty'];
 	}
 
 	public function isIterable() {
-		$config = $this->getDbBackendInfo();
-		if (!array_key_exists("iterable", $config))
+		$qi = $this->getQueryInfo();
+		if (!array_key_exists("iterable", $qi))
 			return FALSE;
-		return $config['iterable'];
+		return $qi['iterable'];
 	}
 
 	public function isReferenceable() {
-		$config = $this->getDbBackendInfo();
-		return (array_key_exists("idproperty", $config) && array_key_exists(
-		  "refproperty", $config));
+		$qi = $this->getQueryInfo();
+		return (array_key_exists("idproperty", $qi) && array_key_exists(
+		  "refproperty", $qi));
 	}
 
 	public function getRefProperty() {
-		$config = $this->getDbBackendInfo();
-		return $config['refproperty'];
+		$qi = $this->getQueryInfo();
+		return $qi['refproperty'];
 	}
 
 	/**

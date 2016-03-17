@@ -2,7 +2,7 @@
 	"type": "config",
 	"id": "conf.system.email",
 	"title": "Email settings",
-	"dbbackend": {
+	"queryinfo": {
 		"xpath": "//system/email",
 		"iterable": false
 	},

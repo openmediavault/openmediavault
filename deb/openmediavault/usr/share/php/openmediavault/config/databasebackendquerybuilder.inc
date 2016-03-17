@@ -43,38 +43,38 @@ class DatabaseBackendQueryBuilder {
 		return $this->model;
 	}
 
-	private function getQueryConfig()  {
-		// The dbbackend information looks like:
-		// "dbbackend": {
+	private function getQueryInfo()  {
+		// The queryinfo information looks like:
+		// "queryinfo": {
 		// 	   "xpath": "//system/certificates/sslcertificate",
 		//     "iterable": true,
 		// 	   "idproperty": "uuid",
 		// 	   "refproperty": "sslcertificateref"
 		// }
-		return $this->getModel()->getDbBackendInfo();
+		return $this->getModel()->getQueryInfo();
 	}
 
-	final public function getGetQuery(...$args) {
-		$qc = $this->getQueryConfig();
-		$xpath = $qc['xpath'];
-		if (TRUE === boolval($qc['iterable'])) {
+	final public function buildGetQuery(...$args) {
+		$qi = $this->getQueryInfo();
+		$xpath = $qi['xpath'];
+		if (TRUE === boolval($qi['iterable'])) {
 			if (0 < count($args)) {
 				// Get the element with the specified identifier.
-				$xpath = sprintf("%s[%s='%s']", $qc['xpath'],
-				  $qc['idproperty'], $args[0]);
+				$xpath = sprintf("%s[%s='%s']", $qi['xpath'],
+				  $qi['idproperty'], $args[0]);
 			}
 		}
 		return $xpath;
 	}
 
-	final public function getSetQuery(ConfigObject $object) {
-		$qc = $this->getQueryConfig();
-		$xpath = $qc['xpath'];
-		if (TRUE === boolval($qc['iterable'])) {
+	final public function buildSetQuery(ConfigObject $object) {
+		$qi = $this->getQueryInfo();
+		$xpath = $qi['xpath'];
+		if (TRUE === boolval($qi['iterable'])) {
 			if (FALSE === $object->isNew()) {
 				// Update the element with the specified identifier.
-				$xpath = sprintf("%s[%s='%s']", $qc['xpath'],
-				  $qc['idproperty'], $object->get($qc['idproperty']));
+				$xpath = sprintf("%s[%s='%s']", $qi['xpath'],
+				  $qi['idproperty'], $object->get($qi['idproperty']));
 			} else {
 				// Insert a new element.
 				$parts = explode("/", $xpath);
@@ -85,28 +85,28 @@ class DatabaseBackendQueryBuilder {
 		return $xpath;
 	}
 
-	final public function getDeleteQuery(ConfigObject $object) {
-		$qc = $this->getQueryConfig();
-		$xpath = $qc['xpath'];
-		if (TRUE === boolval($qc['iterable'])) {
-			$xpath = sprintf("%s[%s='%s']", $qc['xpath'], $qc['idproperty'],
-			  $object->get($qc['idproperty']));
+	final public function buildDeleteQuery(ConfigObject $object) {
+		$qi = $this->getQueryInfo();
+		$xpath = $qi['xpath'];
+		if (TRUE === boolval($qi['iterable'])) {
+			$xpath = sprintf("%s[%s='%s']", $qi['xpath'], $qi['idproperty'],
+			  $object->get($qi['idproperty']));
 		}
 		return $xpath;
 	}
 
-	final public function getIsReferencedQuery(ConfigObject $object) {
-		$qc = $this->getQueryConfig();
-		return sprintf("//%s[contains(.,'%s')]", $qc['refproperty'],
-		  $object->get($qc['idproperty']));
+	final public function buildIsReferencedQuery(ConfigObject $object) {
+		$qi = $this->getQueryInfo();
+		return sprintf("//%s[contains(.,'%s')]", $qi['refproperty'],
+		  $object->get($qi['idproperty']));
 	}
 
 	final public function getValues(ConfigObject $object) {
-		$qc = $this->getQueryConfig();
+		$qi = $this->getQueryInfo();
 		$result = $object->getAssoc();
-		if (TRUE === boolval($qc['iterable'])) {
-			if (("uuid" == $qc['idproperty']) && (TRUE === $object->isNew())) {
-				$parts = explode("/", $qc['xpath']);
+		if (TRUE === boolval($qi['iterable'])) {
+			if (("uuid" == $qi['idproperty']) && (TRUE === $object->isNew())) {
+				$parts = explode("/", $qi['xpath']);
 				$elementName = array_pop($parts);
 				$result = array($elementName => $result);
 			}

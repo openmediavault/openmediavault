@@ -2,7 +2,7 @@
 	"type": "config",
 	"id": "conf.service.nfs.share",
 	"title": "NFS share",
-	"dbbackend": {
+	"queryinfo": {
 		"xpath": "//services/nfs/shares/share",
 		"iterable": true,
 		"idproperty": "uuid"

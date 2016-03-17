@@ -60,7 +60,7 @@ class Database {
 		$model = $mngr->getModel($id);
 		// Create the query builder.
 		$queryBuilder = new DatabaseBackendQueryBuilder($id);
-		$xpath = $queryBuilder->getGetQuery(...$args);
+		$xpath = $queryBuilder->buildGetQuery(...$args);
 		// Redirect the query to the database backend.
 		if ($model->isIterable())
 			$data = $this->getBackend()->getList($xpath);
@@ -93,7 +93,7 @@ class Database {
 	public function set(ConfigObject $object) {
 		$queryBuilder = new DatabaseBackendQueryBuilder(
 		  $object->getModel()->getId());
-		$xpath = $queryBuilder->getSetQuery($object);
+		$xpath = $queryBuilder->buildSetQuery($object);
 		if (TRUE === $object->isNew()) {
 			$success = $this->getBackend()->set($xpath,
 			  $queryBuilder->getValue($object));
@@ -115,20 +115,11 @@ class Database {
 	public function delete(ConfigObject $object) {
 		$queryBuilder = new DatabaseBackendQueryBuilder(
 		  $object->getModel()->getId());
-		$xpath = $queryBuilder->getDeleteQuery($object);
+		$xpath = $queryBuilder->buildDeleteQuery($object);
 		if (FALSE === $this->getBackend()->delete($xpath)) {
 			throw new DatabaseException("Failed to execute query '%s'.",
 			  $xpath);
 		}
-	}
-
-	/**
-	 * Check if the configuration at the given XPath expression exists.
-	 * @param xpath The XPath expression to execute.
-	 * @return TRUE if the configuration exists, otherwise FALSE.
-	 */
-	public function exists($xpath) {
-		return $this->getBackend()->exists($xpath);
 	}
 
 	public function isReferenced(ConfigObject $object) {
@@ -138,7 +129,7 @@ class Database {
 		}
 		$queryBuilder = new DatabaseBackendQueryBuilder(
 		  $object->getModel()->getId());
-		$xpath = $queryBuilder->getIsReferencedQuery($object);
+		$xpath = $queryBuilder->buildIsReferencedQuery($object);
 		return $this->getBackend()->exists($xpath);
 	}
 }

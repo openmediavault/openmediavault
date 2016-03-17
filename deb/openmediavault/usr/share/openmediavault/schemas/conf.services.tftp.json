@@ -2,7 +2,7 @@
 	"type": "config",
 	"id": "conf.service.tftp",
 	"title": "TFTP",
-	"dbbackend": {
+	"queryinfo": {
 		"xpath": "//services/tftp",
 		"iterable": false
 	},

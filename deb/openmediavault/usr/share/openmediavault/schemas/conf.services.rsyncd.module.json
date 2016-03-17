@@ -1,0 +1,89 @@
+{
+	"type": "config",
+	"id": "conf.service.rsyncd.module",
+	"title": "Rsync server module",
+	"queryinfo": {
+		"xpath": "//services/rsync/server/modules/module",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"enable": {
+			"type": "boolean",
+			"default": 0
+		},
+		"sharedfolderref": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"uid": {
+			"type": "string"
+		},
+		"gid": {
+			"type": "string"
+		},
+		"name": {
+			"type": "string"
+		},
+		"comment": {
+			"type": "string"
+		},
+		"readonly": {
+			"type": "boolean",
+			"default": 0
+		},
+		"writeonly": {
+			"type": "boolean",
+			"default": 0
+		},
+		"maxconnections": {
+			"type": "integer",
+			"minimum": 0,
+			"default": 0
+		},
+		"list": {
+			"type": "boolean",
+			"default": 1
+		},
+		"hostsallow": {
+			"type": "string"
+		},
+		"hostsdeny": {
+			"type": "string"
+		},
+		"extraoptions": {
+			"type": "string"
+		},
+		"authusers": {
+			"type": "boolean",
+			"default": 0
+		},
+		"usechroot": {
+			"type": "boolean",
+			"default": 0
+		},
+		"users": {
+			"type": "object",
+			"properties": {
+				"user": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"password": {
+								"type": "string"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

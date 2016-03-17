@@ -50,7 +50,7 @@ class OMVModuleSsh extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function startService() {
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//services/ssh", "conf.service.ssh");
+		$object = $db->get("conf.service.ssh");
 		if (TRUE !== $object->get("enable"))
 			return;
 		$systemCtl = new \OMV\System\SystemCtl("ssh");
@@ -62,7 +62,7 @@ class OMVModuleSsh extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//services/ssh", "conf.service.ssh");
+		$object = $db->get("conf.service.ssh");
 		$systemCtl = new \OMV\System\SystemCtl("ssh");
 		return array(
 			"name" => $this->getName(),

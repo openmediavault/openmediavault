@@ -2,7 +2,7 @@
 	"type": "config",
 	"id": "conf.system.mntent",
 	"title": "Mount point",
-	"dbbackend": {
+	"queryinfo": {
 		"xpath": "//system/fstab/mntent",
 		"iterable": true,
 		"idproperty": "uuid",

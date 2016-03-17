@@ -2,7 +2,7 @@
 	"type": "config",
 	"id": "conf.system.monitoring.perfstats",
 	"title": "Powermanagement",
-	"dbbackend": {
+	"queryinfo": {
 		"xpath": "//system/monitoring/perfstats",
 		"iterable": false
 	},

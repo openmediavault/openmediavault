@@ -1,7 +1,7 @@
 {
 	"type": "config",
 	"id": "conf.webadmin",
-	"dbbackend": {
+	"queryinfo": {
 		"xpath": "//webadmin",
 		"iterable": false
 	},

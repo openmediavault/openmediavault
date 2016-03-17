@@ -1,7 +1,7 @@
 {
 	"type": "config",
 	"id": "conf.system.time",
-	"dbbackend": {
+	"queryinfo": {
 		"xpath": "//system/time",
 		"iterable": false
 	},

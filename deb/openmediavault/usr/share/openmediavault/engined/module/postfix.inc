@@ -50,7 +50,7 @@ class OMVModulePostfix extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function startService() {
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//system/email", "conf.system.email");
+		$object = $db->get("conf.system.email");
 		if (TRUE !== $object->get("enable"))
 			return;
 		$systemCtl = new \OMV\System\SystemCtl("postfix");

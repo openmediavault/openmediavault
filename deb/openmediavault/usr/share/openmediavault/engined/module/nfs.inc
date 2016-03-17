@@ -64,7 +64,7 @@ class OMVModuleNfs extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function startService() {
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//services/nfs", "conf.service.nfs");
+		$object = $db->get("conf.service.nfs");
 		if (TRUE !== $object->get("enable"))
 			return;
 		$systemCtl = new \OMV\System\SystemCtl("nfs-kernel-server");
@@ -76,7 +76,7 @@ class OMVModuleNfs extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("//services/nfs", "conf.service.nfs");
+		$object = $db->get("conf.service.nfs");
 		$systemCtl = new \OMV\System\SystemCtl("nfs-kernel-server");
 		return array(
 			"name" => $this->getName(),

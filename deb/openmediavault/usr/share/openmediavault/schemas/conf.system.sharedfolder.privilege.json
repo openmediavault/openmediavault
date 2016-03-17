@@ -2,7 +2,7 @@
 	"type": "config",
 	"id": "conf.system.sharedfolder.privilege",
 	"title": "Shared folder privilege",
-	"dbbackend": {
+	"queryinfo": {
 		"xpath": "//system/shares/sharedfolder/privileges/privilege",
 		"iterable": true
 	},

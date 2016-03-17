@@ -2,7 +2,7 @@
 	"type": "config",
 	"id": "conf.service.ftp",
 	"title": "FTP",
-	"dbbackend": {
+	"queryinfo": {
 		"xpath": "//services/ftp",
 		"iterable": false
 	},
