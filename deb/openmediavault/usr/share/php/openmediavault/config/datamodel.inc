@@ -19,44 +19,38 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\DataModel;
+namespace OMV\Config;
 
-require_once("openmediavault/functions.inc");
+class DataModel extends \OMV\DataModel\DataModel {
+	private $propertiesSchema = null;
 
-class Model extends \OMV\BaseObject {
-	private $schema = NULL;
-
-	/**
-	 * @param schema The schema as in JSON schema syntax.
-	 */
-	public function __construct($schema) {
-		if (!($schema instanceof Schema))
-			$schema = new Schema($schema);
-		$this->schema = $schema;
+	public function __construct($model) {
+		// Validate the data model definition.
+		$schema = new \OMV\Json\Schema('{
+			"type":"object",
+			"properties":{
+				"type":{"type":"string","enum":["object"],"required":true},
+				"id":{"type":"string","required":true},
+				"alias":{"type":"string","required":false},
+				"description":{"type":"string","required":false},
+				"properties":{"type":"object","required":true}
+			}
+		}');
+		try {
+			$schema->validate($model);
+		} catch(\OMV\Json\SchemaValidationException $e) {
+			throw new \OMV\Exception(
+			  "The configuration object data model definition is invalid: %s",
+			  $e->getMessage());
+		}
+		// Call the parent constructor.
+		parent::__construct($model);
+		// Create the schema describing the RPC parameters.
+		$this->propertiesSchema = new \OMV\DataModel\Schema($model);
 	}
 
-	public function getSchema() {
-		return $this->schema;
-	}
-
-	public function getId() {
-		$schemaAssoc = $this->getSchema()->getAssoc();
-		return array_value($schemaAssoc, "id", FALSE);
-	}
-
-	public function getAlias() {
-		$schemaAssoc = $this->getSchema()->getAssoc();
-		return array_value($schemaAssoc, "alias", FALSE);
-	}
-
-	public function getTitle() {
-		$schemaAssoc = $this->getSchema()->getAssoc();
-		return array_value($schemaAssoc, "title", "");
-	}
-
-	public function getDescription() {
-		$schemaAssoc = $this->getSchema()->getAssoc();
-		return array_value($schemaAssoc, "description", "");
+	public function getPropertiesSchema() {
+		return $this->propertiesSchema;
 	}
 
 	/**
@@ -67,11 +61,11 @@ class Model extends \OMV\BaseObject {
 	 * @throw \OMV\Json\SchemaValidationException
 	 */
 	public function validate($data) {
-		$this->getSchema()->validate($data);
+		$this->getPropertiesSchema()->validate($data);
 	}
 
 	public function validateProperty($path, $value) {
-		$this->getSchema()->validate($value, $path);
+		$this->getPropertiesSchema()->validate($value, $path);
 	}
 
 	/**
@@ -81,7 +75,7 @@ class Model extends \OMV\BaseObject {
 	 */
 	public function addProperty($path, $type, array $schema = array()) {
 		$schema['type'] = $type;
-		$schema = $this->getSchema()->addProperty($path, $schema);
+		$schema = $this->getPropertiesSchema()->addProperty($path, $schema);
 	}
 
 	/**
@@ -89,7 +83,7 @@ class Model extends \OMV\BaseObject {
 	 * @param path The path of the property, e.g. "aaa.bbb.ccc".
 	 */
 	public function removeProperty($path) {
-		$this->getSchema()->removeProperty($path);
+		$this->getPropertiesSchema()->removeProperty($path);
 	}
 
 	/**
@@ -102,7 +96,7 @@ class Model extends \OMV\BaseObject {
 	 * @return The converted value.
 	 */
 	public function convertProperty($path, $value) {
-		$propSchema = $this->getSchema()->getAssocByPath($path);
+		$propSchema = $this->getPropertiesSchema()->getAssocByPath($path);
 		if (is_array($propSchema['type'])) {
 			throw new \OMV\Json\SchemaException(
 			  "%s: The attribute 'type' must not be an array.",
@@ -135,7 +129,7 @@ class Model extends \OMV\BaseObject {
 	 *   the properties type.
 	 */
 	public function getPropertyDefault($path) {
-		$propSchema = $this->getSchema()->getAssocByPath($path);
+		$propSchema = $this->getPropertiesSchema()->getAssocByPath($path);
 		$default = NULL;
 		if (array_key_exists("default", $propSchema))
 			$default = $propSchema['default'];
@@ -181,7 +175,7 @@ class Model extends \OMV\BaseObject {
 	public function propertyExists($path) {
 		$exists = TRUE;
 		try {
-			$this->getSchema()->getAssocByPath($path);
+			$this->getPropertiesSchema()->getAssocByPath($path);
 		} catch(\OMV\Json\SchemaException $e) {
 			$exists = FALSE;
 		} catch(\OMV\Json\SchemaPathException $e) {
@@ -233,7 +227,7 @@ class Model extends \OMV\BaseObject {
 	 *   will be passed to the callback function.
 	 */
 	public function walkRecursive($path, $callback, &$userData = NULL) {
-		$propSchema = $this->getSchema()->getAssocByPath($path);
+		$propSchema = $this->getPropertiesSchema()->getAssocByPath($path);
 		$this->_walk("", $path, $propSchema, $callback, $userData);
 	}
 }

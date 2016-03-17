@@ -1,103 +1,115 @@
 [{
-	"type": "object",
+	"type": "rpc",
 	"id": "rpc.certificatemgmt.set",
-	"properties": {
-		"uuid": {
-			"type": "string",
-			"oneOf": [{
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
 				"type": "string",
-				"format": "uuidv4"
-			},{
+				"oneOf": [{
+					"type": "string",
+					"format": "uuidv4"
+				},{
+					"type": "string",
+					"format": "undefined"
+				}],
+				"required": true
+			},
+			"certificate": {
 				"type": "string",
-				"format": "undefined"
-			}],
-			"required": true
-		},
-		"certificate": {
-			"type": "string",
-			"required": true
-		},
-		"privatekey": {
-			"type": "string",
-			"required": false
-		},
-		"comment": {
-			"type": "string",
-			"required": true
+				"required": true
+			},
+			"privatekey": {
+				"type": "string",
+				"required": false
+			},
+			"comment": {
+				"type": "string",
+				"required": true
+			}
 		}
 	}
 },{
-	"type": "object",
+	"type": "rpc",
 	"id": "rpc.certificatemgmt.create",
-	"properties": {
-		 "size": {
-			 "type": "integer",
-			 "enum": [ 512, 1024, 2048, 4096 ]
-		 },
-		 "days": {
-			 "type": "integer"
-		 },
-		 "c": {
-			 "type": "string",
-			 "maxLength": 2
-		 },
-		 "st": {
-			 "type": "string"
-		 },
-		 "l": {
-			 "type": "string"
-		 },
-		 "o": {
-			 "type":"string"
-		 },
-		 "ou": {
-			 "type": "string"
-		 },
-		 "cn": {
-			 "type": "string",
-			 "minLength": 1
-		 },
-		 "email": {
-			 "type": "string",
-			 "format": "email"
+	"params": {
+		"type": "object",
+		"properties": {
+			 "size": {
+				 "type": "integer",
+				 "enum": [ 512, 1024, 2048, 4096 ]
+			 },
+			 "days": {
+				 "type": "integer"
+			 },
+			 "c": {
+				 "type": "string",
+				 "maxLength": 2
+			 },
+			 "st": {
+				 "type": "string"
+			 },
+			 "l": {
+				 "type": "string"
+			 },
+			 "o": {
+				 "type":"string"
+			 },
+			 "ou": {
+				 "type": "string"
+			 },
+			 "cn": {
+				 "type": "string",
+				 "minLength": 1
+			 },
+			 "email": {
+				 "type": "string",
+				 "format": "email"
+			 }
 		 }
 	}
 },{
-	"type": "object",
+	"type": "rpc",
 	"id": "rpc.certificatemgmt.createssh",
-	"properties": {
-		"comment": {
-			"type": "string"
+	"params": {
+		"type": "object",
+		"properties": {
+			"comment": {
+				"type": "string"
+			}
 		}
 	}
 },{
-	"type": "object",
+	"type": "rpc",
 	"id": "rpc.certificatemgmt.setssh",
-	"properties": {
-		"uuid": {
-			"type": "string",
-			"oneOf": [{
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
 				"type": "string",
-				"format": "uuidv4"
-			},{
+				"oneOf": [{
+					"type": "string",
+					"format": "uuidv4"
+				},{
+					"type": "string",
+					"format": "undefined"
+				}],
+				"required": true
+			},
+			"publickey": {
 				"type": "string",
-				"format": "undefined"
-			}],
-			"required": true
-		},
-		"publickey": {
-			"type": "string",
-			"format": "sshpubkey-openssh",
-			"required": true
-		},
-		"privatekey": {
-			"type": "string",
-			"format": "sshprivkey-rsa",
-			"required": false
-		},
-		"comment": {
-			"type": "string",
-			"required": true
+				"format": "sshpubkey-openssh",
+				"required": true
+			},
+			"privatekey": {
+				"type": "string",
+				"format": "sshprivkey-rsa",
+				"required": false
+			},
+			"comment": {
+				"type": "string",
+				"required": true
+			}
 		}
 	}
 }]

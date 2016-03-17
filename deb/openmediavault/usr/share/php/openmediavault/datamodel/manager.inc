@@ -50,13 +50,39 @@ class Manager {
 			if (!$file->exists())
 				continue;
 			$file->open("r");
-			$schema = $file->read();
+			$jsonModel = $file->read();
 			$file->close();
 			// Note, a schema file can contain multiple definitions.
-			if (is_assoc($schema))
-				$schema = array($schema);
-			foreach ($schema as $schemak => $schemav) {
-				$model = new Model($schemav);
+			if (is_assoc($jsonModel))
+				$jsonModel = array($jsonModel);
+			foreach ($jsonModel as $jsonModelk => $jsonModelv) {
+				// Validate the data model definition.
+				$schema = new \OMV\Json\Schema('{
+					"type":"object",
+					"properties":{
+						"type":{"type":"string","enum":["rpc","config"],"required":true},
+						"id":{"type":"string","required":true},
+						"alias":{"type":"string","required":false},
+						"description":{"type":"string","required":false}
+					}
+				}');
+				try {
+					$schema->validate($jsonModelv);
+				} catch(\OMV\Json\SchemaValidationException $e) {
+					throw new \OMV\Exception(
+					  "The data model definition is invalid: %s",
+					  $e->getMessage());
+				}
+				// Create the data model.
+				switch ($jsonModelv['type']) {
+				case "rpc":
+					$model = new \OMV\Rpc\DataModel($jsonModelv);
+					break;
+				case "object": // ToDo: Remove
+				case "config":
+					$model = new \OMV\Config\DataModel($jsonModelv);
+					break;
+				}
 				$this->registerModel($model);
 			}
 		}
@@ -67,28 +93,7 @@ class Manager {
 	 * @param model The model class to be registered.
 	 * @return None.
 	 */
-	final public function registerModel(Model $model) {
-		// Validate the data model definition.
-		$schema = new \OMV\Json\Schema('{
-			"type":"object",
-			"properties":{
-				"type":"object",
-				"properties":{
-					"type":{"type":"string","enum":["object"],"required":true},
-					"id":{"type":"string","required":true},
-					"alias":{"type":"string","required":false},
-					"title":{"type":"string","required":false},
-					"properties":{"type":"object","required":true}
-				}
-			}
-		}');
-		try {
-			$schema->validate($model->getSchema());
-		} catch(\OMV\Json\SchemaValidationException $e) {
-			throw new \OMV\Exception(
-			  "The data model definition is invalid: %s",
-			  $e->getMessage());
-		}
+	final public function registerModel(DataModel $model) {
 		$ids = array();
 		$ids[] = $model->getId();
 		$ids[] = $model->getAlias();

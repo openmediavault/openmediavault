@@ -27,7 +27,7 @@ require_once("openmediavault/functions.inc");
  * @ingroup api
  */
 class ParamsValidator {
-	private $model = null;
+	private $schema = null;
 
 	/**
 	 * @param schema The JSON schema that describes the method parameters.
@@ -39,18 +39,23 @@ class ParamsValidator {
 		// Get the data model/schema used to validate the parameters.
 		if (!is_json($schema) && is_string($schema)) {
 			$mngr = \OMV\DataModel\Manager::getInstance();
-			$this->model = $mngr->getModel($schema);
+			$model = $mngr->getModel($schema);
+			$this->schema = $model->getParamsSchema();
 		} else {
 			// Check if the schema is JSON. If it is an associative array,
 			// then auto-convert it into JSON.
 			if (is_assoc($schema))
 				$schema = json_encode_safe($schema);
 			// Create the data model schema.
-			$this->model = new \OMV\DataModel\Model($schema);
+			$this->schema = new \OMV\DataModel\Schema($schema);
 		}
 	}
 
-	public function validate($params) {
-		$this->model->validate($params);
+	private function getSchema() {
+		return $this->schema;
+	}
+
+	final public function validate($params) {
+		$this->getSchema()->validate($params);
 	}
 }

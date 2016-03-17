@@ -1,48 +1,60 @@
 [{
-	"type": "object",
+	"type": "rpc",
 	"id": "rpc.apt.upload",
-	"properties": {
-		"filename": {
-			"type": "string",
-			"required": true
-		},
-		"filepath": {
-			"type": "string",
-			"required": true
-		}
-	}
-},{
-	"type": "object",
-	"id": "rpc.apt.upgrade",
-	"properties": {
-		"packages": {
-			"type": "array",
-			"items": {
-				"type": "string"
+	"params": {
+		"type": "object",
+		"properties": {
+			"filename": {
+				"type": "string",
+				"required": true
 			},
-			"required": true
+			"filepath": {
+				"type": "string",
+				"required": true
+			}
 		}
 	}
 },{
-	"type": "object",
+	"type": "rpc",
+	"id": "rpc.apt.upgrade",
+	"params": {
+		"type": "object",
+		"properties": {
+			"packages": {
+				"type": "array",
+				"items": {
+					"type": "string"
+				},
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
 	"id": "rpc.apt.setsettings",
-	"properties": {
-		"proposed": {
-			"type": "boolean",
-			"required": true
-		},
-		"partner": {
-			"type": "boolean",
-			"required": true
+	"params": {
+		"type": "object",
+		"properties": {
+			"proposed": {
+				"type": "boolean",
+				"required": true
+			},
+			"partner": {
+				"type": "boolean",
+				"required": true
+			}
 		}
 	}
 },{
-	"type": "object",
+	"type": "rpc",
 	"id": "rpc.apt.getchangelog",
-	"properties": {
-		"filename": {
-			"type": "string",
-			"required": true
+	"params": {
+		"type": "object",
+		"properties": {
+			"filename": {
+				"type": "string",
+				"required": true
+			}
 		}
 	}
 }]
