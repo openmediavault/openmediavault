@@ -106,9 +106,8 @@ class OMVModuleNfs extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	final public function onSharedFolder($type, $path, $object) {
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $db->getBackend()->exists(sprintf(
-		  "//services/nfs/shares/share[sharedfolderref='%s']",
-		  $object['uuid']))) {
+		if (TRUE === $db->exists("conf.service.nfs.share", "sharedfolderref",
+		  $object['uuid']) {
 			$this->setDirty();
 			$this->setDirtyByName("fstab");
 		}

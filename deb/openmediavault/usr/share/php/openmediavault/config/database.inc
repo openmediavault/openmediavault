@@ -140,4 +140,14 @@ class Database {
 		$xpath = $queryBuilder->buildIsReferencedQuery($object);
 		return $this->getBackend()->exists($xpath);
 	}
+
+	public function exists($id, $property, $value) {
+		// Get the specified data model.
+		$mngr = \OMV\DataModel\Manager::getInstance();
+		$model = $mngr->getModel($id);
+		// Create the query builder.
+		$queryBuilder = new DatabaseBackendQueryBuilder($id);
+		$xpath = $queryBuilder->buildExistsQuery($property, $value);
+		return $this->getBackend()->exists($xpath);
+	}
 }
