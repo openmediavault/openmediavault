@@ -97,8 +97,8 @@ class DatabaseBackendQueryBuilder {
 
 	final public function buildIsReferencedQuery(ConfigObject $object) {
 		$qi = $this->getQueryInfo();
-		return sprintf("//%s[contains(.,'%s')]", $qi['xpath'],
-		  $qi['refproperty'], $object->get($qi['idproperty']));
+		return sprintf("//%s[contains(.,'%s')]", $qi['refproperty'],
+		  $object->get($qi['idproperty']));
 	}
 
 	final public function buildExistsQuery($property, $value) {

@@ -97,12 +97,12 @@ class Database {
 		$queryBuilder = new DatabaseBackendQueryBuilder(
 		  $object->getModel()->getId());
 		$xpath = $queryBuilder->buildSetQuery($object);
-		if (TRUE === $object->isNew()) {
+		if ((TRUE === $object->isIterable()) && (TRUE === $object->isNew())) {
 			$success = $this->getBackend()->set($xpath,
-			  $queryBuilder->getValue($object));
+			  $queryBuilder->getValues($object));
 		} else {
 			$success = $this->getBackend()->replace($xpath,
-			  $queryBuilder->getValue($object));
+			  $queryBuilder->getValues($object));
 		}
 		if (FALSE === $success) {
 			throw new DatabaseException("Failed to execute query '%s'.",
