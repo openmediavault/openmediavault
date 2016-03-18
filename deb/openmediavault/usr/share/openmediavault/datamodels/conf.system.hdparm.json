@@ -1,0 +1,42 @@
+{
+	"type": "config",
+	"id": "conf.system.hdparm",
+	"title": "Harddisk settings",
+	"queryinfo": {
+		"xpath": "//system/storage/hdparm",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"devicefile": {
+			"type": "string",
+			"format": "devicefile",
+			"default": ""
+		},
+		"apm": {
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 255,
+			"default": 0
+		},
+		"aam": {
+			"type": "integer",
+			"enum": [ 0, 128, 254 ],
+			"default": 0
+		},
+		"spindowntime":{
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 254,
+			"default": 0
+		},
+		"writecache": {
+			"type": "boolean",
+			"default": false
+		}
+	}
+}

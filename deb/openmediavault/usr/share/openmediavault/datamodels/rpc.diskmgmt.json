@@ -1,0 +1,46 @@
+[{
+	"type": "rpc",
+	"id": "rpc.diskmgmt.sethdparm",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "uuidv4"
+				},{
+					"type": "string",
+					"format": "undefined"
+				}],
+				"required": true
+			},
+			"devicefile": {
+				"type": "string",
+				"format": "devicefile",
+				"required": true
+			},
+			"apm": {
+				"type": "integer",
+				"minimum": 0,
+				"maximum": 255,
+				"required": true
+			},
+			"aam": {
+				"type": "integer",
+				"enum": [ 0, 128, 254 ],
+				"required": true
+			},
+			"spindowntime":{
+				"type": "integer",
+				"minimum": 0,
+				"maximum": 254,
+				"required": true
+			},
+			"writecache": {
+				"type": "boolean",
+				"required": true
+			}
+		}
+	}
+}]

@@ -127,7 +127,7 @@ class Database {
 	/**
 	 * Check if the specified object is referenced.
 	 * @param object The configuration object to use.
-	 * @param quiet Set to FALSE to do throw an exception.
+	 * @param quiet Set to FALSE to do throw an exception. Defaults to TRUE.
 	 * @return TRUE if the object is referenced, otherwise FALSE.
 	 * @throw \OMV\Config\DatabaseException
 	 */
@@ -139,16 +139,17 @@ class Database {
 		$queryBuilder = new DatabaseBackendQueryBuilder(
 		  $object->getModel()->getId());
 		$xpath = $queryBuilder->buildIsReferencedQuery($object);
-		$exists = $this->getBackend()->exists($xpath);
-		if ((FALSE === $quiet) && (TRUE === $exists)) {
+		$result = $this->getBackend()->exists($xpath);
+		if ((FALSE === $quiet) && (TRUE === $result)) {
 			throw new DatabaseException(
 			  "The configuration object is referenced.");
 		}
-		return $exists;
+		return $result;
 	}
 
 	/**
-	 * Check if the data with the specified argiuments exists.
+	 * Check if a configuration object with the specified arguments
+	 * exists.
 	 * @param id The data model identifier.
 	 * @param property The name of the data model property.
 	 * @param value The value to be searched.
@@ -162,6 +163,33 @@ class Database {
 		$queryBuilder = new DatabaseBackendQueryBuilder($id);
 		$xpath = $queryBuilder->buildExistsQuery($property, $value);
 		return $this->getBackend()->exists($xpath);
+	}
+
+	/**
+	 * Check if a configuration object with the value of the specified property
+	 * already exists.
+	 * @param object The configuration object to use.
+	 * @param property The name of the data model property.
+	 * @param quiet Set to FALSE to do throw an exception. Defaults to TRUE.
+	 * @return TRUE if no configuration object with the same property
+	 *   value exists, otherwise FALSE.
+	 * @throw \OMV\Config\DatabaseException
+	 */
+	public function isUnique(ConfigObject $object, $property, $quiet = TRUE) {
+		// Get the specified data model.
+		$mngr = \OMV\DataModel\Manager::getInstance();
+		$model = $mngr->getModel($id);
+		// Create the query builder.
+		$queryBuilder = new DatabaseBackendQueryBuilder($id);
+		$xpath = $queryBuilder->buildExistsQuery($property,
+		  $object->get($property));
+		$result = $this->getBackend()->exists($xpath);
+		if ((FALSE === $quiet) && (TRUE === $result)) {
+			throw new DatabaseException("The configuration object is not ".
+			  "unique (property='%s', value='%s').", $property,
+			  $object->get($property));
+		}
+		return !$result;
 	}
 
 	/**

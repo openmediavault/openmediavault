@@ -139,13 +139,19 @@ class StorageDevice extends StorageDeviceAbstract {
 	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
 	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
 	 *   </ul>
+	 * @param quiet Set to FALSE to throw an exception if the device is
+	 *   not found. Defaults to TRUE.
 	 * @return The object of the class implementing the given storage device,
 	 *   otherwise NULL.
 	 */
-	final public function getStorageDevice($deviceFile) {
+	final public function getStorageDevice($deviceFile, $quiet = TRUE) {
 		$mngr = Backend\Manager::getInstance();
 		if (NULL == ($backend = $mngr->getBackend($deviceFile)))
 			return NULL;
-		return $backend->getImpl($deviceFile);
+		$result = $backend->getImpl($deviceFile);
+		if ((FALSE === $quiet) && (TRUE === $result)) {
+			throw new \OMV\Exception("Device '%s' not found.", $deviceFile);
+		}
+		return $result;
 	}
 }

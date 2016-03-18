@@ -53,6 +53,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   fields \em devicename, \em devicefile, \em model, \em size,
 	 *   \em description, \em vendor, \em serialnumber, \em israid,
 	 *   and \em isroot.
+	 * @throw \OMV\Exception
 	 */
 	public function enumerateDevices($params, $context) {
 		// Validate the RPC caller context.
@@ -65,14 +66,14 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Get all existing devices except software RAID devices.
 		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerate(
 		  OMV_STORAGE_DEVICE_TYPE_HDD | OMV_STORAGE_DEVICE_TYPE_HBA))) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, "Failed to ".
-			  "get list of hard disks and hardware RAID devices");
+			throw new \OMV\Exception(
+			  "Failed to get list of hard disks and hardware RAID devices");
 		}
 		// Prepare result list.
 		$objects = array();
-		foreach($devs as $devk => $devv) {
+		foreach ($devs as $devk => $devv) {
 			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
-			if(!is_null($sd) && $sd->exists()) {
+			if (!is_null($sd) && $sd->exists()) {
 				// Prepare device object.
 				$objects[] = array(
 					"devicename" => $sd->getDeviceName(),
@@ -118,7 +119,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Enumerate all disk devices on the system.
 		$objects = $this->callMethod("enumerateDevices", NULL, $context);
 		// Append additional configuration data.
-		foreach($objects as $objectk => &$objectv) {
+		foreach ($objects as $objectk => &$objectv) {
 			// Check if there exists a hdparm configuration object for the
 			// given device. Note, we have to check for 'dev/xxx' and
 			// 'dev/disk/by-id/xxx' entries.
@@ -126,7 +127,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "devicefile='%s']", $objectv['devicefilebyid'],
 			  $objectv['devicefile']);
 			// If found, then finally get the hdparm configuration object.
-			if(!is_null($object = $xmlConfig->get($xpath))) {
+			if (!is_null($object = $xmlConfig->get($xpath))) {
 				$objectv['hdparm'] = $this->callMethod("getHdParm",
 				  array("uuid" => $object['uuid']), $context);
 			}
@@ -142,7 +143,6 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getHdParm($params, $context) {
 		global $xmlConfig;
@@ -153,19 +153,10 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
-		$xpath = sprintf("//system/storage/hdparm[uuid='%s']",
-		  $params['uuid']);
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify the result data.
-		$object['apm'] = intval($object['apm']);
-		$object['aam'] = intval($object['aam']);
-		$object['spindowntime'] = intval($object['spindowntime']);
-		$object['writecache'] = boolvalEx($object['writecache']);
-		return $object;
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.hdparm", $params['uuid']);
+		// Return the values.
+		return $object->getAssoc();
 	}
 
 	/**
@@ -173,76 +164,38 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_MISC_DEVICE_NOT_FOUND
-	 * @throw E_CONFIG_OBJECT_UNIQUENESS
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	public function setHdParm($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-				  "devicefile":{"type":["string","null"],"format":"regex",'.
-					'"pattern":"#^/dev(/disk/by-id)?/.+$#i"},
-				  "apm":{"type":"integer","minimum":0,"maximum":255},
-				  "aam":{"type":"integer","enum":[0,128,254]},
-				  "spindowntime":{"type":"integer","minimum":0,"maximum":254},
-				  "writecache":{"type":"boolean"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.diskmgmt.sethdparm");
+		// Create the configuration object.
+		$object = new \OMV\Config\ConfigObject("conf.system.hdparm");
+		$object->setAssoc($params);
 		// Check if the given device exists.
-		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($params['devicefile']);
-		if(is_null($sd) || !$sd->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
-			  $params['devicefile']);
-		}
-		// Prepare the configuration data.
-		$object = array(
-			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  \OMV\Uuid::uuid4() : $params['uuid'],
-			"devicefile" => $sd->getDeviceFileById(),
-			"apm" => $params['apm'],
-			"aam" => $params['aam'],
-			"spindowntime" => $params['spindowntime'],
-			"writecache" => array_boolval($params, 'writecache')
-		);
-		// Set the configuration data.
-		$success = FALSE;
-		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
+		  $object->get("devicefile"), FALSE);
+		// Update the configuration data.
+		$object->set("devicefile", $sd->getDeviceFileById());
+		// Set the configuration object.
+		$isNew = $object->isNew();
+		if (TRUE === $isNew) {
 			// Check uniqueness.
-			$xpath = sprintf("//system/storage/hdparm[devicefile='%s']",
-			  $object['devicefile']);
-			if(TRUE === $xmlConfig->exists($xpath)) {
-				throw new OMVException(
-				  OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-				  sprintf("Settings already exist for device '%s'"),
-				  $object['devicefile']);
-			}
-			// Append object to configuration.
-			$success = $xmlConfig->set("//system/storage",
-			  array("hdparm" => $object));
-		} else {
-			// Update existing configuration object.
-			$success = $xmlConfig->replace(
-			  "//system/storage/hdparm[uuid='{$params['uuid']}']",
-			  $object);
+			$db->isUnique($object, "devicefile", FALSE);
+			// Assign a new UUID.
+			$object->set("uuid", \OMV\Uuid::uuid4());
 		}
-		if(FALSE === $success) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$db->set($object);
 		// Notify the configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.storage.hdparm", $object);
+		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.storage.hdparm", $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
