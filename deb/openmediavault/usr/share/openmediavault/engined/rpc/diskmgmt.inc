@@ -19,11 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/config.inc");
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
 
 class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 	/**
@@ -109,7 +105,6 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   array. An exception will be thrown in case of an error.
 	 */
 	public function getList($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -123,13 +118,14 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Check if there exists a hdparm configuration object for the
 			// given device. Note, we have to check for 'dev/xxx' and
 			// 'dev/disk/by-id/xxx' entries.
-			$xpath = sprintf("//system/storage/hdparm[devicefile='%s' or ".
-			  "devicefile='%s']", $objectv['devicefilebyid'],
-			  $objectv['devicefile']);
-			// If found, then finally get the hdparm configuration object.
-			if (!is_null($object = $xmlConfig->get($xpath))) {
-				$objectv['hdparm'] = $this->callMethod("getHdParm",
-				  array("uuid" => $object['uuid']), $context);
+			$db = \OMV\Config\Database::getInstance();
+			if (TRUE === $db->exists("conf.system.hdparm", "devicefile",
+			  array($objectv['devicefilebyid'], $objectv['devicefile']))) {
+				// Get the configuration object.
+				$object = $db->get("conf.system.hdparm", "devicefile",
+				  $objectv['devicefilebyid'], $objectv['devicefile']);
+				// Append the configuration values.
+				$objectv['hdparm'] = $object->getAssoc();
 			}
 		}
 		// Filter result.
@@ -145,7 +141,6 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @return The requested configuration object.
 	 */
 	public function getHdParm($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -205,7 +200,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em secure Set to TRUE to secure wipe the device.
 	 * @param context The context of the caller.
 	 * @return The name of the background process status file.
-	 * @throw E_EXEC_FAILED
+	 * @throw \OMV\ExecException
 	 */
 	public function wipe($params, $context) {
 		// Validate the RPC caller context.
@@ -213,14 +208,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "devicefile":{"type":"string","format":"regex",'.
-					'"pattern":"#^/dev/.+$#i"},
-				  "secure":{"type":"boolean"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.diskmgmt.wipe");
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
@@ -270,6 +258,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return None.
+	 * @throw \OMV\ExecException
 	 */
 	public function rescan($params, $context) {
 		// Validate the RPC caller context.

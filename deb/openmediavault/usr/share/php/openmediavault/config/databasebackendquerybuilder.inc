@@ -59,9 +59,24 @@ class DatabaseBackendQueryBuilder {
 		$xpath = $qi['xpath'];
 		if (TRUE === boolval($qi['iterable'])) {
 			if (0 < count($args)) {
-				// Get the element with the specified identifier.
-				$xpath = sprintf("%s[%s='%s']", $qi['xpath'],
-				  $qi['idproperty'], $args[0]);
+				switch (count($args)) {
+				case 1:
+					// Get the object with the specified data model
+					// identifier, in most cases this is the 'uuid'
+					// property.
+					$propertyName = $qi['idproperty'];
+					break;
+				default:
+					// Get the object with the specified property (arg0)
+					// and its values (arg1 ... argX).
+					$propertyName = array_shift($args);
+					break;
+				}
+				$searchArgs = array();
+				foreach ($args as $argk => $argv)
+					$searchArgs[] = sprintf("%s='%s'", $propertyName, $argv);
+				$xpath = sprintf("%s[%s]", $qi['xpath'], implode(" or ",
+				  $searchArgs));
 			}
 		}
 		return $xpath;

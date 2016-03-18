@@ -152,7 +152,8 @@ class Database {
 	 * exists.
 	 * @param id The data model identifier.
 	 * @param property The name of the data model property.
-	 * @param value The value to be searched.
+	 * @param value The value to be searched. This can be also an array
+	 *   of values.
 	 * @return TRUE if data exists, otherwise FALSE.
 	 */
 	public function exists($id, $property, $value) {
@@ -161,8 +162,14 @@ class Database {
 		$model = $mngr->getModel($id);
 		// Create the query builder.
 		$queryBuilder = new DatabaseBackendQueryBuilder($id);
-		$xpath = $queryBuilder->buildExistsQuery($property, $value);
-		return $this->getBackend()->exists($xpath);
+		if (!is_array($value))
+			$value = array($value);
+		foreach ($value as $valuek => $valuev) {
+			$xpath = $queryBuilder->buildExistsQuery($property, $value);
+			if (TRUE === $this->getBackend()->exists($xpath))
+				return TRUE;
+		}
+		return FALSE;
 	}
 
 	/**
