@@ -19,9 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
-
 class OMVModuleQuota extends \OMV\Engine\Module\ServiceAbstract
   implements \OMV\Engine\Notify\IListener {
 	/**
@@ -48,14 +45,13 @@ class OMVModuleQuota extends \OMV\Engine\Module\ServiceAbstract
 	 * @param object The modified configuration object.
 	 */
 	public function onDeleteFilesystem($type, $path, $object) {
-		global $xmlConfig;
 		// Does a quota configuration exists for the deleted filesystem?
-		$xpath = sprintf("//system/storage/filesystem/quota[fsuuid='%s']",
-		  $object['uuid']);
-		$qObject = $xmlConfig->get($xpath);
-		if (!is_null($qObject)) {
+		$db = \OMV\Config\Database::getInstance();
+		if (TRUE === $db->exists("conf.system.filesystem.quota", "fsuuid",
+		  $object['uuid'])) {
 			// Execute RPC to delete the configuration object.
-			\OMV\Rpc\Rpc::call("Quota", "delete", array("uuid" => $qObject['uuid']),
+			\OMV\Rpc\Rpc::call("Quota", "delete", array(
+			  "uuid" => $qObject['uuid']),
 			  $this->getAdminContext());
 		}
 	}

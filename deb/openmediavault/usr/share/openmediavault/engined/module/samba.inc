@@ -22,7 +22,8 @@
 require_once("openmediavault/config.inc");
 
 class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
-  implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus, \OMV\Engine\Module\IZeroconf {
+  implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus,
+  \OMV\Engine\Module\IZeroconf {
 	private $invalidUsers = array("admin");
 
 	/**
@@ -222,9 +223,8 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	final public function onSharedFolder($type, $path, $object) {
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $db->getBackend()->exists(sprintf(
-		  "//services/smb/shares/share[sharedfolderref='%s']",
-		  $object['uuid'])))
+		if (TRUE === $db->exists("conf.services.smb.share", "sharedfolderref",
+		  $object['uuid']))
 			$this->setDirty();
 	}
 

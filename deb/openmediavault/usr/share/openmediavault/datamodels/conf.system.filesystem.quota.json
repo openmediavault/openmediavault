@@ -1,0 +1,73 @@
+{
+	"type": "config",
+	"id": "conf.system.filesystem.quota",
+	"queryinfo": {
+		"xpath": "//system/storage/filesystem/quota",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"uuid": {
+			"type": "string",
+			"format": "fsuuid"
+		},
+		"usrquota": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"bsoftlimit": {
+						"type": "integer",
+						"minimum": 0,
+					},
+					"bhardlimit": {
+						"type": "integer",
+						"minimum": 0,
+					},
+					"isoftlimit": {
+						"type": "integer",
+						"minimum": 0,
+					},
+					"ihardlimit": {
+						"type": "integer",
+						"minimum": 0,
+					}
+				}
+			}
+		},
+		"grpquota": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"bsoftlimit": {
+						"type": "integer",
+						"minimum": 0,
+					},
+					"bhardlimit": {
+						"type": "integer",
+						"minimum": 0,
+					},
+					"isoftlimit": {
+						"type": "integer",
+						"minimum": 0,
+					},
+					"ihardlimit": {
+						"type": "integer",
+						"minimum": 0,
+					}
+				}
+			}
+		}
+	}
+}

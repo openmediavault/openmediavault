@@ -1,6 +1,6 @@
 {
 	"type": "config",
-	"id": "conf.system.mntent",
+	"id": "conf.system.mountpoint",
 	"title": "Mount point",
 	"queryinfo": {
 		"xpath": "//system/fstab/mntent",

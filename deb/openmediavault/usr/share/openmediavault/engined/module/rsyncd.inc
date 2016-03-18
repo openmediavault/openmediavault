@@ -20,7 +20,8 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
-  implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus, \OMV\Engine\Module\IZeroconf {
+  implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus,
+  \OMV\Engine\Module\IZeroconf {
 	/**
 	 * Get the module name.
 	 */
@@ -92,9 +93,8 @@ class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	final public function onSharedFolder($type, $path, $object) {
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $db->getBackend()->exists(sprintf(
-		  "//services/rsync/server/modules/module[sharedfolderref='%s']",
-		  $object['uuid'])))
+		if (TRUE === $db->exists(sprintf("conf.services.rsyncd",
+		  "sharedfolderref", $object['uuid'])))
 			$this->setDirty();
 	}
 
