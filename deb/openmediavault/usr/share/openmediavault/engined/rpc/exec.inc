@@ -19,9 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/error.inc");
-
 class OMVRpcServiceExec extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -45,6 +42,7 @@ class OMVRpcServiceExec extends \OMV\Rpc\ServiceAbstract {
 	 *   \em filename The name of the background process status file.
 	 * @param context The context of the caller.
 	 * @return None
+	 * @throw \OMV\Exception
 	 */
 	public function stop($params, $context) {
 		// Validate the RPC caller context.
@@ -52,19 +50,14 @@ class OMVRpcServiceExec extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "filename":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.exec.stop");
 		// Get the background process status.
 		$status = new \OMV\Rpc\BgStatusFile($this->getBgProcStatus(
 		  $params['filename']));
 		// Kill the background process.
 		if (!posix_kill($status->getPid(), SIGTERM)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to kill process (pid=%d).", $status->getPid()));
+			throw new \OMV\Exception("Failed to kill process (pid=%d).",
+			  $status->getPid());
 		}
 		// Unlink the background process status file.
 		$this->unlinkBgProcStatus($params['filename']);
@@ -74,12 +67,14 @@ class OMVRpcServiceExec extends \OMV\Rpc\ServiceAbstract {
 	 * Get the output of the given background process.
 	 * @param params An array containing the following fields:
 	 *   \em filename The name of the background process status file.
-	 *   \em pos The file position withing the command output file.
+	 *   \em pos The file position within the command output file.
 	 * @return An array with the fields \em filename containing the background
 	 *   process status file, \em running which indicates the command execution
 	 *   state, \em output which contains the command output and \em pos which
 	 *   is the current position within the output file (more detailed it is
 	 *   the size of the output file or EOF position) will be returned.
+	 * @throw \OMV\Exception
+	 * @throw \OMV\Rpc\TraceException
 	 */
 	public function getOutput($params, $context) {
 		// Validate the RPC caller context.
@@ -87,13 +82,7 @@ class OMVRpcServiceExec extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "filename":{"type":"string"},
-				  "pos":{"type":"integer"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.exec.getoutput");
 		// Get the background process status file.
 		$status = new \OMV\Rpc\BgStatusFile($this->getBgProcStatus(
 		  $params['filename']));
@@ -119,9 +108,9 @@ class OMVRpcServiceExec extends \OMV\Rpc\ServiceAbstract {
 			$bgOutputFilename = $status->getOutputFilename();
 			// Read the command output from the given file.
 			if (FALSE === ($fp = fopen($bgOutputFilename, "r"))) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("Failed to open the command output file ".
-					"(filename=%s).", $bgOutputFilename));
+				throw new \OMV\Exception(
+				  "Failed to open the command output file (filename=%s).",
+				  $bgOutputFilename));
 			}
 			// Get the requested command output from the given position to
 			// the end of the file.
@@ -147,6 +136,7 @@ class OMVRpcServiceExec extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array with the fields \em filename containing the background
 	 *   process status file and \em running which indicates the command
 	 *   execution state.
+	 * @throw \OMV\Rpc\TraceException
 	 */
 	public function isRunning($params, $context) {
 		// Validate the RPC caller context.
@@ -154,12 +144,7 @@ class OMVRpcServiceExec extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "filename":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.exec.isrunning");
 		// Get the background process status.
 		$status = new \OMV\Rpc\BgStatusFile($this->getBgProcStatus(
 		  $params['filename']));

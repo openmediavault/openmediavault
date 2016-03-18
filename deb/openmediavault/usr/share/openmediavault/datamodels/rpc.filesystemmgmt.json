@@ -1,0 +1,107 @@
+[{
+	"type": "rpc",
+	"id": "rpc.filesystemmgmt.enumeratemountedfilesystems",
+	"params": {
+		"type": "object",
+		"properties": {
+			"includeroot": {
+				"type": "boolean",
+				"required": false
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.filesystemmgmt.create",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devicefile": {
+				"type": "string",
+				"format": "devicefile",
+				"required": true
+			},
+			"type": {
+				"type": "string",
+				"required": true
+			},
+			"label": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.filesystemmgmt.resize",
+	"params": {
+		"type": "object",
+		"properties": {
+			"id": {
+				"type": "string",
+				"type": "fsuuid",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.filesystemmgmt.delete",
+	"params": {
+		"type": "object",
+		"properties": {
+			"id": {
+				"type": "string",
+				"type": "fsuuid",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.filesystemmgmt.mount",
+	"params": {
+		"type": "object",
+		"properties": {
+			"id": {
+				"type": "string",
+				"type": "fsuuid",
+				"required": true
+			},
+			"fstab": {
+				"type": "boolean",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.filesystemmgmt.umount",
+	"params": {
+		"type": "object",
+		"properties": {
+			"id": {
+				"type": "string",
+				"type": "fsuuid",
+				"required": true
+			},
+			"fstab": {
+				"type": "boolean",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.filesystemmgmt.hasfilesystem",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devicefile": {
+				"type": "string",
+				"format": "devicefile",
+				"required": true
+			}
+		}
+	}
+}]

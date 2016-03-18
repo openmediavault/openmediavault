@@ -149,7 +149,7 @@ class StorageDevice extends StorageDeviceAbstract {
 		if (NULL == ($backend = $mngr->getBackend($deviceFile)))
 			return NULL;
 		$result = $backend->getImpl($deviceFile);
-		if ((FALSE === $quiet) && (TRUE === $result)) {
+		if ((FALSE === $quiet) && (is_null($result) || !$result->exists())) {
 			throw new \OMV\Exception("Device '%s' not found.", $deviceFile);
 		}
 		return $result;
