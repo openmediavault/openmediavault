@@ -38,10 +38,13 @@ class ConfigObject {
 		$this->properties = $this->getDefaults();
 	}
 
-	public function getModel() {
-		return $this->model;
-	}
-
+	/**
+	 * Check if the specified property exists.
+	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
+	 * @return If \em quiet is set to TRUE then the method returns TRUE if
+	 *   the property exists, otherwise FALSE.
+	 * @throw \OMV\Exception
+	 */
 	private function exists($name, $quiet = FALSE) {
 		$model = $this->getModel();
 		$exists = $model->propertyExists($name);
@@ -51,6 +54,14 @@ class ConfigObject {
 			  $name, $model->getId());
 		}
 		return $exists;
+	}
+
+	/**
+	 * Get the model of the configuration object.
+	 * @return The data model object.
+	 */
+	DataModel public function getModel() {
+		return $this->model;
 	}
 
 	/**

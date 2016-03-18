@@ -49,8 +49,7 @@ class Database {
 
 	/**
 	 * Get the configuration object at the specified XPath expression.
-	 * @param id The data model identifier. If \em id is not set, then
-	 *   the xpath will be used as identifier instead.
+	 * @param id The data model identifier.
 	 * @param ...args Additional arguments, e.g. the object UUID.
 	 * @return The configuration object.
 	 */
@@ -141,6 +140,13 @@ class Database {
 		return $this->getBackend()->exists($xpath);
 	}
 
+	/**
+	 * Check if the data with the specified argiuments exists.
+	 * @param id The data model identifier.
+	 * @param property The name of the data model property.
+	 * @param value The value to be searched.
+	 * @return TRUE if data exists, otherwise FALSE.
+	 */
 	public function exists($id, $property, $value) {
 		// Get the specified data model.
 		$mngr = \OMV\DataModel\Manager::getInstance();
@@ -149,5 +155,27 @@ class Database {
 		$queryBuilder = new DatabaseBackendQueryBuilder($id);
 		$xpath = $queryBuilder->buildExistsQuery($property, $value);
 		return $this->getBackend()->exists($xpath);
+	}
+
+	/**
+	 * Unlink all revision files.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function unlinkRevisions() {
+		return $this->getBackend()->unlinkRevisions();
+	}
+
+	/**
+	 * Revert changes. All existing revision files will be deleted.
+	 * @param filename The revision file. Defaults to NONE.
+	 * @return None.
+	 */
+	public function revert($filename) {
+		$backend = $this->getBackend();
+		if (FALSE === $backend->revert($filename)) {
+			throw new DatabaseException(
+			  "Failed to revert configuration changes: %s",
+		  	  $backend->getLastError());
+		}
 	}
 }

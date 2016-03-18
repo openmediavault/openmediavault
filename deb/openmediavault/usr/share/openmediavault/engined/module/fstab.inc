@@ -49,7 +49,7 @@ class OMVModuleFsTab extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function startService() {
 		$db = \OMV\Config\Database::getInstance();
-		$objects = $db->get("conf.system.mountpoint");
+		$objects = $db->get("conf.system.filesystem.mountpoint");
 		// Process all configured mount points and mount them if necessary.
 		foreach ($objects as $objectk => $objectv) {
 			$me = new \OMV\System\MountPoint($objectv->get("fsname"),

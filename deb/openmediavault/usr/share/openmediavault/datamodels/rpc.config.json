@@ -1,0 +1,32 @@
+[{
+	"type": "rpc",
+	"id": "rpc.config.applychanges",
+	"params": {
+		"type": "object",
+		"properties": {
+			"modules": {
+				"type": "array",
+				"items": {
+					"type": "string"
+				},
+				"required": true
+			},
+			"force": {
+				"type": "boolean",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.config.revertchanges",
+	"params": {
+		"type": "object",
+		"properties": {
+			"filename": {
+				"type": "string",
+				"required": false
+			}
+		}
+	}
+}]

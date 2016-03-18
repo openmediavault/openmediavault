@@ -19,10 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
-
 class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -71,27 +67,15 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 	 *   as dirty or not.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_MISC_FAILURE
+	 * @throw \OMV\Exception
 	 */
 	public function applyChanges($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "modules":{
-					  "type":"array",
-					  "items":{
-						  "type":"string"
-					  }
-				  },
-				  "force":{"type":"boolean"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.config.applychanges");
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$notifyDispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		// Open the dirty modules file. Lock it to force all writers
@@ -103,11 +87,11 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 		// list contains entries from already deinstalled plugins.
 		$removeDirtyModules = array();
 		$modules = array_keys($moduleMngr->getModules());
-		foreach($dirtyModules as $dirtyModulek => $dirtyModulev) {
-			if(!in_array($dirtyModulev, $modules))
+		foreach ($dirtyModules as $dirtyModulek => $dirtyModulev) {
+			if (!in_array($dirtyModulev, $modules))
 				$removeDirtyModules[] = $dirtyModulev;
 		}
-		if(!empty($removeDirtyModules)) {
+		if (!empty($removeDirtyModules)) {
 			// Remove module name from list of dirty modules. Note, the
 			// array must be re-indexed.
 			$dirtyModules = array_values(array_diff($dirtyModules,
@@ -116,20 +100,18 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 		// Get list of modules to be processed. If the parameter 'modules'
 		// is empty, then process all registered modules.
 		$modules = $params['modules'];
-		if(empty($params['modules']))
+		if (empty($params['modules']))
 			$modules = array_keys($moduleMngr->getModules());
 		$processModules = array();
-		foreach($modules as $modulek => $modulev) {
+		foreach ($modules as $modulek => $modulev) {
 			// Skip module if 'force' is disabled and module is not marked
 			// as dirty.
-			if(!in_array($modulev, $dirtyModules) &&
+			if (!in_array($modulev, $dirtyModules) &&
 			  (FALSE === $params['force']))
 				continue;
 			// Get the module object and apply the configuration.
-			if(FALSE === ($object = $moduleMngr->getModule($modulev))) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("Module '%s' not found", $modulev));
-			}
+			if (FALSE === ($object = $moduleMngr->getModule($modulev)))
+				throw new \OMV\Exception("Module '%s' not found", $modulev);
 			// Append module to list of modules that have to be processed.
 			$processModules[$modulev] = $object;
 			// Remove module name from list of dirty modules. Note, the
@@ -139,25 +121,25 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Build the dependency list and stop all services.
 		$tsort = new \OMV\Util\TopologicalSort();
-		foreach($processModules as $name => $object) {
-			if(FALSE === $tsort->add($name, $object->shouldStop())) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("Failed to add node (name=%s, dependencies=[%s]",
-				  $name, implode(",", $object->shouldStop())));
+		foreach ($processModules as $name => $object) {
+			if (FALSE === $tsort->add($name, $object->shouldStop())) {
+				throw new \OMV\Exception(
+				  "Failed to add node (name=%s, dependencies=[%s])",
+				  $name, implode(",", $object->shouldStop()));
 			}
 			$stopAfterDeps = $object->stopAfter();
-			foreach($stopAfterDeps as $depk => $depv) {
+			foreach ($stopAfterDeps as $depk => $depv) {
 				// Skip modules that are not marked as dirty.
-				if(!array_key_exists($depv, $processModules))
+				if (!array_key_exists($depv, $processModules))
 					continue;
-				if(FALSE === $tsort->add($depv, $name)) {
-					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-					  sprintf("Failed to add node (name=%s, dependencies=[%s]",
-					  $depv, $name));
+				if (FALSE === $tsort->add($depv, $name)) {
+					throw new \OMV\Exception(
+					  "Failed to add node (name=%s, dependencies=[%s])",
+					  $depv, $name);
 				}
 			}
 		}
-		foreach($tsort->sort() as $name) {
+		foreach ($tsort->sort() as $name) {
 			$this->debug("Stopping service '%s'", $name);
 			$processModules[$name]->stopService();
 			$notifyDispatcher->notify(OMV_NOTIFY_EVENT, strtolower(sprintf(
@@ -166,14 +148,14 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 		// Build the dependency list and apply the configuration for the
 		// given services.
 		$tsort->clean();
-		foreach($processModules as $name => $object) {
-			if(FALSE === $tsort->add($name, $object->shouldApply())) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("Failed to add node (name=%s, dependencies=[%s]",
-				  $name, implode(",", $object->shouldApply())));
+		foreach ($processModules as $name => $object) {
+			if (FALSE === $tsort->add($name, $object->shouldApply())) {
+				throw new \OMV\Exception(
+				  "Failed to add node (name=%s, dependencies=[%s])",
+				  $name, implode(",", $object->shouldApply()));
 			}
 		}
-		foreach($tsort->sort() as $name) {
+		foreach ($tsort->sort() as $name) {
 			$this->debug("Applying configuration '%s'", $name);
 			$processModules[$name]->applyConfig();
 			$notifyDispatcher->notify(OMV_NOTIFY_EVENT, strtolower(sprintf(
@@ -181,25 +163,25 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Build the dependency list and start all services.
 		$tsort->clean();
-		foreach($processModules as $name => $object) {
-			if(FALSE === $tsort->add($name, $object->shouldStart())) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("Failed to add node (name=%s, dependencies=[%s]",
-				  $name, implode(",", $object->shouldStart())));
+		foreach ($processModules as $name => $object) {
+			if (FALSE === $tsort->add($name, $object->shouldStart())) {
+				throw new \OMV\Exception(
+				  "Failed to add node (name=%s, dependencies=[%s])",
+				  $name, implode(",", $object->shouldStart()));
 			}
 			$startBeforeDeps = $object->startBefore();
-			foreach($startBeforeDeps as $depk => $depv) {
+			foreach ($startBeforeDeps as $depk => $depv) {
 				// Skip modules that are not marked as dirty.
-				if(!array_key_exists($depv, $processModules))
+				if (!array_key_exists($depv, $processModules))
 					continue;
-				if(FALSE === $tsort->add($depv, $name)) {
-					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-					  sprintf("Failed to add node (name=%s, dependencies=[%s]",
-					  $depv, $name));
+				if (FALSE === $tsort->add($depv, $name)) {
+					throw new \OMV\Exception(
+					  "Failed to add node (name=%s, dependencies=[%s])",
+					  $depv, $name);
 				}
 			}
 		}
-		foreach($tsort->sort() as $name) {
+		foreach ($tsort->sort() as $name) {
 			$this->debug("Starting service '%s'", $name);
 			$processModules[$name]->startService();
 			$notifyDispatcher->notify(OMV_NOTIFY_EVENT, strtolower(sprintf(
@@ -209,7 +191,8 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 		$jsonFile->write($dirtyModules);
 		$jsonFile->close();
 		// Unlink all configuration revision files.
-		$xmlConfig->unlinkRevisions();
+		$db = \OMV\Config\Database::getInstance();
+		$db->unlinkRevisions();
 	}
 
 	/**
@@ -229,32 +212,23 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 	 *   the correct revision file.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_MISC_FAILURE
+	 * @throw \OMV\Exception
 	 */
 	public function revertChanges($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "filename":{"type":"string","optional":true}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.config.revertchanges");
 		// Open the dirty modules file. Lock it to force all writers
 		// to wait until this RPC has been finished.
 		$jsonFile = new \OMV\Json\File($GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
 		$jsonFile->open("c+");
 		// Revert configuration changes. All existing revision files
 		// will be deleted.
-		if (FALSE === $xmlConfig->revert($params['filename'])) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to revert configuration changes: %s",
-			  $xmlConfig->getLastError()));
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$db->revert($params['filename']);
 		// Empty the dirty modules file.
 		$jsonFile->write(array());
 		$jsonFile->close();
