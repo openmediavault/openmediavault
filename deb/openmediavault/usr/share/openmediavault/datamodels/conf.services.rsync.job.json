@@ -1,7 +1,6 @@
 {
 	"type": "config",
 	"id": "conf.service.rsync.job",
-	"alias": "//services/rsync/jobs/job",
 	"title": "Rsync job",
 	"queryinfo": {
 		"xpath": "//services/rsync/jobs/job",
@@ -15,18 +14,20 @@
 		},
 		"enable": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"sendemail": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"comment": {
-			"type": "string"
+			"type": "string",
+			"default": ""
 		},
 		"type":{
 			"type": "string",
-			"enum": [ "local", "remote" ]
+			"enum": [ "local", "remote" ],
+			"default": "local"
 		},
 		"src": {
 			"type": "string",
@@ -48,7 +49,8 @@
 			"pattern":"/^[0-9]|1[0-9]|2[0-3]|[*]$/"
 		},
 		"everynhour": {
-			"type":"boolean"
+			"type":"boolean",
+			"default": false
 		},
 		"month": {
 			"type": "string",
@@ -59,58 +61,74 @@
 			"pattern": "/^[1-9]|1[0-9]|2[0-9]|3[0-1]|[*]$/"
 		},
 		"everyndayofmonth": {
-			"type": "boolean"
+			"type": "boolean",
+			"default": false
 		},
 		"dayofweek": {
 			"type": "string",
 			"pattern": "/^[1-7]|[*]$/"
 		},
 		"recursive": {
-			"type": "boolean"
+			"type": "boolean",
+			"default": false
 		},
 		"times": {
-			"type": "boolean"
+			"type": "boolean",
+			"default": false
 		},
 		"compress": {
-			"type": "boolean"
+			"type": "boolean",
+			"default": false
 		},
 		"archive": {
-			"type": "boolean"
+			"type": "boolean",
+			"default": false
 		},
 		"delete": {
-			"type": "boolean"
+			"type": "boolean",
+			"default": false
 		},
 		"quiet": {
-			"type":"boolean"
+			"type":"boolean",
+			"default": false
 		},
 		"perms": {
-			"type": "boolean"
+			"type": "boolean",
+			"default": false
 		},
 		"acls": {
-			"type": "boolean"
+			"type": "boolean",
+			"default": false
 		},
 		"xattrs":{
-			"type": "boolean"
+			"type": "boolean",
+			"default": false
 		},
 		"dryrun": {
-			"type": "boolean"
+			"type": "boolean",
+			"default": false
 		},
 		"partial": {
-			"type": "boolean"
+			"type": "boolean",
+			"default": false
 		},
 		"extraoptions": {
-			"type": "string"
+			"type": "string",
+			"default": ""
 		},
 		"mode": {
 			"type": "string",
-			"enum": [ "push", "pull" ]
+			"enum": [ "push", "pull" ],
+			"default": "push"
 		},
 		"authentication": {
 			"type": "string",
-			"enum": [ "password", "pubkey" ]
+			"enum": [ "password", "pubkey" ],
+			"default": "password"
 		},
 		"password": {
-			"type": "string"
+			"type": "string",
+			"default": ""
 		},
 		"sshcertificateref":{
 			"type": "string",

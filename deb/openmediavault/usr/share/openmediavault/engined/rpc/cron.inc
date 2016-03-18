@@ -56,10 +56,8 @@ class OMVRpcServiceCron extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getList($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -67,24 +65,13 @@ class OMVRpcServiceCron extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.cron.getlist");
 		// Get configuration data.
-		$xpath = "//system/crontab/job";
-		$objects = $xmlConfig->getList($xpath);
-		if(is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->get("conf.system.cron.job");
 		// Get cron jobs that match the given type.
 		$jobs = array();
-		foreach($objects as $objectk => $objectv) {
-			if(in_array($objectv['type'], $params['type'])) {
-				// Modify result data.
-				$objectv['enable'] = boolvalEx($objectv['enable']);
-				$objectv['sendemail'] = boolvalEx($objectv['sendemail']);
-				$objectv['everynminute'] = boolvalEx($objectv['everynminute']);
-				$objectv['everynhour'] = boolvalEx($objectv['everynhour']);
-				$objectv['everyndayofmonth'] = boolvalEx(
-				  $objectv['everyndayofmonth']);
-				$jobs[] = $objectv;
+		foreach ($objects as $objectk => $objectv) {
+			if (in_array($objectv->get("type"), $params['type'])) {
+				$jobs[] = $objectv->getAssoc();
 			}
 		}
 		// Filter the result.
@@ -98,10 +85,8 @@ class OMVRpcServiceCron extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function get($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -109,19 +94,9 @@ class OMVRpcServiceCron extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
-		$xpath = sprintf("//system/crontab/job[uuid='%s']", $params['uuid']);
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify the result object.
-		$object['enable'] = boolvalEx($object['enable']);
-		$object['sendemail'] = boolvalEx($object['sendemail']);
-		$object['everynminute'] = boolvalEx($object['everynminute']);
-		$object['everynhour'] = boolvalEx($object['everynhour']);
-		$object['everyndayofmonth'] = boolvalEx($object['everyndayofmonth']);
-		return $object;
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.cron.job", $params['uuid']);
+		return $object->getAssoc();
 	}
 
 	/**
@@ -129,84 +104,29 @@ class OMVRpcServiceCron extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	public function set($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-				  "enable":{"type":"boolean"},
-				  "execution":{"type":"string","enum":["exactly","hourly",'.
-					'"daily","weekly","monthly","yearly","reboot"]},
-				  "sendemail":{"type":"boolean"},
-				  "type":{"type":["string","null"],"format":"regex",'.
-					'"pattern":"\/^reboot|shutdown|standby|userdefined$\/i"},
-				  "minute":{"type":"string","format":"regex",'.
-					'"pattern":"\/^[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|'.
-					'5[0-9]|[*]$\/"},
-				  "everynminute":{"type":"boolean"},
-				  "hour":{"type":"string","format":"regex",'.
-					'"pattern":"\/^[0-9]|1[0-9]|2[0-3]|[*]$\/"},
-				  "everynhour":{"type":"boolean"},
-				  "month":{"type":"string","format":"regex",'.
-					'"pattern":"\/^[1-9]|1[0-2]|[*]$\/"},
-				  "dayofmonth":{"type":"string","format":"regex",'.
-					'"pattern":"\/^[1-9]|1[0-9]|2[0-9]|3[0-1]|[*]$\/"},
-				  "everyndayofmonth":{"type":"boolean"},
-				  "dayofweek":{"type":"string","format":"regex",'.
-					'"pattern":"\/^[1-7]|[*]$\/"},
-				  "username":{"type":"string"},
-				  "command":{"type":"string"},
-				  "comment":{"type":"string"}
-			  }
-		  }');
-		// Prepare configuration data.
-		$object = array(
-			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  \OMV\Uuid::uuid4() : $params['uuid'],
-			"enable" => array_boolval($params, 'enable'),
-			"execution" => $params['execution'],
-			"sendemail" => array_boolval($params, 'sendemail'),
-			"type" => $params['type'],
-			"minute" => $params['minute'],
-			"everynminute" => array_boolval($params, 'everynminute'),
-			"hour" => $params['hour'],
-			"everynhour" => array_boolval($params, 'everynhour'),
-			"dayofmonth" => $params['dayofmonth'],
-			"everyndayofmonth" => array_boolval($params, 'everyndayofmonth'),
-			"month" => $params['month'],
-			"dayofweek" => $params['dayofweek'],
-			"username" => $params['username'],
-			"command" => $params['command'],
-			"comment" => $params['comment']
-		);
-		// Set the configuration data.
-		$success = FALSE;
-		if ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
-			// Append object to configuration.
-			$success = $xmlConfig->set("//system/crontab",
-			  array("job" => $object));
-		} else {
-			// Update existing configuration object.
-			$success = $xmlConfig->replace(
-			  "//system/crontab/job[uuid='{$params['uuid']}']", $object);
-		}
-		if (FALSE === $success)
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
+		$this->validateMethodParams($params, "rpc.cron.set");
+		// Prepare the configuration object.
+		$object = new \OMV\Config\ConfigObject("conf.system.cron.job");
+		$object->setAssoc($params);
+		if ($object->isNew())
+			$object->set("uuid", \OMV\Uuid::uuid4()); // Assign a new UUID.
+		// Set the configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.crontab.job", $object);
+		  "org.openmediavault.system.crontab.job", $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -217,7 +137,6 @@ class OMVRpcServiceCron extends \OMV\Rpc\ServiceAbstract {
 	 * @return The deleted configuration object.
 	 */
 	public function delete($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -225,9 +144,8 @@ class OMVRpcServiceCron extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		$xpath = sprintf("//system/crontab/job[uuid='%s']", $params['uuid']);
-		return $this->deleteConfigObjectByPath($xpath,
-		  "org.openmediavault.system.crontab.job");
+		return $this->deleteConfigObjectByUuid("conf.system.cron.job",
+		  $params['uuid'], "org.openmediavault.system.crontab.job");
 	}
 
 	/**
@@ -257,20 +175,20 @@ class OMVRpcServiceCron extends \OMV\Rpc\ServiceAbstract {
 			$bgOutputFilename = $this->createBgProcOutput();
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
-			// Get the cron job object.
-			$object = $this->callMethod("get", array(
-			  "uuid" => $params['uuid']), $context);
+			// Get the configuration object.
+			$db = \OMV\Config\Database::getInstance();
+			$object = $db->get("conf.system.cron.job", $params['uuid']);
 			// Execute the cron command line in a shell.
 			// Note, we need to set the shell, otherwise the users shell
 			// is used instead of the shebang of the command script.
 			$cmd = "/bin/su";
 			$cmdArgs = array();
 			$cmdArgs[] = "--command";
-			$cmdArgs[] = $object['command'];
+			$cmdArgs[] = $object->get("command");
 			$cmdArgs[] = "--login";
 			$cmdArgs[] = "--shell";
 			$cmdArgs[] = "/bin/sh";
-			$cmdArgs[] = $object['username'];
+			$cmdArgs[] = $object->get("username");
 			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename))
 				throw new \OMV\ExecException($cmd." ".implode(" ", $cmdArgs));
 		} catch(Exception $e) {

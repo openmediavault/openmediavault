@@ -60,7 +60,7 @@ class ConfigObject {
 	 * Get the model of the configuration object.
 	 * @return The data model object.
 	 */
-	DataModel public function getModel() {
+	public function getModel() {
 		return $this->model;
 	}
 

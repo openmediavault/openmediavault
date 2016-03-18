@@ -558,6 +558,29 @@ abstract class ServiceAbstract {
 		return $object;
 	}
 
+	protected function deleteConfigObjectByUuid($model, $uuid, $message) {
+		// Get the configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get($model, $uuid);
+		return $this->deleteConfigObjectByObject($object, $message);
+	}
+
+	protected function deleteConfigObjectByObject(
+	  \OMV\Config\ConfigObject $object, $message) {
+		// Notify configuration changes.
+		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
+		$dispatcher->notify(OMV_NOTIFY_PREDELETE, $message,
+		  $object->getAssoc());
+		// Delete configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$db->delete($object);
+		// Notify configuration changes.
+		$dispatcher->notify(OMV_NOTIFY_DELETE, $message,
+		  $object->getAssoc());
+		// Return the deleted configuration object.
+		return $object->getAssoc();
+	}
+
 	/**
 	 * Helper function to mark a module as dirty.
 	 * @param name The name of the module.

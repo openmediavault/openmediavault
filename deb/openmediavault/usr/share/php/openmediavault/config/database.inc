@@ -127,9 +127,11 @@ class Database {
 	/**
 	 * Check if the specified object is referenced.
 	 * @param object The configuration object to use.
+	 * @param quiet Set to FALSE to do throw an exception.
 	 * @return TRUE if the object is referenced, otherwise FALSE.
+	 * @throw \OMV\Config\DatabaseException
 	 */
-	public function isReferenced(ConfigObject $object) {
+	public function isReferenced(ConfigObject $object, $quiet = TRUE) {
 		if (FALSE === $object->isReferenceable()) {
 			throw new DatabaseException(
 			  "The configuration object can not be referenced.");
@@ -137,7 +139,12 @@ class Database {
 		$queryBuilder = new DatabaseBackendQueryBuilder(
 		  $object->getModel()->getId());
 		$xpath = $queryBuilder->buildIsReferencedQuery($object);
-		return $this->getBackend()->exists($xpath);
+		$exists = $this->getBackend()->exists($xpath);
+		if ((FALSE === $quiet) && (TRUE === $exists)) {
+			throw new DatabaseException(
+			  "The configuration object is referenced.");
+		}
+		return $exists;
 	}
 
 	/**

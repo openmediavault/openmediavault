@@ -25,19 +25,19 @@
 					},
 					"bsoftlimit": {
 						"type": "integer",
-						"minimum": 0,
+						"minimum": 0
 					},
 					"bhardlimit": {
 						"type": "integer",
-						"minimum": 0,
+						"minimum": 0
 					},
 					"isoftlimit": {
 						"type": "integer",
-						"minimum": 0,
+						"minimum": 0
 					},
 					"ihardlimit": {
 						"type": "integer",
-						"minimum": 0,
+						"minimum": 0
 					}
 				}
 			}
@@ -52,19 +52,19 @@
 					},
 					"bsoftlimit": {
 						"type": "integer",
-						"minimum": 0,
+						"minimum": 0
 					},
 					"bhardlimit": {
 						"type": "integer",
-						"minimum": 0,
+						"minimum": 0
 					},
 					"isoftlimit": {
 						"type": "integer",
-						"minimum": 0,
+						"minimum": 0
 					},
 					"ihardlimit": {
 						"type": "integer",
-						"minimum": 0,
+						"minimum": 0
 					}
 				}
 			}

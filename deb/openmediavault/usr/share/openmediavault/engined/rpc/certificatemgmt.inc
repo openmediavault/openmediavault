@@ -159,21 +159,20 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			openssl_pkey_free($privatekey);
 		}
 		openssl_x509_free($certificate);
-		// Update the configuration data.
-		if ($object->isNew()) {
+		// Set the configuration object.
+		$isNew = $object->isNew();
+		if (TRUE === $isNew) {
 			// The private key is required here.
 			if ($object->isEmpty("privatekey"))
 				throw new \OMV\Exception("Private key does not exist.");
 			// Assign a new UUID.
 			$object->set("uuid", \OMV\Uuid::uuid4());
 		}
-		// Set the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(($GLOBALS['OMV_UUID_UNDEFINED'] ==
-		  $object->get("uuid")) ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.certificates.sslcertificate",
 		  $object->getAssoc());
 		// Return the configuration object.
@@ -186,26 +185,20 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The deleted configuration object.
-	 * @throw E_CONFIG_OBJECT_INUSE
 	 */
 	public function delete($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
-		// Check if the certificate is used somewhere.
-		$xpath = sprintf("//sslcertificateref[contains(.,'%s')]",
-		  $params['uuid']);
-		if (TRUE === $xmlConfig->exists($xpath)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_INUSE);
-		}
+		// Check if the certificate is referenced.
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.certificate.ssl", $params['uuid']);
+		$db->isReferenced($object, FALSE);
 		// Delete the configuration object.
-		$xpath = sprintf("//system/certificates/sslcertificate[uuid='%s']",
-		  $params['uuid']);
-		return $this->deleteConfigObjectByPath($xpath,
+		return $this->deleteConfigObjectByObject($object,
 		  "org.openmediavault.system.certificates.sslcertificate");
 	}
 
@@ -449,73 +442,42 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_MISC_FAILURE
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
-	 * @throw E_CONFIG_SAVE_FAILED
 	 */
 	function setSsh($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.certificatemgmt.setssh");
+		// Prepare the configuration object.
+		$object = new \OMV\Config\ConfigObject("conf.system.certificate.ssh");
+		$object->setAssoc($params);
 		// Validate the private key.
-		if (array_key_exists("privatekey", $params)) {
+		if (!$object->isEmpty("privatekey")) {
 			if (!($privatekey = openssl_pkey_get_private(
-			  $params['privatekey']))) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("Invalid private key: %s", openssl_error_string()));
+			  $object->get("privatekey")))) {
+				throw new \OMV\Exception("Invalid private key: %s",
+				  openssl_error_string());
 			}
 			openssl_pkey_free($privatekey);
 		}
 		// Set the configuration data.
-		$success = FALSE;
-		if ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+		$isNew = $object->isNew();
+		if (TRUE === $isNew) {
 			// The private key is required here.
-			if (!array_key_exists("privatekey", $params))
-				throw new OMVException(OMVErrorMsg::E_RPC_INVALID_PARAMS,
-				  "key: 'privatekey' does not exist.");
-			// Prepare configuration data.
-			$object = array(
-				"uuid" => \OMV\Uuid::uuid4(),
-				"publickey" => $params['publickey'],
-				"privatekey" => $params['privatekey'],
-				"comment" => $params['comment']
-			);
-			// Append object to configuration.
-			$success = $xmlConfig->set("//system/certificates",
-			  array("sshcertificate" => $object));
-		} else {
-			// Prepare configuration data.
-			$object = array(
-				"uuid" => $params['uuid'],
-				"publickey" => $params['publickey'],
-				"comment" => $params['comment']
-			);
-			// Private key is optional here.
-			if (array_key_exists("privatekey", $params))
-				$object['privatekey'] = $params['privatekey'];
-			// Update existing configuration object.
-			$xpath = sprintf("//system/certificates/sshcertificate[uuid='%s']",
-			  $params['uuid']);
-			$success = $xmlConfig->update($xpath, $object);
+			if ($object->isEmpty("privatekey"))
+				throw new \OMV\Exception("Private key does not exist.");
+			// Assign a new UUID.
+			$object->set("uuid", \OMV\Uuid::uuid4());
 		}
-		if (FALSE === $success)
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		// Save the configuration.
-		if (FALSE === $xmlConfig->save()) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-			  $xmlConfig->getLastError());
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.certificates.sshcertificate", $object);
-		// Return the configuration object.
-		return $object;
+		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.certificates.sshcertificate",
+		  $object->getAssoc());
 	}
 
 	/**
@@ -524,25 +486,20 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The deleted configuration object.
-	 * @throw E_CONFIG_OBJECT_INUSE
 	 */
 	public function deleteSsh($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
-		// Check if the certificate is used somewhere.
-		$xpath = sprintf("//sshcertificateref[contains(.,'%s')]",
-		  $params['uuid']);
-		if (TRUE === $xmlConfig->exists($xpath))
-			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_INUSE);
+		// Check if the certificate is referenced.
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.certificate.ssh", $params['uuid']);
+		$db->isReferenced($object, FALSE);
 		// Delete the configuration object.
-		$xpath = sprintf("//system/certificates/sshcertificate[uuid='%s']",
-		  $params['uuid']);
-		return $this->deleteConfigObjectByPath($xpath,
+		return $this->deleteConfigObjectByObject($object,
 		  "org.openmediavault.system.certificates.sshcertificate");
 	}
 }
