@@ -82,6 +82,11 @@ class DatabaseBackendQueryBuilder {
 		return $xpath;
 	}
 
+	final public function buildGetByXpathQuery($xpath) {
+		$qi = $this->getQueryInfo();
+		return sprintf("%s[%s]", $qi['xpath'], $xpath);
+	}
+
 	final public function buildSetQuery(ConfigObject $object) {
 		$qi = $this->getQueryInfo();
 		$xpath = $qi['xpath'];

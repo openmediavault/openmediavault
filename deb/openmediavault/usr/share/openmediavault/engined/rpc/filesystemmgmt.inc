@@ -19,10 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/config.inc");
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/error.inc");
 
 class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 	/**
@@ -117,8 +114,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			$fsId = $fs->getDeviceFile();
 			if (FALSE === $fsb->hasDeviceFile())
 				$fsId = $fs->getUuid();
-			if (FALSE !== ($meObject = \OMV\Rpc\Rpc::call("FsTab", "getByFsName",
-			  array("id" => $fsId), $context))) {
+			if (FALSE !== ($meObject = \OMV\Rpc\Rpc::call("FsTab",
+			  "getByFsName", array("id" => $fsId), $context))) {
 			  	$xpath = sprintf("//mntentref[contains(.,'%s')]",
 			  	  $meObject['uuid']);
 				if (TRUE === $xmlConfig->exists($xpath))
@@ -171,7 +168,6 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em propresize and \em propfstab.
 	 */
 	public function enumerateMountedFilesystems($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -182,25 +178,22 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "rpc.filesystemmgmt.enumeratemountedfilesystems");
 		}
 		// Get list of mount points, except bind mounts.
-		$xpath = "//system/fstab/mntent[not(contains(opts,'bind'))]";
-		$objects = $xmlConfig->getList($xpath);
-		if (is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $xmlConfig->getByXpath("conf.system.filesystem.mountpoint",
+		  "not(contains(opts,'bind'))");
 		// Append '/dev/root'?
 		if (TRUE === array_boolval($params, "includeroot", FALSE)) {
-			array_unshift($objects, array(
-				"fsname" => "/dev/root",
-				"dir" => "/"
-			));
+			$rootObject = new ConfigObject("conf.system.filesystem.mountpoint");
+			$rootObject->set("fsname", "/dev/root");
+			$rootObject->set("dir", "/");
+			array_unshift($objects, $rootObject);
 		}
 		// Get the file system details for each mount point.
 		$result = array();
 		foreach ($objects as $objectk => $objectv) {
 			// Get the filesystem backend.
 			$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
-			$fsb = $fsbMngr->getBackendById($objectv['fsname']);
+			$fsb = $fsbMngr->getBackendById($objectv->get("fsname"));
 			if (is_null($fsb)) {
 // The device may not exist anymore, e.g. a USB device. Skip it.
 //				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
@@ -209,7 +202,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				continue;
 			}
 			// Get the file system implementation.
-			$fs = $fsb->getImpl($objectv['fsname']);
+			$fs = $fsb->getImpl($objectv->get("fsname"));
 			if (is_null($fs) || !$fs->exists()) {
 //				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
 //				  "Failed to get the '%s' file system implementation or '%s' ".
@@ -280,10 +273,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \li 3 - Missing
 	 *   </ul>
 	 *  Additional the internal fields \em _used and \em _readonly are set.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getList($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -370,44 +361,37 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Add filesystems configured to be mounted but device does not
 		// exist anymore. This is necessary to be able remove invalid mount
 		// point configuration objects. Mark such filesystem as missing.
-		$xpath = "//system/fstab/mntent[not(contains(opts,'bind') or ".
-		  "contains(opts,'loop'))]";
-		$mntents = $xmlConfig->getList($xpath);
-		if (is_null($mntents)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$mntents = $xmlConfig->getByXpath("conf.system.filesystem.mountpoint",
+		  "not(contains(opts,'bind') or contains(opts,'loop'))");
 		foreach ($mntents as $mntentk => $mntentv) {
 			// Get the filesystem backend.
 			$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
-			$fsb = $fsbMngr->getBackendByType($mntentv['type']);
+			$fsb = $fsbMngr->getBackendByType($mntentv->get("type"));
 			if (is_null($fsb)) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  sprintf("No filesystem backend exists for '%s'",
-				  $mntentv['type']));
+				  $mntentv->get("type")));
 			}
 			// Skip valid mount point configuration objects (the filesystem
 			// exists in this case).
-			$fs = $fsb->getImpl($mntentv['fsname']);
+			$fs = $fsb->getImpl($mntentv->get("fsname"));
 			if (!is_null($fs) && $fs->exists())
 				continue;
-			// Check if the mount point configuration object is referenced by
-			// any other object, e.g. by a shared folder configuration object.
-			$xpath = sprintf("//mntentref[contains(.,'%s')]", $mntentv['uuid']);
 			// Append as much informations as possible.
 			$objects[] = array(
-				"devicefile" => is_devicefile($mntentv['fsname']) ?
-				  $mntentv['fsname'] : "",
-				"devicefiles" => is_devicefile($mntentv['fsname']) ?
-				  array($mntentv['fsname']) : array(),
-				"uuid" => is_uuid($mntentv['fsname']) ?
-				  $mntentv['fsname'] : "",
+				"devicefile" => is_devicefile($mntentv->get("fsname")) ?
+				  $mntentv->get("fsname") : "",
+				"devicefiles" => is_devicefile($mntentv->get("fsname")) ?
+				  array($mntentv->get("fsname")) : array(),
+				"uuid" => is_uuid($mntentv->get("fsname")) ?
+				  $mntentv->get("fsname") : "",
 				"label" => "",
-				"type" => $mntentv['type'],
+				"type" => $mntentv->get("type"),
 				"blocks" => "-1", // as string
 				"mounted" => FALSE,
 				"mountable" => TRUE,
-				"mountpoint" => $mntentv['dir'],
+				"mountpoint" => $mntentv->get("dir"),
 				"used" => "-1", // as string
 				"available" => "-1", // as string
 				"size" => "-1", // as string
@@ -421,7 +405,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				"propautodefrag" => $fsb->hasAutoDefragSupport(),
 				"hasMultipleDevices" => FALSE,
 				"status" => 3,
-				"_used" => $xmlConfig->exists($xpath)
+				"_used" => $db->isReferenced($mntentv)
 			);
 		}
 		// Filter result.
@@ -435,19 +419,16 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param context The context of the caller.
 	 * @return An array containing objects with the following fields:
 	 *   devicefile, size and description.
-	 * @throw E_MISC_FAILURE
+	 * @throw \OMV\Exception
 	 */
 	public function getCandidates($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get a list of all potential usable devices.
-		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerateUnused())) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
-			  "Failed to get list of unused devices");
-		}
+		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerateUnused()))
+			throw new \OMV\Exception("Failed to get list of unused devices.");
 		// Prepare the result list.
 		$result = array();
 		foreach ($devs as $devk => $devv) {
@@ -459,12 +440,14 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			if (TRUE === $sd->isReadOnly())
 				continue;
 			// Check if device is referenced/used by a plugin.
+			$db = \OMV\Config\Database::getInstance();
 			$xpath = sprintf("//services/devicefile[contains(.,'%s')]",
 			  $sd->getDeviceFile());
-			if (TRUE === $xmlConfig->exists($xpath))
+			if (TRUE === $db->getBackend()->exists($xpath))
 				continue;
 			// Does this device already contain a filesystem?
-			if (FALSE !== \OMV\System\Filesystem\Filesystem::hasFileSystem($sd->getDeviceFile()))
+			if (FALSE !== \OMV\System\Filesystem\Filesystem::hasFileSystem(
+			  $sd->getDeviceFile()))
 				continue;
 			// The device is a potential candidate to create a filesystem
 			// on it.

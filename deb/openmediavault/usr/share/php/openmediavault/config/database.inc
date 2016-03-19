@@ -48,7 +48,20 @@ class Database {
 	}
 
 	/**
-	 * Get the configuration object at the specified XPath expression.
+	 * Get the specified configuration object. The method can be called
+	 * the following way:
+	 * id [[arg0] [arg1] [arg2] ...]
+	 * If this method is called only with \em id, then non iterable
+	 * configuration objects are assumed, e.g. "conf.service.ftp".
+	 * Example: xxx->get("conf.service.ftp")
+	 * If only arg0 is given, it is assumed to be the UUID of the
+	 * configuration object.
+	 * Example: xxx->get("conf.service.ftp.share", "f819afcc-eda1-...")
+	 * If you call this method with multiple args, then arg0 is used
+	 * as the property and the following args as values. Multiple
+	 * values are combined via OR.
+	 * Example: xxx->get("conf.system.hdparm", "devicefile",
+	 *   "/dev/sdc", "/dev/disk/by-id/wwn-0x500253855031cfa5")
 	 * @param id The data model identifier.
 	 * @param ...args Additional arguments, e.g. the object UUID.
 	 * @return The configuration object.
@@ -83,6 +96,30 @@ class Database {
 		} else {
 			$result = new ConfigObject($id);
 			$result->setAssoc($data, FALSE);
+		}
+		return $result;
+	}
+
+	public function getByXpath($id, $xpath) {
+		// Get the specified data model.
+		$mngr = \OMV\DataModel\Manager::getInstance();
+		$model = $mngr->getModel($id);
+		// Is the configuration object iterable?
+		if (FALSE === $object->isIterable()) {
+			throw new DatabaseException(
+			  "The configuration object is not iterable.");
+		}
+		// Create the query builder.
+		$queryBuilder = new DatabaseBackendQueryBuilder($id);
+		$xpath = $queryBuilder->buildGetByXpathQuery($xpath);
+		// Redirect the query to the database backend.
+		$data = $this->getBackend()->getList($xpath);
+		// Create the configuration objects.
+		$result = array();
+		foreach ($data as $datak => $datav) {
+			$object = new ConfigObject($id);
+			$object->setAssoc($datav, FALSE);
+			$result[] = $object;
 		}
 		return $result;
 	}
