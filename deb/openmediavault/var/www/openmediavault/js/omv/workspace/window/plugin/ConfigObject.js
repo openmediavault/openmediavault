@@ -40,17 +40,18 @@ Ext.define("OMV.workspace.window.plugin.ConfigObject", {
 	extend: "Ext.plugin.Abstract",
 	alias: [ "plugin.configobject", "plugin.dbobject" ],
 
-	idProperty: "uuid",
-	newIdValue: String(OMV.UUID_UNDEFINED),
-
 	/**
 	 * The class constructor.
 	 * The id of the database/configuration object MUST be part of
 	 * the client component to which this plugin is associated to.
 	 */
-	constructor: function() {
+	constructor: function(config) {
 		var me = this;
-		me.callParent(arguments);
+		me.callParent(config);
+		Ext.apply(me, config, {
+			idProperty: "uuid",
+			newIdValue: String(OMV.UUID_UNDEFINED)
+		});
 		var client = me.getCmp();
 		// The client must have the given id property.
 		if (Ext.isDefined(client[me.idProperty])) {
