@@ -84,7 +84,7 @@ class Database {
 		else
 			$data = $this->getBackend()->get($xpath);
 		if (is_null($data) || (is_array($data) && empty($data))) {
-			throw new DatabaseException("Failed to execute query '%s'.",
+			throw new DatabaseException("Failed to execute XPath query '%s'.",
 			  $xpath);
 		}
 		if ((TRUE === $model->isIterable()) && (FALSE === $hasArgs)) {
@@ -152,11 +152,14 @@ class Database {
 
 	/**
 	 * Set the configuration object at the specified XPath expression.
+	 * If the configuration object is iterable and identified as new,
+	 * then the identifier property (in most cases 'uuid') will be
+	 * generated and set automatically.
 	 * @param object The configuration object to use.
 	 * @return None.
 	 * @throw \OMV\Config\DatabaseException
 	 */
-	public function set(ConfigObject $object) {
+	public function set(ConfigObject &$object) {
 		$queryBuilder = new DatabaseBackendQueryBuilder(
 		  $object->getModel()->getId());
 		// Build the XPath query string.
@@ -184,7 +187,7 @@ class Database {
 			$result = $this->getBackend()->replace($xpath, $values);
 		}
 		if (FALSE === $result) {
-			throw new DatabaseException("Failed to execute query '%s'.",
+			throw new DatabaseException("Failed to execute XPath query '%s'.",
 			  $xpath);
 		}
 	}
@@ -200,7 +203,7 @@ class Database {
 		  $object->getModel()->getId());
 		$xpath = $queryBuilder->buildDeleteQuery($object);
 		if (FALSE === $this->getBackend()->delete($xpath)) {
-			throw new DatabaseException("Failed to execute query '%s'.",
+			throw new DatabaseException("Failed to execute XPath query '%s'.",
 			  $xpath);
 		}
 	}
@@ -224,7 +227,7 @@ class Database {
 		$queryBuilder = new DatabaseBackendQueryBuilder($id);
 		$xpath = $queryBuilder->buildGetByPredicateQuery($predicate);
 		if (FALSE === $this->getBackend()->delete($xpath)) {
-			throw new DatabaseException("Failed to execute query '%s'.",
+			throw new DatabaseException("Failed to execute XPath query '%s'.",
 			  $xpath);
 		}
 	}
@@ -255,7 +258,7 @@ class Database {
 	public function assertIsReferenced(ConfigObject $object) {
 		if (FALSE === $this->isReferenced($object)) {
 			throw new DatabaseException(
-			  "The configuration object is referenced.");
+			  "The configuration object is not referenced.");
 		}
 	}
 
