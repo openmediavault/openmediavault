@@ -50,7 +50,6 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 	 * @param context The context of the caller.
 	 * @return An array of objects. Each object represents a mount point
 	 *   entry.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function enumerateEntries($params, $context) {
 		// Validate the RPC caller context.
@@ -98,70 +97,37 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 	 *   \em hidden Set to 0 to write the mount point entry to /etc/fstab.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_EXEC_FAILED
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
-	 * @throw E_MISC_FAILURE
 	 */
 	public function set($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-				  "fsname":{"type":"string"},
-				  "dir":{"type":"string"},
-				  "type":{"type":"string"},
-				  "opts":{"type":"string"},
-				  "freq":{"type":"integer"},
-				  "passno":{"type":"integer","enum":[0,1,2]}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.fstab.set");
 		// Get the filesystem backend.
 		$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
+		$fsbMngr->assertGetBackendByType($params['type']);
 		$fsb = $fsbMngr->getBackendByType($params['type']);
-		if (is_null($fsb)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  "No filesystem backend exists for type '%s'",
-			  $params['type']));
-		}
 		// Prepare the configuration object.
-		$object = array(
-			  "uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-				\OMV\Uuid::uuid4() : $params['uuid'],
-			  "fsname" => $params['fsname'],
-			  "dir" => $params['dir'],
-			  "type" => $params['type'],
-			  "opts" => $params['opts'],
-			  "freq" => $params['freq'],
-			  "passno" => $params['passno'],
-			  "hidden" => $fsb->hasFstabSupport() ? 0 : 1
-		  );
+		$object = new \OMV\Config\ConfigObject(
+		  "conf.system.filesystem.mountpoint");
+		$object->setAssoc($params);
+		$object->set("hidden", $fsb->hasFstabSupport());
 		// Set the configuration object.
-		$success = FALSE;
-		if ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
-			// Append object to configuration.
-			$success = $xmlConfig->set("//system/fstab",
-			  array("mntent" => $object));
-		} else {
-			// Update existing configuration object.
-			$success = $xmlConfig->replace("//system/fstab/mntent" .
-			  "[uuid='{$params['uuid']}']", $object);
+		$isNew = $object->isNew();
+		if (TRUE === $isNew) {
+			// Assign a new UUID.
+			$object->set("uuid", \OMV\Uuid::uuid4());
 		}
-		if (FALSE === $success) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.fstab.mntent", $object);
+		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.fstab.mntent", $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -171,12 +137,8 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The deleted configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_MISC_FAILURE
-	 * @throw E_EXEC_FAILED
 	 */
 	public function delete($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -184,8 +146,8 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		$xpath = sprintf("//system/fstab/mntent[uuid='%s']", $params['uuid']);
-		return $this->deleteConfigObjectByPath($xpath,
+		return $this->deleteConfigObjectByUuid(
+		  "conf.system.filesystem.mountpoint", $params['uuid'],
 		  "org.openmediavault.system.fstab.mntent");
 	}
 
@@ -205,18 +167,12 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 	 * @return The mount point configuration object if exists, otherwise FALSE.
 	 */
 	public function getByFsName($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "id":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.fstab.getbyfsname");
 		// Get the list of mount point configuration objects.
 		$objects = $this->callMethod("enumerateEntries", NULL, $context);
 		// Add function parameter to search argument list.
@@ -267,18 +223,12 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 	 * @return The mount point configuration object if exists, otherwise FALSE.
 	 */
 	public function getByDir($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "dir":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.fstab.getbydir");
 		// Get the list of mount point configuration objects.
 		$objects = $this->callMethod("enumerateEntries", NULL, $context);
 		// Try to find the configuration object matching the given search

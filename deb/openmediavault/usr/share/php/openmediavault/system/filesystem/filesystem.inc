@@ -36,12 +36,8 @@ class Filesystem extends FilesystemAbstract {
 		$mngr = Backend\Manager::getInstance();
 		foreach ($mngr->enumerate() as $datak => $datav) {
 			// Get the filesystem backend.
+			$mngr->assertGetBackendByType($datav['type']);
 			$backend = $mngr->getBackendByType($datav['type']);
-			if (is_null($backend)) {
-				throw new \OMV\Exception(
-				  "No filesystem backend exists for '%s'.",
-				  $datav['type']);
-			}
 			// Get the filesystem implementation. Use the devicefile to get
 			// the filesystem details because VFAT filesystems do not have
 			// a valid UUID.

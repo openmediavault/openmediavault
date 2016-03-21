@@ -79,6 +79,18 @@ class Manager implements \IteratorAggregate {
 	}
 
 	/**
+	 * @throw \OMV\Exception
+	 */
+	final public function assertGetBackendByType($type) {
+		$backend = $this->getBackend($type);
+		if (is_null($backend)) {
+			throw new \OMV\Exception(
+			  "No filesystem backend exists for type '%s'.",
+			  $type);
+		}
+	}
+
+	/**
 	 * Get the backend of the specified filesystem identifier.
 	 * @param id The UUID, label or device path of the filesystem, e.g.
 	 *   <ul>
@@ -119,6 +131,18 @@ class Manager implements \IteratorAggregate {
 			}
 		}
 		return $result;
+	}
+
+	/**
+	 * @throw \OMV\Exception
+	 */
+	final public function assertGetBackendById($id) {
+		$backend = $this->getBackendById($id);
+		if (is_null($backend)) {
+			throw new \OMV\Exception(
+			  "No filesystem backend exists for '%s'.",
+			  $id);
+		}
 	}
 
 	/**
