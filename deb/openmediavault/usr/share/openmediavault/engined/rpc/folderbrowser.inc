@@ -19,8 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/error.inc");
 require_once("openmediavault/functions.inc");
 
 class OMVRpcServiceFolderBrowser extends \OMV\Rpc\ServiceAbstract {
@@ -48,8 +46,7 @@ class OMVRpcServiceFolderBrowser extends \OMV\Rpc\ServiceAbstract {
 	 *   \em path The relative directory path.
 	 * @param context The context of the caller.
 	 * @return An array of directory names.
-	 * @throw E_RPC_SERVICE_INVALID_PARAM
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 * @ŧhrow \OMV\Exception
 	 */
 	public function get($params, $context) {
 		global $xmlConfig;
@@ -58,21 +55,13 @@ class OMVRpcServiceFolderBrowser extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
-				  "type":{"type":"string","enum":["mntent","sharedfolder"]},
-				  "path":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.folderbrowser.get");
 		// The field 'path' may not contain the characters '..'. This is
 		// because of security reasons: the given canonicalized absolute
 		// path MUST be below the given shared folder/mount point.
 		if (1 == preg_match("/\.\./", $params['path'])) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PARAM,
-			  sprintf(gettext("The field '%s' contains forbidden ".
-			  "two-dot symbols"), "path"));
+			throw new \OMV\Exception(
+			  "The field 'path' contains forbidden two-dot symbols");
 		}
 		switch ($params['type']) {
 		case "sharedfolder":
@@ -82,20 +71,16 @@ class OMVRpcServiceFolderBrowser extends \OMV\Rpc\ServiceAbstract {
 			break;
 		case "mntent":
 			// Get the mount point configuration object.
-			$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
+			$db = \OMV\Config\Database::getInstance();
+			$object = $db->get("conf.system.filesystem.mountpoint",
 			  $params['uuid']);
-			$object = $xmlConfig->get($xpath);
-			if (is_null($object)) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-				  $xpath);
-			}
-			$rootPath = $object['dir'];
+			$rootPath = $object->get("dir");
 			break;
 		}
 		// List the directory contents.
 		$result = array();
 		$path = build_path(array($rootPath, $params['path']));
-		foreach (new DirectoryIterator($path) as $item) {
+		foreach (new \DirectoryIterator($path) as $item) {
 			if ($item->isDot())
 				continue;
 			if (!$item->isDir())

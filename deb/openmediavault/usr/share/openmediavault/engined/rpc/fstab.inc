@@ -53,19 +53,13 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function enumerateEntries($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$xpath = "//system/fstab/mntent";
-		$objects = $xmlConfig->getList($xpath);
-		if (is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		return $objects;
+		$db = \OMV\Config\Database::getInstance();
+		return $db->getAssoc("conf.system.filesystem.mountpoint");
 	}
 
 	/**
@@ -74,10 +68,8 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function get($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -85,17 +77,9 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
-		$xpath = sprintf("//system/fstab/mntent[uuid='%s']", $params['uuid']);
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify result object.
-		$object['freq'] = intval($object['freq']);
-		$object['passno'] = intval($object['passno']);
-		$object['hidden'] = intval($object['hidden']);
-		return $object;
+		$db = \OMV\Config\Database::getInstance();
+		return $db->getAssoc("conf.system.filesystem.mountpoint",
+		  $params['uuid']);
 	}
 
 	/**
@@ -300,8 +284,8 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 		// Try to find the configuration object matching the given search
 		// arguments.
 		$result = FALSE;
-		foreach($objects as $objectk => $objectv) {
-			if($params['dir'] === $objectv['dir']) {
+		foreach ($objects as $objectk => $objectv) {
+			if ($params['dir'] === $objectv['dir']) {
 				$result = $objectv;
 				break;
 			}

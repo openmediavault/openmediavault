@@ -95,8 +95,7 @@ class OMVRpcServiceCron extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.system.cron.job", $params['uuid']);
-		return $object->getAssoc();
+		return $db->getAssoc("conf.system.cron.job", $params['uuid']);
 	}
 
 	/**

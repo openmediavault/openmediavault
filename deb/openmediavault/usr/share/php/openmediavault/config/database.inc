@@ -64,7 +64,7 @@ class Database {
 	 *   "/dev/sdc", "/dev/disk/by-id/wwn-0x500253855031cfa5")
 	 * @param id The data model identifier.
 	 * @param ...args Additional arguments, e.g. the object UUID.
-	 * @return The configuration object.
+	 * @return The configuration object(s).
 	 * @throw \OMV\Config\DatabaseException
 	 */
 	public function get($id, ...$args) {
@@ -97,6 +97,19 @@ class Database {
 		} else {
 			$result = new ConfigObject($id);
 			$result->setAssoc($data, FALSE);
+		}
+		return $result;
+	}
+
+	public function getAssoc($id, ...$args) {
+		$objects = $this->get($id, ...$args);
+		if (is_array($objects)) {
+			$result = array();
+			foreach ($objects as $objectk => $objectv) {
+				$result[] = $objectv->getAssoc();
+			}
+		} else {
+			$result = $objects->getAssoc();
 		}
 		return $result;
 	}
@@ -216,6 +229,25 @@ class Database {
 		return = $this->getBackend()->exists($xpath);
 	}
 
+	/**
+	 * Assert that the specified configuration object is referenced.
+	 * @param object The configuration object to use.
+	 * @return None.
+	 * @throw \OMV\Config\DatabaseException
+	 */
+	public function assertIsReferenced(ConfigObject $object) {
+		if (FALSE === $this->isReferenced($object)) {
+			throw new DatabaseException(
+			  "The configuration object is referenced.");
+		}
+	}
+
+	/**
+	 * Assert that the specified configuration object is not referenced.
+	 * @param object The configuration object to use.
+	 * @return None.
+	 * @throw \OMV\Config\DatabaseException
+	 */
 	public function assertIsNotReferenced(ConfigObject $object) {
 		if (TRUE === $this->isReferenced($object)) {
 			throw new DatabaseException(
@@ -270,13 +302,12 @@ class Database {
 	}
 
 	/**
-	 * Check if a configuration object with the value of the specified property
-	 * already exists.
+	 * Check if a configuration object with the value of the specified
+	 * property is unique.
 	 * @param object The configuration object to use.
 	 * @param property The name of the data model property.
 	 * @return TRUE if no configuration object with the same property
 	 *   value exists, otherwise FALSE.
-	 * @throw \OMV\Config\DatabaseException
 	 */
 	public function isUnique(ConfigObject $object, $property) {
 		// Get the specified data model.
@@ -286,20 +317,21 @@ class Database {
 		$queryBuilder = new DatabaseBackendQueryBuilder($id);
 		$xpath = $queryBuilder->buildExistsQuery($property,
 		  $object->get($property));
-		$result = $this->getBackend()->exists($xpath);
-		if ((FALSE === $this->quiet) && (TRUE === $result)) {
-			throw new DatabaseException("The configuration object is not ".
-			  "unique (property='%s', value='%s').", $property,
-			  $object->get($property));
-		}
-		return !$result;
+		return !$this->getBackend()->exists($xpath);
 	}
 
+	/**
+	 * Assert that a configuration object with the value of the specified
+	 * property is unique.
+	 * @param object The configuration object to use.
+	 * @return None.
+	 * @throw \OMV\Config\DatabaseException
+	 */
 	public function assertIsUnique(ConfigObject $object, $property) {
 		if (FALSE === $this->isUnique($object, $property)) {
 			throw new DatabaseException("The configuration object is not ".
-			  "unique (property='%s', value='%s').", $property,
-			  $object->get($property));
+			  "unique. An object with the property '%s' and value '%s'".
+			  "already exists.", $property, $object->get($property));
 		}
 	}
 
