@@ -196,7 +196,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Check if the certificate is referenced.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.system.certificate.ssl", $params['uuid']);
-		$db->isReferenced($object, FALSE);
+		$db->assertIsNotReferenced($object);
 		// Delete the configuration object.
 		return $this->deleteConfigObjectByObject($object,
 		  "org.openmediavault.system.certificates.sslcertificate");
@@ -497,7 +497,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Check if the certificate is referenced.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.system.certificate.ssh", $params['uuid']);
-		$db->isReferenced($object, FALSE);
+		$db->assertIsNotReferenced($object);
 		// Delete the configuration object.
 		return $this->deleteConfigObjectByObject($object,
 		  "org.openmediavault.system.certificates.sshcertificate");

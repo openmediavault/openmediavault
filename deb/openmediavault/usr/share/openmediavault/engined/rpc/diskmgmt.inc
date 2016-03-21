@@ -116,16 +116,15 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Append additional configuration data.
 		foreach ($objects as $objectk => &$objectv) {
 			// Check if there exists a hdparm configuration object for the
-			// given device. Note, we have to check for 'dev/xxx' and
-			// 'dev/disk/by-id/xxx' entries.
+			// given device. Note, we have to check for '/dev/xxx' and
+			// '/dev/disk/by-id/xxx' entries.
 			$db = \OMV\Config\Database::getInstance();
-			if (TRUE === $db->exists("conf.system.hdparm", "devicefile",
-			  array($objectv['devicefilebyid'], $objectv['devicefile']))) {
-				// Get the configuration object.
-				$object = $db->get("conf.system.hdparm", "devicefile",
-				  $objectv['devicefilebyid'], $objectv['devicefile']);
-				// Append the configuration values.
-				$objectv['hdparm'] = $object->getAssoc();
+			$confObjects = $db->getByPredicate("conf.system.hdparm",
+			  sprintf("devicefile='%s' or devicefile='%s']",
+			  $objectv['devicefilebyid'], $objectv['devicefile']));
+			if (1 <= count($confObjects)) {
+				// Append the first found configuration values.
+				$objectv['hdparm'] = $confObjects[0]->getAssoc();
 			}
 		}
 		// Filter result.
@@ -179,7 +178,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 		$isNew = $object->isNew();
 		if (TRUE === $isNew) {
 			// Check uniqueness.
-			$db->isUnique($object, "devicefile", FALSE);
+			$db->assertIsUnique($object, "devicefile");
 			// Assign a new UUID.
 			$object->set("uuid", \OMV\Uuid::uuid4());
 		}

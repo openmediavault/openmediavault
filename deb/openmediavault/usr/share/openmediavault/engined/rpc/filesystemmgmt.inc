@@ -179,7 +179,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Get list of mount points, except bind mounts.
 		$db = \OMV\Config\Database::getInstance();
-		$objects = $xmlConfig->getByXpath("conf.system.filesystem.mountpoint",
+		$objects = $xmlConfig->getByPredicate(
+		  "conf.system.filesystem.mountpoint",
 		  "not(contains(opts,'bind'))");
 		// Append '/dev/root'?
 		if (TRUE === array_boolval($params, "includeroot", FALSE)) {
@@ -273,6 +274,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \li 3 - Missing
 	 *   </ul>
 	 *  Additional the internal fields \em _used and \em _readonly are set.
+	 * @ŧhrow \OMV\Exception
 	 */
 	public function getList($params, $context) {
 		// Validate the RPC caller context.
@@ -327,9 +329,9 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
 			$fsb = $fsbMngr->getBackendByType($fsInfo['type']);
 			if (is_null($fsb)) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("No filesystem backend exists for '%s'",
-				  $fsInfo['type']));
+				throw new \OMV\Exception(
+				  "No filesystem backend exists for '%s'.",
+				  $fsInfo['type']);
 			}
 			// Add the filesystem to the result list.
 			$objects[] = array(
@@ -362,16 +364,16 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// exist anymore. This is necessary to be able remove invalid mount
 		// point configuration objects. Mark such filesystem as missing.
 		$db = \OMV\Config\Database::getInstance();
-		$mntents = $xmlConfig->getByXpath("conf.system.filesystem.mountpoint",
+		$mntents = $db->getByPredicate("conf.system.filesystem.mountpoint",
 		  "not(contains(opts,'bind') or contains(opts,'loop'))");
 		foreach ($mntents as $mntentk => $mntentv) {
 			// Get the filesystem backend.
 			$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
 			$fsb = $fsbMngr->getBackendByType($mntentv->get("type"));
 			if (is_null($fsb)) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("No filesystem backend exists for '%s'",
-				  $mntentv->get("type")));
+				throw new \OMV\Exception(
+				  "No filesystem backend exists for '%s'.",
+				  $mntentv->get("type"));
 			}
 			// Skip valid mount point configuration objects (the filesystem
 			// exists in this case).
@@ -468,10 +470,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em label The label of the filesystem.
 	 * @param context The context of the caller.
 	 * @return The name of the background process status file.
-	 * @throw E_MISC_DEVICE_NOT_FOUND
-	 * @throw E_CONFIG_OBJECT_UNIQUENESS
-	 * @throw E_EXEC_FAILED
-	 * @throw E_MISC_FAILURE
+	 * @throw \OMV\Exception
 	 */
 	public function create($params, $context) {
 		global $xmlConfig;
@@ -482,32 +481,30 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.filesystemmgmt.create");
 		// Get the storage device object.
-		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($params['devicefile']);
-		if (is_null($sd) || !$sd->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
-			  $params['devicefile']);
-		}
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
+		  $params['devicefile'], FALSE);
 		// Check uniqueness. If there exists a mount point for the given
 		// device then it has already a filesystem that is in use.
 		if (FALSE !== \OMV\Rpc\Rpc::call("FsTab", "getByFsName", array(
 		  "id" => $sd->getDeviceFile()), $context)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-			  sprintf(gettext("There already exists a mount point for %s"),
-			  $sd->getDeviceFile()));
+			throw new \OMV\Exception("A mount point already exists for '%s'.",
+			  $sd->getDeviceFile());
 		}
 		// Get the storage device backend of the given device.
-		$sdb = \OMV\System\Storage\Backend\Manager::getBackend($sd->getDeviceFile());
+		$sdb = \OMV\System\Storage\Backend\Manager::getBackend(
+		  $sd->getDeviceFile());
 		if (is_null($sdb)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  "No storage device backend exists for device %s",
-			  $sd->getDeviceFile()));
+			throw new \OMV\Exception(
+			  "No storage device backend exists for device '%s'.",
+			  $sd->getDeviceFile());
 		}
 		// Get the corresponding filesystem backend.
 		$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
 		$fsb = $fsbMngr->getBackendByType($params['type']);
 		if (is_null($fsb)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  "No filesystem backend exists for type '%s'", $params['type']));
+			throw new \OMV\Exception(
+			  "No filesystem backend exists for type '%s'.",
+			  $params['type']);
 		}
 		// Get the filesystem device file name from the storage device
 		// backend (this may differ depending on the storage device).
@@ -628,13 +625,13 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
 		$fsb = $fsbMngr->getBackendById($params['id']);
 		if (is_null($fsb)) {
-			throw new \OMV\Exception("No filesystem backend exists for '%s'",
+			throw new \OMV\Exception("No filesystem backend exists for '%s'.",
 			  $params['id']);
 		}
 		// Check if the filesystem supports online resizing.
 		if (!$fsb->hasResizeSupport()) {
 			throw new \OMV\Exception(
-			  "The filesystem '%s' (type=%s) does not support online resizing",
+			  "The filesystem '%s' (type=%s) does not support online resizing.",
 			  $params['id'], $fsb->getType());
 		}
 		// Get the filesystem implementation.
@@ -642,13 +639,10 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		if (is_null($fs) || !$fs->exists()) {
 			throw new \OMV\Exception(
 			  "Failed to get the '%s' filesystem implementation or '%s' ".
-			  "does not exist", $fsb->getType(), $params['id']);
+			  "does not exist.", $fsb->getType(), $params['id']);
 		}
 		// Grow the filesystem.
-		if (!$fs->grow()) {
-			throw new \OMV\Exception("Failed to grow the filesystem '%s': %s",
-			  $fs->getDeviceFile(), $fs->getLastError());
-		}
+		$fs->grow();
 	}
 
 	/**
@@ -660,7 +654,6 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @throw \OMV\Exception
 	 */
 	public function delete($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -679,23 +672,28 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			"label" => "",
 			"type" => ""
 		);
-		// Get the fstab mount point configuration object that belongs to
+		// Get the mount point configuration object that belongs to
 		// the filesystem to be deleted.
-		if (is_devicefile($params['id'])) {
-			// Use the filesystem name to identify the object.
-			$xpath = sprintf("//system/fstab/mntent[fsname='%s']",
-			  $params['id']);
-		} else {
-			// Use the filesystem UUID to identify the object by its mount
-			// point directory:
-			// /media/<fsuuid>
-			// /media/D81A-F053 (VFAT)
-			// /media/74A225C8A2258F (NTFS)
-			// /media/9e8aaee0-ab3a-467f-9bdb-7cced3b8afc4 (EXT2/3/4, JFS, XFS)
-			$xpath = sprintf("//system/fstab/mntent[dir='%s']",
-			  \OMV\System\Filesystem\Filesystem::buildMountPath($params['id']));
+		$db = \OMV\Config\Database::getInstance();
+		try {
+			if (is_devicefile($params['id'])) {
+				// Use the filesystem name to identify the object.
+				$meObject = $db->get("conf.system.filesystem.mountpoint",
+				  "fsname", $params['id']);
+			} else {
+				// Use the filesystem UUID to identify the object by its mount
+				// point directory:
+				// /media/<fsuuid>
+				// /media/D81A-F053 (VFAT)
+				// /media/74A225C8A2258F (NTFS)
+				// /media/9e8aaee0-ab3a-467f-9bdb-7cced3b8afc4 (EXT2/3/4, JFS, XFS)
+				$meObject = $db->get("conf.system.filesystem.mountpoint",
+				  "dir", \OMV\System\Filesystem\Filesystem::buildMountPath(
+				  $params['id']));
+			}
+		} catch(Exception $e) {
+			$meObject = NULL;
 		}
-		$meObject = $xmlConfig->get($xpath);
 		// Get the filesystem if available.
 		$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['id']);
 		// Update the notification object.
@@ -707,7 +705,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				"type" => $fs->getType()
 			);
 		} else if (!is_null($meObject)) {
-			$fsObject['type'] = $meObject['type'];
+			$fsObject['type'] = $meObject->get("type");
 		}
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
@@ -719,7 +717,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// filesystem and unlink the mount point. Changes to the fstab
 			// module must not be applied immediately.
 			\OMV\Rpc\Rpc::call("FsTab", "delete", array(
-			  "uuid" => $meObject['uuid']), $context);
+			  "uuid" => $meObject->("uuid")), $context);
 			\OMV\Rpc\Rpc::call("Config", "applyChanges", array(
 				  "modules" => array("fstab"),
 				  "force" => TRUE
@@ -761,7 +759,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$fsb = $fsbMngr->getBackendById($params['id']);
 		if (is_null($fsb)) {
 			throw new \OMV\Exception(
-			  "Filesystem '%s' not found or no backend exists",
+			  "Filesystem '%s' not found or no backend exists.",
 			  $params['id']);
 		}
 		// Get the filesystem.
@@ -769,13 +767,13 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		if (is_null($fs) || !$fs->exists()) {
 			throw new \OMV\Exception(
 			  "Failed to get the '%s' filesystem implementation or '%s' ".
-			  "does not exist", $fsb->getType(), $params['id']);
+			  "does not exist.", $fsb->getType(), $params['id']);
 		}
 		// Get the storage device containing the filesystem, e.g. /dev/sdb or
 		// /dev/cciss/c0d0.
 		if (FALSE === ($storageDeviceFile = $fs->getStorageDeviceFile())) {
 			throw new \OMV\Exception(
-			  "Failed to get storage device file from '%s'",
+			  "Failed to get storage device file from '%s'.",
 			  $fs->getDeviceFile());
 		}
 		// Get the according storage device object.
@@ -802,7 +800,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			$opts = $fsb->getFstabMntOptions($sd);
 			break;
 		default:
-			throw new \OMV\Exception("Filesystem '%s' not supported",
+			throw new \OMV\Exception("Filesystem '%s' not supported.",
 			  $fs->getType());
 			break;
 		}
@@ -817,7 +815,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				\OMV\Rpc\Rpc::call("FsTab", "set", array(
 					  "uuid" => $GLOBALS['OMV_UUID_UNDEFINED'],
 					  "fsname" => $fsName,
-					  "dir" => \OMV\System\Filesystem\Filesystem::buildMountPath($fs->getUuid()),
+					  "dir" => \OMV\System\Filesystem\Filesystem::buildMountPath(
+					    $fs->getUuid()),
 					  "type" => $fs->getType(),
 					  "opts" => implode(",", $opts),
 					  "freq" => 0,
@@ -855,7 +854,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Mount the filesystem.
 			if (TRUE === $fs->isMounted()) {
 				throw new \OMV\Exception(
-				  "The filesystem '%s' is already mounted",
+				  "The filesystem '%s' is already mounted.",
 				  $fsName);
 			}
 			$fs->mount();
@@ -873,7 +872,6 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @throw \OMV\Exception
 	 */
 	public function umount($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -882,11 +880,12 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.filesystemmgmt.umount");
 		// Remove fstab entry?
 		if (TRUE === boolvalEx($params['fstab'])) {
+			$db = \OMV\Config\Database::getInstance();
 			// Get the fstab mount point configuration object.
 			if (is_devicefile($params['id'])) {
 				// Use the filesystem name to identify the object.
-				$xpath = sprintf("//system/fstab/mntent[fsname='%s']",
-				  $params['id']);
+				$meObject = $db->get("conf.system.filesystem.mountpoint",
+				  "fsname", $params['id']);
 			} else {
 				// Use the filesystem UUID to identify the object by its mount
 				// point directory:
@@ -895,21 +894,15 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				// /media/74A225C8A2258F (NTFS)
 				// /media/9e8aaee0-ab3a-467f-9bdb-7cced3b8afc4 (EXT2/3/4, JFS, XFS)
 				// /media/2015-04-25-12-52-13-00 (ISO9660, UDF)
-				$xpath = sprintf("//system/fstab/mntent[dir='%s']",
-				  \OMV\System\Filesystem\Filesystem::buildMountPath($params['id']));
+				$meObject = $db->get("conf.system.filesystem.mountpoint",
+				  "dir", \OMV\System\Filesystem\Filesystem::buildMountPath(
+				  $params['id']));
 			}
-			$object = $xmlConfig->get($xpath);
-/*
-			if (is_null($object)) {
-				throw new \OMV\Exception(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-				  $xpath);
-			}
-*/
 			// Delete the mount point configuration object. Unmount the
 			// filesystem and unlink the mount point. Changes to the fstab
 			// module must not be applied immediately.
 			\OMV\Rpc\Rpc::call("FsTab", "delete", array(
-			  "uuid" => $object['uuid']), $context);
+			  "uuid" => $meObject->get("uuid")), $context);
 			\OMV\Rpc\Rpc::call("Config", "applyChanges", array(
 				  "modules" => array("fstab"),
 				  "force" => TRUE
@@ -917,7 +910,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		} else { // Only unmount the filesystem.
 			$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['id']);
 			if (is_null($fs) || !$fs->exists()) {
-				throw new \OMV\Exception("Filesystem '%s' not found",
+				throw new \OMV\Exception("Filesystem '%s' not found.",
 				  $params['id']);
 			}
 			if (TRUE === $fs->isMounted()) {

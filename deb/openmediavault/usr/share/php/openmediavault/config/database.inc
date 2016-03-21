@@ -65,6 +65,7 @@ class Database {
 	 * @param id The data model identifier.
 	 * @param ...args Additional arguments, e.g. the object UUID.
 	 * @return The configuration object.
+	 * @throw \OMV\Config\DatabaseException
 	 */
 	public function get($id, ...$args) {
 		// Check if we have to add additional arguments to the query.
@@ -100,7 +101,19 @@ class Database {
 		return $result;
 	}
 
-	public function getByXpath($id, $xpath) {
+	/**
+	 * Get iterable configuration objects that are matching the specified
+	 * predicate.
+	 * @param id The data model identifier.
+	 * @param predicate The predicate to search for, e.g. <ul>
+	 *   \li "not(contains(opts,'bind'))"
+	 *   \li "devicefile='/dev/sda' or devicefile='/dev/disk/by-id/ata-ST1000DM003-1CH132_S2DF80PC']"
+	 *   </ul>
+	 *   The predicate must be defined in XPath syntax.
+	 * @return An array of configuration objects.
+	 * @throw \OMV\Config\DatabaseException
+	 */
+	public function getByPredicate($id, $predicate) {
 		// Get the specified data model.
 		$mngr = \OMV\DataModel\Manager::getInstance();
 		$model = $mngr->getModel($id);
@@ -111,7 +124,7 @@ class Database {
 		}
 		// Create the query builder.
 		$queryBuilder = new DatabaseBackendQueryBuilder($id);
-		$xpath = $queryBuilder->buildGetByXpathQuery($xpath);
+		$xpath = $queryBuilder->buildGetByPredicateQuery($predicate);
 		// Redirect the query to the database backend.
 		$data = $this->getBackend()->getList($xpath);
 		// Create the configuration objects.
@@ -128,19 +141,20 @@ class Database {
 	 * Set the configuration object at the specified XPath expression.
 	 * @param object The configuration object to use.
 	 * @return None.
+	 * @throw \OMV\Config\DatabaseException
 	 */
 	public function set(ConfigObject $object) {
 		$queryBuilder = new DatabaseBackendQueryBuilder(
 		  $object->getModel()->getId());
 		$xpath = $queryBuilder->buildSetQuery($object);
 		if ((TRUE === $object->isIterable()) && (TRUE === $object->isNew())) {
-			$success = $this->getBackend()->set($xpath,
+			$result = $this->getBackend()->set($xpath,
 			  $queryBuilder->getValues($object));
 		} else {
-			$success = $this->getBackend()->replace($xpath,
+			$result = $this->getBackend()->replace($xpath,
 			  $queryBuilder->getValues($object));
 		}
-		if (FALSE === $success) {
+		if (FALSE === $result) {
 			throw new DatabaseException("Failed to execute query '%s'.",
 			  $xpath);
 		}
@@ -150,6 +164,7 @@ class Database {
 	 * Delete the nodes matching the specified XPath expression.
 	 * @param object The configuration object to use.
 	 * @return None.
+	 * @throw \OMV\Config\DatabaseException
 	 */
 	public function delete(ConfigObject $object) {
 		$queryBuilder = new DatabaseBackendQueryBuilder(
@@ -162,13 +177,35 @@ class Database {
 	}
 
 	/**
-	 * Check if the specified object is referenced.
-	 * @param object The configuration object to use.
-	 * @param quiet Set to FALSE to do throw an exception. Defaults to TRUE.
-	 * @return TRUE if the object is referenced, otherwise FALSE.
+	 * Delete a configuration object with the specified predicate.
+	 * @param id The data model identifier.
+	 * @param predicate The predicate to search for, e.g. <ul>
+	 *   \li "not(contains(opts,'bind') or contains(opts,'loop'))"
+	 *   \li "devicefile='/dev/sda' or devicefile='/dev/disk/by-id/ata-ST1000DM003-1CH132_S2DF80PC']"
+	 *   </ul>
+	 *   The predicate must be defined in XPath syntax.
+	 * @return None.
 	 * @throw \OMV\Config\DatabaseException
 	 */
-	public function isReferenced(ConfigObject $object, $quiet = TRUE) {
+	public function deleteByPredicate($id, $predicate) {
+		// Get the specified data model.
+		$mngr = \OMV\DataModel\Manager::getInstance();
+		$model = $mngr->getModel($id);
+		// Create the query builder.
+		$queryBuilder = new DatabaseBackendQueryBuilder($id);
+		$xpath = $queryBuilder->buildGetByPredicateQuery($predicate);
+		if (FALSE === $this->getBackend()->delete($xpath)) {
+			throw new DatabaseException("Failed to execute query '%s'.",
+			  $xpath);
+		}
+	}
+
+	/**
+	 * Check if the specified object is referenced.
+	 * @param object The configuration object to use.
+	 * @return TRUE if the object is referenced, otherwise FALSE.
+	 */
+	public function isReferenced(ConfigObject $object) {
 		if (FALSE === $object->isReferenceable()) {
 			throw new DatabaseException(
 			  "The configuration object can not be referenced.");
@@ -176,12 +213,14 @@ class Database {
 		$queryBuilder = new DatabaseBackendQueryBuilder(
 		  $object->getModel()->getId());
 		$xpath = $queryBuilder->buildIsReferencedQuery($object);
-		$result = $this->getBackend()->exists($xpath);
-		if ((FALSE === $quiet) && (TRUE === $result)) {
+		return = $this->getBackend()->exists($xpath);
+	}
+
+	public function assertIsNotReferenced(ConfigObject $object) {
+		if (TRUE === $this->isReferenced($object)) {
 			throw new DatabaseException(
 			  "The configuration object is referenced.");
 		}
-		return $result;
 	}
 
 	/**
@@ -210,16 +249,36 @@ class Database {
 	}
 
 	/**
+	 * Check if a configuration object with the specified predicate
+	 * exists.
+	 * @param id The data model identifier.
+	 * @param predicate The predicate to search for, e.g. <ul>
+	 *   \li "not(contains(opts,'bind') or contains(opts,'loop'))"
+	 *   \li "devicefile='/dev/sda' or devicefile='/dev/disk/by-id/ata-ST1000DM003-1CH132_S2DF80PC']"
+	 *   </ul>
+	 *   The predicate must be defined in XPath syntax.
+	 * @return TRUE if data exists, otherwise FALSE.
+	 */
+	public function existsByPredicate($id, $predicate) {
+		// Get the specified data model.
+		$mngr = \OMV\DataModel\Manager::getInstance();
+		$model = $mngr->getModel($id);
+		// Create the query builder.
+		$queryBuilder = new DatabaseBackendQueryBuilder($id);
+		$xpath = $queryBuilder->buildGetByPredicateQuery($predicate);
+		return $this->getBackend()->exists($xpath);
+	}
+
+	/**
 	 * Check if a configuration object with the value of the specified property
 	 * already exists.
 	 * @param object The configuration object to use.
 	 * @param property The name of the data model property.
-	 * @param quiet Set to FALSE to do throw an exception. Defaults to TRUE.
 	 * @return TRUE if no configuration object with the same property
 	 *   value exists, otherwise FALSE.
 	 * @throw \OMV\Config\DatabaseException
 	 */
-	public function isUnique(ConfigObject $object, $property, $quiet = TRUE) {
+	public function isUnique(ConfigObject $object, $property) {
 		// Get the specified data model.
 		$mngr = \OMV\DataModel\Manager::getInstance();
 		$model = $mngr->getModel($id);
@@ -228,12 +287,20 @@ class Database {
 		$xpath = $queryBuilder->buildExistsQuery($property,
 		  $object->get($property));
 		$result = $this->getBackend()->exists($xpath);
-		if ((FALSE === $quiet) && (TRUE === $result)) {
+		if ((FALSE === $this->quiet) && (TRUE === $result)) {
 			throw new DatabaseException("The configuration object is not ".
 			  "unique (property='%s', value='%s').", $property,
 			  $object->get($property));
 		}
 		return !$result;
+	}
+
+	public function assertIsUnique(ConfigObject $object, $property) {
+		if (FALSE === $this->isUnique($object, $property)) {
+			throw new DatabaseException("The configuration object is not ".
+			  "unique (property='%s', value='%s').", $property,
+			  $object->get($property));
+		}
 	}
 
 	/**

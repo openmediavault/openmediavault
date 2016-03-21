@@ -82,9 +82,9 @@ class DatabaseBackendQueryBuilder {
 		return $xpath;
 	}
 
-	final public function buildGetByXpathQuery($xpath) {
+	final public function buildGetByPredicateQuery($predicate) {
 		$qi = $this->getQueryInfo();
-		return sprintf("%s[%s]", $qi['xpath'], $xpath);
+		return sprintf("%s[%s]", $qi['xpath'], $predicate);
 	}
 
 	final public function buildSetQuery(ConfigObject $object) {
@@ -109,8 +109,9 @@ class DatabaseBackendQueryBuilder {
 		$qi = $this->getQueryInfo();
 		$xpath = $qi['xpath'];
 		if (TRUE === boolval($qi['iterable'])) {
-			$xpath = sprintf("%s[%s='%s']", $qi['xpath'], $qi['idproperty'],
+			$predicate = sprintf("%s='%s'", $qi['idproperty'],
 			  $object->get($qi['idproperty']));
+			$xpath = $this->buildGetByPredicateQuery($predicate);
 		}
 		return $xpath;
 	}
@@ -123,8 +124,8 @@ class DatabaseBackendQueryBuilder {
 
 	final public function buildExistsQuery($property, $value) {
 		$qi = $this->getQueryInfo();
-		return sprintf("//%s[contains('%s','%s')]", $qi['xpath'],
-		  $property, $value);
+		$predicate = sprintf("contains('%s','%s')", $property, $value);
+		return $this->buildGetByPredicateQuery($predicate);
 	}
 
 	final public function getValues(ConfigObject $object) {
