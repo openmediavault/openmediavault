@@ -170,8 +170,10 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 		$object = new \OMV\Config\ConfigObject("conf.system.hdparm");
 		$object->setAssoc($params);
 		// Check if the given device exists.
+		\OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+		  $object->get("devicefile"));
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
-		  $object->get("devicefile"), FALSE);
+		  $object->get("devicefile"));
 		// Update the configuration data.
 		$object->set("devicefile", $sd->getDeviceFileById());
 		// Set the configuration object.

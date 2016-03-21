@@ -31,7 +31,7 @@ class StorageDevice extends StorageDeviceAbstract {
 	 *   Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.
 	 * @return A list of devicefile names, otherwise FALSE.
 	 */
-	final public function enumerate($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
+	public static function enumerate($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
 		$result = array();
 		$mngr = Backend\Manager::getInstance();
 		foreach ($mngr as $backendk => $backendv) {
@@ -52,7 +52,7 @@ class StorageDevice extends StorageDeviceAbstract {
 	 *   Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.
 	 * @return A list of devicefile names, otherwise FALSE.
 	 */
-	final public function enumerateUnused($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
+	public static function enumerateUnused($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
 		// Append all available storage devices.
 		if (FALSE === ($result = self::enumerate($type)))
 			return FALSE;
@@ -79,7 +79,7 @@ class StorageDevice extends StorageDeviceAbstract {
 	 *   Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.
 	 * @return A list of devicefile names, otherwise FALSE.
 	 */
-	final public function enumerateUsed($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
+	public static function enumerateUsed($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
 		$result = array();
 		$mngr = Backend\Manager::getInstance();
 		foreach ($mngr as $backendk => $backendv) {
@@ -111,7 +111,7 @@ class StorageDevice extends StorageDeviceAbstract {
 	 * @return TRUE if the given device is used/consumed by another storage
 	 *   device, otherwise FALSE.
 	 */
-	final public function isUsed($deviceFile, $type = OMV_STORAGE_DEVICE_TYPE_ALL) {
+	public static function isUsed($deviceFile, $type = OMV_STORAGE_DEVICE_TYPE_ALL) {
 		$result = FALSE;
 		$mngr = Backend\Manager::getInstance();
 		foreach ($mngr as $backendk => $backendv) {
@@ -139,19 +139,23 @@ class StorageDevice extends StorageDeviceAbstract {
 	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
 	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
 	 *   </ul>
-	 * @param quiet Set to FALSE to throw an exception if the device is
-	 *   not found. Defaults to TRUE.
 	 * @return The object of the class implementing the given storage device,
 	 *   otherwise NULL.
 	 */
-	final public function getStorageDevice($deviceFile, $quiet = TRUE) {
+	public static function getStorageDevice($deviceFile) {
 		$mngr = Backend\Manager::getInstance();
 		if (NULL == ($backend = $mngr->getBackend($deviceFile)))
 			return NULL;
 		$result = $backend->getImpl($deviceFile);
-		if ((FALSE === $quiet) && (is_null($result) || !$result->exists())) {
+		if (is_null($result) || !$result->exists())
+			return NULL;
+		return $result;
+	}
+
+	public static function assertGetStorageDevice($deviceFile) {
+		$result = $this->getStorageDevice($deviceFile);
+		if (is_null($result) || !$result->exists()) {
 			throw new \OMV\Exception("Device '%s' not found.", $deviceFile);
 		}
-		return $result;
 	}
 }

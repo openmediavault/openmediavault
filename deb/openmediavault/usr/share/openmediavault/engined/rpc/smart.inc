@@ -79,11 +79,8 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		$objects = array();
 		foreach($devs as $devk => $devv) {
 			// Get the storage device object.
+			\OMV\System\Storage\StorageDevice::assertGetStorageDevice($devv);
 			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
-			if(is_null($sd) || !$sd->exists()) {
-				throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
-				  $devv);
-			}
 			// Skip devices that do not support S.M.A.R.T.
 			if(FALSE === $sd->hasSMART())
 				continue;
@@ -359,11 +356,10 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Check if the given device exists and supports S.M.A.R.T.
-		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($params['devicefile']);
-		if(is_null($sd) || !$sd->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
-			  $params['devicefile']);
-		}
+		\OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+		  $params['devicefile']);
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
+		  $params['devicefile']);
 		if(FALSE === $sd->hasSMART()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Device does not support S.M.A.R.T. (device=%s)",
@@ -432,11 +428,10 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Get the S.M.A.R.T. information.
-		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($params['devicefile']);
-		if (is_null($sd) || !$sd->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
-			  $params['devicefile']);
-		}
+		\OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+		  $params['devicefile']);
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
+		  $params['devicefile']);
 		if (FALSE === $sd->hasSMART()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Device does not support S.M.A.R.T. (device=%s)",
@@ -478,11 +473,10 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Get the S.M.A.R.T. information.
-		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($params['devicefile']);
-		if(is_null($sd) || !$sd->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
-			  $params['devicefile']);
-		}
+		\OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+		  $params['devicefile']);
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
+		  $params['devicefile']);
 		if(FALSE === $sd->hasSMART()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Device does not support S.M.A.R.T. (device=%s)",
@@ -523,22 +517,21 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Get the S.M.A.R.T. information.
-		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($params['devicefile']);
-		if(is_null($sd) || !$sd->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
-			  $params['devicefile']);
-		}
-		if(FALSE === $sd->hasSMART()) {
+		\OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+		  $params['devicefile']);
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
+		  $params['devicefile']);
+		if (FALSE === $sd->hasSMART()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Device does not support S.M.A.R.T. (device=%s)",
 			  $sd->getDeviceFile()));
 		}
-		if(is_null($smartInfo = $sd->getSMARTInformation())) {
+		if (is_null($smartInfo = $sd->getSMARTInformation())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to get S.M.A.R.T. interface (device=%s)",
 			  $sd->getDeviceFile()));
 		}
-		if(FALSE === ($result = $smartInfo->getSelfTestLogs())) {
+		if (FALSE === ($result = $smartInfo->getSelfTestLogs())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to get S.M.A.R.T. self-test logs ".
 			  "(device=%s): %s", $sd->getDeviceFile(),
@@ -568,22 +561,21 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Get the S.M.A.R.T. information.
-		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($params['devicefile']);
-		if(is_null($sd) || !$sd->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
-			  $params['devicefile']);
-		}
-		if(FALSE === $sd->hasSMART()) {
+		\OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+		  $params['devicefile']);
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
+		  $params['devicefile']);
+		if (FALSE === $sd->hasSMART()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Device does not support S.M.A.R.T. (device=%s)",
 			  $sd->getDeviceFile()));
 		}
-		if(is_null($smartInfo = $sd->getSMARTInformation())) {
+		if (is_null($smartInfo = $sd->getSMARTInformation())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to get S.M.A.R.T. interface (device=%s)",
 			  $sd->getDeviceFile()));
 		}
-		if(FALSE === ($result = $smartInfo->getInformation())) {
+		if (FALSE === ($result = $smartInfo->getInformation())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to get S.M.A.R.T. information (device=%s): %s",
 			  $sd->getDeviceFile(), $smartInfo->getLastError()));
@@ -630,7 +622,8 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 				"size" => "-1" // as string
 			);
 			// Get the storage device object.
-			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($objectv['devicefile']);
+			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
+			  $objectv['devicefile']);
 			if (!is_null($sd) && $sd->exists()) {
 				// Update storage device information.
 				$objectv['volume'] = array(
@@ -710,13 +703,12 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			  }
 		  }');
 		// Check if the given device exists.
-		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($params['devicefile']);
-		if(is_null($sd) || !$sd->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
-			  $params['devicefile']);
-		}
+		\OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+		  $params['devicefile']);
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
+		  $params['devicefile']);
 		// Check if the given device exists and supports S.M.A.R.T.
-		if(FALSE === $sd->hasSMART()) {
+		if (FALSE === $sd->hasSMART()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Device does not support S.M.A.R.T. (device=%s)",
 			  $sd->getDeviceFile()));

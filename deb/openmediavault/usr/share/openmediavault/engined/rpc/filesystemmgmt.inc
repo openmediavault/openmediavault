@@ -481,8 +481,10 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.filesystemmgmt.create");
 		// Get the storage device object.
+		\OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+		  $params['devicefile']);
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
-		  $params['devicefile'], FALSE);
+		  $params['devicefile']);
 		// Check uniqueness. If there exists a mount point for the given
 		// device then it has already a filesystem that is in use.
 		if (FALSE !== \OMV\Rpc\Rpc::call("FsTab", "getByFsName", array(
@@ -777,8 +779,10 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			  $fs->getDeviceFile());
 		}
 		// Get the according storage device object.
+		\OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+		  $storageDeviceFile);
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
-		  $storageDeviceFile, FALSE);
+		  $storageDeviceFile);
 		// Get mount options depending on the filesystem type.
 		switch (strtolower($fs->getType())) {
 		case "ext2":

@@ -95,17 +95,12 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 				  "does not exist", $fsb->getType(), $objectv['devicefile']));
 			}
 			// Get the storage device containing the filesystem.
-			if (FALSE === ($storageDeviceFile = $fs->getStorageDeviceFile())) {
-//				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-//				  gettext("Failed to get storage device file from '%s'"),
-//				  $objectv['devicefile']));
+			if (FALSE === ($storageDeviceFile = $fs->getStorageDeviceFile()))
 				continue;
-			}
-			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($storageDeviceFile);
-			if (is_null($sd) || !$sd->exists()) {
-				throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
-			  	  $storageDeviceFile);
-			}
+			\OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+			  $storageDeviceFile);
+			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
+			  $storageDeviceFile);
 			// Skip everything which is not an USB or eSATA device or is a
 			// read-only medium.
 			if (!($sd->isUsb() || $sd->isAta()) || $sd->isReadOnly())
