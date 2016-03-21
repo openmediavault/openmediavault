@@ -120,7 +120,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 			// '/dev/disk/by-id/xxx' entries.
 			$db = \OMV\Config\Database::getInstance();
 			$confObjects = $db->getByPredicate("conf.system.hdparm",
-			  sprintf("devicefile='%s' or devicefile='%s']",
+			  sprintf("devicefile='%s' or devicefile='%s'",
 			  $objectv['devicefilebyid'], $objectv['devicefile']));
 			if (1 <= count($confObjects)) {
 				// Append the first found configuration values.

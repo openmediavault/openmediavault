@@ -79,7 +79,7 @@ class Database {
 		$queryBuilder = new DatabaseBackendQueryBuilder($id);
 		$xpath = $queryBuilder->buildGetQuery(...$args);
 		// Redirect the query to the database backend.
-		if ($model->isIterable() && (FALSE === $hasArgs))
+		if ((TRUE === $model->isIterable()) && (FALSE === $hasArgs))
 			$data = $this->getBackend()->getList($xpath);
 		else
 			$data = $this->getBackend()->get($xpath);
@@ -87,7 +87,7 @@ class Database {
 			throw new DatabaseException("Failed to execute query '%s'.",
 			  $xpath);
 		}
-		if ($model->isIterable() && (FALSE === $hasArgs)) {
+		if ((TRUE === $model->isIterable()) && (FALSE === $hasArgs)) {
 			$result = array();
 			foreach ($data as $datak => $datav) {
 				$object = new ConfigObject($id);
@@ -159,17 +159,29 @@ class Database {
 	public function set(ConfigObject $object) {
 		$queryBuilder = new DatabaseBackendQueryBuilder(
 		  $object->getModel()->getId());
+		// Build the XPath query string.
 		$xpath = $queryBuilder->buildSetQuery($object);
 		if ((TRUE === $object->isIterable()) && (TRUE === $object->isNew())) {
-			// Get the values before the identifier property is modified.
-			$values = $queryBuilder->getValues($object);
-			// Auto-create the identifier if necessary.
-			if (TRUE === $object->isNew())
-				$object->createIdentifier();
+			// Auto-create the identifier.
+			$object->createIdentifier();
+			// The values to be stored must look a little bit different
+			// in this case.
+			// XPath in query info: //services/ftp/shares/share
+			// XPath build by the query builder: //services/ftp/shares
+			// Values to put: array(
+			//    "share" => array(...)
+			// )
+			$qi = $object->getModel()->getQueryInfo();
+			$parts = explode("/", $qi['xpath']);
+			$nodeName = array_pop($parts);
+			$values = array($nodeName => $object->getAssoc());
+			// Finally put the configuration object.
 			$result = $this->getBackend()->set($xpath, $values);
 		} else {
-			$result = $this->getBackend()->replace($xpath,
-			  $queryBuilder->getValues($object));
+			// Get the values of the configuration object.
+			$values = $object->getAssoc();
+			// Finally put the configuration object.
+			$result = $this->getBackend()->replace($xpath, $values);
 		}
 		if (FALSE === $result) {
 			throw new DatabaseException("Failed to execute query '%s'.",

@@ -127,17 +127,4 @@ class DatabaseBackendQueryBuilder {
 		$predicate = sprintf("contains('%s','%s')", $property, $value);
 		return $this->buildGetByPredicateQuery($predicate);
 	}
-
-	final public function getValues(ConfigObject $object) {
-		$qi = $this->getQueryInfo();
-		$result = $object->getAssoc();
-		if (TRUE === boolval($qi['iterable'])) {
-			if (("uuid" == $qi['idproperty']) && (TRUE === $object->isNew())) {
-				$parts = explode("/", $qi['xpath']);
-				$elementName = array_pop($parts);
-				$result = array($elementName => $result);
-			}
-		}
-		return $result;
-	}
 }
