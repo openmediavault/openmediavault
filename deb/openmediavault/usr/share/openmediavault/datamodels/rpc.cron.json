@@ -42,7 +42,7 @@
 					"format": "uuidv4"
 				},{
 					"type": "string",
-					"format": "undefined"
+					"format": "uuidv4undef"
 				}],
 				"required": true
 			},

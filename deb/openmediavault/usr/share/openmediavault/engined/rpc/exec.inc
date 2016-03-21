@@ -110,7 +110,7 @@ class OMVRpcServiceExec extends \OMV\Rpc\ServiceAbstract {
 			if (FALSE === ($fp = fopen($bgOutputFilename, "r"))) {
 				throw new \OMV\Exception(
 				  "Failed to open the command output file (filename=%s).",
-				  $bgOutputFilename));
+				  $bgOutputFilename);
 			}
 			// Get the requested command output from the given position to
 			// the end of the file.

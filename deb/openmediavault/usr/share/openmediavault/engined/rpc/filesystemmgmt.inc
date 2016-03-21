@@ -719,7 +719,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// filesystem and unlink the mount point. Changes to the fstab
 			// module must not be applied immediately.
 			\OMV\Rpc\Rpc::call("FsTab", "delete", array(
-			  "uuid" => $meObject->("uuid")), $context);
+			  "uuid" => $meObject->get("uuid")), $context);
 			\OMV\Rpc\Rpc::call("Config", "applyChanges", array(
 				  "modules" => array("fstab"),
 				  "force" => TRUE

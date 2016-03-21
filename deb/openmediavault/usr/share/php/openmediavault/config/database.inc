@@ -131,7 +131,7 @@ class Database {
 		$mngr = \OMV\DataModel\Manager::getInstance();
 		$model = $mngr->getModel($id);
 		// Is the configuration object iterable?
-		if (FALSE === $object->isIterable()) {
+		if (FALSE === $model->isIterable()) {
 			throw new DatabaseException(
 			  "The configuration object is not iterable.");
 		}
@@ -161,8 +161,12 @@ class Database {
 		  $object->getModel()->getId());
 		$xpath = $queryBuilder->buildSetQuery($object);
 		if ((TRUE === $object->isIterable()) && (TRUE === $object->isNew())) {
-			$result = $this->getBackend()->set($xpath,
-			  $queryBuilder->getValues($object));
+			// Get the values before the identifier property is modified.
+			$values = $queryBuilder->getValues($object);
+			// Auto-create the identifier if necessary.
+			if (TRUE === $object->isNew())
+				$object->createIdentifier();
+			$result = $this->getBackend()->set($xpath, $values);
 		} else {
 			$result = $this->getBackend()->replace($xpath,
 			  $queryBuilder->getValues($object));
@@ -223,10 +227,11 @@ class Database {
 			throw new DatabaseException(
 			  "The configuration object can not be referenced.");
 		}
+		// Create the query builder.
 		$queryBuilder = new DatabaseBackendQueryBuilder(
 		  $object->getModel()->getId());
 		$xpath = $queryBuilder->buildIsReferencedQuery($object);
-		return = $this->getBackend()->exists($xpath);
+		return $this->getBackend()->exists($xpath);
 	}
 
 	/**
@@ -310,11 +315,9 @@ class Database {
 	 *   value exists, otherwise FALSE.
 	 */
 	public function isUnique(ConfigObject $object, $property) {
-		// Get the specified data model.
-		$mngr = \OMV\DataModel\Manager::getInstance();
-		$model = $mngr->getModel($id);
 		// Create the query builder.
-		$queryBuilder = new DatabaseBackendQueryBuilder($id);
+		$queryBuilder = new DatabaseBackendQueryBuilder(
+		  $object->getModel()->getId());
 		$xpath = $queryBuilder->buildExistsQuery($property,
 		  $object->get($property));
 		return !$this->getBackend()->exists($xpath);

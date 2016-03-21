@@ -30,7 +30,9 @@ class Schema extends \OMV\Json\Schema {
 	 */
 	protected function checkFormat($value, $schema, $name) {
 		try {
-			return parent::checkFormat($value, $schema, $name);
+			// Check the default format values defined by JSON schema.
+			// Fall through for unknown types.
+			parent::checkFormat($value, $schema, $name);
 		} catch (\OMV\Json\SchemaException $e) {
 			switch ($schema['format']) {
 			case "uuidv4":
@@ -40,7 +42,7 @@ class Schema extends \OMV\Json\Schema {
 					  $name, $value);
 				}
 				break;
-			case "undefined":
+			case "uuidv4undef":
 				if ($GLOBALS['OMV_UUID_UNDEFINED'] !== $value) {
 					throw new \OMV\Json\SchemaValidationException(
 					  "%s: The value '%s' does not match the UNDEFINED constant.",

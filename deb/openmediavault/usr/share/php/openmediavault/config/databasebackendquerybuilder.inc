@@ -99,7 +99,7 @@ class DatabaseBackendQueryBuilder {
 				// Insert a new element.
 				$parts = explode("/", $xpath);
 				$elementName = array_pop($parts);
-				$xpath = substr($xpath, 0, strrpos($xpath, $elementName));
+				$xpath = substr($xpath, 0, strrpos($xpath, $elementName) - 1);
 			}
 		}
 		return $xpath;

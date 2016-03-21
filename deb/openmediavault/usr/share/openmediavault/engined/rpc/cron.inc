@@ -114,8 +114,6 @@ class OMVRpcServiceCron extends \OMV\Rpc\ServiceAbstract {
 		// Prepare the configuration object.
 		$object = new \OMV\Config\ConfigObject("conf.system.cron.job");
 		$object->setAssoc($params);
-		if ($object->isNew())
-			$object->set("uuid", \OMV\Uuid::uuid4()); // Assign a new UUID.
 		// Set the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);

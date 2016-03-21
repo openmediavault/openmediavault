@@ -116,10 +116,6 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 		$object->set("hidden", $fsb->hasFstabSupport());
 		// Set the configuration object.
 		$isNew = $object->isNew();
-		if (TRUE === $isNew) {
-			// Assign a new UUID.
-			$object->set("uuid", \OMV\Uuid::uuid4());
-		}
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
 		// Notify configuration changes.

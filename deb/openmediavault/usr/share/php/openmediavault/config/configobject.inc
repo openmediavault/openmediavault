@@ -21,6 +21,7 @@
  */
 namespace OMV\Config;
 
+require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 
 class ConfigObject {
@@ -228,16 +229,37 @@ class ConfigObject {
 
 	/**
 	 * Check if the configuration object is new. Use this method only if
-	 * the object has an 'uuid' property.
+	 * the configuration object has an 'uuid' property.
+	 * @return TRUE if the cconfiguration object is identified as new,
+	 *   otherwise FALSE.
+	 * @throw \OMV\Exception
 	 */
 	public function isNew() {
-		$model = $this->getModel();
-		if (FALSE === $model->isIdentifiable()) {
+		if ((!$this->isIterable()) || (!$this->isIdentifiable())) {
 			throw new \OMV\Exception(
 			  "The configuration object is not identifiable.");
 		}
-		$uuid = $this->get($model->getIdProperty());
-		return \OMV\Uuid::isUuid4($uuid);
+		$value = $this->get($this->getModel()->getIdProperty());
+		if (FALSE === \OMV\Uuid::isUuid4($value))
+			return FALSE;
+		return ($GLOBALS['OMV_UUID_UNDEFINED'] == $value);
+	}
+
+	/**
+	 * Create a new UUID. Use this method only if the configuration object
+	 * has an 'uuid' property.
+	 * @throw \OMV\Exception
+	 */
+	public function createIdentifier() {
+		if ((!$this->isIterable()) || (!$this->isIdentifiable())) {
+			throw new \OMV\Exception(
+			  "The configuration object is not identifiable.");
+		}
+		$this->set($this->getModel()->getIdProperty(), \OMV\Uuid::uuid4());
+	}
+
+	public function isIdentifiable() {
+		return $this->getModel()->isIterable();
 	}
 
 	public function isIterable() {

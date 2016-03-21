@@ -178,13 +178,11 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 		$object->set("devicefile", $sd->getDeviceFileById());
 		// Set the configuration object.
 		$isNew = $object->isNew();
+		$db = \OMV\Config\Database::getInstance();
 		if (TRUE === $isNew) {
 			// Check uniqueness.
 			$db->assertIsUnique($object, "devicefile");
-			// Assign a new UUID.
-			$object->set("uuid", \OMV\Uuid::uuid4());
 		}
-		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
 		// Notify the configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();

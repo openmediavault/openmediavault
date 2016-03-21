@@ -165,8 +165,6 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			// The private key is required here.
 			if ($object->isEmpty("privatekey"))
 				throw new \OMV\Exception("Private key does not exist.");
-			// Assign a new UUID.
-			$object->set("uuid", \OMV\Uuid::uuid4());
 		}
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
@@ -468,8 +466,6 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			// The private key is required here.
 			if ($object->isEmpty("privatekey"))
 				throw new \OMV\Exception("Private key does not exist.");
-			// Assign a new UUID.
-			$object->set("uuid", \OMV\Uuid::uuid4());
 		}
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
