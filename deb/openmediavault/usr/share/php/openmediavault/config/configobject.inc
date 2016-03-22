@@ -42,19 +42,25 @@ class ConfigObject {
 	/**
 	 * Check if the specified property exists.
 	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
-	 * @return If \em quiet is set to TRUE then the method returns TRUE if
-	 *   the property exists, otherwise FALSE.
+	 * @return Returns TRUE if the property exists, otherwise FALSE.
+	 */
+	protected function exists($name) {
+		$model = $this->getModel();
+		return $model->propertyExists($name);
+	}
+
+	/**
+	 * Assert that the specified property exists.
+	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
+	 * @return None.
 	 * @throw \OMV\Exception
 	 */
-	private function exists($name, $quiet = FALSE) {
-		$model = $this->getModel();
-		$exists = $model->propertyExists($name);
-		if ((FALSE === $quiet) && (FALSE === $exists)) {
+	protected function assertExists($name) {
+		if (FALSE === $this->exists($name)) {
 			throw new \OMV\Exception(
 			  "The property '%s' does not exist in the model '%s'.",
 			  $name, $model->getId());
 		}
-		return $exists;
 	}
 
 	/**
@@ -71,7 +77,7 @@ class ConfigObject {
 	 * @return The property value.
 	 */
 	public function get($name) {
-		$this->exists($name);
+		$this->assertExists($name);
 		return $this->properties[$name];
 	}
 
@@ -158,7 +164,7 @@ class ConfigObject {
 	 */
 	public function set($name, $value, $validate = TRUE) {
 //		$this->debug(var_export(func_get_args(), TRUE));
-		$this->exists($name);
+		$this->assertExists($name);
 		$model = $this->getModel();
 		if (TRUE === $validate)
 			$model->validateProperty($name, $value);
@@ -193,7 +199,7 @@ class ConfigObject {
 	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
 	 */
 	public function remove($name) {
-		$this->exists($name);
+		$this->assertExists($name);
 		// Remove the property from the data model schema.
 		$this->getModel()->removeProperty($name);
 		// Unset the property.
@@ -237,7 +243,8 @@ class ConfigObject {
 	public function isNew() {
 		if ((!$this->isIterable()) || (!$this->isIdentifiable())) {
 			throw new \OMV\Exception(
-			  "The configuration object is not identifiable.");
+			  "The configuration object '%s' is not identifiable.",
+			  $this->getModel()->getId());
 		}
 		$value = $this->get($this->getModel()->getIdProperty());
 		if (FALSE === \OMV\Uuid::isUuid4($value))
@@ -253,7 +260,8 @@ class ConfigObject {
 	public function createIdentifier() {
 		if ((!$this->isIterable()) || (!$this->isIdentifiable())) {
 			throw new \OMV\Exception(
-			  "The configuration object is not identifiable.");
+			  "The configuration object '%s' is not identifiable.",
+			  $this->getModel()->getId());
 		}
 		$this->set($this->getModel()->getIdProperty(), \OMV\Uuid::uuid4());
 	}
