@@ -66,7 +66,8 @@
 			"default": ""
 		},
 		"dynmasqrefresh": {
-			"type": "boolean",
+			"type": "integer",
+			"minimum": 0,
 			"default": 0
 		},
 		"usepassiveports": {
@@ -171,9 +172,10 @@
 									"TimeoutNoTransfer"
 								]
 							},
-							"event": {
-								"type": "string",
-								"default": ""
+							"occurrence": {
+								"type": "integer",
+								"minimum": 1,
+								"default": 1
 							},
 							"timeinterval": {
 								"type": "string",

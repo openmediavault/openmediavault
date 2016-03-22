@@ -357,7 +357,7 @@ class Database {
 	public function assertIsUnique(ConfigObject $object, $property) {
 		if (FALSE === $this->isUnique($object, $property)) {
 			throw new DatabaseException("The configuration object is not ".
-			  "unique. An object with the property '%s' and value '%s'".
+			  "unique. An object with the property '%s' and value '%s' ".
 			  "already exists.", $property, $object->get($property));
 		}
 	}

@@ -104,17 +104,17 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 		if ($db->existsByPredicate("conf.system.iptables.rule", $predicate))
 			$db->deleteByPredicate("conf.system.iptables.rule", $predicate);
 		// Append the new iptables rules.
-		$objectAssoc = array();
+		$objectsAssoc = array();
 		foreach ($objects as $objectk => $objectv) {
 			$db->set($objectv);
-			$objectAssoc[] = $objectv->getAssoc();
+			$objectsAssoc[] = $objectv->getAssoc();
 		}
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.iptables.rule", $objectAssoc);
+		  "org.openmediavault.system.network.iptables.rule", $objectsAssoc);
 		// Return the configuration object.
-		return $objectAssoc;
+		return $objectsAssoc;
 	}
 
 	/**

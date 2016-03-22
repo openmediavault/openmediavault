@@ -56,49 +56,19 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$xpath = "//services/ftp";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify the result object.
-		$object['enable'] = boolvalEx($object['enable']);
-		$object['port'] = intval($object['port']);
-		$object['maxclients'] = intval($object['maxclients']);
-		$object['maxconnectionsperhost'] = intval(
-		  $object['maxconnectionsperhost']);
-		$object['maxloginattempts'] = intval($object['maxloginattempts']);
-		$object['timeoutidle'] = intval($object['timeoutidle']);
-		$object['allowforeignaddress'] = boolvalEx(
-		  $object['allowforeignaddress']);
-		$object['allowrestart'] = boolvalEx($object['allowrestart']);
-		$object['identlookups'] = boolvalEx($object['identlookups']);
-		$object['usereversedns'] = boolvalEx($object['usereversedns']);
-		$object['rootlogin'] = boolvalEx($object['rootlogin']);
-		$object['usepassiveports'] = boolvalEx($object['usepassiveports']);
-		$object['minpassiveports'] = intval($object['minpassiveports']);
-		$object['maxpassiveports'] = intval($object['maxpassiveports']);
-		$object['limittransferrate'] = boolvalEx($object['limittransferrate']);
-		$object['maxuptransferrate'] = intval($object['maxuptransferrate']);
-		$object['maxdowntransferrate'] = intval($object['maxdowntransferrate']);
-		$object['anonymous'] = boolvalEx($object['anonymous']);
-		$object['requirevalidshell'] = boolvalEx($object['requirevalidshell']);
-		$object['dynmasqrefresh'] = intval($object['dynmasqrefresh']);
-		$object['transferlog'] = boolvalEx($object['transferlog']);
-		// Remove useless fields from the result object.
-		unset($object['shares']);
-		unset($object['modules']);
-		return $object;
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.ftp");
+		// Remove useless properties from the object.
+		$object->remove("shares");
+		$object->remove("modules");
+		return $object->getAssoc();
 	}
 
 	/**
@@ -106,93 +76,28 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	public function setSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "enable":{"type":"boolean"},
-				  "port":{"type":"integer","minimum":1,"maximum":65535},
-				  "maxclients":{"type":"integer","minimum":0},
-				  "maxconnectionsperhost":{"type":"integer","minimum":0},
-				  "maxloginattempts":{"type":"integer","minimum":0},
-				  "timeoutidle":{"type":"integer","minimum":0},
-				  "displaylogin":{"type":"string"},
-				  "allowforeignaddress":{"type":"boolean"},
-				  "allowrestart":{"type":"boolean"},
-				  "identlookups":{"type":"boolean"},
-				  "usereversedns":{"type":"boolean"},
-				  "rootlogin":{"type":"boolean"},
-				  "masqueradeaddress":{"type":"string"},
-				  "dynmasqrefresh":{"type":"integer","minimum":0},
-				  "usepassiveports":{"type":"boolean"},
-				  "minpassiveports":{"type":"integer","minimum":1025,'.
-					'"maximum":65535},
-				  "maxpassiveports":{"type":"integer","minimum":1025,'.
-					'"maximum":65535},
-				  "limittransferrate":{"type":"boolean"},
-				  "maxuptransferrate":{"type":"integer","minimum":0},
-				  "maxdowntransferrate":{"type":"integer","minimum":0},
-				  "anonymous":{"type":"boolean"},
-				  "requirevalidshell":{"type":"boolean"},
-				  "transferlog":{"type":"boolean"},
-				  "extraoptions":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.ftp.setsettings");
 		// Get the existing configuration object.
-		$xpath = "//services/ftp";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Update the configuration object.
-		$object = array_merge($object, array(
-			  "enable" => array_boolval($params, 'enable'),
-			  "port" => $params['port'],
-			  "maxclients" => $params['maxclients'],
-			  "maxconnectionsperhost" => $params['maxconnectionsperhost'],
-			  "maxloginattempts" => $params['maxloginattempts'],
-			  "timeoutidle" => $params['timeoutidle'],
-			  "displaylogin" => $params['displaylogin'],
-			  "allowforeignaddress" => array_boolval($params,
-				'allowforeignaddress'),
-			  "allowrestart" => array_boolval($params, 'allowrestart'),
-			  "identlookups" => array_boolval($params, 'identlookups'),
-			  "usereversedns" => array_boolval($params, 'usereversedns'),
-			  "rootlogin" => array_boolval($params, 'rootlogin'),
-			  "masqueradeaddress" => $params['masqueradeaddress'],
-			  "dynmasqrefresh" => $params['dynmasqrefresh'],
-			  "usepassiveports" => array_boolval($params, 'usepassiveports'),
-			  "minpassiveports" => $params['minpassiveports'],
-			  "maxpassiveports" => $params['maxpassiveports'],
-			  "limittransferrate" => array_boolval($params,
-				'limittransferrate'),
-			  "maxuptransferrate" => $params['maxuptransferrate'],
-			  "maxdowntransferrate" => $params['maxdowntransferrate'],
-			  "anonymous" => array_boolval($params, 'anonymous'),
-			  "requirevalidshell" => array_boolval($params,
-				'requirevalidshell'),
-			  "transferlog" => array_boolval($params, 'transferlog'),
-			  "extraoptions" => $params['extraoptions']
-		  ));
-		if(FALSE === $xmlConfig->replace("//services/ftp", $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.ftp");
+		$object->setAssoc($params);
+		$db->set($object);
+		// Remove useless properties from the object.
+		$object->remove("shares");
+		$object->remove("modules");
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.ftp", $object);
+		  "org.openmediavault.services.ftp", $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -206,10 +111,8 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getShareList($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -217,24 +120,22 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the configuration object.
-		$xpath = "//services/ftp/shares/share";
-		$objects = $xmlConfig->getList($xpath);
-		if(is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->get("conf.service.ftp.share");
 		// Add additional share informations.
-		foreach($objects as $objectk => &$objectv) {
-			$objectv['sharedfoldername'] = gettext("n/a");
+		$objectsAssoc = array();
+		foreach ($objects as $objectk => &$objectv) {
+			// Add the new property 'sharedfoldername'.
+			$objectv->add("sharedfoldername", "string", gettext("n/a"));
 			// Get the shared folder configuration object.
-			$sfObject = $xmlConfig->get("//system/shares/sharedfolder[".
-			  "uuid='{$objectv['sharedfolderref']}']");
-			if(!is_null($sfObject) && !empty($sfObject)) {
-				$objectv['sharedfoldername'] = $sfObject['name'];
-			}
+			$sfObject = $db->get("conf.system.sharedfolder",
+			  $objectv->get("sharedfolderref"));
+			// Update the 'sharedfoldername' property.
+			$objectv->set("sharedfoldername", $sfObject->get("name"));
+			$objectsAssoc[] = $objectv->getAssoc();
 		}
 		// Filter the result.
-		return $this->applyFilter($objects, $params['start'],
+		return $this->applyFilter($objectsAssoc, $params['start'],
 		  $params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
@@ -244,10 +145,8 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getShare($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -255,14 +154,8 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
-		$xpath = sprintf("//services/ftp/shares/share[uuid='%s']",
-		  $params['uuid']);
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		return $object;
+		$db = \OMV\Config\Database::getInstance();
+		return $db->getAssoc("conf.service.ftp.share", $params['uuid']);
 	}
 
 	/**
@@ -281,51 +174,25 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-				  "sharedfolderref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
-				  "extraoptions":{"type":"string"},
-				  "comment":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.ftp.setshare");
 		// Prepare the configuration object.
-		$object = array(
-			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  \OMV\Uuid::uuid4() : $params['uuid'],
-			"sharedfolderref" => $params['sharedfolderref'],
-			"extraoptions" => $params['extraoptions'],
-			"comment" => $params['comment']
-		);
+		$object = new \OMV\Config\ConfigObject("conf.service.ftp.share");
+		$object->setAssoc($params);
 		// Set the configuration object.
-		$success = FALSE;
-		if ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+		$isNew = $object->isNew();
+		$db = \OMV\Config\Database::getInstance();
+		if (TRUE === $isNew) {
 			// Check uniqueness. A shared folder can only be configured once
 			// for FTP.
-			if (TRUE === $xmlConfig->exists("//services/ftp/shares/share[" .
-			  "sharedfolderref='{$params['sharedfolderref']}']")) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-				  gettext("The shared folder is already used by another share."));
-			}
-			// Append the configuration object.
-			$success = $xmlConfig->set("//services/ftp/shares",
-			  array("share" => $object));
-		} else {
-			// Update the existing configuration object.
-			$success = $xmlConfig->replace("//services/ftp/shares/share[" .
-			  "uuid='{$params['uuid']}']", $object);
+			$db->assertIsUnique($object, "sharedfolderref");
 		}
-		if (FALSE === $success) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.ftp.shares.share", $object);
+		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.services.ftp.shares.share", $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -343,10 +210,8 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		$xpath = sprintf("//services/ftp/shares/share[uuid='%s']",
-		  $params['uuid']);
-		return $this->deleteConfigObjectByPath($xpath,
-		  "org.openmediavault.services.ftp.shares.share");
+		return $this->deleteConfigObjectByUuid("conf.service.ftp.share",
+		  $params['uuid'], "org.openmediavault.services.ftp.shares.share");
 	}
 
 	/**
@@ -360,10 +225,8 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getModBanRuleList($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -371,16 +234,8 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the list of configuration objects.
-		$xpath = "//services/ftp/modules/mod_ban/rule";
-		$objects = $xmlConfig->getList($xpath);
-		if(is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify the result objects.
-		foreach($objects as $objectk => &$objectv) {
-			$objectv['occurrence'] = intval($objectv['occurrence']);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->getAssoc("conf.service.ftp.modban.rule");
 		// Filter the result objects.
 		return $this->applyFilter($objects, $params['start'],
 		  $params['limit'], $params['sortfield'], $params['sortdir']);
@@ -403,16 +258,8 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
-		$xpath = sprintf("//services/ftp/modules/mod_ban/rule[uuid='%s']",
-		  $params['uuid']);
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify the result object.
-		$object['occurrence'] = intval($object['occurrence']);
-		return $object;
+		$db = \OMV\Config\Database::getInstance();
+		return $db->getAssoc("conf.service.ftp.modban.rule", $params['uuid']);
 	}
 
 	/**

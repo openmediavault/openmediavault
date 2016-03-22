@@ -1,0 +1,46 @@
+{
+	"type": "config",
+	"id": "conf.service.ftp.modban.rule",
+	"title": "FTP modban rule",
+	"queryinfo": {
+		"xpath": "//services/ftp/modules/mod_ban/rule",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"event": {
+			"type": "string",
+			"enum": [
+				"AnonRejectPasswords",
+				"ClientConnectRate",
+				"MaxClientsPerClass",
+				"MaxClientsPerHost",
+				"MaxClientsPerUser",
+				"MaxConnectionsPerHost",
+				"MaxHostsPerUser",
+				"MaxLoginAttempts",
+				"TimeoutIdle",
+				"TimeoutNoTransfer"
+			]
+		},
+		"occurrence": {
+			"type": "integer",
+			"minimum": 1,
+			"default": 1
+		},
+		"timeinterval": {
+			"type": "string",
+			"format": "time",
+			"default": ""
+		},
+		"expire": {
+			"type": "string",
+			"format": "time",
+			"default": ""
+		}
+	}
+}

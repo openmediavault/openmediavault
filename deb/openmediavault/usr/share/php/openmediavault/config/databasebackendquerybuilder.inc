@@ -124,7 +124,7 @@ class DatabaseBackendQueryBuilder {
 
 	final public function buildExistsQuery($property, $value) {
 		$qi = $this->getQueryInfo();
-		$predicate = sprintf("contains('%s','%s')", $property, $value);
+		$predicate = sprintf("%s='%s'", $property, $value);
 		return $this->buildGetByPredicateQuery($predicate);
 	}
 }

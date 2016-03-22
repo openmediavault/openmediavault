@@ -59,7 +59,7 @@ class ConfigObject {
 		if (FALSE === $this->exists($name)) {
 			throw new \OMV\Exception(
 			  "The property '%s' does not exist in the model '%s'.",
-			  $name, $model->getId());
+			  $name, $this->getModel()->getId());
 		}
 	}
 
