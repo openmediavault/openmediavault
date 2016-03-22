@@ -1,0 +1,59 @@
+{
+	"type": "config",
+	"id": "conf.system.iptables.rule",
+	"title": "Iptables rule",
+	"queryinfo": {
+		"xpath": "//system/network/iptables/rule",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"family":{
+			"type": "string",
+			"enum": [ "inet", "inet6" ],
+			"default": "inet"
+		},
+		"rulenum": {
+			"type": "integer",
+			"minimum": 0,
+			"default": 0
+		},
+		"chain": {
+			"type": "string",
+			"enum": [ "INPUT", "OUTPUT" ],
+			"default": "INPUT"
+		},
+		"action": {
+			"type": "string",
+			"enum": [ "ACCEPT", "REJECT", "DROP", "LOG", "" ],
+			"default": "REJECT"
+		},
+		"source": {
+			"type": "string"
+		},
+		"sport": {
+			"type": "string"
+		},
+		"destination": {
+			"type": "string"
+		},
+		"dport": {
+			"type": "string"
+		},
+		"protocol": {
+			"type": "string",
+			"pattern": "/^(!?(tcp|udp|icmp))|all$/",
+			"default": "tcp"
+		},
+		"extraoptions": {
+			"type":"string"
+		},
+		"comment": {
+			"type": "string"
+		}
+	}
+}

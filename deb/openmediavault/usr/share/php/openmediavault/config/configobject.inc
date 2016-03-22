@@ -253,8 +253,25 @@ class ConfigObject {
 	}
 
 	/**
+	 * Mark the configuration object as new. The 'uuid' property is
+	 * modified in this case.
+	 * @return None.
+	 * @throw \OMV\Exception
+	 */
+	public function setNew() {
+		if ((!$this->isIterable()) || (!$this->isIdentifiable())) {
+			throw new \OMV\Exception(
+			  "The configuration object '%s' is not identifiable.",
+			  $this->getModel()->getId());
+		}
+		$value = $GLOBALS['OMV_UUID_UNDEFINED'];
+		$this->set($this->getModel()->getIdProperty(), $value);
+	}
+
+	/**
 	 * Create a new UUID. Use this method only if the configuration object
 	 * has an 'uuid' property.
+	 * @return None.
 	 * @throw \OMV\Exception
 	 */
 	public function createIdentifier() {
@@ -263,7 +280,8 @@ class ConfigObject {
 			  "The configuration object '%s' is not identifiable.",
 			  $this->getModel()->getId());
 		}
-		$this->set($this->getModel()->getIdProperty(), \OMV\Uuid::uuid4());
+		$value = \OMV\Uuid::uuid4();
+		$this->set($this->getModel()->getIdProperty(), $value);
 	}
 
 	public function isIdentifiable() {

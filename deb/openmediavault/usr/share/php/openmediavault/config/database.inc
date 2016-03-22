@@ -150,6 +150,15 @@ class Database {
 		return $result;
 	}
 
+	public function getByPredicateAssoc($id, $predicate) {
+		$objects = $this->getByPredicate($id, $predicate);
+		$result = array();
+		foreach ($objects as $objectk => $objectv) {
+			$result[] = $objectv->getAssoc();
+		}
+		return $result;
+	}
+
 	/**
 	 * Set the configuration object at the specified XPath expression.
 	 * If the configuration object is iterable and identified as new,

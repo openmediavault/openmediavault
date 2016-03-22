@@ -294,8 +294,16 @@ function is_block($filename) {
  * @return TRUE if the variable is JSON, otherwise FALSE.
  */
 function is_json($var) {
-	return (is_string($var) && !is_null(json_decode_safe($var))) ?
-	  TRUE : FALSE;
+	if (!is_string($var))
+		return FALSE;
+	if (empty($var))
+		return FALSE;
+	// E.g. '1.1.1.1' is identified as JSON by json_decode.
+	if (!preg_match("/^[\[\{]/", $var))
+		return FALSE;
+	if (is_null(json_decode_safe($var)))
+		return FALSE;
+	return (json_last_error() == JSON_ERROR_NONE);
 }
 
 /**
@@ -373,9 +381,14 @@ function is_64bits() {
  * @return TRUE if successful, otherwise FALSE.
  */
 function json_validate($json, $schema, &$errors = NULL) {
-	$schema = new \OMV\Json\Schema($json);
-	if (FALSE === ($result = $schema->validate($schema)))
-		$errors = array($schema->getLastError());
+	$result = FALSE;
+	try {
+		$schema = new \OMV\Json\Schema($json);
+		$schema->validate($schema);
+		$result = TRUE;
+	} catch(\Exception $e) {
+		$errors = array($e->getMessage());
+	}
 	return $result;
 }
 
