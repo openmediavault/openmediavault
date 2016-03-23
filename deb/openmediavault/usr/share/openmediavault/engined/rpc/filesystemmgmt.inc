@@ -899,6 +899,12 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 					  "force" => TRUE
 				  ), $context);
 			} else {
+				// Check if the configuration is marked as dirty, otherwise
+				// the /etc/fstab file is not up-to-date and the mount fails
+				// because of missing entries.
+				if ($this->isModuleDirty("fstab"))
+					throw new OMVException(OMVErrorMsg::E_CONFIG_DIRTY);
+				// Now try to mount the filesystem.
 				$me = new OMVMntEnt($meObject['fsname'], $meObject['dir']);
 				// Umount the mount point if it is already in use, which
 				// is the case when an USB device is unplugged without
@@ -917,7 +923,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 					  sprintf("Failed to create the mount directory '%s'",
 					  $me->getMountPoint()));
 				}
-				// Mount the filesystem.
+				// Finally mount the filesystem.
 				if (FALSE === $me->mount()) {
 					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 					  sprintf("Failed to mount '%s': %s",
