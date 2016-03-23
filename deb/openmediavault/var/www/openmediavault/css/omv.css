@@ -310,8 +310,11 @@ div#headerrlogo {
 	border: 1px solid #cc3300;
 }
 /* Message box */
-.x-message-box-info, .x-message-box-question {
+.x-message-box-info, .x-message-box-warning, .x-message-box-question,
+.x-message-box-error {
 	background-size: 32px 32px;
+}
+.x-message-box-info, .x-message-box-question {
 	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
 	opacity: 0.7;
 }

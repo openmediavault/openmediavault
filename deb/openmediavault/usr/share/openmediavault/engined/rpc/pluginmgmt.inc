@@ -19,10 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
-
 class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -57,7 +53,7 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   The following fields are optional: \em description,
 	 *   \em extendeddescription, \em depends, \em replaces
 	 *   and \em conflicts.
-	 * @throw E_MISC_FAILURE
+	 * @throw \OMV\Exception
 	 */
 	function enumeratePlugins($params, $context) {
 		// Validate the RPC caller context.
@@ -68,7 +64,7 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 		// be updated automatically via APT trigger.
 		$indexFile = new \OMV\Json\File($GLOBALS['OMV_APT_PLUGINS_INDEX_FILE']);
 		if (!$indexFile->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			throw new \OMV\Exception(
 			  "The index of available plugins does not exist. Please ".
 			  "re-synchronize the package index files from their sources.");
 		}
@@ -116,6 +112,7 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em packages An array of package names to remove.
 	 * @param context The context of the caller.
 	 * @return The name of the background process status file.
+	 * @throw \OMV\Exception
 	 */
 	function remove($params, $context) {
 		// Validate the RPC caller context.
@@ -123,21 +120,16 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "packages":{"type":"array","items":{"type":"string"}}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.plugin.remove");
 		// Validate package names.
 		$prd = new \OMV\ProductInfo();
 		$regex = sprintf("/^%s-.+$/", $prd->getPackageName());
 		foreach ($params['packages'] as $packagek => $packagev) {
 			if (0 == preg_match($regex, $packagev)) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("Failed to remove package '%s'. The name ".
-				  "of the package does not match the plugin naming ".
-				  "convention.", $packagev));
+				throw new \OMV\Exception(
+				  "Failed to remove package '%s'. The name of the package ".
+				  "does not match the plugin naming convention.",
+				  $packagev);
 			}
 		}
 		// Create a background process.
@@ -176,8 +168,7 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em filepath The path to the uploaded file.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_EXEC_FAILED
-	 * @throw E_MISC_FAILURE
+	 * @throw \OMV\Exception
 	 */
 	function upload($params, $context) {
 		// Validate the RPC caller context.
@@ -185,13 +176,7 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "filename":{"type":"string"},
-				  "filepath":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.plugin.upload");
 		// Extract the package name.
 		$cmd = sprintf("export LANG=C; dpkg --field %s | ".
 		  "grep 'Package: ' | awk '{print \$2}'", escapeshellarg(
@@ -203,11 +188,11 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 		$prd = new \OMV\ProductInfo();
 		// Validate package name
 		$regex = sprintf("/^%s-.+$/", $prd->getPackageName());
-		if(0 == preg_match($regex, $packageName)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to upload package '%s'. The package name " .
+		if (0 == preg_match($regex, $packageName)) {
+			throw new \OMV\Exception(
+			  "Failed to upload package '%s'. The package name ".
 			  "does not match the plugin naming convention.",
-			  $params['filename']));
+			  $params['filename']);
 		}
 		// Continue to upload the package.
 		return \OMV\Rpc\Rpc::call("Apt", "upload", $params, $context);
@@ -219,6 +204,7 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em packages An array of package names to install.
 	 * @param context The context of the caller.
 	 * @return The name of the background process status file.
+	 * @throw \OMV\Exception
 	 */
 	function install($params, $context) {
 		// Validate the RPC caller context.
@@ -226,21 +212,16 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "packages":{"type":"array","items":{"type":"string"}}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.plugin.install");
 		// Validate package names.
 		$prd = new \OMV\ProductInfo();
 		$regex = sprintf("/^%s-.+$/", $prd->getPackageName());
 		foreach ($params['packages'] as $packagek => $packagev) {
 			if (0 == preg_match($regex, $packagev)) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("Failed to install package '%s'. The name ".
-				  "of the package does not match the plugin naming ".
-				  "convention.", $packagev));
+				throw new \OMV\Exception(
+				  "Failed to install package '%s'. The name of the package ".
+				  "does not match the plugin naming convention.",
+				  $packagev);
 			}
 		}
 		// Create a background process.

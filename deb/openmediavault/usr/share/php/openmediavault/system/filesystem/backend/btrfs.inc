@@ -33,7 +33,8 @@ class Btrfs extends BackendAbstract {
 	/**
 	 * See parent class definition.
 	 */
-	public function getFstabMntOptions(OMVStorageDeviceAbstract $sd = null) {
+	public function getFstabMntOptions(
+	  \OMV\System\Storage\StorageDeviceAbstract $sd = null) {
 		$options = parent::getFstabMntOptions($sd);
 		if (!is_null($sd)) {
 			if (!$sd->isRotational())

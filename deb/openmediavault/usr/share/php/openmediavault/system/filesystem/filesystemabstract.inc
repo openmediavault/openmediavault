@@ -340,7 +340,8 @@ class FilesystemAbstract {
 		// - /dev/dm-0 => /dev/dm-0
 		// - /dev/md0 => /dev/md0
 		// - /dev/loop0 => /dev/loop0
-		if (NULL === ($backend = \OMV\System\Storage\Backend\Manager::getBackend($deviceFile)))
+		$mngr = \OMV\System\Storage\Backend\Manager::getInstance();
+		if (NULL === ($backend = $mngr->getBackend($deviceFile)))
 			return FALSE;
 		return $backend->baseDeviceFile($deviceFile);
 	}

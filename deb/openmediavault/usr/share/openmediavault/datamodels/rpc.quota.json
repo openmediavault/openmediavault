@@ -1,0 +1,47 @@
+{
+	"type": "rpc",
+	"id": "rpc.quota.set",
+	"params": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4",
+			"required": true
+		},
+		"quota": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string",
+						"required": true
+					},
+					"type": {
+						"type": "string",
+						"enum": [ "user", "group" ],
+						"required": true
+					},
+					"bhardlimit": {
+						"type": "number",
+						"minimum": 0,
+						"required": true
+					},
+					"bunit": {
+						"type": "string",
+						"enum": [
+							"B",
+							"KiB",
+							"MiB",
+							"GiB",
+							"TiB",
+							"PiB",
+							"EiB"
+						],
+						"required": true
+					}
+				}
+			},
+			"required": true
+		}
+	}
+}

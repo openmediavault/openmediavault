@@ -19,9 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/functions.inc");
-
 class OMVRpcServicePowerMgmt extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -48,7 +45,6 @@ class OMVRpcServicePowerMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function get($params, $context) {
 		// Validate the RPC caller context.
@@ -57,8 +53,7 @@ class OMVRpcServicePowerMgmt extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.system.powermanagement");
-		return $object->getAssoc();
+		return $db->getAssoc("conf.system.powermanagement");
 	}
 
 	/**
@@ -66,7 +61,6 @@ class OMVRpcServicePowerMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function set($params, $context) {
 		// Validate the RPC caller context.
@@ -103,7 +97,6 @@ class OMVRpcServicePowerMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getScheduleList($params, $context) {
 		return \OMV\Rpc\Rpc::call("cron", "getList", $params, $context);
@@ -115,7 +108,6 @@ class OMVRpcServicePowerMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getScheduledJob($params, $context) {
 		return \OMV\Rpc\Rpc::call("cron", "get", $params, $context);

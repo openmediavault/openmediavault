@@ -82,7 +82,7 @@ class Manager implements \IteratorAggregate {
 	 * @throw \OMV\Exception
 	 */
 	final public function assertGetBackendByType($type) {
-		$backend = $this->getBackend($type);
+		$backend = $this->getBackendByType($type);
 		if (is_null($backend)) {
 			throw new \OMV\Exception(
 			  "No filesystem backend exists for type '%s'.",

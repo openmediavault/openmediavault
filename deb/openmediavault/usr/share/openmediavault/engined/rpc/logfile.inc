@@ -20,8 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/globals.inc");
-require_once("openmediavault/object.inc");
-require_once("openmediavault/error.inc");
 
 class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 	/**
@@ -52,7 +50,7 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
-	 * @throw E_MISC_FAILURE
+	 * @throw \OMV\Exception
 	 */
 	function getList($params, $context) {
 		// Validate the RPC caller context.
@@ -60,41 +58,28 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "start":{"type":"integer"},
-				  "limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
-				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
-				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'},
-				  "id":{"type":"string"}
-			  }
-		  }');
-		// Check if the given log file type if registered.
+		$this->validateMethodParams($params, "rpc.logfile.getlist");
+		// Create the log file specification object.
 		$logfile = new \OMV\System\LogFileSpec($params['id']);
-		if(FALSE === $logfile->isRegistered()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  gettext("Unknown log file type (id=%s)"), $params['id']));
-		}
-		// Read file content.
-		if(FALSE === ($fh = fopen($logfile->getFilePath(), "r"))) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to open the log file (filename=%s).",
-			  $logfile->getFilePath()));
+		// Read the log file content.
+		if (FALSE === ($fh = fopen($logfile->getFilePath(), "r"))) {
+			throw new \OMV\Exception(
+			  "Failed to open the log file (filename=%s).",
+			  $logfile->getFilePath());
 		}
 		$objects = array();
 		$rowNum = 0;
-		while(($line = fgets($fh)) !== FALSE) {
-			if($rowNum > $GLOBALS['OMV_MAX_LOGFILE_LINES'])
+		while (($line = fgets($fh)) !== FALSE) {
+			if ($rowNum > $GLOBALS['OMV_MAX_LOGFILE_LINES'])
 				break;
 			// Skip invalid pattern matches.
 			$result = preg_match($logfile->getRegex(), $line, $matches);
-			if((FALSE === $result) || (0 == $result))
+			if ((FALSE === $result) || (0 == $result))
 				continue;
 			$object = array(
 				"rownum" => $rowNum++
 			);
-			foreach($logfile->getColumns() as $columnk => $columnv) {
+			foreach ($logfile->getColumns() as $columnk => $columnv) {
 				// Execute user defined function, e.g. to convert
 				// column content?
 				if (is_array($columnv)) {
@@ -108,10 +93,10 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 			}
 			$objects[] = $object;
 		}
-		if(FALSE === fclose($fh)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to close the log file (filename=%s).",
-			  $logfile->getFilePath()));
+		if (FALSE === fclose($fh)) {
+			throw new \OMV\Exception(
+			  "Failed to close the log file (filename=%s).",
+			  $logfile->getFilePath());
 		}
 		// Filter result.
 		return $this->applyFilter($objects, $params['start'],
@@ -124,7 +109,7 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 	 *   \em id The identifier of the registered log file type.
 	 * @param context The context of the caller.
 	 * @return None
-	 * @throw E_MISC_FAILURE
+	 * @throw \OMV\Exception
 	 */
 	function clear($params, $context) {
 		// Validate the RPC caller context.
@@ -132,34 +117,25 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "id":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.logfile.clear");
 		// Check if the given log file type if registered.
 		$logfile = new \OMV\System\LogFileSpec($params['id']);
-		if (FALSE === $logfile->isRegistered()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  gettext("Unknown log file type (id=%s)"), $params['id']));
-		}
-		// Clear log file.
+		// Clear the log file.
 		if (FALSE === ($fh = fopen($logfile->getFilePath(), "w"))) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to open the log file (filename=%s).",
-			  $logfile->getFilePath()));
+			throw new \OMV\Exception(
+			  "Failed to open the log file (filename=%s).",
+			  $logfile->getFilePath());
 		}
 		if (FALSE === ftruncate($fh, 0)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to truncate the log file (filename=%s).",
-			  $logfile->getFilePath()));
+			throw new \OMV\Exception(
+			  "Failed to truncate the log file (filename=%s).",
+			  $logfile->getFilePath());
 		}
 		rewind($fh);
 		if (FALSE === fclose($fh)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to close the log file (filename=%s).",
-			  $logfile->getFilePath()));
+			throw new \OMV\Exception(
+			  "Failed to close the log file (filename=%s).",
+			  $logfile->getFilePath());
 		}
 		// Force rsyslog to close and reopen the syslog files.
 		$systemCtl = new \OMV\System\SystemCtl("rsyslog.service");
@@ -176,7 +152,7 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 	 * @param context The context of the caller.
 	 * @return An array with the keys \em filename, \em filepath and
 	 *   \em unlink.
-	 * @throw E_MISC_FAILURE
+	 * @throw \OMV\Exception
 	 */
 	function getContent($params, $context) {
 		// Validate the RPC caller context.
@@ -184,25 +160,16 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "id":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.logfile.getcontent");
 		// Check if the given log file type if registered.
 		$logfile = new \OMV\System\LogFileSpec($params['id']);
-		if(FALSE === $logfile->isRegistered()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  gettext("Unknown log file type (id=%s)"), $params['id']));
-		}
 		// Copy the log file to a temporary location and modify the file
 		// mode/owner to allow the WebGUI PHP backend to unlink it.
 		$tmpFilePath = tempnam(sys_get_temp_dir(), "logfile");
-		if(FALSE === copy($logfile->getFilePath(), $tmpFilePath)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to copy the log file (source=%s, dest=%s).",
-			  $logfile->getFilePath(), $tmpFilePath));
+		if (FALSE === copy($logfile->getFilePath(), $tmpFilePath)) {
+			throw new \OMV\Exception(
+			  "Failed to copy the log file (source=%s, dest=%s).",
+			  $logfile->getFilePath(), $tmpFilePath);
 		}
 		chmod($tmpFilePath, 0700);
 		chown($tmpFilePath, $GLOBALS['OMV_WEBGUI_FILE_OWNERGROUP_NAME']);

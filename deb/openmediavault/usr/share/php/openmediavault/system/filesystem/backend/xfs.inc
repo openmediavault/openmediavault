@@ -33,7 +33,8 @@ class Xfs extends BackendAbstract {
 	/**
 	 * See parent class definition.
 	 */
-	public function getFstabMntOptions(OMVStorageDeviceAbstract $sd = null) {
+	public function getFstabMntOptions(
+	  \OMV\System\Storage\StorageDeviceAbstract $sd = null) {
 		$options = parent::getFstabMntOptions($sd);
 		if (TRUE === is_64bits())
 			$options[] = "inode64";

@@ -114,11 +114,12 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			$fsId = $fs->getDeviceFile();
 			if (FALSE === $fsb->hasDeviceFile())
 				$fsId = $fs->getUuid();
-			if (FALSE !== ($meObject = \OMV\Rpc\Rpc::call("FsTab",
-			  "getByFsName", array("id" => $fsId), $context))) {
-			  	$xpath = sprintf("//mntentref[contains(.,'%s')]",
-			  	  $meObject['uuid']);
-				if (TRUE === $xmlConfig->exists($xpath))
+			if (FALSE !== ($meObject = \OMV\Rpc\Rpc::call(
+			  "FsTab","getByFsName", array("id" => $fsId), $context))) {
+				$db = \OMV\Config\Database::getInstance();
+				$meObject = $db->get("conf.system.filesystem.mountpoint",
+				  $meObject['uuid']);
+				if ($db->isReferenced($meObject))
 					$object['_used'] = TRUE;
 			}
 			// Mark the device where the operating system is installed on
@@ -493,21 +494,13 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			  $sd->getDeviceFile());
 		}
 		// Get the storage device backend of the given device.
-		$sdb = \OMV\System\Storage\Backend\Manager::getBackend(
-		  $sd->getDeviceFile());
-		if (is_null($sdb)) {
-			throw new \OMV\Exception(
-			  "No storage device backend exists for device '%s'.",
-			  $sd->getDeviceFile());
-		}
+		$sdbMngr = \OMV\System\Storage\Backend\Manager::getInstance();
+		$sdbMngr->assertGetBackend($sd->getDeviceFile());
+		$sdb = $sdbMngr->getBackend($sd->getDeviceFile());
 		// Get the corresponding filesystem backend.
 		$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
+		$fsbMngr->assertGetBackendByType($params['type']);
 		$fsb = $fsbMngr->getBackendByType($params['type']);
-		if (is_null($fsb)) {
-			throw new \OMV\Exception(
-			  "No filesystem backend exists for type '%s'.",
-			  $params['type']);
-		}
 		// Get the filesystem device file name from the storage device
 		// backend (this may differ depending on the storage device).
 		$fsDeviceFile = $sdb->fsDeviceFile($sd->getDeviceFile());

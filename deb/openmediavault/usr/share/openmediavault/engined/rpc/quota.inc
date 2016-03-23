@@ -19,12 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/functions.inc");
-require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
-
 class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -48,10 +42,8 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the filesystem.
 	 * @param context The context of the caller.
 	 * @return An array containing the requested quota configuration.
-	 * @throw E_MISC_FAILURE
 	 */
 	function get($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -59,22 +51,20 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get filesystem details.
+		\OMV\System\Filesystem\Filesystem::assertGetImpl($params['uuid']);
 		$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['uuid']);
-		if (is_null($fs) || !$fs->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf(gettext("Filesystem '%s' not found"), $params['uuid']));
-		}
 		$devicefile = $fs->getDeviceFile();
 		// Does any quota configuration exist for the given filesystem?
-		$xpath = sprintf("//system/storage/filesystem/quota[fsuuid='%s']",
-		  $params['uuid']);
-		$object = $xmlConfig->get($xpath);
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->getByPredicate("conf.system.filesystem.quota",
+		  sprintf("fsuuid='%s'", $params['uuid']));
 		// Prepare result. Iterate over all system users and groups and get
 		// their quota configuration for the given filesystem.
 		$result = array();
 		// Get non-system users
-		$users = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateUsers", NULL, $context);
-		foreach($users as $userk => $userv) {
+		$users = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateUsers", NULL,
+		  $context);
+		foreach ($users as $userk => $userv) {
 			// Set default values.
 			$resObj = array(
 				"type" => "user",
@@ -84,34 +74,33 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 				"bunit" => "MiB"
 			);
 			// Check if there is any configured quota for the given user.
-			if(isset($object['usrquota']) && is_array($object['usrquota'])) {
-				foreach($object['usrquota'] as $usrquotav) {
-					if($userv['name'] !== $usrquotav['name'])
-						continue;
-					// Get user quotas and get the number of used disk space
-					// if available. Note, 'blocks' are given in KiB.
-					$sysUser = new \OMV\System\User($userv['name']);
-					if(FALSE !== ($quotas = $sysUser->getQuotas())) {
-						if(array_key_exists($devicefile, $quotas)) {
-							$resObj['bused'] = binary_format(
-							  $quotas[$devicefile]['blocks'], array(
-							  "fromPrefix" => "KiB"));
-						}
+			foreach ($object->get("usrquota") as $usrquotav) {
+				if ($userv['name'] !== $usrquotav['name'])
+					continue;
+				// Get user quotas and get the number of used disk space
+				// if available. Note, 'blocks' are given in KiB.
+				$sysUser = new \OMV\System\User($userv['name']);
+				if (FALSE !== ($quotas = $sysUser->getQuotas())) {
+					if (array_key_exists($devicefile, $quotas)) {
+						$resObj['bused'] = binary_format(
+						  $quotas[$devicefile]['blocks'], array(
+						  "fromPrefix" => "KiB"));
 					}
-					// Convert the quota to a human readable unit. Note, the
-					// values are stored a KiB in the configuration.
-					$bhardlimit = binary_format($usrquotav['bhardlimit'],
-					  array("fromPrefix" => "KiB", "maxPrefix" => "TiB",
-					  "indexed" => TRUE));
-					$resObj['bhardlimit'] = $bhardlimit['value'];
-					$resObj['bunit'] = $bhardlimit['unit'];
 				}
+				// Convert the quota to a human readable unit. Note, the
+				// values are stored a KiB in the configuration.
+				$bhardlimit = binary_format($usrquotav['bhardlimit'],
+				  array("fromPrefix" => "KiB", "maxPrefix" => "TiB",
+				  "indexed" => TRUE));
+				$resObj['bhardlimit'] = $bhardlimit['value'];
+				$resObj['bunit'] = $bhardlimit['unit'];
 			}
 			$result[] = $resObj;
 		}
 		// Get non-system groups
-		$groups = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateGroups", NULL, $context);
-		foreach($groups as $groupk => $groupv) {
+		$groups = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateGroups", NULL,
+		  $context);
+		foreach ($groups as $groupk => $groupv) {
 			// Set default values.
 			$resObj = array(
 				"type" => "group",
@@ -121,28 +110,26 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 				"bunit" => "MiB"
 			);
 			// Check if there is any configured quota for the given group.
-			if(isset($object['grpquota']) && is_array($object['grpquota'])) {
-				foreach($object['grpquota'] as $grpquotav) {
-					if($groupv['name'] !== $grpquotav['name'])
-						continue;
-					// Get user quotas and get the number of used disk space
-					// if available. Note, 'blocks' are given in KiB.
-					$sysGroup = new \OMV\System\Group($groupv['name']);
-					if(FALSE !== ($quotas = $sysGroup->getQuotas())) {
-						if(array_key_exists($devicefile, $quotas)) {
-							$resObj['bused'] = binary_format(
-							  $quotas[$devicefile]['blocks'], array(
-							  "fromPrefix" => "KiB"));
-						}
+			foreach ($object->get("grpquota") as $grpquotav) {
+				if ($groupv['name'] !== $grpquotav['name'])
+					continue;
+				// Get user quotas and get the number of used disk space
+				// if available. Note, 'blocks' are given in KiB.
+				$sysGroup = new \OMV\System\Group($groupv['name']);
+				if (FALSE !== ($quotas = $sysGroup->getQuotas())) {
+					if (array_key_exists($devicefile, $quotas)) {
+						$resObj['bused'] = binary_format(
+						  $quotas[$devicefile]['blocks'], array(
+						  "fromPrefix" => "KiB"));
 					}
-					// Convert the quota to a human readable unit. Note, the
-					// values are stored a KiB in the configuration.
-					$bhardlimit = binary_format($grpquotav['bhardlimit'],
-					  array("fromPrefix" => "KiB", "maxPrefix" => "TiB",
-					  "indexed" => TRUE));
-					$resObj['bhardlimit'] = $bhardlimit['value'];
-					$resObj['bunit'] = $bhardlimit['unit'];
 				}
+				// Convert the quota to a human readable unit. Note, the
+				// values are stored a KiB in the configuration.
+				$bhardlimit = binary_format($grpquotav['bhardlimit'],
+				  array("fromPrefix" => "KiB", "maxPrefix" => "TiB",
+				  "indexed" => TRUE));
+				$resObj['bhardlimit'] = $bhardlimit['value'];
+				$resObj['bunit'] = $bhardlimit['unit'];
 			}
 			$result[] = $resObj;
 		}
@@ -156,8 +143,6 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
      *   \em quota. An array of quotas to set.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function set($params, $context) {
 		global $xmlConfig;
@@ -166,25 +151,7 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
-				  "quota":{
-					  "type":"array",
-					  "items":{
-						  "type":"object",
-						  "properties":{
-							  "name":{"type":"string"},
-							  "type":{"type":"string","enum":["user","group"]},
-							  "bhardlimit":{"type":"number","minimum":0},
-							  "bunit":{"type":"string","enum":["B","KiB",'.
-								'"MiB","GiB","TiB","PiB","EiB"]}
-						  }
-					  }
-				  }
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.quota.set");
 		// Create filesystem quota configuration object.
 		$object = array();
 		foreach($params['quota'] as $paramk => $paramv) {
@@ -258,9 +225,8 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		$xpath = sprintf("//system/storage/filesystem/quota[uuid='%s']",
-		  $params['uuid']);
-		return $this->deleteConfigObjectByPath($xpath,
+		return $this->deleteConfigObjectByUuid(
+		  "conf.system.filesystem.quota", $params['uuid'],
 		  "org.openmediavault.system.storage.filesystem.quota");
 	}
 }

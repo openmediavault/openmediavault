@@ -34,7 +34,8 @@ class Ext4 extends Ext3 {
 	/**
 	 * See parent class definition.
 	 */
-	public function getMkfsOptions(OMVStorageDeviceAbstract $sd = null) {
+	public function getMkfsOptions(
+	  \OMV\System\Storage\StorageDeviceAbstract $sd = null) {
 		$options = parent::getMkfsOptions($sd);
 		if (is_a($sd, "OMVStorageDeviceMdadm")) {
 			// Append extra options for mdadm software RAID devices.

@@ -76,4 +76,10 @@ class Filesystem extends FilesystemAbstract {
 			return NULL;
 		return $backend->getImpl($id);
 	}
+
+	public static function assertGetImpl($id) {
+		$result = self::getImpl($id);
+		if (is_null($result) || !$result->exists())
+			throw new \OMV\Exception("Filesystem '%s' not found.", $id);
+	}
 }

@@ -64,6 +64,7 @@ class LogFileSpec {
 	 * @param id The identifier of the log file specification.
 	 */
 	function __construct($id) {
+		self::assertIsRegistered($id);
 		$this->id = $id;
 	}
 
@@ -80,10 +81,15 @@ class LogFileSpec {
 
 	/**
 	 * Checks if a log file specification is registered.
-	 * @return TRUE if the log file type is registered, otherwise FALSE.
+	 * @param id The identifier of the log file specification.
+	 * @return None.
+	 * @throw \OMV\Exception
 	 */
-	public function isRegistered() {
-		return array_key_exists($this->id, self::$specs);
+	public static function assertIsRegistered($id) {
+		if (FALSE === array_key_exists($id, self::$specs)) {
+			throw new \OMV\Exception(
+			  "Unknown log file specification (id=%s).", $id);
+		}
 	}
 
 	/**
