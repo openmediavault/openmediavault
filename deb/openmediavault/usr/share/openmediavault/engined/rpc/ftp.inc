@@ -19,11 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
-
 class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -312,26 +307,13 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 	 * @return The configuration object.
 	 */
 	public function getModTLSSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$xpath = "//services/ftp/modules/mod_tls";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify the result object.
-		$object['enable'] = boolvalEx($object['enable']);
-		$object['required'] = boolvalEx($object['required']);
-		$object['nocertrequest'] = boolvalEx($object['nocertrequest']);
-		$object['nosessionreuserequired'] = boolvalEx(
-		  $object['nosessionreuserequired']);
-		$object['useimplicitssl'] = boolvalEx($object['useimplicitssl']);
-		return $object;
+		$db = \OMV\Config\Database::getInstance();
+		return $db->getAssoc("conf.service.ftp.modtls");
 	}
 
 	/**
@@ -341,46 +323,25 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 	 * @return The stored configuration object.
 	 */
 	public function setModTLSSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "enable":{"type":"boolean"},
-				  "required":{"type":"boolean"},
-				  "sslcertificateref":{'.
-					$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].'},
-				  "nocertrequest":{"type":"boolean"},
-				  "nosessionreuserequired":{"type":"boolean"},
-				  "useimplicitssl":{"type":"boolean"},
-				  "extraoptions":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.ftp.setmodtlssettings");
+		// Prepare the configuration object.
+		$object = new \OMV\Config\ConfigObject("conf.service.ftp.modtls");
+		$object->setAssoc($params);
 		// Set the configuration object.
-		$object = array(
-			"enable" => array_boolval($params, 'enable'),
-			"required" => array_boolval($params, 'required'),
-			"sslcertificateref" => $params['sslcertificateref'],
-			"nocertrequest" => array_boolval($params, 'nocertrequest'),
-			"nosessionreuserequired" => array_boolval($params,
-			  'nosessionreuserequired'),
-			"useimplicitssl" => array_boolval($params, 'useimplicitssl'),
-			"extraoptions" => $params['extraoptions']
-		);
-		$xpath = "//services/ftp/modules/mod_tls";
-		if(FALSE === $xmlConfig->replace($xpath, $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
-		// Notify configuration changes
+		$db = \OMV\Config\Database::getInstance();
+		$db->set($object);
+		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.ftp.modules.mod_tls", $object);
+		  "org.openmediavault.services.ftp.modules.mod_tls",
+		  $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**

@@ -208,7 +208,13 @@
 						},
 						"sslcertificateref": {
 							"type": "string",
-							"format": "uuidv4"
+							"oneOf": [{
+								"type": "string",
+								"format": "uuidv4"
+							},{
+								"type": "string"
+							}],
+							"default": ""
 						},
 						"nocertrequest": {
 							"type": "boolean",

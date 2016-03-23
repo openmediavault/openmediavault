@@ -185,4 +185,46 @@
 			}
 		}
 	}
+},{
+	"type": "rpc",
+	"id": "rpc.ftp.setmodtlssettings",
+	"params": {
+		"type": "object",
+		"properties": {
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
+			"required": {
+				"type": "boolean",
+				"required": true
+			},
+			"sslcertificateref": {
+				"type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "uuidv4"
+				},{
+					"type": "string"
+				}],
+				"required": true
+			},
+			"nocertrequest": {
+				"type": "boolean",
+				"required": true
+			},
+			"nosessionreuserequired": {
+				"type": "boolean",
+				"required": true
+			},
+			"useimplicitssl": {
+				"type": "boolean",
+				"required": true
+			},
+			"extraoptions": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
 }]

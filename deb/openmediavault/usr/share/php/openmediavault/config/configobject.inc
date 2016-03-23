@@ -78,7 +78,19 @@ class ConfigObject {
 	 */
 	public function get($name) {
 		$this->assertExists($name);
-		return $this->properties[$name];
+		$propSchema = $this->getModel()->getPropertiesSchema();
+		$subPropSchema = $propSchema->getAssocByPath($name);
+		switch ($subPropSchema['type']) {
+		case "array":
+		case "object":
+			$propertiesAssoc = $this->getAssoc();
+
+			break;
+		default:
+			$result = $this->properties[$name];
+			break;
+		}
+		return $result;
 	}
 
 	/**

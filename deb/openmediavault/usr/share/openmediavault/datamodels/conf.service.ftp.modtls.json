@@ -1,0 +1,45 @@
+{
+	"type": "config",
+	"id": "conf.service.ftp.modtls",
+	"title": "FTP modtls settings",
+	"queryinfo": {
+		"xpath": "//services/ftp/modules/mod_tls",
+		"iterable": false
+	},
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": 0
+		},
+		"required": {
+			"type": "boolean",
+			"default": 0
+		},
+		"sslcertificateref": {
+			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string"
+			}],
+			"default": ""
+		},
+		"nocertrequest": {
+			"type": "boolean",
+			"default": 0
+		},
+		"nosessionreuserequired": {
+			"type": "boolean",
+			"default": 0
+		},
+		"useimplicitssl": {
+			"type": "boolean",
+			"default": 0
+		},
+		"extraoptions": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}
