@@ -436,7 +436,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Prepare the result list.
 		$result = array();
 		foreach ($devs as $devk => $devv) {
-			// Get the object that implements the given storage device.
+			// Get the storage device object for the specified device file.
 			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
 			if (is_null($sd) || !$sd->exists())
 				continue;
