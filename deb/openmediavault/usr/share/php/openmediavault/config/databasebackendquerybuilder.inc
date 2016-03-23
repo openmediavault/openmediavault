@@ -122,8 +122,10 @@ class DatabaseBackendQueryBuilder {
 		  $object->get($qi['idproperty']));
 	}
 
-	final public function buildExistsQuery($property, $value) {
+	final public function buildExistsQuery($property = "", $value = "") {
 		$qi = $this->getQueryInfo();
+		if (empty($property) && empty($value))
+			return $qi['xpath'];
 		$predicate = sprintf("%s='%s'", $property, $value);
 		return $this->buildGetByPredicateQuery($predicate);
 	}

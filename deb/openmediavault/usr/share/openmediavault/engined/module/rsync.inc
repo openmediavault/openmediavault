@@ -68,8 +68,8 @@ class OMVModuleRsync extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	final public function onSharedFolder($type, $path, $object) {
 		$db = \OMV\Config\Database::getInstance();
-		if ((TRUE === $db->exists("conf.services.rsync.job", "src",
-		  $object['uuid'])) || (TRUE === $db->exists(
+		if ((TRUE === $db->existsByProperty("conf.services.rsync.job", "src",
+		  $object['uuid'])) || (TRUE === $db->existsByProperty(
 		  "conf.services.rsync.job", "dest", $object['uuid'])))
 			$this->setDirty();
 	}

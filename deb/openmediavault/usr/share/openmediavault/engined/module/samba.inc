@@ -223,8 +223,8 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	final public function onSharedFolder($type, $path, $object) {
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $db->exists("conf.services.smb.share", "sharedfolderref",
-		  $object['uuid']))
+		if (TRUE === $db->existsByProperty("conf.services.smb.share",
+		  "sharedfolderref", $object['uuid']))
 			$this->setDirty();
 	}
 

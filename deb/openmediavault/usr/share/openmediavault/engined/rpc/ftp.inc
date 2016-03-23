@@ -163,12 +163,8 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_OBJECT_UNIQUENESS
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	public function setShare($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -247,7 +243,6 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getModBanRule($params, $context) {
 		global $xmlConfig;
@@ -267,61 +262,28 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The configuration object.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	public function setModBanRule($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-				  "event":{"type":"string","enum":["AnonRejectPasswords",'.
-					'"ClientConnectRate","MaxClientsPerClass",'.
-					'"MaxClientsPerHost","MaxClientsPerUser",'.
-					'"MaxConnectionsPerHost","MaxHostsPerUser",'.
-					'"MaxLoginAttempts","TimeoutIdle","TimeoutNoTransfer"]},
-				  "occurrence":{"type":"integer","minimum":1},
-				  "timeinterval":{"type":"string","format":"regex",'.
-					'"pattern":"\/^[0-9]{2}:[0-9]{2}:[0-9]{2}$\/"},
-				  "expire":{"type":"string","format":"regex",'.
-					'"pattern":"\/^[0-9]{2}:[0-9]{2}:[0-9]{2}$\/"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.ftp.setmodbanrule");
 		// Prepare the configuration object.
-		$object = array(
-			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  \OMV\Uuid::uuid4() : $params['uuid'],
-			"event" => $params['event'],
-			"occurrence" => $params['occurrence'],
-			"timeinterval" => $params['timeinterval'],
-			"expire" => $params['expire']
-		);
+		$object = new \OMV\Config\ConfigObject("conf.service.ftp.modban.rule");
+		$object->setAssoc($params);
 		// Set the configuration object.
-		$success = FALSE;
-		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
-			// Append object to configuration.
-			$success = $xmlConfig->set("//services/ftp/modules/mod_ban",
-			  array("rule" => $object));
-		} else {
-			// Update existing configuration object.
-			$success = $xmlConfig->replace("//services/ftp/modules/mod_ban" .
-			  "/rule[uuid='{$params['uuid']}']", $object);
-		}
-		if(FALSE === $success) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$isNew = $object->isNew();
+		$db = \OMV\Config\Database::getInstance();
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.ftp.modules.mod_ban.rule", $object);
+		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.services.ftp.modules.mod_ban.rule",
+		  $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -329,7 +291,6 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
-	 * @return The deleted configuration object.
 	 */
 	public function deleteModBanRule($params, $context) {
 		// Validate the RPC caller context.
@@ -339,9 +300,8 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		$xpath = sprintf("//services/ftp/modules/mod_ban/rule[uuid='%s']",
-		  $params['uuid']);
-		return $this->deleteConfigObjectByPath($xpath,
+		return $this->deleteConfigObjectByUuid(
+		  "conf.service.ftp.modban.rule", $params['uuid'],
 		  "org.openmediavault.services.ftp.modules.mod_ban.rule");
 	}
 
@@ -350,7 +310,6 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getModTLSSettings($params, $context) {
 		global $xmlConfig;
@@ -380,7 +339,6 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	public function setModTLSSettings($params, $context) {
 		global $xmlConfig;
@@ -430,43 +388,40 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return A string containing the requested statistics.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_EXEC_FAILED
 	 */
 	public function getStats($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Is service enabled?
-		$xpath = "//services/ftp";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		if (!boolvalEx($object['enable'])) {
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.ftp");
+		if (FALSE === $object->get("enable")) {
 			$stats = gettext("Service disabled");
 		} else {
 			// Get users currently logged in.
 			$stats = sprintf("%s\n", gettext("Currently logged in users:"));
-			$cmd = "export LANG=C; ftpwho -v 2>&1";
-			if (0 !== $this->exec($cmd, $output))
-				throw new \OMV\ExecException($cmd, $output);
+			$cmdArgs = array();
+			$cmdArgs[] = "-v";
+			$cmd = new \OMV\System\Process("ftpwho", $cmdArgs);
+			$cmd->setRedirect2to1(TRUE);
+			$cmd->execute($output);
 			array_shift($output);
 			$stats .= implode("\n", $output);
 			// Get ban list if module is enabled.
-			$xpath = "//services/ftp/modules/mod_ban/rule";
-			if(TRUE === $xmlConfig->exists($xpath)) {
+			if (TRUE === $db->exists("conf.service.ftp.modban.rule")) {
 				$stats .= sprintf("\n\n%s\n", gettext("Ban statistics:"));
-				$cmd = "export LANG=C; ftpdctl -s /var/run/proftpd/proftpd.sock ".
-				  "ban info -v -e 2>&1";
-				if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
-					throw new \OMV\ExecException($cmd, $output);
-				foreach ($output as &$outputv) {
+				$cmdArgs = array();
+				$cmdArgs[] = "-s /var/run/proftpd/proftpd.sock";
+				$cmdArgs[] = "ban info";
+				$cmdArgs[] = "-v";
+				$cmdArgs[] = "-e";
+				$cmd = new \OMV\System\Process("ftpdctl", $cmdArgs);
+				$cmd->setRedirect2to1(TRUE);
+				$cmd->execute($output);
+				foreach ($output as &$outputv)
 					$outputv = preg_replace("/^ftpdctl:/", "", $outputv);
-				}
 				$stats .= implode("\n", $output);
 			}
 		}

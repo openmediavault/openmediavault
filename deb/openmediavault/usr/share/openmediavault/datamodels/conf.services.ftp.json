@@ -149,43 +149,48 @@
 			"type": "object",
 			"properties": {
 				"mod_ban": {
-					"type": "array",
-					"items": {
-						"type": "object",
-						"properties": {
-							"uuid": {
-								"type": "string",
-								"format": "uuidv4"
-							},
-							"event": {
-								"type": "string",
-								"enum": [
-									"AnonRejectPasswords",
-									"ClientConnectRate",
-									"MaxClientsPerClass",
-									"MaxClientsPerHost",
-									"MaxClientsPerUser",
-									"MaxConnectionsPerHost",
-									"MaxHostsPerUser",
-									"MaxLoginAttempts",
-									"TimeoutIdle",
-									"TimeoutNoTransfer"
-								]
-							},
-							"occurrence": {
-								"type": "integer",
-								"minimum": 1,
-								"default": 1
-							},
-							"timeinterval": {
-								"type": "string",
-								"format": "time",
-								"default": ""
-							},
-							"expire": {
-								"type": "string",
-								"format": "time",
-								"default": ""
+					"type": "object",
+					"properties": {
+						"rule": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"uuid": {
+										"type": "string",
+										"format": "uuidv4"
+									},
+									"event": {
+										"type": "string",
+										"enum": [
+											"AnonRejectPasswords",
+											"ClientConnectRate",
+											"MaxClientsPerClass",
+											"MaxClientsPerHost",
+											"MaxClientsPerUser",
+											"MaxConnectionsPerHost",
+											"MaxHostsPerUser",
+											"MaxLoginAttempts",
+											"TimeoutIdle",
+											"TimeoutNoTransfer"
+										]
+									},
+									"occurrence": {
+										"type": "integer",
+										"minimum": 1,
+										"default": 1
+									},
+									"timeinterval": {
+										"type": "string",
+										"format": "time",
+										"default": ""
+									},
+									"expire": {
+										"type": "string",
+										"format": "time",
+										"default": ""
+									}
+								}
 							}
 						}
 					}

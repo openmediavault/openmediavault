@@ -141,4 +141,48 @@
 			}
 		}
 	}
+},{
+	"type": "rpc",
+	"id": "rpc.ftp.setmodbanrule",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"event": {
+				"type": "string",
+				"enum": [
+					"AnonRejectPasswords",
+					"ClientConnectRate",
+					"MaxClientsPerClass",
+					"MaxClientsPerHost",
+					"MaxClientsPerUser",
+					"MaxConnectionsPerHost",
+					"MaxHostsPerUser",
+					"MaxLoginAttempts",
+					"TimeoutIdle",
+					"TimeoutNoTransfer"
+				],
+				"required": true
+			},
+			"occurrence": {
+				"type": "integer",
+				"minimum": 1,
+				"required": true
+			},
+			"timeinterval": {
+				"type": "string",
+				"format": "time",
+				"required": true
+			},
+			"expire": {
+				"type": "string",
+				"format": "time",
+				"required": true
+			}
+		}
+	}
 }]

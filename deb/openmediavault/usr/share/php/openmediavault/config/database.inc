@@ -285,6 +285,24 @@ class Database {
 	}
 
 	/**
+	 * Check if on or more configuration object of the specified data model
+	 * exists. Note, this method is only useful for iterable configuration
+	 * objects.
+	 * @param id The data model identifier.
+	 * @return TRUE if at least one configuration object exists,
+	 *   otherwise FALSE.
+	 */
+	public function exists($id) {
+		// Get the specified data model.
+		$mngr = \OMV\DataModel\Manager::getInstance();
+		$model = $mngr->getModel($id);
+		// Create the query builder.
+		$queryBuilder = new DatabaseBackendQueryBuilder($id);
+		$xpath = $queryBuilder->buildExistsQuery();
+		return $this->getBackend()->exists($xpath);
+	}
+
+	/**
 	 * Check if a configuration object with the specified arguments
 	 * exists.
 	 * @param id The data model identifier.
@@ -293,7 +311,7 @@ class Database {
 	 *   of values.
 	 * @return TRUE if data exists, otherwise FALSE.
 	 */
-	public function exists($id, $property, $value) {
+	public function existsByProperty($id, $property, $value) {
 		// Get the specified data model.
 		$mngr = \OMV\DataModel\Manager::getInstance();
 		$model = $mngr->getModel($id);
