@@ -19,6 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 
 class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
@@ -826,6 +827,12 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 					  "force" => TRUE
 				  ), $context);
 			} else {
+				// Check if the configuration is marked as dirty, otherwise
+				// the /etc/fstab file is not up-to-date and the mount fails
+				// because of missing entries.
+				if ($this->isModuleDirty("fstab"))
+					throw new \OMV\Config\ConfigDirtyException();
+				// Now try to mount the filesystem.
 				$me = new \OMV\System\MountPoint($meObject['fsname'],
 				  $meObject['dir']);
 				// Umount the mount point if it is already in use, which
@@ -836,7 +843,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				// Does the mount directory exist? Re-create it if
 				// necessary.
 				$me->mkDir();
-				// Mount the filesystem.
+				// Finally mount the filesystem.
 				$me->mount();
 			}
 		} else {

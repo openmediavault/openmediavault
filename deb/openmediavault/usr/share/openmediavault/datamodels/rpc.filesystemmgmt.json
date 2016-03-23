@@ -39,7 +39,7 @@
 		"properties": {
 			"id": {
 				"type": "string",
-				"type": "fsuuid",
+				"format": "fsuuid",
 				"required": true
 			}
 		}
@@ -52,7 +52,7 @@
 		"properties": {
 			"id": {
 				"type": "string",
-				"type": "fsuuid",
+				"format": "fsuuid",
 				"required": true
 			}
 		}
@@ -65,7 +65,7 @@
 		"properties": {
 			"id": {
 				"type": "string",
-				"type": "fsuuid",
+				"format": "fsuuid",
 				"required": true
 			},
 			"fstab": {
@@ -82,7 +82,7 @@
 		"properties": {
 			"id": {
 				"type": "string",
-				"type": "fsuuid",
+				"format": "fsuuid",
 				"required": true
 			},
 			"fstab": {

@@ -113,7 +113,7 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 		$object = new \OMV\Config\ConfigObject(
 		  "conf.system.filesystem.mountpoint");
 		$object->setAssoc($params);
-		$object->set("hidden", $fsb->hasFstabSupport());
+		$object->set("hidden", !$fsb->hasFstabSupport());
 		// Set the configuration object.
 		$isNew = $object->isNew();
 		$db = \OMV\Config\Database::getInstance();
