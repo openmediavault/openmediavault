@@ -1,0 +1,29 @@
+{
+	"type": "config",
+	"id": "conf.system.syslog.remote",
+	"title": "Remote syslog settings",
+	"queryinfo": {
+		"xpath": "//system/syslog/remote",
+		"iterable": false
+	},
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"host": {
+			"type": "string"
+		},
+		"port":{
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 65535,
+			"default": 514
+		},
+		"protocol": {
+			"type": "string",
+			"enum": [ "udp", "tcp" ],
+			"default": "udp"
+		}
+	}
+}

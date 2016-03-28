@@ -19,10 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
-
 class OMVRpcServiceSyslog extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -44,25 +40,16 @@ class OMVRpcServiceSyslog extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function getSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$xpath = "//system/syslog/remote";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify result data.
-		$object['enable'] = boolvalEx($object['enable']);
-		$object['port'] = intval($object['port']);
-		return $object;
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.syslog.remote");
+		return $object->getAssoc();
 	}
 
 	/**
@@ -70,43 +57,25 @@ class OMVRpcServiceSyslog extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function setSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "enable":{"type":"boolean"},
-				  "port":{"type":"integer","minimum":1,"maximum":65535},
-				  "host":{"type":"string"},
-				  "protocol":{"type":"string","enum":["udp","tcp"]}
-			  }
-		  }');
-		// Prepare the configuration data.
-		$object = array(
-			"remote" => array(
-				"enable" => array_boolval($params, 'enable'),
-				"host" => $params['host'],
-				"port" => $params['port'],
-				"protocol" => $params['protocol']
-			)
-		);
-		// Set the configuration data.
-		$success = $xmlConfig->replace("//system/syslog", $object);
-		if(FALSE === $success) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$this->validateMethodParams($params, "rpc.syslog.setsettings");
+		// Prepare the configuration object.
+		$object = new \OMV\Config\ConfigObject("conf.system.syslog.remote");
+		$object->setAssoc($params);
+		// Update the configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.syslog", $object);
+		  "org.openmediavault.system.syslog", $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 }

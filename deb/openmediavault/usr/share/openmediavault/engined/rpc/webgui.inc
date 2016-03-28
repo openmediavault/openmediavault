@@ -19,10 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/error.inc");
-require_once("openmediavault/functions.inc");
-
 class OMVRpcServiceWebGui extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -45,11 +41,8 @@ class OMVRpcServiceWebGui extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function getSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -65,10 +58,8 @@ class OMVRpcServiceWebGui extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function setSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -95,7 +86,6 @@ class OMVRpcServiceWebGui extends \OMV\Rpc\ServiceAbstract {
 	 *   \em password The new password.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_EXEC_FAILED
 	 */
 	function setPassword($params, $context) {
 		// Validate the RPC caller context.
@@ -104,13 +94,13 @@ class OMVRpcServiceWebGui extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.webgui.setpassword");
-		// Modify user password.
-		$cmd = sprintf("usermod --password %s admin 2>&1",
-		  escapeshellarg(crypt($params['password'])));
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new \OMV\ErrorMsgException(
-			  \OMV\ErrorMsgException::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		// Modify the 'admin' user password.
+		$cmdArgs = array();
+		$cmdArgs[] = sprintf("--password %s", escapeshellarg(crypt(
+		  $params['password'])));
+		$cmdArgs[] = "admin";
+		$cmd = new \OMV\System\Process("usermod", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 }

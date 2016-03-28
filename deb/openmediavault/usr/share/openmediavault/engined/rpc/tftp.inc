@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-
 class OMVRpcServiceTftp extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -43,7 +42,6 @@ class OMVRpcServiceTftp extends \OMV\Rpc\ServiceAbstract {
 	 * @return The requested configuration object.
 	 */
 	function get($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -61,7 +59,6 @@ class OMVRpcServiceTftp extends \OMV\Rpc\ServiceAbstract {
 	 * @return The stored configuration object.
 	 */
 	function set($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
