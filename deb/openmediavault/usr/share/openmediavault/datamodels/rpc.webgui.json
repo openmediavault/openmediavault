@@ -36,8 +36,7 @@
 			}
 		}
 	}
-},
-{
+},{
 	"type": "rpc",
 	"id": "rpc.webgui.setpassword",
 	"params": {

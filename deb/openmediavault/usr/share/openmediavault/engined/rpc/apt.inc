@@ -197,7 +197,7 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 			// Finalize the background process.
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
 			exit(1);
 		}
@@ -235,7 +235,7 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 			$cmd->execute();
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
 			exit(1);
 		}
@@ -367,7 +367,7 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 				throw new \OMV\Exception("No changelog found.");
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
 			exit(1);
 		}

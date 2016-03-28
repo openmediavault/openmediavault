@@ -708,13 +708,13 @@ finish:
 			// Import users.
 			$objects = array();
 			$csv = explode("\n", $params['csv']);
-			foreach($csv as $linek => $linev) {
+			foreach ($csv as $linek => $linev) {
 				$linev = trim($linev);
 				# Skip comments.
-				if(empty($linev) || ($linev[0] === "#"))
+				if (empty($linev) || ($linev[0] === "#"))
 					continue;
 				# Parse line.
-				if(1 !== preg_match("/^([^;]+);(\d*);([^;]*);([^;]*);([^;]+);".
+				if (1 !== preg_match("/^([^;]+);(\d*);([^;]*);([^;]*);([^;]+);".
 				  "([^;]*);(true|1|yes|y|on|false|0|no|n|off)$/i",
 				  $linev, $matches)) {
 					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
@@ -730,23 +730,23 @@ finish:
 					"shell" => "/bin/dash",
 					"sshpubkeys" => array()
 				);
-				if(!empty($matches[2]) && is_numeric($matches[2]))
+				if (!empty($matches[2]) && is_numeric($matches[2]))
 					$object['uid'] = intval($matches[2]);
 				$objects[] = $object;
 			}
 			// Check if the users does not exist until now.
-			foreach($objects as $objectk => $objectv) {
+			foreach ($objects as $objectk => $objectv) {
 				// Check if an user with the given name already exists.
 				$user = new \OMV\System\User($objectv['name']);
-				if($user->exists()) {
+				if ($user->exists()) {
 					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 					  sprintf(gettext("User '%s' already exist"),
 					  $objectv['name']));
 				}
 				// Check if an user with the given UID already exists.
-				if(array_key_exists("uid", $object)) {
+				if (array_key_exists("uid", $object)) {
 					$user = new \OMV\System\User($objectv['uid']);
-					if($user->exists()) {
+					if ($user->exists()) {
 						throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 						  sprintf(gettext("User ID '%d' already exist"),
 						  $objectv['uid']));
@@ -754,12 +754,12 @@ finish:
 				}
 			}
 			// Finally create the users.
-			foreach($objects as $objectk => $objectv) {
+			foreach ($objects as $objectk => $objectv) {
 				$this->callMethod("setUser", $objectv, $context);
 			}
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
 			exit(1);
 		}
@@ -1075,7 +1075,7 @@ finish:
 			}
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
 			exit(1);
 		}

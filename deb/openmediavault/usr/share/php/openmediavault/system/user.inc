@@ -130,7 +130,7 @@ class User {
 	public function exists() {
 		try {
 			$this->getData("passwd");
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			return FALSE;
 		}
 		return !is_null($this->name) && !is_null($this->uid);

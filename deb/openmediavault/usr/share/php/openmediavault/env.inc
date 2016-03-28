@@ -36,6 +36,6 @@ try {
 		syslog(LOG_ERR, sprintf("Unknown or unsupported timezone [tz=%s]",
 		  $object->get("timezone")));
 	}
-} catch(Exception $e) {
+} catch(\Exception $e) {
 	// Nothing to do here.
 }

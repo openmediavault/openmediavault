@@ -592,7 +592,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Finalize background process.
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			// Cleanup.
 			$jsonFile->unlink();
 			// Finalize background process.
@@ -687,7 +687,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				  "dir", \OMV\System\Filesystem\Filesystem::buildMountPath(
 				  $params['id']));
 			}
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			$meObject = NULL;
 		}
 		// Get the filesystem if available.

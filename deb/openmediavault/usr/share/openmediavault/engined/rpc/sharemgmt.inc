@@ -1177,7 +1177,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			if (!empty($aclspec)) {
 				if (FALSE === file_put_contents($aclspecFile, implode("\n",
 				  $aclspec))) {
-					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+					throw new \OMV\Exception(
 					  "Failed to write ACL entries to file");
 				}
 				// Read the ACL entries from file. The CLI argument list
@@ -1195,7 +1195,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Cleanup ACL entries file.
 			unlink($aclspecFile);
 			exit(0);
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			// Cleanup ACL entries file.
 			unlink($aclspecFile);
 			// Update the process status.
@@ -1233,7 +1233,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
 		  $sfObject['mntentref']);
 		$meObject = $xmlConfig->get($xpath);
-		if(is_null($meObject)) {
+		if (is_null($meObject)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}

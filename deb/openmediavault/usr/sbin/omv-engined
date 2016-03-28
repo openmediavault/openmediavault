@@ -489,7 +489,7 @@ while(FALSE === $sigTerm) {
 					"response" => $response,
 					"error" => null
 				));
-			} catch(Exception $e) {
+			} catch(\Exception $e) {
 				$response = json_encode_safe(array(
 					"response" => null,
 					"error" => array(

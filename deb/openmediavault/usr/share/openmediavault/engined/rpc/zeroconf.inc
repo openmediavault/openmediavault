@@ -19,9 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/error.inc");
-
 class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -43,10 +40,8 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array containing the Zeroconf services configuration.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function get($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -55,26 +50,19 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 		// Get the list of registered modules.
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getModules();
-		foreach($modules as $modulev) {
+		foreach ($modules as $modulev) {
 			// Check if the module implements the \OMV\Engine\Module\IZeroconf
 			// interface.
-			if($modulev instanceof \OMV\Engine\Module\IZeroconf) {
+			if ($modulev instanceof \OMV\Engine\Module\IZeroconf) {
 				$config = $modulev->getZeroconfConfig();
 				// Try to get the Zeroconf service configuration object.
-				$xpath = sprintf("//services/zeroconf/services/".
-				  "service[id='%s']", $config['id']);
-				$object = $xmlConfig->get($xpath);
-				if(is_null($object)) {
-					// Set default values.
-					$object = array(
-						  "id" => $config['id'],
-						  "enable" => FALSE,
-						  "name" => sprintf("%%h - %s", $config['title'])
-					  );
-				}
-				$object['title'] = $config['title'];
+				$db = \OMV\Config\Database::getInstance();
+				$object = $db->get("conf.service.zeroconf.service",
+				  "id", $config['id']);
+				$object->add("title", "string");
+				$object->set("title", $config['title']);
 				// Append object to result.
-				$result[] = $object;
+				$result[] = $object->getAssoc();
 			}
 		}
 		return $result;
@@ -85,65 +73,57 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function set($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"array",
-			  "items":{
-				  "type":"object",
-				  "properties":{
-					  "id":{"type":"string"},
-					  "name":{"type":"string"},
-					  "enable":{"type":"boolean"}
-				  }
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.zeroconf.set");
 		// Prepare the configuration object.
-		$object = array();
+		$objects = array();
 		// Get the list of registered modules.
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getModules();
-		foreach($modules as $modulev) {
+		foreach ($modules as $modulev) {
 			// Check if the module implements the \OMV\Engine\Module\IZeroconf
 			// interface.
-			if($modulev instanceof \OMV\Engine\Module\IZeroconf) {
+			if ($modulev instanceof \OMV\Engine\Module\IZeroconf) {
 				$config = $modulev->getZeroconfConfig();
 				// Set default values.
-				$service = array(
-					  "id" => $config['id'],
-					  "enable" => FALSE,
-					  "name" => $config['title']
-				  );
-				foreach($params as $paramk => $paramv) {
-					if($paramv['id'] === $config['id']) {
-						$service = array_merge($service, array(
-							  "enable" => array_boolval($paramv, 'enable'),
-							  "name" => $paramv['name']
-						  ));
+				$object = new \OMV\Config\ConfigObject(
+				  "conf.service.zeroconf.service");
+				$object->setNew(); // Mark the service configuration as new.
+				$object->set("id", $config['id']);
+				$object->set("enable", FALSE);
+				$object->set("name", $config['title']);
+				// Process the RPC arguments.
+				foreach ($params as $paramk => $paramv) {
+					if ($paramv['id'] === $config['id']) {
+						$object->set("enable", $paramv['enable']);
+						$object->set("name", $paramv['name']);
 						break;
 					}
 				}
-				$object[] = $service;
+				$objects[] = $object;
 			}
 		}
-		// Set the configuration object.
-		$xpath = "//services/zeroconf/services";
-		if(FALSE === $xmlConfig->replace($xpath, array(
-		  "service" => $object))) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
+		// Remove all existing service configurations.
+		$db = \OMV\Config\Database::getInstance();
+		if ($db->exists("conf.service.zeroconf.service"))
+			$db->deleteByPredicate("conf.service.zeroconf.service", "id=*");
+		// Set the service configuration objects.
+		$objectsAssoc = array();
+		foreach ($objects as $objectk => $objectv) {
+			$db->set($objectv);
+			$objectsAssoc[] = $objectv->getAssoc();
 		}
 		// Notify the configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.zeroconf.services", $object);
+		  "org.openmediavault.services.zeroconf.services", $objectsAssoc);
 		// Return the configuration object.
-		return $object;
+		return $objectsAssoc;
 	}
 }

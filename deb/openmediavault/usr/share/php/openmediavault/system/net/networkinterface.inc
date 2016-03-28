@@ -110,7 +110,7 @@ class NetworkInterface {
 	public function exists() {
 		try {
 			$this->getData("ifconfig");
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			return FALSE;
 		}
 		return TRUE;

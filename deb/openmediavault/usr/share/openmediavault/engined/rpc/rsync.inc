@@ -388,7 +388,7 @@ class OMVRpcServiceRsync extends \OMV\Rpc\ServiceAbstract {
 			  $GLOBALS['OMV_CRONSCRIPTS_DIR'], $params['uuid']);
 			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename))
 				throw new \OMV\ExecException($cmd." ".implode(" ", $cmdArgs));
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
 			exit(1);
 		}

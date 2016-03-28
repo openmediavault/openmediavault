@@ -379,7 +379,6 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The name of the background process status file.
-	 * @throw E_CONFIG_DIRTY
 	 */
 	public function emptyRecycleBin($params, $context) {
 		// Validate the RPC caller context.
@@ -391,12 +390,12 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 		// Check if the module is marked as dirty. This can be an indication
 		// that the samba recycle bin cron script has not been created or
 		// updated until now.
-		if($this->isModuleDirty("samba"))
-			throw new OMVException(OMVErrorMsg::E_CONFIG_DIRTY);
+		if ($this->isModuleDirty("samba"))
+			throw new \OMV\Config\ConfigDirtyException();
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
-		if($pid > 0) { // Parent process.
+		if ($pid > 0) { // Parent process.
 			$this->initializeBgProcStatus($bgStatusFilename, $pid);
 			return $bgStatusFilename;
 		}
@@ -413,7 +412,7 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = "-f";
 			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename))
 				throw new \OMV\ExecException($cmd." ".implode(" ", $cmdArgs));
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
 			exit(1);
 		}

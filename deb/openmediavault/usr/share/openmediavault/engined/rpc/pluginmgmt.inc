@@ -154,7 +154,7 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Finalize the background process.
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
 			exit(1);
 		}
@@ -246,7 +246,7 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Finalize the background process.
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
 			exit(1);
 		}

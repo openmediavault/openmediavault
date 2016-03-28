@@ -188,7 +188,7 @@ class OMVRpcServiceCron extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = $object->get("username");
 			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename))
 				throw new \OMV\ExecException($cmd." ".implode(" ", $cmdArgs));
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
 			exit(1);
 		}

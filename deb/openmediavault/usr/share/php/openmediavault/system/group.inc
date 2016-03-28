@@ -82,7 +82,7 @@ class Group {
 	public function exists() {
 		try {
 			$this->getData();
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			return FALSE;
 		}
 		return !is_null($this->name) && !is_null($this->gid);

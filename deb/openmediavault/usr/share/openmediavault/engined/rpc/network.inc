@@ -456,7 +456,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 				throw new \OMV\ExecException($cmd, $output);
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
 			exit(1);
 		}

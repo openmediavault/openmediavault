@@ -1,0 +1,24 @@
+[{
+	"type": "rpc",
+	"id": "rpc.zeroconf.set",
+	"params": {
+		"type": "array",
+		"items": {
+			"type": "object",
+			"properties": {
+				"id":{
+					"type": "string",
+					"required": true
+				},
+				"name":{
+					"type": "string",
+					"required": true
+				},
+				"enable": {
+					"type": "boolean",
+					"required": true
+				}
+			}
+		}
+	}
+}]

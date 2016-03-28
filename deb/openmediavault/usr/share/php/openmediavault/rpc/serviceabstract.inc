@@ -156,7 +156,7 @@ abstract class ServiceAbstract {
 			// Update the background process status file.
 			$this->finalizeBgProcStatus($bgStatusFilename);
 			exit(0);
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
 			exit(1);
 		}
