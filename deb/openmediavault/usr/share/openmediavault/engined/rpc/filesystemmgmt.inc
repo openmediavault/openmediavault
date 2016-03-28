@@ -181,8 +181,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Get list of mount points, except bind mounts.
 		$db = \OMV\Config\Database::getInstance();
-		$objects = $xmlConfig->getByPredicate(
-		  "conf.system.filesystem.mountpoint",
+		$objects = $db->getByPredicate("conf.system.filesystem.mountpoint",
 		  "not(contains(opts,'bind'))");
 		// Append '/dev/root'?
 		if (TRUE === array_boolval($params, "includeroot", FALSE)) {

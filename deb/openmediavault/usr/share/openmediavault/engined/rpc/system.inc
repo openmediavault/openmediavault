@@ -59,7 +59,6 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return A quotation from the Dune novel, which is a string.
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
 	public function noop($params, $context) {
 		// Validate the RPC caller context.
@@ -75,7 +74,6 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The 'top' console command output.
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
 	public function getTopInfo($params, $context) {
 		// Validate the RPC caller context.
@@ -94,8 +92,6 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array with the available shells.
-	 * @throw E_EXEC_FAILED
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
 	public function getShells($params, $context) {
 		// Validate the RPC caller context.
@@ -109,11 +105,10 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 		);
 		// Get list of available shells.
 		$shells = file("/etc/shells");
-		foreach($shells as $shellk => $shellv) {
+		foreach ($shells as $shellk => $shellv) {
 			$shellv = trim($shellv);
-			if(is_executable($shellv)) {
+			if (is_executable($shellv))
 				$result[] = $shellv;
-			}
 		}
 		return $result;
 	}
@@ -207,31 +202,24 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_EXEC_MISC
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
 	public function getTimeSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get configuration object.
-		$xpath = "//system/time";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.time");
+		// Prepare the result values.
 		return array(
 			"date" => array(
 				"local" => strftime("%c"),
 				"ISO8601" => date("c")
 			),
-			"timezone" => $object['timezone'],
-			"ntpenable" => boolvalEx($object['ntp']['enable']),
-			"ntptimeservers" => $object['ntp']['timeservers']
+			"timezone" => $object->get("timezone"),
+			"ntpenable" => $object->get("ntp.enable"),
+			"ntptimeservers" => $object->get("ntp.timeservers")
 		);
 	}
 
@@ -240,41 +228,26 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_PARAMS
 	 */
 	public function setTimeSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "timezone":{"type":"string"},
-				  "ntpenable":{"type":"boolean"},
-				  "ntptimeservers":{"type":"string"}
-			  }
-		  }');
-		// Prepare configuration data.
-		$object = array(
-			"timezone" => $params['timezone'],
-			"ntp" => array(
-				"enable" => array_boolval($params, 'ntpenable'),
-				"timeservers" => $params['ntptimeservers']
-			)
-		);
-		// Set configuration object.
-		if(FALSE === $xmlConfig->replace("//system/time", $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$this->validateMethodParams($params, "rpc.system.settimesettings");
+		// Prepare the configuration object.
+		$object = new \OMV\Config\ConfigObject("conf.system.time");
+		$object->set("timezone", $params['timezone']);
+		$object->set("ntp.enable", $params['ntpenable']);
+		$object->set("ntp.timeservers", $params['ntptimeservers']);
+		// Update the configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.time", $object);
+		  "org.openmediavault.system.time", $object->getAssoc());
 	}
 
 	/**
@@ -283,9 +256,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 *   \em timestamp The date to set as UNIX timestamp.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_EXEC_FAILED
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_PARAMS
+	 * @throw \OMV\ExecException
 	 */
 	public function setDate($params, $context) {
 		// Validate the RPC caller context.
@@ -293,17 +264,13 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "timestamp":{"type":"integer"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.system.setdate");
 		// Set the system date.
-		$cmd = sprintf("export LANG=C; date --set='@%d' 2>&1",
-		  $params['timestamp']);
-		if (0 !== $this->exec($cmd, $output))
-			throw new \OMV\ExecException($cmd, $output);
+		$cmdArgs = array();
+		$cmdArgs[] = sprintf("--set='@%d'", $params['timestamp']);
+		$cmd = new \OMV\System\Process("date", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
@@ -311,8 +278,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_EXEC_FAILED
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
+	 * @throw \OMV\ExecException
 	 */
 	public function setNtpDate($params, $context) {
 		// Validate the RPC caller context.
@@ -320,9 +286,12 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Set the system date via NTP.
-		$cmd = "export LANG=C; ntpd -gq 2>&1";
-		if (0 !== $this->exec($cmd, $output))
-			throw new \OMV\ExecException($cmd, $output);
+		$cmdArgs = array();
+		$cmdArgs[] = "-g";
+		$cmdArgs[] = "-q";
+		$cmd = new \OMV\System\Process("ntpd", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 	}
 
 	/**
@@ -330,7 +299,6 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array with the time zone strings.
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
 	public function getTimeZoneList($params, $context) {
 		// Validate the RPC caller context.
@@ -344,12 +312,10 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	}
 
 	/**
-	 * Get various system informations.
+	 * Get various system information.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
-	 * @return An array of system informations.
-	 * @throw E_EXEC_MISC
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
+	 * @return An array of system information.
 	 */
 	public function getInformation($params, $context) {
 		// Validate the RPC caller context.
