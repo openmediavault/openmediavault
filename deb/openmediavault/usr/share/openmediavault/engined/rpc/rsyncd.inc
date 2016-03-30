@@ -49,7 +49,6 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function getSettings($params, $context) {
 		global $xmlConfig;
@@ -74,8 +73,6 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function setSettings($params, $context) {
 		global $xmlConfig;
@@ -84,14 +81,7 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "enable":{"type":"boolean"},
-				  "port":{"type":"integer","minimum":1,"maximum":65535},
-				  "extraoptions":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.rsyncd.setsettings");
 		// Get the existing configuration object.
 		$xpath = "//services/rsync/server";
 		$object = $xmlConfig->get($xpath);
@@ -127,7 +117,6 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getModuleList($params, $context) {
 		global $xmlConfig;
@@ -174,7 +163,6 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getModule($params, $context) {
 		global $xmlConfig;
@@ -209,7 +197,6 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	public function setModule($params, $context) {
 		global $xmlConfig;
@@ -218,37 +205,7 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-				  "enable":{"type":"boolean"},
-				  "sharedfolderref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
-				  "name":{'.$GLOBALS['OMV_JSONSCHEMA_SHARENAME'].'},
-				  "comment":{"type":"string"},
-				  "uid":{"type":"string"},
-				  "gid":{"type":"string"},
-				  "readonly":{"type":"boolean"},
-				  "writeonly":{"type":"boolean"},
-				  "maxconnections":{"type":"integer","minimum":0},
-				  "list":{"type":"boolean"},
-				  "hostsallow":{"type":"string"},
-				  "hostsdeny":{"type":"string"},
-				  "authusers":{"type":"boolean"},
-				  "usechroot":{"type":"boolean"},
-				  "users":{
-					  "type":"array",
-					  "items":{
-						  "type":"object",
-						  "properties":{
-							  "name":{"type":"string"},
-							  "password":{"type":"string"}
-						  }
-					  }
-				  },
-				  "extraoptions":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.rsyncd.setmodule");
 		// Prepare the configuration object.
 		$object = array(
 			  "uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?

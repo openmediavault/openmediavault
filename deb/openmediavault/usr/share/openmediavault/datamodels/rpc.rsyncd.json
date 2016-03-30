@@ -1,0 +1,116 @@
+[{
+	"type": "rpc",
+	"id": "rpc.rsyncd.setsettings",
+	"params": {
+		"type": "object",
+		"properties": {
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
+			"port": {
+				"type": "integer",
+				"minimum": 1,
+				"maximum": 65535,
+				"required": true
+			},
+			"extraoptions": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.rsyncd.setmodule",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+			    "type": "string",
+			    "format": "uuidv4",
+			    "required": true
+			},
+			"enable": {
+			    "type": "boolean",
+			    "required": true
+			},
+			"sharedfolderref": {
+			    "type": "string",
+			    "format": "uuidv4",
+			    "required": true
+			},
+			"name": {
+			    "type": "string",
+				"format": "sharename",
+			    "required": true
+			},
+			"comment": {
+			    "type": "string",
+			    "required": true
+			},
+			"uid": {
+			    "type": "string",
+			    "required": true
+			},
+			"gid": {
+			    "type": "string",
+			    "required": true
+			},
+			"readonly": {
+			    "type": "boolean",
+			    "required": true
+			},
+			"writeonly": {
+			    "type": "boolean",
+			    "required": true
+			},
+			"maxconnections": {
+			    "type": "integer",
+			    "minimum": 0,
+			    "required": true
+			},
+			"list": {
+			    "type": "boolean",
+			    "required": true
+			},
+			"hostsallow": {
+			    "type": "string",
+			    "required": true
+			},
+			"hostsdeny": {
+			    "type": "string",
+			    "required": true
+			},
+			"authusers": {
+			    "type": "boolean",
+			    "required": true
+			},
+			"usechroot": {
+			    "type": "boolean",
+			    "required": true
+			},
+			"users": {
+			    "type": "array",
+			    "items": {
+			        "type": "object",
+			        "properties": {
+			            "name": {
+			                "type": "string",
+						    "required": true
+			            },
+			            "password": {
+			                "type": "string",
+						    "required": true
+			            }
+			        }
+			    },
+			    "required": true
+			},
+			"extraoptions": {
+			    "type": "string",
+			    "required": true
+			}
+		}
+	}
+}]

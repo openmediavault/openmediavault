@@ -87,6 +87,34 @@ class Schema extends \OMV\Json\Schema {
 					  $name, $value);
 				}
 				break;
+			case "sharename":
+				// We are using the SMB/CIFS file/directory naming convention
+				// for this:
+				// All characters are legal in the basename and extension
+				// except the space character (0x20) and:
+				// "./\[]:+|<>=;,*?
+				// A share name or server or workstation name SHOULD not
+				// begin with a period (“.”) nor should it include two
+				// adjacent periods (“..”).
+				// References:
+				// http://tools.ietf.org/html/draft-leach-cifs-v1-spec-01
+				// http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx
+				if (!preg_match('/^[^.]([^"/\\\[\]:+|<>=;,*?. ]+){0,1}([.]'.
+				  '[^"/\\\[\]:+|<>=;,*?. ]+){0,}$/', $value)) {
+					throw new \OMV\Json\SchemaValidationException(
+					  "%s: The value '%s' is no valid share name.",
+					  $name, $value);
+				}
+				break;
+			case "username":
+				// Regular expression taken from Debian adduser.
+				if (!preg_match('/^[_.A-Za-z0-9][-\@_.A-Za-z0-9]*\$?$/',
+				  $value)) {
+					throw new \OMV\Json\SchemaValidationException(
+					  "%s: The value '%s' is no valid user name.",
+					  $name, $value);
+				}
+				break;
 			default:
 				throw new \OMV\Json\SchemaException(
 				  "%s: The format '%s' is not defined.",
