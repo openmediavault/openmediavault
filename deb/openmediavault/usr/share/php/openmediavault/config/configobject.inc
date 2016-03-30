@@ -186,23 +186,37 @@ class ConfigObject {
 	/**
 	 * Set properties.
 	 * @param data The associative array of key/value pairs.
+	 * @param validate Set to FALSE to do not validate the property values
+	 *   against the property schema defined in the model.
+	 *   Defaults to TRUE.
+	 * @param ignore Set to TRUE to ignore and skip unknown properties.
+	 *   Defaults to FALSE.
 	 * @return None.
 	 */
-	public function setAssoc($data, $validate = TRUE) {
+	public function setAssoc($data, $validate = TRUE, $ignore = FALSE) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Create a flat representation of the data.
-		$this->setIndexed(array_flatten($data), $validate);
+		$this->setIndexed(array_flatten($data), $validate, $ignore);
 	}
 
 	/**
-	 * Set properties.
+	 * Set properties. Properties that are not defined in the model are
+	 * ignored.
 	 * @param data The single dimension array of path/value pairs.
+	 * @param validate Set to FALSE to do not validate the property values
+	 *   against the property schema defined in the model.
+	 *   Defaults to TRUE.
+	 * @param ignore Set to TRUE to ignore and skip unknown properties.
+	 *   Defaults to FALSE.
 	 * @return None.
 	 */
-	public function setIndexed($data, $validate = TRUE) {
+	public function setIndexed($data, $validate = TRUE, $ignore = FALSE) {
 //		$this->debug(var_export(func_get_args(), TRUE));
-		foreach ($data as $path => $value)
-			$this->set($path, $value, $validate);
+		foreach ($data as $propk => $propv) {
+			if ((TRUE === $ignore) && (FALSE === $this->exists($propk)))
+				continue;
+			$this->set($propk, $propv, $validate);
+		}
 	}
 
 	/**
@@ -214,8 +228,26 @@ class ConfigObject {
 		$this->assertExists($name);
 		// Remove the property from the data model schema.
 		$this->getModel()->removeProperty($name);
-		// Unset the property.
-		unset($this->properties[$name]);
+		// Unset the property. Note, take care with properties that have
+		// child nodes.
+		//
+		// Indexed:
+		// trap.enable
+		// trap.community
+		//
+		// Assoc:
+		// array(
+		//     trap => array(
+		//         enable => TRUE,
+		//         community => "public",
+		//     )
+		// )
+		foreach ($this->properties as $propk => $propv) {
+			$regex = sprintf("/^(%s)([.].+)?$/i", $name);
+			if (1 !== preg_match($regex, $propk))
+				continue;
+			unset($this->properties[$propk]);
+		}
 	}
 
 	/**
@@ -224,6 +256,7 @@ class ConfigObject {
 	* @param name The name of the property in dot notation, e.g. 'a.b.c'.
 	* @param type The type of the property, e.g. 'string' or 'boolean'.
 	* @param default An optional default value.
+	* @return None.
 	*/
 	public function add($name, $type, $default = NULL) {
 		// Add the property to the data model schema.
@@ -231,6 +264,23 @@ class ConfigObject {
 		// Set the default value of the property.
 		if (!is_null($default))
 			$this->set($name, $default);
+	}
+
+	/**
+	 * Map an existing property to another one. the target property will
+	 * be created if necessary.
+	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
+	 * @param targetName The name of the target property in dot notation,
+	 *   e.g. 'x.y'.
+	 * @return None.
+	 */
+	public function map($name, $targetName) {
+		$this->assertExists($name);
+		$model = $this->getModel();
+		if (!$model->propertyExists($targetName))
+			$model->copyProperty($name, $targetName);
+		$value = $this->get($name);
+		$this->set($targetName, $value);
 	}
 
 	/**

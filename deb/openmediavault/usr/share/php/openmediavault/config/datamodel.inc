@@ -121,10 +121,23 @@ class DataModel extends \OMV\DataModel\DataModel {
 	 * Add a new property to the model.
 	 * @param path The path of the property, e.g. "aaa.bbb.ccc".
 	 * @param type The type of the property, e.g. 'string' or 'boolean'.
+	 * @return None.
 	 */
 	public function addProperty($path, $type, array $schema = array()) {
 		$schema['type'] = $type;
 		$schema = $this->getPropertiesSchema()->addProperty($path, $schema);
+	}
+
+	/**
+	 * Copies a property from one item to another.
+	 * @param path The path of the property, e.g. "aaa.bbb.ccc".
+	 * @param targetPath The path of the new property, e.g. "xxx.yyy.zzz".
+	 * @return None.
+	 */
+	public function copyProperty($path, $targetPath) {
+		$propSchema = $this->getPropertiesSchema()->getAssocByPath($path);
+		$this->assertPropertyNotExists($targetPath);
+		$this->addProperty($targetPath, $propSchema['type']);
 	}
 
 	/**
@@ -221,6 +234,11 @@ class DataModel extends \OMV\DataModel\DataModel {
 		return $default;
 	}
 
+	/**
+	 * Check if the specified property exists.
+	 * @param path The path of the property, e.g. "aaa.bbb.ccc".
+	 * @return TRUE if the property exists, otherwise FALSE.
+	 */
 	public function propertyExists($path) {
 		$exists = TRUE;
 		try {
@@ -231,6 +249,32 @@ class DataModel extends \OMV\DataModel\DataModel {
 			$exists = FALSE;
 		}
 		return $exists;
+	}
+
+	/**
+	 * Assert that the specified property exists.
+	 * @param path The path of the property, e.g. "aaa.bbb.ccc".
+	 * @return None.
+	 * @throw \OMV\Json\SchemaPathException
+	 */
+	public function assertPropertyExists($path) {
+		if (!$this->propertyExists($path)) {
+			throw new \OMV\Json\SchemaPathException(
+			  "The property '%s' does not exist.", $path);
+		}
+	}
+
+	/**
+	 * Assert that the specified property does not exist.
+	 * @param path The path of the property, e.g. "aaa.bbb.ccc".
+	 * @return None.
+	 * @throw \OMV\Json\SchemaPathException
+	 */
+	public function assertPropertyNotExists($path) {
+		if ($this->propertyExists($path)) {
+			throw new \OMV\Json\SchemaPathException(
+			  "The property '%s' already exists.", $path);
+		}
 	}
 
 	/**
