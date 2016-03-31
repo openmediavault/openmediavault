@@ -1,6 +1,6 @@
 {
 	"type": "config",
-	"id": "conf.system.powermanagement",
+	"id": "conf.system.powermngmnt",
 	"title": "Powermanagement",
 	"queryinfo": {
 		"xpath": "//system/powermanagement",

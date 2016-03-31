@@ -1,0 +1,22 @@
+{
+	"type": "config",
+	"id": "conf.system.usermngmnt.group",
+	"title": "System group",
+	"queryinfo": {
+		"xpath": "//system/usermanagement/groups/group",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"name": {
+			"type": "string"
+		},
+		"comment": {
+			"type": "string"
+		}
+	}
+}

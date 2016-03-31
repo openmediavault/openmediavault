@@ -39,7 +39,7 @@ class OMVRpcServiceRrd extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The name of the background process status file.
-	 * @throw E_EXEC_FAILED
+	 * @throw \OMV\ExecException
 	 */
 	function generate($params, $context) {
 		// Validate the RPC caller context.

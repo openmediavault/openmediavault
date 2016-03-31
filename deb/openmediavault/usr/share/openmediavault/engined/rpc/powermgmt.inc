@@ -53,7 +53,7 @@ class OMVRpcServicePowerMgmt extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		return $db->getAssoc("conf.system.powermanagement");
+		return $db->getAssoc("conf.system.powermngmnt");
 	}
 
 	/**
@@ -70,7 +70,7 @@ class OMVRpcServicePowerMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.powermgmt.set");
 		// Prepare the configuration object.
-		$object = new \OMV\Config\ConfigObject("conf.system.powermanagement");
+		$object = new \OMV\Config\ConfigObject("conf.system.powermngmnt");
 		$object->setAssoc($params);
 		// Update the configuration object.
 		$db = \OMV\Config\Database::getInstance();

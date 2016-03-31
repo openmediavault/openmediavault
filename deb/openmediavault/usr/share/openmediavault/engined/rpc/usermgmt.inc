@@ -19,11 +19,8 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/util.inc");
+require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/error.inc");
 
 class OMVRpcServiceUserMgmt extends \OMV\Rpc\ServiceAbstract {
 	/**
@@ -69,7 +66,6 @@ class OMVRpcServiceUserMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array containing the fields \em authenticated which is TRUE
 	 *   if authentication was successful, otherwise FALSE. The name of the
 	 *   user is in \em username.
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
 	final public function authUser($params, $context) {
 		// Validate the RPC caller context.
@@ -77,13 +73,7 @@ class OMVRpcServiceUserMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, array(
-			  "type" => "object",
-			  "properties" => array(
-				  "username" => array("type" => "string"),
-				  "password" => array("type" => "string")
-			  )
-		  ));
+		$this->validateMethodParams($params, "rpc.usermngmt.authuser");
 		// Authenticate the user.
 		$authenticated = FALSE;
 		$user = new \OMV\System\User($params['username']);
@@ -116,7 +106,6 @@ finish:
 	 *   name, UID, GID, comment, home directory, and shell program,
 	 *   last changed, minimum, maximum, warn, inactive, expire and
 	 *   reserved.
-	 * @throw E_MISC_FAILURE
 	 */
 	final private function enumerateUsersByType($type) {
 		// Get list of user names.
@@ -218,7 +207,6 @@ finish:
 	 * @param type The group type, e.g. system, normal or all.
 	 * @return An array containing user objects with following fields:
 	 *   name, GID and group members (array of user names).
-	 * @throw E_MISC_FAILURE
 	 */
 	private function enumerateGroupsByType($type) {
 		// Get list of group names.
@@ -348,7 +336,6 @@ finish:
 	 *   \em name The name of the user.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_MISC_FAILURE
 	 */
 	function getUser($params, $context) {
 		global $xmlConfig;

@@ -1,0 +1,39 @@
+{
+	"type": "config",
+	"id": "conf.system.usermngmnt.user",
+	"title": "System user",
+	"queryinfo": {
+		"xpath": "//system/usermanagement/users/user",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"name": {
+			"type": "string"
+		},
+		"email": {
+			"type": "string",
+			"format": "email"
+		},
+		"disallowusermod": {
+			"type": "boolean",
+			"default": 0
+		},
+		"sshpubkeys": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"sshpubkey": {
+						"type": "string",
+						"format": "sshpubkey-rfc4716"
+					}
+				}
+			}
+		}
+	}
+}

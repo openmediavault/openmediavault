@@ -19,9 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/error.inc");
-
 class OMVRpcServiceServices extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -43,7 +40,6 @@ class OMVRpcServiceServices extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array containing the module statistics.
-	 * @throw E_EXEC_FAILED
 	 */
 	function getStatus($params, $context) {
 		// Validate the RPC caller context.
@@ -54,12 +50,10 @@ class OMVRpcServiceServices extends \OMV\Rpc\ServiceAbstract {
 		// Get the list of registered modules.
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getModules();
-		foreach($modules as $modulev) {
-			// Check if the module implements the \OMV\Engine\Module\IServiceStatus
-			// interface.
-			if($modulev instanceof \OMV\Engine\Module\IServiceStatus) {
+		foreach ($modules as $modulev) {
+			// Check if the module implements the required interface.
+			if ($modulev instanceof \OMV\Engine\Module\IServiceStatus)
 				$status[] = $modulev->getStatus();
-			}
 		}
 		return array(
 			"total" => count($status),
