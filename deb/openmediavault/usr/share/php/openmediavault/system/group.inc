@@ -88,6 +88,18 @@ class Group {
 		return !is_null($this->name) && !is_null($this->gid);
 	}
 
+	public function assertExists() {
+		if (FALSE === $this->exists()) {
+			$id = "unknown";
+			if (!is_null($this->name))
+				$id = $this->name;
+			else if (!is_null($this->gid))
+				$id = $this->gid;
+			throw new \OMV\Exception("Group '%s' does not exist.",
+			  strval($id));
+		}
+	}
+
 	/**
 	 * Get the group name.
 	 * @return The group name.

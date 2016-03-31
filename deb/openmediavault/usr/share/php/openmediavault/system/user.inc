@@ -136,6 +136,18 @@ class User {
 		return !is_null($this->name) && !is_null($this->uid);
 	}
 
+	public function assertExists() {
+		if (FALSE === $this->exists()) {
+			$id = "unknown";
+			if (!is_null($this->name))
+				$id = $this->name;
+			else if (!is_null($this->uid))
+				$id = $this->uid;
+			throw new \OMV\Exception("User '%s' does not exist.",
+			  strval($id));
+		}
+	}
+
 	/**
 	 * Get the user name.
 	 * @return The user name.

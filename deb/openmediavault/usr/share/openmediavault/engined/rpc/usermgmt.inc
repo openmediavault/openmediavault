@@ -338,25 +338,15 @@ finish:
 	 * @return The requested configuration object.
 	 */
 	function getUser($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "name":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.usermngmt.getuser");
 		// Get the user information.
 		$user = new \OMV\System\User($params['name']);
-		if (!$user->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf(gettext("User '%s' does not exist"),
-			  $params['name']));
-		}
+		$user->assertExists();
 		$result = array(
 			"name" => $user->getName(),
 			"uid" => $user->getUid(),
@@ -377,14 +367,17 @@ finish:
 			"sshpubkeys" => array()
 		);
 		// Get additional user information stored in database.
-		$xpath = sprintf("//system/usermanagement/users/user[name='%s']",
-		  $result['name']);
-		$object = $xmlConfig->get($xpath);
-		if (!is_null($object)) {
-			$result['email'] = $object['email'];
-			$result['disallowusermod'] = boolvalEx($object['disallowusermod']);
-			$result['sshpubkeys'] = empty($object['sshpubkeys']) ?
-			  array() : $object['sshpubkeys']['sshpubkey'];
+		$db = \OMV\Config\Database::getInstance();
+		$predicate = sprintf("name='%s'", $result['name']);
+		if ($db->existsByPredicate("conf.system.usermngmnt.user", $predicate)) {
+			// Get the user configuration object. Due the fact that a user
+			// name is unique, we can simply use the first found object.
+			$objects = $db->getByPredicate("conf.system.usermngmnt.user",
+			  $predicate);
+			$result['email'] = $objects[0]->get("email");
+			$result['disallowusermod'] = $objects[0]->get("disallowusermod");
+			$result['sshpubkeys'] = empty($objects[0]->get("sshpubkeys")) ?
+			  array() : $objects[0]->get("sshpubkeys");
 		}
 		return $result;
 	}

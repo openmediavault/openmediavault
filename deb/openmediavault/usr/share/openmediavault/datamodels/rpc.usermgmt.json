@@ -14,4 +14,16 @@
 			}
 		}
 	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermngmt.getuser",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name":{
+				"type": "string",
+				"required": true
+			}
+		}
+	}
 }]
