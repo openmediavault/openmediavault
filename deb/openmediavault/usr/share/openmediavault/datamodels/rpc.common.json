@@ -14,6 +14,20 @@
 	}
 },{
 	"type": "rpc",
+	"id": "rpc.common.devicefile",
+	"description": "Identify an configuration object by a devicefile",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devicefile": {
+				"type": "string",
+				"format": "devicefile",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
 	"id": "rpc.common.getlist",
 	"params": {
 		"type": "object",

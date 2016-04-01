@@ -1,0 +1,29 @@
+{
+	"type": "config",
+	"id": "conf.service.smartmontools",
+	"title": "S.M.A.R.T. monitored device",
+	"queryinfo": {
+		"xpath": "//services/smart/monitor/device",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"devicefile": {
+			"type": "string",
+			"format": "devicefile",
+			"default": ""
+		},
+		"enable": {
+			"type": "boolean",
+			"default": 1
+		},
+		"type": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}
