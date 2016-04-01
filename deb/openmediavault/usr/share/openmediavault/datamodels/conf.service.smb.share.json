@@ -40,10 +40,12 @@
 			"type": "boolean"
 		},
 		"recyclemaxsize": {
-			"type": "boolean"
+			"type": "integer",
+			"minimum": 0
 		},
 		"recyclemaxage": {
-			"type": "boolean"
+			"type": "integer",
+			"minimum": 0
 		},
 		"hidedotfiles": {
 			"type": "boolean"

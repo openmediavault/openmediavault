@@ -83,7 +83,7 @@ class Database {
 			$data = $this->getBackend()->getList($xpath);
 		else
 			$data = $this->getBackend()->get($xpath);
-		if (is_null($data) || (is_array($data) && empty($data))) {
+		if (is_null($data)) {
 			throw new DatabaseException("Failed to execute XPath query '%s'.",
 			  $xpath);
 		}
@@ -369,6 +369,7 @@ class Database {
 	 * Assert that a configuration object with the value of the specified
 	 * property is unique.
 	 * @param object The configuration object to use.
+	 * @param property The name of the data model property.
 	 * @return None.
 	 * @throw \OMV\Config\DatabaseException
 	 */

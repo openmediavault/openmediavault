@@ -49,10 +49,10 @@ class OMVRpcServiceSnmp extends \OMV\Rpc\ServiceAbstract {
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.snmp");
-		$object->map("trap.enable", "trapenable");
-		$object->map("trap.community", "trapcommunity");
-		$object->map("trap.host", "traphost");
-		$object->map("trap.port", "trapport");
+		$object->copy("trap.enable", "trapenable");
+		$object->copy("trap.community", "trapcommunity");
+		$object->copy("trap.host", "traphost");
+		$object->copy("trap.port", "trapport");
 		$object->remove("trap");
 		// Return the values.
 		return $object->getAssoc();

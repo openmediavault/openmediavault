@@ -267,14 +267,14 @@ class ConfigObject {
 	}
 
 	/**
-	 * Map an existing property to another one. the target property will
+	 * Copy an existing property to another one. the target property will
 	 * be created if necessary.
 	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
 	 * @param targetName The name of the target property in dot notation,
 	 *   e.g. 'x.y'.
 	 * @return None.
 	 */
-	public function map($name, $targetName) {
+	public function copy($name, $targetName) {
 		$this->assertExists($name);
 		$model = $this->getModel();
 		if (!$model->propertyExists($targetName))

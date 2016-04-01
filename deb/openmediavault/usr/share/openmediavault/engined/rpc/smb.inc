@@ -19,10 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
+require_once("openmediavault/globals.inc");
 
 class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 	/**
@@ -51,33 +48,18 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$xpath = "//services/smb";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify the result object.
-		$object['enable'] = boolvalEx($object['enable']);
-		$object['loglevel'] = intval($object['loglevel']);
-		$object['usesendfile'] = boolvalEx($object['usesendfile']);
-		$object['aio'] = boolvalEx($object['aio']);
-		$object['nullpasswords'] = boolvalEx($object['nullpasswords']);
-		$object['localmaster'] = boolvalEx($object['localmaster']);
-		$object['timeserver'] = boolvalEx($object['timeserver']);
-		$object['winssupport'] = boolvalEx($object['winssupport']);
-		$object['homesenable'] = boolvalEx($object['homesenable']);
-		$object['homesbrowseable'] = boolvalEx($object['homesbrowseable']);
-		return $object;
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.smb");
+		// Remove useless properties from the object.
+		$object->remove("shares");
+		return $object->getAssoc();
 	}
 
 	/**
@@ -85,68 +67,27 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	public function setSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "enable":{"type":"boolean"},
-				  "workgroup":{"type":"string"},
-				  "serverstring":{"type":"string"},
-				  "loglevel":{"type":"integer","enum":[0,1,2,3,10]},
-				  "usesendfile":{"type":"boolean"},
-				  "aio":{"type":"boolean"},
-				  "nullpasswords":{"type":"boolean"},
-				  "localmaster":{"type":"boolean"},
-				  "timeserver":{"type":"boolean"},
-				  "winssupport":{"type":"boolean"},
-				  "winsserver":{"type":"string"},
-				  "homesenable":{"type":"boolean"},
-				  "homesbrowseable":{"type":"boolean"},
-				  "extraoptions":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.smb.setsettings");
 		// Get the existing configuration object.
-		$xpath = "//services/smb";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Update the configuration object.
-		$object = array_merge($object, array(
-			  "enable" => array_boolval($params, 'enable'),
-			  "workgroup" => $params['workgroup'],
-			  "serverstring" => $params['serverstring'],
-			  "loglevel" => $params['loglevel'],
-			  "usesendfile" => array_boolval($params, 'usesendfile'),
-			  "aio" => array_boolval($params, 'aio'),
-			  "nullpasswords" => array_boolval($params, 'nullpasswords'),
-			  "localmaster" => array_boolval($params, 'localmaster'),
-			  "timeserver" => array_boolval($params, 'timeserver'),
-			  "winssupport" => array_boolval($params, 'winssupport'),
-			  "winsserver" => $params['winsserver'],
-			  "homesenable" => array_boolval($params, 'homesenable'),
-			  "homesbrowseable" => array_boolval($params, 'homesbrowseable'),
-			  "extraoptions" => $params['extraoptions']
-		  ));
-		if(FALSE === $xmlConfig->replace("//services/smb", $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.smb");
+		$object->setAssoc($params);
+		$db->set($object);
+		// Remove useless properties from the object.
+		$object->remove("shares");
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.smb", $object);
+		  "org.openmediavault.services.smb", $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -160,50 +101,31 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getShareList($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
-		// Get the configuration objects.
-		$xpath = "//services/smb/shares/share";
-		$objects = $xmlConfig->getList($xpath);
-		if(is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		// Get the configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->get("conf.service.smb.share");
 		// Add additional share informations.
-		foreach($objects as $objectk => &$objectv) {
-			$objectv['sharedfoldername'] = gettext("n/a");
-			// Modify the result object.
-			$objectv['enable'] = boolvalEx($objectv['enable']);
-			$objectv['readonly'] = boolvalEx($objectv['readonly']);
-			$objectv['browseable'] = boolvalEx($objectv['browseable']);
-			$objectv['recyclebin'] = boolvalEx($objectv['recyclebin']);
-			$objectv['recyclemaxsize'] = intval($objectv['recyclemaxsize']);
-			$objectv['recyclemaxage'] = intval($objectv['recyclemaxage']);
-			$objectv['hidedotfiles'] = boolvalEx($objectv['hidedotfiles']);
-			$objectv['inheritacls'] = boolvalEx($objectv['inheritacls']);
-			$objectv['inheritpermissions'] = boolvalEx(
-			  $objectv['inheritpermissions']);
-			$objectv['easupport'] = boolvalEx($objectv['easupport']);
-			$objectv['storedosattributes'] = boolvalEx(
-			  $objectv['storedosattributes']);
-			$objectv['audit'] = boolvalEx($objectv['audit']);
+		$objectsAssoc = array();
+		foreach ($objects as $objectk => &$objectv) {
+			// Add the new property 'sharedfoldername'.
+			$objectv->add("sharedfoldername", "string", gettext("n/a"));
 			// Get the shared folder configuration object.
-			$sfobject = $xmlConfig->get("//system/shares/sharedfolder[" .
-			  "uuid='{$objectv['sharedfolderref']}']");
-			if(!is_null($sfobject) && !empty($sfobject)) {
-				$objectv['sharedfoldername'] = $sfobject['name'];
-			}
+			$sfObject = $db->get("conf.system.sharedfolder",
+			  $objectv->get("sharedfolderref"));
+			// Update the 'sharedfoldername' property.
+			$objectv->set("sharedfoldername", $sfObject->get("name"));
+			$objectsAssoc[] = $objectv->getAssoc();
 		}
-		// Filter the result object list.
-		return $this->applyFilter($objects, $params['start'],
+		// Filter the result.
+		return $this->applyFilter($objectsAssoc, $params['start'],
 		  $params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
@@ -213,10 +135,8 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getShare($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -224,27 +144,8 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
-		$xpath = sprintf("//services/smb/shares/share[uuid='%s']",
-		  $params['uuid']);
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify the result object.
-		$object['enable'] = boolvalEx($object['enable']);
-		$object['readonly'] = boolvalEx($object['readonly']);
-		$object['browseable'] = boolvalEx($object['browseable']);
-		$object['recyclebin'] = boolvalEx($object['recyclebin']);
-		$object['recyclemaxsize'] = intval($object['recyclemaxsize']);
-		$object['recyclemaxage'] = intval($object['recyclemaxage']);
-		$object['hidedotfiles'] = boolvalEx($object['hidedotfiles']);
-		$object['inheritacls'] = boolvalEx($object['inheritacls']);
-		$object['inheritpermissions'] = boolvalEx($object['inheritpermissions']);
-		$object['easupport'] = boolvalEx($object['easupport']);
-		$object['storedosattributes'] = boolvalEx($object['storedosattributes']);
-		$object['audit'] = boolvalEx($object['audit']);
-		return $object;
+		$db = \OMV\Config\Database::getInstance();
+		return $db->getAssoc("conf.service.smb.share", $params['uuid']);
 	}
 
 	/**
@@ -252,104 +153,34 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_OBJECT_UNIQUENESS
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	public function setShare($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-				  "enable":{"type":"boolean"},
-				  "sharedfolderref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
-				  "name":{'.$GLOBALS['OMV_JSONSCHEMA_SHARENAME'].'},
-				  "comment":{"type":"string"},
-				  "guest":{"type":"string","enum":["no","allow","only"]},
-				  "readonly":{"type":"boolean"},
-				  "browseable":{"type":"boolean"},
-				  "recyclebin":{"type":"boolean"},
-				  "recyclemaxsize":{"type":"integer","minimum":0},
-				  "recyclemaxage":{"type":"integer","minimum":0},
-				  "hidedotfiles":{"type":"boolean"},
-				  "inheritacls":{"type":"boolean"},
-				  "inheritpermissions":{"type":"boolean"},
-				  "easupport":{"type":"boolean"},
-				  "storedosattributes":{"type":"boolean"},
-				  "hostsallow":{"type":"string"},
-				  "hostsdeny":{"type":"string"},
-				  "audit":{"type":"boolean"},
-				  "extraoptions":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.smb.setshare");
 		// Prepare the configuration object.
-		$object = array(
-			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  \OMV\Uuid::uuid4() : $params['uuid'],
-			"enable" => array_boolval($params, 'enable'),
-			"sharedfolderref" => $params['sharedfolderref'],
-			"name" => $params['name'],
-			"comment" => $params['comment'],
-			"guest" => $params['guest'],
-			"readonly" => array_boolval($params, 'readonly'),
-			"browseable" => array_boolval($params, 'browseable'),
-			"inheritacls" => array_boolval($params, 'inheritacls'),
-			"inheritpermissions" => array_boolval($params,
-			  'inheritpermissions'),
-			"recyclebin" => array_boolval($params, 'recyclebin'),
-			"recyclemaxsize" => $params['recyclemaxsize'],
-			"recyclemaxage" => $params['recyclemaxage'],
-			"hidedotfiles" => array_boolval($params, 'hidedotfiles'),
-			"easupport" => array_boolval($params, 'easupport'),
-			"storedosattributes" => array_boolval($params,
-			  'storedosattributes'),
-			"hostsallow" => $params['hostsallow'],
-			"hostsdeny" => $params['hostsdeny'],
-			"audit" => array_boolval($params, 'audit'),
-			"extraoptions" => $params['extraoptions']
-		);
+		$object = new \OMV\Config\ConfigObject("conf.service.smb.share");
+		$object->setAssoc($params);
 		// Set the configuration object.
-		$success = FALSE;
-		if ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+		$isNew = $object->isNew();
+		$db = \OMV\Config\Database::getInstance();
+		if (TRUE === $isNew) {
 			// Check uniqueness:
 			// - Share name
 			// - Shared folder
-			$xpath = sprintf("//services/smb/shares/share[name='%s']",
-			  $params['name']);
-			if (TRUE === $xmlConfig->exists($xpath)) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-				  sprintf(gettext("A share with the name '%s' already exists"),
-				  $params['name']));
-			}
-			$xpath = sprintf("//services/smb/shares/share[".
-			  "sharedfolderref='%s']", $params['sharedfolderref']);
-			if (TRUE === $xmlConfig->exists($xpath)) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-				  gettext("The shared folder is already used by another share."));
-			}
-			// Append object to the configuration.
-			$success = $xmlConfig->set("//services/smb/shares",
-			  array("share" => $object));
-		} else {
-			// Update existing configuration object.
-			$success = $xmlConfig->replace("//services/smb/shares/share[" .
-			  "uuid='{$params['uuid']}']", $object);
+			$db->assertIsUnique($object, "name");
+			$db->assertIsUnique($object, "sharedfolderref");
 		}
-		if (FALSE === $success) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.smb.shares.share", $object);
+		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.services.smb.shares.share", $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -367,10 +198,8 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		$xpath = sprintf("//services/smb/shares/share[uuid='%s']",
-		  $params['uuid']);
-		return $this->deleteConfigObjectByPath($xpath,
-		  "org.openmediavault.services.smb.shares.share");
+		return $this->deleteConfigObjectByUuid("conf.service.smb.share",
+		  $params['uuid'], "org.openmediavault.services.smb.shares.share");
 	}
 
 	/**
@@ -423,28 +252,23 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return A string containing the requested statistics.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_EXEC_FAILED
 	 */
 	public function getStats($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Is service enabled?
-		$xpath = "//services/smb";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		if (!boolvalEx($object['enable'])) {
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.smb");
+		if (FALSE === $object->get("enable")) {
 			$stats = gettext("Service disabled");
 		} else {
-			$cmd = "export LANG=C; smbstatus -u 2>&1";
-			if (0 !== $this->exec($cmd, $output))
-				throw new \OMV\ExecException($cmd, $output);
+			$cmdArgs = array();
+			$cmdArgs[] = "-s";
+			$cmd = new \OMV\System\Process("smbstatus", $cmdArgs);
+			$cmd->setRedirect2to1(TRUE);
+			$cmd->execute($output);
 			array_shift($output);
 			array_shift($output);
 			$stats = implode("\n", $output);
