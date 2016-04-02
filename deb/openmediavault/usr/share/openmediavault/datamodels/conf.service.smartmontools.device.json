@@ -1,6 +1,6 @@
 {
 	"type": "config",
-	"id": "conf.service.smartmontools",
+	"id": "conf.service.smartmontools.device",
 	"title": "S.M.A.R.T. monitored device",
 	"queryinfo": {
 		"xpath": "//services/smart/monitor/device",

@@ -100,6 +100,35 @@ finish:
 	}
 
 	/**
+	 * Return info about an user by name or id.
+	 * @param id The user identifier.
+	 * @return Returns an associative array with the user information
+	 *   or FALSE if the user does not exist.
+	 */
+	final private function getUserInfo($id) {
+		$user = new \OMV\System\User($id);
+		if (!$user->exists())
+			return FALSE;
+		return array(
+			"name" => $user->getName(),
+			"uid" => $user->getUid(),
+			"gid" => $user->getGid(),
+			"comment" => $user->getGecos(),
+			"dir" => $user->getHomeDirectory(),
+			"shell" => $user->getShell(),
+			"lastchanged" => $user->getLastChanged(),
+			"minimum" => $user->getMinimum(),
+			"maximum" => $user->getMaximum(),
+			"warn" => $user->getWarn(),
+			"inactive" => $user->getInactive(),
+			"expire" => $user->getExpire(),
+			"reserved" => $user->getReserved(),
+			"groups" => $user->getGroups(),
+			"system" => $user->isSystemAccount()
+		);
+	}
+
+	/**
 	 * Enumerate users.
 	 * @param type The user type, e.g. system, normal or all.
 	 * @return An array containing user objects with following fields:
@@ -113,46 +142,29 @@ finish:
 		// Iterate through all users to filter the requested ones.
 		$result = array();
 		foreach ($users as $userk => $userv) {
-			$user = new \OMV\System\User($userv);
-			if (!$user->exists())
+			// Get the user information about the user.
+			if (FALSE === ($userInfo = $this->getUserInfo($userv)))
 				continue;
 			// Append user 'root'?
-			if (0 == strcasecmp("root", $user->getName()) && FALSE == boolvalEx(
-			  $GLOBALS['OMV_USERMGMT_ENUMERATE_USER_ROOT']))
+			if (0 == strcasecmp("root", $userInfo['name']) &&
+			  FALSE == boolvalEx($GLOBALS['OMV_USERMGMT_ENUMERATE_USER_ROOT']))
 				continue;
 			// Check if the current user is requested.
 			$append = FALSE;
-			$system = $user->isSystemAccount();
 			switch ($type) {
 			case "system":
-				$append = $system;
+				$append = $userInfo['system'];
 				break;
 			case "normal":
-				$append = !$system;
+				$append = !$userInfo['system'];
 				break;
 			case "all":
 				$append = TRUE;
 				break;
 			}
-			if (TRUE === $append) {
-				$result[] = array(
-					"name" => $user->getName(),
-					"uid" => $user->getUid(),
-					"gid" => $user->getGid(),
-					"comment" => $user->getGecos(),
-					"dir" => $user->getHomeDirectory(),
-					"shell" => $user->getShell(),
-					"lastchanged" => $user->getLastChanged(),
-					"minimum" => $user->getMinimum(),
-					"maximum" => $user->getMaximum(),
-					"warn" => $user->getWarn(),
-					"inactive" => $user->getInactive(),
-					"expire" => $user->getExpire(),
-					"reserved" => $user->getReserved(),
-					"groups" => $user->getGroups(),
-					"system" => $system
-				);
-			}
+			if (FALSE === $append)
+				continue;
+			$result[] = $userInfo;
 		}
 		return $result;
 	}
@@ -203,6 +215,24 @@ finish:
 	}
 
 	/**
+	 * Return info about a group by name or id.
+	 * @param id The group identifier.
+	 * @return Returns an associative array with the group information
+	 *   or FALSE if the group does not exist.
+	 */
+	final private function getGroupInfo($id) {
+		$group = new \OMV\System\Group($id);
+		if (!$group->exists())
+			return FALSE;
+		return array(
+			"name" => $group->getName(),
+			"gid" => $group->getGid(),
+			"members" => $group->getMembers(),
+			"system" => $group->isSystemAccount()
+		);
+	}
+
+	/**
 	 * Enumerate groups.
 	 * @param type The group type, e.g. system, normal or all.
 	 * @return An array containing user objects with following fields:
@@ -214,31 +244,25 @@ finish:
 		// Get group information.
 		$result = array();
 		foreach ($groups as $groupk => $groupv) {
-			$group = new \OMV\System\Group($groupv);
-			if (!$group->exists())
+			// Get the user information about the group.
+			if (FALSE === ($groupInfo = $this->getGroupInfo($groupv)))
 				continue;
-			// Check if the current group is requested
+			// Check if the current group is requested.
 			$append = FALSE;
-			$system = $group->isSystemAccount();
 			switch ($type) {
 			case "system":
-				$append = $system;
+				$append = $groupInfo['system'];
 				break;
 			case "normal":
-				$append = !$system;
+				$append = !$groupInfo['system'];
 				break;
 			case "all":
 				$append = TRUE;
 				break;
 			}
-			if (TRUE === $append) {
-				$result[] = array(
-					"name" => $group->getName(),
-					"gid" => $group->getGid(),
-					"members" => $group->getMembers(),
-					"system" => $system
-				);
-			}
+			if (FALSE === $append)
+				continue;
+			$result[] = $groupInfo;
 		}
 		return $result;
 	}
@@ -314,18 +338,19 @@ finish:
 		// the database.
 		foreach ($users as $userk => &$userv) {
 			// Get additional information stored in database.
-			$xpath = sprintf("//system/usermanagement/users/user[name='%s']",
-			  $userv['name']);
-			$object = $xmlConfig->get($xpath);
-			if (!is_null($object)) {
-				$userv['email'] = $object['email'];
-				$userv['disallowusermod'] = boolvalEx(
-				  $object['disallowusermod']);
-				$userv['sshpubkeys'] = empty($object['sshpubkeys']) ?
-				  array() : $object['sshpubkeys']['sshpubkey'];
+			$db = \OMV\Config\Database::getInstance();
+			$predicate = sprintf("name='%s'", $userv['name']);
+			$objects = $db->getByPredicate("conf.system.usermngmnt.user",
+			  $predicate);
+			if (1 >= count($objects)) {
+				// Get the user configuration object. Due the fact that a user
+				// name is unique, we can simply use the first found object.
+				$userv['email'] = $objects[0]->get("email");
+				$userv['disallowusermod'] = $objects[0]->get("disallowusermod");
+				$userv['sshpubkeys'] = $objects[0]->get("sshpubkeys.sshpubkey");
 			}
 		}
-		// Filter result.
+		// Filter the result.
 		return $this->applyFilter($users, $params['start'],
 		  $params['limit'], $params['sortfield'], $params['sortdir']);
 	}
@@ -344,40 +369,28 @@ finish:
 		  ));
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.usermngmt.getuser");
-		// Get the user information.
+		// Ensure the user exists.
 		$user = new \OMV\System\User($params['name']);
 		$user->assertExists();
-		$result = array(
-			"name" => $user->getName(),
-			"uid" => $user->getUid(),
-			"gid" => $user->getGid(),
-			"comment" => $user->getGecos(),
-			"dir" => $user->getHomeDirectory(),
-			"shell" => $user->getShell(),
-			"lastchanged" => $user->getLastChanged(),
-			"minimum" => $user->getMinimum(),
-			"maximum" => $user->getMaximum(),
-			"warn" => $user->getWarn(),
-			"inactive" => $user->getInactive(),
-			"expire" => $user->getExpire(),
-			"reserved" => $user->getReserved(),
-			"groups" => $user->getGroups(),
+		// Get the user information.
+		$result = $this->getUserInfo($user->getName());
+		// Set the defaults of the additional information.
+		$result = array_merge($result, array(
 			"email" => "",
 			"disallowusermod" => FALSE,
 			"sshpubkeys" => array()
-		);
+		));
 		// Get additional user information stored in database.
 		$db = \OMV\Config\Database::getInstance();
 		$predicate = sprintf("name='%s'", $result['name']);
-		if ($db->existsByPredicate("conf.system.usermngmnt.user", $predicate)) {
+		$objects = $db->getByPredicate("conf.system.usermngmnt.user",
+		  $predicate);
+		if (1 >= count($objects)) {
 			// Get the user configuration object. Due the fact that a user
 			// name is unique, we can simply use the first found object.
-			$objects = $db->getByPredicate("conf.system.usermngmnt.user",
-			  $predicate);
 			$result['email'] = $objects[0]->get("email");
 			$result['disallowusermod'] = $objects[0]->get("disallowusermod");
-			$result['sshpubkeys'] = empty($objects[0]->get("sshpubkeys")) ?
-			  array() : $objects[0]->get("sshpubkeys");
+			$result['sshpubkeys'] = $objects[0]->get("sshpubkeys.sshpubkey");
 		}
 		return $result;
 	}
@@ -425,10 +438,6 @@ finish:
 	 *   \em sshpubkeys The users SSH public keys.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_EXEC_FAILED
-	 * @throw E_MISC_FAILURE
 	 */
 	function setUser($params, $context) {
 		global $xmlConfig;
@@ -613,7 +622,6 @@ finish:
 	 *   \em name The name of the user to delete.
 	 * @param context The context of the caller.
 	 * @return The deleted configuration object.
-	 * @throw E_EXEC_FAILED
 	 */
 	function deleteUser($params, $context) {
 		global $xmlConfig;
@@ -767,12 +775,12 @@ finish:
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the list of non-system groups.
 		$groups = $this->enumerateGroupsByType("normal");
-		foreach($groups as $groupk => &$groupv) {
+		foreach ($groups as $groupk => &$groupv) {
 			// Get additional information stored in database.
 			$xpath = sprintf("//system/usermanagement/groups/group[name='%s']",
 			  $groupv['name']);
 			$object = $xmlConfig->get($xpath);
-			if(!is_null($object)) {
+			if (!is_null($object)) {
 				$groupv['comment'] = $object['comment'];
 			}
 		}
@@ -787,7 +795,6 @@ finish:
 	 *   \em name The name of the group.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_MISC_FAILURE
 	 */
 	function getGroup($params, $context) {
 		global $xmlConfig;
@@ -804,7 +811,7 @@ finish:
 		  }');
 		// Get the group information.
 		$group = new \OMV\System\Group($params['name']);
-		if(!$group->exists()) {
+		if (!$group->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf(gettext("Group '%s' does not exist"),
 			  $params['name']));
@@ -832,7 +839,6 @@ finish:
 	 *   \em members The group members as an array of user names.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function setGroup($params, $context) {
 		global $xmlConfig;
@@ -936,7 +942,6 @@ finish:
 	 *   \em name The name of the group to delete.
 	 * @param context The context of the caller.
 	 * @return The deleted configuration object.
-	 * @throw E_EXEC_FAILED
 	 */
 	function deleteGroup($params, $context) {
 		global $xmlConfig;
@@ -998,7 +1003,7 @@ finish:
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
-		if($pid > 0) { // Parent process.
+		if ($pid > 0) { // Parent process.
 			$this->initializeBgProcStatus($bgStatusFilename, $pid);
 			return $bgStatusFilename;
 		}
@@ -1010,13 +1015,13 @@ finish:
 			// Import groups.
 			$objects = array();
 			$csv = explode("\n", $params['csv']);
-			foreach($csv as $linek => $linev) {
+			foreach ($csv as $linek => $linev) {
 				$linev = trim($linev);
 				# Skip comments.
 				if(empty($linev) || ($linev[0] === "#"))
 					continue;
 				# Parse line.
-				if(1 !== preg_match("/^([^;]+);(\d*);([^;]*)$/i", $linev,
+				if (1 !== preg_match("/^([^;]+);(\d*);([^;]*)$/i", $linev,
 				  $matches)) {
 					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 					  sprintf(gettext("Invalid line: %s"), $linev));
@@ -1026,23 +1031,23 @@ finish:
 					"comment" => $matches[3],
 					"members" => array()
 				);
-				if(!empty($matches[2]) && is_numeric($matches[2]))
+				if (!empty($matches[2]) && is_numeric($matches[2]))
 					$object['gid'] = intval($matches[2]);
 				$objects[] = $object;
 			}
 			// Check if the users does not exist until now.
-			foreach($objects as $objectk => $objectv) {
+			foreach ($objects as $objectk => $objectv) {
 				// Check if an group with the given name already exists.
 				$group = new \OMV\System\Group($objectv['name']);
-				if($group->exists()) {
+				if ($group->exists()) {
 					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 					  sprintf(gettext("Group '%s' already exist"),
 					  $objectv['name']));
 				}
 				// Check if an group with the given GID already exists.
-				if(array_key_exists("gid", $object)) {
+				if (array_key_exists("gid", $object)) {
 					$group = new \OMV\System\Group($objectv['gid']);
-					if($group->exists()) {
+					if ($group->exists()) {
 						throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 						  sprintf(gettext("Group ID '%d' already exist"),
 						  $objectv['gid']));
@@ -1050,7 +1055,7 @@ finish:
 				}
 			}
 			// Finally create the groups.
-			foreach($objects as $objectk => $objectv) {
+			foreach ($objects as $objectk => $objectv) {
 				$this->callMethod("setGroup", $objectv, $context);
 			}
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
@@ -1066,7 +1071,6 @@ finish:
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function getSettings($params, $context) {
 		global $xmlConfig;
@@ -1077,7 +1081,7 @@ finish:
 		// Get the configuration object.
 		$xpath = "//system/usermanagement/homedirectory";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
@@ -1091,8 +1095,6 @@ finish:
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
-	 * @throw E_EXEC_FAILED
 	 */
 	public function setSettings($params, $context) {
 		global $xmlConfig;
@@ -1115,7 +1117,7 @@ finish:
 			"enable" => array_boolval($params, 'enable'),
 			"sharedfolderref" => $params['sharedfolderref']
 		);
-		if(FALSE === $xmlConfig->replace($xpath, $object)) {
+		if (FALSE === $xmlConfig->replace($xpath, $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Build the home directory path.
@@ -1127,9 +1129,9 @@ finish:
 		}
 		// Update the non-system user.
 		$users = $this->enumerateUsersByType("normal");
-		foreach($users as $userk => $userv) {
+		foreach ($users as $userk => $userv) {
 			$cmdArgs = array();
-			if(!empty($homeDirPath)) {
+			if (!empty($homeDirPath)) {
 				// Set new home directory. Move the content from the old to
 				// the new directory.
 				$cmdArgs[] = "--move-home";

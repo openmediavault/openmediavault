@@ -1,6 +1,6 @@
 {
 	"type": "config",
-	"id": "conf.service.smartmontools",
+	"id": "conf.service.smartmontools.job",
 	"title": "S.M.A.R.T. self test job",
 	"queryinfo": {
 		"xpath": "//services/smart/scheduledtests/job",
