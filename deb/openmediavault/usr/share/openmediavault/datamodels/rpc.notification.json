@@ -1,0 +1,32 @@
+[{
+	"type": "rpc",
+	"id": "rpc.notification.set",
+	"params": {
+		"type": "array",
+		"items": {
+			"type": "object",
+			"properties": {
+				"id":{
+					"type": "string",
+					"required": true
+				},
+				"enable": {
+					"type": "boolean",
+					"required": true
+				}
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.notification.isenabled",
+	"params": {
+		"type": "object",
+		"properties": {
+			"id": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+}]

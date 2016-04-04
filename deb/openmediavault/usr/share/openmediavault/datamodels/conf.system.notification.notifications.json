@@ -1,0 +1,43 @@
+{
+	"type": "config",
+	"id": "conf.system.notification.notifications",
+	"title": "Notifications",
+	"queryinfo": {
+		"xpath": "//system/notification/notifications",
+		"iterable": false
+	},
+	"properties": {
+		"monitprocevents": {
+			"type": "boolean",
+			"default": true
+		},
+		"monitloadavg": {
+			"type": "boolean",
+			"default": true
+		},
+		"monitmemoryusage": {
+			"type": "boolean",
+			"default": true
+		},
+		"monitcpuusage": {
+			"type": "boolean",
+			"default": true
+		},
+		"monitfilesystems": {
+			"type": "boolean",
+			"default": true
+		},
+		"mdadm": {
+			"type": "boolean",
+			"default": true
+		},
+		"smartmontools": {
+			"type": "boolean",
+			"default": true
+		},
+		"cronapt": {
+			"type": "boolean",
+			"default": true
+		}
+	}
+}

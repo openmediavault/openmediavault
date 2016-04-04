@@ -19,9 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/error.inc");
-
 class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -44,41 +41,31 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array containing the notification configuration.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function get($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		$result = array();
 		// Get the configuration object.
-		$xpath = "//system/notification/notifications";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.notification.notifications");
 		// Get the list of registered modules.
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getModules();
-		foreach($modules as $modulev) {
+		foreach ($modules as $modulev) {
 			// Check if the module implements the \OMV\Engine\Module\INotification
 			// interface.
-			if($modulev instanceof \OMV\Engine\Module\INotification) {
+			if ($modulev instanceof \OMV\Engine\Module\INotification) {
 				$config = $modulev->getNotificationConfig();
-				foreach($config as $configk => $configv) {
-					$enable = FALSE; // Default value.
-					if(array_key_exists($configv['id'], $object)) {
-						$enable = boolvalEx($object[$configv['id']]);
-					}
+				foreach ($config as $configk => $configv) {
 					$result[] = array(
-						  "id" => $configv['id'],
-						  "type" => $configv['type'],
-						  "title" => $configv['title'],
-						  "enable" => $enable
-					  );
+						"id" => $configv['id'],
+						"type" => $configv['type'],
+						"title" => $configv['title'],
+						"enable" => $object->get($configv['id'])
+					);
 				}
 			}
 		}
@@ -90,58 +77,46 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function set($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"array",
-			  "items":{
-				  "type":"object",
-				  "properties":{
-					  "id":{"type":"string"},
-					  "enable":{"type":"boolean"}
-				  }
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.notification.set");
 		// Prepare the configuration object.
-		$object = array();
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.notification.notifications");
 		// Get the list of registered modules.
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getModules();
-		foreach($modules as $modulev) {
+		foreach ($modules as $modulev) {
 			// Check if the module implements the \OMV\Engine\Module\INotification
 			// interface.
-			if($modulev instanceof \OMV\Engine\Module\INotification) {
+			if ($modulev instanceof \OMV\Engine\Module\INotification) {
 				$config = $modulev->getNotificationConfig();
-				foreach($config as $configk => $configv) {
+				foreach ($config as $configk => $configv) {
 					$enable = FALSE; // Default value.
-					foreach($params as $paramk => $paramv) {
-						if($paramv['id'] === $configv['id']) {
+					foreach ($params as $paramk => $paramv) {
+						if ($paramv['id'] === $configv['id']) {
 							$enable = array_boolval($paramv, 'enable');
 							break;
 						}
 					}
-					$object[$configv['id']] = $enable;
+					$object->set($configv['id'], $enable);
 				}
 			}
 		}
-		// Set the configuration object.
-		$xpath = "//system/notification/notifications";
-		if(FALSE === $xmlConfig->replace($xpath, $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		// Set the service configuration objects.
+		$db->set($object);
 		// Notify the configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.notification.notifications", $object);
+		  "org.openmediavault.system.notification.notifications",
+		  $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -150,31 +125,19 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 	 *   \em id The notification identifier.
 	 * @param context The context of the caller.
 	 * @return TRUE if the serice is enabled, otherwise FALSE.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function isEnabled($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "id":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.notification.isenabled");
 		// Get the configuration object.
-		$xpath = sprintf("//system/notification/notifications/%s",
-		  $params['id']);
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		$result = boolvalEx($object);
-		return $result;
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.notification.notifications");
+		// Get the notification status.
+		return $object->get($params['id']);
 	}
 }
 
@@ -200,34 +163,21 @@ class OMVRpcServiceEmailNotification extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function get($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$xpath = "//system/email";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify the result object.
-		return array(
-			"enable" => boolvalEx($object['enable']),
-			"server" => $object['server'],
-			"port" => intval($object['port']),
-			"tls" => boolvalEx($object['tls']),
-			"sender" => $object['sender'],
-			"authenable" => boolvalEx($object['authentication']['enable']),
-			"username" => $object['authentication']['username'],
-			"password" => $object['authentication']['password'],
-			"primaryemail" => $object['primaryemail'],
-			"secondaryemail" => $object['secondaryemail']
-		);
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.notification.email");
+		$object->copy("authentication.enable", "authenable");
+		$object->copy("authentication.username", "username");
+		$object->copy("authentication.password", "password");
+		$object->remove("authentication");
+		// Return the values.
+		return $object->getAssoc();
 	}
 
 	/**
@@ -244,47 +194,22 @@ class OMVRpcServiceEmailNotification extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "enable":{"type":"boolean"},
-				  "server":{"type":"string"},
-				  "port":{"type":"integer","minimum":1,"maximum":65535},
-				  "tls":{"type":"boolean"},
-				  "sender":{'.$GLOBALS['OMV_JSONSCHEMA_EMAIL'].'},
-				  "authenable":{"type":"boolean"},
-				  "username":{"type":"string"},
-				  "password":{"type":"string"},
-				  "primaryemail":{'.$GLOBALS['OMV_JSONSCHEMA_EMAIL'].'},
-				  "secondaryemail":{'.$GLOBALS['OMV_JSONSCHEMA_EMAIL'].'}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.emailnotification.set");
 		// Prepare the configuration data.
-		$object = array(
-			"enable" => array_boolval($params, 'enable'),
-			"server" => $params['server'],
-			"port" => $params['port'],
-			"tls" => array_boolval($params, 'tls'),
-			"sender" => $params['sender'],
-			"authentication" => array(
-				"enable" => array_boolval($params, 'authenable'),
-				"username" => $params['username'],
-				"password" => $params['password']
-			),
-			"primaryemail" => $params['primaryemail'],
-			"secondaryemail" => $params['secondaryemail']
-		);
+		$object = new \OMV\Config\ConfigObject("conf.system.notification.email");
+		$object->setAssoc($params, TRUE, TRUE);
+		$object->set("authentication.enable", $params['authenable']);
+		$object->set("authentication.username", $params['username']);
+		$object->set("authentication.password", $params['password']);
 		// Set the configuration object.
-		$xpath = "//system/email";
-		if(FALSE === $xmlConfig->replace($xpath, $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$db->set($object);
 		// Notify the configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.email", $object);
+		  "org.openmediavault.system.email", $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -293,12 +218,10 @@ class OMVRpcServiceEmailNotification extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_MISC_FAILURE
-	 * @throw E_CONFIG_DIRTY
+	 * @throw \OMV\Exception
+	 * @throw \OMV\Config\ConfigDirtyException
 	 */
 	function sendTestEmail($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -306,42 +229,31 @@ class OMVRpcServiceEmailNotification extends \OMV\Rpc\ServiceAbstract {
 		// Check whether the module is marked dirty. In this case the
 		// current configuration is not applied and sending an email might
 		// fail.
-		if($this->isModuleDirty("email")) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_DIRTY);
-		}
+		if ($this->isModuleDirty("email"))
+			throw new \OMV\Config\ConfigDirtyException();
 		// Get the configuration object.
-		$xpath = "//system/email";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.notification.email");
 		// Do some generic tests to find out if email notification is
 		// already configured.
-		if (!boolvalEx($object['enable'])) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  "Email notification service is disabled.");
-		}
-		foreach(array("server", "port", "sender", "primaryemail") as
+		if (FALSE === $object->get("enable"))
+			throw new \OMV\Exception("Email notification service is disabled.");
+		foreach (array("server", "port", "sender", "primaryemail") as
 		  $keyk => $keyv) {
-			if(empty($object[$keyv])) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			if (TRUE === $object->isEmpty($keyv)) {
+				throw new \OMV\Exception(
 				  "Email notification service is not configured.");
 			}
 		}
 		// Send a test email.
 		$hostname = php_uname('n');
-		$to = $object['primaryemail'];
-		if(!empty($object['secondaryemail'])) {
+		$to = $object->get("primaryemail");
+		if (FALSE === $object->isEmpty("secondaryemail"))
 			$to .= sprintf(",%s", $object['secondaryemail']);
-		}
 		$subject = sprintf("Test message from %s", $hostname);
 		$message = sprintf("This is an automatically generated mail message ".
 		  "from the system notification service running on %s.", $hostname);
-		$mail = new \OMV\Email($object['sender'], $to, $subject, $message);
-		if (!$mail->send()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  "Failed to send email. Please check the logs.");
-		}
+		$mail = new \OMV\Email($object->get("sender"), $to, $subject, $message);
+		$mail->assertSend();
 	}
 }

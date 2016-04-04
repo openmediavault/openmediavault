@@ -740,6 +740,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param context The context of the caller.
 	 * @return None.
 	 * @throw \OMV\Exception
+	 * @throw \OMV\Config\ConfigDirtyException
 	 */
 	public function mount($params, $context) {
 		global $xmlConfig;

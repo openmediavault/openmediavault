@@ -208,6 +208,7 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The name of the background process status file.
+	 * @throw \OMV\Config\ConfigDirtyException
 	 */
 	public function emptyRecycleBin($params, $context) {
 		// Validate the RPC caller context.

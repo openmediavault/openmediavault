@@ -83,7 +83,8 @@ case "$1" in
 			object="${object}<shares></shares>"
 			omv_config_add_element "/config/services" "afp" "${object}" true
 			# Add Zeroconf configuration.
-			object="<id>afp</id>"
+			object="<uuid>$(omv_uuid)</uuid>"
+			object="${object}<id>afp</id>"
 			object="${object}<enable>1</enable>"
 			object="${object}<name>%h - AFP</name>"
 			omv_config_add_element "/config/services/zeroconf/services" "service" "${object}" true

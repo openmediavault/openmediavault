@@ -354,8 +354,7 @@ class OMVRpcServiceRsync extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the cron job to execute.
 	 * @param context The context of the caller.
 	 * @return The name of the background process status file.
-	 * @throw E_CONFIG_DIRTY
-	 * @throw E_EXEC_FAILED
+	 * @throw \OMV\Config\ConfigDirtyException
 	 */
 	public function execute($params, $context) {
 		// Validate the RPC caller context.
@@ -367,12 +366,12 @@ class OMVRpcServiceRsync extends \OMV\Rpc\ServiceAbstract {
 		// Check if the module is marked as dirty. This is an indication
 		// that the rsync cron script has not been created or updated
 		// until now.
-		if($this->isModuleDirty("rsync"))
-			throw new OMVException(OMVErrorMsg::E_CONFIG_DIRTY);
+		if ($this->isModuleDirty("rsync"))
+			throw new \OMV\Config\ConfigDirtyException();
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
-		if($pid > 0) { // Parent process.
+		if ($pid > 0) { // Parent process.
 			$this->initializeBgProcStatus($bgStatusFilename, $pid);
 			return $bgStatusFilename;
 		}

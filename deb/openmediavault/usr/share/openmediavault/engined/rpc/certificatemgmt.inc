@@ -19,11 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/functions.inc");
-require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
+require_once("openmediavault/globals.inc");
 
 class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 	/**
@@ -206,8 +202,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return A string containing the certificate details.
-	 * @throw E_CONFIG_DIRTY
-	 * @throw E_EXEC_FAILED
+	 * @throw \OMV\Config\ConfigDirtyException
 	 */
 	public function getDetail($params, $context) {
 		// Validate the RPC caller context.
@@ -219,7 +214,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Check if the module is marked as dirty. This is an indication
 		// that the certificate has not been created or updated until now.
 		if ($this->isModuleDirty("certificatemgmt"))
-			throw new OMVException(OMVErrorMsg::E_CONFIG_DIRTY);
+			throw new \OMV\Config\ConfigDirtyException();
 		// Get certificate details.
 		$cmdArgs = array();
 		$cmdArgs[] = "x509";
@@ -250,7 +245,6 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em email Email address
 	 * @param context The context of the caller.
 	 * @return The configuration object.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function create($params, $context) {
 		// Validate the RPC caller context.
@@ -373,7 +367,6 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em comment The comment
 	 * @param context The context of the caller.
 	 * @return The configuration object.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function createSsh($params, $context) {
 		// Validate the RPC caller context.

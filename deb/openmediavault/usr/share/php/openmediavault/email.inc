@@ -30,6 +30,15 @@ class Email {
 	private $subject;
 	private $message;
 
+	/**
+	 * Constructor.
+	 * @param from The sender email address.
+	 * @param to The receiver email address(es), e.g. 'test@xzy.com' or
+	 *   'xzy@123.org,test@xzy.com'. Use the character , or ; as seperator.
+	 *   Additionally this can be an array of email adresses.
+	 * @param subject The subject.
+	 * @param message The message.
+	 */
 	public function __construct($from, $to, $subject, $message) {
 		list($this->from, $this->to, $this->subject,
 		  $this->message) = func_get_args();
@@ -43,15 +52,8 @@ class Email {
 	}
 
 	/**
-	 * Send an email.
-	 * @param from The sender email address.
-	 * @param to The receiver email address(es), e.g. 'test@xzy.com' or
-	 *   'xzy@123.org,test@xzy.com'. Use the character , or ; as seperator.
-	 *   Additionally this can be an array of email adresses.
-	 * @param subject The subject.
-	 * @param message The message.
+	 * Send the email.
 	 * @return Return TRUE if successful, otherwise FALSE.
-	 * @deprecated
 	 */
 	public function send() {
 		// Prepare additional email headers.
@@ -63,5 +65,17 @@ class Email {
 			$headers[] = sprintf('From: %s', $this->from);
 		return mail($this->to, $this->subject, $this->message,
 		  implode("\r\n", $headers));
+	}
+
+	/**
+	 * Send the email.
+	 * @return None.
+	 * @throw \OMV\Exception
+	 */
+	public function assertSend() {
+		if (FALSE === $this->send()) {
+			throw new \OMV\Exception(
+			  "Failed to send the email. Please check the logs.");
+		}
 	}
 }
