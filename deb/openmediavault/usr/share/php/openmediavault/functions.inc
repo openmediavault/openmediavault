@@ -546,7 +546,7 @@ function binary_convert($number, $fromPrefix, $toPrefix, $decimalPlaces = 0) {
  * @return Returns a Unix timestamp on success, FALSE otherwise.
  */
 function strpdate($date, $format) {
-	if(FALSE === ($dt = DateTime::createFromFormat($format, $date)))
+	if (FALSE === ($dt = DateTime::createFromFormat($format, $date)))
 		return FALSE;
 	return $dt->getTimestamp();
 }
@@ -556,11 +556,11 @@ function strpdate($date, $format) {
  * between parts. At the boundary between two parts, any trailing occurrences
  * of separator in the first part, or leading occurrences of separator in the
  * second part are removed and exactly one copy of the separator is inserted.
- * @param parts Array containing the parts to be joined.
- * @param separator The directory seperator
+ * @param separator The directory seperator, e.g. DIRECTORY_SEPARATOR.
+ * @param parts The path elements to be concatenated.
  * @return A string path built from the given parts.
  */
-function build_path($parts, $separator = DIRECTORY_SEPARATOR) {
+function build_path($separator, ...$parts) {
 	foreach ($parts as $partk => &$partv) {
 		if (0 == $partk) // First element
 			$partv = rtrim($partv, $separator);
@@ -601,12 +601,13 @@ function listdir($directory, $extension = "", $sortFlags = SORT_NATURAL) {
  * @return Returns the full path of the created directory, or FALSE on failure.
  */
 function mkdtemp($prefix = "", $mode = 0700) {
-	$pathname = build_path(array(sys_get_temp_dir(), uniqid($prefix)));
-	if (is_dir($pathname))
+	$directory = build_path(DIRECTORY_SEPARATOR, sys_get_temp_dir(),
+	  uniqid($prefix));
+	if (is_dir($directory))
 		return FALSE;
-	if (FALSE === mkdir($pathname, $mode))
+	if (FALSE === mkdir($directory, $mode))
 		return FALSE;
-	return $pathname;
+	return $directory;
 }
 
 /**

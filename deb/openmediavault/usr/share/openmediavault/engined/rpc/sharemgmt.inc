@@ -387,7 +387,8 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			  $xpath);
 		}
 		// Build the absolute shared folder path.
-		$pathName = build_path(array($meObject['dir'], $object['reldirpath']));
+		$pathName = build_path(DIRECTORY_SEPARATOR, $meObject['dir'],
+		  $object['reldirpath']);
 		// Create the shared folder directory if necessary.
 		if (FALSE === file_exists($pathName)) {
 			// Create the directory. Note, the function seems to have a bug
@@ -503,8 +504,9 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 					  $xpath);
 				}
 				// Build the absolute shared folder path.
-				$absDirPath = \OMV\System\Os::readlink(build_path(array(
-				  $meObject['dir'], $object['reldirpath'])));
+				$absDirPath = \OMV\System\Os::readlink(build_path(
+				  DIRECTORY_SEPARATOR, $meObject['dir'],
+				  $object['reldirpath']));
 				// Ensure the path ends with an slash, otherwise comparison
 				// may be false positive.
 				// Example:
@@ -532,8 +534,9 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 					//
 					// Deleting dir2 recursively will be forbidden when dir2.1
 					// is used by another shared folder.
-					$sfAbsDirPath = \OMV\System\Os::readlink(build_path(array(
-					  $meObject['dir'], $sfObjectv['reldirpath'])));
+					$sfAbsDirPath = \OMV\System\Os::readlink(build_path(
+					  DIRECTORY_SEPARATOR, $meObject['dir'],
+					  $sfObjectv['reldirpath']));
 					if (0 === stripos($sfAbsDirPath, $absDirPath)) {
 						throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 						  gettext("Cannot unlink the shared folder content because another shared folder is referencing a subdirectory"));
@@ -558,8 +561,8 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				  $xpath);
 			}
 			// Build the absolute shared folder path.
-			$dirPath = build_path(array($meObject['dir'],
-			  $object['reldirpath']));
+			$dirPath = build_path(DIRECTORY_SEPARATOR, $meObject['dir'],
+			  $object['reldirpath']);
 			// Delete the shared folder directory.
 			$cmd = sprintf("rm -fr %s 2>&1", escapeshellarg($dirPath));
 			if (0 !== $this->exec($cmd, $output))
@@ -905,8 +908,8 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		  "uuid" => $params['uuid']), $context);
 		// Execute command to get the file access control lists.
 		$cmd = sprintf("export LANG=C; getfacl --no-effective ".
-		  "--access -- %s 2>&1", escapeshellarg(build_path(array($sfpath,
-		  $params['file']))));
+		  "--access -- %s 2>&1", escapeshellarg(build_path(
+		  DIRECTORY_SEPARATOR, $sfpath, $params['file'])));
 		if (0 !== $this->exec($cmd, $output))
 			throw new \OMV\ExecException($cmd, $output);
 		// Prepare result object.
@@ -1134,8 +1137,8 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				$cmdargs[] = $ownerGroupArg;
 				// Execute command to set the file owner/group.
 				$cmd = sprintf("export LANG=C; chown %s %s 2>&1", implode(
-				  " ", $cmdargs), escapeshellarg(build_path(array($sfpath,
-				  $params['file']))));
+				  " ", $cmdargs), escapeshellarg(build_path(
+				  DIRECTORY_SEPARATOR, $sfpath, $params['file'])));
 				if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
 					throw new \OMV\ExecException($cmd, $output);
 			}
@@ -1187,8 +1190,8 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			}
 			// Execute command to set the file access control lists.
 			$cmd = sprintf("export LANG=C; setfacl %s -- %s 2>&1", implode(
-			  " ", $cmdargs), escapeshellarg(build_path(array($sfpath,
-			  $params['file']))));
+			  " ", $cmdargs), escapeshellarg(build_path(DIRECTORY_SEPARATOR,
+			  $sfpath, $params['file'])));
 			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
 				throw new \OMV\ExecException($cmd, $output);
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
@@ -1238,7 +1241,8 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			  $xpath);
 		}
 		// Return the absolute shared folder path.
-		return build_path(array($meObject['dir'], $sfObject['reldirpath']));
+		return build_path(DIRECTORY_SEPARATOR, $meObject['dir'],
+		  $sfObject['reldirpath']);
 	}
 
 	/**

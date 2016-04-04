@@ -9,7 +9,7 @@
 	"properties": {
 		"enable": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"port": {
 			"type": "integer",
@@ -43,23 +43,23 @@
 		},
 		"allowforeignaddress": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"allowrestart": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"identlookups": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"usereversedns": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"rootlogin": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"masqueradeaddress": {
 			"type": "string",
@@ -72,7 +72,7 @@
 		},
 		"usepassiveports": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"minpassiveports":{
 			"type": "integer",
@@ -88,7 +88,7 @@
 		},
 		"limittransferrate": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"maxuptransferrate": {
 			"type": "integer",
@@ -102,15 +102,15 @@
 		},
 		"anonymous": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"requirevalidshell": {
 			"type": "boolean",
-			"default": 1
+			"default": true
 		},
 		"transferlog": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"extraoptions": {
 			"type": "string",
@@ -127,6 +127,10 @@
 							"uuid": {
 								"type": "string",
 								"format": "uuidv4"
+							},
+							"enable": {
+								"type": "boolean",
+								"default": false
 							},
 							"sharedfolderref": {
 								"type": "string",
@@ -200,11 +204,11 @@
 					"properties": {
 						"enable": {
 							"type": "boolean",
-							"default": 0
+							"default": false
 						},
 						"required": {
 							"type": "boolean",
-							"default": 0
+							"default": false
 						},
 						"sslcertificateref": {
 							"type": "string",
@@ -218,15 +222,15 @@
 						},
 						"nocertrequest": {
 							"type": "boolean",
-							"default": 0
+							"default": false
 						},
 						"nosessionreuserequired": {
 							"type": "boolean",
-							"default": 0
+							"default": false
 						},
 						"useimplicitssl": {
 							"type": "boolean",
-							"default": 0
+							"default": false
 						},
 						"extraoptions": {
 							"type": "string",

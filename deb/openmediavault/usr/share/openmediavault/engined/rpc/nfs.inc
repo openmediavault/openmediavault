@@ -19,11 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
-require_once("openmediavault/functions.inc");
+require_once("openmediavault/globals.inc");
 
 class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 	/**
@@ -50,7 +46,6 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getSettings($params, $context) {
 		global $xmlConfig;
@@ -69,44 +64,27 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	public function setSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "enable":{"type":"boolean"},
-				  "numproc":{"type":"integer","minimum":1,"maximum":65535}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.nfs.setsettings");
 		// Get the existing configuration object.
-		$xpath = "//services/nfs";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Update the configuration object.
-		$object = array_merge($object, array(
-			  "enable" => array_boolval($params, 'enable'),
-			  "numproc" => $params['numproc']
-		  ));
-		if(FALSE === $xmlConfig->replace("//services/nfs", $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.nfs");
+		$object->setAssoc($params);
+		$db->set($object);
+		// Remove useless properties from the object.
+		$object->remove("shares");
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.nfs", $object);
+		  "org.openmediavault.services.nfs", $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -120,10 +98,8 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getShareList($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -131,24 +107,22 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the configuration object.
-		$xpath = "//services/nfs/shares/share";
-		$objects = $xmlConfig->getList($xpath);
-		if(is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->get("conf.service.nfs.share");
 		// Add additional share informations.
-		foreach($objects as $objectk => &$objectv) {
-			$objectv['sharedfoldername'] = gettext("n/a");
+		$objectsAssoc = array();
+		foreach ($objects as $objectk => &$objectv) {
+			// Add the new property 'sharedfoldername'.
+			$objectv->add("sharedfoldername", "string", gettext("n/a"));
 			// Get the shared folder configuration object.
-			$sfObject = $xmlConfig->get("//system/shares/sharedfolder[" .
-			  "uuid='{$objectv['sharedfolderref']}']");
-			if(!is_null($sfObject) && !empty($sfObject)) {
-				$objectv['sharedfoldername'] = $sfObject['name'];
-			}
+			$sfObject = $db->get("conf.system.sharedfolder",
+			  $objectv->get("sharedfolderref"));
+			// Update the 'sharedfoldername' property.
+			$objectv->set("sharedfoldername", $sfObject->get("name"));
+			$objectsAssoc[] = $objectv->getAssoc();
 		}
 		// Filter the result.
-		return $this->applyFilter($objects, $params['start'],
+		return $this->applyFilter($objectsAssoc, $params['start'],
 		  $params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
@@ -158,10 +132,8 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getShare($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -169,14 +141,8 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
-		$xpath = sprintf("//services/nfs/shares/share[uuid='%s']",
-		  $params['uuid']);
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		return $object;
+		$db = \OMV\Config\Database::getInstance();
+		return $db->getAssoc("conf.service.nfs.share", $params['uuid']);
 	}
 
 	/**
@@ -184,104 +150,70 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	public function setShare($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-				  "sharedfolderref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
-				  "mntentref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-				  "client":{"type":"string"},
-				  "options":{"type":"string"},
-				  "extraoptions":{"type":"string"},
-				  "comment":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.nfs.setshare");
 		// Prepare the configuration object.
-		$object = array(
-			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  \OMV\Uuid::uuid4() : $params['uuid'],
-			"sharedfolderref" => $params['sharedfolderref'],
-			"mntentref" => $params['mntentref'],
-			"client" => $params['client'],
-			"options" => $params['options'],
-			"extraoptions" => $params['extraoptions'],
-			"comment" => $params['comment']
-		);
+		$object = new \OMV\Config\ConfigObject("conf.service.nfs.share");
+		$object->setAssoc($params);
 		// Set the configuration object.
-		$success = FALSE;
-		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
-			// Get the shared folder object.
-			$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
-			  $params['sharedfolderref']);
-			$sfObject = $xmlConfig->get($xpath);
-			if(is_null($sfObject)) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-				  $xpath);
-			}
+		$isNew = $object->isNew();
+		$db = \OMV\Config\Database::getInstance();
+		if (TRUE === $isNew) {
+			// Get the shared folder configuration object.
+			$sfObject = $db->get("conf.system.sharedfolder",
+			  $object->get("sharedfolderref"));
 			// Get the mount point configuration object.
-			$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
-			  $sfObject['mntentref']);
-			$meObject = $xmlConfig->get($xpath);
-			if(is_null($meObject)) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-				  $xpath);
-			}
+			$meObject = $db->get("conf.system.filesystem.mountpoint",
+			  $sfObject->get("mntentref"));
 			// Check if the required mount point already exists or if it is
 			// necessary to create it.
-			$dir = build_path(array($GLOBALS['OMV_NFSD_EXPORT_DIR'],
-			  $sfObject['name']));
+			$dir = build_path(DIRECTORY_SEPARATOR,
+			  $GLOBALS['OMV_NFSD_EXPORT_DIR'], $sfObject->get("name"));
 			// Try to get the mount point configuration object.
-			$xpath = sprintf("//system/fstab/mntent[dir='%s']", $dir);
-			$meObject2 = $xmlConfig->get($xpath);
-			if(is_null($meObject2)) {
-				// Prepare fstab mount point entry configuration object to
-				// bind the shared folder directory into the NFS export
-				// directory.
-				$meObject2 = array(
-					"uuid" => $GLOBALS['OMV_UUID_UNDEFINED'],
-					"fsname" => build_path(array($meObject['dir'],
-					  $sfObject['reldirpath'])),
-					"dir" => $dir,
-					"type" => "none",
-					"opts" => "bind",
-					"freq" => 0,
-					"passno" => 0
-				);
-				// Append associated fstab mount point entry configuration
-				// object.
-				$meObject2 = \OMV\Rpc\Rpc::call("FsTab", "set", $meObject2,
-				  $context);
+			$predicate = sprintf("dir='%s'", $dir);
+			if (FALSE === $db->existsByPredicate(
+			  "conf.system.filesystem.mountpoint", $predicate)) {
+				  // Prepare mount point configuration object to bind the
+				  // shared folder directory into the NFS export directory.
+				  $meObject2 = new \OMV\Config\ConfigObject(
+				    "conf.system.filesystem.mountpoint");
+				  $meObject2->setNew();
+				  $meObject2->set("fsname", build_path(DIRECTORY_SEPARATOR,
+					$meObject->get("dir"), $sfObject->get("reldirpath")));
+				  $meObject2->set("dir", $dir);
+				  $meObject2->set("type", "none");
+				  $meObject2->set("opts", "bind");
+				  $meObject2->set("freq", 0);
+				  $meObject2->set("passno", 0);
+				  // Put the mount point configuration object.
+				  $result = \OMV\Rpc\Rpc::call("FsTab", "set",
+				    $meObject2->getAssoc(), $context);
+				  // Update the configuration object with the values
+				  // returned by the RPC. Note, this is necessary to
+				  // get the correct object UUID.
+				  $meObject2->setAssoc($result);
+			} else {
+				// Load the existing mount point configuration object.
+				$objects = $db->getByPredicate(
+				  "conf.system.filesystem.mountpoint", $predicate);
+				$meObject2 = $objects[0];
 			}
 			// Modify the share configuration object.
-			$object['mntentref'] = $meObject2['uuid'];
-			// Append the share configuration object.
-			$success = $xmlConfig->set("//services/nfs/shares",
-			  array("share" => $object));
-		} else {
-			// Update the existing configuration object.
-			$success = $xmlConfig->replace("//services/nfs/shares/share[" .
-			  "uuid='{$params['uuid']}']", $object);
+			$object->set("mntentref", $meObject2->get("uuid"));
 		}
-		if(FALSE === $success) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.nfs.shares.share", $object);
+		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.services.nfs.shares.share", $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -290,10 +222,8 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The deleted configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function deleteShare($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -301,20 +231,20 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		$xpath = sprintf("//services/nfs/shares/share[uuid='%s']",
-		  $params['uuid']);
-		$object = $this->deleteConfigObjectByPath($xpath,
-		  "org.openmediavault.services.nfs.shares.share");
+		$object = $this->deleteConfigObjectByUuid("conf.service.nfs.share",
+		  $params['uuid'], "org.openmediavault.services.nfs.shares.share");
 		// Check if the shared folder is still shared by another NFS share.
 		// In this case do not delete or unmount the mount point configuration
 		// object.
-		$xpath = sprintf("//services/nfs/shares/share[mntentref='%s']",
-		  $object['mntentref']);
-		if(0 < $xmlConfig->count($xpath))
-			return $object;
-		// Delete the associated fstab mount point entry.
-		\OMV\Rpc\Rpc::call("FsTab", "delete", array("uuid" => $object['mntentref']),
-		  $context);
+		$db = \OMV\Config\Database::getInstance();
+		$predicate = sprintf("mntentref='%s'", $object['mntentref']);
+		if (FALSE === $db->existsByPredicate("conf.service.nfs.share",
+		  $predicate)) {
+			  // Delete the associated mount point.
+			  \OMV\Rpc\Rpc::call("FsTab", "delete", array(
+				  "uuid" => $object['mntentref']
+			  ), $context);
+		  }
 		// Return the deleted configuration object.
 		return $object;
 	}

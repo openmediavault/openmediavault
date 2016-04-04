@@ -42,13 +42,6 @@ class Schema extends \OMV\Json\Schema {
 					  $name, $value);
 				}
 				break;
-			case "uuidv4undef":
-				if ($GLOBALS['OMV_UUID_UNDEFINED'] !== $value) {
-					throw new \OMV\Json\SchemaValidationException(
-					  "%s: The value '%s' does not match the UNDEFINED constant.",
-					  $name, $value);
-				}
-				break;
 			case "fsuuid":
 				if (!is_fs_uuid($value)) {
 					throw new \OMV\Json\SchemaValidationException(
@@ -60,6 +53,14 @@ class Schema extends \OMV\Json\Schema {
 				if (!preg_match('/^\/dev(\/disk\/by-id)?\/.+$/i', $value)) {
 					throw new \OMV\Json\SchemaValidationException(
 					  "%s: The value '%s' is no device file name.",
+					  $name, $value);
+				}
+				break;
+			case "dirpath":
+				if (!preg_match('/^(?!.*[\/]\.{2}[\/])(?!\.{2}[\/])'.
+				  '[-\w.\/]+$/', $value)) {
+					throw new \OMV\Json\SchemaValidationException(
+					  "%s: The value '%s' is no valid directory path.",
 					  $name, $value);
 				}
 				break;

@@ -120,8 +120,8 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	 */
 	public function getPath() {
 		$this->getData();
-		return build_path(array("/dev", $this->getVGName(),
-		  $this->getName()));
+		return build_path(DIRECTORY_SEPARATOR, "/dev", $this->getVGName(),
+		  $this->getName());
 	}
 
 	/**

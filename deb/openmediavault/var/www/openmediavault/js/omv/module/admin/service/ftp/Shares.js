@@ -64,6 +64,11 @@ Ext.define("OMV.module.admin.service.ftp.Share", {
 	getFormItems: function() {
 		var me = this;
 		return [{
+			xtype: "checkbox",
+			name: "enable",
+			fieldLabel: _("Enable"),
+			checked: true
+		},{
 			xtype: "sharedfoldercombo",
 			name: "sharedfolderref",
 			fieldLabel: _("Shared folder"),
@@ -112,6 +117,16 @@ Ext.define("OMV.module.admin.service.ftp.Shares", {
 	stateful: true,
 	stateId: "9889057b-b1c0-4c48-a4c1-8c8b4fb54d7b",
 	columns: [{
+		xtype: "booleaniconcolumn",
+		text: _("Enabled"),
+		sortable: true,
+		dataIndex: "enable",
+		stateId: "enable",
+		align: "center",
+		width: 80,
+		resizable: false,
+		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
+	},{
 		text: _("Shared folder"),
 		sortable: true,
 		dataIndex: "sharedfoldername",

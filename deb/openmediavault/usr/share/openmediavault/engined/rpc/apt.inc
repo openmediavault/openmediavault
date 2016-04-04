@@ -265,8 +265,8 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 			  $params['filename']);
 		}
 		// Move file to local package archive.
-		if (!rename($params['filepath'], build_path(array(
-		  $GLOBALS['OMV_DPKGARCHIVE_DIR'], $params['filename'])))) {
+		if (!rename($params['filepath'], build_path(DIRECTORY_SEPARATOR,
+		  $GLOBALS['OMV_DPKGARCHIVE_DIR'], $params['filename']))) {
 			throw new \OMV\Exception(
 			  "Failed to move the package '%s' to local package repository.",
 			  $params['filename']);
@@ -318,8 +318,8 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 			$parts = explode("_", $params['filename']);
 			$packageName = $parts[0];
 			// Build the path to the archive.
-			$packageArchivePath = build_path(array("/var/cache/apt/archives",
-			  $params['filename']));
+			$packageArchivePath = build_path(DIRECTORY_SEPARATOR,
+			  "/var/cache/apt/archives", $params['filename']);
 			// Force download of the package if it does not exist in the
 			// package archive (/var/cache/apt/archives). Do not redirect
 			// the command output to the backgropund output file. Only the
@@ -350,8 +350,8 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 			// compressed.
 			$found = FALSE;
 			foreach (array("changelog.Debian.gz", "changelog.gz") as $filename) {
-				$filepath = build_path(array($tmpDir, "usr/share/doc",
-				  $packageName, $filename));
+				$filepath = build_path(DIRECTORY_SEPARATOR, $tmpDir,
+				  "usr/share/doc", $packageName, $filename);
 				if (file_exists($filepath)) {
 					// Extract the changelog content and redirect it to the
 					// background output file.

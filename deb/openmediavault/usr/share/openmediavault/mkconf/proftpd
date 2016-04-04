@@ -185,98 +185,100 @@ index=$(omv_config_get_count "//services/ftp/shares/share")
 while [ ${index} -gt 0 ]; do
 	# Get the UUID of the current share.
 	uuid=$(omv_config_get "//services/ftp/shares/share[position()=${index}]/uuid")
+	# Process enabled shares.
+	enabled=$(omv_config_get "//services/ftp/shares/share[uuid='${uuid}']/enable")
+	if [ "${enabled}" = "1" ]; then
+		limitall_allowuser=""
+		limitall_allowgroup=""
+		limitread_allowuser=""
+		limitread_allowgroup=""
 
-	limitall_allowuser=""
-	limitall_allowgroup=""
-	limitread_allowuser=""
-	limitread_allowgroup=""
+		# Is it allowed to login as superuser directly?
+		if [ ${rootlogin} -eq 1 ]; then
+			limitall_allowuser="root"
+			limitall_allowgroup="root"
+		fi
 
-	# Is it allowed to login as superuser directly?
-	if [ ${rootlogin} -eq 1 ]; then
-		limitall_allowuser="root"
-		limitall_allowgroup="root"
-	fi
+		# Get the shared folder reference and path.
+		sfref=$(omv_config_get "//services/ftp/shares/share[uuid='${uuid}']/sharedfolderref")
+		sfname=$(omv_get_sharedfolder_name "${sfref}")
+		sfpath=$(omv_get_sharedfolder_path "${sfref}")
 
-	# Get the shared folder reference and path.
-	sfref=$(omv_config_get "//services/ftp/shares/share[uuid='${uuid}']/sharedfolderref")
-	sfname=$(omv_get_sharedfolder_name "${sfref}")
-	sfpath=$(omv_get_sharedfolder_path "${sfref}")
+		# Get shared folder user privileges.
+		privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='user']" \
+		  -v "concat(perms,':',name)" -n \
+		  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
+		IFS="$(printf '\n+')"
+		for privilege in ${privileges}; do
+			[ -z "${privilege}" ] && continue
+			perms=${privilege%:*}
+			name=${privilege#*:}
+			# Skip 'No access' entries
+			[ ${perms} -eq 0 ] && continue
+			# Append user to list
+			case ${perms} in
+			5)
+				[ -n "${limitread_allowuser}" ] && limitread_allowuser="${limitread_allowuser},";
+				limitread_allowuser="${limitread_allowuser}${name}";;
+			7)
+				[ -n "${limitall_allowuser}" ] && limitall_allowuser="${limitall_allowuser},";
+				limitall_allowuser="${limitall_allowuser}${name}";;
+			esac
+		done
+		unset IFS
 
-	# Get shared folder user privileges.
-	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='user']" \
-	  -v "concat(perms,':',name)" -n \
-	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
-	IFS="$(printf '\n+')"
-	for privilege in ${privileges}; do
-		[ -z "${privilege}" ] && continue
-		perms=${privilege%:*}
-		name=${privilege#*:}
-		# Skip 'No access' entries
-		[ ${perms} -eq 0 ] && continue
-		# Append user to list
-		case ${perms} in
-		5)
-			[ -n "${limitread_allowuser}" ] && limitread_allowuser="${limitread_allowuser},";
-			limitread_allowuser="${limitread_allowuser}${name}";;
-		7)
-			[ -n "${limitall_allowuser}" ] && limitall_allowuser="${limitall_allowuser},";
-			limitall_allowuser="${limitall_allowuser}${name}";;
-		esac
-	done
-	unset IFS
+		# Get shared folder group privileges.
+		privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='group']" \
+		  -v "concat(perms,':',name)" -n \
+		  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
+		IFS="$(printf '\n+')"
+		for privilege in ${privileges}; do
+			[ -z "${privilege}" ] && continue
+			perms=${privilege%:*}
+			name=${privilege#*:}
+			# Skip 'No access' entries.
+			[ ${perms} -eq 0 ] && continue
+			# Append group to list.
+			case ${perms} in
+			5)
+				[ -n "${limitread_allowgroup}" ] && limitread_allowgroup="${limitread_allowgroup},";
+				limitread_allowgroup="${limitread_allowgroup}${name}";;
+			7)
+				[ -n "${limitall_allowgroup}" ] && limitall_allowgroup="${limitall_allowgroup},";
+				limitall_allowgroup="${limitall_allowgroup}${name}";;
+			esac
+		done
+		unset IFS
 
-	# Get shared folder group privileges.
-	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='group']" \
-	  -v "concat(perms,':',name)" -n \
-	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
-	IFS="$(printf '\n+')"
-	for privilege in ${privileges}; do
-		[ -z "${privilege}" ] && continue
-		perms=${privilege%:*}
-		name=${privilege#*:}
-		# Skip 'No access' entries.
-		[ ${perms} -eq 0 ] && continue
-		# Append group to list.
-		case ${perms} in
-		5)
-			[ -n "${limitread_allowgroup}" ] && limitread_allowgroup="${limitread_allowgroup},";
-			limitread_allowgroup="${limitread_allowgroup}${name}";;
-		7)
-			[ -n "${limitall_allowgroup}" ] && limitall_allowgroup="${limitall_allowgroup},";
-			limitall_allowgroup="${limitall_allowgroup}${name}";;
-		esac
-	done
-	unset IFS
-
-	cat <<EOF >> ${OMV_PROFTPD_CONFIG}
+		cat <<EOF >> ${OMV_PROFTPD_CONFIG}
 <IfModule mod_vroot.c>
   VRootAlias "$(omv_rtrim -c "/" "${sfpath}")" "${sfname}"
 </IfModule>
 <Directory /${sfname}>
   <Limit ALL>
 EOF
-	[ -n "${limitall_allowuser}" ] && echo "    AllowUser OR ${limitall_allowuser}" >> ${OMV_PROFTPD_CONFIG}
-	[ -n "${limitall_allowgroup}" ] && echo "    AllowGroup OR ${limitall_allowgroup}" >> ${OMV_PROFTPD_CONFIG}
-	cat <<EOF >> ${OMV_PROFTPD_CONFIG}
+		[ -n "${limitall_allowuser}" ] && echo "    AllowUser OR ${limitall_allowuser}" >> ${OMV_PROFTPD_CONFIG}
+		[ -n "${limitall_allowgroup}" ] && echo "    AllowGroup OR ${limitall_allowgroup}" >> ${OMV_PROFTPD_CONFIG}
+		cat <<EOF >> ${OMV_PROFTPD_CONFIG}
     DenyAll
   </Limit>
   <Limit READ DIRS>
 EOF
-	[ -n "${limitall_allowuser}" ] && echo "    AllowUser OR ${limitall_allowuser}" >> ${OMV_PROFTPD_CONFIG}
-	[ -n "${limitall_allowgroup}" ] && echo "    AllowGroup OR ${limitall_allowgroup}" >> ${OMV_PROFTPD_CONFIG}
-	[ -n "${limitread_allowuser}" ] && echo "    AllowUser OR ${limitread_allowuser}" >> ${OMV_PROFTPD_CONFIG}
-	[ -n "${limitread_allowgroup}" ] && echo "    AllowGroup OR ${limitread_allowgroup}" >> ${OMV_PROFTPD_CONFIG}
-	cat <<EOF >> ${OMV_PROFTPD_CONFIG}
+		[ -n "${limitall_allowuser}" ] && echo "    AllowUser OR ${limitall_allowuser}" >> ${OMV_PROFTPD_CONFIG}
+		[ -n "${limitall_allowgroup}" ] && echo "    AllowGroup OR ${limitall_allowgroup}" >> ${OMV_PROFTPD_CONFIG}
+		[ -n "${limitread_allowuser}" ] && echo "    AllowUser OR ${limitread_allowuser}" >> ${OMV_PROFTPD_CONFIG}
+		[ -n "${limitread_allowgroup}" ] && echo "    AllowGroup OR ${limitread_allowgroup}" >> ${OMV_PROFTPD_CONFIG}
+		cat <<EOF >> ${OMV_PROFTPD_CONFIG}
     DenyAll
   </Limit>
 EOF
-	xmlstarlet sel -t -m "//services/ftp/shares/share[uuid='${uuid}']" \
-	  -i "string-length(extraoptions) > 0" -v extraoptions -n -b \
-	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_PROFTPD_CONFIG}
-	cat <<EOF >> ${OMV_PROFTPD_CONFIG}
+		xmlstarlet sel -t -m "//services/ftp/shares/share[uuid='${uuid}']" \
+		  -i "string-length(extraoptions) > 0" -v extraoptions -n -b \
+		  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_PROFTPD_CONFIG}
+		cat <<EOF >> ${OMV_PROFTPD_CONFIG}
 </Directory>
 EOF
-
+	fi
 	index=$(( ${index} - 1 ))
 done
 

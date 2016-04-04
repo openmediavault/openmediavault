@@ -625,7 +625,8 @@ class FilesystemAbstract {
 	 *   /media/85732966-949a-4d8b-87d7-d7e6681f787e.
 	 */
 	public static function buildMountPath($uuid) {
-		return build_path(array($GLOBALS['OMV_MOUNT_DIR'], $uuid));
+		return build_path(DIRECTORY_SEPARATOR, $GLOBALS['OMV_MOUNT_DIR'],
+		  $uuid);
 	}
 
 	/**

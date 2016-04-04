@@ -21,6 +21,9 @@
 			},{
 				"type": "string",
 				"format": "devicefile"
+			},{
+				"type": "string",
+				"format": "dirpath"
 			}]
 		},
 		"dir": {

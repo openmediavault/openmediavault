@@ -126,6 +126,10 @@
 				"format": "uuidv4",
 				"required": true
 			},
+			"enable": {
+			    "type": "boolean",
+				"required": true
+			},
 			"sharedfolderref": {
 				"type": "string",
 				"format": "uuidv4",

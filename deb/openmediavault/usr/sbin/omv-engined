@@ -306,8 +306,8 @@ pcntl_signal(SIGCHLD, "signalHandler");
 // Load additional include files. This can be used to setup various
 // prerequirements.
 ///////////////////////////////////////////////////////////////////////////////
-$directory = build_path(array($GLOBALS['OMV_ENGINED_DIR'], "inc"));
-foreach (listdir($directory, "inc") as $path) {
+$dir = build_path(DIRECTORY_SEPARATOR, $GLOBALS['OMV_ENGINED_DIR'], "inc");
+foreach (listdir($dir, "inc") as $path) {
 	require_once $path;
 }
 
@@ -319,8 +319,8 @@ foreach (listdir($directory, "inc") as $path) {
 // The workaround simply loads the include files using the sem_get function
 // after the daemon process has been forked.
 ///////////////////////////////////////////////////////////////////////////////
-$directory = build_path(array($GLOBALS['OMV_ENGINED_DIR'], "rpc"));
-foreach (listdir($directory, "inc") as $path) {
+$dir = build_path(DIRECTORY_SEPARATOR, $GLOBALS['OMV_ENGINED_DIR'], "rpc");
+foreach (listdir($dir, "inc") as $path) {
 	require_once $path;
 }
 // Initialize the RPC sevices.
@@ -332,8 +332,8 @@ if (TRUE === $debug)
 ///////////////////////////////////////////////////////////////////////////////
 // Load all module classes.
 ///////////////////////////////////////////////////////////////////////////////
-$directory = build_path(array($GLOBALS['OMV_ENGINED_DIR'], "module"));
-foreach (listdir($directory, "inc") as $path) {
+$dir = build_path(DIRECTORY_SEPARATOR, $GLOBALS['OMV_ENGINED_DIR'], "module");
+foreach (listdir($dir, "inc") as $path) {
 	require_once $path;
 }
 

@@ -12,6 +12,10 @@
 			"type": "string",
 			"format": "uuidv4"
 		},
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
 		"sharedfolderref": {
 			"type": "string",
 			"format": "uuidv4"
