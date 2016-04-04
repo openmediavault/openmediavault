@@ -72,6 +72,27 @@ class ConfigObject {
 	}
 
 	/**
+	 * Helper method to get the specified property within an associative
+	 * array.
+	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
+	 */
+	protected static function queryAssoc($name, $array) {
+		// Explode property in dot notation into its parts.
+		if (!is_array($name))
+			$name = explode(".", $name);
+        if (!$array)
+            return null;
+        if (!is_array($array))
+            return $array;
+		if (empty($name))
+			return $array;
+        $propName = array_shift($name);
+        if (isset($array[$propName]))
+            return self::queryAssoc($name, $array[$propName]);
+        return null;
+    }
+
+	/**
 	 * Get a property.
 	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
 	 * @return The property value.
@@ -82,9 +103,7 @@ class ConfigObject {
 		$subPropSchema = $propSchema->getAssocByPath($name);
 		switch ($subPropSchema['type']) {
 		case "array":
-		case "object":
-			$propertiesAssoc = $this->getAssoc();
-
+			$result = self::queryAssoc($name, $this->getAssoc());
 			break;
 		default:
 			$result = $this->properties[$name];
@@ -267,7 +286,7 @@ class ConfigObject {
 	}
 
 	/**
-	 * Copy an existing property to another one. the target property will
+	 * Copy an existing property to another one. The target property will
 	 * be created if necessary.
 	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
 	 * @param targetName The name of the target property in dot notation,

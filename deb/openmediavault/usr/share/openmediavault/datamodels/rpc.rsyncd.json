@@ -42,7 +42,6 @@
 			},
 			"name": {
 			    "type": "string",
-				"format": "sharename",
 			    "required": true
 			},
 			"comment": {
