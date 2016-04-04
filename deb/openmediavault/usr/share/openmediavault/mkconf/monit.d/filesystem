@@ -27,7 +27,7 @@ set -e
 OMV_MONIT_SERVICE_FILESYSTEM_CONFIG=${OMV_MONIT_SERVICE_FILESYSTEM_CONFIG:-"/etc/monit/conf.d/openmediavault-filesystem.conf"}
 OMV_MONIT_SERVICE_FILESYSTEM_SPACEUSAGE=${OMV_MONIT_SERVICE_FILESYSTEM_SPACEUSAGE:-"80"}
 
-if [ "$(omv_config_get "//system/notification/notifications/monitfilesystems")" = "1" ]; then
+if [ "$(omv_config_get "//system/notification/notifications/notification[id='monitfilesystems']/enable")" = "1" ]; then
 	# Monitor root filesystem.
 	cat <<EOF > ${OMV_MONIT_SERVICE_FILESYSTEM_CONFIG}
 # Alert if disk space of root filesystem gets low

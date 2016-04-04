@@ -31,7 +31,7 @@ OMV_CRONAPT_OPTIONS=${OMV_CRONAPT_OPTIONS:-"-o Acquire::http::Dl-Limit=25"}
 
 mkconf() {
 	# Disable email notification?
-	if [ "$(omv_config_get "//system/notification/notifications/cronapt")" = "0" ]; then
+	if [ "$(omv_config_get "//system/notification/notifications/notification[id='cronapt']/enable")" = "0" ]; then
 		OMV_CRONAPT_MAILON="never"
 	fi
 

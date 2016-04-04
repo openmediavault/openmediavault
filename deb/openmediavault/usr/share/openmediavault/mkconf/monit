@@ -80,7 +80,6 @@ set httpd port ${OMV_MONIT_PORT} and
 set eventqueue
   basedir ${OMV_MONIT_EVENTQUEUE_BASEDIR}
   slots ${OMV_MONIT_EVENTQUEUE_SLOTS}
-
 EOF
 
 xmlstarlet sel -t -m "//system/email" \

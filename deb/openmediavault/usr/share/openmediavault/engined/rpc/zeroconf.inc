@@ -51,8 +51,7 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getModules();
 		foreach ($modules as $modulev) {
-			// Check if the module implements the \OMV\Engine\Module\IZeroconf
-			// interface.
+			// Check if the module implements the required interface.
 			if ($modulev instanceof \OMV\Engine\Module\IZeroconf) {
 				$config = $modulev->getZeroconfConfig();
 				// Try to get the Zeroconf service configuration object.
@@ -87,8 +86,7 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getModules();
 		foreach ($modules as $modulev) {
-			// Check if the module implements the \OMV\Engine\Module\IZeroconf
-			// interface.
+			// Check if the module implements the required interface.
 			if ($modulev instanceof \OMV\Engine\Module\IZeroconf) {
 				$config = $modulev->getZeroconfConfig();
 				// Set default values.
@@ -109,7 +107,7 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 				$objects[] = $object;
 			}
 		}
-		// Remove all existing service configurations.
+		// Remove all existing service configuration objects.
 		$db = \OMV\Config\Database::getInstance();
 		if ($db->exists("conf.service.zeroconf.service"))
 			$db->deleteByPredicate("conf.service.zeroconf.service", "id=*");

@@ -39,7 +39,7 @@ check system \$HOST
 EOF
 
 # Monitor load average.
-if [ "$(omv_config_get "//system/notification/notifications/monitloadavg")" = "1" ]; then
+if [ "$(omv_config_get "//system/notification/notifications/notification[id='monitloadavg']/enable")" = "1" ]; then
 	# Get the number of CPU's
 	numcpu=$(grep -ci processor /proc/cpuinfo)
 
@@ -50,14 +50,14 @@ EOF
 fi
 
 # Monitor memory usage.
-if [ "$(omv_config_get "//system/notification/notifications/monitmemoryusage")" = "1" ]; then
+if [ "$(omv_config_get "//system/notification/notifications/notification[id='monitmemoryusage']/enable")" = "1" ]; then
 	cat <<EOF >> ${OMV_MONIT_SERVICE_SYSTEM_CONFIG}
   if memory usage > ${OMV_MONIT_SERVICE_SYSTEM_MEMORYUSAGE}% then alert
 EOF
 fi
 
 # Monitor CPU usage.
-if [ "$(omv_config_get "//system/notification/notifications/monitcpuusage")" = "1" ]; then
+if [ "$(omv_config_get "//system/notification/notifications/notification[id='monitcpuusage']/enable")" = "1" ]; then
 	cat <<EOF >> ${OMV_MONIT_SERVICE_SYSTEM_CONFIG}
   if cpu usage (user) > ${OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_USER}% then alert
   if cpu usage (system) > ${OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_SYSTEM}% then alert

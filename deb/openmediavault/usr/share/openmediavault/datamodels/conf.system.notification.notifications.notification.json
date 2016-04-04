@@ -1,9 +1,9 @@
 {
 	"type": "config",
-	"id": "conf.service.zeroconf.service",
-	"title": "Zeroconf service",
+	"id": "conf.system.notification.notifications.notification",
+	"title": "Notification setting",
 	"queryinfo": {
-		"xpath": "//services/zeroconf/services/service",
+		"xpath": "//system/notification/notifications/notification",
 		"iterable": true,
 		"idproperty": "uuid"
 	},
@@ -17,10 +17,7 @@
 		},
 		"enable": {
 			"type": "boolean",
-			"default": false
-		},
-		"name": {
-			"type": "string"
+			"default": true
 		}
 	}
 }

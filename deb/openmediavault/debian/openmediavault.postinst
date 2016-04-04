@@ -605,6 +605,19 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "3.0.14"; then
 			omv_set_default "OMV_DATAMODELS_DIR" "/usr/share/openmediavault/datamodels"
 		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.15"; then
+			# Reset the notification settings.
+			for id in "monitprocevents" "monitloadavg" "monitmemoryusage" \
+			  "monitcpuusage" "monitfilesystems" "mdadm" "smartmontools" \
+			  "cronapt"; do
+				enable=$(omv_config_get "/config/system/notification/notifications/${id}")
+				object="<uuid>$(omv_uuid)</uuid>"
+				object="${object}<id>${id}</id>"
+				object="${object}<enable>${enable}</enable>"
+				omv_config_add_element "/config/system/notification/notifications" "notification" "${object}" true
+				omv_config_delete "/config/system/notification/notifications/${id}"
+			done
+		fi
 	;;
 
 	triggered)

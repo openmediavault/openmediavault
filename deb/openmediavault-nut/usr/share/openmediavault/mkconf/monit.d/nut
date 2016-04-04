@@ -41,7 +41,7 @@ EOF
 # Disable event notifications.
 xmlstarlet sel -t -m "//system/email" \
   -i "enable = '1'" \
-  -i "//system/notification/notifications/monitprocevents = '0'" \
+  -i "//system/notification/notifications/notification[id='monitprocevents']/enable = '0'" \
     -v "concat('  noalert ',primaryemail)" \
   -b \
   -b \
@@ -59,7 +59,7 @@ EOF
 # Disable event notifications.
 xmlstarlet sel -t -m "//system/email" \
   -i "enable = '1'" \
-  -i "//system/notification/notifications/monitprocevents = '0'" \
+  -i "//system/notification/notifications/notification[id='monitprocevents']/enable = '0'" \
     -v "concat('  noalert ',primaryemail)" \
   -b \
   -b \

@@ -99,7 +99,7 @@ xmlstarlet sel -t \
 		  -i "last() > 1 and position() = last()" -o ")" -b \
 		-b \
 		-m "//system/email" \
-		  -i "enable[. = '1'] and //system/notification/notifications/smartmontools[. = '1']" \
+		  -i "enable[. = '1'] and //system/notification/notifications/notification[id='smartmontools'][enable = '1']" \
 			-v "concat(' -m ',primaryemail)" \
 			-i "string-length(secondaryemail) > 0" \
 			  -v "concat(',',secondaryemail)" \

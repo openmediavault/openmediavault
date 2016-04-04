@@ -48,24 +48,25 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		$result = array();
-		// Get the configuration object.
-		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.system.notification.notifications");
 		// Get the list of registered modules.
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getModules();
 		foreach ($modules as $modulev) {
-			// Check if the module implements the \OMV\Engine\Module\INotification
-			// interface.
+			// Check if the module implements the required interface.
 			if ($modulev instanceof \OMV\Engine\Module\INotification) {
 				$config = $modulev->getNotificationConfig();
 				foreach ($config as $configk => $configv) {
-					$result[] = array(
-						"id" => $configv['id'],
-						"type" => $configv['type'],
-						"title" => $configv['title'],
-						"enable" => $object->get($configv['id'])
-					);
+					// Try to get the notification configuration object.
+					$db = \OMV\Config\Database::getInstance();
+					$object = $db->get(
+					  "conf.system.notification.notifications.notification",
+					  "id", $configv['id']);
+					$object->add("title", "string");
+					$object->add("type", "string");
+					$object->set("title", $configv['title']);
+					$object->set("type", $configv['type']);
+					// Append object to result.
+					$result[] = $object->getAssoc();
 				}
 			}
 		}
@@ -85,38 +86,49 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.notification.set");
-		// Prepare the configuration object.
-		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.system.notification.notifications");
 		// Get the list of registered modules.
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getModules();
 		foreach ($modules as $modulev) {
-			// Check if the module implements the \OMV\Engine\Module\INotification
-			// interface.
+			// Check if the module implements the required interface.
 			if ($modulev instanceof \OMV\Engine\Module\INotification) {
 				$config = $modulev->getNotificationConfig();
 				foreach ($config as $configk => $configv) {
-					$enable = FALSE; // Default value.
+					// Set default values.
+					$object = new \OMV\Config\ConfigObject(
+					  "conf.system.notification.notifications.notification");
+					$object->setNew(); // Mark the service configuration as new.
+					$object->set("id", $configv['id']);
+					$object->set("enable", FALSE);
+					// Process the RPC arguments.
 					foreach ($params as $paramk => $paramv) {
 						if ($paramv['id'] === $configv['id']) {
-							$enable = array_boolval($paramv, 'enable');
+							$object->set("enable", $paramv['enable']);
 							break;
 						}
 					}
-					$object->set($configv['id'], $enable);
+					$objects[] = $object;
 				}
 			}
 		}
-		// Set the service configuration objects.
-		$db->set($object);
+		// Remove all existing notification configuration objects.
+		$db = \OMV\Config\Database::getInstance();
+		if ($db->exists("conf.system.notification.notifications.notification"))
+			$db->deleteByPredicate(
+			  "conf.system.notification.notifications.notification", "id=*");
+		// Set the notification configuration objects.
+		$objectsAssoc = array();
+		foreach ($objects as $objectk => $objectv) {
+			$db->set($objectv);
+			$objectsAssoc[] = $objectv->getAssoc();
+		}
 		// Notify the configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.notification.notifications",
-		  $object->getAssoc());
+		  $objectsAssoc);
 		// Return the configuration object.
-		return $object->getAssoc();
+		return $objectsAssoc;
 	}
 
 	/**
@@ -135,9 +147,11 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.notification.isenabled");
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.system.notification.notifications");
+		$object = $db->get(
+		  "conf.system.notification.notifications.notification",
+		  "id", $params['id']);
 		// Get the notification status.
-		return $object->get($params['id']);
+		return $object->get("enable");
 	}
 }
 

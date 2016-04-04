@@ -61,16 +61,52 @@
 		<notification>
 			<notifications>
 				<!--
-				<xxx>0|1</xxx>
+				<notification>
+					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<id>xxx</id>
+					<enable>0|1</enable>
+				</notification>
 				-->
-				<monitprocevents>1</monitprocevents>
-				<monitloadavg>1</monitloadavg>
-				<monitmemoryusage>1</monitmemoryusage>
-				<monitcpuusage>1</monitcpuusage>
-				<monitfilesystems>1</monitfilesystems>
-				<mdadm>1</mdadm>
-				<smartmontools>1</smartmontools>
-				<cronapt>1</cronapt>
+				<notification>
+					<uuid>c1cd54af-660d-4311-8e21-2a19420355bb</uuid>
+					<id>monitprocevents</id>
+					<enable>1</enable>
+				</notification>
+				<notification>
+					<uuid>8deb96bd-10d6-4eb8-9e3d-0938f2bcbb30</uuid>
+					<id>monitloadavg</id>
+					<enable>1</enable>
+				</notification>
+				<notification>
+					<uuid>03dc067d-1310-45b5-899f-b471a0ae9233</uuid>
+					<id>monitmemoryusage</id>
+					<enable>1</enable>
+				</notification>
+				<notification>
+					<uuid>fbf7973e-57a6-4c4a-8b7d-353653b596a5</uuid>
+					<id>monitcpuusage</id>
+					<enable>1</enable>
+				</notification>
+				<notification>
+					<uuid>d1ce47d1-d8d5-4f43-9f5c-36a30d818734</uuid>
+					<id>monitfilesystems</id>
+					<enable>1</enable>
+				</notification>
+				<notification>
+					<uuid>9be77408-d896-4bf5-9a4f-1adcc16381ec</uuid>
+					<id>mdadm</id>
+					<enable>1</enable>
+				</notification>
+				<notification>
+					<uuid>bd784490-a15c-47a9-9930-9f5897804654</uuid>
+					<id>smartmontools</id>
+					<enable>1</enable>
+				</notification>
+				<notification>
+					<uuid>394cd565-e463-4094-a6ab-12e80270e9b4</uuid>
+					<id>cronapt</id>
+					<enable>1</enable>
+				</notification>
 			</notifications>
 		</notification>
 		<certificates>
