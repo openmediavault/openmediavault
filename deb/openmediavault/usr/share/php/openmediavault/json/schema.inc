@@ -407,7 +407,7 @@ class Schema {
 		if ($schema['minimum'] > $value) {
 			throw new SchemaValidationException(
 			  "%s: The value %d is less than %d.",
-			  $value, $schema, $name['minimum']);
+			  $name, $value, $schema['minimum']);
 		}
 	}
 
@@ -417,7 +417,7 @@ class Schema {
 		if ($schema['maximum'] < $value) {
 			throw new SchemaValidationException(
 			  "%s: The value %d is bigger than %d.",
-			  $value, $schema, $name['maximum']);
+			  $name, $value, $schema['maximum']);
 		}
 	}
 
@@ -430,7 +430,7 @@ class Schema {
 		if ($value == $schema['minimum']) {
 			throw new SchemaValidationException(
 			  "%s: Invalid value %d, must be greater than %d.",
-			  $value, $schema, $name['minimum']);
+			  $name, $value, $schema['minimum']);
 		}
 	}
 
@@ -443,7 +443,7 @@ class Schema {
 		if ($value == $schema['maximum']) {
 			throw new SchemaValidationException(
 			  "%s: Invalid value %d, must be less than %d.",
-			  $value, $schema, $name['maximum']);
+			  $name, $value, $schema['maximum']);
 		}
 	}
 
@@ -454,7 +454,7 @@ class Schema {
 		if ($schema['minLength'] > $length) {
 			throw new SchemaValidationException(
 			  "%s: The value '%s' is too short, minimum length is %d.",
-			  $value, $schema, $name['minLength']);
+			  $name, $value, $schema['minLength']);
 		}
 	}
 
@@ -465,7 +465,7 @@ class Schema {
 		if ($schema['maxLength'] < $length) {
 			throw new SchemaValidationException(
 			  "%s: The value '%s' is too long, maximum length is %d.",
-			  $value, $schema, $name['maxLength']);
+			  $name, $value, $schema['maxLength']);
 		}
 	}
 
@@ -582,7 +582,7 @@ class Schema {
 		if (count($value) < $schema['minItems']) {
 			throw new SchemaValidationException(
 			  "%s: Not enough array items, minimum is %d",
-			  $value, $schema, $name['minItems']);
+			  $name, $schema['minItems']);
 		}
 	}
 
@@ -592,7 +592,7 @@ class Schema {
 		if (count($value) > $schema['maxItems']) {
 			throw new SchemaValidationException(
 			  "%s: Too many array items, maximum is %d",
-			  $value, $schema, $name['maxItems']);
+			  $name, $schema['maxItems']);
 		}
 	}
 
