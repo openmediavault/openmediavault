@@ -19,11 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
-require_once("openmediavault/functions.inc");
-
 class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -163,7 +158,6 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 	 * @return The stored configuration object.
 	 */
 	public function setModule($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -171,57 +165,25 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.rsyncd.setmodule");
 		// Prepare the configuration object.
-		$object = array(
-			  "uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-				\OMV\Uuid::uuid4() : $params['uuid'],
-			  "enable" => array_boolval($params, 'enable'),
-			  "sharedfolderref" => $params['sharedfolderref'],
-			  "name" => $params['name'],
-			  "uid" => $params['uid'],
-			  "gid" => $params['gid'],
-			  "comment" => $params['comment'],
-			  "readonly" => array_boolval($params, 'readonly'),
-			  "writeonly" => array_boolval($params, 'writeonly'),
-			  "maxconnections" => $params['maxconnections'],
-			  "list" => array_boolval($params, 'list'),
-			  "hostsallow" => $params['hostsallow'],
-			  "hostsdeny" => $params['hostsdeny'],
-			  "authusers" => array_boolval($params, 'authusers'),
-			  "usechroot" => array_boolval($params, 'usechroot'),
-			  "users" => !empty($params['users']) ?
-				array("user" => $params['users']) : array(),
-			  "extraoptions" => $params['extraoptions']
-		  );
+		$object = new \OMV\Config\ConfigObject("conf.service.rsyncd.module");
+		$object->setAssoc($params, TRUE, TRUE);
+		$object->set("users.user", $params['users']);
 		// Set the configuration object.
-		$success = FALSE;
-		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+		$isNew = $object->isNew();
+		$db = \OMV\Config\Database::getInstance();
+		if (TRUE === $isNew) {
 			// Check uniqueness:
 			// - Module name
-			$xpath = sprintf("//services/rsync/server/modules/module".
-			  "[name='%s']", $params['name']);
-			if (TRUE === $xmlConfig->exists($xpath)) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-				  sprintf(gettext("A module with the name '%s' already exists"),
-				  $params['name']));
-			}
-			// Append object to configuration.
-			$success = $xmlConfig->set("//services/rsync/server/modules",
-			  array("module" => $object));
-		} else {
-			// Update existing configuration object.
-			$success = $xmlConfig->replace("//services/rsync/server/modules/".
-			  "module[uuid='{$params['uuid']}']", $object);
+			$db->assertIsUnique($object, "name");
 		}
-		if(FALSE === $success) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.rsync.server.modules.module", $object);
+		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.services.rsync.server.modules.module",
+		  $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -239,9 +201,8 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		$xpath = sprintf("//services/rsync/server/modules/module[uuid='%s']",
-		  $params['uuid']);
-		return $this->deleteConfigObjectByPath($xpath,
+		return $this->deleteConfigObjectByUuid(
+		  "conf.service.rsyncd.module", $params['uuid'],
 		  "org.openmediavault.services.rsync.server.modules.module");
 	}
 }

@@ -133,7 +133,8 @@ class Database {
 		// Is the configuration object iterable?
 		if (FALSE === $model->isIterable()) {
 			throw new DatabaseException(
-			  "The configuration object is not iterable.");
+			  "The configuration object (%s) is not iterable.",
+			  $model->getId());
 		}
 		// Create the query builder.
 		$queryBuilder = new DatabaseBackendQueryBuilder($id);
@@ -249,7 +250,8 @@ class Database {
 	public function isReferenced(ConfigObject $object) {
 		if (FALSE === $object->isReferenceable()) {
 			throw new DatabaseException(
-			  "The configuration object can not be referenced.");
+			  "The configuration object (%s) can not be referenced.",
+			  $object->getId());
 		}
 		// Create the query builder.
 		$queryBuilder = new DatabaseBackendQueryBuilder(
@@ -267,7 +269,8 @@ class Database {
 	public function assertIsReferenced(ConfigObject $object) {
 		if (FALSE === $this->isReferenced($object)) {
 			throw new DatabaseException(
-			  "The configuration object is not referenced.");
+			  "The configuration object (%s) is not referenced.",
+			  $object->getId());
 		}
 	}
 
@@ -280,7 +283,8 @@ class Database {
 	public function assertIsNotReferenced(ConfigObject $object) {
 		if (TRUE === $this->isReferenced($object)) {
 			throw new DatabaseException(
-			  "The configuration object is referenced.");
+			  "The configuration object (%s) is referenced.",
+			  $object->getId());
 		}
 	}
 
@@ -375,9 +379,10 @@ class Database {
 	 */
 	public function assertIsUnique(ConfigObject $object, $property) {
 		if (FALSE === $this->isUnique($object, $property)) {
-			throw new DatabaseException("The configuration object is not ".
-			  "unique. An object with the property '%s' and value '%s' ".
-			  "already exists.", $property, $object->get($property));
+			throw new DatabaseException("The configuration object (%s) is ".
+			  "not unique. An object with the property '%s' and value '%s' ".
+			  "already exists.", $object->getId(), $property,
+			  $object->get($property));
 		}
 	}
 

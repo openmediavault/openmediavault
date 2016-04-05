@@ -313,7 +313,7 @@ class ConfigObject {
 	public function move($name, $targetName) {
 		// Relocate the source property to a temporary property. This is
 		// the easiest way to handle movements like 'users.user' -> 'users'.
-		$tmpName = uniqid("_");
+		$tmpName = uniqid("_tmp");
 		$this->copy($name, $tmpName);
 		// Remove the source and target properties.
 		$this->remove($name);
@@ -398,5 +398,13 @@ class ConfigObject {
 
 	public function isReferenceable() {
 		return $this->getModel()->isReferenceable();
+	}
+
+	/**
+	 * Get the model identifier, e.g. 'conf.service.rsyncd.module'.
+	 * @return The model identifier.
+	 */
+	public function getId() {
+		return $this->getModel()->getId();
 	}
 }

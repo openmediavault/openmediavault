@@ -27,28 +27,48 @@ class DataModel {
 	private $model = NULL;
 
 	/**
-	 * @param json The data model in JSON notation.
+	 * @param json The data model as JSON string.
 	 */
 	public function __construct($model) {
 		$this->model = $model;
 	}
 
+	/**
+	 * Get the data model as JSON string.
+	 * @return The data model as JSON string.
+	 */
 	public function getModel() {
 		return $this->model;
 	}
 
+	/**
+	 * Get the model identifier, e.g. 'conf.service.rsyncd.module'.
+	 * @return The model identifier.
+	 */
 	public function getId() {
 		return array_value($this->getModel(), "id", FALSE);
 	}
 
+	/**
+	 * Get the model identifier alias.
+	 * @return The model identifier alias.
+	 */
 	public function getAlias() {
 		return array_value($this->getModel(), "alias", FALSE);
 	}
 
+	/**
+	 * Get the model title, e.g. 'SSH certificate'.
+	 * @return The model titel.
+	 */
 	public function getTitle() {
 		return array_value($this->getModel(), "title", "");
 	}
 
+	/**
+	 * Get the model description.
+	 * @return The model description.
+	 */
 	public function getDescription() {
 		return array_value($this->getModel(), "description", "");
 	}
