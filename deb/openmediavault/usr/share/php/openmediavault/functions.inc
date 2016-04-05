@@ -349,6 +349,8 @@ function is_ipaddr6($var) {
  * @return TRUE if the variable is a multidimensional array, otherwise FALSE.
  */
 function is_multiarray($var) {
+	if (FALSE === is_array($var))
+		return FALSE;
 	if (count($var, COUNT_RECURSIVE) !== count($var))
 		return TRUE;
 	return FALSE;
@@ -359,6 +361,8 @@ function is_multiarray($var) {
  * @return TRUE if the variable is an associative array, otherwise FALSE.
  */
 function is_assoc($var) {
+	if (FALSE === is_array($var))
+		return FALSE;
 	$keys = array_keys($var);
 	return array_keys($keys) !== $keys;
 }

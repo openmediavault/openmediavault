@@ -228,6 +228,10 @@ class Schema {
 	 * @throw \OMV\Json\SchemaValidationException
 	 */
 	final public function validate($value, $name = "") {
+		// Convert all arrays (indexed and associative) to JSON string to
+		// ensure that they are converted into the required array format.
+		if (is_array($value))
+			$value = json_encode_safe($value);
 		// Convert JSON string to array.
 		// !!! Note, this is no associative array. !!!
 		if (is_json($value))

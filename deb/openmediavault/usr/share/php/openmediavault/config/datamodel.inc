@@ -137,7 +137,7 @@ class DataModel extends \OMV\DataModel\DataModel {
 	public function copyProperty($path, $targetPath) {
 		$propSchema = $this->getPropertiesSchema()->getAssocByPath($path);
 		$this->assertPropertyNotExists($targetPath);
-		$this->addProperty($targetPath, $propSchema['type']);
+		$this->addProperty($targetPath, $propSchema['type'], $propSchema);
 	}
 
 	/**
