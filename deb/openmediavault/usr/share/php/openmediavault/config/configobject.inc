@@ -77,11 +77,10 @@ class ConfigObject {
 	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
 	 */
 	protected static function queryAssoc($name, $array) {
+//		self::debug(var_export(func_get_args(), TRUE));
 		// Explode property in dot notation into its parts.
 		if (!is_array($name))
 			$name = explode(".", $name);
-        if (!$array)
-            return null;
         if (!is_array($array))
             return $array;
 		if (empty($name))
