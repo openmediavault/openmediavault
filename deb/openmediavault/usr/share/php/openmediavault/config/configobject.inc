@@ -303,6 +303,29 @@ class ConfigObject {
 	}
 
 	/**
+	 * Move an existing property to another one. The target property will
+	 * be created if necessary. The source property will be removed.
+	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
+	 * @param targetName The name of the target property in dot notation,
+	 *   e.g. 'x.y'.
+	 * @return None.
+	 */
+	public function move($name, $targetName) {
+		// Relocate the source property to a temporary property. This is
+		// the easiest way to handle movements like 'users.user' -> 'users'.
+		$tmpName = uniqid("_");
+		$this->copy($name, $tmpName);
+		// Remove the source and target properties.
+		$this->remove($name);
+		if ($this->exists($targetName))
+			$this->remove($targetName);
+		// Finally move the temporary property to the target path.
+		$this->copy($tmpName, $targetName);
+		// Remove the temporary property.
+		$this->remove($tmpName);
+	}
+
+	/**
 	 * Determine whether a property value is empty.
 	 * @return Returns FALSE if the property exists and has a non-empty,
 	 *   non-zero value. Otherwise returns TRUE. If the property does not

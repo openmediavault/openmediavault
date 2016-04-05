@@ -188,8 +188,23 @@ class Schema {
 	 * @param path The path of the property to remove.
 	 */
 	public function removeProperty($path) {
-		$propSchema = &$this->_getSchemaByPath($path, $this->schema);
-		unset($propSchema);
+		// PHP doesn't allow to delete the array entry by unseting the
+		// reference. So we need to get the parent property to delete
+		// the specified property.
+		$parts = explode(".", $path);
+		$propName = array_pop($parts);
+		$path = implode($parts);
+		// Get the parent property schema.
+		$parentPropSchema = &$this->_getSchemaByPath($path, $this->schema);
+		// Unset the specified property.
+		switch ($parentPropSchema['type']) {
+		case "array":
+			unset($parentPropSchema['items'][$propName]);
+			break;
+		case "object":
+			unset($parentPropSchema['properties'][$propName]);
+			break;
+		}
 	}
 
 	/**

@@ -51,21 +51,16 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 	 * @return The stored configuration object.
 	 */
 	function getSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$xpath = "//services/rsync/server";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Remove useless attributes.
-		unset($object['modules']);
-		return $object;
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.rsyncd");
+		// Remove useless properties from the object.
+		$object->remove("modules");
+		return $object->getAssoc();
 	}
 
 	/**
@@ -75,7 +70,6 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 	 * @return The stored configuration object.
 	 */
 	function setSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -83,27 +77,18 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.rsyncd.setsettings");
 		// Get the existing configuration object.
-		$xpath = "//services/rsync/server";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Update the configuration object.
-		$object = array_merge($object, array(
-			  "enable" => array_boolval($params, 'enable'),
-			  "port" => $params['port'],
-			  "extraoptions" => $params['extraoptions']
-		  ));
-		if(FALSE === $xmlConfig->replace($xpath, $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.rsyncd");
+		$object->setAssoc($params);
+		$db->set($object);
+		// Remove useless properties from the object.
+		$object->remove("modules");
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.rsync.server", $object);
+		  "org.openmediavault.services.rsync.server", $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -119,7 +104,6 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 	 *   array. An exception will be thrown in case of an error.
 	 */
 	public function getModuleList($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -127,33 +111,24 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the configuration object.
-		$xpath = "//services/rsync/server/modules/module";
-		$objects = $xmlConfig->getList($xpath);
-		if(is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->get("conf.service.rsyncd.module");
 		// Add additional share informations.
-		foreach($objects as $objectk => &$objectv) {
-			$objectv['sharedfoldername'] = gettext("n/a");
-			// Modify result data.
-			$objectv['enable'] = boolvalEx($objectv['enable']);
-			$objectv['readonly'] = boolvalEx($objectv['readonly']);
-			$objectv['writeonly'] = boolvalEx($objectv['writeonly']);
-			$objectv['list'] = boolvalEx($objectv['list']);
-			$objectv['authusers'] = boolvalEx($objectv['authusers']);
-			$objectv['usechroot'] = boolvalEx($objectv['usechroot']);
-			$objectv['users'] = !is_array($objectv['users']) ?
-			  array() : $objectv['users']['user'];
+		$objectsAssoc = array();
+		foreach ($objects as $objectk => &$objectv) {
+			// Relocate the users property.
+			$objectv->move("users.user", "users");
+			// Add the new property 'sharedfoldername'.
+			$objectv->add("sharedfoldername", "string", gettext("n/a"));
 			// Get the shared folder configuration object.
-			$sfobject = $xmlConfig->get("//system/shares/sharedfolder[".
-			  "uuid='{$objectv['sharedfolderref']}']");
-			if(!is_null($sfobject) && !empty($sfobject)) {
-				$objectv['sharedfoldername'] = $sfobject['name'];
-			}
+			$sfObject = $db->get("conf.system.sharedfolder",
+			  $objectv->get("sharedfolderref"));
+			// Update the 'sharedfoldername' property.
+			$objectv->set("sharedfoldername", $sfObject->get("name"));
+			$objectsAssoc[] = $objectv->getAssoc();
 		}
-		// Filter result.
-		return $this->applyFilter($objects, $params['start'],
+		// Filter the result.
+		return $this->applyFilter($objectsAssoc, $params['start'],
 		  $params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
@@ -173,23 +148,12 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
-		$xpath = sprintf("//services/rsync/server/modules/module[uuid='%s']",
-		  $params['uuid']);
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify result data.
-		$object['enable'] = boolvalEx($object['enable']);
-		$object['readonly'] = boolvalEx($object['readonly']);
-		$object['writeonly'] = boolvalEx($object['writeonly']);
-		$object['list'] = boolvalEx($object['list']);
-		$object['authusers'] = boolvalEx($object['authusers']);
-		$object['usechroot'] = boolvalEx($object['usechroot']);
-		$object['users'] = !is_array($object['users']) ?
-		  array() : $object['users']['user'];
-		return $object;
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.rsyncd.module", $params['uuid']);
+		// Relocate the users property.
+		$object->move("users.user", "users");
+		// Return the configuration object.
+		return $object->getAssoc();
 	}
 
 	/**
