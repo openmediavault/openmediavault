@@ -19,9 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-
-// ToDo
-
 class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -59,8 +56,16 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 		$devicefile = $fs->getDeviceFile();
 		// Does any quota configuration exist for the given filesystem?
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->getByPredicate("conf.system.filesystem.quota",
-		  sprintf("fsuuid='%s'", $params['uuid']));
+		$object = NULL;
+		$predicate = sprintf("fsuuid='%s'", $params['uuid']);
+		if ($db->existsByPredicate("conf.system.filesystem.quota", $predicate)) {
+			// Load the existing configuration object.
+			$objects = $db->getByPredicate("conf.system.filesystem.quota",
+			  $predicate);
+			// Due the fact that a quota configuration only exists once per
+			// filesystem we can simply use the first found object.
+			$object = $objects[0];
+		}
 		// Prepare result. Iterate over all system users and groups and get
 		// their quota configuration for the given filesystem.
 		$result = array();
@@ -77,26 +82,28 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 				"bunit" => "MiB"
 			);
 			// Check if there is any configured quota for the given user.
-			foreach ($object->get("usrquota") as $usrquotav) {
-				if ($userv['name'] !== $usrquotav['name'])
-					continue;
-				// Get user quotas and get the number of used disk space
-				// if available. Note, 'blocks' are given in KiB.
-				$sysUser = new \OMV\System\User($userv['name']);
-				if (FALSE !== ($quotas = $sysUser->getQuotas())) {
-					if (array_key_exists($devicefile, $quotas)) {
-						$resObj['bused'] = binary_format(
-						  $quotas[$devicefile]['blocks'], array(
-						  "fromPrefix" => "KiB"));
+			if (is_object($object)) {
+				foreach ($object->get("usrquota") as $usrquotav) {
+					if ($userv['name'] !== $usrquotav['name'])
+						continue;
+					// Get user quotas and get the number of used disk space
+					// if available. Note, 'blocks' are given in KiB.
+					$sysUser = new \OMV\System\User($userv['name']);
+					if (FALSE !== ($quotas = $sysUser->getQuotas())) {
+						if (array_key_exists($devicefile, $quotas)) {
+							$resObj['bused'] = binary_format(
+							  $quotas[$devicefile]['blocks'], array(
+							  "fromPrefix" => "KiB"));
+						}
 					}
+					// Convert the quota to a human readable unit. Note, the
+					// values are stored a KiB in the configuration.
+					$bhardlimit = binary_format($usrquotav['bhardlimit'],
+					  array("fromPrefix" => "KiB", "maxPrefix" => "TiB",
+					  "indexed" => TRUE));
+					$resObj['bhardlimit'] = $bhardlimit['value'];
+					$resObj['bunit'] = $bhardlimit['unit'];
 				}
-				// Convert the quota to a human readable unit. Note, the
-				// values are stored a KiB in the configuration.
-				$bhardlimit = binary_format($usrquotav['bhardlimit'],
-				  array("fromPrefix" => "KiB", "maxPrefix" => "TiB",
-				  "indexed" => TRUE));
-				$resObj['bhardlimit'] = $bhardlimit['value'];
-				$resObj['bunit'] = $bhardlimit['unit'];
 			}
 			$result[] = $resObj;
 		}
@@ -113,26 +120,28 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 				"bunit" => "MiB"
 			);
 			// Check if there is any configured quota for the given group.
-			foreach ($object->get("grpquota") as $grpquotav) {
-				if ($groupv['name'] !== $grpquotav['name'])
-					continue;
-				// Get user quotas and get the number of used disk space
-				// if available. Note, 'blocks' are given in KiB.
-				$sysGroup = new \OMV\System\Group($groupv['name']);
-				if (FALSE !== ($quotas = $sysGroup->getQuotas())) {
-					if (array_key_exists($devicefile, $quotas)) {
-						$resObj['bused'] = binary_format(
-						  $quotas[$devicefile]['blocks'], array(
-						  "fromPrefix" => "KiB"));
+			if (is_object($object)) {
+				foreach ($object->get("grpquota") as $grpquotav) {
+					if ($groupv['name'] !== $grpquotav['name'])
+						continue;
+					// Get user quotas and get the number of used disk space
+					// if available. Note, 'blocks' are given in KiB.
+					$sysGroup = new \OMV\System\Group($groupv['name']);
+					if (FALSE !== ($quotas = $sysGroup->getQuotas())) {
+						if (array_key_exists($devicefile, $quotas)) {
+							$resObj['bused'] = binary_format(
+							  $quotas[$devicefile]['blocks'], array(
+							  "fromPrefix" => "KiB"));
+						}
 					}
+					// Convert the quota to a human readable unit. Note, the
+					// values are stored a KiB in the configuration.
+					$bhardlimit = binary_format($grpquotav['bhardlimit'],
+					  array("fromPrefix" => "KiB", "maxPrefix" => "TiB",
+					  "indexed" => TRUE));
+					$resObj['bhardlimit'] = $bhardlimit['value'];
+					$resObj['bunit'] = $bhardlimit['unit'];
 				}
-				// Convert the quota to a human readable unit. Note, the
-				// values are stored a KiB in the configuration.
-				$bhardlimit = binary_format($grpquotav['bhardlimit'],
-				  array("fromPrefix" => "KiB", "maxPrefix" => "TiB",
-				  "indexed" => TRUE));
-				$resObj['bhardlimit'] = $bhardlimit['value'];
-				$resObj['bunit'] = $bhardlimit['unit'];
 			}
 			$result[] = $resObj;
 		}
@@ -148,18 +157,23 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 	 * @return The stored configuration object.
 	 */
 	function set($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.quota.set");
-		// Create filesystem quota configuration object.
-		$object = array();
-		foreach($params['quota'] as $paramk => $paramv) {
+		// Build the user/group quota configuration.
+		$quotas = array(
+			"usrquota" => array(),
+			"grpquota" => array()
+		);
+		foreach ($params['quota'] as $paramk => $paramv) {
 			$quotaObj = array(
+				"name" => $paramv['name'],
 				"bsoftlimit" => 0,
+				// Store as string because of the 32bit integer limit of
+				// PHP on 32bit systems.
 				"bhardlimit" => binary_convert($paramv['bhardlimit'],
 				  $paramv['bunit'], "KiB"),
 				"isoftlimit" => 0,
@@ -167,50 +181,39 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 			);
 			switch ($paramv['type']) {
 			case "user":
-				if(!isset($object['usrquota']))
-					$object['usrquota'] = array();
-				$quotaObj['name'] = $paramv['name'];
-				$object['usrquota'][] = $quotaObj;
+				$quotas['usrquota'][] = $quotaObj;
 				break;
 			case "group":
-				if(!isset($object['grpquota']))
-					$object['grpquota'] = array();
-				$quotaObj['name'] = $paramv['name'];
-				$object['grpquota'][] = $quotaObj;
+				$quotas['grpquota'][] = $quotaObj;
 				break;
 			}
 		}
-		// Set configuration object.
-		$xpath = sprintf("//system/storage/filesystem/quota[fsuuid='%s']",
-		  $params['uuid']);
-		if(FALSE === $xmlConfig->exists($xpath)) {
-			// Create a new configuration object.
-			$object['uuid'] = \OMV\Uuid::uuid4();
-			$object['fsuuid'] = $params['uuid'];
-			// Append object to configuration.
-			$success = $xmlConfig->set("//system/storage/filesystem",
-			  array("quota" => $object));
+		// Prepare the configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$predicate = sprintf("fsuuid='%s'", $params['uuid']);
+		if ($db->existsByPredicate("conf.system.filesystem.quota", $predicate)) {
+			// Load the existing configuration objects.
+			$objects = $db->getByPredicate("conf.system.filesystem.quota",
+			  $predicate);
+			// Due the fact that a quota configuration only exists once per
+			// filesystem we can simply use the first found object.
+			$object = $objects[0];
 		} else {
-			// Get existing configuration object.
-			$oldObject = $xmlConfig->get($xpath);
-			if(is_null($oldObject)) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-				  $xpath);
-			}
-			$object['uuid'] = $oldObject['uuid'];
-			$object['fsuuid'] = $oldObject['fsuuid'];
-			// Update existing configuration object.
-			$success = $xmlConfig->replace($xpath, $object);
+			// Create a new configuration object.
+			$object = new \OMV\Config\ConfigObject("conf.system.filesystem.quota");
+			$object->setNew();
+			$object->set("fsuuid", $params['uuid']);
 		}
-		if(FALSE === $success) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$object->setAssoc($quotas);
+		// Put the configuration object.
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.storage.filesystem.quota", $object);
+		  "org.openmediavault.system.storage.filesystem.quota",
+		  $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**

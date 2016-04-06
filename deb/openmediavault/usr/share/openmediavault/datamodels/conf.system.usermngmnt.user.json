@@ -21,7 +21,7 @@
 		},
 		"disallowusermod": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"sshpubkeys": {
 			"type": "array",

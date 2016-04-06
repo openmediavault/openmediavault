@@ -126,25 +126,16 @@ class ConfigObject {
 	 *   described by the data model.
 	 */
 	public function getDefaults() {
-		// Create a flat representation of the data.
-		$data = array();
+		$dict = new \OMV\Dictionary();
 		$fn = function($model, $name, $path, $schema, &$userData) {
-			switch ($schema['type']) {
-			case "array":
-				$userData[$path] = $model->getPropertyDefault($path);
-				// Do not process the array items.
-				return FALSE;
-				break;
-			case "object":
-				// Nothing to do here.
-				break;
-			default:
-				$userData[$path] = $model->getPropertyDefault($path);
-				break;
-			}
+//			$this->debug(var_export(func_get_args(), TRUE));
+			// Skip empty property names (e.g. the root of the schema).
+			if (empty($name))
+				return;
+			$userData->set($path, $model->getPropertyDefault($path));
 		};
-		$this->getModel()->walkRecursive("", $fn, $data);
-		return $data;
+		$this->getModel()->walkRecursive("", $fn, $dict);
+		return $dict->getData();
 	}
 
 	/**
@@ -188,8 +179,16 @@ class ConfigObject {
 	}
 
 	/**
-	 * Set properties. Properties that are not defined in the model are
-	 * ignored.
+	 * Set properties.
+	 * Example:
+	 * array(
+	 *   "x" => "z",
+	 *   "a.b.c" => 1,
+	 *   "x.y.0.a" => "xxx",
+	 *   "x.y.0.b" => "yyy",
+	 *   "x.y.1.a" => "aaa",
+	 *   "x.y.1.b" => "bbb",
+	 * )
 	 * @param data The single dimension array of path/value pairs.
 	 * @param validate Set to FALSE to do not validate the property values
 	 *   against the property schema defined in the model.
@@ -291,7 +290,7 @@ class ConfigObject {
 	/**
 	 * Check if the configuration object is new. Use this method only if
 	 * the configuration object has an 'uuid' property.
-	 * @return TRUE if the cconfiguration object is identified as new,
+	 * @return TRUE if the configuration object is identified as new,
 	 *   otherwise FALSE.
 	 * @throw \OMV\Exception
 	 */

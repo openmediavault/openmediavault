@@ -74,7 +74,7 @@ class OMVRpcServicePowerMgmt extends \OMV\Rpc\ServiceAbstract {
 		$object->setAssoc($params);
 		// Update the configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		$db->replace("//system/powermanagement", $object);
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,

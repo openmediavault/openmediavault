@@ -48,7 +48,6 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 	 * @return The configuration object.
 	 */
 	public function getSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -184,13 +183,15 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 				  $meObject2 = new \OMV\Config\ConfigObject(
 				    "conf.system.filesystem.mountpoint");
 				  $meObject2->setNew();
-				  $meObject2->set("fsname", build_path(DIRECTORY_SEPARATOR,
-					$meObject->get("dir"), $sfObject->get("reldirpath")));
-				  $meObject2->set("dir", $dir);
-				  $meObject2->set("type", "none");
-				  $meObject2->set("opts", "bind");
-				  $meObject2->set("freq", 0);
-				  $meObject2->set("passno", 0);
+				  $meObject2->setAssoc(array(
+					  "fsname" => build_path(DIRECTORY_SEPARATOR,
+					    $meObject->get("dir"), $sfObject->get("reldirpath")),
+					  "dir" => $dir,
+					  "type" => "none",
+					  "opts" => "bind",
+					  "freq" => 0,
+					  "passno" => 0
+				  ));
 				  // Put the mount point configuration object.
 				  $result = \OMV\Rpc\Rpc::call("FsTab", "set",
 				    $meObject2->getAssoc(), $context);

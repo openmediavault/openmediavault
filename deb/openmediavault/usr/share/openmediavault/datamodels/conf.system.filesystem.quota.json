@@ -28,8 +28,7 @@
 						"minimum": 0
 					},
 					"bhardlimit": {
-						"type": "integer",
-						"minimum": 0
+						"type": "string"
 					},
 					"isoftlimit": {
 						"type": "integer",
@@ -55,8 +54,7 @@
 						"minimum": 0
 					},
 					"bhardlimit": {
-						"type": "integer",
-						"minimum": 0
+						"type": "string"
 					},
 					"isoftlimit": {
 						"type": "integer",

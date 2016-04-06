@@ -520,24 +520,21 @@ function binary_convert($number, $fromPrefix, $toPrefix, $decimalPlaces = 0) {
 	  "ZiB", "YiB");
 	$fromIndex = array_search($fromPrefix, $prefixes);
 	$toIndex = array_search($toPrefix, $prefixes);
-
-	if((FALSE === $fromIndex) || (FALSE === $toIndex))
+	if ((FALSE === $fromIndex) || (FALSE === $toIndex))
 		return FALSE;
-
 	// Convert number to string and ensure the correct number of decimal
 	// numbers is set (workaround for strange bcmul behaviour).
 	$number = bcadd(strval($number), "0", $decimalPlaces);
 	// Convert the given number into the requested binary unit.
 	$steps = ($toIndex > $fromIndex) ? $toIndex - $fromIndex :
 	  $fromIndex - $toIndex;
-	for($i = 0; $i < $steps; $i++) {
-		if($fromIndex < $toIndex) {
+	for ($i = 0; $i < $steps; $i++) {
+		if ($fromIndex < $toIndex) {
 			$number = bcdiv($number, "1024", $decimalPlaces);
 		} else {
 			$number = bcmul($number, "1024", $decimalPlaces);
 		}
 	}
-
 	return $number;
 }
 

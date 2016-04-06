@@ -337,17 +337,26 @@ finish:
 		// Process users and append additional information stored in
 		// the database.
 		foreach ($users as $userk => &$userv) {
+			// Set the defaults of the additional information.
+			$userv = array_merge($userv, array(
+				"email" => "",
+				"disallowusermod" => FALSE,
+				"sshpubkeys" => array()
+			));
 			// Get additional information stored in database.
 			$db = \OMV\Config\Database::getInstance();
 			$predicate = sprintf("name='%s'", $userv['name']);
 			$objects = $db->getByPredicate("conf.system.usermngmnt.user",
 			  $predicate);
-			if (1 >= count($objects)) {
+			if (0 < count($objects)) {
 				// Get the user configuration object. Due the fact that a user
 				// name is unique, we can simply use the first found object.
-				$userv['email'] = $objects[0]->get("email");
-				$userv['disallowusermod'] = $objects[0]->get("disallowusermod");
-				$userv['sshpubkeys'] = $objects[0]->get("sshpubkeys.sshpubkey");
+				$object = $objects[0];
+				// Append additional information.
+				$userv['email'] = $object->get("email");
+				$userv['disallowusermod'] = $object->get("disallowusermod");
+				if (FALSE === $object->isEmpty("sshpubkeys"))
+					$userv['sshpubkeys'] = $object->get("sshpubkeys.sshpubkey");
 			}
 		}
 		// Filter the result.
@@ -385,12 +394,15 @@ finish:
 		$predicate = sprintf("name='%s'", $result['name']);
 		$objects = $db->getByPredicate("conf.system.usermngmnt.user",
 		  $predicate);
-		if (1 >= count($objects)) {
+		if (0 < count($objects)) {
 			// Get the user configuration object. Due the fact that a user
 			// name is unique, we can simply use the first found object.
-			$result['email'] = $objects[0]->get("email");
-			$result['disallowusermod'] = $objects[0]->get("disallowusermod");
-			$result['sshpubkeys'] = $objects[0]->get("sshpubkeys.sshpubkey");
+			$object = $objects[0];
+			// Append additional information.
+			$result['email'] = $object->get("email");
+			$result['disallowusermod'] = $object->get("disallowusermod");
+			if (FALSE === $object->isEmpty("sshpubkeys"))
+				$result['sshpubkeys'] = $object->get("sshpubkeys.sshpubkey");
 		}
 		return $result;
 	}

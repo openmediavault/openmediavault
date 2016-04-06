@@ -46,7 +46,7 @@ class Dictionary {
 	protected function isValidKey($key) {
 		$regex = '/^(([a-z]+[a-z0-9_-]*|[0-9]+)\.)*([a-z]+[a-z0-9_-]*|'.
 		  '[0-9]+)$/i';
-        return preg_match($regex, $key);
+        return (1 === preg_match($regex, $key));
     }
 
 	/**
