@@ -114,10 +114,10 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
-		// Get the configuration object.
+		// Get the configuration objects.
 		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->get("conf.service.ftp.share");
-		// Add additional share informations.
+		// Add additional share information.
 		$objectsAssoc = array();
 		foreach ($objects as $objectk => &$objectv) {
 			// Add the new property 'sharedfoldername'.

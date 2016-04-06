@@ -21,9 +21,7 @@
  */
 namespace OMV\Rpc\Proxy;
 
-require_once("openmediavault/util.inc");
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/rpc.inc");
 
 /**
  * The generic RPC proxy implementation that handles JSON RPC requests.

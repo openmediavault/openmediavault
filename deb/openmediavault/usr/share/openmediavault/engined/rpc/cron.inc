@@ -19,11 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
-
 class OMVRpcServiceCron extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -64,7 +59,7 @@ class OMVRpcServiceCron extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.cron.getlist");
-		// Get configuration data.
+		// Get configuration objects.
 		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->get("conf.system.cron.job");
 		// Get cron jobs that match the given type.
@@ -153,7 +148,6 @@ class OMVRpcServiceCron extends \OMV\Rpc\ServiceAbstract {
 	 * @return The name of the background process status file.
 	 */
 	public function execute($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR

@@ -172,7 +172,7 @@ class File {
 		}
 		// Decode the content if requested.
 		if (TRUE === $decode) {
-			if (FALSE === ($content = json_decode_safe($content, $assoc))) {
+			if (NULL === ($content = json_decode_safe($content, $assoc))) {
 				throw new \OMV\Exception(
 				  "Failed to decode content (filename=%s): %s",
 				  $this->filename, json_last_error_msg());
