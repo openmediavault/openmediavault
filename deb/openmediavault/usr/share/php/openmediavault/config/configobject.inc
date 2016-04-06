@@ -27,8 +27,8 @@ require_once("openmediavault/functions.inc");
 class ConfigObject {
 	use \OMV\Debugable;
 
-	private $model = NULL;
-	private $properties = array();
+	private $model;
+	private $properties;
 
 	/**
 	 * @param id The data model identifier.
@@ -36,7 +36,7 @@ class ConfigObject {
 	public function __construct($id) {
 		$modelMngr = \OMV\DataModel\Manager::getInstance();
 		$this->model = $modelMngr->getModel($id);
-		$this->properties = $this->getDefaults();
+		$this->properties = new \OMV\Dictionary($this->getDefaultsAssoc());
 	}
 
 	/**
@@ -72,43 +72,13 @@ class ConfigObject {
 	}
 
 	/**
-	 * Helper method to get the specified property within an associative
-	 * array.
-	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
-	 */
-	protected static function queryAssoc($name, $array) {
-//		self::debug(var_export(func_get_args(), TRUE));
-		// Explode property in dot notation into its parts.
-		if (!is_array($name))
-			$name = explode(".", $name);
-        if (!is_array($array))
-            return $array;
-		if (empty($name))
-			return $array;
-        $propName = array_shift($name);
-        if (isset($array[$propName]))
-            return self::queryAssoc($name, $array[$propName]);
-        return null;
-    }
-
-	/**
 	 * Get a property.
 	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
 	 * @return The property value.
 	 */
 	public function get($name) {
 		$this->assertExists($name);
-		$propSchema = $this->getModel()->getPropertiesSchema();
-		$subPropSchema = $propSchema->getAssocByPath($name);
-		switch ($subPropSchema['type']) {
-		case "array":
-			$result = self::queryAssoc($name, $this->getAssoc());
-			break;
-		default:
-			$result = $this->properties[$name];
-			break;
-		}
-		return $result;
+		return $this->properties->get($name);
 	}
 
 	/**
@@ -126,7 +96,7 @@ class ConfigObject {
 	 * @return The array of key/value pairs.
 	 */
 	public function getAssoc() {
-		return array_expand($this->getIndexed());
+		return $this->properties->getData();
 	}
 
 	/**
@@ -146,7 +116,7 @@ class ConfigObject {
 	 * @return The array of key/value pairs in dot notation.
 	 */
 	public function getIndexed() {
-		return $this->properties;
+		return array_flatten($this->getAssoc());
 	}
 
 	/**
@@ -198,7 +168,7 @@ class ConfigObject {
 		$model = $this->getModel();
 		if (TRUE === $validate)
 			$model->validateProperty($name, $value);
-		$this->properties[$name] = $model->convertProperty($name, $value);
+		$this->properties->set($name, $model->convertProperty($name, $value));
 	}
 
 	/**
@@ -246,26 +216,8 @@ class ConfigObject {
 		$this->assertExists($name);
 		// Remove the property from the data model schema.
 		$this->getModel()->removeProperty($name);
-		// Unset the property. Note, take care with properties that have
-		// child nodes.
-		//
-		// Indexed:
-		// trap.enable
-		// trap.community
-		//
-		// Assoc:
-		// array(
-		//     trap => array(
-		//         enable => TRUE,
-		//         community => "public",
-		//     )
-		// )
-		foreach ($this->properties as $propk => $propv) {
-			$regex = sprintf("/^(%s)([.].+)?$/i", $name);
-			if (1 !== preg_match($regex, $propk))
-				continue;
-			unset($this->properties[$propk]);
-		}
+		// Remove the property.
+		$this->properties->remove($name);
 	}
 
 	/**

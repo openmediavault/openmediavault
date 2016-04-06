@@ -56,8 +56,8 @@ class Dictionary {
 	 * @throw \InvalidArgumentException
 	 */
 	protected function assertValidKey($key) {
-		if (!$this->isValidKey($key)) {
-			$message = sprintf("The key '%s' is invalid.");
+		if (FALSE === $this->isValidKey($key)) {
+			$message = sprintf("The key '%s' is invalid.", $key);
             throw new \InvalidArgumentException($message);
         }
 	}
@@ -69,18 +69,27 @@ class Dictionary {
 	 */
 	public function exists($key) {
 		$this->assertValidKey($key);
-		// ToDo
+		$node = $this->data;
+		$parts = explode(".", $key);
+        foreach ($parts as $partk => $partv) {
+            if (isset($node[$partv]))
+                $node = $node[$partv];
+            else
+                return FALSE;
+        }
+        return TRUE;
 	}
 
 	/**
-	 * Get the value for a key.
-     * @param key The key in dot notation, e.g. 'a.b.c'.
-     * @param default The optional default value.
-     * @return The requested value.
-     */
-    public function get($key, $default = null) {
-		$this->assertValidKey($key);
-		// ToDo
+	 * Assert that the specified key exists.
+	 * @param key The key in dot notation, e.g. 'a.b.c'.
+	 * @return None.
+	 */
+	public function assertExists($key) {
+		if (FALSE === $this->exists($key)) {
+			$message = sprintf("The key '%s' does not exist.", $key);
+            throw new \InvalidArgumentException($message);
+        }
 	}
 
 	/**
@@ -92,14 +101,51 @@ class Dictionary {
 	}
 
 	/**
+	 * Get the value for a key.
+     * @param key The key in dot notation, e.g. 'a.b.c'.
+     * @param default The optional default value.
+     * @return The requested value.
+     */
+    public function get($key, $default = NULL) {
+		$this->assertExists($key);
+		$node = $this->data;
+		$parts = explode(".", $key);
+		foreach ($parts as $partk => $partv) {
+			if (!is_array($node))
+                return $default;
+            if (!isset($node[$partv]))
+                return $default;
+            $node = $node[$partv];
+        }
+        return $node === NULL ? $default : $node;
+	}
+
+	/**
 	 * Set a value for a key.
      * @param key The key in dot notation, e.g. 'a.b.c'.
      * @param value The value of the given key.
-     * @return The value.
+     * @return None.
      */
     public function set($key, $value) {
 		$this->assertValidKey($key);
-		// ToDo
+		$node = &$this->data;
+		$parts = explode(".", $key);
+		if (1 == count($parts)) {
+            $node[$key] = $value;
+            return;
+        }
+        $lastPart = array_pop($parts);
+        foreach ($parts as $partk => $partv) {
+            if (!isset($node[$partv]))
+                $node[$partv] = array();
+            if (!is_array($node[$partv])) {
+                $message = sprintf("Failed to index key '%s' of '%s' because ".
+				  "it has no children.", $partv, $key);
+	            throw new \RuntimeException($message);
+            }
+            $node = &$node[$partv];
+        }
+        $node[$lastPart] = $value;
 	}
 
 	/**
@@ -108,8 +154,20 @@ class Dictionary {
      * @return None.
      */
 	public function remove($key) {
-		$this->assertValidKey($key);
-		// ToDo
+		$this->assertExists($key);
+		$node = &$this->data;
+		$parts = explode(".", $key);
+		if (1 == count($parts)) {
+            unset($node[$key]);
+            return;
+        }
+        $lastPart = array_pop($parts);
+        foreach ($parts as $partk => $partv) {
+            if (!isset($node[$partv]))
+                return;
+            $node = &$node[$partv];
+        }
+        unset($node[$lastPart]);
 	}
 
 	/**
