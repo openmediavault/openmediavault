@@ -129,9 +129,6 @@ class ConfigObject {
 		$dict = new \OMV\Dictionary();
 		$fn = function($model, $name, $path, $schema, &$userData) {
 //			$this->debug(var_export(func_get_args(), TRUE));
-			// Skip empty property names (e.g. the root of the schema).
-			if (empty($name))
-				return;
 			$userData->set($path, $model->getPropertyDefault($path));
 		};
 		$this->getModel()->walkRecursive("", $fn, $dict);

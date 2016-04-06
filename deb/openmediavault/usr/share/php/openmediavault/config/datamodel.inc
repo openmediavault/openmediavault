@@ -22,6 +22,8 @@
 namespace OMV\Config;
 
 class DataModel extends \OMV\DataModel\DataModel {
+	use \OMV\Debugable;
+
 	private $propertiesSchema = null;
 
 	public function __construct($model) {
@@ -286,29 +288,39 @@ class DataModel extends \OMV\DataModel\DataModel {
 			throw new \OMV\Json\SchemaException(
 			  "No 'type' attribute defined at '%s'.", $path);
 		}
-		if ("object" == $schema['type']) {
+		switch ($schema['type']) {
+/*
+		case "array":
+			if (!array_key_exists("items", $schema)) {
+				throw new \OMV\Json\SchemaException(
+				  "No 'items' attribute defined at '%s'.", $path);
+			}
+			// Process the property node.
+			return $this->_walk($name, $path, $schema['items'], $callback,
+			  $userData);
+			break;
+*/
+		case "object":
 			if (!array_key_exists("properties", $schema)) {
 				throw new \OMV\Json\SchemaException(
 				  "No 'properties' attribute defined at '%s'.", $path);
 			}
-			// Call the callback function. Abort if the callback function
-			// returns FALSE.
-			if (FALSE === call_user_func_array($callback, array($this, $name,
-			  $path, $schema, &$userData)))
-				return;
 			foreach ($schema['properties'] as $propName => $propSchema) {
 				// Build the property path. Take care that a valid path
 				// is generated. To ensure this, empty parts are removed.
 				$propPath = implode(".", array_filter(array($path, $propName)));
-				// Call the callback function. Stop processing this property
-				// if the callback function returns FALSE.
-				if (FALSE === call_user_func_array($callback, array($this,
-				  $propName, $propPath, $propSchema, &$userData)))
-					continue;
 				// Process the property node.
-				$this->_walk($propName, $propPath, $propSchema, $callback,
-				  $userData);
+				if (FALSE === $this->_walk($propName, $propPath, $propSchema,
+				  $callback, $userData))
+					continue;
 			}
+			break;
+		default:
+			// Call the callback function. Stop processing this property
+			// if the callback function returns FALSE.
+			return call_user_func_array($callback, array($this, $name, $path,
+			  $schema, &$userData));
+			break;
 		}
 	}
 
