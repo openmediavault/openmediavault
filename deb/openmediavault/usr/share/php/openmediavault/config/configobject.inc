@@ -47,8 +47,7 @@ class ConfigObject {
 	 * @return Returns TRUE if the property exists, otherwise FALSE.
 	 */
 	protected function exists($name) {
-		$model = $this->getModel();
-		return $model->propertyExists($name);
+		return $this->getModel()->propertyExists($name);
 	}
 
 	/**
@@ -74,13 +73,21 @@ class ConfigObject {
 	}
 
 	/**
+	 * Get the properties dictionary.
+	 * @return The properties dictionary.
+	 */
+	protected function getProperties() {
+		return $this->properties;
+	}
+
+	/**
 	 * Get a property.
 	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
 	 * @return The property value.
 	 */
 	public function get($name) {
 		$this->assertExists($name);
-		return $this->properties->get($name);
+		return $this->getProperties()->get($name);
 	}
 
 	/**
@@ -98,7 +105,7 @@ class ConfigObject {
 	 * @return The array of key/value pairs.
 	 */
 	public function getAssoc() {
-		return $this->properties->getData();
+		return $this->getProperties()->getData();
 	}
 
 	/**
@@ -166,7 +173,10 @@ class ConfigObject {
 		$model = $this->getModel();
 		if (TRUE === $validate)
 			$model->validateProperty($name, $value);
-		$this->properties->set($name, $model->convertProperty($name, $value));
+		// Convert the value into the proper type.
+		$value = $model->convertProperty($name, $value);
+		// Set the property value in the dictionary.
+		$this->getProperties()->set($name, $value);
 	}
 
 	/**
@@ -223,7 +233,7 @@ class ConfigObject {
 		// Remove the property from the data model schema.
 		$this->getModel()->removeProperty($name);
 		// Remove the property.
-		$this->properties->remove($name);
+		$this->getProperties()->remove($name);
 	}
 
 	/**

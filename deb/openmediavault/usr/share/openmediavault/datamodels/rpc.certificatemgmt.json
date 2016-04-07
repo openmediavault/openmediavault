@@ -29,38 +29,53 @@
 	"params": {
 		"type": "object",
 		"properties": {
-			 "size": {
-				 "type": "integer",
-				 "enum": [ 512, 1024, 2048, 4096 ]
-			 },
-			 "days": {
-				 "type": "integer"
-			 },
-			 "c": {
-				 "type": "string",
-				 "maxLength": 2
-			 },
-			 "st": {
-				 "type": "string"
-			 },
-			 "l": {
-				 "type": "string"
-			 },
-			 "o": {
-				 "type":"string"
-			 },
-			 "ou": {
-				 "type": "string"
-			 },
-			 "cn": {
-				 "type": "string",
-				 "minLength": 1
-			 },
-			 "email": {
-				 "type": "string",
-				 "format": "email"
-			 }
-		 }
+			"size": {
+				"type": "integer",
+				"enum": [ 512, 1024, 2048, 4096 ],
+				"required": true
+			},
+			"days": {
+				"type": "integer",
+				"required": true
+			},
+			"c": {
+				"type": "string",
+				"maxLength": 2,
+				"required": true
+			},
+			"st": {
+				"type": "string",
+				"required": true
+			},
+			"l": {
+				"type": "string",
+				"required": true
+			},
+			"o": {
+				"type":"string",
+				"required": true
+			},
+			"ou": {
+				"type": "string",
+				"required": true
+			},
+			"cn": {
+				"type": "string",
+				"minLength": 1,
+				"required": true
+			},
+			"email": {
+				"type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "email"
+				},{
+					"type": "string",
+					"maxLength": 0
+				}],
+				"required": true
+			}
+		}
 	}
 },{
 	"type": "rpc",

@@ -44,7 +44,7 @@ class Dictionary {
 	 * @return Returns TRUE if the key is valid, otherwise FALSE.
 	 */
 	protected function isValidKey($key) {
-		$regex = '/^(([a-z]+[a-z0-9_-]*|[0-9]+)\.)*([a-z]+[a-z0-9_-]*|'.
+		$regex = '/^(([a-z_]+[a-z0-9_-]*|[0-9]+)\.)*([a-z_]+[a-z0-9_-]*|'.
 		  '[0-9]+)$/i';
         return (1 === preg_match($regex, $key));
     }

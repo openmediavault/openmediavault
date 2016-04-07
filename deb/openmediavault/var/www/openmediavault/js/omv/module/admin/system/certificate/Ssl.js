@@ -403,7 +403,7 @@ Ext.define("OMV.module.admin.system.certificate.ssl.Create", {
 			}),
 			displayField: "text",
 			valueField: "value",
-			allowBlank: true,
+			allowBlank: false,
 			typeAhead: true,
 			forceSelection: true,
 			triggerAction: "all",

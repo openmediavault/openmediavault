@@ -74,7 +74,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Add additional properties.
 			$objectv->add("name", "string", "");
 			$objectv->add("validto", "integer", 0);
-			$objectv->add("_used", "boolean");
+			$objectv->add("_used", "boolean", FALSE);
 			// Remove the private key. It should not leave the system.
 			$objectv->remove("privatekey");
 			// Parse the certificate.
