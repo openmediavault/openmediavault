@@ -19,10 +19,8 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/error.inc");
 
 class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 	/**
@@ -63,14 +61,14 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get all existing software RAID devices.
-		if(FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerate(
+		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerate(
 		  OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID))) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of software RAID devices");
 		}
 		// Prepare the result object.
 		$result = array();
-		foreach($devs as $devk => $devv) {
+		foreach ($devs as $devk => $devv) {
 			$raid = new OMVStorageDeviceMdadm($devv);
 			if(!$raid->exists())
 				continue;

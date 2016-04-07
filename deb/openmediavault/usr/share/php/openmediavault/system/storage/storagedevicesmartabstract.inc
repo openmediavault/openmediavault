@@ -26,14 +26,14 @@ namespace OMV\System\Storage;
  * S.M.A.R.T. AT Attachment (ATA) interface.
  * @ingroup api
  */
-abstract class StorageDeviceSMARTAbstract extends StorageDeviceAbstract {
+abstract class StorageDeviceSmartAbstract extends StorageDeviceAbstract {
 	protected $smartDeviceType = "";
 
 	/**
 	 * Set the device type required by the smartctl command.
 	 * @return Returns the device type.
 	 */
-	public function setSMARTDeviceType($type) {
+	public function setSmartDeviceType($type) {
 		$this->smartDeviceType = $type;
 		return $this->smartDeviceType;
 	}
@@ -42,12 +42,22 @@ abstract class StorageDeviceSMARTAbstract extends StorageDeviceAbstract {
 	 * Identify the device type required by the smartctl command.
 	 * @return Returns the identified device type or an empty string.
 	 */
-	public function getSMARTDeviceType() {
+	public function getSmartDeviceType() {
 		return $this->smartDeviceType;
 	}
 
-	public function getSMARTInformation() {
-		return new SMARTInformation($this->getDeviceFile(),
-		  $this->getSMARTDeviceType(), $this);
+	/**
+	 * Get the S.M.A.R.T. information.
+	 * @throw \OMV\Exception
+	 */
+	public function getSmartInformation() {
+		$smartInfo = new SmartInformation($this->getDeviceFile(),
+		  $this->getSmartDeviceType(), $this);
+		if (is_null($smartInfo)) {
+			throw new \OMV\Exception(
+			  "Failed to get S.M.A.R.T. interface for device '%s'.",
+			  $this->getDeviceFile());
+		}
+		return $smartInfo;
 	}
 }

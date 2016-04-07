@@ -441,7 +441,19 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 	 * Check if the given device has S.M.A.R.T. support.
 	 * @return TRUE if the device supports S.M.A.R.T., otherwise FALSE.
 	 */
-	public function hasSMART() {
-		return ($this instanceof StorageDeviceSMARTAbstract) ? TRUE : FALSE;
+	public function hasSmartSupport() {
+		return ($this instanceof StorageDeviceSmartAbstract) ? TRUE : FALSE;
+	}
+
+	/**
+	 * Assert that the given device has S.M.A.R.T. support.
+	 * @return None.
+	 * @throw \OMV\Exception
+	 */
+	public function assertHasSmartSupport() {
+		if (FALSE === $this->hasSmartSupport()) {
+			throw new \OMV\Exception("Device '%s' does not support S.M.A.R.T.",
+			  $this->getDeviceFile());
+		}
 	}
 }

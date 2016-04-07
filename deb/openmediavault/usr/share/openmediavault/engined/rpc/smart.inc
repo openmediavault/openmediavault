@@ -77,10 +77,10 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			\OMV\System\Storage\StorageDevice::assertGetStorageDevice($devv);
 			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
 			// Skip devices that do not support S.M.A.R.T.
-			if (FALSE === $sd->hasSMART())
+			if (FALSE === $sd->hasSmartSupport())
 				continue;
 			// Get the S.M.A.R.T. information about the given device.
-			$smartInfo = $sd->getSMARTInformation();
+			$smartInfo = $sd->getSmartInformation();
 			// Try to get the device temperature via S.M.A.R.T.
 			$temperature = $smartInfo->getTemperature();
 			// Prepare device object
@@ -111,7 +111,6 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 *   \em serialnumber.
 	 */
 	public function enumerateMonitoredDevices($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -124,15 +123,16 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			// Check if there exists a device configuration object for the
 			// current processed device. Note, we have to check for 'dev/xxx'
 			// and 'dev/disk/by-id/xxx' entries.
-			$xpath = sprintf("//services/smart/monitor/device[".
-			  "devicefile='%s' or devicefile='%s']",
+			$db = \OMV\Config\Database::getInstance();
+			$predicate = sprintf("devicefile='%s' or devicefile='%s'",
 			  $objectv['devicefilebyid'], $objectv['devicefile']);
-			$object = $xmlConfig->get($xpath);
-			// If found, then finally get the S.M.A.R.T. device settings
-			// configuration object.
-			if (is_null($object))
+			$confObjects = $db->getByPredicate(
+			  "conf.service.smartmontools.device",
+			  $predicate);
+			if (0 >= count($confObjects))
 				continue;
-			if (TRUE !== boolvalEx($object['enable']))
+			$confObject = $confObjects[0];
+			if (TRUE !== $confObject->get("enable"))
 				continue;
 			$result[] = $objectv;
 		}
@@ -152,7 +152,6 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 *   array. An exception will be thrown in case of an error.
 	 */
 	public function getList($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -168,24 +167,19 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			// Check if there exists a device configuration object for the
 			// given device. Note, we have to check for 'dev/xxx' and
 			// 'dev/disk/by-id/xxx' entries.
-			$xpath = sprintf("//services/smart/monitor/device[".
-			  "devicefile='%s' or devicefile='%s']",
+			$db = \OMV\Config\Database::getInstance();
+			$predicate = sprintf("devicefile='%s' or devicefile='%s'",
 			  $objectv['devicefilebyid'], $objectv['devicefile']);
+			$confObjects = $db->getByPredicate(
+			  "conf.service.smartmontools.device",
+			  $predicate);
 			// If found, then finally get the S.M.A.R.T. device settings
 			// configuration object.
-			if (!is_null($object = $xmlConfig->get($xpath))) {
-				// Ensure the retured value is an object, otherwise throw
-				// an error.
-				if (is_multiarray($object)) {
-					throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_INVALID,
-					  "A single object is expected");
-				}
-				// Get the S.M.A.R.T. settings of this device.
-				$object = $this->callMethod("getDeviceSettings", array(
-					  "devicefile" => $object['devicefile']
-				  ), $context);
-				$objectv['uuid'] = $object['uuid'];
-				$objectv['monitor'] = $object['enable'];
+			if (0 < count($confObjects)) {
+				$confObject = $confObjects[0];
+				// Append the device settings.
+				$objectv['uuid'] = $confObject->get("uuid");
+				$objectv['monitor'] = $confObject->get("enable");
 			}
 		}
 		// Filter result.
@@ -220,7 +214,6 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 * @return The stored configuration object.
 	 */
 	public function setSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -228,30 +221,17 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.smart.setsettings");
 		// Get the existing configuration object.
-		$xpath = "//services/smart";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Update the configuration object.
-		$object = array_merge($object, array(
-			  "enable" => array_boolval($params, 'enable'),
-			  "interval" => $params['interval'],
-			  "powermode" => $params['powermode'],
-			  "tempdiff" => $params['tempdiff'],
-			  "tempinfo" => $params['tempinfo'],
-			  "tempcrit" => $params['tempcrit']
-		  ));
-		if(FALSE === $xmlConfig->replace($xpath, $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.smartmontools");
+		$object->setAssoc($params);
+		// Set the configuration object.
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.smart", $object);
+		  "org.openmediavault.services.smart", $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -264,7 +244,6 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 * @return The configuration object.
 	 */
 	public function getDeviceSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -272,16 +251,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.smart.getdevicesettings");
 		// Get the configuration object.
-		$xpath = sprintf("//services/smart/monitor/device[devicefile='%s']",
-		  $params['devicefile']);
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify result data.
-		$object['enable'] = boolvalEx($object['enable']);
-		return $object;
+		$db = \OMV\Config\Database::getInstance();
+		return $db->getAssoc("conf.service.smartmontools.device",
+		  "devicefile", $params['devicefile']);
 	}
 
 	/**
@@ -296,7 +268,6 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 * @return The stored configuration object.
 	 */
 	public function setDeviceSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -308,50 +279,31 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		  $params['devicefile']);
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 		  $params['devicefile']);
-		if(FALSE === $sd->hasSMART()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Device does not support S.M.A.R.T. (device=%s)",
-			  $sd->getDeviceFile()));
-		}
+		// Ensure that the device has S.M.A.R.T. support.
+		$sd->assertHasSmartSupport();
 		// Prepare the configuration data.
-		$object = array(
-			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  \OMV\Uuid::uuid4() : $params['uuid'],
+		$object = new ConfigObject("conf.service.smartmontools.device");
+		$object->setAssoc([
+			"uuid" => $params['uuid'],
 			"devicefile" => $sd->getDeviceFileById(),
-			"enable" => array_boolval($params, 'enable'),
-			"type" => $sd->getSMARTDeviceType()
-		);
-		// Set the configuration data.
-		$success = FALSE;
-		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+			"enable" => $params['enable'],
+			"type" => $sd->getSmartDeviceType()
+		]);
+		// Set the configuration object.
+		$isNew = $object->isNew();
+		$db = \OMV\Config\Database::getInstance();
+		if (TRUE === $isNew) {
 			// Check uniqueness.
-			$xpath = sprintf("//services/smart/monitor/device[devicefile='%s']",
-			  $object['devicefile']);
-			if(TRUE === $xmlConfig->exists($xpath)) {
-				throw new OMVException(
-				  OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-				  sprintf("Settings already exist for device '%s'"),
-				  $object['devicefile']);
-			}
-			// Append object to configuration.
-			$success = $xmlConfig->set("//services/smart/monitor",
-			  array("device" => $object));
-		} else {
-			// Update existing configuration object.
-			$xpath = sprintf("//services/smart/monitor/device[uuid='%s']",
-			  $object['uuid']);
-			$success = $xmlConfig->replace($xpath, $object);
+			$db->assertIsUnique($object, "devicefile");
 		}
-		if(FALSE === $success) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
-		// Notify the configuration changes.
+		$db->set($object);
+		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.smart.monitor.device", $object);
+		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.services.smart.monitor.device",
+		  $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -373,21 +325,15 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		  $params['devicefile']);
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 		  $params['devicefile']);
-		if (FALSE === $sd->hasSMART()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Device does not support S.M.A.R.T. (device=%s)",
-			  $sd->getDeviceFile()));
-		}
-		if (is_null($smartInfo = $sd->getSMARTInformation())) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to get S.M.A.R.T. interface (device=%s)",
-			  $sd->getDeviceFile()));
-		}
+		// Ensure that the device has S.M.A.R.T. support.
+		$sd->assertHasSmartSupport();
+		// Get the S.M.A.R.T. information.
+		$smartInfo = $sd->getSmartInformation();
 		if (FALSE === ($result = $smartInfo->getExtendedInformation())) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to get S.M.A.R.T. extended information ".
+			throw new \OMV\Exception(
+			  "Failed to get S.M.A.R.T. extended information ".
 			  "(device=%s, type=%s): %s", $smartInfo->getDeviceFile(),
-			  $smartInfo->getType(), $smartInfo->getLastError()));
+			  $smartInfo->getType(), $smartInfo->getLastError());
 		}
 		return $result;
 	}
@@ -411,20 +357,14 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		  $params['devicefile']);
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 		  $params['devicefile']);
-		if(FALSE === $sd->hasSMART()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Device does not support S.M.A.R.T. (device=%s)",
-			  $sd->getDeviceFile()));
-		}
-		if(is_null($smartInfo = $sd->getSMARTInformation())) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to get S.M.A.R.T. interface (device=%s)",
-			  $sd->getDeviceFile()));
-		}
-		if(FALSE === ($result = $smartInfo->getAttributes())) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to get S.M.A.R.T. attributes (device=%s): %s",
-			  $sd->getDeviceFile(), $smartInfo->getLastError()));
+		// Ensure that the device has S.M.A.R.T. support.
+		$sd->assertHasSmartSupport();
+		// Get the S.M.A.R.T. information.
+		$smartInfo = $sd->getSmartInformation();
+		if (FALSE === ($result = $smartInfo->getAttributes())) {
+			throw new \OMV\Exception(
+			  "Failed to get S.M.A.R.T. attributes for device '%s': %s",
+			  $sd->getDeviceFile(), $smartInfo->getLastError());
 		}
 		return $result;
 	}
@@ -448,21 +388,14 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		  $params['devicefile']);
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 		  $params['devicefile']);
-		if (FALSE === $sd->hasSMART()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Device does not support S.M.A.R.T. (device=%s)",
-			  $sd->getDeviceFile()));
-		}
-		if (is_null($smartInfo = $sd->getSMARTInformation())) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to get S.M.A.R.T. interface (device=%s)",
-			  $sd->getDeviceFile()));
-		}
+		// Ensure that the device has S.M.A.R.T. support.
+		$sd->assertHasSmartSupport();
+		// Get the S.M.A.R.T. information.
+		$smartInfo = $sd->getSmartInformation();
 		if (FALSE === ($result = $smartInfo->getSelfTestLogs())) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to get S.M.A.R.T. self-test logs ".
-			  "(device=%s): %s", $sd->getDeviceFile(),
-			  $smartInfo->getLastError()));
+			throw new \OMV\Exception(
+			  "Failed to get S.M.A.R.T. self-test logs for device '%s': %s",
+			  $sd->getDeviceFile(), $smartInfo->getLastError());
 		}
 		return $result;
 	}
@@ -486,20 +419,14 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		  $params['devicefile']);
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 		  $params['devicefile']);
-		if (FALSE === $sd->hasSMART()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Device does not support S.M.A.R.T. (device=%s)",
-			  $sd->getDeviceFile()));
-		}
-		if (is_null($smartInfo = $sd->getSMARTInformation())) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to get S.M.A.R.T. interface (device=%s)",
-			  $sd->getDeviceFile()));
-		}
+		// Ensure that the device has S.M.A.R.T. support.
+		$sd->assertHasSmartSupport();
+		// Get the S.M.A.R.T. information.
+		$smartInfo = $sd->getSmartInformation();
 		if (FALSE === ($result = $smartInfo->getInformation())) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to get S.M.A.R.T. information (device=%s): %s",
-			  $sd->getDeviceFile(), $smartInfo->getLastError()));
+			throw new \OMV\Exception(
+			  "Failed to get S.M.A.R.T. information for device '%s': %s",
+			  $sd->getDeviceFile(), $smartInfo->getLastError());
 		}
 		return $result;
 	}
@@ -524,38 +451,36 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
-		// Get the configuration object list.
-		$xpath = "//services/smart/scheduledtests/job";
-		$objects = $xmlConfig->getList($xpath);
-		if(is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		// Get the configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->get("conf.service.smartmontools.job");
 		// Add additional share informations.
-		foreach($objects as $objectk => &$objectv) {
-			// Modify result data.
-			$objectv['enable'] = boolvalEx($objectv['enable']);
+		$objectsAssoc = array();
+		foreach ($objects as $objectk => &$objectv) {
 			// Append storage device information.
-			$objectv['volume'] = array(
+			$objectv->add("volume", "object");
+			$objectv->set("volume", [
 				"devicefile" => gettext("n/a"),
+				"devicefilebyid" => "",
 				"model" => gettext("n/a"),
 				"size" => "-1" // as string
-			);
+			]);
 			// Get the storage device object.
 			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
-			  $objectv['devicefile']);
+			  $objectv->get("devicefile"));
 			if (!is_null($sd) && $sd->exists()) {
 				// Update storage device information.
-				$objectv['volume'] = array(
+				$objectv->set("volume", [
 					"devicefile" => $sd->getDeviceFile(),
 					"devicefilebyid" => $sd->getDeviceFileById(),
 					"model" => $sd->getModel(),
 					"size" => $sd->getSize()
-				);
+				]);
 			}
+			$objectsAssoc[] = $objectv->getAssoc();
 		}
 		// Filter result.
-		return $this->applyFilter($objects, $params['start'],
+		return $this->applyFilter($objectsAssoc, $params['start'],
 		  $params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
@@ -567,7 +492,6 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 * @return The requested configuration object.
 	 */
 	public function getScheduledTest($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -575,16 +499,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
-		$xpath = sprintf("//services/smart/scheduledtests/job[uuid='%s']",
+		$db = \OMV\Config\Database::getInstance();
+		return $db->getAssoc("conf.service.smartmontools.job",
 		  $params['uuid']);
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify the result object.
-		$object['enable'] = boolvalEx($object['enable']);
-		return $object;
 	}
 
 	/**
@@ -594,7 +511,6 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 * @return The stored configuration object.
 	 */
 	public function setScheduledTest($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -606,46 +522,23 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		  $params['devicefile']);
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 		  $params['devicefile']);
-		// Check if the given device exists and supports S.M.A.R.T.
-		if (FALSE === $sd->hasSMART()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Device does not support S.M.A.R.T. (device=%s)",
-			  $sd->getDeviceFile()));
-		}
-		// Prepare configuration data
-		$object = array(
-			  "uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-				\OMV\Uuid::uuid4() : $params['uuid'],
-			  "enable" => array_boolval($params, 'enable'),
-			  "devicefile" => $sd->getDeviceFileById(),
-			  "type" => $params['type'],
-			  "month" => $params['month'],
-			  "dayofmonth" => $params['dayofmonth'],
-			  "dayofweek" => $params['dayofweek'],
-			  "hour" => $params['hour'],
-			  "comment" => $params['comment']
-		  );
-		// Set the configuration data.
-		$success = FALSE;
-		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
-			// Append object to configuration.
-			$success = $xmlConfig->set("//services/smart/scheduledtests",
-			  array("job" => $object));
-		} else {
-			// Update existing configuration object.
-			$success = $xmlConfig->replace("//services/smart/scheduledtests/".
-			  "job[uuid='{$params['uuid']}']", $object);
-		}
-		if(FALSE === $success) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		// Ensure that the device has S.M.A.R.T. support.
+		$sd->assertHasSmartSupport();
+		// Prepare the configuration data.
+		$object = new \OMV\Config\ConfigObject("conf.service.smartmontools.job");
+		$object->setAssoc($params);
+		$object->set("devicefile", $sd->getDeviceFileById());
+		// Set the configuration object.
+		$isNew = $object->isNew();
+		$db = \OMV\Config\Database::getInstance();
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.smart.scheduledtests.job", $object);
+		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.services.smart.scheduledtests.job",
+		  $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -663,9 +556,8 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		$xpath = sprintf("//services/smart/scheduledtests/job[uuid='%s']",
-		  $params['uuid']);
-		return $this->deleteConfigObjectByPath($xpath,
+		return $this->deleteConfigObjectByUuid(
+		  "conf.service.smartmontools.job", $params['uuid'],
 		  "org.openmediavault.services.smart.scheduledtests.job");
 	}
 
@@ -695,9 +587,10 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			$bgOutputFilename = $this->createBgProcOutput();
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
-			// Get the scheduled test configuration object.
-			$object = $this->callMethod("getScheduledTest", array(
-			  "uuid" => $params['uuid']), $context);
+			// Get the configuration object.
+			$db = \OMV\Config\Database::getInstance();
+			$object = $db->get("conf.service.smartmontools.job",
+			  $params['uuid']);
 			// Execute the command line in a shell.
 			$test = array(
 				  "S" => "short",
@@ -706,8 +599,10 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 				  "O" => "offline"
 			  );
 			$cmd = "/usr/sbin/smartctl";
-			$cmdArgs = array("-t", $test[$object['type']],
-			  $object['devicefile']);
+			$cmdArgs = array();
+			$cmdArgs[] = "-t";
+			$cmdArgs[] = $test[$object->get("type")];
+			$cmdArgs[] = $object->get("devicefile");
 			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename))
 				throw new \OMV\ExecException($cmd." ".implode(" ", $cmdArgs));
 		} catch(\Exception $e) {

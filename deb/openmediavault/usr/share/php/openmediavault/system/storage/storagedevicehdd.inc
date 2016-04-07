@@ -27,7 +27,7 @@ namespace OMV\System\Storage;
  * otherwise the disk will spin-up if it is in sleep mode.
  * @ingroup api
  */
-class StorageDeviceHDD extends StorageDeviceSMARTAbstract {
+class StorageDeviceHDD extends StorageDeviceSmartAbstract {
 	/**
 	 * Get the current power mode status.
 	 * @return The current power mode status which can be
@@ -68,12 +68,12 @@ class StorageDeviceHDD extends StorageDeviceSMARTAbstract {
 	 * Identify the device type required by the smartctl command.
 	 * @return Returns the identified device type or an empty string.
 	 */
-	public function getSMARTDeviceType() {
-		$type = parent::getSMARTDeviceType();
+	public function getSmartDeviceType() {
+		$type = parent::getSmartDeviceType();
 		if (empty($type)) {
 			// TODO: The device type identification must be improved.
 			if (TRUE === $this->isUsb())
-				$type = $this->setSMARTDeviceType("sat");
+				$type = $this->setSmartDeviceType("sat");
 		}
 		return $type;
 	}

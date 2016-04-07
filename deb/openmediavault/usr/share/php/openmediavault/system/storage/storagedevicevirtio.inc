@@ -24,7 +24,7 @@ namespace OMV\System\Storage;
  * This class provides a simple interface to handle KVM VirtIO devices.
  * @ingroup api
  */
-class StorageDeviceVirtIO extends StorageDeviceSMARTAbstract {
+class StorageDeviceVirtIO extends StorageDeviceSmartAbstract {
 	protected $smartDeviceType = "sat";
 
 	/**
