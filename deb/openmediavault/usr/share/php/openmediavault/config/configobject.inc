@@ -35,8 +35,11 @@ class ConfigObject {
 	 */
 	public function __construct($id) {
 		// Set the data model.
+		// !!! Note, we need to clone the data model, otherwise we are
+		// working on the original object which will cause unexpected
+		// behaviour !!!.
 		$modelMngr = \OMV\DataModel\Manager::getInstance();
-		$this->model = $modelMngr->getModel($id);
+		$this->model = clone $modelMngr->getModel($id);
 		// Set the default property values.
 		$this->setDefaults();
 	}

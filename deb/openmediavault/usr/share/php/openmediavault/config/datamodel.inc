@@ -67,6 +67,10 @@ class DataModel extends \OMV\DataModel\DataModel {
 		));
 	}
 
+	public function __clone() {
+		$this->propertiesSchema = clone $this->propertiesSchema;
+	}
+
 	public function getPropertiesSchema() {
 		return $this->propertiesSchema;
 	}
