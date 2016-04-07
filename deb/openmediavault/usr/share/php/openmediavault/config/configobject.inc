@@ -34,9 +34,11 @@ class ConfigObject {
 	 * @param id The data model identifier.
 	 */
 	public function __construct($id) {
+		// Set the data model.
 		$modelMngr = \OMV\DataModel\Manager::getInstance();
 		$this->model = $modelMngr->getModel($id);
-		$this->properties = new \OMV\Dictionary($this->getDefaultsAssoc());
+		// Set the default property values.
+		$this->setDefaults();
 	}
 
 	/**
@@ -125,7 +127,16 @@ class ConfigObject {
 	 * @return The array of key/value pairs with the default values as
 	 *   described by the data model.
 	 */
-	public function getDefaults() {
+	public function getDefaultsIndexed() {
+		return array_flatten($this->getDefaultsAssoc());
+	}
+
+	/**
+	 * Get the default properties as an associative array.
+	 * @return The array of key/value pairs with the default values as
+	 *   described by the data model.
+	 */
+	public function getDefaultsAssoc() {
 		$dict = new \OMV\Dictionary();
 		$fn = function($model, $name, $path, $schema, &$userData) {
 //			$this->debug(var_export(func_get_args(), TRUE));
@@ -136,12 +147,11 @@ class ConfigObject {
 	}
 
 	/**
-	 * Get the default properties as an associative array.
-	 * @return The array of key/value pairs with the default values as
-	 *   described by the data model.
+	 * Set the default property values as defined in the data model.
+	 * @return None.
 	 */
-	public function getDefaultsAssoc() {
-		return array_expand($this->getDefaults());
+	public function setDefaults() {
+		$this->properties = new \OMV\Dictionary($this->getDefaultsAssoc());
 	}
 
 	/**
@@ -270,6 +280,16 @@ class ConfigObject {
 		$this->copy($tmpName, $targetName);
 		// Remove the temporary property.
 		$this->remove($tmpName);
+	}
+
+	/**
+	 * Reset a property to its default value as defined in the data model.
+	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
+	 * @return None.
+	 */
+	public function reset($name) {
+		$defaults = new \OMV\Dictionary($this->getDefaultsAssoc());
+		$this->set($name, $defaults->get($name));
 	}
 
 	/**
