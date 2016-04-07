@@ -457,9 +457,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		// Add additional share informations.
 		$objectsAssoc = array();
 		foreach ($objects as $objectk => &$objectv) {
+			$objectAssoc = $objectv->getAssoc();
 			// Append storage device information.
-			$objectv->add("volume", "object");
-			$objectv->set("volume", [
+			$objectAssoc = array_merge($objectAssoc, [
 				"devicefile" => gettext("n/a"),
 				"devicefilebyid" => "",
 				"model" => gettext("n/a"),
@@ -470,14 +470,14 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			  $objectv->get("devicefile"));
 			if (!is_null($sd) && $sd->exists()) {
 				// Update storage device information.
-				$objectv->set("volume", [
+				$objectAssoc = array_merge($objectAssoc, [
 					"devicefile" => $sd->getDeviceFile(),
 					"devicefilebyid" => $sd->getDeviceFileById(),
 					"model" => $sd->getModel(),
 					"size" => $sd->getSize()
 				]);
 			}
-			$objectsAssoc[] = $objectv->getAssoc();
+			$objectsAssoc[] = $objectAssoc;
 		}
 		// Filter result.
 		return $this->applyFilter($objectsAssoc, $params['start'],
