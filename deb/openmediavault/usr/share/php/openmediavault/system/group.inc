@@ -95,7 +95,19 @@ class Group {
 				$id = $this->name;
 			else if (!is_null($this->gid))
 				$id = $this->gid;
-			throw new \OMV\Exception("Group '%s' does not exist.",
+			throw new \OMV\Exception("The group '%s' does not exist.",
+			  strval($id));
+		}
+	}
+
+	public function assertNotExists() {
+		if (TRUE === $this->exists()) {
+			$id = "unknown";
+			if (!is_null($this->name))
+				$id = $this->name;
+			else if (!is_null($this->gid))
+				$id = $this->gid;
+			throw new \OMV\Exception("The group '%s' already exists.",
 			  strval($id));
 		}
 	}

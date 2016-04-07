@@ -391,7 +391,7 @@ finish:
 		));
 		// Get additional user information stored in database.
 		$db = \OMV\Config\Database::getInstance();
-		$predicate = sprintf("name='%s'", $result['name']);
+		$predicate = sprintf("name='%s'", $user->getName());
 		$objects = $db->getByPredicate("conf.system.usermngmnt.user",
 		  $predicate);
 		if (0 < count($objects)) {
@@ -422,7 +422,8 @@ finish:
 		  ));
 		// Get the user configuration object.
 		$object = $this->callMethod("getUser", array(
-		  "name" => $context['username']), $this->getAdminContext());
+			  "name" => $context['username']
+		  ), $this->getAdminContext());
 		// Prepare the result object.
 		return array(
 			  "name" => $object['name'],
@@ -458,65 +459,39 @@ finish:
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "name":{'.$GLOBALS['OMV_JSONSCHEMA_USERNAME'].'},
-				  "uid":{"type":"integer","optional":true},
-				  "groups":{
-					  "type":"array",
-					  "items":{
-						  "type":"string"
-					  }
-				  },
-				  "shell":{"type":"string","optional":true},
-				  "password":{"type":"string"},
-				  "email":{'.$GLOBALS['OMV_JSONSCHEMA_EMAIL'].'},
-				  "comment":{"type":"string","optional":true},
-				  "disallowusermod":{"type":"boolean"},
-				  "sshpubkeys":{
-					  "type":"array",
-					  "items":{'.$GLOBALS['OMV_JSONSCHEMA_SSHPUBKEY_RFC4716'].'}
-				  }
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.usermngmt.setuser");
 		// Check if the given user is a system account. Abort this attempt.
 		$user = new \OMV\System\User($params['name']);
 		if ($user->exists() && $user->isSystemAccount()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  gettext("Unauthorized attempt to modify the system account '%s'"),
-			  $params['name']));
+			throw new \OMV\Exception(
+			  "Unauthorized attempt to modify the system user account '%s'",
+			  $params['name']);
 		}
-		// Get additional information stored in database.
-		$xpath = sprintf("//system/usermanagement/users/user[name='%s']",
-		  $params['name']);
-		$object = $xmlConfig->get($xpath);
-		// Set configuration object.
-		$success = FALSE;
-		if (is_null($object)) {
-			$object = array(
-				"uuid" => \OMV\Uuid::uuid4(),
-				"name" => $params['name'],
-				"email" => $params['email'],
-				"disallowusermod" => array_boolval($params,
-				  "disallowusermod"),
-				"sshpubkeys" => empty($params['sshpubkeys']) ?
-				  array() : array("sshpubkey" => $params['sshpubkeys'])
-			);
-			// Append new configuration object.
-			$success = $xmlConfig->set("//system/usermanagement/users",
-			  array("user" => $object));
+		// Try to get existing configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$predicate = sprintf("name='%s'", $params['name']);
+		if ($db->existsByPredicate("conf.system.usermngmnt.user",
+		  $predicate)) {
+			$objects = $db->getByPredicate("conf.system.usermngmnt.user",
+			  $predicate);
+			// Get the user configuration object. Due the fact that a user
+			// name is unique, we can simply use the first found object.
+			$object = $objects[0];
+			$object->set("email", $params['email']);
+			$object->set("disallowusermod", $params['disallowusermod']);
+			$object->set("email", $params['email']);
+			$object->set("sshpubkeys.sshpubkey", $params['sshpubkeys']);
 		} else {
-			$object['email'] = $params['email'];
-			$object['disallowusermod'] = array_boolval($params,
-			  "disallowusermod");
-			$object['sshpubkeys'] = empty($params['sshpubkeys']) ?
-			  array() : array("sshpubkey" => $params['sshpubkeys']);
-			// Update existing configuration object.
-			$success = $xmlConfig->replace($xpath, $object);
+			$object = new \OMV\Config\ConfigObject(
+			  "conf.system.usermngmnt.user");
+			$object->setNew();
+			$object->set("name", $params['name']);
+			$object->set("email", $params['email']);
+			$object->set("disallowusermod", $params['disallowusermod']);
+			$object->set("email", $params['email']);
+			$object->set("sshpubkeys.sshpubkey", $params['sshpubkeys']);
 		}
-		if (FALSE === $success)
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
+		$db->set($object);
 		// Prepare command arguments. Note, a user is always in the
 		// group 'users'.
 		$cmdArgs = array();
@@ -535,14 +510,10 @@ finish:
 			$cmdArgs[] = escapeshellarg(implode(",", $params['groups']));
 		}
 		// Does the user already exist?
-		if (!$user->exists()) {
+		$isNew = !$user->exists();
+		if (TRUE === $isNew) {
 			// Get user management settings.
-			$xpath = "//system/usermanagement/homedirectory";
-			$hdsobject = $xmlConfig->get($xpath);
-			if (is_null($hdsobject)) {
-				throw new OMVException(
-				  OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
-			}
+			$hdsobject = $db->get("conf.system.usermngmnt.homedir");
 			// Append additional arguments.
 			$cmdArgs[] = "--password";
 			$cmdArgs[] = escapeshellarg(crypt($params['password']));
@@ -550,20 +521,23 @@ finish:
 				$cmdArgs[] = "--uid";
 				$cmdArgs[] = $params['uid'];
 			}
-			if (TRUE === boolvalEx($hdsobject['enable'])) {
+			if (TRUE === boolvalEx($hdsobject->get("enable"))) {
 				// Get the absolute shared folder path.
-				$sfpath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", array(
-				  "uuid" => $hdsobject['sharedfolderref']), $context);
+				$sfpath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath",
+				  array("uuid" => $hdsobject->get("sharedfolderref")),
+				  $context);
 				$cmdArgs[] = "--create-home";
 				$cmdArgs[] = "--home";
 				$cmdArgs[] = escapeshellarg(build_path(DIRECTORY_SEPARATOR,
 				  $sfpath, $params['name']));
 			}
-			// Create a new user.
-			$cmd = sprintf("export LANG=C; useradd %s %s 2>&1",
-			  implode(" ", $cmdArgs), escapeshellarg($params['name']));
-			if (0 !== $this->exec($cmd, $output))
-				throw new \OMV\ExecException($cmd, $output);
+			$cmdArgs[] = escapeshellarg($params['name']);
+			// Create the new user.
+			$cmd = new \OMV\System\Process("useradd", $cmdArgs);
+			$cmd->setRedirect2to1(TRUE);
+			$cmd->execute($output, $exitStatus);
+			if (0 !== $exitStatus)
+				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
 		} else {
 			// Append additional arguments.
 			if (array_key_exists("password", $params) &&
@@ -571,21 +545,23 @@ finish:
 				$cmdArgs[] = "--password";
 				$cmdArgs[] = escapeshellarg(crypt($params['password']));
 			}
-			// Modify existing user.
-			$cmd = sprintf("export LANG=C; usermod %s %s 2>&1",
-			  implode(" ", $cmdArgs), escapeshellarg($params['name']));
-			if (0 !== $this->exec($cmd, $output))
-				throw new \OMV\ExecException($cmd, $output);
+			$cmdArgs[] = escapeshellarg($params['name']);
+			// Modify the existing user.
+			$cmd = new \OMV\System\Process("usermod", $cmdArgs);
+			$cmd->setRedirect2to1(TRUE);
+			$cmd->execute($output, $exitStatus);
+			if (0 !== $exitStatus)
+				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
 		}
 		// Append some more information to the notification object.
-		$object = array_merge($object, $params);
+		$objectAssoc = array_merge($object->getAssoc(), $params);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify((!$user->exists()) ?
-		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.usermanagement.users.user", $object);
+		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.usermanagement.users.user",
+		  $objectAssoc);
 		// Return the configuration object.
-		return $object;
+		return $objectAssoc;
 	}
 
 	/**
@@ -603,17 +579,11 @@ finish:
 			  "role" => OMV_ROLE_EVERYONE
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-				"type":"object",
-				"properties":{
-					"password":{"type":"string"},
-					"email":{'.$GLOBALS['OMV_JSONSCHEMA_EMAIL'].'},
-					"comment":{"type":"string"}
-				}
-			}');
+		$this->validateMethodParams($params, "rpc.usermngmt.setuserbycontext");
 		// Get the user configuration object.
 		$object = $this->callMethod("getUser", array(
-		  "name" => $context['username']), $this->getAdminContext());
+			  "name" => $context['username']
+		  ), $this->getAdminContext());
 		// Update the user configuration.
 		return $this->callMethod("setUser", array(
 			  "name" => $object['name'],
@@ -636,31 +606,30 @@ finish:
 	 * @return The deleted configuration object.
 	 */
 	function deleteUser($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "name":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.usermngmt.deleteuser");
 		// Get the user configuration object (required for the notification
 		// event).
 		$object = $this->callMethod("getUser", array(
-		  "name" => $params['name']), $this->getAdminContext());
+			  "name" => $params['name']
+		  ), $this->getAdminContext());
 		// Delete the user.
-		$cmd = sprintf("export LANG=C; userdel --force %s 2>&1",
-		  escapeshellarg($params['name']));
-		if (0 !== $this->exec($cmd, $output))
-			throw new \OMV\ExecException($cmd, $output);
+		$cmdArgs = array();
+		$cmdArgs[] = "--force";
+		$cmdArgs[] = escapeshellarg($params['name']);
+		$cmd = new \OMV\System\Process("userdel", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute($output, $exitStatus);
+		if (0 !== $exitStatus)
+			throw new \OMV\ExecException($cmd->getCommandLine(), $output);
 		// Delete additional user information stored in database.
-		$xpath = sprintf("//system/usermanagement/users/user[name='%s']",
-		  $params['name']);
-		$xmlConfig->delete($xpath);
+		$db = \OMV\Config\Database::getInstance();
+		$predicate = sprintf("name='%s'", $params['name']);
+		$db->deleteByPredicate("conf.system.usermngmnt.user", $predicate);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
@@ -681,22 +650,16 @@ finish:
 	 * @return None.
 	 */
 	function importUsers($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "csv":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.usermngmt.importuser");
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
-		if($pid > 0) { // Parent process.
+		if ($pid > 0) { // Parent process.
 			$this->initializeBgProcStatus($bgStatusFilename, $pid);
 			return $bgStatusFilename;
 		}
@@ -717,8 +680,7 @@ finish:
 				if (1 !== preg_match("/^([^;]+);(\d*);([^;]*);([^;]*);([^;]+);".
 				  "([^;]*);(true|1|yes|y|on|false|0|no|n|off)$/i",
 				  $linev, $matches)) {
-					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-					  sprintf(gettext("Invalid line: %s"), $linev));
+					throw new \OMV\Exception("Invalid line: %s", $linev);
 				}
 				$object = array(
 					"name" => $matches[1],
@@ -738,19 +700,11 @@ finish:
 			foreach ($objects as $objectk => $objectv) {
 				// Check if an user with the given name already exists.
 				$user = new \OMV\System\User($objectv['name']);
-				if ($user->exists()) {
-					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-					  sprintf(gettext("User '%s' already exist"),
-					  $objectv['name']));
-				}
+				$user->assertNotExists();
 				// Check if an user with the given UID already exists.
 				if (array_key_exists("uid", $object)) {
 					$user = new \OMV\System\User($objectv['uid']);
-					if ($user->exists()) {
-						throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-						  sprintf(gettext("User ID '%d' already exist"),
-						  $objectv['uid']));
-					}
+					$user->assertNotExists();
 				}
 			}
 			// Finally create the users.
@@ -778,7 +732,6 @@ finish:
 	 *   array. An exception will be thrown in case of an error.
 	 */
 	function getGroupList($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -789,11 +742,17 @@ finish:
 		$groups = $this->enumerateGroupsByType("normal");
 		foreach ($groups as $groupk => &$groupv) {
 			// Get additional information stored in database.
-			$xpath = sprintf("//system/usermanagement/groups/group[name='%s']",
-			  $groupv['name']);
-			$object = $xmlConfig->get($xpath);
-			if (!is_null($object)) {
-				$groupv['comment'] = $object['comment'];
+			$db = \OMV\Config\Database::getInstance();
+			$predicate = sprintf("name='%s'", $groupv['name']);
+			$objects = $db->getByPredicate("conf.system.usermngmnt.group",
+			  $predicate);
+			if (0 < count($objects)) {
+				// Get the group configuration object. Due the fact that a
+				// group name is unique, we can simply use the first found
+				// object.
+				$object = $objects[0];
+				// Append additional information.
+				$groupv['comment'] = $object->get("comment");
 			}
 		}
 		// Filter result.
@@ -809,36 +768,29 @@ finish:
 	 * @return The requested configuration object.
 	 */
 	function getGroup($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "name":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.usermngmt.getgroup");
 		// Get the group information.
 		$group = new \OMV\System\Group($params['name']);
-		if (!$group->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf(gettext("Group '%s' does not exist"),
-			  $params['name']));
+		$group->assertExists();
+		// Get the group information.
+		$result = $this->getGroupInfo($group->getName());
+		// Get additional group information stored in database.
+		$db = \OMV\Config\Database::getInstance();
+		$predicate = sprintf("name='%s'", $group->getName());
+		$objects = $db->getByPredicate("conf.system.usermngmnt.group",
+		  $predicate);
+		if (0 < count($objects)) {
+			// Get the group configuration object. Due the fact that a group
+			// name is unique, we can simply use the first found object.
+			$object = $objects[0];
+			// Append additional information.
+			$result['comment'] = $object->get("comment");
 		}
-		$result = array(
-			"name" => $group->getName(),
-			"gid" => $group->getGid(),
-			"members" => $group->getMembers()
-		);
-		// Get additional information stored in database.
-		$xpath = sprintf("//system/usermanagement/groups/group[name='%s']",
-		  $result['name']);
-		$object = $xmlConfig->get($xpath);
-		if (!is_null($object))
-			$result['comment'] = $object['comment'];
 		return $result;
 	}
 
@@ -853,73 +805,59 @@ finish:
 	 * @return The stored configuration object.
 	 */
 	function setGroup($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "name":{"type":"string"},
-				  "gid":{"type":"integer","optional":true},
-				  "comment":{"type":"string"},
-				  "members":{
-					  "type":"array",
-					  "items":{
-						  "type":"string"
-					  }
-				  }
-			  }
-		  }');
- 		// Check if the given group is a system account. Abort this attempt.
+		$this->validateMethodParams($params, "rpc.usermngmt.setgroup");
+		// Check if the given group is a system account. Abort this attempt.
 		$group = new \OMV\System\Group($params['name']);
 		if ($group->exists() && $group->isSystemAccount()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  gettext("Unauthorized attempt to modify the system account '%s'"),
-			  $params['name']));
+			throw new \OMV\Exception(
+			  "Unauthorized attempt to modify the system group account '%s'",
+			  $params['name']);
 		}
 		// Try to get existing configuration object.
-		$xpath = sprintf("//system/usermanagement/groups/group[name='%s']",
-		  $params['name']);
-		$object = $xmlConfig->get($xpath);
-		// Set configuration object
-		$success = FALSE;
-		if (is_null($object)) {
-			$object = array(
-				"uuid" => \OMV\Uuid::uuid4(),
-				"name" => $params['name'],
-				"comment" => $params['comment']
-			);
-			// Append object to configuration.
-			$success = $xmlConfig->set("//system/usermanagement/groups",
-			  array("group" => $object));
+		$db = \OMV\Config\Database::getInstance();
+		$predicate = sprintf("name='%s'", $params['name']);
+		if ($db->existsByPredicate("conf.system.usermngmnt.group",
+		  $predicate)) {
+			$objects = $db->getByPredicate("conf.system.usermngmnt.group",
+			  $predicate);
+			// Get the group configuration object. Due the fact that a group
+			// name is unique, we can simply use the first found object.
+			$object = $objects[0];
+			$object->set("comment", $params['comment']);
 		} else {
-			$object['comment'] = $params['comment'];
-			// Update existing configuration object.
-			$success = $xmlConfig->replace("//system/usermanagement/groups/".
-			  "group[name='{$params['name']}']", $object);
+			$object = new \OMV\Config\ConfigObject(
+			  "conf.system.usermngmnt.group");
+			$object->setNew();
+			$object->set("name", $params['name']);
+			$object->set("comment", $params['comment']);
 		}
-		if (FALSE === $success) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$db->set($object);
+		// Append some more information to the notification object.
+		$objectAssoc = $object->getAssoc();
 		// Does the group already exist?
-		if (!$group->exists()) {
+		$isNew = !$group->exists();
+		if (TRUE === $isNew) {
 			// Prepare command arguments.
 			$cmdArgs = array();
-			if(array_key_exists("gid", $params)) {
+			if (array_key_exists("gid", $params)) {
 				$cmdArgs[] = "--gid";
 				$cmdArgs[] = $params['gid'];
 				// Append additional fields to configuration object for
 				// the notification event.
-				$object['gid'] = $params['gid'];
+				$objectAssoc['gid'] = $params['gid'];
 			}
-			// Create new group.
-			$cmd = sprintf("export LANG=C; groupadd %s %s 2>&1",
-			  implode(" ", $cmdArgs), escapeshellarg($params['name']));
-			if (0 !== $this->exec($cmd, $output))
-				throw new \OMV\ExecException($cmd, $output);
+			$cmdArgs[] = escapeshellarg($params['name']);
+			// Create the new group.
+			$cmd = new \OMV\System\Process("groupadd", $cmdArgs);
+			$cmd->setRedirect2to1(TRUE);
+			$cmd->execute($output, $exitStatus);
+			if (0 !== $exitStatus)
+				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
 		} else {
 			// Nothing to do here.
 		}
@@ -927,25 +865,26 @@ finish:
 		if (array_key_exists("members", $params)) {
 			// Append additional fields to configuration object for
 			// the notification event.
-			$object = array_merge($object, array(
-				"members" => $params['members']
-			));
+			$objectAssoc['members'] = $params['members'];
 			// Append the given members to the group.
 			$cmdArgs = array();
 			$cmdArgs[] = "--members";
 			$cmdArgs[] = escapeshellarg(implode(",", $params['members']));
-			$cmd = sprintf("export LANG=C; gpasswd %s %s 2>&1",
-			  implode(" ", $cmdArgs), escapeshellarg($params['name']));
-			if (0 !== $this->exec($cmd, $output))
-				throw new \OMV\ExecException($cmd, $output);
+			$cmdArgs[] = escapeshellarg($params['name']);
+
+			$cmd = new \OMV\System\Process("gpasswd", $cmdArgs);
+			$cmd->setRedirect2to1(TRUE);
+			$cmd->execute($output, $exitStatus);
+			if (0 !== $exitStatus)
+				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
 		}
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(!$group->exists() ?
-		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.usermanagement.groups.group", $object);
+		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.usermanagement.groups.group",
+		  $objectAssoc);
 		// Return the configuration object.
-		return $object;
+		return $objectAssoc;
 	}
 
 	/**
@@ -956,31 +895,30 @@ finish:
 	 * @return The deleted configuration object.
 	 */
 	function deleteGroup($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "name":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.usermngmt.deletegroup");
 		// Get the group configuration object (required for the notification
 		// event).
 		$object = $this->callMethod("getGroup", array(
-		  "name" => $params['name']), $context);
+			  "name" => $params['name']
+		  ), $context);
 		// Delete the group.
-		$cmd = sprintf("export LANG=C; delgroup --only-if-empty %s 2>&1",
-		  escapeshellarg($params['name']));
-		if (0 !== $this->exec($cmd, $output))
-			throw new \OMV\ExecException($cmd, $output);
+		$cmdArgs = array();
+		$cmdArgs[] = "--only-if-empty";
+		$cmdArgs[] = escapeshellarg($params['name']);
+		$cmd = new \OMV\System\Process("delgroup", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute($output, $exitStatus);
+		if (0 !== $exitStatus)
+			throw new \OMV\ExecException($cmd->getCommandLine(), $output);
 		// Delete configuration object.
-		$xpath = sprintf("//system/usermanagement/groups/group[name='%s']",
-		  $params['name']);
-		$xmlConfig->delete($xpath);
+		$db = \OMV\Config\Database::getInstance();
+		$predicate = sprintf("name='%s'", $params['name']);
+		$db->deleteByPredicate("conf.system.usermngmnt.group", $predicate);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
@@ -1000,18 +938,12 @@ finish:
 	 * @return None.
 	 */
 	function importGroups($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "csv":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.usermngmt.importgroup");
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
@@ -1035,8 +967,7 @@ finish:
 				# Parse line.
 				if (1 !== preg_match("/^([^;]+);(\d*);([^;]*)$/i", $linev,
 				  $matches)) {
-					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-					  sprintf(gettext("Invalid line: %s"), $linev));
+					throw new \OMV\Exception("Invalid line: %s", $linev);
 				}
 				$object = array(
 					"name" => $matches[1],
@@ -1051,19 +982,11 @@ finish:
 			foreach ($objects as $objectk => $objectv) {
 				// Check if an group with the given name already exists.
 				$group = new \OMV\System\Group($objectv['name']);
-				if ($group->exists()) {
-					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-					  sprintf(gettext("Group '%s' already exist"),
-					  $objectv['name']));
-				}
+				$group->assertNotExists();
 				// Check if an group with the given GID already exists.
 				if (array_key_exists("gid", $object)) {
 					$group = new \OMV\System\Group($objectv['gid']);
-					if ($group->exists()) {
-						throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-						  sprintf(gettext("Group ID '%d' already exist"),
-						  $objectv['gid']));
-					}
+					$group->assertNotExists();
 				}
 			}
 			// Finally create the groups.
@@ -1085,21 +1008,12 @@ finish:
 	 * @return The requested configuration object.
 	 */
 	function getSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$xpath = "//system/usermanagement/homedirectory";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify result data.
-		$object['enable'] = boolvalEx($object['enable']);
-		return $object;
+		return $db->getAssoc("conf.system.usermngmnt.homedir");
 	}
 
 	/**
@@ -1109,35 +1023,24 @@ finish:
 	 * @return The stored configuration object.
 	 */
 	public function setSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "enable":{"type":"boolean"},
-				  "sharedfolderref":{'.
-					$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].'}
-			  }
-		  }');
-		// Update the configuration object.
-		$xpath = "//system/usermanagement/homedirectory";
-		$object = array(
-			"enable" => array_boolval($params, 'enable'),
-			"sharedfolderref" => $params['sharedfolderref']
-		);
-		if (FALSE === $xmlConfig->replace($xpath, $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$this->validateMethodParams($params, "rpc.usermngmt.setsettings");
+		// Prepare the configuration object.
+		$object = new \OMV\Config\ConfigObject("conf.system.usermngmnt.homedir");
+		$object->setAssoc($params);
+		// Set the configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$db->set($object);
 		// Build the home directory path.
 		$homeDirPath = "";
-		if (TRUE === boolvalEx($params['enable'])) {
+		if (TRUE === $object->get("enable")) {
 			// Get the absolute shared folder path.
-			$homeDirPath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", array(
-			  "uuid" => $object['sharedfolderref']), $context);
+			$homeDirPath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath",
+			  array("uuid" => $object->get("sharedfolderref")), $context);
 		}
 		// Update the non-system user.
 		$users = $this->enumerateUsersByType("normal");
@@ -1155,10 +1058,12 @@ finish:
 				$cmdArgs[] = "--home";
 				$cmdArgs[] = escapeshellarg($homeDirPath);
 			}
-			$cmd = sprintf("usermod %s %s 2>&1", implode(" ", $cmdArgs),
-			  escapeshellarg($userv['name']));
-			if (0 !== $this->exec($cmd, $output))
-				throw new \OMV\ExecException($cmd, $output);
+			$cmdArgs[] = escapeshellarg($userv['name']);
+			$cmd = new \OMV\System\Process("usermod", $cmdArgs);
+			$cmd->setRedirect2to1(TRUE);
+			$cmd->execute($output, $exitStatus);
+			if (0 !== $exitStatus)
+				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
 			// Create the home directory if it does not exist until now.
 			if (!empty($homeDirPath)) {
 				$path = build_path(DIRECTORY_SEPARATOR, $homeDirPath,
@@ -1166,24 +1071,24 @@ finish:
 				if (!file_exists($path)) {
 					if (!mkdir($path, 0755, TRUE)) {
 						$error = error_get_last();
-						throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-						  sprintf("Failed to create home directory '%s': %s",
-						  $path, $error['message']));
+						throw new \OMV\Exception(
+						  "Failed to create home directory '%s': %s",
+						  $path, $error['message']);
 					}
 					if (!chown($path, $userv['name'])) {
 						$error = error_get_last();
-						throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-						  sprintf("Failed to change owner of the ".
-						  "directory '%s' to '%s': %s", $path,
-						  $userv['name'], $error['message']));
+						throw new \OMV\Exception(
+						  "Failed to change owner of the directory '%s' ".
+						  "to '%s': %s", $path, $userv['name'],
+						  $error['message']);
 					}
 					if (!chgrp($path, $GLOBALS['OMV_USERMGMT_DEFAULT_GROUP'])) {
 						$error = error_get_last();
-						throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-						  sprintf("Failed to change group of the ".
-						  "directory '%s' to '%s': %s", $path,
+						throw new \OMV\Exception(
+						  "Failed to change group of the directory '%s' ".
+						  "to '%s': %s", $path,
 						  $GLOBALS['OMV_USERMGMT_DEFAULT_GROUP'],
-						  $error['message']));
+						  $error['message']);
 					}
 				}
 			}
@@ -1191,8 +1096,9 @@ finish:
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.usermanagement.homedirectory", $object);
+		  "org.openmediavault.system.usermanagement.homedirectory",
+		  $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 }

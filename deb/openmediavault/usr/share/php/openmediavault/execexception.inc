@@ -26,12 +26,21 @@ namespace OMV;
  */
 class ExecException extends \Exception {
 	/**
-	 * @param cmdLine The command line string.
-	 * @param The command output.
+	 * @param string $cmdLine The command line string.
+	 * @param array $output The output of the executed command.
+	 * @param int $exitStatus The return status of the executed command.
 	 */
-	public function __construct($cmdLine, array $output = array()) {
-		$message = sprintf("Failed to execute command '%s': %s", $cmdLine,
-		  implode("\n", $output));
-		parent::__construct($message);
+	public function __construct($cmdLine, array $output = array(),
+	  $exitStatus = NULL) {
+		$args = array();
+		$args[] = $cmdLine;
+		if (!is_null($exitStatus)) {
+			$format = "Failed to execute command '%s' with exit code '%d': %s";
+			$args[] = $exitStatus;
+		} else {
+			$format = "Failed to execute command '%s': %s";
+		}
+		$args[] = implode("\n", $output);
+		parent::__construct(vsprintf($format, $args));
 	}
 }

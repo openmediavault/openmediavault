@@ -575,8 +575,7 @@ abstract class ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		$db->delete($object);
 		// Notify configuration changes.
-		$dispatcher->notify(OMV_NOTIFY_DELETE, $message,
-		  $object->getAssoc());
+		$dispatcher->notify(OMV_NOTIFY_DELETE, $message, $object->getAssoc());
 		// Return the deleted configuration object.
 		return $object->getAssoc();
 	}

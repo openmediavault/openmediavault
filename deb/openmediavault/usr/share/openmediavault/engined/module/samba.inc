@@ -92,8 +92,11 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	final private function existsUser($username) {
-		$cmd = sprintf("export LANG=C; pdbedit --list | grep '%s:'", $username);
-		return (0 !== $this->exec($cmd)) ? FALSE : TRUE;
+		$cmdLine = sprintf("pdbedit --list | grep '%s:'", $username);
+		$cmd = new \OMV\System\Process($cmdLine);
+		$cmd->setQuiet(TRUE);
+		$cmd->execute($output, $exitStatus);
+		return (0 == $exitStatus) ? TRUE : FALSE;
 	}
 
 	/**
@@ -110,6 +113,10 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 			return;
 		// Add the new user into the database.
 		$cmdArgs = array();
+		$cmdArgs[] = sprintf("(echo %s; echo %s)", escapeshellarg(
+		  $object['password']), escapeshellarg($object['password']));
+		$cmdArgs[] = "|";
+		$cmdArgs[] = "pdbedit";
 		$cmdArgs[] = "--create";
 		$cmdArgs[] = "--verbose";
 		$cmdArgs[] = "--password-from-stdin";
@@ -118,9 +125,7 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 			$cmdArgs[] = sprintf("--account-desc=%s", escapeshellarg(
 			  $object['comment']));
 		$cmdArgs[] = escapeshellarg($object['name']);
-		$cmd = sprintf("export LANG=C; (echo %s; echo %s) | pdbedit %s 2>&1",
-		  escapeshellarg($object['password']), escapeshellarg(
-		  $object['password']), implode(" ", $cmdArgs));
+		$cmd = implode(" ", $cmdArgs);
 		if (0 !== $this->exec($cmd, $output))
 			throw new \OMV\ExecException($cmd, $output);
 		// Start/Reload service.
@@ -148,9 +153,10 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 		$cmdArgs[] = "--modify";
 		$cmdArgs[] = "--verbose";
 		$cmdArgs[] = sprintf("--fullname=%s", escapeshellarg($object['name']));
-		if (!empty($object['comment']))
+		if (!empty($object['comment'])) {
 			$cmdArgs[] = sprintf("--account-desc=%s", escapeshellarg(
 			  $object['comment']));
+		}
 		$cmdArgs[] = escapeshellarg($object['name']);
 		$cmd = new \OMV\System\Process("pdbedit", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);
@@ -160,14 +166,12 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 		if (array_key_exists("password", $object) &&
 		  !empty($object['password'])) {
 			$cmdArgs = array();
-			$cmdArgs[] = "export LANG=C;";
 			$cmdArgs[] = sprintf("(echo %s; echo %s)", escapeshellarg(
 			  $object['password']), escapeshellarg($object['password']));
 			$cmdArgs[] = "|";
 			$cmdArgs[] = "smbpasswd";
 			$cmdArgs[] = "-s";
 			$cmdArgs[] = escapeshellarg($object['name']);
-			$cmdArgs[] = "2>&1";
 			$cmd = implode(" ", $cmdArgs);
 			if (0 !== $this->exec($cmd, $output))
 				throw new \OMV\ExecException($cmd, $output);

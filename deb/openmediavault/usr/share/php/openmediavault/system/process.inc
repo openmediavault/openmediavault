@@ -90,7 +90,7 @@ class Process {
 		$cmdLine = $this->getCommandLine();
 		$result = exec($cmdLine, $output, $exitStatus);
 		if ((FALSE === $this->quiet) && (0 !== $exitStatus))
-			throw new \OMV\ExecException($cmdLine, $output);
+			throw new \OMV\ExecException($cmdLine, $output, $exitStatus);
 		return $result;
 	}
 }

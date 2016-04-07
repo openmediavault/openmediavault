@@ -13,22 +13,29 @@
 			"format": "uuidv4"
 		},
 		"name": {
-			"type": "string"
+			"type": "string",
+			"format": "username"
 		},
 		"email": {
 			"type": "string",
-			"format": "email"
+			"oneOf": [{
+				"type": "string",
+				"format": "email"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}]
 		},
 		"disallowusermod": {
 			"type": "boolean",
 			"default": false
 		},
 		"sshpubkeys": {
-			"type": "array",
-			"items": {
-				"type": "object",
-				"properties": {
-					"sshpubkey": {
+			"type": "object",
+			"properties": {
+				"sshpubkey": {
+					"type": "array",
+					"items": {
 						"type": "string",
 						"format": "sshpubkey-rfc4716"
 					}

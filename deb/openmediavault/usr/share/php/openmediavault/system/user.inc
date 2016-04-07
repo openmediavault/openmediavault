@@ -143,7 +143,19 @@ class User {
 				$id = $this->name;
 			else if (!is_null($this->uid))
 				$id = $this->uid;
-			throw new \OMV\Exception("User '%s' does not exist.",
+			throw new \OMV\Exception("The user '%s' does not exist.",
+			  strval($id));
+		}
+	}
+
+	public function assertNotExists() {
+		if (TRUE === $this->exists()) {
+			$id = "unknown";
+			if (!is_null($this->name))
+				$id = $this->name;
+			else if (!is_null($this->uid))
+				$id = $this->uid;
+			throw new \OMV\Exception("The user '%s' already exists.",
 			  strval($id));
 		}
 	}

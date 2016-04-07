@@ -4,11 +4,11 @@
 	"params": {
 		"type": "object",
 		"properties": {
-			"username":{
+			"username": {
 				"type": "string",
 				"required": true
 			},
-			"password":{
+			"password": {
 				"type": "string",
 				"required": true
 			}
@@ -20,8 +20,198 @@
 	"params": {
 		"type": "object",
 		"properties": {
-			"name":{
+			"name": {
 				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermngmt.setuser",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+	            "type": "string",
+				"format": "username",
+				"required": true
+	        },
+	        "uid": {
+	            "type": "integer",
+	            "required": false
+	        },
+	        "groups": {
+	            "type": "array",
+	            "items": {
+	                "type": "string"
+	            },
+				"required": true
+	        },
+	        "shell": {
+	            "type": "string",
+	            "required": false
+	        },
+	        "password": {
+	            "type": "string",
+				"required": true
+	        },
+	        "email": {
+	            "type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "email"
+				},{
+					"type": "string",
+					"maxLength": 0
+				}],
+				"required": true
+	        },
+	        "comment": {
+	            "type": "string",
+	            "required": false
+	        },
+	        "disallowusermod": {
+	            "type": "boolean",
+				"required": true
+	        },
+	        "sshpubkeys": {
+	            "type": "array",
+	            "items": {
+	                "type": "string",
+					"format": "sshpubkey-rfc4716"
+	            },
+				"required": true
+	        }
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermngmt.setuserbycontext",
+	"params": {
+		"type": "object",
+		"properties": {
+			"password": {
+				"type": "string",
+				"required": true
+			},
+			"email": {
+				"type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "email"
+				},{
+					"type": "string",
+					"maxLength": 0
+				}],
+				"required": true
+			},
+			"comment": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermngmt.deleteuser",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermngmt.importuser",
+	"params": {
+		"type": "object",
+		"properties": {
+			"csv": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermngmt.getgroup",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermngmt.setgroup",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+	            "type": "string",
+				"required": true
+	        },
+	        "gid": {
+	            "type": "integer",
+				"required": false
+	        },
+	        "comment": {
+	            "type": "string",
+				"required": true
+	        },
+	        "members": {
+	            "type": "array",
+	            "items": {
+	                "type": "string"
+	            },
+				"required": true
+	        }
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermngmt.deletegroup",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermngmt.importgroup",
+	"params": {
+		"type": "object",
+		"properties": {
+			"csv": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermngmt.setsettings",
+	"params": {
+		"type": "object",
+		"properties": {
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
+			"sharedfolderref": {
+				"type": "string",
+				"format": "uuidv4",
 				"required": true
 			}
 		}
