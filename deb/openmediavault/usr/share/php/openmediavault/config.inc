@@ -510,6 +510,9 @@ class OMVConfigEngine extends OMVObject {
 						$domNode->parentNode->appendChild($node);
 					}
 				} else {
+					// Skip enumerable elements that are empty.
+					if (in_array($mixedk, $this->enums) && empty($mixedv))
+						continue;
 					$node = $this->domdoc->createElement($mixedk);
 					$domNode->appendChild($node);
 				}
