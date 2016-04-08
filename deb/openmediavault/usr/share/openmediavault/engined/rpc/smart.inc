@@ -74,7 +74,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		$objects = array();
 		foreach ($devs as $devk => $devv) {
 			// Get the storage device object.
-			\OMV\System\Storage\StorageDevice::assertGetStorageDevice($devv);
+			\OMV\System\Storage\StorageDevice::assertStorageDeviceExists($devv);
 			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
 			// Skip devices that do not support S.M.A.R.T.
 			if (FALSE === $sd->hasSmartSupport())
@@ -275,7 +275,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.devicefile");
 		// Check if the given device exists and supports S.M.A.R.T.
-		\OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+		\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
 		  $params['devicefile']);
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 		  $params['devicefile']);
@@ -321,7 +321,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.devicefile");
 		// Get the S.M.A.R.T. information.
-		\OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+		\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
 		  $params['devicefile']);
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 		  $params['devicefile']);
@@ -353,7 +353,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.devicefile");
 		// Get the S.M.A.R.T. information.
-		\OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+		\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
 		  $params['devicefile']);
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 		  $params['devicefile']);
@@ -384,7 +384,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.devicefile");
 		// Get the S.M.A.R.T. information.
-		\OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+		\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
 		  $params['devicefile']);
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 		  $params['devicefile']);
@@ -415,7 +415,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.devicefile");
 		// Get the S.M.A.R.T. information.
-		\OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+		\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
 		  $params['devicefile']);
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 		  $params['devicefile']);
@@ -518,7 +518,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.smart.setscheduledtest");
 		// Check if the given device exists.
-		\OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+		\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
 		  $params['devicefile']);
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 		  $params['devicefile']);

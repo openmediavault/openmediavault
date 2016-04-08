@@ -482,7 +482,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.filesystemmgmt.create");
 		// Get the storage device object.
-		\OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+		\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
 		  $params['devicefile']);
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 		  $params['devicefile']);
@@ -773,7 +773,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			  $fs->getDeviceFile());
 		}
 		// Get the according storage device object.
-		\OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+		\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
 		  $storageDeviceFile);
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 		  $storageDeviceFile);

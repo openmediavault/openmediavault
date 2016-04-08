@@ -168,7 +168,7 @@ class StorageDevice extends StorageDeviceAbstract {
 	 * @return None.
 	 * @throw \OMV\AssertException
 	 */
-	public static function assertGetStorageDevice($deviceFile) {
+	public static function assertStorageDeviceExists($deviceFile) {
 		$result = self::getStorageDevice($deviceFile);
 		if (is_null($result) || !$result->exists()) {
 			throw new \OMV\AssertException("Device '%s' not found.",

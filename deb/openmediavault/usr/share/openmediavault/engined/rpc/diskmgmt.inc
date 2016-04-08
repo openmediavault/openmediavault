@@ -63,28 +63,28 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerate(
 		  OMV_STORAGE_DEVICE_TYPE_HDD | OMV_STORAGE_DEVICE_TYPE_HBA))) {
 			throw new \OMV\Exception(
-			  "Failed to get list of hard disks and hardware RAID devices");
+			  "Failed to get list of hard disks and hardware RAID devices.");
 		}
 		// Prepare result list.
 		$objects = array();
 		foreach ($devs as $devk => $devv) {
 			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
-			if (!is_null($sd) && $sd->exists()) {
-				// Prepare device object.
-				$objects[] = array(
-					"devicename" => $sd->getDeviceName(),
-					"devicefile" => $sd->getDeviceFile(),
-					"devicefilebyid" => $sd->getDeviceFileById(),
-					"model" => $sd->getModel(),
-					"size" => $sd->getSize(),
-					"description" => $sd->getDescription(),
-					"vendor" => $sd->getVendor(),
-					"serialnumber" => $sd->getSerialNumber(),
-					"israid" => $sd->isRaid(),
-					"isroot" => (0 === strpos($rootDeviceFile,
-					  $sd->getDeviceFile())) ? TRUE : FALSE
-				);
-			}
+			if (is_null($sd) || !$sd->exists())
+				continue;
+			// Prepare device object.
+			$objects[] = array(
+				"devicename" => $sd->getDeviceName(),
+				"devicefile" => $sd->getDeviceFile(),
+				"devicefilebyid" => $sd->getDeviceFileById(),
+				"model" => $sd->getModel(),
+				"size" => $sd->getSize(),
+				"description" => $sd->getDescription(),
+				"vendor" => $sd->getVendor(),
+				"serialnumber" => $sd->getSerialNumber(),
+				"israid" => $sd->isRaid(),
+				"isroot" => (0 === strpos($rootDeviceFile,
+				  $sd->getDeviceFile())) ? TRUE : FALSE
+			);
 		}
 		return $objects;
 	}
@@ -170,7 +170,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 		$object = new \OMV\Config\ConfigObject("conf.system.hdparm");
 		$object->setAssoc($params);
 		// Check if the given device exists.
-		\OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+		\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
 		  $object->get("devicefile"));
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 		  $object->get("devicefile"));
@@ -223,27 +223,54 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Wipe the device.
 			if (TRUE === boolvalEx($params['secure'])) {
 				// Secure wipe the device.
-				$cmd = sprintf("export LANG=C; shred -v -n 1 %s 2>&1",
-				  escapeshellarg($params['devicefile']));
-				if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
-					throw new \OMV\ExecException($cmd, $output);
+				$cmdArgs = array();
+				$cmdArgs[] = "-v";
+				$cmdArgs[] = "-n 1";
+				$cmdArgs[] = escapeshellarg($params['devicefile']);
+				$cmd = new \OMV\System\Process("shred", $cmdArgs);
+				$cmd->setRedirect2to1(TRUE);
+				if (0 !== $this->exec($cmd->getCommandLine(), $output,
+				  $bgOutputFilename)) {
+					throw new \OMV\ExecException($cmd->getCommandLine(),
+					  $output);
+				}
 			} else {
 				// Quick wipe the device (see omv-initfs).
-				$cmd = sprintf("export LANG=C; sgdisk --zap-all ".
-				  "%s 2>&1", escapeshellarg($params['devicefile']));
-				if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
-					throw new \OMV\ExecException($cmd, $output);
+				$cmdArgs = array();
+				$cmdArgs[] = "--zap-all";
+				$cmdArgs[] = escapeshellarg($params['devicefile']);
+				$cmd = new \OMV\System\Process("sgdisk", $cmdArgs);
+				$cmd->setRedirect2to1(TRUE);
+				if (0 !== $this->exec($cmd->getCommandLine(), $output,
+				  $bgOutputFilename)) {
+					throw new \OMV\ExecException($cmd->getCommandLine(),
+					  $output);
+				}
 				// To make sure really everything is wiped ...
-				$cmd = sprintf("export LANG=C; dd if=/dev/zero of=%s bs=4M ".
-				  "count=1 2>&1", escapeshellarg($params['devicefile']));
-				if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
-					throw new \OMV\ExecException($cmd, $output);
+				$cmdArgs = array();
+				$cmdArgs[] = "if=/dev/zero";
+				$cmdArgs[] = sprintf("of=%s", escapeshellarg(
+				  $params['devicefile']));
+				$cmdArgs[] = "bs=4M";
+				$cmdArgs[] = "count=1";
+				$cmd = new \OMV\System\Process("dd", $cmdArgs);
+				$cmd->setRedirect2to1(TRUE);
+				if (0 !== $this->exec($cmd->getCommandLine(), $output,
+				  $bgOutputFilename)) {
+					throw new \OMV\ExecException($cmd->getCommandLine(),
+					  $output);
+				}
 			}
 			// Reread partition table.
-			$cmd = sprintf("export LANG=C; blockdev --rereadpt %s 2>&1",
-			  escapeshellarg($params['devicefile']));
-			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
-				throw new \OMV\ExecException($cmd, $output);
+			$cmdArgs = array();
+			$cmdArgs[] = "--rereadpt";
+			$cmdArgs[] = escapeshellarg($params['devicefile']);
+			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
+			$cmd->setRedirect2to1(TRUE);
+			if (0 !== $this->exec($cmd->getCommandLine(), $output,
+			  $bgOutputFilename)) {
+				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
+			}
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
 		} catch(\Exception $e) {
