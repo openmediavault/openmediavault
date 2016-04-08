@@ -136,6 +136,10 @@ class User {
 		return !is_null($this->name) && !is_null($this->uid);
 	}
 
+	/**
+	 * Assert that the system user exists.
+	 * @throw \OMV\AssertException
+	 */
 	public function assertExists() {
 		if (FALSE === $this->exists()) {
 			$id = "unknown";
@@ -143,11 +147,15 @@ class User {
 				$id = $this->name;
 			else if (!is_null($this->uid))
 				$id = $this->uid;
-			throw new \OMV\Exception("The user '%s' does not exist.",
+			throw new \OMV\AssertException("The user '%s' does not exist.",
 			  strval($id));
 		}
 	}
 
+	/**
+	 * Assert that the system user not exists.
+	 * @throw \OMV\AssertException
+	 */
 	public function assertNotExists() {
 		if (TRUE === $this->exists()) {
 			$id = "unknown";
@@ -155,7 +163,7 @@ class User {
 				$id = $this->name;
 			else if (!is_null($this->uid))
 				$id = $this->uid;
-			throw new \OMV\Exception("The user '%s' already exists.",
+			throw new \OMV\AssertException("The user '%s' already exists.",
 			  strval($id));
 		}
 	}

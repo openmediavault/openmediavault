@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/config.inc");
 require_once("openmediavault/functions.inc");
 
 class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
@@ -53,7 +52,6 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array containing RAID device objects with following
 	 *   fields: name, devicefile, uuid, level, numdevices, devices,
 	 *   size, state, description and _used.
-	 * @throw E_EXEC_MISC
 	 */
 	public function enumerateDevices($params, $context) {
 		// Validate the RPC caller context.
@@ -63,21 +61,22 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Get all existing software RAID devices.
 		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerate(
 		  OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID))) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
-			  "Failed to get list of software RAID devices");
+			throw new \OMV\Exception(
+			  "Failed to get list of software RAID devices.");
 		}
 		// Prepare the result object.
 		$result = array();
 		foreach ($devs as $devk => $devv) {
 			$raid = new OMVStorageDeviceMdadm($devv);
-			if(!$raid->exists())
+			if (!$raid->exists())
 				continue;
 			$used = FALSE;
 			// Is this RAID device used by another storage device?
-			if (\OMV\System\Storage\StorageDevice::isUsed($raid->getDeviceFile())) {
+			if (\OMV\System\Storage\StorageDevice::isUsed(
+			  $raid->getDeviceFile())) {
 				$used = TRUE;
 			// Does the RAID device contain a filesystem and is it used?
-			} else if(FALSE !== \OMV\Rpc\Rpc::call("FsTab", "getByFsName",
+			} else if (FALSE !== \OMV\Rpc\Rpc::call("FsTab", "getByFsName",
 			  array("id" => $raid->getDeviceFile()), $context)) {
 				$used = TRUE;
 			}
@@ -130,7 +129,6 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param context The context of the caller.
 	 * @return An array containing objects with the following fields:
 	 *   devicefile, size, vendor, serialnumber and description.
-	 * @throw E_EXEC_MISC
 	 */
 	public function getSlaves($params, $context) {
 		// Validate the RPC caller context.
@@ -138,18 +136,11 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
-			  }
-		  }');
-		// Get the slave/component devices of the given RAID.
+		$this->validateMethodParams($params, "rpc.raidmgmt.getslaves");
+		// Get the storage device.
 		$raid = new OMVStorageDeviceMdadm($params['devicefile']);
-		if (FALSE === $raid->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
-			  $raid->getDeviceFile());
-		}
+		$raid->assertExists();
+		// Get the slave/component devices of the given RAID.
 		$devs = $raid->getSlaves();
 		// Prepare the result list.
 		$result = array();
@@ -174,19 +165,15 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param context The context of the caller.
 	 * @return An array containing objects with the following fields:
 	 *   devicefile, size, vendor, serialnumber and description.
-	 * @throw E_EXEC_MISC
 	 */
 	public function getCandidates($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get a list of all potential usable devices.
-		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerateUnused())) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
-			  "Failed to get list of unused devices");
-		}
+		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerateUnused()))
+			throw new \OMV\Exception("Failed to get list of unused devices.");
 		// Prepare the result list.
 		$result = array();
 		foreach ($devs as $devk => $devv) {
@@ -198,12 +185,14 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			if (TRUE === $sd->isReadOnly())
 				continue;
 			// Check if device is referenced/used by a plugin.
+			$db = \OMV\Config\Database::getInstance();
 			$xpath = sprintf("//services/devicefile[contains(.,'%s')]",
 			  $sd->getDeviceFile());
-			if (TRUE === $xmlConfig->exists($xpath))
+			if (TRUE === $db->getBackend()->exists($xpath))
 				continue;
 			// Does this device already contain a filesystem?
-			if (FALSE !== \OMV\System\Filesystem\Filesystem::hasFileSystem($sd->getDeviceFile()))
+			if (FALSE !== \OMV\System\Filesystem\Filesystem::hasFileSystem(
+			  $sd->getDeviceFile()))
 				continue;
 			// The device is a potential candidate to be a member of a
 			// Software RAID.
@@ -228,7 +217,6 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   raid5 or raid6.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function create($params, $context) {
 		// Validate the RPC caller context.
@@ -236,15 +224,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "devices":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE_LIST'].'},
-				  "name":{"type":"string"},
-				  "level":{"type":"string","enum":["stripe","mirror",'.
-					'"linear","raid10","raid5","raid6"]}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.raidmgmt.create");
 		// Generate the RAID device name.
 		$deviceName = \OMV\System\System::getNextDevice("disk", "md");
 		$devices = preg_split("/[,;]/", $params['devices']);
@@ -255,15 +235,14 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs[] = $params['level'];
 		$cmdArgs[] = "-n";
 		$cmdArgs[] = count($devices);
-		if(!empty($params['name'])) {
+		if (!empty($params['name'])) {
 			$cmdArgs[] = "-N";
 			$cmdArgs[] = $params['name'];
 		}
 		$cmdArgs[] = implode(" ", $devices);
-		$cmd = sprintf("export LANG=C;omv-mkraid %s 2>&1",
-		  implode(" ", $cmdArgs));
-		if (0 !== $this->exec($cmd, $output))
-			throw new \OMV\ExecException($cmd, $output);
+		$cmd = new \OMV\System\Process("omv-mkraid", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_CREATE,
@@ -284,8 +263,6 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   by comma.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_MISC_DEVICE_NOT_FOUND
-	 * @throw E_EXEC_FAILED
 	 */
 	public function grow($params, $context) {
 		// Validate the RPC caller context.
@@ -293,30 +270,24 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
-				  "devices":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.raidmgmt.grow");
 		// Get software RAID device details to create notification message.
 		$raid = new OMVStorageDeviceMdadm($params['devicefile']);
-		if (FALSE === $raid->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
-			  $raid->getDeviceFile());
-		}
+		$raid->assertExists();
 		$numDevices = $raid->getNumDevices();
 		$devices = $raid->getSlaves();
 		// Calculate new number of devices.
 		$newDevices = explode(",", $params['devices']);
 		$numDevices += count($newDevices);
 		// Add new devices to the RAID device.
-		$cmd = sprintf("export LANG=C; mdadm --manage %s --add %s 2>&1",
-		  escapeshellarg($raid->getDeviceFile()), implode(" ",
-		  $newDevices));
-		if (0 !== $this->exec($cmd, $output))
-			throw new \OMV\ExecException($cmd, $output);
+		$cmdArgs = array();
+		$cmdArgs[] = "--manage";
+		$cmdArgs[] = escapeshellarg($raid->getDeviceFile());
+		$cmdArgs[] = "--add";
+		$cmdArgs[] = implode(" ", $newDevices);
+		$cmd = new \OMV\System\Process("mdadm", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 		// Now grow the RAID.
 		// See for more details:
 		// https://raid.wiki.kernel.org/index.php/Growing
@@ -324,10 +295,10 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs = array();
 		$cmdArgs[] = "--grow";
 		$cmdArgs[] = sprintf("--raid-devices=%d", $numDevices);
-		$cmd = sprintf("export LANG=C; mdadm %s %s 2>&1", implode(" ",
-		  $cmdArgs), escapeshellarg($raid->getDeviceFile()));
-		if (0 !== $this->exec($cmd, $output))
-			throw new \OMV\ExecException($cmd, $output);
+		$cmdArgs[] = escapeshellarg($raid->getDeviceFile());
+		$cmd = new \OMV\System\Process("mdadm", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
@@ -348,8 +319,6 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   by comma.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_MISC_DEVICE_NOT_FOUND
-	 * @throw E_EXEC_FAILED
 	 */
 	public function add($params, $context) {
 		// Validate the RPC caller context.
@@ -357,29 +326,24 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
-				  "devices":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.raidmgmt.add");
 		// Get software RAID device details to create notification message.
 		$raid = new OMVStorageDeviceMdadm($params['devicefile']);
-		if (FALSE === $raid->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
-			  $raid->getDeviceFile());
-		}
+		$raid->assertExists();
 		$numDevices = $raid->getNumDevices();
 		$devices = $raid->getSlaves();
 		// Calculate new number of devices.
 		$newDevices = explode(",", $params['devices']);
 		$numDevices += count($newDevices);
 		// Add new devices to the RAID device.
-		$cmd = sprintf("export LANG=C; mdadm --manage %s --add %s 2>&1",
-		  escapeshellarg($raid->getDeviceFile()), implode(" ", $newDevices));
-		if (0 !== $this->exec($cmd, $output))
-			throw new \OMV\ExecException($cmd, $output);
+		$cmdArgs = array();
+		$cmdArgs[] = "--manage";
+		$cmdArgs[] = escapeshellarg($raid->getDeviceFile());
+		$cmdArgs[] = "--add";
+		$cmdArgs[] = implode(" ", $newDevices);
+		$cmd = new \OMV\System\Process("mdadm", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
@@ -401,8 +365,6 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   by comma.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_MISC_DEVICE_NOT_FOUND
-	 * @throw E_EXEC_FAILED
 	 */
 	public function remove($params, $context) {
 		// Validate the RPC caller context.
@@ -410,19 +372,10 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			"type":"object",
-			"properties":{
-				"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
-				"devices":{"type":"string"}
-			}
-		}');
+		$this->validateMethodParams($params, "rpc.raidmgmt.remove");
 		// Get software RAID device details to create notification message.
 		$raid = new OMVStorageDeviceMdadm($params['devicefile']);
-		if (FALSE === $raid->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
-			  $raid->getDeviceFile());
-		}
+		$raid->assertExists();
 		$numDevices = $raid->getNumDevices();
 		$devices = $raid->getSlaves();
 		// Calculate new number of devices.
@@ -431,14 +384,24 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Remove the devices from the RAID device. The devices to remove
 		// must be marked as failed before they can be removed from the
 		// RAID device.
-		$cmd = sprintf("export LANG=C; mdadm --manage %s --fail %s 2>&1",
-		  escapeshellarg($raid->getDeviceFile()), implode(" ", $rmDevices));
-		if (0 !== $this->exec($cmd, $output))
-			throw new \OMV\ExecException($cmd, $output);
-		$cmd = sprintf("export LANG=C; mdadm --manage %s --remove %s 2>&1",
-		  escapeshellarg($raid->getDeviceFile()), implode(" ", $rmDevices));
-		if (0 !== $this->exec($cmd, $output))
-			throw new \OMV\ExecException($cmd, $output);
+		// - Mark the devices as failed.
+		$cmdArgs = array();
+		$cmdArgs[] = "--manage";
+		$cmdArgs[] = escapeshellarg($raid->getDeviceFile());
+		$cmdArgs[] = "--fail";
+		$cmdArgs[] = implode(" ", $rmDevices);
+		$cmd = new \OMV\System\Process("mdadm", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
+		// - Finally remove the devices.
+		$cmdArgs = array();
+		$cmdArgs[] = "--manage";
+		$cmdArgs[] = escapeshellarg($raid->getDeviceFile());
+		$cmdArgs[] = "--remove";
+		$cmdArgs[] = implode(" ", $rmDevices);
+		$cmd = new \OMV\System\Process("mdadm", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
@@ -457,8 +420,6 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em devicefile The RAID device file to be deleted, e.g. /dev/md0.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_MISC_DEVICE_NOT_FOUND
-	 * @throw E_EXEC_FAILED
 	 */
 	public function delete($params, $context) {
 		// Validate the RPC caller context.
@@ -466,18 +427,10 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.raidmgmt.delete");
 		// Get software RAID device details to create notification message.
 		$raid = new OMVStorageDeviceMdadm($params['devicefile']);
-		if(!$raid->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
-			  $raid->getDeviceFile());
-		}
+		$raid->assertExists();
 		// Create the notification object.
 		$object = array(
 			"name" => $raid->getName(),
@@ -487,9 +440,11 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			"devices" => $raid->getSlaves()
 		);
 		// Delete the RAID device.
-		$cmd = sprintf("export LANG=C; omv-rmraid %s", $raid->getDeviceFile());
-		if (0 !== $this->exec($cmd, $output))
-			throw new \OMV\ExecException($cmd, $output);
+		$cmdArgs = array();
+		$cmdArgs[] = escapeshellarg($raid->getDeviceFile());
+		$cmd = new \OMV\System\Process("omv-rmraid", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute();
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
@@ -502,7 +457,6 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em devicefile The RAID device file to get details from.
 	 * @param context The context of the caller.
 	 * @return The details of the given RAID device as string.
-	 * @throw E_MISC_DEVICE_NOT_FOUND
 	 */
 	public function getDetail($params, $context) {
 		// Validate the RPC caller context.
@@ -510,18 +464,10 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.raidmgmt.getdetail");
 		// Get software RAID device details.
 		$raid = new OMVStorageDeviceMdadm($params['devicefile']);
-		if(FALSE === $raid->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
-			  $raid->getDeviceFile());
-		}
+		$raid->assertExists();
 		return $raid->getDetail();
 	}
 }

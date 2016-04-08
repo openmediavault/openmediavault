@@ -133,7 +133,7 @@ class Database {
 		// Is the configuration object iterable?
 		if (FALSE === $model->isIterable()) {
 			throw new DatabaseException(
-			  "The configuration object (%s) is not iterable.",
+			  "The configuration object '%s' is not iterable.",
 			  $model->getId());
 		}
 		// Create the query builder.
@@ -250,7 +250,7 @@ class Database {
 	public function isReferenced(ConfigObject $object) {
 		if (FALSE === $object->isReferenceable()) {
 			throw new DatabaseException(
-			  "The configuration object (%s) can not be referenced.",
+			  "The configuration object '%s' can not be referenced.",
 			  $object->getId());
 		}
 		// Create the query builder.
@@ -264,12 +264,12 @@ class Database {
 	 * Assert that the specified configuration object is referenced.
 	 * @param object The configuration object to use.
 	 * @return None.
-	 * @throw \OMV\Config\DatabaseException
+	 * @throw \OMV\AssertException
 	 */
 	public function assertIsReferenced(ConfigObject $object) {
 		if (FALSE === $this->isReferenced($object)) {
-			throw new DatabaseException(
-			  "The configuration object (%s) is not referenced.",
+			throw new \OMV\AssertException(
+			  "The configuration object '%s' is not referenced.",
 			  $object->getId());
 		}
 	}
@@ -278,12 +278,12 @@ class Database {
 	 * Assert that the specified configuration object is not referenced.
 	 * @param object The configuration object to use.
 	 * @return None.
-	 * @throw \OMV\Config\DatabaseException
+	 * @throw \OMV\AssertException
 	 */
 	public function assertIsNotReferenced(ConfigObject $object) {
 		if (TRUE === $this->isReferenced($object)) {
-			throw new DatabaseException(
-			  "The configuration object (%s) is referenced.",
+			throw new \OMV\AssertException(
+			  "The configuration object '%s' is referenced.",
 			  $object->getId());
 		}
 	}
@@ -375,11 +375,11 @@ class Database {
 	 * @param object The configuration object to use.
 	 * @param property The name of the data model property.
 	 * @return None.
-	 * @throw \OMV\Config\DatabaseException
+	 * @throw \OMV\AssertException
 	 */
 	public function assertIsUnique(ConfigObject $object, $property) {
 		if (FALSE === $this->isUnique($object, $property)) {
-			throw new DatabaseException("The configuration object (%s) is ".
+			throw new \OMV\AssertException("The configuration object '%s' is ".
 			  "not unique. An object with the property '%s' and value '%s' ".
 			  "already exists.", $object->getId(), $property,
 			  $object->get($property));

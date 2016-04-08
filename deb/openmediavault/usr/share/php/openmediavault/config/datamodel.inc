@@ -261,12 +261,12 @@ class DataModel extends \OMV\DataModel\DataModel {
 	 * Assert that the specified property exists.
 	 * @param path The path of the property, e.g. "aaa.bbb.ccc".
 	 * @return None.
-	 * @throw \OMV\Json\SchemaPathException
+	 * @throw \OMV\AssertException
 	 */
 	public function assertPropertyExists($path) {
 		if (!$this->propertyExists($path)) {
-			throw new \OMV\Json\SchemaPathException(
-			  "The property '%s' does not exist.", $path);
+			throw new \OMV\AssertException("The property '%s' does not exist.",
+			  $path);
 		}
 	}
 
@@ -278,8 +278,8 @@ class DataModel extends \OMV\DataModel\DataModel {
 	 */
 	public function assertPropertyNotExists($path) {
 		if ($this->propertyExists($path)) {
-			throw new \OMV\Json\SchemaPathException(
-			  "The property '%s' already exists.", $path);
+			throw new \OMV\AssertException("The property '%s' already exists.",
+			  $path);
 		}
 	}
 

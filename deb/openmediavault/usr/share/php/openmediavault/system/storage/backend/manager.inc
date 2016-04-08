@@ -91,10 +91,15 @@ class Manager implements \IteratorAggregate {
 		return $result;
 	}
 
-	final public function assertGetBackend($deviceFile) {
+	/**
+	 * Assert that a backend for the given device exists.
+	 * @param deviceFile Specifies the device file.
+	 * @throw \OMV\AssertException
+	 */
+	final public function assertBackendExists($deviceFile) {
 		$result = $this->getBackend($deviceFile);
 		if (is_null($result)) {
-			throw new \OMV\Exception(
+			throw new \OMV\AssertException(
 			  "No storage device backend exists for device '%s'.",
 			  $deviceFile);
 		}

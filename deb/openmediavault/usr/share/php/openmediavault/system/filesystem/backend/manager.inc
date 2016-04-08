@@ -79,12 +79,14 @@ class Manager implements \IteratorAggregate {
 	}
 
 	/**
-	 * @throw \OMV\Exception
+	 * Assert that the backend for the specified filesystem type exists.
+	 * @param type Specifies the filesystem type, e.g. 'ext3', 'vfat', ...
+	 * @throw \OMV\AssertException
 	 */
-	final public function assertGetBackendByType($type) {
+	final public function assertBackendExistsByType($type) {
 		$backend = $this->getBackendByType($type);
 		if (is_null($backend)) {
-			throw new \OMV\Exception(
+			throw new \OMV\AssertException(
 			  "No filesystem backend exists for type '%s'.",
 			  $type);
 		}
@@ -134,12 +136,27 @@ class Manager implements \IteratorAggregate {
 	}
 
 	/**
-	 * @throw \OMV\Exception
+	 * Assert that the backend for the specified filesystem exists.
+	 * @param id The UUID, label or device path of the filesystem, e.g.
+	 *   <ul>
+	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
+	 *   \li 7A48-BA97 (FAT)
+	 *   \li 2ED43920D438EC29 (NTFS)
+	 *   \li 2015-01-13-21-48-46-00 (ISO9660)
+	 *   \li /dev/sde1
+	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6-part1
+	 *   \li /dev/disk/by-label/DATA
+	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0-part2
+	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
+	 *   \li /dev/cciss/c0d0p2
+	 *   \li tank/multimedia/movies
+	 *   </ul>
+	 * @throw \OMV\AssertException
 	 */
-	final public function assertGetBackendById($id) {
+	final public function assertBackendExistsById($id) {
 		$backend = $this->getBackendById($id);
 		if (is_null($backend)) {
-			throw new \OMV\Exception(
+			throw new \OMV\AssertException(
 			  "No filesystem backend exists for '%s'.",
 			  $id);
 		}

@@ -44,7 +44,7 @@ class Dictionary {
 	 * @return Returns TRUE if the key is valid, otherwise FALSE.
 	 */
 	protected function isValidKey($key) {
-		$regex = '/^(([a-z_]+[a-z0-9_-]*|[0-9]+)\.)*([a-z_]+[a-z0-9_-]*|'.
+		$regex = '/^((_?[a-z]+[a-z0-9_-]*|[0-9]+)\.)*(_?[a-z]+[a-z0-9_-]*|'.
 		  '[0-9]+)$/i';
         return (1 === preg_match($regex, $key));
     }
@@ -53,12 +53,12 @@ class Dictionary {
 	 * Assert that the given key is valid.
 	 * @param key The key in dot notation, e.g. 'a.b.c'.
 	 * @return None.
-	 * @throw \InvalidArgumentException
+	 * @throw \OMV\AssertException
 	 */
 	protected function assertValidKey($key) {
 		if (FALSE === $this->isValidKey($key)) {
 			$message = sprintf("The key '%s' is invalid.", $key);
-            throw new \InvalidArgumentException($message);
+            throw new \OMV\AssertException($message);
         }
 	}
 
@@ -84,11 +84,12 @@ class Dictionary {
 	 * Assert that the specified key exists.
 	 * @param key The key in dot notation, e.g. 'a.b.c'.
 	 * @return None.
+	 * @throw \OMV\AssertException
 	 */
 	public function assertExists($key) {
 		if (FALSE === $this->exists($key)) {
 			$message = sprintf("The key '%s' does not exist.", $key);
-            throw new \InvalidArgumentException($message);
+            throw new \OMV\AssertException($message);
         }
 	}
 

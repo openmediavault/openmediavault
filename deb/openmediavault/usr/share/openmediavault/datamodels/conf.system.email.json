@@ -27,6 +27,13 @@
 		},
 		"sender": {
 			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "email"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}],
 			"default": ""
 		},
 		"authentication": {
@@ -48,10 +55,24 @@
 		},
 		"primaryemail": {
 			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "email"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}],
 			"default": ""
 		},
 		"secondaryemail": {
 			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "email"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}],
 			"default": ""
 		}
 	}

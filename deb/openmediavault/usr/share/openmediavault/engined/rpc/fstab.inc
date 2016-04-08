@@ -102,7 +102,7 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.fstab.set");
 		// Get the filesystem backend.
 		$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
-		$fsbMngr->assertGetBackendByType($params['type']);
+		$fsbMngr->assertBackendExistsByType($params['type']);
 		$fsb = $fsbMngr->getBackendByType($params['type']);
 		// Prepare the configuration object.
 		$object = new \OMV\Config\ConfigObject(

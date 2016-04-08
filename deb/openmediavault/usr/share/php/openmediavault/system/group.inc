@@ -88,6 +88,10 @@ class Group {
 		return !is_null($this->name) && !is_null($this->gid);
 	}
 
+	/**
+	 * Assert that the system group exists.
+	 * @throw \OMV\AssertException
+	 */
 	public function assertExists() {
 		if (FALSE === $this->exists()) {
 			$id = "unknown";
@@ -95,11 +99,15 @@ class Group {
 				$id = $this->name;
 			else if (!is_null($this->gid))
 				$id = $this->gid;
-			throw new \OMV\Exception("The group '%s' does not exist.",
+			throw new \OMV\AssertException("The group '%s' does not exist.",
 			  strval($id));
 		}
 	}
 
+	/**
+	 * Assert that the system group not exists.
+	 * @throw \OMV\AssertException
+	 */
 	public function assertNotExists() {
 		if (TRUE === $this->exists()) {
 			$id = "unknown";
@@ -107,7 +115,7 @@ class Group {
 				$id = $this->name;
 			else if (!is_null($this->gid))
 				$id = $this->gid;
-			throw new \OMV\Exception("The group '%s' already exists.",
+			throw new \OMV\AssertException("The group '%s' already exists.",
 			  strval($id));
 		}
 	}

@@ -57,11 +57,11 @@ class ConfigObject {
 	 * Assert that the specified property exists.
 	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
 	 * @return None.
-	 * @throw \OMV\Exception
+	 * @throw \OMV\AssertException
 	 */
 	protected function assertExists($name) {
 		if (FALSE === $this->exists($name)) {
-			throw new \OMV\Exception(
+			throw new \OMV\AssertException(
 			  "The property '%s' does not exist in the model '%s'.",
 			  $name, $this->getModel()->getId());
 		}

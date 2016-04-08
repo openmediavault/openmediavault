@@ -28,7 +28,8 @@
 					"type": "string",
 					"format": "email"
 				},{
-					"type": "string"
+					"type": "string",
+					"maxLength": 0
 				}],
 				"required": true
 			},
@@ -50,7 +51,8 @@
 					"type": "string",
 					"format": "email"
 				},{
-					"type": "string"
+					"type": "string",
+					"maxLength": 0
 				}],
 				"required": true
 			},
@@ -60,7 +62,8 @@
 					"type": "string",
 					"format": "email"
 				},{
-					"type": "string"
+					"type": "string",
+					"maxLength": 0
 				}],
 				"required": true
 			}

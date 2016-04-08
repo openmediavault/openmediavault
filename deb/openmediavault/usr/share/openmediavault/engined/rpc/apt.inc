@@ -210,7 +210,6 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The name of the background process status file.
-	 * @throw E_EXEC_FAILED
 	 */
 	function update($params, $context) {
 		// Validate the RPC caller context.
@@ -232,7 +231,10 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 			// Update package database.
 			$cmd = new \OMV\System\Process("apt-get", "update");
 			$cmd->setRedirect2to1(TRUE);
-			$cmd->execute();
+			if (0 !== $this->exec($cmd->getCommandLine(), $output,
+			  $bgOutputFilename)) {
+				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
+			}
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
 		} catch(\Exception $e) {

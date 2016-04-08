@@ -36,7 +36,7 @@ class Filesystem extends FilesystemAbstract {
 		$mngr = Backend\Manager::getInstance();
 		foreach ($mngr->enumerate() as $datak => $datav) {
 			// Get the filesystem backend.
-			$mngr->assertGetBackendByType($datav['type']);
+			$mngr->assertBackendExistsByType($datav['type']);
 			$backend = $mngr->getBackendByType($datav['type']);
 			// Get the filesystem implementation. Use the devicefile to get
 			// the filesystem details because VFAT filesystems do not have
@@ -77,9 +77,12 @@ class Filesystem extends FilesystemAbstract {
 		return $backend->getImpl($id);
 	}
 
+	/**
+	 * @throw \OMV\AssertException
+	 */
 	public static function assertGetImpl($id) {
 		$result = self::getImpl($id);
 		if (is_null($result) || !$result->exists())
-			throw new \OMV\Exception("Filesystem '%s' not found.", $id);
+			throw new \OMV\AssertException("Filesystem '%s' not found.", $id);
 	}
 }

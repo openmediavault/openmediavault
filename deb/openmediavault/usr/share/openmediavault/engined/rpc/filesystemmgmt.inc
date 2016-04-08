@@ -495,11 +495,11 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Get the storage device backend of the given device.
 		$sdbMngr = \OMV\System\Storage\Backend\Manager::getInstance();
-		$sdbMngr->assertGetBackend($sd->getDeviceFile());
+		$sdbMngr->assertBackendExists($sd->getDeviceFile());
 		$sdb = $sdbMngr->getBackend($sd->getDeviceFile());
 		// Get the corresponding filesystem backend.
 		$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
-		$fsbMngr->assertGetBackendByType($params['type']);
+		$fsbMngr->assertBackendExistsByType($params['type']);
 		$fsb = $fsbMngr->getBackendByType($params['type']);
 		// Get the filesystem device file name from the storage device
 		// backend (this may differ depending on the storage device).

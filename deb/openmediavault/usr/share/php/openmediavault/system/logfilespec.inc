@@ -83,11 +83,11 @@ class LogFileSpec {
 	 * Checks if a log file specification is registered.
 	 * @param id The identifier of the log file specification.
 	 * @return None.
-	 * @throw \OMV\Exception
+	 * @throw \OMV\AssertException
 	 */
 	public static function assertIsRegistered($id) {
 		if (FALSE === array_key_exists($id, self::$specs)) {
-			throw new \OMV\Exception(
+			throw new \OMV\AssertException(
 			  "Unknown log file specification (id=%s).", $id);
 		}
 	}

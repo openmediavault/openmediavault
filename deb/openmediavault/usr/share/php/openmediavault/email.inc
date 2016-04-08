@@ -70,11 +70,11 @@ class Email {
 	/**
 	 * Send the email.
 	 * @return None.
-	 * @throw \OMV\Exception
+	 * @throw \OMV\AssertException
 	 */
 	public function assertSend() {
 		if (FALSE === $this->send()) {
-			throw new \OMV\Exception(
+			throw new \OMV\AssertException(
 			  "Failed to send the email. Please check the logs.");
 		}
 	}
