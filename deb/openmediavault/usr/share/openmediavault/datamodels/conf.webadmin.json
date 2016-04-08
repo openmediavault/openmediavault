@@ -27,7 +27,14 @@
 			"default": 0
 		},
 		"sslcertificateref": {
-			"type": "string"
+			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}]
 		},
 		"timeout": {
 			"type": "integer",
