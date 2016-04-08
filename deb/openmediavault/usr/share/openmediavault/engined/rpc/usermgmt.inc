@@ -1017,6 +1017,7 @@ finish:
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
+		$db = \OMV\Config\Database::getInstance();
 		return $db->getAssoc("conf.system.usermngmnt.homedir");
 	}
 
