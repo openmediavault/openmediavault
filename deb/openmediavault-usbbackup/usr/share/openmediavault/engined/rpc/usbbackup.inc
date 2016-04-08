@@ -97,7 +97,7 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 			// Get the storage device containing the filesystem.
 			if (FALSE === ($storageDeviceFile = $fs->getStorageDeviceFile()))
 				continue;
-			\OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+			\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
 			  $storageDeviceFile);
 			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 			  $storageDeviceFile);
