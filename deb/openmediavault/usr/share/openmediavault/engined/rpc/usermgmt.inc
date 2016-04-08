@@ -480,21 +480,9 @@ finish:
 			$object->set("email", $params['email']);
 			$object->set("disallowusermod", $params['disallowusermod']);
 			$object->set("email", $params['email']);
-			// Stupid workaround to fix XML to JSON issue after loading.
-			// If no SSH public key exists, then the property 'sshpubkeys'
-			// is not an array.
-			// XML:
-			// <sshpubkeys>
-			// </sshpubkeys>
-			// JSON:
-			// {
-			//   sshpubkeys: {
-			//     sshpubkey: []
-			//   }
-			// }
-			// This is fixed by resetting the property to its default.
-			$object->reset("sshpubkeys");
-			$object->set("sshpubkeys.sshpubkey", $params['sshpubkeys']);
+			$object->set("sshpubkeys", [
+				"sshpubkey" => $params['sshpubkeys']
+			]);
 		} else {
 			$object = new \OMV\Config\ConfigObject(
 			  "conf.system.usermngmnt.user");
@@ -503,7 +491,9 @@ finish:
 			$object->set("email", $params['email']);
 			$object->set("disallowusermod", $params['disallowusermod']);
 			$object->set("email", $params['email']);
-			$object->set("sshpubkeys.sshpubkey", $params['sshpubkeys']);
+			$object->set("sshpubkeys", [
+				"sshpubkey" => $params['sshpubkeys']
+			]);
 		}
 		$db->set($object);
 		// Prepare command arguments. Note, a user is always in the

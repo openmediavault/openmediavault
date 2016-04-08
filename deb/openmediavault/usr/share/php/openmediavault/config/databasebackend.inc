@@ -30,6 +30,8 @@ require_once("openmediavault/functions.inc");
  * @ingroup api
  */
 class DatabaseBackend {
+	use \OMV\Debugable;
+
 	private $forceReload = TRUE;
 	private $autoCommit = TRUE;
 	private $versioning = FALSE;
@@ -536,6 +538,7 @@ class DatabaseBackend {
 	 * Convert a PHP array to a DOMNode object.
 	 */
 	final private function nodeFromArray($mixed, \DOMNode $domNode) {
+//		$this->debug(var_export(func_get_args(), TRUE));
 		if (is_array($mixed)) {
 			foreach ($mixed as $mixedk => $mixedv) {
 				if (is_int($mixedk)) {
@@ -546,6 +549,9 @@ class DatabaseBackend {
 						$domNode->parentNode->appendChild($node);
 					}
 				} else {
+					// Skip enumerable elements that are empty.
+					if (in_array($mixedk, $this->enums) && empty($mixedv))
+						continue;
 					$node = $this->domdoc->createElement($mixedk);
 					$domNode->appendChild($node);
 				}
