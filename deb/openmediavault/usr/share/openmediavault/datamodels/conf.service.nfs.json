@@ -10,7 +10,7 @@
 	"properties": {
 		"enable": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"numproc": {
 			"type": "integer",

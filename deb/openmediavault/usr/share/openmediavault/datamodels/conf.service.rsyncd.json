@@ -9,7 +9,7 @@
 	"properties": {
 		"enable": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"port":{
 			"type": "integer",
@@ -34,7 +34,7 @@
 							},
 							"enable": {
 								"type": "boolean",
-								"default": 0
+								"default": false
 							},
 							"sharedfolderref": {
 								"type": "string",
@@ -54,16 +54,16 @@
 							},
 							"readonly": {
 								"type": "boolean",
-								"default": 0
+								"default": false
 							},
 							"writeonly": {
 								"type": "boolean",
-								"default": 0
+								"default": false
 							},
 							"maxconnections": {
 								"type": "integer",
 								"minimum": 0,
-								"default": 0
+								"default": false
 							},
 							"list": {
 								"type": "boolean",
@@ -80,11 +80,11 @@
 							},
 							"authusers": {
 								"type": "boolean",
-								"default": 0
+								"default": false
 							},
 							"usechroot": {
 								"type": "boolean",
-								"default": 0
+								"default": false
 							},
 							"users": {
 								"type": "object",

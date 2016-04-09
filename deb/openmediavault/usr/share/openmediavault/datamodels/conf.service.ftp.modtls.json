@@ -9,11 +9,11 @@
 	"properties": {
 		"enable": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"required": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"sslcertificateref": {
 			"type": "string",
@@ -27,15 +27,15 @@
 		},
 		"nocertrequest": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"nosessionreuserequired": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"useimplicitssl": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"extraoptions": {
 			"type": "string",

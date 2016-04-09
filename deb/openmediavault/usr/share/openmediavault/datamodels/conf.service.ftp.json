@@ -30,7 +30,7 @@
 		"maxloginattempts": {
 			"type": "integer",
 			"minimum": 0,
-			"default": 1
+			"default": true
 		},
 		"timeoutidle": {
 			"type": "integer",
@@ -68,7 +68,7 @@
 		"dynmasqrefresh": {
 			"type": "integer",
 			"minimum": 0,
-			"default": 0
+			"default": false
 		},
 		"usepassiveports": {
 			"type": "boolean",
@@ -93,12 +93,12 @@
 		"maxuptransferrate": {
 			"type": "integer",
 			"minimum": 0,
-			"default": 0
+			"default": false
 		},
 		"maxdowntransferrate": {
 			"type": "integer",
 			"minimum": 0,
-			"default": 0
+			"default": false
 		},
 		"anonymous": {
 			"type": "boolean",
@@ -182,7 +182,7 @@
 									"occurrence": {
 										"type": "integer",
 										"minimum": 1,
-										"default": 1
+										"default": true
 									},
 									"timeinterval": {
 										"type": "string",

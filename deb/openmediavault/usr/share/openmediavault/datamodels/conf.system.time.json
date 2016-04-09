@@ -15,11 +15,11 @@
 			"properties": {
 				"enable": {
 					"type": "boolean",
-					"default": 0
+					"default": false
 				},
 				"timeservers": {
 					"type": "string",
-					"defaults": "pool.ntp.org,pool1.ntp.org;pool2.ntp.org"
+					"default": "pool.ntp.org,pool1.ntp.org;pool2.ntp.org"
 				}
 			}
 		}

@@ -83,15 +83,15 @@
 		},
 		"bondmiimon": {
 			"type": "integer",
-			"default": 0
+			"default": false
 		},
 		"bonddowndelay": {
 			"type": "integer",
-			"default": 0
+			"default": false
 		},
 		"bondupdelay": {
 			"type": "integer",
-			"default": 0
+			"default": false
 		},
 		"vlanid": {
 			"type": "integer",

@@ -9,7 +9,7 @@
 	"properties": {
 		"enable": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"port": {
 			"type": "integer",
@@ -30,7 +30,7 @@
 		},
 		"allownewfiles": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"sharedfolderref": {
 			"type": "string",

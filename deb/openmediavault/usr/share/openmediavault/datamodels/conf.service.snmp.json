@@ -9,7 +9,7 @@
 	"properties": {
 		"enable": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"community": {
 			"type": "string",
@@ -64,7 +64,7 @@
 			"properties": {
 				"enable": {
 					"type": "boolean",
-					"default": 0
+					"default": false
 				},
 				"community": {
 					"type": "string",

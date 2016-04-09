@@ -8,11 +8,11 @@
 	"properties": {
 		"proposed": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"partner": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		}
 	}
 }

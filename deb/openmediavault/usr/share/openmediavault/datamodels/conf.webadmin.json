@@ -14,7 +14,7 @@
 		},
 		"enablessl": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"sslport": {
 			"type": "integer",
@@ -24,7 +24,7 @@
 		},
 		"forcesslonly": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"sslcertificateref": {
 			"type": "string",

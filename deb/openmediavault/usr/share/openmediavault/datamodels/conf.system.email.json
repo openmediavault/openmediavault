@@ -9,7 +9,7 @@
 	"properties": {
 		"enable": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"server": {
 			"type": "string",
@@ -23,7 +23,7 @@
 		},
 		"tls": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"sender": {
 			"type": "string",
@@ -41,7 +41,7 @@
 			"properties": {
 				"enable": {
 					"type": "boolean",
-					"default": 0
+					"default": false
 				},
 				"username": {
 					"type": "string",

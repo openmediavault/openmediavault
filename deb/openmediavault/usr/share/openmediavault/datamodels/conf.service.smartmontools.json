@@ -9,7 +9,7 @@
 	"properties": {
 		"enable": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"interval":{
 			"type": "integer",
@@ -25,19 +25,19 @@
 			"type": "integer",
 			"minimum": 0,
 			"maximum": 255,
-			"default": 0
+			"default": false
 		},
 		"tempinfo":{
 			"type": "integer",
 			"minimum": 0,
 			"maximum": 255,
-			"default": 0
+			"default": false
 		},
 		"tempcrit":{
 			"type": "integer",
 			"minimum": 0,
 			"maximum": 255,
-			"default": 0
+			"default": false
 		},
 		"monitor": {
 			"type": "object",

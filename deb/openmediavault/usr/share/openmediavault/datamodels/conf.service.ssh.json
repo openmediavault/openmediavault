@@ -9,7 +9,7 @@
 	"properties": {
 		"enable": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"port":{
 			"type": "integer",
@@ -31,11 +31,11 @@
 		},
 		"tcpforwarding": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"compression": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"extraoptions": {
 			"type": "string",

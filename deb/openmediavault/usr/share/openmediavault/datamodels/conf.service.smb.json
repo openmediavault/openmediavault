@@ -9,7 +9,7 @@
 	"properties": {
 		"enable": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"workgroup": {
 			"type": "string",
@@ -21,19 +21,19 @@
 		},
 		"loglevel": {
 			"type": "integer",
-			"default": 0
+			"default": false
 		},
 		"usesendfile": {
 			"type": "boolean",
-			"default": 1
+			"default": true
 		},
 		"aio": {
 			"type": "boolean",
-			"default": 1
+			"default": true
 		},
 		"nullpasswords": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"localmaster": {
 			"type": "boolean",
@@ -41,22 +41,22 @@
 		},
 		"timeserver": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"winssupport": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"winsserver": {
 			"type": "string"
 		},
 		"homesenable": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"homesbrowseable": {
 			"type": "boolean",
-			"default": 0
+			"default": false
 		},
 		"extraoptions": {
 			"type": "string"
@@ -75,7 +75,7 @@
 							},
 							"enable": {
 								"type": "boolean",
-								"default": 0
+								"default": false
 							},
 							"sharedfolderref": {
 								"type": "string",
@@ -89,37 +89,48 @@
 							},
 							"guest": {
 								"type": "string",
-								"enum": [ "no", "allow", "only" ]
+								"enum": [ "no", "allow", "only" ],
+								"default": "no"
 							},
 							"readonly": {
-								"type": "boolean"
+								"type": "boolean",
+								"default": false
 							},
 							"browseable": {
-								"type": "boolean"
+								"type": "boolean",
+								"default": true
 							},
 							"recyclebin": {
-								"type": "boolean"
+								"type": "boolean",
+								"default": false
 							},
 							"recyclemaxsize": {
-								"type": "boolean"
+								"type": "integer",
+								"minimum": 0
 							},
 							"recyclemaxage": {
-								"type": "boolean"
+								"type": "integer",
+								"minimum": 0
 							},
 							"hidedotfiles": {
-								"type": "boolean"
+								"type": "boolean",
+								"default": true
 							},
 							"inheritacls": {
-								"type": "boolean"
+								"type": "boolean",
+								"default": true
 							},
 							"inheritpermissions": {
-								"type": "boolean"
+								"type": "boolean",
+								"default": false
 							},
 							"easupport": {
-								"type": "boolean"
+								"type": "boolean",
+								"default": false
 							},
 							"storedosattributes": {
-								"type": "boolean"
+								"type": "boolean",
+								"default": false
 							},
 							"hostsallow": {
 								"type": "string"
@@ -128,7 +139,8 @@
 								"type": "string"
 							},
 							"audit": {
-								"type": "boolean"
+								"type": "boolean",
+								"default": false
 							},
 							"extraoptions": {
 								"type": "string"

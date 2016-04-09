@@ -38,7 +38,7 @@
 			"properties": {
 				"enable": {
 					"type": "boolean",
-					"default": 0
+					"default": false
 				},
 				"username": {
 				    "type": "string"
