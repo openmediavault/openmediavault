@@ -85,21 +85,22 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 */
 	private function getIfaceInfo($deviceName) {
 		// Set the default values.
-		$obj = array();
-		$obj['devicename'] = $deviceName;
-		$obj['gateway'] = "";
-		$obj['gateway6'] = "";
-		$obj['address'] = "";
-		$obj['address6'] = "";
-		$obj['netmask'] = "";
-		$obj['netmask6'] = -1;
-		$obj['ether'] = "";
-		$obj['mtu'] = "";
-		$obj['state'] = gettext("UNKNOWN");
-		$obj['link'] = FALSE;
-		$obj['vlan'] = FALSE;
-		$obj['vlanid'] = -1;
-		$obj['speed'] = -1;
+		$obj = [
+			"devicename" => $deviceName,
+			"gateway" => "",
+			"gateway6" => "",
+			"address" => "",
+			"address6" => "",
+			"netmask" => "",
+			"netmask6" => -1,
+			"ether" => "",
+			"mtu" => "",
+			"state" => gettext("UNKNOWN"),
+			"link" => FALSE,
+			"vlan" => FALSE,
+			"vlanid" => -1,
+			"speed" => -1
+		];
 		// Get the network interface object.
 		$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
 		$iface = $mngr->getImpl($deviceName);
@@ -134,9 +135,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * Helper function to store the interface configuration object.
 	 * @param params The method parameters.
 	 * @param object The object containing the specific interface attributes.
+	 * @return The configuration object.
 	 */
     private function setInterfaceConfig($params, $object) {
-        global $xmlConfig;
 		// Append the generic network interface configuration attributes.
 		$object = array_merge(array(
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?

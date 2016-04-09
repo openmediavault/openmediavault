@@ -21,6 +21,8 @@
  */
 namespace OMV\Config;
 
+require_once("openmediavault/globals.inc");
+
 class DataModel extends \OMV\DataModel\DataModel {
 	use \OMV\Debugable;
 
@@ -199,6 +201,9 @@ class DataModel extends \OMV\DataModel\DataModel {
 	public function getPropertyDefault($path) {
 		$propSchema = $this->getPropertiesSchema()->getAssocByPath($path);
 		$default = NULL;
+		// Is a default value set in the data model? If not, then use
+		// a generic default value which depends on the type and other
+		// parameters defined in the data model.
 		if (array_key_exists("default", $propSchema))
 			$default = $propSchema['default'];
 		else {
@@ -230,6 +235,13 @@ class DataModel extends \OMV\DataModel\DataModel {
 				break;
 			case "string":
 				$default = "";
+				if (array_key_exists("format", $propSchema)) {
+					switch ($propSchema['type']) {
+					case "uuidv4":
+						$default = $GLOBALS['OMV_UUID_UNDEFINED'];
+						break;
+					}
+				}
 				break;
 			case "any":
 			case "null":

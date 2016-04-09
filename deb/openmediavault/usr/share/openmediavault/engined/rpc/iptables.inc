@@ -48,7 +48,7 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 	private function getRulesByFamily($family) {
 		// Get the configuration objects.
 		$db = \OMV\Config\Database::getInstance();
-		return $db->getByPredicateAssoc("conf.system.iptables.rule",
+		return $db->getByPredicateAssoc("conf.system.network.iptables.rule",
 		  sprintf("family='%s'", $family));
 	}
 
@@ -93,7 +93,7 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 		$objects = array();
 		foreach ($rules as $rulek => $rulev) {
 			$object = new \OMV\Config\ConfigObject(
-			  "conf.system.iptables.rule");
+			  "conf.system.network.iptables.rule");
 			$object->setAssoc($rulev);
 			$object->setNew(); // Mark the rule as new.
 			$objects[] = $object;
@@ -101,8 +101,11 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 		// Remove all existing rules for the specified family.
 		$db = \OMV\Config\Database::getInstance();
 		$predicate = sprintf("family='%s'", $family);
-		if ($db->existsByPredicate("conf.system.iptables.rule", $predicate))
-			$db->deleteByPredicate("conf.system.iptables.rule", $predicate);
+		if ($db->existsByPredicate("conf.system.network.iptables.rule",
+		  $predicate)) {
+			$db->deleteByPredicate("conf.system.network.iptables.rule",
+			  $predicate);
+		}
 		// Append the new iptables rules.
 		$objectsAssoc = array();
 		foreach ($objects as $objectk => $objectv) {
@@ -167,7 +170,8 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		return $db->getAssoc("conf.system.iptables.rule", $params['uuid']);
+		return $db->getAssoc("conf.system.network.iptables.rule",
+		  $params['uuid']);
 	}
 
 	/**
@@ -184,7 +188,8 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.iptables.setrule");
 		// Prepare the configuration object.
-		$object = new \OMV\Config\ConfigObject("conf.system.iptables.rule");
+		$object = new \OMV\Config\ConfigObject(
+		  "conf.system.network.iptables.rule");
 		$object->setAssoc($params);
 		// Set the configuration object.
 		$isNew = $object->isNew();
@@ -215,7 +220,7 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
 		return $this->deleteConfigObjectByUuid(
-		  "conf.system.iptables.rule", $params['uuid'],
+		  "conf.system.network.iptables.rule", $params['uuid'],
 		  "org.openmediavault.system.network.iptables.rule");
 	}
 }

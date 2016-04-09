@@ -1,7 +1,7 @@
 {
 	"type": "config",
-	"id": "conf.system.iptables.rule",
-	"title": "Iptables rule",
+	"id": "conf.system.network.iptables.rule",
+	"title": "IPtables rule",
 	"queryinfo": {
 		"xpath": "//system/network/iptables/rule",
 		"iterable": true,

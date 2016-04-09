@@ -1,0 +1,112 @@
+{
+	"type": "config",
+	"id": "conf.system.network.interface",
+	"title": "Network interface",
+	"queryinfo": {
+		"xpath": "//system/network/interfaces/interface",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"type": {
+			"type": "string",
+			"enum": [ "ethernet", "bond", "vlan", "wireless" ],
+			"default": "ethernet"
+		},
+		"devicename": {
+			"type": "string"
+		},
+		"method": {
+			"type": "string",
+			"enum": [ "dhcp", "static", "manual" ],
+			"default": "manual"
+		},
+		"address": {
+			"type": "string"
+		},
+		"netmask": {
+			"type": "string"
+		},
+		"gateway": {
+			"type": "string"
+		},
+		"method6": {
+			"type": "string",
+			"enum": [ "auto", "dhcp", "static", "manual" ],
+			"default": "manual"
+		},
+		"address6": {
+			"type": "string"
+		},
+		"netmask6": {
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 128,
+			"default": 64
+		},
+		"gateway6": {
+			"type": "string"
+		},
+		"dnsnameservers": {
+			"type": "string"
+		},
+		"dnssearch": {
+			"type": "string"
+		},
+		"mtu": {
+			"type": "string"
+		},
+		"wol": {
+			"type": "boolean",
+			"default": false
+		},
+		"options": {
+			"type": "string"
+		},
+		"comment": {
+			"type": "string"
+		},
+		"slaves": {
+			"type": "string"
+		},
+		"bondprimary": {
+			"type": "string"
+		},
+		"bondmode": {
+			"type": "integer",
+			"enum": [ 0, 1, 2, 3, 4, 5, 6 ],
+			"default": 1
+		},
+		"bondmiimon": {
+			"type": "integer",
+			"default": 0
+		},
+		"bonddowndelay": {
+			"type": "integer",
+			"default": 0
+		},
+		"bondupdelay": {
+			"type": "integer",
+			"default": 0
+		},
+		"vlanid": {
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 4095,
+			"default": 1
+		},
+		"vlanrawdevice": {
+			"type": "string"
+		},
+		"wpassid": {
+			"type": "string"
+		},
+		"wpapsk": {
+			"type": "string"
+		}
+	}
+}
