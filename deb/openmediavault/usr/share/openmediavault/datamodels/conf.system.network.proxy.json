@@ -1,0 +1,83 @@
+{
+	"type": "config",
+	"id": "conf.system.network.proxy",
+	"title": "Network proxy configuration",
+	"queryinfo": {
+		"xpath": "//system/network/proxy",
+		"iterable": false
+	},
+	"properties": {
+		"http": {
+			"type": "object",
+			"properties": {
+				"enable": {
+					"type": "boolean",
+					"default": false
+				},
+				"host": {
+					"type": "string"
+				},
+				"port": {
+				   "type": "integer",
+				   "minimum": 1,
+				   "maximum": 65535,
+				   "default": 8080
+				},
+				"username": {
+				   "type": "string"
+				},
+				"password": {
+				   "type": "string"
+				}
+			}
+		},
+		"https": {
+			"type": "object",
+			"properties": {
+				"enable": {
+					"type": "boolean",
+					"default": false
+				},
+				"host": {
+					"type": "string"
+				},
+				"port": {
+				   "type": "integer",
+				   "minimum": 1,
+				   "maximum": 65535,
+				   "default": 4443
+				},
+				"username": {
+				   "type": "string"
+				},
+				"password": {
+				   "type": "string"
+				}
+			}
+		},
+		"ftp": {
+			"type": "object",
+			"properties": {
+				"enable": {
+					"type": "boolean",
+					"default": false
+				},
+				"host": {
+					"type": "string"
+				},
+				"port": {
+				   "type": "integer",
+				   "minimum": 1,
+				   "maximum": 65535,
+				   "default": 2121
+				},
+				"username": {
+				   "type": "string"
+				},
+				"password": {
+				   "type": "string"
+				}
+			}
+		}
+	}
+}

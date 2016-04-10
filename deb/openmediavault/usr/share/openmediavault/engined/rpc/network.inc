@@ -19,25 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/config.inc");
 require_once("openmediavault/functions.inc");
-
-$GLOBALS['OMV_JSONSCHEMA_NETWORK_INTERFACE_GENERIC'] =
-  '"devicename":{"type":"string"},'.
-  '"method":{"type":"string","enum":["dhcp","static","manual"]},'.
-  '"address":{"type":"string"},'.
-  '"netmask":{"type":"string"},'.
-  '"gateway":{"type":"string"},'.
-  '"method6":{"type":"string","enum":["auto","static","manual","dhcp"]},'.
-  '"address6":{"type":"string"},'.
-  '"netmask6":{"type":"integer","minimum":0,"maximum":128},'.
-  '"gateway6":{"type":"string"},'.
-  '"dnsnameservers":{"type":"string"},'.
-  '"dnssearch":{"type":"string"},'.
-  '"mtu":{"type":["integer","string"]},'.
-  '"wol":{"type":"boolean"},'.
-  '"options":{"type":"string"},'.
-  '"comment":{"type":"string"}';
 
 class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	/**
@@ -196,7 +178,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function getGeneralSettings($params, $context) {
 		global $xmlConfig;
@@ -222,8 +203,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function setGeneralSettings($params, $context) {
 		global $xmlConfig;
@@ -270,7 +249,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 *   device with the following properties: \em devicename, \em gateway,
 	 *   \em gateway6, \em address, \em address6, \em netmask, \em netmask6,
 	 *   \em ether, \em mtu, \em state, \em link, \em vlan and \em vlanid.
-	 * @throw E_MISC_FAILURE
 	 */
 	public function enumerateDevices($params, $context) {
 		global $xmlConfig;
@@ -371,7 +349,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return A list of applicable network interfaces devices.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function enumerateConfiguredDevices($params, $context) {
 		global $xmlConfig;
@@ -419,7 +396,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 *   on the specific network interface device.
 	 * @param context The context of the caller.
 	 * @return The name of the background process status file.
-	 * @throw E_EXEC_FAILED
 	 */
 	function identify($params, $context) {
 		global $xmlConfig;
@@ -428,17 +404,11 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "devicename":{"type":"string"},
-				  "seconds":{"type":"integer","minimum":1,"maximum":30}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.network.identify");
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
-		if($pid > 0) { // Parent process.
+		if ($pid > 0) { // Parent process.
 			$this->initializeBgProcStatus($bgStatusFilename, $pid);
 			return $bgStatusFilename;
 		}
@@ -497,7 +467,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function getInterface($params, $context) {
 		global $xmlConfig;
@@ -553,7 +522,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array containing network interface objects.
-	 * @throw E_EXEC_MISC
 	 */
 	public function getEthernetCandidates($params, $context) {
 		global $xmlConfig;
@@ -590,7 +558,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function getEthernetIface($params, $context) {
 		// Get the configuration object.
@@ -604,8 +571,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_OBJECT_UNIQUENESS
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function setEthernetIface($params, $context) {
 		// Validate the RPC caller context.
@@ -614,13 +579,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Validate the network interface specific parameters of the
 		// RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-                  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-				  '.$GLOBALS['OMV_JSONSCHEMA_NETWORK_INTERFACE_GENERIC'].'
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.network.setethernetiface");
 		// Set the configuration object.
 		return $this->setInterfaceConfig($params, array(
 			"type" => "ethernet"
@@ -639,8 +598,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 *   ethernet network interfaces (iface class objects) is returned,
 	 *   otherwise the bonded interface slaves plus the unreferenced ethernet
 	 *   network interfaces are returned.
-	 * @throw E_MISC_DEVICE_NOT_SUPPORTED
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function enumerateBondSlaves($params, $context) {
 		global $xmlConfig;
@@ -649,13 +606,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-				  "unused":{"type":"boolean"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.network.enumeratebondslaves");
 		// Get list of network interfaces.
 		$result = array();
 		if (array_key_exists("unused", $params) && $params['unused'] === TRUE) {
@@ -728,7 +679,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function getBondIface($params, $context) {
 		// Get the configuration object.
@@ -746,7 +696,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function setBondIface($params, $context) {
 		global $xmlConfig;
@@ -756,20 +705,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Validate the network interface specific parameters of the
 		// RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-                  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-				  '.$GLOBALS['OMV_JSONSCHEMA_NETWORK_INTERFACE_GENERIC'].',
-				  "slaves":{"type":"string","format":"regex","pattern":'.
-					'"\/^((eth|wlan)\\\d+,)*(eth|wlan)\\\d+$\/i"},
-				  "bondprimary":{"type":"string"},
-				  "bondmode":{"type":"integer","enum":[0,1,2,3,4,5,6]},
-				  "bondmiimon":{"type":"integer","minimum":0},
-				  "bonddowndelay":{"type":"integer","minimum":0},
-				  "bondupdelay":{"type":"integer","minimum":0}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.network.setbondiface");
 		// Do some tests:
 		// - The primary option is only valid for active-backup(1),
 		//   balance-tlb (5) and balance-alb (6) mode.
@@ -812,7 +748,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array containing network interface objects.
-	 * @throw E_EXEC_MISC
 	 */
 	public function getVlanCandidates($params, $context) {
 		global $xmlConfig;
@@ -843,7 +778,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function getVlanIface($params, $context) {
 		// Get the configuration object.
@@ -858,8 +792,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_OBJECT_UNIQUENESS
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function setVlanIface($params, $context) {
 		// Validate the RPC caller context.
@@ -868,15 +800,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Validate the network interface specific parameters of the
 		// RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-                  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-				  '.$GLOBALS['OMV_JSONSCHEMA_NETWORK_INTERFACE_GENERIC'].',
-				  "vlanid":{"type":"integer","minimum":1,"maximum":4095},
-				  "vlanrawdevice":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.network.setvlaniface");
 		// Modify the method parameters.
 		$params = array_merge($params, array(
 			"devicename" => sprintf("%s.%d", $params['vlanrawdevice'],
@@ -895,7 +819,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array containing network interface objects.
-	 * @throw E_EXEC_MISC
 	 */
 	public function getWirelessCandidates($params, $context) {
 		global $xmlConfig;
@@ -932,7 +855,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
     function getWirelessIface($params, $context) {
 		// Get the configuration object.
@@ -946,8 +868,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_OBJECT_UNIQUENESS
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
     function setWirelessIface($params, $context) {
 		// Validate the RPC caller context.
@@ -956,15 +876,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Validate the network interface specific parameters of the
 		// RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-                  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-				  '.$GLOBALS['OMV_JSONSCHEMA_NETWORK_INTERFACE_GENERIC'].',
-				  "wpassid":{"type":"string"},
-				  "wpapsk":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.network.setwirelessiface");
 		// Set the configuration object.
 		return $this->setInterfaceConfig($params, array(
             "type" => "wireless",
@@ -978,7 +890,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function getProxy($params, $context) {
 		global $xmlConfig;
@@ -1017,8 +928,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function setProxy($params, $context) {
 		global $xmlConfig;
@@ -1027,26 +936,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "httpenable":{"type":"boolean"},
-				  "httphost":{"type":"string"},
-				  "httpport":{"type":"integer","minimum":1,"maximum":65535},
-				  "httpusername":{"type":"string"},
-				  "httppassword":{"type":"string"},
-				  "httpsenable":{"type":"boolean"},
-				  "httpshost":{"type":"string"},
-				  "httpsport":{"type":"integer","minimum":1,"maximum":65535},
-				  "httpsusername":{"type":"string"},
-				  "httpspassword":{"type":"string"},
-				  "ftpenable":{"type":"boolean"},
-				  "ftphost":{"type":"string"},
-				  "ftpport":{"type":"integer","minimum":1,"maximum":65535},
-				  "ftpusername":{"type":"string"},
-				  "ftppassword":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.network.setproxy");
 		// Get existing configuration object.
 		$xpath = "//system/network/proxy";
 		$object = $xmlConfig->get($xpath);

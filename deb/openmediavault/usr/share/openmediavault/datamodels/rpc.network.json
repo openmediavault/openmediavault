@@ -1,0 +1,483 @@
+[{
+	"type": "rpc",
+	"id": "rpc.network.setethernetiface",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				 "required": true
+			},
+			"devicename": {
+			   "type": "string",
+			   "required": true
+			},
+			"method": {
+			   "type": "string",
+			   "enum": [ "dhcp", "static", "manual" ],
+			   "required": true
+			},
+			"address": {
+			   "type": "string",
+			   "required": true
+			},
+			"netmask": {
+			   "type": "string",
+			   "required": true
+			},
+			"gateway": {
+			   "type": "string",
+			   "required": true
+			},
+			"method6": {
+			   "type": "string",
+			   "enum": [ "auto", "static", "manual", "dhcp" ],
+			   "required": true
+			},
+			"address6": {
+			   "type": "string",
+			   "required": true
+			},
+			"netmask6": {
+			   "type": "integer",
+			   "minimum": 0,
+			   "maximum": 128,
+			   "required": true
+			},
+			"gateway6": {
+			   "type": "string",
+			   "required": true
+			},
+			"dnsnameservers": {
+			   "type": "string",
+			   "required": true
+			},
+			"dnssearch": {
+			   "type": "string",
+			   "required": true
+			},
+			"mtu": {
+			   "type": [ "integer", "string" ],
+			   "required": true
+			},
+			"wol": {
+			   "type": "boolean",
+			   "required": true
+			},
+			"options": {
+			   "type": "string",
+			   "required": true
+			},
+			"comment": {
+			   "type": "string",
+			   "required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.network.setbondiface",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				 "required": true
+			},
+			"devicename": {
+			   "type": "string",
+			   "required": true
+			},
+			"method": {
+			   "type": "string",
+			   "enum": [ "dhcp", "static", "manual" ],
+			   "required": true
+			},
+			"address": {
+			   "type": "string",
+			   "required": true
+			},
+			"netmask": {
+			   "type": "string",
+			   "required": true
+			},
+			"gateway": {
+			   "type": "string",
+			   "required": true
+			},
+			"method6": {
+			   "type": "string",
+			   "enum": [ "auto", "static", "manual", "dhcp" ],
+			   "required": true
+			},
+			"address6": {
+			   "type": "string",
+			   "required": true
+			},
+			"netmask6": {
+			   "type": "integer",
+			   "minimum": 0,
+			   "maximum": 128,
+			   "required": true
+			},
+			"gateway6": {
+			   "type": "string",
+			   "required": true
+			},
+			"dnsnameservers": {
+			   "type": "string",
+			   "required": true
+			},
+			"dnssearch": {
+			   "type": "string",
+			   "required": true
+			},
+			"mtu": {
+			   "type": [ "integer", "string" ],
+			   "required": true
+			},
+			"wol": {
+			   "type": "boolean",
+			   "required": true
+			},
+			"options": {
+			   "type": "string",
+			   "required": true
+			},
+			"comment": {
+			   "type": "string",
+			   "required": true
+		   },
+		   "slaves": {
+			   "type": "string",
+			   "pattern": "/^((eth|wlan)\d+,)*(eth|wlan)\d+$/i",
+			   "required": true
+		   },
+		   "bondprimary": {
+			   "type": "string",
+			   "required": true
+		   },
+		   "bondmode": {
+			   "type": "integer",
+			   "enum": [0,1,2,3,4,5,6],
+			   "required": true
+		   },
+		   "bondmiimon": {
+			   "type": "integer",
+			   "minimum": 0,
+			   "required": true
+		   },
+		   "bonddowndelay": {
+			   "type": "integer",
+			   "minimum": 0,
+			   "required": true
+		   },
+		   "bondupdelay": {
+			   "type": "integer",
+			   "minimum": 0,
+			   "required": true
+		   }
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.network.setvlaniface",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				 "required": true
+			},
+			"devicename": {
+			   "type": "string",
+			   "required": true
+			},
+			"method": {
+			   "type": "string",
+			   "enum": [ "dhcp", "static", "manual" ],
+			   "required": true
+			},
+			"address": {
+			   "type": "string",
+			   "required": true
+			},
+			"netmask": {
+			   "type": "string",
+			   "required": true
+			},
+			"gateway": {
+			   "type": "string",
+			   "required": true
+			},
+			"method6": {
+			   "type": "string",
+			   "enum": [ "auto", "static", "manual", "dhcp" ],
+			   "required": true
+			},
+			"address6": {
+			   "type": "string",
+			   "required": true
+			},
+			"netmask6": {
+			   "type": "integer",
+			   "minimum": 0,
+			   "maximum": 128,
+			   "required": true
+			},
+			"gateway6": {
+			   "type": "string",
+			   "required": true
+			},
+			"dnsnameservers": {
+			   "type": "string",
+			   "required": true
+			},
+			"dnssearch": {
+			   "type": "string",
+			   "required": true
+			},
+			"mtu": {
+			   "type": [ "integer", "string" ],
+			   "required": true
+			},
+			"wol": {
+			   "type": "boolean",
+			   "required": true
+			},
+			"options": {
+			   "type": "string",
+			   "required": true
+			},
+			"comment": {
+			   "type": "string",
+			   "required": true
+		   },
+		   "vlanid": {
+				"type": "integer",
+				"minimum": 1,
+				"maximum": 4095,
+			   "required": true
+			},
+			"vlanrawdevice": {
+				"type": "string",
+			   "required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.network.setwirelessiface",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"devicename": {
+			   "type": "string",
+			   "required": true
+			},
+			"method": {
+			   "type": "string",
+			   "enum": [ "dhcp", "static", "manual" ],
+			   "required": true
+			},
+			"address": {
+			   "type": "string",
+			   "required": true
+			},
+			"netmask": {
+			   "type": "string",
+			   "required": true
+			},
+			"gateway": {
+			   "type": "string",
+			   "required": true
+			},
+			"method6": {
+			   "type": "string",
+			   "enum": [ "auto", "static", "manual", "dhcp" ],
+			   "required": true
+			},
+			"address6": {
+			   "type": "string",
+			   "required": true
+			},
+			"netmask6": {
+			   "type": "integer",
+			   "minimum": 0,
+			   "maximum": 128,
+			   "required": true
+			},
+			"gateway6": {
+			   "type": "string",
+			   "required": true
+			},
+			"dnsnameservers": {
+			   "type": "string",
+			   "required": true
+			},
+			"dnssearch": {
+			   "type": "string",
+			   "required": true
+			},
+			"mtu": {
+			   "type": [ "integer", "string" ],
+			   "required": true
+			},
+			"wol": {
+			   "type": "boolean",
+			   "required": true
+			},
+			"options": {
+			   "type": "string",
+			   "required": true
+			},
+			"comment": {
+			   "type": "string",
+			   "required": true
+		   },
+		   "wpassid": {
+				"type": "string",
+				"required": true
+			},
+			"wpapsk": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.network.setgeneralsettings",
+	"params": {
+		"type": "object",
+		"properties": {
+			"hostname": {
+				"type": "string",
+				"minLength": 1,
+				"required": true
+			},
+			"domainname": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.network.identify",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devicename": {
+				"type": "string",
+				"format": "devicename",
+				"required": true
+			},
+			"seconds":{
+				"type": "integer",
+				"minimum": 1,
+				"maximum": 30,
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.network.enumeratebondslaves",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				 "required": true
+			},
+			"unused":{
+				"type": "boolean",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.network.setproxy",
+	"params": {
+		"type": "object",
+		"properties": {
+			"httpenable": {
+			   "type": "boolean",
+			   "required": true
+			},
+			"httphost": {
+			   "type": "string",
+			   "required": true
+			},
+			"httpport": {
+			   "type": "integer",
+			   "minimum": 1,
+			   "maximum": 65535,
+			   "required": true
+			},
+			"httpusername": {
+			   "type": "string",
+			   "required": true
+			},
+			"httppassword": {
+			   "type": "string",
+			   "required": true
+			},
+			"httpsenable": {
+			   "type": "boolean",
+			   "required": true
+			},
+			"httpshost": {
+			   "type": "string",
+			   "required": true
+			},
+			"httpsport": {
+			   "type": "integer",
+			   "minimum": 1,
+			   "maximum": 65535,
+			   "required": true
+			},
+			"httpsusername": {
+			   "type": "string",
+			   "required": true
+			},
+			"httpspassword": {
+			   "type": "string",
+			   "required": true
+			},
+			"ftpenable": {
+			   "type": "boolean",
+			   "required": true
+			},
+			"ftphost": {
+			   "type": "string",
+			   "required": true
+			},
+			"ftpport": {
+			   "type": "integer",
+			   "minimum": 1,
+			   "maximum": 65535,
+			   "required": true
+			},
+			"ftpusername": {
+			   "type": "string",
+			   "required": true
+			},
+			"ftppassword": {
+			   "type": "string",
+			   "required": true
+			}
+		}
+	}
+}]

@@ -71,7 +71,8 @@
 			"type": "string"
 		},
 		"slaves": {
-			"type": "string"
+			"type": "string",
+			"pattern": "/^((eth|wlan)\d+,)*(eth|wlan)\d+$/i"
 		},
 		"bondprimary": {
 			"type": "string"
@@ -83,15 +84,18 @@
 		},
 		"bondmiimon": {
 			"type": "integer",
-			"default": false
+			"minimum": 0,
+			"default": 0
 		},
 		"bonddowndelay": {
 			"type": "integer",
-			"default": false
+			"minimum": 0,
+			"default": 0
 		},
 		"bondupdelay": {
 			"type": "integer",
-			"default": false
+			"minimum": 0,
+			"default": 0
 		},
 		"vlanid": {
 			"type": "integer",
