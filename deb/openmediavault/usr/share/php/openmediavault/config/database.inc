@@ -170,8 +170,7 @@ class Database {
 	 * @throw \OMV\Config\DatabaseException
 	 */
 	public function set(ConfigObject &$object) {
-		$queryBuilder = new DatabaseBackendQueryBuilder(
-		  $object->getModel()->getId());
+		$queryBuilder = new DatabaseBackendQueryBuilder($object->getId());
 		// Build the XPath query string.
 		$xpath = $queryBuilder->buildSetQuery($object);
 		if ((TRUE === $object->isIterable()) && (TRUE === $object->isNew())) {
@@ -209,8 +208,7 @@ class Database {
 	 * @throw \OMV\Config\DatabaseException
 	 */
 	public function delete(ConfigObject $object) {
-		$queryBuilder = new DatabaseBackendQueryBuilder(
-		  $object->getModel()->getId());
+		$queryBuilder = new DatabaseBackendQueryBuilder($object->getId());
 		$xpath = $queryBuilder->buildDeleteQuery($object);
 		if (FALSE === $this->getBackend()->delete($xpath)) {
 			throw new DatabaseException("Failed to execute XPath query '%s'.",
@@ -254,8 +252,7 @@ class Database {
 			  $object->getId());
 		}
 		// Create the query builder.
-		$queryBuilder = new DatabaseBackendQueryBuilder(
-		  $object->getModel()->getId());
+		$queryBuilder = new DatabaseBackendQueryBuilder($object->getId());
 		$xpath = $queryBuilder->buildIsReferencedQuery($object);
 		return $this->getBackend()->exists($xpath);
 	}
@@ -362,8 +359,7 @@ class Database {
 	 */
 	public function isUnique(ConfigObject $object, $property) {
 		// Create the query builder.
-		$queryBuilder = new DatabaseBackendQueryBuilder(
-		  $object->getModel()->getId());
+		$queryBuilder = new DatabaseBackendQueryBuilder($object->getId());
 		$xpath = $queryBuilder->buildExistsQuery($property,
 		  $object->get($property));
 		return !$this->getBackend()->exists($xpath);
@@ -400,8 +396,7 @@ class Database {
 	 * @return TRUE if data exists, otherwise FALSE.
 	 */
 	public function assertIsUniqueByPredicate(ConfigObject $object, $predicate) {
-		if (TRUE === $this->existsByPredicate($object->getModel()->getId(),
-		  $predicate)) {
+		if (TRUE === $this->existsByPredicate($object->getId(), $predicate)) {
 			throw new \OMV\AssertException("The configuration object '%s' is ".
 			  "not unique.", $object->getId());
 		}
