@@ -120,57 +120,32 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * @return The configuration object.
 	 */
     private function setInterfaceConfig($params, $object) {
-		// Append the generic network interface configuration attributes.
-		$object = array_merge(array(
-			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  \OMV\Uuid::uuid4() : $params['uuid'],
-			"devicename" => $params['devicename'],
-			"method" => $params['method'],
-			"address" => $params['address'],
-			"netmask" => $params['netmask'],
-			"gateway" => $params['gateway'],
-			"method6" => $params['method6'],
-			"address6" => $params['address6'],
-			"netmask6" => $params['netmask6'],
-			"gateway6" => $params['gateway6'],
-			"dnsnameservers" => preg_replace("/[,;]/", " ",
-			  $params['dnsnameservers']),
-			"dnssearch" => preg_replace("/[,;]/", " ", $params['dnssearch']),
-			"mtu" => $params['mtu'],
-			"wol" => array_boolval($params, 'wol'),
-			"options" => $params['options'],
-			"comment" => $params['comment']
-		), $object);
-		// Set the configuration data.
-		$success = FALSE;
-		if ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+		// Modify various fields.
+		$params['dnsnameservers'] = preg_replace("/[,;]/", " ",
+		  $params['dnsnameservers']);
+		$params['dnssearch'] = preg_replace("/[,;]/", " ",
+		  $params['dnssearch']);
+		// Prepare the configuration object.
+		$object = new \OMV\Config\ConfigObject("conf.system.network.interface");
+		$object->setAssoc($params);
+		$object->setAssoc($object);
+		// Set the configuration object.
+		$isNew = $object->isNew();
+		$db = \OMV\Config\Database::getInstance();
+		if (TRUE === $isNew) {
 			// Check uniqueness.
-			$xpath = sprintf("//system/network/interfaces/interface".
-			  "[type='%s' and devicename='%s']", $object['type'],
-			  $object['devicename']);
-			if (TRUE === $xmlConfig->exists($xpath)) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-				  sprintf(gettext("Network interface '%s' (type=%s) already exists"),
-				  $object['devicename'], $object['type']));
-			}
-			// Append object to configuration.
-			$success = $xmlConfig->set("//system/network/interfaces",
-			  array("interface" => $object));
-		} else {
-			// Update existing configuration object.
-			$xpath = sprintf("//system/network/interfaces/interface[".
-			  "uuid='%s']", $params['uuid']);
-			$success = $xmlConfig->replace($xpath, $object);
+			$predicate = sprintf("type='%s' and devicename='%s'",
+			  $object->get("type"), $object->get("devicename"));
+			$db->assertIsUniqueByPredicate($object, $predicate);
 		}
-		if (FALSE === $success)
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.interfaces.interface", $object);
+		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.network.interfaces.interface",
+		  $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
     }
 
 	/**

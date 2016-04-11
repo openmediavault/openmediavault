@@ -387,6 +387,27 @@ class Database {
 	}
 
 	/**
+	 * Assert that a configuration object with the specified predicate
+	 * is unique.
+	 * Assert that a configuration object with the value of the specified
+	 * property is unique.
+	 * @param object The configuration object to use.
+	 * @param predicate The predicate to search for, e.g. <ul>
+	 *   \li "not(contains(opts,'bind') or contains(opts,'loop'))"
+	 *   \li "devicefile='/dev/sda' or devicefile='/dev/disk/by-id/ata-ST1000DM003-1CH132_S2DF80PC']"
+	 *   </ul>
+	 *   The predicate must be defined in XPath syntax.
+	 * @return TRUE if data exists, otherwise FALSE.
+	 */
+	public function assertIsUniqueByPredicate(ConfigObject $object, $predicate) {
+		if (TRUE === $this->existsByPredicate($object->getModel()->getId(),
+		  $predicate)) {
+			throw new \OMV\AssertException("The configuration object '%s' is ".
+			  "not unique.", $object->getId());
+		}
+	}
+
+	/**
 	 * Unlink all revision files.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
