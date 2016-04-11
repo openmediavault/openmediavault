@@ -61,8 +61,8 @@ xmlstarlet sel -t \
 	  -i "string-length(dnssearch) > 0" \
 		  -v "concat('    dns-search ',dnssearch)" -n \
 	  -b \
-	  -i "string-length(dnssearch) = 0 and string-length(//system/network/domainname) > 0 and //system/network/domainname != 'local'" \
-		  -v "concat('    dns-search ',//system/network/domainname)" -n \
+	  -i "string-length(dnssearch) = 0 and string-length(//system/network/dns/domainname) > 0 and //system/network/dns/domainname != 'local'" \
+		  -v "concat('    dns-search ',//system/network/dns/domainname)" -n \
 	  -b \
 	  -i "wol = 1" \
 		  -o "    pre-down ethtool -s \$IFACE wol ${OMV_INTERFACES_WOL_OPTION}" -n \

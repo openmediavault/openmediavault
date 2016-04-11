@@ -361,11 +361,12 @@
 		"properties": {
 			"hostname": {
 				"type": "string",
-				"minLength": 1,
+				"format": "hostname",
 				"required": true
 			},
 			"domainname": {
 				"type": "string",
+				"format": "domainname",
 				"required": true
 			}
 		}

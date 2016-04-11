@@ -28,7 +28,7 @@ set -e
 # installation.
 hostname=$(hostname --short)
 domainname=$(dnsdomainname)
-omv_config_update "//system/network/hostname" "${hostname}"
-omv_config_update "//system/network/domainname" "${domainname}"
+omv_config_update "//system/network/dns/hostname" "${hostname}"
+omv_config_update "//system/network/dns/domainname" "${domainname}"
 
 exit 0

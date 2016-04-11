@@ -38,7 +38,7 @@ OMV_POSTFIX_MAIN_TRANSPORT_MAPS=${OMV_POSTFIX_MAIN_TRANSPORT_MAPS:-"/etc/postfix
 # Build the full qualified domain name based on the network configuration.
 # - host01
 # - host02.openmediavault.org
-fqdn=$(xmlstarlet sel -t -m "//system/network" \
+fqdn=$(xmlstarlet sel -t -m "//system/network/dns" \
   -v "hostname" \
   -i "string-length(domainname) > 0" -v "concat('.',domainname)" -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc)
@@ -46,7 +46,7 @@ fqdn=$(xmlstarlet sel -t -m "//system/network" \
 # Required in some postfix configuration files.
 # - host01.localdomain
 # - host02.openmediavault.org
-myhostname=$(xmlstarlet sel -t -m "//system/network" \
+myhostname=$(xmlstarlet sel -t -m "//system/network/dns" \
   -v "hostname" \
   -i "string-length(domainname) > 0" -v "concat('.',domainname)" -b \
   -i "string-length(domainname) = 0" -o ".localdomain" -b \

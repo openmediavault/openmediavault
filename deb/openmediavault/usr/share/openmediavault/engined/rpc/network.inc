@@ -180,22 +180,14 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * @return The configuration object.
 	 */
 	function getGeneralSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		// Get the network settings.
-		$xpath = "//system/network";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		return array(
-			"hostname" => $object['hostname'],
-			"domainname" => $object['domainname']
-		);
+		// Get the configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.network.dns");
+		return $object->getAssoc();
 	}
 
 	/**
@@ -205,40 +197,24 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * @return The stored configuration object.
 	 */
 	function setGeneralSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "hostname":{"type":"string","minLength":1},
-				  "domainname":{"type":"string"}
-			  }
-		  }');
-		// Get existing configuration object.
-		$xpath = "//system/network";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$this->validateMethodParams($params, "rpc.network.setgeneralsettings");
+		// Prepare the configuration object.
+		$object = new \OMV\Config\ConfigObject("conf.system.network.dns");
+		$object->setAssoc($params);
 		// Update the configuration object.
-		$object = array_merge($object, array(
-			"hostname" => $params['hostname'],
-			"domainname" => $params['domainname']
-		));
-		if(FALSE === $xmlConfig->replace($xpath, $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.hostname", $object);
+		  "org.openmediavault.system.network.hostname", $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**

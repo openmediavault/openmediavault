@@ -28,5 +28,5 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 # If the hostname is a FQDN, then extract the hostname part only.
-hostname=$(omv_config_get "//system/network/hostname")
+hostname=$(omv_config_get "//system/network/dns/hostname")
 hostnamectl set-hostname ${hostname%%.*}

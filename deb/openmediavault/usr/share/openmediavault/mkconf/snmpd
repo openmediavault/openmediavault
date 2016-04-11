@@ -77,7 +77,7 @@ mkconf() {
 	  -i "version[. = '3']" \
 		  -v "concat('access MyROGroup \"\" usm ',securitylevel,' exact all none none')" -n \
 	  -b \
-	  -v "concat('sysName ',//system/network/hostname)" -n \
+	  -v "concat('sysName ',//system/network/dns/hostname)" -n \
 	  -v "concat('sysLocation ',syslocation)" -n \
 	  -v "concat('sysContact ',syscontact)" -n \
 	  -i "trap/enable[. = '1']" \

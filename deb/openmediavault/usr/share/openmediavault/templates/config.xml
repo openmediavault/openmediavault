@@ -126,8 +126,10 @@
 			-->
 		</certificates>
 		<network>
-			<hostname>openmediavault</hostname>
-			<domainname></domainname>
+			<dns>
+				<hostname>openmediavault</hostname>
+				<domainname></domainname>
+			<dns>
 			<interfaces>
 				<!--
 				<interface>

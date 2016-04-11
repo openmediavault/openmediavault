@@ -53,7 +53,7 @@ OMV_NETATALK_AFPD_UAMLIST=${OMV_NETATALK_AFPD_UAMLIST:-"uams_dhx.so,uams_dhx2.so
 
 mkconf() {
 	# Get the system hostname.
-	hostname=$(xmlstarlet sel -t -m "//system/network" \
+	hostname=$(xmlstarlet sel -t -m "//system/network/dns" \
 	  -v "hostname" \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
 

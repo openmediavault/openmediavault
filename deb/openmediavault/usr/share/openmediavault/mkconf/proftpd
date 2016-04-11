@@ -73,7 +73,7 @@ xmlstarlet sel -t \
   -o "Include /etc/proftpd/modules.conf" -n \
   -o "LoadModule mod_vroot.c" -n \
   -o "UseIPv6 ${OMV_PROFTPD_USEIPV6}" -n \
-  -v "concat('ServerName \"',//system/network/hostname,'\"')" -n \
+  -v "concat('ServerName \"',//system/network/dns/hostname,'\"')" -n \
   -o "ServerType standalone" -n \
   -o "DeferWelcome ${OMV_PROFTPD_DEFERWELCOME}" -n \
   -o "MultilineRFC2228 ${OMV_PROFTPD_MULTILINERFC2228}" -n \

@@ -31,8 +31,8 @@ OMV_HOSTS_CONFIG=${OMV_HOSTS_CONFIG:-"/etc/hosts"}
 
 # If the hostname is a FQDN, then extract the hostname part and store it
 # in the alias variable.
-hostname=$(omv_config_get "//system/network/hostname")
-domainname=$(omv_config_get "//system/network/domainname")
+hostname=$(omv_config_get "//system/network/dns/hostname")
+domainname=$(omv_config_get "//system/network/dns/domainname")
 fqdn="${hostname}"
 alias=""
 if [ -n "${domainname}" ]; then
