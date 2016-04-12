@@ -838,11 +838,6 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $object['devicefile']);
 		}
-		if (FALSE === $sd->hasSMART()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Device does not support S.M.A.R.T. (device=%s)",
-			  $sd->getDeviceFile()));
-		}
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
@@ -855,9 +850,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			$bgOutputFilename = $this->createBgProcOutput();
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
-			// Does the device need some special command arguments?
-			$deviceType = $sd->getSMARTDeviceType();
-			// Execute the command line in a shell.
+			// Prepare the command line arguments and execute the self-test.
 			$testMap = array(
 				  "S" => "short",
 				  "L" => "long",
@@ -867,9 +860,10 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			$cmd = "/usr/sbin/smartctl";
 			$cmdArgs = array();
 			$cmdArgs[] = sprintf("-t %s", $testMap[$object['type']]);
+			$deviceType = $sd->getSMARTDeviceType();
 			if (!empty($deviceType))
 				$cmdArgs[] = sprintf("-d %s", $deviceType);
-			$cmdArgs[] = escapeshellarg($object['devicefile']);
+			$cmdArgs[] = escapeshellarg($sd->getDeviceFile());
 			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd." ".implode(" ", $cmdArgs), "");
