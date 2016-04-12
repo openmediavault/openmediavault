@@ -539,9 +539,7 @@ finish:
 			// Create the new user.
 			$cmd = new \OMV\System\Process("useradd", $cmdArgs);
 			$cmd->setRedirect2to1(TRUE);
-			$cmd->execute($output, $exitStatus);
-			if (0 !== $exitStatus)
-				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
+			$cmd->execute();
 		} else {
 			// Append additional arguments.
 			if (array_key_exists("password", $params) &&
@@ -553,9 +551,7 @@ finish:
 			// Modify the existing user.
 			$cmd = new \OMV\System\Process("usermod", $cmdArgs);
 			$cmd->setRedirect2to1(TRUE);
-			$cmd->execute($output, $exitStatus);
-			if (0 !== $exitStatus)
-				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
+			$cmd->execute();
 		}
 		// Append some more information to the notification object.
 		$objectAssoc = array_merge($object->getAssoc(), $params);
@@ -627,9 +623,7 @@ finish:
 		$cmdArgs[] = escapeshellarg($params['name']);
 		$cmd = new \OMV\System\Process("userdel", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);
-		$cmd->execute($output, $exitStatus);
-		if (0 !== $exitStatus)
-			throw new \OMV\ExecException($cmd->getCommandLine(), $output);
+		$cmd->execute();
 		// Delete additional user information stored in database.
 		$db = \OMV\Config\Database::getInstance();
 		$predicate = sprintf("name='%s'", $params['name']);
@@ -859,9 +853,7 @@ finish:
 			// Create the new group.
 			$cmd = new \OMV\System\Process("groupadd", $cmdArgs);
 			$cmd->setRedirect2to1(TRUE);
-			$cmd->execute($output, $exitStatus);
-			if (0 !== $exitStatus)
-				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
+			$cmd->execute();
 		} else {
 			// Nothing to do here.
 		}
@@ -878,9 +870,7 @@ finish:
 
 			$cmd = new \OMV\System\Process("gpasswd", $cmdArgs);
 			$cmd->setRedirect2to1(TRUE);
-			$cmd->execute($output, $exitStatus);
-			if (0 !== $exitStatus)
-				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
+			$cmd->execute();
 		}
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
@@ -916,9 +906,7 @@ finish:
 		$cmdArgs[] = escapeshellarg($params['name']);
 		$cmd = new \OMV\System\Process("delgroup", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);
-		$cmd->execute($output, $exitStatus);
-		if (0 !== $exitStatus)
-			throw new \OMV\ExecException($cmd->getCommandLine(), $output);
+		$cmd->execute();
 		// Delete configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$predicate = sprintf("name='%s'", $params['name']);
@@ -1066,9 +1054,7 @@ finish:
 			$cmdArgs[] = escapeshellarg($userv['name']);
 			$cmd = new \OMV\System\Process("usermod", $cmdArgs);
 			$cmd->setRedirect2to1(TRUE);
-			$cmd->execute($output, $exitStatus);
-			if (0 !== $exitStatus)
-				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
+			$cmd->execute();
 			// Create the home directory if it does not exist until now.
 			if (!empty($homeDirPath)) {
 				$path = build_path(DIRECTORY_SEPARATOR, $homeDirPath,

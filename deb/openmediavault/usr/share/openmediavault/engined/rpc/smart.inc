@@ -577,13 +577,12 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.service.smartmontools.job",
-		  $params['uuid']);
+		$object = $db->get("conf.service.smartmontools.job", $params['uuid']);
 		// Check if the given device exists.
 		\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
-		  $object->("devicefile"));
+		  $object->get("devicefile"));
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
-		  $object->("devicefile"));
+		  $object->get("devicefile"));
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();

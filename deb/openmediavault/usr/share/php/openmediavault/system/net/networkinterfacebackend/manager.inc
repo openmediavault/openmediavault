@@ -80,6 +80,26 @@ class Manager implements \IteratorAggregate {
 	}
 
 	/**
+	 * Assert that a backend for the given network interface exists.
+	 * @param deviceName Specifies the device name, e.g.
+	 *   <ul>
+	 *   \li eth0
+	 *   \li wlan2
+	 *   \li eth2.1
+	 *   \li bond0
+	 *   </ul>
+	 * @throw \OMV\AssertException
+	 */
+	final public function assertBackendExists($deviceName) {
+		$result = $this->getBackend($deviceName);
+		if (is_null($result)) {
+			throw new \OMV\AssertException(
+			  "No network interface backend exists for the device '%s'.",
+			  $deviceName);
+		}
+	}
+
+	/**
 	 * Enumerate all network interfaces.
 	 * @param type Defines the network interface type, e.g. ethernet, vlan or
 	 *   bond. Defaults to OMV_NETWORK_INTERFACE_TYPE_ALL.

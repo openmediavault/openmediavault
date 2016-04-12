@@ -19,6 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 
 class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
@@ -120,7 +121,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * @return The configuration object.
 	 */
     private function setInterfaceConfig($params, $object) {
-		// Modify various fields.
+		// Modify various configuration attributes.
 		$params['dnsnameservers'] = preg_replace("/[,;]/", " ",
 		  $params['dnsnameservers']);
 		$params['dnssearch'] = preg_replace("/[,;]/", " ",
@@ -202,7 +203,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 *   \em ether, \em mtu, \em state, \em link, \em vlan and \em vlanid.
 	 */
 	public function enumerateDevices($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -211,20 +211,16 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		// Enumerate all network interface devices on the system.
 		if (FALSE === ($devs = $mngr->enumerate(
 		  OMV_NETWORK_INTERFACE_TYPE_ALL))) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  gettext("Failed to get list of network interface devices"));
+			throw new \OMV\Exception(
+			  "Failed to get list of network interface devices");
 		}
 		// Generate the result objects including all information about
 		// the network interfaces.
 		$result = array();
 		foreach ($devs as $devk => $devv) {
 			// Get the network interface backend.
+			$mngr->assertBackendExists($devv);
 			$nib = $mngr->getBackend($devv);
-			if (is_null($nib)) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("No network interface backend exists for '%s'",
-				  $devv));
-			}
 			// Set the default attributes.
 			$object = array(
 				"uuid" => $GLOBALS['OMV_UUID_UNDEFINED'],
@@ -233,31 +229,29 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 				"_readonly" =>  FALSE
 			);
 			// Is there any configuration for the given network interface?
-			$xpath = sprintf("//system/network/interfaces/*[devicename='%s']",
-			  $devv);
-			$cfgObject = $xmlConfig->get($xpath);
-			if (!is_null($cfgObject))
-				$object = array_merge($object, $cfgObject);
+			$db = \OMV\Config\Database::getInstance();
+			if ($db->existsByProperty("devicename", $devv)) {
+				$cfgObject = $db->get("conf.system.network.interface",
+				  "devicename", $devv);
+				$object = array_merge($object, $cfgObject->getAssoc());
+			}
 			// Get the current network interface information. Note, this will
 			// override various configuration values.
 			$object = array_merge($object, $this->getIfaceInfo($devv));
 			// Categorize the network interface.
 			$typeNames = $GLOBALS['OMV_NETWORK_INTERFACE_TYPE_NAMES'];
-			if (array_key_exists($nib->getType(), $typeNames)) {
+			if (array_key_exists($nib->getType(), $typeNames))
 				$object['type'] = $typeNames[$nib->getType()];
-			} else {
+			else
 				$object['type'] = "unknown";
-			}
 			// Do some configuration checks?
 			// - Is the ethernet interface device somewhere referenced?
-			$xpath = sprintf("//interfaceref[contains(.,'%s')]",
-			  $object['uuid']);
-			if (TRUE === $xmlConfig->exists($xpath))
-				$object['_used'] = TRUE;
+			$object['_used'] = $db->isReferenced($object);
 			// - Check if it is used by a bonding interface.
-			$xpath = sprintf("//system/network/interfaces/interface[".
-			  "type='bond' and contains(slaves,'%s')]", $devv);
-			if (TRUE === $xmlConfig->exists($xpath)) {
+			$predicate = sprintf("type='bond' and contains(slaves,'%s')]",
+			  $devv);
+			if ($db->existsByPredicate("conf.system.network.interface",
+			  $predicate)) {
 				$object['_used'] = TRUE;
 				$object['_readonly'] = TRUE;
 				$object['method'] = "";
@@ -302,37 +296,29 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * @return A list of applicable network interfaces devices.
 	 */
 	function enumerateConfiguredDevices($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		$result = array();
-        // Get all network interface configuration object UUID's.
-		$xpath = "//system/network/interfaces/interface/uuid";
-		$uuids = $xmlConfig->getList($xpath);
+        // Get all network interface configuration objects.
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->get("conf.system.network.interface");
 		// Now get the network interface configuration objects.
 		$result = array();
-		foreach ($uuids as $uuidk => $uuidv) {
-			// Get the configuration object.
-			$object = $this->callMethod("getInterface", array(
-				  "uuid" => $uuidv
-			  ), $context);
-			// Append some additional information, e.g. whether this
-			// interface is referenced and used:
-			$object['_used'] = FALSE;
-			$object['_readonly'] = FALSE;
-			$xpath = sprintf("//interfaceref[contains(.,'%s')]",
-			$object['uuid']);
-			if (TRUE === $xmlConfig->exists($xpath))
-				$object['_used'] = TRUE;
-			$xpath = sprintf("//interface[type='bond' and ".
-			  "contains(slaves,'%s')]", $object['devicename']);
-			if (TRUE === $xmlConfig->exists($xpath)) {
-				$object['_used'] = TRUE;
-				$object['_readonly'] = TRUE;
+		foreach ($objects as $objectk => $objectv) {
+			$objectAssoc = $objectv->getAssoc();
+			// Is the ethernet interface device somewhere referenced?
+			$objectAssoc['_used'] = $db->isReferenced($objectv);
+			$objectAssoc['_readonly'] = FALSE;
+			// Check if it is used by a bonding interface.
+			$predicate = sprintf("type='bond' and contains(slaves,'%s')]",
+			  $objectv->get("devicename"));
+			if ($db->existsByPredicate("conf.system.network.interface",
+			  $predicate)) {
+				$objectAssoc['_used'] = TRUE;
+				$objectAssoc['_readonly'] = TRUE;
 			}
-			$result[] = $object;
+			$result[] = $objectAssoc;
 		}
 		return $result;
 	}
@@ -370,10 +356,16 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			  $bgOutputFilename);
 			// Initiate adapter-specific action intended to enable an operator
 			// to easily identify the adapter by sight.
-			$cmd = sprintf("export LANG=C; ethtool --identify %s %d 2>&1",
-			  $params['devicename'], $params['seconds']);
-			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
-				throw new \OMV\ExecException($cmd, $output);
+			$cmdArgs = array();
+			$cmdArgs[] = "--identify";
+			$cmdArgs[] = escapeshellarg($params['devicename']);
+			$cmdArgs[] = $params['seconds'];
+			$cmd = new \OMV\System\Process("ethtool", $cmdArgs);
+			$cmd->setRedirect2to1(TRUE);
+			if (0 !== $this->exec($cmd->getCommandLine(), $output,
+			  $bgOutputFilename)) {
+				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
+			}
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
 		} catch(\Exception $e) {
@@ -397,7 +389,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 *   array. An exception will be thrown in case of an error.
 	 */
 	function getInterfaceList($params, $context) {
-        global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -420,7 +411,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * @return The requested configuration object.
 	 */
 	function getInterface($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -428,23 +418,15 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
-		$xpath = sprintf("//system/network/interfaces/interface[uuid='%s']",
-		  $params['uuid']);
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.network.interface", $params['uuid']);
 		// Modify the generic network interface configuration data.
 		// Other interface type related data must be modified separately.
-		$object['netmask6'] = intval($object['netmask6']);
-		$object['wol'] = boolvalEx($object['wol']);
-		if (!empty($object['mtu']))
-			$object['mtu'] = intval($object['mtu']);
-		$object['dnsnameservers'] = str_replace(" ", ",",
-		  $object['dnsnameservers']);
-		$object['dnssearch'] = str_replace(" ", ",", $object['dnssearch']);
-		return $object;
+		$result = $object->getAssoc();
+		$result['dnsnameservers'] = str_replace(" ", ",",
+		  $result['dnsnameservers']);
+		$result['dnssearch'] = str_replace(" ", ",", $result['dnssearch']);
+		return $result;
 	}
 
 	/**
@@ -462,9 +444,8 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		$xpath = sprintf("//system/network/interfaces/interface[uuid='%s']",
-		  $params['uuid']);
-		return $this->deleteConfigObjectByPath($xpath,
+		return $this->deleteConfigObjectByUuid(
+		  "conf.system.network.interface", $params['uuid'],
 		  "org.openmediavault.system.network.interfaces.interface");
 	}
 
@@ -475,7 +456,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array containing network interface objects.
 	 */
 	public function getEthernetCandidates($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -485,18 +465,18 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		// VLAN network interfaces.
 		if (FALSE === ($devs = $mngr->enumerateUnused(
 		  OMV_NETWORK_INTERFACE_TYPE_ETHERNET))) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  gettext("Failed to get list of unused network interface devices"));
+			throw new \OMV\Exception(
+			  "Failed to get list of unused network interface devices");
 		}
 		// Get the network interface information.
 		$result = array();
 		foreach ($devs as $devk => $devv) {
 			// Does a configuration object exists for the given network
-			// interface device?
-			$xpath = sprintf("//system/network/interfaces/interface".
-			  "[type='ethernet' and devicename='%s']", $devv);
-			$object = $xmlConfig->get($xpath);
-			if (!is_null($object))
+			// interface device? If yes, then skip it.
+			$db = \OMV\Config\Database::getInstance();
+			$predicate = sprintf("type='ethernet' and devicename='%s'", $devv);
+			if (TRUE === $db->existsByPredicate("conf.system.network.interface",
+			  $predicate))
 				continue;
 			$result[] = $this->getIfaceInfo($devv);
 		}
@@ -731,11 +711,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * @return The requested configuration object.
 	 */
 	function getVlanIface($params, $context) {
-		// Get the configuration object.
-		$object = $this->callMethod("getInterface", $params, $context);
-		// Modify result data.
-		$object['vlanid'] = intval($object['vlanid']);
-		return $object;
+		return $this->callMethod("getInterface", $params, $context);
 	}
 
 	/**
@@ -808,10 +784,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * @return The requested configuration object.
 	 */
     function getWirelessIface($params, $context) {
-		// Get the configuration object.
-		$object = $this->callMethod("getInterface", $params, $context);
-		// Modify result data.
-		return $object;
+		return $this->callMethod("getInterface", $params, $context);
 	}
 
 	/**
@@ -849,29 +822,24 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the network proxy settings.
-		$xpath = "//system/network/proxy";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		return array(
-			"httpenable" => boolvalEx($object['http']['enable']),
-			"httphost" => $object['http']['host'],
-			"httpport" => intval($object['http']['port']),
-			"httpusername" => $object['http']['username'],
-			"httppassword" => $object['http']['password'],
-			"httpsenable" => boolvalEx($object['https']['enable']),
-			"httpshost" => $object['https']['host'],
-			"httpsport" => intval($object['https']['port']),
-			"httpsusername" => $object['https']['username'],
-			"httpspassword" => $object['https']['password'],
-			"ftpenable" => boolvalEx($object['ftp']['enable']),
-			"ftphost" => $object['ftp']['host'],
-			"ftpport" => intval($object['ftp']['port']),
-			"ftpusername" => $object['ftp']['username'],
-			"ftppassword" => $object['ftp']['password']
-		);
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.network.proxy");
+		$object->move("http.enable", "httpenable");
+		$object->move("http.host", "httphost");
+		$object->move("http.port", "httpport");
+		$object->move("http.username", "httpusername");
+		$object->move("http.password", "httppassword");
+		$object->move("https.enable", "httpsenable");
+		$object->move("https.host", "httpshost");
+		$object->move("https.port", "httpsport");
+		$object->move("https.username", "httpsusername");
+		$object->move("https.password", "httpspassword");
+		$object->move("ftp.enable", "ftpenable");
+		$object->move("ftp.host", "ftphost");
+		$object->move("ftp.port", "ftpport");
+		$object->move("ftp.username", "ftpusername");
+		$object->move("ftp.password", "ftppassword");
+		return $object->getAssoc();
 	}
 
 	/**
@@ -881,52 +849,45 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 * @return The stored configuration object.
 	 */
 	function setProxy($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.network.setproxy");
-		// Get existing configuration object.
-		$xpath = "//system/network/proxy";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Update the configuration object.
-		$object = array_merge($object, array(
-			"http" => array(
+		// Prepare the configuration object.
+		$object = new \OMV\Config\ConfigObject("conf.system.network.proxy");
+		$object->setAssoc([
+			"http" => [
 				"enable" => $params['httpenable'],
 				"host" => $params['httphost'],
 				"port" => $params['httpport'],
 				"username" => $params['httpusername'],
 				"password" => $params['httppassword']
-			),
-			"https" => array(
+			],
+			"https" => [
 				"enable" => $params['httpsenable'],
 				"host" => $params['httpshost'],
 				"port" => $params['httpsport'],
 				"username" => $params['httpsusername'],
 				"password" => $params['httpspassword']
-			),
-			"ftp" => array(
+			],
+			"ftp" => [
 				"enable" => $params['ftpenable'],
 				"host" => $params['ftphost'],
 				"port" => $params['ftpport'],
 				"username" => $params['ftpusername'],
 				"password" => $params['ftppassword']
-			)
-		));
-		if (FALSE === $xmlConfig->replace($xpath, $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+			]
+		]);
+		// Set the configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.proxy", $object);
+		  "org.openmediavault.system.network.proxy", $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 }

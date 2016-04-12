@@ -5,7 +5,8 @@
 	"queryinfo": {
 		"xpath": "//system/network/interfaces/interface",
 		"iterable": true,
-		"idproperty": "uuid"
+		"idproperty": "uuid",
+		"refproperty": "interfaceref"
 	},
 	"properties": {
 		"uuid": {
@@ -72,7 +73,7 @@
 		},
 		"slaves": {
 			"type": "string",
-			"pattern": "/^((eth|wlan)\d+,)*(eth|wlan)\d+$/i"
+			"pattern": "/^((eth|wlan)\\d+,)*(eth|wlan)\\d+$/i"
 		},
 		"bondprimary": {
 			"type": "string"

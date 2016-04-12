@@ -620,8 +620,8 @@ case "$1" in
 			# Add the 'enable' attribute to FTP shares.
 			omv_config_add_element "/config/services/ftp/shares/share" "enable" "1"
 			# Relocate hostname/domainname settings.
-			hostname=$(omv_config_get("/config/system/network/hostname"))
-			domainname=$(omv_config_get("/config/system/network/domainname"))
+			hostname=$(omv_config_get "/config/system/network/hostname")
+			domainname=$(omv_config_get "/config/system/network/domainname")
 			omv_config_add_element "/config/system/network" "dns" ""
 			omv_config_add_element "/config/system/network/dns" "hostname" "${hostname}"
 			omv_config_add_element "/config/system/network/dns" "domainname" "${domainname}"
