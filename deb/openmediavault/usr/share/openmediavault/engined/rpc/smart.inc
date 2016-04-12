@@ -828,10 +828,25 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
 			  }
 		  }');
+		// Get the scheduled test configuration object.
+		$object = $this->callMethod("getScheduledTest", array(
+			"uuid" => $params['uuid']
+		), $context);
+		// Check if the given device exists and supports S.M.A.R.T.
+		$sd = OMVStorageDeviceFactory::get($object['devicefile']);
+		if (is_null($sd) || !$sd->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
+			  $object['devicefile']);
+		}
+		if (FALSE === $sd->hasSMART()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Device does not support S.M.A.R.T. (device=%s)",
+			  $sd->getDeviceFile()));
+		}
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
-		if($pid > 0) { // Parent process.
+		if ($pid > 0) { // Parent process.
 			$this->initializeBgProcStatus($bgStatusFilename, $pid);
 			return $bgStatusFilename;
 		}
@@ -840,20 +855,22 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			$bgOutputFilename = $this->createBgProcOutput();
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
-			// Get the scheduled test configuration object.
-			$object = $this->callMethod("getScheduledTest", array(
-			  "uuid" => $params['uuid']), $context);
+			// Does the device need some special command arguments?
+			$deviceType = $sd->getSMARTDeviceType();
 			// Execute the command line in a shell.
-			$test = array(
+			$testMap = array(
 				  "S" => "short",
 				  "L" => "long",
 				  "C" => "conveyance",
 				  "O" => "offline"
 			  );
 			$cmd = "/usr/sbin/smartctl";
-			$cmdArgs = array("-t", $test[$object['type']],
-			  $object['devicefile']);
-			if(FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename)) {
+			$cmdArgs = array();
+			$cmdArgs[] = sprintf("-t %s", $testMap[$object['type']]);
+			if (!empty($deviceType))
+				$cmdArgs[] = sprintf("-d %s", $deviceType);
+			$cmdArgs[] = escapeshellarg($object['devicefile']);
+			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd." ".implode(" ", $cmdArgs), "");
 			}
