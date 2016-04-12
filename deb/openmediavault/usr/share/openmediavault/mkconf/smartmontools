@@ -70,7 +70,7 @@ xmlstarlet sel -t \
 		-m "//services/smart/monitor/device[uuid='${uuid}']" \
 		  -v devicefile \
 		  -i "string-length(type) > 0" \
-			-v "concat(' -d ',type)" \
+			-v "concat(' -d ',devicetype)" \
 		  -b \
 		-b \
 		-o " ${OMV_SMARTMONTOOLS_DEFAULTDIRECTIVES}" \
@@ -83,7 +83,7 @@ xmlstarlet sel -t \
 		  -i "position() = 1" -o " -s " -b \
 		  -i "last() > 1 and position() = 1" -o "(" -b \
 		  -i "position() > 1" -o "|" -b \
-		  -v type \
+		  -v "type" \
 		  -o "/" \
 		  -i "month = '*'" -o ".." -b \
 		  -i "month != '*'" -v month -b \

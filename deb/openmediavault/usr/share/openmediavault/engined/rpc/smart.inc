@@ -285,9 +285,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		$object = new ConfigObject("conf.service.smartmontools.device");
 		$object->setAssoc([
 			"uuid" => $params['uuid'],
-			"devicefile" => $sd->getDeviceFileById(),
 			"enable" => $params['enable'],
-			"type" => $sd->getSmartDeviceType()
+			"devicefile" => $sd->getDeviceFileById(),
+			"devicetype" => $sd->getSmartDeviceType()
 		]);
 		// Set the configuration object.
 		$isNew = $object->isNew();
@@ -528,6 +528,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		$object = new \OMV\Config\ConfigObject("conf.service.smartmontools.job");
 		$object->setAssoc($params);
 		$object->set("devicefile", $sd->getDeviceFileById());
+		$object->set("devicetype", $sd->getSmartDeviceType());
 		// Set the configuration object.
 		$isNew = $object->isNew();
 		$db = \OMV\Config\Database::getInstance();
@@ -592,7 +593,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			$object = $db->get("conf.service.smartmontools.job",
 			  $params['uuid']);
 			// Execute the command line in a shell.
-			$test = array(
+			$testMap = array(
 				  "S" => "short",
 				  "L" => "long",
 				  "C" => "conveyance",
@@ -600,9 +601,10 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			  );
 			$cmd = "/usr/sbin/smartctl";
 			$cmdArgs = array();
-			$cmdArgs[] = "-t";
-			$cmdArgs[] = $test[$object->get("type")];
-			$cmdArgs[] = $object->get("devicefile");
+			$cmdArgs[] = sprintf("-t %s", $testMap[$object->get("type")]);
+			if (FALSE === $object->isEmpty("devicetype"))
+				$cmdArgs[] = sprintf("-d %s", $object->get("devicetype"));
+			$cmdArgs[] = escapeshellarg($object->get("devicefile"));
 			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename))
 				throw new \OMV\ExecException($cmd." ".implode(" ", $cmdArgs));
 		} catch(\Exception $e) {

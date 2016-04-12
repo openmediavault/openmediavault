@@ -627,6 +627,10 @@ case "$1" in
 			omv_config_add_element "/config/system/network/dns" "domainname" "${domainname}"
 			omv_config_delete "/config/system/network/hostname"
 			omv_config_delete "/config/system/network/domainname"
+			# Rename S.M.A.R.T. device attribute 'type'.
+			omv_config_rename "//services/smart/monitor/device/type" "devicetype"
+			# Add new attribute to S.M.A.R.T. jobs.
+			omv_config_add_element "//services/smart/scheduledtests/job" "devicetype" ""
 		fi
 	;;
 

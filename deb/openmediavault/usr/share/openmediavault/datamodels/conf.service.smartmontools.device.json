@@ -12,16 +12,16 @@
 			"type": "string",
 			"format": "uuidv4"
 		},
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
 		"devicefile": {
 			"type": "string",
 			"format": "devicefile",
 			"default": ""
 		},
-		"enable": {
-			"type": "boolean",
-			"default": 1
-		},
-		"type": {
+		"devicetype": {
 			"type": "string",
 			"default": ""
 		}

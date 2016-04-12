@@ -457,9 +457,9 @@
 				<!--
 				<device>
 					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
-					<devicefile>/dev/xxx</devicefile>
 					<enable>0|1</enable>
-					<type>|sat|cciss|xxx</type>
+					<devicefile>/dev/xxx</devicefile>
+					<devicetype>|sat|cciss|xxx</devicetype>
 				</device>
 				-->
 			</monitor>
@@ -469,6 +469,7 @@
 					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
 					<enable>0|1</enable>
 					<devicefile>/dev/xxx</devicefile>
+					<devicetype>|sat|cciss|xxx</devicetype>
 					<type>S|L|C|O</type>
 					<month>[01-12|*]</month>
 					<dayofmonth>[01-31|*]</dayofmonth>

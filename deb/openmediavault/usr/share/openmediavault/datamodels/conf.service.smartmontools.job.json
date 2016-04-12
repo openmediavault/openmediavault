@@ -14,11 +14,15 @@
 		},
 		"enable": {
 			"type": "boolean",
-			"default": 1
+			"default": false
 		},
 		"devicefile": {
 			"type": "string",
 			"format": "devicefile",
+			"default": ""
+		},
+		"devicetype": {
+			"type": "string",
 			"default": ""
 		},
 		"type": {
