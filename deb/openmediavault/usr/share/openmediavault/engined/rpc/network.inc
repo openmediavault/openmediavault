@@ -385,7 +385,6 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		$result = array();
         // Get all network interface configuration object UUID's.
 		$xpath = "//system/network/interfaces/interface/uuid";
 		$uuids = $xmlConfig->getList($xpath);
@@ -428,7 +427,6 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 	 * @throw E_EXEC_FAILED
 	 */
 	function identify($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
