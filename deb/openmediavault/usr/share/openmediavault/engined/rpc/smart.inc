@@ -528,7 +528,6 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		$object = new \OMV\Config\ConfigObject("conf.service.smartmontools.job");
 		$object->setAssoc($params);
 		$object->set("devicefile", $sd->getDeviceFileById());
-		$object->set("devicetype", $sd->getSmartDeviceType());
 		// Set the configuration object.
 		$isNew = $object->isNew();
 		$db = \OMV\Config\Database::getInstance();
@@ -576,6 +575,15 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
+		// Get the configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.smartmontools.job",
+		  $params['uuid']);
+		// Check if the given device exists.
+		\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
+		  $object->("devicefile"));
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
+		  $object->("devicefile"));
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
@@ -588,11 +596,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			$bgOutputFilename = $this->createBgProcOutput();
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
-			// Get the configuration object.
-			$db = \OMV\Config\Database::getInstance();
-			$object = $db->get("conf.service.smartmontools.job",
-			  $params['uuid']);
-			// Execute the command line in a shell.
+			// Prepare the command line arguments and execute the self-test.
 			$testMap = array(
 				  "S" => "short",
 				  "L" => "long",
@@ -602,9 +606,10 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			$cmd = "/usr/sbin/smartctl";
 			$cmdArgs = array();
 			$cmdArgs[] = sprintf("-t %s", $testMap[$object->get("type")]);
-			if (FALSE === $object->isEmpty("devicetype"))
-				$cmdArgs[] = sprintf("-d %s", $object->get("devicetype"));
-			$cmdArgs[] = escapeshellarg($object->get("devicefile"));
+			$deviceType = $sd->getSmartDeviceType();
+			if (FALSE === empty($deviceType))
+				$cmdArgs[] = sprintf("-d %s", $deviceType);
+			$cmdArgs[] = escapeshellarg($sd->getDeviceFile());
 			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename))
 				throw new \OMV\ExecException($cmd." ".implode(" ", $cmdArgs));
 		} catch(\Exception $e) {

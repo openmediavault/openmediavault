@@ -21,10 +21,6 @@
 			"format": "devicefile",
 			"default": ""
 		},
-		"devicetype": {
-			"type": "string",
-			"default": ""
-		},
 		"type": {
 			"type": "string",
 			"default": "S",
