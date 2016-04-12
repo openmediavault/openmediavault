@@ -321,7 +321,7 @@ class Database {
 		if (!is_array($value))
 			$value = array($value);
 		foreach ($value as $valuek => $valuev) {
-			$xpath = $queryBuilder->buildExistsQuery($property, $value);
+			$xpath = $queryBuilder->buildExistsQuery($property, $valuev);
 			if (TRUE === $this->getBackend()->exists($xpath))
 				return TRUE;
 		}

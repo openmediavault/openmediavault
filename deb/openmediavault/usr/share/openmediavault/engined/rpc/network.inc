@@ -230,10 +230,15 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			);
 			// Is there any configuration for the given network interface?
 			$db = \OMV\Config\Database::getInstance();
-			if ($db->existsByProperty("devicename", $devv)) {
+			if ($db->existsByProperty("conf.system.network.interface",
+			  "devicename", $devv)) {
+				// Get the interface configuration object.
 				$cfgObject = $db->get("conf.system.network.interface",
 				  "devicename", $devv);
+				// Append the configuration attributes.
 				$object = array_merge($object, $cfgObject->getAssoc());
+				// Is the interface device somewhere referenced?
+				$object['_used'] = $db->isReferenced($cfgObject);
 			}
 			// Get the current network interface information. Note, this will
 			// override various configuration values.
@@ -244,11 +249,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 				$object['type'] = $typeNames[$nib->getType()];
 			else
 				$object['type'] = "unknown";
-			// Do some configuration checks?
-			// - Is the ethernet interface device somewhere referenced?
-			$object['_used'] = $db->isReferenced($object);
-			// - Check if it is used by a bonding interface.
-			$predicate = sprintf("type='bond' and contains(slaves,'%s')]",
+			// Check whether the interface device is used by a bonding
+			// interface.
+			$predicate = sprintf("type='bond' and contains(slaves,'%s')",
 			  $devv);
 			if ($db->existsByPredicate("conf.system.network.interface",
 			  $predicate)) {
@@ -311,7 +314,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			$objectAssoc['_used'] = $db->isReferenced($objectv);
 			$objectAssoc['_readonly'] = FALSE;
 			// Check if it is used by a bonding interface.
-			$predicate = sprintf("type='bond' and contains(slaves,'%s')]",
+			$predicate = sprintf("type='bond' and contains(slaves,'%s')",
 			  $objectv->get("devicename"));
 			if ($db->existsByPredicate("conf.system.network.interface",
 			  $predicate)) {
