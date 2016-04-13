@@ -115,6 +115,38 @@ class Database {
 	}
 
 	/**
+	 * Get the iterable configuration object that is matching the specified
+	 * properties.
+	 * @param id The data model identifier.
+	 * @param data An array of key/value pairs.
+	 * @return The configuration object.
+	 * @throw \InvalidArgumentException
+	 * @throw \OMV\Config\DatabaseException
+	 */
+	public function getByProperties($id, $data) {
+		// Get the specified data model.
+		$mngr = \OMV\DataModel\Manager::getInstance();
+		$model = $mngr->getModel($id);
+		// Is the configuration object iterable?
+		if (FALSE === $model->isIterable()) {
+			throw new \InvalidArgumentException(
+			  "The configuration object '%s' is not iterable.",
+			  $model->getId());
+		}
+		// Build the query predicate.
+		$queryBuilder = new DatabaseBackendQueryBuilder($id);
+		$predicate = $queryBuilder->buildPredicate($data);
+		// Get the configuration object(s).
+		$objects = $this->getByPredicate($id, $predicate);
+		if (empty($objects)) {
+			$xpath = $queryBuilder->buildGetByPredicateQuery($predicate);
+			throw new DatabaseException("Failed to execute XPath query '%s'.",
+			  $xpath);
+		}
+		return $objects[0];
+	}
+
+	/**
 	 * Get iterable configuration objects that are matching the specified
 	 * predicate.
 	 * @param id The data model identifier.
@@ -124,7 +156,7 @@ class Database {
 	 *   </ul>
 	 *   The predicate must be defined in XPath syntax.
 	 * @return An array of configuration objects.
-	 * @throw \OMV\Config\DatabaseException
+	 * @throw \InvalidArgumentException
 	 */
 	public function getByPredicate($id, $predicate) {
 		// Get the specified data model.
@@ -132,7 +164,7 @@ class Database {
 		$model = $mngr->getModel($id);
 		// Is the configuration object iterable?
 		if (FALSE === $model->isIterable()) {
-			throw new DatabaseException(
+			throw new \InvalidArgumentException(
 			  "The configuration object '%s' is not iterable.",
 			  $model->getId());
 		}
@@ -326,6 +358,25 @@ class Database {
 				return TRUE;
 		}
 		return FALSE;
+	}
+
+	/**
+	 * Check if a configuration object with the specified properties
+	 * exists.
+	 * @param id The data model identifier.
+	 * @param data An array of key/value pairs. Multiple key/value
+	 *   pairs are concatenated with 'AND'.
+	 * @return TRUE if data exists, otherwise FALSE.
+	 */
+	public function existsByProperties($id, $data) {
+		// Get the specified data model.
+		$mngr = \OMV\DataModel\Manager::getInstance();
+		$model = $mngr->getModel($id);
+		// Build the query predicate.
+		$queryBuilder = new DatabaseBackendQueryBuilder($id);
+		$predicate = $queryBuilder->buildPredicate($data, "and");
+		// Check if the configuration object exists.
+		return $this->existsByPredicate($id, $predicate);
 	}
 
 	/**

@@ -72,7 +72,7 @@ class DatabaseBackendQueryBuilder {
 					$propertyName = array_shift($args);
 					break;
 				}
-				$searchArgs = array();
+				$searchArgs = [];
 				foreach ($args as $argk => $argv)
 					$searchArgs[] = sprintf("%s='%s'", $propertyName, $argv);
 				$xpath = sprintf("%s[%s]", $qi['xpath'], implode(" or ",
@@ -80,6 +80,14 @@ class DatabaseBackendQueryBuilder {
 			}
 		}
 		return $xpath;
+	}
+
+	final public function buildPredicate($data, $op = "and") {
+		$predicates = [];
+		foreach ($data as $datak => $datav)
+			$predicates[] = sprintf("%s=%s", $datak, escapeshellarg($datav));
+		$glue = sprintf(" %s ", $op);
+		return implode($glue, $predicates);
 	}
 
 	final public function buildGetByPredicateQuery($predicate) {
