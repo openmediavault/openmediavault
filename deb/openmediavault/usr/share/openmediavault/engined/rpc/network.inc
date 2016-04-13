@@ -474,7 +474,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		$result = array();
 		foreach ($devs as $devk => $devv) {
 			// Does a configuration object exists for the given network
-			// interface device? If yes, then skip it.
+			// interface device? In this case skip this device.
 			$db = \OMV\Config\Database::getInstance();
 			if ($db->existsByProperties("conf.system.network.interface", [
 			  "type" => "ethernet", "devicename" => $devv ]))
@@ -749,7 +749,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		$result = array();
 		foreach ($devs as $devk => $devv) {
 			// Does a configuration object exists for the given network
-			// interface device?
+			// interface device? In this case skip this device.
 			$db = \OMV\Config\Database::getInstance();
 			if ($db->existsByProperties("conf.system.network.interface", [
 			  "type" => "wireless", "devicename" => $devv ]))
