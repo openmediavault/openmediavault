@@ -51,7 +51,9 @@ class Database {
 	 * Get the specified configuration object.
 	 * @param id The data model identifier, e.g. 'conf.service.ftp'.
 	 * @param uuid The UUID of an configuration object. Defaults to NULL.
-	 * @return The configuration object(s).
+	 * @return Depending on the configuration object and whether \em uuid
+	 *   is set, an array of configuration objects or a single object is
+	 *   returned.
 	 * @throw \OMV\Config\DatabaseException
 	 */
 	public function get($id, $uuid = NULL) {
@@ -98,7 +100,7 @@ class Database {
 	}
 
 	/**
-	 * Get the iterable configuration objects that is matching the specified
+	 * Get the iterable configuration objects that are matching the specified
 	 * constraints.
 	 * @param id The data model identifier.
 	 * @param filter A filter specifying constraints on the objects
