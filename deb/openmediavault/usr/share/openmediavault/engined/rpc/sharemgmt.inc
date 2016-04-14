@@ -57,31 +57,29 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array containing objects with the following fields:
 	 *   \em uuid, \em devicefile and \em description.
 	 *   The field \em uuid is the mount point configuration object UUID.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getCandidates($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get a list of mount points, except bind mounts.
-		$xpath = "//system/fstab/mntent[not(contains(opts,'bind'))]";
-		$objects = $xmlConfig->getList($xpath);
-		if (is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->getByFilter("conf.system.filesystem.mountpoint", [
+			  "operator" => "not",
+			  "arg0" => [
+				  "operator" => "stringContains",
+				  "arg0" => "opts",
+				  "arg1" => "bind"
+			  ]
+		  ]);
 		// Get the filesystem details for each mount point.
 		$result = array();
-		foreach($objects as $objectk => $objectv) {
-			$fs = \OMV\System\Filesystem\Filesystem::getImpl($objectv['fsname']);
-			if (is_null($fs) || !$fs->exists()) {
-//				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-//				  sprintf(gettext("Filesystem '%s' not found"),
-//				  $objectv['fsname']));
+		foreach ($objects as $objectk => $objectv) {
+			$fs = \OMV\System\Filesystem\Filesystem::getImpl(
+			  $objectv->get("fsname"));
+			if (is_null($fs) || !$fs->exists())
 				continue;
-			}
 			// Skip the filesystems that are not mounted at the moment.
 			if (FALSE === $fs->isMounted())
 				continue;
@@ -90,7 +88,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			$label = $fs->getLabel();
 			// Prepare result object.
 			$object = array(
-				"uuid" => $objectv['uuid'],
+				"uuid" => $objectv->get("uuid"),
 				"devicefile" => $devicefile,
 				"description" => !empty($label) ? $label : $devicefile
 			);
@@ -110,8 +108,6 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The list of configured shared folders.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_MISC_FAILURE
 	 */
 	public function enumerateSharedFolders($params, $context) {
 		global $xmlConfig;
@@ -203,7 +199,6 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   array. An exception will be thrown in case of an error.
 	 */
 	public function getList($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -213,7 +208,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Enumerate all shared folders.
 		$objects = $this->callMethod("enumerateSharedFolders", NULL,
 		  $context);
-		// Filter result.
+		// Filter the result.
 		return $this->applyFilter($objects, $params['start'],
 		  $params['limit'], $params['sortfield'], $params['sortdir']);
 	}
@@ -225,10 +220,8 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param context The context of the caller.
 	 * @return The requested configuration object. The field \em mountpoint
 	 *   is the directory where the corresponding filesystem is mounted.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function get($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -236,24 +229,15 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
-		$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
-		  $params['uuid']);
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.sharedfolder", $params['uuid']);
 		// Get the mount point configuration object and add the mount point
 		// to the returned shared folder configuration object.
-		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
-		  $object['mntentref']);
-		$meObject = $xmlConfig->get($xpath);
-		if (is_null($meObject)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		$object['mountpoint'] = $meObject['dir'];
-		return $object;
+		$meObject = $db->get("conf.system.filesystem.mountpoint",
+		  $object->get("mntentref"));
+		$object->add("mountpoint", "string");
+		$object->set("mountpoint", $meObject->get("dir"));
+		return $object->getAssoc();
 	}
 
 	/**
@@ -269,11 +253,6 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   is optional. Defaults to 775.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_PARAMS
-	 * @throw E_CONFIG_OBJECT_UNIQUENESS
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
-	 * @throw E_MISC_FAILURE
 	 */
 	public function set($params, $context) {
 		global $xmlConfig;
@@ -442,8 +421,6 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em recursive Remove the shared folder and its content recursively.
 	 * @param context The context of the caller.
 	 * @return The deleted configuration object.
-	 * @throw E_CONFIG_OBJECT_INUSE
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function delete($params, $context) {
 		global $xmlConfig;
@@ -586,7 +563,6 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the shared folder configuration object.
 	 * @param context The context of the caller.
 	 * @return An array containing the requested privileges.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getPrivileges($params, $context) {
 		global $xmlConfig;
@@ -659,9 +635,6 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em privileges An array containing the privileges to be set.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_MISC_FAILURE
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	public function setPrivileges($params, $context) {
 		global $xmlConfig;
@@ -761,7 +734,6 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param context The context of the caller.
 	 * @return An array of objects with the following fields:
 	 *   uuid, name, perms.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getPrivilegesByRole($params, $context) {
 		global $xmlConfig;
@@ -877,8 +849,6 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   and the object \em acl with the fields \em user, \em group and
 	 *   \em other. The fields \em users and \em groups contain the fields
 	 *   \em name, \em uid or \em gid, \em system and \em perms.
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_PARAMS
-	 * @throw E_EXEC_FAILED
 	 */
 	public function getFileACL($params, $context) {
 		global $xmlConfig;
@@ -1043,9 +1013,6 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *     \em perms The permissions as octal digit.
 	 * @param context The context of the caller.
 	 * @return The name of the background process status file.
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_PARAMS
-	 * @throw E_EXEC_FAILED
-	 * @throw E_MISC_FAILURE
 	 */
 	public function setFileACL($params, $context) {
 		global $xmlConfig;
@@ -1211,10 +1178,8 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the shared folder object.
 	 * @param context The context of the caller.
 	 * @return The path of the shared folder.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getPath($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -1222,25 +1187,15 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get shared folder configuration object.
-		$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
-		  $params['uuid']);
-		$sfObject = $xmlConfig->get($xpath);
-		if(is_null($sfObject)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$sfObject = $db->get("conf.system.sharedfolder", $params['uuid']);
 		// Get the mount point configuration object to build the absolute
 		// shared folder path.
-		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
-		  $sfObject['mntentref']);
-		$meObject = $xmlConfig->get($xpath);
-		if (is_null($meObject)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$meObject = $db->get("conf.system.filesystem.mountpoint",
+		  $sfObject->get("mntentref"));
 		// Return the absolute shared folder path.
-		return build_path(DIRECTORY_SEPARATOR, $meObject['dir'],
-		  $sfObject['reldirpath']);
+		return build_path(DIRECTORY_SEPARATOR, $meObject->get("dir"),
+		  $sfObject->get("reldirpath"));
 	}
 
 	/**

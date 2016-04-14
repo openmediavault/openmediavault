@@ -127,7 +127,7 @@ class DatabaseBackendQueryBuilder {
 	 */
 	final public function buildPredicate($filter) {
 		if (FALSE === is_array($filter)) {
-			throw new InvalidArgumentException(
+			throw new \InvalidArgumentException(
 			  "Filter is not an associative array.");
 		}
 		$result = "";
@@ -200,6 +200,11 @@ class DatabaseBackendQueryBuilder {
 		case ">=":
 		case "greaterEqual":
 			$result = sprintf("%s>=%s", $filter['arg0'], $filter['arg1']);
+			break;
+		case default:
+			throw new \InvalidArgumentException(
+			  "The operator '%s' is not defined.",
+			  $filter['operator']);
 			break;
 		}
 		return $result;
