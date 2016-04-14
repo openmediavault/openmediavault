@@ -325,7 +325,6 @@ finish:
 	 *   array. An exception will be thrown in case of an error.
 	 */
 	function getUserList($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -457,7 +456,6 @@ finish:
 	 * @return The stored configuration object.
 	 */
 	function setUser($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR

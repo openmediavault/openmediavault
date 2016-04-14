@@ -209,10 +209,8 @@ class OMVRpcServiceEmailNotification extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function set($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -220,7 +218,8 @@ class OMVRpcServiceEmailNotification extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.emailnotification.set");
 		// Prepare the configuration data.
-		$object = new \OMV\Config\ConfigObject("conf.system.notification.email");
+		$object = new \OMV\Config\ConfigObject(
+		  "conf.system.notification.email");
 		$object->setAssoc($params, TRUE, TRUE);
 		$object->set("authentication.enable", $params['authenable']);
 		$object->set("authentication.username", $params['username']);

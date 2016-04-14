@@ -103,10 +103,32 @@ class Database {
 	 * @param id The data model identifier.
 	 * @param filter A filter specifying constraints on the objects
 	 *   to retrieve.
+	 *   Example 1:
+	 *   [
+	 *       "operator" => "stringEquals",
+	 *       "arg0" => "fsname",
+	 *       "arg1" => $params['id']
+	 *   ]
+	 *   Example 2:
+	 *   [
+	 *       "operator": "and",
+	 *       "arg0": [
+	 *           "operator" => "stringEquals",
+	 *           "arg0" => "type",
+	 *           "arg1" => "bond"
+	 *       ],
+	 *       "arg1": [
+	 *           "operator" => "stringEquals",
+	 *           "arg0" => "devicename",
+	 *           "arg1" => "bond0"
+	 *       ]
+	 *   ]
 	 * @param maxResult The maximum number of objects that are returned.
 	 *   Defaults to NULL.
 	 * @return An array containing the requested configuration objects. If
 	 *   \em maxResult is set to 1, then the first found object is returned.
+	 *   In this case the method does not return an array of configuration
+	 *   objects.
 	 * @throw \InvalidArgumentException
 	 * @throw \OMV\Config\DatabaseException
 	 */
@@ -122,8 +144,7 @@ class Database {
 		}
 		// Build the query predicate.
 		$queryBuilder = new DatabaseBackendQueryBuilder($id);
-		$predicate = $queryBuilder->buildPredicate($filter);
-		$xpath = $queryBuilder->buildGetByPredicateQuery($predicate);
+		$xpath = $queryBuilder->buildQueryByFilter($filter);
 		// Redirect the query to the database backend.
 		$data = $this->getBackend()->getList($xpath);
 		// Create the configuration objects.
@@ -259,8 +280,7 @@ class Database {
 		$model = $mngr->getModel($id);
 		// Create the query builder.
 		$queryBuilder = new DatabaseBackendQueryBuilder($id);
-		$predicate = $queryBuilder->buildPredicate($filter);
-		$xpath = $queryBuilder->buildGetByPredicateQuery($predicate);
+		$xpath = $queryBuilder->buildQueryByFilter($filter);
 		if (FALSE === $this->getBackend()->delete($xpath)) {
 			throw new DatabaseException("Failed to execute XPath query '%s'.",
 			  $xpath);

@@ -49,7 +49,6 @@ class OMVRpcServiceFolderBrowser extends \OMV\Rpc\ServiceAbstract {
 	 * @ŧhrow \OMV\Exception
 	 */
 	public function get($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR

@@ -528,36 +528,14 @@ abstract class ServiceAbstract {
 	}
 
 	/**
-	 * Helper function to delete an configuration object matching the
-	 * given XPath expression. The notification types OMV_NOTIFY_PREDELETE
-	 * and OMV_NOTIFY_DELETE will be submitted to its subscribers.
-	 * @param xpath The XPath expression of the object to delete.
+	 * Helper function to delete an configuration object.
+	 * The notification types OMV_NOTIFY_PREDELETE and OMV_NOTIFY_DELETE
+	 * will be submitted to its subscribers.
+	 * @param model The data model identifier of the configuration object.
+	 * @param uuid The UUID of the configuration object.
 	 * @param message The message of the notification to be submitted.
 	 * @return The deleted configuration object.
-	 * @throw \OMV\Config\DatabaseException
 	 */
-	protected function deleteConfigObjectByPath($xpath, $message) {
-		global $xmlConfig;
-		// Get the configuration object.
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new \OMV\Config\DatabaseException(
-			  "Failed to execute query '%s'.", $xpath);
-		}
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_PREDELETE, $message, $object);
-		// Delete configuration object.
-		if (FALSE === ($object = $xmlConfig->delete($xpath))) {
-			throw new \OMV\Config\DatabaseException(
-			  "Failed to delete configuration (xpath=%s).", $xpath);
-		}
-		// Notify configuration changes.
-		$dispatcher->notify(OMV_NOTIFY_DELETE, $message, $object);
-		// Return the deleted configuration object.
-		return $object;
-	}
-
 	protected function deleteConfigObjectByUuid($model, $uuid, $message) {
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
@@ -565,6 +543,14 @@ abstract class ServiceAbstract {
 		return $this->deleteConfigObjectByObject($object, $message);
 	}
 
+	/**
+	 * Helper function to delete an configuration object.
+	 * The notification types OMV_NOTIFY_PREDELETE and OMV_NOTIFY_DELETE
+	 * will be submitted to its subscribers.
+	 * @param object The configuration object.
+	 * @param message The message of the notification to be submitted.
+	 * @return The deleted configuration object.
+	 */
 	protected function deleteConfigObjectByObject(
 	  \OMV\Config\ConfigObject $object, $message) {
 		// Notify configuration changes.

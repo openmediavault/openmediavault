@@ -135,7 +135,6 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 	 * @return The requested configuration object.
 	 */
 	public function getModule($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR

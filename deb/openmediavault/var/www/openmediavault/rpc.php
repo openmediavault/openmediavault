@@ -25,10 +25,6 @@ try {
 	require_once("openmediavault/env.inc");
 	require_once("openmediavault/functions.inc");
 
-	// Initialize the configuration engine.
-	$db = &\OMV\Config\Database::getInstance();
-	$xmlConfig = $db->getBackend();
-
 	// Load and initialize the RPC services that are not handled by the
 	// engine daemon.
 	$directory = build_path(DIRECTORY_SEPARATOR,

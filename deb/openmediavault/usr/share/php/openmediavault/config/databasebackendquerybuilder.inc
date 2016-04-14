@@ -212,7 +212,7 @@ class DatabaseBackendQueryBuilder {
 	final public function buildGetQuery($idValue = NULL) {
 		$qi = $this->getQueryInfo();
 		$xpath = $qi['xpath'];
-		if (TRUE === boolval($qi['iterable'])) {
+		if ((TRUE === boolval($qi['iterable'])) && !is_null($idValue)) {
 			$xpath = $this->buildQueryByFilter([
 				  "operator" => "stringEquals",
 				  "arg0" => $qi['idproperty'],

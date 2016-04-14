@@ -454,7 +454,6 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 *   array. An exception will be thrown in case of an error.
 	 */
 	public function getScheduleList($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
