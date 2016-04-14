@@ -54,17 +54,9 @@ class DatabaseBackendQueryBuilder {
 		return $this->getModel()->getQueryInfo();
 	}
 
-	final public function buildGetQuery($idValue = NULL) {
+	final protected function buildQuery($predicate) {
 		$qi = $this->getQueryInfo();
-		$xpath = $qi['xpath'];
-		if (TRUE === boolval($qi['iterable'])) {
-			$xpath = $this->buildGetByFilterQuery([
-				  "operator" => "stringEquals",
-				  "arg0" => $qi['idproperty'],
-				  "arg1" => $idValue
-			  ]);
-		}
-		return $xpath;
+		return sprintf("%s[%s]", $qi['xpath'], $predicate);
 	}
 
 	/**
@@ -213,14 +205,21 @@ class DatabaseBackendQueryBuilder {
 		return $result;
 	}
 
-	final public function buildGetByFilterQuery($filter) {
-		$qi = $this->getQueryInfo();
-		return sprintf("%s[%s]", $qi['xpath'], $this->buildPredicate($filter));
+	final public function buildQueryByFilter($filter) {
+		return $this->buildQuery($this->buildPredicate($filter));
 	}
 
-	final public function buildGetByPredicateQuery($predicate) {
+	final public function buildGetQuery($idValue = NULL) {
 		$qi = $this->getQueryInfo();
-		return sprintf("%s[%s]", $qi['xpath'], $predicate);
+		$xpath = $qi['xpath'];
+		if (TRUE === boolval($qi['iterable'])) {
+			$xpath = $this->buildQueryByFilter([
+				  "operator" => "stringEquals",
+				  "arg0" => $qi['idproperty'],
+				  "arg1" => $idValue
+			  ]);
+		}
+		return $xpath;
 	}
 
 	final public function buildSetQuery(ConfigObject $object) {
@@ -229,8 +228,11 @@ class DatabaseBackendQueryBuilder {
 		if (TRUE === boolval($qi['iterable'])) {
 			if (FALSE === $object->isNew()) {
 				// Update the element with the specified identifier.
-				$xpath = sprintf("%s[%s='%s']", $qi['xpath'],
-				  $qi['idproperty'], $object->get($qi['idproperty']));
+				$xpath = $this->buildQueryByFilter([
+					  "operator" => "stringEquals",
+					  "arg0" => $qi['idproperty'],
+					  "arg1" => $object->get($qi['idproperty'])
+				  ]);
 			} else {
 				// Insert a new element.
 				$parts = explode("/", $xpath);
@@ -245,7 +247,7 @@ class DatabaseBackendQueryBuilder {
 		$qi = $this->getQueryInfo();
 		$xpath = $qi['xpath'];
 		if (TRUE === boolval($qi['iterable'])) {
-			$xpath = $this->buildGetByFilterQuery([
+			$xpath = $this->buildQueryByFilter([
 				  "operator" => "stringEquals",
 				  "arg0" => $qi['idproperty'],
 				  "arg1" => $object->get($qi['idproperty'])
@@ -256,14 +258,18 @@ class DatabaseBackendQueryBuilder {
 
 	final public function buildIsReferencedQuery(ConfigObject $object) {
 		$qi = $this->getQueryInfo();
-		return sprintf("//%s[contains(.,'%s')]", $qi['refproperty'],
-		  $object->get($qi['idproperty']));
+		return sprintf("//%s[%s]", $qi['refproperty'],
+		  $this->buildPredicate([
+			  "operator" => "stringContains",
+			  "arg0" => ".",
+			  "arg1" => $object->get($qi['idproperty'])
+		  ]));
 	}
 
 	final public function buildExistsQuery($filter = NULL) {
 		$qi = $this->getQueryInfo();
 		if (is_null($filter))
 			return $qi['xpath'];
-		return $this->buildGetByFilterQuery($filter);
+		return $this->buildQueryByFilter($filter);
 	}
 }
