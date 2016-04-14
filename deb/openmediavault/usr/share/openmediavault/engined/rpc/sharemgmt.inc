@@ -110,25 +110,22 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @return The list of configured shared folders.
 	 */
 	public function enumerateSharedFolders($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get all configured shared folder configuration objects.
-		$xpath = "//system/shares/sharedfolder";
-		$objects = $xmlConfig->getList($xpath);
-		if (is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->get("conf.system.sharedfolder");
 		// Add additional informations.
-		foreach ($objects as $objectk => &$objectv) {
+		$result = array();
+		foreach ($objects as $objectk => $objectv) {
+			$objectAssoc = $objectv->getAssoc();
 			// Set the default values.
-			$objectv['_used'] = false;
-			$objectv['volume'] = "";
-			$objectv['description'] = $objectv['name'];
-			$objectv['mntent'] = array(
+			$objectAssoc['_used'] = false;
+			$objectAssoc['volume'] = "";
+			$objectAssoc['description'] = $objectv['name'];
+			$objectAssoc['mntent'] = array(
 				"devicefile" => "",
 				"fsname" => "",
 				"dir" => "",
@@ -138,52 +135,51 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Get the mount point configuration object to append additional
 			// information to the returned objects, e.g. the devicefile or
 			// a modified description.
-			$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
-			  $objectv['mntentref']);
-			$meObject = $xmlConfig->get($xpath);
-			if (!is_null($meObject) && !empty($meObject)) {
-				// Add some mount point information.
-				$objectv['mntent'] = array_merge($objectv['mntent'], array(
-					"fsname" => $meObject['fsname'],
-					"dir" => $meObject['dir'],
-					"type" => $meObject['type']
-				));
+			if ($db->exits("conf.system.filesystem.mountpoint", [
+				"operator" => "stringEquals",
+				"arg0" => "uuid",
+				"arg1" => $objectv->get("mntentref")
+			])) {
+				$meObject = $db->get("conf.system.filesystem.mountpoint",
+				  $objectv->get("mntentref"));
 				// Get the filesystem backend.
 				$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
+				$fsbMngr->assertBackendExistsByType($meObject['type']);
 				$fsb = $fsbMngr->getBackendByType($meObject['type']);
-				if (is_null($fsb)) {
-					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-					  sprintf("No filesystem backend exists for '%s'",
-					  $meObject['type']));
-				}
-				// Does the filesystem support POSIX ACL?
-				$objectv['mntent'] = array_merge($objectv['mntent'], array(
+				// Add some mount point information:
+				// - Does the filesystem support POSIX ACL?
+				$objectAssoc['mntent'] = array_merge($objectAssoc['mntent'], [
+					"fsname" => $meObject['fsname'],
+					"dir" => $meObject['dir'],
+					"type" => $meObject['type'],
 					"posixacl" => $fsb->hasPosixAclSupport()
-				));
+				]);
 				// Get the filesystem implementation.
 				$fs = $fsb->getImpl($meObject['fsname']);
 				if (!is_null($fs) && $fs->exists()) {
 					$devicefile = $fs->getDeviceFile();
 					$label = $fs->getLabel();
 					// Add some filesystem details.
-					$objectv['mntent'] = array_merge($objectv['mntent'], array(
+					$objectAssoc['mntent'] = array_merge(
+					  $objectAssoc['mntent'], [
 						"devicefile" => $devicefile
-					));
+					]);
 					// Override default values.
-					$objectv['volume'] = !empty($label) ? $label : $devicefile;
-					$objectv['description'] = sprintf(
-					  gettext("%s [on %s, %s]"), $objectv['description'],
-					  $objectv['volume'], $objectv['reldirpath']);
+					$objectAssoc['volume'] = !empty($label) ?
+					  $label : $devicefile;
+					$objectAssoc['description'] = sprintf(
+					  gettext("%s [on %s, %s]"), $objectAssoc['description'],
+					  $objectAssoc['volume'], $objectAssoc['reldirpath']);
 				}
 			}
 			// Is the shared folder referenced by any object? Shared folder
 			// references are named 'sharedfolderref'.
-			$xpath = sprintf("//*[contains(name(),'sharedfolderref')]".
-			  "[contains(.,'%s')]", $objectv['uuid']);
-			if (TRUE === $xmlConfig->exists($xpath))
-				$objectv['_used'] = TRUE;
+			if ($db->isReferenced($objectv))
+				$objectAssoc['_used'] = TRUE;
+			// Append the configuration object to the result list.
+			$result[] = $objectAssoc;
 		}
-		return $objects;
+		return $result;
 	}
 
 	/**
