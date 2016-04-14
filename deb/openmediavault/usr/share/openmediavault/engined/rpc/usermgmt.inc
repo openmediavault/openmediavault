@@ -345,9 +345,11 @@ finish:
 			));
 			// Get additional information stored in database.
 			$db = \OMV\Config\Database::getInstance();
-			$predicate = sprintf("name='%s'", $userv['name']);
-			$objects = $db->getByPredicate("conf.system.usermngmnt.user",
-			  $predicate);
+			$objects = $db->getByFilter("conf.system.usermngmnt.user", [
+				"operator" => "stringEquals",
+				"arg0" => "name",
+				"arg1" => $userv['name']
+			]);
 			if (0 < count($objects)) {
 				// Get the user configuration object. Due the fact that a user
 				// name is unique, we can simply use the first found object.
@@ -391,9 +393,11 @@ finish:
 		));
 		// Get additional user information stored in database.
 		$db = \OMV\Config\Database::getInstance();
-		$predicate = sprintf("name='%s'", $user->getName());
-		$objects = $db->getByPredicate("conf.system.usermngmnt.user",
-		  $predicate);
+		$objects = $db->getByFilter("conf.system.usermngmnt.user", [
+			"operator" => "stringEquals",
+			"arg0" => "name",
+			"arg1" => $user->getName()
+		]);
 		if (0 < count($objects)) {
 			// Get the user configuration object. Due the fact that a user
 			// name is unique, we can simply use the first found object.
@@ -468,15 +472,17 @@ finish:
 			  $params['name']);
 		}
 		// Try to get existing configuration object.
+		$filter = [
+			"operator" => "stringEquals",
+			"arg0" => "name",
+			"arg1" => $params['name']
+		];
 		$db = \OMV\Config\Database::getInstance();
-		$predicate = sprintf("name='%s'", $params['name']);
-		if ($db->existsByPredicate("conf.system.usermngmnt.user",
-		  $predicate)) {
-			$objects = $db->getByPredicate("conf.system.usermngmnt.user",
-			  $predicate);
+		if ($db->exists("conf.system.usermngmnt.user", $filter)) {
 			// Get the user configuration object. Due the fact that a user
 			// name is unique, we can simply use the first found object.
-			$object = $objects[0];
+			$object = $db->getByFilter("conf.system.usermngmnt.user",
+			  $filter, 1);
 			$object->set("email", $params['email']);
 			$object->set("disallowusermod", $params['disallowusermod']);
 			$object->set("email", $params['email']);
@@ -626,8 +632,11 @@ finish:
 		$cmd->execute();
 		// Delete additional user information stored in database.
 		$db = \OMV\Config\Database::getInstance();
-		$predicate = sprintf("name='%s'", $params['name']);
-		$db->deleteByPredicate("conf.system.usermngmnt.user", $predicate);
+		$db->deleteByFilter("conf.system.usermngmnt.user", [
+			"operator" => "stringEquals",
+			"arg0" => "name",
+			"arg1" => $params['name']
+		]);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
@@ -741,9 +750,11 @@ finish:
 		foreach ($groups as $groupk => &$groupv) {
 			// Get additional information stored in database.
 			$db = \OMV\Config\Database::getInstance();
-			$predicate = sprintf("name='%s'", $groupv['name']);
-			$objects = $db->getByPredicate("conf.system.usermngmnt.group",
-			  $predicate);
+			$objects = $db->getByFilter("conf.system.usermngmnt.group", [
+				"operator" => "stringEquals",
+				"arg0" => "name",
+				"arg1" => $groupv['name']
+			]);
 			if (0 < count($objects)) {
 				// Get the group configuration object. Due the fact that a
 				// group name is unique, we can simply use the first found
@@ -779,9 +790,11 @@ finish:
 		$result = $this->getGroupInfo($group->getName());
 		// Get additional group information stored in database.
 		$db = \OMV\Config\Database::getInstance();
-		$predicate = sprintf("name='%s'", $group->getName());
-		$objects = $db->getByPredicate("conf.system.usermngmnt.group",
-		  $predicate);
+		$objects = $db->getByFilter("conf.system.usermngmnt.group", [
+			"operator" => "stringEquals",
+			"arg0" => "name",
+			"arg1" => $group->getName()
+		]);
 		if (0 < count($objects)) {
 			// Get the group configuration object. Due the fact that a group
 			// name is unique, we can simply use the first found object.
@@ -817,15 +830,17 @@ finish:
 			  $params['name']);
 		}
 		// Try to get existing configuration object.
+		$filter = [
+			"operator" => "stringEquals",
+			"arg0" => "name",
+			"arg1" => $params['name']
+		];
 		$db = \OMV\Config\Database::getInstance();
-		$predicate = sprintf("name='%s'", $params['name']);
-		if ($db->existsByPredicate("conf.system.usermngmnt.group",
-		  $predicate)) {
-			$objects = $db->getByPredicate("conf.system.usermngmnt.group",
-			  $predicate);
+		if ($db->exists("conf.system.usermngmnt.group", $filter)) {
 			// Get the group configuration object. Due the fact that a group
 			// name is unique, we can simply use the first found object.
-			$object = $objects[0];
+			$object = $db->getByFilter("conf.system.usermngmnt.group",
+			  $filter, 1);
 			$object->set("comment", $params['comment']);
 		} else {
 			$object = new \OMV\Config\ConfigObject(
@@ -909,8 +924,11 @@ finish:
 		$cmd->execute();
 		// Delete configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		$predicate = sprintf("name='%s'", $params['name']);
-		$db->deleteByPredicate("conf.system.usermngmnt.group", $predicate);
+		$db->deleteByFilter("conf.system.usermngmnt.group", [
+			"operator" => "stringEquals",
+			"arg0" => "name",
+			"arg1" => $params['name']
+		]);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,

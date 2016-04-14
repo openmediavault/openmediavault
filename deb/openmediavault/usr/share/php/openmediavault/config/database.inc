@@ -48,38 +48,21 @@ class Database {
 	}
 
 	/**
-	 * Get the specified configuration object. The method can be called
-	 * the following way:
-	 * id [[arg0] [arg1] [arg2] ...]
-	 * If this method is called only with \em id, then non iterable
-	 * configuration objects are assumed, e.g. "conf.service.ftp".
-	 * Example: xxx->get("conf.service.ftp")
-	 * If only arg0 is given, it is assumed to be the UUID of the
-	 * configuration object.
-	 * Example: xxx->get("conf.service.ftp.share", "f819afcc-eda1-...")
-	 * If you call this method with multiple args, then arg0 is used
-	 * as the property and the following args as values. Multiple
-	 * values are combined via OR.
-	 * Example: xxx->get("conf.system.hdparm", "devicefile",
-	 *   "/dev/sdc", "/dev/disk/by-id/wwn-0x500253855031cfa5")
-	 * @param id The data model identifier.
-	 * @param ...args Additional arguments, e.g. the object UUID.
+	 * Get the specified configuration object.
+	 * @param id The data model identifier, e.g. 'conf.service.ftp'.
+	 * @param uuid The UUID of an configuration object. Defaults to NULL.
 	 * @return The configuration object(s).
 	 * @throw \OMV\Config\DatabaseException
 	 */
-	public function get($id, ...$args) {
-		// Check if we have to add additional arguments to the query.
-		// In most cases this is the UUID of the requested configuration
-		// object.
-		$hasArgs = (0 < count($args));
+	public function get($id, $uuid = NULL) {
 		// Get the specified data model.
 		$mngr = \OMV\DataModel\Manager::getInstance();
 		$model = $mngr->getModel($id);
 		// Create the query builder.
 		$queryBuilder = new DatabaseBackendQueryBuilder($id);
-		$xpath = $queryBuilder->buildGetQuery(...$args);
+		$xpath = $queryBuilder->buildGetQuery($uuid);
 		// Redirect the query to the database backend.
-		if ((TRUE === $model->isIterable()) && (FALSE === $hasArgs))
+		if ((TRUE === $model->isIterable()) && is_null($uuid))
 			$data = $this->getBackend()->getList($xpath);
 		else
 			$data = $this->getBackend()->get($xpath);
@@ -87,7 +70,7 @@ class Database {
 			throw new DatabaseException("Failed to execute XPath query '%s'.",
 			  $xpath);
 		}
-		if ((TRUE === $model->isIterable()) && (FALSE === $hasArgs)) {
+		if ((TRUE === $model->isIterable()) && is_null($uuid)) {
 			$result = array();
 			foreach ($data as $datak => $datav) {
 				$object = new ConfigObject($id);
@@ -101,8 +84,8 @@ class Database {
 		return $result;
 	}
 
-	public function getAssoc($id, ...$args) {
-		$objects = $this->get($id, ...$args);
+	public function getAssoc($id, $uuid = NULL) {
+		$objects = $this->get($id, $uuid);
 		if (is_array($objects)) {
 			$result = array();
 			foreach ($objects as $objectk => $objectv) {
@@ -115,15 +98,19 @@ class Database {
 	}
 
 	/**
-	 * Get the iterable configuration object that is matching the specified
-	 * properties.
+	 * Get the iterable configuration objects that is matching the specified
+	 * constraints.
 	 * @param id The data model identifier.
-	 * @param data An array of key/value pairs.
-	 * @return The configuration object.
+	 * @param filter A filter specifying constraints on the objects
+	 *   to retrieve.
+	 * @param maxResult The maximum number of objects that are returned.
+	 *   Defaults to NULL.
+	 * @return An array containing the requested configuration objects. If
+	 *   \em maxResult is set to 1, then the first found object is returned.
 	 * @throw \InvalidArgumentException
 	 * @throw \OMV\Config\DatabaseException
 	 */
-	public function getByProperties($id, $data) {
+	public function getByFilter($id, $filter, $maxResult = NULL) {
 		// Get the specified data model.
 		$mngr = \OMV\DataModel\Manager::getInstance();
 		$model = $mngr->getModel($id);
@@ -135,59 +122,38 @@ class Database {
 		}
 		// Build the query predicate.
 		$queryBuilder = new DatabaseBackendQueryBuilder($id);
-		$predicate = $queryBuilder->buildPredicate($data);
-		// Get the configuration object(s).
-		$objects = $this->getByPredicate($id, $predicate);
-		if (empty($objects)) {
-			$xpath = $queryBuilder->buildGetByPredicateQuery($predicate);
-			throw new DatabaseException("Failed to execute XPath query '%s'.",
-			  $xpath);
-		}
-		return $objects[0];
-	}
-
-	/**
-	 * Get iterable configuration objects that are matching the specified
-	 * predicate.
-	 * @param id The data model identifier.
-	 * @param predicate The predicate to search for, e.g. <ul>
-	 *   \li "not(contains(opts,'bind'))"
-	 *   \li "devicefile='/dev/sda' or devicefile='/dev/disk/by-id/ata-ST1000DM003-1CH132_S2DF80PC']"
-	 *   </ul>
-	 *   The predicate must be defined in XPath syntax.
-	 * @return An array of configuration objects.
-	 * @throw \InvalidArgumentException
-	 */
-	public function getByPredicate($id, $predicate) {
-		// Get the specified data model.
-		$mngr = \OMV\DataModel\Manager::getInstance();
-		$model = $mngr->getModel($id);
-		// Is the configuration object iterable?
-		if (FALSE === $model->isIterable()) {
-			throw new \InvalidArgumentException(
-			  "The configuration object '%s' is not iterable.",
-			  $model->getId());
-		}
-		// Create the query builder.
-		$queryBuilder = new DatabaseBackendQueryBuilder($id);
+		$predicate = $queryBuilder->buildPredicate($filter);
 		$xpath = $queryBuilder->buildGetByPredicateQuery($predicate);
 		// Redirect the query to the database backend.
 		$data = $this->getBackend()->getList($xpath);
 		// Create the configuration objects.
 		$result = array();
 		foreach ($data as $datak => $datav) {
+			if (!is_null($maxResult) && ($datak >= $maxResult))
+				continue;
 			$object = new ConfigObject($id);
 			$object->setAssoc($datav, FALSE);
 			$result[] = $object;
 		}
+		if (1 == $maxResult) {
+			if (empty($result)) {
+				throw new InvalidArgumentException("The XPath query '%s' ".
+				  "does not return the requested number of '%d' object(s).",
+				  $xpath, $maxResult);
+			}
+			$result = $result[0];
+		}
 		return $result;
 	}
 
-	public function getByPredicateAssoc($id, $predicate) {
-		$objects = $this->getByPredicate($id, $predicate);
-		$result = array();
-		foreach ($objects as $objectk => $objectv) {
-			$result[] = $objectv->getAssoc();
+	public function getByFilterAssoc($id, $filter, $maxResult = NULL) {
+		$objects = $this->getByFilter($id, $filter, $maxResult);
+		if (1 == $maxResult) {
+			$result = $objects->getAssoc();
+		} else {
+			$result = [];
+			foreach ($objects as $objectk => $objectv)
+				$result[] = $objectv->getAssoc();
 		}
 		return $result;
 	}
@@ -249,22 +215,51 @@ class Database {
 	}
 
 	/**
-	 * Delete a configuration object with the specified predicate.
+	 * Delete a configuration object with the specified constraints.
 	 * @param id The data model identifier.
-	 * @param predicate The predicate to search for, e.g. <ul>
-	 *   \li "not(contains(opts,'bind') or contains(opts,'loop'))"
-	 *   \li "devicefile='/dev/sda' or devicefile='/dev/disk/by-id/ata-ST1000DM003-1CH132_S2DF80PC']"
-	 *   </ul>
-	 *   The predicate must be defined in XPath syntax.
+	 * @param filter A filter specifying constraints on the objects
+	 *   to retrieve.
+	 * Example 1:
+	 * [
+	 *     "operator" => "not",
+	 *     "arg0" => [
+	 *         "operator" => "or",
+	 *         "arg0" => [
+	 *             "operator" => "contains",
+	 *             "arg0" => "opts",
+	 *             "arg1" => "bind"
+	 *         ],
+	 *         "arg1" => [
+	 *             "operator" => "contains",
+	 *             "arg0" => "opts",
+	 *             "arg1" => "loop"
+	 *         ]
+	 *     ]
+	 * ]
+	 * Example 2:
+	 * [
+	 *     "operator" => "or",
+	 *     "arg0" => [
+	 *         "operator" => "stringEquals",
+	 *         "arg0" => "devicefile",
+	 *         "arg1" => "/dev/sda"
+	 *     ],
+	 *     "arg1" => [
+	 *         "operator" => "stringEquals",
+	 *         "arg0" => "devicefile",
+	 *         "arg1" => "/dev/disk/by-id/ata-ST1000DM003-1CH132_S2DF80PC"
+	 *     ]
+	 * ]
 	 * @return None.
 	 * @throw \OMV\Config\DatabaseException
 	 */
-	public function deleteByPredicate($id, $predicate) {
+	public function deleteByFilter($id, $filter) {
 		// Get the specified data model.
 		$mngr = \OMV\DataModel\Manager::getInstance();
 		$model = $mngr->getModel($id);
 		// Create the query builder.
 		$queryBuilder = new DatabaseBackendQueryBuilder($id);
+		$predicate = $queryBuilder->buildPredicate($filter);
 		$xpath = $queryBuilder->buildGetByPredicateQuery($predicate);
 		if (FALSE === $this->getBackend()->delete($xpath)) {
 			throw new DatabaseException("Failed to execute XPath query '%s'.",
@@ -322,81 +317,37 @@ class Database {
 	 * exists. Note, this method is only useful for iterable configuration
 	 * objects.
 	 * @param id The data model identifier.
+	 * @param filter A filter specifying constraints on the objects
+	 *   to retrieve. Defaults to NULL.
+	 *   Example:
+	 *   [
+	 *       "operator": "not",
+	 *       "arg0": [
+	 *           "operator" => "stringEquals",
+	 *           "arg0" => "type",
+	 *           "arg1" => "vlan"
+	 *       ]
+	 *   ]
 	 * @return TRUE if at least one configuration object exists,
 	 *   otherwise FALSE.
 	 */
-	public function exists($id) {
+	public function exists($id, $filter = NULL) {
 		// Get the specified data model.
 		$mngr = \OMV\DataModel\Manager::getInstance();
 		$model = $mngr->getModel($id);
-		// Create the query builder.
-		$queryBuilder = new DatabaseBackendQueryBuilder($id);
-		$xpath = $queryBuilder->buildExistsQuery();
-		return $this->getBackend()->exists($xpath);
-	}
-
-	/**
-	 * Check if a configuration object with the specified arguments
-	 * exists.
-	 * @param id The data model identifier.
-	 * @param property The name of the data model property.
-	 * @param value The value to be searched. This can be also an array
-	 *   of values.
-	 * @return TRUE if data exists, otherwise FALSE.
-	 */
-	public function existsByProperty($id, $property, $value) {
-		// Get the specified data model.
-		$mngr = \OMV\DataModel\Manager::getInstance();
-		$model = $mngr->getModel($id);
-		// Create the query builder.
-		$queryBuilder = new DatabaseBackendQueryBuilder($id);
-		if (!is_array($value))
-			$value = array($value);
-		foreach ($value as $valuek => $valuev) {
-			$xpath = $queryBuilder->buildExistsQuery($property, $valuev);
-			if (TRUE === $this->getBackend()->exists($xpath))
-				return TRUE;
+		if (FALSE === is_null($filter)) {
+			// If a filter is set, then this means we are processing
+			// iterable configuration objects. Make sure the specified
+			// configuration object is iterable.
+			if (FALSE === $model->isIterable()) {
+				throw new \InvalidArgumentException(
+				  "The configuration object '%s' is not iterable.",
+				  $model->getId());
+			}
 		}
-		return FALSE;
-	}
-
-	/**
-	 * Check if a configuration object with the specified properties
-	 * exists.
-	 * @param id The data model identifier.
-	 * @param data An array of key/value pairs. Multiple key/value
-	 *   pairs are concatenated with 'AND'.
-	 * @return TRUE if data exists, otherwise FALSE.
-	 */
-	public function existsByProperties($id, $data) {
-		// Get the specified data model.
-		$mngr = \OMV\DataModel\Manager::getInstance();
-		$model = $mngr->getModel($id);
-		// Build the query predicate.
-		$queryBuilder = new DatabaseBackendQueryBuilder($id);
-		$predicate = $queryBuilder->buildPredicate($data, "and");
-		// Check if the configuration object exists.
-		return $this->existsByPredicate($id, $predicate);
-	}
-
-	/**
-	 * Check if a configuration object with the specified predicate
-	 * exists.
-	 * @param id The data model identifier.
-	 * @param predicate The predicate to search for, e.g. <ul>
-	 *   \li "not(contains(opts,'bind') or contains(opts,'loop'))"
-	 *   \li "devicefile='/dev/sda' or devicefile='/dev/disk/by-id/ata-ST1000DM003-1CH132_S2DF80PC']"
-	 *   </ul>
-	 *   The predicate must be defined in XPath syntax.
-	 * @return TRUE if data exists, otherwise FALSE.
-	 */
-	public function existsByPredicate($id, $predicate) {
-		// Get the specified data model.
-		$mngr = \OMV\DataModel\Manager::getInstance();
-		$model = $mngr->getModel($id);
 		// Create the query builder.
 		$queryBuilder = new DatabaseBackendQueryBuilder($id);
-		$xpath = $queryBuilder->buildGetByPredicateQuery($predicate);
+		$xpath = $queryBuilder->buildExistsQuery($filter);
 		return $this->getBackend()->exists($xpath);
 	}
 
@@ -409,11 +360,34 @@ class Database {
 	 *   value exists, otherwise FALSE.
 	 */
 	public function isUnique(ConfigObject $object, $property) {
-		// Create the query builder.
-		$queryBuilder = new DatabaseBackendQueryBuilder($object->getId());
-		$xpath = $queryBuilder->buildExistsQuery($property,
-		  $object->get($property));
-		return !$this->getBackend()->exists($xpath);
+		return $this->isUniqueByFilter($object, [
+			"operator" => "stringEquals",
+			"arg0" => $property,
+			"arg1" => $object->get($property)
+		]);
+	}
+
+	/**
+	 * Check if a configuration object with the specified constraints
+	 * is unique.
+	 * @param object The configuration object to use.
+	 * @param filter A filter specifying constraints on the objects
+	 *   to retrieve. Defaults to NULL.
+	 *   Example:
+	 *   [
+	 *       "operator" => "stringEquals",
+	 *       "arg0" => "sharename",
+	 *       "arg1" => "Movies"
+	 *   ]
+	 * @return TRUE if no configuration object with the same property
+	 *   value exists, otherwise FALSE.
+	 */
+	public function isUniqueByFilter(ConfigObject $object, $filter) {
+		$objects = $this->getByFilter($object->getId(), $filter);
+		$numObjects = count($objects);
+		if ($object->isNew())
+			return (0 == $numObjects);
+		return (1 == $numObjects);
 	}
 
 	/**
@@ -434,22 +408,19 @@ class Database {
 	}
 
 	/**
-	 * Assert that a configuration object with the specified predicate
+	 * Assert that a configuration object with the specified constraints
 	 * is unique.
-	 * Assert that a configuration object with the value of the specified
-	 * property is unique.
 	 * @param object The configuration object to use.
-	 * @param predicate The predicate to search for, e.g. <ul>
-	 *   \li "not(contains(opts,'bind') or contains(opts,'loop'))"
-	 *   \li "devicefile='/dev/sda' or devicefile='/dev/disk/by-id/ata-ST1000DM003-1CH132_S2DF80PC']"
-	 *   </ul>
-	 *   The predicate must be defined in XPath syntax.
-	 * @return TRUE if data exists, otherwise FALSE.
+	 * @param filter A filter specifying constraints on the objects
+	 *   to check.
+	 * @return None.
+	 * @throw \OMV\AssertException
 	 */
-	public function assertIsUniqueByPredicate(ConfigObject $object, $predicate) {
-		if (TRUE === $this->existsByPredicate($object->getId(), $predicate)) {
-			throw new \OMV\AssertException("The configuration object '%s' is ".
-			  "not unique.", $object->getId());
+	public function assertIsUniqueByFilter(ConfigObject $object, $filter) {
+		if (TRUE === $this->isUniqueByFilter($object->getId(), $filter)) {
+			throw new \OMV\AssertException("The configuration object '%s' ".
+			  "with the filter '%s' is not unique.", $object->getId(),
+			  json_encode($filter));
 		}
 	}
 

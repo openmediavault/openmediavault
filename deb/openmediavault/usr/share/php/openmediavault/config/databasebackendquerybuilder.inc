@@ -54,40 +54,168 @@ class DatabaseBackendQueryBuilder {
 		return $this->getModel()->getQueryInfo();
 	}
 
-	final public function buildGetQuery(...$args) {
+	final public function buildGetQuery($idValue = NULL) {
 		$qi = $this->getQueryInfo();
 		$xpath = $qi['xpath'];
 		if (TRUE === boolval($qi['iterable'])) {
-			if (0 < count($args)) {
-				switch (count($args)) {
-				case 1:
-					// Get the object with the specified data model
-					// identifier, in most cases this is the 'uuid'
-					// property.
-					$propertyName = $qi['idproperty'];
-					break;
-				default:
-					// Get the object with the specified property (arg0)
-					// and its values (arg1 ... argX).
-					$propertyName = array_shift($args);
-					break;
-				}
-				$searchArgs = [];
-				foreach ($args as $argk => $argv)
-					$searchArgs[] = sprintf("%s='%s'", $propertyName, $argv);
-				$xpath = sprintf("%s[%s]", $qi['xpath'], implode(" or ",
-				  $searchArgs));
-			}
+			$xpath = $this->buildGetByFilterQuery([
+				  "operator" => "stringEquals",
+				  "arg0" => $qi['idproperty'],
+				  "arg1" => $idValue
+			  ]);
 		}
 		return $xpath;
 	}
 
-	final public function buildPredicate($data, $op = "and") {
-		$predicates = [];
-		foreach ($data as $datak => $datav)
-			$predicates[] = sprintf("%s=%s", $datak, escapeshellarg($datav));
-		$glue = sprintf(" %s ", $op);
-		return implode($glue, $predicates);
+	/**
+	 * Build the predicate for the specified filter.
+	 * Supported operators:
+	 * .-------------------------------------------------.
+	 * | operator         | arg0          | arg1         |
+	 * |------------------|---------------|--------------|
+	 * | and              | assoc. array  | assoc. array |
+	 * | or               | assoc. array  | assoc. array |
+	 * | equals           | property name | value        |
+	 * | notEquals        | property name | value        |
+	 * | enum             | property name | array        |
+	 * | stringEquals     | property name | value        |
+	 * | stringNotEquals  | property name | value        |
+	 * | stringContains   | property name | value        |
+	 * | stringStartsWith | property name | value        |
+	 * | stringEnum       | property name | array        |
+	 * | not              | assoc. array  |              |
+	 * | less             | property name | value        |
+	 * | greater          | property name | value        |
+	 * | lessEqual        | property name | value        |
+	 * | greaterEqual     | property name | value        |
+	 * '-------------------------------------------------'
+	 * Example 1:
+	 * [type='bond' and devicename='bond0']
+	 * The filter for the above predicate:
+	 * [
+	 *     "operator": "and",
+	 *     "arg0": [
+	 *         "operator" => "stringEquals",
+	 *         "arg0" => "type",
+	 *         "arg1" => "bond"
+	 *     ],
+	 *     "arg1": [
+	 *         "operator" => "stringEquals",
+	 *         "arg0" => "devicename",
+	 *         "arg1" => "bond0"
+	 *     ]
+	 * ]
+	 * Example 2:
+	 * [type='bond' and contains(slaves,'eth0')]
+	 * The filter for the above predicate:
+	 * [
+	 *     "operator": "and",
+	 *     "arg0": [
+	 *         "operator" => "stringEquals",
+	 *         "arg0" => "type",
+	 *         "arg1" => "bond"
+	 *     ],
+	 *     "arg1": [
+	 *         "operator" => "stringContains",
+	 *         "arg0" => "slaves",
+	 *         "arg1" => "eth0"
+	 *     ]
+	 * ]
+	 * Example 3:
+	 * [not type='vlan']
+	 * The filter for the above predicate:
+	 * [
+	 *     "operator": "not",
+	 *     "arg0": [
+	 *         "operator" => "stringEquals",
+	 *         "arg0" => "type",
+	 *         "arg1" => "vlan"
+	 *     ]
+	 * ]
+	 */
+	final public function buildPredicate($filter) {
+		if (FALSE === is_array($filter)) {
+			throw new InvalidArgumentException(
+			  "Filter is not an associative array.");
+		}
+		$result = "";
+		switch ($filter['operator']) {
+		case "and":
+		case "or":
+			$result = sprintf("%s %s %s",
+			  $this->buildPredicate($filter['arg0']),
+			  $filter['operator'],
+			  $this->buildPredicate($filter['arg1']));
+			break;
+		case "=":
+		case "equals":
+			$result = sprintf("%s=%s", $filter['arg0'], $filter['arg1']);
+			break;
+		case "!=":
+		case "notEquals":
+			$result = sprintf("%s!=%s", $filter['arg0'], $filter['arg1']);
+			break;
+		case "enum":
+			$parts = [];
+			foreach ($filter['arg1'] as $enumk => $enumv) {
+				$parts[] = sprintf("%s=%s", $filter['arg0'], $enumv);
+			}
+			$result = sprintf("(%s)", implode(" or ", $parts));
+			break;
+		case "==":
+		case "stringEquals":
+			$result = sprintf("%s=%s", $filter['arg0'],
+			  escapeshellarg($filter['arg1']));
+			break;
+		case "!==":
+		case "stringNotEquals":
+			$result = sprintf("%s!=%s", $filter['arg0'],
+			  escapeshellarg($filter['arg1']));
+			break;
+		case "stringContains":
+			$result = sprintf("contains(%s,%s)", $filter['arg0'],
+			  escapeshellarg($filter['arg1']));
+			break;
+		case "stringStartsWith":
+			$result = sprintf("starts-with(%s,%s)", $filter['arg0'],
+			  escapeshellarg($filter['arg1']));
+			break;
+		case "stringEnum":
+			$parts = [];
+			foreach ($filter['arg1'] as $enumk => $enumv) {
+				$parts[] = sprintf("%s=%s", $filter['arg0'],
+				  escapeshellarg($enumv));
+			}
+			$result = sprintf("(%s)", implode(" or ", $parts));
+			break;
+		case "!":
+		case "not":
+			$result = sprintf("not(%s)",
+			  $this->buildPredicate($filter['arg0']));
+			break;
+		case "<":
+		case "less":
+			$result = sprintf("%s<%s", $filter['arg0'], $filter['arg1']);
+			break;
+		case ">":
+		case "greater":
+			$result = sprintf("%s>%s", $filter['arg0'], $filter['arg1']);
+			break;
+		case "<=":
+		case "lessEqual":
+			$result = sprintf("%s<=%s", $filter['arg0'], $filter['arg1']);
+			break;
+		case ">=":
+		case "greaterEqual":
+			$result = sprintf("%s>=%s", $filter['arg0'], $filter['arg1']);
+			break;
+		}
+		return $result;
+	}
+
+	final public function buildGetByFilterQuery($filter) {
+		$qi = $this->getQueryInfo();
+		return sprintf("%s[%s]", $qi['xpath'], $this->buildPredicate($filter));
 	}
 
 	final public function buildGetByPredicateQuery($predicate) {
@@ -117,9 +245,11 @@ class DatabaseBackendQueryBuilder {
 		$qi = $this->getQueryInfo();
 		$xpath = $qi['xpath'];
 		if (TRUE === boolval($qi['iterable'])) {
-			$predicate = sprintf("%s='%s'", $qi['idproperty'],
-			  $object->get($qi['idproperty']));
-			$xpath = $this->buildGetByPredicateQuery($predicate);
+			$xpath = $this->buildGetByFilterQuery([
+				  "operator" => "stringEquals",
+				  "arg0" => $qi['idproperty'],
+				  "arg1" => $object->get($qi['idproperty'])
+			  ]);
 		}
 		return $xpath;
 	}
@@ -130,11 +260,10 @@ class DatabaseBackendQueryBuilder {
 		  $object->get($qi['idproperty']));
 	}
 
-	final public function buildExistsQuery($property = "", $value = "") {
+	final public function buildExistsQuery($filter = NULL) {
 		$qi = $this->getQueryInfo();
-		if (empty($property) && empty($value))
+		if (is_null($filter))
 			return $qi['xpath'];
-		$predicate = sprintf("%s='%s'", $property, $value);
-		return $this->buildGetByPredicateQuery($predicate);
+		return $this->buildGetByFilterQuery($filter);
 	}
 }

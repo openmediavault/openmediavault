@@ -135,9 +135,19 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		if (TRUE === $isNew) {
 			// Check uniqueness.
-			$predicate = sprintf("type='%s' and devicename='%s'",
-			  $object->get("type"), $object->get("devicename"));
-			$db->assertIsUniqueByPredicate($object, $predicate);
+			$db->assertIsUniqueByFilter($object, [
+				"operator" => "and",
+				"arg0" => [
+					"operator" => "stringEquals",
+					"arg0" => "type",
+					"arg1" => $object->get("type")
+				],
+				"arg1" => [
+					"operator" => "stringEquals",
+					"arg0" => "devicename",
+					"arg1" => $object->get("devicename")
+				]
+			]);
 		}
 		$db->set($object);
 		// Notify configuration changes.
@@ -229,12 +239,16 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 				"_readonly" =>  FALSE
 			];
 			// Is there any configuration for the given network interface?
+			$filter = [
+				"operator" => "stringEquals",
+				"arg0" => "devicename",
+				"arg1" => $devv
+			];
 			$db = \OMV\Config\Database::getInstance();
-			if ($db->existsByProperty("conf.system.network.interface",
-			  "devicename", $devv)) {
+			if ($db->exists("conf.system.network.interface", $filter)) {
 				// Get the interface configuration object.
-				$cfgObject = $db->get("conf.system.network.interface",
-				  "devicename", $devv);
+				$cfgObject = $db->getByFilter("conf.system.network.interface",
+				  $filter, 1);
 				// Append the configuration attributes.
 				$object = array_merge($object, $cfgObject->getAssoc());
 				// Is the interface device somewhere referenced?
@@ -251,10 +265,19 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 				$object['type'] = "unknown";
 			// Check whether the interface device is used by a bonding
 			// interface.
-			$predicate = sprintf("type='bond' and contains(slaves,'%s')",
-			  $devv);
-			if ($db->existsByPredicate("conf.system.network.interface",
-			  $predicate)) {
+			if ($db->exists("conf.system.network.interface", [
+				"operator" => "and",
+				"arg0" => [
+					"operator" => "stringEquals",
+					"arg0" => "type",
+					"arg1" => "bond"
+				],
+				"arg1" => [
+					"operator" => "stringContains",
+					"arg0" => "slaves",
+					"arg1" => $devv
+				]
+			])) {
 				$object['_used'] = TRUE;
 				$object['_readonly'] = TRUE;
 				$object['method'] = "";
@@ -314,10 +337,19 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			$objectAssoc['_used'] = $db->isReferenced($objectv);
 			$objectAssoc['_readonly'] = FALSE;
 			// Check if it is used by a bonding interface.
-			$predicate = sprintf("type='bond' and contains(slaves,'%s')",
-			  $objectv->get("devicename"));
-			if ($db->existsByPredicate("conf.system.network.interface",
-			  $predicate)) {
+			if ($db->exists("conf.system.network.interface", [
+				"operator" => "and",
+				"arg0" => [
+					"operator" => "stringEquals",
+					"arg0" => "type",
+					"arg1" => "bond"
+				],
+				"arg1" => [
+					"operator" => "stringContains",
+					"arg0" => "slaves",
+					"arg1" => $objectv->get("devicename")
+				]
+			])) {
 				$objectAssoc['_used'] = TRUE;
 				$objectAssoc['_readonly'] = TRUE;
 			}
@@ -476,8 +508,19 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			// Does a configuration object exists for the given network
 			// interface device? In this case skip this device.
 			$db = \OMV\Config\Database::getInstance();
-			if ($db->existsByProperties("conf.system.network.interface", [
-			  "type" => "ethernet", "devicename" => $devv ]))
+			if ($db->exists("conf.system.network.interface", [
+				"operator" => "and",
+				"arg0" => [
+					"operator" => "stringEquals",
+					"arg0" => "type",
+					"arg1" => "ethernet"
+				],
+				"arg1" => [
+					"operator" => "stringEquals",
+					"arg0" => "devicename",
+					"arg1" => $devv
+				]
+			]))
 				continue;
 			$result[] = $this->getIfaceInfo($devv);
 		}
@@ -554,22 +597,51 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 				// Is network interface device referenced somewhere:
 				// - Check if the interface is already used by a bond
 				//   interface.
-				$predicate = sprintf("type='bond' and contains(slaves,'%s')",
-				  $devv);
-				if ($db->existsByPredicate("conf.system.network.interface",
-				  $predicate))
+				if ($db->exists("conf.system.network.interface", [
+					"operator" => "and",
+					"arg0" => [
+						"operator" => "stringEquals",
+						"arg0" => "type",
+						"arg1" => "bond"
+					],
+					"arg1" => [
+						"operator" => "stringContains",
+						"arg0" => "slaves",
+						"arg1" => $devv
+					]
+				]))
 					continue;
 				// - Check if the interface is already used by a VLAN
 				//   interface.
-				$predicate = sprintf("type='vlan' and contains(".
-				  "vlanrawdevice,'%s')", $devv);
-				if ($db->existsByPredicate("conf.system.network.interface",
-				  $predicate))
+				if ($db->exists("conf.system.network.interface", [
+					"operator" => "and",
+					"arg0" => [
+						"operator" => "stringEquals",
+						"arg0" => "type",
+						"arg1" => "vlan"
+					],
+					"arg1" => [
+						"operator" => "stringContains",
+						"arg0" => "vlanrawdevice",
+						"arg1" => $devv
+					]
+				]))
 					continue;
 				// - Does a configuration object exists for the given
 				//   network interface device?
-				if ($db->existsByProperties("conf.system.network.interface", [
-				  "type" => "ethernet", "devicename" => $devv ]))
+				if ($db->exists("conf.system.network.interface", [
+					"operator" => "and",
+					"arg0" => [
+						"operator" => "stringEquals",
+						"arg0" => "type",
+						"arg1" => "ethernet"
+					],
+					"arg1" => [
+						"operator" => "stringEquals",
+						"arg0" => "devicename",
+						"arg1" => $devv
+					]
+				]))
 					continue;
 				// Get the network interface information.
 				$result[] = $this->getIfaceInfo($devv);
@@ -578,10 +650,19 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		if ($params['uuid'] !== $GLOBALS['OMV_UUID_UNDEFINED']) {
 			// Get network interfaces already assigned to the bonding
 			// interface device.
-			$object = $db->getByProperties("conf.system.network.interface", [
-				"uuid" => $params['uuid'],
-				"type" => "bond"
-			]);
+			$object = $db->getByFilter("conf.system.network.interface", [
+				"operator" => "and",
+				"arg0" => [
+					"operator" => "stringEquals",
+					"arg0" => "uuid",
+					"arg1" => $params['uuid']
+				],
+				"arg1" => [
+					"operator" => "stringEquals",
+					"arg0" => "type",
+					"arg1" => "bond"
+				]
+			], 1);
 			// Get interface details of the bonding slaves.
 			foreach (explode(",", $object['slaves']) as $slavek => $slavev)
 				$result[] = $this->getIfaceInfo($slavev);
@@ -637,10 +718,19 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			// Check if the slaves are already used by another bond interface.
 			foreach (explode(",", $params['slaves']) as $slavek => $slavev) {
 				$db = \OMV\Config\Database::getInstance();
-				$predicate = sprintf("type='bond' and contains(slaves,'%s')",
-				  $slavev);
-				if ($db->existsByPredicate("conf.system.network.interface",
-				  $predicate)) {
+				if ($db->exists("conf.system.network.interface", [
+					"operator" => "and",
+					"arg0" => [
+						"operator" => "stringEquals",
+						"arg0" => "type",
+						"arg1" => "bond"
+					],
+					"arg1" => [
+						"operator" => "stringContains",
+						"arg0" => "slaves",
+						"arg1" => $slavev
+					]
+				])) {
 					throw new \OMV\Exception(sprintf("The interface '%s' is ".
 					  "already used by a bonding interface.", $slavev));
 				}
@@ -751,8 +841,19 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			// Does a configuration object exists for the given network
 			// interface device? In this case skip this device.
 			$db = \OMV\Config\Database::getInstance();
-			if ($db->existsByProperties("conf.system.network.interface", [
-			  "type" => "wireless", "devicename" => $devv ]))
+			if ($db->exists("conf.system.network.interface", [
+				"operator" => "and",
+				"arg0" => [
+					"operator" => "stringEquals",
+					"arg0" => "type",
+					"arg1" => "wireless"
+				],
+				"arg1" => [
+					"operator" => "stringEquals",
+					"arg0" => "devicename",
+					"arg1" => $devv
+				]
+			]))
 				continue;
 			$result[] = $this->getIfaceInfo($devv);
 		}

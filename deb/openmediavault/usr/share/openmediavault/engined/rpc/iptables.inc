@@ -48,8 +48,11 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 	private function getRulesByFamily($family) {
 		// Get the configuration objects.
 		$db = \OMV\Config\Database::getInstance();
-		return $db->getByPredicateAssoc("conf.system.network.iptables.rule",
-		  sprintf("family='%s'", $family));
+		return $db->getByFilterAssoc("conf.system.network.iptables.rule", [
+			"operator" => "stringEquals",
+			"arg0" => "family",
+			"arg1" => $family
+		]);
 	}
 
 	/**
@@ -99,13 +102,14 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 			$objects[] = $object;
 		}
 		// Remove all existing rules for the specified family.
+		$filter = [
+			"operator" => "stringEquals",
+			"arg0" => "family",
+			"arg1" => $family
+		];
 		$db = \OMV\Config\Database::getInstance();
-		$predicate = sprintf("family='%s'", $family);
-		if ($db->existsByPredicate("conf.system.network.iptables.rule",
-		  $predicate)) {
-			$db->deleteByPredicate("conf.system.network.iptables.rule",
-			  $predicate);
-		}
+		if ($db->exists("conf.system.network.iptables.rule", $filter))
+			$db->deleteByFilter("conf.system.network.iptables.rule", $filter);
 		// Append the new iptables rules.
 		$objectsAssoc = array();
 		foreach ($objects as $objectk => $objectv) {

@@ -99,9 +99,13 @@ class OMVModuleProftpd extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	final public function onSharedFolder($type, $path, $object) {
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $db->existsByProperty("conf.services.ftp.share",
-		  "sharedfolderref", $object['uuid']))
+		if (TRUE === $db->exists("conf.services.ftp.share", [
+			"operator" => "stringEquals",
+			"arg0" => "sharedfolderref",
+			"arg1" => $object['uuid']
+		])) {
 			$this->setDirty();
+		}
 	}
 
 	/**

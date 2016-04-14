@@ -181,8 +181,14 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Get list of mount points, except bind mounts.
 		$db = \OMV\Config\Database::getInstance();
-		$objects = $db->getByPredicate("conf.system.filesystem.mountpoint",
-		  "not(contains(opts,'bind'))");
+		$objects = $db->getByFilter("conf.system.filesystem.mountpoint", [
+			"operator" => "not",
+			"arg0" => [
+				"operator" => "stringContains",
+				"arg0" => "opts",
+				"arg1" => "bind"
+			]
+		]);
 		// Append '/dev/root'?
 		if (TRUE === array_boolval($params, "includeroot", FALSE)) {
 			$rootObject = new ConfigObject("conf.system.filesystem.mountpoint");
@@ -365,8 +371,22 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// exist anymore. This is necessary to be able remove invalid mount
 		// point configuration objects. Mark such filesystem as missing.
 		$db = \OMV\Config\Database::getInstance();
-		$mntents = $db->getByPredicate("conf.system.filesystem.mountpoint",
-		  "not(contains(opts,'bind') or contains(opts,'loop'))");
+		$mntents = $db->getByFilter("conf.system.filesystem.mountpoint", [
+			"operator" => "not",
+			"arg0" => [
+				"operator" => "or",
+				"arg0" => [
+					"operator" => "stringContains",
+					"arg0" => "opts",
+					"arg1" => "bind"
+				],
+				"arg1" => [
+					"operator" => "stringContains",
+					"arg0" => "opts",
+					"arg1" => "loop"
+				]
+			]
+		]);
 		foreach ($mntents as $mntentk => $mntentv) {
 			// Get the filesystem backend.
 			$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
@@ -443,6 +463,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			if (TRUE === $sd->isReadOnly())
 				continue;
 			// Check if device is referenced/used by a plugin.
+			// ToDo...
 			$db = \OMV\Config\Database::getInstance();
 			$xpath = sprintf("//services/devicefile[contains(.,'%s')]",
 			  $sd->getDeviceFile());
@@ -673,8 +694,12 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		try {
 			if (is_devicefile($params['id'])) {
 				// Use the filesystem name to identify the object.
-				$meObject = $db->get("conf.system.filesystem.mountpoint",
-				  "fsname", $params['id']);
+				$meObject = $db->getByFilter(
+				  "conf.system.filesystem.mountpoint", [
+					  "operator" => "stringEquals",
+					  "arg0" => "fsname",
+					  "arg1" => $params['id']
+				  ], 1);
 			} else {
 				// Use the filesystem UUID to identify the object by its mount
 				// point directory:
@@ -682,9 +707,13 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				// /media/D81A-F053 (VFAT)
 				// /media/74A225C8A2258F (NTFS)
 				// /media/9e8aaee0-ab3a-467f-9bdb-7cced3b8afc4 (EXT2/3/4, JFS, XFS)
-				$meObject = $db->get("conf.system.filesystem.mountpoint",
-				  "dir", \OMV\System\Filesystem\Filesystem::buildMountPath(
-				  $params['id']));
+				$meObject = $db->getByFilter(
+				  "conf.system.filesystem.mountpoint", [
+					  "operator" => "stringEquals",
+					  "arg0" => "dir",
+					  "arg1" => \OMV\System\Filesystem\Filesystem::
+					    buildMountPath($params['id'])
+				  ], 1);
 			}
 		} catch(\Exception $e) {
 			$meObject = NULL;
@@ -888,8 +917,12 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Get the fstab mount point configuration object.
 			if (is_devicefile($params['id'])) {
 				// Use the filesystem name to identify the object.
-				$meObject = $db->get("conf.system.filesystem.mountpoint",
-				  "fsname", $params['id']);
+				$meObject = $db->getByFilter(
+				  "conf.system.filesystem.mountpoint", [
+					  "operator" => "stringEquals",
+					  "arg0" => "fsname",
+					  "arg1" => $params['id']
+				  ], 1);
 			} else {
 				// Use the filesystem UUID to identify the object by its mount
 				// point directory:
@@ -898,9 +931,13 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				// /media/74A225C8A2258F (NTFS)
 				// /media/9e8aaee0-ab3a-467f-9bdb-7cced3b8afc4 (EXT2/3/4, JFS, XFS)
 				// /media/2015-04-25-12-52-13-00 (ISO9660, UDF)
-				$meObject = $db->get("conf.system.filesystem.mountpoint",
-				  "dir", \OMV\System\Filesystem\Filesystem::buildMountPath(
-				  $params['id']));
+				$meObject = $db->getByFilter(
+				  "conf.system.filesystem.mountpoint", [
+					  "operator" => "stringEquals",
+					  "arg0" => "dir",
+					  "arg1" => \OMV\System\Filesystem\Filesystem::
+					    buildMountPath($params['id'])
+				  ], 1);
 			}
 			// Delete the mount point configuration object. Unmount the
 			// filesystem and unlink the mount point. Changes to the fstab

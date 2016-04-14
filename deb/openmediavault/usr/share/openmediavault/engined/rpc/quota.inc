@@ -55,16 +55,19 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 		$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['uuid']);
 		$devicefile = $fs->getDeviceFile();
 		// Does any quota configuration exist for the given filesystem?
-		$db = \OMV\Config\Database::getInstance();
 		$object = NULL;
-		$predicate = sprintf("fsuuid='%s'", $params['uuid']);
-		if ($db->existsByPredicate("conf.system.filesystem.quota", $predicate)) {
+		$filter = [
+			"operator" => "stringEquals",
+			"arg0" => "fsuuid",
+			"arg1" => $params['uuid']
+		];
+		$db = \OMV\Config\Database::getInstance();
+		if ($db->exists("conf.system.filesystem.quota", $filter)) {
 			// Load the existing configuration object.
-			$objects = $db->getByPredicate("conf.system.filesystem.quota",
-			  $predicate);
 			// Due the fact that a quota configuration only exists once per
 			// filesystem we can simply use the first found object.
-			$object = $objects[0];
+			$object = $db->getByFilter("conf.system.filesystem.quota",
+			  $filter, 1);
 		}
 		// Prepare result. Iterate over all system users and groups and get
 		// their quota configuration for the given filesystem.
@@ -189,15 +192,18 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 			}
 		}
 		// Prepare the configuration object.
+		$filter = [
+			"operator" => "stringEquals",
+			"arg0" => "fsuuid",
+			"arg1" => $params['uuid']
+		];
 		$db = \OMV\Config\Database::getInstance();
-		$predicate = sprintf("fsuuid='%s'", $params['uuid']);
-		if ($db->existsByPredicate("conf.system.filesystem.quota", $predicate)) {
+		if ($db->exists("conf.system.filesystem.quota", $filter)) {
 			// Load the existing configuration objects.
-			$objects = $db->getByPredicate("conf.system.filesystem.quota",
-			  $predicate);
 			// Due the fact that a quota configuration only exists once per
 			// filesystem we can simply use the first found object.
-			$object = $objects[0];
+			$object = $db->getByFilter("conf.system.filesystem.quota",
+			  $filter, 1);
 		} else {
 			// Create a new configuration object.
 			$object = new \OMV\Config\ConfigObject("conf.system.filesystem.quota");

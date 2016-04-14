@@ -124,11 +124,15 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			// current processed device. Note, we have to check for 'dev/xxx'
 			// and 'dev/disk/by-id/xxx' entries.
 			$db = \OMV\Config\Database::getInstance();
-			$predicate = sprintf("devicefile='%s' or devicefile='%s'",
-			  $objectv['devicefilebyid'], $objectv['devicefile']);
-			$confObjects = $db->getByPredicate(
-			  "conf.service.smartmontools.device",
-			  $predicate);
+			$confObjects = $db->getByFilter(
+			  "conf.service.smartmontools.device", [
+				  "operator" => "stringEnum",
+				  "arg0" => "devicefile",
+				  "arg1" => [
+					  $objectv['devicefilebyid'],
+					  $objectv['devicefile']
+				  ]
+			  ]);
 			if (0 >= count($confObjects))
 				continue;
 			$confObject = $confObjects[0];
@@ -170,9 +174,15 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			$db = \OMV\Config\Database::getInstance();
 			$predicate = sprintf("devicefile='%s' or devicefile='%s'",
 			  $objectv['devicefilebyid'], $objectv['devicefile']);
-			$confObjects = $db->getByPredicate(
-			  "conf.service.smartmontools.device",
-			  $predicate);
+			$confObjects = $db->getByFilter(
+			  "conf.service.smartmontools.device", [
+				  "operator" => "stringEnum",
+				  "arg0" => "devicefile",
+				  "arg1" => [
+					  $objectv['devicefilebyid'],
+					  $objectv['devicefile']
+				  ]
+			  ]);
 			// If found, then finally get the S.M.A.R.T. device settings
 			// configuration object.
 			if (0 < count($confObjects)) {

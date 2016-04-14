@@ -56,8 +56,11 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 				$config = $modulev->getZeroconfConfig();
 				// Try to get the Zeroconf service configuration object.
 				$db = \OMV\Config\Database::getInstance();
-				$object = $db->get("conf.service.zeroconf.service",
-				  "id", $config['id']);
+				$object = $db->getByFilter("conf.service.zeroconf.service", [
+					"operator" => "stringEquals",
+					"arg0" => "id",
+					"arg1" => $config['id']
+				], 1);
 				$object->add("title", "string");
 				$object->set("title", $config['title']);
 				// Append object to result.
@@ -108,9 +111,15 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 			}
 		}
 		// Remove all existing service configuration objects.
+		$filter = [
+			"operator" => "stringEquals",
+			"arg0" => "id",
+			"arg1" => "*"
+		];
 		$db = \OMV\Config\Database::getInstance();
-		if ($db->exists("conf.service.zeroconf.service"))
-			$db->deleteByPredicate("conf.service.zeroconf.service", "id=*");
+		if ($db->exists("conf.service.zeroconf.service", $filter)) {
+			$db->deleteByFilter("conf.service.zeroconf.service", $filter);
+		}
 		// Set the service configuration objects.
 		$objectsAssoc = array();
 		foreach ($objects as $objectk => $objectv) {

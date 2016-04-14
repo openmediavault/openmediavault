@@ -69,9 +69,13 @@ class OMVModuleWebserver extends OMVModuleNginxAbstract
 	 */
 	final public function onModifySslCertificate($type, $path, $object) {
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $db->existsByProperty("conf.webadmin",
-		  "sslcertificateref", $object['uuid']))
+		if (TRUE === $db->exists("conf.webadmin", [
+			"operator" => "stringEquals",
+			"arg0" => "sslcertificateref",
+			"arg1" => $object['uuid']
+		])) {
 			$this->setDirty();
+		}
 	}
 
 	/**

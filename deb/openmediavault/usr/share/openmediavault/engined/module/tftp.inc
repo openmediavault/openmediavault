@@ -92,9 +92,13 @@ class OMVModuleTftp extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	final public function onSharedFolder($type, $path, $object) {
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $db->existsByProperty("conf.services.tftp",
-		  "sharedfolderref", $object['uuid']))
+		if (TRUE === $db->exists("conf.services.tftp", [
+			"operator" => "stringEquals",
+			"arg0" => "sharedfolderref",
+			"arg1" => $object['uuid']
+		])) {
 			$this->setDirty();
+		}
 	}
 
 	/**

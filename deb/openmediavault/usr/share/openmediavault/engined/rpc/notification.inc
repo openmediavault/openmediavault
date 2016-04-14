@@ -58,9 +58,12 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 				foreach ($config as $configk => $configv) {
 					// Try to get the notification configuration object.
 					$db = \OMV\Config\Database::getInstance();
-					$object = $db->get(
-					  "conf.system.notification.notifications.notification",
-					  "id", $configv['id']);
+					$object = $db->getByFilter(
+					  "conf.system.notification.notifications.notification", [
+						  "operator" => "stringEquals",
+						  "arg0" => "id",
+						  "arg1" => $configv['id']
+					  ], 1);
 					$object->add("title", "string");
 					$object->add("type", "string");
 					$object->set("title", $configv['title']);
@@ -112,10 +115,17 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 			}
 		}
 		// Remove all existing notification configuration objects.
+		$filter = [
+			"operator" => "stringEquals",
+			"arg0" => "id",
+			"arg1" => "*"
+		];
 		$db = \OMV\Config\Database::getInstance();
-		if ($db->exists("conf.system.notification.notifications.notification"))
-			$db->deleteByPredicate(
-			  "conf.system.notification.notifications.notification", "id=*");
+		if ($db->exists("conf.system.notification.notifications.notification",
+		  $filter)) {
+			$db->deleteByFilter(
+			  "conf.system.notification.notifications.notification", $filter);
+		}
 		// Set the notification configuration objects.
 		$objectsAssoc = array();
 		foreach ($objects as $objectk => $objectv) {

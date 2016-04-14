@@ -175,9 +175,13 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 			$dir = build_path(DIRECTORY_SEPARATOR,
 			  $GLOBALS['OMV_NFSD_EXPORT_DIR'], $sfObject->get("name"));
 			// Try to get the mount point configuration object.
-			$predicate = sprintf("dir='%s'", $dir);
-			if (FALSE === $db->existsByPredicate(
-			  "conf.system.filesystem.mountpoint", $predicate)) {
+			$filter = [
+				"operator" => "stringEquals",
+				"arg0" => "dir",
+				"arg1" => $dir
+			];
+			if (FALSE === $db->exists("conf.system.filesystem.mountpoint",
+			  $filter)) {
 				  // Prepare mount point configuration object to bind the
 				  // shared folder directory into the NFS export directory.
 				  $meObject2 = new \OMV\Config\ConfigObject(
@@ -201,8 +205,8 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 				  $meObject2->setAssoc($result);
 			} else {
 				// Load the existing mount point configuration object.
-				$objects = $db->getByPredicate(
-				  "conf.system.filesystem.mountpoint", $predicate);
+				$objects = $db->getByFilter(
+				  "conf.system.filesystem.mountpoint", $filter);
 				$meObject2 = $objects[0];
 			}
 			// Modify the share configuration object.
@@ -238,9 +242,11 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 		// In this case do not delete or unmount the mount point configuration
 		// object.
 		$db = \OMV\Config\Database::getInstance();
-		$predicate = sprintf("mntentref='%s'", $object['mntentref']);
-		if (FALSE === $db->existsByPredicate("conf.service.nfs.share",
-		  $predicate)) {
+		if (FALSE === $db->exists("conf.service.nfs.share", [
+			"operator" => "stringEquals",
+			"arg0" => "mntentref",
+			"arg1" => $object['mntentref']
+		])) {
 			  // Delete the associated mount point.
 			  \OMV\Rpc\Rpc::call("FsTab", "delete", array(
 				  "uuid" => $object['mntentref']
