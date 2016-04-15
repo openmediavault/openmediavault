@@ -362,9 +362,9 @@ class Database {
 			// iterable configuration objects. Make sure the specified
 			// configuration object is iterable.
 			if (FALSE === $model->isIterable()) {
-				throw new \InvalidArgumentException(
+				throw new \InvalidArgumentException(sprintf(
 				  "The configuration object '%s' is not iterable.",
-				  $model->getId());
+				  $model->getId()));
 			}
 		}
 		// Create the query builder.

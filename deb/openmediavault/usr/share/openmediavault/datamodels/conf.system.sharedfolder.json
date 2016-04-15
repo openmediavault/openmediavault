@@ -26,9 +26,24 @@
 			"type": "string"
 		},
 		"privileges": {
-			"type": "array",
-			"items": {
-				"$ref": "//system/shares/sharedfolder/privileges/privilege"
+			"type": "object",
+			"properties": {
+				"privilege": {
+					"type": "array",
+					"items": {
+						"type": {
+							"type": "string",
+							"enum": [ "user", "group" ]
+						},
+						"name": {
+							"type": "string"
+						},
+						"perms": {
+							"type": "integer",
+							"enum": [ 0, 5, 7 ]
+						}
+					}
+				}
 			}
 		}
 	}

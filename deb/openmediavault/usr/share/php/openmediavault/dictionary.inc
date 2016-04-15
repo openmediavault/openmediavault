@@ -150,6 +150,18 @@ class Dictionary {
 	}
 
 	/**
+	 * Copy a key.
+     * @param srcKey The source key in dot notation, e.g. 'a.b.c'.
+	 * @param destKey The destination key in dot notation, e.g. 'a.b.c'.
+     * @return None.
+     */
+	public function copy($srcKey, $destKey) {
+		$this->assertExists($srcKey);
+		$value = $this->get($srcKey);
+		$this->set($destKey, $value);
+	}
+
+	/**
 	 * Remove a key.
      * @param key The key in dot notation, e.g. 'a.b.c'.
      * @return None.

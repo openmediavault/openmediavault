@@ -56,6 +56,9 @@ class DatabaseBackendQueryBuilder {
 
 	final protected function buildQuery($predicate) {
 		$qi = $this->getQueryInfo();
+
+printf("===> %s\n", sprintf("%s[%s]", $qi['xpath'], $predicate));
+
 		return sprintf("%s[%s]", $qi['xpath'], $predicate);
 	}
 
@@ -124,6 +127,28 @@ class DatabaseBackendQueryBuilder {
 	 *         "arg1" => "vlan"
 	 *     ]
 	 * ]
+	 * Example 4:
+	 * [
+	 *     "operator" => "and",
+	 *     "arg0" => [
+	 * 	       "operator" => "stringNotEquals",
+	 *         "arg0" => "uuid",
+	 *         "arg1" => $object->get("uuid")
+	 *     ],
+	 *     "arg1" => [
+	 *         "operator" => "and",
+	 *         "arg0" => [
+	 *             "operator" => "stringEquals",
+	 *             "arg0" => "mntentref",
+	 *             "arg1" => $object->get("mntentref")
+	 *         ],
+	 *         "arg1" => [
+	 *             "operator" => "stringEquals",
+	 *             "arg0" => "reldirpath",
+	 *             "arg1" => $object->get("reldirpath")
+	 *         ]
+	 *     ]
+	 * ]
 	 */
 	final public function buildPredicate($filter) {
 		if (FALSE === is_array($filter)) {
@@ -134,7 +159,7 @@ class DatabaseBackendQueryBuilder {
 		switch ($filter['operator']) {
 		case "and":
 		case "or":
-			$result = sprintf("%s %s %s",
+			$result = sprintf("(%s %s %s)",
 			  $this->buildPredicate($filter['arg0']),
 			  $filter['operator'],
 			  $this->buildPredicate($filter['arg1']));
@@ -201,7 +226,7 @@ class DatabaseBackendQueryBuilder {
 		case "greaterEqual":
 			$result = sprintf("%s>=%s", $filter['arg0'], $filter['arg1']);
 			break;
-		case default:
+		default:
 			throw new \InvalidArgumentException(
 			  "The operator '%s' is not defined.",
 			  $filter['operator']);

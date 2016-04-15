@@ -19,7 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/config.inc");
+require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 
 class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
@@ -120,64 +120,60 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Add additional informations.
 		$result = array();
 		foreach ($objects as $objectk => $objectv) {
-			$objectAssoc = $objectv->getAssoc();
+			$objectDict = new \OMV\Dictionary($objectv->getAssoc());
 			// Set the default values.
-			$objectAssoc['_used'] = false;
-			$objectAssoc['volume'] = "";
-			$objectAssoc['description'] = $objectv['name'];
-			$objectAssoc['mntent'] = array(
+			$objectDict->set("_used", false);
+			$objectDict->set("volume", "");
+			$objectDict->copy("name", "description");
+			$objectDict->set("mntent", [
 				"devicefile" => "",
 				"fsname" => "",
 				"dir" => "",
 				"type" => "",
 				"posixacl" => FALSE
-			);
+			]);
 			// Get the mount point configuration object to append additional
 			// information to the returned objects, e.g. the devicefile or
 			// a modified description.
-			if ($db->exits("conf.system.filesystem.mountpoint", [
+			if ($db->exists("conf.system.filesystem.mountpoint", [
 				"operator" => "stringEquals",
 				"arg0" => "uuid",
-				"arg1" => $objectv->get("mntentref")
+				"arg1" => $objectDict->get("mntentref")
 			])) {
 				$meObject = $db->get("conf.system.filesystem.mountpoint",
-				  $objectv->get("mntentref"));
+				  $objectDict->get("mntentref"));
 				// Get the filesystem backend.
 				$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
-				$fsbMngr->assertBackendExistsByType($meObject['type']);
-				$fsb = $fsbMngr->getBackendByType($meObject['type']);
+				$fsbMngr->assertBackendExistsByType($meObject->get("type"));
+				$fsb = $fsbMngr->getBackendByType($meObject->get("type"));
 				// Add some mount point information:
 				// - Does the filesystem support POSIX ACL?
-				$objectAssoc['mntent'] = array_merge($objectAssoc['mntent'], [
-					"fsname" => $meObject['fsname'],
-					"dir" => $meObject['dir'],
-					"type" => $meObject['type'],
-					"posixacl" => $fsb->hasPosixAclSupport()
-				]);
+				$objectDict->set("mntent.fsname", $meObject->get("fsname"));
+				$objectDict->set("mntent.dir", $meObject->get("dir"));
+				$objectDict->set("mntent.type", $meObject->get("type"));
+				$objectDict->set("mntent.posixacl", $fsb->hasPosixAclSupport());
 				// Get the filesystem implementation.
-				$fs = $fsb->getImpl($meObject['fsname']);
+				$fs = $fsb->getImpl($meObject->get("fsname"));
 				if (!is_null($fs) && $fs->exists()) {
 					$devicefile = $fs->getDeviceFile();
 					$label = $fs->getLabel();
 					// Add some filesystem details.
-					$objectAssoc['mntent'] = array_merge(
-					  $objectAssoc['mntent'], [
-						"devicefile" => $devicefile
-					]);
+					$objectDict->set("mntent.devicefile", $devicefile);
 					// Override default values.
-					$objectAssoc['volume'] = !empty($label) ?
-					  $label : $devicefile;
-					$objectAssoc['description'] = sprintf(
-					  gettext("%s [on %s, %s]"), $objectAssoc['description'],
-					  $objectAssoc['volume'], $objectAssoc['reldirpath']);
+					$objectDict->set("volume", !empty($label) ? $label :
+					  $devicefile);
+					$objectDict->set("description", sprintf(
+					  gettext("%s [on %s, %s]"),
+					  $objectDict->get("description"),
+					  $objectDict->get("volume"),
+					  $objectDict->get("reldirpath")));
 				}
 			}
 			// Is the shared folder referenced by any object? Shared folder
 			// references are named 'sharedfolderref'.
-			if ($db->isReferenced($objectv))
-				$objectAssoc['_used'] = TRUE;
+			$objectDict->get("_used", $db->isReferenced($objectv));
 			// Append the configuration object to the result list.
-			$result[] = $objectAssoc;
+			$result[] = $objectDict->getData();
 		}
 		return $result;
 	}
@@ -251,55 +247,34 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @return The stored configuration object.
 	 */
 	public function set($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-				  "name":{'.$GLOBALS['OMV_JSONSCHEMA_SHARENAME'].'},
-				  "reldirpath":{"type":"string"},
-				  "comment":{"type":"string"},
-				  "mntentref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
-				  "mode":{"type":"string","enum":["700","750","755",'.
-					'"770","775","777"],"optional":true}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.sharemgmt.set");
 		// The field 'reldirpath' may not contain the characters '..'. This
 		// is because of security reasons: the given canonicalized absolute
 		// path MUST be below the given mount point.
 		if (1 == preg_match("/\.\./", $params['reldirpath'])) {
-			throw new OMVException(
-			  OMVErrorMsg::E_RPC_SERVICE_METHOD_INVALID_PARAMS,
-			  sprintf(gettext("The field '%s' contains forbidden ".
-			  "two-dot symbols"), "reldirpath"));
+			throw new \InvalidArgumentException(sprintf(
+			  "The field '%s' contains forbidden two-dot symbols.",
+			  "reldirpath"));
 		}
 		// Prepare the configuration object. Use the name of the shared
 		// folder as the relative directory name of the share.
-		$object = array(
-			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  \OMV\Uuid::uuid4() : $params['uuid'],
-			"name" => $params['name'],
-			"comment" => $params['comment'],
-			"mntentref" => $params['mntentref'],
-			"reldirpath" => sprintf("%s/", trim($params['reldirpath'], "/"))
-		);
+		$object = new \OMV\Config\ConfigObject("conf.system.sharedfolder");
+		$object->setAssoc($params, TRUE, TRUE);
+		$object->set("reldirpath", sprintf("%s/", trim($params['reldirpath'],
+		  "/")));
 		// Set the configuration object.
-		$success = FALSE;
-		if ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+		$isNew = $object->isNew();
+		$db = \OMV\Config\Database::getInstance();
+		if (TRUE === $isNew) {
 			// Check uniqueness. The share name must be global unique because
 			// the name is also used when exporting a shared folder via NFS for
 			// example.
-			$xpath = sprintf("//system/shares/sharedfolder[name='%s']",
-			  $params['name']);
-			if (TRUE === $xmlConfig->exists($xpath)) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-				gettext("A shared folder with the given name already exists"));
-			}
+			$db->assertIsUnique($object, "name");
 /*
 			// Check if there already exists a shared folder on the same
 			// volume with the same relative directory path.
@@ -312,10 +287,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			}
 */
 			// Add empty list of privileges per default.
-			$object['privileges'] = array();
-			// Append object to configuration.
-			$success = $xmlConfig->set("//system/shares",
-			  array("sharedfolder" => $object));
+			$object->set("privileges", []);
 		} else {
 /*
 			// Check if there already exists a shared folder on the same
@@ -329,39 +301,23 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			}
 */
 			// Get the existing configuration object.
-			$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
-			  $params['uuid']);
-			$oldObject = $xmlConfig->get($xpath);
-			if (is_null($oldObject)) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-				  $xpath);
-			}
-			// Add existing privileges.
-			$object['privileges'] = $oldObject['privileges'];
-			// Update existing configuration object.
-			$success = $xmlConfig->replace($xpath, $object);
+			$oldObject = $db->get("conf.system.sharedfolder", $params['uuid']);
+			// Copy existing privileges.
+			$object->set("privileges", $oldObject->get("privileges"));
 		}
-		if (FALSE === $success) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$db->set($object);
 		// Append the file mode field to the notification object if set.
 		// Defaults to 775.
-		$object['mode'] = "775";
-		if (array_key_exists("mode", $params)) {
-			$object['mode'] = $params['mode'];
-		}
+		$object->add("mode", "string", "775");
+		if (array_key_exists("mode", $params))
+			$object->set("mode", $params['mode']);
 		// Get the mount point configuration object to build the absolute
 		// shared folder path.
-		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
-		  $object['mntentref']);
-		$meObject = $xmlConfig->get($xpath);
-		if (is_null($meObject)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$meObject = $db->get("conf.system.filesystem.mountpoint",
+		  $object->get("mntentref"));
 		// Build the absolute shared folder path.
-		$pathName = build_path(DIRECTORY_SEPARATOR, $meObject['dir'],
-		  $object['reldirpath']);
+		$pathName = build_path(DIRECTORY_SEPARATOR, $meObject->get("dir"),
+		  $object->get("reldirpath"));
 		// Create the shared folder directory if necessary.
 		if (FALSE === file_exists($pathName)) {
 			// Create the directory. Note, the function seems to have a bug
@@ -370,26 +326,26 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			// mode using chmod.
 			if (FALSE === mkdir($pathName, 0700, TRUE)) {
 				$error = error_get_last();
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("Failed to create the directory '%s': %s",
-				  $pathName, $error['message']));
+				throw new \OMV\Exception(
+				  "Failed to create the directory '%s': %s",
+				  $pathName, $error['message']);
 			}
 			// Change the directory mode.
-			if (FALSE === chmod($pathName, octdec($object['mode']))) {
+			if (FALSE === chmod($pathName, octdec($object->get("mode")))) {
 				$error = error_get_last();
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("Failed to set file mode to '%s' for '%s': %s",
-				  $object['mode'], $pathName, $error['message']));
+				throw new \OMV\Exception(
+				  "Failed to set file mode to '%s' for '%s': %s",
+				  $object->get("mode"), $pathName, $error['message']);
 			}
 		}
 		// Change group owner of directory to configured default group,
 		// e.g. 'users'.
 		if (FALSE === chgrp($pathName, $GLOBALS['OMV_USERMGMT_DEFAULT_GROUP'])) {
 			$error = error_get_last();
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to set file group to '%s' for '%s': %s",
+			throw new \OMV\Exception(
+			  "Failed to set file group to '%s' for '%s': %s",
 			  $GLOBALS['OMV_USERMGMT_DEFAULT_GROUP'], $pathName,
-			  $error['message']));
+			  $error['message']);
 		}
 		// Set the setgid bit. Setting this permission means that all files
 		// created in the folder will inherit the group of the folder rather
@@ -397,17 +353,17 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		$mode = fileperms($pathName) | 02000;
 		if (FALSE === chmod($pathName, $mode)) {
 			$error = error_get_last();
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to set file mode to '%o' for '%s': %s",
-			  $mode, $pathName, $error['message']));
+			throw new \OMV\Exception(
+			  "Failed to set file mode to '%o' for '%s': %s",
+			  $mode, $pathName, $error['message']);
 		}
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.shares.sharedfolder", $object);
+		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.shares.sharedfolder",
+		  $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -419,65 +375,64 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @return The deleted configuration object.
 	 */
 	function delete($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
-				  "recursive":{"type":"boolean"}
-			  }
-		  }');
-		// Check if the shared folder is used somewhere.
-		$xpath = sprintf("//*[contains(name(),'sharedfolderref')]".
-		  "[contains(.,'%s')]", $params['uuid']);
-		if (TRUE === $xmlConfig->exists($xpath)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_INUSE);
-		}
+		$this->validateMethodParams($params, "rpc.sharemgmt.delete");
 		// Get the configuration object.
-		$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
-		  $params['uuid']);
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.sharedfolder", $params['uuid']);
+		// Check if the shared folder is used somewhere.
+		$db->assertIsNotReferenced($object);
 		// Delete shared folder content recursively?
 		$recursive = boolvalEx($params['recursive']);
 		// Do some more checks before a shared folder is deleted.
 		if (TRUE === $recursive) {
 			// Do not delete the shared folder content if another shared
 			// folder points to the same directory.
-			$xpath = sprintf("//system/shares/sharedfolder[uuid!='%s' and ".
-			  "mntentref='%s' and reldirpath='%s']", $object['uuid'],
-			  $object['mntentref'], $object['reldirpath']);
-			if (TRUE === $xmlConfig->exists($xpath)) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  gettext("Cannot unlink the shared folder content because another shared folder also refers to it"));
+			// Predicate: [uuid!='%s' and mntentref='%s' and reldirpath='%s']
+			if ($db->exists("conf.system.sharedfolder", [
+				"operator" => "and",
+				"arg0" => [
+					"operator" => "stringNotEquals",
+					"arg0" => "uuid",
+					"arg1" => $object->get("uuid")
+				],
+				"arg1" => [
+					"operator" => "and",
+					"arg0" => [
+						"operator" => "stringEquals",
+						"arg0" => "mntentref",
+						"arg1" => $object->get("mntentref")
+					],
+					"arg1" => [
+						"operator" => "stringEquals",
+						"arg0" => "reldirpath",
+						"arg1" => $object->get("reldirpath")
+					]
+				]
+			])) {
+				throw new \OMV\Exception("Cannot unlink the shared folder ".
+				  "content because another shared folder also refers to it");
 			}
 			// Do not delete the shared folder content if a sub-directory
 			// is part of another shared folder.
-			$xpath = sprintf("//system/shares/sharedfolder[mntentref='%s']",
-			  $object['mntentref']);
-			$sfObjects = $xmlConfig->getList($xpath);
-			if (!is_null($sfObjects)) {
+			$sfObjects = $db->getByFilter("conf.system.sharedfolder", [
+				"operator" => "stringEquals",
+				"arg0" => "mntentref",
+				"arg1" => $object->get("mntentref")
+			]);
+			if (0 < count($sfObjects)) {
 				// Get the mount point configuration object to build the
 				// absolute shared folder path.
-				$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
-				  $object['mntentref']);
-				$meObject = $xmlConfig->get($xpath);
-				if (is_null($meObject)) {
-					throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-					  $xpath);
-				}
+				$meObject = $db->get("conf.system.filesystem.mountpoint",
+				  $object->get("mntentref"));
 				// Build the absolute shared folder path.
 				$absDirPath = \OMV\System\Os::readlink(build_path(
-				  DIRECTORY_SEPARATOR, $meObject['dir'],
-				  $object['reldirpath']));
+				  DIRECTORY_SEPARATOR, $meObject->get("dir"),
+				  $object->get("reldirpath")));
 				// Ensure the path ends with an slash, otherwise comparison
 				// may be false positive.
 				// Example:
@@ -487,7 +442,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				foreach ($sfObjects as $sfObjectk => $sfObjectv) {
 					// Skip current processed shared folder configuration
 					// object.
-					if ($sfObjectv['uuid'] === $object['uuid'])
+					if ($sfObjectv->get("uuid") === $object->get("uuid"))
 						continue;
 					// Check if the shared folder to be deleted is a top
 					// directory of another shared folder configuration object.
@@ -506,11 +461,12 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 					// Deleting dir2 recursively will be forbidden when dir2.1
 					// is used by another shared folder.
 					$sfAbsDirPath = \OMV\System\Os::readlink(build_path(
-					  DIRECTORY_SEPARATOR, $meObject['dir'],
-					  $sfObjectv['reldirpath']));
+					  DIRECTORY_SEPARATOR, $meObject->get("dir"),
+					  $sfObjectv->get("reldirpath")));
 					if (0 === stripos($sfAbsDirPath, $absDirPath)) {
-						throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-						  gettext("Cannot unlink the shared folder content because another shared folder is referencing a subdirectory"));
+						throw new \OMV\Exception("Cannot unlink the shared ".
+						  "folder content because another shared folder is ".
+						  "referencing a subdirectory");
 					}
 				}
 			}
@@ -518,39 +474,29 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_PREDELETE,
-		  "org.openmediavault.system.shares.sharedfolder", $object,
-		  $recursive);
+		  "org.openmediavault.system.shares.sharedfolder",
+		  $object->getAssoc(), $recursive);
 		// Remove the shared folder and its content recursively?
-		if(TRUE === $recursive) {
+		if (TRUE === $recursive) {
 			// Get the mount point configuration object to build the absolute
 			// shared folder path.
-			$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
-			  $object['mntentref']);
-			$meObject = $xmlConfig->get($xpath);
-			if(is_null($meObject)) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-				  $xpath);
-			}
+			$meObject = $db->get("conf.system.filesystem.mountpoint",
+			  $object->get("mntentref"));
 			// Build the absolute shared folder path.
-			$dirPath = build_path(DIRECTORY_SEPARATOR, $meObject['dir'],
-			  $object['reldirpath']);
+			$dirPath = build_path(DIRECTORY_SEPARATOR, $meObject->get("dir"),
+			  $object->get("reldirpath"));
 			// Delete the shared folder directory.
-			$cmd = sprintf("rm -fr %s 2>&1", escapeshellarg($dirPath));
-			if (0 !== $this->exec($cmd, $output))
-				throw new \OMV\ExecException($cmd, $output);
+			$cmdArgs = [];
+			$cmdArgs[] = "-f";
+			$cmdArgs[] = "-r";
+			$cmdArgs[] = escapeshellarg($dirPath);
+			$cmd = new \OMV\System\Process("rm", $cmdArgs);
+			$cmd->setRedirect2to1(TRUE);
+			$cmd->execute();
 		}
 		// Delete the configuration object.
-		$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
-		  $params['uuid']);
-		if(FALSE === ($object = $xmlConfig->delete($xpath))) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
-			  $xpath);
-		}
-		// Notify configuration changes
-		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.shares.sharedfolder", $object);
-		// Return the deleted configuration object.
-		return $object;
+		return $this->deleteConfigObjectByObject($object,
+		  "org.openmediavault.system.shares.sharedfolder");
 	}
 
 	/**

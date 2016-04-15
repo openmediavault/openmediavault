@@ -93,7 +93,7 @@ class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	final public function onSharedFolder($type, $path, $object) {
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $db->exists("conf.services.rsyncd", [
+		if (TRUE === $db->exists("conf.service.rsyncd", [
 			"operator" => "stringEquals",
 			"arg0" => "sharedfolderref",
 			"arg1" => $object['uuid']

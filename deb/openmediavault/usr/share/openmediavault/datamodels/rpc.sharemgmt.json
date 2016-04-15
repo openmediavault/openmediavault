@@ -1,0 +1,53 @@
+[{
+	"type": "rpc",
+	"id": "rpc.sharemgmt.set",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"name": {
+				"type": "string",
+				"required": true
+			},
+			"reldirpath": {
+				"type": "string",
+				"required": true
+			},
+			"comment": {
+				"type": "string",
+				"required": true
+			},
+			"mntentref": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"mode": {
+			    "type": "string",
+			    "enum": [ "700", "750", "755", "770", "775", "777" ],
+				"required": false
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.sharemgmt.delete",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"recursive": {
+				"type": "boolean",
+				"required": true
+			}
+		}
+	}
+}]
