@@ -859,11 +859,14 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			  );
 			$cmd = "/usr/sbin/smartctl";
 			$cmdArgs = array();
-			$cmdArgs[] = sprintf("-t %s", $testMap[$object['type']]);
+			$cmdArgs[] = "-t";
+			$cmdArgs[] = $testMap[$object['type']];
 			$deviceType = $sd->getSMARTDeviceType();
-			if (!empty($deviceType))
-				$cmdArgs[] = sprintf("-d %s", $deviceType);
-			$cmdArgs[] = escapeshellarg($sd->getDeviceFile());
+			if (FALSE === empty($deviceType)) {
+				$cmdArgs[] = "-d";
+				$cmdArgs[] = $deviceType;
+			}
+			$cmdArgs[] = $sd->getDeviceFile();
 			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd." ".implode(" ", $cmdArgs), "");

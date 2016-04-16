@@ -385,7 +385,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-        // Get all network interface configuration object UUID's.
+		// Get all network interface configuration object UUID's.
 		$xpath = "//system/network/interfaces/interface/uuid";
 		$uuids = $xmlConfig->getList($xpath);
 		// Now get the network interface configuration objects.
