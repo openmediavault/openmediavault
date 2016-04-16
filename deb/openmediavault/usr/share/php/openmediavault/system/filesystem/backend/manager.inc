@@ -204,6 +204,7 @@ class Manager implements \IteratorAggregate {
 			// /dev/sr0: LABEL="Debian 7.5.0 amd64 1" TYPE="iso9660"
 			// /dev/sr0: UUID="2015-04-25-12-52-13-00" LABEL="Debian 8.0.0 amd64 1" TYPE="iso9660" PTUUID="5e97595e" PTTYPE="dos"
 			$regex = '/^(\S+): (.+)$/i';
+			unset($matches);
 			if (1 !== preg_match($regex, $outputv, $matches))
 				continue;
 			// Set default values and extract key/value pairs.
