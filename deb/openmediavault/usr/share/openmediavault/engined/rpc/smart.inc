@@ -613,11 +613,14 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			  );
 			$cmd = "/usr/sbin/smartctl";
 			$cmdArgs = array();
-			$cmdArgs[] = sprintf("-t %s", $testMap[$object->get("type")]);
+			$cmdArgs[] = "-t";
+			$cmdArgs[] = $testMap[$object->get("type")];
 			$deviceType = $sd->getSmartDeviceType();
-			if (FALSE === empty($deviceType))
-				$cmdArgs[] = sprintf("-d %s", $deviceType);
-			$cmdArgs[] = escapeshellarg($sd->getDeviceFile());
+			if (FALSE === empty($deviceType)) {
+				$cmdArgs[] = "-d";
+				$cmdArgs[] = $deviceType;
+			}
+			$cmdArgs[] = $sd->getDeviceFile();
 			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename))
 				throw new \OMV\ExecException($cmd." ".implode(" ", $cmdArgs));
 		} catch(\Exception $e) {
