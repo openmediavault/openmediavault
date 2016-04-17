@@ -25,7 +25,7 @@ try {
 		case E_STRICT:
 			break;
 		default:
-			throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
+			throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);
 			break;
 		}
 	}

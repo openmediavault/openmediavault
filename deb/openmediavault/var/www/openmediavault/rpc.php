@@ -42,7 +42,7 @@ try {
 	$session = &\OMV\Session::getInstance();
 	$session->start();
 
-	$server = new OMV\Rpc\Proxy\Json();
+	$server = new \OMV\Rpc\Proxy\Json();
 	$server->handle();
 	$server->cleanup();
 } catch(\Exception $e) {

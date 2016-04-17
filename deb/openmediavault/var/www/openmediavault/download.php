@@ -31,7 +31,7 @@ if (array_keys_exists(array("service", "method"), $_POST)) {
 			case E_STRICT:
 				break;
 			default:
-				throw new ErrorException($errstr, 0, $errno, $errfile,
+				throw new \ErrorException($errstr, 0, $errno, $errfile,
 				  $errline);
 				break;
 			}
