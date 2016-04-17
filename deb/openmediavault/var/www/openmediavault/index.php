@@ -21,6 +21,7 @@
  */
 try {
 	require_once("openmediavault/autoloader.inc");
+	require_once("openmediavault/globals.inc");
 	require_once("openmediavault/env.inc");
 
 	// Display errors if debugging is enabled.
