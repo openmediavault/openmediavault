@@ -58,7 +58,7 @@ abstract class ServiceAbstract {
 		$methodName = is_null($methodName) ? $rpcName : $methodName;
 		if(!method_exists($this, $methodName)) {
 			throw new Exception(
-			  "The method '%s' does not exist for RPC service '%s'",
+			  "The method '%s' does not exist for RPC service '%s'.",
 			  $methodName, $this->getName());
 		}
 		$this->registeredMethods[$rpcName] = $methodName;
@@ -80,12 +80,12 @@ abstract class ServiceAbstract {
 		$rpcServiceMngr = &\OMV\Rpc\ServiceManager::getInstance();
 		if (FALSE === ($rpcService = $rpcServiceMngr->getService(
 		  $service))) {
-			throw new Exception("RPC service not found (name=%s)",
+			throw new Exception("RPC service '%s' not found.",
 			  $service);
 		}
 		if (FALSE === $rpcService->hasMethod($method)) {
 			throw new Exception(
-			  "The method '%s' does not exist for RPC service '%s'",
+			  "The method '%s' does not exist for RPC service '%s'.",
 			  $method, $service);
 		}
 		$rpcService->registeredMethodSequences[$method] = array(
@@ -116,7 +116,7 @@ abstract class ServiceAbstract {
 		// PHP class methods from within the service class.
 		if (!method_exists($this, $name)) {
 			throw new Exception(
-			  "The method '%s' does not exist for RPC service '%s'",
+			  "The method '%s' does not exist for RPC service '%s'.",
 			  $name, $this->getName());
 		}
 		$result = call_user_func_array(array($this, $name),
@@ -197,13 +197,13 @@ abstract class ServiceAbstract {
 				$required['username'] = array($required['username']);
 			foreach ($required['username'] as $usernamek => $usernamev) {
 				if ($context['username'] !== $usernamev)
-					throw new Exception("Invalid context");
+					throw new Exception("Invalid context.");
 			}
 		}
 		// - Check the role
 		if (array_key_exists("role", $required)) {
 			if (!($context['role'] & $required['role']))
-				throw new Exception("Invalid context");
+				throw new Exception("Invalid context.");
 		}
 	}
 

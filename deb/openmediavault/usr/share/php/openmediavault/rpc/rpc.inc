@@ -83,9 +83,8 @@ class Rpc {
 					// Throw an exception if the RPC service method has not
 					// been found and redirection to omv-engined is disabled.
 					if (~$mode & OMV_RPC_MODE_REMOTE) {
-						throw new Exception(
-						  "The method '%s' does not exist for the RPC service '%s'.",
-						  $method, $service);
+						throw new Exception("The method '%s' does not exist ".
+						  "for the RPC service '%s'.", $method, $service);
 					}
 				}
 			} else {
@@ -153,7 +152,7 @@ class Rpc {
 			$request = $header . $request;
 			// Write to socket.
 			if (FALSE === @socket_write($socket, $request, strlen($request))) {
-				throw new OMVException("Failed to write to socket: %s",
+				throw new Exception("Failed to write to socket: %s",
 				  socket_strerror(socket_last_error()));
 			}
 			// Read the RPC response header.
@@ -184,9 +183,9 @@ class Rpc {
 			// Check RPC response data.
 			$crc32 = hash("crc32", $response);
 			if ($header['crc32'] != $crc32) {
-				throw new Exception(
-				  "Invalid checksum (required=0x%s, calculated=0x%s) of RPC response.",
-				  $header['crc32'], $crc32);
+				throw new Exception("Invalid checksum (required=0x%s, ".
+				  "calculated=0x%s) of RPC response.", $header['crc32'],
+				  $crc32);
 			}
 			// Close the socket.
 			@socket_close($socket);

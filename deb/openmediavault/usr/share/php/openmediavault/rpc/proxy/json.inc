@@ -44,7 +44,7 @@ class Json {
 	public function handle() {
 		// Get the RPC params.
 		if (FALSE === $this->getParams())
-			throw new Exception("Failed to get RPC parameters");
+			throw new Exception("Failed to get the RPC parameters.");
 
 		// Validate RPC parameters.
 		$this->validate();

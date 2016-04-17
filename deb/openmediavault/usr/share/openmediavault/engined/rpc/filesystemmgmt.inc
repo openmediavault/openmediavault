@@ -204,17 +204,17 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			$fsb = $fsbMngr->getBackendById($objectv->get("fsname"));
 			if (is_null($fsb)) {
 // The device may not exist anymore, e.g. a USB device. Skip it.
-//				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-//				  sprintf("No file system backend exists for '%s'",
-//				  $objectv['fsname']));
+//				throw new \OMV\Exception(
+//				  "No file system backend exists for '%s'",
+//				  $objectv['fsname']);
 				continue;
 			}
 			// Get the file system implementation.
 			$fs = $fsb->getImpl($objectv->get("fsname"));
 			if (is_null($fs) || !$fs->exists()) {
-//				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
+//				throw new \OMV\Exception(
 //				  "Failed to get the '%s' file system implementation or '%s' ".
-//				  "does not exist", $fsb->getType(), $objectv['fsname']));
+//				  "does not exist", $fsb->getType(), $objectv['fsname']);
 				continue;
 			}
 			// Check if the given file system is mounted based on the configured
