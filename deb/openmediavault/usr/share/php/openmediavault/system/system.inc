@@ -265,7 +265,7 @@ class System {
 	 *   usage => xxx (percent)
 	 * )
 	 */
-	public static function getCPUStats() {
+	public static function getCpuStats() {
 		// Get the CPU model name. Take care about CPUs with multiple cores.
 		$cmdArgs = array();
 		$cmdArgs[] = "-Em1";

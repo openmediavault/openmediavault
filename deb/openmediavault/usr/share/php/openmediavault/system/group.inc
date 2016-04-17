@@ -57,8 +57,10 @@ class Group {
 			$groupInfo = posix_getgrgid($this->gid);
 		else
 			$groupInfo = posix_getgrnam($this->name);
-		if (FALSE === $groupInfo)
-			throw new \OMV\Exception(posix_strerror(posix_errno()));
+		if (FALSE === $groupInfo) {
+			throw new \OMV\Exception("Failed to get group information: %s",
+			  posix_strerror(posix_errno()));
+		}
 		$this->name = $groupInfo['name'];
 		$this->gid = $groupInfo['gid'];
 		$this->members = $groupInfo['members'];

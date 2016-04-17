@@ -91,8 +91,10 @@ class User {
 				$userInfo = posix_getpwuid($this->uid);
 			else
 				$userInfo = posix_getpwnam($this->name);
-			if (FALSE === $userInfo)
-				throw new \OMV\Exception(posix_strerror(posix_errno()));
+			if (FALSE === $userInfo) {
+				throw new \OMV\Exception("Failed to get user information: %s",
+				  posix_strerror(posix_errno()));
+			}
 			$this->name = $userInfo['name'];
 			$this->uid = $userInfo['uid'];
 			$this->gid = $userInfo['gid'];

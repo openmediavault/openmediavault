@@ -326,7 +326,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 		$memStats['wobufferscache']['percentage'] = round(
 		  ($memStats['wobufferscache']['used'] * 100) /
 		  $memStats['mem']['total']);
-		$cpuStats = \OMV\System\System::getCPUStats();
+		$cpuStats = \OMV\System\System::getCpuStats();
 		$index = 0;
 		return array(
 			array(

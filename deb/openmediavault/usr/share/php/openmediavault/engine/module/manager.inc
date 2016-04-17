@@ -95,7 +95,8 @@ class Manager {
 	 * @return An array containing the names of the dirty marked modules.
 	 */
 	final public function getDirtyModules() {
-		$jsonFile = new \OMV\Json\File($GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
+		$jsonFile = new \OMV\Json\File(
+		  $GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
 		if (!$jsonFile->exists())
 			return array();
 		$jsonFile->open("r", LOCK_SH);
@@ -110,7 +111,8 @@ class Manager {
 	 * @return The list of dirty modules.
 	 */
 	final public function setModuleDirty($name) {
-		$jsonFile = new \OMV\Json\File($GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
+		$jsonFile = new \OMV\Json\File(
+		  $GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
 		$jsonFile->open("c+");
 		$modules = $jsonFile->read();
 		$modules[] = strtolower($name);
