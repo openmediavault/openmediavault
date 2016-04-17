@@ -580,7 +580,7 @@ function build_path($separator, ...$parts) {
  */
 function listdir($directory, $extension = "", $sortFlags = SORT_NATURAL) {
 	$files = array();
-	foreach (new DirectoryIterator($directory) as $item) {
+	foreach (new \DirectoryIterator($directory) as $item) {
 		if ($item->isDot())
 			continue;
 		if (!$item->isFile())
@@ -682,7 +682,7 @@ function get_declared_subclasses($class) {
 	$classNames = array();
 	foreach (get_declared_classes() as $className) {
 		$wanted = TRUE;
-		$classObject = new ReflectionClass($className);
+		$classObject = new \ReflectionClass($className);
 		if (!$classObject->isSubclassOf($class))
 			$wanted = FALSE;
 		if ($classObject->isAbstract())

@@ -21,6 +21,7 @@
  */
 namespace OMV\ControlPanel;
 
+require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 
 /**
