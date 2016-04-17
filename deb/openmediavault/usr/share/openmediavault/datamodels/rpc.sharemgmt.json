@@ -50,4 +50,39 @@
 			}
 		}
 	}
+},{
+	"type": "rpc",
+	"id": "rpc.sharemgmt.setprivileges",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"privileges": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"name": {
+							"type": "string",
+							"required": true
+						},
+						"perms": {
+							"type": "integer",
+							"enum": [ 0, 5, 7 ],
+							"required": true
+						},
+						"type": {
+							"type": "string",
+							"enum": [ "user", "group" ],
+							"required": true
+						}
+					}
+				}
+			}
+		}
+	}
 }]

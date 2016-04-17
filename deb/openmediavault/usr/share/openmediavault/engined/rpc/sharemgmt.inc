@@ -286,8 +286,6 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				gettext("A shared folder with the given path already exists"));
 			}
 */
-			// Add empty list of privileges per default.
-			$object->set("privileges", []);
 		} else {
 /*
 			// Check if there already exists a shared folder on the same
@@ -507,65 +505,62 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array containing the requested privileges.
 	 */
 	public function getPrivileges($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
-		// Get shared folder privileges configuration object.
-		$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
-		  $params['uuid']);
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		// Get the shared folder configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.sharedfolder", $params['uuid']);
 		// Prepare result object.
-		$result = array();
+		$result = [];
 		// Process non-system users.
-		$users = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateUsers", NULL, $context);
-		foreach($users as $userk => $userv) {
-			$privilege = array(
+		$users = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateUsers", NULL,
+		  $context);
+		foreach ($users as $userk => $userv) {
+			// Set default values.
+			$privilege = new \OMV\Dictionary([
 				"type" => "user",
 				"name" => $userv['name'],
 				"perms" => NULL
-			);
+			]);
 			// Check if there are any configured privileges for the
 			// given user.
-			if(!empty($object['privileges']['privilege'])) {
-				foreach($object['privileges']['privilege'] as $objectv) {
-					if(($objectv['type'] === $privilege['type']) &&
-					  ($objectv['name'] === $privilege['name'])) {
-						$privilege['perms'] = intval($objectv['perms']);
+			if (FALSE === $object->isEmpty("privileges")) {
+				foreach ($object->get("privileges.privilege") as $objectv) {
+					if (($objectv['type'] === $privilege->get("type")) &&
+					  ($objectv['name'] === $privilege->get("name"))) {
+						$privilege->set("perms", intval($objectv['perms']));
 						break;
 					}
 				}
 			}
-			$result[] = $privilege;
+			$result[] = $privilege->getData();
 		}
 		// Process non-system groups.
-		$groups = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateGroups", NULL, $context);
+		$groups = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateGroups", NULL,
+		  $context);
 		foreach ($groups as $groupk => $groupv) {
 			// Set default values.
-			$privilege = array(
+			$privilege = new \OMV\Dictionary([
 				"type" => "group",
 				"name" => $groupv['name'],
 				"perms" => NULL
-			);
+			]);
 			// Check if there are any configured privileges for the
 			// given group.
-			if (!empty($object['privileges']['privilege'])) {
-				foreach ($object['privileges']['privilege'] as $objectv) {
-					if (($objectv['type'] === $privilege['type']) &&
-					  ($objectv['name'] === $privilege['name'])) {
-						$privilege['perms'] = intval($objectv['perms']);
+			if (FALSE === $object->isEmpty("privileges")) {
+				foreach ($object->get("privileges.privilege") as $objectv) {
+					if (($objectv['type'] === $privilege->get("type")) &&
+					  ($objectv['name'] === $privilege->get("name"))) {
+						$privilege->set("perms", intval($objectv['perms']));
 						break;
 					}
 				}
 			}
-			$result[] = $privilege;
+			$result[] = $privilege->getData();
 		}
 		return $result;
 	}
@@ -579,93 +574,60 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @return The stored configuration object.
 	 */
 	public function setPrivileges($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
-				  "privileges":{
-					  "type":"array",
-					  "items":{
-						  "type":"object",
-						  "properties":{
-							  "name":{"type":"string"},
-							  "perms":{"type":"integer","enum":[0,5,7]},
-							  "type":{"type":"string","enum":["user","group"]}
-						  }
-					  }
-				  }
-			  }
-		  }');
-		// Get shared folder configuration object.
-		$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
-		  $params['uuid']);
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Reset the shared folders privileges.
-		$object['privileges'] = array();
-		// Prepare the shared folders privileges.
-		foreach($params['privileges'] as $privilegek => $privilegev) {
+		$this->validateMethodParams($params, "rpc.sharemgmt.setprivileges");
+		// Get the shared folder configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.sharedfolder", $params['uuid']);
+		// Update the shared folders privileges.
+		$privilegeAssoc = [];
+		foreach ($params['privileges'] as $privilegek => $privilegev) {
 			// Skip entries with perms = NULL. It seems they are not detected
 			// by the JSON schema validation.
-			if(is_null($privilegev['perms']))
+			if (is_null($privilegev['perms']))
 				continue;
 			// Do some checks ...
-			switch($privilegev['type']) {
+			switch ($privilegev['type']) {
 			case "user":
-				// Check if user exists
+				// Check whether the user exists.
 				$user = new \OMV\System\User($privilegev['name']);
-				if(!$user->exists()) {
-					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-					  sprintf(gettext("The user '%s' does not exist"),
-					  $user->getName()));
-				}
+				$user->assertExists();
 				// Is user allowed? It does not make sense to give the WebGUI
 				// administrator permissions for a shared folder.
-				if(in_array($user->getName(), array("admin"))) {
-					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-					  sprintf(gettext("The user '%s' is not allowed"),
-					  $user->getName()));
+				if (in_array($user->getName(), [ "admin" ])) {
+					throw new \OMV\Exception("The user '%s' is not allowed.",
+					  $user->getName());
 				}
 				break;
 			case "group":
-				// Check if group exists.
+				// Check whether the group exists.
 				$group = new \OMV\System\Group($privilegev['name']);
-				if(!$group->exists()) {
-					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-					  sprintf(gettext("The group '%s' does not exist"),
-					  $group->getName()));
-				}
+				$group->assertExists();
 				break;
 			}
 			// Finally add privilege to shared folder privileges.
-			$object['privileges']['privilege'][] = array(
+			$privilegeAssoc[] = [
 				"type" => $privilegev['type'],
 				"name" => $privilegev['name'],
-				"perms" => $privilegev['perms']
-			);
+				"perms" => intval($privilegev['perms'])
+			];
 		}
-		// Update existing configuration object.
-		$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
-		  $params['uuid']);
-		if(FALSE === $xmlConfig->replace($xpath, $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$object->set("privileges", [
+			"privilege" => $privilegeAssoc
+		]);
+		// Set the configuration object.
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.shares.sharedfolder.privileges",
-		  $object);
+		  $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -1128,7 +1090,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
-		// Get shared folder configuration object.
+		// Get the shared folder configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$sfObject = $db->get("conf.system.sharedfolder", $params['uuid']);
 		// Get the mount point configuration object to build the absolute

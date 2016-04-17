@@ -56,9 +56,6 @@ class DatabaseBackendQueryBuilder {
 
 	final protected function buildQuery($predicate) {
 		$qi = $this->getQueryInfo();
-
-printf("===> %s\n", sprintf("%s[%s]", $qi['xpath'], $predicate));
-
 		return sprintf("%s[%s]", $qi['xpath'], $predicate);
 	}
 
@@ -227,9 +224,9 @@ printf("===> %s\n", sprintf("%s[%s]", $qi['xpath'], $predicate));
 			$result = sprintf("%s>=%s", $filter['arg0'], $filter['arg1']);
 			break;
 		default:
-			throw new \InvalidArgumentException(
+			throw new \InvalidArgumentException(sprintf(
 			  "The operator '%s' is not defined.",
-			  $filter['operator']);
+			  $filter['operator']));
 			break;
 		}
 		return $result;

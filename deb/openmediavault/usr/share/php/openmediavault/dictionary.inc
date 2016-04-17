@@ -198,8 +198,9 @@ class Dictionary {
      */
     public function fromJson($json = "") {
         if (NULL === ($data = json_decode_safe($json, TRUE))) {
-			throw new \InvalidArgumentException("Failed to decode data: %s",
-			  json_last_error_msg());
+			throw new \InvalidArgumentException(sprintf(
+			  "Failed to decode data: %s",
+			  json_last_error_msg()));
 		}
         $this->data = $data;
     }

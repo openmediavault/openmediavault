@@ -140,9 +140,9 @@ class Database {
 		$model = $mngr->getModel($id);
 		// Is the configuration object iterable?
 		if (FALSE === $model->isIterable()) {
-			throw new \InvalidArgumentException(
+			throw new \InvalidArgumentException(sprintf(
 			  "The configuration object '%s' is not iterable.",
-			  $model->getId());
+			  $model->getId()));
 		}
 		// Build the query predicate.
 		$queryBuilder = new DatabaseBackendQueryBuilder($id);
@@ -160,9 +160,9 @@ class Database {
 		}
 		if (1 == $maxResult) {
 			if (empty($result)) {
-				throw new InvalidArgumentException("The XPath query '%s' ".
-				  "does not return the requested number of '%d' object(s).",
-				  $xpath, $maxResult);
+				throw new \InvalidArgumentException(sprintf(
+				  "The XPath query '%s' does not return the requested ".
+				  "number of '%d' object(s).", $xpath, $maxResult));
 			}
 			$result = $result[0];
 		}
