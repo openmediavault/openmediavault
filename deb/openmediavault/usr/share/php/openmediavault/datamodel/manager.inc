@@ -25,7 +25,8 @@ namespace OMV\DataModel;
  * The data model manager keeps track of all model types.
  */
 class Manager {
-	private $map = array();
+	private $map = [];
+	private $loaded = false;
 
 	/**
 	 * Returns the data model manager singleton.
@@ -38,12 +39,18 @@ class Manager {
 		return $instance;
 	}
 
+	final public function isLoaded() {
+		return $this->loaded;
+	}
+
 	/**
 	 * Load the data models.
 	 * @param directory The directory that contains the data model schemas.
 	 * @return None.
 	 */
 	final public function load($directory) {
+		if ($this->isLoaded())
+			return;
 		foreach (listdir($directory, "json") as $path) {
 			// Read the JSON content and decode it.
 			$file = new \OMV\Json\File($path);
@@ -93,6 +100,7 @@ class Manager {
 				$this->registerModel($model);
 			}
 		}
+		$this->loaded = true;
 	}
 
 	/**
