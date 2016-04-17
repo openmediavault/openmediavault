@@ -19,8 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/globals.inc");
-
 // Get the configuration database backend.
 $db = \OMV\Config\Database::getInstance();
 
