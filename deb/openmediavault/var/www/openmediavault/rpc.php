@@ -37,7 +37,7 @@ try {
 
 	// Initialize the data models.
 	$modelMngr = \OMV\DataModel\Manager::getInstance();
-	$modelMngr->load($GLOBALS['OMV_DATAMODELS_DIR']);
+	$modelMngr->load();
 
 	$session = &\OMV\Session::getInstance();
 	$session->start();

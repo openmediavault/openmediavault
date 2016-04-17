@@ -21,6 +21,9 @@
  */
 namespace OMV\DataModel;
 
+require_once("openmediavault/globals.inc");
+require_once("openmediavault/functions.inc");
+
 /**
  * The data model manager keeps track of all model types.
  */
@@ -45,13 +48,12 @@ class Manager {
 
 	/**
 	 * Load the data models.
-	 * @param directory The directory that contains the data model schemas.
 	 * @return None.
 	 */
-	final public function load($directory) {
+	final public function load() {
 		if ($this->isLoaded())
 			return;
-		foreach (listdir($directory, "json") as $path) {
+		foreach (listdir($GLOBALS['OMV_DATAMODELS_DIR'], "json") as $path) {
 			// Read the JSON content and decode it.
 			$file = new \OMV\Json\File($path);
 			if (!$file->exists())

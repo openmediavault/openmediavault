@@ -25,6 +25,9 @@ require_once("openmediavault/autoloader.inc");
 setlocale(LC_ALL, "");
 // Set timezone.
 try {
+	// Make sure the data models are loaded.
+	$modelMngr = \OMV\DataModel\Manager::getInstance();
+	$modelMngr->load();
 	// Get session timeout from the configuration.
 	$db = &\OMV\Config\Database::getInstance();
 	$object = $db->get("conf.system.time");
