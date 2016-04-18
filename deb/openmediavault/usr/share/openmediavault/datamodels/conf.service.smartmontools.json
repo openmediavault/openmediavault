@@ -60,7 +60,7 @@
 								"type": "boolean",
 								"default": 1
 							},
-							"type": {
+							"devicetype": {
 								"type": "string",
 								"default": ""
 							}
