@@ -31,16 +31,19 @@
 				"privilege": {
 					"type": "array",
 					"items": {
-						"type": {
-							"type": "string",
-							"enum": [ "user", "group" ]
-						},
-						"name": {
-							"type": "string"
-						},
-						"perms": {
-							"type": "integer",
-							"enum": [ 0, 5, 7 ]
+						"type": "object",
+						"properties": {
+							"type": {
+								"type": "string",
+								"enum": [ "user", "group" ]
+							},
+							"name": {
+								"type": "string"
+							},
+							"perms": {
+								"type": "integer",
+								"enum": [ 0, 5, 7 ]
+							}
 						}
 					}
 				}

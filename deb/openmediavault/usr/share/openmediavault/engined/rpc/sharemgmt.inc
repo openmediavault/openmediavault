@@ -47,7 +47,6 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("getFileACL");
 		$this->registerMethod("setFileACL");
 		$this->registerMethod("getPath");
-		$this->registerMethod("getReferencers");
 	}
 
 	/**
@@ -640,45 +639,36 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   uuid, name, perms.
 	 */
 	public function getPrivilegesByRole($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "role":{"type":"string","enum":["user","group"]},
-				  "name":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.sharemgmt.getprivilegesbyrole");
 		// Get all configured shared folder configuration objects.
-		$xpath = "//system/shares/sharedfolder";
-		$sfObjects = $xmlConfig->getList($xpath);
-		if (is_null($sfObjects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		$result = array();
-		foreach ($sfObjects as $sfk => $sfv) {
+		$db = \OMV\Config\Database::getInstance();
+		$sfObjects = $db->get("conf.system.sharedfolder");
+		// Append additional information.
+		$result = [];
+		foreach ($sfObjects as $sfObjectk => $sfObjectv) {
 			// Set default values.
-			$privilege = array(
-				"uuid" => $sfv['uuid'],
-				"name" => $sfv['name'],
+			$privDict = new \OMV\Dictionary([
+				"uuid" => $sfObjectv->get("uuid"),
+				"name" => $sfObjectv->get("name"),
 				"perms" => NULL
-			);
+			]);
 			// Check if there are any configured privileges for the
 			// given user/group.
-			foreach ($sfv['privileges']['privilege'] as $privk => $privv) {
+			$privileges = $sfObjectv.get("privileges.privilege");
+			foreach ($privileges as $privk => $privv) {
 				if ($params['role'] !== $privv['type'])
 					continue;
 				if ($params['name'] !== $privv['name'])
 					continue;
-				$privilege['perms'] = intval($privv['perms']);
+				$privDict->set("perms", intval($privv['perms']));
 				break;
 			}
-			$result[] = $privilege;
+			$result[] = $privDict->getData();
 		}
 		return $result;
 	}
@@ -699,31 +689,16 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "role":{"type":"string","enum":["user","group"]},
-				  "name":{"type":"string"},
-				  "privileges":{
-					  "type":"array",
-					  "items":{
-						  "type":"object",
-						  "properties":{
-							  "uuid":{"type":"string"},
-							  "perms":{"type":"integer","enum":[-1,0,5,7]}
-						  }
-					  }
-				  }
-			  }
-		  }');
-		$result = array();
+		$this->validateMethodParams($params, "rpc.sharemgmt.setprivilegesbyrole");
+		$result = [];
 		foreach ($params['privileges'] as $privk => $privv) {
 			// Get the privilege configuration for the given shared folder.
-			$sfPriv = $this->callMethod("getPrivileges", array(
-			  "uuid" => $privv['uuid']), $context);
+			$sfPriv = $this->callMethod("getPrivileges", [
+				"uuid" => $privv['uuid']
+			], $context);
 			// Rebuild the shared folder privileges using the given
 			// configuration.
-			$objects = array();
+			$objects = [];
 			foreach ($sfPriv as $sfPrivk => $sfPrivv) {
 				// Do we have to update or delete the processing privilege?
 				if (($sfPrivv['type'] == $params['role']) &&
@@ -736,9 +711,10 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				$objects[] = $sfPrivv;
 			}
 			// Update the shared folder privileges.
-			$result[] = $this->callMethod("setPrivileges", array(
-			  "uuid" => $privv['uuid'], "privileges" => $objects),
-			  $context);
+			$result[] = $this->callMethod("setPrivileges", [
+				"uuid" => $privv['uuid'],
+				"privileges" => $objects
+			], $context);
 		}
 		return $result;
 	}
@@ -761,15 +737,9 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
-				  "file":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.sharemgmt.getfileacl");
 		// The field 'file' may not contain the characters '..'.
-		if(1 == preg_match("/\.\./", $params['file'])) {
+		if (1 == preg_match("/\.\./", $params['file'])) {
 			throw new OMVException(
 			  OMVErrorMsg::E_RPC_SERVICE_METHOD_INVALID_PARAMS,
 			  sprintf(gettext("The field '%s' contains forbidden ".
@@ -808,28 +778,28 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// group:users:rwx
 		// mask::rwx
 		// other::r--
-		$object = array();
+		$object = [];
 		// Get the owner and owning group.
-		foreach($output as $outputk => $outputv) {
+		foreach ($output as $outputk => $outputv) {
 			$regex = '/^# (file|owner|group): (.+)$/';
-			if(1 !== preg_match($regex, $outputv, $matches))
+			if (1 !== preg_match($regex, $outputv, $matches))
 				continue;
 			$result[$matches[1]] = $matches[2];
 		}
 		// Get the user, group and other file mode permission bits.
-		foreach($output as $outputk => $outputv) {
+		foreach ($output as $outputk => $outputv) {
 			$regex = '/^(user|group|other):(.*):(.+)$/';
-			if(1 !== preg_match($regex, $outputv, $matches))
+			if (1 !== preg_match($regex, $outputv, $matches))
 				continue;
 			// Convert permissions string into a number
 			$perms = 0;
 			$map = array("r" => 4, "w" => "2", "x" => 1, "-" => 0);
-			foreach(str_split($matches[3]) as $permk => $permv) {
-				if(!array_key_exists($permv, $map))
+			foreach (str_split($matches[3]) as $permk => $permv) {
+				if (!array_key_exists($permv, $map))
 					continue;
 				$perms += $map[$permv];
 			}
-			if(!empty($matches[2])) {
+			if (!empty($matches[2])) {
 				$result['acl']["{$matches[1]}s"][] = array(
 					// Convert special characters, e.g.
 					// group:Domain\040Computers:---
@@ -841,11 +811,12 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			}
 		}
 		// Add missing users.
-		$users = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateAllUsers", NULL, $context);
-		foreach($users as $userk => $userv) {
+		$users = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateAllUsers",
+		  NULL, $context);
+		foreach ($users as $userk => $userv) {
 			$found = FALSE;
-			foreach($result['acl']['users'] as &$resultv) {
-				if($resultv['name'] === $userv['name']) {
+			foreach ($result['acl']['users'] as &$resultv) {
+				if ($resultv['name'] === $userv['name']) {
 					// Append additional user details, e.g. uid and the
 					// information if it is a system user.
 					$resultv = array_merge($resultv, array(
@@ -856,7 +827,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 					break;
 				}
 			}
-			if(TRUE === $found)
+			if (TRUE === $found)
 				continue;
 			$result['acl']['users'][] = array(
 				"name" => $userv['name'],
@@ -866,11 +837,12 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			);
 		}
 		// Add missing groups.
-		$groups = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateAllGroups", NULL, $context);
-		foreach($groups as $groupk => $groupv) {
+		$groups = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateAllGroups",
+		  NULL, $context);
+		foreach ($groups as $groupk => $groupv) {
 			$found = FALSE;
-			foreach($result['acl']['groups'] as &$resultv) {
-				if($resultv['name'] === $groupv['name']) {
+			foreach ($result['acl']['groups'] as &$resultv) {
+				if ($resultv['name'] === $groupv['name']) {
 					// Append additional group details, e.g. gid and the
 					// information if it is a system group.
 					$resultv = array_merge($resultv, array(
@@ -881,7 +853,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 					break;
 				}
 			}
-			if(TRUE === $found)
+			if (TRUE === $found)
 				continue;
 			$result['acl']['groups'][] = array(
 				"name" => $groupv['name'],
@@ -925,47 +897,9 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
-				  "file":{"type":"string"},
-				  "recursive":{"type":"boolean"},
-				  "replace":{"type":"boolean"},
-				  "owner":{"type":"string","optional":true},
-				  "group":{"type":"string","optional":true},
-				  "userperms":{"type":"integer","enum":[0,1,2,3,4,5,6,7],'.
-					'"optional":true},
-				  "groupperms":{"type":"integer","enum":[0,1,2,3,4,5,6,7],'.
-					'"optional":true},
-				  "otherperms":{"type":"integer","enum":[0,1,2,3,4,5,6,7],'.
-					'"optional":true},
-				  "users":{
-					  "type":"array",
-					  "items":{
-						  "type":"object",
-						  "properties":{
-							  "name":{"type":"string"},
-							  "perms":{"type":"integer","enum":'.
-								'[0,1,2,3,4,5,6,7]}
-						  }
-					  }
-				  },
-				  "groups":{
-					  "type":"array",
-					  "items":{
-						  "type":"object",
-						  "properties":{
-							  "name":{"type":"string"},
-							  "perms":{"type":"integer","enum":'.
-								'[0,1,2,3,4,5,6,7]}
-						  }
-					  }
-				  }
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.sharemgmt.setfileacl");
 		// The field 'file' may not contain the characters '..'.
-		if(1 == preg_match("/\.\./", $params['file'])) {
+		if (1 == preg_match("/\.\./", $params['file'])) {
 			throw new OMVException(
 			  OMVErrorMsg::E_RPC_SERVICE_METHOD_INVALID_PARAMS,
 			  sprintf(gettext("The field '%s' contains forbidden ".
@@ -974,7 +908,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
-		if($pid > 0) { // Parent process.
+		if ($pid > 0) { // Parent process.
 			$this->initializeBgProcStatus($bgStatusFilename, $pid);
 			return $bgStatusFilename;
 		}
@@ -1041,28 +975,31 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				$aclspec[] = sprintf("other::%d", $params['otherperms']);
 			}
 			// Build the command arguments list.
-			$cmdargs = array();
+			$cmdArgs = array();
 			if (TRUE === boolvalEx($params['replace']))
-				$cmdargs[] = "--remove-all";
+				$cmdArgs[] = "--remove-all";
 			if (TRUE === boolvalEx($params['recursive']))
-				$cmdargs[] = "--recursive";
+				$cmdArgs[] = "--recursive";
 			if (!empty($aclspec)) {
 				if (FALSE === file_put_contents($aclspecFile, implode("\n",
 				  $aclspec))) {
 					throw new \OMV\Exception(
-					  "Failed to write ACL entries to file");
+					  "Failed to write ACL entries to file.");
 				}
 				// Read the ACL entries from file. The CLI argument list
 				// is limited which will cause an error if the user/group
 				// list is too large.
-				$cmdargs[] = sprintf("-M %s", escapeshellarg($aclspecFile));
+				$cmdArgs[] = sprintf("-M %s", escapeshellarg($aclspecFile));
 			}
+			$cmdArgs[] = "--";
+			$cmdArgs[] =  escapeshellarg(build_path(DIRECTORY_SEPARATOR,
+			  $sfpath, $params['file']));
 			// Execute command to set the file access control lists.
-			$cmd = sprintf("export LANG=C; setfacl %s -- %s 2>&1", implode(
-			  " ", $cmdargs), escapeshellarg(build_path(DIRECTORY_SEPARATOR,
-			  $sfpath, $params['file'])));
-			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
-				throw new \OMV\ExecException($cmd, $output);
+			$cmd = new \OMV\System\Process("setfacl", $cmdArgs);
+			$cmd->setRedirect2to1(TRUE);
+			if (0 !== $this->exec($cmd->getCommandLine(), $output,
+			  $bgOutputFilename))
+				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			// Cleanup ACL entries file.
 			unlink($aclspecFile);
@@ -1100,31 +1037,5 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Return the absolute shared folder path.
 		return build_path(DIRECTORY_SEPARATOR, $meObject->get("dir"),
 		  $sfObject->get("reldirpath"));
-	}
-
-	/**
-	 * Get the XPath location path to the configuration objects referencing
-	 * a shared folder configuration object.
-	 * @param params An array containing the following fields:
-	 *   \em uuid The UUID of the shared folder configuration object.
-	 * @param context The context of the caller.
-	 * @return An array containing the XPath location path of the referencing
-	 *   configuration objects.
-	 */
-	public function getReferencers($params, $context) {
-		global $xmlConfig;
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
-		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.common.objectuuid");
-		// Get a list of XPath's to the configuration objects referencing
-		// the given shared folder. Shared folder references are named
-		// 'sharedfolderref'.
-		$xpath = sprintf("//*[contains(name(),'sharedfolderref')]".
-		  "[contains(.,'%s')]/..", $params['uuid']);
-		$objects = $xmlConfig->getXPathList($xpath);
-		return $objects;
 	}
 }
