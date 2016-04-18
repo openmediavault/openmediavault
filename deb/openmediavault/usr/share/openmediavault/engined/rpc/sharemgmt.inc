@@ -73,7 +73,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			  ]
 		  ]);
 		// Get the filesystem details for each mount point.
-		$result = array();
+		$result = [];
 		foreach ($objects as $objectk => $objectv) {
 			$fs = \OMV\System\Filesystem\Filesystem::getImpl(
 			  $objectv->get("fsname"));
@@ -86,11 +86,11 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			$devicefile = $fs->getDeviceFile();
 			$label = $fs->getLabel();
 			// Prepare result object.
-			$object = array(
+			$object = [
 				"uuid" => $objectv->get("uuid"),
 				"devicefile" => $devicefile,
 				"description" => !empty($label) ? $label : $devicefile
-			);
+			];
 			// Get some more filesystem details if possible.
 			if (FALSE !== ($fsStats = $fs->getStatistics())) {
 				$object['description'] = sprintf(
@@ -117,7 +117,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->get("conf.system.sharedfolder");
 		// Add additional informations.
-		$result = array();
+		$result = [];
 		foreach ($objects as $objectk => $objectv) {
 			$objectDict = new \OMV\Dictionary($objectv->getAssoc());
 			// Set the default values.
@@ -585,10 +585,6 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Update the shared folders privileges.
 		$privilegeAssoc = [];
 		foreach ($params['privileges'] as $privilegek => $privilegev) {
-			// Skip entries with perms = NULL. It seems they are not detected
-			// by the JSON schema validation.
-			if (is_null($privilegev['perms']))
-				continue;
 			// Do some checks ...
 			switch ($privilegev['type']) {
 			case "user":
@@ -612,7 +608,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			$privilegeAssoc[] = [
 				"type" => $privilegev['type'],
 				"name" => $privilegev['name'],
-				"perms" => intval($privilegev['perms'])
+				"perms" => $privilegev['perms']
 			];
 		}
 		$object->set("privileges", [
@@ -659,14 +655,15 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			]);
 			// Check if there are any configured privileges for the
 			// given user/group.
-			$privileges = $sfObjectv.get("privileges.privilege");
-			foreach ($privileges as $privk => $privv) {
-				if ($params['role'] !== $privv['type'])
-					continue;
-				if ($params['name'] !== $privv['name'])
-					continue;
-				$privDict->set("perms", intval($privv['perms']));
-				break;
+			if (FALSE === $sfObjectv->isEmpty("privileges")) {
+				foreach ($sfObjectv->get("privileges.privilege") as $privv) {
+					if ($params['role'] !== $privv['type'])
+						continue;
+					if ($params['name'] !== $privv['name'])
+						continue;
+					$privDict->set("perms", intval($privv['perms']));
+					break;
+				}
 			}
 			$result[] = $privDict->getData();
 		}
@@ -693,27 +690,31 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		$result = [];
 		foreach ($params['privileges'] as $privk => $privv) {
 			// Get the privilege configuration for the given shared folder.
-			$sfPriv = $this->callMethod("getPrivileges", [
+			$oldPrivileges = $this->callMethod("getPrivileges", [
 				"uuid" => $privv['uuid']
 			], $context);
 			// Rebuild the shared folder privileges using the given
 			// configuration.
-			$objects = [];
-			foreach ($sfPriv as $sfPrivk => $sfPrivv) {
+			$newPrivileges = [];
+			foreach ($oldPrivileges as $oldPrivilegek => $oldPrivilegev) {
 				// Do we have to update or delete the processing privilege?
-				if (($sfPrivv['type'] == $params['role']) &&
-				  ($sfPrivv['name'] == $params['name'])) {
+				if (($oldPrivilegev['type'] == $params['role']) &&
+				  ($oldPrivilegev['name'] == $params['name'])) {
 					if (-1 == $privv['perms']) // Delete the privilege.
 						continue;
 					// Update the privilege.
-					$sfPrivv['perms'] = $privv['perms'];
+					$oldPrivilegev['perms'] = $privv['perms'];
 				}
-				$objects[] = $sfPrivv;
+				// Finally skip entries with perms = NULL if they are
+				// not updated.
+				if (FALSE === is_int($oldPrivilegev['perms']))
+					continue;
+				$newPrivileges[] = $oldPrivilegev;
 			}
 			// Update the shared folder privileges.
 			$result[] = $this->callMethod("setPrivileges", [
 				"uuid" => $privv['uuid'],
-				"privileges" => $objects
+				"privileges" => $newPrivileges
 			], $context);
 		}
 		return $result;
@@ -731,7 +732,6 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em name, \em uid or \em gid, \em system and \em perms.
 	 */
 	public function getFileACL($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -740,33 +740,36 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.sharemgmt.getfileacl");
 		// The field 'file' may not contain the characters '..'.
 		if (1 == preg_match("/\.\./", $params['file'])) {
-			throw new OMVException(
-			  OMVErrorMsg::E_RPC_SERVICE_METHOD_INVALID_PARAMS,
-			  sprintf(gettext("The field '%s' contains forbidden ".
-			  "two-dot symbols"), "file"));
+			throw new \OMV\Exception("The field 'file' contains forbidden ".
+			  "two-dot symbols");
 		}
 		// Get the absolute shared folder path.
-		$sfpath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", array(
-		  "uuid" => $params['uuid']), $context);
+		$sfpath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", [
+			"uuid" => $params['uuid']
+		], $context);
 		// Execute command to get the file access control lists.
-		$cmd = sprintf("export LANG=C; getfacl --no-effective ".
-		  "--access -- %s 2>&1", escapeshellarg(build_path(
-		  DIRECTORY_SEPARATOR, $sfpath, $params['file'])));
-		if (0 !== $this->exec($cmd, $output))
-			throw new \OMV\ExecException($cmd, $output);
+		$cmdArgs = [];
+		$cmdArgs[] = "--no-effective";
+		$cmdArgs[] = "--access";
+		$cmdArgs[] = "--";
+		$cmdArgs[] = escapeshellarg(build_path(DIRECTORY_SEPARATOR,
+		  $sfpath, $params['file']));
+		$cmd = new \OMV\System\Process("getfacl", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute($output);
 		// Prepare result object.
-		$result = array(
+		$result = [
 			"file" => NULL,
 			"owner" => NULL,
 			"group" => NULL,
-			"acl" => array(
+			"acl" => [
 				"user" => NULL,
 				"group" => NULL,
 				"other" => NULL,
-				"users" => array(),
-				"groups" => array()
-			)
-		);
+				"users" => [],
+				"groups" => []
+			]
+		];
 		// Parse the command output:
 		// # file: test
 		// # owner: root
@@ -793,19 +796,19 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				continue;
 			// Convert permissions string into a number
 			$perms = 0;
-			$map = array("r" => 4, "w" => "2", "x" => 1, "-" => 0);
+			$map = [ "r" => 4, "w" => "2", "x" => 1, "-" => 0 ];
 			foreach (str_split($matches[3]) as $permk => $permv) {
 				if (!array_key_exists($permv, $map))
 					continue;
 				$perms += $map[$permv];
 			}
 			if (!empty($matches[2])) {
-				$result['acl']["{$matches[1]}s"][] = array(
+				$result['acl']["{$matches[1]}s"][] = [
 					// Convert special characters, e.g.
 					// group:Domain\040Computers:---
 					"name" => str_replace('\040', ' ', $matches[2]),
 					"perms" => $perms
-				);
+				];
 			} else {
 				$result['acl'][$matches[1]] = $perms;
 			}
@@ -819,22 +822,22 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				if ($resultv['name'] === $userv['name']) {
 					// Append additional user details, e.g. uid and the
 					// information if it is a system user.
-					$resultv = array_merge($resultv, array(
+					$resultv = array_merge($resultv, [
 						"uid" => $userv['uid'],
 						"system" => $userv['system']
-					));
+					]);
 					$found = TRUE;
 					break;
 				}
 			}
 			if (TRUE === $found)
 				continue;
-			$result['acl']['users'][] = array(
+			$result['acl']['users'][] = [
 				"name" => $userv['name'],
 				"perms" => NULL,
 				"uid" => $userv['uid'],
 				"system" => $userv['system']
-			);
+			];
 		}
 		// Add missing groups.
 		$groups = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateAllGroups",
@@ -845,22 +848,22 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				if ($resultv['name'] === $groupv['name']) {
 					// Append additional group details, e.g. gid and the
 					// information if it is a system group.
-					$resultv = array_merge($resultv, array(
+					$resultv = array_merge($resultv, [
 						"gid" => $groupv['gid'],
 						"system" => $groupv['system']
-					));
+					]);
 					$found = TRUE;
 					break;
 				}
 			}
 			if (TRUE === $found)
 				continue;
-			$result['acl']['groups'][] = array(
+			$result['acl']['groups'][] = [
 				"name" => $groupv['name'],
 				"perms" => NULL,
 				"gid" => $groupv['gid'],
 				"system" => $groupv['system']
-			);
+			];
 		}
 		return $result;
 	}
@@ -891,7 +894,6 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @return The name of the background process status file.
 	 */
 	public function setFileACL($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -900,10 +902,8 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.sharemgmt.setfileacl");
 		// The field 'file' may not contain the characters '..'.
 		if (1 == preg_match("/\.\./", $params['file'])) {
-			throw new OMVException(
-			  OMVErrorMsg::E_RPC_SERVICE_METHOD_INVALID_PARAMS,
-			  sprintf(gettext("The field '%s' contains forbidden ".
-			  "two-dot symbols"), "file"));
+			throw new \OMV\Exception("The field 'file' contains forbidden ".
+			  "two-dot symbols");
 		}
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
@@ -919,8 +919,9 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
 			// Get the absolute shared folder path.
-			$sfpath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", array(
-			  "uuid" => $params['uuid']), $context);
+			$sfpath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", [
+				"uuid" => $params['uuid']
+			], $context);
 			////////////////////////////////////////////////////////////////////
 			// 1. Update the directory/file owner and group
 			////////////////////////////////////////////////////////////////////
@@ -934,25 +935,29 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 					$ownerGroupArg = sprintf("%s:%s", $ownerGroupArg,
 					  str_replace(' ', '\ ', $params['group']));
 				// Build the command arguments list.
-				$cmdargs = array();
+				$cmdArgs = [];
 				if (TRUE === boolvalEx($params['recursive']))
-					$cmdargs[] = "--recursive";
-				$cmdargs[] = $ownerGroupArg;
+					$cmdArgs[] = "--recursive";
+				$cmdArgs[] = $ownerGroupArg;
+				$cmdArgs[] = escapeshellarg(build_path(DIRECTORY_SEPARATOR,
+				  $sfpath, $params['file']));
 				// Execute command to set the file owner/group.
-				$cmd = sprintf("export LANG=C; chown %s %s 2>&1", implode(
-				  " ", $cmdargs), escapeshellarg(build_path(
-				  DIRECTORY_SEPARATOR, $sfpath, $params['file'])));
-				if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
-					throw new \OMV\ExecException($cmd, $output);
+				$cmd = new \OMV\System\Process("chown", $cmdArgs);
+				$cmd->setRedirect2to1(TRUE);
+				if (0 !== $this->exec($cmd->getCommandLine(), $output,
+				  $bgOutputFilename)) {
+					throw new \OMV\ExecException($cmd->getCommandLine(),
+					  $output);
+				}
 			}
 			////////////////////////////////////////////////////////////////////
 			// 2. Update the directory/file access control lists
 			////////////////////////////////////////////////////////////////////
 			// Build the ACL specifications.
-			$aclspec = array();
+			$aclspec = [];
 			// Set permissions of a named users and groups.
-			foreach (array("user", "group") as $typek => $typev) {
-				foreach($params["{$typev}s"] as $entryk => $entryv) {
+			foreach ([ "user", "group" ] as $typek => $typev) {
+				foreach ($params["{$typev}s"] as $entryk => $entryv) {
 					$aclspec[] = sprintf("default:%s:%s:%d", $typev,
 					  $entryv['name'], $entryv['perms']);
 					$aclspec[] = sprintf("%s:%s:%d", $typev,
@@ -975,7 +980,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				$aclspec[] = sprintf("other::%d", $params['otherperms']);
 			}
 			// Build the command arguments list.
-			$cmdArgs = array();
+			$cmdArgs = [];
 			if (TRUE === boolvalEx($params['replace']))
 				$cmdArgs[] = "--remove-all";
 			if (TRUE === boolvalEx($params['recursive']))
@@ -998,8 +1003,9 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			$cmd = new \OMV\System\Process("setfacl", $cmdArgs);
 			$cmd->setRedirect2to1(TRUE);
 			if (0 !== $this->exec($cmd->getCommandLine(), $output,
-			  $bgOutputFilename))
+			  $bgOutputFilename)) {
 				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
+			}
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			// Cleanup ACL entries file.
 			unlink($aclspecFile);
