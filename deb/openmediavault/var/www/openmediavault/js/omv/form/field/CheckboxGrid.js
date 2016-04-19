@@ -109,9 +109,8 @@ Ext.define("OMV.form.field.CheckboxGrid", {
 		// Get the records to be selected.
 		var records = [];
 		Ext.Array.each(me.value, function(value) {
-			var record = me.store.findRecord(me.valueField, value, 0,
-			  false, true, true);
-			if(null !== record)
+			var record = me.store.findExactRecord(me.valueField, value);
+			if (Ext.isObject(record) && record.isModel)
 				records.push(record);
 		});
 		if(!records.length)

@@ -188,7 +188,7 @@ Ext.define("OMV.module.admin.privilege.group.group.Members", {
 		var records = [];
 		me.getSelectionModel().deselectAll(true);
 		Ext.Array.each(values.members, function(name) {
-			var record = me.getStore().findRecord("name", name);
+			var record = me.getStore().findExactRecord("name", name);
 			if (Ext.isObject(record) && record.isModel)
 				Ext.Array.push(records, [ record ]);
 		});
