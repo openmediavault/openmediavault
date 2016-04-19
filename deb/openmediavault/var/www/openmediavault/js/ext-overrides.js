@@ -541,6 +541,21 @@ Ext.apply(Ext.data.Store.prototype, {
 			Ext.Array.push(result, data);
 		});
 		return result;
+	},
+
+	/**
+	 * Finds the first matching Record in this store by a specific field value.
+	 * @param fieldName The name of the Record field to test.
+	 * @param value The value to match the field against.
+	 * @param The index to start searching at.
+	 * @return The matched record or NULL.
+	 */
+	findExactRecord: function(fieldName, value, start) {
+		var me = this;
+		var index = me.findExact(fieldName, value, start);
+		if (-1 == index)
+			return null;
+		return me.getAt(index);
 	}
 });
 
