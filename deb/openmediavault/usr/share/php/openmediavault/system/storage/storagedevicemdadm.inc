@@ -39,22 +39,23 @@ class StorageDeviceMdadm extends StorageDeviceAbstract {
 	/**
 	 * Get the software RAID device detailed information.
 	 * @private
-	 * @return TRUE if successful, otherwise FALSE.
+	 * @return None.
+	 * @throw \OMV\ExecException
 	 */
 	private function getData() {
-		if($this->dataCached !== FALSE)
-			return TRUE;
+		if ($this->dataCached !== FALSE)
+			return;
 
 		// ARRAY /dev/md0 level=raid5 num-devices=3 metadata=1.2 name=xxxx:0 UUID=a4266bf7:c671b343:c3d6e535:ca455e37
 		//    devices=/dev/sdb,/dev/sdc,/dev/sdd
-		$cmd = sprintf("export LANG=C; mdadm --detail --brief " .
-		  "--verbose %s", escapeshellarg($this->getDeviceFile()));
-		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
-			$this->setLastError($output);
-			return FALSE;
-		}
-
+		$cmdArgs = [];
+		$cmdArgs[] = "--detail";
+		$cmdArgs[] = "--brief";
+		$cmdArgs[] = "--verbose";
+		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
+		$cmd = new \OMV\System\Process("mdadm", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute($output);
 		$attributes = array(
 			"name" => "",
 			"level" => "",
@@ -63,9 +64,9 @@ class StorageDeviceMdadm extends StorageDeviceAbstract {
 			"devices" => ""
 		);
 		$output = explode(" ", implode(" ", $output));
-		foreach($output as $outputk => &$outputv) {
+		foreach ($output as $outputk => &$outputv) {
 			$keyValue = explode("=", $outputv);
-			if(count($keyValue) != 2)
+			if (count($keyValue) != 2)
 				continue;
 			$attributes[strtolower($keyValue[0])] = $keyValue[1];
 		}
@@ -80,14 +81,13 @@ class StorageDeviceMdadm extends StorageDeviceAbstract {
 		sort($this->devices, SORT_NATURAL);
 
 		// Get more information.
-		$cmd = sprintf("export LANG=C; mdadm --detail %s",
-		  escapeshellarg($this->getDeviceFile()));
+		$cmdArgs = [];
+		$cmdArgs[] = "--detail";
+		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
+		$cmd = new \OMV\System\Process("mdadm", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
 		unset($output);
-		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
-			$this->setLastError($output);
-			return FALSE;
-		}
+		$cmd->execute($output);
 
 		// Store the whole command output.
 		array_shift($output);
@@ -124,14 +124,14 @@ class StorageDeviceMdadm extends StorageDeviceAbstract {
 		//        0       8       16        0      active sync   /dev/sdb
 		//        1       8       48        1      active sync   /dev/sdd
 		//        2       8       64        2      active sync   /dev/sde
-		foreach($output as $outputk => $outputv) {
-			if(empty($outputv))
+		foreach ($output as $outputk => $outputv) {
+			if (empty($outputv))
 				continue;
 			$parts = explode(":", $outputv);
-			if(empty($parts))
+			if (empty($parts))
 				continue;
 			$parts = array_map("trim", $parts);
-			switch(strtolower($parts[0])) {
+			switch (strtolower($parts[0])) {
 			case "state":
 				$this->state = $parts[1];
 				break;
@@ -150,61 +150,58 @@ class StorageDeviceMdadm extends StorageDeviceAbstract {
 
 	/**
 	 * Refresh the cached information.
-	 * @return TRUE if successful, otherwise FALSE.
+	 * @return None.
 	 */
 	public function refresh() {
 		$this->dataCached = FALSE;
-		if($this->getData() === FALSE)
-			return FALSE;
-		return TRUE;
+		$this->getData();
 	}
 
 	/**
 	 * See interface definition.
 	 */
 	public function exists() {
-		if($this->getData() === FALSE)
+		try {
+			$this->getData();
+		} catch(\Exception $e) {
 			return FALSE;
+		}
 		return ($this->level !== FALSE);
 	}
 
 	/**
 	 * Get the array name.
-	 * @return The array name, otherwise FALSE.
+	 * @return The array name.
 	 */
 	public function getName() {
-		if($this->getData() === FALSE)
-			return FALSE;
+		$this->getData();
 		return $this->name;
 	}
 
 	/**
 	 * Get the level of the array.
-	 * @return The level of the array, otherwise FALSE.
+	 * @return The level of the array.
 	 */
 	public function getLevel() {
-		if($this->getData() === FALSE)
-			return FALSE;
+		$this->getData();
 		return $this->level;
 	}
 
 	/**
 	 * Get the number of active devices in the array.
-	 * @return The number of active devices in the array, otherwise FALSE.
+	 * @return The number of active devices in the array.
 	 */
 	public function getNumDevices() {
-		if($this->getData() === FALSE)
-			return FALSE;
+		$this->getData();
 		return $this->numDevices;
 	}
 
 	/**
 	 * Get the UUID of the array.
-	 * @return The UUID of the array, otherwise FALSE.
+	 * @return The UUID of the array.
 	 */
 	public function getUuid() {
-		if($this->getData() === FALSE)
-			return FALSE;
+		$this->getData();
 		return $this->uuid;
 	}
 
@@ -217,17 +214,15 @@ class StorageDeviceMdadm extends StorageDeviceAbstract {
 
 	/**
 	 * Get the list of device files used in the array.
-	 * @return A list of device files used in the array, otherwise FALSE.
+	 * @return A list of device files used in the array.
 	 */
 	public function getSlaves() {
-		if($this->getData() === FALSE)
-			return FALSE;
+		$this->getData();
 		return $this->devices;
 	}
 
 	public function getState() {
-		if ($this->getData() === FALSE)
-			return FALSE;
+		$this->getData();
 		// Parse command output:
 		// Personalities : [linear] [multipath] [raid0] [raid1] [raid6] [raid5] [raid4] [raid10]
 		// md1 : active raid5 sde[2] sdg[1] sdf[0]
@@ -254,7 +249,7 @@ class StorageDeviceMdadm extends StorageDeviceAbstract {
 		//
 		// unused devices: <none>
 		$regex = sprintf('/^(%s\s*:.*?)^\s*$/ims', $this->getDeviceName());
-		if(1 !== preg_match($regex, file_get_contents("/proc/mdstat"),
+		if (1 !== preg_match($regex, file_get_contents("/proc/mdstat"),
 		  $matches))
 			return FALSE;
 		$mdstat = $matches[1];
@@ -275,11 +270,10 @@ class StorageDeviceMdadm extends StorageDeviceAbstract {
 
 	/**
 	 * Get detail of the md device.
-	 * @return The detail of the md device, otherwise FALSE.
+	 * @return The detail of the md device.
 	 */
 	public function getDetail() {
-		if($this->getData() === FALSE)
-			return FALSE;
+		$this->getData();
 		return implode("\n", $this->details);
 	}
 
@@ -306,8 +300,7 @@ class StorageDeviceMdadm extends StorageDeviceAbstract {
 	 * @return TRUE if write-intent bitmap is enabled, otherwise FALSE.
 	 */
 	public function hasWriteIntentBitmap() {
-		if($this->getData() === FALSE)
-			return FALSE;
+		$this->getData();
 		return $this->hasWriteIntentBitmap;
 	}
 }

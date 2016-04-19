@@ -274,32 +274,10 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			// the name is also used when exporting a shared folder via NFS for
 			// example.
 			$db->assertIsUnique($object, "name");
-/*
-			// Check if there already exists a shared folder on the same
-			// volume with the same relative directory path.
-			$xpath = sprintf("//system/shares/sharedfolder[mntentref='%s' ".
-			  "and reldirpath='%s']", $object['mntentref'],
-			  $object['reldirpath']);
-			if (TRUE === $xmlConfig->exists($xpath)) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-				gettext("A shared folder with the given path already exists"));
-			}
-*/
 		} else {
-/*
-			// Check if there already exists a shared folder on the same
-			// volume with the same relative directory path.
-			$xpath = sprintf("//system/shares/sharedfolder[uuid!='%s' and ".
-			  "mntentref='%s' and reldirpath='%s']", $object['uuid'],
-			  $object['mntentref'], $object['reldirpath']);
-			if (TRUE === $xmlConfig->exists($xpath)) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-				gettext("A shared folder with the given path already exists"));
-			}
-*/
 			// Get the existing configuration object.
 			$oldObject = $db->get("conf.system.sharedfolder", $params['uuid']);
-			// Copy existing privileges.
+			// Copy the privileges.
 			$object->set("privileges", $oldObject->get("privileges"));
 		}
 		$db->set($object);

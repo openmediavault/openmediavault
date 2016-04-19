@@ -37,17 +37,17 @@ class StorageDeviceHDD extends StorageDeviceSmartAbstract {
 	 *   \li standby
 	 *   \li sleeping
 	 *   </ul>
-	 *   or FALSE on failure.
+	 * @throw \OMV\ExecException
 	 */
 	public function getPowerModeState() {
-		$result = FALSE;
-		$cmd = sprintf("export LANG=C; hdparm -C %s 2>&1",
-		  escapeshellarg($this->getDeviceFile()));
-		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			$this->setLastError($output);
-			return FALSE;
-		}
+		$result = "unknown";
+		// Get the current power mode status.
+		$cmdArgs = [];
+		$cmdArgs[] = "-C";
+		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
+		$cmd = new \OMV\System\Process("hdparm", $cmdArgs);
+		$cmd->setRedirect2to1(TRUE);
+		$cmd->execute($output);
 		// Parse command output:
 		// /dev/sda:
 		//  drive state is:  active/idle

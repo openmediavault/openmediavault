@@ -74,6 +74,10 @@ class Process {
 		$this->env[] = $string;
 	}
 
+	/**
+	 * Get the command line to be executed.
+	 * @return The command line.
+	 */
 	public function getCommandLine() {
 		$cmdArgs = array();
 		foreach ($this->env as $env)
@@ -86,6 +90,15 @@ class Process {
 		return implode(" ", $cmdArgs);
 	}
 
+	/**
+	 * Execute the command.
+	 * @param output If the output argument is present, then the specified
+	 *   array will be filled with every line of output from the command.
+	 * @param exitStatus If the argument is present along with the output
+	 *   argument, then the return status of the executed command will be
+	 *   written to this variable.
+	 * @throw \OMV\ExecException
+	 */
 	public function execute(array &$output = NULL, &$exitStatus = NULL) {
 		$cmdLine = $this->getCommandLine();
 		$result = exec($cmdLine, $output, $exitStatus);
