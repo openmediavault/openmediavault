@@ -60,6 +60,7 @@ case "$1" in
 		if ! omv_config_exists "/config/services/shairport"; then
 			echo "Initialize configuration"
 			object="<enable>0</enable>"
+			object="${object}<name></name>"
 			object="${object}<passwordrequired>0</passwordrequired>"
 			object="${object}<password></password>"
 			omv_config_add_element "/config/services" "shairport" "${object}" true
