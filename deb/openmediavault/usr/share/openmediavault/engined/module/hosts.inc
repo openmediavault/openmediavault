@@ -19,8 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/error.inc");
-
 class OMVModuleHosts extends \OMV\Engine\Module\ServiceAbstract
   implements \OMV\Engine\Notify\IListener {
 	/**

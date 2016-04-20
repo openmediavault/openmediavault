@@ -44,6 +44,11 @@ class ConfigObject {
 		$this->setDefaults();
 	}
 
+	public function __clone() {
+		$this->model = clone $this->model;
+		$this->properties = clone $this->properties;
+	}
+
 	/**
 	 * Check if the specified property exists.
 	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.

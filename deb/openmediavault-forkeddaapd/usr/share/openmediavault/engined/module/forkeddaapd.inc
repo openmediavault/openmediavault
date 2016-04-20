@@ -25,7 +25,7 @@ class OMVModuleForkedDaapd extends \OMV\Engine\Module\ServiceAbstract
 	 * Get the module name.
 	 */
 	public function getName() {
-		return "daap";
+		return "daapd";
 	}
 
 	/**
@@ -134,7 +134,7 @@ class OMVModuleForkedDaapd extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.daap",
+		  "org.openmediavault.services.daapd",
 		  array($this, "onModifySettings"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,

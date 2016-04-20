@@ -139,7 +139,7 @@ class Monit {
 		// Get status summary of monitored services.
 		$cmd = new \OMV\System\Process("monit", "summary");
 		$cmd->setRedirect2to1(TRUE);
-		$cmd->execute();
+		$cmd->execute($output);
 		// Parse the command output.
 		foreach ($output as $outputk => $outputv) {
 			$regex = '/^Process\s+\'([^\']+)\'\s+(.+)$/i';
