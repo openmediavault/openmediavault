@@ -19,9 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
-
 class OMVModuleNetworkUPSTools extends \OMV\Engine\Module\ServiceAbstract
   implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
 	/**
@@ -47,7 +44,6 @@ class OMVModuleNetworkUPSTools extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "nut");
@@ -72,18 +68,11 @@ class OMVModuleNetworkUPSTools extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Start the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_EXEC_FAILED
 	 */
 	public function startService() {
-		global $xmlConfig;
-		$xpath = "//services/nut";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		if (FALSE === boolvalEx($object['enable']))
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.nut");
+		if (TRUE !== $object->get("enable"))
 			return;
 		// Request device events from the kernel.
 		$cmd = new \OMV\System\Process("udevadm", "trigger");
@@ -104,21 +93,15 @@ class OMVModuleNetworkUPSTools extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Get the status of the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getStatus() {
-		global $xmlConfig;
-		$xpath = "//services/nut";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.nut");
 		$monit = new \OMV\System\Monit("nut-monitor");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("UPS"),
-			"enabled" => boolvalEx($object['enable']),
+			"enabled" => $object->get("enable"),
 			"running" => $monit->isRunning()
 		);
 	}
@@ -129,20 +112,13 @@ class OMVModuleNetworkUPSTools extends \OMV\Engine\Module\ServiceAbstract
 	 * @param type The event message type.
 	 * @param path The event message path.
 	 * @param object The configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	final public function onUpdateInterface($type, $path, $object) {
-		global $xmlConfig;
-		$xpath = "//services/nut";
-		$object2 = $xmlConfig->get($xpath);
-		if (is_null($object2)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$object2 = $db->get("conf.service.nut");
 		// Is remote monitoring enabled?
-		if (TRUE === boolvalEx($object2['remotemonitor'])) {
+		if (TRUE === boolvalEx($object2->get("remotemonitor")))
 			$this->setDirty();
-		}
 	}
 
 	/**
@@ -152,27 +128,27 @@ class OMVModuleNetworkUPSTools extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.nut",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.email",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.network.interfaces.iface",
-		  array($this, "onUpdateInterface"));
+		  [ $this, "onUpdateInterface" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.network.interfaces.bondiface",
-		  array($this, "onUpdateInterface"));
+		  [ $this, "onUpdateInterface" ]);
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.nut",
-		  array($moduleMngr->getModule("collectd"), "setDirty"));
+		  [ $moduleMngr->getModule("collectd"), "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.nut",
-		  array($moduleMngr->getModule("monit"), "setDirty"));
+		  [ $moduleMngr->getModule("monit"), "setDirty" ]);
 	}
 }

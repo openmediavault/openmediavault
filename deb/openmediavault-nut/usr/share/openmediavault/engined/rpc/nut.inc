@@ -19,10 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
-
 class OMVRpcServiceNetworkUPSTools extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -45,25 +41,15 @@ class OMVRpcServiceNetworkUPSTools extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function get($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$xpath = "//services/nut";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify result object.
-		$object['enable'] = boolvalEx($object['enable']);
-		$object['remotemonitor'] = boolvalEx($object['remotemonitor']);
-		return $object;
+		$db = \OMV\Config\Database::getInstance();
+		return $db->getAssoc("conf.service.nut");
 	}
 
 	/**
@@ -71,53 +57,29 @@ class OMVRpcServiceNetworkUPSTools extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function set($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "enable":{"type":"boolean"},
-				  "upsname":{"type":"string","format":"regex","pattern":'.
-					'"\/^[a-z0-9_-]+$\/i"},
-				  "comment":{"type":"string"},
-				  "driverconf":{"type":"string"},
-				  "shutdownmode":{"type":"string","enum":["fsd","onbatt"]},
-				  "shutdowntimer":{"type":"integer","minimum":1},
-				  "remotemonitor":{"type":"boolean"},
-				  "remoteuser":{"type":"string"},
-				  "remotepassword":{"type":"string"}
-			  }
-		  }');
-		// Prepare the configuration object.
-		$object = array(
-			"enable" => array_boolval($params, 'enable'),
-			"upsname" => $params['upsname'],
-			"comment" => $params['comment'],
-			"driverconf" => $params['driverconf'],
-			"shutdownmode" => $params['shutdownmode'],
-			"shutdowntimer" => $params['shutdowntimer'],
-			"remotemonitor" => array_boolval($params, 'remotemonitor'),
-			"remoteuser" => $params['remoteuser'],
-			"remotepassword" => $params['remotepassword']
-		);
-		// Set the configuration object.
-		$xpath = "//services/nut";
-		if(FALSE === $xmlConfig->replace($xpath, $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$this->validateMethodParams($params, "rpc.nut.set");
+		// Get the existing configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.nut");
+		$oldObject = clone $object;
+		// Update the configuration object.
+		$object->setAssoc($params);
+		// Put the configuration object.
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.nut", $object);
+		  "org.openmediavault.services.nut", $object->getAssoc(),
+		  $oldObject->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -125,29 +87,23 @@ class OMVRpcServiceNetworkUPSTools extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return A string containing the requested statistics.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_EXEC_FAILED
 	 */
 	public function getStats($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Is service enabled?
-		$xpath = "//services/nut";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		if (!boolvalEx($object['enable'])) {
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.nut");
+		if (FALSE === $object->get("enable")) {
 			$stats = gettext("Service disabled");
 		} else {
-			$cmd = sprintf("export LANG=C; upsc %s 2>&1", escapeshellarg(
-			  $object['upsname']));
-			if (0 !== $this->exec($cmd, $output))
-				throw new \OMV\ExecException($cmd, $output);
+			$cmdArgs = [];
+			$cmdArgs[] = escapeshellarg($object->get("upsname"));
+			$cmd = new \OMV\System\Process("upsc", $cmdArgs);
+			$cmd->setRedirect2to1(TRUE);
+			$cmd->execute($output);
 			$stats = implode("\n", $output);
 		}
 		return $stats;

@@ -1,0 +1,25 @@
+{
+	"type": "config",
+	"id": "conf.service.shairport",
+	"title": "AirPlay/RAOP receiver",
+	"queryinfo": {
+		"xpath": "//services/shairport",
+		"iterable": false
+	},
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"name": {
+			"type": "string"
+		},
+		"passwordrequired": {
+			"type": "boolean",
+			"default": false
+		},
+		"password": {
+			"type": "string"
+		}
+	}
+}

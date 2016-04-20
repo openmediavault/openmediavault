@@ -265,7 +265,7 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 		if (FALSE === $object->get("enable")) {
 			$stats = gettext("Service disabled");
 		} else {
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = "-s";
 			$cmd = new \OMV\System\Process("smbstatus", $cmdArgs);
 			$cmd->setRedirect2to1(TRUE);

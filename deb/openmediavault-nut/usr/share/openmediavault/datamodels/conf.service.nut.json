@@ -1,0 +1,45 @@
+{
+	"type": "config",
+	"id": "conf.service.nut",
+	"title": "Network UPS tools",
+	"queryinfo": {
+		"xpath": "//services/nut",
+		"iterable": false
+	},
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"upsname": {
+			"type": "string",
+			"pattern": "/^[a-z0-9_-]+$/i"
+		},
+		"comment": {
+			"type": "string"
+		},
+		"driverconf": {
+			"type": "string"
+		},
+		"shutdownmode": {
+			"type": "string",
+			"enum": [ "fsd", "onbatt" ],
+			"default": "onbatt"
+		},
+		"shutdowntimer": {
+			"type": "integer",
+			"minimum": 1,
+			"default": 30
+		},
+		"remotemonitor": {
+			"type": "boolean",
+			"default": false
+		},
+		"remoteuser": {
+			"type": "string"
+		},
+		"remotepassword": {
+			"type": "string"
+		}
+	}
+}

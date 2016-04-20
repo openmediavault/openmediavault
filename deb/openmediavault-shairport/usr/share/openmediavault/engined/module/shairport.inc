@@ -19,9 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
-
 class OMVModuleShairport extends \OMV\Engine\Module\ServiceAbstract
   implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
 	/**
@@ -47,7 +44,6 @@ class OMVModuleShairport extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "shairport-sync");
@@ -69,17 +65,11 @@ class OMVModuleShairport extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Start the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function startService() {
-		global $xmlConfig;
-		$xpath = "//services/shairport";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		if (FALSE === boolvalEx($object['enable']))
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.shairport");
+		if (TRUE !== $object->get("enable"))
 			return;
 		// Start this service and enable the unit file.
 		$systemCtl = new \OMV\System\SystemCtl("shairport-sync");
@@ -91,21 +81,15 @@ class OMVModuleShairport extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Get the status of the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getStatus() {
-		global $xmlConfig;
-		$xpath = "//services/shairport";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.shairport");
 		$monit = new \OMV\System\Monit("shairport-sync");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("Shairport"),
-			"enabled" => boolvalEx($object['enable']),
+			"enabled" => $object->get("enable"),
 			"running" => $monit->isRunning()
 		);
 	}
@@ -117,15 +101,15 @@ class OMVModuleShairport extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.shairport",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.network.hostname",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.shairport",
-		  array($moduleMngr->getModule("monit"), "setDirty"));
+		  [ $moduleMngr->getModule("monit"), "setDirty" ]);
 	}
 }

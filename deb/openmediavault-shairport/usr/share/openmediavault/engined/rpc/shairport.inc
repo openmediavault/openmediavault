@@ -19,10 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
-
 class OMVRpcServiceShairport extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -44,25 +40,15 @@ class OMVRpcServiceShairport extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function get($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$xpath = "//services/shairport";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify result object.
-		$object['enable'] = boolvalEx($object['enable']);
-		$object['passwordrequired'] = boolvalEx($object['passwordrequired']);
-		return $object;
+		$db = \OMV\Config\Database::getInstance();
+		return $db->getAssoc("conf.service.shairport");
 	}
 
 	/**
@@ -70,46 +56,28 @@ class OMVRpcServiceShairport extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function set($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "enable":{"type":"boolean"},
-				  "name":{"type":"string"},
-				  "passwordrequired":{"type":"boolean"},
-				  "password":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.shairport.set");
 		// Get the existing configuration object.
-		$xpath = "//services/shairport";
-		$oldObject = $xmlConfig->get($xpath);
-		if (is_null($oldObject)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.shairport");
+		$oldObject = clone $object;
 		// Update the configuration object.
-		$object = array_merge($oldObject, array(
-			  "enable" => array_boolval($params, 'enable'),
-			  "name" => $params['name'],
-			  "passwordrequired" => array_boolval($params, 'passwordrequired'),
-			  "password" => $params['password']
-		  ));
-		if (FALSE === $xmlConfig->replace($xpath, $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$object->setAssoc($params);
+		// Put the configuration object.
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.shairport", $object, $oldObject);
+		  "org.openmediavault.services.shairport", $object->getAssoc(),
+		  $oldObject->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 }

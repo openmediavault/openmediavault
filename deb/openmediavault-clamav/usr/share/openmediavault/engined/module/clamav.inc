@@ -104,17 +104,17 @@ class OMVModuleClamAV extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.clamav",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.services.clamav.jobs.job",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.shares.sharedfolder",
-		  array($this, "onSharedFolder"));
+		  [ $this, "onSharedFolder" ]);
 		$dispatcher->addListener(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.network.proxy",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 	}
 }

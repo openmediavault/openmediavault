@@ -1,0 +1,25 @@
+[{
+	"type": "rpc",
+	"id": "rpc.shairport.set",
+	"params": {
+		"type": "object",
+		"properties": {
+			"enable": {
+			    "type": "boolean",
+				"required": true
+			},
+			"name": {
+			    "type": "string",
+				"required": true
+			},
+			"passwordrequired": {
+			    "type": "boolean",
+				"required": true
+			},
+			"password": {
+			    "type": "string",
+				"required": true
+			}
+		}
+	}
+}]
