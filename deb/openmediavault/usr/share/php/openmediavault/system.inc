@@ -4318,8 +4318,9 @@ class OMVATASMARTInformation extends OMVObject {
 			//   4 Start_Stop_Count        -O--CK   100   100   000    -    795
 			//   5 Reallocated_Sector_Ct   PO--CK   252   252   010    -    0
 			//   7 Seek_Error_Rate         -OSR-K   252   252   051    -    0
+			// 194 Temperature_Celsius     -O---K   076   037   ---    -    24 (Min/Max 19/37)
 			$regex = '/^\s*(\d+)\s+(\S+)\s+([POSRCK-]+)\s+(\d+)\s+(\d+)\s+'.
-			  '(\d+)\s+(\S+)\s+(.+)$/i';
+			  '(\d+|---)\s+(\S+)\s+(.+)$/i';
 			if (1 == preg_match($regex, $cmdOutputv, $matches)) {
 				$id = intval($matches[1]);
 				$result[] = array(
@@ -4328,7 +4329,8 @@ class OMVATASMARTInformation extends OMVObject {
 					"flags" => $matches[3],
 					"value" => intval($matches[4]),
 					"worst" => intval($matches[5]),
-					"treshold" => intval($matches[6]),
+					"treshold" => ("---" == $matches[6]) ?
+					  0 : intval($matches[6]),
 					"whenfailed" => $matches[7],
 					"rawvalue" => $matches[8],
 					"description" => array_key_exists($id, $this->attrDesc) ?
@@ -4471,6 +4473,9 @@ class OMVATASMARTInformation extends OMVObject {
 				// 194 Temperature_Celsius     0x0002   214   214   000    Old_age   Always       -       28 (Lifetime Min/Max 21/32)
 				// 194 Temperature_Celsius     0x0022   060   061   000    Old_age   Always       -       60 (0 20 0 0)
 				// 194 Temperature_Celsius     0x0022   030   055   000    Old_age   Always       -       30 (Min/Max 17/55)
+				//
+				// ID# ATTRIBUTE_NAME          FLAGS    VALUE WORST THRESH FAIL RAW_VALUE
+				// 194 Temperature_Celsius     -O---K   076   037   ---    -    24 (Min/Max 19/37)
 			case 231: // temperature-celsius
 				// ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
 				// 231 Temperature_Celsius     0x0013   100   100   010    Pre-fail  Always       -       0
@@ -4486,6 +4491,8 @@ class OMVATASMARTInformation extends OMVObject {
 				$found = TRUE;
 				break;
 			}
+			if (TRUE === $found)
+				break;
 		}
 		// If the SMART attributes are not present then it may be an older
 		// SCSI device. Then the command output looks like:

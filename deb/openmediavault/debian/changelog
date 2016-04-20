@@ -2,6 +2,7 @@ openmediavault (2.2.3) stable; urgency=low
 
   * Various improvements.
   * Mantis 0001501: Running smartctl from webGUI on virtio drives fails.
+  * Mantis 0001502: S.M.A.R.T. does not report drive termperature.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 04 Apr 2016 14:45:38 +0200
 
