@@ -1,0 +1,178 @@
+{
+	"type": "config",
+	"id": "conf.service.clamav",
+	"title": "ClamAV Antivirus",
+	"queryinfo": {
+		"xpath": "//services/clamav",
+		"iterable": false
+	},
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"quarantine_sharedfolderref": {
+			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}]
+		},
+		"clamd": {
+			"type": "object",
+			"properties": {
+				"logclean": {
+					"type": "boolean",
+					"default": false
+				},
+				"scanpe": {
+					"type": "boolean",
+					"default": true
+				},
+				"scanole2": {
+					"type": "boolean",
+					"default": true
+				},
+				"scanhtml": {
+					"type": "boolean",
+					"default": true
+				},
+				"scanpdf": {
+					"type": "boolean",
+					"default": true
+				},
+				"scanelf": {
+					"type": "boolean",
+					"default": true
+				},
+				"scanarchive": {
+					"type": "boolean",
+					"default": true
+				},
+				"detectbrokenexecutables": {
+					"type": "boolean",
+					"default": false
+				},
+				"algorithmicdetection": {
+					"type": "boolean",
+					"default": true
+				},
+				"followdirectorysymlinks": {
+					"type": "boolean",
+					"default": false
+				},
+				"followfilesymlinks": {
+					"type": "boolean",
+					"default": false
+				},
+				"detectpua": {
+					"type": "boolean",
+					"default": false
+				},
+				"extraoptions": {
+					"type": "string"
+				}
+			}
+		},
+		"freshclam": {
+			"type": "object",
+			"properties": {
+				"enable": {
+					"type": "boolean",
+					"default": true
+				},
+				"checks":{
+					"type": "integer",
+					"minimum": 0,
+					"maximum": 50,
+					"default": 24
+				}
+			}
+		},
+		"jobs": {
+			"type": "object",
+			"properties": {
+				"job": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"uuid": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"enable": {
+								"type": "boolean",
+								"default": false
+							},
+							"sharedfolderref": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"minute": {
+								"type": "string",
+								"pattern": "/^[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[*]$/"
+							},
+							"everynminute": {
+								"type": "boolean",
+								"default": false
+							},
+							"hour": {
+								"type": "string",
+								"pattern":"/^[0-9]|1[0-9]|2[0-3]|[*]$/"
+							},
+							"everynhour": {
+								"type":"boolean",
+								"default": false
+							},
+							"month": {
+								"type": "string",
+								"pattern": "/^[1-9]|1[0-2]|[*]$/"
+							},
+							"dayofmonth": {
+								"type": "string",
+								"pattern": "/^[1-9]|1[0-9]|2[0-9]|3[0-1]|[*]$/"
+							},
+							"everyndayofmonth": {
+								"type": "boolean",
+								"default": false
+							},
+							"dayofweek": {
+								"type": "string",
+								"pattern": "/^[1-7]|[*]$/"
+							},
+							"sendemail": {
+								"type": "boolean",
+								"default": false
+							},
+							"onaccess": {
+								"type": "boolean",
+								"default": false
+							},
+							"virusaction": {
+								"type": "string",
+								"enum": [ "nothing", "quarantine", "delete" ],
+								"default": "nothing"
+							},
+							"verbose": {
+								"type": "boolean",
+								"default": false
+							},
+							"multiscan": {
+								"type": "boolean",
+								"default": false
+							},
+							"comment": {
+								"type": "string",
+								"default": ""
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,9 +1,9 @@
 {
 	"type": "config",
-	"id": "conf.system.cron.job",
-	"title": "Cron job",
+	"id": "conf.service.clamav.job",
+	"title": "ClamAV Antivirus scan job",
 	"queryinfo": {
-		"xpath": "//system/crontab/job",
+		"xpath": "//services/clamav/jobs/job",
 		"iterable": true,
 		"idproperty": "uuid"
 	},
@@ -16,31 +16,9 @@
 			"type": "boolean",
 			"default": false
 		},
-		"execution":{
+		"sharedfolderref": {
 			"type": "string",
-			"enum": [
-				"exactly",
-				"hourly",
-				"daily",
-				"weekly",
-				"monthly",
-				"yearly",
-				"reboot"
-			],
-			"default": "exactly"
-		},
-		"sendemail": {
-			"type": "boolean",
-			"default": false
-		},
-		"comment": {
-			"type": "string",
-			"default": ""
-		},
-		"type":{
-			"type": "string",
-			"enum": [ "reboot", "shutdown", "standby", "userdefined" ],
-			"default": "userdefined"
+			"format": "uuidv4"
 		},
 		"minute": {
 			"type": "string",
@@ -74,11 +52,28 @@
 			"type": "string",
 			"pattern": "/^[1-7]|[*]$/"
 		},
-		"username": {
-			"type": "string",
-			"default": ""
+		"sendemail": {
+			"type": "boolean",
+			"default": false
 		},
-		"command": {
+		"onaccess": {
+			"type": "boolean",
+			"default": false
+		},
+		"virusaction": {
+			"type": "string",
+			"enum": [ "nothing", "quarantine", "delete" ],
+			"default": "nothing"
+		},
+		"verbose": {
+			"type": "boolean",
+			"default": false
+		},
+		"multiscan": {
+			"type": "boolean",
+			"default": false
+		},
+		"comment": {
 			"type": "string",
 			"default": ""
 		}

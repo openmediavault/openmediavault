@@ -63,7 +63,7 @@ Ext.define("OMV.module.admin.service.clamav.Settings", {
 				}]
 			},{
 				xtype: "sharedfoldercombo",
-				name: "quarantine.sharedfolderref",
+				name: "quarantine_sharedfolderref",
 				fieldLabel: _("Quarantine"),
 				allowNone: true,
 				allowBlank: true,

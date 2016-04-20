@@ -224,7 +224,7 @@ class OMVRpcServiceRsync extends \OMV\Rpc\ServiceAbstract {
 			  $bgOutputFilename);
 			// Execute the rsync cron script.
 			$cmd = "/bin/sh";
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = build_path(DIRECTORY_SEPARATOR,
 			  $GLOBALS['OMV_CRONSCRIPTS_DIR'],
 			  sprintf("rsync-%s", $params['uuid']));

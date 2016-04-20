@@ -44,7 +44,7 @@ case "$1" in
 		#   <services>
 		#     <clamav>
 		#       <enable>0</enable>
-		#       <quarantine.sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</quarantine.sharedfolderref>
+		#       <quarantine_sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</quarantine_sharedfolderref>
 		#       <clamd>
 		#         <logclean>0</logclean>
 		#         <scanpe>1</scanpe>
@@ -98,7 +98,7 @@ case "$1" in
 		if ! omv_config_exists "/config/services/clamav"; then
 			echo "Initialize configuration"
 			object="<enable>0</enable>"
-			object="${object}<quarantine.sharedfolderref></quarantine.sharedfolderref>"
+			object="${object}<quarantine_sharedfolderref></quarantine_sharedfolderref>"
 			object="${object}<clamd>"
 			object="${object}<logclean>0</logclean>"
 			object="${object}<scanpe>1</scanpe>"
@@ -159,6 +159,9 @@ case "$1" in
 			omv-mkconf clamav
 			deb-systemd-invoke reload clamav-daemon || :
 			deb-systemd-invoke reload clamav-freshclam || :
+		fi
+		if dpkg --compare-versions "$2" lt-nl "3.1.2"; then
+			omv_config_rename "/config/services/clamav/quarantine.sharedfolderref" "quarantine_sharedfolderref"
 		fi
 	;;
 

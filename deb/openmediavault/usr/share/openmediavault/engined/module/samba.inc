@@ -19,12 +19,10 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/config.inc");
-
 class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
   implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus,
   \OMV\Engine\Module\IZeroconf {
-	private $invalidUsers = array("admin");
+	private $invalidUsers = [ "admin" ];
 
 	/**
 	 * Get the module name.
