@@ -19,9 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
-
 class OMVModuleForkedDaapd extends \OMV\Engine\Module\ServiceAbstract
   implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
 	/**
@@ -47,7 +44,6 @@ class OMVModuleForkedDaapd extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "forked-daapd");
@@ -69,17 +65,11 @@ class OMVModuleForkedDaapd extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Start the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function startService() {
-		global $xmlConfig;
-		$xpath = "//services/daap";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		if (FALSE === boolvalEx($object['enable']))
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.daapd");
+		if (TRUE !== $object->get("enable"))
 			return;
 		// Start this service and enable the unit file.
 		$systemCtl = new \OMV\System\SystemCtl("forked-daapd");
@@ -93,21 +83,15 @@ class OMVModuleForkedDaapd extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Get the status of the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getStatus() {
-		global $xmlConfig;
-		$xpath = "//services/daap";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.daapd");
 		$monit = new \OMV\System\Monit("forked-daapd");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("iTunes/DAAP"),
-			"enabled" => boolvalEx($object['enable']),
+			"enabled" => $object->get("enable"),
 			"running" => $monit->isRunning()
 		);
 	}
@@ -121,9 +105,9 @@ class OMVModuleForkedDaapd extends \OMV\Engine\Module\ServiceAbstract
 	 * @param object The configuration object.
 	 */
 	final public function onModifySharedFolder($type, $path, $object) {
-		$db = &\OMV\Config\Database::getInstance();
-		if (TRUE === $db->getBackend()->exists(sprintf(
-		  "//services/daap[sharedfolderref='%s']", $object['uuid'])))
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.daapd");
+		if (TRUE === $object->isEqual("sharedfolderref", $object['uuid']))
 			$this->setDirty();
 	}
 
@@ -134,14 +118,13 @@ class OMVModuleForkedDaapd extends \OMV\Engine\Module\ServiceAbstract
 	 * @param path The event message path.
 	 * @param object The new configuration object.
 	 * @param oldObject The previous configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	final public function onModifySettings($type, $path, $object, $oldObject) {
 		// Mark this module as dirty.
 		$this->setDirty();
 		// Check whether the monit daemon configuration needs to be updated.
 		// In this case mark the module as dirty.
-		if ($oldObject['enable'] != $object['enable'])
+		if ($oldObject['enable'] !== $object['enable'])
 			$this->setDirtyByName("monit");
 	}
 

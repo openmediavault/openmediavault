@@ -307,6 +307,7 @@ class ConfigObject {
 
 	/**
 	 * Determine whether a property value is empty.
+	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
 	 * @return Returns FALSE if the property exists and has a non-empty,
 	 *   non-zero value. Otherwise returns TRUE. If the property does not
 	 *   exist an exception is thrown.
@@ -315,6 +316,20 @@ class ConfigObject {
 	public function isEmpty($name) {
 		$value = $this->get($name);
 		return empty($value);
+	}
+
+	/**
+	 * Determine whether a property value and the specified one are equal.
+	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
+	 * @param value The value to compare.
+	 * @return Returns TRUE if the property value and the specified one
+	 *   are equal, otherwise FALSE. If the property does not
+	 *   exist an exception is thrown.
+	 * @throw \OMV\Exception
+	 */
+	public function isEqual($name, $value) {
+		$propValue = $this->get($name);
+		return ($propValue === $value);
 	}
 
 	/**
