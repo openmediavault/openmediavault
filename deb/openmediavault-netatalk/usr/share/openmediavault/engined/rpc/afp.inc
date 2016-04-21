@@ -116,7 +116,7 @@ class OMVRpcServiceAFP extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.afp", $object);
+		  "org.openmediavault.service.afp", $object);
 		// Return the configuration object.
 		return $object;
 	}
@@ -285,7 +285,7 @@ class OMVRpcServiceAFP extends \OMV\Rpc\ServiceAbstract {
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.afp.shares.share", $object);
+		  "org.openmediavault.service.afp.share", $object);
 		// Return the configuration object.
 		return $object;
 	}
@@ -308,6 +308,6 @@ class OMVRpcServiceAFP extends \OMV\Rpc\ServiceAbstract {
 		$xpath = sprintf("//services/afp/shares/share[uuid='%s']",
 		  $params['uuid']);
 		return $this->deleteConfigObjectByPath($xpath,
-		  "org.openmediavault.services.afp.shares.share");
+		  "org.openmediavault.service.afp.share");
 	}
 }

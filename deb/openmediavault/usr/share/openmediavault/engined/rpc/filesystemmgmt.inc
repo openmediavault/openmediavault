@@ -601,7 +601,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Notify configuration changes.
 			$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 			$dispatcher->notify(OMV_NOTIFY_CREATE,
-			  "org.openmediavault.system.storage.filesystem", array(
+			  "org.openmediavault.system.filesystem", array(
 				  "devicefile" => $sd->getDeviceFile(),
 				  "type" => $fsb->getType(),
 				  "label" => $params['label']
@@ -732,7 +732,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_PREDELETE,
-		  "org.openmediavault.system.storage.filesystem", $fsObject);
+		  "org.openmediavault.system.filesystem", $fsObject);
 		// Delete the associated fstab mount point entry.
 		if (!is_null($meObject)) {
 			// Delete the mount point configuration object. Unmount the
@@ -755,7 +755,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Notify configuration changes.
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.storage.filesystem", $fsObject);
+		  "org.openmediavault.system.filesystem", $fsObject);
 	}
 
 	/**

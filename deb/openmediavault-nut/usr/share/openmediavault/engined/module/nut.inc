@@ -127,11 +127,11 @@ class OMVModuleNetworkUPSTools extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.nut",
+		  "org.openmediavault.service.nut",
 		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.email",
+		  "org.openmediavault.system.notification.email",
 		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
@@ -144,11 +144,11 @@ class OMVModuleNetworkUPSTools extends \OMV\Engine\Module\ServiceAbstract
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.nut",
+		  "org.openmediavault.service.nut",
 		  [ $moduleMngr->getModule("collectd"), "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.nut",
+		  "org.openmediavault.service.nut",
 		  [ $moduleMngr->getModule("monit"), "setDirty" ]);
 	}
 }

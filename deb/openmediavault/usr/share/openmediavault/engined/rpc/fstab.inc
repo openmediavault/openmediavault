@@ -116,7 +116,8 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.fstab.mntent", $object->getAssoc());
+		  "org.openmediavault.system.filesystem.mountpoint",
+		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -139,7 +140,7 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 		// Delete the configuration object.
 		return $this->deleteConfigObjectByUuid(
 		  "conf.system.filesystem.mountpoint", $params['uuid'],
-		  "org.openmediavault.system.fstab.mntent");
+		  "org.openmediavault.system.filesystem.mountpoint");
 	}
 
 	/**

@@ -44,7 +44,7 @@ class OMVModuleNSSwitch extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.ldap",
+		  "org.openmediavault.service.ldap",
 		  array($this, "setDirty"));
     }
 }

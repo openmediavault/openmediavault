@@ -108,24 +108,24 @@ class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.rsync.server",
+		  "org.openmediavault.service.rsync.server",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.services.rsync.server.modules.module",
+		  "org.openmediavault.service.rsync.server.modules.module",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.shares.sharedfolder",
+		  "org.openmediavault.system.sharedfolder",
 		  array($this, "onSharedFolder"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.shares.sharedfolder.privileges",
+		  "org.openmediavault.system.sharedfolder.privileges",
 		  array($this, "onSharedFolder"));
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.rsync.server",
+		  "org.openmediavault.service.rsync.server",
 		  array($moduleMngr->getModule("zeroconf"), "setDirty"));
     }
 }

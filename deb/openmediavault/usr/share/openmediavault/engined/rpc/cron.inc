@@ -110,13 +110,14 @@ class OMVRpcServiceCron extends \OMV\Rpc\ServiceAbstract {
 		$object = new \OMV\Config\ConfigObject("conf.system.cron.job");
 		$object->setAssoc($params);
 		// Set the configuration object.
+		$isNew = $object->isNew();
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.crontab.job", $object->getAssoc());
+		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.cron.job",
+		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -137,7 +138,7 @@ class OMVRpcServiceCron extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
 		return $this->deleteConfigObjectByUuid("conf.system.cron.job",
-		  $params['uuid'], "org.openmediavault.system.crontab.job");
+		  $params['uuid'], "org.openmediavault.system.cron.job");
 	}
 
 	/**

@@ -192,7 +192,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify the configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.storage.hdparm", $object->getAssoc());
+		  "org.openmediavault.system.hdparm", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}

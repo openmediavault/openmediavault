@@ -74,7 +74,7 @@ class OMVRpcServiceTftp extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.tftp",
+		  "org.openmediavault.service.tftp",
 		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();

@@ -63,11 +63,11 @@ class OMVModuleUsbBackup extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.services.usbbackup.jobs.job",
+		  "org.openmediavault.service.usbbackup.job",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.shares.sharedfolder",
+		  "org.openmediavault.system.sharedfolder",
 		  array($this, "onSharedFolder"));
     }
 }

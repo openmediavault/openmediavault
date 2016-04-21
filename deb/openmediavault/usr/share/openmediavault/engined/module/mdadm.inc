@@ -63,15 +63,15 @@ class OMVModuleMdadm extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.storage.raid.device",
+		  "org.openmediavault.system.mdadm.device",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.email",
+		  "org.openmediavault.system.notification.email",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.notification.notifications",
+		  "org.openmediavault.system.notification.notification",
 		  array($this, "setDirty"));
 	}
 }

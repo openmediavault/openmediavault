@@ -59,7 +59,7 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 					// Try to get the notification configuration object.
 					$db = \OMV\Config\Database::getInstance();
 					$object = $db->getByFilter(
-					  "conf.system.notification.notifications.notification", [
+					  "conf.system.notification.notification", [
 						  "operator" => "stringEquals",
 						  "arg0" => "id",
 						  "arg1" => $configv['id']
@@ -99,7 +99,7 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 				foreach ($config as $configk => $configv) {
 					// Set default values.
 					$object = new \OMV\Config\ConfigObject(
-					  "conf.system.notification.notifications.notification");
+					  "conf.system.notification.notification");
 					$object->setNew(); // Mark the service configuration as new.
 					$object->set("id", $configv['id']);
 					$object->set("enable", FALSE);
@@ -121,10 +121,10 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 			"arg1" => "*"
 		];
 		$db = \OMV\Config\Database::getInstance();
-		if ($db->exists("conf.system.notification.notifications.notification",
+		if ($db->exists("conf.system.notification.notification",
 		  $filter)) {
 			$db->deleteByFilter(
-			  "conf.system.notification.notifications.notification", $filter);
+			  "conf.system.notification.notification", $filter);
 		}
 		// Set the notification configuration objects.
 		$objectsAssoc = array();
@@ -135,7 +135,7 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 		// Notify the configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.notification.notifications",
+		  "org.openmediavault.system.notification.notification",
 		  $objectsAssoc);
 		// Return the configuration object.
 		return $objectsAssoc;
@@ -158,7 +158,7 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get(
-		  "conf.system.notification.notifications.notification",
+		  "conf.system.notification.notification",
 		  "id", $params['id']);
 		// Get the notification status.
 		return $object->get("enable");
@@ -230,7 +230,8 @@ class OMVRpcServiceEmailNotification extends \OMV\Rpc\ServiceAbstract {
 		// Notify the configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.email", $object->getAssoc());
+		  "org.openmediavault.system.notification.email",
+		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}

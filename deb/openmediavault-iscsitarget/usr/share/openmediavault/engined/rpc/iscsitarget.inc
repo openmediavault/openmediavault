@@ -133,7 +133,7 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.iscsitarget", $object, $oldObject);
+		  "org.openmediavault.service.iscsitarget", $object, $oldObject);
 		// Return the configuration object.
 		return $object;
 	}
@@ -411,7 +411,7 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.iscsitarget.targets.target", $object);
+		  "org.openmediavault.service.iscsitarget.targets.target", $object);
 		// Return the configuration object.
 		return $object;
 	}
@@ -435,6 +435,6 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 		$xpath = sprintf("//services/iscsitarget/targets/target[uuid='%s']",
 		  $params['uuid']);
 		return $this->deleteConfigObjectByPath($xpath,
-		  "org.openmediavault.services.iscsitarget.targets.target");
+		  "org.openmediavault.service.iscsitarget.targets.target");
 	}
 }

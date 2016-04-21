@@ -122,20 +122,20 @@ class OMVModuleNfs extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.nfs",
+		  "org.openmediavault.service.nfs",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.services.nfs.shares.share",
+		  "org.openmediavault.service.nfs.share",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.shares.sharedfolder",
+		  "org.openmediavault.system.sharedfolder",
 		  array($this, "onSharedFolder"));
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.nfs",
+		  "org.openmediavault.service.nfs",
 		  array($moduleMngr->getModule("zeroconf"), "setDirty"));
     }
 }

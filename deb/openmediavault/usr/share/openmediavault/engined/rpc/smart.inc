@@ -239,7 +239,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.smart", $object->getAssoc());
+		  "org.openmediavault.service.smart", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -310,7 +310,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.smart.monitor.device",
+		  "org.openmediavault.service.smart.monitor.device",
 		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
@@ -544,7 +544,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.smart.scheduledtests.job",
+		  "org.openmediavault.service.smart.scheduledtests.job",
 		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
@@ -567,7 +567,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		// Delete the configuration object.
 		return $this->deleteConfigObjectByUuid(
 		  "conf.service.smartmontools.job", $params['uuid'],
-		  "org.openmediavault.services.smart.scheduledtests.job");
+		  "org.openmediavault.service.smart.scheduledtests.job");
 	}
 
 	/**

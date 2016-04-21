@@ -90,7 +90,7 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.ftp", $object->getAssoc());
+		  "org.openmediavault.service.ftp", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -181,7 +181,7 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.ftp.shares.share", $object->getAssoc());
+		  "org.openmediavault.service.ftp.share", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -202,7 +202,7 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
 		return $this->deleteConfigObjectByUuid("conf.service.ftp.share",
-		  $params['uuid'], "org.openmediavault.services.ftp.shares.share");
+		  $params['uuid'], "org.openmediavault.service.ftp.share");
 	}
 
 	/**
@@ -274,7 +274,7 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.ftp.modules.mod_ban.rule",
+		  "org.openmediavault.service.ftp.modules.mod_ban.rule",
 		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
@@ -296,7 +296,7 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 		// Delete the configuration object.
 		return $this->deleteConfigObjectByUuid(
 		  "conf.service.ftp.modban.rule", $params['uuid'],
-		  "org.openmediavault.services.ftp.modules.mod_ban.rule");
+		  "org.openmediavault.service.ftp.modules.mod_ban.rule");
 	}
 
 	/**
@@ -337,7 +337,7 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.ftp.modules.mod_tls",
+		  "org.openmediavault.service.ftp.modules.mod_tls",
 		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();

@@ -562,7 +562,7 @@ finish:
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.usermanagement.users.user",
+		  "org.openmediavault.system.usermngmnt.user",
 		  $objectAssoc);
 		// Return the configuration object.
 		return $objectAssoc;
@@ -638,7 +638,7 @@ finish:
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.usermanagement.users.user", $object);
+		  "org.openmediavault.system.usermngmnt.user", $object);
 		// Return the deleted configuration object.
 		return $object;
 	}
@@ -888,7 +888,7 @@ finish:
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.usermanagement.groups.group",
+		  "org.openmediavault.system.usermngmnt.group",
 		  $objectAssoc);
 		// Return the configuration object.
 		return $objectAssoc;
@@ -930,7 +930,7 @@ finish:
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.usermanagement.groups.group", $object);
+		  "org.openmediavault.system.usermngmnt.group", $object);
 		// Return the deleted configuration object.
 		return $object;
 	}

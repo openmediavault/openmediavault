@@ -97,11 +97,11 @@ class OMVModuleCollectd extends \OMV\Engine\Module\ServiceAbstract
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.fstab.mntent",
+		  "org.openmediavault.system.filesystem.mountpoint",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.network.interfaces.interface",
+		  "org.openmediavault.system.network.interface",
 		  array($this, "setDirty"));
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(

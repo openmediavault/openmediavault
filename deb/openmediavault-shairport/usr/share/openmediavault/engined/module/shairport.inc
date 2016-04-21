@@ -100,16 +100,16 @@ class OMVModuleShairport extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.shairport",
+		  "org.openmediavault.service.shairport",
 		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.hostname",
+		  "org.openmediavault.system.network.dns",
 		  [ $this, "setDirty" ]);
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.shairport",
+		  "org.openmediavault.service.shairport",
 		  [ $moduleMngr->getModule("monit"), "setDirty" ]);
 	}
 }

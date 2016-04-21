@@ -65,11 +65,11 @@ class OMVModuleQuota extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.storage.filesystem",
+		  "org.openmediavault.system.filesystem",
 		  array($this, "onDeleteFilesystem"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.storage.filesystem.quota",
+		  "org.openmediavault.system.filesystem.quota",
 		  array($this, "setDirty"));
 	}
 }

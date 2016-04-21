@@ -153,7 +153,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.interfaces.interface",
+		  "org.openmediavault.system.network.interface",
 		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
@@ -198,7 +198,8 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.hostname", $object->getAssoc());
+		  "org.openmediavault.system.network.dns",
+		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -480,7 +481,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		// Delete the configuration object.
 		return $this->deleteConfigObjectByUuid(
 		  "conf.system.network.interface", $params['uuid'],
-		  "org.openmediavault.system.network.interfaces.interface");
+		  "org.openmediavault.system.network.interface");
 	}
 
 	/**
@@ -969,7 +970,8 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.proxy", $object->getAssoc());
+		  "org.openmediavault.system.network.proxy",
+		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}

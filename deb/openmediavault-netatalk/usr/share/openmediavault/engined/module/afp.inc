@@ -162,28 +162,28 @@ class OMVModuleAFP extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.afp",
+		  "org.openmediavault.service.afp",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.services.afp.shares.share",
+		  "org.openmediavault.service.afp.share",
 		  array($this, "onShare"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.shares.sharedfolder",
+		  "org.openmediavault.system.sharedfolder",
 		  array($this, "onSharedFolder"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.shares.sharedfolder.privileges",
+		  "org.openmediavault.system.sharedfolder.privileges",
 		  array($this, "onSharedFolder"));
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.afp",
+		  "org.openmediavault.service.afp",
 		  array($moduleMngr->getModule("zeroconf"), "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.afp",
+		  "org.openmediavault.service.afp",
 		  array($moduleMngr->getModule("monit"), "setDirty"));
     }
 }
