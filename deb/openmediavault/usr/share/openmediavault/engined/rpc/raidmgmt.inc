@@ -246,7 +246,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_CREATE,
-		  "org.openmediavault.system.mdadm.device", array(
+		  "org.openmediavault.conf.system.mdadm.device", array(
 			  "name" => $params['name'],
 			  "devicefile" => sprintf("/dev/%s", $deviceName),
 			  "level" => $params['level'],
@@ -302,7 +302,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.mdadm.device", array(
+		  "org.openmediavault.conf.system.mdadm.device", array(
 			  "name" => $raid->getName(),
 			  "devicefile" => $raid->getDeviceFile(),
 			  "level" => $raid->getLevel(),
@@ -347,7 +347,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.mdadm.device", array(
+		  "org.openmediavault.conf.system.mdadm.device", array(
 			  "name" => $raid->getName(),
 			  "devicefile" => $raid->getDeviceFile(),
 			  "level" => $raid->getLevel(),
@@ -405,7 +405,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.mdadm.device", array(
+		  "org.openmediavault.conf.system.mdadm.device", array(
 			  "name" => $raid->getName(),
 			  "devicefile" => $raid->getDeviceFile(),
 			  "level" => $raid->getLevel(),
@@ -448,7 +448,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.mdadm.device", $object);
+		  "org.openmediavault.conf.system.mdadm.device", $object);
 	}
 
 	/**

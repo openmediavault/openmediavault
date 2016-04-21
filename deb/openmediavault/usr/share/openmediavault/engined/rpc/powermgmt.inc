@@ -78,7 +78,7 @@ class OMVRpcServicePowerMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.powermngmnt",
+		  "org.openmediavault.conf.system.powermngmnt",
 		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();

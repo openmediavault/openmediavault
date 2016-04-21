@@ -78,7 +78,7 @@ class OMVModuleSnmp extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.snmp",
+		  "org.openmediavault.conf.service.snmp",
 		  array($this, "setDirty"));
     }
 }

@@ -244,7 +244,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.time", $object->getAssoc());
+		  "org.openmediavault.conf.system.time", $object->getAssoc());
 	}
 
 	/**

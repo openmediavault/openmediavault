@@ -167,7 +167,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.certificate.ssl",
+		  "org.openmediavault.conf.system.certificate.ssl",
 		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
@@ -193,7 +193,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$db->assertIsNotReferenced($object);
 		// Delete the configuration object.
 		return $this->deleteConfigObjectByObject($object,
-		  "org.openmediavault.system.certificate.ssl");
+		  "org.openmediavault.conf.system.certificate.ssl");
 	}
 
 	/**
@@ -465,7 +465,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.certificate.ssh",
+		  "org.openmediavault.conf.system.certificate.ssh",
 		  $object->getAssoc());
 	}
 
@@ -489,6 +489,6 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$db->assertIsNotReferenced($object);
 		// Delete the configuration object.
 		return $this->deleteConfigObjectByObject($object,
-		  "org.openmediavault.system.certificate.ssh");
+		  "org.openmediavault.conf.system.certificate.ssh");
 	}
 }

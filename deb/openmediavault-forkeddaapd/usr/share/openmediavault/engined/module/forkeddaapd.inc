@@ -134,11 +134,11 @@ class OMVModuleForkedDaapd extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.daapd",
+		  "org.openmediavault.conf.service.daapd",
 		  [ $this, "onModifySettings" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.sharedfolder",
+		  "org.openmediavault.conf.system.sharedfolder",
 		  [ $this, "onModifySharedFolder" ]);
 	}
 }

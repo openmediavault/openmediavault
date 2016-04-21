@@ -84,7 +84,7 @@ class OMVRpcServiceSnmp extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.snmp", $object->getAssoc());
+		  "org.openmediavault.conf.service.snmp", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}

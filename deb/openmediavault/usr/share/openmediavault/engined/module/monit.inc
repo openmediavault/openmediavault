@@ -96,11 +96,11 @@ class OMVModuleMonit extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.notification.email",
+		  "org.openmediavault.conf.system.notification.email",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.notification.notification",
+		  "org.openmediavault.conf.system.notification.notification",
 		  array($this, "setDirty"));
     }
 }

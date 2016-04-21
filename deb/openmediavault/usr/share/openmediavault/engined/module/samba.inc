@@ -240,36 +240,36 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.smb",
+		  "org.openmediavault.conf.service.smb",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.service.smb.share",
+		  "org.openmediavault.conf.service.smb.share",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.sharedfolder",
+		  "org.openmediavault.conf.system.sharedfolder",
 		  array($this, "onSharedFolder"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.sharedfolder.privileges",
+		  "org.openmediavault.conf.system.sharedfolder.privilege",
 		  array($this, "onSharedFolder"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE,
-		  "org.openmediavault.system.usermngmnt.user",
+		  "org.openmediavault.conf.system.usermngmnt.user",
 		  array($this, "onAddUser"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.usermngmnt.user",
+		  "org.openmediavault.conf.system.usermngmnt.user",
 		  array($this, "onModifyUser"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.usermngmnt.user",
+		  "org.openmediavault.conf.system.usermngmnt.user",
 		  array($this, "onDeleteUser"));
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.smb",
+		  "org.openmediavault.conf.service.smb",
 		  array($moduleMngr->getModule("zeroconf"), "setDirty"));
     }
 }

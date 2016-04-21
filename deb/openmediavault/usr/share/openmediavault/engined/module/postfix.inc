@@ -63,15 +63,15 @@ class OMVModulePostfix extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.notification.email",
+		  "org.openmediavault.conf.system.notification.email",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.usermngmnt.user",
+		  "org.openmediavault.conf.system.usermngmnt.user",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.dns",
+		  "org.openmediavault.conf.system.network.dns",
 		  array($this, "setDirty"));
     }
 }

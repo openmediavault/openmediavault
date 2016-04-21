@@ -81,7 +81,7 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.nfs", $object->getAssoc());
+		  "org.openmediavault.conf.service.nfs", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -216,7 +216,7 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.nfs.share", $object->getAssoc());
+		  "org.openmediavault.conf.service.nfs.share", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -237,7 +237,7 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
 		$object = $this->deleteConfigObjectByUuid("conf.service.nfs.share",
-		  $params['uuid'], "org.openmediavault.service.nfs.share");
+		  $params['uuid'], "org.openmediavault.conf.service.nfs.share");
 		// Check if the shared folder is still shared by another NFS share.
 		// In this case do not delete or unmount the mount point configuration
 		// object.

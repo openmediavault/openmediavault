@@ -74,7 +74,7 @@ class OMVRpcServicePerfStats extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.monitoring.perfstats",
+		  "org.openmediavault.conf.system.monitoring.perfstats",
 		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();

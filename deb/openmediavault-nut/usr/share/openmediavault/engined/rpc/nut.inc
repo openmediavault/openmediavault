@@ -76,7 +76,7 @@ class OMVRpcServiceNetworkUPSTools extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.nut", $object->getAssoc(),
+		  "org.openmediavault.conf.service.nut", $object->getAssoc(),
 		  $oldObject->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();

@@ -63,11 +63,11 @@ class OMVModuleZeroconf extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.dns",
+		  "org.openmediavault.conf.system.network.dns",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.zeroconf.services",
+		  "org.openmediavault.conf.service.zeroconf.services",
 		  array($this, "setDirty"));
 	}
 }

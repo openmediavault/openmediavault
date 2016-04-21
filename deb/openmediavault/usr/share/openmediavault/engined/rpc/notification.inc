@@ -135,7 +135,7 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 		// Notify the configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.notification.notification",
+		  "org.openmediavault.conf.system.notification.notification",
 		  $objectsAssoc);
 		// Return the configuration object.
 		return $objectsAssoc;
@@ -230,7 +230,7 @@ class OMVRpcServiceEmailNotification extends \OMV\Rpc\ServiceAbstract {
 		// Notify the configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.notification.email",
+		  "org.openmediavault.conf.system.notification.email",
 		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();

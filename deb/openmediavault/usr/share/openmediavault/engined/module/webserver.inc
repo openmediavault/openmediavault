@@ -84,7 +84,7 @@ class OMVModuleWebserver extends OMVModuleNginxAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.certificate.ssl",
+		  "org.openmediavault.conf.system.certificate.ssl",
 		  array($this, "onModifySslCertificate"));
 	}
 }

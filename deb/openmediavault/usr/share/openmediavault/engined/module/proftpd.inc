@@ -114,36 +114,36 @@ class OMVModuleProftpd extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.ftp",
+		  "org.openmediavault.conf.service.ftp",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.service.ftp.share",
+		  "org.openmediavault.conf.service.ftp.share",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.service.ftp.modules.mod_ban.rule",
+		  "org.openmediavault.conf.service.ftp.modules.mod_ban.rule",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.ftp.modules.mod_tls",
+		  "org.openmediavault.conf.service.ftp.modules.mod_tls",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.dns",
+		  "org.openmediavault.conf.system.network.dns",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.sharedfolder",
+		  "org.openmediavault.conf.system.sharedfolder",
 		  array($this, "onSharedFolder"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.sharedfolder.privileges",
+		  "org.openmediavault.conf.system.sharedfolder.privilege",
 		  array($this, "onSharedFolder"));
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.ftp",
+		  "org.openmediavault.conf.service.ftp",
 		  array($moduleMngr->getModule("zeroconf"), "setDirty"));
     }
 }

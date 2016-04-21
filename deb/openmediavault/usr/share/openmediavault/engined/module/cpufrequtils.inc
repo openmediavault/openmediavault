@@ -69,7 +69,7 @@ class OMVModuleCPUFreqUtils extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.powermngmnt",
+		  "org.openmediavault.conf.system.powermngmnt",
 		  array($this, "setDirty"));
 	}
 }

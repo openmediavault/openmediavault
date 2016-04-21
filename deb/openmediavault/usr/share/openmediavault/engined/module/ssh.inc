@@ -118,16 +118,16 @@ class OMVModuleSsh extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.ssh",
+		  "org.openmediavault.conf.service.ssh",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.usermngmnt.user",
+		  "org.openmediavault.conf.system.usermngmnt.user",
 		  array($this, "onUser"));
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.ssh",
+		  "org.openmediavault.conf.service.ssh",
 		  array($moduleMngr->getModule("zeroconf"), "setDirty"));
     }
 }

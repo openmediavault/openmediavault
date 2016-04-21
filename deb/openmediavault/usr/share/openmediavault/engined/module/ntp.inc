@@ -73,7 +73,7 @@ class OMVModuleNtp extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.time",
+		  "org.openmediavault.conf.system.time",
 		  array($this, "setDirty"));
     }
 }

@@ -118,7 +118,7 @@ class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.clamav", $object->getAssoc());
+		  "org.openmediavault.conf.service.clamav", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -212,7 +212,7 @@ class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.clamav.job", $object->getAssoc());
+		  "org.openmediavault.conf.service.clamav.job", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -233,7 +233,7 @@ class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
 		return $this->deleteConfigObjectByUuid("conf.service.clamav.job",
-		  $params['uuid'], "org.openmediavault.service.clamav.job");
+		  $params['uuid'], "org.openmediavault.conf.service.clamav.job");
 	}
 
 	/**

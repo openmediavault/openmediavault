@@ -130,7 +130,7 @@ class OMVRpcServiceLDAP extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.ldap", $object);
+		  "org.openmediavault.conf.service.ldap", $object);
 		// Return the configuration object.
 		return $object;
 	}

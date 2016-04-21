@@ -335,7 +335,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.sharedfolder",
+		  "org.openmediavault.conf.system.sharedfolder",
 		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
@@ -449,7 +449,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_PREDELETE,
-		  "org.openmediavault.system.sharedfolder",
+		  "org.openmediavault.conf.system.sharedfolder",
 		  $object->getAssoc(), $recursive);
 		// Remove the shared folder and its content recursively?
 		if (TRUE === $recursive) {
@@ -471,7 +471,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Delete the configuration object.
 		return $this->deleteConfigObjectByObject($object,
-		  "org.openmediavault.system.sharedfolder");
+		  "org.openmediavault.conf.system.sharedfolder");
 	}
 
 	/**
@@ -597,7 +597,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.sharedfolder.privileges",
+		  "org.openmediavault.conf.system.sharedfolder.privilege",
 		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();

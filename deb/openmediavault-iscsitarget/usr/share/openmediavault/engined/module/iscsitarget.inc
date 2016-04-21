@@ -136,15 +136,15 @@ class OMVModuleIscsiTarget extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.iscsitarget",
+		  "org.openmediavault.conf.service.iscsitarget",
 		  array($this, "onModifySettings"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.service.iscsitarget.targets.target",
+		  "org.openmediavault.conf.service.iscsitarget.target",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.dns",
+		  "org.openmediavault.conf.system.network.dns",
 		  array($this, "setDirty"));
 	}
 }

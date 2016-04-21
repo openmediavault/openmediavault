@@ -211,7 +211,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_CREATE,
-		  "org.openmediavault.system.storage.lvm.physicalvolume", array(
+		  "org.openmediavault.conf.system.storage.lvm.physicalvolume", array(
 			  "devicefile" => $params['devicefile']
 		  ));
 	}
@@ -253,7 +253,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.storage.lvm.physicalvolume", array(
+		  "org.openmediavault.conf.system.storage.lvm.physicalvolume", array(
 			  "devicefile" => $params['devicefile']
 		  ));
 	}
@@ -295,7 +295,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.storage.lvm.physicalvolume", array(
+		  "org.openmediavault.conf.system.storage.lvm.physicalvolume", array(
 			  "devicefile" => $params['devicefile']
 		  ));
 	}
@@ -453,7 +453,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_CREATE,
-		  "org.openmediavault.system.storage.lvm.volumegroup", array(
+		  "org.openmediavault.conf.system.storage.lvm.volumegroup", array(
 			  "name" => $params['name'],
 			  "devices" => $devices
 		  ));
@@ -539,7 +539,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.storage.lvm.volumegroup", array(
+		  "org.openmediavault.conf.system.storage.lvm.volumegroup", array(
 			  "name" => $params['name']
 		  ));
 	}
@@ -627,7 +627,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Notify configuration changes.
 			$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 			$dispatcher->notify(OMV_NOTIFY_MODIFY,
-			  "org.openmediavault.system.storage.lvm.volumegroup", array(
+			  "org.openmediavault.conf.system.storage.lvm.volumegroup", array(
 				  "devicefile" => $params['devicefile'],
 				  "name" => $params['name']
 			  ));
@@ -679,7 +679,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Notify configuration changes.
 			$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 			$dispatcher->notify(OMV_NOTIFY_MODIFY,
-			  "org.openmediavault.system.storage.lvm.volumegroup", array(
+			  "org.openmediavault.conf.system.storage.lvm.volumegroup", array(
 				  "devicefile" => $params['devicefile'],
 				  "devices" => array_merge($extendPV, $pvs)
 			  ));
@@ -730,7 +730,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Notify configuration changes.
 			$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 			$dispatcher->notify(OMV_NOTIFY_MODIFY,
-			  "org.openmediavault.system.storage.lvm.volumegroup", array(
+			  "org.openmediavault.conf.system.storage.lvm.volumegroup", array(
 				  "devicefile" => $params['devicefile'],
 				  "devices" => array_diff($pvs, $reducePV)
 			  ));
@@ -862,7 +862,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_CREATE,
-		  "org.openmediavault.system.storage.lvm.logicalvolume", array(
+		  "org.openmediavault.conf.system.storage.lvm.logicalvolume", array(
 			  "name" => $params['name'],
 			  "size" => $params['size'],
 			  "vgname" => $params['vgname']
@@ -907,7 +907,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Notify configuration changes.
 			$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 			$dispatcher->notify(OMV_NOTIFY_MODIFY,
-			  "org.openmediavault.system.storage.lvm.logicalvolume", array(
+			  "org.openmediavault.conf.system.storage.lvm.logicalvolume", array(
 				  "devicefile" => $params['devicefile'],
 				  "name" => $params['name']
 			  ));
@@ -951,7 +951,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.storage.lvm.logicalvolume", array(
+		  "org.openmediavault.conf.system.storage.lvm.logicalvolume", array(
 			  "devicefile" => $params['devicefile']
 		  ));
 	}
@@ -1014,7 +1014,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.storage.lvm.logicalvolume", array(
+		  "org.openmediavault.conf.system.storage.lvm.logicalvolume", array(
 			  "devicefile" => $params['devicefile'],
 			  "size" => $params['size']
 		  ));

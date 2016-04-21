@@ -42,7 +42,7 @@ class OMVModuleProfile extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.proxy",
+		  "org.openmediavault.conf.system.network.proxy",
 		  array($this, "setDirty"));
 	}
 }

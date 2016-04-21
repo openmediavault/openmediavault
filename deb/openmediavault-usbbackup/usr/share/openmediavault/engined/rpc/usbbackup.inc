@@ -296,7 +296,7 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.usbbackup.job", $object);
+		  "org.openmediavault.conf.service.usbbackup.job", $object);
 		// Return the configuration object.
 		return $object;
 	}
@@ -319,7 +319,7 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 		$xpath = sprintf("//services/usbbackup/jobs/job[uuid='%s']",
 		  $params['uuid']);
 		return $this->deleteConfigObjectByPath($xpath,
-		  "org.openmediavault.service.usbbackup.job");
+		  "org.openmediavault.conf.service.usbbackup.job");
 	}
 
 	/**

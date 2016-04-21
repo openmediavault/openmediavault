@@ -162,7 +162,7 @@ class OMVRpcServiceNetworkRoute extends \OMV\Rpc\ServiceAbstract {
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.staticroutes.route", $object);
+		  "org.openmediavault.conf.service.staticroutes.route", $object);
 		// Return the configuration object.
 		return $object;
 	}
@@ -185,6 +185,6 @@ class OMVRpcServiceNetworkRoute extends \OMV\Rpc\ServiceAbstract {
 		$xpath = sprintf("//services/staticroutes/route[uuid='%s']",
 		  $params['uuid']);
 		return $this->deleteConfigObjectByPath($xpath,
-		  "org.openmediavault.service.staticroutes.route");
+		  "org.openmediavault.conf.service.staticroutes.route");
 	}
 }

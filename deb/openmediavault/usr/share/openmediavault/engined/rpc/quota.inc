@@ -216,7 +216,7 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.filesystem.quota",
+		  "org.openmediavault.conf.system.filesystem.quota",
 		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
@@ -239,6 +239,6 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 		// Delete the configuration object.
 		return $this->deleteConfigObjectByUuid(
 		  "conf.system.filesystem.quota", $params['uuid'],
-		  "org.openmediavault.system.filesystem.quota");
+		  "org.openmediavault.conf.system.filesystem.quota");
 	}
 }

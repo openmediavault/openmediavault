@@ -75,7 +75,7 @@ class OMVRpcServiceSsh extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.ssh",
+		  "org.openmediavault.conf.service.ssh",
 		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();

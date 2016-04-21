@@ -82,20 +82,20 @@ class OMVModuleInterfaces extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.dns",
+		  "org.openmediavault.conf.system.network.dns",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.network.interface",
+		  "org.openmediavault.conf.system.network.interface",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.network.interface",
+		  "org.openmediavault.conf.system.network.interface",
 		  array($this, "onDeleteInterface"));
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.network.interface",
+		  "org.openmediavault.conf.system.network.interface",
 		  array($moduleMngr->getModule("networking"), "setDirty"));
     }
 }

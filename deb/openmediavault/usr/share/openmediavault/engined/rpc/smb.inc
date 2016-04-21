@@ -85,7 +85,7 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.smb", $object->getAssoc());
+		  "org.openmediavault.conf.service.smb", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -178,7 +178,7 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.service.smb.share", $object->getAssoc());
+		  "org.openmediavault.conf.service.smb.share", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -199,7 +199,7 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
 		return $this->deleteConfigObjectByUuid("conf.service.smb.share",
-		  $params['uuid'], "org.openmediavault.service.smb.share");
+		  $params['uuid'], "org.openmediavault.conf.service.smb.share");
 	}
 
 	/**

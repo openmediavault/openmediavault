@@ -119,7 +119,7 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.iptables.rule", $objectsAssoc);
+		  "org.openmediavault.conf.system.network.iptables.rule", $objectsAssoc);
 		// Return the configuration object.
 		return $objectsAssoc;
 	}
@@ -202,7 +202,7 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.iptables.rule",
+		  "org.openmediavault.conf.system.network.iptables.rule",
 		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
@@ -225,6 +225,6 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 		// Delete the configuration object.
 		return $this->deleteConfigObjectByUuid(
 		  "conf.system.network.iptables.rule", $params['uuid'],
-		  "org.openmediavault.system.network.iptables.rule");
+		  "org.openmediavault.conf.system.network.iptables.rule");
 	}
 }
