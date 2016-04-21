@@ -26,7 +26,7 @@ namespace OMV\System\Storage\Backend;
  * @ingroup api
  */
 class Manager implements \IteratorAggregate {
-	private $backends = array();
+	private $backends = [];
 
 	/**
 	 * Returns a manager singleton.

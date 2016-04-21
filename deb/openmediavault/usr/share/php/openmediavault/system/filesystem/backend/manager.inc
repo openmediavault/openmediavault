@@ -28,7 +28,7 @@ require_once("openmediavault/functions.inc");
  * @ingroup api
  */
 class Manager implements \IteratorAggregate {
-	private $map = array();
+	private $map = [];
 
 	/**
 	 * Returns a manager singleton.
@@ -176,11 +176,11 @@ class Manager implements \IteratorAggregate {
 	/**
 	 * Enumerate all available/detected file systems.
 	 * @return An array of objects with the fields \em devicefile, \em uuid,
-	 *   \em label and \em type, otherwise FALSE.
+	 *   \em label and \em type.
 	 * @throw \OMV\ExecException
 	 */
 	final public function enumerate() {
-		$result = array();
+		$result = [];
 		// Get all file systems that are identified by the block device
 		// identification library.
 		// !!! Note !!!

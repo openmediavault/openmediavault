@@ -31,7 +31,6 @@ class OMVModuleLDAP extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "ldap");
@@ -46,15 +45,15 @@ class OMVModuleLDAP extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.ldap",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.ldap",
-		  array($moduleMngr->getModule("samba"), "setDirty"));
+		  [ $moduleMngr->getModule("samba"), "setDirty") ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.ldap",
-		  array($moduleMngr->getModule("pam"), "setDirty"));
+		  [ $moduleMngr->getModule("pam"), "setDirty") ]);
     }
 }

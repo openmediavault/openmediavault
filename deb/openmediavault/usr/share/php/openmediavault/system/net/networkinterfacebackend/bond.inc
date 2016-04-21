@@ -45,7 +45,7 @@ class Bond extends BackendAbstract {
 	function enumerateSlaves() {
 		if (FALSE === ($devs = $this->enumerate()))
 			return FALSE;
-		$result = array();
+		$result = [];
 		foreach ($devs as $devk => $devv) {
 			$object = $this->getImpl($devv);
 			if (!$object->exists())

@@ -26,7 +26,7 @@ namespace OMV\Rpc;
  * @ingroup api
  */
 class BgStatusFile {
-	private $status = array();
+	private $status = [];
 
 	/**
 	 * Constructor

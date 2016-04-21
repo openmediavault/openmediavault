@@ -69,7 +69,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->get("conf.system.certificate.ssl");
 		// Process the list of objects.
-		$result = array();
+		$result = [];
 		foreach ($objects as $objectk => $objectv) {
 			// Add additional properties.
 			$objectv->add("name", "string", "");
@@ -216,7 +216,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		if ($this->isModuleDirty("certificatemgmt"))
 			throw new \OMV\Config\ConfigDirtyException();
 		// Get certificate details.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "x509";
 		$cmdArgs[] = "-text";
 		$cmdArgs[] = "-noout";
@@ -262,7 +262,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Escape RDN attribute value, see
 			// http://www-03.ibm.com/systems/i/software/ldap/underdn.html
 			// http://msdn.microsoft.com/en-us/library/windows/desktop/aa366101(v=vs.85).aspx
-			$replace = array();
+			$replace = [];
 			foreach (array(',','+','<','>',';','\r','=','#','/') as $v) {
 				$replace[$v] = sprintf("\\%s", strtoupper(str_pad(dechex(
 				  ord($v)), 2, "0")));
@@ -286,7 +286,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// http://www.zytrax.com/tech/survival/ssl.html
 		$keyfile = tempnam(sys_get_temp_dir(), "cert");
 		$crtfile = tempnam(sys_get_temp_dir(), "cert");
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "req";
 		$cmdArgs[] = "-x509";
 		$cmdArgs[] = "-nodes";
@@ -345,7 +345,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->get("conf.system.certificate.ssh");
 		// Process the list of objects.
-		$result = array();
+		$result = [];
 		foreach ($objects as $objectk => $objectv) {
 			// Add additional properties.
 			$objectv->add("_used", "boolean");
@@ -377,7 +377,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.certificatemgmt.createssh");
 		// Create the requested certificate.
 		$file = tempnam(sys_get_temp_dir(), "id_rsa");
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "-t rsa";
 		$cmdArgs[] = "-P ''";
 		$cmdArgs[] = sprintf("-C %s", escapeshellarg(trim(array_value(

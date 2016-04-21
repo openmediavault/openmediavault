@@ -66,7 +66,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "Failed to get list of hard disks and hardware RAID devices.");
 		}
 		// Prepare result list.
-		$objects = array();
+		$objects = [];
 		foreach ($devs as $devk => $devv) {
 			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
 			if (is_null($sd) || !$sd->exists())
@@ -228,7 +228,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Wipe the device.
 			if (TRUE === boolvalEx($params['secure'])) {
 				// Secure wipe the device.
-				$cmdArgs = array();
+				$cmdArgs = [];
 				$cmdArgs[] = "-v";
 				$cmdArgs[] = "-n 1";
 				$cmdArgs[] = escapeshellarg($params['devicefile']);
@@ -241,7 +241,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				}
 			} else {
 				// Quick wipe the device (see omv-initfs).
-				$cmdArgs = array();
+				$cmdArgs = [];
 				$cmdArgs[] = "--zap-all";
 				$cmdArgs[] = escapeshellarg($params['devicefile']);
 				$cmd = new \OMV\System\Process("sgdisk", $cmdArgs);
@@ -252,7 +252,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 					  $output);
 				}
 				// To make sure really everything is wiped ...
-				$cmdArgs = array();
+				$cmdArgs = [];
 				$cmdArgs[] = "if=/dev/zero";
 				$cmdArgs[] = sprintf("of=%s", escapeshellarg(
 				  $params['devicefile']));
@@ -267,7 +267,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				}
 			}
 			// Reread partition table.
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = "--rereadpt";
 			$cmdArgs[] = escapeshellarg($params['devicefile']);
 			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);

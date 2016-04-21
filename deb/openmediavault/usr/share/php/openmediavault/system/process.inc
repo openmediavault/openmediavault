@@ -25,7 +25,7 @@ namespace OMV\System;
  * @ingroup api
  */
 class Process {
-	private $cmdArgs = array();
+	private $cmdArgs = [];
 	private $redirect2to1 = FALSE;
 	private $quiet = FALSE;
 	private $background = FALSE;
@@ -79,7 +79,7 @@ class Process {
 	 * @return The command line.
 	 */
 	public function getCommandLine() {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		foreach ($this->env as $env)
 			$cmdArgs[] = sprintf("export %s;", $env);
 		$cmdArgs = array_merge($cmdArgs, $this->cmdArgs);

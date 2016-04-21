@@ -1,0 +1,88 @@
+[{
+	"type": "rpc",
+	"id": "rpc.usbbackup.set",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+			    "type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"enable": {
+			    "type": "boolean",
+				"required": true
+			},
+			"mode": {
+			    "type": "string",
+			    "enum":[ "push", "pull" ],
+				"required": true
+			},
+			"sendemail": {
+			    "type": "boolean",
+				"required": true
+			},
+			"comment": {
+			    "type": "string",
+				"required": true
+			},
+			"fsuuid": {
+			    "type": "string",
+				"required": false
+			},
+			"sharedfolderref": {
+			    "type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"usesubdir": {
+			    "type": "boolean",
+				"required": true
+			},
+			"recursive": {
+			    "type": "boolean",
+				"required": true
+			},
+			"times": {
+			    "type": "boolean",
+				"required": true
+			},
+			"compress": {
+			    "type": "boolean",
+				"required": true
+			},
+			"archive": {
+			    "type": "boolean",
+				"required": true
+			},
+			"delete": {
+			    "type": "boolean",
+				"required": true
+			},
+			"quiet": {
+			    "type": "boolean",
+				"required": true
+			},
+			"perms": {
+			    "type": "boolean",
+				"required": true
+			},
+			"acls": {
+			    "type": "boolean",
+				"required": true
+			},
+			"xattrs": {
+			    "type": "boolean",
+				"required": true
+			},
+			"partial": {
+			    "type": "boolean",
+				"required": true
+			},
+			"extraoptions": {
+			    "type": "string",
+				"required": true
+			}
+		}
+	}
+}]

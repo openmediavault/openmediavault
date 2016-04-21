@@ -56,8 +56,8 @@ class TopologicalSort {
 	 * Cleanup the internal structures.
 	 */
 	public function clean() {
-		$this->nodes = array();
-		$this->dependencies = array();
+		$this->nodes = [];
+		$this->dependencies = [];
 	}
 
 	/**
@@ -95,7 +95,7 @@ class TopologicalSort {
 	 *   otherwise FALSE if the dependencies can not be solved.
 	 */
 	public function sort($ignoreMissing = TRUE) {
-		$sorted = array();
+		$sorted = [];
 		// Remove dependencies that do not exist.
 		if (TRUE === $ignoreMissing) {
 			foreach ($this->nodes as $nodek => $nodev) {

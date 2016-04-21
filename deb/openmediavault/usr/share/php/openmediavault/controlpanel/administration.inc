@@ -49,7 +49,7 @@ class Administration extends ControlPanelAbstract {
 	}
 
 	public function getJavascriptIncludes() {
-		$incList = array();
+		$incList = [];
 		$this->scanFiles("js/omv/SessionManager.js", $incList);
 		$this->scanFiles("js/omv/workspace/Workspace.js", $incList);
 		$this->scanDir("js/omv/module/public", $incList, TRUE);
@@ -81,7 +81,7 @@ class Administration extends ControlPanelAbstract {
 		  $GLOBALS['OMV_HTTPREQUEST_TIMEOUT'], $prd->getName(),
 		  $prd->getURL(), $prd->getCopyright(), $prd->getPackageName());
 		// Process the RPC error codes.
-		$errorCodes = array();
+		$errorCodes = [];
 		$reflectionClass = new \ReflectionClass("\OMV\ErrorMsgException");
 		foreach ($reflectionClass->getConstants() as $kConst => $vConst) {
 			$errorCodes[] = sprintf("OMV.%s = %s;", $kConst, $vConst);

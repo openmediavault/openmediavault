@@ -82,7 +82,7 @@ abstract class BackendAbstract {
 	 * @return A list of network interface names, otherwise FALSE.
 	 */
 	final protected function enumerateSysFs($regex) {
-		$result = array();
+		$result = [];
 		$dir = new \DirectoryIterator("/sys/class/net");
 		foreach ($dir as $item) {
 			// Skip everything that is not a symlink.

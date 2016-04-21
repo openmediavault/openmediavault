@@ -28,7 +28,7 @@ require_once("openmediavault/functions.inc");
  * @ingroup api
  */
 class ServiceManager {
-	private $map = array();
+	private $map = [];
 
 	public function __construct() {
 		// Get a list of all classes that are implementing a RPC service.

@@ -109,7 +109,7 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->get("conf.service.nfs.share");
 		// Add additional share informations.
-		$objectsAssoc = array();
+		$objectsAssoc = [];
 		foreach ($objects as $objectk => &$objectv) {
 			// Add the new property 'sharedfoldername'.
 			$objectv->add("sharedfoldername", "string", gettext("n/a"));

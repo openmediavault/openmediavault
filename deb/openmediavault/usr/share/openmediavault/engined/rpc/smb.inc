@@ -113,7 +113,7 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->get("conf.service.smb.share");
 		// Add additional share informations.
-		$objectsAssoc = array();
+		$objectsAssoc = [];
 		foreach ($objects as $objectk => &$objectv) {
 			// Add the new property 'sharedfoldername'.
 			$objectv->add("sharedfoldername", "string", gettext("n/a"));
@@ -178,7 +178,8 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.smb.share", $object->getAssoc());
+		  "org.openmediavault.conf.service.smb.share",
+		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -236,7 +237,7 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 			  $bgOutputFilename);
 			// Execute the rsync cron script.
 			$cmd = "/bin/sh";
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = sprintf("%s/samba-recycle-%s",
 			  $GLOBALS['OMV_CRONSCRIPTS_DIR'], $params['uuid']);
 			$cmdArgs[] = "-f";

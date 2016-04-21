@@ -30,8 +30,8 @@ require_once("openmediavault/functions.inc");
 abstract class ServiceAbstract {
 	use \OMV\Debugable;
 
-	private $registeredMethods = array();
-	private $registeredMethodSequences = array();
+	private $registeredMethods = [];
+	private $registeredMethodSequences = [];
 
 	/**
 	 * Get the name of the RPC service.
@@ -401,7 +401,7 @@ abstract class ServiceAbstract {
 	 */
 	final protected function exec($command, &$output = NULL,
 	  $outputFilename = NULL) {
-		$output = array();
+		$output = [];
 		$descriptors = array(
 			  0 => array("pipe", "r"), // STDIN
 			  1 => array("pipe", "w"), // STDOUT
@@ -419,7 +419,7 @@ abstract class ServiceAbstract {
 		stream_set_blocking($pipes[2], 0);
 		// Read the output from STDOUT/STDERR.
 		while (TRUE) {
-			$read = array();
+			$read = [];
 			// Collect the reading streams to monitor.
 			if(!is_null($pipes[1])) $read[] = $pipes[1];
 			if(!is_null($pipes[2])) $read[] = $pipes[2];

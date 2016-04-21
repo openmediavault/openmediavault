@@ -29,7 +29,7 @@ class Jfs extends Filesystem {
 	 */
 	final public function grow() {
 		$this->getData();
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "-o remount,resize";
 		$cmdArgs[] = escapeshellarg(Filesystem::buildMountPath(
 		  $this->getUuid()));

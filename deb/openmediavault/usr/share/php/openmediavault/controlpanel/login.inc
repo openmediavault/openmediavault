@@ -26,7 +26,7 @@ namespace OMV\ControlPanel;
  */
 class Login extends ControlPanelAbstract {
 	public function getJavascriptIncludes() {
-		$incList = array();
+		$incList = [];
 		$this->scanFiles("js/omv/window/Login.js", $incList);
 		return $incList;
 	}

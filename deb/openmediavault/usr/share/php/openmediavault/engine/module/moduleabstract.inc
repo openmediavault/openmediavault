@@ -113,7 +113,7 @@ abstract class ModuleAbstract {
 		if ($exists)
 			$tasks = $jsonFile->read();
 		else
-			$tasks = array();
+			$tasks = [];
 		// Add the new task to the list of pending tasks.
 		$tasks[] = array(
 			"id" => $id,

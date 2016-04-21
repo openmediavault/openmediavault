@@ -263,7 +263,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.system.setdate");
 		// Set the system date.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = sprintf("--set='@%d'", $params['timestamp']);
 		$cmd = new \OMV\System\Process("date", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);
@@ -283,7 +283,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Set the system date via NTP.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "-g";
 		$cmdArgs[] = "-q";
 		$cmd = new \OMV\System\Process("ntpd", $cmdArgs);

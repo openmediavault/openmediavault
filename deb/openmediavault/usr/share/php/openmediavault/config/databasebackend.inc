@@ -148,7 +148,7 @@ class DatabaseBackend {
 			if ($nodeList->length == 1) {
 				$result = $data;
 			} else {
-				if (!is_array($result)) $result = array();
+				if (!is_array($result)) $result = [];
 				$result[] = $data;
 			}
 		}
@@ -165,7 +165,7 @@ class DatabaseBackend {
 		$this->reload();
 		$domxpath = new \DOMXPath($this->domdoc);
 		$nodeList = $domxpath->query($xpath);
-		$result = array();
+		$result = [];
 		foreach ($nodeList as $nodek => $nodev) {
 			$result[] = $this->nodeToArray($nodev);
 		}
@@ -183,7 +183,7 @@ class DatabaseBackend {
 		$this->reload();
 		$domxpath = new \DOMXPath($this->domdoc);
 		$nodeList = $domxpath->query($xpath);
-		$result = array();
+		$result = [];
 		foreach ($nodeList as $nodek => $nodev) {
 			$result[] = $nodev->getNodePath();
 		}
@@ -582,7 +582,7 @@ class DatabaseBackend {
 					if ($childv->nodeName == '#comment')
 						continue;
  					if ($childv->nodeName !== '#text') {
-						if (!is_array($result)) $result = array();
+						if (!is_array($result)) $result = [];
 						$childElem = $domNode->getElementsByTagName(
 						  $childv->nodeName);
 						$numElements = 0;

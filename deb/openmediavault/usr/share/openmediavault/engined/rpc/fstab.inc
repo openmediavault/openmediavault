@@ -168,7 +168,7 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 		// Get the list of mount point configuration objects.
 		$objects = $this->callMethod("enumerateEntries", NULL, $context);
 		// Add function parameter to search argument list.
-		$args = array();
+		$args = [];
 		$args[] = $params['id'];
 		// If the function parameter is a device file, then try to get the
 		// file system UUID and add it to the search argument list. This is

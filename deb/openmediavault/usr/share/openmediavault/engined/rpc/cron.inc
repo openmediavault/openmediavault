@@ -63,7 +63,7 @@ class OMVRpcServiceCron extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->get("conf.system.cron.job");
 		// Get cron jobs that match the given type.
-		$jobs = array();
+		$jobs = [];
 		foreach ($objects as $objectk => $objectv) {
 			if (in_array($objectv->get("type"), $params['type'])) {
 				$jobs[] = $objectv->getAssoc();
@@ -174,7 +174,7 @@ class OMVRpcServiceCron extends \OMV\Rpc\ServiceAbstract {
 			// Note, we need to set the shell, otherwise the users shell
 			// is used instead of the shebang of the command script.
 			$cmd = "/bin/su";
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = "--command";
 			$cmdArgs[] = $object->get("command");
 			$cmdArgs[] = "--login";

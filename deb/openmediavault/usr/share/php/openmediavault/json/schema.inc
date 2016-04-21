@@ -32,7 +32,7 @@ require_once("openmediavault/functions.inc");
 class Schema {
 	use \OMV\Debugable;
 
-	private $schema = array();
+	private $schema = [];
 
 	/**
 	 * @param schema The schema as associative array in JSON schema syntax.

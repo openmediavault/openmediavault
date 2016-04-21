@@ -67,7 +67,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Get list of all detected filesystems.
 		$filesystems = \OMV\System\Filesystem\Filesystem::getFilesystems();
 		// Process the detected filesystems and skip unwanted ones.
-		$result = array();
+		$result = [];
 		foreach ($filesystems as $fs) {
 			// Get the filesystem backend.
 			$fsb = $fs->getBackend();
@@ -197,7 +197,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			array_unshift($objects, $rootObject);
 		}
 		// Get the file system details for each mount point.
-		$result = array();
+		$result = [];
 		foreach ($objects as $objectk => $objectv) {
 			// Get the filesystem backend.
 			$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
@@ -453,7 +453,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerateUnused()))
 			throw new \OMV\Exception("Failed to get list of unused devices.");
 		// Prepare the result list.
-		$result = array();
+		$result = [];
 		foreach ($devs as $devk => $devv) {
 			// Get the storage device object for the specified device file.
 			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
@@ -585,7 +585,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
 				throw new \OMV\ExecException($cmd, $output);
 			// Create the filesystem.
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = "-V";
 			$cmdArgs[] = sprintf("-t %s", $fsb->getType());
 			$cmdArgs[] = $fsb->getMkfsOptions($sd);

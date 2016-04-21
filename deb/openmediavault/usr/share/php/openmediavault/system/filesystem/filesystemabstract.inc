@@ -88,7 +88,7 @@ class FilesystemAbstract {
 			// - After a reboot a LVM2 logical volume is listed in
 			//   /dev/disk/by-uuid but pointing to /dev/dm-X and not to
 			//   /dev/mapper which is prefered.
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = sprintf("UUID=%s", escapeshellarg($this->uuid));
 			$cmd = new \OMV\System\Process("findfs", $cmdArgs);
 			$cmd->setRedirect2to1(TRUE);
@@ -106,7 +106,7 @@ class FilesystemAbstract {
 			$this->deviceFile = realpath($this->deviceFile);
 
 		// Get the file system information.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "-p";
 		$cmdArgs[] = "-o full";
 		$cmdArgs[] = escapeshellarg($this->deviceFile);
@@ -374,7 +374,7 @@ class FilesystemAbstract {
 	 */
 	public function getBlockSize() {
 		$this->getData();
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "--getbsz";
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
@@ -411,7 +411,7 @@ class FilesystemAbstract {
 		// wipefs: error: /dev/sdh1: appears to contain 'dos' partition table
 		if (in_array($this->getPartitionScheme(), array("dos", "vfat"))) {
 			// http://en.wikipedia.org/wiki/Master_boot_record
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = "if=/dev/zero";
 			$cmdArgs[] = sprintf("of=%s", escapeshellarg(
 			  $this->getDeviceFile()));
@@ -422,7 +422,7 @@ class FilesystemAbstract {
 			unset($cmdArgs);
 		}
 		// Finally remove the filesystem.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "-a";
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("wipefs", $cmdArgs);
@@ -437,7 +437,7 @@ class FilesystemAbstract {
 	 */
 	public function getMountPoint() {
 		$this->getData();
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "-cnrv";
 		$cmdArgs[] = "-o SOURCE,UUID,TARGET";
 		$cmd = new \OMV\System\Process("findmnt", $cmdArgs);
@@ -486,7 +486,7 @@ class FilesystemAbstract {
 		// Get the mount point of the filesystem.
 		if (FALSE === ($mountPoint = $this->getMountPoint()))
 			return FALSE;
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "-PT";
 		$cmdArgs[] = escapeshellarg($mountPoint);
 		$cmd = new \OMV\System\Process("df", $cmdArgs);
@@ -529,7 +529,7 @@ class FilesystemAbstract {
 	 */
 	public function isMounted() {
 		$this->getData();
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "-cnrv";
 		$cmdArgs[] = "-o SOURCE,UUID";
 		$cmd = new \OMV\System\Process("findmnt", $cmdArgs);

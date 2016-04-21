@@ -327,7 +327,7 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 			// the command output to the backgropund output file. Only the
 			// changelog will be redirected to this file.
 			if (!file_exists($packageArchivePath)) {
-				$cmdArgs = array();
+				$cmdArgs = [];
 				$cmdArgs[] = "--yes";
 				$cmdArgs[] = "--force-yes";
 				$cmdArgs[] = "--download-only";

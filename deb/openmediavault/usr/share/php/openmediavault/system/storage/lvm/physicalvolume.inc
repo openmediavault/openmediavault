@@ -55,7 +55,7 @@ class PhysicalVolume {
 
 		// Parse command output:
 		// gHikbD-106X-xVOQ-7wtr-Q6PO-Pn3Q-UTmNls|vg0|8585740288B|8585740288B|0B
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "--noheadings";
 		$cmdArgs[] = "--separator '|'";
 		$cmdArgs[] = "-C";
@@ -190,7 +190,7 @@ class PhysicalVolume {
 	 * @throw \OMV\ExecException
 	 */
 	public function create() {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("pvcreate", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);
@@ -203,7 +203,7 @@ class PhysicalVolume {
 	 * @throw \OMV\ExecException
 	 */
 	public function remove() {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "--yes";
 		$cmdArgs[] = "--force";
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
@@ -218,7 +218,7 @@ class PhysicalVolume {
 	 * @throw \OMV\ExecException
 	 */
 	public function resize() {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("pvresize", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);
@@ -235,7 +235,7 @@ class PhysicalVolume {
 	 * @throw \OMV\ExecException
 	 */
 	public static function enumerate() {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "--noheadings";
 		$cmdArgs[] = "--separator '|'";
 		$cmdArgs[] = "-C";
@@ -247,7 +247,7 @@ class PhysicalVolume {
 		//   /dev/sdc
 		//   /dev/sdd
 		//   unknown device
-		$result = array();
+		$result = [];
 		foreach($output as $outputk => $outputv) {
 			$deviceFile = trim($outputv);
 			if (!is_devicefile($deviceFile))

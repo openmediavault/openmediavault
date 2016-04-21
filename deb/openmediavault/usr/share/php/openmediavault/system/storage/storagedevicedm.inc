@@ -81,7 +81,7 @@ class StorageDeviceDM extends StorageDeviceAbstract {
 		$path = sprintf("/sys/block/%s/slaves", $this->getDeviceName(TRUE));
 		if(!file_exists($path))
 			return FALSE;
-		$result = array();
+		$result = [];
 		$dir = new DirectoryIterator($path);
 		foreach ($dir as $item) {
 			if ($item->isDot() || !$item->isLink())

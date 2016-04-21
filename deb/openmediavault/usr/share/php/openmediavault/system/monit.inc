@@ -98,7 +98,7 @@ class Monit {
 	 * @return None
 	 */
 	private function action($action, $quiet = FALSE) {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		// Append various command options.
 		if (TRUE === $this->group) {
 			$cmdArgs[] = "-g";

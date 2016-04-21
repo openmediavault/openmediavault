@@ -140,7 +140,7 @@ finish:
 		// Get list of user names.
 		$users = \OMV\System\User::getUsers();
 		// Iterate through all users to filter the requested ones.
-		$result = array();
+		$result = [];
 		foreach ($users as $userk => $userv) {
 			// Get the user information about the user.
 			if (FALSE === ($userInfo = $this->getUserInfo($userv)))
@@ -242,7 +242,7 @@ finish:
 		// Get list of group names.
 		$groups = \OMV\System\Group::getGroups();
 		// Get group information.
-		$result = array();
+		$result = [];
 		foreach ($groups as $groupk => $groupv) {
 			// Get the user information about the group.
 			if (FALSE === ($groupInfo = $this->getGroupInfo($groupv)))
@@ -502,7 +502,7 @@ finish:
 		$db->set($object);
 		// Prepare command arguments. Note, a user is always in the
 		// group 'users'.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "--gid";
 		$cmdArgs[] = escapeshellarg($GLOBALS['OMV_USERMGMT_DEFAULT_GROUP']);
 		if (array_key_exists("shell", $params)) {
@@ -622,7 +622,7 @@ finish:
 			  "name" => $params['name']
 		  ), $this->getAdminContext());
 		// Delete the user.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "--force";
 		$cmdArgs[] = escapeshellarg($params['name']);
 		$cmd = new \OMV\System\Process("userdel", $cmdArgs);
@@ -674,7 +674,7 @@ finish:
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
 			// Import users.
-			$objects = array();
+			$objects = [];
 			$csv = explode("\n", $params['csv']);
 			foreach ($csv as $linek => $linev) {
 				$linev = trim($linev);
@@ -854,7 +854,7 @@ finish:
 		$isNew = !$group->exists();
 		if (TRUE === $isNew) {
 			// Prepare command arguments.
-			$cmdArgs = array();
+			$cmdArgs = [];
 			if (array_key_exists("gid", $params)) {
 				$cmdArgs[] = "--gid";
 				$cmdArgs[] = $params['gid'];
@@ -876,7 +876,7 @@ finish:
 			// the notification event.
 			$objectAssoc['members'] = $params['members'];
 			// Append the given members to the group.
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = "--members";
 			$cmdArgs[] = escapeshellarg(implode(",", $params['members']));
 			$cmdArgs[] = escapeshellarg($params['name']);
@@ -914,7 +914,7 @@ finish:
 			  "name" => $params['name']
 		  ), $context);
 		// Delete the group.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "--only-if-empty";
 		$cmdArgs[] = escapeshellarg($params['name']);
 		$cmd = new \OMV\System\Process("delgroup", $cmdArgs);
@@ -965,7 +965,7 @@ finish:
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
 			// Import groups.
-			$objects = array();
+			$objects = [];
 			$csv = explode("\n", $params['csv']);
 			foreach ($csv as $linek => $linev) {
 				$linev = trim($linev);
@@ -1054,7 +1054,7 @@ finish:
 		// Update the non-system user.
 		$users = $this->enumerateUsersByType("normal");
 		foreach ($users as $userk => $userv) {
-			$cmdArgs = array();
+			$cmdArgs = [];
 			if (!empty($homeDirPath)) {
 				// Set new home directory. Move the content from the old to
 				// the new directory.

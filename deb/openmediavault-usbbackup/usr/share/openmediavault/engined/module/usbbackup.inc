@@ -30,7 +30,6 @@ class OMVModuleUsbBackup extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "usbbackup");
@@ -50,11 +49,14 @@ class OMVModuleUsbBackup extends \OMV\Engine\Module\ServiceAbstract
 	 * @param object The configuration object.
 	 */
 	final public function onSharedFolder($type, $path, $object) {
-		$db = &\OMV\Config\Database::getInstance();
-		if (TRUE === $db->getBackend()->exists(sprintf(
-		  "//services/usbbackup/jobs/job[sharedfolderref='%s']",
-		  $object['uuid'])))
+		$db = \OMV\Config\Database::getInstance();
+		if (TRUE === $db->exists("conf.service.usbbackup.job", [
+			"operator" => "stringEquals",
+			"arg0" => "sharedfolderref",
+			"arg1" => $object['uuid']
+		])) {
 			$this->setDirty();
+		}
 	}
 
 	/**
@@ -64,10 +66,10 @@ class OMVModuleUsbBackup extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.conf.service.usbbackup.job",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.system.sharedfolder",
-		  array($this, "onSharedFolder"));
+		  [ $this, "onSharedFolder" ]);
     }
 }

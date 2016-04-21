@@ -48,7 +48,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 
 		// Parse command output:
 		// VOSP6y-Lw75-pbTs-3v8A-6Qek-XBKJ-Md2G1q|vltest|test|12582912B
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "--noheadings";
 		$cmdArgs[] = "--separator '|'";
 		$cmdArgs[] = "-C";
@@ -164,7 +164,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	 * @throw \OMV\ExecException
 	 */
 	public function create($name, $size, $vgName) {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = sprintf("--name %s", escapeshellarg($name));
 		$cmdArgs[] = sprintf("--size %sK", binary_convert($size, "B", "KiB"));
 		$cmdArgs[] = escapeshellarg($vgName);
@@ -179,7 +179,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	 * @throw \OMV\ExecException
 	 */
 	public function remove() {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "--force";
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("lvremove", $cmdArgs);
@@ -195,7 +195,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	 */
 	public function rename($name) {
 		$this->getData();
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = escapeshellarg($this->getPath());
 		$cmdArgs[] = escapeshellarg($name);
 		$cmd = new \OMV\System\Process("lvrename", $cmdArgs);
@@ -211,7 +211,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	 */
 	public function extend($size) {
 		// Convert size to KiB to ensure it is a multiple of 512.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = sprintf("--size %sK", binary_convert($size, "B", "KiB"));
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("lvextend", $cmdArgs);
@@ -227,7 +227,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	 */
 	public function reduce($size) {
 		// Convert size to KiB to ensure it is a multiple of 512.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = sprintf("--size %sK", binary_convert($size, "B", "KiB"));
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("lvreduce", $cmdArgs);
@@ -245,7 +245,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	 * @throw \OMV\ExecException
 	 */
 	public static function enumerate() {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "--noheadings";
 		$cmdArgs[] = "--separator '|'";
 		$cmdArgs[] = "-C";
@@ -253,7 +253,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 		$cmd = new \OMV\System\Process("lvdisplay", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);
 		$cmd->execute($output);
-		$result = array();
+		$result = [];
 		foreach ($output as $outputk => $outputv) {
 			$outputv = explode("|", trim($outputv));
 			// Replace '-' with '--' in volume group name.

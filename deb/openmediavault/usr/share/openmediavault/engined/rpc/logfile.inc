@@ -67,7 +67,7 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 			  "Failed to open the log file (filename=%s).",
 			  $logfile->getFilePath());
 		}
-		$objects = array();
+		$objects = [];
 		$rowNum = 0;
 		while (($line = fgets($fh)) !== FALSE) {
 			if ($rowNum > $GLOBALS['OMV_MAX_LOGFILE_LINES'])

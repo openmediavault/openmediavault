@@ -19,10 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
-
 class OMVRpcServiceLDAP extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -46,26 +42,15 @@ class OMVRpcServiceLDAP extends \OMV\Rpc\ServiceAbstract {
 	 * @return An JSON object containing the fields \em enable, \em host,
 	 *   \em base, \em rootbinddn, \em rootbindpw, \em usersuffix,
 	 *   \em groupsuffix and \em extraoptions.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function getSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$xpath = "//services/ldap";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify result object.
-		$object['enable'] = boolvalEx($object['enable']);
-		$object['enablessl'] = boolvalEx($object['enablessl']);
-		$object['port'] = intval($object['port']);
-		return $object;
+		$db = \OMV\Config\Database::getInstance();
+		return $db->getAssoc("conf.service.ldap");
 	}
 
 	/**
@@ -81,57 +66,25 @@ class OMVRpcServiceLDAP extends \OMV\Rpc\ServiceAbstract {
 	 *   \em extraoptions The extra libnss.conf options.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function setSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "enable":{"type":"boolean"},
-				  "host":{"type":"string"},
-				  "port":{"type":"integer","minimum":1,"maximum":65535},
-				  "enablessl":{"type":"boolean"},
-				  "base":{"type":"string"},
-				  "rootbinddn":{"type":"string"},
-				  "rootbindpw":{"type":"string"},
-				  "usersuffix":{"type":"string"},
-				  "groupsuffix":{"type":"string"},
-				  "enablepam":{"type":"boolean"},
-				  "extraoptions":{"type":"string"},
-				  "extraclientoptions":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.ldap.setsettings");
 		// Prepare the configuration object.
-		$object = array(
-			"enable" => array_boolval($params, 'enable'),
-			"host" => trim($params['host']),
-			"port" => $params['port'],
-			"enablessl" => array_boolval($params, 'enablessl'),
-			"base" => trim($params['base']),
-			"rootbinddn" => trim($params['rootbinddn']),
-			"rootbindpw" => $params['rootbindpw'],
-			"usersuffix" => trim($params['usersuffix']),
-			"groupsuffix" => trim($params['groupsuffix']),
-			"enablepam" => array_boolval($params, 'enablepam'),
-			"extraoptions" => $params['extraoptions'],
-			"extraclientoptions" => $params['extraclientoptions']
-		);
+		$object = new \OMV\Config\ConfigObject("conf.service.ldap");
+		$object->setAssoc($params);
 		// Set the configuration object.
-		$xpath = "//services/ldap";
-		if (FALSE === $xmlConfig->replace($xpath, $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.ldap", $object);
+		  "org.openmediavault.conf.service.ldap", $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 }

@@ -44,7 +44,7 @@ abstract class ControlPanelAbstract {
 			  $fileName);
 		}
 		$abort = FALSE;
-		$scanList = array();
+		$scanList = [];
 		$regex = "/^(\/\/\s+require\(\"([^\s]+)\"\)|\/\*+|\*\/|\*.*|\s*)$/";
 		while (!feof($fh)) {
 			// Read line by line. Strip whitespace or other characters from
@@ -151,8 +151,8 @@ EOF;
 
 		// Get additional Javascript files. To improve loading speed the
 		// list of include files will be cached.
-		$jsList = array();
-		$parts = array();
+		$jsList = [];
+		$parts = [];
 		$parts[] = strtolower(get_class($this));
 		$parts[] = $this->getCacheFileId();
 		$parts[] = "js";

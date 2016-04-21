@@ -19,9 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
+require_once("openmediavault/globals.inc");
 
 class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 	/**
@@ -50,24 +48,18 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array containing objects with the following fields:
 	 *   \em uuid, \em devicefile and \em description.
 	 *   The field \em uuid is the mount point configuration object UUID.
-	 * @throw E_MISC_FAILURE
-	 * @throw E_MISC_DEVICE_NOT_FOUND
 	 */
 	public function getCandidates($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
 		// Get list of all detected filesystems. Note, the list may also
 		// contain RAID and LVM volumes, so the list must be filtered.
-		if (FALSE === ($objects = $fsbMngr->enumerate())) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  gettext("Failed to get filesystems"));
-		}
+		$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
+		$objects = $fsbMngr->enumerate();
 		// Collect volumes that are candidates for a backup job.
-		$result = array();
+		$result = [];
 		foreach ($objects as $objectk => $objectv) {
 			// Skip filesystem we do not support.
 			if (!$fsbMngr->isSupported($objectv['type']))
@@ -76,12 +68,8 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 			if (\OMV\System\System::isRootDeviceFile($objectv['devicefile']))
 				continue;
 			// Get the filesystem backend.
+			$fsbMngr->assertBackendExistsByType($objectv['type']);
 			$fsb = $fsbMngr->getBackendByType($objectv['type']);
-			if (is_null($fsb)) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("No filesystem backend exists for '%s'",
-				  $objectv['type']));
-			}
 			// Skip filesystems that support union mounts, e.g. UnionFS,
 			// aufs or mhddfs. Such filesystems do not have a device file
 			// which is required to write the UDEV rule.
@@ -89,11 +77,6 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 				continue;
 			// Get the filesystem implementation.
 			$fs = $fsb->getImpl($objectv['devicefile']);
-			if (is_null($fs) || !$fs->exists()) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-				  "Failed to get the '%s' filesystem implementation or '%s' ".
-				  "does not exist", $fsb->getType(), $objectv['devicefile']));
-			}
 			// Get the storage device containing the filesystem.
 			if (FALSE === ($storageDeviceFile = $fs->getStorageDeviceFile()))
 				continue;
@@ -106,13 +89,13 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 			if (!($sd->isUsb() || $sd->isAta()) || $sd->isReadOnly())
 				continue;
 			// Prepare result object.
-			$result[] = array(
+			$result[] = [
 				"uuid" => $objectv['uuid'],
 				"devicefile" => $objectv['devicefile'],
 				"label" => $objectv['label'],
 				"type" => $objectv['type'],
 				"description" => $sd->getDescription()
-			);
+			];
 		}
 		return $result;
 	}
@@ -127,10 +110,8 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getList($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -138,40 +119,26 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the configuration objects.
-		$xpath = "//services/usbbackup/jobs/job";
-		$objects = $xmlConfig->getList($xpath);
-		if(is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Add additional share informations.
-		foreach($objects as $objectk => &$objectv) {
-			$objectv['sharedfoldername'] = gettext("n/a");
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->get("conf.service.usbbackup.job");
+		// Add additional information.
+		$objectsAssoc = [];
+		foreach ($objects as $objectk => $objectv) {
+			// Add new properties.
+			$objectv->add("running", "boolean", FALSE);
+			$objectv->add("sharedfoldername", "string", gettext("n/a"));
 			// Get the shared folder configuration object.
-			$sfobject = $xmlConfig->get("//system/shares/sharedfolder[" .
-			  "uuid='{$objectv['sharedfolderref']}']");
-			if(!is_null($sfobject) && !empty($sfobject)) {
-				$objectv['sharedfoldername'] = $sfobject['name'];
-			}
+			$sfObject = $db->get("conf.system.sharedfolder",
+			  $objectv->get("sharedfolderref"));
+			// Update the 'sharedfoldername' property.
+			$objectv->set("sharedfoldername", $sfObject->get("name"));
 			// Get job status.
-			$objectv['running'] = file_exists(sprintf("/var/run/sync-%s",
-			  $objectv['fsuuid']));
-			// Modify result object.
-			$objectv['enable'] = boolvalEx($objectv['enable']);
-			$objectv['sendemail'] = boolvalEx($objectv['sendemail']);
-			$objectv['usesubdir'] = boolvalEx($objectv['usesubdir']);
-			$objectv['recursive'] = boolvalEx($objectv['recursive']);
-			$objectv['times'] = boolvalEx($objectv['times']);
-			$objectv['compress'] = boolvalEx($objectv['compress']);
-			$objectv['archive'] = boolvalEx($objectv['archive']);
-			$objectv['delete'] = boolvalEx($objectv['delete']);
-			$objectv['quiet'] = boolvalEx($objectv['quiet']);
-			$objectv['perms'] = boolvalEx($objectv['perms']);
-			$objectv['acls'] = boolvalEx($objectv['acls']);
-			$objectv['xattrs'] = boolvalEx($objectv['xattrs']);
+			$statusFile = sprintf("/var/run/sync-%s", $objectv->get("fsuuid"));
+			$objectv->set("running", file_exists($statusFile));
+			$objectsAssoc[] = $objectv->getAssoc();
 		}
 		// Filter the result.
-		return $this->applyFilter($objects, $params['start'],
+		return $this->applyFilter($objectsAssoc, $params['start'],
 		  $params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
@@ -181,10 +148,8 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function get($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -192,28 +157,8 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
-		$xpath = sprintf("//services/usbbackup/jobs/job[uuid='%s']",
-		  $params['uuid']);
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify result object.
-		$object['enable'] = boolvalEx($object['enable']);
-		$object['sendemail'] = boolvalEx($object['sendemail']);
-		$object['usesubdir'] = boolvalEx($object['usesubdir']);
-		$object['recursive'] = boolvalEx($object['recursive']);
-		$object['times'] = boolvalEx($object['times']);
-		$object['compress'] = boolvalEx($object['compress']);
-		$object['archive'] = boolvalEx($object['archive']);
-		$object['delete'] = boolvalEx($object['delete']);
-		$object['quiet'] = boolvalEx($object['quiet']);
-		$object['perms'] = boolvalEx($object['perms']);
-		$object['acls'] = boolvalEx($object['acls']);
-		$object['xattrs'] = boolvalEx($object['xattrs']);
-		$object['partial'] = boolvalEx($object['partial']);
-		return $object;
+		$db = \OMV\Config\Database::getInstance();
+		return $db->getAssoc("conf.service.usbbackup.job", $params['uuid']);
 	}
 
 	/**
@@ -221,84 +166,36 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_OBJECT_UNIQUENESS
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function set($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-				  "enable":{"type":"boolean"},
-				  "mode":{"type":"string","enum":["push","pull"]},
-				  "sendemail":{"type":"boolean"},
-				  "comment":{"type":"string"},
-				  "fsuuid":{"type":"string","optional":true},
-				  "sharedfolderref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
-				  "usesubdir":{"type":"boolean"},
-				  "recursive":{"type":"boolean"},
-				  "times":{"type":"boolean"},
-				  "compress":{"type":"boolean"},
-				  "archive":{"type":"boolean"},
-				  "delete":{"type":"boolean"},
-				  "quiet":{"type":"boolean"},
-				  "perms":{"type":"boolean"},
-				  "acls":{"type":"boolean"},
-				  "xattrs":{"type":"boolean"},
-				  "partial":{"type":"boolean"},
-				  "extraoptions":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.usbbackup.set");
 		// Prepare the configuration object.
-		$object = array(
-			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  \OMV\Uuid::uuid4() : $params['uuid'],
-			"enable" => array_boolval($params, 'enable'),
-			"mode" => $params['mode'],
-			"sendemail" => array_boolval($params, 'sendemail'),
-			"comment" => $params['comment'],
-			"fsuuid" => $params['fsuuid'],
-			"sharedfolderref" => $params['sharedfolderref'],
-			"usesubdir" => array_boolval($params, 'usesubdir'),
-			"recursive" => array_boolval($params, 'recursive'),
-			"times" => array_boolval($params, 'times'),
-			"compress" => array_boolval($params, 'compress'),
-			"archive" => array_boolval($params, 'archive'),
-			"delete" => array_boolval($params, 'delete'),
-			"quiet" => array_boolval($params, 'quiet'),
-			"perms" => array_boolval($params, 'perms'),
-			"acls" => array_boolval($params, 'acls'),
-			"xattrs" => array_boolval($params, 'xattrs'),
-			"partial" => array_boolval($params, 'partial'),
-			"extraoptions" => $params['extraoptions']
-		);
+		$object = new \OMV\Config\ConfigObject("conf.service.usbbackup.job");
+		$object->setAssoc($params);
+		// Do some validations:
+		// - Check if quarantine shared folder exists when it is referenced.
+		if ("quarantine" === $object->get("virusaction")) {
+			$object2 = $db->get("conf.service.clamav");
+			if ($object2->isEmpty("quarantine_sharedfolderref")) {
+				throw new \OMV\Exception("No quarantine folder is set.");
+			}
+		}
 		// Set the configuration object.
-		$success = FALSE;
-		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
-			// Append object to configuration.
-			$success = $xmlConfig->set("//services/usbbackup/jobs",
-			  array("job" => $object));
-		} else {
-			// Update existing configuration object.
-			$success = $xmlConfig->replace("//services/usbbackup/jobs/job[" .
-			  "uuid='{$params['uuid']}']", $object);
-		}
-		if(FALSE === $success) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$isNew = $object->isNew();
+		$db = \OMV\Config\Database::getInstance();
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.usbbackup.job", $object);
+		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.conf.service.usbbackup.job",
+		  $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -316,10 +213,8 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		$xpath = sprintf("//services/usbbackup/jobs/job[uuid='%s']",
-		  $params['uuid']);
-		return $this->deleteConfigObjectByPath($xpath,
-		  "org.openmediavault.conf.service.usbbackup.job");
+		return $this->deleteConfigObjectByUuid("conf.service.usbbackup.job",
+		  $params['uuid'], "org.openmediavault.conf.service.usbbackup.job");
 	}
 
 	/**
@@ -328,7 +223,7 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the cron job to execute.
 	 * @param context The context of the caller.
 	 * @return The name of the background process status file.
-	 * @throw E_CONFIG_DIRTY
+	 * @throw \OMV\Config\ConfigDirtyException
 	 */
 	public function execute($params, $context) {
 		// Validate the RPC caller context.
@@ -340,13 +235,12 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 		// Check if the module is marked as dirty. This is an indication
 		// that the rsync cron script has not been created or updated
 		// until now.
-		if($this->isModuleDirty("usbbackup")) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_DIRTY);
-		}
+		if ($this->isModuleDirty("usbbackup"))
+			throw new \OMV\Config\ConfigDirtyException();
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
-		if($pid > 0) { // Parent process.
+		if ($pid > 0) { // Parent process.
 			$this->initializeBgProcStatus($bgStatusFilename, $pid);
 			return $bgStatusFilename;
 		}
@@ -357,8 +251,10 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 			  $bgOutputFilename);
 			// Execute the backup script.
 			$cmd = "/bin/sh";
-			$cmdArgs = array(sprintf("%s/rsync-%s",
-			  $GLOBALS['OMV_USBBACKUP_SCRIPTS_DIR'], $params['uuid']));
+			$cmdArgs = [];
+			$cmdArgs[] = build_path(DIRECTORY_SEPARATOR,
+			  $GLOBALS['OMV_USBBACKUP_SCRIPTS_DIR'],
+			  sprintf("rsync-%s", $params['uuid']));
 			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename))
 				throw new \OMV\ExecException($cmd." ".implode(" ", $cmdArgs));
 		} catch(Exception $e) {

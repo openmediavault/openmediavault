@@ -109,7 +109,7 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->get("conf.service.rsyncd.module");
 		// Add additional share informations.
-		$objectsAssoc = array();
+		$objectsAssoc = [];
 		foreach ($objects as $objectk => &$objectv) {
 			// Relocate the users property.
 			$objectv->move("users.user", "users");

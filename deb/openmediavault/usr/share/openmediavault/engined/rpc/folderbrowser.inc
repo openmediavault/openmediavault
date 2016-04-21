@@ -77,7 +77,7 @@ class OMVRpcServiceFolderBrowser extends \OMV\Rpc\ServiceAbstract {
 			break;
 		}
 		// List the directory contents.
-		$result = array();
+		$result = [];
 		$path = build_path(DIRECTORY_SEPARATOR, $rootPath, $params['path']);
 		foreach (new \DirectoryIterator($path) as $item) {
 			if ($item->isDot())

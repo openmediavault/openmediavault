@@ -63,7 +63,7 @@ class MountPoint {
 	 * @throw \OMV\ExecException
 	 */
 	public function mount($options = "") {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "-v";
 		if (!empty($options)) {
 			if (!is_array($options))
@@ -84,7 +84,7 @@ class MountPoint {
 	 * @throw \OMV\ExecException
 	 */
 	public function umount($force = FALSE, $lazy = FALSE) {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "-v";
 		if (TRUE === $force)
 			$cmdArgs[] = "-f";
@@ -104,7 +104,7 @@ class MountPoint {
 	public function mkDir() {
 		if (is_dir($this->dir))
 			return;
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "--parents";
 		$cmdArgs[] = "--mode=0700";
 		$cmdArgs[] = escapeshellarg($this->dir);
@@ -120,7 +120,7 @@ class MountPoint {
 	 * @throw \OMV\ExecException
 	 */
 	public function unlinkDir($force = TRUE) {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "--recursive";
 		$cmdArgs[] = "--force";
 		$cmdArgs[] = escapeshellarg($this->dir);
@@ -157,7 +157,7 @@ class MountPoint {
 	 * @return TRUE if the directory is a mount point, FALSE if not.
 	 */
 	public function isMountPoint() {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = escapeshellarg($this->dir);
 		$cmd = new \OMV\System\Process("mountpoint", $cmdArgs);
 		$cmd->setQuiet(TRUE);

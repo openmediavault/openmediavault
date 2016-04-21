@@ -1,0 +1,83 @@
+{
+	"type": "config",
+	"id": "conf.service.usbbackup.job",
+	"title": "USB backup job",
+	"queryinfo": {
+		"xpath": "//services/usbbackup/jobs/job",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"sendemail": {
+			"type": "boolean",
+			"default": false
+		},
+		"comment": {
+			"type": "string",
+			"default": ""
+		},
+		"fsuuid": {
+			"type": "string",
+			"format": "fsuuid"
+		},
+		"sharedfolderref": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"usesubdir": {
+			"type": "boolean",
+			"default": false
+		},
+		"recursive": {
+			"type": "boolean",
+			"default": true
+		},
+		"times": {
+			"type": "boolean",
+			"default": true
+		},
+		"compress": {
+			"type": "boolean",
+			"default": false
+		},
+		"archive": {
+			"type": "boolean",
+			"default": true
+		},
+		"delete": {
+			"type": "boolean",
+			"default": false
+		},
+		"quiet": {
+			"type":"boolean",
+			"default": false
+		},
+		"perms": {
+			"type": "boolean",
+			"default": true
+		},
+		"acls": {
+			"type": "boolean",
+			"default": false
+		},
+		"xattrs":{
+			"type": "boolean",
+			"default": false
+		},
+		"partial": {
+			"type": "boolean",
+			"default": false
+		},
+		"extraoptions": {
+			"type": "string"
+		}
+	}
+}

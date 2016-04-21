@@ -227,7 +227,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Generate the result objects including all information about
 		// the network interfaces.
-		$result = array();
+		$result = [];
 		foreach ($devs as $devk => $devv) {
 			// Get the network interface backend.
 			$mngr->assertBackendExists($devv);
@@ -331,7 +331,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->get("conf.system.network.interface");
 		// Now get the network interface configuration objects.
-		$result = array();
+		$result = [];
 		foreach ($objects as $objectk => $objectv) {
 			$objectAssoc = $objectv->getAssoc();
 			// Is the ethernet interface device somewhere referenced?
@@ -391,7 +391,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			  $bgOutputFilename);
 			// Initiate adapter-specific action intended to enable an operator
 			// to easily identify the adapter by sight.
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = "--identify";
 			$cmdArgs[] = escapeshellarg($params['devicename']);
 			$cmdArgs[] = $params['seconds'];
@@ -504,7 +504,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			  "Failed to get list of unused network interface devices.");
 		}
 		// Get the network interface information.
-		$result = array();
+		$result = [];
 		foreach ($devs as $devk => $devv) {
 			// Does a configuration object exists for the given network
 			// interface device? In this case skip this device.
@@ -581,7 +581,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.network.enumeratebondslaves");
 		// Get list of network interfaces.
 		$db = \OMV\Config\Database::getInstance();
-		$result = array();
+		$result = [];
 		if (array_key_exists("unused", $params) && $params['unused'] === TRUE) {
 			// Get all unused network interface devices, except loopback and
 			// VLAN network interfaces.
@@ -773,7 +773,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			  "Failed to get list of unused network interface devices.");
 		}
 		// Get the network interface information.
-		$result = array();
+		$result = [];
 		foreach ($devs as $devk => $devv)
 			$result[] = $this->getIfaceInfo($devv);
 		return $result;
@@ -837,7 +837,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			  "Failed to get list of unused network interface devices.");
 		}
 		// Get the network interface information.
-		$result = array();
+		$result = [];
 		foreach ($devs as $devk => $devv) {
 			// Does a configuration object exists for the given network
 			// interface device? In this case skip this device.

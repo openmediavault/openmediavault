@@ -194,7 +194,7 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 			$objectv['wthreads'] = intval($objectv['wthreads']);
 			$objectv['queuedcommands'] = intval($objectv['queuedcommands']);
 			if(empty($object['luns']['lun']))
-				$object['luns'] = array();
+				$object['luns'] = [];
 			else {
 				$object['luns'] = $object['luns']['lun'];
 				foreach($object['luns'] as $lunk => &$lunv) {
@@ -202,7 +202,7 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 				}
 			}
 			if(empty($object['authentication']['user']))
-				$object['authentication'] = array();
+				$object['authentication'] = [];
 			else
 				$object['authentication'] = $object['authentication']['user'];
 		}
@@ -251,7 +251,7 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 		$object['wthreads'] = intval($object['wthreads']);
 		$object['queuedcommands'] = intval($object['queuedcommands']);
 		if(empty($object['luns']['lun']))
-			$object['luns'] = array();
+			$object['luns'] = [];
 		else {
 			$object['luns'] = $object['luns']['lun'];
 			foreach($object['luns'] as $lunk => &$lunv) {
@@ -259,7 +259,7 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 			}
 		}
 		if(empty($object['authentication']['user']))
-			$object['authentication'] = array();
+			$object['authentication'] = [];
 		else
 			$object['authentication'] = $object['authentication']['user'];
 		return $object;

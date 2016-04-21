@@ -70,11 +70,11 @@
 		},
 		"recursive": {
 			"type": "boolean",
-			"default": false
+			"default": true
 		},
 		"times": {
 			"type": "boolean",
-			"default": false
+			"default": true
 		},
 		"compress": {
 			"type": "boolean",
@@ -82,7 +82,7 @@
 		},
 		"archive": {
 			"type": "boolean",
-			"default": false
+			"default": true
 		},
 		"delete": {
 			"type": "boolean",
@@ -90,11 +90,11 @@
 		},
 		"quiet": {
 			"type":"boolean",
-			"default": false
+			"default": true
 		},
 		"perms": {
 			"type": "boolean",
-			"default": false
+			"default": true
 		},
 		"acls": {
 			"type": "boolean",
@@ -113,8 +113,7 @@
 			"default": false
 		},
 		"extraoptions": {
-			"type": "string",
-			"default": ""
+			"type": "string"
 		},
 		"mode": {
 			"type": "string",

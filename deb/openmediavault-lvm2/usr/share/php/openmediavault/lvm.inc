@@ -56,7 +56,7 @@ class OMVLvmVolumeGroups {
 		if ($result !== 0) {
 			return FALSE;
 		}
-		$list = array();
+		$list = [];
 		// Parse command output:
 		//   vg0
 		foreach ($output as $outputk => $outputv) {
@@ -76,8 +76,8 @@ class OMVLvmVolumeGroup {
 	protected $free = "";
 	protected $pvCount = 0;
 	protected $lvCount = 0;
-	protected $pvName = array();
-	protected $lvName = array();
+	protected $pvName = [];
+	protected $lvName = [];
 	protected $extentSize = "";
 	protected $extentCount = "";
 	protected $freeCount = "";
@@ -123,7 +123,7 @@ class OMVLvmVolumeGroup {
 		$this->freeCount = $output[8];
 
 		// Get the names of the physical volumes.
-		$this->pvName = array();
+		$this->pvName = [];
 		if($this->pvCount > 0) {
 			unset($output);
 			$cmd = sprintf("export LANG=C; vgdisplay --noheadings ".
@@ -141,7 +141,7 @@ class OMVLvmVolumeGroup {
 		}
 
 		// Get the names of the logical volumes.
-		$this->lvName = array();
+		$this->lvName = [];
 		if($this->lvCount > 0) {
 			unset($output);
 			$cmd = sprintf("export LANG=C; vgdisplay --noheadings ".

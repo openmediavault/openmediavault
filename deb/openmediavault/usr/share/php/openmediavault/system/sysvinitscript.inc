@@ -71,7 +71,7 @@ class SysVInitScript {
 	private function update($disable) {
 		if (!$this->update)
 			return;
-		$cmdArgs = array();
+		$cmdArgs = [];
 		switch ($disable) {
 		case FALSE:
 			$cmdArgs[] = escapeshellarg($this->name);
@@ -106,7 +106,7 @@ class SysVInitScript {
 	 * @throw E_EXEC_FAILED
 	 */
 	public function defaults() {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = escapeshellarg($this->name);
 		$cmdArgs[] = "defaults";
 		$cmd = new \OMV\System\Process("update-rc.d", $cmdArgs);
@@ -119,7 +119,7 @@ class SysVInitScript {
 	 * @throw E_EXEC_FAILED
 	 */
 	public function remove() {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "--force";
 		$cmdArgs[] = escapeshellarg($this->name);
 		$cmdArgs[] = "remove";
@@ -163,7 +163,7 @@ class SysVInitScript {
 	 * @throw E_EXEC_FAILED
 	 */
 	public function invoke($action) {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = escapeshellarg($this->name);
 		$cmdArgs[] = $action;
 		$cmd = new \OMV\System\Process("invoke-rc.d", $cmdArgs);
@@ -186,7 +186,7 @@ class SysVInitScript {
 	 * See http://refspecs.freestandards.org/LSB_3.1.0/LSB-Core-generic/LSB-Core-generic/iniscrptact.html
 	 */
 	public function status() {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = escapeshellarg($this->name);
 		$cmdArgs[] = "status";
 		$cmd = new \OMV\System\Process("invoke-rc.d", $cmdArgs);

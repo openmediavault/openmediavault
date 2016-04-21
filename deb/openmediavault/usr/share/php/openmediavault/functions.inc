@@ -31,7 +31,7 @@ require_once("openmediavault/autoloader.inc");
 function array_flatten(array $array, $separator = ".", $prefix = "") {
 	if (!is_array($array))
         return FALSE;
-	$result = array();
+	$result = [];
     foreach ($array as $key => $value) {
         if (is_array($value))
             $result = array_merge($result, array_flatten($value, $separator,
@@ -50,16 +50,16 @@ function array_flatten(array $array, $separator = ".", $prefix = "") {
 function array_expand(array $array, $separator = ".") {
 	if (!is_array($array))
         return FALSE;
-    $return = array();
+    $return = [];
     foreach ($array as $key => $value) {
         $parts = explode($separator, $key);
         $leafKey = array_pop($parts);
         $parent = &$return;
         foreach ($parts as $partk => $partv) {
             if (!isset($parent[$partv]))
-                $parent[$partv] = array();
+                $parent[$partv] = [];
             else if (!is_array($parent[$partv]))
-                $parent[$partv] = array();
+                $parent[$partv] = [];
             $parent = &$parent[$partv];
         }
         if (empty($parent[$leafKey]))
@@ -89,7 +89,7 @@ function array_sort_key(array &$array, $key) {
  * @return Returns the filtered array.
  */
 function array_filter_ex($array, $key, $value) {
-	$result = array();
+	$result = [];
 	if(is_array($array) && count($array) > 0) {
 		foreach(array_keys($array) as $keyv){
 			$temp[$keyv] = $array[$keyv][$key];
@@ -156,7 +156,7 @@ function array_rand_value($array, $num = 1) {
 		return NULL;
 	if (!is_array($keys))
 		return $array[$keys];
-	$result = array();
+	$result = [];
 	foreach ($keys as $keyk => $keyv) {
 		$result[] = $array[$keyv];
 	}
@@ -579,7 +579,7 @@ function build_path($separator, ...$parts) {
  * @return Returns an array of files from the directory.
  */
 function listdir($directory, $extension = "", $sortFlags = SORT_NATURAL) {
-	$files = array();
+	$files = [];
 	foreach (new \DirectoryIterator($directory) as $item) {
 		if ($item->isDot())
 			continue;
@@ -679,7 +679,7 @@ function fs_uuid_equals($uuid1, $uuid2) {
  *   current script that match the specified criteria.
  */
 function get_declared_subclasses($class) {
-	$classNames = array();
+	$classNames = [];
 	foreach (get_declared_classes() as $className) {
 		$wanted = TRUE;
 		$classObject = new \ReflectionClass($className);

@@ -159,7 +159,7 @@ class Group {
 	 * @throw \OMV\ExecException
 	 */
 	public function getQuotas() {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "-g";
 		$cmdArgs[] = escapeshellarg($this->getName());
 		$cmd = new \OMV\System\Process("edquota", $cmdArgs);
@@ -170,7 +170,7 @@ class Group {
 		// Filesystem                   blocks       soft       hard     inodes     soft     hard
 		// /dev/sdb1                     10188          0      12288          4        0        0
 		// /dev/sdc1                         0          0      45056          0        0        0
-		$result = array();
+		$result = [];
 		foreach ($output as $outputk => $outputv) {
 			if (preg_match("/^\s+(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+".
 			  "(\d+)\s+(\d+)$/i", $outputv, $matches)) {
@@ -219,7 +219,7 @@ class Group {
 		// sambashare:x:113:
 		// openmediavault:x:999:
 		// nut:x:114:
-		$list = array();
+		$list = [];
 		foreach ($output as $outputv) {
 			$data = explode(":", $outputv);
 			if (empty($data))

@@ -57,7 +57,7 @@ class Email {
 	 */
 	public function send() {
 		// Prepare additional email headers.
-		$headers = array();
+		$headers = [];
 		// Set date in RFC 2882 format.
 		$headers[] = sprintf('Date: %s', date('r'));
 		// Append the sender address.

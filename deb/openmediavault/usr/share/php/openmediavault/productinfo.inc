@@ -28,7 +28,7 @@ require_once("openmediavault/globals.inc");
  * @ingroup api
  */
 class ProductInfo {
-	private $data = array();
+	private $data = [];
 
 	public function __construct() {
 		$xml = simplexml_load_file($GLOBALS['OMV_PRODUCTINFO_FILE']);
@@ -52,7 +52,7 @@ class ProductInfo {
 	 * @return The product version as string, otherwise FALSE.
 	 */
 	public function getVersion() {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "-W";
 		$cmdArgs[] = "-f='\${Version}'";
 		$cmdArgs[] = $this->getPackageName();

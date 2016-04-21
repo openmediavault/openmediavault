@@ -40,7 +40,7 @@ class DM extends BackendAbstract {
 		$devs = $this->enumerate();
 		if (FALSE === $devs)
 			return FALSE;
-		$result = array();
+		$result = [];
 		foreach($devs as $devk => $devv) {
 			$object = $this->getImpl($devv);
 			if (!$object->exists())

@@ -32,7 +32,7 @@ class Filesystem extends FilesystemAbstract {
 	 * @throw \OMV\Exception
 	 */
 	public static function getFilesystems() {
-		$result = array();
+		$result = [];
 		$mngr = Backend\Manager::getInstance();
 		foreach ($mngr->enumerate() as $datak => $datav) {
 			// Get the filesystem backend.

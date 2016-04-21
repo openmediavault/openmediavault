@@ -23,7 +23,7 @@ namespace OMV\System\Filesystem;
 
 class Btrfs extends Filesystem {
 	protected $numTotalDeviceFiles = 0;
-	protected $deviceFiles = array();
+	protected $deviceFiles = [];
 
 	/**
 	 * Get the filesystem detailed information.
@@ -44,7 +44,7 @@ class Btrfs extends Filesystem {
 		$this->setCached(FALSE);
 
 		// Get the file system information.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "fi";
 		$cmdArgs[] = "show";
 		$cmdArgs[] = escapeshellarg($this->uuid);
@@ -136,7 +136,7 @@ class Btrfs extends Filesystem {
 		if (FALSE === ($stats = parent::getStatistics()))
 			return FALSE;
 
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "fi";
 		$cmdArgs[] = "df";
 		$cmdArgs[] = "-b";
@@ -207,7 +207,7 @@ class Btrfs extends Filesystem {
 
 		unset($cmd, $output);
 
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("btrfs-show-super", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);

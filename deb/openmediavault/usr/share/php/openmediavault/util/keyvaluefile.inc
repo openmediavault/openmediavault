@@ -33,7 +33,7 @@ class KeyValueFile {
 	}
 
 	final public function getAssoc() {
-		$map = array();
+		$map = [];
 		// Read the file into an array.
 		$rows = file($this->filename);
 		// Prepare regular expression.

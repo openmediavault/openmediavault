@@ -58,7 +58,7 @@ class NetworkInterface {
 		case "ifconfig":
 			if (!is_null($this->ifconfig))
 				return;
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = escapeshellarg($this->getDeviceName());
 			$cmd = new \OMV\System\Process("ifconfig", $cmdArgs);
 			$cmd->setRedirect2to1(TRUE);
@@ -68,7 +68,7 @@ class NetworkInterface {
 		case "ip":
 			if (!is_null($this->ip))
 				return;
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = "addr";
 			$cmdArgs[] = "show";
 			$cmdArgs[] = "dev";
@@ -83,7 +83,7 @@ class NetworkInterface {
 		case "ethtool":
 			if (!is_null($this->ethtool))
 				return;
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = escapeshellarg($this->getDeviceName());
 			$cmd = new \OMV\System\Process("ethtool", $cmdArgs);
 			$cmd->setRedirect2to1(TRUE);
@@ -199,7 +199,7 @@ class NetworkInterface {
 	 * @throw \OMV\ExecException
 	 */
 	public function getGateway() {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "-4";
 		$cmdArgs[] = "route";
 		$cmdArgs[] = "show";
@@ -224,7 +224,7 @@ class NetworkInterface {
 	 * @throw \OMV\ExecException
 	 */
 	public function getGateway6() {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "-6";
 		$cmdArgs[] = "route";
 		$cmdArgs[] = "show";

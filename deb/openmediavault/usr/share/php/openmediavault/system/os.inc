@@ -34,7 +34,7 @@ class Os {
 	 * @throw \OMV\ExecException
 	 */
 	final public static function readlink($path) {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "-m";
 		$cmdArgs[] = "-n";
 		$cmdArgs[] = escapeshellarg($path);

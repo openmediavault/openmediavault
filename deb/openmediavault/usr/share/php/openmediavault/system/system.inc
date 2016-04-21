@@ -267,7 +267,7 @@ class System {
 	 */
 	public static function getCpuStats() {
 		// Get the CPU model name. Take care about CPUs with multiple cores.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "-Em1";
 		$cmdArgs[] = "'^(model name|Processor)'";
 		$cmdArgs[] = "/proc/cpuinfo";

@@ -19,9 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
-
 class OMVModuleNetworkRoute extends \OMV\Engine\Module\ServiceAbstract
   implements \OMV\Engine\Notify\IListener {
 	/**
@@ -33,7 +30,6 @@ class OMVModuleNetworkRoute extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "route");
@@ -50,23 +46,15 @@ class OMVModuleNetworkRoute extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Start the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_EXEC_FAILED
 	 */
 	public function startService() {
-		global $xmlConfig;
-		// Get the configuration objects.
-		$xpath = "//services/staticroutes/route";
-		$objects = $xmlConfig->getList($xpath);
-		if (is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->get("conf.service.staticroutes.route");
 		foreach ($objects as $objectk => $objectv) {
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = "route";
-			$cmdArgs[] = sprintf("replace %s via %s", $objectv['network'],
-			  $objectv['gateway']);
+			$cmdArgs[] = sprintf("replace %s", $objectv->get("network"));
+			$cmdArgs[] = sprintf("via %s", $objectv->get("gateway"));
 			$cmd = new \OMV\System\Process("ip", $cmdArgs);
 			$cmd->setRedirect2to1(TRUE);
 			$cmd->execute();
@@ -89,10 +77,10 @@ class OMVModuleNetworkRoute extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function deleteRoute($object) {
 		// Delete the static route.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "route";
-		$cmdArgs[] = sprintf("delete %s via %s", $objectv['network'],
-		  $objectv['gateway']);
+		$cmdArgs[] = sprintf("delete %s", $objectv['network']);
+		$cmdArgs[] = sprintf("via %s", $objectv['gateway']);
 		$cmd = new \OMV\System\Process("ip", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);
 		$cmd->setQuiet(TRUE);
@@ -106,11 +94,11 @@ class OMVModuleNetworkRoute extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.conf.service.staticroutes.route",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_DELETE,
 		  "org.openmediavault.conf.service.staticroutes.route",
-		  array($this, "onDelete"));
+		  [ $this, "onDelete" ]);
     }
 }
 

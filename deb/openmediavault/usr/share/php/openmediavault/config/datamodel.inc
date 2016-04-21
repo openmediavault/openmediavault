@@ -217,10 +217,10 @@ class DataModel extends \OMV\DataModel\DataModel {
 				$type = $propSchema['type'];
 			switch ($type) {
 			case "array":
-				$default = array(); // Indexed array
+				$default = []; // Indexed array
 				break;
 			case "object":
-				$default = array(); // Associative array
+				$default = []; // Associative array
 				break;
 			case "boolean":
 				$default = FALSE;

@@ -71,7 +71,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			throw new \OMV\Exception("Failed to get list of storage devices");
 		}
 		// Prepare result.
-		$objects = array();
+		$objects = [];
 		foreach ($devs as $devk => $devv) {
 			// Get the storage device object.
 			\OMV\System\Storage\StorageDevice::assertStorageDeviceExists($devv);
@@ -118,7 +118,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		// Enumerate all devices supporting S.M.A.R.T.
 		$objects = $this->callMethod("enumerateDevices", NULL, $context);
 		// Prepare the result list, only return devices that are monitored.
-		$result = array();
+		$result = [];
 		foreach ($objects as $objectk => &$objectv) {
 			// Check if there exists a device configuration object for the
 			// current processed device. Note, we have to check for 'dev/xxx'
@@ -464,7 +464,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->get("conf.service.smartmontools.job");
 		// Add additional share informations.
-		$objectsAssoc = array();
+		$objectsAssoc = [];
 		foreach ($objects as $objectk => &$objectv) {
 			$objectAssoc = $objectv->getAssoc();
 			// Append storage device information.
@@ -612,7 +612,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 				  "O" => "offline"
 			  );
 			$cmd = "/usr/sbin/smartctl";
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = "-t";
 			$cmdArgs[] = $testMap[$object->get("type")];
 			$deviceType = $sd->getSmartDeviceType();

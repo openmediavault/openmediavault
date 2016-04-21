@@ -30,7 +30,6 @@ class OMVModuleNSSwitch extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "nsswitch");
@@ -45,6 +44,6 @@ class OMVModuleNSSwitch extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.ldap",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
     }
 }

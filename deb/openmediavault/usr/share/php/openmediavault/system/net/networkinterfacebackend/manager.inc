@@ -28,7 +28,7 @@ require_once("openmediavault/globals.inc");
  * @ingroup api
  */
 class Manager implements \IteratorAggregate {
-	private $backends = array();
+	private $backends = [];
 
 	/**
 	 * Returns a manager singleton.
@@ -106,7 +106,7 @@ class Manager implements \IteratorAggregate {
 	 * @return A list of network interfaces, e.g. eth0 or lo, otherwise FALSE.
 	 */
 	final public function enumerate($type = OMV_NETWORK_INTERFACE_TYPE_ALL) {
-		$result = array();
+		$result = [];
 		foreach ($this->backends as $backendk => $backendv) {
 			if (!($type & $backendv->getType()))
 				continue;
@@ -158,7 +158,7 @@ class Manager implements \IteratorAggregate {
 	 * @return A list of network interfaces, otherwise FALSE.
 	 */
 	final public function enumerateUsed($type = OMV_NETWORK_INTERFACE_TYPE_ALL) {
-		$result = array();
+		$result = [];
 		foreach ($this->backends as $backendk => $backendv) {
 			if (!($type & $backendv->getType()))
 				continue;

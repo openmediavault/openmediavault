@@ -127,7 +127,7 @@ abstract class BackendAbstract {
 	 * @return A list of devicefile names, otherwise FALSE.
 	 */
 	final protected function enumerateProcFs($regex) {
-		$result = array();
+		$result = [];
 		$regex = sprintf('/^\s+(\d+)\s+(\d+)\s+(\d+)\s+(%s)$/', $regex);
 		foreach(file("/proc/partitions") as $outputk => $outputv) {
 			if (1 !== preg_match($regex, $outputv, $matches))

@@ -19,10 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
-
 class OMVRpcServiceNetworkRoute extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -52,10 +48,8 @@ class OMVRpcServiceNetworkRoute extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getList($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -63,12 +57,8 @@ class OMVRpcServiceNetworkRoute extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the configuration objects.
-		$xpath = "//services/staticroutes/route";
-		$objects = $xmlConfig->getList($xpath);
-		if(is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->getAssoc("conf.service.staticroutes.route");
 		// Filter result.
 		return $this->applyFilter($objects, $params['start'],
 		  $params['limit'], $params['sortfield'], $params['sortdir']);
@@ -80,10 +70,8 @@ class OMVRpcServiceNetworkRoute extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function get($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -91,14 +79,9 @@ class OMVRpcServiceNetworkRoute extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
-		$xpath = sprintf("//services/staticroutes/route[uuid='%s']",
+		$db = \OMV\Config\Database::getInstance();
+		return $db->getAssoc("conf.service.staticroutes.route",
 		  $params['uuid']);
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		return $object;
 	}
 
 	/**
@@ -110,61 +93,34 @@ class OMVRpcServiceNetworkRoute extends \OMV\Rpc\ServiceAbstract {
 	 *   \em comment Any text string.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_OBJECT_UNIQUENESS
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function set($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-				  "network":{"type":"string"},
-				  "gateway":{"type":"string"},
-				  "comment":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.networkroute.set");
 		// Prepare the configuration data.
-		$object = array(
-			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  \OMV\Uuid::uuid4() : $params['uuid'],
-			"network" => $params['network'],
-			"gateway" => $params['gateway'],
-			"comment" => $params['comment']
-		);
-		$success = FALSE;
-		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+		$object = new \OMV\Config\ConfigObject(
+		  "conf.service.staticroutes.route");
+		$object->setAssoc($params);
+		// Set the configuration object.
+		$isNew = $object->isNew();
+		$db = \OMV\Config\Database::getInstance();
+		if (TRUE === $isNew) {
 			// Perform some checks. These could be improved somewhen, e.g.
 			// checking if a network fits into an already configured route.
-			if(TRUE === $xmlConfig->exists("//services/staticroutes/route[" .
-			  "network='{$params['network']}']")) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-				  gettext("A route with the network already exists"));
-			}
-			$success = $xmlConfig->set("//services/staticroutes",
-			  array("route" => $object));
-		} else {
-			// Usually some checks should be performed here too, but
-			// the 'Edit' button is disabled in the WebGUI to make it
-			// easier.
-			// Update existing configuration object.
-			$success = $xmlConfig->replace($xpath, $object);
+			$db->assertIsUnique($object, "network");
 		}
-		if(FALSE === $success) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.staticroutes.route", $object);
+		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.conf.service.staticroutes.route",
+		  $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -182,9 +138,8 @@ class OMVRpcServiceNetworkRoute extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		$xpath = sprintf("//services/staticroutes/route[uuid='%s']",
-		  $params['uuid']);
-		return $this->deleteConfigObjectByPath($xpath,
+		return $this->deleteConfigObjectByUuid(
+		  "conf.service.staticroutes.route", $params['uuid'],
 		  "org.openmediavault.conf.service.staticroutes.route");
 	}
 }

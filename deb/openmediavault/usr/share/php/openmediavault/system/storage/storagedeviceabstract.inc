@@ -85,7 +85,7 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 			// Set the device file by default.
 			$this->deviceFileById = $this->getDeviceFile();
 			// Get the 'by-id' device file symlinks.
-			$deviceNamesById = array();
+			$deviceNamesById = [];
 			$regex = "/^\/dev\/disk\/by-id\/(.+)$/";
 			foreach ($devLinks as $devLinkk => $devLinkv) {
 				if (1 == preg_match($regex, $devLinkv, $matches))
@@ -149,7 +149,7 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 	* @throw \OMV\ExecException
 	*/
 	public function getDeviceFileSymlinks() {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "info";
 		$cmdArgs[] = "--query=symlink";
 		$cmdArgs[] = sprintf("--name=%s", escapeshellarg(
@@ -171,7 +171,7 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 	 */
 	public function getSize() {
 		if ($this->size === FALSE) {
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = "--getsize64";
 			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
@@ -189,7 +189,7 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 	 */
 	public function getBlockSize() {
 		if ($this->blockSize === FALSE) {
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = "--getbsz";
 			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
@@ -207,7 +207,7 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 	 */
 	public function getSectorSize() {
 		if ($this->sectorSize === FALSE) {
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = "--getss";
 			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
@@ -371,7 +371,7 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 	 */
 	protected function getUdevProperty($id) {
 		if ($this->udevInfo === FALSE) {
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = "info";
 			$cmdArgs[] = "--query=property";
 			$cmdArgs[] = sprintf("--name=%s", escapeshellarg(

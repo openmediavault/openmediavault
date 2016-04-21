@@ -32,7 +32,7 @@ class ExecException extends \Exception {
 	 */
 	public function __construct($cmdLine, array $output = array(),
 	  $exitStatus = NULL) {
-		$args = array();
+		$args = [];
 		$args[] = $cmdLine;
 		if (!is_null($exitStatus)) {
 			$format = "Failed to execute command '%s' with exit code '%d': %s";

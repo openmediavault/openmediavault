@@ -65,7 +65,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "Failed to get list of software RAID devices.");
 		}
 		// Prepare the result object.
-		$result = array();
+		$result = [];
 		foreach ($devs as $devk => $devv) {
 			$raid = new OMVStorageDeviceMdadm($devv);
 			if (!$raid->exists())
@@ -143,7 +143,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Get the slave/component devices of the given RAID.
 		$devs = $raid->getSlaves();
 		// Prepare the result list.
-		$result = array();
+		$result = [];
 		foreach ($devs as $devk => $devv) {
 			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
 			if (is_null($sd) || !$sd->exists())
@@ -175,7 +175,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerateUnused()))
 			throw new \OMV\Exception("Failed to get list of unused devices.");
 		// Prepare the result list.
-		$result = array();
+		$result = [];
 		foreach ($devs as $devk => $devv) {
 			// Get the object that implements the given storage device.
 			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
@@ -229,7 +229,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		$deviceName = \OMV\System\System::getNextDevice("disk", "md");
 		$devices = preg_split("/[,;]/", $params['devices']);
 		// Create the RAID device.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = sprintf("/dev/%s", $deviceName);
 		$cmdArgs[] = "-l";
 		$cmdArgs[] = $params['level'];
@@ -280,7 +280,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		$newDevices = explode(",", $params['devices']);
 		$numDevices += count($newDevices);
 		// Add new devices to the RAID device.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "--manage";
 		$cmdArgs[] = escapeshellarg($raid->getDeviceFile());
 		$cmdArgs[] = "--add";
@@ -292,7 +292,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		// See for more details:
 		// https://raid.wiki.kernel.org/index.php/Growing
 		// https://raid.wiki.kernel.org/index.php/Write-intent_bitmap
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "--grow";
 		$cmdArgs[] = sprintf("--raid-devices=%d", $numDevices);
 		$cmdArgs[] = escapeshellarg($raid->getDeviceFile());
@@ -336,7 +336,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		$newDevices = explode(",", $params['devices']);
 		$numDevices += count($newDevices);
 		// Add new devices to the RAID device.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "--manage";
 		$cmdArgs[] = escapeshellarg($raid->getDeviceFile());
 		$cmdArgs[] = "--add";
@@ -385,7 +385,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		// must be marked as failed before they can be removed from the
 		// RAID device.
 		// - Mark the devices as failed.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "--manage";
 		$cmdArgs[] = escapeshellarg($raid->getDeviceFile());
 		$cmdArgs[] = "--fail";
@@ -394,7 +394,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmd->setRedirect2to1(TRUE);
 		$cmd->execute();
 		// - Finally remove the devices.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "--manage";
 		$cmdArgs[] = escapeshellarg($raid->getDeviceFile());
 		$cmdArgs[] = "--remove";
@@ -440,7 +440,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			"devices" => $raid->getSlaves()
 		);
 		// Delete the RAID device.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = escapeshellarg($raid->getDeviceFile());
 		$cmd = new \OMV\System\Process("omv-rmraid", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);

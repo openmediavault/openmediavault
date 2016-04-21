@@ -111,7 +111,7 @@ class Manager {
 	 * @return None.
 	 */
 	final public function registerModel(DataModel $model) {
-		$ids = array();
+		$ids = [];
 		$ids[] = $model->getId();
 		$ids[] = $model->getAlias();
 		foreach ($ids as $idk => $idv) {

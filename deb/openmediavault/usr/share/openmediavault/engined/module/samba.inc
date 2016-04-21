@@ -110,7 +110,7 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 		if (in_array($object['name'], $this->invalidUsers))
 			return;
 		// Add the new user into the database.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = sprintf("(echo %s; echo %s)", escapeshellarg(
 		  $object['password']), escapeshellarg($object['password']));
 		$cmdArgs[] = "|";
@@ -147,7 +147,7 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 		if (FALSE === $this->existsUser($object['name']))
 			return $this->onAddUser($type, $path, $object);
 		// Modify the user in the database.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "--modify";
 		$cmdArgs[] = "--verbose";
 		$cmdArgs[] = sprintf("--fullname=%s", escapeshellarg($object['name']));
@@ -163,7 +163,7 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 		// changed (in this case it is not empty).
 		if (array_key_exists("password", $object) &&
 		  !empty($object['password'])) {
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = sprintf("(echo %s; echo %s)", escapeshellarg(
 			  $object['password']), escapeshellarg($object['password']));
 			$cmdArgs[] = "|";
@@ -194,7 +194,7 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 		if (FALSE === $this->existsUser($object['name']))
 			return;
 		// Delete the user from the database.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "--delete";
 		$cmdArgs[] = "--verbose";
 		$cmdArgs[] = escapeshellarg($object['name']);

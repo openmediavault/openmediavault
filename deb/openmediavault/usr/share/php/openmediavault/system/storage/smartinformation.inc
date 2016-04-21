@@ -145,7 +145,7 @@ class SmartInformation {
 			return;
 
 		// Get all available S.M.A.R.T. information.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = sprintf("-x %s", escapeshellarg($this->deviceFile));
 		if (!empty($this->type))
 			$cmdArgs[] = sprintf("-d %s", $this->type);
@@ -188,7 +188,7 @@ class SmartInformation {
 	 */
 	public function getAttributes() {
 		$this->getData();
-		$result = array();
+		$result = [];
 		foreach ($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
 			// smartctl 5.41 2011-06-09 r3365
 			// SMART Attributes Data Structure revision number: 16
@@ -274,7 +274,7 @@ class SmartInformation {
 	 */
 	public function getSelfTestLogs() {
 		$this->getData();
-		$result = array();
+		$result = [];
 		foreach ($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
 			// SMART Self-test log structure
 			// Parse command output:

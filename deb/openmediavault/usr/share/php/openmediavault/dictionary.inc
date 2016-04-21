@@ -138,7 +138,7 @@ class Dictionary {
         $lastPart = array_pop($parts);
         foreach ($parts as $partk => $partv) {
             if (!isset($node[$partv]))
-                $node[$partv] = array();
+                $node[$partv] = [];
             if (!is_array($node[$partv])) {
                 $message = sprintf("Failed to index key '%s' of '%s' because ".
 				  "it has no children.", $partv, $key);

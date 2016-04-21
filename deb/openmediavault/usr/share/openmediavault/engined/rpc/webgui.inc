@@ -95,7 +95,7 @@ class OMVRpcServiceWebGui extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.webgui.setpassword");
 		// Modify the 'admin' user password.
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = sprintf("--password %s", escapeshellarg(crypt(
 		  $params['password'])));
 		$cmdArgs[] = "admin";

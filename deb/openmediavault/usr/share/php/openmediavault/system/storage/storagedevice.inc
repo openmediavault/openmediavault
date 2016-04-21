@@ -32,7 +32,7 @@ class StorageDevice extends StorageDeviceAbstract {
 	 * @return A list of devicefile names, otherwise FALSE.
 	 */
 	public static function enumerate($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
-		$result = array();
+		$result = [];
 		$mngr = Backend\Manager::getInstance();
 		foreach ($mngr as $backendk => $backendv) {
 			if (!($type & $backendv->getType()))
@@ -80,7 +80,7 @@ class StorageDevice extends StorageDeviceAbstract {
 	 * @return A list of devicefile names, otherwise FALSE.
 	 */
 	public static function enumerateUsed($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
-		$result = array();
+		$result = [];
 		$mngr = Backend\Manager::getInstance();
 		foreach ($mngr as $backendk => $backendv) {
 			if (!($type & $backendv->getType()))

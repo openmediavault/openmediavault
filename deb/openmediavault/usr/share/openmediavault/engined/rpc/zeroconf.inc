@@ -46,7 +46,7 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		$result = array();
+		$result = [];
 		// Get the list of registered modules.
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getModules();
@@ -84,7 +84,7 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.zeroconf.set");
 		// Prepare the configuration object.
-		$objects = array();
+		$objects = [];
 		// Get the list of registered modules.
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getModules();
@@ -121,7 +121,7 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 			$db->deleteByFilter("conf.service.zeroconf.service", $filter);
 		}
 		// Set the service configuration objects.
-		$objectsAssoc = array();
+		$objectsAssoc = [];
 		foreach ($objects as $objectk => $objectv) {
 			$db->set($objectv);
 			$objectsAssoc[] = $objectv->getAssoc();

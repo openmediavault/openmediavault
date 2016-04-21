@@ -31,7 +31,7 @@ require_once("openmediavault/globals.inc");
 class Dispatcher {
 	use \OMV\Debugable;
 
-	private static $instances = array();
+	private static $instances = [];
 	private $name = null;
 	private $listeners = null;
 

@@ -46,7 +46,7 @@ class OMVRpcServiceServices extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		$status = array();
+		$status = [];
 		// Get the list of registered modules.
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getModules();

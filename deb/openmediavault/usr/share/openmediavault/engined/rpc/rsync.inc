@@ -64,7 +64,7 @@ class OMVRpcServiceRsync extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->get("conf.service.rsync.job");
 		// Add additional information.
-		$objectsAssoc = array();
+		$objectsAssoc = [];
 		foreach ($objects as $objectk => &$objectv) {
 			$objectv->set("srcname", gettext("n/a"));
 			$objectv->set("destname", gettext("n/a"));

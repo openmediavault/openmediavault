@@ -79,7 +79,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of physical volumes");
 		}
-		$result = array();
+		$result = [];
 		foreach ($devs as $devk => $devv) {
 			// Get the physical volume details.
 			$pv = new \OMV\System\Storage\Lvm\PhysicalVolume($devv);
@@ -147,7 +147,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "Failed to get list of devices");
 		}
 		// Prepare the result list.
-		$result = array();
+		$result = [];
 		foreach ($devs as $devk => $devv) {
 			// Get the object that implements the given storage device.
 			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
@@ -321,7 +321,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "Failed to get list of volume groups");
 		}
 		// Prepare the result object.
-		$result = array();
+		$result = [];
 		foreach($vgs as $vgk => $vgv) {
 			// Get the volume group details.
 			$vg = new OMVLvmVolumeGroup($vgv);
@@ -386,9 +386,9 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		$result = array();
+		$result = [];
 		// Prepare list of used devices.
-		$usedDevs = array();
+		$usedDevs = [];
 		// Get volume groups to get the used physical volumes.
 		if (FALSE === ($vgs = OMVLvmVolumeGroups::enumerate())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
@@ -572,7 +572,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Volume group '%s' not found", $vg->getName()));
 		}
-		$result = array();
+		$result = [];
 		foreach ($vg->getPVName() as $pvk => $pvv) {
 			$pv = new \OMV\System\Storage\Lvm\PhysicalVolume($pvv);
 			if (!$pv->exists())
@@ -756,7 +756,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of logical volumes");
 		}
-		$result = array();
+		$result = [];
 		foreach ($lvs as $lvk => $lvv) {
 			// Get the physical volume details.
 			$lv = new OMV\System\Storage\Lvm\LogicalVolume($lvv);

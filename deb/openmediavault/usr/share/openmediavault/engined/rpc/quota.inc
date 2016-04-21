@@ -71,7 +71,7 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Prepare result. Iterate over all system users and groups and get
 		// their quota configuration for the given filesystem.
-		$result = array();
+		$result = [];
 		// Get non-system users
 		$users = \OMV\Rpc\Rpc::call("UserMgmt", "enumerateUsers", NULL,
 		  $context);

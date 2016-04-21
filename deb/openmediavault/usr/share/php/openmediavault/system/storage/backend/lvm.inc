@@ -30,7 +30,7 @@ class LVM extends DM {
 		$devs = parent::enumerate();
 		if (FALSE === $devs)
 			return FALSE;
-		$result = array();
+		$result = [];
 		foreach ($devs as $devk => $devv) {
 			// Check if the given device is a LVM logical volume.
 			$object = new \OMV\System\Storage\StorageDeviceLvm($devv);
@@ -45,7 +45,7 @@ class LVM extends DM {
 		$devs = $this->enumerate();
 		if (FALSE === $devs)
 			return FALSE;
-		$result = array();
+		$result = [];
 		foreach ($devs as $devk => $devv) {
 			// Process LVM logical volumes.
 			$object = $this->getImpl($devv);

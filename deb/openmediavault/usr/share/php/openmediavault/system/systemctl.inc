@@ -27,7 +27,7 @@ namespace OMV\System;
  */
 class SystemCtl {
 	private $name = "";
-	private $options = array();
+	private $options = [];
 
 	/**
 	 * Constructor
@@ -48,7 +48,7 @@ class SystemCtl {
 	 * Reset the list of command options.
 	 */
 	public function clearOptions() {
-		$this->options = array();
+		$this->options = [];
 	}
 
 	/**
@@ -59,7 +59,7 @@ class SystemCtl {
 	 * @return The exit code if \em quite is set to TRUE.
 	 */
 	private function exec($command, array $options = null, $quiet = FALSE) {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		// Append (global) command options.
 		if (!empty($this->options) && is_array($this->options))
 			$cmdArgs = array_merge($cmdArgs, $this->options);
@@ -83,7 +83,7 @@ class SystemCtl {
 	 */
 	public function enable($now = FALSE, $quiet = FALSE) {
 /* The option '--now' is not supported in Debian Jessie.
-		$options = array();
+		$options = [];
 		if (TRUE === $now)
 			$options[] = "--now";
 		$this->exec("enable", $options, $quiet);
@@ -100,7 +100,7 @@ class SystemCtl {
 	 */
 	public function disable($now = FALSE, $quiet = FALSE) {
 /* The option '--now' is not supported in Debian Jessie.
-		$options = array();
+		$options = [];
 		if (TRUE === $now)
 			$options[] = "--now";
 		$this->exec("disable", $options, $quiet);
@@ -167,7 +167,7 @@ class SystemCtl {
 	 *   SIGHUP, SIGTERM, SIGINT or SIGSTOP.
 	 */
 	public function kill($signal, $quiet = FALSE) {
-		$options = array();
+		$options = [];
 		$options[] = sprintf("--signal=%s", $signal);
 		return (0 == $this->exec("kill", $options, $quiet));
 	}

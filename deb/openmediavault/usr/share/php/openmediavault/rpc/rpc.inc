@@ -109,7 +109,7 @@ class Rpc {
 				  "SERVER_ADDR", "SERVER_PORT", "SERVER_NAME", "HTTPS",
 				  "REDIRECT_STATUS", "HTTP_HOST", "HTTP_ORIGIN",
 				  "HTTP_USER_AGENT", "HTTP_CONTENT_TYPE", "HTTP_REFERER");
-				$context['_SERVER'] = array();
+				$context['_SERVER'] = [];
 				foreach ($variables as $key => $value) {
 					if (!array_key_exists($value, $_SERVER))
 						continue;

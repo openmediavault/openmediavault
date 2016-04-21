@@ -47,7 +47,7 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		$result = array();
+		$result = [];
 		// Get the list of registered modules.
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getModules();
@@ -127,7 +127,7 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 			  "conf.system.notification.notification", $filter);
 		}
 		// Set the notification configuration objects.
-		$objectsAssoc = array();
+		$objectsAssoc = [];
 		foreach ($objects as $objectk => $objectv) {
 			$db->set($objectv);
 			$objectsAssoc[] = $objectv->getAssoc();

@@ -146,7 +146,7 @@ class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->get("conf.service.clamav.job");
 		// Add additional information.
-		$objectsAssoc = array();
+		$objectsAssoc = [];
 		foreach ($objects as $objectk => $objectv) {
 			// Add the new property 'sharedfoldername'.
 			$objectv->add("sharedfoldername", "string", gettext("n/a"));
@@ -212,7 +212,8 @@ class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.clamav.job", $object->getAssoc());
+		  "org.openmediavault.conf.service.clamav.job",
+		  $object->getAssoc()$object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}

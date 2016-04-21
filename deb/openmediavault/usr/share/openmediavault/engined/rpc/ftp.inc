@@ -118,7 +118,7 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->get("conf.service.ftp.share");
 		// Add additional share information.
-		$objectsAssoc = array();
+		$objectsAssoc = [];
 		foreach ($objects as $objectk => &$objectv) {
 			// Add the new property 'sharedfoldername'.
 			$objectv->add("sharedfoldername", "string", gettext("n/a"));
@@ -362,7 +362,7 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 		} else {
 			// Get users currently logged in.
 			$stats = sprintf("%s\n", gettext("Currently logged in users:"));
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = "-v";
 			$cmd = new \OMV\System\Process("ftpwho", $cmdArgs);
 			$cmd->setRedirect2to1(TRUE);
@@ -372,7 +372,7 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 			// Get ban list if module is enabled.
 			if (TRUE === $db->exists("conf.service.ftp.modban.rule")) {
 				$stats .= sprintf("\n\n%s\n", gettext("Ban statistics:"));
-				$cmdArgs = array();
+				$cmdArgs = [];
 				$cmdArgs[] = "-s /var/run/proftpd/proftpd.sock";
 				$cmdArgs[] = "ban info";
 				$cmdArgs[] = "-v";

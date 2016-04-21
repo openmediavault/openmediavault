@@ -93,7 +93,7 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 	 */
 	private function setRulesByFamily($family, $rules) {
 		// Prepare the configuration objects.
-		$objects = array();
+		$objects = [];
 		foreach ($rules as $rulek => $rulev) {
 			$object = new \OMV\Config\ConfigObject(
 			  "conf.system.network.iptables.rule");
@@ -111,7 +111,7 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 		if ($db->exists("conf.system.network.iptables.rule", $filter))
 			$db->deleteByFilter("conf.system.network.iptables.rule", $filter);
 		// Append the new iptables rules.
-		$objectsAssoc = array();
+		$objectsAssoc = [];
 		foreach ($objects as $objectk => $objectv) {
 			$db->set($objectv);
 			$objectsAssoc[] = $objectv->getAssoc();

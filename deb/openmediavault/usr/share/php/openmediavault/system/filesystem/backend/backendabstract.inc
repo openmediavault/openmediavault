@@ -39,7 +39,7 @@ abstract class BackendAbstract {
 	protected $type = "";
 	protected $properties = self::PROP_NONE;
 	protected $mkfsOptions = "";
-	protected $mntOptions = array();
+	protected $mntOptions = [];
 
 	/**
 	 * Get the type of the filesystem, e.g. 'ext3', 'vfat' or 'btrfs'.
@@ -96,7 +96,7 @@ abstract class BackendAbstract {
 		if (!is_devicefile($id)) {
 			// Get the device file containing the file system. This is
 			// required for the blkid low-level probing mode.
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = sprintf("UUID=%s", escapeshellarg($id));
 			$cmd = new \OMV\System\Process("findfs", $cmdArgs);
 			$cmd->setRedirect2to1(TRUE);
@@ -107,7 +107,7 @@ abstract class BackendAbstract {
 		}
 		// Get the filesystem type.
 		// !!! Note, do not use the '-p' option here. !!!
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "-o value";
 		$cmdArgs[] = "-s TYPE";
 		$cmdArgs[] = escapeshellarg($id);
@@ -268,8 +268,7 @@ abstract class BackendAbstract {
 	 * Get the object of the class that represents and implements a filesystem
 	 * of this filesystem backend.
 	 * @param args The arguments to the class constructor.
-	 * @return The object of the class implementing the given filesystem type,
-	 *   otherwise NULL.
+	 * @return The object of the class implementing the given filesystem type.
 	 */
 	function getImpl($args) {
 		$object = new \OMV\System\Filesystem\Filesystem($args);

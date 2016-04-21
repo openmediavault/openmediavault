@@ -28,12 +28,12 @@ namespace OMV\System\Storage;
 class StorageDeviceMdadm extends StorageDeviceAbstract {
 	protected $name = "";
 	protected $level = FALSE;
-	protected $devices = array();
+	protected $devices = [];
 	protected $numDevices = FALSE;
 	protected $uuid = FALSE;
 	protected $state = "unknown";
 	protected $hasWriteIntentBitmap = FALSE;
-	protected $details = array();
+	protected $details = [];
 	private $dataCached = FALSE;
 
 	/**

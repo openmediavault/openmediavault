@@ -73,7 +73,7 @@ class Database {
 			  $xpath);
 		}
 		if ((TRUE === $model->isIterable()) && is_null($uuid)) {
-			$result = array();
+			$result = [];
 			foreach ($data as $datak => $datav) {
 				$object = new ConfigObject($id);
 				$object->setAssoc($datav, FALSE);
@@ -89,7 +89,7 @@ class Database {
 	public function getAssoc($id, $uuid = NULL) {
 		$objects = $this->get($id, $uuid);
 		if (is_array($objects)) {
-			$result = array();
+			$result = [];
 			foreach ($objects as $objectk => $objectv) {
 				$result[] = $objectv->getAssoc();
 			}
@@ -150,7 +150,7 @@ class Database {
 		// Redirect the query to the database backend.
 		$data = $this->getBackend()->getList($xpath);
 		// Create the configuration objects.
-		$result = array();
+		$result = [];
 		foreach ($data as $datak => $datav) {
 			if (!is_null($maxResult) && ($datak >= $maxResult))
 				continue;

@@ -66,7 +66,7 @@ class User {
 			if (!is_null($this->password))
 				return;
 			// http://www.cyberciti.biz/faq/understanding-etcshadow-file
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = "shadow";
 			$cmdArgs[] = escapeshellarg($this->getName());
 			$cmd = new \OMV\System\Process("getent", $cmdArgs);
@@ -108,7 +108,7 @@ class User {
 			// Get the group IDs the user is in as white-space separated
 			// numbers. Thus it is possible to correctly process group
 			// names that contain blanks (e.g. imported via LDAP or AD).
-			$cmdArgs = array();
+			$cmdArgs = [];
 			$cmdArgs[] = "-G";
 			$cmdArgs[] = escapeshellarg($this->getName());
 			$cmd = new \OMV\System\Process("id", $cmdArgs);
@@ -116,7 +116,7 @@ class User {
 			$cmd->execute($output);
 			$gids = explode(" ", $output[0]);
 			// Resolve the group names.
-			$this->groups = array();
+			$this->groups = [];
 			foreach ($gids as $gidk => $gidv) {
 				$groupInfo = posix_getgrgid($gidv);
 				$this->groups[] = $groupInfo['name'];
@@ -287,7 +287,7 @@ class User {
 	 * @throw \OMV\ExecException
 	 */
 	public function getQuotas() {
-		$cmdArgs = array();
+		$cmdArgs = [];
 		$cmdArgs[] = "-u";
 		$cmdArgs[] = escapeshellarg($this->getName());
 		$cmd = new \OMV\System\Process("edquota", $cmdArgs);
@@ -298,7 +298,7 @@ class User {
 		// Filesystem                   blocks       soft       hard     inodes     soft     hard
 		// /dev/sdb1                     10188          0      12288          4        0        0
 		// /dev/sdc1                         0          0      45056          0        0        0
-		$result = array();
+		$result = [];
 		foreach ($output as $outputk => $outputv) {
 			if (preg_match("/^\s+(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+".
 			  "(\d+)\s+(\d+)$/i", $outputv, $matches)) {
@@ -361,7 +361,7 @@ class User {
 		// admin:x:998:100:WebGUI administrator:/home/admin:/usr/sbin/nologin
 		// nut:x:111:114::/var/lib/nut:/bin/false
 		// test:x:1001:100:sdfds:/home/test:/bin/dash
-		$list = array();
+		$list = [];
 		foreach ($output as $outputv) {
 			$data = explode(":", $outputv);
 			if (empty($data))
