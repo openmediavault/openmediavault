@@ -1,0 +1,144 @@
+[{
+	"type": "rpc",
+	"id": "rpc.logicalvolumemgmt.createvolumegroup",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"required": true
+			},
+			"devices": {
+				"type": "string",
+				"pattern": "/^(.+[,;])*.+$/i",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.logicalvolumemgmt.getvolumegroup",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.logicalvolumemgmt.deletevolumegroup",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.logicalvolumemgmt.getvolumegroupphysicalvolumes",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.logicalvolumemgmt.renamevolumegroup",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devicefile": {
+				"type": "string",
+				"format": "devicefile",
+				"required": true
+			},
+			"name": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.logicalvolumemgmt.extendvolumegroup",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devicefile": {
+				"type": "string",
+				"format": "devicefile",
+				"required": true
+			},
+			"devices": {
+				"type": "string",
+				"pattern": "/^(.+[,;])*.+$/i",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.logicalvolumemgmt.reducevolumegroup",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devicefile": {
+				"type": "string",
+				"format": "devicefile",
+				"required": true
+			},
+			"devices": {
+				"type": "string",
+				"pattern": "/^(.+[,;])*.+$/i",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.logicalvolumemgmt.createlogicalvolume",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"required": true
+			},
+			"size": {
+				"type": "string",
+				"required": true
+			},
+			"vgname": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.logicalvolumemgmt.renamelogicalvolume",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devicefile": {
+				"type": "string",
+				"format": "devicefile",
+				"required": true
+			},
+			"name": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+}]

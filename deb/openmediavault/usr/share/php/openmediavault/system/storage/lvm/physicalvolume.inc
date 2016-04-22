@@ -50,7 +50,7 @@ class PhysicalVolume {
 	 * @throw \OMV\ExecException
 	 */
 	private function getData() {
-		if($this->dataCached !== FALSE)
+		if ($this->dataCached !== FALSE)
 			return;
 
 		// Parse command output:
@@ -227,7 +227,7 @@ class PhysicalVolume {
 
 	/**
 	 * Enumerate LVM physical volumes.
-	 * @return A list of LVM physical volumes, otherwise FALSE.
+	 * @return A list of LVM physical volumes.
 	 * Example: array(
 	 *   0 => /dev/sdb
 	 *   1 => /dev/sdd
@@ -248,7 +248,7 @@ class PhysicalVolume {
 		//   /dev/sdd
 		//   unknown device
 		$result = [];
-		foreach($output as $outputk => $outputv) {
+		foreach ($output as $outputk => $outputv) {
 			$deviceFile = trim($outputv);
 			if (!is_devicefile($deviceFile))
 				continue;

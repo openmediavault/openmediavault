@@ -145,6 +145,7 @@ Ext.define("OMV.window.MessageBox", {
 				align: "stretch"
 			},
 			buttonAlign: "center",
+			defaultFocus: 0,
 			buttons: [{
 				text: this.buttonText.ok,
 				handler: function(c, e) {
