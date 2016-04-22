@@ -19,6 +19,8 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+require_once("openmediavault/globals.inc");
+
 class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -145,12 +147,18 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
 			// Remove the packages.
-			$cmd = sprintf("export LANG=C; ".
-			  "export DEBIAN_FRONTEND=noninteractive; apt-get --yes ".
-			  "--auto-remove --purge remove %s 2>&1",
-			  implode(" ", $params['packages']));
-			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
-				throw new \OMV\ExecException($cmd, $output);
+			$cmdArgs = [];
+			$cmdArgs[] = "--yes";
+			$cmdArgs[] = "--auto-remove";
+			$cmdArgs[] = "--purge";
+			$cmdArgs[] = "remove";
+			$cmdArgs[] = implode(" ", $params['packages']);
+			$cmd = new \OMV\System\Process("apt-get", $cmdArgs);
+			$cmd->setEnv("DEBIAN_FRONTEND=noninteractive");
+			$cmd->setRedirect2to1(TRUE);
+			if (0 !== $this->exec($cmd->getCommandLine(), $output,
+			  $bgOutputFilename))
+				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
 			// Finalize the background process.
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
@@ -237,12 +245,20 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
 			// Install the packages.
-			$cmd = sprintf("export LANG=C; ".
-			  "export DEBIAN_FRONTEND=noninteractive; apt-get --yes ".
-			  "--force-yes --fix-missing --allow-unauthenticated --reinstall ".
-			  "install %s 2>&1", implode(" ", $params['packages']));
-			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
-				throw new \OMV\ExecException($cmd, $output);
+			$cmdArgs = [];
+			$cmdArgs[] = "--yes";
+			$cmdArgs[] = "--force-yes";
+			$cmdArgs[] = "--fix-missing";
+			$cmdArgs[] = "--allow-unauthenticated";
+			$cmdArgs[] = "--reinstall";
+			$cmdArgs[] = "install";
+			$cmdArgs[] = implode(" ", $params['packages']);
+			$cmd = new \OMV\System\Process("apt-get", $cmdArgs);
+			$cmd->setEnv("DEBIAN_FRONTEND=noninteractive");
+			$cmd->setRedirect2to1(TRUE);
+			if (0 !== $this->exec($cmd->getCommandLine(), $output,
+			  $bgOutputFilename))
+				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
 			// Finalize the background process.
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);

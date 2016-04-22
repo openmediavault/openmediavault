@@ -36,6 +36,15 @@ class ShellScript {
 		$this->quiet = $quiet;
 	}
 
+	/**
+	 * Execute the script.
+	 * @param output If the output argument is present, then the specified
+	 *   array will be filled with every line of output from the script.
+	 * @param exitStatus If the argument is present along with the output
+	 *   argument, then the return status of the executed script will be
+	 *   written to this variable.
+	 * @throw \OMV\ExecException
+	 */
 	public function execute(array &$output = NULL, &$exitStatus = NULL) {
 		$cmdLine = $this->script;
 		$result = exec($cmdLine, $output, $exitStatus);
