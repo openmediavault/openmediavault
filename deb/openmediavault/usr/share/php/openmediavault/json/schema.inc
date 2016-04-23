@@ -510,7 +510,8 @@ class Schema {
 			break;
 		case "host-name":
 		case "hostname":
-			if (!preg_match('/^[_a-z]+\.([_a-z]+\.?)+$/i', $value)) {
+			if (!preg_match('/^[a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])'.
+			  '{0,1}$/', $value)) {
 				throw new SchemaValidationException(
 				  "%s: The value '%s' is not a valid hostname.",
 				  $name, $value);

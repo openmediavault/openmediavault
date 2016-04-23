@@ -116,14 +116,6 @@ class Schema extends \OMV\Json\Schema {
 					  $name, $value);
 				}
 				break;
-			case "hostname":
-				if (!preg_match('/^[a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])'.
-				  '{0,1}$/', $value)) {
-					throw new \OMV\Json\SchemaValidationException(
-					  "%s: The value '%s' is no valid host name.",
-					  $name, $value);
-				}
-				break;
 			case "domainname":
 				// http://shauninman.com/archive/2006/05/08/validating_domain_names
 				if (!preg_match('/^[a-zA-Z0-9]([-a-zA-Z0-9]{0,61}'.
