@@ -1,6 +1,6 @@
 {
 	"type": "config",
-	"id": "conf.system.notification.notifications.notification",
+	"id": "conf.system.notification.notification",
 	"title": "Notification setting",
 	"queryinfo": {
 		"xpath": "//system/notification/notifications/notification",
