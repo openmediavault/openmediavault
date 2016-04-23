@@ -1,6 +1,14 @@
+openmediavault (3.0.16) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 23 Apr 2016 22:23:37 +0200
+
 openmediavault (3.0.15) stable; urgency=low
 
   * Update locales.
+  * Refactor whole PHP backend. Introduce class autoloader. Introduce class
+    namespaces.
   * Mantis 0001491: Invalid smartmontools configuration file.
   * Mantis 0001499: Monit collect .conf and pid file.
 
