@@ -58,7 +58,7 @@ class Dispatcher {
 	 */
 	public function getListeners() {
 		if(!isset($this->listeners))
-			return array();
+			return [];
 		return $this->listeners;
 	}
 
@@ -92,12 +92,12 @@ class Dispatcher {
 //		$this->debug(sprintf("Add listener (type=%s, message=%s, " .
 //		  "callback=%s::%s, seqnum=%s", $arg1, $arg2, get_class($arg3[0]),
 //		  $arg3[1], $arg4));
-		$this->listeners[] = array(
+		$this->listeners[] = [
 			"type" => $arg1,
 			"path" => $arg2,
 			"callback" => $arg3,
 			"seqnum" => $arg4
-		);
+		];
 	}
 
 	/**

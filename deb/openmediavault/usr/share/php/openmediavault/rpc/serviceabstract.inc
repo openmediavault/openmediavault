@@ -55,7 +55,7 @@ abstract class ServiceAbstract {
 	 */
 	final protected function registerMethod($rpcName, $methodName = NULL) {
 		$methodName = is_null($methodName) ? $rpcName : $methodName;
-		if(!method_exists($this, $methodName)) {
+		if (!method_exists($this, $methodName)) {
 			throw new Exception(
 			  "The method '%s' does not exist for RPC service '%s'.",
 			  $methodName, $this->getName());
@@ -87,9 +87,10 @@ abstract class ServiceAbstract {
 			  "The method '%s' does not exist for RPC service '%s'.",
 			  $method, $service);
 		}
-		$rpcService->registeredMethodSequences[$method] = array(
-		  "service" => $this->getName(),
-		  "method" => $method2);
+		$rpcService->registeredMethodSequences[$method] = [
+			"service" => $this->getName(),
+			"method" => $method2
+	  	];
 	}
 
 	/**
@@ -118,8 +119,9 @@ abstract class ServiceAbstract {
 			  "The method '%s' does not exist for RPC service '%s'.",
 			  $name, $this->getName());
 		}
-		$result = call_user_func_array(array($this, $name),
-		  array($params, $context));
+		$result = call_user_func_array(array($this, $name), [
+			$params, $context
+		]);
 		// Process registered RPC service method hooks.
 		if (array_key_exists($name, $this->registeredMethodSequences)) {
 			foreach ($this->registeredMethodSequences[$name] as
@@ -193,7 +195,7 @@ abstract class ServiceAbstract {
 		// - Check the username
 		if (array_key_exists("username", $required)) {
 			if (!is_array($required['username']))
-				$required['username'] = array($required['username']);
+				$required['username'] = [ $required['username'] ];
 			foreach ($required['username'] as $usernamek => $usernamev) {
 				if ($context['username'] !== $usernamev)
 					throw new Exception("Invalid context.");
@@ -211,10 +213,10 @@ abstract class ServiceAbstract {
 	 * @return The context object.
 	 */
 	final protected function getAdminContext() {
-		return array(
-			  "username" => "admin",
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  );
+		return [
+			"username" => "admin",
+			"role" => OMV_ROLE_ADMINISTRATOR
+		];
 	}
 
 	/**
@@ -285,10 +287,10 @@ abstract class ServiceAbstract {
 		$jsonFile = new \OMV\Json\File($filename);
 		$jsonFile->open("r+");
 		if ($jsonFile->isEmpty()) {
-			$status = array(
-				  "pid" => $pid,
-				  "running" => TRUE
-			  );
+			$status = [
+				"pid" => $pid,
+				"running" => TRUE
+			];
 			$jsonFile->write($status);
 		} else {
 			// Note, by default the file should be empty, but it can
@@ -319,11 +321,11 @@ abstract class ServiceAbstract {
 		$status['result'] = $result;
 		$status['error'] = NULL;
 		if (!is_null($exception)) {
-			$status['error'] = array(
+			$status['error'] = [
 				"code" => $exception->getCode(),
 				"message" => $exception->getMessage(),
 				"trace" => $exception->__toString()
-			);
+			];
 		}
 		$jsonFile->write($status);
 		$jsonFile->close();
@@ -402,11 +404,11 @@ abstract class ServiceAbstract {
 	final protected function exec($command, &$output = NULL,
 	  $outputFilename = NULL) {
 		$output = [];
-		$descriptors = array(
-			  0 => array("pipe", "r"), // STDIN
-			  1 => array("pipe", "w"), // STDOUT
-			  2 => array("pipe", "w")  // STDERR
-		  );
+		$descriptors = [
+			0 => [ "pipe", "r" ], // STDIN
+			1 => [ "pipe", "w" ], // STDOUT
+			2 => [ "pipe", "w" ]  // STDERR
+		];
 		// Execute the command.
 		$process = proc_open($command, $descriptors, $pipes);
 		if ((FALSE === $process) || !is_resource($process))
@@ -520,10 +522,10 @@ abstract class ServiceAbstract {
 			if (($start >= 0) && ($limit >= 0))
 				$array = array_slice($array, $start, $limit);
 		}
-		return array(
+		return [
 			"total" => $total,
 			"data" => $array
-		);
+		];
 	}
 
 	/**

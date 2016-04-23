@@ -82,10 +82,10 @@ abstract class ModuleAbstract {
 	 * @return The administrator context object.
 	 */
 	final protected function getAdminContext() {
-		return array(
-			  "username" => "admin",
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  );
+		return [
+			"username" => "admin",
+			"role" => OMV_ROLE_ADMINISTRATOR
+		];
 	}
 
 	/**
@@ -99,7 +99,7 @@ abstract class ModuleAbstract {
 		// Check if class method exists.
 		if (!method_exists($this, $name)) {
 			throw new \OMV\Exception(
-			  "The method '%s' does not exist for module '%s'",
+			  "The method '%s' does not exist for module '%s'.",
 			  $name, $this->getName());
 		}
 		// Add new task to the modules pending task list. Append
@@ -115,11 +115,11 @@ abstract class ModuleAbstract {
 		else
 			$tasks = [];
 		// Add the new task to the list of pending tasks.
-		$tasks[] = array(
+		$tasks[] = [
 			"id" => $id,
 			"func" => $name,
 			"params" => $params
-		);
+		];
 		// Write the pending task list.
 		$jsonFile->write($tasks);
 		$jsonFile->close();
@@ -141,8 +141,9 @@ abstract class ModuleAbstract {
 		// Get list of tasks to be executed.
 		$runTasks = array_filter_ex($tasks, "id", $id);
 		foreach ($runTasks as $taskk => $taskv) {
-			call_user_func_array(array($this, $taskv['func']), array(
-			  $taskv['params']));
+			call_user_func_array(array($this, $taskv['func']), [
+				$taskv['params']
+			]);
 		}
 		// Remove executed tasks from list. Note, the array must be
 		// re-indexed.

@@ -32,35 +32,35 @@ abstract class ServiceAbstract extends ModuleAbstract implements IService {
 	 * before the service provided by this module.
 	 * @return An array of modules.
 	 */
-	public function shouldApply() { return array(); }
+	public function shouldApply() { return []; }
 
 	/**
 	 * Defines the modules that if present should start before the service
 	 * provided by this module.
 	 * @return An array of modules.
 	 */
-	public function shouldStart() { return array(); }
+	public function shouldStart() { return []; }
 
 	/**
 	 * Defines the modules that if present should start after the service
 	 * provided by this module.
 	 * @return An array of modules.
 	 */
-	function startBefore() { return array(); }
+	function startBefore() { return []; }
 
 	/**
 	 * Defines the modules that if present should be stopped after the
 	 * service provided by this module.
 	 * @return An array of modules.
 	 */
-	function shouldStop() { return array(); }
+	function shouldStop() { return []; }
 
 	/**
 	 * Defines the modules that if present should stop before the service
 	 * provided by this module.
 	 * @return An array of modules.
 	 */
-	function stopAfter() { return array(); }
+	function stopAfter() { return []; }
 
 	/**
 	 * Generate the configuration.

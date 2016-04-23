@@ -33,10 +33,10 @@ class Rpc {
 	 * @return The context using the specified parameters.
 	 */
 	public static function createContext($username, $role) {
-		return array(
+		return [
 			"username" => $username,
 			"role" => $role
-		);
+		];
 	}
 
 	/**
@@ -104,11 +104,11 @@ class Rpc {
 			// Store the web server and execution environment information?
 			// The information is stored in the given context.
 			if (TRUE === $restoreSrvEnv) {
-				$variables = array("SERVER_PROTOCOL", "GATEWAY_INTERFACE",
+				$variables = [ "SERVER_PROTOCOL", "GATEWAY_INTERFACE",
 				  "SERVER_SOFTWARE", "REMOTE_ADDR", "REMOTE_PORT",
 				  "SERVER_ADDR", "SERVER_PORT", "SERVER_NAME", "HTTPS",
 				  "REDIRECT_STATUS", "HTTP_HOST", "HTTP_ORIGIN",
-				  "HTTP_USER_AGENT", "HTTP_CONTENT_TYPE", "HTTP_REFERER");
+				  "HTTP_USER_AGENT", "HTTP_CONTENT_TYPE", "HTTP_REFERER" ];
 				$context['_SERVER'] = [];
 				foreach ($variables as $key => $value) {
 					if (!array_key_exists($value, $_SERVER))
@@ -135,17 +135,19 @@ class Rpc {
 				  socket_strerror(socket_last_error()));
 			}
 			// Set send and receive timeouts.
-			socket_set_option($socket, SOL_SOCKET, SO_SNDTIMEO, array(
-			  "sec" => $GLOBALS['OMV_ENGINED_SO_SNDTIMEO'], "usec" => 0));
-			socket_set_option($socket, SOL_SOCKET, SO_RCVTIMEO, array(
-			  "sec" => $GLOBALS['OMV_ENGINED_SO_RCVTIMEO'], "usec" => 0));
+			socket_set_option($socket, SOL_SOCKET, SO_SNDTIMEO, [
+				"sec" => $GLOBALS['OMV_ENGINED_SO_SNDTIMEO'], "usec" => 0
+			]);
+			socket_set_option($socket, SOL_SOCKET, SO_RCVTIMEO, [
+				"sec" => $GLOBALS['OMV_ENGINED_SO_RCVTIMEO'], "usec" => 0
+			]);
 			// Create the request.
-			$request = json_encode_safe(array(
+			$request = json_encode_safe([
 				"service" => $service,
 				"method" => $method,
 				"params" => $params,
 				"context" => $context
-			));
+			]);
 			// Build the header.
 			$header = pack("NH*", strlen($request), hash("crc32", $request));
 			// Build the buffer to be written to the socket.
