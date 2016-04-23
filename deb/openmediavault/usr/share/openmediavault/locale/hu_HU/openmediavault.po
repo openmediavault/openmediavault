@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Ádám Balajti <balajtiadam@gmail.com>, 2012
-# Grawens <szabolcs.szanyi@gmail.com>, 2014-2015
+# Grawens <szabolcs.szanyi@gmail.com>, 2014-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-02 21:23+0100\n"
-"PO-Revision-Date: 2016-03-02 20:24+0000\n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2016-04-23 17:16+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -155,15 +155,6 @@ msgstr "64 - Közepes energia használat készenléti állapotban"
 
 msgid "9 months"
 msgstr "9 hónap"
-
-msgid "A module with the name '%s' already exists"
-msgstr "Egy modul '%s' néven már létezik"
-
-msgid "A share with the name '%s' already exists"
-msgstr "Egy megosztás '%s' néven már létezik"
-
-msgid "A shared folder with the given name already exists"
-msgstr "Egy megosztott mappa már létezik a megadott névvel"
 
 msgid "ACL"
 msgstr "ACL"
@@ -562,16 +553,6 @@ msgstr "Kanada"
 msgid "Cancel"
 msgstr "Mégsem"
 
-msgid ""
-"Cannot unlink the shared folder content because another shared folder also "
-"refers to it"
-msgstr "Nem lehet megszüntetni a megosztott mappa tartalmát, mert egy másik megosztott mappa is hivatkozik rá"
-
-msgid ""
-"Cannot unlink the shared folder content because another shared folder is "
-"referencing a subdirectory"
-msgstr "Nem lehet megszüntetni a megosztott mappa tartalmát, mert egy másik megosztott mappa hivatkozik egy alkönyvtárra."
-
 msgid "Canton and Enderbury Islands"
 msgstr "Canton and Enderbury Islands"
 
@@ -725,7 +706,7 @@ msgid "Cook Islands"
 msgstr "Cook-szigetek"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Vágólapra másolás"
 
 msgid "Costa Rica"
 msgstr "Costa Rica"
@@ -859,10 +840,10 @@ msgid "Device Mapper %s [%s, %s]"
 msgstr "Eszköz mappaló %s [%s, %s]"
 
 msgid "Device has a few bad sectors"
-msgstr ""
+msgstr "Az eszközön néhány hibás szektor található"
 
 msgid "Device has many bad sectors"
-msgstr ""
+msgstr "Az eszközön több hibás szektor található"
 
 msgid "Device information"
 msgstr "Eszközinformáció"
@@ -880,7 +861,7 @@ msgid "Device was used outside of design parameters in the past"
 msgstr ""
 
 msgid "Device(s)"
-msgstr ""
+msgstr "Eszköz(ök)"
 
 msgid "Device/Label"
 msgstr "Eszköz/Címke"
@@ -1200,9 +1181,6 @@ msgstr "Hiba"
 msgid "Error #"
 msgstr "Hiba #"
 
-msgid "Error #%d"
-msgstr "Hiba #%d"
-
 msgid "Estonia"
 msgstr "Észtország"
 
@@ -1264,7 +1242,7 @@ msgid "FTP - Transfer log"
 msgstr "FTP - átviteli napló"
 
 msgid "FTP-Proxy"
-msgstr ""
+msgstr "FTP-Proxy"
 
 msgid "FXP"
 msgstr "FXP"
@@ -1273,24 +1251,6 @@ msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
 msgstr "FXP lehetővé teszi az átvitelt két távoli szerver között anélkül, hogy az adatfájl átvitelét a kliensnek is kérnie kellene."
-
-msgid "Failed to get filesystems"
-msgstr "Nem sikerült lekérni a fájlrendszereket"
-
-msgid "Failed to get list of groups."
-msgstr "A csoportok listájának lekérése sikertelen."
-
-msgid "Failed to get list of network interface devices"
-msgstr "Hálózati eszközök listájának lekérdezése sikertelen."
-
-msgid "Failed to get list of unused network interface devices"
-msgstr "Hálózati interfész eszközök listájának lekérdezése sikertelen"
-
-msgid "Failed to get list of users."
-msgstr "A felhasználók listájának lekérése sikertelen."
-
-msgid "Failed to get storage device file from '%s'"
-msgstr "Nem sikerült tárolóeszköznek fájlokat ´%s´-től szerezni"
 
 msgid "Falkland Islands"
 msgstr "Falkland Islands"
@@ -1338,14 +1298,8 @@ msgstr "A megadott méretnél nagyobb fájlok nem helyezhetőek a lomtárba. Ál
 msgid "Filesize"
 msgstr "Fájlméret"
 
-msgid "Filesystem '%s' not found"
-msgstr "Fájlrendszer '%s' nem található"
-
-msgid "Filesystem '%s' not supported"
-msgstr "Fájlrendszer '%s' nem támogatott"
-
 msgid "Filesystem Type"
-msgstr ""
+msgstr "Fájlrendszer típus"
 
 msgid "Filesystems"
 msgstr "Fájlrendszerek"
@@ -1429,7 +1383,7 @@ msgid "Gibraltar"
 msgstr "Gibraltár"
 
 msgid "Good"
-msgstr ""
+msgstr "Jó"
 
 msgid "Greece"
 msgstr "Görögország"
@@ -1442,15 +1396,6 @@ msgstr "Grenada"
 
 msgid "Group"
 msgstr "Csoport"
-
-msgid "Group '%s' already exist"
-msgstr "'%s' csoport már létezik"
-
-msgid "Group '%s' does not exist"
-msgstr "'%s' csoport nem létezik"
-
-msgid "Group ID '%d' already exist"
-msgstr "Csoport ID '%d' már létezik"
 
 msgid "Groups"
 msgstr "Csoportok"
@@ -1489,16 +1434,16 @@ msgid "Guyana"
 msgstr "Guyana"
 
 msgid "HTTP-Proxy"
-msgstr ""
+msgstr "HTTP-Proxy"
 
 msgid "HTTPS-Proxy"
-msgstr ""
+msgstr "HTTPS-Proxy"
 
 msgid "Haiti"
 msgstr "Haiti"
 
 msgid "Hardware address"
-msgstr ""
+msgstr "Hardver cím"
 
 msgid "Heard Island and McDonald Islands"
 msgstr "Heard-sziget és McDonald-szigetek"
@@ -1567,7 +1512,7 @@ msgid "Identify"
 msgstr "Azonosítás"
 
 msgid "Identify As"
-msgstr ""
+msgstr "Megnevezés"
 
 msgid "Identify network interface device"
 msgstr "Hálózati interfész eszköz azonosítása"
@@ -1719,9 +1664,6 @@ msgstr "Érvénytelen csoport név"
 
 msgid "Invalid host name"
 msgstr "Érvénytelen hosztnév"
-
-msgid "Invalid line: %s"
-msgstr "Érvénytelen sor: %s"
 
 msgid "Invalid name"
 msgstr "Érvénytelen név"
@@ -2140,9 +2082,6 @@ msgstr "Netmaszk"
 msgid "Network"
 msgstr "Hálózat"
 
-msgid "Network interface '%s' (type=%s) already exists"
-msgstr "'%s' (type=%s) hálózati interfész már létezik"
-
 msgid "Network interfaces"
 msgstr "Hálózati interfészek"
 
@@ -2310,6 +2249,9 @@ msgstr "Csendes-óceáni terület"
 
 msgid "Package information"
 msgstr "Csomag információ"
+
+msgid "Page not found"
+msgstr ""
 
 msgid "Pakistan"
 msgstr "Pakisztán"
@@ -2560,7 +2502,7 @@ msgid "Protocol"
 msgstr "Protokoll"
 
 msgid "Proxy"
-msgstr ""
+msgstr "Proxy"
 
 msgid "Public"
 msgstr "Nyilvános"
@@ -2815,10 +2757,10 @@ msgid "SSH"
 msgstr "SSH"
 
 msgid "SSH certificate"
-msgstr ""
+msgstr "SSH tanúsítvány"
 
 msgid "SSH port"
-msgstr ""
+msgstr "SSH port"
 
 msgid "SSID"
 msgstr "SSID"
@@ -2950,7 +2892,7 @@ msgid "Select a volume ..."
 msgstr "Válassz ki egy kötetet ..."
 
 msgid "Select an authentication mode ..."
-msgstr ""
+msgstr "Válassz ki egy hitelesítési módot ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr "Kiválasztott meghajtók hozzáadása a RAID tömbhöz"
@@ -3052,7 +2994,7 @@ msgid "Shared folder"
 msgstr "Megosztott mappa"
 
 msgid "Shared folder + content"
-msgstr ""
+msgstr "Megosztott mappa + tartalom"
 
 msgid "Shared folder must not be equal"
 msgstr "Megosztott mappa nem lehet azonos"
@@ -3379,17 +3321,11 @@ msgstr "Megosztott mappa célállomása."
 msgid "The device does not exist"
 msgstr "Az eszköz nem létezik"
 
-msgid "The field '%s' contains forbidden "
-msgstr "A '%s' mező tartalma tiltott."
-
 msgid "The file mode of the shared folder path."
 msgstr "Megosztott mappa útvonalának fájl elérési módja"
 
 msgid "The file system creation has completed successfully."
 msgstr "A fájlrendszer létrehozása sikeresen befejeződött."
-
-msgid "The group '%s' does not exist"
-msgstr "'%s' csoport nem létezik"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "A hosztnév egy címke, ami azonosítja a rendszert a hálózaton."
@@ -3398,9 +3334,6 @@ msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
 msgstr "Az elérhető szoftverrel kapcsolatos információ elavult. Töltsd be újra az elérhető szoftverek információit."
-
-msgid "The interface '%s' is already used by a bonding interface"
-msgstr "Az interfész '%s' már használatban van egy összekötött interfész által"
 
 msgid "The location of the files to share."
 msgstr "A megosztás fájljainak helye."
@@ -3421,10 +3354,6 @@ msgstr "A tanúsítvány érvényességének ideje."
 
 msgid "The page will reload now to let the changes take effect."
 msgstr "Az oldal most újratöltődik a változások érvénybe lépéséhez."
-
-#, php-format
-msgid "The parameter '%s' contains forbidden two-dot symbols"
-msgstr "A paraméter '%s' tiltott két-pont szimbólumot tartalmaz"
 
 msgid "The password contains invalid characters"
 msgstr "A jelszó érvénytelen karaktereket tartalmaz"
@@ -3466,9 +3395,6 @@ msgid ""
 "The session timeout time in minutes. Set to 0 to disable automatic logout."
 msgstr "A munkamenet lejárta percben. A 0 érték beállítása letiltja az automatikus kijelentkezést."
 
-msgid "The shared folder is already used by another share."
-msgstr "A megosztott mappa már használva van egy másik megosztásban."
-
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
@@ -3486,12 +3412,6 @@ msgstr "A rendszer most újraindul. Ez eltarthat egy ideig ..."
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr "A teszt e-mail sikeresen elküldve. Kérlek tekintsd meg a postaládádat."
 
-msgid "The user '%s' does not exist"
-msgstr "'%s' felhasználó nem létezik"
-
-msgid "The user '%s' is not allowed"
-msgstr "'%s' felhasználó nincs engedélyezve"
-
 msgid "The volume label for the file system."
 msgstr "A kötet címkéje a fájlrendszeren."
 
@@ -3502,9 +3422,6 @@ msgstr "Az üdvözlő üzenet meg fog jelenni a felhasználóknak, mikor bejelen
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "A munkacsoport a szerver részéről látszani fog, mikor a kliensek lekérdezik azt."
-
-msgid "There already exists a mount point for %s"
-msgstr "A %s csatolási pont már létezik"
 
 msgid ""
 "These settings are used by the services to configure the user access rights."
@@ -3813,9 +3730,6 @@ msgstr "Uganda"
 msgid "Ukraine"
 msgstr "Ukrajna"
 
-msgid "Unauthorized attempt to modify the system account '%s'"
-msgstr "Jogosulatlan rendszerfiók módosítási kísérlet '%s'"
-
 msgid "Uncompressed"
 msgstr "Tömörítetlen"
 
@@ -3844,10 +3758,7 @@ msgid "United States Minor Outlying Islands"
 msgstr "Egyesült Államok - kisebb külső szigetek "
 
 msgid "Unknown"
-msgstr ""
-
-msgid "Unknown log file type (id=%s)"
-msgstr "Ismeretlen naplózó fájl típus (id=%s)"
+msgstr "Ismeretlen"
 
 msgid "Unknown network interface type."
 msgstr "Ismeretlen hálózati interfész típus."
@@ -3862,10 +3773,10 @@ msgid "Up delay"
 msgstr "Engedélyezés késleltetése"
 
 msgid "Update Management"
-msgstr ""
+msgstr "Frissítés kezelő"
 
 msgid "Update Management - History"
-msgstr ""
+msgstr "Frissítés kezelő - Előzmény"
 
 msgid "Update Management - Terminal output"
 msgstr ""
@@ -3944,15 +3855,6 @@ msgstr "Foglalt lemezterület"
 
 msgid "User"
 msgstr "Felhasználó"
-
-msgid "User '%s' already exist"
-msgstr "'%s' felhasználó már létezik"
-
-msgid "User '%s' does not exist"
-msgstr "'%s' felhasználó nem létezik"
-
-msgid "User ID '%d' already exist"
-msgstr "Felhasználó ID '%d' már létezik"
 
 msgid "User accounts"
 msgstr "Felhasználói fiókok"
@@ -4044,9 +3946,6 @@ msgstr "Web adminisztrátor jelszó"
 msgid "Web administration"
 msgstr "Web adminisztráció"
 
-msgid "Web administration interface"
-msgstr "Web adminisztrációs felület"
-
 msgid "Wednesday"
 msgstr "Szerda"
 
@@ -4106,6 +4005,9 @@ msgstr "Zambia"
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
+msgid "control panel"
+msgstr ""
+
 msgid "day"
 msgstr "nap"
 
@@ -4135,6 +4037,3 @@ msgstr ""
 
 msgid "seconds"
 msgstr "másodperc"
-
-msgid "web administration interface"
-msgstr "webes adminisztrációs felület"

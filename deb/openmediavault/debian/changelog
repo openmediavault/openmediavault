@@ -1,5 +1,6 @@
 openmediavault (3.0.15) stable; urgency=low
 
+  * Update locales.
   * Mantis 0001491: Invalid smartmontools configuration file.
   * Mantis 0001499: Monit collect .conf and pid file.
 

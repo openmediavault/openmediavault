@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-02 21:23+0100\n"
-"PO-Revision-Date: 2016-03-02 20:24+0000\n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2016-04-23 17:16+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -156,15 +156,6 @@ msgstr "64 - проміжне споживання енергії з очіку�
 
 msgid "9 months"
 msgstr "9 місяців"
-
-msgid "A module with the name '%s' already exists"
-msgstr "Модуль з іменем '%s' вже існує"
-
-msgid "A share with the name '%s' already exists"
-msgstr "Спільний ресурс з ім'ям '%s' вже існує"
-
-msgid "A shared folder with the given name already exists"
-msgstr "Загальна тека з даним ім'ям вже існує"
 
 msgid "ACL"
 msgstr "Список контролю доступа"
@@ -562,16 +553,6 @@ msgstr "Канада"
 
 msgid "Cancel"
 msgstr "Скасувати"
-
-msgid ""
-"Cannot unlink the shared folder content because another shared folder also "
-"refers to it"
-msgstr ""
-
-msgid ""
-"Cannot unlink the shared folder content because another shared folder is "
-"referencing a subdirectory"
-msgstr ""
 
 msgid "Canton and Enderbury Islands"
 msgstr "Кантон і острови Ендербері"
@@ -1201,9 +1182,6 @@ msgstr "Помилка"
 msgid "Error #"
 msgstr "Помилка #"
 
-msgid "Error #%d"
-msgstr "Помилка #%d"
-
 msgid "Estonia"
 msgstr "Естонія"
 
@@ -1275,24 +1253,6 @@ msgid ""
 "to the client asking for the transfer."
 msgstr ""
 
-msgid "Failed to get filesystems"
-msgstr "Не вдалося отримати файлові системи"
-
-msgid "Failed to get list of groups."
-msgstr "Не вдалося одержати список груп."
-
-msgid "Failed to get list of network interface devices"
-msgstr "Не вдалося отримати список інтерфейсних пристроїв мережі"
-
-msgid "Failed to get list of unused network interface devices"
-msgstr ""
-
-msgid "Failed to get list of users."
-msgstr "Не вдалося одержати список користувачів."
-
-msgid "Failed to get storage device file from '%s'"
-msgstr "Не вдалося отримати файл з пристрою зберігання '%s'"
-
 msgid "Falkland Islands"
 msgstr "Фолклендські острови"
 
@@ -1338,12 +1298,6 @@ msgstr "Файли, розмір яких перевищує вказане чи
 
 msgid "Filesize"
 msgstr "Розмір файлу"
-
-msgid "Filesystem '%s' not found"
-msgstr "Файлова система '%s' не знайдена"
-
-msgid "Filesystem '%s' not supported"
-msgstr "Файлова система '%s' не підтримується"
 
 msgid "Filesystem Type"
 msgstr ""
@@ -1443,15 +1397,6 @@ msgstr "Гренада"
 
 msgid "Group"
 msgstr "Група"
-
-msgid "Group '%s' already exist"
-msgstr "Група '%s' вже є"
-
-msgid "Group '%s' does not exist"
-msgstr "Група '%s' не існує"
-
-msgid "Group ID '%d' already exist"
-msgstr "Група ID '%d' вже є"
 
 msgid "Groups"
 msgstr "Групи"
@@ -1720,9 +1665,6 @@ msgstr "Невірна назва групи"
 
 msgid "Invalid host name"
 msgstr ""
-
-msgid "Invalid line: %s"
-msgstr "Помилка в рядку: %s"
 
 msgid "Invalid name"
 msgstr "Невірна назва"
@@ -2141,9 +2083,6 @@ msgstr "Маска мережі"
 msgid "Network"
 msgstr "Мережа"
 
-msgid "Network interface '%s' (type=%s) already exists"
-msgstr ""
-
 msgid "Network interfaces"
 msgstr ""
 
@@ -2311,6 +2250,9 @@ msgstr "Підопічна територія ООН Тихоокеанські 
 
 msgid "Package information"
 msgstr "Інформація про пакет"
+
+msgid "Page not found"
+msgstr ""
 
 msgid "Pakistan"
 msgstr "Пакистан"
@@ -3380,17 +3322,11 @@ msgstr "Спільна тека призначення."
 msgid "The device does not exist"
 msgstr ""
 
-msgid "The field '%s' contains forbidden "
-msgstr ""
-
 msgid "The file mode of the shared folder path."
 msgstr ""
 
 msgid "The file system creation has completed successfully."
 msgstr ""
-
-msgid "The group '%s' does not exist"
-msgstr "Групи '%s' не існує"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr ""
@@ -3398,9 +3334,6 @@ msgstr ""
 msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
-msgstr ""
-
-msgid "The interface '%s' is already used by a bonding interface"
 msgstr ""
 
 msgid "The location of the files to share."
@@ -3422,10 +3355,6 @@ msgstr ""
 
 msgid "The page will reload now to let the changes take effect."
 msgstr ""
-
-#, php-format
-msgid "The parameter '%s' contains forbidden two-dot symbols"
-msgstr "Параметр '%s' містить заборонені двохточкові символи"
 
 msgid "The password contains invalid characters"
 msgstr "Пароль містить неприпустимі символи"
@@ -3467,9 +3396,6 @@ msgid ""
 "The session timeout time in minutes. Set to 0 to disable automatic logout."
 msgstr ""
 
-msgid "The shared folder is already used by another share."
-msgstr "Спільна тека вже використовується іншим спільним ресурсом."
-
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
@@ -3487,12 +3413,6 @@ msgstr "Зараз система буде перезавантажена. Це 
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr "Тестове електронне повідомлення було успішно надіслано. Будь ласка, перевірте свою поштову скриньку."
 
-msgid "The user '%s' does not exist"
-msgstr "Користувач '%s' не існує"
-
-msgid "The user '%s' is not allowed"
-msgstr "Недопустимий користувач '%s' "
-
 msgid "The volume label for the file system."
 msgstr ""
 
@@ -3502,9 +3422,6 @@ msgid ""
 msgstr "Привітання, яке буде відображатися користувачу, при вході до системи."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
-msgstr ""
-
-msgid "There already exists a mount point for %s"
 msgstr ""
 
 msgid ""
@@ -3814,9 +3731,6 @@ msgstr "Уганда"
 msgid "Ukraine"
 msgstr "Україна"
 
-msgid "Unauthorized attempt to modify the system account '%s'"
-msgstr ""
-
 msgid "Uncompressed"
 msgstr "Нестиснений"
 
@@ -3846,9 +3760,6 @@ msgstr "Сполучені Штати Америки Зовнішні малі �
 
 msgid "Unknown"
 msgstr ""
-
-msgid "Unknown log file type (id=%s)"
-msgstr "Невідомий тип log-файлу (id=%s)"
 
 msgid "Unknown network interface type."
 msgstr "Невідомий тип мережевого інтерфейсу."
@@ -3946,15 +3857,6 @@ msgstr "Зайнято місця"
 msgid "User"
 msgstr "Користувач"
 
-msgid "User '%s' already exist"
-msgstr "Користувач '%s' вже існує"
-
-msgid "User '%s' does not exist"
-msgstr "Користувача '%s' не існує"
-
-msgid "User ID '%d' already exist"
-msgstr "ID  '%d' користувача вже існує"
-
 msgid "User accounts"
 msgstr ""
 
@@ -4045,9 +3947,6 @@ msgstr "Пароль веб адміністратора"
 msgid "Web administration"
 msgstr "Веб адміністратор"
 
-msgid "Web administration interface"
-msgstr "Веб-інтерфейс адміністрування"
-
 msgid "Wednesday"
 msgstr "Середа"
 
@@ -4107,6 +4006,9 @@ msgstr "Замбія"
 msgid "Zimbabwe"
 msgstr "Зімбабве"
 
+msgid "control panel"
+msgstr ""
+
 msgid "day"
 msgstr "день"
 
@@ -4136,6 +4038,3 @@ msgstr ""
 
 msgid "seconds"
 msgstr "секунди"
-
-msgid "web administration interface"
-msgstr "веб-інтерфейс адміністратора"

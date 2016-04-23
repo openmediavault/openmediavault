@@ -5,14 +5,14 @@
 # Translators:
 # bejonwe <bejonwe@gmx.net>, 2012
 # Stephan Steiner, 2014
-# Volker <votdev@gmx.de>, 2013-2015
+# Volker <votdev@gmx.de>, 2013-2016
 # Volker <votdev@gmx.de>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-06-12 11:45+0000\n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2016-04-23 17:17+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -84,7 +84,7 @@ msgstr "Gibt die Anmeldeinformationen zum verbinden an."
 msgid ""
 "Specifies the distinguished name (DN) with which to bind to the directory "
 "server for lookups, e.g. 'cn=manager,dc=example,dc=net'."
-msgstr ""
+msgstr "Gibt den BaseDN (DN) an der als Suchbasis verwendet wird z.B. 'dc=example,dc=net'."
 
 msgid "Specifies the group suffix, e.g. 'ou=Groups'."
 msgstr "Legt die Gruppensuffix fest (z.B. \"ou=Groups\")."

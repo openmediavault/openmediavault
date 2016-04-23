@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-02 21:23+0100\n"
-"PO-Revision-Date: 2016-03-02 20:24+0000\n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2016-04-23 17:16+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/votdev/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -154,15 +154,6 @@ msgstr "64 - スタンバイを使った中間的な電力消費レベル"
 
 msgid "9 months"
 msgstr "9 か月"
-
-msgid "A module with the name '%s' already exists"
-msgstr "'%s' のモジュール名はすでに存在します。"
-
-msgid "A share with the name '%s' already exists"
-msgstr "'%s' の共有名はすでに存在します。"
-
-msgid "A shared folder with the given name already exists"
-msgstr "指定された名前の共有フォルダは既に存在します"
 
 msgid "ACL"
 msgstr "ACL"
@@ -561,16 +552,6 @@ msgstr "カナダ"
 msgid "Cancel"
 msgstr "キャンセル"
 
-msgid ""
-"Cannot unlink the shared folder content because another shared folder also "
-"refers to it"
-msgstr "別の共有フォルダが参照しているため、共有フォルダのコンテンツを削除することはできません"
-
-msgid ""
-"Cannot unlink the shared folder content because another shared folder is "
-"referencing a subdirectory"
-msgstr "別の共有フォルダがサブディレクトリを参照しているため、共有フォルダのコンテンツを削除することはできません"
-
 msgid "Canton and Enderbury Islands"
 msgstr "カントン島・エンダーバリ島"
 
@@ -724,7 +705,7 @@ msgid "Cook Islands"
 msgstr "クック諸島"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "クリップボードへコピー"
 
 msgid "Costa Rica"
 msgstr "コスタリカ"
@@ -1199,9 +1180,6 @@ msgstr "エラー"
 msgid "Error #"
 msgstr "エラー #"
 
-msgid "Error #%d"
-msgstr "エラー #%d"
-
 msgid "Estonia"
 msgstr "エストニア"
 
@@ -1273,24 +1251,6 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "FXPはクライアントを経由しなくても２つのリモートサーバ間でデータ転送を行えます。"
 
-msgid "Failed to get filesystems"
-msgstr "ファイルシステムの取得に失敗しました"
-
-msgid "Failed to get list of groups."
-msgstr "グループリストの取得に失敗しました。"
-
-msgid "Failed to get list of network interface devices"
-msgstr "ネットワークインタフェースデバイスのリスト取得に失敗しました"
-
-msgid "Failed to get list of unused network interface devices"
-msgstr "未使用のネットワークインタフェースデバイスのリスト取得に失敗しました"
-
-msgid "Failed to get list of users."
-msgstr "ユーザーリストの取得に失敗しました。"
-
-msgid "Failed to get storage device file from '%s'"
-msgstr "'%s' からのストレージデバイスファイルの取得に失敗しました"
-
 msgid "Falkland Islands"
 msgstr "フォークランド諸島"
 
@@ -1336,12 +1296,6 @@ msgstr "指定したバイト数を超えるファイルはごみ箱に入れら
 
 msgid "Filesize"
 msgstr "ファイルサイズ"
-
-msgid "Filesystem '%s' not found"
-msgstr "ファイルシステム '%s' はありません"
-
-msgid "Filesystem '%s' not supported"
-msgstr "ファイルシステム '%s' はサポートしていません"
 
 msgid "Filesystem Type"
 msgstr "ファイルシステムタイプ"
@@ -1441,15 +1395,6 @@ msgstr "グレナダ"
 
 msgid "Group"
 msgstr "グループ"
-
-msgid "Group '%s' already exist"
-msgstr "グループ '%s' はすでに存在します"
-
-msgid "Group '%s' does not exist"
-msgstr "グループ '%s' は存在しません"
-
-msgid "Group ID '%d' already exist"
-msgstr "グループ ID '%d' はすでに存在します"
 
 msgid "Groups"
 msgstr "グループ"
@@ -1718,9 +1663,6 @@ msgstr "無効なグループ名"
 
 msgid "Invalid host name"
 msgstr "ホスト名が不正です"
-
-msgid "Invalid line: %s"
-msgstr "%s 行が不正です"
 
 msgid "Invalid name"
 msgstr "名前が不正です"
@@ -2139,9 +2081,6 @@ msgstr "ネットマスク"
 msgid "Network"
 msgstr "ネットワーク"
 
-msgid "Network interface '%s' (type=%s) already exists"
-msgstr "ネットワークインタフェース '%s' (type=%s) はすでに存在します"
-
 msgid "Network interfaces"
 msgstr "ネットワークインタフェース"
 
@@ -2309,6 +2248,9 @@ msgstr "太平洋諸島信託統治領"
 
 msgid "Package information"
 msgstr "パッケージ情報"
+
+msgid "Page not found"
+msgstr ""
 
 msgid "Pakistan"
 msgstr "パキスタン"
@@ -3378,17 +3320,11 @@ msgstr "宛先の共有フォルダ。"
 msgid "The device does not exist"
 msgstr "デバイスは存在しません"
 
-msgid "The field '%s' contains forbidden "
-msgstr "フィールド '%s' は禁止を含みます"
-
 msgid "The file mode of the shared folder path."
 msgstr "共有フォルダパスのファイルモード。"
 
 msgid "The file system creation has completed successfully."
 msgstr "ファイルシステムは正常に作成されました。"
-
-msgid "The group '%s' does not exist"
-msgstr "グループ '%s' は存在しません"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "ホスト名はネットワーク上でシステムを識別するためのラベルです。"
@@ -3397,9 +3333,6 @@ msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
 msgstr "利用可能なソフトウェアについての情報は古くなっています。利用可能なソフトウェアについての情報をリロードする必要があります。"
-
-msgid "The interface '%s' is already used by a bonding interface"
-msgstr "インタフェース '%s' はすでにボンディングインタフェースとして使われています"
 
 msgid "The location of the files to share."
 msgstr "共有するファイルの場所。"
@@ -3420,10 +3353,6 @@ msgstr "この日数だけ証明書は有効です。"
 
 msgid "The page will reload now to let the changes take effect."
 msgstr "変更を有効にするためにページが再読み込みされます。"
-
-#, php-format
-msgid "The parameter '%s' contains forbidden two-dot symbols"
-msgstr "このパラメータ '%s' は禁止された二つのドットを含みます"
 
 msgid "The password contains invalid characters"
 msgstr "パスワードに無効な文字が含まれています"
@@ -3465,9 +3394,6 @@ msgid ""
 "The session timeout time in minutes. Set to 0 to disable automatic logout."
 msgstr "分単位でセッションタイムアウト値を設定します。自動ログアウトを無効にするには0を設定します。"
 
-msgid "The shared folder is already used by another share."
-msgstr "共有フォルダはすでに別の共有で使用されています。"
-
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
@@ -3485,12 +3411,6 @@ msgstr "システムが再起動されます。これにはしばらく時間が
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr "テストメールが正常に送信されました。あなたのメールボックスを確認してください。"
 
-msgid "The user '%s' does not exist"
-msgstr "ユーザー '%s' は存在しません"
-
-msgid "The user '%s' is not allowed"
-msgstr "ユーザー '%s' は許可されていません"
-
 msgid "The volume label for the file system."
 msgstr "ファイルシステムのボリュームラベル。"
 
@@ -3501,9 +3421,6 @@ msgstr "ウェルカムメッセージはユーザーが最初にログインす
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "ワークグループはサーバがクライアントから参照される際に表示されます。"
-
-msgid "There already exists a mount point for %s"
-msgstr "マウントポイント %s はすでに存在します"
 
 msgid ""
 "These settings are used by the services to configure the user access rights."
@@ -3812,9 +3729,6 @@ msgstr "ウガンダ"
 msgid "Ukraine"
 msgstr "ウクライナ"
 
-msgid "Unauthorized attempt to modify the system account '%s'"
-msgstr "システムアカウント '%s' を変更する権限がありません"
-
 msgid "Uncompressed"
 msgstr "非圧縮"
 
@@ -3844,9 +3758,6 @@ msgstr "合衆国領有小離島"
 
 msgid "Unknown"
 msgstr "不明"
-
-msgid "Unknown log file type (id=%s)"
-msgstr "未知のログファイルタイプ (id=%s)"
 
 msgid "Unknown network interface type."
 msgstr "未知のネットワークインタフェースタイプ。"
@@ -3944,15 +3855,6 @@ msgstr "使用済み容量"
 msgid "User"
 msgstr "ユーザー"
 
-msgid "User '%s' already exist"
-msgstr "ユーザー '%s' はすでに存在します"
-
-msgid "User '%s' does not exist"
-msgstr "ユーザー '%s' は存在しません"
-
-msgid "User ID '%d' already exist"
-msgstr "ユーザー ID '%d' はすでに存在します"
-
 msgid "User accounts"
 msgstr "ユーザーアカウント"
 
@@ -4043,9 +3945,6 @@ msgstr "Web管理者パスワード"
 msgid "Web administration"
 msgstr "ウェブ管理"
 
-msgid "Web administration interface"
-msgstr "ウェブ管理インタフェース"
-
 msgid "Wednesday"
 msgstr "水曜"
 
@@ -4105,6 +4004,9 @@ msgstr "ザンビア"
 msgid "Zimbabwe"
 msgstr "ジンバブエ"
 
+msgid "control panel"
+msgstr ""
+
 msgid "day"
 msgstr "日"
 
@@ -4134,6 +4036,3 @@ msgstr "prefail"
 
 msgid "seconds"
 msgstr "秒"
-
-msgid "web administration interface"
-msgstr "ウェブ管理インタフェース"

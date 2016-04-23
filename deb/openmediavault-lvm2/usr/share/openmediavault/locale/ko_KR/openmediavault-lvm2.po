@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-08-06 15:19+0000\n"
-"Last-Translator: Chang-Eon Byeon <ksna0827@gmail.com>\n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2016-04-23 17:16+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -77,45 +77,6 @@ msgstr "논리 볼륨 확장"
 msgid "Extend volume group"
 msgstr "볼륨 그룹 확장"
 
-msgid "Failed to create logical volume: %s"
-msgstr "논리 볼륨을 만드는 데 실패했습니다: %s"
-
-msgid "Failed to create physical volume: %s"
-msgstr "물리 볼륨을 만드는 데 실패했습니다: %s"
-
-msgid "Failed to create volume group: %s"
-msgstr "볼륨 그룹을 만드는 데 실패했습니다: %s"
-
-msgid "Failed to extend logical volume: %s"
-msgstr "논리 볼륨을 확장하는 데 실패했습니다: %s"
-
-msgid "Failed to extend volume group: %s"
-msgstr "볼륨 그룹을 확장하는 데 실패했습니다: %s"
-
-msgid "Failed to reduce logical volume: %s"
-msgstr "논리 볼륨을 줄이는 데 실패했습니다: %s"
-
-msgid "Failed to reduce volume group: %s"
-msgstr "볼륨 그룹을 줄이는 데 실패했습니다: %s"
-
-msgid "Failed to remove logical volume: %s"
-msgstr "논리 볼륨을 삭제하는 데 실패했습니다: %s"
-
-msgid "Failed to remove physical volume: %s"
-msgstr "물리 볼륨을 삭제하는 데 실패했습니다: %s"
-
-msgid "Failed to remove volume group: %s"
-msgstr "볼륨 그룹을 삭제하는 데 실패했습니다: %s"
-
-msgid "Failed to rename logical volume: %s"
-msgstr "논리 볼륨의 이름을 바꾸는 데 실패했습니다: %s"
-
-msgid "Failed to rename volume group: %s"
-msgstr "볼륨 그룹의 이름을 바꾸는 데 실패했습니다: %s"
-
-msgid "Failed to resize physical volume: %s"
-msgstr "물리 볼륨을 조정하는 데 실패했습니다: %s"
-
 msgid "Free"
 msgstr "여유"
 
@@ -136,12 +97,6 @@ msgstr "논리 볼륨을 만들 여유 공간이 없습니다."
 
 msgid "No free space available to extend the logical volume."
 msgstr "논리 볼륨을 확장할 여유 공간이 없습니다."
-
-msgid "No logical volume found on '%s'"
-msgstr "'%s'에서 논리 볼륨이 발견되지 않음"
-
-msgid "No physical volume found on '%s'"
-msgstr "'%s'에서 물리 볼륨이 발견되지 않음"
 
 msgid "Physical volumes"
 msgstr "물리 볼륨"
@@ -169,9 +124,6 @@ msgstr "사용됨"
 
 msgid "Volume group"
 msgstr "볼륨 그룹"
-
-msgid "Volume group '%s' not found"
-msgstr "볼륨 그룹 '%s'을 찾을 수 없습니다."
 
 msgid "Volume groups"
 msgstr "볼륨 그룹"

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-07-10 17:10+0000\n"
-"Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2016-04-23 17:16+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/votdev/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -77,45 +77,6 @@ msgstr "Επέκταση λογικού τόμου"
 msgid "Extend volume group"
 msgstr "Επέκταση ομάδας τόμων"
 
-msgid "Failed to create logical volume: %s"
-msgstr "Απέτυχε η δημιουργία του λογικού τόμου : %s"
-
-msgid "Failed to create physical volume: %s"
-msgstr "Απέτυχε η δημιουργία του φυσικού τόμου : %s"
-
-msgid "Failed to create volume group: %s"
-msgstr "Απέτυχε η δημιουργία της ομάδας τόμων : %s"
-
-msgid "Failed to extend logical volume: %s"
-msgstr "Απέτυχε η επέκταση του λογικού τόμου : %s"
-
-msgid "Failed to extend volume group: %s"
-msgstr "Απέτυχε η επέκταση της ομάδας τόμων : %s"
-
-msgid "Failed to reduce logical volume: %s"
-msgstr "Απέτυχε η ελλάτωση του λογικού τόμου : %s"
-
-msgid "Failed to reduce volume group: %s"
-msgstr "Απέτυχε η ελλάτωση της ομάδας τόμων : %s"
-
-msgid "Failed to remove logical volume: %s"
-msgstr "Απέτυχε η αφαίρεση του λογικού τόμου : %s"
-
-msgid "Failed to remove physical volume: %s"
-msgstr "Απέτυχε η αφαίρεση του φυσικού τόμου : %s"
-
-msgid "Failed to remove volume group: %s"
-msgstr "Απέτυχε η αφαίρεση της ομάδας τόμων : %s"
-
-msgid "Failed to rename logical volume: %s"
-msgstr "Απέτυχε η μετονομασία του λογικού τόμου : %s"
-
-msgid "Failed to rename volume group: %s"
-msgstr "Απέτυχε η μετονομασία της ομάδας τόμων : %s"
-
-msgid "Failed to resize physical volume: %s"
-msgstr "Απέτυχε η προσαρμογή του φυσικού τόμου : %s"
-
 msgid "Free"
 msgstr "Διαθέσιμο"
 
@@ -136,12 +97,6 @@ msgstr "Δεν περισσεύει χώρος για την δημιουργί�
 
 msgid "No free space available to extend the logical volume."
 msgstr "Δεν περισσεύει χώρος για την επέκταση του λογικού τόμου."
-
-msgid "No logical volume found on '%s'"
-msgstr "Δεν βρέθηκε λογικός τόμος στο '%s'"
-
-msgid "No physical volume found on '%s'"
-msgstr "Δεν βρέθηκε φυσικός τόμος στο '%s'"
 
 msgid "Physical volumes"
 msgstr "Φυσικοί τόμοι"
@@ -169,9 +124,6 @@ msgstr "Χρησιμοποιημένο"
 
 msgid "Volume group"
 msgstr "Ομάδα τόμων"
-
-msgid "Volume group '%s' not found"
-msgstr "Η ομάδα τόμων '%s' δεν βρέθηκε"
 
 msgid "Volume groups"
 msgstr "Ομάδες τόμων"

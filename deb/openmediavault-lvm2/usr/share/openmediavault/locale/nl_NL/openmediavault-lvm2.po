@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Milan Toet <milantoet@gmail.com>, 2012-2013
-# Tim <co_ti@hotmail.com>, 2013-2014
+# Tim <co_ti@hotmail.com>, 2013-2014,2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-06-01 19:40+0000\n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2016-04-23 17:16+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/votdev/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -61,7 +61,7 @@ msgid "Do you really want to create the volume group?"
 msgstr "Weet u zeker dat u een schijfgroep wilt aanmaken?"
 
 msgid "Do you really want to resize the selected physical volume?"
-msgstr ""
+msgstr "Weet u zeker dat u de grootte van de fysieke schijf wilt aanpassen?"
 
 msgid "Edit logical volume"
 msgstr "Logische schijf aanpassen"
@@ -77,45 +77,6 @@ msgstr "Logische schijf uitbreiden"
 
 msgid "Extend volume group"
 msgstr "Schijfgroep uitbreiden"
-
-msgid "Failed to create logical volume: %s"
-msgstr ""
-
-msgid "Failed to create physical volume: %s"
-msgstr ""
-
-msgid "Failed to create volume group: %s"
-msgstr ""
-
-msgid "Failed to extend logical volume: %s"
-msgstr ""
-
-msgid "Failed to extend volume group: %s"
-msgstr ""
-
-msgid "Failed to reduce logical volume: %s"
-msgstr ""
-
-msgid "Failed to reduce volume group: %s"
-msgstr ""
-
-msgid "Failed to remove logical volume: %s"
-msgstr "Mislukte verwijdering van logische schijfdeel: %s"
-
-msgid "Failed to remove physical volume: %s"
-msgstr "Mislukte verwijdering van schijfdeel: %s"
-
-msgid "Failed to remove volume group: %s"
-msgstr "Mislukte verwijdering van schijfgroep: %s"
-
-msgid "Failed to rename logical volume: %s"
-msgstr ""
-
-msgid "Failed to rename volume group: %s"
-msgstr ""
-
-msgid "Failed to resize physical volume: %s"
-msgstr ""
 
 msgid "Free"
 msgstr "Vrij"
@@ -138,12 +99,6 @@ msgstr "Geen vrije ruimte beschikbaar om een logische schijf aan te maken."
 msgid "No free space available to extend the logical volume."
 msgstr "Geen vrije ruimte beschikbaar om de logische schijf uit te breiden."
 
-msgid "No logical volume found on '%s'"
-msgstr "Geen logische schijfdeel gevonden op '%s' "
-
-msgid "No physical volume found on '%s'"
-msgstr "Geen fysieke schijfdeel gevonden op '%s' "
-
 msgid "Physical volumes"
 msgstr "Fysieke schijven"
 
@@ -154,7 +109,7 @@ msgid "Reduce volume group"
 msgstr "Schijfgroep verkleinen"
 
 msgid "Resize"
-msgstr ""
+msgstr "Grootte aanpassen"
 
 msgid "Select a volume group ..."
 msgstr "Kies een schijfgroep ..."
@@ -170,9 +125,6 @@ msgstr "Gebruikt"
 
 msgid "Volume group"
 msgstr "Schijfgroep"
-
-msgid "Volume group '%s' not found"
-msgstr "Schijfgroep '%s' niet gevonden"
 
 msgid "Volume groups"
 msgstr "Schijfgroepen"

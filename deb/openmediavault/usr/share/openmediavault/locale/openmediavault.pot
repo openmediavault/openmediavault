@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-02 21:23+0100\n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -152,15 +152,6 @@ msgid "64 - Intermediate power usage with standby"
 msgstr ""
 
 msgid "9 months"
-msgstr ""
-
-msgid "A module with the name '%s' already exists"
-msgstr ""
-
-msgid "A share with the name '%s' already exists"
-msgstr ""
-
-msgid "A shared folder with the given name already exists"
 msgstr ""
 
 msgid "ACL"
@@ -548,12 +539,6 @@ msgid "Canada"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
-
-msgid "Cannot unlink the shared folder content because another shared folder also refers to it"
-msgstr ""
-
-msgid "Cannot unlink the shared folder content because another shared folder is referencing a subdirectory"
 msgstr ""
 
 msgid "Canton and Enderbury Islands"
@@ -1159,9 +1144,6 @@ msgstr ""
 msgid "Error #"
 msgstr ""
 
-msgid "Error #%d"
-msgstr ""
-
 msgid "Estonia"
 msgstr ""
 
@@ -1231,24 +1213,6 @@ msgstr ""
 msgid "FXP allows transfers between two remote servers without any file data going to the client asking for the transfer."
 msgstr ""
 
-msgid "Failed to get filesystems"
-msgstr ""
-
-msgid "Failed to get list of groups."
-msgstr ""
-
-msgid "Failed to get list of network interface devices"
-msgstr ""
-
-msgid "Failed to get list of unused network interface devices"
-msgstr ""
-
-msgid "Failed to get list of users."
-msgstr ""
-
-msgid "Failed to get storage device file from '%s'"
-msgstr ""
-
 msgid "Falkland Islands"
 msgstr ""
 
@@ -1289,12 +1253,6 @@ msgid "Files that are larger than the specified number of bytes will not be put 
 msgstr ""
 
 msgid "Filesize"
-msgstr ""
-
-msgid "Filesystem '%s' not found"
-msgstr ""
-
-msgid "Filesystem '%s' not supported"
 msgstr ""
 
 msgid "Filesystem Type"
@@ -1394,15 +1352,6 @@ msgid "Grenada"
 msgstr ""
 
 msgid "Group"
-msgstr ""
-
-msgid "Group '%s' already exist"
-msgstr ""
-
-msgid "Group '%s' does not exist"
-msgstr ""
-
-msgid "Group ID '%d' already exist"
 msgstr ""
 
 msgid "Groups"
@@ -1643,9 +1592,6 @@ msgid "Invalid group name"
 msgstr ""
 
 msgid "Invalid host name"
-msgstr ""
-
-msgid "Invalid line: %s"
 msgstr ""
 
 msgid "Invalid name"
@@ -2056,9 +2002,6 @@ msgstr ""
 msgid "Network"
 msgstr ""
 
-msgid "Network interface '%s' (type=%s) already exists"
-msgstr ""
-
 msgid "Network interfaces"
 msgstr ""
 
@@ -2225,6 +2168,9 @@ msgid "Pacific Islands Trust Territory"
 msgstr ""
 
 msgid "Package information"
+msgstr ""
+
+msgid "Page not found"
 msgstr ""
 
 msgid "Pakistan"
@@ -3229,25 +3175,16 @@ msgstr ""
 msgid "The device does not exist"
 msgstr ""
 
-msgid "The field '%s' contains forbidden "
-msgstr ""
-
 msgid "The file mode of the shared folder path."
 msgstr ""
 
 msgid "The file system creation has completed successfully."
 msgstr ""
 
-msgid "The group '%s' does not exist"
-msgstr ""
-
 msgid "The hostname is a label that identifies the system to the network."
 msgstr ""
 
 msgid "The information about available software is out-of-date. You need to reload the information about available software."
-msgstr ""
-
-msgid "The interface '%s' is already used by a bonding interface"
 msgstr ""
 
 msgid "The location of the files to share."
@@ -3266,10 +3203,6 @@ msgid "The number of days the certificate is valid for."
 msgstr ""
 
 msgid "The page will reload now to let the changes take effect."
-msgstr ""
-
-#, php-format
-msgid "The parameter '%s' contains forbidden two-dot symbols"
 msgstr ""
 
 msgid "The password contains invalid characters"
@@ -3299,9 +3232,6 @@ msgstr ""
 msgid "The session timeout time in minutes. Set to 0 to disable automatic logout."
 msgstr ""
 
-msgid "The shared folder is already used by another share."
-msgstr ""
-
 msgid "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or rsync://[USER@]HOST[:PORT]/SRC."
 msgstr ""
 
@@ -3317,12 +3247,6 @@ msgstr ""
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr ""
 
-msgid "The user '%s' does not exist"
-msgstr ""
-
-msgid "The user '%s' is not allowed"
-msgstr ""
-
 msgid "The volume label for the file system."
 msgstr ""
 
@@ -3330,9 +3254,6 @@ msgid "The welcome message which will be displayed to the user when they initial
 msgstr ""
 
 msgid "The workgroup the server will appear to be in when queried by clients."
-msgstr ""
-
-msgid "There already exists a mount point for %s"
 msgstr ""
 
 msgid "These settings are used by the services to configure the user access rights. Please note that these settings have no effect on file system permissions."
@@ -3581,9 +3502,6 @@ msgstr ""
 msgid "Ukraine"
 msgstr ""
 
-msgid "Unauthorized attempt to modify the system account '%s'"
-msgstr ""
-
 msgid "Uncompressed"
 msgstr ""
 
@@ -3612,9 +3530,6 @@ msgid "United States Minor Outlying Islands"
 msgstr ""
 
 msgid "Unknown"
-msgstr ""
-
-msgid "Unknown log file type (id=%s)"
 msgstr ""
 
 msgid "Unknown network interface type."
@@ -3710,15 +3625,6 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-msgid "User '%s' already exist"
-msgstr ""
-
-msgid "User '%s' does not exist"
-msgstr ""
-
-msgid "User ID '%d' already exist"
-msgstr ""
-
 msgid "User accounts"
 msgstr ""
 
@@ -3809,9 +3715,6 @@ msgstr ""
 msgid "Web administration"
 msgstr ""
 
-msgid "Web administration interface"
-msgstr ""
-
 msgid "Wednesday"
 msgstr ""
 
@@ -3869,6 +3772,9 @@ msgstr ""
 msgid "Zimbabwe"
 msgstr ""
 
+msgid "control panel"
+msgstr ""
+
 msgid "day"
 msgstr ""
 
@@ -3897,7 +3803,4 @@ msgid "prefail"
 msgstr ""
 
 msgid "seconds"
-msgstr ""
-
-msgid "web administration interface"
 msgstr ""

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-02 21:23+0100\n"
-"PO-Revision-Date: 2016-03-02 20:24+0000\n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2016-04-23 17:16+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -156,15 +156,6 @@ msgstr "64 - 대기와 보통 전력 사용량"
 
 msgid "9 months"
 msgstr "9개월"
-
-msgid "A module with the name '%s' already exists"
-msgstr "'%s' 는 이미 존재하는 모듈 이름입니다."
-
-msgid "A share with the name '%s' already exists"
-msgstr "'%s'는 이미 존재하는 공유 이름입니다."
-
-msgid "A shared folder with the given name already exists"
-msgstr "해당 공유 폴더의 이름을 가진 폴더가 이미 존재합니다."
 
 msgid "ACL"
 msgstr "접근 제어 목록"
@@ -562,16 +553,6 @@ msgstr "캐나다"
 
 msgid "Cancel"
 msgstr "취소"
-
-msgid ""
-"Cannot unlink the shared folder content because another shared folder also "
-"refers to it"
-msgstr "다른 공유폴더도 참조하고 있기 때문에 공유 폴더 컨텐츠를 연결해제할 수 없습니다."
-
-msgid ""
-"Cannot unlink the shared folder content because another shared folder is "
-"referencing a subdirectory"
-msgstr "다른 공유 폴더가 해당 폴더의 하위 디렉터리를 참조하고 있기 때문에 이 공유 폴더를 삭제할 수 없습니다."
 
 msgid "Canton and Enderbury Islands"
 msgstr "피닉스 제도"
@@ -1201,9 +1182,6 @@ msgstr "오류"
 msgid "Error #"
 msgstr "오류 #"
 
-msgid "Error #%d"
-msgstr "오류 #%d"
-
 msgid "Estonia"
 msgstr "에스토니아"
 
@@ -1275,24 +1253,6 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "FXP는 전송을 요청하는 클라이언트로 가는 어떤 파일 데이터 없이 두 원격 서버 간에 파일 데이터를 전송할 수 있습니다."
 
-msgid "Failed to get filesystems"
-msgstr "파일 시스템을 가져오지 못했습니다."
-
-msgid "Failed to get list of groups."
-msgstr "그룹 목록을 가져오지 못했습니다"
-
-msgid "Failed to get list of network interface devices"
-msgstr "네트워크 인터페이스 장치 목록을 가져오지 못했습니다"
-
-msgid "Failed to get list of unused network interface devices"
-msgstr "사용되지 않은 네트워크 인터페이스 장치들의 목록을 얻지 못했습니다."
-
-msgid "Failed to get list of users."
-msgstr "사용자 목록을 가져오지 못했습니다."
-
-msgid "Failed to get storage device file from '%s'"
-msgstr "'%s'에서 저장 장치 파일을 가져오지 못했습니다."
-
 msgid "Falkland Islands"
 msgstr "포클랜드 제도"
 
@@ -1338,12 +1298,6 @@ msgstr "지정된 바이트 크기보다 큰 파일들은 휴지통으로 들어
 
 msgid "Filesize"
 msgstr "파일 크기"
-
-msgid "Filesystem '%s' not found"
-msgstr "'%s' 파일 시스템을 찾을 수 없습니다."
-
-msgid "Filesystem '%s' not supported"
-msgstr "'%s' 파일 시스템은 지원되지 않습니다."
 
 msgid "Filesystem Type"
 msgstr ""
@@ -1443,15 +1397,6 @@ msgstr "그레나다"
 
 msgid "Group"
 msgstr "그룹"
-
-msgid "Group '%s' already exist"
-msgstr " '%s' 는 이미 존재하는 그룹입니다."
-
-msgid "Group '%s' does not exist"
-msgstr "그룹 '%s'은(는) 존재하지 않습니다."
-
-msgid "Group ID '%d' already exist"
-msgstr "'%d'는 이미 존재하는 그룹 ID입니다."
 
 msgid "Groups"
 msgstr "그룹"
@@ -1720,9 +1665,6 @@ msgstr "잘못된 그룹 이름"
 
 msgid "Invalid host name"
 msgstr "잘못된 호스트 이름"
-
-msgid "Invalid line: %s"
-msgstr "잘못된 줄: %s"
 
 msgid "Invalid name"
 msgstr "잘못된 이름"
@@ -2141,9 +2083,6 @@ msgstr "넷마스크"
 msgid "Network"
 msgstr "네트워크"
 
-msgid "Network interface '%s' (type=%s) already exists"
-msgstr "'%s' (방식=%s)는 이미 존재하는 네트워크 인터페이스입니다."
-
 msgid "Network interfaces"
 msgstr "네트워크 인터페이스"
 
@@ -2311,6 +2250,9 @@ msgstr "태평양 제도 신탁통치령"
 
 msgid "Package information"
 msgstr "패키지 정보"
+
+msgid "Page not found"
+msgstr ""
 
 msgid "Pakistan"
 msgstr "파키스탄"
@@ -3380,17 +3322,11 @@ msgstr "대상 공유 폴더"
 msgid "The device does not exist"
 msgstr "장치가 존재하지 않습니다."
 
-msgid "The field '%s' contains forbidden "
-msgstr "'%s' 항목이 허용되지 않는 내용을 포함하고 있습니다."
-
 msgid "The file mode of the shared folder path."
 msgstr "공유 폴더 경로의 파일 모드"
 
 msgid "The file system creation has completed successfully."
 msgstr "파일 시스템이 성공적으로 생성되었습니다."
-
-msgid "The group '%s' does not exist"
-msgstr "그룹 '%s'은(는) 존재하지 않습니다."
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "호스트 이름은 네트워크 상에서 시스템을 식별하는 이름표입니다."
@@ -3399,9 +3335,6 @@ msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
 msgstr "가용 소프트웨어에 대한 정보가 오래되었습니다. 해당 정보를 갱신해야만 합니다."
-
-msgid "The interface '%s' is already used by a bonding interface"
-msgstr "'%s'은(는) 이미 결합된 인터페이스로 이용되고 있습니다."
 
 msgid "The location of the files to share."
 msgstr "공유할 파일 위치"
@@ -3422,10 +3355,6 @@ msgstr "이 인증서가 유효한 일수"
 
 msgid "The page will reload now to let the changes take effect."
 msgstr "이 페이지는 변경을 적용하기 위해 새로 고쳐질 것입니다."
-
-#, php-format
-msgid "The parameter '%s' contains forbidden two-dot symbols"
-msgstr "'%s' 매개변수에 허용되지 않는 이점 기호가 포함되어 있습니다."
 
 msgid "The password contains invalid characters"
 msgstr "암호에 허용되지 않는 문자들이 포함되어 있습니다."
@@ -3467,9 +3396,6 @@ msgid ""
 "The session timeout time in minutes. Set to 0 to disable automatic logout."
 msgstr "세션이 만료될 시간. 0으로 설정하여 자동 로그아웃을 비활성화합니다."
 
-msgid "The shared folder is already used by another share."
-msgstr "이 공유 폴더는 다른 공유에 이미 사용되고 있습니다."
-
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
@@ -3487,12 +3413,6 @@ msgstr "시스템이 재시작됩니다. 몇 분이 소요될 수 있습니다 .
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr "시험용 전자우편이 성공적으로 전송되었습니다. 우편함을 확인하여 주십시오."
 
-msgid "The user '%s' does not exist"
-msgstr "사용자 '%s'은(는) 존재하지 않습니다."
-
-msgid "The user '%s' is not allowed"
-msgstr "사용자 '%s'은(는) 허용되지 않습니다."
-
 msgid "The volume label for the file system."
 msgstr "파일 시스템 볼륨 레이블"
 
@@ -3503,9 +3423,6 @@ msgstr "이 환영 메시지는 사용자의 초기 로그인 시점에 나타�
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "클라이언트가 조회할 때 작업 그룹의 서버가 나타날 것입니다."
-
-msgid "There already exists a mount point for %s"
-msgstr "%s에 대한 마운트 지점이 이미 존재합니다."
 
 msgid ""
 "These settings are used by the services to configure the user access rights."
@@ -3814,9 +3731,6 @@ msgstr "우간다"
 msgid "Ukraine"
 msgstr "우크라이나"
 
-msgid "Unauthorized attempt to modify the system account '%s'"
-msgstr "시스템 계정 '%s'을 수정할 권한이 없는 시도"
-
 msgid "Uncompressed"
 msgstr "압축되지 않은"
 
@@ -3846,9 +3760,6 @@ msgstr "미국령 군소 제도"
 
 msgid "Unknown"
 msgstr "알 수 없음"
-
-msgid "Unknown log file type (id=%s)"
-msgstr "알 수 없는 로그 파일 형식 (id=%s)"
 
 msgid "Unknown network interface type."
 msgstr "알 수 없는 네트워크 인터페이스 형식"
@@ -3946,15 +3857,6 @@ msgstr "사용량"
 msgid "User"
 msgstr "사용자"
 
-msgid "User '%s' already exist"
-msgstr "'%s'는 이미 존재하는 사용자입니다."
-
-msgid "User '%s' does not exist"
-msgstr "사용자 '%s'은(는) 존재하지 않습니다."
-
-msgid "User ID '%d' already exist"
-msgstr "'%d'는 이미 존재하는 사용자 ID입니다."
-
 msgid "User accounts"
 msgstr "사용자 계정"
 
@@ -4045,9 +3947,6 @@ msgstr "웹 관리자 암호"
 msgid "Web administration"
 msgstr "웹 관리자"
 
-msgid "Web administration interface"
-msgstr "웹 관리 인터페이스"
-
 msgid "Wednesday"
 msgstr "수요일"
 
@@ -4107,6 +4006,9 @@ msgstr "잠비아"
 msgid "Zimbabwe"
 msgstr "짐바브웨"
 
+msgid "control panel"
+msgstr ""
+
 msgid "day"
 msgstr "일"
 
@@ -4136,6 +4038,3 @@ msgstr ""
 
 msgid "seconds"
 msgstr "초"
-
-msgid "web administration interface"
-msgstr "웹 관리자 인터페이스"

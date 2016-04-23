@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-02 21:23+0100\n"
-"PO-Revision-Date: 2016-03-02 21:46+0000\n"
-"Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2016-04-23 17:16+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Italian (http://www.transifex.com/votdev/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -159,15 +159,6 @@ msgstr "64 - Consumo di energia intermedio con standby"
 
 msgid "9 months"
 msgstr "9 mesi"
-
-msgid "A module with the name '%s' already exists"
-msgstr "Esiste già un modulo di nome '%s'"
-
-msgid "A share with the name '%s' already exists"
-msgstr "Esiste già una condivisione con nome '%s'"
-
-msgid "A shared folder with the given name already exists"
-msgstr "Esiste già una cartella condivisa con il nome scelto"
 
 msgid "ACL"
 msgstr "ACL"
@@ -565,16 +556,6 @@ msgstr "Canada"
 
 msgid "Cancel"
 msgstr "Annulla"
-
-msgid ""
-"Cannot unlink the shared folder content because another shared folder also "
-"refers to it"
-msgstr "Impossibile scollegare il contenuto della cartella condivisa perché un'altra cartella condivisa è collegata ad una sotto cartella"
-
-msgid ""
-"Cannot unlink the shared folder content because another shared folder is "
-"referencing a subdirectory"
-msgstr "Impossibile scollegare il contenuto della cartella condivisa perché un'altra cartella condivisa è collegata ad una sotto cartella"
 
 msgid "Canton and Enderbury Islands"
 msgstr "Isole Canton ed Enderbury"
@@ -1204,9 +1185,6 @@ msgstr "Errore"
 msgid "Error #"
 msgstr "Errore #"
 
-msgid "Error #%d"
-msgstr "Errore #%d"
-
 msgid "Estonia"
 msgstr "Estonia"
 
@@ -1278,24 +1256,6 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "FXP permette trasferimenti di files tra due server remoti direttamente senza che i dati passino dal client che ha richiesto il trasferimento."
 
-msgid "Failed to get filesystems"
-msgstr "Impossibile ottenere i filesystem"
-
-msgid "Failed to get list of groups."
-msgstr "Impossibile ottenere lista di gruppi."
-
-msgid "Failed to get list of network interface devices"
-msgstr "Impossibile ottenere lista di dispositivi di rete"
-
-msgid "Failed to get list of unused network interface devices"
-msgstr "Impossibile ottenere lista di dispositivi di rete"
-
-msgid "Failed to get list of users."
-msgstr "Impossibile ottenere lista di utenti."
-
-msgid "Failed to get storage device file from '%s'"
-msgstr "Impossibile ottenere file dispositivo di archiviazione da '%s'"
-
 msgid "Falkland Islands"
 msgstr "isole Falkland"
 
@@ -1341,12 +1301,6 @@ msgstr "I file che sono più grandi del numero specificato in byte non saranno m
 
 msgid "Filesize"
 msgstr "Dimensione file"
-
-msgid "Filesystem '%s' not found"
-msgstr "Filesystem '%s' non trovato"
-
-msgid "Filesystem '%s' not supported"
-msgstr "Filesystem '%s' non supportato"
 
 msgid "Filesystem Type"
 msgstr "Tipo Filesystem"
@@ -1446,15 +1400,6 @@ msgstr "Grenada"
 
 msgid "Group"
 msgstr "Gruppo"
-
-msgid "Group '%s' already exist"
-msgstr "Il gruppo '%s' esiste già"
-
-msgid "Group '%s' does not exist"
-msgstr "Il gruppo '%s' non esiste"
-
-msgid "Group ID '%d' already exist"
-msgstr "L'ID del gruppo '%d' esiste già"
 
 msgid "Groups"
 msgstr "Gruppi"
@@ -1723,9 +1668,6 @@ msgstr "Nome del gruppo non valido"
 
 msgid "Invalid host name"
 msgstr "Nome dell'host non valido"
-
-msgid "Invalid line: %s"
-msgstr "Linea non valida: %s"
 
 msgid "Invalid name"
 msgstr "Nome non valido"
@@ -2144,9 +2086,6 @@ msgstr "Netmask"
 msgid "Network"
 msgstr "Rete"
 
-msgid "Network interface '%s' (type=%s) already exists"
-msgstr "L'interfaccia di rete '%s' (type=%s) esiste già"
-
 msgid "Network interfaces"
 msgstr "Interfacce di rete"
 
@@ -2314,6 +2253,9 @@ msgstr "Territorio fiduciario delle Isole del Pacifico"
 
 msgid "Package information"
 msgstr "Informazioni del pacchetto"
+
+msgid "Page not found"
+msgstr ""
 
 msgid "Pakistan"
 msgstr "Pakistan"
@@ -3383,17 +3325,11 @@ msgstr "La cartella condivisa di destinazione."
 msgid "The device does not exist"
 msgstr "Il dispositivo non esiste"
 
-msgid "The field '%s' contains forbidden "
-msgstr "Il campo '%s' contiene parameti vietati"
-
 msgid "The file mode of the shared folder path."
 msgstr "Le impostazioni dei file del percorso della cartella condivisa."
 
 msgid "The file system creation has completed successfully."
 msgstr "La creazione del file system è stata completata con successo."
-
-msgid "The group '%s' does not exist"
-msgstr "Il gruppo '%s' non esiste"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "L'hostname è un nome che identifica il sistema sulla rete."
@@ -3402,9 +3338,6 @@ msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
 msgstr "Le informazioni sul software disponibile non sono aggiornate. È necessario ricaricare le informazioni sul software disponibile."
-
-msgid "The interface '%s' is already used by a bonding interface"
-msgstr "L'interfaccia '%s' è in uso da un interfaccia di bonding"
 
 msgid "The location of the files to share."
 msgstr "Il percorso dei file da condividere."
@@ -3425,10 +3358,6 @@ msgstr "Il numero di giorni per cui il certificato sarà valido."
 
 msgid "The page will reload now to let the changes take effect."
 msgstr "La pagina verrà ricaricata perché le modifiche abbiano effetto."
-
-#, php-format
-msgid "The parameter '%s' contains forbidden two-dot symbols"
-msgstr "Il parametro '%s' contiene simboli a due punti non permessi "
 
 msgid "The password contains invalid characters"
 msgstr "La password contiene caratteri non validi"
@@ -3470,9 +3399,6 @@ msgid ""
 "The session timeout time in minutes. Set to 0 to disable automatic logout."
 msgstr "Timeout di sessione definito in minuti. Imposta a 0 per disabilitare il logout automatico."
 
-msgid "The shared folder is already used by another share."
-msgstr "La directory condivisa e già in uso da un'altra condivisione."
-
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
@@ -3490,12 +3416,6 @@ msgstr "Il sistema verrà riavviato adesso. Il riavvio può impiegare qualche te
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr "La mail di test è stata inviata con successo. Si prega di controllare la casella di posta."
 
-msgid "The user '%s' does not exist"
-msgstr "L'utente '%s' non esiste"
-
-msgid "The user '%s' is not allowed"
-msgstr "L'utente '%s' non è abilitato"
-
 msgid "The volume label for the file system."
 msgstr "L'etichetta del volume per il file system."
 
@@ -3506,9 +3426,6 @@ msgstr "Il messaggio di benvenuto che verrà visualizzato all'utente al primo ac
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Il gruppo nel quale apparirà il server quando i client lo interrogheranno."
-
-msgid "There already exists a mount point for %s"
-msgstr "Esiste già un mount point per %s"
 
 msgid ""
 "These settings are used by the services to configure the user access rights."
@@ -3817,9 +3734,6 @@ msgstr "Uganda"
 msgid "Ukraine"
 msgstr "Ucraina"
 
-msgid "Unauthorized attempt to modify the system account '%s'"
-msgstr "Tentativo di modifica dell'account di sistema '%s' non autorizzato "
-
 msgid "Uncompressed"
 msgstr "Non compresso"
 
@@ -3849,9 +3763,6 @@ msgstr "Isole Minori Esterne degli Stati Uniti"
 
 msgid "Unknown"
 msgstr "Sconosciuto"
-
-msgid "Unknown log file type (id=%s)"
-msgstr "File di log di tipo sconosciuto (id=%s)"
 
 msgid "Unknown network interface type."
 msgstr "Tipo di interfaccia di rete sconosciuta."
@@ -3949,15 +3860,6 @@ msgstr "Capacità usata"
 msgid "User"
 msgstr "Utente"
 
-msgid "User '%s' already exist"
-msgstr "L'utente '%s' è già esistente"
-
-msgid "User '%s' does not exist"
-msgstr "L'utente '%s' non esiste"
-
-msgid "User ID '%d' already exist"
-msgstr "L'ID utente '%d' è già esistente"
-
 msgid "User accounts"
 msgstr "Account Utente"
 
@@ -4048,9 +3950,6 @@ msgstr "Password Amministratore Web"
 msgid "Web administration"
 msgstr "Amministrazione Web"
 
-msgid "Web administration interface"
-msgstr "Interfaccia amministrazione web"
-
 msgid "Wednesday"
 msgstr "Mercoledì"
 
@@ -4110,6 +4009,9 @@ msgstr "Zambia"
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
+msgid "control panel"
+msgstr ""
+
 msgid "day"
 msgstr "giorno"
 
@@ -4139,6 +4041,3 @@ msgstr "prefail"
 
 msgid "seconds"
 msgstr "secondi"
-
-msgid "web administration interface"
-msgstr "Interfaccia web di amministrazione"

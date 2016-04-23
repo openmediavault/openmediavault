@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-06-12 11:44+0000\n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2016-04-23 17:16+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -79,45 +79,6 @@ msgstr "Logical Volume erweitern"
 msgid "Extend volume group"
 msgstr "Volumegruppe erweitern"
 
-msgid "Failed to create logical volume: %s"
-msgstr "Das Logical Volume konnte nicht erstellt werden: %s"
-
-msgid "Failed to create physical volume: %s"
-msgstr "Das Physical Volume konnte nicht erstellt werden: %s"
-
-msgid "Failed to create volume group: %s"
-msgstr "Die Volume Group konnte nicht erstellt werden: %s"
-
-msgid "Failed to extend logical volume: %s"
-msgstr "Das Logical Volume konnte nicht vergrößert werden: %s"
-
-msgid "Failed to extend volume group: %s"
-msgstr "Die Volume Group konnte nicht vergrößert werden: %s"
-
-msgid "Failed to reduce logical volume: %s"
-msgstr "Das Logical Volume konnte nicht verkleinert werden: %s"
-
-msgid "Failed to reduce volume group: %s"
-msgstr "Die Volume Group konnte nicht verkleinert werden: %s"
-
-msgid "Failed to remove logical volume: %s"
-msgstr "Das Logical Volume konnte nicht entfernt werden: %s"
-
-msgid "Failed to remove physical volume: %s"
-msgstr "Das Physical Volume konnte nicht entfernt werden: %s"
-
-msgid "Failed to remove volume group: %s"
-msgstr "Die Volume Group konnte nicht entfernt werden: %s"
-
-msgid "Failed to rename logical volume: %s"
-msgstr "Das Logical Volume konnte nicht umbenannt werden: %s"
-
-msgid "Failed to rename volume group: %s"
-msgstr "Die Volume Group konnte nicht umbenannt werden: %s"
-
-msgid "Failed to resize physical volume: %s"
-msgstr "Die Größe des Physical Volume konnte nicht geändert werden: %s"
-
 msgid "Free"
 msgstr "Frei"
 
@@ -138,12 +99,6 @@ msgstr "Es steht kein freier Speicherplatz zur Verfügung um ein Logical Volume 
 
 msgid "No free space available to extend the logical volume."
 msgstr "Es steht kein freier Speicherplatz zur Verfügung um das Logical Volume zu erweitern."
-
-msgid "No logical volume found on '%s'"
-msgstr "Es wurde kein Logical Volume auf '%s' gefunden"
-
-msgid "No physical volume found on '%s'"
-msgstr "Es wurde kein Physical Volume auf '%s' gefunden"
 
 msgid "Physical volumes"
 msgstr "Physical Volumes"
@@ -171,9 +126,6 @@ msgstr "Benutzt"
 
 msgid "Volume group"
 msgstr "Volumegruppe"
-
-msgid "Volume group '%s' not found"
-msgstr "Die Volume Group '%s' wurde nicht gefunden"
 
 msgid "Volume groups"
 msgstr "Volumegruppen"

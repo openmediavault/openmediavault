@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-02 21:23+0100\n"
-"PO-Revision-Date: 2016-03-02 20:24+0000\n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2016-04-23 17:16+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/votdev/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -154,15 +154,6 @@ msgstr "64 - Μέτρια κατανάλωση ενέργειας με στάσ�
 
 msgid "9 months"
 msgstr "9 μήνες"
-
-msgid "A module with the name '%s' already exists"
-msgstr "Υπάρχει ήδη πρόσθετο με το όνομα '%s'"
-
-msgid "A share with the name '%s' already exists"
-msgstr "Υπάρχει ήδη κοινόχρηστο με το όνομα '%s'"
-
-msgid "A shared folder with the given name already exists"
-msgstr "Υπάρχει ήδη κοινόχρηστος φάκελος με το ίδιο όνομα"
 
 msgid "ACL"
 msgstr "Λίστα Διαχείρισης Πρόσβασης"
@@ -561,16 +552,6 @@ msgstr "Canada"
 msgid "Cancel"
 msgstr "Ακύρωση"
 
-msgid ""
-"Cannot unlink the shared folder content because another shared folder also "
-"refers to it"
-msgstr "Αδύνατη η αποσύνδεση των περιεχομένων του κοινόχρηστου φακέλου, διότι κάποιος άλλος κοινόχρηστος φάκελος συνδέεται με κάποιο από αυτά."
-
-msgid ""
-"Cannot unlink the shared folder content because another shared folder is "
-"referencing a subdirectory"
-msgstr "Αδύνατη η αποσύνδεση των περιεχομένων του κοινόχρηστου φακέλου, διότι κάποιος άλλος κοινόχρηστος φάκελος συνδέεται με κάποιο από αυτά."
-
 msgid "Canton and Enderbury Islands"
 msgstr "Canton and Enderbury Islands"
 
@@ -724,7 +705,7 @@ msgid "Cook Islands"
 msgstr "Cook Islands"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Αντιγραφή στο πρόχειρο"
 
 msgid "Costa Rica"
 msgstr "Costa Rica"
@@ -1199,9 +1180,6 @@ msgstr "Σφάλμα"
 msgid "Error #"
 msgstr "Σφάλμα #"
 
-msgid "Error #%d"
-msgstr "Σφάλμα #%d"
-
 msgid "Estonia"
 msgstr "Estonia"
 
@@ -1273,24 +1251,6 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "Το FXP επιτρέπει την μεταφορά αρχείων ανάμεσα σε δύο διακομιστές, χωρίς τα δεδομένα να περνάνε από τον πελάτη που ζήτησε την μεταφορά."
 
-msgid "Failed to get filesystems"
-msgstr "Αποτυχία λήψης συστημάτων αρχείων"
-
-msgid "Failed to get list of groups."
-msgstr "Απέτυχε η λήψη της λίστας των ομάδων."
-
-msgid "Failed to get list of network interface devices"
-msgstr "Απέτυχε η λήψη της λίστας των συσκευών δικτύου"
-
-msgid "Failed to get list of unused network interface devices"
-msgstr "Απέτυχε η λήψη της λίστας των διαθέσιμων συσκευών δικτύου"
-
-msgid "Failed to get list of users."
-msgstr "Απέτυχε η λήψη της λίστας των χρηστών."
-
-msgid "Failed to get storage device file from '%s'"
-msgstr "Αποτυχία λήψης του αρχείου συσκευής αποθήκευσης από το '%s'"
-
 msgid "Falkland Islands"
 msgstr "Falkland Islands"
 
@@ -1336,12 +1296,6 @@ msgstr "Αρχεία μεγαλύτερα από το προσδιορισμέν
 
 msgid "Filesize"
 msgstr "Μέγεθος αρχείου"
-
-msgid "Filesystem '%s' not found"
-msgstr "Το σύστημα αρχείων '%s' δεν βρέθηκε"
-
-msgid "Filesystem '%s' not supported"
-msgstr "Το σύστημα αρχείων '%s' δεν υποστηρίζεται"
 
 msgid "Filesystem Type"
 msgstr "Τύπος Συστήματος Αρχείων"
@@ -1441,15 +1395,6 @@ msgstr "Grenada"
 
 msgid "Group"
 msgstr "Group"
-
-msgid "Group '%s' already exist"
-msgstr "Η ομάδα '%s' υπάρχει ήδη"
-
-msgid "Group '%s' does not exist"
-msgstr "Η ομάδα '%s' δεν υπάρχει"
-
-msgid "Group ID '%d' already exist"
-msgstr "Η ομάδα με αναγνωριστικό '%d' υπάρχει ήδη"
 
 msgid "Groups"
 msgstr "Ομάδες"
@@ -1718,9 +1663,6 @@ msgstr "Άκυρη ονομασία ομάδας"
 
 msgid "Invalid host name"
 msgstr "Άκυρο όνομα συστήματος"
-
-msgid "Invalid line: %s"
-msgstr "Άκυρη γραμμή : %s"
 
 msgid "Invalid name"
 msgstr "Άκυρο όνομα"
@@ -2139,9 +2081,6 @@ msgstr "Μάσκα δικτύου"
 msgid "Network"
 msgstr "Δίκτυο"
 
-msgid "Network interface '%s' (type=%s) already exists"
-msgstr "Η επαφή δικτύου '%s' (τύπου=%s) υπάρχει ήδη"
-
 msgid "Network interfaces"
 msgstr "Επαφές δικτύου"
 
@@ -2309,6 +2248,9 @@ msgstr "Pacific Islands Trust Territory"
 
 msgid "Package information"
 msgstr "Πληροφορίες πακέτου"
+
+msgid "Page not found"
+msgstr ""
 
 msgid "Pakistan"
 msgstr "Pakistan"
@@ -3378,17 +3320,11 @@ msgstr "Ο κοινόχρηστος φάκελος προορισμού."
 msgid "The device does not exist"
 msgstr "Η συσκευή δεν υπάρχει"
 
-msgid "The field '%s' contains forbidden "
-msgstr "Το πεδίο '%s' περιέχει απαγορευμένο"
-
 msgid "The file mode of the shared folder path."
 msgstr "Η ιδιότητα αρχείου της διαδρομής διαμοιρασμού."
 
 msgid "The file system creation has completed successfully."
 msgstr "Η δημιουργία του συστήματος αρχείων ολοκληρώθηκε επιτυχώς."
-
-msgid "The group '%s' does not exist"
-msgstr "Η ομάδα '%s' δεν υπάρχει"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Το όνομα συστήματος είναι μια ετικέτα που χαρακτηρίζει το σύστημα στο δίκτυο."
@@ -3397,9 +3333,6 @@ msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
 msgstr "Οι πληροφορίες διαθέσιμου λογισμικού είναι παλιές. Θα πρέπει να ληφθούν καινούργιες πληροφορίες."
-
-msgid "The interface '%s' is already used by a bonding interface"
-msgstr "Η διεπαφή '%s' χρησιμοποιείται ήδη σε συνδιασμό διεπαφών"
 
 msgid "The location of the files to share."
 msgstr "Η θέση των αρχείων προς διαμοιρασμό"
@@ -3420,10 +3353,6 @@ msgstr "Ο αριθμός των ημερών για τις οποίες ισχ�
 
 msgid "The page will reload now to let the changes take effect."
 msgstr "Η σελίδα θα ξαναφορτωθεί τώρα για να εφαρμοστούν οι αλλαγές."
-
-#, php-format
-msgid "The parameter '%s' contains forbidden two-dot symbols"
-msgstr "Η παράμετρος '%s' περιέχει απαγορευμένους χαρακτήρες με δυο τελείες"
 
 msgid "The password contains invalid characters"
 msgstr "Ο κωδικός περιέχει μή αποδεκτούς χαρακτήρες"
@@ -3465,9 +3394,6 @@ msgid ""
 "The session timeout time in minutes. Set to 0 to disable automatic logout."
 msgstr "Ο χρόνος λήξης της συνεδρίας σε λεπτά. Με 0 απενεργοποιείται."
 
-msgid "The shared folder is already used by another share."
-msgstr "Ο κοινόχρηστος φάκελος χρησιμοποιείται ήδη από άλλο κοινόχρηστο."
-
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
@@ -3485,12 +3411,6 @@ msgstr "Το σύστημα θα επανεκκινήσει τώρα. Αυτό �
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr "Το δοκιμαστικό μήνυμα εστάλη επιτυχώς. Ελέγξτε τα εισερχόμενά σας."
 
-msgid "The user '%s' does not exist"
-msgstr "Ο χρήστης '%s' δεν υπάρχει"
-
-msgid "The user '%s' is not allowed"
-msgstr "Ο χρήστης '%s' δεν επιτρέπεται"
-
 msgid "The volume label for the file system."
 msgstr "Η ετικέτα του τόμου για το σύστημα αρχείων."
 
@@ -3501,9 +3421,6 @@ msgstr "Το μήνυμα καλωσορίσματος θα εμφανίζετα
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Ο διακομιστής θα αναφέρει οτι ανήκει σε αυτήν την ομάδα εργασίας όταν ρωτάνε οι πελάτες."
-
-msgid "There already exists a mount point for %s"
-msgstr "Υπάρχει ήδη σημείο προσάρτησης για το '%s'q"
 
 msgid ""
 "These settings are used by the services to configure the user access rights."
@@ -3812,9 +3729,6 @@ msgstr "Uganda"
 msgid "Ukraine"
 msgstr "Ukraine"
 
-msgid "Unauthorized attempt to modify the system account '%s'"
-msgstr "Ακατάλληλη προσπάθεια τροποποίησης του λογαριασμού συστήματος '%s'"
-
 msgid "Uncompressed"
 msgstr "Ασυμπίεστο"
 
@@ -3844,9 +3758,6 @@ msgstr "United States Minor Outlying Islands"
 
 msgid "Unknown"
 msgstr "Άγνωστο"
-
-msgid "Unknown log file type (id=%s)"
-msgstr "Άγνωστο αρχείο καταγραφής (%s)"
 
 msgid "Unknown network interface type."
 msgstr "Άγνωστος τύπος διεπαφής δικτύου."
@@ -3944,15 +3855,6 @@ msgstr "Χρησιμοποιημένη χωρητικότητα"
 msgid "User"
 msgstr "Χρήστης"
 
-msgid "User '%s' already exist"
-msgstr "Ο χρήστης '%s' υπάρχει ήδη"
-
-msgid "User '%s' does not exist"
-msgstr "Ο χρήστης '%s' δεν υπάρχει"
-
-msgid "User ID '%d' already exist"
-msgstr "Ο χρήστης με αναγνωριστικό '%d' υπάρχει ήδη"
-
 msgid "User accounts"
 msgstr "Λογαριασμοί χρηστών"
 
@@ -4043,9 +3945,6 @@ msgstr "Κωδικός διαχείρισης"
 msgid "Web administration"
 msgstr "Δικτυακή διαχείριση"
 
-msgid "Web administration interface"
-msgstr "Περιβάλλον διαχείρισης"
-
 msgid "Wednesday"
 msgstr "Τετάρτη"
 
@@ -4105,6 +4004,9 @@ msgstr "Zambia"
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
+msgid "control panel"
+msgstr ""
+
 msgid "day"
 msgstr "ημέρα"
 
@@ -4134,6 +4036,3 @@ msgstr "prefail"
 
 msgid "seconds"
 msgstr "δευτερόλεπτα"
-
-msgid "web administration interface"
-msgstr "πίνακας δικτυακής διαχείρησης"

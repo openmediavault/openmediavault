@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-06-03 03:30+0000\n"
-"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2016-04-23 17:16+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/votdev/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -77,45 +77,6 @@ msgstr "論理ボリュームの拡張"
 msgid "Extend volume group"
 msgstr "ボリュームグループの拡張"
 
-msgid "Failed to create logical volume: %s"
-msgstr "論理ボリュームの作成に失敗しました: %s"
-
-msgid "Failed to create physical volume: %s"
-msgstr "物理ボリュームの作成に失敗しました: %s"
-
-msgid "Failed to create volume group: %s"
-msgstr "ボリュームグループの作成に失敗しました: %s"
-
-msgid "Failed to extend logical volume: %s"
-msgstr "論理ボリュームの拡張に失敗しました: %s"
-
-msgid "Failed to extend volume group: %s"
-msgstr "ボリュームグループの拡張にしっぱいしました: %s"
-
-msgid "Failed to reduce logical volume: %s"
-msgstr "論理ボリュームの縮小に失敗しました: %s"
-
-msgid "Failed to reduce volume group: %s"
-msgstr "ボリュームグループの縮小に失敗しました: %s"
-
-msgid "Failed to remove logical volume: %s"
-msgstr "論理ボリュームの削除に失敗しました: %s"
-
-msgid "Failed to remove physical volume: %s"
-msgstr "物理ボリュームの削除に失敗しました: %s"
-
-msgid "Failed to remove volume group: %s"
-msgstr "ボリュームグループの削除に失敗しました: %s"
-
-msgid "Failed to rename logical volume: %s"
-msgstr "論理ボリュームのリネームに失敗しました: %s"
-
-msgid "Failed to rename volume group: %s"
-msgstr "ボリュームグループのリネームに失敗しました: %s"
-
-msgid "Failed to resize physical volume: %s"
-msgstr "物理ボリュームのリサイズに失敗しました: %s"
-
 msgid "Free"
 msgstr "空き"
 
@@ -136,12 +97,6 @@ msgstr "論理ボリュームを作成するために利用可能な空きスペ
 
 msgid "No free space available to extend the logical volume."
 msgstr "論理ボリュームを拡張するために利用可能な空きスペースがありません。"
-
-msgid "No logical volume found on '%s'"
-msgstr "'%s' 上に論理ボリュームが見つかりません"
-
-msgid "No physical volume found on '%s'"
-msgstr "'%s' 上に物理ボリュームが見つかりません"
 
 msgid "Physical volumes"
 msgstr "物理ボリューム"
@@ -169,9 +124,6 @@ msgstr "使用済み"
 
 msgid "Volume group"
 msgstr "ボリュームグループ"
-
-msgid "Volume group '%s' not found"
-msgstr "'%s' 上にボリュームグループが見つかりません"
 
 msgid "Volume groups"
 msgstr "ボリュームグループ"

@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-06-16 08:31+0000\n"
-"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2016-04-23 17:16+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/votdev/openmediavault/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -80,45 +80,6 @@ msgstr "Увеличить логический том"
 msgid "Extend volume group"
 msgstr "Увеличить группу томов"
 
-msgid "Failed to create logical volume: %s"
-msgstr "Не удалось создать логический том: %s"
-
-msgid "Failed to create physical volume: %s"
-msgstr "Не удалось создать физический том: %s"
-
-msgid "Failed to create volume group: %s"
-msgstr "Не удалось создать группу томов: %s"
-
-msgid "Failed to extend logical volume: %s"
-msgstr "Не удалось расширить логический том: %s"
-
-msgid "Failed to extend volume group: %s"
-msgstr "Не удалось расширить группу томов: %s"
-
-msgid "Failed to reduce logical volume: %s"
-msgstr "Не удалось уменьшить логический том: %s"
-
-msgid "Failed to reduce volume group: %s"
-msgstr "Не удалось уменьшить группу томов: %s"
-
-msgid "Failed to remove logical volume: %s"
-msgstr "Не удалось удалить логический том: %s"
-
-msgid "Failed to remove physical volume: %s"
-msgstr "Не удалось удалить физический том: %s"
-
-msgid "Failed to remove volume group: %s"
-msgstr "Не удалось удалить группу томов: %s"
-
-msgid "Failed to rename logical volume: %s"
-msgstr "Не удалось переименовать логический том: %s"
-
-msgid "Failed to rename volume group: %s"
-msgstr "Не удалось переименовать группу томов: %s"
-
-msgid "Failed to resize physical volume: %s"
-msgstr "Не удалось изменить размер физического тома: %s"
-
 msgid "Free"
 msgstr "Свободно"
 
@@ -139,12 +100,6 @@ msgstr "Нет свободного места для создания логи�
 
 msgid "No free space available to extend the logical volume."
 msgstr "Нет свободного места, чтобы расширить логический том."
-
-msgid "No logical volume found on '%s'"
-msgstr "Не найден логический том '%s'"
-
-msgid "No physical volume found on '%s'"
-msgstr "Не найден физический том '%s'"
 
 msgid "Physical volumes"
 msgstr "Физические тома"
@@ -172,9 +127,6 @@ msgstr "Использованно"
 
 msgid "Volume group"
 msgstr "Группа томов"
-
-msgid "Volume group '%s' not found"
-msgstr "Группа томов '%s' не найдена"
 
 msgid "Volume groups"
 msgstr "Группы томов"

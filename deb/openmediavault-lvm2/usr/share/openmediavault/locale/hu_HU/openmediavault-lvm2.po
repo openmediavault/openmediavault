@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-06-30 18:58+0000\n"
-"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2016-04-23 17:16+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,45 +79,6 @@ msgstr "Logikai kötet kiterjesztése"
 msgid "Extend volume group"
 msgstr "Kötet csoport kiterjesztése"
 
-msgid "Failed to create logical volume: %s"
-msgstr "Nem sikerült létrehozni a logikai kötetet: %s"
-
-msgid "Failed to create physical volume: %s"
-msgstr "Nem sikerült létrehozni a fizikai kötetet: %s"
-
-msgid "Failed to create volume group: %s"
-msgstr "Nem sikerült létrehozni a kötet csoportot: %s"
-
-msgid "Failed to extend logical volume: %s"
-msgstr "Nem sikerült kiterjeszteni a logikai kötetet: %s"
-
-msgid "Failed to extend volume group: %s"
-msgstr "Nem sikerült kiterjeszteni a kötet csoportot: %s"
-
-msgid "Failed to reduce logical volume: %s"
-msgstr "Nem sikerült csökkenteni a logikai kötetet: %s"
-
-msgid "Failed to reduce volume group: %s"
-msgstr "Nem sikerült csökkenteni a kötet csoportot: %s"
-
-msgid "Failed to remove logical volume: %s"
-msgstr "Nem sikerült eltávolítani a logikai kötetet: %s"
-
-msgid "Failed to remove physical volume: %s"
-msgstr "Nem sikerült eltávolítani a fizikai kötetet: %s"
-
-msgid "Failed to remove volume group: %s"
-msgstr "Nem sikerült eltávolítani a kotet csoportot: %s"
-
-msgid "Failed to rename logical volume: %s"
-msgstr "Nem sikerült átnevezni a logikai kötetet: %s"
-
-msgid "Failed to rename volume group: %s"
-msgstr "Nem sikerült átnevezni a kötet csoportot: %s"
-
-msgid "Failed to resize physical volume: %s"
-msgstr "Nem sikerült átméretezni a fizikai kötetet: %s"
-
 msgid "Free"
 msgstr "Szabad"
 
@@ -138,12 +99,6 @@ msgstr "Nincs elég szabad terület a logikai meghajtón a létrehozáshoz. "
 
 msgid "No free space available to extend the logical volume."
 msgstr "Nincs elég szabad terület a logikai meghajtón a kiterjesztéshez. "
-
-msgid "No logical volume found on '%s'"
-msgstr "Nem található logikai kötet '%s'"
-
-msgid "No physical volume found on '%s'"
-msgstr "Nem található fizikai kötet '%s'"
 
 msgid "Physical volumes"
 msgstr "Fizikai kötetek"
@@ -171,9 +126,6 @@ msgstr "Foglalt"
 
 msgid "Volume group"
 msgstr "Kötet csoport"
-
-msgid "Volume group '%s' not found"
-msgstr "Kötetcsoport '%s' nem található"
 
 msgid "Volume groups"
 msgstr "Kötet csoportok"

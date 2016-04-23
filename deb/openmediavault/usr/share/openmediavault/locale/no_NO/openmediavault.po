@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-02 21:23+0100\n"
-"PO-Revision-Date: 2016-03-02 20:24+0000\n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2016-04-23 17:16+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/votdev/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -155,15 +155,6 @@ msgstr "64 - Gjennomsnittlig strømforbruk med standby"
 
 msgid "9 months"
 msgstr "9 måneder"
-
-msgid "A module with the name '%s' already exists"
-msgstr ""
-
-msgid "A share with the name '%s' already exists"
-msgstr "Et delt område med navnet '%s' finnes allerede"
-
-msgid "A shared folder with the given name already exists"
-msgstr "En delt mappe med det gitte navnet eksisterer allerede"
 
 msgid "ACL"
 msgstr "ACL"
@@ -561,16 +552,6 @@ msgstr "Canada"
 
 msgid "Cancel"
 msgstr "Avbryt"
-
-msgid ""
-"Cannot unlink the shared folder content because another shared folder also "
-"refers to it"
-msgstr ""
-
-msgid ""
-"Cannot unlink the shared folder content because another shared folder is "
-"referencing a subdirectory"
-msgstr ""
 
 msgid "Canton and Enderbury Islands"
 msgstr "Canton- og Enderburyøyene"
@@ -1200,9 +1181,6 @@ msgstr "Feil"
 msgid "Error #"
 msgstr "Feil #"
 
-msgid "Error #%d"
-msgstr "Feil #%d"
-
 msgid "Estonia"
 msgstr "Estland"
 
@@ -1274,24 +1252,6 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "FXP muliggjør overføring mellom to destinasjonsservere uten at fildata går via klienten som ber om overføringen."
 
-msgid "Failed to get filesystems"
-msgstr "Kunne ikke finne filsystemer"
-
-msgid "Failed to get list of groups."
-msgstr "Klarte ikke å hente listen over grupper."
-
-msgid "Failed to get list of network interface devices"
-msgstr "Klarte ikke å hente listen over nettverksenheter"
-
-msgid "Failed to get list of unused network interface devices"
-msgstr ""
-
-msgid "Failed to get list of users."
-msgstr "Klarte ikke å hente listen over brukere."
-
-msgid "Failed to get storage device file from '%s'"
-msgstr ""
-
 msgid "Falkland Islands"
 msgstr "Falklandsøyene"
 
@@ -1337,12 +1297,6 @@ msgstr "Filer som er større enn det angitte antallet byte vil ikke bli satt inn
 
 msgid "Filesize"
 msgstr "Filstørrelse"
-
-msgid "Filesystem '%s' not found"
-msgstr "Filsystem '%s' ble ikke funnet"
-
-msgid "Filesystem '%s' not supported"
-msgstr "Filsystem '%s' er ikke støttet"
 
 msgid "Filesystem Type"
 msgstr ""
@@ -1442,15 +1396,6 @@ msgstr "Grenada"
 
 msgid "Group"
 msgstr "Gruppe"
-
-msgid "Group '%s' already exist"
-msgstr "Gruppen '%s' finnes allerede"
-
-msgid "Group '%s' does not exist"
-msgstr "Gruppen '%s' finnes ikke"
-
-msgid "Group ID '%d' already exist"
-msgstr "Gruppe ID '%d' finnes allerede"
 
 msgid "Groups"
 msgstr "Grupper"
@@ -1719,9 +1664,6 @@ msgstr "Ugyldig gruppenavn"
 
 msgid "Invalid host name"
 msgstr ""
-
-msgid "Invalid line: %s"
-msgstr "Ugyldig linje: %s"
 
 msgid "Invalid name"
 msgstr "Ugyldig navn"
@@ -2140,9 +2082,6 @@ msgstr "Nettmaske"
 msgid "Network"
 msgstr "Nettverk"
 
-msgid "Network interface '%s' (type=%s) already exists"
-msgstr ""
-
 msgid "Network interfaces"
 msgstr ""
 
@@ -2310,6 +2249,9 @@ msgstr "USAs stillehavsprotektorat"
 
 msgid "Package information"
 msgstr "Pakkeinformasjon"
+
+msgid "Page not found"
+msgstr ""
 
 msgid "Pakistan"
 msgstr "Pakistan"
@@ -3379,17 +3321,11 @@ msgstr "Den delte målmappen"
 msgid "The device does not exist"
 msgstr ""
 
-msgid "The field '%s' contains forbidden "
-msgstr "Feltet '%s' inneholder ulovlig"
-
 msgid "The file mode of the shared folder path."
 msgstr "Filmodus i den delte mappens bane."
 
 msgid "The file system creation has completed successfully."
 msgstr ""
-
-msgid "The group '%s' does not exist"
-msgstr "Gruppen '%s' eksisterer ikke"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Vertsnavnet er en etikett som identifiserer systemet på nettverket."
@@ -3398,9 +3334,6 @@ msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
 msgstr ""
-
-msgid "The interface '%s' is already used by a bonding interface"
-msgstr "Enheten '%s' er allerede i bruk av en knyttet netterksenhet"
 
 msgid "The location of the files to share."
 msgstr "Plassering av de delte filene."
@@ -3421,10 +3354,6 @@ msgstr "Antallet dager sertifikatet er gyldig."
 
 msgid "The page will reload now to let the changes take effect."
 msgstr ""
-
-#, php-format
-msgid "The parameter '%s' contains forbidden two-dot symbols"
-msgstr "Parameteret '%s' inneholder forbudte to-punktums symboler"
 
 msgid "The password contains invalid characters"
 msgstr "Passordet inneholder ugyldige tegn"
@@ -3466,9 +3395,6 @@ msgid ""
 "The session timeout time in minutes. Set to 0 to disable automatic logout."
 msgstr "Sesjonens timeout i minutter. Sett til 0 for å deaktivere automatisk utlogging."
 
-msgid "The shared folder is already used by another share."
-msgstr "Den delte mappen er allerede brukt av en annen deling."
-
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
@@ -3486,12 +3412,6 @@ msgstr "Systemet starter nå på nytt. Dette kan ta litt tid ... "
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr "Test eposten er sendt. Vennligst sjekk postkassen."
 
-msgid "The user '%s' does not exist"
-msgstr "Brukeren '%s' eksisterer ikke"
-
-msgid "The user '%s' is not allowed"
-msgstr "Brukeren '%s' er ikke tillatt"
-
 msgid "The volume label for the file system."
 msgstr ""
 
@@ -3502,9 +3422,6 @@ msgstr "Velkomstmeldingen som vil bli vist til brukere når de logger inn for f�
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Arbeidsgruppen serveren vil se ut til å være i når den blir spurt av klienter."
-
-msgid "There already exists a mount point for %s"
-msgstr "Det eksisterer allerede et monteringspunkt for %s"
 
 msgid ""
 "These settings are used by the services to configure the user access rights."
@@ -3813,9 +3730,6 @@ msgstr "Uganda"
 msgid "Ukraine"
 msgstr "Ukraina"
 
-msgid "Unauthorized attempt to modify the system account '%s'"
-msgstr ""
-
 msgid "Uncompressed"
 msgstr "Ukomprimert"
 
@@ -3845,9 +3759,6 @@ msgstr "USAs ytre småøyer"
 
 msgid "Unknown"
 msgstr ""
-
-msgid "Unknown log file type (id=%s)"
-msgstr "Ukjent loggfiltype (id=%s)"
 
 msgid "Unknown network interface type."
 msgstr "Ukjent type nettverksgrensesnitt"
@@ -3945,15 +3856,6 @@ msgstr "Brukt kapasitet"
 msgid "User"
 msgstr "Bruker"
 
-msgid "User '%s' already exist"
-msgstr "Bruker '%s' finnes allerede"
-
-msgid "User '%s' does not exist"
-msgstr "Bruker '%s' finnes ikke"
-
-msgid "User ID '%d' already exist"
-msgstr "Bruker ID '%d' finnes allerede"
-
 msgid "User accounts"
 msgstr ""
 
@@ -4044,9 +3946,6 @@ msgstr "Web Administrator Passord"
 msgid "Web administration"
 msgstr "Web administrasjon"
 
-msgid "Web administration interface"
-msgstr "Web administrasjonsgrensesnitt"
-
 msgid "Wednesday"
 msgstr "Onsdag"
 
@@ -4106,6 +4005,9 @@ msgstr "Sambia"
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
+msgid "control panel"
+msgstr ""
+
 msgid "day"
 msgstr "dag"
 
@@ -4135,6 +4037,3 @@ msgstr ""
 
 msgid "seconds"
 msgstr "sekunder"
-
-msgid "web administration interface"
-msgstr "web administrasjonsgrensesnitt"

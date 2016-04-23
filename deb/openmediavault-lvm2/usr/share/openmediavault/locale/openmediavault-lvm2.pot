@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-lvm2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,45 +74,6 @@ msgstr ""
 msgid "Extend volume group"
 msgstr ""
 
-msgid "Failed to create logical volume: %s"
-msgstr ""
-
-msgid "Failed to create physical volume: %s"
-msgstr ""
-
-msgid "Failed to create volume group: %s"
-msgstr ""
-
-msgid "Failed to extend logical volume: %s"
-msgstr ""
-
-msgid "Failed to extend volume group: %s"
-msgstr ""
-
-msgid "Failed to reduce logical volume: %s"
-msgstr ""
-
-msgid "Failed to reduce volume group: %s"
-msgstr ""
-
-msgid "Failed to remove logical volume: %s"
-msgstr ""
-
-msgid "Failed to remove physical volume: %s"
-msgstr ""
-
-msgid "Failed to remove volume group: %s"
-msgstr ""
-
-msgid "Failed to rename logical volume: %s"
-msgstr ""
-
-msgid "Failed to rename volume group: %s"
-msgstr ""
-
-msgid "Failed to resize physical volume: %s"
-msgstr ""
-
 msgid "Free"
 msgstr ""
 
@@ -132,12 +93,6 @@ msgid "No free space available to create a logical volume."
 msgstr ""
 
 msgid "No free space available to extend the logical volume."
-msgstr ""
-
-msgid "No logical volume found on '%s'"
-msgstr ""
-
-msgid "No physical volume found on '%s'"
 msgstr ""
 
 msgid "Physical volumes"
@@ -165,9 +120,6 @@ msgid "Used"
 msgstr ""
 
 msgid "Volume group"
-msgstr ""
-
-msgid "Volume group '%s' not found"
 msgstr ""
 
 msgid "Volume groups"

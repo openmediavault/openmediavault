@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-06-03 19:30+0000\n"
-"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2016-04-23 17:16+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/votdev/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -77,45 +77,6 @@ msgstr "Mantıksal bölümü genişlet"
 msgid "Extend volume group"
 msgstr "Bölüm grubunu genişlet"
 
-msgid "Failed to create logical volume: %s"
-msgstr "Mantıksal bölüm oluşturma hatası: %s"
-
-msgid "Failed to create physical volume: %s"
-msgstr "Fiziksel bölüm oluşturma hatası: %s"
-
-msgid "Failed to create volume group: %s"
-msgstr "Bölüm grubu oluşturma hatası: %s"
-
-msgid "Failed to extend logical volume: %s"
-msgstr "Mantıksal bölüm genişletme hatası: %s"
-
-msgid "Failed to extend volume group: %s"
-msgstr "Bölüm grubu genişletme hatası: %s"
-
-msgid "Failed to reduce logical volume: %s"
-msgstr "Mantıksal bölüm küçültme hatası: %s"
-
-msgid "Failed to reduce volume group: %s"
-msgstr "Bölüm grubu küçültme hatası: %s"
-
-msgid "Failed to remove logical volume: %s"
-msgstr "Mantıksal bölüm kaldırılamadı : %s"
-
-msgid "Failed to remove physical volume: %s"
-msgstr "Fiziksel bölüm kaldırılamadı: %s"
-
-msgid "Failed to remove volume group: %s"
-msgstr "Bölüm grubu kaldırılamadı: %s"
-
-msgid "Failed to rename logical volume: %s"
-msgstr "Mantıksal bölüm yeniden isimlendirme hatası: %s"
-
-msgid "Failed to rename volume group: %s"
-msgstr "Bölüm grubu yeniden isimlendirme hatası: %s"
-
-msgid "Failed to resize physical volume: %s"
-msgstr "Fiziksel bölüm yeniden boyutlandırma hatası: %s"
-
 msgid "Free"
 msgstr "Boş"
 
@@ -136,12 +97,6 @@ msgstr "Mantıksal bölüm oluşturmak için yeterli boş alan yok."
 
 msgid "No free space available to extend the logical volume."
 msgstr "Mantıksal bölümü genişletmek için yeterli boş alan yok."
-
-msgid "No logical volume found on '%s'"
-msgstr " '%s' de mantıksal bölüm bulunamadı"
-
-msgid "No physical volume found on '%s'"
-msgstr " '%s' de fiziksel bölüm bulunamadı"
 
 msgid "Physical volumes"
 msgstr "Fiziksel bölümler"
@@ -169,9 +124,6 @@ msgstr "Kullanılan"
 
 msgid "Volume group"
 msgstr "Bölüm grubu"
-
-msgid "Volume group '%s' not found"
-msgstr "Bölüm grubu  '%s' bulunamadı"
 
 msgid "Volume groups"
 msgstr "Bölüm grupları"

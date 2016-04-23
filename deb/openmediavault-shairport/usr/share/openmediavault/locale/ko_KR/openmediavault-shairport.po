@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Chang-Eon Byeon <ksna0827@gmail.com>, 2014
+# Chang-Eon Byeon <ksna0827@gmail.com>, 2014,2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-31 16:23+0100\n"
-"PO-Revision-Date: 2015-10-31 15:24+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2016-01-29 18:10+0000\n"
+"Last-Translator: Chang-Eon Byeon <ksna0827@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +31,7 @@ msgid "General settings"
 msgstr "일반 설정"
 
 msgid "Name"
-msgstr ""
+msgstr "이름"
 
 msgid "Password"
 msgstr "암호"
@@ -43,4 +43,4 @@ msgid "Shairport"
 msgstr "Shairport"
 
 msgid "The name the service will advertise to iTunes."
-msgstr ""
+msgstr "서비스가 이름을 iTunes에 통지할 것입니다."

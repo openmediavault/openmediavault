@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-06-01 19:40+0000\n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2016-04-23 17:16+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/votdev/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -78,45 +78,6 @@ msgstr "Utvid logisk volum"
 msgid "Extend volume group"
 msgstr "Utvid volumgruppen"
 
-msgid "Failed to create logical volume: %s"
-msgstr ""
-
-msgid "Failed to create physical volume: %s"
-msgstr ""
-
-msgid "Failed to create volume group: %s"
-msgstr ""
-
-msgid "Failed to extend logical volume: %s"
-msgstr ""
-
-msgid "Failed to extend volume group: %s"
-msgstr ""
-
-msgid "Failed to reduce logical volume: %s"
-msgstr ""
-
-msgid "Failed to reduce volume group: %s"
-msgstr ""
-
-msgid "Failed to remove logical volume: %s"
-msgstr ""
-
-msgid "Failed to remove physical volume: %s"
-msgstr ""
-
-msgid "Failed to remove volume group: %s"
-msgstr ""
-
-msgid "Failed to rename logical volume: %s"
-msgstr ""
-
-msgid "Failed to rename volume group: %s"
-msgstr ""
-
-msgid "Failed to resize physical volume: %s"
-msgstr ""
-
 msgid "Free"
 msgstr "Ledig"
 
@@ -137,12 +98,6 @@ msgstr "Ingen ledig plass tilgjengelig for å lage et logisk volum."
 
 msgid "No free space available to extend the logical volume."
 msgstr "Ingen ledig plass tilgjengelig for å utvide det logiske volumet."
-
-msgid "No logical volume found on '%s'"
-msgstr ""
-
-msgid "No physical volume found on '%s'"
-msgstr ""
 
 msgid "Physical volumes"
 msgstr "Fysiske volum"
@@ -170,9 +125,6 @@ msgstr "Brukt"
 
 msgid "Volume group"
 msgstr "Volumgruppe"
-
-msgid "Volume group '%s' not found"
-msgstr ""
 
 msgid "Volume groups"
 msgstr "Volumgrupper"

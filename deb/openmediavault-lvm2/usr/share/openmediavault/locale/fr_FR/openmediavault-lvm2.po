@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-06-16 23:49+0000\n"
-"Last-Translator: Benoit Maliar <maliarbenoit@msn.com>\n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2016-04-23 17:16+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/votdev/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,45 +79,6 @@ msgstr "Agrandir le le volume logique"
 msgid "Extend volume group"
 msgstr "Agrandir le groupe de volumes"
 
-msgid "Failed to create logical volume: %s"
-msgstr "Échec lors de la création du volume logique: %s"
-
-msgid "Failed to create physical volume: %s"
-msgstr "Échec lors de la création du volume physique: %s"
-
-msgid "Failed to create volume group: %s"
-msgstr "Échec lors de la création du groupe de volume: %s"
-
-msgid "Failed to extend logical volume: %s"
-msgstr "Échec lors de l'extension du volume logique: %s"
-
-msgid "Failed to extend volume group: %s"
-msgstr "Échec lors de l'extension du groupe de volume: %s"
-
-msgid "Failed to reduce logical volume: %s"
-msgstr "Échec lors de la réduction du volume logique: %s"
-
-msgid "Failed to reduce volume group: %s"
-msgstr "Échec lors de la réduction du groupe de volume: %s"
-
-msgid "Failed to remove logical volume: %s"
-msgstr "Echec lors de la suppression du volume logique : %s"
-
-msgid "Failed to remove physical volume: %s"
-msgstr "Echec lors de la suppression du volumes physique : %s"
-
-msgid "Failed to remove volume group: %s"
-msgstr "Echec lors de la suppression du groupe de volume : %s"
-
-msgid "Failed to rename logical volume: %s"
-msgstr "Échec lors du renommage du volume logique: %s"
-
-msgid "Failed to rename volume group: %s"
-msgstr "Échec lors du renommage du groupe de volume: %s"
-
-msgid "Failed to resize physical volume: %s"
-msgstr "Échec lors du redimensionnement du volume physique: %s"
-
 msgid "Free"
 msgstr "Libérer"
 
@@ -138,12 +99,6 @@ msgstr "Aucun espace libre n'est disponible pour créer un volume logique."
 
 msgid "No free space available to extend the logical volume."
 msgstr "Aucun espace libre n'est disponible pour étendre le volume logique."
-
-msgid "No logical volume found on '%s'"
-msgstr "Aucun volume logique trouvé sur '%s'"
-
-msgid "No physical volume found on '%s'"
-msgstr "Aucun volume physique trouvé sur '%s'"
 
 msgid "Physical volumes"
 msgstr "Volumes physiques"
@@ -171,9 +126,6 @@ msgstr "Utilisé"
 
 msgid "Volume group"
 msgstr "Groupe de volumes"
-
-msgid "Volume group '%s' not found"
-msgstr "Groupe de volume '%s' non trouvé"
 
 msgid "Volume groups"
 msgstr "Groupes de volumes"

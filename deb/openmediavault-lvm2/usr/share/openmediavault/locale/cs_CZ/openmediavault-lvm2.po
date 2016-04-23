@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-06-26 15:11+0000\n"
-"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2016-04-23 17:16+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -77,45 +77,6 @@ msgstr "Rozšířit logický svazek"
 msgid "Extend volume group"
 msgstr "Rozšířit skupinu svazků"
 
-msgid "Failed to create logical volume: %s"
-msgstr "Nezdařilo se vytvořit logický svazek: %s"
-
-msgid "Failed to create physical volume: %s"
-msgstr "Nezdařilo se vytvořit fyzický svazek: %s"
-
-msgid "Failed to create volume group: %s"
-msgstr "Nezdařilo se vytvořit skupinu svazků (vg): %s"
-
-msgid "Failed to extend logical volume: %s"
-msgstr "Nezdařilo se zvětšit logický svazek (lv): %s"
-
-msgid "Failed to extend volume group: %s"
-msgstr "Nezdařilo se rozšířit skupinu svazků (vg): %s"
-
-msgid "Failed to reduce logical volume: %s"
-msgstr "Nezdařilo se zmenšit velikost logického svazku (lv): %s"
-
-msgid "Failed to reduce volume group: %s"
-msgstr "Nezdařilo se zredukovat skupinu svazků (vg): %s"
-
-msgid "Failed to remove logical volume: %s"
-msgstr "Logický svazek nelze odebrat: %s"
-
-msgid "Failed to remove physical volume: %s"
-msgstr "Nelze odebrat fyzický svazek: %s"
-
-msgid "Failed to remove volume group: %s"
-msgstr "Nelze odebrat svazek skupin: %s"
-
-msgid "Failed to rename logical volume: %s"
-msgstr "Nezdařilo se přejmenovat logický svazek: %s"
-
-msgid "Failed to rename volume group: %s"
-msgstr "Nezdařilo se přejmenovat skupinu svazků: %s"
-
-msgid "Failed to resize physical volume: %s"
-msgstr "Nezdařilo se změnit velikost fyzického svazku: %s"
-
 msgid "Free"
 msgstr "Volné"
 
@@ -136,12 +97,6 @@ msgstr "Pro vytvoření logického svazku již nezbývá žádné volné místo.
 
 msgid "No free space available to extend the logical volume."
 msgstr "Pro zvětšení logického svazku již nezbývá žádné volné místo."
-
-msgid "No logical volume found on '%s'"
-msgstr "Na %s nebyl nalezen žádný logický svazek"
-
-msgid "No physical volume found on '%s'"
-msgstr "Na %s nebyl nalezen žádný fyzický svazek"
 
 msgid "Physical volumes"
 msgstr "Fyzické svazky"
@@ -169,9 +124,6 @@ msgstr "Použito"
 
 msgid "Volume group"
 msgstr "Skupina svazků"
-
-msgid "Volume group '%s' not found"
-msgstr "Skupina svazků %s nenalezena"
 
 msgid "Volume groups"
 msgstr "Skupiny svazků"
