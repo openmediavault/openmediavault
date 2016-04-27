@@ -131,9 +131,3 @@ class OMVModuleIscsiTarget extends \OMV\Engine\Module\ServiceAbstract
 		  array($this, "setDirty"));
 	}
 }
-
-// Add config enums (elements that must be handled as arrays).
-$db = \OMV\Config\Database::getInstance();
-$dbBackend = $db->getBackend();
-$dbBackend->addEnum("lun");
-$dbBackend->addEnum("target");

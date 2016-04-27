@@ -52,18 +52,11 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$xpath = "//services/iscsitarget";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		$object['authentication'] = !empty($object['authentication']['user']) ?
-		  $object['authentication']['user'] : array();
-		// Modify result object.
-		$object['enable'] = boolvalEx($object['enable']);
-		unset($object['targets']);
-		return $object;
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.iscsitarget");
+		// Remove useless properties from the object.
+		$object->remove("targets");
+		return $object->getAssoc();
 	}
 
 	/**

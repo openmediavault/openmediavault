@@ -101,8 +101,3 @@ class OMVModuleNetworkRoute extends \OMV\Engine\Module\ServiceAbstract
 		  [ $this, "onDelete" ]);
     }
 }
-
-// Add config enums (elements that must be handled as arrays)-
-$db = \OMV\Config\Database::getInstance();
-$dbBackend = $db->getBackend();
-$dbBackend->addEnum("route");
