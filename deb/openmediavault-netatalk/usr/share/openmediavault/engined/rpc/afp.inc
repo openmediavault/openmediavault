@@ -46,25 +46,16 @@ class OMVRpcServiceAFP extends \OMV\Rpc\ServiceAbstract {
 	 * @return The stored configuration object.
 	 */
 	public function getSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$xpath = "//services/afp";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify result object.
-		$object['enable'] = boolvalEx($object['enable']);
-		$object['allowclrtxt'] = boolvalEx($object['allowclrtxt']);
-		$object['homesenable'] = boolvalEx($object['homesenable']);
-		// Remove useless fields.
-		unset($object['shares']);
-		return $object;
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.afp");
+		// Remove useless properties from the object.
+		$object->remove("shares");
+		return $object->getAssoc();
 	}
 
 	/**
@@ -72,48 +63,27 @@ class OMVRpcServiceAFP extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	public function setSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "enable":{"type":"boolean"},
-				  "allowclrtxt":{"type":"boolean"},
-				  "homesenable":{"type":"boolean"},
-				  "extraoptions":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.afp.setsettings");
 		// Get the existing configuration object.
-		$xpath = "//services/afp";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Update the configuration object.
-		$object = array_merge($object, array(
-			  "enable" => array_boolval($params, 'enable'),
-			  "allowclrtxt" => array_boolval($params, 'allowclrtxt'),
-			  "homesenable" => array_boolval($params, 'homesenable'),
-			  "extraoptions" => $params['extraoptions']
-		  ));
-		if(FALSE === $xmlConfig->replace("//services/afp", $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.afp");
+		$object->setAssoc($params);
+		$db->set($object);
+		// Remove useless properties from the object.
+		$object->remove("shares");
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.afp", $object);
+		  "org.openmediavault.conf.service.afp", $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -127,10 +97,8 @@ class OMVRpcServiceAFP extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getShareList($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -138,31 +106,28 @@ class OMVRpcServiceAFP extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the configuration objects.
-		$xpath = "//services/afp/shares/share";
-		$objects = $xmlConfig->getList($xpath);
-		if(is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Add additional share informations.
-		foreach($objects as $objectk => &$objectv) {
-			$objectv['sharedfoldername'] = gettext("n/a");
-			// Modify result data
-			$objectv['volsizelimit'] = intval($objectv['volsizelimit']);
-			$objectv['allowguest'] = boolvalEx($objectv['allowguest']);
-			$objectv['guestrw'] = boolvalEx($objectv['guestrw']);
-			foreach($objectv['options'] as $optionk => &$optionv) {
-				$optionv = boolvalEx($optionv);
-			}
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->get("conf.service.afp.share");
+		// Add additional share information.
+		$objectsAssoc = [];
+		foreach ($objects as $objectk => &$objectv) {
+			// Add the new property 'sharedfoldername'.
+			$objectv->add("sharedfoldername", "string", gettext("n/a"));
 			// Get the shared folder configuration object.
-			$sfObject = $xmlConfig->get("//system/shares/sharedfolder[" .
-			  "uuid='{$objectv['sharedfolderref']}']");
-			if(!is_null($sfObject) && !empty($sfObject)) {
-				$objectv['sharedfoldername'] = $sfObject['name'];
+			$sfObject = $db->get("conf.system.sharedfolder",
+			  $objectv->get("sharedfolderref"));
+			// Update the 'sharedfoldername' property.
+			$objectv->set("sharedfoldername", $sfObject->get("name"));
+			// Relocate the options.
+			$options = $objectv->get("options");
+			foreach ($options as $optionk => $optionv) {
+				$objectv->add($optionk, "boolean");
+				$objectv->set($optionk, $optionv);
 			}
+			$objectsAssoc[] = $objectv->getAssoc();
 		}
 		// Filter the result.
-		return $this->applyFilter($objects, $params['start'],
+		return $this->applyFilter($objectsAssoc, $params['start'],
 		  $params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
@@ -172,10 +137,8 @@ class OMVRpcServiceAFP extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getShare($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -183,24 +146,15 @@ class OMVRpcServiceAFP extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
-		$xpath = sprintf("//services/afp/shares/share[uuid='%s']",
-		  $params['uuid']);
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->getAssoc("conf.service.afp.share", $params['uuid']);
+		// Relocate the options.
+		$options = $object->get("options");
+		foreach ($options as $optionk => $optionv) {
+			$object->add($optionk, "boolean");
+			$object->set($optionk, $optionv);
 		}
-		// Modify result object.
-		$object['volsizelimit'] = intval($object['volsizelimit']);
-		$object['allowguest'] = boolvalEx($object['allowguest']);
-		$object['guestrw'] = boolvalEx($object['guestrw']);
-		foreach($object['options'] as $optionk => $optionv) {
-			// Relocate options.
-			$object[$optionk] = boolvalEx($optionv);
-		}
-		// Remove useless fields.
-		unset($object['options']);
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -208,38 +162,19 @@ class OMVRpcServiceAFP extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_OBJECT_UNIQUENESS
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	public function setShare($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-				  "sharedfolderref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
-				  "name":{'.$GLOBALS['OMV_JSONSCHEMA_SHARENAME'].'},
-				  "comment":{"type":"string"},
-				  "password":{"type":"string"},
-				  "casefold":{"type":"string","enum":["none","tolower",'.
-					'"toupper","xlatelower","xlateupper"]},
-				  "ro":{"type":"boolean"},
-				  "upriv":{"type":"boolean"},
-				  "usedots":{"type":"boolean"},
-				  "invisibledots":{"type":"boolean"},
-				  "tm":{"type":"boolean"},
-				  "mswindows":{"type":"boolean"},
-				  "volsizelimit":{"type":"integer","minimum":0},
-				  "allowguest":{"type":"boolean"},
-				  "guestrw":{"type":"boolean"},
-				  "extraoptions":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.afp.setshare");
+
+
+// ToDo...
+
+
 		// Prepare the configuration object.
 		$object = array(
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
@@ -300,9 +235,7 @@ class OMVRpcServiceAFP extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		$xpath = sprintf("//services/afp/shares/share[uuid='%s']",
-		  $params['uuid']);
-		return $this->deleteConfigObjectByPath($xpath,
-		  "org.openmediavault.conf.service.afp.share");
+		return $this->deleteConfigObjectByUuid("conf.service.afp.share",
+		  $params['uuid'], "org.openmediavault.conf.service.afp.share");
 	}
 }
