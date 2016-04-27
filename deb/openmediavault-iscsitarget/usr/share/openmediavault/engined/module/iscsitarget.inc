@@ -19,9 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
-
 class OMVModuleIscsiTarget extends \OMV\Engine\Module\ServiceAbstract
   implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
 	/**
@@ -47,7 +44,6 @@ class OMVModuleIscsiTarget extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "iscsitarget");
@@ -69,17 +65,11 @@ class OMVModuleIscsiTarget extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Start the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function startService() {
-		global $xmlConfig;
-		$xpath = "//services/iscsitarget";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		if (FALSE === boolvalEx($object['enable']))
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.iscsitarget");
+		if (TRUE !== $object->get("enable"))
 			return;
 		// Start this service and enable the unit file.
 		$systemCtl = new \OMV\System\SystemCtl("iscsitarget");
@@ -93,21 +83,15 @@ class OMVModuleIscsiTarget extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Get the status of the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getStatus() {
-		global $xmlConfig;
-		$xpath = "//services/iscsitarget";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.iscsitarget");
 		$monit = new \OMV\System\Monit("iscsitarget");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("iSCSI Target"),
-			"enabled" => boolvalEx($object['enable']),
+			"enabled" => $object->get("enable"),
 			"running" => $monit->isRunning()
 		);
 	}
@@ -119,14 +103,13 @@ class OMVModuleIscsiTarget extends \OMV\Engine\Module\ServiceAbstract
 	 * @param path The event message path.
 	 * @param object The new configuration object.
 	 * @param oldObject The previous configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	final public function onModifySettings($type, $path, $object, $oldObject) {
 		// Mark this module as dirty.
 		$this->setDirty();
 		// Check whether the monit daemon configuration needs to be updated.
 		// In this case mark the module as dirty.
-		if ($oldObject['enable'] != $object['enable'])
+		if ($oldObject['enable'] !== $object['enable'])
 			$this->setDirtyByName("monit");
 	}
 
@@ -150,5 +133,7 @@ class OMVModuleIscsiTarget extends \OMV\Engine\Module\ServiceAbstract
 }
 
 // Add config enums (elements that must be handled as arrays).
-$xmlConfig->addEnum("lun");
-$xmlConfig->addEnum("target");
+$db = \OMV\Config\Database::getInstance();
+$dbBackend = $db->getBackend();
+$dbBackend->addEnum("lun");
+$dbBackend->addEnum("target");

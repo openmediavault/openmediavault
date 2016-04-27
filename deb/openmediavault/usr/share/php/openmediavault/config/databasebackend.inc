@@ -39,7 +39,7 @@ class DatabaseBackend {
 	private $domdoc = NULL;
 	private $filename = "";
 	// These fields must be handled as arrays.
-	private $enums = array(
+	private $enums = [
 		// Usermanagement
 		"user", "group", "sshpubkey",
 		// Network interfaces
@@ -57,7 +57,7 @@ class DatabaseBackend {
 		// Miscellaneous
 		"job", "module", "sslcertificate", "sshcertificate",
 		"service", "device"
-	);
+	];
 
 	/**
 	 * Constructor

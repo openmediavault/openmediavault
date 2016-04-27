@@ -1,0 +1,222 @@
+{
+	"type": "config",
+	"id": "conf.service.iscsitarget",
+	"title": "iSCSI Target",
+	"queryinfo": {
+		"xpath": "//services/iscsitarget",
+		"iterable": false
+	},
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"extraoptions": {
+			"type": "string"
+		},
+		"authentication": {
+			"type": "object",
+			"properties": {
+				"user": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"uuid": {
+				                "type": "string",
+								"format": "uuidv4"
+				            },
+				            "type": {
+				                "type": "string",
+				                "enum": [ "incoming", "outgoing" ]
+				            },
+				            "username": {
+				                "type": "string"
+				            },
+				            "password": {
+				                "type": "string"
+				            }
+						}
+					}
+				}
+			}
+		},
+		"targets": {
+			"type": "object",
+			"properties": {
+				"target": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"uuid": {
+							    "type": "string",
+								"format": "uuidv4"
+							},
+							"activation": {
+							    "type": "string",
+							    "pattern": "#^([0-9]{4}-[0-9]{2})|$#"
+							},
+							"identifier": {
+							    "type": "string"
+							},
+							"alias": {
+							    "type": "string"
+							},
+							"headerdigest": {
+							    "type": "string",
+							    "enum":[ "CRC32C", "None" ],
+								"default": "None"
+							},
+							"datadigest": {
+							    "type": "string",
+							    "enum":[ "CRC32C", "None" ],
+								"default": "None"
+							},
+							"maxconnections": {
+							    "type": "integer",
+							    "minimum": 0,
+								"default": 1
+							},
+							"maxsessions": {
+							    "type": "integer",
+							    "minimum": 0,
+								"default": 0
+							},
+							"initialr2t": {
+							    "type": "boolean",
+								"default": false
+							},
+							"immediatedata": {
+							    "type": "boolean",
+								"default": false
+							},
+							"maxrecvdatasegmentlength": {
+							    "type": "integer",
+							    "minimum": 0,
+								"default": 8192
+							},
+							"maxxmitdatasegmentlength": {
+							    "type": "integer",
+							    "minimum": 0,
+								"default": 8192
+							},
+							"maxburstlength": {
+							    "type": "integer",
+							    "minimum": 0,
+								"default": 262144
+							},
+							"firstburstlength": {
+							    "type": "integer",
+							    "minimum": 0,
+								"default": 65536
+							},
+							"maxoutstandingr2t": {
+							    "type": "integer",
+							    "minimum": 0,
+								"default": 1
+							},
+							"datapduinorder": {
+							    "type": "boolean",
+								"default": false
+							},
+							"datasequenceinorder": {
+							    "type": "boolean",
+								"default": false
+							},
+							"errorrecoverylevel": {
+							    "type": "integer",
+							    "minimum": 0,
+								"default": 0
+							},
+							"nopinterval": {
+							    "type": "integer",
+							    "minimum": 0,
+								"default": 0
+							},
+							"noptimeout": {
+							    "type": "integer",
+							    "minimum": 0,
+								"default": 0
+							},
+							"wthreads": {
+							    "type": "integer",
+							    "minimum": 0,
+								"default": 8
+							},
+							"queuedcommands": {
+							    "type": "integer",
+							    "minimum": 0,
+								"default": 32
+							},
+							"comment": {
+							    "type": "string"
+							},
+							"extraoptions": {
+							    "type": "string"
+							},
+							"authentication": {
+							    "type": "array",
+							    "items": {
+							        "type": "object",
+							        "properties": {
+							            "uuid": {
+							                "type": "string",
+											"format": "uuidv4"
+							            },
+							            "type": {
+							                "type": "string",
+							                "enum":[ "incoming", "outgoing" ],
+											"default": "incoming"
+							            },
+							            "username": {
+							                "type": "string"
+							            },
+							            "password": {
+							                "type": "string"
+							            }
+							        }
+							    }
+							},
+							"luns": {
+							    "type": "array",
+							    "items": {
+							        "type": "object",
+							        "properties": {
+							            "uuid": {
+							                "type": "string",
+											"format": "uuidv4"
+							            },
+							            "id": {
+							                "type": "integer",
+							                "minimum": 0
+							            },
+							            "type": {
+							                "type": "string",
+							                "enum":[ "fileio", "blockio" ],
+											"default": "blockio"
+							            },
+							            "iomode": {
+							                "type": "string",
+							                "enum":[ "wt", "wb", "ro" ],
+											"default": "wt"
+							            },
+							            "devicefile": {
+							                "type": "string"
+							            },
+							            "scsiid": {
+							                "type": "string"
+							            },
+							            "scsisn": {
+							                "type": "string"
+							            }
+							        }
+							    }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

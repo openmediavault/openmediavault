@@ -56,6 +56,7 @@ case "$1" in
 		#       </authentication>
 		#       <targets>
 		#         <target>
+		#           <uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
 		#           <activation>jjjj-mm</activation>
 		#           <identifier>xxx</identifier>
 		#           <alias></alias>

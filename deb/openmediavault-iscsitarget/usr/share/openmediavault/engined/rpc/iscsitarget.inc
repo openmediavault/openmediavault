@@ -44,7 +44,6 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getSettings($params, $context) {
 		global $xmlConfig;
@@ -72,8 +71,6 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	public function setSettings($params, $context) {
 		global $xmlConfig;
@@ -82,27 +79,7 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "enable":{"type":"boolean"},
-				  "extraoptions":{"type":"string"},
-				  "authentication":{
-					  "type":"array",
-					  "items":{
-						  "type":"object",
-						  "properties":{
-							  "uuid":{'.
-								$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-							  "type":{"type":"string","enum":'.
-								'["incoming","outgoing"]},
-							  "username":{"type":"string"},
-							  "password":{"type":"string"}
-						  }
-					  }
-				  }
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.iscsitarget.setsettings");
 		// Get existing configuration object.
 		$xpath = "//services/iscsitarget";
 		$oldObject = $xmlConfig->get($xpath);
@@ -149,7 +126,6 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getTargetList($params, $context) {
 		global $xmlConfig;
@@ -217,7 +193,6 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return The requested configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getTarget($params, $context) {
 		global $xmlConfig;
@@ -270,7 +245,6 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	public function setTarget($params, $context) {
 		global $xmlConfig;
@@ -279,69 +253,7 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-				  "activation":{"type":"string","format":"regex","pattern":'.
-					'"#^([0-9]{4}-[0-9]{2})|$#"},
-				  "identifier":{"type":"string"},
-				  "alias":{"type":"string"},
-				  "headerdigest":{"type":"string","enum":["CRC32C","None"]},
-				  "datadigest":{"type":"string","enum":["CRC32C","None"]},
-				  "maxconnections":{"type":"integer","minimum":0},
-				  "maxsessions":{"type":"integer","minimum":0},
-				  "initialr2t":{"type":"boolean"},
-				  "immediatedata":{"type":"boolean"},
-				  "maxrecvdatasegmentlength":{"type":"integer","minimum":0},
-				  "maxxmitdatasegmentlength":{"type":"integer","minimum":0},
-				  "maxburstlength":{"type":"integer","minimum":0},
-				  "firstburstlength":{"type":"integer","minimum":0},
-				  "maxoutstandingr2t":{"type":"integer","minimum":0},
-				  "datapduinorder":{"type":"boolean"},
-				  "datasequenceinorder":{"type":"boolean"},
-				  "errorrecoverylevel":{"type":"integer","minimum":0},
-				  "nopinterval":{"type":"integer","minimum":0},
-				  "noptimeout":{"type":"integer","minimum":0},
-				  "wthreads":{"type":"integer","minimum":0},
-				  "queuedcommands":{"type":"integer","minimum":0},
-				  "comment":{"type":"string"},
-				  "extraoptions":{"type":"string"},
-				  "authentication":{
-					  "type":"array",
-					  "items":{
-						  "type":"object",
-						  "properties":{
-							  "uuid":{'.
-								$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-							  "type":{"type":"string","enum":'.
-								'["incoming","outgoing"]},
-							  "username":{"type":"string"},
-							  "password":{"type":"string"}
-						  }
-					  }
-				  },
-				  "luns":{
-					  "type":"array",
-					  "items":{
-						  "type":"object",
-						  "properties":{
-							  "uuid":{'.
-								$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-							  "id":{"type":"integer","minimum":0},
-							  "type":{"type":"string","enum":'.
-								'["fileio","blockio"]},
-							  "iomode":{"type":"string","enum":'.
-								'["wt","wb","ro"]},
-							  "devicefile":{'.
-								$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
-							  "scsiid":{"type":"string"},
-							  "scsisn":{"type":"string"}
-						  }
-					  }
-				  }
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.iscsitarget.settarget");
 		// Prepare the configuration object.
 		$object = array(
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?

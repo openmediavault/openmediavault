@@ -103,4 +103,6 @@ class OMVModuleNetworkRoute extends \OMV\Engine\Module\ServiceAbstract
 }
 
 // Add config enums (elements that must be handled as arrays)-
-$xmlConfig->addEnum("route");
+$db = \OMV\Config\Database::getInstance();
+$dbBackend = $db->getBackend();
+$dbBackend->addEnum("route");
