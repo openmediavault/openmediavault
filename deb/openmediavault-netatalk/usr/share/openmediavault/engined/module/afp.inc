@@ -19,12 +19,10 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
-
-class OMVModuleAFP extends \OMV\Engine\Module\ServiceAbstract
-  implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus, \OMV\Engine\Module\IZeroconf {
-	private $invalidUsers = array("admin");
+class OMVModuleAFP extends \OMV\Engine\Module\ServiceAbstract implements
+  \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus,
+  \OMV\Engine\Module\IZeroconf {
+	private $invalidUsers = [ "admin" ];
 
 	/**
 	 * Get the module name.
@@ -49,7 +47,6 @@ class OMVModuleAFP extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "netatalk");
@@ -71,18 +68,11 @@ class OMVModuleAFP extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Start the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 * @throw E_EXEC_FAILED
 	 */
 	public function startService() {
-		global $xmlConfig;
-		$xpath = "//services/afp";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		if (FALSE === boolvalEx($object['enable']))
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.afp");
+		if (TRUE !== $object->get("enable"))
 			return;
 		// Start this service and enable the unit file.
 		$systemCtl = new \OMV\System\SystemCtl("netatalk");
@@ -94,34 +84,27 @@ class OMVModuleAFP extends \OMV\Engine\Module\ServiceAbstract
 
 	/**
 	 * Get the status of the managed service.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getStatus() {
-		global $xmlConfig;
-		// Get the configuration object
-		$xpath = "//services/afp";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.afp");
 		$monit = new \OMV\System\Monit("netatalk");
-		return array(
+		return [
 			"name" => $this->getName(),
 			"title" => gettext("Apple Filing"),
-			"enabled" => boolvalEx($object['enable']),
+			"enabled" => $object->get("enable"),
 			"running" => $monit->isRunning()
-		);
+		];
 	}
 
 	/**
 	 * Get the Zeroconf service configuration.
 	 */
 	public function getZeroconfConfig() {
-		return array(
-			  "id" => "afp",
-			  "title" => gettext("Apple Filing")
-		  );
+		return [
+			"id" => "afp",
+			"title" => gettext("Apple Filing")
+		];
 	}
 
 	/**
@@ -136,7 +119,7 @@ class OMVModuleAFP extends \OMV\Engine\Module\ServiceAbstract
 		$this->setDirty();
 		// If this share is used for time machine then set the 'zeroconf'
 		// module to dirty to update the Zeroconf/Bonjour configuration.
-		if (array_boolval($object['options'], 'tm'))
+		if (array_boolval($object['options'], "tm"))
 			$this->setDirtyByName("zeroconf");
 	}
 
@@ -149,11 +132,14 @@ class OMVModuleAFP extends \OMV\Engine\Module\ServiceAbstract
 	 * @param object The configuration object.
 	 */
 	final public function onSharedFolder($type, $path, $object) {
-		$db = &\OMV\Config\Database::getInstance();
-		if (TRUE === $db->getBackend()->exists(sprintf(
-		  "//services/afp/shares/share[sharedfolderref='%s']",
-		  $object['uuid'])))
+		$db = \OMV\Config\Database::getInstance();
+		if (TRUE === $db->exists("conf.service.afp.share", [
+			"operator" => "stringEquals",
+			"arg0" => "sharedfolderref",
+			"arg1" => $object['uuid']
+		])) {
 			$this->setDirty();
+		}
 	}
 
 	/**
@@ -163,27 +149,27 @@ class OMVModuleAFP extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.afp",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.conf.service.afp.share",
-		  array($this, "onShare"));
+		  [ $this, "onShare" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.system.sharedfolder",
-		  array($this, "onSharedFolder"));
+		  [ $this, "onSharedFolder" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.system.sharedfolder.privilege",
-		  array($this, "onSharedFolder"));
+		  [ $this, "onSharedFolder" ]);
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.afp",
-		  array($moduleMngr->getModule("zeroconf"), "setDirty"));
+		  [ $moduleMngr->getModule("zeroconf"), "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.afp",
-		  array($moduleMngr->getModule("monit"), "setDirty"));
+		  [ $moduleMngr->getModule("monit"), "setDirty" ]);
     }
 }

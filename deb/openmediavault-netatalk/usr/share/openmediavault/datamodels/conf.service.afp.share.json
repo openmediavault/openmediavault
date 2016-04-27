@@ -1,0 +1,84 @@
+{
+	"type": "config",
+	"id": "conf.service.afp",
+	"title": "AFP",
+	"queryinfo": {
+		"xpath": "//services/afp/shares/share",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"sharedfolderref": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"name": {
+			"type": "string"
+		},
+		"comment": {
+			"type": "string"
+		},
+		"password": {
+			"type": "string"
+		},
+		"casefold": {
+			"type": "string",
+			"enum": [
+				"none",
+				"tolower",
+				"toupper",
+				"xlatelower",
+				"xlateupper"
+			],
+			"default": "none"
+		},
+		"volsizelimit": {
+			"type": "boolean",
+			"default": false
+		},
+		"allowguest": {
+			"type": "boolean",
+			"default": true
+		},
+		"guestrw": {
+			"type": "boolean",
+			"default": false
+		},
+		"options": {
+			"type": "object",
+			"properties": {
+				"ro": {
+					"type": "boolean",
+					"default": false
+				},
+				"upriv": {
+					"type": "boolean",
+					"default": false
+				},
+				"usedots": {
+					"type": "boolean",
+					"default": false
+				},
+				"invisibledots": {
+					"type": "boolean",
+					"default": false
+				},
+				"tm": {
+					"type": "boolean",
+					"default": false
+				},
+				"mswindows": {
+					"type": "boolean",
+					"default": false
+				}
+			}
+		},
+		"extraoptions": {
+			"type": "string"
+		}
+	}
+}
