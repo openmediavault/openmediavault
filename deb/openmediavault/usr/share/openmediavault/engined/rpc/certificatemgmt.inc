@@ -79,8 +79,10 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			$objectv->remove("privatekey");
 			// Parse the certificate.
 			if ($certinfo = openssl_x509_parse($objectv->get("certificate"))) {
-				$objectv->set("name", $certinfo['name']);
-				$objectv->set("validto", $certinfo['validTo_time_t']);
+				$objectv->setIndexed([
+					"name" => $certinfo['name'],
+					"validto" => $certinfo['validTo_time_t']
+				]);
 			}
 			// Set '_used' flag if the certificate is referenced.
 			$objectv->set("_used", $db->isReferenced($objectv));

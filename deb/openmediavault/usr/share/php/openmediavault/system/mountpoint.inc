@@ -41,19 +41,20 @@ class MountPoint {
 	}
 
 	/**
-	 * Get the device.
-	 * @return The device, otherwise FALSE.
+	 * Get the block special device or remote file system, e.g. /dev/sde1,
+	 * /dev/disk/by-uuid/2218-DF1C or rootfs.
+	 * @return The block special device or remote file system.
 	 */
 	public function getDevice() {
-		return empty($this->device) ? FALSE : $this->device;
+		return $this->device;
 	}
 
 	/**
-	 * Get the mount point.
-	 * @return The mount point of the filesystem or FALSE.
+	 * Get the mount point of the filesystem, e.g. /mnt/xyz.
+	 * @return The mount point of the filesystem.
 	 */
 	public function getMountPoint() {
-		return empty($this->dir) ? FALSE : $this->dir;
+		return $this->dir;
 	}
 
 	/**
@@ -98,15 +99,17 @@ class MountPoint {
 
 	/**
 	 * Create the mount point of the file system.
+	 * @param mode Set the file mode (as in chmod), e.g. '0755'.
+	 *   Defaults to '0700'.
 	 * @return None.
 	 * @throw \OMV\ExecException
 	 */
-	public function mkDir() {
+	public function mkDir($mode = "0700") {
 		if (is_dir($this->dir))
 			return;
 		$cmdArgs = [];
 		$cmdArgs[] = "--parents";
-		$cmdArgs[] = "--mode=0700";
+		$cmdArgs[] = sprintf("--mode=%s", $mode);
 		$cmdArgs[] = escapeshellarg($this->dir);
 		$cmd = new \OMV\System\Process("mkdir", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);
@@ -163,53 +166,5 @@ class MountPoint {
 		$cmd->setQuiet(TRUE);
 		$cmd->execute($output, $exitStatus);
 		return ($exitStatus == 0) ? TRUE : FALSE;
-	}
-
-	/**
-	 * Get the \OMV\System\Filesystem\Filesystem object for the given mount point.
-	 * @param dir The file system path prefix.
-	 * @return The class object or NULL on failure.
-	 */
-	public static function getFilesystemByDir($dir) {
-		$result = NULL;
-		foreach (file("/proc/mounts") as $rowk => $rowv) {
-			// Parse command output:
-			// rootfs / rootfs rw 0 0
-			// none /sys sysfs rw,nosuid,nodev,noexec,relatime 0 0
-			// none /proc proc rw,nosuid,nodev,noexec,relatime 0 0
-			// tmpfs /dev/shm tmpfs rw,nosuid,nodev,relatime 0 0
-			// /dev/sde1 /home/ftp/data ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
-			// /dev/sde1 /media/46607e80-dc8e-427e-9939-7909985dfe5b ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
-			$matches = explode(" ", $rowv);
-			if ($matches[1] == $dir) {
-				$result = \OMV\System\Filesystem\Filesystem::getImpl($matches[0]);
-				break;
-			}
-		}
-		return $result;
-	}
-
-	/**
-	 * Get the \OMV\System\Filesystem\Filesystem object for the given mount point.
-	 * @param name The name of mounted file system.
-	 * @return The class object or NULL on failure.
-	 */
-	public static function getFilesystemByName($name) {
-		$result = NULL;
-		foreach (file("/proc/mounts") as $rowk => $rowv) {
-			// Parse command output:
-			// rootfs / rootfs rw 0 0
-			// none /sys sysfs rw,nosuid,nodev,noexec,relatime 0 0
-			// none /proc proc rw,nosuid,nodev,noexec,relatime 0 0
-			// tmpfs /dev/shm tmpfs rw,nosuid,nodev,relatime 0 0
-			// /dev/sde1 /home/ftp/data ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
-			// /dev/sde1 /media/46607e80-dc8e-427e-9939-7909985dfe5b ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
-			$matches = explode(" ", $rowv);
-			if ($matches[0] == $name) {
-				$result = \OMV\System\Filesystem\Filesystem::getImpl($matches[0]);
-				break;
-			}
-		}
-		return $result;
 	}
 }

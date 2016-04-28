@@ -108,11 +108,11 @@ class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.rsync.server",
+		  "org.openmediavault.conf.service.rsyncd",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.conf.service.rsync.server.modules.module",
+		  "org.openmediavault.conf.service.rsyncd.module",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
@@ -125,7 +125,7 @@ class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.rsync.server",
+		  "org.openmediavault.conf.service.rsyncd",
 		  array($moduleMngr->getModule("zeroconf"), "setDirty"));
     }
 }

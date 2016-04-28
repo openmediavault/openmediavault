@@ -54,7 +54,8 @@ class Filesystem extends FilesystemAbstract {
 	}
 
 	/**
-	 * Get the object of the class implementing the given filesystem.
+	 * Get the object of the class which implements the specified filesystem
+	 * for the given filesystem UUID or device path.
 	 * @param id The UUID or device path of the filesystem, e.g.
 	 *   <ul>
 	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
@@ -82,7 +83,35 @@ class Filesystem extends FilesystemAbstract {
 	 */
 	public static function assertGetImpl($id) {
 		$result = self::getImpl($id);
-		if (is_null($result) || !$result->exists())
-			throw new \OMV\AssertException("Filesystem '%s' not found.", $id);
+		if (is_null($result) || !$result->exists()) {
+			throw new \OMV\Exception(
+			  "Failed to get the filesystem implementation for '%s' ".
+			  "or the filesystem does not exist.", $id);
+		}
+	}
+
+	/**
+	 * Get the object of the class which implements the specified filesystem
+	 * for the given mount point.
+	 * @param dir The file system path prefix, e.g. '/home/ftp/data'.
+	 * @return The class object or NULL on failure.
+	 */
+	public static function getImplByMountPoint($dir) {
+		$result = NULL;
+		foreach (file("/proc/mounts") as $rowk => $rowv) {
+			// Parse command output:
+			// rootfs / rootfs rw 0 0
+			// none /sys sysfs rw,nosuid,nodev,noexec,relatime 0 0
+			// none /proc proc rw,nosuid,nodev,noexec,relatime 0 0
+			// tmpfs /dev/shm tmpfs rw,nosuid,nodev,relatime 0 0
+			// /dev/sde1 /home/ftp/data ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
+			// /dev/sde1 /media/46607e80-dc8e-427e-9939-7909985dfe5b ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
+			$parts = explode(" ", $rowv);
+			if ($matches[1] == $dir) {
+				$result = self::getImpl($parts[0]);
+				break;
+			}
+		}
+		return $result;
 	}
 }

@@ -82,26 +82,27 @@ class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 		// Get the existing configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.clamav");
-		$object->set("enable", $params['enable']);
-		$object->set("quarantine_sharedfolderref",
-		  $params['quarantine_sharedfolderref']);
-		$object->set("clamd.logclean", $params['logclean']);
-		$object->set("clamd.scanpe", $params['scanpe']);
-		$object->set("clamd.scanole2", $params['scanole2']);
-		$object->set("clamd.scanhtml", $params['scanhtml']);
-		$object->set("clamd.scanpdf", $params['scanpdf']);
-		$object->set("clamd.scanelf", $params['scanelf']);
-		$object->set("clamd.scanarchive", $params['scanarchive']);
-		$object->set("clamd.detectbrokenexecutables",
-		  $params['detectbrokenexecutables']);
-		$object->set("clamd.algorithmicdetection",
-		  $params['algorithmicdetection']);
-		$object->set("clamd.followdirectorysymlinks",
-		  $params['followdirectorysymlinks']);
-		$object->set("clamd.detectpua", $params['detectpua']);
-		$object->set("clamd.extraoptions", $params['extraoptions']);
-		$object->set("freshclam.enable", $params['enable']);
-		$object->set("freshclam.checks", $params['checks']);
+		$object->setIndexed([
+			"enable" => $params['enable'],
+			"quarantine_sharedfolderref" => $params[
+			  'quarantine_sharedfolderref'],
+			"clamd.logclean" => $params['logclean'],
+			"clamd.scanpe" => $params['scanpe'],
+			"clamd.scanole2" => $params['scanole2'],
+			"clamd.scanhtml" => $params['scanhtml'],
+			"clamd.scanpdf" => $params['scanpdf'],
+			"clamd.scanelf" => $params['scanelf'],
+			"clamd.scanarchive" => $params['scanarchive'],
+			"clamd.detectbrokenexecutables" => $params[
+			  'detectbrokenexecutables'],
+			"clamd.algorithmicdetection" => $params['algorithmicdetection'],
+			"clamd.followdirectorysymlinks" => $params[
+			  'followdirectorysymlinks'],
+			"clamd.detectpua" => $params['detectpua'],
+			"clamd.extraoptions" => $params['extraoptions'],
+			"freshclam.enable" => $params['enable'],
+			"freshclam.checks" => $params['checks']
+		]);
 		// Do some validations:
 		// - Check if quarantine shared folder is referenced and required.
 		if (TRUE === $object->isEmpty("quarantine_sharedfolderref")) {

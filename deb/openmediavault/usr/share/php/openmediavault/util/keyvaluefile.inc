@@ -21,6 +21,9 @@
  */
 namespace OMV\Util;
 
+/**
+ * @ingroup api
+ */
 class KeyValueFile {
 	private $delimiter;
 	private $comment;

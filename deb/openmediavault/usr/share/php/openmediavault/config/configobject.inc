@@ -189,6 +189,28 @@ class ConfigObject {
 
 	/**
 	 * Set properties.
+	 * Example:
+	 * array(
+	 *   "c" => "d",
+	 *   "a" => [
+	 *     "b" => [
+	 *       "c" => 1
+	 *	   ]
+	 *	 ],
+	 *   "x" => [
+	 *     "x" => "z",
+	 *     "y" => [
+	 *       0 => [
+	 *         a => "xxx",
+	 *         b => "yyy"
+	 *       ],
+	 *       1 => [
+	 *         a => "aaa",
+	 *         b => "bbb"
+	 *       ]
+	 *	   ]
+	 *	 ]
+	 * )
 	 * @param data The associative array of key/value pairs.
 	 * @param validate Set to FALSE to do not validate the property values
 	 *   against the property schema defined in the model.
@@ -207,12 +229,13 @@ class ConfigObject {
 	 * Set properties.
 	 * Example:
 	 * array(
-	 *   "x" => "z",
+	 *   "c" => "d",
+	 *   "x.x" => "z",
 	 *   "a.b.c" => 1,
 	 *   "x.y.0.a" => "xxx",
 	 *   "x.y.0.b" => "yyy",
 	 *   "x.y.1.a" => "aaa",
-	 *   "x.y.1.b" => "bbb",
+	 *   "x.y.1.b" => "bbb"
 	 * )
 	 * @param data The single dimension array of path/value pairs.
 	 * @param validate Set to FALSE to do not validate the property values

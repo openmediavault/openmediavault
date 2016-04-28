@@ -55,9 +55,9 @@ class OMVRpcServiceRrd extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Child process.
 		try {
-			$cmd = "export LANG=C; omv-mkgraph 2>&1";
-			if (0 !== $this->exec($cmd, $output))
-				throw new \OMV\ExecException($cmd, $output);
+			$cmd = new \OMV\System\Process("omv-mkgraph");
+			$cmd->setRedirect2to1(TRUE);
+			$cmd->execute($output);
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
 		} catch(\Exception $e) {

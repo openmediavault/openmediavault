@@ -92,7 +92,9 @@ class User {
 			else
 				$userInfo = posix_getpwnam($this->name);
 			if (FALSE === $userInfo) {
-				throw new \OMV\Exception("Failed to get user information: %s",
+				throw new \OMV\Exception(
+				  "Failed to get information about the user '%s': %s",
+				  !is_null($this->uid) ? strval($this->uid) : $this->name,
 				  posix_strerror(posix_errno()));
 			}
 			$this->name = $userInfo['name'];
@@ -144,13 +146,8 @@ class User {
 	 */
 	public function assertExists() {
 		if (FALSE === $this->exists()) {
-			$id = "unknown";
-			if (!is_null($this->name))
-				$id = $this->name;
-			else if (!is_null($this->uid))
-				$id = $this->uid;
 			throw new \OMV\AssertException("The user '%s' does not exist.",
-			  strval($id));
+			  !is_null($this->uid) ? strval($this->uid) : $this->name);
 		}
 	}
 
@@ -160,13 +157,8 @@ class User {
 	 */
 	public function assertNotExists() {
 		if (TRUE === $this->exists()) {
-			$id = "unknown";
-			if (!is_null($this->name))
-				$id = $this->name;
-			else if (!is_null($this->uid))
-				$id = $this->uid;
 			throw new \OMV\AssertException("The user '%s' already exists.",
-			  strval($id));
+			  !is_null($this->uid) ? strval($this->uid) : $this->name);
 		}
 	}
 
@@ -175,8 +167,6 @@ class User {
 	 * @return The user name.
 	 */
 	public function getName() {
-		if (!is_null($this->name))
-			return $this->name;
 		$this->getData("passwd");
 		return $this->name;
 	}
@@ -186,8 +176,6 @@ class User {
 	 * @return The user ID, otherwise FALSE.
 	 */
 	public function getUid() {
-		if (!is_null($this->uid))
-			return $this->uid;
 		$this->getData("passwd");
 		return $this->uid;
 	}
@@ -302,7 +290,7 @@ class User {
 		foreach ($output as $outputk => $outputv) {
 			if (preg_match("/^\s+(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+".
 			  "(\d+)\s+(\d+)$/i", $outputv, $matches)) {
-				$result[$matches[1]] = array(
+				$result[$matches[1]] = [
 					"devicefile" => $matches[1],
 					"blocks" => $matches[2],
 					"bsoft" => $matches[3],
@@ -310,7 +298,7 @@ class User {
 					"inodes" => $matches[5],
 					"isoft" => $matches[6],
 					"ihard" => $matches[7]
-				);
+				];
 			}
 		}
 		return $result;
@@ -364,7 +352,7 @@ class User {
 		$list = [];
 		foreach ($output as $outputv) {
 			$data = explode(":", $outputv);
-			if (empty($data))
+			if (TRUE === empty($data))
 				continue;
 			$list[] = $data[0]; // User name
 		}

@@ -66,8 +66,10 @@ class OMVRpcServiceRsync extends \OMV\Rpc\ServiceAbstract {
 		// Add additional information.
 		$objectsAssoc = [];
 		foreach ($objects as $objectk => &$objectv) {
-			$objectv->set("srcname", gettext("n/a"));
-			$objectv->set("destname", gettext("n/a"));
+			$objectv->setIndexed([
+				"srcname" => gettext("n/a"),
+				"destname" => gettext("n/a")
+			]);
 			switch ($objectv->get("type")) {
 			case "local":
 				// Get the shared folder configuration object and update the

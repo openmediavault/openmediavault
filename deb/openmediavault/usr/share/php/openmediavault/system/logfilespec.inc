@@ -39,7 +39,7 @@ class LogFileSpec {
 	 *   defined function that is called while processing. It can be used
 	 *   to convert a time/date string to an Unix timestamp for example.
 	 */
-	static private $specs = array(
+	static private $specs = [
 /* Example:
 		"syslog" => array(
 			"filename" => "syslog",
@@ -56,7 +56,7 @@ class LogFileSpec {
 			)
 		)
 */
-	);
+	];
 	private $id = null;
 
 	/**

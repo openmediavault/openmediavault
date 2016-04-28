@@ -58,7 +58,9 @@ class Group {
 		else
 			$groupInfo = posix_getgrnam($this->name);
 		if (FALSE === $groupInfo) {
-			throw new \OMV\Exception("Failed to get group information: %s",
+			throw new \OMV\Exception(
+			  "Failed to get information about the group '%s': %s",
+			  !is_null($this->gid) ? strval($this->gid) : $this->name,
 			  posix_strerror(posix_errno()));
 		}
 		$this->name = $groupInfo['name'];
@@ -96,13 +98,8 @@ class Group {
 	 */
 	public function assertExists() {
 		if (FALSE === $this->exists()) {
-			$id = "unknown";
-			if (!is_null($this->name))
-				$id = $this->name;
-			else if (!is_null($this->gid))
-				$id = $this->gid;
 			throw new \OMV\AssertException("The group '%s' does not exist.",
-			  strval($id));
+			  !is_null($this->gid) ? strval($this->gid) : $this->name);
 		}
 	}
 
@@ -112,13 +109,8 @@ class Group {
 	 */
 	public function assertNotExists() {
 		if (TRUE === $this->exists()) {
-			$id = "unknown";
-			if (!is_null($this->name))
-				$id = $this->name;
-			else if (!is_null($this->gid))
-				$id = $this->gid;
 			throw new \OMV\AssertException("The group '%s' already exists.",
-			  strval($id));
+			  !is_null($this->gid) ? strval($this->gid) : $this->name);
 		}
 	}
 
@@ -127,8 +119,6 @@ class Group {
 	 * @return The group name.
 	 */
 	public function getName() {
-		if (!is_null($this->name))
-			return $this->name;
 		$this->getData();
 		return $this->name;
 	}
@@ -138,8 +128,6 @@ class Group {
 	 * @return The group ID.
 	 */
 	public function getGid() {
-		if (!is_null($this->gid))
-			return $this->gid;
 		$this->getData();
 		return $this->gid;
 	}
@@ -174,7 +162,7 @@ class Group {
 		foreach ($output as $outputk => $outputv) {
 			if (preg_match("/^\s+(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+".
 			  "(\d+)\s+(\d+)$/i", $outputv, $matches)) {
-				$result[$matches[1]] = array(
+				$result[$matches[1]] = [
 					"devicefile" => $matches[1],
 					"blocks" => $matches[2],
 					"bsoft" => $matches[3],
@@ -182,7 +170,7 @@ class Group {
 					"inodes" => $matches[5],
 					"isoft" => $matches[6],
 					"ihard" => $matches[7]
-				);
+				];
 			}
 		}
 		return $result;
@@ -222,7 +210,7 @@ class Group {
 		$list = [];
 		foreach ($output as $outputv) {
 			$data = explode(":", $outputv);
-			if (empty($data))
+			if (TRUE === empty($data))
 				continue;
 			$list[] = $data[0]; // Group name
 		}

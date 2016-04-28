@@ -81,7 +81,7 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.rsync.server", $object->getAssoc());
+		  "org.openmediavault.conf.service.rsyncd", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -179,7 +179,7 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.rsync.server.modules.module",
+		  "org.openmediavault.conf.service.rsyncd.module",
 		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
@@ -202,6 +202,6 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 		// Delete the configuration object.
 		return $this->deleteConfigObjectByUuid(
 		  "conf.service.rsyncd.module", $params['uuid'],
-		  "org.openmediavault.conf.service.rsync.server.modules.module");
+		  "org.openmediavault.conf.service.rsyncd.module");
 	}
 }

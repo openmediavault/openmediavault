@@ -170,54 +170,27 @@ class OMVRpcServiceAFP extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.afp.setshare");
-
-
-// ToDo...
-
-
-		// Prepare the configuration object.
-		$object = array(
-			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  \OMV\Uuid::uuid4() : $params['uuid'],
-			"sharedfolderref" => $params['sharedfolderref'],
-			"name" => $params['name'],
-			"comment" => $params['comment'],
-			"password" => $params['password'],
-			"casefold" => $params['casefold'],
-			"volsizelimit" => $params['volsizelimit'],
-			"allowguest" => array_boolval($params, 'allowguest'),
-			"guestrw" => array_boolval($params, 'guestrw'),
-			"options" => array(
-				"ro" => array_boolval($params, 'ro'),
-				"upriv" => array_boolval($params, 'upriv'),
-				"usedots" => array_boolval($params, 'usedots'),
-				"invisibledots" => array_boolval($params, 'invisibledots'),
-				"tm" => array_boolval($params, 'tm'),
-				"mswindows" => array_boolval($params, 'mswindows')
-			),
-			"extraoptions" => $params['extraoptions']
-		);
+		// Prepare the configuration data.
+		$object = new \OMV\Config\ConfigObject("conf.service.afp.share");
+		$object->setAssoc($params, TRUE, TRUE);
+		$object->setIndexed([
+			"options.ro" => $params['ro'],
+			"options.upriv" => $params['upriv'],
+			"options.usedots" => $params['usedots'],
+			"options.invisibledots" => $params['invisibledots'],
+			"options.tm" => $params['tm'],
+			"options.mswindows" => $params['mswindows']
+		]);
 		// Set the configuration object.
-		$success = FALSE;
-		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
-			// Append object to configuration.
-			$success = $xmlConfig->set("//services/afp/shares",
-			  array("share" => $object));
-		} else {
-			// Update existing configuration object.
-			$success = $xmlConfig->replace("//services/afp/shares/share[" .
-			  "uuid='{$params['uuid']}']", $object);
-		}
-		if(FALSE === $success) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+		$isNew = $object->isNew();
+		$db = \OMV\Config\Database::getInstance();
+		$db->set($object);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.afp.share", $object);
+		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.conf.service.afp.share", $object->getAssoc());
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
