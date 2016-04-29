@@ -59,9 +59,9 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function noop($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		return array_rand_value($GLOBALS['OMV_DUNE_QUOTES']);
 	}
 
@@ -74,9 +74,9 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getTopInfo($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get task overview.
 		$cmd = new \OMV\System\Process("top", "-b", "-n 1");
 		$cmd->setRedirect2to1(TRUE);
@@ -92,9 +92,9 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getShells($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Prepare result list.
 		$result = array(
 			"/bin/false",
@@ -118,9 +118,9 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function reboot($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		$pm = new \OMV\System\PowerManagement();
 		$pm->reboot();
 	}
@@ -133,9 +133,9 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function shutdown($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		$pm = new \OMV\System\PowerManagement();
 		$pm->shutdown();
 	}
@@ -155,9 +155,9 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function standby($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		$pm = new \OMV\System\PowerManagement();
 		$pm->standby();
 	}
@@ -171,9 +171,9 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function suspend($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		$pm = new \OMV\System\PowerManagement();
 		$pm->suspend();
 	}
@@ -187,9 +187,9 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function hibernate($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		$pm = new \OMV\System\PowerManagement();
 		$pm->hibernate();
 	}
@@ -202,9 +202,9 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getTimeSettings($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.system.time");
@@ -228,9 +228,9 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function setTimeSettings($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.system.settimesettings");
 		// Prepare the configuration object.
@@ -257,9 +257,9 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function setDate($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.system.setdate");
 		// Set the system date.
@@ -279,9 +279,9 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function setNtpDate($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Set the system date via NTP.
 		$cmdArgs = [];
 		$cmdArgs[] = "-g";
@@ -299,9 +299,9 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getTimeZoneList($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Prepare list of time zone identifiers (for ComboBox store).
 		$timezoneIdentifiers = DateTimeZone::listIdentifiers();
 		sort($timezoneIdentifiers, SORT_NATURAL);
@@ -316,9 +316,9 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getInformation($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get various system informations.
 		$prd = new \OMV\ProductInfo();
 		$uname = posix_uname();
@@ -396,9 +396,9 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getDiagnosticReport($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		$cmd = new \OMV\System\Process("omv-sysinfo");
 		$cmd->setRedirect2to1(TRUE);
 		$cmd->execute($output);

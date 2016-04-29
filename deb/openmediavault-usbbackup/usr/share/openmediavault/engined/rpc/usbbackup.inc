@@ -51,9 +51,9 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getCandidates($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get list of all detected filesystems. Note, the list may also
 		// contain RAID and LVM volumes, so the list must be filtered.
 		$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
@@ -113,9 +113,9 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getList($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the configuration objects.
@@ -151,9 +151,9 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function get($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
@@ -169,9 +169,9 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function set($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.usbbackup.set");
 		// Prepare the configuration object.
@@ -207,9 +207,9 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function delete($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
@@ -227,9 +227,9 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function execute($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Check if the module is marked as dirty. This is an indication

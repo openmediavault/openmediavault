@@ -61,9 +61,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function enumerateDevices($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get all existing hard disks devices.
 		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerate(
 		  OMV_STORAGE_DEVICE_TYPE_ALL & ~(OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE |
@@ -112,9 +112,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function enumerateMonitoredDevices($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Enumerate all devices supporting S.M.A.R.T.
 		$objects = $this->callMethod("enumerateDevices", NULL, $context);
 		// Prepare the result list, only return devices that are monitored.
@@ -157,9 +157,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getList($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Enumerate all devices supporting S.M.A.R.T.
@@ -205,9 +205,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getSettings($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.smartmontools");
@@ -225,9 +225,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function setSettings($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.smart.setsettings");
 		// Get the existing configuration object.
@@ -255,9 +255,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getDeviceSettings($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.smart.getdevicesettings");
 		// Get the configuration object.
@@ -279,9 +279,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function setDeviceSettings($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.devicefile");
 		// Check if the given device exists and supports S.M.A.R.T.
@@ -325,9 +325,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getExtendedInformation($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.devicefile");
 		// Get the S.M.A.R.T. information.
@@ -357,9 +357,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getAttributes($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.devicefile");
 		// Get the S.M.A.R.T. information.
@@ -388,9 +388,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getSelfTestLogs($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.devicefile");
 		// Get the S.M.A.R.T. information.
@@ -419,9 +419,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getInformation($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.devicefile");
 		// Get the S.M.A.R.T. information.
@@ -455,9 +455,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getScheduleList($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the configuration object.
@@ -502,9 +502,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getScheduledTest($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
@@ -521,9 +521,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function setScheduledTest($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.smart.setscheduledtest");
 		// Check if the given device exists.
@@ -559,9 +559,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function deleteScheduledTest($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
@@ -579,9 +579,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function executeScheduledTest($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.

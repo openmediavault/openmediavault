@@ -45,9 +45,9 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function isDirty($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getDirtyModules();
 		return !empty($modules);
@@ -71,9 +71,9 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function applyChanges($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.config.applychanges");
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
@@ -216,9 +216,9 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function revertChanges($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.config.revertchanges");
 		// Open the dirty modules file. Lock it to force all writers

@@ -47,9 +47,9 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getSettings($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.iscsitarget");
@@ -67,9 +67,9 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 	public function setSettings($params, $context) {
 		global $xmlConfig;
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.iscsitarget.setsettings");
 		// Get existing configuration object.
@@ -122,9 +122,9 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 	public function getTargetList($params, $context) {
 		global $xmlConfig;
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the configuration object.
@@ -189,9 +189,9 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 	public function getTarget($params, $context) {
 		global $xmlConfig;
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
@@ -241,9 +241,9 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 	public function setTarget($params, $context) {
 		global $xmlConfig;
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.iscsitarget.settarget");
 		// Prepare the configuration object.
@@ -330,9 +330,9 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 	public function deleteTarget($params, $context) {
 		global $xmlConfig;
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.

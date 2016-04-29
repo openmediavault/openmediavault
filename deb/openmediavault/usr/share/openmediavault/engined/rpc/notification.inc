@@ -44,9 +44,9 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function get($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		$result = [];
 		// Get the list of registered modules.
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
@@ -84,9 +84,9 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function set($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.notification.set");
 		// Get the list of registered modules.
@@ -150,9 +150,9 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function isEnabled($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.notification.isenabled");
 		// Get the configuration object.
@@ -190,9 +190,9 @@ class OMVRpcServiceEmailNotification extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function get($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.system.notification.email");
@@ -212,9 +212,9 @@ class OMVRpcServiceEmailNotification extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function set($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.emailnotification.set");
 		// Prepare the configuration data.
@@ -247,9 +247,9 @@ class OMVRpcServiceEmailNotification extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function sendTestEmail($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Check whether the module is marked dirty. In this case the
 		// current configuration is not applied and sending an email might
 		// fail.

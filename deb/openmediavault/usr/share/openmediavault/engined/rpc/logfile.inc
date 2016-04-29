@@ -54,9 +54,9 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function getList($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.logfile.getlist");
 		// Create the log file specification object.
@@ -113,9 +113,9 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function clear($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.logfile.clear");
 		// Check if the given log file type if registered.
@@ -156,9 +156,9 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function getContent($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.logfile.getcontent");
 		// Check if the given log file type if registered.

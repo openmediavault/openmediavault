@@ -46,9 +46,9 @@ class OMVRpcServiceExec extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function stop($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.exec.stop");
 		// Get the background process status.
@@ -78,9 +78,9 @@ class OMVRpcServiceExec extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getOutput($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.exec.getoutput");
 		// Get the background process status file.
@@ -140,9 +140,9 @@ class OMVRpcServiceExec extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function isRunning($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.exec.isrunning");
 		// Get the background process status.

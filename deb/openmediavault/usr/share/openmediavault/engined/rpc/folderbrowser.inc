@@ -50,9 +50,9 @@ class OMVRpcServiceFolderBrowser extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function get($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.folderbrowser.get");
 		// The field 'path' may not contain the characters '..'. This is

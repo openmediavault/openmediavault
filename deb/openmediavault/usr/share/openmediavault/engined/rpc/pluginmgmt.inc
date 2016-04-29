@@ -59,9 +59,9 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function enumeratePlugins($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Read the plugin information from the plugin index. This will
 		// be updated automatically via APT trigger.
 		$indexFile = new \OMV\Json\File($GLOBALS['OMV_APT_PLUGINS_INDEX_FILE']);
@@ -96,9 +96,9 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function getList($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Enumerate all available packages/plugins.
@@ -118,9 +118,9 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function remove($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.plugin.remove");
 		// Validate package names.
@@ -180,9 +180,9 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function upload($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.plugin.upload");
 		// Extract the package name.
@@ -216,9 +216,9 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function install($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.plugin.install");
 		// Validate package names.

@@ -167,9 +167,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function getGeneralSettings($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.system.network.dns");
@@ -184,9 +184,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function setGeneralSettings($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.network.setgeneralsettings");
 		// Prepare the configuration object.
@@ -215,9 +215,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function enumerateDevices($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
 		// Enumerate all network interface devices on the system.
 		if (FALSE === ($devs = $mngr->enumerate(
@@ -304,9 +304,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function enumerateDevicesList($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the system network interface devices.
@@ -324,9 +324,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function enumerateConfiguredDevices($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
         // Get all network interface configuration objects.
 		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->get("conf.system.network.interface");
@@ -372,9 +372,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function identify($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.network.identify");
 		// Create a background process.
@@ -425,9 +425,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function getInterfaceList($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get all network interface configuration objects.
@@ -447,9 +447,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function getInterface($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
@@ -473,9 +473,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function deleteInterface($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
@@ -492,9 +492,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getEthernetCandidates($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
 		// Get all unused network interface devices, except loopback and
 		// VLAN network interfaces.
@@ -547,9 +547,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function setEthernetIface($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the network interface specific parameters of the
 		// RPC service method.
 		$this->validateMethodParams($params, "rpc.network.setethernetiface");
@@ -574,9 +574,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function enumerateBondSlaves($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.network.enumeratebondslaves");
 		// Get list of network interfaces.
@@ -699,9 +699,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function setBondIface($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the network interface specific parameters of the
 		// RPC service method.
 		$this->validateMethodParams($params, "rpc.network.setbondiface");
@@ -760,9 +760,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getVlanCandidates($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get all unused network interface devices, except loopback and
 		// VLAN network interfaces.
 		$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
@@ -798,9 +798,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function setVlanIface($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the network interface specific parameters of the
 		// RPC service method.
 		$this->validateMethodParams($params, "rpc.network.setvlaniface");
@@ -825,9 +825,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getWirelessCandidates($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get all unused network interface devices, except loopback and
 		// VLAN network interfaces.
 		$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
@@ -880,9 +880,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 */
     function setWirelessIface($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the network interface specific parameters of the
 		// RPC service method.
 		$this->validateMethodParams($params, "rpc.network.setwirelessiface");
@@ -902,9 +902,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function getProxy($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get the network proxy settings.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.system.network.proxy");
@@ -934,9 +934,9 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function setProxy($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.network.setproxy");
 		// Prepare the configuration object.

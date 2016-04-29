@@ -44,9 +44,9 @@ class OMVRpcServiceWebGui extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function getSettings($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.webadmin");
@@ -61,9 +61,9 @@ class OMVRpcServiceWebGui extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function setSettings($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.webgui.setsettings");
 		// Prepare the configuration object.
@@ -89,9 +89,9 @@ class OMVRpcServiceWebGui extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function setPassword($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.webgui.setpassword");
 		// Modify the 'admin' user password.

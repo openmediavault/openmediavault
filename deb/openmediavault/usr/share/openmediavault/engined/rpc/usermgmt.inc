@@ -69,9 +69,9 @@ class OMVRpcServiceUserMgmt extends \OMV\Rpc\ServiceAbstract {
 	 */
 	final public function authUser($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.usermngmt.authuser");
 		// Authenticate the user.
@@ -93,10 +93,10 @@ class OMVRpcServiceUserMgmt extends \OMV\Rpc\ServiceAbstract {
 			}
 		}
 finish:
-		return array(
+		return [
 			"authenticated" => $authenticated,
 			"username" => $params['username']
-		);
+		];
 	}
 
 	/**
@@ -109,7 +109,7 @@ finish:
 		$user = new \OMV\System\User($id);
 		if (!$user->exists())
 			return FALSE;
-		return array(
+		return [
 			"name" => $user->getName(),
 			"uid" => $user->getUid(),
 			"gid" => $user->getGid(),
@@ -125,7 +125,7 @@ finish:
 			"reserved" => $user->getReserved(),
 			"groups" => $user->getGroups(),
 			"system" => $user->isSystemAccount()
-		);
+		];
 	}
 
 	/**
@@ -177,9 +177,9 @@ finish:
 	 */
 	public function enumerateSystemUsers($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get system users.
 		return $this->enumerateUsersByType("system");
 	}
@@ -192,9 +192,9 @@ finish:
 	 */
 	public function enumerateUsers($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get non-system users.
 		return $this->enumerateUsersByType("normal");
 	}
@@ -207,9 +207,9 @@ finish:
 	 */
 	public function enumerateAllUsers($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get all users.
 		return $this->enumerateUsersByType("all");
 	}
@@ -224,12 +224,12 @@ finish:
 		$group = new \OMV\System\Group($id);
 		if (!$group->exists())
 			return FALSE;
-		return array(
+		return [
 			"name" => $group->getName(),
 			"gid" => $group->getGid(),
 			"members" => $group->getMembers(),
 			"system" => $group->isSystemAccount()
-		);
+		];
 	}
 
 	/**
@@ -275,9 +275,9 @@ finish:
 	 */
 	public function enumerateSystemGroups($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get system groups.
 		return $this->enumerateGroupsByType("system");
 	}
@@ -290,9 +290,9 @@ finish:
 	 */
 	public function enumerateGroups($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get non-system groups.
 		return $this->enumerateGroupsByType("normal");
 	}
@@ -305,9 +305,9 @@ finish:
 	 */
 	public function enumerateAllGroups($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get all groups.
 		return $this->enumerateGroupsByType("all");
 	}
@@ -326,9 +326,9 @@ finish:
 	 */
 	function getUserList($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the list of non-system user.
@@ -337,11 +337,11 @@ finish:
 		// the database.
 		foreach ($users as $userk => &$userv) {
 			// Set the defaults of the additional information.
-			$userv = array_merge($userv, array(
+			$userv = array_merge($userv, [
 				"email" => "",
 				"disallowusermod" => FALSE,
-				"sshpubkeys" => array()
-			));
+				"sshpubkeys" => []
+			]);
 			// Get additional information stored in database.
 			$db = \OMV\Config\Database::getInstance();
 			$objects = $db->getByFilter("conf.system.usermngmnt.user", [
@@ -374,9 +374,9 @@ finish:
 	 */
 	function getUser($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.usermngmt.getuser");
 		// Ensure the user exists.
@@ -385,11 +385,11 @@ finish:
 		// Get the user information.
 		$result = $this->getUserInfo($user->getName());
 		// Set the defaults of the additional information.
-		$result = array_merge($result, array(
+		$result = array_merge($result, [
 			"email" => "",
 			"disallowusermod" => FALSE,
-			"sshpubkeys" => array()
-		));
+			"sshpubkeys" => []
+		]);
 		// Get additional user information stored in database.
 		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->getByFilter("conf.system.usermngmnt.user", [
@@ -420,22 +420,22 @@ finish:
 	 */
 	function getUserByContext($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_EVERYONE
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_EVERYONE
+		]);
 		// Get the user configuration object.
-		$object = $this->callMethod("getUser", array(
-			  "name" => $context['username']
-		  ), $this->getAdminContext());
+		$object = $this->callMethod("getUser", [
+			"name" => $context['username']
+		], $this->getAdminContext());
 		// Prepare the result object.
-		return array(
-			  "name" => $object['name'],
-			  "comment" => $object['comment'],
-			  "email" => $object['email'],
-			  "sshpubkeys" => $object['sshpubkeys'],
-			  // Hijack the '_readonly' flag to set the form to read-only.
-			  "_readonly" => $object['disallowusermod']
-		  );
+		return [
+			"name" => $object['name'],
+			"comment" => $object['comment'],
+			"email" => $object['email'],
+			"sshpubkeys" => $object['sshpubkeys'],
+			// Hijack the '_readonly' flag to set the form to read-only.
+			"_readonly" => $object['disallowusermod']
+		];
 	}
 
 	/**
@@ -457,9 +457,9 @@ finish:
 	 */
 	function setUser($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.usermngmt.setuser");
 		// Check if the given user is a system account. Abort this attempt.
@@ -579,27 +579,27 @@ finish:
 	 */
 	function setUserByContext($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_EVERYONE
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_EVERYONE
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.usermngmt.setuserbycontext");
 		// Get the user configuration object.
-		$object = $this->callMethod("getUser", array(
-			  "name" => $context['username']
-		  ), $this->getAdminContext());
+		$object = $this->callMethod("getUser", [
+			"name" => $context['username']
+		], $this->getAdminContext());
 		// Update the user configuration.
-		return $this->callMethod("setUser", array(
-			  "name" => $object['name'],
-			  "uid" => $object['uid'],
-			  "groups" => $object['groups'],
-			  "shell" => $object['shell'],
-			  "password" => $params['password'],
-			  "email" => $params['email'],
-			  "comment" => $params['comment'],
-			  "disallowusermod" => $object['disallowusermod'],
-			  "sshpubkeys" => $object['sshpubkeys']
-		  ), $this->getAdminContext());
+		return $this->callMethod("setUser", [
+			"name" => $object['name'],
+			"uid" => $object['uid'],
+			"groups" => $object['groups'],
+			"shell" => $object['shell'],
+			"password" => $params['password'],
+			"email" => $params['email'],
+			"comment" => $params['comment'],
+			"disallowusermod" => $object['disallowusermod'],
+			"sshpubkeys" => $object['sshpubkeys']
+		], $this->getAdminContext());
 	}
 
 	/**
@@ -611,9 +611,9 @@ finish:
 	 */
 	function deleteUser($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.usermngmt.deleteuser");
 		// Get the user configuration object (required for the notification
@@ -656,9 +656,9 @@ finish:
 	 */
 	function importUsers($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.usermngmt.importuser");
 		// Create a background process.
@@ -687,7 +687,7 @@ finish:
 				  $linev, $matches)) {
 					throw new \OMV\Exception("Invalid line: %s", $linev);
 				}
-				$object = array(
+				$object = [
 					"name" => $matches[1],
 					"comment" => $matches[3],
 					"email" => $matches[4],
@@ -695,8 +695,8 @@ finish:
 					"groups" => explode(",", $matches[6]),
 					"disallowusermod" => boolvalEx($matches[7]),
 					"shell" => "/bin/dash",
-					"sshpubkeys" => array()
-				);
+					"sshpubkeys" => []
+				];
 				if (!empty($matches[2]) && is_numeric($matches[2]))
 					$object['uid'] = intval($matches[2]);
 				$objects[] = $object;
@@ -738,9 +738,9 @@ finish:
 	 */
 	function getGroupList($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the list of non-system groups.
@@ -776,9 +776,9 @@ finish:
 	 */
 	function getGroup($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.usermngmt.getgroup");
 		// Get the group information.
@@ -815,9 +815,9 @@ finish:
 	 */
 	function setGroup($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.usermngmt.setgroup");
 		// Check if the given group is a system account. Abort this attempt.
@@ -903,16 +903,16 @@ finish:
 	 */
 	function deleteGroup($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.usermngmt.deletegroup");
 		// Get the group configuration object (required for the notification
 		// event).
-		$object = $this->callMethod("getGroup", array(
-			  "name" => $params['name']
-		  ), $context);
+		$object = $this->callMethod("getGroup", [
+			"name" => $params['name']
+		], $context);
 		// Delete the group.
 		$cmdArgs = [];
 		$cmdArgs[] = "--only-if-empty";
@@ -947,9 +947,9 @@ finish:
 	 */
 	function importGroups($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.usermngmt.importgroup");
 		// Create a background process.
@@ -977,11 +977,11 @@ finish:
 				  $matches)) {
 					throw new \OMV\Exception("Invalid line: %s", $linev);
 				}
-				$object = array(
+				$object = [
 					"name" => $matches[1],
 					"comment" => $matches[3],
-					"members" => array()
-				);
+					"members" => []
+				];
 				if (!empty($matches[2]) && is_numeric($matches[2]))
 					$object['gid'] = intval($matches[2]);
 				$objects[] = $object;
@@ -1017,9 +1017,9 @@ finish:
 	 */
 	function getSettings($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		return $db->getAssoc("conf.system.usermngmnt.homedir");
@@ -1033,9 +1033,9 @@ finish:
 	 */
 	public function setSettings($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.usermngmt.setsettings");
 		// Prepare the configuration object.

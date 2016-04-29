@@ -45,9 +45,9 @@ class OMVRpcServiceLDAP extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function getSettings($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		return $db->getAssoc("conf.service.ldap");
@@ -69,9 +69,9 @@ class OMVRpcServiceLDAP extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function setSettings($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.ldap.setsettings");
 		// Prepare the configuration object.

@@ -51,9 +51,9 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getSettings($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.smb");
@@ -70,9 +70,9 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function setSettings($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.smb.setsettings");
 		// Get the existing configuration object.
@@ -104,9 +104,9 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getShareList($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the configuration object.
@@ -138,9 +138,9 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getShare($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
@@ -156,9 +156,9 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function setShare($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.smb.setshare");
 		// Prepare the configuration object.
@@ -193,9 +193,9 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function deleteShare($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
@@ -213,9 +213,9 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function emptyRecycleBin($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Check if the module is marked as dirty. This can be an indication
@@ -257,9 +257,9 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 	 */
 	public function getStats($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Is service enabled?
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.smb");

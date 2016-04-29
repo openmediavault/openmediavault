@@ -63,9 +63,9 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function getRules($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get the configuration objects.
 		return $this->getRulesByFamily("inet");
 	}
@@ -78,9 +78,9 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function getRules6($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get the configuration objects.
 		return $this->getRulesByFamily("inet6");
 	}
@@ -132,9 +132,9 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function setRules($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.iptables.setrules");
 		// Store the given IPv4 iptables rules.
@@ -149,9 +149,9 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function setRules6($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.iptables.setrules6");
 		// Store the given IPv6 iptables rules.
@@ -167,9 +167,9 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function getRule($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
@@ -186,9 +186,9 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function setRule($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.iptables.setrule");
 		// Prepare the configuration object.
@@ -217,9 +217,9 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function deleteRule($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.

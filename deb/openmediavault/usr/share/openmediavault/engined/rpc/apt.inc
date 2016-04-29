@@ -49,9 +49,9 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function getSettings($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.system.apt.distribution");
@@ -66,9 +66,9 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function setSettings($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.apt.setsettings");
 		// Prepare the configuration object.
@@ -83,10 +83,10 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 		  "org.openmediavault.conf.system.apt.distribution",
 		  $object->getAssoc());
 		// Apply the changes immediatelly (no user interaction is wanted).
-		\OMV\Rpc\Rpc::call("Config", "applyChanges", array(
-			  "modules" => array("apt"),
-			  "force" => TRUE
-		  ), $context);
+		\OMV\Rpc\Rpc::call("Config", "applyChanges", [
+			"modules" => [ "apt" ],
+			"force" => TRUE
+		], $context);
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -108,9 +108,9 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function enumerateUpgraded($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Read the plugin information from the plugin index. This will
 		// be updated automatically via APT trigger.
 		$indexFile = new \OMV\Json\File($GLOBALS['OMV_APT_UPGRADE_INDEX_FILE']);
@@ -145,9 +145,9 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function getUpgradedList($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Enumerate all packages that are to be upgraded.
@@ -166,9 +166,9 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function upgrade($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.apt.upgrade");
 		// Create a background process.
@@ -213,9 +213,9 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function update($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
@@ -253,9 +253,9 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function upload($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.apt.upload");
 		// Check the file type.
@@ -294,9 +294,9 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 	 */
 	function getChangeLog($params, $context) {
 		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.apt.getchangelog");
 		// Create a background process.
