@@ -49,7 +49,7 @@ abstract class ModuleAbstract {
 	 * @return The list of dirty modules.
 	 */
 	final public function setDirtyByName($name) {
-		$moduleMngr = &Manager::getInstance();
+		$moduleMngr = Manager::getInstance();
 		return $moduleMngr->setModuleDirty($name);
 	}
 
@@ -58,7 +58,7 @@ abstract class ModuleAbstract {
 	 * @return TRUE if the module is marked dirty, otherwise FALSE.
 	 */
 	final public function isDirty() {
-		$moduleMngr = &Manager::getInstance();
+		$moduleMngr = Manager::getInstance();
 		return $moduleMngr->isModuleDirty($this->getName());
 	}
 

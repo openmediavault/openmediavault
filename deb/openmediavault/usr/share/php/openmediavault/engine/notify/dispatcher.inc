@@ -21,7 +21,7 @@
  */
 namespace OMV\Engine\Notify;
 
-require_once("openmediavault/globals.inc");
+require_once("openmediavault/functions.inc");
 
 /**
  * \OMV\Engine\Notify\Dispatcher is an configuration notification technology. It provides
@@ -57,7 +57,7 @@ class Dispatcher {
 	 * @return An array of listeners.
 	 */
 	public function getListeners() {
-		if(!isset($this->listeners))
+		if (!isset($this->listeners))
 			return [];
 		return $this->listeners;
 	}

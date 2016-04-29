@@ -48,7 +48,7 @@ class Email {
 		else
 			// Prepare the receivers of the email. The formatting of this
 			// string must comply with RFC 2822.
-			$this->to = strtr($this->to, array(';' => ','));
+			$this->to = strtr($this->to, [ ';' => ',' ]);
 	}
 
 	/**

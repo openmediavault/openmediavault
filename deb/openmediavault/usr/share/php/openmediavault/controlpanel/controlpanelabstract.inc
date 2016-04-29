@@ -40,7 +40,7 @@ abstract class ControlPanelAbstract {
 		array_unshift($incList, $fileName);
 		$fh = fopen($fileName, "r");
 		if ($fh === FALSE) {
-			throw new \OMV\Exception("Failed to open include file '%s'",
+			throw new \OMV\Exception("Failed to open include file '%s'.",
 			  $fileName);
 		}
 		$abort = FALSE;
@@ -112,10 +112,10 @@ abstract class ControlPanelAbstract {
 EOF;
 
 		// Set core CSS files.
-		$cssList = array(
+		$cssList = [
 			"/extjs/packages/ext-theme-gray/resources/ext-theme-gray-all.css",
 			"css/omv.css"
-		);
+		];
 		// Add additional CSS files.
 		$cssList = array_merge($cssList, array_values(array_unique(
 		  $this->getCssIncludes())));
@@ -127,23 +127,23 @@ EOF;
 		}
 
 		// Add core javascript files.
-		$jsList = array(
+		$jsList = [
 			"js/omv/util/i18n.js",
 			"js/omv/util/i18nDict.js",
 			"js/ext-overrides.js",
 			"js/js-overrides.js",
 			"js/omv/globals.js"
-		);
+		];
 		if (TRUE === boolvalEx($GLOBALS['OMV_DEBUG_EXTJS'])) {
-			$jsList = array_merge(array(
+			$jsList = array_merge([
 				"/extjs/ext-all-debug.js",
 				"/extjs/packages/ext-theme-gray/ext-theme-gray-debug.js"
-			), $jsList);
+			], $jsList);
 		} else {
-			$jsList = array_merge(array(
+			$jsList = array_merge([
 				"/extjs/ext-all.js",
 				"/extjs/packages/ext-theme-gray/ext-theme-gray.js"
-			), $jsList);
+			], $jsList);
 		}
 		foreach ($jsList as $jsListv) {
 			print "<script type='application/javascript' src='{$jsListv}'></script>\n";
@@ -223,7 +223,7 @@ EOF;
 	 * @return An array of files to be included.
 	 */
 	public function getJavascriptIncludes() {
-		return array();
+		return [];
 	}
 
 	/**
@@ -231,6 +231,6 @@ EOF;
 	 * @return An array of files to be included.
 	 */
 	public function getCssIncludes() {
-		return array();
+		return [];
 	}
 }

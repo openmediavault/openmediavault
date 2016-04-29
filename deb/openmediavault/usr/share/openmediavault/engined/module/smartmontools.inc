@@ -33,7 +33,7 @@ class OMVModuleSmartMonTools extends \OMV\Engine\Module\ServiceAbstract
 	 * provided by this module.
 	 * @return An array of modules.
 	 */
-	public function shouldStart() { return array("email"); }
+	public function shouldStart() { return [ "email" ]; }
 
 	/**
 	 * Generate the configuration.
@@ -68,13 +68,13 @@ class OMVModuleSmartMonTools extends \OMV\Engine\Module\ServiceAbstract
 	 * Get the notification configuration.
 	 */
 	public function getNotificationConfig() {
-		return array(
-			  array(
-				  "id" => "smartmontools",
-				  "type" => getText("Storage"),
-				  "title" => gettext("S.M.A.R.T.")
-			  )
-		  );
+		return [
+			[
+				"id" => "smartmontools",
+				"type" => getText("Storage"),
+				"title" => gettext("S.M.A.R.T.")
+			]
+		];
 	}
 
 	/**
@@ -84,22 +84,22 @@ class OMVModuleSmartMonTools extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.smart",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.smart.monitor.device",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.conf.service.smart.scheduledtests.job",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.system.notification.email",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.system.notification.notification",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
     }
 }

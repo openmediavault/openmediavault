@@ -26,7 +26,7 @@ namespace OMV\System\Net\NetworkInterfaceBackend;
 ///////////////////////////////////////////////////////////////////////////////
 $backends = array("Bond", "Bridge", "Ethernet", "Infiniband", "Loopback",
   "Virtual", "Vlan", "Wireless");
-$mngr = &Manager::getInstance();
+$mngr = Manager::getInstance();
 foreach ($backends as $backendk => $backendv) {
 	$className = sprintf("%s\%s", __NAMESPACE__, $backendv);
 	$mngr->registerBackend(new $className());

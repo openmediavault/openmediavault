@@ -41,7 +41,7 @@ class ProductInfo {
 
 	/**
 	 * Get the product name.
-	 * @return The product name string, otherwise FALSE.
+	 * @return The product name string.
 	 */
 	public function getName() {
 		return $this->data->name;
@@ -49,14 +49,13 @@ class ProductInfo {
 
 	/**
 	 * Get the product version.
-	 * @return The product version as string, otherwise FALSE.
+	 * @return The product version as string.
 	 */
 	public function getVersion() {
 		$cmdArgs = [];
 		$cmdArgs[] = "-W";
 		$cmdArgs[] = "-f='\${Version}'";
 		$cmdArgs[] = $this->getPackageName();
-		// Execute the command.
 		$cmd = new \OMV\System\Process("dpkg-query", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);
 		return $cmd->execute();
@@ -72,7 +71,7 @@ class ProductInfo {
 
 	/**
 	 * Get the URL to the product homepage.
-	 * @return The URL, otherwise FALSE.
+	 * @return The URL of the product homepage.
 	 */
 	public function getURL() {
 		return $this->data->url;
@@ -80,15 +79,15 @@ class ProductInfo {
 
 	/**
 	 * Get the copyright text.
-	 * @return The copyright text, otherwise FALSE.
+	 * @return The copyright text.
 	 */
 	public function getCopyright() {
 		return $this->data->copyright;
 	}
 
 	/**
-	 * Get the Debian package name.
-	 * @return The package name, otherwise FALSE.
+	 * Get the Debian package name prefix.
+	 * @return The package name prefix.
 	 */
 	public function getPackageName() {
 		return $this->data->packagename;

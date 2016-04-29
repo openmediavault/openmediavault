@@ -19,8 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/config.inc");
-
 class OMVModuleWebadmin extends \OMV\Engine\Module\ModuleAbstract
   implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IZeroconf {
 	/**
@@ -34,10 +32,10 @@ class OMVModuleWebadmin extends \OMV\Engine\Module\ModuleAbstract
 	 * Get the Zeroconf service configuration.
 	 */
 	public function getZeroconfConfig() {
-		return array(
-			  "id" => "webadmin",
-			  "title" => gettext("Web administration")
-		  );
+		return [
+			"id" => "webadmin",
+			"title" => gettext("Web administration")
+		];
 	}
 
 	/**
@@ -48,10 +46,10 @@ class OMVModuleWebadmin extends \OMV\Engine\Module\ModuleAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.webadmin",
-		  array($moduleMngr->getModule("webserver"), "setDirty"));
+		  [ $moduleMngr->getModule("webserver"), "setDirty" ]);
         $dispatcher->addListener(
           OMV_NOTIFY_MODIFY,
           "org.openmediavault.webadmin",
-          array($moduleMngr->getModule("monit"), "setDirty"));
+          [ $moduleMngr->getModule("monit"), "setDirty" ]);
     }
 }

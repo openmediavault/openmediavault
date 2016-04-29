@@ -19,7 +19,8 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-abstract class OMVModuleNginxAbstract extends \OMV\Engine\Module\ServiceAbstract {
+abstract class OMVModuleNginxAbstract
+  extends \OMV\Engine\Module\ServiceAbstract {
 	/**
 	 * Generate the configuration.
 	 */
@@ -57,7 +58,7 @@ class OMVModuleWebserver extends OMVModuleNginxAbstract
 	 * before the service provided by this module.
 	 * @return An array of modules.
 	 */
-	public function shouldApply() { return array("certificatemgmt"); }
+	public function shouldApply() { return [ "certificatemgmt" ]; }
 
 	/**
 	 * Helper function to find out whether the given SSL certificate
@@ -85,6 +86,6 @@ class OMVModuleWebserver extends OMVModuleNginxAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.system.certificate.ssl",
-		  array($this, "onModifySslCertificate"));
+		  [ $this, "onModifySslCertificate" ]);
 	}
 }
