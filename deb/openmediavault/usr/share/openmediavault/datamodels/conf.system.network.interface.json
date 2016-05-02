@@ -59,7 +59,9 @@
 			"type": "string"
 		},
 		"mtu": {
-			"type": "string"
+			"type": "integer",
+			"minimum": 0,
+			"default": 0
 		},
 		"wol": {
 			"type": "boolean",

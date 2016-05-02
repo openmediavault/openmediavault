@@ -264,9 +264,10 @@ Ext.define("OMV.module.admin.system.network.interface.window.Generic", {
 				xtype: "numberfield",
 				name: "mtu",
 				fieldLabel: _("MTU"),
-				allowBlank: true,
+				allowBlank: false,
 				allowDecimals: false,
-				minValue: 0
+				minValue: 0,
+				value: 0
 			},{
 				xtype: "checkbox",
 				name: "wol",
@@ -997,7 +998,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 						{ name: "gateway6", type: "string" },
 						{ name: "dnsnameservers", type: "string" },
 						{ name: "dnssearch", type: "string" },
-						{ name: "mtu", type: "string" },
+						{ name: "mtu", type: "int" },
 						{ name: "wol", type: "boolean" },
 						{ name: "options", type: "string" },
 						{ name: "comment", type: "string" }

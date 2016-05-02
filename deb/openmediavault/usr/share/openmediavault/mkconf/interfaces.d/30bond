@@ -57,7 +57,7 @@ xmlstarlet sel -t \
 	  -b \
 	  -i "method = 'dhcp'" \
 	  -b \
-	  -i "string-length(mtu) > 0" \
+	  -i "string-length(mtu) > 0 and mtu > 0" \
 		  -v "concat('    post-up /sbin/ifconfig \$IFACE mtu ',mtu)" -n \
 	  -b \
 	  -i "string-length(dnsnameservers) > 0" \
