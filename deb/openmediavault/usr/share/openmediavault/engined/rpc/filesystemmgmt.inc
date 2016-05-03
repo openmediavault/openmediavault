@@ -837,7 +837,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// object if necessary.
 			if (FALSE === $meObject) {
 				\OMV\Rpc\Rpc::call("FsTab", "set", array(
-					  "uuid" => $GLOBALS['OMV_UUID_UNDEFINED'],
+					  "uuid" => $GLOBALS['OMV_CONFIGOBJECT_NEW_UUID'],
 					  "fsname" => $fsName,
 					  "dir" => \OMV\System\Filesystem\Filesystem::buildMountPath(
 					    $fs->getUuid()),

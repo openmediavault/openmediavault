@@ -317,7 +317,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		unlink($crtfile);
 		// Finally import generated certificate.
 		return $this->callMethod("set", array(
-			  "uuid" => $GLOBALS['OMV_UUID_UNDEFINED'],
+			  "uuid" => $GLOBALS['OMV_CONFIGOBJECT_NEW_UUID'],
 			  "certificate" => $crtdata,
 			  "privatekey" => $keydata,
 			  "comment" => !empty($subject) ? $subject : ""
@@ -400,7 +400,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		unlink($file.".pub");
 		// Finally import generated certificate.
 		return $this->callMethod("setSsh", array(
-			  "uuid" => $GLOBALS['OMV_UUID_UNDEFINED'],
+			  "uuid" => $GLOBALS['OMV_CONFIGOBJECT_NEW_UUID'],
 			  "publickey" => $publickey,
 			  "privatekey" => $privatekey,
 			  "comment" => array_value($params, "comment", "")

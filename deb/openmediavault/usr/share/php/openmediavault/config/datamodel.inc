@@ -238,7 +238,7 @@ class DataModel extends \OMV\DataModel\DataModel {
 				if (array_key_exists("format", $propSchema)) {
 					switch ($propSchema['type']) {
 					case "uuidv4":
-						$default = $GLOBALS['OMV_UUID_UNDEFINED'];
+						$default = $GLOBALS['OMV_CONFIGOBJECT_NEW_UUID'];
 						break;
 					}
 				}

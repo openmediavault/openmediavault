@@ -77,7 +77,7 @@ class Administration extends ControlPanelAbstract {
 		  "OMV.PRODUCT_URL = '%s'; ".
 		  "OMV.PRODUCT_COPYRIGHT = '%s'; ".
 		  "OMV.PRODUCT_PACKAGENAME = '%s';",
-		  $GLOBALS['OMV_UUID_UNDEFINED'], OMV_ROLE_ADMINISTRATOR,
+		  $GLOBALS['OMV_CONFIGOBJECT_NEW_UUID'], OMV_ROLE_ADMINISTRATOR,
 		  $GLOBALS['OMV_HTTPREQUEST_TIMEOUT'], $prd->getName(),
 		  $prd->getURL(), $prd->getCopyright(), $prd->getPackageName());
 		// Process the RPC error codes.

@@ -376,7 +376,7 @@ class ConfigObject {
 		$value = $this->get($this->getModel()->getIdProperty());
 		if (FALSE === \OMV\Uuid::isUuid4($value))
 			return FALSE;
-		return ($GLOBALS['OMV_UUID_UNDEFINED'] == $value);
+		return ($GLOBALS['OMV_CONFIGOBJECT_NEW_UUID'] == $value);
 	}
 
 	/**
@@ -391,7 +391,7 @@ class ConfigObject {
 			  "The configuration object '%s' is not identifiable.",
 			  $this->getModel()->getId());
 		}
-		$value = $GLOBALS['OMV_UUID_UNDEFINED'];
+		$value = $GLOBALS['OMV_CONFIGOBJECT_NEW_UUID'];
 		$this->set($this->getModel()->getIdProperty(), $value);
 	}
 

@@ -146,7 +146,7 @@
 					<gateway6>xxxx:xxxx:...:xxxx</gateway6>
 					<dnsnameservers></dnsnameservers>
 					<dnssearch></dnssearch>
-					<mtu></mtu>
+					<mtu>0...n</mtu>
 					<wol>0|1</wol>
 					<options></options>
 					<comment>xxx</comment>

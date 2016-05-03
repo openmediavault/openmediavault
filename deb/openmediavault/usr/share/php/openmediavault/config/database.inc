@@ -439,7 +439,7 @@ class Database {
 	 * @throw \OMV\AssertException
 	 */
 	public function assertIsUniqueByFilter(ConfigObject $object, $filter) {
-		if (TRUE === $this->isUniqueByFilter($object->getId(), $filter)) {
+		if (FALSE === $this->isUniqueByFilter($object, $filter)) {
 			throw new \OMV\AssertException("The configuration object '%s' ".
 			  "with the filter '%s' is not unique.", $object->getId(),
 			  json_encode($filter));

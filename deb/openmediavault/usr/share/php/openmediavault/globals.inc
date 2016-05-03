@@ -67,7 +67,6 @@ define("OMV_NETWORK_INTERFACE_TYPE_ALL", 0xFF);
 // Globals that can be modified via /etc/default/openmediavault.
 $GLOBALS['OMV_DEFAULT_FILE'] = "/etc/default/openmediavault";
 $GLOBALS['OMV_DEBUG_PHP_LOGFILE'] = "/tmp/openmediavault_debug_php.log";
-$GLOBALS['OMV_UUID_UNDEFINED'] = "fa4b1c66-ef79-11e5-87a0-0002b3a176b4";
 $GLOBALS['OMV_MAX_LOGFILE_LINES'] = "100000";
 $GLOBALS['OMV_HTTPREQUEST_TIMEOUT'] = "60000";
 $GLOBALS['OMV_ENGINED_DIR'] = "/usr/share/openmediavault/engined";
@@ -162,9 +161,6 @@ $GLOBALS['OMV_JSONSCHEMA_SORTDIR'] ='"type":["string","null"],"format":"regex",'
   '"pattern":"\/^asc|desc$\/i"';
 $GLOBALS['OMV_JSONSCHEMA_UUID'] = '"type":"string","format":"regex","pattern":'.
   '"\/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$\/i"';
-$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'] = '"type":"string","format":"regex",'.
-  '"pattern":"\/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}|'.
-  $GLOBALS['OMV_UUID_UNDEFINED'].'$\/i"';
 $GLOBALS['OMV_JSONSCHEMA_UUID_NONE'] = '"type":"string","format":"regex","pattern":'.
   '"\/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}|$\/i"';
 $GLOBALS['OMV_JSONSCHEMA_UUID_LIST'] = '"type":"string","format":"regex","pattern":'.

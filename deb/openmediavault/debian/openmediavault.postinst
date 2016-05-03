@@ -630,6 +630,9 @@ case "$1" in
 			# Rename S.M.A.R.T. device attribute 'type'.
 			omv_config_rename "//services/smart/monitor/device/type" "devicetype"
 		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.16"; then
+			omv_set_default "OMV_CONFIGOBJECT_NEW_UUID" "fa4b1c66-ef79-11e5-87a0-0002b3a176b4"
+		fi
 	;;
 
 	triggered)

@@ -197,7 +197,7 @@ configure_network() {
 		wol=true
 	fi
 	# Build the RPC parameters for an ethernet network interface.
-	rpcparams="\"uuid\":\"undefined\",\"devicename\":\"${devicename}\",\"method\":\"${method}\",\"address\":\"${address}\",\"netmask\":\"${netmask}\",\"gateway\":\"${gateway}\",\"method6\":\"${method6}\",\"address6\":\"${address6}\",\"netmask6\":${netmask6},\"gateway6\":\"${gateway6}\",\"dnsnameservers\":\"${dnsnameservers}\",\"dnssearch\":\"\",\"mtu\":\"\",\"wol\":${wol},\"options\":\"\",\"comment\":\"\""
+	rpcparams="\"uuid\":\"${OMV_CONFIGOBJECT_NEW_UUID}\",\"devicename\":\"${devicename}\",\"method\":\"${method}\",\"address\":\"${address}\",\"netmask\":\"${netmask}\",\"gateway\":\"${gateway}\",\"method6\":\"${method6}\",\"address6\":\"${address6}\",\"netmask6\":${netmask6},\"gateway6\":\"${gateway6}\",\"dnsnameservers\":\"${dnsnameservers}\",\"dnssearch\":\"\",\"mtu\":0,\"wol\":${wol},\"options\":\"\",\"comment\":\"\""
 	# Do we process a wireless network interface?
 	if omv_is_wlan "${devicename}"; then
 		# Get the SSID.

@@ -216,12 +216,28 @@ function debug() {
 
 	$args = func_get_args();
 	$msg = array_shift($args);
-	if(TRUE === $debug) {
-		if(FALSE === $daemon)
+	if (TRUE === $debug) {
+		if (FALSE === $daemon)
 			vprintf($msg, $args);
 		else
 			syslog(LOG_DEBUG, vsprintf($msg, $args));
 	}
+}
+
+/**
+ * The error handler.
+ */
+function errorHandler($errno, $errstr, $errfile, $errline) {
+	switch ($errno) {
+	case E_RECOVERABLE_ERROR:
+		throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);
+		break;
+	default:
+		// Nothing to do here.
+		break;
+	}
+	// Don't execute the PHP internal error handler.
+    return TRUE;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -242,6 +258,11 @@ $children = [];
 $stdIn = NULL;
 $stdOut = NULL;
 $stdErr = NULL;
+
+///////////////////////////////////////////////////////////////////////////////
+// Set the error handler.
+///////////////////////////////////////////////////////////////////////////////
+set_error_handler("errorHandler");
 
 ///////////////////////////////////////////////////////////////////////////////
 // Process command line arguments.
@@ -351,19 +372,19 @@ if (TRUE === $debug)
 ///////////////////////////////////////////////////////////////////////////////
 // Open the socket.
 ///////////////////////////////////////////////////////////////////////////////
-if(FALSE === ($socket = @socket_create(AF_UNIX, SOCK_STREAM, 0))) {
+if (FALSE === ($socket = @socket_create(AF_UNIX, SOCK_STREAM, 0))) {
 	error("Failed to create socket: %s\n", socket_strerror(
 	  socket_last_error()));
 	exit(1);
 }
-if(FALSE === @socket_set_option($socket, SOL_SOCKET, SO_REUSEADDR, 1)) {
+if (FALSE === @socket_set_option($socket, SOL_SOCKET, SO_REUSEADDR, 1)) {
 	error("Failed to set socket option: %s\n", socket_strerror(
 	  socket_last_error()));
 	exit(1);
 }
 // Unlink socket, even if it does not exist.
-@unlink($GLOBALS['OMV_ENGINED_SO_ADDRESS']);
-if(FALSE === @socket_bind($socket, $GLOBALS['OMV_ENGINED_SO_ADDRESS'])) {
+unlink($GLOBALS['OMV_ENGINED_SO_ADDRESS']);
+if (FALSE === @socket_bind($socket, $GLOBALS['OMV_ENGINED_SO_ADDRESS'])) {
 	error("Failed to bind socket: %s\n", socket_strerror(
 	  socket_last_error()));
 	exit(1);
@@ -373,7 +394,7 @@ if(FALSE === @socket_bind($socket, $GLOBALS['OMV_ENGINED_SO_ADDRESS'])) {
 chgrp($GLOBALS['OMV_ENGINED_SO_ADDRESS'],
   $GLOBALS['OMV_ENGINED_SO_OWNERGROUP_NAME']);
 chmod($GLOBALS['OMV_ENGINED_SO_ADDRESS'], 0770);
-if(FALSE === @socket_listen($socket, $maxConnections)) {
+if (FALSE === @socket_listen($socket, $maxConnections)) {
 	error("Failed to listen to socket: %s\n", socket_strerror(
 	  socket_last_error()));
 	exit(1);
