@@ -84,7 +84,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			// Try to get the device temperature via S.M.A.R.T.
 			$temperature = $smartInfo->getTemperature();
 			// Prepare device object
-			$objects[] = array(
+			$objects[] = [
 				"devicename" => $sd->getDeviceName(),
 				"devicefile" => $sd->getDeviceFile(),
 				"devicefilebyid" => $sd->getDeviceFileById(),
@@ -96,7 +96,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 				"vendor" => $sd->getVendor(),
 				"serialnumber" => $sd->getSerialNumber(),
 				"overallstatus" => $smartInfo->getOverallStatus()
-			);
+			];
 		}
 		return $objects;
 	}
@@ -534,7 +534,8 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		// Ensure that the device has S.M.A.R.T. support.
 		$sd->assertHasSmartSupport();
 		// Prepare the configuration data.
-		$object = new \OMV\Config\ConfigObject("conf.service.smartmontools.job");
+		$object = new \OMV\Config\ConfigObject(
+		  "conf.service.smartmontools.job");
 		$object->setAssoc($params);
 		$object->set("devicefile", $sd->getDeviceFileById());
 		// Set the configuration object.
@@ -605,12 +606,12 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
 			// Prepare the command line arguments and execute the self-test.
-			$testMap = array(
-				  "S" => "short",
-				  "L" => "long",
-				  "C" => "conveyance",
-				  "O" => "offline"
-			  );
+			$testMap = [
+				"S" => "short",
+				"L" => "long",
+				"C" => "conveyance",
+				"O" => "offline"
+			];
 			$cmd = "/usr/sbin/smartctl";
 			$cmdArgs = [];
 			$cmdArgs[] = "-t";

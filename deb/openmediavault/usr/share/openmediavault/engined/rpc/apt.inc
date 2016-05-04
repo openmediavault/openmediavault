@@ -19,6 +19,8 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+require_once("openmediavault/globals.inc");
+
 class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -219,7 +221,7 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
-		if($pid > 0) { // Parent process.
+		if ($pid > 0) { // Parent process.
 			$this->initializeBgProcStatus($bgStatusFilename, $pid);
 			return $bgStatusFilename;
 		}
@@ -351,7 +353,7 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 			// Process the extracted changelog. Note, the file is also
 			// compressed.
 			$found = FALSE;
-			foreach (array("changelog.Debian.gz", "changelog.gz") as $filename) {
+			foreach ([ "changelog.Debian.gz", "changelog.gz" ] as $filename) {
 				$filepath = build_path(DIRECTORY_SEPARATOR, $tmpDir,
 				  "usr/share/doc", $packageName, $filename);
 				if (file_exists($filepath)) {

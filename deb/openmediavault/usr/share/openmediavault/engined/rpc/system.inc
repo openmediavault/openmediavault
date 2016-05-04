@@ -96,10 +96,10 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Prepare result list.
-		$result = array(
+		$result = [
 			"/bin/false",
 			"/usr/sbin/nologin"
-		);
+		];
 		// Get list of available shells.
 		$shells = file("/etc/shells");
 		foreach ($shells as $shellk => $shellv) {
@@ -209,15 +209,15 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.system.time");
 		// Prepare the result values.
-		return array(
-			"date" => array(
+		return [
+			"date" => [
 				"local" => strftime("%c"),
 				"ISO8601" => date("c")
-			),
+			],
 			"timezone" => $object->get("timezone"),
 			"ntpenable" => $object->get("ntp.enable"),
 			"ntptimeservers" => $object->get("ntp.timeservers")
-		);
+		];
 	}
 
 	/**
@@ -328,63 +328,64 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 		  $memStats['mem']['total']);
 		$cpuStats = \OMV\System\System::getCpuStats();
 		$index = 0;
-		return array(
-			array(
+		return [
+			[
 				"name" => gettext("Hostname"),
 				"value" => \OMV\System\Net\Dns::getFqdn(),
 				"type" => "string",
-				"index" => $index++),
-			array(
+				"index" => $index++
+			],[
 				"name" => gettext("Version"),
 				"value" => sprintf("%s (%s)", $prd->getVersion(),
 				  $prd->getVersionName()),
 				"type" => "string",
-				"index" => $index++),
-			array(
+				"index" => $index++
+			],[
 				"name" => gettext("Processor"),
 				"value" => $cpuStats['modelname'],
 				"type" => "string",
-				"index" => $index++),
-			array(
+				"index" => $index++
+			],[
 				"name" => gettext("Kernel"),
 				"value" => sprintf("%s %s", $uname['sysname'],
 				  $uname['release']),
 				"type" => "string",
-				"index" => $index++),
-			array(
+				"index" => $index++
+			],[
 				"name" => gettext("System time"),
 				"value" => strftime("%c"),
 				"type" => "string",
-				"index" => $index++),
-			array(
+				"index" => $index++
+			],[
 				"name" => gettext("Uptime"),
 				"value" => \OMV\System\System::uptime(),
 				"type" => "string",
-				"index" => $index++),
-			array(
+				"index" => $index++
+			],[
 				"name" => gettext("Load average"),
 				"value" => \OMV\System\System::getLoadAverage(),
 				"type" => "string",
-				"index" => $index++),
-			array(
+				"index" => $index++
+			],[
 				"name" => gettext("CPU usage"),
-				"value" => array(
+				"value" => [
 					"text" => sprintf("%d%%", $cpuStats['usage']),
 					"value" => $cpuStats['usage']
-				),
+				],
 				"type" => "progress",
-				"index" => $index++),
-			array(
+				"index" => $index++
+			],[
 				"name" => gettext("Memory usage"),
-				"value" => array(
+				"value" => [
 					"text" => sprintf("%d%% of %s",
 					  $memStats['wobufferscache']['percentage'],
 					  binary_format($memStats['mem']['total'])),
 					"value" => $memStats['wobufferscache']['percentage']
-				),
+				],
 				"type" => "progress",
-				"index" => $index++)
-		);
+				"index" => $index++
+			]
+		];
 	}
 
 	/**

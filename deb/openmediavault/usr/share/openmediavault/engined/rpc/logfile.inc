@@ -76,9 +76,9 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 			$result = preg_match($logfile->getRegex(), $line, $matches);
 			if ((FALSE === $result) || (0 == $result))
 				continue;
-			$object = array(
+			$object = [
 				"rownum" => $rowNum++
-			);
+			];
 			foreach ($logfile->getColumns() as $columnk => $columnv) {
 				// Execute user defined function, e.g. to convert
 				// column content?
@@ -174,10 +174,10 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 		chmod($tmpFilePath, 0700);
 		chown($tmpFilePath, $GLOBALS['OMV_WEBGUI_FILE_OWNERGROUP_NAME']);
 		// Return values required by generic download RPC implementation.
-		return array(
+		return [
 			"filename" => $logfile->getFileName(),
 			"filepath" => $tmpFilePath,
 			"unlink" => TRUE
-		);
+		];
 	}
 }

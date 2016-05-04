@@ -256,7 +256,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.certificatemgmt.create");
 		// Generate the certificate subject string.
-		$rdnfields = array("c", "st", "l", "o", "ou", "cn");
+		$rdnfields = [ "c", "st", "l", "o", "ou", "cn" ];
 		$subject = "";
 		foreach ($rdnfields as $rdnfieldk => $rdnfieldv) {
 			if (empty($params[$rdnfieldv]))
@@ -316,12 +316,12 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		unlink($keyfile);
 		unlink($crtfile);
 		// Finally import generated certificate.
-		return $this->callMethod("set", array(
+		return $this->callMethod("set", [
 			  "uuid" => $GLOBALS['OMV_CONFIGOBJECT_NEW_UUID'],
 			  "certificate" => $crtdata,
 			  "privatekey" => $keydata,
 			  "comment" => !empty($subject) ? $subject : ""
-		  ), $context);
+		  ], $context);
 	}
 
 	/**
@@ -399,12 +399,12 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		unlink($file);
 		unlink($file.".pub");
 		// Finally import generated certificate.
-		return $this->callMethod("setSsh", array(
+		return $this->callMethod("setSsh", [
 			  "uuid" => $GLOBALS['OMV_CONFIGOBJECT_NEW_UUID'],
 			  "publickey" => $publickey,
 			  "privatekey" => $privatekey,
 			  "comment" => array_value($params, "comment", "")
-		  ), $context);
+		  ], $context);
 	}
 
 	/**

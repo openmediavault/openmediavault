@@ -19,6 +19,8 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+require_once("openmediavault/globals.inc");
+
 class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -80,7 +82,8 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 		$notifyDispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		// Open the dirty modules file. Lock it to force all writers
 		// to wait until this RPC has been finished.
-		$jsonFile = new \OMV\Json\File($GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
+		$jsonFile = new \OMV\Json\File(
+		  $GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
 		$jsonFile->open("c+");
 		$dirtyModules = $jsonFile->read();
 		// Remove non-existing modules from list. It may happen that the
@@ -110,21 +113,23 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 			  (FALSE === $params['force']))
 				continue;
 			// Get the module object and apply the configuration.
-			if (FALSE === ($object = $moduleMngr->getModule($modulev)))
-				throw new \OMV\Exception("Module '%s' not found", $modulev);
+			if (FALSE === ($object = $moduleMngr->getModule($modulev))) {
+				throw new \OMV\Exception("Module '%s' not found.",
+				  $modulev);
+			}
 			// Append module to list of modules that have to be processed.
 			$processModules[$modulev] = $object;
 			// Remove module name from list of dirty modules. Note, the
 			// array must be re-indexed.
 			$dirtyModules = array_values(array_diff($dirtyModules,
-			  array($modulev)));
+			  [ $modulev ]));
 		}
 		// Build the dependency list and stop all services.
 		$tsort = new \OMV\Util\TopologicalSort();
 		foreach ($processModules as $name => $object) {
 			if (FALSE === $tsort->add($name, $object->shouldStop())) {
 				throw new \OMV\Exception(
-				  "Failed to add node (name=%s, dependencies=[%s])",
+				  "Failed to add node (name=%s, dependencies=[%s]).",
 				  $name, implode(",", $object->shouldStop()));
 			}
 			$stopAfterDeps = $object->stopAfter();
@@ -134,7 +139,7 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 					continue;
 				if (FALSE === $tsort->add($depv, $name)) {
 					throw new \OMV\Exception(
-					  "Failed to add node (name=%s, dependencies=[%s])",
+					  "Failed to add node (name=%s, dependencies=[%s]).",
 					  $depv, $name);
 				}
 			}
@@ -151,7 +156,7 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 		foreach ($processModules as $name => $object) {
 			if (FALSE === $tsort->add($name, $object->shouldApply())) {
 				throw new \OMV\Exception(
-				  "Failed to add node (name=%s, dependencies=[%s])",
+				  "Failed to add node (name=%s, dependencies=[%s]).",
 				  $name, implode(",", $object->shouldApply()));
 			}
 		}
@@ -166,7 +171,7 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 		foreach ($processModules as $name => $object) {
 			if (FALSE === $tsort->add($name, $object->shouldStart())) {
 				throw new \OMV\Exception(
-				  "Failed to add node (name=%s, dependencies=[%s])",
+				  "Failed to add node (name=%s, dependencies=[%s]).",
 				  $name, implode(",", $object->shouldStart()));
 			}
 			$startBeforeDeps = $object->startBefore();
@@ -176,7 +181,7 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 					continue;
 				if (FALSE === $tsort->add($depv, $name)) {
 					throw new \OMV\Exception(
-					  "Failed to add node (name=%s, dependencies=[%s])",
+					  "Failed to add node (name=%s, dependencies=[%s]).",
 					  $depv, $name);
 				}
 			}
@@ -223,7 +228,8 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.config.revertchanges");
 		// Open the dirty modules file. Lock it to force all writers
 		// to wait until this RPC has been finished.
-		$jsonFile = new \OMV\Json\File($GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
+		$jsonFile = new \OMV\Json\File(
+		  $GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
 		$jsonFile->open("c+");
 		// Revert configuration changes. All existing revision files
 		// will be deleted.

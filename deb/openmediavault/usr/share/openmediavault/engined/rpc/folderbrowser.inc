@@ -60,13 +60,14 @@ class OMVRpcServiceFolderBrowser extends \OMV\Rpc\ServiceAbstract {
 		// path MUST be below the given shared folder/mount point.
 		if (1 == preg_match("/\.\./", $params['path'])) {
 			throw new \OMV\Exception(
-			  "The field 'path' contains forbidden two-dot symbols");
+			  "The field 'path' contains forbidden two-dot symbols.");
 		}
 		switch ($params['type']) {
 		case "sharedfolder":
 			// Get the absolute shared folder path.
-			$rootPath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", array(
-			  "uuid" => $params['uuid']), $context);
+			$rootPath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", [
+				"uuid" => $params['uuid']
+			], $context);
 			break;
 		case "mntent":
 			// Get the mount point configuration object.

@@ -160,9 +160,9 @@ class OMVRpcServiceExec extends \OMV\Rpc\ServiceAbstract {
 		if (FALSE === $status->isRunning())
 			$this->unlinkBgProcStatus($params['filename']);
 		// Return the running state.
-		return array(
+		return [
 			"filename" => $params['filename'],
 			"running" => $status->isRunning()
-		);
+		];
 	}
 }

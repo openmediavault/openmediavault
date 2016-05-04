@@ -55,9 +55,9 @@ class OMVRpcServiceServices extends \OMV\Rpc\ServiceAbstract {
 			if ($modulev instanceof \OMV\Engine\Module\IServiceStatus)
 				$status[] = $modulev->getStatus();
 		}
-		return array(
+		return [
 			"total" => count($status),
 			"data" => $status
-		);
+		];
 	}
 }
