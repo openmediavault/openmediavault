@@ -67,7 +67,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Prepare the result object.
 		$result = [];
 		foreach ($devs as $devk => $devv) {
-			$raid = new OMVStorageDeviceMdadm($devv);
+			$raid = new \OMV\System\Storage\StorageDeviceMdadm($devv);
 			if (!$raid->exists())
 				continue;
 			$used = FALSE;
@@ -139,7 +139,8 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.raidmgmt.getslaves");
 		// Get the storage device.
-		$raid = new OMVStorageDeviceMdadm($params['devicefile']);
+		$raid = new \OMV\System\Storage\StorageDeviceMdadm(
+		  $params['devicefile']);
 		$raid->assertExists();
 		// Get the slave/component devices of the given RAID.
 		$devs = $raid->getSlaves();
@@ -273,7 +274,8 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.raidmgmt.grow");
 		// Get software RAID device details to create notification message.
-		$raid = new OMVStorageDeviceMdadm($params['devicefile']);
+		$raid = new \OMV\System\Storage\StorageDeviceMdadm(
+		  $params['devicefile']);
 		$raid->assertExists();
 		$numDevices = $raid->getNumDevices();
 		$devices = $raid->getSlaves();
@@ -329,7 +331,8 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.raidmgmt.add");
 		// Get software RAID device details to create notification message.
-		$raid = new OMVStorageDeviceMdadm($params['devicefile']);
+		$raid = new \OMV\System\Storage\StorageDeviceMdadm(
+		  $params['devicefile']);
 		$raid->assertExists();
 		$numDevices = $raid->getNumDevices();
 		$devices = $raid->getSlaves();
@@ -375,7 +378,8 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.raidmgmt.remove");
 		// Get software RAID device details to create notification message.
-		$raid = new OMVStorageDeviceMdadm($params['devicefile']);
+		$raid = new \OMV\System\Storage\StorageDeviceMdadm(
+		  $params['devicefile']);
 		$raid->assertExists();
 		$numDevices = $raid->getNumDevices();
 		$devices = $raid->getSlaves();
@@ -430,7 +434,8 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.raidmgmt.delete");
 		// Get software RAID device details to create notification message.
-		$raid = new OMVStorageDeviceMdadm($params['devicefile']);
+		$raid = new \OMV\System\Storage\StorageDeviceMdadm(
+		  $params['devicefile']);
 		$raid->assertExists();
 		// Create the notification object.
 		$object = [
@@ -467,7 +472,8 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.raidmgmt.getdetail");
 		// Get the software RAID device and make sure it exists.
-		$raid = new OMVStorageDeviceMdadm($params['devicefile']);
+		$raid = new \OMV\System\Storage\StorageDeviceMdadm(
+		  $params['devicefile']);
 		$raid->assertExists();
 		// Get the software RAID details.
 		return $raid->getDetail();

@@ -72,7 +72,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 			if (is_null($sd) || !$sd->exists())
 				continue;
 			// Prepare device object.
-			$objects[] = array(
+			$objects[] = [
 				"devicename" => $sd->getDeviceName(),
 				"devicefile" => $sd->getDeviceFile(),
 				"devicefilebyid" => $sd->getDeviceFileById(),
@@ -84,7 +84,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				"israid" => $sd->isRaid(),
 				"isroot" => (0 === strpos($rootDeviceFile,
 				  $sd->getDeviceFile())) ? TRUE : FALSE
-			);
+			];
 		}
 		return $objects;
 	}
