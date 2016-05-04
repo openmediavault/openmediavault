@@ -149,13 +149,13 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
 			if (is_null($sd) || !$sd->exists())
 				continue;
-			$result[] = array(
+			$result[] = [
 				"devicefile" => $sd->getDeviceFile(),
 				"size" => $sd->getSize(),
 				"vendor" => $sd->getVendor(),
 				"serialnumber" => $sd->getSerialNumber(),
 				"description" => $sd->getDescription()
-			);
+			];
 		}
 		return $result;
 	}
@@ -466,9 +466,10 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.raidmgmt.getdetail");
-		// Get software RAID device details.
+		// Get the software RAID device and make sure it exists.
 		$raid = new OMVStorageDeviceMdadm($params['devicefile']);
 		$raid->assertExists();
+		// Get the software RAID details.
 		return $raid->getDetail();
 	}
 }

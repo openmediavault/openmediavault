@@ -77,13 +77,13 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 		  $context);
 		foreach ($users as $userk => $userv) {
 			// Set default values.
-			$resObj = array(
+			$resObj = [
 				"type" => "user",
 				"name" => $userv['name'],
 				"bused" => 0,
 				"bhardlimit" => 0,
 				"bunit" => "MiB"
-			);
+			];
 			// Check if there is any configured quota for the given user.
 			if (is_object($object)) {
 				foreach ($object->get("usrquota") as $usrquotav) {
@@ -95,15 +95,17 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 					if (FALSE !== ($quotas = $sysUser->getQuotas())) {
 						if (array_key_exists($devicefile, $quotas)) {
 							$resObj['bused'] = binary_format(
-							  $quotas[$devicefile]['blocks'], array(
-							  "fromPrefix" => "KiB"));
+							  $quotas[$devicefile]['blocks'],
+							  [ "fromPrefix" => "KiB") ];
 						}
 					}
 					// Convert the quota to a human readable unit. Note, the
 					// values are stored a KiB in the configuration.
-					$bhardlimit = binary_format($usrquotav['bhardlimit'],
-					  array("fromPrefix" => "KiB", "maxPrefix" => "TiB",
-					  "indexed" => TRUE));
+					$bhardlimit = binary_format($usrquotav['bhardlimit'], [
+						  "fromPrefix" => "KiB",
+						  "maxPrefix" => "TiB",
+						  "indexed" => TRUE
+					  ]);
 					$resObj['bhardlimit'] = $bhardlimit['value'];
 					$resObj['bunit'] = $bhardlimit['unit'];
 				}
@@ -115,13 +117,13 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 		  $context);
 		foreach ($groups as $groupk => $groupv) {
 			// Set default values.
-			$resObj = array(
+			$resObj = [
 				"type" => "group",
 				"name" => $groupv['name'],
 				"bused" => 0,
 				"bhardlimit" => 0,
 				"bunit" => "MiB"
-			);
+			];
 			// Check if there is any configured quota for the given group.
 			if (is_object($object)) {
 				foreach ($object->get("grpquota") as $grpquotav) {
@@ -133,15 +135,17 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 					if (FALSE !== ($quotas = $sysGroup->getQuotas())) {
 						if (array_key_exists($devicefile, $quotas)) {
 							$resObj['bused'] = binary_format(
-							  $quotas[$devicefile]['blocks'], array(
-							  "fromPrefix" => "KiB"));
+							  $quotas[$devicefile]['blocks'],
+							  [ "fromPrefix" => "KiB" ]);
 						}
 					}
 					// Convert the quota to a human readable unit. Note, the
 					// values are stored a KiB in the configuration.
-					$bhardlimit = binary_format($grpquotav['bhardlimit'],
-					  array("fromPrefix" => "KiB", "maxPrefix" => "TiB",
-					  "indexed" => TRUE));
+					$bhardlimit = binary_format($grpquotav['bhardlimit'], [
+						  "fromPrefix" => "KiB",
+						  "maxPrefix" => "TiB",
+						  "indexed" => TRUE
+					  ]);
 					$resObj['bhardlimit'] = $bhardlimit['value'];
 					$resObj['bunit'] = $bhardlimit['unit'];
 				}
@@ -167,12 +171,12 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.quota.set");
 		// Build the user/group quota configuration.
-		$quotas = array(
-			"usrquota" => array(),
-			"grpquota" => array()
-		);
+		$quotas = [
+			"usrquota" => [],
+			"grpquota" => []
+		];
 		foreach ($params['quota'] as $paramk => $paramv) {
-			$quotaObj = array(
+			$quotaObj = [
 				"name" => $paramv['name'],
 				"bsoftlimit" => 0,
 				// Store as string because of the 32bit integer limit of
@@ -181,7 +185,7 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 				  $paramv['bunit'], "KiB"),
 				"isoftlimit" => 0,
 				"ihardlimit" => 0
-			);
+			];
 			switch ($paramv['type']) {
 			case "user":
 				$quotas['usrquota'][] = $quotaObj;

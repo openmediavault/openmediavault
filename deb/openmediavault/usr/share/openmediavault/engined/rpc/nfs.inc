@@ -187,7 +187,7 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 				  $meObject2 = new \OMV\Config\ConfigObject(
 				    "conf.system.filesystem.mountpoint");
 				  $meObject2->setNew();
-				  $meObject2->setAssoc(array(
+				  $meObject2->setAssoc([
 					  "fsname" => build_path(DIRECTORY_SEPARATOR,
 					    $meObject->get("dir"), $sfObject->get("reldirpath")),
 					  "dir" => $dir,
@@ -195,7 +195,7 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 					  "opts" => "bind",
 					  "freq" => 0,
 					  "passno" => 0
-				  ));
+				  ]);
 				  // Put the mount point configuration object.
 				  $result = \OMV\Rpc\Rpc::call("FsTab", "set",
 				    $meObject2->getAssoc(), $context);
@@ -248,9 +248,9 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 			"arg1" => $object['mntentref']
 		])) {
 			  // Delete the associated mount point.
-			  \OMV\Rpc\Rpc::call("FsTab", "delete", array(
+			  \OMV\Rpc\Rpc::call("FsTab", "delete", [
 				  "uuid" => $object['mntentref']
-			  ), $context);
+			  ], $context);
 		  }
 		// Return the deleted configuration object.
 		return $object;

@@ -196,6 +196,7 @@ class OMVRpcServiceEmailNotification extends \OMV\Rpc\ServiceAbstract {
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.system.notification.email");
+		// Relocate various properties.
 		$object->copy("authentication.enable", "authenable");
 		$object->copy("authentication.username", "username");
 		$object->copy("authentication.password", "password");
@@ -262,7 +263,7 @@ class OMVRpcServiceEmailNotification extends \OMV\Rpc\ServiceAbstract {
 		// already configured.
 		if (FALSE === $object->get("enable"))
 			throw new \OMV\Exception("Email notification service is disabled.");
-		foreach (array("server", "port", "sender", "primaryemail") as
+		foreach ([ "server", "port", "sender", "primaryemail" ] as
 		  $keyk => $keyv) {
 			if (TRUE === $object->isEmpty($keyv)) {
 				throw new \OMV\Exception(
