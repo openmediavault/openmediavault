@@ -64,22 +64,22 @@ class OMVModuleTftp extends \OMV\Engine\Module\ServiceAbstract
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.tftp");
 		$systemCtl = new \OMV\System\SystemCtl("tftpd-hpa");
-		return array(
+		return [
 			"name" => $this->getName(),
 			"title" => gettext("TFTP"),
 			"enabled" => $object->get("enable"),
 			"running" => $systemCtl->isActive()
-		);
+		];
 	}
 
 	/**
 	 * Get the Zeroconf service configuration.
 	 */
 	public function getZeroconfConfig() {
-		return array(
-			  "id" => "tftp",
-			  "title" => gettext("TFTP")
-		  );
+		return [
+			"id" => "tftp",
+			"title" => gettext("TFTP")
+		];
 	}
 
 	/**
@@ -108,15 +108,15 @@ class OMVModuleTftp extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.tftp",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.system.sharedfolder",
-		  array($this, "onSharedFolder"));
+		  [ $this, "onSharedFolder" ]);
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.tftp",
-		  array($moduleMngr->getModule("zeroconf"), "setDirty"));
+		  [ $moduleMngr->getModule("zeroconf"), "setDirty" ]);
 	}
 }

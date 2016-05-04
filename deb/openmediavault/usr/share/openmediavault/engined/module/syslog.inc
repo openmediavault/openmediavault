@@ -52,6 +52,6 @@ class OMVModuleSyslog extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.system.syslog.remote",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
     }
 }

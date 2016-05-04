@@ -65,22 +65,22 @@ class OMVModuleSsh extends \OMV\Engine\Module\ServiceAbstract
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.ssh");
 		$systemCtl = new \OMV\System\SystemCtl("ssh");
-		return array(
+		return [
 			"name" => $this->getName(),
 			"title" => gettext("SSH"),
 			"enabled" => $object->get("enable"),
 			"running" => $systemCtl->isActive()
-		);
+		];
 	}
 
 	/**
 	 * Get the Zeroconf service configuration.
 	 */
 	public function getZeroconfConfig() {
-		return array(
-			  "id" => "ssh",
-			  "title" => gettext("SSH")
-		  );
+		return [
+			"id" => "ssh",
+			"title" => gettext("SSH")
+		];
 	}
 
 	/**
@@ -119,7 +119,7 @@ class OMVModuleSsh extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.ssh",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.conf.system.usermngmnt.user",
@@ -128,6 +128,6 @@ class OMVModuleSsh extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.ssh",
-		  array($moduleMngr->getModule("zeroconf"), "setDirty"));
+		  [ $moduleMngr->getModule("zeroconf"), "setDirty" ]);
     }
 }

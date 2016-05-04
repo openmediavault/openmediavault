@@ -71,22 +71,22 @@ class OMVModuleProftpd extends \OMV\Engine\Module\ServiceAbstract
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.ftp");
 		$systemCtl = new \OMV\System\SystemCtl("proftpd");
-		return array(
+		return [
 			"name" => $this->getName(),
 			"title" => gettext("FTP"),
 			"enabled" => $object->get("enable"),
 			"running" => $systemCtl->isActive()
-		);
+		];
 	}
 
 	/**
 	 * Get the Zeroconf service configuration.
 	 */
 	public function getZeroconfConfig() {
-		return array(
-			  "id" => "ftp",
-			  "title" => gettext("FTP")
-		  );
+		return [
+			"id" => "ftp",
+			"title" => gettext("FTP")
+		];
 	}
 
 	/**
@@ -115,35 +115,35 @@ class OMVModuleProftpd extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.ftp",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.conf.service.ftp.share",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.conf.service.ftp.modules.mod_ban.rule",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.ftp.modules.mod_tls",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.system.network.dns",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.system.sharedfolder",
-		  array($this, "onSharedFolder"));
+		  [ $this, "onSharedFolder" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.system.sharedfolder.privilege",
-		  array($this, "onSharedFolder"));
+		  [ $this, "onSharedFolder" ]);
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.ftp",
-		  array($moduleMngr->getModule("zeroconf"), "setDirty"));
+		  [ $moduleMngr->getModule("zeroconf"), "setDirty" ]);
     }
 }

@@ -44,6 +44,6 @@ class OMVModuleHosts extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.system.network.dns",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
     }
 }

@@ -97,10 +97,10 @@ class OMVModuleMonit extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.system.notification.email",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.system.notification.notification",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
     }
 }

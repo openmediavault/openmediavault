@@ -124,10 +124,10 @@ class OMVModuleIscsiTarget extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.conf.service.iscsitarget.target",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.system.network.dns",
-		  array($this, "setDirty"));
+		  [ $this, "setDirty" ]);
 	}
 }
