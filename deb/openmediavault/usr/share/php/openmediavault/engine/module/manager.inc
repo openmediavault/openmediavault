@@ -98,7 +98,7 @@ class Manager {
 		$jsonFile = new \OMV\Json\File(
 		  $GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
 		if (!$jsonFile->exists())
-			return array();
+			return [];
 		$jsonFile->open("r", LOCK_SH);
 		$modules = array_unique($jsonFile->read());
 		$jsonFile->close();
@@ -113,7 +113,7 @@ class Manager {
 	final public function setModuleDirty($name) {
 		$jsonFile = new \OMV\Json\File(
 		  $GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
-		$jsonFile->open("c+");
+		$jsonFile->open("c+", LOCK_EX);
 		$modules = $jsonFile->read();
 		$modules[] = strtolower($name);
 		$modules = array_unique($modules);

@@ -63,7 +63,7 @@ class File {
 	 *   require to the stream. Defaults to 'w+'.
 	 * @param lockMode The lock mode. Defaults to LOCK_EX.
 	 * @return The file handle.
-	 * @throw E_MISC_FAILURE
+	 * @throw \OMV\Exception
 	 */
 	public function open($accessMode = "w+", $lockMode = LOCK_EX) {
 		if (FALSE === ($this->fh = fopen($this->filename, $accessMode))) {
@@ -99,7 +99,7 @@ class File {
 	/**
 	 * Close the file.
 	 * @return None.
-	 * @throw E_MISC_FAILURE
+	 * @throw \OMV\Exception
 	 */
 	public function close() {
 		if (FALSE === flock($this->fh, LOCK_UN)) {
@@ -120,7 +120,7 @@ class File {
 	 * @param content The content to be written.
 	 * @return Returns the JSON representation of the content which was
 	 *   written to the file.
-	 * @throw E_MISC_FAILURE
+	 * @throw \OMV\Exception
 	 */
 	public function write($content) {
 		if (FALSE === rewind($this->fh)) {
@@ -153,7 +153,7 @@ class File {
 	 * @param decode Set to TRUE to decode the JSON content. Defaults to TRUE.
 	 * @return The content read from the file. If \em decode was set to TRUE
 	 *   the decoded content is returned.
-	 * @throw E_MISC_FAILURE
+	 * @throw \OMV\Exception
 	 */
 	public function read($decode = TRUE, $assoc = TRUE) {
 		if (FALSE === rewind($this->fh)) {
@@ -184,7 +184,7 @@ class File {
 	 * Truncates the file to a given length.
 	 * @param size The size to truncate to.
 	 * @return None.
-	 * @throw E_MISC_FAILURE
+	 * @throw \OMV\Exception
 	 */
 	public function truncate($size) {
 		if (FALSE === ftruncate($this->fh, $size)) {
