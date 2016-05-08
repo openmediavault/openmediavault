@@ -1,6 +1,7 @@
 openmediavault (3.0.16) stable; urgency=low
 
-  * Various improvements.
+  * Update locales.
+  * Various improvements and bugfixes.
   * Mantis 0001506: mtu: The value '1500' is not a string.
   * Mantis 0001508: omv-firstaid: uuid: The value 'undefined' is not an UUIDv4.
 
