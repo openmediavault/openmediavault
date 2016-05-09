@@ -19,15 +19,15 @@
 		},
 		"passwordauthentication": {
 			"type": "boolean",
-			"default": 1
+			"default": true
 		},
 		"pubkeyauthentication": {
 			"type": "boolean",
-			"default": 1
+			"default": true
 		},
 		"permitrootlogin": {
 			"type": "boolean",
-			"default": 1
+			"default": true
 		},
 		"tcpforwarding": {
 			"type": "boolean",

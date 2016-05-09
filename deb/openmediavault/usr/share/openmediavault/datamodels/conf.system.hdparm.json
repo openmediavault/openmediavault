@@ -21,18 +21,18 @@
 			"type": "integer",
 			"minimum": 0,
 			"maximum": 255,
-			"default": false
+			"default": 0
 		},
 		"aam": {
 			"type": "integer",
 			"enum": [ 0, 128, 254 ],
-			"default": false
+			"default": 0
 		},
 		"spindowntime":{
 			"type": "integer",
 			"minimum": 0,
 			"maximum": 254,
-			"default": false
+			"default": 0
 		},
 		"writecache": {
 			"type": "boolean",

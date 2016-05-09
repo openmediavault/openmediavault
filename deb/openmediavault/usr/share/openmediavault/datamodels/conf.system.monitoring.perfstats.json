@@ -9,7 +9,7 @@
 	"properties": {
 		"enable": {
 			"type": "boolean",
-			"default": 1
+			"default": true
 		}
 	}
 }

@@ -40,10 +40,12 @@
 		},
 		"passno": {
 			"type": "integer",
-			"enum": [ 0, 1, 2 ]
+			"enum": [ 0, 1, 2 ],
+			"default": 0
 		},
 		"hidden": {
-			"type": "boolean"
+			"type": "boolean",
+			"default": false
 		}
 	}
 }

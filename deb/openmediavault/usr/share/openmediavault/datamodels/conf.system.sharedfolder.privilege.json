@@ -16,7 +16,8 @@
 		},
 		"perms": {
 			"type": "integer",
-			"enum": [ 0, 5, 7 ]
+			"enum": [ 0, 5, 7 ],
+			"default": 0
 		}
 	}
 }

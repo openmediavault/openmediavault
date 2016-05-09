@@ -9,7 +9,7 @@
 	"properties": {
 		"cpufreq": {
 			"type": "boolean",
-			"default": 1
+			"default": true
 		},
 		"powerbtn": {
 			"type": "string",
