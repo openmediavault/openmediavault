@@ -81,7 +81,7 @@ class KeyValueFile {
 		// Process the rows.
 		foreach ($rows as $rowk => $rowv) {
 			// Skip comment lines.
-			if ($this->commentDelimiter == substr($rowv, 0, 1))
+			if ($this->commentDelimiter == substr(ltrim($rowv), 0, 1))
 				continue;
 			// Extract key/value.
 			if (1 !== preg_match($regex, $rowv, $matches))

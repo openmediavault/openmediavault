@@ -67,12 +67,12 @@ class TopologicalSort {
 	 *   Defaults to an empty array.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
-	public function add($node, $deps = array()) {
+	public function add($node, $deps = []) {
 		if (!is_array($deps)) {
-			$deps = array($deps);
+			$deps = [ $deps ];
 		}
 		// Do a simple check to prevent circular dependencies.
-		foreach($deps as $depk => $depv) {
+		foreach ($deps as $depk => $depv) {
 			if (array_key_exists($depv, $this->dependencies)) {
 				if (in_array($node, $this->dependencies[$depv]))
 					return FALSE;
@@ -102,7 +102,7 @@ class TopologicalSort {
 				if (array_key_exists($nodev, $this->dependencies))
 					continue;
 				foreach ($this->dependencies as $depsk => &$depsv) {
-					$depsv = array_values(array_diff($depsv, array($nodev)));
+					$depsv = array_values(array_diff($depsv, [ $nodev ]));
 				}
 				unset($this->nodes[$nodek]);
 			}
