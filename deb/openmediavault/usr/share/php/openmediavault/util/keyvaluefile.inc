@@ -25,14 +25,50 @@ namespace OMV\Util;
  * @ingroup api
  */
 class KeyValueFile {
-	private $delimiter;
-	private $comment;
+	private $keyNameDelimiter;
+	private $keyValueDelimiter;
+	private $commentDelimiter;
 	private $filename;
 
-	function __construct($filename, $delimiter = "=", $comment="#") {
+	/**
+	 * Constructor
+	 * @param string $filename Path to the file.
+	 * @param string $keyValueDelimiter The key/value delimiter.
+	 *   Defaults to '='.
+	 * @param string $keyNameDelimiter The delimiter that is used to replace
+	 *   white spaces within the key name. Defaults to '_'.
+	 * @param string $commentDelimiter The comment line delimiter.
+	 *   Defaults to '#'.
+	 */
+	function __construct($filename, $keyValueDelimiter = "=",
+	  $keyNameDelimiter = "_", $commentDelimiter = "#") {
 		$this->filename = $filename;
-		$this->delimiter = $delimiter;
-		$this->comment = $comment;
+		$this->keyNameDelimiter = $keyNameDelimiter;
+		$this->keyValueDelimiter = $keyValueDelimiter;
+		$this->commentDelimiter = $commentDelimiter;
+	}
+
+	final public function setKeyNameDelimiter($char) {
+		$this->keyNameDelimiter = $char;
+	}
+
+	final public function setKeyValueDelimiter($char) {
+		$this->keyValueDelimiter = $char;
+	}
+
+	final public function setCommentDelimiter($char) {
+		$this->commentDelimiter = $char;
+	}
+
+	/**
+	 * Get the value of the given key.
+	 * @param string $key The name of the key.
+	 * @return The value of the given key.
+	 */
+	final public function get($key) {
+		$dict = new \OMV\Dictionary($this->getAssoc());
+		$dict->assertExists($key);
+		return $dict->get($key);
 	}
 
 	final public function getAssoc() {
@@ -40,16 +76,22 @@ class KeyValueFile {
 		// Read the file into an array.
 		$rows = file($this->filename);
 		// Prepare regular expression.
-		$regex = sprintf('/^(\S+)[%s]+(\S+)$/i', $this->delimiter);
+		$regex = sprintf('/^([^%s]+)[%s](.*)$/i', $this->keyValueDelimiter,
+		  $this->keyValueDelimiter);
 		// Process the rows.
 		foreach ($rows as $rowk => $rowv) {
-			// Skip comments.
-			if ($this->comment == substr($rowv, 0, 1))
+			// Skip comment lines.
+			if ($this->commentDelimiter == substr($rowv, 0, 1))
 				continue;
 			// Extract key/value.
 			if (1 !== preg_match($regex, $rowv, $matches))
 				continue;
-			$map[$matches[1]] = $matches[2];
+			// Harmonize the key.
+			$key = trim($matches[1]);
+			$key = str_replace(" ", $this->keyNameDelimiter, $key);
+			$key = strtolower($key);
+			// Add key/value pair.
+			$map[$key] = trim($matches[2]);
 		}
 		return $map;
 	}

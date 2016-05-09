@@ -370,6 +370,8 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 				"name" => gettext("CPU usage"),
 				"value" => [
 					"text" => sprintf("%d%%", $cpuStats['usage']),
+//					"text" => sprintf("%d%% of %s MHz", $cpuStats['usage'],
+//					  $cpuStats['cpumhz']),
 					"value" => $cpuStats['usage']
 				],
 				"type" => "progress",

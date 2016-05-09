@@ -96,7 +96,7 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 						if (array_key_exists($devicefile, $quotas)) {
 							$resObj['bused'] = binary_format(
 							  $quotas[$devicefile]['blocks'],
-							  [ "fromPrefix" => "KiB") ];
+							  [ "fromPrefix" => "KiB" ]);
 						}
 					}
 					// Convert the quota to a human readable unit. Note, the

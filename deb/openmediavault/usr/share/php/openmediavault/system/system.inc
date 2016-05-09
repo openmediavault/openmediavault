@@ -73,7 +73,7 @@ class System {
 		// # System accounts
 		// #SYS_UID_MIN              100
 		// #SYS_UID_MAX              999
-		$file = new \OMV\Util\KeyValueFile("/etc/login.defs", "\s\t");
+		$file = new \OMV\Util\KeyValueFile("/etc/login.defs");
 		return $file->getAssoc();
 	}
 
@@ -266,19 +266,20 @@ class System {
 	 * )
 	 */
 	public static function getCpuStats() {
-		// Get the CPU model name. Take care about CPUs with multiple cores.
-		$cmdArgs = [];
-		$cmdArgs[] = "-Em1";
-		$cmdArgs[] = "'^(model name|Processor)'";
-		$cmdArgs[] = "/proc/cpuinfo";
-		$cmd = new \OMV\System\Process("grep", $cmdArgs);
-		$cmd->execute($output);
-		$output = explode(":", $output[0]);
-		$modelName = trim($output[1]);
-		$tprev = file("/proc/stat");
-		sleep(1);
-		$tnow = file("/proc/stat");
-		// Extract values:
+		// Get the CPU information. Take care about CPUs with multiple cores.
+		// processor	: 0
+		// vendor_id	: GenuineIntel
+		// cpu family	: 6
+		// model		: 30
+		// model name	: Intel(R) Core(TM) i7 CPU         860  @ 2.80GHz
+		// stepping	: 5
+		// microcode	: 0x3
+		// cpu MHz		: 2792.999
+		$cpuInfo = new \OMV\Util\KeyValueFile("/proc/cpuinfo", ":");
+		$cpuInfo->setKeyNameDelimiter("");
+		// Get the current CPU statistics.
+		// Use the very first "cpu" line which aggregates the numbers in
+		// all of the other "cpuN" lines.
 		// cpu  2255 34 2290 22625563 6290 127 456
 		// * user: normal processes executing in user mode
 		// * nice: niced processes executing in user mode
@@ -287,6 +288,9 @@ class System {
 		// * iowait: waiting for I/O to complete
 		// * irq: servicing interrupts
 		// * softirq: servicing softirqs
+		$tprev = file("/proc/stat");
+		sleep(1);
+		$tnow = file("/proc/stat");
 		$tprev = explode(" ", $tprev[0]);
 		array_shift($tprev); array_shift($tprev);
 		$tnow = explode(" ", $tnow[0]);
@@ -298,7 +302,8 @@ class System {
 		$diffIdle = $tnow[3] - $tprev[3];
 		$diffTotal = $tnowTotal - $tprevTotal;
 		return array(
-			"modelname" => $modelName,
+			"modelname" => $cpuInfo->get("modelname"),
+			"cpumhz" => $cpuInfo->get("cpumhz"),
 			"usage" => (0 == $diffTotal) ? 0 : (($diffTotal - $diffIdle) /
 			  $diffTotal) * 100
 		);
