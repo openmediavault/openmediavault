@@ -1,3 +1,9 @@
+openmediavault (3.0.19) stable; urgency=low
+
+  * Various improvements and bugfixes.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 10 May 2016 23:39:42 +0200
+
 openmediavault (3.0.18) stable; urgency=low
 
   * Various improvements and bugfixes.
