@@ -23,8 +23,8 @@
 		},
 		"type": {
 			"type": "string",
-			"default": "S",
-			"enum": [ "S", "L", "C", "O" ]
+			"enum": [ "S", "L", "C", "O" ],
+			"default": "S"
 		},
 		"hour": {
 			"type": "string",

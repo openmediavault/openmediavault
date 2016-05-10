@@ -30,7 +30,7 @@
 		"occurrence": {
 			"type": "integer",
 			"minimum": 1,
-			"default": 1
+			"default": 2
 		},
 		"timeinterval": {
 			"type": "string",

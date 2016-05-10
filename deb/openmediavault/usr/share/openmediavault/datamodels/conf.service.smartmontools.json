@@ -18,26 +18,26 @@
 		},
 		"powermode": {
 			"type": "string",
-			"default": "never",
-			"enum": [ "never", "sleep", "standby", "idle" ]
+			"enum": [ "never", "sleep", "standby", "idle" ],
+			"default": "never"
 		},
 		"tempdiff":{
 			"type": "integer",
 			"minimum": 0,
 			"maximum": 255,
-			"default": false
+			"default": 0
 		},
 		"tempinfo":{
 			"type": "integer",
 			"minimum": 0,
 			"maximum": 255,
-			"default": false
+			"default": 0
 		},
 		"tempcrit":{
 			"type": "integer",
 			"minimum": 0,
 			"maximum": 255,
-			"default": false
+			"default": 0
 		},
 		"monitor": {
 			"type": "object",
@@ -58,7 +58,7 @@
 							},
 							"enable": {
 								"type": "boolean",
-								"default": 1
+								"default": false
 							},
 							"devicetype": {
 								"type": "string",
@@ -83,7 +83,7 @@
 							},
 							"enable": {
 								"type": "boolean",
-								"default": 1
+								"default": true
 							},
 							"devicefile": {
 								"type": "string",
@@ -92,8 +92,8 @@
 							},
 							"type": {
 								"type": "string",
-								"default": "S",
-								"enum": [ "S", "L", "C", "O" ]
+								"enum": [ "S", "L", "C", "O" ],
+								"default": "S"
 							},
 							"hour": {
 								"type": "string",

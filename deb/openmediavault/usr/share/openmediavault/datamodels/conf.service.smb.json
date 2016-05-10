@@ -21,7 +21,8 @@
 		},
 		"loglevel": {
 			"type": "integer",
-			"default": false
+			"enum":[ 0, 1, 2, 3, 10 ],
+			"default": 0
 		},
 		"usesendfile": {
 			"type": "boolean",
@@ -37,7 +38,7 @@
 		},
 		"localmaster": {
 			"type": "boolean",
-			"default": 1
+			"default": true
 		},
 		"timeserver": {
 			"type": "boolean",
@@ -106,11 +107,13 @@
 							},
 							"recyclemaxsize": {
 								"type": "integer",
-								"minimum": 0
+								"minimum": 0,
+								"default": 0
 							},
 							"recyclemaxage": {
 								"type": "integer",
-								"minimum": 0
+								"minimum": 0,
+								"default": 0
 							},
 							"hidedotfiles": {
 								"type": "boolean",

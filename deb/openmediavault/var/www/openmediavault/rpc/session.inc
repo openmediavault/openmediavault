@@ -46,17 +46,10 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array containing the fields \em authenticated which is TRUE
 	 *   if authentication was successful, otherwise FALSE. The name of the
 	 *   user is in \em username.
-	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
 	final public function login($params, $context) {
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "username":{"type":"string"},
-				  "password":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, "rpc.session.login");
 		$authenticated = FALSE;
 		// Authenticate the given user. Note, the OMV engine RPC is
 		// executed in another context which allows reading the shadow
@@ -151,17 +144,17 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 			  $params['username'], $_SERVER['HTTP_USER_AGENT']));
 		}
 		closelog();
-		return array(
+		return [
 			"authenticated" => $authenticated,
 			"username" => $params['username']
-		);
+		];
 	}
 
 	/**
 	 * Logout user.
 	 */
 	final public function logout($params, $context) {
-		// Check permissions
+		// Check the permissions and destroy the session.
 		$session = &\OMV\Session::getInstance();
 		$session->validate();
 		$session->destroy();
