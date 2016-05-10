@@ -105,12 +105,14 @@ class Database {
 	 * @param id The data model identifier.
 	 * @param filter A filter specifying constraints on the objects
 	 *   to retrieve.
+	 *   @code
 	 *   Example 1:
 	 *   [
 	 *       "operator" => "stringEquals",
 	 *       "arg0" => "fsname",
 	 *       "arg1" => $params['id']
 	 *   ]
+	 *
 	 *   Example 2:
 	 *   [
 	 *       "operator": "and",
@@ -125,6 +127,7 @@ class Database {
 	 *           "arg1" => "bond0"
 	 *       ]
 	 *   ]
+	 *   @endcode
 	 * @param maxResult The maximum number of objects that are returned.
 	 *   Defaults to NULL.
 	 * @return An array containing the requested configuration objects. If
@@ -242,6 +245,7 @@ class Database {
 	 * @param id The data model identifier.
 	 * @param filter A filter specifying constraints on the objects
 	 *   to retrieve.
+	 * @code
 	 * Example 1:
 	 * [
 	 *     "operator" => "not",
@@ -259,6 +263,7 @@ class Database {
 	 *         ]
 	 *     ]
 	 * ]
+	 *
 	 * Example 2:
 	 * [
 	 *     "operator" => "or",
@@ -273,6 +278,7 @@ class Database {
 	 *         "arg1" => "/dev/disk/by-id/ata-ST1000DM003-1CH132_S2DF80PC"
 	 *     ]
 	 * ]
+	 * @endcode
 	 * @return None.
 	 * @throw \OMV\Config\DatabaseException
 	 */
@@ -341,6 +347,7 @@ class Database {
 	 * @param id The data model identifier.
 	 * @param filter A filter specifying constraints on the objects
 	 *   to retrieve. Defaults to NULL.
+	 *   @code
 	 *   Example:
 	 *   [
 	 *       "operator": "not",
@@ -350,6 +357,7 @@ class Database {
 	 *           "arg1" => "vlan"
 	 *       ]
 	 *   ]
+	 *   @endcode
 	 * @return TRUE if at least one configuration object exists,
 	 *   otherwise FALSE.
 	 */
@@ -395,12 +403,14 @@ class Database {
 	 * @param object The configuration object to use.
 	 * @param filter A filter specifying constraints on the objects
 	 *   to retrieve. Defaults to NULL.
+	 *   @code
 	 *   Example:
 	 *   [
 	 *       "operator" => "stringEquals",
 	 *       "arg0" => "sharename",
 	 *       "arg1" => "Movies"
 	 *   ]
+	 *   @endcode
 	 * @return TRUE if no configuration object with the same property
 	 *   value exists, otherwise FALSE.
 	 */

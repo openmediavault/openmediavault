@@ -101,6 +101,7 @@ class ConfigObject {
 	/**
 	 * Get all properties as an associative array.
 	 * Example:
+	 * @code
 	 * Array
 	 * (
 	 *     [timezone] => Europe/Berlin
@@ -110,6 +111,7 @@ class ConfigObject {
 	 *             [timeservers] => pool.ntp.org,pool1.ntp.org;pool2.ntp.org,sss
 	 *         )
 	 * )
+	 * @endcode
 	 * @return The array of key/value pairs.
 	 */
 	public function getAssoc() {
@@ -119,6 +121,7 @@ class ConfigObject {
 	/**
 	 * Get all properties as an array with the keys in dot notation.
 	 * Example:
+	 * @code
 	 * [winssupport] =>
 	 * [winsserver] =>
 	 * [homesenable] =>
@@ -130,6 +133,7 @@ class ConfigObject {
 	 * [shares.share.0.name] => dfsdfs
 	 * [shares.share.0.comment] =>
 	 * [shares.share.0.guest] => no
+	 * @endcode
 	 * @return The array of key/value pairs in dot notation.
 	 */
 	public function getIndexed() {
@@ -190,6 +194,7 @@ class ConfigObject {
 	/**
 	 * Set properties.
 	 * Example:
+	 * @code
 	 * array(
 	 *   "c" => "d",
 	 *   "a" => [
@@ -211,6 +216,7 @@ class ConfigObject {
 	 *	   ]
 	 *	 ]
 	 * )
+	 * @endcode
 	 * @param data The associative array of key/value pairs.
 	 * @param validate Set to FALSE to do not validate the property values
 	 *   against the property schema defined in the model.
@@ -228,6 +234,7 @@ class ConfigObject {
 	/**
 	 * Set properties.
 	 * Example:
+	 * @code
 	 * array(
 	 *   "c" => "d",
 	 *   "x.x" => "z",
@@ -237,6 +244,7 @@ class ConfigObject {
 	 *   "x.y.1.a" => "aaa",
 	 *   "x.y.1.b" => "bbb"
 	 * )
+	 * @endcode
 	 * @param data The single dimension array of path/value pairs.
 	 * @param validate Set to FALSE to do not validate the property values
 	 *   against the property schema defined in the model.

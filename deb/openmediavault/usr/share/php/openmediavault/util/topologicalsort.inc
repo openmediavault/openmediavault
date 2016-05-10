@@ -62,9 +62,9 @@ class TopologicalSort {
 
 	/**
 	 * Add a node and its dependencies.
-	 * @param node The node.
-	 * @param deps The node dependencies. This can be an array or string.
-	 *   Defaults to an empty array.
+	 * @param string $node The node.
+	 * @param mixed $deps The node dependencies. This can be an array or
+	 *   a string. Defaults to an empty array.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function add($node, $deps = []) {
@@ -89,7 +89,7 @@ class TopologicalSort {
 	}
 
 	/**
-	 * @param ignoreMissing Ignore dependency nodes that do not exist.
+	 * @param boolean $ignoreMissing Ignore dependency nodes that do not exist.
 	 *   Defaults to TRUE.
 	 * @return Returns the sorted nodes based on the given dependencies,
 	 *   otherwise FALSE if the dependencies can not be solved.

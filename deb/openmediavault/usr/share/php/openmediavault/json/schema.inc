@@ -44,6 +44,7 @@ class Schema {
 	/**
 	 * Navigate to the given JSON path, e.g. 'a1.b2' or 'ntp.enable'.
 	 * Example:
+	 * @code
 	 * array (
 	 * 	'type' => 'object',
 	 * 	'id' => 'conf.system.time',
@@ -103,6 +104,7 @@ class Schema {
 	 *               'default' => 0,
 	 *                 ),
 	 * ...
+	 * @endcode
 	 */
 	private function &_getSchemaByPath($path, &$schema) {
 //		$this->debug(var_export(func_get_args(), TRUE));
