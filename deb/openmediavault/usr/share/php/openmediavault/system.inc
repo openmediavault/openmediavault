@@ -2571,7 +2571,7 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 * @return The requested property, otherwise FALSE.
 	 */
 	protected function getUdevProperty($id) {
-		if ($this->udevInfo === FALSE) {
+		if (FALSE === $this->udevInfo) {
 			$cmd = sprintf("export LANG=C; udevadm info --query=property ".
 			  "--name=%s", escapeshellarg($this->getDeviceFile()));
 			@OMVUtil::exec($cmd, $output, $result);
@@ -2625,11 +2625,13 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 			// SUBSYSTEM=block
 			// UDEV_LOG=3
 			// USEC_INITIALIZED=16872806
+			$this->udevInfo = array();
 			foreach ($output as $row) {
 				$data = explode("=", $row);
 				if (empty($data))
 					continue;
-				$this->udevInfo[$data[0]] = $data[1];
+				$key = trim($data[0]);
+				$this->udevInfo[$key] = $data[1];
 			}
 		}
 		if (!array_key_exists($id, $this->udevInfo))
