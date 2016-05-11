@@ -32,7 +32,7 @@ trait Debugable {
 	 * Print debug message to stdout and file if debugging is enabled.
 	 */
 	final protected function debug() {
-		if (boolvalEx($GLOBALS['OMV_DEBUG_PHP']) === FALSE)
+		if (TRUE !== boolvalEx($GLOBALS['OMV_DEBUG_PHP']))
 			return;
 
 		$args = func_get_args();

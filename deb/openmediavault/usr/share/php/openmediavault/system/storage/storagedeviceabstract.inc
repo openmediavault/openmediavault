@@ -370,7 +370,8 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 	 * @throw \OMV\ExecException
 	 */
 	protected function getUdevProperty($id) {
-		if ($this->udevInfo === FALSE) {
+		// Do we need to get the udev information?
+		if (FALSE === $this->udevInfo) {
 			$cmdArgs = [];
 			$cmdArgs[] = "info";
 			$cmdArgs[] = "--query=property";
@@ -425,11 +426,13 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 			// SUBSYSTEM=block
 			// UDEV_LOG=3
 			// USEC_INITIALIZED=16872806
+			$this->udevInfo = [];
 			foreach ($output as $row) {
 				$data = explode("=", $row);
 				if (empty($data))
 					continue;
-				$this->udevInfo[$data[0]] = $data[1];
+				$key = trim($data[0]);
+				$this->udevInfo[$key] = $data[1];
 			}
 		}
 		if (!array_key_exists($id, $this->udevInfo))
