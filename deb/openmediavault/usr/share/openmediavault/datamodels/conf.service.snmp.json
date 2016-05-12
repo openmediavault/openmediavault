@@ -25,22 +25,22 @@
 		},
 		"version": {
 			"type": "string",
-			"default": "2c",
-			"enum": [ "2c", "3" ]
+			"enum": [ "2c", "3" ],
+			"default": "2c"
 		},
 		"username": {
 			"type": "string",
 			"default": ""
 		},
 		"securitylevel": {
-			"type": "string",
-			"default": "noauth",
-			"enum": [ "noauth", "auth", "priv" ]
+			"type": "string"
+			"enum": [ "noauth", "auth", "priv" ],
+			"default": "noauth"
 		},
 		"authtype": {
 			"type": "string",
-			"default": "MD5",
-			"enum": [ "MD5", "SHA" ]
+			"enum": [ "MD5", "SHA" ],
+			"default": "MD5"
 		},
 		"authpassphrase": {
 			"type": "string",
@@ -48,8 +48,8 @@
 		},
 		"privtype": {
 			"type": "string",
-			"default": "DES",
-			"enum": [ "DES", "AES" ]
+			"enum": [ "DES", "AES" ],
+			"default": "DES"
 		},
 		"privpassphrase": {
 			"type": "string",

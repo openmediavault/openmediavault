@@ -368,13 +368,12 @@ class DatabaseBackend {
 	 * Revert changes. All existing revision files will be deleted.
 	 * @param filename The revision file. Defaults to NONE.
 	 * @note This only takes action if versioning is enabled.
-	 * @return TRUE if successful, otherwise FALSE.
+	 * @return None.
 	 */
 	public function revert($filename) {
-		sem_acquire($this->semaphore);
-		$result = FALSE;
 		if (TRUE !== $this->versioning)
-			goto finish;
+			throw new DatabaseException("Versioning is not enabled.");
+		sem_acquire($this->semaphore);
 		if (empty($filename)) {
 			// Determine the lowest revision number.
 			$revision = PHP_INT_MAX;
@@ -395,24 +394,20 @@ class DatabaseBackend {
 				}
 			}
 			// Any revision file found?
-			if (!file_exists($filename)) {
-				$result = TRUE;
+			if (!file_exists($filename))
 				goto finish;
-			}
 		}
 		// Replace the configuration file with the given revision.
 		// !!! Note, the file permissions of the target file will
 		// not be touched when using the copy operation.
 		if (!copy($filename, $this->filename)) {
-			$this->setLastError(error_get_last());
-			goto finish;
+			sem_release($this->semaphore);
+			throw new DatabaseException(error_get_last());
 		}
 		// Unlink all revision files.
 		$this->unlinkRevisions();
-		$result = TRUE;
 	finish:
 		sem_release($this->semaphore);
-		return $result;
 	}
 
 	/**

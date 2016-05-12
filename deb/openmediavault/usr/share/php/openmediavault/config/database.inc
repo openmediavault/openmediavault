@@ -470,11 +470,6 @@ class Database {
 	 * @return None.
 	 */
 	public function revert($filename) {
-		$backend = $this->getBackend();
-		if (FALSE === $backend->revert($filename)) {
-			throw new DatabaseException(
-			  "Failed to revert configuration changes: %s",
-		  	  $backend->getLastError());
-		}
+		$this->getBackend()->revert($filename);
 	}
 }

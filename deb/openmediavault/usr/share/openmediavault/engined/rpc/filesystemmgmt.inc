@@ -748,13 +748,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			], $context);
 		}
 		// Finally erase the filesystem.
-		if (!is_null($fs) && $fs->exists()) {
-			if (FALSE === $fs->remove()) {
-				throw new \OMV\Exception(
-				  "Failed to remove filesystem '%s': %s",
-				  $fs->getDeviceFile(), $fs->getLastError());
-			}
-		}
+		if (!is_null($fs) && $fs->exists())
+			$fs->remove();
 		// Notify configuration changes.
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
 		  "org.openmediavault.conf.system.filesystem", $fsObject);
@@ -950,15 +945,10 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				"force" => TRUE
 			], $context);
 		} else { // Only unmount the filesystem.
+			\OMV\System\Filesystem\Filesystem::assertGetImpl($params['id']);
 			$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['id']);
-			if (is_null($fs) || !$fs->exists()) {
-				throw new \OMV\Exception("Filesystem '%s' not found.",
-				  $params['id']);
-			}
-			if (TRUE === $fs->isMounted()) {
-				if (FALSE === $fs->umount(TRUE))
-					throw new \OMV\ExecException($cmd, $fs->getLastError());
-			}
+			if (TRUE === $fs->isMounted())
+				$fs->umount(TRUE);
 		}
 	}
 

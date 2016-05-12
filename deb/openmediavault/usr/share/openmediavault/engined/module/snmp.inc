@@ -64,12 +64,12 @@ class OMVModuleSnmp extends \OMV\Engine\Module\ServiceAbstract
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.snmp");
 		$systemCtl = new \OMV\System\SystemCtl("snmpd");
-		return array(
+		return [
 			"name" => $this->getName(),
 			"title" => gettext("SNMP"),
 			"enabled" => $object->get("enable"),
 			"running" => $systemCtl->isActive()
-		);
+		];
 	}
 
 	/**

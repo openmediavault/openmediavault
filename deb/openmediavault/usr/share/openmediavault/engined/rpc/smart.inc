@@ -339,13 +339,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		$sd->assertHasSmartSupport();
 		// Get the S.M.A.R.T. information.
 		$smartInfo = $sd->getSmartInformation();
-		if (FALSE === ($result = $smartInfo->getExtendedInformation())) {
-			throw new \OMV\Exception(
-			  "Failed to get S.M.A.R.T. extended information ".
-			  "(device=%s, type=%s): %s", $smartInfo->getDeviceFile(),
-			  $smartInfo->getType(), $smartInfo->getLastError());
-		}
-		return $result;
+		return $smartInfo->getExtendedInformation();
 	}
 
 	/**
@@ -371,12 +365,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		$sd->assertHasSmartSupport();
 		// Get the S.M.A.R.T. information.
 		$smartInfo = $sd->getSmartInformation();
-		if (FALSE === ($result = $smartInfo->getAttributes())) {
-			throw new \OMV\Exception(
-			  "Failed to get S.M.A.R.T. attributes for device '%s': %s",
-			  $sd->getDeviceFile(), $smartInfo->getLastError());
-		}
-		return $result;
+		return $smartInfo->getAttributes();
 	}
 
 	/**
@@ -402,12 +391,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		$sd->assertHasSmartSupport();
 		// Get the S.M.A.R.T. information.
 		$smartInfo = $sd->getSmartInformation();
-		if (FALSE === ($result = $smartInfo->getSelfTestLogs())) {
-			throw new \OMV\Exception(
-			  "Failed to get S.M.A.R.T. self-test logs for device '%s': %s",
-			  $sd->getDeviceFile(), $smartInfo->getLastError());
-		}
-		return $result;
+		return $smartInfo->getSelfTestLogs();
 	}
 
 	/**
@@ -433,12 +417,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		$sd->assertHasSmartSupport();
 		// Get the S.M.A.R.T. information.
 		$smartInfo = $sd->getSmartInformation();
-		if (FALSE === ($result = $smartInfo->getInformation())) {
-			throw new \OMV\Exception(
-			  "Failed to get S.M.A.R.T. information for device '%s': %s",
-			  $sd->getDeviceFile(), $smartInfo->getLastError());
-		}
-		return $result;
+		return $smartInfo->getInformation();
 	}
 
 	/**

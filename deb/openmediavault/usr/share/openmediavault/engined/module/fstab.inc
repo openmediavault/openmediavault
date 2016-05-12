@@ -92,25 +92,18 @@ class OMVModuleFsTab extends \OMV\Engine\Module\ServiceAbstract
 		$me = new \OMV\System\MountPoint($params['fsname'], $params['dir']);
 		// Check whether the file system is mounted and unmount it if
 		// necessary.
-		if (TRUE === $me->isMounted()) {
-			if (FALSE === $me->umount(TRUE, TRUE)) {
-				throw new \OMV\Exception("Failed to unmount '%s': %s",
-				  $params['fsname'], $me->getLastError());
-			}
-		}
+		if (TRUE === $me->isMounted())
+			$me->umount(TRUE, TRUE);
 		// Check whether the directory is still a mount point. If this is
 		// the case, then throw an error, otherwise unlinking the
 		// directory might delete the file systems data. This can happen
 		// when the file system is unmounted but busy (e.g. NFS exports).
 		if (TRUE === $me->isMountPoint()) {
 			throw new \OMV\Exception("Removing the directory '%s' has ".
-			  "been aborted, the resource is busy", $params['dir']);
+			  "been aborted, the resource is busy.", $params['dir']);
 		}
 		// Unlink the mount point directory.
-		if (FALSE === $me->unlinkDir()) {
-			throw new \OMV\Exception("Failed to unlink the directory '%s': %s",
-			  $params['dir'], $me->getLastError());
-		}
+		$me->unlinkDir();
 	}
 
 	/**

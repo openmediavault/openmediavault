@@ -20,7 +20,7 @@
 		"rulenum": {
 			"type": "integer",
 			"minimum": 0,
-			"default": false
+			"default": 0
 		},
 		"chain": {
 			"type": "string",
