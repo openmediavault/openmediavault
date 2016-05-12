@@ -61,33 +61,29 @@ class OMVModuleMonit extends \OMV\Engine\Module\ServiceAbstract
 	 * Get the notification configuration.
 	 */
 	public function getNotificationConfig() {
-		return array(
-			  array(
-				  "id" => "monitprocevents",
-				  "type" => getText("System"),
-				  "title" => gettext("Process monitoring")
-			  ),
-			  array(
-				  "id" => "monitloadavg",
-				  "type" => getText("System"),
-				  "title" => gettext("Load average")
-			  ),
-			  array(
-				  "id" => "monitcpuusage",
-				  "type" => getText("System"),
-				  "title" => gettext("CPU usage")
-			  ),
-			  array(
-				  "id" => "monitmemoryusage",
-				  "type" => getText("System"),
-				  "title" => gettext("Memory usage")
-			  ),
-			  array(
-				  "id" => "monitfilesystems",
-				  "type" => getText("Storage"),
-				  "title" => gettext("Filesystems")
-			  )
-		  );
+		return [
+			[
+				"id" => "monitprocevents",
+				"type" => getText("System"),
+				"title" => gettext("Process monitoring")
+			],[
+				"id" => "monitloadavg",
+				"type" => getText("System"),
+				"title" => gettext("Load average")
+			],[
+				"id" => "monitcpuusage",
+				"type" => getText("System"),
+				"title" => gettext("CPU usage")
+			],[
+				"id" => "monitmemoryusage",
+				"type" => getText("System"),
+				"title" => gettext("Memory usage")
+			],[
+				"id" => "monitfilesystems",
+				"type" => getText("Storage"),
+				"title" => gettext("Filesystems")
+			]
+		];
 	}
 
 	/**

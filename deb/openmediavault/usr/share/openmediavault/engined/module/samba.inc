@@ -74,12 +74,12 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.smb");
 		$systemCtl = new \OMV\System\SystemCtl("smbd");
-		return array(
+		return [
 			"name" => $this->getName(),
 			"title" => gettext("SMB/CIFS"),
 			"enabled" => $object->get("enable"),
 			"running" => $systemCtl->isActive()
-		);
+		];
 	}
 
 	/**
@@ -87,7 +87,6 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 	 * SMB/CIFS user database.
 	 * @param username The name of the user.
 	 * @return TRUE if the user exists, otherwise FALSE.
-	 * @throw E_EXEC_FAILED
 	 */
 	final private function existsUser($username) {
 		$cmdLine = sprintf("pdbedit --list | grep '%s:'", $username);
@@ -102,7 +101,6 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 	 * @param type The event message type.
 	 * @param path The event message path.
 	 * @param object The configuration object.
-	 * @throw E_EXEC_FAILED
 	 */
 	final public function onAddUser($type, $path, $object) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -135,7 +133,6 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 	 * @param type The event message type.
 	 * @param path The event message path.
 	 * @param object The configuration object.
-	 * @throw E_EXEC_FAILED
 	 */
 	final public function onModifyUser($type, $path, $object) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -183,7 +180,6 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 	 * @param type The event message type.
 	 * @param path The event message path.
 	 * @param object The configuration object.
-	 * @throw E_EXEC_FAILED
 	 */
 	final public function onDeleteUser($type, $path, $object) {
 //		$this->debug(var_export(func_get_args(), TRUE));

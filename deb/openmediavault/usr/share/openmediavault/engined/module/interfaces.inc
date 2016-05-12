@@ -91,11 +91,11 @@ class OMVModuleInterfaces extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_DELETE,
 		  "org.openmediavault.conf.system.network.interface",
-		  array($this, "onDeleteInterface"));
+		  [ $this, "onDeleteInterface" ]);
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.conf.system.network.interface",
-		  array($moduleMngr->getModule("networking"), "setDirty"));
+		  [ $moduleMngr->getModule("networking"), "setDirty" ]);
     }
 }

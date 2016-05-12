@@ -48,13 +48,13 @@ class OMVModuleCronApt extends \OMV\Engine\Module\ServiceAbstract
 	 * Get the notification configuration.
 	 */
 	public function getNotificationConfig() {
-		return array(
-			  array(
-				  "id" => "cronapt",
-				  "type" => getText("System"),
-				  "title" => gettext("Software updates")
-			  )
-		  );
+		return [
+			[
+				"id" => "cronapt",
+				"type" => getText("System"),
+				"title" => gettext("Software updates")
+			]
+		];
 	}
 
 	/**

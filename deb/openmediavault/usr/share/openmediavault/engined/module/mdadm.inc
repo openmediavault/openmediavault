@@ -48,13 +48,13 @@ class OMVModuleMdadm extends \OMV\Engine\Module\ServiceAbstract
 	 * Get the notification configuration.
 	 */
 	public function getNotificationConfig() {
-		return array(
-			  array(
-				  "id" => "mdadm",
-				  "type" => getText("Storage"),
-				  "title" => gettext("Software RAID")
-			  )
-		  );
+		return [
+			[
+				"id" => "mdadm",
+				"type" => getText("Storage"),
+				"title" => gettext("Software RAID")
+			]
+		];
 	}
 
 	/**

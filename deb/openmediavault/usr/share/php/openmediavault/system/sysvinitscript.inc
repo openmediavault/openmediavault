@@ -66,7 +66,6 @@ class SysVInitScript {
 	 * Enable or remove a system init script.
 	 * @param disable Set TRUE to remove the system init script.
 	 * @return None.
-	 * @throw E_EXEC_FAILED
 	 */
 	private function update($disable) {
 		if (!$this->update)
@@ -103,7 +102,6 @@ class SysVInitScript {
 
 	/**
 	 * Make links to start and stop the service in the defined runlevels.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function defaults() {
 		$cmdArgs = [];
@@ -116,7 +114,6 @@ class SysVInitScript {
 
 	/**
 	 * Remove the system init script from all runlevels.
-	 * @throw E_EXEC_FAILED
 	 */
 	public function remove() {
 		$cmdArgs = [];
