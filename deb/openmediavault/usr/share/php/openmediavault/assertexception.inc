@@ -22,6 +22,7 @@
 namespace OMV;
 
 /**
+ * \em AssertException is thrown when an assertion fails.
  * @ingroup api
  */
 class AssertException extends Exception {}

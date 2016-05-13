@@ -22,6 +22,8 @@
 namespace OMV\Json;
 
 /**
+ * \em SchemaPathException is thrown when the path of an specified attribute
+ * does not exist.
  * @ingroup api
  */
 class SchemaPathException extends \OMV\Exception {}

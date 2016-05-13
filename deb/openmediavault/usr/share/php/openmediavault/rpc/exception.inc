@@ -22,6 +22,7 @@
 namespace OMV\Rpc;
 
 /**
+ * \em Exception is the general exception related to RPC issues.
  * @ingroup api
  */
 class Exception extends \OMV\Exception {}

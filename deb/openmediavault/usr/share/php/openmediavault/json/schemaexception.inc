@@ -22,6 +22,7 @@
 namespace OMV\Json;
 
 /**
+ * \em SchemaException is thrown when something is wrong with the JSON schema.
  * @ingroup api
  */
 class SchemaException extends \OMV\Exception {}

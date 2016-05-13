@@ -22,6 +22,8 @@
 namespace OMV\Rpc;
 
 /**
+ * \em TraceException is a special exception that should be used when a
+ * stack trace should be delivered to the exception catcher.
  * @ingroup api
  */
 class TraceException extends Exception {

@@ -22,6 +22,7 @@
 namespace OMV;
 
 /**
+ * \em Exception is the base class for nearly all exceptions of this framework.
  * @ingroup api
  */
 class Exception extends \Exception {

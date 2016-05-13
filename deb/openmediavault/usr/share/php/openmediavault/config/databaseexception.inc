@@ -22,6 +22,7 @@
 namespace OMV\Config;
 
 /**
+ * \em DatabaseException is thrown when a database action fails.
  * @ingroup api
  */
 class DatabaseException extends \OMV\Exception {}

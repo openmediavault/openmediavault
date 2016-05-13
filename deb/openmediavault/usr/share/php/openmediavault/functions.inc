@@ -25,7 +25,10 @@ require_once("openmediavault/autoloader.inc");
  * Collapses a multi-dimensional array into a single dimension using
  * dot notation.
  * @ingroup api
- * @param array The array to flatten.
+ * @param array $array The array to flatten.
+ * @param string $separator The character used as separator. Defaults to '.'.
+ * @param string $prefix The character used as prefix for the keys.
+ *   Defaults to empty.
  * @return A single-dimensional array.
  */
 function array_flatten(array $array, $separator = ".", $prefix = "") {
@@ -45,7 +48,8 @@ function array_flatten(array $array, $separator = ".", $prefix = "") {
 /**
  * Expands a flat array to a multi-dimensional array.
  * @ingroup api
- * @param array The array to expand.
+ * @param array $array The array to expand.
+ * @param string $separator The character used as separator. Defaults to '.'.
  * @return A multi-dimensional array.
  */
 function array_expand(array $array, $separator = ".") {
@@ -84,19 +88,18 @@ function array_sort_key(array &$array, $key) {
 /**
  * Filter an array by key and values.
  * @ingroup api
- * @param array The array to sort
- * @param key The key used as filter criteria
- * @param value The value used as filter criteria
+ * @param array $array The array to sort
+ * @param string $key The key used as filter criteria
+ * @param string $value The value used as filter criteria
  * @return Returns the filtered array.
  */
 function array_filter_ex($array, $key, $value) {
 	$result = [];
-	if(is_array($array) && count($array) > 0) {
-		foreach(array_keys($array) as $keyv){
+	if (is_array($array) && count($array) > 0) {
+		foreach (array_keys($array) as $keyv) {
 			$temp[$keyv] = $array[$keyv][$key];
-			if($temp[$keyv] == $value){
+			if ($temp[$keyv] == $value)
 				$result[$keyv] = $array[$keyv];
-			}
 		}
 	}
 	return $result;
@@ -105,12 +108,13 @@ function array_filter_ex($array, $key, $value) {
 /**
  * Checks if the given keys or index exists in the array.
  * @ingroup api
- * @param keys An array containing the keys to check
- * @param search An array with keys to check
- * @param missing Contains the missing keys if function fails
+ * @param array $keys An array containing the keys to check.
+ * @param array $search An array with keys to check.
+ * @param mixed $missing An array that contains the missing keys if the
+ *   function fails. Defaults to NULL.
  * @return Returns TRUE on success or FALSE on failure.
  */
-function array_keys_exists($keys, $search, &$missing = NULL) {
+function array_keys_exists(array $keys, array $search, &$missing = NULL) {
 	$missing = array_values(array_diff($keys, array_keys($search)));
 	return !(count($missing) > 0);
 }
@@ -118,9 +122,9 @@ function array_keys_exists($keys, $search, &$missing = NULL) {
 /**
  * Convert an object to an array.
  * @ingroup api
- * @param object The object instance.
+ * @param object $object The object instance.
  * @return Returns an associative array of defined object accessible
- * non-static properties for the specified object  in scope.
+ *   non-static properties for the specified object  in scope.
  */
 function toArray($object) {
 	if (is_object($object))
@@ -131,13 +135,13 @@ function toArray($object) {
 /**
  * Get an array value.
  * @ingroup api
- * @param array The array.
- * @param key The key of the element.
- * @param sefault The default value.
+ * @param array $array The array.
+ * @param string $key The key of the element.
+ * @param mixed $default The default value. Defaults to NULL.
  * @return The value of the given key or the default value if the key
  *   does not exist.
  */
-function array_value($array, $key, $default = NULL) {
+function array_value(array $array, $key, $default = NULL) {
 	if (!is_array($array) || !array_key_exists($key, $array))
 		return $default;
 	return isset($array[$key]) ? $array[$key] : $default;
@@ -146,14 +150,14 @@ function array_value($array, $key, $default = NULL) {
 /**
  * Pick one or more random entries out of an array.
  * @ingroup api
- * @param array The input array.
- * @param num Specifies how many entries should be picked.
+ * @param array $array The input array.
+ * @param int $num Specifies how many entries should be picked. Defaults to 1.
  * @return When picking only one entry, the function returns the value
  *   for a random entry. Otherwise, an array of values for the random
  *   entries is returned. Trying to pick more elements than there are
  *   in the array NULL will be returned.
  */
-function array_rand_value($array, $num = 1) {
+function array_rand_value(array $array, $num = 1) {
 	$keys = array_rand($array, $num);
 	if (is_null($keys))
 		return NULL;
@@ -184,35 +188,22 @@ function array_rand_value($array, $num = 1) {
 /**
  * Get boolean value of an array element.
  * @ingroup api
- * @param array An array with keys.
- * @param key The key of the element.
- * Returns the boolean value of the given key.
+ * @param array $array An array with keys.
+ * @param string $key The key of the element.
+ * @return Returns the boolean value of the given key.
  */
-function array_boolval($array, $key) {
+function array_boolval(array $array, $key) {
 	if (!isset($array[$key]))
 		return false;
 	return boolvalEx($array[$key]);
 }
 
 /**
- * Get the boolean value of a variable.
- * @ingroup api
- * @deprecated
- * @param var The scalar value being converted to a boolean.
- * Returns the boolean value of the given value.
- */
-if (!function_exists("boolval")) {
-	function boolval($var) {
-		return boolvalEx($var);
-	}
-}
-
-/**
  * Get the boolean value of a variable. A boolean TRUE will be returned for
  * the values 1, '1', 'on', 'yes', 'y' and 'true'.
  * @ingroup api
- * @param var The scalar value being converted to a boolean.
- * Returns the boolean value of the given value.
+ * @param mixed $var The scalar value being converted to a boolean.
+ * @return Returns the boolean value of the given value.
  */
 function boolvalEx($var) {
 	$result = false;
@@ -234,7 +225,7 @@ function boolvalEx($var) {
 /**
  * Finds out whether a variable is an UUID v4.
  * @ingroup api
- * @param var The variable being evaluated.
+ * @param string $var The variable being evaluated.
  * @return TRUE if the variable is an UUID, otherwise FALSE.
  */
 function is_uuid($var) {
@@ -250,7 +241,7 @@ function is_uuid($var) {
  * </ul>
  * @see http://wiki.ubuntuusers.de/UUID
  * @ingroup api
- * @param var The variable being evaluated.
+ * @param string $var The variable being evaluated.
  * @return TRUE if the variable is a filesystem UUID, otherwise FALSE.
  */
 function is_fs_uuid($var) {
@@ -268,7 +259,7 @@ function is_fs_uuid($var) {
 /**
  * Finds out whether a variable describes a devicefile, e.g. /dev/sda1.
  * @ingroup api
- * @param var The variable being evaluated.
+ * @param string $var The variable being evaluated.
  * @return TRUE if the variable describes a devicefile, otherwise FALSE.
  */
 function is_devicefile($var) {
@@ -278,7 +269,7 @@ function is_devicefile($var) {
 /**
  * Tells whether the given file is a block device.
  * @ingroup api
- * @param filename Path to the file.
+ * @param string $filename Path to the file.
  * @return Returns TRUE if the file is a block device, FALSE otherwise.
  */
 function is_block($filename) {
@@ -293,7 +284,7 @@ function is_block($filename) {
 /**
  * Finds out whether a variable is JSON.
  * @ingroup api
- * @param var The variable being evaluated.
+ * @param mixed $var The variable being evaluated.
  * @return TRUE if the variable is JSON, otherwise FALSE.
  */
 function is_json($var) {
@@ -312,7 +303,7 @@ function is_json($var) {
 /**
  * Finds out whether a variable is an IP address.
  * @ingroup api
- * @param var The variable being evaluated.
+ * @param string $var The variable being evaluated.
  * @return TRUE if the variable is an IP address, otherwise FALSE.
  */
 function is_ipaddr($var) {
@@ -324,7 +315,7 @@ function is_ipaddr($var) {
 /**
  * Finds out whether a variable is an IPv4 address.
  * @ingroup api
- * @param var The variable being evaluated.
+ * @param string $var The variable being evaluated.
  * @return TRUE if the variable is an IPv4 address, otherwise FALSE.
  */
 function is_ipaddr4($var) {
@@ -336,7 +327,7 @@ function is_ipaddr4($var) {
 /**
  * Finds out whether a variable is an IPv6 address.
  * @ingroup api
- * @param var The variable being evaluated.
+ * @param string $var The variable being evaluated.
  * @return TRUE if the variable is an IPv6 address, otherwise FALSE.
  */
 function is_ipaddr6($var) {
@@ -348,7 +339,7 @@ function is_ipaddr6($var) {
 /**
  * Finds out whether a variable is a multidimensional array.
  * @ingroup api
- * @param var The variable being evaluated.
+ * @param mixed $var The variable being evaluated.
  * @return TRUE if the variable is a multidimensional array, otherwise FALSE.
  */
 function is_multi_array($var) {
@@ -363,7 +354,7 @@ function is_multi_array($var) {
  * Finds out whether a variable is a multidimensional array.
  * @deprecated
  * @ingroup api
- * @param var The variable being evaluated.
+ * @param mixed $var The variable being evaluated.
  * @return TRUE if the variable is a multidimensional array, otherwise FALSE.
  */
 function is_multiarray($var) {
@@ -373,6 +364,7 @@ function is_multiarray($var) {
 /**
  * Finds out whether a variable is an associative array.
  * @ingroup api
+ * @param mixed $var The variable being evaluated.
  * @return TRUE if the variable is an associative array, otherwise FALSE.
  */
 function is_assoc_array($var) {
@@ -386,6 +378,7 @@ function is_assoc_array($var) {
  * Finds out whether a variable is an associative array.
  * @deprecated
  * @ingroup api
+ * @param mixed $var The variable being evaluated.
  * @return TRUE if the variable is an associative array, otherwise FALSE.
  */
 function is_assoc($var) {
@@ -404,17 +397,18 @@ function is_64bits() {
 /**
  * Validate JSON data via JSON schema.
  * @ingroup api
- * @param json The JSON string to validate.
- * @param schema The JSON schema to use for validation.
- * @param errors Optional parameter which will contain the error messages
- *   if validation fails.
+ * @param string $data The JSON string to validate.
+ * @param mixed $schema The JSON schema to use for validation. This can be a
+ *   string or an associative array.
+ * @param mixed $errors Optional parameter which will contain the error
+ *   messages if validation fails. Defaults to NULL.
  * @return TRUE if successful, otherwise FALSE.
  */
-function json_validate($json, $schema, &$errors = NULL) {
+function json_validate($data, $schema, &$errors = NULL) {
 	$result = FALSE;
 	try {
-		$schema = new \OMV\Json\Schema($json);
-		$schema->validate($schema);
+		$jsonSchema = new \OMV\Json\Schema($schema);
+		$jsonSchema->validate($data);
 		$result = TRUE;
 	} catch(\Exception $e) {
 		$errors = array($e->getMessage());
@@ -427,8 +421,9 @@ function json_validate($json, $schema, &$errors = NULL) {
  * to UTF-8 before, thus json_encode should not throw an exception like
  * 'Invalid UTF-8 sequence in argument' (Mantis 0000355).
  * @ingroup api
- * @param value The value being encoded.
- * @param options Bitmask, see PHP json_encode manual pages.
+ * @param mixed $value The value being encoded.
+ * @param int $options Bitmask, see PHP json_encode manual pages.
+ *   Defaults to 0.
  * @return Returns a string containing the JSON representation of \em value.
  */
 function json_encode_safe($value, $options = 0) {
@@ -448,11 +443,11 @@ function json_encode_safe($value, $options = 0) {
 * Decodes a JSON string. The JSON string being decoded will be encoded
 * to UTF-8 before.
 * @ingroup api
-* @param json The JSON string being decoded.
-* @param assoc When TRUE, returned objects will be converted into
-*   associative arrays.
-* @param depth User specified recursion depth.
-* @param options Bitmask of JSON decode options.
+* @param string $json The JSON string being decoded.
+* @param bool $assoc When TRUE, returned objects will be converted into
+*   associative arrays. Defaults to FALSE.
+* @param int $depth User specified recursion depth. Defaults to 512.
+* @param int $options Bitmask of JSON decode options. Defaults to 0.
 * @return Returns the \em value encoded in json in appropriate PHP type.
 */
 function json_decode_safe($json, $assoc = false, $depth = 512, $options = 0) {
@@ -490,42 +485,41 @@ if (!function_exists('json_last_error_msg')) {
 /**
  * Convert a number into the highest possible binary unit.
  * @ingroup api
- * @param value The number to convert (per default this is in Bytes).
- * @param options An array of additional options.
+ * @param mixed $value The number to convert (per default this is in Bytes).
+ * @param mixed $options An array of additional options. Defaults to NULL.
  * @return The converted string value including the unit or an indexed
- * array with the fields \em value and \em unit.
+ *   array with the fields \em value and \em unit.
  */
 function binary_format($number, $options = NULL) {
-	$prefixes = array("B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB",
-	  "ZiB", "YiB");
+	$prefixes = [ "B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB" ];
 	$exp = 0;
 	$maxExp = count($prefixes);
 	$decimalPlaces = 2;
 	$indexed = FALSE;
 
 	// Process additional function options.
-	if(is_array($options)) {
-		if(isset($options['decimalPlaces']))
+	if (is_array($options)) {
+		if (isset($options['decimalPlaces']))
 			$decimalPlaces = $options['decimalPlaces'];
-		if(isset($options['indexed']))
+		if (isset($options['indexed']))
 			$indexed = $options['indexed'];
-		if(isset($options['fromPrefix']))
+		if (isset($options['fromPrefix']))
 			$exp = array_search($options['fromPrefix'], $prefixes);
-		if(isset($options['maxPrefix']))
+		if (isset($options['maxPrefix']))
 			$maxExp = array_search($options['maxPrefix'], $prefixes);
 	}
 
 	$number = strval($number);
-	while((-1 != bccomp($number, "1024")) && ($exp < $maxExp)) {
+	while ((-1 != bccomp($number, "1024")) && ($exp < $maxExp)) {
 		$exp++;
 		$number = bcdiv($number, "1024", $decimalPlaces);
 	}
 
-	$result = array(
+	$result = [
 		"value" => floatval($number),
 		"unit" => $prefixes[$exp]
-	);
-	if(FALSE === $indexed) {
+	];
+	if (FALSE === $indexed) {
 		$result = sprintf("%s %s", $number, $prefixes[$exp]);
 	}
 
@@ -535,16 +529,16 @@ function binary_format($number, $options = NULL) {
 /**
  * Convert a number to bytes using binary multiples.
  * @ingroup api
- * @param number The number to convert.
- * @param fromPrefix The binary prefix name \em number is in, e.g. 'KiB'.
- * @param toPrefix The binary prefix name to convert \em number to, e.g.
- * 'TiB'.
- * @param decimalPlaces The number of decimal places. Defaults to 0.
+ * @param mixed $number The number to convert.
+ * @param string $fromPrefix The binary prefix name \em number is in,
+ *   e.g. 'KiB'.
+ * @param string $toPrefix The binary prefix name to convert \em number to,
+ *   e.g. 'TiB'.
+ * @param int $decimalPlaces The number of decimal places. Defaults to 0.
  * @return The converted number as string or FALSE on failure.
  */
 function binary_convert($number, $fromPrefix, $toPrefix, $decimalPlaces = 0) {
-	$prefixes = array("B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB",
-	  "ZiB", "YiB");
+	$prefixes = [ "B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB" ];
 	$fromIndex = array_search($fromPrefix, $prefixes);
 	$toIndex = array_search($toPrefix, $prefixes);
 	if ((FALSE === $fromIndex) || (FALSE === $toIndex))
@@ -569,8 +563,8 @@ function binary_convert($number, $fromPrefix, $toPrefix, $decimalPlaces = 0) {
  * Convert any time/date into a Unix timestamp according to the specified
  * format.
  * @ingroup api
- * @param date A date/time string to parse.
- * @param format The format used in date.
+ * @param string $date A date/time string to parse.
+ * @param string $format The format used in date.
  * @return Returns a Unix timestamp on success, FALSE otherwise.
  */
 function strpdate($date, $format) {
@@ -585,8 +579,8 @@ function strpdate($date, $format) {
  * of separator in the first part, or leading occurrences of separator in the
  * second part are removed and exactly one copy of the separator is inserted.
  * @ingroup api
- * @param separator The directory seperator, e.g. DIRECTORY_SEPARATOR.
- * @param parts The path elements to be concatenated.
+ * @param string $separator The directory seperator, e.g. DIRECTORY_SEPARATOR.
+ * @param string $parts The path elements to be concatenated.
  * @return A string path built from the given parts.
  */
 function build_path($separator, ...$parts) {
@@ -602,9 +596,9 @@ function build_path($separator, ...$parts) {
 /**
  * List files inside the specified path.
  * @ingroup api
- * @param directory The directory that will be scanned.
- * @param extension The file extension of the files to search for.
- * @param sortFlags Modify the sorting behavior.
+ * @param string $directory The directory that will be scanned.
+ * @param string $extension The file extension of the files to search for.
+ * @param int $sortFlags Modify the sorting behavior. Defaults to SORT_NATURAL.
  * @return Returns an array of files from the directory.
  */
 function listdir($directory, $extension = "", $sortFlags = SORT_NATURAL) {
@@ -626,8 +620,9 @@ function listdir($directory, $extension = "", $sortFlags = SORT_NATURAL) {
 /**
  * Create a directory with unique file name.
  * @ingroup api
- * @param prefix The prefix of the generated temporary directory.
- * @param mode The mode of the temporary directory. Defaults to 0700.
+ * @param string $prefix The prefix of the generated temporary directory.
+ *   Defaults to empty.
+ * @param int $mode The mode of the temporary directory. Defaults to 0700.
  * @return Returns the full path of the created directory, or FALSE on failure.
  */
 function mkdtemp($prefix = "", $mode = 0700) {
@@ -643,9 +638,9 @@ function mkdtemp($prefix = "", $mode = 0700) {
 /**
  * Build a netmask based on the given number of bits.
  * @ingroup api
- * @param bits The number of bits to be set in the desired netmask.
- * @param forceipv6 Set to TRUE to force an IPv6 netmask, even if bits <= 32.
- *   Defaults to FALSE which auto-detects the address family.
+ * @param int $bits The number of bits to be set in the desired netmask.
+ * @param bool $forceipv6 Set to TRUE to force an IPv6 netmask, even if
+ *   bits <= 32. Defaults to FALSE which auto-detects the address family.
  * @return The netmask as string.
  */
 function inet_getnetmask($bits, $forceipv6 = FALSE) {
@@ -659,25 +654,25 @@ function inet_getnetmask($bits, $forceipv6 = FALSE) {
 /**
  * Check if the given integer value is in the range min <= var <= max.
  * @ingroup api
- * @param var The value to check.
- * @param min The minimum value of the sequence.
- * @param max The maximum value of the sequence.
+ * @param mixed $var The value to check.
+ * @param int $min The minimum value of the sequence.
+ * @param int $max The maximum value of the sequence.
  * @return TRUE if the value is within the range, otherwise FALSE.
  */
 function in_range($var, $min, $max) {
 	// See http://php.net/manual/en/filter.filters.validate.php.
-	return (FALSE !== filter_var($var, FILTER_VALIDATE_INT, array(
-	  'options' => array(
+	return (FALSE !== filter_var($var, FILTER_VALIDATE_INT, [
+	  'options' => [
 		  'min_range' => $min,
 		  'max_range' => $max
-	  ))));
+	  ]]));
 }
 
 /**
  * Compare two UUID v4 strings.
  * @ingroup api
- * @param uuid1 The first UUID v4.
- * @param uuid2 The second UUID v4.
+ * @param string $uuid1 The first UUID v4.
+ * @param string $uuid2 The second UUID v4.
  * @return Returns TRUE when the two strings are equal, FALSE otherwise.
  */
 function uuid_equals($uuid1, $uuid2) {
@@ -690,8 +685,8 @@ function uuid_equals($uuid1, $uuid2) {
  * Compare two file system UUID strings.
  * @ingroup api
  * @see http://wiki.ubuntuusers.de/UUID
- * @param uuid1 The first file system UUID.
- * @param uuid2 The second file system UUID.
+ * @param string $uuid1 The first file system UUID.
+ * @param string $uuid2 The second file system UUID.
  * @return Returns TRUE when the two strings are equal, FALSE otherwise.
  */
 function fs_uuid_equals($uuid1, $uuid2) {
@@ -704,7 +699,7 @@ function fs_uuid_equals($uuid1, $uuid2) {
  * Returns an array with the name of the defined classes that are
  * a subclass of the specified class.
  * @ingroup api
- * @param class The class name being checked against.
+ * @param string $class The class name being checked against.
  * @return Returns an array of the names of the declared classes in the
  *   current script that match the specified criteria.
  */

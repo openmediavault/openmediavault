@@ -21,6 +21,9 @@
  */
 namespace OMV\Rpc;
 
+/**
+ * @ingroup api
+ */
 class DataModel extends \OMV\DataModel\DataModel {
 	private $paramsSchema = null;
 

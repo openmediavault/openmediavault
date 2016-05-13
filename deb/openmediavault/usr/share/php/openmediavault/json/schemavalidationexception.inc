@@ -22,6 +22,8 @@
 namespace OMV\Json;
 
 /**
+ * \em SchemaValidationException is thrown when the validated JSON data does
+ * not comply with the specified JSON schema.
  * @ingroup api
  */
 class SchemaValidationException extends \OMV\Exception {}

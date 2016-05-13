@@ -22,6 +22,7 @@
 namespace OMV;
 
 /**
+ * \em ExecException is thrown when the execution of a process fails.
  * @ingroup api
  */
 class ExecException extends \Exception {

@@ -22,6 +22,8 @@
 namespace OMV\Config;
 
 /**
+ * \em ConfigDirtyException is thrown when the configuration is marked
+ * as dirty.
  * @ingroup api
  */
 class ConfigDirtyException extends \OMV\Exception {

@@ -33,7 +33,7 @@
 			"default": ""
 		},
 		"securitylevel": {
-			"type": "string"
+			"type": "string",
 			"enum": [ "noauth", "auth", "priv" ],
 			"default": "noauth"
 		},
