@@ -70,12 +70,12 @@ class OMVModuleClamAV extends \OMV\Engine\Module\ServiceAbstract implements
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.clamav");
 		$systemCtl = new \OMV\System\SystemCtl("clamav-daemon");
-		return array(
+		return [
 			"name" => $this->getName(),
 			"title" => gettext("Antivirus"),
 			"enabled" => $object->get("enable"),
 			"running" => $systemCtl->isActive()
-		);
+		];
 	}
 
 	/**

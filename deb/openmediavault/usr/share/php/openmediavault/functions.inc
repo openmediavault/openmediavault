@@ -44,6 +44,7 @@ function array_flatten(array $array, $separator = ".", $prefix = "") {
 
 /**
  * Expands a flat array to a multi-dimensional array.
+ * @ingroup api
  * @param array The array to expand.
  * @return A multi-dimensional array.
  */
@@ -129,6 +130,7 @@ function toArray($object) {
 
 /**
  * Get an array value.
+ * @ingroup api
  * @param array The array.
  * @param key The key of the element.
  * @param sefault The default value.
@@ -143,6 +145,7 @@ function array_value($array, $key, $default = NULL) {
 
 /**
  * Pick one or more random entries out of an array.
+ * @ingroup api
  * @param array The input array.
  * @param num Specifies how many entries should be picked.
  * @return When picking only one entry, the function returns the value
@@ -348,7 +351,7 @@ function is_ipaddr6($var) {
  * @param var The variable being evaluated.
  * @return TRUE if the variable is a multidimensional array, otherwise FALSE.
  */
-function is_multiarray($var) {
+function is_multi_array($var) {
 	if (FALSE === is_array($var))
 		return FALSE;
 	if (count($var, COUNT_RECURSIVE) !== count($var))
@@ -357,10 +360,22 @@ function is_multiarray($var) {
 }
 
 /**
+ * Finds out whether a variable is a multidimensional array.
+ * @deprecated
+ * @ingroup api
+ * @param var The variable being evaluated.
+ * @return TRUE if the variable is a multidimensional array, otherwise FALSE.
+ */
+function is_multiarray($var) {
+	return is_multi_array($var);
+}
+
+/**
  * Finds out whether a variable is an associative array.
+ * @ingroup api
  * @return TRUE if the variable is an associative array, otherwise FALSE.
  */
-function is_assoc($var) {
+function is_assoc_array($var) {
 	if (FALSE === is_array($var))
 		return FALSE;
 	$keys = array_keys($var);
@@ -368,7 +383,18 @@ function is_assoc($var) {
 }
 
 /**
+ * Finds out whether a variable is an associative array.
+ * @deprecated
+ * @ingroup api
+ * @return TRUE if the variable is an associative array, otherwise FALSE.
+ */
+function is_assoc($var) {
+	return is_assoc_array($var);
+}
+
+/**
  * Check if the platform is 64bit.
+ * @ingroup api
  * @return TRUE if 64bit, otherwise FALSE.
  */
 function is_64bits() {
@@ -442,6 +468,7 @@ function json_decode_safe($json, $assoc = false, $depth = 512, $options = 0) {
 
 /**
  * Returns the error string of the last JSON API call.
+ * @ingroup api
  * @return Returns the error message on success or NULL with wrong parameters.
  */
 if (!function_exists('json_last_error_msg')) {
@@ -557,6 +584,7 @@ function strpdate($date, $format) {
  * between parts. At the boundary between two parts, any trailing occurrences
  * of separator in the first part, or leading occurrences of separator in the
  * second part are removed and exactly one copy of the separator is inserted.
+ * @ingroup api
  * @param separator The directory seperator, e.g. DIRECTORY_SEPARATOR.
  * @param parts The path elements to be concatenated.
  * @return A string path built from the given parts.
@@ -573,6 +601,7 @@ function build_path($separator, ...$parts) {
 
 /**
  * List files inside the specified path.
+ * @ingroup api
  * @param directory The directory that will be scanned.
  * @param extension The file extension of the files to search for.
  * @param sortFlags Modify the sorting behavior.
@@ -674,6 +703,7 @@ function fs_uuid_equals($uuid1, $uuid2) {
 /**
  * Returns an array with the name of the defined classes that are
  * a subclass of the specified class.
+ * @ingroup api
  * @param class The class name being checked against.
  * @return Returns an array of the names of the declared classes in the
  *   current script that match the specified criteria.

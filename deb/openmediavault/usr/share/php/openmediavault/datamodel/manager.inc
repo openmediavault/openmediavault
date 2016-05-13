@@ -62,7 +62,7 @@ class Manager {
 			$jsonModel = $file->read();
 			$file->close();
 			// Note, a file can contain multiple model definitions.
-			if (is_assoc($jsonModel))
+			if (is_assoc_array($jsonModel))
 				$jsonModel = array($jsonModel);
 			foreach ($jsonModel as $jsonModelk => $jsonModelv) {
 				// Validate the data model definition.

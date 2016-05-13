@@ -44,7 +44,7 @@ class ParamsValidator {
 		} else {
 			// Check if the schema is JSON. If it is an associative array,
 			// then auto-convert it into JSON.
-			if (is_assoc($schema))
+			if (is_assoc_array($schema))
 				$schema = json_encode_safe($schema);
 			// Create the data model schema.
 			$this->schema = new \OMV\DataModel\Schema($schema);

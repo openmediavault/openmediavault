@@ -245,16 +245,23 @@ class ConfigObject {
 	 *   "x.y.1.b" => "bbb"
 	 * )
 	 * @endcode
-	 * @param data The single dimension array of path/value pairs.
+	 * @param data The single dimension array of key/value pairs. The key
+	 *   must be in dot notation, e.g. 'a.b.c' or 'a.b.0.c.1'
 	 * @param validate Set to FALSE to do not validate the property values
 	 *   against the property schema defined in the model.
 	 *   Defaults to TRUE.
 	 * @param ignore Set to TRUE to ignore and skip unknown properties.
 	 *   Defaults to FALSE.
 	 * @return None.
+	 * @throw \InvalidArgumentException
 	 */
 	public function setIndexed($data, $validate = TRUE, $ignore = FALSE) {
 //		$this->debug(var_export(func_get_args(), TRUE));
+		// Make sure the given array is indexed an not associative.
+		if (is_assoc_array($data)) {
+			throw new \InvalidArgumentException(
+			  "The data must be indexed, but an associative array is given.");
+		}
 		foreach ($data as $propk => $propv) {
 			if ((TRUE === $ignore) && (FALSE === $this->exists($propk)))
 				continue;
