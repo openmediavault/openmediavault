@@ -129,7 +129,7 @@
 			<dns>
 				<hostname>openmediavault</hostname>
 				<domainname></domainname>
-			<dns>
+			</dns>
 			<interfaces>
 				<!--
 				<interface>

@@ -1,6 +1,7 @@
 openmediavault (3.0.19) stable; urgency=low
 
   * Various improvements and bugfixes.
+  * Mantis 0001517: Typo in config.xml template.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 10 May 2016 23:39:42 +0200
 
