@@ -66,7 +66,7 @@ class OMVRpcServiceRsync extends \OMV\Rpc\ServiceAbstract {
 		// Add additional information.
 		$objectsAssoc = [];
 		foreach ($objects as $objectk => &$objectv) {
-			$objectv->setIndexed([
+			$objectv->setFlatAssoc([
 				"srcname" => gettext("n/a"),
 				"destname" => gettext("n/a")
 			]);

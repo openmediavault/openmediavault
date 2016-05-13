@@ -228,7 +228,7 @@ class ConfigObject {
 	public function setAssoc(array $data, $validate = TRUE, $ignore = FALSE) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Create a flat representation of the data.
-		$this->setIndexed(array_flatten($data), $validate, $ignore);
+		$this->setFlatAssoc(array_flatten($data), $validate, $ignore);
 	}
 
 	/**
@@ -254,13 +254,36 @@ class ConfigObject {
 	 *   Defaults to FALSE.
 	 * @return None.
 	 */
-	public function setIndexed(array $data, $validate = TRUE, $ignore = FALSE) {
+	public function setFlatAssoc(array $data, $validate = TRUE,
+	  $ignore = FALSE) {
 //		$this->debug(var_export(func_get_args(), TRUE));
+		// Make sure that the given array is not a multi-dimensional
+		// associative array.
+		if (is_multi_array($data)) {
+			throw new InvalidArgumentException(
+			  "The data must not be a multi-dimensional associative array.");
+		}
 		foreach ($data as $propk => $propv) {
 			if ((TRUE === $ignore) && (FALSE === $this->exists($propk)))
 				continue;
 			$this->set($propk, $propv, $validate);
 		}
+	}
+
+	/**
+	 * Set properties.
+	 * @deprecated
+	 * @param array $data The single dimension array of key/value pairs.
+	 *   The key must be in dot notation, e.g. 'a.b.c' or 'a.b.0.c.1'
+	 * @param bool $validate Set to FALSE to do not validate the property
+	 *   values against the property schema defined in the model.
+	 *   Defaults to TRUE.
+	 * @param bool $ignore Set to TRUE to ignore and skip unknown properties.
+	 *   Defaults to FALSE.
+	 * @return None.
+	 */
+	public function setIndexed(array $data, $validate = TRUE, $ignore = FALSE) {
+		$this->setFlatAssoc($data, $validate, $ignore);
 	}
 
 	/**

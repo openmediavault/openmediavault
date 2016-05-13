@@ -79,7 +79,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			$objectv->remove("privatekey");
 			// Parse the certificate.
 			if ($certinfo = openssl_x509_parse($objectv->get("certificate"))) {
-				$objectv->setIndexed([
+				$objectv->setFlatAssoc([
 					"name" => $certinfo['name'],
 					"validto" => $certinfo['validTo_time_t']
 				]);

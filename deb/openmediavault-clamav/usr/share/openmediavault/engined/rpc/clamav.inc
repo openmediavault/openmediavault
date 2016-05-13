@@ -82,7 +82,7 @@ class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 		// Get the existing configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.clamav");
-		$object->setIndexed([
+		$object->setFlatAssoc([
 			"enable" => $params['enable'],
 			"quarantine_sharedfolderref" => $params[
 			  'quarantine_sharedfolderref'],

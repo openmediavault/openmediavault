@@ -173,7 +173,7 @@ class OMVRpcServiceAFP extends \OMV\Rpc\ServiceAbstract {
 		// Prepare the configuration data.
 		$object = new \OMV\Config\ConfigObject("conf.service.afp.share");
 		$object->setAssoc($params, TRUE, TRUE);
-		$object->setIndexed([
+		$object->setFlatAssoc([
 			"options.ro" => $params['ro'],
 			"options.upriv" => $params['upriv'],
 			"options.usedots" => $params['usedots'],
