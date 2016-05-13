@@ -153,13 +153,13 @@ class Btrfs extends Filesystem {
 		// GlobalReserve, single: total=4194304, used=0
 		// Initialize arrays.
 		$allocated = $allocatedUnused = $used = $allocatedRaw =
-		  $allocatedUnusedRaw = $usedRaw = array(
+		  $allocatedUnusedRaw = $usedRaw = [
 			"Data" => 0,
 			"Metadata" => 0,
 			"Data+Metadata"	=> 0,
 			"System" => 0,
 			"GlobalReserve"	=> 0
-		);
+		];
 		$regex = "/^([\w\+]+), ([a-zA-Z0156]+): total=([0-9]+), ".
 		  "used=([0-9]+)$/i";
 		foreach (preg_filter($regex, "$1 $2 $3 $4", $output) as $rowv) {
@@ -241,14 +241,14 @@ class Btrfs extends Filesystem {
 		// as it is not directly available for data usage.
 		$available = bcadd($unallocated, array_sum(array_filter(
 		  $allocatedUnusedRaw, function($type) {
-			  return in_array($type, array('Data', 'Data+Metadata'));
+			  return in_array($type, [ 'Data', 'Data+Metadata' ]);
 		  }, ARRAY_FILTER_USE_KEY)));
 		// Data ratio is calculated based only on Data (or Data+Metadata).
 		$dataRatio = bcdiv(array_sum(array_filter($usedRaw, function($type) {
-			  return in_array($type, array('Data', 'Data+Metadata'));
+			  return in_array($type, [ 'Data', 'Data+Metadata' ]);
 		  }, ARRAY_FILTER_USE_KEY)),
 		  array_sum(array_filter($used, function($type) {
-			  return in_array($type, array('Data', 'Data+Metadata'));
+			  return in_array($type, [ 'Data', 'Data+Metadata' ]);
 		  }, ARRAY_FILTER_USE_KEY)), 2);
 
 		// Update the information.

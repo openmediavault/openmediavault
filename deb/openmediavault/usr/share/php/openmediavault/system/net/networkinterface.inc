@@ -32,12 +32,12 @@ class NetworkInterface {
 	protected $ifconfig = null;
 	protected $ip = null;
 	protected $ethtool = null;
-	protected $regex = array(
+	protected $regex = [
 		"ipv4" => '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}',
 		"ipv6" => '[a-f0-9:]+',
 		"ipv6cidr" => '([a-f0-9:]+)\/(\d{1,2})',
 		"state" => 'UP|DOWN|UNKNOWN'
-	);
+	];
 
 	/**
 	 * Constructor
@@ -269,6 +269,7 @@ class NetworkInterface {
 	/**
 	 * Get the network interface statistics.
 	 * @return The network interface statistics, otherwise FALSE.
+	 * @code
 	 * array(
 	 *   rx_bytes => xxx,
 	 *   rx_packets => xxx,
@@ -287,6 +288,7 @@ class NetworkInterface {
 	 *   tx_carrier_errors => xxx,
 	 *   tx_compressed => xxx
 	 * )
+	 * @endcode
 	 */
 	public function getStatistics() {
 		// Parse command output:
@@ -300,7 +302,7 @@ class NetworkInterface {
 		  $matches))
 			return FALSE;
 		$data = preg_split("/[\s]+/", $matches[1]);
-		return array(
+		return [
 			  "rx_bytes" => $data[0],
 			  "rx_packets" => $data[1],
 			  "rx_errors" => $data[2],
@@ -317,7 +319,7 @@ class NetworkInterface {
 			  "tx_collisions" => $data[13],
 			  "tx_carrier_errors" => $data[14],
 			  "tx_compressed" => $data[15]
-		  );
+		  ];
 	}
 
 	/**

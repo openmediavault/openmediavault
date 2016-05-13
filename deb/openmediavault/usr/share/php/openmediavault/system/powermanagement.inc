@@ -40,13 +40,13 @@ class PowerManagement {
 	 *   FALSE.
 	 */
 	private function exec($action) {
-		$mapCommand = array(
-			"reboot" => array("shutdown", "-r", "now"),
-			"shutdown" => array("shutdown", "-h", "-P", "now"),
-			"suspendhybrid" => array("pm-suspend-hybrid"),
-			"hibernate" => array("pm-hibernate"),
-			"suspend" => array("pm-suspend")
-		);
+		$mapCommand = [
+			"reboot" => [ "shutdown", "-r", "now" ],
+			"shutdown" => [ "shutdown", "-h", "-P", "now" ],
+			"suspendhybrid" => [ "pm-suspend-hybrid" ],
+			"hibernate" => [ "pm-hibernate" ],
+			"suspend" => [ "pm-suspend" ]
+		];
 		$cmd = new \OMV\System\Process($mapCommand[$action]);
 		$cmd->setRedirect2to1(TRUE);
 		$cmd->execute();
