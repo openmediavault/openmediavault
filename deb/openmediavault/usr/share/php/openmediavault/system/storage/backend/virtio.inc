@@ -30,6 +30,9 @@ class VirtIO extends BackendAbstract {
 		return OMV_STORAGE_DEVICE_TYPE_HDD;
 	}
 
+	/**
+	 * See interface definition.
+	 */
 	function enumerate() {
 		// major minor  #blocks  name
 		//  254        0  976762584 vda
@@ -42,6 +45,9 @@ class VirtIO extends BackendAbstract {
 		return $this->enumerateProcFs("vd[a-z]+");
 	}
 
+	/**
+	 * See interface definition.
+	 */
 	function isTypeOf($deviceFile) {
 		// Examples:
 		// - /dev/vda
@@ -50,10 +56,16 @@ class VirtIO extends BackendAbstract {
 		return $this->isTypeOfByName($deviceFile, $regex);
 	}
 
+	/**
+	 * See interface definition.
+	 */
 	function getImpl($args) {
 		return new \OMV\System\Storage\StorageDeviceVirtIO($args);
 	}
 
+	/**
+	 * See interface definition.
+	 */
 	function baseDeviceFile($deviceFile) {
 		return preg_replace("/(\d+)$/", "", $deviceFile);
 	}

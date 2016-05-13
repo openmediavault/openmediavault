@@ -27,11 +27,13 @@ namespace OMV\System\Storage\Backend;
  *
  * To implement a new storage backend the following information are
  * necessary:
+ * @code
  * # cat /proc/partitions
  * # export LANG=C; blkid
  * # export LANG=C; udevadm info --query=property --name=/dev/<DEVNAME>
  * # cat /sys/block/<DEVNAME>/device/model
  * # cat /sys/block/<DEVNAME>/device/vendor
+ * @endcode
  */
 abstract class BackendAbstract {
 	/**
@@ -58,7 +60,7 @@ abstract class BackendAbstract {
 	/**
 	 * Check whether the given device is represented by this storage
 	 * device backend.
-	 * @param deviceFile Specifies the device file, e.g.
+	 * @param string $deviceFile Specifies the device file, e.g.
 	 *   <ul>
 	 *   \li /dev/sdb
 	 *   \li /dev/md1
@@ -77,7 +79,7 @@ abstract class BackendAbstract {
 	/**
 	 * Get the object of the class that represents and implements a device
 	 * of this storage device backend.
-	 * @param args The arguments to the class constructor.
+	 * @param string $args The arguments to the class constructor.
 	 * @return The object of the class implementing the given device type,
 	 *   otherwise NULL.
 	 */
@@ -87,7 +89,7 @@ abstract class BackendAbstract {
 
 	/**
 	 * Returns base device file by stripping the partition appendix.
-	 * @param deviceFile Specifies the device file, e.g.
+	 * @param string $deviceFile Specifies the device file, e.g.
 	 *   <ul>
 	 *   \li /dev/sdb1 => /dev/sdb
 	 *   \li /dev/cciss/c0d0p2 => /dev/cciss/c0d0
@@ -105,7 +107,7 @@ abstract class BackendAbstract {
 	/**
 	 * Return the device file to be used to create a filesystem.
 	 * @note Only one partition per storage device is supported.
-	 * @param deviceFile Specifies the device file, e.g.
+	 * @param string $deviceFile Specifies the device file, e.g.
 	 *   <ul>
 	 *   \li /dev/sdb => /dev/sdb1
 	 *   \li /dev/cciss/c0d0 => /dev/cciss/c0d0p1
@@ -122,7 +124,7 @@ abstract class BackendAbstract {
 	/**
 	 * Helper function to enumerate the devices represented by this storage
 	 * device backend via the /proc filesystem.
-	 * @param regex The regular expression used to identify the devices
+	 * @param string $regex The regular expression used to identify the devices
 	 *   represented by this storage backend.
 	 * @return A list of devicefile names, otherwise FALSE.
 	 */
@@ -140,8 +142,8 @@ abstract class BackendAbstract {
 	/**
 	 * Helper function to check whether the given device is represented by
 	 * this storage device backend.
-	 * @param deviceFile Specifies the device file.
-	 * @param regex The regular expression used to identify the devices
+	 * @param string $deviceFile Specifies the device file.
+	 * @param string $regex The regular expression used to identify the devices
 	 *   represented by this storage backend.
 	 */
 	final protected function isTypeOfByName($deviceFile, $regex) {

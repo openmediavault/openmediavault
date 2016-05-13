@@ -30,6 +30,9 @@ class RDB extends BackendAbstract {
 		return OMV_STORAGE_DEVICE_TYPE_HDD;
 	}
 
+	/**
+	 * See interface definition.
+	 */
 	function enumerate() {
 		// major minor  #blocks  name
 		// 251       32       1024 rbd2
@@ -38,6 +41,9 @@ class RDB extends BackendAbstract {
 		return $this->enumerateProcFs("rbd[0-9]+");
 	}
 
+	/**
+	 * See interface definition.
+	 */
 	function isTypeOf($deviceFile) {
 		// Examples:
 		// - /dev/rbd1
@@ -46,14 +52,23 @@ class RDB extends BackendAbstract {
 		return $this->isTypeOfByName($deviceFile, $regex);
 	}
 
+	/**
+	 * See interface definition.
+	 */
 	function getImpl($args) {
 		return new \OMV\System\Storage\StorageDeviceRDB($args);
 	}
 
+	/**
+	 * See interface definition.
+	 */
 	function baseDeviceFile($deviceFile) {
 		return preg_replace("/(p\d+)$/", "", $deviceFile);
 	}
 
+	/**
+	 * See interface definition.
+	 */
 	function fsDeviceFile($deviceFile) {
 		// E.g. /dev/rbd2p1
 		return sprintf("%sp1", $deviceFile);

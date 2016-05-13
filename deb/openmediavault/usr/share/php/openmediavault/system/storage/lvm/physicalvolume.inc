@@ -37,7 +37,7 @@ class PhysicalVolume {
 
 	/**
 	 * Constructor
-	 * @param deviceFile The device file, e.g. /dev/sdb.
+	 * @param string $deviceFile The device file, e.g. /dev/sdb.
 	 */
 	public function __construct($deviceFile) {
 		$this->deviceFile = $deviceFile;
