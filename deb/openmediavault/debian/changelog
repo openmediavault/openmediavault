@@ -1,6 +1,8 @@
 openmediavault (2.2.4) stable; urgency=low
 
   * Various improvements and bugfixes.
+  * Mantis 0001519: Using quotation marks with the `OMV_NFSD_MOUNTDOPTS`
+    option will not work as expected.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 11 May 2016 12:42:58 +0200
 
