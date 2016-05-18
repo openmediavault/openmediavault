@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2016-05-03 12:57+0000\n"
+"PO-Revision-Date: 2016-05-18 19:43+0000\n"
 "Last-Translator: zubr139\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -167,7 +167,7 @@ msgid "About"
 msgstr "Про"
 
 msgid "Abstract"
-msgstr ""
+msgstr "Абстрактно"
 
 msgid "Access Right Management"
 msgstr "Менеджер прав доступу"
@@ -197,13 +197,13 @@ msgid "Add Wi-Fi connection"
 msgstr "Додати Wi-Fi з'єднання"
 
 msgid "Add bond connection"
-msgstr ""
+msgstr "Додати bond з'єднання"
 
 msgid "Add devices to RAID device"
 msgstr "Додати диск до RAID"
 
 msgid "Add ethernet connection"
-msgstr ""
+msgstr "Додати ethernet з'єднання "
 
 msgid "Add firewall rule"
 msgstr "Додати правило брандмауера"
@@ -390,7 +390,7 @@ msgid "Attributes"
 msgstr "Атрибути"
 
 msgid "Audit"
-msgstr ""
+msgstr "Аудит"
 
 msgid "Audit file operations."
 msgstr ""
@@ -498,7 +498,7 @@ msgid "Bond"
 msgstr ""
 
 msgid "Boot"
-msgstr ""
+msgstr "Завантаження"
 
 msgid "Bosnia and Herzegovina"
 msgstr "Боснія і Герцеговина"
@@ -621,7 +621,7 @@ msgid "Client NetBIOS name"
 msgstr ""
 
 msgid "Client address"
-msgstr ""
+msgstr "Адреса клієнта"
 
 msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
 msgstr "Клієнтам дозволено монтувати файлову систему, наприклад 192.168.178.0/24."
@@ -707,7 +707,7 @@ msgid "Cook Islands"
 msgstr "Острови Кука"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Копіювати в буфер обміну"
 
 msgid "Costa Rica"
 msgstr "Коста-Ріка"
@@ -841,10 +841,10 @@ msgid "Device Mapper %s [%s, %s]"
 msgstr ""
 
 msgid "Device has a few bad sectors"
-msgstr ""
+msgstr "Пристрій має кілька поганих секторів"
 
 msgid "Device has many bad sectors"
-msgstr ""
+msgstr "Пристрій має багато поганих секторів"
 
 msgid "Device information"
 msgstr "Інформацію про пристрій "
@@ -856,7 +856,7 @@ msgid "Device model"
 msgstr "Модель пристрою"
 
 msgid "Device properties"
-msgstr ""
+msgstr "Властивості пристрою"
 
 msgid "Device was used outside of design parameters in the past"
 msgstr ""
@@ -898,7 +898,7 @@ msgid "Djibouti"
 msgstr "Джібуті"
 
 msgid "Do you really want to apply the configuration changes?"
-msgstr ""
+msgstr "Бажаєте застосувати зміни в конфігурації?"
 
 msgid "Do you really want to clear the log file?"
 msgstr "Ви справді хочете очистити log файл?"
@@ -907,7 +907,7 @@ msgid "Do you really want to create the RAID device?"
 msgstr "Ви справді хочете створити RAID?"
 
 msgid "Do you really want to delete the file system? All data will be lost."
-msgstr ""
+msgstr "Ви справді бажаєте видалити файлову систему? Всі дані будуть втрачені."
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Ви справді хочете видалити виділені об'єкти?"
@@ -915,7 +915,7 @@ msgstr "Ви справді хочете видалити виділені об'
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
 "Please note that the file system creation may take some time."
-msgstr ""
+msgstr "Ви справді хочете відформатувати диск? Усі данні буде знищено. Ця операція може зайняти певний час."
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Справді бажаєте, встановити обраний модуль(і)?"
@@ -927,7 +927,7 @@ msgid "Do you really want to logout?"
 msgstr "Ви справді хочете вийти?"
 
 msgid "Do you really want to put the system into standby?"
-msgstr ""
+msgstr "Бажаєте перевести систему в режим очікування?"
 
 msgid "Do you really want to reboot the system?"
 msgstr "Ви дійсно хочете перезавантажити систему?"
@@ -935,7 +935,7 @@ msgstr "Ви дійсно хочете перезавантажити систе
 msgid ""
 "Do you really want to relocate the shared folder? The content of the shared "
 "folder will not be moved automatically, you have to do this yourself."
-msgstr ""
+msgstr "Бажаєте перемістити спільну теку? Зміст спільної теки не буде переміщено автоматично, ви повинні зробити це самостійно."
 
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
@@ -1073,10 +1073,10 @@ msgid "Email"
 msgstr "Email"
 
 msgid "Empty now"
-msgstr ""
+msgstr "Очистити зараз"
 
 msgid "Empty recycle bin"
-msgstr ""
+msgstr "Очистити кошик"
 
 msgid "Enable"
 msgstr "Увімкнути"
@@ -1207,7 +1207,7 @@ msgid "Everyone: read/write"
 msgstr "Всі: читання/запис"
 
 msgid "Exactly"
-msgstr ""
+msgstr "Точно"
 
 msgid "Execute command"
 msgstr "Виконати команду"
@@ -1216,7 +1216,7 @@ msgid "Execute cron job"
 msgstr "Виконати завдання Cron"
 
 msgid "Execute only"
-msgstr ""
+msgstr "Лишень виконати"
 
 msgid "Execute rsync job"
 msgstr "Виконати завдання Rsync"
@@ -1231,7 +1231,7 @@ msgid "Extended attributes"
 msgstr "Розширенні атрибути"
 
 msgid "Extended information"
-msgstr ""
+msgstr "Розширена інформація"
 
 msgid "Extra options"
 msgstr "Додаткові опції"
@@ -1315,7 +1315,7 @@ msgid "Firmware version"
 msgstr "Версія прошивки"
 
 msgid "Flags"
-msgstr ""
+msgstr "Прапори"
 
 msgid "Force SSL/TLS"
 msgstr "Примусово SSL/TLS"
@@ -1384,7 +1384,7 @@ msgid "Gibraltar"
 msgstr "Ґібралтар"
 
 msgid "Good"
-msgstr ""
+msgstr "Добре"
 
 msgid "Greece"
 msgstr "Греція"
@@ -1420,10 +1420,10 @@ msgid "Guest"
 msgstr "Гість"
 
 msgid "Guest allowed"
-msgstr ""
+msgstr "Гість дозволено"
 
 msgid "Guests allowed"
-msgstr ""
+msgstr "Гості дозволено"
 
 msgid "Guinea"
 msgstr "Гвінея"
@@ -1486,7 +1486,7 @@ msgid "Hour"
 msgstr "Година"
 
 msgid "Hourly"
-msgstr ""
+msgstr "Щогодини"
 
 msgid "Hungary"
 msgstr "Угорщина"
@@ -2374,12 +2374,12 @@ msgstr ""
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Будь ласка, перевірте  <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>сторінку керівництва</a> для більш докладної інформації."
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Будь ласка, перевірте <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>сторінку керівництва</a> для більш докладної інформації."
 
 msgid ""
 "Please check the <a "
@@ -2412,7 +2412,7 @@ msgstr "Зачекайте..."
 msgid ""
 "Please wait until the RAID has been initialized before creating a file "
 "system."
-msgstr ""
+msgstr "Будь ласка, зачекайте, доки RAID не ініціалізовано перед створенням файлової системи."
 
 msgid "Plugins"
 msgstr "Модулі"
@@ -2530,7 +2530,7 @@ msgid "Qatar"
 msgstr "Катар"
 
 msgid "Quick"
-msgstr ""
+msgstr "Швидко"
 
 msgid "Quiet"
 msgstr "Тихий"
@@ -2599,7 +2599,7 @@ msgid "Recover"
 msgstr "Відновлювати"
 
 msgid "Recurse into directories"
-msgstr ""
+msgstr "Рекурсивно в каталогах"
 
 msgid "Recursive"
 msgstr "Рекурсивний"
@@ -2629,7 +2629,7 @@ msgid "Remote syslog"
 msgstr "Віддалений системний лог"
 
 msgid "Remove"
-msgstr ""
+msgstr "Вилучити"
 
 msgid "Remove devices from RAID device"
 msgstr ""
@@ -2866,16 +2866,16 @@ msgid "Select a file system ..."
 msgstr "Оберіть файлову систему ..."
 
 msgid "Select a group name ..."
-msgstr ""
+msgstr "Оберіть ім'я групи ..."
 
 msgid "Select a language ..."
 msgstr "Вибір мови..."
 
 msgid "Select a parent interface ..."
-msgstr ""
+msgstr "Обрати батьківський інтерфейс ..."
 
 msgid "Select a primary interface ..."
-msgstr ""
+msgstr "Обрати основний інтерфейс ..."
 
 msgid "Select a protocol ..."
 msgstr "Оберіть протокол ..."
@@ -2911,7 +2911,7 @@ msgid "Send a test email"
 msgstr ""
 
 msgid "Send command output via email"
-msgstr ""
+msgstr "Надіслати команду виведення електронною поштою"
 
 msgid "Send email"
 msgstr "Надіслати email"
@@ -2972,7 +2972,7 @@ msgstr "Встановити лише для читання"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions"
-msgstr ""
+msgstr "Встановити дозволи призначення такі ж, як на джерелі"
 
 msgid "Set write only"
 msgstr "Встановити лише для запису"
@@ -3004,10 +3004,10 @@ msgid "Shared folder name"
 msgstr "Ім’я спільної теки"
 
 msgid "Shared folder path"
-msgstr ""
+msgstr "Шлях до спільної теки"
 
 msgid "Shared folder privileges"
-msgstr ""
+msgstr "Привілеї спільної теки"
 
 msgid "Shares"
 msgstr "Спільні ресурси"
@@ -3163,7 +3163,7 @@ msgid "Speed"
 msgstr "Швидкість"
 
 msgid "Spindown time"
-msgstr ""
+msgstr "Час зупинення спіну"
 
 msgid "Sri Lanka"
 msgstr "Шрі Ланка"
@@ -3211,7 +3211,7 @@ msgid "Support"
 msgstr "Підтримка"
 
 msgid "Suppress non-error messages"
-msgstr ""
+msgstr "Не показувати повідомлення в яких немає інформації про помилки"
 
 msgid "Suriname"
 msgstr "Сурінам"
@@ -3295,7 +3295,7 @@ msgid "The SSL certificate."
 msgstr "Сертифікат SSL."
 
 msgid "The action to be done when pressing the power button."
-msgstr ""
+msgstr "Що повинно бути зроблено при натисненні на кнопку живлення."
 
 msgid "The changes have been applied successfully."
 msgstr "Зміни успішно застосовані."
@@ -3309,7 +3309,7 @@ msgid ""
 msgstr "Конфігурація була змінена. Вам необхідно застосувати зміни, щоб вони набрали чинності."
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr ""
+msgstr "SMTP типовий порт поштового сервера, наприклад, 25 або 587."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
@@ -3320,13 +3320,13 @@ msgid "The destination shared folder."
 msgstr "Спільна тека призначення."
 
 msgid "The device does not exist"
-msgstr ""
+msgstr "Пристрій не існує"
 
 msgid "The file mode of the shared folder path."
 msgstr ""
 
 msgid "The file system creation has completed successfully."
-msgstr ""
+msgstr "Створення файлової системи успішно завершено."
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr ""
@@ -3367,7 +3367,7 @@ msgstr "Пароль, який використовується для дост�
 msgid ""
 "The path of the folder to share. The specified folder will be created if it "
 "does not already exist."
-msgstr ""
+msgstr "Шлях до спільної теки. Вказана тека буде створена, якщо її не існує."
 
 msgid ""
 "The permissions on new files and directories are normally governed by create"
@@ -3377,7 +3377,7 @@ msgid ""
 msgstr ""
 
 msgid "The private RSA key in X.509 PEM format."
-msgstr ""
+msgstr "Секретний ключ RSA в форматі X.509 PEM."
 
 msgid "The public key in RFC 4716 SSH public key file format."
 msgstr ""
@@ -3385,7 +3385,7 @@ msgstr ""
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
-msgstr "Сховище буде перевірений на наявність нових, видалених або оновлених пакетів програмного забезпечення."
+msgstr "Сховище буде перевірене на наявність нових, видалених або оновлених пакетів програмного забезпечення."
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
@@ -3414,7 +3414,7 @@ msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr "Тестове електронне повідомлення було успішно надіслано. Будь ласка, перевірте свою поштову скриньку."
 
 msgid "The volume label for the file system."
-msgstr ""
+msgstr "Мітка розділу для цієї файлової системи."
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
@@ -3450,7 +3450,7 @@ msgid "This field should be a IPv4 network address"
 msgstr "Це поле повинно містити IPv4 адресу мережі"
 
 msgid "This field should be a IPv4 network address in CIDR notation"
-msgstr ""
+msgstr "Це поле повинне містити адресу мережі IPv4 в нотації CIDR"
 
 msgid "This field should be a IPv6 network address in CIDR notation"
 msgstr "Це поле повинне містити адресу мережі IPv6 в нотації CIDR"
@@ -3459,16 +3459,16 @@ msgid "This field should be a domain name or an IP address"
 msgstr "Це поле повинно бути доменне ім'я або IP-адреса"
 
 msgid "This field should be a domain name or an IPv4 address"
-msgstr ""
+msgstr "Це поле повинно містити ім'я домену або адресу IPv4"
 
 msgid "This field should be a host name or an IP address"
-msgstr ""
+msgstr "Це поле повинне містити ім'я хоста або IP адресу"
 
 msgid "This field should be a host name or an IPv4 address"
-msgstr ""
+msgstr "Це поле повинно містити назву хоста, або IPv4 адресу"
 
 msgid "This field should be a list of domain names or IP addresses"
-msgstr ""
+msgstr "Це поле повинно містити список доменнів або IP адреси"
 
 msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
@@ -3482,10 +3482,10 @@ msgstr ""
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
-msgstr ""
+msgstr "Тут повинна бути маска підмережі в діапазоні 128.0.0.0 - 255.255.255.252"
 
 msgid "This field should be a port in the range of 1 - 65535"
-msgstr ""
+msgstr "В цьому полі повинен бути порт в діапазоні 1 - 65535"
 
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
@@ -3642,7 +3642,7 @@ msgid "Time interval"
 msgstr "Інтервал часу"
 
 msgid "Time of execution"
-msgstr ""
+msgstr "Час виконання"
 
 msgid "Time server"
 msgstr "Сервер часу"
@@ -3759,7 +3759,7 @@ msgid "United States Minor Outlying Islands"
 msgstr "Сполучені Штати Америки Зовнішні малі острови"
 
 msgid "Unknown"
-msgstr ""
+msgstr "Невідомо"
 
 msgid "Unknown network interface type."
 msgstr "Невідомий тип мережевого інтерфейсу."
@@ -3771,13 +3771,13 @@ msgid "Up"
 msgstr "Вгору"
 
 msgid "Up delay"
-msgstr ""
+msgstr "Затримка"
 
 msgid "Update Management"
-msgstr ""
+msgstr "Керування оновленнями"
 
 msgid "Update Management - History"
-msgstr ""
+msgstr "Керування оновленнями - Історія"
 
 msgid "Update Management - Terminal output"
 msgstr ""

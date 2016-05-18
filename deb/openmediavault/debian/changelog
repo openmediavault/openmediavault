@@ -1,5 +1,6 @@
 openmediavault (3.0.19) stable; urgency=low
 
+  * Update locales.
   * Various improvements and bugfixes.
   * Mantis 0001517: Typo in config.xml template.
 
