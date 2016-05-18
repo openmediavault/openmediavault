@@ -1,2 +1,10 @@
 /openmediavault/
 /openmediavault-installer/
+/files
+/openmediavault-installer.debhelper.log
+/openmediavault-installer.postrm.debhelper
+/openmediavault-installer.substvars
+/openmediavault.debhelper.log
+/openmediavault.postinst.debhelper
+/openmediavault.postrm.debhelper
+/openmediavault.substvars
