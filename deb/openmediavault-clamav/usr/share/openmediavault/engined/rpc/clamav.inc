@@ -214,7 +214,7 @@ class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.clamav.job",
-		  $object->getAssoc()$object->getAssoc());
+		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
