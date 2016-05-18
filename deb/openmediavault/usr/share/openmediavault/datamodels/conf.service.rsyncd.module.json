@@ -47,7 +47,7 @@
 		},
 		"list": {
 			"type": "boolean",
-			"default": 1
+			"default": true
 		},
 		"hostsallow": {
 			"type": "string"
