@@ -492,20 +492,20 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 	 */
 	updateFormFields: function() {
 		var values = this.getValues();
-		if(this.uuid !== OMV.UUID_UNDEFINED) {
+		if (this.uuid !== OMV.UUID_UNDEFINED) {
 			this.findField("type").setReadOnly(true);
 		}
 		switch (values.type) {
 		case "local":
 			var fields = [ "srcsharedfolderref", "destsharedfolderref" ];
-			for(var i = 0; i < fields.length; i++) {
+			for (var i = 0; i < fields.length; i++) {
 				var field = this.findField(fields[i]);
 				field.enable();
 				field.show();
 				field.allowBlank = false;
 			}
 			fields = [ "srcuri", "desturi" ];
-			for(i = 0; i < fields.length; i++) {
+			for (i = 0; i < fields.length; i++) {
 				var field = this.findField(fields[i]);
 				field.disable();
 				field.hide();
@@ -520,14 +520,14 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 			switch (values.mode) {
 			case "push":
 				var fields = [ "srcsharedfolderref", "desturi" ];
-				for(var i = 0; i < fields.length; i++) {
+				for (var i = 0; i < fields.length; i++) {
 					var field = this.findField(fields[i]);
 					field.enable();
 					field.show();
 					field.allowBlank = false;
 				}
 				fields = [ "srcuri", "destsharedfolderref" ];
-				for(i = 0; i < fields.length; i++) {
+				for (i = 0; i < fields.length; i++) {
 					var field = this.findField(fields[i]);
 					field.disable();
 					field.hide();
@@ -536,14 +536,14 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 				break;
 			case "pull":
 				var fields = [ "srcuri", "destsharedfolderref" ];
-				for(var i = 0; i < fields.length; i++) {
+				for (var i = 0; i < fields.length; i++) {
 					var field = this.findField(fields[i]);
 					field.enable();
 					field.show();
 					field.allowBlank = false;
 				}
 				fields = [ "srcsharedfolderref", "desturi" ];
-				for(i = 0; i < fields.length; i++) {
+				for (i = 0; i < fields.length; i++) {
 					var field = this.findField(fields[i]);
 					field.disable();
 					field.hide();
@@ -558,13 +558,13 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 
 	isValid: function() {
 		var me = this;
-		if(!me.callParent(arguments))
+		if (!me.callParent(arguments))
 			return false;
 		// Do additional checks.
 		var valid = true;
 		var values = me.getValues();
-		if(values.type === "local") {
-			if(values.srcsharedfolderref === values.destsharedfolderref) {
+		if (values.type === "local") {
+			if (values.srcsharedfolderref === values.destsharedfolderref) {
 				var msg = _("Shared folder must not be equal");
 				me.markInvalid([
 					{ id: "srcsharedfolderref", msg: msg },
@@ -577,13 +577,32 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 		[ "minute", "hour", "dayofmonth" ].forEach(function(name) {
 			var field = me.findField(name);
 			field.clearInvalid(); // combineErrors is false
-			if((field.getValue() === "*") && (me.findField("everyn" +
+			if ((field.getValue() === "*") && (me.findField("everyn" +
 			  name).checked)) {
 				field.markInvalid(_("Ranges of numbers are not allowed"));
 				valid = false;
 			}
 		});
 		return valid;
+	},
+
+	getValues: function() {
+		var me = this;
+		var values = me.callParent(arguments);
+		switch (values.type) {
+		case "local":
+			// Make sure the value is not NULL.
+			if (Ext.isNull) {
+				Ext.apply(values, {
+					sshcertificateref: ""
+				});
+			}
+			break;
+		default:
+			// Nothing to do here.
+			break;
+		}
+		return values;
 	}
 });
 

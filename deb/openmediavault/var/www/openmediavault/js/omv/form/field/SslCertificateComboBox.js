@@ -84,7 +84,7 @@ Ext.define("OMV.form.field.SslCertificateComboBox", {
 				listeners: {
 					scope: me,
 					load: function(store, records, options) {
-						if(me.allowNone === false)
+						if (me.allowNone === false)
 							return;
 						// Push the 'None' entry to the beginning of
 						// dropdown the list.
@@ -136,10 +136,9 @@ Ext.define("OMV.form.field.SslCertificateComboBox", {
 
 	getErrors: function(value) {
 		var me = this, errors = me.callParent(arguments);
-		if(me.allowNone === true) {
-			if(!me.allowBlank && (value === me.noneText)) {
+		if (me.allowNone === true) {
+			if (!me.allowBlank && (value === me.noneText))
 				errors.push(me.blankText);
-			}
 		}
 		return errors;
 	}

@@ -31,11 +31,23 @@
 		},
 		"src": {
 			"type": "string",
-			"format": "uuidv4"
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string"
+			}],
+			"default": ""
 		},
 		"dest": {
 			"type": "string",
-			"format": "uuidv4"
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string"
+			}],
+			"default": ""
 		},
 		"minute": {
 			"type": "string",
@@ -129,9 +141,16 @@
 			"type": "string",
 			"default": ""
 		},
-		"sshcertificateref":{
+		"sshcertificateref": {
 			"type": "string",
-			"format": "uuidv4"
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}],
+			"default": ""
 		},
 		"sshport": {
 			"type": "integer",

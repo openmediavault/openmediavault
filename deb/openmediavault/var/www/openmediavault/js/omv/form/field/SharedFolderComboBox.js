@@ -96,7 +96,7 @@ Ext.define("OMV.form.field.SharedFolderComboBox", {
 				listeners: {
 					scope: me,
 					load: function(store, records, options) {
-						if(me.allowNone === false)
+						if (me.allowNone === false)
 							return;
 						// Append the 'None' entry.
 						store.insert(0, {
@@ -133,7 +133,7 @@ Ext.define("OMV.form.field.SharedFolderComboBox", {
 
 	onTrigger2Click: function() {
 		var me = this;
-		if(me.readOnly || me.disabled)
+		if (me.readOnly || me.disabled)
 			return;
 		Ext.create("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 			title: _("Add shared folder"),
@@ -176,10 +176,10 @@ Ext.define("OMV.form.field.SharedFolderComboBox", {
 
 	onTrigger3Click: function() {
 		var me = this;
-		if(me.disabled)
+		if (me.disabled)
 			return;
 		var uuid = me.getValue();
-		if(Ext.isEmpty(uuid))
+		if (Ext.isEmpty(uuid))
 			return;
 		Ext.create("OMV.module.admin.privilege.sharedfolder.Privileges", {
 			uuid: uuid,
@@ -189,10 +189,9 @@ Ext.define("OMV.form.field.SharedFolderComboBox", {
 
 	getErrors: function(value) {
 		var me = this, errors = me.callParent(arguments);
-		if(me.allowNone === true) {
-			if(!me.allowBlank && (value === me.noneText)) {
+		if (me.allowNone === true) {
+			if (!me.allowBlank && (value === me.noneText))
 				errors.push(me.blankText);
-			}
 		}
 		return errors;
 	}

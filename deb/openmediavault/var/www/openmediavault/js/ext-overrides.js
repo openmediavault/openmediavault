@@ -927,5 +927,14 @@ Ext.applyIf(Ext, {
 	isUUID: function(value) {
 		Ext.log.warn("Ext.isUUID() is deprecated. Use Ext.isUuid() instead.");
 		return Ext.isUuid(value);
+	},
+
+	/**
+	 * Returns true if the passed value is NULL.
+	 * @param value The variable being evaluated.
+	 * @return TRUE if variable is NULL, otherwise FALSE.
+	 */
+	isNull: function(value) {
+		return (value == null);
 	}
 });

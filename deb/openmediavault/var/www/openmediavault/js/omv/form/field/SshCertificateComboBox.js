@@ -92,9 +92,8 @@ Ext.define("OMV.form.field.SshCertificateComboBox", {
 	getErrors: function(value) {
 		var me = this, errors = me.callParent(arguments);
 		if (me.allowNone === true) {
-			if (!me.allowBlank && (value === me.noneText)) {
+			if (!me.allowBlank && (value === me.noneText))
 				errors.push(me.blankText);
-			}
 		}
 		return errors;
 	}

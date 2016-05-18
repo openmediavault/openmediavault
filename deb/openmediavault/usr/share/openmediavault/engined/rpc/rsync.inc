@@ -66,10 +66,10 @@ class OMVRpcServiceRsync extends \OMV\Rpc\ServiceAbstract {
 		// Add additional information.
 		$objectsAssoc = [];
 		foreach ($objects as $objectk => &$objectv) {
-			$objectv->setFlatAssoc([
-				"srcname" => gettext("n/a"),
-				"destname" => gettext("n/a")
-			]);
+			// Add additional properties.
+			$objectv->add("srcname", "string", gettext("n/a"));
+			$objectv->add("destname", "string", gettext("n/a"));
+			// Set the prooperties depending on the 'type' property.
 			switch ($objectv->get("type")) {
 			case "local":
 				// Get the shared folder configuration object and update the
@@ -129,8 +129,9 @@ class OMVRpcServiceRsync extends \OMV\Rpc\ServiceAbstract {
 		case "local":
 			$object->copy("src", "srcsharedfolderref");
 			$object->copy("dest", "destsharedfolderref");
+			break;
 		case "remote":
-			switch($object->get("mode")) {
+			switch ($object->get("mode")) {
 			case "push":
 				$object->copy("src", "srcsharedfolderref");
 				$object->copy("dest", "desturi");
@@ -160,7 +161,25 @@ class OMVRpcServiceRsync extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.rsync.set");
 		// Prepare the configuration data.
 		$object = new \OMV\Config\ConfigObject("conf.service.rsync.job");
-		$object->setAssoc($params);
+		$object->setAssoc($params, TRUE, TRUE);
+		switch ($params['type']) {
+		case "local":
+			$object->set("src", $params['srcsharedfolderref']);
+			$object->set("dest", $params['destsharedfolderref']);
+			break;
+		case "remote":
+			switch ($params['mode']) {
+			case "push":
+				$object->set("src", $params['srcsharedfolderref']);
+				$object->set("dest", $params['desturi']);
+				break;
+			case "pull":
+				$object->set("src", $params['srcuri']);
+				$object->set("dest", $params['destsharedfolderref']);
+				break;
+			}
+			break;
+		}
 		// Set the configuration object.
 		$isNew = $object->isNew();
 		$db = \OMV\Config\Database::getInstance();

@@ -705,11 +705,11 @@ omv_get_sharedfolder_mount_dir() {
 # @param mountpoint The mount point to check for
 # @return Return 0 if mounted, nonzero otherwise.
 omv_is_mounted() {
-	if [ -z "$(mount | grep ${1})" ]; then
+	if ! mountpoint -q "${1}"; then
 		omv_debug "omv_is_mounted: Mount point '${1}' is not mounted"
 		return 1
 	fi
-	omv_debug "omv_is_mounted: Mount point '${1}' is already mounted"
+	omv_debug "omv_is_mounted: Mount point '${1}' is mounted"
 	return 0
 }
 
@@ -819,7 +819,7 @@ EOF
 omv_module_is_dirty() {
 	local _dirty
 	_dirty=$(php5 -c /etc/openmediavault -r \
-	  \$moduleMngr = \OMV\Engine\Module\Manager::getInstance(); \
+	  "\$moduleMngr = \OMV\Engine\Module\Manager::getInstance(); \
 	  \$dirtyModules = \$moduleMngr->getDirtyModules(); \
 	  !empty(\$dirtyModules) ? print 0 : print 1;")
 	return ${_dirty}

@@ -197,53 +197,45 @@ Ext.define("OMV.form.plugin.LinkedFields", {
 			if (!field)
 				return;
 			Ext.Array.each(correlation.properties, function(property) {
-				switch(property) {
+				switch (property) {
 				case "submitValue":
-					if(Ext.isDefined(field.submitValue)) {
+					if (Ext.isDefined(field.submitValue))
 						field.submitValue = valid;
-					}
 					break;
 				case "!submitValue":
 				case "notSubmitValue":
-					if(Ext.isDefined(field.submitValue)) {
+					if (Ext.isDefined(field.submitValue))
 						field.submitValue = !valid;
-					}
 					break;
 				case "allowBlank":
-					if(Ext.isDefined(field.allowBlank)) {
+					if (Ext.isDefined(field.allowBlank))
 						field.allowBlank = valid;
-					}
 					break;
 				case "!allowBlank":
 				case "notAllowBlank":
-					if(Ext.isDefined(field.allowBlank)) {
+					if (Ext.isDefined(field.allowBlank))
 						field.allowBlank = !valid;
-					}
 					break;
 				case "readOnly":
-					if(Ext.isFunction(field.setReadOnly)) {
+					if (Ext.isFunction(field.setReadOnly))
 						field.setReadOnly(valid);
-					}
 					break;
 				case "!readOnly":
 				case "notReadOnly":
-					if(Ext.isFunction(field.setReadOnly)) {
+					if (Ext.isFunction(field.setReadOnly))
 						field.setReadOnly(!valid);
-					}
 					break;
 				case "disabled":
 				case "!enabled":
 				case "notEnabled":
-					if(Ext.isFunction(field.setDisabled)) {
+					if (Ext.isFunction(field.setDisabled))
 						field.setDisabled(valid);
-					}
 					break;
 				case "enabled":
 				case "!disabled":
 				case "notDisabled":
-					if(Ext.isFunction(field.setDisabled)) {
+					if (Ext.isFunction(field.setDisabled))
 						field.setDisabled(!valid);
-					}
 					break;
 				case "show":
 				case "!hide":
@@ -262,15 +254,13 @@ Ext.define("OMV.form.plugin.LinkedFields", {
 						field.show();
 					break;
 				case "visible":
-					if(Ext.isFunction(field.setVisible)) {
+					if (Ext.isFunction(field.setVisible))
 						field.setVisible(valid);
-					}
 					break;
 				case "!visible":
 				case "notVisible":
-					if(Ext.isFunction(field.setVisible)) {
+					if (Ext.isFunction(field.setVisible))
 						field.setVisible(!valid);
-					}
 					break;
 				}
 			});

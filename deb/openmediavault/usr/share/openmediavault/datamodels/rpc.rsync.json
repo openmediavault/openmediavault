@@ -143,9 +143,15 @@
 				"type": "string",
 				"required": true
 			},
-			"sshcertificateref":{
+			"sshcertificateref": {
 				"type": "string",
-				"format": "uuidv4",
+				"oneOf": [{
+					"type": "string",
+					"format": "uuidv4"
+				},{
+					"type": "string",
+					"maxLength": 0
+				}],
 				"required": true
 			},
 			"sshport": {
