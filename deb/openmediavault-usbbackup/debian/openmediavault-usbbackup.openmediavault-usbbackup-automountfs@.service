@@ -1,0 +1,8 @@
+[Unit]
+Description=Automount the filesystem %i
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=/usr/local/bin/omv-mountfs -m %i
+ExecStop=/usr/local/bin/omv-mountfs -u %i

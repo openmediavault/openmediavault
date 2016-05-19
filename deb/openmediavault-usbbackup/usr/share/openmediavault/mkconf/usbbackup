@@ -159,19 +159,8 @@ xmlstarlet sel -t \
 	-b \
   -b \
   -o "GOTO=\"omv_automount_usb_end\"" -n \
-  -o "# Create the mount directory in ${OMV_MOUNT_DIR}" -n \
-  -o "LABEL=\"omv_automount_usb_mkdir\"" -n \
-  -o "ACTION==\"add\", RUN+=\"/bin/mkdir -p ${OMV_MOUNT_DIR}/%E{ID_FS_UUID}\"" -n \
-  -o "# Global mount options" -n \
-  -o "ACTION==\"add\", ENV{omv_mount_options}=\"defaults\"" -n \
-  -o "# Filesystem-specific mount options" -n \
-  -o "ACTION==\"add\", ENV{ID_FS_TYPE}==\"ext3|ext4\", ENV{omv_mount_options}=\"%E{omv_mount_options},acl,user_xattr,noexec\"" -n \
-  -o "ACTION==\"add\", ENV{ID_FS_TYPE}==\"jfs|xfs\", ENV{omv_mount_options}=\"%E{omv_mount_options},noexec\"" -n \
-  -o "ACTION==\"add\", ENV{ID_FS_TYPE}==\"hfsplus\", ENV{omv_mount_options}=\"%E{omv_mount_options},force\"" -n \
-  -o "# Automount ntfs filesystems using ntfs-3g driver" -n \
-  -o "ACTION==\"add\", ENV{ID_FS_TYPE}==\"ntfs\", RUN+=\"/bin/mount -t ntfs-3g -o %E{omv_mount_options} /dev/%k ${OMV_MOUNT_DIR}/%E{ID_FS_UUID}\"" -n \
-  -o "# Automount all other filesystems" -n \
-  -o "ACTION==\"add\", ENV{ID_FS_TYPE}!=\"ntfs\", RUN+=\"/bin/mount -t auto -o %E{omv_mount_options} /dev/%k ${OMV_MOUNT_DIR}/%E{ID_FS_UUID}\"" -n \
+  -o "# Automount the filesystem."
+  -o "ACTION==\"add\", RUN+=\"/bin/systemctl start openmediavault-usbbackup-automountfs@%E{ID_FS_UUID}.service\"" -n \
   -o "# Execute rsync command" -n \
   -m "//services/usbbackup/jobs/job[not(fsuuid=preceding-sibling::*/fsuuid)]" \
 	-i "count(../*[enable='1']) > 0" \
@@ -189,7 +178,7 @@ xmlstarlet sel -t \
 	-b \
   -b \
   -o "# Cleanup after device removal" -n \
-  -o "ACTION==\"remove\", ENV{ID_FS_UUID}!=\"\", RUN+=\"/bin/umount -l ${OMV_MOUNT_DIR}/%E{ID_FS_UUID}\", RUN+=\"/bin/rmdir ${OMV_MOUNT_DIR}/%E{ID_FS_UUID}\"" -n \
+  -o "ACTION==\"remove\", ENV{ID_FS_UUID}!=\"\", RUN+=\"/bin/systemctl stop openmediavault-usbbackup-automountfs@%E{ID_FS_UUID}.service\"" -n \
   -o "# Exit" -n \
   -o "LABEL=\"omv_automount_usb_end\"" -n \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_USBBACKUP_UDEV_RULE_CONFIG}
