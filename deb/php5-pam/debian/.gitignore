@@ -1,5 +1,4 @@
-/openmediavault/
-/openmediavault-installer/
+/php5-pam/
 /files
 /*.debhelper.log
 /*.postinst.debhelper

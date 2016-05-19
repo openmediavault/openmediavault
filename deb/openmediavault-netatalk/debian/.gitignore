@@ -1,5 +1,4 @@
-/openmediavault/
-/openmediavault-installer/
+/openmediavault-netatalk/
 /files
 /*.debhelper.log
 /*.postinst.debhelper

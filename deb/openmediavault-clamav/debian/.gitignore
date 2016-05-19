@@ -1,1 +1,6 @@
 /openmediavault-clamav/
+/files
+/*.debhelper.log
+/*.postinst.debhelper
+/*.postrm.debhelper
+/*.substvars

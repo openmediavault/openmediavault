@@ -1,5 +1,4 @@
-/openmediavault/
-/openmediavault-installer/
+/openmediavault-forkeddaapd/
 /files
 /*.debhelper.log
 /*.postinst.debhelper

@@ -1,5 +1,4 @@
-/openmediavault/
-/openmediavault-installer/
+/openmediavault-ldap/
 /files
 /*.debhelper.log
 /*.postinst.debhelper

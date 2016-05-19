@@ -1,5 +1,4 @@
-/openmediavault/
-/openmediavault-installer/
+/openmediavault-usbbackup/
 /files
 /*.debhelper.log
 /*.postinst.debhelper
