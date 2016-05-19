@@ -28,6 +28,7 @@
 			},
 			"fsuuid": {
 			    "type": "string",
+				"format": "fsuuid",
 				"required": false
 			},
 			"sharedfolderref": {
