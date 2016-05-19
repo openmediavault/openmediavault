@@ -177,14 +177,6 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 		// Prepare the configuration object.
 		$object = new \OMV\Config\ConfigObject("conf.service.usbbackup.job");
 		$object->setAssoc($params);
-		// Do some validations:
-		// - Check if quarantine shared folder exists when it is referenced.
-		if ("quarantine" === $object->get("virusaction")) {
-			$object2 = $db->get("conf.service.clamav");
-			if ($object2->isEmpty("quarantine_sharedfolderref")) {
-				throw new \OMV\Exception("No quarantine folder is set.");
-			}
-		}
 		// Set the configuration object.
 		$isNew = $object->isNew();
 		$db = \OMV\Config\Database::getInstance();

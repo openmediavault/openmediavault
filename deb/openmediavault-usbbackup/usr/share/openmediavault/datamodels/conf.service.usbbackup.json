@@ -23,6 +23,11 @@
 								"type": "boolean",
 								"default": false
 							},
+							"mode": {
+							    "type": "string",
+							    "enum":[ "push", "pull" ],
+								"default": "push"
+							},
 							"sendemail": {
 								"type": "boolean",
 								"default": false
