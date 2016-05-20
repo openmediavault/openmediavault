@@ -124,12 +124,12 @@ xmlstarlet sel -t \
 		-o "}" -n \
 		-o "[ -e ${runfile} ] && exit 1" -n \
 		-o "if [ ! -e \"/dev/disk/by-uuid/${fsuuid}\" ]; then" -n \
-		-o "    echo \"External storage device </dev/disk/by-uuid/${fsuuid}> not found!\" | logger -s -t \$(basename \$0) 2>&1" -n \
+		-o "    echo \"External storage device '/dev/disk/by-uuid/${fsuuid}' not found!\" | logger -s -t \$(basename \$0) 2>&1" -n \
 		-o "    omv_beep_error" -n \
 		-o "    exit 1" -n \
 		-o "fi" -n \
 		-o "if ! omv_is_mounted \"${OMV_MOUNT_DIR}/${fsuuid}\" ; then" -n \
-		-o "    echo \"External storage device <${OMV_MOUNT_DIR}/${fsuuid}> not mounted!\" | logger -s -t \$(basename \$0) 2>&1" -n \
+		-o "    echo \"External storage device '${OMV_MOUNT_DIR}/${fsuuid}' not mounted!\" | logger -s -t \$(basename \$0) 2>&1" -n \
 		-o "    omv_beep_error" -n \
 		-o "    exit 1" -n \
 		-o "fi" -n \
@@ -149,17 +149,18 @@ xmlstarlet sel -t \
 # Create udev rules file.
 xmlstarlet sel -t \
   -o "# Start at sdb to ignore the system hard drive" -n \
-  -o "KERNEL!=\"sd[b-z]*\", SUBSYSTEM!=\"block\", GOTO=\"omv_automount_usb_end\"" -n \
+  -o "KERNEL!=\"sd[b-z]*\", SUBSYSTEM!=\"block\", GOTO=\"openmediavault_usbbackup_end\"" -n \
   -o "# Only process USB/eSATA devices" -n \
-  -o "ENV{ID_BUS}!=\"usb|ata\", GOTO=\"omv_automount_usb_end\"" -n \
+  -o "ENV{ID_BUS}!=\"usb|ata\", GOTO=\"openmediavault_usbbackup_end\"" -n \
   -o "# Skip all filesystems that does not match the given ID_FS_UUID" -n \
   -m "//services/usbbackup/jobs/job[not(fsuuid=preceding-sibling::*/fsuuid)]" \
 	-i "count(../*[enable='1']) > 0" \
-	  -v "concat('ENV{ID_FS_UUID}==\"',fsuuid,'\", GOTO=\"omv_automount_usb_mkdir\"')" -n \
+	  -v "concat('ENV{ID_FS_UUID}==\"',fsuuid,'\", GOTO=\"openmediavault_usbbackup_automount\"')" -n \
 	-b \
   -b \
-  -o "GOTO=\"omv_automount_usb_end\"" -n \
-  -o "# Automount the filesystem."
+  -o "GOTO=\"openmediavault_usbbackup_end\"" -n \
+  -o "# Automount the filesystem." -n \
+  -o "LABEL=\"openmediavault_usbbackup_automount\"" -n \
   -o "ACTION==\"add\", RUN+=\"/bin/systemctl start openmediavault-usbbackup-automountfs@%E{ID_FS_UUID}.service\"" -n \
   -o "# Execute rsync command" -n \
   -m "//services/usbbackup/jobs/job[not(fsuuid=preceding-sibling::*/fsuuid)]" \
@@ -180,5 +181,5 @@ xmlstarlet sel -t \
   -o "# Cleanup after device removal" -n \
   -o "ACTION==\"remove\", ENV{ID_FS_UUID}!=\"\", RUN+=\"/bin/systemctl stop openmediavault-usbbackup-automountfs@%E{ID_FS_UUID}.service\"" -n \
   -o "# Exit" -n \
-  -o "LABEL=\"omv_automount_usb_end\"" -n \
+  -o "LABEL=\"openmediavault_usbbackup_end\"" -n \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_USBBACKUP_UDEV_RULE_CONFIG}

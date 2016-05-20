@@ -43,11 +43,9 @@ EOF
 
 action=
 mountpoint=
+fsuuid=
 
 # Parse command line
-fsuuid=$1
-shift
-
 while getopts 'mu?h' option
 do
 	case ${option} in
@@ -64,6 +62,9 @@ do
 	esac
 done
 
+shift $((OPTIND-1))
+fsuuid=$1
+
 if [ -z "${fsuuid}" -o -z "${action}" ]; then
 	usage >&2;
 	exit 2
@@ -76,7 +77,7 @@ case "${action}" in
 mount)
 	# Check whether the filesystem is mounted.
 	if omv_is_mounted "${mountpoint}"; then
-		omv_error "The filesystem <${fsuuid}> is already mounted!"
+		omv_error "The filesystem '${fsuuid}' is already mounted!"
 		exit 1
 	fi
 	# Get the filesystem information.
@@ -99,17 +100,17 @@ mount)
 	esac
 	# Mount the filesystem.
 	mount -o "${mountoptions}" "${device}" "${mountpoint}"
-	omv_log "Successfully mounted the filesystem <${fsuuid}>."
+	omv_log "Successfully mounted the filesystem '${fsuuid}'."
     ;;
 umount)
 	# Check whether the filesystem is mounted.
 	if ! omv_is_mounted "${mountpoint}"; then
-		omv_error "The filesystem <${fsuuid}> is not mounted!"
+		omv_error "The filesystem '${fsuuid}' is not mounted!"
 		exit 1
 	fi
 	# Unmount the filesystem.
     umount -l "${mountpoint}"
-	omv_log "Successfully unmounted the filesystem <${fsuuid}>."
+	omv_log "Successfully unmounted the filesystem '${fsuuid}'."
 	# Remove the mount point. The command fails if the directory is not
 	# empty (which indicates the filesystem is still mounted).
 	rmdir "${mountpoint}"
