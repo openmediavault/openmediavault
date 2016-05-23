@@ -191,7 +191,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Append '/dev/root'?
 		if (TRUE === array_boolval($params, "includeroot", FALSE)) {
-			$rootObject = new ConfigObject("conf.system.filesystem.mountpoint");
+			$rootObject = new \OMV\Config\ConfigObject(
+			  "conf.system.filesystem.mountpoint");
 			$rootObject->set("fsname", "/dev/root");
 			$rootObject->set("dir", "/");
 			array_unshift($objects, $rootObject);
@@ -229,7 +230,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				"label" => $fs->getLabel(),
 				"type" => $fs->getType(),
 				"blocks" => "-1", // as string
-				"mountpoint" => $objectv['dir'],
+				"mountpoint" => $objectv->get("dir"),
 				"used" => "-1", // as string
 				"available" => "-1", // as string
 				"size" => "-1", // as string
