@@ -61,6 +61,16 @@ class KeyValueFile {
 	}
 
 	/**
+	 * Check whether the specified key exists.
+	 * @param string $key The name of the key.
+	 * @return Returns TRUE if the key exists, otherwise FALSE.
+	 */
+	final public function exists($key) {
+		$dict = new \OMV\Dictionary($this->getAssoc());
+		return $dict->exists($key);
+	}
+
+	/**
 	 * Get the value of the given key.
 	 * @param string $key The name of the key.
 	 * @return The value of the given key.
@@ -71,6 +81,10 @@ class KeyValueFile {
 		return $dict->get($key);
 	}
 
+	/**
+	 * Get the key/value pairs as associative array.
+	 * @return The array of key/value pairs.
+	 */
 	final public function getAssoc() {
 		$map = [];
 		// Read the file into an array.

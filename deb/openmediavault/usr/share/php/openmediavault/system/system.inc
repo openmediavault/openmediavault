@@ -261,8 +261,9 @@ class System {
 	 * Get CPU statistics.
 	 * @return The memory statistics as array or FALSE on failure.
 	 * array(
-	 *   modelname => xxx,
-	 *   usage => xxx (percent)
+	 *   cpumhz => "2792.999"
+	 *   modelname => "Intel(R) Core(TM) i7 CPU         860  @ 2.80GHz",
+	 *   usage => 12
 	 * )
 	 */
 	public static function getCpuStats() {
@@ -272,9 +273,10 @@ class System {
 		// cpu family	: 6
 		// model		: 30
 		// model name	: Intel(R) Core(TM) i7 CPU         860  @ 2.80GHz
-		// stepping	: 5
+		// stepping	    : 5
 		// microcode	: 0x3
 		// cpu MHz		: 2792.999
+		// ...
 		$cpuInfo = new \OMV\Util\KeyValueFile("/proc/cpuinfo", ":");
 		$cpuInfo->setKeyNameDelimiter("");
 		// Get the current CPU statistics.
@@ -303,7 +305,8 @@ class System {
 		$diffTotal = $tnowTotal - $tprevTotal;
 		return array(
 			"modelname" => $cpuInfo->get("modelname"),
-			"cpumhz" => $cpuInfo->get("cpumhz"),
+			"cpumhz" => $cpuInfo->exists("cpumhz") ?
+			  $cpuInfo->get("cpumhz") : gettext("n/a"),
 			"usage" => (0 == $diffTotal) ? 0 : (($diffTotal - $diffIdle) /
 			  $diffTotal) * 100
 		);
