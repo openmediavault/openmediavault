@@ -304,7 +304,8 @@ class System {
 		$diffIdle = $tnow[3] - $tprev[3];
 		$diffTotal = $tnowTotal - $tprevTotal;
 		return array(
-			"modelname" => $cpuInfo->get("modelname"),
+			"modelname" => $cpuInfo->exists("modelname") ?
+			  $cpuInfo->get("modelname") : gettext("n/a"),
 			"cpumhz" => $cpuInfo->exists("cpumhz") ?
 			  $cpuInfo->get("cpumhz") : gettext("n/a"),
 			"usage" => (0 == $diffTotal) ? 0 : (($diffTotal - $diffIdle) /
