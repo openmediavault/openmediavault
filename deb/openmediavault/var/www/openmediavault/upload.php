@@ -33,7 +33,6 @@ try {
 
 	require_once("openmediavault/autoloader.inc");
 	require_once("openmediavault/env.inc");
-	require_once("openmediavault/config.inc"); // Must be included here
 
 	$session = &\OMV\Session::getInstance();
 	$session->start();

@@ -38,8 +38,6 @@ if (array_keys_exists(array("service", "method"), $_POST)) {
 		}
 		set_error_handler("exception_error_handler");
 
-		require_once("openmediavault/config.inc"); // Must be included here
-
 		$session = &\OMV\Session::getInstance();
 		$session->start();
 		$session->validate();

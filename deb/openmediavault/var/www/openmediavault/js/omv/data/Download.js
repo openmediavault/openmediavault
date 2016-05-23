@@ -50,6 +50,8 @@ Ext.define("OMV.data.Download", {
 		var me = this;
 		var form = Ext.DomQuery.selectNode("form",
 		  me.iframe.dom.contentDocument);
+		if (Ext.isEmpty(form))
+			Ext.Error.raise("The download form does not exist.");
 		form.service.setAttribute("value", service);
 		form.method.setAttribute("value", method);
 		// Additional parameters must be encoded as string because they are
