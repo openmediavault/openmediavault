@@ -691,13 +691,28 @@ omv_mkdir_sharedfolder() {
 }
 
 # void omv_get_sharedfolder_mount_dir (char *uuid)
-# Get the mount directory of the given shared folder
-# @param The UUID of the shared folder
-# @return The shared folders mount directory, e.g /media/85732966-949a-4d8b-87d7-d7e6681f787e.
+# Get the mount directory of the given shared folder. The field 'dir' of
+# the associated mount point configuration object is returned.
+# @param The UUID of the shared folder configuration object.
+# @return The directory path, e.g /media/85732966-949a-4d8b-87d7-d7e6681f787e
 omv_get_sharedfolder_mount_dir() {
 	xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='$1']" \
 	  -v "//system/fstab/mntent[uuid=current()/mntentref]/dir" \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc
+}
+
+# void omv_get_devicefile_mount_dir (char *devicefile)
+# Build the mount directory for the given filesystem device file. The
+# escaped device file path is used as the directory name.
+# @param The device file of the filesystem.
+# @return The directory path, e.g /media/usb\x2dKingston_DataTraveler_G2_001CC0EA12BDF012C6E10C51\x2d0:0\x2dpart1
+omv_get_devicefile_mount_dir() {
+	local dirname
+	# Remove prefixes.
+	dirname=$(echo $1 | sed -E "s#/dev(/disk/by-.*)?/##i")
+	# Escape the device file.
+	dirname=$(systemd-escape --path "${dirname}")
+	echo "${OMV_MOUNT_DIR}/${dirname}"
 }
 
 # int omv_is_mounted (char *mountpoint)
