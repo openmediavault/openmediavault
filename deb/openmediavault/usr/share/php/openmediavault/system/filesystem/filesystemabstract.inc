@@ -205,6 +205,19 @@ class FilesystemAbstract {
 	}
 
 	/**
+	 * Assert that the filesystem has an UUID.
+	 * @return None.
+	 * @throw \OMV\AssertException
+	 */
+	public function assertUuid() {
+		if (FALSE === $this->hasUuid()) {
+			throw new \OMV\AssertException(
+			  "Filesystem '%s' does not have an UUID.",
+			  $this->getDeviceFile());
+		}
+	}
+
+	/**
 	 * Get the UUID of the filesystem.
 	 * @see http://wiki.ubuntuusers.de/UUID
 	 * @return The UUID of the filesystem.
@@ -221,6 +234,19 @@ class FilesystemAbstract {
 	public function hasLabel() {
 		$label = $this->getLabel();
 		return !empty($label);
+	}
+
+	/**
+	 * Assert that the filesystem has a label.
+	 * @return None.
+	 * @throw \OMV\AssertException
+	 */
+	public function assertLabel() {
+		if (FALSE === $this->hasLabel()) {
+			throw new \OMV\AssertException(
+			  "Filesystem '%s' does not have a label.",
+			  $this->getDeviceFile());
+		}
 	}
 
 	/**
@@ -298,34 +324,56 @@ class FilesystemAbstract {
 	}
 
 	/**
-	 * Get the device path by UUID, e.g.
+	 * Get the device path by UUID, e.g. <ul>
 	 * \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
 	 * \li /dev/disk/by-uuid/2ED43920D438EC29 (NTFS)
-	 * @return The device path (/dev/disk/by-uuid/xxx) if available,
-	 *   otherwise /dev/xxx will be returned.
+	 * </ul>
+	 * @return The device path (/dev/disk/by-uuid/xxx).
 	 */
 	public function getDeviceFileByUuid() {
 		$this->getData();
-		$deviceFile = $this->getDeviceFile();
-		if ($this->hasUuid()) {
-			$deviceFileByUuid = sprintf("/dev/disk/by-uuid/%s",
-			  $this->getUuid());
-			if (is_block($deviceFileByUuid))
-				$deviceFile = $deviceFileByUuid;
+		$this->assertUuid();
+		$deviceFileByUuid = sprintf("/dev/disk/by-uuid/%s", $this->getUuid());
+		if (FALSE === is_block($deviceFileByUuid)) {
+			throw new \OMV\Exception(
+			  "Filesystem '%s' does not have a disk/by-uuid device file.",
+			  $this->getDeviceFile());
 		}
-		return $deviceFile;
+		return $deviceFileByUuid;
 	}
 
 	/**
-	 * Get the device file of the storage device containing this
-	 * file system. Example:
+	 * Get the device path by ID, e.g. <ul>
+	 * \li /dev/disk/by-id/usb-Kingston_DataTraveler_G2_001CC0EC21ADF011C6A20E35-0:0-part1
+	 * </ul>
+	 * @return The device path (/dev/disk/by-id/xxx).
+	 */
+	public function getDeviceFileById() {
+		$this->getData();
+		// Get the storage device file of the filesystem.
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
+		  $this->getDeviceFile());
+		// Try to get the disk/by-id device file.
+		$deviceFileById = $sd->getDeviceFileById();
+		if (FALSE === $deviceFileById) {
+			throw new \OMV\Exception(
+			  "Filesystem '%s' does not have a disk/by-id device file.",
+			  $this->getDeviceFile());
+		}
+		return $deviceFileById;
+	}
+
+	/**
+	 * Get the device file of the storage device which contains this
+	 * file system.
+	 * Example:
 	 * <ul>
 	 * \li /dev/sdb1 => /dev/sdb
 	 * \li /dev/cciss/c0d0p2 => /dev/cciss/c0d0
 	 * </ul>
 	 * @return The device file of the underlying storage device.
 	 */
-	public function getStorageDeviceFile() {
+	public function getParentDeviceFile() {
 		$this->getData();
 		$deviceFile = $this->getDeviceFile();
 		// The following line is not necessary but will be kept to be safe.

@@ -80,8 +80,7 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 	 */
 	public function getDeviceFileById() {
 		if (!$this->deviceFileById) {
-			if (FALSE === ($devLinks = $this->getDeviceFileSymlinks()))
-				return FALSE;
+			$devLinks = $this->getDeviceFileSymlinks();
 			// Set the device file by default.
 			$this->deviceFileById = $this->getDeviceFile();
 			// Get the 'by-id' device file symlinks.
@@ -91,50 +90,50 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 				if (1 == preg_match($regex, $devLinkv, $matches))
 					$deviceNamesById[] = $matches[1];
 			}
-			if (!empty($deviceNamesById)) {
-				// Sort the device names in the following order:
-				// 1. ata-xxx
-				// 2. wwn-xxx
-				// 3. scsi-xxx
-				// 4. ...
-				//
-				// Legend:
-				// a=[a]ta-xxx
-				// w=[w]wn-xxx
-				// s=[s]csi-xxx
-				// x=any other device file name
-				// fn=call strnatcmp function
-				//
-				// Compare function matrix:
-				// |      | $b=a | $b=w | $b=s | $b=x |
-				// |------|------|------|------|------|
-				// | $a=a |  fn  |  -1  |  -1  |  -1  |
-				// | $a=w |   1  |  fn  |  -1  |  -1  |
-				// | $a=s |   1  |   1  |  fn  |  -1  |
-				// | $a=x |   1  |   1  |   1  |  fn  |
-				//
-				// Example:
-				// ata-WDC_WD2002FAEX-007BA0_WD-WCAY01065572
-				// wwn-0x50014ee25d4cdecd
-				// scsi-SATA_WDC_WD2002FAEX-_WD-WCAY01065572
-				// xxx...
-				// yyy...
-				usort($deviceNamesById, create_function('$a, $b',
-				  '$map = array("a" => 0, "w" => 1, "s" => 2);'.
-				  '$indexA = array_key_exists($a[0], $map) ? $map[$a[0]] : 3;'.
-				  '$indexB = array_key_exists($b[0], $map) ? $map[$b[0]] : 3;'.
-				  '$cmpMatrix = array('.
-				  '    0 => array(0, -1, -1, -1),'.
-				  '    1 => array(1,  0, -1, -1),'.
-				  '    2 => array(1,  1,  0, -1),'.
-				  '    3 => array(1,  1,  1,  0)'.
-				  ');'.
-				  '$cmpResult = $cmpMatrix[$indexA][$indexB];'.
-				  'return (0 !== $cmpResult) ? $cmpResult : strnatcmp($a, $b);'));
-				// Finally build the whole path of the device file.
-				$this->deviceFileById = sprintf("/dev/disk/by-id/%s",
-				  array_shift($deviceNamesById));
-			}
+			if (empty($deviceNamesById))
+				return FALSE;
+			// Sort the device names in the following order:
+			// 1. ata-xxx
+			// 2. wwn-xxx
+			// 3. scsi-xxx
+			// 4. ...
+			//
+			// Legend:
+			// a=[a]ta-xxx
+			// w=[w]wn-xxx
+			// s=[s]csi-xxx
+			// x=any other device file name
+			// fn=call strnatcmp function
+			//
+			// Compare function matrix:
+			// |      | $b=a | $b=w | $b=s | $b=x |
+			// |------|------|------|------|------|
+			// | $a=a |  fn  |  -1  |  -1  |  -1  |
+			// | $a=w |   1  |  fn  |  -1  |  -1  |
+			// | $a=s |   1  |   1  |  fn  |  -1  |
+			// | $a=x |   1  |   1  |   1  |  fn  |
+			//
+			// Example:
+			// ata-WDC_WD2002FAEX-007BA0_WD-WCAY01065572
+			// wwn-0x50014ee25d4cdecd
+			// scsi-SATA_WDC_WD2002FAEX-_WD-WCAY01065572
+			// xxx...
+			// yyy...
+			usort($deviceNamesById, create_function('$a, $b',
+			  '$map = array("a" => 0, "w" => 1, "s" => 2);'.
+			  '$indexA = array_key_exists($a[0], $map) ? $map[$a[0]] : 3;'.
+			  '$indexB = array_key_exists($b[0], $map) ? $map[$b[0]] : 3;'.
+			  '$cmpMatrix = array('.
+			  '    0 => array(0, -1, -1, -1),'.
+			  '    1 => array(1,  0, -1, -1),'.
+			  '    2 => array(1,  1,  0, -1),'.
+			  '    3 => array(1,  1,  1,  0)'.
+			  ');'.
+			  '$cmpResult = $cmpMatrix[$indexA][$indexB];'.
+			  'return (0 !== $cmpResult) ? $cmpResult : strnatcmp($a, $b);'));
+			// Finally build the whole path of the device file.
+			$this->deviceFileById = sprintf("/dev/disk/by-id/%s",
+			  array_shift($deviceNamesById));
 		}
 		return $this->deviceFileById;
 	}
@@ -157,10 +156,13 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 		$cmd = new \OMV\System\Process("udevadm", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);
 		$cmd->execute($output);
-		$result = explode(" ", $output[0]);
-		foreach ($result as &$deviceFile) {
-			$deviceFile = sprintf("/dev/%s", $deviceFile);
-		}
+		// Parse the command output.
+		// Example:
+		// disk/by-id/usb-Kingston_DataTraveler_G2_001CC0EC21ADF011C6A20E35-0:0-part1 disk/by-path/pci-0000:02:02.0-usb-0:1:1.0-scsi-0:0:0:0-part1 disk/by-uuid/3849-705A
+		$parts = explode(" ", $output[0]);
+		$result = [];
+		foreach ($parts as $partk => $partv)
+			$result[] = sprintf("/dev/%s", $partv);
 		return $result;
 	}
 

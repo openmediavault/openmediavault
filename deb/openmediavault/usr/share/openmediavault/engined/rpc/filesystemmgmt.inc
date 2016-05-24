@@ -789,18 +789,18 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "Failed to get the '%s' filesystem implementation or '%s' ".
 			  "does not exist.", $fsb->getType(), $params['id']);
 		}
-		// Get the storage device containing the filesystem, e.g. /dev/sdb or
-		// /dev/cciss/c0d0.
-		if (FALSE === ($storageDeviceFile = $fs->getStorageDeviceFile())) {
+		// Get the parent storage device containing the filesystem, e.g.
+		// /dev/sdb or /dev/cciss/c0d0.
+		if (FALSE === ($parentDeviceFile = $fs->getParentDeviceFile())) {
 			throw new \OMV\Exception(
-			  "Failed to get storage device file from '%s'.",
+			  "Failed to get parent storage device file from '%s'.",
 			  $fs->getDeviceFile());
 		}
 		// Get the according storage device object.
 		\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
-		  $storageDeviceFile);
+		  $parentDeviceFile);
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
-		  $storageDeviceFile);
+		  $parentDeviceFile);
 		// Get mount options depending on the filesystem type.
 		switch (strtolower($fs->getType())) {
 		case "ext2":
