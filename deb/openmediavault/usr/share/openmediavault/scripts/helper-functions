@@ -819,7 +819,8 @@ EOF
 omv_module_is_dirty() {
 	local _dirty
 	_dirty=$(php5 -c /etc/openmediavault -r \
-	  "\$moduleMngr = \OMV\Engine\Module\Manager::getInstance(); \
+	  "require_once('openmediavault/autoloader.inc'); \
+	  \$moduleMngr = \OMV\Engine\Module\Manager::getInstance(); \
 	  \$dirtyModules = \$moduleMngr->getDirtyModules(); \
 	  !empty(\$dirtyModules) ? print 0 : print 1;")
 	return ${_dirty}
