@@ -84,7 +84,7 @@ class OMVRpcServiceRsync extends \OMV\Rpc\ServiceAbstract {
 				$objectv->set("destname", $sfObject->get("name"));
 				break;
 			case "remote":
-				switch($objectv['mode']) {
+				switch($objectv->get("mode")) {
 				case "push":
 					$sfObject = $db->get("conf.system.sharedfolder",
 					  $objectv->get("src"));
