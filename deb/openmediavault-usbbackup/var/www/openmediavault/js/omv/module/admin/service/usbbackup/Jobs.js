@@ -94,7 +94,7 @@ Ext.define("OMV.module.admin.service.usbbackup.Job", {
 			}]
 		},{
 			xtype: "combo",
-			name: "fsuuid",
+			name: "devicefile",
 			fieldLabel: _("Device"),
 			emptyText: _("Select a device ..."),
 			allowBlank: false,
@@ -102,7 +102,7 @@ Ext.define("OMV.module.admin.service.usbbackup.Job", {
 			editable: false,
 			triggerAction: "all",
 			displayField: "description",
-			valueField: "uuid",
+			valueField: "devicefile",
 			triggers: {
 				search: {
 					cls: Ext.baseCSSPrefix + "form-search-trigger",

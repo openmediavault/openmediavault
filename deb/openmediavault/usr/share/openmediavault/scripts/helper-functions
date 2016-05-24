@@ -934,3 +934,9 @@ omv_group_id_exists() {
 	getent group $1 >/dev/null 2>&1
 	return $?
 }
+
+# omv_md5 [string]
+# Calculate the md5 hash of a string
+omv_md5() {
+	echo -n $1 | md5sum - | cut -b-32
+}

@@ -42,12 +42,12 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 	}
 
 	/**
-	 * Get list of USB volumes that can be used for backup jobs.
+	 * Get list of filesystems that can be used for backup jobs.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array containing objects with the following fields:
-	 *   \em uuid, \em devicefile and \em description.
-	 *   The field \em uuid is the mount point configuration object UUID.
+	 *   The filesystem \em uuid, \em devicefile, \em label, \em type and
+	 *   \em description.
 	 */
 	public function getCandidates($params, $context) {
 		// Validate the RPC caller context.
@@ -77,13 +77,13 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 				continue;
 			// Get the filesystem implementation.
 			$fs = $fsb->getImpl($objectv['devicefile']);
-			// Get the storage device containing the filesystem.
-			if (FALSE === ($storageDeviceFile = $fs->getStorageDeviceFile()))
+			// Get the parent storage device containing the filesystem.
+			if (FALSE === ($parentDeviceFile = $fs->getParentDeviceFile()))
 				continue;
 			\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
-			  $storageDeviceFile);
+			  $parentDeviceFile);
 			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
-			  $storageDeviceFile);
+			  $parentDeviceFile);
 			// Skip everything which is not an USB or eSATA device or is a
 			// read-only medium.
 			if (!($sd->isUsb() || $sd->isAta()) || $sd->isReadOnly())
@@ -91,7 +91,7 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 			// Prepare result object.
 			$result[] = [
 				"uuid" => $objectv['uuid'],
-				"devicefile" => $objectv['devicefile'],
+				"devicefile" => $fs->getDeviceFileById(),
 				"label" => $objectv['label'],
 				"type" => $objectv['type'],
 				"description" => $sd->getDescription()
@@ -133,7 +133,8 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 			// Update the 'sharedfoldername' property.
 			$objectv->set("sharedfoldername", $sfObject->get("name"));
 			// Get job status.
-			$statusFile = sprintf("/var/run/sync-%s", $objectv->get("fsuuid"));
+			$statusFile = sprintf("/var/run/openmediavault-usbbackup-%s",
+			  md5($objectv->get("devicefile")));
 			$objectv->set("running", file_exists($statusFile));
 			$objectsAssoc[] = $objectv->getAssoc();
 		}

@@ -26,10 +26,10 @@
 			    "type": "string",
 				"required": true
 			},
-			"fsuuid": {
+			"devicefile": {
 			    "type": "string",
-				"format": "fsuuid",
-				"required": false
+				"format": "devicefile",
+				"required": true
 			},
 			"sharedfolderref": {
 			    "type": "string",

@@ -29,9 +29,9 @@
 			"type": "string",
 			"default": ""
 		},
-		"fsuuid": {
+		"devicefile": {
 			"type": "string",
-			"format": "fsuuid"
+			"format": "devicefile"
 		},
 		"sharedfolderref": {
 			"type": "string",
