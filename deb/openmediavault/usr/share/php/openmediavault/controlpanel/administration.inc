@@ -21,6 +21,8 @@
  */
 namespace OMV\ControlPanel;
 
+require_once("openmediavault/globals.inc");
+
 /**
  * @ingroup api
  */

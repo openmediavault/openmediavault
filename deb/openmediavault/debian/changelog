@@ -3,6 +3,7 @@ openmediavault (3.0.20) stable; urgency=low
   * Mantis 0001522: Communication failure popup clicking
     Diagnose | System Information.
   * Mantis 0001525: Do not work download button on Diagnosis | System Logs.
+  * Mantis 0001527: Rsync job error.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 19 May 2016 00:01:32 +0200
 

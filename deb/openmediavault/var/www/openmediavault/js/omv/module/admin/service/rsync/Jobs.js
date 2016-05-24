@@ -589,19 +589,12 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 	getValues: function() {
 		var me = this;
 		var values = me.callParent(arguments);
-		switch (values.type) {
-		case "local":
-			// Make sure the value is not NULL.
-			if (Ext.isNull) {
-				Ext.apply(values, {
-					sshcertificateref: ""
-				});
-			}
-			break;
-		default:
-			// Nothing to do here.
-			break;
-		}
+		// Make sure the value is not NULL.
+		Ext.each([ "srcsharedfolderref", "destsharedfolderref",
+		  "sshcertificateref" ], function(name) {
+			if (Ext.isNull(values[name]))
+				values[name] = ""
+		});
 		return values;
 	}
 });
