@@ -1,5 +1,7 @@
 openmediavault-usbbackup (3.0.2) stable; urgency=low
 
+  * !!! ATTENTION !!!
+    All existing settings will get lost, it is not possible to migrate them.
   * Update locales.
   * Adapt to new framework.
 

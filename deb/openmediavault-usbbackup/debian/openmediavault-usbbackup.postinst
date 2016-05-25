@@ -43,7 +43,7 @@ case "$1" in
 		#           <mode>push|pull</mode>
 		#           <sendemail>0|1<sendemail>
 		#           <comment>xxx</comment>
-		#           <fsuuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|xxxx-xxxx</fsuuid>
+		#           <devicefile>xxx</devicefile>
 		#           <sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
 		#           <usesubdir>0|1</usesubdir>
 		#           <recursive>1</recursive>
@@ -80,6 +80,9 @@ case "$1" in
 		# Action to be done depending on the previous version.
 		########################################################################
 		echo "Updating configuration ..."
+		if dpkg --compare-versions "$2" lt-nl "3.0.2"; then
+			omv_config_delete "/config/services/usbbackup/jobs/job"
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
