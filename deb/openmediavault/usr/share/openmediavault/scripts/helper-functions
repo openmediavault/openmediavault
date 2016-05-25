@@ -670,8 +670,8 @@ omv_get_sharedfolder_path() {
 }
 
 # int omv_mkdir_sharedfolder (char *uuid)
-# Create the given shared folder
-# @param The UUID of the shared folder
+# Create the directory for the given shared folder configuration object.
+# @param The UUID of the shared folder configuration object.
 # @return Return 0 if successful, nonzero otherwise.
 omv_mkdir_sharedfolder() {
 	local path mode result
@@ -701,16 +701,24 @@ omv_get_sharedfolder_mount_dir() {
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc
 }
 
-# void omv_get_devicefile_mount_dir (char *devicefile)
-# Build the mount directory for the given filesystem device file. The
-# escaped device file path is used as the directory name.
-# @param The device file of the filesystem.
-# @return The directory path, e.g /media/usb\x2dKingston_DataTraveler_G2_001CC0EA12BDF012C6E10C51\x2d0:0\x2dpart1
-omv_get_devicefile_mount_dir() {
-	local dirname
-	# Remove prefixes.
-	dirname=$(echo $1 | sed -E "s#/dev(/disk/by-.*)?/##i")
-	echo "${OMV_MOUNT_DIR}/${dirname}"
+# void omv_build_mount_dir (char *)
+# Build the mount directory for the given device file or filesystem UUID.
+# @param The device file or the filesystem UUID.
+# @return The directory path, e.g /media/6c5be784-50a8-440c-9d25-aab99b9c6fb1
+#   or /media/3849-705A.
+omv_build_mount_dir() {
+	local fsuuid
+	if omv_isfsuuid "$1"; then
+		fsuuid=${1}
+	else
+		fsuuid=$(blkid -o value -s UUID $1)
+	fi
+	if [ -z "${fsuuid}" ]; then
+		omv_debug "omv_build_mount_dir: Filesystem does not have an UUID"
+		return 1
+	fi
+	echo "${OMV_MOUNT_DIR}/${fsuuid}"
+	return 0
 }
 
 # int omv_is_mounted (char *mountpoint)
