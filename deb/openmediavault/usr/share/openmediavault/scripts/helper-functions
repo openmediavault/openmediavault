@@ -710,8 +710,6 @@ omv_get_devicefile_mount_dir() {
 	local dirname
 	# Remove prefixes.
 	dirname=$(echo $1 | sed -E "s#/dev(/disk/by-.*)?/##i")
-	# Escape the device file.
-	dirname=$(systemd-escape --path "${dirname}")
 	echo "${OMV_MOUNT_DIR}/${dirname}"
 }
 

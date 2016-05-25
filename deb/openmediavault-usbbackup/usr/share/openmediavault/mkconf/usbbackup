@@ -53,7 +53,6 @@ xmlstarlet sel -t \
   while read uuid; do
 	  filename="${OMV_USBBACKUP_SCRIPTS_DIR}/${OMV_USBBACKUP_RSYNC_SCRIPT_PREFIX}${uuid}"
 	  runfile="/var/run/${OMV_USBBACKUP_RSYNC_SCRIPT_PREFIX}${uuid}"
-	  mountdir=$()
 
 	  xmlstarlet sel -t -m "//services/usbbackup/jobs/job[uuid='${uuid}']" \
 		-o "#!/bin/sh" -n \
@@ -66,6 +65,7 @@ xmlstarlet sel -t \
 		-o "  exit" -n \
 		-o "}" -n \
 		-o "[ -e ${runfile} ] && exit 1" -n \
+		-o "# Make sure the storage device is mounted." -n \
 		-v "concat('mountdir=\$(omv_get_devicefile_mount_dir ',devicefile,')')" -n \
 		-o "if ! omv_is_mounted \${mountdir} ; then" -n \
 		-v "concat('    echo \"External storage device <',devicefile,'> not mounted!\" | logger -s -t \$(basename \$0) 2>&1')" -n \
