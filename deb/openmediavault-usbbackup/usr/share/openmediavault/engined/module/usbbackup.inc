@@ -35,7 +35,7 @@ class OMVModuleUsbBackup extends \OMV\Engine\Module\ServiceAbstract
 		$cmd = new \OMV\System\Process("omv-mkconf", "usbbackup");
 		$cmd->setRedirect2to1(TRUE);
 		$cmd->execute();
-		$cmd = new \OMV\System\Process("udevadm", "control", "--reload-rules");
+		$cmd = new \OMV\System\Process("systemctl", "daemon-reload");
 		$cmd->setRedirect2to1(TRUE);
 		$cmd->execute();
 	}

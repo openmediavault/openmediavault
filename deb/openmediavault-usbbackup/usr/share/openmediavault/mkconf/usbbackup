@@ -19,19 +19,6 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-# Documentation/Howto:
-# http://linux.die.net/man/7/udev
-# http://wiki.ubuntuusers.de/udev
-# https://wiki.archlinux.org/index.php/Udev#Mount_under_.2Fmedia.3B_use_partition_label_if_present
-# http://www.reactivated.net/writing_udev_rules.html#strsubst
-# http://webapp5.rrz.uni-hamburg.de/SuSe-Dokumentation/manual/sles-admin_de/manual/sec.udev.rules.html
-#
-# udevadm info -a -p $(udevadm info -q path -n /dev/sdX)
-# udevadm info -a --name=/dev/sdX
-# udevadm control --reload-rules
-# udevadm test /sys/block/sdX
-# udevadm monitor --environment
-
 set -e
 
 . /etc/default/openmediavault
@@ -39,14 +26,18 @@ set -e
 
 OMV_USBBACKUP_SCRIPTS_DIR=${OMV_USBBACKUP_SCRIPTS_DIR:-"/var/lib/openmediavault/usbbackup.d"}
 OMV_USBBACKUP_SCRIPTS_MASK=${OMV_USBBACKUP_SCRIPTS_MASK:-"755"}
-OMV_USBBACKUP_SCRIPTS_RSYNC_PREFIX=${OMV_USBBACKUP_SCRIPTS_RSYNC_PREFIX:-"rsync-"}
-OMV_USBBACKUP_SCRIPTS_JOBS_PREFIX=${OMV_USBBACKUP_SCRIPTS_JOBS_PREFIX:-"openmediavault-usbbackup-"}
+OMV_USBBACKUP_RSYNC_SCRIPT_PREFIX=${OMV_USBBACKUP_RSYNC_SCRIPT_PREFIX:-"rsync-"}
+OMV_USBBACKUP_JOBS_SCRIPT_PREFIX=${OMV_USBBACKUP_JOBS_SCRIPT_PREFIX:-"openmediavault-usbbackup-"}
 OMV_USBBACKUP_LOGFILE=${OMV_USBBACKUP_LOGFILE:-"/var/log/rsync.log"}
+OMV_USBBACKUP_SYSTEMD_SCRIPTS_DIR=${OMV_USBBACKUP_SYSTEMD_SCRIPTS_DIR:-"/lib/systemd/system"}
+OMV_USBBACKUP_SYSTEMD_UNITFILE_PREFIX=${OMV_USBBACKUP_SYSTEMD_UNITFILE_PREFIX:-"openmediavault-usbbackup"}
+OMV_USBBACKUP_SYSTEMD_UNITFILE_TEMPLATE=${OMV_USBBACKUP_SYSTEMD_UNITFILE_TEMPLATE:-"${OMV_USBBACKUP_SYSTEMD_UNITFILE_PREFIX}@.service"}
 
 # Create the backup jobs. Each job is configured in a seperate script.
 mkdir -p ${OMV_USBBACKUP_SCRIPTS_DIR}
-find "${OMV_USBBACKUP_SCRIPTS_DIR}" -type f -iname "${OMV_USBBACKUP_SCRIPTS_RSYNC_PREFIX}*" -print0 | xargs -0r rm -f
-find "${OMV_USBBACKUP_SCRIPTS_DIR}" -type f -iname "${OMV_USBBACKUP_SCRIPTS_JOBS_PREFIX}*" -print0 | xargs -0r rm -f
+find "${OMV_USBBACKUP_SCRIPTS_DIR}" -type f -iname "${OMV_USBBACKUP_RSYNC_SCRIPT_PREFIX}*" -print0 | xargs -0r rm -f
+find "${OMV_USBBACKUP_SCRIPTS_DIR}" -type f -iname "${OMV_USBBACKUP_JOBS_SCRIPT_PREFIX}*" -print0 | xargs -0r rm -f
+find "${OMV_USBBACKUP_SYSTEMD_SCRIPTS_DIR}" -type f -iname "${OMV_USBBACKUP_SYSTEMD_UNITFILE_PREFIX}@*.service" -print0 | xargs -0r rm -f
 
 # Create the scripts regardless if enabled or disabled.
 xmlstarlet sel -t \
@@ -55,8 +46,8 @@ xmlstarlet sel -t \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read uuid; do
-	  filename="${OMV_USBBACKUP_SCRIPTS_DIR}/${OMV_USBBACKUP_SCRIPTS_RSYNC_PREFIX}${uuid}"
-	  runfile="/var/run/${OMV_USBBACKUP_SCRIPTS_RSYNC_PREFIX}${uuid}"
+	  filename="${OMV_USBBACKUP_SCRIPTS_DIR}/${OMV_USBBACKUP_RSYNC_SCRIPT_PREFIX}${uuid}"
+	  runfile="/var/run/${OMV_USBBACKUP_RSYNC_SCRIPT_PREFIX}${uuid}"
 	  mountdir=$()
 
 	  xmlstarlet sel -t -m "//services/usbbackup/jobs/job[uuid='${uuid}']" \
@@ -112,11 +103,11 @@ xmlstarlet sel -t \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read devicefile; do
-	  id=$(omv_md5 ${devicefile})
-	  scriptfile="${OMV_USBBACKUP_SCRIPTS_DIR}/${OMV_USBBACKUP_SCRIPTS_JOBS_PREFIX}${id}"
-	  runfile="/var/run/${OMV_USBBACKUP_SCRIPTS_JOBS_PREFIX}${id}"
+	  id=$(systemd-escape --path "${devicefile}")
+	  scriptfile="${OMV_USBBACKUP_SCRIPTS_DIR}/${OMV_USBBACKUP_JOBS_SCRIPT_PREFIX}${id}"
+	  runfile="/var/run/${OMV_USBBACKUP_JOBS_SCRIPT_PREFIX}${id}"
 	  mountdir=$(omv_get_devicefile_mount_dir "${devicefile}")
-	  unitfile=$(systemd-escape --template=openmediavault-usbbackup@.service "${devicefile}")
+	  unitfile="${OMV_USBBACKUP_SYSTEMD_SCRIPTS_DIR}/$(systemd-escape --path --template="${OMV_USBBACKUP_SYSTEMD_UNITFILE_TEMPLATE}" "${devicefile}")"
 	  device=$(systemd-escape "${devicefile}")
 
 	  xmlstarlet sel -t \
@@ -144,7 +135,7 @@ xmlstarlet sel -t \
 		-o "touch ${runfile}" -n \
 		-o "omv_beep_start" -n \
 		-m "//services/usbbackup/jobs/job[devicefile='${devicefile}' and enable='1']" \
-		  -v "concat('${OMV_USBBACKUP_SCRIPTS_DIR}/${OMV_USBBACKUP_SCRIPTS_RSYNC_PREFIX}',uuid,' & wait \$!')" -n \
+		  -v "concat('${OMV_USBBACKUP_SCRIPTS_DIR}/${OMV_USBBACKUP_RSYNC_SCRIPT_PREFIX}',uuid,' & wait \$!')" -n \
 		-b \
 		-o "sync" -n \
 		-o "omv_beep_ok" \
@@ -153,16 +144,14 @@ xmlstarlet sel -t \
 
 	  cat <<EOF > ${unitfile}
 [Unit]
-Description=Execute the backup jobs when %I is plugged in
-BindsTo=${device}
-After=${device}
+Description=Execute the rsync backup jobs when %I is plugged in
+BindsTo=%i
+After=%i
 
 [Service]
 Type=oneshot
 RemainAfterExit=true
-ExecStart=/bin/mount "${mountdir}"
-ExecStart=${scriptfile}
-ExecStop=/bin/umount "${mountdir}"
+ExecStart=${OMV_USBBACKUP_SCRIPTS_DIR}/${OMV_USBBACKUP_JOBS_SCRIPT_PREFIX}%i
 
 [Install]
 WantedBy=multi-user.target
