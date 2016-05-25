@@ -66,7 +66,7 @@ xmlstarlet sel -t \
 		-o "  exit" -n \
 		-o "}" -n \
 		-o "[ -e ${runfile} ] && exit 1" -n \
-		-v "concat('mountdir=\$(omv_get_devicefile_mount_dir \"',devicefile,'\")')" -n \
+		-v "concat('mountdir=\$(omv_get_devicefile_mount_dir ',devicefile,')')" -n \
 		-o "if ! omv_is_mounted \${mountdir} ; then" -n \
 		-v "concat('    echo \"External storage device <',devicefile,'> not mounted!\" | logger -s -t \$(basename \$0) 2>&1')" -n \
 		-o "    exit 1" -n \
@@ -111,7 +111,7 @@ xmlstarlet sel -t \
 	  id=$(omv_md5 "${devicefile}")
 	  scriptfile="${OMV_USBBACKUP_SCRIPTS_DIR}/${OMV_USBBACKUP_JOBS_SCRIPT_PREFIX}${id}"
 	  runfile="/var/run/${OMV_USBBACKUP_JOBS_SCRIPT_PREFIX}${id}"
-	  mountdir=$(omv_get_devicefile_mount_dir "${devicefile}")
+	  mountdir=$(omv_get_devicefile_mount_dir ${devicefile})
 	  unitfile="${OMV_USBBACKUP_SYSTEMD_SCRIPTS_DIR}/${OMV_USBBACKUP_SYSTEMD_UNITFILE_PREFIX}${id}.service"
 	  device=$(systemd-escape --path "${devicefile}")
 
@@ -122,8 +122,6 @@ xmlstarlet sel -t \
 		-o ". /usr/share/openmediavault/scripts/helper-functions" -n \
 		-o "cleanup() {" -n \
 		-o "  omv_kill_children \$\$" -n \
-		-o "  umount --force --lazy ${mountdir}" -n \
-		-o "  rmdir ${mountdir}" -n \
 		-o "  rm -f ${runfile}" -n \
 		-o "  exit" -n \
 		-o "}" -n \
@@ -133,8 +131,6 @@ xmlstarlet sel -t \
 		-o "    omv_beep_error" -n \
 		-o "    exit 1" -n \
 		-o "fi" -n \
-		-o "mkdir -p ${mountdir}" -n \
-		-o "mount ${devicefile} ${mountdir}" -n \
 		-o "if ! omv_is_mounted ${mountdir} ; then" -n \
 		-o "    echo \"External storage device '${devicefile}' not mounted!\" | logger -s -t \$(basename \$0) 2>&1" -n \
 		-o "    omv_beep_error" -n \
@@ -161,7 +157,11 @@ Requisite=${device}.device
 [Service]
 Type=oneshot
 RemainAfterExit=true
+ExecStart=/bin/mkdir -p ${mountdir}
+ExecStart=/bin/mount ${devicefile} ${mountdir}
 ExecStart=${scriptfile}
+ExecStop=/bin/umount ${devicefile}
+ExecStop=/bin/rmdir ${mountdir}
 
 [Install]
 WantedBy=${device}.device

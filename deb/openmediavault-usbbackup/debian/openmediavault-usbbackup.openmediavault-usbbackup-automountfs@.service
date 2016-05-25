@@ -1,8 +1,10 @@
 [Unit]
-Description=Automount the filesystem %i
+Description=Automount the device file %I
 
 [Service]
 Type=oneshot
+Environment="OMV_MOUNT_DIR=/media"
+EnvironmentFile=-/etc/default/openmediavault
 RemainAfterExit=true
 ExecStart=/usr/local/bin/omv-mountfs -m %i
 ExecStop=/usr/local/bin/omv-mountfs -u %i
