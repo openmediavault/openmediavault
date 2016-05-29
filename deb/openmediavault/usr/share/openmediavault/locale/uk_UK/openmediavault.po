@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2016-05-18 19:43+0000\n"
+"PO-Revision-Date: 2016-05-28 10:21+0000\n"
 "Last-Translator: zubr139\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -276,7 +276,7 @@ msgstr "Афганістан"
 
 msgid ""
 "After the RAID has been grown you can resize the containing file system."
-msgstr ""
+msgstr "Після створення RAID ви можете змінити розмір файлової системи."
 
 msgid "Aland Islands"
 msgstr "Аландські острови"
@@ -618,7 +618,7 @@ msgid "Client"
 msgstr "Клієнт"
 
 msgid "Client NetBIOS name"
-msgstr ""
+msgstr "Ім’я клієнта NetBIOS"
 
 msgid "Client address"
 msgstr "Адреса клієнта"
@@ -865,7 +865,7 @@ msgid "Device(s)"
 msgstr "Пристрій(ої)"
 
 msgid "Device/Label"
-msgstr ""
+msgstr "Пристрій/Лейба"
 
 msgid "Devices"
 msgstr "Пристрої"
@@ -948,7 +948,7 @@ msgstr "Справді хочете скинути стан WebGUI, наприк
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
-msgstr ""
+msgstr "Ви справді бажаєте змінити розмір обраної файлової системи? Наприклад це необхідно робити тільки після зміни розміру RAID."
 
 msgid "Do you really want to revert the configuration changes?"
 msgstr "Ви справді бажаєте скасувати зміни конфігурації?"
@@ -1025,10 +1025,10 @@ msgid "Edit Wi-Fi connection"
 msgstr "Редагувати Wi-Fi з’єднання"
 
 msgid "Edit bond connection"
-msgstr ""
+msgstr "Редагувати з’єднання bond"
 
 msgid "Edit ethernet connection"
-msgstr ""
+msgstr "Редагувати ethernet з’єднання"
 
 msgid "Edit firewall rule"
 msgstr "Редагувати правило брандмауера"
@@ -1121,7 +1121,7 @@ msgid "Enable permission inheritance"
 msgstr "Увімкнути успадкування прав доступу"
 
 msgid "Enable public key authentication"
-msgstr ""
+msgstr "Увімкнути перевірку автентичності відкритого ключа"
 
 msgid "Enable recycle bin"
 msgstr "Використовувати корзину"
@@ -1186,7 +1186,7 @@ msgid "Estonia"
 msgstr "Естонія"
 
 msgid "Ethernet"
-msgstr ""
+msgstr "Ethernet"
 
 msgid "Ethiopia"
 msgstr "Ефіопія"
@@ -1513,7 +1513,7 @@ msgid "Identify"
 msgstr "Ідентифікувати"
 
 msgid "Identify As"
-msgstr ""
+msgstr "Ідентифікувати як"
 
 msgid "Identify network interface device"
 msgstr "Ідентифікувати мережевий пристрій"
@@ -1543,7 +1543,7 @@ msgid "If this option is set, then any attempted downloads will fail."
 msgstr ""
 
 msgid "If this option is set, then any attempted uploads will fail."
-msgstr ""
+msgstr "Якщо ця опція встановлена, то будь-які спроби завантаження будуть невдалими."
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
@@ -1551,7 +1551,7 @@ msgid ""
 "attribute, before mapping DOS attributes to UNIX permission bits. When set, "
 "DOS attributes will be stored onto an extended attribute in the UNIX file "
 "system, associated with the file or directory."
-msgstr ""
+msgstr "Якщо цей параметр встановлений, Samba намагається спочатку прочитати атрибути DOS (Системний, Прихований, архів або тільки для читання) з розширеного атрибута файлової системи, перш ніж співставляти DOS атрибути UNIX розширенням. При установці, DOS атрибути будуть збережені на розширеному атрибуті в файлової системі UNIX, пов'язані з файлом або каталогом."
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1572,7 +1572,7 @@ msgid "Import"
 msgstr "Імпорт"
 
 msgid "Import SSH certificate"
-msgstr ""
+msgstr "Імпортувати SSH сертифікат"
 
 msgid "Import SSL certificate"
 msgstr "Імпортувати SSL-сертифікат"
@@ -1925,10 +1925,10 @@ msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
 "timer completely (clients can stay connected for ever, without sending "
 "data)."
-msgstr ""
+msgstr "Максимальний час простою в секундах. Встановлення часу очікування до 0 відключає таймер очікування повністю (клієнти можуть залишатися на зв'язку назавжди, без відправки даних)."
 
 msgid "Maximum number of allowed password attempts before disconnection."
-msgstr ""
+msgstr "Максимальна кількість дозволених спроб введення пароля перед відключенням."
 
 msgid "Maximum number of connections per IP (0 = unlimited)."
 msgstr "Максимальна кількість підключень на IP (0 = не обмежена)."
@@ -1943,7 +1943,7 @@ msgid "Maximum upload rate (KiB/s)"
 msgstr "Максимальна швидкість віддачі  (КіБ/с)"
 
 msgid "Maximum {0} selected item(s) allowed"
-msgstr ""
+msgstr "Максимальна дозволена кількість обраних елемент(ів): {0}"
 
 msgid "May"
 msgstr "Травень"
@@ -1988,7 +1988,7 @@ msgid "Minimum performance, Minimum acoustic output"
 msgstr "Мінімальна продуктивність, мінімум шуму"
 
 msgid "Minimum {0} selected item(s) required"
-msgstr ""
+msgstr "Мінімальна кількість необхідних елемент(ів): {0}"
 
 msgid "Minute"
 msgstr "Хвилина"
@@ -2027,7 +2027,7 @@ msgid "Mongolia"
 msgstr "Монголія"
 
 msgid "Monitor"
-msgstr ""
+msgstr "Моніторинг"
 
 msgid "Monitoring"
 msgstr "Моніторинг"
@@ -2036,7 +2036,7 @@ msgid "Month"
 msgstr "Місяць"
 
 msgid "Monthly"
-msgstr ""
+msgstr "Щомісяця"
 
 msgid "Montserrat"
 msgstr "Монтсеррат"
@@ -2123,7 +2123,7 @@ msgid "No authentication and no privacy"
 msgstr ""
 
 msgid "No certificate request"
-msgstr ""
+msgstr "Немає запиту сертифіката"
 
 msgid "No connections"
 msgstr "Немає з'єднання"
@@ -2165,7 +2165,7 @@ msgid "Not ICMP"
 msgstr "Без ICMP"
 
 msgid "Not ICMPv6"
-msgstr ""
+msgstr "НЕ ICMPv6"
 
 msgid "Not TCP"
 msgstr "Без TCP"
@@ -2213,10 +2213,10 @@ msgid "Online"
 msgstr "Онлайн"
 
 msgid "Only guests"
-msgstr ""
+msgstr "Лишень гості"
 
 msgid "Operation"
-msgstr ""
+msgstr "Операція"
 
 msgid "Options"
 msgstr "Опції"
@@ -2276,7 +2276,7 @@ msgid "Paraguay"
 msgstr "Парагвай"
 
 msgid "Parent interface"
-msgstr ""
+msgstr "Батьківський інтерфейс"
 
 msgid "Passive FTP"
 msgstr "Пасивний режим FTP"
@@ -2291,10 +2291,10 @@ msgid "Passwords don't match"
 msgstr "Паролі не співпадають"
 
 msgid "Paste a RSA certificate in X.509 PEM format here."
-msgstr ""
+msgstr "Вставити тут сертифікат RSA в форматі X.509 PEM."
 
 msgid "Paste an private RSA key in X.509 PEM format here."
-msgstr ""
+msgstr "Вставити тут секретний ключ RSA в форматі X.509 PEM."
 
 msgid "Path"
 msgstr "Шлях"
@@ -2388,7 +2388,7 @@ msgid ""
 msgstr ""
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
-msgstr ""
+msgstr "Будь ласка, оберіть стерити пристрій, або \"Скасувати\", щоб перервати операцію."
 
 msgid "Please first select a volume."
 msgstr "Будь ласка, оберіть спочатку розділ."
@@ -2396,12 +2396,12 @@ msgstr "Будь ласка, оберіть спочатку розділ."
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
 "are allowed."
-msgstr ""
+msgstr "Будь ласка, переконайтеся, що спільна тека доступна для запису."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
-msgstr ""
+msgstr "Зверніть увагу, під час цього тесту зв'язку з системою небуде."
 
 msgid "Please reload the page to let the changes take effect."
 msgstr "Будь ласка, перезавантажте сторінку, щоб зміни набрали чинності."
@@ -2442,7 +2442,7 @@ msgid "Pre-release updates."
 msgstr "Попередньо випущені оновлення."
 
 msgid "Prefix length"
-msgstr ""
+msgstr "Довжина префікса"
 
 msgid "Preserve ACLs"
 msgstr "Зберігати списки ACLs"
@@ -2476,7 +2476,7 @@ msgid "Primary email"
 msgstr "Первинний email"
 
 msgid "Privacy passphrase"
-msgstr ""
+msgstr "Захист пароля"
 
 msgid "Privacy type"
 msgstr "Тип конфіденційності"
@@ -2512,7 +2512,7 @@ msgid "Public key"
 msgstr "Відкритий ключ"
 
 msgid "Public key authentication"
-msgstr ""
+msgstr "Відкритий ключ аутентифікація"
 
 msgid "Public keys"
 msgstr "Відкриті ключі"
@@ -2521,10 +2521,10 @@ msgid "Puerto Rico"
 msgstr "Пуерто-Ріко"
 
 msgid "Pull"
-msgstr ""
+msgstr "Пул"
 
 msgid "Push"
-msgstr ""
+msgstr "Натиснути"
 
 msgid "Qatar"
 msgstr "Катар"
@@ -2566,7 +2566,7 @@ msgid "RSync server"
 msgstr "RSync сервер"
 
 msgid "Ranges of numbers are not allowed"
-msgstr ""
+msgstr "Діапазони номерів не допускаються"
 
 msgid "Raw value"
 msgstr ""
@@ -2578,13 +2578,13 @@ msgid "Read-only"
 msgstr "Лише для читання"
 
 msgid "Read/Execute"
-msgstr ""
+msgstr "Читання/Виконати"
 
 msgid "Read/Write"
 msgstr "Зчитування/Запис"
 
 msgid "Read/Write/Execute"
-msgstr ""
+msgstr "Читання /Запис/Виконання"
 
 msgid "Real"
 msgstr "Реальний"
@@ -2632,7 +2632,7 @@ msgid "Remove"
 msgstr "Вилучити"
 
 msgid "Remove devices from RAID device"
-msgstr ""
+msgstr "Видалити пристрій з RAID масиву"
 
 msgid "Replace"
 msgstr "Замінити"
@@ -2677,7 +2677,7 @@ msgid "Resize"
 msgstr "Зміна розміру"
 
 msgid "Result"
-msgstr ""
+msgstr "Результат"
 
 msgid "Resume"
 msgstr "Підсумок"
@@ -2734,7 +2734,7 @@ msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
 
 msgid "SMB/CIFS - Audit"
-msgstr ""
+msgstr "SMB/CIFS - Аудит"
 
 msgid "SMTP port"
 msgstr "SMTP порт"
@@ -2824,7 +2824,7 @@ msgid "Scheduling"
 msgstr "Планування"
 
 msgid "Search domains"
-msgstr ""
+msgstr "Пошук доменів"
 
 msgid "Secondary email"
 msgstr "Вторинний email"
@@ -2860,7 +2860,7 @@ msgid "Select a directory"
 msgstr "Оберіть каталог"
 
 msgid "Select a file permission ..."
-msgstr ""
+msgstr "Оберіть права доступу до файлу ..."
 
 msgid "Select a file system ..."
 msgstr "Оберіть файлову систему ..."
@@ -2893,13 +2893,13 @@ msgid "Select a volume ..."
 msgstr "Оберіть розділ ..."
 
 msgid "Select an authentication mode ..."
-msgstr ""
+msgstr "Оберіть режим перевірки автентичності ..."
 
 msgid "Select devices to be added to the RAID device"
-msgstr ""
+msgstr "Оберіть пристрої, які будуть додані до RAID-пристрою"
 
 msgid "Select devices to be removed from the RAID device."
-msgstr ""
+msgstr "Оберіть пристрої, котрі будуть видалені з RAID."
 
 msgid "Select or enter a user name ..."
 msgstr "Виберіть або введіть ім'я користувача..."
@@ -2995,7 +2995,7 @@ msgid "Shared folder"
 msgstr "Спільна тека"
 
 msgid "Shared folder + content"
-msgstr ""
+msgstr "Спільна тека + вміст"
 
 msgid "Shared folder must not be equal"
 msgstr "Спільні теки не повинні бути рівні"
@@ -3103,7 +3103,7 @@ msgid "Special action flag"
 msgstr "Спеціальний прапор дії"
 
 msgid "Specifies how many server threads to create."
-msgstr ""
+msgstr "Визначає, скільки створювати потоків сервера."
 
 msgid "Specifies one of the bonding policies."
 msgstr ""
@@ -3149,7 +3149,7 @@ msgstr "Визначає чи дозволено увійти в систему,
 msgid ""
 "Specifies whether the system performance statistics are collected "
 "periodically."
-msgstr ""
+msgstr "Визначає, чи буде статистика продуктивності системи збиратися періодично."
 
 msgid ""
 "Specifies whether to monitor the system status and select the most "
@@ -3157,7 +3157,7 @@ msgid ""
 msgstr "Визначає, чи слід контролювати стан системи і вибрати найбільш підходящий рівень процесора."
 
 msgid "Specifies which slave is the primary device."
-msgstr ""
+msgstr "Визначає, який відомий пристрій є основним."
 
 msgid "Speed"
 msgstr "Швидкість"
@@ -3280,16 +3280,16 @@ msgid "Thailand"
 msgstr "Таїланд"
 
 msgid "The NT description field."
-msgstr ""
+msgstr "Опис поля NT."
 
 msgid "The RSA key length."
 msgstr "Довжина ключа RSA."
 
 msgid "The RSA public key in OpenSSH format."
-msgstr ""
+msgstr "Відкритий ключ RSA у форматі OpenSSH."
 
 msgid "The SSH certificate used for authentication."
-msgstr ""
+msgstr "Сертифікат SSH використовується для перевірки автентичності."
 
 msgid "The SSL certificate."
 msgstr "Сертифікат SSL."
@@ -3329,12 +3329,12 @@ msgid "The file system creation has completed successfully."
 msgstr "Створення файлової системи успішно завершено."
 
 msgid "The hostname is a label that identifies the system to the network."
-msgstr ""
+msgstr "Ім'я вузла - ідентифікатор системи в мережі."
 
 msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
-msgstr ""
+msgstr "Інформація про доступне програмне забезпечення застаріле. Вам необхідно оновити інформацію про доступне програмне забезпечення."
 
 msgid "The location of the files to share."
 msgstr "Розташування файлів для загального доступу."
@@ -3394,7 +3394,7 @@ msgstr ""
 
 msgid ""
 "The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr ""
+msgstr "Час очікування сеансу у хвилинах. Встановіть 0 щоб відключити автоматичний вихід із системи."
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3405,7 +3405,7 @@ msgid "The source shared folder."
 msgstr "Джерело спільної теки."
 
 msgid "The specified quota exceeds the max. possible value of 4TiB."
-msgstr ""
+msgstr "Вказана квота перевищує макс. можливе значення 4TiB."
 
 msgid "The system will reboot now. This may take some time ..."
 msgstr "Зараз система буде перезавантажена. Це може зайняти деякий час..."
@@ -3422,7 +3422,7 @@ msgid ""
 msgstr "Привітання, яке буде відображатися користувачу, при вході до системи."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
-msgstr ""
+msgstr "Робоча група, в якій відображається сервер при запиті клієнтами."
 
 msgid ""
 "These settings are used by the services to configure the user access rights."
@@ -3473,12 +3473,12 @@ msgstr "Це поле повинно містити список доменні�
 msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
-msgstr ""
+msgstr "Це поле повинно бути списком імен доменів або IP-адрес, розділених <,> або <;>"
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
 "or <;>"
-msgstr ""
+msgstr "Це поле повинно бути списком хостів або IP-адрес, розділених <,> або <;>"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3520,10 +3520,10 @@ msgstr ""
 
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
-msgstr ""
+msgstr "Це поле повинно містити тільки порти (0 - 65535), відокремлені <,> або <;>"
 
 msgid "This field should only contain strings separated by <,> or <;>"
-msgstr ""
+msgstr "Це поле повинно містити тільки рядки, розділені <,> або <;>"
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Ця функція ефективна лише якщо жорсткий диск підтримує її."
@@ -3547,7 +3547,7 @@ msgstr ""
 msgid ""
 "This option determines if this module should be listed when the client asks "
 "for a listing of available modules."
-msgstr ""
+msgstr "Цей параметр визначає, чи буде цей модуль показаний, коли клієнт запитує перелік доступних модулів."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of host which are NOT "
@@ -3592,7 +3592,7 @@ msgstr ""
 msgid ""
 "This option specifies the maximum number of simultaneous connections. 0 "
 "means no limit."
-msgstr ""
+msgstr "Цей параметр вказує максимальну кількість одночасних підключень. 0 означає, що немає межі."
 
 msgid ""
 "This option specifies the user name that file transfers to and from that "
@@ -3621,10 +3621,10 @@ msgid ""
 msgstr ""
 
 msgid "This rule is triggered whenever the selected event directive occurs."
-msgstr ""
+msgstr "Це правило спрацьовує щоразу, коли відбувається обрана подія."
 
 msgid "This specifies what to do if the packet matches."
-msgstr ""
+msgstr "Вказує, що робити, якщо пакет відповідає."
 
 msgid "This will create a recycle bin on the share."
 msgstr "Це створює кошика на спільному ресурсі."
@@ -3780,7 +3780,7 @@ msgid "Update Management - History"
 msgstr "Керування оновленнями - Історія"
 
 msgid "Update Management - Terminal output"
-msgstr ""
+msgstr "Керування оновленнями - термінальний вихід"
 
 msgid "Update now"
 msgstr "Оновити зараз"
@@ -3796,7 +3796,7 @@ msgid "Updates"
 msgstr "Оновлення"
 
 msgid "Updating ACL settings"
-msgstr ""
+msgstr "Оновлення параметрів списку контролю доступом ACL"
 
 msgid "Upgrade"
 msgstr "Оновити"
@@ -3980,7 +3980,7 @@ msgid "Workgroup"
 msgstr ""
 
 msgid "Worst"
-msgstr ""
+msgstr "Найгірше"
 
 msgid "Write cache"
 msgstr "Кеш запису"
@@ -3989,7 +3989,7 @@ msgid "Write only"
 msgstr "Лише для запису"
 
 msgid "Write/Execute"
-msgstr ""
+msgstr "Записати/Виконати"
 
 msgid "Yearly"
 msgstr "Щороку"

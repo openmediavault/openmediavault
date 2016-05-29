@@ -1,5 +1,7 @@
 openmediavault (3.0.20) stable; urgency=low
 
+  * Update locales.
+  * Various improvements and bugfixes.
   * Mantis 0001522: Communication failure popup clicking
     Diagnose | System Information.
   * Mantis 0001525: Do not work download button on Diagnosis | System Logs.
