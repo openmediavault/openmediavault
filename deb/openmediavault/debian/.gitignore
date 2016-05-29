@@ -2,6 +2,5 @@
 /openmediavault-installer/
 /files
 /*.debhelper.log
-/*.postinst.debhelper
-/*.postrm.debhelper
+/*.debhelper
 /*.substvars
