@@ -55,6 +55,7 @@ Ext.define("OMV.form.field.SslCertificateComboBox", {
 	displayField: "comment",
 	valueField: "uuid",
 	forceSelection: true,
+	forceEmptyValue: true,
 	triggers: {
 		search: {
 			cls: Ext.baseCSSPrefix + "form-search-trigger",

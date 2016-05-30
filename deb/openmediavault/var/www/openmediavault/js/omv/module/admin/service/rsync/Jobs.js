@@ -209,7 +209,6 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 			xtype: "sharedfoldercombo",
 			name: "srcsharedfolderref",
 			fieldLabel: _("Source shared folder"),
-			forceEmptyValue: true,
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The source shared folder.")
@@ -228,7 +227,6 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 			xtype: "sharedfoldercombo",
 			name: "destsharedfolderref",
 			fieldLabel: _("Destination shared folder"),
-			forceEmptyValue: true,
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The destination shared folder.")
@@ -274,7 +272,6 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 			fieldLabel: _("SSH certificate"),
 			allowBlank: false,
 			hidden: true,
-			forceEmptyValue: true,
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The SSH certificate used for authentication.")

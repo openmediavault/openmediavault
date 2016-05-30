@@ -51,6 +51,7 @@ Ext.define("OMV.form.field.SshCertificateComboBox", {
 	displayField: "comment",
 	valueField: "uuid",
 	forceSelection: true,
+	forceEmptyValue: true,
 
 	initComponent: function() {
 		var me = this;

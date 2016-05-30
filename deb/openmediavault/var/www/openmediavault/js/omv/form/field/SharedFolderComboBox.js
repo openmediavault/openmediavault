@@ -54,6 +54,7 @@ Ext.define("OMV.form.field.SharedFolderComboBox", {
 	allowBlank: false,
 	editable: false,
 	forceSelection: true,
+	forceEmptyValue: true,
 	triggerAction: "all",
 	displayField: "description",
 	valueField: "uuid",
