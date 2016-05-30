@@ -18,6 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+// require("js/omv/form/field/ComboBox.js")
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
@@ -26,14 +27,14 @@
 /**
  * @ingroup webgui
  * @class OMV.form.SshCertificateComboBox
- * @derived Ext.form.field.ComboBox
+ * @derived OMV.form.field.ComboBox
  * Display all existing SSH certificates in a combobox control.
  * @param allowNone Set to TRUE to display the 'None' list entry.
  *   Defaults to FALSE.
  * @param noneText The text of the 'None' list entry.
  */
 Ext.define("OMV.form.field.SshCertificateComboBox", {
-	extend: "Ext.form.field.ComboBox",
+	extend: "OMV.form.field.ComboBox",
 	alias: [ "widget.sshcertificatecombo" ],
 	requires: [
 		"OMV.data.Store",

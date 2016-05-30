@@ -209,6 +209,7 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 			xtype: "sharedfoldercombo",
 			name: "srcsharedfolderref",
 			fieldLabel: _("Source shared folder"),
+			forceEmptyValue: true,
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The source shared folder.")
@@ -227,6 +228,7 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 			xtype: "sharedfoldercombo",
 			name: "destsharedfolderref",
 			fieldLabel: _("Destination shared folder"),
+			forceEmptyValue: true,
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The destination shared folder.")
@@ -272,6 +274,7 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 			fieldLabel: _("SSH certificate"),
 			allowBlank: false,
 			hidden: true,
+			forceEmptyValue: true,
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The SSH certificate used for authentication.")
@@ -584,18 +587,6 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 			}
 		});
 		return valid;
-	},
-
-	getValues: function() {
-		var me = this;
-		var values = me.callParent(arguments);
-		// Make sure the value is not NULL.
-		Ext.each([ "srcsharedfolderref", "destsharedfolderref",
-		  "sshcertificateref" ], function(name) {
-			if (Ext.isNull(values[name]))
-				values[name] = ""
-		});
-		return values;
 	}
 });
 
