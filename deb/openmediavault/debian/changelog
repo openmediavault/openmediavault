@@ -1,6 +1,7 @@
 openmediavault (3.0.21) stable; urgency=low
 
   * Various improvements and bugfixes.
+  * Mantis 0001530: Smart Monitoring of individual disks cannot be enabled.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 30 May 2016 08:00:12 +0200
 

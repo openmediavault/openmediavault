@@ -292,7 +292,8 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		// Ensure that the device has S.M.A.R.T. support.
 		$sd->assertHasSmartSupport();
 		// Prepare the configuration data.
-		$object = new ConfigObject("conf.service.smartmontools.device");
+		$object = new \OMV\Config\ConfigObject(
+		  "conf.service.smartmontools.device");
 		$object->setAssoc([
 			"uuid" => $params['uuid'],
 			"enable" => $params['enable'],
