@@ -264,16 +264,19 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// folder as the relative directory name of the share.
 		$object = new \OMV\Config\ConfigObject("conf.system.sharedfolder");
 		$object->setAssoc($params, TRUE, TRUE);
-		$object->set("reldirpath", sprintf("%s/", trim($params['reldirpath'],
-		  "/")));
+		$object->set("reldirpath", build_path(DIRECTORY_SEPARATOR,
+		  $params['reldirpath']));
 		// Set the configuration object.
 		$isNew = $object->isNew();
 		$db = \OMV\Config\Database::getInstance();
 		if (TRUE === $isNew) {
-			// Check uniqueness. The share name must be global unique because
-			// the name is also used when exporting a shared folder via NFS for
-			// example.
+			// Check uniqueness:
+			// - The share name must be global unique because the name
+			//   is also used when exporting a shared folder via NFS
+			//   for example.
 			$db->assertIsUnique($object, "name");
+			// - The mount directory must be unique, too.
+			$db->assertIsUnique($object, "reldirpath");
 		} else {
 			// Get the existing configuration object.
 			$oldObject = $db->get("conf.system.sharedfolder", $params['uuid']);
