@@ -265,7 +265,8 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		$object = new \OMV\Config\ConfigObject("conf.system.sharedfolder");
 		$object->setAssoc($params, TRUE, TRUE);
 		$object->set("reldirpath", build_path(DIRECTORY_SEPARATOR,
-		  $params['reldirpath']));
+		  explode(DIRECTORY_SEPARATOR, $params['reldirpath'])).
+		  DIRECTORY_SEPARATOR);
 		// Set the configuration object.
 		$isNew = $object->isNew();
 		$db = \OMV\Config\Database::getInstance();
