@@ -584,12 +584,16 @@ function strpdate($date, $format) {
  * @return A string path built from the given parts.
  */
 function build_path($separator, ...$parts) {
+	// Remove all empty parts.
+	$parts = array_filter($parts, function($v) { return !empty($v); });
+	// Trim the parts.
 	foreach ($parts as $partk => &$partv) {
 		if (0 == $partk) // First element
 			$partv = rtrim($partv, $separator);
 		else // Others
 			$partv = trim($partv, $separator);
 	}
+	// Finally concat the parts.
 	return implode($separator, $parts);
 }
 
