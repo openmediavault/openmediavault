@@ -67,7 +67,7 @@ class OMVModuleZeroconf extends \OMV\Engine\Module\ServiceAbstract
 		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.zeroconf.services",
+		  "org.openmediavault.conf.service.zeroconf.service",
 		  [ $this, "setDirty" ]);
 	}
 }
