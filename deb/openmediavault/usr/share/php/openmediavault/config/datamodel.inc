@@ -38,6 +38,7 @@ class DataModel extends \OMV\DataModel\DataModel {
 				"alias":{"type":"string","required":false},
 				"title":{"type":"string","required":false},
 				"description":{"type":"string","required":false},
+				"notificationid":{"type":"string","required":false},
 				"properties":{"type":"any","required":true},
 				"queryinfo":{
 					"type":"object",
@@ -108,6 +109,16 @@ class DataModel extends \OMV\DataModel\DataModel {
 	public function getRefProperty() {
 		$qi = $this->getQueryInfo();
 		return $qi['refproperty'];
+	}
+
+	/**
+	 * Get the notification identifier.
+	 * @return The notification identifier string, e.g.
+	 *   'org.openmediavault.x.y.z'.
+	 */
+	public function getNotificationId() {
+		return array_value($this->getModel(), "notificationid",
+		  sprintf("org.openmediavault.%s", $this->getId()));
 	}
 
 	/**
