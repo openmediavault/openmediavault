@@ -21,7 +21,7 @@
 		},
 		"loglevel": {
 			"type": "integer",
-			"enum":[ 0, 1, 2, 3, 10 ],
+			"enum": [ 0, 1, 2, 3, 10 ],
 			"default": 0
 		},
 		"usesendfile": {

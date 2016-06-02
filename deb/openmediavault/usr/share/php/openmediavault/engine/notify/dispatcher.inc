@@ -78,7 +78,7 @@ class Dispatcher {
 	 * @param arg1 The event message type, e.g. OMV_NOTIFY_CREATE,
 	 *   OMV_NOTIFY_MODIFY, OMV_NOTIFY_PREDELETE, OMV_NOTIFY_DELETE or
 	 *   OMV_NOTIFY_MODIFY|OMV_NOTIFY_DELETE.
-	 * @param arg2 The event message path that should be monitored,
+	 * @param arg2 The notification identifier that should be monitored,
 	 *   e.g. 'org.openmediavault.abc.xyz'.
 	 * @param arg3 The callback function.
 	 * @param arg4 The sequence number of the called function. Default
@@ -94,7 +94,7 @@ class Dispatcher {
 //		  $arg3[1], $arg4));
 		$this->listeners[] = [
 			"type" => $arg1,
-			"path" => $arg2,
+			"id" => $arg2,
 			"callback" => $arg3,
 			"seqnum" => $arg4
 		];
@@ -105,13 +105,14 @@ class Dispatcher {
 	 * @param type The event message type that should be announced, e.g.
 	 *   OMV_NOTIFY_CREATE, OMV_NOTIFY_MODIFY, OMV_NOTIFY_PREDELETE,
 	 *   OMV_NOTIFY_DELETE or OMV_NOTIFY_MODIFY|OMV_NOTIFY_DELETE.
-	 * @param path The event message path, e.g. 'org.openmediavault.abc.xyz'.
+	 * @param id The notification identifier, e.g.
+	 *   'org.openmediavault.abc.xyz'.
 	 * @param argX The parameters to be passed.
 	 */
-	function notify($type, $path /* [, $arg1 [, $... ]] */) {
+	function notify($type, $id /* [, $arg1 [, $... ]] */) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Filter list of registered listeners.
-		$listeners = array_filter_ex($this->listeners, "path", $path);
+		$listeners = array_filter_ex($this->listeners, "id", $id);
 		// Sort list of registered listeners.
 		array_sort_key($listeners, "seqnum");
 		// Call registered listeners.
@@ -119,8 +120,8 @@ class Dispatcher {
 			foreach ($listeners as $listenerk => $listenerv) {
 				if ($listenerv['type'] & $type) {
 //					$this->debug(sprintf("Notify listener (type=%s, " .
-//					  "path=%s, callback=%s::%s, seqnum=%s",
-//					  $listenerv['type'], $listenerv['path'],
+//					  "id=%s, callback=%s::%s, seqnum=%s",
+//					  $listenerv['type'], $listenerv['id'],
 //					  get_class($listenerv['callback'][0]),
 //					  $listenerv['callback'][1], $listenerv['seqnum']));
 					call_user_func_array($listenerv['callback'],
@@ -131,16 +132,16 @@ class Dispatcher {
 	}
 
 	/**
-	 * Dump all registered listeners sorted by their event message path.
-	 * @param path The event message path that should be monitored.
+	 * Dump all registered listeners sorted by their notification identifier.
+	 * @param id The notification identifier that should be monitored.
 	 */
-	function dumpListeners($path = "") {
+	function dumpListeners($id = "") {
 		$listeners = $this->listeners;
 		// Filter list of registered listeners.
-		if (!empty($path))
-			$listeners = array_filter_ex($listeners, "path", $path);
+		if (!empty($id))
+			$listeners = array_filter_ex($listeners, "id", $id);
 		// Sort list of registered listeners.
-		array_sort_key($listeners, "path");
+		array_sort_key($listeners, "id");
 		// Dump registered listeners.
 		$this->debug($listeners);
 	}
