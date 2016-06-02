@@ -703,6 +703,9 @@ omv_get_sharedfolder_mount_dir() {
 
 # void omv_build_mount_dir (char *)
 # Build the mount directory for the given device file or filesystem UUID.
+# Note, if the device file is given, it is necessary that the filesystem is
+# available (e.g. mounted, USB device plugged in, ...), otherwise it is not
+# possible to get the filesystem UUID.
 # @param The device file or the filesystem UUID.
 # @return The directory path, e.g /media/6c5be784-50a8-440c-9d25-aab99b9c6fb1
 #   or /media/3849-705A.

@@ -66,7 +66,8 @@ xmlstarlet sel -t \
 		-o "}" -n \
 		-o "[ -e ${runfile} ] && exit 1" -n \
 		-o "# Make sure the storage device is mounted." -n \
-		-v "concat('mountdir=\$(omv_md5 ',devicefile,')')" -n \
+		-v "concat('id=\$(omv_md5 ',devicefile,')')" -n \
+		-o "mountdir=\$(omv_build_mount_dir \${id})" -n \
 		-o "if ! omv_is_mounted \${mountdir} ; then" -n \
 		-v "concat('    echo \"External storage device <',devicefile,'> not mounted!\" | logger -s -t \$(basename \$0) 2>&1')" -n \
 		-o "    exit 1" -n \
@@ -108,12 +109,12 @@ xmlstarlet sel -t \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read devicefile; do
-	  id=$(omv_md5 "${devicefile}")
+	  id=$(omv_md5 ${devicefile})
 	  scriptfile="${OMV_USBBACKUP_SCRIPTS_DIR}/${OMV_USBBACKUP_JOBS_SCRIPT_PREFIX}${id}"
 	  runfile="/var/run/${OMV_USBBACKUP_JOBS_SCRIPT_PREFIX}${id}"
-	  mountdir=$(omv_md5 ${devicefile})
+	  mountdir=$(omv_build_mount_dir ${id})
 	  unitfile="${OMV_USBBACKUP_SYSTEMD_SCRIPTS_DIR}/${OMV_USBBACKUP_SYSTEMD_UNITFILE_PREFIX}${id}.service"
-	  device=$(systemd-escape --path "${devicefile}")
+	  device=$(systemd-escape --path ${devicefile})
 
 	  xmlstarlet sel -t \
 		-o "#!/bin/sh" -n \
