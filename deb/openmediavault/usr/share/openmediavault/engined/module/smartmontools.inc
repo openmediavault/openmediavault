@@ -87,11 +87,11 @@ class OMVModuleSmartMonTools extends \OMV\Engine\Module\ServiceAbstract
 		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.smart.monitor.device",
+		  "org.openmediavault.conf.service.smartmontools.device",
 		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.conf.service.smart.scheduledtests.job",
+		  "org.openmediavault.conf.service.smartmontools.job",
 		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
