@@ -106,19 +106,13 @@ class OMVRpcServiceNetworkRoute extends \OMV\Rpc\ServiceAbstract {
 		  "conf.service.staticroutes.route");
 		$object->setAssoc($params);
 		// Set the configuration object.
-		$isNew = $object->isNew();
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $isNew) {
+		if (TRUE === $object->isNew()) {
 			// Perform some checks. These could be improved somewhen, e.g.
 			// checking if a network fits into an already configured route.
 			$db->assertIsUnique($object, "network");
 		}
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.staticroutes.route",
-		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -138,8 +132,10 @@ class OMVRpcServiceNetworkRoute extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		return $this->deleteConfigObjectByUuid(
-		  "conf.service.staticroutes.route", $params['uuid'],
-		  "org.openmediavault.conf.service.staticroutes.route");
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.staticroutes.route", $params['uuid']);
+		$db->delete($object);
+		// Return the deleted configuration object.
+		return $object->getAssoc();
 	}
 }

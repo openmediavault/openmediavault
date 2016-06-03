@@ -78,10 +78,6 @@ class OMVRpcServiceAFP extends \OMV\Rpc\ServiceAbstract {
 		$db->set($object);
 		// Remove useless properties from the object.
 		$object->remove("shares");
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.afp", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -182,13 +178,8 @@ class OMVRpcServiceAFP extends \OMV\Rpc\ServiceAbstract {
 			"options.mswindows" => $params['mswindows']
 		]);
 		// Set the configuration object.
-		$isNew = $object->isNew();
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.afp.share", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -208,7 +199,10 @@ class OMVRpcServiceAFP extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		return $this->deleteConfigObjectByUuid("conf.service.afp.share",
-		  $params['uuid'], "org.openmediavault.conf.service.afp.share");
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.afp.share", $params['uuid']);
+		$db->delete($object);
+		// Return the deleted configuration object.
+		return $object->getAssoc();
 	}
 }

@@ -132,9 +132,8 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		$object->setAssoc($params);
 		$object->setAssoc($ifaceParams);
 		// Set the configuration object.
-		$isNew = $object->isNew();
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $isNew) {
+		if (TRUE === $object->isNew()) {
 			// Check uniqueness.
 			$db->assertIsUniqueByFilter($object, [
 				"operator" => "and",
@@ -151,11 +150,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			]);
 		}
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.network.interface",
-		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
     }
@@ -196,11 +190,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		// Update the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.network.dns",
-		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -480,9 +469,11 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		return $this->deleteConfigObjectByUuid(
-		  "conf.system.network.interface", $params['uuid'],
-		  "org.openmediavault.conf.system.network.interface");
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.network.interface", $params['uuid']);
+		$db->delete($object);
+		// Return the deleted configuration object.
+		return $object->getAssoc();
 	}
 
 	/**
@@ -968,11 +959,6 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 		// Set the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.network.proxy",
-		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}

@@ -363,7 +363,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.system.sharedfolder", $params['uuid']);
-		// Check if the shared folder is used somewhere.
+		// Make sure the shared folder is not referenced.
 		$db->assertIsNotReferenced($object);
 		// Delete shared folder content recursively?
 		$recursive = boolvalEx($params['recursive']);
@@ -474,8 +474,9 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			$cmd->execute();
 		}
 		// Delete the configuration object.
-		return $this->deleteConfigObjectByObject($object,
-		  "org.openmediavault.conf.system.sharedfolder");
+		$db->delete($object);
+		// Return the deleted configuration object.
+		return $object->getAssoc();
 	}
 
 	/**

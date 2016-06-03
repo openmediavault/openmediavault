@@ -546,9 +546,11 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		return $this->deleteConfigObjectByUuid(
-		  "conf.service.smartmontools.job", $params['uuid'],
-		  "org.openmediavault.conf.service.smartmontools.job");
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.smartmontools.job", $params['uuid']);
+		$db->delete($object);
+		// Return the deleted configuration object.
+		return $object->getAssoc();
 	}
 
 	/**

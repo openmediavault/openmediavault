@@ -236,8 +236,9 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		$object = $this->deleteConfigObjectByUuid("conf.service.nfs.share",
-		  $params['uuid'], "org.openmediavault.conf.service.nfs.share");
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.nfs.share", $params['uuid']);
+		$db->delete($object);
 		// Check if the shared folder is still shared by another NFS share.
 		// In this case do not delete or unmount the mount point configuration
 		// object.

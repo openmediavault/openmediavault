@@ -68,7 +68,7 @@ class ConfigObject {
 		if (FALSE === $this->exists($name)) {
 			throw new \OMV\AssertException(
 			  "The property '%s' does not exist in the model '%s'.",
-			  $name, $this->getModel()->getId());
+			  $name, $this->getModelId());
 		}
 	}
 
@@ -400,15 +400,10 @@ class ConfigObject {
 	 * @throw \OMV\Exception
 	 */
 	public function isNew() {
-		if ((!$this->isIterable()) || (!$this->isIdentifiable())) {
-			throw new \OMV\Exception(
-			  "The configuration object '%s' is not identifiable.",
-			  $this->getModel()->getId());
-		}
-		$value = $this->get($this->getModel()->getIdProperty());
-		if (FALSE === \OMV\Uuid::isUuid4($value))
+		$uuid = $this->getIdentifier();
+		if (FALSE === \OMV\Uuid::isUuid4($uuid))
 			return FALSE;
-		return ($GLOBALS['OMV_CONFIGOBJECT_NEW_UUID'] == $value);
+		return ($GLOBALS['OMV_CONFIGOBJECT_NEW_UUID'] == $uuid);
 	}
 
 	/**
@@ -421,45 +416,83 @@ class ConfigObject {
 		if ((!$this->isIterable()) || (!$this->isIdentifiable())) {
 			throw new \OMV\Exception(
 			  "The configuration object '%s' is not identifiable.",
-			  $this->getModel()->getId());
+			  $this->getModelId());
 		}
-		$value = $GLOBALS['OMV_CONFIGOBJECT_NEW_UUID'];
-		$this->set($this->getModel()->getIdProperty(), $value);
+		$uuid = $GLOBALS['OMV_CONFIGOBJECT_NEW_UUID'];
+		$this->set($this->getModel()->getIdProperty(), $uuid);
 	}
 
 	/**
-	 * Create a new UUID. Use this method only if the configuration object
-	 * has an 'uuid' property.
-	 * @return None.
+	 * Create a new object identifier (UUID). Use this method only if the
+	 * configuration object has an 'uuid' property.
+	 * @return The new object identifier.
 	 * @throw \OMV\Exception
 	 */
 	public function createIdentifier() {
 		if ((!$this->isIterable()) || (!$this->isIdentifiable())) {
 			throw new \OMV\Exception(
 			  "The configuration object '%s' is not identifiable.",
-			  $this->getModel()->getId());
+			  $this->getModelId());
 		}
-		$value = \OMV\Uuid::uuid4();
-		$this->set($this->getModel()->getIdProperty(), $value);
+		$uuid = \OMV\Uuid::uuid4();
+		$this->set($this->getModel()->getIdProperty(), $uuid);
+		return $uuid;
 	}
 
+	/**
+	 * Get the object identifier.
+	 * @return The object identifier.
+	 */
+	public function getIdentifier() {
+		if ((!$this->isIterable()) || (!$this->isIdentifiable())) {
+			throw new \OMV\Exception(
+			  "The configuration object '%s' is not identifiable.",
+			  $this->getModelId());
+		}
+		return $this->get($this->getModel()->getIdProperty());
+	}
+
+	/**
+	 * Verify that the configuration object is identifiable.
+	 * @return Returns TRUE ifthe configuration object is identifiable,
+	 *   FALSE otherwise.
+	 */
 	public function isIdentifiable() {
 		return $this->getModel()->isIterable();
 	}
 
+	/**
+	 * Verify that the configuration object is iterable.
+	 * @return Returns TRUE ifthe configuration object is iterable,
+	 *   FALSE otherwise.
+	 */
 	public function isIterable() {
 		return $this->getModel()->isIterable();
 	}
 
+	/**
+	 * Verify that the configuration object is referenceable.
+	 * @return Returns TRUE ifthe configuration object is referenceable,
+	 *   FALSE otherwise.
+	 */
 	public function isReferenceable() {
 		return $this->getModel()->isReferenceable();
 	}
 
 	/**
 	 * Get the model identifier, e.g. 'conf.service.rsyncd.module'.
+	 * @deprecated
 	 * @return The model identifier.
 	 */
 	public function getId() {
+		return $this->getModelId();
+	}
+
+	/**
+	 * Get the model identifier, e.g. 'conf.service.rsyncd.module'.
+	 * @return The model identifier.
+	 */
+	public function getModelId() {
 		return $this->getModel()->getId();
 	}
 }

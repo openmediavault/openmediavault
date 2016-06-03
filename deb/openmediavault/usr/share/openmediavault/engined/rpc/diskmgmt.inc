@@ -182,17 +182,12 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Update the configuration data.
 		$object->set("devicefile", $sd->getDeviceFileById());
 		// Set the configuration object.
-		$isNew = $object->isNew();
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $isNew) {
+		if (TRUE === $object->isNew()) {
 			// Check uniqueness.
 			$db->assertIsUnique($object, "devicefile");
 		}
 		$db->set($object);
-		// Notify the configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.hdparm", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}

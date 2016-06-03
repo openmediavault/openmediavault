@@ -68,16 +68,10 @@ class OMVRpcServiceNetworkUPSTools extends \OMV\Rpc\ServiceAbstract {
 		// Get the existing configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.nut");
-		$oldObject = clone $object;
 		// Update the configuration object.
 		$object->setAssoc($params);
 		// Put the configuration object.
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.nut", $object->getAssoc(),
-		  $oldObject->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}

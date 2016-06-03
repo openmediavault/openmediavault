@@ -754,6 +754,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
 		  "org.openmediavault.conf.system.filesystem", $fsObject);
+		// Return the configuration object.
+		return $fsObject;
 	}
 
 	/**

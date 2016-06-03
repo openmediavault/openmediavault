@@ -200,8 +200,10 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		return $this->deleteConfigObjectByUuid(
-		  "conf.service.rsyncd.module", $params['uuid'],
-		  "org.openmediavault.conf.service.rsyncd.module");
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.rsyncd.module", $params['uuid']);
+		$db->delete($object);
+		// Return the deleted configuration object.
+		return $object->getAssoc();
 	}
 }

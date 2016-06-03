@@ -158,19 +158,13 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		openssl_x509_free($certificate);
 		// Set the configuration object.
-		$isNew = $object->isNew();
-		if (TRUE === $isNew) {
+		if (TRUE === $object->isNew()) {
 			// The private key is required here.
 			if ($object->isEmpty("privatekey"))
 				throw new \OMV\Exception("Private key does not exist.");
 		}
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.certificate.ssl",
-		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -189,13 +183,14 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
-		// Check if the certificate is referenced.
+		// Make sure the certificate is not referenced.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.system.certificate.ssl", $params['uuid']);
 		$db->assertIsNotReferenced($object);
 		// Delete the configuration object.
-		return $this->deleteConfigObjectByObject($object,
-		  "org.openmediavault.conf.system.certificate.ssl");
+		$db->delete($object);
+		// Return the deleted configuration object.
+		return $object->getAssoc();
 	}
 
 	/**
@@ -456,19 +451,15 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			openssl_pkey_free($privatekey);
 		}
 		// Set the configuration data.
-		$isNew = $object->isNew();
-		if (TRUE === $isNew) {
+		if (TRUE === $object->isNew()) {
 			// The private key is required here.
 			if ($object->isEmpty("privatekey"))
 				throw new \OMV\Exception("Private key does not exist.");
 		}
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.certificate.ssh",
-		  $object->getAssoc());
+		// Return the configuration object.
+		return $object->getAssoc();
 	}
 
 	/**
@@ -485,12 +476,13 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
-		// Check if the certificate is referenced.
+		// Make sure the certificate is not referenced.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.system.certificate.ssh", $params['uuid']);
 		$db->assertIsNotReferenced($object);
 		// Delete the configuration object.
-		return $this->deleteConfigObjectByObject($object,
-		  "org.openmediavault.conf.system.certificate.ssh");
+		$db->delete($object);
+		// Return the deleted configuration object.
+		return $object->getAssoc();
 	}
 }

@@ -79,11 +79,6 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 		// Update the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.apt.distribution",
-		  $object->getAssoc());
 		// Apply the changes immediatelly (no user interaction is wanted).
 		\OMV\Rpc\Rpc::call("Config", "applyChanges", [
 			"modules" => [ "apt" ],

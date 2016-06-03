@@ -87,10 +87,6 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 		// Remove useless properties from the object.
 		$object->remove("shares");
 		$object->remove("modules");
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.ftp", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -170,18 +166,13 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 		$object = new \OMV\Config\ConfigObject("conf.service.ftp.share");
 		$object->setAssoc($params);
 		// Set the configuration object.
-		$isNew = $object->isNew();
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $isNew) {
+		if (TRUE === $object->isNew()) {
 			// Check uniqueness. A shared folder can only be configured once
 			// for FTP.
 			$db->assertIsUnique($object, "sharedfolderref");
 		}
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.ftp.share", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -201,8 +192,11 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		return $this->deleteConfigObjectByUuid("conf.service.ftp.share",
-		  $params['uuid'], "org.openmediavault.conf.service.ftp.share");
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.ftp.share", $params['uuid']);
+		$db->delete($object);
+		// Return the deleted configuration object.
+		return $object->getAssoc();
 	}
 
 	/**
@@ -268,14 +262,8 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 		$object = new \OMV\Config\ConfigObject("conf.service.ftp.modban.rule");
 		$object->setAssoc($params);
 		// Set the configuration object.
-		$isNew = $object->isNew();
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.ftp.modules.modban.rule",
-		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -294,9 +282,11 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		return $this->deleteConfigObjectByUuid(
-		  "conf.service.ftp.modban.rule", $params['uuid'],
-		  "org.openmediavault.conf.service.ftp.modules.modban.rule");
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.ftp.modban.rule", $params['uuid']);
+		$db->delete($object);
+		// Return the deleted configuration object.
+		return $object->getAssoc();
 	}
 
 	/**
@@ -334,11 +324,6 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 		// Set the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.ftp.modules.modtls",
-		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}

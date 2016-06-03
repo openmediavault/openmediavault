@@ -241,8 +241,10 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		return $this->deleteConfigObjectByUuid(
-		  "conf.system.filesystem.quota", $params['uuid'],
-		  "org.openmediavault.conf.system.filesystem.quota");
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.filesystem.quota", $params['uuid']);
+		$db->delete($object);
+		// Return the deleted configuration object.
+		return $object->getAssoc();
 	}
 }

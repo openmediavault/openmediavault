@@ -532,6 +532,7 @@ abstract class ServiceAbstract {
 	 * Helper function to delete an configuration object.
 	 * The notifications OMV_NOTIFY_PREDELETE and OMV_NOTIFY_DELETE
 	 * will be submitted to its subscribers.
+	 * @deprecated
 	 * @param model The data model identifier of the configuration object.
 	 * @param uuid The UUID of the configuration object.
 	 * @param notifyId The notification identifier to be submitted.
@@ -548,22 +549,16 @@ abstract class ServiceAbstract {
 	 * Helper function to delete an configuration object.
 	 * The notifications OMV_NOTIFY_PREDELETE and OMV_NOTIFY_DELETE
 	 * will be submitted to its subscribers.
+	 * @deprecated
 	 * @param object The configuration object.
 	 * @param notifyId The notification identifier to be submitted.
 	 * @return The deleted configuration object.
 	 */
 	protected function deleteConfigObjectByObject(
 	  \OMV\Config\ConfigObject $object, $notifyId) {
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_PREDELETE, $notifyId,
-		  $object->getAssoc());
 		// Delete configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$db->delete($object);
-		// Notify configuration changes.
-		$dispatcher->notify(OMV_NOTIFY_DELETE, $notifyId,
-		  $object->getAssoc());
 		// Return the deleted configuration object.
 		return $object->getAssoc();
 	}

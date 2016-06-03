@@ -75,7 +75,7 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 		// Get existing configuration object.
 		$xpath = "//services/iscsitarget";
 		$oldObject = $xmlConfig->get($xpath);
-		if(is_null($oldObject)) {
+		if (is_null($oldObject)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
@@ -88,7 +88,7 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 		  ));
 		// Update the authentication users uuid's (only necessary if the
 		// user is new)
-		if(!empty($object['authentication']['user'])) {
+		if (!empty($object['authentication']['user'])) {
 			foreach($object['authentication']['user'] as $userk => &$userv) {
 				$userv['uuid'] = ($userv['uuid'] ==
 				  $GLOBALS['OMV_UUID_UNDEFINED']) ?
@@ -96,7 +96,7 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 			}
 		}
 		// Set the configuration object.
-		if(FALSE === $xmlConfig->replace($xpath, $object)) {
+		if (FALSE === $xmlConfig->replace($xpath, $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.

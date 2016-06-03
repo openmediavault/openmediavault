@@ -72,11 +72,6 @@ class OMVRpcServiceForkedDaapd extends \OMV\Rpc\ServiceAbstract {
 		$object->setAssoc($params);
 		// Put the configuration object.
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.daapd", $object->getAssoc(),
-		  $oldObject->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}

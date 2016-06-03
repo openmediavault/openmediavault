@@ -194,10 +194,15 @@ class Database {
 	 * @throw \OMV\Config\DatabaseException
 	 */
 	public function set(ConfigObject &$object) {
-		$queryBuilder = new DatabaseBackendQueryBuilder($object->getId());
+		$oldObjectData = NULL;
+		// Get the notification settings.
+		$notifyType = OMV_NOTIFY_MODIFY;
+		$notifyId = $object->getModel()->getNotificationId();
 		// Build the XPath query string.
+		$queryBuilder = new DatabaseBackendQueryBuilder($object->getModelId());
 		$xpath = $queryBuilder->buildSetQuery($object);
 		if ((TRUE === $object->isIterable()) && (TRUE === $object->isNew())) {
+			$notifyType = OMV_NOTIFY_CREATE;
 			// Auto-create the identifier.
 			$object->createIdentifier();
 			// The values to be stored must look a little bit different
@@ -210,19 +215,31 @@ class Database {
 			$qi = $object->getModel()->getQueryInfo();
 			$parts = explode("/", $qi['xpath']);
 			$nodeName = array_pop($parts);
-			$values = array($nodeName => $object->getAssoc());
+			// Get the data of the configuration object.
+			$objectData = $object->getAssoc();
 			// Finally put the configuration object.
-			$result = $this->getBackend()->set($xpath, $values);
+			$result = $this->getBackend()->set($xpath, [
+				$nodeName => $objectData
+			]);
 		} else {
-			// Get the values of the configuration object.
-			$values = $object->getAssoc();
+			// Get the old configuration object.
+			$uuid = NULL;
+			if ($object->isIdentifiable())
+				$uuid = $object->getIdentifier();
+			$oldObjectData = $this->getAssoc($object->getModelId(), $uuid);
+			// Get the data of the configuration object.
+			$objectData = $object->getAssoc();
 			// Finally put the configuration object.
-			$result = $this->getBackend()->replace($xpath, $values);
+			$result = $this->getBackend()->replace($xpath, $objectData);
 		}
 		if (FALSE === $result) {
 			throw new DatabaseException("Failed to execute XPath query '%s'.",
 			  $xpath);
 		}
+		// Submit the notification.
+		$notifyDispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
+		$notifyDispatcher->notify($notifyType, $notifyId, $objectData,
+		  $oldObjectData);
 	}
 
 	/**
@@ -232,12 +249,23 @@ class Database {
 	 * @throw \OMV\Config\DatabaseException
 	 */
 	public function delete(ConfigObject $object) {
-		$queryBuilder = new DatabaseBackendQueryBuilder($object->getId());
+		// Get the notification identifier and the data to be submitted.
+		$notifyId = $object->getModel()->getNotificationId();
+		$objectData = $object->getAssoc();
+		// Build the XPath query string.
+		$queryBuilder = new DatabaseBackendQueryBuilder($object->getModelId());
 		$xpath = $queryBuilder->buildDeleteQuery($object);
+		// Submit the notification.
+		$notifyDispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
+		$notifyDispatcher->notify(OMV_NOTIFY_PREDELETE, $notifyId,
+		  $objectData);
+		// Delete the object.
 		if (FALSE === $this->getBackend()->delete($xpath)) {
 			throw new DatabaseException("Failed to execute XPath query '%s'.",
 			  $xpath);
 		}
+		// Submit the notification.
+		$notifyDispatcher->notify(OMV_NOTIFY_DELETE, $notifyId, $objectData);
 	}
 
 	/**
@@ -304,10 +332,10 @@ class Database {
 		if (FALSE === $object->isReferenceable()) {
 			throw new DatabaseException(
 			  "The configuration object '%s' can not be referenced.",
-			  $object->getId());
+			  $object->getModelId());
 		}
 		// Create the query builder.
-		$queryBuilder = new DatabaseBackendQueryBuilder($object->getId());
+		$queryBuilder = new DatabaseBackendQueryBuilder($object->getModelId());
 		$xpath = $queryBuilder->buildIsReferencedQuery($object);
 		return $this->getBackend()->exists($xpath);
 	}
@@ -322,7 +350,7 @@ class Database {
 		if (FALSE === $this->isReferenced($object)) {
 			throw new \OMV\AssertException(
 			  "The configuration object '%s' is not referenced.",
-			  $object->getId());
+			  $object->getModelId());
 		}
 	}
 
@@ -336,7 +364,7 @@ class Database {
 		if (TRUE === $this->isReferenced($object)) {
 			throw new \OMV\AssertException(
 			  "The configuration object '%s' is referenced.",
-			  $object->getId());
+			  $object->getModelId());
 		}
 	}
 
@@ -415,7 +443,7 @@ class Database {
 	 *   value exists, otherwise FALSE.
 	 */
 	public function isUniqueByFilter(ConfigObject $object, $filter) {
-		$objects = $this->getByFilter($object->getId(), $filter);
+		$objects = $this->getByFilter($object->getModelId(), $filter);
 		$numObjects = count($objects);
 		if ($object->isNew())
 			return (0 == $numObjects);
@@ -434,7 +462,7 @@ class Database {
 		if (FALSE === $this->isUnique($object, $property)) {
 			throw new \OMV\AssertException("The configuration object '%s' is ".
 			  "not unique. An object with the property '%s' and value '%s' ".
-			  "already exists.", $object->getId(), $property,
+			  "already exists.", $object->getModelId(), $property,
 			  $object->get($property));
 		}
 	}
@@ -451,7 +479,7 @@ class Database {
 	public function assertIsUniqueByFilter(ConfigObject $object, $filter) {
 		if (FALSE === $this->isUniqueByFilter($object, $filter)) {
 			throw new \OMV\AssertException("The configuration object '%s' ".
-			  "with the filter '%s' is not unique.", $object->getId(),
+			  "with the filter '%s' is not unique.", $object->getModelId(),
 			  json_encode($filter));
 		}
 	}

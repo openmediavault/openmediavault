@@ -116,10 +116,6 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 			$db->set($objectv);
 			$objectsAssoc[] = $objectv->getAssoc();
 		}
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.network.iptables.rule", $objectsAssoc);
 		// Return the configuration object.
 		return $objectsAssoc;
 	}
@@ -196,14 +192,8 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 		  "conf.system.network.iptables.rule");
 		$object->setAssoc($params);
 		// Set the configuration object.
-		$isNew = $object->isNew();
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.network.iptables.rule",
-		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -223,8 +213,11 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		return $this->deleteConfigObjectByUuid(
-		  "conf.system.network.iptables.rule", $params['uuid'],
-		  "org.openmediavault.conf.system.network.iptables.rule");
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.network.iptables.rule",
+		  $params['uuid']);
+		$db->delete($object);
+		// Return the deleted configuration object.
+		return $object->getAssoc();
 	}
 }
