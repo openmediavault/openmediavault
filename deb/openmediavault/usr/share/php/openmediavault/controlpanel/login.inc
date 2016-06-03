@@ -21,9 +21,6 @@
  */
 namespace OMV\ControlPanel;
 
-/**
- * @ingroup api
- */
 class Login extends ControlPanelAbstract {
 	public function getJavascriptIncludes() {
 		$incList = [];

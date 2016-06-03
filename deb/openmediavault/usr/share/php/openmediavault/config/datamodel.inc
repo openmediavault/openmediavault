@@ -23,6 +23,9 @@ namespace OMV\Config;
 
 require_once("openmediavault/globals.inc");
 
+/**
+ * @ingroup api
+ */
 class DataModel extends \OMV\DataModel\DataModel {
 	use \OMV\Debugable;
 

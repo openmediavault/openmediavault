@@ -23,6 +23,9 @@ namespace OMV\Config;
 
 require_once("openmediavault/globals.inc");
 
+/**
+ * @ingroup api
+ */
 class Database {
 	private $backend = NULL;
 
@@ -43,6 +46,10 @@ class Database {
 		return $instance;
 	}
 
+	/**
+	 * Get the object that implements the database backend.
+	 * @return The singleton object.
+	 */
 	public function getBackend() {
 		return $this->backend;
 	}

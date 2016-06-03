@@ -23,9 +23,6 @@ namespace OMV\ControlPanel;
 
 require_once("openmediavault/globals.inc");
 
-/**
- * @ingroup api
- */
 class Administration extends ControlPanelAbstract {
 	const MODE_ADMINISTRATOR = "admin";
 	const MODE_USER = "user";
