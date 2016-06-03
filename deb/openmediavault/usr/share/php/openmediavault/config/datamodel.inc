@@ -112,7 +112,11 @@ class DataModel extends \OMV\DataModel\DataModel {
 	}
 
 	/**
-	 * Get the notification identifier.
+	 * Get the notification identifier. It is auto-generated based
+	 * on the data model property named 'id':
+	 * 'org.openmediavault.' + <id>
+	 * The identifier can be overwritten using the property that is
+	 * named 'notificationid'.
 	 * @return The notification identifier string, e.g.
 	 *   'org.openmediavault.x.y.z'.
 	 */

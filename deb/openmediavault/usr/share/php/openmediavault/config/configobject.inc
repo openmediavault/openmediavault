@@ -480,17 +480,23 @@ class ConfigObject {
 	}
 
 	/**
-	 * Get the model identifier, e.g. 'conf.service.rsyncd.module'.
+	 * Get the data model identifier of this configuration object.
 	 * @deprecated
-	 * @return The model identifier.
+	 * @return The data model identifier.
 	 */
 	public function getId() {
 		return $this->getModelId();
 	}
 
 	/**
-	 * Get the model identifier, e.g. 'conf.service.rsyncd.module'.
-	 * @return The model identifier.
+	 * Get the data model identifier of this configuration object, e.g.
+	 * <ul>
+	 * \li conf.service.rsyncd.module
+	 * \li conf.service.ftp.share
+	 * \li conf.system.notification.notification
+	 * \li conf.system.sharedfolder
+	 * </ul>
+	 * @return The data model identifier.
 	 */
 	public function getModelId() {
 		return $this->getModel()->getId();
