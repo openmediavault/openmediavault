@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# zubr139, 2013
+# zubr139, 2013,2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2014-08-06 14:30+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2016-05-24 16:17+0000\n"
+"Last-Translator: zubr139\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,7 +40,7 @@ msgid "Apple Filing"
 msgstr ""
 
 msgid "Case folding"
-msgstr ""
+msgstr "Заміна зегістру"
 
 msgid "Client sees lowercase, server sees uppercase"
 msgstr "Клієнт бачить нижній регістр, сервер бачить прописні"
@@ -52,7 +52,7 @@ msgid "Comment"
 msgstr "Коментар"
 
 msgid "Don't do :hex translation for dot files."
-msgstr ""
+msgstr "Не переводити файли з крапкою в :hex."
 
 msgid "Edit share"
 msgstr "Редагувати спільний ресурс"
@@ -70,7 +70,7 @@ msgid "Extra options"
 msgstr "Додаткові опції"
 
 msgid "Forces filename restrictions"
-msgstr ""
+msgstr "Підсилення обмеження на імена файлів"
 
 msgid "General settings"
 msgstr "Загальні налаштування"
@@ -79,7 +79,7 @@ msgid "Guest login"
 msgstr "Гість увійти"
 
 msgid "Guest permissions"
-msgstr ""
+msgstr "Гість, права доступу"
 
 msgid "Guests only have read access by default."
 msgstr "Типово гості мають доступ лиш для читання."
@@ -103,7 +103,7 @@ msgid ""
 "Limit the reported volume size to the given value in MiB, thus preventing TM"
 " from using the whole disk space for backup. Set this value to 0 to disable "
 "this option."
-msgstr ""
+msgstr "Обмежити об'єм повідомлень, розміром заданого значення в Мб, таким чином запобігаючи ТМ використанню всього дискового простору для резервного копіювання. Встановіть значення 0, щоб відключити цю опцію."
 
 msgid "Lowercases names in both directions"
 msgstr "Нижній регістр імена в обох напрямках"
@@ -149,7 +149,7 @@ msgid ""
 msgstr "Змушує імена файлів бути обмеженими набором символів, що використовуються у Windows."
 
 msgid "This option handles, if the case of filenames should be changed."
-msgstr ""
+msgstr "Ця опція вказує, чи повинен мінятися реєстр імен файлів"
 
 msgid "Time Machine support"
 msgstr "Підтримка Time Machine"
@@ -161,7 +161,7 @@ msgid "Uppercases names in both directions"
 msgstr "Верхній регістр імені в обох напрямках"
 
 msgid "Use AFP3 unix privileges."
-msgstr ""
+msgstr "Використовувати привілеї AFP3 Unix."
 
 msgid "Use dots"
 msgstr "Використовувати точки"
@@ -169,7 +169,7 @@ msgstr "Використовувати точки"
 msgid ""
 "When this option gets set, certain file names become illegal. These are "
 ".Parent and anything that starts with .Apple."
-msgstr ""
+msgstr "Коли ця опція увімкнена, певні імена файлу стають неприпустимими. Це \".Родинний\" і все, що починається з \".Apple\"."
 
 msgid "n/a"
 msgstr "н/д"

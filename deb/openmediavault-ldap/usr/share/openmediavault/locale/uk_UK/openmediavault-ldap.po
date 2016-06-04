@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# zubr139, 2013,2015
+# zubr139, 2013,2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2015-09-26 12:25+0000\n"
+"PO-Revision-Date: 2016-05-24 16:11+0000\n"
 "Last-Translator: zubr139\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 msgid "Base DN"
-msgstr ""
+msgstr "Базова унікальна назва"
 
 msgid "Directory Service"
 msgstr "Служба каталогів"
@@ -57,7 +57,7 @@ msgstr "Пароль"
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/ldap.conf' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Будь ласка, перевірте<a href='http://linux.die.net/man/5/ldap.conf' target='_blank'>сторінку</a>для отримання більш докладної інформації."
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/nss_ldap' "
@@ -65,7 +65,7 @@ msgid ""
 msgstr "Будь ласка, перевірте <a href='http://linux.die.net/man/5/nss_ldap' target='_blank'>manual page</a> для більш докладної інформації."
 
 msgid "Root Bind DN"
-msgstr ""
+msgstr "Коренева авторизація унікальної назви"
 
 msgid "Settings"
 msgstr "Налаштування"
@@ -73,7 +73,7 @@ msgstr "Налаштування"
 msgid ""
 "Specifies the base distinguished name (DN) to use as search base, e.g. "
 "'dc=example,dc=net'."
-msgstr ""
+msgstr "Визначає основне унікальне ім'я (DN), щоб використовувати в якості основного пошуку, наприклад, 'dc=example,dc=net'."
 
 msgid "Specifies the credentials with which to bind."
 msgstr "Задає облікові дані, з якими можна зв'язати."
@@ -81,7 +81,7 @@ msgstr "Задає облікові дані, з якими можна зв'яз
 msgid ""
 "Specifies the distinguished name (DN) with which to bind to the directory "
 "server for lookups, e.g. 'cn=manager,dc=example,dc=net'."
-msgstr ""
+msgstr "Вказує унікальне ім'я (DN) з яким проводиться авторизація на сервері каталогів для пошуку, наприклад, 'cn=manager,dc=example,dc=net'."
 
 msgid "Specifies the group suffix, e.g. 'ou=Groups'."
 msgstr "Визначає суфікс групи, наприклад 'ou=Groups'."
@@ -98,7 +98,7 @@ msgstr "Повне доменне ім'я або IP-адреса сервера.
 msgid ""
 "Use LDAP for authentication system-wide along with other authentication "
 "sources."
-msgstr ""
+msgstr "Використання LDAP для загальносистемної аутентифікації поряд з іншими джерелами аутентифікації."
 
 msgid "Users suffix"
 msgstr "Суфікс користувачів"
