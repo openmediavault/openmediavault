@@ -283,24 +283,24 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 		if (FALSE !== ($property = $this->getUdevProperty(
 		  "ID_SSD"))) {
 			// If ID_SSD is not 1 then it is rotational.
-			return !(0 == strcasecmp("1", $property));
+			return (0 == strcasecmp("1", $property)) ? FALSE : TRUE;
 		}
 		if (FALSE !== ($property = $this->getUdevProperty(
 		  "ID_ATA_ROTATION_RATE_RPM"))) {
 			// If ID_ATA_ROTATION_RATE_RPM is non-zero then it is rotational.
-			return !(0 == strcasecmp("0", $property));
+			return (0 == strcasecmp("0", $property)) ? FALSE : TRUE;
 		}
 		if (FALSE !== ($property = $this->getUdevProperty(
 		  "ID_ATA_FEATURE_SET_AAM"))) {
 			// If ID_ATA_FEATURE_SET_AAM is non-zero then it is rotational.
-			return !(0 == strcasecmp("0", $property));
+			return (0 == strcasecmp("0", $property)) ? FALSE : TRUE;
 		}
 		// Use kernel attribute.
 		$filename = sprintf("/sys/block/%s/queue/rotational",
 		  $this->getDeviceName());
 		if (file_exists($filename)) {
 			// If file content is non-zero then it is rotational.
-			return !("0" == trim(file_get_contents($filename)));
+			return ("0" == trim(file_get_contents($filename))) ? FALSE : TRUE;
 		}
 		// Use heuristic.
 		$model = $this->getModel();
