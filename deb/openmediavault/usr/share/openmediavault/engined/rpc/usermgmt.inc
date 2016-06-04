@@ -499,7 +499,7 @@ finish:
 				"sshpubkey" => $params['sshpubkeys']
 			]);
 		}
-		$db->set($object);
+		$db->set($object, TRUE);
 		// Prepare command arguments. Note, a user is always in the
 		// group 'users'.
 		$cmdArgs = [];

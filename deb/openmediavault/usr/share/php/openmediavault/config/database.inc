@@ -197,10 +197,12 @@ class Database {
 	 * then the identifier property (in most cases 'uuid') will be
 	 * generated and set automatically.
 	 * @param object The configuration object to use.
+	 * @param quiet If set to TRUE, then no notification message is send.
+	 *   Defaults to FALSE.
 	 * @return None.
 	 * @throw \OMV\Config\DatabaseException
 	 */
-	public function set(ConfigObject &$object) {
+	public function set(ConfigObject &$object, $quiet = FALSE) {
 		$oldObjectData = NULL;
 		// Get the notification settings.
 		$notifyType = OMV_NOTIFY_MODIFY;
@@ -243,36 +245,45 @@ class Database {
 			throw new DatabaseException("Failed to execute XPath query '%s'.",
 			  $xpath);
 		}
-		// Submit the notification.
-		$notifyDispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$notifyDispatcher->notify($notifyType, $notifyId, $objectData,
-		  $oldObjectData);
+		// Submit the notification message.
+		if (FALSE === $quiet) {
+			$notifyDispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
+			$notifyDispatcher->notify($notifyType, $notifyId, $objectData,
+			  $oldObjectData);
+		}
 	}
 
 	/**
 	 * Delete the nodes matching the specified XPath expression.
 	 * @param object The configuration object to use.
+	 * @param quiet If set to TRUE, then no notification message is send.
+	 *   Defaults to FALSE.
 	 * @return None.
 	 * @throw \OMV\Config\DatabaseException
 	 */
-	public function delete(ConfigObject $object) {
+	public function delete(ConfigObject $object, $quiet = FALSE) {
 		// Get the notification identifier and the data to be submitted.
 		$notifyId = $object->getModel()->getNotificationId();
 		$objectData = $object->getAssoc();
 		// Build the XPath query string.
 		$queryBuilder = new DatabaseBackendQueryBuilder($object->getModelId());
 		$xpath = $queryBuilder->buildDeleteQuery($object);
-		// Submit the notification.
-		$notifyDispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$notifyDispatcher->notify(OMV_NOTIFY_PREDELETE, $notifyId,
-		  $objectData);
+		// Submit the notification message.
+		if (FALSE === $quiet) {
+			$notifyDispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
+			$notifyDispatcher->notify(OMV_NOTIFY_PREDELETE, $notifyId,
+			  $objectData);
+		}
 		// Delete the object.
 		if (FALSE === $this->getBackend()->delete($xpath)) {
 			throw new DatabaseException("Failed to execute XPath query '%s'.",
 			  $xpath);
 		}
-		// Submit the notification.
-		$notifyDispatcher->notify(OMV_NOTIFY_DELETE, $notifyId, $objectData);
+		// Submit the notification message.
+		if (FALSE === $quiet) {
+			$notifyDispatcher->notify(OMV_NOTIFY_DELETE, $notifyId,
+			  $objectData);
+		}
 	}
 
 	/**
