@@ -1,4 +1,6 @@
 /openmediavault-keyring/
+/openmediavault-keyring-udeb/
+/tmp/
 /files
 /*.debhelper.log
 /*.postinst.debhelper

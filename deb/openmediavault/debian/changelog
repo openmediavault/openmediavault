@@ -3,13 +3,6 @@ openmediavault (3.0.21) stable; urgency=low
   * Various improvements and bugfixes.
   * Improve USB and rotational storage device detection.
   * Mantis 0001530: Smart Monitoring of individual disks cannot be enabled.
-  * Changes on configuration objects are automatically notified now, please
-    have a look into the methods OMV\Config\Database::set() and
-	OMV\Config\Database::delete() for more information.
-	The methods OMV\Rpc\ServiceAbstract::deleteConfigObjectByUuid() and
-	OMV\Rpc\ServiceAbstract::deleteConfigObjectByObject() are deprecated now.
-	The method OMV\Config\ConfigObject::getId() is deprecated now and should
-	be replaced with OMV\Config\ConfigObject::getModelId().
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 30 May 2016 08:00:12 +0200
 
