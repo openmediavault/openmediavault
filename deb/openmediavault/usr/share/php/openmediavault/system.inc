@@ -2482,20 +2482,25 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 		// Use udev property.
 		if (FALSE !== ($property = $this->getUdevProperty(
 		  "ID_SSD"))) {
-			if (0 == strcasecmp("1", $property))
-				return FALSE;
+			// If ID_SSD is not 1 then it is rotational.
+			return (0 == strcasecmp("1", $property)) ? FALSE : TRUE;
 		}
 		if (FALSE !== ($property = $this->getUdevProperty(
 		  "ID_ATA_ROTATION_RATE_RPM"))) {
-			if (0 == strcasecmp("0", $property))
-				return FALSE;
+			// If ID_ATA_ROTATION_RATE_RPM is non-zero then it is rotational.
+			return (0 == strcasecmp("0", $property)) ? FALSE : TRUE;
+		}
+		if (FALSE !== ($property = $this->getUdevProperty(
+		  "ID_ATA_FEATURE_SET_AAM"))) {
+			// If ID_ATA_FEATURE_SET_AAM is non-zero then it is rotational.
+			return (0 == strcasecmp("0", $property)) ? FALSE : TRUE;
 		}
 		// Use kernel attribute.
 		$filename = sprintf("/sys/block/%s/queue/rotational",
 		  $this->getDeviceName());
 		if (file_exists($filename)) {
-			if ("0" == trim(file_get_contents($filename)))
-				return FALSE;
+			// If file content is non-zero then it is rotational.
+			return ("0" == trim(file_get_contents($filename))) ? FALSE : TRUE;
 		}
 		// Use heuristic.
 		$model = $this->getModel();
@@ -2532,6 +2537,16 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 		// Identify USB devices via 'ID_BUS=usb'.
 		if (FALSE !== ($property = $this->getUdevProperty("ID_BUS"))) {
 			if (0 == strcasecmp("usb", $property))
+				return TRUE;
+		}
+		// Identify USB devices via 'ID_USB_DRIVER=usb-storage'.
+		if (FALSE !== ($property = $this->getUdevProperty("ID_USB_DRIVER"))) {
+			if (0 == strcasecmp("usb-storage", $property))
+				return TRUE;
+		}
+		// Identify USB devices via 'ID_DRIVE_THUMB=1'.
+		if (FALSE !== ($property = $this->getUdevProperty("ID_DRIVE_THUMB"))) {
+			if (0 == strcasecmp("1", $property))
 				return TRUE;
 		}
 		// Identify USB devices via 'ID_PATH=xxx-usb-xxx'.
