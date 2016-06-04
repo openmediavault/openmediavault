@@ -1,6 +1,7 @@
 openmediavault (3.0.21) stable; urgency=low
 
   * Various improvements and bugfixes.
+  * Improve USB and rotational storage device detection.
   * Mantis 0001530: Smart Monitoring of individual disks cannot be enabled.
   * Changes on configuration objects are automatically notified now, please
     have a look into the methods OMV\Config\Database::set() and
