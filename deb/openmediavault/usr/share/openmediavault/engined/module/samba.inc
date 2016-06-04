@@ -104,8 +104,11 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	final public function onAddUser($type, $path, $object) {
 //		$this->debug(var_export(func_get_args(), TRUE));
-		// Skip user if it is listed on the ignore list.
+		// Skip this notification if the user is listed in the ignore list.
 		if (in_array($object['name'], $this->invalidUsers))
+			return;
+		// Skip this notification if no password is included.
+		if (FALSE === array_key_exists("password", $object))
 			return;
 		// Add the new user into the database.
 		$cmdArgs = [];
