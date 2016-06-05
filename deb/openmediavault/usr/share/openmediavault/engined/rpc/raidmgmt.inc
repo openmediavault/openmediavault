@@ -245,16 +245,21 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmd = new \OMV\System\Process("omv-mkraid", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);
 		$cmd->execute();
-		// Notify configuration changes.
+		// Notify the configuration change.
+		$object = new \OMV\Config\ConfigObject("conf.system.mdadm.device");
+		$object->setAssoc([
+			"name" => $params['name'],
+			"devicefile" => sprintf("/dev/%s", $deviceName),
+			"level" => $params['level'],
+			"numdevices" => count($devices),
+//			"devices" => $devices
+		]);
+		$object->set("devices", $devices); // Workaround
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_CREATE,
-		  "org.openmediavault.conf.system.mdadm.device", [
-			  "name" => $params['name'],
-			  "devicefile" => sprintf("/dev/%s", $deviceName),
-			  "level" => $params['level'],
-			  "numdevices" => count($devices),
-			  "devices" => $devices
-		  ]);
+		  $object->getModel()->getNotificationId(), $object->getAssoc());
+		// Return the 'fake' configuration object.
+		return $object->getAssoc();
 	}
 
 	/**
@@ -302,16 +307,21 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmd = new \OMV\System\Process("mdadm", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);
 		$cmd->execute();
-		// Notify configuration changes.
+		// Notify the configuration change.
+		$object = new \OMV\Config\ConfigObject("conf.system.mdadm.device");
+		$object->setAssoc([
+			"name" => $raid->getName(),
+			"devicefile" => $raid->getDeviceFile(),
+			"level" => $raid->getLevel(),
+			"numdevices" => $numDevices,
+//			"devices" => array_merge($devices, $newDevices)
+		]);
+		$object->set("devices", array_merge($devices, $newDevices)); // Workaround
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.mdadm.device", [
-			  "name" => $raid->getName(),
-			  "devicefile" => $raid->getDeviceFile(),
-			  "level" => $raid->getLevel(),
-			  "numdevices" => $numDevices,
-			  "devices" => array_merge($devices, $newDevices)
-		  ]);
+		  $object->getModel()->getNotificationId(), $object->getAssoc());
+		// Return the 'fake' configuration object.
+		return $object->getAssoc();
 	}
 
 	/**
@@ -348,16 +358,21 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmd = new \OMV\System\Process("mdadm", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);
 		$cmd->execute();
-		// Notify configuration changes.
+		// Notify the configuration change.
+		$object = new \OMV\Config\ConfigObject("conf.system.mdadm.device");
+		$object->setAssoc([
+			"name" => $raid->getName(),
+			"devicefile" => $raid->getDeviceFile(),
+			"level" => $raid->getLevel(),
+			"numdevices" => $numDevices,
+//			"devices" => array_merge($devices, $newDevices)
+		]);
+		$object->set("devices", array_merge($devices, $newDevices)); // Workaround
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.mdadm.device", [
-			  "name" => $raid->getName(),
-			  "devicefile" => $raid->getDeviceFile(),
-			  "level" => $raid->getLevel(),
-			  "numdevices" => $numDevices,
-			  "devices" => array_merge($devices, $newDevices)
-		  ]);
+		  $object->getModel()->getNotificationId(), $object->getAssoc());
+		// Return the 'fake' configuration object.
+		return $object->getAssoc();
 	}
 
 	/**
@@ -407,16 +422,21 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmd = new \OMV\System\Process("mdadm", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);
 		$cmd->execute();
-		// Notify configuration changes.
+		// Notify the configuration change.
+		$object = new \OMV\Config\ConfigObject("conf.system.mdadm.device");
+		$object->setAssoc([
+			"name" => $raid->getName(),
+			"devicefile" => $raid->getDeviceFile(),
+			"level" => $raid->getLevel(),
+			"numdevices" => $numDevices,
+//			"devices" => array_diff($devices, $rmDevices)
+		]);
+		$object->set("devices", array_diff($devices, $rmDevices)); // Workaround
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.mdadm.device", [
-			  "name" => $raid->getName(),
-			  "devicefile" => $raid->getDeviceFile(),
-			  "level" => $raid->getLevel(),
-			  "numdevices" => $numDevices,
-			  "devices" => array_diff($devices, $rmDevices)
-		  ]);
+		  $object->getModel()->getNotificationId(), $object->getAssoc());
+		// Return the 'fake' configuration object.
+		return $object->getAssoc();
 	}
 
 	/**
@@ -437,24 +457,27 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		$raid = new \OMV\System\Storage\StorageDeviceMdadm(
 		  $params['devicefile']);
 		$raid->assertExists();
-		// Create the notification object.
-		$object = [
-			"name" => $raid->getName(),
-			"devicefile" => $raid->getDeviceFile(),
-			"level" => $raid->getLevel(),
-			"numdevices" => $raid->getNumDevices(),
-			"devices" => $raid->getSlaves()
-		];
 		// Delete the RAID device.
 		$cmdArgs = [];
 		$cmdArgs[] = escapeshellarg($raid->getDeviceFile());
 		$cmd = new \OMV\System\Process("omv-rmraid", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);
 		$cmd->execute();
-		// Notify configuration changes.
+		// Notify the configuration change.
+		$object = new \OMV\Config\ConfigObject("conf.system.mdadm.device");
+		$object->setAssoc([
+			"name" => $raid->getName(),
+			"devicefile" => $raid->getDeviceFile(),
+			"level" => $raid->getLevel(),
+			"numdevices" => $raid->getNumDevices(),
+//			"devices" => $raid->getSlaves()
+		]);
+		$object->set("devices", $raid->getSlaves()); // Workaround
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  "org.openmediavault.conf.system.mdadm.device", $object);
+		  $object->getModel()->getNotificationId(), $object->getAssoc());
+		// Return the 'fake' configuration object.
+		return $object->getAssoc();
 	}
 
 	/**

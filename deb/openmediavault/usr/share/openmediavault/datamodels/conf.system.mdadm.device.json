@@ -1,0 +1,35 @@
+{
+	"type": "config",
+	"id": "conf.system.mdadm.device",
+	"title": "MDADM device",
+	"persistent": false,
+	"properties": {
+		"name": {
+			"type": "string"
+		},
+		"devicefile": {
+			"type": "string",
+			"format": "devicefile"
+		},
+		"level": {
+			"type": "string",
+			"enum": [
+				"stripe",
+				"mirror",
+				"linear",
+				"raid10",
+				"raid5",
+				"raid6"
+			]
+		},
+		"numdevices": {
+			"type": "integer"
+		},
+		"devices": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		}
+	}
+}

@@ -7,7 +7,7 @@
 			"packages": {
 				"type": "array",
 				"items": {
-					"type":"string"
+					"type": "string"
 				},
 				"required": true
 			}
@@ -38,7 +38,7 @@
 			"packages": {
 				"type": "array",
 				"items": {
-					"type":"string"
+					"type": "string"
 				},
 				"required": true
 			}
