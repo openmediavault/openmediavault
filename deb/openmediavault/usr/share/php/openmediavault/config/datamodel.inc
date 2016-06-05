@@ -39,6 +39,7 @@ class DataModel extends \OMV\DataModel\DataModel {
 				"type":{"type":"string","enum":["config"],"required":true},
 				"id":{"type":"string","required":true},
 				"alias":{"type":"string","required":false},
+				"persistent":{"type":"boolean","required":false},
 				"title":{"type":"string","required":false},
 				"description":{"type":"string","required":false},
 				"notificationid":{"type":"string","required":false},
@@ -112,6 +113,19 @@ class DataModel extends \OMV\DataModel\DataModel {
 	public function getRefProperty() {
 		$qi = $this->getQueryInfo();
 		return $qi['refproperty'];
+	}
+
+	/**
+	 * Tests whether the data model instance is persistent.
+	 * @return TRUE if the data model instance is persistent. If the
+	 *   property is not available in the data model definition, then
+	 *   TRUE is assumed.
+	 */
+	public function isPersistent() {
+		$qi = $this->getQueryInfo();
+		if (!array_key_exists("persistent", $qi))
+			return TRUE;
+		return $qi['persistent'];
 	}
 
 	/**
