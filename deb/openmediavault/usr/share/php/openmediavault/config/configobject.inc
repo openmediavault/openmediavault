@@ -263,7 +263,7 @@ class ConfigObject {
 		// Make sure that the given array is not a multi-dimensional
 		// associative array.
 		if (is_multi_array($data)) {
-			throw new InvalidArgumentException(
+			throw new \InvalidArgumentException(
 			  "The data must not be a multi-dimensional associative array.");
 		}
 		foreach ($data as $propk => $propv) {
