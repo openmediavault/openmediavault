@@ -19,8 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/globals.inc");
-
 class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -82,8 +80,8 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 		$notifyDispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		// Open the dirty modules file. Lock it to force all writers
 		// to wait until this RPC has been finished.
-		$jsonFile = new \OMV\Json\File(
-		  $GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
+		$jsonFile = new \OMV\Json\File(\OMV\Environment::get(
+		  "OMV_ENGINED_DIRTY_MODULES_FILE"));
 		$jsonFile->open("c+");
 		$dirtyModules = $jsonFile->read();
 		// Remove non-existing modules from list. It may happen that the
@@ -228,8 +226,8 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.config.revertchanges");
 		// Open the dirty modules file. Lock it to force all writers
 		// to wait until this RPC has been finished.
-		$jsonFile = new \OMV\Json\File(
-		  $GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
+		$jsonFile = new \OMV\Json\File(\OMV\Environment::get(
+		  "OMV_ENGINED_DIRTY_MODULES_FILE"));
 		$jsonFile->open("c+");
 		// Revert configuration changes. All existing revision files
 		// will be deleted.

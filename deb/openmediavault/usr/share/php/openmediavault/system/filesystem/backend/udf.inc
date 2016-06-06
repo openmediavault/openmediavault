@@ -21,12 +21,11 @@
  */
 namespace OMV\System\Filesystem\Backend;
 
-require_once("openmediavault/globals.inc");
-
 class Udf extends BackendAbstract {
 	public function __construct() {
 		$this->type = "udf";
 		$this->properties = self::PROP_MNTENT | self::PROP_READ_ONLY;
-		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_UDF']);
+		$this->mntOptions = explode(",", \OMV\Environment::get(
+		  "OMV_FSTAB_MNTOPS_UDF"));
 	}
 }

@@ -19,8 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/globals.inc");
-
 class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -133,7 +131,8 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 				$hashedUsername = password_hash($params['username'],
 				  PASSWORD_DEFAULT);
 				$key = sprintf("%s-%s", $prefix, urlencode($hashedUsername));
-				$value = array_rand_value($GLOBALS['OMV_DUNE_QUOTES']);
+				$value = array_rand_value(\OMV\Environment::get(
+				  "OMV_DUNE_QUOTES"));
 				$expire = time() + 60 * 60 * 24 * 60;
 				setcookie($key, $value, $expire);
 			}

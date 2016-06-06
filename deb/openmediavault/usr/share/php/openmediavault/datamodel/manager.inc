@@ -21,7 +21,6 @@
  */
 namespace OMV\DataModel;
 
-require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 
 /**
@@ -53,7 +52,8 @@ class Manager {
 	final public function load() {
 		if ($this->isLoaded())
 			return;
-		foreach (listdir($GLOBALS['OMV_DATAMODELS_DIR'], "json") as $path) {
+		foreach (listdir(\OMV\Environment::get("OMV_DATAMODELS_DIR"),
+		  "json") as $path) {
 			// Read the JSON content and decode it.
 			$file = new \OMV\Json\File($path);
 			if (!$file->exists())

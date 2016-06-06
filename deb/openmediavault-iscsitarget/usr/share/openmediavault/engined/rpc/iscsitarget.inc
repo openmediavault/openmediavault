@@ -91,7 +91,7 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 		if (!empty($object['authentication']['user'])) {
 			foreach($object['authentication']['user'] as $userk => &$userv) {
 				$userv['uuid'] = ($userv['uuid'] ==
-				  $GLOBALS['OMV_UUID_UNDEFINED']) ?
+				  \OMV\Environment::get("OMV_UUID_UNDEFINED")) ?
 				  \OMV\Uuid::uuid4() : $userv['uuid'];
 			}
 		}
@@ -248,8 +248,8 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.iscsitarget.settarget");
 		// Prepare the configuration object.
 		$object = array(
-			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  \OMV\Uuid::uuid4() : $params['uuid'],
+			"uuid" => ($params['uuid'] == \OMV\Environment::get(
+			  "OMV_UUID_UNDEFINED")) ? \OMV\Uuid::uuid4() : $params['uuid'],
 			"activation" => $params['activation'],
 			"identifier" => $params['identifier'],
 			"alias" => $params['alias'],
@@ -279,29 +279,30 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 			  array("user" => $params['authentication']) : array()
 		);
 		// Update the LUNs uuid's (only necessary if the LUN is new).
-		if(!empty($object['luns']['lun'])) {
-			foreach($object['luns']['lun'] as $lunk => &$lunv) {
+		if (!empty($object['luns']['lun'])) {
+			foreach ($object['luns']['lun'] as $lunk => &$lunv) {
 				$lunv['uuid'] = ($lunv['uuid'] ==
-				  $GLOBALS['OMV_UUID_UNDEFINED']) ?
+				  \OMV\Environment::get("OMV_UUID_UNDEFINED")) ?
 				  \OMV\Uuid::uuid4() : $lunv['uuid'];
 			}
 		}
 		// Update the authentication users uuid's (only necessary if the
 		// user is new).
-		if(!empty($object['authentication']['user'])) {
-			foreach($object['authentication']['user'] as $userk => &$userv) {
+		if (!empty($object['authentication']['user'])) {
+			foreach ($object['authentication']['user'] as $userk => &$userv) {
 				$userv['uuid'] = ($userv['uuid'] ==
-				  $GLOBALS['OMV_UUID_UNDEFINED']) ?
+				  \OMV\Environment::get("OMV_UUID_UNDEFINED")) ?
 				  \OMV\Uuid::uuid4() : $userv['uuid'];
 			}
 		}
 		// Set configuration object.
 		$success = FALSE;
-		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+		if ($params['uuid'] == \OMV\Environment::get("OMV_UUID_UNDEFINED")) {
 			$object['activation'] = date("Y-m");
 			// Append object to configuration.
-			$success = $xmlConfig->set("//services/iscsitarget/targets",
-			  array("target" => $object));
+			$success = $xmlConfig->set("//services/iscsitarget/targets", [
+				"target" => $object
+			]);
 		} else {
 			// Update existing configuration object.
 			$success = $xmlConfig->replace(
@@ -313,8 +314,8 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Notify configuration changes
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		$dispatcher->notify(($params['uuid'] == \OMV\Environment::get(
+		  "OMV_UUID_UNDEFINED")) ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.iscsitarget.target", $object);
 		// Return the configuration object.
 		return $object;

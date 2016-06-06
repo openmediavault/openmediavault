@@ -21,8 +21,6 @@
  */
 namespace OMV;
 
-require_once("openmediavault/globals.inc");
-
 /**
  * This class provides a simple interface to get product information.
  * @ingroup api
@@ -31,7 +29,8 @@ class ProductInfo {
 	private $data = [];
 
 	public function __construct() {
-		$xml = simplexml_load_file($GLOBALS['OMV_PRODUCTINFO_FILE']);
+		$xml = simplexml_load_file(\OMV\Environment::get(
+		  "OMV_PRODUCTINFO_FILE"));
 		if (FALSE === $xml) {
 			throw new \OMV\Exception("Failed to load product information: %s",
 			  implode("\n", libxml_get_errors()));

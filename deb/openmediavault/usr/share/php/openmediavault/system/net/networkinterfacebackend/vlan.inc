@@ -21,8 +21,6 @@
  */
 namespace OMV\System\Net\NetworkInterfaceBackend;
 
-require_once("openmediavault/globals.inc");
-
 /**
  * Implements the network interface backend for VLAN devices.
  * @ingroup api

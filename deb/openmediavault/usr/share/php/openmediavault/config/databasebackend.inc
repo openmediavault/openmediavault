@@ -21,7 +21,6 @@
  */
 namespace OMV\Config;
 
-require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 
 /**

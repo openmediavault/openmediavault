@@ -21,8 +21,6 @@
  */
 namespace OMV\System\Net\NetworkInterfaceBackend;
 
-require_once("openmediavault/globals.inc");
-
 /**
  * Helper class to get all existing Linux network interfaces.
  * @ingroup api

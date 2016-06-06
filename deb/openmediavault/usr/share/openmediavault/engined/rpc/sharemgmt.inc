@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 
 class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
@@ -319,12 +318,13 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Change group owner of directory to configured default group,
 		// e.g. 'users'.
-		if (FALSE === chgrp($pathName, $GLOBALS['OMV_USERMGMT_DEFAULT_GROUP'])) {
+		if (FALSE === chgrp($pathName, \OMV\Environment::get(
+		  "OMV_USERMGMT_DEFAULT_GROUP"))) {
 			$error = error_get_last();
 			throw new \OMV\Exception(
 			  "Failed to set file group to '%s' for '%s': %s",
-			  $GLOBALS['OMV_USERMGMT_DEFAULT_GROUP'], $pathName,
-			  $error['message']);
+			  \OMV\Environment::get("OMV_USERMGMT_DEFAULT_GROUP"),
+			  $pathName, $error['message']);
 		}
 		// Set the setgid bit. Setting this permission means that all files
 		// created in the folder will inherit the group of the folder rather

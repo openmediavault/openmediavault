@@ -21,7 +21,6 @@
  */
 namespace OMV\Engine\Module;
 
-require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 
 /**
@@ -95,8 +94,8 @@ class Manager {
 	 * @return An array containing the names of the dirty marked modules.
 	 */
 	final public function getDirtyModules() {
-		$jsonFile = new \OMV\Json\File(
-		  $GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
+		$jsonFile = new \OMV\Json\File(\OMV\Environment::get(
+		  "OMV_ENGINED_DIRTY_MODULES_FILE"));
 		if (!$jsonFile->exists())
 			return [];
 		$jsonFile->open("r", LOCK_SH);
@@ -111,8 +110,8 @@ class Manager {
 	 * @return The list of dirty modules.
 	 */
 	final public function setModuleDirty($name) {
-		$jsonFile = new \OMV\Json\File(
-		  $GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
+		$jsonFile = new \OMV\Json\File(\OMV\Environment::get(
+		  "OMV_ENGINED_DIRTY_MODULES_FILE"));
 		$jsonFile->open("c+", LOCK_EX);
 		$modules = $jsonFile->read();
 		$modules[] = strtolower($name);

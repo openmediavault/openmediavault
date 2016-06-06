@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 
 class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
@@ -838,10 +837,11 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// object if necessary.
 			if (FALSE === $meObject) {
 				\OMV\Rpc\Rpc::call("FsTab", "set", [
-					"uuid" => $GLOBALS['OMV_CONFIGOBJECT_NEW_UUID'],
+					"uuid" => \OMV\Environment::get(
+					  "OMV_CONFIGOBJECT_NEW_UUID"),
 					"fsname" => $fsName,
 					"dir" => \OMV\System\Filesystem\Filesystem::buildMountPath(
-					$fs->getUuid()),
+					  $fs->getUuid()),
 					"type" => $fs->getType(),
 					"opts" => implode(",", $opts),
 					"freq" => 0,

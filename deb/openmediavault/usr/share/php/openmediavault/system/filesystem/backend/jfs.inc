@@ -21,15 +21,14 @@
  */
 namespace OMV\System\Filesystem\Backend;
 
-require_once("openmediavault/globals.inc");
-
 class Jfs extends BackendAbstract {
 	public function __construct() {
 		$this->type = "jfs";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
 		  self::PROP_DISCARD | self::PROP_QUOTA | self::PROP_RESIZE;
-		$this->mkfsOptions = $GLOBALS['OMV_MKFS_OPTIONS_JFS'];
-		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_JFS']);
+		$this->mkfsOptions = \OMV\Environment::get("OMV_MKFS_OPTIONS_JFS");
+		$this->mntOptions = explode(",", \OMV\Environment::get(
+		  "OMV_FSTAB_MNTOPS_JFS"));
 	}
 
 	/**

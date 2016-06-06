@@ -166,7 +166,8 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		$objects = $this->callMethod("enumerateDevices", NULL, $context);
 		// Append additional configuration data.
 		foreach ($objects as $objectk => &$objectv) {
-			$objectv['uuid'] = $GLOBALS['OMV_CONFIGOBJECT_NEW_UUID'];
+			$objectv['uuid'] = \OMV\Environment::get(
+			  "OMV_CONFIGOBJECT_NEW_UUID");
 			$objectv['monitor'] = FALSE;
 			// Check if there exists a device configuration object for the
 			// given device. Note, we have to check for 'dev/xxx' and

@@ -26,8 +26,9 @@ class Xfs extends BackendAbstract {
 		$this->type = "xfs";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
 		  self::PROP_DISCARD | self::PROP_QUOTA | self::PROP_RESIZE;
-		$this->mkfsOptions = $GLOBALS['OMV_MKFS_OPTIONS_XFS'];
-		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_XFS']);
+		$this->mkfsOptions = \OMV\Environment::get("OMV_MKFS_OPTIONS_XFS");
+		$this->mntOptions = explode(",", \OMV\Environment::get(
+		  "OMV_FSTAB_MNTOPS_XFS"));
 	}
 
 	/**

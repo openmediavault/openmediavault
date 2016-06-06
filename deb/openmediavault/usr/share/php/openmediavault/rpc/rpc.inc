@@ -125,9 +125,10 @@ class Rpc {
 			// to establish the connection the given number of attempts.
 			$attempt = 0;
 			$success = FALSE;
-			while (($GLOBALS['OMV_ENGINED_SO_CONNECT_MAX_ATTEMPT'] >
-			  $attempt++) && (FALSE === ($success = @socket_connect($socket,
-			  $GLOBALS['OMV_ENGINED_SO_ADDRESS'])))) {
+			while ((\OMV\Environment::getInteger(
+			  "OMV_ENGINED_SO_CONNECT_MAX_ATTEMPT") > $attempt++) &&
+			  (FALSE === ($success = @socket_connect($socket,
+			  \OMV\Environment::get("OMV_ENGINED_SO_ADDRESS"))))) {
 				sleep($attempt);
 			}
 			if (FALSE === $success) {
@@ -136,10 +137,12 @@ class Rpc {
 			}
 			// Set send and receive timeouts.
 			socket_set_option($socket, SOL_SOCKET, SO_SNDTIMEO, [
-				"sec" => $GLOBALS['OMV_ENGINED_SO_SNDTIMEO'], "usec" => 0
+				"sec" => \OMV\Environment::get("OMV_ENGINED_SO_SNDTIMEO"),
+				"usec" => 0
 			]);
 			socket_set_option($socket, SOL_SOCKET, SO_RCVTIMEO, [
-				"sec" => $GLOBALS['OMV_ENGINED_SO_RCVTIMEO'], "usec" => 0
+				"sec" => \OMV\Environment::get("OMV_ENGINED_SO_RCVTIMEO"),
+				"usec" => 0
 			]);
 			// Create the request.
 			$request = json_encode_safe([
@@ -159,7 +162,8 @@ class Rpc {
 			}
 			// Read the RPC response header.
 			$header = "";
-			$headerLen = $GLOBALS['OMV_ENGINED_SO_RPC_HEADER_LENGTH'];
+			$headerLen = \OMV\Environment::getInteger(
+			  "OMV_ENGINED_SO_RPC_HEADER_LENGTH");
 			while (($read = strlen($header)) < $headerLen) {
 				$data = @socket_read($socket, $headerLen - $read,
 				  PHP_BINARY_READ);

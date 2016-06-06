@@ -19,8 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/globals.inc");
-
 class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -70,8 +68,10 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 		$objects = [];
 		$rowNum = 0;
 		while (($line = fgets($fh)) !== FALSE) {
-			if ($rowNum > $GLOBALS['OMV_MAX_LOGFILE_LINES'])
+			if ($rowNum > \OMV\Environment::getInteger(
+			  "OMV_MAX_LOGFILE_LINES")) {
 				break;
+			}
 			// Skip invalid pattern matches.
 			$result = preg_match($logfile->getRegex(), $line, $matches);
 			if ((FALSE === $result) || (0 == $result))
@@ -172,7 +172,8 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 			  $logfile->getFilePath(), $tmpFilePath);
 		}
 		chmod($tmpFilePath, 0700);
-		chown($tmpFilePath, $GLOBALS['OMV_WEBGUI_FILE_OWNERGROUP_NAME']);
+		chown($tmpFilePath, \OMV\Environment::get(
+		  "OMV_WEBGUI_FILE_OWNERGROUP_NAME"));
 		// Return values required by generic download RPC implementation.
 		return [
 			"filename" => $logfile->getFileName(),

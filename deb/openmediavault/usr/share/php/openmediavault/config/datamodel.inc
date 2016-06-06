@@ -21,8 +21,6 @@
  */
 namespace OMV\Config;
 
-require_once("openmediavault/globals.inc");
-
 /**
  * @ingroup api
  */
@@ -270,7 +268,8 @@ class DataModel extends \OMV\DataModel\DataModel {
 				if (array_key_exists("format", $propSchema)) {
 					switch ($propSchema['type']) {
 					case "uuidv4":
-						$default = $GLOBALS['OMV_CONFIGOBJECT_NEW_UUID'];
+						$default = \OMV\Environment::get(
+						  "OMV_CONFIGOBJECT_NEW_UUID");
 						break;
 					}
 				}

@@ -21,15 +21,14 @@
  */
 namespace OMV\System\Filesystem\Backend;
 
-require_once("openmediavault/globals.inc");
-
 class Ext2 extends Ext {
 	public function __construct() {
 		parent::__construct();
 		$this->type = "ext2";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
 		  self::PROP_QUOTA | self::PROP_RESIZE;
-		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_EXT2']);
+		$this->mntOptions = explode(",", \OMV\Environment::get(
+		  "OMV_FSTAB_MNTOPS_EXT2"));
 	}
 
 	/**

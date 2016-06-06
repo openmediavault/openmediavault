@@ -19,8 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/globals.inc");
-
 class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -219,8 +217,8 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs[] = "-noout";
 		$cmdArgs[] = "-in";
 		$cmdArgs[] = sprintf("%s/certs/%s%s.crt",
-		  $GLOBALS['OMV_SSL_CERTIFICATE_DIR'],
-		  $GLOBALS['OMV_SSL_CERTIFICATE_PREFIX'],
+		  \OMV\Environment::get("OMV_SSL_CERTIFICATE_DIR"),
+		  \OMV\Environment::get("OMV_SSL_CERTIFICATE_PREFIX"),
 		  $params['uuid']);
 		$cmd = new \OMV\System\Process("openssl", $cmdArgs);
 		$cmd->setRedirect2to1(TRUE);
@@ -312,7 +310,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		unlink($crtfile);
 		// Finally import generated certificate.
 		return $this->callMethod("set", [
-			  "uuid" => $GLOBALS['OMV_CONFIGOBJECT_NEW_UUID'],
+			  "uuid" => \OMV\Environment::get("OMV_CONFIGOBJECT_NEW_UUID"),
 			  "certificate" => $crtdata,
 			  "privatekey" => $keydata,
 			  "comment" => !empty($subject) ? $subject : ""
@@ -395,7 +393,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		unlink($file.".pub");
 		// Finally import generated certificate.
 		return $this->callMethod("setSsh", [
-			  "uuid" => $GLOBALS['OMV_CONFIGOBJECT_NEW_UUID'],
+			  "uuid" => \OMV\Environment::get("OMV_CONFIGOBJECT_NEW_UUID"),
 			  "publickey" => $publickey,
 			  "privatekey" => $privatekey,
 			  "comment" => array_value($params, "comment", "")

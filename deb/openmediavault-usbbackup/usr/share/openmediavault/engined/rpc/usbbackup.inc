@@ -19,8 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/globals.inc");
-
 class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -243,7 +241,7 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 			$cmd = "/bin/sh";
 			$cmdArgs = [];
 			$cmdArgs[] = build_path(DIRECTORY_SEPARATOR,
-			  $GLOBALS['OMV_USBBACKUP_SCRIPTS_DIR'],
+			  \OMV\Environment::get("OMV_USBBACKUP_SCRIPTS_DIR"),
 			  sprintf("rsync-%s", $params['uuid']));
 			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename))
 				throw new \OMV\ExecException($cmd." ".implode(" ", $cmdArgs));

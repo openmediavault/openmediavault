@@ -21,12 +21,11 @@
  */
 namespace OMV\System\Filesystem\Backend;
 
-require_once("openmediavault/globals.inc");
-
 class Iso9660 extends BackendAbstract {
 	public function __construct() {
 		$this->type = "iso9660";
 		$this->properties = self::PROP_MNTENT | self::PROP_READ_ONLY;
-		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_ISO9660']);
+		$this->mntOptions = explode(",", \OMV\Environment::get(
+		  "OMV_FSTAB_MNTOPS_ISO9660"));
 	}
 }

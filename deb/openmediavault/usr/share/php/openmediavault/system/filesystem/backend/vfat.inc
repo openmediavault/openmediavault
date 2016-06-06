@@ -25,6 +25,7 @@ class Vfat extends BackendAbstract {
 	public function __construct() {
 		$this->type = "vfat";
 		$this->properties = self::PROP_MNTENT | self::PROP_DISCARD;
-		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_VFAT']);
+		$this->mntOptions = explode(",", \OMV\Environment::get(
+		  "OMV_FSTAB_MNTOPS_VFAT"));
 	}
 }

@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 
 class OMVRpcServiceRsync extends \OMV\Rpc\ServiceAbstract {
@@ -249,9 +248,8 @@ class OMVRpcServiceRsync extends \OMV\Rpc\ServiceAbstract {
 			// Execute the rsync cron script.
 			$cmd = "/bin/sh";
 			$cmdArgs = [];
-			$cmdArgs[] = build_path(DIRECTORY_SEPARATOR,
-			  $GLOBALS['OMV_CRONSCRIPTS_DIR'],
-			  sprintf("rsync-%s", $params['uuid']));
+			$cmdArgs[] = build_path(DIRECTORY_SEPARATOR, \OMV\Environment::get(
+			  "OMV_CRONSCRIPTS_DIR"), sprintf("rsync-%s", $params['uuid']));
 			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename))
 				throw new \OMV\ExecException($cmd." ".implode(" ", $cmdArgs));
 		} catch(\Exception $e) {

@@ -21,14 +21,13 @@
  */
 try {
 	require_once("openmediavault/autoloader.inc");
-	require_once("openmediavault/globals.inc");
 	require_once("openmediavault/env.inc");
 	require_once("openmediavault/functions.inc");
 
 	// Load and initialize the RPC services that are not handled by the
 	// engine daemon.
-	$directory = build_path(DIRECTORY_SEPARATOR,
-	  $GLOBALS['OMV_DOCUMENTROOT_DIR'], "rpc");
+	$directory = build_path(DIRECTORY_SEPARATOR, \OMV\Environment::get(
+	  "OMV_DOCUMENTROOT_DIR"), "rpc");
 	foreach (listdir($directory, "inc") as $path) {
 		require_once $path;
 	}

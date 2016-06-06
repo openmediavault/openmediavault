@@ -19,8 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/globals.inc");
-
 class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -172,8 +170,8 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 			  $sfObject->get("mntentref"));
 			// Check if the required mount point already exists or if it is
 			// necessary to create it.
-			$dir = build_path(DIRECTORY_SEPARATOR,
-			  $GLOBALS['OMV_NFSD_EXPORT_DIR'], $sfObject->get("name"));
+			$dir = build_path(DIRECTORY_SEPARATOR, \OMV\Environment::get(
+			  "OMV_NFSD_EXPORT_DIR"), $sfObject->get("name"));
 			// Try to get the mount point configuration object.
 			$filter = [
 				"operator" => "stringEquals",

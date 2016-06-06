@@ -21,7 +21,6 @@
  */
 namespace OMV\ControlPanel;
 
-require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 
 /**
@@ -134,7 +133,7 @@ EOF;
 			"js/js-overrides.js",
 			"js/omv/globals.js"
 		];
-		if (TRUE === boolvalEx($GLOBALS['OMV_DEBUG_EXTJS'])) {
+		if (TRUE === \OMV\Environment::getBoolean("OMV_DEBUG_EXTJS")) {
 			$jsList = array_merge([
 				"/extjs/ext-all-debug.js",
 				"/extjs/packages/ext-theme-gray/ext-theme-gray-debug.js"
@@ -157,9 +156,11 @@ EOF;
 		$parts[] = $this->getCacheFileId();
 		$parts[] = "js";
 		$jsonFile = new \OMV\Json\File(sprintf("%s/cache.%s.json",
-		  $GLOBALS['OMV_CACHE_DIR'], implode("_", array_filter($parts))));
-		if ($jsonFile->exists() && !(boolvalEx($GLOBALS['OMV_DEBUG_PHP']) ||
-		  boolvalEx($GLOBALS['OMV_DEBUG_EXTJS']))) {
+		  \OMV\Environment::get("OMV_CACHE_DIR"),
+		  implode("_", array_filter($parts))));
+		if ($jsonFile->exists() && !(boolvalEx(\OMV\Environment::get(
+		  "OMV_DEBUG_PHP")) || boolvalEx(\OMV\Environment::get(
+		  "OMV_DEBUG_EXTJS")))) {
 			$jsonFile->open("r");
 			$jsList = $jsonFile->read();
 		} else {

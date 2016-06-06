@@ -19,8 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/globals.inc");
-
 class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -110,7 +108,8 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Read the plugin information from the plugin index. This will
 		// be updated automatically via APT trigger.
-		$indexFile = new \OMV\Json\File($GLOBALS['OMV_APT_UPGRADE_INDEX_FILE']);
+		$indexFile = new \OMV\Json\File(\OMV\Environment::get(
+		  "OMV_APT_UPGRADE_INDEX_FILE"));
 		if (!$indexFile->exists()) {
 			throw new \OMV\Exception(
 			  "The index of upgradeable packages does not exist. Please ".
@@ -265,7 +264,8 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Move file to local package archive.
 		if (!rename($params['filepath'], build_path(DIRECTORY_SEPARATOR,
-		  $GLOBALS['OMV_DPKGARCHIVE_DIR'], $params['filename']))) {
+		  \OMV\Environment::get("OMV_DPKGARCHIVE_DIR"),
+		  $params['filename']))) {
 			throw new \OMV\Exception(
 			  "Failed to move the package '%s' to local package repository.",
 			  $params['filename']);
@@ -273,7 +273,8 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 		// Create the 'Packages' file required by local APT archives.
 		// The 'packages' command should be run in the root of the tree.
 		$cmd = sprintf("export LANG=C; cd %s && apt-ftparchive " .
-		  "packages . > Packages", $GLOBALS['OMV_DPKGARCHIVE_DIR']);
+		  "packages . > Packages", \OMV\Environment::get(
+		  "OMV_DPKGARCHIVE_DIR"));
 		if (0 !== $this->exec($cmd, $output))
 			throw new \OMV\ExecException($cmd, $output);
 	}

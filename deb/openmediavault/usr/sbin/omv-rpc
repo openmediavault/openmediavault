@@ -21,7 +21,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/autoloader.inc");
-require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 
 ///////////////////////////////////////////////////////////////////////////////

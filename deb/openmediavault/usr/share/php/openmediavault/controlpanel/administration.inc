@@ -21,8 +21,6 @@
  */
 namespace OMV\ControlPanel;
 
-require_once("openmediavault/globals.inc");
-
 class Administration extends ControlPanelAbstract {
 	const MODE_ADMINISTRATOR = "admin";
 	const MODE_USER = "user";
@@ -76,9 +74,11 @@ class Administration extends ControlPanelAbstract {
 		  "OMV.PRODUCT_URL = '%s'; ".
 		  "OMV.PRODUCT_COPYRIGHT = '%s'; ".
 		  "OMV.PRODUCT_PACKAGENAME = '%s';",
-		  $GLOBALS['OMV_CONFIGOBJECT_NEW_UUID'], OMV_ROLE_ADMINISTRATOR,
-		  $GLOBALS['OMV_HTTPREQUEST_TIMEOUT'], $prd->getName(),
-		  $prd->getURL(), $prd->getCopyright(), $prd->getPackageName());
+		  \OMV\Environment::get("OMV_CONFIGOBJECT_NEW_UUID"),
+		  OMV_ROLE_ADMINISTRATOR,
+		  \OMV\Environment::get("OMV_HTTPREQUEST_TIMEOUT"),
+		  $prd->getName(), $prd->getURL(), $prd->getCopyright(),
+		  $prd->getPackageName());
 		// Process the RPC error codes.
 		$errorCodes = [];
 		$reflectionClass = new \ReflectionClass("\OMV\ErrorMsgException");

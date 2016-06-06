@@ -21,12 +21,11 @@
  */
 namespace OMV\System\Filesystem\Backend;
 
-require_once("openmediavault/globals.inc");
-
 class Hfsplus extends BackendAbstract {
 	public function __construct() {
 		$this->type = "hfsplus";
 		$this->properties = self::PROP_MNTENT;
-		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_HFSPLUS']);
+		$this->mntOptions = explode(",", \OMV\Environment::get(
+		  "OMV_FSTAB_MNTOPS_HFSPLUS"));
 	}
 }

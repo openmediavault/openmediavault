@@ -19,8 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/globals.inc");
-
 class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -241,8 +239,8 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 			// Execute the rsync cron script.
 			$cmd = "/bin/sh";
 			$cmdArgs = [];
-			$cmdArgs[] = sprintf("%s/samba-recycle-%s",
-			  $GLOBALS['OMV_CRONSCRIPTS_DIR'], $params['uuid']);
+			$cmdArgs[] = sprintf("%s/samba-recycle-%s", \OMV\Environment::get(
+			  "OMV_CRONSCRIPTS_DIR"), $params['uuid']);
 			$cmdArgs[] = "-f";
 			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename))
 				throw new \OMV\ExecException($cmd." ".implode(" ", $cmdArgs));

@@ -21,7 +21,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/autoloader.inc");
-require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -326,7 +325,8 @@ pcntl_signal(SIGCHLD, "signalHandler");
 // Load additional include files. This can be used to setup various
 // prerequirements.
 ///////////////////////////////////////////////////////////////////////////////
-$dir = build_path(DIRECTORY_SEPARATOR, $GLOBALS['OMV_ENGINED_DIR'], "inc");
+$dir = build_path(DIRECTORY_SEPARATOR, \OMV\Environment::get(
+  "OMV_ENGINED_DIR"), "inc");
 foreach (listdir($dir, "inc") as $path) {
 	require_once $path;
 }
@@ -339,7 +339,8 @@ foreach (listdir($dir, "inc") as $path) {
 // The workaround simply loads the include files using the sem_get function
 // after the daemon process has been forked.
 ///////////////////////////////////////////////////////////////////////////////
-$dir = build_path(DIRECTORY_SEPARATOR, $GLOBALS['OMV_ENGINED_DIR'], "rpc");
+$dir = build_path(DIRECTORY_SEPARATOR, \OMV\Environment::get(
+  "OMV_ENGINED_DIR"), "rpc");
 foreach (listdir($dir, "inc") as $path) {
 	require_once $path;
 }
@@ -352,7 +353,8 @@ if (TRUE === $debug)
 ///////////////////////////////////////////////////////////////////////////////
 // Load all module classes.
 ///////////////////////////////////////////////////////////////////////////////
-$dir = build_path(DIRECTORY_SEPARATOR, $GLOBALS['OMV_ENGINED_DIR'], "module");
+$dir = build_path(DIRECTORY_SEPARATOR, \OMV\Environment::get(
+  "OMV_ENGINED_DIR"), "module");
 foreach (listdir($dir, "inc") as $path) {
 	require_once $path;
 }
@@ -383,17 +385,18 @@ if (FALSE === @socket_set_option($socket, SOL_SOCKET, SO_REUSEADDR, 1)) {
 	exit(1);
 }
 // Unlink socket, even if it does not exist.
-unlink($GLOBALS['OMV_ENGINED_SO_ADDRESS']);
-if (FALSE === @socket_bind($socket, $GLOBALS['OMV_ENGINED_SO_ADDRESS'])) {
+unlink(\OMV\Environment::get("OMV_ENGINED_SO_ADDRESS"));
+if (FALSE === @socket_bind($socket, \OMV\Environment::get(
+  "OMV_ENGINED_SO_ADDRESS"))) {
 	error("Failed to bind socket: %s\n", socket_strerror(
 	  socket_last_error()));
 	exit(1);
 }
 // Modify file permission to allow access for the members of the
 // 'openmediavault-engined' group.
-chgrp($GLOBALS['OMV_ENGINED_SO_ADDRESS'],
-  $GLOBALS['OMV_ENGINED_SO_OWNERGROUP_NAME']);
-chmod($GLOBALS['OMV_ENGINED_SO_ADDRESS'], 0770);
+chgrp(\OMV\Environment::get("OMV_ENGINED_SO_ADDRESS"), \OMV\Environment::get(
+  "OMV_ENGINED_SO_OWNERGROUP_NAME"));
+chmod(\OMV\Environment::get("OMV_ENGINED_SO_ADDRESS"), 0770);
 if (FALSE === @socket_listen($socket, $maxConnections)) {
 	error("Failed to listen to socket: %s\n", socket_strerror(
 	  socket_last_error()));
@@ -429,7 +432,7 @@ while(FALSE === $sigTerm) {
 		///////////////////////////////////////////////////////////////////////
 		// Read the RPC request header.
 		$header = "";
-		$headerLen = $GLOBALS['OMV_ENGINED_SO_RPC_HEADER_LENGTH'];
+		$headerLen = \OMV\Environment::get("OMV_ENGINED_SO_RPC_HEADER_LENGTH");
 		while(($read = strlen($header)) < $headerLen) {
 			$data = @socket_read($conn, $headerLen - $read, PHP_BINARY_READ);
 			if(FALSE === $data) {
@@ -556,7 +559,7 @@ killChld();
 
 // Close and unlink socket.
 @socket_close($socket);
-@unlink($GLOBALS['OMV_ENGINED_SO_ADDRESS']);
+@unlink(\OMV\Environment::get("OMV_ENGINED_SO_ADDRESS"));
 
 // Unlink PID file (exists only when running in daemon mode).
 @unlink($pidFile);

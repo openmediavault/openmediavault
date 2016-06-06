@@ -44,10 +44,6 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.service.smb");
-		if (TRUE !== $object->get("enable"))
-			return;
 		$systemCtl = new \OMV\System\SystemCtl("smbd");
 		$systemCtl->disable(TRUE);
 	}

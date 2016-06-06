@@ -21,8 +21,6 @@
  */
 namespace OMV\Config;
 
-require_once("openmediavault/globals.inc");
-
 /**
  * @ingroup api
  */
@@ -30,7 +28,8 @@ class Database {
 	private $backend = NULL;
 
 	public function __construct() {
-		$this->backend = new DatabaseBackend($GLOBALS['OMV_CONFIG_FILE']);
+		$this->backend = new DatabaseBackend(\OMV\Environment::get(
+		  "OMV_CONFIG_FILE"));
 		$this->backend->setVersioning(TRUE);
 		$this->backend->load();
 	}

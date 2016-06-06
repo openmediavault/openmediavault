@@ -9,7 +9,7 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault-iscsitarget
 Architecture: all
-Depends: openmediavault (>= 3.0.15), iscsitarget, iscsitarget-dkms,
+Depends: openmediavault (>= 3.0.22), iscsitarget, iscsitarget-dkms,
  linux-headers-3.16.0-4-all
 Priority: optional
 Description: OpenMediaVault iSCSI Enterprise Target plugin

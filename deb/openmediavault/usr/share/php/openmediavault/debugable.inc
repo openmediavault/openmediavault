@@ -21,7 +21,6 @@
  */
 namespace OMV;
 
-require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 
 /**
@@ -32,7 +31,7 @@ trait Debugable {
 	 * Print debug message to stdout and file if debugging is enabled.
 	 */
 	final protected function debug() {
-		if (TRUE !== boolvalEx($GLOBALS['OMV_DEBUG_PHP']))
+		if (TRUE !== \OMV\Environment::getBoolean("OMV_DEBUG_PHP"))
 			return;
 
 		$args = func_get_args();
@@ -58,7 +57,7 @@ trait Debugable {
 		//fwrite(STDOUT, $msg);
 		file_put_contents("php://stdout", $msg);
 		// Append message to debug log file.
-		file_put_contents($GLOBALS['OMV_DEBUG_PHP_LOGFILE'], $msg,
-		  FILE_APPEND);
+		file_put_contents(\OMV\Environment::get("OMV_DEBUG_PHP_LOGFILE"),
+		  $msg, FILE_APPEND);
 	}
 }

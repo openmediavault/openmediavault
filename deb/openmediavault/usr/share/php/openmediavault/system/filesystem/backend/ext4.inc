@@ -21,14 +21,13 @@
  */
 namespace OMV\System\Filesystem\Backend;
 
-require_once("openmediavault/globals.inc");
-
 class Ext4 extends Ext3 {
 	public function __construct() {
 		parent::__construct();
 		$this->type = "ext4";
-		$this->mkfsOptions = $GLOBALS['OMV_MKFS_OPTIONS_EXT4'];
-		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_EXT4']);
+		$this->mkfsOptions = \OMV\Environment::get("OMV_MKFS_OPTIONS_EXT4");
+		$this->mntOptions = explode(",", \OMV\Environment::get(
+		  "OMV_FSTAB_MNTOPS_EXT4"));
 	}
 
 	/**
@@ -41,8 +40,8 @@ class Ext4 extends Ext3 {
 			// Append extra options for mdadm software RAID devices.
 			// http://article.gmane.org/gmane.comp.file-systems.ext4/33938
 			// http://serverfault.com/a/419628
-			$options .= sprintf(" %s",
-			  $GLOBALS['OMV_MKFS_EXTRAOPTIONS_EXT4_MDADM']);
+			$options .= sprintf(" %s", \OMV\Environment::get(
+			  "OMV_MKFS_EXTRAOPTIONS_EXT4_MDADM"));
 		}
 		// Always use 64-bit support on 64bit systems.
 		if (TRUE === is_64bits())

@@ -21,7 +21,6 @@
  */
 namespace OMV\DataModel;
 
-require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 
 class Schema extends \OMV\Json\Schema {

@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 
 class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
@@ -224,7 +223,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			$nib = $mngr->getBackend($devv);
 			// Set the default attributes.
 			$object = [
-				"uuid" => $GLOBALS['OMV_CONFIGOBJECT_NEW_UUID'],
+				"uuid" => \OMV\Environment::get("OMV_CONFIGOBJECT_NEW_UUID"),
 				"comment" =>  "",
 				"_used" =>  FALSE,
 				"_readonly" =>  FALSE
@@ -249,7 +248,8 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			// override various configuration values.
 			$object = array_merge($object, $this->getIfaceInfo($devv));
 			// Categorize the network interface.
-			$typeNames = $GLOBALS['OMV_NETWORK_INTERFACE_TYPE_NAMES'];
+			$typeNames = \OMV\Environment::get(
+			  "OMV_NETWORK_INTERFACE_TYPE_NAMES");
 			if (array_key_exists($nib->getType(), $typeNames))
 				$object['type'] = $typeNames[$nib->getType()];
 			else
@@ -640,7 +640,8 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 				$result[] = $this->getIfaceInfo($devv);
 			}
 		}
-		if ($params['uuid'] !== $GLOBALS['OMV_CONFIGOBJECT_NEW_UUID']) {
+		if ($params['uuid'] !== \OMV\Environment::get(
+		  "OMV_CONFIGOBJECT_NEW_UUID")) {
 			// Get network interfaces already assigned to the bonding
 			// interface device.
 			$object = $db->getByFilter("conf.system.network.interface", [
@@ -707,7 +708,8 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			  "The parameters 'bondprimary' and 'bondmode' are invalid.");
 		}
 		// - Check usage.
-		if ($params['uuid'] == $GLOBALS['OMV_CONFIGOBJECT_NEW_UUID']) {
+		if ($params['uuid'] == \OMV\Environment::get(
+		  "OMV_CONFIGOBJECT_NEW_UUID")) {
 			// Check if the slaves are already used by another bond interface.
 			foreach (explode(",", $params['slaves']) as $slavek => $slavev) {
 				$db = \OMV\Config\Database::getInstance();

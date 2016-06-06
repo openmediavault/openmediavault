@@ -19,8 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/globals.inc");
-
 class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -62,7 +60,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		return array_rand_value($GLOBALS['OMV_DUNE_QUOTES']);
+		return array_rand_value(\OMV\Environment::get("OMV_DUNE_QUOTES"));
 	}
 
 	/**

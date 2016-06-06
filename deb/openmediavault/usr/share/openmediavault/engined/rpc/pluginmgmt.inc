@@ -19,8 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/globals.inc");
-
 class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -64,7 +62,8 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Read the plugin information from the plugin index. This will
 		// be updated automatically via APT trigger.
-		$indexFile = new \OMV\Json\File($GLOBALS['OMV_APT_PLUGINS_INDEX_FILE']);
+		$indexFile = new \OMV\Json\File(\OMV\Environment::get(
+		  "OMV_APT_PLUGINS_INDEX_FILE"));
 		if (!$indexFile->exists()) {
 			throw new \OMV\Exception(
 			  "The index of available plugins does not exist. Please ".

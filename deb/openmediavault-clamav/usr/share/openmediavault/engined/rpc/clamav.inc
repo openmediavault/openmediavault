@@ -19,8 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/globals.inc");
-
 class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -267,7 +265,7 @@ class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 			$cmd = "/bin/sh";
 			$cmdArgs = [];
 			$cmdArgs[] = build_path(DIRECTORY_SEPARATOR,
-			  $GLOBALS['OMV_CRONSCRIPTS_DIR'],
+			  \OMV\Environment::get("OMV_CRONSCRIPTS_DIR"),
 			  sprintf("clamdscan-%s", $params['uuid']));
 			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename))
 				throw new \OMV\ExecException($cmd." ".implode(" ", $cmdArgs));

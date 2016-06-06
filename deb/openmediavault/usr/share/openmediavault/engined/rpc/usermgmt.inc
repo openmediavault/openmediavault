@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 
 class OMVRpcServiceUserMgmt extends \OMV\Rpc\ServiceAbstract {
@@ -146,8 +145,9 @@ finish:
 			if (FALSE === ($userInfo = $this->getUserInfo($userv)))
 				continue;
 			// Append user 'root'?
-			if (0 == strcasecmp("root", $userInfo['name']) &&
-			  FALSE == boolvalEx($GLOBALS['OMV_USERMGMT_ENUMERATE_USER_ROOT']))
+			if ((0 == strcasecmp("root", $userInfo['name'])) &&
+			  (FALSE == \OMV\Environment::getBoolean(
+			  "OMV_USERMGMT_ENUMERATE_USER_ROOT")))
 				continue;
 			// Check if the current user is requested.
 			$append = FALSE;
@@ -504,7 +504,8 @@ finish:
 		// group 'users'.
 		$cmdArgs = [];
 		$cmdArgs[] = "--gid";
-		$cmdArgs[] = escapeshellarg($GLOBALS['OMV_USERMGMT_DEFAULT_GROUP']);
+		$cmdArgs[] = escapeshellarg(\OMV\Environment::get(
+		  "OMV_USERMGMT_DEFAULT_GROUP"));
 		if (array_key_exists("shell", $params)) {
 			$cmdArgs[] = "--shell";
 			$cmdArgs[] = escapeshellarg($params['shell']);
@@ -1089,12 +1090,13 @@ finish:
 						  "to '%s': %s", $path, $userv['name'],
 						  $error['message']);
 					}
-					if (!chgrp($path, $GLOBALS['OMV_USERMGMT_DEFAULT_GROUP'])) {
+					if (!chgrp($path, \OMV\Environment::get(
+					  "OMV_USERMGMT_DEFAULT_GROUP"))) {
 						$error = error_get_last();
 						throw new \OMV\Exception(
 						  "Failed to change group of the directory '%s' ".
 						  "to '%s': %s", $path,
-						  $GLOBALS['OMV_USERMGMT_DEFAULT_GROUP'],
+						  \OMV\Environment::get("OMV_USERMGMT_DEFAULT_GROUP"),
 						  $error['message']);
 					}
 				}

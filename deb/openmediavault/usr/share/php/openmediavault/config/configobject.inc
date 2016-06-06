@@ -21,7 +21,6 @@
  */
 namespace OMV\Config;
 
-require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 
 /**
@@ -406,7 +405,7 @@ class ConfigObject {
 		$uuid = $this->getIdentifier();
 		if (FALSE === \OMV\Uuid::isUuid4($uuid))
 			return FALSE;
-		return ($GLOBALS['OMV_CONFIGOBJECT_NEW_UUID'] == $uuid);
+		return (\OMV\Environment::get("OMV_CONFIGOBJECT_NEW_UUID") == $uuid);
 	}
 
 	/**
@@ -421,7 +420,7 @@ class ConfigObject {
 			  "The configuration object '%s' is not identifiable.",
 			  $this->getModelId());
 		}
-		$uuid = $GLOBALS['OMV_CONFIGOBJECT_NEW_UUID'];
+		$uuid = \OMV\Environment::get("OMV_CONFIGOBJECT_NEW_UUID");
 		$this->set($this->getModel()->getIdProperty(), $uuid);
 	}
 
