@@ -41,9 +41,9 @@ Ext.define("OMV.form.field.ComboBox", {
 
 	getValue: function() {
 		var me = this;
-		var selection = me.getSelection();
-		if (Ext.isEmpty(selection) && (true === me.forceEmptyValue))
-			me.value = me.emptyValue;
-		return me.callParent(arguments);
+		var value = me.callParent(arguments);
+		if (Ext.isNull(value) && (true === me.forceEmptyValue))
+			value = me.emptyValue;
+		return value;
 	}
 });
