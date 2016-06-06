@@ -388,8 +388,7 @@ class Database {
 
 	/**
 	 * Check if on or more configuration object of the specified data model
-	 * exists. Note, this method is only useful for iterable configuration
-	 * objects.
+	 * exists.
 	 * @param id The data model identifier.
 	 * @param filter A filter specifying constraints on the objects
 	 *   to retrieve. Defaults to NULL.
@@ -411,16 +410,6 @@ class Database {
 		// Get the specified data model.
 		$mngr = \OMV\DataModel\Manager::getInstance();
 		$model = $mngr->getModel($id);
-		if (FALSE === is_null($filter)) {
-			// If a filter is set, then this means we are processing
-			// iterable configuration objects. Make sure the specified
-			// configuration object is iterable.
-			if (FALSE === $model->isIterable()) {
-				throw new \InvalidArgumentException(sprintf(
-				  "The configuration object '%s' is not iterable.",
-				  $model->getId()));
-			}
-		}
 		// Create the query builder.
 		$queryBuilder = new DatabaseBackendQueryBuilder($id);
 		$xpath = $queryBuilder->buildExistsQuery($filter);
