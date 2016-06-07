@@ -1040,62 +1040,68 @@ finish:
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.usermngmt.setsettings");
 		// Prepare the configuration object.
-		$object = new \OMV\Config\ConfigObject("conf.system.usermngmnt.homedir");
+		$object = new \OMV\Config\ConfigObject(
+		  "conf.system.usermngmnt.homedir");
 		$object->setAssoc($params);
 		// Set the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
 		// Build the home directory path.
-		$homeDirPath = "";
+		$sfPath = "";
 		if (TRUE === $object->get("enable")) {
 			// Get the absolute shared folder path.
-			$homeDirPath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath",
-			  array("uuid" => $object->get("sharedfolderref")), $context);
+			$sfPath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", [
+				"uuid" => $object->get("sharedfolderref")
+			], $context);
 		}
 		// Update the non-system user.
 		$users = $this->enumerateUsersByType("normal");
 		foreach ($users as $userk => $userv) {
 			$cmdArgs = [];
-			if (!empty($homeDirPath)) {
+			if (!empty($sfPath)) {
+				$homeDirPath = build_path(DIRECTORY_SEPARATOR, $sfPath,
+				  $userv['name']);
 				// Set new home directory. Move the content from the old to
-				// the new directory.
-				$cmdArgs[] = "--move-home";
+				// the new home directory if this does not exist.
+				// Note, the usermod command throws an error when calling
+				// with --move-home and the home directory already exists.
+				if (!file_exists($homeDirPath))
+					$cmdArgs[] = "--move-home";
 				$cmdArgs[] = "--home";
-				$cmdArgs[] = escapeshellarg(build_path(DIRECTORY_SEPARATOR,
-				  $homeDirPath, $userv['name']));
+				$cmdArgs[] = escapeshellarg($homeDirPath);
 			} else {
 				// Unset home directory.
 				$cmdArgs[] = "--home";
-				$cmdArgs[] = escapeshellarg($homeDirPath);
+				$cmdArgs[] = escapeshellarg("");
 			}
 			$cmdArgs[] = escapeshellarg($userv['name']);
 			$cmd = new \OMV\System\Process("usermod", $cmdArgs);
 			$cmd->setRedirect2to1(TRUE);
 			$cmd->execute();
 			// Create the home directory if it does not exist until now.
-			if (!empty($homeDirPath)) {
-				$path = build_path(DIRECTORY_SEPARATOR, $homeDirPath,
+			if (!empty($sfPath)) {
+				$homeDirPath = build_path(DIRECTORY_SEPARATOR, $sfPath,
 				  $userv['name']);
-				if (!file_exists($path)) {
-					if (!mkdir($path, 0755, TRUE)) {
+				if (!file_exists($homeDirPath)) {
+					if (!mkdir($homeDirPath, 0755, TRUE)) {
 						$error = error_get_last();
 						throw new \OMV\Exception(
 						  "Failed to create home directory '%s': %s",
-						  $path, $error['message']);
+						  $homeDirPath, $error['message']);
 					}
-					if (!chown($path, $userv['name'])) {
+					if (!chown($homeDirPath, $userv['name'])) {
 						$error = error_get_last();
 						throw new \OMV\Exception(
 						  "Failed to change owner of the directory '%s' ".
-						  "to '%s': %s", $path, $userv['name'],
+						  "to '%s': %s", $homeDirPath, $userv['name'],
 						  $error['message']);
 					}
-					if (!chgrp($path, \OMV\Environment::get(
+					if (!chgrp($homeDirPath, \OMV\Environment::get(
 					  "OMV_USERMGMT_DEFAULT_GROUP"))) {
 						$error = error_get_last();
 						throw new \OMV\Exception(
 						  "Failed to change group of the directory '%s' ".
-						  "to '%s': %s", $path,
+						  "to '%s': %s", $homeDirPath,
 						  \OMV\Environment::get("OMV_USERMGMT_DEFAULT_GROUP"),
 						  $error['message']);
 					}
