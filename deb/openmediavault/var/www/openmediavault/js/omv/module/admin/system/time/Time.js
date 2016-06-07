@@ -124,6 +124,7 @@ Ext.define("OMV.module.admin.system.time.Time", {
 				valueField: "value",
 				allowBlank: false,
 				typeAhead: true,
+				anyMatch: true,
 				forceSelection: true,
 				triggerAction: "all",
 				value: "UTC"

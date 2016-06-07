@@ -405,6 +405,7 @@ Ext.define("OMV.module.admin.system.certificate.ssl.Create", {
 			valueField: "value",
 			allowBlank: false,
 			typeAhead: true,
+			anyMatch: true,
 			forceSelection: true,
 			triggerAction: "all",
 			emptyText: _("Select a country ..."),

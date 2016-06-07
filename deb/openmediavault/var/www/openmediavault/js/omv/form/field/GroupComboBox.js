@@ -44,6 +44,7 @@ Ext.define("OMV.form.field.GroupComboBox", {
 	allowBlank: false,
 	editable: true,
 	typeAhead: true,
+	anyMatch: true,
 	forceSelection: true,
 	selectOnFocus: true,
 	minChars: 1,
@@ -83,9 +84,8 @@ Ext.define("OMV.form.field.GroupComboBox", {
 					load: function(store, records, options) {
 						// Switch combobox to queryMode = 'local' to do not
 						// execute an RPC on each query (e.g. typeahead).
-						if(true === me.typeAhead) {
+						if (true === me.typeAhead)
 							me.queryMode = "local";
-						}
 					}
 				}
 			})
