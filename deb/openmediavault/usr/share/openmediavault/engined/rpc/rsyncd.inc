@@ -118,7 +118,7 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 			// JSON: { users: { user: [] } }
 			// The workaround takes care that the internal representation
 			// will be fixed in the special case when no users are defined.
-			$objectv->isEmpty("users");
+			if ($objectv->isEmpty("users"))
 				$objectv->reset("users");
 			// Relocate the users property.
 			$objectv->move("users.user", "users");
@@ -160,7 +160,7 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 		// JSON: { users: { user: [] } }
 		// The workaround takes care that the internal representation
 		// will be fixed in the special case when no users are defined.
-		$object->isEmpty("users");
+		if ($object->isEmpty("users"))
 			$object->reset("users");
 		// Relocate the users property.
 		$object->move("users.user", "users");
