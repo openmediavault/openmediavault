@@ -303,7 +303,8 @@ class ConfigObject {
 
 	/**
 	* Add a new property. This can be accessed by the get/set methods.
-	* Note, this will modify the data model of this object.
+	* Note, this will modify the data model of this object. In common this
+	* is only useful for scalar types like string, boolean, integer, ...
 	* @param name The name of the property in dot notation, e.g. 'a.b.c'.
 	* @param type The type of the property, e.g. 'string' or 'boolean'.
 	* @param default An optional default value.
