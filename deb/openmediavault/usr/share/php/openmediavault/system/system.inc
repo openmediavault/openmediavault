@@ -84,10 +84,10 @@ class System {
 	 * @return The next free device name, e.g. md3
 	 */
 	public static function getNextDevice($type, $name) {
-		$cmdList = array(
+		$cmdList = [
 			"disk" => "cat /proc/partitions | awk '{print $4}'",
 			"iface" => "export LANG=C; netstat -i | awk '{print $1}'"
-		);
+		];
 		$cmd = sprintf("%s | grep '^%s[0-9]\{1,\}$' | sort -r | " .
 		  "head -n 1", $cmdList[$type], $name);
 		$cmd = new \OMV\System\Process($cmd);
@@ -118,12 +118,12 @@ class System {
 			  $mins, ($mins == 1) ? gettext("minute") : gettext("minutes"),
 			  $secs, gettext("seconds"));
 		else
-			return array(
+			return [
 				"seconds" => $secs,
 				"minutes" => $mins,
 				"hours" => $hours,
 				"days" => $days
-			  );
+			];
 	}
 
 	/**
@@ -191,30 +191,30 @@ class System {
 		$cmd = new \OMV\System\Process("free", "-b");
 		$cmd->setRedirect2to1(TRUE);
 		$cmd->execute($output);
-		$result = array(
-			"mem" => array(
+		$result = [
+			"mem" => [
 				"total" => 0,
 				"used" => 0,
 				"free" => 0,
 				"shared" => 0,
 				"buffers" => 0,
 				"cached" => 0
-			),
-			"wobufferscache" => array(
+			],
+			"wobufferscache" => [
 				"used" => 0,
 				"free" => 0
-			),
-			"swap" => array(
+			],
+			"swap" => [
 				"total" => 0,
 				"used" => 0,
 				"free" => 0
-			),
-			"total" => array(
+			],
+			"total" => [
 				"total" => 0,
 				"used" => 0,
 				"free" => 0
-			)
-		);
+			]
+		];
 		// Parse command output:
 		//              total       used       free     shared    buffers     cached
 		// Mem:     526987264  195010560  331976704          0   28565504  120373248
@@ -224,34 +224,34 @@ class System {
 		foreach ($output as $outputk => $outputv) {
 			if (preg_match('/^Mem:\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)$/',
 			  $outputv, $matches)) {
-				$result['mem'] = array(
+				$result['mem'] = [
 					"total" => $matches[1],
 					"used" => $matches[2],
 					"free" => $matches[3],
 					"shared" => $matches[4],
 					"buffers" => $matches[5],
 					"cached" => $matches[6]
-				);
+				];
 			} else if (preg_match('/^-\/\+ buffers\/cache:\s+(\d+)\s+(\d+)$/',
 			  $outputv, $matches)) {
-				$result['wobufferscache'] = array(
+				$result['wobufferscache'] = [
 					"used" => $matches[1],
 					"free" => $matches[2]
-				);
+				];
 			} else if (preg_match('/^Swap:\s+(\d+)\s+(\d+)\s+(\d+)$/',
 			  $outputv, $matches)) {
-				$result['swap'] = array(
+				$result['swap'] = [
 					"total" => $matches[1],
 					"used" => $matches[2],
 					"free" => $matches[3]
-				);
+				];
 			} else if (preg_match('/^Total:\s+(\d+)\s+(\d+)\s+(\d+)$/',
 			  $outputv, $matches)) {
-				$result['swap'] = array(
+				$result['swap'] = [
 					"total" => $matches[1],
 					"used" => $matches[2],
 					"free" => $matches[3]
-				);
+				];
 			}
 		}
 		return $result;
@@ -303,13 +303,13 @@ class System {
 		// Calculate the CPU usage since we last checked.
 		$diffIdle = $tnow[3] - $tprev[3];
 		$diffTotal = $tnowTotal - $tprevTotal;
-		return array(
+		return [
 			"modelname" => $cpuInfo->exists("modelname") ?
 			  $cpuInfo->get("modelname") : gettext("n/a"),
 			"cpumhz" => $cpuInfo->exists("cpumhz") ?
 			  $cpuInfo->get("cpumhz") : gettext("n/a"),
 			"usage" => (0 == $diffTotal) ? 0 : (($diffTotal - $diffIdle) /
 			  $diffTotal) * 100
-		);
+		];
 	}
 }
