@@ -292,6 +292,7 @@ class ConfigObject {
 	 * Remove/unset the specified property. Note, this will modify the data
 	 * model of this object.
 	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
+	 * @return None.
 	 */
 	public function remove($name) {
 		$this->assertExists($name);
