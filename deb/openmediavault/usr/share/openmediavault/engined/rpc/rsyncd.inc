@@ -111,6 +111,15 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 		// Add additional share informations.
 		$objectsAssoc = [];
 		foreach ($objects as $objectk => &$objectv) {
+			// Note, we need to do a stupid workaround here when no users
+			// are defined. The problem is caused by the way how the
+			// configuration data is represented in XML and expected in JSON.
+			// XML: <users></users>
+			// JSON: { users: { user: [] } }
+			// The workaround takes care that the internal representation
+			// will be fixed in the special case when no users are defined.
+			$objectv->isEmpty("users");
+				$objectv->reset("users");
 			// Relocate the users property.
 			$objectv->move("users.user", "users");
 			// Add the new property 'sharedfoldername'.
@@ -144,6 +153,15 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.rsyncd.module", $params['uuid']);
+		// Note, we need to do a stupid workaround here when no users
+		// are defined. The problem is caused by the way how the
+		// configuration data is represented in XML and expected in JSON.
+		// XML: <users></users>
+		// JSON: { users: { user: [] } }
+		// The workaround takes care that the internal representation
+		// will be fixed in the special case when no users are defined.
+		$object->isEmpty("users");
+			$object->reset("users");
 		// Relocate the users property.
 		$object->move("users.user", "users");
 		// Return the configuration object.
