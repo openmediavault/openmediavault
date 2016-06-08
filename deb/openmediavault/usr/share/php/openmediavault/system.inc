@@ -280,8 +280,8 @@ class OMVSystem extends OMVObject {
 	 */
 	public static function getCPUStats() {
 		// Get the CPU model name. Take care about CPUs with multiple cores.
-		@OMVUtil::exec("export LANG=C; grep -Em1 '^(model name|Processor)' ".
-		  "/proc/cpuinfo", $output, $result);
+		@OMVUtil::exec("export LANG=C; grep -Em1 '^(model name|Processor|".
+		  "cpu model)' /proc/cpuinfo", $output, $result);
 		if ($result !== 0)
 			return FALSE;
 		$output = explode(":", $output[0]);
