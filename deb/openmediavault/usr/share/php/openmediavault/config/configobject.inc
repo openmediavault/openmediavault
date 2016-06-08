@@ -334,7 +334,7 @@ class ConfigObject {
 			// Copy the data model of the property.
 			$model->copyProperty($name, $targetName);
 			// Set the property default value.
-			$this->reset($targetName)
+			$this->reset($targetName);
 		}
 		// Copy the propert value.
 		$value = $this->get($name);
