@@ -277,6 +277,12 @@ class System {
 		// microcode	: 0x3
 		// cpu MHz		: 2792.999
 		// ...
+		// system type             : MT7621
+		// machine                 : GnuBee
+		// processor               : 0
+		// cpu model               : MIPS 1004Kc V2.15
+		// BogoMIPS                : 663.55
+		// ...
 		$cpuInfo = new \OMV\Util\KeyValueFile("/proc/cpuinfo", ":");
 		$cpuInfo->setKeyNameDelimiter("");
 		// Get the current CPU statistics.
@@ -304,8 +310,10 @@ class System {
 		$diffIdle = $tnow[3] - $tprev[3];
 		$diffTotal = $tnowTotal - $tprevTotal;
 		return [
-			"modelname" => $cpuInfo->exists("modelname") ?
-			  $cpuInfo->get("modelname") : gettext("n/a"),
+			"modelname" =>
+			  $cpuInfo->exists("modelname") ? $cpuInfo->get("modelname") :
+			  ($cpuInfo->exists("cpumodel") ? $cpuInfo->get("cpumodel") :
+			  gettext("n/a")),
 			"cpumhz" => $cpuInfo->exists("cpumhz") ?
 			  $cpuInfo->get("cpumhz") : gettext("n/a"),
 			"usage" => (0 == $diffTotal) ? 0 : (($diffTotal - $diffIdle) /
