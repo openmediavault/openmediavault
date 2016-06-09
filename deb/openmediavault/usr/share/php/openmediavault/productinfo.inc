@@ -28,6 +28,9 @@ namespace OMV;
 class ProductInfo {
 	private $data = [];
 
+	/**
+	 * Constructor
+	 */
 	public function __construct() {
 		$xml = simplexml_load_file(\OMV\Environment::get(
 		  "OMV_PRODUCTINFO_FILE"));

@@ -35,6 +35,7 @@ class Process {
 	);
 
 	/**
+	 * Constructor
 	 * Example:
 	 * $cmd = new \OMV\System\Process("ls -alh");
 	 * $cmd = new \OMV\System\Process("ls", "-al", "-h");
@@ -58,20 +59,48 @@ class Process {
 		}
 	}
 
+	/**
+	 * Redirect STDERR to STDOUT.
+	 * @param enable Set to FALSE to do no redirect STDERR to STDOUT.
+	 *   Defaults to TRUE.
+	 * @return None.
+	 */
 	public function setRedirect2to1($enable = TRUE) {
 		$this->redirect2to1 = $enable;
 	}
 
+	/**
+	 * Do not throw an error exception if the command execution fails.
+	 * @param quiet Set to TRUE to do not throw an exception.
+	 *   Defaults to TRUE.
+	 * @return None.
+	 */
 	public function setQuiet($quiet = TRUE) {
 		$this->quiet = $quiet;
 	}
 
+	/**
+	 * Execute the command in background. The method \em execute immediatelly
+	 * returns in this case.
+	 * @param background Set to TRUE to do execute the command in background.
+	 *   Defaults to TRUE.
+	 * @return None.
+	 */
 	public function setBackground($background = TRUE) {
 		$this->background = $background;
 	}
 
-	public function setEnv($string) {
-		$this->env[] = $string;
+	/**
+	 * Set an environment variable.
+	 * @param name The name of the environment variable.
+	 * @param value The value of the environment variable.
+	 * @return None.
+	 */
+	public function setEnv($name, $value) {
+		if (1 == func_num_args())
+			$this->env[] = $name; // Keep backward compatibility.
+		else
+			$this->env[] = sprintf("%s=%s", $name, $value);
 	}
 
 	/**

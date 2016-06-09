@@ -279,7 +279,7 @@ class User {
 		$cmdArgs[] = "-u";
 		$cmdArgs[] = escapeshellarg($this->getName());
 		$cmd = new \OMV\System\Process("edquota", $cmdArgs);
-		$cmd->setEnv("EDITOR=cat");
+		$cmd->setEnv("EDITOR", "cat");
 		$cmd->setRedirect2to1(TRUE);
 		$cmd->execute($output);
 		// Parse command output:

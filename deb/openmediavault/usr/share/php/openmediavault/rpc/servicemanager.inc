@@ -30,6 +30,9 @@ require_once("openmediavault/functions.inc");
 class ServiceManager {
 	private $map = [];
 
+	/**
+	 * Constructor
+	 */
 	public function __construct() {
 		// Get a list of all classes that are implementing a RPC service.
 		$classes = get_declared_subclasses("\OMV\Rpc\ServiceAbstract");

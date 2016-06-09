@@ -219,9 +219,9 @@ class Session {
 	 * Dump the current session informations.
 	 */
 	public function dump() {
-		$this->debug(var_export(array(
+		$this->debug(var_export([
 			  "id" => session_id(),
 			  "data" => $_SESSION
-		  ), TRUE));
+		  ], TRUE));
 	}
 }

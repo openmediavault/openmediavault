@@ -153,7 +153,7 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = "remove";
 			$cmdArgs[] = implode(" ", $params['packages']);
 			$cmd = new \OMV\System\Process("apt-get", $cmdArgs);
-			$cmd->setEnv("DEBIAN_FRONTEND=noninteractive");
+			$cmd->setEnv("DEBIAN_FRONTEND", "noninteractive");
 			$cmd->setRedirect2to1(TRUE);
 			if (0 !== $this->exec($cmd->getCommandLine(), $output,
 			  $bgOutputFilename))
@@ -253,7 +253,7 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = "install";
 			$cmdArgs[] = implode(" ", $params['packages']);
 			$cmd = new \OMV\System\Process("apt-get", $cmdArgs);
-			$cmd->setEnv("DEBIAN_FRONTEND=noninteractive");
+			$cmd->setEnv("DEBIAN_FRONTEND", "noninteractive");
 			$cmd->setRedirect2to1(TRUE);
 			if (0 !== $this->exec($cmd->getCommandLine(), $output,
 			  $bgOutputFilename))
