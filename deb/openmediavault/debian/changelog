@@ -1,5 +1,6 @@
 openmediavault (3.0.22) stable; urgency=low
 
+  * Update locales.
   * Various improvements and bugfixes.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 06 Jun 2016 09:21:33 +0200

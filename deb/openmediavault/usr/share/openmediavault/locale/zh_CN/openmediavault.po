@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2016-04-24 07:48+0000\n"
+"PO-Revision-Date: 2016-06-04 08:17+0000\n"
 "Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -33,35 +33,35 @@ msgid "'All' is not allowed"
 msgstr "不允许\"全部\"选项"
 
 msgid "0 KiB/s means unlimited."
-msgstr "0KB/s表示不限制。"
+msgstr "0KB/s 表示不限制。"
 
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - 待机状态时最低功耗(磁头停转)"
 
 msgid "1 day"
-msgstr "1天"
+msgstr "1 天"
 
 msgid "1 month"
-msgstr "1月"
+msgstr "1 月"
 
 msgid "1 week"
-msgstr "1周"
+msgstr "1 周"
 
 msgid "1 year"
-msgstr "1年"
+msgstr "1 年"
 
 msgid "10 minutes"
-msgstr "10分钟"
+msgstr "10 分钟"
 
 msgid "10 years"
-msgstr "10年"
+msgstr "10 年"
 
 #, javascript-format
 msgid "100% completed ..."
 msgstr "100%完成 ..."
 
 msgid "120 minutes"
-msgstr "120分钟"
+msgstr "120 分钟"
 
 msgid "127 - Intermediate power usage with standby"
 msgstr "127 - 待机状态时中等功耗"
@@ -70,34 +70,34 @@ msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - 非待机状态时最低功耗(磁头运转中)"
 
 msgid "15 years"
-msgstr "15年"
+msgstr "15 年"
 
 msgid "180 minutes"
-msgstr "180分钟"
+msgstr "180 分钟"
 
 msgid "192 - Intermediate power usage without standby"
 msgstr "192 - 非待机状态时中等功耗"
 
 msgid "2 days"
-msgstr "2天"
+msgstr "2 天"
 
 msgid "2 weeks"
-msgstr "2周"
+msgstr "2 周"
 
 msgid "2 years"
-msgstr "2年"
+msgstr "2 年"
 
 msgid "20 minutes"
-msgstr "20分钟"
+msgstr "20 分钟"
 
 msgid "20 years"
-msgstr "20年"
+msgstr "20 年"
 
 msgid "240 minutes"
-msgstr "240分钟"
+msgstr "240 分钟"
 
 msgid "25 years"
-msgstr "25年"
+msgstr "25 年"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - 最高性能，最大功耗"
@@ -106,55 +106,55 @@ msgid "255 - Disabled"
 msgstr "255 - 已禁用"
 
 msgid "3 days"
-msgstr "3天"
+msgstr "3 天"
 
 msgid "3 months"
-msgstr "3月"
+msgstr "3 月"
 
 msgid "3 weeks"
-msgstr "3周"
+msgstr "3 周"
 
 msgid "3 years"
-msgstr "3年"
+msgstr "3 年"
 
 msgid "30 minutes"
-msgstr "30分钟"
+msgstr "30 分钟"
 
 msgid "300 minutes"
-msgstr "300分钟"
+msgstr "300 分钟"
 
 msgid "360 minutes"
-msgstr "360分钟"
+msgstr "360 分钟"
 
 msgid "4 days"
-msgstr "4天"
+msgstr "4 天"
 
 msgid "4 years"
-msgstr "4年"
+msgstr "4 年"
 
 msgid "5 days"
-msgstr "5天"
+msgstr "5 天"
 
 msgid "5 minutes"
-msgstr "5分钟"
+msgstr "5 分钟"
 
 msgid "5 years"
-msgstr "5年"
+msgstr "5 年"
 
 msgid "6 days"
-msgstr "6天"
+msgstr "6 天"
 
 msgid "6 months"
-msgstr "6月"
+msgstr "6 月"
 
 msgid "60 minutes"
-msgstr "60分钟"
+msgstr "60 分钟"
 
 msgid "64 - Intermediate power usage with standby"
 msgstr "64 - 待机状态时中等功耗"
 
 msgid "9 months"
-msgstr "9月"
+msgstr "9 月"
 
 msgid "ACL"
 msgstr "ACL"
@@ -178,28 +178,28 @@ msgid "Access mode"
 msgstr "访问模式"
 
 msgid "Act as a WINS server."
-msgstr "作为一个WINS服务器"
+msgstr "作为一个 WINS 服务器"
 
 msgid "Action"
 msgstr "动作"
 
 msgid "Activate S.M.A.R.T. monitoring."
-msgstr "激活S.M.A.R.T.监测。"
+msgstr "激活 S.M.A.R.T. 监测。"
 
 msgid "Add"
 msgstr "添加"
 
 msgid "Add VLAN connection"
-msgstr "添加VLAN链接"
+msgstr "添加 VLAN 链接"
 
 msgid "Add Wi-Fi connection"
-msgstr "添加Wi-Fi连接"
+msgstr "添加 Wi-Fi 连接"
 
 msgid "Add bond connection"
 msgstr "添加链路汇聚"
 
 msgid "Add devices to RAID device"
-msgstr "添加设备到RAID阵列中"
+msgstr "添加设备到 RAID 阵列中"
 
 msgid "Add ethernet connection"
 msgstr "添加网络连接"
@@ -211,7 +211,7 @@ msgid "Add group"
 msgstr "添加用户组"
 
 msgid "Add hot spares / recover RAID device"
-msgstr "添加热备/恢复RAID阵列"
+msgstr "添加热备/恢复 RAID 阵列"
 
 msgid "Add module"
 msgstr "添加模块"
@@ -220,7 +220,7 @@ msgid "Add public key"
 msgstr "添加公钥"
 
 msgid "Add rsync job"
-msgstr "添加rsync任务"
+msgstr "添加 rsync 任务"
 
 msgid "Add rule"
 msgstr "添加规则"
@@ -244,7 +244,7 @@ msgid ""
 "Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
 " href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
 "for more details."
-msgstr "附加设置，例如：'autoneg off speed 100 duplex full'。详情请见<a href='http://linux.die.net/man/8/ethtool' target='_blank'>手册</a>。"
+msgstr "附加设置，例如 :'autoneg off speed 100 duplex full'。详情请见 <a href='http://linux.die.net/man/8/ethtool' target='_blank'> 手册 </a>。"
 
 msgid "Address"
 msgstr "地址"
@@ -275,7 +275,7 @@ msgstr "阿富汗"
 
 msgid ""
 "After the RAID has been grown you can resize the containing file system."
-msgstr "在扩充RAID后你可以调整文件系统的大小。"
+msgstr "在扩充 RAID 后你可以调整文件系统的大小。"
 
 msgid "Aland Islands"
 msgstr "奥兰群岛"
@@ -294,7 +294,7 @@ msgstr "允许空密码账户访问"
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
-msgstr "允许客户端通过共享存储OS/2类型扩展特性。"
+msgstr "允许客户端通过共享存储 OS/2 类型扩展特性。"
 
 msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr "允许客户端恢复中断的上传和下载"
@@ -307,10 +307,10 @@ msgstr "允许创建新文件。"
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
-msgstr "允许此服务器作为Windows客户端的时间服务器"
+msgstr "允许此服务器作为 Windows 客户端的时间服务器"
 
 msgid "Allow this server to try and become a local master browser"
-msgstr "允许本服务器作为local master browser，LMB主要是扫描局域网内工作组和电脑名称，如果局域网中没有域控制器建议开启此项。"
+msgstr "允许本服务器作为 local master browser，LMB 主要是扫描局域网内工作组和电脑名称，如果局域网中没有域控制器建议开启此项。"
 
 msgid "American Samoa"
 msgstr "美属萨摩亚"
@@ -341,7 +341,7 @@ msgid "Anonymous"
 msgstr "匿名"
 
 msgid "Anonymous FTP"
-msgstr "匿名FTP"
+msgstr "匿名 FTP"
 
 msgid "Antarctica"
 msgstr "南极洲"
@@ -377,7 +377,7 @@ msgid "Aruba"
 msgstr "阿鲁巴"
 
 msgid "Asynchronous I/O"
-msgstr "异步I/O"
+msgstr "异步 I/O"
 
 msgid "At reboot"
 msgstr "在重启时"
@@ -407,7 +407,7 @@ msgid "Authenticate users"
 msgstr "验证用户"
 
 msgid "Authenticated user ID"
-msgstr "验证过的用户ID"
+msgstr "验证过的用户 ID"
 
 msgid "Authentication"
 msgstr "验证"
@@ -539,7 +539,7 @@ msgid "By default, only files that already exist are allowed to be uploaded."
 msgstr "默认只有已经存在的文件才允许上传。"
 
 msgid "CPU usage"
-msgstr "CPU使用率"
+msgstr "CPU 使用率"
 
 msgid "Cambodia"
 msgstr "柬埔寨"
@@ -617,13 +617,13 @@ msgid "Client"
 msgstr "客户端"
 
 msgid "Client NetBIOS name"
-msgstr "客户端NetBIOS名称"
+msgstr "客户端 NetBIOS 名称"
 
 msgid "Client address"
 msgstr "客户端地址"
 
 msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr "客户端可以挂载文件系统，如192.168.178.0/24。"
+msgstr "客户端可以挂载文件系统，如 192.168.178.0/24。"
 
 msgid "Close"
 msgstr "关闭"
@@ -718,7 +718,7 @@ msgid "Create"
 msgstr "创建"
 
 msgid "Create RAID device"
-msgstr "创建RAID"
+msgstr "创建 RAID"
 
 msgid "Create file system"
 msgstr "创建文件系统"
@@ -757,7 +757,7 @@ msgid "DHCP"
 msgstr "DHCP"
 
 msgid "DNS servers"
-msgstr "DNS服务器"
+msgstr "DNS 服务器"
 
 msgid "Daemon"
 msgstr "守护进程"
@@ -814,7 +814,7 @@ msgid ""
 "Destination address can be either a network IP address (with /mask), a IP "
 "range or a plain IP address. A '!' argument before the address specification"
 " inverts the sense of the address."
-msgstr "目标地址可以是网络IP地址(包含/子网掩码)，IP范围或者单个IP地址，地址前可以用“!”来反转地址的意义。"
+msgstr "目标地址可以是网络 IP 地址(包含/子网掩码)，IP 范围或者单个 IP 地址，地址前可以用 “!” 来反转地址的意义。"
 
 msgid "Destination port"
 msgstr "目标端口"
@@ -903,7 +903,7 @@ msgid "Do you really want to clear the log file?"
 msgstr "确定清空日志文件？"
 
 msgid "Do you really want to create the RAID device?"
-msgstr "确定创建RAID？"
+msgstr "确定创建 RAID？"
 
 msgid "Do you really want to delete the file system? All data will be lost."
 msgstr "确定要删除文件系统？所有数据将丢失。"
@@ -942,12 +942,12 @@ msgid ""
 msgstr "确定删除共享文件夹的内容？删除后将无法恢复。"
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
-msgstr "确认重设WebGUI状态，例如栏位顺序？"
+msgstr "确认重设 WebGUI 状态，例如栏位顺序？"
 
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
-msgstr "确定要调整选中文件系统大小？通常是在扩充RAID后来进行调整。"
+msgstr "确定要调整选中文件系统大小？通常是在扩充 RAID 后来进行调整。"
 
 msgid "Do you really want to revert the configuration changes?"
 msgstr "确定要恢复配置变更？"
@@ -1012,16 +1012,16 @@ msgid "Edit"
 msgstr "编辑"
 
 msgid "Edit SSH certificate"
-msgstr "编辑SSH证书"
+msgstr "编辑 SSH 证书"
 
 msgid "Edit SSL certificate"
-msgstr "编辑SSL证书"
+msgstr "编辑 SSL 证书"
 
 msgid "Edit VLAN connection"
-msgstr "编辑VLAN链接"
+msgstr "编辑 VLAN 链接"
 
 msgid "Edit Wi-Fi connection"
-msgstr "编辑Wi-Fi链接"
+msgstr "编辑 Wi-Fi 链接"
 
 msgid "Edit bond connection"
 msgstr "编辑链路汇聚"
@@ -1042,7 +1042,7 @@ msgid "Edit quota"
 msgstr "编辑配额"
 
 msgid "Edit rsync job"
-msgstr "编辑rsync任务"
+msgstr "编辑 rsync 任务"
 
 msgid "Edit rule"
 msgstr "编辑规则"
@@ -1081,28 +1081,28 @@ msgid "Enable"
 msgstr "启用"
 
 msgid "Enable FXP protocol"
-msgstr "启用FXP通讯协议"
+msgstr "启用 FXP 通讯协议"
 
 msgid "Enable SSL/TLS"
-msgstr "启用SSL/TLS"
+msgstr "启用 SSL/TLS"
 
 msgid "Enable SSL/TLS connections"
-msgstr "启用SSL/TLS链接"
+msgstr "启用 SSL/TLS 链接"
 
 msgid "Enable WINS server"
-msgstr "启用WINS服务器"
+msgstr "启用 WINS 服务器"
 
 msgid "Enable anonymous FTP"
-msgstr "启用匿名FTP"
+msgstr "启用匿名 FTP"
 
 msgid "Enable archive mode"
 msgstr "启用归档模式"
 
 msgid "Enable asynchronous I/O (AIO) support."
-msgstr "启用异步I/O(AIO)支持"
+msgstr "启用异步 I/O(AIO) 支持"
 
 msgid "Enable chroot."
-msgstr "开启chroot。"
+msgstr "开启 chroot。"
 
 msgid "Enable compression"
 msgstr "启用压缩"
@@ -1126,22 +1126,22 @@ msgid "Enable recycle bin"
 msgstr "启用回收站"
 
 msgid "Enable reverse DNS lookup"
-msgstr "启用反向DNS查询"
+msgstr "启用反向 DNS 查询"
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
 "incoming active mode data connections and outgoing passive mode data "
 "connections."
-msgstr "对于传入传出的数据连接启用远程主机IP地址DNS反向查询。"
+msgstr "对于传入传出的数据连接启用远程主机 IP 地址 DNS 反向查询。"
 
 msgid "Enable secure connection."
 msgstr "启用安全连接。"
 
 msgid "Enable store DOS attributes support"
-msgstr "启用DOS属性存储支持"
+msgstr "启用 DOS 属性存储支持"
 
 msgid "Enable the ident protocol (RFC1413)"
-msgstr "启用IDENT协议(RFC1413 )"
+msgstr "启用 IDENT 协议 (RFC1413 )"
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
@@ -1194,13 +1194,13 @@ msgid "Event"
 msgstr "事件"
 
 msgid "Every N day of month"
-msgstr "每月第N天"
+msgstr "每月第 N 天"
 
 msgid "Every N hour"
-msgstr "每N小时"
+msgstr "每 N 小时"
 
 msgid "Every N minute"
-msgstr "每N分钟"
+msgstr "每 N 分钟"
 
 msgid "Everyone: read/write"
 msgstr "每个人：读/写"
@@ -1212,13 +1212,13 @@ msgid "Execute command"
 msgstr "执行命令"
 
 msgid "Execute cron job"
-msgstr "执行cron任务"
+msgstr "执行 cron 任务"
 
 msgid "Execute only"
 msgstr "仅执行"
 
 msgid "Execute rsync job"
-msgstr "执行rsync任务"
+msgstr "执行 rsync 任务"
 
 msgid "Execute scheduled test"
 msgstr "执行测试计划"
@@ -1242,7 +1242,7 @@ msgid "FTP - Transfer log"
 msgstr "FTP - 传输日志"
 
 msgid "FTP-Proxy"
-msgstr "FTP-代理"
+msgstr "FTP - 代理"
 
 msgid "FXP"
 msgstr "FXP"
@@ -1250,7 +1250,7 @@ msgstr "FXP"
 msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
-msgstr "FXP允许两个远程服务器之间进行传输，即使客户端没有任何数据请求。"
+msgstr "FXP 允许两个远程服务器之间进行传输，即使客户端没有任何数据请求。"
 
 msgid "Falkland Islands"
 msgstr "福克兰群岛"
@@ -1288,12 +1288,12 @@ msgstr "文件名"
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
-msgstr "在回收站的文件过了指定天后将自动删除，该项设为0模式为手动删除。"
+msgstr "在回收站的文件过了指定天后将自动删除，该项设为 0 则为手动删除。"
 
 msgid ""
 "Files that are larger than the specified number of bytes will not be put "
 "into the recycle bin. Set to 0 for unrestricted file size."
-msgstr "超过设定大小的文件将不会被移到回收站，该值设为0则不限制文件大小。"
+msgstr "超过设定大小的文件将不会被移到回收站，该值设为 0 则不限制文件大小。"
 
 msgid "Filesize"
 msgstr "文件大小"
@@ -1317,7 +1317,7 @@ msgid "Flags"
 msgstr "标签"
 
 msgid "Force SSL/TLS"
-msgstr "强制使用SSL/TLS"
+msgstr "强制使用 SSL/TLS"
 
 msgid "Force secure connection only."
 msgstr "强制只允许使用安全连接。"
@@ -1404,7 +1404,7 @@ msgid "Grow"
 msgstr "扩充"
 
 msgid "Grow RAID device"
-msgstr "扩充RAID"
+msgstr "扩充 RAID"
 
 msgid "Guadeloupe"
 msgstr "瓜德罗普"
@@ -1434,10 +1434,10 @@ msgid "Guyana"
 msgstr "圭亚那"
 
 msgid "HTTP-Proxy"
-msgstr "HTTP-代理"
+msgstr "HTTP - 代理"
 
 msgid "HTTPS-Proxy"
-msgstr "HTTPS-代理"
+msgstr "HTTPS - 代理"
 
 msgid "Haiti"
 msgstr "海地"
@@ -1467,7 +1467,7 @@ msgid "Hong Kong S.A.R., China"
 msgstr "香港特别行政区，中国"
 
 msgid "Honor existing ACLs"
-msgstr "遵循现有ACLs"
+msgstr "遵循现有 ACLs"
 
 msgid "Host"
 msgstr "主机"
@@ -1494,7 +1494,7 @@ msgid "ID"
 msgstr "ID"
 
 msgid "IP addresses of domain name servers used to resolve host names."
-msgstr "解析域名服务器的IP地址为主机名。"
+msgstr "解析域名服务器的 IP 地址为主机名。"
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -1506,7 +1506,7 @@ msgid "Iceland"
 msgstr "冰岛"
 
 msgid "Ident protocol"
-msgstr "IDENT协议"
+msgstr "IDENT 协议"
 
 msgid "Identify"
 msgstr "识别"
@@ -1550,7 +1550,7 @@ msgid ""
 "attribute, before mapping DOS attributes to UNIX permission bits. When set, "
 "DOS attributes will be stored onto an extended attribute in the UNIX file "
 "system, associated with the file or directory."
-msgstr "如果设置此参数，Samba在映射DOS属性到UNIX系统前，首先会读取DOS文件系统扩展属性(系统、隐藏、存档或只读)。设置这项参数可以保存DOS文件系统中文件和文件夹的扩展属性到UNIX文件系统。"
+msgstr "如果设置此参数，Samba 在映射 DOS 属性到 UNIX 系统前，首先会读取 DOS 文件系统扩展属性(系统、隐藏、存档或只读)。设置这项参数可以保存 DOS 文件系统中文件和文件夹的扩展属性到 UNIX 文件系统。"
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1562,19 +1562,19 @@ msgid ""
 "this option is useful in order to allow passive tranfers to work. You have "
 "to use your public address and opening the passive ports used on your "
 "firewall as well."
-msgstr "如果该主机作为NAT网关或者端口转发服务器，该选项对被动传输很有用，你需要使用你的公网IP以及在防火墙中打开被动端口。"
+msgstr "如果该主机作为 NAT 网关或者端口转发服务器，该选项对被动传输很有用，你需要使用你的公网 IP 以及在防火墙中打开被动端口。"
 
 msgid "Implicit SSL"
-msgstr "隐式SSL"
+msgstr "隐式 SSL"
 
 msgid "Import"
 msgstr "导入"
 
 msgid "Import SSH certificate"
-msgstr "导入SSH证书"
+msgstr "导入 SSH 证书"
 
 msgid "Import SSL certificate"
-msgstr "导入SSL证书"
+msgstr "导入 SSL 证书"
 
 msgid "Import groups"
 msgstr "导入用户组"
@@ -1597,7 +1597,7 @@ msgid ""
 "greater than or equal to 1024). It is strongly recommended that the chosen "
 "range be large enough to handle many simultaneous passive connections (for "
 "example, 49152-65534, the IANA-registered ephemeral port range)."
-msgstr "有些时候，你必须制定被动通讯端口范围避开防火墙限制。当客户端传来PASV命令时，端口范围限制了服务器的选用;服务器将在设定范围选择一个，直到这个端口是开放的；所选的端口范围必须在非特殊端口范围内(例如：大于或等于1024)；强烈建议选择的范围扩大到足以处理许多同时响应的连线(例如：49152-65534)，这是IANA注册的临时端口范围。"
+msgstr "有些时候，你必须制定被动通讯端口范围避开防火墙限制。当客户端传来 PASV 命令时，端口范围限制了服务器的选用;服务器将在设定范围选择一个，直到这个端口是开放的；所选的端口范围必须在非特殊端口范围内(例如：大于或等于 1024)；强烈建议选择的范围扩大到足以处理许多同时响应的连线(例如：49152-65534)，这是 IANA 注册的临时端口范围。"
 
 msgid "Incoming"
 msgstr "传入"
@@ -1624,7 +1624,7 @@ msgid "Information"
 msgstr "资讯"
 
 msgid "Inherit ACLs"
-msgstr "继承ACLs"
+msgstr "继承 ACLs"
 
 msgid "Inherit permissions"
 msgstr "继承权限"
@@ -1651,7 +1651,7 @@ msgid "Interfaces"
 msgstr "接口"
 
 msgid "Invalid SSH public key (RFC 4716)"
-msgstr "无效SSH公钥(RFC 4716)"
+msgstr "无效 SSH 公钥 (RFC 4716)"
 
 msgid "Invalid domain name"
 msgstr "无效域名"
@@ -1741,10 +1741,10 @@ msgid "Kyrgyzstan"
 msgstr "吉尔吉斯斯坦"
 
 msgid "LBA of first error"
-msgstr "第一个错误的LBA"
+msgstr "第一个错误的 LBA"
 
 msgid "LVM logical volume %s [%s, %s]"
-msgstr "LVM逻辑卷 %s [%s, %s]"
+msgstr "LVM 逻辑卷 %s [%s, %s]"
 
 msgid "Label"
 msgstr "标签"
@@ -1764,7 +1764,7 @@ msgstr "黎巴嫩"
 msgid ""
 "Length of time in seconds to blink one or more LEDs on the specific ethernet"
 " port."
-msgstr "闪烁一个或多个在特定网口上的LED，时间单位是秒。"
+msgstr "闪烁一个或多个在特定网口上的 LED，时间单位是秒。"
 
 msgid "Lesotho"
 msgstr "莱索托"
@@ -1839,10 +1839,10 @@ msgid "Luxembourg"
 msgstr "卢森堡"
 
 msgid "MAC address"
-msgstr "MAC地址"
+msgstr "MAC 地址"
 
 msgid "MII monitoring frequency"
-msgstr "MII监测频率"
+msgstr "MII 监测频率"
 
 msgid "MTU"
 msgstr "MTU"
@@ -1892,12 +1892,12 @@ msgstr "伪装地址"
 msgid ""
 "Match if the destination port is one of the given ports. E.g. 21 or !443 or "
 "1024-65535."
-msgstr "如果匹配的目的端口是指定的端口中的一个。例如：21或!443或1024-65535。"
+msgstr "如果匹配的目的端口是指定的端口中的一个。例如：21 或 !443 或 1024-65535。"
 
 msgid ""
 "Match if the source port is one of the given ports. E.g. 21 or !443 or "
 "1024-65535."
-msgstr "如果匹配源端口是指定的端口中的一个。例如：21或!443或1024-65535。"
+msgstr "如果匹配源端口是指定的端口中的一个。例如：21 或 !443 或 1024-65535。"
 
 msgid "Mauritania"
 msgstr "毛里塔尼亚"
@@ -1918,19 +1918,19 @@ msgid "Max. login attempts"
 msgstr "最多登录尝试次数"
 
 msgid "Maximum download rate (KiB/s)"
-msgstr "最大下载速度(KB/s)"
+msgstr "最大下载速度 (KB/s)"
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
 "timer completely (clients can stay connected for ever, without sending "
 "data)."
-msgstr "以秒为单位的最长空闲时间，若设定为0则计时器关闭 (客户端永久保持连接，即使没有传输数据)。"
+msgstr "以秒为单位的最长空闲时间，若设定为 0 则计时器关闭 (客户端永久保持连接，即使没有传输数据)。"
 
 msgid "Maximum number of allowed password attempts before disconnection."
 msgstr "最多密码尝试次数，超过次数后断开连接。"
 
 msgid "Maximum number of connections per IP (0 = unlimited)."
-msgstr "每个IP最多连接数 (0=不限制)。"
+msgstr "每个 IP 最多连接数 (0=不限制)。"
 
 msgid "Maximum number of simultaneous clients."
 msgstr "最大并发客户端数。"
@@ -2008,7 +2008,7 @@ msgid "Modify account"
 msgstr "修改账户"
 
 msgid "Modify shared folder ACL"
-msgstr "修改共享文件夹ACL"
+msgstr "修改共享文件夹 ACL"
 
 msgid "Modules"
 msgstr "模块"
@@ -2161,16 +2161,16 @@ msgid "Norway"
 msgstr "挪威"
 
 msgid "Not ICMP"
-msgstr "非ICMP"
+msgstr "非 ICMP"
 
 msgid "Not ICMPv6"
-msgstr "非ICMPv6"
+msgstr "非 ICMPv6"
 
 msgid "Not TCP"
-msgstr "非TCP"
+msgstr "非 TCP"
 
 msgid "Not UDP"
-msgstr "非UDP"
+msgstr "非 UDP"
 
 msgid "Nothing"
 msgstr "没有"
@@ -2233,7 +2233,7 @@ msgid "Outgoing"
 msgstr "传出"
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
-msgstr "发送SMTP服务器地址，例如：smtp.mycorp.com。"
+msgstr "发送 SMTP 服务器地址，例如：smtp.mycorp.com。"
 
 msgid "Outlying Oceania"
 msgstr "离岛大洋洲"
@@ -2278,7 +2278,7 @@ msgid "Parent interface"
 msgstr "父接口"
 
 msgid "Passive FTP"
-msgstr "被动式FTP"
+msgstr "被动式 FTP"
 
 msgid "Password"
 msgstr "密码"
@@ -2290,10 +2290,10 @@ msgid "Passwords don't match"
 msgstr "密码不匹配"
 
 msgid "Paste a RSA certificate in X.509 PEM format here."
-msgstr "在这粘贴X.509格式的RSA证书"
+msgstr "在这粘贴 X.509 格式的 RSA 证书"
 
 msgid "Paste an private RSA key in X.509 PEM format here."
-msgstr "在这粘贴X.509格式的RSA私钥"
+msgstr "在这粘贴 X.509 格式的 RSA 私钥"
 
 msgid "Path"
 msgstr "路径"
@@ -2317,16 +2317,16 @@ msgid "Permissions of group."
 msgstr "用户组权限。"
 
 msgid "Permissions of others (e.g. anonymous FTP users)."
-msgstr "其它权限 (例如：匿名FTP用户)"
+msgstr "其它权限 (例如：匿名 FTP 用户)"
 
 msgid "Permissions of owner."
 msgstr "所有者权限"
 
 msgid "Permit root login"
-msgstr "允许root登录"
+msgstr "允许 root 登录"
 
 msgid "Permit to do SSH tunneling"
-msgstr "允许走SSH隧道"
+msgstr "允许走 SSH 隧道"
 
 msgid "Peru"
 msgstr "秘鲁"
@@ -2346,45 +2346,45 @@ msgstr "皮特凯恩群岛"
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/exports' "
 "target='_blank'>manual page</a> for more details."
-msgstr "详情请看 <a href='http://linux.die.net/man/5/exports' target='_blank'>手册</a>。"
+msgstr "详情请看 <a href='http://linux.die.net/man/5/exports' target='_blank'> 手册 </a>。"
 
 msgid ""
 "Please check the <a href='http://www.openbsd.org/cgi-"
 "bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for"
 " more details."
-msgstr "详情请看 <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>手册</a> 。"
+msgstr "详情请看 <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'> 手册 </a> 。"
 
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "详情请看 <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>手册</a> 。"
+msgstr "详情请看 <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'> 手册 </a> 。"
 
 msgid ""
 "Please check the <a "
 "href='http://www.proftpd.org/docs/directives/configuration_full.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "详情请看 <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>手册</a> 。"
+msgstr "详情请看 <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'> 手册 </a> 。"
 
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
 "name.html' target='_blank'>manual page</a> for more details."
-msgstr "详情请看 <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>指南页</a>。"
+msgstr "详情请看 <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'> 手册 </a>。"
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "详情请看 <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>手册</a> 。"
+msgstr "详情请看 <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'> 手册  </a> 。"
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "详情请看 <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>手册</a> 。"
+msgstr "详情请看 <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'> 手册 </a> 。"
 
 msgid ""
 "Please check the <a "
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "详情请看 <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>手册</a> 。"
+msgstr "详情请看 <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'> 手册 </a> 。"
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "请选择擦除设备的方式或者选择“取消”中止。"
@@ -2411,7 +2411,7 @@ msgstr "请稍等 ..."
 msgid ""
 "Please wait until the RAID has been initialized before creating a file "
 "system."
-msgstr "RAID初始化完成后再创建文件系统。"
+msgstr "RAID 初始化完成后再创建文件系统。"
 
 msgid "Plugins"
 msgstr "插件"
@@ -2444,7 +2444,7 @@ msgid "Prefix length"
 msgstr "前缀长度"
 
 msgid "Preserve ACLs"
-msgstr "保存ACLs"
+msgstr "保存 ACLs"
 
 msgid "Preserve extended attributes"
 msgstr "保留扩展属性"
@@ -2472,7 +2472,7 @@ msgid "Primary"
 msgstr "主要"
 
 msgid "Primary email"
-msgstr "主要Email"
+msgstr "主要 Email"
 
 msgid "Privacy passphrase"
 msgstr "隐私密码"
@@ -2562,7 +2562,7 @@ msgid "RFC931"
 msgstr "RFC931"
 
 msgid "RSync server"
-msgstr "RSync服务器"
+msgstr "RSync 服务器"
 
 msgid "Ranges of numbers are not allowed"
 msgstr " 不允许的数字范围"
@@ -2631,7 +2631,7 @@ msgid "Remove"
 msgstr "移除"
 
 msgid "Remove devices from RAID device"
-msgstr "从RAID阵列中删除设备"
+msgstr "从 RAID 阵列中删除设备"
 
 msgid "Replace"
 msgstr "取代"
@@ -2645,18 +2645,18 @@ msgstr "报告"
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
 "last report. Set to 0 to disable this report."
-msgstr "自上次报告以来温度变化至少N度，则需报告，设置为0则关闭报告。"
+msgstr "自上次报告以来温度变化至少 N 度，则需报告，设置为 0 则关闭报告。"
 
 msgid ""
 "Report if the temperature is greater or equal than N degrees Celsius. Set to"
 " 0 to disable this report."
-msgstr "如果温度大于或等于N度则报告，设置为0则关闭报告。"
+msgstr "如果温度大于或等于 N 度则报告，设置为 0 则关闭报告。"
 
 msgid "Repository"
 msgstr "软件源"
 
 msgid "Require valid shell"
-msgstr "需要有效shell"
+msgstr "需要有效 shell"
 
 msgid "Required"
 msgstr "必要"
@@ -2665,12 +2665,12 @@ msgid "Reset"
 msgstr "重设"
 
 msgid "Reset WebGUI state"
-msgstr "重设WebGUI状态"
+msgstr "重设 WebGUI 状态"
 
 msgid ""
 "Reset WebGUI state will restore default settings of grid columns for "
 "example."
-msgstr "恢复WebGUI状态至默认示例。"
+msgstr "恢复 WebGUI 状态至默认示例。"
 
 msgid "Resize"
 msgstr "调整大小"
@@ -2688,7 +2688,7 @@ msgid "Reunion"
 msgstr "留尼汪"
 
 msgid "Reverse DNS lookup"
-msgstr "反向DNS查找"
+msgstr "反向 DNS 查找"
 
 msgid "Revert"
 msgstr "恢复"
@@ -2724,10 +2724,10 @@ msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
 msgid "S.M.A.R.T. information"
-msgstr "S.M.A.R.T.信息"
+msgstr "S.M.A.R.T. 信息"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
-msgstr "S.M.A.R.T.监控必须激活所选设备。"
+msgstr "S.M.A.R.T. 监控必须激活所选设备。"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -2736,31 +2736,31 @@ msgid "SMB/CIFS - Audit"
 msgstr "SMB/CIFS - 审核"
 
 msgid "SMTP port"
-msgstr "SMTP端口"
+msgstr "SMTP 端口"
 
 msgid "SMTP server"
-msgstr "SMTP服务器"
+msgstr "SMTP 服务器"
 
 msgid "SMTP settings"
-msgstr "SMTP设置"
+msgstr "SMTP 设置"
 
 msgid "SNMP"
 msgstr "SNMP"
 
 msgid "SNMP version 1/2c"
-msgstr "SNMP版本1/2c"
+msgstr "SNMP 版本 1/2c"
 
 msgid "SNMP version 3"
-msgstr "SNMP版本3"
+msgstr "SNMP 版本 3"
 
 msgid "SSH"
 msgstr "SSH"
 
 msgid "SSH certificate"
-msgstr "SSH证书"
+msgstr "SSH 证书"
 
 msgid "SSH port"
-msgstr "SSH端口"
+msgstr "SSH 端口"
 
 msgid "SSID"
 msgstr " SSID"
@@ -2826,7 +2826,7 @@ msgid "Search domains"
 msgstr "搜索域名"
 
 msgid "Secondary email"
-msgstr "次要Email"
+msgstr "次要 Email"
 
 msgid "Seconds"
 msgstr "秒"
@@ -2844,10 +2844,10 @@ msgid "Security level"
 msgstr "安全级别"
 
 msgid "Select a SSH certificate ..."
-msgstr "选择SSH证书 ..."
+msgstr "选择 SSH 证书 ..."
 
 msgid "Select a SSL certificate ..."
-msgstr "选择SSL证书 ..."
+msgstr "选择 SSL 证书 ..."
 
 msgid "Select a country ..."
 msgstr "选择国家 ..."
@@ -2883,7 +2883,7 @@ msgid "Select a shared folder ..."
 msgstr "选择共享文件夹 ..."
 
 msgid "Select a shell ..."
-msgstr "选择shell ..."
+msgstr "选择 shell ..."
 
 msgid "Select a user name ..."
 msgstr "选择用户名 ..."
@@ -2895,10 +2895,10 @@ msgid "Select an authentication mode ..."
 msgstr "选择授权模式 ..."
 
 msgid "Select devices to be added to the RAID device"
-msgstr "选择被添加到RAID的设备"
+msgstr "选择被添加到 RAID 的设备"
 
 msgid "Select devices to be removed from the RAID device."
-msgstr "选择要从RAID阵列中删除的设备。"
+msgstr "选择要从 RAID 阵列中删除的设备。"
 
 msgid "Select or enter a user name ..."
 msgstr "选择或输入用户名 ..."
@@ -2910,16 +2910,16 @@ msgid "Send a test email"
 msgstr "发送一封测试邮件"
 
 msgid "Send command output via email"
-msgstr "命令输出用Email发送"
+msgstr "命令输出用 Email 发送"
 
 msgid "Send email"
-msgstr "发送Email"
+msgstr "发送 Email"
 
 msgid "Sender email"
-msgstr "发送Email "
+msgstr "发送 Email "
 
 msgid "Sending test email ..."
-msgstr "发送测试Email ..."
+msgstr "发送测试 Email ..."
 
 msgid "Senegal"
 msgstr "塞内加尔"
@@ -2979,7 +2979,7 @@ msgstr "设为只写"
 msgid ""
 "Sets the interval between disk checks to N seconds, logging S.M.A.R.T. "
 "errors and changes of S.M.A.R.T. attributes."
-msgstr "设定磁盘检查间隔时间为 N 秒，以记录S.M.A.R.T.错误或特性变化日志。"
+msgstr "设定磁盘检查间隔时间为 N 秒，以记录 S.M.A.R.T. 错误或特性变化日志。"
 
 msgid "Settings"
 msgstr "设置"
@@ -3057,7 +3057,7 @@ msgid "Slovenia"
 msgstr "斯罗文尼亚"
 
 msgid "Software RAID"
-msgstr "软RAID"
+msgstr "软 RAID"
 
 msgid "Software updates"
 msgstr "软件更新"
@@ -3075,7 +3075,7 @@ msgid ""
 "Source address can be either a network IP address (with /mask), a IP range "
 "or a plain IP address. A '!' argument before the address specification "
 "inverts the sense of the address."
-msgstr "来源地址可以是IP地址(包含/子网掩码)，IP范围或者单个IP，地址前可以加 '!' 来反转地址。"
+msgstr "来源地址可以是 IP 地址(包含/子网掩码)，IP 范围或者单个 IP，地址前可以加 '!' 来反转地址。"
 
 msgid "Source port"
 msgstr "源端口"
@@ -3108,26 +3108,26 @@ msgid "Specifies one of the bonding policies."
 msgstr "指定一个汇聚策略。"
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
-msgstr "指定MII连接的监控频率，单位是毫秒。"
+msgstr "指定 MII 连接的监控频率，单位是毫秒。"
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
 "masquerade address by resolving the IP address. Set this value to 0 to "
 "disable this option."
-msgstr "指定多少秒的时间作为检查和更新伪装地址的IP时间间隔，设为0则表示停用。"
+msgstr "指定多少秒的时间作为检查和更新伪装地址的 IP 时间间隔，设为 0 则表示停用。"
 
 msgid ""
 "Specifies the maximum permitted block size. The permitted range for this "
 "parameter is from 512 to 65464."
-msgstr "指定允许的最大块大小，该范围允许值512到65464 。"
+msgstr "指定允许的最大块大小，该范围允许值 512 到 65464 。"
 
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
-msgstr "以hh:mm:ss的格式来指定时间，这个时间后禁止策略失效。"
+msgstr "以 hh:mm:ss 的格式来指定时间，这个时间后禁止策略失效。"
 
 msgid ""
 "Specifies the time interval in hh:mm:ss in which the given number of "
 "occurrences must happen to add the ban."
-msgstr "以hh:mm:ss的格式来指定时间间隔，这段时间内必须达到发生次数禁止策略才生效。"
+msgstr "以 hh:mm:ss 的格式来指定时间间隔，这段时间内必须达到发生次数禁止策略才生效。"
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before disabling a slave after "
@@ -3153,7 +3153,7 @@ msgstr "指定系统是否定期收集性能统计信息。"
 msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
-msgstr "指定是否监控系统状态并选择最适合的CPU级别。"
+msgstr "指定是否监控系统状态并选择最适合的 CPU 级别。"
 
 msgid "Specifies which slave is the primary device."
 msgstr "指定主从设备。"
@@ -3192,7 +3192,7 @@ msgid "Storage"
 msgstr "存储器"
 
 msgid "Store DOS attributes"
-msgstr "存储DOS属性"
+msgstr "存储 DOS 属性"
 
 msgid "Stripe"
 msgstr "条带"
@@ -3252,7 +3252,7 @@ msgid "TAR"
 msgstr "TAR"
 
 msgid "TCP forwarding"
-msgstr "TCP转发"
+msgstr "TCP 转发"
 
 msgid "TFTP"
 msgstr "TFTP"
@@ -3279,19 +3279,19 @@ msgid "Thailand"
 msgstr "泰国"
 
 msgid "The NT description field."
-msgstr "NT描述字段。"
+msgstr "NT 描述字段。"
 
 msgid "The RSA key length."
-msgstr "RSA密钥长度。"
+msgstr "RSA 密钥长度。"
 
 msgid "The RSA public key in OpenSSH format."
-msgstr "OpenSSH格式的RSA公钥。"
+msgstr "OpenSSH 格式的 RSA 公钥。"
 
 msgid "The SSH certificate used for authentication."
-msgstr "该SSH证书用于授权。"
+msgstr "该 SSH 证书用于授权。"
 
 msgid "The SSL certificate."
-msgstr "SSL证书。"
+msgstr "SSL 证书。"
 
 msgid "The action to be done when pressing the power button."
 msgstr "按下电源时要执行的动作。"
@@ -3308,12 +3308,12 @@ msgid ""
 msgstr "配置已经改变，你必须应用才能使他们生效。"
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "SMTP服务器默认端口，例如：25或者587."
+msgstr "SMTP 服务器默认端口，例如：25 或者 587。"
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
 "rsync://[USER@]HOST[:PORT]/DEST."
-msgstr "目标远程服务器，例如：[USER@]HOST:DEST, [USER@]HOST::DEST或rsync://[USER@]HOST[:PORT]/DEST。"
+msgstr "目标远程服务器，例如：[USER@]HOST:DEST, [USER@]HOST::DEST 或 rsync://[USER@]HOST[:PORT]/DEST。"
 
 msgid "The destination shared folder."
 msgstr "目标共享文件夹。"
@@ -3361,7 +3361,7 @@ msgstr "密码包含无效字符"
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
 "used for remote shell transport such as ssh."
-msgstr "该密码由rsync守护进程使用，这种不同于远程shell传输而类似于ssh."
+msgstr "该密码由 rsync 守护进程使用，这种不同于远程 shell 传输而类似于 ssh."
 
 msgid ""
 "The path of the folder to share. The specified folder will be created if it "
@@ -3376,10 +3376,10 @@ msgid ""
 msgstr "新文件和目录的权限一般是由创建掩码和目录掩码决定，但权限继承会复写它们。当系统有许多用户使用单一共享时这种方案会很灵活。"
 
 msgid "The private RSA key in X.509 PEM format."
-msgstr "X.509 PEM格式的RSA私钥。"
+msgstr "X.509 PEM 格式的 RSA 私钥。"
 
 msgid "The public key in RFC 4716 SSH public key file format."
-msgstr "RFC 4716格式的SSH公钥。"
+msgstr "RFC 4716 格式的 SSH 公钥。"
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3389,22 +3389,22 @@ msgstr "软件源将检查是否有删除或更新的软件包信息。"
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
 "for data connections is not required."
-msgstr "不要求控制连接SSL会话重用与数据连接。"
+msgstr "不要求控制连接 SSL 会话重用与数据连接。"
 
 msgid ""
 "The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr "会话超时多少分钟后注销，设置0后不自动注销。"
+msgstr "会话超时多少分钟后注销，设置 0 后不自动注销。"
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
-msgstr "源远程服务器，例如[USER@]HOST:SRC, [USER@]HOST::SRC或 rsync://[USER@]HOST[:PORT]/SRC。"
+msgstr "源远程服务器，例如 [USER@]HOST:SRC, [USER@]HOST::SRC 或  rsync://[USER@]HOST[:PORT]/SRC。"
 
 msgid "The source shared folder."
 msgstr "源共享文件夹。"
 
 msgid "The specified quota exceeds the max. possible value of 4TiB."
-msgstr "指定的配额过大，可能超过了4TB。"
+msgstr "指定的配额过大，可能超过了 4TB。"
 
 msgid "The system will reboot now. This may take some time ..."
 msgstr "系统将要重启，这需要一些时间 ..."
@@ -3440,76 +3440,76 @@ msgid "This field is required"
 msgstr "此字段是必须的"
 
 msgid "This field must have the format hh:mm:ss"
-msgstr "此字段的格式必须为hh:mm:ss"
+msgstr "此字段的格式必须为 hh:mm:ss"
 
 msgid "This field should be a IP network address in CIDR notation"
-msgstr "此处应该是CIDR格式的IP地址"
+msgstr "此处应该是 CIDR 格式的 IP 地址"
 
 msgid "This field should be a IPv4 network address"
-msgstr "此处应该是IPv4地址"
+msgstr "此处应该是 IPv4 地址"
 
 msgid "This field should be a IPv4 network address in CIDR notation"
-msgstr "此处应该是以CIDR表示的IPv4地址"
+msgstr "此处应该是以 CIDR 表示的 IPv4 地址"
 
 msgid "This field should be a IPv6 network address in CIDR notation"
-msgstr "此处应该是CIDR格式的IPv6地址"
+msgstr "此处应该是 CIDR 格式的 IPv6 地址"
 
 msgid "This field should be a domain name or an IP address"
-msgstr "此处应该是域名或者IP地址"
+msgstr "此处应该是域名或者 IP 地址"
 
 msgid "This field should be a domain name or an IPv4 address"
-msgstr "此处应该是域名或者IPv4地址"
+msgstr "此处应该是域名或者 IPv4 地址"
 
 msgid "This field should be a host name or an IP address"
-msgstr "此处应该是主机名或者IP地址"
+msgstr "此处应该是主机名或者 IP 地址"
 
 msgid "This field should be a host name or an IPv4 address"
-msgstr "此处应该是主机名或者IPv4地址"
+msgstr "此处应该是主机名或者 IPv4 地址"
 
 msgid "This field should be a list of domain names or IP addresses"
-msgstr "此处应该是域名或者IP地址列表"
+msgstr "此处应该是域名或者 IP 地址列表"
 
 msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
-msgstr "此处应该是域名或者IP地址列表，使用 <,> 或 <;> 隔开"
+msgstr "此处应该是域名或者 IP 地址列表，使用 <,> 或 <;> 隔开"
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
 "or <;>"
-msgstr "此处应该是域名或者IP地址列表，使用 <,> 或 <;> 隔开"
+msgstr "此处应该是域名或者 IP 地址列表，使用 <,> 或 <;> 隔开"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
-msgstr "此处子网掩码应该在128.0.0.0 - 255.255.255.252范围"
+msgstr "此处子网掩码应该在 128.0.0.0 - 255.255.255.252 范围"
 
 msgid "This field should be a port in the range of 1 - 65535"
-msgstr "此处端口范围1 - 65535"
+msgstr "此处端口范围 1 - 65535"
 
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
-msgstr "此处端口或端口范围 (例如：21或!443或1024-65535)"
+msgstr "此处端口或端口范围 (例如：21 或 !443 或 1024-65535)"
 
 msgid "This field should be an IP address"
-msgstr "此处应该是IP地址"
+msgstr "此处应该是 IP 地址"
 
 msgid "This field should be an IPv4 address"
-msgstr "此处应该是IPv4地址"
+msgstr "此处应该是 IPv4 地址"
 
 msgid "This field should be an IPv6 address"
-msgstr "此处应该是IPv6地址"
+msgstr "此处应该是 IPv6 地址"
 
 msgid ""
 "This field should be either a IPv4 network address (with /mask), a IPv4 "
 "range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or "
 "192.168.178.20-192.168.178.254)"
-msgstr "此处应该是IPv4地址 (包括/掩码)、IPv4范围或者单一IPv4地址 (例如：172.16.76.4或!192.168.178.87/24或192.168.178.20-192.168.178.254)"
+msgstr "此处应该是 IPv4 地址 (包括/掩码)、IPv4 范围或者单一 IPv4 地址 (例如：172.16.76.4或 !192.168.178.87/24 或 192.168.178.20-192.168.178.254)"
 
 msgid ""
 "This field should be either a IPv6 network address (with /mask), a IPv6 "
 "range or a plain IPv6 address (e.g. !2001:db8::/96 or "
 "2001:db8::10-2001:db8::20 or 2001:db8::15)"
-msgstr "此处应该是IPv6地址(包含/子网掩码) 、IPv6范围或单个IPv6地址 (例如：!2001:db8::/96 or 2001:db8::10-2001:db8::20 or 2001:db8::15)"
+msgstr "此处应该是 IPv6 地址(包含/子网掩码) 、IPv6 范围或单个 IPv6 地址 (例如：!2001:db8::/96 or 2001:db8::10-2001:db8::20 or 2001:db8::15)"
 
 msgid "This field should only contain numbers"
 msgstr "此处只能包含数字"
@@ -3536,12 +3536,12 @@ msgid ""
 "This may make more efficient use of the system CPU's and cause Samba to be "
 "faster. Samba automatically turns this off for clients that use protocol "
 "levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
-msgstr "这可以更高效的使用CPU，并且Samba更快，如果客户端使用比NT LM 0.12还低的协议或者是Windows 9X时Samba会自动关闭该功能。"
+msgstr "这可以更高效的使用 CPU，并且 Samba 更快，如果客户端使用比 NT LM 0.12 还低的协议或者是 Windows 9X 时 Samba 会自动关闭该功能。"
 
 msgid ""
 "This option causes the server to not send a certificate request during a SSL"
 " handshake."
-msgstr "此选项会使服务器在SSL握手中不需要发送证书请求。"
+msgstr "此选项会使服务器在 SSL 握手中不需要发送证书请求。"
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
@@ -3555,7 +3555,7 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr "此选项是以逗号、空格或制表符分开的一组主机，这些主机不允许读写这个共享，当不同列表有冲突时允许列表有优先权。如果要预设拒绝所有主机，则使用关键字ALL(或者掩码 0.0.0.0/0)，然后在允许列表明确指定哪些主机有访问权限。此位置空则使用默认设置。"
+msgstr "此选项是以逗号、空格或制表符分开的一组主机，这些主机不允许读写这个共享，当不同列表有冲突时允许列表有优先权。如果要预设拒绝所有主机，则使用关键字 ALL (或者掩码 0.0.0.0/0)，然后在允许列表明确指定哪些主机有访问权限。此位置空则使用默认设置。"
 
 msgid ""
 "This option is a comma, space, or tab delimited set of host which are NOT "
@@ -3564,24 +3564,24 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr "此选项是以逗号、空格或制表符分开的一组主机，这些主机不允许读写这个共享，当不同列表有冲突时允许列表有优先权。如果要预设拒绝所有主机，则使用关键字ALL(或者掩码 0.0.0.0/0)，然后在允许列表明确指定哪些主机有访问权限。此位置空则使用默认设置。"
+msgstr "此选项是以逗号、空格或制表符分开的一组主机，这些主机不允许读写这个共享，当不同列表有冲突时允许列表有优先权。如果要预设拒绝所有主机，则使用关键字 ALL (或者掩码 0.0.0.0/0)，然后在允许列表明确指定哪些主机有访问权限。此位置空则使用默认设置。"
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
 "permitted to access this module. You can specify the hosts by name or IP "
 "number. Leave this field empty to use default settings."
-msgstr "此选项是以逗号、空格或制表符分开的一组主机，这些主机允许读写这个共享，可以使用主机名或者IP地址来指定主机，此位置空则使用默认设置。"
+msgstr "此选项是以逗号、空格或制表符分开的一组主机，这些主机允许读写这个共享，可以使用主机名或者 IP 地址来指定主机，此位置空则使用默认设置。"
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
 "permitted to access this share. You can specify the hosts by name or IP "
 "number. Leave this field empty to use default settings."
-msgstr "此选项是以逗号、空格或制表符分开的一组主机，这些主机允许读写这个共享，可以使用主机名或者IP地址来指定主机，此位置空则使用默认设置。"
+msgstr "此选项是以逗号、空格或制表符分开的一组主机，这些主机允许读写这个共享，可以使用主机名或者 IP 地址来指定主机，此位置空则使用默认设置。"
 
 msgid ""
 "This option requires clients to use FTP over TLS when talking to this "
 "server."
-msgstr "此项要求客户端使用FTP与服务器建立会话时使用TLS。"
+msgstr "此项要求客户端使用 FTP 与服务器建立会话时使用 TLS。"
 
 msgid ""
 "This option specifies the group name that file transfers to and from that "
@@ -3591,7 +3591,7 @@ msgstr "此选项指定文件传输时的用户组名称。"
 msgid ""
 "This option specifies the maximum number of simultaneous connections. 0 "
 "means no limit."
-msgstr "此选项指定最大在线数，0表示不限制。"
+msgstr "此选项指定最大在线数，0 表示不限制。"
 
 msgid ""
 "This option specifies the user name that file transfers to and from that "
@@ -3601,13 +3601,13 @@ msgstr "此选项指定文件传输时的用户组名称。"
 msgid ""
 "This option will handle all connections as if they are SSL connections "
 "implicitly."
-msgstr "此选项将现在所有链接默认用SSL来处理。"
+msgstr "此选项将现在所有链接默认用 SSL 来处理。"
 
 msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
-msgstr "此参数可以用来确保在上层目录创建的文件或文件夹遵循上层目录已经存在的ACLs。"
+msgstr "此参数可以用来确保在上层目录创建的文件或文件夹遵循上层目录已经存在的 ACLs。"
 
 msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
@@ -3617,7 +3617,7 @@ msgstr "此参数决定是否要把以点开头的文件显示为隐藏文件"
 msgid ""
 "This parameter says that if N occurrences of the event happen within the "
 "given time interval, then a ban is automatically added."
-msgstr "此参数表示如果在指定时间内发生N次事件，那么自动添加一项禁止列表。"
+msgstr "此参数表示如果在指定时间内发生 N 次事件，那么自动添加一项禁止列表。"
 
 msgid "This rule is triggered whenever the selected event directive occurs."
 msgstr "当选择的事件发生时这项规则会被触发。"
@@ -3785,7 +3785,7 @@ msgid "Update now"
 msgstr "立即更新"
 
 msgid "Update the destination ACLs to be the same as the source ACLs"
-msgstr "更新目标ACLs与源ACLs一致。"
+msgstr "更新目标 ACLs 与源 ACLs 一致。"
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones"
@@ -3795,7 +3795,7 @@ msgid "Updates"
 msgstr "更新"
 
 msgid "Updating ACL settings"
-msgstr "更新ACL设置中"
+msgstr "更新 ACL 设置中"
 
 msgid "Upgrade"
 msgstr "升级"
@@ -3822,16 +3822,16 @@ msgid "Uruguay"
 msgstr "乌拉圭"
 
 msgid "Use NTP server"
-msgstr "使用NTP服务器"
+msgstr "使用 NTP 服务器"
 
 msgid "Use SSL/TLS secure connection"
-msgstr "使用SSL/TLS安全连接"
+msgstr "使用 SSL/TLS 安全连接"
 
 msgid "Use chroot"
-msgstr "使用chroot"
+msgstr "使用 chroot"
 
 msgid "Use sendfile"
-msgstr "使用sendfile"
+msgstr "使用 sendfile"
 
 msgid "Use the following bandwidth restriction:"
 msgstr "使用下面的带宽限制:"
@@ -3842,10 +3842,10 @@ msgstr "使用下面端口范围:"
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
 "oplocked"
-msgstr "对于oplocked独占文件使用更高效的sendfile系统呼叫"
+msgstr "对于 oplocked 独占文件使用更高效的 sendfile 系统呼叫"
 
 msgid "Use the specified WINS server."
-msgstr "使用指定WINS服务器。"
+msgstr "使用指定 WINS 服务器。"
 
 msgid "Used"
 msgstr "已使用"
@@ -3908,7 +3908,7 @@ msgid "Vietnam"
 msgstr "越南"
 
 msgid "VirtIO device"
-msgstr "VirtIO设备"
+msgstr "VirtIO 设备"
 
 msgid "Volume"
 msgstr "卷"
@@ -3917,10 +3917,10 @@ msgid "WINS"
 msgstr "WINS"
 
 msgid "WINS server"
-msgstr "WINS服务器"
+msgstr "WINS 服务器"
 
 msgid "WINS support"
-msgstr "WINS支持"
+msgstr "WINS 支持"
 
 msgid "WOL"
 msgstr "网络唤醒"
@@ -3929,7 +3929,7 @@ msgid "Wake Island"
 msgstr "威克岛"
 
 msgid "Wake-on-LAN"
-msgstr "网络唤醒WOL"
+msgstr "网络唤醒 WOL"
 
 msgid "Wallis and Futuna"
 msgstr "瓦利斯和富图纳群岛"
@@ -3938,13 +3938,13 @@ msgid "Warning"
 msgstr "警告"
 
 msgid "Web Administration"
-msgstr "Web管理员"
+msgstr "Web 管理员"
 
 msgid "Web Administrator Password"
-msgstr "Web管理员密码"
+msgstr "Web 管理员密码"
 
 msgid "Web administration"
-msgstr "Web管理员"
+msgstr "Web 管理员"
 
 msgid "Wednesday"
 msgstr "星期三"
@@ -3961,7 +3961,7 @@ msgstr "西撒哈拉"
 msgid ""
 "When a client initially connects to the server the ident protocol is used to"
 " attempt to identify the remote username."
-msgstr "当一个客户端首次连接到服务器时，使用ident协议来尝试识别远程用户名。"
+msgstr "当一个客户端首次连接到服务器时，使用 ident 协议来尝试识别远程用户名。"
 
 msgid "When failed"
 msgstr "故障时间"
