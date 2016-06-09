@@ -55,7 +55,7 @@ xmlstarlet sel -t \
 		      # the quotacheck command has no effect on XFS filesystems.
 		      ;;
 		  *)
-			  quotacheck -cugnv ${devicefile}
+			  quotacheck -cugMnv ${devicefile}
 		      ;;
 		  esac
 		  # Set the user quotas.
