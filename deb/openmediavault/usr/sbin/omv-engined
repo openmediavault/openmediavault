@@ -200,8 +200,14 @@ function error() {
 
 	$args = func_get_args();
 	$msg = array_shift($args);
+	// Log the message in syslog.
 	syslog(LOG_ALERT, vsprintf($msg, $args));
-	if(TRUE === $debug) {
+	// Print the message to STDOUT if debug mode is enabled.
+	if (TRUE === $debug) {
+		// Append a new line if necessary.
+		if ("\n" !== substr($msg, -1))
+			$msg .= "\n";
+		// Print the message to STDOUT.
 		vprintf($msg, $args);
 	}
 }
@@ -394,9 +400,18 @@ if (FALSE === @socket_bind($socket, \OMV\Environment::get(
 }
 // Modify file permission to allow access for the members of the
 // 'openmediavault-engined' group.
-chgrp(\OMV\Environment::get("OMV_ENGINED_SO_ADDRESS"), \OMV\Environment::get(
-  "OMV_ENGINED_SO_OWNERGROUP_NAME"));
-chmod(\OMV\Environment::get("OMV_ENGINED_SO_ADDRESS"), 0770);
+if (FALSE === chgrp(\OMV\Environment::get("OMV_ENGINED_SO_ADDRESS"),
+  \OMV\Environment::get("OMV_ENGINED_SO_OWNERGROUP_NAME"))) {
+	error("Failed to set file group to '%s' for '%s'",
+	  \OMV\Environment::get("OMV_ENGINED_SO_OWNERGROUP_NAME"),
+	  \OMV\Environment::get("OMV_ENGINED_SO_ADDRESS"));
+	exit(1);
+}
+if (FALSE === chmod(\OMV\Environment::get("OMV_ENGINED_SO_ADDRESS"), 0770)) {
+	error("Failed to set file mode to '%o' for '%s'", 0770,
+	  \OMV\Environment::get("OMV_ENGINED_SO_ADDRESS"));
+	exit(1);
+}
 if (FALSE === @socket_listen($socket, $maxConnections)) {
 	error("Failed to listen to socket: %s\n", socket_strerror(
 	  socket_last_error()));
