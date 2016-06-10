@@ -39,8 +39,8 @@ class StorageDeviceDM extends StorageDeviceAbstract {
 		// should never be used. Because of that the device file returned
 		// should look like /dev/mapper/<xyz>. See for more information:
 		// https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html-single/DM_Multipath
-		if(1 == preg_match("/^\/dev\/dm-\d+$/", $this->deviceFile)) {
-			if(FALSE !== ($name = $this->getDeviceMapperName()))
+		if (1 == preg_match("/^\/dev\/dm-\d+$/", $this->deviceFile)) {
+			if (FALSE !== ($name = $this->getDeviceMapperName()))
 				$this->deviceFile = sprintf("/dev/mapper/%s", $name);
 		}
 	}
@@ -53,7 +53,7 @@ class StorageDeviceDM extends StorageDeviceAbstract {
 		// Make sure the canonical device file is used to extract the name
 		// of the device.
 		$path = sprintf("/sys/block/%s/dm/name", $this->getDeviceName(TRUE));
-		if(!file_exists($path))
+		if (!file_exists($path))
 			return FALSE;
 		return trim(file_get_contents($path));
 	}
@@ -66,7 +66,7 @@ class StorageDeviceDM extends StorageDeviceAbstract {
 		// Make sure the canonical device file is used to extract the name
 		// of the device.
 		$path = sprintf("/sys/block/%s/dm/uuid", $this->getDeviceName(TRUE));
-		if(!file_exists($path))
+		if (!file_exists($path))
 			return FALSE;
 		return trim(file_get_contents($path));
 	}
@@ -79,10 +79,10 @@ class StorageDeviceDM extends StorageDeviceAbstract {
 		// Make sure the canonical device file is used to extract the name
 		// of the device.
 		$path = sprintf("/sys/block/%s/slaves", $this->getDeviceName(TRUE));
-		if(!file_exists($path))
+		if (!file_exists($path))
 			return FALSE;
 		$result = [];
-		$dir = new DirectoryIterator($path);
+		$dir = new \DirectoryIterator($path);
 		foreach ($dir as $item) {
 			if ($item->isDot() || !$item->isLink())
 				continue;

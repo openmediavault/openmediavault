@@ -298,7 +298,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			$objectv['status'] = 1;
 		}
 		// Try to detect filesystems that are being initialized.
-		foreach (new DirectoryIterator("/tmp") as $file) {
+		foreach (new \DirectoryIterator("/tmp") as $file) {
 			if ($file->isDot())
 				continue;
 			if (!$file->isFile())
@@ -307,7 +307,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// must look like omv-initfs@<device>.build, e.g.
 			// omv-initfs@_dev_sdb.build
 			$regex = '/^omv-initfs@.+\.build$/i';
-			if(1 !== preg_match($regex, $file->getFilename()))
+			if (1 !== preg_match($regex, $file->getFilename()))
 				continue;
 			$fileName = sprintf("/tmp/%s", $file->getFilename());
 			// Read the file content and decode JSON data into an

@@ -37,7 +37,7 @@ class StorageDeviceBcache extends StorageDeviceAbstract {
 		if (!file_exists($path))
 			return FALSE;
 		$result = [];
-		$dir = new DirectoryIterator($path);
+		$dir = new \DirectoryIterator($path);
 		foreach ($dir as $item) {
 			if ($item->isDot() || !$item->isLink())
 				continue;
