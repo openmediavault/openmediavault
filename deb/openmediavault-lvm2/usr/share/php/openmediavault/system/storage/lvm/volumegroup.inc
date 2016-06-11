@@ -67,7 +67,7 @@ class VolumeGroup {
 		$cmdArgs[] = "--unit b";
 		$cmdArgs[] = escapeshellarg($this->getName());
 		$cmd = new \OMV\System\Process("vgdisplay", $cmdArgs);
-		$cmd->setRedirect2to1();
+		$cmd->setRedirect2toFile("/dev/null");
 		$cmd->execute($output);
 
 		$output = explode("|", trim($output[0]));

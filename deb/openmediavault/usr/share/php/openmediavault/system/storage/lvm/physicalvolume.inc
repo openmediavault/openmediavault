@@ -64,7 +64,7 @@ class PhysicalVolume {
 		$cmdArgs[] = "--unit b";
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("pvdisplay", $cmdArgs);
-		$cmd->setRedirect2to1();
+		$cmd->setRedirect2toFile("/dev/null");
 		$cmd->execute($output);
 
 		$output = explode("|", trim($output[0]));
