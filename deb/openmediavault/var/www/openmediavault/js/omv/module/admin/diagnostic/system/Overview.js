@@ -38,6 +38,7 @@ Ext.define("OMV.module.admin.diagnostic.system.Overview", {
 		"OMV.util.Format"
 	],
 
+	loadMask: true,
 	disableLoadMaskOnLoad: true,
 	autoReload: true,
 	reloadInterval: 5000,
