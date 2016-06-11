@@ -1,6 +1,7 @@
 openmediavault (3.0.23) stable; urgency=low
 
   * Various improvements and bugfixes.
+  * Mantis 0001543: Can't change SMART options.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 09 Jun 2016 22:40:29 +0200
 

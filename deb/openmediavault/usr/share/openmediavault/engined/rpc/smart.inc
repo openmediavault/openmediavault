@@ -260,7 +260,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.smart.getdevicesettings");
+		$this->validateMethodParams($params, "rpc.common.devicefile");
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		return $db->getAssoc("conf.service.smartmontools.device",
@@ -284,7 +284,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.common.devicefile");
+		$this->validateMethodParams($params, "rpc.smart.setdevicesettings");
 		// Check if the given device exists and supports S.M.A.R.T.
 		\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
 		  $params['devicefile']);
