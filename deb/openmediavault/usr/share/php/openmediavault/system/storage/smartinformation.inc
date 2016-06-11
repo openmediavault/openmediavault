@@ -150,7 +150,7 @@ class SmartInformation {
 		if (!empty($this->type))
 			$cmdArgs[] = sprintf("-d %s", $this->type);
 		$cmd = new \OMV\System\Process("smartctl", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->setQuiet(TRUE);
 		$cmd->execute($output, $exitCode);
 		// Bit 0: Command line did not parse

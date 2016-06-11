@@ -59,7 +59,7 @@ class ProductInfo {
 		$cmdArgs[] = "-f='\${Version}'";
 		$cmdArgs[] = $this->getPackageName();
 		$cmd = new \OMV\System\Process("dpkg-query", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		return $cmd->execute();
 	}
 

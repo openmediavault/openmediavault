@@ -386,7 +386,7 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = escapeshellarg($params['devicename']);
 			$cmdArgs[] = $params['seconds'];
 			$cmd = new \OMV\System\Process("ethtool", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			if (0 !== $this->exec($cmd->getCommandLine(), $output,
 			  $bgOutputFilename)) {
 				throw new \OMV\ExecException($cmd->getCommandLine(), $output);

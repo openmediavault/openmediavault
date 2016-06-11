@@ -33,7 +33,7 @@ class OMVModuleHostname extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "hostname");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -42,7 +42,7 @@ class OMVModuleHostname extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function startService() {
 		$cmd = new \OMV\System\Process("hostname", "--file /etc/hostname");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 

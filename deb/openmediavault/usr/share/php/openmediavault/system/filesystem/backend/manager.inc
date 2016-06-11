@@ -189,7 +189,7 @@ class Manager implements \IteratorAggregate {
 		// each backend must implement the \ref enumerate method and call the
 		// command 'blkid -t TYPE=<xxx> -o full'.
 		$cmd = new \OMV\System\Process("blkid", "-o full");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		foreach ($output as $outputk => $outputv) {
 			// Parse command output:

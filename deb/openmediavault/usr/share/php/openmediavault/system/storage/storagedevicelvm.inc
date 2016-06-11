@@ -57,7 +57,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 		$cmdArgs[] = "--unit b";
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("lvdisplay", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 
 		$output = explode("|", trim($output[0]));
@@ -169,7 +169,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 		$cmdArgs[] = sprintf("--size %sK", binary_convert($size, "B", "KiB"));
 		$cmdArgs[] = escapeshellarg($vgName);
 		$cmd = new \OMV\System\Process("lvcreate", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -183,7 +183,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 		$cmdArgs[] = "--force";
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("lvremove", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -199,7 +199,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 		$cmdArgs[] = escapeshellarg($this->getPath());
 		$cmdArgs[] = escapeshellarg($name);
 		$cmd = new \OMV\System\Process("lvrename", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -215,7 +215,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 		$cmdArgs[] = sprintf("--size %sK", binary_convert($size, "B", "KiB"));
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("lvextend", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -231,7 +231,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 		$cmdArgs[] = sprintf("--size %sK", binary_convert($size, "B", "KiB"));
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("lvreduce", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -251,7 +251,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 		$cmdArgs[] = "-C";
 		$cmdArgs[] = "-o vg_name,lv_name";
 		$cmd = new \OMV\System\Process("lvdisplay", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2toFile("/dev/null");
 		$cmd->execute($output);
 		$result = [];
 		foreach ($output as $outputk => $outputv) {

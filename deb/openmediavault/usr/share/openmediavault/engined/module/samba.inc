@@ -36,7 +36,7 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "samba");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -153,7 +153,7 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 		}
 		$cmdArgs[] = escapeshellarg($object['name']);
 		$cmd = new \OMV\System\Process("pdbedit", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// Update the user password. Check whether the password has been
 		// changed (in this case it is not empty).
@@ -194,7 +194,7 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 		$cmdArgs[] = "--verbose";
 		$cmdArgs[] = escapeshellarg($object['name']);
 		$cmd = new \OMV\System\Process("pdbedit", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// Start/Reload service.
 		$this->startService();

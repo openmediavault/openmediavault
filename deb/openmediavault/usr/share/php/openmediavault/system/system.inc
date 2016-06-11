@@ -39,7 +39,7 @@ class System {
 			return realpath("/dev/root");
 		$cmd = new \OMV\System\Process("findmnt", "-f", "-n",
 		  "-o SOURCE", "/");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		return $output[0];
 	}
@@ -189,7 +189,7 @@ class System {
 		$result['percent'] = round(($result['used'] * 100) / $result['total']);
 */
 		$cmd = new \OMV\System\Process("free", "-b");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		$result = [
 			"mem" => [

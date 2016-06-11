@@ -70,7 +70,7 @@ class User {
 			$cmdArgs[] = "shadow";
 			$cmdArgs[] = escapeshellarg($this->getName());
 			$cmd = new \OMV\System\Process("getent", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute($output);
 			$output = explode(":", $output[0]);
 			$this->password = $output[1];
@@ -114,7 +114,7 @@ class User {
 			$cmdArgs[] = "-G";
 			$cmdArgs[] = escapeshellarg($this->getName());
 			$cmd = new \OMV\System\Process("id", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute($output);
 			$gids = explode(" ", $output[0]);
 			// Resolve the group names.
@@ -280,7 +280,7 @@ class User {
 		$cmdArgs[] = escapeshellarg($this->getName());
 		$cmd = new \OMV\System\Process("edquota", $cmdArgs);
 		$cmd->setEnv("EDITOR", "cat");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		// Parse command output:
 		// Filesystem                   blocks       soft       hard     inodes     soft     hard
@@ -340,7 +340,7 @@ class User {
 	 */
 	public static function getUsers() {
 		$cmd = new \OMV\System\Process("getent", "passwd");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		// Parse command output:
 		// proftpd:x:109:65534::/var/run/proftpd:/bin/false

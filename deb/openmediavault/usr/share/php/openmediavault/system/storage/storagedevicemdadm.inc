@@ -54,7 +54,7 @@ class StorageDeviceMdadm extends StorageDeviceAbstract {
 		$cmdArgs[] = "--verbose";
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("mdadm", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		$attributes = array(
 			"name" => "",
@@ -85,7 +85,7 @@ class StorageDeviceMdadm extends StorageDeviceAbstract {
 		$cmdArgs[] = "--detail";
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("mdadm", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		unset($output);
 		$cmd->execute($output);
 

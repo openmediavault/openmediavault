@@ -73,7 +73,7 @@ class MountPoint {
 		}
 		$cmdArgs[] = escapeshellarg($this->dir);
 		$cmd = new \OMV\System\Process("mount", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -93,7 +93,7 @@ class MountPoint {
 			$cmdArgs[] = "-l";
 		$cmdArgs[] = escapeshellarg($this->dir);
 		$cmd = new \OMV\System\Process("umount", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -112,7 +112,7 @@ class MountPoint {
 		$cmdArgs[] = sprintf("--mode=%s", $mode);
 		$cmdArgs[] = escapeshellarg($this->dir);
 		$cmd = new \OMV\System\Process("mkdir", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -128,7 +128,7 @@ class MountPoint {
 		$cmdArgs[] = "--force";
 		$cmdArgs[] = escapeshellarg($this->dir);
 		$cmd = new \OMV\System\Process("rm", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 

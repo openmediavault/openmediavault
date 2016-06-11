@@ -56,7 +56,7 @@ class OMVRpcServiceRrd extends \OMV\Rpc\ServiceAbstract {
 		// Child process.
 		try {
 			$cmd = new \OMV\System\Process("omv-mkgraph");
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute($output);
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);

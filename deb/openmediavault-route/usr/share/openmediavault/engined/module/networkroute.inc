@@ -33,7 +33,7 @@ class OMVModuleNetworkRoute extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "route");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -56,7 +56,7 @@ class OMVModuleNetworkRoute extends \OMV\Engine\Module\ServiceAbstract
 			$cmdArgs[] = sprintf("replace %s", $objectv->get("network"));
 			$cmdArgs[] = sprintf("via %s", $objectv->get("gateway"));
 			$cmd = new \OMV\System\Process("ip", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute();
 		}
 	}
@@ -82,7 +82,7 @@ class OMVModuleNetworkRoute extends \OMV\Engine\Module\ServiceAbstract
 		$cmdArgs[] = sprintf("delete %s", $objectv['network']);
 		$cmdArgs[] = sprintf("via %s", $objectv['gateway']);
 		$cmd = new \OMV\System\Process("ip", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->setQuiet(TRUE);
 		$cmd->execute();
 	}

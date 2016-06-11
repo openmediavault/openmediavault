@@ -47,7 +47,7 @@ class OMVModuleNetworkUPSTools extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "nut");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -76,7 +76,7 @@ class OMVModuleNetworkUPSTools extends \OMV\Engine\Module\ServiceAbstract
 			return;
 		// Request device events from the kernel.
 		$cmd = new \OMV\System\Process("udevadm", "trigger");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// Start this service and enable the unit file.
 		$systemCtl = new \OMV\System\SystemCtl("nut-server");

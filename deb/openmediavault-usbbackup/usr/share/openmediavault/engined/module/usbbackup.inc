@@ -33,10 +33,10 @@ class OMVModuleUsbBackup extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "usbbackup");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 		$cmd = new \OMV\System\Process("systemctl", "daemon-reload");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 

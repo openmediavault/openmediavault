@@ -96,7 +96,7 @@ class OMVRpcServiceWebGui extends \OMV\Rpc\ServiceAbstract {
 		  $params['password'])));
 		$cmdArgs[] = "admin";
 		$cmd = new \OMV\System\Process("usermod", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 }

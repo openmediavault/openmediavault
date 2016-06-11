@@ -50,7 +50,7 @@ class OMVModuleAFP extends \OMV\Engine\Module\ServiceAbstract implements
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "netatalk");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 

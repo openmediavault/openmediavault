@@ -96,7 +96,7 @@ class OMVRpcServiceNetworkUPSTools extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs = [];
 			$cmdArgs[] = escapeshellarg($object->get("upsname"));
 			$cmd = new \OMV\System\Process("upsc", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute($output);
 			$stats = implode("\n", $output);
 		}

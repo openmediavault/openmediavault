@@ -32,7 +32,7 @@ class OMVModuleSysctl extends \OMV\Engine\Module\ServiceAbstract {
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "sysctl");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -41,7 +41,7 @@ class OMVModuleSysctl extends \OMV\Engine\Module\ServiceAbstract {
 	 */
 	public function startService() {
 		$cmd = new \OMV\System\Process("sysctl", "-p");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 }

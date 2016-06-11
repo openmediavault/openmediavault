@@ -226,7 +226,7 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 			  $bgOutputFilename);
 			// Update package database.
 			$cmd = new \OMV\System\Process("apt-get", "update");
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			if (0 !== $this->exec($cmd->getCommandLine(), $output,
 			  $bgOutputFilename)) {
 				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
@@ -333,7 +333,7 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 				$cmdArgs[] = "install";
 				$cmdArgs[] = escapeshellarg($packageName);
 				$cmd = new \OMV\System\Process("apt-get", $cmdArgs);
-				$cmd->setRedirect2to1(TRUE);
+				$cmd->setRedirect2to1();
 				$cmd->execute();
 			}
 			// Extract the changelog from the Debian package.

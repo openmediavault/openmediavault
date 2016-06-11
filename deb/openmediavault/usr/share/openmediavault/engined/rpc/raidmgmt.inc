@@ -243,7 +243,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		$cmdArgs[] = implode(" ", $devices);
 		$cmd = new \OMV\System\Process("omv-mkraid", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// Notify the configuration change.
 		$object = new \OMV\Config\ConfigObject("conf.system.mdadm.device");
@@ -294,7 +294,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs[] = "--add";
 		$cmdArgs[] = implode(" ", $newDevices);
 		$cmd = new \OMV\System\Process("mdadm", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// Now grow the RAID.
 		// See for more details:
@@ -305,7 +305,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs[] = sprintf("--raid-devices=%d", $numDevices);
 		$cmdArgs[] = escapeshellarg($raid->getDeviceFile());
 		$cmd = new \OMV\System\Process("mdadm", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// Notify the configuration change.
 		$object = new \OMV\Config\ConfigObject("conf.system.mdadm.device");
@@ -356,7 +356,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs[] = "--add";
 		$cmdArgs[] = implode(" ", $newDevices);
 		$cmd = new \OMV\System\Process("mdadm", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// Notify the configuration change.
 		$object = new \OMV\Config\ConfigObject("conf.system.mdadm.device");
@@ -411,7 +411,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs[] = "--fail";
 		$cmdArgs[] = implode(" ", $rmDevices);
 		$cmd = new \OMV\System\Process("mdadm", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// - Finally remove the devices.
 		$cmdArgs = [];
@@ -420,7 +420,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs[] = "--remove";
 		$cmdArgs[] = implode(" ", $rmDevices);
 		$cmd = new \OMV\System\Process("mdadm", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// Notify the configuration change.
 		$object = new \OMV\Config\ConfigObject("conf.system.mdadm.device");
@@ -461,7 +461,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs = [];
 		$cmdArgs[] = escapeshellarg($raid->getDeviceFile());
 		$cmd = new \OMV\System\Process("omv-rmraid", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// Notify the configuration change.
 		$object = new \OMV\Config\ConfigObject("conf.system.mdadm.device");

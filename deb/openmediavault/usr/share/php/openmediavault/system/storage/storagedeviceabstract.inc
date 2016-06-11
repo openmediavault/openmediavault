@@ -154,7 +154,7 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 		$cmdArgs[] = sprintf("--name=%s", escapeshellarg(
 		  $this->getDeviceFile()));
 		$cmd = new \OMV\System\Process("udevadm", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		// Parse the command output.
 		// Example:
@@ -177,7 +177,7 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 			$cmdArgs[] = "--getsize64";
 			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute($output);
 			$this->size = $output[0];
 		}
@@ -195,7 +195,7 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 			$cmdArgs[] = "--getbsz";
 			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute($output);
 			$this->blockSize = intval($output[0]);
 		}
@@ -213,7 +213,7 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 			$cmdArgs[] = "--getss";
 			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute($output);
 			$this->sectorSize = intval($output[0]);
 		}
@@ -395,7 +395,7 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 			$cmdArgs[] = sprintf("--name=%s", escapeshellarg(
 			  $this->getDeviceFile()));
 			$cmd = new \OMV\System\Process("udevadm", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute($output);
 			// Parse output:
 			// UDEV_LOG=3

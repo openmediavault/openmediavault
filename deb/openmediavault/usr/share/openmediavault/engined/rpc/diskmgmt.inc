@@ -228,7 +228,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				$cmdArgs[] = "-n 1";
 				$cmdArgs[] = escapeshellarg($params['devicefile']);
 				$cmd = new \OMV\System\Process("shred", $cmdArgs);
-				$cmd->setRedirect2to1(TRUE);
+				$cmd->setRedirect2to1();
 				if (0 !== $this->exec($cmd->getCommandLine(), $output,
 				  $bgOutputFilename)) {
 					throw new \OMV\ExecException($cmd->getCommandLine(),
@@ -240,7 +240,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				$cmdArgs[] = "--zap-all";
 				$cmdArgs[] = escapeshellarg($params['devicefile']);
 				$cmd = new \OMV\System\Process("sgdisk", $cmdArgs);
-				$cmd->setRedirect2to1(TRUE);
+				$cmd->setRedirect2to1();
 				if (0 !== $this->exec($cmd->getCommandLine(), $output,
 				  $bgOutputFilename)) {
 					throw new \OMV\ExecException($cmd->getCommandLine(),
@@ -254,7 +254,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				$cmdArgs[] = "bs=4M";
 				$cmdArgs[] = "count=1";
 				$cmd = new \OMV\System\Process("dd", $cmdArgs);
-				$cmd->setRedirect2to1(TRUE);
+				$cmd->setRedirect2to1();
 				if (0 !== $this->exec($cmd->getCommandLine(), $output,
 				  $bgOutputFilename)) {
 					throw new \OMV\ExecException($cmd->getCommandLine(),
@@ -266,7 +266,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = "--rereadpt";
 			$cmdArgs[] = escapeshellarg($params['devicefile']);
 			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			if (0 !== $this->exec($cmd->getCommandLine(), $output,
 			  $bgOutputFilename)) {
 				throw new \OMV\ExecException($cmd->getCommandLine(), $output);

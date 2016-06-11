@@ -46,7 +46,7 @@ class StorageDeviceHDD extends StorageDeviceSmartAbstract {
 		$cmdArgs[] = "-C";
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("hdparm", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		// Parse command output:
 		// /dev/sda:

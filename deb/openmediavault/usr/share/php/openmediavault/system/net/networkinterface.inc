@@ -61,7 +61,7 @@ class NetworkInterface {
 			$cmdArgs = [];
 			$cmdArgs[] = escapeshellarg($this->getDeviceName());
 			$cmd = new \OMV\System\Process("ifconfig", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute($output);
 			$this->ifconfig = implode("|", $output);
 			break;
@@ -74,7 +74,7 @@ class NetworkInterface {
 			$cmdArgs[] = "dev";
 			$cmdArgs[] = escapeshellarg($this->getDeviceName());
 			$cmd = new \OMV\System\Process("ip", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute($output);
 			foreach ($output as $outputk => &$outputv)
 				$outputv = trim($outputv);
@@ -86,7 +86,7 @@ class NetworkInterface {
 			$cmdArgs = [];
 			$cmdArgs[] = escapeshellarg($this->getDeviceName());
 			$cmd = new \OMV\System\Process("ethtool", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute($output);
 			foreach ($output as $outputk => &$outputv)
 				$outputv = trim($outputv);
@@ -206,7 +206,7 @@ class NetworkInterface {
 		$cmdArgs[] = "dev";
 		$cmdArgs[] = escapeshellarg($this->getDeviceName());
 		$cmd = new \OMV\System\Process("ip", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		$output = implode("\n", $output);
 		// Parse command output:
@@ -231,7 +231,7 @@ class NetworkInterface {
 		$cmdArgs[] = "dev";
 		$cmdArgs[] = escapeshellarg($this->getDeviceName());
 		$cmd = new \OMV\System\Process("ip", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		$output = implode("\n", $output);
 		// Parse command output:

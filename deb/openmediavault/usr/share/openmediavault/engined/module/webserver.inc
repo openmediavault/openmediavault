@@ -27,11 +27,11 @@ abstract class OMVModuleNginxAbstract
 	public function applyConfig() {
 		// Build the configuration.
 		$cmd = new \OMV\System\Process("omv-mkconf", "nginx");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// Test the new configuration.
 		$cmd = new \OMV\System\Process("nginx", "-t");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 

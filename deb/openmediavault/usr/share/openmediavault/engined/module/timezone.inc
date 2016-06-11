@@ -33,7 +33,7 @@ class OMVModuleTimezone extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "timezone");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -47,7 +47,7 @@ class OMVModuleTimezone extends \OMV\Engine\Module\ServiceAbstract
 		$cmdArgs[] = sprintf("set-timezone %s", escapeshellarg(
 		  $object->get("timezone")));
 		$cmd = new \OMV\System\Process("timedatectl", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 

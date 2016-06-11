@@ -152,7 +152,7 @@ class Group {
 		$cmdArgs[] = escapeshellarg($this->getName());
 		$cmd = new \OMV\System\Process("edquota", $cmdArgs);
 		$cmd->setEnv("EDITOR", "cat");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		// Parse command output:
 		// Filesystem                   blocks       soft       hard     inodes     soft     hard
@@ -199,7 +199,7 @@ class Group {
 	 */
 	public static function getGroups() {
 		$cmd = new \OMV\System\Process("getent", "group");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		// Parse command output:
 		// shadow:x:42:openmediavault

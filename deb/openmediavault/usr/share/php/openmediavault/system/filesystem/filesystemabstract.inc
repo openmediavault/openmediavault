@@ -90,7 +90,7 @@ class FilesystemAbstract {
 			$cmdArgs = [];
 			$cmdArgs[] = sprintf("UUID=%s", escapeshellarg($this->uuid));
 			$cmd = new \OMV\System\Process("findfs", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute($output);
 			$this->deviceFile = $output[0];
 			unset($cmdArgs, $output);
@@ -110,7 +110,7 @@ class FilesystemAbstract {
 		$cmdArgs[] = "-o full";
 		$cmdArgs[] = escapeshellarg($this->deviceFile);
 		$cmd = new \OMV\System\Process("blkid", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 
 		// Parse command output:
@@ -425,7 +425,7 @@ class FilesystemAbstract {
 		$cmdArgs[] = "--getbsz";
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		return intval($output[0]);
 	}
@@ -464,7 +464,7 @@ class FilesystemAbstract {
 			  $this->getDeviceFile()));
 			$cmdArgs[] = "count=1";
 			$cmd = new \OMV\System\Process("dd", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute();
 			unset($cmdArgs);
 		}
@@ -473,7 +473,7 @@ class FilesystemAbstract {
 		$cmdArgs[] = "-a";
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("wipefs", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -488,7 +488,7 @@ class FilesystemAbstract {
 		$cmdArgs[] = "-cnrv";
 		$cmdArgs[] = "-o SOURCE,UUID,TARGET";
 		$cmd = new \OMV\System\Process("findmnt", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		// Parse command output:
 		// sysfs  /sys
@@ -537,7 +537,7 @@ class FilesystemAbstract {
 		$cmdArgs[] = "-PT";
 		$cmdArgs[] = escapeshellarg($mountPoint);
 		$cmd = new \OMV\System\Process("df", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		// Parse command output:
 		// Filesystem                                             Type     1024-blocks    Used Available Capacity Mounted on
@@ -580,7 +580,7 @@ class FilesystemAbstract {
 		$cmdArgs[] = "-cnrv";
 		$cmdArgs[] = "-o SOURCE,UUID";
 		$cmd = new \OMV\System\Process("findmnt", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		// Parse command output:
 		// sysfs
@@ -625,7 +625,7 @@ class FilesystemAbstract {
 		else
 			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("mount", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -644,7 +644,7 @@ class FilesystemAbstract {
 			$cmdArgs[] = "-l";
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("umount", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 

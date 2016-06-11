@@ -99,7 +99,7 @@ abstract class BackendAbstract {
 			$cmdArgs = [];
 			$cmdArgs[] = sprintf("UUID=%s", escapeshellarg($id));
 			$cmd = new \OMV\System\Process("findfs", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute($output);
 			$id = $output[0];
 			unset($cmdArgs);
@@ -112,7 +112,7 @@ abstract class BackendAbstract {
 		$cmdArgs[] = "-s TYPE";
 		$cmdArgs[] = escapeshellarg($id);
 		$cmd = new \OMV\System\Process("blkid", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		if (empty($output))
 			return FALSE;

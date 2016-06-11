@@ -221,7 +221,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		  \OMV\Environment::get("OMV_SSL_CERTIFICATE_PREFIX"),
 		  $params['uuid']);
 		$cmd = new \OMV\System\Process("openssl", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		return implode("\n", $output);
 	}
@@ -294,7 +294,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		if (!empty($subject))
 			$cmdArgs[] = sprintf("-subj %s", escapeshellarg($subject));
 		$cmd = new \OMV\System\Process("openssl", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->setQuiet(TRUE);
 		$cmd->execute($output, $exitStatus);
 		if (0 !== $exitStatus) {

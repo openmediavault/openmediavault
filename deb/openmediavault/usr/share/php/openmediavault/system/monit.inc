@@ -111,7 +111,7 @@ class Monit {
 		// Execute the command.
 		$cmd = new \OMV\System\Process("monit", $cmdArgs);
 		$cmd->setQuiet($quiet);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -121,11 +121,11 @@ class Monit {
 	public function update() {
 		// Create monit and monitored services configuration files.
 		$cmd = new \OMV\System\Process("omv-mkconf", "monit");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// Reinitialize monit.
 		$cmd = new \OMV\System\Process("monit", "reload");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -138,7 +138,7 @@ class Monit {
 		$status = "unknown";
 		// Get status summary of monitored services.
 		$cmd = new \OMV\System\Process("monit", "summary");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		// Parse the command output.
 		foreach ($output as $outputk => $outputv) {

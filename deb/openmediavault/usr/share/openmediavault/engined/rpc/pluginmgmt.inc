@@ -154,7 +154,7 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = implode(" ", $params['packages']);
 			$cmd = new \OMV\System\Process("apt-get", $cmdArgs);
 			$cmd->setEnv("DEBIAN_FRONTEND", "noninteractive");
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			if (0 !== $this->exec($cmd->getCommandLine(), $output,
 			  $bgOutputFilename))
 				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
@@ -254,7 +254,7 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = implode(" ", $params['packages']);
 			$cmd = new \OMV\System\Process("apt-get", $cmdArgs);
 			$cmd->setEnv("DEBIAN_FRONTEND", "noninteractive");
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			if (0 !== $this->exec($cmd->getCommandLine(), $output,
 			  $bgOutputFilename))
 				throw new \OMV\ExecException($cmd->getCommandLine(), $output);

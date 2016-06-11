@@ -33,7 +33,7 @@ class Xfs extends Filesystem {
 		$cmdArgs[] = escapeshellarg(Filesystem::buildMountPath(
 		  $this->getUuid()));
 		$cmd = new \OMV\System\Process("xfs_growfs", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 }

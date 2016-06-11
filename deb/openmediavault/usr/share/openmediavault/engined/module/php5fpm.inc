@@ -33,11 +33,11 @@ class OMVModulePhp5fpm extends \OMV\Engine\Module\ServiceAbstract {
 	public function applyConfig() {
 		// Build the configuration.
 		$cmd = new \OMV\System\Process("omv-mkconf", "php5fpm");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// Test the new configuration.
 		$cmd = new \OMV\System\Process("php5-fpm", "-t");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 

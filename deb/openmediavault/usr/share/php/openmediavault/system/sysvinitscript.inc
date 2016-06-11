@@ -82,7 +82,7 @@ class SysVInitScript {
 			break;
 		}
 		$cmd = new \OMV\System\Process("update-rc.d", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -108,7 +108,7 @@ class SysVInitScript {
 		$cmdArgs[] = escapeshellarg($this->name);
 		$cmdArgs[] = "defaults";
 		$cmd = new \OMV\System\Process("update-rc.d", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -121,7 +121,7 @@ class SysVInitScript {
 		$cmdArgs[] = escapeshellarg($this->name);
 		$cmdArgs[] = "remove";
 		$cmd = new \OMV\System\Process("update-rc.d", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -164,7 +164,7 @@ class SysVInitScript {
 		$cmdArgs[] = escapeshellarg($this->name);
 		$cmdArgs[] = $action;
 		$cmd = new \OMV\System\Process("invoke-rc.d", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -187,7 +187,7 @@ class SysVInitScript {
 		$cmdArgs[] = escapeshellarg($this->name);
 		$cmdArgs[] = "status";
 		$cmd = new \OMV\System\Process("invoke-rc.d", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->setQuiet(TRUE);
 		$cmd->execute($output, $exitStatus);
 		return $exitStatus;

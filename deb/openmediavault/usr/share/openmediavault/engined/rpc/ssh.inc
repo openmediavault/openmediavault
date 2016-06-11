@@ -102,7 +102,7 @@ class OMVRpcServiceSsh extends \OMV\Rpc\ServiceAbstract {
 			// Get users currently logged in.
 			$stats = sprintf("%s:\n", gettext("Currently logged in users"));
 			$cmd = new \OMV\System\Process("who", "-u");
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute($output);
 			$stats .= empty($output) ? gettext("No users connected") :
 			  implode("\n", $output);
@@ -113,7 +113,7 @@ class OMVRpcServiceSsh extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = "-s TCP:ESTABLISHED";
 			$cmdArgs[] = sprintf("-i :%d", $object->get("port"));
 			$cmd = new \OMV\System\Process("lsof", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute($output);
 			$stats .= sprintf("\n\n%s:\n", gettext("Connections"));
 			$stats .= empty($output) ? gettext("No connections") :

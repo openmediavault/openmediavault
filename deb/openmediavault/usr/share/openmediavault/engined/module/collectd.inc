@@ -47,7 +47,7 @@ class OMVModuleCollectd extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "collectd");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -82,7 +82,7 @@ class OMVModuleCollectd extends \OMV\Engine\Module\ServiceAbstract
 		// Generate RRD graph images based on the latest configuration as a
 		// background job (rendering may take some time).
 		$cmd = new \OMV\System\Process("omv-mkgraph");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->setBackground(TRUE);
 		$cmd->execute();
 	}

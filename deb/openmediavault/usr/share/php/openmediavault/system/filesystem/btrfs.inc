@@ -49,7 +49,7 @@ class Btrfs extends Filesystem {
 		$cmdArgs[] = "show";
 		$cmdArgs[] = escapeshellarg($this->uuid);
 		$cmd = new \OMV\System\Process("btrfs", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 
 		// Parse command output:
@@ -142,7 +142,7 @@ class Btrfs extends Filesystem {
 		$cmdArgs[] = "-b";
 		$cmdArgs[] = escapeshellarg($this->getMountPoint());
 		$cmd = new \OMV\System\Process("btrfs", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 
 		// Parse command output:
@@ -210,7 +210,7 @@ class Btrfs extends Filesystem {
 		$cmdArgs = [];
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("btrfs-show-super", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 
 		// Parse command output:

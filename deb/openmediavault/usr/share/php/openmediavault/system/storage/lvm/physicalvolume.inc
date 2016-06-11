@@ -64,7 +64,7 @@ class PhysicalVolume {
 		$cmdArgs[] = "--unit b";
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("pvdisplay", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 
 		$output = explode("|", trim($output[0]));
@@ -101,6 +101,18 @@ class PhysicalVolume {
 			return FALSE;
 		}
 		return !empty($this->uuid);
+	}
+
+	/**
+	 * Assert that the volume group exists.
+	 * @return None.
+	 * @throw \OMV\AssertException
+	 */
+	public function assertExists() {
+		if (FALSE === $this->exists()) {
+			throw new \OMV\AssertException("Physical volume '%s' not found.",
+			  $this->getDeviceFile());
+		}
 	}
 
 	/**
@@ -193,7 +205,7 @@ class PhysicalVolume {
 		$cmdArgs = [];
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("pvcreate", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -208,7 +220,7 @@ class PhysicalVolume {
 		$cmdArgs[] = "--force";
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("pvremove", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -221,7 +233,7 @@ class PhysicalVolume {
 		$cmdArgs = [];
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("pvresize", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -241,7 +253,7 @@ class PhysicalVolume {
 		$cmdArgs[] = "-C";
 		$cmdArgs[] = "-o pv_name";
 		$cmd = new \OMV\System\Process("pvdisplay", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2toFile("/dev/null");
 		$cmd->execute($output);
 		// Parse command output:
 		//   /dev/sdc

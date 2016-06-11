@@ -67,7 +67,7 @@ class VolumeGroup {
 		$cmdArgs[] = "--unit b";
 		$cmdArgs[] = escapeshellarg($this->getName());
 		$cmd = new \OMV\System\Process("vgdisplay", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 
 		$output = explode("|", trim($output[0]));
@@ -93,7 +93,7 @@ class VolumeGroup {
 			$cmdArgs[] = "-o pv_name";
 			$cmdArgs[] = escapeshellarg($this->getName());
 			$cmd = new \OMV\System\Process("vgdisplay", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2toFile("/dev/null");
 			$cmd->execute($output);
 
 			foreach ($output as $outputk => $outputv)
@@ -111,7 +111,7 @@ class VolumeGroup {
 			$cmdArgs[] = "-o lv_name";
 			$cmdArgs[] = escapeshellarg($this->getName());
 			$cmd = new \OMV\System\Process("vgdisplay", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2toFile("/dev/null");
 			$cmd->execute($output);
 
 			foreach ($output as $outputk => $outputv)
@@ -286,7 +286,7 @@ class VolumeGroup {
 		$cmdArgs[] = escapeshellarg($this->getName());
 		$cmdArgs[] = implode(" ", $devices);
 		$cmd = new \OMV\System\Process("vgcreate", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -300,7 +300,7 @@ class VolumeGroup {
 		$cmdArgs[] = "--force";
 		$cmdArgs[] = escapeshellarg($this->getName());
 		$cmd = new \OMV\System\Process("vgremove", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -316,7 +316,7 @@ class VolumeGroup {
 		$cmdArgs[] = escapeshellarg($this->getUuid());
 		$cmdArgs[] = escapeshellarg($name);
 		$cmd = new \OMV\System\Process("vgrename", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -332,7 +332,7 @@ class VolumeGroup {
 		$cmdArgs[] = escapeshellarg($this->getName());
 		$cmdArgs[] = implode(" ", $devices);
 		$cmd = new \OMV\System\Process("vgextend", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -348,7 +348,7 @@ class VolumeGroup {
 		$cmdArgs[] = escapeshellarg($this->getName());
 		$cmdArgs[] = implode(" ", $devices);
 		$cmd = new \OMV\System\Process("vgreduce", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -368,7 +368,7 @@ class VolumeGroup {
 		$cmdArgs[] = "-C";
 		$cmdArgs[] = "-o vg_name";
 		$cmd = new \OMV\System\Process("vgdisplay", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2toFile("/dev/null");
 		$cmd->execute($output);
 		// Parse command output:
 		//   vg0

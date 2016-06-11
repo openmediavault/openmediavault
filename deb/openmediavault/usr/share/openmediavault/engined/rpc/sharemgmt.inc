@@ -470,7 +470,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = "-r";
 			$cmdArgs[] = escapeshellarg($dirPath);
 			$cmd = new \OMV\System\Process("rm", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute();
 		}
 		// Delete the configuration object.
@@ -738,7 +738,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs[] = escapeshellarg(build_path(DIRECTORY_SEPARATOR,
 		  $sfpath, $params['file']));
 		$cmd = new \OMV\System\Process("getfacl", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		// Prepare result object.
 		$result = [
@@ -926,7 +926,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				  $sfpath, $params['file']));
 				// Execute command to set the file owner/group.
 				$cmd = new \OMV\System\Process("chown", $cmdArgs);
-				$cmd->setRedirect2to1(TRUE);
+				$cmd->setRedirect2to1();
 				if (0 !== $this->exec($cmd->getCommandLine(), $output,
 				  $bgOutputFilename)) {
 					throw new \OMV\ExecException($cmd->getCommandLine(),
@@ -984,7 +984,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			  $sfpath, $params['file']));
 			// Execute command to set the file access control lists.
 			$cmd = new \OMV\System\Process("setfacl", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			if (0 !== $this->exec($cmd->getCommandLine(), $output,
 			  $bgOutputFilename)) {
 				throw new \OMV\ExecException($cmd->getCommandLine(), $output);

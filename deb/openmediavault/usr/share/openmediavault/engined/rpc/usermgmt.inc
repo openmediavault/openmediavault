@@ -543,7 +543,7 @@ finish:
 			$cmdArgs[] = escapeshellarg($params['name']);
 			// Create the new user.
 			$cmd = new \OMV\System\Process("useradd", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute();
 		} else {
 			// Append additional arguments.
@@ -555,7 +555,7 @@ finish:
 			$cmdArgs[] = escapeshellarg($params['name']);
 			// Modify the existing user.
 			$cmd = new \OMV\System\Process("usermod", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute();
 		}
 		// Append some more information to the notification object.
@@ -627,7 +627,7 @@ finish:
 		$cmdArgs[] = "--force";
 		$cmdArgs[] = escapeshellarg($params['name']);
 		$cmd = new \OMV\System\Process("userdel", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// Delete additional user information stored in database.
 		$db = \OMV\Config\Database::getInstance();
@@ -866,7 +866,7 @@ finish:
 			$cmdArgs[] = escapeshellarg($params['name']);
 			// Create the new group.
 			$cmd = new \OMV\System\Process("groupadd", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute();
 		} else {
 			// Nothing to do here.
@@ -883,7 +883,7 @@ finish:
 			$cmdArgs[] = escapeshellarg($params['name']);
 
 			$cmd = new \OMV\System\Process("gpasswd", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute();
 		}
 		// Notify configuration changes.
@@ -919,7 +919,7 @@ finish:
 		$cmdArgs[] = "--only-if-empty";
 		$cmdArgs[] = escapeshellarg($params['name']);
 		$cmd = new \OMV\System\Process("delgroup", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// Delete configuration object.
 		$db = \OMV\Config\Database::getInstance();
@@ -1076,7 +1076,7 @@ finish:
 			}
 			$cmdArgs[] = escapeshellarg($userv['name']);
 			$cmd = new \OMV\System\Process("usermod", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute();
 			// Create the home directory if it does not exist until now.
 			if (!empty($sfPath)) {

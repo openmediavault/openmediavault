@@ -33,7 +33,7 @@ class OMVModuleNtp extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = new \OMV\System\Process("omv-mkconf", "ntp");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -43,7 +43,7 @@ class OMVModuleNtp extends \OMV\Engine\Module\ServiceAbstract
 	public function stopService() {
 		// Disable NTP.
 		$cmd = new \OMV\System\Process("timedatectl", "set-ntp no");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// Stop the timesyncd daemon.
 		$systemCtl = new \OMV\System\SystemCtl("systemd-timesyncd");
@@ -60,7 +60,7 @@ class OMVModuleNtp extends \OMV\Engine\Module\ServiceAbstract
 			return;
 		// Enable NTP.
 		$cmd = new \OMV\System\Process("timedatectl", "set-ntp yes");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// Start the timesyncd daemon.
 		$systemCtl = new \OMV\System\SystemCtl("systemd-timesyncd");

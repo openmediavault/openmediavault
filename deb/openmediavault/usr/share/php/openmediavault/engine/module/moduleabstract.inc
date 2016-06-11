@@ -71,7 +71,7 @@ abstract class ModuleAbstract {
 	 */
 	final protected function exec($command, &$output = NULL) {
 		$cmd = new \OMV\System\Process($command);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output, $exitStatus);
 		return $exitStatus;
 	}

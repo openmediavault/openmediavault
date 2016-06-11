@@ -77,7 +77,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Get task overview.
 		$cmd = new \OMV\System\Process("top", "-b", "-n 1");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		return implode("\n", $output);
 	}
@@ -264,7 +264,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs = [];
 		$cmdArgs[] = sprintf("--set='@%d'", $params['timestamp']);
 		$cmd = new \OMV\System\Process("date", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -285,7 +285,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs[] = "-g";
 		$cmdArgs[] = "-q";
 		$cmd = new \OMV\System\Process("ntpd", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -401,7 +401,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		$cmd = new \OMV\System\Process("omv-sysinfo");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		return implode("\n", $output);
 	}

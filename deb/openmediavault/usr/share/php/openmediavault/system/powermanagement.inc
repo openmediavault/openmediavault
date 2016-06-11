@@ -48,7 +48,7 @@ class PowerManagement {
 			"suspend" => [ "pm-suspend" ]
 		];
 		$cmd = new \OMV\System\Process($mapCommand[$action]);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 
@@ -72,7 +72,7 @@ class PowerManagement {
 			break;
 		}
 		$cmd = new \OMV\System\Process("pm-is-supported", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->setQuiet(TRUE);
 		$cmd->execute($output, $exitStatus);
 		if (!(($exitStatus == 0) || ($exitStatus == 1)))

@@ -41,11 +41,11 @@ class OMVModuleMonit extends \OMV\Engine\Module\ServiceAbstract
 	public function applyConfig() {
 		// Build the configuration.
 		$cmd = new \OMV\System\Process("omv-mkconf", "monit");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// Test the new configuration.
 		$cmd = new \OMV\System\Process("monit", "-t");
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
 

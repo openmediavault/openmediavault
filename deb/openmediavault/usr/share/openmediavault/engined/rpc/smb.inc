@@ -270,7 +270,7 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs = [];
 			$cmdArgs[] = "-s";
 			$cmd = new \OMV\System\Process("smbstatus", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute($output);
 			array_shift($output);
 			array_shift($output);

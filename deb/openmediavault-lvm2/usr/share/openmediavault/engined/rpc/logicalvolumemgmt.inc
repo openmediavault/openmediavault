@@ -188,7 +188,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs[] = "bs=512";
 		$cmdArgs[] = "count=1";
 		$cmd = new \OMV\System\Process("dd", $cmdArgs);
-		$cmd->setRedirect2to1(TRUE);
+		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// Create the physical volume.
 		$pv = new \OMV\System\Storage\Lvm\PhysicalVolume($params['devicefile']);

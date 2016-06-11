@@ -350,7 +350,7 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs = [];
 			$cmdArgs[] = "-v";
 			$cmd = new \OMV\System\Process("ftpwho", $cmdArgs);
-			$cmd->setRedirect2to1(TRUE);
+			$cmd->setRedirect2to1();
 			$cmd->execute($output);
 			array_shift($output);
 			$stats .= implode("\n", $output);
@@ -363,7 +363,7 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 				$cmdArgs[] = "-v";
 				$cmdArgs[] = "-e";
 				$cmd = new \OMV\System\Process("ftpdctl", $cmdArgs);
-				$cmd->setRedirect2to1(TRUE);
+				$cmd->setRedirect2to1();
 				$cmd->execute($output);
 				foreach ($output as &$outputv)
 					$outputv = preg_replace("/^ftpdctl:/", "", $outputv);

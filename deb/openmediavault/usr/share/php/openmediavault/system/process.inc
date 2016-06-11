@@ -26,7 +26,7 @@ namespace OMV\System;
  */
 class Process {
 	private $cmdArgs = [];
-	private $redirect2to1 = FALSE;
+	private $redirect2toFile = FALSE;
 	private $quiet = FALSE;
 	private $background = FALSE;
 	private $env = array(
@@ -61,12 +61,20 @@ class Process {
 
 	/**
 	 * Redirect STDERR to STDOUT.
-	 * @param enable Set to FALSE to do no redirect STDERR to STDOUT.
-	 *   Defaults to TRUE.
 	 * @return None.
 	 */
-	public function setRedirect2to1($enable = TRUE) {
-		$this->redirect2to1 = $enable;
+	public function setRedirect2to1() {
+		$this->setRedirect2toFile("&1");
+	}
+
+	/**
+	 * Redirect STDERR to the given file. Set to FALSE to do not
+	 *   redirect STDERR to STDOUT.
+	 * @param file The file path, e.g. '/dev/null'.
+	 * @return None.
+	 */
+	public function setRedirect2toFile($file) {
+		$this->redirect2toFile = $file;
 	}
 
 	/**
@@ -112,8 +120,8 @@ class Process {
 		foreach ($this->env as $env)
 			$cmdArgs[] = sprintf("export %s;", $env);
 		$cmdArgs = array_merge($cmdArgs, $this->cmdArgs);
-		if (TRUE === $this->redirect2to1)
-			$cmdArgs[] = "2>&1";
+		if (FALSE === empty($this->redirect2toFile))
+			$cmdArgs[] = sprintf("2>%s", $this->redirect2toFile);
 		if (TRUE === $this->background)
 			$cmdArgs[] = "&";
 		return implode(" ", $cmdArgs);
