@@ -605,7 +605,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Enumerate all volume groups on the system.
-		$lvs = \OMV\System\Storage\Lvm\LogicalVolumes::enumerate();
+		$lvs = \OMV\System\Storage\Lvm\LogicalVolume::enumerate();
 		$result = [];
 		foreach ($lvs as $lvk => $lvv) {
 			// Get the physical volume details.
