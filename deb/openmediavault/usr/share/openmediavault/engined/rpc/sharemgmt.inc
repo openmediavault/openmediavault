@@ -169,7 +169,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			}
 			// Is the shared folder referenced by any object? Shared folder
 			// references are named 'sharedfolderref'.
-			$objectDict->get("_used", $db->isReferenced($objectv));
+			$objectDict->set("_used", $db->isReferenced($objectv));
 			// Append the configuration object to the result list.
 			$result[] = $objectDict->getData();
 		}
