@@ -261,7 +261,7 @@ class ConfigObject {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Make sure that the given array is not a multi-dimensional
 		// associative array.
-		if (is_multi_array($data)) {
+		if (TRUE === is_multi_array($data)) {
 			throw new \InvalidArgumentException(
 			  "The data must not be a multi-dimensional associative array.");
 		}
@@ -284,7 +284,8 @@ class ConfigObject {
 	 *   Defaults to FALSE.
 	 * @return None.
 	 */
-	public function setIndexed(array $data, $validate = TRUE, $ignore = FALSE) {
+	public function setIndexed(array $data, $validate = TRUE,
+	  $ignore = FALSE) {
 		$this->setFlatAssoc($data, $validate, $ignore);
 	}
 
