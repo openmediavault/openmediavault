@@ -51,10 +51,10 @@ omv_isnumber() {
 # Check if the given argument is an UUID v4.
 # Return 0 if it is a UUID, otherwise 1.
 omv_isuuid() {
-    if $(echo $1 | grep -Eqi "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"); then
-        return 0
-    fi
-    return 1
+	if $(echo $1 | grep -Eqi "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"); then
+		return 0
+	fi
+	return 1
 }
 
 # omv_isfsuuid value
@@ -65,14 +65,35 @@ omv_isuuid() {
 # ISO9660: 2015-01-13-21-48-46-00
 # Return 0 if it is a file system UUID, otherwise 1.
 omv_isfsuuid() {
-	# See /usr/share/php/openmediavault/globals.inc
+	# Test the EXT format.
 	if omv_isuuid "$1"; then
 		return 0
 	fi
-    if $(echo $1 | grep -Eqi "^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{16}|[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2})$"); then
-        return 0
-    fi
-    return 1
+	# Test the DOS/NTFS/ISO9660 formats.
+	if $(echo $1 | grep -Eqi "^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{16}|[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2})$"); then
+		return 0
+	fi
+	return 1
+}
+
+# omv_is_devicefile value
+# Finds out whether a variable describes a devicefile, e.g. /dev/sda1.
+# Return 0 the variable describes a devicefile, otherwise 1.
+omv_is_devicefile() {
+	if $(echo $1 | grep -Eqi "^\/dev\/.+$"); then
+		return 0
+	fi
+	return 1
+}
+
+# omv_is_block value
+# Tells whether the given file is a block device.
+# Return 0 if it is a block device, otherwise 1.
+omv_is_block() {
+	if [ -b "$1" ]; then
+		return 0
+	fi
+	return 1
 }
 
 # omv_trim [options] value
@@ -711,13 +732,13 @@ omv_get_sharedfolder_mount_dir() {
 #   or /media/3849-705A.
 omv_build_mount_dir() {
 	local fsuuid
-	if omv_isfsuuid "$1"; then
-		fsuuid=${1}
-	else
+	if omv_is_devicefile "$1"; then
 		fsuuid=$(blkid -o value -s UUID $1)
+	else
+		fsuuid=${1}
 	fi
 	if [ -z "${fsuuid}" ]; then
-		omv_debug "omv_build_mount_dir: Filesystem does not have an UUID"
+		omv_debug "omv_build_mount_dir: Filesystem '$1' does not have an UUID"
 		return 1
 	fi
 	echo "${OMV_MOUNT_DIR}/${fsuuid}"
