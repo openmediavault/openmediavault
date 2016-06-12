@@ -110,8 +110,9 @@ class OMVRpcServiceSsh extends \OMV\Rpc\ServiceAbstract {
 			// Get the current connections.
 			$cmdArgs = [];
 			$cmdArgs[] = "-n";
-			$cmdArgs[] = "-s TCP:ESTABLISHED";
+			$cmdArgs[] = "-P";
 			$cmdArgs[] = sprintf("-i :%d", $object->get("port"));
+			$cmdArgs[] = "-s TCP:ESTABLISHED";
 			$cmd = new \OMV\System\Process("lsof", $cmdArgs);
 			$cmd->setRedirect2to1();
 			$cmd->execute($output);
