@@ -116,7 +116,7 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Remove all existing notification configuration objects.
 		$filter = [
-			"operator" => "stringEquals",
+			"operator" => "equals",
 			"arg0" => "id",
 			"arg1" => "*"
 		];
