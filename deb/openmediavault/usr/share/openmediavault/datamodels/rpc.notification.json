@@ -6,6 +6,11 @@
 		"items": {
 			"type": "object",
 			"properties": {
+				"uuid":{
+					"type": "string",
+					"format": "uuidv4",
+					"required": true
+				},
 				"id":{
 					"type": "string",
 					"required": true

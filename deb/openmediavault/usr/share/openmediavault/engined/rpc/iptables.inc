@@ -116,7 +116,7 @@ class OMVRpcServiceIptables extends \OMV\Rpc\ServiceAbstract {
 			$db->set($objectv);
 			$objectsAssoc[] = $objectv->getAssoc();
 		}
-		// Return the configuration object.
+		// Return the configuration objects.
 		return $objectsAssoc;
 	}
 

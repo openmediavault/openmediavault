@@ -64,11 +64,12 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 						  "arg0" => "id",
 						  "arg1" => $configv['id']
 					  ], 1);
+					// Add additional properties.
 					$object->add("title", "string");
 					$object->add("type", "string");
 					$object->set("title", $configv['title']);
 					$object->set("type", $configv['type']);
-					// Append object to result.
+					// Append object to result list.
 					$result[] = $object->getAssoc();
 				}
 			}
@@ -80,7 +81,7 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 	 * Set the notification configuration.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
-	 * @return The stored configuration object.
+	 * @return An array of the stored configuration objects.
 	 */
 	function set($params, $context) {
 		// Validate the RPC caller context.
@@ -89,6 +90,8 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.notification.set");
+		// Prepare the result array.
+		$objectsAssoc = [];
 		// Get the list of registered modules.
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getModules();
@@ -106,33 +109,21 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 					// Process the RPC arguments.
 					foreach ($params as $paramk => $paramv) {
 						if ($paramv['id'] === $configv['id']) {
-							$object->set("enable", $paramv['enable']);
+							$object->setAssoc([
+								"uuid" => $paramv['uuid'],
+								"enable" => $paramv['enable']
+							]);
 							break;
 						}
 					}
-					$objects[] = $object;
+					// Set the configuration object.
+					$db = \OMV\Config\Database::getInstance();
+					$db->set($object);
+					$objectsAssoc[] = $object->getAssoc();
 				}
 			}
 		}
-		// Remove all existing notification configuration objects.
-		$filter = [
-			"operator" => "equals",
-			"arg0" => "id",
-			"arg1" => "*"
-		];
-		$db = \OMV\Config\Database::getInstance();
-		if ($db->exists("conf.system.notification.notification",
-		  $filter)) {
-			$db->deleteByFilter(
-			  "conf.system.notification.notification", $filter);
-		}
-		// Set the notification configuration objects.
-		$objectsAssoc = [];
-		foreach ($objects as $objectk => $objectv) {
-			$db->set($objectv);
-			$objectsAssoc[] = $objectv->getAssoc();
-		}
-		// Return the configuration object.
+		// Return the configuration objects.
 		return $objectsAssoc;
 	}
 

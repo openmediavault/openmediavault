@@ -87,8 +87,9 @@ Ext.define("OMV.module.admin.system.network.Zeroconf", {
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,
 				model: OMV.data.Model.createImplicit({
-					idProperty: "id",
+					idProperty: "uuid",
 					fields: [
+						{ name: "uuid", type: "string" },
 						{ name: "id", type: "string" },
 						{ name: "name", type: "string" },
 						{ name: "title", type: "string" },
@@ -118,6 +119,7 @@ Ext.define("OMV.module.admin.system.network.Zeroconf", {
 		var params = [];
 		Ext.Array.each(records, function(record) {
 			params.push({
+				"uuid": record.get("uuid"),
 				"id": record.get("id"),
 				"enable": record.get("enable"),
 				"name": record.get("name")

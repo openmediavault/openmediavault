@@ -61,9 +61,10 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 					"arg0" => "id",
 					"arg1" => $config['id']
 				], 1);
+				// Add additional properties.
 				$object->add("title", "string");
 				$object->set("title", $config['title']);
-				// Append object to result.
+				// Append object to result list.
 				$result[] = $object->getAssoc();
 			}
 		}
@@ -83,8 +84,8 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.zeroconf.set");
-		// Prepare the configuration object.
-		$objects = [];
+		// Prepare the result array.
+		$objectsAssoc = [];
 		// Get the list of registered modules.
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getModules();
@@ -102,31 +103,21 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 				// Process the RPC arguments.
 				foreach ($params as $paramk => $paramv) {
 					if ($paramv['id'] === $config['id']) {
-						$object->set("enable", $paramv['enable']);
-						$object->set("name", $paramv['name']);
+						$object->setAssoc([
+							"uuid" => $paramv['uuid'],
+							"name" => $paramv['name'],
+							"enable" => $paramv['enable']
+						]);
 						break;
 					}
 				}
-				$objects[] = $object;
+				// Set the configuration object.
+				$db = \OMV\Config\Database::getInstance();
+				$db->set($object);
+				$objectsAssoc[] = $object->getAssoc();
 			}
 		}
-		// Remove all existing service configuration objects.
-		$filter = [
-			"operator" => "stringEquals",
-			"arg0" => "id",
-			"arg1" => "*"
-		];
-		$db = \OMV\Config\Database::getInstance();
-		if ($db->exists("conf.service.zeroconf.service", $filter)) {
-			$db->deleteByFilter("conf.service.zeroconf.service", $filter);
-		}
-		// Set the service configuration objects.
-		$objectsAssoc = [];
-		foreach ($objects as $objectk => $objectv) {
-			$db->set($objectv);
-			$objectsAssoc[] = $objectv->getAssoc();
-		}
-		// Return the configuration object.
+		// Return the configuration objects.
 		return $objectsAssoc;
 	}
 }
