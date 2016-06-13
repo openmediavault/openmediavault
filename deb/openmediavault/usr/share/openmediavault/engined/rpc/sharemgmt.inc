@@ -280,7 +280,8 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Get the existing configuration object.
 			$oldObject = $db->get("conf.system.sharedfolder", $params['uuid']);
 			// Copy the privileges.
-			$object->set("privileges", $oldObject->get("privileges"));
+			if (FALSE === $oldObject->isEmpty("privileges"))
+				$object->set("privileges", $oldObject->get("privileges"));
 		}
 		$db->set($object);
 		// Append the file mode field to the notification object if set.
