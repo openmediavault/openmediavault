@@ -555,15 +555,14 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 					idProperty: "devicefile",
 					fields: [
 						{ name: "uuid", type: "string" },
-						{ name: "devicefile", type: "string" },
 						{
-							name: "devicefilebyid",
+							name: "devicefile",
 							type: "string",
 							convert: function(value, record) {
-								// If no /dev/disk/by-id/xxx exists, then
-								// use the device file parameter.
-								return (false === value) ?
-								  record.get("devicefile") : value;
+								// Prefer the /dev/disk/by-id/xxx device file.
+								if (false !== record.get("devicefilebyid"))
+									value = record.get("devicefilebyid");
+								return value;
 							}
 						},
 						{ name: "model", type: "string" },
@@ -617,7 +616,7 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 		var record = me.getSelected();
 		Ext.create("OMV.module.admin.storage.smart.device.Settings", {
 			uuid: record.get("uuid"),
-			devicefile: record.get("devicefilebyid"),
+			devicefile: record.get("devicefile"),
 			listeners: {
 				scope: me,
 				submit: function() {
