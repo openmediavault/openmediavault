@@ -362,7 +362,14 @@ class OMVModuleMgr extends OMVObject {
 	final public function setModuleDirty($name) {
 		$jsonFile = new OMVJsonFile($GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
 		$jsonFile->open("c+");
+		// If the file was created, then we must ensure that the file
+		// contains valid JSON. A new created file is empty and has a
+		// length of zero bytes.
+		if ($jsonFile->isEmpty())
+			$jsonFile->write([]);
+		// Read the dirty modules.
 		$modules = $jsonFile->read();
+		// Append the specified module.
 		$modules[] = strtolower($name);
 		$modules = array_unique($modules);
 		$jsonFile->write($modules);
