@@ -132,11 +132,6 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 			$db->set($objectv);
 			$objectsAssoc[] = $objectv->getAssoc();
 		}
-		// Notify the configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.notification.notification",
-		  $objectsAssoc);
 		// Return the configuration object.
 		return $objectsAssoc;
 	}
@@ -228,11 +223,6 @@ class OMVRpcServiceEmailNotification extends \OMV\Rpc\ServiceAbstract {
 		// Set the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
-		// Notify the configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.notification.email",
-		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}

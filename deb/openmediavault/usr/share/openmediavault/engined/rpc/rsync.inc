@@ -180,13 +180,8 @@ class OMVRpcServiceRsync extends \OMV\Rpc\ServiceAbstract {
 			break;
 		}
 		// Set the configuration object.
-		$isNew = $object->isNew();
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.rsync.job", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}

@@ -64,18 +64,12 @@ class OMVRpcServicePerfStats extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.perfstats.set");
-		// Prepare the configuration object.
-		$object = new \OMV\Config\ConfigObject(
-		  "conf.system.monitoring.perfstats");
+		// Get the existing configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.monitoring.perfstats");
 		$object->setAssoc($params);
 		// Set the configuration object.
-		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.monitoring.perfstats",
-		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}

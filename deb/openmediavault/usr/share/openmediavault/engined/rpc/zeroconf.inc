@@ -126,10 +126,6 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 			$db->set($objectv);
 			$objectsAssoc[] = $objectv->getAssoc();
 		}
-		// Notify the configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.zeroconf.service", $objectsAssoc);
 		// Return the configuration object.
 		return $objectsAssoc;
 	}

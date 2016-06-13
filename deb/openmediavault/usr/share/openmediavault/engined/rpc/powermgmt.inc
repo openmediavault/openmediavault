@@ -69,17 +69,12 @@ class OMVRpcServicePowerMgmt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.powermgmt.set");
-		// Prepare the configuration object.
-		$object = new \OMV\Config\ConfigObject("conf.system.powermngmnt");
-		$object->setAssoc($params);
-		// Update the configuration object.
+		// Get the existing configuration object.
 		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.powermngmnt");
+		$object->setAssoc($params);
+		// Set the configuration object.
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.powermngmnt",
-		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}

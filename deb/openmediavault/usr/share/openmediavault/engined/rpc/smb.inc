@@ -77,13 +77,10 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.smb");
 		$object->setAssoc($params);
+		// Set the configuration object.
 		$db->set($object);
 		// Remove useless properties from the object.
 		$object->remove("shares");
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.smb", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -163,9 +160,8 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 		$object = new \OMV\Config\ConfigObject("conf.service.smb.share");
 		$object->setAssoc($params);
 		// Set the configuration object.
-		$isNew = $object->isNew();
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $isNew) {
+		if (TRUE === $object->isNew()) {
 			// Check uniqueness:
 			// - Share name
 			// - Shared folder
@@ -173,11 +169,6 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 			$db->assertIsUnique($object, "sharedfolderref");
 		}
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.smb.share",
-		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}

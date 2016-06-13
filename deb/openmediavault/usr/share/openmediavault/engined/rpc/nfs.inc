@@ -73,13 +73,10 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.nfs");
 		$object->setAssoc($params);
+		// Set the configuration object.
 		$db->set($object);
 		// Remove useless properties from the object.
 		$object->remove("shares");
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.nfs", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -159,9 +156,8 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 		$object = new \OMV\Config\ConfigObject("conf.service.nfs.share");
 		$object->setAssoc($params);
 		// Set the configuration object.
-		$isNew = $object->isNew();
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $isNew) {
+		if (TRUE === $object->isNew()) {
 			// Get the shared folder configuration object.
 			$sfObject = $db->get("conf.system.sharedfolder",
 			  $object->get("sharedfolderref"));
@@ -211,10 +207,6 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 			$object->set("mntentref", $meObject2->get("uuid"));
 		}
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.nfs.share", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}

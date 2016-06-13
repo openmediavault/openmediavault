@@ -210,18 +210,14 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 			  $filter, 1);
 		} else {
 			// Create a new configuration object.
-			$object = new \OMV\Config\ConfigObject("conf.system.filesystem.quota");
+			$object = new \OMV\Config\ConfigObject(
+			  "conf.system.filesystem.quota");
 			$object->setNew();
 			$object->set("fsuuid", $params['uuid']);
 		}
 		$object->setAssoc($quotas);
-		// Put the configuration object.
+		// Set the configuration object.
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.filesystem.quota",
-		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}

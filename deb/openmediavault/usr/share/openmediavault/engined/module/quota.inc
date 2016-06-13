@@ -68,7 +68,7 @@ class OMVModuleQuota extends \OMV\Engine\Module\ServiceAbstract
 		  "org.openmediavault.conf.system.filesystem",
 		  [ $this, "onDeleteFilesystem" ]);
 		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
+		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.system.filesystem.quota",
 		  [ $this, "setDirty" ]);
 	}

@@ -81,9 +81,18 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Job", {
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,
 				model: OMV.data.Model.createImplicit({
-					idProperty: "devicefilebyid",
+					idProperty: "devicefile",
 					fields: [
-						{ name: "devicefilebyid", type: "string" },
+						{
+							name: "devicefile",
+							type: "string",
+							convert: function(value, record) {
+								// Prefer the /dev/disk/by-id/xxx device file.
+								if (false !== record.get("devicefilebyid"))
+									value = record.get("devicefilebyid");
+								return value;
+							}
+						},
 						{ name: "description", type: "string" }
 					]
 				}),
@@ -101,7 +110,7 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Job", {
 				}]
 			}),
 			emptyText: _("Select a device ..."),
-			valueField: "devicefilebyid",
+			valueField: "devicefile",
 			displayField: "description",
 			plugins: [{
 				ptype: "fieldinfo",

@@ -267,9 +267,8 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		  ...explode(DIRECTORY_SEPARATOR, $params['reldirpath'])).
 		  DIRECTORY_SEPARATOR);
 		// Set the configuration object.
-		$isNew = $object->isNew();
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $isNew) {
+		if (TRUE === $object->isNew()) {
 			// Check uniqueness:
 			// - The share name must be global unique because the name
 			//   is also used when exporting a shared folder via NFS
@@ -336,11 +335,6 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "Failed to set file mode to '%o' for '%s': %s",
 			  $mode, $pathName, $error['message']);
 		}
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.sharedfolder",
-		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}

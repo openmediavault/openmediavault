@@ -222,7 +222,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 * Set system time settings.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return The stored configuration object.
 	 */
 	public function setTimeSettings($params, $context) {
 		// Validate the RPC caller context.
@@ -231,18 +231,16 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.system.settimesettings");
-		// Prepare the configuration object.
-		$object = new \OMV\Config\ConfigObject("conf.system.time");
+		// Get the existing configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.time");
 		$object->set("timezone", $params['timezone']);
 		$object->set("ntp.enable", $params['ntpenable']);
 		$object->set("ntp.timeservers", $params['ntptimeservers']);
-		// Update the configuration object.
-		$db = \OMV\Config\Database::getInstance();
+		// Set the configuration object.
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.time", $object->getAssoc());
+		// Return the configuration object.
+		return $object->getAssoc();
 	}
 
 	/**

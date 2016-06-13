@@ -237,10 +237,6 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		$object->setAssoc($params);
 		// Set the configuration object.
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.smart", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -306,18 +302,12 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			"devicetype" => $sd->getSmartDeviceType()
 		]);
 		// Set the configuration object.
-		$isNew = $object->isNew();
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $isNew) {
+		if (TRUE === $object->isNew()) {
 			// Check uniqueness.
 			$db->assertIsUnique($object, "devicefile");
 		}
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.smartmontools.device",
-		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -455,7 +445,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			// Append storage device information.
 			$objectAssoc = array_merge($objectAssoc, [
 				"devicefile" => gettext("n/a"),
-				"devicefilebyid" => "",
+				"devicefilebyid" => FALSE,
 				"model" => gettext("n/a"),
 				"size" => "-1" // as string
 			]);
@@ -522,16 +512,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		$object = new \OMV\Config\ConfigObject(
 		  "conf.service.smartmontools.job");
 		$object->setAssoc($params);
-		$object->set("devicefile", $sd->getDeviceFileById());
 		// Set the configuration object.
-		$isNew = $object->isNew();
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.smartmontools.job",
-		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}

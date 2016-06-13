@@ -75,13 +75,10 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.rsyncd");
 		$object->setAssoc($params);
+		// Set the configuration object.
 		$db->set($object);
 		// Remove useless properties from the object.
 		$object->remove("modules");
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.rsyncd", $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}
@@ -186,19 +183,13 @@ class OMVRpcServiceRsyncd extends \OMV\Rpc\ServiceAbstract {
 		$object->setAssoc($params, TRUE, TRUE);
 		$object->set("users.user", $params['users']);
 		// Set the configuration object.
-		$isNew = $object->isNew();
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $isNew) {
+		if (TRUE === $object->isNew()) {
 			// Check uniqueness:
 			// - Module name
 			$db->assertIsUnique($object, "name");
 		}
 		$db->set($object);
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.rsyncd.module",
-		  $object->getAssoc());
 		// Return the configuration object.
 		return $object->getAssoc();
 	}

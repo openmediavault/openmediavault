@@ -83,7 +83,7 @@ class OMVModuleSmartMonTools extends \OMV\Engine\Module\ServiceAbstract
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.smart",
+		  "org.openmediavault.conf.service.smartmontools",
 		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
@@ -98,7 +98,7 @@ class OMVModuleSmartMonTools extends \OMV\Engine\Module\ServiceAbstract
 		  "org.openmediavault.conf.system.notification.email",
 		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
+		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.system.notification.notification",
 		  [ $this, "setDirty" ]);
     }
