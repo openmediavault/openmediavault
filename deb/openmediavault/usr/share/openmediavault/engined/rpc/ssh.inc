@@ -108,6 +108,8 @@ class OMVRpcServiceSsh extends \OMV\Rpc\ServiceAbstract {
 			  implode("\n", $output);
 			unset($output);
 			// Get the current connections.
+			// Note, if no connections are listed, lsof will exit with 1.
+			// See the manual page for this behaviour.
 			$cmdArgs = [];
 			$cmdArgs[] = "-n";
 			$cmdArgs[] = "-P";
@@ -115,6 +117,7 @@ class OMVRpcServiceSsh extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = "-s TCP:ESTABLISHED";
 			$cmd = new \OMV\System\Process("lsof", $cmdArgs);
 			$cmd->setRedirect2to1();
+			$cmd->setQuiet(TRUE);
 			$cmd->execute($output);
 			$stats .= sprintf("\n\n%s:\n", gettext("Connections"));
 			$stats .= empty($output) ? gettext("No connections") :
