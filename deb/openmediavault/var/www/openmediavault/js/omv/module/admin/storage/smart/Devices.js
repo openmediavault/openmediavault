@@ -556,7 +556,16 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 					fields: [
 						{ name: "uuid", type: "string" },
 						{ name: "devicefile", type: "string" },
-						{ name: "devicefilebyid", type: "string" },
+						{
+							name: "devicefilebyid",
+							type: "string",
+							convert: function(value, record) {
+								// If no /dev/disk/by-id/xxx exists, then
+								// use the device file parameter.
+								return (false === value) ?
+								  record.get("devicefile") : value;
+							}
+						},
 						{ name: "model", type: "string" },
 						{ name: "vendor", type: "string" },
 						{ name: "serialnumber", type: "string" },

@@ -4,6 +4,7 @@ openmediavault (3.0.23) stable; urgency=low
   * Mantis 0001543: Can't change SMART options.
   * Mantis 0001544: Could not disable notifications.
   * Mantis 0001546: Bug in 'Diagnostics | Services | SSH'.
+  * Mantis 0001548: Failed to get S.M.A.R.T. settings.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 09 Jun 2016 22:40:29 +0200
 

@@ -263,8 +263,12 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.common.devicefile");
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		return $db->getAssoc("conf.service.smartmontools.device",
-		  "devicefile", $params['devicefile']);
+		$object = $db->getByFilter("conf.service.smartmontools.device", [
+			"operator" => "stringEquals",
+			"arg0" => "devicefile",
+			"arg1" => $params['devicefile']
+		], 1);
+		return $object->getAssoc();
 	}
 
 	/**
@@ -298,7 +302,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		$object->setAssoc([
 			"uuid" => $params['uuid'],
 			"enable" => $params['enable'],
-			"devicefile" => $sd->getDeviceFileById(),
+			"devicefile" => $params['devicefile'],
 			"devicetype" => $sd->getSmartDeviceType()
 		]);
 		// Set the configuration object.
