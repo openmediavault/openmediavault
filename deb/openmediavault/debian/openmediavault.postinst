@@ -635,9 +635,12 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.0.23"; then
 			# Modify the Zeroconf settings.
-			for id in "webadmin" "ssh" "nfs" "ftp" "tftp" "smb" "rsync"; do
-				omv_config_add_element "/config/services/zeroconf/services/service[id='${id}']" "uuid" "$(omv_uuid)"
-			done
+			xmlstarlet sel -t -m "/config/services/zeroconf/services/service" \
+			  -v "id" -n \
+			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+			  while read id; do
+				  omv_config_add_element "/config/services/zeroconf/services/service[id='${id}']" "uuid" "$(omv_uuid)"
+			  done
 		fi
 	;;
 
