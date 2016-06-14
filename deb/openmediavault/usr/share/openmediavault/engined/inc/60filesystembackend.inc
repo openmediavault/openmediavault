@@ -24,9 +24,9 @@ namespace OMV\System\Filesystem\Backend;
 ///////////////////////////////////////////////////////////////////////////////
 // Register default filesystem backends.
 ///////////////////////////////////////////////////////////////////////////////
-$backends = array("Btrfs", "Ext", "Ext2", "Ext3", "Ext4", "Hfsplus",
+$backends = [ "Btrfs", "Ext", "Ext2", "Ext3", "Ext4", "Hfsplus",
   "Iso9660", "Jfs", "Msdos", "None", "Ntfs", "Reiserfs", "Udf", "Ufs",
-  "Umsdos", "Vfat", "Xfs");
+  "Umsdos", "Vfat", "Xfs" ];
 $mngr = Manager::getInstance();
 foreach ($backends as $backendk => $backendv) {
 	$className = sprintf("%s\%s", __NAMESPACE__, $backendv);
