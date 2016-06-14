@@ -229,8 +229,9 @@ class DataModel extends \OMV\DataModel\DataModel {
 	 *   the properties type.
 	 */
 	public function getPropertyDefault($path) {
-		$propSchema = $this->getPropertiesSchema()->getAssocByPath($path);
 		$default = NULL;
+		// Get the JSON schema of the specified property.
+		$propSchema = $this->getPropertiesSchema()->getAssocByPath($path);
 		// Is a default value set in the data model? If not, then use
 		// a generic default value which depends on the type and other
 		// parameters defined in the data model.
@@ -268,8 +269,15 @@ class DataModel extends \OMV\DataModel\DataModel {
 				if (array_key_exists("format", $propSchema)) {
 					switch ($propSchema['type']) {
 					case "uuidv4":
-						$default = \OMV\Environment::get(
-						  "OMV_CONFIGOBJECT_NEW_UUID");
+						// If the property is the identifier of an iterable
+						// data model, then set the UUID which is defined as
+						// new configuration object ID.
+						if ($this->isIdentifiable()) {
+							if ($this->getIdProperty() == $path) {
+								$default = \OMV\Environment::get(
+								  "OMV_CONFIGOBJECT_NEW_UUID");
+							}
+						}
 						break;
 					}
 				}

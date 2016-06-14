@@ -56,7 +56,7 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 			if ($modulev instanceof \OMV\Engine\Module\INotification) {
 				$config = $modulev->getNotificationConfig();
 				foreach ($config as $configk => $configv) {
-					// Try to get the notification configuration object.
+					// Get the notification configuration object.
 					$db = \OMV\Config\Database::getInstance();
 					$object = $db->getByFilter(
 					  "conf.system.notification.notification", [
@@ -67,8 +67,10 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 					// Add additional properties.
 					$object->add("title", "string");
 					$object->add("type", "string");
-					$object->set("title", $configv['title']);
-					$object->set("type", $configv['type']);
+					$object->setFlatAssoc([
+						"title" => $configv['title'],
+						"type" => $configv['type']
+					]);
 					// Append object to result list.
 					$result[] = $object->getAssoc();
 				}
@@ -103,13 +105,12 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 					// Set default values.
 					$object = new \OMV\Config\ConfigObject(
 					  "conf.system.notification.notification");
-					$object->setNew(); // Mark the service configuration as new.
 					$object->set("id", $configv['id']);
 					$object->set("enable", FALSE);
 					// Process the RPC arguments.
 					foreach ($params as $paramk => $paramv) {
 						if ($paramv['id'] === $configv['id']) {
-							$object->setAssoc([
+							$object->setFlatAssoc([
 								"uuid" => $paramv['uuid'],
 								"enable" => $paramv['enable']
 							]);
@@ -143,9 +144,11 @@ class OMVRpcServiceNotification extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.notification.isenabled");
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get(
-		  "conf.system.notification.notification",
-		  "id", $params['id']);
+		$object = $db->getByFilter("conf.system.notification.notification", [
+			  "operator" => "stringEquals",
+			  "arg0" => "id",
+			  "arg1" => $params['id']
+		  ], 1);
 		// Get the notification status.
 		return $object->get("enable");
 	}
@@ -208,9 +211,11 @@ class OMVRpcServiceEmailNotification extends \OMV\Rpc\ServiceAbstract {
 		$object = new \OMV\Config\ConfigObject(
 		  "conf.system.notification.email");
 		$object->setAssoc($params, TRUE, TRUE);
-		$object->set("authentication.enable", $params['authenable']);
-		$object->set("authentication.username", $params['username']);
-		$object->set("authentication.password", $params['password']);
+		$object->setFlatAssoc([
+			"authentication.enable" => $params['authenable'],
+			"authentication.username" => $params['username'],
+			"authentication.password" => $params['password']
+		]);
 		// Set the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);

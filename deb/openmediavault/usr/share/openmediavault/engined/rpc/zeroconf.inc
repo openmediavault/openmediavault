@@ -54,7 +54,7 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 			// Check if the module implements the required interface.
 			if ($modulev instanceof \OMV\Engine\Module\IZeroconf) {
 				$config = $modulev->getZeroconfConfig();
-				// Try to get the Zeroconf service configuration object.
+				// Get the Zeroconf service configuration object.
 				$db = \OMV\Config\Database::getInstance();
 				$object = $db->getByFilter("conf.service.zeroconf.service", [
 					"operator" => "stringEquals",
@@ -96,14 +96,13 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 				// Set default values.
 				$object = new \OMV\Config\ConfigObject(
 				  "conf.service.zeroconf.service");
-				$object->setNew(); // Mark the service configuration as new.
 				$object->set("id", $config['id']);
 				$object->set("enable", FALSE);
 				$object->set("name", $config['title']);
 				// Process the RPC arguments.
 				foreach ($params as $paramk => $paramv) {
 					if ($paramv['id'] === $config['id']) {
-						$object->setAssoc([
+						$object->setFlatAssoc([
 							"uuid" => $paramv['uuid'],
 							"name" => $paramv['name'],
 							"enable" => $paramv['enable']
