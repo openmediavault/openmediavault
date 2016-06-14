@@ -27,6 +27,7 @@ namespace OMV\System;
 class Process {
 	private $cmdArgs = [];
 	private $redirect2toFile = FALSE;
+	private $inputFromFile = FALSE;
 	private $quiet = FALSE;
 	private $background = FALSE;
 	private $env = array(
@@ -68,13 +69,23 @@ class Process {
 	}
 
 	/**
-	 * Redirect STDERR to the given file. Set to FALSE to do not
-	 *   redirect STDERR to STDOUT.
+	 * Redirect STDERR to the given file. Set to FALSE to do not redirect
+	 * STDERR to STDOUT.
 	 * @param file The file path, e.g. '/dev/null'.
 	 * @return None.
 	 */
 	public function setRedirect2toFile($file) {
 		$this->redirect2toFile = $file;
+	}
+
+	/**
+	 * Accept input from a file. Set to FALSE to do not accept input from
+	 * a file.
+	 * @param file The file path.
+	 * @return None.
+	 */
+	public function setInputFromFile($file) {
+		$this->inputFromFile = $file;
 	}
 
 	/**
@@ -122,6 +133,8 @@ class Process {
 		$cmdArgs = array_merge($cmdArgs, $this->cmdArgs);
 		if (FALSE === empty($this->redirect2toFile))
 			$cmdArgs[] = sprintf("2>%s", $this->redirect2toFile);
+		if (FALSE === empty($this->inputFromFile))
+			$cmdArgs[] = sprintf("<%s", $this->inputFromFile);
 		if (TRUE === $this->background)
 			$cmdArgs[] = "&";
 		return implode(" ", $cmdArgs);

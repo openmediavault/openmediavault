@@ -309,22 +309,25 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 			$bgOutputFilename = $this->createBgProcOutput();
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
-			// Extract the filename if a full path to the repo is given, e.g.
-			// pool/updates/main/e/eglibc/libc6_2.13-38+deb7u4_amd64.deb, and
-			// replace special characters in filename.
-			$params['filename'] = str_replace(":", "%3a", basename(
-			  $params['filename']));
-			// Get the package name.
-			$parts = explode("_", $params['filename']);
+			// Get the package name. Note, there are files like
+			// bind9-host_1%3a9.9.5.dfsg-9+deb8u6_amd64.deb
+			// that need to be processed correctly. The problem is
+			// that the filename retrieved from the backend is
+			// bind9-host_9.9.5.dfsg-9+deb8u6_amd64.deb in this case.
+			$parts = explode("_", basename($params['filename'], ".deb"));
 			$packageName = $parts[0];
-			// Build the path to the archive.
-			$packageArchivePath = build_path(DIRECTORY_SEPARATOR,
-			  "/var/cache/apt/archives", $params['filename']);
+			// Build the file path to the package archive using wildcards
+			// to be able to find packages mentioned above.
+			// A package name is build like this:
+			// <name>_<version>_<architecture>.deb
+			$packagePath = build_path(DIRECTORY_SEPARATOR,
+			  "/var/cache/apt/archives", sprintf("%s_*%s_%s.deb",
+			  $parts[0], $parts[1], $parts[2]));
 			// Force download of the package if it does not exist in the
 			// package archive (/var/cache/apt/archives). Do not redirect
 			// the command output to the backgropund output file. Only the
 			// changelog will be redirected to this file.
-			if (!file_exists($packageArchivePath)) {
+			if (TRUE === empty(glob($packagePath))) {
 				$cmdArgs = [];
 				$cmdArgs[] = "--yes";
 				$cmdArgs[] = "--force-yes";
@@ -336,35 +339,46 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 				$cmd->setRedirect2to1();
 				$cmd->execute();
 			}
+			// The package should exist now.
+			$matches = glob($packagePath);
+			$packagePath = $matches[0];
+			if (FALSE === file_exists($packagePath)) {
+				throw new \OMV\Exception("Package file '%s' not found.",
+				  $params['filename']);
+			}
 			// Extract the changelog from the Debian package.
 			if (FALSE === ($tmpDir = mkdtemp())) {
 				throw new \OMV\Exception(
 				  "Failed to created a temporary directory.");
 			}
 			$cmd = sprintf("export LANG=C; dpkg-deb --fsys-tarfile %s | ".
-			  "tar -x --wildcards -C %s ./usr/share/doc/%s/changelog* 2>&1",
-			  escapeshellarg($packageArchivePath), $tmpDir, $packageName);
+			  "tar --extract --wildcards --directory=%s ".
+			  "./usr/share/doc/%s/changelog* 2>&1",
+			  escapeshellarg($packagePath), escapeshellarg($tmpDir),
+			  $packageName);
 			if (0 !== $this->exec($cmd, $output))
 				throw new \OMV\ExecException($cmd, $output);
 			// Process the extracted changelog. Note, the file is also
-			// compressed.
-			$found = FALSE;
-			foreach ([ "changelog.Debian.gz", "changelog.gz" ] as $filename) {
-				$filepath = build_path(DIRECTORY_SEPARATOR, $tmpDir,
-				  "usr/share/doc", $packageName, $filename);
-				if (file_exists($filepath)) {
-					// Extract the changelog content and redirect it to the
-					// background output file.
-					$cmd = sprintf("export LANG=C; gzip -dc < %s", $filepath);
-					if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
-						throw new \OMV\ExecException($cmd, $output);
-					$found = TRUE;
-					break;
-				}
-			}
-			// Changelog found?
-			if (FALSE === $found)
+			// compressed. The changelog file may be named like:
+			// - changelog.gz
+			// - changelog.Debian.gz
+			$matches = glob(build_path(DIRECTORY_SEPARATOR, $tmpDir,
+			  "usr/share/doc", $packageName, "changelog*.gz"));
+			if (TRUE === empty($matches))
 				throw new \OMV\Exception("No changelog found.");
+			// Extract the changelog content and redirect it to the
+			// background output file.
+			$cmdArgs = [];
+			$cmdArgs[] = "--decompress";
+			$cmdArgs[] = "--stdout";
+			$cmd = new \OMV\System\Process("gzip", $cmdArgs);
+			$cmd->setInputFromFile($matches[0]);
+			$cmd->setRedirect2to1();
+			if (0 !== $this->exec($cmd->getCommandLine(), $output,
+			  $bgOutputFilename)) {
+				throw new \OMV\ExecException($cmd->getCommandLine(),
+				  $output);
+			}
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
 		} catch(\Exception $e) {
