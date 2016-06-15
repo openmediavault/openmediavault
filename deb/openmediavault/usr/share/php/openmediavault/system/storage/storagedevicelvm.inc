@@ -90,7 +90,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	public function exists() {
 		try {
 			$this->getData();
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			return FALSE;
 		}
 		return !empty($this->uuid);
