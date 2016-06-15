@@ -1,6 +1,13 @@
+openmediavault (2.2.6) stable; urgency=low
+
+  * 
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 15 Jun 2016 17:48:30 +0200
+
 openmediavault (2.2.5) stable; urgency=low
 
   * Improve USB and rotational storage device detection.
+  * Fix the dirty modules file problem.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 04 Jun 2016 11:12:59 +0200
 
