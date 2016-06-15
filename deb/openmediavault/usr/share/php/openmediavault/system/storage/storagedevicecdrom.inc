@@ -26,7 +26,34 @@ namespace OMV\System\Storage;
  * @ingroup api
  */
 class StorageDeviceCDROM extends StorageDeviceAbstract {
-	public function isReadOnly() {
+	/**
+	 * Check if the given device is read-only.
+	 * @return Returns always TRUE.
+	 */
+	final public function isReadOnly() {
 		return TRUE;
+	}
+
+	/**
+	 * Checks if any media is available in the device.
+	 * @return Returns TRUE if a media is available, otherwise FALSE.
+	 */
+	public function IsMediaAvailable() {
+		if (FALSE === ($property = $this->getUdevProperty("ID_CDROM_MEDIA")))
+			return FALSE;
+		return ("1" == $property);
+	}
+
+	/**
+	 * Get the size of the device in bytes.
+	 * @return The size (64bit) of the device in bytes as string.
+	 */
+	public function getSize() {
+		// Check if a media is available.
+		if (FALSE === $this->IsMediaAvailable())
+			return "0";
+		// If a media is available, then call the parent class
+		// implementation.
+		return parent::getSize();
 	}
 }

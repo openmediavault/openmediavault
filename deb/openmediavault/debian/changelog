@@ -1,6 +1,8 @@
 openmediavault (3.0.23) stable; urgency=low
 
   * Various improvements and bugfixes.
+  * Mantis 0001532: Handle situations when no media is available in CDROM
+    devices.
   * Mantis 0001543: Can't change SMART options.
   * Mantis 0001544: Could not disable notifications.
   * Mantis 0001546: Bug in 'Diagnostics | Services | SSH'.
