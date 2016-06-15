@@ -1,5 +1,6 @@
 openmediavault (3.0.23) stable; urgency=low
 
+  * Update locales.
   * Various improvements and bugfixes.
   * Mantis 0001532: Handle situations when no media is available in CDROM
     devices.
