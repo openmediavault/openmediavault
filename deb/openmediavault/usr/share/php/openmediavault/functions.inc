@@ -257,13 +257,60 @@ function is_fs_uuid($var) {
 }
 
 /**
- * Finds out whether a variable describes a devicefile, e.g. /dev/sda1.
+ * Finds out whether a variable describes a devicefile, e.g. <ul>
+ * \li /dev/sda1.
+ * </ul>
  * @ingroup api
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable describes a devicefile, otherwise FALSE.
  */
 function is_devicefile($var) {
+	if (FALSE === is_string($var))
+		return FALSE;
 	return preg_match('/^\/dev\/.+$/i', $var) ? TRUE : FALSE;
+}
+
+/**
+ * Finds out whether a variable describes a devicefile, e.g. <ul>
+ * \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
+ * \li /dev/disk/by-uuid/2ED43920D438EC29 (NTFS)
+ * </ul>
+ * @ingroup api
+ * @param string $var The variable being evaluated.
+ * @return TRUE if the variable describes a devicefile, otherwise FALSE.
+ */
+function is_devicefile_by_uuid($var) {
+	if (FALSE === is_string($var))
+		return FALSE;
+	return preg_match('/^\/dev\/disk\/by-uuid\/.+$/i', $var) ? TRUE : FALSE;
+}
+
+/**
+ * Finds out whether a variable describes a devicefile, e.g. <ul>
+ * \li /dev/disk/by-id/usb-Kingston_DataTraveler_G2_001CC0EC21ADF011C6A20E35-0:0-part1
+ * </ul>
+ * @ingroup api
+ * @param string $var The variable being evaluated.
+ * @return TRUE if the variable describes a devicefile, otherwise FALSE.
+ */
+function is_devicefile_by_id($var) {
+	if (FALSE === is_string($var))
+		return FALSE;
+	return preg_match('/^\/dev\/disk\/by-id\/.+$/i', $var) ? TRUE : FALSE;
+}
+
+/**
+ * Finds out whether a variable describes a devicefile, e.g. <ul>
+ * \li /dev/disk/by-label/data
+ * </ul>
+ * @ingroup api
+ * @param string $var The variable being evaluated.
+ * @return TRUE if the variable describes a devicefile, otherwise FALSE.
+ */
+function is_devicefile_by_label($var) {
+	if (FALSE === is_string($var))
+		return FALSE;
+	return preg_match('/^\/dev\/disk\/by-label\/.+$/i', $var) ? TRUE : FALSE;
 }
 
 /**
@@ -273,9 +320,11 @@ function is_devicefile($var) {
  * @return Returns TRUE if the file is a block device, FALSE otherwise.
  */
 function is_block($filename) {
-	if(FALSE === file_exists($filename))
+	if (FALSE === is_string($var))
 		return FALSE;
-	if(FALSE === ($stat = stat($filename)))
+	if (FALSE === file_exists($filename))
+		return FALSE;
+	if (FALSE === ($stat = stat($filename)))
 		return FALSE;
 	// See http://www.kernel.org/doc/man-pages/online/pages/man2/stat.2.html
 	return $stat['mode'] & 060000;

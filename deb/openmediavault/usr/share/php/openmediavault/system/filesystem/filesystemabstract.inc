@@ -363,11 +363,16 @@ class FilesystemAbstract {
 	 */
 	public function getDeviceFileById() {
 		$this->getData();
-		// Get the storage device file of the filesystem.
-		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
-		  $this->getDeviceFile());
-		// Try to get the disk/by-id device file.
-		$deviceFile = $sd->getDeviceFileById();
+		// Get all device file symlinks.
+		$symlinks = $this->getDeviceFileSymlinks();
+		// Find a 'by-id' device file symlink.
+		$deviceFile = FALSE;
+		foreach ($symlinks as $symlinkk => $symlinkv) {
+			if (FALSE === is_devicefile_by_id($symlinkv))
+				continue;
+			$deviceFile = $symlinkv;
+			break;
+		}
 		if (FALSE === is_block($deviceFile)) {
 			throw new \OMV\Exception(
 			  "Filesystem '%s' does not have a disk/by-id device file.",
@@ -423,6 +428,35 @@ class FilesystemAbstract {
 	}
 
 	/**
+	 * Get all device file symlinks via udev, e.g.
+	 * \li /dev/disk/by-id/ata-WDC_WD15EARS-00MVWB0_WD-WMAZB2574325-part1
+	 * \li /dev/disk/by-id/wwn-0x50014ee635e20520-part1
+	 * \li /dev/disk/by-uuid/fc3e1da5-fd8d-4fda-341e-d0135efa7a7c
+	 * @return The device file symlinks as an array of strings.
+	 * @throw \OMV\ExecException
+	 */
+	public function getDeviceFileSymlinks() {
+		$cmdArgs = [];
+		$cmdArgs[] = "info";
+		$cmdArgs[] = "--query=symlink";
+		$cmdArgs[] = sprintf("--name=%s", escapeshellarg(
+		  $this->getDeviceFile()));
+		$cmd = new \OMV\System\Process("udevadm", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute($output);
+		// Parse the command output.
+		// Example:
+		// disk/by-id/ata-WDC_WD15EARS-00MVWB0_WD-WMAZB2574325-part1
+		// disk/by-id/wwn-0x50014ee635e20520-part1
+		// disk/by-uuid/fc3e1da5-fd8d-4fda-341e-d0135efa7a7c
+		$parts = explode(" ", $output[0]);
+		$result = [];
+		foreach ($parts as $partk => $partv)
+			$result[] = sprintf("/dev/%s", $partv);
+		return $result;
+	}
+
+	/**
 	 * Get the device file of the storage device which contains this
 	 * file system.
 	 * Example:
@@ -451,15 +485,16 @@ class FilesystemAbstract {
 		if (NULL === ($backend = $mngr->getBackend($deviceFile)))
 			return FALSE;
 		$parentDeviceFile = $backend->baseDeviceFile($deviceFile);
-		// Get the storage device file of the filesystems parent device, e.g.
-		// - /dev/sdb
-		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
-		  $parentDeviceFile);
-		// Try to get the disk/by-id device file, e.g.
-		// - /dev/disk/by-id/ata-WDC_WD15EARS-00MBWR0_WD-WMAZA2574223
-		// - /dev/disk/by-id/wwn-0x50023ed655e21720
-		if (TRUE === $sd->hasDeviceFileById())
-			$parentDeviceFile = $sd->getDeviceFileById();
+		if (FALSE === is_devicefile_by_id($parentDeviceFile)) {
+			// Get the storage device file of the filesystems parent device.
+			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
+			  $parentDeviceFile);
+			// Try to get the disk/by-id device file, e.g.
+			// - /dev/disk/by-id/ata-WDC_WD15EARS-00MBWR0_WD-WMAZA2574223
+			// - /dev/disk/by-id/wwn-0x50023ed655e21720
+			if (TRUE === $sd->hasDeviceFileById())
+				$parentDeviceFile = $sd->getDeviceFileById();
+		}
 		return $parentDeviceFile;
 	}
 

@@ -79,15 +79,16 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 	 *   will be returned.
 	 */
 	public function getDeviceFileById() {
-		if (!$this->deviceFileById) {
-			$devLinks = $this->getDeviceFileSymlinks();
+		if (FALSE === is_devicefile_by_id($this->deviceFileById)) {
 			// Set the device file by default.
 			$this->deviceFileById = $this->getDeviceFile();
+			// Get all device file symlinks.
+			$symlinks = $this->getDeviceFileSymlinks();
 			// Get the 'by-id' device file symlinks.
 			$deviceNamesById = [];
 			$regex = "/^\/dev\/disk\/by-id\/(.+)$/";
-			foreach ($devLinks as $devLinkk => $devLinkv) {
-				if (1 == preg_match($regex, $devLinkv, $matches))
+			foreach ($symlinks as $symlinkk => $symlinkv) {
+				if (1 == preg_match($regex, $symlinkv, $matches))
 					$deviceNamesById[] = $matches[1];
 			}
 			if (empty($deviceNamesById))
@@ -148,7 +149,7 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 	}
 
 	/**
-	* Get all device file symlinks via UDEV, e.g.
+	* Get all device file symlinks via udev, e.g.
 	* \li /dev/disk/by-id/wwn-0x5000cca211cc703c
 	* \li /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
 	* \li /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML
