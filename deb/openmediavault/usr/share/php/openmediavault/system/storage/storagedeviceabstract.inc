@@ -139,6 +139,15 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 	}
 
 	/**
+	 * Check whether the filesystem has a /dev/disk/by-id/xxx device path.
+	 * @return Returns TRUE if a disk/by-id device path exists,
+	 *   otherwise FALSE.
+	 */
+	public function hasDeviceFileById() {
+		return (FALSE !== $this->getDeviceFileById());
+	}
+
+	/**
 	* Get all device file symlinks via UDEV, e.g.
 	* \li /dev/disk/by-id/wwn-0x5000cca211cc703c
 	* \li /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038

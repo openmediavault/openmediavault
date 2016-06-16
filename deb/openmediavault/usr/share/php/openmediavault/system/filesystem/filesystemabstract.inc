@@ -123,7 +123,7 @@ class FilesystemAbstract {
 		if (1 !== preg_match($regex, $output[0], $matches))
 			return FALSE;
 		// Set default values and extract key/value pairs.
-		$data = array(
+		$data = [
 			"devicefile" => $matches[1],
 			"uuid" => "",
 			"label" => "",
@@ -137,7 +137,7 @@ class FilesystemAbstract {
 			"part_entry_size" => "",
 			"part_entry_disk" => "",
 			"usage" => ""
-		);
+		];
 		$parts = preg_split("/(\S+=\\\"[^\\\"]+\\\")|[\s]+/", $matches[2],
 		  -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
 		foreach ($parts as $partk => $partv) {
@@ -152,7 +152,7 @@ class FilesystemAbstract {
 		$this->label = $data['label'];
 		$this->type = $data['type'];
 		$this->usage = $data['usage'];
-		$this->partEntry = array(
+		$this->partEntry = [
 			"scheme" => $data['part_entry_scheme'],
 			"uuid" => $data['part_entry_uuid'],
 			"type" => $data['part_entry_type'],
@@ -161,7 +161,7 @@ class FilesystemAbstract {
 			"offset" => $data['part_entry_offset'],
 			"size" => $data['part_entry_size'],
 			"disk" => $data['part_entry_disk']
-		);
+		];
 
 		// Set flag to mark information has been successfully read.
 		$this->setCached(TRUE);
@@ -342,6 +342,20 @@ class FilesystemAbstract {
 	}
 
 	/**
+	 * Check whether the filesystem has a /dev/disk/by-uuid/xxx device path.
+	 * @return Returns TRUE if a disk/by-uuid device path exists,
+	 *   otherwise FALSE.
+	 */
+	public function hasDeviceFileByUuid() {
+		try {
+			$this->getDeviceFileByUuid();
+		} catch(\Exception $e) {
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	/**
 	 * Get the device path by ID, e.g. <ul>
 	 * \li /dev/disk/by-id/usb-Kingston_DataTraveler_G2_001CC0EC21ADF011C6A20E35-0:0-part1
 	 * </ul>
@@ -360,6 +374,20 @@ class FilesystemAbstract {
 			  $this->getDeviceFile());
 		}
 		return $deviceFileById;
+	}
+
+	/**
+	 * Check whether the filesystem has a /dev/disk/by-id/xxx device path.
+	 * @return Returns TRUE if a disk/by-id device path exists,
+	 *   otherwise FALSE.
+	 */
+	public function hasDeviceFileById() {
+		try {
+			$this->getDeviceFileById();
+		} catch(\Exception $e) {
+			return FALSE;
+		}
+		return TRUE;
 	}
 
 	/**
@@ -399,8 +427,17 @@ class FilesystemAbstract {
 	 */
 	public function getDeviceFiles() {
 		$this->getData();
-		$deviceFile = $this->getDeviceFile();
-		return array($deviceFile);
+		// Get the device file in the following prefered order:
+		// - /dev/disk/by-uuid/xxx
+		// - /dev/disk/by-id/xxx
+		// - /dev/xxx
+		if (TRUE === $this->hasDeviceFileByUuid())
+			$deviceFile = $this->getDeviceFileByUuid();
+		else if (TRUE === $this->hasDeviceFileById())
+			$deviceFile = $this->getDeviceFileById();
+		else
+			$deviceFile = $this->getDeviceFile();
+		return [ $deviceFile ];
 	}
 
 	/**
@@ -456,7 +493,7 @@ class FilesystemAbstract {
 		// Whether the partition schema is 'dos' then it is necessary to
 		// erase the MBR before, otherwise 'wipefs' fails, e.g.:
 		// wipefs: error: /dev/sdh1: appears to contain 'dos' partition table
-		if (in_array($this->getPartitionScheme(), array("dos", "vfat"))) {
+		if (in_array($this->getPartitionScheme(), [ "dos", "vfat" ])) {
 			// http://en.wikipedia.org/wiki/Master_boot_record
 			$cmdArgs = [];
 			$cmdArgs[] = "if=/dev/zero";
@@ -554,7 +591,7 @@ class FilesystemAbstract {
 			$matches = preg_split("/[\s,]+/", $outputv);
 			if (0 !== strcasecmp($mountPoint, $matches[6]))
 				continue;
-			$result = array(
+			$result = [
 				"devicefile" => $this->deviceFile,
 				"type" => $matches[1],
 				"blocks" => $matches[2],
@@ -563,7 +600,7 @@ class FilesystemAbstract {
 				"available" => binary_convert($matches[4], "KiB", "B"),
 				"percentage" => intval(trim($matches[5], "%")),
 				"mountpoint" => $matches[6]
-			);
+			];
 			break;
 		}
 		return $result;
@@ -614,10 +651,10 @@ class FilesystemAbstract {
 	 * @throw \OMV\ExecException
 	 */
 	public function mount($options = "") {
-		$cmdArgs = array("-v");
+		$cmdArgs = [ "-v" ];
 		if (!empty($options)) {
 			if (!is_array($options))
-				$options = array($options);
+				$options = [ $options ];
 			$cmdArgs[] = sprintf("-o %s", implode(",", $options));
 		}
 		if (TRUE === $this->hasUuid())
@@ -637,7 +674,7 @@ class FilesystemAbstract {
 	 * @throw \OMV\ExecException
 	 */
 	public function umount($force = FALSE, $lazy = FALSE) {
-		$cmdArgs = array("-v");
+		$cmdArgs = [ "-v" ];
 		if (TRUE === $force)
 			$cmdArgs[] = "-f";
 		if (TRUE === $lazy)
