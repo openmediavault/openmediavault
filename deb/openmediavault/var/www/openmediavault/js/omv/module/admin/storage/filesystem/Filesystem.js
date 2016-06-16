@@ -418,6 +418,13 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 		dataIndex: "label",
 		stateId: "label"
 	},{
+		xtype: "emptycolumn",
+		text: _("Parent Device"),
+		sortable: true,
+		hidden: true,
+		dataIndex: "parentdevicefile",
+		stateId: "parentdevicefile"
+	},{
 		text: _("Filesystem Type"),
 		sortable: true,
 		dataIndex: "type",
@@ -494,6 +501,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 						{ name: "uuid", type: "string" },
 						{ name: "devicefile", type: "string" },
 						{ name: "devicefiles", type: "array" },
+						{ name: "parentdevicefile", type: "string" },
 						{ name: "label", type: "string" },
 						{ name: "type", type: "string" },
 						{ name: "blocks", type: "string" },

@@ -78,6 +78,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Set default values.
 			$object = [
 				"devicefile" => $fs->getDeviceFile(),
+				"parentdevicefile" => $fs->getParentDeviceFile(),
 				"uuid" => $fs->getUuid(),
 				"label" => $fs->getLabel(),
 				"type" => $fs->getType(),
@@ -225,6 +226,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Get the filesystem details.
 			$object = [
 				"devicefile" => $fs->getDeviceFile(),
+				"parentdevicefile" => $fs->getParentDeviceFile(),
 				"uuid" => $fs->getUuid(),
 				"label" => $fs->getLabel(),
 				"type" => $fs->getType(),
@@ -343,6 +345,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Add the filesystem to the result list.
 			$objects[] = [
 				"devicefile" => $fsInfo['devicefile'],
+				"parentdevicefile" => $fsInfo['parentdevicefile'],
 				"devicefiles" => [ $fsInfo['devicefile'] ],
 				"uuid" => "", // Not available
 				"label" => $fsInfo['label'],
@@ -549,6 +552,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			$jsonFile->open("c");
 			$jsonFile->write([
 				"devicefile" => $fsDeviceFile,
+				"parentdevicefile" => $sd->getDeviceFile(),
 				"type" => $fsb->getType(),
 				"label" => $params['label']
 			]);
@@ -604,6 +608,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			$dispatcher->notify(OMV_NOTIFY_CREATE,
 			  "org.openmediavault.conf.system.filesystem", [
 				  "devicefile" => $sd->getDeviceFile(),
+				  "parentdevicefile" => $sd->getDeviceFile(),
 				  "type" => $fsb->getType(),
 				  "label" => $params['label']
 			  ]);

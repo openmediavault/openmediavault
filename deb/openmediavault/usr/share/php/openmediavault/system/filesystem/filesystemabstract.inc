@@ -450,7 +450,17 @@ class FilesystemAbstract {
 		$mngr = \OMV\System\Storage\Backend\Manager::getInstance();
 		if (NULL === ($backend = $mngr->getBackend($deviceFile)))
 			return FALSE;
-		return $backend->baseDeviceFile($deviceFile);
+		$parentDeviceFile = $backend->baseDeviceFile($deviceFile);
+		// Get the storage device file of the filesystems parent device, e.g.
+		// - /dev/sdb
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
+		  $parentDeviceFile);
+		// Try to get the disk/by-id device file, e.g.
+		// - /dev/disk/by-id/ata-WDC_WD15EARS-00MBWR0_WD-WMAZA2574223
+		// - /dev/disk/by-id/wwn-0x50023ed655e21720
+		if (TRUE === $sd->hasDeviceFileById())
+			$parentDeviceFile = $sd->getDeviceFileById();
+		return $parentDeviceFile;
 	}
 
 	/**
