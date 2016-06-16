@@ -332,13 +332,13 @@ class FilesystemAbstract {
 	public function getDeviceFileByUuid() {
 		$this->getData();
 		$this->assertUuid();
-		$deviceFileByUuid = sprintf("/dev/disk/by-uuid/%s", $this->getUuid());
-		if (FALSE === is_block($deviceFileByUuid)) {
+		$deviceFile = sprintf("/dev/disk/by-uuid/%s", $this->getUuid());
+		if (FALSE === is_block($deviceFile)) {
 			throw new \OMV\Exception(
 			  "Filesystem '%s' does not have a disk/by-uuid device file.",
 			  $this->getDeviceFile());
 		}
-		return $deviceFileByUuid;
+		return $deviceFile;
 	}
 
 	/**
@@ -367,13 +367,13 @@ class FilesystemAbstract {
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 		  $this->getDeviceFile());
 		// Try to get the disk/by-id device file.
-		$deviceFileById = $sd->getDeviceFileById();
-		if (FALSE === $deviceFileById) {
+		$deviceFile = $sd->getDeviceFileById();
+		if (FALSE === is_block($deviceFile)) {
 			throw new \OMV\Exception(
 			  "Filesystem '%s' does not have a disk/by-id device file.",
 			  $this->getDeviceFile());
 		}
-		return $deviceFileById;
+		return $deviceFile;
 	}
 
 	/**
@@ -384,6 +384,38 @@ class FilesystemAbstract {
 	public function hasDeviceFileById() {
 		try {
 			$this->getDeviceFileById();
+		} catch(\Exception $e) {
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	/**
+	 * Get the device path by label, e.g. <ul>
+	 * \li /dev/disk/by-label/data
+	 * </ul>
+	 * @return The device path (/dev/disk/by-label/xxx).
+	 */
+	public function getDeviceFileByLabel() {
+		$this->getData();
+		$this->assertLabel();
+		$deviceFile = sprintf("/dev/disk/by-label/%s", $this->getLabel());
+		if (FALSE === is_block($deviceFile)) {
+			throw new \OMV\Exception(
+			  "Filesystem '%s' does not have a disk/by-label device file.",
+			  $this->getDeviceFile());
+		}
+		return $deviceFile;
+	}
+
+	/**
+	 * Check whether the filesystem has a /dev/disk/by-label/xxx device path.
+	 * @return Returns TRUE if a disk/by-label device path exists,
+	 *   otherwise FALSE.
+	 */
+	public function hasDeviceFileByLabel() {
+		try {
+			$this->getDeviceFileByLabel();
 		} catch(\Exception $e) {
 			return FALSE;
 		}
@@ -428,10 +460,13 @@ class FilesystemAbstract {
 	public function getDeviceFiles() {
 		$this->getData();
 		// Get the device file in the following prefered order:
+		// - /dev/disk/by-label/xxx
 		// - /dev/disk/by-uuid/xxx
 		// - /dev/disk/by-id/xxx
 		// - /dev/xxx
-		if (TRUE === $this->hasDeviceFileByUuid())
+		if (TRUE === $this->hasDeviceFileByLabel())
+			$deviceFile = $this->getDeviceFileByLabel();
+		else if (TRUE === $this->hasDeviceFileByUuid())
 			$deviceFile = $this->getDeviceFileByUuid();
 		else if (TRUE === $this->hasDeviceFileById())
 			$deviceFile = $this->getDeviceFileById();
