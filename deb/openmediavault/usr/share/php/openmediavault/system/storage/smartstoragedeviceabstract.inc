@@ -22,11 +22,12 @@
 namespace OMV\System\Storage;
 
 /**
- * Abstract class implementing generic storage devices that support the
+ * Abstract class implementing storage devices that support the
  * S.M.A.R.T. AT Attachment (ATA) interface.
  * @ingroup api
  */
-abstract class StorageDeviceSmartAbstract extends StorageDevice {
+abstract class SmartStorageDeviceAbstract extends StorageDevice
+  implements ISmartStorageDevice {
 	protected $smartDeviceType = "";
 
 	/**

@@ -27,7 +27,7 @@ namespace OMV\System\Storage;
  * otherwise the disk will spin-up if it is in sleep mode.
  * @ingroup api
  */
-class StorageDeviceHDD extends StorageDeviceSmartAbstract {
+class StorageDeviceHDD extends SmartStorageDeviceAbstract {
 	/**
 	 * Get the current power mode status.
 	 * @return The current power mode status which can be

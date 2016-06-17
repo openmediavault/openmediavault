@@ -20,20 +20,27 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 namespace OMV\System\Storage;
+
 /**
- * This class provides a simple interface to handle KVM VirtIO devices.
+ * Interface for S.M.A.R.T. AT Attachment (ATA) devices.
  * @ingroup api
  */
-class StorageDeviceVirtIO extends SmartStorageDeviceAbstract {
-	protected $smartDeviceType = "sat";
+interface ISmartStorageDevice {
+	/**
+	 * Set the device type required by the smartctl command.
+	 * @return Returns the device type.
+	 */
+	public function setSmartDeviceType($type);
 
 	/**
-	 * See interface definition.
+	 * Identify the device type required by the smartctl command.
+	 * @return Returns the identified device type or an empty string.
 	 */
-	public function getDescription() {
-		$model = $this->getModel();
-		return sprintf("%s [%s, %s]", !empty($model) ? $model :
-		  gettext("VirtIO device"), $this->getDeviceFile(),
-		  binary_format($this->getSize()));
-	}
+	public function getSmartDeviceType();
+
+	/**
+	 * Get the S.M.A.R.T. information.
+	 * @throw \OMV\Exception
+	 */
+	public function getSmartInformation();
 }

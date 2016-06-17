@@ -26,7 +26,7 @@ namespace OMV\System\Storage;
  * devices, e.g. HP's Smart Array hardware RAID controller.
  * @ingroup api
  */
-class StorageDeviceCCISS extends StorageDeviceSmartAbstract {
+class StorageDeviceCCISS extends SmartStorageDeviceAbstract {
 	public function getDeviceName($canonical = FALSE) {
 		// Get the device name and convert '/' character to '!', e.g.
 		// cciss/c0d0 => cciss!c0d0.
@@ -48,8 +48,8 @@ class StorageDeviceCCISS extends StorageDeviceSmartAbstract {
 		// or from a matching USB ID entry in the drive database. Thus we
 		// have to do the job ourself for various hardware RAID devices.
 		if (empty($type) || ("auto" === $type)) {
-			if (1 == preg_match("/^cciss!c(\d)d(\d)$/", $this->getDeviceName(),
-			  $matches)) {
+			$regex = "/^cciss!c(\d)d(\d)$/";
+			if (1 == preg_match($regex, $this->getDeviceName(), $matches)) {
 				$type = $this->setSmartDeviceType(sprintf("cciss,%s",
 				  $matches[2]));
 			}

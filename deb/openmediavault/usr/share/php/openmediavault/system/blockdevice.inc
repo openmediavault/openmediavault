@@ -81,30 +81,14 @@ class BlockDevice implements IBlockDevice {
 	}
 
 	/**
-	 * Get the canonical device file, e.g. <ul>
-	 * \li /dev/root -> /dev/sde1
-	 * \li /dev/disk/by-uuid/4B04EA317E4AA567 -> /dev/sdd1
-	 * \li /dev/mapper/vg0-lv0 -> /dev/dm-0
-	 * </ul>
+	 * See interface definition.
 	 */
 	public function getCanonicalDeviceFile() {
 		return realpath($this->deviceFile);
 	}
 
 	/**
-	 * Get the device path by ID, e.g. <ul>
-	 * \li /dev/disk/by-id/wwn-0x5000cca211cc703c
-	 * \li /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
-	 * \li /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML-part2#
-	 * </ul>
-	 * The following order of paths will be retured if available: <ul>
-	 * \li ata-xxx
-	 * \li wwn-xxx
-	 * \li scsi-xxx
-	 * \li ...
-	 * </ul>
-	 * @return The device path (/dev/disk/by-id/xxx) if available,
-	 *   otherwise NULL will be returned.
+	 * See interface definition.
 	 */
 	public function getDeviceFileById() {
 		if (FALSE === is_devicefile_by_id($this->deviceFileById)) {
@@ -175,16 +159,8 @@ class BlockDevice implements IBlockDevice {
 	}
 
 	/**
-	* Get all device file symlinks via udev, e.g. <ul>
-	* \li /dev/disk/by-id/wwn-0x5000cca211cc703c
-	* \li /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
-	* \li /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML
-	* \li /dev/disk/by-path/pci-0000:00:02.5-scsi-0:0:0:0
-	* \li /dev/disk/by-id/ata-WDC_WD15EARS-00MVWB0_WD-WMAZB2574325-part1
-	* \li /dev/disk/by-uuid/fc3e1da5-fd8d-4fda-341e-d0135efa7a7c
-	* </ul>
-	* @return Returns an string array of device files.
-	*/
+	 * See interface definition.
+	 */
 	public function getDeviceFileSymlinks() {
 		if (FALSE === $this->hasUdevProperty("DEVLINKS"))
 			return [];

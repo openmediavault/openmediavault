@@ -251,7 +251,7 @@ class StorageDevice extends \OMV\System\BlockDevice {
 	 * @return TRUE if the device supports S.M.A.R.T., otherwise FALSE.
 	 */
 	public function hasSmartSupport() {
-		return ($this instanceof StorageDeviceSmartAbstract) ? TRUE : FALSE;
+		return is_a($this, "\OMV\System\Storage\ISmartStorageDevice");
 	}
 
 	/**
