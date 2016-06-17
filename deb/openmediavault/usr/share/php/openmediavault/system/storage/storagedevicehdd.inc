@@ -71,7 +71,6 @@ class StorageDeviceHDD extends SmartStorageDeviceAbstract {
 	public function getSmartDeviceType() {
 		$type = parent::getSmartDeviceType();
 		if (empty($type)) {
-			// TODO: The device type identification must be improved.
 			if (TRUE === $this->isUsb())
 				$type = $this->setSmartDeviceType("sat");
 		}
