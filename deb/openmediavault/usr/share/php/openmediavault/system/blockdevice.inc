@@ -19,13 +19,15 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Storage;
+namespace OMV\System;
 
 /**
- * Abstract class implementing generic block devices.
+ * This class implements an interface to a generic Linux block device.
  * @ingroup api
  */
-abstract class BlockDeviceAbstract implements IBlockDevice {
+class BlockDevice implements IBlockDevice {
+	use \OMV\System\UdevDevice;
+
 	protected $deviceFile = FALSE;
 	protected $size = FALSE;
 	protected $blockSize = FALSE;
@@ -135,5 +137,13 @@ abstract class BlockDeviceAbstract implements IBlockDevice {
 			return FALSE;
 		$devNumParts = explode(":", $devNum);
 		return intval($devNumParts[1]);
+	}
+
+	/**
+	 * See interface definition.
+	 */
+	public function getDescription() {
+		return sprintf("Block device %s [%s]", $this->getDeviceName(),
+		  $this->getDeviceNumber());
 	}
 }

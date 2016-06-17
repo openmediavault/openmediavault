@@ -25,9 +25,7 @@ namespace OMV\System\Storage;
  * Abstract class implementing generic storage devices.
  * @ingroup api
  */
-abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
-	use \OMV\System\UdevDevice;
-
+abstract class StorageDeviceAbstract extends \OMV\System\BlockDevice {
 	protected $deviceFileById = FALSE;
 	protected $model = FALSE;
 	protected $vendor = FALSE;
@@ -156,19 +154,12 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 	* \li /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML
 	* \li /dev/disk/by-path/pci-0000:00:02.5-scsi-0:0:0:0
 	* @return The device file symlinks as an array of strings.
-	* @throw \OMV\ExecException
 	*/
 	public function getDeviceFileSymlinks() {
-		$cmdArgs = [];
-		$cmdArgs[] = "info";
-		$cmdArgs[] = "--query=symlink";
-		$cmdArgs[] = sprintf("--name=%s", escapeshellarg(
-		  $this->getDeviceFile()));
-		$cmd = new \OMV\System\Process("udevadm", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute($output);
-		// Parse the command output.
-		// Example:
+		if (FALSE === $this->hasUdevProperty("DEVLINKS"))
+			return [];
+		$property = $this->getUdevProperty("DEVLINKS");
+		// Parse the property value, e.g.:
 		// disk/by-id/usb-Kingston_DataTraveler_G2_001CC0EC21ADF011C6A20E35-0:0-part1 disk/by-path/pci-0000:02:02.0-usb-0:1:1.0-scsi-0:0:0:0-part1 disk/by-uuid/3849-705A
 		$parts = explode(" ", $output[0]);
 		$result = [];
