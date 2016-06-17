@@ -21,6 +21,8 @@
  */
 namespace OMV\System;
 
+require_once("openmediavault/functions.inc");
+
 /**
  * This class implements an interface to a generic Linux block device.
  * @ingroup api
@@ -28,17 +30,29 @@ namespace OMV\System;
 class BlockDevice implements IBlockDevice {
 	use \OMV\System\UdevDevice;
 
-	protected $deviceFile = FALSE;
+	protected $deviceFile = NULL;
+	protected $deviceFileById = NULL;
 	protected $size = FALSE;
 	protected $blockSize = FALSE;
 	protected $sectorSize = FALSE;
 
 	/**
 	 * Constructor
-	 * @param deviceFile The device file.
+	 * @param deviceFile The device file, e.g. <ul>
+	 * \li /dev/sda2
+	 * \li /dev/sdb
+	 * \li /dev/md1
+	 * \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6
+	 * \li /dev/disk/by-id/wwn-0x5000cca211cc703c-part1
+	 * </ul>
 	 */
 	public function __construct($deviceFile) {
-		$this->deviceFile = $deviceFile;
+		if (TRUE === is_devicefile_by_id($deviceFile)) {
+			$this->deviceFileById = $deviceFile;
+			$this->deviceFile = realpath($deviceFile);
+		} else {
+			$this->deviceFile = $deviceFile;
+		}
 	}
 
 	/**
@@ -72,6 +86,113 @@ class BlockDevice implements IBlockDevice {
 	 */
 	public function getCanonicalDeviceFile() {
 		return realpath($this->deviceFile);
+	}
+
+	/**
+	 * Get the device path by ID, e.g. <ul>
+	 * \li /dev/disk/by-id/wwn-0x5000cca211cc703c
+	 * \li /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
+	 * \li /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML-part2#
+	 * </ul>
+	 * The following order of paths will be retured if available: <ul>
+	 * \li ata-xxx
+	 * \li wwn-xxx
+	 * \li scsi-xxx
+	 * \li ...
+	 * </ul>
+	 * @return The device path (/dev/disk/by-id/xxx) if available,
+	 *   otherwise NULL will be returned.
+	 */
+	public function getDeviceFileById() {
+		if (FALSE === is_devicefile_by_id($this->deviceFileById)) {
+			// Set the device file by default.
+			$this->deviceFileById = $this->getDeviceFile();
+			// Get all device file symlinks.
+			$symlinks = $this->getDeviceFileSymlinks();
+			// Get the 'by-id' device file symlinks.
+			$deviceNamesById = [];
+			$regex = "/^\/dev\/disk\/by-id\/(.+)$/";
+			foreach ($symlinks as $symlinkk => $symlinkv) {
+				if (1 == preg_match($regex, $symlinkv, $matches))
+					$deviceNamesById[] = $matches[1];
+			}
+			if (empty($deviceNamesById))
+				return NULL;
+			// Sort the device names in the following order:
+			// 1. ata-xxx
+			// 2. wwn-xxx
+			// 3. scsi-xxx
+			// 4. ...
+			//
+			// Legend:
+			// a=[a]ta-xxx
+			// w=[w]wn-xxx
+			// s=[s]csi-xxx
+			// x=any other device file name
+			// fn=call strnatcmp function
+			//
+			// Compare function matrix:
+			// |      | $b=a | $b=w | $b=s | $b=x |
+			// |------|------|------|------|------|
+			// | $a=a |  fn  |  -1  |  -1  |  -1  |
+			// | $a=w |   1  |  fn  |  -1  |  -1  |
+			// | $a=s |   1  |   1  |  fn  |  -1  |
+			// | $a=x |   1  |   1  |   1  |  fn  |
+			//
+			// Example:
+			// ata-WDC_WD2002FAEX-007BA0_WD-WCAY01065572
+			// wwn-0x50014ee25d4cdecd
+			// scsi-SATA_WDC_WD2002FAEX-_WD-WCAY01065572
+			// xxx...
+			// yyy...
+			usort($deviceNamesById, create_function('$a, $b',
+			  '$map = array("a" => 0, "w" => 1, "s" => 2);'.
+			  '$indexA = array_key_exists($a[0], $map) ? $map[$a[0]] : 3;'.
+			  '$indexB = array_key_exists($b[0], $map) ? $map[$b[0]] : 3;'.
+			  '$cmpMatrix = array('.
+			  '    0 => array(0, -1, -1, -1),'.
+			  '    1 => array(1,  0, -1, -1),'.
+			  '    2 => array(1,  1,  0, -1),'.
+			  '    3 => array(1,  1,  1,  0)'.
+			  ');'.
+			  '$cmpResult = $cmpMatrix[$indexA][$indexB];'.
+			  'return (0 !== $cmpResult) ? $cmpResult : strnatcmp($a, $b);'));
+			// Finally build the whole path of the device file.
+			$this->deviceFileById = sprintf("/dev/disk/by-id/%s",
+			  array_shift($deviceNamesById));
+		}
+		return $this->deviceFileById;
+	}
+
+	/**
+	 * Check whether the filesystem has a /dev/disk/by-id/xxx device path.
+	 * @return Returns TRUE if a disk/by-id device path exists,
+	 *   otherwise FALSE.
+	 */
+	public function hasDeviceFileById() {
+		return is_devicefile_by_id($this->getDeviceFileById());
+	}
+
+	/**
+	* Get all device file symlinks via udev, e.g. <ul>
+	* \li /dev/disk/by-id/wwn-0x5000cca211cc703c
+	* \li /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
+	* \li /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML
+	* \li /dev/disk/by-path/pci-0000:00:02.5-scsi-0:0:0:0
+	* </ul>
+	* @return Returns an string array of device files.
+	*/
+	public function getDeviceFileSymlinks() {
+		if (FALSE === $this->hasUdevProperty("DEVLINKS"))
+			return [];
+		$property = $this->getUdevProperty("DEVLINKS");
+		// Parse the property value, e.g.:
+		// disk/by-id/usb-Kingston_DataTraveler_G2_001CC0EC21ADF011C6A20E35-0:0-part1 disk/by-path/pci-0000:02:02.0-usb-0:1:1.0-scsi-0:0:0:0-part1 disk/by-uuid/3849-705A
+		$parts = explode(" ", $output[0]);
+		$result = [];
+		foreach ($parts as $partk => $partv)
+			$result[] = sprintf("/dev/%s", $partv);
+		return $result;
 	}
 
 	/**
