@@ -320,7 +320,7 @@ function is_devicefile_by_label($var) {
  * @return Returns TRUE if the file is a block device, FALSE otherwise.
  */
 function is_block($filename) {
-	if (FALSE === is_string($var))
+	if (FALSE === is_string($filename))
 		return FALSE;
 	if (FALSE === file_exists($filename))
 		return FALSE;

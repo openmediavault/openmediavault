@@ -26,10 +26,11 @@ namespace OMV\System\Storage;
  * @ingroup api
  */
 abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
+	use \OMV\System\UdevDevice;
+
 	protected $deviceFileById = FALSE;
 	protected $model = FALSE;
 	protected $vendor = FALSE;
-	protected $udevInfo = FALSE;
 
 	/**
 	 * Constructor
@@ -269,8 +270,9 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 	 * @return The device serial number, otherwise an empty string.
 	 */
 	public function getSerialNumber() {
-		if (FALSE === ($property = $this->getUdevProperty("ID_SERIAL_SHORT")))
+		if (FALSE === $this->hasUdevProperty("ID_SERIAL_SHORT"))
 			return "";
+		$property = $this->getUdevProperty("ID_SERIAL_SHORT");
 		return str_replace("_", " ", $property);
 	}
 
@@ -290,18 +292,18 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 	 */
 	public function isRotational() {
 		// Use udev property.
-		if (FALSE !== ($property = $this->getUdevProperty(
-		  "ID_SSD"))) {
+		if (TRUE === $this->hasUdevProperty("ID_SSD")) {
+			$property = $this->getUdevProperty("ID_SSD");
 			// If ID_SSD is not 1 then it is rotational.
 			return (0 == strcasecmp("1", $property)) ? FALSE : TRUE;
 		}
-		if (FALSE !== ($property = $this->getUdevProperty(
-		  "ID_ATA_ROTATION_RATE_RPM"))) {
+		if (TRUE === $this->hasUdevProperty("ID_ATA_ROTATION_RATE_RPM")) {
+			$property = $this->getUdevProperty("ID_ATA_ROTATION_RATE_RPM");
 			// If ID_ATA_ROTATION_RATE_RPM is non-zero then it is rotational.
 			return (0 == strcasecmp("0", $property)) ? FALSE : TRUE;
 		}
-		if (FALSE !== ($property = $this->getUdevProperty(
-		  "ID_ATA_FEATURE_SET_AAM"))) {
+		if (TRUE === $this->hasUdevProperty("ID_ATA_FEATURE_SET_AAM")) {
+			$property = $this->getUdevProperty("ID_ATA_FEATURE_SET_AAM");
 			// If ID_ATA_FEATURE_SET_AAM is non-zero then it is rotational.
 			return (0 == strcasecmp("0", $property)) ? FALSE : TRUE;
 		}
@@ -345,17 +347,20 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 	 */
 	public function isUsb() {
 		// Identify USB devices via 'ID_BUS=usb'.
-		if (FALSE !== ($property = $this->getUdevProperty("ID_BUS"))) {
+		if (TRUE === $this->hasUdevProperty("ID_BUS")) {
+			$property = $this->getUdevProperty("ID_BUS");
 			if (0 == strcasecmp("usb", $property))
 				return TRUE;
 		}
 		// Identify USB devices via 'ID_USB_DRIVER=usb-storage'.
-		if (FALSE !== ($property = $this->getUdevProperty("ID_USB_DRIVER"))) {
+		if (TRUE === $this->hasUdevProperty("ID_USB_DRIVER")) {
+			$property = $this->getUdevProperty("ID_USB_DRIVER");
 			if (0 == strcasecmp("usb-storage", $property))
 				return TRUE;
 		}
 		// Identify USB devices via 'ID_DRIVE_THUMB=1'.
-		if (FALSE !== ($property = $this->getUdevProperty("ID_DRIVE_THUMB"))) {
+		if (TRUE === $this->hasUdevProperty("ID_DRIVE_THUMB")) {
+			$property = $this->getUdevProperty("ID_DRIVE_THUMB");
 			if (0 == strcasecmp("1", $property))
 				return TRUE;
 		}
@@ -363,7 +368,8 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 		// Example:
 		// ID_PATH=pci-0000:02:02.0-usb-0:1:1.0-scsi-0:0:0:0
 		// ID_PATH=pci-0000:00:12.2-usb-0:3:1.0-scsi-0:0:0:0
-		if (FALSE !== ($property = $this->getUdevProperty("ID_PATH"))) {
+		if (TRUE === $this->hasUdevProperty("ID_PATH")) {
+			$property = $this->getUdevProperty("ID_PATH");
 			if (1 == preg_match('/^.+-usb-.+$/i', $property))
 				return TRUE;
 		}
@@ -375,8 +381,9 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 	 * @return TRUE if the device is connected via ATA, otherwise FALSE.
 	 */
 	public function isAta() {
-		if (FALSE === ($property = $this->getUdevProperty("ID_BUS")))
+		if (FALSE === $this->hasUdevProperty("ID_BUS"))
 			return FALSE;
+		$property = $this->getUdevProperty("ID_BUS");
 		return (0 == strcasecmp("ata", $property)) ? TRUE : FALSE;
 	}
 
@@ -386,85 +393,6 @@ abstract class StorageDeviceAbstract extends BlockDeviceAbstract {
 	 */
 	public function isReadOnly() {
 		return FALSE;
-	}
-
-	/**
-	 * Queries the udev database for device information stored in the udev
-	 * database.
-	 * @param id The name of the property, e.g. ID_VENDOR, ID_MODEL or
-	 *   ID_SERIAL_SHORT.
-	 * @return The requested property, otherwise FALSE.
-	 * @throw \OMV\ExecException
-	 */
-	protected function getUdevProperty($id) {
-		// Do we need to get the udev information?
-		if (FALSE === $this->udevInfo) {
-			$cmdArgs = [];
-			$cmdArgs[] = "info";
-			$cmdArgs[] = "--query=property";
-			$cmdArgs[] = sprintf("--name=%s", escapeshellarg(
-			  $this->getDeviceFile()));
-			$cmd = new \OMV\System\Process("udevadm", $cmdArgs);
-			$cmd->setRedirect2to1();
-			$cmd->execute($output);
-			// Parse output:
-			// UDEV_LOG=3
-			// DEVPATH=/devices/pci0000:00/0000:00:10.0/host2/target2:0:1/2:0:1:0/block/sdb
-			// MAJOR=8
-			// MINOR=16
-			// DEVNAME=/dev/sdb
-			// DEVTYPE=disk
-			// SUBSYSTEM=block
-			// ID_SCSI=1
-			// ID_VENDOR=VMware_
-			// ID_VENDOR_ENC=VMware\x2c\x20
-			// ID_MODEL=VMware_Virtual_S
-			// ID_MODEL_ENC=VMware\x20Virtual\x20S
-			//
-			// DEVLINKS=/dev/disk/by-id/ata-IBM-DTTA-341050_WF0WABH1579 /dev/disk/by-id/scsi-SATA_IBM-DTTA-341050_WF0WABH1579 /dev/disk/by-path/pci-0000:00:02.5-scsi-0:0:0:0
-			// DEVNAME=/dev/sda
-			// DEVPATH=/devices/pci0000:00/0000:00:02.5/host0/target0:0:0/0:0:0:0/block/sda
-			// DEVTYPE=disk
-			// ID_ATA=1
-			// ID_ATA_FEATURE_SET_HPA=1
-			// ID_ATA_FEATURE_SET_HPA_ENABLED=1
-			// ID_ATA_FEATURE_SET_PM=1
-			// ID_ATA_FEATURE_SET_PM_ENABLED=1
-			// ID_ATA_FEATURE_SET_SECURITY=1
-			// ID_ATA_FEATURE_SET_SECURITY_ENABLED=0
-			// ID_ATA_FEATURE_SET_SECURITY_ERASE_UNIT_MIN=22
-			// ID_ATA_FEATURE_SET_SMART=1
-			// ID_ATA_FEATURE_SET_SMART_ENABLED=0
-			// ID_ATA_WRITE_CACHE=1
-			// ID_ATA_WRITE_CACHE_ENABLED=1
-			// ID_BUS=ata
-			// ID_MODEL=IBM-DTTA-351010
-			// ID_MODEL_ENC=IBM-DTTA-351010\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
-			// ID_PART_TABLE_TYPE=dos
-			// ID_PATH=pci-0000:00:02.5-scsi-0:0:0:0
-			// ID_PATH_TAG=pci-0000_00_02_5-scsi-0_0_0_0
-			// ID_REVISION=T56OA7A3
-			// ID_SCSI_COMPAT=SATA_IBM-DTTA-341050_WF0WABH1579
-			// ID_SERIAL=IBM-DTTA-341050_WF0WABH1579
-			// ID_SERIAL_SHORT=WF0WFJH1486
-			// ID_TYPE=disk
-			// MAJOR=8
-			// MINOR=0
-			// SUBSYSTEM=block
-			// UDEV_LOG=3
-			// USEC_INITIALIZED=16872806
-			$this->udevInfo = [];
-			foreach ($output as $row) {
-				$data = explode("=", $row);
-				if (empty($data))
-					continue;
-				$key = trim($data[0]);
-				$this->udevInfo[$key] = $data[1];
-			}
-		}
-		if (!array_key_exists($id, $this->udevInfo))
-			return FALSE;
-		return $this->udevInfo[$id];
 	}
 
 	/**

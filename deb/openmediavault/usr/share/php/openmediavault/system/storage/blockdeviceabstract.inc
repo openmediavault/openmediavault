@@ -53,7 +53,7 @@ abstract class BlockDeviceAbstract implements IBlockDevice {
 	 */
 	public function assertExists() {
 		if (FALSE === $this->exists()) {
-			throw new \OMV\AssertException("Device '%s' not found.",
+			throw new \OMV\AssertException("Device '%s' does not exist.",
 			  $this->getDeviceFile());
 		}
 	}

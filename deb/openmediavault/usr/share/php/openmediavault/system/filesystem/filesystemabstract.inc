@@ -489,11 +489,13 @@ class FilesystemAbstract {
 			// Get the storage device file of the filesystems parent device.
 			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 			  $parentDeviceFile);
-			// Try to get the disk/by-id device file, e.g.
-			// - /dev/disk/by-id/ata-WDC_WD15EARS-00MBWR0_WD-WMAZA2574223
-			// - /dev/disk/by-id/wwn-0x50023ed655e21720
-			if (TRUE === $sd->hasDeviceFileById())
-				$parentDeviceFile = $sd->getDeviceFileById();
+			if (FALSE === is_null($sd)) {
+				// Try to get the disk/by-id device file, e.g.
+				// - /dev/disk/by-id/ata-WDC_WD15EARS-00MBWR0_WD-WMAZA2574223
+				// - /dev/disk/by-id/wwn-0x50023ed655e21720
+				if (TRUE === $sd->hasDeviceFileById())
+					$parentDeviceFile = $sd->getDeviceFileById();
+			}
 		}
 		return $parentDeviceFile;
 	}
