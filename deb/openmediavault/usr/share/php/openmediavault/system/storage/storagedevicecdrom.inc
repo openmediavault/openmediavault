@@ -25,7 +25,7 @@ namespace OMV\System\Storage;
  * This class provides a simple interface to handle CD-ROM devices.
  * @ingroup api
  */
-class StorageDeviceCDROM extends StorageDeviceAbstract {
+class StorageDeviceCDROM extends StorageDevice {
 	/**
 	 * Check if the given device is read-only.
 	 * @return Returns always TRUE.

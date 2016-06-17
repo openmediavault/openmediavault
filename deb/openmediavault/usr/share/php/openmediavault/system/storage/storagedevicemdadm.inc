@@ -25,7 +25,7 @@ namespace OMV\System\Storage;
  * This class provides a simple interface to handle software RAID devices.
  * @ingroup api
  */
-class StorageDeviceMdadm extends StorageDeviceAbstract {
+class StorageDeviceMdadm extends StorageDevice {
 	protected $name = "";
 	protected $level = FALSE;
 	protected $devices = [];

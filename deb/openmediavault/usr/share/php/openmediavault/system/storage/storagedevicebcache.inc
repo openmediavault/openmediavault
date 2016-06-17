@@ -25,7 +25,7 @@ namespace OMV\System\Storage;
  * This class provides a simple interface to handle Linux Bcache devices.
  * @ingroup api
  */
-class StorageDeviceBcache extends StorageDeviceAbstract {
+class StorageDeviceBcache extends StorageDevice {
 	/**
 	 * Get the slave devices of the Bcache device.
 	 * @return An array of device files, otherwise FALSE.

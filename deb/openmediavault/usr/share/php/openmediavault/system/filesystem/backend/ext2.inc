@@ -35,7 +35,7 @@ class Ext2 extends Ext {
 	 * See parent class definition.
 	 */
 	public function getFstabMntOptions(
-	  \OMV\System\Storage\StorageDeviceAbstract $sd = null) {
+	  \OMV\System\Storage\StorageDevice $sd = null) {
 		$options = parent::getFstabMntOptions($sd);
 		$options[] = "acl";
 		return $options;

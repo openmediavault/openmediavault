@@ -26,7 +26,7 @@ namespace OMV\System\Storage;
  * Devices (RBD).
  * @ingroup api
  */
-class StorageDeviceRDB extends StorageDeviceAbstract {
+class StorageDeviceRDB extends StorageDevice {
 	public function isRotational() {
 		// It is a virtual device.
 		return FALSE;

@@ -25,7 +25,7 @@ namespace OMV\System\Storage;
  * This class provides a simple interface to handle loop devices.
  * @ingroup api
  */
-class StorageDeviceLoop extends StorageDeviceAbstract {
+class StorageDeviceLoop extends StorageDevice {
 	/**
 	 * Get the description of the device.
 	 * @return The device description, FALSE on failure.

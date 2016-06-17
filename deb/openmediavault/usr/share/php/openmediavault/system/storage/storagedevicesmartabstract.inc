@@ -26,7 +26,7 @@ namespace OMV\System\Storage;
  * S.M.A.R.T. AT Attachment (ATA) interface.
  * @ingroup api
  */
-abstract class StorageDeviceSmartAbstract extends StorageDeviceAbstract {
+abstract class StorageDeviceSmartAbstract extends StorageDevice {
 	protected $smartDeviceType = "";
 
 	/**

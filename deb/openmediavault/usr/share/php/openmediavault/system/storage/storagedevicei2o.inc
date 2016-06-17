@@ -26,7 +26,7 @@ namespace OMV\System\Storage;
  * RAID devices.
  * @ingroup api
  */
-class StorageDeviceI2O extends StorageDeviceAbstract {
+class StorageDeviceI2O extends StorageDevice {
 	public function isRaid() {
 		return TRUE;
 	}

@@ -26,7 +26,7 @@ namespace OMV\System\Storage;
  * (NVM) devices.
  * @ingroup api
  */
-class StorageDeviceNVM extends StorageDeviceAbstract {
+class StorageDeviceNVM extends StorageDevice {
 	public function isRotational() {
 		return FALSE;
 	}

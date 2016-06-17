@@ -26,7 +26,7 @@ namespace OMV\System\Storage;
  * See http://en.wikipedia.org/wiki/Device_mapper for more details.
  * @ingroup api
  */
-class StorageDeviceDM extends StorageDeviceAbstract {
+class StorageDeviceDM extends StorageDevice {
 	/**
 	 * Constructor
 	 * @param deviceFile Specifies the device file, e.g. /dev/dm-1,

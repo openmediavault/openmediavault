@@ -227,7 +227,7 @@ abstract class BackendAbstract {
 	 * @return An array of 'mount' options.
 	 */
 	public function getFstabMntOptions(
-	  \OMV\System\Storage\StorageDeviceAbstract $sd = null) {
+	  \OMV\System\Storage\StorageDevice $sd = null) {
 		$options = $this->mntOptions;
 		// Check if the device is a non-rotational type (e.g. SSD, DOM,
 		// CF card, USB stick, ...).
@@ -260,7 +260,7 @@ abstract class BackendAbstract {
 	 * @return An array of 'mkfs' options.
 	 */
 	public function getMkfsOptions(
-	  \OMV\System\Storage\StorageDeviceAbstract $sd = null) {
+	  \OMV\System\Storage\StorageDevice $sd = null) {
 		return $this->mkfsOptions;
 	}
 

@@ -26,7 +26,7 @@ namespace OMV\System\Storage;
  * (MMC) devices.
  * @ingroup api
  */
-class StorageDeviceMMC extends StorageDeviceAbstract {
+class StorageDeviceMMC extends StorageDevice {
 	public function isRotational() {
 		return FALSE;
 	}
