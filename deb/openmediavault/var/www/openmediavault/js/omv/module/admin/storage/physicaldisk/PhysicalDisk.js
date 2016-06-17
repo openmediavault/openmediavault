@@ -217,8 +217,10 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 							type: "string",
 							convert: function(value, record) {
 								// Prefer the /dev/disk/by-id/xxx device file.
-								if (false !== record.get("devicefilebyid"))
+								if (Ext.isDeviceFile(record.get(
+								  "devicefilebyid"))) {
 									value = record.get("devicefilebyid");
+								}
 								return value;
 							}
 						},

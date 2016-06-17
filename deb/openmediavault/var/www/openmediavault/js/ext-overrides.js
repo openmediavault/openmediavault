@@ -936,5 +936,16 @@ Ext.applyIf(Ext, {
 	 */
 	isNull: function(value) {
 		return (value == null);
+	},
+
+	/**
+	 * Finds out whether a variable describes a devicefile.
+	 * @param value The variable being evaluated.
+	 * @return TRUE if the variable describes a devicefile, otherwise FALSE.
+	 */
+	isDeviceFile: function(value) {
+		if (!Ext.isString(value))
+			return false;
+		return /^\/dev\/.+$/i.test(value);
 	}
 });

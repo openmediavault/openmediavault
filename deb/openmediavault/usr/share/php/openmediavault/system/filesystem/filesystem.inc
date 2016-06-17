@@ -669,7 +669,8 @@ class Filesystem extends \OMV\System\BlockDevice {
 	 * @throw \OMV\ExecException
 	 */
 	public function mount($options = "") {
-		$cmdArgs = [ "-v" ];
+		$cmdArgs = [];
+		$cmdArgs[] = "-v";
 		if (!empty($options)) {
 			if (!is_array($options))
 				$options = [ $options ];
@@ -692,7 +693,8 @@ class Filesystem extends \OMV\System\BlockDevice {
 	 * @throw \OMV\ExecException
 	 */
 	public function umount($force = FALSE, $lazy = FALSE) {
-		$cmdArgs = [ "-v" ];
+		$cmdArgs = [];
+		$cmdArgs[] = "-v";
 		if (TRUE === $force)
 			$cmdArgs[] = "-f";
 		if (TRUE === $lazy)
@@ -754,9 +756,13 @@ class Filesystem extends \OMV\System\BlockDevice {
 		// An alternative implementation is:
 		// blkid -p -u filesystem <devicefile>
 		// Scan output for tag PTTYPE.
-		$cmdArgs = sprintf("export LANG=C; blkid | grep -E '^%s.*:".
-		  ".+\sTYPE=.+$'", $deviceFile);
-		$cmd = new \OMV\System\Process($cmdArgs);
+		$cmdArgs = [];
+		$cmdArgs[] = "|";
+		$cmdArgs[] = "grep";
+		$cmdArgs[] = "-E";
+		$cmdArgs[] = escapeshellarg(sprintf("^%s.*:.+\sTYPE=.+$",
+		  $deviceFile));
+		$cmd = new \OMV\System\Process("blkid", $cmdArgs);
 		$cmd->setQuiet(TRUE);
 		$cmd->execute($output, $exitStatus);
 		if ($exitStatus !== 0)
