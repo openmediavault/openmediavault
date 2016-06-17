@@ -27,10 +27,9 @@ require_once("openmediavault/functions.inc");
  * Abstract class implementing generic file systems.
  * @ingroup api
  */
-class FilesystemAbstract {
-	protected $uuid = "";
+class FilesystemAbstract extends \OMV\System\BlockDevice {
+	protected $uuid = NULL;
 	protected $type = "";
-	protected $deviceFile = "";
 	protected $label = "";
 	protected $partEntry = NULL;
 	protected $usage = "";
@@ -53,10 +52,9 @@ class FilesystemAbstract {
 	 *   </ul>
 	 */
 	public function __construct($id) {
-		if (!is_devicefile($id))
+		parent::__construct($id);
+		if (TRUE === is_fs_uuid($id))
 			$this->uuid = $id;
-		else
-			$this->deviceFile = $id;
 	}
 
 	protected function isCached() {
@@ -77,7 +75,7 @@ class FilesystemAbstract {
 		if (FALSE !== $this->isCached())
 			return;
 
-		if (!empty($this->uuid)) {
+		if (TRUE === is_fs_uuid($this->uuid)) {
 			// Get the device name containing the file system. This is
 			// required for the blkid low-level probing mode.
 			// Do not use /dev/disk/by-uuid/xxx because this will cause
@@ -101,7 +99,7 @@ class FilesystemAbstract {
 		// Note, limit this to the given types, otherwise unexpected behaviors
 		// might occur, e.g. the name of the LVM device /dev/mapper/vg0-lv0
 		// will be replaced by /dev/dm-0.
-		if (1 == preg_match("/^\/dev\/disk\/by-.+$/", $this->deviceFile))
+		if (TRUE === is_devicefile_by($this->deviceFile))
 			$this->deviceFile = realpath($this->deviceFile);
 
 		// Get the file system information.
@@ -313,16 +311,6 @@ class FilesystemAbstract {
 	}
 
 	/**
-	 * Get the canonical device file, e.g. <ul>
-	 * \li /dev/root -> /dev/sde1
-	 * \li /dev/disk/by-uuid/4B04EA317E4AA567 -> /dev/sdd1
-	 * </ul>
-	 */
-	public function getCanonicalDeviceFile() {
-		return realpath($this->deviceFile);
-	}
-
-	/**
 	 * Get the device path by UUID, e.g. <ul>
 	 * \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
 	 * \li /dev/disk/by-uuid/2ED43920D438EC29 (NTFS)
@@ -363,36 +351,13 @@ class FilesystemAbstract {
 	 */
 	public function getDeviceFileById() {
 		$this->getData();
-		// Get all device file symlinks.
-		$symlinks = $this->getDeviceFileSymlinks();
-		// Find a 'by-id' device file symlink.
-		$deviceFile = FALSE;
-		foreach ($symlinks as $symlinkk => $symlinkv) {
-			if (FALSE === is_devicefile_by_id($symlinkv))
-				continue;
-			$deviceFile = $symlinkv;
-			break;
-		}
+		$deviceFile = parent::getDeviceFileById();
 		if (FALSE === is_block($deviceFile)) {
 			throw new \OMV\Exception(
 			  "Filesystem '%s' does not have a disk/by-id device file.",
 			  $this->getDeviceFile());
 		}
 		return $deviceFile;
-	}
-
-	/**
-	 * Check whether the filesystem has a /dev/disk/by-id/xxx device path.
-	 * @return Returns TRUE if a disk/by-id device path exists,
-	 *   otherwise FALSE.
-	 */
-	public function hasDeviceFileById() {
-		try {
-			$this->getDeviceFileById();
-		} catch(\Exception $e) {
-			return FALSE;
-		}
-		return TRUE;
 	}
 
 	/**
@@ -425,35 +390,6 @@ class FilesystemAbstract {
 			return FALSE;
 		}
 		return TRUE;
-	}
-
-	/**
-	 * Get all device file symlinks via udev, e.g.
-	 * \li /dev/disk/by-id/ata-WDC_WD15EARS-00MVWB0_WD-WMAZB2574325-part1
-	 * \li /dev/disk/by-id/wwn-0x50014ee635e20520-part1
-	 * \li /dev/disk/by-uuid/fc3e1da5-fd8d-4fda-341e-d0135efa7a7c
-	 * @return The device file symlinks as an array of strings.
-	 * @throw \OMV\ExecException
-	 */
-	public function getDeviceFileSymlinks() {
-		$cmdArgs = [];
-		$cmdArgs[] = "info";
-		$cmdArgs[] = "--query=symlink";
-		$cmdArgs[] = sprintf("--name=%s", escapeshellarg(
-		  $this->getDeviceFile()));
-		$cmd = new \OMV\System\Process("udevadm", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute($output);
-		// Parse the command output.
-		// Example:
-		// disk/by-id/ata-WDC_WD15EARS-00MVWB0_WD-WMAZB2574325-part1
-		// disk/by-id/wwn-0x50014ee635e20520-part1
-		// disk/by-uuid/fc3e1da5-fd8d-4fda-341e-d0135efa7a7c
-		$parts = explode(" ", $output[0]);
-		$result = [];
-		foreach ($parts as $partk => $partv)
-			$result[] = sprintf("/dev/%s", $partv);
-		return $result;
 	}
 
 	/**

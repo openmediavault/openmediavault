@@ -50,7 +50,7 @@ class BlockDevice implements IBlockDevice {
 		if (TRUE === is_devicefile_by_id($deviceFile)) {
 			$this->deviceFileById = $deviceFile;
 			$this->deviceFile = realpath($deviceFile);
-		} else {
+		} else if (TRUE === is_devicefile($deviceFile)) {
 			$this->deviceFile = $deviceFile;
 		}
 	}
@@ -82,7 +82,11 @@ class BlockDevice implements IBlockDevice {
 	}
 
 	/**
-	 * Get the canonical device file, e.g. /dev/mapper/vg0-lv0 -> /dev/dm-0
+	 * Get the canonical device file, e.g. <ul>
+	 * \li /dev/root -> /dev/sde1
+	 * \li /dev/disk/by-uuid/4B04EA317E4AA567 -> /dev/sdd1
+	 * \li /dev/mapper/vg0-lv0 -> /dev/dm-0
+	 * </ul>
 	 */
 	public function getCanonicalDeviceFile() {
 		return realpath($this->deviceFile);
@@ -179,6 +183,8 @@ class BlockDevice implements IBlockDevice {
 	* \li /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
 	* \li /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML
 	* \li /dev/disk/by-path/pci-0000:00:02.5-scsi-0:0:0:0
+	* \li /dev/disk/by-id/ata-WDC_WD15EARS-00MVWB0_WD-WMAZB2574325-part1
+	* \li /dev/disk/by-uuid/fc3e1da5-fd8d-4fda-341e-d0135efa7a7c
 	* </ul>
 	* @return Returns an string array of device files.
 	*/
