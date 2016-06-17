@@ -108,8 +108,6 @@ class BlockDevice implements IBlockDevice {
 	 */
 	public function getDeviceFileById() {
 		if (FALSE === is_devicefile_by_id($this->deviceFileById)) {
-			// Set the device file by default.
-			$this->deviceFileById = $this->getDeviceFile();
 			// Get all device file symlinks.
 			$symlinks = $this->getDeviceFileSymlinks();
 			// Get the 'by-id' device file symlinks.
@@ -119,7 +117,7 @@ class BlockDevice implements IBlockDevice {
 				if (1 == preg_match($regex, $symlinkv, $matches))
 					$deviceNamesById[] = $matches[1];
 			}
-			if (empty($deviceNamesById))
+			if (TRUE === empty($deviceNamesById))
 				return NULL;
 			// Sort the device names in the following order:
 			// 1. ata-xxx
@@ -192,11 +190,18 @@ class BlockDevice implements IBlockDevice {
 			return [];
 		$property = $this->getUdevProperty("DEVLINKS");
 		// Parse the property value, e.g.:
-		// disk/by-id/usb-Kingston_DataTraveler_G2_001CC0EC21ADF011C6A20E35-0:0-part1 disk/by-path/pci-0000:02:02.0-usb-0:1:1.0-scsi-0:0:0:0-part1 disk/by-uuid/3849-705A
-		$parts = explode(" ", $output[0]);
+		// - disk/by-id/usb-Kingston_DataTraveler_G2_001CC0EC21ADF011C6A20E35-0:0-part1 disk/by-path/pci-0000:02:02.0-usb-0:1:1.0-scsi-0:0:0:0-part1 disk/by-uuid/3849-705A
+		// - /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
+		// - /dev/disk/by-id/ata-ST1000DM003-1CH132_S2DF60PB /dev/disk/by-id/wwn-0x5000b5016caa4832
+		$parts = explode(" ", $property);
 		$result = [];
-		foreach ($parts as $partk => $partv)
-			$result[] = sprintf("/dev/%s", $partv);
+		foreach ($parts as $partk => $partv) {
+			// Make sure that the device path is correct.
+			if (TRUE === is_devicefile_by($partv))
+				$result[] = $partv;
+			else
+				$result[] = sprintf("/dev/%s", $partv);
+		}
 		return $result;
 	}
 
