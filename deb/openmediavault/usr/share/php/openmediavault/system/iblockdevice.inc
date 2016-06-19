@@ -30,13 +30,13 @@ interface IBlockDevice {
 	 * Checks if the device exists.
 	 * @return TRUE if the device exists, otherwise FALSE.
 	 */
-	function exists();
+	public function exists();
 
 	/**
-	 * Get the device path, e.g. /dev/sda.
-	 * @return The device path.
+	 * Get the device file, e.g. /dev/sda.
+	 * @return Returns the device file.
 	 */
-	function getDeviceFile();
+	public function getDeviceFile();
 
 	/**
 	 * Get the canonical device file, e.g. <ul>
@@ -44,11 +44,12 @@ interface IBlockDevice {
 	 * \li /dev/disk/by-uuid/4B04EA317E4AA567 -> /dev/sdd1
 	 * \li /dev/mapper/vg0-lv0 -> /dev/dm-0
 	 * </ul>
+	 * @return Returns the canonical device file.
 	 */
 	public function getCanonicalDeviceFile();
 
 	/**
-	 * Get the device path by ID, e.g. <ul>
+	 * Get the device file by ID, e.g. <ul>
 	 * \li /dev/disk/by-id/wwn-0x5000cca211cc703c
 	 * \li /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
 	 * \li /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML-part2#
@@ -59,7 +60,7 @@ interface IBlockDevice {
 	 * \li scsi-xxx
 	 * \li ...
 	 * </ul>
-	 * @return The device path (/dev/disk/by-id/xxx) if available,
+	 * @return The device file (/dev/disk/by-id/xxx) if available,
 	 *   otherwise NULL will be returned.
 	 */
 	public function getDeviceFileById();
@@ -83,7 +84,7 @@ interface IBlockDevice {
 	 *   be used. Defaults to FALSE.
 	 * @return The device name.
 	 */
-	function getDeviceName($canonical = FALSE);
+	public function getDeviceName($canonical = FALSE);
 
 	/**
 	 * Get the device number, e.g. 8:17.
@@ -91,7 +92,7 @@ interface IBlockDevice {
 	 *   more information. @endlink
 	 * @return The device number as string or FALSE on failure.
 	 */
-	function getDeviceNumber();
+	public function getDeviceNumber();
 
 	/**
 	 * Get the major device number.
@@ -99,7 +100,7 @@ interface IBlockDevice {
 	 *   more information. @endlink
 	 * @return The major device number or FALSE on failure.
 	 */
-	function getMajor();
+	public function getMajor();
 
 	/**
 	 * Get the minor device number.
@@ -107,29 +108,29 @@ interface IBlockDevice {
 	 *   more information. @endlink
 	 * @return The minor device number or FALSE on failure.
 	 */
-	function getMinor();
+	public function getMinor();
 
 	/**
 	 * Get the size of the device in bytes.
 	 * @return The size of the device in bytes, otherwise FALSE.
 	 */
-	function getSize();
+	public function getSize();
 
 	/**
 	 * Get the blocksize of the device in bytes.
 	 * @return The blocksize of the device in bytes, otherwise FALSE.
 	 */
-	function getBlockSize();
+	public function getBlockSize();
 
 	/**
 	 * Get the sectorsize of the device in bytes.
 	 * @return The sectorsize of the device in bytes, otherwise FALSE.
 	 */
-	function getSectorSize();
+	public function getSectorSize();
 
 	/**
 	 * Get the description of the device.
 	 * @return The device description.
 	 */
-	function getDescription();
+	public function getDescription();
 }
