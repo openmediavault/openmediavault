@@ -27,10 +27,10 @@ namespace OMV\System\Storage;
  */
 interface ISmartStorageDevice {
 	/**
-	 * Set the device type required by the smartctl command.
-	 * @return Returns the device type.
+	 * Check if the given device has S.M.A.R.T. support.
+	 * @return TRUE if the device supports S.M.A.R.T., otherwise FALSE.
 	 */
-	public function setSmartDeviceType($type);
+	public function hasSmartSupport();
 
 	/**
 	 * Identify the device type required by the smartctl command.

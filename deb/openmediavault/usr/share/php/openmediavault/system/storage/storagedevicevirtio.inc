@@ -25,7 +25,13 @@ namespace OMV\System\Storage;
  * @ingroup api
  */
 class StorageDeviceVirtIO extends SmartStorageDeviceAbstract {
-	protected $smartDeviceType = "sat";
+	/**
+	 * Identify the device type required by the smartctl command.
+	 * @return Returns the identified device type or an empty string.
+	 */
+	public function getSmartDeviceType() {
+		return "sat";
+	}
 
 	/**
 	 * See interface definition.
