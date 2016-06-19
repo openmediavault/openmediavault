@@ -293,8 +293,8 @@ Ext.define("OMV.module.admin.service.usbbackup.Jobs", {
 	},{
 		text: _("External storage device"),
 		sortable: true,
-		dataIndex: "fsuuid",
-		stateId: "fsuuid"
+		dataIndex: "devicefile",
+		stateId: "devicefile"
 	},{
 		text: _("Comment"),
 		sortable: true,
