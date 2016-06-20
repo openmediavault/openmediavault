@@ -22,24 +22,24 @@
 namespace OMV\System\Storage;
 
 /**
- * Abstract class implementing storage devices that support the
- * S.M.A.R.T. AT Attachment (ATA) interface.
+ * An abstract class which implements the interface for S.M.A.R.T.
+ * AT Attachment (ATA) devices.
  * @ingroup api
  */
 abstract class SmartStorageDeviceAbstract extends StorageDevice
   implements ISmartStorageDevice {
-	protected $smartDeviceType = "";
+	private $smartDeviceType = "";
 
     /**
 	 * Check if the given device has S.M.A.R.T. support.
 	 * @return Returns always TRUE.
 	 */
-	public function hasSmartSupport() {
+	final public function hasSmartSupport() {
 		return TRUE;
 	}
 
 	/**
-	 * Set the device type required by the smartctl command.
+	 * Set the device type required by the smartctl utility program.
 	 * @return Returns the device type.
 	 */
 	protected function setSmartDeviceType($type) {
@@ -48,7 +48,7 @@ abstract class SmartStorageDeviceAbstract extends StorageDevice
 	}
 
 	/**
-	 * Identify the device type required by the smartctl command.
+	 * Identify the device type required by the smartctl utility program.
 	 * @return Returns the identified device type or an empty string.
 	 */
 	public function getSmartDeviceType() {

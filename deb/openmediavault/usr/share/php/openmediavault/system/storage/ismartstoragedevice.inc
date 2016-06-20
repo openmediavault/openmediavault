@@ -33,13 +33,16 @@ interface ISmartStorageDevice {
 	public function hasSmartSupport();
 
 	/**
-	 * Identify the device type required by the smartctl command.
-	 * @return Returns the identified device type or an empty string.
+	 * Identify the device type required by the smartctl utility program.
+	 * @see https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in
+	 * @return Returns the identified device type, e.g. 'sat', 'scsi',
+	 *   'usbcypress', ... or an empty string.
 	 */
 	public function getSmartDeviceType();
 
 	/**
 	 * Get the S.M.A.R.T. information.
+	 * @return An object of the \OMV\System\Storage\SmartInformation class.
 	 * @throw \OMV\Exception
 	 */
 	public function getSmartInformation();
