@@ -39,8 +39,9 @@ class StorageDeviceCDROM extends StorageDevice {
 	 * @return Returns TRUE if a media is available, otherwise FALSE.
 	 */
 	public function IsMediaAvailable() {
-		if (FALSE === ($property = $this->getUdevProperty("ID_CDROM_MEDIA")))
+		if (FALSE === $this->hasUdevProperty("ID_CDROM_MEDIA"))
 			return FALSE;
+		$property = $this->getUdevProperty("ID_CDROM_MEDIA");
 		return ("1" == $property);
 	}
 
