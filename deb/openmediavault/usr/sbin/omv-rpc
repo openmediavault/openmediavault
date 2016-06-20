@@ -103,7 +103,7 @@ if($argc > 3) {
 $fh = STDOUT;
 try {
 	$response = \OMV\Rpc\Rpc::call($service, $method, $params, $context,
-	  OMV_RPC_MODE_REMOTE);
+	  \OMV\Rpc\Rpc::MODE_REMOTE);
 } catch(\Exception $e) {
 	$response = array(
 		"response" => null,

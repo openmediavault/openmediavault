@@ -28,6 +28,9 @@ require_once("openmediavault/functions.inc");
  * @ingroup api
  */
 class Rpc {
+	const MODE_LOCAL = 0x1;
+	const MODE_REMOTE = 0x2;
+
 	/**
 	 * Create a context.
 	 * @return The context using the specified parameters.
@@ -49,23 +52,23 @@ class Rpc {
 	 *   fields \em username and \em role.
 	 * @param mode The mode how to execute this RPC. The following modes
 	 *   are available:<ul>
-	 *   \li OMV_RPC_MODE_LOCAL
-	 *   \li OMV_RPC_MODE_REMOTE
+	 *   \li MODE_LOCAL
+	 *   \li MODE_REMOTE
 	 *   </ul>
-	 *   Defaults to OMV_RPC_MODE_LOCAL.
+	 *   Defaults to MODE_LOCAL.
 	 * @param restoreSrvEnv Restore various web server and execution
 	 *   environment information. This might be helpful in some cases if
 	 *   these information are required in the engine backend. Note, this
-	 *   only takes action when mode is OMV_RPC_MODE_REMOTE. Defauts to FALSE.
+	 *   only takes action when mode is MODE_REMOTE. Defauts to FALSE.
 	 * @return The RPC response.
 	 */
 	public static function call($service, $method, $params, $context,
-	  $mode = OMV_RPC_MODE_LOCAL, $restoreSrvEnv = FALSE) {
+	  $mode = Rpc::MODE_LOCAL, $restoreSrvEnv = FALSE) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		///////////////////////////////////////////////////////////////////////
 		// Try to execute local RPC first.
 		///////////////////////////////////////////////////////////////////////
-		if ($mode & OMV_RPC_MODE_LOCAL) {
+		if ($mode & Rpc::MODE_LOCAL) {
 			$rpcServiceMngr = &\OMV\Rpc\ServiceManager::getInstance();
 			if (FALSE !== ($rpcService = $rpcServiceMngr->getService(
 			  $service))) {
@@ -82,7 +85,7 @@ class Rpc {
 				} else {
 					// Throw an exception if the RPC service method has not
 					// been found and redirection to omv-engined is disabled.
-					if (~$mode & OMV_RPC_MODE_REMOTE) {
+					if (~$mode & Rpc::MODE_REMOTE) {
 						throw new Exception("The method '%s' does not exist ".
 						  "for the RPC service '%s'.", $method, $service);
 					}
@@ -90,7 +93,7 @@ class Rpc {
 			} else {
 				// Throw an exception if the RPC service has not been found
 				// and redirection to omv-engined is disabled.
-				if (~$mode & OMV_RPC_MODE_REMOTE) {
+				if (~$mode & Rpc::MODE_REMOTE) {
 					throw new Exception("RPC service '%s' not found.",
 					  $service);
 				}
@@ -100,7 +103,7 @@ class Rpc {
 		///////////////////////////////////////////////////////////////////////
 		// Redirect RPC to omv-engined daemon to execute it remote.
 		///////////////////////////////////////////////////////////////////////
-		if ($mode & OMV_RPC_MODE_REMOTE) {
+		if ($mode & Rpc::MODE_REMOTE) {
 			// Store the web server and execution environment information?
 			// The information is stored in the given context.
 			if (TRUE === $restoreSrvEnv) {

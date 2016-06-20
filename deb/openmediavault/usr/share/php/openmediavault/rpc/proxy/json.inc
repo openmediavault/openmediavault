@@ -92,7 +92,7 @@ class Json {
 		  $session->getRole());
 		$response = \OMV\Rpc\Rpc::call($this->params['service'],
 		  $this->params['method'], $this->params['params'], $context,
-		  OMV_RPC_MODE_LOCAL | OMV_RPC_MODE_REMOTE);
+		  \OMV\Rpc\Rpc::MODE_LOCAL | \OMV\Rpc\Rpc::MODE_REMOTE);
 		$this->postExecute($response);
 
 		// Print response.

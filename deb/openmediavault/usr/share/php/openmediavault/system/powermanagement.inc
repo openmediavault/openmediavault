@@ -29,10 +29,10 @@ namespace OMV\System;
  * @ingroup api
  */
 class PowerManagement {
-	const PM_STATE_NONE = 0x0;
-	const PM_STATE_SUSPEND = 0x1;
-	const PM_STATE_HIBERNATE = 0x2;
-	const PM_STATE_SUSPENDHYBRID = 0x4;
+	const STATE_NONE = 0x0;
+	const STATE_SUSPEND = 0x1;
+	const STATE_HIBERNATE = 0x2;
+	const STATE_SUSPENDHYBRID = 0x4;
 
 	/**
 	 * Helper function.
@@ -61,13 +61,13 @@ class PowerManagement {
 	public function isStateSupported($state) {
 		$cmdArgs = [];
 		switch ($state) {
-		case self::PM_STATE_SUSPEND:
+		case self::STATE_SUSPEND:
 			$cmdArgs[] = "--suspend";
 			break;
-		case self::PM_STATE_HIBERNATE:
+		case self::STATE_HIBERNATE:
 			$cmdArgs[] = "--hibernate";
 			break;
-		case self::PM_STATE_SUSPENDHYBRID:
+		case self::STATE_SUSPENDHYBRID:
 			$cmdArgs[] = "--suspend-hybrid";
 			break;
 		}
@@ -79,10 +79,10 @@ class PowerManagement {
 			throw new \OMV\ExecException($cmd->getCommandLine(), $output);
 		$supported = ($exitStatus == 0) ? TRUE : FALSE;
 /*
-		// In case of PM_STATE_HIBERNATE and PM_STATE_SUSPENDHYBRID the
+		// In case of STATE_HIBERNATE and STATE_SUSPENDHYBRID the
 		// swap space must be greater than the physical memory size to
 		// work correctly.
-		if ((TRUE === $supported) && (self::PM_STATE_SUSPEND !== $state)) {
+		if ((TRUE === $supported) && (self::STATE_SUSPEND !== $state)) {
 			if (FALSE === ($stats = OMVSystem::getMemoryStats()))
 				return NULL;
 			if ($stats['mem']['total'] > $stats['swap']['total']) {
@@ -99,13 +99,13 @@ class PowerManagement {
 	 * @return The supported power management states.
 	 */
 	public function getSupportedStates() {
-		$states = self::PM_STATE_NONE;
-		if (TRUE === $this->isStateSupported(self::PM_STATE_SUSPEND))
-			$states |= self::PM_STATE_SUSPEND;
-		if (TRUE === $this->isStateSupported(self::PM_STATE_HIBERNATE))
-			$states |= self::PM_STATE_HIBERNATE;
-		if (TRUE === $this->isStateSupported(self::PM_STATE_SUSPENDHYBRID))
-			$states |= self::PM_STATE_SUSPENDHYBRID;
+		$states = self::STATE_NONE;
+		if (TRUE === $this->isStateSupported(self::STATE_SUSPEND))
+			$states |= self::STATE_SUSPEND;
+		if (TRUE === $this->isStateSupported(self::STATE_HIBERNATE))
+			$states |= self::STATE_HIBERNATE;
+		if (TRUE === $this->isStateSupported(self::STATE_SUSPENDHYBRID))
+			$states |= self::STATE_SUSPENDHYBRID;
 		return $states;
 	}
 
@@ -139,11 +139,11 @@ class PowerManagement {
 	 */
 	public function standby() {
 		$action = "shutdown";
-		if (TRUE === $this->isStateSupported(self::PM_STATE_SUSPENDHYBRID))
+		if (TRUE === $this->isStateSupported(self::STATE_SUSPENDHYBRID))
 			$action = "suspendhybrid";
-		else if (TRUE === $this->isStateSupported(self::PM_STATE_HIBERNATE))
+		else if (TRUE === $this->isStateSupported(self::STATE_HIBERNATE))
 			$action = "hibernate";
-		else if (TRUE === $this->isStateSupported(self::PM_STATE_SUSPEND))
+		else if (TRUE === $this->isStateSupported(self::STATE_SUSPEND))
 			$action = "suspend";
 		$this->exec($action);
 	}
@@ -155,7 +155,7 @@ class PowerManagement {
 	 */
 	public function suspend() {
 		$action = "shutdown";
-		if (TRUE === $this->isStateSupported(self::PM_STATE_SUSPEND))
+		if (TRUE === $this->isStateSupported(self::STATE_SUSPEND))
 			$action = "suspend";
 		$this->exec($action);
 	}
@@ -167,7 +167,7 @@ class PowerManagement {
 	 */
 	public function hibernate() {
 		$action = "shutdown";
-		if (TRUE === $this->isStateSupported(self::PM_STATE_HIBERNATE))
+		if (TRUE === $this->isStateSupported(self::STATE_HIBERNATE))
 			$action = "hibernate";
 		$this->exec($action);
 	}
@@ -179,7 +179,7 @@ class PowerManagement {
 	 */
 	public function suspendHybrid() {
 		$action = "shutdown";
-		if (TRUE === $this->isStateSupported(self::PM_STATE_SUSPENDHYBRID))
+		if (TRUE === $this->isStateSupported(self::STATE_SUSPENDHYBRID))
 			$action = "suspendhybrid";
 		$this->exec($action);
 	}

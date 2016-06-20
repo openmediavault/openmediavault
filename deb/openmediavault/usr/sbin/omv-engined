@@ -521,7 +521,7 @@ while(FALSE === $sigTerm) {
 			try {
 				$response = \OMV\Rpc\Rpc::call($request['service'],
 				  $request['method'], $request['params'],
-				  $request['context'], OMV_RPC_MODE_LOCAL);
+				  $request['context'], \OMV\Rpc\Rpc::MODE_LOCAL);
 
 				$response = json_encode_safe(array(
 					"response" => $response,

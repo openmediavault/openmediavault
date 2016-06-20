@@ -53,7 +53,7 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 		// executed in another context which allows reading the shadow
 		// file, otherwise pam_auth() will fail.
 		$object = \OMV\Rpc\Rpc::call("UserMgmt", "authUser", $params,
-		  $this->getAdminContext(), OMV_RPC_MODE_REMOTE, TRUE);
+		  $this->getAdminContext(), \OMV\Rpc\Rpc::MODE_REMOTE, TRUE);
 		if (!is_null($object) && (TRUE === $object['authenticated'])) {
 			$session = &\OMV\Session::getInstance();
 			if ($session->isAuthenticated()) {
