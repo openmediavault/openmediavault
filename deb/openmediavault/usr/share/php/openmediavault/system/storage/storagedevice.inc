@@ -29,60 +29,6 @@ class StorageDevice extends \OMV\System\BlockDevice {
 	protected $vendor = FALSE;
 
 	/**
-	 * Get the size of the device in bytes.
-	 * @return The size (64bit) of the device in bytes as string.
-	 * @throw \OMV\ExecException
-	 */
-	public function getSize() {
-		if (FALSE === $this->size) {
-			$cmdArgs = [];
-			$cmdArgs[] = "--getsize64";
-			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
-			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
-			$cmd->setRedirect2to1();
-			$cmd->execute($output);
-			$this->size = $output[0];
-		}
-		return $this->size;
-	}
-
-	/**
-	 * Get the blocksize of the device in bytes.
-	 * @return The blocksize of the device in bytes.
-	 * @throw \OMV\ExecException
-	 */
-	public function getBlockSize() {
-		if (FALSE === $this->blockSize) {
-			$cmdArgs = [];
-			$cmdArgs[] = "--getbsz";
-			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
-			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
-			$cmd->setRedirect2to1();
-			$cmd->execute($output);
-			$this->blockSize = intval($output[0]);
-		}
-		return $this->blockSize;
-	}
-
-	/**
-	 * Get the sectorsize of the device in bytes.
-	 * @return The sectorsize of the device in bytes.
-	 * @throw \OMV\ExecException
-	 */
-	public function getSectorSize() {
-		if (FALSE === $this->sectorSize) {
-			$cmdArgs = [];
-			$cmdArgs[] = "--getss";
-			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
-			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
-			$cmd->setRedirect2to1();
-			$cmd->execute($output);
-			$this->sectorSize = intval($output[0]);
-		}
-		return $this->sectorSize;
-	}
-
-	/**
 	 * Get the device model.
 	 * @return The device model, otherwise an empty string.
 	 */
