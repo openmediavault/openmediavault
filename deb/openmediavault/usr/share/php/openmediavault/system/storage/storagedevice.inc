@@ -24,16 +24,16 @@ namespace OMV\System\Storage;
 /**
  * @ingroup api
  */
-class StorageDevice extends \OMV\System\BlockDevice {
-	protected $model = FALSE;
-	protected $vendor = FALSE;
+class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
+	protected $model = NULL;
+	protected $vendor = NULL;
 
 	/**
 	 * Get the device model.
 	 * @return The device model, otherwise an empty string.
 	 */
 	public function getModel() {
-		if (FALSE === $this->model) {
+		if (FALSE === is_string($this->model)) {
 			$filename = sprintf("/sys/block/%s/device/model",
 			  $this->getDeviceName());
 			if (file_exists($filename)) {
@@ -50,7 +50,7 @@ class StorageDevice extends \OMV\System\BlockDevice {
 	 * @return The device vendor, otherwise an empty string.
 	 */
 	public function getVendor() {
-		if (FALSE === $this->vendor) {
+		if (FALSE === is_string($this->vendor)) {
 			$filename = sprintf("/sys/block/%s/device/vendor",
 			  $this->getDeviceName());
 			if (file_exists($filename)) {
@@ -132,7 +132,8 @@ class StorageDevice extends \OMV\System\BlockDevice {
 
 	/**
 	 * Check if the given device is a hardware/software RAID device.
-	 * @return TRUE if the device is a hardware/software RAID, otherwise FALSE.
+	 * @return TRUE if the device is a hardware/software RAID,
+	 *   otherwise FALSE.
 	 */
 	public function isRaid() {
 		return FALSE;
@@ -198,7 +199,9 @@ class StorageDevice extends \OMV\System\BlockDevice {
 	 *   otherwise FALSE.
 	 */
 	public function hasSmartSupport() {
-		return FALSE;
+		// Check whether this object implements the ISmartStorageDevice
+		// interface.
+		return is_a($this, "\OMV\System\Storage\ISmartStorageDevice");
 	}
 
 	/**

@@ -27,12 +27,6 @@ namespace OMV\System\Storage;
  */
 interface ISmartStorageDevice {
 	/**
-	 * Check if the given device has S.M.A.R.T. support.
-	 * @return TRUE if the device supports S.M.A.R.T., otherwise FALSE.
-	 */
-	public function hasSmartSupport();
-
-	/**
 	 * Identify the device type required by the smartctl utility program.
 	 * @see https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in
 	 * @return Returns the identified device type, e.g. 'sat', 'scsi',

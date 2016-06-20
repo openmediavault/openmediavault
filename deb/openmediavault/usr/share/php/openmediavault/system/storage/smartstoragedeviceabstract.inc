@@ -30,14 +30,6 @@ abstract class SmartStorageDeviceAbstract extends StorageDevice
   implements ISmartStorageDevice {
 	private $smartDeviceType = "";
 
-    /**
-	 * Check if the given device has S.M.A.R.T. support.
-	 * @return Returns always TRUE.
-	 */
-	final public function hasSmartSupport() {
-		return TRUE;
-	}
-
 	/**
 	 * Set the device type required by the smartctl utility program.
 	 * @return Returns the device type.
