@@ -34,7 +34,7 @@ interface IService {
 	 * @return An array of modules. Returns an empty array if no
 	 *   dependencies exist.
 	 */
-	function shouldApply();
+	public function shouldApply();
 
 	/**
 	 * Defines the modules that if present should start before the service
@@ -43,7 +43,7 @@ interface IService {
 	 * @return An array of modules. Returns an empty array if no
 	 *   dependencies exist.
 	 */
-	function shouldStart();
+	public function shouldStart();
 
 	/**
 	 * Defines the modules that if present should start after the service
@@ -51,7 +51,7 @@ interface IService {
 	 * @return An array of modules. Returns an empty array if no
 	 *   dependencies exist.
 	 */
-	function startBefore();
+	public function startBefore();
 
 	/**
 	 * Defines the modules that if present should be stopped after the
@@ -62,7 +62,7 @@ interface IService {
 	 * @return An array of modules. Returns an empty array if no
 	 *   dependencies exist.
 	 */
-	function shouldStop();
+	public function shouldStop();
 
 	/**
 	 * Defines the modules that if present should stop before the service
@@ -70,20 +70,20 @@ interface IService {
 	 * @return An array of modules. Returns an empty array if no
 	 *   dependencies exist.
 	 */
-	function stopAfter();
+	public function stopAfter();
 
 	/**
 	 * Generate the configuration.
 	 */
-	function applyConfig();
+	public function applyConfig();
 
 	/**
 	 * Stop the managed service.
 	 */
-	function stopService();
+	public function stopService();
 
 	/**
 	 * Start the managed service.
 	 */
-	function startService();
+	public function startService();
 }

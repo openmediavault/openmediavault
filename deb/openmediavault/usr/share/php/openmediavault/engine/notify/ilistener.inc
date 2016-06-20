@@ -31,5 +31,5 @@ interface IListener {
 	 * Bind listeners.
 	 * @param dispatcher The dispatcher object.
 	 */
-	function bindListeners(Dispatcher $dispatcher);
+	public function bindListeners(Dispatcher $dispatcher);
 }

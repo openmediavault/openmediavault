@@ -34,5 +34,5 @@ interface IServiceStatus {
 	 *   \em enabled (boolean) Is the implemented service enabled?
 	 *   \em running (boolean) Is the implemented service running?
 	 */
-	function getStatus();
+	public function getStatus();
 }

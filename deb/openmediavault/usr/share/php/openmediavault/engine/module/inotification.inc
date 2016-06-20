@@ -33,5 +33,5 @@ interface INotification {
 	 *   \em type (string) The type displayed in the WebGUI.
 	 *   \em title (string) A title displayed in the WebGUI.
 	 */
-	function getNotificationConfig();
+	public function getNotificationConfig();
 }

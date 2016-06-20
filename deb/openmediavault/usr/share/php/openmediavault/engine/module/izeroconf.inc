@@ -31,5 +31,5 @@ interface IZeroconf {
 	 *   \em id (string) The identifier of the service.
 	 *   \em title (string) A title displayed in the WebGUI.
 	 */
-	function getZeroconfConfig();
+	public function getZeroconfConfig();
 }
