@@ -28,7 +28,7 @@ require_once("openmediavault/functions.inc");
  * @ingroup api
  */
 class Filesystem extends \OMV\System\BlockDevice {
-	protected $uuid = NULL;
+	protected $uuid = "";
 	protected $type = "";
 	protected $label = "";
 	protected $partEntry = NULL;
@@ -217,7 +217,8 @@ class Filesystem extends \OMV\System\BlockDevice {
 	/**
 	 * Get the UUID of the filesystem.
 	 * @see http://wiki.ubuntuusers.de/UUID
-	 * @return The UUID of the filesystem.
+	 * @return Returns the UUID of the filesystem, otherwise an empty
+	 *   string.
 	 */
 	public function getUuid() {
 		$this->getData();
@@ -248,7 +249,8 @@ class Filesystem extends \OMV\System\BlockDevice {
 
 	/**
 	 * Get the filesystem label.
-	 * @return The filesystem label.
+	 * @return Returns the label of the filesystem, otherwise an empty
+	 *   string.
 	 */
 	public function getLabel() {
 		$this->getData();
@@ -284,7 +286,7 @@ class Filesystem extends \OMV\System\BlockDevice {
 
 	/**
 	 * Get the usage, e.g. 'other' or 'filesystem'.
-	 * @return The filesystem type.
+	 * @return The filesystem usage.
 	 */
 	public function getUsage() {
 		$this->getData();
@@ -438,7 +440,7 @@ class Filesystem extends \OMV\System\BlockDevice {
 
 	/**
 	 * Get all devices that make up the filesystem.
-	 * @return Component devices of the filesystem, otherwise FALSE.
+	 * @return An array that contains the component devices of the filesystem.
 	 */
 	public function getDeviceFiles() {
 		$this->getData();
@@ -464,7 +466,8 @@ class Filesystem extends \OMV\System\BlockDevice {
 	 *   otherwise FALSE.
 	 */
 	public function hasMultipleDevices() {
-		if (FALSE === ($devs = $this->getDeviceFiles()))
+		$devs = $this->getDeviceFiles();
+		if (FALSE === is_array($devs))
 			return FALSE;
 		return (1 < count($devs));
 	}
@@ -487,18 +490,18 @@ class Filesystem extends \OMV\System\BlockDevice {
 
 	/**
 	 * Grow the filesystem.
-	 * @return TRUE if successful, otherwise FALSE.
+	 * @return None.
 	 */
 	public function grow() {
-		return FALSE;
+		// Nothing to do here.
 	}
 
 	/**
 	 * Shrink the filesystem.
-	 * @return TRUE if successful, otherwise FALSE.
+	 * @return None.
 	 */
 	public function shrink() {
-		return FALSE;
+		// Nothing to do here.
 	}
 
 	/**
