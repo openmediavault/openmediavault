@@ -88,19 +88,22 @@ interface IStorageDevice {
 
 	/**
 	 * Get the size of the device in bytes.
-	 * @return The size of the device in bytes, otherwise FALSE.
+	 * @return The size of the device in bytes.
+	 * @throw \OMV\Exception
 	 */
 	public function getSize();
 
 	/**
 	 * Get the blocksize of the device in bytes.
-	 * @return The blocksize of the device in bytes, otherwise FALSE.
+	 * @return The blocksize of the device in bytes.
+	 * @throw \OMV\Exception
 	 */
 	public function getBlockSize();
 
 	/**
 	 * Get the sectorsize of the device in bytes.
-	 * @return The sectorsize of the device in bytes, otherwise FALSE.
+	 * @return The sectorsize of the device in bytes.
+	 * @throw \OMV\Exception
 	 */
 	public function getSectorSize();
 

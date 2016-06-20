@@ -27,7 +27,7 @@ require_once("openmediavault/functions.inc");
  * Class to get detailed information about a filesystem.
  * @ingroup api
  */
-class Filesystem extends \OMV\System\BlockDevice {
+class Filesystem extends \OMV\System\BlockDevice implements IFilesystem {
 	protected $uuid = "";
 	protected $type = "";
 	protected $label = "";
