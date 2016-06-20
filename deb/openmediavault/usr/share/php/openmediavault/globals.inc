@@ -23,15 +23,6 @@
 /**
  * @defgroup api The Application Programming Interface
  */
-define("_PERMISSION_NA",  0);
-define("_PERMISSION_X",   1);
-define("_PERMISSION_W",   2);
-define("_PERMISSION_WX",  3);
-define("_PERMISSION_R",   4);
-define("_PERMISSION_RX",  5);
-define("_PERMISSION_RW",  6);
-define("_PERMISSION_RWX", 7);
-
 define("OMV_NOTIFY_PRECREATE", 0x1);
 define("OMV_NOTIFY_CREATE",    0x2);
 define("OMV_NOTIFY_PREMODIFY", 0x4);
