@@ -367,7 +367,13 @@
 			},
 			"domainname": {
 				"type": "string",
-				"format": "domainname",
+				"oneOf": [{
+					"type": "string",
+					"format": "domainname"
+				},{
+					"type": "string",
+					"maxLength": 0
+				}],
 				"required": true
 			}
 		}

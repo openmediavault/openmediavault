@@ -1,3 +1,9 @@
+openmediavault (3.0.25) stable; urgency=low
+
+  * Mantis 0001554: Can't define a hostname with blank domain name.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 20 Jun 2016 23:41:50 +0200
+
 openmediavault (3.0.24) stable; urgency=low
 
   * Various improvements and bugfixes.
