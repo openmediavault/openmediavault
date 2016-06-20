@@ -23,7 +23,6 @@
 /**
  * @defgroup api The Application Programming Interface
  */
-
 define("_PERMISSION_NA",  0);
 define("_PERMISSION_X",   1);
 define("_PERMISSION_W",   2);
@@ -97,7 +96,7 @@ $GLOBALS['OMV_FSTAB_MNTOPS_ISO9660'] = "ro";
 $GLOBALS['OMV_FSTAB_MNTOPS_UDF'] = "ro";
 $GLOBALS['OMV_APT_PLUGINS_INDEX_FILE'] = "/var/lib/openmediavault/apt/pluginsindex.json";
 $GLOBALS['OMV_APT_UPGRADE_INDEX_FILE'] = "/var/lib/openmediavault/apt/upgradeindex.json";
-$GLOBALS['OMV_NETWORK_INTERFACE_TYPE_NAMES'] = array(
+$GLOBALS['OMV_NETWORK_INTERFACE_TYPE_NAMES'] = [
     OMV_NETWORK_INTERFACE_TYPE_ETHERNET => "ethernet",
     OMV_NETWORK_INTERFACE_TYPE_BOND => "bond",
     OMV_NETWORK_INTERFACE_TYPE_VLAN => "vlan",
@@ -105,9 +104,8 @@ $GLOBALS['OMV_NETWORK_INTERFACE_TYPE_NAMES'] = array(
     OMV_NETWORK_INTERFACE_TYPE_WIRELESS => "wireless",
     OMV_NETWORK_INTERFACE_TYPE_VIRTUAL => "virtual",
     OMV_NETWORK_INTERFACE_TYPE_LOOPBACK => "loopback"
-);
-// http://www.nightsolo.net/dune/god.html
-$GLOBALS['OMV_DUNE_QUOTES'] = array(
+];
+$GLOBALS['OMV_DUNE_QUOTES'] = [ // http://www.nightsolo.net/dune/god.html
     "The beginning of knowledge is the discovery of something ".
       "we do not understand.",
     "He who controls the spice controls the universe.",
@@ -134,82 +132,9 @@ $GLOBALS['OMV_DUNE_QUOTES'] = array(
     "Without change something sleeps inside us, and seldom awakens. ".
       "The sleeper must awaken.",
     "What does a mirror look at?"
-);
+];
 
-/**
- * Use the following table as reference when defining a regex:
- *  " => \"
- * \w => \\\w
- * \d => \\\d
- *  / => \\\/
- *  \ => \\\\
- *  [ => \\\[
- *  ] => \\\]
- *  $ => \\\?
- *  + => \\\+
- *  * => \\\*
- *  . => \\\.
- *  | => \\\|
- *  ? => \\\?
- *  : => \\\:
- */
-$GLOBALS['OMV_JSONSCHEMA_USERNAME'] = '"type":"string","format":"regex","pattern":'.
-  '"\/^[_.A-Za-z0-9][-\\\@_.A-Za-z0-9]*\\\$?$\/i"';
-$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'] = '"type":["integer","null"]';
-$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'] = '"type":["string","null"]';
-$GLOBALS['OMV_JSONSCHEMA_SORTDIR'] ='"type":["string","null"],"format":"regex",'.
-  '"pattern":"\/^asc|desc$\/i"';
-$GLOBALS['OMV_JSONSCHEMA_UUID'] = '"type":"string","format":"regex","pattern":'.
-  '"\/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$\/i"';
-$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'] = '"type":"string","format":"regex","pattern":'.
-  '"\/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}|$\/i"';
-$GLOBALS['OMV_JSONSCHEMA_UUID_LIST'] = '"type":"string","format":"regex","pattern":'.
-  '"\/^([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}[,;])*'.
-  '[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$\/i"';
-$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'] = '"type":"string","format":"regex",'.
-  '"pattern":"\/^\\\/dev(\\\/disk\\\/by-id)?\\\/.+$\/i"';
-$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE_LIST'] = '"type":"string","format":"regex",'.
-  '"pattern":"\/^(.+[,;])*.+$\/i"';
-$GLOBALS['OMV_JSONSCHEMA_EMAIL'] = '"type":"string","format":"regex","pattern":'.
-  '"\/^(\\\w+)([-+.\'][\\\w]+)*@(\\\w[-\\\w]*\\\.){1,5}([A-Za-z]){2,6}|$\/"';
-$GLOBALS['OMV_JSONSCHEMA_SSHPUBKEY_OPENSSH'] = '"type":"string","format":"regex",'.
-  '"pattern":"\/^ssh-rsa AAAA[0-9A-Za-z+\\\/]+[=]{0,3}\\\s*([^@]+@[^@]+|.+)*$\/"';
-$GLOBALS['OMV_JSONSCHEMA_SSHPUBKEY_RFC4716'] = '"type":"string","format":"regex",'.
-  '"pattern":"\/^---- BEGIN SSH2 PUBLIC KEY ----(\\\n|\\\r|\\\f)(.+)'.
-  '(\\\n|\\\r|\\\f)---- END SSH2 PUBLIC KEY ----$\/sm"';
-$GLOBALS['OMV_JSONSCHEMA_SSHPRIVKEY_RSA'] = '"type":"string","format":"regex",'.
-  '"pattern":"\/^-----BEGIN RSA PRIVATE KEY-----(\\\n|\\\r|\\\f)(.+)'.
-  '(\\\n|\\\r|\\\f)-----END RSA PRIVATE KEY-----$\/sm"';
-
-// JSON schema describing a file system UUID.
-// EXT(2|3|4)/JFS/XFS: 7725c816-00d8-11e1-ad4c-00221568ca88
-// DOS: 7A48-BA97
-// NTFS: 2ED43920D438EC29
-// ISO9660: 2015-04-25-12-52-13-00
-$GLOBALS['OMV_JSONSCHEMA_FILESYSTEM_UUID'] = '"type":"string","format":"regex",'.
-  '"pattern":"\/^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-'.
-  '[a-f0-9]{4}-[a-f0-9]{12}|[a-f0-9]{16}|[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{2}-'.
-  '[0-9]{2}-[0-9]{2}-[0-9]{2})$\/i"';
-// JSON schema describing a file system identifier. This can be a UUID or
-// the devicefile of the file system.
-$GLOBALS['OMV_JSONSCHEMA_FILESYSTEM_ID'] = '"type":"string","format":"regex",'.
-  '"pattern":"\/^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-'.
-  '[a-f0-9]{4}-[a-f0-9]{12}|[a-f0-9]{16}|[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{2}-'.
-  '[0-9]{2}-[0-9]{2}-[0-9]{2}|\\\/dev\\\/.+)$\/i"';
-$GLOBALS['OMV_JSONSCHEMA_SHARENAME'] ='"type":["string","null"],"format":"regex",'.
-  '"pattern":"\/^[^\\\.]([^\"\\\/\\\\\\\[\\\]\\\:\\\+\\\|\\\<\\\>=;,\\\*'.
-  '\\\?\\\. ]+){0,1}([.][^\"\\\/\\\\\\\[\\\]\\\:\\\+\\\|\\\<\\\>=;,\\\*'.
-  '\\\?\\\. ]+){0,}$\/i"';
-$GLOBALS['OMV_JSONSCHEMA_IPV4'] = '"type":"string","format":"regex","pattern":'.
-  '"\/^([1-9][0-9]{0,1}|1[013-9][0-9]|12[0-689]|2[01][0-9]|22[0-3])'.
-  '([.]([1-9]{0,1}[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])){2}[.]'.
-  '([1-9][0-9]{0,1}|1[0-9]{2}|2[0-4][0-9]|25[0-4])$\/i"';
-$GLOBALS['OMV_JSONSCHEMA_IPV4_NONE'] = '"type":"string","format":"regex","pattern":'.
-  '"\/^([1-9][0-9]{0,1}|1[013-9][0-9]|12[0-689]|2[01][0-9]|22[0-3])'.
-  '([.]([1-9]{0,1}[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])){2}[.]'.
-  '([1-9][0-9]{0,1}|1[0-9]{2}|2[0-4][0-9]|25[0-4])|$\/i"';
-
-// Read the defaults file.
+// Read the default file.
 if (posix_access($GLOBALS['OMV_DEFAULT_FILE'], POSIX_F_OK | POSIX_R_OK)) {
     $lines = file($GLOBALS['OMV_DEFAULT_FILE']);
     foreach ($lines as $kline => $vline) {
