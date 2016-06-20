@@ -153,14 +153,15 @@ interface IFilesystem {
 
 	/**
 	 * Get the size of the device in bytes.
-	 * @return The size of the device in bytes, otherwise FALSE.
+	 * @return The size of the device in bytes.
+	 * @throw \OMV\Exception
 	 */
 	public function getSize();
 
 	/**
 	 * Check if a filesystem is mounted.
 	 * @return TRUE if the filesystem is mounted, otherwise FALSE.
-	 * @throw \OMV\ExecException
+	 * @throw \OMV\Exception
 	 */
 	public function isMounted();
 
@@ -168,6 +169,7 @@ interface IFilesystem {
 	 * Mount the filesystem by its device file or UUID.
 	 * @param options Additional mount options.
 	 * @return None.
+	 * @throw \OMV\Exception
 	 */
 	public function mount($options);
 
@@ -176,24 +178,28 @@ interface IFilesystem {
 	 * @param force Set to TRUE to force unmount.
 	 * @param lazy Set to TRUE to lazy unmount.
 	 * @return None.
+	 * @throw \OMV\Exception
 	 */
 	public function umount($force, $lazy);
 
 	/**
 	 * Grow the filesystem.
 	 * @return None.
+	 * @throw \OMV\Exception
 	 */
 	public function grow();
 
 	/**
 	 * Shrink the filesystem.
 	 * @return None.
+	 * @throw \OMV\Exception
 	 */
 	public function shrink();
 
 	/**
 	 * Remove the filesystem.
 	 * @return None.
+	 * @throw \OMV\Exception
 	 */
 	public function remove();
 }
