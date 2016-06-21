@@ -203,10 +203,10 @@ Ext.define("OMV.workspace.Workspace", {
 								}
 							}
 						},{
-							text: _("Reset WebGUI state"),
-							action: "resetstate",
-							msg: _("Do you really want to reset WebGUI state, e.g. grid column order?"),
-							tooltip: _("Reset WebGUI state will restore default settings of grid columns for example."),
+							text: _("Reset UI to defaults"),
+							action: "resetdefaults",
+							msg: _("Do you really want to reset the UI settings to their default values, e.g. the order of the grid columns?"),
+							tooltip: _("Reset the UI settings to their default values, e.g. the order of the grid columns."),
 							icon: Ext.supports.Svg ? "images/refresh.svg" : "images/refresh.png"
 						},{
 							xtype: "menuseparator"
@@ -250,7 +250,7 @@ Ext.define("OMV.workspace.Workspace", {
 										if(answer !== "yes")
 											return;
 										switch (item.action) {
-										case "resetstate":
+										case "resetdefaults":
 											Ext.state.Manager.getProvider().clearAll();
 											break;
 										case "logout":
