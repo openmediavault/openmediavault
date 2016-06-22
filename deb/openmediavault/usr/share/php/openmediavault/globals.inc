@@ -19,6 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+require_once("openmediavault/autoloader.inc");
 
 /**
  * @defgroup api The Application Programming Interface
@@ -52,39 +53,39 @@ define("OMV_NETWORK_INTERFACE_TYPE_LOOPBACK", 0x40);
 define("OMV_NETWORK_INTERFACE_TYPE_ALL", 0xFF);
 
 // Globals that can be modified via /etc/default/openmediavault.
-$GLOBALS['OMV_DEFAULT_FILE'] = "/etc/default/openmediavault";
-$GLOBALS['OMV_DEBUG_PHP_LOGFILE'] = "/tmp/openmediavault_debug_php.log";
-$GLOBALS['OMV_MAX_LOGFILE_LINES'] = "100000";
-$GLOBALS['OMV_HTTPREQUEST_TIMEOUT'] = "60000";
-$GLOBALS['OMV_ENGINED_DIR'] = "/usr/share/openmediavault/engined";
-$GLOBALS['OMV_ENGINED_SO_RPC_HEADER_LENGTH'] = 8;
-$GLOBALS['OMV_ENGINED_SO_ADDRESS'] = "/var/lib/openmediavault/engined.sock";
-$GLOBALS['OMV_ENGINED_SO_SNDTIMEO'] = 10;
-$GLOBALS['OMV_ENGINED_SO_RCVTIMEO'] = 180;
-$GLOBALS['OMV_ENGINED_SO_CONNECT_MAX_ATTEMPT'] = 5;
-$GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE'] = "/var/lib/openmediavault/dirtymodules.json";
-$GLOBALS['OMV_USERMGMT_ENUMERATE_USER_ROOT'] = TRUE;
-$GLOBALS['OMV_PLUGIN_ENUMERATE_GET_REPOSITORY'] = TRUE;
-$GLOBALS['OMV_MKFS_OPTIONS_EXT3'] = "-b 4096 -m 0";
-$GLOBALS['OMV_MKFS_OPTIONS_EXT4'] = "-b 4096 -m 0 -E lazy_itable_init=0,lazy_journal_init=0";
-$GLOBALS['OMV_MKFS_OPTIONS_JFS'] = "-q";
-$GLOBALS['OMV_MKFS_OPTIONS_XFS'] = "-f";
-$GLOBALS['OMV_MKFS_OPTIONS_BTRFS'] = "-O skinny-metadata,^mixed-bg";
-$GLOBALS['OMV_MKFS_EXTRAOPTIONS_EXT4_MDADM'] = "-E lazy_itable_init=0,lazy_journal_init=0,stride=128,stripe-width=256";
-$GLOBALS['OMV_FSTAB_MNTOPS_EXT2'] = "defaults,nofail,user_xattr,noexec";
-$GLOBALS['OMV_FSTAB_MNTOPS_EXT3'] = "defaults,nofail,user_xattr,noexec,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0";
-$GLOBALS['OMV_FSTAB_MNTOPS_EXT4'] = "defaults,nofail,user_xattr,noexec,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0";
-$GLOBALS['OMV_FSTAB_MNTOPS_JFS'] = "defaults,nofail,noexec,usrquota,grpquota";
-$GLOBALS['OMV_FSTAB_MNTOPS_XFS'] = "defaults,nofail,noexec,usrquota,grpquota";
-$GLOBALS['OMV_FSTAB_MNTOPS_VFAT'] = "defaults,nofail";
-$GLOBALS['OMV_FSTAB_MNTOPS_NTFS'] = "defaults,nofail";
-$GLOBALS['OMV_FSTAB_MNTOPS_HFSPLUS'] = "defaults,nofail,force";
-$GLOBALS['OMV_FSTAB_MNTOPS_BTRFS'] = "defaults,nofail";
-$GLOBALS['OMV_FSTAB_MNTOPS_ISO9660'] = "ro";
-$GLOBALS['OMV_FSTAB_MNTOPS_UDF'] = "ro";
-$GLOBALS['OMV_APT_PLUGINS_INDEX_FILE'] = "/var/lib/openmediavault/apt/pluginsindex.json";
-$GLOBALS['OMV_APT_UPGRADE_INDEX_FILE'] = "/var/lib/openmediavault/apt/upgradeindex.json";
-$GLOBALS['OMV_NETWORK_INTERFACE_TYPE_NAMES'] = [
+\OMV\Environment::set("OMV_DEFAULT_FILE", "/etc/default/openmediavault");
+\OMV\Environment::set("OMV_DEBUG_PHP_LOGFILE", "/tmp/openmediavault_debug_php.log");
+\OMV\Environment::set("OMV_MAX_LOGFILE_LINES", 100000);
+\OMV\Environment::set("OMV_HTTPREQUEST_TIMEOUT", 60000);
+\OMV\Environment::set("OMV_ENGINED_DIR", "/usr/share/openmediavault/engined");
+\OMV\Environment::set("OMV_ENGINED_SO_RPC_HEADER_LENGTH", 8);
+\OMV\Environment::set("OMV_ENGINED_SO_ADDRESS", "/var/lib/openmediavault/engined.sock");
+\OMV\Environment::set("OMV_ENGINED_SO_SNDTIMEO", 10);
+\OMV\Environment::set("OMV_ENGINED_SO_RCVTIMEO", 180);
+\OMV\Environment::set("OMV_ENGINED_SO_CONNECT_MAX_ATTEMPT", 5);
+\OMV\Environment::set("OMV_ENGINED_DIRTY_MODULES_FILE", "/var/lib/openmediavault/dirtymodules.json");
+\OMV\Environment::set("OMV_USERMGMT_ENUMERATE_USER_ROOT", TRUE);
+\OMV\Environment::set("OMV_PLUGIN_ENUMERATE_GET_REPOSITORY", TRUE);
+\OMV\Environment::set("OMV_MKFS_OPTIONS_EXT3", "-b 4096 -m 0");
+\OMV\Environment::set("OMV_MKFS_OPTIONS_EXT4", "-b 4096 -m 0 -E lazy_itable_init=0,lazy_journal_init=0");
+\OMV\Environment::set("OMV_MKFS_OPTIONS_JFS", "-q");
+\OMV\Environment::set("OMV_MKFS_OPTIONS_XFS", "-f");
+\OMV\Environment::set("OMV_MKFS_OPTIONS_BTRFS", "-O skinny-metadata,^mixed-bg");
+\OMV\Environment::set("OMV_MKFS_EXTRAOPTIONS_EXT4_MDADM", "-E lazy_itable_init=0,lazy_journal_init=0,stride=128,stripe-width=256");
+\OMV\Environment::set("OMV_FSTAB_MNTOPS_EXT2", "defaults,nofail,user_xattr,noexec");
+\OMV\Environment::set("OMV_FSTAB_MNTOPS_EXT3", "defaults,nofail,user_xattr,noexec,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0");
+\OMV\Environment::set("OMV_FSTAB_MNTOPS_EXT4", "defaults,nofail,user_xattr,noexec,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0");
+\OMV\Environment::set("OMV_FSTAB_MNTOPS_JFS", "defaults,nofail,noexec,usrquota,grpquota");
+\OMV\Environment::set("OMV_FSTAB_MNTOPS_XFS", "defaults,nofail,noexec,usrquota,grpquota");
+\OMV\Environment::set("OMV_FSTAB_MNTOPS_VFAT", "defaults,nofail");
+\OMV\Environment::set("OMV_FSTAB_MNTOPS_NTFS", "defaults,nofail");
+\OMV\Environment::set("OMV_FSTAB_MNTOPS_HFSPLUS", "defaults,nofail,force");
+\OMV\Environment::set("OMV_FSTAB_MNTOPS_BTRFS", "defaults,nofail");
+\OMV\Environment::set("OMV_FSTAB_MNTOPS_ISO9660", "ro");
+\OMV\Environment::set("OMV_FSTAB_MNTOPS_UDF", "ro");
+\OMV\Environment::set("OMV_APT_PLUGINS_INDEX_FILE", "/var/lib/openmediavault/apt/pluginsindex.json");
+\OMV\Environment::set("OMV_APT_UPGRADE_INDEX_FILE", "/var/lib/openmediavault/apt/upgradeindex.json");
+\OMV\Environment::set("OMV_NETWORK_INTERFACE_TYPE_NAMES", [
     OMV_NETWORK_INTERFACE_TYPE_ETHERNET => "ethernet",
     OMV_NETWORK_INTERFACE_TYPE_BOND => "bond",
     OMV_NETWORK_INTERFACE_TYPE_VLAN => "vlan",
@@ -92,8 +93,8 @@ $GLOBALS['OMV_NETWORK_INTERFACE_TYPE_NAMES'] = [
     OMV_NETWORK_INTERFACE_TYPE_WIRELESS => "wireless",
     OMV_NETWORK_INTERFACE_TYPE_VIRTUAL => "virtual",
     OMV_NETWORK_INTERFACE_TYPE_LOOPBACK => "loopback"
-];
-$GLOBALS['OMV_DUNE_QUOTES'] = [ // http://www.nightsolo.net/dune/god.html
+]);
+\OMV\Environment::set("OMV_DUNE_QUOTES", [ // http://www.nightsolo.net/dune/god.html
     "The beginning of knowledge is the discovery of something ".
       "we do not understand.",
     "He who controls the spice controls the universe.",
@@ -120,16 +121,16 @@ $GLOBALS['OMV_DUNE_QUOTES'] = [ // http://www.nightsolo.net/dune/god.html
     "Without change something sleeps inside us, and seldom awakens. ".
       "The sleeper must awaken.",
     "What does a mirror look at?"
-];
+]);
 
 // Read the default file.
-if (posix_access($GLOBALS['OMV_DEFAULT_FILE'], POSIX_F_OK | POSIX_R_OK)) {
-    $lines = file($GLOBALS['OMV_DEFAULT_FILE']);
+$defaultFile = \OMV\Environment::get("OMV_DEFAULT_FILE");
+if (posix_access($defaultFile, POSIX_F_OK | POSIX_R_OK)) {
+    $lines = file($defaultFile);
     foreach ($lines as $kline => $vline) {
-        if (1 == preg_match("/^(OMV_[A-Z0-9_]+)=(\")?([^\"]+)(\")?$/",
-          trim($vline), $matches)) {
-            $GLOBALS[$matches[1]] = $matches[3];
-        }
+        $regex = "/^(OMV_[A-Z0-9_]+)=(\")?([^\"]+)(\")?$/";
+        if (1 == preg_match($regex, trim($vline), $matches))
+            \OMV\Environment::set($matches[1], $matches[3]);
         unset($matches);
     }
     unset($lines);

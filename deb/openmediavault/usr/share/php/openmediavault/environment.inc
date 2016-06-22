@@ -26,7 +26,7 @@ require_once("openmediavault/functions.inc");
 
 /**
  * Access the environment variables defined in PHP and within the
- * file /etc/defaults/openmediavault.
+ * file /etc/default/openmediavault.
  * @ingroup api
  */
 class Environment {
@@ -36,6 +36,10 @@ class Environment {
 			  "The global variable '%s' does not exist.", $name));
 		}
 		return $GLOBALS[$name];
+	}
+
+	public static function set($name, $value) {
+		$GLOBALS[$name] = $value;
 	}
 
 	public static function getString($name) {
