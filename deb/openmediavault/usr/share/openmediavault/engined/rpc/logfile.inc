@@ -58,16 +58,16 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.logfile.getlist");
 		// Create the log file specification object.
-		$logfile = new \OMV\System\LogFileSpec($params['id']);
+		$spec = new \OMV\System\LogFileSpec($params['id']);
 		// Get the file path. If no permanent file is available (e.g. when
 		// the log is retrieved via journalctl), then execute the specified
 		// command.
-		$filePath = $logfile->getFilePath();
+		$filePath = $spec->getFilePath();
 		if (TRUE === is_null($filePath)) {
 			// Create a temporary file.
 			$filePath = tempnam(sys_get_temp_dir(), "logfile");
 			// Execute the given command to get the log file content.
-			$cmd = new \OMV\System\Process($logfile->getCommand());
+			$cmd = new \OMV\System\Process($spec->getCommand());
 			$cmd->setRedirect1toFile($filePath);
 			$cmd->setRedirect2to1();
 			$cmd->execute();
@@ -86,13 +86,13 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 				break;
 			}
 			// Skip invalid pattern matches.
-			$result = preg_match($logfile->getRegex(), $line, $matches);
+			$result = preg_match($spec->getRegex(), $line, $matches);
 			if ((FALSE === $result) || (0 == $result))
 				continue;
 			$object = [
 				"rownum" => $rowNum++
 			];
-			foreach ($logfile->getColumns() as $columnk => $columnv) {
+			foreach ($spec->getColumns() as $columnk => $columnv) {
 				// Execute user defined function, e.g. to convert
 				// column content?
 				if (is_array($columnv)) {
@@ -132,10 +132,10 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.logfile.clear");
 		// Check if the given log file type if registered.
-		$logfile = new \OMV\System\LogFileSpec($params['id']);
+		$spec = new \OMV\System\LogFileSpec($params['id']);
 		// Get the file path. If no permanent file is available (e.g. when
 		// the log is retrieved via journalctl), then exit immediatelly.
-		$filePath = $logfile->getFilePath();
+		$filePath = $spec->getFilePath();
 		if (TRUE === is_null($filePath))
 			return;
 		// Clear the log file.
@@ -180,21 +180,37 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.logfile.getcontent");
 		// Check if the given log file type if registered.
-		$logfile = new \OMV\System\LogFileSpec($params['id']);
-		// Copy the log file to a temporary location and modify the file
-		// mode/owner to allow the WebGUI PHP backend to unlink it.
+		$spec = new \OMV\System\LogFileSpec($params['id']);
+		// Create a temporary file which will contain the content of
+		// the requested log file.
 		$tmpFilePath = tempnam(sys_get_temp_dir(), "logfile");
-		if (FALSE === copy($logfile->getFilePath(), $tmpFilePath)) {
-			throw new \OMV\Exception(
-			  "Failed to copy the log file (source=%s, dest=%s).",
-			  $logfile->getFilePath(), $tmpFilePath);
+		// Get the file path. If no permanent file is available (e.g. when
+		// the log is retrieved via journalctl), then execute the specified
+		// command.
+		$filePath = $spec->getFilePath();
+		if (TRUE === is_null($filePath)) {
+			// Execute the given command to get the log file content.
+			$cmd = new \OMV\System\Process($spec->getCommand());
+			$cmd->setRedirect1toFile($tmpFilePath);
+			$cmd->setRedirect2to1();
+			$cmd->execute();
+		} else {
+			// Copy the log file to a temporary location. and modify the file
+			// mode/owner to allow the WebGUI PHP backend to unlink it.
+			if (FALSE === copy($filePath, $tmpFilePath)) {
+				throw new \OMV\Exception(
+				  "Failed to copy the log file (source=%s, dest=%s).",
+				  $filePath, $tmpFilePath);
+			}
 		}
+		// Modify the file mode/owner to allow the WebGUI PHP backend to
+		// unlink it.
 		chmod($tmpFilePath, 0700);
 		chown($tmpFilePath, \OMV\Environment::get(
 		  "OMV_WEBGUI_FILE_OWNERGROUP_NAME"));
 		// Return values required by generic download RPC implementation.
 		return [
-			"filename" => $logfile->getFileName(),
+			"filename" => $spec->getFileName(),
 			"filepath" => $tmpFilePath,
 			"unlink" => TRUE
 		];
