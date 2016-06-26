@@ -21,6 +21,8 @@
  */
 namespace OMV\System;
 
+require_once("openmediavault/functions.inc");
+
 /**
  * This class that handles the log file specification.
  * @ingroup api
@@ -97,32 +99,41 @@ class LogFileSpec {
 	 * @return The file name of the log file, otherwise FALSE.
 	 */
 	public function getFileName() {
-		$type = self::$specs[$this->id];
-		return $type['filename'];
+		$spec = self::$specs[$this->id];
+		return $spec['filename'];
 	}
 
 	/**
 	 * Get the file path of the log file, e.g. '/var/log/syslog'.
-	 * @return The file path of the log file, otherwise FALSE.
+	 * @return The file path of the log file, otherwise NULL.
 	 */
 	public function getFilePath() {
-		$type = self::$specs[$this->id];
-		return $type['filepath'];
+		$spec = self::$specs[$this->id];
+		return array_value($spec, "filepath", NULL);
+	}
+
+	/**
+	 * Get the command line to be executed to get the log file content.
+	 * @return The command line, otherwise NULL.
+	 */
+	public function getCommand() {
+		$spec = self::$specs[$this->id];
+		return array_value($spec, "command", NULL);
 	}
 
 	/**
 	 * Get the regular expression used to parse a log file line.
 	 */
 	public function getRegex() {
-		$type = self::$specs[$this->id];
-		return $type['regex'];
+		$spec = self::$specs[$this->id];
+		return $spec['regex'];
 	}
 
 	/**
 	 * Get the column configuration.
 	 */
 	public function getColumns() {
-		$type = self::$specs[$this->id];
-		return $type['columns'];
+		$spec = self::$specs[$this->id];
+		return $spec['columns'];
 	}
 }

@@ -59,11 +59,24 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.logfile.getlist");
 		// Create the log file specification object.
 		$logfile = new \OMV\System\LogFileSpec($params['id']);
+		// Get the file path. If no permanent file is available (e.g. when
+		// the log is retrieved via journalctl), then execute the specified
+		// command.
+		$filePath = $logfile->getFilePath();
+		if (TRUE === is_null($filePath)) {
+			// Create a temporary file.
+			$filePath = tempnam(sys_get_temp_dir(), "logfile");
+			// Execute the given command to get the log file content.
+			$cmd = new \OMV\System\Process($logfile->getCommand());
+			$cmd->setRedirect1toFile($filePath);
+			$cmd->setRedirect2to1();
+			$cmd->execute();
+		}
 		// Read the log file content.
-		if (FALSE === ($fh = fopen($logfile->getFilePath(), "r"))) {
+		if (FALSE === ($fh = fopen($filePath, "r"))) {
 			throw new \OMV\Exception(
 			  "Failed to open the log file (filename=%s).",
-			  $logfile->getFilePath());
+			  $filePath);
 		}
 		$objects = [];
 		$rowNum = 0;
@@ -96,7 +109,7 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 		if (FALSE === fclose($fh)) {
 			throw new \OMV\Exception(
 			  "Failed to close the log file (filename=%s).",
-			  $logfile->getFilePath());
+			  $filePath);
 		}
 		// Filter result.
 		return $this->applyFilter($objects, $params['start'],
@@ -120,22 +133,27 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.logfile.clear");
 		// Check if the given log file type if registered.
 		$logfile = new \OMV\System\LogFileSpec($params['id']);
+		// Get the file path. If no permanent file is available (e.g. when
+		// the log is retrieved via journalctl), then exit immediatelly.
+		$filePath = $logfile->getFilePath();
+		if (TRUE === is_null($filePath))
+			return;
 		// Clear the log file.
-		if (FALSE === ($fh = fopen($logfile->getFilePath(), "w"))) {
+		if (FALSE === ($fh = fopen($filePath, "w"))) {
 			throw new \OMV\Exception(
 			  "Failed to open the log file (filename=%s).",
-			  $logfile->getFilePath());
+			  $filePath);
 		}
 		if (FALSE === ftruncate($fh, 0)) {
 			throw new \OMV\Exception(
 			  "Failed to truncate the log file (filename=%s).",
-			  $logfile->getFilePath());
+			  $filePath);
 		}
 		rewind($fh);
 		if (FALSE === fclose($fh)) {
 			throw new \OMV\Exception(
 			  "Failed to close the log file (filename=%s).",
-			  $logfile->getFilePath());
+			  $filePath);
 		}
 		// Force rsyslog to close and reopen the syslog files.
 		$systemCtl = new \OMV\System\SystemCtl("rsyslog.service");

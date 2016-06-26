@@ -109,25 +109,27 @@ require_once("openmediavault/functions.inc");
 	  "message" => 3
   ]]);
 
-// /var/log/boot:
-// Fri Oct 19 04:25:05 2012: Setting parameters of disc: (none).
-// Fri Oct 19 04:25:05 2012: Setting preliminary keymap...done.
+// Retrieved via journalctl.
+// 2016-06-26T21:24:08+0200 vmpc05 kernel: Booting paravirtualized kernel on bare hardware
+// 2016-06-26T21:24:08+0200 vmpc05 kernel: SCSI subsystem initialized
 \OMV\System\LogFileSpec::registerSpecification("boot", [
+  "command" => "export SYSTEMD_COLORS=0; journalctl --boot --quiet ".
+    "--output=short-iso --no-pager --full",
   "filename" => "boot",
-  "filepath" => "/var/log/boot",
-  "regex" => "/^(\S+\s+\S+\s+\d+\s+\S+\s+\d+):\s+(.*)$/",
+  "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}([+-]\d{4})?)\s+(\S+)\s+(.+)$/",
   "columns" => [
 	  "ts" => [
 		  "index" => 1,
-		  "func" => function($v) { return strpdate($v,"D M j H:i:s Y"); }
+		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:sT"); }
 	  ],
 	  "date" => [
 		  "index" => 1,
 		  "func" => function($v) {
-			  return strftime("%c", strpdate($v,"D M j H:i:s Y"));
+			  return strftime("%c", strpdate($v,"Y-m-d*H:i:sT"));
 		  }
 	  ],
-	  "message" => 2
+	  "hostname" => 3,
+	  "message" => 4
   ]]);
 
 // /var/log/dpkg.log
