@@ -87,17 +87,17 @@
 			},
 			"hour": {
 				"type": "string",
-				"pattern":"/^[0-9]|1[0-9]|2[0-3]|[*]$/",
+				"pattern": "/^0[0-9]|1[0-9]|2[0-3]|[*]$/",
 				"required": true
 			},
 			"month": {
 				"type": "string",
-				"pattern": "/^[1-9]|1[0-2]|[*]$/",
+				"pattern": "/^0[1-9]|1[0-2]|[*]$/",
 				"required": true
 			},
 			"dayofmonth": {
 				"type": "string",
-				"pattern": "/^[1-9]|1[0-9]|2[0-9]|3[0-1]|[*]$/",
+				"pattern": "/^0[1-9]|1[0-9]|2[0-9]|3[0-1]|[*]$/",
 				"required": true
 			},
 			"dayofweek": {

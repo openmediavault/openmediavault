@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2016-04-23 17:16+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2016-06-24 12:58+0000\n"
+"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -278,7 +278,7 @@ msgid ""
 msgstr "A RAID tömb növelése után tudod újraméretezni a rajta levő fájlrendszert."
 
 msgid "Aland Islands"
-msgstr "Aland Islands"
+msgstr "Aland szigetek"
 
 msgid "Albania"
 msgstr "Albánia"
@@ -344,7 +344,7 @@ msgid "Anonymous FTP"
 msgstr "Névtelen FTP"
 
 msgid "Antarctica"
-msgstr "Antarctica"
+msgstr "Antarktika"
 
 msgid "Antigua and Barbuda"
 msgstr "Antigua és Barbuda"
@@ -440,7 +440,7 @@ msgid "Available"
 msgstr "Elérhető"
 
 msgid "Azerbaijan"
-msgstr "Azerbaijan"
+msgstr "Azerbajdzsán"
 
 msgid "Bahamas"
 msgstr "Bahamák"
@@ -554,7 +554,7 @@ msgid "Cancel"
 msgstr "Mégsem"
 
 msgid "Canton and Enderbury Islands"
-msgstr "Canton and Enderbury Islands"
+msgstr "Canton és Enderbury-szigetek"
 
 msgid "Capacity"
 msgstr "Kapacitás"
@@ -849,7 +849,7 @@ msgid "Device information"
 msgstr "Eszközinformáció"
 
 msgid "Device is being used outside design parameters"
-msgstr ""
+msgstr "Az eszköz tervezési paraméterein kívüli használata."
 
 msgid "Device model"
 msgstr "Meghajtó modell"
@@ -858,7 +858,7 @@ msgid "Device properties"
 msgstr "Eszköz tulajdonságai"
 
 msgid "Device was used outside of design parameters in the past"
-msgstr ""
+msgstr "Az eszköz a tervezési paramétereken kívül volt használatban az elmúlt időszakban."
 
 msgid "Device(s)"
 msgstr "Eszköz(ök)"
@@ -1702,7 +1702,7 @@ msgid "Jobs"
 msgstr "Feladatok"
 
 msgid "Johnston Island"
-msgstr "Johnston sziget"
+msgstr "Johnston-sziget"
 
 msgid "Jordan"
 msgstr "Jordánia"
@@ -2251,7 +2251,7 @@ msgid "Package information"
 msgstr "Csomag információ"
 
 msgid "Page not found"
-msgstr ""
+msgstr "Az oldal nem található"
 
 msgid "Pakistan"
 msgstr "Pakisztán"
@@ -2979,7 +2979,7 @@ msgstr "Beállítás csak írhatónak"
 msgid ""
 "Sets the interval between disk checks to N seconds, logging S.M.A.R.T. "
 "errors and changes of S.M.A.R.T. attributes."
-msgstr ""
+msgstr "Lemez ellenőrzések közti N másodperces intervallum beállítása, és S.M.A.R.T. hibák és S.M.A.R.T. attribútum változásainak naplózása."
 
 msgid "Settings"
 msgstr "Beállítások"
@@ -3288,7 +3288,7 @@ msgid "The RSA public key in OpenSSH format."
 msgstr "Az RSA nyilvános kulcs OpenSSH formátumban."
 
 msgid "The SSH certificate used for authentication."
-msgstr ""
+msgstr "Az SSH tanusítvány használata hitelesítéshez."
 
 msgid "The SSL certificate."
 msgstr "Az SSL tanúsítvány."
@@ -3472,12 +3472,12 @@ msgstr "Ennek a mezőnek egy tartománynév listának vagy egy IP címnek kell l
 msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
-msgstr ""
+msgstr "Ennek a mezőnek egy tartománynév listának vagy egy IP címnek kell lennie <,> vagy <;> -vel elválasztva."
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
 "or <;>"
-msgstr ""
+msgstr "Ennek a mezőnek egy hosztnév listának vagy egy IP címnek kell lennie <,> vagy <;> -vel elválasztva."
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3515,14 +3515,14 @@ msgid "This field should only contain numbers"
 msgstr "Ez a mező csak számokat tartalmazhat"
 
 msgid "This field should only contain numbers separated by <,> or <;>"
-msgstr ""
+msgstr "Ez a mező csak <,> vagy <;> -vel elválasztott számokat tartalmazhat"
 
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
-msgstr ""
+msgstr "Ennek a mezőnek csak portokat szabad tartalmaznia (0 - 65535) <,> vagy <;>-vel elválasztva."
 
 msgid "This field should only contain strings separated by <,> or <;>"
-msgstr ""
+msgstr "Ennek a mezőnek csak szöveget szabad tartalmaznia <,> vagy <;>-vel elválasztva."
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Ez a funkció csak akkor hatékony, ha a merevlemez támogatja."
@@ -3779,7 +3779,7 @@ msgid "Update Management - History"
 msgstr "Frissítés kezelő - Előzmény"
 
 msgid "Update Management - Terminal output"
-msgstr ""
+msgstr "Frissítés kezelő - Terminál kimenet"
 
 msgid "Update now"
 msgstr "Frissítés most"
@@ -3908,7 +3908,7 @@ msgid "Vietnam"
 msgstr "Vietnám"
 
 msgid "VirtIO device"
-msgstr "VirtIO eszköz"
+msgstr "Virt.IO eszköz"
 
 msgid "Volume"
 msgstr "Kötet"
@@ -4006,7 +4006,7 @@ msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
 msgid "control panel"
-msgstr ""
+msgstr "vezérlőpult"
 
 msgid "day"
 msgstr "nap"
@@ -4030,10 +4030,10 @@ msgid "n/a"
 msgstr "n/a"
 
 msgid "old-age"
-msgstr ""
+msgstr "elhasználódás"
 
 msgid "prefail"
-msgstr ""
+msgstr "előhiba"
 
 msgid "seconds"
 msgstr "másodperc"
