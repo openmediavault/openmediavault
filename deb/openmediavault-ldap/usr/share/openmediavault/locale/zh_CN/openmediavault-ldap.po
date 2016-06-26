@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# songming <by@songming.me>, 2013-2015
+# songming <by@songming.me>, 2013-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2015-04-18 02:53+0000\n"
+"PO-Revision-Date: 2016-06-19 02:06+0000\n"
 "Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Base DN"
-msgstr "基本DN"
+msgstr "基本 DN"
 
 msgid "Directory Service"
 msgstr "目录服务"
@@ -31,7 +31,7 @@ msgid "Enable PAM"
 msgstr "启用 "
 
 msgid "Enable SSL/TLS"
-msgstr "启用SSL/TLS"
+msgstr "启用 SSL/TLS"
 
 msgid "Enable secure connection."
 msgstr "启用安全连接。"
@@ -65,7 +65,7 @@ msgid ""
 msgstr "详情请看 <a href='http://linux.die.net/man/5/nss_ldap' target='_blank'>手册</a> 。"
 
 msgid "Root Bind DN"
-msgstr "根目录绑定DN"
+msgstr "根目录绑定 DN"
 
 msgid "Settings"
 msgstr "设置"
@@ -73,7 +73,7 @@ msgstr "设置"
 msgid ""
 "Specifies the base distinguished name (DN) to use as search base, e.g. "
 "'dc=example,dc=net'."
-msgstr "指定基本识别名称(DN) 作为搜索基础，例如：'dc=example,dc=net'。"
+msgstr "指定基本识别名称 (DN) 作为搜索基础，例如：'dc=example,dc=net'。"
 
 msgid "Specifies the credentials with which to bind."
 msgstr "指定绑定的凭据。"
@@ -81,7 +81,7 @@ msgstr "指定绑定的凭据。"
 msgid ""
 "Specifies the distinguished name (DN) with which to bind to the directory "
 "server for lookups, e.g. 'cn=manager,dc=example,dc=net'."
-msgstr "指定识别名称(DN)并与目录服务器绑定用着查询，例如：'cn=manager,dc=example,dc=net'。"
+msgstr "指定识别名称 (DN) 并与目录服务器绑定用着查询，例如：'cn=manager,dc=example,dc=net'。"
 
 msgid "Specifies the group suffix, e.g. 'ou=Groups'."
 msgstr "指定组后缀，例如：'ou=Groups'。"
@@ -93,12 +93,12 @@ msgid "Specifies the user suffix, e.g. 'ou=Users'."
 msgstr "指定用户后缀，例如：'ou=Users'。"
 
 msgid "The FQDN or IP address of the server."
-msgstr "服务器的FQDN或IP地址。"
+msgstr "服务器的 FQDN 或 IP 地址。"
 
 msgid ""
 "Use LDAP for authentication system-wide along with other authentication "
 "sources."
-msgstr "使用LDAP身份认证系统或其它来源认证系统。"
+msgstr "使用 LDAP 身份认证系统或其它来源认证系统。"
 
 msgid "Users suffix"
 msgstr "用户后缀"

@@ -1,3 +1,10 @@
+openmediavault-ldap (3.1.1) stable; urgency=low
+
+  * Update locales.
+  * Mantis 0001556: Fix typo.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 26 Jun 2016 21:32:27 +0200
+
 openmediavault-ldap (3.1) stable; urgency=low
 
   * Update locales.
