@@ -53,6 +53,17 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.iscsitarget");
+		// Note, we need to do a stupid workaround here when no users
+		// are defined. The problem is caused by the way how the
+		// configuration data is represented in XML and expected in JSON.
+		// XML: <authentication></authentication>
+		// JSON: { authentication: { user: [] } }
+		// The workaround takes care that the internal representation
+		// will be fixed in the special case when no users are defined.
+		if ($object->isEmpty("authentication"))
+			$object->reset("authentication");
+		// Relocate the authentication property.
+		$object->move("authentication.user", "authentication");
 		// Remove useless properties from the object.
 		$object->remove("targets");
 		return $object->getAssoc();
@@ -65,46 +76,32 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 	 * @return The stored configuration object.
 	 */
 	public function setSettings($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.iscsitarget.setsettings");
-		// Get existing configuration object.
-		$xpath = "//services/iscsitarget";
-		$oldObject = $xmlConfig->get($xpath);
-		if (is_null($oldObject)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Update the configuration object.
-		$object = array_merge($oldObject, array(
-			  "enable" => array_boolval($params, 'enable'),
-			  "extraoptions" => $params['extraoptions'],
-			  "authentication" => !empty($params['authentication']) ?
-				array("user" => $params['authentication']) : array()
-		  ));
 		// Update the authentication users uuid's (only necessary if the
-		// user is new)
-		if (!empty($object['authentication']['user'])) {
-			foreach($object['authentication']['user'] as $userk => &$userv) {
-				$userv['uuid'] = ($userv['uuid'] ==
-				  \OMV\Environment::get("OMV_UUID_UNDEFINED")) ?
-				  \OMV\Uuid::uuid4() : $userv['uuid'];
+		// user is new).
+		if (!empty($params['authentication'])) {
+			foreach ($params['authentication'] as $userk => &$userv) {
+				if ($userv['uuid'] !== \OMV\Environment::get(
+				  "OMV_CONFIGOBJECT_NEW_UUID"))
+					continue;
+				$userv['uuid'] = \OMV\Uuid::uuid4();
 			}
 		}
-		// Set the configuration object.
-		if (FALSE === $xmlConfig->replace($xpath, $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
-		// Notify configuration changes.
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.iscsitarget", $object, $oldObject);
+		// Get the existing configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.iscsitarget");
+		$object->setAssoc($params, TRUE, TRUE);
+		$object->set("authentication", [
+			"user" => $params['authentication']
+		]);
+		$db->set($object);
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -120,62 +117,43 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 	 *   array. An exception will be thrown in case of an error.
 	 */
 	public function getTargetList($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.getlist");
-		// Get the configuration object.
-		$xpath = "//services/iscsitarget/targets/target";
-		$objects = $xmlConfig->getList($xpath);
-		if(is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Add additional share informations.
+		// Get the configuration objects.
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->get("conf.service.iscsitarget.target");
+		// Add additional information.
+		$objectsAssoc = [];
 		$rdomainname = strtolower(implode(".", array_reverse(explode(".",
 		  \OMV\System\Net\Dns::getFqdn()))));
-		foreach($objects as $objectk => &$objectv) {
-			$objectv['iqn'] = sprintf("iqn.%s.%s", $objectv['activation'],
+		foreach ($objects as $objectk => &$objectv) {
+			$iqn = sprintf("iqn.%s.%s", $objectv->get("activation"),
 			  $rdomainname);
-			if(!empty($objectv['identifier'])) {
-				$objectv['iqn'] .= sprintf(":%s", $objectv['identifier']);
-			}
-			// Modify result object.
-			$objectv['maxconnections'] = intval($objectv['maxconnections']);
-			$objectv['maxsessions'] = intval($objectv['maxsessions']);
-			$objectv['maxrecvdatasegmentlength'] = intval(
-			  $objectv['maxrecvdatasegmentlength']);
-			$objectv['maxxmitdatasegmentlength'] = intval(
-			  $objectv['maxxmitdatasegmentlength']);
-			$objectv['maxburstlength'] = intval($objectv['maxburstlength']);
-			$objectv['firstburstlength'] = intval(
-			  $objectv['firstburstlength']);
-			$objectv['maxoutstandingr2t'] = intval(
-			  $objectv['maxoutstandingr2t']);
-			$objectv['errorrecoverylevel'] = intval(
-			  $objectv['errorrecoverylevel']);
-			$objectv['nopinterval'] = intval($objectv['nopinterval']);
-			$objectv['noptimeout'] = intval($objectv['noptimeout']);
-			$objectv['wthreads'] = intval($objectv['wthreads']);
-			$objectv['queuedcommands'] = intval($objectv['queuedcommands']);
-			if(empty($object['luns']['lun']))
-				$object['luns'] = [];
-			else {
-				$object['luns'] = $object['luns']['lun'];
-				foreach($object['luns'] as $lunk => &$lunv) {
-					$lunv['id'] = intval($lunv['id']);
-				}
-			}
-			if(empty($object['authentication']['user']))
-				$object['authentication'] = [];
-			else
-				$object['authentication'] = $object['authentication']['user'];
+			if (FALSE === $objectv->isEmpty("identifier"))
+				$iqn .= sprintf(":%s", $objectv->get("identifier"));
+			$objectv->add("iqn", "string", $iqn);
+			// Note, we need to do a stupid workaround here when no luns
+			// are defined. The problem is caused by the way how the
+			// configuration data is represented in XML and expected in JSON.
+			// XML: <luns></luns>
+			// JSON: { luns: { lun: [] } }
+			// The workaround takes care that the internal representation
+			// will be fixed in the special case when no luns are defined.
+			if ($objectv->isEmpty("authentication"))
+				$objectv->reset("authentication");
+			if ($objectv->isEmpty("luns"))
+				$objectv->reset("luns");
+			// Relocate the properties.
+			$objectv->move("authentication.user", "authentication");
+			$objectv->move("luns.lun", "luns");
+			$objectsAssoc[] = $objectv->getAssoc();
 		}
-		// Filter result.
-		return $this->applyFilter($objects, $params['start'],
+		// Filter the result.
+		return $this->applyFilter($objectsAssoc, $params['start'],
 		  $params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
@@ -187,7 +165,6 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 	 * @return The requested configuration object.
 	 */
 	public function getTarget($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
@@ -195,41 +172,24 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
-		$xpath = sprintf("//services/iscsitarget/targets/target[uuid='%s']",
-		  $params['uuid']);
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify result object.
-		$object['maxconnections'] = intval($object['maxconnections']);
-		$object['maxsessions'] = intval($object['maxsessions']);
-		$object['maxrecvdatasegmentlength'] = intval(
-		  $object['maxrecvdatasegmentlength']);
-		$object['maxxmitdatasegmentlength'] = intval(
-		  $object['maxxmitdatasegmentlength']);
-		$object['maxburstlength'] = intval($object['maxburstlength']);
-		$object['firstburstlength'] = intval($object['firstburstlength']);
-		$object['maxoutstandingr2t'] = intval($object['maxoutstandingr2t']);
-		$object['errorrecoverylevel'] = intval($object['errorrecoverylevel']);
-		$object['nopinterval'] = intval($object['nopinterval']);
-		$object['noptimeout'] = intval($object['noptimeout']);
-		$object['wthreads'] = intval($object['wthreads']);
-		$object['queuedcommands'] = intval($object['queuedcommands']);
-		if(empty($object['luns']['lun']))
-			$object['luns'] = [];
-		else {
-			$object['luns'] = $object['luns']['lun'];
-			foreach($object['luns'] as $lunk => &$lunv) {
-				$lunv['id'] = intval($lunv['id']);
-			}
-		}
-		if(empty($object['authentication']['user']))
-			$object['authentication'] = [];
-		else
-			$object['authentication'] = $object['authentication']['user'];
-		return $object;
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.iscsitarget.target", $params['uuid']);
+		// Note, we need to do a stupid workaround here when no luns
+		// are defined. The problem is caused by the way how the
+		// configuration data is represented in XML and expected in JSON.
+		// XML: <luns></luns>
+		// JSON: { luns: { lun: [] } }
+		// The workaround takes care that the internal representation
+		// will be fixed in the special case when no luns are defined.
+		if ($object->isEmpty("authentication"))
+			$object->reset("authentication");
+		if ($object->isEmpty("luns"))
+			$object->reset("luns");
+		// Relocate the properties.
+		$object->move("authentication.user", "authentication");
+		$object->move("luns.lun", "luns");
+		// Return the configuration object.
+		return $object->getAssoc();
 	}
 
 	/**
@@ -239,86 +199,50 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 	 * @return The stored configuration object.
 	 */
 	public function setTarget($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.iscsitarget.settarget");
-		// Prepare the configuration object.
-		$object = array(
-			"uuid" => ($params['uuid'] == \OMV\Environment::get(
-			  "OMV_UUID_UNDEFINED")) ? \OMV\Uuid::uuid4() : $params['uuid'],
-			"activation" => $params['activation'],
-			"identifier" => $params['identifier'],
-			"alias" => $params['alias'],
-			"headerdigest" => $params['headerdigest'],
-			"datadigest" => $params['datadigest'],
-			"maxconnections" => $params['maxconnections'],
-			"maxsessions" => $params['maxsessions'],
-			"initialr2t" => $params['initialr2t'],
-			"immediatedata" => $params['immediatedata'],
-			"maxrecvdatasegmentlength" => $params['maxrecvdatasegmentlength'],
-			"maxxmitdatasegmentlength" => $params['maxxmitdatasegmentlength'],
-			"maxburstlength" => $params['maxburstlength'],
-			"firstburstlength" => $params['firstburstlength'],
-			"maxoutstandingr2t" => $params['maxoutstandingr2t'],
-			"datapduinorder" => $params['datapduinorder'],
-			"datasequenceinorder" => $params['datasequenceinorder'],
-			"errorrecoverylevel" => $params['errorrecoverylevel'],
-			"nopinterval" => $params['nopinterval'],
-			"noptimeout" => $params['noptimeout'],
-			"wthreads" => $params['wthreads'],
-			"queuedcommands" => $params['queuedcommands'],
-			"comment" => $params['comment'],
-			"extraoptions" => $params['extraoptions'],
-			"luns" => !empty($params['luns']) ?
-			  array("lun" => $params['luns']) : array(),
-			"authentication" => !empty($params['authentication']) ?
-			  array("user" => $params['authentication']) : array()
-		);
 		// Update the LUNs uuid's (only necessary if the LUN is new).
-		if (!empty($object['luns']['lun'])) {
-			foreach ($object['luns']['lun'] as $lunk => &$lunv) {
-				$lunv['uuid'] = ($lunv['uuid'] ==
-				  \OMV\Environment::get("OMV_UUID_UNDEFINED")) ?
-				  \OMV\Uuid::uuid4() : $lunv['uuid'];
+		if (!empty($params['luns'])) {
+			foreach ($params['luns'] as $lunk => &$lunv) {
+				if ($lunv['uuid'] !== \OMV\Environment::get(
+				  "OMV_CONFIGOBJECT_NEW_UUID"))
+					continue;
+				$lunv['uuid'] = \OMV\Uuid::uuid4();
 			}
 		}
 		// Update the authentication users uuid's (only necessary if the
 		// user is new).
-		if (!empty($object['authentication']['user'])) {
-			foreach ($object['authentication']['user'] as $userk => &$userv) {
-				$userv['uuid'] = ($userv['uuid'] ==
-				  \OMV\Environment::get("OMV_UUID_UNDEFINED")) ?
-				  \OMV\Uuid::uuid4() : $userv['uuid'];
+		if (!empty($params['authentication'])) {
+			foreach ($params['authentication'] as $userk => &$userv) {
+				if ($userv['uuid'] !== \OMV\Environment::get(
+				  "OMV_CONFIGOBJECT_NEW_UUID"))
+					continue;
+				$userv['uuid'] = \OMV\Uuid::uuid4();
 			}
 		}
-		// Set configuration object.
-		$success = FALSE;
-		if ($params['uuid'] == \OMV\Environment::get("OMV_UUID_UNDEFINED")) {
-			$object['activation'] = date("Y-m");
-			// Append object to configuration.
-			$success = $xmlConfig->set("//services/iscsitarget/targets", [
-				"target" => $object
-			]);
-		} else {
-			// Update existing configuration object.
-			$success = $xmlConfig->replace(
-			  "//services/iscsitarget/targets/target[uuid='{$params['uuid']}']",
-			  $object);
+		// Prepare the configuration object.
+		$object = new \OMV\Config\ConfigObject(
+		  "conf.service.iscsitarget.target");
+		$object->setAssoc(array_merge($params, [
+			"authentication" => [
+				"user" => $params['authentication']
+			],
+			"luns" => [
+				"lun" => $params['luns']
+			]
+		]));
+		// Set the configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		if (TRUE === $object->isNew()) {
+			$object->set("activation", date("Y-m"));
 		}
-		if(FALSE === $success) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
-		// Notify configuration changes
-		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-		$dispatcher->notify(($params['uuid'] == \OMV\Environment::get(
-		  "OMV_UUID_UNDEFINED")) ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.iscsitarget.target", $object);
+		$db->set($object);
 		// Return the configuration object.
-		return $object;
+		return $object->getAssoc();
 	}
 
 	/**
@@ -329,7 +253,6 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 	 * @return The deleted configuration object.
 	 */
 	public function deleteTarget($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
@@ -337,9 +260,10 @@ class OMVRpcServiceIscsiTarget extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Delete the configuration object.
-		$xpath = sprintf("//services/iscsitarget/targets/target[uuid='%s']",
-		  $params['uuid']);
-		return $this->deleteConfigObjectByPath($xpath,
-		  "org.openmediavault.conf.service.iscsitarget.target");
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.iscsitarget.target", $params['uuid']);
+		$db->delete($object);
+		// Return the deleted configuration object.
+		return $object->getAssoc();
 	}
 }

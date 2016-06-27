@@ -65,12 +65,12 @@
 							},
 							"headerdigest": {
 							    "type": "string",
-							    "enum":[ "CRC32C", "None" ],
+							    "enum": [ "CRC32C", "None" ],
 								"default": "None"
 							},
 							"datadigest": {
 							    "type": "string",
-							    "enum":[ "CRC32C", "None" ],
+							    "enum": [ "CRC32C", "None" ],
 								"default": "None"
 							},
 							"maxconnections": {
@@ -156,60 +156,69 @@
 							    "type": "string"
 							},
 							"authentication": {
-							    "type": "array",
-							    "items": {
-							        "type": "object",
-							        "properties": {
-							            "uuid": {
-							                "type": "string",
-											"format": "uuidv4"
-							            },
-							            "type": {
-							                "type": "string",
-							                "enum":[ "incoming", "outgoing" ],
-											"default": "incoming"
-							            },
-							            "username": {
-							                "type": "string"
-							            },
-							            "password": {
-							                "type": "string"
-							            }
-							        }
-							    }
+								"type": "object",
+								"properties": {
+									"user": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"uuid": {
+									                "type": "string",
+													"format": "uuidv4"
+									            },
+									            "type": {
+									                "type": "string",
+									                "enum": [ "incoming", "outgoing" ]
+									            },
+									            "username": {
+									                "type": "string"
+									            },
+									            "password": {
+									                "type": "string"
+									            }
+											}
+										}
+									}
+								}
 							},
 							"luns": {
-							    "type": "array",
-							    "items": {
-							        "type": "object",
-							        "properties": {
-							            "uuid": {
-							                "type": "string",
-											"format": "uuidv4"
-							            },
-							            "id": {
-							                "type": "integer",
-							                "minimum": 0
-							            },
-							            "type": {
-							                "type": "string",
-							                "enum":[ "fileio", "blockio" ],
-											"default": "blockio"
-							            },
-							            "iomode": {
-							                "type": "string",
-							                "enum":[ "wt", "wb", "ro" ],
-											"default": "wt"
-							            },
-							            "devicefile": {
-							                "type": "string"
-							            },
-							            "scsiid": {
-							                "type": "string"
-							            },
-							            "scsisn": {
-							                "type": "string"
-							            }
+								"type": "object",
+								"properties": {
+									"lun": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+									            "uuid": {
+									                "type": "string",
+													"format": "uuidv4"
+									            },
+									            "id": {
+									                "type": "integer",
+									                "minimum": 0
+									            },
+									            "type": {
+									                "type": "string",
+									                "enum": [ "fileio", "blockio" ],
+													"default": "blockio"
+									            },
+									            "iomode": {
+									                "type": "string",
+									                "enum": [ "wt", "wb", "ro" ],
+													"default": "wt"
+									            },
+									            "devicefile": {
+									                "type": "string"
+									            },
+									            "scsiid": {
+									                "type": "string"
+									            },
+									            "scsisn": {
+									                "type": "string"
+									            }
+											}
+										}
 							        }
 							    }
 							}

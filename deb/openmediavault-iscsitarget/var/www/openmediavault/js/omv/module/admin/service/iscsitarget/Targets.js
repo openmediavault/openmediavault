@@ -631,6 +631,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.target.Targets", {
 		"OMV.module.admin.service.iscsitarget.target.Target"
 	],
 
+	hidePagingToolbar: false,
 	stateful: true,
 	stateId: "15e18b72-c1e9-11e0-a91c-00221568ca88",
 	columns: [{
