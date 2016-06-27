@@ -142,7 +142,7 @@ Ext.define("OMV.form.field.Grid", {
 		var me = this;
 		if(me.useStringValue && me.delimiter && Ext.isString(value))
 			value = value.split(me.delimiter);
-		me.mixins.field.setValue.apply(me, value);
+		me.mixins.field.setValue.call(me, value);
 		me.store.loadData(value);
 	},
 
