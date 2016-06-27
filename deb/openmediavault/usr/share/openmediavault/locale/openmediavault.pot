@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"POT-Creation-Date: 2016-06-27 23:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -913,7 +913,7 @@ msgstr ""
 msgid "Do you really want to remove the shared folder content? It will be permanently removed and cannot be recovered."
 msgstr ""
 
-msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
+msgid "Do you really want to reset the UI settings to their default values, e.g. the order of the grid columns?"
 msgstr ""
 
 msgid "Do you really want to resize the selected file system? You have to do that after a RAID has been grown for example."
@@ -2194,6 +2194,9 @@ msgstr ""
 msgid "Paraguay"
 msgstr ""
 
+msgid "Parent Device"
+msgstr ""
+
 msgid "Parent interface"
 msgstr ""
 
@@ -2545,10 +2548,10 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-msgid "Reset WebGUI state"
+msgid "Reset UI to defaults"
 msgstr ""
 
-msgid "Reset WebGUI state will restore default settings of grid columns for example."
+msgid "Reset the UI settings to their default values, e.g. the order of the grid columns."
 msgstr ""
 
 msgid "Resize"
