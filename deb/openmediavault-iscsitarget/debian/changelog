@@ -1,3 +1,9 @@
+openmediavault-iscsitarget (3.1.1) stable; urgency=low
+
+  * Add support for backport kernels.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 28 Jun 2016 08:20:46 +0200
+
 openmediavault-iscsitarget (3.1) stable; urgency=low
 
   * Update locales.
