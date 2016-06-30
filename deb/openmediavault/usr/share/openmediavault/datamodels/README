@@ -40,9 +40,19 @@ id
 --
 The unique identifier of the datamodel, e.g. 'conf.service.ftp'.
 
+description
+-----------
+A brief description of what this configuration object is intended.
+
 properties
 ----------
-The fields description.
+The description of the datamodel fields.
+
+notificationid
+--------------
+An unique identifier that is submitted via the notification backend when the
+configuration object is stored into the database. By default this is
+org.openmediavault.<id>, but this can be overriden with this attribute.
 
 queryinfo
 ---------
@@ -142,7 +152,17 @@ Schema
 
 Desciption
 ==========
-See above
+type
+----
+This must be 'rpc'.
+
+id
+--
+The unique identifier of the RPC, e.g. 'rpc.ssh.set'.
+
+params
+------
+The description of the RPC parameters.
 
 Example
 =======
