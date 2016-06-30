@@ -5,20 +5,20 @@
 		"type": "object",
 		"properties": {
 			"uuid": {
-			    "type": "string",
+				"type": "string",
 				"format": "uuidv4",
 				"required": true
 			},
 			"network": {
-			    "type": "string",
+				"type": "string",
 				"required": true
 			},
 			"gateway": {
-			    "type": "string",
+				"type": "string",
 				"required": true
 			},
 			"comment": {
-			    "type": "string",
+				"type": "string",
 				"required": true
 			}
 		}

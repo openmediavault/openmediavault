@@ -1,0 +1,191 @@
+Put your datamodel and RPC descriptions here.
+
+================================================================================
+Configuration object
+================================================================================
+
+Schema
+======
+{
+	"type":"object",
+	"properties":{
+		"type":{"type":"string","enum":["config"],"required":true},
+		"id":{"type":"string","required":true},
+		"alias":{"type":"string","required":false},
+		"persistent":{"type":"boolean","required":false},
+		"title":{"type":"string","required":false},
+		"description":{"type":"string","required":false},
+		"notificationid":{"type":"string","required":false},
+		"properties":{"type":"any","required":true},
+		"queryinfo":{
+			"type":"object",
+			"required":false,
+			"properties":{
+				"xpath":{"type":"string","required":true},
+				"iterable":{"type":"boolean","required":true},
+				"idproperty":{"type":"string","required":false},
+				"refproperty":{"type":"string","required":false}
+			}
+		}
+	}
+}
+
+Desciption
+==========
+type
+----
+This must be 'config'.
+
+id
+--
+The unique identifier of the datamodel, e.g. 'conf.service.ftp'.
+
+properties
+----------
+The fields description.
+
+queryinfo
+---------
+The information required by the database implementation how and where
+to get the information from the /etc/openmediavault/config.xml file.
+
+queryinfo.xpath
+---------------
+The XPath of the data.
+
+queryinfo.iterable
+------------------
+TRUE if the data is stored multiple times in the database.
+
+queryinfo.idproperty
+--------------------
+The name of the field that is used as the unique identifier of the
+database object. In most cases this is 'uuid'.
+
+queryinfo.refproperty
+---------------------
+This is the name of the field which is used when the database object is
+referenced by another object.
+
+Example
+=======
+{
+	"type": "config",
+	"id": "conf.system.sharedfolder",
+	"title": "Shared folder",
+	"queryinfo": {
+		"xpath": "//system/shares/sharedfolder",
+		"iterable": true,
+		"idproperty": "uuid",
+		"refproperty": "sharedfolderref"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"name": {
+			"type": "string"
+		},
+		"comment": {
+			"type": "string"
+		},
+		"mntentref": {
+			"type": "string"
+		},
+		"reldirpath": {
+			"type": "string"
+		},
+		"privileges": {
+			"type": "object",
+			"properties": {
+				"privilege": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"type": {
+								"type": "string",
+								"enum": [ "user", "group" ]
+							},
+							"name": {
+								"type": "string"
+							},
+							"perms": {
+								"type": "integer",
+								"enum": [ 0, 5, 7 ]
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+================================================================================
+RPC
+================================================================================
+
+Schema
+======
+{
+	"type":"object",
+	"properties":{
+		"type":{"type":"string","enum":["rpc"],"required":true},
+		"id":{"type":"string","required":true},
+		"alias":{"type":"string","required":false},
+		"description":{"type":"string","required":false},
+		"params":{"type":"any","required":true}
+	}
+}
+
+Desciption
+==========
+See above
+
+Example
+=======
+[{
+	"type": "rpc",
+	"id": "rpc.ssh.set",
+	"params": {
+		"type": "object",
+		"properties": {
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
+			"port":{
+				"type": "integer",
+				"minimum": 1,
+				"maximum": 65535,
+				"required": true
+			},
+			"passwordauthentication": {
+				"type": "boolean",
+				"required": true
+			},
+			"pubkeyauthentication": {
+				"type": "boolean",
+				"required": true
+			},
+			"permitrootlogin": {
+				"type": "boolean",
+				"required": true
+			},
+			"tcpforwarding": {
+				"type": "boolean",
+				"required": true
+			},
+			"compression": {
+				"type": "boolean",
+				"required": true
+			},
+			"extraoptions": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+}]
