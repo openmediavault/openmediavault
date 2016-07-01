@@ -122,7 +122,7 @@ class MountPoint {
 		if (TRUE === $this->hasDir()) {
 			$cmdArgs[] = escapeshellarg($this->getDir());
 		} else if (TRUE === $this->hasDevice()) {
-			if (TRUE === is_uuid($this->getDevice()))
+			if (TRUE === is_fs_uuid($this->getDevice()))
 				$cmdArgs[] = sprintf("-U %s", $this->getDevice());
 			else
 				$cmdArgs[] = escapeshellarg($this->getDevice());
@@ -152,7 +152,7 @@ class MountPoint {
 		if (TRUE === $this->hasDir()) {
 			$cmdArgs[] = escapeshellarg($this->getDir());
 		} else if (TRUE === $this->hasDevice()) {
-			if (TRUE === is_uuid($this->getDevice()))
+			if (TRUE === is_fs_uuid($this->getDevice()))
 				$cmdArgs[] = sprintf("-U %s", $this->getDevice());
 			else
 				$cmdArgs[] = escapeshellarg($this->getDevice());
