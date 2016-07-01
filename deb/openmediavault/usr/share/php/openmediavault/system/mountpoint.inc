@@ -21,40 +21,88 @@
  */
 namespace OMV\System;
 
+require_once("openmediavault/functions.inc");
+
 /**
  * A class that implements a mount point.
  * @ingroup api
  */
 class MountPoint {
-	private $device = "";
-	private $dir = "";
+	private $device = NULL;
+	private $dir = NULL;
 
 	/**
 	 * Constructor
-	 * @param device The block special device or remote file system,
-	 *   e.g. /dev/sde1, /dev/disk/by-uuid/2218-DF1C or rootfs.
-	 * @param dir The mount point for the file system, e.g. /media/2218-DF1C.
+	 * @param device The name of the mounted file system, e.g. <ul>
+	 *   \li /dev/sde1
+	 *   \li /dev/disk/by-uuid/2218-DF1C
+	 *   \li rootfs
+	 *   \li efd877d8-3f79-11e6-84f9-0002b3a176b4
+	 *   \li cc9097b9-8859-4455-ae82-a5dbf03d542a:1537599b-...-42678814a582
+	 *   </ul>
+	 * @param dir The file system path prefix, e.g. /media/2218-DF1C.
 	 */
-	public function __construct($device, $dir) {
+	public function __construct($device = NULL, $dir = NULL) {
 		$this->device = $device;
 		$this->dir = $dir;
 	}
 
 	/**
-	 * Get the block special device or remote file system, e.g. /dev/sde1,
-	 * /dev/disk/by-uuid/2218-DF1C or rootfs.
-	 * @return The block special device or remote file system.
+	 * Get the name of the mounted file system, e.g. <ul>
+	 * \li /dev/sde1
+	 * \li /dev/disk/by-uuid/2218-DF1C
+	 * \li rootfs
+	 * \li efd877d8-3f79-11e6-84f9-0002b3a176b4
+	 * \li cc9097b9-8859-4455-ae82-a5dbf03d542a:1537599b-...-8202-42678814a582
+	 * </ul>.
+	 * @return The name of the mounted file system.
 	 */
 	public function getDevice() {
 		return $this->device;
 	}
 
 	/**
-	 * Get the mount point of the filesystem, e.g. /mnt/xyz.
-	 * @return The mount point of the filesystem.
+	 * Set the name of the mounted file system.
+	 * @return None.
 	 */
-	public function getMountPoint() {
+		public function setDevice($device) {
+		$this->device = $device;
+	}
+
+	public function hasDevice() {
+		return !is_null($this->getDevice());
+	}
+
+	final public function assertDevice() {
+		if (FALSE === $this->hasDevice()) {
+			throw new \InvalidArgumentException("No device specified.");
+		}
+	}
+
+	/**
+	 * Get the file system path prefix, e.g. /mnt/xyz.
+	 * @return The file system path prefix.
+	 */
+	public function getDir() {
 		return $this->dir;
+	}
+
+	/**
+	 * Set the file system path prefix, e.g. /mnt/xyz.
+	 * @return None.
+	 */
+	public function setDir($dir) {
+		$this->dir = $dir;
+	}
+
+	public function hasDir() {
+		return !is_null($this->getDir());
+	}
+
+	final public function assertDir() {
+		if (FALSE === $this->hasDir()) {
+			throw new \InvalidArgumentException("No directory specified.");
+		}
 	}
 
 	/**
@@ -71,7 +119,17 @@ class MountPoint {
 				$options = array($options);
 			$cmdArgs[] = sprintf("-o %s", implode(",", $options));
 		}
-		$cmdArgs[] = escapeshellarg($this->dir);
+		if (TRUE === $this->hasDir()) {
+			$cmdArgs[] = escapeshellarg($this->getDir());
+		} else if (TRUE === $this->hasDevice()) {
+			if (TRUE === is_uuid($this->getDevice()))
+				$cmdArgs[] = sprintf("-U %s", $this->getDevice());
+			else
+				$cmdArgs[] = escapeshellarg($this->getDevice());
+		} else {
+			throw new \InvalidArgumentException(
+			  "No device or directory specified.");
+		}
 		$cmd = new \OMV\System\Process("mount", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute();
@@ -91,7 +149,17 @@ class MountPoint {
 			$cmdArgs[] = "-f";
 		if (TRUE === $lazy)
 			$cmdArgs[] = "-l";
-		$cmdArgs[] = escapeshellarg($this->dir);
+		if (TRUE === $this->hasDir()) {
+			$cmdArgs[] = escapeshellarg($this->getDir());
+		} else if (TRUE === $this->hasDevice()) {
+			if (TRUE === is_uuid($this->getDevice()))
+				$cmdArgs[] = sprintf("-U %s", $this->getDevice());
+			else
+				$cmdArgs[] = escapeshellarg($this->getDevice());
+		} else {
+			throw new \InvalidArgumentException(
+			  "No device or directory specified.");
+		}
 		$cmd = new \OMV\System\Process("umount", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute();
@@ -105,12 +173,14 @@ class MountPoint {
 	 * @throw \OMV\ExecException
 	 */
 	public function mkDir($mode = "0700") {
-		if (is_dir($this->dir))
+		$this->assertDir();
+		// Exit immediatelly if the directory already exists.
+		if (TRUE === is_dir($this->getDir()))
 			return;
 		$cmdArgs = [];
 		$cmdArgs[] = "--parents";
 		$cmdArgs[] = sprintf("--mode=%s", $mode);
-		$cmdArgs[] = escapeshellarg($this->dir);
+		$cmdArgs[] = escapeshellarg($this->getDir());
 		$cmd = new \OMV\System\Process("mkdir", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute();
@@ -123,10 +193,14 @@ class MountPoint {
 	 * @throw \OMV\ExecException
 	 */
 	public function unlinkDir($force = TRUE) {
+		$this->assertDir();
+		// Exit immediatelly if the directory already exists.
+		if (FALSE === is_dir($this->getDir()))
+			return;
 		$cmdArgs = [];
 		$cmdArgs[] = "--recursive";
 		$cmdArgs[] = "--force";
-		$cmdArgs[] = escapeshellarg($this->dir);
+		$cmdArgs[] = escapeshellarg($this->getDir());
 		$cmd = new \OMV\System\Process("rm", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute();
@@ -147,7 +221,8 @@ class MountPoint {
 			// /dev/sde1 /home/ftp/data ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
 			// /dev/sde1 /media/46607e80-dc8e-427e-9939-7909985dfe5b ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
 			$matches = explode(" ", $rowv);
-			if (($matches[0] == $this->device) || ($matches[1] == $this->dir)) {
+			if (($matches[0] == $this->getDevice()) ||
+			  ($matches[1] == $this->getDir())) {
 				$result = TRUE;
 				break;
 			}
@@ -160,8 +235,9 @@ class MountPoint {
 	 * @return TRUE if the directory is a mount point, FALSE if not.
 	 */
 	public function isMountPoint() {
+		$this->assertDir();
 		$cmdArgs = [];
-		$cmdArgs[] = escapeshellarg($this->dir);
+		$cmdArgs[] = escapeshellarg($this->getDir());
 		$cmd = new \OMV\System\Process("mountpoint", $cmdArgs);
 		$cmd->setQuiet(TRUE);
 		$cmd->execute($output, $exitStatus);

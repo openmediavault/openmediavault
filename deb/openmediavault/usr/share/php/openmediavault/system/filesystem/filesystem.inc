@@ -844,6 +844,8 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem {
 	 * @return The class object or NULL on failure.
 	 */
 	public static function getImplByMountPoint($dir) {
+		if (TRUE === empty($dir))
+			return NULL;
 		$result = NULL;
 		foreach (file("/proc/mounts") as $rowk => $rowv) {
 			// Parse command output:
@@ -851,10 +853,10 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem {
 			// none /sys sysfs rw,nosuid,nodev,noexec,relatime 0 0
 			// none /proc proc rw,nosuid,nodev,noexec,relatime 0 0
 			// tmpfs /dev/shm tmpfs rw,nosuid,nodev,relatime 0 0
-			// /dev/sde1 /home/ftp/data ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
+			// /dev/sdb2 /home/ftp/data ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
 			// /dev/sde1 /media/46607e80-dc8e-427e-9939-7909985dfe5b ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
 			$parts = explode(" ", $rowv);
-			if ($matches[1] == $dir) {
+			if ($parts[1] == $dir) {
 				$result = self::getImpl($parts[0]);
 				break;
 			}

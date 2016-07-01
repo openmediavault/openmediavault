@@ -53,8 +53,8 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array containing objects with the following fields:
-	 *   \em uuid, \em devicefile and \em description.
-	 *   The field \em uuid is the mount point configuration object UUID.
+	 *   \em uuid, and \em description. The field \em uuid is the UUID
+	 *   from the mount point configuration object.
 	 */
 	public function getCandidates($params, $context) {
 		// Validate the RPC caller context.
@@ -71,32 +71,38 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				  "arg1" => "bind"
 			  ]
 		  ]);
-		// Get the filesystem details for each mount point.
+		// Get the file system details for each mount point.
 		$result = [];
 		foreach ($objects as $objectk => $objectv) {
-			$fs = \OMV\System\Filesystem\Filesystem::getImpl(
-			  $objectv->get("fsname"));
-			if (is_null($fs) || !$fs->exists())
+			$mp = new \OMV\System\MountPoint();
+			$mp->setDir($objectv->get("dir"));
+			// Skip file systems that are not mounted at the moment.
+			if (FALSE === $mp->isMounted())
 				continue;
-			// Skip the filesystems that are not mounted at the moment.
-			if (FALSE === $fs->isMounted())
-				continue;
-			// Get some filesystem details.
-			$devicefile = $fs->getDeviceFile();
-			$label = $fs->getLabel();
 			// Prepare result object.
-			$object = [
+			$objectDict = new \OMV\Dictionary([
 				"uuid" => $objectv->get("uuid"),
-				"devicefile" => $devicefile,
-				"description" => !empty($label) ? $label : $devicefile
-			];
-			// Get some more filesystem details if possible.
-			if (FALSE !== ($fsStats = $fs->getStatistics())) {
-				$object['description'] = sprintf(
-				  gettext("%s (%s available)"), $object['description'],
-				  binary_format($fsStats['available']));
+				"description" => $mp->getDir()
+			]);
+			// Try to get additional file system information.
+			$fs = \OMV\System\Filesystem\Filesystem::getImplByMountPoint(
+			  $mp->getDir());
+			if ((FALSE === is_null($fs)) && $fs->exists()) {
+				// Use the device file as description per default.
+				$objectDict->set("description", $fs->getDeviceFile());
+				// Use the file system label if available.
+				if (TRUE === $fs->hasLabel())
+					$objectDict->set("description", $fs->getLabel());
+				// If possible, use some more file system information as
+				// description.
+				if (FALSE !== ($fsStats = $fs->getStatistics())) {
+					$objectDict->set("description", sprintf(
+					  gettext("%s (%s available)"),
+					  $objectDict->get("description"),
+					  binary_format($fsStats['available'])));
+				}
 			}
-			$result[] = $object;
+			$result[] = $objectDict->getData();
 		}
 		return $result;
 	}
@@ -121,7 +127,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			$objectDict = new \OMV\Dictionary($objectv->getAssoc());
 			// Set the default values.
 			$objectDict->set("_used", false);
-			$objectDict->set("volume", "");
+			$objectDict->set("device", "");
 			$objectDict->copy("name", "description");
 			$objectDict->set("mntent", [
 				"devicefile" => "",
@@ -140,30 +146,35 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			])) {
 				$meObject = $db->get("conf.system.filesystem.mountpoint",
 				  $objectDict->get("mntentref"));
-				// Get the filesystem backend.
+				// Use the mount point as device by default. If the file
+				// system is not virtual (e.g. unionfs, sshfs, nfs), we can
+				// collect more information below.
+				$objectDict->set("device", $meObject->get("dir"));
+				// Get the file system backend to get various information
+				// about the file system features, e.g. if it supports
+				// POSIX ACL.
 				$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
 				$fsbMngr->assertBackendExistsByType($meObject->get("type"));
 				$fsb = $fsbMngr->getBackendByType($meObject->get("type"));
-				// Add some mount point information:
-				// - Does the filesystem support POSIX ACL?
 				$objectDict->set("mntent.fsname", $meObject->get("fsname"));
 				$objectDict->set("mntent.dir", $meObject->get("dir"));
 				$objectDict->set("mntent.type", $meObject->get("type"));
 				$objectDict->set("mntent.posixacl", $fsb->hasPosixAclSupport());
-				// Get the filesystem implementation.
-				$fs = $fsb->getImpl($meObject->get("fsname"));
-				if (!is_null($fs) && $fs->exists()) {
-					$devicefile = $fs->getDeviceFile();
-					$label = $fs->getLabel();
-					// Add some filesystem details.
-					$objectDict->set("mntent.devicefile", $devicefile);
-					// Override default values.
-					$objectDict->set("volume", !empty($label) ? $label :
-					  $devicefile);
+				// Try to get additional information from the file system.
+				$fs = \OMV\System\Filesystem\Filesystem::getImplByMountPoint(
+				  $meObject->get("dir"));
+				if ((FALSE === is_null($fs)) && $fs->exists()) {
+					$objectDict->set("mntent.devicefile", $fs->getDeviceFile());
+					// Use the file system label as device, otherwise the
+					// device file.
+					$objectDict->set("device", $fs->getDeviceFile());
+					if (TRUE === $fs->hasLabel())
+						$objectDict->set("device", $fs->getLabel());
+					// Enhance the description field.
 					$objectDict->set("description", sprintf(
 					  gettext("%s [on %s, %s]"),
 					  $objectDict->get("description"),
-					  $objectDict->get("volume"),
+					  $objectDict->get("device"),
 					  $objectDict->get("reldirpath")));
 				}
 			}

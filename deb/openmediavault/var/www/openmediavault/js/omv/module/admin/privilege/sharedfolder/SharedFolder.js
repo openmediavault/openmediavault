@@ -98,8 +98,8 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 		},{
 			xtype: "combo",
 			name: "mntentref",
-			fieldLabel: _("Volume"),
-			emptyText: _("Select a volume ..."),
+			fieldLabel: _("Device"),
+			emptyText: _("Select a device ..."),
 			allowBlank: false,
 			allowNone: false,
 			editable: false,
@@ -112,7 +112,6 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 					idProperty: "uuid",
 					fields: [
 						{ name: "uuid", type: "string" },
-						{ name: "devicefile", type: "string" },
 						{ name: "description", type: "string" }
 					]
 				}),
@@ -126,7 +125,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 				},
 				sorters: [{
 					direction: "ASC",
-					property: "devicefile"
+					property: "description"
 				}]
 			})
 		},{
@@ -145,7 +144,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 				text: _("The path of the folder to share. The specified folder will be created if it does not already exist."),
 			}],
 			onTriggerClick: function() {
-				// Get the UUID of the selected volume.
+				// Get the UUID of the selected device.
 				var field = me.findField("mntentref");
 				var value = field.getValue();
 				if (Ext.isUuid(value)) {
@@ -160,7 +159,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 						}
 					}).show();
 				} else {
-					OMV.MessageBox.info(null, _("Please first select a volume."));
+					OMV.MessageBox.info(null, _("Please first select a device."));
 				}
 			}
 		},{
@@ -207,7 +206,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 			// Call the parent method if the shared folder is added.
 			me.callParent(arguments);
 		} else {
-			// If the shared folder already exists then check if the volume
+			// If the shared folder already exists then check if the device
 			// or relative path has been changed. In this case the shared
 			// folder will be relocated which requires a confirmation from
 			// the user.
@@ -643,10 +642,10 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 		stateId: "name"
 	},{
 		xtype: "emptycolumn",
-		text: _("Volume"),
+		text: _("Device"),
 		sortable: true,
-		dataIndex: "volume",
-		stateId: "volume"
+		dataIndex: "device",
+		stateId: "device"
 	},{
 		text: _("Path"),
 		sortable: true,
@@ -677,7 +676,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 						{ name: "name", type: "string" },
 						{ name: "reldirpath", type: "string" },
 						{ name: "comment", type: "string" },
-						{ name: "volume", type: "string" },
+						{ name: "device", type: "string" },
 						{ name: "posixacl", mapping: "mntent.posixacl",
 						  type: "boolean" },
 						{ name: "_used", type: "boolean" }
