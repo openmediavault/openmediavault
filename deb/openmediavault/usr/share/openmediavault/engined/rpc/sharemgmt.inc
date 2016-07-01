@@ -146,10 +146,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			])) {
 				$meObject = $db->get("conf.system.filesystem.mountpoint",
 				  $objectDict->get("mntentref"));
-				// Use the mount point as device by default. If the file
-				// system is not virtual (e.g. unionfs, sshfs, nfs), we can
-				// collect more information below.
-				$objectDict->set("device", $meObject->get("dir"));
+				$objectDict->set("device", $meObject->get("fsname"));
 				// Get the file system backend to get various information
 				// about the file system features, e.g. if it supports
 				// POSIX ACL.
@@ -164,19 +161,20 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				$fs = \OMV\System\Filesystem\Filesystem::getImplByMountPoint(
 				  $meObject->get("dir"));
 				if ((FALSE === is_null($fs)) && $fs->exists()) {
-					$objectDict->set("mntent.devicefile", $fs->getDeviceFile());
+					$deviceFile = $fs->getDeviceFile();
+					$objectDict->set("mntent.devicefile", $deviceFile);
 					// Use the file system label as device, otherwise the
 					// device file.
-					$objectDict->set("device", $fs->getDeviceFile());
+					$objectDict->set("device", $deviceFile);
 					if (TRUE === $fs->hasLabel())
 						$objectDict->set("device", $fs->getLabel());
-					// Enhance the description field.
-					$objectDict->set("description", sprintf(
-					  gettext("%s [on %s, %s]"),
-					  $objectDict->get("description"),
-					  $objectDict->get("device"),
-					  $objectDict->get("reldirpath")));
 				}
+				// Modify the description field.
+				$objectDict->set("description", sprintf(
+				  gettext("%s [on %s, %s]"),
+				  $objectDict->get("name"),
+				  $objectDict->get("device"),
+				  $objectDict->get("reldirpath")));
 			}
 			// Is the shared folder referenced by any object? Shared folder
 			// references are named 'sharedfolderref'.
