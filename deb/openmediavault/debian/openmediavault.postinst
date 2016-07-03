@@ -117,6 +117,8 @@ case "$1" in
 			deb-systemd-helper disable nfs-kernel-server.service || :
 			deb-systemd-invoke stop smbd.service || :
 			deb-systemd-helper disable smbd.service || :
+			deb-systemd-invoke stop nmbd.service || :
+			deb-systemd-helper disable nmbd.service || :
 			deb-systemd-invoke stop postfix.service || :
 			deb-systemd-helper disable postfix.service || :
 

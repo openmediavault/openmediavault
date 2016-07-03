@@ -46,6 +46,8 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 	public function stopService() {
 		$systemCtl = new \OMV\System\SystemCtl("smbd");
 		$systemCtl->disable(TRUE);
+		$systemCtl = new \OMV\System\SystemCtl("nmbd");
+		$systemCtl->disable(TRUE);
 	}
 
 	/**
@@ -57,10 +59,9 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 		if (TRUE !== $object->get("enable"))
 			return;
 		$systemCtl = new \OMV\System\SystemCtl("smbd");
-		if ($systemCtl->isEnabled() && $systemCtl->isActive())
-			$systemCtl->reload(); // running -> reload config
-		else
-			$systemCtl->enable(TRUE);
+		$systemCtl->enable(TRUE);
+		$systemCtl = new \OMV\System\SystemCtl("nmbd");
+		$systemCtl->enable(TRUE);
 	}
 
 	/**
