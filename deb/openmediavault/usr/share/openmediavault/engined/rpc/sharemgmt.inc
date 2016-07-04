@@ -87,21 +87,8 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Try to get additional file system information.
 			$fs = \OMV\System\Filesystem\Filesystem::getImplByMountPoint(
 			  $mp->getDir());
-			if ((FALSE === is_null($fs)) && $fs->exists()) {
-				// Use the device file as description per default.
-				$objectDict->set("description", $fs->getDeviceFile());
-				// Use the file system label if available.
-				if (TRUE === $fs->hasLabel())
-					$objectDict->set("description", $fs->getLabel());
-				// If possible, use some more file system information as
-				// description.
-				if (FALSE !== ($fsStats = $fs->getStatistics())) {
-					$objectDict->set("description", sprintf(
-					  gettext("%s (%s available)"),
-					  $objectDict->get("description"),
-					  binary_format($fsStats['available'])));
-				}
-			}
+			if (FALSE === is_null($fs))
+				$objectDict->set("description", $fs->getDescription());
 			$result[] = $objectDict->getData();
 		}
 		return $result;

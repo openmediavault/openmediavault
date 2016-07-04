@@ -1,5 +1,6 @@
 openmediavault (3.0.26) stable; urgency=low
 
+  * Various improvements.
   * Mantis 0001564: Disabled Samba service should disable netbios daemon.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 04 Jul 2016 00:26:57 +0200

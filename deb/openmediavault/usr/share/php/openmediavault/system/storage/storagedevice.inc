@@ -21,6 +21,8 @@
  */
 namespace OMV\System\Storage;
 
+require_once("openmediavault/functions.inc");
+
 /**
  * @ingroup api
  */

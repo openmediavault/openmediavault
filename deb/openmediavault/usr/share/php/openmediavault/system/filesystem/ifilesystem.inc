@@ -159,6 +159,12 @@ interface IFilesystem {
 	public function getSize();
 
 	/**
+	 * Get the description of the file system.
+	 * @return The file system description.
+	 */
+	public function getDescription();
+
+	/**
 	 * Check if a filesystem is mounted.
 	 * @return TRUE if the filesystem is mounted, otherwise FALSE.
 	 * @throw \OMV\Exception

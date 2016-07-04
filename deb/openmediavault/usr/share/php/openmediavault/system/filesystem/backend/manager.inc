@@ -226,8 +226,8 @@ class Manager implements \IteratorAggregate {
 			// we are sure this filesystem is supported by this framework.
 			if (NULL == ($backend = $this->getBackendByType($data['type'])))
 				continue;
-			// Is this filesystem detected via the block device identification
-			// library?
+			// Skip this backend if the filesystem is not detected via the
+			// block device identification library.
 			if (FALSE === $backend->isBlkidEnumerated())
 				continue;
 			$result[] = $data;
@@ -235,6 +235,8 @@ class Manager implements \IteratorAggregate {
 		// Get the filesystems that are not identified by the block device
 		// identification library.
 		foreach ($this->map as $backendk => $backendv) {
+			// Skip the backend if the filesystem is detected via the block
+			// device identification library?
 			if (TRUE === $backendv->isBlkidEnumerated())
 				continue;
 			if (FALSE === ($data = $backendv->enumerate()))

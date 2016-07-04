@@ -723,6 +723,27 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem {
 	}
 
 	/**
+	 * Get the description of the file system.
+	 * @return The file system description.
+	 */
+	public function getDescription() {
+		$this->getData();
+		// Use the device file as default.
+		$result = $this->getDeviceFile();
+		// If the file system has a label, then use this as an alternative.
+		if (TRUE === $this->hasLabel())
+			$result = $this->getLabel();
+		// Try to get the file system statistics to get a more detailed
+		// description.
+		if (FALSE !== ($stats = $this->getStatistics())) {
+			$result = sprintf(gettext("%s [%s (%d%%) used, %s available]"),
+			  $result, binary_format($stats['used']),
+			  $stats['percentage'], binary_format($stats['available']));
+		}
+		return $result;
+	}
+
+	/**
 	 * See if a directory is a mountpoint.
 	 * @param dir The directory path to check.
 	 * @return TRUE if the directory is a mountpoint, otherwise FALSE.
@@ -857,7 +878,11 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem {
 			// /dev/sde1 /media/46607e80-dc8e-427e-9939-7909985dfe5b ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
 			$parts = explode(" ", $rowv);
 			if ($parts[1] == $dir) {
-				$result = self::getImpl($parts[0]);
+				// Get the backend by the file system type (e.g. ext4, xfs,
+				// nfs, aufs, ...).
+				$mngr = Backend\Manager::getInstance();
+				if (NULL !== ($backend = $mngr->getBackendByType($parts[2])))
+					$result = $backend->getImpl($parts[0]);
 				break;
 			}
 		}
