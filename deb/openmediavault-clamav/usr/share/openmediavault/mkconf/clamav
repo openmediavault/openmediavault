@@ -89,7 +89,6 @@ xmlstarlet sel -t -m "//services/clamav/clamd" \
   -o "LocalSocketGroup ${OMV_CLAMAV_CLAMD_LOCALSOCKETGROUP}" -n \
   -o "LocalSocketMode ${OMV_CLAMAV_CLAMD_LOCALSOCKETMODE}" -n \
   -o "User ${OMV_CLAMAV_CLAMD_USER}" -n \
-  -o "AllowSupplementaryGroups true" -n \
   -o "ArchiveBlockEncrypted ${OMV_CLAMAV_CLAMD_ARCHIVEBLOCKENCRYPTED}" -n \
   -o "MaxDirectoryRecursion ${OMV_CLAMAV_CLAMD_MAXDIRECTORYRECURSION}" -n \
   -v "concat('FollowDirectorySymlinks ',followdirectorysymlinks)" -n \
@@ -160,7 +159,6 @@ xmlstarlet sel -t \
     -o "MaxAttempts 5" -n \
     -o "DatabaseDirectory ${OMV_CLAMAV_FRESHCLAM_DATABASEDIRECTORY}" -n \
     -o "DNSDatabaseInfo ${OMV_CLAMAV_FRESHCLAM_DNSDATABASEINFO}" -n \
-    -o "AllowSupplementaryGroups false" -n \
     -o "PidFile /var/run/clamav/freshclam.pid" -n \
     -o "ConnectTimeout 30" -n \
     -o "ReceiveTimeout 30" -n \
