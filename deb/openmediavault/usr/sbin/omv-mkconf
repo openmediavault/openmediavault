@@ -94,6 +94,8 @@ if test ! -x "${OMV_MKCONF_SCRIPTS_DIR}/${scriptname}" ; then
 	printerror "Script ${OMV_MKCONF_SCRIPTS_DIR}/${scriptname} not executable."
 	exit 101
 fi
+# If there are no extra options set, then use 'mkconf'.
+[ -z "${extraparams}" ] && extraparams="mkconf"
 # Execute the script.
-${OMV_MKCONF_SCRIPTS_DIR}/${scriptname} mkconf "${extraparams}" 2>&1 && exit 0
+${OMV_MKCONF_SCRIPTS_DIR}/${scriptname} "${extraparams}" 2>&1 && exit 0
 exit $?

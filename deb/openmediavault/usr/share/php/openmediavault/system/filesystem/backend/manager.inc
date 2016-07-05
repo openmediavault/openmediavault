@@ -235,10 +235,11 @@ class Manager implements \IteratorAggregate {
 		// Get the filesystems that are not identified by the block device
 		// identification library.
 		foreach ($this->map as $backendk => $backendv) {
-			// Skip the backend if the filesystem is detected via the block
-			// device identification library?
+			// Skip this backend if the filesystem is detected via the block
+			// device identification library.
 			if (TRUE === $backendv->isBlkidEnumerated())
 				continue;
+			// Ask the backend implementation for candidates.
 			if (FALSE === ($data = $backendv->enumerate()))
 				continue;
 			if (empty($data))
