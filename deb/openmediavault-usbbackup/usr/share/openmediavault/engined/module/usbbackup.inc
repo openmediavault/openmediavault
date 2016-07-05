@@ -46,24 +46,43 @@ class OMVModuleUsbBackup extends \OMV\Engine\Module\ServiceAbstract
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		$cmdArgs = [];
-		$cmdArgs[] = "usbbackup";
-		$cmdArgs[] = "disable-units";
-		$cmd = new \OMV\System\Process("omv-mkconf", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute();
+		$this->updateUnitFiles("disable");
 	}
 
 	/**
 	 * Start the managed service.
 	 */
 	public function startService() {
-		$cmdArgs = [];
-		$cmdArgs[] = "usbbackup";
-		$cmdArgs[] = "enable-units";
-		$cmd = new \OMV\System\Process("omv-mkconf", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute();
+		$this->updateUnitFiles("enable");
+	}
+
+	/**
+	 * Helper function to enable/disable the systemd unit files.
+	 */
+	private function updateUnitFiles($action) {
+		$directory = \OMV\Environment::get(
+		  "OMV_USBBACKUP_SYSTEMD_SCRIPTS_DIR",
+		  "/lib/systemd/system");
+		$prefix = \OMV\Environment::get(
+		  "OMV_USBBACKUP_SYSTEMD_UNITFILE_PREFIX",
+		  "openmediavault-usbbackup-");
+		foreach (new \DirectoryIterator($directory) as $item) {
+			if ($item->isDot())
+				continue;
+			if (FALSE === $item->isFile())
+				continue;
+			if (FALSE === fnmatch($prefix."*", $item->getFilename()))
+				continue;
+			$systemCtl = new \OMV\System\SystemCtl($item->getFilename());
+			switch ($action) {
+			case "enable":
+				$systemCtl->enable(TRUE);
+				break;
+			case "disable":
+				$systemCtl->disable(TRUE);
+				break;
+			}
+		}
 	}
 
 	/**

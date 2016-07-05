@@ -30,12 +30,24 @@ require_once("openmediavault/functions.inc");
  * @ingroup api
  */
 class Environment {
-	public static function get($name) {
-		if (FALSE === array_key_exists($name, $GLOBALS)) {
+	/**
+	 * Get the specified environment variable. If the variable does not exist
+	 * and \em default is not NULL, then the specified default value will be
+	 * returned, otherwise an exception is thrown.
+	 * @param name The name of the environment variable.
+	 * @param default The default value. Defaults to NULL.
+	 * @return The value of the specified environment variable, or the
+	 *   specified default value if the variable does not exist.
+	 * @throw \InvalidArgumentException
+	 */
+	public static function get($name, $default = NULL) {
+		if (TRUE === array_key_exists($name, $GLOBALS))
+			return $GLOBALS[$name];
+		if (TRUE === is_null($default)) {
 			throw new \InvalidArgumentException(sprintf(
 			  "The global variable '%s' does not exist.", $name));
 		}
-		return $GLOBALS[$name];
+		return $default;
 	}
 
 	public static function set($name, $value) {
