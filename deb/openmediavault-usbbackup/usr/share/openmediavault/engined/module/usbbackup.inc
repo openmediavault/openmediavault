@@ -32,10 +32,36 @@ class OMVModuleUsbBackup extends \OMV\Engine\Module\ServiceAbstract
 	 * Generate the configuration.
 	 */
 	public function applyConfig() {
+		// Build the rsync scripts and systemd unit files.
 		$cmd = new \OMV\System\Process("omv-mkconf", "usbbackup");
 		$cmd->setRedirect2to1();
 		$cmd->execute();
+		// Reload systemd unit files.
 		$cmd = new \OMV\System\Process("systemctl", "daemon-reload");
+		$cmd->setRedirect2to1();
+		$cmd->execute();
+	}
+
+	/**
+	 * Stop the managed service.
+	 */
+	public function stopService() {
+		$cmdArgs = [];
+		$cmdArgs[] = "usbbackup";
+		$cmdArgs[] = "disable-units";
+		$cmd = new \OMV\System\Process("omv-mkconf", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute();
+	}
+
+	/**
+	 * Start the managed service.
+	 */
+	public function startService() {
+		$cmdArgs = [];
+		$cmdArgs[] = "usbbackup";
+		$cmdArgs[] = "enable-units";
+		$cmd = new \OMV\System\Process("omv-mkconf", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}

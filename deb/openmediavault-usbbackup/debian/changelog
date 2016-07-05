@@ -1,3 +1,10 @@
+openmediavault-usbbackup (3.2.3) stable; urgency=low
+
+  * Enable systemd units to start the rsync job when the external
+    device is plugged in.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 05 Jul 2016 08:31:29 +0200
+
 openmediavault-usbbackup (3.2.2) stable; urgency=low
 
   * Various improvements and bugfixes.
