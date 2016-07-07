@@ -41,10 +41,8 @@ class OMVModuleZeroconf extends \OMV\Engine\Module\ServiceAbstract
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		// It is necessary to stop the service because the configuration
-		// is auto-reloaded otherwise and the 'reload' action in the
-		// startService() method will cause a SIGTERM which will lead in
-		// a non running daemon. Seems to be a strange race condition.
+		// It is necessary to stop the service, otherwise the configuration
+		// is auto-reloaded in the meanwhile.
 		$systemCtl = new \OMV\System\SystemCtl("avahi-daemon");
 		$systemCtl->stop();
 	}

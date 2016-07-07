@@ -25,6 +25,8 @@ namespace OMV\System;
  * @ingroup api
  */
 class Process {
+	use \OMV\Debugable;
+
 	private $cmdArgs = [];
 	private $redirect1toFile = FALSE;
 	private $redirect2toFile = FALSE;
@@ -163,7 +165,10 @@ class Process {
 	 * @throw \OMV\ExecException
 	 */
 	public function execute(array &$output = NULL, &$exitStatus = NULL) {
+		// Build the command line.
 		$cmdLine = $this->getCommandLine();
+		// Execute the command.
+		$this->debug("Executing command '%s'", $cmdLine);
 		$result = exec($cmdLine, $output, $exitStatus);
 		if ((FALSE === $this->quiet) && (0 !== $exitStatus))
 			throw new \OMV\ExecException($cmdLine, $output, $exitStatus);

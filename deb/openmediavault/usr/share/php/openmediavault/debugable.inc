@@ -31,7 +31,7 @@ trait Debugable {
 	 * Print debug message to stdout and file if debugging is enabled.
 	 */
 	final protected function debug() {
-		if (TRUE !== \OMV\Environment::getBoolean("OMV_DEBUG_PHP"))
+		if (TRUE !== \OMV\Environment::getBoolean("OMV_DEBUG_PHP", FALSE))
 			return;
 
 		$args = func_get_args();
@@ -42,21 +42,22 @@ trait Debugable {
 		$bt0 = $bt[0];
 		$bt1 = $bt[1];
 
-		// Prepare debug message.
-		$msg = sprintf("%s File: %s Line: %d", date(DATE_RFC822),
+		// Build the message.
+		$msg = sprintf("DEBUG [%s File=%s Line=%d", date(DATE_RFC822),
 		  basename($bt0['file']), $bt0['line']);
 		if (isset($bt1['class'])) {
-			$msg .= sprintf(" Method: %s::%s()", $bt1['class'],
+			$msg .= sprintf(" Method=%s::%s()", $bt1['class'],
 			  $bt1['function']);
 		} else if (isset($bt1['function'])) {
-			$msg .= sprintf(" Function: %s()", $entry['function']);
+			$msg .= sprintf(" Function=%s()", $entry['function']);
 		}
-		$msg .= sprintf(" Message: %s\n", vsprintf($fmt, $args));
+		$msg .= sprintf("]: %s\n", vsprintf($fmt, $args));
 
-		// Output message to stdout.
+		// Output the message to stdout.
 		//fwrite(STDOUT, $msg);
 		file_put_contents("php://stdout", $msg);
-		// Append message to debug log file.
+
+		// Append the message to the debug log file.
 		file_put_contents(\OMV\Environment::get("OMV_DEBUG_PHP_LOGFILE"),
 		  $msg, FILE_APPEND);
 	}

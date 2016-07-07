@@ -163,7 +163,8 @@ Ext.define("OMV.workspace.Workspace", {
 					xtype: "tbfill"
 				},{
 					xtype: "splitbutton",
-					icon: "images/menu.png",
+					icon: Ext.supports.Svg ? "images/more.svg" :
+					  "images/more.png",
 					iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 					handler: function() {
 						this.showMenu();

@@ -54,28 +54,28 @@ class Environment {
 		$GLOBALS[$name] = $value;
 	}
 
-	public static function getString($name) {
-		$value = self::get($name);
+	public static function getString($name, $default = NULL) {
+		$value = self::get($name, $default);
 		return strval($value);
 	}
 
-	public static function getBoolean($name) {
-		$value = self::get($name);
+	public static function getBoolean($name, $default = NULL) {
+		$value = self::get($name, $default);
 		return boolvalEx($value);
 	}
 
-	public static function getInteger($name) {
-		$value = self::get($name);
+	public static function getInteger($name, $default = NULL) {
+		$value = self::get($name, $default);
 		return intval($value);
 	}
 
-	public static function getDouble($name) {
-		$value = self::get($name);
+	public static function getDouble($name, $default = NULL) {
+		$value = self::get($name, $default);
 		return doubleval($value);
 	}
 
-	public static function getFloat($name) {
-		$value = self::get($name);
+	public static function getFloat($name, $default = NULL) {
+		$value = self::get($name, $default);
 		return floatval($value);
 	}
 }
