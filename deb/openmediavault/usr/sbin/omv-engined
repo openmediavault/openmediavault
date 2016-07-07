@@ -426,8 +426,9 @@ while(FALSE === $sigTerm) {
 	pcntl_signal_dispatch();
 	// Monitor socket.
 	$read = array($socket);
-	if(FALSE === ($r = @socket_select($read, $write = NULL, $except = NULL,
-	  $timeout))) {
+	$write = NULL;
+	$except = NULL;
+	if(FALSE === ($r = @socket_select($read, $write, $except, $timeout))) {
 		$errCode = socket_last_error();
 		if(SOCKET_EINTR == $errCode) {
 			pcntl_signal_dispatch();
