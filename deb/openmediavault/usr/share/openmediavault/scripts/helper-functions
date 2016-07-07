@@ -853,6 +853,7 @@ omv_kill_children() {
 omv_module_set_dirty() {
 	php5 -c /etc/openmediavault <<EOF
 <?php
+require_once('openmediavault/autoloader.inc'); \
 \$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 \$moduleMngr->setModuleDirty("$1");
 ?>
@@ -919,6 +920,7 @@ omv_is_device_nonrotational() {
 	[ -z "$1" ] && return 1
 	_result=$(php5 -c /etc/openmediavault <<EOF
 <?php
+require_once('openmediavault/autoloader.inc'); \
 \$result = TRUE;
 \$sd = \OMV\System\Storage\StorageDevice::getStorageDevice("$1");
 if (!is_null(\$sd))
