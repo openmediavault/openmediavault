@@ -194,6 +194,7 @@ class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 		$object->setAssoc($params);
 		// Do some validations:
 		// - Check if quarantine shared folder exists when it is referenced.
+		$db = \OMV\Config\Database::getInstance();
 		if ("quarantine" === $object->get("virusaction")) {
 			$object2 = $db->get("conf.service.clamav");
 			if ($object2->isEmpty("quarantine_sharedfolderref")) {
