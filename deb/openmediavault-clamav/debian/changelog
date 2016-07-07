@@ -1,5 +1,6 @@
 openmediavault-clamav (3.2.2) stable; urgency=low
 
+  * Update locales.
   * Mantis 0001566: Fix configuration file issue.
   * Mantis 0001567: Cannot enable quarantine infected files feature.
 

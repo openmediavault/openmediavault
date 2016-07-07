@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# songming <by@songming.me>, 2013-2014
+# songming <by@songming.me>, 2013-2014,2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2014-11-30 01:10+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2016-06-19 02:00+0000\n"
+"Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,7 +51,7 @@ msgid "Day of week"
 msgstr "周内第几天"
 
 msgid "Detect PUA"
-msgstr "PUA检测"
+msgstr "PUA 检测"
 
 msgid "Detect broken executables"
 msgstr "检测损坏的可执行文件"
@@ -63,7 +63,7 @@ msgid "Enable"
 msgstr "启用"
 
 msgid "Enable HTML detection and normalisation."
-msgstr "启用HTML检测与正常化。"
+msgstr "启用 HTML 检测与正常化。"
 
 msgid "Enable archive scanning."
 msgstr "启用归档扫描。"
@@ -72,15 +72,15 @@ msgid "Enable on-access virus scanning"
 msgstr "开启在存取时扫描"
 
 msgid "Enable scanning of ELF files."
-msgstr "启用扫描ELF文件。"
+msgstr "启用扫描 ELF 文件。"
 
 msgid ""
 "Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
 "files."
-msgstr "启用扫描OLE2文件，例如微软Office文档和.msi文档。"
+msgstr "启用扫描 OLE2 文件，例如微软 Office 文档和 .msi 文档。"
 
 msgid "Enable scanning within PDF files."
-msgstr "启用PDF文档扫描。"
+msgstr "启用 PDF 文档扫描。"
 
 msgid "Enable the algorithmic detection."
 msgstr "启用检测算法。"
@@ -95,16 +95,16 @@ msgid "Enabled"
 msgstr "已启用"
 
 msgid "Every N day of month"
-msgstr "每月的第N天"
+msgstr "每月的第 N 天"
 
 msgid "Every N hour"
-msgstr "每N小时"
+msgstr "每 N 小时"
 
 msgid "Every N minute"
-msgstr "每N分钟"
+msgstr "每 N 分钟"
 
 msgid "Execute cron job"
-msgstr "执行cron任务"
+msgstr "执行计划任务"
 
 msgid "Extra options"
 msgstr "扩展选项"
@@ -155,7 +155,7 @@ msgid "Multiscan"
 msgstr "多线程扫描"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
-msgstr "每天数据库更新检查次数，0为不检查。"
+msgstr "每天数据库更新检查次数，0 为不检查。"
 
 msgid "On-access"
 msgstr "存取时"
@@ -175,16 +175,16 @@ msgid "Run"
 msgstr "运行"
 
 msgid "Scan ELF"
-msgstr "扫描ELF"
+msgstr "扫描 ELF"
 
 msgid "Scan HTML"
-msgstr "扫描HTML"
+msgstr "扫描 HTML"
 
 msgid "Scan OLE2"
-msgstr "扫描OLE2"
+msgstr "扫描 OLE2"
 
 msgid "Scan PDF"
-msgstr "扫描PDF"
+msgstr "扫描 PDF"
 
 msgid "Scan Portable Executable"
 msgstr "扫描便携执行文件"
@@ -199,7 +199,7 @@ msgid "Send command output via email"
 msgstr "通过邮件发送命令输出结果"
 
 msgid "Send email"
-msgstr "发送Email"
+msgstr "发送 Email"
 
 msgid "Settings"
 msgstr "设置"
