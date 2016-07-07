@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 23:40+0200\n"
-"PO-Revision-Date: 2016-06-27 21:40+0000\n"
+"POT-Creation-Date: 2016-07-07 07:26+0200\n"
+"PO-Revision-Date: 2016-07-07 05:26+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/votdev/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -25,6 +25,9 @@ msgstr "% ferdig ..."
 
 msgid "%s (%s available)"
 msgstr "%s (%s tilgjengelig)"
+
+msgid "%s [%s (%d%%) used, %s available]"
+msgstr ""
 
 msgid "%s [on %s, %s]"
 msgstr ""
@@ -2394,8 +2397,8 @@ msgstr "Vennligst sjekk <a href='http://www.samba.org/samba/docs/man/manpages-3/
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "Velg en metode for å rense enheten eller 'Avbryt' for å avbryte."
 
-msgid "Please first select a volume."
-msgstr "Velg først et volum."
+msgid "Please first select a device."
+msgstr ""
 
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
@@ -2892,9 +2895,6 @@ msgstr "Velg et shell ..."
 
 msgid "Select a user name ..."
 msgstr ""
-
-msgid "Select a volume ..."
-msgstr "Velg et volum ..."
 
 msgid "Select an authentication mode ..."
 msgstr ""
@@ -3914,9 +3914,6 @@ msgstr "Vietnam"
 
 msgid "VirtIO device"
 msgstr ""
-
-msgid "Volume"
-msgstr "Volum"
 
 msgid "WINS"
 msgstr "WINS"

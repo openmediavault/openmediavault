@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 23:40+0200\n"
-"PO-Revision-Date: 2016-06-27 21:40+0000\n"
+"POT-Creation-Date: 2016-07-07 07:26+0200\n"
+"PO-Revision-Date: 2016-07-07 05:26+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -25,6 +25,9 @@ msgstr "% kész ..."
 
 msgid "%s (%s available)"
 msgstr "%s (%s elérhető)"
+
+msgid "%s [%s (%d%%) used, %s available]"
+msgstr ""
 
 msgid "%s [on %s, %s]"
 msgstr "%s [a %s, %s]"
@@ -2277,7 +2280,7 @@ msgid "Paraguay"
 msgstr "Paraguay"
 
 msgid "Parent Device"
-msgstr ""
+msgstr "Szülőeszköz"
 
 msgid "Parent interface"
 msgstr "Szülő interfész"
@@ -2394,8 +2397,8 @@ msgstr "Kérlek tekintsd meg a <a href='http://www.samba.org/samba/docs/man/manp
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "Válaszd ki a módszert a meghajtó törlésére, vagy a 'Mégsem'-et a megszakításhoz."
 
-msgid "Please first select a volume."
-msgstr "Kérlek előbb válassz ki egy kötetet."
+msgid "Please first select a device."
+msgstr ""
 
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
@@ -2670,7 +2673,7 @@ msgid "Reset"
 msgstr "Visszaállítás"
 
 msgid "Reset UI to defaults"
-msgstr ""
+msgstr "UI alapértékek visszaállítása"
 
 msgid ""
 "Reset the UI settings to their default values, e.g. the order of the grid "
@@ -2892,9 +2895,6 @@ msgstr "Válassz ki egy héjat ..."
 
 msgid "Select a user name ..."
 msgstr "Válassz ki egy felhasználó nevet..."
-
-msgid "Select a volume ..."
-msgstr "Válassz ki egy kötetet ..."
 
 msgid "Select an authentication mode ..."
 msgstr "Válassz ki egy hitelesítési módot ..."
@@ -3914,9 +3914,6 @@ msgstr "Vietnám"
 
 msgid "VirtIO device"
 msgstr "Virt.IO eszköz"
-
-msgid "Volume"
-msgstr "Kötet"
 
 msgid "WINS"
 msgstr "WINS"

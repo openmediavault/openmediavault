@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 23:40+0200\n"
-"PO-Revision-Date: 2016-06-27 21:40+0000\n"
+"POT-Creation-Date: 2016-07-07 07:26+0200\n"
+"PO-Revision-Date: 2016-07-07 05:26+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -26,6 +26,9 @@ msgstr "% 완료 ..."
 
 msgid "%s (%s available)"
 msgstr "%s (%s 사용 가능)"
+
+msgid "%s [%s (%d%%) used, %s available]"
+msgstr ""
 
 msgid "%s [on %s, %s]"
 msgstr "%s [on %s, %s]"
@@ -2395,8 +2398,8 @@ msgstr "자세한 내용은 <a href='http://www.samba.org/samba/docs/man/manpage
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "장치를 지우기 위한 방법을 선택하거나 '취소'를 눌러 중단하시길 바랍니다."
 
-msgid "Please first select a volume."
-msgstr "먼저 볼륨을 선택하세요."
+msgid "Please first select a device."
+msgstr ""
 
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
@@ -2893,9 +2896,6 @@ msgstr "쉘을 선택하세요 ..."
 
 msgid "Select a user name ..."
 msgstr "사용자 이름을 선택하세요 ..."
-
-msgid "Select a volume ..."
-msgstr "볼륨을 선택하세요 ..."
 
 msgid "Select an authentication mode ..."
 msgstr ""
@@ -3915,9 +3915,6 @@ msgstr "베트남"
 
 msgid "VirtIO device"
 msgstr "VirtIO 장치"
-
-msgid "Volume"
-msgstr "볼륨"
 
 msgid "WINS"
 msgstr "WINS"

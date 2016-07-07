@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 23:40+0200\n"
-"PO-Revision-Date: 2016-06-27 21:40+0000\n"
+"POT-Creation-Date: 2016-07-07 07:26+0200\n"
+"PO-Revision-Date: 2016-07-07 05:26+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -26,6 +26,9 @@ msgstr "% виконано ..."
 
 msgid "%s (%s available)"
 msgstr "%s (%s доступно)"
+
+msgid "%s [%s (%d%%) used, %s available]"
+msgstr ""
 
 msgid "%s [on %s, %s]"
 msgstr "%s [на %s, %s]"
@@ -2395,8 +2398,8 @@ msgstr ""
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "Будь ласка, оберіть стерити пристрій, або \"Скасувати\", щоб перервати операцію."
 
-msgid "Please first select a volume."
-msgstr "Будь ласка, оберіть спочатку розділ."
+msgid "Please first select a device."
+msgstr ""
 
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
@@ -2893,9 +2896,6 @@ msgstr "Оберіть оболонку ..."
 
 msgid "Select a user name ..."
 msgstr "Оберіть ім'я користувача ..."
-
-msgid "Select a volume ..."
-msgstr "Оберіть розділ ..."
 
 msgid "Select an authentication mode ..."
 msgstr "Оберіть режим перевірки автентичності ..."
@@ -3915,9 +3915,6 @@ msgstr "В'єтнам"
 
 msgid "VirtIO device"
 msgstr "VirtIO пристрій"
-
-msgid "Volume"
-msgstr "Об'єм"
 
 msgid "WINS"
 msgstr "WINS"

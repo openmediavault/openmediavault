@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 23:40+0200\n"
-"PO-Revision-Date: 2016-06-27 21:40+0000\n"
+"POT-Creation-Date: 2016-07-07 07:26+0200\n"
+"PO-Revision-Date: 2016-07-07 05:26+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -25,6 +25,9 @@ msgstr "% 完成 ..."
 
 msgid "%s (%s available)"
 msgstr "%s (%s 可用)"
+
+msgid "%s [%s (%d%%) used, %s available]"
+msgstr ""
 
 msgid "%s [on %s, %s]"
 msgstr "%s [on %s, %s]"
@@ -2394,8 +2397,8 @@ msgstr "详情请看 <a href='http://www.samba.org/samba/docs/man/manpages-3/smb
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "请选择擦除设备的方式或者选择“取消”中止。"
 
-msgid "Please first select a volume."
-msgstr "请选择一个卷。"
+msgid "Please first select a device."
+msgstr ""
 
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
@@ -2892,9 +2895,6 @@ msgstr "选择 shell ..."
 
 msgid "Select a user name ..."
 msgstr "选择用户名 ..."
-
-msgid "Select a volume ..."
-msgstr "选择卷 ..."
 
 msgid "Select an authentication mode ..."
 msgstr "选择授权模式 ..."
@@ -3914,9 +3914,6 @@ msgstr "越南"
 
 msgid "VirtIO device"
 msgstr "VirtIO 设备"
-
-msgid "Volume"
-msgstr "卷"
 
 msgid "WINS"
 msgstr "WINS"

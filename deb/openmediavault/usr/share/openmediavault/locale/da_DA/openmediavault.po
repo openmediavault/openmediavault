@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 23:40+0200\n"
-"PO-Revision-Date: 2016-06-27 21:40+0000\n"
+"POT-Creation-Date: 2016-07-07 07:26+0200\n"
+"PO-Revision-Date: 2016-07-07 05:26+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/votdev/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -24,6 +24,9 @@ msgstr "% gennemført ..."
 
 msgid "%s (%s available)"
 msgstr "%s (%s tilgængelig)"
+
+msgid "%s [%s (%d%%) used, %s available]"
+msgstr ""
 
 msgid "%s [on %s, %s]"
 msgstr "%s [til %s, %s]"
@@ -943,7 +946,7 @@ msgstr "Er du sikker på at du vil slette den delte mappes indhold? Det vil bliv
 msgid ""
 "Do you really want to reset the UI settings to their default values, e.g. "
 "the order of the grid columns?"
-msgstr ""
+msgstr "Er du sikker på, at du vil nulstille UI indstillingerne til deres standard værdier, f.eks rækkefølgen af gitter kolonner?"
 
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
@@ -2276,7 +2279,7 @@ msgid "Paraguay"
 msgstr "Paraguay"
 
 msgid "Parent Device"
-msgstr ""
+msgstr "Overordnet Enhed"
 
 msgid "Parent interface"
 msgstr "Overordnet interface"
@@ -2393,8 +2396,8 @@ msgstr "Kontroller venligst <a href='http://www.samba.org/samba/docs/man/manpage
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "Vælg en metode til rydning af enheden eller tryk 'Annuller' for at afbryde."
 
-msgid "Please first select a volume."
-msgstr "Vælg venligst først et drev."
+msgid "Please first select a device."
+msgstr ""
 
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
@@ -2669,12 +2672,12 @@ msgid "Reset"
 msgstr "Reset"
 
 msgid "Reset UI to defaults"
-msgstr ""
+msgstr "Nulstil UI til standard"
 
 msgid ""
 "Reset the UI settings to their default values, e.g. the order of the grid "
 "columns."
-msgstr ""
+msgstr "Nulstil UI indstillingerne til deres standard værdier, f.eks rækkefølgen af gitter kolonner."
 
 msgid "Resize"
 msgstr "Tilpas størrelsen"
@@ -2891,9 +2894,6 @@ msgstr "Vælg en shell ..."
 
 msgid "Select a user name ..."
 msgstr "Vælg et brugernavn ..."
-
-msgid "Select a volume ..."
-msgstr "Vælg et drev ..."
 
 msgid "Select an authentication mode ..."
 msgstr "Vælg en godkendelses metode ..."
@@ -3913,9 +3913,6 @@ msgstr "Vietnam"
 
 msgid "VirtIO device"
 msgstr "VirtIO enhed"
-
-msgid "Volume"
-msgstr "Drev"
 
 msgid "WINS"
 msgstr "WINS"

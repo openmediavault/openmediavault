@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 23:40+0200\n"
-"PO-Revision-Date: 2016-06-27 21:40+0000\n"
+"POT-Creation-Date: 2016-07-07 07:26+0200\n"
+"PO-Revision-Date: 2016-07-07 05:26+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/votdev/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -27,6 +27,9 @@ msgstr "% completado ..."
 
 msgid "%s (%s available)"
 msgstr "%s (%s disponible)"
+
+msgid "%s [%s (%d%%) used, %s available]"
+msgstr ""
 
 msgid "%s [on %s, %s]"
 msgstr "%s [en %s, %s]"
@@ -946,7 +949,7 @@ msgstr "¿Seguro que quiere eliminar el contenido de la carpeta compartida?. Se 
 msgid ""
 "Do you really want to reset the UI settings to their default values, e.g. "
 "the order of the grid columns?"
-msgstr ""
+msgstr "¿Seguro que desea reiniciar la WebGUI a su valor por defecto?, Ej: el orden de las columnas mostradas"
 
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
@@ -2279,7 +2282,7 @@ msgid "Paraguay"
 msgstr "Paraguay"
 
 msgid "Parent Device"
-msgstr ""
+msgstr "Dispositivo padre"
 
 msgid "Parent interface"
 msgstr "Interfaz padre"
@@ -2396,8 +2399,8 @@ msgstr "Por favor vea: <a href='http://www.samba.org/samba/docs/man/manpages-3/s
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "Por favor elija el metodo para borrar el dispositivo o pulse 'Cancelar' para salir."
 
-msgid "Please first select a volume."
-msgstr "Seleccione primero un volumen"
+msgid "Please first select a device."
+msgstr ""
 
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
@@ -2672,12 +2675,12 @@ msgid "Reset"
 msgstr "Reiniciar"
 
 msgid "Reset UI to defaults"
-msgstr ""
+msgstr "Reinicia WebGUI por defecto"
 
 msgid ""
 "Reset the UI settings to their default values, e.g. the order of the grid "
 "columns."
-msgstr ""
+msgstr "Reiniciando la WebGUI a su valor por defecto, Ej: el orden de las columnas mostradas."
 
 msgid "Resize"
 msgstr "Redimensionar"
@@ -2894,9 +2897,6 @@ msgstr "Seleccionar una Shell ..."
 
 msgid "Select a user name ..."
 msgstr "Seleccione un nombre de usuario ..."
-
-msgid "Select a volume ..."
-msgstr "Seleccionar un volumen ..."
 
 msgid "Select an authentication mode ..."
 msgstr "Seleccionar un modo de autentificación ..."
@@ -3916,9 +3916,6 @@ msgstr "Vietnam"
 
 msgid "VirtIO device"
 msgstr "Dispositivo VirtIO."
-
-msgid "Volume"
-msgstr "Volumen"
 
 msgid "WINS"
 msgstr "WINS"

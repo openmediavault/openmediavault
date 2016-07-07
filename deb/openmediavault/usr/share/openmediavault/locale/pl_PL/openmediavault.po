@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 23:40+0200\n"
-"PO-Revision-Date: 2016-06-27 21:40+0000\n"
+"POT-Creation-Date: 2016-07-07 07:26+0200\n"
+"PO-Revision-Date: 2016-07-07 05:26+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/votdev/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -28,6 +28,9 @@ msgstr "% ukończonych ..."
 
 msgid "%s (%s available)"
 msgstr "%s (%s dostępnych)"
+
+msgid "%s [%s (%d%%) used, %s available]"
+msgstr ""
 
 msgid "%s [on %s, %s]"
 msgstr "%s [na %s, %s]"
@@ -2397,8 +2400,8 @@ msgstr "Więcej informacji na <a href='http://www.samba.org/samba/docs/man/manpa
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "Wybierz metodę do czyszczenia urządzenia lub wybierz \"Anuluj\", aby anulować."
 
-msgid "Please first select a volume."
-msgstr "Proszę najpierw wybrać wolumin."
+msgid "Please first select a device."
+msgstr ""
 
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
@@ -2895,9 +2898,6 @@ msgstr "Wybierz powłokę ..."
 
 msgid "Select a user name ..."
 msgstr "Wybierz nazwę użytkownika ..."
-
-msgid "Select a volume ..."
-msgstr "Wybierz wolumen ..."
 
 msgid "Select an authentication mode ..."
 msgstr "Wybierz rodzaj uwierzytelniania ..."
@@ -3917,9 +3917,6 @@ msgstr "Vietnam"
 
 msgid "VirtIO device"
 msgstr "Urządzenie VirtIO"
-
-msgid "Volume"
-msgstr "Objętość"
 
 msgid "WINS"
 msgstr "WINS"

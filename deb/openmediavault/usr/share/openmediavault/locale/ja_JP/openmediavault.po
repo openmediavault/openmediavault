@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 23:40+0200\n"
-"PO-Revision-Date: 2016-06-27 21:40+0000\n"
+"POT-Creation-Date: 2016-07-07 07:26+0200\n"
+"PO-Revision-Date: 2016-07-07 05:26+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/votdev/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -24,6 +24,9 @@ msgstr "% 完了しました ..."
 
 msgid "%s (%s available)"
 msgstr "%s (%s 有効)"
+
+msgid "%s [%s (%d%%) used, %s available]"
+msgstr ""
 
 msgid "%s [on %s, %s]"
 msgstr "%s [%s 上, %s]"
@@ -943,7 +946,7 @@ msgstr "共有フォルダのコンテンツを削除してもよろしいです
 msgid ""
 "Do you really want to reset the UI settings to their default values, e.g. "
 "the order of the grid columns?"
-msgstr ""
+msgstr "UI設定をデフォルト値でリセットしてもよろしいですか？ 例）グリッド列の順序"
 
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
@@ -2276,7 +2279,7 @@ msgid "Paraguay"
 msgstr "パラグアイ"
 
 msgid "Parent Device"
-msgstr ""
+msgstr "親デバイス"
 
 msgid "Parent interface"
 msgstr "親インタフェース"
@@ -2393,8 +2396,8 @@ msgstr "詳細については <a href='http://www.samba.org/samba/docs/man/manpa
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "デバイスをワイプする方法を選択してください。中止する場合は'キャンセル'を選択してください。"
 
-msgid "Please first select a volume."
-msgstr "最初のボリュームを選択してください。"
+msgid "Please first select a device."
+msgstr ""
 
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
@@ -2669,12 +2672,12 @@ msgid "Reset"
 msgstr "リセット"
 
 msgid "Reset UI to defaults"
-msgstr ""
+msgstr "UIをデフォルトにリセット"
 
 msgid ""
 "Reset the UI settings to their default values, e.g. the order of the grid "
 "columns."
-msgstr ""
+msgstr "UI設定をデフォルト値にリセットします。 例）グリッド列の順序"
 
 msgid "Resize"
 msgstr "リサイズ"
@@ -2891,9 +2894,6 @@ msgstr "シェルを選択 ..."
 
 msgid "Select a user name ..."
 msgstr "ユーザー名を選択 ..."
-
-msgid "Select a volume ..."
-msgstr "ボリュームを選択 ..."
 
 msgid "Select an authentication mode ..."
 msgstr "認証モードを選択 ..."
@@ -3913,9 +3913,6 @@ msgstr "ベトナム"
 
 msgid "VirtIO device"
 msgstr "VirtIO デバイス"
-
-msgid "Volume"
-msgstr "ボリューム"
 
 msgid "WINS"
 msgstr "WINS"

@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 23:40+0200\n"
-"PO-Revision-Date: 2016-06-27 21:40+0000\n"
+"POT-Creation-Date: 2016-07-07 07:26+0200\n"
+"PO-Revision-Date: 2016-07-07 05:26+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/votdev/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -27,6 +27,9 @@ msgstr "% completed ..."
 
 msgid "%s (%s available)"
 msgstr "%s (%s beschikbaar)"
+
+msgid "%s [%s (%d%%) used, %s available]"
+msgstr ""
 
 msgid "%s [on %s, %s]"
 msgstr "%s [op %s, %s]"
@@ -2396,8 +2399,8 @@ msgstr "Raadpleeg de <a href='http://www.samba.org/samba/docs/man/manpages-3/smb
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "Kies een methode om het apparaat te wissen of 'Annuleren' om af te breken"
 
-msgid "Please first select a volume."
-msgstr "Gelieve eerst een schijf(deel) te selecteren."
+msgid "Please first select a device."
+msgstr ""
 
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
@@ -2894,9 +2897,6 @@ msgstr "Selecteer een shell"
 
 msgid "Select a user name ..."
 msgstr "Selecteer een gebruikersnaam ..."
-
-msgid "Select a volume ..."
-msgstr "Selecteer een schijf(deel) ..."
 
 msgid "Select an authentication mode ..."
 msgstr "Kies een authenticatiewijze ..."
@@ -3916,9 +3916,6 @@ msgstr "Vietnam"
 
 msgid "VirtIO device"
 msgstr "VirtIO-apparaat"
-
-msgid "Volume"
-msgstr "Schijf(deel)"
 
 msgid "WINS"
 msgstr "WINS"

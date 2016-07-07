@@ -8,13 +8,13 @@
 # Nadley-Nahir Mohamed <nahirmoha@gmail.com>, 2012-2013
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012-2013
 # Stéphane BOCQUET <stephane_bocquet@hotmail.com>, 2012
-# Volker <votdev@gmx.de>, 2015
+# Volker <votdev@gmx.de>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 23:40+0200\n"
-"PO-Revision-Date: 2016-06-27 21:40+0000\n"
+"POT-Creation-Date: 2016-07-07 07:26+0200\n"
+"PO-Revision-Date: 2016-07-07 05:26+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/votdev/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -29,6 +29,9 @@ msgstr "% terminé ..."
 
 msgid "%s (%s available)"
 msgstr "%s (%s disponible)"
+
+msgid "%s [%s (%d%%) used, %s available]"
+msgstr ""
 
 msgid "%s [on %s, %s]"
 msgstr "%s [le %s, %s]"
@@ -2398,8 +2401,8 @@ msgstr "Voir la <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "Choisir la méthode pour nettoyer le périphérique ou sur 'Annuler' pour abandonner."
 
-msgid "Please first select a volume."
-msgstr "Sélectionnez un volume en premier."
+msgid "Please first select a device."
+msgstr ""
 
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
@@ -2897,9 +2900,6 @@ msgstr "Sélectionnez un shell ..."
 msgid "Select a user name ..."
 msgstr "Sélectionnez un nom d'utilisateur..."
 
-msgid "Select a volume ..."
-msgstr "Sélectionnez un volume ..."
-
 msgid "Select an authentication mode ..."
 msgstr ""
 
@@ -2925,7 +2925,7 @@ msgid "Send email"
 msgstr "Envoyer un mail"
 
 msgid "Sender email"
-msgstr "Adresse du destinataire"
+msgstr "Adresse de l'expéditeur"
 
 msgid "Sending test email ..."
 msgstr "Envoi d'un mail de test ..."
@@ -3918,9 +3918,6 @@ msgstr "Vietnam"
 
 msgid "VirtIO device"
 msgstr "Périphérique d'Entrées-Sorties Virtuelles"
-
-msgid "Volume"
-msgstr "Volume"
 
 msgid "WINS"
 msgstr "WINS"

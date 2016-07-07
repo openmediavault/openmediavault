@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 23:40+0200\n"
-"PO-Revision-Date: 2016-06-27 21:40+0000\n"
+"POT-Creation-Date: 2016-07-07 07:26+0200\n"
+"PO-Revision-Date: 2016-07-07 05:26+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/votdev/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -25,6 +25,9 @@ msgstr "% completo..."
 
 msgid "%s (%s available)"
 msgstr "%s (%s disponível)"
+
+msgid "%s [%s (%d%%) used, %s available]"
+msgstr ""
 
 msgid "%s [on %s, %s]"
 msgstr "%s [em %s, %s]"
@@ -2394,8 +2397,8 @@ msgstr "Por favor verifique em <a href='http://www.samba.org/samba/docs/man/manp
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "Por favor escolha o método para limpar o aparelho ou Cancel para abortar."
 
-msgid "Please first select a volume."
-msgstr "Primeiro selecione o volume."
+msgid "Please first select a device."
+msgstr ""
 
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
@@ -2892,9 +2895,6 @@ msgstr "Selecione um shell ..."
 
 msgid "Select a user name ..."
 msgstr "Selecione um nome de utilizador..."
-
-msgid "Select a volume ..."
-msgstr "Selecionar um volume..."
 
 msgid "Select an authentication mode ..."
 msgstr ""
@@ -3914,9 +3914,6 @@ msgstr "Vietname"
 
 msgid "VirtIO device"
 msgstr "Dispositivo VirtIO"
-
-msgid "Volume"
-msgstr "Volume"
 
 msgid "WINS"
 msgstr "WINS"

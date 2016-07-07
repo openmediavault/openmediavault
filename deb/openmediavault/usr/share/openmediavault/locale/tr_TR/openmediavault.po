@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 23:40+0200\n"
-"PO-Revision-Date: 2016-06-27 21:40+0000\n"
+"POT-Creation-Date: 2016-07-07 07:26+0200\n"
+"PO-Revision-Date: 2016-07-07 05:26+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/votdev/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -24,6 +24,9 @@ msgstr "% tamamlandı ..."
 
 msgid "%s (%s available)"
 msgstr "%s (%s kullanılabilir)"
+
+msgid "%s [%s (%d%%) used, %s available]"
+msgstr ""
 
 msgid "%s [on %s, %s]"
 msgstr "%s [%s de, %s]"
@@ -943,7 +946,7 @@ msgstr "Paylaşılmış klasör içeriğini gerçekten kaldırmak istiyor musunu
 msgid ""
 "Do you really want to reset the UI settings to their default values, e.g. "
 "the order of the grid columns?"
-msgstr ""
+msgstr "UI yi gerçekten varsayılan ayarlarına getirmek istiyor musunuz ?, örneğin, kolon adlarının dizilim şekli."
 
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
@@ -2276,7 +2279,7 @@ msgid "Paraguay"
 msgstr "Paraguay"
 
 msgid "Parent Device"
-msgstr ""
+msgstr "Ana Cihaz"
 
 msgid "Parent interface"
 msgstr "Ana arabirim"
@@ -2393,8 +2396,8 @@ msgstr "Daha fazla bilgi için lütfen <a href='http://www.samba.org/ftp/rsync/r
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "Lütfen aygıtı silmek için bir metod seçiniz ya da iptal etmek için \"İptal\" tuşuna basınız."
 
-msgid "Please first select a volume."
-msgstr "Lütfen önce bir volüm seçiniz."
+msgid "Please first select a device."
+msgstr ""
 
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
@@ -2669,12 +2672,12 @@ msgid "Reset"
 msgstr "Reset"
 
 msgid "Reset UI to defaults"
-msgstr ""
+msgstr "UI yi varsayılan ayarlara getirin"
 
 msgid ""
 "Reset the UI settings to their default values, e.g. the order of the grid "
 "columns."
-msgstr ""
+msgstr "UI yi varsayılan ayarlarına getirin, örneğin, kolon adlarının dizilim şekli."
 
 msgid "Resize"
 msgstr "Yeniden boyutlandır"
@@ -2891,9 +2894,6 @@ msgstr "Bir kabuk seçin ..."
 
 msgid "Select a user name ..."
 msgstr "Bir kullanıcı adı seçiniz..."
-
-msgid "Select a volume ..."
-msgstr "Bir birim seçiniz ..."
 
 msgid "Select an authentication mode ..."
 msgstr "Doğrulama metodunu seçiniz ..."
@@ -3913,9 +3913,6 @@ msgstr "Vietnam"
 
 msgid "VirtIO device"
 msgstr "VirtIO aygıtı"
-
-msgid "Volume"
-msgstr "Birim"
 
 msgid "WINS"
 msgstr "WINS"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 23:40+0200\n"
-"PO-Revision-Date: 2016-06-27 21:40+0000\n"
+"POT-Creation-Date: 2016-07-07 07:26+0200\n"
+"PO-Revision-Date: 2016-07-07 05:26+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/votdev/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -25,6 +25,9 @@ msgstr "% 完成 ..."
 
 msgid "%s (%s available)"
 msgstr "%s (%s 可用)"
+
+msgid "%s [%s (%d%%) used, %s available]"
+msgstr ""
 
 msgid "%s [on %s, %s]"
 msgstr "%s [位於 %s, %s]"
@@ -944,7 +947,7 @@ msgstr "你真的要移除的共享檔案夾的內容嗎？它將被永久刪除
 msgid ""
 "Do you really want to reset the UI settings to their default values, e.g. "
 "the order of the grid columns?"
-msgstr ""
+msgstr "您真的要重設 UI 設定到它們的預設置，例如：欄位順序嗎？"
 
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
@@ -2277,7 +2280,7 @@ msgid "Paraguay"
 msgstr "巴拉圭"
 
 msgid "Parent Device"
-msgstr ""
+msgstr "上層裝置"
 
 msgid "Parent interface"
 msgstr "上層介面"
@@ -2394,8 +2397,8 @@ msgstr "詳情請查看<a href='http://www.samba.org/samba/docs/man/manpages-3/s
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "請選擇抹除裝置的方式或選 '取消' 來中止。"
 
-msgid "Please first select a volume."
-msgstr "請先選擇一個磁碟。"
+msgid "Please first select a device."
+msgstr ""
 
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
@@ -2670,12 +2673,12 @@ msgid "Reset"
 msgstr "重設"
 
 msgid "Reset UI to defaults"
-msgstr ""
+msgstr "重設 UI 到預設"
 
 msgid ""
 "Reset the UI settings to their default values, e.g. the order of the grid "
 "columns."
-msgstr ""
+msgstr "重設 UI 設定到它們的預設置，例如：欄位順序嗎？"
 
 msgid "Resize"
 msgstr "調整大小"
@@ -2892,9 +2895,6 @@ msgstr "選擇一個指令殼層 ..."
 
 msgid "Select a user name ..."
 msgstr "選擇一個用戶名稱 ..."
-
-msgid "Select a volume ..."
-msgstr "選擇一個磁碟 ..."
 
 msgid "Select an authentication mode ..."
 msgstr "選擇一個鑑別模式"
@@ -3914,9 +3914,6 @@ msgstr "越南"
 
 msgid "VirtIO device"
 msgstr "VirtIO 裝置"
-
-msgid "Volume"
-msgstr "磁碟"
 
 msgid "WINS"
 msgstr "WINS"
