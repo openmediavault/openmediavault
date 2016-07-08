@@ -170,16 +170,22 @@ class OMVRpcServiceCron extends \OMV\Rpc\ServiceAbstract {
 			// Execute the cron command line in a shell.
 			// Note, we need to set the shell, otherwise the users shell
 			// is used instead of the shebang of the command script.
-			$cmd = "/bin/su";
 			$cmdArgs = [];
-			$cmdArgs[] = "--command";
-			$cmdArgs[] = $object->get("command");
-			$cmdArgs[] = "--login";
 			$cmdArgs[] = "--shell";
-			$cmdArgs[] = "/bin/sh";
-			$cmdArgs[] = $object->get("username");
-			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename))
-				throw new \OMV\ExecException($cmd." ".implode(" ", $cmdArgs));
+			$cmdArgs[] = "--non-interactive";
+			$cmdArgs[] = sprintf("--user=%s", $object->get("username"));
+			$cmdArgs[] = "--";
+			$cmdArgs[] = $object->get("command");
+			$cmd = new \OMV\System\Process("sudo", $cmdArgs);
+			$cmd->setEnv("SHELL", "/bin/sh");
+			$cmd->setRedirect2to1();
+			if (0 !== $this->exec($cmd->getCommandLine(), $output,
+			  $bgOutputFilename)) {
+				  throw new \OMV\ExecException($cmd->getCommandLine(), $output);
+			  }
+			// Finalize the background process.
+			$this->finalizeBgProcStatus($bgStatusFilename, $output);
+			exit(0);
 		} catch(\Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
 			exit(1);

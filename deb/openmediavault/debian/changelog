@@ -4,6 +4,7 @@ openmediavault (3.0.26) stable; urgency=low
   * Various improvements.
   * Mantis 0001564: Disabled Samba service should disable netbios daemon.
   * Mantis 0001568: Can't start OMV using omv-initsystem.
+  * Mantis 0001570: Cron job on WebGUI gives 'stdin: is not a tty' message.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 04 Jul 2016 00:26:57 +0200
 
