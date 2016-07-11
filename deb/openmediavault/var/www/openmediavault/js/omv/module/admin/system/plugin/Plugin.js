@@ -419,6 +419,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 			title: _("Confirmation"),
 			msg: _("Do you really want to install the selected plugin(s)?"),
 			buttons: Ext.Msg.YESNO,
+			defaultFocus: "no",
 			fn: function(answer) {
 				if (answer !== "yes")
 					return;
