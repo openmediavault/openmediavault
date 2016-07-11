@@ -186,11 +186,13 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Skip read-only devices like CDROM.
 			if (TRUE === $sd->isReadOnly())
 				continue;
-			// Check if device is referenced/used by a plugin.
+			// Check if the device is referenced/used by a plugin.
 			$db = \OMV\Config\Database::getInstance();
-			$xpath = sprintf("//services/devicefile[contains(.,'%s')]",
-			  $sd->getDeviceFile());
-			if (TRUE === $db->getBackend()->exists($xpath))
+			if (TRUE === $db->exists("conf.service", [
+				  "operator" => "stringContains",
+				  "arg0" => "devicefile",
+				  "arg1" => $sd->getDeviceFile()
+			  ]))
 				continue;
 			// Does this device already contain a filesystem?
 			if (FALSE !== \OMV\System\Filesystem\Filesystem::hasFileSystem(

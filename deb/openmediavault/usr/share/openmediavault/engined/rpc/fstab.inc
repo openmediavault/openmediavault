@@ -111,6 +111,13 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 		$object->set("hidden", !$fsb->hasFstabSupport());
 		// Set the configuration object.
 		$db = \OMV\Config\Database::getInstance();
+		if (TRUE === $object->isNew()) {
+			// Check uniqueness:
+			// - A file system can only be mounted once
+			// - The mount point must be unique
+			$db->assertIsUnique($object, "fsname");
+			$db->assertIsUnique($object, "dir");
+		}
 		$db->set($object);
 		// Return the configuration object.
 		return $object->getAssoc();

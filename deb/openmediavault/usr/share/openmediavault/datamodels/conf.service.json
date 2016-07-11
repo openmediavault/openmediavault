@@ -1,0 +1,12 @@
+{
+	"type": "config",
+	"id": "conf.service",
+	"description": "The root of all service configuration objects",
+	"persistent": false,
+	"queryinfo": {
+		"xpath": "//services//*",
+		"iterable": true
+	},
+	"properties": {
+	}
+}
