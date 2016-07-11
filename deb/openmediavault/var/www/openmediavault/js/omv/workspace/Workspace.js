@@ -247,6 +247,7 @@ Ext.define("OMV.workspace.Workspace", {
 									title: _("Confirmation"),
 									msg: item.msg,
 									buttons: Ext.Msg.YESNO,
+									defaultFocus: "no",
 									fn: function(answer) {
 										if(answer !== "yes")
 											return;
