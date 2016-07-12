@@ -1,5 +1,6 @@
 openmediavault-usbbackup (3.2.3) stable; urgency=low
 
+  * Update locales.
   * Enable systemd units to start the rsync job when the external
     device is plugged in.
 

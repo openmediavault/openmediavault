@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# songming <by@songming.me>, 2013-2014
+# songming <by@songming.me>, 2013-2014,2016
 # Wei Ding <dyw.net@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2016-04-23 17:16+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2016-06-19 02:09+0000\n"
+"Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -101,7 +101,7 @@ msgid ""
 msgstr "请注意在手动备份完成之前web界面会处于锁定状态，自动备份任务在后台执行时要确保存储设备处于联机状态。"
 
 msgid "Preserve ACLs"
-msgstr "保存ACLs"
+msgstr "保存 ACLs"
 
 msgid "Preserve extended attributes"
 msgstr "保存扩展属性"
@@ -131,10 +131,10 @@ msgid "Select a device ..."
 msgstr "选择设备 ..."
 
 msgid "Send command output via email."
-msgstr "通过Email发送命令输出结果。"
+msgstr "通过 Email 发送命令输出结果。"
 
 msgid "Send email"
-msgstr "发送Email"
+msgstr "发送 Email"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
@@ -167,10 +167,10 @@ msgid "Times"
 msgstr "时间"
 
 msgid "USB Backup"
-msgstr "USB备份"
+msgstr "USB 备份"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr "更新目标ACLs和源ACLs一致。"
+msgstr "更新目标 ACLs 和源 ACLs 一致。"
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
