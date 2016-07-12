@@ -1,3 +1,9 @@
+openmediavault-keyring (1.0) stable; urgency=low
+
+  * Add new key.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 13 Jul 2016 00:57:27 +0200
+
 openmediavault-keyring (0.4) stable; urgency=low
 
   * Put openmediavault-keyring.gpg into trusted.gpg.d.
