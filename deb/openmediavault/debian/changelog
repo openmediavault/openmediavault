@@ -1,3 +1,10 @@
+openmediavault (3.0.27) stable; urgency=low
+
+  * Mantis 0001576: System->Network->Firewall should have a coloum with
+    'Extra options'.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 13 Jul 2016 16:21:37 +0200
+
 openmediavault (3.0.26) stable; urgency=low
 
   * Update locales.
