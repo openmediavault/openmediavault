@@ -1,5 +1,6 @@
 openmediavault (3.0.27) stable; urgency=low
 
+  * Mantis 0001539: Can't create filesystem.
   * Mantis 0001576: System->Network->Firewall should have a coloum with
     'Extra options'.
 

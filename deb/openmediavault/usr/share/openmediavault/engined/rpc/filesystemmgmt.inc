@@ -585,11 +585,17 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				sleep(2);
 				break;
 			}
-			// Reread partition table.
+			// Re-read partition table.
 			$cmd = sprintf("export LANG=C; partprobe %s", escapeshellarg(
 			  $sd->getDeviceFile()));
 			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
 				throw new \OMV\ExecException($cmd, $output);
+			// We need to wait to give the kernel some time to re-read
+			// the partition table and until the device file exists.
+			// Abort if the device file does not exist after the given
+			// time.
+			$fsbd = new \OMV\System\BlockDevice($fsDeviceFile);
+			$fsbd->waitForDevice(5);
 			// Create the filesystem.
 			$cmdArgs = [];
 			$cmdArgs[] = "-V";
@@ -599,7 +605,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				$cmdArgs[] = sprintf("-L %s", escapeshellarg(
 				  $params['label']));
 			}
-			$cmdArgs[] = $fsDeviceFile;
+			$cmdArgs[] = escapeshellarg($fsbd->getDeviceFile());
 			$cmd = sprintf("export LANG=C; mkfs %s 2>&1", implode(" ",
 			  $cmdArgs));
 			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))

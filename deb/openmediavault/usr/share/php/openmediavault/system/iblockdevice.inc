@@ -136,4 +136,13 @@ interface IBlockDevice {
 	 * @return The device description.
 	 */
 	public function getDescription();
+
+	/**
+	 * Wait for the specified device. If the device file is not available
+	 * within the given time, then an exception is thrown.
+	 * @param timeout Timeout in seconds to wait for an available device.
+	 * @return None.
+	 * @throw \OMV\Exception
+	 */
+	public function waitForDevice($timeout);
 }

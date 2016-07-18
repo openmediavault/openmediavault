@@ -398,4 +398,24 @@ class BlockDevice implements IBlockDevice {
 		$this->assertUdevProperty($id);
 		return $this->udevData[$id];
 	}
+
+	/**
+	 * Wait for the specified device. If the device file is not available
+	 * after the given time, then an exception is thrown.
+	 * @param timeout Timeout in seconds to wait for an available device.
+	 * @return None.
+	 * @throw \OMV\Exception
+	 */
+	public function waitForDevice($timeout) {
+		while (0 < $timeout) {
+			// Check whether the device file exists.
+			if (TRUE === $this->exists())
+				return;
+			sleep(1);
+			$timeout -= 1;
+		}
+		// Finally throw an exception if the device file does
+		// not exist.
+		$this->assertExists();
+	}
 }
