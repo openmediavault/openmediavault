@@ -1,6 +1,6 @@
 {
 	"type": "config",
-	"id": "conf.service.afp",
+	"id": "conf.service.afp.share",
 	"title": "AFP",
 	"queryinfo": {
 		"xpath": "//services/afp/shares/share",
