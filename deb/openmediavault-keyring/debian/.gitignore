@@ -6,3 +6,4 @@
 /*.postinst.debhelper
 /*.postrm.debhelper
 /*.substvars
+/*-stamp
