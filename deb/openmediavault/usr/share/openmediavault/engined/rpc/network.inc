@@ -658,11 +658,11 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 				]
 			], 1);
 			// Get interface details of the bonding slaves.
-			foreach (explode(",", $object['slaves']) as $slavek => $slavev)
+			foreach (explode(",", $object->get("slaves")) as $slavek => $slavev)
 				$result[] = $this->getIfaceInfo($slavev);
 			// Remove the bond interface itself from the result list.
 			foreach ($result as $resultk => $resultv) {
-				if ($resultv['devicename'] !== $object['devicename'])
+				if ($resultv['devicename'] !== $object->get("devicename"))
 					continue;
 				// Remove the item and re-index the array.
 				unset($result[$resultk]);

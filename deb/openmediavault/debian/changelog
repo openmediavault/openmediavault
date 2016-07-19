@@ -2,6 +2,7 @@ openmediavault (3.0.27) stable; urgency=low
 
   * Fix locale issue. The PHP function doubleval/floatval does not respect
     the LC_NUMERIC setting.
+  * Fix bug in bond interface processing.
   * Mantis 0001539: Can't create filesystem.
   * Mantis 0001576: System->Network->Firewall should have a coloum with
     'Extra options'.
