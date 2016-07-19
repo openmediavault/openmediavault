@@ -217,8 +217,8 @@ class DataModel extends \OMV\DataModel\DataModel {
 			// are converted to 43 when 'mon_decimal_point' is a comma
 			// instead of a dot.
 			$li = localeconv();
-		    $value = str_replace($li["mon_thousands_sep"], "", $value);
-		    $value = str_replace($li["mon_decimal_point"], ".", $value);
+			$value = str_replace($li['mon_thousands_sep'], "", $value);
+			$value = str_replace($li['mon_decimal_point'], ".", $value);
 			$value = doubleval($value);
 			break;
 		case "string":
