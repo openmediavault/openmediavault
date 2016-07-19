@@ -21,8 +21,12 @@
  */
 require_once("openmediavault/autoloader.inc");
 
-// Set locale information.
-setlocale(LC_ALL, "");
+// Set locale information (Do not use LC_ALL which seems to be buggy).
+foreach ([ LC_CTYPE, LC_NUMERIC, LC_TIME, LC_COLLATE, LC_MONETARY,
+  LC_MESSAGES, LC_PAPER, LC_NAME, LC_ADDRESS, LC_TELEPHONE, LC_MEASUREMENT,
+  LC_IDENTIFICATION ] as $category) {
+	setlocale($category, "");
+}
 // Set timezone.
 try {
 	// Make sure the data models are loaded.
