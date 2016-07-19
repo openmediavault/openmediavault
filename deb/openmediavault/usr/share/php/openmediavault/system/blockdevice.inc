@@ -414,8 +414,9 @@ class BlockDevice implements IBlockDevice {
 			sleep(1);
 			$timeout -= 1;
 		}
-		// Finally throw an exception if the device file does
-		// not exist.
-		$this->assertExists();
+		// Finally throw an exception if the device file does not exist.
+		throw new \OMV\AssertException(
+		  "Device '%s' is not available after a waiting period of %d seconds.",
+		  $this->getDeviceFile(), $timeout);
 	}
 }
