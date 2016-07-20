@@ -76,10 +76,12 @@ class OMVModuleUsbBackup extends \OMV\Engine\Module\ServiceAbstract
 			$systemCtl = new \OMV\System\SystemCtl($item->getFilename());
 			switch ($action) {
 			case "enable":
-				$systemCtl->enable(TRUE);
+				// Enable the unit, but do not start it.
+				$systemCtl->enable(FALSE);
 				break;
 			case "disable":
-				$systemCtl->disable(TRUE);
+				// Disable the unit, but do not stop it.
+				$systemCtl->disable(FALSE);
 				break;
 			}
 		}

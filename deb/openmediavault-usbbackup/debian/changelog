@@ -1,3 +1,10 @@
+openmediavault-usbbackup (3.2.4) stable; urgency=low
+
+  * Mantis 0001505: USB backup plugin script timeout. Do not start the
+    jobs when the changes take effect.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 Jul 2016 18:47:14 +0200
+
 openmediavault-usbbackup (3.2.3) stable; urgency=low
 
   * Update locales.
