@@ -22,8 +22,17 @@
 require_once("openmediavault/autoloader.inc");
 
 // Set locale information.
+// Use the system locale for string handling.
 setlocale(LC_CTYPE, "");
 setlocale(LC_COLLATE, "");
+// Use the system locale for formatting date and time values.
+setlocale(LC_TIME, "");
+// Use the C/POSIX standard for formatting numeric values.
+// This is necessary to store numeric values in a locale independent
+// format in the database.
+// https://www.gnu.org/software/libc/manual/html_node/Standard-Locales.html
+// https://en.wikipedia.org/wiki/C_localization_functions
+setlocale(LC_NUMERIC, "C");
 // Set timezone.
 try {
 	// Make sure the data models are loaded.
