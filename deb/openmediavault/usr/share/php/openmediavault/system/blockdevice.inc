@@ -407,12 +407,11 @@ class BlockDevice implements IBlockDevice {
 	 * @throw \OMV\Exception
 	 */
 	public function waitForDevice($timeout) {
-		while (0 < $timeout) {
+		for ($i = 0; $i < $timeout; $i++) {
+			sleep(1);
 			// Check whether the device file exists.
 			if (TRUE === $this->exists())
 				return;
-			sleep(1);
-			$timeout -= 1;
 		}
 		// Finally throw an exception if the device file does not exist.
 		throw new \OMV\AssertException(
