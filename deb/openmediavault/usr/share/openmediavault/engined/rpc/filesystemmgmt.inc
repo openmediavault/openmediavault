@@ -330,8 +330,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				}
 			}
 			if (TRUE === $initialized) {
-				if (TRUE === file_exists($fileName))
-					unlink($fileName);
+				if (TRUE === $jsonFile->exists())
+					$jsonFile->unlink();
 				continue;
 			}
 			// Get the filesystem backend.
@@ -619,8 +619,6 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				  "type" => $fsb->getType(),
 				  "label" => $params['label']
 			  ]);
-			// Cleanup
-			$jsonFile->unlink();
 			// Finalize background process.
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);

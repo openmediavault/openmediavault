@@ -54,6 +54,7 @@ class File {
 	 * @return Returns TRUE if the file exists, FALSE otherwise.
 	 */
 	public function exists() {
+		clearstatcache(TRUE, $this->filename);
 		return file_exists($this->filename);
 	}
 
@@ -201,6 +202,8 @@ class File {
 	public function unlink() {
 		if ($this->isOpen())
 			$this->close();
-		return @unlink($this->filename);
+		$result = @unlink($this->filename);
+		clearstatcache(TRUE, $this->filename);
+		return $result;
 	}
 }

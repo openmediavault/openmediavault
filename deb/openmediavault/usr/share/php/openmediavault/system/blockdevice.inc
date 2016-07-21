@@ -150,7 +150,7 @@ class BlockDevice implements IBlockDevice {
 	}
 
 	/**
-	 * Check whether the filesystem has a /dev/disk/by-id/xxx device path.
+	 * Check whether the device has a /dev/disk/by-id/xxx device path.
 	 * @return Returns TRUE if a disk/by-id device path exists,
 	 *   otherwise FALSE.
 	 */

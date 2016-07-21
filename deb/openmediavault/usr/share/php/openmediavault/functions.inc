@@ -341,10 +341,8 @@ function is_block($filename) {
 		return FALSE;
 	if (FALSE === file_exists($filename))
 		return FALSE;
-	if (FALSE === ($stat = stat($filename)))
-		return FALSE;
-	// See http://www.kernel.org/doc/man-pages/online/pages/man2/stat.2.html
-	return $stat['mode'] & 060000;
+	clearstatcache(TRUE, $filename);
+	return ("block" == filetype($filename));
 }
 
 /**

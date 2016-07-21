@@ -363,6 +363,20 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem {
 	}
 
 	/**
+	 * Check whether the filesystem has a /dev/disk/by-id/xxx device path.
+	 * @return Returns TRUE if a disk/by-id device path exists,
+	 *   otherwise FALSE.
+	 */
+	public function hasDeviceFileById() {
+		try {
+			$this->getDeviceFileById();
+		} catch(\Exception $e) {
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	/**
 	 * Get the device path by label, e.g. <ul>
 	 * \li /dev/disk/by-label/data
 	 * </ul>
