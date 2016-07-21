@@ -619,6 +619,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				  "type" => $fsb->getType(),
 				  "label" => $params['label']
 			  ]);
+			// Cleanup
+			$jsonFile->unlink();
 			// Finalize background process.
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
