@@ -1,3 +1,9 @@
+openmediavault-usbbackup (3.2.5) stable; urgency=low
+
+  * Mantis 0001579: Cannot find disk/by-id device file.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 22 Jul 2016 14:34:56 +0200
+
 openmediavault-usbbackup (3.2.4) stable; urgency=low
 
   * Mantis 0001505: USB backup plugin script timeout. Do not start the
