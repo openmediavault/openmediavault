@@ -386,7 +386,6 @@
 		"properties": {
 			"devicename": {
 				"type": "string",
-				"format": "devicename",
 				"required": true
 			},
 			"seconds":{
