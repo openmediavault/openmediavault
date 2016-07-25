@@ -1,5 +1,6 @@
 openmediavault (3.0.30) stable; urgency=low
 
+  * Fix WebGUI display issue when rebooting/shutdown/standby the system.
   * Mantis 0001579: Cannot find disk/by-id device file.
   * Mantis 0001581: The format 'devicename' is not defined.
 

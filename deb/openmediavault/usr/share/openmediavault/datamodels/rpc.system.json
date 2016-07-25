@@ -31,4 +31,40 @@
 			}
 		}
 	}
+},{
+	"type": "rpc",
+	"id": "rpc.system.reboot",
+	"params": {
+		"type": "object",
+		"properties": {
+			"delay": {
+				"type": "integer",
+				"minimum": 0
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.system.shutdown",
+	"params": {
+		"type": "object",
+		"properties": {
+			"delay": {
+				"type": "integer",
+				"minimum": 0
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.system.standby",
+	"params": {
+		"type": "object",
+		"properties": {
+			"delay": {
+				"type": "integer",
+				"minimum": 0
+			}
+		}
+	}
 }]

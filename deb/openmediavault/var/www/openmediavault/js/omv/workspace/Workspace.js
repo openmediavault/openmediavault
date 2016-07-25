@@ -305,7 +305,10 @@ Ext.define("OMV.workspace.Workspace", {
 												relayErrors: false,
 												rpcData: {
 													service: "System",
-													method: "reboot"
+													method: "reboot",
+													params: {
+														delay: 3
+													}
 												}
 											});
 											break;
@@ -320,7 +323,10 @@ Ext.define("OMV.workspace.Workspace", {
 												relayErrors: false,
 												rpcData: {
 													service: "System",
-													method: item.action
+													method: item.action,
+													params: {
+														delay: 3
+													}
 												}
 											});
 											break;

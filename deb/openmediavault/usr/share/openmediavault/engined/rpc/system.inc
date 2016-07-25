@@ -110,7 +110,8 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 
 	/**
 	 * Reboot the system.
-	 * @param params The method parameters.
+	 * @param params An array containing the following fields:
+	 *   \em delay The number of seconds to delay.
 	 * @param context The context of the caller.
 	 * @return None.
 	 */
@@ -119,13 +120,26 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.system.reboot");
+		// Delay execution?
+		if (0 < $params['delay']) {
+			$pid = $this->fork();
+			if (0 < $pid) { // Parent process.
+				// Exit immediatelly to do not block the caller (e.g. WebGUI).
+				return;
+			}
+			// Child process.
+			sleep($params['delay']);
+		}
 		$pm = new \OMV\System\PowerManagement();
 		$pm->reboot();
 	}
 
 	/**
 	 * Shut down the system.
-	 * @param params The method parameters.
+	 * @param params An array containing the following fields:
+	 *   \em delay The number of seconds to delay.
 	 * @param context The context of the caller.
 	 * @return None.
 	 */
@@ -134,6 +148,18 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.system.shutdown");
+		// Delay execution?
+		if (0 < $params['delay']) {
+			$pid = $this->fork();
+			if (0 < $pid) { // Parent process.
+				// Exit immediatelly to do not block the caller (e.g. WebGUI).
+				return;
+			}
+			// Child process.
+			sleep($params['delay']);
+		}
 		$pm = new \OMV\System\PowerManagement();
 		$pm->shutdown();
 	}
@@ -147,7 +173,8 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 * \li Suspend to RAM
 	 * \li Shut down and turn of system
 	 * </ul>
-	 * @param params The method parameters.
+	 * @param params An array containing the following fields:
+	 *   \em delay The number of seconds to delay.
 	 * @param context The context of the caller.
 	 * @return None.
 	 */
@@ -156,6 +183,18 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.system.standby");
+		// Delay execution?
+		if (0 < $params['delay']) {
+			$pid = $this->fork();
+			if (0 < $pid) { // Parent process.
+				// Exit immediatelly to do not block the caller (e.g. WebGUI).
+				return;
+			}
+			// Child process.
+			sleep($params['delay']);
+		}
 		$pm = new \OMV\System\PowerManagement();
 		$pm->standby();
 	}
