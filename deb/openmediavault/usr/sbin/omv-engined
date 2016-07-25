@@ -41,6 +41,7 @@ OPTIONS:
   -d --debug       Enable debug mode
   -f --foreground  Run in foreground
   -h --help        Print a help text
+  -x --xdebug      Enable XDebug compatibility mode
 
 EOF;
     printf($text, $cmdName);
@@ -257,6 +258,7 @@ $maxConnections = 10;
 $timeout = 1;
 $debug = FALSE;
 $daemon = TRUE;
+$xdebug = FALSE;
 $pidFile = "/var/run/{$cmdName}.pid";
 $children = [];
 
@@ -275,13 +277,14 @@ set_error_handler("errorHandler");
 
 // Check the command line arguments. Exit and display usage if
 // nessecary.
-$cmdArgs = array(
-	  "d::" => "debug::",
-	  "f::" => "foreground::",
-	  "h::" => "help::"
-  );
+$cmdArgs = [
+	"d::" => "debug::",
+	"f::" => "foreground::",
+	"h::" => "help::",
+	"x::" => "xdebug::"
+];
 $options = getopt(implode("", array_keys($cmdArgs)), $cmdArgs);
-foreach($options as $optionk => $optionv) {
+foreach ($options as $optionk => $optionv) {
 	switch ($optionk) {
 	case "d":
 	case "debug":
@@ -297,6 +300,11 @@ foreach($options as $optionk => $optionv) {
 	case "help":
 		usage();
 		exit(0);
+		break;
+	case "x":
+	case "xdebug":
+		$argc -= 1;
+		$xdebug = TRUE;
 		break;
 	}
 }
@@ -425,7 +433,7 @@ while(FALSE === $sigTerm) {
 	// Call signal handlers for pending signals.
 	pcntl_signal_dispatch();
 	// Monitor socket.
-	$read = array($socket);
+	$read = [ $socket ];
 	$write = NULL;
 	$except = NULL;
 	if(FALSE === ($r = @socket_select($read, $write, $except, $timeout))) {
@@ -486,21 +494,26 @@ while(FALSE === $sigTerm) {
 		///////////////////////////////////////////////////////////////////////
 		// Fork a child process to execute the RPC.
 		///////////////////////////////////////////////////////////////////////
-		$pid = pcntl_fork();
-		if($pid == -1) {
+		// Don't fork if we're in XDebug compatibility mode.
+		if (TRUE !== $xdebug) {
+			$pid = pcntl_fork();
+		}
+		if ($pid == -1) {
 			@socket_close($conn);
 			error("Failed to create child process\n");
 			exit(1);
-		} else if($pid) { // Parent process
+		} else if ($pid) { // Parent process
 			$children[] = $pid;
 		} else { // Child process
 			debug("Child process forked (pid=%d)\n", posix_getpid());
 
 			// Reset signal handlers to their default.
-			pcntl_signal(SIGINT, SIG_DFL);
-			pcntl_signal(SIGTERM, SIG_DFL);
-			pcntl_signal(SIGHUP, SIG_DFL);
-			pcntl_signal(SIGCHLD, SIG_DFL);
+			if (FALSE === $xdebug) {
+				pcntl_signal(SIGINT, SIG_DFL);
+				pcntl_signal(SIGTERM, SIG_DFL);
+				pcntl_signal(SIGHUP, SIG_DFL);
+				pcntl_signal(SIGCHLD, SIG_DFL);
+			}
 
 			// Load include file for every new child.
 			// Note, if the configuration is dirty and has not been applied
@@ -524,19 +537,19 @@ while(FALSE === $sigTerm) {
 				  $request['method'], $request['params'],
 				  $request['context'], \OMV\Rpc\Rpc::MODE_LOCAL);
 
-				$response = json_encode_safe(array(
+				$response = json_encode_safe([
 					"response" => $response,
 					"error" => null
-				));
+				]);
 			} catch(\Exception $e) {
-				$response = json_encode_safe(array(
+				$response = json_encode_safe([
 					"response" => null,
-					"error" => array(
+					"error" => [
 						"code" => $e->getCode(),
 						"message" => $e->getMessage(),
 						"trace" => $e->__toString()
-					)
-				));
+					]
+				]);
 			}
 
 			debug("RPC response (service=%s, method=%s): %s\n",
@@ -549,22 +562,23 @@ while(FALSE === $sigTerm) {
 			$header = pack("NH*", strlen($response), hash("crc32", $response));
 			// Build the buffer to be written to the socket.
 			$response = $header . $response;
-			if(FALSE === @socket_write($conn, $response, strlen($response))) {
+			if (FALSE === @socket_write($conn, $response, strlen($response))) {
 				@socket_close($conn);
 				error("Failed to write to socket: %s\n",
 				  socket_strerror( socket_last_error()));
-				exit(1);
+				if (FALSE === $xdebug)
+					exit(1);
 			}
 			// Close connection.
 			@socket_close($conn);
 			// Exit child process.
-			exit(0);
+			if (FALSE === $xdebug)
+				exit(0);
 		}
 	}
 	// Process SIGCHLD signal.
-	if(TRUE === $sigChld) {
+	if (TRUE === $sigChld)
 		handleSigChld();
-	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////
