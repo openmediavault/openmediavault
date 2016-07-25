@@ -304,6 +304,12 @@ Ext.define("OMV.workspace.Workspace", {
 												},
 												relayErrors: false,
 												rpcData: {
+													// Delay some seconds to
+													// allow the frontend to
+													// load the initiate the
+													// reboot before the
+													// webserver is not
+													// respnsible anymore.
 													service: "System",
 													method: "reboot",
 													params: {
@@ -322,6 +328,11 @@ Ext.define("OMV.workspace.Workspace", {
 												},
 												relayErrors: false,
 												rpcData: {
+													// Delay some seconds to
+													// allow the frontend to
+													// load the shutdown page
+													// before the webserver is
+													// not respnsible anymore.
 													service: "System",
 													method: item.action,
 													params: {
