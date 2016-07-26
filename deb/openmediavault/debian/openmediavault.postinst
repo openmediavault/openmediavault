@@ -23,6 +23,7 @@ set -e
 
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
+. /usr/share/debconf/confmodule
 
 case "$1" in
 	configure)
@@ -647,6 +648,13 @@ case "$1" in
 				  omv_config_add_element "/config/services/zeroconf/services/service[id='${id}']" "uuid" "$(omv_uuid)"
 			  done
 		fi
+
+		########################################################################
+		# Show help text.
+		########################################################################
+		db_input high openmediavault/run-initsystem || :
+		db_go
+		db_stop
 	;;
 
 	triggered)

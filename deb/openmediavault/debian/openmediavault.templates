@@ -1,0 +1,17 @@
+Template: openmediavault/run-initsystem
+Type: note
+Description: Complete the installation
+ To complete the installation you need to run the following command:
+ .
+  omv-initsystem
+ .
+ To manage the system visit the openmediavault web management
+ interface via a web browser:
+ .
+  http://<IP or hostname>
+ .
+ The default web management interface administrator account has
+ the username 'admin' and password 'openmediavault'.
+ It is recommended that you change the password for this account
+ via the web management interface or using the 'omv-firstaid'
+ CLI command.
