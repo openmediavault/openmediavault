@@ -84,7 +84,7 @@ class OMVModuleNetworkUPSTools extends \OMV\Engine\Module\ServiceAbstract
 		$systemCtl = new \OMV\System\SystemCtl("nut-monitor");
 		$systemCtl->enable(TRUE);
 		// Wait to allow the service to start.
-		sleep(1);
+		$systemCtl->waitUntilActive(5);
 		// Enable monitoring of this service.
 		$monit = new \OMV\System\Monit("nut");
 		$monit->setGroup(TRUE);

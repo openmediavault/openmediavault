@@ -401,7 +401,7 @@ class BlockDevice implements IBlockDevice {
 
 	/**
 	 * Wait for the specified device. If the device file is not available
-	 * after the given time, then an exception is thrown.
+	 * within the given time, then an exception is thrown.
 	 * @param timeout Timeout in seconds to wait for an available device.
 	 * @return None.
 	 * @throw \OMV\Exception
@@ -414,7 +414,7 @@ class BlockDevice implements IBlockDevice {
 				return;
 		}
 		// Finally throw an exception if the device file does not exist.
-		throw new \OMV\AssertException(
+		throw new \OMV\Exception(
 		  "Device '%s' is not available after a waiting period of %d seconds.",
 		  $this->getDeviceFile(), $timeout);
 	}

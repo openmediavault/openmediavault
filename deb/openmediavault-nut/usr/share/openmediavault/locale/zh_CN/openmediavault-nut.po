@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# songming <by@songming.me>, 2013-2014
+# songming <by@songming.me>, 2013-2014,2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2014-05-20 00:11+0000\n"
+"PO-Revision-Date: 2016-06-19 02:08+0000\n"
 "Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +37,7 @@ msgid "Enable"
 msgstr "启用"
 
 msgid "Enable remote monitoring of the local connected UPS."
-msgstr "启用本地连接UPS的远程监控。"
+msgstr "启用本地连接 UPS 的远程监控。"
 
 msgid "General settings"
 msgstr "常规设置"
@@ -79,12 +79,12 @@ msgid "Temperature"
 msgstr "温度"
 
 msgid "The name used to uniquely identify your UPS on this system."
-msgstr "这个名字用于识别你系统上的UPS。"
+msgstr "这个名字用于识别你系统上的 UPS。"
 
 msgid ""
 "The time in seconds until shutdown is initiated. If the UPS happens to come "
 "back before the time is up the shutdown is canceled."
-msgstr "多少秒后关机，如果UPS恢复供电则取消关机。"
+msgstr "多少秒后关机，如果 UPS 恢复供电则取消关机。"
 
 msgid ""
 "To get more information how to configure your UPS please check the Network "
@@ -96,10 +96,10 @@ msgid "UPS"
 msgstr "UPS"
 
 msgid "UPS goes on battery"
-msgstr "UPS使用电池供电"
+msgstr "UPS 使用电池供电"
 
 msgid "UPS reaches low battery"
-msgstr "UPS电池电量低"
+msgstr "UPS 电池电量低"
 
 msgid "Used for remote authentication."
 msgstr "用于远程验证。"

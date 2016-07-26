@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2016-05-24 16:49+0000\n"
+"PO-Revision-Date: 2016-07-24 06:08+0000\n"
 "Last-Translator: zubr139\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgid "Assign a unique identifier to the iSCSI volume optionally."
 msgstr "Призначити унікальний ідентифікатор для ISCSI необов'язково."
 
 msgid "Assign a unique serial number to the iSCSI volume optionally."
-msgstr ""
+msgstr "Призначити унікальний серійний номер для ISCSI необов'язково."
 
 msgid "Authentication"
 msgstr "Аутентифікація"
@@ -157,7 +157,7 @@ msgid "Max. burst length"
 msgstr ""
 
 msgid "Max. connections"
-msgstr ""
+msgstr "Максимум з'єднать"
 
 msgid "Max. outstanding R2T"
 msgstr ""
@@ -178,13 +178,13 @@ msgid "NOP timeout"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "Немає"
 
 msgid "Only one outgoing user per target is supported."
 msgstr ""
 
 msgid "Outgoing"
-msgstr ""
+msgstr "Вихідний"
 
 msgid "Password"
 msgstr "Пароль"
@@ -196,7 +196,7 @@ msgid "R/W mode"
 msgstr ""
 
 msgid "Read-only"
-msgstr ""
+msgstr "Лише для читання"
 
 msgid "SCSI Id."
 msgstr "SCSI ід."

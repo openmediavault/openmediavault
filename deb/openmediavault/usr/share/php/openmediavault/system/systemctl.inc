@@ -38,6 +38,14 @@ class SystemCtl {
 	}
 
 	/**
+	 * Get the name of the unit.
+	 * @return The name of the unit.
+	 */
+	public function getName() {
+		return $this->name;
+	}
+
+	/**
 	 * Set a command option.
 	 */
 	public function setOption($arg) {
@@ -67,7 +75,7 @@ class SystemCtl {
 		if (!empty($options) && is_array($options))
 			$cmdArgs = array_merge($cmdArgs, $options);
 		$cmdArgs[] = $command;
-		$cmdArgs[] = $this->name;
+		$cmdArgs[] = $this->getName();
 		// Execute the command.
 		$cmd = new \OMV\System\Process("systemctl", $cmdArgs);
 		$cmd->setRedirect2to1();
@@ -159,6 +167,26 @@ class SystemCtl {
 	 */
 	public function isActive() {
 		return (0 == $this->exec("is-active", null, TRUE));
+	}
+
+	/**
+	 * Wait until the specified unit is active. If the unit is not active
+	 * within the given time, then an exception is thrown.
+	 * @param timeout Timeout in seconds to wait for an active unit.
+	 * @return None.
+	 * @throw \OMV\Exception
+	 */
+	public function waitUntilActive($timeout) {
+		for ($i = 0; $i < $timeout; $i++) {
+			sleep(1);
+			// Check whether the device file exists.
+			if (TRUE === $this->isActive())
+				return;
+		}
+		// Finally throw an exception if the device file does not exist.
+		throw new \OMV\Exception(
+		  "The unit '%s' is not active after a waiting period of %d seconds.",
+		  $this->getName(), $timeout);
 	}
 
 	/**
