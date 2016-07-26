@@ -865,7 +865,9 @@ Ext.define("OMV.module.admin.system.network.interface.Identify", {
 					c.close();
 					OMV.MessageBox.error(null, error);
 				},
-				scope: me
+				// Do not set scope to 'me', otherwise the listeners will get
+				// invalid when the 'me' dialog is closed (see start listener).
+				scope: null
 			}
 		}).start();
 	}

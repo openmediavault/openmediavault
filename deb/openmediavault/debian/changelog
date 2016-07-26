@@ -1,3 +1,9 @@
+openmediavault (3.0.31) stable; urgency=low
+
+  * Mantis 0001581: The progress dialog is not closed in case of an error.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 26 Jul 2016 18:22:07 +0200
+
 openmediavault (3.0.30) stable; urgency=low
 
   * Update locales.

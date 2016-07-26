@@ -157,7 +157,7 @@ Ext.define("OMV.window.Execute", {
 		OMV.Rpc.request({
 			  scope: me,
 			  callback: function(id, success, response) {
-				  if (success) {
+				  if (true === success) {
 					  this.getContentAllowed = true;
 					  // Command has been executed successfully. Remember the
 					  // execution command identifier.
