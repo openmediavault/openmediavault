@@ -128,7 +128,7 @@ case "$1" in
 			####################################################################
 			# Setup the webserver configuration.
 			####################################################################
-			echo "Configuring web server"
+			echo "Configuring web server ..."
 			omv-mkconf nginx
 			nginx_dissite default || :
 			nginx_ensite openmediavault-webgui
