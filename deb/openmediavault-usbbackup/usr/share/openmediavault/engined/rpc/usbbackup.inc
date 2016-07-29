@@ -225,6 +225,9 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 		// until now.
 		if ($this->isModuleDirty("usbbackup"))
 			throw new \OMV\Config\ConfigDirtyException();
+		// Get the configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.usbbackup.job", $params['uuid']);
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
@@ -241,8 +244,12 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 			$cmd = "/bin/sh";
 			$cmdArgs = [];
 			$cmdArgs[] = build_path(DIRECTORY_SEPARATOR,
-			  \OMV\Environment::get("OMV_USBBACKUP_SCRIPTS_DIR"),
-			  sprintf("rsync-%s", $params['uuid']));
+			  \OMV\Environment::get("OMV_USBBACKUP_SCRIPTS_DIR",
+			    "/var/lib/openmediavault/usbbackup.d"),
+			  sprintf("%s%s", \OMV\Environment::get(
+			    "OMV_USBBACKUP_JOBS_SCRIPT_PREFIX",
+				"openmediavault-usbbackup-"),
+			    md5($object->get("devicefile"))));
 			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename))
 				throw new \OMV\ExecException($cmd." ".implode(" ", $cmdArgs));
 		} catch(\Exception $e) {
