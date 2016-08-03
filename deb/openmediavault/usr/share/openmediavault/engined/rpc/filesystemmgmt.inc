@@ -829,6 +829,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			$fsName = $fs->getUuid();
 			$opts = $fsb->getFstabMntOptions($sd);
 			break;
+		case "exfat":
 		case "vfat":
 		case "ntfs":
 			$fsName = $fs->getDeviceFileByUuid();

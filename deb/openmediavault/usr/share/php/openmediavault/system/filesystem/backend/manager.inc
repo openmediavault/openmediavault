@@ -97,7 +97,7 @@ class Manager implements \IteratorAggregate {
 	 * @param id The UUID, label or device path of the filesystem, e.g.
 	 *   <ul>
 	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
-	 *   \li 7A48-BA97 (FAT)
+	 *   \li 7A48-BA97 (FAT/exFAT)
 	 *   \li 2ED43920D438EC29 (NTFS)
 	 *   \li 2015-01-13-21-48-46-00 (ISO9660)
 	 *   \li /dev/sde1
@@ -203,6 +203,7 @@ class Manager implements \IteratorAggregate {
 			// /dev/sda3: UUID="fdca09a8-cbc8-432f-9cba-ce033cb59139" TYPE="ext4" LABEL="Debian"
 			// /dev/sr0: LABEL="Debian 7.5.0 amd64 1" TYPE="iso9660"
 			// /dev/sr0: UUID="2015-04-25-12-52-13-00" LABEL="Debian 8.0.0 amd64 1" TYPE="iso9660" PTUUID="5e97595e" PTTYPE="dos"
+			// /dev/sda1: LABEL="Music" UUID="54AF-0252" TYPE="exfat"
 			$regex = '/^(\S+): (.+)$/i';
 			unset($matches);
 			if (1 !== preg_match($regex, $outputv, $matches))
