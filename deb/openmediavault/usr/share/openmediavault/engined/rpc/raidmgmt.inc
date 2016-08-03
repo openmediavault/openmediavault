@@ -304,6 +304,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		// https://raid.wiki.kernel.org/index.php/Write-intent_bitmap
 		$cmdArgs = [];
 		$cmdArgs[] = "--grow";
+		$cmdArgs[] = "--size=max";
 		$cmdArgs[] = sprintf("--raid-devices=%d", $numDevices);
 		$cmdArgs[] = escapeshellarg($raid->getDeviceFile());
 		$cmd = new \OMV\System\Process("mdadm", $cmdArgs);
