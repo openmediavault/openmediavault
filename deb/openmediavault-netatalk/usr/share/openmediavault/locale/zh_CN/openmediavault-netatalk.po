@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# songming <by@songming.me>, 2013-2014
+# songming <by@songming.me>, 2013-2014,2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2014-08-09 00:22+0000\n"
+"PO-Revision-Date: 2016-06-19 02:07+0000\n"
 "Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -52,7 +52,7 @@ msgid "Comment"
 msgstr "注释"
 
 msgid "Don't do :hex translation for dot files."
-msgstr "对点文件不做:hex转换。"
+msgstr "对点文件不做 :hex 转换。"
 
 msgid "Edit share"
 msgstr "编辑共享"
@@ -61,7 +61,7 @@ msgid "Enable"
 msgstr "启用"
 
 msgid "Enable Time Machine support for this share."
-msgstr "在这个共享启用Time Machine。"
+msgstr "在这个共享启用 Time Machine。"
 
 msgid "Enable user home directories."
 msgstr "启用用户主目录。"
@@ -79,7 +79,7 @@ msgid "Guest login"
 msgstr "访客登录"
 
 msgid "Guest permissions"
-msgstr "Guest权限"
+msgstr "Guest 权限"
 
 msgid "Guests only have read access by default."
 msgstr "默认情况下访客只有读取权限。"
@@ -103,7 +103,7 @@ msgid ""
 "Limit the reported volume size to the given value in MiB, thus preventing TM"
 " from using the whole disk space for backup. Set this value to 0 to disable "
 "this option."
-msgstr "限制容量大小单位MB，这样可以避免TM把全部磁盘空间用来备份，设为0表示关闭该选项。"
+msgstr "限制容量大小单位 MB，这样可以避免 TM 把全部磁盘空间用来备份，设为 0 表示关闭该选项。"
 
 msgid "Lowercases names in both directions"
 msgstr "双向使用小写名称"
@@ -146,13 +146,13 @@ msgstr "共享的名称。"
 
 msgid ""
 "This forces filenames to be restricted to the character set used by Windows."
-msgstr "这将限制文件名只能使用Windows的字符集。"
+msgstr "这将限制文件名只能使用 Windows 的字符集。"
 
 msgid "This option handles, if the case of filenames should be changed."
 msgstr "设置此选项决定是否改变文件名的大小写。"
 
 msgid "Time Machine support"
-msgstr "Time Machine支持"
+msgstr "Time Machine 支持"
 
 msgid "Unix privileges"
 msgstr "Unix 权限"
@@ -161,7 +161,7 @@ msgid "Uppercases names in both directions"
 msgstr "双向使用大写名称"
 
 msgid "Use AFP3 unix privileges."
-msgstr "使用AFP3 unix权限"
+msgstr "使用 AFP3 unix 权限"
 
 msgid "Use dots"
 msgstr "使用点文件"
@@ -169,7 +169,7 @@ msgstr "使用点文件"
 msgid ""
 "When this option gets set, certain file names become illegal. These are "
 ".Parent and anything that starts with .Apple."
-msgstr "如果设置此项，某些文件名将变为非法。比如.Parent和任何以.Apple开头的文件。"
+msgstr "如果设置此项，某些文件名将变为非法。比如 .Parent 和任何以 .Apple 开头的文件。"
 
 msgid "n/a"
 msgstr "n/a"
