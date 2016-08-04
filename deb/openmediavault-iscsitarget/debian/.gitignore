@@ -1,0 +1,5 @@
+/openmediavault-iscsitarget/
+/files
+/*.debhelper.log
+/*.debhelper
+/*.substvars

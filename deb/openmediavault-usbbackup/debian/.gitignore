@@ -1,0 +1,5 @@
+/openmediavault-usbbackup/
+/files
+/*.debhelper.log
+/*.debhelper
+/*.substvars
