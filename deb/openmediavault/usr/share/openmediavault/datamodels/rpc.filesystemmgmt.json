@@ -52,7 +52,13 @@
 		"properties": {
 			"id": {
 				"type": "string",
-				"format": "fsuuid",
+				"oneOf": [{
+					"type": "string",
+					"format": "fsuuid"
+				},{
+					"type": "string",
+					"format": "devicefile"
+				}],
 				"required": true
 			}
 		}
@@ -65,7 +71,13 @@
 		"properties": {
 			"id": {
 				"type": "string",
-				"format": "fsuuid",
+				"oneOf": [{
+					"type": "string",
+					"format": "fsuuid"
+				},{
+					"type": "string",
+					"format": "devicefile"
+				}],
 				"required": true
 			},
 			"fstab": {
@@ -82,7 +94,13 @@
 		"properties": {
 			"id": {
 				"type": "string",
-				"format": "fsuuid",
+				"oneOf": [{
+					"type": "string",
+					"format": "fsuuid"
+				},{
+					"type": "string",
+					"format": "devicefile"
+				}],
 				"required": true
 			},
 			"fstab": {
