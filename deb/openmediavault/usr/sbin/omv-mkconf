@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env python3
 #
 # This file is part of OpenMediaVault.
 #
@@ -19,83 +19,64 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-set -e
+import os
+import sys
+import syslog
+import argparse
+import openmediavault
 
-. /etc/default/openmediavault
-. /usr/share/openmediavault/scripts/helper-functions
+__args = []
 
-OMV_MKCONF_SCRIPTS_DIR=${OMV_MKCONF_SCRIPTS_DIR:-"/usr/share/openmediavault/mkconf"}
+def print_error(message):
+	global __args
+	if __args.verbose:
+		sys.stderr.write("ERROR: {}\n".format(message))
+	syslog.syslog(message);
 
-# Display usage.
-usage() {
-	cat <<EOF
-Usage:
-  $(basename $0) [options] <basename> [extra parameters]
+def list_scripts():
+	names = [ name for name in os.listdir(
+	  openmediavault.OMV_MKCONF_SCRIPTS_DIR) if os.path.isfile(
+	  os.path.join(openmediavault.OMV_MKCONF_SCRIPTS_DIR, name)) ]
+	names.sort()
+	print("\n".join(names))
 
-  basename - The name of the script to be executed.
+def execute_script():
+	global __args
+	# Test if the script exists.
+	path = os.path.join(openmediavault.OMV_MKCONF_SCRIPTS_DIR, __args.name)
+	if not os.path.exists(path):
+		print_error("Script {} does not exist".format(path))
+		sys.exit(100)
+	# Test if the script is executable.
+	if not os.access(path, os.X_OK):
+		print_error("Script {} not executable".format(path))
+		sys.exit(101)
+	# Execute the script.
+	return os.execv(path, __args.args) if __args.args else os.system(path) >> 8
 
-OPTIONS:
-  -l  List available scripts
-  -q  Quiet mode, no error messages are generated
-  -h  Print a help text
-EOF
-}
+def main():
+	global __args
+	rc = 0
+	parser = argparse.ArgumentParser(
+	  description = "Generate the configuration files.")
+	parser.add_argument("-l", "--list", default=False, action="store_true",
+	  help = "list available scripts and exit")
+	parser.add_argument("-q", "--quiet", default=True, action="store_false",
+	  dest="verbose", help = "quiet mode, no error messages are generated")
+	group = parser.add_argument_group()
+	group.add_argument("name", nargs="?",
+	  help = "the name of the script to be executed")
+	group.add_argument("args", nargs=argparse.REMAINDER,
+	  help = "extra arguments to the executed script")
+	__args = parser.parse_args()
+	if __args.list:
+		list_scripts()
+	else:
+		if None == __args.name:
+			parser.print_help()
+		else:
+			rc = execute_script()
+	return rc
 
-# Print the error message.
-printerror() {
-	if test x${bequiet} = x ; then
-		echo ${*} >&2
-	fi
-	omv_log ${*}
-}
-
-# List available scripts.
-listscripts() {
-	find ${OMV_MKCONF_SCRIPTS_DIR} -maxdepth 1 -type f -executable \
-	  -printf %f\\n | sort
-}
-
-bequiet=
-
-while getopts 'lq?h' option
-do
-	case ${option} in
-	l)
-		listscripts
-		exit 0
-		;;
-	q)
-		bequiet=yes
-		;;
-	h|?)
-		usage >&2
-		exit 2
-		;;
-	esac
-done
-
-if test $# -eq 0 ; then
-  usage
-  exit 2
-fi
-
-shift $((OPTIND-1))
-scriptname=$1
-shift
-extraparams=$@
-
-# Test if the script exists.
-if test ! -f "${OMV_MKCONF_SCRIPTS_DIR}/${scriptname}" ; then
-	printerror "Unknown script, ${OMV_MKCONF_SCRIPTS_DIR}/${scriptname} not found."
-	exit 100
-fi
-# Test if the script is executable.
-if test ! -x "${OMV_MKCONF_SCRIPTS_DIR}/${scriptname}" ; then
-	printerror "Script ${OMV_MKCONF_SCRIPTS_DIR}/${scriptname} not executable."
-	exit 101
-fi
-# If there are no extra options set, then use 'mkconf'.
-[ -z "${extraparams}" ] && extraparams="mkconf"
-# Execute the script.
-${OMV_MKCONF_SCRIPTS_DIR}/${scriptname} "${extraparams}" 2>&1 && exit 0
-exit $?
+if __name__ == "__main__":
+	sys.exit(main())
