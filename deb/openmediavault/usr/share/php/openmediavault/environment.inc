@@ -45,7 +45,7 @@ class Environment {
 			return $GLOBALS[$name];
 		if (TRUE === is_null($default)) {
 			throw new \InvalidArgumentException(sprintf(
-			  "The global variable '%s' does not exist.", $name));
+			  "The environment variable '%s' does not exist.", $name));
 		}
 		return $default;
 	}

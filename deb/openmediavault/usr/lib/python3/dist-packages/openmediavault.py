@@ -44,7 +44,7 @@ with open(DEFAULT_FILE) as reader:
 		# !!! DEPRECATED !!!
 		# Append variable, e.g. OMV_SCRIPTS_DIR (equal to PHP OMV framework)
 		__etc_default_dict[m.group(1)] = m.group(4)
-		
+
 locals().update(__etc_default_dict)
 
 ################################################################################
@@ -66,6 +66,40 @@ def shell(command, stderr=False):
 ################################################################################
 # Classes
 ################################################################################
+class IllegalArgumentError(ValueError):
+    pass
+
+class Environment(object):
+	"""
+	Access the environment variables defined within the file
+	/etc/default/openmediavault.
+	"""
+
+	def get(name, default = None):
+		globals_dict = globals()
+		if name in globals_dict:
+			return globals_dict[name]
+		if default is None:
+			raise IllegalArgumentError(
+			  "The environment variable '{}' does not exist".format(name))
+		return default
+
+	def get_string(name, default = None):
+		value = __class__.get(name, default)
+		return str(value)
+
+	def get_bool(name, default = None):
+		value = __class__.get(name, default)
+		return bool(value)
+
+	def get_int(name, default = None):
+		value = __class__.get(name, default)
+		return int(value)
+
+	def get_float(name, default = None):
+		value = __class__.get(name, default)
+		return float(value)
+
 class ProductInfo(object):
 	"""
 	This class provides a simple interface to get product information.

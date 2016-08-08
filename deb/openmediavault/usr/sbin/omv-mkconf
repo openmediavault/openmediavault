@@ -34,16 +34,17 @@ def print_error(message):
 	syslog.syslog(message);
 
 def list_scripts():
-	names = [ name for name in os.listdir(
-	  openmediavault.OMV_MKCONF_SCRIPTS_DIR) if os.path.isfile(
-	  os.path.join(openmediavault.OMV_MKCONF_SCRIPTS_DIR, name)) ]
+	scripts_dir = openmediavault.Environment.get_string("OMV_MKCONF_SCRIPTS_DIR");
+	names = [ name for name in os.listdir(scripts_dir) if os.path.isfile(
+	  os.path.join(scripts_dir, name)) ]
 	names.sort()
 	print("\n".join(names))
 
 def execute_script():
 	global __args
 	# Test if the script exists.
-	path = os.path.join(openmediavault.OMV_MKCONF_SCRIPTS_DIR, __args.name)
+	scripts_dir = openmediavault.Environment.get("OMV_MKCONF_SCRIPTS_DIR");
+	path = os.path.join(scripts_dir, __args.name)
 	if not os.path.exists(path):
 		print_error("The script '{}' does not exist".format(path))
 		sys.exit(100)
