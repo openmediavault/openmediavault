@@ -45,14 +45,16 @@ def execute_script():
 	# Test if the script exists.
 	path = os.path.join(openmediavault.OMV_MKCONF_SCRIPTS_DIR, __args.name)
 	if not os.path.exists(path):
-		print_error("Script {} does not exist".format(path))
+		print_error("The script '{}' does not exist".format(path))
 		sys.exit(100)
 	# Test if the script is executable.
 	if not os.access(path, os.X_OK):
-		print_error("Script {} not executable".format(path))
+		print_error("The script '{}' is not executable".format(path))
 		sys.exit(101)
 	# Execute the script.
-	return os.execv(path, __args.args) if __args.args else os.system(path) >> 8
+	# Note, the first argument, by convention, should point to the
+	# filename associated with the file being executed.
+	return os.execv(path, [ path ] + __args.args)
 
 def main():
 	global __args
