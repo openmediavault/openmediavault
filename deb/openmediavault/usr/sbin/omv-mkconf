@@ -34,7 +34,7 @@ def print_error(message):
 	syslog.syslog(message);
 
 def list_scripts():
-	scripts_dir = omv.Environment.get_string("OMV_MKCONF_SCRIPTS_DIR");
+	scripts_dir = omv.Environment.get('OMV_MKCONF_SCRIPTS_DIR');
 	names = [ name for name in os.listdir(scripts_dir) if os.path.isfile(
 	  os.path.join(scripts_dir, name)) ]
 	names.sort()
@@ -43,7 +43,7 @@ def list_scripts():
 def execute_script():
 	global __args
 	# Test if the script exists.
-	scripts_dir = omv.Environment.get("OMV_MKCONF_SCRIPTS_DIR");
+	scripts_dir = omv.Environment.get('OMV_MKCONF_SCRIPTS_DIR');
 	path = os.path.join(scripts_dir, __args.name)
 	if not os.path.exists(path):
 		print_error("The script '{}' does not exist".format(path))
