@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-07 07:26+0200\n"
-"PO-Revision-Date: 2016-07-24 05:53+0000\n"
+"PO-Revision-Date: 2016-08-06 11:05+0000\n"
 "Last-Translator: zubr139\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgid "%s (%s available)"
 msgstr "%s (%s доступно)"
 
 msgid "%s [%s (%d%%) used, %s available]"
-msgstr ""
+msgstr "%s [%s (%d%%) використано, %s доступно]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [на %s, %s]"
@@ -37,7 +37,7 @@ msgid "'All' is not allowed"
 msgstr "'All' не дозволено"
 
 msgid "0 KiB/s means unlimited."
-msgstr "0 KiB/s - необмежено."
+msgstr "0 Кб/с - необмежено."
 
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - Мінімальне енергоспоживання в режимі очікування (spindown)"
@@ -924,7 +924,7 @@ msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Справді бажаєте, встановити обраний модуль(і)?"
 
 msgid "Do you really want to leave the page?"
-msgstr "Ви справді бажаєте залишити цю сторінку?"
+msgstr "Бажаєте залишити цю сторінку?"
 
 msgid "Do you really want to logout?"
 msgstr "Ви справді хочете вийти?"
@@ -1482,10 +1482,10 @@ msgid "Hostname"
 msgstr "Ім'я хоста"
 
 msgid "Hosts allow"
-msgstr "Хости дозволені"
+msgstr "Дозволені хости"
 
 msgid "Hosts deny"
-msgstr "Хости заборонені"
+msgstr "Заборонені хости"
 
 msgid "Hour"
 msgstr "Година"
@@ -1657,7 +1657,7 @@ msgid "Interfaces"
 msgstr "Інтерфейси"
 
 msgid "Invalid SSH public key (RFC 4716)"
-msgstr ""
+msgstr "Неправильний відкритий ключ SSH (RFC 4716)"
 
 msgid "Invalid domain name"
 msgstr "Невірна назва домену"
@@ -1747,7 +1747,7 @@ msgid "Kyrgyzstan"
 msgstr "Киргизстан"
 
 msgid "LBA of first error"
-msgstr ""
+msgstr "LBA першої помилки"
 
 msgid "LVM logical volume %s [%s, %s]"
 msgstr "Логічний розділ LVM %s [%s, %s]"
@@ -1863,7 +1863,7 @@ msgid "Madagascar"
 msgstr "Мадагаскар"
 
 msgid "Maintainer"
-msgstr ""
+msgstr "Супровід"
 
 msgid "Malawi"
 msgstr "Малаві"
@@ -2014,7 +2014,7 @@ msgid "Modify account"
 msgstr "Змінити аккаунт"
 
 msgid "Modify shared folder ACL"
-msgstr ""
+msgstr "Зміна ACL спільної теки"
 
 msgid "Modules"
 msgstr "Модулі"
@@ -2125,7 +2125,7 @@ msgid "No action"
 msgstr "Жодних дій"
 
 msgid "No authentication and no privacy"
-msgstr ""
+msgstr "Без аутентифікації і конфіденційності"
 
 msgid "No certificate request"
 msgstr "Немає запиту сертифіката"
@@ -2399,7 +2399,7 @@ msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "Будь ласка, оберіть стерити пристрій, або \"Скасувати\", щоб перервати операцію."
 
 msgid "Please first select a device."
-msgstr ""
+msgstr "Будь ласка, спочатку оберіть пристрій."
 
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
@@ -2514,7 +2514,7 @@ msgid "Proxy"
 msgstr "Проксі"
 
 msgid "Public"
-msgstr ""
+msgstr "Публічно"
 
 msgid "Public key"
 msgstr "Відкритий ключ"
@@ -2691,7 +2691,7 @@ msgid "Resume"
 msgstr "Підсумок"
 
 msgid "Retry timeout"
-msgstr ""
+msgstr "Очікування повтору"
 
 msgid "Reunion"
 msgstr "Поновити з’єднання"
@@ -3385,7 +3385,7 @@ msgid "The private RSA key in X.509 PEM format."
 msgstr "Секретний ключ RSA в форматі X.509 PEM."
 
 msgid "The public key in RFC 4716 SSH public key file format."
-msgstr ""
+msgstr "Відкритий ключ в форматі відкритого ключа файлу RFC4716 SSH."
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3623,7 +3623,7 @@ msgstr ""
 msgid ""
 "This parameter says that if N occurrences of the event happen within the "
 "given time interval, then a ban is automatically added."
-msgstr ""
+msgstr "Цей параметр говорить, що якщо N появ події відбувається протягом заданого інтервалу часу, то заборона автоматично додається."
 
 msgid "This rule is triggered whenever the selected event directive occurs."
 msgstr "Це правило спрацьовує щоразу, коли відбувається обрана подія."
