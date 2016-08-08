@@ -37,9 +37,9 @@ import apt
 import apt_pkg
 import json
 import re
-import openmediavault
+import openmediavault as omv
 
-pi = openmediavault.ProductInfo()
+pi = omv.ProductInfo()
 
 class OpenMediaVaultPluginsFilter(apt.cache.Filter):
 	def apply(self, pkg):
@@ -113,7 +113,7 @@ for pkg in cache.get_changes():
 		"uri": pkg.candidate.uri,
 		"uris": pkg.candidate.uris
 	})
-with open(openmediavault.APT_UPGRADE_INDEX_FILE, "w") as outfile:
+with open(omv.Environment.get("APT_UPGRADE_INDEX_FILE"), "w") as outfile:
 	json.dump(data, outfile, sort_keys=True, indent=4)
 
 # Create the '/var/lib/openmediavault/apt/pluginsindex.json' file.
@@ -159,7 +159,7 @@ for pkg in fcache:
 		"sha256": pkg.candidate.sha256,
 		"installed": pkg.is_installed
 	})
-with open(openmediavault.APT_PLUGINS_INDEX_FILE, "w") as outfile:
+with open(omv.Environment.get("APT_PLUGINS_INDEX_FILE"), "w") as outfile:
 	json.dump(data, outfile, sort_keys=True, indent=4)
 
 sys.exit(0)
