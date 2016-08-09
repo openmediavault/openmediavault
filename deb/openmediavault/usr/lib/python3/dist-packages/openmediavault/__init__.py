@@ -19,7 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 from .environment import Environment
-from .exception import *
+from .exceptions import *
 from .productinfo import ProductInfo
 from .log import *
 
