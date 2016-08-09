@@ -18,23 +18,15 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-
 import os
 import sys
-import syslog
 import argparse
 import openmediavault as omv
 
 __args = []
 
-def print_error(message):
-	global __args
-	if __args.verbose:
-		sys.stderr.write("ERROR: {}\n".format(message))
-	syslog.syslog(message);
-
 def list_scripts():
-	scripts_dir = omv.Environment.get('OMV_MKCONF_SCRIPTS_DIR');
+	scripts_dir = omv.getenv('OMV_MKCONF_SCRIPTS_DIR');
 	names = [ name for name in os.listdir(scripts_dir) if os.path.isfile(
 	  os.path.join(scripts_dir, name)) ]
 	names.sort()
@@ -43,14 +35,16 @@ def list_scripts():
 def execute_script():
 	global __args
 	# Test if the script exists.
-	scripts_dir = omv.Environment.get('OMV_MKCONF_SCRIPTS_DIR');
+	scripts_dir = omv.getenv('OMV_MKCONF_SCRIPTS_DIR');
 	path = os.path.join(scripts_dir, __args.name)
 	if not os.path.exists(path):
-		print_error("The script '{}' does not exist".format(path))
+		omv.log.error("The script '{}' does not exist".format(path),
+			__args.verbose)
 		sys.exit(100)
 	# Test if the script is executable.
 	if not os.access(path, os.X_OK):
-		print_error("The script '{}' is not executable".format(path))
+		omv.log.error("The script '{}' is not executable".format(path),
+			__args.verbose)
 		sys.exit(101)
 	# Execute the script.
 	# Note, the first argument, by convention, should point to the

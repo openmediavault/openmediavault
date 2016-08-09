@@ -21,7 +21,7 @@
 __all__ = [ "Environment" ]
 
 import re
-import openmediavault.illegalargumenterror as omv
+import openmediavault as omv
 
 __DEFAULT_FILE = "/etc/default/openmediavault"
 
@@ -46,28 +46,28 @@ class Environment(object):
 	/etc/default/openmediavault.
 	"""
 
-	def get(name, default = None):
+	def get(key, default=None):
 		globals_dict = globals()
-		if name in globals_dict:
-			return globals_dict[name]
+		if key in globals_dict:
+			return globals_dict[key]
 		if default is None:
-			raise omv.IllegalArgumentError(
+			raise omv.exception.IllegalArgumentError(
 			  "The environment variable '{}' does not exist in '{}'".format(
-			  name, __DEFAULT_FILE))
+			  key, __DEFAULT_FILE))
 		return default
 
-	def get_string(name, default = None):
-		value = __class__.get(name, default)
+	def get_str(key, default=None):
+		value = __class__.get(key, default)
 		return str(value)
 
-	def get_bool(name, default = None):
-		value = __class__.get(name, default)
-		return bool(value)
+	def get_bool(key, default = None):
+		value = __class__.get(key, default)
+		return omv.bool(value)
 
-	def get_int(name, default = None):
-		value = __class__.get(name, default)
+	def get_int(key, default=None):
+		value = __class__.get(key, default)
 		return int(value)
 
-	def get_float(name, default = None):
-		value = __class__.get(name, default)
+	def get_float(key, default=None):
+		value = __class__.get(key, default)
 		return float(value)

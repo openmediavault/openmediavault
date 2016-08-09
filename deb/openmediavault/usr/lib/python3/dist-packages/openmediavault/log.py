@@ -18,28 +18,30 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-from .environment import Environment
-from .exception import *
-from .productinfo import ProductInfo
-from .log import *
+import sys
+import syslog
 
-__all__ = [ 'Environment', 'IllegalArgumentError', 'ProductInfo' ]
+def __log(message, priority, verbose):
+	tag = {
+		syslog.LOG_INFO: "INFO",
+		syslog.LOG_WARNING: "WARNING",
+		syslog.LOG_ERR: "ERROR",
+		syslog.LOG_DEBUG: "DEBUG"
+	}
+	if verbose:
+		sys.stderr.write("{}: {}\n".format(tag[priority], message))
+	syslog.openlog(facility=syslog.LOG_SYSLOG)
+	syslog.syslog(priority, message)
+	syslog.closelog()
 
-def bool(x):
-	"""
-	Get the boolean value of a variable. A boolean TRUE will be returned for
-    the values 1, '1', 'on', 'yes', 'y' and 'true'.
-	"""
-	result = False
-	# Boolean 'true' => '1'
-	if str(x).lower() in [ "1", "on", "yes", "y", "true" ]:
-		result = True
-	return result
+def info(message, verbose=True):
+	__log(message, syslog.LOG_INFO, verbose)
 
-def getenv(key, default=None):
-	"""
-	Get an environment variable, return None if it doesn't exist.
-    The optional second argument can specify an alternate default.
-    key, default and the result are string.
-	"""
-	return Environment.get_str(key, default)
+def warning(message, verbose=True):
+	__log(message, syslog.LOG_WARNING, verbose)
+
+def error(message, verbose=True):
+	__log(message, syslog.LOG_ERR, verbose)
+
+def debug(message, verbose=True):
+	__log(message, syslog.LOG_DEBUG, verbose)

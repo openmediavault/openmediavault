@@ -31,7 +31,7 @@ class ProductInfo(object):
 
 	def __init__(self):
 		self.__dict = {}
-		prod_file = omv.Environment.get("OMV_PRODUCTINFO_FILE",
+		prod_file = omv.getenv("OMV_PRODUCTINFO_FILE",
 			"/usr/share/openmediavault/productinfo.xml")
 		tree = xml.etree.ElementTree.parse(prod_file)
 		for child in tree.iter():

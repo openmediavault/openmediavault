@@ -31,7 +31,6 @@
 #
 # To fix this error simply execute the following command:
 # rm -f /usr/lib/python3/dist-packages/__pycache__/openmediavault.cpython-32.pyc
-
 import sys
 import apt
 import apt_pkg
@@ -113,7 +112,7 @@ for pkg in cache.get_changes():
 		"uri": pkg.candidate.uri,
 		"uris": pkg.candidate.uris
 	})
-with open(omv.Environment.get('OMV_APT_UPGRADE_INDEX_FILE',
+with open(omv.getenv('OMV_APT_UPGRADE_INDEX_FILE',
 	'/var/lib/openmediavault/apt/upgradeindex.json'), 'w') as outfile:
 	json.dump(data, outfile, sort_keys=True, indent=4)
 
@@ -160,7 +159,7 @@ for pkg in fcache:
 		"sha256": pkg.candidate.sha256,
 		"installed": pkg.is_installed
 	})
-with open(omv.Environment.get('OMV_APT_PLUGINS_INDEX_FILE',
+with open(omv.getenv('OMV_APT_PLUGINS_INDEX_FILE',
 	'/var/lib/openmediavault/apt/pluginsindex.json'), 'w') as outfile:
 	json.dump(data, outfile, sort_keys=True, indent=4)
 
