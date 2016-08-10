@@ -22,7 +22,7 @@ __all__ = [ "ProductInfo" ]
 
 import apt
 import xml.etree.ElementTree
-import openmediavault.environment as omv
+import openmediavault as omv
 
 class ProductInfo(object):
 	"""
