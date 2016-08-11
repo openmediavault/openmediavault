@@ -21,7 +21,7 @@
 import sys
 import openmediavault as omv
 
-class Plugin:
+class Module:
 	def get_description(self):
 		return "Clear local upload package repository"
 
@@ -36,5 +36,5 @@ class Plugin:
 		return 0
 
 if __name__ == "__main__":
-	plugin = Plugin();
-	sys.exit(plugin.execute())
+	module = Module();
+	sys.exit(module.execute())

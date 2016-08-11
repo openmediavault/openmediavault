@@ -20,7 +20,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import sys
 
-class Plugin:
+class Module:
 	def get_description(self):
 		return "Exit"
 
@@ -28,5 +28,5 @@ class Plugin:
 		return 0
 
 if __name__ == "__main__":
-	plugin = Plugin();
-	sys.exit(plugin.execute())
+	module = Module();
+	sys.exit(module.execute())

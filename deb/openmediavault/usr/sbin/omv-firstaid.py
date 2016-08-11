@@ -23,8 +23,8 @@ import sys
 import dialog
 import openmediavault as omv
 
-def load_plugins():
-	plugins = []
+def load_modules():
+	modules = []
 	path = omv.getenv("OMV_FIRSTAID_MODULES_DIR",
 		"/usr/share/openmediavault/firstaid/modules.d");
 	sys.path.insert(0, path)
@@ -32,20 +32,20 @@ def load_plugins():
 	    modname, ext = os.path.splitext(name)
 	    if ext == ".py":
 	        mod = __import__(modname)
-	        plugins.append(mod.Plugin())
+	        modules.append(mod.Module())
 	sys.path.pop(0)
-	return plugins
+	return modules
 
 def main():
 	rc = 1
 	pi = omv.ProductInfo();
-	# Load the plugins.
-	plugins = load_plugins()
+	# Load the modules.
+	modules = load_modules()
 	# Fill the menu choices.
 	choices = []
-	for idx, plugin in enumerate(plugins):
-		choices.append([ str(idx + 1), plugin.get_description() ])
-	# Show the available plugins.
+	for idx, module in enumerate(modules):
+		choices.append([ str(idx + 1), module.get_description() ])
+	# Show the available modules.
 	d = dialog.Dialog(dialog="dialog")
 	while 1:
 		(code, tag) = d.menu("Please select a menu:",
@@ -53,11 +53,12 @@ def main():
 			backtitle="{} - {}".format(pi.get_name(), pi.get_copyright()),
 			height=15, width=65, menu_height=8, choices=choices)
 		if code in (d.CANCEL, d.ESC):
-			rc = 0; break
+			rc = 0
+			break
 		elif code == d.OK:
 			d.clear()
-			plugin = plugins[int(tag) - 1]
-			rc = plugin.execute()
+			module = modules[int(tag) - 1]
+			rc = module.execute()
 			break
 	return rc
 
