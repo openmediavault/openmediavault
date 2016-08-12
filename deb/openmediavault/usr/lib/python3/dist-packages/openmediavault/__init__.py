@@ -22,11 +22,14 @@ from .environment import Environment
 from .exceptions import *
 from .productinfo import ProductInfo
 from .log import *
+from .rpc import *
+from .process import *
 
-import os
-import subprocess
-
-__all__ = [ 'Environment', 'IllegalArgumentError', 'ProductInfo' ]
+__all__ = [
+	"Environment",
+	"IllegalArgumentError",
+	"ProductInfo"
+]
 
 def bool(x):
 	"""
@@ -46,32 +49,3 @@ def getenv(key, default=None):
     key, default and the result are string.
 	"""
 	return Environment.get_str(key, default)
-
-def shell(args, redirect_stderr=False):
-	"""
-	Execute an external program in the default shell and returns a tuple
-	with the command return code and output.
-
-	:param redirect_stderr: If True, then stderr will be redirected to stdout.
-	:type  redirect_stderr: bool
-	"""
-	with subprocess.Popen(args,
-		bufsize=1,
-		shell=False if isinstance(args, list) else True,
-		env=dict(os.environ, LANG='C'),
-		stderr=subprocess.STDOUT if redirect_stderr else None,
-		stdout=subprocess.PIPE) as p:
-		try:
-			output = []
-			while True:
-				if p.poll() is not None:
-					break
-				line = p.stdout.readline().decode()
-				if line:
-					output.append(line)
-					sys.stdout.write(line)
-			return [ p.returncode, output ]
-		except:
-			p.kill()
-			p.wait()
-			raise

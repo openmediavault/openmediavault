@@ -23,11 +23,11 @@ __all__ = [ "Environment" ]
 import re
 import openmediavault as omv
 
-__DEFAULT_FILE = "/etc/default/openmediavault"
+DEFAULT_FILE = "/etc/default/openmediavault"
 
 # Import global variables from '/etc/default/openmediavault'.
 __etc_default_dict = {}
-with open(__DEFAULT_FILE) as reader:
+with open(DEFAULT_FILE) as reader:
 	for line in reader.readlines():
 		m = re.match(r"^(OMV_([A-Z0-9_]+))=(\")?([^\"]+)(\")?$",
 			line.strip())
@@ -51,9 +51,9 @@ class Environment(object):
 		if key in globals_dict:
 			return globals_dict[key]
 		if default is None:
-			raise omv.exception.IllegalArgumentError(
+			raise omv.IllegalArgumentError(
 			  "The environment variable '{}' does not exist in '{}'".format(
-			  key, __DEFAULT_FILE))
+			  key, DEFAULT_FILE))
 		return default
 
 	def get_str(key, default=None):

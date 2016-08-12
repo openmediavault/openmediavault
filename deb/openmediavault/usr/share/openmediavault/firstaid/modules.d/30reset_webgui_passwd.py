@@ -19,21 +19,43 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import sys
+import dialog
 import openmediavault as omv
 
 class Module:
 	def get_description(self):
-		return "Clear local upload package repository"
+		return "Change WebGUI administrator password"
 
 	def execute(self):
 		try:
-			print("Clear out the local repository of uploaded package " \
-				"files. Please wait ...")
-			path = omv.getenv("OMV_DPKGARCHIVE_DIR")
-			omv.shell([ "rm", "-fv", "{}/*.deb".format(path) ], verbose=True)
-			omv.shell("cd {} && apt-ftparchive packages . > Packages".format(
-				path), verbose=True)
-			omv.shell([ "apt-get", "update" ], verbose=True)
+			d = dialog.Dialog(dialog="dialog")
+			password = password_conf = ""
+			while not password or (password != password_conf):
+				while not password:
+					(code, password) = d.passwordbox(
+						"Please enter the new password.",
+						insecure=True, clear=True, height=8, width=34)
+					if code != d.OK:
+						return 1
+					if not password:
+						d.msgbox("The password must not be empty.",
+							height=5, width=35)
+				while not password_conf:
+					(code, password_conf) = d.passwordbox(
+						"Please confirm the new password.",
+						insecure=True, clear=True, height=8, width=36)
+					if code != d.OK:
+						return 1
+					if not password_conf:
+						d.msgbox("The password must not be empty.",
+							height=5, width=35)
+				if password != password_conf:
+					password = password_conf = ""
+					d.msgbox("The passwords don't match.",
+						height=5, width=30)
+			print("Updating WebGUI administrator password. Please wait ...")
+			omv.rpc("WebGui", "setPassword", { "password":password })
+			omv.rpc("Config", "applyChanges", { "modules":[], "force":False })
 		except Exception as e:
 			omv.log.error(str(e))
 			return 1

@@ -18,7 +18,24 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-__all__ = [ "IllegalArgumentError" ]
+__all__ = [
+	"ExecException",
+	"IllegalArgumentError"
+]
+
+class ExecException(Exception):
+	def __init__(self, message, returncode=None, command=None):
+		super(ExecException, self).__init__(message)
+		self._command = command
+		self._returncode = returncode
+
+	@property
+	def command(self):
+		return self._command
+
+	@property
+	def returncode(self):
+		return self._returncode
 
 class IllegalArgumentError(ValueError):
     pass

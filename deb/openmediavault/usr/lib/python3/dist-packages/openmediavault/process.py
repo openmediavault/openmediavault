@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 #
 # This file is part of OpenMediaVault.
 #
@@ -18,27 +18,37 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+import os
 import sys
-import openmediavault as omv
+import subprocess
 
-class Module:
-	def get_description(self):
-		return "Clear local upload package repository"
+def shell(args, verbose=False):
+	"""
+	Execute an external program in the default shell and returns a tuple
+	with the command return code and output.
 
-	def execute(self):
+	:param verbose: If True, then the process output will be written to stdout.
+		Default is False.
+	:type  verbose: bool
+	"""
+	with subprocess.Popen(args,
+		bufsize=1,
+		shell=False if isinstance(args, list) else True,
+		env=dict(os.environ, LANG='C'),
+		stderr=subprocess.PIPE,
+		stdout=subprocess.PIPE) as p:
 		try:
-			print("Clear out the local repository of uploaded package " \
-				"files. Please wait ...")
-			path = omv.getenv("OMV_DPKGARCHIVE_DIR")
-			omv.shell([ "rm", "-fv", "{}/*.deb".format(path) ], verbose=True)
-			omv.shell("cd {} && apt-ftparchive packages . > Packages".format(
-				path), verbose=True)
-			omv.shell([ "apt-get", "update" ], verbose=True)
-		except Exception as e:
-			omv.log.error(str(e))
-			return 1
-		return 0
-
-if __name__ == "__main__":
-	module = Module();
-	sys.exit(module.execute())
+			stdout = []
+			while True:
+				if p.poll() is not None:
+					break
+				stdout_line = p.stdout.readline().decode()
+				if stdout_line:
+					stdout.append(stdout_line)
+					if verbose:
+						sys.stdout.write(stdout_line)
+			return [ p.returncode, "".join(stdout) ]
+		except:
+			p.kill()
+			p.wait()
+			raise

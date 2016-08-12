@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 #
 # This file is part of OpenMediaVault.
 #
@@ -18,27 +18,36 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-import sys
-import openmediavault as omv
+import os
+import json
+import subprocess
 
-class Module:
-	def get_description(self):
-		return "Clear local upload package repository"
+class RpcException(Exception):
+	def __init__(self, message, code, trace):
+		super(RpcException, self).__init__(message)
+		self._code = code
+		self._trace = trace
 
-	def execute(self):
-		try:
-			print("Clear out the local repository of uploaded package " \
-				"files. Please wait ...")
-			path = omv.getenv("OMV_DPKGARCHIVE_DIR")
-			omv.shell([ "rm", "-fv", "{}/*.deb".format(path) ], verbose=True)
-			omv.shell("cd {} && apt-ftparchive packages . > Packages".format(
-				path), verbose=True)
-			omv.shell([ "apt-get", "update" ], verbose=True)
-		except Exception as e:
-			omv.log.error(str(e))
-			return 1
-		return 0
+	@property
+	def code(self):
+		return self._code
 
-if __name__ == "__main__":
-	module = Module();
-	sys.exit(module.execute())
+	@property
+	def trace(self):
+		return self._trace
+
+def rpc(service, method, params):
+	# Convert dictionary to JSON string.
+	params = json.dumps(params)
+	# Execute the shell command.
+	p = subprocess.Popen(
+		[ "omv-rpc", service, method, params ],
+		shell=False,
+		env=dict(os.environ, LANG='C'),
+		stderr=subprocess.PIPE,
+		stdout=subprocess.PIPE)
+	stdout, stderr = p.communicate()
+	if p.returncode != 0:
+		response = json.loads(stderr.decode())
+		raise RpcException(**response["error"])
+	return stdout
