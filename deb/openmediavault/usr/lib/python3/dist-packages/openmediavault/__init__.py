@@ -24,12 +24,9 @@ from .productinfo import ProductInfo
 from .log import *
 from .rpc import *
 from .process import *
+from .systemd import *
 
-__all__ = [
-	"Environment",
-	"IllegalArgumentError",
-	"ProductInfo"
-]
+import re
 
 def bool(x):
 	"""
@@ -49,3 +46,7 @@ def getenv(key, default=None):
     key, default and the result are string.
 	"""
 	return Environment.get_str(key, default)
+
+def camelcase_to_underscore(str):
+	return re.sub("(((?<=[a-z])[A-Z])|([A-Z](?![A-Z]|$)))",
+		"_\\1", str).lower().strip("_")

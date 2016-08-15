@@ -47,7 +47,7 @@ def shell(args, verbose=False):
 					stdout.append(stdout_line)
 					if verbose:
 						sys.stdout.write(stdout_line)
-			return [ p.returncode, "".join(stdout) ]
+			return (p.returncode, "".join(stdout))
 		except:
 			p.kill()
 			p.wait()

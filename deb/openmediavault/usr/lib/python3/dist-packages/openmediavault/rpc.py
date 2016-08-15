@@ -24,7 +24,7 @@ import subprocess
 
 class RpcException(Exception):
 	def __init__(self, message, code, trace):
-		super(RpcException, self).__init__(message)
+		super().__init__(message)
 		self._code = code
 		self._trace = trace
 

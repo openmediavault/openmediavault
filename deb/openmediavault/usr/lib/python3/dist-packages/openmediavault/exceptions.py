@@ -25,7 +25,7 @@ __all__ = [
 
 class ExecException(Exception):
 	def __init__(self, message, returncode=None, command=None):
-		super(ExecException, self).__init__(message)
+		super().__init__(message)
 		self._command = command
 		self._returncode = returncode
 

@@ -11,7 +11,7 @@ Architecture: all
 Depends: ${perl:Depends}, libjs-extjs5 (>= 5.1.1), php5-fpm, libpam-modules,
  php5-cgi, php5-cli (>= 5.6), php5-pam, sudo, ethtool, python3-dialog,
  acl, ifenslave, resolvconf, iproute2, xfsprogs, jfsutils, ntfs-3g, hdparm,
- sdparm, ifupdown, mdadm, postfix, libsasl2-modules, bsd-mailx,
+ sdparm, ifupdown, mdadm, postfix, libsasl2-modules, bsd-mailx, python3-dbus,
  cpufrequtils, rsyslog, logrotate, smartmontools, openssl, openssh-server,
  openssh-blacklist-extra, uuid, tzdata, nfs-kernel-server, proftpd-basic,
  wget, tftpd-hpa, util-linux, samba, samba-common-bin, rsync, apt-utils,
