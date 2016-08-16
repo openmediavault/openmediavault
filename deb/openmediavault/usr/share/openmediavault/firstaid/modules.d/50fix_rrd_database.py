@@ -23,6 +23,7 @@ import sys
 import glob
 import datetime
 import dialog
+import subprocess
 import openmediavault as omv
 
 class Module:
@@ -37,18 +38,20 @@ class Module:
 			rrd_files = glob.glob(os.path.join(path, "localhost",
 				"*", "*.rrd"))
 			invalid = 0
-			omv.shell([ "monit", "stop", "rrdcached" ])
+			subprocess.call([ "monit", "stop", "rrdcached" ])
 			for rrd_file in rrd_files:
-				rc, ts_last = omv.shell([ "rrdtool", "last", rrd_file ])
+				ts_last = int(subprocess.check_output([ "rrdtool", "last",
+					rrd_file ]).decode())
 				dt_now = datetime.datetime.now()
-				if datetime.datetime.utcfromtimestamp(int(ts_last)) > dt_now:
+				if datetime.datetime.utcfromtimestamp(ts_last) > dt_now:
 					invalid += 1
-					dirname=os.path.basename(os.path.dirname(rrd_file))
-					basename=os.path.basename(rrd_file)
+					dirname = os.path.basename(os.path.dirname(rrd_file))
+					basename = os.path.basename(rrd_file)
 					d = dialog.Dialog(dialog="dialog")
 					code = d.yesno("The RRD file '../{}/{}' contains " \
 						"timestamps in future.\nDo you want to delete " \
 						"it?".format(dirname, basename),
+						backtitle=self.get_description(),
 						height=7, width=65)
 					if code == d.ESC:
 						return 0
@@ -59,7 +62,7 @@ class Module:
 			else:
 				print("{} invalid RRD database files were removed.".format(
 					invalid))
-			omv.shell([ "monit", "start", "rrdcached" ])
+			subprocess.call([ "monit", "start", "rrdcached" ])
 		except Exception as e:
 			omv.log.error(str(e))
 			return 1

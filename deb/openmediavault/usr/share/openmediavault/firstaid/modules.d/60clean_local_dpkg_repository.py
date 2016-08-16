@@ -19,6 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import sys
+import subprocess
 import openmediavault as omv
 
 class Module:
@@ -30,10 +31,10 @@ class Module:
 			print("Clear out the local repository of uploaded package " \
 				"files. Please wait ...")
 			path = omv.getenv("OMV_DPKGARCHIVE_DIR")
-			omv.shell([ "rm", "-fv", "{}/*.deb".format(path) ], verbose=True)
-			omv.shell("cd {} && apt-ftparchive packages . > Packages".format(
-				path), verbose=True)
-			omv.shell([ "apt-get", "update" ], verbose=True)
+			subprocess.call([ "rm", "-fv", "{}/*.deb".format(path) ])
+			subprocess.call("cd {} && apt-ftparchive packages . > Packages".format(
+				path), shell=True)
+			subprocess.call([ "apt-get", "update" ])
 		except Exception as e:
 			omv.log.error(str(e))
 			return 1

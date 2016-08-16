@@ -19,6 +19,13 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import sys
+import dialog
+import pyudev
+import tempfile
+import shutil
+import socket
+import time
+import subprocess
 import openmediavault as omv
 
 class Module:
@@ -32,17 +39,64 @@ class Module:
 				manager = omv.systemd.Manager()
 				unit = manager.get_unit("postfix.service")
 				active = unit.active_state == "active"
-			except Exception as e:
+			except:
 				active = False
 			if not active:
-				print("Failed to submit the system diagnostic report to " \
-					"the administrator account via email because the email " \
-					"notification service is disabled.")
+				d = dialog.Dialog(dialog="dialog")
+				code = d.msgbox("Failed to submit the system diagnostic " \
+					"report to the administrator account via email because " \
+					"the email notification service is disabled.",
+					backtitle=self.get_description(),
+					height=7, width=56)
+				if code != d.OK:
+					return 0
+				code = d.yesno("Do you want to copy the system diagnostic " \
+					"report onto an USB device?",
+					backtitle=self.get_description(),
+					height=6, width=45)
+				if code != d.OK:
+					return 0
+				d.infobox("Please connect the USB device now.",
+					backtitle=self.get_description(),
+					height=3, width=38)
+				# Wait until USB device is plugged in.
+				context = pyudev.Context()
+				monitor = pyudev.Monitor.from_netlink(context)
+				monitor.filter_by(subsystem="block", device_type="partition")
+				monitor.start()
+				for device in iter(monitor.poll, None):
+					# ToDo: Check ESC key to abort.
+					# Only process 'add' events.
+					if device.action != "add":
+						continue
+					# Only process partitions with a file systems.
+					if not "ID_FS_TYPE" in device:
+						continue
+					break;
+				d.infobox("USB device {} detected. Please wait ...".format(
+					device.get("DEVNAME")),
+					backtitle=self.get_description(),
+					height=3, width=50)
+				try:
+					mntdir = tempfile.mkdtemp()
+					outfile = "{}/sysinfo-{}-{}.txt".format(mntdir,
+						socket.gethostname(), time.strftime("%Y%m%d%H%M"))
+					subprocess.call([ "mount", device.get("DEVNAME"), mntdir ])
+					with open(outfile, "w") as out:
+						subprocess.call([ "omv-sysinfo" ], stdout=out)
+				except:
+					raise
+				finally:
+					subprocess.call([ "umount", device.get("DEVNAME") ])
+					shutil.rmtree(mntdir)
+				d.infobox("You can disconnect the USB device now.",
+					backtitle=self.get_description(),
+					height=3, width=42)
 			else:
 				print("Submitting system diagnostic report to the " \
 					"administrator account. Please check your email " \
 					"mailbox ...")
-				omv.shell([ "omv-sysinfo", "|", "mail", "-s",
+				subprocess.call([ "omv-sysinfo", "|", "mail", "-s",
 					"System diagnostic report", "root" ])
 		except Exception as e:
 			omv.log.error(str(e))
