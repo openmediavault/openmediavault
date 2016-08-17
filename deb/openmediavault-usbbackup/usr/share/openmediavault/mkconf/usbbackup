@@ -37,6 +37,7 @@ OMV_USBBACKUP_JOBS_SCRIPT_PREFIX=${OMV_USBBACKUP_JOBS_SCRIPT_PREFIX:-"openmediav
 OMV_USBBACKUP_LOGFILE=${OMV_USBBACKUP_LOGFILE:-"/var/log/rsync.log"}
 OMV_USBBACKUP_SYSTEMD_SCRIPTS_DIR=${OMV_USBBACKUP_SYSTEMD_SCRIPTS_DIR:-"/lib/systemd/system"}
 OMV_USBBACKUP_SYSTEMD_UNITFILE_PREFIX=${OMV_USBBACKUP_SYSTEMD_UNITFILE_PREFIX:-"openmediavault-usbbackup-"}
+OMV_USBBACKUP_SYSTEMD_UNITFILE_MASK=${OMV_USBBACKUP_SYSTEMD_UNITFILE_MASK:-"755"}
 
 # Create the backup jobs. Each job is configured in a seperate script.
 mkdir -p ${OMV_USBBACKUP_SCRIPTS_DIR}
@@ -173,4 +174,5 @@ ExecStart=${scriptfile}
 [Install]
 WantedBy=${device}.device
 EOF
+	  chmod ${OMV_USBBACKUP_SYSTEMD_UNITFILE_MASK} ${unitfile}
   done

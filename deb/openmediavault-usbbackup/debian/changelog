@@ -1,3 +1,9 @@
+openmediavault-usbbackup (3.2.7) stable; urgency=low
+
+  * Remove world writability permission bits of unit files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 17 Aug 2016 12:36:31 +0200
+
 openmediavault-usbbackup (3.2.6) stable; urgency=low
 
   * Mantis 0001584: Run command from web UI does not work.
