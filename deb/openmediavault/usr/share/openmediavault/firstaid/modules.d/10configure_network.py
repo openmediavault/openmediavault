@@ -23,6 +23,7 @@ import dialog
 import pyudev
 import ipaddress
 import re
+import natsort
 import openmediavault as omv
 
 class Module:
@@ -49,7 +50,8 @@ class Module:
 		choices = []
 		devices = []
 		context = pyudev.Context()
-		for idx, device in enumerate(context.list_devices(subsystem='net')):
+		for idx, device in enumerate(natsort.humansorted(
+			context.list_devices(subsystem='net'))):
 			if device.sys_name in [ "lo" ]:
 				continue
 			choices.append([ str(idx + 1), device.sys_name ])

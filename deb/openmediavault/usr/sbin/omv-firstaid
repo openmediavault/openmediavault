@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env python3
 #
 # This file is part of OpenMediaVault.
 #
@@ -18,538 +18,54 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+import os
+import sys
+import dialog
+import natsort
+import openmediavault as omv
 
-# Documentation/Howto:
-# http://www.linuxjournal.com/article/2807
-# http://www.linuxjournal.com/article/2460
-# http://www.linuxquestions.org/questions/programming-9/basic-bash-how-to-use-eval-to-evaluate-variable-names-made-of-arbitrary-strings-775622/#post3791337
-# http://linuxgazette.net/101/sunil.html
+def load_modules():
+	modules = []
+	path = omv.getenv("OMV_FIRSTAID_MODULES_DIR",
+		"/usr/share/openmediavault/firstaid/modules.d");
+	sys.path.insert(0, path)
+	for name in natsort.humansorted(os.listdir(path)):
+	    modname, ext = os.path.splitext(name)
+	    if ext == ".py":
+	        mod = __import__(modname)
+	        modules.append(mod.Module())
+	sys.path.pop(0)
+	return modules
 
-# Disable flag, otherwise script will exit immediatelly when 'No' is selected
-# in a 'yesno' box.
-#set -e
+def main():
+	rc = 1
+	pi = omv.ProductInfo();
+	# Load the modules.
+	modules = load_modules()
+	# Fill the menu choices.
+	choices = []
+	for idx, module in enumerate(modules):
+		choices.append([ str(idx + 1), module.get_description() ])
+	# Show the available modules.
+	d = dialog.Dialog(dialog="dialog")
+	while 1:
+		(code, tag) = d.menu("Please select a menu.",
+			title="First aid", cancel_label="Exit", clear=True,
+			backtitle="{} - {}".format(pi.get_name(), pi.get_copyright()),
+			height=15, width=65, menu_height=8, choices=choices)
+		if code in (d.CANCEL, d.ESC):
+			rc = 0
+			break
+		elif code == d.OK:
+			d.clear()
+			module = modules[int(tag) - 1]
+			try:
+				rc = module.execute()
+			except Exception as e:
+				rc = 1
+				omv.log.error(str(e))
+			break
+	return rc
 
-. /etc/default/openmediavault
-. /usr/share/openmediavault/scripts/helper-functions
-
-OMV_RRDCACHED_BASEDIR=${OMV_RRDCACHED_BASEDIR:-"/var/lib/rrdcached/db/"}
-OMV_FIRSTAID_DIALOG=${OMV_FIRSTAID_DIALOG:-"whiptail"}
-
-export LANG=C
-
-configure_network() {
-	local devicename method method6 address address6 netmask netmask6 gateway gateway6 wol dnsnameservers valid wpassid wpapsk rpcmethod rpcparams
-	# Default values.
-	method="dhcp"
-	method6="manual"
-	netmask6=64
-	wol=false
-	dnsnameservers=""
-	rpcmethod="setEthernetIface"
-	# Get the network interface device.
-	cmd="${OMV_FIRSTAID_DIALOG} --clear --menu 'Please select a network interface. Note, the existing network interface configuration will be deleted.' 15 53 5 "
-	for i in $(ls /sys/class/net | grep -vi "lo"); do
-		cmd="${cmd} '${i}' '${i}'"
-	done
-	eval "${cmd} 2>$tempfile"
-	[ $? -ne 0 ] && return 1
-	devicename=$(cat $tempfile)
-	# Use DHCP?
-	${OMV_FIRSTAID_DIALOG} --clear --yesno "Do you want to use DHCPv4 for this interface?" 7 49
-	if [ $? -eq 1 ]; then
-		method="static"
-		# Get the static IPv4 address.
-		while [ -z "${address}" ]; do
-			${OMV_FIRSTAID_DIALOG} --clear --inputbox "Please enter the IPv4 address." \
-			  8 60 2>$tempfile
-			[ $? -ne 0 ] && return 1
-			address=$(cat $tempfile)
-			if [ -z "${address}" ]; then
-				${OMV_FIRSTAID_DIALOG} --clear --msgbox "The field must not be empty." 8 32
-				continue
-			fi
-			if ! omv_is_ipaddr4 "${address}"; then
-				${OMV_FIRSTAID_DIALOG} --clear --msgbox "Invalid IPv4 address." 8 26
-				address=""
-			fi
-		done
-		# Get the IPv4 netmask.
-		while [ -z "${netmask}" ]; do
-			${OMV_FIRSTAID_DIALOG} --clear --inputbox "Please enter the netmask." \
-			  8 60 2>$tempfile
-			[ $? -ne 0 ] && return 1
-			netmask=$(cat $tempfile)
-			if [ -z "${netmask}" ]; then
-				${OMV_FIRSTAID_DIALOG} --clear --msgbox "The field must not be empty." 8 32
-				continue
-			fi
-			if ! omv_is_netmask4 "${netmask}"; then
-				${OMV_FIRSTAID_DIALOG} --clear --msgbox "Invalid netmask." 8 22
-				netmask=""
-			fi
-		done
-		# Get default IPv4 gateway.
-		while [ -z "${gateway}" ]; do
-			${OMV_FIRSTAID_DIALOG} --clear --inputbox "Please enter the default gateway." \
-			  8 60 2>$tempfile
-			[ $? -ne 0 ] && return 1
-			gateway=$(cat $tempfile)
-			if [ -n "${gateway}" ]; then
-				if ! omv_is_gateway4 "${gateway}"; then
-					${OMV_FIRSTAID_DIALOG} --clear --msgbox "Invalid gateway." 8 22
-					gateway=""
-				fi
-			else
-				break
-			fi
-		done
-	fi
-	# Use IPv6?
-	${OMV_FIRSTAID_DIALOG} --clear --defaultno --yesno "Do you want to configure IPv6 for this interface?" 7 53
-	if [ $? -eq 0 ]; then
-		${OMV_FIRSTAID_DIALOG} --clear --yesno "Do you want to enable stateful address autoconfiguration (DHCPv6)?" 8 42
-		if [ $? -eq 0 ]; then
-			method6="dhcp"
-		else
-			${OMV_FIRSTAID_DIALOG} --clear --yesno "Do you want to enable stateless address autoconfiguration (SLAAC)?" 8 43
-			if [ $? -eq 0 ]; then
-				method6="auto"
-			else
-				method6="static"
-				# Get static IPv6 address.
-				while [ -z "${address6}" ]; do
-					${OMV_FIRSTAID_DIALOG} --clear --inputbox "Please enter the IPv6 address." \
-					  8 45 2>$tempfile
-					[ $? -ne 0 ] && return 1
-					address6=$(cat $tempfile)
-					if [ -z "${address6}" ]; then
-						${OMV_FIRSTAID_DIALOG} --clear --msgbox "The field must not be empty." 8 32
-						continue
-					fi
-					if ! omv_is_ipaddr6 "${address6}"; then
-						${OMV_FIRSTAID_DIALOG} --clear --msgbox "Invalid IPv6 address." 8 26
-						address6=""
-					fi
-				done
-				# Get the prefix length.
-				netmask6=""
-				while [ -z "${netmask6}" ]; do
-					${OMV_FIRSTAID_DIALOG} --clear --inputbox "Please enter the prefix length." \
-					  8 45 64 2>$tempfile
-					[ $? -ne 0 ] && return 1
-					netmask6=$(cat $tempfile)
-					if [ -z "${netmask6}" ]; then
-						${OMV_FIRSTAID_DIALOG} --clear --msgbox "The field must not be empty." 8 32
-						continue
-					fi
-					if ! omv_is_netmask6 "${netmask6}"; then
-						${OMV_FIRSTAID_DIALOG} --clear --msgbox "Invalid netmask." 8 22
-						netmask=""
-					fi
-				done
-				# Get default IPv6 gateway.
-				while [ -z "${gateway6}" ]; do
-					${OMV_FIRSTAID_DIALOG} --clear --inputbox "Please enter the default gateway." \
-					  8 60 2>$tempfile
-					[ $? -ne 0 ] && return 1
-					gateway6=$(cat $tempfile)
-					if [ -n "${gateway6}" ]; then
-						if ! omv_is_gateway6 "${gateway6}"; then
-							${OMV_FIRSTAID_DIALOG} --clear --msgbox "Invalid gateway." 8 22
-							gateway6=""
-						fi
-					else
-						break
-					fi
-				done
-			fi
-		fi
-	fi
-	# Get the DNS name servers. Note, only one IP address is supported here.
-	if [ ${method} = "static" -o ${method6} = "static" ]; then
-		valid=false
-		while ! ${valid}; do
-			${OMV_FIRSTAID_DIALOG} --clear --inputbox \
-			  "Please enter the DNS name server. If you don't want to use any name server, just leave this field blank." \
-			  9 60 2>$tempfile
-			[ $? -ne 0 ] && return 1
-			dnsnameservers=$(cat $tempfile)
-			if [ -z "${address}" ]; then
-				${OMV_FIRSTAID_DIALOG} --clear --msgbox \
-				  "The field must not be empty." 8 32
-				continue
-			fi
-			if [ -z ${dnsnameservers} ]; then
-				valid=true
-			else
-				if omv_is_ipaddr4 "${dnsnameservers}" -o omv_is_ipaddr6 "${dnsnameservers}"; then
-					valid=true
-				else
-					${OMV_FIRSTAID_DIALOG} --clear --msgbox "Invalid IP address." 8 26
-					dnsnameservers=""
-				fi
-			fi
-		done
-	fi
-	${OMV_FIRSTAID_DIALOG} --clear --defaultno --yesno \
-	  "Do you want to enable WOL for this interface?" 8 50
-	if [ $? -eq 0 ]; then
-		wol=true
-	fi
-	# Build the RPC parameters for an ethernet network interface.
-	rpcparams="\"uuid\":\"${OMV_CONFIGOBJECT_NEW_UUID}\",\"devicename\":\"${devicename}\",\"method\":\"${method}\",\"address\":\"${address}\",\"netmask\":\"${netmask}\",\"gateway\":\"${gateway}\",\"method6\":\"${method6}\",\"address6\":\"${address6}\",\"netmask6\":${netmask6},\"gateway6\":\"${gateway6}\",\"dnsnameservers\":\"${dnsnameservers}\",\"dnssearch\":\"\",\"mtu\":0,\"wol\":${wol},\"options\":\"\",\"comment\":\"\""
-	# Do we process a wireless network interface?
-	if omv_is_wlan "${devicename}"; then
-		# Get the SSID.
-		while [ -z "${wpassid}" ]; do
-			${OMV_FIRSTAID_DIALOG} --clear --inputbox "Please enter the name of the wireless network (SSID)." \
-			  8 60 2>$tempfile
-			[ $? -ne 0 ] && return 1
-			wpassid=$(cat $tempfile)
-			if [ -z "${wpassid}" ]; then
-				${OMV_FIRSTAID_DIALOG} --clear --msgbox "The field must not be empty." 8 32
-				continue
-			fi
-		done
-		# Get the pre-shared key.
-		while [ -z "${wpapsk}" ]; do
-			${OMV_FIRSTAID_DIALOG} --clear --passwordbox \
-			  "Please enter the pre-shared key (PSK)." 8 45 2>$tempfile
-			[ $? -ne 0 ] && return 1
-			wpapsk=$(cat $tempfile)
-			if [ -z "${wpapsk}" ]; then
-				${OMV_FIRSTAID_DIALOG} --clear --msgbox "The password must not be empty." 7 35
-			fi
-		done
-		# Set the name of the RPC method.
-		rpcmethod="setWirelessIface"
-		# Append the wireless RPC parameters.
-		rpcparams="${rpcparams},\"wpassid\":\"${wpassid}\",\"wpapsk\":\"${wpapsk}\""
-	fi
-	echo "Configuring network interface. Please wait ..."
-	# Delete all existing network interface configuration objects.
-	omv_config_delete "//system/network/interfaces/interface"
-	# Insert a new network interface configuration object.
-	omv_exec_rpc "Network" "${rpcmethod}" "{${rpcparams}}"
-	[ $? -ne 0 ] && return 1
-	omv_exec_rpc "Config" "applyChanges" "{\"modules\":[],\"force\":false}"
-	[ $? -ne 0 ] && return 1
-	return 0
-}
-
-configure_webgui() {
-	local port enablessl sslport forcesslonly sslcertificateref
-	enablessl=false
-	forcesslonly=false
-	while [ -z "${port}" ]; do
-		${OMV_FIRSTAID_DIALOG} --clear --inputbox \
-		  "Please enter the port to access the WebGUI via HTTP." \
-		  8 60 80 2>$tempfile
-		[ $? -ne 0 ] && return 1
-		port=$(cat $tempfile)
-		if [ -z "${port}" ]; then
-			${OMV_FIRSTAID_DIALOG} --clear --msgbox "The field must not be empty." 8 32
-		elif ! omv_isnumber ${port}; then
-			${OMV_FIRSTAID_DIALOG} --clear --msgbox "Please enter a valid port." 8 32
-			port=""
-		elif [ ${port} -lt 1 -o ${port} -gt 65535 ]; then
-			${OMV_FIRSTAID_DIALOG} --clear --msgbox "Please enter a valid port." 8 32
-			port=""
-		fi
-	done
-	# Before asking to enable HTTPS check if there are any SSL certificates
-	# available.
-	if [ $(omv_config_get_count "//system/certificates/sslcertificate") -gt 0 ]; then
-		${OMV_FIRSTAID_DIALOG} --clear --yesno "Do you want to enable HTTPS?" 8 32
-		if [ $? -eq 0 ]; then
-			enablessl=true
-			# Get the port for HTTPS.
-			while [ -z "${sslport}" ]; do
-				${OMV_FIRSTAID_DIALOG} --clear --inputbox \
-				  "Please enter the port to access the WebGUI via HTTPS." \
-				  8 60 443 2>$tempfile
-				[ $? -ne 0 ] && return 1
-				sslport=$(cat $tempfile)
-				if [ -z "${sslport}" ]; then
-					${OMV_FIRSTAID_DIALOG} --clear --msgbox "The field must not be empty." 8 32
-				elif ! omv_isnumber ${sslport}; then
-					${OMV_FIRSTAID_DIALOG} --clear --msgbox "Please enter a valid port." 8 32
-					port=""
-				elif [ ${sslport} -lt 1 -o ${sslport} -gt 65535 ]; then
-					${OMV_FIRSTAID_DIALOG} --clear --msgbox "Please enter a valid port." 8 32
-					port=""
-				fi
-			done
-			# Display dialog to choose SSL certificate
-			xmlstarlet sel -t \
-			  -m "//system/certificates/sslcertificate" \
-			    -v "concat(position(),' ',uuid,' ',comment)" -n \
-			  -b \
-			  ${OMV_CONFIG_FILE} | xmlstarlet unesc | {
-				  local cmd
-				  cmd="${OMV_FIRSTAID_DIALOG} --clear --menu 'Please select an SSL certificate:' 12 70 4 "
-				  while read position uuid comment; do
-					  # To be posix compliant use fake arrays
-					  certs="certs"
-					  eval ${certs}${position}=${uuid}
-					  # Append menu entry. Use 'position' as 'tag' and 'comment' as
-					  # 'item' values.
-					  cmd="${cmd} ${position} '${comment}'"
-				  done
-				  eval "${cmd} 2>$tempfile"
-				  [ $? -ne 0 ] && return 1
-				  choice=$(cat $tempfile)
-				  echo $(eval echo \$$certs${choice}) >$tempfile
-			  }
-			[ $? -ne 0 ] && return 1
-			sslcertificateref=$(cat $tempfile)
-			# Enable HTTPS only?
-			${OMV_FIRSTAID_DIALOG} --clear --defaultno --yesno \
-			  "Do you want to enable HTTPS only?" 8 40
-			if [ $? -eq 0 ]; then
-				forcesslonly=true
-			fi
-		else
-			sslport=443
-		fi
-	else
-		sslport=443
-	fi
-	echo "Updating web administration settings. Please wait ..."
-	omv_exec_rpc "WebGui" "setSettings" "{\"port\":${port},\"enablessl\":${enablessl},\"sslport\":${sslport},\"forcesslonly\":${forcesslonly},\"sslcertificateref\":\"${sslcertificateref}\",\"timeout\":5}"
-	[ $? -ne 0 ] && return 1
-	omv_exec_rpc "Config" "applyChanges" "{\"modules\":[],\"force\":false}"
-	[ $? -ne 0 ] && return 1
-	return 0
-}
-
-reset_webgui_passwd() {
-	local passwd passwdconf
-	# Get the password.
-	while [ -z "${passwd}" -o "${passwd}" != "${passwdconf}" ]; do
-		while [ -z "${passwd}" ]; do
-			${OMV_FIRSTAID_DIALOG} --clear --passwordbox \
-			  "Please enter the new WebGUI administrator password." 8 55 2>$tempfile
-			[ $? -ne 0 ] && return 1
-			passwd=$(cat $tempfile)
-			if [ -z "${passwd}" ]; then
-				${OMV_FIRSTAID_DIALOG} --clear --msgbox "The password must not be empty." 7 35
-			fi
-		done
-		# Confirm the entered password.
-		while [ -z "${passwdconf}" ]; do
-			${OMV_FIRSTAID_DIALOG} --clear --passwordbox \
-			  "Please confirm the new WebGUI administrator password." 8 57 2>$tempfile
-			[ $? -ne 0 ] && return 1
-			passwdconf=$(cat $tempfile)
-			if [ -z "${passwdconf}" ]; then
-				${OMV_FIRSTAID_DIALOG} --clear --msgbox "The password must not be empty." 7 35
-			fi
-		done
-		# Compare entered passwords.
-		if [ "${passwd}" != "${passwdconf}" ]; then
-			# Reset values.
-			passwd=""
-			passwdconf=""
-			# Display error message.
-			${OMV_FIRSTAID_DIALOG} --clear --msgbox "The passwords don't match." 7 30
-		fi
-	done
-	echo "Updating WebGUI administrator password. Please wait ..."
-	omv_exec_rpc "WebGui" "setPassword" "{\"password\":\"${passwd}\"}"
-	[ $? -ne 0 ] && return 1
-	omv_exec_rpc "Config" "applyChanges" "{\"modules\":[],\"force\":false}"
-	[ $? -ne 0 ] && return 1
-	return 0
-}
-
-restore_config_backup()
-{
-	local configbak
-	# Determine the first revision file which should look like
-	# '<filename>.<revision>'.
-	configbak=$(ls ${OMV_CONFIG_FILE}.* | sort -fn | head -n 1)
-	# Does a auto-generated configuration backup exist?
-	if [ ! -e "${configbak}" ]; then
-		${OMV_FIRSTAID_DIALOG} --clear --msgbox 'No configuration backup found!' 8 34
-		return 1
-	fi
-	# Only show a diff, if there's a difference.
-	if diff --brief "${OMV_CONFIG_FILE}" "${configbak}" >/dev/null; then
-		${OMV_FIRSTAID_DIALOG} --clear --msgbox "There's no difference between the configuration files. Nothing to restore." 8 58
-		return 0
-	fi
-	${OMV_FIRSTAID_DIALOG} --clear --yesno "Do you want to see the differences between the current configuration and the backup." 8 46
-	if [ $? -eq 0 ]; then
-		# Get the differences.
-		cat > ${tempfile} <<EOF
-================================================================
-All lines with '-' will be changed to the lines with '+'
-================================================================
-EOF
-		diff --unified=1 "${OMV_CONFIG_FILE}" "${configbak}" >> ${tempfile}
-		# Show differences.
-		${OMV_FIRSTAID_DIALOG} --clear --title "Diff" --scrolltext --textbox "${tempfile}" 20 72
-	fi
-	# Restore configuration backup?
-	${OMV_FIRSTAID_DIALOG} --clear --defaultno --yesno "Do you want to restore the configuration backup? This will overwrite the actual configuration?" 8 57
-	if [ $? -eq 0 ]; then
-		# Replace configuration files and unlink all revision files.
-		omv_exec_rpc "Config" "revertChanges" "{\"filename\":\"${configbak}\"}"
-		[ $? -ne 0 ] && return 1
-		# Display success message.
-		${OMV_FIRSTAID_DIALOG} --clear --msgbox "Configuration backup successfully restored." 7 47
-	fi
-	return 0
-}
-
-fix_rrd_database()
-{
-	local invalid dirname basename tsLast tsNow
-	echo "Checking all RRD files. Please wait ..."
-	# Stopping rrdcached daemon.
-	monit stop rrdcached
-	# Check RRD database files for invalid timestamps.
-	invalid=0
-	find "${OMV_RRDCACHED_BASEDIR}/localhost/" -name "*.rrd" -print | \
-	  while read filename; do
-		  tsLast=$(rrdtool last "${filename}")
-		  tsNow=$(date '+%s')
-		  if [ "${tsLast}" -gt "${tsNow}" ]; then
-			  invalid=$((invalid + 1))
-			  dirname=$(dirname "${filename}")
-			  basename=$(basename "${filename}")
-			  ${OMV_FIRSTAID_DIALOG} --clear --defaultno --yesno "The RRD file '../$(basename "${dirname}")/${basename}' contains timestamps in future. Do you want to delete it?" 8 70
-			  if [ $? -eq 0 ]; then
-				  rm -f "${filename}"
-			  fi
-		  fi
-	  done
-	# Display message if RRD databases are all valid.
-	[ "${invalid}" -eq 0 ] && echo "All RRD database files are valid."
-	# Starting rrdcached daemon.
-	monit start rrdcached
-	return 0
-}
-
-clean_local_dpkg_repository()
-{
-	echo "Clear out the local repository of uploaded package files. Please wait ..."
-	rm -fv ${OMV_DPKGARCHIVE_DIR}/*.deb
-	cd ${OMV_DPKGARCHIVE_DIR} && apt-ftparchive \
-	  packages . > Packages
-	apt-get update
-	return 0
-}
-
-submit_sysinfo()
-{
-	if [ "$(omv_config_get "//system/email/enable")" = "0" ]; then
-		echo "Failed to submit the system diagnostic report to the administrator"
-		echo "account via email because the email notification service is disabled."
-		echo ""
-		read -p "Do you want to copy the system diagnostic report onto an USB device [y/n]? " choice
-		case "${choice}" in
-		[Yy]*)
-			pipe=$(mktemp --dry-run)
-			sysinfo2usb=$(mktemp)
-			udevrule="/run/udev/rules.d/99-openmediavault-sysinfo2usb.rules"
-			# Set a trap to ensure everything is cleaned up correctly.
-			trap "rm -f ${pipe} ${sysinfo2usb} ${udevrule}" 0 1 2 5 15
-			# Create the pipe that is used to send messages from the script.
-			mkfifo ${pipe}
-			# Create the script that is executed by a UDEV rule which is
-			# triggered when an USB device is connected.
-			cat > ${sysinfo2usb} <<EOF
-#!/bin/sh
-set -e
-devname=\$1
-mntdir="$(mktemp -d)"
-outfile="\${mntdir}/sysinfo-$(hostname)-$(date +%Y%m%d%H%M).txt"
-cleanup() {
-	rm -rf \${mntdir}
-}
-trap cleanup 0 1 2 5 15
-echo "Using device \${devname}, please wait ..." >${pipe}
-mount \${devname} \${mntdir}
-omv-sysinfo >\${outfile}
-umount \${mntdir}
-echo "Done" >${pipe}
-EOF
-			chmod 700 ${sysinfo2usb}
-			# Build the UDEV rule.
-			cat > ${udevrule} <<EOF
-ACTION=="add", SUBSYSTEM=="block", KERNEL=="[sh]d[a-z]1", ENV{ID_FS_USAGE}=="filesystem", RUN+="/bin/sh ${sysinfo2usb} %E{DEVNAME}"
-EOF
-			# Wait until the USB device has been connected and the script
-			# is executed. Display messages that are send via pipe.
-			echo "Please connect the USB device now."
-			while [ -p "${pipe}" ] ; do
-				if read line <${pipe}; then
-					echo $line
-					if [ "$line" = "Done" ]; then
-						break
-					fi
-				fi
-				sleep 1
-			done
-			echo "You can disconnect the USB device now."
-			;;
-		[Nn]*)
-			;;
-		*)
-			;;
-		esac
-	else
-		echo "Submitting system diagnostic report to the administrator account."
-		echo "Please check your email mailbox ..."
-		omv-sysinfo | mail -s "System diagnostic report" root
-	fi
-	return 0
-}
-
-tempfile=`tempfile 2>/dev/null` || tempfile=/tmp/omv-setup$$
-trap "rm -f $tempfile; exit" 0 1 2 5 15
-
-# Get some product informations.
-prodname=$(omv_product_info "name")
-prodcopyright=$(omv_product_info "copyright")
-
-# Display the default menu
-${OMV_FIRSTAID_DIALOG} --nocancel --clear --backtitle "${prodname} - ${prodcopyright}" \
-  --title "First aid" --menu "Please select a menu:" 15 65 8 \
-  "1" "Configure network interface" \
-  "2" "Configure WebGUI" \
-  "3" "Change WebGUI administrator password" \
-  "4" "Restore configuration backup" \
-  "5" "Fix RRD database" \
-  "6" "Clear local upload package repository" \
-  "7" "Submit diagnostic report to administrator" \
-  "8" "Exit" 2>$tempfile
-[ $? -ne 0 ] && return 1
-choice=$(cat $tempfile)
-case ${choice} in
-1)
-	configure_network;
-	;;
-2)
-	configure_webgui;
-	;;
-3)
-	reset_webgui_passwd;
-	;;
-4)
-	restore_config_backup;
-	;;
-5)
-	fix_rrd_database;
-	;;
-6)
-	clean_local_dpkg_repository;
-	;;
-7)
-	submit_sysinfo;
-	;;
-esac
-
-exit 0
+if __name__ == "__main__":
+	sys.exit(main())
