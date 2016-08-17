@@ -34,7 +34,7 @@ class Module:
 		# Determine the first revision file which should look like
 		# '<filename>.<revision>'.
 		pathname = "{}.*".format(omv.getenv("OMV_CONFIG_FILE"))
-		configbaks = glob.glob(pathname)
+		configbaks = natsort.humansorted(glob.glob(pathname))
 		# Does a auto-generated configuration backup exist?
 		if not configbaks:
 			d.msgbox("No configuration backup found!",
@@ -42,7 +42,6 @@ class Module:
 				height=5, width=34)
 			return 0
 		# Get the latest configuration backup file.
-		configbaks = natsort.humansorted(configbaks)
 		configbak = configbaks.pop()
 		# Only show a diff, if there's a difference.
 		rc = subprocess.call([ "diff", "--brief",

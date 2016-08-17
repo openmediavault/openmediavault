@@ -47,15 +47,16 @@ class Module:
 		rpc_method = "setEthernetIface"
 		rpc_params = {}
 		# Get the network interface device.
-		choices = []
 		devices = []
 		context = pyudev.Context()
-		for idx, device in enumerate(natsort.humansorted(
-			context.list_devices(subsystem='net'))):
+		for device in context.list_devices(subsystem='net'):
 			if device.sys_name in [ "lo" ]:
 				continue
-			choices.append([ str(idx + 1), device.sys_name ])
 			devices.append(device.sys_name)
+		devices = natsort.humansorted(devices)
+		choices = []
+		for idx, sys_name in enumerate(devices):
+			choices.append([ str(idx + 1), sys_name ])
 		d = dialog.Dialog(dialog="dialog")
 		(code, tag) = d.menu("Please select a network interface. Note, the " \
 			"existing network interface configuration will be deleted.",
@@ -63,7 +64,7 @@ class Module:
 			height=15, width=53, menu_height=5, choices=choices)
 		if code in (d.CANCEL, d.ESC):
 			return 0
-		devicename = devices[int(tag) - 1]
+		device_name = devices[int(tag) - 1]
 		# Use DHCP?
 		code = d.yesno("Do you want to use DHCPv4 for this interface?",
 			backtitle=self.get_description(),
@@ -248,7 +249,7 @@ class Module:
 		# Set the default RPC parameters.
 		rpc_params.update({
 			"uuid": omv.getenv("OMV_CONFIGOBJECT_NEW_UUID"),
-			"devicename": devicename,
+			"devicename": device_name,
 			"method": method,
 			"address": address,
 			"netmask": netmask,
@@ -265,7 +266,7 @@ class Module:
 			"comment": "",
 		})
 		# Do we process a wireless network interface?
-		if re.match(r"^wlan[0-9]+$", devicename):
+		if re.match(r"^wlan[0-9]+$", device_name):
 			rpc_method = "setWirelessIface"
 			# Get the SSID.
 			while not wpa_ssid:
