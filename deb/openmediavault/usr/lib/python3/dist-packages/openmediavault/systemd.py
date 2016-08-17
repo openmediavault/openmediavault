@@ -63,7 +63,7 @@ class SystemdObject(object):
 		properties = self.properties_interface.GetAll(
 			self.interface.dbus_interface)
 		for key, value in properties.items():
-			key = omv.camelcase_to_underscore(key)
+			key = omv.string.camelcase_to_underscore(key)
 			setattr(self, key, value)
 
 	def get_property(self, name):

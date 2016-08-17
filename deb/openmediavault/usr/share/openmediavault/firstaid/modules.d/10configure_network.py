@@ -56,15 +56,17 @@ class Module:
 		devices = natsort.humansorted(devices)
 		choices = []
 		for idx, sys_name in enumerate(devices):
-			choices.append([ str(idx + 1), sys_name ])
+			device = pyudev.Device.from_name(context, "net", sys_name)
+			choices.append([ sys_name, omv.string.truncate(
+				device["ID_MODEL_FROM_DATABASE"], 50) ])
 		d = dialog.Dialog(dialog="dialog")
 		(code, tag) = d.menu("Please select a network interface. Note, the " \
 			"existing network interface configuration will be deleted.",
 			backtitle=self.get_description(), clear=True,
-			height=15, width=53, menu_height=5, choices=choices)
+			height=14, width=70, menu_height=6, choices=choices)
 		if code in (d.CANCEL, d.ESC):
 			return 0
-		device_name = devices[int(tag) - 1]
+		device_name = tag
 		# Use DHCP?
 		code = d.yesno("Do you want to use DHCPv4 for this interface?",
 			backtitle=self.get_description(),

@@ -18,31 +18,9 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-from .environment import Environment
-from .exceptions import *
-from .productinfo import ProductInfo
-from .log import *
-from .rpc import *
-from .systemd import *
-from .string import *
+def camelcase_to_underscore(str):
+	return re.sub("(((?<=[a-z])[A-Z])|([A-Z](?![A-Z]|$)))",
+		"_\\1", str).lower().strip("_")
 
-import re
-
-def bool(x):
-	"""
-	Get the boolean value of a variable. A boolean TRUE will be returned for
-    the values 1, '1', 'on', 'yes', 'y' and 'true'.
-	"""
-	result = False
-	# Boolean 'true' => '1'
-	if str(x).lower() in [ "1", "on", "yes", "y", "true" ]:
-		result = True
-	return result
-
-def getenv(key, default=None):
-	"""
-	Get an environment variable, return None if it doesn't exist.
-    The optional second argument can specify an alternate default.
-    key, default and the result are string.
-	"""
-	return Environment.get_str(key, default)
+def truncate(str, max_len):
+	return str[:max_len] + (str[max_len:] and "...")
