@@ -21,6 +21,7 @@
 import os
 import sys
 import dialog
+import natsort
 import openmediavault as omv
 
 def load_modules():
@@ -28,7 +29,7 @@ def load_modules():
 	path = omv.getenv("OMV_FIRSTAID_MODULES_DIR",
 		"/usr/share/openmediavault/firstaid/modules.d");
 	sys.path.insert(0, path)
-	for name in os.listdir(path):
+	for name in natsort.humansorted(os.listdir(path)):
 	    modname, ext = os.path.splitext(name)
 	    if ext == ".py":
 	        mod = __import__(modname)
@@ -48,8 +49,8 @@ def main():
 	# Show the available modules.
 	d = dialog.Dialog(dialog="dialog")
 	while 1:
-		(code, tag) = d.menu("Please select a menu:",
-			title="First aid", no_cancel=True, clear=True,
+		(code, tag) = d.menu("Please select a menu.",
+			title="First aid", cancel_label="Exit", clear=True,
 			backtitle="{} - {}".format(pi.get_name(), pi.get_copyright()),
 			height=15, width=65, menu_height=8, choices=choices)
 		if code in (d.CANCEL, d.ESC):
@@ -58,7 +59,11 @@ def main():
 		elif code == d.OK:
 			d.clear()
 			module = modules[int(tag) - 1]
-			rc = module.execute()
+			try:
+				rc = module.execute()
+			except Exception as e:
+				rc = 1
+				omv.log.error(str(e))
 			break
 	return rc
 

@@ -27,17 +27,13 @@ class Module:
 		return "Clear local upload package repository"
 
 	def execute(self):
-		try:
-			print("Clear out the local repository of uploaded package " \
-				"files. Please wait ...")
-			path = omv.getenv("OMV_DPKGARCHIVE_DIR")
-			subprocess.call([ "rm", "-fv", "{}/*.deb".format(path) ])
-			subprocess.call("cd {} && apt-ftparchive packages . > Packages".format(
-				path), shell=True)
-			subprocess.call([ "apt-get", "update" ])
-		except Exception as e:
-			omv.log.error(str(e))
-			return 1
+		print("Clear out the local repository of uploaded package " \
+			"files. Please wait ...")
+		path = omv.getenv("OMV_DPKGARCHIVE_DIR")
+		subprocess.check_call([ "rm", "-fv", "{}/*.deb".format(path) ])
+		subprocess.check_call("cd {} && apt-ftparchive packages . " \
+			"> Packages".format(path), shell=True)
+		subprocess.check_call([ "apt-get", "update" ])
 		return 0
 
 if __name__ == "__main__":

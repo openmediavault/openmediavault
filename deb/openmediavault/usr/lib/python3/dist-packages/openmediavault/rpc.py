@@ -36,12 +36,14 @@ class RpcException(Exception):
 	def trace(self):
 		return self._trace
 
-def rpc(service, method, params):
-	# Convert dictionary to JSON string.
-	params = json.dumps(params)
+def call(service, method, params=None):
+	args = [ "omv-rpc", service, method ]
+	if params:
+		# Convert dictionary to JSON string.
+		args.append(json.dumps(params))
 	# Execute the shell command.
 	p = subprocess.Popen(
-		[ "omv-rpc", service, method, params ],
+		args,
 		shell=False,
 		env=dict(os.environ, LANG='C'),
 		stderr=subprocess.PIPE,
@@ -50,4 +52,5 @@ def rpc(service, method, params):
 	if p.returncode != 0:
 		response = json.loads(stderr.decode())
 		raise RpcException(**response["error"])
+	stdout = json.loads(stdout.decode())
 	return stdout

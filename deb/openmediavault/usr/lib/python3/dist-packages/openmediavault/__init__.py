@@ -23,7 +23,6 @@ from .exceptions import *
 from .productinfo import ProductInfo
 from .log import *
 from .rpc import *
-from .process import *
 from .systemd import *
 
 import re

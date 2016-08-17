@@ -31,41 +31,37 @@ class Module:
 		return "Fix RRD database"
 
 	def execute(self):
-		try:
-			print("Checking all RRD files. Please wait ...")
-			path = omv.getenv("OMV_RRDCACHED_BASEDIR",
-				"/var/lib/rrdcached/db/")
-			rrd_files = glob.glob(os.path.join(path, "localhost",
-				"*", "*.rrd"))
-			invalid = 0
-			subprocess.call([ "monit", "stop", "rrdcached" ])
-			for rrd_file in rrd_files:
-				ts_last = int(subprocess.check_output([ "rrdtool", "last",
-					rrd_file ]).decode())
-				dt_now = datetime.datetime.now()
-				if datetime.datetime.utcfromtimestamp(ts_last) > dt_now:
-					invalid += 1
-					dirname = os.path.basename(os.path.dirname(rrd_file))
-					basename = os.path.basename(rrd_file)
-					d = dialog.Dialog(dialog="dialog")
-					code = d.yesno("The RRD file '../{}/{}' contains " \
-						"timestamps in future.\nDo you want to delete " \
-						"it?".format(dirname, basename),
-						backtitle=self.get_description(),
-						height=7, width=65)
-					if code == d.ESC:
-						return 0
-					if code == d.OK:
-						os.remove(rrd_file)
-			if invalid == 0:
-				print("All RRD database files are valid.")
-			else:
-				print("{} invalid RRD database files were removed.".format(
-					invalid))
-			subprocess.call([ "monit", "start", "rrdcached" ])
-		except Exception as e:
-			omv.log.error(str(e))
-			return 1
+		print("Checking all RRD files. Please wait ...")
+		path = omv.getenv("OMV_RRDCACHED_BASEDIR",
+			"/var/lib/rrdcached/db/")
+		rrd_files = glob.glob(os.path.join(path, "localhost",
+			"*", "*.rrd"))
+		invalid = 0
+		subprocess.check_call([ "monit", "stoap", "rrdcached" ])
+		for rrd_file in rrd_files:
+			ts_last = int(subprocess.check_output([ "rrdtool", "last",
+				rrd_file ]).decode())
+			dt_now = datetime.datetime.now()
+			if datetime.datetime.utcfromtimestamp(ts_last) > dt_now:
+				invalid += 1
+				dirname = os.path.basename(os.path.dirname(rrd_file))
+				basename = os.path.basename(rrd_file)
+				d = dialog.Dialog(dialog="dialog")
+				code = d.yesno("The RRD file '../{}/{}' contains " \
+					"timestamps in future.\nDo you want to delete " \
+					"it?".format(dirname, basename),
+					backtitle=self.get_description(),
+					height=7, width=65)
+				if code == d.ESC:
+					return 0
+				if code == d.OK:
+					os.remove(rrd_file)
+		if invalid == 0:
+			print("All RRD database files are valid.")
+		else:
+			print("{} invalid RRD database files were removed.".format(
+				invalid))
+		subprocess.call([ "monit", "start", "rrdcached" ])
 		return 0
 
 if __name__ == "__main__":

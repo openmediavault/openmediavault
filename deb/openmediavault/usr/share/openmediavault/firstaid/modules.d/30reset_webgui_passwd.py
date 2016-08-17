@@ -27,43 +27,41 @@ class Module:
 		return "Change WebGUI administrator password"
 
 	def execute(self):
-		try:
-			d = dialog.Dialog(dialog="dialog")
-			password = password_conf = ""
-			while not password or (password != password_conf):
-				while not password:
-					(code, password) = d.passwordbox(
-						"Please enter the new password.",
+		d = dialog.Dialog(dialog="dialog")
+		password = password_conf = None
+		while not password or (password != password_conf):
+			while not password:
+				(code, password) = d.passwordbox(
+					"Please enter the new password.",
+					backtitle=self.get_description(),
+					insecure=True, clear=True, height=8, width=34)
+				if code != d.OK:
+					return 0
+				if not password:
+					d.msgbox("The password must not be empty.",
 						backtitle=self.get_description(),
-						insecure=True, clear=True, height=8, width=34)
-					if code != d.OK:
-						return 1
-					if not password:
-						d.msgbox("The password must not be empty.",
-							backtitle=self.get_description(),
-							height=5, width=35)
-				while not password_conf:
-					(code, password_conf) = d.passwordbox(
-						"Please confirm the new password.",
+						height=5, width=35)
+			while not password_conf:
+				(code, password_conf) = d.passwordbox(
+					"Please confirm the new password.",
+					backtitle=self.get_description(),
+					insecure=True, clear=True, height=8, width=36)
+				if code != d.OK:
+					return 0
+				if not password_conf:
+					d.msgbox("The password must not be empty.",
 						backtitle=self.get_description(),
-						insecure=True, clear=True, height=8, width=36)
-					if code != d.OK:
-						return 1
-					if not password_conf:
-						d.msgbox("The password must not be empty.",
-							backtitle=self.get_description(),
-							height=5, width=35)
-				if password != password_conf:
-					password = password_conf = ""
-					d.msgbox("The passwords don't match.",
-						backtitle=self.get_description(),
-						height=5, width=30)
-			print("Updating WebGUI administrator password. Please wait ...")
-			omv.rpc("WebGui", "setPassword", { "password":password })
-			omv.rpc("Config", "applyChanges", { "modules":[], "force":False })
-		except Exception as e:
-			omv.log.error(str(e))
-			return 1
+						height=5, width=35)
+			if password != password_conf:
+				password = password_conf = None
+				d.msgbox("The passwords don't match.",
+					backtitle=self.get_description(),
+					height=5, width=30)
+		print("Updating WebGUI administrator password. Please wait ...")
+		omv.rpc.call("WebGui", "setPassword", { "password": password })
+		omv.rpc.call("Config", "applyChanges", { "modules": [],
+			"force": False })
+		print("The administrator password was successfully changed.")
 		return 0
 
 if __name__ == "__main__":
