@@ -24,7 +24,7 @@ import openmediavault as omv
 
 class Module:
 	def get_description(self):
-		return "Change WebGUI administrator password"
+		return "Change control panel administrator password"
 
 	def execute(self):
 		d = dialog.Dialog(dialog="dialog")
@@ -57,11 +57,12 @@ class Module:
 				d.msgbox("The passwords don't match.",
 					backtitle=self.get_description(),
 					height=5, width=30)
-		print("Updating WebGUI administrator password. Please wait ...")
+		print("Updating control panel administrator password. Please wait ...")
 		omv.rpc.call("WebGui", "setPassword", { "password": password })
 		omv.rpc.call("Config", "applyChanges", { "modules": [],
 			"force": False })
-		print("The administrator password was successfully changed.")
+		print("The control panel administrator password was successfully " \
+			"changed.")
 		return 0
 
 if __name__ == "__main__":

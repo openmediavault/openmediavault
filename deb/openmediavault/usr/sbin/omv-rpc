@@ -106,14 +106,14 @@ try {
 	$response = \OMV\Rpc\Rpc::call($service, $method, $params, $context,
 	  \OMV\Rpc\Rpc::MODE_REMOTE);
 } catch(\Exception $e) {
-	$response = array(
+	$response = [
 		"response" => null,
-		"error" => array(
+		"error" => [
 			"code" => $e->getCode(),
 			"message" => $e->getMessage(),
 			"trace" => $e->__toString()
-		)
-	);
+		]
+	];
 	$fh = STDERR;
 	$rc = 1;
 }

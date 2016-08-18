@@ -37,7 +37,7 @@ class Module:
 		rrd_files = glob.glob(os.path.join(path, "localhost",
 			"*", "*.rrd"))
 		invalid = 0
-		subprocess.check_call([ "monit", "stoap", "rrdcached" ])
+		subprocess.check_call([ "monit", "stop", "rrdcached" ])
 		for rrd_file in rrd_files:
 			ts_last = int(subprocess.check_output([ "rrdtool", "last",
 				rrd_file ]).decode())

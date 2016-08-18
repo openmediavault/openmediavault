@@ -48,7 +48,7 @@ def call(service, method, params=None):
 		env=dict(os.environ, LANG='C'),
 		stderr=subprocess.PIPE,
 		stdout=subprocess.PIPE)
-	stdout, stderr = p.communicate()
+	(stdout, stderr) = p.communicate()
 	if p.returncode != 0:
 		response = json.loads(stderr.decode())
 		raise RpcException(**response["error"])

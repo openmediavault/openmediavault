@@ -18,14 +18,16 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-
 import argparse
 import sys
 import json
+import openmediavault as omv
 
 def main():
-	parser = argparse.ArgumentParser(description = "Convert JSON data to human-readable form.")
-	parser.add_argument("file", help = "The JSON file to prettify. If not defined, stdin will be used.", nargs = "?")
+	parser = argparse.ArgumentParser(description="Convert JSON data to " \
+		"human-readable form.")
+	parser.add_argument("file", help="The JSON file to prettify. If not " \
+		"defined, stdin will be used.", nargs="?")
 	args = parser.parse_args()
 	try:
 		inFile = sys.stdin
@@ -33,11 +35,11 @@ def main():
 			inFile = open(args.file)
 		data = json.load(inFile)
 		inFile.close()
-	except:
-		print("Unexpected error: %s" % sys.exc_info()[1])
-		return False
-	print(json.dumps(data, sort_keys = False, indent = 4))
-	return True
+	except Exception as e:
+		omv.log.error(str(e))
+		return 1
+	print(json.dumps(data, sort_keys=False, indent=4))
+	return 0
 
 if __name__ == "__main__":
-	sys.exit(not main())
+	sys.exit(main())

@@ -24,7 +24,7 @@ import openmediavault as omv
 
 class Module:
 	def get_description(self):
-		return "Configure WebGUI"
+		return "Configure web control panel"
 
 	def execute(self):
 		# Default values.
@@ -37,9 +37,9 @@ class Module:
 		d = dialog.Dialog(dialog="dialog")
 		while not port:
 			(code, port) = d.inputbox(
-				"Please enter the port to access the WebGUI via HTTP.",
+				"Please enter the port to access the control panel via HTTP.",
 				backtitle=self.get_description(),
-				clear=True, height=8, width=57, init="80")
+				clear=True, height=8, width=64, init="80")
 			if code != d.OK:
 				return 0
 			if not port:
@@ -75,10 +75,10 @@ class Module:
 				sslport = None
 				# Get the port for HTTPS.
 				while not sslport:
-					(code, sslport) = d.inputbox(
-						"Please enter the port to access the WebGUI via HTTPS.",
+					(code, sslport) = d.inputbox("Please enter the port " \
+						"to access the control panel via HTTPS.",
 						backtitle=self.get_description(),
-						clear=True, height=8, width=58, init="443")
+						clear=True, height=8, width=65, init="443")
 					if code != d.OK:
 						return 0
 					if not sslport:
@@ -119,14 +119,14 @@ class Module:
 				if code == d.OK:
 					forcesslonly = True
 		# Update the configuration.
-		print("Updating web administration settings. Please wait ...")
+		print("Updating web control panel settings. Please wait ...")
 		omv.rpc.call("WebGui", "setSettings", {
 			"port": port, "enablessl": enablessl, "sslport": sslport,
 			"forcesslonly": forcesslonly,
 			"sslcertificateref": sslcertificateref, "timeout": 5 })
 		omv.rpc.call("Config", "applyChanges", {
 			"modules": [], "force": False })
-		print("The web administration settings were successfully changed.")
+		print("The web control panel settings were successfully changed.")
 		return 0
 
 if __name__ == "__main__":

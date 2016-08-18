@@ -44,8 +44,8 @@ mkconf() {
 ${prdname} ${version} (${versionname}) \n \l
 ${copyright}
 
-To manage the system visit the ${prdname} web management
-interface via a web browser:
+To manage the system visit the ${prdname} web control panel with a
+web browser:
 
 EOF
 
@@ -62,19 +62,19 @@ EOF
 			fi
 		done
 	else
-		echo "No interface(s) available" >> ${OMV_ISSUE_CONFIG}
+		echo "No network interface(s) available" >> ${OMV_ISSUE_CONFIG}
 	fi
 
 	cat <<EOF >> ${OMV_ISSUE_CONFIG}
 
-The default web management interface administrator account has
-the username 'admin' and password '$(echo ${prdname} | awk '{print tolower($0)}')'.
+The default web control panel administrator account has the
+username 'admin' and password '$(echo ${prdname} | awk '{print tolower($0)}')'.
 It is recommended that you change the password for this account
-via the web management interface or using the 'omv-firstaid'
-CLI command.
+within the web control panel or using the 'omv-firstaid' CLI
+command.
 
-For more information regarding this appliance, please visit
-the web site: ${url}
+For more information regarding this appliance, please visit the
+web site: ${url}
 
 EOF
 }

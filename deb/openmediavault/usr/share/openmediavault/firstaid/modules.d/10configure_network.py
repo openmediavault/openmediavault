@@ -49,9 +49,13 @@ class Module:
 		# Get the network interface device.
 		devices = []
 		context = pyudev.Context()
-		for device in context.list_devices(subsystem='net'):
-			if device.sys_name in [ "lo" ]:
+		for device in context.list_devices(subsystem="net"):
+			# Skip unwanted network interface devices.
+			if device.sys_name in ("lo"):
 				continue
+			if device.device_type and device.device_type in ("bond"):
+				continue
+			# Append the network interface name for later use.
 			devices.append(device.sys_name)
 		devices = natsort.humansorted(devices)
 		choices = []

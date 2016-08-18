@@ -46,30 +46,32 @@ def execute_script():
 		omv.log.error("The script '{}' is not executable".format(path),
 			__args.verbose)
 		sys.exit(101)
-	# Execute the script.
-	# Note, the first argument, by convention, should point to the
-	# filename associated with the file being executed.
-	return os.execv(path, [ path ] + __args.args)
+	# Execute the script. Please note:
+	# - the first argument, by convention, should point to the filename
+	#   associated with the file being executed.
+	# - os.execv execute a new program, replacing the current process;
+	#   it won't return. The return code of the script will be returned.
+	os.execv(path, [ path ] + __args.args)
 
 def main():
 	global __args
 	rc = 0
 	parser = argparse.ArgumentParser(
-	  description = "Generate the configuration files.")
+		description="Generates the specified configuration files.")
 	parser.add_argument("-l", "--list", default=False, action="store_true",
-	  help = "list available scripts and exit")
+		help="list available scripts and exit")
 	parser.add_argument("-q", "--quiet", default=True, action="store_false",
-	  dest="verbose", help = "quiet mode, no error messages are generated")
+		dest="verbose", help="quiet mode, no error messages are generated")
 	group = parser.add_argument_group()
 	group.add_argument("name", nargs="?",
-	  help = "the name of the script to be executed")
+		help="the name of the script to be executed")
 	group.add_argument("args", nargs=argparse.REMAINDER,
-	  help = "extra arguments to the executed script")
+		help="extra arguments to the executed script")
 	__args = parser.parse_args()
 	if __args.list:
 		list_scripts()
 	else:
-		if None == __args.name:
+		if __args.name is None:
 			parser.print_help()
 		else:
 			rc = execute_script()
