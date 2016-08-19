@@ -20,6 +20,8 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import sys
 import dialog
+import netifaces
+
 import openmediavault as omv
 
 class Module:
@@ -127,6 +129,22 @@ class Module:
 		omv.rpc.call("Config", "applyChanges", {
 			"modules": [], "force": False })
 		print("The web control panel settings were successfully changed.")
+		# Display the URL's available to reach the web control panel.
+		print("\nThe web control panel is reachable via URL:")
+		for if_name in netifaces.interfaces():
+			# Skip unwanted network interface devices.
+			if if_name in ("lo"):
+				continue
+			if_addrs = netifaces.ifaddresses(if_name);
+			for if_familiy in (netifaces.AF_INET, netifaces.AF_INET6):
+				if if_familiy in if_addrs:
+					for if_addr in if_addrs[if_familiy]:
+						if not forcesslonly:
+							print("{}: http://{}:{}".format(if_name,
+								if_addr["addr"], port))
+						if enablessl:
+							print("{}: https://{}:{}".format(if_name,
+								if_addr["addr"], sslport))
 		return 0
 
 if __name__ == "__main__":

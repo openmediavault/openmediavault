@@ -18,13 +18,14 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-from .environment import Environment
+from .environment import *
 from .exceptions import *
-from .productinfo import ProductInfo
+from .productinfo import *
 from .log import *
 from .rpc import *
 from .systemd import *
 from .string import *
+from .subprocess import *
 
 import re
 

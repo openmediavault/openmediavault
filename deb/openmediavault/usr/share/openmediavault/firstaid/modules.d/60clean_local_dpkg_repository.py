@@ -30,10 +30,10 @@ class Module:
 		print("Clear out the local repository of uploaded package " \
 			"files. Please wait ...")
 		path = omv.getenv("OMV_DPKGARCHIVE_DIR")
-		subprocess.check_call([ "rm", "-fv", "{}/*.deb".format(path) ])
-		subprocess.check_call("cd {} && apt-ftparchive packages . " \
+		omv.subprocess.check_call([ "rm", "-fv", "{}/*.deb".format(path) ])
+		omv.subprocess.check_call("cd {} && apt-ftparchive packages . " \
 			"> Packages".format(path), shell=True)
-		subprocess.check_call([ "apt-get", "update" ])
+		omv.subprocess.check_call([ "apt-get", "update" ])
 		return 0
 
 if __name__ == "__main__":

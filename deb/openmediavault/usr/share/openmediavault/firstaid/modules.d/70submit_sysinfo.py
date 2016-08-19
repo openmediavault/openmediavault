@@ -79,14 +79,14 @@ class Module:
 				mntdir = tempfile.mkdtemp()
 				outfile = "{}/sysinfo-{}-{}.txt".format(mntdir,
 					socket.gethostname(), time.strftime("%Y%m%d%H%M"))
-				subprocess.check_call([ "mount", device.get("DEVNAME"),
+				omv.subprocess.check_call([ "mount", device.get("DEVNAME"),
 					mntdir ])
 				with open(outfile, "w") as out:
-					subprocess.check_call([ "omv-sysinfo" ], stdout=out)
+					omv.subprocess.check_call([ "omv-sysinfo" ], stdout=out)
 			except:
 				raise
 			finally:
-				subprocess.check_call([ "umount", device.get("DEVNAME") ])
+				omv.subprocess.check_call([ "umount", device.get("DEVNAME") ])
 				shutil.rmtree(mntdir)
 			d.infobox("You can disconnect the USB device now.",
 				backtitle=self.get_description(),
@@ -95,7 +95,7 @@ class Module:
 			print("Submitting system diagnostic report to the " \
 				"administrator account. Please check your email " \
 				"mailbox ...")
-			subprocess.check_call([ "omv-sysinfo", "|", "mail", "-s",
+			omv.subprocess.check_call([ "omv-sysinfo", "|", "mail", "-s",
 				"System diagnostic report", "root" ])
 		return 0
 

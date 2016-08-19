@@ -18,9 +18,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-__all__ = [
-	"IllegalArgumentError"
-]
+__all__ = [ "IllegalArgumentError" ]
 
 class IllegalArgumentError(ValueError):
     pass

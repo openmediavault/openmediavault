@@ -37,9 +37,9 @@ class Module:
 		rrd_files = glob.glob(os.path.join(path, "localhost",
 			"*", "*.rrd"))
 		invalid = 0
-		subprocess.check_call([ "monit", "stop", "rrdcached" ])
+		omv.subprocess.check_call([ "monit", "stop", "rrdcached" ])
 		for rrd_file in rrd_files:
-			ts_last = int(subprocess.check_output([ "rrdtool", "last",
+			ts_last = int(omv.subprocess.check_output([ "rrdtool", "last",
 				rrd_file ]).decode())
 			dt_now = datetime.datetime.now()
 			if datetime.datetime.utcfromtimestamp(ts_last) > dt_now:
@@ -61,7 +61,7 @@ class Module:
 		else:
 			print("{} invalid RRD database files were removed.".format(
 				invalid))
-		subprocess.call([ "monit", "start", "rrdcached" ])
+		omv.subprocess.call([ "monit", "start", "rrdcached" ])
 		return 0
 
 if __name__ == "__main__":

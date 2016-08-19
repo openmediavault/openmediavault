@@ -21,6 +21,7 @@
 import os
 import json
 import subprocess
+import openmediavault as omv
 
 class RpcException(Exception):
 	def __init__(self, message, code, trace):
@@ -42,10 +43,9 @@ def call(service, method, params=None):
 		# Convert dictionary to JSON string.
 		args.append(json.dumps(params))
 	# Execute the shell command.
-	p = subprocess.Popen(
+	p = omv.subprocess.Popen(
 		args,
 		shell=False,
-		env=dict(os.environ, LANG='C'),
 		stderr=subprocess.PIPE,
 		stdout=subprocess.PIPE)
 	(stdout, stderr) = p.communicate()

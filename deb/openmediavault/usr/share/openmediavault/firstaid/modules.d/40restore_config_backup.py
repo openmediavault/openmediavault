@@ -44,7 +44,7 @@ class Module:
 		# Get the latest configuration backup file.
 		configbak = configbaks.pop()
 		# Only show a diff, if there's a difference.
-		rc = subprocess.call([ "diff", "--brief",
+		rc = omv.subprocess.call([ "diff", "--brief",
 			omv.getenv("OMV_CONFIG_FILE"), configbak ],
 			stdout=subprocess.PIPE)
 		if rc == 0:
@@ -64,7 +64,7 @@ class Module:
 			output = "===================================================================\n" \
 				"All lines with '-' will be changed to the lines with '+'\n" \
 				"===================================================================\n"
-			p = subprocess.Popen([ "diff", "--unified=1",
+			p = omv.subprocess.Popen([ "diff", "--unified=1",
 				omv.getenv("OMV_CONFIG_FILE"), configbak ],
 				stdout=subprocess.PIPE, shell=False)
 			stdout, stderr = p.communicate()

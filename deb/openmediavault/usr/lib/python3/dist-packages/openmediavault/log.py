@@ -18,10 +18,12 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+__all__ = [ "info", "warning", "error", "debug" ]
+
 import sys
 import syslog
 
-def __log(message, priority, verbose):
+def _log(message, priority, verbose):
 	tag = {
 		syslog.LOG_INFO: "INFO",
 		syslog.LOG_WARNING: "WARNING",
@@ -35,13 +37,13 @@ def __log(message, priority, verbose):
 	syslog.closelog()
 
 def info(message, verbose=True):
-	__log(message, syslog.LOG_INFO, verbose)
+	_log(message, syslog.LOG_INFO, verbose)
 
 def warning(message, verbose=True):
-	__log(message, syslog.LOG_WARNING, verbose)
+	_log(message, syslog.LOG_WARNING, verbose)
 
 def error(message, verbose=True):
-	__log(message, syslog.LOG_ERR, verbose)
+	_log(message, syslog.LOG_ERR, verbose)
 
 def debug(message, verbose=True):
-	__log(message, syslog.LOG_DEBUG, verbose)
+	_log(message, syslog.LOG_DEBUG, verbose)

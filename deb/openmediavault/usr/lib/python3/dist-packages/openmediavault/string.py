@@ -18,6 +18,8 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+__all__ = [ "camelcase_to_underscore", "truncate" ]
+
 def camelcase_to_underscore(str):
 	return re.sub("(((?<=[a-z])[A-Z])|([A-Z](?![A-Z]|$)))",
 		"_\\1", str).lower().strip("_")
