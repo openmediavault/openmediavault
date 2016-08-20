@@ -648,7 +648,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			$lvv['_used'] = FALSE;
 			// Does the logical volume contain a filesystem and is it used?
 			if(FALSE !== \OMV\Rpc\Rpc::call("FsTab", "getByFsName", [
-				"id" => $lvv['devicefile']
+				"fsname" => $lvv['devicefile']
 			], $context)) {
 				$lvv['_used'] = TRUE;
 			}

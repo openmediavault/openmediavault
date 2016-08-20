@@ -151,7 +151,7 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 	 * Get a mount point configuration object by the given file system name,
 	 * which may be a UUID or block special device.
 	 * @param params An array containing the following fields:
-	 *   \em id The file system identifier, e.g. the UUID or block special
+	 *   \em fsname The file system identifier, e.g. the UUID or block special
 	 *   device file like <ul>
 	 *   \li /dev/sda1
 	 *   \li 02532317-cc35-421e-b750-c6a484fb109a
@@ -173,12 +173,12 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 		$objects = $this->callMethod("enumerateEntries", NULL, $context);
 		// Add function parameter to search argument list.
 		$args = [];
-		$args[] = $params['id'];
+		$args[] = $params['fsname'];
 		// If the function parameter is a device file, then try to get the
 		// file system UUID and add it to the search argument list. This is
 		// done to increase the probability to find the fstab config object.
-		if (is_devicefile($params['id'])) {
-			$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['id']);
+		if (is_devicefile($params['fsname'])) {
+			$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['fsname']);
 			if (!is_null($fs) && $fs->exists() && $fs->hasUuid())
 				$args[] = $fs->getUuid();
 		}

@@ -513,7 +513,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Check uniqueness. If there exists a mount point for the given
 		// device then it has already a filesystem that is in use.
 		if (FALSE !== \OMV\Rpc\Rpc::call("FsTab", "getByFsName", [
-			"id" => $sd->getDeviceFile()
+			"fsname" => $sd->getDeviceFile()
 		], $context)) {
 			throw new \OMV\Exception("A mount point already exists for '%s'.",
 			  $sd->getDeviceFile());

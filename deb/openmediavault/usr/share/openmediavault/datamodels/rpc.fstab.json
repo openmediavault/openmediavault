@@ -52,7 +52,7 @@
 	"params": {
 		"type": "object",
 		"properties": {
-			"id": {
+			"fsname": {
 				"type": "string",
 				"oneOf": [{
 					"type": "string",
@@ -60,6 +60,9 @@
 				},{
 					"type": "string",
 					"format": "devicefile"
+				},{
+					"type": "string",
+					"format": "dirpath"
 				}],
 				"required": true
 			}
@@ -71,7 +74,7 @@
 	"params": {
 		"type": "object",
 		"properties": {
-			"id": {
+			"dir": {
 				"type": "string",
 				"required": true
 			}
