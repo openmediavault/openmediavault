@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
 # Андрей Чапалда <ansilent@gmail.com>, 2012
@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-07 07:26+0200\n"
-"PO-Revision-Date: 2016-08-06 11:05+0000\n"
-"Last-Translator: zubr139\n"
+"POT-Creation-Date: 2016-08-22 20:48+0200\n"
+"PO-Revision-Date: 2016-08-22 18:53+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -369,7 +369,7 @@ msgid "Archive"
 msgstr "Архів"
 
 msgid "Argentina"
-msgstr "Argentina"
+msgstr "Аргентина"
 
 msgid "Armenia"
 msgstr "Вірменія"
@@ -381,7 +381,7 @@ msgid "Aruba"
 msgstr "Аруба"
 
 msgid "Asynchronous I/O"
-msgstr ""
+msgstr "Асинхронний ввід/вивід"
 
 msgid "At reboot"
 msgstr "При перезавантаженні"
@@ -948,7 +948,7 @@ msgstr "Ви справді бажаєте видалити спільну те�
 msgid ""
 "Do you really want to reset the UI settings to their default values, e.g. "
 "the order of the grid columns?"
-msgstr "Бажаєте скинути налаштування нтерфейсу користувача до типових значень, наприклад порядок стовпців сітки?"
+msgstr "Бажаєте скинути налаштування інтерфейсу користувача до типових значень, наприклад порядок стовпців сітки?"
 
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
@@ -1535,7 +1535,7 @@ msgstr ""
 msgid ""
 "If set then the client will be challenged to supply a username and password "
 "to connect to the module."
-msgstr ""
+msgstr "Якщо встановлено, то клієнту необхідно ввести ім'я користувача та пароль для підключення до модуля."
 
 msgid ""
 "If this option is set, the daemon will chroot to the shared folder path "
@@ -1568,7 +1568,7 @@ msgid ""
 "this option is useful in order to allow passive tranfers to work. You have "
 "to use your public address and opening the passive ports used on your "
 "firewall as well."
-msgstr "Якщо ваш хост виступає в якості NAT шлюзу або засіб передачі порта для сервера, ця опція корисна для того, щоб дозволити пасивні з’єднання. Ви повинні використовувати ваш публічний адресу і відкрити пасивні порти в брандмауері."
+msgstr "Якщо ваш хост виступає в якості NAT шлюзу або засіб передачі порта для сервера, ця опція корисна для того, щоб дозволити пасивні з’єднання. Ви повинні використовувати вашу публічну адресу і відкрити пасивні порти в брандмауері."
 
 msgid "Implicit SSL"
 msgstr "Наявний SSL"
@@ -1609,7 +1609,7 @@ msgid "Incoming"
 msgstr "Вхідний"
 
 msgid "Incomplete"
-msgstr ""
+msgstr "Незавершений"
 
 msgid "Incorrect username or password."
 msgstr "Неправильне ім'я користувача або пароль."
@@ -2281,7 +2281,7 @@ msgid "Paraguay"
 msgstr "Парагвай"
 
 msgid "Parent Device"
-msgstr ""
+msgstr "Батьківський пристрій"
 
 msgid "Parent interface"
 msgstr "Батьківський інтерфейс"
@@ -2577,7 +2577,7 @@ msgid "Ranges of numbers are not allowed"
 msgstr "Діапазони номерів не допускаються"
 
 msgid "Raw value"
-msgstr ""
+msgstr "Сире значення"
 
 msgid "Read only"
 msgstr "Лише для читання"
@@ -2625,7 +2625,7 @@ msgid "Reload"
 msgstr "Перезавантажити"
 
 msgid "Remaining"
-msgstr ""
+msgstr "Решта"
 
 msgid "Remote"
 msgstr "Віддалений"
@@ -2679,7 +2679,7 @@ msgstr "Скинути UI на типове"
 msgid ""
 "Reset the UI settings to their default values, e.g. the order of the grid "
 "columns."
-msgstr "Скидання налаштувань нтерфейсу користувача до типових значень, наприклад порядок стовпців сітки."
+msgstr "Скидання налаштувань інтерфейсу користувача до типових значень, наприклад порядок стовпців сітки."
 
 msgid "Resize"
 msgstr "Зміна розміру"
@@ -3128,7 +3128,7 @@ msgid ""
 msgstr "Визначає максимальний дозволений розмір блоку. Допустимий діапазон значень для цього параметра від 512 до 65464."
 
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
-msgstr ""
+msgstr "Визначає час дії бану у форматі гг:хв:сс."
 
 msgid ""
 "Specifies the time interval in hh:mm:ss in which the given number of "
@@ -3319,7 +3319,7 @@ msgstr "SMTP типовий порт поштового сервера, напр
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
 "rsync://[USER@]HOST[:PORT]/DEST."
-msgstr ""
+msgstr "Віддалений сервер призначення, наприклад [USER@]HOST:DEST, [USER@]HOST::DEST or rsync://[USER@]HOST[:PORT]/DEST."
 
 msgid "The destination shared folder."
 msgstr "Спільна тека призначення."
@@ -3347,7 +3347,7 @@ msgstr "Розташування файлів для загального дос
 msgid ""
 "The location of the files to share. The share will be accessible at "
 "/export/<name>."
-msgstr ""
+msgstr "Розташування файлів для спільного використання. Ресурс буде доступний за адресою /export/<name>."
 
 msgid "The location of the user home directories."
 msgstr "Розташування домашнього каталога користувача"
@@ -3404,7 +3404,7 @@ msgstr "Час очікування сеансу у хвилинах. Встан
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
-msgstr ""
+msgstr "Віддалений сервер джерела, наприклад [USER@]HOST:SRC, [USER@]HOST::SRC or rsync://[USER@]HOST[:PORT]/SRC."
 
 msgid "The source shared folder."
 msgstr "Джерело спільної теки."
@@ -3432,12 +3432,12 @@ msgstr "Робоча група, в якій відображається сер
 msgid ""
 "These settings are used by the services to configure the user access rights."
 " Please note that these settings have no effect on file system permissions."
-msgstr ""
+msgstr "Ці параметри використовуються службами для налаштування прав доступу користувачів. Зверніть увагу, що ці параметри не впливають на права доступу файлової системи."
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
 "a net view and in the browse list."
-msgstr ""
+msgstr "Вказую, чи видно цей мережевий ресурс в списку доступних мережевих ресурсів і в списку перегляду."
 
 msgid "This field does not allow blanks"
 msgstr "Це поле не дозволяє пробіли"
@@ -3536,7 +3536,7 @@ msgstr "Ця функція ефективна лише якщо жорстки�
 msgid ""
 "This is a text field that is seen next to a share when a client queries the "
 "server."
-msgstr ""
+msgstr "Це текстове поле, яке відображається поруч із назвою спільного ресурсу, коли клієнт звертається до сервера."
 
 msgid ""
 "This may make more efficient use of the system CPU's and cause Samba to be "
@@ -3618,7 +3618,7 @@ msgstr ""
 msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
-msgstr ""
+msgstr "Цей параметр визначає, чи будуть файли, що починаються з точки відображатися, як приховані файли"
 
 msgid ""
 "This parameter says that if N occurrences of the event happen within the "
@@ -3749,7 +3749,7 @@ msgid "Union of Soviet Socialist Republics"
 msgstr "Union of Soviet Socialist Republics"
 
 msgid "Unit"
-msgstr ""
+msgstr "Блок"
 
 msgid "United Arab Emirates"
 msgstr "Об'єднані Арабські Емірати"
@@ -3932,7 +3932,7 @@ msgid "Wake Island"
 msgstr "Острів Вейк"
 
 msgid "Wake-on-LAN"
-msgstr ""
+msgstr "Увімкнути через мережу"
 
 msgid "Wallis and Futuna"
 msgstr "Волліс і Футуна"
@@ -3946,8 +3946,8 @@ msgstr "Веб Адміністратор"
 msgid "Web Administrator Password"
 msgstr "Пароль веб адміністратора"
 
-msgid "Web administration"
-msgstr "Веб адміністратор"
+msgid "Web control panel"
+msgstr ""
 
 msgid "Wednesday"
 msgstr "Середа"
@@ -3964,7 +3964,7 @@ msgstr "Західна Сахара"
 msgid ""
 "When a client initially connects to the server the ident protocol is used to"
 " attempt to identify the remote username."
-msgstr "Коли клієнт спочатку підключається до сервера протокол ident використовується, щоб спробувати ідентифікувати віддаленого користувача."
+msgstr "Коли клієнт спочатку підключається до сервера використовується протокол ident, щоб спробувати ідентифікувати віддаленого користувача."
 
 msgid "When failed"
 msgstr ""

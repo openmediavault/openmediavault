@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
 # runesudden <runesudden@gmail.com>, 2013
@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-07 07:26+0200\n"
-"PO-Revision-Date: 2016-07-07 05:26+0000\n"
+"POT-Creation-Date: 2016-08-22 20:48+0200\n"
+"PO-Revision-Date: 2016-08-22 18:53+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/votdev/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -3945,8 +3945,8 @@ msgstr "Web Administrasjon"
 msgid "Web Administrator Password"
 msgstr "Web Administrator Passord"
 
-msgid "Web administration"
-msgstr "Web administrasjon"
+msgid "Web control panel"
+msgstr ""
 
 msgid "Wednesday"
 msgstr "Onsdag"

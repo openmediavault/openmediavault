@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
 # Serhat SUT <serhat.sut@gmail.com>, 2012-2016
@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-07 07:26+0200\n"
-"PO-Revision-Date: 2016-07-07 05:26+0000\n"
+"POT-Creation-Date: 2016-08-22 20:48+0200\n"
+"PO-Revision-Date: 2016-08-22 18:53+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/votdev/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgid "%s (%s available)"
 msgstr "%s (%s kullanılabilir)"
 
 msgid "%s [%s (%d%%) used, %s available]"
-msgstr ""
+msgstr "%s [%s (%d%%) kullanıldı, %s kullanılabilir]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [%s de, %s]"
@@ -2397,7 +2397,7 @@ msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "Lütfen aygıtı silmek için bir metod seçiniz ya da iptal etmek için \"İptal\" tuşuna basınız."
 
 msgid "Please first select a device."
-msgstr ""
+msgstr "Lütfen önce bir aygıt seçiniz."
 
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
@@ -3944,8 +3944,8 @@ msgstr "Ağ Yönetimi"
 msgid "Web Administrator Password"
 msgstr "Ağ Yöneticisi Şifresi"
 
-msgid "Web administration"
-msgstr "Web yönetimi"
+msgid "Web control panel"
+msgstr ""
 
 msgid "Wednesday"
 msgstr "Çarşamba"
