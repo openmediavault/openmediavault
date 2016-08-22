@@ -21,7 +21,6 @@
 import sys
 import dialog
 import netifaces
-
 import openmediavault as omv
 
 class Module:
