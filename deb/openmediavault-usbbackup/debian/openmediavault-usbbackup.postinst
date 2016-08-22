@@ -81,6 +81,7 @@ case "$1" in
 		########################################################################
 		echo "Updating configuration ..."
 		if dpkg --compare-versions "$2" lt-nl "3.0.2"; then
+			echo "Deleting all configured backup jobs ..."
 			omv_config_delete "/config/services/usbbackup/jobs/job"
 		fi
 	;;
