@@ -29,7 +29,8 @@ import subprocess
 import openmediavault as omv
 
 class Module:
-	def get_description(self):
+	@property
+	def description(self):
 		return "Submit diagnostic report to administrator"
 
 	def execute(self):
@@ -37,7 +38,7 @@ class Module:
 		try:
 			manager = omv.systemd.Manager()
 			unit = manager.get_unit("postfix.service")
-			active = unit.active_state == "active"
+			active = unit["ActiveState"] == "active"
 		except:
 			active = False
 		if not active:
@@ -45,18 +46,18 @@ class Module:
 			code = d.msgbox("Failed to submit the system diagnostic " \
 				"report to the administrator account via email because " \
 				"the email notification service is disabled.",
-				backtitle=self.get_description(),
+				backtitle=self.description,
 				height=7, width=56)
 			if code != d.OK:
 				return 0
 			code = d.yesno("Do you want to copy the system diagnostic " \
 				"report onto an USB device?",
-				backtitle=self.get_description(),
+				backtitle=self.description,
 				height=6, width=45)
 			if code != d.OK:
 				return 0
 			d.infobox("Please connect the USB device now.",
-				backtitle=self.get_description(),
+				backtitle=self.description,
 				height=3, width=38)
 			# Wait until USB device is plugged in.
 			context = pyudev.Context()
@@ -73,7 +74,7 @@ class Module:
 				break;
 			d.infobox("USB device {} detected. Please wait ...".format(
 				device.get("DEVNAME")),
-				backtitle=self.get_description(),
+				backtitle=self.description,
 				height=3, width=50)
 			try:
 				mntdir = tempfile.mkdtemp()
@@ -89,7 +90,7 @@ class Module:
 				omv.subprocess.check_call([ "umount", device.get("DEVNAME") ])
 				shutil.rmtree(mntdir)
 			d.infobox("You can disconnect the USB device now.",
-				backtitle=self.get_description(),
+				backtitle=self.description,
 				height=3, width=42)
 		else:
 			print("Submitting system diagnostic report to the " \

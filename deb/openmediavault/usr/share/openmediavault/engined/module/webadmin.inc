@@ -34,7 +34,7 @@ class OMVModuleWebadmin extends \OMV\Engine\Module\ModuleAbstract
 	public function getZeroconfConfig() {
 		return [
 			"id" => "webadmin",
-			"title" => gettext("Web administration")
+			"title" => gettext("Web control panel")
 		];
 	}
 

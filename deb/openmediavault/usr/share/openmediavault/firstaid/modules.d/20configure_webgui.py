@@ -25,7 +25,8 @@ import netifaces
 import openmediavault as omv
 
 class Module:
-	def get_description(self):
+	@property
+	def description(self):
 		return "Configure web control panel"
 
 	def execute(self):
@@ -40,26 +41,26 @@ class Module:
 		while not port:
 			(code, port) = d.inputbox(
 				"Please enter the port to access the control panel via HTTP.",
-				backtitle=self.get_description(),
+				backtitle=self.description,
 				clear=True, height=8, width=64, init="80")
 			if code != d.OK:
 				return 0
 			if not port:
 				d.msgbox("The field must not be empty.",
-					backtitle=self.get_description(),
+					backtitle=self.description,
 					height=5, width=32)
 				continue
 			if not port.isdigit():
 				port = None
 				d.msgbox("Please enter a valid port.",
-					backtitle=self.get_description(),
+					backtitle=self.description,
 					height=5, width=32)
 				continue
 			port = int(port)
 			if port not in range(1, 65535):
 				port = None
 				d.msgbox("Please enter a valid port.",
-					backtitle=self.get_description(),
+					backtitle=self.description,
 					height=5, width=32)
 				continue
 		# Before asking to enable HTTPS check if there are any SSL
@@ -68,7 +69,7 @@ class Module:
 			"start": 0, "limit": -1, "sortfield": None, "sortdir": None })
 		if ssl_certs["total"] > 0:
 			code = d.yesno("Do you want to enable HTTPS?",
-				backtitle=self.get_description(),
+				backtitle=self.description,
 				height=5, width=32)
 			if code == d.ESC:
 				return 0
@@ -79,26 +80,26 @@ class Module:
 				while not sslport:
 					(code, sslport) = d.inputbox("Please enter the port " \
 						"to access the control panel via HTTPS.",
-						backtitle=self.get_description(),
+						backtitle=self.description,
 						clear=True, height=8, width=65, init="443")
 					if code != d.OK:
 						return 0
 					if not sslport:
 						d.msgbox("The field must not be empty.",
-							backtitle=self.get_description(),
+							backtitle=self.description,
 							height=5, width=32)
 						continue
 					if not sslport.isdigit():
 						sslport = None
 						d.msgbox("Please enter a valid port.",
-							backtitle=self.get_description(),
+							backtitle=self.description,
 							height=5, width=32)
 						continue
 					sslport = int(sslport)
 					if sslport not in range(1, 65535):
 						sslport = None
 						d.msgbox("Please enter a valid port.",
-							backtitle=self.get_description(),
+							backtitle=self.description,
 							height=5, width=32)
 						continue
 				# Display dialog to choose SSL certificate
@@ -106,7 +107,7 @@ class Module:
 				for idx, ssl_cert in enumerate(ssl_certs["data"]):
 					choices.append([ str(idx + 1), ssl_cert["comment"] ])
 				(code, tag) = d.menu("Please select an SSL certificate.",
-					backtitle=self.get_description(), clear=True,
+					backtitle=self.description, clear=True,
 					height=15, width=65, menu_height=8, choices=choices)
 				if code in (d.CANCEL, d.ESC):
 					return 0
@@ -114,7 +115,7 @@ class Module:
 				sslcertificateref = ssl_cert["uuid"]
 				# Enable HTTPS only?
 				code = d.yesno("Do you want to enable HTTPS only?",
-					backtitle=self.get_description(), defaultno=True,
+					backtitle=self.description, defaultno=True,
 					height=5, width=40)
 				if code == d.ESC:
 					return 0

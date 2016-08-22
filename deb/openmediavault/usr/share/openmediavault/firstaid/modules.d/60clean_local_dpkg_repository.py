@@ -23,7 +23,8 @@ import subprocess
 import openmediavault as omv
 
 class Module:
-	def get_description(self):
+	@property
+	def description(self):
 		return "Clear local upload package repository"
 
 	def execute(self):

@@ -42,7 +42,7 @@ pi = omv.ProductInfo()
 
 class OpenMediaVaultPluginsFilter(apt.cache.Filter):
 	def apply(self, pkg):
-		m = re.match(r"^%s-(\S+)$" % pi.get_package_name(), pkg.name)
+		m = re.match(r"^%s-(\S+)$" % pi.package_name, pkg.name)
 		if not m:
 			return False
 		if m.group(1) == "keyring":
@@ -117,7 +117,7 @@ with open(omv.getenv('OMV_APT_UPGRADE_INDEX_FILE',
 	json.dump(data, outfile, sort_keys=True, indent=4)
 
 # Create the '/var/lib/openmediavault/apt/pluginsindex.json' file.
-print("Creating index of %s plugins ..." % pi.get_name())
+print("Creating index of %s plugins ..." % pi.name)
 data = []
 cache = apt.cache.Cache()
 fcache = apt.cache.FilteredCache(cache)

@@ -27,7 +27,8 @@ import subprocess
 import openmediavault as omv
 
 class Module:
-	def get_description(self):
+	@property
+	def description(self):
 		return "Fix RRD database"
 
 	def execute(self):
@@ -50,7 +51,7 @@ class Module:
 				code = d.yesno("The RRD file '../{}/{}' contains " \
 					"timestamps in future.\nDo you want to delete " \
 					"it?".format(dirname, basename),
-					backtitle=self.get_description(),
+					backtitle=self.description,
 					height=7, width=65)
 				if code == d.ESC:
 					return 0

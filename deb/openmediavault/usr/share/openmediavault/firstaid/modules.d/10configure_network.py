@@ -27,7 +27,8 @@ import natsort
 import openmediavault as omv
 
 class Module:
-	def get_description(self):
+	@property
+	def description(self):
 		return "Configure network interface"
 
 	def execute(self):
@@ -66,14 +67,14 @@ class Module:
 		d = dialog.Dialog(dialog="dialog")
 		(code, tag) = d.menu("Please select a network interface. Note, the " \
 			"existing network interface configuration will be deleted.",
-			backtitle=self.get_description(), clear=True,
+			backtitle=self.description, clear=True,
 			height=14, width=70, menu_height=6, choices=choices)
 		if code in (d.CANCEL, d.ESC):
 			return 0
 		device_name = tag
 		# Use DHCP?
 		code = d.yesno("Do you want to use DHCPv4 for this interface?",
-			backtitle=self.get_description(),
+			backtitle=self.description,
 			height=5, width=49)
 		if code == d.ESC:
 			return 0
@@ -83,13 +84,13 @@ class Module:
 			while not address:
 				(code, address) = d.inputbox(
 					"Please enter the IPv4 address.",
-					backtitle=self.get_description(),
+					backtitle=self.description,
 					clear=True, height=8, width=60, init="")
 				if code != d.OK:
 					return 0
 				if not address:
 					d.msgbox("The field must not be empty.",
-						backtitle=self.get_description(),
+						backtitle=self.description,
 						height=5, width=32)
 					continue
 				try:
@@ -97,20 +98,20 @@ class Module:
 				except Exception as e:
 					address = None
 					d.msgbox("Please enter a valid IPv4 address.",
-						backtitle=self.get_description(),
+						backtitle=self.description,
 						height=5, width=38)
 					continue
 			# Get the IPv4 netmask.
 			while not netmask:
 				(code, netmask) = d.inputbox(
 					"Please enter the IPv4 netmask.",
-					backtitle=self.get_description(),
+					backtitle=self.description,
 					clear=True, height=8, width=60, init="")
 				if code != d.OK:
 					return 0
 				if not netmask:
 					d.msgbox("The field must not be empty.",
-						backtitle=self.get_description(),
+						backtitle=self.description,
 						height=5, width=32)
 					continue
 				try:
@@ -118,14 +119,14 @@ class Module:
 				except:
 					netmask = None
 					d.msgbox("Please enter a valid netmask.",
-						backtitle=self.get_description(),
+						backtitle=self.description,
 						height=5, width=33)
 					continue
 			# Get default IPv4 gateway.
 			while not gateway:
 				(code, gateway) = d.inputbox(
 					"Please enter the default IPv4 gateway.",
-					backtitle=self.get_description(),
+					backtitle=self.description,
 					clear=True, height=8, width=60, init="")
 				if code != d.OK:
 					return 0
@@ -134,12 +135,12 @@ class Module:
 				except:
 					gateway = None
 					d.msgbox("Please enter a valid gateway.",
-						backtitle=self.get_description(),
+						backtitle=self.description,
 						height=5, width=33)
 					continue
 		# Use IPv6?
 		code = d.yesno("Do you want to configure IPv6 for this interface?",
-			backtitle=self.get_description(),
+			backtitle=self.description,
 			height=5, width=53, defaultno=True)
 		if code == d.ESC:
 			return 0
@@ -147,7 +148,7 @@ class Module:
 			# Use stateful address autoconfiguration (DHCPv6)?
 			code = d.yesno("Do you want to enable stateful address " \
 				"autoconfiguration (DHCPv6)?",
-				backtitle=self.get_description(),
+				backtitle=self.description,
 				height=6, width=42)
 			if code == d.ESC:
 				return 0
@@ -157,7 +158,7 @@ class Module:
 				# Use stateless address autoconfiguration (SLAAC)?
 				code = d.yesno("Do you want to enable stateless address " \
 					"autoconfiguration (SLAAC)?",
-					backtitle=self.get_description(),
+					backtitle=self.description,
 					height=6, width=42)
 				if code == d.ESC:
 					return 0
@@ -169,13 +170,13 @@ class Module:
 				while not address:
 					(code, address6) = d.inputbox(
 						"Please enter the IPv6 address.",
-						backtitle=self.get_description(),
+						backtitle=self.description,
 						clear=True, height=8, width=60, init="")
 					if code != d.OK:
 						return 0
 					if not address6:
 						d.msgbox("The field must not be empty.",
-							backtitle=self.get_description(),
+							backtitle=self.description,
 							height=5, width=32)
 						continue
 					try:
@@ -183,20 +184,20 @@ class Module:
 					except:
 						address6 = None
 						d.msgbox("Please enter a valid IPv6 address.",
-							backtitle=self.get_description(),
+							backtitle=self.description,
 							height=5, width=38)
 						continue
 				# Get the prefix length.
 				while not netmask6:
 					(code, netmask6) = d.inputbox(
 						"Please enter the IPv6 prefix length.",
-						backtitle=self.get_description(),
+						backtitle=self.description,
 						clear=True, height=8, width=64, init="")
 					if code != d.OK:
 						return 0
 					if not netmask6:
 						d.msgbox("The field must not be empty.",
-							backtitle=self.get_description(),
+							backtitle=self.description,
 							height=5, width=32)
 						continue
 					try:
@@ -204,14 +205,14 @@ class Module:
 					except:
 						netmask6 = None
 						d.msgbox("Please enter a valid netmask.",
-							backtitle=self.get_description(),
+							backtitle=self.description,
 							height=5, width=33)
 						continue
 				# Get default IPv6 gateway.
 				while not gateway6:
 					(code, gateway6) = d.inputbox(
 						"Please enter the default IPv6 gateway.",
-						backtitle=self.get_description(),
+						backtitle=self.description,
 						clear=True, height=8, width=60, init="")
 					if code != d.OK:
 						return 0
@@ -220,7 +221,7 @@ class Module:
 					except:
 						gateway6 = None
 						d.msgbox("Please enter a valid gateway.",
-							backtitle=self.get_description(),
+							backtitle=self.description,
 							height=5, width=33)
 						continue
 		# Get the DNS name servers. Note, only one IP address is
@@ -230,7 +231,7 @@ class Module:
 				(code, dns_nameservers) = d.inputbox(
 					"Please enter the DNS name server. If you don't want " \
 					"to use any name server, just leave this field blank.",
-					backtitle=self.get_description(),
+					backtitle=self.description,
 					clear=True, height=8, width=60, init="")
 				if code != d.OK:
 					return 0
@@ -242,11 +243,11 @@ class Module:
 				except:
 					dns_nameservers = None
 					d.msgbox("Please enter a valid IP address.",
-						backtitle=self.get_description(),
+						backtitle=self.description,
 						height=5, width=30)
 		# Enable WOL?
 		code = d.yesno("Do you want to enable WOL for this interface?",
-			backtitle=self.get_description(),
+			backtitle=self.description,
 			height=5, width=50, defaultno=True)
 		if code == d.ESC:
 			return 0
@@ -278,26 +279,26 @@ class Module:
 			while not wpa_ssid:
 				(code, wpa_ssid) = d.inputbox(
 					"Please enter the name of the wireless network (SSID).",
-					backtitle=self.get_description(),
+					backtitle=self.description,
 					clear=True, height=8, width=60, init="")
 				if code != d.OK:
 					return 0
 				if not wpa_ssid:
 					d.msgbox("The field must not be empty.",
-						backtitle=self.get_description(),
+						backtitle=self.description,
 						height=5, width=32)
 			rpc_params["wpassid"] = wpa_ssid
 			# Get the pre-shared key.
 			while not wpa_psk:
 				(code, wpa_psk) = d.inputbox(
 					"Please enter the pre-shared key (PSK).",
-					backtitle=self.get_description(),
+					backtitle=self.description,
 					clear=True, height=8, width=45, init="")
 				if code != d.OK:
 					return 0
 				if not wpa_psk:
 					d.msgbox("The field must not be empty.",
-						backtitle=self.get_description(),
+						backtitle=self.description,
 						height=5, width=32)
 			rpc_params["wpapsk"] = wpa_psk
 		# Update the interface configuration.

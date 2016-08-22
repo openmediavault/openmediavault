@@ -29,50 +29,56 @@ class SystemdException(Exception):
 		super().__init__("{}: {}".format(error.get_dbus_name(),
 			error.get_dbus_message()))
 
-class SystemdObject(object):
+class _Object(object):
 	def __init__(self, object_path, interface_path):
-		self.__object_path = object_path
-		self.__interface_path = interface_path
-		self.__bus = dbus.SystemBus()
-		self.__proxy = self.__bus.get_object(
+		self._object_path = object_path
+		self._interface_path = interface_path
+		self._bus = dbus.SystemBus()
+		self._proxy = self._bus.get_object(
 			"org.freedesktop.systemd1",
-			self.__object_path)
-		self.__interface = dbus.Interface(
-			self.__proxy,
-			self.__interface_path)
-		self.__properties_interface = dbus.Interface(
-			self.__proxy,
+			self._object_path)
+		self._interface = dbus.Interface(
+			self._proxy,
+			self._interface_path)
+		self._properties_interface = dbus.Interface(
+			self._proxy,
 			"org.freedesktop.DBus.Properties")
-		self.__properties_interface.connect_to_signal(
+		self._properties_interface.connect_to_signal(
 			"PropertiesChanged",
-			self.__on_properties_changed)
-		self.__update_properties()
+			self._on_properties_changed)
+		self._update_properties()
 
 	@property
 	def interface(self):
-		return self.__interface
+		return self._interface
 
 	@property
 	def properties_interface(self):
-		return self.__properties_interface
+		return self._properties_interface
 
-	def __on_properties_changed(self, *args, **kargs):
-		self.__update_properties()
+	def _on_properties_changed(self, *args, **kargs):
+		self._update_properties()
 
-	def __update_properties(self):
+	def _update_properties(self):
 		properties = self.properties_interface.GetAll(
 			self.interface.dbus_interface)
+		properties_attr = Properties()
 		for key, value in properties.items():
-			key = omv.string.camelcase_to_underscore(key)
-			setattr(self, key, value)
+			setattr(properties_attr, key, value)
+		setattr(self, "properties", properties_attr)
 
-	def get_property(self, name):
+	def __getitem__(self, property):
 		"""
-		Get the object property by its real name.
+		Get the given property from this object, e.g. 'LogLevel',
+		'RequiredBy', 'LoadState' or 'ActiveState'.
 		"""
-		return self.properties_interface.Get(self.__interface_path, name)
+		#return self.properties_interface.Get(self._interface_path, property)
+		return getattr(self.properties, property)
 
-class Job(SystemdObject):
+class Properties(object):
+	pass
+
+class Job(_Object):
 	def __init__(self, job_path):
 		super().__init__(job_path, "org.freedesktop.systemd1.Job")
 
@@ -82,7 +88,7 @@ class Job(SystemdObject):
 		except dbus.exceptions.DBusException as e:
 			raise SystemdException(error)
 
-class Manager(SystemdObject):
+class Manager(_Object):
 	def __init__(self):
 		super().__init__("/org/freedesktop/systemd1",
 			"org.freedesktop.systemd1.Manager")
@@ -144,7 +150,7 @@ class Manager(SystemdObject):
 		except dbus.exceptions.DBusException as e:
 			raise SystemdError(e)
 
-class Unit(SystemdObject):
+class Unit(_Object):
 	def __init__(self, unit_path):
 		super().__init__(unit_path, "org.freedesktop.systemd1.Unit")
 

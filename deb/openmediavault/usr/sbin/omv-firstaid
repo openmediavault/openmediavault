@@ -45,13 +45,13 @@ def main():
 	# Fill the menu choices.
 	choices = []
 	for idx, module in enumerate(modules):
-		choices.append([ str(idx + 1), module.get_description() ])
+		choices.append([ str(idx + 1), module.description ])
 	# Show the available modules.
 	d = dialog.Dialog(dialog="dialog")
 	while 1:
 		(code, tag) = d.menu("Please select a menu.",
 			title="First aid", cancel_label="Exit", clear=True,
-			backtitle="{} - {}".format(pi.get_name(), pi.get_copyright()),
+			backtitle="{} - {}".format(pi.name, pi.copyright),
 			height=15, width=65, menu_height=8, choices=choices)
 		if code in (d.CANCEL, d.ESC):
 			rc = 0

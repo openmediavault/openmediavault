@@ -44,8 +44,7 @@ mkconf() {
 ${prdname} ${version} (${versionname}) \n \l
 ${copyright}
 
-To manage the system visit the ${prdname} web control panel with a
-web browser:
+To manage the system visit the ${prdname} web control panel:
 
 EOF
 

@@ -30,53 +30,60 @@ class ProductInfo(object):
 	"""
 
 	def __init__(self):
-		self.__dict = {}
+		self._dict = {}
 		prod_file = omv.getenv("OMV_PRODUCTINFO_FILE",
 			"/usr/share/openmediavault/productinfo.xml")
 		tree = xml.etree.ElementTree.parse(prod_file)
 		for child in tree.iter():
-			self.__dict[child.tag] = child.text
+			self._dict[child.tag] = child.text
 
-	def get_name(self):
+	@property
+	def name(self):
 		"""
 		Get the product name.
 		"""
-		return self.__dict['name']
+		return self._dict['name']
 
-	def get_version(self):
+	@property
+	def version(self):
 		"""
 		Get the product version.
 		"""
 		cache = apt.cache.Cache()
-		package = cache[self.get_package_name()]
+		package = cache[self.package_name]
 		return package.candidate.version
 
-	def get_version_name(self):
+	@property
+	def version_name(self):
 		"""
 		Get the product version/release name.
 		"""
-		return self.__dict['versionname']
+		return self._dict['versionname']
 
-	def get_url(self):
+	@property
+	def url(self):
 		"""
 		Get the URL to the product homepage.
 		"""
-		return self.__dict['url']
+		return self._dict['url']
 
-	def get_copyright(self):
+	@property
+	def copyright(self):
 		"""
 		Get the copyright text.
 		"""
-		return self.__dict['copyright']
+		return self._dict['copyright']
 
-	def get_package_name(self):
+	@property
+	def package_name(self):
 		"""
 		Get the Debian package name.
 		"""
-		return self.__dict['packagename']
+		return self._dict['packagename']
 
-	def get_distribution_name(self):
+	@property
+	def distribution_name(self):
 		"""
 		Get the package repository distribution name.
 		"""
-		return self.__dict['distribution']
+		return self._dict['distribution']

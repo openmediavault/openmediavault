@@ -23,7 +23,8 @@ import dialog
 import openmediavault as omv
 
 class Module:
-	def get_description(self):
+	@property
+	def description(self):
 		return "Change control panel administrator password"
 
 	def execute(self):
@@ -33,29 +34,29 @@ class Module:
 			while not password:
 				(code, password) = d.passwordbox(
 					"Please enter the new password.",
-					backtitle=self.get_description(),
+					backtitle=self.description,
 					insecure=True, clear=True, height=8, width=34)
 				if code != d.OK:
 					return 0
 				if not password:
 					d.msgbox("The password must not be empty.",
-						backtitle=self.get_description(),
+						backtitle=self.description,
 						height=5, width=35)
 			while not password_conf:
 				(code, password_conf) = d.passwordbox(
 					"Please confirm the new password.",
-					backtitle=self.get_description(),
+					backtitle=self.description,
 					insecure=True, clear=True, height=8, width=36)
 				if code != d.OK:
 					return 0
 				if not password_conf:
 					d.msgbox("The password must not be empty.",
-						backtitle=self.get_description(),
+						backtitle=self.description,
 						height=5, width=35)
 			if password != password_conf:
 				password = password_conf = None
 				d.msgbox("The passwords don't match.",
-					backtitle=self.get_description(),
+					backtitle=self.description,
 					height=5, width=30)
 		print("Updating control panel administrator password. Please wait ...")
 		omv.rpc.call("WebGui", "setPassword", { "password": password })

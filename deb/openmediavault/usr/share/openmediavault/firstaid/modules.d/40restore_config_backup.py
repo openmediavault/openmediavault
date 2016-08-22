@@ -26,7 +26,8 @@ import subprocess
 import openmediavault as omv
 
 class Module:
-	def get_description(self):
+	@property
+	def description(self):
 		return "Restore configuration backup"
 
 	def execute(self):
@@ -38,7 +39,7 @@ class Module:
 		# Does a auto-generated configuration backup exist?
 		if not configbaks:
 			d.msgbox("No configuration backup found!",
-				backtitle=self.get_description(),
+				backtitle=self.description,
 				height=5, width=34)
 			return 0
 		# Get the latest configuration backup file.
@@ -50,13 +51,13 @@ class Module:
 		if rc == 0:
 			d.msgbox("There's no difference between the configuration " \
 				"files. Nothing to restore.",
-				backtitle=self.get_description(),
+				backtitle=self.description,
 				height=6, width=58)
 			return 0
 		# Display the differences?
 		code = d.yesno("Do you want to see the differences between the " \
 			"current configuration and the backup.",
-			backtitle=self.get_description(),
+			backtitle=self.description,
 			height=6, width=46)
 		if code == d.ESC:
 			return 0
@@ -70,12 +71,12 @@ class Module:
 			stdout, stderr = p.communicate()
 			output += stdout.decode()
 			d.scrollbox(output,
-				backtitle=self.get_description(),
+				backtitle=self.description,
 				height=18, width=72, clear=True)
 		# Restore configuration backup?
 		code = d.yesno("Do you want to restore the configuration backup? " \
 			"This will overwrite the actual configuration?",
-			backtitle=self.get_description(),
+			backtitle=self.description,
 			height=6, width=57, defaultno=True)
 		if code != d.OK:
 			return 0

@@ -347,7 +347,7 @@
 			-->
 		</shares>
 	</system>
-	<!-- Web administration configuration - Do not add any configuration here -->
+	<!-- Web control panel configuration - Do not add any configuration here -->
 	<webadmin>
 		<port>80</port>
 		<enablessl>0</enablessl>
@@ -649,7 +649,7 @@
 					<uuid>2e04c06e-f4db-11e5-a404-000c2972b176</uuid>
 					<id>webadmin</id>
 					<enable>1</enable>
-					<name>%h - Web administration</name>
+					<name>%h - Web control panel</name>
 				</service>
 				<service>
 					<uuid>264c0922-f4db-11e5-a90e-2fe7db1985bc</uuid>
