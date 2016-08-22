@@ -650,7 +650,7 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.0.32"; then
 			omv-mkconf monit
-			monit reload
+			systemctl reload monit
 		fi
 
 		########################################################################
