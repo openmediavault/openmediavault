@@ -498,6 +498,10 @@ case "$1" in
 			omv-mkconf postfix
 			service postfix reload
 		fi
+		if dpkg --compare-versions "$2" lt-nl "2.2.6"; then
+			omv-mkconf monit
+			invoke-rc.d monit reload
+		fi
 	;;
 
 	triggered)
