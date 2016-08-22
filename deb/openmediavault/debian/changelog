@@ -1,6 +1,6 @@
 openmediavault (2.2.6) stable; urgency=low
 
-  * 
+  * Mantis 0001592: Send monit CPU usage alerts after N cycles.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 15 Jun 2016 17:48:30 +0200
 
