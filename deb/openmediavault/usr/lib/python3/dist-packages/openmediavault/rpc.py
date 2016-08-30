@@ -18,9 +18,9 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-import os
 import json
-import subprocess
+import socket
+import struct
 import openmediavault as omv
 
 class RpcException(Exception):
@@ -38,19 +38,37 @@ class RpcException(Exception):
 		return self._trace
 
 def call(service, method, params=None):
-	args = [ "omv-rpc", service, method ]
-	if params:
-		# Convert dictionary to JSON string.
-		args.append(json.dumps(params))
-	# Execute the shell command.
-	p = omv.subprocess.Popen(
-		args,
-		shell=False,
-		stderr=subprocess.PIPE,
-		stdout=subprocess.PIPE)
-	(stdout, stderr) = p.communicate()
-	if p.returncode != 0:
-		response = json.loads(stderr.decode())
+	address = omv.getenv("OMV_ENGINED_SO_ADDRESS")
+	sndtimeo = omv.Environment.get_int("OMV_ENGINED_SO_SNDTIMEO")
+	rcvtimeo = omv.Environment.get_int("OMV_ENGINED_SO_RCVTIMEO")
+	s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+	s.setsockopt(socket.SOL_SOCKET, socket.SO_SNDTIMEO, struct.pack("ll",
+		sndtimeo, 0))
+	s.setsockopt(socket.SOL_SOCKET, socket.SO_RCVTIMEO, struct.pack("ll",
+		rcvtimeo, 0))
+	s.connect(address)
+	request = json.dumps({
+			"service": service,
+			"method": method,
+			"params": params,
+			"context": {
+					"username": "admin",
+					"role": 0x1
+			}
+	})
+	request = request + "\0"
+	s.sendall(request.encode())
+	chunks = []
+	success = False
+	while not success:
+		chunk = s.recv(4096)
+		if chunk == "":
+			raise RuntimeError("Socket connection broken")
+		if chunk.endswith(b"\0"):
+			chunk = chunk[:-1]
+			success = True
+		chunks.append(chunk.decode())
+	response = json.loads("".join(chunks))
+	if response["error"] is not None:
 		raise RpcException(**response["error"])
-	stdout = json.loads(stdout.decode())
-	return stdout
+	return response["response"]
