@@ -58,7 +58,6 @@ define("OMV_NETWORK_INTERFACE_TYPE_ALL", 0xFF);
 \OMV\Environment::set("OMV_MAX_LOGFILE_LINES", 100000);
 \OMV\Environment::set("OMV_HTTPREQUEST_TIMEOUT", 60000);
 \OMV\Environment::set("OMV_ENGINED_DIR", "/usr/share/openmediavault/engined");
-\OMV\Environment::set("OMV_ENGINED_SO_RPC_HEADER_LENGTH", 8);
 \OMV\Environment::set("OMV_ENGINED_SO_ADDRESS", "/var/lib/openmediavault/engined.sock");
 \OMV\Environment::set("OMV_ENGINED_SO_SNDTIMEO", 10);
 \OMV\Environment::set("OMV_ENGINED_SO_RCVTIMEO", 180);

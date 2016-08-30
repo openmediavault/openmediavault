@@ -154,47 +154,25 @@ class Rpc {
 				"params" => $params,
 				"context" => $context
 			]);
-			// Build the header.
-			$header = pack("NH*", strlen($request), hash("crc32", $request));
-			// Build the buffer to be written to the socket.
-			$request = $header . $request;
-			// Write to socket.
+			// Write the RPC request.
+			$request .= "\0";
 			if (FALSE === @socket_write($socket, $request, strlen($request))) {
 				throw new Exception("Failed to write to socket: %s",
 				  socket_strerror(socket_last_error()));
 			}
-			// Read the RPC response header.
-			$header = "";
-			$headerLen = \OMV\Environment::getInteger(
-			  "OMV_ENGINED_SO_RPC_HEADER_LENGTH");
-			while (($read = strlen($header)) < $headerLen) {
-				$data = @socket_read($socket, $headerLen - $read,
-				  PHP_BINARY_READ);
-				if (FALSE === $data) {
-					throw new Exception("Failed to read from socket: %s",
-					  socket_strerror(socket_last_error()));
-				}
-				$header .= $data;
-			}
-			// Unpack header.
-			$header = unpack("Nlength/H*crc32", $header);
-			// Read the RPC response data.
+			// Read the RPC response.
 			$response = "";
-			while (($read = strlen($response)) < $header['length']) {
-				$data = @socket_read($socket, $header['length'] - $read,
-				  PHP_BINARY_READ);
+			while (TRUE) {
+				$data = @socket_read($socket, 4096, PHP_BINARY_READ);
+				// Check for errors.
 				if (FALSE === $data) {
 					throw new Exception("Failed to read from socket: %s",
 					  socket_strerror(socket_last_error()));
 				}
 				$response .= $data;
-			}
-			// Check RPC response data.
-			$crc32 = hash("crc32", $response);
-			if ($header['crc32'] != $crc32) {
-				throw new Exception("Invalid checksum (required=0x%s, ".
-				  "calculated=0x%s) of RPC response.", $header['crc32'],
-				  $crc32);
+				// Abort if response is complete.
+				if (empty($data) || "\0" == substr($response, -1))
+					break;
 			}
 			// Close the socket.
 			@socket_close($socket);
