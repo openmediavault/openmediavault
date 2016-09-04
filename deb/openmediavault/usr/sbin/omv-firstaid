@@ -30,10 +30,14 @@ def load_modules():
 		"/usr/share/openmediavault/firstaid/modules.d");
 	sys.path.insert(0, path)
 	for name in natsort.humansorted(os.listdir(path)):
-	    modname, ext = os.path.splitext(name)
-	    if ext == ".py":
-	        mod = __import__(modname)
-	        modules.append(mod.Module())
+		modname, ext = os.path.splitext(name)
+		if not ext == ".py":
+			continue
+		mod = __import__(modname)
+		modinst = mod.Module()
+		if not isinstance(modinst, omv.firstaid.IModule):
+			continue
+		modules.append(modinst)
 	sys.path.pop(0)
 	return modules
 

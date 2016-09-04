@@ -26,7 +26,7 @@ import dialog
 import subprocess
 import openmediavault as omv
 
-class Module:
+class Module(omv.firstaid.IModule):
 	@property
 	def description(self):
 		return "Fix RRD database"

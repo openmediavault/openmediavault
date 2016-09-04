@@ -23,7 +23,7 @@ import dialog
 import netifaces
 import openmediavault as omv
 
-class Module:
+class Module(omv.firstaid.IModule):
 	@property
 	def description(self):
 		return "Configure web control panel"

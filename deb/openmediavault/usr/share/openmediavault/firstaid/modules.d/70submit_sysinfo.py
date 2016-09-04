@@ -28,7 +28,7 @@ import time
 import subprocess
 import openmediavault as omv
 
-class Module:
+class Module(omv.firstaid.IModule):
 	@property
 	def description(self):
 		return "Submit diagnostic report to administrator"

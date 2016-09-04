@@ -18,33 +18,19 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-from .firstaid import *
-from .environment import *
-from .exceptions import *
-from .productinfo import *
-from .log import *
-from .rpc import *
-from .systemd import *
-from .string import *
-from .subprocess import *
+__all__ = [ "IModule" ]
 
-import re
+import abc
 
-def bool(x):
-	"""
-	Get the boolean value of a variable. A boolean TRUE will be returned for
-    the values 1, '1', 'on', 'yes', 'y' and 'true'.
-	"""
-	result = False
-	# Boolean 'true' => '1'
-	if str(x).lower() in [ "1", "on", "yes", "y", "true" ]:
-		result = True
-	return result
+class IModule(metaclass=abc.ABCMeta):
+	@abc.abstractproperty
+	def description(self):
+		"""
+		Get the module description.
+		"""
 
-def getenv(key, default=None):
-	"""
-	Get an environment variable, return None if it doesn't exist.
-    The optional second argument can specify an alternate default.
-    key, default and the result are string.
-	"""
-	return Environment.get_str(key, default)
+	@abc.abstractmethod
+	def execute(self):
+		"""
+		Execute the module implementation.
+		"""

@@ -22,7 +22,7 @@ import sys
 import dialog
 import openmediavault as omv
 
-class Module:
+class Module(omv.firstaid.IModule):
 	@property
 	def description(self):
 		return "Change control panel administrator password"
