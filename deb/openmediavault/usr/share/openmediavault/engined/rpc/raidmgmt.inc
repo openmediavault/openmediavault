@@ -77,7 +77,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 				$used = TRUE;
 			// Does the RAID device contain a filesystem and is it used?
 			} else if (FALSE !== \OMV\Rpc\Rpc::call("FsTab", "getByFsName", [
-				"id" => $raid->getDeviceFile()
+				"fsname" => $raid->getDeviceFile()
 			], $context)) {
 				$used = TRUE;
 			}
