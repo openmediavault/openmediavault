@@ -1,3 +1,9 @@
+openmediavault-lvm2 (3.1.2) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 04 Sep 2016 18:26:39 +0200
+
 openmediavault-lvm2 (3.1.1) stable; urgency=low
 
   * Fix bug in RPC.
