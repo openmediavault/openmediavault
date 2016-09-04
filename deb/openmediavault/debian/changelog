@@ -1,6 +1,6 @@
 openmediavault (3.0.34) stable; urgency=low
 
-  *
+  * Fix regression from pull request #5.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 04 Sep 2016 18:37:49 +0200
 

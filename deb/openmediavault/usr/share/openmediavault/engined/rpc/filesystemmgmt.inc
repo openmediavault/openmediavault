@@ -116,7 +116,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			if (FALSE === $fsb->hasDeviceFile())
 				$fsId = $fs->getUuid();
 			if (FALSE !== ($meObject = \OMV\Rpc\Rpc::call(
-			  "FsTab","getByFsName", [ "id" => $fsId ], $context))) {
+			  "FsTab", "getByFsName", [ "fsname" => $fsId ], $context))) {
 				$db = \OMV\Config\Database::getInstance();
 				$meObject = $db->get("conf.system.filesystem.mountpoint",
 				  $meObject['uuid']);
@@ -842,7 +842,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Try to obtain the mount point configuration object if this exists.
 		$meObject = \OMV\Rpc\Rpc::call("FsTab", "getByFsName", [
-			"id" => $fsName
+			"fsname" => $fsName
 		], $context);
 		// Create fstab entry?
 		if (TRUE === boolvalEx($params['fstab'])) {
