@@ -29,6 +29,11 @@ abstract class OMVModuleNginxAbstract
 		$cmd = new \OMV\System\Process("omv-mkconf", "nginx");
 		$cmd->setRedirect2to1();
 		$cmd->execute();
+		// Ensure the control panel configuration is enabled.
+		$cmd = new \OMV\System\Process("nginx_ensite",
+		  "openmediavault-webgui");
+		$cmd->setRedirect2to1();
+		$cmd->execute();
 		// Test the new configuration.
 		$cmd = new \OMV\System\Process("nginx", "-t");
 		$cmd->setRedirect2to1();

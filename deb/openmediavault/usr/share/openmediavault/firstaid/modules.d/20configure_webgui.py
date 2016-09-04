@@ -126,6 +126,7 @@ class Module(omv.firstaid.IModule):
 			"port": port, "enablessl": enablessl, "sslport": sslport,
 			"forcesslonly": forcesslonly,
 			"sslcertificateref": sslcertificateref, "timeout": 5 })
+		# Apply the configuration changes.
 		omv.rpc.call("Config", "applyChanges", {
 			"modules": [], "force": False })
 		print("The web control panel settings were successfully changed.")
