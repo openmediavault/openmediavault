@@ -91,10 +91,37 @@ class File {
 	/**
 	 * Is the file empty?
 	 * @return TRUE if the file is empty, otherwise FALSE.
+	 * @throw \OMV\Exception
 	 */
 	public function isEmpty() {
-		$stat = fstat($this->fh);
-		return (0 == $stat['size']);
+		// Get the information about the file.
+		if (FALSE === ($fstats = fstat($this->fh))) {
+			throw new \OMV\Exception("Failed to get file stats from '%s'.",
+			  $this->filename);
+		}
+		return (0 == $fstats['size']);
+	}
+
+	/**
+	 * Validate the JSON data.
+	 * @param data The JSON data to validate.
+	 * @return TRUE if the JSON data is valid, otherwise FALSE.
+	 */
+	protected function validate($data) {
+		// An empty JSON file must contain '[]' or '{}' at least.
+		if (TRUE === empty($data))
+			return FALSE;
+		// Validate the JSON data.
+		return is_json($data);
+	}
+
+	/**
+	 * Check if the JSON data is valid.
+	 * @return TRUE if the JSON data is valid, otherwise FALSE.
+	 */
+	public function isValid() {
+		$contents = $this->getContents();
+		return $this->validate($contents);
 	}
 
 	/**
@@ -118,19 +145,18 @@ class File {
 	 * Write the given content as JSON encoded string to the file.
 	 * The file will be truncated to zero length before the content
 	 * is written.
-	 * @param content The content to be written.
-	 * @return Returns the JSON representation of the content which was
+	 * @param data The data to write.
+	 * @return Returns the JSON representation of the data which was
 	 *   written to the file.
 	 * @throw \OMV\Exception
 	 */
-	public function write($content) {
+	public function write($data) {
 		if (FALSE === rewind($this->fh)) {
 			throw new \OMV\Exception("Failed to rewind file '%s'.",
 			  $this->filename);
 		}
 		// Get the JSON representation of the content.
-		if (FALSE === ($content = json_encode_safe($content,
-		  JSON_PRETTY_PRINT))) {
+		if (FALSE === ($data = json_encode_safe($data, JSON_PRETTY_PRINT))) {
 			throw new \OMV\Exception(
 			  "Failed to encode content in file '%s': %s",
 			  $this->filename, json_last_error_msg());
@@ -138,7 +164,7 @@ class File {
 		// Empty the whole file.
 		$this->truncate(0);
 		// Now write the new content.
-		if (FALSE === fwrite($this->fh, $content)) {
+		if (FALSE === fwrite($this->fh, $data)) {
 			throw new \OMV\Exception("Failed to write file '%s'.",
 			  $this->filename);
 		}
@@ -146,7 +172,31 @@ class File {
 			throw new \OMV\Exception("Failed to flush file '%s'.",
 			  $this->filename);
 		}
-		return $content;
+		return $data;
+	}
+
+	/**
+	 * Reads entire file into a string.
+	 * @return The method returns the read data.
+	 * @throw \OMV\Exception
+	 */
+	public function getContents() {
+		// Seek to the beginning of the file.
+		if (FALSE === rewind($this->fh)) {
+			throw new \OMV\Exception("Failed to rewind file '%s'.",
+			  $this->filename);
+		}
+		// Get the information about the file.
+		if (FALSE === ($fstats = fstat($this->fh))) {
+			throw new \OMV\Exception("Failed to get file stats from '%s'.",
+			  $this->filename);
+		}
+		// Get the whole file contents.
+		if (FALSE === ($contents = fread($this->fh, $fstats['size']))) {
+			throw new \OMV\Exception("Failed to read file '%s' (size=%d).",
+			  $this->filename, $fstats['size']);
+		}
+		return $contents;
 	}
 
 	/**
@@ -157,28 +207,22 @@ class File {
 	 * @throw \OMV\Exception
 	 */
 	public function read($decode = TRUE, $assoc = TRUE) {
-		if (FALSE === rewind($this->fh)) {
-			throw new \OMV\Exception("Failed to rewind file '%s'.",
-			  $this->filename);
-		}
-		if (FALSE === ($content = stream_get_contents($this->fh))) {
-			throw new \OMV\Exception("Failed to read file '%s'.",
-			  $this->filename);
-		}
-		// Validate JSON content.
-		if (!empty($content) && !is_json($content)) {
+		// Read the whole file contents.
+		$contents = $this->getContents();
+		// Validate the JSON data.
+		if (FALSE === $this->validate($contents)) {
 			throw new \OMV\Exception("File '%s' contains invalid JSON: %s",
 			  $this->filename, json_last_error_msg());
 		}
 		// Decode the content if requested.
 		if (TRUE === $decode) {
-			if (NULL === ($content = json_decode_safe($content, $assoc))) {
+			if (NULL === ($contents = json_decode_safe($contents, $assoc))) {
 				throw new \OMV\Exception(
 				  "Failed to decode content in file '%s': %s",
 				  $this->filename, json_last_error_msg());
 			}
 		}
-		return $content;
+		return $contents;
 	}
 
 	/**

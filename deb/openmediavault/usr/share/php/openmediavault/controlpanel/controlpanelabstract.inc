@@ -158,12 +158,19 @@ EOF;
 		$jsonFile = new \OMV\Json\File(sprintf("%s/cache.%s.json",
 		  \OMV\Environment::get("OMV_CACHE_DIR"),
 		  implode("_", array_filter($parts))));
-		if ($jsonFile->exists() && !(boolvalEx(\OMV\Environment::get(
-		  "OMV_DEBUG_PHP")) || boolvalEx(\OMV\Environment::get(
-		  "OMV_DEBUG_EXTJS")))) {
-			$jsonFile->open("r");
-			$jsList = $jsonFile->read();
-		} else {
+		// Try to read the cache file if it exists.
+		if ($jsonFile->exists() && !(\OMV\Environment::getBoolean(
+		  "OMV_DEBUG_PHP") || \OMV\Environment::getBoolean(
+		  "OMV_DEBUG_EXTJS"))) {
+			try {
+				$jsonFile->open("r");
+				$jsList = $jsonFile->read();
+			} catch(Exception $e) {
+				// Recreate the cache file in this case (e.g. because of
+				// invalid JSON data).
+			}
+		}
+		if (TRUE === empty($jsList)) {
 			$jsList = array_values(array_unique(
 			  $this->getJavascriptIncludes()));
 			$jsonFile->open("w+");
