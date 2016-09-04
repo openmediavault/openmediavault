@@ -1,5 +1,7 @@
 openmediavault (3.0.33) stable; urgency=low
 
+  * Update locales.
+  * Various improvements.
   * Remove useless RPC application layer protocol.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 30 Aug 2016 11:41:17 +0200

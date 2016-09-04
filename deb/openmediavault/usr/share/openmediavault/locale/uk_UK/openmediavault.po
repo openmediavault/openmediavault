@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-22 20:48+0200\n"
-"PO-Revision-Date: 2016-08-22 18:53+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2016-08-28 12:28+0000\n"
+"Last-Translator: zubr139\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -933,7 +933,7 @@ msgid "Do you really want to put the system into standby?"
 msgstr "Бажаєте перевести систему в режим очікування?"
 
 msgid "Do you really want to reboot the system?"
-msgstr "Ви дійсно хочете перезавантажити систему?"
+msgstr "Бажаєте перезавантажити систему?"
 
 msgid ""
 "Do you really want to relocate the shared folder? The content of the shared "
@@ -959,19 +959,19 @@ msgid "Do you really want to revert the configuration changes?"
 msgstr "Ви справді бажаєте скасувати зміни конфігурації?"
 
 msgid "Do you really want to shutdown the system?"
-msgstr "Ви дійсно хочете завершити роботу системи?"
+msgstr "Бажаєте завершити роботу системи?"
 
 msgid "Do you really want to uninstall the selected plugin(s)?"
 msgstr "Ви справді бажаєте деінсталювати обраний модуль(і)?"
 
 msgid "Do you really want to wipe the selected device?"
-msgstr "Ви дійсно хочете зтерти?"
+msgstr "Бажаєте стерти обраний пристрій?"
 
 msgid "Domain name"
 msgstr "Назва домену"
 
 msgid "Domains used when resolving host names."
-msgstr ""
+msgstr "Домени, що використовуються при встановленні імен хостів."
 
 msgid "Dominica"
 msgstr "Домініка"
@@ -1105,7 +1105,7 @@ msgid "Enable archive mode"
 msgstr "Увімкнути режим архівування"
 
 msgid "Enable asynchronous I/O (AIO) support."
-msgstr ""
+msgstr "Увімкнути підтримку асинхронного вводу/виводу (AIO)."
 
 msgid "Enable chroot."
 msgstr "Увімкнути chroot."
@@ -3051,7 +3051,7 @@ msgid "Size"
 msgstr "Розмір"
 
 msgid "Slaves"
-msgstr ""
+msgstr "Підкорення"
 
 msgid "Sleep"
 msgstr "Сон"
@@ -3111,10 +3111,10 @@ msgid "Specifies how many server threads to create."
 msgstr "Визначає, скільки створювати потоків сервера."
 
 msgid "Specifies one of the bonding policies."
-msgstr ""
+msgstr "Визначає одну з політик скріплення."
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
-msgstr ""
+msgstr "Визначає частоту моніторингу MII лінії зв'язку в мілісекундах."
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
@@ -3138,12 +3138,12 @@ msgstr "Задає інтервал часу в форматі гг:хх:сс, �
 msgid ""
 "Specifies the time, in milliseconds, to wait before disabling a slave after "
 "a link failure has been detected."
-msgstr ""
+msgstr "Визначає час, в мілісекундах перед відключенням пристрою після збою з'єднання."
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before enabling a slave after a"
 " link recovery has been detected."
-msgstr ""
+msgstr "Визначає час, в мілісекундах перед включенням пристрою після відновлення з'єднання."
 
 msgid "Specifies whether it is allowed to login as superuser directly"
 msgstr "Визначає чи дозволено увійти в систему, безпосередньо адміністратору"
@@ -3437,7 +3437,7 @@ msgstr "Ці параметри використовуються службам�
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
 "a net view and in the browse list."
-msgstr "Вказую, чи видно цей мережевий ресурс в списку доступних мережевих ресурсів і в списку перегляду."
+msgstr "Вказує, чи видно цей мережевий ресурс в списку доступних мережевих ресурсів і в списку перегляду."
 
 msgid "This field does not allow blanks"
 msgstr "Це поле не дозволяє пробіли"
@@ -3686,7 +3686,7 @@ msgid "Transfer type"
 msgstr "Тип передачі"
 
 msgid "Traps"
-msgstr ""
+msgstr "Пастки"
 
 msgid "Treshold"
 msgstr ""
@@ -3947,7 +3947,7 @@ msgid "Web Administrator Password"
 msgstr "Пароль веб адміністратора"
 
 msgid "Web control panel"
-msgstr ""
+msgstr "Web панель керування"
 
 msgid "Wednesday"
 msgstr "Середа"
@@ -3967,7 +3967,7 @@ msgid ""
 msgstr "Коли клієнт спочатку підключається до сервера використовується протокол ident, щоб спробувати ідентифікувати віддаленого користувача."
 
 msgid "When failed"
-msgstr ""
+msgstr "При відмові"
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
