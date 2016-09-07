@@ -71,25 +71,31 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				  "arg1" => "bind"
 			  ]
 		  ]);
-		// Get the file system details for each mount point.
+		// Get the shared folder candidates.
 		$result = [];
 		foreach ($objects as $objectk => $objectv) {
+			// Skip file systems that are not mounted at the moment.
 			$mp = new \OMV\System\MountPoint();
 			$mp->setDir($objectv->get("dir"));
-			// Skip file systems that are not mounted at the moment.
 			if (FALSE === $mp->isMounted())
 				continue;
-			// Prepare result object.
-			$objectDict = new \OMV\Dictionary([
-				"uuid" => $objectv->get("uuid"),
-				"description" => $mp->getDir()
-			]);
-			// Try to get additional file system information.
+			// Get the file system implementation for the specified mount
+			// point. Skip the mount point if no file system implementation
+			// exists.
 			$fs = \OMV\System\Filesystem\Filesystem::getImplByMountPoint(
 			  $mp->getDir());
-			if (FALSE === is_null($fs))
-				$objectDict->set("description", $fs->getDescription());
-			$result[] = $objectDict->getData();
+			if (TRUE === is_null($fs))
+				continue;
+			// Skip file systems that do not implement the required interface
+			// to be handled as shared folder candidate.
+			if (FALSE === ($fs instanceof
+			  \OMV\System\Filesystem\ISharedFolderCandidate))
+				continue;
+			// Append the shared folder candidate.
+			$result[] = [
+				"uuid" => $objectv->get("uuid"),
+				"description" => $fs->getDescription()
+			];
 		}
 		return $result;
 	}
