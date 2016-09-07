@@ -28,31 +28,6 @@ namespace OMV\System\Filesystem;
  */
 interface ISharedFolderCandidate {
 	/**
-	 * Checks if the device exists.
-	 * @return TRUE if the device exists, otherwise FALSE.
-	 */
-	public function exists();
-
-	/**
-	 * Get the device file, e.g. /dev/sda.
-	 * @return Returns the device file.
-	 */
-	public function getDeviceFile();
-
-	/**
-	 * Check if the file system has a label.
-	 * @return Returns TRUE if the file system has a label, otherwise FALSE.
-	 */
-	public function hasLabel();
-
-	/**
-	 * Get the file system label.
-	 * @return Returns the label of the file system, otherwise an empty
-	 *   string.
-	 */
-	public function getLabel();
-
-	/**
 	 * Get the description (e.g. incl. additional information like used and
 	 * available disk space usage) of the file system.
 	 * @return The file system description.
