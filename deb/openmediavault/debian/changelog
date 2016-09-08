@@ -3,6 +3,7 @@ openmediavault (3.0.35) stable; urgency=low
   * Introduce the \OMV\System\Filesystem\ISharedFolderCandidate interface.
     File systems that want to be handled as shared folder candidate must
     implement this interface.
+  * Introduce the \OMV\Rpc\ServiceAbstract::execBgProc() method.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 07 Sep 2016 18:51:00 +0200
 

@@ -462,6 +462,21 @@ function is_64bits() {
 }
 
 /**
+ * Verify that the variable is a closure.
+ * @param mixed $var The value to check.
+ * @return Returns TRUE if \em $var is a closure, FALSE otherwise.
+ */
+function is_closure($var) {
+	try {
+    	$reflection = new \ReflectionFunction($var);
+    	$result = $reflection->isClosure();
+	} catch (\Exception $e) {
+		$result = FALSE;
+	}
+	return $result;
+}
+
+/**
  * Validate JSON data via JSON schema.
  * @ingroup api
  * @param string $data The JSON string to validate.
