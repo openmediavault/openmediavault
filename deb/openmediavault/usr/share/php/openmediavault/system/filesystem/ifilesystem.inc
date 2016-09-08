@@ -37,8 +37,8 @@ interface IFilesystem {
 	 * \li /dev/sda1
 	 * \li /dev/mapper/vg0-lv0
 	 * \li /dev/disk/by-uuid/fc3e1da5-fd8d-4fda-341e-d0135efa7a7c
-	 * \li /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
-	 * \li /dev/disk/by-path/pci-0000:00:02.5-scsi-0:0:0:0
+	 * \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6-part1
+	 * \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0-part2
 	 * </ul>
 	 * @return Returns the device file.
 	 */

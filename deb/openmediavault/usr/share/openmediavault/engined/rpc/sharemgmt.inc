@@ -150,14 +150,16 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				$objectDict->set("mntent.dir", $meObject->get("dir"));
 				$objectDict->set("mntent.type", $meObject->get("type"));
 				$objectDict->set("mntent.posixacl", $fsb->hasPosixAclSupport());
-				// Try to get additional information from the file system.
+				// Try to get additional information from the file system if
+				// it is mounted right at the moment.
 				$fs = \OMV\System\Filesystem\Filesystem::getImplByMountPoint(
 				  $meObject->get("dir"));
 				if ((FALSE === is_null($fs)) && $fs->exists()) {
+					// Get the device file of the file system.
 					$deviceFile = $fs->getDeviceFile();
 					$objectDict->set("mntent.devicefile", $deviceFile);
-					// Use the file system label as device, otherwise the
-					// device file.
+					// Use the file system label for the 'device' property,
+					// otherwise use the device file.
 					$objectDict->set("device", $deviceFile);
 					if (TRUE === $fs->hasLabel())
 						$objectDict->set("device", $fs->getLabel());
