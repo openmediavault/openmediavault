@@ -167,36 +167,29 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.apt.upgrade");
-		// Create a background process.
-		$bgStatusFilename = $this->createBgProcStatus();
-		$pid = $this->fork();
-		if ($pid > 0) { // Parent process.
-			$this->initializeBgProcStatus($bgStatusFilename, $pid);
-			return $bgStatusFilename;
-		}
-		// Child process.
-		try {
-			// Upgrade packages.
-			// http://raphaelhertzog.com/2010/09/21/debian-conffile-configuration-file-managed-by-dpkg/
-			$bgOutputFilename = $this->createBgProcOutput();
-			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
-			  $bgOutputFilename);
-			// Install new packages.
-			$cmd = sprintf("export LANG=C; ".
-			  "export DEBIAN_FRONTEND=noninteractive; apt-get --yes ".
-			  "--force-yes --fix-missing --auto-remove ".
-			  "--allow-unauthenticated --show-upgraded --option ".
-			  "DPkg::Options::=\"--force-confold\" install %s 2>&1",
-			  implode(" ", $params['packages']));
-			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
-				throw new \OMV\ExecException($cmd, $output);
-			// Finalize the background process.
-			$this->finalizeBgProcStatus($bgStatusFilename, $output);
-			exit(0);
-		} catch(\Exception $e) {
-			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
-			exit(1);
-		}
+		// Create the background process.
+		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
+		  use ($params) {
+			  // Upgrade the given packages.
+			  // http://raphaelhertzog.com/2010/09/21/debian-conffile-configuration-file-managed-by-dpkg/
+			  $cmdArgs = [];
+			  $cmdArgs[] = "--yes";
+			  $cmdArgs[] = "--force-yes";
+			  $cmdArgs[] = "--fix-missing";
+			  $cmdArgs[] = "--auto-remove";
+			  $cmdArgs[] = "--allow-unauthenticated";
+			  $cmdArgs[] = "--show-upgraded";
+			  $cmdArgs[] = "--option DPkg::Options::=\"--force-confold\"";
+			  $cmdArgs[] = "install";
+			  $cmdArgs = array_merge($cmdArgs, $params['packages']);
+			  $cmd = new \OMV\System\Process("apt-get", $cmdArgs);
+			  $cmd->setRedirect2to1();
+			  $cmd->setEnv("DEBIAN_FRONTEND", "noninteractive");
+			  $cmdLine = $cmd->getCommandLine();
+			  if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
+				  throw new \OMV\ExecException($cmdLine, $output);
+			  return $output;
+		  });
 	}
 
 	/**
@@ -212,31 +205,17 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		// Create a background process.
-		$bgStatusFilename = $this->createBgProcStatus();
-		$pid = $this->fork();
-		if ($pid > 0) { // Parent process.
-			$this->initializeBgProcStatus($bgStatusFilename, $pid);
-			return $bgStatusFilename;
-		}
-		// Child process.
-		try {
-			$bgOutputFilename = $this->createBgProcOutput();
-			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
-			  $bgOutputFilename);
-			// Update package database.
-			$cmd = new \OMV\System\Process("apt-get", "update");
-			$cmd->setRedirect2to1();
-			if (0 !== $this->exec($cmd->getCommandLine(), $output,
-			  $bgOutputFilename)) {
-				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
-			}
-			$this->finalizeBgProcStatus($bgStatusFilename, $output);
-			exit(0);
-		} catch(\Exception $e) {
-			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
-			exit(1);
-		}
+		// Create the background process.
+		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
+		  use ($params) {
+			  // Update package database.
+			  $cmd = new \OMV\System\Process("apt-get", "update");
+			  $cmd->setRedirect2to1();
+			  $cmdLine = $cmd->getCommandLine();
+			  if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
+				  throw new \OMV\ExecException($cmdLine, $output);
+			  return $output;
+		  });
 	}
 
 	/**

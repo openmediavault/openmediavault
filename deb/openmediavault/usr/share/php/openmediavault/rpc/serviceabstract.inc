@@ -143,7 +143,8 @@ abstract class ServiceAbstract {
 	 * @return The name of the background process status file.
 	 */
 	final public function callMethodBg($name, $params, $context) {
-		return $this->execBgProc(function($statusFilename, $outputFilename)
+		// Create the background process.
+		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
 		  use ($name, $params, $context) {
 			  // Execute the given RPC service method.
 			  return $this->callMethod($name, $params, $context);
@@ -488,40 +489,40 @@ abstract class ServiceAbstract {
 	 * Execute the specified anonymous function as a background process by
 	 * forking the main process.
 	 * @param Closure $childProc An anonymous function that expects
-	 *   the parameters \em $statusFilename and \em $outputFilename.
+	 *   the parameters \em $bgStatusFilename and \em $bgOutputFilename.
 	 *   It should return a string with the process output.
 	 * @param Closure $error An anonymous function that expects the
-	 *   parameters \em $statusFilename and \em $outputFilename. It
+	 *   parameters \em $bgStatusFilename and \em $bgOutputFilename. It
 	 *   will be called in case of an exception and can be used for
 	 *   cleanup.
 	 * @return The name of the background process status file.
 	 */
 	public function execBgProc(\Closure $childProc, \Closure $error = NULL) {
 		// Create the background process status file.
-		$statusFilename = $this->createBgProcStatus();
+		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
 		if ($pid > 0) { // Parent process.
-			$this->initializeBgProcStatus($statusFilename, $pid);
-			return $statusFilename;
+			$this->initializeBgProcStatus($bgStatusFilename, $pid);
+			return $bgStatusFilename;
 		}
 		// Child process.
 		try {
 			// Create the background process output file and update
 			// the status file.
-			$outputFilename = $this->createBgProcOutput();
-			$this->updateBgProcStatus($statusFilename, "outputfilename",
-			  $outputFilename);
+			$bgOutputFilename = $this->createBgProcOutput();
+			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
+			  $bgOutputFilename);
 			// Execute the anonymous function that contains the code
 			// the be executed in the child process.
-			$output = $childProc($statusFilename, $outputFilename);
+			$output = $childProc($bgStatusFilename, $bgOutputFilename);
 			// Finalize the background process status file.
-			$this->finalizeBgProcStatus($statusFilename, $output);
+			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
 		} catch (\Exception $e) {
 			if (is_closure($error))
-				$error($statusFilename, $outputFilename);
+				$error($bgStatusFilename, $bgOutputFilename);
 			// Finalize the background process status file.
-			$this->finalizeBgProcStatus($statusFilename, "", $e);
+			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
 			exit(1);
 		}
 	}
