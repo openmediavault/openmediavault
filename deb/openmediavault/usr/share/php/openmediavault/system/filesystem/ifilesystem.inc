@@ -33,7 +33,13 @@ interface IFilesystem {
 	public function exists();
 
 	/**
-	 * Get the device file, e.g. /dev/sda.
+	 * Get the device file, e.g. <ul>
+	 * \li /dev/sda1
+	 * \li /dev/mapper/vg0-lv0
+	 * \li /dev/disk/by-uuid/fc3e1da5-fd8d-4fda-341e-d0135efa7a7c
+	 * \li /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
+	 * \li /dev/disk/by-path/pci-0000:00:02.5-scsi-0:0:0:0
+	 * </ul>
 	 * @return Returns the device file.
 	 */
 	public function getDeviceFile();
@@ -52,7 +58,7 @@ interface IFilesystem {
 	 * Get the device file by ID, e.g. <ul>
 	 * \li /dev/disk/by-id/wwn-0x5000cca211cc703c
 	 * \li /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
-	 * \li /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML-part2#
+	 * \li /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML-part2
 	 * </ul>
 	 * The following order of paths will be retured if available: <ul>
 	 * \li ata-xxx
@@ -159,7 +165,8 @@ interface IFilesystem {
 	public function getSize();
 
 	/**
-	 * Get the description of the file system.
+	 * Get the description (e.g. incl. additional information like used
+	 * and available disk space usage) of the file system.
 	 * @return The file system description.
 	 */
 	public function getDescription();

@@ -28,8 +28,8 @@ namespace OMV\System\Filesystem;
  */
 interface ISharedFolderCandidate {
 	/**
-	 * Get the description (e.g. incl. additional information like used and
-	 * available disk space usage) of the file system.
+	 * Get the description (e.g. incl. additional information like used
+	 * and available disk space usage) of the file system.
 	 * @return The file system description.
 	 */
 	public function getDescription();
