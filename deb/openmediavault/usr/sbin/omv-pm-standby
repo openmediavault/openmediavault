@@ -22,6 +22,7 @@
 set -e
 
 . /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
 
 usage() {
 	cat <<EOF
@@ -54,14 +55,19 @@ do
 done
 
 if ! which pm-is-supported >/dev/null; then
+	omv_log "pm-is-supported not found. Power off the system instead."
 	shutdown -h -P now;
 elif pm-is-supported --suspend-hybrid; then
+	omv_log "Put the system into hybrid-suspend mode."
 	pm-suspend-hybrid;
 elif pm-is-supported --hibernate; then
+	omv_log "Put the system into hibernate mode."
 	pm-hibernate;
 elif pm-is-supported --suspend; then
+	omv_log "Put the system into suspend mode."
 	pm-suspend;
 else
+	omv_log "No power management mode supported. Power off the system instead."
 	shutdown -h -P now;
 fi
 
