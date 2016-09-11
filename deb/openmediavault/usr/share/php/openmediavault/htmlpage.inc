@@ -169,6 +169,7 @@ EOF;
 			try {
 				$jsonFile->open("r");
 				$jsList = $jsonFile->read();
+				$jsonFile->close();
 			} catch(Exception $e) {
 				// Ensure the file is closed and recreate the cache file in
 				// the next step (e.g. because of invalid JSON data).
@@ -180,8 +181,8 @@ EOF;
 			  $this->getJavascriptIncludes()));
 			$jsonFile->open("w+");
 			$jsonFile->write($jsList);
+			$jsonFile->close();
 		}
-		$jsonFile->close();
 		// Append the additional Javascript files.
 		if (is_array($jsList)) {
 			foreach ($jsList as $jsListv) {
