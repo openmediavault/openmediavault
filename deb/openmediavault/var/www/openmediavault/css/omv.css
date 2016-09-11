@@ -344,7 +344,7 @@ div#headerrlogo {
 	padding: 12px 0px 12px 0px;
 	border: solid 6px #ff0000;
 	color: #f72000;
-	font-family: courier;
+	font-family: courier, "Courier New", monospace;
 	font-weight: bold;
 	font-size: large;
 	text-align: center;
