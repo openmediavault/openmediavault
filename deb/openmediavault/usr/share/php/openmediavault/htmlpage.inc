@@ -166,9 +166,15 @@ EOF;
 		  $GLOBALS['OMV_CACHE_DIR'], implode("_", array_filter($parts))));
 		if ($jsonFile->exists() && !(boolvalEx($GLOBALS['OMV_DEBUG_PHP']) ||
 		  boolvalEx($GLOBALS['OMV_DEBUG_EXTJS']))) {
-			$jsonFile->open("r");
-			$jsList = $jsonFile->read();
-		} else {
+			try {
+				$jsonFile->open("r");
+				$jsList = $jsonFile->read();
+			} catch(Exception $e) {
+				// Recreate the cache file in this case (e.g. because of
+				// invalid JSON data).
+			}
+		}
+		if (TRUE === empty($jsList)) {
 			$jsList = array_values(array_unique(
 			  $this->getJavascriptIncludes()));
 			$jsonFile->open("w+");

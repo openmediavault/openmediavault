@@ -1,3 +1,10 @@
+openmediavault (2.2.7) stable; urgency=low
+
+  * Fix font issue in Chrome browser.
+  * Get rid of the 'Invalid JSON' error.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 11 Sep 2016 10:46:39 +0200
+
 openmediavault (2.2.6) stable; urgency=low
 
   * Mantis 0001592: Send monit CPU usage alerts after N cycles.
