@@ -1,5 +1,6 @@
 openmediavault (3.0.35) stable; urgency=low
 
+  * Update locales.
   * Introduce the \OMV\System\Filesystem\ISharedFolderCandidate interface.
     File systems that want to be handled as shared folder candidate must
     implement this interface.

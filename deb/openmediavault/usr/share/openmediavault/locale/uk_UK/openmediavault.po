@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-22 20:48+0200\n"
-"PO-Revision-Date: 2016-08-28 12:28+0000\n"
+"PO-Revision-Date: 2016-09-06 19:42+0000\n"
 "Last-Translator: zubr139\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -904,21 +904,21 @@ msgid "Do you really want to apply the configuration changes?"
 msgstr "Бажаєте застосувати зміни в конфігурації?"
 
 msgid "Do you really want to clear the log file?"
-msgstr "Ви справді хочете очистити log файл?"
+msgstr "Бажаєте очистити log файл?"
 
 msgid "Do you really want to create the RAID device?"
-msgstr "Ви справді хочете створити RAID?"
+msgstr "Бажаєте створити RAID?"
 
 msgid "Do you really want to delete the file system? All data will be lost."
 msgstr "Ви справді бажаєте видалити файлову систему? Всі дані будуть втрачені."
 
 msgid "Do you really want to delete the selected item(s)?"
-msgstr "Ви справді хочете видалити виділені об'єкти?"
+msgstr "Бажаєте видалити виділені об'єкт(и)?"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
 "Please note that the file system creation may take some time."
-msgstr "Ви справді хочете відформатувати диск? Усі данні буде знищено. Ця операція може зайняти певний час."
+msgstr "Бажаєте відформатувати диск? Усі данні буде знищено. Ця операція може зайняти певний час."
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Справді бажаєте, встановити обраний модуль(і)?"
@@ -927,7 +927,7 @@ msgid "Do you really want to leave the page?"
 msgstr "Бажаєте залишити цю сторінку?"
 
 msgid "Do you really want to logout?"
-msgstr "Ви справді хочете вийти?"
+msgstr "Бажаєте вийти?"
 
 msgid "Do you really want to put the system into standby?"
 msgstr "Бажаєте перевести систему в режим очікування?"
