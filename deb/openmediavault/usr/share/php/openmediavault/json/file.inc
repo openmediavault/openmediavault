@@ -130,6 +130,8 @@ class File {
 	 * @throw \OMV\Exception
 	 */
 	public function close() {
+		if (FALSE === $this->isOpen())
+			return;
 		if (FALSE === flock($this->fh, LOCK_UN)) {
 			throw new \OMV\Exception("Failed to unlock file '%s'.",
 			  $this->filename);
