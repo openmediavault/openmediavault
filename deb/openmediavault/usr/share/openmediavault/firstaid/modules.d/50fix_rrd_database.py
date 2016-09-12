@@ -29,7 +29,7 @@ import openmediavault as omv
 class Module(omv.firstaid.IModule):
 	@property
 	def description(self):
-		return "Fix RRD database"
+		return "Check RRD database"
 
 	def execute(self):
 		print("Checking all RRD files. Please wait ...")
