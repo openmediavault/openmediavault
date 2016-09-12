@@ -21,6 +21,8 @@
 
 set -e
 
+. /usr/share/openmediavault/scripts/helper-functions
+
 NGINX_CONFIG_DIR=${NGINX_CONFIG_DIR:-"/etc/nginx"}
 NGINX_AVAILABLE_SITES_DIR=${NGINX_AVAILABLE_SITES_DIR:-"${NGINX_CONFIG_DIR}/sites-available"}
 NGINX_ENABLED_SITES_DIR=${NGINX_ENABLED_SITES_DIR:-"${NGINX_CONFIG_DIR}/sites-enabled"}
@@ -60,18 +62,18 @@ fi
 case ${command} in
 ensite)
 	if [ ! -f "${NGINX_AVAILABLE_SITES_DIR}/${site}" ]; then
-		echo "Site configuration file '${site}' not found."
+		omv_msg "Site configuration file '${site}' not found."
 		exit 1
 	fi
 	if [ -f "${NGINX_ENABLED_SITES_DIR}/${site}" ]; then
-		echo "Site configuration file '${site}' is already enabled."
+		omv_msg "Site configuration file '${site}' is already enabled."
 		exit 0
 	fi
 	cd "${NGINX_ENABLED_SITES_DIR}" && ln -s "../sites-available/${site}" "${site}"
 	;;
 dissite)
 	if [ ! -f "${NGINX_ENABLED_SITES_DIR}/${site}" ]; then
-		echo "Site configuration file '${site}' not found."
+		omv_msg "Site configuration file '${site}' not found."
 		exit 1
 	fi
 	rm -f "${NGINX_ENABLED_SITES_DIR}/${site}"

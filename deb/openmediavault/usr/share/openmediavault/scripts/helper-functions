@@ -96,7 +96,7 @@ omv_is_block() {
 	return 1
 }
 
-# omv_trim [options] value
+# omv_trim [-c char] [-l] [-r] value
 # Strip a character from the beginning and end of a string.
 # @param options The command options.
 # @param value The string that will be trimmed.
@@ -137,10 +137,14 @@ omv_trim() {
 	echo $value | sed ${_cmdargs}
 }
 
+# omv_rtrim value
+# Strip a character, white spaces by default, from the end of a string.
 omv_rtrim() {
 	omv_trim -r $@
 }
 
+# omv_ltrim value
+# Strip a character, white spaces by default, from the beginning of a string.
 omv_ltrim() {
 	omv_trim -l $@
 }
@@ -192,33 +196,71 @@ omv_checkyesno() {
 }
 
 # omv_log message
-# Log the given message to syslog.
+# Print message to standard out (STDOUT) and syslog.
 omv_log() {
-	local _tag
+	omv_msg $*
+	omv_syslog_info $*
+}
+
+# omv_error message
+# Print message to standard error (STDERR) and syslog.
+omv_error() {
+	omv_msg $* >&2
+	omv_syslog_error $*
+}
+
+# omv_msg message
+# Print the message to standard out (STDOUT).
+omv_msg() {
+	echo $*
+}
+
+# omv_syslog [-p priority] [-t tag] message
+# Log the given message to syslog with priority 'info' by default.
+# See 'man logger' for more information about the optional arguments.
+omv_syslog() {
+	local _tag _priority
+	# Set default values.
 	_tag=$(basename $0)
-	while getopts 't:' option
+	_priority="syslog.info"
+	# Parse function arguments.
+	while getopts 't:p:' option
 	do
 		case ${option} in
+		p)
+			_priority="${OPTARG}"
+			;;
 		t)
 			_tag="${OPTARG}"
 			;;
 		esac
 	done
 	shift $((OPTIND-1))
-	logger -t "${_tag}" $@
+	logger --priority "${_priority}" --tag "${_tag}" $@
 }
 
-# omv_error message
-# Print error to stderr and syslog.
-omv_error() {
-	echo $* >&2
-	omv_log $*
+# omv_syslog_info message
+# Log the given message to syslog with priority 'info'.
+omv_syslog_info() {
+	omv_syslog -p "syslog.info" $*
 }
 
-# omv_msg message
-# Print the message to stdout.
-omv_msg() {
-	echo "$*"
+# omv_syslog_warning message
+# Log the given message to syslog with priority 'warning'.
+omv_syslog_warning() {
+	omv_syslog -p "syslog.warning" $*
+}
+
+# omv_syslog_error message
+# Log the given message to syslog with priority 'err'.
+omv_syslog_error() {
+	omv_syslog -p "syslog.err" $*
+}
+
+# omv_syslog_debug message
+# Log the given message to syslog with priority 'debug'.
+omv_syslog_debug() {
+	omv_syslog -p "syslog.debug" $*
 }
 
 # omv_exec_rpc service method params
@@ -662,7 +704,7 @@ omv_is_ipv6_enabled() {
 	return 1
 }
 
-# omv_is_wlan (chare devicename)
+# omv_is_wlan (char devicename)
 # Check if the given device is a wireless network interface.
 # @return 0 if wireless, otherwise 1.
 omv_is_wlan() {

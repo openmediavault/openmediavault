@@ -46,9 +46,9 @@ EOF
 # Print the error message.
 printerror() {
 	if test x${bequiet} = x ; then
-		echo ${*} >&2
+		omv_msg ${*} >&2
 	fi
-	omv_log ${*}
+	omv_syslog_error ${*}
 }
 
 # List available scripts.

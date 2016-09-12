@@ -49,7 +49,7 @@ failure() {
 # Print info message.
 printinfo() {
 	if test x${verbose} != x ; then
-		echo ${*}
+		omv_msg ${*}
 	fi
 }
 
