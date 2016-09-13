@@ -245,15 +245,16 @@ class NetworkInterface {
 
 	/**
 	 * Get the network interface state.
-	 * @return The network interface state, otherwise FALSE.
+	 * @return The network interface state, e.g. 'UP', 'DOWN' or 'UNKNOWN',
+	 *   otherwise FALSE.
 	 * @throw \OMV\ExecException
 	 */
 	public function getState() {
-		$this->getData("ethtool");
-		if (1 !== preg_match("/state {$this->regex['state']}/i",
-		  $this->ethtool, $matches))
+		$this->getData("ip");
+		if (1 !== preg_match("/state ({$this->regex['state']})/i",
+		  $this->ip, $matches))
 			return FALSE;
-		return $matches[0];
+		return $matches[1];
 	}
 
 	/**
