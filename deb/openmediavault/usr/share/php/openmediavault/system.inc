@@ -5288,15 +5288,16 @@ class OMVNetworkInterface extends OMVObject {
 
 	/**
 	 * Get the network interface state.
-	 * @return The network interface state, otherwise FALSE.
+	 * @return The network interface state, e.g. 'UP', 'DOWN' or 'UNKNOWN',
+	 *   otherwise FALSE.
 	 */
 	public function getState() {
-		if($this->getData("ethtool") === FALSE)
+		if($this->getData("ip") === FALSE)
 			return FALSE;
-		if(1 !== preg_match("/state {$this->regex['state']}/i",
-		  $this->ethtool, $matches))
+		if(1 !== preg_match("/state ({$this->regex['state']})/i",
+		  $this->ip, $matches))
 			return FALSE;
-		return $matches[0];
+		return $matches[1];
 	}
 
 	/**
