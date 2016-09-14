@@ -26,10 +26,10 @@ import openmediavault as omv
 class Module(omv.firstaid.IModule):
 	@property
 	def description(self):
-		return "Check configuration changes file"
+		return "Check configuration status file"
 
 	def execute(self):
-		print("Checking configuration changes file. Please wait ...")
+		print("Checking configuration status file. Please wait ...")
 		path = omv.getenv("OMV_ENGINED_DIRTY_MODULES_FILE",
 			"/var/lib/openmediavault/dirtymodules.json")
 		if not os.path.exists(path):
@@ -41,9 +41,9 @@ class Module(omv.firstaid.IModule):
 		try:
 			with open(path) as json_file:
 				json.load(json_file)
-			print("The configuration changes file is valid.")
+			print("The configuration status file is valid.")
 		except:
-			print("Removing invalid configuration changes file.")
+			print("Removing invalid configuration status file.")
 			os.unlink(json_path)
 		return 0
 

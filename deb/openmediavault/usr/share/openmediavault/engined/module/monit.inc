@@ -98,5 +98,5 @@ class OMVModuleMonit extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.system.notification.notification",
 		  [ $this, "setDirty" ]);
-    }
+	}
 }

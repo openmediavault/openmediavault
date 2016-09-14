@@ -23,7 +23,7 @@ __all__ = [ "info", "warning", "error", "debug" ]
 import sys
 import syslog
 
-def _log(message, priority, verbose):
+def _log(priority, msg, args, verbose=True):
 	tag = {
 		syslog.LOG_INFO: "INFO",
 		syslog.LOG_WARNING: "WARNING",
@@ -31,19 +31,43 @@ def _log(message, priority, verbose):
 		syslog.LOG_DEBUG: "DEBUG"
 	}
 	if verbose:
-		sys.stderr.write("{}: {}\n".format(tag[priority], message))
+		sys.stderr.write("{}: {}\n".format(tag[priority], msg % args))
 	syslog.openlog(facility=syslog.LOG_SYSLOG)
-	syslog.syslog(priority, message)
+	syslog.syslog(priority, msg % args)
 	syslog.closelog()
 
-def info(message, verbose=True):
-	_log(message, syslog.LOG_INFO, verbose)
+def info(msg, *args, **kwargs):
+	"""
+	Log 'msg % args' to STDERR and syslog with priority 'INFO'.
+	To do not write to STDERR, use the keyword argument verbose, e.g.
 
-def warning(message, verbose=True):
-	_log(message, syslog.LOG_WARNING, verbose)
+	info("This is a %s", "test", verbose=False)
+	"""
+	_log(syslog.LOG_INFO, msg, args, **kwargs)
 
-def error(message, verbose=True):
-	_log(message, syslog.LOG_ERR, verbose)
+def warning(msg, *args, **kwargs):
+	"""
+	Log 'msg % args' to STDERR and syslog with priority 'WARNING'.
+	To do not write to STDERR, use the keyword argument verbose, e.g.
 
-def debug(message, verbose=True):
-	_log(message, syslog.LOG_DEBUG, verbose)
+	warning("This is a %s", "test", verbose=False)
+	"""
+	_log(syslog.LOG_WARNING, msg, args, **kwargs)
+
+def error(msg, *args, **kwargs):
+	"""
+	Log 'msg % args' to STDERR and syslog with priority 'ERR'.
+	To do not write to STDERR, use the keyword argument verbose, e.g.
+
+	error("This is a %s", "test", verbose=False)
+	"""
+	_log(syslog.LOG_ERR, msg, args, **kwargs)
+
+def debug(msg, *args, **kwargs):
+	"""
+	Log 'msg % args' to STDERR and syslog with priority 'DEBUG'.
+	To do not write to STDERR, use the keyword argument verbose, e.g.
+
+	debug("This is a %s", "test", verbose=False)
+	"""
+	_log(syslog.LOG_DEBUG, msg, args, **kwargs)

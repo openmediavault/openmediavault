@@ -60,37 +60,34 @@ Ext.define("OMV.module.admin.dashboard.view.NetworkInterfaces", {
 					stateId: "devicename",
 					width: 45
 				},{
+					xtype: "templatecolumn",
 					text: _("Address"),
 					sortable: true,
 					stateId: "address",
-					renderer: function(value, metaData, record) {
-						var tpl = Ext.create("Ext.XTemplate",
-						  _("IPv4"),': {[Ext.util.Format.defaultValue(values.address, "-")]}<br/>',
-						  _("IPv6"),': {[Ext.util.Format.defaultValue(values.address6, "-")]}');
-						return tpl.apply(record.data);
-					},
+					tpl: Ext.String.format(
+					  '{0}: {[Ext.util.Format.defaultValue(values.address, "-")]}<br/>' +
+					  '{1}: {[Ext.util.Format.defaultValue(values.address6, "-")]}',
+					  _("IPv4"), _("IPv6")),
 					flex: 1
 				},{
+					xtype: "templatecolumn",
 					text: _("Netmask"),
 					sortable: true,
 					stateId: "netmask",
-					renderer: function(value, metaData, record) {
-						var tpl = Ext.create("Ext.XTemplate",
-						  _("IPv4"),': {[Ext.util.Format.defaultValue(values.netmask, "-")]}<br/>',
-						  _("IPv6"),': {[Ext.util.Format.defaultValue((values.netmask6 < 0) ? "" : values.netmask6, "-")]}');
-						return tpl.apply(record.data);
-					},
+					tpl: Ext.String.format(
+					  '{0}: {[Ext.util.Format.defaultValue(values.netmask, "-")]}<br/>' +
+					  '{1}: {[Ext.util.Format.defaultValue((values.netmask6 < 0) ? "" : values.netmask6, "-")]}',
+					  _("IPv4"), _("IPv6")),
 					flex: 1
 				},{
+					xtype: "templatecolumn",
 					text: _("Gateway"),
 					sortable: true,
 					stateId: "gateway",
-					renderer: function(value, metaData, record) {
-						var tpl = Ext.create("Ext.XTemplate",
-						  _("IPv4"),': {[Ext.util.Format.defaultValue(values.gateway, "-")]}<br/>',
-						  _("IPv6"),': {[Ext.util.Format.defaultValue(values.gateway6, "-")]}');
-						return tpl.apply(record.data);
-					},
+					tpl: Ext.String.format(
+					  '{0}: {[Ext.util.Format.defaultValue(values.gateway, "-")]}<br/>' +
+					  '{1}: {[Ext.util.Format.defaultValue(values.gateway6, "-")]}',
+					  _("IPv4"), _("IPv6")),
 					flex: 1
 				},{
 					xtype: "emptycolumn",

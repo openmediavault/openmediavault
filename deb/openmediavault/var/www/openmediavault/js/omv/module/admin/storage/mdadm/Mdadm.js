@@ -558,7 +558,6 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 		"OMV.data.proxy.Rpc"
 	],
 	uses: [
-		"Ext.XTemplate",
 		"OMV.module.admin.storage.mdadm.device.Create",
 		"OMV.module.admin.storage.mdadm.device.Add",
 		"OMV.module.admin.storage.mdadm.device.Remove",
@@ -605,15 +604,12 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 		dataIndex: "size",
 		stateId: "size"
 	},{
+		xtype: "templatecolumn",
 		text: _("Devices"),
 		sortable: true,
 		dataIndex: "devices",
 		stateId: "devices",
-		renderer: function(value, metaData, record) {
-			var tpl = Ext.create("Ext.XTemplate",
-			  '<tpl for=".">{.}<br/></tpl>');
-			return tpl.apply(record.get("devices"));
-		}
+		tpl: '<tpl for="devices" between="&lt;br/&gt;">{.}</tpl>'
 	}],
 
 	initComponent: function() {

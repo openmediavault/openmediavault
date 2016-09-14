@@ -170,13 +170,16 @@ OMV.util.Format = function() {
 			 * @method binaryUnit
 			 * Convert a value into the highest possible binary unit.
 			 * @param value The value to format.
+			 * @param invalidText The value that is returned if \em value
+			 *   is not a number. Defaults to 'n/a'.
 			 */
-			binaryUnit: function(value) {
+			binaryUnit: function(value, invalidText) {
+				invalidText = Ext.isDefined(invalidText) ?
+				  invalidText : _("n/a");
 				var v = parseInt(value);
-				if(Ext.isNumber(v) && (v >= 0)) {
-					return v.binaryFormat();
-				}
-				return _("n/a");
+				if (!Ext.isNumber(v))
+					return invalidText;
+				return v.binaryFormat();
 			},
 
 			/**

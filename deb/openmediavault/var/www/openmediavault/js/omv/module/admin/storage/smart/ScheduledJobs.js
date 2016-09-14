@@ -228,7 +228,6 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Jobs", {
 		"OMV.window.Execute"
 	],
 	uses: [
-		"Ext.XTemplate",
 		"OMV.module.admin.storage.smart.schedule.Job"
 	],
 
@@ -246,16 +245,13 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Jobs", {
 		resizable: false,
 		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
 	},{
+		xtype: "templatecolumn",
 		text: _("Device"),
 		stateId: "device",
 		sortable: true,
-		renderer: function(value, metaData, record) {
-			var tpl = Ext.create("Ext.XTemplate",
-			  _("Model"),': {volumemodel}<br/>',
-			  _("Device"),': {volumedevicefile}<br/>',
-			  _("Capacity"),': {[OMV.util.Format.binaryUnit(values.volumesize)]}');
-			return tpl.apply(record.data);
-		}
+		tpl: _("Model") + ': {model}<br/>' +
+		  _("Device") + ': {devicefile}<br/>' +
+		  _("Capacity") + ': {[OMV.util.Format.binaryUnit(values.size)]}'
 	},{
 		xtype: "mapcolumn",
 		text: _("Type"),
@@ -308,9 +304,9 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Jobs", {
 					fields: [
 						{ name: "uuid", type: "string" },
 						{ name: "enable", type: "boolean" },
-						{ name: "volumedevicefile", mapping: "volume.devicefile", type: "string" },
-						{ name: "volumemodel", mapping: "volume.model", type: "string" },
-						{ name: "volumesize", mapping: "volume.size", type: "string" },
+						{ name: "devicefile", type: "string" },
+						{ name: "model", type: "string" },
+						{ name: "size", type: "string" },
 						{ name: "type", type: "string" },
 						{ name: "hour", type: "string" },
 						{ name: "dayofmonth", type: "string" },
@@ -329,7 +325,7 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Jobs", {
 				remoteSort: true,
 				sorters: [{
 					direction: "ASC",
-					property: "volumedevicefile"
+					property: "devicefile"
 				}]
 			})
 		});
