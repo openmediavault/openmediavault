@@ -43,9 +43,6 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 		"OMV.window.Execute",
 		"OMV.window.Upload"
 	],
-	uses: [
-		"Ext.XTemplate"
-	],
 
 	hideAddButton: true,
 	hideEditButton: true,
@@ -66,34 +63,29 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 		resizable: false,
 		width: 80
 	},{
+		xtype: "templatecolumn",
 		text: _("Package information"),
 		sortable: true,
-		dataIndex: "name",
 		stateId: "info",
 		flex: 2,
-		renderer: function(value, metaData, record) {
-			var tpl = Ext.create("Ext.XTemplate",
-			  '<b>{name} {version}</b><br/>',
-			  '{summary}<br/><br/>',
-			  '<tpl if="!Ext.isEmpty(values.extendeddescription)">',
-				'{[OMV.util.Format.whitespace(values.extendeddescription)]}<br/><br/>',
-			  '</tpl>',
-			  '<tpl if="!Ext.isEmpty(values.size)">',
-			    _("Size") + ': {[OMV.util.Format.binaryUnit(values.size)]}<br/>',
-			  '</tpl>',
-			  '<tpl if="!Ext.isEmpty(values.maintainer)">',
-				_("Maintainer") + ': {[Ext.String.htmlEncode(values.maintainer)]}<br/>',
-			  '</tpl>',
-			  '<tpl if="!Ext.isEmpty(values.homepage)">',
-				_("Homepage") + ': <a href="{[Ext.String.htmlEncode(values.homepage)]}" ',
-				'target="_blank">{[Ext.String.htmlEncode(values.homepage)]}</a><br/>',
-			  '</tpl>',
-			  '<tpl if="!Ext.isEmpty(values.repository)">',
-				_("Repository") + ': {[Ext.String.htmlEncode(values.repository)]}<br/>',
-			  '</tpl>');
-			value = tpl.apply(record.data);
-			return value;
-		}
+		tpl: '<b>{name} {version}</b><br/>' +
+		  '{summary}<br/><br/>' +
+		  '<tpl if="!Ext.isEmpty(values.extendeddescription)">' +
+			'{[OMV.util.Format.whitespace(values.extendeddescription)]}<br/><br/>' +
+		  '</tpl>' +
+		  '<tpl if="!Ext.isEmpty(values.size)">' +
+		    _("Size") + ': {[OMV.util.Format.binaryUnit(values.size)]}<br/>' +
+		  '</tpl>' +
+		  '<tpl if="!Ext.isEmpty(values.maintainer)">' +
+			_("Maintainer") + ': {[Ext.String.htmlEncode(values.maintainer)]}<br/>' +
+		  '</tpl>' +
+		  '<tpl if="!Ext.isEmpty(values.homepage)">' +
+			_("Homepage") + ': <a href="{[Ext.String.htmlEncode(values.homepage)]}" ' +
+			'target="_blank">{[Ext.String.htmlEncode(values.homepage)]}</a><br/>' +
+		  '</tpl>' +
+		  '<tpl if="!Ext.isEmpty(values.repository)">' +
+			_("Repository") + ': {[Ext.String.htmlEncode(values.repository)]}<br/>' +
+		  '</tpl>'
 	},{
 		text: _("Section"),
 		sortable: true,
@@ -335,7 +327,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 			scope: me,
 			callback: function(id, success, response) {
 				this.getSelectionModel().deselectAll();
-				if(!success) {
+				if (!success) {
 					OMV.MessageBox.hide();
 					OMV.MessageBox.error(null, response);
 				} else {
@@ -364,11 +356,11 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 
 	onIsRunning: function(id, success, response) {
 		var me = this;
-		if(!success) {
+		if (!success) {
 			OMV.MessageBox.hide();
 			OMV.MessageBox.error(null, response);
 		} else {
-			if(response.running === true) {
+			if (response.running === true) {
 				Ext.Function.defer(function() {
 					// Execute RPC.
 					OMV.Rpc.request({

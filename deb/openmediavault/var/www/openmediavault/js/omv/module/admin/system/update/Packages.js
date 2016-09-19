@@ -43,9 +43,6 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 		"OMV.window.Execute",
 		"OMV.window.Upload"
 	],
-	uses: [
-		"Ext.XTemplate"
-	],
 
 	hideAddButton: true,
 	hideEditButton: true,
@@ -54,32 +51,27 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 	stateId: "1a2ca00e-37ac-4aa4-8cbe-290d8f95bd1b",
 	selModel: "checkboxmodel",
 	columns: [{
+		xtype: "templatecolumn",
 		text: _("Package information"),
 		sortable: true,
-		dataIndex: "name",
 		stateId: "info",
 		flex: 1,
-		renderer: function(value, metaData, record) {
-			var tpl = Ext.create("Ext.XTemplate",
-			  '<b>{name} {version}</b><br/>',
-			  '{summary}<br/><br/>',
-			  '<tpl if="!Ext.isEmpty(values.extendeddescription)">',
-				'{[OMV.util.Format.whitespace(values.extendeddescription)]}<br/><br/>',
-			  '</tpl>',
-			  _("Size") + ': {[OMV.util.Format.binaryUnit(values.size)]}<br/>',
-			  '<tpl if="!Ext.isEmpty(values.maintainer)">',
-				_("Maintainer") + ': {[Ext.String.htmlEncode(values.maintainer)]}<br/>',
-			  '</tpl>',
-			  '<tpl if="!Ext.isEmpty(values.homepage)">',
-				_("Homepage") + ': <a href="{[Ext.String.htmlEncode(values.homepage)]}" ',
-				'target="_blank">{[Ext.String.htmlEncode(values.homepage)]}</a><br/>',
-			  '</tpl>',
-			  '<tpl if="!Ext.isEmpty(values.repository)">',
-				_("Repository") + ': {[Ext.String.htmlEncode(values.repository)]}<br/>',
-			  '</tpl>');
-			value = tpl.apply(record.data);
-			return value;
-		}
+		tpl: '<b>{name} {version}</b><br/>' +
+		  '{summary}<br/><br/>' +
+		  '<tpl if="!Ext.isEmpty(values.extendeddescription)">' +
+			'{[OMV.util.Format.whitespace(values.extendeddescription)]}<br/><br/>' +
+		  '</tpl>' +
+		  _("Size") + ': {[OMV.util.Format.binaryUnit(values.size)]}<br/>' +
+		  '<tpl if="!Ext.isEmpty(values.maintainer)">' +
+			_("Maintainer") + ': {[Ext.String.htmlEncode(values.maintainer)]}<br/>' +
+		  '</tpl>' +
+		  '<tpl if="!Ext.isEmpty(values.homepage)">' +
+			_("Homepage") + ': <a href="{[Ext.String.htmlEncode(values.homepage)]}" ' +
+			'target="_blank">{[Ext.String.htmlEncode(values.homepage)]}</a><br/>' +
+		  '</tpl>' +
+		  '<tpl if="!Ext.isEmpty(values.repository)">' +
+			_("Repository") + ': {[Ext.String.htmlEncode(values.repository)]}<br/>' +
+		  '</tpl>'
 	},{
 		text: _("Name"),
 		sortable: true,
@@ -234,8 +226,8 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 			var name = record.get("name");
 			packages.push(name);
 			// Is it a plugin?
-			if(RegExp("^"+OMV.PRODUCT_PACKAGENAME+"(-\S+)?$", "i").test(
-			  name)) {
+			if (RegExp("^"+OMV.PRODUCT_PACKAGENAME+"(-\S+)?$",
+			  "i").test(name)) {
 				showMessageBox = true;
 			}
 		});
@@ -262,7 +254,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 					// notify the user to reload the page. This is necessary
 					// to let potentially new WebGUI Javascript code take
 					// effect.
-					if(true === showMessageBox) {
+					if (true === showMessageBox) {
 						Ext.MessageBox.show({
 							title: _("Information"),
 							msg: _("Please reload the page to let the changes take effect."),
@@ -274,7 +266,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 								cancel: _("Close")
 							},
 							fn: function(answer) {
-								if("ok" === answer) {
+								if ("ok" === answer) {
 									// Reload the page.
 									OMV.confirmPageUnload = false;
 									document.location.reload();
