@@ -1,3 +1,9 @@
+openmediavault (3.0.38) stable; urgency=low
+
+  * Mantis 0001604: Update package dependency.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 21 Sep 2016 16:15:23 +0200
+
 openmediavault (3.0.37) stable; urgency=low
 
   * Improve the configuration object uniqueness check in the backend.
