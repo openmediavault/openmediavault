@@ -132,7 +132,11 @@ xmlstarlet sel -t \
 		-o "    rmdir ${mountdir} || true" -n \
 		-o "    exit" -n \
 		-o "}" -n \
-		-o "[ -e ${runfile} ] && exit 1" -n \
+		-o "if [ -e ${runfile} ]; then" -n \
+		-o "    omv_error \"The sync job is already running.\"" -n \
+		-o "    omv_beep_error" -n \
+		-o "    exit 1" -n \
+		-o "fi" -n \
 		-o "# Check if the storage device exists." -n \
 		-o "if [ ! -b \"${devicefile}\" ]; then" -n \
 		-o "    omv_error \"External storage device '${devicefile}' not found!\"" -n \
