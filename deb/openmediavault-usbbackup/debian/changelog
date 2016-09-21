@@ -1,3 +1,9 @@
+openmediavault-usbbackup (3.2.8) stable; urgency=low
+
+  * Mantis 0001602: Command output not sent via email.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 21 Sep 2016 11:11:08 +0200
+
 openmediavault-usbbackup (3.2.7) stable; urgency=low
 
   * Remove world writability permission bits of unit files.

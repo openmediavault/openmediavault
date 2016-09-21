@@ -37,7 +37,7 @@ OMV_USBBACKUP_JOBS_SCRIPT_PREFIX=${OMV_USBBACKUP_JOBS_SCRIPT_PREFIX:-"openmediav
 OMV_USBBACKUP_LOGFILE=${OMV_USBBACKUP_LOGFILE:-"/var/log/rsync.log"}
 OMV_USBBACKUP_SYSTEMD_SCRIPTS_DIR=${OMV_USBBACKUP_SYSTEMD_SCRIPTS_DIR:-"/lib/systemd/system"}
 OMV_USBBACKUP_SYSTEMD_UNITFILE_PREFIX=${OMV_USBBACKUP_SYSTEMD_UNITFILE_PREFIX:-"openmediavault-usbbackup-"}
-OMV_USBBACKUP_SYSTEMD_UNITFILE_MASK=${OMV_USBBACKUP_SYSTEMD_UNITFILE_MASK:-"755"}
+OMV_USBBACKUP_SYSTEMD_UNITFILE_MASK=${OMV_USBBACKUP_SYSTEMD_UNITFILE_MASK:-"644"}
 
 # Create the backup jobs. Each job is configured in a seperate script.
 mkdir -p ${OMV_USBBACKUP_SCRIPTS_DIR}
@@ -70,7 +70,7 @@ xmlstarlet sel -t \
 		-v "concat('id=\$(omv_md5 ',devicefile,')')" -n \
 		-o "mountdir=\$(omv_build_mount_dir \${id})" -n \
 		-o "if ! omv_is_mounted \${mountdir} ; then" -n \
-		-v "concat('    echo \"External storage device <',devicefile,'> not mounted!\" | logger -s -t \$(basename \$0) 2>&1')" -n \
+		-v "concat('    omv_log \"External storage device <',devicefile,'> not mounted!\"')" -n \
 		-o "    exit 1" -n \
 		-o "fi" -n \
 		-o "trap cleanup 0 1 2 5 15" -n \
@@ -81,7 +81,7 @@ xmlstarlet sel -t \
 		  -o "chmod 777 \"\${mountdir}/" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -o "\"" -n \
 		-b \
 		-o "# Synchronise directories ..." -n \
-		-o "echo \"Please wait, syncing '" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "' to '\${mountdir}" -i "usesubdir = '1'" -o "/" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -b -o "' ...\n\" | logger -s -t \$(basename \$0) 2>&1" -n \
+		-o "omv_log \"Please wait, syncing '" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "' to '\${mountdir}" -i "usesubdir = '1'" -o "/" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -b -o "' ...\n\"" -n \
 		-o "rsync --verbose --log-file=\"${OMV_USBBACKUP_LOGFILE}\"" \
 		-i "recursive = '1'" -o " --recursive" -b \
 		-i "times = '1'" -o " --times" -b \
@@ -96,7 +96,8 @@ xmlstarlet sel -t \
 		-i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
 		-i "mode = 'push'" -o " \"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "/\" \"\${mountdir}" -i "usesubdir = '1'" -o "/" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -b -o "\"" -b \
 		-i "mode = 'pull'" -o " \"\${mountdir}" -i "usesubdir = '1'" -o "/" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -b -o "/\" \"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "\"" -b \
-		-o " & wait \$!" \
+		-o " & wait \$!" -n \
+		-o "omv_log \"\nSyncing completed successfully.\"" \
 		${OMV_CONFIG_FILE} | xmlstarlet unesc > ${filename}
 	  chmod ${OMV_USBBACKUP_SCRIPTS_MASK} ${filename}
   done
@@ -134,7 +135,7 @@ xmlstarlet sel -t \
 		-o "[ -e ${runfile} ] && exit 1" -n \
 		-o "# Check if the storage device exists." -n \
 		-o "if [ ! -b \"${devicefile}\" ]; then" -n \
-		-o "    echo \"External storage device '${devicefile}' not found!\" | logger -s -t \$(basename \$0) 2>&1" -n \
+		-o "    omv_log \"External storage device '${devicefile}' not found!\"" -n \
 		-o "    omv_beep_error" -n \
 		-o "    exit 1" -n \
 		-o "fi" -n \
@@ -143,7 +144,7 @@ xmlstarlet sel -t \
 		-o "mount ${devicefile} ${mountdir}" -n \
 		-o "# Make sure the storage device is mounted." -n \
 		-o "if ! omv_is_mounted ${mountdir} ; then" -n \
-		-o "    echo \"External storage device '${devicefile}' not mounted!\" | logger -s -t \$(basename \$0) 2>&1" -n \
+		-o "    omv_log \"External storage device '${devicefile}' not mounted!\"" -n \
 		-o "    omv_beep_error" -n \
 		-o "    exit 1" -n \
 		-o "fi" -n \
@@ -152,7 +153,17 @@ xmlstarlet sel -t \
 		-o "# Execute the rsync backup scripts." -n \
 		-o "omv_beep_start" -n \
 		-m "//services/usbbackup/jobs/job[devicefile='${devicefile}' and enable='1']" \
-		  -v "concat('${OMV_USBBACKUP_SCRIPTS_DIR}/${OMV_USBBACKUP_RSYNC_SCRIPT_PREFIX}',uuid,' & wait \$!')" -n \
+		  -v "concat('\$(${OMV_USBBACKUP_SCRIPTS_DIR}/${OMV_USBBACKUP_RSYNC_SCRIPT_PREFIX}',uuid)" \
+		  -i "sendemail[. = '1']" \
+		    -o " | mail -E -s \"USB Backup (shared folder=" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -o ", device=" -v devicefile -o ")" \
+			-i "string-length(comment) > 0" \
+			  -v "concat(' - ',translate(comment,'\
+
+',' '))" \
+			-b \
+			-o "\" -a \"From: USB Backup <root>\" root" \
+		  -b \
+		  -o ") & wait \$!" -n \
 		-b \
 		-o "sync" -n \
 		-o "omv_beep_ok" \
