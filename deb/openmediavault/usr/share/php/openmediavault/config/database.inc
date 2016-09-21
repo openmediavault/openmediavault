@@ -446,14 +446,25 @@ class Database {
 	 *   ]
 	 *   @endcode
 	 * @return TRUE if no configuration object with the same property
-	 *   value exists, otherwise FALSE.
+	 *   values (specified by the filter) exists, otherwise FALSE.
 	 */
 	public function isUniqueByFilter(ConfigObject $object, $filter) {
+		// If the object is iterable and not new, then we need to modify the
+		// filter to do not find the object itself.
+		if ((FALSE === $object->isNew()) && (TRUE === $object->isIterable())) {
+			$idProperty = $object->getModel()->getIdProperty();
+			$filter = [
+				"operator" => "and",
+ 				"arg0" => [
+ 					"operator" => "stringNotEquals",
+ 					"arg0" => $idProperty,
+ 					"arg1" => $object->get($idProperty)
+ 				],
+ 				"arg1" => $filter
+			];
+		}
 		$objects = $this->getByFilter($object->getModelId(), $filter);
-		$numObjects = count($objects);
-		if ($object->isNew())
-			return (0 == $numObjects);
-		return (1 == $numObjects);
+		return (0 == count($objects));
 	}
 
 	/**
