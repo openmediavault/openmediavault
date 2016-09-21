@@ -72,7 +72,6 @@ Ext.define("OMV.module.admin.service.ftp.Share", {
 			xtype: "sharedfoldercombo",
 			name: "sharedfolderref",
 			fieldLabel: _("Shared folder"),
-			readOnly: (me.uuid !== OMV.UUID_UNDEFINED),
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The location of the files to share.")

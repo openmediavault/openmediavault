@@ -167,11 +167,9 @@ class OMVRpcServiceFtp extends \OMV\Rpc\ServiceAbstract {
 		$object->setAssoc($params);
 		// Set the configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $object->isNew()) {
-			// Check uniqueness. A shared folder can only be configured once
-			// for FTP.
-			$db->assertIsUnique($object, "sharedfolderref");
-		}
+		// Check uniqueness:
+		// - A shared folder can only be configured once for FTP.
+		$db->assertIsUnique($object, "sharedfolderref");
 		$db->set($object);
 		// Return the configuration object.
 		return $object->getAssoc();
