@@ -272,15 +272,26 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		  DIRECTORY_SEPARATOR);
 		// Set the configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $object->isNew()) {
-			// Check uniqueness:
-			// - The share name must be global unique because the name
-			//   is also used when exporting a shared folder via NFS
-			//   for example.
-			$db->assertIsUnique($object, "name");
-			// - The mount directory must be unique, too.
-			$db->assertIsUnique($object, "reldirpath");
-		} else {
+		// Check uniqueness:
+		// - The share name must be global unique because the name
+		//   is also used when exporting a shared folder via NFS
+		//   for example.
+		$db->assertIsUnique($object, "name");
+		// - The mount directory must be unique on the same volume, too.
+		$db->assertIsUniqueByFilter($object, [
+			"operator" => "and",
+			"arg0" => [
+				"operator" => "stringEquals",
+				"arg0" => "mntentref",
+				"arg1" => $object->get("mntentref")
+			],
+			"arg1" => [
+				"operator" => "stringEquals",
+				"arg0" => "reldirpath",
+				"arg1" => $object->get("reldirpath")
+			]
+		]);
+		if (FALSE === $object->isNew()) {
 			// Get the existing configuration object.
 			$oldObject = $db->get("conf.system.sharedfolder", $params['uuid']);
 			// Copy the privileges.
