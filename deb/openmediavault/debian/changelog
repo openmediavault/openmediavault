@@ -1,6 +1,7 @@
 openmediavault (3.0.37) stable; urgency=low
 
-  * 
+  * Improve the configuration object uniqueness check in the backend.
+  * Remove the ability to set an individual SMB share name.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 20 Sep 2016 00:21:16 +0200
 
