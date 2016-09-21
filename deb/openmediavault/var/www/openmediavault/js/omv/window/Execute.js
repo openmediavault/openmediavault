@@ -49,6 +49,8 @@
  *   Defaults to TRUE.
  * @param welcomeText The text that is displayed when the dialog is shown.
  *   The text is only shown if \em progress is set to FALSE. Defaults to ''.
+ * @param infoText The text that is displayed at the bottom of the dialog
+ *   in a tip toolbar. Defaults to ''.
  */
 Ext.define("OMV.window.Execute", {
 	extend: "OMV.window.Window",
@@ -144,6 +146,15 @@ Ext.define("OMV.window.Execute", {
 			]
 		});
 		me.callParent(arguments);
+		// Display a tip toolbar at the bottom of the dialog.
+		if (false === Ext.isEmpty(me.infoText)) {
+			me.addDocked({
+				xtype: "tiptoolbar",
+				dock: "bottom",
+				ui: "footer",
+				text: me.infoText
+			});
+		}
 	},
 
 	/**
