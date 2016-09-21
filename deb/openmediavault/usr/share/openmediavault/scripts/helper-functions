@@ -885,6 +885,7 @@ omv_kill_children() {
 	_pid=$1
 	[ -z "${_pid}" ] && return
 	for _cpid in $(pgrep -P ${_pid}); do
+		omv_is_proc_running_pid ${_cpid} || continue
 		kill ${_cpid}
 	done
 }
