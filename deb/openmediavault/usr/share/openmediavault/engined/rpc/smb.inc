@@ -161,13 +161,9 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 		$object->setAssoc($params);
 		// Set the configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $object->isNew()) {
-			// Check uniqueness:
-			// - Share name
-			// - Shared folder
-			$db->assertIsUnique($object, "name");
-			$db->assertIsUnique($object, "sharedfolderref");
-		}
+		// Check uniqueness:
+		// - Shared folder
+		$db->assertIsUnique($object, "sharedfolderref");
 		$db->set($object);
 		// Return the configuration object.
 		return $object->getAssoc();

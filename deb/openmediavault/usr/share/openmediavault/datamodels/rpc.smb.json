@@ -83,10 +83,6 @@
 				"format": "uuidv4",
 				"required": true
 			},
-			"name": {
-				"type": "string",
-				"required": true
-			},
 			"comment": {
 				"type": "string",
 				"required": true

@@ -71,21 +71,6 @@ Ext.define("OMV.module.admin.service.smb.Share", {
 						{ name: "recyclebin", value: true }
 					],
 					properties: "enabled"
-				},{
-					// Automatically set the share name, except it has
-					// already been entered.
-					name: "name",
-					conditions: [
-						{ name: "sharedfolderref", op: "n" },
-						{ name: "name", op: "z" }
-					],
-					properties: function(valid, field) {
-						if (!valid)
-							return;
-						var record = this.findField("sharedfolderref").
-						  getRecord();
-						field.setValue(record.get("name"));
-					}
 				}]
 			}]
 		}
@@ -105,16 +90,6 @@ Ext.define("OMV.module.admin.service.smb.Share", {
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The location of the files to share.")
-			}]
-		},{
-			xtype: "textfield",
-			name: "name",
-			fieldLabel: _("Name"),
-			allowBlank: false,
-			vtype: "sharename",
-			plugins: [{
-				ptype: "fieldinfo",
-				text: _("The name of the share.")
 			}]
 		},{
 			xtype: "textfield",
@@ -357,11 +332,6 @@ Ext.define("OMV.module.admin.service.smb.Shares", {
 		dataIndex: "sharedfoldername",
 		stateId: "sharedfoldername"
 	},{
-		text: _("Name"),
-		sortable: true,
-		dataIndex: "name",
-		stateId: "name"
-	},{
 		text: _("Comment"),
 		sortable: true,
 		dataIndex: "comment",
@@ -402,7 +372,6 @@ Ext.define("OMV.module.admin.service.smb.Shares", {
 						{ name: "uuid", type: "string" },
 						{ name: "enable", type: "boolean" },
 						{ name: "sharedfoldername", type: "string" },
-						{ name: "name", type: "string" },
 						{ name: "comment", type: "string" },
 						{ name: "browseable", type: "boolean" },
 						{ name: "readonly", type: "boolean" },

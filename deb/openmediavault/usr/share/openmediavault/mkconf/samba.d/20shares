@@ -68,7 +68,7 @@ while [ ${index} -gt 0 ]; do
 		sfpath=$(omv_get_sharedfolder_path "${sfref}")
 
 		xmlstarlet sel -t -m "//services/smb/shares/share[uuid='${uuid}']" \
-		  -v "concat('[',name,']')" -n \
+		  -o "[" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -o "]" -n \
 		  -i "string-length(comment) > 0" -v "concat('comment = ',comment)" -n -b \
 		  -o "path = ${sfpath}" -n \
 		  -i "guest[. = 'no']" -o "guest ok = no" -n -b \

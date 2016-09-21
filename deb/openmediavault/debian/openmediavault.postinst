@@ -652,6 +652,9 @@ case "$1" in
 			omv-mkconf monit
 			systemctl reload monit
 		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.37"; then
+			omv_config_delete "/config/services/smb/shares/share/name"
+		fi
 
 		########################################################################
 		# Show help text.
