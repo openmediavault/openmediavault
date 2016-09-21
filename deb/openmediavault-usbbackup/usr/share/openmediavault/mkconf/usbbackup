@@ -97,7 +97,7 @@ xmlstarlet sel -t \
 		-i "mode = 'push'" -o " \"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "/\" \"\${mountdir}" -i "usesubdir = '1'" -o "/" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -b -o "\"" -b \
 		-i "mode = 'pull'" -o " \"\${mountdir}" -i "usesubdir = '1'" -o "/" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -b -o "/\" \"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "\"" -b \
 		-o " & wait \$!" -n \
-		-o "omv_log \"\nSyncing completed successfully.\"" \
+		-o "omv_log \"\nSyncing successfully completed.\"" \
 		${OMV_CONFIG_FILE} | xmlstarlet unesc > ${filename}
 	  chmod ${OMV_USBBACKUP_SCRIPTS_MASK} ${filename}
   done
