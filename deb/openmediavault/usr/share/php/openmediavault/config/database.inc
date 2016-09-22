@@ -169,7 +169,7 @@ class Database {
 		}
 		if (1 == $maxResult) {
 			if (empty($result)) {
-				throw new \InvalidArgumentException(sprintf(
+				throw new DatabaseException(sprintf(
 				  "The XPath query '%s' does not return the requested ".
 				  "number of %d object(s).", $xpath, $maxResult));
 			}
