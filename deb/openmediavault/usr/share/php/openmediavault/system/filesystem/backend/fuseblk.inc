@@ -21,16 +21,17 @@
  */
 namespace OMV\System\Filesystem\Backend;
 
-///////////////////////////////////////////////////////////////////////////////
-// Register default filesystem backends.
-///////////////////////////////////////////////////////////////////////////////
-$backends = [ "Btrfs", "Ext", "Ext2", "Ext3", "Ext4", "Hfsplus",
-  "Iso9660", "Jfs", "Msdos", "None", "Ntfs", "Reiserfs", "Udf", "Ufs",
-  "Umsdos", "Exfat", "Vfat", "Xfs", "Fuseblk" ];
-$mngr = Manager::getInstance();
-foreach ($backends as $backendk => $backendv) {
-	$className = sprintf("%s\%s", __NAMESPACE__, $backendv);
-	$mngr->registerBackend(new $className());
+/**
+ * This backend is required to support filesystems that are mounted
+ * via FUSE.
+ *
+ * Such filesystems are listed as type 'fuseblk' in /proc/mounts:
+ * /dev/sdj1 on /media/43C00A552F032479 type fuseblk (rw,relatime,user_id=0,group_id=0,allow_other,blksize=4096)
+ * The blkid command has the following output:
+ * /dev/sdj1: UUID="43C00A552F032479" TYPE="ntfs" PARTUUID="6eaa90f6-01"
+ */
+class Fuseblk extends BackendAbstract {
+	public function __construct() {
+		$this->type = "fuseblk";
+	}
 }
-if (TRUE === $debug)
-	$mngr->dump();
