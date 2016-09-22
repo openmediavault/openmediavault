@@ -928,12 +928,11 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Get the fstab mount point configuration object.
 			if (is_devicefile($params['id'])) {
 				// Use the filesystem name to identify the object.
-				$meObject = $db->getByFilter(
-				  "conf.system.filesystem.mountpoint", [
-					  "operator" => "stringEquals",
-					  "arg0" => "fsname",
-					  "arg1" => $params['id']
-				  ], 1);
+				$filter = [
+					"operator" => "stringEquals",
+					"arg0" => "fsname",
+					"arg1" => $params['id']
+				];
 			} else {
 				// Use the filesystem UUID to identify the object by its mount
 				// point directory:
@@ -942,14 +941,15 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				// /media/74A225C8A2258F (NTFS)
 				// /media/9e8aaee0-ab3a-467f-9bdb-7cced3b8afc4 (EXT2/3/4, JFS, XFS)
 				// /media/2015-04-25-12-52-13-00 (ISO9660, UDF)
-				$meObject = $db->getByFilter(
-				  "conf.system.filesystem.mountpoint", [
-					  "operator" => "stringEquals",
-					  "arg0" => "dir",
-					  "arg1" => \OMV\System\Filesystem\Filesystem::
-					    buildMountPath($params['id'])
-				  ], 1);
+				$filter = [
+					"operator" => "stringEquals",
+					"arg0" => "dir",
+					"arg1" => \OMV\System\Filesystem\Filesystem::
+					  buildMountPath($params['id'])
+				];
 			}
+			$meObject = $db->getByFilter("conf.system.filesystem.mountpoint",
+			  $filter, 1);
 			// Delete the mount point configuration object. Unmount the
 			// filesystem and unlink the mount point. Changes to the fstab
 			// module must not be applied immediately.
