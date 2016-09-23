@@ -144,9 +144,6 @@ class Database {
 	 * @throw \OMV\Config\DatabaseException
 	 */
 	public function getByFilter($id, $filter, $maxResult = NULL) {
-		// Is the filter valid?
-		if ((FALSE === is_array($filter)) || (TRUE === empty($filter)))
-			throw new \InvalidArgumentException("Unset or empty filter.");
 		// Get the specified data model.
 		$mngr = \OMV\DataModel\Manager::getInstance();
 		$model = $mngr->getModel($id);
@@ -328,13 +325,9 @@ class Database {
 	 * ]
 	 * @endcode
 	 * @return None.
-	 * @throw \InvalidArgumentException
 	 * @throw \OMV\Config\DatabaseException
 	 */
 	public function deleteByFilter($id, $filter) {
-		// Is the filter valid?
-		if ((FALSE === is_array($filter)) || (TRUE === empty($filter)))
-			throw new \InvalidArgumentException("Unset or empty filter.");
 		// Get the specified data model.
 		$mngr = \OMV\DataModel\Manager::getInstance();
 		$model = $mngr->getModel($id);
@@ -454,12 +447,8 @@ class Database {
 	 *   @endcode
 	 * @return TRUE if no configuration object with the same property
 	 *   values (specified by the filter) exists, otherwise FALSE.
-	 * @throw \InvalidArgumentException
 	 */
 	public function isUniqueByFilter(ConfigObject $object, $filter) {
-		// Is the filter valid?
-		if ((FALSE === is_array($filter)) || (TRUE === empty($filter)))
-			throw new \InvalidArgumentException("Unset or empty filter.");
 		// If the object is iterable and not new, then we need to modify the
 		// filter to do not find the object itself.
 		if ((FALSE === $object->isNew()) && (TRUE === $object->isIterable())) {

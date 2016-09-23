@@ -146,11 +146,23 @@ class DatabaseBackendQueryBuilder {
 	 *         ]
 	 *     ]
 	 * ]
+	 * @param filter A filter specifying constraints to build the
+	 *   database query.
+	 * @return The database query string.
+	 * @throw \InvalidArgumentException
 	 */
 	final public function buildPredicate($filter) {
 		if (FALSE === is_array($filter)) {
 			throw new \InvalidArgumentException(
-			  "Filter is not an associative array.");
+			  "The filter is not an associative array.");
+		}
+		if (TRUE === empty($filter)) {
+			throw new \InvalidArgumentException(
+			  "The filter must not be empty.");
+		}
+		if (FALSE === array_key_exists("operator")) {
+			throw new \InvalidArgumentException(
+			  "The filter is invalid. The 'operator' field is missing.");
 		}
 		$result = "";
 		switch ($filter['operator']) {
