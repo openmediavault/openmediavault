@@ -44,11 +44,6 @@ Ext.define("OMV.module.admin.service.afp.Settings", {
 				name: "enable",
 				fieldLabel: _("Enable"),
 				checked: false
-			},{
-				xtype: "textfield",
-				name: "extraoptions",
-				fieldLabel: _("Extra options"),
-				allowBlank: true
 			}]
 		},{
 			xtype: "fieldset",
@@ -75,6 +70,15 @@ Ext.define("OMV.module.admin.service.afp.Settings", {
 				fieldLabel: _("Allow plain passwords"),
 				checked: false,
 				boxLabel: _("Allow logins with passwords transmitted in the clear.")
+			},{
+				xtype: "textarea",
+				name: "extraoptions",
+				fieldLabel: _("Extra options"),
+				allowBlank: true,
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("Please check the <a href='http://netatalk.sourceforge.net/3.0/htmldocs/afp.conf.5.html' target='_blank'>manual page</a> for more details."),
+				}]
 			}]
 		}];
 	}

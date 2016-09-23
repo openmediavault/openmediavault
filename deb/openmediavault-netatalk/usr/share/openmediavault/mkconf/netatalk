@@ -20,19 +20,36 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# http://tobias-bartel.de/howtos/time-capsule-nach-debian-art
-# http://www.nexenta.org/projects/site/wiki/AFP_with_TimeMachine
-# http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume
-# http://forum.ubuntuusers.de/topic/netatalk-2-0-5-time-machine-support
-# http://reh-anton.de/blog/2009/12/time-capsule-light-mit-netatalk-2-0-5
-# http://sidikahawa.blogspot.com/2010/03/setting-up-time-machine-server-on-my.html
-# http://www.ohnekontur.de/index.php/2010/03/23/netatalk-2-0-5-time-machine-support
-# http://developer.apple.com/mac/library/documentation/NetworkingInternetWeb/Conceptual/TimeMachineNetworkInterfaceSpecification/TimeMachineRequirements/TimeMachineRequirements.html#//apple_ref/doc/uid/TP40008951-CH100-SW1
+# http://netatalk.sourceforge.net/wiki/index.php/Install_Netatalk_3.1.9_on_Debian_8_Jessie
+# https://kofler.info/netatalk-3-konfiguration-fuer-time-machine-backups/
+# http://www.rootathome.de/installation-von-netatalk-unter-debian/
+# https://samuelhewitt.com/blog/2015-09-12-debian-linux-server-mac-os-time-machine-backups-how-to
+# http://www.tuksub.de/2015/04/homeserver-31-time-machine-funktionalitaet-unter-debian-8-wiederherstellen/
+# https://daniel-lange.com/archives/102-Apple-Timemachine-backups-on-Debian-8-Jessie.html
 
 set -e
 
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
+
+OMV_MKCONF_SCRIPTS_DIR=${OMV_MKCONF_SCRIPTS_DIR:-"/usr/share/openmediavault/mkconf"}
+
+OMV_NETATALK_EXTENSIONS_DIR=${OMV_NETATALK_EXTENSIONS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/netatalk.d"}
+OMV_NETATALK_AFP_CONFIG=${OMV_NETATALK_AFP_CONFIG:-"/etc/netatalk/afp.conf"}
+
+# Add additional extensions to the configuration file
+cat /dev/null > ${OMV_NETATALK_AFP_CONFIG}
+run-parts --exit-on-error ${OMV_NETATALK_EXTENSIONS_DIR}
+
+
+
+
+
+
+
+
+
+################ CUT HERE ########################
 
 OMV_NETATALK_DEFAULT=${OMV_NETATALK_DEFAULT:-"/etc/default/netatalk"}
 OMV_NETATALK_AFPD_CONFIG=${OMV_NETATALK_AFPD_CONFIG:-"/etc/netatalk/afpd.conf"}
@@ -234,9 +251,3 @@ EOF
 	  -b \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_NETATALK_AVDEFAULT_CONFIG}
 }
-
-case "$1" in
-	mkconf|*)
-		mkconf
-		;;
-esac

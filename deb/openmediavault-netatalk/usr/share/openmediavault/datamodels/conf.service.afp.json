@@ -35,9 +35,6 @@
 								"type": "string",
 								"format": "uuidv4"
 							},
-							"name": {
-								"type": "string"
-							},
 							"comment": {
 								"type": "string"
 							},

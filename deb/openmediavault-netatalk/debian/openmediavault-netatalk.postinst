@@ -82,12 +82,6 @@ case "$1" in
 			object="${object}<extraoptions></extraoptions>"
 			object="${object}<shares></shares>"
 			omv_config_add_element "/config/services" "afp" "${object}" true
-			# Add Zeroconf configuration.
-			object="<uuid>$(omv_uuid)</uuid>"
-			object="${object}<id>afp</id>"
-			object="${object}<enable>1</enable>"
-			object="${object}<name>%h - AFP</name>"
-			omv_config_add_element "/config/services/zeroconf/services" "service" "${object}" true
 		fi
 
 		########################################################################
@@ -120,6 +114,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "0.5"; then
 			# Add avahi configuration.
 			omv_config_add_element "/config/services/zeroconf/services" "service" "<id>afp</id><enable>1</enable><name>%h - AFP</name>" true
+		fi
+		if dpkg --compare-versions "$2" lt-nl "3.1"; then
+			omv_config_delete "/config/services/afp/shares/share/name"
 		fi
 	;;
 

@@ -56,30 +56,6 @@ Ext.define("OMV.module.admin.service.afp.Share", {
 	 * @param uuid The UUID of the database/configuration object. Required.
 	 */
 
-	getFormConfig: function() {
-		return {
-			plugins: [{
-				ptype: "linkedfields",
-				correlations: [{
-					// Automatically set the share name, except it has
-					// already been entered.
-					name: "name",
-					conditions: [
-						{ name: "sharedfolderref", op: "n" },
-						{ name: "name", op: "z" }
-					],
-					properties: function(valid, field) {
-						if (!valid)
-							return;
-						var record = this.findField("sharedfolderref").
-						  getRecord();
-						field.setValue(record.get("name"));
-					}
-				}]
-			}]
-		}
-	},
-
 	getFormItems: function() {
 		var me = this;
 		return [{
@@ -92,14 +68,10 @@ Ext.define("OMV.module.admin.service.afp.Share", {
 			}]
 		},{
 			xtype: "textfield",
-			name: "name",
-			fieldLabel: _("Name"),
-			allowBlank: false,
-			vtype: "sharename",
-			plugins: [{
-				ptype: "fieldinfo",
-				text: _("The name of the share.")
-			}]
+			name: "comment",
+			fieldLabel: _("Comment"),
+			allowBlank: true,
+			vtype: "comment"
 		},{
 			xtype: "passwordfield",
 			name: "password",
@@ -208,16 +180,14 @@ Ext.define("OMV.module.admin.service.afp.Share", {
 				text: _("Limit the reported volume size to the given value in MiB, thus preventing TM from using the whole disk space for backup. Set this value to 0 to disable this option.")
 			}]
 		},{
-			xtype: "textfield",
+			xtype: "textarea",
 			name: "extraoptions",
 			fieldLabel: _("Extra options"),
-			allowBlank: true
-		},{
-			xtype: "textfield",
-			name: "comment",
-			fieldLabel: _("Comment"),
 			allowBlank: true,
-			vtype: "comment"
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("Please check the <a href='http://netatalk.sourceforge.net/3.0/htmldocs/afp.conf.5.html' target='_blank'>manual page</a> for more details."),
+			}]
 		}];
 	}
 });
@@ -247,11 +217,6 @@ Ext.define("OMV.module.admin.service.afp.Shares", {
 		dataIndex: "sharedfoldername",
 		stateId: "sharedfoldername"
 	},{
-		text: _("Name"),
-		sortable: true,
-		dataIndex: "name",
-		stateId: "name"
-	},{
 		text: _("Comment"),
 		sortable: true,
 		dataIndex: "comment",
@@ -274,7 +239,6 @@ Ext.define("OMV.module.admin.service.afp.Shares", {
 					fields: [
 						{ name: "uuid", type: "string" },
 						{ name: "sharedfoldername", type: "string" },
-						{ name: "name", type: "string" },
 						{ name: "comment", type: "string" },
 						{ name: "ro", mapping: "options.ro", type: "boolean" }
 					]

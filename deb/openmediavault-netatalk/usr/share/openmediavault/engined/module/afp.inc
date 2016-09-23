@@ -166,10 +166,6 @@ class OMVModuleAFP extends \OMV\Engine\Module\ServiceAbstract implements
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.afp",
-		  [ $moduleMngr->getModule("zeroconf"), "setDirty" ]);
-		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.afp",
 		  [ $moduleMngr->getModule("monit"), "setDirty" ]);
     }
 }
