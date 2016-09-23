@@ -25,6 +25,7 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_NETATALK_AFP_CONFIG=${OMV_NETATALK_AFP_CONFIG:-"/etc/netatalk/afp.conf"}
+OMV_NETATALK_AFP_GUEST=${OMV_NETATALK_AFP_GUEST:-"nobody"}
 
 [ "$(omv_config_get "//services/afp/enable")" = "0" ] && exit 0
 
@@ -35,7 +36,7 @@ while [ ${index} -gt 0 ]; do
 	# Process enabled shares.
 	enabled=$(omv_config_get "//services/afp/shares/share[uuid='${uuid}']/enable")
 	if [ "${enabled}" = "1" ]; then
-		# Get the shared folder reference and path
+		# Get the shared folder reference and path.
 		sfref=$(omv_config_get "//services/afp/shares/share[uuid='${uuid}']/sharedfolderref")
 		sfpath=$(omv_get_sharedfolder_path "${sfref}")
 
@@ -50,6 +51,9 @@ while [ ${index} -gt 0 ]; do
 		  -i "options[invisibledots = '1']" -o "invisible dots = yes" -n \
 		  -i "options[tm = '0']" -o "time machine = no" -n \
 		  -i "options[tm = '1']" -o "time machine = yes" -n \
+		  -i "string-length(password) > 0" -v "concat('password = ',password)" -b -n \
+		  -i "volsizelimit > 0" -v "concat('vol size limit = ',volsizelimit)" -b -n \
+		  -i "not(casefold[. = 'none'])" -v "concat('casefold = ',casefold)" -b -n \
 		  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_NETATALK_AFP_CONFIG}
 
 		# Process the share privileges. Users with '0 = no permission' are added
@@ -60,7 +64,7 @@ while [ ${index} -gt 0 ]; do
 		readlist=""
 		writelist=""
 
-		# Get shared folder user privileges
+		# Get shared folder user privileges.
 		privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='user']" \
 		  -v "concat(perms,':',name)" -n \
 		  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
@@ -71,23 +75,23 @@ while [ ${index} -gt 0 ]; do
 			name=${privilege#*:}
 			# Append user to list
 			case ${perms} in
-			0)	[ -n "${invalidusers}" ] && invalidusers="${invalidusers},";
+			0)	[ -n "${invalidusers}" ] && invalidusers="${invalidusers} ";
 				invalidusers="${invalidusers}\"${name}\"";;
 			5)
-				[ -n "${readlist}" ] && readlist="${readlist},";
+				[ -n "${readlist}" ] && readlist="${readlist} ";
 				readlist="${readlist}\"${name}\"";
-				[ -n "${validusers}" ] && validusers="${validusers},";
+				[ -n "${validusers}" ] && validusers="${validusers} ";
 				validusers="${validusers}\"${name}\"";;
 			7)
-				[ -n "${writelist}" ] && writelist="${writelist},";
+				[ -n "${writelist}" ] && writelist="${writelist} ";
 				writelist="${writelist}\"${name}\"";
-				[ -n "${validusers}" ] && validusers="${validusers},";
+				[ -n "${validusers}" ] && validusers="${validusers} ";
 				validusers="${validusers}\"${name}\"";;
 			esac
 		done
 		unset IFS
 
-		# Get shared folder group privileges
+		# Get shared folder group privileges.
 		privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='group']" \
 		  -v "concat(perms,':',name)" -n \
 		  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
@@ -98,164 +102,43 @@ while [ ${index} -gt 0 ]; do
 			name=${privilege#*:}
 			# Append group to list
 			case ${perms} in
-			0)	[ -n "${invalidusers}" ] && invalidusers="${invalidusers},";
+			0)	[ -n "${invalidusers}" ] && invalidusers="${invalidusers} ";
 				invalidusers="${invalidusers}@\"${name}\"";;
 			5)
-				[ -n "${readlist}" ] && readlist="${readlist},";
+				[ -n "${readlist}" ] && readlist="${readlist} ";
 				readlist="${readlist}@\"${name}\"";
-				[ -n "${validusers}" ] && validusers="${validusers},";
+				[ -n "${validusers}" ] && validusers="${validusers} ";
 				validusers="${validusers}@\"${name}\"";;
 			7)
-				[ -n "${writelist}" ] && writelist="${writelist},";
+				[ -n "${writelist}" ] && writelist="${writelist} ";
 				writelist="${writelist}@\"${name}\"";
-				[ -n "${validusers}" ] && validusers="${validusers},";
+				[ -n "${validusers}" ] && validusers="${validusers} ";
 				validusers="${validusers}@\"${name}\"";;
 			esac
 		done
 		unset IFS
 
-		xmlstarlet sel -t -m "//services/smb/shares/share[uuid='${uuid}']" \
-		  -i "not(guest[. = 'only'])" \
-		    -i "guest[. = 'no']" \
-		      -o "valid users = ${validusers}" -n \
-		      -o "invalid users = ${invalidusers}" -n \
-			-b \
-		    -o "read list = ${readlist}" -n \
-		    -i "readonly[. = '0']" -o "write list = ${writelist}" -n -b \
-		  -b \
-		  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_SAMBA_CONFIG}
+		# Process the guest account.
+		if [ "$(omv_config_get "//services/afp/shares/share[uuid='${uuid}']/allowguest")" = "1" ]; then
+			validusers="${validusers} \"${OMV_NETATALK_AFP_GUEST}\""
+			if [ "$(omv_config_get "//services/afp/shares/share[uuid='${uuid}']/guestrw")" = "1" ]; then
+				writelist="${writelist} \"${OMV_NETATALK_AFP_GUEST}\""
+			else
+				readlist="${readlist} \"${OMV_NETATALK_AFP_GUEST}\""
+			fi
+		fi
+
+		xmlstarlet sel -t -m "//services/afp/shares/share[uuid='${uuid}']" \
+		  -o "valid users = ${validusers}" -n \
+		  -o "invalid users = ${invalidusers}" -n \
+		  -o "rolist = ${readlist}" -n \
+		  -o "rwlist = ${writelist}" -n \
+		  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_NETATALK_AFP_CONFIG}
 
 		# Add extra options.
-		xmlstarlet sel -t -m "//services/smb/shares/share[uuid='${uuid}']" \
+		xmlstarlet sel -t -m "//services/afp/shares/share[uuid='${uuid}']" \
 		  -i "string-length(extraoptions) > 0" -v extraoptions -n -b \
-		  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_SAMBA_CONFIG}
+		  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_NETATALK_AFP_CONFIG}
 	fi
-	index=$(( ${index} - 1 ))
-done
-
-
-############### CUT HERE ###################
-while [ ${index} -gt 0 ]; do
-	# Get the shared folder reference and path
-	sfref=$(omv_config_get "//services/afp/shares/share[position()=${index}]/sharedfolderref")
-	sfpath=$(omv_get_sharedfolder_path "${sfref}")
-
-	# Process the share privileges. Users with '0 = no permission' are added
-	# to 'deny' (to deny access), users with '5 = read and execute'
-	# are added to the 'allow'.
-	allow=""
-	deny=""
-	readlist=""
-	writelist=""
-
-	# Get shared folder user privileges
-	privileges=$(xmlstarlet sel -t \
-	  -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='user']" \
-		-v "concat(perms,':',name)" -n \
-	  -b \
-	  -m "//services/afp/shares/share[position()=${index}]" \
-		-i "allowguest[. = '1']" \
-		  -i "guestrw[. = '1']" -o "7" -b \
-		  -i "guestrw[. = '0']" -o "5" -b \
-		  -o ":${OMV_NETATALK_AFPD_GUEST}" -n \
-		-b \
-		-i "allowguest[. = '0']" \
-		  -o "0" -b \
-		  -o ":${OMV_NETATALK_AFPD_GUEST}" -n \
-		-b \
-	  -b \
-	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
-	IFS="$(printf '\n+')"
-	for privilege in ${privileges}; do
-		[ -z "${privilege}" ] && continue
-		perms=${privilege%:*}
-		name=${privilege#*:}
-		# Append user to list
-		case ${perms} in
-		0)
-			# Append user to list of denied users.
-			[ -n "${deny}" ] && deny="${deny},";
-			deny="${deny}\"${name}\"";
-			;;
-		5)
-			# Append user to list of users with read privileges.
-			[ -n "${readlist}" ] && readlist="${readlist},";
-			readlist="${readlist}\"${name}\"";
-			# Stop the processing of the guest account here.
-			#[ "${name}" == "${OMV_NETATALK_AFPD_GUEST}" ] && continue;
-			# Append user to list of allowed users.
-			#[ -n "${allow}" ] && allow="${allow},";
-			#allow="${allow}\"${name}\"";
-			;;
-		7)
-			# Append user to list of users with read/write privileges.
-			[ -n "${writelist}" ] && writelist="${writelist},";
-			writelist="${writelist}\"${name}\"";
-			# Stop the processing of the guest account here.
-			#[ "${name}" == "${OMV_NETATALK_AFPD_GUEST}" ] && continue;
-			# Append user to list of allowed users.
-			#[ -n "${allow}" ] && allow="${allow},";
-			#allow="${allow}\"${name}\"";
-			;;
-		esac
-	done
-	unset IFS
-
-	# Get shared folder group privileges
-	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='group']" \
-	  -v "concat(perms,':',name)" -n \
-	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
-	IFS="$(printf '\n+')"
-	for privilege in ${privileges}; do
-		[ -z "${privilege}" ] && continue
-		perms=${privilege%:*}
-		name=${privilege#*:}
-		# Append group to list
-		case ${perms} in
-		0)
-			[ -n "${deny}" ] && deny="${deny},";
-			deny="${deny}@\"${name}\"";
-			;;
-		5)
-			[ -n "${readlist}" ] && readlist="${readlist},";
-			readlist="${readlist}@\"${name}\"";
-			#[ -n "${allow}" ] && allow="${allow},";
-			#allow="${allow}@\"${name}\"";
-			;;
-		7)
-			[ -n "${writelist}" ] && writelist="${writelist},";
-			writelist="${writelist}@\"${name}\"";
-			#[ -n "${allow}" ] && allow="${allow},";
-			#allow="${allow}@\"${name}\"";
-			;;
-		esac
-	done
-	unset IFS
-
-	accessrights=""
-	#[ -n "${allow}" ] && accessrights="${accessrights} allow:${allow}"
-	[ -n "${deny}" ] && accessrights="${accessrights} deny:${deny}"
-	[ -n "${readlist}" ] && accessrights="${accessrights} rolist:${readlist}"
-	#[ -n "${writelist}" ] && accessrights="${accessrights} rwlist:${writelist}"
-
-	xmlstarlet sel -t -m "//services/afp/shares/share[position()=${index}]" \
-	  -n \
-	  -v
-	  -o "\"${sfpath}\"" \
-	  -i "string-length(comment) > 0" -v "concat(' \"',comment,'\"')" -b \
-	  -i "string-length(comment) = 0" -v "concat(' \"',name,'\"')" -b \
-	  -i "string-length(password) > 0" -v "concat(' password:',password)" -b \
-	  -i "volsizelimit > 0" -v "concat(' volsizelimit:',volsizelimit)" -b \
-	  -i "not(casefold[. = 'none'])" -v "concat(' casefold:',casefold)" -b \
-	  -o " options:" \
-	  -m "options/*[. = '1']" \
-		  -i "position() != 1" -o "," -b \
-		  -v "local-name()" \
-	  -b \
-	  -o "${accessrights}" \
-	  -i "string-length(extraoptions) > 0" -v extraoptions -b \
-	  -n \
-	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_NETATALK_AFP_CONFIG}
-
 	index=$(( ${index} - 1 ))
 done
