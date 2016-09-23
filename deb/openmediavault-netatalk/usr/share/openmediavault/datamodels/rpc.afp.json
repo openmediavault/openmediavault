@@ -33,13 +33,13 @@
 				"format": "uuidv4",
 				"required": true
 			},
+			"enable": {
+			    "type": "boolean",
+				"required": true
+			},
 			"sharedfolderref": {
 				"type": "string",
 				"format": "uuidv4",
-				"required": true
-			},
-			"name": {
-				"type": "string",
 				"required": true
 			},
 			"comment": {
@@ -81,19 +81,11 @@
 				"type": "boolean",
 				"required": true
 			},
-			"usedots": {
-				"type": "boolean",
-				"required": true
-			},
 			"invisibledots": {
 				"type": "boolean",
 				"required": true
 			},
 			"tm": {
-				"type": "boolean",
-				"required": true
-			},
-			"mswindows": {
 				"type": "boolean",
 				"required": true
 			},

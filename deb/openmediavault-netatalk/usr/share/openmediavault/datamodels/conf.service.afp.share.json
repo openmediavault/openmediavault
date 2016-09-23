@@ -12,6 +12,10 @@
 			"type": "string",
 			"format": "uuidv4"
 		},
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
 		"sharedfolderref": {
 			"type": "string",
 			"format": "uuidv4"
@@ -56,19 +60,11 @@
 					"type": "boolean",
 					"default": false
 				},
-				"usedots": {
-					"type": "boolean",
-					"default": false
-				},
 				"invisibledots": {
 					"type": "boolean",
 					"default": false
 				},
 				"tm": {
-					"type": "boolean",
-					"default": false
-				},
-				"mswindows": {
 					"type": "boolean",
 					"default": false
 				}

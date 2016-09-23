@@ -60,10 +60,8 @@ case "$1" in
 		#       		<options>
 		#       			<ro>0|1</ro>
 		#       			<upriv>0|1</upriv>
-		#       			<usedots>0|1</usedots>
 		#       			<invisibledots>0|1</invisibledots>
 		#       			<tm>0|1</tm>
-		#       			<mswindows>0|1</mswindows>
 		#       		</options>
 		#       		<extraoptions></extraoptions>
 		#       	</share>
@@ -116,7 +114,10 @@ case "$1" in
 			omv_config_add_element "/config/services/zeroconf/services" "service" "<id>afp</id><enable>1</enable><name>%h - AFP</name>" true
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.1"; then
+			omv_config_add_element "/config/services/afp/shares/share" "enable" "1"
 			omv_config_delete "/config/services/afp/shares/share/name"
+			omv_config_delete "/config/services/afp/shares/share/options/usedots"
+			omv_config_delete "/config/services/afp/shares/share/options/mswindows"
 		fi
 	;;
 

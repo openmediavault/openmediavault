@@ -59,6 +59,11 @@ Ext.define("OMV.module.admin.service.afp.Share", {
 	getFormItems: function() {
 		var me = this;
 		return [{
+			xtype: "checkbox",
+			name: "enable",
+			fieldLabel: _("Enable"),
+			checked: true
+		},{
 			xtype: "sharedfoldercombo",
 			name: "sharedfolderref",
 			fieldLabel: _("Shared folder"),
@@ -122,26 +127,10 @@ Ext.define("OMV.module.admin.service.afp.Share", {
 			boxLabel: _("Use AFP3 unix privileges.")
 		},{
 			xtype: "checkbox",
-			name: "usedots",
-			fieldLabel: _("Use dots"),
-			checked: true,
-			boxLabel: _("Don't do :hex translation for dot files."),
-			plugins: [{
-				ptype: "fieldinfo",
-				text: _("When this option gets set, certain file names become illegal. These are .Parent and anything that starts with .Apple.")
-			}]
-		},{
-			xtype: "checkbox",
 			name: "invisibledots",
 			fieldLabel: _("Hide dot files"),
 			checked: false,
 			boxLabel: _("Make dot files invisible.")
-		},{
-			xtype: "checkbox",
-			name: "mswindows",
-			fieldLabel: _("Forces filename restrictions"),
-			checked: false,
-			boxLabel: _("This forces filenames to be restricted to the character set used by Windows.")
 		},{
 			xtype: "combo",
 			name: "casefold",
@@ -212,6 +201,16 @@ Ext.define("OMV.module.admin.service.afp.Shares", {
 	stateful: true,
 	stateId: "b2878122-c1e7-11e0-9bbc-00221568ca88",
 	columns: [{
+		xtype: "booleaniconcolumn",
+		text: _("Enabled"),
+		sortable: true,
+		dataIndex: "enable",
+		stateId: "enable",
+		align: "center",
+		width: 80,
+		resizable: false,
+		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
+	},{
 		text: _("Shared folder"),
 		sortable: true,
 		dataIndex: "sharedfoldername",
@@ -238,6 +237,7 @@ Ext.define("OMV.module.admin.service.afp.Shares", {
 					idProperty: "uuid",
 					fields: [
 						{ name: "uuid", type: "string" },
+						{ name: "enable", type: "boolean" },
 						{ name: "sharedfoldername", type: "string" },
 						{ name: "comment", type: "string" },
 						{ name: "ro", mapping: "options.ro", type: "boolean" }
