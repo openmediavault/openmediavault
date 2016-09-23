@@ -1,3 +1,9 @@
+openmediavault-usbbackup (3.2.9) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 23 Sep 2016 06:19:21 +0200
+
 openmediavault-usbbackup (3.2.8) stable; urgency=low
 
   * Mantis 0001602: Command output not sent via email.
