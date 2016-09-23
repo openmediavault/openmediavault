@@ -143,7 +143,7 @@ class OMVRpcServiceAFP extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		$object = $db->getAssoc("conf.service.afp.share", $params['uuid']);
+		$object = $db->get("conf.service.afp.share", $params['uuid']);
 		// Relocate the options.
 		$options = $object->get("options");
 		foreach ($options as $optionk => $optionv) {
@@ -172,13 +172,14 @@ class OMVRpcServiceAFP extends \OMV\Rpc\ServiceAbstract {
 		$object->setFlatAssoc([
 			"options.ro" => $params['ro'],
 			"options.upriv" => $params['upriv'],
-			"options.usedots" => $params['usedots'],
 			"options.invisibledots" => $params['invisibledots'],
-			"options.tm" => $params['tm'],
-			"options.mswindows" => $params['mswindows']
+			"options.tm" => $params['tm']
 		]);
 		// Set the configuration object.
 		$db = \OMV\Config\Database::getInstance();
+		// Check uniqueness:
+		// - Shared folder
+		$db->assertIsUnique($object, "sharedfolderref");
 		$db->set($object);
 		// Return the configuration object.
 		return $object->getAssoc();

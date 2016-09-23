@@ -43,17 +43,17 @@ while [ ${index} -gt 0 ]; do
 		xmlstarlet sel -t -m "//services/afp/shares/share[uuid='${uuid}']" \
 		  -o "[" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -o "]" -n \
 		  -o "path = ${sfpath}" -n \
-		  -i "options[ro = '0']" -o "read only = no" -n \
-		  -i "options[ro = '1']" -o "read only = yes" -n \
-		  -i "options[upriv = '0']" -o "unix priv = no" -n \
-		  -i "options[upriv = '1']" -o "unix priv = yes" -n \
-		  -i "options[invisibledots = '0']" -o "invisible dots = no" -n \
-		  -i "options[invisibledots = '1']" -o "invisible dots = yes" -n \
-		  -i "options[tm = '0']" -o "time machine = no" -n \
-		  -i "options[tm = '1']" -o "time machine = yes" -n \
-		  -i "string-length(password) > 0" -v "concat('password = ',password)" -b -n \
-		  -i "volsizelimit > 0" -v "concat('vol size limit = ',volsizelimit)" -b -n \
-		  -i "not(casefold[. = 'none'])" -v "concat('casefold = ',casefold)" -b -n \
+		  -i "options[ro = '0']" -o "read only = no" -n -b \
+		  -i "options[ro = '1']" -o "read only = yes" -n -b \
+		  -i "options[upriv = '0']" -o "unix priv = no" -n -b \
+		  -i "options[upriv = '1']" -o "unix priv = yes" -n -b \
+		  -i "options[invisibledots = '0']" -o "invisible dots = no" -n -b \
+		  -i "options[invisibledots = '1']" -o "invisible dots = yes" -n -b \
+		  -i "options[tm = '0']" -o "time machine = no" -n -b \
+		  -i "options[tm = '1']" -o "time machine = yes" -n -b \
+		  -i "string-length(password) > 0" -v "concat('password = ',password)" -n -b \
+		  -i "volsizelimit > 0" -v "concat('vol size limit = ',volsizelimit)" -n -b \
+		  -i "not(casefold[. = 'none'])" -v "concat('casefold = ',casefold)" -n -b \
 		  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_NETATALK_AFP_CONFIG}
 
 		# Process the share privileges. Users with '0 = no permission' are added

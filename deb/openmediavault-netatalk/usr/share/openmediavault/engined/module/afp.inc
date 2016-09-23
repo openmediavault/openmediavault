@@ -77,6 +77,8 @@ class OMVModuleAFP extends \OMV\Engine\Module\ServiceAbstract implements
 		// Start this service and enable the unit file.
 		$systemCtl = new \OMV\System\SystemCtl("netatalk");
 		$systemCtl->enable(TRUE);
+		// Wait to allow the service to start.
+		$systemCtl->waitUntilActive(5);
 		// Enable monitoring of this service.
 		$monit = new \OMV\System\Monit("netatalk");
 		$monit->monitor();

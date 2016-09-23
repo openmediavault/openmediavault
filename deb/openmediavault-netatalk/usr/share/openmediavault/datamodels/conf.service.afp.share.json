@@ -39,8 +39,9 @@
 			"default": "none"
 		},
 		"volsizelimit": {
-			"type": "boolean",
-			"default": false
+			"type": "integer",
+			"minimum": 0,
+			"default": 0
 		},
 		"allowguest": {
 			"type": "boolean",

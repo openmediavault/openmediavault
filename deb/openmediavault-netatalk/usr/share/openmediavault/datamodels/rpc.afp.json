@@ -62,7 +62,8 @@
 				"required": true
 			},
 			"volsizelimit": {
-				"type": "boolean",
+				"type": "integer",
+				"minimum": 0,
 				"required": true
 			},
 			"allowguest": {
