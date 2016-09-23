@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-netatalk package.
 # 
 # Translators:
 # Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013-2014
@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2014-12-05 08:45+0000\n"
-"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
+"POT-Creation-Date: 2016-09-23 21:35+0200\n"
+"PO-Revision-Date: 2016-09-23 19:35+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Galician (http://www.transifex.com/votdev/openmediavault/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,9 +51,6 @@ msgstr "O cliente ve maiúsculas, o servidor ve minúsculas"
 msgid "Comment"
 msgstr "Comentario"
 
-msgid "Don't do :hex translation for dot files."
-msgstr "Non facer tradución :hexadecimal para ficheiros con punto."
-
 msgid "Edit share"
 msgstr "Editar o recurso compartido"
 
@@ -66,11 +63,11 @@ msgstr "Activar a compatibilidade deste recurso compartido co «Time Machine»"
 msgid "Enable user home directories."
 msgstr "Activar os directorios persoais dos usuarios."
 
+msgid "Enabled"
+msgstr ""
+
 msgid "Extra options"
 msgstr "Opcións adicionais"
-
-msgid "Forces filename restrictions"
-msgstr "Forzar as restricións a nomes de ficheiro"
 
 msgid "General settings"
 msgstr "Axustes xerais"
@@ -111,14 +108,17 @@ msgstr "Nomes en minúsculas en ambas direccións"
 msgid "Make dot files invisible."
 msgstr "Facer que os ficheiros con punto non sexan visíbeis."
 
-msgid "Name"
-msgstr "Nome"
-
 msgid "None"
 msgstr "Ningún"
 
 msgid "Password"
 msgstr "Contrasinal"
+
+msgid ""
+"Please check the <a "
+"href='http://netatalk.sourceforge.net/3.0/htmldocs/afp.conf.5.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
 
 msgid "Quota"
 msgstr "Cota"
@@ -141,13 +141,6 @@ msgstr "Recursos compartidos"
 msgid "The location of the files to share."
 msgstr "A localización dos ficheiros que compartir."
 
-msgid "The name of the share."
-msgstr "O nome do recurso compartido"
-
-msgid ""
-"This forces filenames to be restricted to the character set used by Windows."
-msgstr "Isto forza a que os nomes de ficheiro estean restrinxidos polo conxunto de caracteres utilizado por Windows."
-
 msgid "This option handles, if the case of filenames should be changed."
 msgstr "Esta opción encargase, no seu caso, de se os nomes de ficheiro deben ser cambiados."
 
@@ -162,14 +155,6 @@ msgstr "Nomes en maiúsculas en ambas direccións"
 
 msgid "Use AFP3 unix privileges."
 msgstr "Usar os privilexios AFP3 de Unix"
-
-msgid "Use dots"
-msgstr "Usar puntos"
-
-msgid ""
-"When this option gets set, certain file names become illegal. These are "
-".Parent and anything that starts with .Apple."
-msgstr "Cando se estabelece esta opción, certos nomes de ficheiro non serán aceptados. Éstes son «.Parent» e calquera cousa que comece por «.Apple»."
 
 msgid "n/a"
 msgstr "n/d"

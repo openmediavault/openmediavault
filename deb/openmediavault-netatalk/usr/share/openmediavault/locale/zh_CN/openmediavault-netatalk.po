@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-netatalk package.
 # 
 # Translators:
 # songming <by@songming.me>, 2013-2014,2016
@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2016-06-19 02:07+0000\n"
-"Last-Translator: songming <by@songming.me>\n"
+"POT-Creation-Date: 2016-09-23 21:35+0200\n"
+"PO-Revision-Date: 2016-09-23 19:35+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,9 +51,6 @@ msgstr "客户端看到大写字母，服务器看到小写字母"
 msgid "Comment"
 msgstr "注释"
 
-msgid "Don't do :hex translation for dot files."
-msgstr "对点文件不做 :hex 转换。"
-
 msgid "Edit share"
 msgstr "编辑共享"
 
@@ -66,11 +63,11 @@ msgstr "在这个共享启用 Time Machine。"
 msgid "Enable user home directories."
 msgstr "启用用户主目录。"
 
+msgid "Enabled"
+msgstr ""
+
 msgid "Extra options"
 msgstr "扩展选项"
-
-msgid "Forces filename restrictions"
-msgstr "强制文件名限制"
 
 msgid "General settings"
 msgstr "常规设置"
@@ -111,14 +108,17 @@ msgstr "双向使用小写名称"
 msgid "Make dot files invisible."
 msgstr "让点文件不可见。"
 
-msgid "Name"
-msgstr "名称"
-
 msgid "None"
 msgstr "无"
 
 msgid "Password"
 msgstr "密码"
+
+msgid ""
+"Please check the <a "
+"href='http://netatalk.sourceforge.net/3.0/htmldocs/afp.conf.5.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
 
 msgid "Quota"
 msgstr "配额"
@@ -141,13 +141,6 @@ msgstr "共享"
 msgid "The location of the files to share."
 msgstr "共享文件的位置。"
 
-msgid "The name of the share."
-msgstr "共享的名称。"
-
-msgid ""
-"This forces filenames to be restricted to the character set used by Windows."
-msgstr "这将限制文件名只能使用 Windows 的字符集。"
-
 msgid "This option handles, if the case of filenames should be changed."
 msgstr "设置此选项决定是否改变文件名的大小写。"
 
@@ -162,14 +155,6 @@ msgstr "双向使用大写名称"
 
 msgid "Use AFP3 unix privileges."
 msgstr "使用 AFP3 unix 权限"
-
-msgid "Use dots"
-msgstr "使用点文件"
-
-msgid ""
-"When this option gets set, certain file names become illegal. These are "
-".Parent and anything that starts with .Apple."
-msgstr "如果设置此项，某些文件名将变为非法。比如 .Parent 和任何以 .Apple 开头的文件。"
 
 msgid "n/a"
 msgstr "n/a"

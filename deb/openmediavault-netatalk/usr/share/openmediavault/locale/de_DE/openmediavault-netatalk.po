@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-netatalk package.
 # 
 # Translators:
 # mattjes04 <mattjes04@googlemail.com>, 2012
@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2014-08-06 14:30+0000\n"
+"POT-Creation-Date: 2016-09-23 21:35+0200\n"
+"PO-Revision-Date: 2016-09-23 19:35+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -54,9 +54,6 @@ msgstr "Client sieht Großbuchstaben, Server sieht Kleinbuchstaben"
 msgid "Comment"
 msgstr "Kommentar"
 
-msgid "Don't do :hex translation for dot files."
-msgstr "Keine :hex Übersetzung für Dotfiles."
-
 msgid "Edit share"
 msgstr "Freigabe ändern"
 
@@ -69,11 +66,11 @@ msgstr "Time Machine Unterstützung für diese Freigabe aktivieren."
 msgid "Enable user home directories."
 msgstr "Aktiviere Heimatverzeichnisse für Benutzer."
 
+msgid "Enabled"
+msgstr ""
+
 msgid "Extra options"
 msgstr "Zusätzliche Optionen"
-
-msgid "Forces filename restrictions"
-msgstr "Dateinamenbeschränkungen erzwingen"
 
 msgid "General settings"
 msgstr "Allgemeine Einstellungen"
@@ -114,14 +111,17 @@ msgstr "Namen in Kleinbuchstaben für beide Richtungen"
 msgid "Make dot files invisible."
 msgstr "Dotfiles unsichtbar machen."
 
-msgid "Name"
-msgstr "Name"
-
 msgid "None"
 msgstr "Keine"
 
 msgid "Password"
 msgstr "Passwort"
+
+msgid ""
+"Please check the <a "
+"href='http://netatalk.sourceforge.net/3.0/htmldocs/afp.conf.5.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
 
 msgid "Quota"
 msgstr "Quota"
@@ -144,13 +144,6 @@ msgstr "Freigaben"
 msgid "The location of the files to share."
 msgstr "Der Speicherort freizugebender Dateien."
 
-msgid "The name of the share."
-msgstr "Der Name der Freigabe."
-
-msgid ""
-"This forces filenames to be restricted to the character set used by Windows."
-msgstr "Diese Option erzwingt den Windows-Zeichensatz für Dateinamen."
-
 msgid "This option handles, if the case of filenames should be changed."
 msgstr "Diese Option legt fest ob die Groß- und Kleinschreibung in Dateinamen geändert werden soll."
 
@@ -165,14 +158,6 @@ msgstr "Namen in Großbuchstaben für beide Richtungen"
 
 msgid "Use AFP3 unix privileges."
 msgstr "AFP3 Unix Privilegien benutzen."
-
-msgid "Use dots"
-msgstr "Benutze Punkte"
-
-msgid ""
-"When this option gets set, certain file names become illegal. These are "
-".Parent and anything that starts with .Apple."
-msgstr "Wird diese Option gesetzt, werden bestimmte Dateinamen für ungültig erklärt (.Parent und alle mit .Apple beginnenden). "
 
 msgid "n/a"
 msgstr "N/V"

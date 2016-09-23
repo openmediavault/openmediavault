@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-netatalk package.
 # 
 # Translators:
 # zubr139, 2013,2016
@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2016-05-24 16:17+0000\n"
-"Last-Translator: zubr139\n"
+"POT-Creation-Date: 2016-09-23 21:35+0200\n"
+"PO-Revision-Date: 2016-09-23 19:35+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,7 +37,7 @@ msgid "Allow plain passwords"
 msgstr "Дозволити прості паролі"
 
 msgid "Apple Filing"
-msgstr ""
+msgstr "Apple Filing"
 
 msgid "Case folding"
 msgstr "Заміна зегістру"
@@ -51,9 +51,6 @@ msgstr "Клієнт бачить у верхньому регістрі, сер
 msgid "Comment"
 msgstr "Коментар"
 
-msgid "Don't do :hex translation for dot files."
-msgstr "Не переводити файли з крапкою в :hex."
-
 msgid "Edit share"
 msgstr "Редагувати спільний ресурс"
 
@@ -66,11 +63,11 @@ msgstr "Увімкнути підтримку Time Machine для цього с�
 msgid "Enable user home directories."
 msgstr "Увімкнути домашній каталог користувача."
 
+msgid "Enabled"
+msgstr ""
+
 msgid "Extra options"
 msgstr "Додаткові опції"
-
-msgid "Forces filename restrictions"
-msgstr "Підсилення обмеження на імена файлів"
 
 msgid "General settings"
 msgstr "Загальні налаштування"
@@ -111,14 +108,17 @@ msgstr "Нижній регістр імена в обох напрямках"
 msgid "Make dot files invisible."
 msgstr "Зробити файли з крапкою невидимими."
 
-msgid "Name"
-msgstr "Ім'я"
-
 msgid "None"
 msgstr "Немає"
 
 msgid "Password"
 msgstr "Пароль"
+
+msgid ""
+"Please check the <a "
+"href='http://netatalk.sourceforge.net/3.0/htmldocs/afp.conf.5.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
 
 msgid "Quota"
 msgstr "Квота"
@@ -141,13 +141,6 @@ msgstr "Спільний ресурс"
 msgid "The location of the files to share."
 msgstr "Розташування файлів для спільного доступу."
 
-msgid "The name of the share."
-msgstr "Ім’я спільної теки"
-
-msgid ""
-"This forces filenames to be restricted to the character set used by Windows."
-msgstr "Змушує імена файлів бути обмеженими набором символів, що використовуються у Windows."
-
 msgid "This option handles, if the case of filenames should be changed."
 msgstr "Ця опція вказує, чи повинен мінятися реєстр імен файлів"
 
@@ -162,14 +155,6 @@ msgstr "Верхній регістр імені в обох напрямках"
 
 msgid "Use AFP3 unix privileges."
 msgstr "Використовувати привілеї AFP3 Unix."
-
-msgid "Use dots"
-msgstr "Використовувати точки"
-
-msgid ""
-"When this option gets set, certain file names become illegal. These are "
-".Parent and anything that starts with .Apple."
-msgstr "Коли ця опція увімкнена, певні імена файлу стають неприпустимими. Це \".Родинний\" і все, що починається з \".Apple\"."
 
 msgid "n/a"
 msgstr "н/д"

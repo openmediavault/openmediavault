@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-netatalk package.
 # 
 # Translators:
 # Henrik Sandström <henrik.sandstroem@gmail.com>, 2012
@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2014-08-06 14:30+0000\n"
+"POT-Creation-Date: 2016-09-23 21:35+0200\n"
+"PO-Revision-Date: 2016-09-23 19:35+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -51,9 +51,6 @@ msgstr "Klient ser versal, server ser gemen"
 msgid "Comment"
 msgstr "Kommentar"
 
-msgid "Don't do :hex translation for dot files."
-msgstr "Utför ingen :hex-översättning för .dot-filer."
-
 msgid "Edit share"
 msgstr "Redigera utdelning"
 
@@ -66,11 +63,11 @@ msgstr "Aktivera stöd för 'Time Machine' på denna utdelning."
 msgid "Enable user home directories."
 msgstr "Aktivera hemkataloger för användare."
 
+msgid "Enabled"
+msgstr ""
+
 msgid "Extra options"
 msgstr "Extra inställningar"
-
-msgid "Forces filename restrictions"
-msgstr "Tvinga filnamnsbegränsningar"
 
 msgid "General settings"
 msgstr "Allmänna inställningar"
@@ -111,14 +108,17 @@ msgstr "Gemener-namn i båda riktningar"
 msgid "Make dot files invisible."
 msgstr "Gör .dot-filer osynliga."
 
-msgid "Name"
-msgstr "Namn"
-
 msgid "None"
 msgstr "Ingen"
 
 msgid "Password"
 msgstr "Lösenord"
+
+msgid ""
+"Please check the <a "
+"href='http://netatalk.sourceforge.net/3.0/htmldocs/afp.conf.5.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
 
 msgid "Quota"
 msgstr "Kvot"
@@ -141,13 +141,6 @@ msgstr "Utdelningar"
 msgid "The location of the files to share."
 msgstr "Placeringen av filerna att dela."
 
-msgid "The name of the share."
-msgstr "Namnet på utdelningen."
-
-msgid ""
-"This forces filenames to be restricted to the character set used by Windows."
-msgstr "Detta tvingar filnamn att begränsas till den teckenuppsättning som används av Windows."
-
 msgid "This option handles, if the case of filenames should be changed."
 msgstr "Detta alternativ hanterar om det rör sig om filnamn som bör ändras."
 
@@ -162,14 +155,6 @@ msgstr "Versal-namn i båda riktningarna"
 
 msgid "Use AFP3 unix privileges."
 msgstr "Använd AFP3 Unix-privilegier"
-
-msgid "Use dots"
-msgstr "Använd 'dots'"
-
-msgid ""
-"When this option gets set, certain file names become illegal. These are "
-".Parent and anything that starts with .Apple."
-msgstr "När det här alternativet väljs, blir vissa filnamn olagliga. Dessa är .Parent och alla som börjar med .Apple."
 
 msgid "n/a"
 msgstr "n/a"

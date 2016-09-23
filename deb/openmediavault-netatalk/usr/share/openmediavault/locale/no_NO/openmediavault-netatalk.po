@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-netatalk package.
 # 
 # Translators:
 # runesudden <runesudden@gmail.com>, 2013
@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2014-08-06 14:30+0000\n"
+"POT-Creation-Date: 2016-09-23 21:35+0200\n"
+"PO-Revision-Date: 2016-09-23 19:35+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/votdev/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -52,9 +52,6 @@ msgstr "Klient ser store bokstaver, server ser små bokstaver"
 msgid "Comment"
 msgstr "Kommenter"
 
-msgid "Don't do :hex translation for dot files."
-msgstr "Ikke gjør :hex oversetninger for dot filer"
-
 msgid "Edit share"
 msgstr "Rediger delt ressurs"
 
@@ -67,11 +64,11 @@ msgstr "Aktiver Time Machine støtte for dette delte området."
 msgid "Enable user home directories."
 msgstr "Aktiver hjemmemapper for brukere"
 
+msgid "Enabled"
+msgstr ""
+
 msgid "Extra options"
 msgstr "Ekstra alternativer"
-
-msgid "Forces filename restrictions"
-msgstr "Påtving restriksjoner i filnavn"
 
 msgid "General settings"
 msgstr "Generelle innstillinger"
@@ -112,14 +109,17 @@ msgstr "Små bokstaver i begge retninger"
 msgid "Make dot files invisible."
 msgstr "Gjør dot filer usynlige"
 
-msgid "Name"
-msgstr "Navn"
-
 msgid "None"
 msgstr "Ingen"
 
 msgid "Password"
 msgstr "Passord"
+
+msgid ""
+"Please check the <a "
+"href='http://netatalk.sourceforge.net/3.0/htmldocs/afp.conf.5.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
 
 msgid "Quota"
 msgstr "Kvote"
@@ -142,13 +142,6 @@ msgstr "Delte områder"
 msgid "The location of the files to share."
 msgstr "Plasseringen av filsystemet som skal deles."
 
-msgid "The name of the share."
-msgstr "Det delte områdets navn"
-
-msgid ""
-"This forces filenames to be restricted to the character set used by Windows."
-msgstr "Dette tvinger filnavn til å bruke tegn kun brukt av Windows. "
-
 msgid "This option handles, if the case of filenames should be changed."
 msgstr "Dette alternativet håndterer om case nivået av filnavnet bør endres."
 
@@ -163,14 +156,6 @@ msgstr "Store bokstaver i begge retninger"
 
 msgid "Use AFP3 unix privileges."
 msgstr "Bruk AFP3 unix privilegier."
-
-msgid "Use dots"
-msgstr "Bruk dots"
-
-msgid ""
-"When this option gets set, certain file names become illegal. These are "
-".Parent and anything that starts with .Apple."
-msgstr "Når dette alternativet er satt, vil enkelte filnavn bli ulovlige. Dette er .Parent og alt som begynner med .Apple."
 
 msgid "n/a"
 msgstr "n/a"

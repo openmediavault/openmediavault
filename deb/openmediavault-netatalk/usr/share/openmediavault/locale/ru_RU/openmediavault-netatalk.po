@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-netatalk package.
 # 
 # Translators:
 # Alexander Savchenko, 2013
@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2015-05-23 13:17+0000\n"
-"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
+"POT-Creation-Date: 2016-09-23 21:35+0200\n"
+"PO-Revision-Date: 2016-09-23 19:35+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/votdev/openmediavault/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,9 +54,6 @@ msgstr "Клиент видит в верхнем регистре, сервер
 msgid "Comment"
 msgstr "Коментарий"
 
-msgid "Don't do :hex translation for dot files."
-msgstr "Не переводить файлы с точкой в :hex."
-
 msgid "Edit share"
 msgstr "Редактировать общий ресурс"
 
@@ -69,11 +66,11 @@ msgstr "Включить поддержку Time Machine для этого об�
 msgid "Enable user home directories."
 msgstr "Включить домашние каталоги пользователей."
 
+msgid "Enabled"
+msgstr ""
+
 msgid "Extra options"
 msgstr "Дополнительные опции"
-
-msgid "Forces filename restrictions"
-msgstr "Усиленные ограничения на имени файла"
 
 msgid "General settings"
 msgstr "Общие параметры"
@@ -114,14 +111,17 @@ msgstr "Нижний регистр имени в обоих направлен�
 msgid "Make dot files invisible."
 msgstr "Сделать файлы с точкой невидимыми."
 
-msgid "Name"
-msgstr "Имя"
-
 msgid "None"
 msgstr "Нет"
 
 msgid "Password"
 msgstr "Пароль"
+
+msgid ""
+"Please check the <a "
+"href='http://netatalk.sourceforge.net/3.0/htmldocs/afp.conf.5.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
 
 msgid "Quota"
 msgstr "Квота"
@@ -144,13 +144,6 @@ msgstr "Общие ресурсы"
 msgid "The location of the files to share."
 msgstr "Расположение файлов для общего доступа."
 
-msgid "The name of the share."
-msgstr "Название общей папки."
-
-msgid ""
-"This forces filenames to be restricted to the character set used by Windows."
-msgstr "Вынуждает имена файлов быть ограниченными набору символов, используемому в Windows."
-
 msgid "This option handles, if the case of filenames should be changed."
 msgstr "Эта опция указывает, должен ли меняться регистр имён файлов."
 
@@ -165,14 +158,6 @@ msgstr "Верхний регистр имени в обоих направле�
 
 msgid "Use AFP3 unix privileges."
 msgstr "Использовать права доступа AFP3 Unix."
-
-msgid "Use dots"
-msgstr "Использовать точки"
-
-msgid ""
-"When this option gets set, certain file names become illegal. These are "
-".Parent and anything that starts with .Apple."
-msgstr "Когда эта опция включена, определенные имена файла становятся недопустимыми. Это \".Родительский\" и всё, что начинается с \".Apple\"."
 
 msgid "n/a"
 msgstr "н/д"

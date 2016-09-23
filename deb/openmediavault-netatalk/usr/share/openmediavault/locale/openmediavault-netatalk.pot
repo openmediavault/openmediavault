@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-netatalk package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-netatalk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"POT-Creation-Date: 2016-09-23 21:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,9 +50,6 @@ msgstr ""
 msgid "Comment"
 msgstr ""
 
-msgid "Don't do :hex translation for dot files."
-msgstr ""
-
 msgid "Edit share"
 msgstr ""
 
@@ -65,10 +62,10 @@ msgstr ""
 msgid "Enable user home directories."
 msgstr ""
 
-msgid "Extra options"
+msgid "Enabled"
 msgstr ""
 
-msgid "Forces filename restrictions"
+msgid "Extra options"
 msgstr ""
 
 msgid "General settings"
@@ -104,13 +101,13 @@ msgstr ""
 msgid "Make dot files invisible."
 msgstr ""
 
-msgid "Name"
-msgstr ""
-
 msgid "None"
 msgstr ""
 
 msgid "Password"
+msgstr ""
+
+msgid "Please check the <a href='http://netatalk.sourceforge.net/3.0/htmldocs/afp.conf.5.html' target='_blank'>manual page</a> for more details."
 msgstr ""
 
 msgid "Quota"
@@ -134,12 +131,6 @@ msgstr ""
 msgid "The location of the files to share."
 msgstr ""
 
-msgid "The name of the share."
-msgstr ""
-
-msgid "This forces filenames to be restricted to the character set used by Windows."
-msgstr ""
-
 msgid "This option handles, if the case of filenames should be changed."
 msgstr ""
 
@@ -153,12 +144,6 @@ msgid "Uppercases names in both directions"
 msgstr ""
 
 msgid "Use AFP3 unix privileges."
-msgstr ""
-
-msgid "Use dots"
-msgstr ""
-
-msgid "When this option gets set, certain file names become illegal. These are .Parent and anything that starts with .Apple."
 msgstr ""
 
 msgid "n/a"
