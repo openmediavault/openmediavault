@@ -90,12 +90,12 @@ class OMVModuleAFP extends \OMV\Engine\Module\ServiceAbstract implements
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.afp");
-		$monit = new \OMV\System\Monit("netatalk");
+		$systemCtl = new \OMV\System\SystemCtl("netatalk");
 		return [
 			"name" => $this->getName(),
 			"title" => gettext("Apple Filing"),
 			"enabled" => $object->get("enable"),
-			"running" => $monit->isRunning()
+			"running" => $systemCtl->isActive()
 		];
 	}
 

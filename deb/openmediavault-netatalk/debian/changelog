@@ -1,3 +1,10 @@
+openmediavault-netatalk (3.2.1) stable; urgency=low
+
+  * Update locales.
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 24 Sep 2016 14:59:27 +0200
+
 openmediavault-netatalk (3.2) stable; urgency=low
 
   * Adapt plugin to netatalk 3.1.9.
