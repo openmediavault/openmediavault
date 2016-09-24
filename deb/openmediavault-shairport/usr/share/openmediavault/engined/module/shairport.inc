@@ -85,13 +85,13 @@ class OMVModuleShairport extends \OMV\Engine\Module\ServiceAbstract
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.shairport");
-		$monit = new \OMV\System\Monit("shairport-sync");
-		return array(
+		$systemCtl = new \OMV\System\SystemCtl("shairport-sync");
+		return [
 			"name" => $this->getName(),
 			"title" => gettext("Shairport"),
 			"enabled" => $object->get("enable"),
-			"running" => $monit->isRunning()
-		);
+			"running" => $systemCtl->isActive()
+		];
 	}
 
 	/**
