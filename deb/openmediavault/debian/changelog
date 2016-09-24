@@ -1,3 +1,9 @@
+openmediavault (2.2.10) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 24 Sep 2016 14:01:23 +0200
+
 openmediavault (2.2.9) stable; urgency=low
 
   * Fix issue in omv-release-upgrade.

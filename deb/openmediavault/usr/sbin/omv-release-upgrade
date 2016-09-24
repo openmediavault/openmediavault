@@ -38,7 +38,10 @@ export OMV_UPGRADE_RELEASENAME
 prodname=$(xmlstarlet sel -t -v "//name" ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
 prodcopyright=$(xmlstarlet sel -t -v "//copyright" ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
 
-whiptail --clear --backtitle "${prodname} - ${prodcopyright}" --title "Release upgrade" --yesno "Do you really want to upgrade your system to release version ${OMV_UPGRADE_RELEASEVERSION} (${OMV_UPGRADE_RELEASENAME})? Please ensure that all your installed plugins are available for this release." 9 56 6
+whiptail --clear --backtitle "${prodname} - ${prodcopyright}" \
+  --title "Release upgrade" \
+  --yesno "Do you really want to upgrade your system to release version ${OMV_UPGRADE_RELEASEVERSION} (${OMV_UPGRADE_RELEASENAME})? Please ensure that all your installed plugins are available for this release." \
+  9 56 6
 [ $? -ne 0 ] && exit 0
 echo "Upgrading system to ${OMV_UPGRADE_RELEASEVERSION} (${OMV_UPGRADE_RELEASENAME}) ..."
 
@@ -62,5 +65,11 @@ apt-get --yes --force-yes --fix-missing --auto-remove --allow-unauthenticated \
 run-parts ${tmpdir}/post.d
 
 rm -rf ${tmpdir}
+
+# Display final message.
+whiptail --clear --backtitle "${prodname} - ${prodcopyright}" \
+  --title "Release upgrade" \
+  --msgbox "The upgrade has completed successfully. Please reboot the system." \
+  8 43
 
 exit 0
