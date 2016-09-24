@@ -1,3 +1,9 @@
+shairport-sync (2.8.4-1) stable; urgency=low
+
+  * New upstream release.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 24 Sep 2016 19:29:15 +0200
+
 shairport-sync (2.4.1-1) stable; urgency=low
 
   * New upstream release.
