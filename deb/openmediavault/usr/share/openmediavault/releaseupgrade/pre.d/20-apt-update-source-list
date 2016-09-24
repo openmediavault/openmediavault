@@ -45,4 +45,7 @@ EOF
 # Upgrade Debian source list file.
 sed -i -r 's/wheezy(-lts)?/jessie/g' /etc/apt/sources.list
 
+# Modify default release
+sed -i -r 's/wheezy/jessie/g' /etc/apt/apt.conf
+
 exit 0
