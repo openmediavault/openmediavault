@@ -1,3 +1,10 @@
+openmediavault-shairport (3.2.1) stable; urgency=low
+
+  * Update locales.
+  * Modify info text in UI.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 24 Sep 2016 14:47:21 +0200
+
 openmediavault-shairport (3.2) stable; urgency=low
 
   * Update locales.
