@@ -46,6 +46,8 @@ class OMVModuleZeroconf extends \OMV\Engine\Module\ServiceAbstract
 		// the configuration, otherwise the configuration is auto-reloaded
 		// in the meanwhile.
 		$systemCtl = new \OMV\System\SystemCtl("avahi-daemon");
+		// Mask the service to prevent restarting via DBUS (.e.g.
+		// shairport-sync or forked-daapd).
 		$systemCtl->mask();
 		$systemCtl->stop();
 	}
