@@ -42,34 +42,34 @@ class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		$initd = new \OMV\System\SysVInitScript("rsync", FALSE);
-		$initd->exec();
+		$systemCtl = new \OMV\System\SystemCtl("rsync");
+		$systemCtl->disable(TRUE);
 	}
 
 	/**
 	 * Start the managed service.
 	 */
 	public function startService() {
-        $db = \OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.rsyncd");
 		if (TRUE !== $object->get("enable"))
 			return;
-		$initd = new \OMV\System\SysVInitScript("rsync", TRUE);
-		$initd->exec();
+		$systemCtl = new \OMV\System\SystemCtl("rsync");
+		$systemCtl->enable(TRUE);
 	}
 
 	/**
 	 * Get the status of the managed service.
 	 */
 	public function getStatus() {
-        $db = \OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.rsyncd");
-		$initd = new \OMV\System\SysVInitScript("rsync");
+		$systemCtl = new \OMV\System\SystemCtl("rsync");
 		return [
 			"name" => $this->getName(),
 			"title" => gettext("RSync server"),
 			"enabled" => $object->get("enable"),
-			"running" => ($initd->status() == 0)
+			"running" => $systemCtl->isActive()
 		];
 	}
 

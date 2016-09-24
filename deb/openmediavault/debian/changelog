@@ -3,6 +3,7 @@ openmediavault (3.0.38) stable; urgency=low
   * Various improvements and bugfixes.
   * Fix regression. NTFS file systems were not listed as shared folder
     candidates.
+  * Fix regression. The rsync service is not adapted to systemd.
   * Mantis 0001604: Update package dependency.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 21 Sep 2016 16:15:23 +0200
