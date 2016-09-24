@@ -1,5 +1,6 @@
 openmediavault (3.0.39) stable; urgency=low
 
+  * Various improvements and bugfixes.
   * Fix problem when avahi daemon is restarted (error message: Job for
     avahi-daemon.service canceled.).
 
