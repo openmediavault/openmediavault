@@ -87,13 +87,13 @@ class OMVModuleForkedDaapd extends \OMV\Engine\Module\ServiceAbstract
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.daapd");
-		$monit = new \OMV\System\Monit("forked-daapd");
-		return array(
+		$systemCtl = new \OMV\System\SystemCtl("forked-daapd");
+		return [
 			"name" => $this->getName(),
 			"title" => gettext("iTunes/DAAP"),
 			"enabled" => $object->get("enable"),
-			"running" => $monit->isRunning()
-		);
+			"running" => $systemCtl->isActive()
+		];
 	}
 
 	/**
