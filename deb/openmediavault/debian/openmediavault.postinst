@@ -655,6 +655,16 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "3.0.37"; then
 			omv_config_delete "/config/services/smb/shares/share/name"
 		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.38"; then
+			# Make sure that this fields do not exist.
+			omv_config_delete "/config/system/usermanagement/users/user/comment"
+			omv_config_delete "/config/system/usermanagement/users/user/groups"
+			omv_config_delete "/config/system/usermanagement/users/user/password"
+			omv_config_delete "/config/system/usermanagement/users/user/sharedfolderref"
+			omv_config_delete "/config/system/usermanagement/users/user/shell"
+			omv_config_delete "/config/system/usermanagement/users/user/sshpubkey"
+			omv_config_delete "/config/system/usermanagement/users/user/uid"
+		fi
 
 		########################################################################
 		# Show help text.
