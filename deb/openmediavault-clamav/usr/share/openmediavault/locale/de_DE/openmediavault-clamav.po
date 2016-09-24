@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Volker <votdev@gmx.de>, 2014
+# Volker <votdev@gmx.de>, 2014,2016
 # Volker <votdev@gmx.de>, 2012
 # warhog <warhog@gmx.de>, 2012
 msgid ""
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2014-11-30 01:10+0000\n"
+"PO-Revision-Date: 2016-08-10 08:34+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -168,7 +168,7 @@ msgstr "Führe eine tiefergehende Analyse von ausführbaren Dateien durch."
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Bitte <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>Manual Seiten</a> für mehr Details prüfen."
+msgstr "Bitte die <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>Hilfeseiten</a> für weitere Details lesen."
 
 msgid "Quarantine"
 msgstr "Quarantäne"

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2016-05-24 16:47+0000\n"
+"PO-Revision-Date: 2016-08-21 15:35+0000\n"
 "Last-Translator: zubr139\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -22,18 +22,18 @@ msgid "Add job"
 msgstr "Додати завдання"
 
 msgid "Algorithmic detection"
-msgstr ""
+msgstr "Алгоритмічне виявлення"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "Повідомлення електронної пошти з виведенням команди (якщо такі є) відправляється адміністратору."
 
 msgid "Antivirus"
 msgstr "Антивірус"
 
 msgid "Be verbose."
-msgstr ""
+msgstr "Детальний вивід."
 
 msgid "Comment"
 msgstr "Коментар"
@@ -51,10 +51,10 @@ msgid "Day of week"
 msgstr "День тижня"
 
 msgid "Detect PUA"
-msgstr ""
+msgstr "Виявлення PUA"
 
 msgid "Detect broken executables"
-msgstr ""
+msgstr "Виявлення пошкоджених виконуваних файлів"
 
 msgid "Edit job"
 msgstr "Редагувати завдання"
@@ -66,30 +66,30 @@ msgid "Enable HTML detection and normalisation."
 msgstr "Увімкнути виявлення HTML і нормалізації."
 
 msgid "Enable archive scanning."
-msgstr ""
+msgstr "Увімкнути сканування архівів."
 
 msgid "Enable on-access virus scanning"
-msgstr ""
+msgstr "Увімкнути антивірусне сканування при доступі"
 
 msgid "Enable scanning of ELF files."
-msgstr ""
+msgstr "Увімкнути сканування ELF файлів."
 
 msgid ""
 "Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
 "files."
-msgstr ""
+msgstr "Увімкнути сканування OLE2 файлів, таких як документи Microsoft Office і .msi файлів."
 
 msgid "Enable scanning within PDF files."
 msgstr "Дозволити перевірку всередині PDF-файлів."
 
 msgid "Enable the algorithmic detection."
-msgstr ""
+msgstr "Увімкнути алгоритмічне виявлення."
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
-msgstr ""
+msgstr "Увімкнути виявлення пошкоджених виконавчих файлів (PE і ELF)."
 
 msgid "Enable the detection of possibly unwanted applications."
-msgstr ""
+msgstr "Увімкнути виявлення можливо небажаних програм."
 
 msgid "Enabled"
 msgstr "Увімкнено"
@@ -110,16 +110,16 @@ msgid "Extra options"
 msgstr "Додаткові опції"
 
 msgid "Follow directory symlinks"
-msgstr ""
+msgstr "Прямувати за символьними посиланнями каталогу"
 
 msgid "Follow directory symlinks."
-msgstr ""
+msgstr "Прямувати за символьними посиланнями каталогу."
 
 msgid "Follow file symlinks"
-msgstr ""
+msgstr "Прямувати за символьними посиланнями файлу"
 
 msgid "Follow regular file symlinks."
-msgstr ""
+msgstr "Прямувати за регулярними символьними посиланнями файлу."
 
 msgid "General settings"
 msgstr "Загальні налаштування"
@@ -128,16 +128,16 @@ msgid "Hour"
 msgstr "Година"
 
 msgid "Infected files"
-msgstr ""
+msgstr "Заражені файли"
 
 msgid "Jobs"
 msgstr "Завдання"
 
 msgid "Log clean files"
-msgstr ""
+msgstr "Записувати у лоґ чисті файли"
 
 msgid "Log clean files. This drastically increases the log size."
-msgstr ""
+msgstr "Записувати в лоґ чисті файли. Це значно збільшує розмір журналу."
 
 msgid "Message"
 msgstr "Повідомлення"
@@ -146,30 +146,30 @@ msgid "Minute"
 msgstr "Хвилина"
 
 msgid "Monitor the shared folder and scan new or modified files."
-msgstr ""
+msgstr "Моніторити загальну теку і сканувати нові або змінені файли."
 
 msgid "Month"
 msgstr "Місяць"
 
 msgid "Multiscan"
-msgstr ""
+msgstr "Мульти сканування"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
-msgstr ""
+msgstr "Кількість перевірок оновлень бази даних в день. Встановіть 0, щоб відключити."
 
 msgid "On-access"
-msgstr ""
+msgstr "При доступі"
 
 msgid "Perform a deeper analysis of executable files."
-msgstr ""
+msgstr "Провести глибокий аналіз виконуваних файлів."
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Будь ласка, відвідайте <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>сторінка керівництва</a> для більш докладної інформації."
 
 msgid "Quarantine"
-msgstr ""
+msgstr "Карантин"
 
 msgid "Run"
 msgstr "Запустити"
@@ -187,16 +187,16 @@ msgid "Scan PDF"
 msgstr "Сканувати PDF"
 
 msgid "Scan Portable Executable"
-msgstr ""
+msgstr "Сканувати переносні програми"
 
 msgid "Scan archives"
 msgstr "Сканувати архіви"
 
 msgid "Scan the directory contents in parallel using available threads."
-msgstr ""
+msgstr "Сканування вмісту каталогу паралельно, використовуючи доступні потоки."
 
 msgid "Send command output via email"
-msgstr ""
+msgstr "Відправити висновок команди по електронній пошті"
 
 msgid "Send email"
 msgstr "Відправити лист"
@@ -208,16 +208,16 @@ msgid "Shared folder"
 msgstr "Спільна тека"
 
 msgid "The location of the files to scan."
-msgstr ""
+msgstr "Розташування файлів для сканування."
 
 msgid "The location which is used as quarantine."
-msgstr ""
+msgstr "Розташування, яке використовується в якості карантину."
 
 msgid "The option, how to handle infected files."
-msgstr ""
+msgstr "Опція, як опрацьовувати заражені файли."
 
 msgid "Verbose"
-msgstr ""
+msgstr "Відлагодження"
 
 msgid "n/a"
 msgstr "н/д"

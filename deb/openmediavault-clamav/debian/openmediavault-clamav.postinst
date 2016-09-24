@@ -31,7 +31,7 @@ case "$1" in
 		# OpenMediaVault.
 		########################################################################
 		if [ -z "$2" ]; then
-			echo "Updating init script links and actions"
+			echo "Updating service units ..."
 			deb-systemd-invoke stop clamav-freshclam || :
 			deb-systemd-helper disable clamav-freshclam || :
 			deb-systemd-invoke stop clamav-daemon || :
@@ -162,6 +162,11 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.1.2"; then
 			omv_config_rename "/config/services/clamav/quarantine.sharedfolderref" "quarantine_sharedfolderref"
+		fi
+		if dpkg --compare-versions "$2" lt-nl "3.2.3"; then
+			omv_config_delete "/config/services/clamav/freshclam/databasemirror"
+			omv_config_delete "/config/services/clamav/jobs/job/remove"
+			omv-mkconf clamav
 		fi
 	;;
 
