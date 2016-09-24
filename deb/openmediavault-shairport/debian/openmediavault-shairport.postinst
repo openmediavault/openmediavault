@@ -31,7 +31,7 @@ case "$1" in
 		# by OpenMediaVault.
 		########################################################################
 		if [ -z "$2" ]; then
-			echo "Updating init script links and actions"
+			echo "Updating service units ..."
 			deb-systemd-invoke stop shairport-sync || :
 			deb-systemd-helper disable shairport-sync || :
 		fi
