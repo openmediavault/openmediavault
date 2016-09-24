@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the openmediavault-shairport package.
 # 
 # Translators:
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2014-2015
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2014-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-24 14:43+0200\n"
-"PO-Revision-Date: 2016-09-24 12:44+0000\n"
+"POT-Creation-Date: 2016-09-24 19:04+0200\n"
+"PO-Revision-Date: 2016-09-24 17:04+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/votdev/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -43,6 +43,6 @@ msgid "Shairport"
 msgstr "Shairport"
 
 msgid ""
-"The name the service will advertise to iTunes. Leave this field empty to use"
-" the hostname by default."
+"The name the service will advertise to clients. Leave this field empty to "
+"use the hostname by default."
 msgstr ""

@@ -62,7 +62,7 @@ Ext.define("OMV.module.admin.service.shairport.Settings", {
 				allowBlank: true,
 				plugins: [{
 					ptype: "fieldinfo",
-					text: _("The name the service will advertise to iTunes. Leave this field empty to use the hostname by default.")
+					text: _("The name the service will advertise to clients. Leave this field empty to use the hostname by default.")
 				}]
 			},{
 				xtype: "checkbox",
