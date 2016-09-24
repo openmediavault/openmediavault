@@ -162,6 +162,20 @@ class SystemCtl {
 	}
 
 	/**
+	 * Mask the specified unit file.
+	 */
+	public function mask($quiet = FALSE) {
+		$this->exec("mask", null, $quiet);
+	}
+
+	/**
+	 * Unmask the specified unit file.
+	 */
+	public function unmask($quiet = FALSE) {
+		$this->exec("unmask", null, $quiet);
+	}
+
+	/**
 	 * Check whether the specified unit is active (i.e. running).
 	 * @return TRUE if the unit is active, otherwise FALSE.
 	 */
