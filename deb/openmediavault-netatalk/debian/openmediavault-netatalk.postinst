@@ -118,6 +118,10 @@ case "$1" in
 			omv_config_delete "/config/services/afp/shares/share/options/usedots"
 			omv_config_delete "/config/services/afp/shares/share/options/mswindows"
 		fi
+		if dpkg --compare-versions "$2" lt-nl "3.2.2"; then
+			# Zeroconf is now handled by the netatalk daemon itself.
+			omv_config_delete "/config/services/zeroconf/services/service[id='afp']"
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

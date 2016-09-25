@@ -1,6 +1,7 @@
 openmediavault-netatalk (3.2.2) stable; urgency=low
 
   * Harden installation script.
+  * Fix Zeroconf issue.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 25 Sep 2016 12:39:53 +0200
 
