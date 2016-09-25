@@ -547,7 +547,7 @@ omv_config_add_element() {
 	xml=$4
 
 	# Display a warning that the function is deprecated.
-	omv_warning "The function 'omv_config_add_element' is deprecated"
+	omv_warning "The function 'omv_config_add_element' is deprecated."
 
 	# If value contains XML data it must be handled different.
 	if omv_checkyesno ${xml}; then
