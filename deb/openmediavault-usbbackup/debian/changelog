@@ -1,3 +1,9 @@
+openmediavault-usbbackup (3.2.10) stable; urgency=low
+
+  * Harden installation script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 25 Sep 2016 12:45:34 +0200
+
 openmediavault-usbbackup (3.2.9) stable; urgency=low
 
   * Various improvements.

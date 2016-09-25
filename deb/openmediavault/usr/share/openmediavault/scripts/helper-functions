@@ -165,19 +165,6 @@ omv_uuid() {
 	uuid -v 4
 }
 
-# omv_debug message
-# If debugging is enabled output message to stderr.
-omv_debug() {
-	case ${OMV_DEBUG_SCRIPT} in
-	[Yy][Ee][Ss]|[Tt][Rr][Uu][Ee]|[Oo][Nn]|1)
-		if [ ! -z "$(which logger)" ]; then
-			logger "$0: DEBUG: $*"
-		fi
-		echo 1>&2 "$0: DEBUG: $*"
-		;;
-	esac
-}
-
 # omv_checkyesno value
 # Test if the given value is yes or no.
 # Return 0 if it's "1|y|yes|true|on", otherwise 1.
@@ -202,10 +189,17 @@ omv_log() {
 	omv_syslog_info $*
 }
 
+# omv_warning message
+# Print message to standard error (STDERR) and syslog.
+omv_warning() {
+	omv_msg "WARNING:" $*
+	omv_syslog_warning $*
+}
+
 # omv_error message
 # Print message to standard error (STDERR) and syslog.
 omv_error() {
-	omv_msg $* >&2
+	omv_msg "ERROR:" $* >&2
 	omv_syslog_error $*
 }
 
@@ -213,6 +207,17 @@ omv_error() {
 # Print the message to standard out (STDOUT).
 omv_msg() {
 	echo $*
+}
+
+# omv_debug message
+# If debugging is enabled output message to stderr.
+omv_debug() {
+	case ${OMV_DEBUG_SCRIPT} in
+	[Yy][Ee][Ss]|[Tt][Rr][Uu][Ee]|[Oo][Nn]|1)
+		omv_msg "DEBUG:" $*
+		omv_syslog_debug $*
+		;;
+	esac
 }
 
 # omv_syslog [-p priority] [-t tag] message
@@ -411,21 +416,138 @@ omv_config_get_count() {
 	return ${_result}
 }
 
+# omv_config_add_node xpath name
+# Add a new node at the specifield XPath. The function will exit if the
+# node already exists.
+# Example:
+# omv_config_add_node "/config/system" "email"
+# @param xpath The XPath to use.
+# @param name The name of the node.
+# @return None
+omv_config_add_node() {
+	local xpath name tmpfile
+
+	xpath=$1
+	name=$2
+	tmpfile=$(tempfile)
+
+	# Make sure the node does not exist.
+	targetxpath="$(omv_rtrim -c "/" ${xpath})/${name}"
+	if omv_config_exists "${targetxpath}"; then
+		omv_warning "The node '${name}' already exists at XPath '${xpath}'."
+	else
+		# !Attention! It is necessary to redirect the modified XML data to
+		# another file because xmlstarlet does not like to use the same file
+		# for input and output in a pipe like xmlstarlet ... file > file
+		xmlstarlet edit -P -s "${xpath}" -t elem -n "${name}" -v "" \
+		  "${OMV_CONFIG_FILE}" | tee "${tmpfile}" >/dev/null
+
+		# Copy temporary file content to config file. Do not move it to
+		# ensure that there still exists a working configuration file.
+		# Note, the existing file permissions must be kept.
+		cat "${tmpfile}" > "${OMV_CONFIG_FILE}"
+	fi
+
+	# Remove temporary file.
+	rm -f -- "${tmpfile}"
+}
+
+# omv_config_add_key xpath name value
+# Add a new key at the specifield XPath. The function will exit if the
+# key already exists.
+# Example:
+# omv_config_add_key "/config/system/email/primaryemail" "test@test.com"
+# @param xpath The XPath to use.
+# @param name The name of the key.
+# @param value The value of the key. Note, special XML characters
+#   MUST be escaped.
+# @return None
+omv_config_add_key() {
+	local xpath name value tmpfile
+
+	xpath=$1
+	name=$2
+	value=$3
+	tmpfile=$(tempfile)
+
+	# Make sure the key does not exist.
+	targetxpath="$(omv_rtrim -c "/" ${xpath})/${name}"
+	if omv_config_exists "${targetxpath}"; then
+		omv_warning "The node '${name}' already exists at XPath '${xpath}'."
+	else
+		# !Attention! It is necessary to redirect the modified XML data to
+		# another file because xmlstarlet does not like to use the same file
+		# for input and output in a pipe like xmlstarlet ... file > file
+		xmlstarlet edit -P -s "${xpath}" -t elem -n "${name}" -v "${value}" \
+		  "${OMV_CONFIG_FILE}" | tee "${tmpfile}" >/dev/null
+
+		# Copy temporary file content to config file. Do not move it to
+		# ensure that there still exists a working configuration file.
+		# Note, the existing file permissions must be kept.
+		cat "${tmpfile}" > "${OMV_CONFIG_FILE}"
+	fi
+
+	# Remove temporary file.
+	rm -f -- "${tmpfile}"
+}
+
+# omv_config_add_node_data xpath name data
+# Add a new node inclusive the specified XML data to the configuration.
+# !!! Please use this function only in special cases !!!
+# @param xpath The XPath to use.
+# @param name The name of the node.
+# @param data The XML data of the node. Special XML characters MUST be escaped.
+# @return None
+omv_config_add_node_data() {
+	local xpath name data tmpdata tmpfile
+
+	xpath=$1
+	name=$2
+	data=$3
+	tmpfile=$(tempfile)
+
+	# Create a unique value that will be inserted instead. It will be
+	# replaced by the real value later.
+	tmpdata=$(mktemp --dry-run "XXXXXXXXXXXX")
+
+	# !Attention! It is necessary to redirect the modified XML data to another
+	# file because xmlstarlet does not like to use the same file
+	# for input and output in a pipe like xmlstarlet ... file > file
+	xmlstarlet edit -P -s "${xpath}" -t elem -n "${name}" -v "${tmpdata}" \
+	  "${OMV_CONFIG_FILE}" | tee "${tmpfile}" >/dev/null
+
+	# If the value contains XML data then special characters must be
+	# escaped for sed, otherwise they will be misinterpreted.
+	sed -i "s/${tmpdata}/$(echo "${data}" | sed -e 's/\\/\\\\/g' \
+	  -e 's/\//\\\//g' -e 's/&/\\\&/g')/" "${tmpfile}"
+
+	# Copy temporary file content to config file. Note, the config file
+	# permissions must be kept.
+	cat "${tmpfile}" > "${OMV_CONFIG_FILE}"
+
+	# Remove temporary file.
+	rm -f -- "${tmpfile}"
+}
+
 # void omv_config_add_element (char *xpath, char *name, char *value, bool xml)
 # Add a new element to the configuration.
+# @deprecated
 # @param xpath The XPath to use
 # @param name The name of the element to add
 # @param value The element value. Special XML characters MUST be escaped.
 # @param xml Set to TRUE when the value contains XML data. Defaults to FALSE.
 # @return None
 omv_config_add_element() {
-	local tmpconfig xpath name value xml
+	local tmpfile xpath name value xml
 
-	tmpconfig=$(tempfile)
+	tmpfile=$(tempfile)
 	xpath=$1
 	name=$2
 	value=$3
 	xml=$4
+
+	# Display a warning that the function is deprecated.
+	omv_warning "The function 'omv_config_add_element' is deprecated"
 
 	# If value contains XML data it must be handled different.
 	if omv_checkyesno ${xml}; then
@@ -438,24 +560,21 @@ omv_config_add_element() {
 	# file because xmlstarlet does not like to use the same file
 	# for input and output in a pipe like xmlstarlet ... file > file
 	xmlstarlet edit -P -s "${xpath}" -t elem -n "${name}" -v "${value}" \
-	  "${OMV_CONFIG_FILE}" | tee "${tmpconfig}" >/dev/null
+	  "${OMV_CONFIG_FILE}" | tee "${tmpfile}" >/dev/null
 
 	if omv_checkyesno ${xml}; then
 		# If the value contains XML data then special characters must be
 		# escaped for sed, otherwise they will be misinterpreted.
 		sed -i "s/${value}/$(echo "$3" | sed -e 's/\\/\\\\/g' \
-		  -e 's/\//\\\//g' -e 's/&/\\\&/g')/" "${tmpconfig}"
+		  -e 's/\//\\\//g' -e 's/&/\\\&/g')/" "${tmpfile}"
 	fi
 
 	# Copy temporary file content to config file. Note, the config file
 	# permissions must be kept.
-	cat "${tmpconfig}" | tee "${OMV_CONFIG_FILE}" >/dev/null
-
-	# Flush file system buffers.
-	sync
+	cat "${tmpfile}" > "${OMV_CONFIG_FILE}"
 
 	# Remove temporary file.
-	rm -f -- "${tmpconfig}"
+	rm -f -- "${tmpfile}"
 }
 
 # void omv_config_rename (char *xpath, char *name)
@@ -464,9 +583,9 @@ omv_config_add_element() {
 # @param name The new name.
 # @return None
 omv_config_rename() {
-	local tmpconfig xpath name
+	local tmpfile xpath name
 
-	tmpconfig=$(tempfile)
+	tmpfile=$(tempfile)
 	xpath=$1
 	name=$2
 
@@ -474,14 +593,14 @@ omv_config_rename() {
 	# file because xmlstarlet does not like to use the same file
 	# for input and output in a pipe like xmlstarlet ... file > file
 	xmlstarlet edit -P -r "${xpath}" -v "${name}" "${OMV_CONFIG_FILE}" | \
-	  tee "${tmpconfig}" >/dev/null
+	  tee "${tmpfile}" >/dev/null
 
 	# Copy temporary file content to config file. Note, the config file
 	# permissions must be kept.
-	cat "${tmpconfig}" | tee "${OMV_CONFIG_FILE}" >/dev/null
+	cat "${tmpfile}" > "${OMV_CONFIG_FILE}"
 
 	# Remove temporary file.
-	rm -f -- "${tmpconfig}"
+	rm -f -- "${tmpfile}"
 }
 
 # void omv_config_move (char *xpath1, char *xpath2)
@@ -490,9 +609,9 @@ omv_config_rename() {
 # @param xpath2 The destination XPath to use.
 # @return None
 omv_config_move() {
-	local tmpconfig xpath1 xpath2
+	local tmpfile xpath1 xpath2
 
-	tmpconfig=$(tempfile)
+	tmpfile=$(tempfile)
 	xpath1=$1
 	xpath2=$2
 
@@ -500,14 +619,14 @@ omv_config_move() {
 	# file because xmlstarlet does not like to use the same file
 	# for input and output in a pipe like xmlstarlet ... file > file
 	xmlstarlet edit -P -m "${xpath1}" "${xpath2}" "${OMV_CONFIG_FILE}" | \
-	  tee "${tmpconfig}" >/dev/null
+	  tee "${tmpfile}" >/dev/null
 
 	# Copy temporary file content to config file. Note, the config file
 	# permissions must be kept.
-	cat "${tmpconfig}" | tee "${OMV_CONFIG_FILE}" >/dev/null
+	cat "${tmpfile}" > "${OMV_CONFIG_FILE}"
 
 	# Remove temporary file.
-	rm -f -- "${tmpconfig}"
+	rm -f -- "${tmpfile}"
 }
 
 # void omv_config_update (char *xpath, char *value)
@@ -517,9 +636,9 @@ omv_config_move() {
 # @param xml Set to true when the value contains XML data. Defaults to false.
 # @return None
 omv_config_update() {
-	local tmpconfig xpath value xml
+	local tmpfile xpath value xml
 
-	tmpconfig=$(tempfile)
+	tmpfile=$(tempfile)
 	xpath=$1
 	value=$2
 	xml=$3
@@ -535,24 +654,21 @@ omv_config_update() {
 	# file because xmlstarlet does not like to use the same file
 	# for input and output in a pipe like xmlstarlet ... file > file
 	xmlstarlet edit -P -u "${xpath}" -v "${value}" "${OMV_CONFIG_FILE}" | \
-	  tee "${tmpconfig}" >/dev/null
+	  tee "${tmpfile}" >/dev/null
 
 	if omv_checkyesno ${xml}; then
 		# If the value contains XML data then special characters must be
 		# escaped for sed, otherwise they will be misinterpreted.
 		sed -i "s/${value}/$(echo "$2" | sed -e 's/\\/\\\\/g' \
-		  -e 's/\//\\\//g' -e 's/&/\\\&/g')/" "${tmpconfig}"
+		  -e 's/\//\\\//g' -e 's/&/\\\&/g')/" "${tmpfile}"
 	fi
 
 	# Copy temporary file content to config file. Note, the config file
 	# permissions must be kept.
-	cat "${tmpconfig}" | tee "${OMV_CONFIG_FILE}" >/dev/null
-
-	# Flush file system buffers.
-	sync
+	cat "${tmpfile}" > "${OMV_CONFIG_FILE}"
 
 	# Remove temporary file.
-	rm -f -- "${tmpconfig}"
+	rm -f -- "${tmpfile}"
 }
 
 # void omv_config_delete (char *xpath)
@@ -560,9 +676,9 @@ omv_config_update() {
 # @param xpath The XPath to use
 # @return None
 omv_config_delete() {
-	local tmpconfig xpath
+	local tmpfile xpath
 
-	tmpconfig=$(tempfile)
+	tmpfile=$(tempfile)
 	xpath=$1
 
 	# Note! It is necessary to redirect the modified XML data to another
@@ -570,17 +686,14 @@ omv_config_delete() {
 	# for input and output in a pipe like
 	# xmlstarlet ... file > file
 	xmlstarlet edit -d "${xpath}" "${OMV_CONFIG_FILE}" | \
-	  tee "${tmpconfig}" >/dev/null
+	  tee "${tmpfile}" >/dev/null
 
 	# Copy temporary file content to config file. Note, the config file
 	# permissions must be kept.
-	cat "${tmpconfig}" | tee "${OMV_CONFIG_FILE}" >/dev/null
-
-	# Flush file system buffers.
-	sync
+	cat "${tmpfile}" > "${OMV_CONFIG_FILE}"
 
 	# Remove temporary file.
-	rm -f -- "${tmpconfig}"
+	rm -f -- "${tmpfile}"
 }
 
 # omv_quotemeta [string]

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2016-07-24 06:08+0000\n"
+"PO-Revision-Date: 2016-08-21 15:39+0000\n"
 "Last-Translator: zubr139\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +40,7 @@ msgid "Authentication"
 msgstr "Аутентифікація"
 
 msgid "Block IO"
-msgstr ""
+msgstr "Блок IO"
 
 msgid "Comment"
 msgstr "Коментар"
@@ -84,10 +84,10 @@ msgid "Extra options"
 msgstr "Додаткові опції"
 
 msgid "File IO"
-msgstr ""
+msgstr "Файл IO"
 
 msgid "First burst length"
-msgstr ""
+msgstr "Довжина першого пакету"
 
 msgid "General"
 msgstr "Загальне"
@@ -99,7 +99,7 @@ msgid "Header digest"
 msgstr ""
 
 msgid "IO threads"
-msgstr ""
+msgstr "IO потоки"
 
 msgid "IQN"
 msgstr "IQN"
@@ -142,19 +142,19 @@ msgid ""
 msgstr ""
 
 msgid "Immediate data"
-msgstr ""
+msgstr "Поточні дані"
 
 msgid "Incoming"
 msgstr "Вхідний"
 
 msgid "Initial R2T"
-msgstr ""
+msgstr "Початковий R2T"
 
 msgid "LUN"
 msgstr "LUN"
 
 msgid "Max. burst length"
-msgstr ""
+msgstr "Мксимальна довжина пакета"
 
 msgid "Max. connections"
 msgstr "Максимум з'єднать"
@@ -166,7 +166,7 @@ msgid "Max. receive data segment length"
 msgstr ""
 
 msgid "Max. sessions"
-msgstr ""
+msgstr "Максимум сесій"
 
 msgid "Max. transmit data segment length"
 msgstr ""
@@ -175,7 +175,7 @@ msgid "NOP interval"
 msgstr "Інтервал NOP"
 
 msgid "NOP timeout"
-msgstr ""
+msgstr "NOP затримка"
 
 msgid "None"
 msgstr "Немає"
@@ -202,10 +202,10 @@ msgid "SCSI Id."
 msgstr "SCSI ід."
 
 msgid "SCSI serial no."
-msgstr ""
+msgstr "SCSI серійний номер."
 
 msgid "Select an device ..."
-msgstr ""
+msgstr "Оберіть пристрій ..."
 
 msgid ""
 "Sets the amount of unsolicited data the initiator may transmit in the first "
@@ -244,7 +244,7 @@ msgid "The number of connections within a session."
 msgstr "Кількість з'єднань в сесії."
 
 msgid "The number of threads to perform block I/O to the device."
-msgstr ""
+msgstr "Кількість потоків для виконання блоку введення виведення до пристрою."
 
 msgid "The optional alias of the target."
 msgstr ""

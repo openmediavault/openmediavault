@@ -96,30 +96,28 @@ case "$1" in
 		# </config>
 		########################################################################
 		if ! omv_config_exists "/config/services/clamav"; then
-			echo "Initialize configuration"
-			object="<enable>0</enable>"
-			object="${object}<quarantine_sharedfolderref></quarantine_sharedfolderref>"
-			object="${object}<clamd>"
-			object="${object}<logclean>0</logclean>"
-			object="${object}<scanpe>1</scanpe>"
-			object="${object}<scanole2>1</scanole2>"
-			object="${object}<scanhtml>1</scanhtml>"
-			object="${object}<scanpdf>1</scanpdf>"
-			object="${object}<scanelf>1</scanelf>"
-			object="${object}<scanarchive>1</scanarchive>"
-			object="${object}<detectbrokenexecutables>0</detectbrokenexecutables>"
-			object="${object}<algorithmicdetection>1</algorithmicdetection>"
-			object="${object}<followdirectorysymlinks>0</followdirectorysymlinks>"
-			object="${object}<followfilesymlinks>0</followfilesymlinks>"
-			object="${object}<detectpua>0</detectpua>"
-			object="${object}<extraoptions></extraoptions>"
-			object="${object}</clamd>"
-			object="${object}<freshclam>"
-			object="${object}<enable>1</enable>"
-			object="${object}<checks>24</checks>"
-			object="${object}</freshclam>"
-			object="${object}<jobs></jobs>"
-			omv_config_add_element "/config/services" "clamav" "${object}" true
+			echo "Initialize default configuration ..."
+			omv_config_add_node "/config/services" "clamav"
+			omv_config_add_key "/config/services/clamav" "enable" "0"
+			omv_config_add_key "/config/services/clamav" "quarantine_sharedfolderref" ""
+			omv_config_add_node "/config/services/clamav" "clamd"
+			omv_config_add_key "/config/services/clamav/clamd" "logclean" "0"
+			omv_config_add_key "/config/services/clamav/clamd" "scanpe" "1"
+			omv_config_add_key "/config/services/clamav/clamd" "scanole2" "1"
+			omv_config_add_key "/config/services/clamav/clamd" "scanhtml" "1"
+			omv_config_add_key "/config/services/clamav/clamd" "scanpdf" "1"
+			omv_config_add_key "/config/services/clamav/clamd" "scanelf" "1"
+			omv_config_add_key "/config/services/clamav/clamd" "scanarchive" "1"
+			omv_config_add_key "/config/services/clamav/clamd" "detectbrokenexecutables" "0"
+			omv_config_add_key "/config/services/clamav/clamd" "algorithmicdetection" "1"
+			omv_config_add_key "/config/services/clamav/clamd" "followdirectorysymlinks" "0"
+			omv_config_add_key "/config/services/clamav/clamd" "followfilesymlinks" "0"
+			omv_config_add_key "/config/services/clamav/clamd" "detectpua" "0"
+			omv_config_add_key "/config/services/clamav/clamd" "extraoptions" ""
+			omv_config_add_node "/config/services/clamav" "freshclam"
+			omv_config_add_key "/config/services/clamav/freshclam" "enable" "1"
+			omv_config_add_key "/config/services/clamav/freshclam" "checks" "24"
+			omv_config_add_node "/config/services/clamav" "jobs"
 		fi
 
 		########################################################################
@@ -134,11 +132,11 @@ case "$1" in
 		########################################################################
 		echo "Updating configuration ..."
 		if dpkg --compare-versions "$2" lt-nl "0.3.0.1"; then
-			omv_config_add_element "/config/services/clamav/jobs/job" "remove" "0"
+			omv_config_add_key "/config/services/clamav/jobs/job" "remove" "0"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.3.0.2"; then
-			omv_config_add_element "/config/services/clamav/jobs/job" "verbose" "0"
-			omv_config_add_element "/config/services/clamav/jobs/job" "multiscan" "0"
+			omv_config_add_key "/config/services/clamav/jobs/job" "verbose" "0"
+			omv_config_add_key "/config/services/clamav/jobs/job" "multiscan" "0"
 			omv-mkconf clamav
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.3.0.3"; then
@@ -148,12 +146,13 @@ case "$1" in
 			fi
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.4.1"; then
-			omv_config_add_element "/config/services/clamav/clamd" "logclean" "0"
+			omv_config_add_key "/config/services/clamav/clamd" "logclean" "0"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.6.1"; then
-			omv_config_add_element "/config/services/clamav" "quarantine.sharedfolderref" ""
-			omv_config_add_element "/config/services/clamav/jobs/job[remove='0']" "virusaction" "nothing"
-			omv_config_add_element "/config/services/clamav/jobs/job[remove='1']" "virusaction" "delete"
+			omv_config_add_key "/config/services/clamav" "quarantine.sharedfolderref" ""
+			omv_config_add_key "/config/services/clamav/jobs/job[remove='0']" "virusaction" "nothing"
+			omv_config_add_key "/config/services/clamav/jobs/job[remove='1']" "virusaction" "delete"
+			omv_config_delete "/config/services/clamav/jobs/job/remove"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.0.2"; then
 			omv-mkconf clamav

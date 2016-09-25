@@ -50,21 +50,21 @@ case "$1" in
 		#       <sharedfolderref></sharedfolderref>
 		#       <passwordrequired>0|1</passwordrequired>
 		#       <password></password>
-		#       <adminpassword></adminpassword>
+		#       <adminpassword>unused</adminpassword>
 		#     </daap>
 		#   </services>
 		# </config>
 		########################################################################
 		if ! omv_config_exists "/config/services/daap"; then
-			echo "Initialize configuration"
-			object="<enable>0</enable>"
-			object="${object}<libraryname>%h - iTunes/DAAP</libraryname>"
-			object="${object}<port>3689</port>"
-			object="${object}<sharedfolderref></sharedfolderref>"
-			object="${object}<passwordrequired>0</passwordrequired>"
-			object="${object}<password></password>"
-			object="${object}<adminpassword>unused</adminpassword>"
-			omv_config_add_element "/config/services" "daap" "${object}" true
+			echo "Initialize default configuration ..."
+			omv_config_add_node "/config/services" "daap"
+			omv_config_add_key "/config/services/daap" "enable" "0"
+			omv_config_add_key "/config/services/daap" "libraryname" "%h - iTunes/DAAP"
+			omv_config_add_key "/config/services/daap" "port" "3689"
+			omv_config_add_key "/config/services/daap" "sharedfolderref" ""
+			omv_config_add_key "/config/services/daap" "passwordrequired" "0"
+			omv_config_add_key "/config/services/daap" "password" ""
+			omv_config_add_key "/config/services/daap" "adminpassword" "unused"
 		fi
 
 		########################################################################

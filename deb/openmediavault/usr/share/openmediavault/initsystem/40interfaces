@@ -65,8 +65,7 @@ grep -iP "^\s*iface\s+(eth|wlan)[0-9]+\s+(inet|inet6)\s+(static|dhcp)" ${OMV_INT
 	  fi
 	  # Add interface if it does not already exist.
 	  if ! omv_config_exists "/config/system/network/interfaces/interface[type='ethernet' and devicename='${devname}']"; then
-		  omv_config_add_element "/config/system/network/interfaces" "interface" \
-			"${object}" true
+		  omv_config_add_node_data "/config/system/network/interfaces" "interface" "${object}"
 	  fi
   done
 

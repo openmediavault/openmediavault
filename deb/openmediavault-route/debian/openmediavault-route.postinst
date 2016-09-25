@@ -43,8 +43,8 @@ case "$1" in
 		# </config>
 		########################################################################
 		if ! omv_config_exists "/config/services/staticroutes"; then
-			echo "Initialize configuration"
-			omv_config_add_element "/config/services" "staticroutes" ""
+			echo "Initialize default configuration ..."
+			omv_config_add_node "/config/services" "staticroutes"
 		fi
 
 		########################################################################

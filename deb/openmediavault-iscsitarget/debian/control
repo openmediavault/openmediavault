@@ -9,7 +9,7 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault-iscsitarget
 Architecture: all
-Depends: openmediavault (>= 3.0.31), iscsitarget, iscsitarget-dkms,
+Depends: openmediavault (>= 3.0.40), iscsitarget, iscsitarget-dkms,
  linux-headers-amd64 | linux-headers-armel | linux-headers-armhf |
  linux-headers-i386 | linux-headers-mips | linux-headers-mipsel |
  linux-headers-powerpc | linux-headers-ppc64el | linux-headers-s390 |

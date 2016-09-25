@@ -112,12 +112,12 @@ case "$1" in
 		# </config>
 		########################################################################
 		if ! omv_config_exists "/config/services/iscsitarget"; then
-			echo "Initialize configuration"
-			object="<enable>0</enable>"
-			object="${object}<authentication></authentication>"
-			object="${object}<extraoptions></extraoptions>"
-			object="${object}<targets></targets>"
-			omv_config_add_element "/config/services" "iscsitarget" "${object}" true
+			echo "Initialize default configuration ..."
+			omv_config_add_node "/config/services" "iscsitarget"
+			omv_config_add_key "/config/services/iscsitarget" "enable" "0"
+			omv_config_add_key "/config/services/iscsitarget" "authentication" ""
+			omv_config_add_key "/config/services/iscsitarget" "extraoptions" ""
+			omv_config_add_node "/config/services/iscsitarget" "targets"
 		fi
 
 		########################################################################

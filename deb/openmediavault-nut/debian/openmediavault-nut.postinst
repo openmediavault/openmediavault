@@ -57,17 +57,17 @@ case "$1" in
 		# </config>
 		########################################################################
 		if ! omv_config_exists "/config/services/nut"; then
-			echo "Initialize configuration"
-			object="<enable>0</enable>"
-			object="${object}<upsname>ups</upsname>"
-			object="${object}<comment></comment>"
-			object="${object}<driverconf></driverconf>"
-			object="${object}<shutdownmode>onbatt</shutdownmode>"
-			object="${object}<shutdowntimer>30</shutdowntimer>"
-			object="${object}<remotemonitor>0</remotemonitor>"
-			object="${object}<remoteuser></remoteuser>"
-			object="${object}<remotepassword></remotepassword>"
-			omv_config_add_element "/config/services" "nut" "${object}" true
+			echo "Initialize default configuration ..."
+			omv_config_add_node "/config/services" "nut"
+			omv_config_add_key "/config/services/nut" "enable" "0"
+			omv_config_add_key "/config/services/nut" "upsname" "ups"
+			omv_config_add_key "/config/services/nut" "comment" ""
+			omv_config_add_key "/config/services/nut" "driverconf" ""
+			omv_config_add_key "/config/services/nut" "shutdownmode" "onbatt"
+			omv_config_add_key "/config/services/nut" "shutdowntimer" "30"
+			omv_config_add_key "/config/services/nut" "remotemonitor" "0"
+			omv_config_add_key "/config/services/nut" "remoteuser" ""
+			omv_config_add_key "/config/services/nut" "remotepassword" ""
 		fi
 
 		########################################################################

@@ -58,12 +58,12 @@ case "$1" in
 		# </config>
 		########################################################################
 		if ! omv_config_exists "/config/services/shairport"; then
-			echo "Initialize configuration"
-			object="<enable>0</enable>"
-			object="${object}<name></name>"
-			object="${object}<passwordrequired>0</passwordrequired>"
-			object="${object}<password></password>"
-			omv_config_add_element "/config/services" "shairport" "${object}" true
+			echo "Initialize default configuration ..."
+			omv_config_add_node "/config/services" "shairport"
+			omv_config_add_key "/config/services/shairport" "enable" "0"
+			omv_config_add_key "/config/services/shairport" "name" ""
+			omv_config_add_key "/config/services/shairport" "passwordrequired" "0"
+			omv_config_add_key "/config/services/shairport" "password" ""
 		fi
 
 		########################################################################
@@ -85,7 +85,7 @@ case "$1" in
 			fi
 		fi
 		if dpkg --compare-versions "$2" lt-nl "2.5"; then
-			omv_config_add_element "/config/services/shairport" "name" ""
+			omv_config_add_key "/config/services/shairport" "name" ""
 		fi
 	;;
 

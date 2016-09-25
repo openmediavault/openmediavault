@@ -57,20 +57,20 @@ case "$1" in
 		# </config>
 		########################################################################
 		if ! omv_config_exists "/config/services/ldap"; then
-			echo "Initialize configuration"
-			object="<enable>0</enable>"
-			object="${object}<host></host>"
-			object="${object}<port>389</port>"
-			object="${object}<enablessl>0</enablessl>"
-			object="${object}<base></base>"
-			object="${object}<rootbinddn></rootbinddn>"
-			object="${object}<rootbindpw></rootbindpw>"
-			object="${object}<usersuffix>ou=Users</usersuffix>"
-			object="${object}<groupsuffix>ou=Groups</groupsuffix>"
-			object="${object}<enablepam>1</enablepam>"
-			object="${object}<extraoptions></extraoptions>"
-			object="${object}<extraclientoptions></extraclientoptions>"
-			omv_config_add_element "/config/services" "ldap" "${object}" true
+			echo "Initialize default configuration ..."
+			omv_config_add_node "/config/services" "ldap"
+			omv_config_add_key "/config/services/ldap" "enable" "0"
+			omv_config_add_key "/config/services/ldap" "host" ""
+			omv_config_add_key "/config/services/ldap" "port" "389"
+			omv_config_add_key "/config/services/ldap" "enablessl" "0"
+			omv_config_add_key "/config/services/ldap" "base" ""
+			omv_config_add_key "/config/services/ldap" "rootbinddn" ""
+			omv_config_add_key "/config/services/ldap" "rootbindpw" ""
+			omv_config_add_key "/config/services/ldap" "usersuffix" "ou=Users"
+			omv_config_add_key "/config/services/ldap" "groupsuffix" "ou=Groups"
+			omv_config_add_key "/config/services/ldap" "enablepam" "1"
+			omv_config_add_key "/config/services/ldap" "extraoptions" ""
+			omv_config_add_key "/config/services/ldap" "extraclientoptions" ""
 		fi
 
 		########################################################################
@@ -85,11 +85,11 @@ case "$1" in
 		########################################################################
 		echo "Updating configuration ..."
 		if dpkg --compare-versions "$2" lt-nl "1.0.3"; then
-			omv_config_add_element "/config/services/ldap" "enablessl" "0"
+			omv_config_add_key "/config/services/ldap" "enablessl" "0"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "2.0"; then
-			omv_config_add_element "/config/services/ldap" "enablepam" "1"
-			omv_config_add_element "/config/services/ldap" "extraclientoptions" ""
+			omv_config_add_key "/config/services/ldap" "enablepam" "1"
+			omv_config_add_key "/config/services/ldap" "extraclientoptions" ""
 		fi
 	;;
 

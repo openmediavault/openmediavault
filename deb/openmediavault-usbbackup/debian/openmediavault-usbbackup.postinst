@@ -65,8 +65,8 @@ case "$1" in
 		########################################################################
 		if ! omv_config_exists "/config/services/usbbackup"; then
 			echo "Initialize configuration"
-			omv_config_add_element "/config/services" "usbbackup" ""
-			omv_config_add_element "/config/services/usbbackup" "jobs" ""
+			omv_config_add_node "/config/services" "usbbackup"
+			omv_config_add_node "/config/services/usbbackup" "jobs"
 		fi
 
 		########################################################################

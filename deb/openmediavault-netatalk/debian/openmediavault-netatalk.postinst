@@ -72,14 +72,13 @@ case "$1" in
 		# </config>
 		########################################################################
 		if ! omv_config_exists "/config/services/afp"; then
-			echo "Initialize configuration"
-			# Add the default service configuration.
-			object="<enable>0</enable>"
-			object="${object}<allowclrtxt>0</allowclrtxt>"
-			object="${object}<homesenable>0</homesenable>"
-			object="${object}<extraoptions></extraoptions>"
-			object="${object}<shares></shares>"
-			omv_config_add_element "/config/services" "afp" "${object}" true
+			echo "Initialize default configuration ..."
+			omv_config_add_node "/config/services" "afp"
+			omv_config_add_key "/config/services/afp" "enable" "0"
+			omv_config_add_key "/config/services/afp" "allowclrtxt" "0"
+			omv_config_add_key "/config/services/afp" "homesenable" "0"
+			omv_config_add_key "/config/services/afp" "extraoptions" ""
+			omv_config_add_node "/config/services/afp" "shares"
 		fi
 
 		########################################################################
@@ -97,24 +96,24 @@ case "$1" in
 			rm -f /etc/monit/conf.d/netatalk
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.3.0.4"; then
-			omv_config_add_element "/config/services/afp" "dnssd" ""
-			omv_config_add_element "/config/services/afp/dnssd" "enable" "1"
-			omv_config_add_element "/config/services/afp/dnssd" "name" "%h - AFP"
+			omv_config_add_node "/config/services/afp" "dnssd"
+			omv_config_add_key "/config/services/afp/dnssd" "enable" "1"
+			omv_config_add_key "/config/services/afp/dnssd" "name" "%h - AFP"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.3.0.5"; then
-			omv_config_add_element "/config/services/afp" "allowclrtxt" "0"
-			omv_config_add_element "/config/services/afp" "homesenable" "0"
+			omv_config_add_key "/config/services/afp" "allowclrtxt" "0"
+			omv_config_add_key "/config/services/afp" "homesenable" "0"
 			omv-mkconf netatalk
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.3.0.7"; then
-			omv_config_add_element "/config/services/afp/shares/share" "volsizelimit" "0"
+			omv_config_add_key "/config/services/afp/shares/share" "volsizelimit" "0"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.5"; then
 			# Add avahi configuration.
-			omv_config_add_element "/config/services/zeroconf/services" "service" "<id>afp</id><enable>1</enable><name>%h - AFP</name>" true
+			omv_config_add_node_data "/config/services/zeroconf/services" "service" "<id>afp</id><enable>1</enable><name>%h - AFP</name>"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.1"; then
-			omv_config_add_element "/config/services/afp/shares/share" "enable" "1"
+			omv_config_add_key "/config/services/afp/shares/share" "enable" "1"
 			omv_config_delete "/config/services/afp/shares/share/name"
 			omv_config_delete "/config/services/afp/shares/share/options/usedots"
 			omv_config_delete "/config/services/afp/shares/share/options/mswindows"

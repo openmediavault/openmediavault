@@ -203,37 +203,37 @@ case "$1" in
 			omv_set_default "OMV_INITSYSTEM_SCRIPTS_DIR" "/usr/share/openmediavault/initsystem"
 			omv_set_default "OMV_APACHE2_SUEXECUSERGROUP" "openmediavault"
 			# Add avahi configurations.
-			omv_config_add_element "/config/services" "zeroconf" ""
-			omv_config_add_element "/config/services/zeroconf" "services" ""
-			omv_config_add_element "/config/services/zeroconf/services" "service" "<id>webadmin</id><enable>1</enable><name>%h - Web administration</name>" true
-			omv_config_add_element "/config/services/zeroconf/services" "service" "<id>ssh</id><enable>1</enable><name>%h - SSH</name>" true
-			omv_config_add_element "/config/services/zeroconf/services" "service" "<id>nfs</id><enable>1</enable><name>%h - NFS</name>" true
-			omv_config_add_element "/config/services/zeroconf/services" "service" "<id>ftp</id><enable>1</enable><name>%h - FTP</name>" true
-			omv_config_add_element "/config/services/zeroconf/services" "service" "<id>tftp</id><enable>1</enable><name>%h - TFTP</name>" true
-			omv_config_add_element "/config/services/zeroconf/services" "service" "<id>smb</id><enable>1</enable><name>%h - SMB/CIFS</name>" true
-			omv_config_add_element "/config/services/zeroconf/services" "service" "<id>rsync</id><enable>1</enable><name>%h - Rsync</name>" true
+			omv_config_add_node "/config/services" "zeroconf"
+			omv_config_add_node "/config/services/zeroconf" "services"
+			omv_config_add_node_data "/config/services/zeroconf/services" "service" "<id>webadmin</id><enable>1</enable><name>%h - Web administration</name>"
+			omv_config_add_node_data "/config/services/zeroconf/services" "service" "<id>ssh</id><enable>1</enable><name>%h - SSH</name>"
+			omv_config_add_node_data "/config/services/zeroconf/services" "service" "<id>nfs</id><enable>1</enable><name>%h - NFS</name>"
+			omv_config_add_node_data "/config/services/zeroconf/services" "service" "<id>ftp</id><enable>1</enable><name>%h - FTP</name>"
+			omv_config_add_node_data "/config/services/zeroconf/services" "service" "<id>tftp</id><enable>1</enable><name>%h - TFTP</name>"
+			omv_config_add_node_data "/config/services/zeroconf/services" "service" "<id>smb</id><enable>1</enable><name>%h - SMB/CIFS</name>"
+			omv_config_add_node_data "/config/services/zeroconf/services" "service" "<id>rsync</id><enable>1</enable><name>%h - Rsync</name>"
 			omv_config_delete "//dnssd"
 			# Add notification configurations.
-			omv_config_add_element "/config/system" "notification" ""
-			omv_config_add_element "/config/system/notification" "notifications" ""
-			omv_config_add_element "/config/system/notification/notifications" "monitprocevents" "1"
-			omv_config_add_element "/config/system/notification/notifications" "monitloadavg" "1"
-			omv_config_add_element "/config/system/notification/notifications" "monitmemoryusage" "1"
-			omv_config_add_element "/config/system/notification/notifications" "monitcpuusage" "1"
-			omv_config_add_element "/config/system/notification/notifications" "monitfilesystems" "1"
-			omv_config_add_element "/config/system/notification/notifications" "mdadm" "1"
-			omv_config_add_element "/config/system/notification/notifications" "smartmontools" "1"
+			omv_config_add_node "/config/system" "notification"
+			omv_config_add_node "/config/system/notification" "notifications"
+			omv_config_add_key "/config/system/notification/notifications" "monitprocevents" "1"
+			omv_config_add_key "/config/system/notification/notifications" "monitloadavg" "1"
+			omv_config_add_key "/config/system/notification/notifications" "monitmemoryusage" "1"
+			omv_config_add_key "/config/system/notification/notifications" "monitcpuusage" "1"
+			omv_config_add_key "/config/system/notification/notifications" "monitfilesystems" "1"
+			omv_config_add_key "/config/system/notification/notifications" "mdadm" "1"
+			omv_config_add_key "/config/system/notification/notifications" "smartmontools" "1"
 			# Add new Rsync module option.
-			omv_config_add_element "/config/services/rsync/server/modules/module" "usechroot" "1"
+			omv_config_add_key "/config/services/rsync/server/modules/module" "usechroot" "1"
 			# Add comment to network interface configurations.
-			omv_config_add_element "/config/system/network/interfaces/iface" "comment" ""
-			omv_config_add_element "/config/system/network/interfaces/bondiface" "comment" ""
+			omv_config_add_key "/config/system/network/interfaces/iface" "comment" ""
+			omv_config_add_key "/config/system/network/interfaces/bondiface" "comment" ""
 			# Add 'aio' option to SMB/CIFS server. Configuration will be
 			# reloaded automatically.
-			omv_config_add_element "/config/services/smb" "aio" "1"
+			omv_config_add_key "/config/services/smb" "aio" "1"
 			omv-mkconf samba
 			# Add new S.M.A.R.T. scheduled test option.
-			omv_config_add_element "/config/services/smart/scheduledtests/job" "enable" "1"
+			omv_config_add_key "/config/services/smart/scheduledtests/job" "enable" "1"
 			# Remove user 'openmediavault' from sudoers list.
 			sed -i -e '/^%openmediavault/d' /etc/sudoers
 			# Recreate certificates.
@@ -249,12 +249,12 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.5.0.21"; then
 			# Set IPv6 interface configurations.
-			omv_config_add_element "/config/system/network/interfaces/*[name()='iface' or name()='bondiface']" "method6" "manual"
-			omv_config_add_element "/config/system/network/interfaces/*[name()='iface' or name()='bondiface']" "address6" ""
-			omv_config_add_element "/config/system/network/interfaces/*[name()='iface' or name()='bondiface']" "netmask6" "64"
-			omv_config_add_element "/config/system/network/interfaces/*[name()='iface' or name()='bondiface']" "gateway6" ""
+			omv_config_add_key "/config/system/network/interfaces/*[name()='iface' or name()='bondiface']" "method6" "manual"
+			omv_config_add_key "/config/system/network/interfaces/*[name()='iface' or name()='bondiface']" "address6" ""
+			omv_config_add_key "/config/system/network/interfaces/*[name()='iface' or name()='bondiface']" "netmask6" "64"
+			omv_config_add_key "/config/system/network/interfaces/*[name()='iface' or name()='bondiface']" "gateway6" ""
 			# Modify firewall rules.
-			omv_config_add_element "/config/system/network/iptables/rule" "family" "inet"
+			omv_config_add_key "/config/system/network/iptables/rule" "family" "inet"
 			# Modify sysctl settings.
 			echo 0 > /proc/sys/net/ipv6/conf/all/autoconf
 			echo 0 > /proc/sys/net/ipv6/conf/default/autoconf
@@ -270,7 +270,7 @@ case "$1" in
 			omv-mkconf ntp
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.5.8"; then
-			omv_config_add_element "/config/system/notification/notifications" "cronapt" "1"
+			omv_config_add_key "/config/system/notification/notifications" "cronapt" "1"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.5.9"; then
 			update-rc.d acpid enable
@@ -282,7 +282,7 @@ case "$1" in
 			omv-mkconf collectd
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.5.15"; then
-			omv_config_add_element "/config/services/ftp" "transferlog" "0"
+			omv_config_add_key "/config/services/ftp" "transferlog" "0"
 			omv-mkconf proftpd
 			service proftpd reload
 		fi
@@ -291,10 +291,10 @@ case "$1" in
 			invoke-rc.d apache2 graceful
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.5.26"; then
-			omv_config_add_element "/config/system" "apt" ""
-			omv_config_add_element "/config/system/apt" "distribution" ""
-			omv_config_add_element "/config/system/apt/distribution" "proposed" "0"
-			omv_config_add_element "/config/system/apt/distribution" "partner" "0"
+			omv_config_add_node "/config/system" "apt"
+			omv_config_add_node "/config/system/apt" "distribution"
+			omv_config_add_key "/config/system/apt/distribution" "proposed" "0"
+			omv_config_add_key "/config/system/apt/distribution" "partner" "0"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.5.32"; then
 			omv-mkconf collectd
@@ -309,7 +309,7 @@ case "$1" in
 			invoke-rc.d apache2 graceful
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.5.39"; then
-			omv_config_add_element "/config/services/smart" "monitor" ""
+			omv_config_add_node "/config/services/smart" "monitor"
 			xmlstarlet sel -t -m "/config/system/storage/hdparm" \
 			  -v "uuid" \
 			  -i "position() != last()" -n -b \
@@ -321,7 +321,7 @@ case "$1" in
 				  object="${object}<devicefile>${devicefile}</devicefile>"
 				  object="${object}<enable>${enable}</enable>"
 				  object="${object}<type></type>"
-				  omv_config_add_element "/config/services/smart/monitor" "device" "${object}" true
+				  omv_config_add_node_data "/config/services/smart/monitor" "device" "${object}"
 				  omv_config_delete "/config/system/storage/hdparm[uuid='${uuid}']/smart"
 			  done
 		fi
@@ -345,7 +345,7 @@ case "$1" in
 				  mkdir -p "${dir}"
 			  done
 			# Add SMB/CIFS share option.
-			omv_config_add_element "/config/services/smb/shares/share" "audit" "0"
+			omv_config_add_key "/config/services/smb/shares/share" "audit" "0"
 			# Rebuild configuration files.
 			omv-mkconf collectd
 			omv-mkconf rrdcached
@@ -390,20 +390,20 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.6.0.11"; then
 			# Add service enable/disable flag.
-			omv_config_add_element "/config/services/smb/shares/share" "enable" "1"
-			omv_config_add_element "/config/services/rsync/server/modules/module" "enable" "1"
+			omv_config_add_key "/config/services/smb/shares/share" "enable" "1"
+			omv_config_add_key "/config/services/rsync/server/modules/module" "enable" "1"
 			# Introduce new SMB share configuration option (convert the
 			# existing configuration option).
-			omv_config_add_element "/config/services/smb/shares/share[guestok='0']" "guest" "no"
-			omv_config_add_element "/config/services/smb/shares/share[guestok='1']" "guest" "only"
+			omv_config_add_key "/config/services/smb/shares/share[guestok='0']" "guest" "no"
+			omv_config_add_key "/config/services/smb/shares/share[guestok='1']" "guest" "only"
 			omv_config_delete "/config/services/smb/shares/share/guestok"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.6.0.12"; then
 			# Set default envionment variable for Ext2 mount options.
 			omv_set_default "OMV_FSTAB_MNTOPS_EXT2" "defaults,nofail,acl,user_xattr,noexec"
 			# Convert power button configuration.
-			omv_config_add_element "//system/powermanagement[powerbtn='0']" "powerbtn" "nothing"
-			omv_config_add_element "//system/powermanagement[powerbtn='1']" "powerbtn" "shutdown"
+			omv_config_update "//system/powermanagement/powerbtn[.='0']" "nothing"
+			omv_config_update "//system/powermanagement/powerbtn[.='1']" "shutdown"
 			omv-mkconf acpid
 		fi
 		if dpkg --compare-versions "$2" lt-nl "1.0.9"; then
@@ -449,7 +449,7 @@ case "$1" in
 			omv_config_delete "/config/services/ftp/shares/share/mntentref"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "1.0.26"; then
-			omv_config_add_element "/config/system/fstab/mntent" "hidden" "0"
+			omv_config_add_key "/config/system/fstab/mntent" "hidden" "0"
 			omv-mkconf fstab
 		fi
 		if dpkg --compare-versions "$2" lt-nl "1.0.28"; then
@@ -458,9 +458,9 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "1.0.29"; then
 			omv_config_delete "/config/services/smart/monitor/device[uuid='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx']"
-			omv_config_add_element "/config/services/ftp/shares/share" "extraoptions" ""
-			omv_config_add_element "/config/services/ssh" "pubkeyauthentication" "1"
-			omv_config_add_element "/config/system/usermanagement/users/user" "sshpubkey" ""
+			omv_config_add_key "/config/services/ftp/shares/share" "extraoptions" ""
+			omv_config_add_key "/config/services/ssh" "pubkeyauthentication" "1"
+			omv_config_add_key "/config/system/usermanagement/users/user" "sshpubkey" ""
 			rm -f /etc/cron.daily/mdadm
 			rm -f /etc/cron.daily/cron-apt
 		fi
@@ -478,7 +478,7 @@ case "$1" in
 			omv-mkconf ssh
 		fi
 		if dpkg --compare-versions "$2" lt-nl "1.9"; then
-			omv_config_add_element "/config/system/crontab/job" "execution" "exactly"
+			omv_config_add_key "/config/system/crontab/job" "execution" "exactly"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "1.10"; then
 			omv-mkconf samba
@@ -492,15 +492,15 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "2.0.4"; then
 			dnsnameservers=$(omv_config_get "/config/system/network/dnsnameservers")
-			omv_config_add_element "/config/system/network/interfaces/*[name()='iface' or name()='bondiface']" "dnsnameservers" "${dnsnameservers}"
-			omv_config_add_element "/config/system/network/interfaces/*[name()='iface' or name()='bondiface']" "dnssearch" ""
+			omv_config_add_key "/config/system/network/interfaces/*[name()='iface' or name()='bondiface']" "dnsnameservers" "${dnsnameservers}"
+			omv_config_add_key "/config/system/network/interfaces/*[name()='iface' or name()='bondiface']" "dnssearch" ""
 			omv_config_delete "/config/system/network/dnsnameservers"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "2.0.6"; then
 			# Add monitoring configuration.
-			omv_config_add_element "/config/system" "monitoring" ""
-			omv_config_add_element "/config/system/monitoring" "perfstats" ""
-			omv_config_add_element "/config/system/monitoring/perfstats" "enable" "1"
+			omv_config_add_node "/config/system" "monitoring"
+			omv_config_add_node "/config/system/monitoring" "perfstats"
+			omv_config_add_key "/config/system/monitoring/perfstats" "enable" "1"
 			# Convert public SSH key.
 			xmlstarlet sel -t -m "/config/system/usermanagement/users/user[string-length(sshpubkey) > 0]" \
 			  -v "uuid" \
@@ -516,9 +516,9 @@ case "$1" in
 			omv-mkconf ssh
 		fi
 		if dpkg --compare-versions "$2" lt-nl "2.0.8"; then
-			omv_config_add_element "/config/system/network/interfaces/iface" "type" "ethernet"
-			omv_config_add_element "/config/system/network/interfaces/bondiface" "type" "bond"
-			omv_config_add_element "/config/system/network/interfaces/vlaniface" "type" "vlan"
+			omv_config_add_key "/config/system/network/interfaces/iface" "type" "ethernet"
+			omv_config_add_key "/config/system/network/interfaces/bondiface" "type" "bond"
+			omv_config_add_key "/config/system/network/interfaces/vlaniface" "type" "vlan"
 			omv_config_rename "/config/system/network/interfaces/*[name()='iface' or name()='bondiface' or name()='vlaniface']" "interface"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "2.0.14"; then
@@ -571,34 +571,34 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.0.9"; then
 			# Add new config attributes.
-			omv_config_add_element "/config/services/rsync/jobs/job" "authentication" "password"
-			omv_config_add_element "/config/services/rsync/jobs/job" "sshcertificateref" ""
+			omv_config_add_key "/config/services/rsync/jobs/job" "authentication" "password"
+			omv_config_add_key "/config/services/rsync/jobs/job" "sshcertificateref" ""
 			# Recreate certificates.
 			omv-mkconf certificates
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.0.11"; then
-			omv_config_add_element "/config/services/rsync/jobs/job" "sshport" "22"
+			omv_config_add_key "/config/services/rsync/jobs/job" "sshport" "22"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.0.12"; then
-			omv_config_add_element "/config/system/network" "proxy" ""
-			omv_config_add_element "/config/system/network/proxy" "http" ""
-			omv_config_add_element "/config/system/network/proxy/http" "enable" "0"
-			omv_config_add_element "/config/system/network/proxy/http" "host" ""
-			omv_config_add_element "/config/system/network/proxy/http" "port" "8080"
-			omv_config_add_element "/config/system/network/proxy/http" "username" ""
-			omv_config_add_element "/config/system/network/proxy/http" "password" ""
-			omv_config_add_element "/config/system/network/proxy" "https" ""
-			omv_config_add_element "/config/system/network/proxy/https" "enable" "0"
-			omv_config_add_element "/config/system/network/proxy/https" "host" ""
-			omv_config_add_element "/config/system/network/proxy/https" "port" "4443"
-			omv_config_add_element "/config/system/network/proxy/https" "username" ""
-			omv_config_add_element "/config/system/network/proxy/https" "password" ""
-			omv_config_add_element "/config/system/network/proxy" "ftp" ""
-			omv_config_add_element "/config/system/network/proxy/ftp" "enable" "0"
-			omv_config_add_element "/config/system/network/proxy/ftp" "host" ""
-			omv_config_add_element "/config/system/network/proxy/ftp" "port" "2121"
-			omv_config_add_element "/config/system/network/proxy/ftp" "username" ""
-			omv_config_add_element "/config/system/network/proxy/ftp" "password" ""
+			omv_config_add_node "/config/system/network" "proxy"
+			omv_config_add_node "/config/system/network/proxy" "http"
+			omv_config_add_key "/config/system/network/proxy/http" "enable" "0"
+			omv_config_add_key "/config/system/network/proxy/http" "host" ""
+			omv_config_add_key "/config/system/network/proxy/http" "port" "8080"
+			omv_config_add_key "/config/system/network/proxy/http" "username" ""
+			omv_config_add_key "/config/system/network/proxy/http" "password" ""
+			omv_config_add_node "/config/system/network/proxy" "https"
+			omv_config_add_key "/config/system/network/proxy/https" "enable" "0"
+			omv_config_add_key "/config/system/network/proxy/https" "host" ""
+			omv_config_add_key "/config/system/network/proxy/https" "port" "4443"
+			omv_config_add_key "/config/system/network/proxy/https" "username" ""
+			omv_config_add_key "/config/system/network/proxy/https" "password" ""
+			omv_config_add_node "/config/system/network/proxy" "ftp"
+			omv_config_add_key "/config/system/network/proxy/ftp" "enable" "0"
+			omv_config_add_key "/config/system/network/proxy/ftp" "host" ""
+			omv_config_add_key "/config/system/network/proxy/ftp" "port" "2121"
+			omv_config_add_key "/config/system/network/proxy/ftp" "username" ""
+			omv_config_add_key "/config/system/network/proxy/ftp" "password" ""
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.0.13"; then
 			# Trigger the creation of the UDEV rule which creates the
@@ -620,17 +620,17 @@ case "$1" in
 				  object="<uuid>$(omv_uuid)</uuid>"
 				  object="${object}<id>${id}</id>"
 				  object="${object}<enable>${enable}</enable>"
-				  omv_config_add_element "/config/system/notification/notifications" "notification" "${object}" true
+				  omv_config_add_node_data "/config/system/notification/notifications" "notification" "${object}"
 				  omv_config_delete "/config/system/notification/notifications/${id}"
 			  done
 			# Add the 'enable' attribute to FTP shares.
-			omv_config_add_element "/config/services/ftp/shares/share" "enable" "1"
+			omv_config_add_key "/config/services/ftp/shares/share" "enable" "1"
 			# Relocate hostname/domainname settings.
 			hostname=$(omv_config_get "/config/system/network/hostname")
 			domainname=$(omv_config_get "/config/system/network/domainname")
-			omv_config_add_element "/config/system/network" "dns" ""
-			omv_config_add_element "/config/system/network/dns" "hostname" "${hostname}"
-			omv_config_add_element "/config/system/network/dns" "domainname" "${domainname}"
+			omv_config_add_node "/config/system/network" "dns"
+			omv_config_add_key "/config/system/network/dns" "hostname" "${hostname}"
+			omv_config_add_key "/config/system/network/dns" "domainname" "${domainname}"
 			omv_config_delete "/config/system/network/hostname"
 			omv_config_delete "/config/system/network/domainname"
 			# Rename S.M.A.R.T. device attribute 'type'.
@@ -645,7 +645,7 @@ case "$1" in
 			  -v "id" -n \
 			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
 			  while read id; do
-				  omv_config_add_element "/config/services/zeroconf/services/service[id='${id}']" "uuid" "$(omv_uuid)"
+				  omv_config_add_key "/config/services/zeroconf/services/service[id='${id}']" "uuid" "$(omv_uuid)"
 			  done
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.0.32"; then
