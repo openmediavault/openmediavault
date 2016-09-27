@@ -37,10 +37,10 @@ class Module(omv.firstaid.IModule):
 		netmask = None
 		gateway = None
 		method = "dhcp"
-		address6 = None
+		address6 = ""
 		method6 = "manual"
 		netmask6 = 64
-		gateway6 = None
+		gateway6 = ""
 		wol = False
 		dns_nameservers = None
 		wpa_ssid = None
@@ -167,7 +167,8 @@ class Module(omv.firstaid.IModule):
 				else:
 					method6 = "static"
 				# Get static IPv6 address.
-				while not address:
+				address6 = None
+				while not address6:
 					(code, address6) = d.inputbox(
 						"Please enter the IPv6 address.",
 						backtitle=self.description,
@@ -188,11 +189,12 @@ class Module(omv.firstaid.IModule):
 							height=5, width=38)
 						continue
 				# Get the prefix length.
+				netmask6 = None
 				while not netmask6:
 					(code, netmask6) = d.inputbox(
 						"Please enter the IPv6 prefix length.",
 						backtitle=self.description,
-						clear=True, height=8, width=64, init="")
+						clear=True, height=8, width=64, init="64")
 					if code != d.OK:
 						return 0
 					if not netmask6:
@@ -209,6 +211,7 @@ class Module(omv.firstaid.IModule):
 							height=5, width=33)
 						continue
 				# Get default IPv6 gateway.
+				gateway6 = None
 				while not gateway6:
 					(code, gateway6) = d.inputbox(
 						"Please enter the default IPv6 gateway.",
