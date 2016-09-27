@@ -329,7 +329,7 @@ class Schema {
 		if (!is_bool($value)) {
 			throw new SchemaValidationException(
 			  "%s: The value '%s' is not a boolean.",
-			  $name, $value);
+			  $name, strval($value));
 		}
 	}
 
@@ -351,7 +351,7 @@ class Schema {
 		if (!is_numeric($value)) {
 			throw new SchemaValidationException(
 			  "%s: The value '%s' is not a number.",
-			  $name, $value);
+			  $name, strval($value));
 		}
 		$this->checkMinimum($value, $schema, $name);
 		$this->checkExclusiveMinimum($value, $schema, $name);
@@ -365,7 +365,7 @@ class Schema {
 		if (!is_string($value)) {
 			throw new SchemaValidationException(
 			  "%s: The value '%s' is not a string.",
-			  $name, $value);
+			  $name, strval($value));
 		}
 		$this->checkPattern($value, $schema, $name);
 		$this->checkMinLength($value, $schema, $name);
