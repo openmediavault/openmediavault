@@ -33,7 +33,7 @@ class OMVModuleMonit extends \OMV\Engine\Module\ServiceAbstract
 	 * provided by this module.
 	 * @return An array of modules.
 	 */
-	public function shouldStart() { return array("email"); }
+	public function shouldStart() { return [ "email" ]; }
 
 	/**
 	 * Generate the configuration.

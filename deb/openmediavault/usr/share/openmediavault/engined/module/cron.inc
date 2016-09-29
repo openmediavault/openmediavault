@@ -33,14 +33,14 @@ class OMVModuleCron extends \OMV\Engine\Module\ServiceAbstract
 	 * provided by this module.
 	 * @return An array of modules.
 	 */
-	public function shouldStart() { return array("email"); }
+	public function shouldStart() { return [ "email" ]; }
 
 	/**
 	 * Defines the modules that if present should be stopped after the
 	 * service provided by this module.
 	 * @return An array of modules.
 	 */
-	function shouldStop() { return array("email"); }
+	function shouldStop() { return [ "email" ]; }
 
 	/**
 	 * Generate the configuration.

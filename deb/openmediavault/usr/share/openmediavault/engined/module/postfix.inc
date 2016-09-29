@@ -29,6 +29,16 @@ class OMVModulePostfix extends \OMV\Engine\Module\ServiceAbstract
 	}
 
 	/**
+	 * Defines the modules that if present should start before the service
+	 * provided by this module.
+	 * @return An array of modules.
+	 */
+	public function shouldStart() {
+		// Make sure the hostname is applied before postfix is started.
+		return [ "hostname", "hosts" ];
+	}
+
+	/**
 	 * Generate the configuration.
 	 */
 	public function applyConfig() {

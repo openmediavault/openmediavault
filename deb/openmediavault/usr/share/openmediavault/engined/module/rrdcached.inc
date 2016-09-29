@@ -33,28 +33,28 @@ class OMVModuleRrdCached extends \OMV\Engine\Module\ServiceAbstract
 	 * provided by this module.
 	 * @return An array of modules.
 	 */
-	public function shouldStart() { return array("monit"); }
+	public function shouldStart() { return [ "monit" ]; }
 
 	/**
 	 * Defines the modules that if present should be stopped after the
 	 * service provided by this module.
 	 * @return An array of modules.
 	 */
-	function shouldStop() { return array("monit"); }
+	function shouldStop() { return [ "monit" ]; }
 
     /**
 	 * Defines the modules that if present should start after the service
 	 * provided by this module.
 	 * @return An array of modules.
 	 */
-	function startBefore() { return array("collectd"); }
+	function startBefore() { return [ "collectd" ]; }
 
     /**
 	 * Defines the modules that if present should stop before the service
 	 * provided by this module.
 	 * @return An array of modules.
 	 */
-	function stopAfter() { return array("collectd"); }
+	function stopAfter() { return [ "collectd" ]; }
 
 	/**
 	 * Generate the configuration.

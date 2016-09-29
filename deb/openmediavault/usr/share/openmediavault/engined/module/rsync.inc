@@ -33,21 +33,21 @@ class OMVModuleRsync extends \OMV\Engine\Module\ServiceAbstract
 	 * before the service provided by this module.
 	 * @return An array of modules.
 	 */
-	public function shouldApply() { return array("certificatemgmt"); }
+	public function shouldApply() { return [ "certificatemgmt" ]; }
 
 	/**
 	 * Defines the modules that if present should start before the service
 	 * provided by this module.
 	 * @return An array of modules.
 	 */
-	public function shouldStart() { return array("cron"); }
+	public function shouldStart() { return [ "cron" ]; }
 
 	/**
 	 * Defines the modules that if present should be stopped after the
 	 * service provided by this module.
 	 * @return An array of modules.
 	 */
-	function shouldStop() { return array("cron"); }
+	function shouldStop() { return [ "cron" ]; }
 
 	/**
 	 * Generate the configuration.
