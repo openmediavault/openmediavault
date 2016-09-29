@@ -129,5 +129,5 @@ class OMVModuleSsh extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.ssh",
 		  [ $moduleMngr->getModule("zeroconf"), "setDirty" ]);
-    }
+	}
 }

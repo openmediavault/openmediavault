@@ -81,7 +81,7 @@ class OMVModuleRrdCached extends \OMV\Engine\Module\ServiceAbstract
 	 * Start the managed service.
 	 */
 	public function startService() {
-        $db = \OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.system.monitoring.perfstats");
 		if (TRUE !== $object->get("enable"))
 			return;

@@ -59,5 +59,5 @@ class OMVModuleTimezone extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.system.time",
 		  [ $this, "setDirty" ]);
-    }
+	}
 }

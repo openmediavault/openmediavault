@@ -33,14 +33,14 @@ class OMVModuleNfs extends \OMV\Engine\Module\ServiceAbstract
 	 * provided by this module.
 	 * @return An array of modules.
 	 */
-	public function shouldStart() { return array("fstab"); }
+	public function shouldStart() { return [ "fstab" ]; }
 
 	/**
 	 * Defines the modules that if present should be stopped after the
 	 * service provided by this module.
 	 * @return An array of modules.
 	 */
-	function shouldStop() { return array("fstab"); }
+	function shouldStop() { return [ "fstab" ]; }
 
 	/**
 	 * Generate the configuration.

@@ -127,5 +127,5 @@ class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.rsyncd",
 		  [ $moduleMngr->getModule("zeroconf"), "setDirty" ]);
-    }
+	}
 }

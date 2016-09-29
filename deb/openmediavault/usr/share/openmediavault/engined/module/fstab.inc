@@ -117,11 +117,11 @@ class OMVModuleFsTab extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_DELETE,
 		  "org.openmediavault.conf.system.filesystem.mountpoint",
-		  array($this, "onDelete"));
+		  [ $this, "onDelete" ]);
         $moduleMngr = \OMV\Engine\Module\Manager::getInstance();
         $dispatcher->addListener(
           OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
           "org.openmediavault.conf.system.filesystem.mountpoint",
-          array($moduleMngr->getModule("monit"), "setDirty"));
+          [ $moduleMngr->getModule("monit"), "setDirty" ]);
 	}
 }

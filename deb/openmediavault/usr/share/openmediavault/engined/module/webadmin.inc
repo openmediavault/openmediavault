@@ -47,9 +47,9 @@ class OMVModuleWebadmin extends \OMV\Engine\Module\ModuleAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.webadmin",
 		  [ $moduleMngr->getModule("webserver"), "setDirty" ]);
-        $dispatcher->addListener(
-          OMV_NOTIFY_MODIFY,
-          "org.openmediavault.conf.webadmin",
-          [ $moduleMngr->getModule("monit"), "setDirty" ]);
-    }
+		$dispatcher->addListener(
+		  OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.conf.webadmin",
+		  [ $moduleMngr->getModule("monit"), "setDirty" ]);
+	}
 }

@@ -34,7 +34,7 @@ class OMVModuleInterfaces extends \OMV\Engine\Module\ServiceAbstract
 	 * @return An array of modules. Returns an empty array if no
 	 *   dependencies exist.
 	 */
-	function stopAfter() { return array("networking"); }
+	function stopAfter() { return [ "networking" ]; }
 
 	/**
 	 * Generate the configuration.

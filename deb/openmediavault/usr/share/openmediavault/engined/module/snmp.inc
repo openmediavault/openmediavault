@@ -80,5 +80,5 @@ class OMVModuleSnmp extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.snmp",
 		  [ $this, "setDirty" ]);
-    }
+	}
 }

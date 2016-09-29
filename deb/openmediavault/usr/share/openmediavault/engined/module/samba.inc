@@ -54,7 +54,7 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 	 * Start the managed service.
 	 */
 	public function startService() {
-        $db = \OMV\Config\Database::getInstance();
+		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.smb");
 		if (TRUE !== $object->get("enable"))
 			return;
@@ -267,5 +267,5 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.smb",
 		  [ $moduleMngr->getModule("zeroconf"), "setDirty" ]);
-    }
+	}
 }

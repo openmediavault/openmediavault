@@ -33,7 +33,7 @@ class OMVModuleProftpd extends \OMV\Engine\Module\ServiceAbstract
 	 * before the service provided by this module.
 	 * @return An array of modules.
 	 */
-	public function shouldApply() { return array("certificatemgmt"); }
+	public function shouldApply() { return [ "certificatemgmt" ]; }
 
 	/**
 	 * Generate the configuration.
@@ -145,5 +145,5 @@ class OMVModuleProftpd extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.ftp",
 		  [ $moduleMngr->getModule("zeroconf"), "setDirty" ]);
-    }
+	}
 }
