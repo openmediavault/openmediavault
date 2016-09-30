@@ -17,6 +17,8 @@
 				"stripe",
 				"mirror",
 				"linear",
+				"raid0",
+				"raid1",
 				"raid10",
 				"raid5",
 				"raid6"
