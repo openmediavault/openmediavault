@@ -47,46 +47,48 @@ OMV_LDAP_PAM_CONFIG=${OMV_LDAP_PAM_CONFIG:-"/etc/pam_ldap.conf"}
 
 xmlstarlet sel -t \
   -m "//services/ldap" \
-	-v "concat('base ',base)" -n \
-	-o "uri ldap" -i "enablessl[. = '1']" -o "s" -b -o "://" -v host -i "string-length(port) > 0" -v "concat(':',port)" -b -n \
-	-o "ldap_version ${OMV_LDAP_LDAPVERSION}" -n \
-	-v "concat('binddn ',rootbinddn)" -n \
-	-v "concat('bindpw ',rootbindpw)" -n \
-	-o "pam_password crypt" -n \
+    -v "concat('base ',base)" -n \
+    -o "uri ldap" -i "enablessl[. = '1']" -o "s" -b -o "://" -v host -i "string-length(port) > 0" -v "concat(':',port)" -b -n \
+    -o "ldap_version ${OMV_LDAP_LDAPVERSION}" -n \
+    -v "concat('binddn ',rootbinddn)" -n \
+    -i "string-length(rootbindpw) > 0" \
+      -v "concat('bindpw ',rootbindpw)" -n \
+    -b \
+    -o "pam_password crypt" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_LDAP_PAM_CONFIG}
 
 
 xmlstarlet sel -t \
   -m "//services/ldap" \
-	-v "concat('BASE ',base)" -n \
-	-o "URI ldap" -i "enablessl[. = '1']" -o "s" -b -o "://" -v host -i "string-length(port) > 0" -v "concat(':',port)" -b -n \
-	-i "enablessl[. = '1']" \
-	  -o "TLS_CACERTDIR ${OMV_LDAP_CONFIG_TLS_CACERTDIR}" -n \
-	  -o "TLS_CACERT ${OMV_LDAP_CONFIG_TLS_CACERT}" -n \
-	  -o "TLS_REQCERT ${OMV_LDAP_CONFIG_TLS_REQCERT}" -n \
-	  -i "string-length(extraclientoptions) > 0" -v "extraclientoptions" -n \
-	-b \
+    -v "concat('BASE ',base)" -n \
+    -o "URI ldap" -i "enablessl[. = '1']" -o "s" -b -o "://" -v host -i "string-length(port) > 0" -v "concat(':',port)" -b -n \
+    -i "enablessl[. = '1']" \
+      -o "TLS_CACERTDIR ${OMV_LDAP_CONFIG_TLS_CACERTDIR}" -n \
+      -o "TLS_CACERT ${OMV_LDAP_CONFIG_TLS_CACERT}" -n \
+      -o "TLS_REQCERT ${OMV_LDAP_CONFIG_TLS_REQCERT}" -n \
+      -i "string-length(extraclientoptions) > 0" -v "extraclientoptions" -n \
+    -b \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_LDAP_CONFIG}
 
 xmlstarlet sel -t \
   -m "//services/ldap" \
-	-v "concat('base ',base)" -n \
-	-o "uri ldap" -i "enablessl[. = '1']" -o "s" -b -o "://" -v host -i "string-length(port) > 0" -v "concat(':',port)" -b -n \
-	-o "ldap_version ${OMV_LDAP_LDAPVERSION}" -n \
-	-v "concat('rootbinddn ',rootbinddn)" -n \
-	-o "bind_policy ${OMV_LDAP_LIBNSS_BINDPOLICY}" -n \
-	-v "concat('nss_base_passwd ',usersuffix,',',base)" -n \
-	-v "concat('nss_base_shadow ',usersuffix,',',base)" -n \
-	-v "concat('nss_base_group ',groupsuffix,',',base)" -n \
-	-i "string-length(extraoptions) > 0" -v "extraoptions" -n -b \
+    -v "concat('base ',base)" -n \
+    -o "uri ldap" -i "enablessl[. = '1']" -o "s" -b -o "://" -v host -i "string-length(port) > 0" -v "concat(':',port)" -b -n \
+    -o "ldap_version ${OMV_LDAP_LDAPVERSION}" -n \
+    -v "concat('rootbinddn ',rootbinddn)" -n \
+    -o "bind_policy ${OMV_LDAP_LIBNSS_BINDPOLICY}" -n \
+    -v "concat('nss_base_passwd ',usersuffix,',',base)" -n \
+    -v "concat('nss_base_shadow ',usersuffix,',',base)" -n \
+    -v "concat('nss_base_group ',groupsuffix,',',base)" -n \
+    -i "string-length(extraoptions) > 0" -v "extraoptions" -n -b \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_LDAP_LIBNSS_CONFIG}
 
 xmlstarlet sel -t \
   -m "//services/ldap" \
-	-v "rootbindpw" -n \
+    -v "rootbindpw" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_LDAP_LIBNSS_SECRET}
 chmod 600 ${OMV_LDAP_LIBNSS_SECRET}

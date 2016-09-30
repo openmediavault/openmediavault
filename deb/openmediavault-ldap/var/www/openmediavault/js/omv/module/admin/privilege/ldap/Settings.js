@@ -96,7 +96,7 @@ Ext.define("OMV.module.admin.privilege.ldap.Settings", {
 				xtype: "passwordfield",
 				name: "rootbindpw",
 				fieldLabel: _("Password"),
-				allowBlank: false,
+				allowBlank: true,
 				plugins: [{
 					ptype: "fieldinfo",
 					text: _("Specifies the credentials with which to bind.")
