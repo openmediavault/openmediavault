@@ -32,7 +32,7 @@ Ext.define("OMV.grid.column.NumberRange", {
 	extend: "Ext.grid.column.Column",
 	alias: [ "widget.numberrangecolumn" ],
 
-	invalidText: _("-"),
+	invalidText: "-",
 	minValue: undefined,
 	maxValue: undefined,
 
