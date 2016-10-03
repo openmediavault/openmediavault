@@ -1,5 +1,6 @@
 openmediavault (3.0.41) stable; urgency=low
 
+  * Update locales.
   * Harden SMB/CIFS shares.
   * Fix bug in omv-firstaid.
 
