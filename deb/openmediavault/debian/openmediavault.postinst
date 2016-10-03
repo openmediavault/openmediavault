@@ -670,6 +670,7 @@ case "$1" in
 				omv-mkconf samba
 				systemctl reload smbd
 			fi
+			systemctl restart rsyslog
 		fi
 
 		########################################################################
