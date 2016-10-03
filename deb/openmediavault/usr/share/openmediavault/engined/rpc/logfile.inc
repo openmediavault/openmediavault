@@ -134,10 +134,13 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 		// Check if the given log file type if registered.
 		$spec = new \OMV\System\LogFileSpec($params['id']);
 		// Get the file path. If no permanent file is available (e.g. when
-		// the log is retrieved via journalctl), then exit immediatelly.
+		// the log is retrieved via journalctl), then exit immediatelly
+		// and notify the user.
 		$filePath = $spec->getFilePath();
-		if (TRUE === is_null($filePath))
-			return;
+		if (TRUE === is_null($filePath)) {
+			throw new \OMV\Exception(
+			  "There is no log file that must be deleted.");
+		}
 		// Clear the log file.
 		if (FALSE === ($fh = fopen($filePath, "w"))) {
 			throw new \OMV\Exception(
