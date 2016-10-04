@@ -1,6 +1,7 @@
 openmediavault (3.0.42) stable; urgency=low
 
   * Various improvements and bugfixes.
+  * Mantis 0001610: omv_escapeshellarg truncates path after space.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 04 Oct 2016 08:39:40 +0200
 

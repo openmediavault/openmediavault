@@ -152,7 +152,7 @@ omv_ltrim() {
 # omv_escapeshellarg value
 # Escape a string to be used as a shell argument.
 omv_escapeshellarg() {
-	perl - $@ <<'EOF'
+	perl - "$*" <<'EOF'
 my $arg = shift;
 $arg =~ s/'/'\\''/g;
 print "'" . $arg . "'";
