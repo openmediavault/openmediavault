@@ -114,7 +114,7 @@ require_once("openmediavault/functions.inc");
 // 2016-06-26T21:24:08+0200 vmpc05 kernel: SCSI subsystem initialized
 \OMV\System\LogFileSpec::registerSpecification("boot", [
   "command" => "export SYSTEMD_COLORS=0; journalctl --boot --quiet ".
-    "--output=short-iso --no-pager --full",
+    "--output=short-iso --no-pager",
   "filename" => "boot",
   "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}([+-]\d{4})?)\s+(\S+)\s+(.+)$/",
   "columns" => [
@@ -248,6 +248,10 @@ require_once("openmediavault/functions.inc");
 // Mar 13 23:50:48 vmomv5 smbd_audit: <username>|<ipaddr>|<clientnetbiosname>|<servicerootdir>|<servicename>|<operation>|<result>|<filename>
 // Mar 13 23:50:48 vmomv5 smbd_audit: test|192.168.178.30|pc01|/media/1622d31c-7f5d-4add-be13-20e382a9f5cb/test|download|pwrite|ok|xyz.tar.gz
 \OMV\System\LogFileSpec::registerSpecification("smbdaudit", [
+/*
+  "command" => "export SYSTEMD_COLORS=0; journalctl --no-pager ".
+    "--priority='notice' --since today SYSLOG_IDENTIFIER='smbd_audit'",
+*/
   "filename" => "smbd_audit.log",
   "filepath" => "/var/log/samba/audit.log",
   "regex" => "/^(\S+\s+\d+\s+\d{2}:\d{2}:\d{2})\s+(\S+)\ssmbd_audit:\s+([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)$/",
