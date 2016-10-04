@@ -100,9 +100,10 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Information", {
 	initComponent: function() {
 		var me = this;
 		Ext.apply(me, {
-			defaults: {
+			fieldDefaults: Ext.apply({}, {
+				editable: false,
 				readOnly: true
-			},
+			}, me.fieldDefaults),
 			rpcGetParams: {
 				devicefile: me.devicefile
 			}

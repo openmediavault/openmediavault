@@ -22,7 +22,8 @@
 
 /**
  * @ingroup webgui
- * A workspace window used to display text.
+ * A workspace window used to display text. The displayed text is not
+ * editable by default.
  * @class OMV.workspace.window.TextArea
  * @derived OMV.workspace.window.Container
  * @param textAreaConfig A config object that will be applied to the
@@ -35,7 +36,7 @@ Ext.define("OMV.workspace.window.TextArea", {
 	],
 
 	textAreaConfig: {
-		readOnly: true
+		editable: false
 	},
 
 	border: false,
