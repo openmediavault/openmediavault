@@ -113,7 +113,7 @@ require_once("openmediavault/functions.inc");
 // 2016-06-26T21:24:08+0200 vmpc05 kernel: Booting paravirtualized kernel on bare hardware
 // 2016-06-26T21:24:08+0200 vmpc05 kernel: SCSI subsystem initialized
 \OMV\System\LogFileSpec::registerSpecification("boot", [
-  "command" => "export SYSTEMD_COLORS=0; journalctl --boot --quiet ".
+  "command" => "export SYSTEMD_COLORS=0; journalctl --boot=-0 --quiet ".
     "--output=short-iso --no-pager",
   "filename" => "boot",
   "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}([+-]\d{4})?)\s+(\S+)\s+(.+)$/",
@@ -155,9 +155,12 @@ require_once("openmediavault/functions.inc");
 	  "message" => 2
   ]]);
 
+// Retrieved via journalctl.
+// Oct  5 08:58:35 vmomv5 rsyncd[2645]: rsyncd version 3.1.1 starting, listening on port 873
 \OMV\System\LogFileSpec::registerSpecification("rsyncd", [
+  "command" => "export SYSTEMD_COLORS=0; journalctl --quiet --no-pager ".
+    "SYSLOG_IDENTIFIER='rsyncd' --output=short",
   "filename" => "rsyncd",
-  "filepath" => "/var/log/rsyncd.log",
   "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+rsyncd\[\d+\]:\s+(.*)$/",
   "columns" => [
 	  "ts" => [
@@ -174,9 +177,14 @@ require_once("openmediavault/functions.inc");
 	  "message" => 3
   ]]);
 
+// Retrieved via journalctl.
+// Oct  5 08:48:09 vmomv5 smartd[2094]: smartd 6.4 2014-10-07 r4002 [x86_64-linux-3.16.0-4-amd64] (local build)
+// Oct  5 08:48:09 vmomv5 smartd[2094]: Copyright (C) 2002-14, Bruce Allen, Christian Franke, www.smartmontools.org
+// Oct  5 08:48:09 vmomv5 smartd[2094]: Opened configuration file /etc/smartd.conf
 \OMV\System\LogFileSpec::registerSpecification("smartd", [
+  "command" => "export SYSTEMD_COLORS=0; journalctl --quiet --no-pager ".
+    "SYSLOG_IDENTIFIER='smartd' --output=short",
   "filename" => "smartd.log",
-  "filepath" => "/var/log/smartd.log",
   "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\ssmartd\[\d+\]:\s+(.*)$/",
   "columns" => [
 	  "ts" => [
@@ -192,11 +200,13 @@ require_once("openmediavault/functions.inc");
 	  "message" => 3
   ]]);
 
+// Retrieved via journalctl.
 // Oct 17 18:19:00 vmomv5 proftpd[17127]: 192.167.178.101 (::ffff:192.168.178.254[::ffff:192.168.178.254]) - USER test: Login successful.
 // Oct 17 18:20:00 vmomv5 proftpd: pam_unix(proftpd:session): session closed for user test
 \OMV\System\LogFileSpec::registerSpecification("proftpd", [
+  "command" => "export SYSTEMD_COLORS=0; journalctl --quiet --no-pager ".
+    "SYSLOG_IDENTIFIER='proftpd' --output=short",
   "filename" => "proftpd.log",
-  "filepath" => "/var/log/proftpd/proftpd.log",
   "regex" => "/^(\S+\s+\d+\s+\d{2}:\d{2}:\d{2})\s+(\S+)\sproftpd\[\d+\]:\s+(.*)$/",
   "columns" => [
 	  "ts" => [
@@ -245,16 +255,15 @@ require_once("openmediavault/functions.inc");
 	  "completionstatus" => 14
   ]]);
 
-// Mar 13 23:50:48 vmomv5 smbd_audit: <username>|<ipaddr>|<clientnetbiosname>|<servicerootdir>|<servicename>|<operation>|<result>|<filename>
-// Mar 13 23:50:48 vmomv5 smbd_audit: test|192.168.178.30|pc01|/media/1622d31c-7f5d-4add-be13-20e382a9f5cb/test|download|pwrite|ok|xyz.tar.gz
+// Retrieved via journalctl.
+// Mar 13 23:50:48 vmomv5 smbd_audit[pid]: <username>|<ipaddr>|<clientnetbiosname>|<servicerootdir>|<servicename>|<operation>|<result>|<filename>
+// Mar 13 23:50:48 vmomv5 smbd_audit[4192]: test|192.168.178.30|pc01|/media/1622d31c-7f5d-4add-be13-20e382a9f5cb/test|download|pwrite|ok|xyz.tar.gz
 \OMV\System\LogFileSpec::registerSpecification("smbdaudit", [
-/*
-  "command" => "export SYSTEMD_COLORS=0; journalctl --no-pager ".
-    "--priority='notice' --since today SYSLOG_IDENTIFIER='smbd_audit'",
-*/
+  "command" => "export SYSTEMD_COLORS=0; journalctl --quiet --no-pager ".
+    "--priority='notice' SYSLOG_FACILITY=23 SYSLOG_IDENTIFIER='smbd_audit' ".
+    "--output=short",
   "filename" => "smbd_audit.log",
-  "filepath" => "/var/log/samba/audit.log",
-  "regex" => "/^(\S+\s+\d+\s+\d{2}:\d{2}:\d{2})\s+(\S+)\ssmbd_audit:\s+([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)$/",
+  "regex" => "/^(\S+\s+\d+\s+\d{2}:\d{2}:\d{2})\s+(\S+)\ssmbd_audit\[\d+\]:\s+([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)$/",
   "columns" => [
 	  "ts" => [
 		  "index" => 1,
@@ -277,6 +286,10 @@ require_once("openmediavault/functions.inc");
 	  "filename" => 10
   ]]);
 
+// /var/log/rsync.log
+// 2016/10/05 14:19:36 [3586] building file list
+// 2016/10/05 14:19:36 [3586] .d..t...... ./
+// 2016/10/05 14:19:36 [3586] >f+++++++++ COPYING
 \OMV\System\LogFileSpec::registerSpecification("rsync", [
   "filename" => "rsync",
   "filepath" => "/var/log/rsync.log",

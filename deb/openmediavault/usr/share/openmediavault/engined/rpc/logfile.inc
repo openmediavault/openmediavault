@@ -63,7 +63,7 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 		// the log is retrieved via journalctl), then execute the specified
 		// command.
 		$filePath = $spec->getFilePath();
-		if (TRUE === is_null($filePath)) {
+		if (TRUE === empty($filePath)) {
 			// Create a temporary file.
 			$filePath = tempnam(sys_get_temp_dir(), "logfile");
 			// Execute the given command to get the log file content.
@@ -137,9 +137,9 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 		// the log is retrieved via journalctl), then exit immediatelly
 		// and notify the user.
 		$filePath = $spec->getFilePath();
-		if (TRUE === is_null($filePath)) {
+		if (TRUE === empty($filePath)) {
 			throw new \OMV\Exception(
-			  "There is no log file that must be deleted.");
+			  "The clean up of entries is not supported for this log file.");
 		}
 		// Clear the log file.
 		if (FALSE === ($fh = fopen($filePath, "w"))) {
@@ -191,7 +191,7 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 		// the log is retrieved via journalctl), then execute the specified
 		// command.
 		$filePath = $spec->getFilePath();
-		if (TRUE === is_null($filePath)) {
+		if (TRUE === empty($filePath)) {
 			// Execute the given command to get the log file content.
 			$cmd = new \OMV\System\Process($spec->getCommand());
 			$cmd->setRedirect1toFile($tmpFilePath);

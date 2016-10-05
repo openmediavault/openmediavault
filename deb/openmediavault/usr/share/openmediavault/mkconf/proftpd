@@ -282,9 +282,5 @@ EOF
 	index=$(( ${index} - 1 ))
 done
 
-# Ensure the transfer log file exists, even when the option is disabled.
-# This will prevent error messages in the system log WebGUI.
-touch "${OMV_PROFTPD_TRANSFERLOG}"
-
 # Add additional extensions to the configuration file.
 run-parts --exit-on-error ${OMV_PROFTPD_EXTENSIONS_DIR}

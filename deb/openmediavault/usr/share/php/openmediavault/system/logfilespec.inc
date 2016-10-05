@@ -30,9 +30,12 @@ require_once("openmediavault/functions.inc");
 class LogFileSpec {
 	/**
 	 * Preconfigured log file types. A type has the following structure:
+	 * @param filepath The path of the log file, e.g. /var/log/syslog. If
+	 *   this parameter is not set, then the \em command parameter
+	 *   is used.
+	 * @param command The command line used to retrieve the log data.
 	 * @param filename The name of the log file. This will be used when
-	 *   downloading the file via WebUI.
-	 * @param filepath The path of the log file.
+	 *   the file is downloaded, e.g. via WebUI/RPC.
 	 * @param regex The regular expression used to parse the log file.
 	 * @param columns The column configuration. It contains key/value pairs,
 	 *   the key is the name of the column, the value is the index of the
@@ -74,11 +77,19 @@ class LogFileSpec {
 	 * Register a new log file specification.
 	 * @param id The identifier of the log file specification, e.g.
 	 *   'syslog' or 'auth'.
-	 * @param config The log file specification.
+	 * @param spec The log file specification.
 	 * @return None
 	 */
-	public static function registerSpecification($id, array $config) {
-		self::$specs[$id] = $config;
+	public static function registerSpecification($id, array $spec) {
+		// Validate the specification.
+		$filePath = array_value($spec, "filepath");
+		$command = array_value($spec, "command");
+		if ((TRUE === empty($filePath)) && (TRUE === empty($command))) {
+			throw new \OMV\Exception(
+			  "Invalid log file specification. The parameter 'filepath' ".
+			  "or 'command' must be defined.");
+		}
+		self::$specs[$id] = $spec;
 	}
 
 	/**
@@ -100,7 +111,7 @@ class LogFileSpec {
 	 */
 	public function getFileName() {
 		$spec = self::$specs[$this->id];
-		return $spec['filename'];
+		return array_value($spec, "filename", FALSE);
 	}
 
 	/**
@@ -123,17 +134,19 @@ class LogFileSpec {
 
 	/**
 	 * Get the regular expression used to parse a log file line.
+	 * @return The regular expression. Defaults to an empty string.
 	 */
 	public function getRegex() {
 		$spec = self::$specs[$this->id];
-		return $spec['regex'];
+		return array_value($spec, "regex", "");
 	}
 
 	/**
 	 * Get the column configuration.
+	 * @return The column configuration. Defaults to an empty array.
 	 */
 	public function getColumns() {
 		$spec = self::$specs[$this->id];
-		return $spec['columns'];
+		return array_value($spec, "columns", []);
 	}
 }
