@@ -1,3 +1,10 @@
+openmediavault-clamav (3.2.5) stable; urgency=low
+
+  * Update locales.
+  * Fix various issues.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 05 Oct 2016 21:58:44 +0200
+
 openmediavault-clamav (3.2.4) stable; urgency=low
 
   * Harden installation script.
