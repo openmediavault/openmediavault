@@ -1,3 +1,9 @@
+openmediavault-nut (3.2.3) stable; urgency=low
+
+  * Add missing logrotate configuration.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 05 Oct 2016 15:38:14 +0200
+
 openmediavault-nut (3.2.2) stable; urgency=low
 
   * Harden installation script.

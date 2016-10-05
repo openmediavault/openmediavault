@@ -21,23 +21,23 @@
  */
 require_once("openmediavault/functions.inc");
 
-\OMV\System\LogFileSpec::registerSpecification("nut", array(
+\OMV\System\LogFileSpec::registerSpecification("nut", [
   "filename" => "nut.log",
   "filepath" => "/var/log/nut.log",
   "regex" => "/^(\S+\s+\d+\s+\d{2}:\d{2}:\d{2})\s+(\S+)\s([a-zA-Z-]+)(\[(\d+)\])?:\s+(.*)$/",
-  "columns" => array(
-	  "ts" => array(
+  "columns" => [
+	  "ts" => [
 		  "index" => 1,
 		  "func" => function($v) { return strpdate($v,"M j G:i:s"); }
-	  ),
-	  "date" => array(
+	  ],
+	  "date" => [
 		  "index" => 1,
 		  "func" => function($v) {
 			  return strftime("%c", strpdate($v,"M j G:i:s"));
 		  }
-	  ),
+	  ],
 	  "hostname" => 2,
 	  "program" => 3,
 	  "pid" => 5,
 	  "message" => 6
-  )));
+  ]]);
