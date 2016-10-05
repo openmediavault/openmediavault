@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2016-08-21 15:39+0000\n"
+"PO-Revision-Date: 2016-10-04 11:46+0000\n"
 "Last-Translator: zubr139\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -54,7 +54,7 @@ msgid "Data PDU in order"
 msgstr ""
 
 msgid "Data digest"
-msgstr ""
+msgstr "Огляд даних"
 
 msgid "Data sequence in order"
 msgstr ""
@@ -63,7 +63,7 @@ msgid "Device"
 msgstr "Пристрій"
 
 msgid "Discovery authentication"
-msgstr ""
+msgstr "Перевірка аутентифікації"
 
 msgid "Edit LUN"
 msgstr "Редагувати LUN"
@@ -78,7 +78,7 @@ msgid "Enable"
 msgstr "Увімкнути"
 
 msgid "Error recovery level"
-msgstr ""
+msgstr "Рівень відновлення після помилок"
 
 msgid "Extra options"
 msgstr "Додаткові опції"
@@ -190,10 +190,10 @@ msgid "Password"
 msgstr "Пароль"
 
 msgid "Queued commands"
-msgstr ""
+msgstr "Команди в черзі"
 
 msgid "R/W mode"
-msgstr ""
+msgstr "Режим R/W"
 
 msgid "Read-only"
 msgstr "Лише для читання"
@@ -227,7 +227,7 @@ msgid "Settings"
 msgstr "Налаштування"
 
 msgid "Targets"
-msgstr ""
+msgstr "Завдання"
 
 msgid "The identifier of the target."
 msgstr "Ідентифікатор призначення."
@@ -247,7 +247,7 @@ msgid "The number of threads to perform block I/O to the device."
 msgstr "Кількість потоків для виконання блоку введення виведення до пристрою."
 
 msgid "The optional alias of the target."
-msgstr ""
+msgstr "Додатковий псевдонім мети."
 
 msgid ""
 "This allows the initiator to append unsolicited data to a command. To "
@@ -267,10 +267,10 @@ msgid "Users"
 msgstr "Користувачі"
 
 msgid "Write-back"
-msgstr ""
+msgstr "Відкладений запис"
 
 msgid "Write-through"
-msgstr ""
+msgstr "Прямий запис"
 
 msgid "iSCSI Target"
-msgstr ""
+msgstr "iSCSI Мета"

@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Pavel Borecki <pavel.borecki@gmail.com>, 2014-2015
+# Pavel Borecki <pavel.borecki@gmail.com>, 2014-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2015-11-20 16:10+0000\n"
+"PO-Revision-Date: 2016-09-30 21:07+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 msgid "Add LUN"
-msgstr "Přidat iSCSI logickou jednotku (identifikátor LUN)"
+msgstr "Přidat iSCSI logickou jednotku (LUN identifikátor)"
 
 msgid "Add target"
 msgstr "Přidat cíl"
@@ -48,13 +48,13 @@ msgstr "Komentář"
 msgid ""
 "Controls the maximum number of data transfers the target may request at "
 "once."
-msgstr "Určuje nejvyšší umožněný počet datových přenosů, který může být cílem požadován naráz."
+msgstr "Určuje počet souběžných datových přenosů, který je cíli nejvýše umožněno požadovat."
 
 msgid "Data PDU in order"
-msgstr "Data v pořadí PDU"
+msgstr "Protokolová datová jednotka (PDU) v pořadí"
 
 msgid "Data digest"
-msgstr "Otisk dat"
+msgstr "Otisk (digest) dat"
 
 msgid "Data sequence in order"
 msgstr "Posloupnost dat v pořadí"
@@ -63,10 +63,10 @@ msgid "Device"
 msgstr "Zařízení"
 
 msgid "Discovery authentication"
-msgstr "Ověřování při propagaci služby"
+msgstr "Ověřování při zjišťování služby"
 
 msgid "Edit LUN"
-msgstr "Upravit LUN"
+msgstr "Upravit identifikátor logické jednotky (LUN)"
 
 msgid "Edit target"
 msgstr "Upravit cíl"
@@ -81,7 +81,7 @@ msgid "Error recovery level"
 msgstr "Stupeň obnovy z chyby"
 
 msgid "Extra options"
-msgstr "Rozšířené možnosti"
+msgstr "Rozšířené předvolby"
 
 msgid "File IO"
 msgstr "Souborový vst./výst."
@@ -102,7 +102,7 @@ msgid "IO threads"
 msgstr "vstup./výst. vláken"
 
 msgid "IQN"
-msgstr "IQN"
+msgstr "iSCSI rozlišený název (IQN)"
 
 msgid "Id"
 msgstr "Identifikátor"
@@ -114,14 +114,14 @@ msgid ""
 "If a non-zero 'NOP interval' is used to periodically 'ping' the initiator "
 "during phases of inactivity (i.e. no data transfers), the initiator must "
 "respond within N seconds, otherwise the connection will be closed."
-msgstr "Jestliže je nastaven časový úsek mezi povely NOP, pak jsou tyto použity jako pravidelné kontroly v obdobích, kdy nejsou přenášena data. Iniciátor musí odpovědět v nastaveném limitu, jinak bude spojení ukončeno."
+msgstr "Jestliže je nastaven časový úsek mezi povely NOP, pak jsou tyto použity jako pravidelné kontroly v obdobích, kdy nejsou přenášená data. Iniciátor musí odpovědět v nastaveném limitu, jinak bude spojení ukončeno."
 
 msgid ""
 "If enabled, the initiator has to wait for the target to solicit SCSI data "
 "before sending it. Disabling it allows the initiator to send a burst of N "
 "bytes unsolicited right after and/or together with the command. Thus "
 "disabling it may improve performance."
-msgstr "Když je povoleno, iniciátor musí čekat, než cíl získá SCSI data, než je odešle. Zakázání povolí iniciátoru poslat dávku N bajtů nevyžádaně právě po a/nebo společně s příkazem. Proto zakázání může vylepšit výkon."
+msgstr "Když je zapnuto, iniciátor musí čekat, než cíl získá SCSI data, než je odešle. Zakázání povolí iniciátoru poslat dávku N bajtů nevyžádaně právě po a/nebo společně s příkazem. Proto zakázání může vylepšit výkon."
 
 msgid ""
 "If set to 'CRC32C' and the initiator is configured accordingly, the "
@@ -193,7 +193,7 @@ msgid "Queued commands"
 msgstr "Zřetězené příkazy"
 
 msgid "R/W mode"
-msgstr "Režim čtení i zápisu"
+msgstr "Režim čtení a zápisu"
 
 msgid "Read-only"
 msgstr "Pouze pro čtení"
@@ -205,7 +205,7 @@ msgid "SCSI serial no."
 msgstr "SCSI sériové číslo"
 
 msgid "Select an device ..."
-msgstr "Zvolte zařízení ..."
+msgstr "Vyberte zařízení…"
 
 msgid ""
 "Sets the amount of unsolicited data the initiator may transmit in the first "
@@ -241,7 +241,7 @@ msgid ""
 msgstr "Počet příkazů, které iniciátor může posílat a které budou cílem uloženy v jeho vyrovnávací paměti."
 
 msgid "The number of connections within a session."
-msgstr "Počet spojení v rámci sezení."
+msgstr "Počet spojení v rámci relace."
 
 msgid "The number of threads to perform block I/O to the device."
 msgstr "Počet vláken pro blokový vstup/výstup na zařízení."
@@ -261,7 +261,7 @@ msgid "Type"
 msgstr "Typ"
 
 msgid "Username"
-msgstr "Přihlašovací jméno"
+msgstr "Uživatelské jméno"
 
 msgid "Users"
 msgstr "Uživatelé"

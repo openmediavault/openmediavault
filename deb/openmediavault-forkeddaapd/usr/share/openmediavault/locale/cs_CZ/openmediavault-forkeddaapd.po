@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Jan Štourač <wormsik666@gmail.com>, 2015
-# Pavel Borecki <pavel.borecki@gmail.com>, 2014-2015
+# Pavel Borecki <pavel.borecki@gmail.com>, 2014-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2015-11-20 16:08+0000\n"
+"PO-Revision-Date: 2016-09-27 20:52+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -41,7 +41,7 @@ msgid "Port"
 msgstr "Port"
 
 msgid "Port to listen on."
-msgstr "Port, na kterém očekávat spojení."
+msgstr "Port na kterém očekávat spojení."
 
 msgid "Settings"
 msgstr "Nastavení"
@@ -53,7 +53,7 @@ msgid "The location of the media files to share."
 msgstr "Umístění souborů s médii ke sdílení."
 
 msgid "The name of the library as displayed by the clients."
-msgstr "Název knihovny, jak bude zobrazován klientům."
+msgstr "Název knihovny, jak bude zobrazován klienty."
 
 msgid "iTunes/DAAP"
 msgstr "iTunes/DAAP"
