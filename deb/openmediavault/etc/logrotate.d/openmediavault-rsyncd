@@ -1,9 +1,0 @@
-/var/log/rsyncd.log {
-        weekly
-        missingok
-        rotate 7
-        compress
-        delaycompress
-        notifempty
-        create 640 root adm
-}

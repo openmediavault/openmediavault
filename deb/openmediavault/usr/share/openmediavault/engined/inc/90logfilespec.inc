@@ -223,6 +223,7 @@ require_once("openmediavault/functions.inc");
 	  "message" => 3
   ]]);
 
+// /var/log/proftpd/xferlog
 // <currenttime> <transfertime> <remotehost> <filesize> <filename> <transfertype> <specialactionflag> <direction> <accessmode> <username> <servicename> <authenticationmethod> <authenticateduserid> <completionstatus>
 // Thu Oct 17 18:19:00 2013 0 ::ffff:192.168.178.254 56374 /home/ftp/test/testfile b _ i r test ftp 0 * c
 \OMV\System\LogFileSpec::registerSpecification("proftpd_xferlog", [
