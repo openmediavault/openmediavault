@@ -40,16 +40,14 @@ abstract class SmartStorageDeviceAbstract extends StorageDevice
 	}
 
 	/**
-	 * Identify the device type required by the smartctl utility program.
-	 * @return Returns the identified device type or an empty string.
+	 * See interface definition.
 	 */
 	public function getSmartDeviceType() {
 		return $this->smartDeviceType;
 	}
 
 	/**
-	 * Get the S.M.A.R.T. information.
-	 * @throw \OMV\Exception
+	 * See interface definition.
 	 */
 	public function getSmartInformation() {
 		$smartInfo = new SmartInformation($this->getDeviceFile(),
@@ -60,5 +58,29 @@ abstract class SmartStorageDeviceAbstract extends StorageDevice
 			  $this->getDeviceFile());
 		}
 		return $smartInfo;
+	}
+
+	/**
+	 * See interface definition.
+	 */
+	public function executeSmartSelfTest($test) {
+		$testMap = [
+			"s" => "short",
+			"l" => "long",
+			"c" => "conveyance",
+			"o" => "offline"
+		];
+		$test = strtolower($test);
+		if (TRUE === array_key_exists($test, $testMap))
+			$test = $testMap[$test];
+		$cmdArgs = [];
+		$cmdArgs[] = "--xall";
+		$cmdArgs[] = sprintf("--test=%s", $test);
+		if (!empty($this->getSmartDeviceType()))
+			$cmdArgs[] = sprintf("--device=%s", $this->getSmartDeviceType());
+		$cmdArgs[] = $this->getDeviceFile();
+		$cmd = new \OMV\System\Process("smartctl", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute();
 	}
 }

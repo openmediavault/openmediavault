@@ -40,4 +40,18 @@ interface ISmartStorageDevice {
 	 * @throw \OMV\Exception
 	 */
 	public function getSmartInformation();
+
+	/**
+	 * Execute a S.M.A.R.T. self test.
+	 * @param test The test to be used. This can be:
+	 *   <ul>
+	 *   \li short (s)
+	 *   \li long (l)
+	 *   \li conveyance (c)
+	 *   \li offline (o)
+	 *   </ul>
+	 * @return None.
+	 * @throw \OMV\Exception
+	 */
+	public function executeSmartSelfTest($test);
 }

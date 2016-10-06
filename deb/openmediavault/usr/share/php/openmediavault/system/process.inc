@@ -162,6 +162,7 @@ class Process {
 	 * @param exitStatus If the argument is present along with the output
 	 *   argument, then the return status of the executed command will be
 	 *   written to this variable.
+	 * @return The last line from the result of the command.
 	 * @throw \OMV\ExecException
 	 */
 	public function execute(array &$output = NULL, &$exitStatus = NULL) {

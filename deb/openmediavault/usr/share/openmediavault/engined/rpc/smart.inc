@@ -558,45 +558,17 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.smartmontools.job", $params['uuid']);
-		// Check if the given device exists.
+		// Check if the given device exists and supports S.M.A.R.T.
 		\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
 		  $object->get("devicefile"));
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 		  $object->get("devicefile"));
-		// Create a background process.
-		$bgStatusFilename = $this->createBgProcStatus();
-		$pid = $this->fork();
-		if ($pid > 0) { // Parent process.
-			$this->initializeBgProcStatus($bgStatusFilename, $pid);
-			return $bgStatusFilename;
-		}
-		// Child process.
-		try {
-			$bgOutputFilename = $this->createBgProcOutput();
-			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
-			  $bgOutputFilename);
-			// Prepare the command line arguments and execute the self-test.
-			$testMap = [
-				"S" => "short",
-				"L" => "long",
-				"C" => "conveyance",
-				"O" => "offline"
-			];
-			$cmd = "/usr/sbin/smartctl";
-			$cmdArgs = [];
-			$cmdArgs[] = "-t";
-			$cmdArgs[] = $testMap[$object->get("type")];
-			$deviceType = $sd->getSmartDeviceType();
-			if (FALSE === empty($deviceType)) {
-				$cmdArgs[] = "-d";
-				$cmdArgs[] = $deviceType;
-			}
-			$cmdArgs[] = $sd->getDeviceFile();
-			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename))
-				throw new \OMV\ExecException($cmd." ".implode(" ", $cmdArgs));
-		} catch(\Exception $e) {
-			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
-			exit(1);
-		}
+		$sd->assertHasSmartSupport();
+		// Create the background process.
+		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
+		  use ($object, $sd) {
+			// Execute the S.M.A.R.T. self test.
+			$sd->executeSmartSelfTest($object->get("type"));
+		});
 	}
 }
