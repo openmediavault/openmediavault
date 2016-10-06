@@ -152,18 +152,9 @@ class OMVRpcServiceCron extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
-		// Create a background process.
-		$bgStatusFilename = $this->createBgProcStatus();
-		$pid = $this->fork();
-		if ($pid > 0) { // Parent process.
-			$this->initializeBgProcStatus($bgStatusFilename, $pid);
-			return $bgStatusFilename;
-		}
-		// Child process.
-		try {
-			$bgOutputFilename = $this->createBgProcOutput();
-			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
-			  $bgOutputFilename);
+		// Create the background process.
+		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
+		  use ($params) {
 			// Get the configuration object.
 			$db = \OMV\Config\Database::getInstance();
 			$object = $db->get("conf.system.cron.job", $params['uuid']);
@@ -181,14 +172,9 @@ class OMVRpcServiceCron extends \OMV\Rpc\ServiceAbstract {
 			$cmd->setRedirect2to1();
 			if (0 !== $this->exec($cmd->getCommandLine(), $output,
 			  $bgOutputFilename)) {
-				  throw new \OMV\ExecException($cmd->getCommandLine(), $output);
-			  }
-			// Finalize the background process.
-			$this->finalizeBgProcStatus($bgStatusFilename, $output);
-			exit(0);
-		} catch(\Exception $e) {
-			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
-			exit(1);
-		}
+				throw new \OMV\ExecException($cmd->getCommandLine(),
+				  $output);
+			}
+		});
 	}
 }

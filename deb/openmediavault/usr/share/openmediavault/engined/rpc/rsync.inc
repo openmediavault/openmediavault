@@ -232,28 +232,25 @@ class OMVRpcServiceRsync extends \OMV\Rpc\ServiceAbstract {
 		// until now.
 		if ($this->isModuleDirty("rsync"))
 			throw new \OMV\Config\ConfigDirtyException();
-		// Create a background process.
-		$bgStatusFilename = $this->createBgProcStatus();
-		$pid = $this->fork();
-		if ($pid > 0) { // Parent process.
-			$this->initializeBgProcStatus($bgStatusFilename, $pid);
-			return $bgStatusFilename;
-		}
-		// Child process.
-		try {
-			$bgOutputFilename = $this->createBgProcOutput();
-			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
-			  $bgOutputFilename);
+		// Create the background process.
+		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
+		  use ($params) {
 			// Execute the rsync cron script.
-			$cmd = "/bin/sh";
 			$cmdArgs = [];
-			$cmdArgs[] = build_path(DIRECTORY_SEPARATOR, \OMV\Environment::get(
-			  "OMV_CRONSCRIPTS_DIR"), sprintf("rsync-%s", $params['uuid']));
-			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename))
-				throw new \OMV\ExecException($cmd." ".implode(" ", $cmdArgs));
-		} catch(\Exception $e) {
-			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
-			exit(1);
-		}
+			$cmdArgs[] = "--shell";
+			$cmdArgs[] = "--non-interactive";
+			$cmdArgs[] = "--";
+			$cmdArgs[] = build_path(DIRECTORY_SEPARATOR,
+			  \OMV\Environment::get("OMV_CRONSCRIPTS_DIR"),
+			  sprintf("rsync-%s", $params['uuid']));
+			$cmd = new \OMV\System\Process("sudo", $cmdArgs);
+			$cmd->setEnv("SHELL", "/bin/sh");
+			$cmd->setRedirect2to1();
+			if (0 !== $this->exec($cmd->getCommandLine(), $output,
+			  $bgOutputFilename)) {
+				throw new \OMV\ExecException($cmd->getCommandLine(),
+				  $output);
+			}
+		});
 	}
 }

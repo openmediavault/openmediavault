@@ -398,6 +398,7 @@ abstract class ServiceAbstract {
 			2 => [ "pipe", "w" ]  // STDERR
 		];
 		// Execute the command.
+		$this->debug("Executing command '%s'", $command);
 		$process = proc_open($command, $descriptors, $pipes);
 		if ((FALSE === $process) || !is_resource($process))
 			return -1;
