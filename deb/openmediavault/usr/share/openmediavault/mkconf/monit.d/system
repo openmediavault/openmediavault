@@ -45,8 +45,8 @@ if [ "$(omv_config_get "//system/notification/notifications/notification[id='mon
 	numcpu=$(grep -ci processor /proc/cpuinfo)
 
 	cat <<EOF >> ${OMV_MONIT_SERVICE_SYSTEM_CONFIG}
-  if loadavg (1min) > $(expr ${numcpu} \* ${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_1MIN_MULT}) for ${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_1MIN_CYCLES} cycles then alert
-  if loadavg (5min) > $(expr ${numcpu} \* ${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_5MIN_MULT}) for ${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_5MIN_CYCLES} cycles then alert
+  if loadavg (1min) > $((${numcpu} * ${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_1MIN_MULT})) for ${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_1MIN_CYCLES} cycles then alert
+  if loadavg (5min) > $((${numcpu} * ${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_5MIN_MULT})) for ${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_5MIN_CYCLES} cycles then alert
 EOF
 fi
 
