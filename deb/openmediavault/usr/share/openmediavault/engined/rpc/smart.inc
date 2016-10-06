@@ -568,7 +568,28 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
 		  use ($object, $sd) {
 			// Execute the S.M.A.R.T. self test.
-			$sd->executeSmartSelfTest($object->get("type"));
+			$testMap = [
+				"s" => "short",
+				"l" => "long",
+				"c" => "conveyance",
+				"o" => "offline"
+			];
+			$test = strtolower($object->get("type"));
+			if (TRUE === array_key_exists($test, $testMap))
+				$test = $testMap[$test];
+			$cmdArgs = [];
+			$cmdArgs[] = "--xall";
+			$cmdArgs[] = sprintf("--test=%s", $test);
+			if (!empty($sd->getSmartDeviceType()))
+				$cmdArgs[] = sprintf("--device=%s", $sd->getSmartDeviceType());
+			$cmdArgs[] = $sd->getDeviceFile();
+			$cmd = new \OMV\System\Process("smartctl", $cmdArgs);
+			$cmd->setRedirect2to1();
+			if (0 !== $this->exec($cmd->getCommandLine(), $output,
+			  $bgOutputFilename)) {
+				throw new \OMV\ExecException($cmd->getCommandLine(),
+				  $output);
+			}
 		});
 	}
 }
