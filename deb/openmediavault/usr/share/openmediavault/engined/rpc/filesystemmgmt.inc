@@ -529,27 +529,19 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Get the filesystem device file name from the storage device
 		// backend (this may differ depending on the storage device).
 		$fsDeviceFile = $sdb->fsDeviceFile($sd->getDeviceFile());
-		// Create a background process.
-		$bgStatusFilename = $this->createBgProcStatus();
-		$pid = $this->fork();
-		if ($pid > 0) { // Parent process.
-			$this->initializeBgProcStatus($bgStatusFilename, $pid);
-			return $bgStatusFilename;
-		}
-		// Child process.
-		try {
-			$bgOutputFilename = $this->createBgProcOutput();
-			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
-			  $bgOutputFilename);
-			// Create a file that contains the details of the filesystem being
-			// initialized. The file is parsed by the 'FileSystemMgmt.getList'
-			// RPC to display the state of the filesystem initialization
-			// process. There is no other way to detect filesystems being
-			// initialized (blkid detects them after the initialization has
-			// been finished).
-			$fileName = sprintf("/tmp/omv-initfs@%s.build", str_replace(
-			  "/", "_", $sd->getDeviceFile()));
-			$jsonFile = new \OMV\Json\File($fileName);
+		// Create a file that contains the details of the filesystem being
+		// initialized. The file is parsed by the 'FileSystemMgmt.getList'
+		// RPC to display the state of the filesystem initialization
+		// process. There is no other way to detect filesystems being
+		// initialized (blkid detects them after the initialization has
+		// been finished).
+		$fileName = sprintf("/tmp/omv-initfs@%s.build", str_replace(
+		  "/", "_", $sd->getDeviceFile()));
+		$jsonFile = new \OMV\Json\File($fileName);
+		// Create the background process.
+		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
+		  use ($params, $sd, $sdb, $fsb, $fsDeviceFile, $jsonFile) {
+			// Create the file and write the file system information.
 			$jsonFile->open("c");
 			$jsonFile->write([
 				"devicefile" => $fsDeviceFile,
@@ -563,40 +555,64 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			case OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID:
 			case OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER:
 			case OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE:
-				// Wipe existing filesystems.
-				$cmd = sprintf("export LANG=C; wipefs -a %s 2>&1",
-				  $sd->getDeviceFile());
-				if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
-					throw new \OMV\ExecException($cmd, $output);
+				// Wipe existing file systems.
+				$this->writeBgProcOutput($bgOutputFilename,
+				  "===== Wipe signatures from device =====\n");
+				$cmdArgs = [];
+				$cmdArgs[] = "--all";
+				$cmdArgs[] = escapeshellarg($sd->getDeviceFile());
+				$cmd = new \OMV\System\Process("wipefs", $cmdArgs);
+				$cmd->setRedirect2to1();
+				$cmdLine = $cmd->getCommandLine();
+				if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
+					throw new \OMV\ExecException($cmdLine, $output);
 				// No need to create a partition.
 				break;
 			default:
-				// Wipe existing filesystems.
-				$cmd = sprintf("export LANG=C; sgdisk --zap-all %s 2>&1",
-				  escapeshellarg($sd->getDeviceFile()));
-				if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
-					throw new \OMV\ExecException($cmd, $output);
+				// Wipe existing file systems.
+				$this->writeBgProcOutput($bgOutputFilename,
+				  "===== Wipe signatures from device =====\n");
+				$cmdArgs = [];
+				$cmdArgs[] = "--zap-all";
+				$cmdArgs[] = escapeshellarg($sd->getDeviceFile());
+				$cmd = new \OMV\System\Process("sgdisk", $cmdArgs);
+				$cmd->setRedirect2to1();
+				$cmdLine = $cmd->getCommandLine();
+				if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
+					throw new \OMV\ExecException($cmdLine, $output);
 				// Use entire device.
-				$cmd = sprintf("export LANG=C; sgdisk --new=1:0:0 ".
-				  "--typecode=1:8300 --print %s 2>&1", escapeshellarg(
-				  $sd->getDeviceFile()));
-				if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
-					throw new \OMV\ExecException($cmd, $output);
+				$this->writeBgProcOutput($bgOutputFilename,
+				  "===== Create partition =====\n");
+				$cmdArgs = [];
+				$cmdArgs[] = "--new=1:0:0";
+				$cmdArgs[] = "--typecode=1:8300";
+				$cmdArgs[] = "--print";
+				$cmdArgs[] = escapeshellarg($sd->getDeviceFile());
+				$cmd = new \OMV\System\Process("sgdisk", $cmdArgs);
+				$cmd->setRedirect2to1();
+				$cmdLine = $cmd->getCommandLine();
+				if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
+					throw new \OMV\ExecException($cmdLine, $output);
 				sleep(2);
 				break;
 			}
 			// Re-read partition table.
-			$cmd = sprintf("export LANG=C; partprobe %s", escapeshellarg(
-			  $sd->getDeviceFile()));
-			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
-				throw new \OMV\ExecException($cmd, $output);
+			$cmdArgs = [];
+			$cmdArgs[] = escapeshellarg($sd->getDeviceFile());
+			$cmd = new \OMV\System\Process("partprobe", $cmdArgs);
+			$cmd->setRedirect2to1();
+			$cmdLine = $cmd->getCommandLine();
+			if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
+				throw new \OMV\ExecException($cmdLine, $output);
 			// We need to wait to give the kernel some time to re-read
 			// the partition table and until the device file exists.
 			// Abort if the device file does not exist after the given
 			// time.
 			$fsbd = new \OMV\System\BlockDevice($fsDeviceFile);
 			$fsbd->waitForDevice(5);
-			// Create the filesystem.
+			// Create the file system.
+			$this->writeBgProcOutput($bgOutputFilename,
+			  "===== Create file system =====\n");
 			$cmdArgs = [];
 			$cmdArgs[] = "-V";
 			$cmdArgs[] = sprintf("-t %s", $fsb->getType());
@@ -606,10 +622,11 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				  $params['label']));
 			}
 			$cmdArgs[] = escapeshellarg($fsbd->getDeviceFile());
-			$cmd = sprintf("export LANG=C; mkfs %s 2>&1", implode(" ",
-			  $cmdArgs));
-			if (0 !== $this->exec($cmd, $output, $bgOutputFilename))
-				throw new \OMV\ExecException($cmd, $output);
+			$cmd = new \OMV\System\Process("mkfs", $cmdArgs);
+			$cmd->setRedirect2to1();
+			$cmdLine = $cmd->getCommandLine();
+			if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
+				throw new \OMV\ExecException($cmdLine, $output);
 			// Notify configuration changes.
 			$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 			$dispatcher->notify(OMV_NOTIFY_CREATE,
@@ -619,18 +636,11 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				  "type" => $fsb->getType(),
 				  "label" => $params['label']
 			  ]);
+			return $output;
+		}, NULL, function() use($jsonFile) {
 			// Cleanup
 			$jsonFile->unlink();
-			// Finalize background process.
-			$this->finalizeBgProcStatus($bgStatusFilename, $output);
-			exit(0);
-		} catch(\Exception $e) {
-			// Cleanup.
-			$jsonFile->unlink();
-			// Finalize background process.
-			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
-			exit(1);
-		}
+		});
 	}
 
 	/**

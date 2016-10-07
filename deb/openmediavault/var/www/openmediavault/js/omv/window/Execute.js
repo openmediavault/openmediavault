@@ -111,6 +111,7 @@ Ext.define("OMV.window.Execute", {
 			me.contentCtrl = Ext.create("Ext.form.field.TextArea", {
 				name: "content",
 				cls: "x-form-textarea-monospaced",
+				editable: false,
 				value: me.welcomeText
 			});
 		} else {
