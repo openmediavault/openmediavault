@@ -475,6 +475,11 @@ abstract class ServiceAbstract {
 			$stdOut = fopen($outputFilename, "w");
 			$stdErr = fopen($outputFilename, "w");
 		}
+		// Execute the command.
+		$cmdArgs = [ $path ];
+		if (TRUE === is_array($args))
+			$cmdArgs = array_merge($cmdArgs, $args);
+		$this->debug("Executing command '%s'", implode(" ", $cmdArgs));
 		$result = pcntl_exec($path, $args);
 		// Note, this code path is only reached if pcntl_exec fails.
 		if ((FALSE === $result) && (TRUE === $redirectOutput)) {
@@ -494,11 +499,15 @@ abstract class ServiceAbstract {
 	 *   It should return a string with the process output.
 	 * @param Closure $error An anonymous function that expects the
 	 *   parameters \em $bgStatusFilename and \em $bgOutputFilename. It
-	 *   will be called in case of an exception and can be used for
-	 *   cleanup.
+	 *   will be called in case of an exception within the \$childProc
+	 *   closure.
+	 * @param Closure $finally An anonymous function without arguments. It
+	 *   will always be executed after the background process has been
+	 *   finished successfully or it has been failed.
 	 * @return The name of the background process status file.
 	 */
-	public function execBgProc(\Closure $childProc, \Closure $error = NULL) {
+	public function execBgProc(\Closure $childProc, \Closure $error = NULL,
+	  \Closure $finally = NULL) {
 		// Create the background process status file.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
@@ -507,6 +516,7 @@ abstract class ServiceAbstract {
 			return $bgStatusFilename;
 		}
 		// Child process.
+		$status = 1;
 		try {
 			// Create the background process output file and update
 			// the status file.
@@ -518,14 +528,17 @@ abstract class ServiceAbstract {
 			$output = $childProc($bgStatusFilename, $bgOutputFilename);
 			// Finalize the background process status file.
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
-			exit(0);
+			$status = 0;
 		} catch (\Exception $e) {
 			if (is_closure($error))
 				$error($bgStatusFilename, $bgOutputFilename);
 			// Finalize the background process status file.
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
-			exit(1);
+		} finally {
+			if (is_closure($finally))
+				$finally();
 		}
+		exit($status);
 	}
 
 	/**

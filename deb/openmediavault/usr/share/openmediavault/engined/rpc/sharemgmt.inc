@@ -898,19 +898,10 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			throw new \OMV\Exception("The field 'file' contains forbidden ".
 			  "two-dot symbols");
 		}
-		// Create a background process.
-		$bgStatusFilename = $this->createBgProcStatus();
-		$pid = $this->fork();
-		if ($pid > 0) { // Parent process.
-			$this->initializeBgProcStatus($bgStatusFilename, $pid);
-			return $bgStatusFilename;
-		}
-		// Child process.
+		// Create the background process.
 		$aclspecFile = tempnam(sys_get_temp_dir(), "setfacl");
-		try {
-			$bgOutputFilename = $this->createBgProcOutput();
-			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
-			  $bgOutputFilename);
+		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
+		  use ($params, $context, $aclspecFile) {
 			// Get the absolute shared folder path.
 			$sfpath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", [
 				"uuid" => $params['uuid']
@@ -995,21 +986,14 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Execute command to set the file access control lists.
 			$cmd = new \OMV\System\Process("setfacl", $cmdArgs);
 			$cmd->setRedirect2to1();
-			if (0 !== $this->exec($cmd->getCommandLine(), $output,
-			  $bgOutputFilename)) {
-				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
-			}
-			$this->finalizeBgProcStatus($bgStatusFilename, $output);
+			$cmdLine = $cmd->getCommandLine();
+			if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
+				throw new \OMV\ExecException($cmdLine, $output);
+			return $output;
+		}, NULL, function() use ($aclspecFile) {
 			// Cleanup ACL entries file.
 			unlink($aclspecFile);
-			exit(0);
-		} catch(\Exception $e) {
-			// Cleanup ACL entries file.
-			unlink($aclspecFile);
-			// Update the process status.
-			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
-			exit(1);
-		}
+		});
 	}
 
 	/**

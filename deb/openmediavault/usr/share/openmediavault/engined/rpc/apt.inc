@@ -170,26 +170,26 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
 		  use ($params) {
-			  // Upgrade the given packages.
-			  // http://raphaelhertzog.com/2010/09/21/debian-conffile-configuration-file-managed-by-dpkg/
-			  $cmdArgs = [];
-			  $cmdArgs[] = "--yes";
-			  $cmdArgs[] = "--force-yes";
-			  $cmdArgs[] = "--fix-missing";
-			  $cmdArgs[] = "--auto-remove";
-			  $cmdArgs[] = "--allow-unauthenticated";
-			  $cmdArgs[] = "--show-upgraded";
-			  $cmdArgs[] = "--option DPkg::Options::=\"--force-confold\"";
-			  $cmdArgs[] = "install";
-			  $cmdArgs = array_merge($cmdArgs, $params['packages']);
-			  $cmd = new \OMV\System\Process("apt-get", $cmdArgs);
-			  $cmd->setRedirect2to1();
-			  $cmd->setEnv("DEBIAN_FRONTEND", "noninteractive");
-			  $cmdLine = $cmd->getCommandLine();
-			  if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
-				  throw new \OMV\ExecException($cmdLine, $output);
-			  return $output;
-		  });
+			// Upgrade the given packages.
+			// http://raphaelhertzog.com/2010/09/21/debian-conffile-configuration-file-managed-by-dpkg/
+			$cmdArgs = [];
+			$cmdArgs[] = "--yes";
+			$cmdArgs[] = "--force-yes";
+			$cmdArgs[] = "--fix-missing";
+			$cmdArgs[] = "--auto-remove";
+			$cmdArgs[] = "--allow-unauthenticated";
+			$cmdArgs[] = "--show-upgraded";
+			$cmdArgs[] = "--option DPkg::Options::=\"--force-confold\"";
+			$cmdArgs[] = "install";
+			$cmdArgs = array_merge($cmdArgs, $params['packages']);
+			$cmd = new \OMV\System\Process("apt-get", $cmdArgs);
+			$cmd->setRedirect2to1();
+			$cmd->setEnv("DEBIAN_FRONTEND", "noninteractive");
+			$cmdLine = $cmd->getCommandLine();
+			if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
+				throw new \OMV\ExecException($cmdLine, $output);
+			return $output;
+		});
 	}
 
 	/**
@@ -208,14 +208,14 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
 		  use ($params) {
-			  // Update package database.
-			  $cmd = new \OMV\System\Process("apt-get", "update");
-			  $cmd->setRedirect2to1();
-			  $cmdLine = $cmd->getCommandLine();
-			  if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
-				  throw new \OMV\ExecException($cmdLine, $output);
-			  return $output;
-		  });
+			// Update package database.
+			$cmd = new \OMV\System\Process("apt-get", "update");
+			$cmd->setRedirect2to1();
+			$cmdLine = $cmd->getCommandLine();
+			if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
+				throw new \OMV\ExecException($cmdLine, $output);
+			return $output;
+		});
 	}
 
 	/**

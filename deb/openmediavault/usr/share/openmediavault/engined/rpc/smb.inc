@@ -226,11 +226,10 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 			$cmd = new \OMV\System\Process("sudo", $cmdArgs);
 			$cmd->setEnv("SHELL", "/bin/sh");
 			$cmd->setRedirect2to1();
-			if (0 !== $this->exec($cmd->getCommandLine(), $output,
-			  $bgOutputFilename)) {
-				throw new \OMV\ExecException($cmd->getCommandLine(),
-				  $output);
-			}
+			$cmdLine = $cmd->getCommandLine();
+			if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
+				throw new \OMV\ExecException($cmdLine, $output);
+			return $output;
 		});
 	}
 

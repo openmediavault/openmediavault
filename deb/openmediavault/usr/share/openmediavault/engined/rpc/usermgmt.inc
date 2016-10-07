@@ -662,18 +662,9 @@ finish:
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.usermngmt.importuser");
-		// Create a background process.
-		$bgStatusFilename = $this->createBgProcStatus();
-		$pid = $this->fork();
-		if ($pid > 0) { // Parent process.
-			$this->initializeBgProcStatus($bgStatusFilename, $pid);
-			return $bgStatusFilename;
-		}
-		// Child process.
-		try {
-			$bgOutputFilename = $this->createBgProcOutput();
-			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
-			  $bgOutputFilename);
+		// Create the background process.
+		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
+		  use ($params, $context) {
 			// Import users.
 			$objects = [];
 			$csv = explode("\n", $params['csv']);
@@ -714,15 +705,10 @@ finish:
 				}
 			}
 			// Finally create the users.
-			foreach ($objects as $objectk => $objectv) {
+			foreach ($objects as $objectk => $objectv)
 				$this->callMethod("setUser", $objectv, $context);
-			}
-			$this->finalizeBgProcStatus($bgStatusFilename, $output);
-			exit(0);
-		} catch(\Exception $e) {
-			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
-			exit(1);
-		}
+			return "";
+		});
 	}
 
 	/**
@@ -953,18 +939,9 @@ finish:
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.usermngmt.importgroup");
-		// Create a background process.
-		$bgStatusFilename = $this->createBgProcStatus();
-		$pid = $this->fork();
-		if ($pid > 0) { // Parent process.
-			$this->initializeBgProcStatus($bgStatusFilename, $pid);
-			return $bgStatusFilename;
-		}
-		// Child process.
-		try {
-			$bgOutputFilename = $this->createBgProcOutput();
-			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
-			  $bgOutputFilename);
+		// Create the background process.
+		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
+		  use ($params, $context) {
 			// Import groups.
 			$objects = [];
 			$csv = explode("\n", $params['csv']);
@@ -999,15 +976,10 @@ finish:
 				}
 			}
 			// Finally create the groups.
-			foreach ($objects as $objectk => $objectv) {
+			foreach ($objects as $objectk => $objectv)
 				$this->callMethod("setGroup", $objectv, $context);
-			}
-			$this->finalizeBgProcStatus($bgStatusFilename, $output);
-			exit(0);
-		} catch(\Exception $e) {
-			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
-			exit(1);
-		}
+			return "";
+		});
 	}
 
 	/**

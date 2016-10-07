@@ -585,11 +585,10 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = $sd->getDeviceFile();
 			$cmd = new \OMV\System\Process("smartctl", $cmdArgs);
 			$cmd->setRedirect2to1();
-			if (0 !== $this->exec($cmd->getCommandLine(), $output,
-			  $bgOutputFilename)) {
-				throw new \OMV\ExecException($cmd->getCommandLine(),
-				  $output);
-			}
+			$cmdLine = $cmd->getCommandLine();
+			if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
+				throw new \OMV\ExecException($cmdLine, $output);
+			return $output;
 		});
 	}
 }
