@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-03 20:38+0200\n"
-"PO-Revision-Date: 2016-10-05 14:25+0000\n"
+"PO-Revision-Date: 2016-10-07 06:59+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -542,7 +542,7 @@ msgid "By default, only files that already exist are allowed to be uploaded."
 msgstr "Ve výchozím stavu mohou být nahrávány pouze soubory nazvané stejně, jako ty už existující."
 
 msgid "CPU usage"
-msgstr "Využití procesoru"
+msgstr "Spotřeba výpočet. výkonu"
 
 msgid "Cambodia"
 msgstr "Kambodža"
@@ -1140,7 +1140,7 @@ msgid ""
 msgstr "Zapnout zpětné DNS dotazy na IP adresu vzdáleného systému pro datová spojení v aktivním režimu a odchozí spojení v pasivním režimu."
 
 msgid "Enable secure connection."
-msgstr "Používat zabezpečené spojení."
+msgstr "Používat šifrované spojení."
 
 msgid "Enable store DOS attributes support"
 msgstr "Ukládat atributy systému DOS"
@@ -1802,7 +1802,7 @@ msgid "Lithuania"
 msgstr "Litva"
 
 msgid "Load average"
-msgstr "Průměrná vytíženost"
+msgstr "Průměr. vytíženost systému"
 
 msgid "Loading ..."
 msgstr "Načítání…"
@@ -1959,7 +1959,7 @@ msgid "Members"
 msgstr "Členové"
 
 msgid "Memory usage"
-msgstr "Využití operační paměti"
+msgstr "Využití kapacit oper. paměti"
 
 msgid "Message"
 msgstr "Zpráva"
@@ -2034,7 +2034,7 @@ msgid "Monitor"
 msgstr "Sledovat"
 
 msgid "Monitoring"
-msgstr "Dohledování"
+msgstr "Pořizování statistik"
 
 msgid "Month"
 msgstr "Měsíc"
@@ -2331,7 +2331,7 @@ msgid "Permissions of owner."
 msgstr "Oprávnění vlastníka."
 
 msgid "Permit root login"
-msgstr "Umožnit přihlášení správce systému (root)"
+msgstr "Umožnit přihlašování správce systému (root)"
 
 msgid "Permit to do SSH tunneling"
 msgstr "Umožnit vytváření SSH tunelů"
@@ -2403,7 +2403,7 @@ msgstr "Nejprve je třeba zvolit zařízení."
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
 "are allowed."
-msgstr "V případě, že zde umožníte vytváření nových souborů ověřte, zda do sdílené složky mohou všichni zapisovat."
+msgstr "V případě, že zde umožníte vytváření nových souborů ověřte, zda je sdílená složka zapisovatelná komukoliv."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2519,7 +2519,7 @@ msgid "Public key"
 msgstr "Veřejná část klíče"
 
 msgid "Public key authentication"
-msgstr "Ověřování pomocí kryptografie s veřejným klíčem"
+msgstr "Ověřování kryptografií s veřejným klíčem"
 
 msgid "Public keys"
 msgstr "Veřejné části klíčů"
@@ -3145,7 +3145,7 @@ msgid ""
 msgstr "Určuje prodlevu (v milisekundách) zahájení opětovného používání rozhraní poté, co na něm bylo obnoveno spojení."
 
 msgid "Specifies whether it is allowed to login as superuser directly"
-msgstr "Určuje zda je umožněno se přihlašovat přímo jako správce systému (root)."
+msgstr "Určuje zda je umožněno se přihlašovat přímo jako správce systému (root)"
 
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Určuje zda je umožněno přihlašovat se jako správce systému (root)."
@@ -3333,7 +3333,7 @@ msgid "The file system creation has completed successfully."
 msgstr "Vytvoření souborového systému bylo úspěšně dokončeno."
 
 msgid "The hostname is a label that identifies the system to the network."
-msgstr "Název, pod kterým stroj vystupuje na síti."
+msgstr "Název pod kterým stroj vystupuje na síti."
 
 msgid ""
 "The information about available software is out-of-date. You need to reload "

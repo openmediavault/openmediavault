@@ -1,5 +1,6 @@
 openmediavault (3.0.43) stable; urgency=low
 
+  * Update locales.
   * Various improvements and bugfixes.
   * Fix bug in the FileSystemMgmt::create RPC.
   * Fix bug in the FileSystemMgmt::getCandidates RPC.
