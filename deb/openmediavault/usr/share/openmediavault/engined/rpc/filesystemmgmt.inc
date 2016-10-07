@@ -465,8 +465,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Skip read-only devices like CDROM.
 			if (TRUE === $sd->isReadOnly())
 				continue;
-/* Do not do this, otherwise a device file which is configured for
-   S.M.A.R.T. monitoring is not added as a candidate.
+/* Do not check for references, otherwise a device file which is configured
+   for S.M.A.R.T. monitoring is not added as a candidate.
 			// Check if the device is referenced/used by a plugin.
 			$db = \OMV\Config\Database::getInstance();
 			if (TRUE === $db->exists("conf.service", [
