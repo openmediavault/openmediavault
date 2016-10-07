@@ -276,18 +276,9 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.apt.getchangelog");
-		// Create a background process.
-		$bgStatusFilename = $this->createBgProcStatus();
-		$pid = $this->fork();
-		if ($pid > 0) { // Parent process.
-			$this->initializeBgProcStatus($bgStatusFilename, $pid);
-			return $bgStatusFilename;
-		}
-		// Child process.
-		try {
-			$bgOutputFilename = $this->createBgProcOutput();
-			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
-			  $bgOutputFilename);
+		// Create the background process.
+		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
+		  use ($params) {
 			// Get the package name. Note, there are files like
 			// bind9-host_1%3a9.9.5.dfsg-9+deb8u6_amd64.deb
 			// that need to be processed correctly. The problem is
@@ -353,16 +344,10 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 			$cmd = new \OMV\System\Process("gzip", $cmdArgs);
 			$cmd->setInputFromFile($matches[0]);
 			$cmd->setRedirect2to1();
-			if (0 !== $this->exec($cmd->getCommandLine(), $output,
-			  $bgOutputFilename)) {
-				throw new \OMV\ExecException($cmd->getCommandLine(),
-				  $output);
-			}
-			$this->finalizeBgProcStatus($bgStatusFilename, $output);
-			exit(0);
-		} catch(\Exception $e) {
-			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
-			exit(1);
-		}
+			$cmdLine = $cmd->getCommandLine();
+			if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
+				throw new \OMV\ExecException($cmdLine, $output);
+			return $output;
+		});
 	}
 }
