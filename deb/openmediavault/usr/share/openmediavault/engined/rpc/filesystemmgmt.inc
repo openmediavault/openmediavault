@@ -566,7 +566,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			// initialized (blkid detects them after the initialization has
 			// been finished).
 			$fileName = sprintf("/tmp/omv-initfs@%s.build", str_replace(
-			  $sd->getDeviceFile(), "/", "_"));
+			  "/", "_", $sd->getDeviceFile()));
 			$jsonFile = new OMVJsonFile($fileName);
 			$jsonFile->open("c");
 			$jsonFile->write(array(
