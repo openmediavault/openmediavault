@@ -2,6 +2,7 @@ openmediavault (2.2.11) stable; urgency=low
 
   * Mantis 0001610: omv_escapeshellarg truncates path after space.
   * Fix bug in the FileSystemMgmt::create RPC.
+  * Fix bug in the FileSystemMgmt::getCandidates RPC.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 04 Oct 2016 23:39:17 +0200
 
