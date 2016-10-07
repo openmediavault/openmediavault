@@ -470,11 +470,14 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			// Skip read-only devices like CDROM.
 			if (TRUE === $sd->isReadOnly())
 				continue;
+/* Do not check for references, otherwise a device file which is configured
+   for S.M.A.R.T. monitoring is not added as a candidate.
 			// Check if device is referenced/used by a plugin.
 			$xpath = sprintf("//services/devicefile[contains(.,'%s')]",
 			  $sd->getDeviceFile());
 			if (TRUE === $xmlConfig->exists($xpath))
 				continue;
+*/
 			// Does this device already contain a filesystem?
 			if (FALSE !== OMVFilesystem::hasFileSystem($sd->getDeviceFile()))
 				continue;
