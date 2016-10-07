@@ -46,23 +46,13 @@ class OMVRpcServiceRrd extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		// Create a background process.
-		$bgStatusFilename = $this->createBgProcStatus();
-		$pid = $this->fork();
-		if ($pid > 0) { // Parent process.
-			$this->initializeBgProcStatus($bgStatusFilename, $pid);
-			return $bgStatusFilename;
-		}
-		// Child process.
-		try {
+		// Create the background process.
+		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
+		  use ($params) {
 			$cmd = new \OMV\System\Process("omv-mkgraph");
 			$cmd->setRedirect2to1();
 			$cmd->execute($output);
-			$this->finalizeBgProcStatus($bgStatusFilename, $output);
-			exit(0);
-		} catch(\Exception $e) {
-			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
-			exit(1);
-		}
+			return $output;
+		});
 	}
 }

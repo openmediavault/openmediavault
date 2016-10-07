@@ -133,18 +133,9 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 				  $packagev);
 			}
 		}
-		// Create a background process.
-		$bgStatusFilename = $this->createBgProcStatus();
-		$pid = $this->fork();
-		if ($pid > 0) { // Parent process.
-			$this->initializeBgProcStatus($bgStatusFilename, $pid);
-			return $bgStatusFilename;
-		}
-		// Child process.
-		try {
-			$bgOutputFilename = $this->createBgProcOutput();
-			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
-			  $bgOutputFilename);
+		// Create the background process.
+		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
+		  use ($params) {
 			// Remove the packages.
 			$cmdArgs = [];
 			$cmdArgs[] = "--yes";
@@ -155,16 +146,11 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 			$cmd = new \OMV\System\Process("apt-get", $cmdArgs);
 			$cmd->setEnv("DEBIAN_FRONTEND", "noninteractive");
 			$cmd->setRedirect2to1();
-			if (0 !== $this->exec($cmd->getCommandLine(), $output,
-			  $bgOutputFilename))
-				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
-			// Finalize the background process.
-			$this->finalizeBgProcStatus($bgStatusFilename, $output);
-			exit(0);
-		} catch(\Exception $e) {
-			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
-			exit(1);
-		}
+			$cmdLine = $cmd->getCommandLine();
+			if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
+				throw new \OMV\ExecException($cmdLine, $output);
+			return $output;
+		});
 	}
 
 	/**
@@ -231,18 +217,9 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 				  $packagev);
 			}
 		}
-		// Create a background process.
-		$bgStatusFilename = $this->createBgProcStatus();
-		$pid = $this->fork();
-		if ($pid > 0) { // Parent process.
-			$this->initializeBgProcStatus($bgStatusFilename, $pid);
-			return $bgStatusFilename;
-		}
-		// Child process.
-		try {
-			$bgOutputFilename = $this->createBgProcOutput();
-			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
-			  $bgOutputFilename);
+		// Create the background process.
+		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
+		  use ($params) {
 			// Install the packages.
 			$cmdArgs = [];
 			$cmdArgs[] = "--yes";
@@ -255,15 +232,10 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 			$cmd = new \OMV\System\Process("apt-get", $cmdArgs);
 			$cmd->setEnv("DEBIAN_FRONTEND", "noninteractive");
 			$cmd->setRedirect2to1();
-			if (0 !== $this->exec($cmd->getCommandLine(), $output,
-			  $bgOutputFilename))
-				throw new \OMV\ExecException($cmd->getCommandLine(), $output);
-			// Finalize the background process.
-			$this->finalizeBgProcStatus($bgStatusFilename, $output);
-			exit(0);
-		} catch(\Exception $e) {
-			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
-			exit(1);
-		}
+			$cmdLine = $cmd->getCommandLine();
+			if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
+				throw new \OMV\ExecException($cmdLine, $output);
+			return $output;
+		});
 	}
 }
