@@ -29,7 +29,7 @@ Ext.define("OMV.module.admin.dashboard.part.FileSystemStatus", {
 	alias: "part.module.admin.dashboard.part.filesystemstatus",
 
 	config: {
-		title: "File system status",
+		title: _("File Systems"),
 		icon: "images/filesystem.svg",
 		viewXType: "module.admin.dashboard.view.filesystemstatus"
 	}

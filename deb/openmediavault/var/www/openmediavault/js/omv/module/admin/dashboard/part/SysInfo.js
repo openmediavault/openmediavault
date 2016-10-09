@@ -29,7 +29,7 @@ Ext.define("OMV.module.admin.dashboard.part.SysInfo", {
 	alias: "part.module.admin.dashboard.part.sysinfo",
 
 	config: {
-		title: "System information",
+		title: _("System Information"),
 		icon: "images/statistics.svg",
 		viewXType: "module.admin.dashboard.view.sysinfo",
 		showAtFirstStartup: true

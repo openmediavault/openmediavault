@@ -29,7 +29,7 @@ Ext.define("OMV.module.admin.dashboard.part.NetworkInterfaces", {
 	alias: "part.module.admin.dashboard.part.networkinterfaces",
 
 	config: {
-		title: "Network interfaces",
+		title: _("Network Interfaces"),
 		icon: "images/network.svg",
 		viewXType: "module.admin.dashboard.view.networkinterfaces"
 	}

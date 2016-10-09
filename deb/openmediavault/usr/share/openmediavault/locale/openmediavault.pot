@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 20:38+0200\n"
+"POT-Creation-Date: 2016-10-09 21:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2003,6 +2003,9 @@ msgid "Netmask"
 msgstr ""
 
 msgid "Network"
+msgstr ""
+
+msgid "Network Interfaces"
 msgstr ""
 
 msgid "Network interfaces"

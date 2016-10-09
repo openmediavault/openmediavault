@@ -29,7 +29,7 @@ Ext.define("OMV.module.admin.dashboard.part.ServiceStatus", {
 	alias: "part.module.admin.dashboard.part.servicestatus",
 
 	config: {
-		title: "Service status",
+		title: _("Services"),
 		icon: "images/wrench.svg",
 		viewXType: "module.admin.dashboard.view.servicestatus",
 		showAtFirstStartup: true
