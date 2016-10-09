@@ -37,6 +37,7 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.Smart", {
 	text: _("S.M.A.R.T."),
 	stateful: true,
 	stateId: "67659b68-3cb2-4434-a92e-f541236e12d0",
+	isLogDeletable: false,
 	columns: [{
 		text: _("Date & Time"),
 		sortable: true,

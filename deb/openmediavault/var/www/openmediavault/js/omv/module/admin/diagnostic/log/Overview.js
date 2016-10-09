@@ -94,7 +94,7 @@ Ext.define("OMV.module.admin.diagnostic.log.Logs", {
 				change: function(combo, value) {
 					// Update active plugin.
 					this.activePlugin = this.getPluginById(value);
-					if(!this.activePlugin || !this.activePlugin.isLogPlugin)
+					if (!this.activePlugin || !this.activePlugin.isLogPlugin)
 						return;
 					// Create a new store.
 					var store = this.createStore();
@@ -102,10 +102,13 @@ Ext.define("OMV.module.admin.diagnostic.log.Logs", {
 					this.stateful = this.activePlugin.stateful;
 					this.stateId = this.activePlugin.stateId;
 					this.reconfigure(store, this.activePlugin.columns);
-					if(this.stateful)
+					if (this.stateful)
 						this.initState();
 					// Bind new store to paging toolbar.
 					this.getPagingToolbar().bindStore(this.store);
+					// Enable or disable the 'Clear' button.
+					this.setToolbarButtonDisabled("clear",
+					  !this.activePlugin.isLogDeletable);
 				}
 			}
 		},{

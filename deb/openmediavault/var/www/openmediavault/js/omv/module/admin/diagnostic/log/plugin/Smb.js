@@ -37,6 +37,7 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.smb.Audit", {
 	text: _("SMB/CIFS - Audit"),
 	stateful: true,
 	stateId: "b4cc4047-eeca-42ee-9e5c-8338f7e41001",
+	isLogDeletable: false,
 	columns: [{
 		text: _("Date & Time"),
 		sortable: true,

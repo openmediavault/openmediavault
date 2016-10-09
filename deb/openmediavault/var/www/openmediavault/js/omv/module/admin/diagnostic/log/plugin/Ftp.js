@@ -37,6 +37,7 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.ftp.Syslog", {
 	text: _("FTP"),
 	stateful: true,
 	stateId: "c9d06952-00da-11e1-aa29-00221568ca88",
+	isLogDeletable: false,
 	columns: [{
 		text: _("Date & Time"),
 		sortable: true,

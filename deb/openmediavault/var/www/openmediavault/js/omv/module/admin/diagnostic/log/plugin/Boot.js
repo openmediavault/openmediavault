@@ -37,6 +37,7 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.Boot", {
 	text: _("Boot"),
 	stateful: true,
 	stateId: "3ad5e9ac-1998-11e2-a3cb-00221568ca88",
+	isLogDeletable: false,
 	columns: [{
 		text: _("Date & Time"),
 		sortable: true,

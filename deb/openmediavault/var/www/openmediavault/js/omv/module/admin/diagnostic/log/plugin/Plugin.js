@@ -26,6 +26,8 @@
  * @param text The text to show. Required.
  * @param columns An array of column definition objects which define all
  *   columns that appear in the grid. Required.
+ * @param isLogDeletable Set to FALSE if the log file does not support
+ *   clean up (e.g. log data comes from journald). Defaults to TRUE.
  * @param rpcService The RPC service name. Required.
  * @param rpcGetMethod The RPC method to get the log data. Required.
  * @param rpcClearMethod The RPC method to clear the data. Required.
@@ -34,11 +36,14 @@
  * @param rpcFields The fields for the RPC model. Required.
  * @param rpcRemoteSort TRUE if the sorting should be performed on the
  *   server side, FALSE if it is local only. Defaults to TRUE.
+ * @param isLogPlugin Flag denoting that this component is a log plugin.
+ *   Always TRUE.
  */
 Ext.define("OMV.module.admin.diagnostic.log.plugin.Plugin", {
 	extend: "Ext.Base",
 
 	columns: [],
+	isLogDeletable: true,
 	rpcService: "LogFile",
 	rpcGetMethod: "getList",
 	rpcClearMethod: "clear",

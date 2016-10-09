@@ -37,6 +37,7 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.Rsyncd", {
 	text: _("Rsync - Server"),
 	stateful: true,
 	stateId: "a469de30-13ae-11e3-9456-0002b3a176b4",
+	isLogDeletable: false,
 	columns: [{
 		text: _("Date & Time"),
 		sortable: true,
