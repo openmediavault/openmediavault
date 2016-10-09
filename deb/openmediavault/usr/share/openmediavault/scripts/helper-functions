@@ -214,7 +214,7 @@ omv_msg() {
 omv_debug() {
 	case ${OMV_DEBUG_SCRIPT} in
 	[Yy][Ee][Ss]|[Tt][Rr][Uu][Ee]|[Oo][Nn]|1)
-		omv_msg "DEBUG:" $*
+		omv_msg "DEBUG:" $* 1>&2
 		omv_syslog_debug $*
 		;;
 	esac
