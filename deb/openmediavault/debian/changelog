@@ -1,5 +1,7 @@
 openmediavault (3.0.44) stable; urgency=low
 
+  * Update locales.
+  * Various improvements and bugfixes.
   * Mantis 0001618: Fix bug in omv_debug function.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 09 Oct 2016 09:27:47 +0200
