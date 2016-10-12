@@ -666,11 +666,13 @@ case "$1" in
 			omv_config_delete "/config/system/usermanagement/users/user/uid"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.0.42"; then
+			systemctl restart rsyslog
+		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.46"; then
 			if systemctl -q is-active smbd; then
 				omv-mkconf samba
 				systemctl reload smbd
 			fi
-			systemctl restart rsyslog
 		fi
 
 		########################################################################
