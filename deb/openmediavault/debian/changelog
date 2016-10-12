@@ -1,5 +1,6 @@
 openmediavault (3.0.45) stable; urgency=low
 
+  * Update locales.
   * Various improvements and bugfixes.
   * Added a daily cron script which will email the administrator when there
     are locked/banned users.
