@@ -56,7 +56,7 @@ def main():
 		(code, tag) = d.menu("Please select a menu.",
 			title="First aid", cancel_label="Exit", clear=True,
 			backtitle="{} - {}".format(pi.name, pi.copyright),
-			height=15, width=65, menu_height=8, choices=choices)
+			height=17, width=65, menu_height=10, choices=choices)
 		if code in (d.CANCEL, d.ESC):
 			rc = 0
 			break
