@@ -49,7 +49,6 @@ OMV_SAMBA_SHARE_DIRECTORYMASK=${OMV_SAMBA_SHARE_DIRECTORYMASK:-"0755"}
 OMV_SAMBA_SHARE_FORCEDIRECTORYMODE=${OMV_SAMBA_SHARE_FORCEDIRECTORYMODE:-"0755"}
 OMV_SAMBA_SHARE_HIDESPECIALFILES=${OMV_SAMBA_SHARE_HIDESPECIALFILES:-"yes"}
 OMV_SAMBA_SHARE_FOLLOWSYMLINKS=${OMV_SAMBA_SHARE_FOLLOWSYMLINKS:-"yes"}
-OMV_SAMBA_SHARE_UNIXEXTENSIONS=${OMV_SAMBA_SHARE_UNIXEXTENSIONS:-"yes"}
 OMV_SAMBA_SHARE_AUDIT_PREFIX=${OMV_SAMBA_SHARE_AUDIT_PREFIX:-"%u|%I|%m|%P|%S"}
 OMV_SAMBA_SHARE_AUDIT_SUCCESS=${OMV_SAMBA_SHARE_AUDIT_SUCCESS:-"mkdir rename unlink rmdir pwrite"}
 OMV_SAMBA_SHARE_AUDIT_FAILURE=${OMV_SAMBA_SHARE_AUDIT_FAILURE:-"none"}
@@ -120,7 +119,6 @@ while [ ${index} -gt 0 ]; do
 		  -o "force directory mode = ${OMV_SAMBA_SHARE_FORCEDIRECTORYMODE}" -n \
 		  -o "hide special files = ${OMV_SAMBA_SHARE_HIDESPECIALFILES}" -n \
 		  -o "follow symlinks = ${OMV_SAMBA_SHARE_FOLLOWSYMLINKS}" -n \
-		  -o "unix extensions = ${OMV_SAMBA_SHARE_UNIXEXTENSIONS}" -n \
 		  -i "string-length(hostsallow) > 0" -v "concat('hosts allow = ',hostsallow)" -n -b \
 		  -i "string-length(hostsdeny) > 0" -v "concat('hosts deny = ',hostsdeny)" -n -b \
 		  -i "hidedotfiles[. = '0']" -o "hide dot files = no" -n -b \
