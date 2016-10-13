@@ -60,7 +60,7 @@ class Environment(object):
 		value = __class__.get(key, default)
 		return str(value)
 
-	def get_bool(key, default = None):
+	def get_bool(key, default=None):
 		value = __class__.get(key, default)
 		return omv.bool(value)
 
