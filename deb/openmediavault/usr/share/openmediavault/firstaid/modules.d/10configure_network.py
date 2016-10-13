@@ -62,8 +62,12 @@ class Module(omv.firstaid.IModule):
 		choices = []
 		for idx, sys_name in enumerate(devices):
 			device = pyudev.Device.from_name(context, "net", sys_name)
-			choices.append([ sys_name, omv.string.truncate(
-				device["ID_MODEL_FROM_DATABASE"], 50) ])
+			for id in [ "ID_MODEL_FROM_DATABASE", "ID_VENDOR_FROM_DATABASE" ]:
+				if not id in device:
+					continue
+				choices.append([ sys_name, omv.string.truncate(
+					device[id], 50) ])
+				break
 		d = dialog.Dialog(dialog="dialog")
 		(code, tag) = d.menu("Please select a network interface. Note, the " \
 			"existing network interface configuration will be deleted.",
