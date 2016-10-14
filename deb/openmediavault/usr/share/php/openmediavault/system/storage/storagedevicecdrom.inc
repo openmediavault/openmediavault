@@ -39,10 +39,19 @@ class StorageDeviceCDROM extends StorageDevice {
 	 * @return Returns TRUE if a media is available, otherwise FALSE.
 	 */
 	public function IsMediaAvailable() {
+		// Check if there is a medium inserted.
 		if (FALSE === $this->hasUdevProperty("ID_CDROM_MEDIA"))
 			return FALSE;
 		$property = $this->getUdevProperty("ID_CDROM_MEDIA");
-		return ("1" == $property);
+		if ("1" !== $property)
+			return FALSE;
+		// Note, there are problems with USB network/modem dongles that have
+		// CDROM support for driver installation. The CDROM part is identified,
+		// and the above code is TRUE which indicates an inserted media, but
+		// blkid will fail with an error accessing the device. To prevent this
+		// we need to filter such devices. A real CDROM/DVD/... should have
+		// the ID_CDROM_MRW identifier.
+		return $this->hasUdevProperty("ID_CDROM_MRW");
 	}
 
 	/**
