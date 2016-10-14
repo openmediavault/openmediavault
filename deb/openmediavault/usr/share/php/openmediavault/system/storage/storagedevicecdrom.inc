@@ -49,9 +49,10 @@ class StorageDeviceCDROM extends StorageDevice {
 		// CDROM support for driver installation. The CDROM part is identified,
 		// and the above code is TRUE which indicates an inserted media, but
 		// blkid will fail with an error accessing the device. To prevent this
-		// we need to filter such devices. A real CDROM/DVD/... should have
-		// the ID_CDROM_MRW identifier.
-		return $this->hasUdevProperty("ID_CDROM_MRW");
+		// we need to filter such devices. To do so we expect that for a CDROM,
+		// DVD or other optical media device the ID_CDROM_MEDIA_SESSION_COUNT
+		// identifier must exist.
+		return $this->hasUdevProperty("ID_CDROM_MEDIA_SESSION_COUNT");
 	}
 
 	/**
