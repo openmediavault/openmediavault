@@ -109,6 +109,12 @@ class StorageDeviceCDROM extends StorageDevice {
 		// ID_CDROM_MEDIA_SESSION_COUNT=1
 		// ID_CDROM_MEDIA_TRACK_COUNT=1
 		//
+		// Huawei 3G modem:
+		// ID_CDROM=1
+		// ID_CDROM_CD=1
+		// ID_CDROM_MEDIA=1
+		// ID_CDROM_MEDIA_CD=1
+		//
 		// Found at https://bugzilla.kernel.org/show_bug.cgi?id=15757#c4.
 		return $this->hasUdevProperty("ID_CDROM_MEDIA_SESSION_COUNT");
 	}
