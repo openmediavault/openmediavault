@@ -39,7 +39,7 @@ xmlstarlet sel -t -m "//services/ftp" \
       -o "  # This option is useless because this is handled via the PAM" -n \
       -o "  # pam_listfile.so module, so set it to 'off' by default." -n \
       -o "  UseFtpUsers ${OMV_PROFTPD_MODAUTH_USEFTPUSERS}" -n \
-	  -o "</ifModule>" -n \
+	  -o "</IfModule>" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_PROFTPD_CONFIG}
 
