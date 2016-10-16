@@ -655,7 +655,7 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.0.32"; then
 			omv-mkconf monit
-			systemctl reload monit
+			deb-systemd-invoke reload monit
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.0.37"; then
 			omv_config_delete "/config/services/smb/shares/share/name"
@@ -671,12 +671,18 @@ case "$1" in
 			omv_config_delete "/config/system/usermanagement/users/user/uid"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.0.42"; then
-			systemctl restart rsyslog
+			deb-systemd-invoke restart rsyslog
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.0.46"; then
-			if systemctl -q is-active smbd; then
+			if deb-systemd-invoke -q is-active smbd; then
 				omv-mkconf samba
-				systemctl reload smbd
+				deb-systemd-invoke reload smbd
+			fi
+		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.47"; then
+			if deb-systemd-invoke -q is-active postfix; then
+				omv-mkconf postfix
+				deb-systemd-invoke reload postfix
 			fi
 		fi
 

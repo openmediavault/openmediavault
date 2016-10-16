@@ -1,6 +1,7 @@
 openmediavault (3.0.47) stable; urgency=low
 
   * Various improvements and bugfixes.
+  * Change notification email subject to '[HOSTNAME]: SUBJECT'.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 12 Oct 2016 21:20:05 +0200
 
