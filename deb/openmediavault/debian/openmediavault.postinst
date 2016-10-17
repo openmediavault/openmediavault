@@ -682,6 +682,10 @@ case "$1" in
 				omv-mkconf postfix
 				deb-systemd-invoke reload postfix
 			fi
+			if deb-systemd-invoke -q is-active nfs-kernel-server; then
+				omv-mkconf nfsd
+				deb-systemd-invoke reload nfs-kernel-server
+			fi
 		fi
 
 		########################################################################
