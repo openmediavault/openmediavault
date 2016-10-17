@@ -1,0 +1,6 @@
+#
+# The PAM configuration file for openmediavault.
+#
+
+# Deny user access after 3 failed login attempts.
+auth        required        pam_tally2.so onerr=fail audit deny=3 unlock_time=180
