@@ -1,3 +1,9 @@
+openmediavault (2.2.11) stable; urgency=low
+
+  * Mantis 0001626: NFS-Exports of fuse-filesystem require fsid=<id>.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 17 Oct 2016 22:26:27 +0200
+
 openmediavault (2.2.10) stable; urgency=low
 
   * Mantis 0001610: omv_escapeshellarg truncates path after space.

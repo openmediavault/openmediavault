@@ -502,6 +502,10 @@ case "$1" in
 			omv-mkconf monit
 			invoke-rc.d monit reload
 		fi
+		if dpkg --compare-versions "$2" lt-nl "2.2.11"; then
+			omv-mkconf nfsd
+			service nfs-kernel-server reload
+		fi
 	;;
 
 	triggered)

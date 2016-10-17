@@ -39,7 +39,7 @@ OMV_NFSD_CONFIG=${OMV_NFSD_CONFIG:-"/etc/exports"}
 OMV_NFSD_EXPORT_DIR=${OMV_NFSD_EXPORT_DIR:-"/export"}
 OMV_NFSD_DEFAULT_EXPORT_OPTIONS=${OMV_NFSD_DEFAULT_EXPORT_OPTIONS:-""}
 OMV_NFSD_V4_ENABLE=${OMV_NFSD_V4_ENABLE:-"yes"}
-OMV_NFSD_V4_DEFAULT_EXPORT_OPTIONS=${OMV_NFSD_V4_DEFAULT_EXPORT_OPTIONS:-"ro,fsid=0,root_squash,no_subtree_check,hide"}
+OMV_NFSD_V4_DEFAULT_EXPORT_OPTIONS=${OMV_NFSD_V4_DEFAULT_EXPORT_OPTIONS:-"ro,root_squash,no_subtree_check,hide"}
 
 # Create /etc/exports file.
 cat <<EOF > ${OMV_NFSD_CONFIG}
@@ -69,7 +69,7 @@ if omv_checkyesno "${OMV_NFSD_V4_ENABLE}"; then
 		-n \
 		-o "# NFSv4 - pseudo filesystem root" -n \
 		-m "//services/nfs/shares/share[not(client=preceding-sibling::*/client)]" \
-		  -v "concat('${OMV_NFSD_EXPORT_DIR} ',normalize-space(client),'(${OMV_NFSD_V4_DEFAULT_EXPORT_OPTIONS})')" \
+		  -v "concat('${OMV_NFSD_EXPORT_DIR} ',normalize-space(client),'(fsid=',position(),',${OMV_NFSD_V4_DEFAULT_EXPORT_OPTIONS})')" -n \
 		  -i "position() != last()" -n -b \
 		-b \
 	  -b \
