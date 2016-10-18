@@ -134,7 +134,7 @@ omv_trim() {
 	_cmdargs=""
 	[ ${_left} -eq 1 ] && _cmdargs="${_cmdargs} -e s/^$(omv_quotemeta ${_char})*//"
 	[ ${_right} -eq 1 ] && _cmdargs="${_cmdargs} -e s/$(omv_quotemeta ${_char})*\$//"
-	echo $value | sed ${_cmdargs}
+	echo "$value" | sed ${_cmdargs}
 }
 
 # omv_rtrim value
@@ -290,46 +290,38 @@ omv_exec_rpc() {
 # omv_get_if [interface]
 # Get the interface. If set to 'auto' use the first interface found.
 omv_get_if() {
-	local _interface
-	_interface=$1
-	case ${_interface} in
+	case $1 in
 	[Aa][Uu][Tt][Oo])
-		_interface=`ifconfig -s | tail -n +2 | head -n 1 | awk '{print $1}'`
+		ifconfig -s | tail -n +2 | head -n 1 | awk '{print $1}'
+		;;
+	*)
+		echo "$1"
 		;;
 	esac
-	echo ${_interface}
 }
 
 # omv_get_ipaddr [interface]
 # Get the IPv4 address from the given network interface.
 omv_get_ipaddr() {
-	local _ipaddr
-	_ipaddr=$(export LANG=C; ip -4 addr show $1 | sed -n 's/^\s\+inet \([0-9\.]\+\)\/[0-9]\+ brd.\+/\1/p')
-	echo ${_ipaddr}
+	export LANG=C; ip -4 addr show $1 | sed -n 's/^\s\+inet \([0-9\.]\+\)\/[0-9]\+ brd.\+/\1/p'
 }
 
 # omv_get_ipaddr6 [interface]
 # Get the IPv6 address from the given network interface.
 omv_get_ipaddr6() {
-	local _ipaddr
-	_ipaddr=$(export LANG=C; ip -6 addr show $1 | sed -n 's/^\s\+inet6 \([a-f0-9:]\+\)\/[0-9]\+ scope global/\1/p')
-	echo ${_ipaddr}
+	export LANG=C; ip -6 addr show $1 | sed -n 's/^\s\+inet6 \([a-f0-9:]\+\)\/[0-9]\+ scope global/\1/p'
 }
 
 # omv_get_gateway [interface]
 # Get the default IPv4 gateway for the given network interface.
 omv_get_gateway() {
-	local _gateway
-	_gateway=$(export LANG=C; ip -4 route show dev $1 | sed -n 's/default via \([0-9\.]\+\)/\1/p')
-	echo ${_gateway}
+	export LANG=C; ip -4 route show dev $1 | sed -n 's/default via \([0-9\.]\+\)/\1/p'
 }
 
 # omv_get_gateway6 [interface]
 # Get the default IPv6 gateway for the given network interface.
 omv_get_gateway6() {
-	local _gateway
-	_gateway=$(export LANG=C; ip -6 route show dev $1 | sed -n 's/default via \([a-f0-9:]\+\)/\1/p')
-	echo ${_gateway}
+	export LANG=C; ip -6 route show dev $1 | sed -n 's/default via \([a-f0-9:]\+\)/\1/p'
 }
 
 # omv_config_exists xpath
@@ -337,15 +329,15 @@ omv_get_gateway6() {
 # Return 0 if set, nonzero otherwise.
 # $1 - XPATH expression
 omv_config_exists() {
-	local _queryresult _result
+	local _queryresult _rc
 
 	omv_debug "omv_config_exists: xpath=<$1>"
 
 	# Get requested xpath
 	_queryresult=`xmlstarlet sel -t -v "count($1)" ${OMV_CONFIG_FILE}`
-	_result=$?
+	_rc=$?
 
-	omv_debug "omv_config_exists: results: query=<${_queryresult}> cmd=<${_result}>"
+	omv_debug "omv_config_exists: results: query=<${_queryresult}> cmd=<${_rc}>"
 
 	if [ 0 -eq ${_queryresult} ]; then
 		return 1
@@ -359,40 +351,40 @@ omv_config_exists() {
 # Return 0 if successful, nonzero otherwise. Return result from query is echoed.
 # $1 - XPATH expression
 omv_config_get() {
-	local _queryresult _result
+	local _queryresult _rc
 
 	omv_debug "omv_config_get: xpath=<$1>"
 
 	# Get requested xpath
 	_queryresult=`xmlstarlet sel -t -v "$1" ${OMV_CONFIG_FILE} | xmlstarlet unesc`
-	_result=$?
+	_rc=$?
 
 	# Output query for later processing.
-	echo ${_queryresult}
+	echo "${_queryresult}"
 
-	omv_debug "omv_config_get: results: query=<${_queryresult}> cmd=<${_result}>"
+	omv_debug "omv_config_get: results: query=<${_queryresult}> cmd=<${_rc}>"
 
-	return ${_result}
+	return ${_rc}
 }
 
 # omv_config_exec_query xquery
 # Execute given query.
 # Return 0 if successful, nonzero otherwise. Return result from query is echoed.
 omv_config_exec_query() {
-	local _queryresult _result
+	local _queryresult _rc
 
 	omv_debug "omv_config_exec_query: query=<$@>"
 
 	# Execute xml query.
 	_queryresult=`eval "xmlstarlet sel -t $@ ${OMV_CONFIG_FILE} | xmlstarlet unesc"`
-	_result=$?
+	_rc=$?
 
 	# Output query result for later processing.
-	echo ${_queryresult}
+	echo "${_queryresult}"
 
-	omv_debug "omv_config_exec_query: results: query=<${_queryresult}> cmd=<${_result}>"
+	omv_debug "omv_config_exec_query: results: query=<${_queryresult}> cmd=<${_rc}>"
 
-	return ${_result}
+	return ${_rc}
 }
 
 # omv_config_get_count xpath
@@ -400,20 +392,20 @@ omv_config_exec_query() {
 # Return 0 if successful, nonzero otherwise. Return result from query is echoed.
 # $1 - XPATH expression
 omv_config_get_count() {
-	local _queryresult _result
+	local _queryresult _rc
 
 	omv_debug "omv_config_get_count: xpath=<$1>"
 
 	# Get requested xpath
 	_queryresult=`xmlstarlet sel -t -v "count($1)" ${OMV_CONFIG_FILE}`
-	_result=$?
+	_rc=$?
 
 	# Output query for later processing.
-	echo ${_queryresult}
+	echo "${_queryresult}"
 
-	omv_debug "omv_config_get_count: results: query=<${_queryresult}> cmd=<${_result}>"
+	omv_debug "omv_config_get_count: results: query=<${_queryresult}> cmd=<${_rc}>"
 
-	return ${_result}
+	return ${_rc}
 }
 
 # omv_config_add_node xpath name
@@ -745,7 +737,7 @@ omv_cidr2mask() {
 		test $i -lt 3 && mask="${mask}."
 	done
 
-	echo $mask
+	echo "$mask"
 }
 
 # omv_is_ipaddr4 (char address)
@@ -1072,9 +1064,9 @@ omv_is_proc_running_pid() {
 # @param name The name of the device, e.g. /dev/sdc.
 # @return Returns 0 if the device is non-rotational, otherwise 1.
 omv_is_device_nonrotational() {
-	local _result
+	local _rc
 	[ -z "$1" ] && return 1
-	_result=$(php5 -c /etc/openmediavault <<EOF
+	_rc=$(php5 -c /etc/openmediavault <<EOF
 <?php
 require_once('openmediavault/autoloader.inc'); \
 \$result = TRUE;
@@ -1085,7 +1077,7 @@ print \$result ? 1 : 0;
 ?>
 EOF
 )
-	return ${_result}
+	return ${_rc}
 }
 
 # char omv_get_root_devicefile (void)
