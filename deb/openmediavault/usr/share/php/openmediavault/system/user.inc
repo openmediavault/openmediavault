@@ -316,6 +316,7 @@ class User {
 		// Use the following python code to authenticate the user
 		// via PAM. We need to go this way because there is no PAM
 		// plugin available for PHP7.
+		// The code requires the python3-pampy Debian package.
 		$cmd = new \OMV\System\Process("python3", sprintf("<<END\n".
 		  "import pam\n".
 		  "import sys\n".
