@@ -1,5 +1,6 @@
 openmediavault (3.0.47) stable; urgency=low
 
+  * Update locales.
   * Various improvements and bugfixes.
   * Change notification email subject to '[HOSTNAME]: SUBJECT'.
   * Set 'obey pam restrictions = no' by default in smb.conf to force Samba
