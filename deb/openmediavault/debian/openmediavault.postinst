@@ -310,7 +310,7 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.5.37"; then
 			omv-mkconf apache2
-			a2enmod rewrite || true
+			a2enmod rewrite || :
 			invoke-rc.d apache2 graceful
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.5.39"; then
