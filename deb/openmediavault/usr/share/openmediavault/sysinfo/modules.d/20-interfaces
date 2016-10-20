@@ -28,7 +28,7 @@ ip addr show | omv_sysinfo_msg
 for devicefile in $(find /sys/class/net -maxdepth 1 -not -iname "lo" -type l -printf "%f\n") ; do
 	omv_sysinfo_msg_separator
 	omv_sysinfo_msg_caption "Interface information ${devicefile}"
-	ethtool ${devicefile}
+	ethtool ${devicefile} || :
 	omv_sysinfo_msg_separator
 	omv_sysinfo_msg_caption "Driver information ${devicefile}"
 	ethtool -i ${devicefile} || : | omv_sysinfo_msg
