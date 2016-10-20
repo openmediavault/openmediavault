@@ -248,6 +248,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 				exception: function(wnd, error) {
 					OMV.MessageBox.error(null, error);
 					wnd.setButtonDisabled("close", false);
+					showMessageBox = false;
 				},
 				close: function() {
 					// Display a message box if plugins have been updated to
