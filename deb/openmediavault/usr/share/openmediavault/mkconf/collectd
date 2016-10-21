@@ -116,7 +116,7 @@ EOF
 EOF
 
 	# Check if the system performance statistics service is enabled.
-	enabled=$(omv_config_get "//system/monitoring/perfstats")
+	enabled=$(omv_config_get "//system/monitoring/perfstats/enable")
 
 	# Create '/usr/sbin/omv-mkgraph' file
 	cat <<EOF > ${OMV_COLLECTD_RRDTOOL_MKGRAPH}

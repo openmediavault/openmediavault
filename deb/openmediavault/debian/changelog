@@ -1,3 +1,9 @@
+openmediavault (2.2.12) stable; urgency=low
+
+  * Various bugfixes.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 21 Oct 2016 12:11:04 +0200
+
 openmediavault (2.2.11) stable; urgency=low
 
   * Mantis 0001626: NFS-Exports of fuse-filesystem require fsid=<id>.
