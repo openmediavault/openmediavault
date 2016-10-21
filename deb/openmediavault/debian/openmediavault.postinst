@@ -678,13 +678,15 @@ case "$1" in
 				omv-mkconf samba
 				deb-systemd-invoke reload smbd
 			fi
-			if deb-systemd-invoke -q is-active postfix; then
-				omv-mkconf postfix
-				deb-systemd-invoke reload postfix
-			fi
 			if deb-systemd-invoke -q is-active nfs-kernel-server; then
 				omv-mkconf nfsd
 				deb-systemd-invoke reload nfs-kernel-server
+			fi
+		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.48"; then
+			if deb-systemd-invoke -q is-active postfix; then
+				omv-mkconf postfix
+				deb-systemd-invoke reload postfix
 			fi
 		fi
 

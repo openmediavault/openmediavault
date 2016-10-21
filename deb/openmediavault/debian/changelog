@@ -1,6 +1,7 @@
 openmediavault (3.0.48) stable; urgency=low
 
   * Various improvements and bugfixes.
+  * Change notification email subject to '[HOSTNAME] SUBJECT'.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 20 Oct 2016 23:35:42 +0200
 
@@ -8,7 +9,6 @@ openmediavault (3.0.47) stable; urgency=low
 
   * Update locales.
   * Various improvements and bugfixes.
-  * Change notification email subject to '[HOSTNAME]: SUBJECT'.
   * Set 'obey pam restrictions = no' by default in smb.conf to force Samba
     to use the directory mode/mask settings and not the PAM's account and
 	session management directives.
