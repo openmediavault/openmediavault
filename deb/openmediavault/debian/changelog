@@ -1,6 +1,8 @@
 openmediavault (3.0.48) stable; urgency=low
 
   * Various improvements and bugfixes.
+  * Fix bug in RRD graph script.
+  * Fix NFS daemon configuration.
   * Change notification email subject to '[HOSTNAME] SUBJECT'.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 20 Oct 2016 23:35:42 +0200
@@ -12,7 +14,6 @@ openmediavault (3.0.47) stable; urgency=low
   * Set 'obey pam restrictions = no' by default in smb.conf to force Samba
     to use the directory mode/mask settings and not the PAM's account and
 	session management directives.
-  * Mantis 0001626: NFS-Exports of fuse-filesystem require fsid=<id>.
   * Mantis 0001627: omv_config_get returns wrong output.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 12 Oct 2016 21:20:05 +0200
