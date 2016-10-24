@@ -680,6 +680,7 @@ case "$1" in
 			fi
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.0.48"; then
+			omv-mkconf collectd
 			if deb-systemd-invoke -q is-active postfix; then
 				omv-mkconf postfix
 				deb-systemd-invoke reload postfix
