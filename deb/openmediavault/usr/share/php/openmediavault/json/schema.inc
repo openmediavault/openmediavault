@@ -329,7 +329,7 @@ class Schema {
 		if (!is_bool($value)) {
 			throw new SchemaValidationException(
 			  "%s: The value '%s' is not a boolean.",
-			  $name, strval($value));
+			  $name, is_null($value) ? "NULL" : strval($value));
 		}
 	}
 
@@ -337,7 +337,7 @@ class Schema {
 		if (!is_integer($value)) {
 			throw new SchemaValidationException(
 			  "%s: The value '%s' is not an integer.",
-			  $name, $value);
+			  $name, is_null($value) ? "NULL" : strval($value));
 		}
 		$this->checkMinimum($value, $schema, $name);
 		$this->checkExclusiveMinimum($value, $schema, $name);
@@ -351,7 +351,7 @@ class Schema {
 		if (!is_numeric($value)) {
 			throw new SchemaValidationException(
 			  "%s: The value '%s' is not a number.",
-			  $name, strval($value));
+			  $name, is_null($value) ? "NULL" : strval($value));
 		}
 		$this->checkMinimum($value, $schema, $name);
 		$this->checkExclusiveMinimum($value, $schema, $name);
@@ -365,7 +365,7 @@ class Schema {
 		if (!is_string($value)) {
 			throw new SchemaValidationException(
 			  "%s: The value '%s' is not a string.",
-			  $name, strval($value));
+			  $name, is_null($value) ? "NULL" : strval($value));
 		}
 		$this->checkPattern($value, $schema, $name);
 		$this->checkMinLength($value, $schema, $name);

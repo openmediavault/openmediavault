@@ -33,16 +33,16 @@ class Module(omv.firstaid.IModule):
 
 	def execute(self):
 		# Default values.
-		address = None
-		netmask = None
-		gateway = None
+		address = ""
+		netmask = ""
+		gateway = ""
 		method = "dhcp"
 		address6 = ""
 		method6 = "manual"
 		netmask6 = 64
 		gateway6 = ""
 		wol = False
-		dns_nameservers = None
+		dns_nameservers = ""
 		wpa_ssid = None
 		wpa_psk = None
 		rpc_method = "setEthernetIface"
@@ -83,6 +83,9 @@ class Module(omv.firstaid.IModule):
 		if code == d.ESC:
 			return 0
 		if code != d.OK:
+			address = None
+			netmask = None
+			gateway = None
 			method = "static"
 			# Get the static IPv4 address.
 			while not address:
@@ -248,7 +251,7 @@ class Module(omv.firstaid.IModule):
 					ipaddress.ip_address(dns_nameservers)
 					break
 				except:
-					dns_nameservers = None
+					dns_nameservers = ""
 					d.msgbox("Please enter a valid IP address.",
 						backtitle=self.description,
 						height=5, width=30)
