@@ -807,7 +807,7 @@ omv_is_gateway6() {
 # Check if IPv6 is enabled.
 # @return 0 if enabled, otherwise 1.
 omv_is_ipv6_enabled() {
-	[ -f /proc/net/if_inet6 ] && return 0
+	[ -s /proc/net/if_inet6 ] && return 0
 	return 1
 }
 
