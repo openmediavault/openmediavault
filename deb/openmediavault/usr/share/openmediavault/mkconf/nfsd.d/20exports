@@ -51,6 +51,7 @@ xmlstarlet sel -t \
   -m "//services/nfs/shares/share" \
 	-o "${OMV_NFSD_EXPORT_DIR}/" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} \
 	-v "concat(' ',normalize-space(client),'(',options)" \
+	-v "concat(',fsid=',position())" \
 	-i "string-length(extraoptions) > 0" \
 	  -v "concat(',',extraoptions)" \
 	-b \
