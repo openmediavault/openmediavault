@@ -108,7 +108,8 @@ abstract class ControlPanelAbstract {
 		<meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+		<link rel="apple-touch-icon" href="favicon_180x180.png">
+		<link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
 
 EOF;
 
