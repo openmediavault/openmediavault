@@ -72,10 +72,11 @@ class File {
 			  "Failed to open file (filename=%s, mode=%s).",
 			  $this->filename, $accessMode);
 		}
-		if (FALSE === flock($this->fh, $lockMode)) {
+		if (FALSE === flock($this->fh, $lockMode, $wouldBlock)) {
 			throw new \OMV\Exception(
-			  "Failed to lock file (filename=%s, mode=%d).",
-			  $this->filename, $lockMode);
+			  "Failed to lock file (filename=%s, mode=%d)%s.",
+			  $this->filename, $lockMode,
+			  $wouldBlock ? ": File is already locked" : "");
 		}
 		return $this->fh;
 	}
