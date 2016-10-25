@@ -103,11 +103,11 @@ abstract class ControlPanelAbstract {
 <html>
 	<head>
 		<title>{$title}</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<meta name="ROBOTS" content="NOINDEX, NOFOLLOW"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
-		<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+		<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 EOF;
 
