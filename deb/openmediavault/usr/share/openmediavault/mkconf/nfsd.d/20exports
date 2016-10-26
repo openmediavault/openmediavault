@@ -57,10 +57,11 @@ xmlstarlet sel -t \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read sharedfolderref; do
-	  sfname=$(omv_get_sharedfolder_name "${sharedfolderref}")
 	  xmlstarlet sel -t \
-	    -o "${OMV_NFSD_EXPORT_DIR}/${sfname}" \
 	    -m "//services/nfs/shares/share[sharedfolderref='${sharedfolderref}']" \
+	      -i "position() = 1" \
+	        -o "${OMV_NFSD_EXPORT_DIR}/" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} \
+	      -b \
 	      -v "concat(' ',normalize-space(client),'(fsid=${fsid},',options)" \
 	      -i "string-length(extraoptions) > 0" \
 	        -v "concat(',',extraoptions)" \

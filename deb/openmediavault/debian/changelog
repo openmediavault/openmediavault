@@ -1,8 +1,7 @@
 openmediavault (3.0.49) stable; urgency=low
 
   * Various improvements and bugfixes.
-  * Fix issues in NFS /etc/exports when a shared folder is exported to
-    multiple clients.
+  * Mantis 0001404: NFS: Allow multiple hosts or networks for the same share.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Oct 2016 21:48:27 +0200
 
