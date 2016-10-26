@@ -1,5 +1,6 @@
 openmediavault (3.0.49) stable; urgency=low
 
+  * Update locales.
   * Various improvements and bugfixes.
   * Mantis 0001404: NFS: Allow multiple hosts or networks for the same share.
 
