@@ -126,14 +126,19 @@ omv_trim() {
 		_left=1
 		_right=1
 	fi
-	if test $# -eq 0 ; then
+	if [ $# -eq 0 ]; then
 		value=$(cat)
 	else
 		value=$*
 	fi
 	_cmdargs=""
-	[ ${_left} -eq 1 ] && _cmdargs="${_cmdargs} -e s/^$(omv_quotemeta ${_char})*//"
-	[ ${_right} -eq 1 ] && _cmdargs="${_cmdargs} -e s/$(omv_quotemeta ${_char})*\$//"
+	if [ " " = "${_char}" ]; then
+		_char="[[:blank:]]"
+	else
+		_char=$(omv_quotemeta "${_char}")
+	fi
+	[ ${_left} -eq 1 ] && _cmdargs="${_cmdargs} -e s/^${_char}*//"
+	[ ${_right} -eq 1 ] && _cmdargs="${_cmdargs} -e s/${_char}*\$//"
 	echo -n "$value" | sed ${_cmdargs}
 }
 
