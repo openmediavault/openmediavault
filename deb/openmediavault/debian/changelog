@@ -1,3 +1,9 @@
+openmediavault (3.0.50) stable; urgency=low
+
+  * Mantis 0001630: Fix bug in omv_trim function.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 28 Oct 2016 01:27:26 +0200
+
 openmediavault (3.0.49) stable; urgency=low
 
   * Update locales.
