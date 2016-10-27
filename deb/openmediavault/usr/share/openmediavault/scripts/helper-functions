@@ -694,7 +694,7 @@ omv_config_delete() {
 # Quote special characters (\/&) in the given string.
 # @param string The string to quote
 omv_quotemeta() {
-	echo $* | sed -e 's/\\/\\\\/g' -e 's/\//\\\//g' -e 's/&/\\\&/g'
+	echo "$*" | sed -e 's/\\/\\\\/g' -e 's/\//\\\//g' -e 's/&/\\\&/g'
 }
 
 # omv_mask2cidr <mask>
