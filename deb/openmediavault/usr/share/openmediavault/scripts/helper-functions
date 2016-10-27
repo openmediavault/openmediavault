@@ -134,7 +134,7 @@ omv_trim() {
 	_cmdargs=""
 	[ ${_left} -eq 1 ] && _cmdargs="${_cmdargs} -e s/^$(omv_quotemeta ${_char})*//"
 	[ ${_right} -eq 1 ] && _cmdargs="${_cmdargs} -e s/$(omv_quotemeta ${_char})*\$//"
-	echo "$value" | sed ${_cmdargs}
+	echo -n "$value" | sed ${_cmdargs}
 }
 
 # omv_rtrim <value>
@@ -228,7 +228,7 @@ omv_debug() {
 omv_syslog() {
 	local _tag _priority
 	# Set default values.
-	_tag=$(basename $0)
+	_tag=$(basename "$0")
 	_priority="syslog.info"
 	# Parse function arguments.
 	while getopts 't:p:' option
@@ -297,7 +297,7 @@ omv_get_if() {
 		ifconfig -s | tail -n +2 | head -n 1 | awk '{print $1}'
 		;;
 	*)
-		echo "$1"
+		echo -n "$1"
 		;;
 	esac
 }
@@ -362,7 +362,7 @@ omv_config_get() {
 	_rc=$?
 
 	# Output query for later processing.
-	echo "${_queryresult}"
+	echo -n "${_queryresult}"
 
 	omv_debug "omv_config_get: results: query=<${_queryresult}> cmd=<${_rc}>"
 
@@ -382,7 +382,7 @@ omv_config_exec_query() {
 	_rc=$?
 
 	# Output query result for later processing.
-	echo "${_queryresult}"
+	echo -n "${_queryresult}"
 
 	omv_debug "omv_config_exec_query: results: query=<${_queryresult}> cmd=<${_rc}>"
 
@@ -403,7 +403,7 @@ omv_config_get_count() {
 	_rc=$?
 
 	# Output query for later processing.
-	echo "${_queryresult}"
+	echo -n "${_queryresult}"
 
 	omv_debug "omv_config_get_count: results: query=<${_queryresult}> cmd=<${_rc}>"
 
@@ -512,8 +512,7 @@ omv_config_add_node_data() {
 
 	# If the value contains XML data then special characters must be
 	# escaped for sed, otherwise they will be misinterpreted.
-	sed -i "s/${tmpdata}/$(echo "${data}" | sed -e 's/\\/\\\\/g' \
-	  -e 's/\//\\\//g' -e 's/&/\\\&/g')/" "${tmpfile}"
+	sed -i "s/${tmpdata}/$(omv_quotemeta "${data}")/" "${tmpfile}"
 
 	# Copy temporary file content to config file. Note, the config file
 	# permissions must be kept.
@@ -559,8 +558,7 @@ omv_config_add_element() {
 	if omv_checkyesno ${xml}; then
 		# If the value contains XML data then special characters must be
 		# escaped for sed, otherwise they will be misinterpreted.
-		sed -i "s/${value}/$(echo "$3" | sed -e 's/\\/\\\\/g' \
-		  -e 's/\//\\\//g' -e 's/&/\\\&/g')/" "${tmpfile}"
+		sed -i "s/${value}/$(omv_quotemeta "$3")/" "${tmpfile}"
 	fi
 
 	# Copy temporary file content to config file. Note, the config file
@@ -653,8 +651,7 @@ omv_config_update() {
 	if omv_checkyesno ${xml}; then
 		# If the value contains XML data then special characters must be
 		# escaped for sed, otherwise they will be misinterpreted.
-		sed -i "s/${value}/$(echo "$2" | sed -e 's/\\/\\\\/g' \
-		  -e 's/\//\\\//g' -e 's/&/\\\&/g')/" "${tmpfile}"
+		sed -i "s/${value}/$(omv_quotemeta "$2")/" "${tmpfile}"
 	fi
 
 	# Copy temporary file content to config file. Note, the config file
@@ -694,7 +691,7 @@ omv_config_delete() {
 # Quote special characters (\/&) in the given string.
 # @param string The string to quote
 omv_quotemeta() {
-	echo "$*" | sed -e 's/\\/\\\\/g' -e 's/\//\\\//g' -e 's/&/\\\&/g'
+	echo -n "$*" | sed -e 's/\\/\\\\/g' -e 's/\//\\\//g' -e 's/&/\\\&/g'
 }
 
 # omv_mask2cidr <mask>
@@ -705,19 +702,19 @@ omv_mask2cidr() {
 	IFS=.
 	for dec in $1 ; do
 		case $dec in
-			255) let nbits+=8;;
-			254) let nbits+=7;;
-			252) let nbits+=6;;
-			248) let nbits+=5;;
-			240) let nbits+=4;;
-			224) let nbits+=3;;
-			192) let nbits+=2;;
-			128) let nbits+=1;;
+			255) nbits=$((${nbits} + 8));;
+			254) nbits=$((${nbits} + 7));;
+			252) nbits=$((${nbits} + 6));;
+			248) nbits=$((${nbits} + 5));;
+			240) nbits=$((${nbits} + 4));;
+			224) nbits=$((${nbits} + 3));;
+			192) nbits=$((${nbits} + 2));;
+			128) nbits=$((${nbits} + 1));;
 			0);;
-			*) echo "Error: $dec is not recognised"; exit 1
+			*) omv_error "${dec} is not recognised"; exit 1
 		esac
 	done
-	echo "$nbits"
+	echo -n "$nbits"
 }
 
 # omv_cidr2mask <cidr>
@@ -890,7 +887,7 @@ omv_build_mount_dir() {
 		omv_debug "omv_build_mount_dir: Filesystem '$1' does not have an UUID"
 		return 1
 	fi
-	echo "${OMV_MOUNT_DIR}/${fsuuid}"
+	echo -n "${OMV_MOUNT_DIR}/${fsuuid}"
 	return 0
 }
 
@@ -1120,5 +1117,5 @@ omv_group_id_exists() {
 # omv_md5 <string>
 # Calculate the md5 hash of a string
 omv_md5() {
-	echo -n $1 | md5sum - | cut -b-32
+	echo -n "$*" | md5sum - | cut -b-32
 }
