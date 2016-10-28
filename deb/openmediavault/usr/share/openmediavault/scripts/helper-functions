@@ -103,7 +103,7 @@ omv_is_block() {
 # @return The trimmed string.
 omv_trim() {
 	local _char _left _right _cmdargs
-	_char=" "
+	_char=""
 	_left=0
 	_right=0
 	_cmdargs=""
@@ -132,7 +132,11 @@ omv_trim() {
 		value=$*
 	fi
 	_cmdargs=""
-	if [ " " = "${_char}" ]; then
+	if [ -z "${_char}" ]; then
+		# tab, newline, vertical tab, form feed, carriage return, and space
+		_char="[[:space:]]"
+	elif [ " " = "${_char}" ]; then
+		# space and tab
 		_char="[[:blank:]]"
 	else
 		_char=$(omv_quotemeta "${_char}")
@@ -703,6 +707,7 @@ omv_quotemeta() {
 # Function calculates number of bit in a netmask.
 # @param mask The netmask, e.g. 255.255.255.0
 omv_mask2cidr() {
+	local nbits dec
 	nbits=0
 	IFS=.
 	for dec in $1 ; do
@@ -719,7 +724,7 @@ omv_mask2cidr() {
 			*) omv_error "${dec} is not recognised"; exit 1
 		esac
 	done
-	echo -n "$nbits"
+	echo -n "${nbits}"
 }
 
 # omv_cidr2mask <cidr>
@@ -729,7 +734,6 @@ omv_cidr2mask() {
 	local i mask=""
 	local full_octets=$(($1/8))
 	local partial_octet=$(($1%8))
-
 	for i in $(seq 0 3); do
 		if [ $i -lt $full_octets ]; then
 			mask="${mask}255"
@@ -738,10 +742,9 @@ omv_cidr2mask() {
 		else
 			mask="${mask}0"
 		fi
-		test $i -lt 3 && mask="${mask}."
+		[ $i -lt 3 ] && mask="${mask}."
 	done
-
-	echo "$mask"
+	echo -n "${mask}"
 }
 
 # omv_is_ipaddr4 <address>
