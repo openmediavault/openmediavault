@@ -75,14 +75,14 @@ omv_isfsuuid() {
     return 1
 }
 
-# omv_trim [options] value
+# omv_trim [-c char] [-l] [-r] <value>
 # Strip a character from the beginning and end of a string.
 # @param options The command options.
 # @param value The string that will be trimmed.
 # @return The trimmed string.
 omv_trim() {
 	local _char _left _right _cmdargs
-	_char=" "
+	_char=""
 	_left=0
 	_right=0
 	_cmdargs=""
@@ -105,21 +105,34 @@ omv_trim() {
 		_left=1
 		_right=1
 	fi
-	if test $# -eq 0 ; then
+	if [ $# -eq 0 ]; then
 		value=$(cat)
 	else
 		value=$*
 	fi
 	_cmdargs=""
-	[ ${_left} -eq 1 ] && _cmdargs="${_cmdargs} -e s/^$(omv_quotemeta ${_char})*//"
-	[ ${_right} -eq 1 ] && _cmdargs="${_cmdargs} -e s/$(omv_quotemeta ${_char})*\$//"
-	echo $value | sed ${_cmdargs}
+	if [ -z "${_char}" ]; then
+		# tab, newline, vertical tab, form feed, carriage return, and space
+		_char="[[:space:]]"
+	elif [ " " = "${_char}" ]; then
+		# space and tab
+		_char="[[:blank:]]"
+	else
+		_char=$(omv_quotemeta "${_char}")
+	fi
+	[ ${_left} -eq 1 ] && _cmdargs="${_cmdargs} -e s/^${_char}*//"
+	[ ${_right} -eq 1 ] && _cmdargs="${_cmdargs} -e s/${_char}*\$//"
+	echo -n "$value" | sed ${_cmdargs}
 }
 
+# omv_rtrim <value>
+# Strip a character, white spaces by default, from the end of a string.
 omv_rtrim() {
 	omv_trim -r $@
 }
 
+# omv_ltrim <value>
+# Strip a character, white spaces by default, from the beginning of a string.
 omv_ltrim() {
 	omv_trim -l $@
 }
@@ -520,11 +533,11 @@ omv_config_delete() {
 	rm -f -- "${tmpconfig}"
 }
 
-# omv_quotemeta [string]
+# omv_quotemeta <string>
 # Quote special characters (\/&) in the given string.
-# $1 - The string to quote
+# @param string The string to quote
 omv_quotemeta() {
-	echo $* | sed -e 's/\\/\\\\/g' -e 's/\//\\\//g' -e 's/&/\\\&/g'
+	echo -n "$*" | sed -e 's/\\/\\\\/g' -e 's/\//\\\//g' -e 's/&/\\\&/g'
 }
 
 # omv_mask2cidr [mask]
