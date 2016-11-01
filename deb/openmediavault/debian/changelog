@@ -1,5 +1,6 @@
 openmediavault (2.2.13) stable; urgency=low
 
+  * Various improvements.
   * Fix bug in omv-release-upgrade.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 01 Nov 2016 20:23:37 +0100
