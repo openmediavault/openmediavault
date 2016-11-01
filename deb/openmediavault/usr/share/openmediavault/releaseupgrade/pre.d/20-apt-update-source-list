@@ -43,9 +43,13 @@ deb http://packages.openmediavault.org/public ${relname} main
 EOF
 
 # Upgrade Debian source list file.
-sed -i -r 's/wheezy(-lts)?/jessie/g' /etc/apt/sources.list
+if [ -e "/etc/apt/sources.list" ]; then
+	sed -i -r 's/wheezy(-lts)?/jessie/g' /etc/apt/sources.list
+fi
 
 # Modify default release.
-sed -i -r 's/wheezy/jessie/g' /etc/apt/apt.conf
+if [ -e "/etc/apt/apt.conf" ]; then
+	sed -i -r 's/wheezy/jessie/g' /etc/apt/apt.conf
+fi
 
 exit 0
