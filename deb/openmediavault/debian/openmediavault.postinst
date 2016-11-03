@@ -617,13 +617,12 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.0.15"; then
 			# Modify the notification settings.
-			xmlstarlet sel -t -m "/config/system/notification/notifications/*" \
+			# Note, the query must ensure that new appended child nodes are not processed.
+			xmlstarlet sel -t -m "/config/system/notification/notifications/*[not(name(.)='notification')]" \
 			  -v "name(.)" -n \
 			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
 			  while read id; do
-				  # Skip new appended nodes.
-				  [ "${id}" = "notification" ] && continue
-				  # Convert the notification object.
+				  # Generate the new notification object.
 				  enable=$(omv_config_get "/config/system/notification/notifications/${id}")
 				  object="<uuid>$(omv_uuid)</uuid>"
 				  object="${object}<id>${id}</id>"
