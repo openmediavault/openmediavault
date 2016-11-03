@@ -621,8 +621,7 @@ case "$1" in
 			  -v "name(.)" -n \
 			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
 			  while read id; do
-				  # Skip unexpected identifiers (in case the script is executed
-				  # multiple times).
+				  # Skip new appended nodes.
 				  [ "${id}" = "notification" ] && continue
 				  # Convert the notification object.
 				  enable=$(omv_config_get "/config/system/notification/notifications/${id}")
