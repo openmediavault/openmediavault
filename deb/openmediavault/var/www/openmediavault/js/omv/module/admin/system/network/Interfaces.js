@@ -508,6 +508,7 @@ Ext.define("OMV.module.admin.system.network.interface.window.Bond", {
 				queryMode: "local",
 				store: Ext.create("OMV.data.Store", {
 					model: OMV.data.Model.createImplicit({
+						identifier: "empty",
 						idProperty: "devicename",
 						fields: [
 							{ name: "text", type: "string" },
