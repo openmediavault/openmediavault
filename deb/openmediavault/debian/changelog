@@ -1,4 +1,4 @@
-openmediavault (3.0.51) stable; urgency=low
+openmediavault (3.0.52) stable; urgency=low
 
   * Various improvements and bugfixes.
   * Unlink WebGUI cache files in case of an exception.
