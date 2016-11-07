@@ -169,7 +169,7 @@ EOF;
 				$jsonFile->open("r");
 				$jsList = $jsonFile->read();
 				$jsonFile->close();
-			} catch(Exception $e) {
+			} catch(\Exception $e) {
 				// Ensure the file is closed and recreate the cache file in
 				// the next step (e.g. because of invalid JSON data).
 				$jsonFile->close();
