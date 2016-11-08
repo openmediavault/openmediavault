@@ -96,6 +96,16 @@ omv_is_block() {
 	return 1
 }
 
+# omv_is_64bit
+# Check if the platform is 64bit.
+# Return 0 if the platform supports 64bit, otherwise 1.
+omv_is_64bit() {
+	if [ "$(getconf LONG_BIT)" = "64" ]; then
+		return 0
+	fi
+	return 1
+}
+
 # omv_trim [-c char] [-l] [-r] <value>
 # Strip a character from the beginning and end of a string.
 # @param options The command options.
