@@ -66,9 +66,14 @@ interface IBlockDevice {
 	public function getDeviceFileById();
 
 	/**
-	 * Get the special device file to present in the UI instead of the value
-	 * of the getDeviceFile method.
-	 * @return Returns the device file.
+	 * Get the special device file to present in the UI instead of the
+	 * value of the getDeviceFile method.
+	 * Get the special device file in the following preferred order:
+	 * <ul>
+	 * \li /dev/disk/by-id/xxx
+	 * \li /dev/xxx
+	 * </ul>
+	 * @return Returns the special device file.
 	 */
 	public function getPreferredDeviceFile();
 

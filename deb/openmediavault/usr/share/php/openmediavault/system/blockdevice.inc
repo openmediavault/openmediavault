@@ -150,21 +150,28 @@ class BlockDevice implements IBlockDevice {
 	}
 
 	/**
-	 * Get the special device file to present in the UI instead of the value
-	 * of the getDeviceFile method.
-	 * @return Returns the device file.
-	 */
-	public function getPreferredDeviceFile() {
-		return $this->getDeviceFile();
-	}
-
-	/**
 	 * Check whether the device has a /dev/disk/by-id/xxx device path.
 	 * @return Returns TRUE if a disk/by-id device path exists,
 	 *   otherwise FALSE.
 	 */
 	public function hasDeviceFileById() {
 		return is_devicefile_by_id($this->getDeviceFileById());
+	}
+
+	/**
+	 * Get the special device file to present in the UI instead of the
+	 * value of the getDeviceFile method.
+	 * Get the special device file in the following preferred order:
+	 * <ul>
+	 * \li /dev/disk/by-id/xxx
+	 * \li /dev/xxx
+	 * </ul>
+	 * @return Returns the special device file.
+	 */
+	public function getPreferredDeviceFile() {
+		if (TRUE === $this->hasDeviceFileById())
+			return $this->getDeviceFileById();
+		return $this->getDeviceFile();
 	}
 
 	/**

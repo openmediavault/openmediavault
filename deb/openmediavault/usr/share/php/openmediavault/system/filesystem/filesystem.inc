@@ -85,7 +85,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 			//   /dev/disk/by-uuid.
 			// - After a reboot a LVM2 logical volume is listed in
 			//   /dev/disk/by-uuid but pointing to /dev/dm-X and not to
-			//   /dev/mapper which is prefered.
+			//   /dev/mapper which is preferred.
 			$cmdArgs = [];
 			$cmdArgs[] = sprintf("UUID=%s", escapeshellarg($this->uuid));
 			$cmd = new \OMV\System\Process("findfs", $cmdArgs);
@@ -454,16 +454,18 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	}
 
 	/**
-	 * Get the special device file to present in the UI instead of the value
-	 * of the getDeviceFile method.
+	 * Get the special device file to present in the UI instead of the
+	 * value of the getDeviceFile method.
+	 * Get the special device file in the following preferred order:
+	 * <ul>
+	 * \li /dev/disk/by-label/xxx
+	 * \li /dev/disk/by-uuid/xxx
+	 * \li /dev/disk/by-id/xxx
+	 * \li /dev/xxx
+	 * </ul>
 	 * @return Returns the device file.
 	 */
 	public function getPreferredDeviceFile() {
-		// Get the device file in the following prefered order:
-		// - /dev/disk/by-label/xxx
-		// - /dev/disk/by-uuid/xxx
-		// - /dev/disk/by-id/xxx
-		// - /dev/xxx
 		if (TRUE === $this->hasDeviceFileByLabel())
 			return $this->getDeviceFileByLabel();
 		else if (TRUE === $this->hasDeviceFileByUuid())
