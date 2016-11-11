@@ -89,6 +89,13 @@ interface IFilesystem {
 	public function getDeviceFileByLabel();
 
 	/**
+	 * Get the special device file to present in the UI instead of the value
+	 * of the getDeviceFile method.
+	 * @return Returns the device file.
+	 */
+	public function getPreferredDeviceFile();
+
+	/**
 	* Get all device file symlinks via udev, e.g. <ul>
 	* \li /dev/disk/by-id/wwn-0x5000cca211cc703c
 	* \li /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038

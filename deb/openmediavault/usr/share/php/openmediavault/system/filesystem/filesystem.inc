@@ -454,25 +454,31 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	}
 
 	/**
-	 * Get all devices that make up the filesystem.
-	 * @return An array that contains the component devices of the filesystem.
+	 * Get the special device file to present in the UI instead of the value
+	 * of the getDeviceFile method.
+	 * @return Returns the device file.
 	 */
-	public function getDeviceFiles() {
-		$this->getData();
+	public function getPreferredDeviceFile() {
 		// Get the device file in the following prefered order:
 		// - /dev/disk/by-label/xxx
 		// - /dev/disk/by-uuid/xxx
 		// - /dev/disk/by-id/xxx
 		// - /dev/xxx
 		if (TRUE === $this->hasDeviceFileByLabel())
-			$deviceFile = $this->getDeviceFileByLabel();
+			return $this->getDeviceFileByLabel();
 		else if (TRUE === $this->hasDeviceFileByUuid())
-			$deviceFile = $this->getDeviceFileByUuid();
+			return $this->getDeviceFileByUuid();
 		else if (TRUE === $this->hasDeviceFileById())
-			$deviceFile = $this->getDeviceFileById();
-		else
-			$deviceFile = $this->getDeviceFile();
-		return [ $deviceFile ];
+			return $this->getDeviceFileById();
+		return $this->getDeviceFile();
+	}
+
+	/**
+	 * Get all devices that make up the filesystem.
+	 * @return An array that contains the component devices of the filesystem.
+	 */
+	public function getDeviceFiles() {
+		return [ $this->getPreferredDeviceFile() ];
 	}
 
 	/**
