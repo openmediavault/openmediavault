@@ -71,11 +71,10 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
 			if (is_null($sd) || !$sd->exists())
 				continue;
-			// Skip devices with an empty size, e.g. when no medium is
-			// inserted in a CDROM device.
-			if (1 !== bccomp($sd->getSize(), "0"))
+			// Skip devices where no media is available, e.g. CDROM device
+			// without an inserted media.
+			if (FALSE === $sd->IsMediaAvailable())
 				continue;
-			// Prepare device object.
 			$objects[] = [
 				"devicename" => $sd->getDeviceName(),
 				"devicefile" => $sd->getDeviceFile(),

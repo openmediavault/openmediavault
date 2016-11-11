@@ -35,8 +35,9 @@ class StorageDeviceCDROM extends StorageDevice {
 	}
 
 	/**
-	 * Checks if any media is available in the device.
-	 * @return Returns TRUE if a media is available, otherwise FALSE.
+	 * Check if a medium is available. The method should always return TRUE
+	 * for devices without removable media.
+	 * @return Set to FALSE if no medium is available.
 	 */
 	public function IsMediaAvailable() {
 		// Check if there is a medium inserted.

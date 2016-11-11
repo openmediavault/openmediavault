@@ -196,6 +196,15 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 	}
 
 	/**
+	 * Check if a medium is available. The method should always return TRUE
+	 * for devices without removable media.
+	 * @return Set to FALSE if no medium is available.
+	 */
+	public function IsMediaAvailable() {
+		return TRUE;
+	}
+
+	/**
 	 * Check if the given device has S.M.A.R.T. support.
 	 * @return Returns TRUE if the device supports S.M.A.R.T.,
 	 *   otherwise FALSE.
