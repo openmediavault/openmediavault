@@ -112,7 +112,7 @@ interface IBlockDevice {
 
 	/**
 	 * Get the size of the device in bytes.
-	 * @return The size of the device in bytes.
+	 * @return The size (64bit) of the device in bytes as string.
 	 * @throw \OMV\Exception
 	 */
 	public function getSize();
