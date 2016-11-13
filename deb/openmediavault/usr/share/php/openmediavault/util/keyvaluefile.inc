@@ -29,6 +29,7 @@ class KeyValueFile {
 	private $keyValueDelimiter;
 	private $commentDelimiter;
 	private $filename;
+	private $keyCaseSensitiv;
 
 	/**
 	 * Constructor
@@ -41,11 +42,12 @@ class KeyValueFile {
 	 *   Defaults to '#'.
 	 */
 	function __construct($filename, $keyValueDelimiter = "=",
-	  $keyNameDelimiter = "_", $commentDelimiter = "#") {
+		$keyNameDelimiter = "_", $commentDelimiter = "#") {
 		$this->filename = $filename;
 		$this->keyNameDelimiter = $keyNameDelimiter;
 		$this->keyValueDelimiter = $keyValueDelimiter;
 		$this->commentDelimiter = $commentDelimiter;
+		$this->keyCaseSensitiv = FALSE;
 	}
 
 	final public function setKeyNameDelimiter($char) {
@@ -58,6 +60,16 @@ class KeyValueFile {
 
 	final public function setCommentDelimiter($char) {
 		$this->commentDelimiter = $char;
+	}
+
+	/**
+	 * Specifies whether case-sensitive key matching should be
+	 * used.
+	 * @param caseSensitive TRUE for case-sensitive matching.
+	 * @return None.
+	 */
+	final public function setKeyCaseSensitiv($caseSensitive) {
+		$this->keyCaseSensitiv = $caseSensitive;
 	}
 
 	/**
@@ -103,7 +115,8 @@ class KeyValueFile {
 			// Harmonize the key.
 			$key = trim($matches[1]);
 			$key = str_replace(" ", $this->keyNameDelimiter, $key);
-			$key = strtolower($key);
+			if (FALSE === $this->keyCaseSensitiv)
+				$key = strtolower($key);
 			// Add key/value pair.
 			$map[$key] = trim($matches[2]);
 		}

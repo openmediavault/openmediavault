@@ -1,3 +1,9 @@
+openmediavault (3.0.53) stable; urgency=low
+
+  * Adapt OMV to FriendlyArm NanoPC-T2.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 13 Nov 2016 01:53:25 +0100
+
 openmediavault (3.0.52) stable; urgency=low
 
   * Various improvements and bugfixes.
@@ -988,7 +994,7 @@ openmediavault (1.9) stable; urgency=low
 
   * Update locales.
   * Fix 'Gateway 502' error after manual installation of OMV.
-  * Adapt OMV to CuBox-i.
+  * Adapt OMV to SolidRun CuBox-i.
   * Mantis 0001233: Add on crontab option @reboot.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 04 Jan 2015 00:10:44 +0100

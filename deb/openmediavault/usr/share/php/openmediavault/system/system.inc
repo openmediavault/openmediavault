@@ -285,6 +285,7 @@ class System {
 		// ...
 		$cpuInfo = new \OMV\Util\KeyValueFile("/proc/cpuinfo", ":");
 		$cpuInfo->setKeyNameDelimiter("");
+		$cpuInfo->setKeyCaseSensitiv(TRUE);
 		// Get the current CPU statistics.
 		// Use the very first "cpu" line which aggregates the numbers in
 		// all of the other "cpuN" lines.
@@ -309,11 +310,16 @@ class System {
 		// Calculate the CPU usage since we last checked.
 		$diffIdle = $tnow[3] - $tprev[3];
 		$diffTotal = $tnowTotal - $tprevTotal;
+		// Get the processor name.
+		$modelName = gettext("n/a");
+		foreach ([ "modelname", "cpumodel", "Processor" ] as $key) {
+			if (TRUE === $cpuInfo->exists($key)) {
+				$modelName = $cpuInfo->get($key);
+				break;
+			}
+		}
 		return [
-			"modelname" =>
-			  $cpuInfo->exists("modelname") ? $cpuInfo->get("modelname") :
-			  ($cpuInfo->exists("cpumodel") ? $cpuInfo->get("cpumodel") :
-			  gettext("n/a")),
+			"modelname" => $modelName,
 			"cpumhz" => $cpuInfo->exists("cpumhz") ?
 			  $cpuInfo->get("cpumhz") : gettext("n/a"),
 			"usage" => (0 == $diffTotal) ? 0 : (($diffTotal - $diffIdle) /
