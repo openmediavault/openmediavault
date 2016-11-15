@@ -33,6 +33,13 @@ xmlstarlet sel -t -m "//services/afp" \
   -i "homesenable[. = '1']" \
     -n \
     -o "[Homes]" -n \
-    -o "basedir regex = ${OMV_NETATALK_AFP_HOMES_BASEDIRREGEX}" -n \
+    -m "//system/usermanagement/homedirectory" \
+      -i "enable[. = '1']" \
+        -o "basedir regex = " ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -n \
+      -b \
+      -i "enable[. != '1']" \
+        -o "basedir regex = ${OMV_NETATALK_AFP_HOMES_BASEDIRREGEX}" -n \
+      -b \
+    -b \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_NETATALK_AFP_CONFIG}

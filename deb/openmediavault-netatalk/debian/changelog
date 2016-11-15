@@ -1,5 +1,6 @@
 openmediavault-netatalk (3.2.3) stable; urgency=low
 
+  * Mantis 0001639: Wrong home directory base dir.
   * Mantis 0001641: Modifying shares doesn't update afp.conf file.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 15 Nov 2016 22:07:40 +0100
