@@ -99,6 +99,17 @@ class OMVModuleAFP extends \OMV\Engine\Module\ServiceAbstract implements
 	}
 
 	/**
+	 * Helper function that is called whenever a share is created,
+	 * modified or deleted.
+	 * @param type The event message type.
+	 * @param path The event message path.
+	 * @param object The configuration object.
+	 */
+	final public function onShare($type, $path, $object) {
+		$this->setDirty();
+	}
+
+	/**
 	 * Helper function to find out whether the given shared folder
 	 * configuration object is used. If it is used, then mark the
 	 * module as dirty.
@@ -125,6 +136,10 @@ class OMVModuleAFP extends \OMV\Engine\Module\ServiceAbstract implements
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.service.afp",
 		  [ $this, "setDirty" ]);
+		$dispatcher->addListener(
+		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+		  "org.openmediavault.conf.service.afp.share",
+		  [ $this, "onShare" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.conf.system.sharedfolder",
