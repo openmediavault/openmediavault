@@ -1,6 +1,7 @@
 openmediavault (3.0.53) stable; urgency=low
 
   * Adapt OMV to FriendlyArm NanoPC-T2.
+  * Set SMB/CIFS file/directory masks to values for collaborative workflows.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 13 Nov 2016 01:53:25 +0100
 
