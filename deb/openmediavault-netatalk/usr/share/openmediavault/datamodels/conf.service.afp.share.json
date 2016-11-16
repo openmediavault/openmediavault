@@ -60,7 +60,7 @@
 				},
 				"upriv": {
 					"type": "boolean",
-					"default": false
+					"default": true
 				},
 				"invisibledots": {
 					"type": "boolean",
