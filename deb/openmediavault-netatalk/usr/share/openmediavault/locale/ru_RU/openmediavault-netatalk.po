@@ -6,14 +6,14 @@
 # Alexander Savchenko, 2013
 # Alexander Savchenko, 2013
 # mictian <ffrants@gmail.com>, 2012
-# артур Мудрых <arturmon82@gmail.com>, 2012-2013,2015
+# артур Мудрых <arturmon82@gmail.com>, 2012-2013,2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-23 21:35+0200\n"
-"PO-Revision-Date: 2016-09-23 19:35+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2016-10-10 15:46+0000\n"
+"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/votdev/openmediavault/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,7 +67,7 @@ msgid "Enable user home directories."
 msgstr "Включить домашние каталоги пользователей."
 
 msgid "Enabled"
-msgstr ""
+msgstr "Включено"
 
 msgid "Extra options"
 msgstr "Дополнительные опции"
@@ -121,7 +121,7 @@ msgid ""
 "Please check the <a "
 "href='http://netatalk.sourceforge.net/3.0/htmldocs/afp.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Пожалуйста проверьте <a href='http://netatalk.sourceforge.net/3.0/htmldocs/afp.conf.5.html' target='_blank'>Страница руководства</a> для более подробной информации."
 
 msgid "Quota"
 msgstr "Квота"
