@@ -675,12 +675,6 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "3.0.42"; then
 			deb-systemd-invoke restart rsyslog
 		fi
-		if dpkg --compare-versions "$2" lt-nl "3.0.47"; then
-			if deb-systemd-invoke -q is-active smbd; then
-				omv-mkconf samba
-				deb-systemd-invoke reload smbd
-			fi
-		fi
 		if dpkg --compare-versions "$2" lt-nl "3.0.48"; then
 			omv-mkconf collectd
 			if deb-systemd-invoke -q is-active postfix; then
@@ -690,6 +684,12 @@ case "$1" in
 			if deb-systemd-invoke -q is-active nfs-kernel-server; then
 				omv-mkconf nfsd
 				deb-systemd-invoke reload nfs-kernel-server
+			fi
+		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.53"; then
+			if deb-systemd-invoke -q is-active smbd; then
+				omv-mkconf samba
+				deb-systemd-invoke reload smbd
 			fi
 		fi
 
