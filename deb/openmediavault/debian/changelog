@@ -1,3 +1,9 @@
+openmediavault (3.0.54) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 20 Nov 2016 22:56:38 +0100
+
 openmediavault (3.0.53) stable; urgency=low
 
   * Adapt OMV to FriendlyArm NanoPC-T2.
