@@ -33,11 +33,12 @@ EOF
 
 cat <<EOF >> ${OMV_COLLECTD_RRDTOOL_MKGRAPH}
 # Plugin: memory
+# http://paletton.com/#uid=33r0-0kwi++bu++hX++++rd++kX
 TITLE_MEMORY="Memory usage"
-COLOR_MEMORY_FREE="#00cc00"     # green
-COLOR_MEMORY_CACHED="#0000fd"   # blue
-COLOR_MEMORY_BUFFERED="#f0a000" # dark yellow
-COLOR_MEMORY_USED="#ff0000"     # red
+COLOR_MEMORY_FREE="#76D6FF"     # blue
+COLOR_MEMORY_CACHED="#FFDB70"   # yellow
+COLOR_MEMORY_BUFFERED="#C979FF" # pink
+COLOR_MEMORY_USED="#FF7A70"     # red
 EOF
 for ucperiod in HOUR DAY WEEK MONTH YEAR; do
 	lcperiod=$(echo ${ucperiod} | tr '[:upper:]' '[:lower:]')

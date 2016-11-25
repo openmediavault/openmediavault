@@ -52,8 +52,9 @@ EOF
 
 cat <<EOF >> ${OMV_COLLECTD_RRDTOOL_MKGRAPH}
 # Plugin: interface
-COLOR_INTERFACE_INCOMING="#00cc00" # green
-COLOR_INTERFACE_OUTGOING="#ff0000" # red
+# http://paletton.com/#uid=33r0-0kwi++bu++hX++++rd++kX
+COLOR_INTERFACE_INCOMING="#0BB6FF" # blue
+COLOR_INTERFACE_OUTGOING="#FF1300" # red
 for devicename in ${IFACE}; do
 	[ ! -e "\${DATA}/interface-\${devicename}/if_octets.rrd" ] && continue
 EOF

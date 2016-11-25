@@ -33,10 +33,11 @@ EOF
 
 cat <<EOF >> ${OMV_COLLECTD_RRDTOOL_MKGRAPH}
 # Plugin: load
+# http://paletton.com/#uid=33r0-0kwi++bu++hX++++rd++kX
 TITLE_LOAD="Load average"
-COLOR_LOAD_SHORTTERM="#00cc00" # green
-COLOR_LOAD_MIDTERM="#0000fd"   # blue
-COLOR_LOAD_LONGTERM="#ff0000"  # red
+COLOR_LOAD_SHORTTERM="#FFBF00" # yellow
+COLOR_LOAD_MIDTERM="#0BB6FF"   # blue
+COLOR_LOAD_LONGTERM="#FF1300"  # red
 EOF
 for ucperiod in HOUR DAY WEEK MONTH YEAR; do
 	lcperiod=$(echo ${ucperiod} | tr '[:upper:]' '[:lower:]')

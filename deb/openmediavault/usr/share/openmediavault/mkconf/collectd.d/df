@@ -53,11 +53,12 @@ DIRNAME=$(xmlstarlet sel -t \
   -b ${OMV_CONFIG_FILE} | xmlstarlet unesc)
 cat <<EOF >> ${OMV_COLLECTD_RRDTOOL_MKGRAPH}
 # Plugin: df
+# http://paletton.com/#uid=33r0-0kwi++bu++hX++++rd++kX
 TITLE_DF="Disk usage"
-COLOR_LINE_DF_FREE="#00cc00" # green
-COLOR_LINE_DF_USED="#ff0000" # red
-COLOR_AREA_DF_FREE="#b7efb7" # green
-COLOR_AREA_DF_USED="#f7b7b7" # red
+COLOR_LINE_DF_FREE="#0BB6FF" # blue
+COLOR_LINE_DF_USED="#FF1300" # red
+COLOR_AREA_DF_FREE="#76D6FF" # blue
+COLOR_AREA_DF_USED="#FF7A70" # red
 for dirname in ${DIRNAME}; do
 	[ ! -e "\${DATA}/\${dirname}" ] && continue
 EOF

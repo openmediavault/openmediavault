@@ -1,6 +1,6 @@
 openmediavault (3.0.54) stable; urgency=low
 
-  *
+  * Improve statistic graph colors for color blind users.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 20 Nov 2016 22:56:38 +0100
 
