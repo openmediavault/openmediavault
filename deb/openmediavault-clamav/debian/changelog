@@ -1,5 +1,6 @@
 openmediavault-clamav (3.2.7) stable; urgency=low
 
+  * Update locales.
   * Fix various issues.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 27 Nov 2016 19:25:36 +0100
