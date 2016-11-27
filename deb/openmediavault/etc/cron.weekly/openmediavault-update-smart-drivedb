@@ -24,28 +24,14 @@
 
 set -e
 
-tmpscript=$(mktemp)
-
-cleanup() {
-    rm -f ${tmpscript}
-    exit
-}
-
-trap cleanup 0 1 2 5 15
+. /usr/share/openmediavault/scripts/helper-functions
 
 # Does the script exist? If not, then exit immediatelly. In this case the
 # Debian smartmontools package is not installed.
 which update-smart-drivedb >/dev/null || exit 0
 
-origscript=$(which update-smart-drivedb)
-version=$(sed -n 's/^VERSION="\(.*\)"$/\1/p' ${origscript})
-
-# Note, the script shipped with the Debian Wheezy smartmontools package
-# contains a wrong URL. Because of that this must be modified to get the
-# script working. To do not modify the original script, which is under
-# APT control, we simply create a copy of the script, modify the URL and
-# finally execute it.
-cp -p ${origscript} ${tmpscript}
-sed -i "/^SRCEXPR/{s#=.*#='https://sourceforge.net/p/smartmontools/code/HEAD/tree/\$location/smartmontools/drivedb.h?format=raw'#}" ${tmpscript}
-logger -p syslog.info "Updating smartmontools ${version} drive database ..."
-eval ${tmpscript} >/dev/null
+# Update the drive database.
+filepath=$(which update-smart-drivedb)
+version=$(sed -n 's/^VERSION="\(.*\)"$/\1/p' ${filepath})
+omv_syslog_info "Updating smartmontools ${version} drive database ..."
+update-smart-drivedb >/dev/null
