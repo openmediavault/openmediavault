@@ -312,26 +312,27 @@ class User {
 	 * @return TRUE if the authentication was successful, otherwise FALSE.
 	 */
 	public function authenticate($password) {
-/*
-		// Use the following python code to authenticate the user
-		// via PAM. We need to go this way because there is no PAM
-		// plugin available for PHP7.
-		// The code requires the python3-pampy Debian package.
-		$cmd = new \OMV\System\Process("python3", sprintf("<<END\n".
-		  "import pam\n".
-		  "import sys\n".
-		  "pam = pam.pam()\n".
-		  "pam.authenticate(%s, %s, 'openmediavault')\n".
-		  "sys.exit(pam.code)\n".
-		  "END", escapeshellarg($this->getName()),
-		  escapeshellarg($password)));
-		$cmd->setQuiet(TRUE);
-		$cmd->execute($output, $exitStatus);
-		return (0 == $exitStatus);
-*/
-		if (FALSE === pam_auth($this->getName(), $password))
-			return FALSE;
-		return TRUE;
+		// Use the PAM module to authenticate the user if possible,
+		// otherwise use a fallback.
+		if (TRUE === extension_loaded("pam")) {
+			return pam_auth($this->getName(), $password);
+		} else {
+			// Use the following python code to authenticate the user
+			// via PAM. We need to go this way because there is no PAM
+			// plugin available for PHP7.
+			// The code requires the python3-pampy Debian package.
+			$cmd = new \OMV\System\Process("python3", sprintf("<<END\n".
+			  "import pam\n".
+			  "import sys\n".
+			  "pam = pam.pam()\n".
+			  "pam.authenticate(%s, %s, 'openmediavault')\n".
+			  "sys.exit(pam.code)\n".
+			  "END", escapeshellarg($this->getName()),
+			  escapeshellarg($password)));
+			$cmd->setQuiet(TRUE);
+			$cmd->execute($output, $exitStatus);
+			return (0 == $exitStatus);
+		}
 	}
 
 	/**
