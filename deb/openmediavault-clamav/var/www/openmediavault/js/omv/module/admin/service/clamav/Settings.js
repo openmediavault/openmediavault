@@ -144,13 +144,13 @@ Ext.define("OMV.module.admin.service.clamav.Settings", {
 				boxLabel: _("Follow regular file symlinks."),
 				checked: false
 			},{
-				xtype: "textfield",
+				xtype: "textarea",
 				name: "extraoptions",
 				fieldLabel: _("Extra options"),
 				allowBlank: true,
 				plugins: [{
 					ptype: "fieldinfo",
-					text: _("Please check the <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>manual page</a> for more details."),
+					text: _("Please check the <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more details."),
 				}]
 			}]
 		}];

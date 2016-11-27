@@ -1,3 +1,9 @@
+openmediavault-clamav (3.2.7) stable; urgency=low
+
+  * Fix various issues.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 27 Nov 2016 19:25:36 +0100
+
 openmediavault-clamav (3.2.6) stable; urgency=low
 
   * Fix various issues.
