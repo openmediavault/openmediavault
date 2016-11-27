@@ -47,7 +47,5 @@ version=$(sed -n 's/^VERSION="\(.*\)"$/\1/p' ${origscript})
 # finally execute it.
 cp -p ${origscript} ${tmpscript}
 sed -i "/^SRCEXPR/{s#=.*#='https://sourceforge.net/p/smartmontools/code/HEAD/tree/\$location/smartmontools/drivedb.h?format=raw'#}" ${tmpscript}
-echo "Updating smartmontools ${version} drive database ..."
-eval ${tmpscript}
-
-exit 0
+logger -p syslog.info "Updating smartmontools ${version} drive database ..."
+eval ${tmpscript} >/dev/null
