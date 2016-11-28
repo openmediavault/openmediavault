@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2016-10-01 08:06+0000\n"
+"PO-Revision-Date: 2016-10-30 14:35+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -28,16 +28,16 @@ msgid "Date & Time"
 msgstr "Datum a čas"
 
 msgid "Defines when the shutdown is initiated."
-msgstr "Určuje za jakých podmínek je zahájeno vypínání."
+msgstr "Určuje za jakých okolností zahájit vypínání serveru."
 
 msgid "Driver configuration directives"
-msgstr "Nastavovací pokyny pro ovladač"
+msgstr "Pokyny nastavení ovladače"
 
 msgid "Enable"
 msgstr "Zapnout"
 
 msgid "Enable remote monitoring of the local connected UPS."
-msgstr "Umožnit dohledování UPS zdroje, propojeného přímo s tímto strojem, i z jiných strojů."
+msgstr "Umožnit zjišťování stavu UPS (propojené přímo s tímto) i ostatním strojům (užitečné v případě, že je také napájí a mají nainstalovaného NUT klienta)."
 
 msgid "General settings"
 msgstr "Obecná nastavení"
@@ -52,7 +52,7 @@ msgid "Message"
 msgstr "Zpráva"
 
 msgid "PID"
-msgstr "Identifikátor procesu (PID)"
+msgstr "Identif. procesu (PID)"
 
 msgid "Password"
 msgstr "Heslo"
@@ -61,7 +61,7 @@ msgid "Program"
 msgstr "Program"
 
 msgid "Remote monitoring"
-msgstr "Vzdálené dohledování"
+msgstr "Zpřístupnění stavu ostatním strojům"
 
 msgid "Service disabled"
 msgstr "Poskytování služby je vypnuté"
@@ -70,16 +70,16 @@ msgid "Settings"
 msgstr "Nastavení"
 
 msgid "Shutdown mode"
-msgstr "Kdy vypínat"
+msgstr "Vypínat když"
 
 msgid "Shutdown timer"
-msgstr "Časovač vypnutí"
+msgstr "Zpoždění vypínání"
 
 msgid "Temperature"
 msgstr "Teplota"
 
 msgid "The name used to uniquely identify your UPS on this system."
-msgstr "Název pro jednoznačnou identifikaci UPS zdroje tohoto stroje."
+msgstr "Název který slouží pro jednoznačnou (v rámci tohoto stroje) identifikaci UPS zdroje."
 
 msgid ""
 "The time in seconds until shutdown is initiated. If the UPS happens to come "
@@ -90,19 +90,19 @@ msgid ""
 "To get more information how to configure your UPS please check the Network "
 "UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
 "target='_blank'>documentation</a>."
-msgstr "Více informací o nastavování zdrojů nepřerušovaného napájení naleznete v <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>dokumentaci</a> k nástroji Network UPS Tools."
+msgstr "Informace k nastavování zdrojů nepřerušovaného napájení naleznete v <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>dokumentaci</a> k nástroji Network UPS Tools (v angličtině)."
 
 msgid "UPS"
 msgstr "Zdroj nepřeruš. napájení (UPS)"
 
 msgid "UPS goes on battery"
-msgstr "UPS je v provozu na akumulátor"
+msgstr "je UPS v provozu na akumulátory"
 
 msgid "UPS reaches low battery"
-msgstr "Akumulátor v UPS je už téměř vybitý"
+msgstr "jsou akumulátory v UPS už téměř vybité"
 
 msgid "Used for remote authentication."
-msgstr "Použito pro vzdálené ověření."
+msgstr "Slouží pro ověřování oprávněnosti přístupu z jiného stroje."
 
 msgid "Username"
 msgstr "Uživatelské jméno"

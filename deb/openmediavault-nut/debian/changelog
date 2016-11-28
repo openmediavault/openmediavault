@@ -1,5 +1,6 @@
 openmediavault-nut (3.2.4) stable; urgency=low
 
+  * Update locales.
   * Remove bc package dependency.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 28 Nov 2016 17:02:45 +0100
