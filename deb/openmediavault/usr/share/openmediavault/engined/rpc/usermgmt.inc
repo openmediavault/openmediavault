@@ -1055,7 +1055,7 @@ finish:
 				$homeDirPath = build_path(DIRECTORY_SEPARATOR, $sfPath,
 				  $userv['name']);
 				if (!file_exists($homeDirPath)) {
-					if (!mkdir($homeDirPath, 0755, TRUE)) {
+					if (!mkdir($homeDirPath, 0700, TRUE)) {
 						$error = error_get_last();
 						throw new \OMV\Exception(
 						  "Failed to create home directory '%s': %s",
