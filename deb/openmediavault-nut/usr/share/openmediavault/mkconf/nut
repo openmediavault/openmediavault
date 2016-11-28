@@ -119,8 +119,9 @@ EOF
 		# Calulate the dead time value: take the larger of the two POLLFREQ
 		# values, and multiply by 3.
 		# See http://www.networkupstools.org/docs/man/upsmon.conf.html
-		OMV_NUT_UPSMON_DEADTIME=$(echo "if (${OMV_NUT_UPSMON_POLLFREQ} > ${OMV_NUT_UPSMON_POLLFREQALERT}) \
-		  ${OMV_NUT_UPSMON_POLLFREQ} * 3 else ${OMV_NUT_UPSMON_POLLFREQALERT} * 3" | bc)
+		pollfreq=${OMV_NUT_UPSMON_POLLFREQ}
+		[ ${OMV_NUT_UPSMON_POLLFREQALERT} -gt ${OMV_NUT_UPSMON_POLLFREQ} ] && pollfreq=${OMV_NUT_UPSMON_POLLFREQALERT}
+		OMV_NUT_UPSMON_DEADTIME=$((${pollfreq} * 3))
 	fi
 	xmlstarlet sel -t -m "//services/nut" \
 	  -v "concat('MONITOR ',upsname,'@localhost 1 ${OMV_NUT_UPSDUSERS_MONITOR_USER} ${OMV_NUT_UPSDUSERS_MONITOR_PASSWORD} master')" -n \
