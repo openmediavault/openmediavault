@@ -87,7 +87,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				"serialnumber" => $sd->getSerialNumber(),
 				"israid" => $sd->isRaid(),
 				"isroot" => \OMV\System\System::isRootDeviceFile(
-					$sd->getDeviceFile(), FALSE)
+					$sd->getCanonicalDeviceFile(), FALSE)
 			];
 		}
 		return $objects;
