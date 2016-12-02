@@ -46,8 +46,8 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array containing physical disk device objects with the
-	 *   fields \em devicename, \em devicefile, \em model, \em size,
-	 *   \em description, \em vendor, \em serialnumber, \em israid,
+	 *   fields \em devicename, \em devicefile, \em devicefiles, \em model,
+	 *   \em size, \em description, \em vendor, \em serialnumber, \em israid,
 	 *   and \em isroot.
 	 * @throw \OMV\Exception
 	 */

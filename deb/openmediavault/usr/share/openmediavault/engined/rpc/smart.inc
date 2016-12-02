@@ -54,9 +54,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array containing disk device objects with the
-	 *   following fields: \em devicename, \em devicefile, \em model,
-	 *   \em size, \em temperature, \em description, \em vendor and
-	 *   \em serialnumber.
+	 *   following fields: \em devicename, \em devicefile, \em devicefiles,
+	 *   \em model, \em size, \em temperature, \em description, \em vendor
+	 *   and \em serialnumber.
 	 * @throw \OMV\Exception
 	 */
 	public function enumerateDevices($params, $context) {
