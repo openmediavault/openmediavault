@@ -470,10 +470,11 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 		resizable: false,
 		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
 	},{
+		xtype: "devicefilescolumn",
 		text: _("Device"),
 		sortable: true,
-		dataIndex: "devicefile",
-		stateId: "devicefile"
+		dataIndex: "devicefiles",
+		stateId: "devicefiles"
 	},{
 		xtype: "emptycolumn",
 		text: _("Model"),
@@ -556,18 +557,8 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 					idProperty: "devicefile",
 					fields: [
 						{ name: "uuid", type: "string" },
-						{
-							name: "devicefile",
-							type: "string",
-							convert: function(value, record) {
-								// Prefer the /dev/disk/by-id/xxx device file.
-								if (Ext.isDeviceFile(record.get(
-								  "devicefilebyid"))) {
-									value = record.get("devicefilebyid");
-								}
-								return value;
-							}
-						},
+						{ name: "devicefile", type: "string" },
+						{ name: "devicefiles", type: "array" },
 						{ name: "model", type: "string" },
 						{ name: "vendor", type: "string" },
 						{ name: "serialnumber", type: "string" },

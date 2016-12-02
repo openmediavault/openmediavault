@@ -58,15 +58,18 @@ class System {
 
 	/**
 	 * Check if the given device file contains the operating system.
-	 * @param deviceFile The devicefile to check, e.g. /dev/sda1.
+	 * @param deviceFile The devicefile to check, e.g. /dev/sdb or /dev/sda1.
+	 * @param exact Set to FALSE to detect partitions, too. Defaults to TRUE.
 	 * @return Returns TRUE if the device file contains the operating system,
 	 *   otherwise FALSE.
 	 */
-	public static function isRootDeviceFile($deviceFile) {
+	public static function isRootDeviceFile($deviceFile, $exact = TRUE) {
 		if ("/dev/root" == $deviceFile)
 			return TRUE;
 		$rootDeviceFile = self::getRootDeviceFile();
-		return ($rootDeviceFile == $deviceFile) ? TRUE : FALSE;
+		if (TRUE === $exact)
+			return ($rootDeviceFile == $deviceFile) ? TRUE : FALSE;
+		return (0 === strpos($rootDeviceFile, $deviceFile)) ? TRUE : FALSE;
 	}
 
 	/**

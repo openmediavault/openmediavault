@@ -66,6 +66,13 @@ interface IStorageDevice {
 	public function getDeviceFileById();
 
 	/**
+	 * Check whether the device has a /dev/disk/by-id/xxx device path.
+	 * @return Returns TRUE if a disk/by-id device path exists,
+	 *   otherwise FALSE.
+	 */
+	public function hasDeviceFileById();
+
+	/**
 	* Get all device file symlinks via udev, e.g. <ul>
 	* \li /dev/disk/by-id/wwn-0x5000cca211cc703c
 	* \li /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
@@ -77,6 +84,12 @@ interface IStorageDevice {
 	* @return Returns an string array of device files.
 	*/
 	public function getDeviceFileSymlinks();
+
+	/**
+	 * Get the list of all device files of this storage device.
+	 * @return An array of device files.
+	 */
+	public function getDeviceFiles();
 
 	/**
 	 * Get the device name, e.g. sda or hdb.

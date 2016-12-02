@@ -173,11 +173,11 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 	stateful: true,
 	stateId: "5e5cc148-c1e7-11e0-99e1-00221568ca88",
 	columns: [{
-		xtype: "emptycolumn",
+		xtype: "devicefilescolumn",
 		text: _("Device"),
 		sortable: true,
-		dataIndex: "devicefile",
-		stateId: "device",
+		dataIndex: "devicefiles",
+		stateId: "devicefiles",
 	},{
 		xtype: "emptycolumn",
 		text: _("Model"),
@@ -212,18 +212,8 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 				model: OMV.data.Model.createImplicit({
 					idProperty: "devicefile",
 					fields: [
-						{
-							name: "devicefile",
-							type: "string",
-							convert: function(value, record) {
-								// Prefer the /dev/disk/by-id/xxx device file.
-								if (Ext.isDeviceFile(record.get(
-								  "devicefilebyid"))) {
-									value = record.get("devicefilebyid");
-								}
-								return value;
-							}
-						},
+						{ name: "devicefile", type: "string" },
+						{ name: "devicefiles", type: "array" },
 						{ name: "model", type: "string" },
 						{ name: "vendor", type: "string" },
 						{ name: "serialnumber", type: "string" },

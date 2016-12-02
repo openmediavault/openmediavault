@@ -77,16 +77,17 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				continue;
 			$objects[] = [
 				"devicename" => $sd->getDeviceName(),
-				"devicefile" => $sd->getDeviceFile(),
-				"devicefilebyid" => $sd->getDeviceFileById(),
+				"devicefile" => $sd->hasDeviceFileById() ?
+					$sd->getDeviceFileById() : $sd->getDeviceFile(),
+				"devicefiles" => $sd->getDeviceFiles(),
 				"model" => $sd->getModel(),
 				"size" => $sd->getSize(),
 				"description" => $sd->getDescription(),
 				"vendor" => $sd->getVendor(),
 				"serialnumber" => $sd->getSerialNumber(),
 				"israid" => $sd->isRaid(),
-				"isroot" => (0 === strpos($rootDeviceFile,
-				  $sd->getDeviceFile())) ? TRUE : FALSE
+				"isroot" => \OMV\System\System::isRootDeviceFile(
+					$sd->getDeviceFile(), FALSE)
 			];
 		}
 		return $objects;
@@ -125,10 +126,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 			$confObjects = $db->getByFilter("conf.system.hdparm", [
 				"operator" => "stringEnum",
 				"arg0" => "devicefile",
-				"arg1" => [
-					$objectv['devicefilebyid'],
-					$objectv['devicefile']
-				]
+				"arg1" => $objectv['devicefiles']
 			]);
 			if (1 <= count($confObjects)) {
 				// Append the first found configuration values.
@@ -177,6 +175,11 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Check if the given device exists.
 		\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
 		  $params['devicefile']);
+		  // Try to get a /dev/disk/by-id device file.
+  		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
+  		  $params['devicefile']);
+  		if (TRUE === $sd->hasDeviceFileById())
+  			$params['devicefile'] = $sd->getDeviceFileById();
 		// Create the configuration object.
 		$object = new \OMV\Config\ConfigObject("conf.system.hdparm");
 		$object->setAssoc($params);

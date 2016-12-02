@@ -83,18 +83,7 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Job", {
 				model: OMV.data.Model.createImplicit({
 					idProperty: "devicefile",
 					fields: [
-						{
-							name: "devicefile",
-							type: "string",
-							convert: function(value, record) {
-								// Prefer the /dev/disk/by-id/xxx device file.
-								if (Ext.isDeviceFile(record.get(
-								  "devicefilebyid"))) {
-									value = record.get("devicefilebyid");
-								}
-								return value;
-							}
-						},
+						{ name: "devicefile", type: "string" },
 						{ name: "description", type: "string" }
 					]
 				}),

@@ -395,17 +395,11 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 	stateful: true,
 	stateId: "efea99a0-95d1-4bc9-8207-d21fe514f069",
 	columns: [{
+		xtype: "devicefilescolumn",
 		text: _("Device(s)"),
 		sortable: true,
 		dataIndex: "devicefiles",
-		stateId: "devicefiles",
-		renderer: function(value, metaData, record) {
-			if (Ext.isEmpty(value))
-				return _("n/a");
-			var tpl = new Ext.XTemplate(
-			  '<tpl for="." between="&lt;br&gt;>{.}</tpl>');
-			return tpl.apply(value);
-		}
+		stateId: "devicefiles"
 	},{
 		xtype: "emptycolumn",
 		text: _("Identify As"),

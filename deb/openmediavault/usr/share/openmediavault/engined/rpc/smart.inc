@@ -86,8 +86,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			// Prepare device object
 			$objects[] = [
 				"devicename" => $sd->getDeviceName(),
-				"devicefile" => $sd->getDeviceFile(),
-				"devicefilebyid" => $sd->getDeviceFileById(),
+				"devicefile" => $sd->hasDeviceFileById() ?
+					$sd->getDeviceFileById() : $sd->getDeviceFile(),
+				"devicefiles" => $sd->getDeviceFiles(),
 				"model" => $sd->getModel(),
 				"size" => $sd->getSize(),
 				"temperature" => (FALSE === $temperature) ?
@@ -119,7 +120,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		$objects = $this->callMethod("enumerateDevices", NULL, $context);
 		// Prepare the result list, only return devices that are monitored.
 		$result = [];
-		foreach ($objects as $objectk => &$objectv) {
+		foreach ($objects as $objectk => $objectv) {
 			// Check if there exists a device configuration object for the
 			// current processed device. Note, we have to check for 'dev/xxx'
 			// and 'dev/disk/by-id/xxx' entries.
@@ -128,10 +129,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			  "conf.service.smartmontools.device", [
 				  "operator" => "stringEnum",
 				  "arg0" => "devicefile",
-				  "arg1" => [
-					  $objectv['devicefilebyid'],
-					  $objectv['devicefile']
-				  ]
+				  "arg1" => $objectv['devicefiles']
 			  ]);
 			if (0 >= count($confObjects))
 				continue;
@@ -173,16 +171,11 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			// given device. Note, we have to check for 'dev/xxx' and
 			// 'dev/disk/by-id/xxx' entries.
 			$db = \OMV\Config\Database::getInstance();
-			$predicate = sprintf("devicefile='%s' or devicefile='%s'",
-			  $objectv['devicefilebyid'], $objectv['devicefile']);
 			$confObjects = $db->getByFilter(
 			  "conf.service.smartmontools.device", [
 				  "operator" => "stringEnum",
 				  "arg0" => "devicefile",
-				  "arg1" => [
-					  $objectv['devicefilebyid'],
-					  $objectv['devicefile']
-				  ]
+				  "arg1" => $objectv['devicefiles']
 			  ]);
 			// If found, then finally get the S.M.A.R.T. device settings
 			// configuration object.
@@ -257,6 +250,11 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.devicefile");
+		// Try to get a /dev/disk/by-id device file.
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
+			$params['devicefile']);
+		if (!is_null($sd) && (TRUE === $sd->hasDeviceFileById()))
+			$params['devicefile'] = $sd->getDeviceFileById();
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->getByFilter("conf.service.smartmontools.device", [
@@ -292,6 +290,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		  $params['devicefile']);
 		// Ensure that the device has S.M.A.R.T. support.
 		$sd->assertHasSmartSupport();
+		// Try to get a /dev/disk/by-id device file.
+		if (TRUE === $sd->hasDeviceFileById())
+			$params['devicefile'] = $sd->getDeviceFileById();
 		// Prepare the configuration data.
 		$object = new \OMV\Config\ConfigObject(
 		  "conf.service.smartmontools.device");
@@ -445,7 +446,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			// Append storage device information.
 			$objectAssoc = array_merge($objectAssoc, [
 				"devicefile" => gettext("n/a"),
-				"devicefilebyid" => FALSE,
+				"devicefiles" => [],
 				"model" => gettext("n/a"),
 				"size" => "-1" // as string
 			]);
@@ -456,7 +457,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 				// Update storage device information.
 				$objectAssoc = array_merge($objectAssoc, [
 					"devicefile" => $sd->getDeviceFile(),
-					"devicefilebyid" => $sd->getDeviceFileById(),
+					"devicefiles" => $sd->getDeviceFiles(),
 					"model" => $sd->getModel(),
 					"size" => $sd->getSize()
 				]);
@@ -508,6 +509,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		  $params['devicefile']);
 		// Ensure that the device has S.M.A.R.T. support.
 		$sd->assertHasSmartSupport();
+		// Try to get a /dev/disk/by-id device file.
+		if (TRUE === $sd->hasDeviceFileById())
+			$params['devicefile'] = $sd->getDeviceFileById();
 		// Prepare the configuration data.
 		$object = new \OMV\Config\ConfigObject(
 		  "conf.service.smartmontools.job");

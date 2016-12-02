@@ -66,6 +66,13 @@ interface IBlockDevice {
 	public function getDeviceFileById();
 
 	/**
+	 * Check whether the device has a /dev/disk/by-id/xxx device path.
+	 * @return Returns TRUE if a disk/by-id device path exists,
+	 *   otherwise FALSE.
+	 */
+	public function hasDeviceFileById();
+
+	/**
 	 * Get the special device file to present in the UI instead of the
 	 * value of the getDeviceFile method.
 	 * Get the special device file in the following preferred order:
@@ -89,6 +96,12 @@ interface IBlockDevice {
 	* @return Returns an string array of device files.
 	*/
 	public function getDeviceFileSymlinks();
+
+	/**
+	 * Get the list of all device files of this block device.
+	 * @return An array of device files.
+	 */
+	public function getDeviceFiles();
 
 	/**
 	 * Get the device name, e.g. sda or hdb.
