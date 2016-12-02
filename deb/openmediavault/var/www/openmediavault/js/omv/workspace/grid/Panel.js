@@ -23,6 +23,7 @@
 // require("js/omv/grid/column/BooleanIcon.js")
 // require("js/omv/grid/column/BooleanText.js")
 // require("js/omv/grid/column/CronScheduling.js")
+// require("js/omv/grid/column/DeviceInfo.js")
 // require("js/omv/grid/column/Empty.js")
 // require("js/omv/grid/column/Hyperlink.js")
 // require("js/omv/grid/column/UnixTimestamp.js")
@@ -94,6 +95,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 		"OMV.grid.column.BooleanIcon",
 		"OMV.grid.column.BooleanText",
 		"OMV.grid.column.CronScheduling",
+		"OMV.grid.column.DeviceInfo",
 		"OMV.grid.column.Empty",
 		"OMV.grid.column.Hyperlink",
 		"OMV.grid.column.UnixTimestamp",

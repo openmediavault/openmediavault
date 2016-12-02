@@ -18,21 +18,44 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+// require("js/omv/util/Format.js")
 
 /**
  * @ingroup webgui
- * @class OMV.grid.column.Empty
+ * @class OMV.grid.column.DeviceInfo
  * @derived Ext.grid.column.Column
- * @param emptyText The text to be used if the value to be displayed is
- *   empty. Defaults to 'n/a'.
  */
-Ext.define("OMV.grid.column.Empty", {
+Ext.define("OMV.grid.column.DeviceInfo", {
 	extend: "Ext.grid.column.Column",
-	alias: [ "widget.emptycolumn" ],
+	alias: [ "widget.deviceinfocolumn" ],
+	requires: [
+		"OMV.util.Format"
+	],
 
-	emptyText: _("n/a"),
-
-	defaultRenderer: function(value) {
-		return Ext.util.Format.defaultValue(value, this.emptyText);
+	defaultRenderer: function(value, metaData, record) {
+		var values = record.getData();
+		var fields = {
+			model: {
+				label: _("Model"),
+				text: "{model}"
+			},
+			devicefile: {
+				label: _("Device"),
+				text: "{devicefile}"
+			},
+			size: {
+				label: _("Capacity"),
+				text: "{[OMV.util.Format.binaryUnit(values.size)]}"
+			}
+		};
+		var tplConfig = [];
+		Ext.Object.each(fields, function(key, value) {
+			if (false === Ext.Object.hasProperty(values, key))
+				return;
+			Ext.Array.push(tplConfig, Ext.String.format("{0}: {1}",
+			  value.label, value.text));
+		});
+		var tpl = new Ext.XTemplate(tplConfig.join("<br/>"));
+		return tpl.apply(record.getData());
 	}
 });
