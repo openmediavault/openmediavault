@@ -305,7 +305,6 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs = [];
 		$cmdArgs[] = "--grow";
 		$cmdArgs[] = "--size=max";
-		$cmdArgs[] = sprintf("--raid-devices=%d", $numDevices);
 		$cmdArgs[] = escapeshellarg($raid->getDeviceFile());
 		$cmd = new \OMV\System\Process("mdadm", $cmdArgs);
 		$cmd->setRedirect2to1();
