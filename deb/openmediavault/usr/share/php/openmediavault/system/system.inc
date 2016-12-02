@@ -30,18 +30,30 @@ require_once("openmediavault/functions.inc");
 class System {
 	/**
 	 * Get the device file where the operating system is installed on (e.g.
-	 * /dev/sda1).
+	 * /dev/sda1). To avoid further useless process calls to determine the
+	 * root device file the value is cached in a static variable when this
+	 * method is called the first time.
 	 * @return Returns the device file where the operating system is installed
-	 *   on or FALSE on failure.
+	 *   on.
+	 * @throw \OMV\ExecException
 	 */
 	public static function getRootDeviceFile() {
-		if (is_block("/dev/root"))
-			return realpath("/dev/root");
+		// Cache the root device file. If this should change during the
+		// meantime something strange has been happened to the system.
+		static $rootDeviceFile = NULL;
+		if (!is_null($rootDeviceFile))
+			return $rootDeviceFile;
+		// Do not use /dev/root anymore because Debian has removed this
+		// symlink in Jessie. The OMV workaround to create this symlink
+		// during the boot process via an udev rule does not work reliable.
+		//if (is_block("/dev/root"))
+		//	return realpath("/dev/root");
 		$cmd = new \OMV\System\Process("findmnt", "-f", "-n",
 		  "-o SOURCE", "/");
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
-		return $output[0];
+		$rootDeviceFile = $output[0];
+		return $rootDeviceFile;
 	}
 
 	/**
