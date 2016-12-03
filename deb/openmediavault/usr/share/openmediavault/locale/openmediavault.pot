@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-09 21:33+0200\n"
+"POT-Creation-Date: 2016-12-03 13:46+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -164,6 +164,9 @@ msgid "ASCII"
 msgstr ""
 
 msgid "About"
+msgstr ""
+
+msgid "Absolute Path"
 msgstr ""
 
 msgid "Abstract"
@@ -1969,6 +1972,9 @@ msgstr ""
 msgid "Mount"
 msgstr ""
 
+msgid "Mount Point"
+msgstr ""
+
 msgid "Mounted"
 msgstr ""
 
@@ -2506,6 +2512,9 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
+msgid "Relative Path"
+msgstr ""
+
 msgid "Reload"
 msgstr ""
 
@@ -2615,6 +2624,9 @@ msgid "S.M.A.R.T. information"
 msgstr ""
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
+msgstr ""
+
+msgid "S/N"
 msgstr ""
 
 msgid "SMB/CIFS"
