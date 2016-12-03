@@ -647,10 +647,16 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 		dataIndex: "device",
 		stateId: "device"
 	},{
-		text: _("Path"),
+		text: _("Relative Path"),
 		sortable: true,
 		dataIndex: "reldirpath",
 		stateId: "reldirpath"
+	},{
+		text: _("Absolute Path"),
+		sortable: true,
+		hidden: true,
+		dataIndex: "absdirpath",
+		stateId: "absdirpath"
 	},{
 		text: _("Comment"),
 		sortable: true,
@@ -675,10 +681,22 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 						{ name: "uuid", type: "string" },
 						{ name: "name", type: "string" },
 						{ name: "reldirpath", type: "string" },
+						{
+							name: "absdirpath",
+							convert: function(value, record) {
+								var mntent = record.get("mntent");
+								return Ext.String.format("{0}/{1}",
+									mntent.dir, record.get("reldirpath"));
+							},
+							type: "string"
+						},
 						{ name: "comment", type: "string" },
 						{ name: "device", type: "string" },
-						{ name: "posixacl", mapping: "mntent.posixacl",
-						  type: "boolean" },
+						{
+							name: "posixacl",
+							mapping: "mntent.posixacl",
+							type: "boolean"
+						},
 						{ name: "_used", type: "boolean" }
 					]
 				}),
