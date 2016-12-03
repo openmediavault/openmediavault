@@ -177,7 +177,7 @@ OMV.util.Format = function() {
 				invalidText = Ext.isDefined(invalidText) ?
 				  invalidText : _("n/a");
 				var v = parseInt(value);
-				if (!Ext.isNumber(v))
+				if (!Ext.isNumber(v) || (0 > v))
 					return invalidText;
 				return v.binaryFormat();
 			},

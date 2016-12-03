@@ -447,7 +447,8 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			$objectAssoc = array_merge($objectAssoc, [
 				"devicefile" => gettext("n/a"),
 				"devicefiles" => [],
-				"model" => gettext("n/a"),
+				"model" => "",
+				"serialnumber" => "",
 				"size" => "-1" // as string
 			]);
 			// Get the storage device object.
@@ -459,6 +460,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 					"devicefile" => $sd->getDeviceFile(),
 					"devicefiles" => $sd->getDeviceFiles(),
 					"model" => $sd->getModel(),
+					"serialnumber" => $sd->getSerialNumber(),
 					"size" => $sd->getSize()
 				]);
 			}

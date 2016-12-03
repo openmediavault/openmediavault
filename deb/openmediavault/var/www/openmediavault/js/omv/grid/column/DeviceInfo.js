@@ -35,13 +35,17 @@ Ext.define("OMV.grid.column.DeviceInfo", {
 	defaultRenderer: function(value, metaData, record) {
 		var values = record.getData();
 		var fields = {
+			devicefile: {
+				label: _("Device"),
+				text: "{devicefile}"
+			},
 			model: {
 				label: _("Model"),
 				text: "{model}"
 			},
-			devicefile: {
-				label: _("Device"),
-				text: "{devicefile}"
+			serialnumber: {
+				label: _("S/N"),
+				text: "{serialnumber}"
 			},
 			size: {
 				label: _("Capacity"),
@@ -50,7 +54,11 @@ Ext.define("OMV.grid.column.DeviceInfo", {
 		};
 		var tplConfig = [];
 		Ext.Object.each(fields, function(key, value) {
-			if (false === Ext.Object.hasProperty(values, key))
+			// Check if the property exists.
+			if (!Ext.Object.hasProperty(values, key))
+				return;
+			// Skip this property if its value is empty.
+			if (Ext.isEmpty(values[key]))
 				return;
 			Ext.Array.push(tplConfig, Ext.String.format("{0}: {1}",
 			  value.label, value.text));
