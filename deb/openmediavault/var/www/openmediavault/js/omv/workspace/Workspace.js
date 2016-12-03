@@ -253,7 +253,11 @@ Ext.define("OMV.workspace.Workspace", {
 											return;
 										switch (item.action) {
 										case "resetdefaults":
+											// Clear cookies.
 											Ext.state.Manager.getProvider().clearAll();
+											// Reload the page.
+											OMV.confirmPageUnload = false;
+											document.location.reload();
 											break;
 										case "logout":
 											OMV.SessionManager.logout();
