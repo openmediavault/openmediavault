@@ -86,8 +86,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			// Prepare device object
 			$objects[] = [
 				"devicename" => $sd->getDeviceName(),
-				"devicefile" => $sd->hasDeviceFileById() ?
-					$sd->getDeviceFileById() : $sd->getDeviceFile(),
+				"devicefile" => $sd->getCanonicalDeviceFile(),
 				"devicefiles" => $sd->getDeviceFiles(),
 				"model" => $sd->getModel(),
 				"size" => $sd->getSize(),

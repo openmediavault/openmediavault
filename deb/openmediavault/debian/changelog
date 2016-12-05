@@ -1,5 +1,10 @@
 openmediavault (3.0.55) stable; urgency=low
 
+  * Display canonical device file names in 'Storage | Physical Disks' and
+    'Storage | S.M.A.R.T. | Devices'. Add the grid column 'Device Symlinks'
+    to both tables which is hidden by default.
+  * Add the column 'Mount Point' to the grid in 'Storage | File Systems'. It is
+    hidden by default, same to the columns 'Parent Device' and 'Identify As'.
   * Mantis 0001648: Error adding drive to raid 5 array.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 02 Dec 2016 17:33:27 +0100

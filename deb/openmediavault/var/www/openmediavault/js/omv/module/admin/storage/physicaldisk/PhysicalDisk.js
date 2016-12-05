@@ -117,7 +117,7 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Settings", {
 					[ 246, _("180 minutes") ],
 					[ 248, _("240 minutes") ],
 					[ 250, _("300 minutes") ],
-					[ 252, _("360 minutes") ]
+					[ 251, _("330 minutes") ]
 				]
 			}),
 			displayField: "text",
@@ -173,9 +173,15 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 	stateful: true,
 	stateId: "5e5cc148-c1e7-11e0-99e1-00221568ca88",
 	columns: [{
-		xtype: "devicefilescolumn",
 		text: _("Device"),
 		sortable: true,
+		dataIndex: "devicefile",
+		stateId: "devicefile",
+	},{
+		xtype: "devicefilescolumn",
+		text: _("Device Symlinks"),
+		sortable: false,
+		hidden: true,
 		dataIndex: "devicefiles",
 		stateId: "devicefiles",
 	},{

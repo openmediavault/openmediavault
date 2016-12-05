@@ -470,9 +470,15 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 		resizable: false,
 		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
 	},{
-		xtype: "devicefilescolumn",
 		text: _("Device"),
 		sortable: true,
+		dataIndex: "devicefile",
+		stateId: "devicefile"
+	},{
+		xtype: "devicefilescolumn",
+		text: _("Device Symlinks"),
+		sortable: false,
+		hidden: true,
 		dataIndex: "devicefiles",
 		stateId: "devicefiles"
 	},{
