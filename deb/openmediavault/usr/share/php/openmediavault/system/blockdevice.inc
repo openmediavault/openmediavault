@@ -159,19 +159,12 @@ class BlockDevice implements IBlockDevice {
 	}
 
 	/**
-	 * Get the special device file to present in the UI instead of the
-	 * value of the getDeviceFile method.
-	 * Get the special device file in the following preferred order:
-	 * <ul>
-	 * \li /dev/disk/by-id/xxx
-	 * \li /dev/xxx
-	 * </ul>
-	 * @return Returns the special device file.
+	 * Get the special device file to present in the UI. Defaults
+	 * to the canonical representation of special device file.
+	 * @return Returns the special device file to present in the UI.
 	 */
 	public function getPreferredDeviceFile() {
-		if (TRUE === $this->hasDeviceFileById())
-			return $this->getDeviceFileById();
-		return $this->getDeviceFile();
+		return $this->getCanonicalDeviceFile();
 	}
 
 	/**
@@ -201,7 +194,7 @@ class BlockDevice implements IBlockDevice {
 	 * See interface definition.
 	 */
 	public function getDeviceFiles() {
-		$result = [ $this->getDeviceFile() ];
+		$result = [ $this->getCanonicalDeviceFile() ];
 		// Append the symlinks found by udev.
 		$result = array_merge($result, $this->getDeviceFileSymlinks());
 		// Remove duplicate entries and re-index array.

@@ -479,8 +479,8 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 		text: _("Device Symlinks"),
 		sortable: false,
 		hidden: true,
-		dataIndex: "devicefiles",
-		stateId: "devicefiles"
+		dataIndex: "devicelinks",
+		stateId: "devicelinks"
 	},{
 		xtype: "emptycolumn",
 		text: _("Model"),
@@ -564,7 +564,7 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 					fields: [
 						{ name: "uuid", type: "string" },
 						{ name: "devicefile", type: "string" },
-						{ name: "devicefiles", type: "array" },
+						{ name: "devicelinks", type: "array" },
 						{ name: "model", type: "string" },
 						{ name: "vendor", type: "string" },
 						{ name: "serialnumber", type: "string" },

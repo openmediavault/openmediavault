@@ -46,7 +46,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array containing physical disk device objects with the
-	 *   fields \em devicename, \em devicefile, \em devicefiles, \em model,
+	 *   fields \em devicename, \em devicefile, \em devicelinks, \em model,
 	 *   \em size, \em description, \em vendor, \em serialnumber, \em israid,
 	 *   and \em isroot.
 	 * @throw \OMV\Exception
@@ -78,7 +78,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 			$objects[] = [
 				"devicename" => $sd->getDeviceName(),
 				"devicefile" => $sd->getCanonicalDeviceFile(),
-				"devicefiles" => $sd->getDeviceFiles(),
+				"devicelinks" => $sd->getDeviceFileSymlinks(),
 				"model" => $sd->getModel(),
 				"size" => $sd->getSize(),
 				"description" => $sd->getDescription(),
@@ -125,7 +125,8 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 			$confObjects = $db->getByFilter("conf.system.hdparm", [
 				"operator" => "stringEnum",
 				"arg0" => "devicefile",
-				"arg1" => $objectv['devicefiles']
+				"arg1" => array_merge([ $objectv['devicefile'] ],
+					$objectv['devicelinks'])
 			]);
 			if (1 <= count($confObjects)) {
 				// Append the first found configuration values.
@@ -134,7 +135,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Filter result.
 		return $this->applyFilter($objects, $params['start'],
-		  $params['limit'], $params['sortfield'], $params['sortdir']);
+			$params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
 	/**

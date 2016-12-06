@@ -54,7 +54,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array containing disk device objects with the
-	 *   following fields: \em devicename, \em devicefile, \em devicefiles,
+	 *   following fields: \em devicename, \em devicefile, \em devicelinks,
 	 *   \em model, \em size, \em temperature, \em description, \em vendor
 	 *   and \em serialnumber.
 	 * @throw \OMV\Exception
@@ -87,7 +87,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			$objects[] = [
 				"devicename" => $sd->getDeviceName(),
 				"devicefile" => $sd->getCanonicalDeviceFile(),
-				"devicefiles" => $sd->getDeviceFiles(),
+				"devicelinks" => $sd->getDeviceFileSymlinks(),
 				"model" => $sd->getModel(),
 				"size" => $sd->getSize(),
 				"temperature" => (FALSE === $temperature) ?
@@ -106,9 +106,9 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array containing disk device objects with the
-	 *   following fields: \em devicename, \em devicefile, \em model,
-	 *   \em size, \em temperature, \em description, \em vendor and
-	 *   \em serialnumber.
+	 *   following fields: \em devicename, \em devicefile, \em devicelinks,
+	 *   \em model, \em size, \em temperature, \em description, \em vendor
+	 *   and \em serialnumber.
 	 */
 	public function enumerateMonitoredDevices($params, $context) {
 		// Validate the RPC caller context.
@@ -125,11 +125,12 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			// and 'dev/disk/by-id/xxx' entries.
 			$db = \OMV\Config\Database::getInstance();
 			$confObjects = $db->getByFilter(
-			  "conf.service.smartmontools.device", [
-				  "operator" => "stringEnum",
-				  "arg0" => "devicefile",
-				  "arg1" => $objectv['devicefiles']
-			  ]);
+				"conf.service.smartmontools.device", [
+					"operator" => "stringEnum",
+					"arg0" => "devicefile",
+					"arg1" => array_merge([ $objectv['devicefile'] ],
+  						$objectv['devicelinks'])
+				]);
 			if (0 >= count($confObjects))
 				continue;
 			$confObject = $confObjects[0];
@@ -164,18 +165,19 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		// Append additional configuration data.
 		foreach ($objects as $objectk => &$objectv) {
 			$objectv['uuid'] = \OMV\Environment::get(
-			  "OMV_CONFIGOBJECT_NEW_UUID");
+				"OMV_CONFIGOBJECT_NEW_UUID");
 			$objectv['monitor'] = FALSE;
 			// Check if there exists a device configuration object for the
 			// given device. Note, we have to check for 'dev/xxx' and
 			// 'dev/disk/by-id/xxx' entries.
 			$db = \OMV\Config\Database::getInstance();
 			$confObjects = $db->getByFilter(
-			  "conf.service.smartmontools.device", [
-				  "operator" => "stringEnum",
-				  "arg0" => "devicefile",
-				  "arg1" => $objectv['devicefiles']
-			  ]);
+				"conf.service.smartmontools.device", [
+					"operator" => "stringEnum",
+					"arg0" => "devicefile",
+					"arg1" => array_merge([ $objectv['devicefile'] ],
+  						$objectv['devicelinks'])
+				]);
 			// If found, then finally get the S.M.A.R.T. device settings
 			// configuration object.
 			if (0 < count($confObjects)) {
@@ -444,8 +446,8 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			$objectAssoc = $objectv->getAssoc();
 			// Append storage device information.
 			$objectAssoc = array_merge($objectAssoc, [
-				"devicefile" => gettext("n/a"),
-				"devicefiles" => [],
+				"devicefile" => "",
+				"devicelinks" => [],
 				"model" => "",
 				"serialnumber" => "",
 				"size" => "-1" // as string
@@ -456,8 +458,8 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			if (!is_null($sd) && $sd->exists()) {
 				// Update storage device information.
 				$objectAssoc = array_merge($objectAssoc, [
-					"devicefile" => $sd->getDeviceFile(),
-					"devicefiles" => $sd->getDeviceFiles(),
+					"devicefile" => $sd->getCanonicalDeviceFile(),
+					"devicelinks" => $sd->getDeviceFileSymlinks(),
 					"model" => $sd->getModel(),
 					"serialnumber" => $sd->getSerialNumber(),
 					"size" => $sd->getSize()
@@ -467,7 +469,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Filter result.
 		return $this->applyFilter($objectsAssoc, $params['start'],
-		  $params['limit'], $params['sortfield'], $params['sortdir']);
+			$params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
 	/**

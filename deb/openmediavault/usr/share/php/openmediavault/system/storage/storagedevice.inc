@@ -81,7 +81,7 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 	public function getDescription() {
 		$model = $this->getModel();
 		return sprintf("%s [%s, %s]", !empty($model) ? $model : gettext("n/a"),
-		  $this->getDeviceFile(), binary_format($this->getSize()));
+		  $this->getPreferredDeviceFile(), binary_format($this->getSize()));
 	}
 
 	/**
