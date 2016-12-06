@@ -136,6 +136,16 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			$confObject = $confObjects[0];
 			if (TRUE !== $confObject->get("enable"))
 				continue;
+			// Modify the devicefile property. Use the 'dev/disk/by-id/xxx'
+			// device file if possible.
+			if (FALSE === is_devicefile_by_id($objectv['devicefile'])) {
+				foreach ($objectv['devicelinks'] as $devLinkk => $devLinkv) {
+					if( TRUE === is_devicefile_by_id($devLinkv)) {
+						$objectv['devicefile'] = $devLinkv;
+						break;
+					}
+				}
+			}
 			$result[] = $objectv;
 		}
 		return $result;
