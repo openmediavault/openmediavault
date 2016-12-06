@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-03 13:46+0100\n"
+"POT-Creation-Date: 2016-12-06 06:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -124,7 +124,7 @@ msgstr ""
 msgid "300 minutes"
 msgstr ""
 
-msgid "360 minutes"
+msgid "330 minutes"
 msgstr ""
 
 msgid "4 days"
@@ -821,6 +821,9 @@ msgid "Device"
 msgstr ""
 
 msgid "Device Mapper %s [%s, %s]"
+msgstr ""
+
+msgid "Device Symlinks"
 msgstr ""
 
 msgid "Device has a few bad sectors"
