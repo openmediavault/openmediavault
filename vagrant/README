@@ -1,0 +1,4 @@
+1. Download Vagrant from https://www.vagrantup.com/downloads.html
+
+2. Install plugins
+$ vagrant plugin install vagrant-cachier

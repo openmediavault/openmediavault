@@ -20,18 +20,51 @@
 # along with openmediavault. If not, see <http://www.gnu.org/licenses/>.
 
 Vagrant.configure("2") do |config|
-	config.vm.box = "debian/jessie64"
+	if ENV['DISTRO'] == "stretch"
+		# Debian 9/Stretch
+		config.vm.box = "remram/debian-9-amd64"
+	else
+		# Debian 8/Jessie
+		config.vm.box = "debian/jessie64"
+		# Rename the storage controller.
+		config.vm.provider :virtualbox do |prov|
+			prov.customize ["storagectl", :id, "--name", "SATA Controller",
+				"--rename", "SATA"]
+		end
+	end
+	config.vm.provision :shell, :path => "install.sh"
 	config.vm.network "private_network", ip: "192.172.16.22"
 	config.vm.hostname = "omv3box"
 	config.vm.provider :virtualbox do |prov|
-		prov.name = "omv3-box"
+		prov.name = "omv3box"
 		prov.memory = "2048"
+		# Add some disks.
+		for i in 0..2 do
+			filename = "./disks/box-disk#{i}.vmdk"
+			unless File.exist?(filename)
+				prov.customize ["createhd", "--filename", filename,
+					"--size", 1000 * 1024]
+			end
+			prov.customize ["storageattach", :id, "--storagectl",
+				"SATA", "--port", i + 1, "--device", 0,
+				"--type", "hdd", "--medium", filename]
+		end
 	end
 	config.vm.provider :libvirt do |prov|
 		prov.memory = "2048"
+		# Add some disks.
+		prov.storage :file, :size => "1G", :bus => "scsi"
+		prov.storage :file, :size => "1G", :bus => "scsi"
+		prov.storage :file, :size => "1G", :bus => "scsi"
 	end
 	config.vm.synced_folder "../deb", "/home/vagrant/openmediavault",
 		:nfs => true,
 		:mount_options => ["nolock,vers=3,udp,noatime,actimeo=1"]
-	config.vm.provision :shell, :path => "bootstrap.sh"
+	if Vagrant.has_plugin?("vagrant-cachier")
+		config.cache.scope = :box
+		config.cache.synced_folder_opts = {
+			type: :nfs,
+			mount_options: ["rw", "vers=3", "tcp", "nolock"]
+		}
+	end
 end
