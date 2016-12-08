@@ -193,17 +193,6 @@ class BlockDevice implements IBlockDevice {
 	/**
 	 * See interface definition.
 	 */
-	public function getDeviceFiles() {
-		$result = [ $this->getCanonicalDeviceFile() ];
-		// Append the symlinks found by udev.
-		$result = array_merge($result, $this->getDeviceFileSymlinks());
-		// Remove duplicate entries and re-index array.
-		return array_values(array_unique($result));
-	}
-
-	/**
-	 * See interface definition.
-	 */
 	public function getDeviceName($canonical = FALSE) {
 		// Get the device file and extract the name, e.g. /dev/sda => sda.
 		$deviceName = str_replace("/dev/", "", !$canonical ?

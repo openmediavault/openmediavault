@@ -98,12 +98,6 @@ interface IBlockDevice {
 	public function getDeviceFileSymlinks();
 
 	/**
-	 * Get the list of all device files of this block device.
-	 * @return An array of device files.
-	 */
-	public function getDeviceFiles();
-
-	/**
 	 * Get the device name, e.g. sda or hdb.
 	 * @param canonical If set to TRUE the canonical device file will
 	 *   be used. Defaults to FALSE.
