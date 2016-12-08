@@ -480,7 +480,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	 * @return An array that contains the component devices of the filesystem.
 	 */
 	public function getDeviceFiles() {
-		return [ $this->getPreferredDeviceFile() ];
+		return [ $this->getCanonicalDeviceFile() ];
 	}
 
 	/**

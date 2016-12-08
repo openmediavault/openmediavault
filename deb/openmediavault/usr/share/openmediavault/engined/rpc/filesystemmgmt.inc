@@ -408,8 +408,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			$objects[] = [
 				"devicefile" => is_devicefile($mntentv->get("fsname")) ?
 				  $mntentv->get("fsname") : "",
-				"devicefiles" => is_devicefile($mntentv->get("fsname")) ?
-				  [ $mntentv->get("fsname") ] : [],
+				"devicefiles" => $fs->getDeviceFiles(),
 				"uuid" => is_uuid($mntentv->get("fsname")) ?
 				  $mntentv->get("fsname") : "",
 				"label" => "",
