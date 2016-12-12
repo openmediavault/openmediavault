@@ -50,6 +50,7 @@ OMV_SAMBA_SHARE_DIRECTORYMASK=${OMV_SAMBA_SHARE_DIRECTORYMASK:-"0775"}
 OMV_SAMBA_SHARE_FORCEDIRECTORYMODE=${OMV_SAMBA_SHARE_FORCEDIRECTORYMODE:-"0775"}
 OMV_SAMBA_SHARE_HIDESPECIALFILES=${OMV_SAMBA_SHARE_HIDESPECIALFILES:-"yes"}
 OMV_SAMBA_SHARE_FOLLOWSYMLINKS=${OMV_SAMBA_SHARE_FOLLOWSYMLINKS:-"yes"}
+OMV_SAMBA_SHARE_VFSOBJECTS=${OMV_SAMBA_SHARE_VFSOBJECTS:-""}
 OMV_SAMBA_SHARE_AUDIT_PREFIX=${OMV_SAMBA_SHARE_AUDIT_PREFIX:-"%u|%I|%m|%P|%S"}
 OMV_SAMBA_SHARE_AUDIT_SUCCESS=${OMV_SAMBA_SHARE_AUDIT_SUCCESS:-"mkdir rename unlink rmdir pwrite"}
 OMV_SAMBA_SHARE_AUDIT_FAILURE=${OMV_SAMBA_SHARE_AUDIT_FAILURE:-"none"}
@@ -89,12 +90,12 @@ while [ ${index} -gt 0 ]; do
 		  -i "easupport[. = '1']" -o "ea support = yes" -n -b \
 		  -i "storedosattributes[. = '0']" -o "store dos attributes = no" -n -b \
 		  -i "storedosattributes[. = '1']" -o "store dos attributes = yes" -n -b \
+		  -o "vfs objects = ${OMV_SAMBA_SHARE_VFSOBJECTS}" \
 		  -i "recyclebin[. = '1'] or audit[. = '1']" \
-			  -o "vfs objects =" \
 			  -i "recyclebin[. = '1']" -o " recycle" -b \
 			  -i "audit[. = '1']" -o " full_audit" -b \
-			  -n \
 		  -b \
+		  -n \
 		  -i "recyclebin[. = '1']" \
 			  -o "recycle:repository = ${OMV_SAMBA_SHARE_RECYCLE_REPOSITORY}/%U" -n \
 			  -o "recycle:keeptree = ${OMV_SAMBA_SHARE_RECYCLE_KEEPTREE}" -n \
