@@ -1,3 +1,9 @@
+openmediavault (3.0.57) stable; urgency=low
+
+  * Fix unicode issue in data model format.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 12 Dec 2016 20:42:06 +0100
+
 openmediavault (3.0.56) stable; urgency=low
 
   * Improve filter to get S.M.A.R.T. device settings.
