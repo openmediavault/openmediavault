@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-09 21:33+0200\n"
-"PO-Revision-Date: 2016-10-10 15:11+0000\n"
-"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
+"POT-Creation-Date: 2016-12-06 06:19+0100\n"
+"PO-Revision-Date: 2016-12-06 05:21+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/votdev/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -125,8 +125,8 @@ msgstr "30 dakika"
 msgid "300 minutes"
 msgstr "300 dakika"
 
-msgid "360 minutes"
-msgstr "360 dakika"
+msgid "330 minutes"
+msgstr ""
 
 msgid "4 days"
 msgstr "4 gün"
@@ -166,6 +166,9 @@ msgstr "ASCII"
 
 msgid "About"
 msgstr "Hakkında"
+
+msgid "Absolute Path"
+msgstr "Kesin Dizin"
 
 msgid "Abstract"
 msgstr "Özet"
@@ -840,6 +843,9 @@ msgstr "Aygıt"
 
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Aygıt Bağlantılandırıcısı %s [%s, %s]"
+
+msgid "Device Symlinks"
+msgstr ""
 
 msgid "Device has a few bad sectors"
 msgstr "Aygıtta az bir miktar bozuk sektör var"
@@ -2050,6 +2056,9 @@ msgstr "Fas"
 msgid "Mount"
 msgstr "Bağla"
 
+msgid "Mount Point"
+msgstr "Bağlantı Noktası"
+
 msgid "Mounted"
 msgstr "Bağlanmış"
 
@@ -2622,6 +2631,9 @@ msgstr "Başvurulmuş"
 msgid "Refresh"
 msgstr "Yenile"
 
+msgid "Relative Path"
+msgstr "Bağlantılı Dizin"
+
 msgid "Reload"
 msgstr "Yeniden yükle"
 
@@ -2738,6 +2750,9 @@ msgstr "S.M.A.R.T. bilgisi"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "Seçili aygıt için S.M.A.R.T. izlemesi aktive edilmelidir."
+
+msgid "S/N"
+msgstr "Seri No"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-09 21:33+0200\n"
-"PO-Revision-Date: 2016-10-11 10:30+0000\n"
+"POT-Creation-Date: 2016-12-06 06:19+0100\n"
+"PO-Revision-Date: 2016-12-06 23:02+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -126,8 +126,8 @@ msgstr "30 minut"
 msgid "300 minutes"
 msgstr "300 minut"
 
-msgid "360 minutes"
-msgstr "360 minut"
+msgid "330 minutes"
+msgstr "330 minut"
 
 msgid "4 days"
 msgstr "4 dny"
@@ -167,6 +167,9 @@ msgstr "ASCII"
 
 msgid "About"
 msgstr "O systému"
+
+msgid "Absolute Path"
+msgstr "Úplný popis umístění"
 
 msgid "Abstract"
 msgstr "Abstrakt"
@@ -841,6 +844,9 @@ msgstr "Zařízení"
 
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Mapovač zařízení %s [%s, %s]"
+
+msgid "Device Symlinks"
+msgstr "Symbolické odkazy na zařízení"
 
 msgid "Device has a few bad sectors"
 msgstr "Na záznamovém médiu zařízení se vyskytuje několik vadných sektorů"
@@ -2051,6 +2057,9 @@ msgstr "Maroko"
 msgid "Mount"
 msgstr "Připojit (mount)"
 
+msgid "Mount Point"
+msgstr "Přípojný bod"
+
 msgid "Mounted"
 msgstr "Připojeno"
 
@@ -2623,6 +2632,9 @@ msgstr "Odkazované"
 msgid "Refresh"
 msgstr "Načíst znovu"
 
+msgid "Relative Path"
+msgstr "Vztažený popis umístění"
+
 msgid "Reload"
 msgstr "Znovu načíst"
 
@@ -2739,6 +2751,9 @@ msgstr "S.M.A.R.T. informace"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "Je třeba, aby zvolené zařízení mělo zapnuté S.M.A.R.T. dohledování."
+
+msgid "S/N"
+msgstr "Sér. č."
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"

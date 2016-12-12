@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-09 21:33+0200\n"
-"PO-Revision-Date: 2016-10-18 16:27+0000\n"
+"POT-Creation-Date: 2016-12-06 06:19+0100\n"
+"PO-Revision-Date: 2016-12-06 16:28+0000\n"
 "Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/votdev/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -125,8 +125,8 @@ msgstr "30 λεπτά"
 msgid "300 minutes"
 msgstr "300 λεπτά"
 
-msgid "360 minutes"
-msgstr "360 λεπτά"
+msgid "330 minutes"
+msgstr "330 λεπτά"
 
 msgid "4 days"
 msgstr "4 ημέρες"
@@ -166,6 +166,9 @@ msgstr "ASCII"
 
 msgid "About"
 msgstr "Σχετικά"
+
+msgid "Absolute Path"
+msgstr "Πλήρης Διαδρομή"
 
 msgid "Abstract"
 msgstr "Επιτομή"
@@ -840,6 +843,9 @@ msgstr "Συσκευή"
 
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Αντιστόιχιση συσκευής %s [%s, %s]"
+
+msgid "Device Symlinks"
+msgstr "Συντομεύσεις Συσκευής"
 
 msgid "Device has a few bad sectors"
 msgstr "Η συσκευή έχει μερικούς χαλασμένους τομείς"
@@ -2050,6 +2056,9 @@ msgstr "Morocco"
 msgid "Mount"
 msgstr "Προσάρτηση"
 
+msgid "Mount Point"
+msgstr "Σημείο Προσάρτησης"
+
 msgid "Mounted"
 msgstr "Προσαρτημένο"
 
@@ -2622,6 +2631,9 @@ msgstr "Αναφερόμενα"
 msgid "Refresh"
 msgstr "Ανανέωση"
 
+msgid "Relative Path"
+msgstr "Σχετική Διαδρομή"
+
 msgid "Reload"
 msgstr "Επαναφόρτωση"
 
@@ -2738,6 +2750,9 @@ msgstr "Πληροφορίες S.M.A.R.T."
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "Η παρακολούθηση S.M.A.R.T. πρέπει να είναι ενεργοποιημένη για την επιλεγμένη συσκευή."
+
+msgid "S/N"
+msgstr "Α/Σ"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"

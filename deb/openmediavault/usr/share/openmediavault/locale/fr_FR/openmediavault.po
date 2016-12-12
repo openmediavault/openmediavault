@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-09 21:33+0200\n"
-"PO-Revision-Date: 2016-10-09 19:34+0000\n"
+"POT-Creation-Date: 2016-12-06 06:19+0100\n"
+"PO-Revision-Date: 2016-12-06 05:21+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/votdev/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -130,8 +130,8 @@ msgstr "30 minutes"
 msgid "300 minutes"
 msgstr "300 minutes"
 
-msgid "360 minutes"
-msgstr "360 minutes"
+msgid "330 minutes"
+msgstr ""
 
 msgid "4 days"
 msgstr "4 jours"
@@ -171,6 +171,9 @@ msgstr "ASCII"
 
 msgid "About"
 msgstr "A propos"
+
+msgid "Absolute Path"
+msgstr ""
 
 msgid "Abstract"
 msgstr "Résumé"
@@ -845,6 +848,9 @@ msgstr "Périphérique"
 
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Correspondance de périphériques (device mapper) %s [%s, %s]"
+
+msgid "Device Symlinks"
+msgstr ""
 
 msgid "Device has a few bad sectors"
 msgstr ""
@@ -2055,6 +2061,9 @@ msgstr "Maroc"
 msgid "Mount"
 msgstr "Monter"
 
+msgid "Mount Point"
+msgstr ""
+
 msgid "Mounted"
 msgstr "Monté"
 
@@ -2627,6 +2636,9 @@ msgstr "Référencé"
 msgid "Refresh"
 msgstr "Rafraîchir"
 
+msgid "Relative Path"
+msgstr ""
+
 msgid "Reload"
 msgstr "Recharger"
 
@@ -2743,6 +2755,9 @@ msgstr "Informations S.M.A.R.T."
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "La surveillance S.M.A.R.T. doit-être activée pour le périphérique sélectionné."
+
+msgid "S/N"
+msgstr ""
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"

@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-09 21:33+0200\n"
-"PO-Revision-Date: 2016-10-09 19:34+0000\n"
+"POT-Creation-Date: 2016-12-06 06:19+0100\n"
+"PO-Revision-Date: 2016-12-06 05:21+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Galician (http://www.transifex.com/votdev/openmediavault/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -128,8 +128,8 @@ msgstr "30 minutos"
 msgid "300 minutes"
 msgstr "300 minutos"
 
-msgid "360 minutes"
-msgstr "360 minutos"
+msgid "330 minutes"
+msgstr ""
 
 msgid "4 days"
 msgstr "4 días"
@@ -169,6 +169,9 @@ msgstr "ASCII"
 
 msgid "About"
 msgstr "Sobre"
+
+msgid "Absolute Path"
+msgstr ""
 
 msgid "Abstract"
 msgstr "Resumo"
@@ -843,6 +846,9 @@ msgstr "Dispositivo"
 
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Asignación de dispositivos %s [%s, %s]"
+
+msgid "Device Symlinks"
+msgstr ""
 
 msgid "Device has a few bad sectors"
 msgstr ""
@@ -2053,6 +2059,9 @@ msgstr "Marrocos"
 msgid "Mount"
 msgstr "Montar"
 
+msgid "Mount Point"
+msgstr ""
+
 msgid "Mounted"
 msgstr "Montado"
 
@@ -2625,6 +2634,9 @@ msgstr "Referenciado"
 msgid "Refresh"
 msgstr "Actualizar"
 
+msgid "Relative Path"
+msgstr ""
+
 msgid "Reload"
 msgstr "Cargar de novo"
 
@@ -2741,6 +2753,9 @@ msgstr "Información S.M.A.R.T."
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T. a supervisión debe estar activada para o dispositivo seleccionado."
+
+msgid "S/N"
+msgstr ""
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"

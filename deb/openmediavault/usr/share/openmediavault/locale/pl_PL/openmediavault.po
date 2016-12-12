@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-09 21:33+0200\n"
-"PO-Revision-Date: 2016-10-09 19:34+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2016-12-06 06:19+0100\n"
+"PO-Revision-Date: 2016-12-09 13:40+0000\n"
+"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/votdev/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,7 +30,7 @@ msgid "%s (%s available)"
 msgstr "%s (%s dostępnych)"
 
 msgid "%s [%s (%d%%) used, %s available]"
-msgstr ""
+msgstr "%s [%s (%d%%) użytych, %s dostępnych]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [na %s, %s]"
@@ -129,8 +129,8 @@ msgstr "30 minut"
 msgid "300 minutes"
 msgstr "300 minut"
 
-msgid "360 minutes"
-msgstr "360 minut"
+msgid "330 minutes"
+msgstr "330 minut"
 
 msgid "4 days"
 msgstr "4 dni"
@@ -170,6 +170,9 @@ msgstr "ASCII"
 
 msgid "About"
 msgstr "O"
+
+msgid "Absolute Path"
+msgstr "Ścieżka bezwzględna"
 
 msgid "Abstract"
 msgstr "Streszczenie"
@@ -845,6 +848,9 @@ msgstr "Urządzenie"
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Zmapowane urządzenie %s [%s, %s]"
 
+msgid "Device Symlinks"
+msgstr "Łącze symboliczne urządzenia"
+
 msgid "Device has a few bad sectors"
 msgstr "Urządzenie ma kilka uszkodzonych sektorów"
 
@@ -855,7 +861,7 @@ msgid "Device information"
 msgstr "Informacje urządzenia"
 
 msgid "Device is being used outside design parameters"
-msgstr ""
+msgstr "Urządzenie jest używane poza parametrami konstrukcyjnymi"
 
 msgid "Device model"
 msgstr "Model urządzenia"
@@ -864,7 +870,7 @@ msgid "Device properties"
 msgstr "Właściwości urządzenia"
 
 msgid "Device was used outside of design parameters in the past"
-msgstr ""
+msgstr "Urządzenie było używane poza parametrami konstrukcyjnymi w przeszłości"
 
 msgid "Device(s)"
 msgstr "Urządzenie(a)"
@@ -950,7 +956,7 @@ msgstr "Czy na pewno chcesz usunąć zawartość folderu udostępnionego? Zawart
 msgid ""
 "Do you really want to reset the UI settings to their default values, e.g. "
 "the order of the grid columns?"
-msgstr ""
+msgstr "Czy naprawdę chcesz zresetować ustawienia interfejsu użytkownika do ich wartości domyślnych, np. kolejność kolumn siatki?"
 
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
@@ -973,7 +979,7 @@ msgid "Domain name"
 msgstr "Nazwa domeny"
 
 msgid "Domains used when resolving host names."
-msgstr ""
+msgstr "Domeny używane podczas rozpoznawania nazw hostów."
 
 msgid "Dominica"
 msgstr "Dominica"
@@ -1307,7 +1313,7 @@ msgid "Filesize"
 msgstr "Rozmiar pliku"
 
 msgid "Filesystem Type"
-msgstr ""
+msgstr "Typ systemu plików"
 
 msgid "Filesystems"
 msgstr "Systemy plików"
@@ -1502,7 +1508,7 @@ msgid "ID"
 msgstr "ID"
 
 msgid "IP addresses of domain name servers used to resolve host names."
-msgstr ""
+msgstr "Adresy IP serwerów nazw domen używanych do rozpoznawania nazw hostów."
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -2054,6 +2060,9 @@ msgstr "Morocco"
 msgid "Mount"
 msgstr "Zamontuj"
 
+msgid "Mount Point"
+msgstr "Punkt montowania"
+
 msgid "Mounted"
 msgstr "Zamontowane"
 
@@ -2091,7 +2100,7 @@ msgid "Network"
 msgstr "Sieć"
 
 msgid "Network Interfaces"
-msgstr ""
+msgstr "Interfejs sieciowy"
 
 msgid "Network interfaces"
 msgstr "Interfejsy sieciowe"
@@ -2286,7 +2295,7 @@ msgid "Paraguay"
 msgstr "Paraguay"
 
 msgid "Parent Device"
-msgstr ""
+msgstr "Główne urządzenie"
 
 msgid "Parent interface"
 msgstr "Nadrzędny interfejs"
@@ -2404,12 +2413,12 @@ msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "Wybierz metodę do czyszczenia urządzenia lub wybierz \"Anuluj\", aby anulować."
 
 msgid "Please first select a device."
-msgstr ""
+msgstr "Proszę najpierw wybrać urządzenie."
 
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
 "are allowed."
-msgstr ""
+msgstr "Upewnij się, że folder udostępniony publicznie są do zapisu jeśli nowe pliki są dozwolone."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2626,6 +2635,9 @@ msgstr "Odwołanie"
 msgid "Refresh"
 msgstr "Odśwież"
 
+msgid "Relative Path"
+msgstr "Ścieżka względna"
+
 msgid "Reload"
 msgstr "Przeładuj"
 
@@ -2679,12 +2691,12 @@ msgid "Reset"
 msgstr "Reset"
 
 msgid "Reset UI to defaults"
-msgstr ""
+msgstr "Resetuj interfejs do ustawień domyślnych"
 
 msgid ""
 "Reset the UI settings to their default values, e.g. the order of the grid "
 "columns."
-msgstr ""
+msgstr "Resetowanie ustawień interfejsu użytkownika do ich wartości domyślnych, np. kolejność kolumn siatki."
 
 msgid "Resize"
 msgstr "Zmień rozmiar"
@@ -2742,6 +2754,9 @@ msgstr "Informacje S.M.A.R.T."
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "Monitoring S.M.A.R.T. musi być aktywny dla wybranego urządzenia"
+
+msgid "S/N"
+msgstr "S/N"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -2990,7 +3005,7 @@ msgstr "Ustaw tylko do zapisu"
 msgid ""
 "Sets the interval between disk checks to N seconds, logging S.M.A.R.T. "
 "errors and changes of S.M.A.R.T. attributes."
-msgstr ""
+msgstr "Ustawia interwał między sprawdzaniami dysku w N sekund, rejestrowanie błędów S.M.A.R.T. i zmiany atrybutów S.M.A.R.T."
 
 msgid "Settings"
 msgstr "Konfiguracja"
@@ -3005,7 +3020,7 @@ msgid "Shared folder"
 msgstr "Katalog współdzielony"
 
 msgid "Shared folder + content"
-msgstr ""
+msgstr "Udostępniony folder + zawartość"
 
 msgid "Shared folder must not be equal"
 msgstr "Folder udostępniony nie muszą być równy"
@@ -3159,7 +3174,7 @@ msgstr "Określa, czy zezwala się na logowanie jako administrator."
 msgid ""
 "Specifies whether the system performance statistics are collected "
 "periodically."
-msgstr ""
+msgstr "Określa, czy statystyki systemu wydajności są zbierane okresowo."
 
 msgid ""
 "Specifies whether to monitor the system status and select the most "
@@ -3299,7 +3314,7 @@ msgid "The RSA public key in OpenSSH format."
 msgstr "Publiczny klucz SSH w formacie OpenSSH"
 
 msgid "The SSH certificate used for authentication."
-msgstr ""
+msgstr "Certyfikat SSH używany do autoryzacji."
 
 msgid "The SSL certificate."
 msgstr "Certyfikat SSL"
@@ -3466,29 +3481,29 @@ msgid "This field should be a IPv6 network address in CIDR notation"
 msgstr "To pole powinno być adresem IPv6 w zapisie CIDR"
 
 msgid "This field should be a domain name or an IP address"
-msgstr ""
+msgstr "To pole powinno być nazwą domeny lub adresem IP"
 
 msgid "This field should be a domain name or an IPv4 address"
-msgstr ""
+msgstr "To pole powinno być nazwą domeny lub adresem IPv4"
 
 msgid "This field should be a host name or an IP address"
-msgstr ""
+msgstr "To pole powinno być nazwą hosta lub adresem IP"
 
 msgid "This field should be a host name or an IPv4 address"
-msgstr ""
+msgstr "To pole powinno być nazwą hosta lub adresem IPv4"
 
 msgid "This field should be a list of domain names or IP addresses"
-msgstr ""
+msgstr "To pole powinno być listą nazw domen lub adresów IP"
 
 msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
-msgstr ""
+msgstr "To pole powinno być listą nazw domen lub adresów IP oddzielonych  <,> lub <;>"
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
 "or <;>"
-msgstr ""
+msgstr "To pole powinno być listą nazw hostów lub adresów IP oddzielonych  <,> lub <;>"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3526,14 +3541,14 @@ msgid "This field should only contain numbers"
 msgstr "To pole powinno zawierać wyłącznie cyfry"
 
 msgid "This field should only contain numbers separated by <,> or <;>"
-msgstr ""
+msgstr "To pole powinno zawierać tylko liczby oddzielone <,> lub <;>"
 
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
-msgstr ""
+msgstr "To pole powinno zawierać tylko porty (0 - 65535) oddzielone  <,> lub <;>"
 
 msgid "This field should only contain strings separated by <,> or <;>"
-msgstr ""
+msgstr "To pole powinno zawierać tylko ciągi znaków oddzielone <,> lub <;>"
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Ta funkcja działa tylko wtedy, jeśli dysk twardy posiada jej obsługę."
@@ -3784,13 +3799,13 @@ msgid "Up delay"
 msgstr "Górne opóźnienie"
 
 msgid "Update Management"
-msgstr ""
+msgstr "Aktualizacje"
 
 msgid "Update Management - History"
-msgstr ""
+msgstr "Aktualizacje - historia"
 
 msgid "Update Management - Terminal output"
-msgstr ""
+msgstr "Aktualizacje - dane wyjściowe terminala"
 
 msgid "Update now"
 msgstr "Aktualizuj teraz"
@@ -3880,7 +3895,7 @@ msgid "User/Group permissions"
 msgstr "Uprawnienia grup/użytkowników"
 
 msgid "Username"
-msgstr "Nazwa użytkownika"
+msgstr "Login"
 
 msgid "Users"
 msgstr "Użytkownicy"
@@ -3952,7 +3967,7 @@ msgid "Web Administrator Password"
 msgstr "Hasło administratora"
 
 msgid "Web control panel"
-msgstr ""
+msgstr "Panel sterowania"
 
 msgid "Wednesday"
 msgstr "Środa"
@@ -4038,10 +4053,10 @@ msgid "n/a"
 msgstr "n/a"
 
 msgid "old-age"
-msgstr ""
+msgstr "stary"
 
 msgid "prefail"
-msgstr ""
+msgstr "przed niepowodzeniem"
 
 msgid "seconds"
 msgstr "sekundy"

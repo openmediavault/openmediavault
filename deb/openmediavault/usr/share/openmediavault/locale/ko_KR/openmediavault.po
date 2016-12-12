@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-09 21:33+0200\n"
-"PO-Revision-Date: 2016-10-09 19:34+0000\n"
+"POT-Creation-Date: 2016-12-06 06:19+0100\n"
+"PO-Revision-Date: 2016-12-06 05:21+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -127,8 +127,8 @@ msgstr "30분"
 msgid "300 minutes"
 msgstr "300분"
 
-msgid "360 minutes"
-msgstr "360분"
+msgid "330 minutes"
+msgstr ""
 
 msgid "4 days"
 msgstr "4일"
@@ -168,6 +168,9 @@ msgstr "아스키"
 
 msgid "About"
 msgstr "대하여"
+
+msgid "Absolute Path"
+msgstr ""
 
 msgid "Abstract"
 msgstr "추상적인"
@@ -842,6 +845,9 @@ msgstr "장치"
 
 msgid "Device Mapper %s [%s, %s]"
 msgstr "장치 매퍼 %s [%s, %s]"
+
+msgid "Device Symlinks"
+msgstr ""
 
 msgid "Device has a few bad sectors"
 msgstr ""
@@ -2052,6 +2058,9 @@ msgstr "모로코"
 msgid "Mount"
 msgstr "마운트"
 
+msgid "Mount Point"
+msgstr ""
+
 msgid "Mounted"
 msgstr "마운트됨"
 
@@ -2624,6 +2633,9 @@ msgstr "참조되는"
 msgid "Refresh"
 msgstr "새로 고침"
 
+msgid "Relative Path"
+msgstr ""
+
 msgid "Reload"
 msgstr "다시 불러오기"
 
@@ -2740,6 +2752,9 @@ msgstr "S.M.A.R.T. 정보"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "선택된 장치에 대해 S.M.A.R.T 모니터링이 반드시 활성화되어야 합니다."
+
+msgid "S/N"
+msgstr ""
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"

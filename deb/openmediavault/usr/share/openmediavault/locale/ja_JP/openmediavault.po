@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-09 21:33+0200\n"
-"PO-Revision-Date: 2016-10-12 04:31+0000\n"
+"POT-Creation-Date: 2016-12-06 06:19+0100\n"
+"PO-Revision-Date: 2016-12-08 09:43+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/votdev/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -125,8 +125,8 @@ msgstr "30 分"
 msgid "300 minutes"
 msgstr "300 分"
 
-msgid "360 minutes"
-msgstr "360 分"
+msgid "330 minutes"
+msgstr "330 分"
 
 msgid "4 days"
 msgstr "4 日"
@@ -166,6 +166,9 @@ msgstr "ASCII"
 
 msgid "About"
 msgstr "About"
+
+msgid "Absolute Path"
+msgstr "絶対パス"
 
 msgid "Abstract"
 msgstr "アブストラクト"
@@ -840,6 +843,9 @@ msgstr "デバイス"
 
 msgid "Device Mapper %s [%s, %s]"
 msgstr "デバイスマッパー %s [%s, %s]"
+
+msgid "Device Symlinks"
+msgstr "デバイス シンボリックリンク"
 
 msgid "Device has a few bad sectors"
 msgstr "デバイスは、いくつかの不良セクタを持っています"
@@ -2050,6 +2056,9 @@ msgstr "モロッコ"
 msgid "Mount"
 msgstr "マウント"
 
+msgid "Mount Point"
+msgstr "マウントポイント"
+
 msgid "Mounted"
 msgstr "マウント済み"
 
@@ -2622,6 +2631,9 @@ msgstr "参照先"
 msgid "Refresh"
 msgstr "リフレッシュ"
 
+msgid "Relative Path"
+msgstr "相対パス"
+
 msgid "Reload"
 msgstr "再読み込み"
 
@@ -2738,6 +2750,9 @@ msgstr "S.M.A.R.T. 情報"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T.モニタリングは、選択したデバイスのために活性化されなければならない。"
+
+msgid "S/N"
+msgstr "S/N"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"

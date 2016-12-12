@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-09 21:33+0200\n"
-"PO-Revision-Date: 2016-10-10 05:23+0000\n"
+"POT-Creation-Date: 2016-12-06 06:19+0100\n"
+"PO-Revision-Date: 2016-12-06 09:16+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/votdev/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -128,8 +128,8 @@ msgstr "30 minutos"
 msgid "300 minutes"
 msgstr "300 minutos"
 
-msgid "360 minutes"
-msgstr "360 minutos"
+msgid "330 minutes"
+msgstr "330 minutos"
 
 msgid "4 days"
 msgstr "4 días"
@@ -169,6 +169,9 @@ msgstr "ASCII"
 
 msgid "About"
 msgstr "Acerca"
+
+msgid "Absolute Path"
+msgstr "Ruta absoluta"
 
 msgid "Abstract"
 msgstr "Extracto"
@@ -843,6 +846,9 @@ msgstr "Dispositivo"
 
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Dispositivo de mapeo %s [%s, %s]"
+
+msgid "Device Symlinks"
+msgstr "Enlaces al dispositivo"
 
 msgid "Device has a few bad sectors"
 msgstr "El disco tiene algunos sectores defectuosos"
@@ -2053,6 +2059,9 @@ msgstr "Marruecos"
 msgid "Mount"
 msgstr "Montar"
 
+msgid "Mount Point"
+msgstr "Punto de montaje"
+
 msgid "Mounted"
 msgstr "Montados"
 
@@ -2625,6 +2634,9 @@ msgstr "Referenciado"
 msgid "Refresh"
 msgstr "Refrescar"
 
+msgid "Relative Path"
+msgstr "Ruta relativa"
+
 msgid "Reload"
 msgstr "Recargar"
 
@@ -2741,6 +2753,9 @@ msgstr "S.M.A.R.T. info."
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "La monitorización S.M.A.R.T. debe ser activada para el dispositivo seleccionado."
+
+msgid "S/N"
+msgstr "S/N"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"

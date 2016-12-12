@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-09 21:33+0200\n"
-"PO-Revision-Date: 2016-10-10 08:22+0000\n"
+"POT-Creation-Date: 2016-12-06 06:19+0100\n"
+"PO-Revision-Date: 2016-12-08 05:14+0000\n"
 "Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -126,8 +126,8 @@ msgstr "30 分钟"
 msgid "300 minutes"
 msgstr "300 分钟"
 
-msgid "360 minutes"
-msgstr "360 分钟"
+msgid "330 minutes"
+msgstr "330 分钟"
 
 msgid "4 days"
 msgstr "4 天"
@@ -167,6 +167,9 @@ msgstr "ASCII"
 
 msgid "About"
 msgstr "关于"
+
+msgid "Absolute Path"
+msgstr "绝对路径"
 
 msgid "Abstract"
 msgstr "摘要"
@@ -841,6 +844,9 @@ msgstr "设备"
 
 msgid "Device Mapper %s [%s, %s]"
 msgstr "设备图 %s [%s, %s]"
+
+msgid "Device Symlinks"
+msgstr "设备符号链接"
 
 msgid "Device has a few bad sectors"
 msgstr "设备有几个坏道"
@@ -2051,6 +2057,9 @@ msgstr "摩洛哥"
 msgid "Mount"
 msgstr "挂载"
 
+msgid "Mount Point"
+msgstr "挂载点"
+
 msgid "Mounted"
 msgstr "已挂载"
 
@@ -2623,6 +2632,9 @@ msgstr "引用"
 msgid "Refresh"
 msgstr "更新"
 
+msgid "Relative Path"
+msgstr "相对路径"
+
 msgid "Reload"
 msgstr "刷新"
 
@@ -2739,6 +2751,9 @@ msgstr "S.M.A.R.T. 信息"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T. 监控必须激活所选设备。"
+
+msgid "S/N"
+msgstr "S/N"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"

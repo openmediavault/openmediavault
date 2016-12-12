@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-09 21:33+0200\n"
-"PO-Revision-Date: 2016-10-16 17:23+0000\n"
+"POT-Creation-Date: 2016-12-06 06:19+0100\n"
+"PO-Revision-Date: 2016-12-11 21:48+0000\n"
 "Last-Translator: zubr139\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -127,8 +127,8 @@ msgstr "30 хвилин"
 msgid "300 minutes"
 msgstr "300 хвилин"
 
-msgid "360 minutes"
-msgstr "360 хвилин"
+msgid "330 minutes"
+msgstr "330 хвилин"
 
 msgid "4 days"
 msgstr "4 дні"
@@ -168,6 +168,9 @@ msgstr "ASCII"
 
 msgid "About"
 msgstr "Про"
+
+msgid "Absolute Path"
+msgstr "Абсолютний шлях"
 
 msgid "Abstract"
 msgstr "Абстрактно"
@@ -842,6 +845,9 @@ msgstr "Пристрій"
 
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Карта пристрою %s [%s, %s]"
+
+msgid "Device Symlinks"
+msgstr "Пристрій Symlinks"
 
 msgid "Device has a few bad sectors"
 msgstr "Пристрій має кілька поганих секторів"
@@ -2052,6 +2058,9 @@ msgstr "Марокко"
 msgid "Mount"
 msgstr "Монтувати"
 
+msgid "Mount Point"
+msgstr "Точка монтування"
+
 msgid "Mounted"
 msgstr "Змонтований"
 
@@ -2624,6 +2633,9 @@ msgstr "Використовується"
 msgid "Refresh"
 msgstr "Поновити"
 
+msgid "Relative Path"
+msgstr "Відносний шлях"
+
 msgid "Reload"
 msgstr "Перезавантажити"
 
@@ -2740,6 +2752,9 @@ msgstr "S.M.A.R.T. інформація"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T. моніторинг має бути активований для обраного пристрою."
+
+msgid "S/N"
+msgstr "S/N"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"

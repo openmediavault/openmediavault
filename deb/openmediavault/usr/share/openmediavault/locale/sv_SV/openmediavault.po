@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-09 21:33+0200\n"
-"PO-Revision-Date: 2016-10-09 19:34+0000\n"
+"POT-Creation-Date: 2016-12-06 06:19+0100\n"
+"PO-Revision-Date: 2016-12-06 05:21+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -125,8 +125,8 @@ msgstr "30 minuter"
 msgid "300 minutes"
 msgstr "300 minuter"
 
-msgid "360 minutes"
-msgstr "360 minuter"
+msgid "330 minutes"
+msgstr ""
 
 msgid "4 days"
 msgstr "4 dagar"
@@ -166,6 +166,9 @@ msgstr ""
 
 msgid "About"
 msgstr "Om"
+
+msgid "Absolute Path"
+msgstr ""
 
 msgid "Abstract"
 msgstr ""
@@ -839,6 +842,9 @@ msgid "Device"
 msgstr "Enhet"
 
 msgid "Device Mapper %s [%s, %s]"
+msgstr ""
+
+msgid "Device Symlinks"
 msgstr ""
 
 msgid "Device has a few bad sectors"
@@ -2050,6 +2056,9 @@ msgstr "Marocko"
 msgid "Mount"
 msgstr "Montera"
 
+msgid "Mount Point"
+msgstr ""
+
 msgid "Mounted"
 msgstr "Monterad"
 
@@ -2622,6 +2631,9 @@ msgstr ""
 msgid "Refresh"
 msgstr "Uppdatera"
 
+msgid "Relative Path"
+msgstr ""
+
 msgid "Reload"
 msgstr ""
 
@@ -2738,6 +2750,9 @@ msgstr ""
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T.-övervakning måste vara aktiverad för den valda enheten."
+
+msgid "S/N"
+msgstr ""
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
