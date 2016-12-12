@@ -251,17 +251,21 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.devicefile");
-		// Try to get a /dev/disk/by-id device file.
+		// Set the default filter argument.
+		$arg1 = [ $params['devicefile'] ];
+		// Try to get the storage device object.
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 			$params['devicefile']);
-		if (!is_null($sd) && (TRUE === $sd->hasDeviceFileById()))
-			$params['devicefile'] = $sd->getDeviceFileById();
-		// Get the configuration object.
+		if (!is_null($sd) && $sd->exists()) {
+			$arg1 = array_merge([ $sd->getDeviceFile() ],
+				$sd->getDeviceFileSymlinks());
+		}
+		// Get the configuration object. Assert one object exists.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->getByFilter("conf.service.smartmontools.device", [
-			"operator" => "stringEquals",
+			"operator" => "stringEnum",
 			"arg0" => "devicefile",
-			"arg1" => $params['devicefile']
+			"arg1" => $arg1
 		], 1);
 		return $object->getAssoc();
 	}
