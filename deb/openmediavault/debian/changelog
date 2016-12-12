@@ -1,5 +1,6 @@
 openmediavault (3.0.55) stable; urgency=low
 
+  * Enable SSH service by default.
   * Display canonical device file names in 'Storage | Physical Disks' and
     'Storage | S.M.A.R.T. | Devices'. Add the grid column 'Device Symlinks'
     to both tables which is hidden by default.

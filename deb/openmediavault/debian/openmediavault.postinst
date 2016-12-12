@@ -113,8 +113,6 @@ case "$1" in
 			deb-systemd-helper disable tftpd-hpa.service || :
 			deb-systemd-invoke stop rsync.service || :
 			deb-systemd-helper disable rsync.service || :
-			deb-systemd-invoke stop ssh.service || :
-			deb-systemd-helper disable ssh.service || :
 			deb-systemd-invoke stop snmpd.service || :
 			deb-systemd-helper disable snmpd.service || :
 			deb-systemd-invoke stop proftpd.service || :
@@ -171,6 +169,7 @@ case "$1" in
 			omv-mkconf monit
 			omv-mkconf rrdcached
 			omv-mkconf avahi-daemon
+			omv-mkconf ssh
 		fi
 		omv-mkconf collectd
 
@@ -187,6 +186,7 @@ case "$1" in
 			deb-systemd-invoke restart nginx.service || :
 			deb-systemd-invoke restart monit.service || :
 			deb-systemd-invoke restart avahi-daemon.service || :
+			deb-systemd-invoke restart ssh.service || :
 		fi
 		dpkg-trigger restart-engined || :
 

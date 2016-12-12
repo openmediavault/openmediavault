@@ -359,7 +359,7 @@
 	<!-- Plugin configuration area -->
 	<services>
 		<ssh>
-			<enable>0</enable>
+			<enable>1</enable>
 			<port>22</port>
 			<extraoptions></extraoptions>
 			<passwordauthentication>1</passwordauthentication>
