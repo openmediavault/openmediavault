@@ -316,6 +316,19 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 				throw new \OMV\Exception("Package file '%s' not found.",
 				  $params['filename']);
 			}
+//			// Extract the changelog content and redirect it to the
+//			// background output file.
+//			$cmdArgs = [];
+//			$cmdArgs[] = "--all";
+//			$cmdArgs[] = "--frontend=text";
+//			$cmdArgs[] = "--which=changelogs";
+//			$cmdArgs[] = escapeshellarg($packagePath);
+//			$cmd = new \OMV\System\Process("apt-listchanges", $cmdArgs);
+//			$cmd->setRedirect2to1();
+//			$cmdLine = $cmd->getCommandLine();
+//			if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
+//				throw new \OMV\ExecException($cmdLine, $output);
+//			return $output;
 			// Extract the changelog from the Debian package.
 			if (FALSE === ($tmpDir = mkdtemp())) {
 				throw new \OMV\Exception(
