@@ -136,9 +136,9 @@ else
 fi
 if [ -e "\${DATA}/nut-${upsname}/voltage-battery.rrd" -a -e "\${DATA}/nut-${upsname}/voltage-input.rrd" -a -e "\${DATA}/nut-${upsname}/voltage-output.rrd" ]; then
 	TITLE_NUT_VOLTAGE="UPS voltage"
-	COLOR_NUT_VOLTAGE_BATTERY="#0000fd" # blue
-	COLOR_NUT_VOLTAGE_INPUT="#00cc00"   # green
-	COLOR_NUT_VOLTAGE_OUTPUT="#ff0000"  # red
+	COLOR_NUT_VOLTAGE_BATTERY="#FFBF00" # yellow
+	COLOR_NUT_VOLTAGE_INPUT="#0BB6FF"   # blue
+	COLOR_NUT_VOLTAGE_OUTPUT="#FF1300"  # red
 EOF
 for ucperiod in HOUR DAY WEEK MONTH YEAR; do
 	lcperiod=$(echo ${ucperiod} | tr '[:upper:]' '[:lower:]')

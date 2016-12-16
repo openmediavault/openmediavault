@@ -1,6 +1,7 @@
 openmediavault-nut (3.2.5) stable; urgency=low
 
   * Fix bug in udev rule creation.
+  * Improve statistic graph colors for color blind users.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 16 Dec 2016 13:40:16 +0100
 
