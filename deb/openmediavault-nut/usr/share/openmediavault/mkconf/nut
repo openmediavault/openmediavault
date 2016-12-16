@@ -200,7 +200,7 @@ EOF
 
 	# Create a udev rule for the given port if necessary.
 	#port=$(xmlstarlet sel -t -v "//services/nut/driverconf" ${OMV_CONFIG_FILE} | grep -E "^\s*port\s*=.+$" | sed -e 's/^\s*port\s*=\s*\([a-zA-Z0-9\/]*\)\s*$/\1/g')
-	port=$(omv_config_get "//services/nut/driverconf" | sed -e 's/^.*port\s*=\s*\([a-zA-Z0-9\/]*\)\s*.*$/\1/g')
+	port=$(omv_config_get "//services/nut/driverconf" | sed -n -e 's/^.*port\s*=\s*\([a-zA-Z0-9\/]*\)\s*.*$/\1/p')
 	if [ "${port}" != "auto" ]; then
 		cat <<EOF > ${OMV_NUT_UDEV_RULE_CONFIG}
 # This configuration file is auto-generated.
