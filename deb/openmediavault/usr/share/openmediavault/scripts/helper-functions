@@ -851,7 +851,7 @@ omv_get_sharedfolder_path() {
 	xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='$1']" \
 	  -v "//system/fstab/mntent[uuid=current()/mntentref]/dir" \
 	  -v "concat('/',reldirpath)" \
-	  ${OMV_CONFIG_FILE} | xmlstarlet unesc
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc | omv_rtrim -c "/"
 }
 
 # omv_mkdir_sharedfolder <uuid>

@@ -58,7 +58,9 @@ do
 		# Get the shared folder reference and path
 		sfref=$(omv_config_get "//services/rsync/server/modules/module[uuid='${uuid}']/sharedfolderref")
 		sfpath=$(omv_get_sharedfolder_path "${sfref}")
-		# Specify a dot-dir in the module's path to indicate the point where the chroot should occur
+
+		# Specify a dot-dir in the module's path to indicate the point where
+		# the chroot should occur, e.g. /var/rsync/./module1
 		sfpath="${sfpath%/*}/./${sfpath##*/}"
 
 		# Create module configuration
