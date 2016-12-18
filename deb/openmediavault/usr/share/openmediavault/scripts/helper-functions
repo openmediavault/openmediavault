@@ -836,7 +836,7 @@ omv_is_wlan() {
 }
 
 # omv_get_sharedfolder_name <uuid>
-# Get the name of the given shared folder
+# Get the name of the given shared folder.
 # @param The UUID of the shared folder
 omv_get_sharedfolder_name() {
 	xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='$1']" \
@@ -844,7 +844,7 @@ omv_get_sharedfolder_name() {
 }
 
 # omv_get_sharedfolder_path <uuid>
-# Get the path of the given shared folder
+# Get the path of the given shared folder. Trailing slashes will be removed.
 # @param The UUID of the shared folder
 # @return The shared folder path, e.g /media/85732966-949a-4d8b-87d7-d7e6681f787e/data.
 omv_get_sharedfolder_path() {
