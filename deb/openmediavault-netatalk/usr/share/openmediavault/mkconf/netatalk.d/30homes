@@ -33,6 +33,12 @@ OMV_NETATALK_AFP_HOMES_UMASK=${OMV_NETATALK_AFP_HOMES_UMASK:-"0077"}
 
 [ "$(omv_config_get "//services/afp/enable")" = "0" ] && exit 0
 
+basedirregex="${OMV_NETATALK_AFP_HOMES_BASEDIRREGEX}"
+if [ "$(omv_config_get "//system/usermanagement/homedirectory/enable")" = "1" ]; then
+	sfref=$(omv_config_get "//system/usermanagement/homedirectory/sharedfolderref")
+	basedirregex=$(omv_get_sharedfolder_path "${sfref}")
+fi
+
 xmlstarlet sel -t -m "//services/afp" \
   -i "homesenable[. = '1']" \
     -n \
@@ -41,13 +47,6 @@ xmlstarlet sel -t -m "//services/afp" \
     -o "file perm = ${OMV_NETATALK_AFP_HOMES_FILEPERM}" -n \
     -o "directory perm = ${OMV_NETATALK_AFP_HOMES_DIRECTORYPERM}" -n \
     -o "umask = ${OMV_NETATALK_AFP_HOMES_UMASK}" -n \
-    -m "//system/usermanagement/homedirectory" \
-      -i "enable[. = '1']" \
-        -o "basedir regex = " ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -n \
-      -b \
-      -i "enable[. != '1']" \
-        -o "basedir regex = ${OMV_NETATALK_AFP_HOMES_BASEDIRREGEX}" -n \
-      -b \
-    -b \
+    -o "basedir regex = ${basedirregex}" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_NETATALK_AFP_CONFIG}
