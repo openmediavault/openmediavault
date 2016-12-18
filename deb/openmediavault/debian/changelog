@@ -1,5 +1,6 @@
 openmediavault (3.0.57) stable; urgency=low
 
+  * Various improvements and bugfixes.
   * Fix unicode issue in data model format.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 12 Dec 2016 20:42:06 +0100
