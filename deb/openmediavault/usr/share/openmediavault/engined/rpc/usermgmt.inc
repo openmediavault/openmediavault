@@ -530,7 +530,7 @@ finish:
 				$cmdArgs[] = "--uid";
 				$cmdArgs[] = $params['uid'];
 			}
-			if (TRUE === boolvalEx($hdsobject->get("enable"))) {
+			if (TRUE === $hdsobject->get("enable")) {
 				// Get the absolute shared folder path.
 				$sfpath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath",
 				  array("uuid" => $hdsobject->get("sharedfolderref")),

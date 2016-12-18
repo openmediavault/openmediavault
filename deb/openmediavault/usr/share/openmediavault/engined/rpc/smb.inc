@@ -77,6 +77,15 @@ class OMVRpcServiceSmb extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.smb");
 		$object->setAssoc($params);
+		// Do some validations:
+		// - Check if the user home directories are enabled.
+		if ($object->get("enable") && $object->get("homesenable")) {
+			$hdObject = $db->get("conf.system.usermngmnt.homedir");
+			if (FALSE === $hdObject->get("enable")) {
+				throw new \OMV\Exception("Can't share user home directories".
+					" because they are not enabled.");
+			}
+		}
 		// Set the configuration object.
 		$db->set($object);
 		// Remove useless properties from the object.
