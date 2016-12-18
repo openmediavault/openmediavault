@@ -21,7 +21,6 @@
 
 set -e
 
-
 if [ -e "/etc/udev/udev.conf" ]; then
 	. /etc/udev/udev.conf
 	if [ "${udev_log}" = "debug" ]; then
@@ -30,8 +29,6 @@ if [ -e "/etc/udev/udev.conf" ]; then
 fi
 
 RULES_FILE="/etc/udev/rules.d/61-openmediavault-dev-root-link.rules"
-
-. /lib/udev/rule_generator.functions
 
 # Link the temporary rules file to /run/udev/rules.d to be triggered
 # by the systemd-udev-trigger.service systemd unit.
@@ -50,6 +47,11 @@ ln_rules_file() {
 }
 
 [ -e "${RULES_FILE}" ] && exit 0
+
+# Some Debian based OS do not ship the required script anymore,
+# so exit immediatelly in this case.
+[ ! -e "/lib/udev/rule_generator.functions" ] && exit 0
+. /lib/udev/rule_generator.functions
 
 eval $(udevadm info --export --export-prefix=ROOT_ --device-id-of-file=/ || true)
 [ "${ROOT_MAJOR}" -a "${ROOT_MINOR}" ] || exit 0
