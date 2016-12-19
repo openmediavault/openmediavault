@@ -59,7 +59,15 @@ Ext.define("OMV.module.admin.diagnostic.system.plugin.DiskUsage", {
 				var items = new Ext.util.MixedCollection();
 				items.addAll(response);
 				items.each(function(item) {
-					item.title = item.label || item.devicefile;
+					item.title = item.devicefile;
+					if (FALSE === Ext.isEmpty(item.label)) {
+						item.title = Ext.String.format("{0} [{1}])",
+							item.devicefile, item.label);
+					}
+					if ("/" == item.mountpoint) {
+						item.title = Ext.String.format("{0} [{1}]",
+							item.devicefile, _("System"));
+					}
 				});
 				items.sort([{
 					property: "devicefile",
