@@ -19,10 +19,10 @@
 # You should have received a copy of the GNU General Public License
 # along with openmediavault. If not, see <http://www.gnu.org/licenses/>.
 
+# Default values.
 distro = ENV['DISTRO'] || "jessie"
-hostname = "omv3box"
 sata_controller_name = "SATA"
-machine_name = "#{hostname}_#{distro}"
+hostname = "omv3#{distro}"
 
 Vagrant.configure("2") do |config|
 	case distro
@@ -35,12 +35,12 @@ Vagrant.configure("2") do |config|
 		# The SATA controller name is different in this box.
 		sata_controller_name = "SATA Controller"
 	end
-	config.vm.define machine_name
+	config.vm.define hostname
 	config.vm.provision :shell, :path => "install.sh"
 	config.vm.network "private_network", ip: "192.172.16.22"
 	config.vm.hostname = hostname
 	config.vm.provider :virtualbox do |prov|
-		prov.name = machine_name
+		prov.name = hostname
 		prov.memory = "2048"
 		# Add some disks.
 		for i in 0..2 do
