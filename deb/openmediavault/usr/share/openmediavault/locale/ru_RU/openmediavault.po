@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-06 06:19+0100\n"
-"PO-Revision-Date: 2016-12-06 05:21+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2016-12-13 07:29+0000\n"
+"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/votdev/openmediavault/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -133,7 +133,7 @@ msgid "300 minutes"
 msgstr "300 минут"
 
 msgid "330 minutes"
-msgstr ""
+msgstr "330 минут"
 
 msgid "4 days"
 msgstr "4 дня"
@@ -175,7 +175,7 @@ msgid "About"
 msgstr "О нас"
 
 msgid "Absolute Path"
-msgstr ""
+msgstr "Абсолютный путь"
 
 msgid "Abstract"
 msgstr "Абстрактный"
@@ -852,7 +852,7 @@ msgid "Device Mapper %s [%s, %s]"
 msgstr "Device Mapper %s [%s, %s]"
 
 msgid "Device Symlinks"
-msgstr ""
+msgstr "Символические ссылки на устройства"
 
 msgid "Device has a few bad sectors"
 msgstr "Устройств имеет несколько плохих секторов"
@@ -959,7 +959,7 @@ msgstr "Вы действительно хотите удалить содерж
 msgid ""
 "Do you really want to reset the UI settings to their default values, e.g. "
 "the order of the grid columns?"
-msgstr ""
+msgstr "Вы действительно хотите сбросить настройки пользовательского интерфейса к значениям по умолчанию, например порядок столбцов сетки?"
 
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
@@ -2064,7 +2064,7 @@ msgid "Mount"
 msgstr "Монтировать"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "Точка монтирования"
 
 msgid "Mounted"
 msgstr "Смонтированный"
@@ -2639,7 +2639,7 @@ msgid "Refresh"
 msgstr "Обновление"
 
 msgid "Relative Path"
-msgstr ""
+msgstr "Относительный путь"
 
 msgid "Reload"
 msgstr "Перезагрузить"
@@ -2694,12 +2694,12 @@ msgid "Reset"
 msgstr "Сброс"
 
 msgid "Reset UI to defaults"
-msgstr ""
+msgstr "Сброс значений UI по умолчанию"
 
 msgid ""
 "Reset the UI settings to their default values, e.g. the order of the grid "
 "columns."
-msgstr ""
+msgstr "Сброс настроек пользовательского интерфейса к значениям по умолчанию, например порядок столбцов сетки."
 
 msgid "Resize"
 msgstr "Изменить размер"
@@ -2759,7 +2759,7 @@ msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T. должен быть включен для выбранного устройства."
 
 msgid "S/N"
-msgstr ""
+msgstr "Серийный номер"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -3970,7 +3970,7 @@ msgid "Web Administrator Password"
 msgstr "Пароль Web Администратора"
 
 msgid "Web control panel"
-msgstr ""
+msgstr "Веб панель управления"
 
 msgid "Wednesday"
 msgstr "Среда"
