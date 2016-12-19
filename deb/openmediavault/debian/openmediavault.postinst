@@ -683,6 +683,9 @@ case "$1" in
 				deb-systemd-invoke reload smbd || :
 			fi
 		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.57"; then
+			rm -f /etc/udev/rules.d/61-openmediavault-dev-root-link.rules
+		fi
 
 		########################################################################
 		# Show help text.
