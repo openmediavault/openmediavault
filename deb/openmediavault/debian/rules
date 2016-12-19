@@ -18,7 +18,6 @@ override_dh_systemd_enable:
 	dh_systemd_enable --name=openmediavault-cleanup-monit
 	dh_systemd_enable --name=openmediavault-cleanup-php
 	dh_systemd_enable --name=openmediavault-engined
-	dh_systemd_enable --name=openmediavault-udev-write-dev-rule-link-rules
 
 override_dh_systemd_start:
 	dh_systemd_start -r --no-start --name=openmediavault-beep-up
@@ -26,4 +25,3 @@ override_dh_systemd_start:
 	dh_systemd_start -r --no-start --name=openmediavault-cleanup-monit
 	dh_systemd_start -r --no-start --name=openmediavault-cleanup-php
 	dh_systemd_start -r --no-start --name=openmediavault-engined
-	dh_systemd_start -r --no-start --name=openmediavault-udev-write-dev-rule-link-rules
