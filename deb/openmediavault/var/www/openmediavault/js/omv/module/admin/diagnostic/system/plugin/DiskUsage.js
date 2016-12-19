@@ -48,7 +48,7 @@ Ext.define("OMV.module.admin.diagnostic.system.plugin.DiskUsage", {
 						rrdGraphName: "df-" + item.mountpoint.substr(1).
 						  replace(/\//g, "-")
 					};
-					if ("/dev/root" === item.devicefile) {
+					if ("/" == item.mountpoint) {
 						Ext.apply(config, {
 							rrdGraphName: "df-root"
 						});
@@ -60,7 +60,7 @@ Ext.define("OMV.module.admin.diagnostic.system.plugin.DiskUsage", {
 				items.addAll(response);
 				items.each(function(item) {
 					item.title = item.label || item.devicefile;
-					if ("/dev/root" === item.devicefile)
+					if ("/" == item.mountpoint)
 						item.title = _("System");
 				});
 				items.sort([{

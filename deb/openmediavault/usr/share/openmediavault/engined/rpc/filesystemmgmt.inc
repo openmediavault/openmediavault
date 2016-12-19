@@ -193,7 +193,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		if (TRUE === array_boolval($params, "includeroot", FALSE)) {
 			$rootObject = new \OMV\Config\ConfigObject(
 			  "conf.system.filesystem.mountpoint");
-			$rootObject->set("fsname", "/dev/root");
+			$rootObject->set("fsname", \OMV\System\System::getRootDeviceFile());
 			$rootObject->set("dir", "/");
 			array_unshift($objects, $rootObject);
 		}
