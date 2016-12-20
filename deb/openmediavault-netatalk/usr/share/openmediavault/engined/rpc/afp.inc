@@ -80,8 +80,8 @@ class OMVRpcServiceAFP extends \OMV\Rpc\ServiceAbstract {
 		if ($object->get("enable") && $object->get("homesenable")) {
 			$hdObject = $db->get("conf.system.usermngmnt.homedir");
 			if (FALSE === $hdObject->get("enable")) {
-				throw new \OMV\Exception("Can't share user home directories".
-					" because they are not enabled.");
+				throw new \OMV\ConstraintException("Can't share user home ".
+					"directories because they are not enabled.");
 			}
 		}
 		// Set the configuration object.
