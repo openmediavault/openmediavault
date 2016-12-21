@@ -1,6 +1,7 @@
 openmediavault (3.0.58) stable; urgency=low
 
   * Various improvements and bugfixes.
+  * Mantis 0001645: Disable output of omv-mkaptidx.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 19 Dec 2016 22:04:23 +0100
 
