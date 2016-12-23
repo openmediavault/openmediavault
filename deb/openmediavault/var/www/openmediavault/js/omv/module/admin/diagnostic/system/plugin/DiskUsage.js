@@ -60,7 +60,7 @@ Ext.define("OMV.module.admin.diagnostic.system.plugin.DiskUsage", {
 				items.addAll(response);
 				items.each(function(item) {
 					item.title = item.devicefile;
-					if (FALSE === Ext.isEmpty(item.label)) {
+					if (false === Ext.isEmpty(item.label)) {
 						item.title = Ext.String.format("{0} [{1}])",
 							item.devicefile, item.label);
 					}
