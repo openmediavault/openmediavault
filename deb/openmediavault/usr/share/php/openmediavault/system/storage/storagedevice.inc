@@ -242,8 +242,13 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 				continue;
 			if (FALSE === ($devs = $backendv->enumerate()))
 				return FALSE;
-			$result = array_unique(array_merge($result, $devs));
+			$result = array_merge($result, $devs);
 		}
+		// Remove duplicate values.
+		$result = array_unique($result);
+		// Sort the values using a "natural order" algorithm.
+		if (!sort($result, SORT_NATURAL))
+			return FALSE;
 		return $result;
 	}
 
@@ -271,6 +276,11 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 				continue;
 			$result = array_diff($result, $slaves);
 		}
+		// Remove duplicate values.
+		$result = array_unique($result);
+		// Sort the values using a "natural order" algorithm.
+		if (!sort($result, SORT_NATURAL))
+			return FALSE;
 		return $result;
 	}
 
@@ -292,8 +302,13 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 				return FALSE;
 			if (empty($slaves))
 				continue;
-			$result = array_unique(array_merge($result, $slaves));
+			$result = array_merge($result, $slaves);
 		}
+		// Remove duplicate values.
+		$result = array_unique($result);
+		// Sort the values using a "natural order" algorithm.
+		if (!sort($result, SORT_NATURAL))
+			return FALSE;
 		return $result;
 	}
 

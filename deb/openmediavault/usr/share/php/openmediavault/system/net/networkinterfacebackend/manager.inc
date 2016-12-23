@@ -110,9 +110,11 @@ class Manager implements \IteratorAggregate {
 				continue;
 			if (FALSE === ($devs = $backendv->enumerate()))
 				return FALSE;
-			$result = array_unique(array_merge($result, $devs));
+			$result = array_merge($result, $devs);
 		}
-		// Sort the devices using a "natural order" algorithm.
+		// Remove duplicate values.
+		$result = array_unique($result);
+		// Sort the values using a "natural order" algorithm.
 		if (!sort($result, SORT_NATURAL))
 			return FALSE;
 		return $result;
