@@ -19,6 +19,8 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/Rpc.js")
+// require("js/omv/data/Store.js")
+// require("js/omv/data/Model.js")
 // require("js/omv/workspace/tab/Panel.js")
 
 /**
@@ -29,7 +31,9 @@ Ext.define("OMV.module.admin.diagnostic.system.plugin.DiskUsage", {
 	extend: "OMV.workspace.tab.Panel",
 	alias: "omv.plugin.diagnostic.system.diskusage",
 	requires: [
-		"OMV.Rpc"
+		"OMV.Rpc",
+		"OMV.data.Store",
+		"OMV.data.Model"
 	],
 
 	title: _("Disk usage"),
@@ -56,28 +60,37 @@ Ext.define("OMV.module.admin.diagnostic.system.plugin.DiskUsage", {
 					return config;
 				}
 				// Sort the list of filesystems by devicefile or label.
-				var items = new Ext.util.MixedCollection();
-				items.addAll(response);
-				items.each(function(item) {
+				var store = Ext.create("OMV.data.Store", {
+					model: OMV.data.Model.createImplicit({
+						idProperty: "devicefile",
+						fields: [
+							{ name: "devicefile", type: "string" },
+							{ name: "mountpoint", type: "string" },
+							{ name: "title", type: "string" },
+							{ name: "label", type: "string" }
+						]
+					}),
+					sorters: [{
+						direction: "ASC",
+						property: "devicefile"
+					}],
+					data: response
+				});
+				store.each(function(record) {
+					var item = record.getData();
 					item.title = item.devicefile;
 					if (false === Ext.isEmpty(item.label)) {
 						item.title = Ext.String.format("{0} [{1}])",
-							item.devicefile, item.label);
+							item.title, item.label);
 					}
 					if ("/" == item.mountpoint) {
 						item.title = Ext.String.format("{0} [{1}]",
-							item.devicefile, _("System"));
+							item.title, _("System"));
 					}
-				});
-				items.sort([{
-					property: "devicefile",
-					direction: "ASC"
-				}]);
-				// Create a tab panel for each filesystem.
-				items.each(function(item) {
-					me.add(Ext.create("OMV.workspace.panel.RrdGraph",
+					// Create a tab panel for each filesystem.
+					this.add(Ext.create("OMV.workspace.panel.RrdGraph",
 					  fnBuildRrdGraphConfig(item)));
-				});
+				}, me);
 			},
 			relayErrors: false,
 			rpcData: {
