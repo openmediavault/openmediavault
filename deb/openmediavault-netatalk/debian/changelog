@@ -1,6 +1,6 @@
 openmediavault-netatalk (3.2.5) stable; urgency=low
 
-  * 
+  * Harden deinstallation script.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 21 Dec 2016 00:26:27 +0100
 

@@ -30,12 +30,14 @@ OMV_NUT_UDEV_RULE_CONFIG=${OMV_NUT_UDEV_RULE_CONFIG:-"/etc/udev/rules.d/99-openm
 # can simply purge this service configuration file. Finally reload the monit
 # configuration.
 omv-mkconf monit
-monit reload
+deb-systemd-invoke reload monit.service || :
 
 # Create new collectd configuration after nut plugin has been removed and
-# restart the service.
+# restart the service if necessary.
 omv-mkconf collectd
-monit restart collectd
+if deb-systemd-helper is-enabled collectd.service; then
+	monit restart collectd || :
+fi
 
 # Stop service.
 deb-systemd-invoke stop nut-server || :

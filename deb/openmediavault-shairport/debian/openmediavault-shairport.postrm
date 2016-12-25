@@ -28,7 +28,7 @@ set -e
 # can simply purge this service configuration file. Finally reload the monit
 # configuration.
 omv-mkconf monit
-monit reload
+deb-systemd-invoke reload monit.service || :
 
 case "$1" in
 	purge)
