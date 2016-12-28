@@ -686,6 +686,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "3.0.57"; then
 			rm -f /etc/udev/rules.d/61-openmediavault-dev-root-link.rules
 		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.59"; then
+			omv-mkconf apt
+		fi
 
 		########################################################################
 		# Show help text.
