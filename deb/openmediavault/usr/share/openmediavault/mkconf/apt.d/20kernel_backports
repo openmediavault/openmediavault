@@ -47,6 +47,10 @@ Pin-Priority: 500
 Package: linux-image-*
 Pin: release a=${OMV_APT_KERNEL_BACKPORTS_ARCHIVE}
 Pin-Priority: 500
+
+Package: firmware-*
+Pin: release a=${OMV_APT_KERNEL_BACKPORTS_ARCHIVE}
+Pin-Priority: 500
 EOF
 
 cat <<EOF > /etc/apt/sources.list.d/openmediavault-kernel-backports.list
