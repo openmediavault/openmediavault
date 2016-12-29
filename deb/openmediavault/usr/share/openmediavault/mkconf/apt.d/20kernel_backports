@@ -29,17 +29,12 @@ OMV_APT_KERNEL_BACKPORTS_ARCHIVE=${OMV_APT_KERNEL_BACKPORTS_ARCHIVE:-"jessie-bac
 OMV_APT_KERNEL_BACKPORTS_PINPRIORITY=${OMV_APT_KERNEL_BACKPORTS_PINPRIORITY:-"500"}
 
 # Remove existing configuration files.
-rm -f /etc/apt/apt.conf.d/99openmediavault-kernel-backports
 rm -f /etc/apt/preferences.d/openmediavault-kernel-backports.pref
 rm -f /etc/apt/sources.list.d/openmediavault-kernel-backports.list
 
 ! omv_checkyesno "${OMV_APT_USE_KERNEL_BACKPORTS}" && exit 0;
 
 # Create the configuration files.
-cat <<EOF > /etc/apt/apt.conf.d/99openmediavault-kernel-backports
-APT::Ignore-Hold "true";
-EOF
-
 cat <<EOF > /etc/apt/preferences.d/openmediavault-kernel-backports.pref
 Package: linux-base
 Pin: release a=${OMV_APT_KERNEL_BACKPORTS_ARCHIVE}
