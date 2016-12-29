@@ -1,5 +1,8 @@
-1. Download Vagrant from https://www.vagrantup.com/downloads.html
+1. Install VirtualBox
+$ sudo apt-get install virtualbox
 
-2. Install plugins
+2. Download Vagrant from https://www.vagrantup.com/downloads.html
+
+3. Install plugins
 $ vagrant plugin install vagrant-vbguest
 $ vagrant plugin install vagrant-cachier
