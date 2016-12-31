@@ -1,5 +1,6 @@
 openmediavault (3.0.59) stable; urgency=low
 
+  * Update locales.
   * Various improvements.
   * Use kernel/firmware backports by default.
 
