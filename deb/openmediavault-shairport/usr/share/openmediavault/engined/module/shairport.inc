@@ -33,14 +33,14 @@ class OMVModuleShairport extends \OMV\Engine\Module\ServiceAbstract
 	 * provided by this module.
 	 * @return An array of modules.
 	 */
-	public function shouldStart() { return array("monit"); }
+	public function shouldStart() { return [ "monit" ]; }
 
 	/**
 	 * Defines the modules that if present should be stopped after the
 	 * service provided by this module.
 	 * @return An array of modules.
 	 */
-	function shouldStop() { return array("monit"); }
+	function shouldStop() { return [ "monit" ]; }
 
 	/**
 	 * Generate the configuration.
