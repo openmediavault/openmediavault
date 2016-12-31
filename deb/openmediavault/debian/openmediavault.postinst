@@ -105,28 +105,28 @@ case "$1" in
 			# Setup all services.
 			####################################################################
 			echo "Updating service units ..."
-			deb-systemd-invoke stop systemd-timesyncd.service || :
 			deb-systemd-helper disable systemd-timesyncd.service || :
-			deb-systemd-invoke stop smartmontools.service || :
+			deb-systemd-invoke stop systemd-timesyncd.service || :
 			deb-systemd-helper disable smartmontools.service || :
-			deb-systemd-invoke stop tftpd-hpa.service || :
+			deb-systemd-invoke stop smartmontools.service || :
 			deb-systemd-helper disable tftpd-hpa.service || :
-			deb-systemd-invoke stop rsync.service || :
+			deb-systemd-invoke stop tftpd-hpa.service || :
 			deb-systemd-helper disable rsync.service || :
-			deb-systemd-invoke stop snmpd.service || :
+			deb-systemd-invoke stop rsync.service || :
 			deb-systemd-helper disable snmpd.service || :
-			deb-systemd-invoke stop proftpd.service || :
+			deb-systemd-invoke stop snmpd.service || :
 			deb-systemd-helper disable proftpd.service || :
-			deb-systemd-invoke stop nfs-kernel-server.service || :
+			deb-systemd-invoke stop proftpd.service || :
 			deb-systemd-helper disable nfs-kernel-server.service || :
-			deb-systemd-invoke stop nfs-common.service || :
+			deb-systemd-invoke stop nfs-kernel-server.service || :
 			deb-systemd-helper disable nfs-common.service || :
-			deb-systemd-invoke stop smbd.service || :
+			deb-systemd-invoke stop nfs-common.service || :
 			deb-systemd-helper disable smbd.service || :
-			deb-systemd-invoke stop nmbd.service || :
+			deb-systemd-invoke stop smbd.service || :
 			deb-systemd-helper disable nmbd.service || :
-			deb-systemd-invoke stop postfix.service || :
+			deb-systemd-invoke stop nmbd.service || :
 			deb-systemd-helper disable postfix.service || :
+			deb-systemd-invoke stop postfix.service || :
 
 			####################################################################
 			# Setup the webserver configuration.
