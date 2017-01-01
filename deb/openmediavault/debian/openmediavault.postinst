@@ -137,7 +137,7 @@ case "$1" in
 			nginx_ensite openmediavault-webgui
 		fi
 		# Create public/private SSH key pair for user root.
-		if [ ! -f "/root/.ssh/id_rsa.pub" ]; then
+		if [ ! -e "/root/.ssh/id_rsa.pub" ]; then
 			ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa
 		fi
 		# Enable all Systemd services.
