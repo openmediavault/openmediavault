@@ -79,12 +79,12 @@ class OMVModuleNetworkUPSTools extends \OMV\Engine\Module\ServiceAbstract
 		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// Start this service and enable the unit file.
-		$systemCtl = new \OMV\System\SystemCtl("nut-server");
-		$systemCtl->enable(TRUE);
-		$systemCtl = new \OMV\System\SystemCtl("nut-monitor");
-		$systemCtl->enable(TRUE);
+		$systemCtlSrv = new \OMV\System\SystemCtl("nut-server");
+		$systemCtlSrv->enable(TRUE);
+		$systemCtlMon = new \OMV\System\SystemCtl("nut-monitor");
+		$systemCtlMon->enable(TRUE);
 		// Wait to allow the service to start.
-		$systemCtl->waitUntilActive(5);
+		$systemCtlSrv->waitUntilActive(5);
 		// Enable monitoring of this service.
 		$monit = new \OMV\System\Monit("nut");
 		$monit->setGroup(TRUE);
