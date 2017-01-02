@@ -74,6 +74,8 @@ class OMVModuleShairport extends \OMV\Engine\Module\ServiceAbstract
 		// Start this service and enable the unit file.
 		$systemCtl = new \OMV\System\SystemCtl("shairport-sync");
 		$systemCtl->enable(TRUE);
+		// Wait to allow the service to start.
+		$systemCtl->waitUntilActive(5);
 		// Enable monitoring of this service.
 		$monit = new \OMV\System\Monit("shairport-sync");
 		$monit->monitor();
