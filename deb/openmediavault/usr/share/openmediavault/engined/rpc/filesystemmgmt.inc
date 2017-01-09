@@ -884,17 +884,15 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				// because of missing entries.
 				if ($this->isModuleDirty("fstab"))
 					throw new \OMV\Config\ConfigDirtyException();
-				// Now try to mount the filesystem.
-				$mp = new \OMV\System\MountPoint($meObject['fsname'],
-					$meObject['dir']);
 				// Umount the mount point if it is already in use, which
 				// is the case when an USB device is unplugged without
 				// unmounting it.
-				if (TRUE == $fs->isMounted())
+				if (TRUE === $fs->isMounted())
 					$fs->umount();
 				// Does the mount directory exist? Re-create it if
 				// necessary.
-				$mp->mkDir();
+				\OMV\System\Filesystem\Filesystem::mkMountPoint(
+					$meObject['dir']);
 				// Finally mount the filesystem.
 				$fs->mount();
 			}
@@ -903,15 +901,14 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// possible if a appropriate mount point configuration object
 			// exists.
 			if ((FALSE !== $meObject) && is_object($meObject)) {
-				$mp = new \OMV\System\MountPoint($meObject['fsname'],
+				\OMV\System\Filesystem\Filesystem::mkMountPoint(
 					$meObject['dir']);
-				$mp->mkDir();
 			}
 			// Mount the filesystem.
 			if (TRUE === $fs->isMounted()) {
 				throw new \OMV\Exception(
-				  "The filesystem '%s' is already mounted.",
-				  $fsName);
+					"The filesystem '%s' is already mounted.",
+					$fsName);
 			}
 			$fs->mount();
 		}
