@@ -65,7 +65,7 @@ class MountPoint {
 	 * Set the name of the mounted file system.
 	 * @return None.
 	 */
-		public function setDevice($device) {
+	public function setDevice($device) {
 		$this->device = $device;
 	}
 

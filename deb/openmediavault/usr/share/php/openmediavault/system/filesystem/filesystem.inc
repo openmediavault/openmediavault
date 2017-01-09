@@ -676,11 +676,16 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 		// /dev/sdf1 7A48-BA97
 		$result = FALSE;
 		foreach ($output as $outputk => $outputv) {
-			// Skip everything that does not look like '/dev/xxx'.
-			$regex = '/^(\/dev\/\S+)\s+(\S+)$/i';
-			if (1 !== preg_match($regex, $outputv, $matches))
+			// Split the line into parts.
+			$parts = preg_split("/[\s]+/", $outputv);
+			// Skip everything that does not contain two parts.
+			if (2 !== count($parts))
 				continue;
-			if ($matches[2] !== $this->getUuid())
+			// Skip everything that does not look like '/dev/xxx'.
+			if (FALSE === is_devicefile($parts[0]))
+				continue;
+			// Compare the filesystem UUID.
+			if ($parts[1] !== $this->getUuid())
 				continue;
 			$result = TRUE;
 			break;
