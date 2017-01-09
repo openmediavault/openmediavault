@@ -229,16 +229,17 @@ abstract class BackendAbstract {
 	public function getFstabMntOptions(
 	  \OMV\System\Storage\StorageDevice $sd = null) {
 		$options = $this->mntOptions;
-		// Check if the device is a non-rotational type (e.g. SSD, DOM,
-		// CF card, USB stick, ...).
-		// In this case optimize the mount options:
-		// - add 'discard' to support the ATA_TRIM command, see
-		//   http://en.wikipedia.org/wiki/TRIM.
-		// - add 'noatime' to do not update inode access times on the
-		//   filesystem.
-		// - add 'nodiratime' to do not update directory inode access
-		//   times.
+		// Append additional mount options depending on the storage device.
 		if (!is_null($sd)) {
+			// Check if the device is a non-rotational type (e.g. SSD, DOM,
+			// CF card, USB stick, ...).
+			// In this case optimize the mount options:
+			// - add 'discard' to support the ATA_TRIM command, see
+			//   http://en.wikipedia.org/wiki/TRIM.
+			// - add 'noatime' to do not update inode access times on the
+			//   filesystem.
+			// - add 'nodiratime' to do not update directory inode access
+			//   times.
 			if (FALSE === $sd->isRotational()) {
 				// File systems that support TRIM.
 				// See https://wiki.archlinux.org/index.php/Solid_State_Drives#TRIM
@@ -247,6 +248,13 @@ abstract class BackendAbstract {
 				//array_push($options, "noatime");
 				//array_push($options, "nodiratime");
 			}
+			// Append the 'nofail' option if the device is removable to
+			// prevent an error during the boot process when the device is
+			// unplugged.
+			// !!! Note, if the device is unplugged then it will cause other
+			// !!! problems like writing data into the root filesystem.
+			if (TRUE === $sd->isRemovable())
+				array_push($options, "nofail");
 		}
 		return array_unique($options);
 	}
