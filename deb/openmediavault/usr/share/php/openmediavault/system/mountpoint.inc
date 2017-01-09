@@ -220,9 +220,9 @@ class MountPoint {
 			// tmpfs /dev/shm tmpfs rw,nosuid,nodev,relatime 0 0
 			// /dev/sde1 /home/ftp/data ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
 			// /dev/sde1 /media/46607e80-dc8e-427e-9939-7909985dfe5b ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
-			$matches = explode(" ", $rowv);
-			if (($matches[0] == $this->getDevice()) ||
-			  ($matches[1] == $this->getDir())) {
+			$parts = preg_split("/[\s]+/", $rowv);
+			if (($parts[0] == $this->getDevice()) ||
+				($parts[1] == $this->getDir())) {
 				$result = TRUE;
 				break;
 			}
