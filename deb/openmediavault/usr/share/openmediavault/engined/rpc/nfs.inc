@@ -176,31 +176,31 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 			];
 			if (FALSE === $db->exists("conf.system.filesystem.mountpoint",
 			  $filter)) {
-				  // Prepare mount point configuration object to bind the
-				  // shared folder directory into the NFS export directory.
-				  $meObject2 = new \OMV\Config\ConfigObject(
-				    "conf.system.filesystem.mountpoint");
-				  $meObject2->setNew();
-				  $meObject2->setAssoc([
-					  "fsname" => build_path(DIRECTORY_SEPARATOR,
-					    $meObject->get("dir"), $sfObject->get("reldirpath")),
-					  "dir" => $dir,
-					  "type" => "none",
-					  "opts" => "bind",
-					  "freq" => 0,
-					  "passno" => 0
-				  ]);
-				  // Put the mount point configuration object.
-				  $result = \OMV\Rpc\Rpc::call("FsTab", "set",
-				    $meObject2->getAssoc(), $context);
-				  // Update the configuration object with the values
-				  // returned by the RPC. Note, this is necessary to
-				  // get the correct object UUID.
-				  $meObject2->setAssoc($result);
+				// Prepare mount point configuration object to bind the
+				// shared folder directory into the NFS export directory.
+				$meObject2 = new \OMV\Config\ConfigObject(
+					"conf.system.filesystem.mountpoint");
+				$meObject2->setNew();
+				$meObject2->setAssoc([
+					"fsname" => build_path(DIRECTORY_SEPARATOR,
+						$meObject->get("dir"), $sfObject->get("reldirpath")),
+					"dir" => $dir,
+					"type" => "none",
+					"opts" => "bind,nofail",
+					"freq" => 0,
+					"passno" => 0
+				]);
+				// Put the mount point configuration object.
+				$result = \OMV\Rpc\Rpc::call("FsTab", "set",
+					$meObject2->getAssoc(), $context);
+				// Update the configuration object with the values
+				// returned by the RPC. Note, this is necessary to
+				// get the correct object UUID.
+				$meObject2->setAssoc($result);
 			} else {
 				// Load the existing mount point configuration object.
 				$objects = $db->getByFilter(
-				  "conf.system.filesystem.mountpoint", $filter);
+					"conf.system.filesystem.mountpoint", $filter);
 				$meObject2 = $objects[0];
 			}
 			// Modify the share configuration object.

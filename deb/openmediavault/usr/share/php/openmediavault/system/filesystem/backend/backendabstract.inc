@@ -256,6 +256,7 @@ abstract class BackendAbstract {
 			if (TRUE === $sd->isRemovable())
 				array_push($options, "nofail");
 		}
+		// Remove duplicate entries.
 		return array_unique($options);
 	}
 
