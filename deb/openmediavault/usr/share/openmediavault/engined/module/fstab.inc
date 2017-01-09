@@ -52,24 +52,16 @@ class OMVModuleFsTab extends \OMV\Engine\Module\ServiceAbstract
 		$objects = $db->get("conf.system.filesystem.mountpoint");
 		// Process all configured mount points and mount them if necessary.
 		foreach ($objects as $objectk => $objectv) {
-			$me = new \OMV\System\MountPoint($objectv->get("fsname"),
-			  $objectv->get("dir"));
-			// Does the directory exist?
-			$me->mkDir();
-			// Is it mounted?
-			if (FALSE === $me->isMounted()) {
-				// If it's no loop or bind mount then skip mounting if the
-				// filesystem does not exist.
-				if (is_uuid($objectv->get("fsname")) || is_devicefile(
-				  $objectv->get("fsname"))) {
-					$fs = \OMV\System\Filesystem\Filesystem::getImpl(
-					  $objectv->get("fsname"));
-					if (is_null($fs) || !$fs->exists())
-						continue;
-				}
-				// Mount it.
-				$me->mount();
-			}
+			// Ensure the mount point exists.
+			$mp = new \OMV\System\MountPoint($objectv->get("dir"));
+			$mp->create();
+			// Mount the filesystem?
+			$fs = \OMV\System\Filesystem\Filesystem::getImpl(
+				$objectv->get("fsname"));
+			if (is_null($fs) || !$fs->exists())
+				continue;
+			if (FALSE === $fs->isMounted())
+				$fs->mount();
 		}
 	}
 
@@ -89,21 +81,23 @@ class OMVModuleFsTab extends \OMV\Engine\Module\ServiceAbstract
 	 * @param params The method parameters.
 	 */
 	final public function deleteEntry($params) {
-		$me = new \OMV\System\MountPoint($params['fsname'], $params['dir']);
+		\OMV\System\Filesystem\Filesystem::assertGetImpl($params['fsname']);
+		$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['fsname']);
 		// Check whether the file system is mounted and unmount it if
 		// necessary.
-		if (TRUE === $me->isMounted())
-			$me->umount(TRUE, TRUE);
+		if (TRUE === $fs->isMounted())
+			$fs->umount(TRUE, TRUE);
 		// Check whether the directory is still a mount point. If this is
 		// the case, then throw an error, otherwise unlinking the
 		// directory might delete the file systems data. This can happen
 		// when the file system is unmounted but busy (e.g. NFS exports).
-		if (TRUE === $me->isMountPoint()) {
+		$mp = new \OMV\System\MountPoint($params['dir']);
+		if (TRUE === $mp->isMountPoint()) {
 			throw new \OMV\Exception("Removing the directory '%s' has ".
-			  "been aborted, the resource is busy.", $params['dir']);
+				"been aborted, the resource is busy.", $params['dir']);
 		}
-		// Unlink the mount point directory.
-		$me->unlinkDir();
+		// Finally unlink the mount point.
+		$mp->unlink();
 	}
 
 	/**

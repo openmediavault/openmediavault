@@ -734,8 +734,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				  "conf.system.filesystem.mountpoint", [
 					  "operator" => "stringEquals",
 					  "arg0" => "dir",
-					  "arg1" => \OMV\System\Filesystem\Filesystem::
-					    buildMountPath($params['id'])
+					  "arg1" => \OMV\System\MountPoint::buildPath($params['id'])
 				  ], 1);
 			}
 		} catch(\Exception $e) {
@@ -865,8 +864,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 					"uuid" => \OMV\Environment::get(
 					  "OMV_CONFIGOBJECT_NEW_UUID"),
 					"fsname" => $fsName,
-					"dir" => \OMV\System\Filesystem\Filesystem::buildMountPath(
-					  $fs->getUuid()),
+					"dir" => \OMV\System\MountPoint::buildPath($fs->getUuid()),
 					"type" => $fs->getType(),
 					"opts" => implode(",", $opts),
 					"freq" => 0,
@@ -891,8 +889,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 					$fs->umount();
 				// Does the mount directory exist? Re-create it if
 				// necessary.
-				\OMV\System\Filesystem\Filesystem::mkMountPoint(
-					$meObject['dir']);
+				$mp = new \OMV\System\MountPoint($meObject['dir']);
+				$mp->create();
 				// Finally mount the filesystem.
 				$fs->mount();
 			}
@@ -901,8 +899,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// possible if a appropriate mount point configuration object
 			// exists.
 			if ((FALSE !== $meObject) && is_object($meObject)) {
-				\OMV\System\Filesystem\Filesystem::mkMountPoint(
-					$meObject['dir']);
+				$mp = new \OMV\System\MountPoint($meObject['dir']);
+				$mp->create();
 			}
 			// Mount the filesystem.
 			if (TRUE === $fs->isMounted()) {
@@ -953,8 +951,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				$filter = [
 					"operator" => "stringEquals",
 					"arg0" => "dir",
-					"arg1" => \OMV\System\Filesystem\Filesystem::
-					  buildMountPath($params['id'])
+					"arg1" => \OMV\System\MountPoint::buildPath($params['id'])
 				];
 			}
 			$meObject = $db->getByFilter("conf.system.filesystem.mountpoint",

@@ -30,8 +30,8 @@ class Xfs extends Filesystem {
 	final public function grow() {
 		$this->getData();
 		$cmdArgs = [];
-		$cmdArgs[] = escapeshellarg(Filesystem::buildMountPath(
-		  $this->getUuid()));
+		$cmdArgs[] = escapeshellarg(\OMV\System\MountPoint::buildPath(
+			$this->getUuid()));
 		$cmd = new \OMV\System\Process("xfs_growfs", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute();

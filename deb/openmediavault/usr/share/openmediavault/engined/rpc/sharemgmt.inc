@@ -76,8 +76,8 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		foreach ($objects as $objectk => $objectv) {
 			// Skip file systems that are not mounted at the moment. To find
 			// out, just check if the given directory is a mount point.
-			if (FALSE === \OMV\System\Filesystem\Filesystem::isMountPoint(
-				$objectv->get("dir")))
+			$mp = new \OMV\System\MountPoint($objectv->get("dir"));
+			if (FALSE === $mp->isMountPoint())
 				continue;
 			// Get the file system implementation for the specified mount
 			// point. Skip the mount point if no file system implementation

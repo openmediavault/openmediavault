@@ -3,6 +3,7 @@ openmediavault (3.0.60) stable; urgency=low
   * Various improvements.
   * Append 'nofail' to mount options for removable devices to prevent a
     hanging boot process.
+  * Mantis 0001658: filesystem class vs mountpoint class.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 01 Jan 2017 15:57:55 +0100
 
