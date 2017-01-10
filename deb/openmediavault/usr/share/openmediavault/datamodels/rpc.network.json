@@ -153,7 +153,7 @@
 		   },
 		   "slaves": {
 			   "type": "string",
-			   "pattern": "/^(((eth|wlan)\\d+|(en|wl)\S+),)*((eth|wlan)\\d+|(en|wl)\S+)$/i",
+			   "pattern": "/^(((eth|wlan)\\d+|(en|wl)\\S+),)*((eth|wlan)\\d+|(en|wl)\\S+)$/i",
 			   "required": true
 		   },
 		   "bondprimary": {
