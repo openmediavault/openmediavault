@@ -26,7 +26,29 @@ namespace OMV\System\Net\NetworkInterfaceBackend;
  * @ingroup api
  */
 class Wireless extends BackendAbstract {
-	protected $regex = "/^wlan[0-9]+$/i";
+	// Examples:
+	// - wlan1
+	// - wlp3s0
+	//
+	// Predictable network interface device name types:
+	// - BCMA bus core number
+	//   b<number>
+	// - CCW bus group name, without leading zeros [s390]
+	//   c<bus_id>
+	// - on-board device index number
+	//   o<index>[n<phys_port_name>|d<dev_port>]
+	// - hotplug slot index number
+	//   s<slot>[f<function>][n<phys_port_name>|d<dev_port>]
+	// - MAC address
+	//   x<MAC>
+	// - PCI geographical location
+	//   [P<domain>]p<bus>s<slot>[f<function>][n<phys_port_name>|d<dev_port>]
+	// - USB port number chain
+	//   [P<domain>]p<bus>s<slot>[f<function>][u<port>][..][c<config>][i<interface>]
+	protected $regex = "/^wlan[0-9]+|wl(b\d+|c\d+|o\d+(n\S+|d\d+)?|".
+		"s\d+(f\d+)?(n\S+|d\d+)?|".
+		"x[\da-f]{12}|(P\d+)?p\d+s\d+(f\d+)?(n\S+|d\d+)?|".
+		"(P\d+)?p\d+s\d+(f\d+)?(u\d+)*(c\d+)?(i\d+)?)$/i";
 
 	function getType() {
 		return OMV_NETWORK_INTERFACE_TYPE_WIRELESS;
