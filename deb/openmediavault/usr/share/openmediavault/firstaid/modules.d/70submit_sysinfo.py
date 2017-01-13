@@ -25,7 +25,6 @@ import tempfile
 import shutil
 import socket
 import time
-import subprocess
 import openmediavault as omv
 
 class Module(omv.firstaid.IModule):

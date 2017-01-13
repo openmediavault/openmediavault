@@ -23,7 +23,6 @@ import sys
 import glob
 import datetime
 import dialog
-import subprocess
 import openmediavault as omv
 
 class Module(omv.firstaid.IModule):
