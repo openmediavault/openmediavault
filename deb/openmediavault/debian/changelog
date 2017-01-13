@@ -1,6 +1,7 @@
 openmediavault (3.0.60) stable; urgency=low
 
   * Various improvements.
+  * Introduce configuration database migration backend.
   * Mantis 0001657: Append 'nofail' to NFS bind mounts to prevent systemd to
     start into the emergency-mode due to unmet dependencies.
   * Mantis 0001658: filesystem class vs mountpoint class.

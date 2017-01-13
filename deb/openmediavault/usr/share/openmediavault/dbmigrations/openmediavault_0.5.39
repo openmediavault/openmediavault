@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#!/bin/sh
 #
 # This file is part of OpenMediaVault.
 #
@@ -18,34 +18,25 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-from .configadm import *
-from .firstaid import *
-from .environment import *
-from .exceptions import *
-from .productinfo import *
-from .log import *
-from .rpc import *
-from .systemd import *
-from .string import *
-from .subprocess import *
 
-import re
+set -e
 
-def bool(x):
-	"""
-	Get the boolean value of a variable. A boolean TRUE will be returned for
-    the values 1, '1', 'on', 'yes', 'y' and 'true'.
-	"""
-	result = False
-	# Boolean 'true' => '1'
-	if str(x).lower() in [ "1", "on", "yes", "y", "true" ]:
-		result = True
-	return result
+. /usr/share/openmediavault/scripts/helper-functions
 
-def getenv(key, default=None):
-	"""
-	Get an environment variable, return None if it doesn't exist.
-    The optional second argument can specify an alternate default.
-    key, default and the result are string.
-	"""
-	return Environment.get_str(key, default)
+omv_config_add_node "/config/services/smart" "monitor"
+xmlstarlet sel -t -m "/config/system/storage/hdparm" \
+	-v "uuid" \
+	-i "position() != last()" -n -b \
+	${OMV_CONFIG_FILE} | xmlstarlet unesc |
+	while read uuid; do
+		devicefile=$(omv_config_get "/config/system/storage/hdparm[uuid='${uuid}']/devicefile")
+		enable=$(omv_config_get "/config/system/storage/hdparm[uuid='${uuid}']/smart/enable")
+		object="<uuid>$(omv_uuid)</uuid>"
+		object="${object}<devicefile>${devicefile}</devicefile>"
+		object="${object}<enable>${enable}</enable>"
+		object="${object}<type></type>"
+		omv_config_add_node_data "/config/services/smart/monitor" "device" "${object}"
+		omv_config_delete "/config/system/storage/hdparm[uuid='${uuid}']/smart"
+	done
+
+exit 0

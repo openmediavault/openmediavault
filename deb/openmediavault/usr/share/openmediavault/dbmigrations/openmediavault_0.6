@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#!/bin/sh
 #
 # This file is part of OpenMediaVault.
 #
@@ -18,34 +18,22 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-from .configadm import *
-from .firstaid import *
-from .environment import *
-from .exceptions import *
-from .productinfo import *
-from .log import *
-from .rpc import *
-from .systemd import *
-from .string import *
-from .subprocess import *
 
-import re
+set -e
 
-def bool(x):
-	"""
-	Get the boolean value of a variable. A boolean TRUE will be returned for
-    the values 1, '1', 'on', 'yes', 'y' and 'true'.
-	"""
-	result = False
-	# Boolean 'true' => '1'
-	if str(x).lower() in [ "1", "on", "yes", "y", "true" ]:
-		result = True
-	return result
+. /usr/share/openmediavault/scripts/helper-functions
 
-def getenv(key, default=None):
-	"""
-	Get an environment variable, return None if it doesn't exist.
-    The optional second argument can specify an alternate default.
-    key, default and the result are string.
-	"""
-	return Environment.get_str(key, default)
+xmlstarlet sel -t -m "/config/system/fstab/mntent[contains(dir,'/home/ftp')]" \
+	-v "uuid" \
+	-i "position() != last()" -n -b \
+	${OMV_CONFIG_FILE} | xmlstarlet unesc |
+	while read uuid; do
+		dir=$(omv_config_get "/config/system/fstab/mntent[uuid='${uuid}']/dir" | sed -e 's#^/home/ftp#/srv/ftp#i')
+		omv_config_update "/config/system/fstab/mntent[uuid='${uuid}']/dir" "${dir}"
+		mkdir -p "${dir}"
+	done
+
+# Add SMB/CIFS share option.
+omv_config_add_key "/config/services/smb/shares/share" "audit" "0"
+
+exit 0

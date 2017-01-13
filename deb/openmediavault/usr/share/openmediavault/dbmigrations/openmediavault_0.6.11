@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#!/bin/sh
 #
 # This file is part of OpenMediaVault.
 #
@@ -18,34 +18,19 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-from .configadm import *
-from .firstaid import *
-from .environment import *
-from .exceptions import *
-from .productinfo import *
-from .log import *
-from .rpc import *
-from .systemd import *
-from .string import *
-from .subprocess import *
 
-import re
+set -e
 
-def bool(x):
-	"""
-	Get the boolean value of a variable. A boolean TRUE will be returned for
-    the values 1, '1', 'on', 'yes', 'y' and 'true'.
-	"""
-	result = False
-	# Boolean 'true' => '1'
-	if str(x).lower() in [ "1", "on", "yes", "y", "true" ]:
-		result = True
-	return result
+. /usr/share/openmediavault/scripts/helper-functions
 
-def getenv(key, default=None):
-	"""
-	Get an environment variable, return None if it doesn't exist.
-    The optional second argument can specify an alternate default.
-    key, default and the result are string.
-	"""
-	return Environment.get_str(key, default)
+# Add service enable/disable flag.
+omv_config_add_key "/config/services/smb/shares/share" "enable" "1"
+omv_config_add_key "/config/services/rsync/server/modules/module" "enable" "1"
+
+# Introduce new SMB share configuration option (convert the
+# existing configuration option).
+omv_config_add_key "/config/services/smb/shares/share[guestok='0']" "guest" "no"
+omv_config_add_key "/config/services/smb/shares/share[guestok='1']" "guest" "only"
+omv_config_delete "/config/services/smb/shares/share/guestok"
+
+exit 0
