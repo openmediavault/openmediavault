@@ -40,32 +40,24 @@ class Command(omv.configadm.ICommand):
 			return 1
 		plugin = args[0]
 		version = args[1]
+		migrations = {}
 		migrations_dir = omv.getenv("OMV_CONFIGADM_MIGRATE_MIGRATIONS_DIR",
 			"/usr/share/openmediavault/dbmigrations");
-		# Collect the migrations to be executed and sort them.
-		# !!! Note, we can not use natsort.humansorted here because it
-		# does not sort the list in the correct order, e.g.
-		# openmediavault_3.0.11
-		# openmediavault_3.0.12
-		# openmediavault_3.0.23
-		# openmediavault_3.0.38
-		# openmediavault_3.0.9
-		versions = []
+		# Collect the migrations to be executed.
 		for name in os.listdir(migrations_dir):
 			# Split the script name into its parts:
 			# <PLUGINNAME>_<VERSION>
-			parts = re.split(r'_', name)
+			parts = re.split(r'_', os.path.splitext(name)[0])
 			if plugin != parts[0]:
 				continue
 			if LooseVersion(parts[1]) < LooseVersion(version):
 				continue
-			versions.append(parts[1])
-		versions = sorted(versions, key=lambda version: LooseVersion(version))
+			migrations[parts[1]] = name
 		# Execute the configuration database migration scripts.
 		print("Applying migrations ...")
-		for version in versions:
+		for version in sorted(migrations, key=lambda v: LooseVersion(v)):
 			name = "%s_%s" % (plugin, version)
-			path = os.path.join(migrations_dir, name)
+			path = os.path.join(migrations_dir, migrations[version])
 			# Test if the script is executable.
 			if not os.access(path, os.X_OK):
 				omv.log.error("The script '%s' is not executable", path)
