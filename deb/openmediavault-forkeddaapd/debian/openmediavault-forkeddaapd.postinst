@@ -37,37 +37,6 @@ case "$1" in
 		fi
 
 		########################################################################
-		# Update the configuration.
-		# <config>
-		#   <services>
-		#     <daap>
-		#       <!--
-		#       <sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
-		#       -->
-		#       <enable>0|1</enable>
-		#       <libraryname>%h - iTunes/DAAP</libraryname>
-		#       <port>3689</port>
-		#       <sharedfolderref></sharedfolderref>
-		#       <passwordrequired>0|1</passwordrequired>
-		#       <password></password>
-		#       <adminpassword>unused</adminpassword>
-		#     </daap>
-		#   </services>
-		# </config>
-		########################################################################
-		if ! omv_config_exists "/config/services/daap"; then
-			echo "Initialize default configuration ..."
-			omv_config_add_node "/config/services" "daap"
-			omv_config_add_key "/config/services/daap" "enable" "0"
-			omv_config_add_key "/config/services/daap" "libraryname" "%h - iTunes/DAAP"
-			omv_config_add_key "/config/services/daap" "port" "3689"
-			omv_config_add_key "/config/services/daap" "sharedfolderref" ""
-			omv_config_add_key "/config/services/daap" "passwordrequired" "0"
-			omv_config_add_key "/config/services/daap" "password" ""
-			omv_config_add_key "/config/services/daap" "adminpassword" "unused"
-		fi
-
-		########################################################################
 		# Activate package triggers. These triggers are only set during the
 		# package installation.
 		########################################################################
@@ -75,15 +44,18 @@ case "$1" in
 		dpkg-trigger update-locale
 
 		########################################################################
+		# Initialize and migrate configuration database.
+		########################################################################
+		echo "Updating configuration database ..."
+		omv-confdbadm create "${DPKG_MAINTSCRIPT_PACKAGE}"
+		omv-confdbadm migrate "${DPKG_MAINTSCRIPT_PACKAGE}" "${2}"
+
+		########################################################################
 		# Action to be done depending on the previous version.
 		########################################################################
 		echo "Updating configuration ..."
 		if dpkg --compare-versions "$2" lt-nl "0.2.2"; then
 			rm -f /etc/monit/conf.d/forked-daapd
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.2.4"; then
-			omv_config_delete "//*[userref=/config/system/usermanagement/users/user[name='daapd']/uuid]"
-			omv_config_delete_user "daapd"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.6"; then
 			# Delete old and incompatible database file.
