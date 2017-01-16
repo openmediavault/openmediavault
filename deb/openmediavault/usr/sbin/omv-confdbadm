@@ -20,27 +20,27 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
 import sys
-import natsort
 import openmediavault as omv
 
 def usage(commands):
-	print("Usage: %s <command>\n\nCommon commands:\n" %
+	print("Usage: %s <command>\n\nCommon commands:" %
 		os.path.basename(sys.argv[0]))
-	for name, cmd_inst in commands.items():
-		print("{}\t\t{}".format(name, cmd_inst.description))
+	for command in sorted(commands):
+		cmd_inst = commands[command]
+		print("  %s\t%s" % (command, cmd_inst.description))
 
 def load_commands():
 	commands = {}
-	path = omv.getenv("OMV_CONFIGADM_COMMANDS_DIR",
-		"/usr/share/openmediavault/configadm/commands.d");
+	path = omv.getenv("OMV_CONFDBADM_COMMANDS_DIR",
+		"/usr/share/openmediavault/confdbadm/commands.d");
 	sys.path.insert(0, path)
-	for name in natsort.humansorted(os.listdir(path)):
+	for name in os.listdir(path):
 		cmd_name, ext = os.path.splitext(name)
 		if not ext == ".py":
 			continue
 		cmd = __import__(cmd_name)
 		cmd_inst = cmd.Command()
-		if not isinstance(cmd_inst, omv.configadm.ICommand):
+		if not isinstance(cmd_inst, omv.confdbadm.ICommand):
 			continue
 		commands[cmd_name] = cmd_inst
 	sys.path.pop(0)
@@ -53,13 +53,21 @@ def main():
 	if 1 >= len(sys.argv):
 		usage(commands)
 		return 1
-	# Execute the command.
+	# Does the command exist?
 	if sys.argv[1] not in commands:
 		usage(commands)
 		return 1
+	# Get the command instance and its arguments.
 	cmd_inst = commands[sys.argv[1]]
-	cmd_args = sys.argv[2:]
-	return cmd_inst.execute(*cmd_args)
+	cmd_args = []
+	cmd_args.append(sys.argv[0])
+	cmd_args.extend(sys.argv[2:])
+	# Validate the command arguments.
+	if not cmd_inst.validate_args(*cmd_args):
+		cmd_inst.usage(*cmd_args)
+		return 1
+	# Execute the command.
+	return cmd_inst.execute(cmd_args)
 
 if __name__ == "__main__":
 	sys.exit(main())

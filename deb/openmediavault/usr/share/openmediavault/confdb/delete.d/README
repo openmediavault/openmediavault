@@ -1,0 +1,9 @@
+Put your configuration database deletion scripts here. The files must
+look like:
+
+<PLUGINNAME>[.<EXT>]
+
+Example:
+openmediavault-route
+openmediavault-shairport.sh
+openmediavault-ldap.py

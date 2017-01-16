@@ -1,0 +1,9 @@
+Put your configuration database migration scripts here. The files must
+look like:
+
+<PLUGINNAME>_<VERSION>[.<EXT>]
+
+Example:
+openmediavault-route_0.5.3
+openmediavault-shairport_1.5.0.1.sh
+openmediavault-ldap_3.1.py

@@ -30,13 +30,24 @@ class ICommand(metaclass=abc.ABCMeta):
 		"""
 
 	@abc.abstractmethod
-	def usage(self):
+	def validate_args(self, *args):
 		"""
-		Display the command help.
+		Validate the command arguments.
+		:param args: The command arguments to validate.
+		:returns: Returns True if the arguments are valid, otherwise False.
 		"""
 
 	@abc.abstractmethod
-	def execute(self, *argv):
+	def usage(self, *args):
+		"""
+		Display the command help.
+		:param args: The command arguments.
+		"""
+
+	@abc.abstractmethod
+	def execute(self, *args):
 		"""
 		Execute the command.
+		:param args: The command arguments.
+		:returns: Returns the return code.
 		"""
