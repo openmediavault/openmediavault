@@ -22,14 +22,12 @@ import os
 import sys
 import openmediavault as omv
 
-class Command(omv.confdbadm.ICommand):
+class Command(omv.confdbadm.ICommand, omv.confdbadm.CommandHelper):
 	@property
 	def description(self):
 		return "Create the default configuration per plugin"
 
 	def validate_args(self, *args):
-		print(args)
-
 		if 2 != len(args):
 			return False
 		return True
@@ -52,8 +50,10 @@ class Command(omv.confdbadm.ICommand):
 				script_name = os.path.join(create_dir, name)
 				break
 		try:
-			script_path = os.path.join(create_dir, script_name)
+			# Create a backup of the configuration database.
+			self.mkBackup()
 			# Test if the script exists and is executable.
+			script_path = os.path.join(create_dir, script_name)
 			if not os.exists(script_path):
 				raise RuntimeError("The script '%s' does not exist" %
 					script_name)
@@ -68,6 +68,11 @@ class Command(omv.confdbadm.ICommand):
 			# Display the exception message.
 			omv.log.error("Failed to create the default configuration: %s" %
 				str(e))
+			# Rollback all changes.
+			self.rollbackChanges()
+		finally:
+			# Unlink the configuration database backup.
+			self.unlinkBackup()
 		return rc
 
 if __name__ == "__main__":

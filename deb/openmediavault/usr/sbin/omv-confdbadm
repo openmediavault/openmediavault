@@ -67,7 +67,7 @@ def main():
 		cmd_inst.usage(*cmd_args)
 		return 1
 	# Execute the command.
-	return cmd_inst.execute(cmd_args)
+	return cmd_inst.execute(*cmd_args)
 
 if __name__ == "__main__":
 	sys.exit(main())

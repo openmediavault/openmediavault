@@ -22,7 +22,7 @@ import os
 import sys
 import openmediavault as omv
 
-class Command(omv.confdbadm.ICommand):
+class Command(omv.confdbadm.ICommand, omv.confdbadm.CommandHelper):
 	@property
 	def description(self):
 		return "Delete the configuration per plugin"
@@ -50,8 +50,10 @@ class Command(omv.confdbadm.ICommand):
 				script_name = os.path.join(create_dir, name)
 				break
 		try:
-			script_path = os.path.join(create_dir, script_name)
+			# Create a backup of the configuration database.
+			self.mkBackup()
 			# Test if the script exists and is executable.
+			script_path = os.path.join(create_dir, script_name)
 			if not os.exists(script_path):
 				raise RuntimeError("The script '%s' does not exist" %
 					script_name)
@@ -65,6 +67,11 @@ class Command(omv.confdbadm.ICommand):
 		except Exception as e:
 			# Display the exception message.
 			omv.log.error("Failed to delete the configuration: %s" % str(e))
+			# Rollback all changes.
+			self.rollbackChanges()
+		finally:
+			# Unlink the configuration database backup.
+			self.unlinkBackup()
 		return rc
 
 if __name__ == "__main__":

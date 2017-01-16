@@ -21,12 +21,10 @@
 import os
 import re
 import sys
-import shutil
-import tempfile
 from distutils.version import LooseVersion
 import openmediavault as omv
 
-class Command(omv.confdbadm.ICommand):
+class Command(omv.confdbadm.ICommand, omv.confdbadm.CommandHelper):
 	@property
 	def description(self):
 		return "Apply configuration database migrations per plugin"
@@ -59,9 +57,8 @@ class Command(omv.confdbadm.ICommand):
 				continue
 			migrations[parts[1]] = name
 		try:
-			# Create a backup copy of the configuration database.
-			backup_path = tempfile.mkstemp();
-			shutil.copy(omv.getenv("OMV_CONFIG_FILE"), backup_path)
+			# Create a backup of the configuration database.
+			self.mkBackup()
 			# Execute the configuration database migration scripts.
 			print("Applying migrations ...")
 			for version in sorted(migrations, key=lambda v: LooseVersion(v)):
@@ -80,10 +77,10 @@ class Command(omv.confdbadm.ICommand):
 			# Display the exception message.
 			omv.log.error("Failed to apply migrations: %s" % str(e))
 			# Rollback all changes.
-			shutil.copy(backup_path, omv.getenv("OMV_CONFIG_FILE"))
+			self.rollbackChanges()
 		finally:
 			# Unlink the configuration database backup.
-			os.unlink(backup_path)
+			self.unlinkBackup()
 		return rc
 
 if __name__ == "__main__":

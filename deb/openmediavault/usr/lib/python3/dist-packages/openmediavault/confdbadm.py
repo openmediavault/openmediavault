@@ -21,6 +21,10 @@
 __all__ = [ "ICommand" ]
 
 import abc
+import os
+import shutil
+import tempfile
+import openmediavault as omv
 
 class ICommand(metaclass=abc.ABCMeta):
 	@abc.abstractproperty
@@ -51,3 +55,32 @@ class ICommand(metaclass=abc.ABCMeta):
 		:param args: The command arguments.
 		:returns: Returns the return code.
 		"""
+
+class CommandHelper():
+	_backup_path = ""
+
+	def mkBackup(self):
+		"""
+		Create a backup of the configuration database.
+		:returns: Returns the path of the backup file.
+		"""
+		(fh, self._backup_path) = tempfile.mkstemp();
+		shutil.copy(omv.getenv("OMV_CONFIG_FILE"), self._backup_path)
+		return self._backup_path
+
+	def unlinkBackup(self):
+		"""
+		Unlink the backup of the configuration database.
+		"""
+		if not self._backup_path:
+			raise RuntimeError("No configuration backup exists")
+		os.unlink(self._backup_path)
+		self._backup_path = ""
+
+	def rollbackChanges():
+		"""
+		Rollback all changes in the configuration database.
+		"""
+		if not self._backup_path:
+			raise RuntimeError("No configuration backup exists")
+		shutil.copy(self._backup_path, omv.getenv("OMV_CONFIG_FILE"))
