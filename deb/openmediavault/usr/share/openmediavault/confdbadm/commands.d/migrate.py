@@ -24,7 +24,7 @@ import sys
 from distutils.version import LooseVersion
 import openmediavault as omv
 
-class Command(omv.configadm.ICommand):
+class Command(omv.confdbadm.ICommand):
 	@property
 	def description(self):
 		return "Apply database migrations"
@@ -41,7 +41,7 @@ class Command(omv.configadm.ICommand):
 		plugin = args[0]
 		version = args[1]
 		migrations = {}
-		migrations_dir = omv.getenv("OMV_CONFIGADM_MIGRATE_MIGRATIONS_DIR",
+		migrations_dir = omv.getenv("OMV_CONFDBADM_MIGRATE_MIGRATIONS_DIR",
 			"/usr/share/openmediavault/dbmigrations");
 		# Collect the migrations to be executed.
 		for name in os.listdir(migrations_dir):
