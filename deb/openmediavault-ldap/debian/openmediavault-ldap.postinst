@@ -36,44 +36,6 @@ case "$1" in
 		fi
 
 		########################################################################
-		# Update the configuration.
-		# <config>
-		#   <services>
-		#     <ldap>
-		#       <enable>0</enable>
-		#       <host></host>
-		#       <port>389</port>
-		#       <enablessl>0</enablessl>
-		#       <base></base>
-		#       <rootbinddn></rootbinddn>
-		#       <rootbindpw></rootbindpw>
-		#       <usersuffix></usersuffix>
-		#       <groupsuffix></groupsuffix>
-		#       <enablepam>0|1</enablepam>
-		#       <extraoptions></extraoptions>
-		#       <extraclientoptions></extraclientoptions>
-		#     </ldap>
-		#   </services>
-		# </config>
-		########################################################################
-		if ! omv_config_exists "/config/services/ldap"; then
-			echo "Initialize default configuration ..."
-			omv_config_add_node "/config/services" "ldap"
-			omv_config_add_key "/config/services/ldap" "enable" "0"
-			omv_config_add_key "/config/services/ldap" "host" ""
-			omv_config_add_key "/config/services/ldap" "port" "389"
-			omv_config_add_key "/config/services/ldap" "enablessl" "0"
-			omv_config_add_key "/config/services/ldap" "base" ""
-			omv_config_add_key "/config/services/ldap" "rootbinddn" ""
-			omv_config_add_key "/config/services/ldap" "rootbindpw" ""
-			omv_config_add_key "/config/services/ldap" "usersuffix" "ou=Users"
-			omv_config_add_key "/config/services/ldap" "groupsuffix" "ou=Groups"
-			omv_config_add_key "/config/services/ldap" "enablepam" "1"
-			omv_config_add_key "/config/services/ldap" "extraoptions" ""
-			omv_config_add_key "/config/services/ldap" "extraclientoptions" ""
-		fi
-
-		########################################################################
 		# Activate package triggers. These triggers are only set during the
 		# package installation.
 		########################################################################
@@ -81,16 +43,15 @@ case "$1" in
 		dpkg-trigger update-locale
 
 		########################################################################
+		# Initialize and migrate configuration database.
+		########################################################################
+		echo "Updating configuration database ..."
+		omv-confdbadm create "${DPKG_MAINTSCRIPT_PACKAGE}"
+		omv-confdbadm migrate "${DPKG_MAINTSCRIPT_PACKAGE}" "${2}"
+
+		########################################################################
 		# Action to be done depending on the previous version.
 		########################################################################
-		echo "Updating configuration ..."
-		if dpkg --compare-versions "$2" lt-nl "1.0.3"; then
-			omv_config_add_key "/config/services/ldap" "enablessl" "0"
-		fi
-		if dpkg --compare-versions "$2" lt-nl "2.0"; then
-			omv_config_add_key "/config/services/ldap" "enablepam" "1"
-			omv_config_add_key "/config/services/ldap" "extraclientoptions" ""
-		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
