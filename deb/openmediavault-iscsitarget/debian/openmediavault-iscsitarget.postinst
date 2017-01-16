@@ -37,95 +37,18 @@ case "$1" in
 		fi
 
 		########################################################################
-		# Update the configuration.
-		# <config>
-		#   <services>
-		#     <iscsitarget>
-		#       <enable>0</enable>
-		#       <extraoptions></extraoptions>
-		#       <authentication>
-		#         <user>
-		#           <uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
-		#           <type>incoming|outgoing</type>
-		#           <username>xxx</username>
-		#           <password>xxx</password>
-		#         </user>
-		#         <user>
-		#           ...
-		#         </user>
-		#       </authentication>
-		#       <targets>
-		#         <target>
-		#           <uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
-		#           <activation>jjjj-mm</activation>
-		#           <identifier>xxx</identifier>
-		#           <alias></alias>
-		#           <headerdigest>CRC32C|None</headerdigest>
-		#           <datadigest>CRC32C|None</datadigest>
-		#           <maxconnections>1</maxconnections>
-		#           <maxsessions>0</maxsessions>
-		#           <initialr2t>0|1</initialr2t>
-		#           <immediatedata>0|1</immediatedata>
-		#           <maxrecvdatasegmentlength>8192</maxrecvdatasegmentlength>
-		#           <maxxmitdatasegmentlength>8192</maxxmitdatasegmentlength>
-		#           <maxburstlength>262144</maxburstlength>
-		#           <firstburstlength>65536</firstburstlength>
-		#           <maxoutstandingr2t>1</maxoutstandingr2t>
-		#           <datapduinorder>0|1</datapduinorder>
-		#           <datasequenceinorder>0|1</datasequenceinorder>
-		#           <errorrecoverylevel>0</errorrecoverylevel>
-		#           <nopinterval>0</nopinterval>
-		#           <noptimeout>0</noptimeout>
-		#           <wthreads>8</wthreads>
-		#           <queuedcommands>32</queuedcommands>
-		#           <comment></comment>
-		#           <extraoptions></extraoptions>
-		#           <authentication>
-		#             <user>
-		#               <uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
-		#               <type>incoming|outgoing</type>
-		#               <username>xxx</username>
-		#               <password>xxx</password>
-		#             </user>
-		#             <user>
-		#               ...
-		#             </user>
-		#           </authentication>
-		#           <luns>
-		#             <lun>
-		#               <uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
-		#               <id>[0...2^14-1]</id>
-		#               <type>fileio|blockio</type>
-		#               <iomode>wt|wb|ro</iomode>
-		#               <devicefile>/dev/xxx</devicefile>
-		#               <scsiid></scsiid>
-		#               <scsisn></scsisn>
-		#             </lun>
-		#             <lun>
-		#               ...
-		#             </lun>
-		#           </luns>
-		#         </target>
-		#       </targets>
-		#     <iscsitarget>
-		#   </services>
-		# </config>
-		########################################################################
-		if ! omv_config_exists "/config/services/iscsitarget"; then
-			echo "Initialize default configuration ..."
-			omv_config_add_node "/config/services" "iscsitarget"
-			omv_config_add_key "/config/services/iscsitarget" "enable" "0"
-			omv_config_add_key "/config/services/iscsitarget" "authentication" ""
-			omv_config_add_key "/config/services/iscsitarget" "extraoptions" ""
-			omv_config_add_node "/config/services/iscsitarget" "targets"
-		fi
-
-		########################################################################
 		# Activate package triggers. These triggers are only set during the
 		# package installation.
 		########################################################################
 		dpkg-trigger update-fixperms
 		dpkg-trigger update-locale
+
+		########################################################################
+		# Initialize and migrate configuration database.
+		########################################################################
+		echo "Updating configuration database ..."
+		omv-confdbadm create "${DPKG_MAINTSCRIPT_PACKAGE}"
+		omv-confdbadm migrate "${DPKG_MAINTSCRIPT_PACKAGE}" "${2}"
 
 		########################################################################
 		# Action to be done depending on the previous version.
