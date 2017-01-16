@@ -55,7 +55,6 @@ case "$1" in
 		########################################################################
 		# Action to be done depending on the previous version.
 		########################################################################
-		echo "Updating configuration ..."
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
