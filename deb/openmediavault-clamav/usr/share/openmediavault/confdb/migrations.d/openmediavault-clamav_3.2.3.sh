@@ -21,23 +21,9 @@
 
 set -e
 
-. /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-case "$1" in
-	purge)
-		# Remove the configuration data.
-		echo "Updating configuration database ..."
-		omv-confdbadm delete "${DPKG_MAINTSCRIPT_PACKAGE}"
-	;;
-
-	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
-	;;
-
-	*)
-		echo "postrm called with unknown argument '$1'" >&2
-		exit 1
-	;;
-esac
+omv_config_delete "/config/services/clamav/freshclam/databasemirror"
+omv_config_delete "/config/services/clamav/jobs/job/remove"
 
 exit 0

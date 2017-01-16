@@ -39,88 +39,6 @@ case "$1" in
 		fi
 
 		########################################################################
-		# Update the configuration.
-		# <config>
-		#   <services>
-		#     <clamav>
-		#       <enable>0</enable>
-		#       <quarantine_sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</quarantine_sharedfolderref>
-		#       <clamd>
-		#         <logclean>0</logclean>
-		#         <scanpe>1</scanpe>
-		#         <scanole2>1</scanole2>
-		#         <scanhtml>1</scanhtml>
-		#         <scanpdf>1</scanpdf>
-		#         <scanelf>1</scanelf>
-		#         <scanarchive>1</scanarchive>
-		#         <detectbrokenexecutables>0</detectbrokenexecutables>
-		#         <algorithmicdetection>1</algorithmicdetection>
-		#         <followdirectorysymlinks>0</followdirectorysymlinks>
-		#         <followfilesymlinks>0</followfilesymlinks>
-		#         <detectpua>0</detectpua>
-		#         <extraoptions></extraoptions>
-		#       </clamd>
-		#       <freshclam>
-		#         <!--
-		#         <enable>0|1</enable>
-		#         <checks>0 = disable, 1..50</checks>
-		#         -->
-		#         <enable>1</enable>
-		#         <checks>24</checks>
-		#       </freshclam>
-		#       <jobs>
-		#         <!--
-		#         <job>
-		#           <uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
-		#           <enable>0|1</enable>
-		#           <sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
-		#           <minute>[00-59|*]</minute>
-		#           <everynminute>0|1</everynminute>
-		#           <hour>[00-23|*]</hour>
-		#           <everynhour>0|1</everynhour>
-		#           <dayofmonth>[01-31|*]</dayofmonth>
-		#           <everyndayofmonth>0|1</everyndayofmonth>
-		#           <month>[01-12|*]</month>
-		#           <dayofweek>[1-7|*]</dayofweek>
-		#           <sendemail>0|1</sendemail>
-		#           <onaccess>0|1</onaccess>
-		#           <virusaction>nothing|quarantine|delete</virusaction>
-		#           <verbose>0|1</verbose>
-		#           <multiscan>0|1</multiscan>
-		#           <comment></comment>
-		#         </job>
-		#         -->
-		#       </jobs>
-		#     </clamav>
-		#   </services>
-		# </config>
-		########################################################################
-		if ! omv_config_exists "/config/services/clamav"; then
-			echo "Initialize default configuration ..."
-			omv_config_add_node "/config/services" "clamav"
-			omv_config_add_key "/config/services/clamav" "enable" "0"
-			omv_config_add_key "/config/services/clamav" "quarantine_sharedfolderref" ""
-			omv_config_add_node "/config/services/clamav" "clamd"
-			omv_config_add_key "/config/services/clamav/clamd" "logclean" "0"
-			omv_config_add_key "/config/services/clamav/clamd" "scanpe" "1"
-			omv_config_add_key "/config/services/clamav/clamd" "scanole2" "1"
-			omv_config_add_key "/config/services/clamav/clamd" "scanhtml" "1"
-			omv_config_add_key "/config/services/clamav/clamd" "scanpdf" "1"
-			omv_config_add_key "/config/services/clamav/clamd" "scanelf" "1"
-			omv_config_add_key "/config/services/clamav/clamd" "scanarchive" "1"
-			omv_config_add_key "/config/services/clamav/clamd" "detectbrokenexecutables" "0"
-			omv_config_add_key "/config/services/clamav/clamd" "algorithmicdetection" "1"
-			omv_config_add_key "/config/services/clamav/clamd" "followdirectorysymlinks" "0"
-			omv_config_add_key "/config/services/clamav/clamd" "followfilesymlinks" "0"
-			omv_config_add_key "/config/services/clamav/clamd" "detectpua" "0"
-			omv_config_add_key "/config/services/clamav/clamd" "extraoptions" ""
-			omv_config_add_node "/config/services/clamav" "freshclam"
-			omv_config_add_key "/config/services/clamav/freshclam" "enable" "1"
-			omv_config_add_key "/config/services/clamav/freshclam" "checks" "24"
-			omv_config_add_node "/config/services/clamav" "jobs"
-		fi
-
-		########################################################################
 		# Activate package triggers. These triggers are only set during the
 		# package installation.
 		########################################################################
@@ -128,45 +46,16 @@ case "$1" in
 		dpkg-trigger update-locale
 
 		########################################################################
+		# Initialize and migrate configuration database.
+		########################################################################
+		echo "Updating configuration database ..."
+		omv-confdbadm create "${DPKG_MAINTSCRIPT_PACKAGE}"
+		omv-confdbadm migrate "${DPKG_MAINTSCRIPT_PACKAGE}" "${2}"
+
+		########################################################################
 		# Action to be done depending on the previous version.
 		########################################################################
 		echo "Updating configuration ..."
-		if dpkg --compare-versions "$2" lt-nl "0.3.0.1"; then
-			omv_config_add_key "/config/services/clamav/jobs/job" "remove" "0"
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.3.0.2"; then
-			omv_config_add_key "/config/services/clamav/jobs/job" "verbose" "0"
-			omv_config_add_key "/config/services/clamav/jobs/job" "multiscan" "0"
-			omv-mkconf clamav
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.3.0.3"; then
-			omv-mkconf clamav
-			if [ "$(omv_config_get "/config/services/clamav/enable")" != "0" ]; then
-				invoke-rc.d clamav-freshclam restart
-			fi
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.4.1"; then
-			omv_config_add_key "/config/services/clamav/clamd" "logclean" "0"
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.6.1"; then
-			omv_config_add_key "/config/services/clamav" "quarantine.sharedfolderref" ""
-			omv_config_add_key "/config/services/clamav/jobs/job[remove='0']" "virusaction" "nothing"
-			omv_config_add_key "/config/services/clamav/jobs/job[remove='1']" "virusaction" "delete"
-			omv_config_delete "/config/services/clamav/jobs/job/remove"
-		fi
-		if dpkg --compare-versions "$2" lt-nl "3.0.2"; then
-			omv-mkconf clamav
-			deb-systemd-invoke reload clamav-daemon || :
-			deb-systemd-invoke reload clamav-freshclam || :
-		fi
-		if dpkg --compare-versions "$2" lt-nl "3.1.2"; then
-			omv_config_rename "/config/services/clamav/quarantine.sharedfolderref" "quarantine_sharedfolderref"
-		fi
-		if dpkg --compare-versions "$2" lt-nl "3.2.3"; then
-			omv_config_delete "/config/services/clamav/freshclam/databasemirror"
-			omv_config_delete "/config/services/clamav/jobs/job/remove"
-			omv-mkconf clamav
-		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

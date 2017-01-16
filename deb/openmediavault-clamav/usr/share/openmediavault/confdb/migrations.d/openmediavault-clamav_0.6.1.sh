@@ -21,23 +21,12 @@
 
 set -e
 
-. /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-case "$1" in
-	purge)
-		# Remove the configuration data.
-		echo "Updating configuration database ..."
-		omv-confdbadm delete "${DPKG_MAINTSCRIPT_PACKAGE}"
-	;;
-
-	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
-	;;
-
-	*)
-		echo "postrm called with unknown argument '$1'" >&2
-		exit 1
-	;;
-esac
+omv_config_add_key "/config/services/clamav" "quarantine.sharedfolderref" ""
+omv_config_add_key "/config/services/clamav/jobs/job[remove='0']" "virusaction" "nothing"
+omv_config_add_key "/config/services/clamav/jobs/job[remove='1']" "virusaction" "delete"
+omv_config_delete "/config/services/clamav/jobs/job/remove"
+omv_module_set_dirty "clamav"
 
 exit 0
