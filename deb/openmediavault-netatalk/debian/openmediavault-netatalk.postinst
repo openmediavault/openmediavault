@@ -37,51 +37,6 @@ case "$1" in
 		fi
 
 		########################################################################
-		# Update the configuration.
-		# <config>
-		#   <services>
-		#     <afp>
-		#       <enable>0|1</enable>
-		#       <allowclrtxt>0</allowclrtxt>
-		#       <homesenable>0</homesenable>
-		#       <extraoptions></extraoptions>
-		#       <shares>
-		#       	<!--
-		#       	<share>
-		#       		<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
-		#       		<sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
-		#       		<name>xxx</name>
-		#       		<comment>xxx</comment>
-		#       		<password></password>
-		#       		<casefold>none|tolower|toupper|xlatelower|xlateupper</casefold>
-		#       		<volsizelimit>0</volsizelimit>
-		#       		<allowguest>0|1</allowguest>
-		#       		<guestrw>0|1</guestrw>
-		#       		<options>
-		#       			<ro>0|1</ro>
-		#       			<upriv>0|1</upriv>
-		#       			<invisibledots>0|1</invisibledots>
-		#       			<tm>0|1</tm>
-		#       		</options>
-		#       		<extraoptions></extraoptions>
-		#       	</share>
-		#       	-->
-		#       </shares>
-		#     </afp>
-		#   </services>
-		# </config>
-		########################################################################
-		if ! omv_config_exists "/config/services/afp"; then
-			echo "Initialize default configuration ..."
-			omv_config_add_node "/config/services" "afp"
-			omv_config_add_key "/config/services/afp" "enable" "0"
-			omv_config_add_key "/config/services/afp" "allowclrtxt" "0"
-			omv_config_add_key "/config/services/afp" "homesenable" "0"
-			omv_config_add_key "/config/services/afp" "extraoptions" ""
-			omv_config_add_node "/config/services/afp" "shares"
-		fi
-
-		########################################################################
 		# Activate package triggers. These triggers are only set during the
 		# package installation.
 		########################################################################
@@ -89,38 +44,18 @@ case "$1" in
 		dpkg-trigger update-locale
 
 		########################################################################
+		# Initialize and migrate configuration database.
+		########################################################################
+		echo "Updating configuration database ..."
+		omv-confdbadm create "${DPKG_MAINTSCRIPT_PACKAGE}"
+		omv-confdbadm migrate "${DPKG_MAINTSCRIPT_PACKAGE}" "${2}"
+
+		########################################################################
 		# Action to be done depending on the previous version.
 		########################################################################
 		echo "Updating configuration ..."
 		if dpkg --compare-versions "$2" lt-nl "0.2.3.1"; then
 			rm -f /etc/monit/conf.d/netatalk
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.3.0.4"; then
-			omv_config_add_node "/config/services/afp" "dnssd"
-			omv_config_add_key "/config/services/afp/dnssd" "enable" "1"
-			omv_config_add_key "/config/services/afp/dnssd" "name" "%h - AFP"
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.3.0.5"; then
-			omv_config_add_key "/config/services/afp" "allowclrtxt" "0"
-			omv_config_add_key "/config/services/afp" "homesenable" "0"
-			omv-mkconf netatalk
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.3.0.7"; then
-			omv_config_add_key "/config/services/afp/shares/share" "volsizelimit" "0"
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.5"; then
-			# Add avahi configuration.
-			omv_config_add_node_data "/config/services/zeroconf/services" "service" "<id>afp</id><enable>1</enable><name>%h - AFP</name>"
-		fi
-		if dpkg --compare-versions "$2" lt-nl "3.1"; then
-			omv_config_add_key "/config/services/afp/shares/share" "enable" "1"
-			omv_config_delete "/config/services/afp/shares/share/name"
-			omv_config_delete "/config/services/afp/shares/share/options/usedots"
-			omv_config_delete "/config/services/afp/shares/share/options/mswindows"
-		fi
-		if dpkg --compare-versions "$2" lt-nl "3.2.2"; then
-			# Zeroconf is now handled by the netatalk daemon itself.
-			omv_config_delete "/config/services/zeroconf/services/service[id='afp']"
 		fi
 	;;
 

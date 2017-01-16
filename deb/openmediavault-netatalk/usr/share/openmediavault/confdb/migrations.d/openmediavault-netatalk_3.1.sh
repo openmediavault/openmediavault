@@ -21,29 +21,11 @@
 
 set -e
 
-. /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-# Force the creation of the monit service configuration files. This way we
-# can simply purge this service configuration file. Finally reload the monit
-# configuration.
-omv-mkconf monit
-deb-systemd-invoke reload monit.service || :
-
-case "$1" in
-	purge)
-		# Remove the configuration data.
-		echo "Updating configuration database ..."
-		omv-confdbadm delete "${DPKG_MAINTSCRIPT_PACKAGE}"
-	;;
-
-	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
-	;;
-
-	*)
-		echo "postrm called with unknown argument '$1'" >&2
-		exit 1
-	;;
-esac
+omv_config_add_key "/config/services/afp/shares/share" "enable" "1"
+omv_config_delete "/config/services/afp/shares/share/name"
+omv_config_delete "/config/services/afp/shares/share/options/usedots"
+omv_config_delete "/config/services/afp/shares/share/options/mswindows"
 
 exit 0
