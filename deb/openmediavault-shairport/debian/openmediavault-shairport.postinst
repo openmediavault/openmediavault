@@ -45,33 +45,18 @@ case "$1" in
 		fi
 
 		########################################################################
-		# Update the configuration.
-		# <config>
-		#   <services>
-		#     <shairport>
-		#       <enable>0|1</enable>
-		#       <name></name>
-		#       <passwordrequired>0|1</passwordrequired>
-		#       <password></password>
-		#     </shairport>
-		#   </services>
-		# </config>
-		########################################################################
-		if ! omv_config_exists "/config/services/shairport"; then
-			echo "Initialize default configuration ..."
-			omv_config_add_node "/config/services" "shairport"
-			omv_config_add_key "/config/services/shairport" "enable" "0"
-			omv_config_add_key "/config/services/shairport" "name" ""
-			omv_config_add_key "/config/services/shairport" "passwordrequired" "0"
-			omv_config_add_key "/config/services/shairport" "password" ""
-		fi
-
-		########################################################################
 		# Activate package triggers. These triggers are only set during the
 		# package installation.
 		########################################################################
 		dpkg-trigger update-fixperms
 		dpkg-trigger update-locale
+
+		########################################################################
+		# Initialize and migrate configuration database.
+		########################################################################
+		echo "Updating configuration database ..."
+		omv-confdbadm create "${DPKG_MAINTSCRIPT_PACKAGE}"
+		omv-confdbadm migrate "${DPKG_MAINTSCRIPT_PACKAGE}" "${2}"
 
 		########################################################################
 		# Action to be done depending on the previous version.
@@ -83,9 +68,6 @@ case "$1" in
 			if [ "$(omv_config_get "/config/services/shairport/enable")" != "0" ]; then
 				invoke-rc.d shairport-sync restart
 			fi
-		fi
-		if dpkg --compare-versions "$2" lt-nl "2.5"; then
-			omv_config_add_key "/config/services/shairport" "name" ""
 		fi
 	;;
 

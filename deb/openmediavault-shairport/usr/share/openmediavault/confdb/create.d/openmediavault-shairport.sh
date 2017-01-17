@@ -21,28 +21,27 @@
 
 set -e
 
-. /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_USBBACKUP_UDEV_RULE_CONFIG=${OMV_USBBACKUP_UDEV_RULE_CONFIG:-"/etc/udev/rules.d/99-openmediavault-usbbackup.rules"}
-
-case "$1" in
-	purge)
-		# Remove the configuration data.
-		echo "Cleaning up configuration database ..."
-		omv-confdbadm delete "${DPKG_MAINTSCRIPT_PACKAGE}"
-		# Remove udev-rule
-		rm -f ${OMV_USBBACKUP_UDEV_RULE_CONFIG}
-		udevadm control --reload-rules
-	;;
-
-	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
-	;;
-
-	*)
-		echo "postrm called with unknown argument '$1'" >&2
-		exit 1
-	;;
-esac
+########################################################################
+# Update the configuration.
+# <config>
+#   <services>
+#     <shairport>
+#       <enable>0|1</enable>
+#       <name></name>
+#       <passwordrequired>0|1</passwordrequired>
+#       <password></password>
+#     </shairport>
+#   </services>
+# </config>
+########################################################################
+if ! omv_config_exists "/config/services/shairport"; then
+	omv_config_add_node "/config/services" "shairport"
+	omv_config_add_key "/config/services/shairport" "enable" "0"
+	omv_config_add_key "/config/services/shairport" "name" ""
+	omv_config_add_key "/config/services/shairport" "passwordrequired" "0"
+	omv_config_add_key "/config/services/shairport" "password" ""
+fi
 
 exit 0

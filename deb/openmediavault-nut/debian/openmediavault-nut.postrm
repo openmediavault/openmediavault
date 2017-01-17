@@ -48,7 +48,8 @@ deb-systemd-helper disable nut-monitor || :
 case "$1" in
 	purge)
 		# Remove the configuration data.
-		omv_config_delete "/config/services/nut"
+		echo "Cleaning up configuration database ..."
+		omv-confdbadm delete "${DPKG_MAINTSCRIPT_PACKAGE}"
 		# Remove udev-rule.
 		rm -f ${OMV_NUT_UDEV_RULE_CONFIG}
 		udevadm control --reload-rules

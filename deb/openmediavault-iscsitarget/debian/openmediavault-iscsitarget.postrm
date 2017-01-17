@@ -31,7 +31,7 @@ monit reload
 case "$1" in
 	purge)
 		# Remove the configuration data.
-		echo "Updating configuration database ..."
+		echo "Cleaning up configuration database ..."
 		omv-confdbadm delete "${DPKG_MAINTSCRIPT_PACKAGE}"
 	;;
 

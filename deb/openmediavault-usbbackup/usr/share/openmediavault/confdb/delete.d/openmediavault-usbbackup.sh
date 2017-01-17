@@ -21,28 +21,10 @@
 
 set -e
 
-. /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_USBBACKUP_UDEV_RULE_CONFIG=${OMV_USBBACKUP_UDEV_RULE_CONFIG:-"/etc/udev/rules.d/99-openmediavault-usbbackup.rules"}
-
-case "$1" in
-	purge)
-		# Remove the configuration data.
-		echo "Cleaning up configuration database ..."
-		omv-confdbadm delete "${DPKG_MAINTSCRIPT_PACKAGE}"
-		# Remove udev-rule
-		rm -f ${OMV_USBBACKUP_UDEV_RULE_CONFIG}
-		udevadm control --reload-rules
-	;;
-
-	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
-	;;
-
-	*)
-		echo "postrm called with unknown argument '$1'" >&2
-		exit 1
-	;;
-esac
+if omv_config_exists "/config/services/usbbackup"; then
+	omv_config_delete "/config/services/usbbackup"
+fi
 
 exit 0

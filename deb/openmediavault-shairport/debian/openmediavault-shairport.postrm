@@ -32,8 +32,9 @@ deb-systemd-invoke reload monit.service || :
 
 case "$1" in
 	purge)
-		# Remove the configuration data
-		omv_config_delete "/config/services/shairport"
+		# Remove the configuration data.
+		echo "Cleaning up configuration database ..."
+		omv-confdbadm delete "${DPKG_MAINTSCRIPT_PACKAGE}"
 	;;
 
 	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)

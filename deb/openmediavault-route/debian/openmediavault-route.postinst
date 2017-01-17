@@ -27,32 +27,18 @@ set -e
 case "$1" in
 	configure)
 		########################################################################
-		# Update the configuration.
-		# <config>
-		#   <services>
-		#     <staticroutes>
-		#       <route>
-		#         <uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
-		#         <network>xxx.xxx.xxx.xxx/[8..32]</network>
-		#         <gateway>xxx.xxx.xxx.xxx</gateway>
-		#         <dev>ethX|...</dev>
-		#         <comment>xxx</comment>
-		#       </route>
-		#     </staticroutes>
-		#   </services>
-		# </config>
-		########################################################################
-		if ! omv_config_exists "/config/services/staticroutes"; then
-			echo "Initialize default configuration ..."
-			omv_config_add_node "/config/services" "staticroutes"
-		fi
-
-		########################################################################
 		# Activate package triggers. These triggers are only set during the
 		# package installation.
 		########################################################################
 		dpkg-trigger update-fixperms
 		dpkg-trigger update-locale
+
+		########################################################################
+		# Initialize and migrate configuration database.
+		########################################################################
+		echo "Updating configuration database ..."
+		omv-confdbadm create "${DPKG_MAINTSCRIPT_PACKAGE}"
+		omv-confdbadm migrate "${DPKG_MAINTSCRIPT_PACKAGE}" "${2}"
 
 		########################################################################
 		# Action to be done depending on the previous version.

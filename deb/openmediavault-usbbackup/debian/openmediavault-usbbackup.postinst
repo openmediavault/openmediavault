@@ -32,44 +32,6 @@ case "$1" in
 		omv_set_default "OMV_USBBACKUP_SCRIPTS_DIR" "/var/lib/openmediavault/usbbackup.d" false
 
 		########################################################################
-		# Update the configuration.
-		# <config>
-		#   <services>
-		#     <usbbackup>
-		#       <jobs>
-		#         <job>
-		#           <uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
-		#           <enable>0|1</enable>
-		#           <mode>push|pull</mode>
-		#           <sendemail>0|1<sendemail>
-		#           <comment>xxx</comment>
-		#           <devicefile>xxx</devicefile>
-		#           <sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
-		#           <usesubdir>0|1</usesubdir>
-		#           <recursive>1</recursive>
-		#           <times>1</times>
-		#           <compress>0</compress>
-		#           <archive>1</archive>
-		#           <delete>0</delete>
-		#           <quiet>0</quiet>
-		#           <perms>1</perms>
-		#           <acls>1</acls>
-		#           <xattrs>0</xattrs>
-		#           <partial>0</partial>
-		#           <extraoptions></extraoptions>
-		#         </job>
-		#       </jobs>
-		#     <usbbackup>
-		#   </services>
-		# </config>
-		########################################################################
-		if ! omv_config_exists "/config/services/usbbackup"; then
-			echo "Initialize configuration"
-			omv_config_add_node "/config/services" "usbbackup"
-			omv_config_add_node "/config/services/usbbackup" "jobs"
-		fi
-
-		########################################################################
 		# Activate package triggers. These triggers are only set during the
 		# package installation.
 		########################################################################
@@ -77,16 +39,15 @@ case "$1" in
 		dpkg-trigger update-locale
 
 		########################################################################
+		# Initialize and migrate configuration database.
+		########################################################################
+		echo "Updating configuration database ..."
+		omv-confdbadm create "${DPKG_MAINTSCRIPT_PACKAGE}"
+		omv-confdbadm migrate "${DPKG_MAINTSCRIPT_PACKAGE}" "${2}"
+
+		########################################################################
 		# Action to be done depending on the previous version.
 		########################################################################
-		echo "Updating configuration ..."
-		if dpkg --compare-versions "$2" lt-nl "3.0.2"; then
-			echo "Deleting all configured backup jobs ..."
-			omv_config_delete "/config/services/usbbackup/jobs/job"
-		fi
-		if dpkg --compare-versions "$2" lt-nl "3.2.11"; then
-			omv-mkconf usbbackup
-		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
