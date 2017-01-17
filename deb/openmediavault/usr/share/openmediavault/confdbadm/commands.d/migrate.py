@@ -71,7 +71,6 @@ class Command(omv.confdbadm.ICommand, omv.confdbadm.CommandHelper):
 				# Execute the script.
 				print(" * %s" % name)
 				omv.subprocess.check_call([ path ])
-			print("Done")
 			rc = 0
 		except Exception as e:
 			# Display the exception message.
