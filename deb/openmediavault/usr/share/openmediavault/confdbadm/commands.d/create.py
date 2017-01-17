@@ -47,14 +47,14 @@ class Command(omv.confdbadm.ICommand, omv.confdbadm.CommandHelper):
 			# Split the script name into its parts:
 			# <PLUGINNAME>.<EXT>
 			if plugin == os.path.splitext(name)[0]:
-				script_name = os.path.join(create_dir, name)
+				script_name = name
 				break
 		try:
 			# Create a backup of the configuration database.
 			self.mkBackup()
 			# Test if the script exists and is executable.
 			script_path = os.path.join(create_dir, script_name)
-			if not os.exists(script_path):
+			if not os.path.exists(script_path):
 				raise RuntimeError("The script '%s' does not exist" %
 					script_name)
 			if not os.access(script_path, os.X_OK):
