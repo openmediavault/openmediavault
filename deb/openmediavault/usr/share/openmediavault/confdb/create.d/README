@@ -1,4 +1,4 @@
-Put your configuration database creation scripts here. The files must
+Put your configuration database creation shell scripts here. The files must
 look like:
 
 <PLUGINNAME>[.<EXT>]
@@ -6,4 +6,3 @@ look like:
 Example:
 openmediavault-route
 openmediavault-shairport.sh
-openmediavault-ldap.py
