@@ -21,9 +21,6 @@
 
 set -e
 
-. /etc/default/openmediavault
-. /usr/share/openmediavault/scripts/helper-functions
-
 # Force the creation of the monit service configuration files. This way we
 # can simply purge this service configuration file. Finally reload the monit
 # configuration.
@@ -32,9 +29,6 @@ deb-systemd-invoke reload monit.service || :
 
 case "$1" in
 	purge)
-		# Remove the configuration data.
-		echo "Cleaning up configuration database ..."
-		omv-confdbadm delete "${DPKG_MAINTSCRIPT_PACKAGE}"
 	;;
 
 	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)

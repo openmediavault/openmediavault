@@ -21,18 +21,12 @@
 
 set -e
 
-. /etc/default/openmediavault
-. /usr/share/openmediavault/scripts/helper-functions
-
 # Generate configuration files and reinitialize monit.
 omv-mkconf monit
 monit reload
 
 case "$1" in
 	purge)
-		# Remove the configuration data.
-		echo "Cleaning up configuration database ..."
-		omv-confdbadm delete "${DPKG_MAINTSCRIPT_PACKAGE}"
 	;;
 
 	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
