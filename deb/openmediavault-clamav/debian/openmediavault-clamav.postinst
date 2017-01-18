@@ -49,8 +49,8 @@ case "$1" in
 		# Initialize and migrate configuration database.
 		########################################################################
 		echo "Updating configuration database ..."
-		omv-confdbadm create "${DPKG_MAINTSCRIPT_PACKAGE}"
-		omv-confdbadm migrate "${DPKG_MAINTSCRIPT_PACKAGE}" "${2}"
+		omv-confdbadm create "conf.service.clamav"
+		omv-confdbadm migrate "conf.service.clamav" "${2}"
 
 		########################################################################
 		# Action to be done depending on the previous version.
