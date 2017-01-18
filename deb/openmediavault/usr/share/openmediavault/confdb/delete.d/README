@@ -1,8 +1,8 @@
 Put your configuration database deletion shell scripts here. The files must
 look like:
 
-<PLUGINNAME>[.<EXT>]
+<DATAMODELID>[.<EXT>]
 
 Example:
-openmediavault-route
-openmediavault-shairport.sh
+conf.service.clamav
+conf.service.clamav.sh

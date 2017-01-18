@@ -193,7 +193,7 @@ case "$1" in
 		# Migrate configuration database.
 		########################################################################
 		echo "Updating configuration database ..."
-		omv-confdbadm migrate "${DPKG_MAINTSCRIPT_PACKAGE}" "${2}"
+		omv-confdbadm migrate "openmediavault" "${2}"
 
 		########################################################################
 		# Action to be done depending on the previous version.
