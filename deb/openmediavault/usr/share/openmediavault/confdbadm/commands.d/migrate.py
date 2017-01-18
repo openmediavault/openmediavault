@@ -51,6 +51,8 @@ class Command(omv.confdbadm.ICommand, omv.confdbadm.CommandHelper):
 			# Split the script name into its parts:
 			# <PLUGINNAME>_<VERSION>.<EXT>
 			parts = re.split(r'_', os.path.splitext(name)[0])
+			if 2 != len(parts):
+				continue
 			if plugin != parts[0]:
 				continue
 			if LooseVersion(parts[1]) < LooseVersion(version):
@@ -60,7 +62,6 @@ class Command(omv.confdbadm.ICommand, omv.confdbadm.CommandHelper):
 			# Create a backup of the configuration database.
 			self.mkBackup()
 			# Execute the configuration database migration scripts.
-			print("Applying migrations ...")
 			for version in sorted(migrations, key=lambda v: LooseVersion(v)):
 				name = "%s_%s" % (plugin, version)
 				path = os.path.join(migrations_dir, migrations[version])
@@ -69,7 +70,7 @@ class Command(omv.confdbadm.ICommand, omv.confdbadm.CommandHelper):
 					raise RuntimeError("The script '%s' is not " \
 						"executable" % path)
 				# Execute the script.
-				print(" * %s" % name)
+				print("  Running migration %s" % name)
 				omv.subprocess.check_call([ path ])
 			rc = 0
 		except Exception as e:
