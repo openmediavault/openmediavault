@@ -25,7 +25,7 @@ import openmediavault as omv
 class Command(omv.confdbadm.ICommand, omv.confdbadm.CommandHelper):
 	@property
 	def description(self):
-		return "Delete the configuration per plugin"
+		return "Delete the configuration"
 
 	def validate_args(self, *args):
 		if 2 != len(args):
@@ -33,20 +33,20 @@ class Command(omv.confdbadm.ICommand, omv.confdbadm.CommandHelper):
 		return True
 
 	def usage(self, *args):
-		print("Usage: %s delete <plugin>\n\n" \
-			"Delete the default configuration for the specified plugin." %
-			os.path.basename(args[0]))
+		print("Usage: %s delete <id>\n\n" \
+			"Delete the default configuration for the specified " \
+			"datamodel ID." % os.path.basename(args[0]))
 
 	def execute(self, *args):
 		rc = 1
-		plugin = args[1]
+		datamodel_id = args[1]
 		create_dir = omv.getenv("OMV_CONFDB_DELETE_DIR",
 			"/usr/share/openmediavault/confdb/delete.d");
 		script_name = ""
 		for name in os.listdir(create_dir):
 			# Split the script name into its parts:
-			# <PLUGINNAME>.<EXT>
-			if plugin == os.path.splitext(name)[0]:
+			# <DATAMODELID>.<EXT>
+			if datamodel_id == os.path.splitext(name)[0]:
 				script_name = name
 				break
 		try:

@@ -27,7 +27,7 @@ import openmediavault as omv
 class Command(omv.confdbadm.ICommand, omv.confdbadm.CommandHelper):
 	@property
 	def description(self):
-		return "Apply configuration database migrations per plugin"
+		return "Apply configuration database migrations"
 
 	def validate_args(self, *args):
 		if 3 != len(args):
@@ -35,13 +35,13 @@ class Command(omv.confdbadm.ICommand, omv.confdbadm.CommandHelper):
 		return True
 
 	def usage(self, *args):
-		print("Usage: %s migrate <plugin> <version>\n\n" \
-			"Migrate the configuration database for the specified plugin." %
-			os.path.basename(args[0]))
+		print("Usage: %s migrate <id> <version>\n\n" \
+			"Migrate the configuration database for the specified " \
+			"datamodel ID." % os.path.basename(args[0]))
 
 	def execute(self, *args):
 		rc = 1
-		plugin = args[1]
+		datamodel_id = args[1]
 		version = args[2]
 		migrations = {}
 		migrations_dir = omv.getenv("OMV_CONFDB_MIGRATIONS_DIR",
@@ -49,11 +49,11 @@ class Command(omv.confdbadm.ICommand, omv.confdbadm.CommandHelper):
 		# Collect the migrations to be executed.
 		for name in os.listdir(migrations_dir):
 			# Split the script name into its parts:
-			# <PLUGINNAME>_<VERSION>.<EXT>
+			# <DATAMODELID>_<VERSION>.<EXT>
 			parts = re.split(r'_', os.path.splitext(name)[0])
 			if 2 != len(parts):
 				continue
-			if plugin != parts[0]:
+			if datamodel_id != parts[0]:
 				continue
 			if LooseVersion(parts[1]) < LooseVersion(version):
 				continue
@@ -63,7 +63,7 @@ class Command(omv.confdbadm.ICommand, omv.confdbadm.CommandHelper):
 			self.mkBackup()
 			# Execute the configuration database migration scripts.
 			for version in sorted(migrations, key=lambda v: LooseVersion(v)):
-				name = "%s_%s" % (plugin, version)
+				name = "%s_%s" % (datamodel_id, version)
 				path = os.path.join(migrations_dir, migrations[version])
 				# Test if the script is executable.
 				if not os.access(path, os.X_OK):
