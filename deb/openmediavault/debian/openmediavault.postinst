@@ -28,7 +28,7 @@ set -e
 case "$1" in
 	configure)
 		########################################################################
-		# Set the default settings to those expected by OpenMediaVault.
+		# Set the default settings when the package is installed.
 		########################################################################
 		if [ -z "$2" ]; then
 			####################################################################
@@ -70,16 +70,6 @@ case "$1" in
 				  --shell '/usr/sbin/nologin' \
 				  --comment 'openmediavault WebGUI Administrator' \
 				  admin
-			fi
-
-			####################################################################
-			# Install the configuration file.
-			####################################################################
-			if [ ! -e "${OMV_CONFIG_FILE}" ]; then
-				echo "Installing default configuration"
-				cp ${OMV_CONFIG_TEMPLATE_FILE} ${OMV_CONFIG_FILE}
-				chmod 660 ${OMV_CONFIG_FILE}
-				chown :openmediavault-config ${OMV_CONFIG_FILE}
 			fi
 
 			####################################################################
@@ -127,14 +117,6 @@ case "$1" in
 			deb-systemd-invoke stop nmbd.service || :
 			deb-systemd-helper disable postfix.service || :
 			deb-systemd-invoke stop postfix.service || :
-
-			####################################################################
-			# Setup the webserver configuration.
-			####################################################################
-			echo "Configuring web server ..."
-			omv-mkconf nginx
-			nginx_dissite default || :
-			nginx_ensite openmediavault-webgui
 		fi
 		# Create public/private SSH key pair for user root.
 		if [ ! -e "/root/.ssh/id_rsa.pub" ]; then
@@ -158,9 +140,20 @@ case "$1" in
 		dpkg-trigger update-locale || :
 
 		########################################################################
-		# Generate configurations
+		# Migrate configuration database.
+		########################################################################
+		echo "Updating configuration database ..."
+		omv-confdbadm create "conf"
+		omv-confdbadm migrate "openmediavault" "${2}"
+
+		########################################################################
+		# Setup services when the package is installed.
 		########################################################################
 		if [ -z "$2" ]; then
+			####################################################################
+			# Generate the configurations.
+			####################################################################
+			echo "Generate service configurations ..."
 			omv-mkconf mdadm
 			omv-mkconf cpufrequtils
 			omv-mkconf cron-apt
@@ -169,11 +162,19 @@ case "$1" in
 			omv-mkconf rrdcached
 			omv-mkconf avahi-daemon
 			omv-mkconf ssh
+			omv-mkconf nginx
+
+			####################################################################
+			# Setup the webserver configuration.
+			####################################################################
+			echo "Configuring web server ..."
+			nginx_dissite default || :
+			nginx_ensite openmediavault-webgui
 		fi
 		omv-mkconf collectd
 
 		########################################################################
-		# Restart services
+		# Restart services when the package is installed.
 		########################################################################
 		if [ -z "$2" ]; then
 			echo "Restarting services ..."
@@ -188,12 +189,6 @@ case "$1" in
 			deb-systemd-invoke restart ssh.service || :
 		fi
 		dpkg-trigger restart-engined || :
-
-		########################################################################
-		# Migrate configuration database.
-		########################################################################
-		echo "Updating configuration database ..."
-		omv-confdbadm migrate "openmediavault" "${2}"
 
 		########################################################################
 		# Action to be done depending on the previous version.
