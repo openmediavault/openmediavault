@@ -144,7 +144,7 @@ case "$1" in
 		########################################################################
 		echo "Updating configuration database ..."
 		omv-confdbadm create "conf"
-		omv-confdbadm migrate "openmediavault" "${2}"
+		omv-confdbadm migrate "conf" "${2}"
 
 		########################################################################
 		# Setup services when the package is installed.
