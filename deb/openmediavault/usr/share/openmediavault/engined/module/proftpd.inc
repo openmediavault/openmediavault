@@ -122,11 +122,11 @@ class OMVModuleProftpd extends \OMV\Engine\Module\ServiceAbstract
 		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.conf.service.ftp.modules.modban.rule",
+		  "org.openmediavault.conf.service.ftp.modban.rule",
 		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.ftp.modules.modtls",
+		  "org.openmediavault.conf.service.ftp.modtls",
 		  [ $this, "setDirty" ]);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
