@@ -261,9 +261,9 @@ class Schema {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		$types = "any";
 		if (array_key_exists("type", $schema))
-	        $types = $schema['type'];
+			$types = $schema['type'];
 		if (!is_array($types))
-			$types = array($types);
+			$types = [ $types ];
 		$valid = FALSE;
 		$lastException = NULL;
 		foreach ($types as $typek => $typev) {
@@ -315,7 +315,7 @@ class Schema {
 			// is successfully validated.
 			if (TRUE === $valid)
 				break;
-        }
+		}
 		// If the validation is not successful, then trow the
 		// last exception.
 		if (FALSE === $valid)
@@ -601,14 +601,14 @@ class Schema {
 
 	protected function checkProperties($value, $schema, $name) {
 		if (!isset($schema['properties'])) {
-        	throw new SchemaException(
+			throw new SchemaException(
 			  "%s: No 'properties' attribute defined.",
 			  $name);
-        }
+		}
 		$valueProps = get_object_vars($value);
 		foreach ($schema['properties'] as $propk => $propv) {
 			// Build the new path. Strip empty parts.
-			$parts = array($name, $propk);
+			$parts = [ $name, $propk ];
 			$parts = array_filter($parts, "strlen");
 			$path = implode(".", $parts);
 			// Check if the 'required' attribute is set.
@@ -618,7 +618,7 @@ class Schema {
 					throw new SchemaValidationException(
 					  "%s: Missing 'required' attribute '%s'.",
 					  $name, $path);
-                }
+				}
 				continue;
 			}
 			$this->validateType($valueProps[$propk], $propv, $path);
@@ -627,37 +627,37 @@ class Schema {
 
 	protected function checkItems($value, $schema, $name) {
 		if (!isset($schema['items'])) {
-        	throw new SchemaException(
+			throw new SchemaException(
 			  "%s: No 'items' attribute defined.",
 			  $name);
-        }
-        if (is_object($schema['items'])) {
+		}
+		if (is_object($schema['items'])) {
 			foreach ($value as $itemk => $itemv) {
-                $path = sprintf("%s[%d]", $name, $itemk);
+				$path = sprintf("%s[%d]", $name, $itemk);
 				$valid = TRUE;
-                foreach ($schema['items'] as $itemSchema) {
+				foreach ($schema['items'] as $itemSchema) {
 					try {
-	                    $this->validateType($itemv, $itemSchema, $path);
+						$this->validateType($itemv, $itemSchema, $path);
 					} catch (SchemaValidationException $e) {
 						$valid = FALSE;
 					}
-                }
-                if (!$valid) {
-                    $types = array_map(function($item) {
-                        return $item['type'];
-                    }, $schema['items']);
+				}
+				if (!$valid) {
+					$types = array_map(function($item) {
+						return $item['type'];
+					}, $schema['items']);
 					throw new SchemaValidationException(
 					  "%s: Invalid 'items' value, must be one of the ".
 					  "following types '%s'.",
 					  $path, implode(", ", $types));
-                }
-            }
-        } else if (is_array($schema['items'])) {
-            foreach ($value as $itemk => $itemv) {
+				}
+			}
+		} else if (is_array($schema['items'])) {
+			foreach ($value as $itemk => $itemv) {
 				$path = sprintf("%s[%d]", $name, $itemk);
 				$this->validateType($itemv, $schema['items'], $path);
 			}
-        } else {
+		} else {
 			throw new SchemaValidationException(
 			  "%s: Invalid 'items' value.",
 			  $name);
