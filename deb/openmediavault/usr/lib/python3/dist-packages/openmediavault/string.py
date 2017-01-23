@@ -18,9 +18,14 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-__all__ = [ "camelcase_to_underscore", "truncate" ]
+__all__ = [
+	"camelcase_to_underscore",
+	"truncate",
+	"is_json"
+]
 
 import re
+import json
 
 def camelcase_to_underscore(str):
 	return re.sub("(((?<=[a-z])[A-Z])|([A-Z](?![A-Z]|$)))",
@@ -28,3 +33,15 @@ def camelcase_to_underscore(str):
 
 def truncate(str, max_len):
 	return str[:max_len] + (str[max_len:] and "...")
+
+def is_json(str):
+	"""
+	Finds out whether a string is JSON.
+	:param str: The string being evaluated.
+	:returns: True if the string is JSON, otherwise False.
+	"""
+	try:
+		json_object = json.loads(str)
+	except ValueError:
+		return False
+	return True

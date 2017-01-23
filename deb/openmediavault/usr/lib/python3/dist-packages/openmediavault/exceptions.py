@@ -21,4 +21,4 @@
 __all__ = [ "IllegalArgumentError" ]
 
 class IllegalArgumentError(ValueError):
-    pass
+	pass
