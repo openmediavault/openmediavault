@@ -359,7 +359,7 @@ class Schema(object):
 			if not valuev in schema['enum']:
 				raise SchemaValidationException(
 					"%s: Invalid value '%s', allowed values are '%s'.",
-					(name, valuev, ','.join(schema['enum'])))
+					(name, valuev, ", ".join(schema['enum'])))
 
 	def _check_min_items(self, value, schema, name):
 		if not "minItems" in schema:
@@ -378,13 +378,78 @@ class Schema(object):
 				(name, schema['maxItems']))
 
 	def _check_properties(self, value, schema, name):
-		pass
+		if not "properties" in schema:
+			raise SchemaException(
+				"%s: No 'properties' attribute defined." %
+				name)
+		if not isinstance(schema['properties'], dict):
+			raise SchemaException(
+				"%s: The attribute 'properties' is not a dictionary." %
+				name)
+		for propk, propv in schema['properties']:
+			# Build the new path. Strip empty parts.
+			parts = [ name, propk ];
+			parts = [ part for part in parts if part ]
+			path = ".".join(parts);
+			# Check if the 'required' attribute is set.
+			if not propk in value:
+				if ("required" in propv) and (True == propv['required']):
+					raise SchemaValidationException(
+						"%s: Missing 'required' attribute '%s'." %
+						(name, path))
+				continue
+			self._validate_type(value[propk], propv, path)
 
 	def _check_items(self, value, schema, name):
-		pass
+		if not "items" in schema:
+			raise SchemaException(
+				"%s: No 'items' attribute defined." %
+				name)
+		if isinstance(schema['items'], dict):
+			for itemk, itemv in value.items():
+				path = "%s[%d]" % (name, itemk)
+				valid = True;
+				for item_schema in schema['items']:
+					try:
+						self._validate_type(itemv, item_schema, path);
+					except SchemaValidationException:
+						valid = False
+				if not valid:
+					types = map(lambda x: x['type'], schema['items'])
+					raise SchemaValidationException(
+						"%s: Invalid 'items' value, must be one of the " \
+						"following types '%s'." %
+						(path, ", ".join(types)))
+		elif isinstance(schema['items'], list):
+			for itemk, itemv in enumerate(value):
+				path = "%s[%d]" % (name, itemk)
+				self._validate_type(itemv, schema['items'], path);
+		else:
+			raise SchemaValidationException(
+				"%s: Invalid 'items' value." %
+				name)
 
 	def _check_one_of(self, value, schema, name):
-		pass
+		if not "oneOf" in schema:
+			return
+		if not isinstance(schema['oneOf'], list):
+			raise SchemaException(
+				"%s: The 'oneOf' attribute is not an array." %
+				name)
+		valid = False
+		for subSchemak, subSchemav in enumerate(schema['oneOf']):
+			try:
+				self._validate_type(value, subSchemav, name);
+				# If validation succeeds for one of the schema, then we
+				# can exit immediatelly.
+				valid = True
+			except SchemaValidationException:
+				# Nothing to do here.
+				pass
+		if not valid:
+			raise SchemaValidationException(
+				"%s: Failed to match exactly one schema." %
+				name)
 
 if __name__ == "__main__":
 	schema = Schema({
