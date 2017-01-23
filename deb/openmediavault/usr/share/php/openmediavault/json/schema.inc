@@ -569,7 +569,7 @@ class Schema {
 			  $name);
 		}
 		if (!is_array($value))
-			$value = array($value);
+			$value = [ $value ];
 		foreach ($value as $valuek => $valuev) {
 			if (!in_array($valuev, $schema['enum'])) {
 				throw new SchemaValidationException(
@@ -584,7 +584,7 @@ class Schema {
 			return;
 		if (count($value) < $schema['minItems']) {
 			throw new SchemaValidationException(
-			  "%s: Not enough array items, minimum is %d",
+			  "%s: Not enough array items, minimum is %d.",
 			  $name, $schema['minItems']);
 		}
 	}
@@ -594,7 +594,7 @@ class Schema {
 			return;
 		if (count($value) > $schema['maxItems']) {
 			throw new SchemaValidationException(
-			  "%s: Too many array items, maximum is %d",
+			  "%s: Too many array items, maximum is %d.",
 			  $name, $schema['maxItems']);
 		}
 	}
