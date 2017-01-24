@@ -60,16 +60,16 @@ class DataModel extends \OMV\DataModel\DataModel {
 			$schema->validate(json_encode_safe($model));
 		} catch(\OMV\Json\SchemaValidationException $e) {
 			throw new \OMV\Exception(
-			  "The configuration object data model definition is invalid: %s",
+			  "The data model of the configuration object is invalid: %s",
 			  $e->getMessage());
 		}
 		// Call the parent constructor.
 		parent::__construct($model);
 		// Create the schema describing the RPC parameters.
-		$this->propertiesSchema = new \OMV\DataModel\Schema(array(
+		$this->propertiesSchema = new \OMV\DataModel\Schema([
 			"type" => "object",
 			"properties" => $model['properties']
-		));
+		]);
 	}
 
 	public function __clone() {
@@ -120,10 +120,10 @@ class DataModel extends \OMV\DataModel\DataModel {
 	 *   TRUE is assumed.
 	 */
 	public function isPersistent() {
-		$qi = $this->getQueryInfo();
-		if (!array_key_exists("persistent", $qi))
+		$model = $this->getModel();
+		if (!array_key_exists("persistent", $model))
 			return TRUE;
-		return $qi['persistent'];
+		return $model['persistent'];
 	}
 
 	/**
@@ -147,7 +147,7 @@ class DataModel extends \OMV\DataModel\DataModel {
 	 * @throw \OMV\Json\SchemaException
 	 * @throw \OMV\Json\SchemaValidationException
 	 */
-	public function validate($data) {
+	final public function validate($data) {
 		$this->getPropertiesSchema()->validate($data);
 	}
 

@@ -408,8 +408,8 @@ class Schema {
 			return;
 		if ($schema['minimum'] > $value) {
 			throw new SchemaValidationException(
-			  "%s: The value %d is less than %d.",
-			  $name, $value, $schema['minimum']);
+			  "%s: The value %s is less than %s.",
+			  $name, strval($value), strval($schema['minimum']));
 		}
 	}
 
@@ -418,8 +418,8 @@ class Schema {
 			return;
 		if ($schema['maximum'] < $value) {
 			throw new SchemaValidationException(
-			  "%s: The value %d is bigger than %d.",
-			  $name, $value, $schema['maximum']);
+			  "%s: The value %s is bigger than %s.",
+			  $name, strval($value), strval($schema['maximum']));
 		}
 	}
 
@@ -431,8 +431,8 @@ class Schema {
 			return;
 		if ($value == $schema['minimum']) {
 			throw new SchemaValidationException(
-			  "%s: Invalid value %d, must be greater than %d.",
-			  $name, $value, $schema['minimum']);
+			  "%s: Invalid value %s, must be greater than %s.",
+			  $name, strval($value), strval($schema['minimum']));
 		}
 	}
 
@@ -444,8 +444,8 @@ class Schema {
 			return;
 		if ($value == $schema['maximum']) {
 			throw new SchemaValidationException(
-			  "%s: Invalid value %d, must be less than %d.",
-			  $name, $value, $schema['maximum']);
+			  "%s: Invalid value %s, must be less than %s.",
+			  $name, strval($value), strval($schema['maximum']));
 		}
 	}
 

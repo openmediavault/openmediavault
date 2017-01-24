@@ -27,15 +27,15 @@ class DataModel {
 	private $model = NULL;
 
 	/**
-	 * @param json The data model as JSON string.
+	 * @param json The data model as JSON object.
 	 */
 	public function __construct($model) {
 		$this->model = $model;
 	}
 
 	/**
-	 * Get the data model as JSON string.
-	 * @return The data model as JSON string.
+	 * Get the data model as JSON object.
+	 * @return The data model as JSON object.
 	 */
 	public function getModel() {
 		return $this->model;
@@ -46,7 +46,7 @@ class DataModel {
 	 * @return The model identifier.
 	 */
 	public function getId() {
-		return array_value($this->getModel(), "id", FALSE);
+		return array_value($this->getModel(), "id", "");
 	}
 
 	/**
@@ -54,7 +54,7 @@ class DataModel {
 	 * @return The model identifier alias.
 	 */
 	public function getAlias() {
-		return array_value($this->getModel(), "alias", FALSE);
+		return array_value($this->getModel(), "alias", "");
 	}
 
 	/**

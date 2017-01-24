@@ -45,7 +45,7 @@ class DataModel extends \OMV\DataModel\DataModel {
 			$schema->validate(json_encode_safe($model));
 		} catch(\OMV\Json\SchemaValidationException $e) {
 			throw new \OMV\Exception(
-			  "The RPC data model definition is invalid: %s",
+			  "The data model of the RPC is invalid: %s",
 			  $e->getMessage());
 		}
 		// Call the parent constructor.
