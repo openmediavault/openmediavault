@@ -18,32 +18,4 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-__all__ = [
-	"camelcase_to_underscore",
-	"truncate",
-	"is_json"
-]
-
-import re
-import json
-
-def camelcase_to_underscore(value):
-	return re.sub("(((?<=[a-z])[A-Z])|([A-Z](?![A-Z]|$)))",
-		"_\\1", value).lower().strip("_")
-
-def truncate(value, max_len):
-	return value[:max_len] + (value[max_len:] and "...")
-
-def is_json(value):
-	"""
-	Finds out whether a string is JSON.
-	:param str: The string being evaluated.
-	:returns: True if the string is JSON, otherwise False.
-	"""
-	if not isinstance(value, str):
-		return False
-	try:
-		json_object = json.loads(value)
-	except ValueError:
-		return False
-	return True
+from .datamodel import *

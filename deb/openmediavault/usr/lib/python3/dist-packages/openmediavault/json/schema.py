@@ -37,10 +37,14 @@ class SchemaException(Exception):
 	pass
 
 class SchemaPathException(Exception):
-	pass
+	def __init__(self, path):
+		self.path = path
+		super().__init__(self, "The path '%s' is invalid." % path)
 
 class SchemaValidationException(Exception):
-	pass
+	def __init__(self, path, message):
+		self.path = path
+		super().__init__(self, "%s: %s" % (path, message))
 
 class Schema(object):
 	def __init__(self, schema):
@@ -48,15 +52,6 @@ class Schema(object):
 		:param schema: A JSON object (Python dictionary) describing the schema.
 		"""
 		self._schema = schema
-
-	def _get_schema_by_path(self, path, schema):
-		if not path:
-			return schema
-		jsonpath_expr = jsonpath_rw.parse(path)
-		matches = [ match.value for match in jsonpath_expr.find(schema) ]
-		if not matches:
-			raise SchemaPathException("The path '%s' is invalid." % path)
-		return matches[0]
 
 	def get_dict(self):
 		"""
@@ -69,17 +64,23 @@ class Schema(object):
 			raise TypeError("Schema is not a dictionary.")
 		return self._schema
 
-	def get_dict_by_path(self, name):
+	def get_dict_by_path(self, path):
 		"""
 		Get the JSON schema for the given path.
-		:param name:	The path of the requested attribute.
+		:param path:	The path of the requested attribute.
 		:returns:		The JSON schema as Python dictionary describing the
 						requested attribute.
 		"""
 		# Get the schema.
 		schema = self.get_dict()
 		# Navigate down to the given path.
-		return self._get_schema_by_path(name, schema)
+		if not path:
+			return schema
+		jsonpath_expr = jsonpath_rw.parse(path)
+		matches = [ match.value for match in jsonpath_expr.find(schema) ]
+		if not matches:
+			raise SchemaPathException(path)
+		return matches[0]
 
 	def validate(self, value, name=""):
 		"""
@@ -111,7 +112,7 @@ class Schema(object):
 			types = [ types ];
 		valid = False;
 		last_exception = None;
-		for typek, typev in types.items():
+		for typek, typev in enumerate(types):
 			try:
 				if "any" == typev:
 					self._validate_any(value, schema, name)
@@ -139,7 +140,7 @@ class Schema(object):
 					valid = True
 				else:
 					raise SchemaException(
-						"%s: The type '%s' is not defined." %
+						"The type '%s' is not defined." %
 						(name, typev));
 			except SchemaValidationException as e:
 				# Continue with the next type but remember the exception.
@@ -158,15 +159,15 @@ class Schema(object):
 
 	def _validate_boolean(self, value, schema, name):
 		if not isinstance(value, bool):
-			raise SchemaValidationException(
-				"%s: The value '%s' is not a boolean." %
-				(name, "NULL" if (value is None) else str(value)))
+			raise SchemaValidationException(name,
+				"The value '%s' is not a boolean." %
+				("NULL" if (value is None) else str(value)))
 
 	def _validate_integer(self, value, schema, name):
 		if not isinstance(value, int):
-			raise SchemaValidationException(
-				"%s: The value '%s' is not an integer." %
-				(name, "NULL" if (value is None) else str(value)))
+			raise SchemaValidationException(name,
+				"The value '%s' is not an integer." %
+				("NULL" if (value is None) else str(value)))
 		self._check_minimum(value, schema, name)
 		self._check_exclusive_minimum(value, schema, name)
 		self._check_maximum(value, schema, name)
@@ -176,9 +177,9 @@ class Schema(object):
 
 	def _validate_number(self, value, schema, name):
 		if not isinstance(value, (int, float, decimal.Decimal)):
-			raise SchemaValidationException(
-				"%s: The value '%s' is not a number." %
-				(name, "NULL" if (value is None) else str(value)))
+			raise SchemaValidationException(name,
+				"The value '%s' is not a number." %
+				("NULL" if (value is None) else str(value)))
 		self._check_minimum(value, schema, name)
 		self._check_exclusive_minimum(value, schema, name)
 		self._check_maximum(value, schema, name)
@@ -188,9 +189,9 @@ class Schema(object):
 
 	def _validate_string(self, value, schema, name):
 		if not isinstance(value, str):
-			raise SchemaValidationException(
-				"%s: The value '%s' is not a number." %
-				(name, "NULL" if (value is None) else str(value)))
+			raise SchemaValidationException(name,
+				"The value '%s' is not a number." %
+				"NULL" if (value is None) else str(value))
 		self._check_pattern(value, schema, name)
 		self._check_min_length(value, schema, name)
 		self._check_max_length(value, schema, name)
@@ -200,41 +201,41 @@ class Schema(object):
 
 	def _validate_array(self, value, schema, name):
 		if not isinstance(value, list):
-			raise SchemaValidationException(
-				"%s: The value '%s' is not an array." %
-				(name, "NULL" if (value is None) else str(value)))
+			raise SchemaValidationException(name,
+				"The value '%s' is not an array." %
+				"NULL" if (value is None) else str(value))
 		self._check_min_items(value, schema, name)
 		self._check_max_items(value, schema, name)
 		self._check_items(value, schema, name)
 
 	def _validate_object(self, value, schema, name):
 		if not isinstance(value, dict):
-			raise SchemaValidationException(
-				"%s: The value '%s' is not an object." %
-				(name, "NULL" if (value is None) else str(value)))
+			raise SchemaValidationException(name,
+				"The value '%s' is not an object." %
+				"NULL" if (value is None) else str(value))
 		self._check_properties(value, schema, name)
 
 	def _validate_null(self, value, schema, name):
 		if not isinstance(value, type(None)):
-			raise SchemaValidationException(
-				"%s: The value '%s' is not NULL." %
-				(name, str(value)))
+			raise SchemaValidationException(name,
+				"The value '%s' is not NULL." %
+				str(value))
 
 	def _check_minimum(self, value, schema, name):
 		if not "minimum" in schema:
 			return
 		if schema['minimum'] > value:
-			raise SchemaValidationException(
-				"%s: The value %d is less than %d." %
-				(name, value, schema['minimum']))
+			raise SchemaValidationException(name,
+				"The value %s is less than %s." %
+				(str(value), str(schema['minimum'])))
 
 	def _check_maximum(self, value, schema, name):
 		if not "maximum" in schema:
 			return
 		if schema['maximum'] < value:
-			raise SchemaValidationException(
-				"%s: The value %d is bigger than %d." %
-				(name, value, schema['maximum']))
+			raise SchemaValidationException(name,
+				"The value %s is bigger than %s." %
+				(str(value), str(schema['maximum'])))
 
 	def _check_exclusive_minimum(self, value, schema, name):
 		if not "minimum" in schema:
@@ -243,9 +244,9 @@ class Schema(object):
 			(True == schema['exclusiveMinimum'])):
 			return
 		if schema['minimum'] == value:
-			raise SchemaValidationException(
-				"%s: Invalid value %d, must be greater than %d." %
-				(name, value, schema['minimum']))
+			raise SchemaValidationException(name,
+				"Invalid value %s, must be greater than %s." %
+				(str(value), str(schema['minimum'])))
 
 	def _check_exclusive_maximum(self, value, schema, name):
 		if not "maximum" in schema:
@@ -254,33 +255,33 @@ class Schema(object):
 			(True == schema['exclusiveMaximum'])):
 			return
 		if schema['maximum'] == value:
-			raise SchemaValidationException(
-				"%s: Invalid value %d, must be greater than %d." %
-				(name, value, schema['maximum']))
+			raise SchemaValidationException(name,
+				"Invalid value %s, must be greater than %s." %
+				(str(value), str(schema['maximum'])))
 
 	def _check_min_length(self, value, schema, name):
 		if not "minLength" in schema:
 			return
 		if schema['minLength'] > len(value):
-			raise SchemaValidationException(
-				"%s: The value '%s' is too short, minimum length is %d." %
-				(name, value, schema['minLength']))
+			raise SchemaValidationException(name,
+				"The value '%s' is too short, minimum length is %d." %
+				(value, schema['minLength']))
 
 	def _check_max_length(self, value, schema, name):
 		if not "maxLength" in schema:
 			return
 		if schema['maxLength'] < len(value):
-			raise SchemaValidationException(
-				"%s: The value '%s' is too long, maximum length is %d." %
-				(name, value, schema['maxLength']))
+			raise SchemaValidationException(name,
+				"The value '%s' is too long, maximum length is %d." %
+				(value, schema['maxLength']))
 
 	def _check_pattern(self, value, schema, name):
 		if not "pattern" in schema:
 			return
 		if not re.match(schema['pattern'], value):
-			raise SchemaValidationException(
-				"%s: The value '%s' doesn't match the pattern '%s'." %
-				(name, value, schema['pattern']))
+			raise SchemaValidationException(name,
+				"The value '%s' doesn't match the pattern '%s'." %
+				(value, schema['pattern']))
 
 	def _check_format(self, value, schema, name):
 		"""
@@ -290,60 +291,60 @@ class Schema(object):
 			return
 		if schema['format'] in [ "date-time", "datetime" ]:
 			if not re.match(r'/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/', value):
-				raise SchemaValidationException(
-					"%s: The value '%s' does not match to ISO 8601." %
-					(name, value))
+				raise SchemaValidationException(name,
+					"The value '%s' does not match to ISO 8601." %
+					value)
 		elif "date" == schema['format']:
 			if not re.match(r'/^\d{4}-\d{2}-\d{2}$/', value):
-				raise SchemaValidationException(
-					"%s: The value '%s' does not match to YYYY-MM-DD." %
-					(name, value))
+				raise SchemaValidationException(name,
+					"The value '%s' does not match to YYYY-MM-DD." %
+					value)
 		elif "time" == schema['format']:
 			if not re.match(r'/^\d{2}:\d{2}:\d{2}$/', value):
-				raise SchemaValidationException(
-					"%s: The value '%s' does not match to hh:mm:ss." %
-					(name, value))
+				raise SchemaValidationException(name,
+					"The value '%s' does not match to hh:mm:ss." %
+					value)
 		if schema['format'] in [ "host-name", "hostname" ]:
 			if not re.match(r'/^[a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9]){0,1}$/', value):
-				raise SchemaValidationException(
-					"%s: The value '%s' is not a valid hostname." %
-					(name, value))
+				raise SchemaValidationException(name,
+					"The value '%s' is not a valid hostname." %
+					value)
 		elif "regex" == schema['format']:
 			try:
 				re.compile(value)
 			except:
-				raise SchemaValidationException(
-					"%s: The value '%s' is not a valid regex." %
-					(name, value))
+				raise SchemaValidationException(name,
+					"The value '%s' is not a valid regex." %
+					value)
 		elif "uri" == schema['format']:
 			try:
 				urllib.parse.urlparse(value);
 			except:
-				raise SchemaValidationException(
-					"%s: The value '%s' is not an URI." %
-					(name, value))
+				raise SchemaValidationException(name,
+					"The value '%s' is not an URI." %
+					value)
 		elif "email" == schema['format']:
 			if not "@" in value:
-				raise SchemaValidationException(
-					"%s: The value '%s' is not an email." %
-					(name, value))
+				raise SchemaValidationException(name,
+					"The value '%s' is not an email." %
+					value)
 		if schema['format'] in [ "ip-address", "ipv4" ]:
 			try:
 				socket.inet_aton(value)
 			except socket.error:
-				raise SchemaValidationException(
-					"%s: The value '%s' is not an IPv4 address." %
-					(name, value))
+				raise SchemaValidationException(name,
+					"The value '%s' is not an IPv4 address." %
+					value)
 		elif "ipv6" == schema['format']:
 			try:
 				socket.inet_pton(socket.AF_INET6, value)
 			except socket.error:
-				raise SchemaValidationException(
-					"%s: The value '%s' is not an IPv6 address." %
-					(name, value))
+				raise SchemaValidationException(name,
+					"The value '%s' is not an IPv6 address." %
+					value)
 		else:
 			raise SchemaException(
-				"%s: The format '%s' is not defined." %
+				"The format '%s' is not defined." %
 				(name, schema['format']))
 
 	def _check_enum(self, value, schema, name):
@@ -351,42 +352,40 @@ class Schema(object):
 			return
 		if not isinstance(schema['enum'], list):
 			raise SchemaException(
-				"%s: The attribute 'enum' is not an array." %
+				"The attribute 'enum' is not an array." %
 				name)
 		if not isinstance(value, list):
 			value = [ value ]
 		for valuev in value:
 			if not valuev in schema['enum']:
-				raise SchemaValidationException(
-					"%s: Invalid value '%s', allowed values are '%s'.",
-					(name, valuev, ", ".join(schema['enum'])))
+				raise SchemaValidationException(name,
+					"Invalid value '%s', allowed values are '%s'.",
+					(valuev, ", ".join(schema['enum'])))
 
 	def _check_min_items(self, value, schema, name):
 		if not "minItems" in schema:
 			return
 		if schema['minItems'] > len(value):
-			raise SchemaValidationException(
-				"%s: Not enough array items, minimum is %d." %
-				(name, schema['minItems']))
+			raise SchemaValidationException(name,
+				"Not enough array items, minimum is %d." %
+				schema['minItems'])
 
 	def _check_max_items(self, value, schema, name):
 		if not "maxItems" in schema:
 			return
 		if schema['maxItems'] < len(value):
-			raise SchemaValidationException(
-				"%s: Too many array items, maximum is %d." %
-				(name, schema['maxItems']))
+			raise SchemaValidationException(name,
+				"Too many array items, maximum is %d." %
+				schema['maxItems'])
 
 	def _check_properties(self, value, schema, name):
 		if not "properties" in schema:
-			raise SchemaException(
-				"%s: No 'properties' attribute defined." %
-				name)
+			raise SchemaException(name,
+				"No 'properties' attribute defined.")
 		if not isinstance(schema['properties'], dict):
-			raise SchemaException(
-				"%s: The attribute 'properties' is not a dictionary." %
-				name)
-		for propk, propv in schema['properties']:
+			raise SchemaException(name,
+				"The attribute 'properties' is not a dictionary.")
+		for propk, propv in schema['properties'].items():
 			# Build the new path. Strip empty parts.
 			parts = [ name, propk ];
 			parts = [ part for part in parts if part ]
@@ -394,16 +393,16 @@ class Schema(object):
 			# Check if the 'required' attribute is set.
 			if not propk in value:
 				if ("required" in propv) and (True == propv['required']):
-					raise SchemaValidationException(
-						"%s: Missing 'required' attribute '%s'." %
-						(name, path))
+					raise SchemaValidationException(name,
+						"Missing 'required' attribute '%s'." %
+						path)
 				continue
 			self._validate_type(value[propk], propv, path)
 
 	def _check_items(self, value, schema, name):
 		if not "items" in schema:
 			raise SchemaException(
-				"%s: No 'items' attribute defined." %
+				"No 'items' attribute defined." %
 				name)
 		if isinstance(schema['items'], dict):
 			for itemk, itemv in value.items():
@@ -416,25 +415,24 @@ class Schema(object):
 						valid = False
 				if not valid:
 					types = map(lambda x: x['type'], schema['items'])
-					raise SchemaValidationException(
-						"%s: Invalid 'items' value, must be one of the " \
+					raise SchemaValidationException(name,
+						"Invalid 'items' value, must be one of the " \
 						"following types '%s'." %
-						(path, ", ".join(types)))
+						", ".join(types))
 		elif isinstance(schema['items'], list):
 			for itemk, itemv in enumerate(value):
 				path = "%s[%d]" % (name, itemk)
 				self._validate_type(itemv, schema['items'], path);
 		else:
-			raise SchemaValidationException(
-				"%s: Invalid 'items' value." %
-				name)
+			raise SchemaValidationException(name,
+				"Invalid 'items' value.")
 
 	def _check_one_of(self, value, schema, name):
 		if not "oneOf" in schema:
 			return
 		if not isinstance(schema['oneOf'], list):
 			raise SchemaException(
-				"%s: The 'oneOf' attribute is not an array." %
+				"The 'oneOf' attribute is not an array." %
 				name)
 		valid = False
 		for subSchemak, subSchemav in enumerate(schema['oneOf']):
@@ -447,22 +445,48 @@ class Schema(object):
 				# Nothing to do here.
 				pass
 		if not valid:
-			raise SchemaValidationException(
-				"%s: Failed to match exactly one schema." %
-				name)
+			raise SchemaValidationException(name,
+				"Failed to match exactly one schema.")
 
 if __name__ == "__main__":
-	schema = Schema({
-		"type": "object",
-		"properties": {
-			"price": { "type": "number", "minimum": 35, "maximum": 40 },
-			"name": { "type": "string" }
-		}
-	});
-	print(schema.get_dict())
-	print(schema.get_dict_by_path("properties.price"))
-	try:
-		schema.get_dict_by_path("a.b.c")
-	except SchemaPathException as e:
-		print(e)
-	#schema.validate({ "name": "Eggs", "price": 34.99 })
+	import unittest
+
+	class SchemaTestCase(unittest.TestCase):
+		def _get_schema(self):
+			return Schema({
+				"type": "object",
+				"properties": {
+					"name": { "type": "string", "required": True },
+					"price": { "type": "number", "minimum": 35, "maximum": 40 }
+				}
+			})
+
+		def test_get_dict(self):
+			schema = self._get_schema()
+			schema.get_dict()
+
+		def test_get_dict_by_path_success(self):
+			schema = self._get_schema()
+			schema.get_dict_by_path("properties.price")
+
+		def test_get_dict_by_path_fail(self):
+			schema = self._get_schema()
+			self.assertRaises(SchemaPathException, lambda:
+				schema.get_dict_by_path("a.b.c"))
+
+		def test_required(self):
+			schema = self._get_schema()
+			self.assertRaises(SchemaValidationException, lambda:
+				schema.validate({ "price": 38 }))
+
+		def test_validate_maximum(self):
+			schema = self._get_schema()
+			self.assertRaises(SchemaValidationException, lambda:
+				schema.validate({ "name": "Apple", "price": 41 }))
+
+		def test_validate_minimum(self):
+			schema = self._get_schema()
+			self.assertRaises(SchemaValidationException, lambda:
+				schema.validate({ "name": "Eggs", "price": 34.99 }))
+
+	unittest.main()
