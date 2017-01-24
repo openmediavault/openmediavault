@@ -29,6 +29,10 @@ from .systemd import *
 from .string import *
 from .subprocess import *
 
+from openmediavault.json import *
+from openmediavault.datamodel import *
+from openmediavault.json import *
+
 import re
 
 def bool(x):
