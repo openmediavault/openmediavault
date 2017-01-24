@@ -41,22 +41,22 @@ class Datamodel(omv.datamodel.Datamodel):
 		schema = omv.json.Schema({
 			"type":"object",
 			"properties":{
-				"type":{"type":"string","enum":["config"],"required":true},
-				"id":{"type":"string","required":true},
-				"alias":{"type":"string","required":false},
-				"persistent":{"type":"boolean","required":false},
-				"title":{"type":"string","required":false},
-				"description":{"type":"string","required":false},
-				"notificationid":{"type":"string","required":false},
-				"properties":{"type":"any","required":true},
+				"type":{"type":"string","enum":["config"],"required":True},
+				"id":{"type":"string","required":True},
+				"alias":{"type":"string","required":False},
+				"persistent":{"type":"boolean","required":False},
+				"title":{"type":"string","required":False},
+				"description":{"type":"string","required":False},
+				"notificationid":{"type":"string","required":False},
+				"properties":{"type":"any","required":True},
 				"queryinfo":{
 					"type":"object",
-					"required":false,
+					"required":False,
 					"properties":{
-						"xpath":{"type":"string","required":true},
-						"iterable":{"type":"boolean","required":true},
-						"idproperty":{"type":"string","required":false},
-						"refproperty":{"type":"string","required":false}
+						"xpath":{"type":"string","required":True},
+						"iterable":{"type":"boolean","required":True},
+						"idproperty":{"type":"string","required":False},
+						"refproperty":{"type":"string","required":False}
 					}
 				}
 			}
@@ -97,15 +97,7 @@ class Datamodel(omv.datamodel.Datamodel):
 		return self.model['persistent']
 
 	@property
-	def properties(self):
-		"""
-		Get the data model properties.
-		:returns:	Returns the data model properties as JSON object.
-		"""
-		return self.model['properties']
-
-	@property
-	def properties_schema(self):
+	def schema(self):
 		"""
 		Get the JSON schema of the data model properties.
 		:returns:	Returns the JSON schema of the data model properties
@@ -113,7 +105,7 @@ class Datamodel(omv.datamodel.Datamodel):
 		"""
 		schema = omv.json.Schema({
 			"type": "object",
-			"properties": self.properties
+			"properties": self.self.model['properties']
 		})
 		return schema
 
@@ -155,29 +147,14 @@ class Datamodel(omv.datamodel.Datamodel):
 		:raises omv.json.SchemaException:
 		:raises omv.json.SchemaValidationException:
 		"""
-		self.properties_schema.validate(data)
-
-	def property_exists(self, path):
-		"""
-		Check if the specified property exists.
-		:param path: The path of the property, e.g. "aaa.bbb.ccc".
-		:returns: True if the property exists, otherwise False.
-		"""
-		exists = True
-		try:
-			self.properties_schema.get_dict_by_path(path)
-		except omv.json.SchemaException:
-			exists = False
-		except omv.json.SchemaPathException:
-			exists = False
-		return exists
+		self.schema.validate(data)
 
 if __name__ == "__main__":
 	import unittest
 
 	class DatamodelTestCase(unittest.TestCase):
-		def test_construction(self):
-			datamodel = Datamodel({
+		def _get_model(self):
+			return Datamodel({
 				"type": "config",
 				"id": "conf.system.apt.distribution",
 				"queryinfo": {
@@ -195,5 +172,17 @@ if __name__ == "__main__":
 					}
 				}
 			})
+
+		def test_schema(self):
+			datamodel = self._get_model()
+			datamodel.schema
+
+		def test_queryinfo(self):
+			datamodel = self._get_model()
+			datamodel.queryinfo
+
+		def test_notificationid(self):
+			datamodel = self._get_model()
+			datamodel.notificationid
 
 	unittest.main()
