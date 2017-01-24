@@ -30,7 +30,7 @@ class Datamodel(omv.datamodel.Datamodel):
 		# Validate the model.
 		self._validate_model(model)
 		# Call the parent constructor.
-		super().__init__(self, model)
+		super().__init__(model)
 
 	def _validate_model(self, model):
 		"""
@@ -105,7 +105,7 @@ class Datamodel(omv.datamodel.Datamodel):
 		"""
 		schema = omv.json.Schema({
 			"type": "object",
-			"properties": self.self.model['properties']
+			"properties": self.model['properties']
 		})
 		return schema
 
