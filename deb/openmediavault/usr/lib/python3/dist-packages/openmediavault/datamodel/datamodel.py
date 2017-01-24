@@ -30,7 +30,7 @@ class Datamodel(object):
 		"""
 		# Convert into a JSON object if it is a string.
 		if isinstance(model, str):
-			model = json.loads(str)
+			model = json.loads(model)
 		self._model = model
 
 	@property
