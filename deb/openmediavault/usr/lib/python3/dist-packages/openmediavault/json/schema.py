@@ -31,7 +31,7 @@ import jsonpath_rw
 import re
 import urllib.parse
 import socket
-import openmediavault as omv
+import openmediavault.string
 
 class SchemaException(Exception):
 	pass
@@ -96,7 +96,7 @@ class Schema(object):
 		if isinstance(value, (dict, list)):
 			value = json.dumps(value)
 		# Convert JSON string to dictionary.
-		if omv.string.is_json(value):
+		if openmediavault.string.is_json(value):
 			value = json.loads(value)
 		schema = self.get_dict_by_path(name);
 		self._validate_type(value, schema, name)
