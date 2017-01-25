@@ -31,7 +31,7 @@ from .subprocess import *
 
 from openmediavault.json import *
 from openmediavault.datamodel import *
-from openmediavault.json import *
+from openmediavault.config import *
 
 import re
 

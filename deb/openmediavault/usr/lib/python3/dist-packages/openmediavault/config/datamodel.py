@@ -20,23 +20,43 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 __all__ = [ "Datamodel" ]
 
+import os
 import openmediavault as omv
 
 class Datamodel(omv.datamodel.Datamodel):
-	def __init__(self, model):
+	def __init__(self, id):
 		"""
-		:param model: The data model as JSON object or string.
+		:param id: The data model identifier, e.g. 'conf.service.ftp.share'.
 		"""
-		# Validate the model.
-		self._validate_model(model)
+		# Load the data model.
+		if isinstance(id, dict):
+			model = id
+		else:
+			model = self._load(id)
+		# Validate the data model.
+		self._validate(model)
 		# Call the parent constructor.
 		super().__init__(model)
 
-	def _validate_model(self, model):
+	def _load(self, id):
 		"""
-		Check the given data model.
+		Load the specified data model from file system.
+		:param id: The data model identifier, e.g. 'conf.service.ftp.share'.
+		:returns: The JSON object of the data model.
+		:raises FileNotFoundError:
+		"""
+		# Load the file content.
+		datamodels_dir = omv.getenv("OMV_DATAMODELS_DIR",
+			"/usr/share/openmediavault/datamodels");
+		with open(os.path.join(datamodels_dir, "%s.json" % id)) as f:
+			content = f.read()
+		return content
+
+	def _validate(self, model):
+		"""
+		Validate the data model.
 		:param model: The data model as JSON object or string.
-		:returns: None
+		:returns: None.
 		"""
 		schema = omv.json.Schema({
 			"type":"object",
@@ -64,9 +84,7 @@ class Datamodel(omv.datamodel.Datamodel):
 		try:
 			schema.validate(model)
 		except omv.json.SchemaValidationException as e:
-			raise Exception(
-				"The data model of the configuration object is invalid: %s" %
-				str(e))
+			raise Exception("The data model is invalid: %s" % str(e))
 
 	def is_iterable(self):
 		if not "idproperty" in self.queryinfo:
@@ -101,7 +119,7 @@ class Datamodel(omv.datamodel.Datamodel):
 		"""
 		Get the JSON schema of the data model properties.
 		:returns:	Returns the JSON schema of the data model properties
-					as JSON object.
+					as openmediavault.json.Schema object.
 		"""
 		schema = omv.json.Schema({
 			"type": "object",
