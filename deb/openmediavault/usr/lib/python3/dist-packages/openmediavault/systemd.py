@@ -18,9 +18,16 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+__all__ = [
+	"SystemdException",
+	"Properties",
+	"Job",
+	"Manager",
+	"Unit"
+]
+
 import dbus
 import dbus.mainloop.glib
-import openmediavault as omv
 
 dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
 
