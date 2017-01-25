@@ -24,7 +24,7 @@ import abc
 import os
 import shutil
 import tempfile
-import openmediavault as omv
+import openmediavault
 
 class ICommand(metaclass=abc.ABCMeta):
 	@abc.abstractproperty
@@ -65,7 +65,8 @@ class CommandHelper():
 		:returns: Returns the path of the backup file.
 		"""
 		(fh, self._backup_path) = tempfile.mkstemp();
-		shutil.copy(omv.getenv("OMV_CONFIG_FILE"), self._backup_path)
+		shutil.copy(openmediavault.getenv("OMV_CONFIG_FILE"),
+			self._backup_path)
 		return self._backup_path
 
 	def unlinkBackup(self):
@@ -83,4 +84,4 @@ class CommandHelper():
 		"""
 		if not self._backup_path:
 			raise RuntimeError("No configuration backup exists")
-		shutil.copy(self._backup_path, omv.getenv("OMV_CONFIG_FILE"))
+		shutil.copy(self._backup_path, openmediavault.getenv("OMV_CONFIG_FILE"))

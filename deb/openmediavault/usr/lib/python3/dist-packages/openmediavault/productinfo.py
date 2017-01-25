@@ -22,7 +22,7 @@ __all__ = [ "ProductInfo" ]
 
 import apt
 import xml.etree.ElementTree
-import openmediavault as omv
+import openmediavault
 
 class ProductInfo(object):
 	"""
@@ -31,7 +31,7 @@ class ProductInfo(object):
 
 	def __init__(self):
 		self._dict = {}
-		prod_file = omv.getenv("OMV_PRODUCTINFO_FILE",
+		prod_file = openmediavault.getenv("OMV_PRODUCTINFO_FILE",
 			"/usr/share/openmediavault/productinfo.xml")
 		tree = xml.etree.ElementTree.parse(prod_file)
 		for child in tree.iter():
@@ -87,3 +87,13 @@ class ProductInfo(object):
 		Get the package repository distribution name.
 		"""
 		return self._dict['distribution']
+
+if __name__ == "__main__":
+	import unittest
+
+	class ProductInfoTestCase(unittest.TestCase):
+		def test_name(self):
+			pi = ProductInfo()
+			pi.name
+
+	unittest.main()

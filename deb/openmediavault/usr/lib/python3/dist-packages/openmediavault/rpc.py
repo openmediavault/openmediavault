@@ -21,7 +21,7 @@
 import json
 import socket
 import struct
-import openmediavault as omv
+import openmediavault
 
 class RpcException(Exception):
 	def __init__(self, message, code, trace):
@@ -38,9 +38,9 @@ class RpcException(Exception):
 		return self._trace
 
 def call(service, method, params=None):
-	address = omv.getenv("OMV_ENGINED_SO_ADDRESS")
-	sndtimeo = omv.Environment.get_int("OMV_ENGINED_SO_SNDTIMEO")
-	rcvtimeo = omv.Environment.get_int("OMV_ENGINED_SO_RCVTIMEO")
+	address = openmediavault.getenv("OMV_ENGINED_SO_ADDRESS")
+	sndtimeo = openmediavault.Environment.get_int("OMV_ENGINED_SO_SNDTIMEO")
+	rcvtimeo = openmediavault.Environment.get_int("OMV_ENGINED_SO_RCVTIMEO")
 	s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
 	s.setsockopt(socket.SOL_SOCKET, socket.SO_SNDTIMEO, struct.pack("ll",
 		sndtimeo, 0))
