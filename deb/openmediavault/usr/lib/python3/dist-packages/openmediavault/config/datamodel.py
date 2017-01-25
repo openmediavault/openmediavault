@@ -21,9 +21,10 @@
 __all__ = [ "Datamodel" ]
 
 import os
-import openmediavault as omv
+import openmediavault.datamodel
+import openmediavault.json
 
-class Datamodel(omv.datamodel.Datamodel):
+class Datamodel(openmediavault.datamodel.Datamodel):
 	def __init__(self, id):
 		"""
 		:param id: The data model identifier, e.g. 'conf.service.ftp.share'.
@@ -46,7 +47,7 @@ class Datamodel(omv.datamodel.Datamodel):
 		:raises FileNotFoundError:
 		"""
 		# Load the file content.
-		datamodels_dir = omv.getenv("OMV_DATAMODELS_DIR",
+		datamodels_dir = openmediavault.getenv("OMV_DATAMODELS_DIR",
 			"/usr/share/openmediavault/datamodels");
 		with open(os.path.join(datamodels_dir, "%s.json" % id)) as f:
 			content = f.read()
@@ -58,7 +59,7 @@ class Datamodel(omv.datamodel.Datamodel):
 		:param model: The data model as JSON object or string.
 		:returns: None.
 		"""
-		schema = omv.json.Schema({
+		schema = openmediavault.json.Schema({
 			"type":"object",
 			"properties":{
 				"type":{"type":"string","enum":["config"],"required":True},
@@ -83,7 +84,7 @@ class Datamodel(omv.datamodel.Datamodel):
 		})
 		try:
 			schema.validate(model)
-		except omv.json.SchemaValidationException as e:
+		except openmediavault.json.SchemaValidationException as e:
 			raise Exception("The data model is invalid: %s" % str(e))
 
 	def is_iterable(self):
@@ -121,7 +122,7 @@ class Datamodel(omv.datamodel.Datamodel):
 		:returns:	Returns the JSON schema of the data model properties
 					as openmediavault.json.Schema object.
 		"""
-		schema = omv.json.Schema({
+		schema = openmediavault.json.Schema({
 			"type": "object",
 			"properties": self.model['properties']
 		})
@@ -162,8 +163,8 @@ class Datamodel(omv.datamodel.Datamodel):
 		Validate the specified data against the data model.
 		:param data: The JSON data to validate.
 		:returns: None.
-		:raises omv.json.SchemaException:
-		:raises omv.json.SchemaValidationException:
+		:raises openmediavault.json.SchemaException:
+		:raises openmediavault.json.SchemaValidationException:
 		"""
 		self.schema.validate(data)
 
