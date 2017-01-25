@@ -34,7 +34,7 @@ class Command(omv.confdbadm.ICommand):
 
 	def usage(self, *args):
 		print("Usage: %s update <id> <uuid> <data>\n\n" \
-			"Update the specidied configuration database object." %
+			"Update the specified configuration database object." %
 			os.path.basename(args[0]))
 
 	def execute(self, *args):
