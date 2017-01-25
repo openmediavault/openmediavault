@@ -30,7 +30,6 @@ we always want to have not localized command output to do not
 get error message in foreign languages that the maintainers
 do not understand.
 """
-
 __all__ = [ "Popen", "call", "check_call", "check_output" ]
 
 import os
