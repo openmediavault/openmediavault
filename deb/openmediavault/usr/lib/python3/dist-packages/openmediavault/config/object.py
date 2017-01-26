@@ -20,7 +20,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 __all__ = [ "Object" ]
 
-import openmediavault.config
+import openmediavault.config.datamodel
 import openmediavault.collections
 import openmediavault.json
 
