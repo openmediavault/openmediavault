@@ -225,8 +225,8 @@ class DataModel extends \OMV\DataModel\DataModel {
 	 * Get the default value of the specified property as defined in
 	 * the schema.
 	 * @param path The path of the property, e.g. "aaa.bbb.ccc".
-	 * @return The default value as specified in the schema or by
-	 *   the properties type.
+	 * @return The default value as specified in the data model
+	 *   schema or by the type of the property.
 	 */
 	public function getPropertyDefault($path) {
 		$default = NULL;
@@ -267,7 +267,7 @@ class DataModel extends \OMV\DataModel\DataModel {
 			case "string":
 				$default = "";
 				if (array_key_exists("format", $propSchema)) {
-					switch ($propSchema['type']) {
+					switch ($propSchema['format']) {
 					case "uuidv4":
 						// If the property is the identifier of an iterable
 						// data model, then set the UUID which is defined as
