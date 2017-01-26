@@ -53,7 +53,15 @@ class Schema(object):
 		"""
 		self._schema = schema
 
-	def get_dict(self):
+	@property
+	def schema(self):
+		"""
+		Get the JSON schema as Python dictionary.
+		:returns: Returns the JSON schema as dictionary.
+		"""
+		return self.get()
+
+	def get(self):
 		"""
 		Get the JSON schema as Python dictionary.
 		:returns: Returns the JSON schema as dictionary.
@@ -64,20 +72,17 @@ class Schema(object):
 			raise TypeError("Schema is not a dictionary.")
 		return self._schema
 
-	def get_dict_by_path(self, path):
+	def get_by_path(self, path):
 		"""
 		Get the JSON schema for the given path.
-		:param path:	The path of the requested attribute.
+		:param path:	The path of the requested attribute, e.g. "a.b.c".
 		:returns:		The JSON schema as Python dictionary describing the
 						requested attribute.
 		"""
-		# Get the schema.
-		schema = self.get_dict()
-		# Navigate down to the given path.
 		if not path:
-			return schema
+			return self.schema
 		jsonpath_expr = jsonpath_rw.parse(path)
-		matches = [ match.value for match in jsonpath_expr.find(schema) ]
+		matches = [ match.value for match in jsonpath_expr.find(self.schema) ]
 		if not matches:
 			raise SchemaPathException(path)
 		return matches[0]
@@ -98,7 +103,7 @@ class Schema(object):
 		# Convert JSON string to dictionary.
 		if openmediavault.string.is_json(value):
 			value = json.loads(value)
-		schema = self.get_dict_by_path(name);
+		schema = self.get_by_path(name);
 		self._validate_type(value, schema, name)
 
 	def _validate_type(self, value, schema, name):
@@ -461,18 +466,18 @@ if __name__ == "__main__":
 				}
 			})
 
-		def test_get_dict(self):
+		def test_get(self):
 			schema = self._get_schema()
-			schema.get_dict()
+			schema.get()
 
-		def test_get_dict_by_path_success(self):
+		def test_get_by_path_success(self):
 			schema = self._get_schema()
-			schema.get_dict_by_path("properties.price")
+			schema.get_by_path("properties.price")
 
-		def test_get_dict_by_path_fail(self):
+		def test_get_by_path_fail(self):
 			schema = self._get_schema()
 			self.assertRaises(SchemaPathException, lambda:
-				schema.get_dict_by_path("a.b.c"))
+				schema.get_by_path("a.b.c"))
 
 		def test_required(self):
 			schema = self._get_schema()

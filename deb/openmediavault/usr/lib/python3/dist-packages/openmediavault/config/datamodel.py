@@ -21,6 +21,7 @@
 __all__ = [ "Datamodel" ]
 
 import os
+import openmediavault
 import openmediavault.datamodel
 import openmediavault.json
 
@@ -122,6 +123,7 @@ class Datamodel(openmediavault.datamodel.Datamodel):
 		:returns:	Returns the JSON schema of the data model properties
 					as openmediavault.json.Schema object.
 		"""
+		# Build a valid JSON schema.
 		schema = openmediavault.json.Schema({
 			"type": "object",
 			"properties": self.model['properties']
@@ -168,6 +170,48 @@ class Datamodel(openmediavault.datamodel.Datamodel):
 		"""
 		self.schema.validate(data)
 
+	def get_property_default(self, path):
+		"""
+		Get the default value of the specified property as defined in
+		the data model.
+		:param path:	The path of the property, e.g. "aaa.bbb.ccc".
+		:returns:		The default value as specified in the data model
+						schema or by the type of the property.
+		"""
+		prop_schema = self.schema.get_by_path("properties.%s" % path)
+		if "default" in prop_schema:
+			result = prop_schema['default']
+		else:
+			if isinstance(prop_schema['type'], list):
+				raise openmediavault.json.SchemaException(
+					"The attribute 'type' must not be an array at '%s'." %
+					path)
+			type = "any"
+			if "type" in prop_schema:
+				type = prop_schema['type']
+			if "array" == type:
+				result = []
+			elif "object" == type:
+				result = {}
+			elif "boolean" == type:
+				result = False
+			elif "integer" == type:
+				result = 0
+			elif type in [ "number", "double", "float" ]:
+				result = 0.0
+			elif "string" == type:
+				result = ""
+				if "format" in prop_schema:
+					if "uuidv4" == prop_schema['format']:
+						if self.is_identifiable and self.idproperty == path:
+							result = openmediavault.getenv(
+								"OMV_CONFIGOBJECT_NEW_UUID")
+#			elif type in [ "any", "null", "float" ]:
+#				result = None
+			else:
+				result = None
+		return result
+
 if __name__ == "__main__":
 	import unittest
 
@@ -203,5 +247,10 @@ if __name__ == "__main__":
 		def test_notificationid(self):
 			datamodel = self._get_model()
 			datamodel.notificationid
+
+		def test_get_property_default(self):
+			datamodel = self._get_model()
+			default = datamodel.get_property_default("partner")
+			self.assertEqual(default, False)
 
 	unittest.main()

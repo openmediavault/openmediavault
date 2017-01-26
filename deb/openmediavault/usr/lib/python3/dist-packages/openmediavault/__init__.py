@@ -28,6 +28,7 @@ from .rpc import *
 from .systemd import *
 from .string import *
 from .subprocess import *
+from .collections import *
 
 from openmediavault.json import *
 from openmediavault.datamodel import *

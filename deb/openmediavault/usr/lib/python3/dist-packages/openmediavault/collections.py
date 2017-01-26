@@ -106,4 +106,9 @@ if __name__ == "__main__":
 			d['a'] = { 'z': 2.3 }
 			self.assertEqual(d['a'], { 'z': 2.3 })
 
+		def test_6(self):
+			d = DotDict()
+			d['a'] = False
+			self.assertEqual(d['a'], False)
+
 	unittest.main()

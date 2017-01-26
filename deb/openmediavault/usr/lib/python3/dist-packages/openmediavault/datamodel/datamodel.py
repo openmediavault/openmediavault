@@ -33,13 +33,20 @@ class Datamodel(object):
 			model = json.loads(model)
 		self._model = model
 
+	def get(self):
+		"""
+		Get the data model as JSON object.
+		:returns: Returns the data model as JSON object.
+		"""
+		return self._model
+
 	@property
 	def model(self):
 		"""
 		Get the data model as JSON object.
 		:returns: Returns the data model as JSON object.
 		"""
-		return self._model
+		return self.get()
 
 	@property
 	def id(self):
