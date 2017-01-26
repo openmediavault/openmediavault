@@ -127,7 +127,7 @@ class Schema {
 		if (array_key_exists("type", $schema) && is_string($schema['type'])) {
 			switch ($schema['type']) {
 			case "array":
-				// Does 'properties' exist and is it an array?
+				// Does 'items' exist and is it an array?
 				if (!array_key_exists("items", $schema)) {
 					throw new SchemaPathException(
 					  "No 'items' attribute defined for path '%s'.",
