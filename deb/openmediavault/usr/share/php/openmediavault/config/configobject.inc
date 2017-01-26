@@ -75,7 +75,7 @@ class ConfigObject {
 	}
 
 	/**
-	 * Get the model of the configuration object.
+	 * Get the data model of the configuration object.
 	 * @return The data model object.
 	 */
 	public function getModel() {
