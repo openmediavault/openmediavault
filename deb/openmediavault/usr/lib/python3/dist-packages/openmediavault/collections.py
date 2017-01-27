@@ -25,7 +25,7 @@ class DotDict(dict):
 		if value is None:
 			return
 		if not isinstance(value, dict):
-			raise TypeError("Expected dictionary")
+			raise TypeError("Expected dictionary.")
 		for key in value:
 			self.__setitem__(key, value[key])
 

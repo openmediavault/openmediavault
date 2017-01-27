@@ -69,7 +69,7 @@ class Schema(object):
 		if isinstance(self._schema, str):
 			self._schema = json.loads(self._schema)
 		if not isinstance(self._schema, dict):
-			raise TypeError("Schema is not a dictionary.")
+			raise TypeError("Expected dictionary.")
 		return self._schema
 
 	def get_by_path(self, path):
@@ -145,7 +145,7 @@ class Schema(object):
 					valid = True
 				else:
 					raise SchemaException(
-						"The type '%s' is not defined." %
+						"%s: The type '%s' is not defined." %
 						(name, typev));
 			except SchemaValidationException as e:
 				# Continue with the next type but remember the exception.
@@ -297,59 +297,51 @@ class Schema(object):
 		if schema['format'] in [ "date-time", "datetime" ]:
 			if not re.match(r'/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/', value):
 				raise SchemaValidationException(name,
-					"The value '%s' does not match to ISO 8601." %
-					value)
+					"The value '%s' does not match to ISO 8601." % value)
 		elif "date" == schema['format']:
 			if not re.match(r'/^\d{4}-\d{2}-\d{2}$/', value):
 				raise SchemaValidationException(name,
-					"The value '%s' does not match to YYYY-MM-DD." %
-					value)
+					"The value '%s' does not match to YYYY-MM-DD." % value)
 		elif "time" == schema['format']:
 			if not re.match(r'/^\d{2}:\d{2}:\d{2}$/', value):
 				raise SchemaValidationException(name,
-					"The value '%s' does not match to hh:mm:ss." %
-					value)
-		if schema['format'] in [ "host-name", "hostname" ]:
-			if not re.match(r'/^[a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9]){0,1}$/', value):
+					"The value '%s' does not match to hh:mm:ss." % value)
+		elif schema['format'] in [ "host-name", "hostname" ]:
+			if not re.match(r'/^[a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])' \
+				'{0,1}$/', value):
 				raise SchemaValidationException(name,
-					"The value '%s' is not a valid hostname." %
-					value)
+					"The value '%s' is not a valid hostname." % value)
 		elif "regex" == schema['format']:
 			try:
 				re.compile(value)
 			except:
 				raise SchemaValidationException(name,
-					"The value '%s' is not a valid regex." %
-					value)
+					"The value '%s' is not a valid regex." % value)
 		elif "uri" == schema['format']:
 			try:
 				urllib.parse.urlparse(value);
 			except:
 				raise SchemaValidationException(name,
-					"The value '%s' is not an URI." %
-					value)
+					"The value '%s' is not an URI." % value)
 		elif "email" == schema['format']:
 			if not "@" in value:
 				raise SchemaValidationException(name,
-					"The value '%s' is not an email." %
-					value)
-		if schema['format'] in [ "ip-address", "ipv4" ]:
+					"The value '%s' is not an email." % value)
+		elif schema['format'] in [ "ip-address", "ipv4" ]:
 			try:
 				socket.inet_aton(value)
 			except socket.error:
 				raise SchemaValidationException(name,
-					"The value '%s' is not an IPv4 address." %
-					value)
+					"The value '%s' is not an IPv4 address." % value)
 		elif "ipv6" == schema['format']:
 			try:
 				socket.inet_pton(socket.AF_INET6, value)
 			except socket.error:
 				raise SchemaValidationException(name,
-					"The value '%s' is not an IPv6 address." %
-					value)
+					"The value '%s' is not an IPv6 address." % value)
 		else:
 			raise SchemaException(
-				"The format '%s' is not defined." %
+				"%s: The format '%s' is not defined." %
 				(name, schema['format']))
 
 	def _check_enum(self, value, schema, name):
@@ -357,8 +349,7 @@ class Schema(object):
 			return
 		if not isinstance(schema['enum'], list):
 			raise SchemaException(
-				"The attribute 'enum' is not an array." %
-				name)
+				"The attribute 'enum' is not an array." % name)
 		if not isinstance(value, list):
 			value = [ value ]
 		for valuev in value:
@@ -493,5 +484,33 @@ if __name__ == "__main__":
 			schema = self._get_schema()
 			self.assertRaises(SchemaValidationException, lambda:
 				schema.validate({ "name": "Eggs", "price": 34.99 }))
+
+		def test_check_format_unknown(self):
+			schema = Schema({})
+			self.assertRaises(SchemaException, lambda:
+				schema._check_format("abc", { "format": "abc" }, "abc"))
+
+		def test_check_format_regex(self):
+			schema = Schema({})
+			schema._check_format('/^\d{4}-\d{2}-\d{2}$/',
+				{ "format": "regex" }, "field1")
+
+		def test_check_format_email(self):
+			schema = Schema({})
+			schema._check_format("test@test.com",
+				{ "format": "email" }, "field2")
+
+		def test_check_one_of(self):
+			schema = Schema({})
+			schema._check_format("192.168.10.101", {
+					"type": "string",
+					"oneOf": [{
+						"type": "string",
+						"format": "ipv6"
+					},{
+						"type": "string",
+						"format": "ipv4"
+					}]
+				}, "field3")
 
 	unittest.main()

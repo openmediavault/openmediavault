@@ -379,7 +379,7 @@ class ConfigObject {
 	 * Determine whether a property value is empty.
 	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
 	 * @return Returns FALSE if the property exists and has a non-empty,
-	 *   non-zero value. Otherwise returns TRUE. If the property does not
+	 *   non-zero value, otherwise returns TRUE. If the property does not
 	 *   exist an exception is thrown.
 	 * @throw \OMV\Exception
 	 */

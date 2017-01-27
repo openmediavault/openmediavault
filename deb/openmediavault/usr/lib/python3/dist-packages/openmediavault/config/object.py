@@ -22,17 +22,18 @@ __all__ = [ "Object" ]
 
 import openmediavault.config.datamodel
 import openmediavault.collections
+import openmediavault.exceptions
 import openmediavault.json
 
 class Object(object):
 	def __init__(self, id):
 		"""
-		:param id: The data model identifier, e.g. 'conf.service.ftp.share'.
+		:param id:	The data model identifier, e.g. 'conf.service.ftp.share'.
 		"""
 		# Set the data model.
 		self._model = openmediavault.config.Datamodel(id)
 		# Set the default values.
-		self._properties = self.get_defaults()
+		self.reset_all()
 
 	@property
 	def model(self):
@@ -47,15 +48,16 @@ class Object(object):
 	def properties(self):
 		"""
 		Get the configuration object properties.
-		:returns: The properties as Python dictionary.
+		:returns:	Returns the properties of the configuration object as
+					openmediavault.collections.DotDict dictionary.
 		"""
 		return self._properties
 
 	def get_defaults(self):
 		"""
 		Get the default values as defined in the data model.
-		:returns:	Returns the default values as defined in the data
-					model as dictionary.
+		:returns:	Returns the default values as defined in the data model
+					as openmediavault.collections.DotDict dictionary.
 		"""
 		def _walk_object(path, schema, defaults=None):
 			if not "type" in schema:
@@ -75,11 +77,81 @@ class Object(object):
 					# Process the property node.
 					_walk_object(prop_path, prop_schema, defaults)
 			else:
-				defaults[path] = self.model.get_property_default(path)
+				defaults[path] = self.model.property_get_default(path)
 
 		defaults = openmediavault.collections.DotDict();
 		_walk_object(None, self.model.schema.get(), defaults)
 		return defaults
+
+	def reset_all(self):
+		"""
+		Reset all properties to their default values.
+		"""
+		self._properties = self.get_defaults()
+
+	def exists(self, name):
+		"""
+		Check if the specified property exists.
+		:param name:	The name of the property in dot notation, e.g. 'a.b.c'.
+		:returns:		Returns True if the property exists, otherwise False.
+		"""
+		return self.model.property_exists(name)
+
+	def assert_exists(self, name):
+		"""
+		Assert that the specified property exists.
+		:param name:	The name of the property in dot notation, e.g. 'a.b.c'.
+		:raises openmediavault.exceptions.AssertException:
+		"""
+		if not self.exists(name):
+			raise openmediavault.exceptions.AssertException(
+				"The property '%s' does not exist in the model '%s'." %
+				(name, self.model.id))
+
+	def get(self, name):
+		"""
+		Get a property.
+		:param name:	The name of the property in dot notation, e.g. 'a.b.c'.
+		:returns:		The property value.
+		"""
+		self.assert_exists(name)
+		return self.properties[name]
+
+	def set(self, name, value, validate=True):
+		"""
+		Set a property.
+		:param name:		The name of the property in dot notation,
+							e.g. 'a.b.c'.
+		:param value:		The value of the property.
+		:param validate:	Set to False to do not validate the value.
+							Defaults to True.
+		"""
+		self.assert_exists(name)
+		if validate:
+			self.model.property_validate(name, value)
+		# Convert the value into the proper type.
+		value = self.model.property_convert(name, value)
+		# Set the property value in the dictionary.
+		self.properties[name] = value
+
+	def reset(self, name):
+		"""
+		Reset a property to its default value as defined in the data model.
+		:param name:	The name of the property in dot notation, e.g. 'a.b.c'.
+		"""
+		defaults = self.get_defaults()
+		self.set(name, defaults[name])
+
+	def is_empty(self, name):
+		"""
+		Determine whether a property value is empty.
+		:param name:	The name of the property in dot notation, e.g. 'a.b.c'.
+		:returns:		Returns False if the property exists and has a
+						non-empty, non-zero value, otherwise returns True.
+						If the property does not exist an exception is thrown.
+		"""
+		value = self.get(name);
+		return bool(value and value.strip())
 
 if __name__ == "__main__":
 	import unittest
@@ -97,5 +169,20 @@ if __name__ == "__main__":
 				'uuid': 'fa4b1c66-ef79-11e5-87a0-0002b3a176b4',
 				'sharedfolderref': '',
 				'extraoptions': '' })
+
+		def test_set_get(self):
+			conf_obj = Object("conf.service.ftp.share")
+			conf_obj.set("comment", "test")
+			value = conf_obj.get("comment")
+			self.assertEqual(value, "test")
+
+		def test_is_not_empty(self):
+			conf_obj = Object("conf.service.ftp.share")
+			self.assertEqual(conf_obj.is_empty("comment"), True)
+
+		def test_is_not_empty(self):
+			conf_obj = Object("conf.service.ftp.share")
+			conf_obj.set("comment", "test")
+			self.assertEqual(conf_obj.is_empty("comment"), False)
 
 	unittest.main()

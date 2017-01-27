@@ -121,10 +121,10 @@ class Datamodel(openmediavault.datamodel.Datamodel):
 		"""
 		Get the JSON schema of the data model properties.
 		:returns:	Returns the JSON schema of the data model properties
-					as openmediavault.json.Schema object.
+					as openmediavault.datamodel.Schema object.
 		"""
 		# Build a valid JSON schema.
-		schema = openmediavault.json.Schema({
+		schema = openmediavault.datamodel.Schema({
 			"type": "object",
 			"properties": self.model['properties']
 		})
@@ -163,14 +163,14 @@ class Datamodel(openmediavault.datamodel.Datamodel):
 	def validate(self, data):
 		"""
 		Validate the specified data against the data model.
-		:param data: The JSON data to validate.
-		:returns: None.
+		:param data:	The JSON data to validate.
+		:returns:		None.
 		:raises openmediavault.json.SchemaException:
 		:raises openmediavault.json.SchemaValidationException:
 		"""
-		self.schema.validate(data)
+		self.schema.validate(value, name)
 
-	def get_property_default(self, path):
+	def property_get_default(self, path):
 		"""
 		Get the default value of the specified property as defined in
 		the data model.
@@ -212,6 +212,59 @@ class Datamodel(openmediavault.datamodel.Datamodel):
 				result = None
 		return result
 
+	def property_exists(self, name):
+		"""
+		Check if the specified property exists.
+		:param name:	The path of the property, e.g. "aaa.bbb.ccc".
+		:returns:		Returns True if the property exists, otherwise False.
+		"""
+		result = True
+		try:
+			self.schema.get_by_path("properties.%s" % name)
+		except openmediavault.json.SchemaPathException:
+			result = False
+		return result
+
+	def property_validate(self, name, value):
+		"""
+		Validate the specified property against the data model.
+		:param name:	The JSON path of the entity to validate, e.g.
+						'aa.bb.cc', defaults to an empty string. Use an
+						empty value for the root.
+		:param value:	The value to validate.
+		:returns: 		None.
+		:raises openmediavault.json.SchemaException:
+		:raises openmediavault.json.SchemaValidationException:
+		"""
+		self.schema.validate(value, "properties.%s" % name)
+
+	def property_convert(self, name, value):
+		"""
+		Convert the given value into the type which is declared in the
+		property schema at the specified path. The original value is returned
+		when the property type can not be processed, e.g. 'any', 'array',
+		'object' or 'null'.
+		:param name:	The path of the property, e.g. "aaa.bbb.ccc".
+		:param value:	The value to convert.
+		:returns:		The converted value.
+		"""
+		prop_schema = self.schema.get_by_path("properties.%s" % name)
+		if isinstance(prop_schema['type'], list):
+			raise openmediavault.json.SchemaException(
+				"The attribute 'type' must not be an array at '%s'." %
+				path)
+		if "boolean" == prop_schema['type']:
+			result = bool(value)
+		elif "integer" == prop_schema['type']:
+			result = int(value)
+		elif prop_schema['type'] in [ "number", "double", "float" ]:
+			result = float(value)
+		elif "string" == prop_schema['type']:
+			result = str(value)
+		else:
+			result = value
+		return result
+
 if __name__ == "__main__":
 	import unittest
 
@@ -232,6 +285,10 @@ if __name__ == "__main__":
 					"partner": {
 						"type": "boolean",
 						"default": False
+					},
+					"integer": {
+						"type": "integer",
+						"default": 10
 					}
 				}
 			})
@@ -248,9 +305,19 @@ if __name__ == "__main__":
 			datamodel = self._get_model()
 			datamodel.notificationid
 
-		def test_get_property_default(self):
+		def test_property_get_default(self):
 			datamodel = self._get_model()
-			default = datamodel.get_property_default("partner")
+			default = datamodel.property_get_default("partner")
 			self.assertEqual(default, False)
+
+		def test_property_exists(self):
+			datamodel = self._get_model()
+			default = datamodel.property_exists("proposed")
+			self.assertEqual(default, True)
+
+		def test_property_convert(self):
+			datamodel = self._get_model()
+			value = datamodel.property_convert("integer", "20")
+			self.assertEqual(value, 20)
 
 	unittest.main()

@@ -22,3 +22,6 @@ __all__ = [ "IllegalArgumentError" ]
 
 class IllegalArgumentError(ValueError):
 	pass
+
+class AssertException(Exception):
+	pass

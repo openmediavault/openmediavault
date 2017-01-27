@@ -58,10 +58,10 @@ def is_uuid4(value):
 	:returns: Returns True if the variable is an UUIDv4, otherwise False.
 	"""
 	try:
-		uuid = uuid.UUID(value, version=4)
+		uuid.UUID(value, version=4)
 	except:
 		return False
-	return value == str(uuid)
+	return True
 
 def is_fs_uuid(value):
 	"""
@@ -76,7 +76,7 @@ def is_fs_uuid(value):
 					otherwise False.
 	"""
 	# Check if it is an UUID v4.
-	if (is_uuid4(value)):
+	if is_uuid4(value):
 		return True;
 	# Check if it is a NTFS, FAT or ISO9660 filesystem identifier.
 	return re.match(r'/^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{16}|' \
@@ -88,7 +88,7 @@ if __name__ == "__main__":
 
 	class StringTestCase(unittest.TestCase):
 		def test_is_json(self):
-			valid = is_json("{ 'a': 10 }")
+			valid = is_json('{"a": 10}')
 			self.assertEqual(valid, True)
 
 		def test_is_json_fail(self):
