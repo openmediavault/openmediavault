@@ -39,7 +39,7 @@ class EnvironmentTestCase(unittest.TestCase):
 
 	def test_get_float(self):
 		value = openmediavault.settings.Environment.get_float(
-			"OMV_XXX_YYY_ZZZ")
+			"OMV_XXX_YYY_ZZZ", 10.50)
 		self.assertTrue(isinstance(value, float))
 
 if __name__ == "__main__":
