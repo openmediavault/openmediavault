@@ -258,7 +258,7 @@ class DatabaseQuery(object):
 		Get the data model as JSON object.
 		:returns: Returns the data model as JSON object.
 		"""
-		return _model
+		return self._model
 
 	def __str__(self):
 		raise NotImplementedError()
@@ -275,7 +275,7 @@ class DatabaseFilterQuery(DatabaseQuery):
 	def filter(self):
 		return self._filter
 
-	def __str__(self):
+	def _build_predicate(self, filter):
 		"""
 		Build the predicate for the specified filter.
 		Supported operators:
@@ -364,58 +364,59 @@ class DatabaseFilterQuery(DatabaseQuery):
 			]
 		]
 		"""
+		assert(isinstance(filter, DatabaseFilter))
 		if not "operator" in filter:
 			raise KeyError("Invalid filter, the field 'operator' is missing.")
 		result = ""
 		if filter['operator'] in [ 'and', 'or' ]:
-			result = sprintf("(%s %s %s)",
-			  $this->buildPredicate(filter['arg0']),
-			  filter['operator'],
-			  $this->buildPredicate(filter['arg1']));
+			result = "(%s %s %s)" % (
+				self._build_predicate(DatabaseFilter(filter['arg0'])),
+				filter['operator'],
+				self._build_predicate(DatabaseFilter(filter['arg1'])))
 		elif filter['operator'] in [ '=', 'equals' ]:
-			result = sprintf("%s=%s", filter['arg0'], filter['arg1']);
+			result = "%s=%s" % (filter['arg0'], filter['arg1'])
 		elif filter['operator'] in [ '!=', 'notEquals' ]:
-			result = sprintf("%s!=%s", filter['arg0'], filter['arg1']);
+			result = "%s!=%s" % (filter['arg0'], filter['arg1'])
 		elif "enum" == filter['operator']:
-			$parts = [];
-			foreach (filter['arg1'] as $enumk => $enumv) {
-				$parts[] = sprintf("%s=%s", filter['arg0'], $enumv);
-			}
-			result = sprintf("(%s)", implode(" or ", $parts));
+			parts = []
+			for enumv in filter['arg1']:
+				parts.append("%s=%s" % (filter['arg0'], enumv))
+			result = "(%s)" % " or ".join(parts)
 		elif filter['operator'] in [ '==', 'stringEquals' ]:
-			result = sprintf("%s=%s", filter['arg0'],
-			  escapeshellarg(filter['arg1']));
+			result = "%s='%s'" % (filter['arg0'], filter['arg1'])
 		elif filter['operator'] in [ '!==', '!=', 'stringNotEquals' ]:
-			result = sprintf("%s!=%s", filter['arg0'],
-			  escapeshellarg(filter['arg1']));
+			result = "%s!='%s'" % (filter['arg0'], filter['arg1'])
 		elif "stringContains" == filter['operator']:
-			result = sprintf("contains(%s,%s)", filter['arg0'],
-			  escapeshellarg(filter['arg1']));
+			result = "contains(%s,'%s')" % (filter['arg0'],
+				filter['arg1'])
 		elif "stringStartsWith" == filter['operator']:
-			result = sprintf("starts-with(%s,%s)", filter['arg0'],
-			  escapeshellarg(filter['arg1']));
+			result = "starts-with(%s,'%s')" % (filter['arg0'],
+				filter['arg1'])
 		elif "stringEnum" == filter['operator']:
-			$parts = [];
-			foreach (filter['arg1'] as $enumk => $enumv) {
-				$parts[] = sprintf("%s=%s", filter['arg0'],
-				  escapeshellarg($enumv));
-			}
-			result = sprintf("(%s)", implode(" or ", $parts));
+			parts = [];
+			for enumv in filter['arg1']:
+				parts.append("%s='%s'" % (filter['arg0'], enumv))
+			result = "(%s)" % " or ".join(parts)
 		elif filter['operator'] in [ '!', 'not' ]:
-			result = sprintf("not(%s)",
-			  $this->buildPredicate(filter['arg0']));
+			result = "not(%s)" % DatabaseFilterQuery(self.model.id,
+				DatabaseFilter(filter['arg0']))
 		elif filter['operator'] in [ '<', 'less' ]:
-			result = sprintf("%s<%s", filter['arg0'], filter['arg1']);
+			result = "%s<%s" % (filter['arg0'], filter['arg1'])
 		elif filter['operator'] in [ '>', 'greater' ]:
-			result = sprintf("%s>%s", filter['arg0'], filter['arg1']);
+			result = "%s>%s" % (filter['arg0'], filter['arg1'])
 		elif filter['operator'] in [ '<=', 'lessEqual' ]:
-			result = sprintf("%s<=%s", filter['arg0'], filter['arg1']);
+			result = "%s<=%s" % (filter['arg0'], filter['arg1'])
 		elif filter['operator'] in [ '>=', 'greaterEqual' ]:
-			result = sprintf("%s>=%s", filter['arg0'], filter['arg1']);
+			result = "%s>=%s" % (filter['arg0'], filter['arg1'])
 		else:
 			raise ValueError("The operator '%s' is not defined." %
 				filter['operator'])
 		return result
+
+	def __str__(self):
+		return "%s[%s]" % (self.model.queryinfo['xpath'],
+			self._build_predicate(self.filter))
+
 
 class DatabaseGetQuery(DatabaseQuery):
 	def __init__(self, id, identifier=None):
@@ -429,9 +430,10 @@ class DatabaseGetQuery(DatabaseQuery):
 	def __str__(self):
 		result = self.model.queryinfo['xpath']
 		if self.model.is_iterable and not self.identifier is None:
-			result = str(DatabaseFilterQuery(DatabaseFilter({
+			result = str(DatabaseFilterQuery(self.model.id,
+				DatabaseFilter({
 					'operator': 'stringEquals',
 					'arg0': self.model.queryinfo['idproperty'],
 					'arg1': self.identifier
-				 }))
+				})))
 		return result
