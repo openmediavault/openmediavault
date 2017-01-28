@@ -19,6 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import unittest
+import openmediavault.json.schema
 import openmediavault.datamodel.schema
 
 class SchemaTestCase(unittest.TestCase):
@@ -78,7 +79,13 @@ class SchemaTestCase(unittest.TestCase):
 
 	def test_check_format_dirpath(self):
 		schema = openmediavault.datamodel.Schema({})
-		schema._check_format("/media/a/b/c",
+		schema._check_format("/media/a/b/c/@data",
 			{ "format": "dirpath" }, "field1")
+
+	def test_check_format_dirpath_fail(self):
+		schema = openmediavault.datamodel.Schema({})
+		self.assertRaises(openmediavault.json.SchemaValidationException,
+			lambda: schema._check_format("/media/a/../../b/c",
+			{ "format": "dirpath" }, "field1"))
 
 unittest.main()

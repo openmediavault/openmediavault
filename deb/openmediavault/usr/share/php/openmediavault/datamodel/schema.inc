@@ -57,7 +57,7 @@ class Schema extends \OMV\Json\Schema {
 				break;
 			case "dirpath":
 				if (!preg_match('/^(?!.*[\/]\.{2}[\/])(?!\.{2}[\/])'.
-				  '[-\w.\/]+$/u', $value)) {
+				  '[-\w.\/@]+$/u', $value)) {
 					throw new \OMV\Json\SchemaValidationException(
 					  "%s: The value '%s' is no valid directory path.",
 					  $name, $value);

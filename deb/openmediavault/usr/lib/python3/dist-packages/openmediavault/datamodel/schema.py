@@ -47,7 +47,7 @@ class Schema(openmediavault.json.Schema):
 						"The value '%s' is no device file name." % value)
 			elif "dirpath" == schema['format']:
 				if not re.match(r'^(?!.*[\/]\.{2}[\/])(?!\.{2}[\/])' \
-					'[-\w.\/]+$', value, flags=re.UNICODE):
+					'[-\w.\/@]+$', value, flags=re.UNICODE):
 					raise openmediavault.json.SchemaValidationException(name,
 						"The value '%s' is no valid directory path." % value)
 			elif "sshpubkey-openssh" == schema['format']:
