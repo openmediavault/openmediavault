@@ -79,48 +79,6 @@ def is_fs_uuid(value):
 	if is_uuid4(value):
 		return True;
 	# Check if it is a NTFS, FAT or ISO9660 filesystem identifier.
-	return re.match(r'/^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{16}|' \
-		'[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2})$/i',
-		value)
-
-if __name__ == "__main__":
-	import unittest
-
-	class StringTestCase(unittest.TestCase):
-		def test_is_json(self):
-			valid = is_json('{"a": 10}')
-			self.assertEqual(valid, True)
-
-		def test_is_json_fail(self):
-			valid = is_json("abc")
-			self.assertEqual(valid, False)
-
-		def test_is_uuid4(self):
-			valid = is_uuid4("e063327c-e4a4-11e6-8039-cf7ee3ff4874")
-			self.assertEqual(valid, True)
-
-		def test_is_uuid4_fail(self):
-			valid = is_uuid4("abc")
-			self.assertEqual(valid, False)
-
-		def test_is_fs_uuid_ext4(self):
-			valid = is_fs_uuid("f5fce952-e4a4-11e6-accf-175f1e865654")
-			self.assertEqual(valid, True)
-
-		def test_is_fs_uuid_fat(self):
-			valid = is_fs_uuid("7A48-BA97")
-			self.assertEqual(valid, True)
-
-		def test_is_fs_uuid_ntfs(self):
-			valid = is_fs_uuid("2ED43920D438EC29")
-			self.assertEqual(valid, True)
-
-		def test_is_fs_uuid_iso9660(self):
-			valid = is_fs_uuid("2015-01-13-21-48-46-00")
-			self.assertEqual(valid, True)
-
-		def test_is_fs_uuid_fail(self):
-			valid = is_fs_uuid("xyz")
-			self.assertEqual(valid, False)
-
-	unittest.main()
+	return None != re.match(r'^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{16}|' \
+		'[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2})$',
+		value, flags=re.IGNORECASE)

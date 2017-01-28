@@ -152,37 +152,3 @@ class Object(object):
 		"""
 		value = self.get(name);
 		return bool(value and value.strip())
-
-if __name__ == "__main__":
-	import unittest
-
-	class ConfigObjectTestCase(unittest.TestCase):
-		def test_constructor(self):
-			conf_obj = Object("conf.service.ftp.share")
-
-		def test_get_defaults(self):
-			conf_obj = Object("conf.service.ftp.share")
-			defaults = conf_obj.get_defaults()
-			self.assertEqual(defaults, {
-				'comment': '',
-				'enable': False,
-				'uuid': 'fa4b1c66-ef79-11e5-87a0-0002b3a176b4',
-				'sharedfolderref': '',
-				'extraoptions': '' })
-
-		def test_set_get(self):
-			conf_obj = Object("conf.service.ftp.share")
-			conf_obj.set("comment", "test")
-			value = conf_obj.get("comment")
-			self.assertEqual(value, "test")
-
-		def test_is_not_empty(self):
-			conf_obj = Object("conf.service.ftp.share")
-			self.assertEqual(conf_obj.is_empty("comment"), True)
-
-		def test_is_not_empty(self):
-			conf_obj = Object("conf.service.ftp.share")
-			conf_obj.set("comment", "test")
-			self.assertEqual(conf_obj.is_empty("comment"), False)
-
-	unittest.main()

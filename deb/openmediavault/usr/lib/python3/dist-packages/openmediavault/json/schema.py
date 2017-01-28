@@ -295,20 +295,20 @@ class Schema(object):
 		if not "format" in schema:
 			return
 		if schema['format'] in [ "date-time", "datetime" ]:
-			if not re.match(r'/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/', value):
+			if not re.match(r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$', value):
 				raise SchemaValidationException(name,
 					"The value '%s' does not match to ISO 8601." % value)
 		elif "date" == schema['format']:
-			if not re.match(r'/^\d{4}-\d{2}-\d{2}$/', value):
+			if not re.match(r'^\d{4}-\d{2}-\d{2}$', value):
 				raise SchemaValidationException(name,
 					"The value '%s' does not match to YYYY-MM-DD." % value)
 		elif "time" == schema['format']:
-			if not re.match(r'/^\d{2}:\d{2}:\d{2}$/', value):
+			if not re.match(r'^\d{2}:\d{2}:\d{2}$', value):
 				raise SchemaValidationException(name,
 					"The value '%s' does not match to hh:mm:ss." % value)
 		elif schema['format'] in [ "host-name", "hostname" ]:
-			if not re.match(r'/^[a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])' \
-				'{0,1}$/', value):
+			if not re.match(r'^[a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])' \
+				'{0,1}$', value):
 				raise SchemaValidationException(name,
 					"The value '%s' is not a valid hostname." % value)
 		elif "regex" == schema['format']:
@@ -443,74 +443,3 @@ class Schema(object):
 		if not valid:
 			raise SchemaValidationException(name,
 				"Failed to match exactly one schema.")
-
-if __name__ == "__main__":
-	import unittest
-
-	class SchemaTestCase(unittest.TestCase):
-		def _get_schema(self):
-			return Schema({
-				"type": "object",
-				"properties": {
-					"name": { "type": "string", "required": True },
-					"price": { "type": "number", "minimum": 35, "maximum": 40 }
-				}
-			})
-
-		def test_get(self):
-			schema = self._get_schema()
-			schema.get()
-
-		def test_get_by_path_success(self):
-			schema = self._get_schema()
-			schema.get_by_path("properties.price")
-
-		def test_get_by_path_fail(self):
-			schema = self._get_schema()
-			self.assertRaises(SchemaPathException, lambda:
-				schema.get_by_path("a.b.c"))
-
-		def test_required(self):
-			schema = self._get_schema()
-			self.assertRaises(SchemaValidationException, lambda:
-				schema.validate({ "price": 38 }))
-
-		def test_validate_maximum(self):
-			schema = self._get_schema()
-			self.assertRaises(SchemaValidationException, lambda:
-				schema.validate({ "name": "Apple", "price": 41 }))
-
-		def test_validate_minimum(self):
-			schema = self._get_schema()
-			self.assertRaises(SchemaValidationException, lambda:
-				schema.validate({ "name": "Eggs", "price": 34.99 }))
-
-		def test_check_format_unknown(self):
-			schema = Schema({})
-			self.assertRaises(SchemaException, lambda:
-				schema._check_format("abc", { "format": "abc" }, "abc"))
-
-		def test_check_format_regex(self):
-			schema = Schema({})
-			schema._check_format('/^\d{4}-\d{2}-\d{2}$/',
-				{ "format": "regex" }, "field1")
-
-		def test_check_format_email(self):
-			schema = Schema({})
-			schema._check_format("test@test.com",
-				{ "format": "email" }, "field2")
-
-		def test_check_one_of(self):
-			schema = Schema({})
-			schema._check_format("192.168.10.101", {
-					"type": "string",
-					"oneOf": [{
-						"type": "string",
-						"format": "ipv6"
-					},{
-						"type": "string",
-						"format": "ipv4"
-					}]
-				}, "field3")
-
-	unittest.main()
