@@ -18,6 +18,12 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-from .datamodel import *
-from .object import *
-from .database import *
+import unittest
+import openmediavault.config.database
+
+class DatabaseTestCase(unittest.TestCase):
+	def test_constructor(self):
+		database = openmediavault.config.Database()
+
+if __name__ == "__main__":
+	unittest.main()
