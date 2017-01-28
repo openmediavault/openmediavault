@@ -88,6 +88,7 @@ class Datamodel(openmediavault.datamodel.Datamodel):
 		except openmediavault.json.SchemaValidationException as e:
 			raise Exception("The data model is invalid: %s" % str(e))
 
+	@property
 	def is_iterable(self):
 		if not "idproperty" in self.queryinfo:
 			return False
@@ -95,6 +96,7 @@ class Datamodel(openmediavault.datamodel.Datamodel):
 			return False
 		return self.queryinfo['iterable']
 
+	@property
 	def is_referenceable(self):
 		if not "idproperty" in self.queryinfo:
 			return False
@@ -102,9 +104,11 @@ class Datamodel(openmediavault.datamodel.Datamodel):
 			return False
 		return self.queryinfo['refproperty']
 
+	@property
 	def is_identifiable(self):
 		return "idproperty" in self.queryinfo
 
+	@property
 	def is_persistent(self):
 		"""
 		Tests whether the data model instance is persistent.
