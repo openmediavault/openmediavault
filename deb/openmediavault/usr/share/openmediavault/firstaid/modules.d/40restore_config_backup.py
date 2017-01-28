@@ -23,9 +23,11 @@ import dialog
 import glob
 import natsort
 import subprocess
-import openmediavault as omv
+import openmediavault
+import openmediavault.firstaid
+import openmediavault.subprocess
 
-class Module(omv.firstaid.IModule):
+class Module(openmediavault.firstaid.IModule):
 	@property
 	def description(self):
 		return "Restore configuration backup"
@@ -34,7 +36,7 @@ class Module(omv.firstaid.IModule):
 		d = dialog.Dialog(dialog="dialog")
 		# Determine the first revision file which should look like
 		# '<filename>.<revision>'.
-		pathname = "{}.*".format(omv.getenv("OMV_CONFIG_FILE"))
+		pathname = "{}.*".format(openmediavault.getenv("OMV_CONFIG_FILE"))
 		configbaks = natsort.humansorted(glob.glob(pathname))
 		# Does a auto-generated configuration backup exist?
 		if not configbaks:
@@ -45,8 +47,8 @@ class Module(omv.firstaid.IModule):
 		# Get the latest configuration backup file.
 		configbak = configbaks.pop()
 		# Only show a diff, if there's a difference.
-		rc = omv.subprocess.call([ "diff", "--brief",
-			omv.getenv("OMV_CONFIG_FILE"), configbak ],
+		rc = openmediavault.subprocess.call([ "diff", "--brief",
+			openmediavault.getenv("OMV_CONFIG_FILE"), configbak ],
 			stdout=subprocess.PIPE)
 		if rc == 0:
 			d.msgbox("There's no difference between the configuration " \
@@ -65,8 +67,8 @@ class Module(omv.firstaid.IModule):
 			output = "===================================================================\n" \
 				"All lines with '-' will be changed to the lines with '+'\n" \
 				"===================================================================\n"
-			p = omv.subprocess.Popen([ "diff", "--unified=1",
-				omv.getenv("OMV_CONFIG_FILE"), configbak ],
+			p = openmediavault.subprocess.Popen([ "diff", "--unified=1",
+				openmediavault.getenv("OMV_CONFIG_FILE"), configbak ],
 				stdout=subprocess.PIPE, shell=False)
 			stdout, stderr = p.communicate()
 			output += stdout.decode()
@@ -80,7 +82,8 @@ class Module(omv.firstaid.IModule):
 			height=6, width=57, defaultno=True)
 		if code != d.OK:
 			return 0
-		omv.rpc.call("Config", "revertChanges", { "filename": configbak })
+		openmediavault.rpc.call("Config", "revertChanges",
+			{ "filename": configbak })
 		print("Configuration backup successfully restored.")
 		return 0
 

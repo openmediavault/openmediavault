@@ -20,9 +20,13 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
 import sys
-import openmediavault as omv
+import openmediavault
+import openmediavault.confdbadm
+import openmediavault.log
+import openmediavault.subprocess
 
-class Command(omv.confdbadm.ICommand, omv.confdbadm.CommandHelper):
+class Command(openmediavault.confdbadm.ICommand,
+	openmediavault.confdbadm.CommandHelper):
 	@property
 	def description(self):
 		return "Create the default configuration"
@@ -40,7 +44,7 @@ class Command(omv.confdbadm.ICommand, omv.confdbadm.CommandHelper):
 	def execute(self, *args):
 		rc = 1
 		datamodel_id = args[1]
-		create_dir = omv.getenv("OMV_CONFDB_CREATE_DIR",
+		create_dir = openmediavault.getenv("OMV_CONFDB_CREATE_DIR",
 			"/usr/share/openmediavault/confdb/create.d");
 		script_name = ""
 		for name in os.listdir(create_dir):
@@ -61,12 +65,12 @@ class Command(omv.confdbadm.ICommand, omv.confdbadm.CommandHelper):
 				raise RuntimeError("The script '%s' is not " \
 					"executable" % script_name)
 			# Execute the script.
-			omv.subprocess.check_call([ script_path ])
+			openmediavault.subprocess.check_call([ script_path ])
 			rc = 0
 		except Exception as e:
 			# Display the exception message.
-			omv.log.error("Failed to create the default configuration: %s" %
-				str(e))
+			openmediavault.log.error("Failed to create the default " \
+				"configuration: %s" % str(e))
 			# Rollback all changes.
 			self.rollbackChanges()
 		finally:

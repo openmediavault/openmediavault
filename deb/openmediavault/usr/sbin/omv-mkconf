@@ -21,12 +21,13 @@
 import os
 import sys
 import argparse
-import openmediavault as omv
+import openmediavault
+import openmediavault.log
 
 __args = []
 
 def list_scripts():
-	scripts_dir = omv.getenv('OMV_MKCONF_SCRIPTS_DIR');
+	scripts_dir = openmediavault.getenv('OMV_MKCONF_SCRIPTS_DIR');
 	names = [ name for name in os.listdir(scripts_dir) if os.path.isfile(
 	  os.path.join(scripts_dir, name)) ]
 	names.sort()
@@ -35,15 +36,15 @@ def list_scripts():
 def execute_script():
 	global __args
 	# Test if the script exists.
-	scripts_dir = omv.getenv('OMV_MKCONF_SCRIPTS_DIR');
+	scripts_dir = openmediavault.getenv('OMV_MKCONF_SCRIPTS_DIR');
 	path = os.path.join(scripts_dir, __args.name)
 	if not os.path.exists(path):
-		omv.log.error("The script '%s' does not exist", path,
+		openmediavault.log.error("The script '%s' does not exist", path,
 			verbose=__args.verbose)
 		sys.exit(100)
 	# Test if the script is executable.
 	if not os.access(path, os.X_OK):
-		omv.log.error("The script '%s' is not executable", path,
+		openmediavault.log.error("The script '%s' is not executable", path,
 			verbose=__args.verbose)
 		sys.exit(101)
 	# Execute the script. Please note:

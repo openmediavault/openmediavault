@@ -23,24 +23,26 @@ import sys
 import glob
 import datetime
 import dialog
-import openmediavault as omv
+import openmediavault
+import openmediavault.firstaid
+import openmediavault.subprocess
 
-class Module(omv.firstaid.IModule):
+class Module(openmediavault.firstaid.IModule):
 	@property
 	def description(self):
 		return "Check RRD database"
 
 	def execute(self):
 		print("Checking all RRD files. Please wait ...")
-		path = omv.getenv("OMV_RRDCACHED_BASEDIR",
+		path = openmediavault.getenv("OMV_RRDCACHED_BASEDIR",
 			"/var/lib/rrdcached/db/")
 		rrd_files = glob.glob(os.path.join(path, "localhost",
 			"*", "*.rrd"))
 		invalid = 0
-		omv.subprocess.check_call([ "monit", "stop", "rrdcached" ])
+		openmediavault.subprocess.check_call([ "monit", "stop", "rrdcached" ])
 		for rrd_file in rrd_files:
-			ts_last = int(omv.subprocess.check_output([ "rrdtool", "last",
-				rrd_file ]).decode())
+			ts_last = int(openmediavault.subprocess.check_output(
+				[ "rrdtool", "last", rrd_file ]).decode())
 			dt_now = datetime.datetime.now()
 			if datetime.datetime.utcfromtimestamp(ts_last) > dt_now:
 				invalid += 1
@@ -61,7 +63,7 @@ class Module(omv.firstaid.IModule):
 		else:
 			print("{} invalid RRD database files were removed.".format(
 				invalid))
-		omv.subprocess.call([ "monit", "start", "rrdcached" ])
+		openmediavault.subprocess.call([ "monit", "start", "rrdcached" ])
 		return 0
 
 if __name__ == "__main__":

@@ -84,4 +84,5 @@ class CommandHelper():
 		"""
 		if not self._backup_path:
 			raise RuntimeError("No configuration backup exists")
-		shutil.copy(self._backup_path, openmediavault.getenv("OMV_CONFIG_FILE"))
+		shutil.copy(self._backup_path, openmediavault.getenv(
+			"OMV_CONFIG_FILE"))

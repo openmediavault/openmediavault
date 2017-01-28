@@ -20,9 +20,9 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
 import sys
-import openmediavault as omv
+import openmediavault.confdbadm
 
-class Command(omv.confdbadm.ICommand):
+class Command(openmediavault.confdbadm.ICommand):
 	@property
 	def description(self):
 		return "Update a configuration database object"

@@ -87,13 +87,3 @@ class ProductInfo(object):
 		Get the package repository distribution name.
 		"""
 		return self._dict['distribution']
-
-if __name__ == "__main__":
-	import unittest
-
-	class ProductInfoTestCase(unittest.TestCase):
-		def test_name(self):
-			pi = ProductInfo()
-			pi.name
-
-	unittest.main()

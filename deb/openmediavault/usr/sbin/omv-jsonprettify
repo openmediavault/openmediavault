@@ -21,7 +21,7 @@
 import argparse
 import sys
 import json
-import openmediavault as omv
+import openmediavault.log
 
 def main():
 	parser = argparse.ArgumentParser(description="Convert JSON data to " \
@@ -36,7 +36,7 @@ def main():
 		data = json.load(inFile)
 		inFile.close()
 	except Exception as e:
-		omv.log.error(str(e))
+		openmediavault.log.error(str(e))
 		return 1
 	print(json.dumps(data, sort_keys=False, indent=4))
 	return 0

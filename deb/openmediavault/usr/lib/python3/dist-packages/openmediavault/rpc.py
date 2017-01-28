@@ -39,8 +39,8 @@ class RpcException(Exception):
 
 def call(service, method, params=None):
 	address = openmediavault.getenv("OMV_ENGINED_SO_ADDRESS")
-	sndtimeo = openmediavault.Environment.get_int("OMV_ENGINED_SO_SNDTIMEO")
-	rcvtimeo = openmediavault.Environment.get_int("OMV_ENGINED_SO_RCVTIMEO")
+	sndtimeo = openmediavault.getenv("OMV_ENGINED_SO_SNDTIMEO", type=int)
+	rcvtimeo = openmediavault.getenv("OMV_ENGINED_SO_RCVTIMEO", type=int)
 	s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
 	s.setsockopt(socket.SOL_SOCKET, socket.SO_SNDTIMEO, struct.pack("ll",
 		sndtimeo, 0))

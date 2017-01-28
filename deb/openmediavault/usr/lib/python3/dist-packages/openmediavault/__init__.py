@@ -18,23 +18,8 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-from .confdbadm import *
-from .firstaid import *
-from .environment import *
-from .exceptions import *
-from .productinfo import *
-from .log import *
-from .rpc import *
-from .systemd import *
-from .string import *
-from .subprocess import *
-from .collections import *
-
-from openmediavault.json import *
-from openmediavault.datamodel import *
-from openmediavault.config import *
-
 import re
+import openmediavault.settings
 
 def bool(x):
 	"""
@@ -47,10 +32,21 @@ def bool(x):
 		result = True
 	return result
 
-def getenv(key, default=None):
+def getenv(key, default=None, type=str):
 	"""
 	Get an environment variable, return None if it doesn't exist.
     The optional second argument can specify an alternate default.
     key, default and the result are string.
 	"""
-	return openmediavault.environment.Environment.get_str(key, default)
+	value = openmediavault.settings.Environment.get_str(key, default)
+	if type == str:
+		pass
+	elif type == int:
+		value = int(value)
+	elif type == float:
+		value = float(value)
+	elif type == bool:
+		value = openmediavault.bool(value)
+	else:
+		raise TypeError("Converting to '%s' is not supported." % type)
+	return value;

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 #
 # This file is part of OpenMediaVault.
 #
@@ -18,35 +18,28 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-import os
-import sys
-import openmediavault.confdbadm
+import unittest
+import openmediavault.settings
 
-class Command(openmediavault.confdbadm.ICommand):
-	@property
-	def description(self):
-		return "Read configuration database objects"
+class EnvironmentTestCase(unittest.TestCase):
+	def test_get_bool(self):
+		value = openmediavault.settings.Environment.get_str(
+			"OMV_DEBUG_SCRIPT")
+		self.assertTrue(isinstance(value, str))
 
-	def validate_args(self, *args):
-		if 3 != len(args):
-			return False
-		return True
+	def test_get_bool(self):
+		value = openmediavault.settings.Environment.get_bool(
+			"OMV_DEBUG_PHP")
+		self.assertTrue(isinstance(value, bool))
 
-	def usage(self, *args):
-		print("Usage: %s read <id> <uuid>\n\n" \
-			"Read the specified configuration database object." %
-			os.path.basename(args[0]))
+	def test_get_int(self):
+		value = openmediavault.settings.Environment.get_int(
+			"OMV_ENGINED_SO_SNDTIMEO")
+		self.assertTrue(isinstance(value, int))
 
-	def execute(self, *args):
-		rc = 1
-		print("Not implemented yet.")
-		return rc
+	def test_get_float(self):
+		value = openmediavault.settings.Environment.get_float(
+			"OMV_XXX_YYY_ZZZ")
+		self.assertTrue(isinstance(value, float))
 
-if __name__ == "__main__":
-	rc = 1
-	command = Command();
-	if not command.validate_args(*sys.argv):
-		command.usage(*sys.argv)
-	else:
-		rc = command.execute(*sys.argv)
-	sys.exit(rc)
+unittest.main()

@@ -20,9 +20,10 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import sys
 import dialog
-import openmediavault as omv
+import openmediavault.firstaid
+import openmediavault.rpc
 
-class Module(omv.firstaid.IModule):
+class Module(openmediavault.firstaid.IModule):
 	@property
 	def description(self):
 		return "Change control panel administrator password"
@@ -59,9 +60,10 @@ class Module(omv.firstaid.IModule):
 					backtitle=self.description,
 					height=5, width=30)
 		print("Updating control panel administrator password. Please wait ...")
-		omv.rpc.call("WebGui", "setPassword", { "password": password })
-		omv.rpc.call("Config", "applyChanges", { "modules": [],
-			"force": False })
+		openmediavault.rpc.call("WebGui", "setPassword",
+			{ "password": password })
+		openmediavault.rpc.call("Config", "applyChanges",
+			{ "modules": [], "force": False })
 		print("The control panel administrator password was successfully " \
 			"changed.")
 		return 0

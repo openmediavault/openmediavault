@@ -21,9 +21,10 @@
 import sys
 import dialog
 import netifaces
-import openmediavault as omv
+import openmediavault.firstaid
+import openmediavault.rpc
 
-class Module(omv.firstaid.IModule):
+class Module(openmediavault.firstaid.IModule):
 	@property
 	def description(self):
 		return "Configure web control panel"
@@ -64,7 +65,7 @@ class Module(omv.firstaid.IModule):
 				continue
 		# Before asking to enable HTTPS check if there are any SSL
 		# certificates available.
-		ssl_certs = omv.rpc.call("CertificateMgmt", "getList", {
+		ssl_certs = openmediavault.rpc.call("CertificateMgmt", "getList", {
 			"start": 0, "limit": -1, "sortfield": None, "sortdir": None })
 		if ssl_certs["total"] > 0:
 			code = d.yesno("Do you want to enable HTTPS?",
@@ -122,12 +123,12 @@ class Module(omv.firstaid.IModule):
 					forcesslonly = True
 		# Update the configuration.
 		print("Updating web control panel settings. Please wait ...")
-		omv.rpc.call("WebGui", "setSettings", {
+		openmediavault.rpc.call("WebGui", "setSettings", {
 			"port": port, "enablessl": enablessl, "sslport": sslport,
 			"forcesslonly": forcesslonly,
 			"sslcertificateref": sslcertificateref, "timeout": 5 })
 		# Apply the configuration changes.
-		omv.rpc.call("Config", "applyChanges", {
+		openmediavault.rpc.call("Config", "applyChanges", {
 			"modules": [], "force": False })
 		print("The web control panel settings were successfully changed.")
 		# Display the URL's available to reach the web control panel.

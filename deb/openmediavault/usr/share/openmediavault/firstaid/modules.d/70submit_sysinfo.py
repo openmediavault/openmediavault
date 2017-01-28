@@ -25,9 +25,11 @@ import tempfile
 import shutil
 import socket
 import time
-import openmediavault as omv
+import openmediavault.firstaid
+import openmediavault.subprocess
+import openmediavault.systemd
 
-class Module(omv.firstaid.IModule):
+class Module(openmediavault.firstaid.IModule):
 	@property
 	def description(self):
 		return "Submit diagnostic report to administrator"
@@ -35,7 +37,7 @@ class Module(omv.firstaid.IModule):
 	def execute(self):
 		# Check if postfix is running.
 		try:
-			manager = omv.systemd.Manager()
+			manager = openmediavault.systemd.Manager()
 			unit = manager.get_unit("postfix.service")
 			active = unit["ActiveState"] == "active"
 		except:
@@ -79,14 +81,16 @@ class Module(omv.firstaid.IModule):
 				mntdir = tempfile.mkdtemp()
 				outfile = "{}/sysinfo-{}-{}.txt".format(mntdir,
 					socket.gethostname(), time.strftime("%Y%m%d%H%M"))
-				omv.subprocess.check_call([ "mount", device.get("DEVNAME"),
-					mntdir ])
+				openmediavault.subprocess.check_call([ "mount",
+					device.get("DEVNAME"), mntdir ])
 				with open(outfile, "w") as out:
-					omv.subprocess.check_call([ "omv-sysinfo" ], stdout=out)
+					openmediavault.subprocess.check_call([ "omv-sysinfo" ],
+						stdout=out)
 			except:
 				raise
 			finally:
-				omv.subprocess.check_call([ "umount", device.get("DEVNAME") ])
+				openmediavault.subprocess.check_call([ "umount",
+					device.get("DEVNAME") ])
 				shutil.rmtree(mntdir)
 			d.infobox("You can disconnect the USB device now.",
 				backtitle=self.description,
@@ -95,8 +99,8 @@ class Module(omv.firstaid.IModule):
 			print("Submitting system diagnostic report to the " \
 				"administrator account. Please check your email " \
 				"mailbox ...")
-			omv.subprocess.check_call([ "omv-sysinfo", "|", "mail", "-s",
-				"System diagnostic report", "root" ])
+			openmediavault.subprocess.check_call([ "omv-sysinfo", "|",
+				"mail", "-s", "System diagnostic report", "root" ])
 		return 0
 
 if __name__ == "__main__":

@@ -24,9 +24,12 @@ import pyudev
 import ipaddress
 import re
 import natsort
-import openmediavault as omv
+import openmediavault
+import openmediavault.firstaid
+import openmediavault.rpc
+import openmediavault.string
 
-class Module(omv.firstaid.IModule):
+class Module(openmediavault.firstaid.IModule):
 	@property
 	def description(self):
 		return "Configure network interface"
@@ -65,7 +68,7 @@ class Module(omv.firstaid.IModule):
 			for id in [ "ID_MODEL_FROM_DATABASE", "ID_VENDOR_FROM_DATABASE" ]:
 				if not id in device:
 					continue
-				choices.append([ sys_name, omv.string.truncate(
+				choices.append([ sys_name, openmediavault.string.truncate(
 					device[id], 50) ])
 				break
 		d = dialog.Dialog(dialog="dialog")
@@ -265,7 +268,7 @@ class Module(omv.firstaid.IModule):
 			wol = True
 		# Set the default RPC parameters.
 		rpc_params.update({
-			"uuid": omv.getenv("OMV_CONFIGOBJECT_NEW_UUID"),
+			"uuid": openmediavault.getenv("OMV_CONFIGOBJECT_NEW_UUID"),
 			"devicename": device_name,
 			"method": method,
 			"address": address,
@@ -314,13 +317,14 @@ class Module(omv.firstaid.IModule):
 		# Update the interface configuration.
 		print("Configuring network interface. Please wait ...")
 		# Delete all existing network interface configuration objects.
-		interfaces = omv.rpc.call("Network", "enumerateConfiguredDevices")
+		interfaces = openmediavault.rpc.call("Network",
+			"enumerateConfiguredDevices")
 		for interface in interfaces:
-			omv.rpc.call("Network", "deleteInterface", {
+			openmediavault.rpc.call("Network", "deleteInterface", {
 				"uuid": interface["uuid"] })
 		# Insert a new network interface configuration object.
-		omv.rpc.call("Network", rpc_method, rpc_params)
-		omv.rpc.call("Config", "applyChanges", { "modules": [],
+		openmediavault.rpc.call("Network", rpc_method, rpc_params)
+		openmediavault.rpc.call("Config", "applyChanges", { "modules": [],
 			"force": False })
 		print("The network interface configuration was successfully changed.")
 		return 0

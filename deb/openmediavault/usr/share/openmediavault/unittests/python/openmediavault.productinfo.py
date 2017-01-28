@@ -19,23 +19,11 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import unittest
-import openmediavault.environment
+import openmediavault.productinfo
 
-class EnvironmentTestCase(unittest.TestCase):
-	def test_get_bool(self):
-		value = openmediavault.environment.get_str("OMV_DEBUG_SCRIPT")
-		self.assertTrue(isinstance(value, str))
-
-	def test_get_bool(self):
-		value = openmediavault.environment.get_bool("OMV_DEBUG_PHP")
-		self.assertTrue(isinstance(value, bool))
-
-	def test_get_int(self):
-		value = openmediavault.environment.get_int("OMV_ENGINED_SO_SNDTIMEO")
-		self.assertTrue(isinstance(value, int))
-
-	def test_get_float(self):
-		value = openmediavault.environment.get_float("OMV_XXX_YYY_ZZZ")
-		self.assertTrue(isinstance(value, float))
+class ProductInfoTestCase(unittest.TestCase):
+	def test_name(self):
+		pi = openmediavault.productinfo.ProductInfo()
+		pi.name
 
 unittest.main()

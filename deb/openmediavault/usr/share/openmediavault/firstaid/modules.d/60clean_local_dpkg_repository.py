@@ -19,9 +19,11 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import sys
-import openmediavault as omv
+import openmediavault
+import openmediavault.firstaid
+import openmediavault.subprocess
 
-class Module(omv.firstaid.IModule):
+class Module(openmediavault.firstaid.IModule):
 	@property
 	def description(self):
 		return "Clear local upload package repository"
@@ -29,11 +31,13 @@ class Module(omv.firstaid.IModule):
 	def execute(self):
 		print("Clear out the local repository of uploaded package " \
 			"files. Please wait ...")
-		path = omv.getenv("OMV_DPKGARCHIVE_DIR")
-		omv.subprocess.check_call([ "rm", "-fv", "{}/*.deb".format(path) ])
-		omv.subprocess.check_call("cd {} && apt-ftparchive packages . " \
-			"> Packages".format(path), shell=True)
-		omv.subprocess.check_call([ "apt-get", "update" ])
+		path = openmediavault.getenv("OMV_DPKGARCHIVE_DIR")
+		openmediavault.subprocess.check_call(
+			[ "rm", "-fv", "%s/*.deb" % path ])
+		openmediavault.subprocess.check_call(
+			"cd %s && apt-ftparchive packages > Packages" % path,
+			shell=True)
+		openmediavault.subprocess.check_call([ "apt-get", "update" ])
 		return 0
 
 if __name__ == "__main__":

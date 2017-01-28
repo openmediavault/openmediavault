@@ -21,16 +21,17 @@
 import sys
 import os
 import json
-import openmediavault as omv
+import openmediavault
+import openmediavault.firstaid
 
-class Module(omv.firstaid.IModule):
+class Module(openmediavault.firstaid.IModule):
 	@property
 	def description(self):
 		return "Check configuration status file"
 
 	def execute(self):
 		print("Checking configuration status file. Please wait ...")
-		path = omv.getenv("OMV_ENGINED_DIRTY_MODULES_FILE",
+		path = openmediavault.getenv("OMV_ENGINED_DIRTY_MODULES_FILE",
 			"/var/lib/openmediavault/dirtymodules.json")
 		if not os.path.exists(path):
 			print("No configuration changes file found.")

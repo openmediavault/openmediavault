@@ -22,11 +22,14 @@ import os
 import sys
 import dialog
 import natsort
-import openmediavault as omv
+import openmediavault
+import openmediavault.firstaid
+import openmediavault.productinfo
+import openmediavault.log
 
 def load_modules():
 	modules = []
-	path = omv.getenv("OMV_FIRSTAID_MODULES_DIR",
+	path = openmediavault.getenv("OMV_FIRSTAID_MODULES_DIR",
 		"/usr/share/openmediavault/firstaid/modules.d");
 	sys.path.insert(0, path)
 	for name in natsort.humansorted(os.listdir(path)):
@@ -35,7 +38,7 @@ def load_modules():
 			continue
 		mod = __import__(modname)
 		modinst = mod.Module()
-		if not isinstance(modinst, omv.firstaid.IModule):
+		if not isinstance(modinst, openmediavault.firstaid.IModule):
 			continue
 		modules.append(modinst)
 	sys.path.pop(0)
@@ -43,7 +46,7 @@ def load_modules():
 
 def main():
 	rc = 1
-	pi = omv.ProductInfo();
+	pi = openmediavault.productinfo.ProductInfo();
 	# Load the modules.
 	modules = load_modules()
 	# Fill the menu choices.
@@ -67,7 +70,7 @@ def main():
 				rc = module.execute()
 			except Exception as e:
 				rc = 1
-				omv.log.error(str(e))
+				openmediavault.log.error(str(e))
 			break
 	return rc
 

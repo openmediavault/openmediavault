@@ -20,7 +20,8 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
 import sys
-import openmediavault as omv
+import openmediavault
+import openmediavault.confdbadm
 
 def usage(commands):
 	print("Usage: %s <command>\n\nCommon commands:" %
@@ -31,7 +32,7 @@ def usage(commands):
 
 def load_commands():
 	commands = {}
-	path = omv.getenv("OMV_CONFDBADM_COMMANDS_DIR",
+	path = openmediavault.getenv("OMV_CONFDBADM_COMMANDS_DIR",
 		"/usr/share/openmediavault/confdbadm/commands.d");
 	sys.path.insert(0, path)
 	for name in os.listdir(path):
@@ -40,7 +41,7 @@ def load_commands():
 			continue
 		cmd = __import__(cmd_name)
 		cmd_inst = cmd.Command()
-		if not isinstance(cmd_inst, omv.confdbadm.ICommand):
+		if not isinstance(cmd_inst, openmediavault.confdbadm.ICommand):
 			continue
 		commands[cmd_name] = cmd_inst
 	sys.path.pop(0)

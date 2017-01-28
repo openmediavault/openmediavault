@@ -22,9 +22,13 @@ import os
 import re
 import sys
 from distutils.version import LooseVersion
-import openmediavault as omv
+import openmediavault
+import openmediavault.confdbadm
+import openmediavault.log
+import openmediavault.subprocess
 
-class Command(omv.confdbadm.ICommand, omv.confdbadm.CommandHelper):
+class Command(openmediavault.confdbadm.ICommand,
+	openmediavault.confdbadm.CommandHelper):
 	@property
 	def description(self):
 		return "Apply configuration database migrations"
@@ -44,7 +48,7 @@ class Command(omv.confdbadm.ICommand, omv.confdbadm.CommandHelper):
 		datamodel_id = args[1]
 		version = args[2]
 		migrations = {}
-		migrations_dir = omv.getenv("OMV_CONFDB_MIGRATIONS_DIR",
+		migrations_dir = openmediavault.getenv("OMV_CONFDB_MIGRATIONS_DIR",
 			"/usr/share/openmediavault/confdb/migrations.d");
 		# Collect the migrations to be executed.
 		for name in os.listdir(migrations_dir):
@@ -71,11 +75,11 @@ class Command(omv.confdbadm.ICommand, omv.confdbadm.CommandHelper):
 						"executable" % path)
 				# Execute the script.
 				print("  Running migration %s" % name)
-				omv.subprocess.check_call([ path ])
+				openmediavault.subprocess.check_call([ path ])
 			rc = 0
 		except Exception as e:
 			# Display the exception message.
-			omv.log.error("Failed to apply migrations: %s" % str(e))
+			openmediavault.log.error("Failed to apply migrations: %s" % str(e))
 			# Rollback all changes.
 			self.rollbackChanges()
 		finally:

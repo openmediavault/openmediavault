@@ -21,16 +21,17 @@
 import dialog
 import re
 import sys
-import openmediavault as omv
+import openmediavault.firstaid
+import openmediavault.subprocess
 
-class Module(omv.firstaid.IModule):
+class Module(openmediavault.firstaid.IModule):
 	@property
 	def description(self):
 		return "Reset failed login attempt counter"
 
 	def execute(self):
 		choices = []
-		output = omv.subprocess.check_output([ "pam_tally2" ])
+		output = openmediavault.subprocess.check_output([ "pam_tally2" ])
 		for line in output.splitlines():
 			m = re.match(r"^(\S+)\s+((\d+)\s+(.+))$", line.decode().strip())
 			if not m:
@@ -49,8 +50,8 @@ class Module(omv.firstaid.IModule):
 		username = tag
 		print("Reset failed login attempt counter for user '{}'.".format(
 			username))
-		omv.subprocess.check_call([ "pam_tally2", "--quiet", "--reset=0",
-			"--user", username ])
+		openmediavault.subprocess.check_call([ "pam_tally2", "--quiet",
+			"--reset=0", "--user", username ])
 		return 0
 
 if __name__ == "__main__":
