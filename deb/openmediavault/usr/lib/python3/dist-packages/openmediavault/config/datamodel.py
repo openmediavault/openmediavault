@@ -22,8 +22,8 @@ __all__ = [ "Datamodel" ]
 
 import os
 import openmediavault
-import openmediavault.datamodel
-import openmediavault.json
+import openmediavault.datamodel.datamodel
+import openmediavault.json.schema
 
 class Datamodel(openmediavault.datamodel.Datamodel):
 	def __init__(self, id):

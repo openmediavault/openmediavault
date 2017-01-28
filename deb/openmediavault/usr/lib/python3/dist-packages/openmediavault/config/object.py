@@ -23,7 +23,7 @@ __all__ = [ "Object" ]
 import openmediavault.config.datamodel
 import openmediavault.collections
 import openmediavault.exceptions
-import openmediavault.json
+import openmediavault.json.schema
 
 class Object(object):
 	def __init__(self, id):

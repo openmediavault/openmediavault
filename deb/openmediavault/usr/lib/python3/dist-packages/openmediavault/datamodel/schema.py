@@ -22,7 +22,7 @@ __all__ = [ "Schema" ]
 
 import re
 import openmediavault.string
-import openmediavault.json
+import openmediavault.json.schema
 
 class Schema(openmediavault.json.Schema):
 	def _check_format(self, value, schema, name):
