@@ -151,4 +151,4 @@ class Object(object):
 						If the property does not exist an exception is thrown.
 		"""
 		value = self.get(name);
-		return bool(value and value.strip())
+		return not bool(value and value.strip())

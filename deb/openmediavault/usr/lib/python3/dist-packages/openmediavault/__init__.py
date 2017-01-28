@@ -53,4 +53,4 @@ def getenv(key, default=None):
     The optional second argument can specify an alternate default.
     key, default and the result are string.
 	"""
-	return Environment.get_str(key, default)
+	return openmediavault.environment.Environment.get_str(key, default)

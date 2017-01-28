@@ -51,7 +51,7 @@ class Environment(object):
 		if key in globals_dict:
 			return globals_dict[key]
 		if default is None:
-			raise openmediavault.IllegalArgumentError(
+			raise KeyError(
 			  "The environment variable '{}' does not exist in '{}'".format(
 			  key, DEFAULT_FILE))
 		return default
@@ -72,24 +72,3 @@ class Environment(object):
 		value = __class__.get(key, default)
 		return float(value)
 
-if __name__ == "__main__":
-	import unittest
-
-	class EnvironmentTestCase(unittest.TestCase):
-		def test_get_bool(self):
-			value = Environment.get_str("OMV_DEBUG_SCRIPT")
-			self.assertTrue(isinstance(value, str))
-
-		def test_get_bool(self):
-			value = Environment.get_bool("OMV_DEBUG_PHP")
-			self.assertTrue(isinstance(value, bool))
-
-		def test_get_int(self):
-			value = Environment.get_int("OMV_ENGINED_SO_SNDTIMEO")
-			self.assertTrue(isinstance(value, int))
-
-		def test_get_float(self):
-			value = Environment.get_float("OMV_XXX_YYY_ZZZ")
-			self.assertTrue(isinstance(value, float))
-
-	unittest.main()
