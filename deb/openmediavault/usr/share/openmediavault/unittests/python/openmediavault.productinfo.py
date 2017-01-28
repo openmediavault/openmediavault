@@ -26,4 +26,5 @@ class ProductInfoTestCase(unittest.TestCase):
 		pi = openmediavault.productinfo.ProductInfo()
 		pi.name
 
-unittest.main()
+if __name__ == "__main__":
+	unittest.main()

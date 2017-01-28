@@ -30,24 +30,26 @@ class FunctionsTestCase(unittest.TestCase):
 		value = openmediavault.bool("no")
 		self.assertEqual(value, False)
 
-	def test_getent_bool(self):
-		value = openmediavault.getent("OMV_DEBUG_SCRIPT", type=bool)
+	def test_getenv_bool(self):
+		value = openmediavault.getenv("OMV_DEBUG_SCRIPT", type=bool)
 		self.assertEqual(isinstance(value, bool), True)
 
-	def test_getent_str(self):
-		value = openmediavault.getent("OMV_MOUNT_DIR")
+	def test_getenv_str(self):
+		value = openmediavault.getenv("OMV_MOUNT_DIR")
 		self.assertEqual(isinstance(value, str), True)
 
-	def test_getent_int(self):
-		value = openmediavault.getent("OMV_ENGINED_SO_SNDTIMEO")
+	def test_getenv_int(self):
+		value = openmediavault.getenv("OMV_ENGINED_SO_SNDTIMEO")
 		self.assertEqual(isinstance(value, int), True)
 
-	def test_getent_float(self):
-		value = openmediavault.getent("OMV_ABC", type=float)
+	def test_getenv_float(self):
+		value = openmediavault.getenv("OMV_ABC", type=float)
 		self.assertEqual(isinstance(value, float), True)
 
-	def test_getent_fail(self):
-		self.assertRaises(TypeError, lambda: openmediavault.getent(
+	def test_getenv_fail(self):
+		self.assertRaises(TypeError, lambda: openmediavault.getenv(
 			"OMV_ABC", 1.5, type=list))
 
-unittest.main()
+
+if __name__ == "__main__":
+	unittest.main()

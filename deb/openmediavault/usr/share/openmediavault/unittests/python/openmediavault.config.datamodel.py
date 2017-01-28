@@ -73,4 +73,5 @@ class DatamodelTestCase(unittest.TestCase):
 		value = datamodel.property_convert("integer", "20")
 		self.assertEqual(value, 20)
 
-unittest.main()
+if __name__ == "__main__":
+	unittest.main()

@@ -66,4 +66,5 @@ class DatamodelTestCase(unittest.TestCase):
 		datamodel = self._get_model()
 		datamodel.description
 
-unittest.main()
+if __name__ == "__main__":
+	unittest.main()

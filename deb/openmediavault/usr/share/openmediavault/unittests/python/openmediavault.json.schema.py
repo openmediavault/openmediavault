@@ -98,4 +98,5 @@ class SchemaTestCase(unittest.TestCase):
 				}]
 			}, "field3")
 
-unittest.main()
+if __name__ == "__main__":
+	unittest.main()

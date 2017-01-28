@@ -54,4 +54,5 @@ class DotDictTestCase(unittest.TestCase):
 		d['a'] = False
 		self.assertEqual(d['a'], False)
 
-unittest.main()
+if __name__ == "__main__":
+	unittest.main()

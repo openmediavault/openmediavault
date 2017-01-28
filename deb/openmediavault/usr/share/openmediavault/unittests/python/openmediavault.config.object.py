@@ -50,4 +50,5 @@ class ConfigObjectTestCase(unittest.TestCase):
 		conf_obj.set("comment", "test")
 		self.assertEqual(conf_obj.is_empty("comment"), False)
 
-unittest.main()
+if __name__ == "__main__":
+	unittest.main()

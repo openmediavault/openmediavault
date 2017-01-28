@@ -42,4 +42,5 @@ class EnvironmentTestCase(unittest.TestCase):
 			"OMV_XXX_YYY_ZZZ")
 		self.assertTrue(isinstance(value, float))
 
-unittest.main()
+if __name__ == "__main__":
+	unittest.main()

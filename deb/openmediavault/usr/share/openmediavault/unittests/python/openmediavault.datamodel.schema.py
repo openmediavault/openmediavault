@@ -88,4 +88,5 @@ class SchemaTestCase(unittest.TestCase):
 			lambda: schema._check_format("/media/a/../../b/c",
 			{ "format": "dirpath" }, "field1"))
 
-unittest.main()
+if __name__ == "__main__":
+	unittest.main()

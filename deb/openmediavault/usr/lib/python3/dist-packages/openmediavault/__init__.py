@@ -18,6 +18,8 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+__all__ = [ "bool", "getenv" ]
+
 import re
 import openmediavault.settings
 
@@ -35,8 +37,12 @@ def bool(x):
 def getenv(key, default=None, type=str):
 	"""
 	Get an environment variable, return None if it doesn't exist.
-    The optional second argument can specify an alternate default.
-    key, default and the result are string.
+	:param key:		The name of the variable.
+	:param default: The optional second argument can specify an alternate
+					default. Defaults to None.
+	:param type:	The type in which the result value is converted.
+					Defaults to 'str'.
+    :returns:		The value of the requested environment variable.
 	"""
 	value = openmediavault.settings.Environment.get_str(key, default)
 	if type == str:
