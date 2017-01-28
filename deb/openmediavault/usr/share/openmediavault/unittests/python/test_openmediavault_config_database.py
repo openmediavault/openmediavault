@@ -20,10 +20,32 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import unittest
 import openmediavault.config.database
+import openmediavault.config.object
 
 class DatabaseTestCase(unittest.TestCase):
 	def test_constructor(self):
-		database = openmediavault.config.Database()
+		db = openmediavault.config.Database()
+
+	def test_get(self):
+		db = openmediavault.config.Database()
+		db.get("conf.system.time")
+
+	def test_get_iterable(self):
+		db = openmediavault.config.Database()
+		obj = db.get("conf.system.notification.notification",
+			"c1cd54af-660d-4311-8e21-2a19420355bb")
+		self.assertTrue(isinstance(obj, openmediavault.config.Object))
+		self.assertEqual(obj.get("id"), "monitloadavg")
+
+	def test_exists(self):
+		db = openmediavault.config.Database()
+		exists = db.exists("conf.system.notification.notification",
+			openmediavault.config.DatabaseFilter({
+				'operator': 'stringEquals',
+				'arg0': 'id',
+				'arg1': 'smartmontools'
+			}))
+		self.assertTrue(exists)
 
 if __name__ == "__main__":
 	unittest.main()
