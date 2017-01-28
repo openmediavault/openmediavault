@@ -71,7 +71,7 @@ class DatabaseTestCase(unittest.TestCase):
 		self.assertEqual(str(query), "//system/notification/notifications/" \
 			"notification[contains(id,'monit')]")
 
-	def test_filter_query_1(self):
+	def test_filter_query_2(self):
 		query = openmediavault.config.DatabaseFilterQuery(
 			"conf.system.network.proxy",
 			openmediavault.config.DatabaseFilter({
@@ -89,6 +89,9 @@ class DatabaseTestCase(unittest.TestCase):
 			}))
 		self.assertEqual(str(query), "//system/network/proxy[(port=8080 or " \
 			"port=4443)]")
+
+	def test_is_referenced_query(self):
+		pass
 
 if __name__ == "__main__":
 	unittest.main()

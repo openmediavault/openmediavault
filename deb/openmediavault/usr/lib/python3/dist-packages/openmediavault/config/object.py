@@ -20,6 +20,8 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 __all__ = [ "Object" ]
 
+import openmediavault
+import openmediavault.string
 import openmediavault.config.datamodel
 import openmediavault.collections
 import openmediavault.exceptions
@@ -52,6 +54,29 @@ class Object(object):
 					openmediavault.collections.DotDict dictionary.
 		"""
 		return self._properties
+
+	@property
+	def id(self):
+		"""
+		Get the object identifier.
+		:returns: Returns the object identifier, e.g. an UUID.
+		"""
+		if not (self.model.is_iterable and self.model.is_identifiable):
+			raise Exception("The configuration object '%s' is not iterable " \
+				"and identifiable." % self.model.id)
+		return self.get(self.model.idproperty)
+
+	@property
+	def is_new(self):
+		"""
+		Check if the configuration object is new. Use this method only if
+		the configuration object has an 'uuid' property.
+		:returns:	Returns True if the configuration object is identified as
+					new, otherwise False.
+		"""
+		if not openmediavault.string.is_uuid4(self.id):
+			return False
+		return self.id == openmediavault.getenv("OMV_CONFIGOBJECT_NEW_UUID")
 
 	def get_defaults(self):
 		"""

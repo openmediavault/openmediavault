@@ -23,7 +23,11 @@ __all__ = [
 	"DatabaseException",
 	"DatabaseFilter",
 	"DatabaseGetQuery",
-	"DatabaseFilterQuery"
+	"DatabaseGetByFilterQuery",
+	"DatabaseFilterQuery",
+	"DatabaseSetQuery",
+	"DatabaseDeleteQuery",
+	"DatabaseIsReferencedQuery"
 ]
 
 import openmediavault.collections
@@ -260,21 +264,6 @@ class DatabaseQuery(object):
 		"""
 		return self._model
 
-	def __str__(self):
-		raise NotImplementedError()
-
-class DatabaseFilterQuery(DatabaseQuery):
-	def __init__(self, id, filter):
-		assert(isinstance(filter, DatabaseFilter))
-		if not filter:
-			raise ValueError("Filter must not be empty.")
-		super().__init__(id)
-		self._filter = filter
-
-	@property
-	def filter(self):
-		return self._filter
-
 	def _build_predicate(self, filter):
 		"""
 		Build the predicate for the specified filter.
@@ -414,8 +403,24 @@ class DatabaseFilterQuery(DatabaseQuery):
 		return result
 
 	def __str__(self):
-		return "%s[%s]" % (self.model.queryinfo['xpath'],
-			self._build_predicate(self.filter))
+		raise NotImplementedError()
+
+class DatabaseFilterQuery(DatabaseQuery):
+	def __init__(self, id, filter):
+		assert(isinstance(filter, DatabaseFilter))
+		self._filter = filter
+		super().__init__(id)
+
+	@property
+	def filter(self):
+		return self._filter
+
+	def __str__(self):
+		result = self.model.queryinfo['xpath']
+		if self.filter:
+			result =  "%s[%s]" % (self.model.queryinfo['xpath'],
+				self._build_predicate(self.filter))
+		return result
 
 
 class DatabaseGetQuery(DatabaseQuery):
@@ -433,7 +438,89 @@ class DatabaseGetQuery(DatabaseQuery):
 			result = str(DatabaseFilterQuery(self.model.id,
 				DatabaseFilter({
 					'operator': 'stringEquals',
-					'arg0': self.model.queryinfo['idproperty'],
+					'arg0': self.model.idproperty,
 					'arg1': self.identifier
+				})))
+		return result
+
+class DatabaseGetByFilterQuery(DatabaseQuery):
+	def __init__(self, filter):
+		assert(isinstance(filter, DatabaseFilter))
+		self._filter = filter
+		super().__init__(id)
+
+	@property
+	def filter(self):
+		return self._filter
+
+	def __str__(self):
+		result = self.model.queryinfo['xpath']
+		if self.filter:
+			result = str(DatabaseFilterQuery(self.model.id, self.filter))
+		return result
+
+class DatabaseIsReferencedQuery(DatabaseQuery):
+	def __init__(self, id, obj):
+		assert(isinstance(obj, openmediavault.config.Object))
+		self._obj = obj
+		super().__init__(id)
+
+	def object(self):
+		return self._obj
+
+	def __str__(self):
+		return "//%s[%s]" % (self.model.refproperty,
+			self._build_predicate(DatabaseFilter({
+				'operator': 'stringContains',
+				'arg0': '.',
+				'arg1': self.object.get(self.model.idproperty)
+			})))
+
+class DatabaseSetQuery(DatabaseQuery):
+	def __init__(self, id, obj):
+		assert(isinstance(obj, openmediavault.config.Object))
+		self._obj = obj
+		super().__init__(id)
+
+	def object(self):
+		return self._obj
+
+	def __str__(self):
+		result = self.model.queryinfo['xpath']
+		if self.model.is_iterable:
+			if self.object.is_new:
+				# Update the element with the specified identifier.
+				result = str(DatabaseFilterQuery(self.model.id,
+					DatabaseFilter({
+						'operator': 'stringEquals',
+						'arg0': self.model.idproperty,
+						'arg1': self.object.get(self.model.idproperty)
+					})))
+			else:
+				# Insert a new element.
+				#$parts = explode("/", $xpath);
+				#$elementName = array_pop($parts);
+				#$xpath = substr($xpath, 0, strrpos($xpath, $elementName) - 1);
+				raise NotImplementedError()
+
+		return result
+
+class DatabaseDeleteQuery(DatabaseQuery):
+	def __init__(self, id, obj):
+		assert(isinstance(obj, openmediavault.config.Object))
+		self._obj = obj
+		super().__init__(id)
+
+	def object(self):
+		return self._obj
+
+	def __str__(self):
+		result = self.model.queryinfo['xpath']
+		if self.model.is_iterable:
+			result = str(DatabaseFilterQuery(self.model.id,
+				DatabaseFilter({
+					'operator': 'stringEquals',
+					'arg0': self.model.idproperty,
+					'arg1': self.object.get(self.model.idproperty)
 				})))
 		return result
