@@ -160,7 +160,7 @@ class DatabaseBackendQueryBuilder {
 			throw new \InvalidArgumentException(
 			  "The filter must not be empty.");
 		}
-		if (FALSE === array_key_exists("operator")) {
+		if (FALSE === array_key_exists("operator", $filter)) {
 			throw new \InvalidArgumentException(
 			  "The filter is invalid. The 'operator' field is missing.");
 		}
