@@ -31,7 +31,7 @@ class FunctionsTestCase(unittest.TestCase):
 		self.assertEqual(value, False)
 
 	def test_getenv_bool(self):
-		value = openmediavault.getenv("OMV_DEBUG_SCRIPT", type=bool)
+		value = openmediavault.getenv("OMV_DEBUG_SCRIPT", type="bool")
 		self.assertEqual(isinstance(value, bool), True)
 
 	def test_getenv_str(self):
@@ -39,16 +39,16 @@ class FunctionsTestCase(unittest.TestCase):
 		self.assertEqual(isinstance(value, str), True)
 
 	def test_getenv_int(self):
-		value = openmediavault.getenv("OMV_ENGINED_SO_SNDTIMEO")
+		value = openmediavault.getenv("OMV_ENGINED_SO_SNDTIMEO", type="int")
 		self.assertEqual(isinstance(value, int), True)
 
 	def test_getenv_float(self):
-		value = openmediavault.getenv("OMV_ABC", type=float)
+		value = openmediavault.getenv("OMV_ABC", 1.5, type="float")
 		self.assertEqual(isinstance(value, float), True)
 
 	def test_getenv_fail(self):
 		self.assertRaises(TypeError, lambda: openmediavault.getenv(
-			"OMV_ABC", 1.5, type=list))
+			"OMV_ABC", 1.5, type="list"))
 
 
 if __name__ == "__main__":

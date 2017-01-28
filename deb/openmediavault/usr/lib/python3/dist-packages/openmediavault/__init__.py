@@ -34,7 +34,7 @@ def bool(x):
 		result = True
 	return result
 
-def getenv(key, default=None, type=str):
+def getenv(key, default=None, type="str"):
 	"""
 	Get an environment variable, return None if it doesn't exist.
 	:param key:		The name of the variable.
@@ -45,13 +45,13 @@ def getenv(key, default=None, type=str):
     :returns:		The value of the requested environment variable.
 	"""
 	value = openmediavault.settings.Environment.get_str(key, default)
-	if type == str:
+	if "str" == type:
 		pass
-	elif type == int:
+	elif "int" == type:
 		value = int(value)
-	elif type == float:
+	elif "float" == type:
 		value = float(value)
-	elif type == bool:
+	elif "bool" == type:
 		value = openmediavault.bool(value)
 	else:
 		raise TypeError("Converting to '%s' is not supported." % type)
