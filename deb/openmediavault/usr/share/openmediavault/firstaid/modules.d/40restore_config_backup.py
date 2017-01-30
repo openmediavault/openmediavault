@@ -36,7 +36,7 @@ class Module(openmediavault.firstaid.IModule):
 		d = dialog.Dialog(dialog="dialog")
 		# Determine the first revision file which should look like
 		# '<filename>.<revision>'.
-		pathname = "{}.*".format(openmediavault.getenv("OMV_CONFIG_FILE"))
+		pathname = "%s.*" % openmediavault.getenv("OMV_CONFIG_FILE")
 		configbaks = natsort.humansorted(glob.glob(pathname))
 		# Does a auto-generated configuration backup exist?
 		if not configbaks:
