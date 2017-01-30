@@ -76,7 +76,15 @@ class Database(object):
 		#	result = new ConfigObject($id);
 		#	result->setAssoc($data, FALSE);
 		#}
-		return result;
+		#
+		#
+		# import jsonpath_rw
+		#jsonpath_expr = jsonpath_rw.parse(path)
+		#matches = [ match.value for match in jsonpath_expr.find(self.schema) ]
+		#if not matches:
+		#	raise SchemaPathException(path)
+		#return matches[0]
+		#return result;
 
 	def get_by_filter(self, filter, max_result=None):
 		"""

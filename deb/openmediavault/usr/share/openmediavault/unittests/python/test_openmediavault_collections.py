@@ -24,7 +24,13 @@ import openmediavault.collections
 class DotDictTestCase(unittest.TestCase):
 	def _get_dict(self):
 		return openmediavault.collections.DotDict({
-			'x': 3, 'a': { 'b': { 'c': 100 }}})
+				'x': 3,
+				'a': {
+					'b': {
+						'c': 100
+					}
+				}
+			})
 
 	def test_1(self):
 		d = self._get_dict()
@@ -53,6 +59,14 @@ class DotDictTestCase(unittest.TestCase):
 		d = openmediavault.collections.DotDict()
 		d['a'] = False
 		self.assertEqual(d['a'], False)
+
+	def test_in(self):
+		d = self._get_dict()
+		self.assertTrue("a.b.c" in d)
+
+	def test_in_fail(self):
+		d = self._get_dict()
+		self.assertFalse("a.x" in d)
 
 if __name__ == "__main__":
 	unittest.main()

@@ -27,10 +27,10 @@ __all__ = [
 
 import decimal
 import json
-import jsonpath_rw
 import re
 import urllib.parse
 import socket
+import openmediavault.collections
 import openmediavault.string
 
 class SchemaException(Exception):
@@ -51,13 +51,14 @@ class Schema(object):
 		"""
 		:param schema: A JSON object (Python dictionary) describing the schema.
 		"""
-		self._schema = schema
+		self._schema = openmediavault.collections.DotDict(schema)
 
 	@property
 	def schema(self):
 		"""
 		Get the JSON schema as Python dictionary.
-		:returns: Returns the JSON schema as dictionary.
+		:returns:	Returns the JSON schema as openmediavault.collections.DotDict
+					dictionary.
 		"""
 		return self.get()
 
@@ -78,14 +79,13 @@ class Schema(object):
 		:param path:	The path of the requested attribute, e.g. "a.b.c".
 		:returns:		The JSON schema as Python dictionary describing the
 						requested attribute.
+		:raises openmediavault.json.SchemaPathException:
 		"""
 		if not path:
 			return self.schema
-		jsonpath_expr = jsonpath_rw.parse(path)
-		matches = [ match.value for match in jsonpath_expr.find(self.schema) ]
-		if not matches:
+		if not path in self.schema:
 			raise SchemaPathException(path)
-		return matches[0]
+		return self.schema[path]
 
 	def validate(self, value, name=""):
 		"""
