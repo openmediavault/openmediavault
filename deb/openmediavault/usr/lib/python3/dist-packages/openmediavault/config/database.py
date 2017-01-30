@@ -22,14 +22,15 @@ __all__ = [
 	"Database",
 	"DatabaseException",
 	"DatabaseFilter",
-	"DatabaseGetQuery",
-	"DatabaseGetByFilterQuery",
-	"DatabaseFilterQuery",
-	"DatabaseSetQuery",
-	"DatabaseDeleteQuery",
-	"DatabaseIsReferencedQuery"
+	"DatabaseGetRequest",
+	"DatabaseGetByFilterRequest",
+	"DatabaseFilterRequest",
+	"DatabaseSetRequest",
+	"DatabaseDeleteRequest",
+	"DatabaseIsReferencedRequest"
 ]
 
+import abc
 import openmediavault.collections
 import openmediavault.config.datamodel
 import openmediavault.config.object
@@ -50,9 +51,9 @@ class Database(object):
 						*uuid* is set, a list of configuration objects or
 						a single object is returned.
 		"""
-		result = None
-		# Get the specified data model.
-		model = openmediavault.config.Datamodel(id)
+		request = openmediavault.config.DatabaseGetRequest(id, uuid)
+		request.execute()
+		return request.response
 		#// Create the query builder.
 		#$queryBuilder = new DatabaseBackendQueryBuilder($id);
 		#$xpath = $queryBuilder->buildGetQuery($uuid);
@@ -76,14 +77,6 @@ class Database(object):
 		#	result = new ConfigObject($id);
 		#	result->setAssoc($data, FALSE);
 		#}
-		#
-		#
-		# import jsonpath_rw
-		#jsonpath_expr = jsonpath_rw.parse(path)
-		#matches = [ match.value for match in jsonpath_expr.find(self.schema) ]
-		#if not matches:
-		#	raise SchemaPathException(path)
-		#return matches[0]
 		#return result;
 
 	def get_by_filter(self, filter, max_result=None):
@@ -257,12 +250,13 @@ class Database(object):
 		#$objects = $this->getByFilter($object->getModelId(), filter);
 		#return (0 == count($objects));
 
-class DatabaseQuery(object):
+class DatabaseRequest(object):
 	def __init__(self, id):
 		"""
 		:param id: The data model identifier, e.g. 'conf.service.ftp.share'.
 		"""
 		self._model = openmediavault.config.Datamodel(id)
+		self._response = None
 
 	@property
 	def model(self):
@@ -273,8 +267,50 @@ class DatabaseQuery(object):
 		return self._model
 
 	@property
+	def response(self):
+		"""
+		Get the response of the database request.
+		:returns: Returns the response of the database request.
+		"""
+		return self._response
+
+	@abc.abstractproperty
 	def xpath(self):
-		raise NotImplementedError()
+		"""
+		"""
+
+	@abc.abstractmethod
+	def execute(self):
+		"""
+		"""
+
+	def _get_list_elements(self):
+		"""
+		Parse the data model and collect the XML elements that must
+		be handled as lists.
+		"""
+		def _walk_schema(name, schema, names):
+			if not "type" in schema:
+				raise openmediavault.json.SchemaException(
+					"No 'type' attribute defined at '%s'." % name)
+			if "array" == schema['type']:
+				names.append(name)
+				if not "items" in schema:
+					raise openmediavault.json.SchemaException(
+						"No 'items' attribute defined at '%s'." % name)
+				_walk_schema(name, schema['items'], names)
+			elif "object" == schema['type']:
+				if not "properties" in schema:
+					raise openmediavault.json.SchemaException(
+						"No 'properties' attribute defined at '%s'." % name)
+				for prop_name, prop_schema in schema['properties'].items():
+					_walk_schema(prop_name, prop_schema, names)
+			else:
+				pass
+
+		names = []
+		_walk_schema(None, self.model.schema.get(), names)
+		return names
 
 	def _build_predicate(self, filter):
 		"""
@@ -346,21 +382,21 @@ class DatabaseQuery(object):
 		[
 			"operator" => "and",
 			"arg0" => [
-		   		"operator" => "stringNotEquals",
+				"operator" => "stringNotEquals",
 				"arg0" => "uuid",
 				"arg1" => $object->get("uuid")
 			],
 			"arg1" => [
 				"operator" => "and",
 				"arg0" => [
-		 		"operator" => "stringEquals",
-		 		"arg0" => "mntentref",
-		 		"arg1" => $object->get("mntentref")
+					"operator" => "stringEquals",
+					"arg0" => "mntentref",
+					"arg1" => $object->get("mntentref")
 				],
 				"arg1" => [
-		 		"operator" => "stringEquals",
-		 		"arg0" => "reldirpath",
-		 		"arg1" => $object->get("reldirpath")
+					"operator" => "stringEquals",
+					"arg0" => "reldirpath",
+					"arg1" => $object->get("reldirpath")
 				]
 			]
 		]
@@ -399,8 +435,8 @@ class DatabaseQuery(object):
 				parts.append("%s='%s'" % (filter['arg0'], enumv))
 			result = "(%s)" % " or ".join(parts)
 		elif filter['operator'] in [ '!', 'not' ]:
-			result = "not(%s)" % DatabaseFilterQuery(self.model.id,
-				DatabaseFilter(filter['arg0']))
+			result = "not(%s)" % DatabaseFilterRequest(self.model.id,
+				DatabaseFilter(filter['arg0'])).xpath
 		elif filter['operator'] in [ '<', 'less' ]:
 			result = "%s<%s" % (filter['arg0'], filter['arg1'])
 		elif filter['operator'] in [ '>', 'greater' ]:
@@ -414,7 +450,7 @@ class DatabaseQuery(object):
 				filter['operator'])
 		return result
 
-class DatabaseFilterQuery(DatabaseQuery):
+class DatabaseFilterRequest(DatabaseRequest):
 	def __init__(self, id, filter):
 		assert(isinstance(filter, DatabaseFilter))
 		self._filter = filter
@@ -432,7 +468,7 @@ class DatabaseFilterQuery(DatabaseQuery):
 		return self.model.queryinfo['xpath']
 
 
-class DatabaseGetQuery(DatabaseQuery):
+class DatabaseGetRequest(DatabaseRequest):
 	def __init__(self, id, identifier=None):
 		super().__init__(id)
 		self._identifier = identifier
@@ -444,7 +480,7 @@ class DatabaseGetQuery(DatabaseQuery):
 	@property
 	def xpath(self):
 		if self.model.is_iterable and not self.identifier is None:
-			return DatabaseFilterQuery(self.model.id,
+			return DatabaseFilterRequest(self.model.id,
 				DatabaseFilter({
 					'operator': 'stringEquals',
 					'arg0': self.model.idproperty,
@@ -452,7 +488,7 @@ class DatabaseGetQuery(DatabaseQuery):
 				})).xpath
 		return self.model.queryinfo['xpath']
 
-class DatabaseGetByFilterQuery(DatabaseQuery):
+class DatabaseGetByFilterRequest(DatabaseRequest):
 	def __init__(self, filter):
 		assert(isinstance(filter, DatabaseFilter))
 		self._filter = filter
@@ -465,10 +501,10 @@ class DatabaseGetByFilterQuery(DatabaseQuery):
 	@property
 	def xpath(self):
 		if self.filter:
-			return DatabaseFilterQuery(self.model.id, self.filter).xpath
+			return DatabaseFilterRequest(self.model.id, self.filter).xpath
 		return self.model.queryinfo['xpath']
 
-class DatabaseIsReferencedQuery(DatabaseQuery):
+class DatabaseIsReferencedRequest(DatabaseRequest):
 	def __init__(self, id, obj):
 		assert(isinstance(obj, openmediavault.config.Object))
 		self._obj = obj
@@ -487,7 +523,7 @@ class DatabaseIsReferencedQuery(DatabaseQuery):
 				'arg1': self.object.get(self.model.idproperty)
 			})))
 
-class DatabaseSetQuery(DatabaseQuery):
+class DatabaseSetRequest(DatabaseRequest):
 	def __init__(self, id, obj):
 		assert(isinstance(obj, openmediavault.config.Object))
 		self._obj = obj
@@ -502,7 +538,7 @@ class DatabaseSetQuery(DatabaseQuery):
 		if self.model.is_iterable:
 			if self.object.is_new:
 				# Update the element with the specified identifier.
-				return DatabaseFilterQuery(self.model.id,
+				return DatabaseFilterRequest(self.model.id,
 					DatabaseFilter({
 						'operator': 'stringEquals',
 						'arg0': self.model.idproperty,
@@ -517,7 +553,7 @@ class DatabaseSetQuery(DatabaseQuery):
 
 		return self.model.queryinfo['xpath']
 
-class DatabaseDeleteQuery(DatabaseQuery):
+class DatabaseDeleteRequest(DatabaseRequest):
 	def __init__(self, id, obj):
 		assert(isinstance(obj, openmediavault.config.Object))
 		self._obj = obj
@@ -530,7 +566,7 @@ class DatabaseDeleteQuery(DatabaseQuery):
 	@property
 	def xpath(self):
 		if self.model.is_iterable:
-			return DatabaseFilterQuery(self.model.id,
+			return DatabaseFilterRequest(self.model.id,
 				DatabaseFilter({
 					'operator': 'stringEquals',
 					'arg0': self.model.idproperty,

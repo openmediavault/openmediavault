@@ -49,19 +49,23 @@ class DatabaseTestCase(unittest.TestCase):
 		#self.assertTrue(exists)
 		pass
 
+	def test_get_list_elements(self):
+		query = openmediavault.config.DatabaseGetRequest("conf.service.rsyncd")
+		self.assertEqual(query._get_list_elements(), [ "module", "user" ])
+
 	def test_get_query(self):
-		query = openmediavault.config.DatabaseGetQuery("conf.system.time")
+		query = openmediavault.config.DatabaseGetRequest("conf.system.time")
 		self.assertEqual(query.xpath, "//system/time")
 
 	def test_get_query_iterable(self):
-		query = openmediavault.config.DatabaseGetQuery(
+		query = openmediavault.config.DatabaseGetRequest(
 			"conf.system.notification.notification",
 			"394cd565-e463-4094-a6ab-12e80270e9b4")
 		self.assertEqual(query.xpath, "//system/notification/notifications/" \
 			"notification[uuid='394cd565-e463-4094-a6ab-12e80270e9b4']")
 
 	def test_filter_query_1(self):
-		query = openmediavault.config.DatabaseFilterQuery(
+		query = openmediavault.config.DatabaseFilterRequest(
 			"conf.system.notification.notification",
 			openmediavault.config.DatabaseFilter({
 				'operator': 'stringContains',
@@ -72,7 +76,7 @@ class DatabaseTestCase(unittest.TestCase):
 			"notification[contains(id,'monit')]")
 
 	def test_filter_query_2(self):
-		query = openmediavault.config.DatabaseFilterQuery(
+		query = openmediavault.config.DatabaseFilterRequest(
 			"conf.system.network.proxy",
 			openmediavault.config.DatabaseFilter({
 				'operator': 'or',
