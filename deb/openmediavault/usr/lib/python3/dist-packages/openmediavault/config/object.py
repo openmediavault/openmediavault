@@ -89,7 +89,10 @@ class Object(object):
 				raise openmediavault.json.SchemaException(
 					"No 'type' attribute defined at '%s'." % path)
 			if "array" == schema['type']:
-				raise Exception("Not supported yet.")
+				if not "items" in schema:
+					raise openmediavault.json.SchemaException(
+						"No 'items' attribute defined at '%s'." % path)
+				_walk_schema(path, schema['items'], defaults)
 			elif "object" == schema['type']:
 				if not "properties" in schema:
 					raise openmediavault.json.SchemaException(
