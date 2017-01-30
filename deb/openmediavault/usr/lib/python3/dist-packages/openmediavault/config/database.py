@@ -272,6 +272,10 @@ class DatabaseQuery(object):
 		"""
 		return self._model
 
+	@property
+	def xpath(self):
+		raise NotImplementedError()
+
 	def _build_predicate(self, filter):
 		"""
 		Build the predicate for the specified filter.
@@ -410,9 +414,6 @@ class DatabaseQuery(object):
 				filter['operator'])
 		return result
 
-	def __str__(self):
-		raise NotImplementedError()
-
 class DatabaseFilterQuery(DatabaseQuery):
 	def __init__(self, id, filter):
 		assert(isinstance(filter, DatabaseFilter))
@@ -423,12 +424,12 @@ class DatabaseFilterQuery(DatabaseQuery):
 	def filter(self):
 		return self._filter
 
-	def __str__(self):
-		result = self.model.queryinfo['xpath']
+	@property
+	def xpath(self):
 		if self.filter:
-			result =  "%s[%s]" % (self.model.queryinfo['xpath'],
+			return "%s[%s]" % (self.model.queryinfo['xpath'],
 				self._build_predicate(self.filter))
-		return result
+		return self.model.queryinfo['xpath']
 
 
 class DatabaseGetQuery(DatabaseQuery):
@@ -440,16 +441,16 @@ class DatabaseGetQuery(DatabaseQuery):
 	def identifier(self):
 		return self._identifier
 
-	def __str__(self):
-		result = self.model.queryinfo['xpath']
+	@property
+	def xpath(self):
 		if self.model.is_iterable and not self.identifier is None:
-			result = str(DatabaseFilterQuery(self.model.id,
+			return DatabaseFilterQuery(self.model.id,
 				DatabaseFilter({
 					'operator': 'stringEquals',
 					'arg0': self.model.idproperty,
 					'arg1': self.identifier
-				})))
-		return result
+				})).xpath
+		return self.model.queryinfo['xpath']
 
 class DatabaseGetByFilterQuery(DatabaseQuery):
 	def __init__(self, filter):
@@ -461,11 +462,11 @@ class DatabaseGetByFilterQuery(DatabaseQuery):
 	def filter(self):
 		return self._filter
 
-	def __str__(self):
-		result = self.model.queryinfo['xpath']
+	@property
+	def xpath(self):
 		if self.filter:
-			result = str(DatabaseFilterQuery(self.model.id, self.filter))
-		return result
+			return DatabaseFilterQuery(self.model.id, self.filter).xpath
+		return self.model.queryinfo['xpath']
 
 class DatabaseIsReferencedQuery(DatabaseQuery):
 	def __init__(self, id, obj):
@@ -473,10 +474,12 @@ class DatabaseIsReferencedQuery(DatabaseQuery):
 		self._obj = obj
 		super().__init__(id)
 
+	@property
 	def object(self):
 		return self._obj
 
-	def __str__(self):
+	@property
+	def xpath(self):
 		return "//%s[%s]" % (self.model.refproperty,
 			self._build_predicate(DatabaseFilter({
 				'operator': 'stringContains',
@@ -490,20 +493,21 @@ class DatabaseSetQuery(DatabaseQuery):
 		self._obj = obj
 		super().__init__(id)
 
+	@property
 	def object(self):
 		return self._obj
 
-	def __str__(self):
-		result = self.model.queryinfo['xpath']
+	@property
+	def xpath(self):
 		if self.model.is_iterable:
 			if self.object.is_new:
 				# Update the element with the specified identifier.
-				result = str(DatabaseFilterQuery(self.model.id,
+				return DatabaseFilterQuery(self.model.id,
 					DatabaseFilter({
 						'operator': 'stringEquals',
 						'arg0': self.model.idproperty,
 						'arg1': self.object.get(self.model.idproperty)
-					})))
+					})).xpath
 			else:
 				# Insert a new element.
 				#$parts = explode("/", $xpath);
@@ -511,7 +515,7 @@ class DatabaseSetQuery(DatabaseQuery):
 				#$xpath = substr($xpath, 0, strrpos($xpath, $elementName) - 1);
 				raise NotImplementedError()
 
-		return result
+		return self.model.queryinfo['xpath']
 
 class DatabaseDeleteQuery(DatabaseQuery):
 	def __init__(self, id, obj):
@@ -519,16 +523,17 @@ class DatabaseDeleteQuery(DatabaseQuery):
 		self._obj = obj
 		super().__init__(id)
 
+	@property
 	def object(self):
 		return self._obj
 
-	def __str__(self):
-		result = self.model.queryinfo['xpath']
+	@property
+	def xpath(self):
 		if self.model.is_iterable:
-			result = str(DatabaseFilterQuery(self.model.id,
+			return DatabaseFilterQuery(self.model.id,
 				DatabaseFilter({
 					'operator': 'stringEquals',
 					'arg0': self.model.idproperty,
 					'arg1': self.object.get(self.model.idproperty)
-				})))
-		return result
+				})).xpath
+		return self.model.queryinfo['xpath']

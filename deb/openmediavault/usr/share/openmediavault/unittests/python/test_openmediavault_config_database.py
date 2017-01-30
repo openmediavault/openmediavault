@@ -51,13 +51,13 @@ class DatabaseTestCase(unittest.TestCase):
 
 	def test_get_query(self):
 		query = openmediavault.config.DatabaseGetQuery("conf.system.time")
-		self.assertEqual(str(query), "//system/time")
+		self.assertEqual(query.xpath, "//system/time")
 
 	def test_get_query_iterable(self):
 		query = openmediavault.config.DatabaseGetQuery(
 			"conf.system.notification.notification",
 			"394cd565-e463-4094-a6ab-12e80270e9b4")
-		self.assertEqual(str(query), "//system/notification/notifications/" \
+		self.assertEqual(query.xpath, "//system/notification/notifications/" \
 			"notification[uuid='394cd565-e463-4094-a6ab-12e80270e9b4']")
 
 	def test_filter_query_1(self):
@@ -68,7 +68,7 @@ class DatabaseTestCase(unittest.TestCase):
 				'arg0': 'id',
 				'arg1': 'monit'
 			}))
-		self.assertEqual(str(query), "//system/notification/notifications/" \
+		self.assertEqual(query.xpath, "//system/notification/notifications/" \
 			"notification[contains(id,'monit')]")
 
 	def test_filter_query_2(self):
@@ -87,7 +87,7 @@ class DatabaseTestCase(unittest.TestCase):
 					'arg1': 4443
 				}
 			}))
-		self.assertEqual(str(query), "//system/network/proxy[(port=8080 or " \
+		self.assertEqual(query.xpath, "//system/network/proxy[(port=8080 or " \
 			"port=4443)]")
 
 	def test_is_referenced_query(self):
