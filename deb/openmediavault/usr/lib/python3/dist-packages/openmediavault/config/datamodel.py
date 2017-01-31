@@ -268,3 +268,48 @@ class Datamodel(openmediavault.datamodel.Datamodel):
 		else:
 			result = value
 		return result
+
+	def walk_schema(self, path, callback, user_data=None):
+		"""
+		Apply a user function recursively to every property of the data
+		model schema.
+		:param path:		The path of the property, e.g. "aaa.bbb.ccc".
+		:param callback:	The callback function.
+		:param user_data:	If the optional userdata parameter is supplied,
+							it will be passed to the callback function.
+		"""
+		def _walk_schema(name, path, schema, callback, user_data):
+			if not "type" in schema:
+				raise openmediavault.json.SchemaException(
+					"No 'type' attribute defined at '%s'." % path)
+			if "array" == schema['type']:
+				# Validate the node.
+				if not "items" in schema:
+					raise openmediavault.json.SchemaException(
+						"No 'items' attribute defined at '%s'." % path)
+				# Call the callback function.
+				callback(self, name, path, schema, user_data)
+				# Process the array items.
+				_walk_schema(name, path, schema['items'], callback,
+					user_data)
+			elif "object" == schema['type']:
+				# Validate the node.
+				if not "properties" in schema:
+					raise openmediavault.json.SchemaException(
+						"No 'properties' attribute defined at '%s'." % path)
+				# Call the callback function.
+				callback(self, name, path, schema, user_data)
+				# Process the object properties.
+				for prop_name, prop_schema in schema['properties'].items():
+					# Build the property path. Take care that a valid path
+					# is generated. To ensure this, empty parts are removed.
+					prop_path = ".".join([ x for x in [ path,
+						prop_name ] if x ])
+					# Process the property node.
+					_walk_schema(prop_name, prop_path, prop_schema, callback,
+						user_data)
+			else:
+				callback(self, name, path, schema, user_data)
+
+		_walk_schema("", path, self.schema.get_by_path(path), callback,
+			user_data);

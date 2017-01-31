@@ -22,15 +22,16 @@ __all__ = [
 	"Database",
 	"DatabaseException",
 	"DatabaseFilter",
-	"DatabaseGetRequest",
-	"DatabaseGetByFilterRequest",
-	"DatabaseFilterRequest",
-	"DatabaseSetRequest",
-	"DatabaseDeleteRequest",
-	"DatabaseIsReferencedRequest"
+	"DatabaseGetQuery",
+	"DatabaseGetByFilterQuery",
+	"DatabaseFilterQuery",
+	"DatabaseSetQuery",
+	"DatabaseDeleteQuery",
+	"DatabaseIsReferencedQuery"
 ]
 
 import abc
+import xml.etree.ElementTree
 import openmediavault.collections
 import openmediavault.config.datamodel
 import openmediavault.config.object
@@ -51,7 +52,7 @@ class Database(object):
 						*uuid* is set, a list of configuration objects or
 						a single object is returned.
 		"""
-		request = openmediavault.config.DatabaseGetRequest(id, uuid)
+		request = openmediavault.config.DatabaseGetQuery(id, uuid)
 		request.execute()
 		return request.response
 		#// Create the query builder.
@@ -250,7 +251,7 @@ class Database(object):
 		#$objects = $this->getByFilter($object->getModelId(), filter);
 		#return (0 == count($objects));
 
-class DatabaseRequest(object):
+class DatabaseQuery(metaclass=abc.ABCMeta):
 	def __init__(self, id):
 		"""
 		:param id: The data model identifier, e.g. 'conf.service.ftp.share'.
@@ -269,52 +270,61 @@ class DatabaseRequest(object):
 	@property
 	def response(self):
 		"""
-		Get the response of the database request.
-		:returns: Returns the response of the database request.
+		Get the response of the database query.
+		:returns: Returns the response of the database query.
 		"""
 		return self._response
 
 	@abc.abstractproperty
 	def xpath(self):
 		"""
+		Get the XPath string used to execute the database query.
+		:returns: The XPath string for this database query.
 		"""
 
 	@abc.abstractmethod
 	def execute(self):
 		"""
+		Execute the database query.
 		"""
 
-	def _get_list_elements(self):
+	def _get_array_properties(self):
 		"""
-		Parse the data model and collect the XML elements that must
-		be handled as lists.
+		Parse the data model and get the properties that must be handled
+		as arrays/lists.
 		"""
-		def _walk_schema(name, schema, names):
-			if not "type" in schema:
-				raise openmediavault.json.SchemaException(
-					"No 'type' attribute defined at '%s'." % name)
+		def callback(model, name, path, schema, user_data):
 			if "array" == schema['type']:
-				names.append(name)
-				if not "items" in schema:
-					raise openmediavault.json.SchemaException(
-						"No 'items' attribute defined at '%s'." % name)
-				_walk_schema(name, schema['items'], names)
-			elif "object" == schema['type']:
-				if not "properties" in schema:
-					raise openmediavault.json.SchemaException(
-						"No 'properties' attribute defined at '%s'." % name)
-				for prop_name, prop_schema in schema['properties'].items():
-					_walk_schema(prop_name, prop_schema, names)
-			else:
-				pass
+				user_data.append(name)
 
 		names = []
-		_walk_schema(None, self.model.schema.get(), names)
+		self.model.walk_schema("", callback, names)
 		return names
+
+	def _find_all_elements(self):
+		"""
+		Helper method to execute the XML query.
+		:returns: The XML elements matching the specified XPath query.
+		"""
+		document = xml.etree.ElementTree.parse(openmediavault.getenv(
+			"OMV_CONFIG_FILE"))
+		return document.findall(self.xpath)
+
+	def _element_to_dict(self):
+		"""
+		Helper method to convert a XML element to a dictionary.
+		"""
+		pass
+
+	def _dict_to_element(self):
+		"""
+		Helper method to convert a dictionary to a XML element.
+		"""
+		pass
 
 	def _build_predicate(self, filter):
 		"""
-		Build the predicate for the specified filter.
+		Helper method to build the predicate for the specified filter.
 		Supported operators:
 		.-------------------------------------------------.
 		| operator         | arg0          | arg1         |
@@ -435,7 +445,7 @@ class DatabaseRequest(object):
 				parts.append("%s='%s'" % (filter['arg0'], enumv))
 			result = "(%s)" % " or ".join(parts)
 		elif filter['operator'] in [ '!', 'not' ]:
-			result = "not(%s)" % DatabaseFilterRequest(self.model.id,
+			result = "not(%s)" % DatabaseFilterQuery(self.model.id,
 				DatabaseFilter(filter['arg0'])).xpath
 		elif filter['operator'] in [ '<', 'less' ]:
 			result = "%s<%s" % (filter['arg0'], filter['arg1'])
@@ -450,7 +460,7 @@ class DatabaseRequest(object):
 				filter['operator'])
 		return result
 
-class DatabaseFilterRequest(DatabaseRequest):
+class DatabaseFilterQuery(DatabaseQuery):
 	def __init__(self, id, filter):
 		assert(isinstance(filter, DatabaseFilter))
 		self._filter = filter
@@ -467,8 +477,11 @@ class DatabaseFilterRequest(DatabaseRequest):
 				self._build_predicate(self.filter))
 		return self.model.queryinfo['xpath']
 
+	def execute(self):
+		# ToDo...
+		pass
 
-class DatabaseGetRequest(DatabaseRequest):
+class DatabaseGetQuery(DatabaseQuery):
 	def __init__(self, id, identifier=None):
 		super().__init__(id)
 		self._identifier = identifier
@@ -480,7 +493,7 @@ class DatabaseGetRequest(DatabaseRequest):
 	@property
 	def xpath(self):
 		if self.model.is_iterable and not self.identifier is None:
-			return DatabaseFilterRequest(self.model.id,
+			return DatabaseFilterQuery(self.model.id,
 				DatabaseFilter({
 					'operator': 'stringEquals',
 					'arg0': self.model.idproperty,
@@ -488,7 +501,11 @@ class DatabaseGetRequest(DatabaseRequest):
 				})).xpath
 		return self.model.queryinfo['xpath']
 
-class DatabaseGetByFilterRequest(DatabaseRequest):
+	def execute(self):
+		# ToDo...
+		pass
+
+class DatabaseGetByFilterQuery(DatabaseQuery):
 	def __init__(self, filter):
 		assert(isinstance(filter, DatabaseFilter))
 		self._filter = filter
@@ -501,10 +518,14 @@ class DatabaseGetByFilterRequest(DatabaseRequest):
 	@property
 	def xpath(self):
 		if self.filter:
-			return DatabaseFilterRequest(self.model.id, self.filter).xpath
+			return DatabaseFilterQuery(self.model.id, self.filter).xpath
 		return self.model.queryinfo['xpath']
 
-class DatabaseIsReferencedRequest(DatabaseRequest):
+	def execute(self):
+		# ToDo...
+		pass
+
+class DatabaseIsReferencedQuery(DatabaseQuery):
 	def __init__(self, id, obj):
 		assert(isinstance(obj, openmediavault.config.Object))
 		self._obj = obj
@@ -523,7 +544,11 @@ class DatabaseIsReferencedRequest(DatabaseRequest):
 				'arg1': self.object.get(self.model.idproperty)
 			})))
 
-class DatabaseSetRequest(DatabaseRequest):
+	def execute(self):
+		# ToDo...
+		pass
+
+class DatabaseSetQuery(DatabaseQuery):
 	def __init__(self, id, obj):
 		assert(isinstance(obj, openmediavault.config.Object))
 		self._obj = obj
@@ -538,7 +563,7 @@ class DatabaseSetRequest(DatabaseRequest):
 		if self.model.is_iterable:
 			if self.object.is_new:
 				# Update the element with the specified identifier.
-				return DatabaseFilterRequest(self.model.id,
+				return DatabaseFilterQuery(self.model.id,
 					DatabaseFilter({
 						'operator': 'stringEquals',
 						'arg0': self.model.idproperty,
@@ -553,7 +578,11 @@ class DatabaseSetRequest(DatabaseRequest):
 
 		return self.model.queryinfo['xpath']
 
-class DatabaseDeleteRequest(DatabaseRequest):
+	def execute(self):
+		# ToDo...
+		pass
+
+class DatabaseDeleteQuery(DatabaseQuery):
 	def __init__(self, id, obj):
 		assert(isinstance(obj, openmediavault.config.Object))
 		self._obj = obj
@@ -566,10 +595,14 @@ class DatabaseDeleteRequest(DatabaseRequest):
 	@property
 	def xpath(self):
 		if self.model.is_iterable:
-			return DatabaseFilterRequest(self.model.id,
+			return DatabaseFilterQuery(self.model.id,
 				DatabaseFilter({
 					'operator': 'stringEquals',
 					'arg0': self.model.idproperty,
 					'arg1': self.object.get(self.model.idproperty)
 				})).xpath
 		return self.model.queryinfo['xpath']
+
+	def execute(self):
+		# ToDo...
+		pass

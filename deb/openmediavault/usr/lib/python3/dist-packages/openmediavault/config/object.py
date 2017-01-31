@@ -84,31 +84,12 @@ class Object(object):
 		:returns:	Returns the default values as defined in the data model
 					as openmediavault.collections.DotDict dictionary.
 		"""
-		def _walk_schema(path, schema, defaults=None):
-			if not "type" in schema:
-				raise openmediavault.json.SchemaException(
-					"No 'type' attribute defined at '%s'." % path)
-			if "array" == schema['type']:
-				if not "items" in schema:
-					raise openmediavault.json.SchemaException(
-						"No 'items' attribute defined at '%s'." % path)
-				_walk_schema(path, schema['items'], defaults)
-			elif "object" == schema['type']:
-				if not "properties" in schema:
-					raise openmediavault.json.SchemaException(
-						"No 'properties' attribute defined at '%s'." % path)
-				for prop_name, prop_schema in schema['properties'].items():
-					# Build the property path. Take care that a valid path
-					# is generated. To ensure this, empty parts are removed.
-					prop_path = ".".join([ x for x in [ path,
-						prop_name ] if x ])
-					# Process the property node.
-					_walk_schema(prop_path, prop_schema, defaults)
-			else:
-				defaults[path] = self.model.property_get_default(path)
+		def callback(model, name, path, schema, user_data):
+			if not schema['type'] in [ "array", "object" ]:
+				user_data[path] = model.property_get_default(path)
 
 		defaults = openmediavault.collections.DotDict();
-		_walk_schema(None, self.model.schema.get(), defaults)
+		self.model.walk_schema("", callback, defaults)
 		return defaults
 
 	def reset_all(self):
