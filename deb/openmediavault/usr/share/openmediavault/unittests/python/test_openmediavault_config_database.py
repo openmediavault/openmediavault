@@ -51,7 +51,7 @@ class DatabaseTestCase(unittest.TestCase):
 
 	def test_get_list_elements(self):
 		query = openmediavault.config.DatabaseGetQuery("conf.service.rsyncd")
-		self.assertEqual(query._get_list_elements(), [ "module", "user" ])
+		self.assertEqual(query._get_array_properties(), [ "module", "user" ])
 
 	def test_get_query(self):
 		query = openmediavault.config.DatabaseGetQuery("conf.system.time")

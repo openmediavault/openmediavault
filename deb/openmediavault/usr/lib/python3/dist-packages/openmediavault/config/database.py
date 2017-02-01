@@ -306,17 +306,29 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		Helper method to execute the XML query.
 		:returns: The XML elements matching the specified XPath query.
 		"""
-		document = xml.etree.ElementTree.parse(openmediavault.getenv(
+		root_element = xml.etree.ElementTree.parse(openmediavault.getenv(
 			"OMV_CONFIG_FILE"))
-		return document.findall(self.xpath)
+		return root_element.findall(self.xpath)
 
-	def _element_to_dict(self):
+	def _element_to_dict(self, element):
 		"""
 		Helper method to convert a XML element to a dictionary.
 		"""
-		pass
+		result = {}
+		force_list = self._get_array_properties()
+		# Process the sub/child elements.
+		for child_element in list(element):
+			print("%s: %s" % (child_element.tag, child_element.text))
+			#if "comment" == child_element.tag:
+			#	continue
+			#if "text" == child_element.tag:
+			#	result = self._element_to_dict(child_element)
+			#else:
+			#	if not isinstance(result, dict):
+			#		result = {}
+		return result
 
-	def _dict_to_element(self):
+	def _dict_to_element(self, data):
 		"""
 		Helper method to convert a dictionary to a XML element.
 		"""
@@ -502,8 +514,17 @@ class DatabaseGetQuery(DatabaseQuery):
 		return self.model.queryinfo['xpath']
 
 	def execute(self):
-		# ToDo...
-		pass
+		elements = self._find_all_elements()
+		if self.model.is_iterable and not self.identifier is None:
+			result = []
+			for element in elements:
+				obj = openmediavault.config.Object(self.model.id)
+				obj.set_dict(self._element_to_dict(element))
+				result.append(obj)
+		else:
+			result = openmediavault.config.Object(self.model.id)
+			result.set_dict(self._element_to_dict(element[0]))
+		return result
 
 class DatabaseGetByFilterQuery(DatabaseQuery):
 	def __init__(self, filter):

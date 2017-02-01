@@ -143,6 +143,23 @@ class Object(object):
 		# Set the property value in the dictionary.
 		self.properties[name] = value
 
+	def set_dict(self, values, validate=True, ignore=False):
+		"""
+		Set properties.
+		:param values: 		The dictionary of key/value pairs.
+		:param validate:	Set to False to do not validate the property
+							values against the property schema defined in
+							the model.
+		:param ignore:		Set to True to ignore and skip unknown properties.
+							Defaults to False.
+		"""
+		if not isinstance(values, dict):
+			raise TypeError("Expected dictionary.")
+		for key, value in values.items():
+			if ignore and not self.exists(key):
+				continue
+			self.set(key, value, validate)
+
 	def reset(self, name):
 		"""
 		Reset a property to its default value as defined in the data model.

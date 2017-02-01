@@ -81,11 +81,57 @@ class Schema(object):
 						requested attribute.
 		:raises openmediavault.json.SchemaPathException:
 		"""
-		if not path:
-			return self.schema
-		if not path in self.schema:
-			raise SchemaPathException(path)
-		return self.schema[path]
+		def _validate_path(path):
+			# Do we process the root node?
+			if not path:
+				return
+			# Explode the path in dot notation into its parts.
+			parts = path.split(".")
+			# Validate the path. Something like "aa.bb.cc." "a..b.c", or
+			# ".xx.yy" is invalid.
+			if "" in parts:
+				raise SchemaPathException(path)
+
+		def _walk_schema(path, schema):
+			# The schema must be a dictionary.
+			if not isinstance(schema, dict):
+				raise TypeError("Expected dictionary at '%s'." % path)
+			# Do we have reached the end of the requested path (path is empty)?
+			if not path:
+				return schema
+			# Explode the path in dot notation into its parts.
+			parts = path.split(".")
+			# Filter array indices from the path in dot notation.
+			# Example: shares.share.0.uuid
+			# To access the schema of an array we do not need them.
+			parts = [ part for part in parts if not part.isdigit() ]
+			# Do we process an 'object' or 'array' node?
+			# !!! Note, the 'type' can be an array. How to handles them here?
+			# ToDo: Handle types like '{ "type": [ "string", "object" ] }'
+			if "type" in schema and isinstance(schema['type'], str):
+				if "array" == schema['type']:
+					if not "items" in schema:
+						raise openmediavault.json.SchemaException(
+							"No 'items' attribute defined at '%s'." % path)
+					return _walk_schema(path, schema['items'])
+				elif "object" == schema['type']:
+					if not "properties" in schema:
+						raise openmediavault.json.SchemaException(
+							"No 'properties' attribute defined at '%s'." %
+							path)
+					return _walk_schema(path, schema['properties'])
+				else:
+					raise SchemaException("Unknown type '%s' at '%s'." %
+						(schema['type'], path))
+			key = parts.pop(0)
+			# Check if the node has the requested key/value pair.
+			if not key in schema:
+				raise SchemaPathException(path)
+			# Continue to walk down the tree.
+			return _walk_schema(".".join(parts), schema[key])
+
+		_validate_path(path)
+		return _walk_schema(path, self.schema)
 
 	def validate(self, value, name=""):
 		"""

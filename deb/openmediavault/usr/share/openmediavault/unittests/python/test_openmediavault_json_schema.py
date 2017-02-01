@@ -26,8 +26,47 @@ class SchemaTestCase(unittest.TestCase):
 		return openmediavault.json.Schema({
 			"type": "object",
 			"properties": {
-				"name": { "type": "string", "required": True },
-				"price": { "type": "number", "minimum": 35, "maximum": 40 }
+				"name": {
+					"type": "string",
+					"required": True
+				},
+				"price": {
+					"type": "number",
+					"minimum": 35,
+					"maximum": 40
+				},
+				"ntp": {
+					"type": "object",
+					"properties": {
+						"enable": {
+							"type": "boolean",
+							"default": False
+						},
+						"timeservers": {
+							"type": "string",
+							"default": "pool.ntp.org"
+						}
+					}
+				},
+				"privilege": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"type": {
+								"type": "string",
+								"enum": [ "user", "group" ]
+							},
+							"name": {
+								"type": "string"
+							},
+							"perms": {
+								"type": "integer",
+								"enum": [ 0, 5, 7 ]
+							}
+						}
+					}
+				}
 			}
 		})
 
@@ -35,9 +74,16 @@ class SchemaTestCase(unittest.TestCase):
 		schema = self._get_schema()
 		schema.get()
 
-	def test_get_by_path_success(self):
+	def test_get_by_path_1(self):
 		schema = self._get_schema()
-		schema.get_by_path("properties.price")
+		schema.get_by_path("price")
+
+	def test_get_by_path_2(self):
+		schema = self._get_schema()
+		self.assertEqual(schema.get_by_path( "ntp.enable"), {
+				"type": "boolean",
+				"default": False
+			})
 
 	def test_get_by_path_fail(self):
 		schema = self._get_schema()

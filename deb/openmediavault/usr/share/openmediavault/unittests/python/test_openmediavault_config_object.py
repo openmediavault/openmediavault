@@ -41,6 +41,14 @@ class ConfigObjectTestCase(unittest.TestCase):
 		value = conf_obj.get("comment")
 		self.assertEqual(value, "test")
 
+	def test_set_dict(self):
+		conf_obj = openmediavault.config.Object("conf.service.ftp.share")
+		conf_obj.set_dict({
+				"comment": "test",
+				"enable": True
+			})
+		self.assertTrue(conf_obj.get("enable"))
+
 	def test_is_empty(self):
 		conf_obj = openmediavault.config.Object("conf.service.ftp.share")
 		self.assertEqual(conf_obj.is_empty("comment"), True)

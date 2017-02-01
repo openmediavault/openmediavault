@@ -182,7 +182,7 @@ class Datamodel(openmediavault.datamodel.Datamodel):
 		:returns:		The default value as specified in the data model
 						schema or by the type of the property.
 		"""
-		prop_schema = self.schema.get_by_path("properties.%s" % path)
+		prop_schema = self.schema.get_by_path(path)
 		if "default" in prop_schema:
 			result = prop_schema['default']
 		else:
@@ -224,7 +224,7 @@ class Datamodel(openmediavault.datamodel.Datamodel):
 		"""
 		result = True
 		try:
-			self.schema.get_by_path("properties.%s" % name)
+			self.schema.get_by_path(name)
 		except openmediavault.json.SchemaPathException:
 			result = False
 		return result
@@ -240,7 +240,7 @@ class Datamodel(openmediavault.datamodel.Datamodel):
 		:raises openmediavault.json.SchemaException:
 		:raises openmediavault.json.SchemaValidationException:
 		"""
-		self.schema.validate(value, "properties.%s" % name)
+		self.schema.validate(value, name)
 
 	def property_convert(self, name, value):
 		"""
@@ -252,7 +252,7 @@ class Datamodel(openmediavault.datamodel.Datamodel):
 		:param value:	The value to convert.
 		:returns:		The converted value.
 		"""
-		prop_schema = self.schema.get_by_path("properties.%s" % name)
+		prop_schema = self.schema.get_by_path(name)
 		if isinstance(prop_schema['type'], list):
 			raise openmediavault.json.SchemaException(
 				"The attribute 'type' must not be an array at '%s'." %
