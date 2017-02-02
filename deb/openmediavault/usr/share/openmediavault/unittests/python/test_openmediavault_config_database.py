@@ -42,15 +42,14 @@ class DatabaseTestCase(unittest.TestCase):
 		self.assertEqual(objs[0].get("id"), "monitprocevents")
 
 	def test_exists(self):
-		#db = openmediavault.config.Database()
-		#exists = db.exists("conf.system.notification.notification",
-		#	openmediavault.config.DatabaseFilter({
-		#		'operator': 'stringEquals',
-		#		'arg0': 'id',
-		#		'arg1': 'smartmontools'
-		#	}))
-		#self.assertTrue(exists)
-		pass
+		db = openmediavault.config.Database()
+		exists = db.exists("conf.system.notification.notification",
+			openmediavault.config.DatabaseFilter({
+				'operator': 'stringEquals',
+				'arg0': 'id',
+				'arg1': 'smartmontools'
+			}))
+		self.assertTrue(exists)
 
 	def test_get_list_elements(self):
 		query = openmediavault.config.DatabaseGetQuery("conf.service.rsyncd")

@@ -148,14 +148,9 @@ class Database(object):
 		:returns:		True if at least one configuration object exists,
 						otherwise False.
 		"""
-		if not filter is None:
-			assert(isinstance(filter, DatabaseFilter))
-		# Get the specified data model.
-		model = openmediavault.config.Datamodel(id)
-		# Create the query builder.
-		#$queryBuilder = new DatabaseBackendQueryBuilder($id);
-		#$xpath = $queryBuilder->buildExistsQuery(filter);
-		#return $this->getBackend()->exists($xpath);
+		request = openmediavault.config.DatabaseFilterQuery(id, filter)
+		request.execute()
+		return 0 < len(request.response)
 
 	def is_referenced(self, obj):
 		"""
@@ -262,11 +257,21 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		:returns: The XPath string for this database query.
 		"""
 
-	@abc.abstractmethod
 	def execute(self):
 		"""
 		Execute the database query.
 		"""
+		elements = self._find_all_elements()
+		if self.model.is_iterable:
+			self._response = []
+			for element in elements:
+				obj = openmediavault.config.Object(self.model.id)
+				obj.set_dict(self._element_to_dict(element), False)
+				self._response.append(obj)
+		else:
+			self._response = openmediavault.config.Object(self.model.id)
+			self._response.set_dict(self._element_to_dict(elements[0]), False)
+		return self._response
 
 	def _get_array_properties(self):
 		"""
@@ -474,10 +479,6 @@ class DatabaseFilterQuery(DatabaseQuery):
 				self._build_predicate(self.filter))
 		return self.model.queryinfo['xpath']
 
-	def execute(self):
-		# ToDo...
-		pass
-
 class DatabaseGetQuery(DatabaseQuery):
 	def __init__(self, id, identifier=None):
 		super().__init__(id)
@@ -497,19 +498,6 @@ class DatabaseGetQuery(DatabaseQuery):
 					'arg1': self.identifier
 				})).xpath
 		return self.model.queryinfo['xpath']
-
-	def execute(self):
-		elements = self._find_all_elements()
-		if self.model.is_iterable:
-			self._response = []
-			for element in elements:
-				obj = openmediavault.config.Object(self.model.id)
-				obj.set_dict(self._element_to_dict(element), False)
-				self._response.append(obj)
-		else:
-			self._response = openmediavault.config.Object(self.model.id)
-			self._response.set_dict(self._element_to_dict(elements[0]), False)
-		return self._response
 
 class DatabaseGetByFilterQuery(DatabaseQuery):
 	def __init__(self, filter):
