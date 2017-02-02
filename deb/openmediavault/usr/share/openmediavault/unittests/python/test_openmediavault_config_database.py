@@ -33,12 +33,13 @@ class DatabaseTestCase(unittest.TestCase):
 		self.assertEqual(obj.get("ntp.timeservers"), "pool.ntp.org")
 
 	def test_get_iterable(self):
-		#db = openmediavault.config.Database()
-		#obj = db.get("conf.system.notification.notification",
-		#	"c1cd54af-660d-4311-8e21-2a19420355bb")
-		#self.assertTrue(isinstance(obj, openmediavault.config.Object))
-		#self.assertEqual(obj.get("id"), "monitloadavg")
-		pass
+		db = openmediavault.config.Database()
+		objs = db.get("conf.system.notification.notification",
+			"c1cd54af-660d-4311-8e21-2a19420355bb")
+		self.assertTrue(isinstance(objs, list))
+		self.assertTrue(0 < len(objs))
+		self.assertTrue(isinstance(objs[0], openmediavault.config.Object))
+		self.assertEqual(objs[0].get("id"), "monitprocevents")
 
 	def test_exists(self):
 		#db = openmediavault.config.Database()

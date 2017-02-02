@@ -256,7 +256,11 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		"""
 		:param id: The data model identifier, e.g. 'conf.service.ftp.share'.
 		"""
+		# Create the data model object.
 		self._model = openmediavault.config.Datamodel(id)
+		# Get the property names that must be handled as lists/arrays.
+		self._force_list = self._get_array_properties()
+		# Set the default response value.
 		self._response = None
 
 	@property
@@ -315,13 +319,21 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		Helper method to convert a XML element to a dictionary.
 		"""
 		result = {}
-		force_list = self._get_array_properties()
 		for child_element in list(element):
 			if list(child_element):
 				value = self._element_to_dict(child_element)
 			else:
 				value = child_element.text
-			result[child_element.tag] = value
+			tag = child_element.tag
+			if isinstance(self._force_list, list) and tag in self._force_list:
+				try:
+					# Add to existing list.
+					result[tag].append(value)
+				except AttributeError:
+					# Convert existing entry into a list.
+					result[tag] = [ result[tag], value ]
+			else:
+				result[tag] = value
 		return result
 
 	def _dict_to_element(self, data):
@@ -500,7 +512,7 @@ class DatabaseGetQuery(DatabaseQuery):
 
 	@property
 	def xpath(self):
-		if self.model.is_iterable and not self.identifier is None:
+		if self.model.is_iterable and self.identifier:
 			return DatabaseFilterQuery(self.model.id,
 				DatabaseFilter({
 					'operator': 'stringEquals',
@@ -511,7 +523,7 @@ class DatabaseGetQuery(DatabaseQuery):
 
 	def execute(self):
 		elements = self._find_all_elements()
-		if self.model.is_iterable and not self.identifier is None:
+		if self.model.is_iterable and self.identifier:
 			self._response = []
 			for element in elements:
 				obj = openmediavault.config.Object(self.model.id)

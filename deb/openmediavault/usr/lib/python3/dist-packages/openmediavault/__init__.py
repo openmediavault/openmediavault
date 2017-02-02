@@ -28,7 +28,7 @@ def bool(x):
 	Get the boolean value of a variable. A boolean True will be returned for
     the values 1, '1', 'on', 'yes', 'y' and 'true'.
 	"""
-	if isinstance(x, bool):
+	if type(x) == bool:
 		return x
 	result = False
 	# Boolean 'true' => '1'
