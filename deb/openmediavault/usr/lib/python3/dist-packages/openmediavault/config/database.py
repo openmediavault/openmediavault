@@ -31,7 +31,7 @@ __all__ = [
 ]
 
 import abc
-import xml.etree.ElementTree
+import lxml.etree
 import openmediavault.collections
 import openmediavault.config.datamodel
 import openmediavault.config.object
@@ -286,7 +286,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		Helper method to execute the XML query.
 		:returns: The XML elements matching the specified XPath query.
 		"""
-		root_element = xml.etree.ElementTree.parse(openmediavault.getenv(
+		root_element = lxml.etree.parse(openmediavault.getenv(
 			"OMV_CONFIG_FILE"))
 		return root_element.findall(self.xpath)
 
@@ -294,6 +294,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		"""
 		Helper method to convert a XML element to a dictionary.
 		"""
+		assert(lxml.etree.iselement(element))
 		result = {}
 		for child_element in list(element):
 			if list(child_element):
