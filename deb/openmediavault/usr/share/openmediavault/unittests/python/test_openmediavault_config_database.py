@@ -28,7 +28,9 @@ class DatabaseTestCase(unittest.TestCase):
 
 	def test_get(self):
 		db = openmediavault.config.Database()
-		db.get("conf.system.time")
+		obj = db.get("conf.system.time")
+		self.assertTrue(isinstance(obj, openmediavault.config.Object))
+		self.assertEqual(obj.get("ntp.timeservers"), "pool.ntp.org")
 
 	def test_get_iterable(self):
 		#db = openmediavault.config.Database()

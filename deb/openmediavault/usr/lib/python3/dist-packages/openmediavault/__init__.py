@@ -25,9 +25,11 @@ import openmediavault.settings
 
 def bool(x):
 	"""
-	Get the boolean value of a variable. A boolean TRUE will be returned for
+	Get the boolean value of a variable. A boolean True will be returned for
     the values 1, '1', 'on', 'yes', 'y' and 'true'.
 	"""
+	if isinstance(x, bool):
+		return x
 	result = False
 	# Boolean 'true' => '1'
 	if str(x).lower() in [ "1", "on", "yes", "y", "true" ]:

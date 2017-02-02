@@ -316,16 +316,12 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		"""
 		result = {}
 		force_list = self._get_array_properties()
-		# Process the sub/child elements.
 		for child_element in list(element):
-			print("%s: %s" % (child_element.tag, child_element.text))
-			#if "comment" == child_element.tag:
-			#	continue
-			#if "text" == child_element.tag:
-			#	result = self._element_to_dict(child_element)
-			#else:
-			#	if not isinstance(result, dict):
-			#		result = {}
+			if list(child_element):
+				value = self._element_to_dict(child_element)
+			else:
+				value = child_element.text
+			result[child_element.tag] = value
 		return result
 
 	def _dict_to_element(self, data):
@@ -516,15 +512,15 @@ class DatabaseGetQuery(DatabaseQuery):
 	def execute(self):
 		elements = self._find_all_elements()
 		if self.model.is_iterable and not self.identifier is None:
-			result = []
+			self._response = []
 			for element in elements:
 				obj = openmediavault.config.Object(self.model.id)
-				obj.set_dict(self._element_to_dict(element))
-				result.append(obj)
+				obj.set_dict(self._element_to_dict(element), False)
+				self._response.append(obj)
 		else:
-			result = openmediavault.config.Object(self.model.id)
-			result.set_dict(self._element_to_dict(element[0]))
-		return result
+			self._response = openmediavault.config.Object(self.model.id)
+			self._response.set_dict(self._element_to_dict(elements[0]), False)
+		return self._response
 
 class DatabaseGetByFilterQuery(DatabaseQuery):
 	def __init__(self, filter):

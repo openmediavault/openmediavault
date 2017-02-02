@@ -258,7 +258,7 @@ class Datamodel(openmediavault.datamodel.Datamodel):
 				"The attribute 'type' must not be an array at '%s'." %
 				path)
 		if "boolean" == prop_schema['type']:
-			result = bool(value)
+			result = openmediavault.bool(value)
 		elif "integer" == prop_schema['type']:
 			result = int(value)
 		elif prop_schema['type'] in [ "number", "double", "float" ]:
