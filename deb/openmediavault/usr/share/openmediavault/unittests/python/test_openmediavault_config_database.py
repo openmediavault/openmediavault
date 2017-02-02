@@ -25,6 +25,7 @@ import openmediavault.config.object
 class DatabaseTestCase(unittest.TestCase):
 	def test_constructor(self):
 		db = openmediavault.config.Database()
+		self.assertIsNotNone(db)
 
 	def test_get(self):
 		db = openmediavault.config.Database()
