@@ -26,25 +26,28 @@ import json
 class Datamodel(object):
 	def __init__(self, model):
 		"""
-		:param model: The data model as JSON object or string.
+		:param model: The data model as Python dictionary or JSON string.
 		"""
 		# Convert into a JSON object if it is a string.
 		if isinstance(model, str):
 			model = json.loads(model)
+		else:
+			if not isinstance(model, dict):
+				raise TypeError("Expected dictionary.")
 		self._model = model
 
 	def get(self):
 		"""
-		Get the data model as JSON object.
-		:returns: Returns the data model as JSON object.
+		Get the data model as Python dictionary.
+		:returns: Returns the data model as Python dictionary.
 		"""
 		return self._model
 
 	@property
 	def model(self):
 		"""
-		Get the data model as JSON object.
-		:returns: Returns the data model as JSON object.
+		Get the data model as Python dictionary.
+		:returns: Returns the data model as Python dictionary.
 		"""
 		return self.get()
 
@@ -95,3 +98,10 @@ class Datamodel(object):
 		:param data: The JSON data to validate.
 		:returns: None.
 		"""
+
+	def __str__(self):
+		"""
+		Return the data model as JSON string.
+		:returns: Returns a JSON string.
+		"""
+		return json.dumps(self.model)

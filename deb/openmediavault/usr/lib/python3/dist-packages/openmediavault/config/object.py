@@ -182,7 +182,7 @@ class Object(object):
 
 	def __str__(self):
 		"""
-		Return the properties as JSON.
+		Return the properties as JSON string.
 		:returns: Returns a JSON string.
 		"""
 		return json.dumps(self.properties)
