@@ -55,30 +55,6 @@ class Database(object):
 		request = openmediavault.config.DatabaseGetQuery(id, uuid)
 		request.execute()
 		return request.response
-		#// Create the query builder.
-		#$queryBuilder = new DatabaseBackendQueryBuilder($id);
-		#$xpath = $queryBuilder->buildGetQuery($uuid);
-		#// Redirect the query to the database backend.
-		#if ((TRUE === $model->isIterable()) && is_null($uuid))
-		#	$data = $this->getBackend()->getList($xpath);
-		#else
-		#	$data = $this->getBackend()->get($xpath);
-		#if (is_null($data)) {
-		#	throw new DatabaseException("Failed to execute XPath query '%s'.",
-		#	  $xpath);
-		#}
-		#if ((TRUE === $model->isIterable()) && is_null($uuid)) {
-		#	result = [];
-		#	foreach ($data as $datak => $datav) {
-		#		$object = new ConfigObject($id);
-		#		$object->setAssoc($datav, FALSE);
-		#		result[] = $object;
-		#	}
-		#} else {
-		#	result = new ConfigObject($id);
-		#	result->setAssoc($data, FALSE);
-		#}
-		#return result;
 
 	def get_by_filter(self, filter, max_result=None):
 		"""
