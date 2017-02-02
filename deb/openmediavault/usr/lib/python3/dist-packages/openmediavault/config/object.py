@@ -20,6 +20,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 __all__ = [ "Object" ]
 
+import json
 import openmediavault
 import openmediavault.string
 import openmediavault.config.datamodel
@@ -178,3 +179,10 @@ class Object(object):
 		"""
 		value = self.get(name);
 		return not bool(value and value.strip())
+
+	def __str__(self):
+		"""
+		Return the properties as JSON.
+		:returns: Returns a JSON string.
+		"""
+		return json.dumps(self.properties)

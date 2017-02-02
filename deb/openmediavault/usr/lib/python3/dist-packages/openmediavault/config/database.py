@@ -500,7 +500,7 @@ class DatabaseGetQuery(DatabaseQuery):
 
 	def execute(self):
 		elements = self._find_all_elements()
-		if self.model.is_iterable and self.identifier:
+		if self.model.is_iterable:
 			self._response = []
 			for element in elements:
 				obj = openmediavault.config.Object(self.model.id)

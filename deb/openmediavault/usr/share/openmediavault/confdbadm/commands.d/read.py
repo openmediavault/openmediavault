@@ -20,7 +20,9 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
 import sys
+import argparse
 import openmediavault.confdbadm
+import openmediavault.config.database
 
 class Command(openmediavault.confdbadm.ICommand):
 	@property
@@ -28,18 +30,31 @@ class Command(openmediavault.confdbadm.ICommand):
 		return "Read configuration database objects"
 
 	def validate_args(self, *args):
-		if 3 != len(args):
+		if 2 > len(args):
 			return False
 		return True
 
 	def usage(self, *args):
-		print("Usage: %s read <id> <uuid>\n\n" \
+		print("Usage: %s read [--uuid=UUID] <id>\n\n" \
 			"Read the specified configuration database object." %
 			os.path.basename(args[0]))
 
 	def execute(self, *args):
-		rc = 1
-		print("Not implemented yet.")
+		rc = 0
+		# Parse the command line arguments.
+		parser = argparse.ArgumentParser()
+		parser.add_argument("--uuid", nargs="?")
+		parser.add_argument("id")
+		cmd_args = parser.parse_args(args[1:])
+		# Query the database.
+		db = openmediavault.config.Database()
+		objs = db.get(cmd_args.id, cmd_args.uuid)
+		# Print the configuration objects to STDOUT.
+		if isinstance(objs, list):
+			for obj in objs:
+				print(obj)
+		else:
+			print(objs)
 		return rc
 
 if __name__ == "__main__":
