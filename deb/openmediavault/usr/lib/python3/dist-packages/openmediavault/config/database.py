@@ -55,7 +55,7 @@ class Database(object):
 		request.execute()
 		return request.response
 
-	def get_by_filter(self, filter, max_result=None):
+	def get_by_filter(self, id, filter, **kwargs):
 		"""
 		Get the iterable configuration objects that are matching the specified
 		constraints.
@@ -85,46 +85,27 @@ class Database(object):
 								}
 							}
 							``
-		:param max_result:	The maximum number of objects that are returned.
-							Defaults to None.
+		:param min_result:	The minimum number of objects that are expected.
+		:param max_result:	The maximum number of objects that are expected.
 		:returns:			An array containing the requested configuration
 							objects. If *max_result* is set to 1, then the
 							first found object is returned.
 							In this case the method does not return a list
 							of configuration objects.
 		"""
-		assert(isinstance(filter, DatabaseFilter))
-		# Get the specified data model.
-		model = openmediavault.config.Datamodel(id)
-		#// Is the configuration object iterable?
-		#if (FALSE === $model->isIterable()) {
-		#	throw new \InvalidArgumentException(sprintf(
-		#	  "The configuration object '%s' is not iterable.",
-		#	  $model->getId()));
-		#}
-		#// Build the query predicate.
-		#$queryBuilder = new DatabaseBackendQueryBuilder($id);
-		#$xpath = $queryBuilder->buildQueryByFilter(filter);
-		#// Redirect the query to the database backend.
-		#$data = $this->getBackend()->getList($xpath);
-		#// Create the configuration objects.
-		#result = [];
-		#foreach ($data as $datak => $datav) {
-		#	if (!is_null($maxResult) && ($datak >= $maxResult))
-		#		continue;
-		#	$object = new ConfigObject($id);
-		#	$object->setAssoc($datav, FALSE);
-		#	result[] = $object;
-		#}
-		#if (1 == $maxResult) {
-		#	if (empty(result)) {
-		#		throw new DatabaseException(sprintf(
-		#		  "The XPath query '%s' does not return the requested ".
-		#		  "number of %d object(s).", $xpath, $maxResult));
-		#	}
-		#	result = result[0];
-		#}
-		#return result;
+		request = openmediavault.config.DatabaseGetByFilterQuery(id, filter)
+		request.execute()
+		if "min_result" in kwargs:
+			if len(request.response) < kwargs.get("min_result"):
+				raise DatabaseException("The query does not return the " \
+					"minimum number of %d object(s)." %
+					kwargs.get("min_result"))
+		if "max_result" in kwargs:
+			if len(request.response) > kwargs.get("max_result"):
+				raise DatabaseException("The query returns more than the " \
+					"maximum number of %d object(s)." %
+					kwargs.get("max_result"))
+		return request.response
 
 	def exists(self, id, filter=None):
 		"""
@@ -157,7 +138,6 @@ class Database(object):
 		:param obj:	The configuration object to use.
 		:returns:	True if the object is referenced, otherwise False.
 		"""
-		assert(isinstance(obj, openmediavault.config.Object))
 		request = openmediavault.config.DatabaseIsReferencedQuery(obj)
 		request.execute()
 		return request.response
@@ -171,6 +151,7 @@ class Database(object):
 		:returns:			True if no configuration object with the same
 							property value exists, otherwise False.
 		"""
+		assert(isinstance(obj, openmediavault.config.Object))
 		return self.is_unique_by_filter(obj, DatabaseFilter({
 				'operator': 'stringEquals',
 				'arg0': property,

@@ -21,6 +21,7 @@
 import os
 import sys
 import argparse
+import json
 import openmediavault.confdbadm
 import openmediavault.config.database
 
@@ -35,7 +36,7 @@ class Command(openmediavault.confdbadm.ICommand):
 		return True
 
 	def usage(self, *args):
-		print("Usage: %s read [--uuid=UUID] <id>\n\n" \
+		print("Usage: %s read [--uuid=UUID|--filter=FILTER] <id>\n\n" \
 			"Read the specified configuration database object." %
 			os.path.basename(args[0]))
 
@@ -43,12 +44,19 @@ class Command(openmediavault.confdbadm.ICommand):
 		rc = 0
 		# Parse the command line arguments.
 		parser = argparse.ArgumentParser()
-		parser.add_argument("--uuid", nargs="?")
 		parser.add_argument("id")
+		group = parser.add_mutually_exclusive_group()
+		parser.add_argument("--filter", nargs="?")
+		parser.add_argument("--uuid", nargs="?")
 		cmd_args = parser.parse_args(args[1:])
 		# Query the database.
 		db = openmediavault.config.Database()
-		objs = db.get(cmd_args.id, cmd_args.uuid)
+		if cmd_args.filter:
+			filter = openmediavault.config.DatabaseFilter(
+				json.loads(cmd_args.filter))
+			objs = db.get_by_filter(cmd_args.id, filter)
+		else:
+			objs = db.get(cmd_args.id, cmd_args.uuid)
 		# Print the configuration objects to STDOUT.
 		if isinstance(objs, list):
 			for obj in objs:
