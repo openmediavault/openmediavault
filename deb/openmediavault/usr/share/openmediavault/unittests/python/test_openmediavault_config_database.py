@@ -42,7 +42,18 @@ class DatabaseTestCase(unittest.TestCase):
 		self.assertTrue(isinstance(objs[0], openmediavault.config.Object))
 		self.assertEqual(objs[0].get("id"), "monitprocevents")
 
-	def test_get_by_filter(self):
+	def test_get_by_filter_1(self):
+		db = openmediavault.config.Database()
+		objs = db.get_by_filter("conf.system.notification.notification",
+			openmediavault.config.DatabaseFilter({
+				'operator': 'stringEquals',
+				'arg0': 'uuid',
+				'arg1': '03dc067d-1310-45b5-899f-b471a0ae9233'
+			}))
+		self.assertTrue(isinstance(objs, list))
+		self.assertEqual(len(objs), 1)
+
+	def test_get_by_filter_2(self):
 		#db = openmediavault.config.Database()
 		#objs = db.get_by_filter("conf.system.notification.notification",
 		#	openmediavault.config.DatabaseFilter({
