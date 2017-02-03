@@ -158,15 +158,9 @@ class Database(object):
 		:returns:	True if the object is referenced, otherwise False.
 		"""
 		assert(isinstance(obj, openmediavault.config.Object))
-		#if (FALSE === $object->isReferenceable()) {
-		#	throw new DatabaseException(
-		#	  "The configuration object '%s' can not be referenced.",
-		#	  $object->getModelId());
-		#}
-		#// Create the query builder.
-		#$queryBuilder = new DatabaseBackendQueryBuilder($object->getModelId());
-		#$xpath = $queryBuilder->buildIsReferencedQuery($object);
-		#return $this->getBackend()->exists($xpath);
+		request = openmediavault.config.DatabaseIsReferencedQuery(obj)
+		request.execute()
+		return request.response
 
 	def is_unique(self, obj, property):
 		"""
@@ -520,10 +514,10 @@ class DatabaseGetQuery(DatabaseQuery):
 		self._response = self._elements_to_object(elements)
 
 class DatabaseIsReferencedQuery(DatabaseQuery):
-	def __init__(self, id, obj):
+	def __init__(self, obj):
 		assert(isinstance(obj, openmediavault.config.Object))
 		self._obj = obj
-		super().__init__(id)
+		super().__init__(obj.model.id)
 
 	@property
 	def object(self):
@@ -539,8 +533,8 @@ class DatabaseIsReferencedQuery(DatabaseQuery):
 			})))
 
 	def execute(self):
-		# ToDo...
-		pass
+		elements = self._find_all_elements()
+		self._response = 0 < len(elements)
 
 class DatabaseSetQuery(DatabaseQuery):
 	def __init__(self, id, obj):
