@@ -24,7 +24,6 @@ __all__ = [
 	"DatabaseFilter",
 	"DatabaseGetQuery",
 	"DatabaseGetByFilterQuery",
-	"DatabaseFilterQuery",
 	"DatabaseSetQuery",
 	"DatabaseDeleteQuery",
 	"DatabaseIsReferencedQuery"
@@ -148,7 +147,7 @@ class Database(object):
 		:returns:		True if at least one configuration object exists,
 						otherwise False.
 		"""
-		request = openmediavault.config.DatabaseFilterQuery(id, filter)
+		request = openmediavault.config.DatabaseGetByFilterQuery(id, filter)
 		request.execute()
 		return 0 < len(request.response)
 
@@ -257,21 +256,11 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		:returns: The XPath string for this database query.
 		"""
 
+	@abc.abstractmethod
 	def execute(self):
 		"""
 		Execute the database query.
 		"""
-		elements = self._find_all_elements()
-		if self.model.is_iterable:
-			self._response = []
-			for element in elements:
-				obj = openmediavault.config.Object(self.model.id)
-				obj.set_dict(self._element_to_dict(element), False)
-				self._response.append(obj)
-		else:
-			self._response = openmediavault.config.Object(self.model.id)
-			self._response.set_dict(self._element_to_dict(elements[0]), False)
-		return self._response
 
 	def _get_array_properties(self):
 		"""
@@ -289,7 +278,8 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 	def _find_all_elements(self):
 		"""
 		Helper method to execute the XML query.
-		:returns: The XML elements matching the specified XPath query.
+		:returns:	Returns a list of XML elements that match the specified
+					XPath query.
 		"""
 		root_element = lxml.etree.parse(openmediavault.getenv(
 			"OMV_CONFIG_FILE"))
@@ -297,7 +287,9 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 
 	def _element_to_dict(self, element):
 		"""
-		Helper method to convert a XML element to a dictionary.
+		Helper method to convert a XML element to a Python dictionary.
+		:param element:	The XML element to convert.
+		:returns:		Returns a Python dictionary.
 		"""
 		assert(lxml.etree.iselement(element))
 		result = {}
@@ -318,7 +310,27 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 				result[tag] = value
 		return result
 
-	def _dict_to_element(self, data):
+	def _elements_to_object(self, elements):
+		"""
+		Convert XML elements to openmediavault.config.Object objects.
+		:param elements:	A list of XML elements.
+		:returns:			Returns a list of configuration objects or a
+							single object, depending on whether the
+							configuration object is iterable.
+		"""
+		assert(isinstance(elements, list))
+		if self.model.is_iterable:
+			result = []
+			for element in elements:
+				obj = openmediavault.config.Object(self.model.id)
+				obj.set_dict(self._element_to_dict(element), False)
+				result.append(obj)
+		else:
+			result = openmediavault.config.Object(self.model.id)
+			result.set_dict(self._element_to_dict(elements[0]), False)
+		return result
+
+	def _dict_to_element(self, dictionary):
 		"""
 		Helper method to convert a dictionary to a XML element.
 		"""
@@ -447,7 +459,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 				parts.append("%s='%s'" % (filter['arg0'], enumv))
 			result = "(%s)" % " or ".join(parts)
 		elif filter['operator'] in [ '!', 'not' ]:
-			result = "not(%s)" % DatabaseFilterQuery(self.model.id,
+			result = "not(%s)" % DatabaseGetByFilterQuery(self.model.id,
 				DatabaseFilter(filter['arg0'])).xpath
 		elif filter['operator'] in [ '<', 'less' ]:
 			result = "%s<%s" % (filter['arg0'], filter['arg1'])
@@ -462,7 +474,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 				filter['operator'])
 		return result
 
-class DatabaseFilterQuery(DatabaseQuery):
+class DatabaseGetByFilterQuery(DatabaseQuery):
 	def __init__(self, id, filter):
 		assert(isinstance(filter, DatabaseFilter))
 		self._filter = filter
@@ -479,6 +491,10 @@ class DatabaseFilterQuery(DatabaseQuery):
 				self._build_predicate(self.filter))
 		return self.model.queryinfo['xpath']
 
+	def execute(self):
+		elements = self._find_all_elements()
+		self._response = self._elements_to_object(elements)
+
 class DatabaseGetQuery(DatabaseQuery):
 	def __init__(self, id, identifier=None):
 		super().__init__(id)
@@ -491,7 +507,7 @@ class DatabaseGetQuery(DatabaseQuery):
 	@property
 	def xpath(self):
 		if self.model.is_iterable and self.identifier:
-			return DatabaseFilterQuery(self.model.id,
+			return DatabaseGetByFilterQuery(self.model.id,
 				DatabaseFilter({
 					'operator': 'stringEquals',
 					'arg0': self.model.idproperty,
@@ -499,25 +515,9 @@ class DatabaseGetQuery(DatabaseQuery):
 				})).xpath
 		return self.model.queryinfo['xpath']
 
-class DatabaseGetByFilterQuery(DatabaseQuery):
-	def __init__(self, filter):
-		assert(isinstance(filter, DatabaseFilter))
-		self._filter = filter
-		super().__init__(id)
-
-	@property
-	def filter(self):
-		return self._filter
-
-	@property
-	def xpath(self):
-		if self.filter:
-			return DatabaseFilterQuery(self.model.id, self.filter).xpath
-		return self.model.queryinfo['xpath']
-
 	def execute(self):
-		# ToDo...
-		pass
+		elements = self._find_all_elements()
+		self._response = self._elements_to_object(elements)
 
 class DatabaseIsReferencedQuery(DatabaseQuery):
 	def __init__(self, id, obj):
@@ -557,7 +557,7 @@ class DatabaseSetQuery(DatabaseQuery):
 		if self.model.is_iterable:
 			if self.object.is_new:
 				# Update the element with the specified identifier.
-				return DatabaseFilterQuery(self.model.id,
+				return DatabaseGetByFilterQuery(self.model.id,
 					DatabaseFilter({
 						'operator': 'stringEquals',
 						'arg0': self.model.idproperty,
@@ -589,7 +589,7 @@ class DatabaseDeleteQuery(DatabaseQuery):
 	@property
 	def xpath(self):
 		if self.model.is_iterable:
-			return DatabaseFilterQuery(self.model.id,
+			return DatabaseGetByFilterQuery(self.model.id,
 				DatabaseFilter({
 					'operator': 'stringEquals',
 					'arg0': self.model.idproperty,

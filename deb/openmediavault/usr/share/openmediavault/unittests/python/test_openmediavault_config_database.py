@@ -68,7 +68,7 @@ class DatabaseTestCase(unittest.TestCase):
 			"notification[uuid='394cd565-e463-4094-a6ab-12e80270e9b4']")
 
 	def test_filter_query_1(self):
-		query = openmediavault.config.DatabaseFilterQuery(
+		query = openmediavault.config.DatabaseGetByFilterQuery(
 			"conf.system.notification.notification",
 			openmediavault.config.DatabaseFilter({
 				'operator': 'stringContains',
@@ -79,7 +79,7 @@ class DatabaseTestCase(unittest.TestCase):
 			"notification[contains(id,'monit')]")
 
 	def test_filter_query_2(self):
-		query = openmediavault.config.DatabaseFilterQuery(
+		query = openmediavault.config.DatabaseGetByFilterQuery(
 			"conf.system.network.proxy",
 			openmediavault.config.DatabaseFilter({
 				'operator': 'or',
