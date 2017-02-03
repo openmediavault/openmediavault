@@ -272,17 +272,18 @@ Ext.define("OMV.window.MessageBox", {
 		});
 		// Animate message box border.
 		var borderColorState = true;
+		var el = null;
 		var task = Ext.util.TaskManager.newTask({
 			interval: 1000,
 			fireOnStart: false,
 			scope: me,
 			run: function() {
-				var el = Ext.get(dlg.getId() + "-body");
-				if(!borderColorState) {
+				if (!el)
+					el = Ext.get(dlg.getId() + "-body");
+				if (!borderColorState)
 					el.setStyle("border-color", "#ff0000");
-				} else {
+				else
 					el.setStyle("border-color", "#000000");
-				}
 				borderColorState = !borderColorState;
 			}
 		});
@@ -299,7 +300,7 @@ Ext.define("OMV.window.MessageBox", {
 			// Remove message box.
 			dlg.close();
 			// Execute given callback function.
-			if(Ext.isFunction(config.fn))
+			if (Ext.isFunction(config.fn))
 				config.fn.call(config.scope || me, me);
 		};
 		Ext.getBody().on({
