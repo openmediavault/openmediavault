@@ -258,7 +258,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		"""
 		root_element = lxml.etree.parse(openmediavault.getenv(
 			"OMV_CONFIG_FILE"))
-		return root_element.findall(self.xpath)
+		return root_element.xpath(self.xpath)
 
 	def _element_to_dict(self, element):
 		"""
