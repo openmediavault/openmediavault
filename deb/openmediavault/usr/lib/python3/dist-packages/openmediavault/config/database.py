@@ -179,22 +179,22 @@ class Database(object):
 		"""
 		assert(isinstance(obj, openmediavault.config.Object))
 		assert(isinstance(filter, DatabaseFilter))
-		#// If the object is iterable and not new, then we need to modify the
-		#// filter to do not find the object itself.
-		#if ((FALSE === $object->isNew()) && (TRUE === $object->isIterable())) {
-		#	$idProperty = $object->getModel()->getIdProperty();
-		#	filter = [
-		#		"operator" => "and",
- 		#		"arg0" => [
- 		#			"operator" => "stringNotEquals",
- 		#			"arg0" => $idProperty,
- 		#			"arg1" => $object->get($idProperty)
- 		#		],
- 		#		"arg1" => filter
-		#	];
-		#}
-		#$objects = $this->getByFilter($object->getModelId(), filter);
-		#return (0 == count($objects));
+		# If the object is iterable and not new, then we need to modify the
+		# filter to do not find the configuration object itself.
+		if not obj.is_new and obj.model.is_iterable:
+			filter = DatabaseFilter({
+					'operator': 'and',
+					'arg0': {
+						'operator': 'stringNotEquals',
+						'arg0': obj.model.idproperty,
+						'arg1': obj.get(obj.model.idproperty)
+					},
+					'arg1': filter
+				})
+		request = openmediavault.config.DatabaseGetByFilterQuery(
+			obj.model.id, filter)
+		request.execute()
+		return 0 == len(request.response)
 
 class DatabaseQuery(metaclass=abc.ABCMeta):
 	def __init__(self, id):

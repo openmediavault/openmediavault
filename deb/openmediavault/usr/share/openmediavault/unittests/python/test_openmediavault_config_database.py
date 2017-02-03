@@ -119,6 +119,15 @@ class DatabaseTestCase(unittest.TestCase):
 		self.assertEqual(query.xpath, "//system/network/proxy[(port=8080 or " \
 			"port=4443)]")
 
+	def test_is_unique_by_filter(self):
+		db = openmediavault.config.Database()
+		objs = db.get("conf.system.notification.notification",
+			"c1cd54af-660d-4311-8e21-2a19420355bb")
+		self.assertTrue(isinstance(objs, list))
+		self.assertTrue(0 < len(objs))
+		self.assertTrue(isinstance(objs[0], openmediavault.config.Object))
+		self.assertTrue(db.is_unique(objs[0], "uuid"))
+
 	def test_is_referenced_query(self):
 		pass
 
