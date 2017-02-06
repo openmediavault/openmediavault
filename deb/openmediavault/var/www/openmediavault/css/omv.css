@@ -357,17 +357,14 @@ div#headerrlogo {
 	0% {
 		border-color: #ff0000;
 	}
-	49% {
+	50% {
 		border-color: #ff0000;
 	}
-	50% {
-		border-color: #000000
-	}
-	99% {
+	51% {
 		border-color: #000000
 	}
 	100% {
-		border-color: #ff0000;
+		border-color: #000000
 	}
 }
 /* Grid */
