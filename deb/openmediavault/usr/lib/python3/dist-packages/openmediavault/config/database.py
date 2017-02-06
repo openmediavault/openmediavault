@@ -289,9 +289,13 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		"""
 		Convert XML elements to openmediavault.config.Object objects.
 		:param elements:	A list of XML elements.
-		:returns:			Returns a list of configuration objects or a
-							single object, depending on whether the
-							configuration object is iterable.
+		:returns:			Returns a list of openmediavault.config.Object
+							objects if the data model of the configuration
+							object defines it as iterable. The list may be
+							empty.
+							A single openmediavault.config.Object object is
+							returned for non-iterable configuration objects.
+							If no element is given, then None is returned.
 		"""
 		assert(isinstance(elements, list))
 		if self.model.is_iterable:
@@ -301,8 +305,10 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 				obj.set_dict(self._element_to_dict(element), False)
 				result.append(obj)
 		else:
-			result = openmediavault.config.Object(self.model.id)
-			result.set_dict(self._element_to_dict(elements[0]), False)
+			result = None
+			if 0 < len(elements):
+				openmediavault.config.Object(self.model.id)
+				result.set_dict(self._element_to_dict(elements[0]), False)
 		return result
 
 	def _dict_to_element(self, dictionary):
