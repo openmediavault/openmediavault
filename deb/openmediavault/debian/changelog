@@ -1,5 +1,7 @@
 openmediavault (3.0.60) stable; urgency=low
 
+  * Fix render bug in Chrome 56 (EXTJS-23628). Thanks to BobR and kleins from
+    the Sencha ExtJS forum to contribute a fix to the ExtJS community.
   * Various improvements.
   * Introduce configuration database migration backend.
   * Notify FTP TLS and BAN list configuration changes.
