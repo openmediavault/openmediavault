@@ -348,6 +348,27 @@ div#headerrlogo {
 	font-weight: bold;
 	font-size: large;
 	text-align: center;
+	-webkit-animation: x-message-box-guru-border-flash 2s infinite;
+	-moz-animation: x-message-box-guru-border-flash 2s infinite;
+	-o-animation: x-message-box-guru-border-flash 2s infinite;
+	animation: x-message-box-guru-border-flash 2s infinite;
+}
+@keyframes x-message-box-guru-border-flash {
+	0% {
+		border-color: #ff0000;
+	}
+	49% {
+		border-color: #ff0000;
+	}
+	50% {
+		border-color: #000000
+	}
+	99% {
+		border-color: #000000
+	}
+	100% {
+		border-color: #ff0000;
+	}
 }
 /* Grid */
 .x-grid-cell-boolean-icon {

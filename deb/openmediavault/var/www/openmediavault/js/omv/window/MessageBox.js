@@ -270,24 +270,6 @@ Ext.define("OMV.window.MessageBox", {
 			html: Ext.String.format("Software Failure.&nbsp;&nbsp;&nbsp;" +
 			  "Press left mouse button to continue.<br/>{0}", config.msg)
 		});
-		// Animate message box border.
-		var borderColorState = true;
-		var el = null;
-		var task = Ext.util.TaskManager.newTask({
-			interval: 1000,
-			fireOnStart: false,
-			scope: me,
-			run: function() {
-				if (!el)
-					el = Ext.get(dlg.getId() + "-body");
-				if (!borderColorState)
-					el.setStyle("border-color", "#ff0000");
-				else
-					el.setStyle("border-color", "#000000");
-				borderColorState = !borderColorState;
-			}
-		});
-		task.start();
 		// Monitor key press and mouse clicks.
 		var fn = function(e, t, eOpts) {
 			// Unregister event handlers.
@@ -295,8 +277,6 @@ Ext.define("OMV.window.MessageBox", {
 				keypress: fn,
 				click: fn
 			});
-			// Stop the task.
-			task.destroy();
 			// Remove message box.
 			dlg.close();
 			// Execute given callback function.
@@ -308,58 +288,6 @@ Ext.define("OMV.window.MessageBox", {
 			click: fn
 		});
 		return dlg.show();
-/*
-		var me = this;
-		var bodyEl = Ext.getBody();
-		// Mask the whole body.
-		bodyEl.mask();
-		// Create the message box at the top of the document body.
-		var innerElId = Ext.id() + "-inner";
-		var guruEl = bodyEl.createChild({
-			id: Ext.id() + "-outer",
-			tag: "div",
-			style: {
-				"background-color": "#000000",
-				padding: "7px"
-			},
-			children: [{
-				id: innerElId,
-				tag: "div",
-				cls: Ext.baseCSSPrefix + "message-box-guru"
-			}]
-		}, bodyEl.dom.firstChild);
-		// Display text.
-		var msg = Ext.String.format("Software Failure.&nbsp;&nbsp;&nbsp;" +
-		  "Press left mouse button to continue.<br/>{0}", config.msg);
-		guruEl.dom.firstChild.innerHTML = msg;
-		// Animate message box border.
-		var task = Ext.util.TaskManager.start({
-			interval: 1000,
-			fireOnStart: true,
-			scope: me,
-			run: function() {
-				var el = Ext.fly(innerElId);
-				var borderColor = Ext.draw.Color.fromString(
-				  el.getStyle("borderColor"));
-				if("#000000" !== borderColor.toString())
-					el.setStyle("borderColor", "#000000");
-				else
-					el.setStyle("borderColor", "#ff0000");
-			}
-		});
-		// Monitor left mouse click.
-		bodyEl.on({
-			single: true,
-			mousedown: function(e, t, eOpts) {
-				if(e.button !== 0) // Was left button clicked?
-					return;
-				// Remove message box.
-				guruEl.dom.parentNode.removeChild(guruEl.dom);
-				// Unmask document body.
-				bodyEl.unmask();
-			}
-		});
-*/
 	}
 }, function() {
 	/**

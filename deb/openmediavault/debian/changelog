@@ -13,6 +13,7 @@ openmediavault (3.0.60) stable; urgency=low
     interface names.
   * Mantis 0001666: Cannot creaet NFS shares of btrfs subvolumes with names
     prefixed by an '@' symbol.
+  * Mantis 0001671: Use CSS to animate the guru meditation box.
   * Mantis 0001673: Delete PHP session files during bootup.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 01 Jan 2017 15:57:55 +0100
