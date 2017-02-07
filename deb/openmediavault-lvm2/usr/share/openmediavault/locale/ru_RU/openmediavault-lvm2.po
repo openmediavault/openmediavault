@@ -6,7 +6,7 @@
 # Alexander Savchenko, 2014
 # Ichi <ichiperm@gmail.com>, 2012
 # mictian <ffrants@gmail.com>, 2012
-# артур Мудрых <arturmon82@gmail.com>, 2012,2015
+# Артур Мудрых <arturmon82@gmail.com>, 2012,2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"

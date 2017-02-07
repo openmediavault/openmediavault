@@ -1,0 +1,223 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Quim Farriol <quim@iscinformatica.cat>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2017-02-03 20:47+0000\n"
+"Last-Translator: Quim Farriol <quim@iscinformatica.cat>\n"
+"Language-Team: Catalan (Spain) (http://www.transifex.com/votdev/openmediavault/language/ca_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ca_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Add job"
+msgstr "Afegir tasca"
+
+msgid "Algorithmic detection"
+msgstr "Detecció Algorítmica"
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"administrator."
+msgstr "S'enviarà un e-mail amb la sortida de la comanda (si n'hi ha) a l'administrador"
+
+msgid "Antivirus"
+msgstr "Antivirus"
+
+msgid "Be verbose."
+msgstr "Mostra els detalls"
+
+msgid "Comment"
+msgstr "Comentari"
+
+msgid "Database checks"
+msgstr "Comprovació de la BBDD"
+
+msgid "Date & Time"
+msgstr "Data i Hora"
+
+msgid "Day of month"
+msgstr "Dia del mes"
+
+msgid "Day of week"
+msgstr "Dia de la setmana"
+
+msgid "Detect PUA"
+msgstr "Detectar PUA"
+
+msgid "Detect broken executables"
+msgstr "Detectar executables trencats"
+
+msgid "Edit job"
+msgstr "Editar la tasca"
+
+msgid "Enable"
+msgstr "Habilitar"
+
+msgid "Enable HTML detection and normalisation."
+msgstr "Habilitar detecció HTML i normalització."
+
+msgid "Enable archive scanning."
+msgstr "Habilitar l'escanejat de fitxers"
+
+msgid "Enable on-access virus scanning"
+msgstr "Habilitar l'escanejat de virus al accedir"
+
+msgid "Enable scanning of ELF files."
+msgstr "Habilita l'escanejat de fitxers ELF."
+
+msgid ""
+"Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
+"files."
+msgstr "Habilita l'escanejat de fitxers OLE2, com els documents de Microsoft Office i els fitxers *.msi."
+
+msgid "Enable scanning within PDF files."
+msgstr "Habilita l'escanejat de fitxers PDF."
+
+msgid "Enable the algorithmic detection."
+msgstr "Habilita la detecció algorítmica."
+
+msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr "Habilita l'escanejat de fitxers executables (PE y ELF)"
+
+msgid "Enable the detection of possibly unwanted applications."
+msgstr "Habilita la detecció d'aplicacions sospitoses."
+
+msgid "Enabled"
+msgstr "Habilitat"
+
+msgid "Every N day of month"
+msgstr "Cada dia N del mes"
+
+msgid "Every N hour"
+msgstr "Cada N hores"
+
+msgid "Every N minute"
+msgstr "Cada N minuts"
+
+msgid "Execute cron job"
+msgstr "Executar tasca programada"
+
+msgid "Extra options"
+msgstr "Opcions addicionals"
+
+msgid "Follow directory symlinks"
+msgstr "Seguir els enllaços de directoris simbòlics"
+
+msgid "Follow directory symlinks."
+msgstr "Seguir els enllaços simbòlics de directoris."
+
+msgid "Follow file symlinks"
+msgstr "Seguir els enllaços de fitxers simbòlics"
+
+msgid "Follow regular file symlinks."
+msgstr "Seguir els enllaços simbòlics de fitxers."
+
+msgid "General settings"
+msgstr "Opcions generals"
+
+msgid "Hour"
+msgstr "Hora"
+
+msgid "Infected files"
+msgstr "Fitxers infectats"
+
+msgid "Jobs"
+msgstr "Tasques"
+
+msgid "Log clean files"
+msgstr "Log de fitxers nets"
+
+msgid "Log clean files. This drastically increases the log size."
+msgstr "Log de tots els fitxers. Això incrementa dràsticament la mida del log."
+
+msgid "Message"
+msgstr "Missatge"
+
+msgid "Minute"
+msgstr "Minut"
+
+msgid "Monitor the shared folder and scan new or modified files."
+msgstr "Monitoritzar la carpeta compartida i escanejar si hi ha fitxers nous o modificats."
+
+msgid "Month"
+msgstr "Mes"
+
+msgid "Multiscan"
+msgstr "Multiscan"
+
+msgid "Number of database update checks per day. Set to 0 to disable."
+msgstr "Nombre de consultes d'actualització de la BBDD per dia. Poseu 0 per deshabilitar-ho."
+
+msgid "On-access"
+msgstr "Quan s'accedeixi"
+
+msgid "Perform a deeper analysis of executable files."
+msgstr "Fer un anàlisis profund dels executables"
+
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Per la resta de detalls visiteu la <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>pàgina del manual</a>."
+
+msgid "Quarantine"
+msgstr "Quarantena"
+
+msgid "Run"
+msgstr "Executar"
+
+msgid "Scan ELF"
+msgstr "Escanejar ELF"
+
+msgid "Scan HTML"
+msgstr "Escanejar HTML"
+
+msgid "Scan OLE2"
+msgstr "Escanejar OLE32"
+
+msgid "Scan PDF"
+msgstr "Escanejar PDF"
+
+msgid "Scan Portable Executable"
+msgstr "Escanejar auto-executables"
+
+msgid "Scan archives"
+msgstr "Escanejar fitxers"
+
+msgid "Scan the directory contents in parallel using available threads."
+msgstr "Escanejar el contingut dels directoris en paral·lel usant tots els fils disponibles."
+
+msgid "Send command output via email"
+msgstr "Enviar el resultat de la comanda per e-mail"
+
+msgid "Send email"
+msgstr "Enviar e-mail"
+
+msgid "Settings"
+msgstr "Opcions"
+
+msgid "Shared folder"
+msgstr "Carpeta compartida"
+
+msgid "The location of the files to scan."
+msgstr "Ubicació dels fitxers que s'han de comprovar"
+
+msgid "The location which is used as quarantine."
+msgstr "Ruta dels fitxers que estan en quarentena"
+
+msgid "The option, how to handle infected files."
+msgstr "Com tractar als fitxers infectats"
+
+msgid "Verbose"
+msgstr "Detallat"
+
+msgid "n/a"
+msgstr "n/a"

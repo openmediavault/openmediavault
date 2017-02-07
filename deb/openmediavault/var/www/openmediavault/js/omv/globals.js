@@ -48,6 +48,7 @@ OMV.languages = [
 	[ "cs_CZ","Čeština" ], // Czech
 	[ "es_ES","Español" ], // Spanish
 	[ "gl","Galego" ], // Galician
+	[ "ca_ES","Catalán" ], // Catalan
 	[ "hu_HU","Magyar" ], // Hungarian
 	[ "da_DA","Dansk" ], // Danish
 	[ "uk_UK","Українська" ], // Ukrainian

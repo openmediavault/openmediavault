@@ -1,0 +1,179 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Quim Farriol <quim@iscinformatica.cat>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2017-02-03 21:07+0000\n"
+"Last-Translator: Quim Farriol <quim@iscinformatica.cat>\n"
+"Language-Team: Catalan (Spain) (http://www.transifex.com/votdev/openmediavault/language/ca_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ca_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Add backup job"
+msgstr "Afegir una tasca de Backup"
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"administrator."
+msgstr "S'envia un missatge a l'administrador amb la sortida de la comanda (si n'hi ha)."
+
+msgid "Archive"
+msgstr "Fitxer"
+
+msgid "Backup jobs"
+msgstr "Tasques de Backup"
+
+msgid "Comment"
+msgstr "Comentari"
+
+msgid "Compress"
+msgstr "Comprimir"
+
+msgid "Compress file data during the transfer."
+msgstr "Comprimir les dades durant la transferència"
+
+msgid "Delete"
+msgstr "Esborrar"
+
+msgid "Delete files on the receiving side that don't exist on sender."
+msgstr "Esborrar els fitxers de la banda receptora que no existeixin en la banda emissora."
+
+msgid "Device"
+msgstr "Dispositiu"
+
+msgid "Edit backup job"
+msgstr "Editar tasca de Backup"
+
+msgid "Enable"
+msgstr "Habilitar"
+
+msgid "Enable archive mode."
+msgstr "Habilitar mode fitxer"
+
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr "Habilita aquesta opció per a mantenir els fitxers parcialment transferits, sinó , s'esborraran si s'interromp la transmissió."
+
+msgid "Enabled"
+msgstr "Habilitat"
+
+msgid "Execute backup job"
+msgstr "Executar tasca de Backup"
+
+msgid "External storage device"
+msgstr "Dispositiu d'emmagatzematge extern"
+
+msgid "Extra options"
+msgstr "Opcions addicionals"
+
+msgid "From external storage to shared folder"
+msgstr "De l'emmagatzematge extern a la carpeta compartida"
+
+msgid "From shared folder to external storage"
+msgstr "De la carpeta compartida a l'emmagatzematge extern"
+
+msgid "Keep partially transferred files"
+msgstr "Mantenir els fitxers parcialment transferits"
+
+msgid "Mode"
+msgstr "Mode"
+
+msgid ""
+"Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Per a la resta de detalls visiteu la <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>pàgina del manual</a>."
+
+msgid ""
+"Please note that the web interface is blocked until the manually started "
+"backup job has been finished. However the backup job is automatically "
+"executed in the background when the storage device is connected to the host."
+msgstr "Recorda que la interfície web quedarà bloquejada fins que l'actual backup manual finalitzi. Recorda també que si el Backup s'inicia automàticament, serà executat en segon pla quan el dispositiu d'emmagatzematge estigui connectat al host."
+
+msgid "Preserve ACLs"
+msgstr "Conservar ACLs"
+
+msgid "Preserve extended attributes"
+msgstr "Mantenir atributs estesos"
+
+msgid "Preserve modification times."
+msgstr "Mantenir l'hora de modificació"
+
+msgid "Preserve permissions"
+msgstr "Conservar permisos"
+
+msgid "Quiet"
+msgstr "Silenciós"
+
+msgid "Recurse into directories."
+msgstr "Recórrer recursivament els directoris"
+
+msgid "Recursive"
+msgstr "Recursiu"
+
+msgid "Run"
+msgstr "Executar"
+
+msgid "Scan"
+msgstr "Escanejar"
+
+msgid "Select a device ..."
+msgstr "Selecciona un dispositiu ..."
+
+msgid "Send command output via email."
+msgstr "Enviar la sortida de la comanda per e-mail"
+
+msgid "Send email"
+msgstr "Enviar e-mail"
+
+msgid ""
+"Set the destination permissions to be the same as the source permissions."
+msgstr "Establir els permisos del destí com els permisos de l'origen"
+
+msgid "Shared folder"
+msgstr "Carpeta compartida"
+
+msgid "Suppress non-error messages."
+msgstr "Suprimeix missatges que no siguin d'error"
+
+msgid "Synchronise from/to directory on external storage device."
+msgstr "Sincronitzar des del/cap al directori del dispositiu extern."
+
+msgid "The external storage device."
+msgstr "El dispositiu d'emmagatzematge extern"
+
+msgid ""
+"The shared folder content is synchronised from/to the root of the external "
+"storage device if this option is not set. The name of the directory is taken"
+" from the shared folder."
+msgstr "Si aquesta opció no està marcada, el contingut de la carpeta compartida es sincronitza des del/cap al directori arrel del dispositiu d'emmagatzematge extern. El nom del directori serà el de la carpeta compartida."
+
+msgid ""
+"The shared folder to synchronise when the external storage device is "
+"connected."
+msgstr "La carpeta compartida a sincronitzar quan el dispositiu extern es connecti."
+
+msgid "Times"
+msgstr "Vegades"
+
+msgid "USB Backup"
+msgstr "USB Backup"
+
+msgid "Update the destination ACLs to be the same as the source ACLs."
+msgstr "Actualitzar les ACLs de destí amb les ACLs de l'origen"
+
+msgid ""
+"Update the destination extended attributes to be the same as the local ones."
+msgstr "Actualitzar els atributs estesos del destí amb els locals."
+
+msgid "n/a"
+msgstr "n/a"

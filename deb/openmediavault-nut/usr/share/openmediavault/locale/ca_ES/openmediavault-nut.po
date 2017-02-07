@@ -1,0 +1,114 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Quim Farriol <quim@iscinformatica.cat>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2017-02-03 20:49+0000\n"
+"Last-Translator: Quim Farriol <quim@iscinformatica.cat>\n"
+"Language-Team: Catalan (Spain) (http://www.transifex.com/votdev/openmediavault/language/ca_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ca_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Charge"
+msgstr "Càrrega"
+
+msgid "Comment"
+msgstr "Comentari"
+
+msgid "Date & Time"
+msgstr "Data i Hora"
+
+msgid "Defines when the shutdown is initiated."
+msgstr "Defineix quan s'inicia l'apagada."
+
+msgid "Driver configuration directives"
+msgstr "Directives de configuració del driver"
+
+msgid "Enable"
+msgstr "Activar"
+
+msgid "Enable remote monitoring of the local connected UPS."
+msgstr "Activar el control remot del SAI local connectat."
+
+msgid "General settings"
+msgstr "Ajustos generals"
+
+msgid "Identifier"
+msgstr "Identificador"
+
+msgid "Load"
+msgstr "Consum"
+
+msgid "Message"
+msgstr "Missatge"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "Password"
+msgstr "Contrasenya"
+
+msgid "Program"
+msgstr "Programació"
+
+msgid "Remote monitoring"
+msgstr "Control remot"
+
+msgid "Service disabled"
+msgstr "Servei deshabilitat"
+
+msgid "Settings"
+msgstr "Opcions"
+
+msgid "Shutdown mode"
+msgstr "Mode d'apagada"
+
+msgid "Shutdown timer"
+msgstr "Temporitzador d'apagada"
+
+msgid "Temperature"
+msgstr "Temperatura"
+
+msgid "The name used to uniquely identify your UPS on this system."
+msgstr "El nom utilitzat per a identificar de forma única SAI en aquest sistema."
+
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr "El temps en segons fins que s'inicii l'apagada. Si l'alimentació del SAI torna abans que s'acabi, l'apagada es cancel·larà."
+
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr "Per obtenir més informació de com configurar el SAI visiteu el manual <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>\"Network UPS Tools \" documentació</a>."
+
+msgid "UPS"
+msgstr "SAI"
+
+msgid "UPS goes on battery"
+msgstr "El SAI està usant la bateria"
+
+msgid "UPS reaches low battery"
+msgstr "El SAI té la bateria baixa"
+
+msgid "Used for remote authentication."
+msgstr "Utilitzat per a autenticació remota."
+
+msgid "Username"
+msgstr "Nom d'usuari"
+
+msgid "Variables"
+msgstr "Variables"
+
+msgid "Voltage"
+msgstr "Tensió"

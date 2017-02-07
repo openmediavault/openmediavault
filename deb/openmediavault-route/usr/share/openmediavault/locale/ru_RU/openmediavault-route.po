@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Alexander Savchenko <>, 2013
-# артур Мудрых <arturmon82@gmail.com>, 2012
+# Артур Мудрых <arturmon82@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
