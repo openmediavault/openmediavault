@@ -18,7 +18,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-__all__ = [ "bool", "getenv" ]
+__all__ = [ "bool", "getenv", "setenv" ]
 
 import re
 import openmediavault.settings
@@ -44,7 +44,7 @@ def getenv(key, default=None, type="str"):
 					default. Defaults to None.
 	:param type:	The type in which the result value is converted.
 					Defaults to 'str'.
-    :returns:		The value of the requested environment variable.
+	:returns:		Returns the value of the requested environment variable.
 	"""
 	value = openmediavault.settings.Environment.get_str(key, default)
 	if "str" == type:
@@ -58,3 +58,12 @@ def getenv(key, default=None, type="str"):
 	else:
 		raise TypeError("Converting to '%s' is not supported." % type)
 	return value;
+
+def setenv(key, value):
+	"""
+	Set an environment variable.
+	:param key:		The name of the variable.
+	:param value:	The value to set.
+	:returns:		Returns the old value if it exists, otherwise None.
+	"""
+	return openmediavault.settings.Environment.set(key, value)

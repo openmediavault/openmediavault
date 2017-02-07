@@ -30,6 +30,7 @@ __all__ = [
 ]
 
 import abc
+import os
 import lxml.etree
 import openmediavault.collections
 import openmediavault.config.datamodel
@@ -256,8 +257,13 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		:returns:	Returns a list of XML elements that match the specified
 					XPath query.
 		"""
-		root_element = lxml.etree.parse(openmediavault.getenv(
-			"OMV_CONFIG_FILE"))
+		# Get the path of the configuration file.
+		config_file = openmediavault.getenv("OMV_CONFIG_FILE")
+		# Make sure the file exists, otherwise throw an exception.
+		os.stat(config_file)
+		# Parse the XML configuration file.
+		root_element = lxml.etree.parse(config_file)
+		# Execute the XPath query and return the matching elements.
 		return root_element.xpath(self.xpath)
 
 	def _element_to_dict(self, element):

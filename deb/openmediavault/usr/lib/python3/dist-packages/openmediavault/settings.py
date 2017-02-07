@@ -52,8 +52,8 @@ class Environment(object):
 			return globals_dict[key]
 		if default is None:
 			raise KeyError(
-			  "The environment variable '{}' does not exist in '{}'".format(
-			  key, DEFAULT_FILE))
+				"The environment variable '%s' does not exist in '%s'" %
+				(key, DEFAULT_FILE))
 		return default
 
 	def get_str(key, default=None):
@@ -72,3 +72,10 @@ class Environment(object):
 		value = __class__.get(key, default)
 		return float(value)
 
+	def set(key, value):
+		globals_dict = globals()
+		result = None
+		if key in globals_dict:
+			result = globals_dict[key]
+		globals_dict[key] = value
+		return result

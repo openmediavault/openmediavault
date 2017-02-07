@@ -37,7 +37,7 @@ class DatabaseTestCase(unittest.TestCase):
 		db = openmediavault.config.Database()
 		objs = db.get("conf.system.notification.notification",
 			"c1cd54af-660d-4311-8e21-2a19420355bb")
-		self.assertTrue(isinstance(objs, list))
+		self.assertIsInstance(objs, list)
 		self.assertTrue(0 < len(objs))
 		self.assertTrue(isinstance(objs[0], openmediavault.config.Object))
 		self.assertEqual(objs[0].get("id"), "monitprocevents")
@@ -50,7 +50,7 @@ class DatabaseTestCase(unittest.TestCase):
 				'arg0': 'uuid',
 				'arg1': '03dc067d-1310-45b5-899f-b471a0ae9233'
 			}))
-		self.assertTrue(isinstance(objs, list))
+		self.assertIsInstance(objs, list)
 		self.assertEqual(len(objs), 1)
 
 	def test_get_by_filter_2(self):
@@ -61,7 +61,7 @@ class DatabaseTestCase(unittest.TestCase):
 				'arg0': 'id',
 				'arg1': 'monit'
 			}))
-		self.assertTrue(isinstance(objs, list))
+		self.assertIsInstance(objs, list)
 		self.assertEqual(len(objs), 5)
 
 	def test_exists(self):
@@ -123,9 +123,9 @@ class DatabaseTestCase(unittest.TestCase):
 		db = openmediavault.config.Database()
 		objs = db.get("conf.system.notification.notification",
 			"c1cd54af-660d-4311-8e21-2a19420355bb")
-		self.assertTrue(isinstance(objs, list))
+		self.assertIsInstance(objs, list)
 		self.assertTrue(0 < len(objs))
-		self.assertTrue(isinstance(objs[0], openmediavault.config.Object))
+		self.assertIsInstance(objs[0], openmediavault.config.Object)
 		self.assertTrue(db.is_unique(objs[0], "uuid"))
 
 	def test_is_referenced_query(self):
