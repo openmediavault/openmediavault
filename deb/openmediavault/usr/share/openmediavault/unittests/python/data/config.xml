@@ -1,0 +1,1023 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <!-- Configuration version -->
+  <version>0.1</version>
+  <!-- System configuration - Do not add any configuration here -->
+  <system>
+    <apt>
+      <distribution>
+        <!--
+				<proposed>0|1</proposed>
+				<partner>0|1</partner>
+				-->
+        <proposed>0</proposed>
+        <partner>0</partner>
+      </distribution>
+    </apt>
+    <powermanagement>
+      <!--
+			<cpufreq>0|1</cpufreq>
+			<powerbtn>nothing|shutdown|standby</powerbtn>
+			-->
+      <cpufreq>1</cpufreq>
+      <powerbtn>nothing</powerbtn>
+    </powermanagement>
+    <monitoring>
+      <perfstats>
+        <!--
+				<enable>0|1</enable>
+				-->
+        <enable>1</enable>
+      </perfstats>
+    </monitoring>
+    <time>
+      <timezone>Europe/Berlin</timezone>
+      <ntp>
+        <enable>0</enable>
+        <timeservers>pool.ntp.org</timeservers>
+      </ntp>
+    </time>
+    <email>
+      <!--
+			<enable>0|1</enable>
+			<tls>0|1</tls>
+			-->
+      <enable>0</enable>
+      <server></server>
+      <port>25</port>
+      <tls>0</tls>
+      <sender></sender>
+      <authentication>
+        <!--
+				<enable>0|1</enable>
+				-->
+        <enable>0</enable>
+        <username></username>
+        <password></password>
+      </authentication>
+      <primaryemail></primaryemail>
+      <secondaryemail></secondaryemail>
+    </email>
+    <notification>
+      <notifications>
+        <!--
+				<notification>
+					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<id>xxx</id>
+					<enable>0|1</enable>
+				</notification>
+				-->
+        <notification>
+          <uuid>c1cd54af-660d-4311-8e21-2a19420355bb</uuid>
+          <id>monitprocevents</id>
+          <enable>1</enable>
+        </notification>
+        <notification>
+          <uuid>8deb96bd-10d6-4eb8-9e3d-0938f2bcbb30</uuid>
+          <id>monitloadavg</id>
+          <enable>1</enable>
+        </notification>
+        <notification>
+          <uuid>03dc067d-1310-45b5-899f-b471a0ae9233</uuid>
+          <id>monitmemoryusage</id>
+          <enable>1</enable>
+        </notification>
+        <notification>
+          <uuid>fbf7973e-57a6-4c4a-8b7d-353653b596a5</uuid>
+          <id>monitcpuusage</id>
+          <enable>1</enable>
+        </notification>
+        <notification>
+          <uuid>d1ce47d1-d8d5-4f43-9f5c-36a30d818734</uuid>
+          <id>monitfilesystems</id>
+          <enable>1</enable>
+        </notification>
+        <notification>
+          <uuid>9be77408-d896-4bf5-9a4f-1adcc16381ec</uuid>
+          <id>mdadm</id>
+          <enable>1</enable>
+        </notification>
+        <notification>
+          <uuid>bd784490-a15c-47a9-9930-9f5897804654</uuid>
+          <id>smartmontools</id>
+          <enable>1</enable>
+        </notification>
+        <notification>
+          <uuid>394cd565-e463-4094-a6ab-12e80270e9b4</uuid>
+          <id>cronapt</id>
+          <enable>1</enable>
+        </notification>
+      </notifications>
+    </notification>
+    <certificates>
+      <!--
+			<sslcertificate>
+				<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+				<certificate>xxx</certificate>
+				<privatekey>xxx</privatekey>
+				<comment>xxx</comment>
+			</sslcertificate>
+			<sshcertificate>
+				<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+				<publickey>xxx</publickey>
+				<privatekey>xxx</privatekey>
+				<comment>xxx</comment>
+			</sshcertificate>
+			-->
+      <sslcertificate>
+        <uuid>b7c10cca-d2b7-4651-a358-712410323ffe</uuid>
+        <certificate>-----BEGIN CERTIFICATE-----
+MIIFGzCCAwOgAwIBAgIJAL1NjHz0JrJNMA0GCSqGSIb3DQEBCwUAMCQxCzAJBgNV
+BAYTAkRFMRUwEwYDVQQDDAx2bXBjMDEubG9jYWwwHhcNMTcwMTIzMTAwODA4WhcN
+MTgwMTIzMTAwODA4WjAkMQswCQYDVQQGEwJERTEVMBMGA1UEAwwMdm1wYzAxLmxv
+Y2FsMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAwrI/l387I8k1l+AH
+azQDZ0q7E0Eeqs+hTEEWw+XRtwdYUkWCUKB6l57LjlbQnLEXG9k5T9fxdGHJiCWV
+rnIVhaY323S0sdeMI/qL5fn+G/35R7K+fOhF8zreA6hcC520vwyYX5cMS0rhdBcy
+g4pM/MPLSWaVa8w1bpXNa7VCxdX1mXP2tab7cXrUR+lLjG6RWx4nqaIuEVr6X6wJ
+tgD1Hg4oeFsasZzMHXtaCuEk1yLPcNpT7gm3JYrTUSApWKPDk9PeCSw5G3J1CCen
+dAxx16vywSHdwR83cI8VQ7D5ZdvoJcNTpAH/iNq8zlYfGnp/nbyO0WG7hH664nsJ
+r+B4PgC+f4mVFPGjojjh4zWKk7rKvQVqRhBMG7/9tIwV0wdA6axUlY71O7tvpAuO
+V7PyhxfozPVgq9a5tZ5QT90NWEgEx2ZzHvQ9KAHGd/igGnbbnNM9BCbYGr1tdOcx
+BlKMaxBK0w69IpmQa2U/eY3sp+W00rEYILFO8E3dgPgMfedyP+WhtXWAmfrq7fSr
+0ggNsKtxsq7jE3WRhhXsJ7MknMQ1tt0e8ZOIyWoc2fi3dFvgKdkEUbz5DoAZY2UO
+sEuesutpS+jBzC1rym6sNWaBQ001SFhj3iYUpce0jZXaTsNxRedycBfCAwuRbddI
+35BATuFPc7qYLKQ+YGh/QfVG2JcCAwEAAaNQME4wHQYDVR0OBBYEFFYyhOyEJyt6
+LQVzjVAwc16zBMQnMB8GA1UdIwQYMBaAFFYyhOyEJyt6LQVzjVAwc16zBMQnMAwG
+A1UdEwQFMAMBAf8wDQYJKoZIhvcNAQELBQADggIBAEjKcCuQJv4mHvKm2r97kYLO
+zhNmBZNFOqxT096fFplvqRC1Hm5KMSZvvpMjAHX+N3qM35rND5WNIsnO4PnAi0MN
+JJQLfH9G6eDJnrbVJSr4sYZfRCFZV961uPaUDq5cNP12cT5z3djcatDuqllFiF7D
+4UODlqzW5HVRJZ2bhOj2+MA8bpbaBNkr0653dQtNFRNE5HVwKuESVPEVuvt2/U4B
+Ts7njMZIOxNgDy7S1xb5RNT1CeNLnh1a+KvnBQMi/mkcZWO2DdNSsj4GyHXc7nlU
+ack+P75X3Cdfl34eFlvVjrwBTgcl9rgwV9x7wPZTsSZFcId+7p+fAVZScHpoceXG
+JEqfN9/x/fZqjFQGXTSi7/v+NxF5d3U1BdgAjCpYYErfdqkskBpAV1uFzi8x3h8z
+RkzAazOxXhBkjeDhM1rSKev8tQmWhHoWq4/zwtZL91eHm8/RBq+oBVu/X1el0QWe
+thmVXxxaJGRjcChV3R/6QpS/rnIrUb02xDusK26re31AuzuxK5ZLBLOoejWWok8B
+X/9+oxzNG/42amWRPqqj9j+Gcadu5q+J17PZxBpWDaxf/u/BLTD+bwkF2R/f6KD2
+hLrEdfBB61IkXjbXs1u+2OmNwy0+RH5mAqU9ewA+KWT3lDJyYnLm5HobQDjreAXL
+ZEj3xOotdQbOz/l15dk7
+-----END CERTIFICATE-----
+</certificate>
+        <privatekey>-----BEGIN PRIVATE KEY-----
+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
+iSrj/B/KRCZkkrDdYcDAvqRs6dA+ScRZ
+-----END PRIVATE KEY-----
+</privatekey>
+        <comment>/C=DE/CN=vmpc01.local</comment>
+      </sslcertificate>
+    </certificates>
+    <network>
+      <dns>
+        <hostname>vmpc01</hostname>
+        <domainname>local</domainname>
+      </dns>
+      <interfaces>
+        <!--
+				<interface>
+					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<type>ethernet|bond|vlan|wireless|...</type>
+					<devicename>xxx</devicename>
+					<method>dhcp|static|manual</method>
+					<address>xxx.xxx.xxx.xxx</address>
+					<netmask>xxx.xxx.xxx.xxx</netmask>
+					<gateway>xxx.xxx.xxx.xxx</gateway>
+					<method6>auto|dhcp|static|manual</method6>
+					<address6>xxxx:xxxx:...:xxxx</address6>
+					<netmask6>0-128</netmask6>
+					<gateway6>xxxx:xxxx:...:xxxx</gateway6>
+					<dnsnameservers></dnsnameservers>
+					<dnssearch></dnssearch>
+					<mtu>0...n</mtu>
+					<wol>0|1</wol>
+					<options></options>
+					<comment>xxx</comment>
+					# Optional arguments by type:
+					# - ethernet
+					# - bond
+					<slaves>((eth|wlan)\d+,)*(eth|wlan)\d+</slaves>
+					<bondprimary>(eth|wlan)\d+</bondprimary>
+					<bondmode>0|1|2|3|4|5|6</bondmode>
+					<bondmiimon>0</bondmiimon>
+					<bonddowndelay>0</bonddowndelay>
+					<bondupdelay>0</bondupdelay>
+					# - vlan
+					<vlanid>1-4095</vlanid>
+					<vlanrawdevice>(eth|wlan|bond)\d+</vlanrawdevice>
+					# - wireless
+					<wpassid>xxx</wpassid>
+					<wpapsk>xxx</wpapsk>
+				</interface>
+				-->
+        <interface>
+          <uuid>6d5cb6c8-5162-4d45-a1c7-3cf78c769206</uuid>
+          <type>ethernet</type>
+          <devicename>eno16777736</devicename>
+          <method>dhcp</method>
+          <address></address>
+          <netmask></netmask>
+          <gateway></gateway>
+          <method6>manual</method6>
+          <address6></address6>
+          <netmask6>64</netmask6>
+          <gateway6></gateway6>
+          <dnsnameservers></dnsnameservers>
+          <dnssearch></dnssearch>
+          <mtu>0</mtu>
+          <wol>0</wol>
+          <options></options>
+          <comment></comment>
+          <slaves></slaves>
+          <bondprimary></bondprimary>
+          <bondmode>1</bondmode>
+          <bondmiimon>0</bondmiimon>
+          <bonddowndelay>0</bonddowndelay>
+          <bondupdelay>0</bondupdelay>
+          <vlanid>1</vlanid>
+          <vlanrawdevice></vlanrawdevice>
+          <wpassid></wpassid>
+          <wpapsk></wpapsk>
+        </interface>
+      </interfaces>
+      <iptables>
+        <!--
+				<rule>
+					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<family>inet|inet6</family>
+					<rulenum>1...x</rulenum>
+					<chain>INPUT|OUTPUT</chain>
+					<action>ACCEPT|REJECT|DROP|LOG|</action>
+					<source>[!]?xxx.xxx.xxx.xxx|[!]?xxx.xxx.xxx.xxx/xx|xxx.xxx.xxx.xxx-yyy.yyy.yyy.yyy</source>
+					<sport>xxx|xxx-yyy</sport>
+					<destination>[!]?xxx.xxx.xxx.xxx|[!]?xxx.xxx.xxx.xxx/xx|xxx.xxx.xxx.xxx-yyy.yyy.yyy.yyy</destination>
+					<dport>xxx|xxx-yyy</dport>
+					<protocol>[!]?(tcp|udp|icmp|icmpv6)|all</protocol>
+					<extraoptions>xxx</extraoptions>
+					<comment>xxx</comment>
+				</rule>
+				-->
+      </iptables>
+      <proxy>
+        <http>
+          <enable>0</enable>
+          <host></host>
+          <port>8080</port>
+          <username></username>
+          <password></password>
+        </http>
+        <https>
+          <enable>0</enable>
+          <host></host>
+          <port>4443</port>
+          <username></username>
+          <password></password>
+        </https>
+        <ftp>
+          <enable>0</enable>
+          <host></host>
+          <port>2121</port>
+          <username></username>
+          <password></password>
+        </ftp>
+      </proxy>
+    </network>
+    <usermanagement>
+      <homedirectory>
+        <enable>0</enable>
+        <sharedfolderref></sharedfolderref>
+      </homedirectory>
+      <users>
+        <!--
+				<user>
+					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<name>xxx</name>
+					<email>xxx</email>
+					<disallowusermod>0</disallowusermod>
+					<sshpubkeys>
+						<sshpubkey>|xxx</sshpubkey>
+					</sshpubkeys>
+				</user>
+				-->
+        <user>
+          <uuid>d9e393ea-0bae-4e48-80be-0ba407c1558a</uuid>
+          <name>test1</name>
+          <email></email>
+          <disallowusermod>0</disallowusermod>
+          <sshpubkeys></sshpubkeys>
+        </user>
+        <user>
+          <uuid>75ee0128-965b-4097-a857-8ca994b0de87</uuid>
+          <name>test2</name>
+          <email></email>
+          <disallowusermod>0</disallowusermod>
+          <sshpubkeys></sshpubkeys>
+        </user>
+      </users>
+      <groups>
+        <!--
+				<group>
+					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<name>xxx</name>
+					<comment>xxx</comment>
+				</group>
+				-->
+        <group>
+          <uuid>9634637b-9083-472d-b7e2-fb280d57fb5d</uuid>
+          <name>group1</name>
+          <comment></comment>
+        </group>
+      </groups>
+    </usermanagement>
+    <crontab>
+      <!--
+			<job>
+				<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+				<enable>0|1</enable>
+				<execution>exactly|hourly|daily|weekly|monthly|yearly|reboot</execution>
+				<sendemail>0|1<sendemail>
+				<type>reboot|shutdown|standby|userdefined</type>
+				<comment>xxx</comment>
+				<minute>[00-59|*]</minute>
+				<everynminute>0|1</everynminute>
+				<hour>[00-23|*]</hour>
+				<everynhour>0|1</everynhour>
+				<dayofmonth>[01-31|*]</dayofmonth>
+				<everyndayofmonth>0|1</everyndayofmonth>
+				<month>[01-12|*]</month>
+				<dayofweek>[1-7|*]</dayofweek>
+				<username>xxx</username>
+				<command>xxx</command>
+			</job>
+			-->
+    </crontab>
+    <syslog>
+      <remote>
+        <!--
+				<protocol>udp|tcp</protocol>
+				-->
+        <enable>0</enable>
+        <host></host>
+        <port>514</port>
+        <protocol>udp</protocol>
+      </remote>
+    </syslog>
+    <storage>
+      <!--
+			<hdparm>
+				<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+				<devicefile>/dev/xxx</devicefile>
+				<apm>0 = disable|1-255<apm>
+				<aam>0|128|254</aam>
+				<spindowntime>0 = disabled|1-254</spindowntime>
+				<writecache>0|1</writecache>
+			</hdparm>
+			-->
+      <filesystem>
+        <!--
+				<quota>
+					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<fsuuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|xxxx-xxxx</fsuuid>
+					<usrquota>
+						<name>xxx</name>
+						<bsoftlimit>0</bsoftlimit>
+						<bhardlimit>xxx</bhardlimit>
+						<isoftlimit>0</isoftlimit>
+						<ihardlimit>0</ihardlimit>
+					</usrquota>
+					<usrquota>
+						...
+					</usrquota>
+					<grpquota>
+						<name>xxx</name>
+						<bsoftlimit>0</bsoftlimit>
+						<bhardlimit>xxx</bhardlimit>
+						<isoftlimit>0</isoftlimit>
+						<ihardlimit>0</ihardlimit>
+					</grpquota>
+					<grpquota>
+						...
+					</grpquota>
+				</quota>
+				<quota>
+					...
+				</quota>
+				-->
+      </filesystem>
+      <hdparm>
+        <uuid>b49702db-8d8a-4683-b7b4-02cfc78f228a</uuid>
+        <devicefile>/dev/disk/by-id/ata-VMware_Virtual_SATA_Hard_Drive_02000000000000000001</devicefile>
+        <apm>0</apm>
+        <aam>0</aam>
+        <spindowntime>0</spindowntime>
+        <writecache>1</writecache>
+      </hdparm>
+      <hdparm>
+        <uuid>6cb15d36-afde-4fa6-a93d-15c3cb7f14dd</uuid>
+        <devicefile>/dev/sde</devicefile>
+        <apm>0</apm>
+        <aam>0</aam>
+        <spindowntime>0</spindowntime>
+        <writecache>1</writecache>
+      </hdparm>
+      <hdparm>
+        <uuid>d168b09d-c89d-485f-ac09-efef3454f341</uuid>
+        <devicefile>/dev/disk/by-id/ata-VMware_Virtual_SATA_Hard_Drive_00000000000000000001</devicefile>
+        <apm>0</apm>
+        <aam>0</aam>
+        <spindowntime>0</spindowntime>
+        <writecache>1</writecache>
+      </hdparm>
+    </storage>
+    <fstab>
+      <!--
+			<mntent>
+				<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+				<fsname>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|xxxx-xxxx|/dev/xxx</fsname>
+				<dir>/xxx/yyy/zzz</dir>
+				<type>none|ext2|ext3|ext4|xfs|jfs|iso9660|udf|...</type>
+				<opts></opts>
+				<freq>0</freq>
+				<passno>0|1|2</passno>
+				<hidden>0|1</hidden>
+			</mntent>
+			-->
+      <mntent>
+        <uuid>911b42e9-8ca0-4d8e-91af-0603cc12af9a</uuid>
+        <fsname>fc056a72-3dd8-4b86-9340-c55ebb6c4f8e</fsname>
+        <dir>/media/fc056a72-3dd8-4b86-9340-c55ebb6c4f8e</dir>
+        <type>ext4</type>
+        <opts>defaults,nofail,user_xattr,noexec,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0,acl</opts>
+        <freq>0</freq>
+        <passno>2</passno>
+        <hidden>0</hidden>
+      </mntent>
+      <mntent>
+        <uuid>48d04257-48b8-42ab-8e9c-26f5e47d2054</uuid>
+        <fsname>3983e163-67af-481a-a639-355bb9d82c89</fsname>
+        <dir>/media/3983e163-67af-481a-a639-355bb9d82c89</dir>
+        <type>ext4</type>
+        <opts>defaults,nofail,user_xattr,noexec,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0,discard,acl</opts>
+        <freq>0</freq>
+        <passno>2</passno>
+        <hidden>0</hidden>
+      </mntent>
+      <mntent>
+        <uuid>bc50270d-aedd-4c4d-8e76-2367a0a8867f</uuid>
+        <fsname>/media/3983e163-67af-481a-a639-355bb9d82c89/data</fsname>
+        <dir>/export/data</dir>
+        <type>none</type>
+        <opts>bind,nofail</opts>
+        <freq>0</freq>
+        <passno>0</passno>
+        <hidden>0</hidden>
+      </mntent>
+    </fstab>
+    <shares>
+      <!--
+			<sharedfolder>
+				<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+				<name>xxx</name>
+				<comment>xxx</comment>
+				<mntentref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</mntentref>
+				<reldirpath>xxx</reldirpath>
+				<privileges>
+					<privilege>
+						<type>user|group</type>
+						<name>xxx</name>
+						<perms>0 = no permission|5 = read and execute|7 = read, write and execute</perms>
+					</privilege>
+				</privileges>
+			</sharedfolder>
+			-->
+      <sharedfolder>
+        <uuid>339bd101-5744-4017-9392-01a156f15ab9</uuid>
+        <name>data</name>
+        <comment></comment>
+        <mntentref>48d04257-48b8-42ab-8e9c-26f5e47d2054</mntentref>
+        <reldirpath>data/</reldirpath>
+        <privileges>
+          <privilege>
+            <type>user</type>
+            <name>test1</name>
+            <perms>7</perms>
+          </privilege>
+          <privilege>
+            <type>user</type>
+            <name>test2</name>
+            <perms>0</perms>
+          </privilege>
+        </privileges>
+      </sharedfolder>
+      <sharedfolder>
+        <uuid>1e1b3de5-c898-471f-af98-323153459ed6</uuid>
+        <name>private</name>
+        <comment></comment>
+        <mntentref>911b42e9-8ca0-4d8e-91af-0603cc12af9a</mntentref>
+        <reldirpath>private/</reldirpath>
+        <privileges>
+          <privilege>
+            <type>user</type>
+            <name>test1</name>
+            <perms>5</perms>
+          </privilege>
+          <privilege>
+            <type>user</type>
+            <name>test2</name>
+            <perms>7</perms>
+          </privilege>
+        </privileges>
+      </sharedfolder>
+    </shares>
+  </system>
+  <!-- Web control panel configuration - Do not add any configuration here -->
+  <webadmin>
+    <port>80</port>
+    <enablessl>0</enablessl>
+    <sslport>443</sslport>
+    <forcesslonly>0</forcesslonly>
+    <sslcertificateref></sslcertificateref>
+    <timeout>5</timeout>
+  </webadmin>
+  <!-- Plugin configuration area -->
+  <services>
+    <ssh>
+      <enable>1</enable>
+      <port>22</port>
+      <passwordauthentication>1</passwordauthentication>
+      <pubkeyauthentication>1</pubkeyauthentication>
+      <permitrootlogin>1</permitrootlogin>
+      <tcpforwarding>0</tcpforwarding>
+      <compression>0</compression>
+      <extraoptions></extraoptions>
+    </ssh>
+    <nfs>
+      <enable>0</enable>
+      <numproc>8</numproc>
+      <shares>
+        <share>
+          <uuid>e60dcf95-ae8c-4def-91b9-85159383162c</uuid>
+          <sharedfolderref>339bd101-5744-4017-9392-01a156f15ab9</sharedfolderref>
+          <mntentref>bc50270d-aedd-4c4d-8e76-2367a0a8867f</mntentref>
+          <client>192.168.178.0/24</client>
+          <options>ro</options>
+          <comment></comment>
+          <extraoptions>subtree_check,secure</extraoptions>
+        </share>
+      </shares>
+    </nfs>
+    <ftp>
+      <enable>1</enable>
+      <port>21</port>
+      <maxclients>5</maxclients>
+      <maxconnectionsperhost>4</maxconnectionsperhost>
+      <maxloginattempts>1</maxloginattempts>
+      <timeoutidle>1200</timeoutidle>
+      <displaylogin></displaylogin>
+      <allowforeignaddress>0</allowforeignaddress>
+      <allowrestart>0</allowrestart>
+      <identlookups>0</identlookups>
+      <usereversedns>0</usereversedns>
+      <rootlogin>1</rootlogin>
+      <masqueradeaddress></masqueradeaddress>
+      <dynmasqrefresh>0</dynmasqrefresh>
+      <usepassiveports>0</usepassiveports>
+      <minpassiveports>49152</minpassiveports>
+      <maxpassiveports>65534</maxpassiveports>
+      <limittransferrate>0</limittransferrate>
+      <maxuptransferrate>0</maxuptransferrate>
+      <maxdowntransferrate>0</maxdowntransferrate>
+      <anonymous>0</anonymous>
+      <requirevalidshell>0</requirevalidshell>
+      <transferlog>0</transferlog>
+      <extraoptions></extraoptions>
+      <shares>
+        <share>
+          <uuid>b95b88a5-6e5a-4613-a602-1750c4fe1716</uuid>
+          <enable>1</enable>
+          <sharedfolderref>339bd101-5744-4017-9392-01a156f15ab9</sharedfolderref>
+          <extraoptions></extraoptions>
+          <comment></comment>
+        </share>
+      </shares>
+      <modules>
+        <mod_ban></mod_ban>
+        <mod_tls>
+          <enable>1</enable>
+          <required>1</required>
+          <sslcertificateref>b7c10cca-d2b7-4651-a358-712410323ffe</sslcertificateref>
+          <nocertrequest>0</nocertrequest>
+          <nosessionreuserequired>0</nosessionreuserequired>
+          <useimplicitssl>0</useimplicitssl>
+          <extraoptions></extraoptions>
+        </mod_tls>
+      </modules>
+    </ftp>
+    <smart>
+      <!--
+			<powermode>never|sleep|standby|idle</powermode>
+			-->
+      <enable>0</enable>
+      <interval>1800</interval>
+      <powermode>never</powermode>
+      <tempdiff>0</tempdiff>
+      <tempinfo>0</tempinfo>
+      <tempcrit>0</tempcrit>
+      <monitor>
+        <!--
+				<device>
+					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<enable>0|1</enable>
+					<devicefile>/dev/xxx</devicefile>
+					<devicetype>|sat|cciss|xxx</devicetype>
+				</device>
+				-->
+        <device>
+          <uuid>9739f1af-9727-406e-9ad8-d6a233e01c19</uuid>
+          <enable>1</enable>
+          <devicefile>/dev/disk/by-id/ata-VMware_Virtual_SATA_Hard_Drive_00000000000000000001</devicefile>
+          <devicetype></devicetype>
+        </device>
+        <device>
+          <uuid>6bf22bea-fc81-4966-9a7c-baa4265dbc8f</uuid>
+          <enable>1</enable>
+          <devicefile>/dev/disk/by-id/ata-VMware_Virtual_SATA_Hard_Drive_02000000000000000001</devicefile>
+          <devicetype></devicetype>
+        </device>
+        <device>
+          <uuid>7b077bb3-ce2b-4b1c-b5c8-017c6e262225</uuid>
+          <enable>1</enable>
+          <devicefile>/dev/disk/by-id/ata-VMware_Virtual_SATA_Hard_Drive_01000000000000000001</devicefile>
+          <devicetype></devicetype>
+        </device>
+        <device>
+          <uuid>6f1edc19-eb97-402b-a711-415edbda4434</uuid>
+          <devicefile>/dev/disk/by-id/ata-VMware_Virtual_SATA_Hard_Drive_02000000000000000001</devicefile>
+          <enable></enable>
+          <devicetype></devicetype>
+        </device>
+        <device>
+          <uuid>020440c4-fe94-4776-91e3-57153e5904fa</uuid>
+          <devicefile>/dev/sde</devicefile>
+          <enable></enable>
+          <devicetype></devicetype>
+        </device>
+      </monitor>
+      <scheduledtests>
+        <!--
+				<job>
+					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<enable>0|1</enable>
+					<devicefile>/dev/xxx</devicefile>
+					<devicetype>|sat|cciss|xxx</devicetype>
+					<type>S|L|C|O</type>
+					<month>[01-12|*]</month>
+					<dayofmonth>[01-31|*]</dayofmonth>
+					<dayofweek>[1-7|*]</dayofweek>
+					<hour>[00-23|*]</hour>
+					<comment>xxx</comment>
+				</job>
+				-->
+        <job>
+          <uuid>1253693f-2c7a-410d-a6c4-782474e169fb</uuid>
+          <enable>1</enable>
+          <devicefile>/dev/disk/by-id/ata-VMware_Virtual_SATA_Hard_Drive_00000000000000000001</devicefile>
+          <type>S</type>
+          <hour>06</hour>
+          <month>*</month>
+          <dayofmonth>*</dayofmonth>
+          <dayofweek>*</dayofweek>
+          <comment></comment>
+        </job>
+      </scheduledtests>
+    </smart>
+    <tftp>
+      <enable>0</enable>
+      <port>69</port>
+      <retransmit>1000000</retransmit>
+      <blocksize>512</blocksize>
+      <allownewfiles>0</allownewfiles>
+      <sharedfolderref></sharedfolderref>
+      <extraoptions></extraoptions>
+    </tftp>
+    <smb>
+      <enable>0</enable>
+      <workgroup>WORKGROUP</workgroup>
+      <serverstring>%h server</serverstring>
+      <loglevel>0</loglevel>
+      <usesendfile>1</usesendfile>
+      <aio>1</aio>
+      <nullpasswords>0</nullpasswords>
+      <localmaster>1</localmaster>
+      <timeserver>0</timeserver>
+      <winssupport>0</winssupport>
+      <winsserver></winsserver>
+      <homesenable>1</homesenable>
+      <homesbrowseable>1</homesbrowseable>
+      <extraoptions></extraoptions>
+      <shares>
+        <share>
+          <uuid>7cd74302-3820-424d-bb18-e66f16b345cd</uuid>
+          <enable>1</enable>
+          <sharedfolderref>339bd101-5744-4017-9392-01a156f15ab9</sharedfolderref>
+          <comment></comment>
+          <guest>no</guest>
+          <readonly>0</readonly>
+          <browseable>1</browseable>
+          <recyclebin>0</recyclebin>
+          <recyclemaxsize>0</recyclemaxsize>
+          <recyclemaxage>0</recyclemaxage>
+          <hidedotfiles>1</hidedotfiles>
+          <inheritacls>1</inheritacls>
+          <inheritpermissions>0</inheritpermissions>
+          <easupport>0</easupport>
+          <storedosattributes>0</storedosattributes>
+          <hostsallow></hostsallow>
+          <hostsdeny></hostsdeny>
+          <audit>0</audit>
+          <extraoptions></extraoptions>
+        </share>
+      </shares>
+    </smb>
+    <rsync>
+      <server>
+        <enable>0</enable>
+        <port>873</port>
+        <extraoptions></extraoptions>
+        <modules>
+          <!--
+					<module>
+						<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+						<enable>0|1</enable>
+						<sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
+						<uid>xxx</uid>
+						<gid>xxx</gid>
+						<name>xxx</name>
+						<comment>xxx</comment>
+						<readonly>0</readonly>
+						<writeonly>0</writeonly>
+						<maxconnections>0</maxconnections>
+						<list>1</list>
+						<hostsallow></hostsallow>
+						<hostsdeny></hostsdeny>
+						<extraoptions></extraoptions>
+						<authusers>0|1</authusers>
+						<usechroot>0|1</usechroot>
+						<users>
+							<user>
+								<name>xxx</name>
+								<password>xxx</password>
+							<user>
+						<users>
+					</module>
+					-->
+        </modules>
+      </server>
+      <jobs>
+        <!--
+				<job>
+					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<enable>0|1</enable>
+					<sendemail>0|1<sendemail>
+					<comment>xxx</comment>
+					<type>local|remote</type>
+					<src>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|xxx</src>
+					<dest>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|xxx</dest>
+					<minute>[00-59|*]</minute>
+					<everynminute>0|1</everynminute>
+					<hour>[00-23|*]</hour>
+					<everynhour>0|1</everynhour>
+					<dayofmonth>[01-31|*]</dayofmonth>
+					<everyndayofmonth>0|1</everyndayofmonth>
+					<month>[01-12|*]</month>
+					<dayofweek>[1-7|*]</dayofweek>
+					<recursive>1</recursive>
+					<times>1</times>
+					<compress>0</compress>
+					<archive>1</archive>
+					<delete>0</delete>
+					<quiet>0</quiet>
+					<perms>1</perms>
+					<acls>1</acls>
+					<xattrs>0</xattrs>
+					<dryrun>0</dryrun>
+					<partial>0</partial>
+					<extraoptions></extraoptions>
+					// remote
+					<mode>push|pull</mode>
+					<authentication>password|pubkey</authentication>
+					<password>xxx</password>
+					<sshcertificateref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sshcertificateref>
+					<sshport>22</sshport>
+				</job>
+				-->
+      </jobs>
+    </rsync>
+    <snmp>
+      <enable>0</enable>
+      <community>public</community>
+      <syslocation>Kolhar</syslocation>
+      <syscontact>xyz@xyz.abc</syscontact>
+      <version>2c</version>
+      <username></username>
+      <securitylevel>noauth</securitylevel>
+      <authtype>MD5</authtype>
+      <authpassphrase></authpassphrase>
+      <privtype>DES</privtype>
+      <privpassphrase></privpassphrase>
+      <extraoptions></extraoptions>
+      <trap>
+        <enable>0</enable>
+        <community>public</community>
+        <host>localhost</host>
+        <port>162</port>
+      </trap>
+    </snmp>
+    <zeroconf>
+      <services>
+        <!--
+				<service>
+					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<id>xxx</id>
+					<enable>0|1</enable>
+					<name>xxx</name>
+				</service>
+				-->
+        <service>
+          <uuid>2e04c06e-f4db-11e5-a404-000c2972b176</uuid>
+          <id>webadmin</id>
+          <enable>1</enable>
+          <name>%h - Web control panel</name>
+        </service>
+        <service>
+          <uuid>264c0922-f4db-11e5-a90e-2fe7db1985bc</uuid>
+          <id>ssh</id>
+          <enable>1</enable>
+          <name>%h - SSH</name>
+        </service>
+        <service>
+          <uuid>2a6662c8-f4db-11e5-9683-000c2972b176</uuid>
+          <id>nfs</id>
+          <enable>1</enable>
+          <name>%h - NFS</name>
+        </service>
+        <service>
+          <uuid>22d3d7f2-f4db-11e5-ba24-4fd453d2072e</uuid>
+          <id>ftp</id>
+          <enable>1</enable>
+          <name>%h - FTP</name>
+        </service>
+        <service>
+          <uuid>1e70f7f8-f4db-11e5-9e90-000c2972b176</uuid>
+          <id>tftp</id>
+          <enable>1</enable>
+          <name>%h - TFTP</name>
+        </service>
+        <service>
+          <uuid>06e1e0b6-f4db-11e5-98f1-000c2972b176</uuid>
+          <id>smb</id>
+          <enable>1</enable>
+          <name>%h - SMB/CIFS</name>
+        </service>
+        <service>
+          <uuid>1b02274a-f4db-11e5-9317-000c2972b176</uuid>
+          <id>rsync</id>
+          <enable>1</enable>
+          <name>%h - Rsync</name>
+        </service>
+        <service>
+          <id>webadmin</id>
+          <enable>1</enable>
+          <name>%h - Web administration</name>
+        </service>
+        <service>
+          <id>ssh</id>
+          <enable>1</enable>
+          <name>%h - SSH</name>
+        </service>
+        <service>
+          <id>nfs</id>
+          <enable>1</enable>
+          <name>%h - NFS</name>
+        </service>
+        <service>
+          <id>ftp</id>
+          <enable>1</enable>
+          <name>%h - FTP</name>
+        </service>
+        <service>
+          <id>tftp</id>
+          <enable>1</enable>
+          <name>%h - TFTP</name>
+        </service>
+        <service>
+          <id>smb</id>
+          <enable>1</enable>
+          <name>%h - SMB/CIFS</name>
+        </service>
+        <service>
+          <id>rsync</id>
+          <enable>1</enable>
+          <name>%h - Rsync</name>
+        </service>
+      </services>
+    </zeroconf>
+    <clamav>
+      <enable>0</enable>
+      <quarantine_sharedfolderref></quarantine_sharedfolderref>
+      <clamd>
+        <logclean>0</logclean>
+        <scanpe>1</scanpe>
+        <scanole2>1</scanole2>
+        <scanhtml>1</scanhtml>
+        <scanpdf>1</scanpdf>
+        <scanelf>1</scanelf>
+        <scanarchive>1</scanarchive>
+        <detectbrokenexecutables>0</detectbrokenexecutables>
+        <algorithmicdetection>1</algorithmicdetection>
+        <followdirectorysymlinks>0</followdirectorysymlinks>
+        <followfilesymlinks>0</followfilesymlinks>
+        <detectpua>0</detectpua>
+        <extraoptions></extraoptions>
+      </clamd>
+      <freshclam>
+        <enable>0</enable>
+        <checks>24</checks>
+      </freshclam>
+      <jobs></jobs>
+    </clamav>
+    <nut>
+      <enable>0</enable>
+      <upsname>ups</upsname>
+      <comment></comment>
+      <driverconf>driver = usbhid-ups
+port = auto
+vendorid = 051d
+</driverconf>
+      <shutdownmode>onbatt</shutdownmode>
+      <shutdowntimer>300</shutdowntimer>
+      <remotemonitor>0</remotemonitor>
+      <remoteuser></remoteuser>
+      <remotepassword></remotepassword>
+    </nut>
+    <afp>
+      <enable>0</enable>
+      <allowclrtxt>0</allowclrtxt>
+      <homesenable>0</homesenable>
+      <extraoptions></extraoptions>
+      <shares></shares>
+    </afp>
+    <shairport>
+      <enable>0</enable>
+      <name></name>
+      <passwordrequired>0</passwordrequired>
+      <password></password>
+    </shairport>
+    <staticroutes></staticroutes>
+  </services>
+</config>

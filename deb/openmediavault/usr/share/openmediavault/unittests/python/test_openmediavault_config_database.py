@@ -19,8 +19,12 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import unittest
+import os
+import openmediavault
 import openmediavault.config.database
 import openmediavault.config.object
+
+openmediavault.setenv("OMV_CONFIG_FILE", "%s/data/config.xml" % os.getcwd())
 
 class DatabaseTestCase(unittest.TestCase):
 	def test_constructor(self):

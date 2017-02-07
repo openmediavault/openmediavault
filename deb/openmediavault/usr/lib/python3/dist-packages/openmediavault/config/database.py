@@ -267,11 +267,11 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 	def _save(self):
 		# Get the path of the configuration file.
 		config_file = openmediavault.getenv("OMV_CONFIG_FILE")
-		# Make sure the file exists, otherwise throw an exception.
-		os.stat(config_file)
 		# Save the XML configuration file.
 		with open(config_file, "w") as f:
-			f.write(lxml.etree.tostring(self._root_element))
+			f.write(lxml.etree.tostring(self._root_element,
+				pretty_print=True, xml_declaration=True,
+				encoding="UTF-8"))
 
 	def _get_root_element(self):
 		"""
