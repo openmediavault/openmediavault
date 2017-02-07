@@ -34,17 +34,15 @@ class DatabaseTestCase(unittest.TestCase):
 	def test_get(self):
 		db = openmediavault.config.Database()
 		obj = db.get("conf.system.time")
-		self.assertTrue(isinstance(obj, openmediavault.config.Object))
+		self.assertIsInstance(obj, openmediavault.config.Object)
 		self.assertEqual(obj.get("ntp.timeservers"), "pool.ntp.org")
 
 	def test_get_iterable(self):
 		db = openmediavault.config.Database()
-		objs = db.get("conf.system.notification.notification",
-			"c1cd54af-660d-4311-8e21-2a19420355bb")
+		objs = db.get("conf.system.notification.notification")
 		self.assertIsInstance(objs, list)
 		self.assertTrue(0 < len(objs))
-		self.assertTrue(isinstance(objs[0], openmediavault.config.Object))
-		self.assertEqual(objs[0].get("id"), "monitprocevents")
+		self.assertIsInstance(objs[0], openmediavault.config.Object)
 
 	def test_get_by_filter_1(self):
 		db = openmediavault.config.Database()
@@ -125,15 +123,23 @@ class DatabaseTestCase(unittest.TestCase):
 
 	def test_is_unique_by_filter(self):
 		db = openmediavault.config.Database()
-		objs = db.get("conf.system.notification.notification",
+		obj = db.get("conf.system.notification.notification",
 			"c1cd54af-660d-4311-8e21-2a19420355bb")
-		self.assertIsInstance(objs, list)
-		self.assertTrue(0 < len(objs))
-		self.assertIsInstance(objs[0], openmediavault.config.Object)
-		self.assertTrue(db.is_unique(objs[0], "uuid"))
+		self.assertIsInstance(obj, openmediavault.config.Object)
+		self.assertTrue(db.is_unique(obj, "uuid"))
 
 	def test_is_referenced_query(self):
 		pass
+
+	def test_delete(self):
+		db = openmediavault.config.Database()
+		obj = db.get("conf.system.notification.notification",
+			"03dc067d-1310-45b5-899f-b471a0ae9233")
+		self.assertIsInstance(obj, openmediavault.config.Object)
+		query = openmediavault.config.DatabaseDeleteQuery(obj)
+		self.assertEqual(query.xpath, "//system/notification/notifications/" \
+			"notification[uuid='03dc067d-1310-45b5-899f-b471a0ae9233']")
+		#query.execute()
 
 if __name__ == "__main__":
 	unittest.main()

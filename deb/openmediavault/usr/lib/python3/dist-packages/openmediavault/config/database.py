@@ -530,6 +530,13 @@ class DatabaseGetQuery(DatabaseQuery):
 	def execute(self):
 		elements = self._find_all_elements()
 		self._response = self._elements_to_object(elements)
+		# If the object is iterable and if there is an identifier,
+		# then only one object must be returned.
+		if self.model.is_iterable and self.identifier:
+			try:
+				self._response = self._response[0]
+			except KeyError:
+				self._response = None
 
 class DatabaseIsReferencedQuery(DatabaseQuery):
 	def __init__(self, obj):
