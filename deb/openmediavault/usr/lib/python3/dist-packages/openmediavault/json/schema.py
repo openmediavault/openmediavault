@@ -60,12 +60,12 @@ class Schema(object):
 		:returns:	Returns the JSON schema as openmediavault.collections.DotDict
 					dictionary.
 		"""
-		return self.get()
+		return self.as_dict()
 
-	def get(self):
+	def as_dict(self):
 		"""
 		Get the JSON schema as Python dictionary.
-		:returns: Returns the JSON schema as dictionary.
+		:returns: Returns the JSON schema as Python dictionary.
 		"""
 		if isinstance(self._schema, str):
 			self._schema = json.loads(self._schema)

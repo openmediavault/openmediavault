@@ -36,7 +36,7 @@ class Datamodel(object):
 				raise TypeError("Expected dictionary.")
 		self._model = model
 
-	def get(self):
+	def as_dict(self):
 		"""
 		Get the data model as Python dictionary.
 		:returns: Returns the data model as Python dictionary.
@@ -49,7 +49,7 @@ class Datamodel(object):
 		Get the data model as Python dictionary.
 		:returns: Returns the data model as Python dictionary.
 		"""
-		return self.get()
+		return self.as_dict()
 
 	@property
 	def id(self):

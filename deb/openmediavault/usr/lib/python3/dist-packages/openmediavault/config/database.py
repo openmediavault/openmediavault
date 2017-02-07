@@ -307,7 +307,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		else:
 			result = None
 			if 0 < len(elements):
-				openmediavault.config.Object(self.model.id)
+				result = openmediavault.config.Object(self.model.id)
 				result.set_dict(self._element_to_dict(elements[0]), False)
 		return result
 

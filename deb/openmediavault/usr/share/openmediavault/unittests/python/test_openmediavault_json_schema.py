@@ -70,9 +70,9 @@ class SchemaTestCase(unittest.TestCase):
 			}
 		})
 
-	def test_get(self):
+	def test_as_dict(self):
 		schema = self._get_schema()
-		schema.get()
+		self.assertIsInstance(schema.as_dict(), dict)
 
 	def test_get_by_path_1(self):
 		schema = self._get_schema()
