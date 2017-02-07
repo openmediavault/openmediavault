@@ -208,6 +208,8 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		self._force_list = self._get_array_properties()
 		# Set the default response value.
 		self._response = None
+		# The XML tree.
+		self._root_element = None
 
 	@property
 	def model(self):
@@ -251,18 +253,41 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		self.model.walk_schema("", callback, names)
 		return names
 
-	def _find_all_elements(self):
+	def _load(self):
 		"""
-		Helper method to execute the XML query.
-		:returns:	Returns a list of XML elements that match the specified
-					XPath query.
+		Helper function to load the XML configuration file.
 		"""
 		# Get the path of the configuration file.
 		config_file = openmediavault.getenv("OMV_CONFIG_FILE")
 		# Make sure the file exists, otherwise throw an exception.
 		os.stat(config_file)
 		# Parse the XML configuration file.
-		root_element = lxml.etree.parse(config_file)
+		self._root_element = lxml.etree.parse(config_file)
+
+	def _save(self):
+		# Get the path of the configuration file.
+		config_file = openmediavault.getenv("OMV_CONFIG_FILE")
+		# Make sure the file exists, otherwise throw an exception.
+		os.stat(config_file)
+		# Save the XML configuration file.
+		with open(config_file, "w") as f:
+			f.write(lxml.etree.tostring(self._root_element))
+
+	def _get_root_element(self):
+		"""
+		Get the root element of the configuration file XML tree.
+		"""
+		if self._root_element is None:
+			self._load()
+		return self._root_element
+
+	def _find_all_elements(self):
+		"""
+		Helper method to execute the XML query.
+		:returns:	Returns a list of XML elements that match the specified
+					XPath query.
+		"""
+		root_element = self._get_root_element()
 		# Execute the XPath query and return the matching elements.
 		return root_element.xpath(self.xpath)
 
@@ -564,10 +589,10 @@ class DatabaseSetQuery(DatabaseQuery):
 		pass
 
 class DatabaseDeleteQuery(DatabaseQuery):
-	def __init__(self, id, obj):
+	def __init__(self, obj):
 		assert(isinstance(obj, openmediavault.config.Object))
 		self._obj = obj
-		super().__init__(id)
+		super().__init__(obj.model.id)
 
 	@property
 	def object(self):
@@ -585,5 +610,10 @@ class DatabaseDeleteQuery(DatabaseQuery):
 		return self.model.queryinfo['xpath']
 
 	def execute(self):
-		# ToDo...
-		pass
+		elements = self._find_all_elements()
+		for element in elements:
+			parent = element.getparent()
+			if parent is None:
+				continue
+			parent.remove(element)
+		self._save()
