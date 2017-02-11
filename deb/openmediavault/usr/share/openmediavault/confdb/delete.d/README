@@ -1,8 +1,0 @@
-Put your configuration database deletion shell scripts here. The files must
-look like:
-
-<DATAMODELID>[.<EXT>]
-
-Example:
-conf.service.clamav
-conf.service.clamav.sh
