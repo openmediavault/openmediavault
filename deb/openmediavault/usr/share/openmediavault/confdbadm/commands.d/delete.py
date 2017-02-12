@@ -21,6 +21,7 @@
 import os
 import sys
 import argparse
+import json
 import openmediavault
 import openmediavault.log
 
@@ -36,35 +37,42 @@ class Command(openmediavault.confdbadm.ICommand,
 		return True
 
 	def usage(self, *args):
-		print("Usage: %s delete [--uuid=UUID] <id>\n\n" \
+		print("Usage: %s delete [--uuid=UUID|--filter=FILTER] <id>\n\n" \
 			"Delete the specified configuration database object." %
 			os.path.basename(args[0]))
 
 	def execute(self, *args):
-		rc = 1
+		rc = 0
 		# Parse the command line arguments.
 		parser = argparse.ArgumentParser()
 		parser.add_argument("id")
 		group = parser.add_mutually_exclusive_group()
 		group.add_argument("--uuid", nargs="?")
+		group.add_argument("--filter", nargs="?")
 		cmd_args = parser.parse_args(args[1:])
 		# Create a backup of the configuration database.
 		self.mkBackup()
-		# Query the database.
+		# Get the database.
 		db = openmediavault.config.Database()
-		objs = db.get(cmd_args.id, cmd_args.uuid)
-		if not isinstance(objs, list):
-			if objs is None:
-				objs = []
-			else:
-				objs = [ objs ]
 		try:
-			# Delete the configuration object(s).
-			for obj in objs:
-				db.delete(obj)
-			rc = 0
-			print("Deleted %d object(s)" % len(objs))
+			if cmd_args.filter:
+				# Create the query filter.
+				filter = openmediavault.config.DatabaseFilter(json.loads(
+					cmd_args.filter))
+				objs = db.delete_by_filter(cmd_args.id, filter)
+			else:
+				# Query the database.
+				objs = db.get(cmd_args.id, cmd_args.uuid)
+				if not isinstance(objs, list):
+					if objs is None:
+						objs = []
+					else:
+						objs = [ objs ]
+				# Delete the configuration object(s).
+				for obj in objs:
+					db.delete(obj)
 		except Exception as e:
+			rc = 1
 			# Display the exception message.
 			openmediavault.log.error("Failed to delete the " \
 				"configuration object: %s" % str(e))
@@ -73,6 +81,8 @@ class Command(openmediavault.confdbadm.ICommand,
 		finally:
 			# Unlink the configuration database backup.
 			self.unlinkBackup()
+			# Output the number of deleted configuration objects.
+			print("Deleted %d object(s)" % len(objs))
 		return rc
 
 if __name__ == "__main__":

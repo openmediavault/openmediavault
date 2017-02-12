@@ -203,16 +203,18 @@ class Database(object):
 		"""
 		Delete the specified configuration object.
 		:param obj: The configuration object to delete.
+		:returns: Returns the deleted configuration object.
 		"""
 		assert(isinstance(obj, openmediavault.config.Object))
 		query = openmediavault.config.DatabaseDeleteQuery(obj)
 		query.execute()
+		return query.response
 
 	def delete_by_filter(self, id, filter):
 		"""
 		Delete the specified configuration objects that are matching the
 		specified constraints.
-		:param id:			The data model identifier, e.g. 'conf.service.ftp'.
+		:param id:		The data model identifier, e.g. 'conf.service.ftp'.
 		:param filter:	A filter specifying constraints on the objects
 						to retrieve.
 						``
@@ -234,9 +236,11 @@ class Database(object):
 							}
 						}
 						``
+		:returns: Returns the deleted configuration objects.
 		"""
 		query = openmediavault.config.DatabaseDeleteByFilterQuery(id, filter)
 		query.execute()
+		return query.response
 
 class DatabaseQuery(metaclass=abc.ABCMeta):
 	def __init__(self, id):
@@ -672,6 +676,7 @@ class DatabaseDeleteQuery(DatabaseQuery):
 
 	def execute(self):
 		elements = self._find_all_elements()
+		self._response = self._elements_to_object(elements)
 		for element in elements:
 			parent = element.getparent()
 			if parent is None:
@@ -682,6 +687,7 @@ class DatabaseDeleteQuery(DatabaseQuery):
 class DatabaseDeleteByFilterQuery(DatabaseGetByFilterQuery):
 	def execute(self):
 		elements = self._find_all_elements()
+		self._response = self._elements_to_object(elements)
 		for element in elements:
 			parent = element.getparent()
 			if parent is None:

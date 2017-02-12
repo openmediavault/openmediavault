@@ -158,5 +158,16 @@ class DatabaseTestCase(unittest.TestCase):
 			"notification[uuid='03dc067d-1310-45b5-899f-b471a0ae9233']")
 		query.execute()
 
+	def test_delete_by_filter(self):
+		db = openmediavault.config.Database()
+		objs = db.delete_by_filter("conf.system.notification.notification",
+			openmediavault.config.DatabaseFilter({
+				'operator': 'stringContains',
+				'arg0': 'id',
+				'arg1': 'monit'
+			}))
+		self.assertIsInstance(objs, list)
+		self.assertEqual(len(objs), 5)
+
 if __name__ == "__main__":
 	unittest.main()
