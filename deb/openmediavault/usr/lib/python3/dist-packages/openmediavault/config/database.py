@@ -45,16 +45,17 @@ class DatabaseFilter(openmediavault.collections.DotDict):
 	pass
 
 class Database(object):
-	def get(self, id, uuid=None):
+	def get(self, id, identifier=None):
 		"""
 		Get the specified configuration object.
-		:param id:		The data model identifier, e.g. 'conf.service.ftp'.
-		:param uuid:	The UUID of an configuration object. Defaults to None.
-		:returns:		Depending on the configuration object and whether
-						*uuid* is set, a list of configuration objects or
-						a single object is returned.
+		:param id:			The data model identifier, e.g. 'conf.service.ftp'.
+		:param identifier:	The identifier of the configuration object, e.g.
+							the UUID. Defaults to None.
+		:returns:			Depending on the configuration object and whether
+							*identifier* is set, a list of configuration
+							objects or a single object is returned.
 		"""
-		query = openmediavault.config.DatabaseGetQuery(id, uuid)
+		query = openmediavault.config.DatabaseGetQuery(id, identifier)
 		query.execute()
 		return query.response
 

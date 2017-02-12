@@ -65,7 +65,8 @@ The XPath of the data.
 
 queryinfo.iterable
 ------------------
-TRUE if the data is stored multiple times in the database.
+TRUE if the data is stored multiple times in the database. The field
+queryinfo.idproperty MUST be set in this case, too.
 
 queryinfo.idproperty
 --------------------
@@ -75,7 +76,8 @@ database object. In most cases this is 'uuid'.
 queryinfo.refproperty
 ---------------------
 This is the name of the field which is used when the database object is
-referenced by another object.
+referenced by another object, e.g. 'sharedfolderref'. The default naming
+schema is '<xxx>ref'.
 
 Example
 =======
