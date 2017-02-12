@@ -32,7 +32,7 @@ class Command(openmediavault.confdbadm.ICommand,
 		return "Delete the configuration"
 
 	def validate_args(self, *args):
-		if 2 != len(args):
+		if 2 > len(args):
 			return False
 		return True
 
