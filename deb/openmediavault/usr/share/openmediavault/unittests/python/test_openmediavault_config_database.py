@@ -157,6 +157,8 @@ class DatabaseTestCase(unittest.TestCase):
 		self.assertEqual(query.xpath, "//system/notification/notifications/" \
 			"notification[uuid='03dc067d-1310-45b5-899f-b471a0ae9233']")
 		query.execute()
+		self.assertIsInstance(query.response, openmediavault.config.Object)
+		self.assertEqual(query.response.get("id"), "monitmemoryusage")
 
 	def test_delete_by_filter(self):
 		db = openmediavault.config.Database()

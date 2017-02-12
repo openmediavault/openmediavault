@@ -677,6 +677,10 @@ class DatabaseDeleteQuery(DatabaseQuery):
 	def execute(self):
 		elements = self._find_all_elements()
 		self._response = self._elements_to_object(elements)
+		try:
+			self._response = self._response[0]
+		except Exception:
+			self._response = None
 		for element in elements:
 			parent = element.getparent()
 			if parent is None:
