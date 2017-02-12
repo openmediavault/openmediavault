@@ -1,3 +1,9 @@
+openmediavault (3.0.61) stable; urgency=low
+
+  * 
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 12 Feb 2017 22:18:43 +0100
+
 openmediavault (3.0.60) stable; urgency=low
 
   * Fix render bug in Chrome 56 (EXTJS-23628). Thanks to BobR and kleins from
