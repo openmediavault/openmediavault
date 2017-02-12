@@ -46,8 +46,8 @@ class Command(openmediavault.confdbadm.ICommand):
 		parser = argparse.ArgumentParser()
 		parser.add_argument("id")
 		group = parser.add_mutually_exclusive_group()
-		parser.add_argument("--filter", nargs="?")
-		parser.add_argument("--uuid", nargs="?")
+		group.add_argument("--filter", nargs="?")
+		group.add_argument("--uuid", nargs="?")
 		cmd_args = parser.parse_args(args[1:])
 		# Query the database.
 		db = openmediavault.config.Database()

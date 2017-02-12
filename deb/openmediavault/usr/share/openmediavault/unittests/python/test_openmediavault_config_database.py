@@ -31,11 +31,17 @@ class DatabaseTestCase(unittest.TestCase):
 		db = openmediavault.config.Database()
 		self.assertIsNotNone(db)
 
-	def test_get(self):
+	def test_get_1(self):
 		db = openmediavault.config.Database()
 		obj = db.get("conf.system.time")
 		self.assertIsInstance(obj, openmediavault.config.Object)
 		self.assertEqual(obj.get("ntp.timeservers"), "pool.ntp.org")
+
+	def test_get_2(self):
+		db = openmediavault.config.Database()
+		obj = db.get("conf.system.apt.distribution")
+		self.assertIsInstance(obj, openmediavault.config.Object)
+		self.assertFalse(obj.get("proposed"))
 
 	def test_get_iterable(self):
 		db = openmediavault.config.Database()
@@ -128,8 +134,19 @@ class DatabaseTestCase(unittest.TestCase):
 		self.assertIsInstance(obj, openmediavault.config.Object)
 		self.assertTrue(db.is_unique(obj, "uuid"))
 
-	def test_is_referenced_query(self):
-		pass
+	def test_is_referenced_query_1(self):
+		db = openmediavault.config.Database()
+		obj = db.get("conf.system.sharedfolder",
+			"339bd101-5744-4017-9392-01a156f15ab9")
+		self.assertIsInstance(obj, openmediavault.config.Object)
+		self.assertTrue(db.is_referenced(obj))
+
+	def test_is_referenced_query_2(self):
+		db = openmediavault.config.Database()
+		obj = db.get("conf.system.sharedfolder",
+			"91fe93fc-ef9d-11e6-9b06-000c2900c2de")
+		self.assertIsInstance(obj, openmediavault.config.Object)
+		self.assertFalse(db.is_referenced(obj))
 
 	def test_delete(self):
 		db = openmediavault.config.Database()
@@ -139,7 +156,7 @@ class DatabaseTestCase(unittest.TestCase):
 		query = openmediavault.config.DatabaseDeleteQuery(obj)
 		self.assertEqual(query.xpath, "//system/notification/notifications/" \
 			"notification[uuid='03dc067d-1310-45b5-899f-b471a0ae9233']")
-		#query.execute()
+		query.execute()
 
 if __name__ == "__main__":
 	unittest.main()

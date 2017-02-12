@@ -1,3 +1,9 @@
+openmediavault-route (3.1.2) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 12 Feb 2017 21:59:53 +0100
+
 openmediavault-route (3.1.1) stable; urgency=low
 
   * Harden installation script.

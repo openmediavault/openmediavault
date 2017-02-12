@@ -573,6 +573,20 @@ iSrj/B/KRCZkkrDdYcDAvqRs6dA+ScRZ
           </privilege>
         </privileges>
       </sharedfolder>
+      <sharedfolder>
+        <uuid>91fe93fc-ef9d-11e6-9b06-000c2900c2de</uuid>
+        <name>images</name>
+        <comment></comment>
+        <mntentref>48d04257-48b8-42ab-8e9c-26f5e47d2054</mntentref>
+        <reldirpath>data/images</reldirpath>
+        <privileges>
+          <privilege>
+            <type>user</type>
+            <name>test1</name>
+            <perms>5</perms>
+          </privilege>
+        </privileges>
+      </sharedfolder>
     </shares>
   </system>
   <!-- Web control panel configuration - Do not add any configuration here -->

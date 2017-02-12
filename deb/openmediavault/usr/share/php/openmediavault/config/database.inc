@@ -253,7 +253,7 @@ class Database {
 	}
 
 	/**
-	 * Delete the nodes matching the specified XPath expression.
+	 * Delete the specified configuration object.
 	 * @param object The configuration object to use.
 	 * @param quiet If set to TRUE, then no notification message is send.
 	 *   Defaults to FALSE.

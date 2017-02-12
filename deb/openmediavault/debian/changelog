@@ -7,6 +7,7 @@ openmediavault (3.0.60) stable; urgency=low
   * Notify FTP TLS and BAN list configuration changes.
   * Use TLSv1.2 for secure FTP connections.
   * Add catalán language support.
+  * Galician users must reselect the language in the WebUI.
   * Mantis 0001657: Append 'nofail' to NFS bind mounts to prevent systemd to
     start into the emergency-mode due to unmet dependencies.
   * Mantis 0001658: filesystem class vs mountpoint class.

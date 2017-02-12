@@ -26,12 +26,14 @@ __all__ = [
 	"DatabaseGetByFilterQuery",
 	"DatabaseSetQuery",
 	"DatabaseDeleteQuery",
+	"DatabaseDeleteByFilterQuery",
 	"DatabaseIsReferencedQuery"
 ]
 
 import abc
 import os
 import lxml.etree
+import sysv_ipc
 import openmediavault.collections
 import openmediavault.config.datamodel
 import openmediavault.config.object
@@ -52,9 +54,9 @@ class Database(object):
 						*uuid* is set, a list of configuration objects or
 						a single object is returned.
 		"""
-		request = openmediavault.config.DatabaseGetQuery(id, uuid)
-		request.execute()
-		return request.response
+		query = openmediavault.config.DatabaseGetQuery(id, uuid)
+		query.execute()
+		return query.response
 
 	def get_by_filter(self, id, filter, **kwargs):
 		"""
@@ -94,19 +96,19 @@ class Database(object):
 							In this case the method does not return a list
 							of configuration objects.
 		"""
-		request = openmediavault.config.DatabaseGetByFilterQuery(id, filter)
-		request.execute()
+		query = openmediavault.config.DatabaseGetByFilterQuery(id, filter)
+		query.execute()
 		if "min_result" in kwargs:
-			if len(request.response) < kwargs.get("min_result"):
+			if len(query.response) < kwargs.get("min_result"):
 				raise DatabaseException("The query does not return the " \
 					"minimum number of %d object(s)." %
 					kwargs.get("min_result"))
 		if "max_result" in kwargs:
-			if len(request.response) > kwargs.get("max_result"):
+			if len(query.response) > kwargs.get("max_result"):
 				raise DatabaseException("The query returns more than the " \
 					"maximum number of %d object(s)." %
 					kwargs.get("max_result"))
-		return request.response
+		return query.response
 
 	def exists(self, id, filter=None):
 		"""
@@ -129,9 +131,9 @@ class Database(object):
 		:returns:		True if at least one configuration object exists,
 						otherwise False.
 		"""
-		request = openmediavault.config.DatabaseGetByFilterQuery(id, filter)
-		request.execute()
-		return 0 < len(request.response)
+		query = openmediavault.config.DatabaseGetByFilterQuery(id, filter)
+		query.execute()
+		return 0 < len(query.response)
 
 	def is_referenced(self, obj):
 		"""
@@ -139,9 +141,9 @@ class Database(object):
 		:param obj:	The configuration object to use.
 		:returns:	True if the object is referenced, otherwise False.
 		"""
-		request = openmediavault.config.DatabaseIsReferencedQuery(obj)
-		request.execute()
-		return request.response
+		query = openmediavault.config.DatabaseIsReferencedQuery(obj)
+		query.execute()
+		return query.response
 
 	def is_unique(self, obj, property):
 		"""
@@ -192,10 +194,49 @@ class Database(object):
 					},
 					'arg1': filter
 				})
-		request = openmediavault.config.DatabaseGetByFilterQuery(
+		query = openmediavault.config.DatabaseGetByFilterQuery(
 			obj.model.id, filter)
-		request.execute()
-		return 0 == len(request.response)
+		query.execute()
+		return 0 == len(query.response)
+
+	def delete(self, obj):
+		"""
+		Delete the specified configuration object.
+		:param obj: The configuration object to delete.
+		"""
+		assert(isinstance(obj, openmediavault.config.Object))
+		query = openmediavault.config.DatabaseDeleteQuery(obj)
+		query.execute()
+
+	def delete_by_filter(self, id, filter):
+		"""
+		Delete the specified configuration objects that are matching the
+		specified constraints.
+		:param id:			The data model identifier, e.g. 'conf.service.ftp'.
+		:param filter:	A filter specifying constraints on the objects
+						to retrieve.
+						``
+						Example:
+						{
+							"operator": "not",
+							"arg0": {
+								"operator": "or",
+								"arg0": {
+									"operator": "contains",
+									"arg0": "opts",
+									"arg1": "bind"
+								},
+								"arg1": {
+									"operator": "contains",
+									"arg0": "opts",
+									"arg1": "loop"
+								}
+							}
+						}
+						``
+		"""
+		query = openmediavault.config.DatabaseDeleteByFilterQuery(id, filter)
+		query.execute()
 
 class DatabaseQuery(metaclass=abc.ABCMeta):
 	def __init__(self, id):
@@ -204,12 +245,23 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		"""
 		# Create the data model object.
 		self._model = openmediavault.config.Datamodel(id)
+		# Get the path to the database.
+		self._database_file = openmediavault.getenv("OMV_CONFIG_FILE")
+		os.stat(self._database_file)
 		# Get the property names that must be handled as lists/arrays.
 		self._force_list = self._get_array_properties()
 		# Set the default response value.
 		self._response = None
 		# The XML tree.
 		self._root_element = None
+		# Create the semaphore to control access to the database resource.
+		try:
+			self._semaphore = sysv_ipc.Semaphore(4815162342, sysv_ipc.IPC_CREX)
+		except sysv_ipc.ExistentialError:
+			# The semaphore already exists.
+			self._semaphore = sysv_ipc.Semaphore(4815162342)
+		else:
+			self._semaphore.release()
 
 	@property
 	def model(self):
@@ -257,21 +309,17 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		"""
 		Helper function to load the XML configuration file.
 		"""
-		# Get the path of the configuration file.
-		config_file = openmediavault.getenv("OMV_CONFIG_FILE")
-		# Make sure the file exists, otherwise throw an exception.
-		os.stat(config_file)
 		# Parse the XML configuration file.
-		self._root_element = lxml.etree.parse(config_file)
+		self._root_element = lxml.etree.parse(self._database_file)
 
 	def _save(self):
-		# Get the path of the configuration file.
-		config_file = openmediavault.getenv("OMV_CONFIG_FILE")
+		self._semaphore.acquire()
 		# Save the XML configuration file.
-		with open(config_file, "w") as f:
+		with open(self._database_file, "wb") as f:
 			f.write(lxml.etree.tostring(self._root_element,
 				pretty_print=True, xml_declaration=True,
 				encoding="UTF-8"))
+		self._semaphore.release()
 
 	def _get_root_element(self):
 		"""
@@ -300,6 +348,9 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		assert(lxml.etree.iselement(element))
 		result = {}
 		for child_element in list(element):
+			# Skip comments.
+			if child_element.tag is lxml.etree.Comment:
+				continue
 			if list(child_element):
 				value = self._element_to_dict(child_element)
 			else:
@@ -307,11 +358,14 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 			tag = child_element.tag
 			if isinstance(self._force_list, list) and tag in self._force_list:
 				try:
-					# Add to existing list.
+					# Add value to an existing list.
 					result[tag].append(value)
 				except AttributeError:
 					# Convert existing entry into a list.
 					result[tag] = [ result[tag], value ]
+				except KeyError:
+					# Add a new entry.
+					result[tag] = value
 			else:
 				result[tag] = value
 		return result
@@ -377,14 +431,14 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		[
 			"operator": "and",
 			"arg0": [
-				"operator" => "stringEquals",
-				"arg0" => "type",
-				"arg1" => "bond"
+				"operator": "stringEquals",
+				"arg0": "type",
+				"arg1": "bond"
 			],
 			"arg1": [
-				"operator" => "stringEquals",
-				"arg0" => "devicename",
-				"arg1" => "bond0"
+				"operator": "stringEquals",
+				"arg0": "devicename",
+				"arg1": "bond0"
 			]
 		]
 		Example 2:
@@ -393,14 +447,14 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		[
 			"operator": "and",
 			"arg0": [
-				"operator" => "stringEquals",
-				"arg0" => "type",
-				"arg1" => "bond"
+				"operator": "stringEquals",
+				"arg0": "type",
+				"arg1": "bond"
 			],
 			"arg1": [
-				"operator" => "stringContains",
-				"arg0" => "slaves",
-				"arg1" => "eth0"
+				"operator": "stringContains",
+				"arg0": "slaves",
+				"arg1": "eth0"
 			]
 		]
 		Example 3:
@@ -409,30 +463,30 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		[
 			"operator": "not",
 			"arg0": [
-				"operator" => "stringEquals",
-				"arg0" => "type",
-				"arg1" => "vlan"
+				"operator": "stringEquals",
+				"arg0": "type",
+				"arg1": "vlan"
 			]
 		]
 		Example 4:
 		[
-			"operator" => "and",
-			"arg0" => [
-				"operator" => "stringNotEquals",
-				"arg0" => "uuid",
-				"arg1" => $object->get("uuid")
+			"operator": "and",
+			"arg0": [
+				"operator": "stringNotEquals",
+				"arg0": "uuid",
+				"arg1": object.get("uuid")
 			],
-			"arg1" => [
-				"operator" => "and",
-				"arg0" => [
-					"operator" => "stringEquals",
-					"arg0" => "mntentref",
-					"arg1" => $object->get("mntentref")
+			"arg1": [
+				"operator": "and",
+				"arg0": [
+					"operator": "stringEquals",
+					"arg0": "mntentref",
+					"arg1": object.get("mntentref")
 				],
-				"arg1" => [
-					"operator" => "stringEquals",
-					"arg0" => "reldirpath",
-					"arg1" => $object->get("reldirpath")
+				"arg1": [
+					"operator": "stringEquals",
+					"arg0": "reldirpath",
+					"arg1": object.get("reldirpath")
 				]
 			]
 		]
@@ -616,6 +670,16 @@ class DatabaseDeleteQuery(DatabaseQuery):
 				})).xpath
 		return self.model.queryinfo['xpath']
 
+	def execute(self):
+		elements = self._find_all_elements()
+		for element in elements:
+			parent = element.getparent()
+			if parent is None:
+				continue
+			parent.remove(element)
+		self._save()
+
+class DatabaseDeleteByFilterQuery(DatabaseGetByFilterQuery):
 	def execute(self):
 		elements = self._find_all_elements()
 		for element in elements:

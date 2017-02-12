@@ -20,9 +20,9 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
 import sys
+import argparse
 import openmediavault
 import openmediavault.log
-import openmediavault.subprocess
 
 class Command(openmediavault.confdbadm.ICommand,
 	openmediavault.confdbadm.CommandHelper):
@@ -36,40 +36,38 @@ class Command(openmediavault.confdbadm.ICommand,
 		return True
 
 	def usage(self, *args):
-		print("Usage: %s delete <id>\n\n" \
-			"Delete the default configuration for the specified " \
-			"datamodel ID." % os.path.basename(args[0]))
+		print("Usage: %s delete [--uuid=UUID] <id>\n\n" \
+			"Delete the specified configuration database object." %
+			os.path.basename(args[0]))
 
 	def execute(self, *args):
 		rc = 1
-		datamodel_id = args[1]
-		create_dir = openmediavault.getenv("OMV_CONFDB_DELETE_DIR",
-			"/usr/share/openmediavault/confdb/delete.d");
-		script_name = ""
-		for name in os.listdir(create_dir):
-			# Split the script name into its parts:
-			# <DATAMODELID>.<EXT>
-			if datamodel_id == os.path.splitext(name)[0]:
-				script_name = name
-				break
+		# Parse the command line arguments.
+		parser = argparse.ArgumentParser()
+		parser.add_argument("id")
+		group = parser.add_mutually_exclusive_group()
+		group.add_argument("--uuid", nargs="?")
+		cmd_args = parser.parse_args(args[1:])
+		# Create a backup of the configuration database.
+		self.mkBackup()
+		# Query the database.
+		db = openmediavault.config.Database()
+		objs = db.get(cmd_args.id, cmd_args.uuid)
+		if not isinstance(objs, list):
+			if objs is None:
+				objs = []
+			else:
+				objs = [ objs ]
 		try:
-			# Create a backup of the configuration database.
-			self.mkBackup()
-			# Test if the script exists and is executable.
-			script_path = os.path.join(create_dir, script_name)
-			if not os.path.exists(script_path):
-				raise RuntimeError("The script '%s' does not exist" %
-					script_name)
-			if not os.access(script_path, os.X_OK):
-				raise RuntimeError("The script '%s' is not " \
-					"executable" % script_name)
-			# Execute the script.
-			openmediavault.subprocess.check_call([ script_path ])
+			# Delete the configuration object(s).
+			for obj in objs:
+				db.delete(obj)
 			rc = 0
+			print("Deleted %d object(s)" % len(objs))
 		except Exception as e:
 			# Display the exception message.
 			openmediavault.log.error("Failed to delete the " \
-				"configuration: %s" % str(e))
+				"configuration object: %s" % str(e))
 			# Rollback all changes.
 			self.rollbackChanges()
 		finally:

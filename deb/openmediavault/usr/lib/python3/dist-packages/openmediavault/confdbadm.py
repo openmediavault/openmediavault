@@ -78,7 +78,7 @@ class CommandHelper():
 		os.unlink(self._backup_path)
 		self._backup_path = ""
 
-	def rollbackChanges():
+	def rollbackChanges(self):
 		"""
 		Rollback all changes in the configuration database.
 		"""
