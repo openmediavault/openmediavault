@@ -56,7 +56,9 @@ case "$1" in
 		########################################################################
 		echo "Updating configuration database ..."
 		omv-confdbadm create "conf.service.shairport"
-		omv-confdbadm migrate "conf.service.shairport" "${2}"
+		if [ -n "$2" ]; then
+			omv-confdbadm migrate "conf.service.shairport" "${2}"
+		fi
 
 		########################################################################
 		# Action to be done depending on the previous version.

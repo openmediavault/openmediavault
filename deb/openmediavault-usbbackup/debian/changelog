@@ -1,3 +1,9 @@
+openmediavault-usbbackup (3.2.14) stable; urgency=low
+
+  * Fix first installation bug.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 13 Feb 2017 22:42:55 +0100
+
 openmediavault-usbbackup (3.2.13) stable; urgency=low
 
   * Update locales.

@@ -50,7 +50,9 @@ case "$1" in
 		########################################################################
 		echo "Updating configuration database ..."
 		omv-confdbadm create "conf.service.clamav"
-		omv-confdbadm migrate "conf.service.clamav" "${2}"
+		if [ -n "$2" ]; then
+			omv-confdbadm migrate "conf.service.clamav" "${2}"
+		fi
 
 		########################################################################
 		# Action to be done depending on the previous version.

@@ -24,6 +24,9 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+OMV_CONFIG_FILE=${OMV_CONFIG_FILE:-"/etc/openmediavault/config.xml"}
+OMV_CONFIG_TEMPLATE_FILE=${OMV_CONFIG_TEMPLATE_FILE:-"/usr/share/openmediavault/templates/config.xml"}
+
 # Install the configuration database.
 if [ ! -e "${OMV_CONFIG_FILE}" ]; then
 	cp ${OMV_CONFIG_TEMPLATE_FILE} ${OMV_CONFIG_FILE}

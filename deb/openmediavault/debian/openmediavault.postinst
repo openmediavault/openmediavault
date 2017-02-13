@@ -144,7 +144,9 @@ case "$1" in
 		########################################################################
 		echo "Updating configuration database ..."
 		omv-confdbadm create "conf"
-		omv-confdbadm migrate "conf" "${2}"
+		if [ -n "$2" ]; then
+			omv-confdbadm migrate "conf" "${2}"
+		fi
 
 		########################################################################
 		# Setup services when the package is installed.

@@ -1,6 +1,6 @@
 openmediavault (3.0.61) stable; urgency=low
 
-  * 
+  * Fix first installation bug.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 12 Feb 2017 22:18:43 +0100
 

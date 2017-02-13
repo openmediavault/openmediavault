@@ -36,6 +36,16 @@ class Command(openmediavault.confdbadm.ICommand,
 	def validate_args(self, *args):
 		if 3 != len(args):
 			return False
+		# Test the datamodel ID.
+		if not args[1]:
+			return False
+		# Test the version string. The attribute 'version' is not
+		# available if the parsing has failed.
+		try:
+			ver = LooseVersion(args[2])
+			ver.version
+		except Exception:
+			return False
 		return True
 
 	def usage(self, *args):

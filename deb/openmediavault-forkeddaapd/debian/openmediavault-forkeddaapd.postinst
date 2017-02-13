@@ -48,7 +48,9 @@ case "$1" in
 		########################################################################
 		echo "Updating configuration database ..."
 		omv-confdbadm create "conf.service.daapd"
-		omv-confdbadm migrate "conf.service.daapd" "${2}"
+		if [ -n "$2" ]; then
+			omv-confdbadm migrate "conf.service.daapd" "${2}"
+		fi
 
 		########################################################################
 		# Action to be done depending on the previous version.

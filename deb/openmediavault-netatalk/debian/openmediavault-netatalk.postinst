@@ -48,7 +48,9 @@ case "$1" in
 		########################################################################
 		echo "Updating configuration database ..."
 		omv-confdbadm create "conf.service.afp"
-		omv-confdbadm migrate "conf.service.afp" "${2}"
+		if [ -n "$2" ]; then
+			omv-confdbadm migrate "conf.service.afp" "${2}"
+		fi
 
 		########################################################################
 		# Action to be done depending on the previous version.
