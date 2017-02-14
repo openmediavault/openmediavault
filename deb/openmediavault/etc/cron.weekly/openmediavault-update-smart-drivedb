@@ -48,6 +48,6 @@ version=$(sed -n 's/^VERSION="\(.*\)"$/\1/p' ${filepath})
 # APT control, we simply create a copy of the script, modify the URL and
 # finally execute it.
 cp -p ${filepath} ${tmpscript}
-sed -i "s#http://#https://#g" ${tmpscript}
+sed -i "/^SRCEXPR=/{s#http://*#https://#}" ${tmpscript}
 omv_syslog_info "Updating smartmontools ${version} drive database ..."
 eval ${tmpscript} >/dev/null
