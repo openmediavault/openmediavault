@@ -26,6 +26,15 @@ set -e
 
 . /usr/share/openmediavault/scripts/helper-functions
 
+tmpscript=$(mktemp)
+
+cleanup() {
+	rm -f ${tmpscript}
+	exit
+}
+
+trap cleanup 0 1 2 5 15
+
 # Does the script exist? If not, then exit immediatelly. In this case the
 # Debian smartmontools package is not installed.
 which update-smart-drivedb >/dev/null || exit 0
@@ -33,5 +42,12 @@ which update-smart-drivedb >/dev/null || exit 0
 # Update the drive database.
 filepath=$(which update-smart-drivedb)
 version=$(sed -n 's/^VERSION="\(.*\)"$/\1/p' ${filepath})
+# Note, the script shipped with the Debian Jessie smartmontools package
+# contains a wrong URL. Because of that this must be modified to get the
+# script working. To do not modify the original script, which is under
+# APT control, we simply create a copy of the script, modify the URL and
+# finally execute it.
+cp -p ${filepath} ${tmpscript}
+sed -i "s#http://#https://#g" ${tmpscript}
 omv_syslog_info "Updating smartmontools ${version} drive database ..."
-update-smart-drivedb >/dev/null
+eval ${tmpscript} >/dev/null
