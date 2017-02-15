@@ -65,7 +65,7 @@ class CommandHelper():
 		:returns: Returns the path of the backup file, otherwise None.
 		"""
 		config_path = openmediavault.getenv("OMV_CONFIG_FILE")
-		if not os.path.exits(config_path):
+		if not os.path.exists(config_path):
 			self._backup_path = False
 			return None
 		(fh, self._backup_path) = tempfile.mkstemp();
