@@ -57,32 +57,39 @@ class ICommand(metaclass=abc.ABCMeta):
 		"""
 
 class CommandHelper():
-	_backup_path = ""
+	_backup_path = None
 
 	def mkBackup(self):
 		"""
 		Create a backup of the configuration database.
-		:returns: Returns the path of the backup file.
+		:returns: Returns the path of the backup file, otherwise None.
 		"""
+		config_path = openmediavault.getenv("OMV_CONFIG_FILE")
+		if not os.path.exits(config_path):
+			self._backup_path = False
+			return None
 		(fh, self._backup_path) = tempfile.mkstemp();
-		shutil.copy(openmediavault.getenv("OMV_CONFIG_FILE"),
-			self._backup_path)
+		shutil.copy(config_path, self._backup_path)
 		return self._backup_path
 
 	def unlinkBackup(self):
 		"""
 		Unlink the backup of the configuration database.
 		"""
-		if not self._backup_path:
+		if self._backup_path is None:
 			raise RuntimeError("No configuration backup exists")
+		if not self._backup_path:
+			return
 		os.unlink(self._backup_path)
-		self._backup_path = ""
+		self._backup_path = None
 
 	def rollbackChanges(self):
 		"""
 		Rollback all changes in the configuration database.
 		"""
-		if not self._backup_path:
+		if self._backup_path is None:
 			raise RuntimeError("No configuration backup exists")
+		if not self._backup_path:
+			return
 		shutil.copy(self._backup_path, openmediavault.getenv(
 			"OMV_CONFIG_FILE"))
