@@ -20,6 +20,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import unittest
 import os
+import lxml.etree
 import openmediavault
 import openmediavault.config.database
 import openmediavault.config.object
@@ -170,6 +171,26 @@ class DatabaseTestCase(unittest.TestCase):
 			}))
 		self.assertIsInstance(objs, list)
 		self.assertEqual(len(objs), 5)
+
+	def test_dict_to_elements(self):
+		#  Create a fake query object to access the helper method.
+		query = openmediavault.config.DatabaseGetQuery(
+			"conf.system.notification.notification")
+		elements = query._dict_to_elements({
+			'a': 1,
+			'b': False,
+			'c': {
+				'x': "test"
+			},
+			'd': 5.45
+		})
+		root = lxml.etree.Element("config")
+		for child in elements:
+			self.assertTrue(lxml.etree.iselement(child))
+			root.append(child)
+		#xml = lxml.etree.tostring(root, encoding="unicode")
+		#self.assertEqual(xml, "<config><a>1</a><c><x>test</x></c><d>5.45</d><b>0</b></config>")
+
 
 if __name__ == "__main__":
 	unittest.main()

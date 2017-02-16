@@ -323,7 +323,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		with open(self._database_file, "wb") as f:
 			f.write(lxml.etree.tostring(self._root_element,
 				pretty_print=True, xml_declaration=True,
-				encoding="UTF-8"))
+				encoding="unicode"))
 		self._semaphore.release()
 
 	def _get_root_element(self):
@@ -336,9 +336,9 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 
 	def _find_all_elements(self):
 		"""
-		Helper method to execute the XML query.
-		:returns:	Returns a list of XML elements that match the specified
-					XPath query.
+		Helper method to execute the XPath query.
+		:returns:	Returns a list of lxml.etree.Element instancess that match
+					the specified XPath query.
 		"""
 		root_element = self._get_root_element()
 		# Execute the XPath query and return the matching elements.
@@ -346,8 +346,9 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 
 	def _element_to_dict(self, element):
 		"""
-		Helper method to convert a XML element to a Python dictionary.
-		:param element:	The XML element to convert.
+		Helper method to convert a lxml.etree.Element instance to a Python
+		dictionary.
+		:param element:	The lxml.etree.Element instance to convert.
 		:returns:		Returns a Python dictionary.
 		"""
 		assert(lxml.etree.iselement(element))
@@ -377,8 +378,9 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 
 	def _elements_to_object(self, elements):
 		"""
-		Convert XML elements to openmediavault.config.Object objects.
-		:param elements:	A list of XML elements.
+		Convert lxml.etree.Element instances to openmediavault.config.Object
+		object instance(s).
+		:param elements:	A list of XML Element instances.
 		:returns:			Returns a list of openmediavault.config.Object
 							objects if the data model of the configuration
 							object defines it as iterable. The list may be
@@ -401,11 +403,28 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 				result.set_dict(self._element_to_dict(elements[0]), False)
 		return result
 
-	def _dict_to_element(self, dictionary):
+	def _dict_to_elements(self, dictionary):
 		"""
-		Helper method to convert a dictionary to a XML element.
+		Helper method to convert a Python dictionary to a llist of
+		xml.etree.Element instances.
+		:param dictionary:	The dictionary to process.
+		:returns:			Returns a list of lxml.etree.Element instances.
 		"""
-		pass
+		assert(isinstance(dictionary, dict))
+		result = []
+		for (key, value) in dictionary.items():
+			if isinstance(value, dict):
+				element = lxml.etree.Element(key)
+				for child in self._dict_to_elements(value):
+					element.append(child)
+			else:
+				element = lxml.etree.Element(key)
+				if type(value) == bool:
+					element.text = "1" if value is True else "0"
+				else:
+					element.text = str(value)
+			result.append(element)
+		return result
 
 	def _build_predicate(self, filter):
 		"""
