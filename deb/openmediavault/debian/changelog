@@ -1,3 +1,9 @@
+openmediavault (3.0.63) stable; urgency=low
+
+  * Mantis 0001678: Error when collecting user information.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 16 Feb 2017 19:27:52 +0100
+
 openmediavault (3.0.62) stable; urgency=low
 
   * Fix first installation bug.

@@ -26,9 +26,9 @@ namespace OMV\System;
  * @ingroup api
  */
 class Group {
-	protected $name = null;
-	protected $gid = null;
-	protected $members = null;
+	protected $name = NULL;
+	protected $gid = NULL;
+	protected $members = NULL;
 	private $dataCached = FALSE;
 
 	/**

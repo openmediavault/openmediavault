@@ -26,6 +26,10 @@ namespace OMV;
  * @ingroup api
  */
 class ExecException extends \Exception {
+	private $cmdLine = NULL;
+	private $output = [];
+	private $exitStatus = NULL;
+
 	/**
 	 * @param string $cmdLine The command line string.
 	 * @param array $output The output of the executed command.
@@ -33,15 +37,30 @@ class ExecException extends \Exception {
 	 */
 	public function __construct($cmdLine, array $output = array(),
 	  $exitStatus = NULL) {
+		$this->cmdLine = $cmdLine;
+		$this->output = $output;
+		$this->exitStatus = $exitStatus;
 		$args = [];
-		$args[] = $cmdLine;
-		if (!is_null($exitStatus)) {
+		$args[] = $this->cmdLine;
+		if (!is_null($this->exitStatus)) {
 			$format = "Failed to execute command '%s' with exit code '%d': %s";
-			$args[] = $exitStatus;
+			$args[] = $this->exitStatus;
 		} else {
 			$format = "Failed to execute command '%s': %s";
 		}
 		$args[] = implode("\n", $output);
 		parent::__construct(vsprintf($format, $args));
+	}
+
+	public function getCmdLine() {
+		return $this->cmdLine;
+	}
+
+	public function getOutput() {
+		return $this->output;
+	}
+
+	public function getExitStatus() {
+		return $this->exitStatus;
 	}
 }

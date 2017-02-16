@@ -26,21 +26,21 @@ namespace OMV\System;
  * @ingroup api
  */
 class User {
-	protected $name = null;
-	protected $uid = null;
-	protected $gid = null;
-	protected $password = null;
-	protected $gecos = null;
-	protected $dir = null;
-	protected $shell = null;
-	protected $lastchanged = null;
-	protected $minimum = null;
-	protected $maximum = null;
-	protected $warn = null;
-	protected $inactive = null;
-	protected $expire = null;
-	protected $reserved = null;
-	protected $groups = null;
+	protected $name = NULL;
+	protected $uid = NULL;
+	protected $gid = NULL;
+	protected $password = NULL;
+	protected $gecos = NULL;
+	protected $dir = NULL;
+	protected $shell = NULL;
+	protected $lastchanged = NULL;
+	protected $minimum = NULL;
+	protected $maximum = NULL;
+	protected $warn = NULL;
+	protected $inactive = NULL;
+	protected $expire = NULL;
+	protected $reserved = NULL;
+	protected $groups = NULL;
 
 	/**
 	 * Constructor
@@ -66,12 +66,21 @@ class User {
 			if (!is_null($this->password))
 				return;
 			// http://www.cyberciti.biz/faq/understanding-etcshadow-file
-			$cmdArgs = [];
-			$cmdArgs[] = "shadow";
-			$cmdArgs[] = escapeshellarg($this->getName());
-			$cmd = new \OMV\System\Process("getent", $cmdArgs);
-			$cmd->setRedirect2to1();
-			$cmd->execute($output);
+			try {
+				$cmdArgs = [];
+				$cmdArgs[] = "shadow";
+				$cmdArgs[] = escapeshellarg($this->getName());
+				$cmd = new \OMV\System\Process("getent", $cmdArgs);
+				$cmd->setRedirect2to1();
+				$cmd->execute($output);
+			} catch(\OMV\ExecException $e) {
+				// Re-raise the exception if exit status is not 2 (one or
+				// more supplied key could not be found in the database).
+				if (2 != $e->getExitStatus())
+					throw $e;
+				// Otherwise continue with empty values.
+				$output = [ "::::::::" ]
+			}
 			$output = explode(":", $output[0]);
 			$this->password = $output[1];
 			$this->lastchanged = $output[2];
