@@ -146,7 +146,7 @@ omv_copy_error_rrd_graph_image() {
 }
 
 # Exit here if the rrdtool service is disabled.
-[ 0 -eq ${enabled} ] && exit 0
+[ "1" != "${enabled}" ] && exit 0
 # Flush all rrdtool data
 echo "FLUSHALL" | socat - unix:${OMV_RRDCACHED_SOCKETFILE} >/dev/null
 # Create target graph directory
