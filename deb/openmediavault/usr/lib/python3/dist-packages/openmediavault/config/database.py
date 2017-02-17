@@ -412,24 +412,31 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		:param dictionary:	The dictionary to process.
 		:returns:			Returns a list of lxml.etree.Element instances.
 		"""
-		assert(isinstance(dictionary, dict))
-		result = []
-		for (key, value) in dictionary.items():
+		def _process_value(element, value):
 			if isinstance(value, list):
-				pass
+				for item_key, item_value in enumerate(value):
+					if 0 == item_key:
+						_process_value(element, item_value)
+					else:
+						item_element = lxml.etree.Element(element.tag)
+						element.getparent().append(item_element)
+						_process_value(item_element, item_value)
 			elif isinstance(value, dict):
-				# Skip empty values.
-				if key in self._force_list and not value:
-					continue
-				element = lxml.etree.Element(key)
-				for child in self._dict_to_elements(value):
-					element.append(child)
+				for item_key, item_value in value.items():
+					item_element = lxml.etree.Element(item_key)
+					element.append(item_element)
+					_process_value(item_element, item_value)
 			else:
-				element = lxml.etree.Element(key)
 				if type(value) == bool:
 					element.text = "1" if value is True else "0"
 				else:
 					element.text = str(value)
+
+		assert(isinstance(dictionary, dict))
+		result = []
+		for key, value in dictionary.items():
+			element = lxml.etree.Element(key)
+			_process_value(element, value)
 			result.append(element)
 		return result
 

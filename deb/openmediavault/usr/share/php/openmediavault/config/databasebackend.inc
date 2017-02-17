@@ -533,16 +533,18 @@ class DatabaseBackend {
 	 */
 	final private function nodeFromArray($mixed, \DOMNode $domNode) {
 //		$this->debug(var_export(func_get_args(), TRUE));
+		// Is it an array/dictionary?
 		if (is_array($mixed)) {
 			foreach ($mixed as $mixedk => $mixedv) {
-				if (is_int($mixedk)) {
+				// Check if we are processing an array.
+				if (is_int($mixedk)) { // Array
 					if ($mixedk == 0) {
 						$node = $domNode;
 					} else {
 						$node = $this->domdoc->createElement($domNode->tagName);
 						$domNode->parentNode->appendChild($node);
 					}
-				} else {
+				} else { // Dictionary
 					// Skip enumerable elements that are empty.
 					if (in_array($mixedk, $this->enums) && empty($mixedv))
 						continue;

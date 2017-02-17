@@ -195,17 +195,37 @@ class DatabaseTestCase(unittest.TestCase):
 			"conf.system.notification.notification")
 		elements = query._dict_to_elements({
 			'a': 1,
-			'b': False,
+			'b1': False,
+			'b2': True,
 			'c': { 'x': "test" },
 			'd': 5.45,
-			'f': [ 1, 2, 3 ]
+			'f': { 'z': [ 1, 2, 3 ] }
 		})
 		root = lxml.etree.Element("config")
 		for child in elements:
 			self.assertTrue(lxml.etree.iselement(child))
 			root.append(child)
+		"""
+		The result XML tree should look like:
+		<config>
+			<a>1</a>
+			<b1>0</b1>
+			<b2>1</b2>
+			<c>
+				<x>test</x>
+			</c>
+			<d>5.45</d>
+			<f>
+				<z>1</z>
+				<z>2</z>
+				<z>3</z>
+			</f>
+		</config>
+		"""
 		#xml = lxml.etree.tostring(root, encoding="unicode")
-		#self.assertEqual(xml, "<config><a>1</a><c><x>test</x></c><d>5.45</d><b>0</b></config>")
+		#self.assertEqual(xml, "<config><b1>0</b1><c><x>test</x></c>" \
+		#	"<b2>1</b2><f><z>1</z><z>2</z><z>3</z></f><d>5.45</d>" \
+		#	"<a>1</a></config>")
 
 if __name__ == "__main__":
 	unittest.main()
