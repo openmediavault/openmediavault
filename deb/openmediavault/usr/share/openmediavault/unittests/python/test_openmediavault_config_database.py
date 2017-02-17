@@ -227,5 +227,19 @@ class DatabaseTestCase(unittest.TestCase):
 		#	"<b2>1</b2><f><z>1</z><z>2</z><z>3</z></f><d>5.45</d>" \
 		#	"<a>1</a><g>x</g><g>y</g></config>")
 
+	def test_set_1(self):
+		self._use_tmp_config_database()
+		db = openmediavault.config.Database()
+		obj = db.get("conf.system.apt.distribution")
+		self.assertIsInstance(obj, openmediavault.config.Object)
+		self.assertFalse(obj.get("proposed"))
+		obj.set("proposed", True)
+		old_obj = db.set(obj)
+		self.assertIsInstance(old_obj, openmediavault.config.Object)
+		self.assertFalse(old_obj.get("proposed"))
+		obj = db.get("conf.system.apt.distribution")
+		self.assertIsInstance(obj, openmediavault.config.Object)
+		self.assertTrue(obj.get("proposed"))
+
 if __name__ == "__main__":
 	unittest.main()

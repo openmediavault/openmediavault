@@ -243,6 +243,17 @@ class Database(object):
 		query.execute()
 		return query.response
 
+	def set(self, obj):
+		"""
+		Set the specified configuration object.
+		:param obj: The configuration object to set.
+		:returns: Returns the unmodified configuration object.
+		"""
+		assert(isinstance(obj, openmediavault.config.Object))
+		query = openmediavault.config.DatabaseSetQuery(obj)
+		query.execute()
+		return query.response
+
 class DatabaseQuery(metaclass=abc.ABCMeta):
 	def __init__(self, id):
 		"""
@@ -660,10 +671,10 @@ class DatabaseIsReferencedQuery(DatabaseQuery):
 		self._response = 0 < len(elements)
 
 class DatabaseSetQuery(DatabaseQuery):
-	def __init__(self, id, obj):
+	def __init__(self, obj):
 		assert(isinstance(obj, openmediavault.config.Object))
 		self._obj = obj
-		super().__init__(id)
+		super().__init__(obj.model.id)
 
 	@property
 	def object(self):
@@ -690,8 +701,19 @@ class DatabaseSetQuery(DatabaseQuery):
 		return self.model.queryinfo['xpath']
 
 	def execute(self):
-		# ToDo...
-		pass
+		# Execute the query.
+		elements = self._find_all_elements()
+		# Build the response.
+		self._response = self._elements_to_object(elements)
+		# Put the configuration object.
+		for element in elements:
+			# Create the clone of the element and append the new values.
+			new_element = lxml.etree.Element(element.tag)
+			self._dict_to_elements(self.object.get_dict(), new_element)
+			# Update the element.
+			parent = element.getparent()
+			parent.replace(element, new_element)
+		self._save()
 
 class DatabaseDeleteQuery(DatabaseQuery):
 	def __init__(self, obj):

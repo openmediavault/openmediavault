@@ -127,6 +127,14 @@ class Object(object):
 		self.assert_exists(name)
 		return self.properties[name]
 
+	def get_dict(self):
+		"""
+		Get the properties.
+		:returns:	Returns the properties of the configuration object as
+					openmediavault.collections.DotDict dictionary.
+		"""
+		return self.properties
+
 	def set(self, name, value, validate=True):
 		"""
 		Set a property.
