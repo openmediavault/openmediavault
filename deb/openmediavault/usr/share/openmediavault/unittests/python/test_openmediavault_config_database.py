@@ -227,7 +227,7 @@ class DatabaseTestCase(unittest.TestCase):
 		#	"<b2>1</b2><f><z>1</z><z>2</z><z>3</z></f><d>5.45</d>" \
 		#	"<a>1</a><g>x</g><g>y</g></config>")
 
-	def test_set_1(self):
+	def test_update(self):
 		self._use_tmp_config_database()
 		db = openmediavault.config.Database()
 		obj = db.get("conf.system.apt.distribution")
@@ -241,7 +241,7 @@ class DatabaseTestCase(unittest.TestCase):
 		self.assertIsInstance(obj, openmediavault.config.Object)
 		self.assertTrue(obj.get("proposed"))
 
-	def test_set_2(self):
+	def test_set_new_iterable(self):
 		self._use_tmp_config_database()
 		db = openmediavault.config.Database()
 		# Check the current number of configuration objects.
@@ -270,7 +270,7 @@ class DatabaseTestCase(unittest.TestCase):
 		self.assertEqual(obj.get("id"), "test")
 		self.assertFalse(obj.get("enable"))
 
-	def test_set_3(self):
+	def test_update_iterable(self):
 		self._use_tmp_config_database()
 		db = openmediavault.config.Database()
 		# Get the configuration object.
