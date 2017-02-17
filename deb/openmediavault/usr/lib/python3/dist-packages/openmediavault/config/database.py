@@ -247,12 +247,14 @@ class Database(object):
 		"""
 		Set the specified configuration object.
 		:param obj: The configuration object to set.
-		:returns: Returns the unmodified configuration object.
+		:returns:	Returns the given configuration object. If the
+					configuration object was new, then the identifier has
+					been modified, e.g. a new UUID.
 		"""
 		assert(isinstance(obj, openmediavault.config.Object))
 		query = openmediavault.config.DatabaseSetQuery(obj)
 		query.execute()
-		return query.response
+		return obj
 
 class DatabaseQuery(metaclass=abc.ABCMeta):
 	def __init__(self, id):
@@ -683,7 +685,7 @@ class DatabaseSetQuery(DatabaseQuery):
 	@property
 	def xpath(self):
 		if self.model.is_iterable:
-			if self.object.is_new:
+			if not self.object.is_new:
 				# Update the element with the specified identifier.
 				return DatabaseGetByFilterQuery(self.model.id,
 					DatabaseFilter({
@@ -703,8 +705,9 @@ class DatabaseSetQuery(DatabaseQuery):
 	def execute(self):
 		# Execute the query.
 		elements = self._find_all_elements()
-		# Build the response.
-		self._response = self._elements_to_object(elements)
+		# Create the new identifier if necessary.
+		if self.model.is_iterable and self.object.is_new:
+			self.object.create_id()
 		# Put the configuration object.
 		for element in elements:
 			# Create the clone of the element and append the new values.

@@ -21,6 +21,7 @@
 __all__ = [ "Object" ]
 
 import json
+import uuid
 import openmediavault
 import openmediavault.string
 import openmediavault.config.datamodel
@@ -59,13 +60,29 @@ class Object(object):
 	@property
 	def id(self):
 		"""
-		Get the object identifier.
+		Get the object identifier, e.g. UUID.
 		:returns: Returns the object identifier, e.g. an UUID.
 		"""
 		if not (self.model.is_iterable and self.model.is_identifiable):
 			raise Exception("The configuration object '%s' is not iterable " \
 				"and identifiable." % self.model.id)
 		return self.get(self.model.idproperty)
+
+	def create_id(self):
+		"""
+		Create and set a new object identifier (UUID). Use this method only
+		if the configuration object has an 'uuid' property.
+		:returns: Returns the new object identifier.
+		"""
+		if not (self.model.is_iterable and self.model.is_identifiable):
+			raise Exception("The configuration object '%s' is not iterable " \
+				"and identifiable." % self.model.id)
+		if "uuid" != self.model.idproperty.lower():
+			raise Exception("The configuration object identifier must be " \
+				"of type UUID.")
+		new_id = uuid.uuid4()
+		self.set(self.model.idproperty, new_id)
+		return new_id
 
 	@property
 	def is_new(self):
