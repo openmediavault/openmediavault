@@ -423,6 +423,10 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 						_process_value(item_element, item_value)
 			elif isinstance(value, dict):
 				for item_key, item_value in value.items():
+					# Skip those properties that must be handled as an
+					# array/list and that are empty.
+					if item_key in self._force_list and not item_value:
+						continue
 					item_element = lxml.etree.Element(item_key)
 					element.append(item_element)
 					_process_value(item_element, item_value)
