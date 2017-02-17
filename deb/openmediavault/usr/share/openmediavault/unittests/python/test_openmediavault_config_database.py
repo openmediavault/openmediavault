@@ -241,5 +241,56 @@ class DatabaseTestCase(unittest.TestCase):
 		self.assertIsInstance(obj, openmediavault.config.Object)
 		self.assertTrue(obj.get("proposed"))
 
+	def test_set_2(self):
+		self._use_tmp_config_database()
+		db = openmediavault.config.Database()
+		# Check the current number of configuration objects.
+		objs = db.get("conf.system.notification.notification")
+		self.assertIsInstance(objs, list)
+		self.assertEqual(len(objs), 8)
+		# Create a new configuration object.
+		new_obj = openmediavault.config.Object("conf.system.notification.notification")
+		new_obj.set_dict({
+			'uuid': openmediavault.getenv('OMV_CONFIGOBJECT_NEW_UUID'),
+			'id': 'test',
+			'enable': False
+		})
+		result_obj = db.set(new_obj)
+		# Validate the returned configuration object.
+		self.assertIsInstance(result_obj, openmediavault.config.Object)
+		self.assertNotEqual(result_obj.get("uuid"),
+			openmediavault.getenv('OMV_CONFIGOBJECT_NEW_UUID'))
+		# Check whether the new configuration object was stored.
+		objs = db.get("conf.system.notification.notification")
+		self.assertIsInstance(objs, list)
+		self.assertEqual(len(objs), 9)
+		# Get the configuration object to validate its properties.
+		obj = db.get("conf.system.notification.notification", result_obj.get("uuid"))
+		self.assertIsInstance(obj, openmediavault.config.Object)
+		self.assertEqual(obj.get("id"), "test")
+		self.assertFalse(obj.get("enable"))
+
+	def test_set_3(self):
+		self._use_tmp_config_database()
+		db = openmediavault.config.Database()
+		# Get the configuration object.
+		obj = db.get("conf.system.notification.notification",
+			"c1cd54af-660d-4311-8e21-2a19420355bb")
+		self.assertIsInstance(obj, openmediavault.config.Object)
+		self.assertTrue(obj.get("enable"))
+		# Modify a property and put the configuration object.
+		obj.set("enable", False)
+		result_obj = db.set(obj)
+		# Validate the returned configuration object.
+		self.assertIsInstance(result_obj, openmediavault.config.Object)
+		self.assertEqual(result_obj.get("uuid"),
+			"c1cd54af-660d-4311-8e21-2a19420355bb")
+		self.assertFalse(result_obj.get("enable"))
+		# Get the configuration object to validate its properties.
+		obj = db.get("conf.system.notification.notification",
+			"c1cd54af-660d-4311-8e21-2a19420355bb")
+		self.assertIsInstance(obj, openmediavault.config.Object)
+		self.assertFalse(obj.get("enable"))
+
 if __name__ == "__main__":
 	unittest.main()
