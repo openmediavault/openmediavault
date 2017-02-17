@@ -382,7 +382,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		"""
 		Convert lxml.etree.Element instances to openmediavault.config.Object
 		object instance(s).
-		:param elements:	A list of XML Element instances.
+		:param elements:	A list of lxml.etree.Element instances.
 		:returns:			Returns a list of openmediavault.config.Object
 							objects if the data model of the configuration
 							object defines it as iterable. The list may be
@@ -407,7 +407,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 
 	def _dict_to_elements(self, dictionary):
 		"""
-		Helper method to convert a Python dictionary to a llist of
+		Helper method to convert a Python dictionary to a list of
 		xml.etree.Element instances.
 		:param dictionary:	The dictionary to process.
 		:returns:			Returns a list of lxml.etree.Element instances.
