@@ -193,18 +193,16 @@ class DatabaseTestCase(unittest.TestCase):
 		#  Create a fake query object to access the helper method.
 		query = openmediavault.config.DatabaseGetQuery(
 			"conf.system.notification.notification")
-		elements = query._dict_to_elements({
+		root = lxml.etree.Element("config")
+		query._dict_to_elements({
 			'a': 1,
 			'b1': False,
 			'b2': True,
 			'c': { 'x': "test" },
 			'd': 5.45,
-			'f': { 'z': [ 1, 2, 3 ] }
-		})
-		root = lxml.etree.Element("config")
-		for child in elements:
-			self.assertTrue(lxml.etree.iselement(child))
-			root.append(child)
+			'f': { 'z': [ 1, 2, 3 ] },
+			'g': [ 'x', 'y' ]
+		}, root)
 		"""
 		The result XML tree should look like:
 		<config>
@@ -220,12 +218,14 @@ class DatabaseTestCase(unittest.TestCase):
 				<z>2</z>
 				<z>3</z>
 			</f>
+			<g>x</g>
+			<g>y</g>
 		</config>
 		"""
 		#xml = lxml.etree.tostring(root, encoding="unicode")
 		#self.assertEqual(xml, "<config><b1>0</b1><c><x>test</x></c>" \
 		#	"<b2>1</b2><f><z>1</z><z>2</z><z>3</z></f><d>5.45</d>" \
-		#	"<a>1</a></config>")
+		#	"<a>1</a><g>x</g><g>y</g></config>")
 
 if __name__ == "__main__":
 	unittest.main()

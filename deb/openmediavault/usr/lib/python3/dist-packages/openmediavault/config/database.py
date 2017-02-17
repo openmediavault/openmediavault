@@ -405,31 +405,34 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 				result.set_dict(self._element_to_dict(elements[0]), False)
 		return result
 
-	def _dict_to_elements(self, dictionary):
+	def _dict_to_elements(self, dictionary, element):
 		"""
-		Helper method to convert a Python dictionary to a list of
-		xml.etree.Element instances.
+		Helper method to convert a Python dictionary into xml.etree.Element
+		instances that are appended as sub elements to the specified
+		xml.etree.Element instance.
 		:param dictionary:	The dictionary to process.
-		:returns:			Returns a list of lxml.etree.Element instances.
+		:param element:		The parent lxml.etree.Element instance where to
+							append the dictionary values.
 		"""
 		def _process_value(element, value):
+			assert(lxml.etree.iselement(element))
 			if isinstance(value, list):
-				for item_key, item_value in enumerate(value):
-					if 0 == item_key:
-						_process_value(element, item_value)
+				for sub_key, sub_value in enumerate(value):
+					if 0 == sub_key:
+						_process_value(element, sub_value)
 					else:
-						item_element = lxml.etree.Element(element.tag)
-						element.getparent().append(item_element)
-						_process_value(item_element, item_value)
+						sub_element = lxml.etree.Element(element.tag)
+						element.getparent().append(sub_element)
+						_process_value(sub_element, sub_value)
 			elif isinstance(value, dict):
-				for item_key, item_value in value.items():
+				for sub_key, sub_value in value.items():
 					# Skip those properties that must be handled as an
 					# array/list and that are empty.
-					if item_key in self._force_list and not item_value:
+					if sub_key in self._force_list and not sub_value:
 						continue
-					item_element = lxml.etree.Element(item_key)
-					element.append(item_element)
-					_process_value(item_element, item_value)
+					sub_element = lxml.etree.Element(sub_key)
+					element.append(sub_element)
+					_process_value(sub_element, sub_value)
 			else:
 				if type(value) == bool:
 					element.text = "1" if value is True else "0"
@@ -437,12 +440,11 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 					element.text = str(value)
 
 		assert(isinstance(dictionary, dict))
-		result = []
-		for key, value in dictionary.items():
-			element = lxml.etree.Element(key)
-			_process_value(element, value)
-			result.append(element)
-		return result
+		assert(lxml.etree.iselement(element))
+		for sub_key, sub_value in dictionary.items():
+			sub_element = lxml.etree.Element(sub_key)
+			element.append(sub_element)
+			_process_value(sub_element, sub_value)
 
 	def _build_predicate(self, filter):
 		"""
