@@ -301,6 +301,8 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		"""
 		Parse the data model and get the properties that must be handled
 		as arrays/lists.
+		:returns:	Returns an array of properties that must be handled as
+					arrays/lists.
 		"""
 		def callback(model, name, path, schema, user_data):
 			if "array" == schema['type']:
@@ -323,7 +325,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		with open(self._database_file, "wb") as f:
 			f.write(lxml.etree.tostring(self._root_element,
 				pretty_print=True, xml_declaration=True,
-				encoding="unicode"))
+				encoding="UTF-8"))
 		self._semaphore.release()
 
 	def _get_root_element(self):
@@ -362,7 +364,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 			else:
 				value = child_element.text
 			tag = child_element.tag
-			if isinstance(self._force_list, list) and tag in self._force_list:
+			if tag in self._force_list:
 				try:
 					# Add value to an existing list.
 					result[tag].append(value)
@@ -413,7 +415,12 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		assert(isinstance(dictionary, dict))
 		result = []
 		for (key, value) in dictionary.items():
-			if isinstance(value, dict):
+			if isinstance(value, list):
+				pass
+			elif isinstance(value, dict):
+				# Skip empty values.
+				if key in self._force_list and not value:
+					continue
 				element = lxml.etree.Element(key)
 				for child in self._dict_to_elements(value):
 					element.append(child)

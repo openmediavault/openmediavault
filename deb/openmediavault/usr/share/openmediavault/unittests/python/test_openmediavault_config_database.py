@@ -20,14 +20,29 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import unittest
 import os
+import shutil
+import tempfile
 import lxml.etree
 import openmediavault
 import openmediavault.config.database
 import openmediavault.config.object
 
-openmediavault.setenv("OMV_CONFIG_FILE", "%s/data/config.xml" % os.getcwd())
-
 class DatabaseTestCase(unittest.TestCase):
+	def setUp(self):
+		# Tell the database implementation to use the test database.
+		openmediavault.setenv("OMV_CONFIG_FILE", "%s/data/config.xml" %
+			os.getcwd())
+
+	def _use_tmp_config_database(self):
+		"""
+		Create a copy of the database and use this. This is useful if the
+		database is modified during the test.
+		"""
+		config_file = "%s/data/config.xml" % os.getcwd()
+		(fh, tmp_config_file) = tempfile.mkstemp();
+		shutil.copy(config_file, tmp_config_file)
+		openmediavault.setenv("OMV_CONFIG_FILE", tmp_config_file)
+
 	def test_constructor(self):
 		db = openmediavault.config.Database()
 		self.assertIsNotNone(db)
@@ -150,6 +165,7 @@ class DatabaseTestCase(unittest.TestCase):
 		self.assertFalse(db.is_referenced(obj))
 
 	def test_delete(self):
+		self._use_tmp_config_database()
 		db = openmediavault.config.Database()
 		obj = db.get("conf.system.notification.notification",
 			"03dc067d-1310-45b5-899f-b471a0ae9233")
@@ -162,6 +178,7 @@ class DatabaseTestCase(unittest.TestCase):
 		self.assertEqual(query.response.get("id"), "monitmemoryusage")
 
 	def test_delete_by_filter(self):
+		self._use_tmp_config_database()
 		db = openmediavault.config.Database()
 		objs = db.delete_by_filter("conf.system.notification.notification",
 			openmediavault.config.DatabaseFilter({
@@ -179,10 +196,9 @@ class DatabaseTestCase(unittest.TestCase):
 		elements = query._dict_to_elements({
 			'a': 1,
 			'b': False,
-			'c': {
-				'x': "test"
-			},
-			'd': 5.45
+			'c': { 'x': "test" },
+			'd': 5.45,
+			'f': [ 1, 2, 3 ]
 		})
 		root = lxml.etree.Element("config")
 		for child in elements:
@@ -190,7 +206,6 @@ class DatabaseTestCase(unittest.TestCase):
 			root.append(child)
 		#xml = lxml.etree.tostring(root, encoding="unicode")
 		#self.assertEqual(xml, "<config><a>1</a><c><x>test</x></c><d>5.45</d><b>0</b></config>")
-
 
 if __name__ == "__main__":
 	unittest.main()
