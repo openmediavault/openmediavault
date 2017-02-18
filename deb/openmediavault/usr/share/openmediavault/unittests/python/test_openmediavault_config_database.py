@@ -106,6 +106,14 @@ class DatabaseTestCase(unittest.TestCase):
 		query = openmediavault.config.DatabaseGetQuery("conf.system.time")
 		self.assertEqual(query.xpath, "//system/time")
 
+	def test_get_query_fail(self):
+		# Query a non-existend configuration object.
+		db = openmediavault.config.Database()
+		self.assertRaises(
+			openmediavault.config.database.DatabaseQueryNotFoundException,
+			lambda: db.get("conf.system.notification.notification",
+				"c1cd54af-0000-1111-2222-2a19420355bb"))
+
 	def test_get_query_iterable(self):
 		query = openmediavault.config.DatabaseGetQuery(
 			"conf.system.notification.notification",
@@ -268,6 +276,19 @@ class DatabaseTestCase(unittest.TestCase):
 		self.assertIsInstance(obj, openmediavault.config.Object)
 		self.assertEqual(obj.get("id"), "test")
 		self.assertFalse(obj.get("enable"))
+
+	def test_set_fail(self):
+		# Try to put an object that does not exist.
+		db = openmediavault.config.Database()
+		obj = openmediavault.config.Object("conf.system.notification.notification")
+		obj.set_dict({
+			'uuid': '2f6bffd8-f5c2-11e6-9584-17a40dfa0331',
+			'id': 'xyz',
+			'enable': True
+		})
+		self.assertRaises(
+			openmediavault.config.database.DatabaseQueryNotFoundException,
+			lambda: db.set(obj))
 
 	def test_update_iterable(self):
 		self._use_tmp_config_database()

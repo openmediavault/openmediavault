@@ -38,13 +38,21 @@ class SchemaException(Exception):
 
 class SchemaPathException(Exception):
 	def __init__(self, path):
-		self.path = path
-		super().__init__(self, "The path '%s' is invalid." % path)
+		self._path = path
+		super().__init__("The path '%s' is invalid." % path)
+
+	@property
+	def path(self):
+		return self._path
 
 class SchemaValidationException(Exception):
 	def __init__(self, path, message):
-		self.path = path
-		super().__init__(self, "%s: %s" % (path, message))
+		self._path = path
+		super().__init__("%s: %s" % (path, message))
+
+	@property
+	def path(self):
+		return self._path
 
 class Schema(object):
 	def __init__(self, schema):

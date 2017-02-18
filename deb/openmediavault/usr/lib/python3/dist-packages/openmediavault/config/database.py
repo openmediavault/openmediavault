@@ -21,6 +21,8 @@
 __all__ = [
 	"Database",
 	"DatabaseException",
+	"DatabaseQueryException",
+	"DatabaseQueryNotFoundException",
 	"DatabaseFilter",
 	"DatabaseGetQuery",
 	"DatabaseGetByFilterQuery",
@@ -40,6 +42,24 @@ import openmediavault.config.object
 
 class DatabaseException(Exception):
 	pass
+
+class DatabaseQueryException(Exception):
+	def __init__(self, xpath, model, message):
+		self._xpath = xpath
+		self._model = model
+		super().__init__(message)
+
+	@property
+	def model(self):
+		return self._model
+
+	@property
+	def xpath(self):
+		return self._xpath
+
+class DatabaseQueryNotFoundException(DatabaseQueryException):
+	def __init__(self, xpath, model):
+		super().__init__(xpath, model, "Object was not found: %s" % xpath)
 
 class DatabaseFilter(openmediavault.collections.DotDict):
 	pass
@@ -349,7 +369,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 			self._load()
 		return self._root_element
 
-	def _find_all_elements(self):
+	def _execute_xpath(self):
 		"""
 		Helper method to execute the XPath query.
 		:returns:	Returns a list of lxml.etree.Element instancess that match
@@ -615,7 +635,7 @@ class DatabaseGetByFilterQuery(DatabaseQuery):
 		return self.model.queryinfo['xpath']
 
 	def execute(self):
-		elements = self._find_all_elements()
+		elements = self._execute_xpath()
 		self._response = self._elements_to_object(elements)
 
 class DatabaseGetQuery(DatabaseQuery):
@@ -639,15 +659,19 @@ class DatabaseGetQuery(DatabaseQuery):
 		return self.model.queryinfo['xpath']
 
 	def execute(self):
-		elements = self._find_all_elements()
+		elements = self._execute_xpath()
 		self._response = self._elements_to_object(elements)
+		# Validate the query result.
 		# If the object is iterable and if there is an identifier,
-		# then only one object must be returned.
+		# then only one object MUST be returned.
 		if self.model.is_iterable and self.identifier:
 			try:
 				self._response = self._response[0]
-			except KeyError:
+			except IndexError:
+				# Reset the response object.
 				self._response = None
+				# Raise an exception.
+				raise DatabaseQueryNotFoundException(self.xpath, self.model)
 
 class DatabaseIsReferencedQuery(DatabaseQuery):
 	def __init__(self, obj):
@@ -669,7 +693,7 @@ class DatabaseIsReferencedQuery(DatabaseQuery):
 			})))
 
 	def execute(self):
-		elements = self._find_all_elements()
+		elements = self._execute_xpath()
 		self._response = 0 < len(elements)
 
 class DatabaseSetQuery(DatabaseQuery):
@@ -685,7 +709,7 @@ class DatabaseSetQuery(DatabaseQuery):
 	@property
 	def xpath(self):
 		if self.model.is_iterable and not self.object.is_new:
-			# Update the element with the specified identifier.
+			# Find and update the element with the specified identifier.
 			return DatabaseGetByFilterQuery(self.model.id,
 				DatabaseFilter({
 					'operator': 'stringEquals',
@@ -693,12 +717,21 @@ class DatabaseSetQuery(DatabaseQuery):
 					'arg1': self.object.get(self.model.idproperty)
 				})).xpath
 
+		# Find all elements matching the XPath.
 		return self.model.queryinfo['xpath']
 
 	def execute(self):
 		append_element = False
 		# Execute the query.
-		elements = self._find_all_elements()
+		elements = self._execute_xpath()
+		# Validate the query result.
+		# If an identifier was set for an iterable object, then there MUST
+		# exist an element.
+		if self.model.is_iterable and not self.object.is_new:
+			if len(elements) == 0:
+				# Raise an exception.
+				raise DatabaseQueryNotFoundException(
+					self.xpath, self.object.model)
 		# Note, new iterable elements MUST be handled different.
 		if self.model.is_iterable and self.object.is_new:
 			# Create the new identifier if necessary.
@@ -744,7 +777,7 @@ class DatabaseDeleteQuery(DatabaseQuery):
 		return self.model.queryinfo['xpath']
 
 	def execute(self):
-		elements = self._find_all_elements()
+		elements = self._execute_xpath()
 		self._response = self._elements_to_object(elements)
 		try:
 			self._response = self._response[0]
@@ -759,7 +792,7 @@ class DatabaseDeleteQuery(DatabaseQuery):
 
 class DatabaseDeleteByFilterQuery(DatabaseGetByFilterQuery):
 	def execute(self):
-		elements = self._find_all_elements()
+		elements = self._execute_xpath()
 		self._response = self._elements_to_object(elements)
 		for element in elements:
 			parent = element.getparent()
