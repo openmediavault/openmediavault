@@ -79,7 +79,7 @@ class User {
 				if (2 != $e->getExitStatus())
 					throw $e;
 				// Otherwise continue with empty values.
-				$output = [ "::::::::" ]
+				$output = [ "::::::::" ];
 			}
 			$output = explode(":", $output[0]);
 			$this->password = $output[1];

@@ -1,5 +1,6 @@
 openmediavault (3.0.63) stable; urgency=low
 
+  * Fix bug in backend which prevents login.
   * Mantis 0001678: Error when collecting user information.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 16 Feb 2017 19:27:52 +0100
