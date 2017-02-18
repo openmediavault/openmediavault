@@ -693,12 +693,6 @@ class DatabaseSetQuery(DatabaseQuery):
 						'arg0': self.model.idproperty,
 						'arg1': self.object.get(self.model.idproperty)
 					})).xpath
-			else:
-				# Insert a new element.
-				xpath = self.model.queryinfo['xpath']
-				parts = xpath.split("/")
-				element_name = parts.pop()
-				return xpath[0:xpath.rindex(element_name) - 1]
 
 		return self.model.queryinfo['xpath']
 
@@ -706,16 +700,22 @@ class DatabaseSetQuery(DatabaseQuery):
 		# Execute the query.
 		elements = self._find_all_elements()
 		# Create the new identifier if necessary.
+		is_new = False
 		if self.model.is_iterable and self.object.is_new:
+			is_new = True
 			self.object.create_id()
 		# Put the configuration object.
 		for element in elements:
-			# Create the clone of the element and append the new values.
+			# Create the clone of the element and set the new values.
 			new_element = lxml.etree.Element(element.tag)
 			self._dict_to_elements(self.object.get_dict(), new_element)
-			# Update the element.
+			# Append/Update the element.
 			parent = element.getparent()
-			parent.replace(element, new_element)
+			if self.model.is_iterable and is_new:
+				parent.append(new_element)
+				break
+			else:
+				parent.replace(element, new_element)
 		self._save()
 
 class DatabaseDeleteQuery(DatabaseQuery):
