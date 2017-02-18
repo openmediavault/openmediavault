@@ -695,10 +695,10 @@ class DatabaseSetQuery(DatabaseQuery):
 					})).xpath
 			else:
 				# Insert a new element.
-				#$parts = explode("/", $xpath);
-				#$elementName = array_pop($parts);
-				#$xpath = substr($xpath, 0, strrpos($xpath, $elementName) - 1);
-				raise NotImplementedError()
+				xpath = self.model.queryinfo['xpath']
+				parts = xpath.split("/")
+				element_name = parts.pop()
+				return xpath[0, xpath.rindex(element_name) - 1]
 
 		return self.model.queryinfo['xpath']
 
