@@ -684,26 +684,27 @@ class DatabaseSetQuery(DatabaseQuery):
 
 	@property
 	def xpath(self):
-		if self.model.is_iterable:
-			if not self.object.is_new:
-				# Update the element with the specified identifier.
-				return DatabaseGetByFilterQuery(self.model.id,
-					DatabaseFilter({
-						'operator': 'stringEquals',
-						'arg0': self.model.idproperty,
-						'arg1': self.object.get(self.model.idproperty)
-					})).xpath
+		if self.model.is_iterable and not self.object.is_new:
+			# Update the element with the specified identifier.
+			return DatabaseGetByFilterQuery(self.model.id,
+				DatabaseFilter({
+					'operator': 'stringEquals',
+					'arg0': self.model.idproperty,
+					'arg1': self.object.get(self.model.idproperty)
+				})).xpath
 
 		return self.model.queryinfo['xpath']
 
 	def execute(self):
+		append_element = False
 		# Execute the query.
 		elements = self._find_all_elements()
-		# Create the new identifier if necessary.
-		is_new = False
+		# Note, new iterable elements MUST be handled different.
 		if self.model.is_iterable and self.object.is_new:
-			is_new = True
+			# Create the new identifier if necessary.
 			self.object.create_id()
+			# A new iterable element MUST be append to the parent element.
+			append_element = True
 		# Put the configuration object.
 		for element in elements:
 			# Create the clone of the element and set the new values.
@@ -711,10 +712,13 @@ class DatabaseSetQuery(DatabaseQuery):
 			self._dict_to_elements(self.object.get_dict(), new_element)
 			# Append/Update the element.
 			parent = element.getparent()
-			if self.model.is_iterable and is_new:
+			if append_element: # Add mode
+				# Append the new element to the parent element.
 				parent.append(new_element)
+				# Immediatelly abort because nothing more has to be done.
 				break
-			else:
+			else: # Update mode
+				# Replace the old element with the new one.
 				parent.replace(element, new_element)
 		self._save()
 
