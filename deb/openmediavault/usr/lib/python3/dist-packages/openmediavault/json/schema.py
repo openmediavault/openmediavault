@@ -241,8 +241,8 @@ class Schema(object):
 	def _validate_string(self, value, schema, name):
 		if not isinstance(value, str):
 			raise SchemaValidationException(name,
-				"The value '%s' is not a number." %
-				"NULL" if (value is None) else str(value))
+				"The value '%s' is not a string." %
+				("NULL" if (value is None) else str(value)))
 		self._check_pattern(value, schema, name)
 		self._check_min_length(value, schema, name)
 		self._check_max_length(value, schema, name)
@@ -254,7 +254,7 @@ class Schema(object):
 		if not isinstance(value, list):
 			raise SchemaValidationException(name,
 				"The value '%s' is not an array." %
-				"NULL" if (value is None) else str(value))
+				("NULL" if (value is None) else str(value)))
 		self._check_min_items(value, schema, name)
 		self._check_max_items(value, schema, name)
 		self._check_items(value, schema, name)
@@ -263,7 +263,7 @@ class Schema(object):
 		if not isinstance(value, dict):
 			raise SchemaValidationException(name,
 				"The value '%s' is not an object." %
-				"NULL" if (value is None) else str(value))
+				("NULL" if (value is None) else str(value)))
 		self._check_properties(value, schema, name)
 
 	def _validate_null(self, value, schema, name):

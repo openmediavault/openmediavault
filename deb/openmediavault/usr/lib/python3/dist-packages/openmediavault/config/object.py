@@ -80,7 +80,7 @@ class Object(object):
 		if "uuid" != self.model.idproperty.lower():
 			raise Exception("The configuration object identifier must be " \
 				"of type UUID.")
-		new_id = uuid.uuid4()
+		new_id = str(uuid.uuid4())
 		self.set(self.model.idproperty, new_id)
 		return new_id
 

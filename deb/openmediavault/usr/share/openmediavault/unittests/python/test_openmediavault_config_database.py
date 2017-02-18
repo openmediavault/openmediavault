@@ -234,9 +234,8 @@ class DatabaseTestCase(unittest.TestCase):
 		self.assertIsInstance(obj, openmediavault.config.Object)
 		self.assertFalse(obj.get("proposed"))
 		obj.set("proposed", True)
-		old_obj = db.set(obj)
-		self.assertIsInstance(old_obj, openmediavault.config.Object)
-		self.assertFalse(old_obj.get("proposed"))
+		db.set(obj)
+		# Get the configuration object to validate its properties.
 		obj = db.get("conf.system.apt.distribution")
 		self.assertIsInstance(obj, openmediavault.config.Object)
 		self.assertTrue(obj.get("proposed"))

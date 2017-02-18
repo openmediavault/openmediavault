@@ -698,7 +698,7 @@ class DatabaseSetQuery(DatabaseQuery):
 				xpath = self.model.queryinfo['xpath']
 				parts = xpath.split("/")
 				element_name = parts.pop()
-				return xpath[0, xpath.rindex(element_name) - 1]
+				return xpath[0:xpath.rindex(element_name) - 1]
 
 		return self.model.queryinfo['xpath']
 
