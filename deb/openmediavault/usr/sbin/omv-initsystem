@@ -23,11 +23,13 @@ set -e
 
 . /etc/default/openmediavault
 
+OMV_LOG_DIR=${OMV_LOG_DIR:-"/var/log/openmediavault"}
+OMV_INITSYSTEM_FILE=${OMV_INITSYSTEM_FILE:-"/var/lib/openmediavault/initsystem.req"}
 OMV_INITSYSTEM_SCRIPTS_DIR=${OMV_INITSYSTEM_SCRIPTS_DIR:-"/usr/share/openmediavault/initsystem"}
 
-# Run all system initialization scripts.
+# Run all system initialization scripts?
 if test $# -gt 0; then
-	# Execute only given scripts.
+	# Execute the specified scripts.
 	for name in $@; do
 		${OMV_INITSYSTEM_SCRIPTS_DIR}/${name} 2>&1 >${OMV_LOG_DIR}/initsystem.log
 	done
