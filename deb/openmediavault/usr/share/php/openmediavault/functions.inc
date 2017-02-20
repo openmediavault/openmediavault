@@ -33,16 +33,16 @@ require_once("openmediavault/autoloader.inc");
  */
 function array_flatten(array $array, $separator = ".", $prefix = "") {
 	if (!is_array($array))
-        return FALSE;
+		return FALSE;
 	$result = [];
-    foreach ($array as $key => $value) {
-        if (is_array($value))
-            $result = array_merge($result, array_flatten($value, $separator,
-			  $prefix.$key.$separator));
-        else
-            $result[$prefix.$key] = $value;
-    }
-    return $result;
+	foreach ($array as $key => $value) {
+		if (is_array($value))
+			$result = array_merge($result, array_flatten($value, $separator,
+				$prefix.$key.$separator));
+		else
+			$result[$prefix.$key] = $value;
+	}
+	return $result;
 }
 
 /**
@@ -54,23 +54,23 @@ function array_flatten(array $array, $separator = ".", $prefix = "") {
  */
 function array_expand(array $array, $separator = ".") {
 	if (!is_array($array))
-        return FALSE;
-    $return = [];
-    foreach ($array as $key => $value) {
-        $parts = explode($separator, $key);
-        $leafKey = array_pop($parts);
-        $parent = &$return;
-        foreach ($parts as $partk => $partv) {
-            if (!isset($parent[$partv]))
-                $parent[$partv] = [];
-            else if (!is_array($parent[$partv]))
-                $parent[$partv] = [];
-            $parent = &$parent[$partv];
-        }
-        if (empty($parent[$leafKey]))
-            $parent[$leafKey] = $value;
-    }
-    return $return;
+		return FALSE;
+	$return = [];
+	foreach ($array as $key => $value) {
+		$parts = explode($separator, $key);
+		$leafKey = array_pop($parts);
+		$parent = &$return;
+		foreach ($parts as $partk => $partv) {
+			if (!isset($parent[$partv]))
+				$parent[$partv] = [];
+			else if (!is_array($parent[$partv]))
+				$parent[$partv] = [];
+			$parent = &$parent[$partv];
+		}
+		if (empty($parent[$leafKey]))
+			$parent[$leafKey] = $value;
+	}
+	return $return;
 }
 
 /**
@@ -82,7 +82,7 @@ function array_expand(array $array, $separator = ".") {
  */
 function array_sort_key(array &$array, $key) {
 	return uasort($array, create_function('$a, $b',
-	  "return strnatcmp(strval(\$a['$key']), strval(\$b['$key']));"));
+		"return strnatcmp(strval(\$a['$key']), strval(\$b['$key']));"));
 }
 
 /**
