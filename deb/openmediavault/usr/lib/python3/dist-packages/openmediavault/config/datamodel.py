@@ -21,9 +21,19 @@
 __all__ = [ "Datamodel" ]
 
 import os
+import os.path
 import openmediavault
 import openmediavault.datamodel.datamodel
 import openmediavault.json.schema
+
+class DatamodelNotFoundException(Exception):
+	def __init__(self, id):
+		self._id = id
+		super().__init__("No such datamodel: %s" % id)
+
+	@property
+	def id(self):
+		return self._id
 
 class Datamodel(openmediavault.datamodel.Datamodel):
 	def __init__(self, id):
@@ -45,12 +55,15 @@ class Datamodel(openmediavault.datamodel.Datamodel):
 		Load the specified data model from file system.
 		:param id: The data model identifier, e.g. 'conf.service.ftp.share'.
 		:returns: The JSON object of the data model.
-		:raises FileNotFoundError:
+		:raises openmediavault.datamodel.DatamodelNotFoundException:
 		"""
 		# Load the file content.
 		datamodels_dir = openmediavault.getenv("OMV_DATAMODELS_DIR",
 			"/usr/share/openmediavault/datamodels");
-		with open(os.path.join(datamodels_dir, "%s.json" % id)) as f:
+		datamodel_path = os.path.join(datamodels_dir, "%s.json" % id)
+		if not os.path.exists(datamodel_path):
+			raise DatamodelNotFoundException(id)
+		with open(datamodel_path) as f:
 			content = f.read()
 		return content
 

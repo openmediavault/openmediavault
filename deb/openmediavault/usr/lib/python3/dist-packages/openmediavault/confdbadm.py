@@ -22,9 +22,11 @@ __all__ = [ "ICommand" ]
 
 import abc
 import os
+import argparse
 import shutil
 import tempfile
 import openmediavault
+import openmediavault.string
 
 class ICommand(metaclass=abc.ABCMeta):
 	@abc.abstractproperty
@@ -93,3 +95,23 @@ class CommandHelper():
 			return
 		shutil.copy(self._backup_path, openmediavault.getenv(
 			"OMV_CONFIG_FILE"))
+
+	def argparse_is_uuid4(self, arg):
+		"""
+		Check if the specified value is a valid UUID4.
+		:param arg:	The value to check.
+		:returns:	The specified value.
+		"""
+		if not openmediavault.string.is_uuid4(arg):
+			raise argparse.ArgumentTypeError("Value is no valid UUID4")
+		return arg
+
+	def argparse_is_json(self, arg):
+		"""
+		Check if the specified value is a valid JSON string.
+		:param arg:	The value to check.
+		:returns:	The specified value.
+		"""
+		if not openmediavault.string.is_json(arg):
+			raise argparse.ArgumentTypeError("Value is no valid JSON")
+		return arg

@@ -59,7 +59,7 @@ class DatabaseQueryException(Exception):
 
 class DatabaseQueryNotFoundException(DatabaseQueryException):
 	def __init__(self, xpath, model):
-		super().__init__(xpath, model, "Object was not found: %s" % xpath)
+		super().__init__(xpath, model, "No such object: %s" % xpath)
 
 class DatabaseFilter(openmediavault.collections.DotDict):
 	pass
