@@ -21,11 +21,11 @@
 import os
 import sys
 import argparse
-import json
 import openmediavault.confdbadm
 import openmediavault.config.database
 
-class Command(openmediavault.confdbadm.ICommand):
+class Command(openmediavault.confdbadm.ICommand,
+		openmediavault.confdbadm.CommandHelper):
 	@property
 	def description(self):
 		return "Read configuration database objects"
@@ -52,8 +52,7 @@ class Command(openmediavault.confdbadm.ICommand):
 		# Query the database.
 		db = openmediavault.config.Database()
 		if cmd_args.filter:
-			filter = openmediavault.config.DatabaseFilter(
-				json.loads(cmd_args.filter))
+			filter = openmediavault.config.DatabaseFilter(cmd_args.filter)
 			objs = db.get_by_filter(cmd_args.id, filter)
 		else:
 			objs = db.get(cmd_args.id, cmd_args.uuid)

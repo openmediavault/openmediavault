@@ -21,12 +21,11 @@
 import os
 import sys
 import argparse
-import json
 import openmediavault
 import openmediavault.log
 
 class Command(openmediavault.confdbadm.ICommand,
-	openmediavault.confdbadm.CommandHelper):
+		openmediavault.confdbadm.CommandHelper):
 	@property
 	def description(self):
 		return "Delete the configuration"
@@ -57,8 +56,7 @@ class Command(openmediavault.confdbadm.ICommand,
 		try:
 			if cmd_args.filter:
 				# Create the query filter.
-				filter = openmediavault.config.DatabaseFilter(json.loads(
-					cmd_args.filter))
+				filter = openmediavault.config.DatabaseFilter(cmd_args.filter)
 				objs = db.delete_by_filter(cmd_args.id, filter)
 			else:
 				# Query the database.

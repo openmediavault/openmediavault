@@ -24,6 +24,7 @@ import abc
 import os
 import argparse
 import shutil
+import json
 import tempfile
 import openmediavault
 import openmediavault.string
@@ -110,8 +111,8 @@ class CommandHelper():
 		"""
 		Check if the specified value is a valid JSON string.
 		:param arg:	The value to check.
-		:returns:	The specified value.
+		:returns:	The specified value as Python dictionary.
 		"""
 		if not openmediavault.string.is_json(arg):
 			raise argparse.ArgumentTypeError("Value is no valid JSON")
-		return arg
+		return json.loads(arg)
