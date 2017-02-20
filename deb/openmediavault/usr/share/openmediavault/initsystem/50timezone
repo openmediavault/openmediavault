@@ -21,11 +21,9 @@
 
 set -e
 
-. /etc/default/openmediavault
-. /usr/share/openmediavault/scripts/helper-functions
-
 # Set hostname which is set by the user during the installation
 timezone=$(cat /etc/timezone)
-omv_config_update "//system/time/timezone" "${timezone}"
+data=$(omv-confdbadm read "conf.system.time" | jq ".timezone = \"${timezone}\"")
+omv-confdbadm update "conf.system.time" "${data}"
 
 exit 0

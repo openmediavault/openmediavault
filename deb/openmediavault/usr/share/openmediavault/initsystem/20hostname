@@ -21,14 +21,11 @@
 
 set -e
 
-. /etc/default/openmediavault
-. /usr/share/openmediavault/scripts/helper-functions
-
 # Set hostname and domain name which is set by the user during the
 # installation.
 hostname=$(hostname --short)
 domainname=$(dnsdomainname)
-omv_config_update "//system/network/dns/hostname" "${hostname}"
-omv_config_update "//system/network/dns/domainname" "${domainname}"
+omv-confdbadm update "conf.system.network.dns" \
+	"{\"hostname\":\"${hostname}\",\"domainname\":\"${domainname}\"}"
 
 exit 0

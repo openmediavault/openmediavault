@@ -180,8 +180,11 @@ class Object(object):
 							Defaults to False.
 		"""
 		if not isinstance(values, dict):
-			raise TypeError("Expected dictionary.")
-		for key, value in values.items():
+			raise TypeError("Expected dictionary")
+		# Create a flat representation of the dictionary and set the
+		# key/value pairs.
+		values_flat = openmediavault.collections.flatten(values)
+		for key, value in values_flat.items():
 			if ignore and not self.exists(key):
 				continue
 			self.set(key, value, validate)

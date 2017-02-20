@@ -18,16 +18,37 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-__all__ = [ "DotDict" ]
+__all__ = [
+	"flatten"
+	"DotDict"
+]
+
+def flatten(d, seperator=".", parent_key=""):
+	"""
+	Collapses a multi-dimensional Python dictionary into a single dimension
+	using dot notation.
+	:param d:			The Python dictionary to flatten.
+	:param seperator:	The character used as separator. Defaults to '.'.
+	:param parent_key:	The parent key.
+	:returns:			A single-dimensional Python dictionary.
+	"""
+	result = []
+	for key, value in d.items():
+		new_key = parent_key + seperator + key if parent_key else key
+		if isinstance(value, dict):
+			result.extend(flatten(value, seperator, new_key).items())
+		else:
+			result.append((new_key, value))
+	return dict(result)
 
 class DotDict(dict):
-	def __init__(self, value=None):
-		if value is None:
+	def __init__(self, d=None):
+		if d is None:
 			return
-		if not isinstance(value, dict):
+		if not isinstance(d, dict):
 			raise TypeError("Expected dictionary.")
-		for key in value:
-			self.__setitem__(key, value[key])
+		for key, value in d.items():
+			self.__setitem__(key, value)
 
 	def setdefault(self, key, default):
 		if not key in self:
