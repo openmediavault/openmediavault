@@ -23,9 +23,12 @@ import os
 import openmediavault
 import openmediavault.config.object
 
-openmediavault.setenv("OMV_CONFIG_FILE", "%s/data/config.xml" % os.getcwd())
-
 class ConfigObjectTestCase(unittest.TestCase):
+	def setUp(self):
+		# Tell the database implementation to use the test database.
+		openmediavault.setenv("OMV_CONFIG_FILE", "%s/data/config.xml" %
+			os.getcwd())
+
 	def test_constructor(self):
 		conf_obj = openmediavault.config.Object("conf.service.ftp.share")
 
@@ -39,10 +42,17 @@ class ConfigObjectTestCase(unittest.TestCase):
 			'sharedfolderref': '',
 			'extraoptions': '' })
 
-	def test_set_get(self):
+	def test_set_get_1(self):
 		conf_obj = openmediavault.config.Object("conf.service.ftp.share")
 		conf_obj.set("comment", "test")
 		self.assertEqual(conf_obj.get("comment"), "test")
+
+	def test_set_get_2(self):
+		conf_obj = openmediavault.config.Object("conf.system.time")
+		self.assertEqual(conf_obj.get("timezone"), "Etc/UTC")
+		self.assertFalse(conf_obj.get("ntp.enable"))
+		self.assertEqual(conf_obj.get("ntp.timeservers"),
+			"pool.ntp.org,pool1.ntp.org;pool2.ntp.org")
 
 	def test_set_dict(self):
 		conf_obj = openmediavault.config.Object("conf.service.ftp.share")
