@@ -81,8 +81,12 @@ class OMVModuleFsTab extends \OMV\Engine\Module\ServiceAbstract
 	 * @param params The method parameters.
 	 */
 	final public function deleteEntry($params) {
-		\OMV\System\Filesystem\Filesystem::assertGetImpl($params['fsname']);
+		// Try to get the file system. If it is not found, then it might
+		// already be wiped or the device is not accessible anymore, e.g.
+		// an unplugged USB device.
 		$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['fsname']);
+		if (is_null($fs) || !$fs->exists())
+			return;
 		// Check whether the file system is mounted and unmount it if
 		// necessary.
 		if (TRUE === $fs->isMounted())
