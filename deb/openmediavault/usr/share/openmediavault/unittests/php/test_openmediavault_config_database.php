@@ -33,27 +33,47 @@ class test_openmediavault_config_database extends \PHPUnit_Framework_TestCase {
 		$modelMngr->load();
 	}
 
+	/**
+	 * Create a copy of the database and use this. This is useful if the
+	 * database is modified during the test.
+	 */
+	private function useTmpConfigDatabase() {
+		$configFile = sprintf("%s/../data/config.xml", getcwd());
+		$tmpConfigFile = tempnam("/tmp", "cfg");
+		copy($configFile, $tmpConfigFile);
+		\OMV\Environment::set("OMV_CONFIG_FILE", $tmpConfigFile);
+	}
+
 	public function testConstructor() {
-		$db = \OMV\Config\Database::getInstance();
+		$db = new \OMV\Config\Database();
 		$this->assertInstanceOf("OMV\Config\Database", $db);
 	}
 
 	public function testGet1() {
-		$db = \OMV\Config\Database::getInstance();
+		$db = new \OMV\Config\Database();
 		$object = $db->get("conf.system.time");
 		$this->assertInstanceOf("OMV\Config\ConfigObject", $object);
 		$this->assertEquals($object->get("ntp.timeservers"), "pool.ntp.org");
 	}
 
 	public function testGet2() {
-		$db = \OMV\Config\Database::getInstance();
+		$db = new \OMV\Config\Database();
 		$object = $db->get("conf.system.apt.distribution");
 		$this->assertInstanceOf("OMV\Config\ConfigObject", $object);
 		$this->assertFalse($object->get("proposed"));
 	}
 
+	/**
+	 * @expectedException OMV\Config\DatabaseException
+	 */
+	public function testGetFail() {
+		$db = new \OMV\Config\Database();
+		$db->get("conf.system.notification.notification",
+			"c1cd54af-0000-1111-2222-2a19420355bb");
+	}
+
 	public function testGetIterable() {
-		$db = \OMV\Config\Database::getInstance();
+		$db = new \OMV\Config\Database();
 		$objects = $db->get("conf.system.notification.notification");
 		$this->assertInternalType("array", $objects);
 		$this->assertTrue(0 < count($objects));
@@ -61,7 +81,7 @@ class test_openmediavault_config_database extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGetByFilter1() {
-		$db = \OMV\Config\Database::getInstance();
+		$db = new \OMV\Config\Database();
 		$objects = $db->getByFilter("conf.system.notification.notification", [
 			'operator' => 'stringEquals',
 			'arg0' => 'uuid',
@@ -73,7 +93,7 @@ class test_openmediavault_config_database extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGetByFilter2() {
-		$db = \OMV\Config\Database::getInstance();
+		$db = new \OMV\Config\Database();
 		$objects = $db->getByFilter("conf.system.notification.notification", [
 			'operator' => 'stringContains',
 			'arg0' => 'id',
@@ -84,7 +104,7 @@ class test_openmediavault_config_database extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testExists() {
-		$db = \OMV\Config\Database::getInstance();
+		$db = new \OMV\Config\Database();
 		$this->assertTrue($db->exists(
 			"conf.system.notification.notification", [
 				'operator' => 'stringEquals',
@@ -94,7 +114,7 @@ class test_openmediavault_config_database extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsUnique() {
-		$db = \OMV\Config\Database::getInstance();
+		$db = new \OMV\Config\Database();
 		$object = $db->get("conf.system.notification.notification",
 			"c1cd54af-660d-4311-8e21-2a19420355bb");
 		$this->assertInstanceOf("OMV\Config\ConfigObject", $object);
@@ -102,7 +122,7 @@ class test_openmediavault_config_database extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsReferenced1() {
-		$db = \OMV\Config\Database::getInstance();
+		$db = new \OMV\Config\Database();
 		$object = $db->get("conf.system.sharedfolder",
 			"339bd101-5744-4017-9392-01a156f15ab9");
 		$this->assertInstanceOf("OMV\Config\ConfigObject", $object);
@@ -110,10 +130,126 @@ class test_openmediavault_config_database extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsReferenced2() {
-		$db = \OMV\Config\Database::getInstance();
+		$db = new \OMV\Config\Database();
 		$object = $db->get("conf.system.sharedfolder",
 			"91fe93fc-ef9d-11e6-9b06-000c2900c2de");
 		$this->assertInstanceOf("OMV\Config\ConfigObject", $object);
 		$this->assertFalse($db->isReferenced($object));
+	}
+
+	public function testDelete() {
+		$this->useTmpConfigDatabase();
+		$db = new \OMV\Config\Database();
+		$db->getBackend()->setVersioning(FALSE);
+		$object = $db->get("conf.system.notification.notification",
+			"03dc067d-1310-45b5-899f-b471a0ae9233");
+		$this->assertInstanceOf("OMV\Config\ConfigObject", $object);
+		$db->delete($object, TRUE);
+		# Ensure that the object does not exist anymore.
+		$this->assertFalse($db->exists(
+			$object->getModel()->getId(), [
+				'operator' => 'stringEquals',
+				'arg0' => $object->getModel()->getIdProperty(),
+				'arg1' => $object->get($object->getModel()->getIdProperty())
+			]));
+	}
+
+	public function testDeleteByFilter() {
+		$this->useTmpConfigDatabase();
+		$db = new \OMV\Config\Database();
+		$db->getBackend()->setVersioning(FALSE);
+		$db->deleteByFilter(
+			"conf.system.notification.notification", [
+				'operator' => 'stringContains',
+				'arg0' => 'id',
+				'arg1' => 'monit'
+			]);
+		// Check the number of remaining configuration objects.
+		$objects = $db->get("conf.system.notification.notification");
+		$this->assertInternalType("array", $objects);
+		$this->assertEquals(count($objects), 3);
+	}
+
+	public function testUpdate() {
+		$this->useTmpConfigDatabase();
+		$db = new \OMV\Config\Database();
+		$db->getBackend()->setVersioning(FALSE);
+		$object = $db->get("conf.system.apt.distribution");
+		$this->assertInstanceOf("OMV\Config\ConfigObject", $object);
+		$this->assertFalse($object->get("proposed"));
+		$object->set("proposed", TRUE);
+		$db->set($object);
+		$object = $db->get("conf.system.apt.distribution");
+		$this->assertInstanceOf("OMV\Config\ConfigObject", $object);
+		$this->assertTrue($object->get("proposed"));
+	}
+
+	public function testSetNewIterable() {
+		$this->useTmpConfigDatabase();
+		$db = new \OMV\Config\Database();
+		$db->getBackend()->setVersioning(FALSE);
+		// Check the current number of configuration objects.
+		$objects = $db->get("conf.system.notification.notification");
+		$this->assertInternalType("array", $objects);
+		$this->assertEquals(count($objects), 8);
+		// Create a new configuration object.
+		$newObject = new \OMV\Config\ConfigObject(
+			"conf.system.notification.notification");
+		$newObject->setAssoc([
+			'uuid' => \OMV\Environment::get('OMV_CONFIGOBJECT_NEW_UUID'),
+			'id' => 'test',
+			'enable' => FALSE
+		]);
+		$db->set($newObject);
+		// Validate the configuration object.
+		$this->assertNotEquals($newObject->get("uuid"),
+			\OMV\Environment::get('OMV_CONFIGOBJECT_NEW_UUID'));
+		// Check whether the new configuration object was stored.
+		$objects = $db->get("conf.system.notification.notification");
+		$this->assertInternalType("array", $objects);
+		$this->assertEquals(count($objects), 9);
+		// Get the configuration object to validate its properties.
+		$object = $db->get("conf.system.notification.notification",
+			$newObject->get("uuid"));
+		$this->assertInstanceOf("OMV\Config\ConfigObject", $object);
+		$this->assertEquals($object->get("id"), "test");
+		$this->assertFalse($object->get("enable"));
+	}
+
+	/**
+	 * @expectedException OMV\Config\DatabaseException
+	 */
+	public function testSetFail() {
+		$this->useTmpConfigDatabase();
+		$db = new \OMV\Config\Database();
+		$db->getBackend()->setVersioning(FALSE);
+		// Try to put an object that does not exist.
+		$newObject = new \OMV\Config\ConfigObject(
+			"conf.system.notification.notification");
+		$newObject->setAssoc([
+			'uuid' => '2f6bffd8-f5c2-11e6-9584-17a40dfa0331',
+			'id' => 'xyz',
+			'enable' => TRUE
+		]);
+		$db->set($newObject);
+	}
+
+	public function testUpdateIterable() {
+		$this->useTmpConfigDatabase();
+		$db = new \OMV\Config\Database();
+		$db->getBackend()->setVersioning(FALSE);
+		// Get the configuration object.
+		$object = $db->get("conf.system.notification.notification",
+			"c1cd54af-660d-4311-8e21-2a19420355bb");
+		$this->assertInstanceOf("OMV\Config\ConfigObject", $object);
+		$this->assertTrue($object->get("enable"));
+		// Modify a property and put the configuration object.
+		$object->set("enable", FALSE);
+		$db->set($object);
+		// Get the configuration object to validate its properties.
+		$object = $db->get("conf.system.notification.notification",
+			"c1cd54af-660d-4311-8e21-2a19420355bb");
+		$this->assertInstanceOf("OMV\Config\ConfigObject", $object);
+		$this->assertFalse($object->get("enable"));
 	}
 }

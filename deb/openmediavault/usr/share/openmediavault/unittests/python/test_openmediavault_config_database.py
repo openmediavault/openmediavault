@@ -38,7 +38,7 @@ class DatabaseTestCase(unittest.TestCase):
 		Create a copy of the database and use this. This is useful if the
 		database is modified during the test.
 		"""
-		config_file = "%s/data/config.xml" % os.getcwd()
+		config_file = "%s/../data/config.xml" % os.getcwd()
 		(fh, tmp_config_file) = tempfile.mkstemp();
 		shutil.copy(config_file, tmp_config_file)
 		openmediavault.setenv("OMV_CONFIG_FILE", tmp_config_file)
@@ -153,7 +153,7 @@ class DatabaseTestCase(unittest.TestCase):
 		self.assertEqual(query.xpath, "//system/network/proxy[(port=8080 or " \
 			"port=4443)]")
 
-	def test_is_unique_by_filter(self):
+	def test_is_unique(self):
 		db = openmediavault.config.Database()
 		obj = db.get("conf.system.notification.notification",
 			"c1cd54af-660d-4311-8e21-2a19420355bb")
@@ -186,6 +186,13 @@ class DatabaseTestCase(unittest.TestCase):
 		query.execute()
 		self.assertIsInstance(query.response, openmediavault.config.Object)
 		self.assertEqual(query.response.get("id"), "monitmemoryusage")
+		# Ensure that the object does not exist anymore.
+		self.assertFalse(db.exists(obj.model.id,
+			openmediavault.config.DatabaseFilter({
+				'operator': 'stringEquals',
+				'arg0': obj.model.idproperty,
+				'arg1': obj.get(obj.model.idproperty)
+			})))
 
 	def test_delete_by_filter(self):
 		self._use_tmp_config_database()
@@ -198,6 +205,9 @@ class DatabaseTestCase(unittest.TestCase):
 			}))
 		self.assertIsInstance(objs, list)
 		self.assertEqual(len(objs), 5)
+		# Check the number of remaining configuration objects.
+		objs = db.get("conf.system.notification.notification");
+		self.assertEqual(len(objs), 3)
 
 	def test_dict_to_elements(self):
 		#  Create a fake query object to access the helper method.
@@ -258,7 +268,8 @@ class DatabaseTestCase(unittest.TestCase):
 		self.assertIsInstance(objs, list)
 		self.assertEqual(len(objs), 8)
 		# Create a new configuration object.
-		new_obj = openmediavault.config.Object("conf.system.notification.notification")
+		new_obj = openmediavault.config.Object(
+			"conf.system.notification.notification")
 		new_obj.set_dict({
 			'uuid': openmediavault.getenv('OMV_CONFIGOBJECT_NEW_UUID'),
 			'id': 'test',
@@ -274,7 +285,8 @@ class DatabaseTestCase(unittest.TestCase):
 		self.assertIsInstance(objs, list)
 		self.assertEqual(len(objs), 9)
 		# Get the configuration object to validate its properties.
-		obj = db.get("conf.system.notification.notification", result_obj.get("uuid"))
+		obj = db.get("conf.system.notification.notification",
+			result_obj.get("uuid"))
 		self.assertIsInstance(obj, openmediavault.config.Object)
 		self.assertEqual(obj.get("id"), "test")
 		self.assertFalse(obj.get("enable"))
@@ -282,7 +294,8 @@ class DatabaseTestCase(unittest.TestCase):
 	def test_set_fail(self):
 		# Try to put an object that does not exist.
 		db = openmediavault.config.Database()
-		obj = openmediavault.config.Object("conf.system.notification.notification")
+		obj = openmediavault.config.Object(
+			"conf.system.notification.notification")
 		obj.set_dict({
 			'uuid': '2f6bffd8-f5c2-11e6-9584-17a40dfa0331',
 			'id': 'xyz',
