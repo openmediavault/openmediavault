@@ -30,7 +30,7 @@ import openmediavault.config.object
 class DatabaseTestCase(unittest.TestCase):
 	def setUp(self):
 		# Tell the database implementation to use the test database.
-		openmediavault.setenv("OMV_CONFIG_FILE", "%s/data/config.xml" %
+		openmediavault.setenv("OMV_CONFIG_FILE", "%s/../data/config.xml" %
 			os.getcwd())
 
 	def _use_tmp_config_database(self):
@@ -78,6 +78,7 @@ class DatabaseTestCase(unittest.TestCase):
 			}))
 		self.assertIsInstance(objs, list)
 		self.assertEqual(len(objs), 1)
+		self.assertIsInstance(objs[0], openmediavault.config.Object)
 
 	def test_get_by_filter_2(self):
 		db = openmediavault.config.Database()
@@ -92,13 +93,12 @@ class DatabaseTestCase(unittest.TestCase):
 
 	def test_exists(self):
 		db = openmediavault.config.Database()
-		exists = db.exists("conf.system.notification.notification",
+		self.assertTrue(db.exists("conf.system.notification.notification",
 			openmediavault.config.DatabaseFilter({
 				'operator': 'stringEquals',
 				'arg0': 'id',
 				'arg1': 'smartmontools'
-			}))
-		self.assertTrue(exists)
+			})))
 
 	def test_get_list_elements(self):
 		query = openmediavault.config.DatabaseGetQuery("conf.service.rsyncd")
