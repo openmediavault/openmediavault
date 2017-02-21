@@ -23,23 +23,35 @@ __all__ = [
 	"DotDict"
 ]
 
-def flatten(d, seperator=".", parent_key=""):
+def flatten(d, seperator="."):
 	"""
 	Collapses a multi-dimensional Python dictionary into a single dimension
-	using dot notation.
+	Python dictionary using dot notation for the keys.
+	``
+	Example:
+	{'x':1, 'a': {'b': {'c': 100}}, 'k': [1, 2, 3]}
+	Result:
+	{'x':1, 'a.b.c': 100, 'k.0': 1, 'k.1': 2, 'k.2': 3}
+	``
 	:param d:			The Python dictionary to flatten.
 	:param seperator:	The character used as separator. Defaults to '.'.
-	:param parent_key:	The parent key.
 	:returns:			A single-dimensional Python dictionary.
 	"""
-	result = []
-	for key, value in d.items():
-		new_key = parent_key + seperator + key if parent_key else key
+	assert(isinstance(d, dict))
+	result = {}
+
+	def _process_item(value, key=""):
 		if isinstance(value, dict):
-			result.extend(flatten(value, seperator, new_key).items())
+			for item_key, item_value in value.items():
+				_process_item(item_value, key + item_key + seperator)
+		elif isinstance(value, list):
+			for item_key, item_value in enumerate(value):
+				_process_item(item_value, key + str(item_key) + seperator)
 		else:
-			result.append((new_key, value))
-	return dict(result)
+			result[key[:-1]] = value
+
+	_process_item(d)
+	return result
 
 class DotDict(dict):
 	def __init__(self, d=None):

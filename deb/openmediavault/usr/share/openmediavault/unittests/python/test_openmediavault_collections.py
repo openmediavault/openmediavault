@@ -29,6 +29,18 @@ class DotDictTestCase(unittest.TestCase):
 					'b': {
 						'c': 100
 					}
+				},
+				'k': ['u', 'i', 'o'],
+				'y': {
+					'z': [{
+						'aa': '1',
+						'bb': '2',
+						'cc': '3'
+					},{
+						'aa': '11',
+						'bb': '22',
+						'cc': '33'
+					}]
 				}
 			})
 
@@ -71,7 +83,18 @@ class DotDictTestCase(unittest.TestCase):
 	def test_flatten(self):
 		d = self._get_dict()
 		d_flat = openmediavault.collections.flatten(d)
-		self.assertEqual(d_flat, {'x': 3, 'a.b.c': 100})
+		self.assertEqual(d_flat, {
+			'x': 3,
+			'a.b.c': 100,
+			'k.0': 'u',
+			'k.1': 'i',
+			'k.2': 'o',
+			'y.z.0.aa': '1',
+			'y.z.0.bb': '2',
+			'y.z.0.cc': '3',
+			'y.z.1.aa': '11',
+			'y.z.1.bb': '22',
+			'y.z.1.cc': '33'})
 
 if __name__ == "__main__":
 	unittest.main()

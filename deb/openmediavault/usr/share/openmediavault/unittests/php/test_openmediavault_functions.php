@@ -1,0 +1,172 @@
+#!/usr/bin/phpunit -c/etc/openmediavault
+<?php
+/**
+ * This file is part of OpenMediaVault.
+ *
+ * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @author    Volker Theile <volker.theile@openmediavault.org>
+ * @copyright Copyright (c) 2009-2017 Volker Theile
+ *
+ * OpenMediaVault is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * OpenMediaVault is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ */
+require_once("openmediavault/functions.inc");
+
+class test_openmediavault_functions extends \PHPUnit_Framework_TestCase {
+	private function getDict() {
+		return [
+			'x' => 3,
+			'a' => [
+				'b' => [
+					'c' => 100
+				]
+			],
+			'k' => ['u', 'i', 'o'],
+			'y' => [
+				'z' => [[
+					'aa' => '1',
+					'bb' => '2',
+					'cc' => '3'
+				],[
+					'aa' => '11',
+					'bb' => '22',
+					'cc' => '33'
+				]]
+			]
+		];
+	}
+
+	private function getFlatDict() {
+		return [
+			'x' => 3,
+			'a.b.c' => 100,
+			'k.0' => 'u',
+			'k.1' => 'i',
+			'k.2' => 'o',
+			'y.z.0.aa' => 1,
+			'y.z.0.bb' => 2,
+			'y.z.0.cc' => 3,
+			'y.z.1.aa' => 11,
+			'y.z.1.bb' => 22,
+			'y.z.1.cc' => 33
+		];
+	}
+
+	public function test_array_flatten() {
+		$d_flat = array_flatten($this->getDict());
+		$this->assertEquals($d_flat, $this->getFlatDict());
+	}
+
+	public function test_array_expand() {
+		$d = array_expand($this->getFlatDict());
+		$this->assertEquals($d, $this->getDict());
+	}
+
+	public function test_array_sort_key() {
+		$d = [
+			['id' => 3, 'text' => 'c'],
+			['id' => 1, 'text' => 'a'],
+			['id' => 2, 'text' => 'b']
+		];
+		$this->assertTrue(array_sort_key($d, "id"));
+		$this->assertEquals($d, [
+			['id' => 1, 'text' => 'a'],
+			['id' => 2, 'text' => 'b'],
+			['id' => 3, 'text' => 'c']
+		]);
+	}
+
+	public function test_array_sort_key_fail() {
+		$d = [1, 2, 3];
+		$this->assertFalse(array_sort_key($d, "id"));
+	}
+
+	public function test_array_value() {
+		$d = ["a" => 1, "c" => "3"];
+		$this->assertEquals(array_value($d, "a", 0), 1);
+		$this->assertEquals(array_value($d, "b", "2"), "2");
+		$this->assertEquals(array_value($d, "c"), "3");
+		$this->assertNull(array_value($d, "d"));
+	}
+
+	public function test_array_keys_exists() {
+		$d = ["a" => 1, "b" => 2, "c" => "3"];
+		$this->assertTrue(array_keys_exists(["a", "c"], $d));
+		$this->assertFalse(array_keys_exists(["a", "d"], $d, $missing));
+		$this->assertEquals(["d"], $missing);
+	}
+
+	public function test_array_filter_ex() {
+		$d = [
+			['id' => 3, 'text' => 'c'],
+			['id' => 1, 'text' => 'a'],
+			['id' => 2, 'text' => 'b'],
+			['id' => 4, 'text' => 'a']
+		];
+		$d_filtered = array_filter_ex($d, "text", "a");
+		$this->assertEquals($d_filtered, [
+			['id' => 1, 'text' => 'a'],
+			['id' => 4, 'text' => 'a']
+		]);
+		$d_filtered = array_filter_ex($d, "id", 5);
+		$this->assertEmpty($d_filtered);
+		$d = ["a" => 1, "c" => "3"];
+		$d_filtered = array_filter_ex($d, "prio", 10);
+		$this->assertEmpty($d_filtered);
+	}
+
+	public function test_boolvalEx() {
+		$this->assertTrue(boolvalEx(TRUE));
+		$this->assertTrue(boolvalEx("1"));
+		$this->assertTrue(boolvalEx("on"));
+		$this->assertTrue(boolvalEx("yes"));
+		$this->assertTrue(boolvalEx("y"));
+		$this->assertTrue(boolvalEx("true"));
+		$this->assertFalse(boolvalEx("ja"));
+		$this->assertFalse(boolvalEx("nein"));
+		$this->assertFalse(boolvalEx("0"));
+		$this->assertFalse(boolvalEx("no"));
+		$this->assertFalse(boolvalEx("false"));
+		$this->assertFalse(boolvalEx(NULL));
+		$this->assertFalse(boolvalEx(FALSE));
+	}
+
+	public function test_is_uuid() {
+		$this->assertTrue(is_uuid("7d018540-f821-11e6-9e7a-334c295df4fc"));
+		$this->assertFalse(is_uuid("7d018540-f821-11e6-9e7a=334c295df4fc"));
+		$this->assertFalse(is_uuid("GTZ18540-f821-11e6-9e7a-334c295df4fc"));
+		$this->assertFalse(is_uuid("11e6-9e7a-334c295df4fc"));
+		$this->assertFalse(is_uuid("11e6"));
+	}
+
+	public function test_uuid_equals() {
+		$this->assertTrue(uuid_equals("7d018540-f821-11e6-9e7a-334c295df4fc",
+			"7d018540-f821-11e6-9e7a-334c295df4fc"));
+		$this->assertFalse(uuid_equals("7d018540-f821-11e6-9e7a-334c295df4fc",
+			"a771f738-f821-11e6-8097-6fc6ea7a7bb3"));
+		$this->assertFalse(uuid_equals("7d018540-f821-11e6-9e7a-334c295df4fc",
+			"a771f738"));
+	}
+
+	public function test_is_json() {
+		$this->assertTrue(is_json("{'z': [1, 2, 3], 'x': 3, 'a.b.c': 100}"));
+		$this->assertFalse(is_json("'z': [1, 2, 3]"));
+		$this->assertFalse(is_json("xyz"));
+		$this->assertFalse(is_json(123));
+	}
+
+	public function test_build_path() {
+		$path = build_path(DIRECTORY_SEPARATOR, "/usr", "local", "share");
+		$this->assertEquals($path, "/usr/local/share");
+	}
+}

@@ -27,20 +27,20 @@ require_once("openmediavault/autoloader.inc");
  * @ingroup api
  * @param array $array The array to flatten.
  * @param string $separator The character used as separator. Defaults to '.'.
- * @param string $prefix The character used as prefix for the keys.
- *   Defaults to empty.
+ * @param string $parent_key The parent key. Defaults to empty.
  * @return A single-dimensional array.
  */
-function array_flatten(array $array, $separator = ".", $prefix = "") {
+function array_flatten(array $array, $separator = ".", $parent_key = "") {
 	if (!is_array($array))
 		return FALSE;
 	$result = [];
 	foreach ($array as $key => $value) {
+		$new_key = !empty($parent_key) ? $parent_key.$separator.$key : $key;
 		if (is_array($value))
 			$result = array_merge($result, array_flatten($value, $separator,
-				$prefix.$key.$separator));
+				$new_key));
 		else
-			$result[$prefix.$key] = $value;
+			$result[$new_key] = $value;
 	}
 	return $result;
 }
@@ -81,20 +81,29 @@ function array_expand(array $array, $separator = ".") {
  * @return Returns TRUE on success or FALSE on failure.
  */
 function array_sort_key(array &$array, $key) {
-	return uasort($array, create_function('$a, $b',
-		"return strnatcmp(strval(\$a['$key']), strval(\$b['$key']));"));
+	if (!is_multi_array($array))
+		return FALSE;
+	// Sort the array.
+	if (FALSE === uasort($array, create_function('$a, $b',
+		"return strnatcmp(strval(\$a['$key']), strval(\$b['$key']));")))
+		return FALSE;
+	// Re-index the array.
+	$array = array_values($array);
+	return TRUE;
 }
 
 /**
- * Filter an array by key and values.
+ * Filter an array of by key and values.
  * @ingroup api
- * @param array $array The array to sort
- * @param string $key The key used as filter criteria
- * @param string $value The value used as filter criteria
+ * @param array $array The array to sort.
+ * @param string $key The key used as filter criteria.
+ * @param string $value The value used as filter criteria.
  * @return Returns the filtered array.
  */
 function array_filter_ex($array, $key, $value) {
 	$result = [];
+	if (!is_multi_array($array))
+		return $result;
 	if (is_array($array) && count($array) > 0) {
 		foreach (array_keys($array) as $keyv) {
 			$temp[$keyv] = $array[$keyv][$key];
@@ -102,7 +111,8 @@ function array_filter_ex($array, $key, $value) {
 				$result[$keyv] = $array[$keyv];
 		}
 	}
-	return $result;
+	// Re-index the array.
+	return array_values($result);
 }
 
 /**
