@@ -19,7 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
+import os.path
 import sys
+import argparse
 import openmediavault
 import openmediavault.confdbadm
 import openmediavault.log
@@ -31,26 +33,24 @@ class Command(openmediavault.confdbadm.ICommand,
 	def description(self):
 		return "Create the default configuration"
 
-	def validate_args(self, *args):
-		if 2 != len(args):
-			return False
-		return True
-
-	def usage(self, *args):
-		print("Usage: %s create <id>\n\n" \
-			"Create the default configuration for the specified " \
-			"datamodel ID." % os.path.basename(args[0]))
-
 	def execute(self, *args):
 		rc = 1
-		datamodel_id = args[1]
+		# Parse the command line arguments.
+		parser = argparse.ArgumentParser(
+			prog="%s %s" % (os.path.basename(args[0]), args[1]),
+			description="Create the default configuration for the specified " \
+			"data model ID.")
+		parser.add_argument("id", help="The data model ID, e.g. " \
+			"'conf.service.ssh'")
+		cmd_args = parser.parse_args(args[2:])
+		# Find the script.
 		create_dir = openmediavault.getenv("OMV_CONFDB_CREATE_DIR",
 			"/usr/share/openmediavault/confdb/create.d");
 		script_name = ""
 		for name in os.listdir(create_dir):
 			# Split the script name into its parts:
 			# <DATAMODELID>.<EXT>
-			if datamodel_id == os.path.splitext(name)[0]:
+			if cmd_args.id == os.path.splitext(name)[0]:
 				script_name = name
 				break
 		try:

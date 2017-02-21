@@ -58,17 +58,9 @@ def main():
 	if sys.argv[1] not in commands:
 		usage(commands)
 		return 1
-	# Get the command instance and its arguments.
+	# Get the command instance and execute the command.
 	cmd_inst = commands[sys.argv[1]]
-	cmd_args = []
-	cmd_args.append(sys.argv[0])
-	cmd_args.extend(sys.argv[2:])
-	# Validate the command arguments.
-	if not cmd_inst.validate_args(*cmd_args):
-		cmd_inst.usage(*cmd_args)
-		return 1
-	# Execute the command.
-	return cmd_inst.execute(*cmd_args)
+	return cmd_inst.execute(*sys.argv)
 
 if __name__ == "__main__":
 	sys.exit(main())

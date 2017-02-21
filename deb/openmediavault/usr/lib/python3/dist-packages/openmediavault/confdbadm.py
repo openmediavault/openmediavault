@@ -37,21 +37,6 @@ class ICommand(metaclass=abc.ABCMeta):
 		"""
 
 	@abc.abstractmethod
-	def validate_args(self, *args):
-		"""
-		Validate the command arguments.
-		:param args: The command arguments to validate.
-		:returns: Returns True if the arguments are valid, otherwise False.
-		"""
-
-	@abc.abstractmethod
-	def usage(self, *args):
-		"""
-		Display the command help.
-		:param args: The command arguments.
-		"""
-
-	@abc.abstractmethod
 	def execute(self, *args):
 		"""
 		Execute the command.
@@ -104,7 +89,7 @@ class CommandHelper():
 		:returns:	The specified value.
 		"""
 		if not openmediavault.string.is_uuid4(arg):
-			raise argparse.ArgumentTypeError("Value is no valid UUID4")
+			raise argparse.ArgumentTypeError("No valid UUID4")
 		return arg
 
 	def argparse_is_json(self, arg):
@@ -114,5 +99,5 @@ class CommandHelper():
 		:returns:	The specified value as Python dictionary.
 		"""
 		if not openmediavault.string.is_json(arg):
-			raise argparse.ArgumentTypeError("Value is no valid JSON")
+			raise argparse.ArgumentTypeError("No valid JSON")
 		return json.loads(arg)

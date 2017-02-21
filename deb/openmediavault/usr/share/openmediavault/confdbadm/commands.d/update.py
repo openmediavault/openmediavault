@@ -19,6 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
+import os.path
 import sys
 import argparse
 import openmediavault.confdbadm
@@ -31,23 +32,16 @@ class Command(openmediavault.confdbadm.ICommand,
 	def description(self):
 		return "Update a configuration database object"
 
-	def validate_args(self, *args):
-		if 3 != len(args):
-			return False
-		return True
-
-	def usage(self, *args):
-		print("Usage: %s update <id> <data>\n\n" \
-			"Update the specified configuration database object." %
-			os.path.basename(args[0]))
-
 	def execute(self, *args):
 		rc = 0
 		# Parse the command line arguments.
-		parser = argparse.ArgumentParser()
-		parser.add_argument("id")
+		parser = argparse.ArgumentParser(
+			prog="%s %s" % (os.path.basename(args[0]), args[1]),
+			description="Update the specified configuration database object.")
+		parser.add_argument("id", help="The data model ID, e.g. " \
+			"'conf.service.ssh'")
 		parser.add_argument("data", type=self.argparse_is_json)
-		cmd_args = parser.parse_args(args[1:])
+		cmd_args = parser.parse_args(args[2:])
 		# Create the configuration object.
 		obj = openmediavault.config.Object(cmd_args.id)
 		obj.set_dict(cmd_args.data)

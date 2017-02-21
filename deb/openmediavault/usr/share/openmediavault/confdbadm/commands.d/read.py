@@ -19,6 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
+import os.path
 import sys
 import argparse
 import json
@@ -32,27 +33,20 @@ class Command(openmediavault.confdbadm.ICommand,
 	def description(self):
 		return "Read configuration database objects"
 
-	def validate_args(self, *args):
-		if 2 > len(args):
-			return False
-		return True
-
-	def usage(self, *args):
-		print("Usage: %s read [--uuid=UUID|--filter=FILTER] <id>\n\n" \
-			"Read the specified configuration database object." %
-			os.path.basename(args[0]))
-
 	def execute(self, *args):
 		rc = 0
 		# Parse the command line arguments.
-		parser = argparse.ArgumentParser()
-		parser.add_argument("id")
+		parser = argparse.ArgumentParser(
+			prog="%s %s" % (os.path.basename(args[0]), args[1]),
+			description="Read the specified configuration database object.")
+		parser.add_argument("id", help="The data model ID, e.g. " \
+			"'conf.service.ssh'")
 		group1 = parser.add_mutually_exclusive_group()
 		group1.add_argument("--defaults", action="store_true")
 		group2 = group1.add_mutually_exclusive_group()
-		group2.add_argument("--uuid", nargs="?", type=self.argparse_is_uuid4)
+		group2.add_argument("--uuid", nargs="?", type=self.argparse_is_uuid4, help="sdasda")
 		group2.add_argument("--filter", nargs="?", type=self.argparse_is_json)
-		cmd_args = parser.parse_args(args[1:])
+		cmd_args = parser.parse_args(args[2:])
 		# Get the configuration object with its default values?
 		if cmd_args.defaults:
 			objs = openmediavault.config.Object(cmd_args.id)

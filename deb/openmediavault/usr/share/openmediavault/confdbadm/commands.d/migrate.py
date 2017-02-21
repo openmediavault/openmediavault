@@ -19,8 +19,10 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
+import os.path
 import re
 import sys
+import argparse
 from distutils.version import LooseVersion
 import openmediavault
 import openmediavault.confdbadm
@@ -33,30 +35,26 @@ class Command(openmediavault.confdbadm.ICommand,
 	def description(self):
 		return "Apply configuration database migrations"
 
-	def validate_args(self, *args):
-		if 3 != len(args):
-			return False
-		# Test the datamodel ID.
-		if not args[1]:
-			return False
-		# Test the version string. The attribute 'version' is not
-		# available if the parsing has failed.
+	def argparse_is_version(self, arg):
 		try:
-			ver = LooseVersion(args[2])
+			ver = LooseVersion(arg)
 			ver.version
 		except Exception:
-			return False
-		return True
-
-	def usage(self, *args):
-		print("Usage: %s migrate <id> <version>\n\n" \
-			"Migrate the configuration database for the specified " \
-			"datamodel ID." % os.path.basename(args[0]))
+			raise argparse.ArgumentTypeError("No valid version")
+		return arg
 
 	def execute(self, *args):
 		rc = 1
-		datamodel_id = args[1]
-		version = args[2]
+		# Parse the command line arguments.
+		parser = argparse.ArgumentParser(
+			prog="%s %s" % (os.path.basename(args[0]), args[1]),
+			description="Migrate the configuration database for the " \
+			"specified data model ID.")
+		parser.add_argument("id", help="The data model ID, e.g. " \
+			"'conf.service.ssh'")
+		parser.add_argument("version", type=self.argparse_is_version)
+		cmd_args = parser.parse_args(args[2:])
+		# Get the migrations.
 		migrations = {}
 		migrations_dir = openmediavault.getenv("OMV_CONFDB_MIGRATIONS_DIR",
 			"/usr/share/openmediavault/confdb/migrations.d");
@@ -67,18 +65,18 @@ class Command(openmediavault.confdbadm.ICommand,
 			parts = re.split(r'_', os.path.splitext(name)[0])
 			if 2 != len(parts):
 				continue
-			if datamodel_id != parts[0]:
+			if cmd_args.id != parts[0]:
 				continue
-			if LooseVersion(parts[1]) < LooseVersion(version):
+			if LooseVersion(parts[1]) < LooseVersion(cmd_args.version):
 				continue
 			migrations[parts[1]] = name
 		try:
 			# Create a backup of the configuration database.
 			self.mkBackup()
 			# Execute the configuration database migration scripts.
-			for version in sorted(migrations, key=lambda v: LooseVersion(v)):
-				name = "%s_%s" % (datamodel_id, version)
-				path = os.path.join(migrations_dir, migrations[version])
+			for cmd_args.version in sorted(migrations, key=lambda v: LooseVersion(v)):
+				name = "%s_%s" % (cmd_args.id, cmd_args.version)
+				path = os.path.join(migrations_dir, migrations[cmd_args.version])
 				# Test if the script is executable.
 				if not os.access(path, os.X_OK):
 					raise RuntimeError("The script '%s' is not " \
