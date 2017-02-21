@@ -21,7 +21,9 @@
 import os
 import sys
 import argparse
+import json
 import openmediavault.confdbadm
+import openmediavault.config.object
 import openmediavault.config.database
 
 class Command(openmediavault.confdbadm.ICommand,
@@ -45,21 +47,30 @@ class Command(openmediavault.confdbadm.ICommand,
 		# Parse the command line arguments.
 		parser = argparse.ArgumentParser()
 		parser.add_argument("id")
-		group = parser.add_mutually_exclusive_group()
-		group.add_argument("--uuid", nargs="?", type=self.argparse_is_uuid4)
-		group.add_argument("--filter", nargs="?", type=self.argparse_is_json)
+		group1 = parser.add_mutually_exclusive_group()
+		group1.add_argument("--defaults", action="store_true")
+		group2 = group1.add_mutually_exclusive_group()
+		group2.add_argument("--uuid", nargs="?", type=self.argparse_is_uuid4)
+		group2.add_argument("--filter", nargs="?", type=self.argparse_is_json)
 		cmd_args = parser.parse_args(args[1:])
-		# Query the database.
-		db = openmediavault.config.Database()
-		if cmd_args.filter:
-			filter = openmediavault.config.DatabaseFilter(cmd_args.filter)
-			objs = db.get_by_filter(cmd_args.id, filter)
+		# Get the configuration object with its default values?
+		if cmd_args.defaults:
+			objs = openmediavault.config.Object(cmd_args.id)
 		else:
-			objs = db.get(cmd_args.id, cmd_args.uuid)
+			# Query the database.
+			db = openmediavault.config.Database()
+			if cmd_args.filter:
+				filter = openmediavault.config.DatabaseFilter(cmd_args.filter)
+				objs = db.get_by_filter(cmd_args.id, filter)
+			else:
+				objs = db.get(cmd_args.id, cmd_args.uuid)
 		# Print the configuration objects to STDOUT.
 		if isinstance(objs, list):
+			# Print list of objects as JSON string.
+			data = []
 			for obj in objs:
-				print(obj)
+				data.append(obj.get_dict())
+			print(json.dumps(data))
 		else:
 			print(objs)
 		return rc
