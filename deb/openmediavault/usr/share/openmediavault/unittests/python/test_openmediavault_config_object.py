@@ -69,12 +69,12 @@ class ConfigObjectTestCase(unittest.TestCase):
 
 	def test_is_empty(self):
 		conf_obj = openmediavault.config.Object("conf.service.ftp.share")
-		self.assertEqual(conf_obj.is_empty("comment"), True)
+		self.assertTrue(conf_obj.is_empty("comment"))
 
 	def test_not_is_empty(self):
 		conf_obj = openmediavault.config.Object("conf.service.ftp.share")
 		conf_obj.set("comment", "test")
-		self.assertEqual(conf_obj.is_empty("comment"), False)
+		self.assertFalse(conf_obj.is_empty("comment"))
 
 if __name__ == "__main__":
 	unittest.main()
