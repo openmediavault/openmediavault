@@ -26,6 +26,9 @@ class DatamodelTestCase(unittest.TestCase):
 		return openmediavault.datamodel.Datamodel({
 			"type": "config",
 			"id": "conf.system.apt.distribution",
+			"alias": "conf.system.xyz",
+			"description": "abc",
+			"title": "xyz",
 			"queryinfo": {
 				"xpath": "//system/apt/distribution",
 				"iterable": False
@@ -44,27 +47,23 @@ class DatamodelTestCase(unittest.TestCase):
 
 	def test_model(self):
 		datamodel = self._get_model()
-		datamodel.model
+		self.assertIsInstance(datamodel.model, dict)
 
 	def test_id(self):
 		datamodel = self._get_model()
-		datamodel.id
+		self.assertEqual(datamodel.id, "conf.system.apt.distribution")
 
 	def test_alias(self):
 		datamodel = self._get_model()
-		datamodel.alias
+		self.assertEqual(datamodel.alias, "conf.system.xyz")
 
 	def test_title(self):
 		datamodel = self._get_model()
-		datamodel.title
-
-	def test_id(self):
-		datamodel = self._get_model()
-		datamodel.id
+		self.assertEqual(datamodel.title, "xyz")
 
 	def test_description(self):
 		datamodel = self._get_model()
-		datamodel.description
+		self.assertEqual(datamodel.description, "abc")
 
 if __name__ == "__main__":
 	unittest.main()

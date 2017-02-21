@@ -103,8 +103,15 @@ class Object(object):
 					as openmediavault.collections.DotDict dictionary.
 		"""
 		def callback(model, name, path, schema, user_data):
-			if not schema['type'] in [ "array", "object" ]:
-				user_data[path] = model.property_get_default(path)
+			# Abort immediatelly if the path is empty.
+			if not path:
+				return
+			# Get the default value.
+			user_data[path] = model.property_get_default(path)
+			# Only get the default value for 'array' items, but do not further
+			# walk down the data model definition.
+			if schema['type'] == "array":
+				return False
 
 		defaults = openmediavault.collections.DotDict();
 		self.model.walk_schema("", callback, defaults)

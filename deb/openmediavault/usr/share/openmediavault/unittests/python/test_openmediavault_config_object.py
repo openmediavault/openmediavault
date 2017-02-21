@@ -54,6 +54,11 @@ class ConfigObjectTestCase(unittest.TestCase):
 		self.assertEqual(conf_obj.get("ntp.timeservers"),
 			"pool.ntp.org,pool1.ntp.org;pool2.ntp.org")
 
+	def test_set_get_3(self):
+		conf_obj = openmediavault.config.Object("conf.system.sharedfolder")
+		self.assertIsInstance(conf_obj.get("privileges.privilege"), list)
+		self.assertEqual(conf_obj.get("privileges.privilege"), [])
+
 	def test_set_dict(self):
 		conf_obj = openmediavault.config.Object("conf.service.ftp.share")
 		conf_obj.set_dict({

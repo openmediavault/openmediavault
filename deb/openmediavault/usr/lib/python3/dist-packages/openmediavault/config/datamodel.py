@@ -287,7 +287,8 @@ class Datamodel(openmediavault.datamodel.Datamodel):
 		Apply a user function recursively to every property of the data
 		model schema.
 		:param path:		The path of the property, e.g. "aaa.bbb.ccc".
-		:param callback:	The callback function.
+		:param callback:	The callback function. Return False to stop walking
+							down the data model definition.
 		:param user_data:	If the optional userdata parameter is supplied,
 							it will be passed to the callback function.
 		"""
@@ -301,7 +302,8 @@ class Datamodel(openmediavault.datamodel.Datamodel):
 					raise openmediavault.json.SchemaException(
 						"No 'items' attribute defined at '%s'." % path)
 				# Call the callback function.
-				callback(self, name, path, schema, user_data)
+				if False == callback(self, name, path, schema, user_data):
+					return
 				# Process the array items.
 				_walk_schema(name, path, schema['items'], callback,
 					user_data)
@@ -311,7 +313,8 @@ class Datamodel(openmediavault.datamodel.Datamodel):
 					raise openmediavault.json.SchemaException(
 						"No 'properties' attribute defined at '%s'." % path)
 				# Call the callback function.
-				callback(self, name, path, schema, user_data)
+				if False == callback(self, name, path, schema, user_data):
+					return
 				# Process the object properties.
 				for prop_name, prop_schema in schema['properties'].items():
 					# Build the property path. Take care that a valid path
