@@ -66,7 +66,7 @@ class Rpc {
 	 */
 	public static function call($service, $method, $params, $context,
 	  $mode = Rpc::MODE_LOCAL, $restoreSrvEnv = FALSE) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+//		self::debug(var_export(func_get_args(), TRUE));
 		///////////////////////////////////////////////////////////////////////
 		// Try to execute local RPC first.
 		///////////////////////////////////////////////////////////////////////
