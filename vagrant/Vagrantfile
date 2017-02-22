@@ -20,21 +20,11 @@
 # along with openmediavault. If not, see <http://www.gnu.org/licenses/>.
 
 # Default values.
-distro = ENV['DISTRO'] || "stretch"
 sata_controller_name = "SATA"
-hostname = "omv3#{distro}"
+hostname = "omv4stretch"
 
 Vagrant.configure("2") do |config|
-	case distro
-	when "stretch"
-		# Debian 9/Stretch
-		config.vm.box = "remram/debian-9-amd64"
-	else
-		# Debian 8/Jessie
-		config.vm.box = "debian/jessie64"
-		# The SATA controller name is different in this box.
-		sata_controller_name = "SATA Controller"
-	end
+	config.vm.box = "remram/debian-9-amd64"
 	config.vm.define hostname
 	config.vm.provision :shell, :path => "install.sh"
 	config.vm.network "private_network", ip: "192.172.16.22"
