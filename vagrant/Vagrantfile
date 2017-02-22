@@ -20,7 +20,7 @@
 # along with openmediavault. If not, see <http://www.gnu.org/licenses/>.
 
 # Default values.
-distro = ENV['DISTRO'] || "jessie"
+distro = ENV['DISTRO'] || "stretch"
 sata_controller_name = "SATA"
 hostname = "omv3#{distro}"
 
