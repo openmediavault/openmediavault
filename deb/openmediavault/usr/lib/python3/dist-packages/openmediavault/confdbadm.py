@@ -113,6 +113,6 @@ class CommandHelper():
 		:returns:	The specified value.
 		:raises argparse.ArgumentTypeError:
 		"""
-		if not re.match(r'^(conf\..+)|core$', arg):
+		if not re.match(r'^conf(\..+)?$', arg):
 			raise argparse.ArgumentTypeError("No valid data model ID")
 		return arg
