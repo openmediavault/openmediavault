@@ -28,7 +28,7 @@ OMV_MONIT_SERVICE_PHP5FPM_CONFIG=${OMV_MONIT_SERVICE_PHP5FPM_CONFIG:-"/etc/monit
 OMV_MONIT_SERVICE_PHP5FPM_MODE=${OMV_MONIT_SERVICE_PHP5FPM_MODE:-"active"}
 
 cat <<EOF > ${OMV_MONIT_SERVICE_PHP5FPM_CONFIG}
-check process php5-fpm with pidfile /var/run/php5-fpm.pid
+check process php-fpm with pidfile /var/run/php5-fpm.pid
   start program = "/bin/systemctl start php5-fpm"
   stop program = "/bin/systemctl stop php5-fpm"
   mode ${OMV_MONIT_SERVICE_PHP5FPM_MODE}
