@@ -1,7 +1,7 @@
-Index: php-pam-1.0.3/pam.c
+Index: php-pam/pam.c
 ===================================================================
---- php-pam-1.0.3.orig/pam.c
-+++ php-pam-1.0.3/pam.c
+--- php-pam.orig/pam.c
++++ php-pam/pam.c
 @@ -227,8 +227,13 @@ int chpass_pam_talker(int num_msg,
  PHP_FUNCTION(pam_auth)
  {
