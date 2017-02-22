@@ -294,10 +294,10 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		self._root_element = None
 		# Create the semaphore to control access to the database resource.
 		try:
-			self._semaphore = sysv_ipc.Semaphore(4815162342, sysv_ipc.IPC_CREX)
+			self._semaphore = sysv_ipc.Semaphore(753159, sysv_ipc.IPC_CREX)
 		except sysv_ipc.ExistentialError:
 			# The semaphore already exists.
-			self._semaphore = sysv_ipc.Semaphore(4815162342)
+			self._semaphore = sysv_ipc.Semaphore(753159)
 		else:
 			self._semaphore.release()
 
