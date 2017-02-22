@@ -31,16 +31,16 @@ class Command(openmediavault.confdbadm.ICommand,
 		openmediavault.confdbadm.CommandHelper):
 	@property
 	def description(self):
-		return "Read configuration database objects"
+		return "Read configuration object(s)."
 
 	def execute(self, *args):
 		rc = 0
 		# Parse the command line arguments.
 		parser = argparse.ArgumentParser(
 			prog="%s %s" % (os.path.basename(args[0]), args[1]),
-			description="Read the specified configuration database object.")
-		parser.add_argument("id", help="The data model ID, e.g. " \
-			"'conf.service.ssh'")
+			description=self.description)
+		parser.add_argument("id", type=self.argparse_is_datamodel_id,
+			help="The data model ID, e.g. 'conf.service.ssh'")
 		group1 = parser.add_mutually_exclusive_group()
 		group1.add_argument("--defaults", action="store_true")
 		group2 = group1.add_mutually_exclusive_group()

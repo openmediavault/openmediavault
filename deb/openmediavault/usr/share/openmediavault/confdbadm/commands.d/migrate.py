@@ -33,7 +33,7 @@ class Command(openmediavault.confdbadm.ICommand,
 	openmediavault.confdbadm.CommandHelper):
 	@property
 	def description(self):
-		return "Apply configuration database migrations"
+		return "Apply configuration migrations."
 
 	def argparse_is_version(self, arg):
 		try:
@@ -48,10 +48,9 @@ class Command(openmediavault.confdbadm.ICommand,
 		# Parse the command line arguments.
 		parser = argparse.ArgumentParser(
 			prog="%s %s" % (os.path.basename(args[0]), args[1]),
-			description="Migrate the configuration database for the " \
-			"specified data model ID.")
-		parser.add_argument("id", help="The data model ID, e.g. " \
-			"'conf.service.ssh'")
+			description=self.description)
+		parser.add_argument("id", type=self.argparse_is_datamodel_id,
+			help="The data model ID, e.g. 'conf.service.ssh'")
 		parser.add_argument("version", type=self.argparse_is_version)
 		cmd_args = parser.parse_args(args[2:])
 		# Get the migrations.

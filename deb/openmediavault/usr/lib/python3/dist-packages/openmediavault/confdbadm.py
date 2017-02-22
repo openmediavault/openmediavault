@@ -25,6 +25,7 @@ import os
 import argparse
 import shutil
 import json
+import re
 import tempfile
 import openmediavault
 import openmediavault.string
@@ -87,6 +88,7 @@ class CommandHelper():
 		Check if the specified value is a valid UUID4.
 		:param arg:	The value to check.
 		:returns:	The specified value.
+		:raises argparse.ArgumentTypeError:
 		"""
 		if not openmediavault.string.is_uuid4(arg):
 			raise argparse.ArgumentTypeError("No valid UUID4")
@@ -97,7 +99,20 @@ class CommandHelper():
 		Check if the specified value is a valid JSON string.
 		:param arg:	The value to check.
 		:returns:	The specified value as Python dictionary.
+		:raises argparse.ArgumentTypeError:
 		"""
 		if not openmediavault.string.is_json(arg):
 			raise argparse.ArgumentTypeError("No valid JSON")
 		return json.loads(arg)
+
+	def argparse_is_datamodel_id(self, arg):
+		"""
+		Check if the specified value is a valid datamodel ID.
+		Example: conf.service.ftp
+		:param arg:	The value to check.
+		:returns:	The specified value.
+		:raises argparse.ArgumentTypeError:
+		"""
+		if not re.match(r'^(conf\..+)|core$', arg):
+			raise argparse.ArgumentTypeError("No valid data model ID")
+		return arg

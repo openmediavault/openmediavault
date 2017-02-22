@@ -31,17 +31,16 @@ class Command(openmediavault.confdbadm.ICommand,
 	openmediavault.confdbadm.CommandHelper):
 	@property
 	def description(self):
-		return "Create the default configuration"
+		return "Create the default configuration for a data model."
 
 	def execute(self, *args):
 		rc = 1
 		# Parse the command line arguments.
 		parser = argparse.ArgumentParser(
 			prog="%s %s" % (os.path.basename(args[0]), args[1]),
-			description="Create the default configuration for the specified " \
-			"data model ID.")
-		parser.add_argument("id", help="The data model ID, e.g. " \
-			"'conf.service.ssh'")
+			description=self.description)
+		parser.add_argument("id", type=self.argparse_is_datamodel_id,
+			help="The data model ID, e.g. 'conf.service.ssh'")
 		cmd_args = parser.parse_args(args[2:])
 		# Find the script.
 		create_dir = openmediavault.getenv("OMV_CONFDB_CREATE_DIR",
