@@ -76,7 +76,7 @@ class SchemaTestCase(unittest.TestCase):
 
 	def test_get_by_path_1(self):
 		schema = self._get_schema()
-		schema.get_by_path("price")
+		self.assertIsInstance(schema.get_by_path("price"), dict)
 
 	def test_get_by_path_2(self):
 		schema = self._get_schema()
@@ -90,7 +90,7 @@ class SchemaTestCase(unittest.TestCase):
 		self.assertRaises(openmediavault.json.SchemaPathException,
 			lambda: schema.get_by_path("a.b.c"))
 
-	def test_required(self):
+	def test_validate(self):
 		schema = self._get_schema()
 		self.assertRaises(openmediavault.json.SchemaValidationException,
 			lambda: schema.validate({ "price": 38 }))
