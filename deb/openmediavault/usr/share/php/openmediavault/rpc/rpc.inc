@@ -177,7 +177,10 @@ class Rpc {
 			// Close the socket.
 			@socket_close($socket);
 			// Decode JSON string to PHP array.
-			$response = json_decode($response, TRUE);
+			if (NULL === ($response = json_decode($response, TRUE))) {
+				throw new Exception(sprintf("Failed to decode JSON data: %s",
+					$response));
+			}
 			// Trigger an exception if the RPC has been failed. Inject the
 			// stack trace coming with the remote RPC response.
 			if (array_key_exists("error", $response) && !is_null(
