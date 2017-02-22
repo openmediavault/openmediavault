@@ -178,7 +178,7 @@ class Rpc {
 			@socket_close($socket);
 			// Decode JSON string to PHP array.
 			if (NULL === ($response = json_decode($response, TRUE))) {
-				throw new Exception(sprintf("Failed to decode JSON data: %s",
+				throw new Exception(sprintf("Failed to decode JSON string: %s",
 					$response));
 			}
 			// Trigger an exception if the RPC has been failed. Inject the
