@@ -24,7 +24,7 @@ class OMVModulePhp5fpm extends \OMV\Engine\Module\ServiceAbstract {
 	 * Get the module name.
 	 */
 	public function getName() {
-		return "php5fpm";
+		return "phpfpm";
 	}
 
 	/**
@@ -32,11 +32,11 @@ class OMVModulePhp5fpm extends \OMV\Engine\Module\ServiceAbstract {
 	 */
 	public function applyConfig() {
 		// Build the configuration.
-		$cmd = new \OMV\System\Process("omv-mkconf", "php5fpm");
+		$cmd = new \OMV\System\Process("omv-mkconf", "phpfpm");
 		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// Test the new configuration.
-		$cmd = new \OMV\System\Process("php5-fpm", "-t");
+		$cmd = new \OMV\System\Process("php-fpm", "-t");
 		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
@@ -45,7 +45,7 @@ class OMVModulePhp5fpm extends \OMV\Engine\Module\ServiceAbstract {
 	 * Start the managed service.
 	 */
 	public function startService() {
-		$systemCtl = new \OMV\System\SystemCtl("php5-fpm");
+		$systemCtl = new \OMV\System\SystemCtl("php-fpm");
 		$systemCtl->reload();
 	}
 }
