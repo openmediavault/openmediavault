@@ -36,7 +36,7 @@ class OMVModulePhp5fpm extends \OMV\Engine\Module\ServiceAbstract {
 		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// Test the new configuration.
-		$cmd = new \OMV\System\Process("php-fpm", "-t");
+		$cmd = new \OMV\System\Process("php-fpm7.0", "-t");
 		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
@@ -45,7 +45,7 @@ class OMVModulePhp5fpm extends \OMV\Engine\Module\ServiceAbstract {
 	 * Start the managed service.
 	 */
 	public function startService() {
-		$systemCtl = new \OMV\System\SystemCtl("php-fpm");
+		$systemCtl = new \OMV\System\SystemCtl("php7.0-fpm");
 		$systemCtl->reload();
 	}
 }
