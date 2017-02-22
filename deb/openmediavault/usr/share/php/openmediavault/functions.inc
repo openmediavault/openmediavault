@@ -541,6 +541,8 @@ function json_encode_safe($value, $options = 0) {
 * @param int $depth User specified recursion depth. Defaults to 512.
 * @param int $options Bitmask of JSON decode options. Defaults to 0.
 * @return Returns the \em value encoded in json in appropriate PHP type.
+*   NULL is returned if the json cannot be decoded or if the encoded data
+*   is deeper than the recursion limit.
 */
 function json_decode_safe($json, $assoc = false, $depth = 512, $options = 0) {
 	if (is_array($json)) {
