@@ -34,12 +34,15 @@ PHPAPIVER=$(shell /usr/bin/php-config --phpapi)
 PHPCONFD=$(shell echo "/etc/php/7.0/mods-available" | sed -e "s-/--")
 
 %:
-	cp -r $(SOURCE_DIR)/* .
 	dh $@ --with quilt
 
 override_dh_auto_configure:
-	$(PHPIZE);
-	./configure --with-php-config=$(PHPCONFIG) --prefix=/usr
+	(cd $(SOURCE_DIR); \
+	$(PHPIZE); \
+	./configure --with-php-config=$(PHPCONFIG) --prefix=/usr)
+
+override_dh_auto_build:
+	(cd $(SOURCE_DIR); $(MAKE))
 
 override_dh_strip:
 ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
@@ -53,7 +56,7 @@ override_dh_shlibdeps:
 	$(shell echo "php:Depends=phpapi-$(PHPAPIVER)" >> debian/$(BIN_PACKAGE_NAME).substvars)
 
 override_dh_auto_install:
-	dh_install modules/$(PECL_PKG_NAME).so $(EXT_DIR)
+	dh_install $(SOURCE_DIR)/modules/$(PECL_PKG_NAME).so $(EXT_DIR)
 	dh_install debian/$(PECL_PKG_NAME).ini $(PHPCONFD)
 	dh_auto_install
 
