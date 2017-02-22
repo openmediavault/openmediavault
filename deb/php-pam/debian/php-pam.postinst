@@ -2,7 +2,7 @@
 
 set -e
 
-[ "$1" = "configure" ] && php5enmod pam
+[ "$1" = "configure" ] && phpenmod pam
 
 #DEBHELPER#
 

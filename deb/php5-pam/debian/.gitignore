@@ -1,6 +1,0 @@
-/php5-pam/
-/files
-/*.debhelper.log
-/*.postinst.debhelper
-/*.postrm.debhelper
-/*.substvars

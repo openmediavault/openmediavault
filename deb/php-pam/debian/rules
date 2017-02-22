@@ -1,0 +1,65 @@
+#!/usr/bin/make -f
+# template debian/rules provided by dh-make-php.
+# GNU copyright 2005 by Uwe Steinmann.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# This has to be exported to make some magic below work.
+export DH_OPTIONS
+
+# Needed for the extension make install
+export INSTALL_ROOT:=debian/$(BIN_PACKAGE_NAME)
+
+CFLAGS = -O2 -Wall
+CFLAGS += -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
+ifneq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
+	CFLAGS += -g
+	DEBUG := --enable-debug
+else
+	DEBUG := --disable-debug
+endif
+
+PECL_PKG_NAME=pam
+PECL_PKG_REALNAME=pam
+BIN_PACKAGE_NAME=php-pam
+PHPIZE=/usr/bin/phpize
+PHPCONFIG=/usr/bin/php-config
+EXT_DIR=$(shell $(PHPCONFIG) --extension-dir | sed -e "s-/--")
+SOURCE_DIR=$(shell ls -d $(PECL_PKG_REALNAME)-*)
+BINARYTARGETS=binary-arch-v7
+BUILDTARGETS=build-v7
+CLEANTARGETS=clean-v7
+PHPAPIVER=$(shell /usr/bin/php-config --phpapi)
+PHPCONFD=$(shell echo "/etc/php/7.0/mods-available" | sed -e "s-/--")
+
+%:
+	cp -r $(SOURCE_DIR)/* .
+	dh $@ --with quilt
+
+override_dh_auto_configure:
+	$(PHPIZE);
+	./configure --with-php-config=$(PHPCONFIG) --prefix=/usr
+
+override_dh_strip:
+ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
+	dh_strip
+endif
+
+override_dh_auto_test:
+	# do not run tests
+
+override_dh_shlibdeps:
+	$(shell echo "php:Depends=phpapi-$(PHPAPIVER)" >> debian/$(BIN_PACKAGE_NAME).substvars)
+
+override_dh_auto_install:
+	dh_install modules/$(PECL_PKG_NAME).so $(EXT_DIR)
+	dh_install debian/$(PECL_PKG_NAME).ini $(PHPCONFD)
+	dh_auto_install
+
+override_dh_clean:
+	# Add here commands to clean up after the build process.
+	(cd $(SOURCE_DIR); \
+	$(MAKE) clean; \
+	$(PHPIZE) --clean)
+	dh_clean
