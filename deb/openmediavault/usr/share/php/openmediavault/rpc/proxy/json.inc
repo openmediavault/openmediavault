@@ -106,7 +106,7 @@ class Json {
 	protected function getParams() {
 		// See http://in.php.net/wrappers.php for more details
 		$this->params = json_decode(file_get_contents("php://input"), TRUE);
-		return !empty($this->params);
+		return is_assoc_array($this->params);
 	}
 
 	/**
