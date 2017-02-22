@@ -500,7 +500,10 @@ while(FALSE === $sigTerm) {
 			require_once("openmediavault/env.inc");
 
 			// Decode JSON string to a PHP array.
-			$request = json_decode($request, TRUE);
+			if (NULL === ($request = json_decode($request, TRUE))) {
+				error("Failed to decode JSON string: %s\n",
+					json_last_error_msg());
+			}
 
 			///////////////////////////////////////////////////////////////////
 			// Execute RPC.
