@@ -180,7 +180,7 @@ class Rpc {
 			@socket_close($socket);
 			// Decode JSON string to PHP array.
 			if (NULL === ($response = json_decode($response, TRUE))) {
-				throw new \OMV\Exception("Failed to decode JSON string: %s",
+				throw new Exception("Failed to decode JSON string: %s",
 					json_last_error_msg());
 			}
 			// Trigger an exception if the RPC has been failed. Inject the
