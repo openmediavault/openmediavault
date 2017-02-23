@@ -502,7 +502,8 @@ while(FALSE === $sigTerm) {
 			try {
 				// Decode JSON string to a PHP array.
 				if (NULL === ($request = json_decode($request, TRUE))) {
-					throw new \Exception("Failed to decode JSON string: %s\n",
+					throw new \OMV\Exception(
+						"Failed to decode JSON string: %s",
 						json_last_error_msg());
 				}
 
