@@ -8,7 +8,7 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault
 Architecture: all
-Depends: ${perl:Depends}, libjs-extjs5, php-fpm, libpam-modules,
+Depends: ${perl:Depends}, libjs-extjs5, php-fpm, libpam-modules, php-json,
  php-cgi, php-cli, php-mbstring, php-pam, sudo, ethtool, python3-dialog,
  acl, ifenslave, resolvconf, iproute2, xfsprogs, jfsutils, ntfs-3g, hdparm,
  sdparm, ifupdown, mdadm, postfix, libsasl2-modules, bsd-mailx, python3-dbus,
