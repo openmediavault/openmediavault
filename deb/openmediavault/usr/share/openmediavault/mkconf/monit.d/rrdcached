@@ -24,6 +24,8 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+OMV_RRDCACHED_PIDFILE=${OMV_RRDCACHED_PIDFILE:-"/var/run/rrdcached.pid"}
+
 OMV_MONIT_SERVICE_RRDCACHED_CONFIG=${OMV_MONIT_SERVICE_RRDCACHED_CONFIG:-"/etc/monit/conf.d/openmediavault-rrdcached.conf"}
 OMV_MONIT_SERVICE_RRDCACHED_MODE=${OMV_MONIT_SERVICE_RRDCACHED_MODE:-"active"}
 
@@ -31,7 +33,7 @@ rm -f ${OMV_MONIT_SERVICE_RRDCACHED_CONFIG}
 [ "$(omv_config_get "//system/monitoring/perfstats/enable")" = "0" ] && exit 0
 
 cat <<EOF > ${OMV_MONIT_SERVICE_RRDCACHED_CONFIG}
-check process rrdcached with pidfile /var/run/rrdcached.pid
+check process rrdcached with pidfile ${OMV_RRDCACHED_PIDFILE}
   start program = "/bin/systemctl start rrdcached"
   stop program = "/bin/systemctl stop rrdcached"
   mode ${OMV_MONIT_SERVICE_RRDCACHED_MODE}
