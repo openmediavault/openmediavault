@@ -509,6 +509,25 @@ function json_validate($data, $schema, &$errors = NULL) {
 }
 
 /**
+ * Encode the specified expression to UTF-8.
+ * @param expression The variable you want to convert.
+ * @return Returns the UTF-8 encoded value.
+ */
+function var_utf8_encode($expression) {
+	if (is_array($expression)) {
+		foreach ($expression as $exprk => $exprv)
+			$expression[$exprk] = var_utf8_encode($exprv);
+	} else if (is_object($expression)) {
+		foreach ($expression as $exprk => $exprv)
+			$expression->$exprk = var_utf8_encode($exprv);
+	} else if (is_string($expression)) {
+		if (FALSE === mb_detect_encoding($expression, "UTF-8", TRUE))
+			$expression = utf8_encode($expression);
+	}
+	return $expression;
+}
+
+/**
  * Returns the JSON representation of a value. All strings will be encoded
  * to UTF-8 before, thus json_encode should not throw an exception like
  * 'Invalid UTF-8 sequence in argument' (Mantis 0000355).
@@ -519,16 +538,7 @@ function json_validate($data, $schema, &$errors = NULL) {
  * @return Returns a string containing the JSON representation of \em value.
  */
 function json_encode_safe($value, $options = 0) {
-	if (is_array($value)) {
-		array_walk_recursive($value, create_function('&$item, $key',
-		  'if (is_string($item) && !mb_check_encoding($item, "UTF-8")) '.
-		  '{ $item = mb_convert_encoding($item, "UTF-8", '.
-		  'mb_detect_encoding($item)); }'));
-	} else if (is_string($value) && !mb_check_encoding($value, "UTF-8")) {
-		$value = mb_convert_encoding($value, "UTF-8",
-		  mb_detect_encoding($value));
-	}
-	return json_encode($value, $options);
+	return json_encode(var_utf8_encode($value), $options);
 }
 
 /**
@@ -545,14 +555,7 @@ function json_encode_safe($value, $options = 0) {
 *   is deeper than the recursion limit.
 */
 function json_decode_safe($json, $assoc = false, $depth = 512, $options = 0) {
-	if (is_array($json)) {
-		array_walk_recursive($json, create_function('&$item, $key',
-		  'if (is_string($item) && !mb_check_encoding($item, "UTF-8")) '.
-		  '{ $item = utf8_encode($item); }'));
-	} else if (is_string($json)) {
-		$json = utf8_encode($json);
-	}
-	return json_decode($json, $assoc, $depth, $options);
+	return json_decode(var_utf8_encode($json), $assoc, $depth, $options);
 }
 
 /**

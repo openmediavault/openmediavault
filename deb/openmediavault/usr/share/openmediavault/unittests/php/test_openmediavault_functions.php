@@ -169,4 +169,24 @@ class test_openmediavault_functions extends \PHPUnit_Framework_TestCase {
 		$path = build_path(DIRECTORY_SEPARATOR, "/usr", "local", "share");
 		$this->assertEquals($path, "/usr/local/share");
 	}
+
+	public function test_json_encode_safe() {
+		$data = [
+			"z" => [1, 2, 3],
+			"x" => 3,
+			"a.b.c" => 10.4,
+			"k" => "äöü$%#".chr(0x09).chr(0x0A).chr(0x0C).chr(0x0D)
+		];
+		$json = json_encode_safe($data);
+		$this->assertNotNull($json);
+		$this->assertInternalType("string", $json);
+	}
+
+	public function test_json_decode_safe() {
+		$json = '{"z": [1,2,3], "x": 3, "a.b.c": 10.4, "k": "\u00e4\u00f6\u00fc$%#\t\n\f\r"}';
+		$data = json_decode_safe($json, TRUE);
+		$this->assertInternalType("array", $data);
+		$k = "äöü$%#".chr(0x09).chr(0x0A).chr(0x0C).chr(0x0D);
+		$this->assertEquals($data['k'], $k);
+	}
 }
