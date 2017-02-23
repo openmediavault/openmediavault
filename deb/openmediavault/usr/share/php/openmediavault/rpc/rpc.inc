@@ -156,8 +156,8 @@ class Rpc {
 				"params" => $params,
 				"context" => $context
 			]);
-			// Write the RPC request.
 			$request .= "\0"; // Append the EOF byte.
+			// Write the RPC request.
 			if (FALSE === @socket_write($socket, $request, strlen($request))) {
 				throw new Exception("Failed to write to socket: %s",
 				  socket_strerror(socket_last_error()));
