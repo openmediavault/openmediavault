@@ -137,12 +137,22 @@ class Monit {
 	public function status() {
 		$status = "unknown";
 		// Get status summary of monitored services.
-		$cmd = new \OMV\System\Process("monit", "summary");
+		$cmd = new \OMV\System\Process(["monit", "-B" "summary"]);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		// Parse the command output.
+		// Example:
+		// Monit 5.20.0 uptime: 6m
+		//  Service Name              Status                      Type
+		//  omv4stretch               Running                     System
+		//  rrdcached                 Running                     Process
+		//  php5-fpm                  Execution failed | Does...  Process
+		//  nginx                     Running                     Process
+		//  omv-engined               Not monitored               Process
+		//  collectd                  Execution failed | Does...  Process
+		//  rootfs                    Accessible                  Filesystem
 		foreach ($output as $outputk => $outputv) {
-			$regex = '/^Process\s+\'([^\']+)\'\s+(.+)$/i';
+			$regex = '/^\s+([^\']+)\s+(.+)\s+Process$/i';
 			if (1 !== preg_match($regex, $outputv, $matches))
 				continue;
 			if ($matches[1] != $this->name)
