@@ -469,6 +469,8 @@ while(FALSE === $sigTerm) {
 			if (empty($data) || "\0" == substr($request, -1))
 				break;
 		}
+		$request = substr($request, 0, -1); // Remove the EOF byte.
+
 		///////////////////////////////////////////////////////////////////////
 		// Fork a child process to execute the RPC.
 		///////////////////////////////////////////////////////////////////////
@@ -540,7 +542,7 @@ while(FALSE === $sigTerm) {
 			///////////////////////////////////////////////////////////////////
 			// Write RPC response.
 			///////////////////////////////////////////////////////////////////
-			$response .= "\0";
+			$response .= "\0"; // Append the EOF byte.
 			if (FALSE === @socket_write($conn, $response, strlen($response))) {
 				@socket_close($conn);
 				error("Failed to write to socket: %s\n",
