@@ -499,32 +499,32 @@ while(FALSE === $sigTerm) {
 			// for the moment because it only applies to the timezone.
 			require_once("openmediavault/env.inc");
 
-			// Decode JSON string to a PHP array.
-			if (NULL === ($request = json_decode($request, TRUE))) {
-				error("Failed to decode JSON string: %s\n",
-					json_last_error_msg());
-			}
-
-			///////////////////////////////////////////////////////////////////
-			// Execute RPC.
-			///////////////////////////////////////////////////////////////////
-			debug("Executing RPC (service=%s, method=%s, params=%s, ".
-			  "context=%s) ...\n", $request['service'], $request['method'],
-			  json_encode_safe($request['params']), json_encode_safe(
-			  $request['context']));
-
 			try {
+				// Decode JSON string to a PHP array.
+				if (NULL === ($request = json_decode($request, TRUE))) {
+					throw new \Exception("Failed to decode JSON string: %s\n",
+						json_last_error_msg());
+				}
+
+				////////////////////////////////////////////////////////////////
+				// Execute RPC.
+				////////////////////////////////////////////////////////////////
+				debug("Executing RPC (service=%s, method=%s, params=%s, ".
+				  "context=%s) ...\n", $request['service'], $request['method'],
+				  json_encode_safe($request['params']), json_encode_safe(
+				  $request['context']));
+
 				$response = \OMV\Rpc\Rpc::call($request['service'],
 				  $request['method'], $request['params'],
 				  $request['context'], \OMV\Rpc\Rpc::MODE_LOCAL);
 
 				$response = json_encode_safe([
 					"response" => $response,
-					"error" => null
+					"error" => NULL
 				]);
 			} catch(\Exception $e) {
 				$response = json_encode_safe([
-					"response" => null,
+					"response" => NULL,
 					"error" => [
 						"code" => $e->getCode(),
 						"message" => $e->getMessage(),
