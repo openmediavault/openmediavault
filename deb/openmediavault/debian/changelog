@@ -1,6 +1,7 @@
 openmediavault (4.0) stable; urgency=low
 
   * Initial release.
+  * Mantis 0001499: Monit collectd and PID file.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 22 Feb 2017 13:28:40 +0100
 
