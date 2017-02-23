@@ -157,7 +157,7 @@ class Rpc {
 				"context" => $context
 			]);
 			// Write the RPC request.
-			$request .= "\0";
+			$request .= "\0"; // Append the EOF byte.
 			if (FALSE === @socket_write($socket, $request, strlen($request))) {
 				throw new Exception("Failed to write to socket: %s",
 				  socket_strerror(socket_last_error()));
@@ -176,6 +176,7 @@ class Rpc {
 				if (empty($data) || "\0" == substr($response, -1))
 					break;
 			}
+			$response = substr($response, 0, -1); // Remove the EOF byte.
 			// Close the socket.
 			@socket_close($socket);
 			// Decode JSON string to PHP array.
