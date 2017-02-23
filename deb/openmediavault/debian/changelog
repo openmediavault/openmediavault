@@ -1,5 +1,6 @@
 openmediavault (3.0.64) stable; urgency=low
 
+  * Various improvements.
   * Fix bug when a non-existent file system will be removed.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 20 Feb 2017 17:42:58 +0100
