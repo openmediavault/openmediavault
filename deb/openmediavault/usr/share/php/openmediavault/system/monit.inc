@@ -141,6 +141,16 @@ class Monit {
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		// Parse the command output.
+		// Example:
+		// The Monit daemon 5.9 uptime: 5m
+		//
+		// System 'vmpc01.local'               Running
+		// Process 'rrdcached'                 Running
+		// Process 'php5-fpm'                  Running
+		// Process 'nginx'                     Running
+		// Filesystem 'rootfs'                 Accessible
+		// Process 'omv-engined'               Running
+		// Process 'collectd'                  Running
 		foreach ($output as $outputk => $outputv) {
 			$regex = '/^Process\s+\'([^\']+)\'\s+(.+)$/i';
 			if (1 !== preg_match($regex, $outputv, $matches))
