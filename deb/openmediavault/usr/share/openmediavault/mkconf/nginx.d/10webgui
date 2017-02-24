@@ -83,7 +83,7 @@ xmlstarlet sel -t -m "//webadmin" \
   -o "    location ~ \.php$ {" -n \
   -o "        try_files \$uri =404;" -n \
   -o "        fastcgi_split_path_info ^(.+\.php)(/.+)$;" -n \
-  -o "        fastcgi_pass unix:/var/run/php5-fpm-openmediavault-webgui.sock;" -n \
+  -o "        fastcgi_pass unix:/var/run/php-fpm-openmediavault-webgui.sock;" -n \
   -o "        fastcgi_index index.php;" -n \
   -o "        fastcgi_read_timeout ${OMV_NGINX_SITE_WEBGUI_FASTCGI_READ_TIMEOUT};" -n \
   -o "        include fastcgi.conf;" -n \

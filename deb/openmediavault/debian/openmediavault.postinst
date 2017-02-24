@@ -465,6 +465,12 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "3.0.59"; then
 			omv-mkconf apt
 		fi
+		if dpkg --compare-versions "$2" lt-nl "4.0.2"; then
+			omv-mkconf nginx
+			omv-mkconf php-fpm
+			deb-systemd-invoke restart php-fpm7.0.service || :
+			deb-systemd-invoke restart nginx.service || :
+		fi
 
 		########################################################################
 		# Show help text.
