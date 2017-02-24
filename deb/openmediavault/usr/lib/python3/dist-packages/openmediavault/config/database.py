@@ -35,7 +35,7 @@ __all__ = [
 import abc
 import os
 import lxml.etree
-import sysv_ipc
+import fcntl
 import openmediavault.collections
 import openmediavault.config.datamodel
 import openmediavault.config.object
@@ -292,14 +292,6 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		self._response = None
 		# The XML tree.
 		self._root_element = None
-		# Create the semaphore to control access to the database resource.
-		try:
-			self._semaphore = sysv_ipc.Semaphore(2013349238, sysv_ipc.IPC_CREX)
-		except sysv_ipc.ExistentialError:
-			# The semaphore already exists.
-			self._semaphore = sysv_ipc.Semaphore(2013349238)
-		else:
-			self._semaphore.release()
 
 	@property
 	def model(self):
@@ -353,13 +345,13 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		self._root_element = lxml.etree.parse(self._database_file)
 
 	def _save(self):
-		self._semaphore.acquire()
 		# Save the XML configuration file.
 		with open(self._database_file, "wb") as f:
+			fcntl.flock(f, fcntl.LOCK_EX)
 			f.write(lxml.etree.tostring(self._root_element,
 				pretty_print=True, xml_declaration=True,
 				encoding="UTF-8"))
-		self._semaphore.release()
+			fcntl.flock(f, fcntl.LOCK_UN)
 
 	def _get_root_element(self):
 		"""
