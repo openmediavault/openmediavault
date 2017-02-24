@@ -141,6 +141,10 @@
 	background-image: url("../images/switch_on.png");
 	background-image: url("../images/switch_on.svg"), none;
 }
+.x-form-checkbox-focus.x-form-checkbox-default,
+.x-form-cb-checked .x-form-checkbox-focus.x-form-checkbox-default {
+	background-position: left;
+}
 /* Checkbox field */
 .x-form-type-checkbox input.x-form-invalid-field {
 	border: 1px solid #cc3300;
