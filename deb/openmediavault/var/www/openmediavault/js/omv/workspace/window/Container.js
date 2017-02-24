@@ -51,7 +51,7 @@
  * @param readOnly True if the property values are read-only. The 'OK' and
  *   'Reset' buttons will be disabled in this case. Defaults to FALSE.
  * @param closeIfNotDirty Close the dialog immediatelly after 'OK' has been
- *   pressed and the form is not dirty. Defaults to TRUE.
+ *   pressed and the form is not dirty. Defaults to FALSE.
  * @param autoLoadData Automatically execute the doLoad method after
  *   the component has been initialized. This only applies if mode is set to
  *   'remote'. Defaults to TRUE.
@@ -80,7 +80,7 @@ Ext.define("OMV.workspace.window.Container", {
 	closeButtonText: _("Close"),
 	buttonAlign: "center",
 	readOnly: false,
-	closeIfNotDirty: true,
+	closeIfNotDirty: false,
 	autoLoadData: true,
 	loadMsg: _("Loading ..."),
 	submitMsg: _("Saving ..."),
