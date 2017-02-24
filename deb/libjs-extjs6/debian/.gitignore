@@ -1,0 +1,7 @@
+/libjs-extjs5/
+/files
+/*.debhelper.log
+/*.postinst.debhelper
+/*.postrm.debhelper
+/*.substvars
+/*-stamp
