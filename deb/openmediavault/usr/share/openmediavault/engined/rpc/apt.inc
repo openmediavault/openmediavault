@@ -174,7 +174,8 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 			// http://raphaelhertzog.com/2010/09/21/debian-conffile-configuration-file-managed-by-dpkg/
 			$cmdArgs = [];
 			$cmdArgs[] = "--yes";
-			$cmdArgs[] = "--force-yes";
+			$cmdArgs[] = "--allow-downgrades";
+			$cmdArgs[] = "--allow-change-held-packages";
 			$cmdArgs[] = "--fix-missing";
 			$cmdArgs[] = "--auto-remove";
 			$cmdArgs[] = "--allow-unauthenticated";
@@ -300,7 +301,8 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 			if (TRUE === empty(glob($packagePath))) {
 				$cmdArgs = [];
 				$cmdArgs[] = "--yes";
-				$cmdArgs[] = "--force-yes";
+				$cmdArgs[] = "--allow-downgrades";
+				$cmdArgs[] = "--allow-change-held-packages";
 				$cmdArgs[] = "--download-only";
 				$cmdArgs[] = "--reinstall";
 				$cmdArgs[] = "install";

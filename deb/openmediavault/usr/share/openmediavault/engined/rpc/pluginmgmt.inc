@@ -223,7 +223,8 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Install the packages.
 			$cmdArgs = [];
 			$cmdArgs[] = "--yes";
-			$cmdArgs[] = "--force-yes";
+			$cmdArgs[] = "--allow-downgrades";
+			$cmdArgs[] = "--allow-change-held-packages";
 			$cmdArgs[] = "--fix-missing";
 			$cmdArgs[] = "--allow-unauthenticated";
 			$cmdArgs[] = "--reinstall";
