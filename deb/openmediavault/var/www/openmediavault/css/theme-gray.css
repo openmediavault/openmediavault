@@ -382,7 +382,8 @@
 .x-workspace-node-tree .x-grid-row-over .x-grid-td {
 	cursor: pointer;
 }
-.x-workspace-node-tree .x-tree-icon-parent {
+.x-workspace-node-tree .x-tree-icon-parent,
+.x-workspace-node-tree .x-tree-icon-parent-expanded {
 	width: 0px;
 	visibility: hidden;
 }
