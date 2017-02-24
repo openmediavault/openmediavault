@@ -20,7 +20,7 @@
 # along with openmediavault. If not, see <http://www.gnu.org/licenses/>.
 
 # Default values.
-hostname = "omv3jessie"
+hostname = "omv3box"
 
 Vagrant.configure("2") do |config|
 	# Debian 8/Jessie
