@@ -2,7 +2,8 @@ Source: php-pam
 Section: web
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
-Build-Depends: debhelper (>= 7), po-debconf, xsltproc, php-dev, libpam-dev
+Build-Depends: debhelper (>= 9), po-debconf, xsltproc, php-dev, libpam-dev,
+ quilt
 Standards-Version: 3.9.1
 
 Package: php-pam

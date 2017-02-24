@@ -4,7 +4,7 @@
 EXTJSVERSION=6.2.0
 
 %:
-	dh $@ --with quilt
+	dh $@
 
 override_dh_auto_clean:
 	find . -maxdepth 1 -not -iname "debian" -not -name ".*" \
