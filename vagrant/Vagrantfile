@@ -20,7 +20,6 @@
 # along with openmediavault. If not, see <http://www.gnu.org/licenses/>.
 
 # Default values.
-sata_controller_name = "SATA"
 hostname = "omv4stretch"
 
 Vagrant.configure("2") do |config|
@@ -39,7 +38,7 @@ Vagrant.configure("2") do |config|
 				prov.customize ["createhd", "--filename", filename,
 					"--size", 1000 * 1024]
 				prov.customize ["storageattach", :id, "--storagectl",
-					sata_controller_name, "--port", i + 1, "--device", 0,
+					"SATA", "--port", i + 1, "--device", 0,
 					"--type", "hdd", "--medium", filename]
 			end
 		end
