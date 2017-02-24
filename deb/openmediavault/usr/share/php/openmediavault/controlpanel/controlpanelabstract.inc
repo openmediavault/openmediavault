@@ -115,8 +115,9 @@ EOF;
 
 		// Set core CSS files.
 		$cssList = [
-			"/extjs/packages/ext-theme-gray/resources/ext-theme-gray-all.css",
-			"css/omv.css"
+			"/extjs6/classic/theme-gray/resources/theme-gray-all.css",
+			"css/omv.css",
+			"css/theme-gray.css"
 		];
 		// Add additional CSS files.
 		$cssList = array_merge($cssList, array_values(array_unique(
@@ -138,13 +139,13 @@ EOF;
 		];
 		if (TRUE === \OMV\Environment::getBoolean("OMV_DEBUG_EXTJS")) {
 			$jsList = array_merge([
-				"/extjs/ext-all-debug.js",
-				"/extjs/packages/ext-theme-gray/ext-theme-gray-debug.js"
+				"/extjs6/ext-all-debug.js",
+				"/extjs6/classic/theme-gray/theme-gray-debug.js"
 			], $jsList);
 		} else {
 			$jsList = array_merge([
-				"/extjs/ext-all.js",
-				"/extjs/packages/ext-theme-gray/ext-theme-gray.js"
+				"/extjs6/ext-all.js",
+				"/extjs6/classic/theme-gray/theme-gray.js"
 			], $jsList);
 		}
 		foreach ($jsList as $jsListv) {
