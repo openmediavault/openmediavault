@@ -20,7 +20,7 @@
 # along with openmediavault. If not, see <http://www.gnu.org/licenses/>.
 
 # Default values.
-hostname = "omv4stretch"
+hostname = "omv4box"
 
 Vagrant.configure("2") do |config|
 	config.vm.box = "remram/debian-9-amd64"
