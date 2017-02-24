@@ -137,7 +137,7 @@ class Monit {
 	public function status() {
 		$status = "unknown";
 		// Get status summary of monitored services.
-		$cmd = new \OMV\System\Process(["monit", "-B" "summary"]);
+		$cmd = new \OMV\System\Process(["monit", "-B", "summary"]);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		// Parse the command output.
