@@ -421,7 +421,7 @@
 /* Form grid field */
 .x-form-invalid .x-form-gridfield-body .x-grid {
 	border: 1px solid #cc3300;
-	background-image: url("/extjs/resources/ext-theme-gray/images/grid/invalid_line.gif");
+	background-image: url("/extjs6/classic/theme-gray/resources/images/grid/invalid_line.gif");
 	background-repeat: repeat-x;
 	background-position: bottom;
 }
