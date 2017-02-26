@@ -108,7 +108,7 @@ Ext.define("OMV.form.field.SslCertificateComboBox", {
 			});
 		}, me);
 		me.on("beforedestroy", function() {
-			// Removes the quick tip from the trigger button.
+			// Remove the quick tip from the trigger button.
 			var trigger = this.getTrigger("search");
 			Ext.tip.QuickTipManager.unregister(trigger.getEl());
 		}, me);

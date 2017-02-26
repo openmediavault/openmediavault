@@ -124,7 +124,7 @@ Ext.define("OMV.form.field.SharedFolderComboBox", {
 			});
 		}, me);
 		me.on("beforedestroy", function() {
-			// Removes the quick tip from the trigger button.
+			// Remove the quick tip from the trigger button.
 			[ "add", "show" ].forEach(function(id) {
 				var trigger = this.getTrigger(id);
 				Ext.tip.QuickTipManager.unregister(trigger.getEl());
