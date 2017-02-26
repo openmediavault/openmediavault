@@ -116,7 +116,7 @@ EOF;
 		// Set core CSS files.
 		$cssList = [
 			"/extjs6/classic/theme-gray/resources/theme-gray-all.css",
-			"css/omv.css",
+			"css/theme-all.css",
 			"css/theme-gray.css"
 		];
 		// Add additional CSS files.

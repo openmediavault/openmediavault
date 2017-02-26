@@ -127,3 +127,92 @@ div#headerrlogo {
 	background-image: url("/images/header_rlogo.png");
 	display: none;
 }
+/******************************************************************************/
+/* Globals                                                                    */
+/******************************************************************************/
+.x-monospaced {
+	font-family: monospace;
+}
+.x-text-center {
+	text-align: center;
+}
+/* Tooltip - Default */
+.x-tip-default {
+	border-color: #333;
+	background-color: #333;
+	box-shadow: none !important;
+}
+.x-tip-body-default {
+	color: #fff;
+}
+/* Tooltip - Invalid form field */
+.x-tip-form-invalid {
+	border-color: #ff3b30;
+	background-color: #ff3b30;
+	box-shadow: none !important;
+}
+.x-tip-body-form-invalid {
+	filter: invert(100%);
+	-webkit-filter: invert(100%);
+	-moz-filter: invert(100%);
+	-o-filter: invert(100%);
+	-ms-filter: invert(100%);
+	color: #000;
+	background-image: url("../images/exclamation.png");
+	background-image: url("../images/exclamation.svg"), none;
+}
+/* Loadmask */
+.x-mask-msg {
+	padding: none;
+	background: #333;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #333;
+}
+.x-mask-msg-inner {
+	padding: 0 5px;
+	border-style: solid;
+	border-width: 0px;
+	background-color: #333;
+	color: #fff;
+}
+.x-mask-msg-text {
+	padding: 5px 5px 5px 20px;
+	background-image: url("/images/loading.gif");
+	background-repeat: no-repeat;
+	background-position: 0 center;
+}
+/* Invalid form fields */
+.x-form-invalid-icon-default,
+.x-form-invalid-under-default,
+.x-form-invalid-icon-toolbar,
+.x-form-invalid-under-toolbar {
+	background-image: url("../images/exclamation.png");
+	background-image: url("../images/exclamation.svg"), none;
+}
+.x-form-invalid-icon-default {
+	background-repeat: no-repeat;
+}
+/* Mark read-only form fields */
+.x-form-item-default.x-form-readonly input,
+.x-form-item-default.x-form-readonly textarea {
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+	opacity: 0.3;
+}
+/* Customize textarea fields */
+.x-form-textarea-monospaced textarea {
+	font-family: monospace;
+	font-size: 11px;
+	padding: 0;
+}
+/* Field info text */
+.x-form-fieldinfo {
+	font-size: 11px;
+	color: #333333;
+	line-height: 14px;
+}
