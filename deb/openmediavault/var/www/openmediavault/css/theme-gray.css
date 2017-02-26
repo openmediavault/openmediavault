@@ -201,7 +201,7 @@
 	background-image: url("../images/folder.png");
 	background-image: url("../images/folder.svg"), none;
 }
-.x-grid-tree-node-expanded .x-tree-icon-parent {
+.x-tree-icon-parent-expanded {
 	background-image: url("../images/folder-open.png");
 	background-image: url("../images/folder-open.svg"), none;
 }
@@ -340,12 +340,6 @@
 /* Form grid field */
 .x-form-invalid .x-form-gridfield-body .x-grid {
 	border: 1px solid #cc3300;
-}
-/* Dashboard */
-.x-workspace-dashboard-widget-icon {
-	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
-	opacity: 0.7;
-	background-size: 16px 16px;
 }
 /* Paging toolbar */
 .x-tbar-page-first,
