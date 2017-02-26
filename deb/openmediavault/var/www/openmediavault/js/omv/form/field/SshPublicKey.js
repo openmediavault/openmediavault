@@ -47,21 +47,24 @@ Ext.define("OMV.form.field.SshPublicKey", {
 		}
 	},
 
-	destroy: function () {
-        var me = this;
-        Ext.destroy(me.hiddenEl);
-        me.callParent();
-    },
-
-	onRender: function() {
+	initComponent: function() {
 		var me = this;
 		me.callParent(arguments);
-		// Add tooltip to trigger button.
-		var trigger = me.getTrigger("copy");
-		Ext.tip.QuickTipManager.register({
-			target: trigger.getEl(),
-			text: _("Copy to clipboard")
-		});
+		me.on("afterrender", function() {
+			// Add quick tip to the trigger button.
+			var trigger = this.getTrigger("copy");
+			Ext.tip.QuickTipManager.register({
+				target: trigger.getEl(),
+				text: _("Copy to clipboard")
+			});
+		}, me);
+		me.on("beforedestroy", function() {
+			// Remove the quick tip from the trigger button.
+			var trigger = this.getTrigger("copy");
+			Ext.tip.QuickTipManager.unregister(trigger.getEl());
+			// Destroy hidden element.
+			Ext.destroy(me.hiddenEl);
+		}, me);
 	},
 
 	getHiddenEl: function () {
