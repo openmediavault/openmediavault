@@ -99,17 +99,19 @@ Ext.define("OMV.form.field.SslCertificateComboBox", {
 			})
 		});
 		me.callParent(arguments);
-	},
-
-	onRender: function() {
-		var me = this;
-		me.callParent(arguments);
-		// Add tooltip to trigger button.
-		var trigger = me.getTrigger("search");
-		Ext.tip.QuickTipManager.register({
-			target: trigger.getEl(),
-			text: _("Show certificate")
-		});
+		me.on("afterrender", function() {
+			// Add quick tip to the trigger button.
+			var trigger = this.getTrigger("search");
+			Ext.tip.QuickTipManager.register({
+				target: trigger.getEl(),
+				text: _("Show certificate")
+			});
+		}, me);
+		me.on("beforedestroy", function() {
+			// Removes the quick tip from the trigger button.
+			var trigger = this.getTrigger("search");
+			Ext.tip.QuickTipManager.unregister(trigger.getEl());
+		}, me);
 	},
 
 	onTrigger1Click: function() {
