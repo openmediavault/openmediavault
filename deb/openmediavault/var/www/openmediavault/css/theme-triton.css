@@ -19,6 +19,24 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 
+ /******************************************************************************/
+ /* Globals */
+.x-panel-header-default-vertical {
+	background-color: #98b7cf;
+}
+.x-panel-default-outer-border-trl {
+	border-top-color: #98b7cf !important;
+	border-right-color: #98b7cf !important;
+	border-left-color: #98b7cf !important;
+}
+.x-panel-header-default .x-tool-tool-el {
+	background-color: #98b7cf;
+}
+.x-panel-header-default {
+	border: 1px solid #98b7cf;
+	background-color: #98b7cf;
+}
+/******************************************************************************/
 /* Tree */
 .x-tree-icon, .x-tree-elbow-img {
 	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
@@ -27,6 +45,7 @@
 .x-tree-icon-custom {
 	background-size: 16px 16px;
 }
+/******************************************************************************/
 /* Workspace node tree */
 .x-workspace-node-tree .x-grid-row-over .x-grid-td {
 	cursor: pointer;
@@ -38,4 +57,27 @@
 }
 .x-workspace-node-tree.x-tree-lines .x-tree-elbow-line {
 	visibility: hidden;
+}
+.x-workspace-node-tree .x-grid-tree-node-expanded .x-tree-elbow-plus,
+.x-workspace-node-tree .x-grid-tree-node-expanded .x-tree-elbow-end-plus {
+	color: #98b7cf;
+}
+/******************************************************************************/
+/* Dashboard */
+.x-workspace-dashboard-widget-icon {
+	filter: invert(100%);
+	opacity: 1;
+}
+/******************************************************************************/
+/* Tabs */
+.x-tab.x-tab-active.x-tab-default .x-tab-inner-default {
+	color: #98b7cf;
+}
+.x-tab-focus.x-tab-default {
+	outline: 1px solid #98b7cf;
+}
+/******************************************************************************/
+/* Windows */
+.x-window-default {
+	border-color: #98b7cf;
 }

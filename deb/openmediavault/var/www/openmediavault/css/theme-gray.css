@@ -230,15 +230,6 @@
 .x-btn-icon-16x16 {
 	background-size: 16px 16px;
 }
-/* Tip toolbar */
-.x-toolbar-tip {
-	background: #ffeb99;
-}
-/* Configuration activation toolbar */
-.x-toolbar-applycfg {
-	background: #ffeb99;
-	background-image: none;
-}
 /* Workspace node view */
 .x-workspace-node-view {
 	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);

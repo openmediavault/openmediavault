@@ -136,6 +136,7 @@ div#headerrlogo {
 .x-text-center {
 	text-align: center;
 }
+/******************************************************************************/
 /* Tooltip - Default */
 .x-tip-default {
 	border-color: #333;
@@ -161,6 +162,16 @@ div#headerrlogo {
 	background-image: url("../images/exclamation.png");
 	background-image: url("../images/exclamation.svg"), none;
 }
+/* Tip toolbar */
+.x-toolbar-tip {
+	background: #ffeb99;
+}
+/* Configuration activation toolbar */
+.x-toolbar-applycfg {
+	background: #ffeb99;
+	background-image: none;
+}
+/******************************************************************************/
 /* Loadmask */
 .x-mask-msg {
 	padding: none;
@@ -187,6 +198,7 @@ div#headerrlogo {
 	background-repeat: no-repeat;
 	background-position: 0 center;
 }
+/******************************************************************************/
 /* Invalid form fields */
 .x-form-invalid-icon-default,
 .x-form-invalid-under-default,
@@ -216,9 +228,15 @@ div#headerrlogo {
 	color: #333333;
 	line-height: 14px;
 }
+/******************************************************************************/
 /* Dashboard */
 .x-workspace-dashboard-widget-icon {
 	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
 	opacity: 0.7;
 	background-size: 16px 16px;
+}
+/******************************************************************************/
+/* Tabs */
+.x-tab-bar-default {
+	background-color: #98b7cf;
 }
