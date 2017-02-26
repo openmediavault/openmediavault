@@ -36,15 +36,22 @@ Ext.define("OMV.form.field.Password", {
 		}
 	},
 
-	onRender: function() {
+	initComponent: function() {
 		var me = this;
 		me.callParent(arguments);
-		// Add tooltip to trigger button.
-		var trigger = me.getTrigger("show");
-		Ext.tip.QuickTipManager.register({
-			target: trigger.getEl(),
-			text: _("Show password")
-		});
+		me.on("afterrender", function() {
+			// Add quick tip to the trigger button.
+			var trigger = this.getTrigger("show");
+			Ext.tip.QuickTipManager.register({
+				target: trigger.getEl(),
+				text: _("Show password")
+			});
+		}, me);
+		me.on("beforedestroy", function() {
+			// Remove the quick tip from the trigger button.
+			var trigger = this.getTrigger("show");
+			Ext.tip.QuickTipManager.unregister(trigger.getEl());
+		}, me);
 	},
 
 	onTrigger1Click: function() {
