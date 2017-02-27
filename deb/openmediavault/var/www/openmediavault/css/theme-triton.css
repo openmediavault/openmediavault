@@ -38,6 +38,12 @@
 	 background-image: none;
 	 background-color: #ececec;
  }
+ .x-form-trigger-wrap-default.x-form-trigger-wrap-focus {
+	 border-color: #98b7cf;
+ }
+ .x-form-trigger-wrap-default.x-form-trigger-wrap-invalid {
+	 border-color: #cc3300;
+ }
  /******************************************************************************/
  /* Panel */
 .x-panel-default {
@@ -106,25 +112,32 @@
 /******************************************************************************/
 /* Windows */
 .x-window-default {
-	border-color: #98b7cf;
+	border-color: #88a2b5; /* darker */
 }
 .x-window-header-default {
-	border-color: #98b7cf;
-	background-color: #8ca9bf;
+	border-color: #88a2b5; /* darker */
+	background-color: #88a2b5; /* darker */
 }
 .x-window-header-default .x-tool-img {
-	background-color: #8ca9bf;
+	background-color: #88a2b5; /* darker */
 }
 /******************************************************************************/
 /* Buttons */
 .x-btn-default-small {
 	border-color: #98b7cf;
+	background-color: #98b7cf;
 }
 .x-btn-focus.x-btn-default-small {
 	border-color: #98b7cf;
-}
-.x-btn-default-small {
 	background-color: #98b7cf;
+}
+.x-btn-over.x-btn-default-small {
+	border-color: #88a2b5; /* darker */
+	background-color: #88a2b5; /* darker */
+}
+.x-btn.x-btn-pressed.x-btn-default-small {
+	border-color: #6c8191; /* more darker */
+	background-color: #6c8191; /* more darker */
 }
 /******************************************************************************/
 /* Checkbox */
