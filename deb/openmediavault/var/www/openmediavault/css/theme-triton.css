@@ -60,6 +60,11 @@
 	border-right-color: #98b7cf !important;
 	border-left-color: #98b7cf !important;
 }
+.x-panel-default-outer-border-rbl {
+	border-right-color: #98b7cf !important;
+	border-bottom-color: #98b7cf !important;
+	border-left-color: #98b7cf !important;
+}
 .x-panel-header-default-vertical {
 	background-color: #98b7cf;
 }
@@ -87,6 +92,17 @@
 }
 /******************************************************************************/
 /* Workspace node tree */
+.x-workspace-node-tree .x-panel-header-default {
+	border: 0px;
+	background-color: #ececec; /* gray */
+}
+.x-workspace-node-tree .x-panel-header-default .x-tool-tool-el {
+
+	background-color: #ececec; /* gray */
+}
+.x-workspace-node-tree .x-tool-collapse-left:before {
+	color: black;
+}
 .x-workspace-node-tree .x-grid-row-over .x-grid-td {
 	cursor: pointer;
 }
@@ -98,11 +114,21 @@
 .x-workspace-node-tree.x-tree-lines .x-tree-elbow-line {
 	visibility: hidden;
 }
+.x-workspace-node-tree .x-tree-elbow,
+.x-workspace-node-tree .x-tree-elbow-end {
+	width: 0px;
+	visibility: hidden;
+}
 /******************************************************************************/
 /* Workscape dashboard */
 .x-workspace-dashboard-widget-icon {
 	filter: invert(100%);
 	opacity: 1;
+}
+/******************************************************************************/
+/* Workspace navigation toolbar */
+.x-workspace-navigation-toolbar.x-toolbar-default {
+	background-color: #ececec; /* gray */
 }
 /******************************************************************************/
 /* Tabs */
@@ -149,11 +175,4 @@
 /* Checkbox */
 .x-form-checkbox-focus.x-form-checkbox-default {
 	color: #98b7cf;
-}
-/******************************************************************************/
-/* Workspace node tree */
-.x-workspace-node-tree .x-tree-elbow,
-.x-workspace-node-tree .x-tree-elbow-end {
-	width: 0px;
-	visibility: hidden;
 }
