@@ -55,12 +55,7 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 			cls: Ext.baseCSSPrefix + "toolbar-applycfg",
 			items: [{
 				xtype: "tbitem",
-				height: 16,
-				width: 16,
-				style: {
-					margin: "5px",
-					background: "url(/images/alert.png) center left no-repeat"
-				}
+				cls: Ext.baseCSSPrefix + "message-box-warning"
 			},{
 				xtype: "tbtext",
 				flex: 1,
