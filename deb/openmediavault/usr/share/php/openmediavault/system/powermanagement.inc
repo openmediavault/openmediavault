@@ -75,8 +75,10 @@ class PowerManagement {
 		$cmd->setRedirect2to1();
 		$cmd->setQuiet(TRUE);
 		$cmd->execute($output, $exitStatus);
-		if (!(($exitStatus == 0) || ($exitStatus == 1)))
-			throw new \OMV\ExecException($cmd->getCommandLine(), $output);
+		if (!(($exitStatus == 0) || ($exitStatus == 1))) {
+			throw new \OMV\ExecException($cmd->getCommandLine(), $output,
+				$exitStatus);
+		}
 		$supported = ($exitStatus == 0) ? TRUE : FALSE;
 /*
 		// In case of STATE_HIBERNATE and STATE_SUSPENDHYBRID the

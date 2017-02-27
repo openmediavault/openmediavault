@@ -597,8 +597,14 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			$cmd = new \OMV\System\Process("smartctl", $cmdArgs);
 			$cmd->setRedirect2to1();
 			$cmdLine = $cmd->getCommandLine();
-			if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
-				throw new \OMV\ExecException($cmdLine, $output);
+			// Execute the command.
+			$exitStatus = $this->exec($cmdLine, $output, $bgOutputFilename);
+			// Check the exit status:
+			// Bit 0: Command line did not parse
+			// Bit 1: Device open failed, or device did not return an
+			//        IDENTIFY DEVICE structure
+			if (($exitStatus !== 0) && (($exitStatus & 0) || ($exitStatus & 1)))
+				throw new \OMV\ExecException($cmdLine, $output, $exitStatus);
 			return $output;
 		});
 	}
