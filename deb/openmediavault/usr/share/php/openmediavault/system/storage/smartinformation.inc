@@ -152,12 +152,15 @@ class SmartInformation {
 		$cmd = new \OMV\System\Process("smartctl", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->setQuiet(TRUE);
-		$cmd->execute($output, $exitCode);
+		$cmd->execute($output, $exitStatus);
+		// Check the exit status:
 		// Bit 0: Command line did not parse
 		// Bit 1: Device open failed, or device did not return an
 		//        IDENTIFY DEVICE structure
-		if (($exitCode !== 0) && (($exitCode & 0) || ($exitCode & 1)))
-			throw new \OMV\ExecException($cmd->getCommandLine(), $output);
+		if (($exitStatus !== 0) && (($exitStatus & 0) || ($exitStatus & 1))) {
+			throw new \OMV\ExecException($cmd->getCommandLine(), $output,
+				$exitStatus);
+		}
 		$this->cmdOutput = $output;
 
 		// Set flag to mark information has been successfully read.
