@@ -267,31 +267,81 @@ div#headerrlogo {
 	border: 1px solid #cc3300;
 }
 /******************************************************************************/
-/* About box */
-.x-box-aboutbox {
-	margin: 15px;
-	text-align: left;
-	padding: 5px 10px;
-	background-color: #eee;
-	font-family: "Myriad Pro","Myriad Web","Tahoma","Helvetica","Arial",sans-serif;
-	color: #393939;
-	border-radius: 4px;
+/* Grid columns */
+.x-grid-cell-booleaniconcolumn,
+.x-grid-cell-iconcolumn {
+	background-repeat: no-repeat;
+	background-position: center;
 }
-.x-box-aboutbox a {
-	text-decoration: none !important;
-	font-style: italic;
-	color:#444444;
+.x-grid-cell-booleaniconcolumn-yesno-true,
+.x-grid-cell-booleaniconcolumn-yes {
+	background-image: url("../images/yes.png");
+	background-image: url("../images/yes.svg"), none;
+}
+.x-grid-cell-booleaniconcolumn-yesno-false,
+.x-grid-cell-booleaniconcolumn-no {
+	background-image: url("../images/no.png");
+	background-image: url("../images/no.svg"), none;
+}
+.x-grid-cell-booleaniconcolumn-led-blue,
+.x-grid-cell-iconcolumn-led-blue {
+	background-image: url("../images/led_blue.png");
+	background-image: url("../images/led_blue.svg"), none;
+}
+.x-grid-cell-booleaniconcolumn-led-false,
+.x-grid-cell-booleaniconcolumn-led-gray,
+.x-grid-cell-iconcolumn-led-gray {
+	background-image: url("../images/led_gray.png");
+	background-image: url("../images/led_gray.svg"), none;
+}
+.x-grid-cell-booleaniconcolumn-led-true,
+.x-grid-cell-booleaniconcolumn-led-green,
+.x-grid-cell-iconcolumn-led-green {
+	background-image: url("../images/led_green.png");
+	background-image: url("../images/led_green.svg"), none;
+}
+.x-grid-cell-booleaniconcolumn-led-red,
+.x-grid-cell-iconcolumn-led-red {
+	background-image: url("../images/led_red.png");
+	background-image: url("../images/led_red.svg"), none;
+}
+.x-grid-cell-booleaniconcolumn-switch-true,
+.x-grid-cell-booleaniconcolumn-switch-on {
+	background-image: url("../images/switch_on.png");
+	background-image: url("../images/switch_on.svg"), none;
+}
+.x-grid-cell-booleaniconcolumn-switch-false,
+.x-grid-cell-booleaniconcolumn-switch-off {
+	background-image: url("../images/switch_off.png");
+	background-image: url("../images/switch_off.svg"), none;
+}
+.x-grid-cell-usergroupiconcolumn {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 16px 16px;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+	opacity: 0.7;
+}
+.x-grid-cell-usergroupiconcolumn-user {
+	background-image: url("../images/user.png");
+	background-image: url("../images/user.svg"), none;
+}
+.x-grid-cell-usergroupiconcolumn-group {
+	background-image: url("../images/group.png");
+	background-image: url("../images/group.svg"), none;
+}
+.x-grid-cell-booleaniconcolumn-rj45-true {
+	background-image: url("../images/rj45_yes.png");
+	background-image: url("../images/rj45_yes.svg"), none;
+}
+.x-grid-cell-booleaniconcolumn-rj45-false {
+	background-image: url("../images/rj45_no.png");
+	background-image: url("../images/rj45_no.svg"), none;
 }
 /******************************************************************************/
-/* RRD graph panel */
-.x-panel-rrdgraph {
-	margin: 10px 10px 10px 10px;
-	text-align: center;
-}
-.x-panel-rrdgraph img {
-	border: 0 none;
-	font-size: 11px;
-	margin: 1px 1px 1px 1px;
+/* Grid checkbox column */
+.x-grid-checkcolumn-cell-inner :focus {
+	outline: 0px;
 }
 /******************************************************************************/
 /* Button */
@@ -434,3 +484,30 @@ div#headerrlogo {
 	}
 }
 */
+/******************************************************************************/
+/* About box */
+.x-box-aboutbox {
+	margin: 15px;
+	text-align: left;
+	padding: 5px 10px;
+	background-color: #eee;
+	font-family: "Myriad Pro","Myriad Web","Tahoma","Helvetica","Arial",sans-serif;
+	color: #393939;
+	border-radius: 4px;
+}
+.x-box-aboutbox a {
+	text-decoration: none !important;
+	font-style: italic;
+	color:#444444;
+}
+/******************************************************************************/
+/* RRD graph panel */
+.x-panel-rrdgraph {
+	margin: 10px 10px 10px 10px;
+	text-align: center;
+}
+.x-panel-rrdgraph img {
+	border: 0 none;
+	font-size: 11px;
+	margin: 1px 1px 1px 1px;
+}
