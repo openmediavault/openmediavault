@@ -1,5 +1,6 @@
 Format: http://dep.debian.net/deps/dep5
 Upstream-Contact: Volker Theile <volker.theile@openmediavault.org>
+Source: https://www.sencha.com/legal/gpl/
 
 Ext JS 6.2.0.981 - JavaScript Library
 Copyright (c) 2006-2016, Sencha Inc.
