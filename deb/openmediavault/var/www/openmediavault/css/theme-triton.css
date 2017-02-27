@@ -20,6 +20,25 @@
  */
 
  /******************************************************************************/
+ /* Trigger field */
+  .x-form-password-trigger:before {
+	content: "\f06e";
+ }
+ .x-form-add-trigger:before {
+ 	content: "\f067";
+ }
+ .x-form-folder-trigger:before {
+ 	content: "\f114";
+ }
+ .x-form-copy-trigger:before {
+ 	content: "\f0ea";
+ }
+ .x-form-trigger-default.x-form-trigger-over {
+	 border-color: #dbdbdb;
+	 background-image: none;
+	 background-color: #ececec;
+ }
+ /******************************************************************************/
  /* Panel */
 .x-panel-default {
 	border-color: #98b7cf;
@@ -48,6 +67,12 @@
 .x-tree-icon-custom {
 	background-size: 16px 16px;
 }
+.x-tree-elbow-plus,
+.x-tree-elbow-end-plus,
+.x-grid-tree-node-expanded .x-tree-elbow-plus,
+.x-grid-tree-node-expanded .x-tree-elbow-end-plus {
+	color: #98b7cf;
+}
 /******************************************************************************/
 /* Workspace node tree */
 .x-workspace-node-tree .x-grid-row-over .x-grid-td {
@@ -60,10 +85,6 @@
 }
 .x-workspace-node-tree.x-tree-lines .x-tree-elbow-line {
 	visibility: hidden;
-}
-.x-workspace-node-tree .x-grid-tree-node-expanded .x-tree-elbow-plus,
-.x-workspace-node-tree .x-grid-tree-node-expanded .x-tree-elbow-end-plus {
-	color: #98b7cf;
 }
 /******************************************************************************/
 /* Dashboard */
@@ -104,4 +125,16 @@
 }
 .x-btn-default-small {
 	background-color: #98b7cf;
+}
+/******************************************************************************/
+/* Checkbox */
+.x-form-checkbox-focus.x-form-checkbox-default {
+	color: #98b7cf;
+}
+/******************************************************************************/
+/* Workspace node tree */
+.x-workspace-node-tree .x-tree-elbow,
+.x-workspace-node-tree .x-tree-elbow-end {
+	width: 0px;
+	visibility: hidden;
 }
