@@ -166,19 +166,11 @@ div#headerrlogo {
 .x-toolbar-tip {
 	background: #ffeb99;
 }
+/******************************************************************************/
 /* Configuration activation toolbar */
 .x-toolbar-applycfg {
 	background: #ffeb99;
 	background-image: none;
-}
-.x-toolbar-applycfg .x-message-box-warning {
-	margin: 5px;
-	width: 16px;
-	height: 16px;
-	background-image: url("/images/alert.png");
-	background-image: url("/images/alert.svg"), none;
-	background-position: center center;
-	background-size: 16px 16px;
 }
 /******************************************************************************/
 /* Loadmask */
