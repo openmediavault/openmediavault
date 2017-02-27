@@ -20,14 +20,17 @@
  */
 
  /******************************************************************************/
- /* Globals */
-.x-panel-header-default-vertical {
-	background-color: #98b7cf;
+ /* Panel */
+.x-panel-default {
+	border-color: #98b7cf;
 }
 .x-panel-default-outer-border-trl {
 	border-top-color: #98b7cf !important;
 	border-right-color: #98b7cf !important;
 	border-left-color: #98b7cf !important;
+}
+.x-panel-header-default-vertical {
+	background-color: #98b7cf;
 }
 .x-panel-header-default .x-tool-tool-el {
 	background-color: #98b7cf;
@@ -76,8 +79,29 @@
 .x-tab-focus.x-tab-default {
 	outline: 1px solid #98b7cf;
 }
+.x-tab-invalid {
+	background-color: #cc3300;
+}
 /******************************************************************************/
 /* Windows */
 .x-window-default {
 	border-color: #98b7cf;
+}
+.x-window-header-default {
+	border-color: #98b7cf;
+	background-color: #8ca9bf;
+}
+.x-window-header-default .x-tool-img {
+	background-color: #8ca9bf;
+}
+/******************************************************************************/
+/* Buttons */
+.x-btn-default-small {
+	border-color: #98b7cf;
+}
+.x-btn-focus.x-btn-default-small {
+	border-color: #98b7cf;
+}
+.x-btn-default-small {
+	background-color: #98b7cf;
 }
