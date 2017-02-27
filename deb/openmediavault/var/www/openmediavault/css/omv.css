@@ -614,6 +614,8 @@ div#headerrlogo {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 16px 16px;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+	opacity: 0.7;
 }
 .x-grid-cell-usergroupiconcolumn-user {
 	background-image: url("../images/user.png");
