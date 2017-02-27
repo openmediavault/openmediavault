@@ -91,6 +91,11 @@
 	color: #98b7cf;
 }
 /******************************************************************************/
+/* Grid */
+.x-grid-item-focused .x-grid-cell-inner:before {
+	border-color: #98b7cf;
+}
+/******************************************************************************/
 /* Workspace node tree */
 .x-workspace-node-tree .x-panel-header-default {
 	border: 0px;
