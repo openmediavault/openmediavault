@@ -121,7 +121,6 @@ Ext.define("OMV.workspace.Workspace", {
 			minSize: 150,
 			maxSize: 280,
 			collapsible: true,
-			margins: "0 0 0 0",
 			layout: "fit",
 			border: true,
 			scrollable: true,
