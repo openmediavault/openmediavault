@@ -154,6 +154,7 @@ Ext.define("OMV.workspace.Workspace", {
 			region: "center",
 			layout: "fit",
 			dockedItems: [ me.tb = Ext.create("Ext.toolbar.Toolbar", {
+				cls: Ext.baseCSSPrefix + "workspace-navigation-toolbar",
 				dock: "top",
 				items: [{
 					xtype: "tbtext",
