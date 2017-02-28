@@ -83,7 +83,7 @@ class DatabaseBackend {
 		$this->autoCommit = $autoCommit;
 		$this->versioning = $versioning;
 		$this->filename = $filename;
-		$this->semaphore = sem_get(2013349238);
+		$this->semaphore = sem_get(ftok($filename, 'x'));
 	}
 
 	/**
