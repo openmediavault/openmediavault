@@ -237,12 +237,12 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
   			$cmdArgs[] = "--non-interactive";
   			$cmdArgs[] = "--";
   			$cmdArgs[] = build_path(DIRECTORY_SEPARATOR,
-			  \OMV\Environment::get("OMV_USBBACKUP_SCRIPTS_DIR",
-			  "/var/lib/openmediavault/usbbackup.d"),
-			  sprintf("%s%s", \OMV\Environment::get(
-			    "OMV_USBBACKUP_JOBS_SCRIPT_PREFIX",
-			    "openmediavault-usbbackup-"),
-  			    md5($object->get("devicefile"))));
+				\OMV\Environment::get("OMV_USBBACKUP_SCRIPTS_DIR",
+					"/var/lib/openmediavault/usbbackup.d"),
+				sprintf("%s%s", \OMV\Environment::get(
+					"OMV_USBBACKUP_JOBS_SCRIPT_PREFIX",
+					"openmediavault-usbbackup-"),
+					md5($object->get("devicefile"))));
   			$cmd = new \OMV\System\Process("sudo", $cmdArgs);
   			$cmd->setEnv("SHELL", "/bin/sh");
   			$cmd->setRedirect2to1();

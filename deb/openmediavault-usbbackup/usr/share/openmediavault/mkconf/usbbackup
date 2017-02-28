@@ -39,13 +39,13 @@ OMV_USBBACKUP_SYSTEMD_SCRIPTS_DIR=${OMV_USBBACKUP_SYSTEMD_SCRIPTS_DIR:-"/lib/sys
 OMV_USBBACKUP_SYSTEMD_UNITFILE_PREFIX=${OMV_USBBACKUP_SYSTEMD_UNITFILE_PREFIX:-"openmediavault-usbbackup-"}
 OMV_USBBACKUP_SYSTEMD_UNITFILE_MASK=${OMV_USBBACKUP_SYSTEMD_UNITFILE_MASK:-"644"}
 
-# Create the backup jobs. Each job is configured in a seperate script.
+# Unlink all existing scripts.
 mkdir -p ${OMV_USBBACKUP_SCRIPTS_DIR}
 find "${OMV_USBBACKUP_SCRIPTS_DIR}" -type f -iname "${OMV_USBBACKUP_RSYNC_SCRIPT_PREFIX}*" -print0 | xargs -0r rm -f
 find "${OMV_USBBACKUP_SCRIPTS_DIR}" -type f -iname "${OMV_USBBACKUP_JOBS_SCRIPT_PREFIX}*" -print0 | xargs -0r rm -f
 find "${OMV_USBBACKUP_SYSTEMD_SCRIPTS_DIR}" -type f -iname "${OMV_USBBACKUP_SYSTEMD_UNITFILE_PREFIX}*" -print0 | xargs -0r rm -f
 
-# Create the scripts regardless if enabled or disabled.
+# Create the rsync scripts regardless if enabled or disabled.
 xmlstarlet sel -t \
   -m "//services/usbbackup/jobs/job" \
     -v "uuid" -n \
@@ -102,8 +102,8 @@ xmlstarlet sel -t \
 	  chmod ${OMV_USBBACKUP_SCRIPTS_MASK} ${filename}
   done
 
-# Create the scripts executed by systemd when the USB storage device is
-# connected. Process duplicate jobs per filesystem only once (emulate SQL
+# Create the scripts that are executed by systemd when the USB storage device
+# is connected. Process duplicate jobs per filesystem only once (emulate SQL
 # 'DISTINCT' to do this).
 xmlstarlet sel -t \
   -m "//services/usbbackup/jobs/job[not(devicefile=preceding-sibling::*/devicefile) and enable='1']" \
