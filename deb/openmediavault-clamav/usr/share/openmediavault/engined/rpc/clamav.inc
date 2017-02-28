@@ -259,8 +259,8 @@ class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = "--non-interactive";
 			$cmdArgs[] = "--";
 			$cmdArgs[] = build_path(DIRECTORY_SEPARATOR,
-			  \OMV\Environment::get("OMV_CRONSCRIPTS_DIR"),
-			  sprintf("clamdscan-%s", $params['uuid']));
+				\OMV\Environment::get("OMV_CRONSCRIPTS_DIR"),
+				sprintf("clamdscan-%s", $params['uuid']));
 			$cmd = new \OMV\System\Process("sudo", $cmdArgs);
 			$cmd->setEnv("SHELL", "/bin/sh");
 			$cmd->setRedirect2to1();
