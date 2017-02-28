@@ -1,6 +1,7 @@
 openmediavault (4.0.2) stable; urgency=low
 
   * Various improvements.
+  * Fix bug when executing S.M.A.R.T. tests via WebUI.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 24 Feb 2017 10:45:58 +0100
 
