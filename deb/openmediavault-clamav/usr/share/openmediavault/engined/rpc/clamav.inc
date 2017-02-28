@@ -265,8 +265,11 @@ class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 			$cmd->setEnv("SHELL", "/bin/sh");
 			$cmd->setRedirect2to1();
 			$cmdLine = $cmd->getCommandLine();
-			if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
-				throw new \OMV\ExecException($cmdLine, $output);
+			// Execute the command.
+			$exitStatus = $this->exec($cmdLine, $output, $bgOutputFilename);
+			// Check the exit status.
+			if (0 !== $exitStatus)
+				throw new \OMV\ExecException($cmdLine, $output, $exitStatus);
 			return $output;
 		});
 	}

@@ -1,3 +1,9 @@
+openmediavault-clamav (3.2.10) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 28 Feb 2017 19:48:20 +0100
+
 openmediavault-clamav (3.2.9) stable; urgency=low
 
   * Fix first installation bug.
