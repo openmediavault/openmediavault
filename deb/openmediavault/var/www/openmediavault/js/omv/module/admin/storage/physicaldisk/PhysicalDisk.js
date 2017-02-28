@@ -264,7 +264,7 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 				enabledFn: function(c, records) {
 					// Disable the 'Wipe' button if the selected device
 					// contains the operating system.
-					return !records[0].get("isroot")
+					return !records[0].get("isroot");
 				}
 			}
 		},{
