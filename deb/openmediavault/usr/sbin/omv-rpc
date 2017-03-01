@@ -1,4 +1,4 @@
-#!/usr/bin/php -c/etc/openmediavault
+#!/usr/bin/php5 -c/etc/openmediavault
 <?php
 /**
  * This file is part of OpenMediaVault.
