@@ -127,19 +127,19 @@ class MountPoint {
 	}
 
 	/**
-	 * Get the mount point path where the filesystem should be mounted to.
+	 * Get the mount point path where the file system should be mounted to.
 	 * Note, this path is OMV specific: /media/<FSUUID>.
-	 * @param uuid The UUID of the filesystem, e.g.
+	 * @param id The name or UUID of the file system, e.g.
 	 *   <ul>
 	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
 	 *   \li 7A48-BA97 (FAT)
 	 *   \li 2ED43920D438EC29 (NTFS)
 	 *   </ul>
-	 * @return The path where to mount the filesystem, e.g.
+	 * @return The path where to mount the file system, e.g.
 	 *   /media/85732966-949a-4d8b-87d7-d7e6681f787e.
 	 */
-	public static function buildPath($uuid) {
+	public static function buildPath($id) {
 		return build_path(DIRECTORY_SEPARATOR, \OMV\Environment::get(
-		  "OMV_MOUNT_DIR"), $uuid);
+		  "OMV_MOUNT_DIR"), $id);
 	}
 }

@@ -695,11 +695,13 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 
 	/**
 	 * Mount the filesystem by its device file or UUID.
-	 * @param options Additional mount options. Defaults to "".
+	 * @param options Additional mount options as array or string.
+	 *   Defaults to "".
+	 * @param dir The optional mount directory. Defaults to "".
 	 * @return None.
 	 * @throw \OMV\ExecException
 	 */
-	public function mount($options = "") {
+	public function mount($options = "", $dir = "") {
 		$cmdArgs = [];
 		$cmdArgs[] = "-v";
 		if (!empty($options)) {
@@ -711,6 +713,8 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 			$cmdArgs[] = sprintf("-U %s", $this->getUuid());
 		else
 			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
+		if (!empty($dir))
+			$cmdArgs[] = escapeshellarg($dir);
 		$cmd = new \OMV\System\Process("mount", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute();
