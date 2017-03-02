@@ -899,9 +899,9 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "two-dot symbols");
 		}
 		// Create the background process.
-		$aclspecFile = tempnam(sys_get_temp_dir(), "setfacl");
+		$aclSpecFile = tempnam(sys_get_temp_dir(), "setfacl");
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
-		  use ($params, $context, $aclspecFile) {
+		  use ($params, $context, $aclSpecFile) {
 			// Get the absolute shared folder path.
 			$sfpath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", [
 				"uuid" => $params['uuid']
@@ -970,7 +970,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			if (TRUE === boolvalEx($params['recursive']))
 				$cmdArgs[] = "--recursive";
 			if (!empty($aclspec)) {
-				if (FALSE === file_put_contents($aclspecFile, implode("\n",
+				if (FALSE === file_put_contents($aclSpecFile, implode("\n",
 				  $aclspec))) {
 					throw new \OMV\Exception(
 					  "Failed to write ACL entries to file.");
@@ -978,7 +978,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				// Read the ACL entries from file. The CLI argument list
 				// is limited which will cause an error if the user/group
 				// list is too large.
-				$cmdArgs[] = sprintf("-M %s", escapeshellarg($aclspecFile));
+				$cmdArgs[] = sprintf("-M %s", escapeshellarg($aclSpecFile));
 			}
 			$cmdArgs[] = "--";
 			$cmdArgs[] =  escapeshellarg(build_path(DIRECTORY_SEPARATOR,
@@ -987,12 +987,15 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			$cmd = new \OMV\System\Process("setfacl", $cmdArgs);
 			$cmd->setRedirect2to1();
 			$cmdLine = $cmd->getCommandLine();
-			if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
-				throw new \OMV\ExecException($cmdLine, $output);
+			// Execute the command.
+			$exitStatus = $this->exec($cmdLine, $output, $bgOutputFilename);
+			// Check the exit status.
+			if (0 !== $exitStatus)
+				throw new \OMV\ExecException($cmdLine, $output, $exitStatus);
 			return $output;
-		}, NULL, function() use ($aclspecFile) {
+		}, NULL, function() use ($aclSpecFile) {
 			// Cleanup ACL entries file.
-			unlink($aclspecFile);
+			unlink($aclSpecFile);
 		});
 	}
 
