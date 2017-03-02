@@ -179,6 +179,11 @@ class Rpc {
 			$response = substr($response, 0, -1); // Remove the EOF byte.
 			// Close the socket.
 			@socket_close($socket);
+			// Check if the RPC response is valid.
+			if (!is_json($response)) {
+				throw new Exception("Invalid RPC response. Please check the ".
+					"syslog for more information.");
+			}
 			// Decode JSON string to PHP array.
 			if (NULL === ($response = json_decode($response, TRUE))) {
 				throw new Exception("Failed to decode JSON string: %s",

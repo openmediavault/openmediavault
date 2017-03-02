@@ -243,7 +243,20 @@ function errorHandler($errno, $errstr, $errfile, $errline) {
 		break;
 	}
 	// Don't execute the PHP internal error handler.
-    return TRUE;
+	return TRUE;
+}
+
+/**
+ * The function for execution on shutdown.
+ */
+function shutdownHandler() {
+	// Check if there was a fatal error.
+	$error = error_get_last();
+	if (!is_null($error) && (E_ERROR == $error['type'])) {
+		// Log fatal errors to syslog.
+		error("PHP Fatal error: %s in %s on line %d", $error['message'],
+			$error['file'], $error['line']);
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -267,9 +280,10 @@ $stdOut = NULL;
 $stdErr = NULL;
 
 ///////////////////////////////////////////////////////////////////////////////
-// Set the error handler.
+// Set the error and shutdown handler.
 ///////////////////////////////////////////////////////////////////////////////
 set_error_handler("errorHandler");
+register_shutdown_function("shutdownHandler");
 
 ///////////////////////////////////////////////////////////////////////////////
 // Process command line arguments.
