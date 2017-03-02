@@ -350,14 +350,7 @@ Ext.define("OMV.module.admin.service.usbbackup.Jobs", {
 			disabled: true,
 			selectionConfig: {
 				minSelections: 1,
-				maxSelections: 1,
-				enabledFn: function(c, records) {
-					// Disable the 'Run' button if the selected job
-					// is not enabled. The job must be enabled to ensure
-					// that the required scripts exist.
-					var record = records[0];
-					return (record.get("enable") === true);
-				}
+				maxSelections: 1
 			}
 		}]);
 		return items;

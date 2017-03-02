@@ -228,10 +228,24 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.usbbackup.job", $params['uuid']);
+		// Get the file system and mount it if necessary.
+		$deviceFile = $object->get("devicefile");
+		\OMV\System\Filesystem\Filesystem::assertGetImpl($deviceFile);
+		$fs = \OMV\System\Filesystem\Filesystem::getImpl($deviceFile);
+		if (FALSE === $fs->isMounted()) {
+			// Make sure the mount point exists.
+			// Note, the name of the mount point is generated from the MD5
+			// sum of the device file.
+			$dir = \OMV\System\MountPoint::buildPath(md5($deviceFile));
+			$mp = new \OMV\System\MountPoint($dir);
+			$mp->create();
+			// Mount the file system at the specified directory.
+			$fs->mount([], $dir);
+		}
 		// Create a background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
-		  use ($object) {
-			// Execute the backup script.
+		  use ($object, $fs, $mp) {
+			// Execute the rsync script.
 			$cmdArgs = [];
   			$cmdArgs[] = "--shell";
   			$cmdArgs[] = "--non-interactive";
@@ -240,15 +254,17 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 				\OMV\Environment::get("OMV_USBBACKUP_SCRIPTS_DIR",
 					"/var/lib/openmediavault/usbbackup.d"),
 				sprintf("%s%s", \OMV\Environment::get(
-					"OMV_USBBACKUP_JOBS_SCRIPT_PREFIX",
-					"openmediavault-usbbackup-"),
-					md5($object->get("devicefile"))));
+					"OMV_USBBACKUP_RSYNC_SCRIPT_PREFIX", "rsync-"),
+					$object->getIdentifier()));
   			$cmd = new \OMV\System\Process("sudo", $cmdArgs);
   			$cmd->setEnv("SHELL", "/bin/sh");
   			$cmd->setRedirect2to1();
   			$cmdLine = $cmd->getCommandLine();
 			// Execute the command.
 			$exitStatus = $this->exec($cmdLine, $output, $bgOutputFilename);
+			// Cleanup.
+			$fs->umount();
+			$mp->unlink();
 			// Check the exit status.
 			if (0 !== $exitStatus)
 				throw new \OMV\ExecException($cmdLine, $output, $exitStatus);
