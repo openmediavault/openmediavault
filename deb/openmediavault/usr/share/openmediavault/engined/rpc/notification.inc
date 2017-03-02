@@ -260,7 +260,7 @@ class OMVRpcServiceEmailNotification extends \OMV\Rpc\ServiceAbstract {
 		$hostname = php_uname('n');
 		$to = $object->get("primaryemail");
 		if (FALSE === $object->isEmpty("secondaryemail"))
-			$to .= sprintf(",%s", $object['secondaryemail']);
+			$to .= sprintf(",%s", $object->get("secondaryemail"));
 		$subject = sprintf("Test message from %s", $hostname);
 		$message = sprintf("This is an automatically generated mail message ".
 		  "from the system notification service running on %s.", $hostname);
