@@ -181,6 +181,8 @@ class Rpc {
 			@socket_close($socket);
 			// Check if the RPC response is valid.
 			if (!is_json($response)) {
+				// If we are here, then in most cases the omv-engined
+				// process has been stopped because of a PHP fatal error.
 				throw new Exception("Invalid RPC response. Please check the ".
 					"syslog for more information.");
 			}
