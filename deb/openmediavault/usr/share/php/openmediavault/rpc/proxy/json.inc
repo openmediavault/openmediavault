@@ -151,6 +151,9 @@ class Json {
 	 */
 	protected function handleResponse($response) {
 		header("Content-Type: application/json");
+		header("Cache-Control: no-cache, no-store, must-revalidate");
+		header("Pragma: no-cache");
+		header("Expires: 0");
 		print json_encode_safe(array(
 			"response" => $response,
 			"error" => null
