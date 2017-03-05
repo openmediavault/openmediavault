@@ -107,7 +107,7 @@ class OMVModuleForkedDaapd extends \OMV\Engine\Module\ServiceAbstract
 	final public function onModifySharedFolder($type, $path, $object) {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.daapd");
-		if (TRUE === $object->isEqual("sharedfolderref", $object['uuid']))
+		if (TRUE === $object->isEqual("sharedfolderref", $object->get("uuid")))
 			$this->setDirty();
 	}
 
