@@ -252,4 +252,17 @@ class test_openmediavault_config_database extends \PHPUnit_Framework_TestCase {
 		$this->assertInstanceOf("OMV\Config\ConfigObject", $object);
 		$this->assertFalse($object->get("enable"));
 	}
+
+	public function testGetIdentifiable() {
+		// Get the configuration object.
+		$db = new \OMV\Config\Database();
+		$object = $db->get("conf.system.sharedfolder",
+			"339bd101-5744-4017-9392-01a156f15ab9");
+		$this->assertInstanceOf("OMV\Config\ConfigObject", $object);
+		$this->assertInternalType("array", $object->get(
+			"privileges.privilege"));
+		$this->assertEquals($object->get("privileges.privilege.0.perms"), 7);
+		$this->assertEquals($object->get("privileges.privilege.1.name"),
+			"test2");
+	}
 }
