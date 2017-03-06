@@ -72,6 +72,10 @@ class DotDictTestCase(unittest.TestCase):
 		d['a'] = False
 		self.assertEqual(d['a'], False)
 
+	def test_7(self):
+		d = self._get_dict()
+		self.assertEqual(d['y.z.0.bb'], 2)
+
 	def test_in(self):
 		d = self._get_dict()
 		self.assertTrue("a.b.c" in d)
