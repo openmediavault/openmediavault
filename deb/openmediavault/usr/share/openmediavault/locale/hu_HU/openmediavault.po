@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Ádám Balajti <balajtiadam@gmail.com>, 2012
-# Grawens <szabolcs.szanyi@gmail.com>, 2014-2016
+# Grawens <szabolcs.szanyi@gmail.com>, 2014-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-06 06:19+0100\n"
-"PO-Revision-Date: 2016-12-30 19:12+0000\n"
+"PO-Revision-Date: 2017-02-26 17:27+0000\n"
 "Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -175,10 +175,10 @@ msgid "Abstract"
 msgstr "Absztrakt"
 
 msgid "Access Right Management"
-msgstr "Hozzáférési jogok kezelése"
+msgstr "Hozzáférési jog kezelése"
 
 msgid "Access Rights Management"
-msgstr "Hozzáférési jog kezelés"
+msgstr "Hozzáférési jogok kezelés"
 
 msgid "Access mode"
 msgstr "Hozzáférési mód"
@@ -190,7 +190,7 @@ msgid "Action"
 msgstr "Művelet"
 
 msgid "Activate S.M.A.R.T. monitoring."
-msgstr "S.M.A.R.T. ellenőrzés aktiválása."
+msgstr "S.M.A.R.T. megfigyelés aktiválása."
 
 msgid "Add"
 msgstr "Hozzáadás"
@@ -1104,7 +1104,7 @@ msgid "Enable WINS server"
 msgstr "WINS szerver engedélyezése"
 
 msgid "Enable anonymous FTP"
-msgstr "Anonymous FTP engedélyezése"
+msgstr "Névtelen FTP engedélyezése"
 
 msgid "Enable archive mode"
 msgstr "Archiváló mód engedélyezése"
@@ -4011,7 +4011,7 @@ msgid "Write/Execute"
 msgstr "Írás/Végrehajtás"
 
 msgid "Yearly"
-msgstr "Évi"
+msgstr "Évente"
 
 msgid "Yemen"
 msgstr "Jemen"

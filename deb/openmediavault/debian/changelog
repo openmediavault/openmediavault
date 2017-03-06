@@ -1,5 +1,6 @@
 openmediavault (3.0.65) stable; urgency=low
 
+  * Update locales.
   * Various bug fixes and improvements.
   * Fix bug when executing S.M.A.R.T. tests via WebUI.
   * Fix the PHP5 interpreter issue. This will fix problems when PHP7 is
