@@ -327,5 +327,14 @@ class DatabaseTestCase(unittest.TestCase):
 		self.assertIsInstance(obj, openmediavault.config.Object)
 		self.assertFalse(obj.get("enable"))
 
+	def test_get_identifiable(self):
+		db = openmediavault.config.Database()
+		obj = db.get("conf.system.sharedfolder",
+			"339bd101-5744-4017-9392-01a156f15ab9")
+		self.assertIsInstance(obj, openmediavault.config.Object)
+		self.assertIsInstance(obj.get("privileges.privilege"), list)
+		self.assertEqual(obj.get("privileges.privilege.0.perms"), 7)
+		self.assertEqual(obj.get("privileges.privilege.1.name"), "test2")
+
 if __name__ == "__main__":
 	unittest.main()
