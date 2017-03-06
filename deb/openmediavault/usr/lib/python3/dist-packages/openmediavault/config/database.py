@@ -398,7 +398,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 					result[tag] = [ result[tag], value ]
 				except KeyError:
 					# Add a new entry.
-					result[tag] = value
+					result[tag] = [ value ]
 			else:
 				result[tag] = value
 		return result
