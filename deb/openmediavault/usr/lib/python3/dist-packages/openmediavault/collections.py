@@ -77,9 +77,14 @@ class DotDict(dict):
 			return dict.__getitem__(self, key)
 		first, rest = key.split(".", 1)
 		branch = dict.__getitem__(self, first)
+		if isinstance(branch, list):
+			first, rest = rest.split(".", 1)
+			if not first.isdigit():
+				raise KeyError("Key '%s' must be a number".format(first))
+			branch = branch[int(first)]
 		if not isinstance(branch, DotDict):
-			raise KeyError("Can't get '%s' in '%s' (%s)" %
-				(rest, first, str(branch)))
+			raise KeyError("Can't get '%s' in '%s' (%s)".format(
+				rest, first, str(branch)))
 		return branch[rest]
 
 	__getattr__ = __getitem__
@@ -92,6 +97,9 @@ class DotDict(dict):
 				branch = DotDict()
 			branch[rest] = value
 		else:
+			if isinstance(value, list):
+				value = [DotDict(item) if isinstance(item, dict) else item
+					for item in value]
 			if isinstance(value, dict) and not isinstance(value, DotDict):
 				value = DotDict(value)
 			dict.__setitem__(self, key, value)
