@@ -17,19 +17,30 @@ openmediavault (4.0) stable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 22 Feb 2017 13:28:40 +0100
 
- openmediavault (3.0.65) stable; urgency=low
+openmediavault (3.0.66) stable; urgency=low
 
-   * Various bug fixes and improvements.
-   * Fix bug when executing S.M.A.R.T. tests via WebUI.
+  * Fix /root/.ssh/id_rsa issue in debian/openmediavault.postinst script.
 
-  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 24 Feb 2017 13:34:27 +0100
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 07 Mar 2017 22:48:28 +0100
 
- openmediavault (3.0.64) stable; urgency=low
+openmediavault (3.0.65) stable; urgency=low
 
-   * Various improvements.
-   * Fix bug when a non-existent file system will be removed.
+  * Update locales.
+  * Various bug fixes and improvements.
+  * Fix bug when executing S.M.A.R.T. tests via WebUI.
+  * Fix the PHP5 interpreter issue. This will fix problems when PHP7 is
+    installed in parallel.
+  * Improve PHP fatal error handling and logging.
+  * Mantis 0001691: Failed to submit test email with secondary email address.
 
-  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 20 Feb 2017 17:42:58 +0100
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 24 Feb 2017 13:34:27 +0100
+
+openmediavault (3.0.64) stable; urgency=low
+
+  * Various improvements.
+  * Fix bug when a non-existent file system will be removed.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 20 Feb 2017 17:42:58 +0100
 
 openmediavault (3.0.63) stable; urgency=low
 

@@ -119,7 +119,7 @@ case "$1" in
 			deb-systemd-invoke stop postfix.service || :
 		fi
 		# Create public/private SSH key pair for user root.
-		if [ ! -e "/root/.ssh/id_rsa.pub" ]; then
+		if [ ! -e "/root/.ssh/id_rsa" ]; then
 			ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa
 		fi
 		# Enable all Systemd services.
