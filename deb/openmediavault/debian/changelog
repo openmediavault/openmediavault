@@ -1,3 +1,9 @@
+openmediavault (3.0.66) stable; urgency=low
+
+  * Fix /root/.ssh/id_rsa issue in debian/openmediavault.postinst script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 07 Mar 2017 22:48:28 +0100
+
 openmediavault (3.0.65) stable; urgency=low
 
   * Update locales.
