@@ -1,3 +1,9 @@
+openmediavault-forkeddaapd (3.1.8) stable; urgency=low
+
+  * Mantis 0001692: Fix bug causing a fatal error.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 08 Mar 2017 20:52:25 +0100
+
 openmediavault-forkeddaapd (3.1.7) stable; urgency=low
 
   * Mantis 0001692: Fix bug causing a fatal error.
