@@ -19,8 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 __all__ = [
-	"flatten"
-	"DotDict"
+	"flatten",
+	"DotDict",
+	"DotCollapsedDict"
 ]
 
 def flatten(d, seperator="."):
@@ -116,3 +117,37 @@ class DotDict(dict):
 		if not isinstance(branch, DotDict):
 			return False
 		return rest in branch
+
+class DotCollapsedDict(dict):
+	"""
+	Collapses a multi-dimensional Python dictionary into a single dimension
+	Python dictionary using dot notation for the keys.
+	``
+	Example:
+	{'x':1, 'a': {'b': {'c': 100}}, 'k': [1, 2, 3]}
+	Result:
+	{'x':1, 'a.b.c': 100, 'k[0]': 1, 'k[1]': 2, 'k[2]': 3}
+	``
+	"""
+
+	def __init__(self, d=None):
+		"""
+		:param d: The Python dictionary to collapse.
+		"""
+		if d is None:
+			return
+		if not isinstance(d, dict):
+			raise TypeError("Expected dictionary.")
+		self._process_item(d)
+
+	def _process_item(self, value, key=""):
+		if isinstance(value, dict):
+			for item_key, item_value in value.items():
+				new_key = "%s.%s" % (key, item_key) if key else item_key
+				self._process_item(item_value, new_key)
+		elif isinstance(value, list):
+			for item_key, item_value in enumerate(value):
+				new_key = "%s[%d]" % (key, item_key)
+				self._process_item(item_value, new_key)
+		else:
+			dict.__setitem__(self, key, value)
