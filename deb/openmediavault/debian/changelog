@@ -2,6 +2,7 @@ openmediavault (3.0.66) stable; urgency=low
 
   * Fix /root/.ssh/id_rsa issue in debian/openmediavault.postinst script.
   * Reduce unnecessary restarts of nginx. Thanks to kochinc for the improvement.
+  * Allow using spaces in path names.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 07 Mar 2017 22:48:28 +0100
 

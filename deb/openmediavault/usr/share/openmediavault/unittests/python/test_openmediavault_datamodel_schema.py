@@ -77,9 +77,14 @@ class SchemaTestCase(unittest.TestCase):
 		schema._check_format("/dev/disk/by-id/wwn-0x5020c298d81c1c3a",
 			{ "format": "devicefile" }, "field1")
 
-	def test_check_format_dirpath(self):
+	def test_check_format_dirpath_1(self):
 		schema = openmediavault.datamodel.Schema({})
 		schema._check_format("/media/a/b/c/@data",
+			{ "format": "dirpath" }, "field1")
+
+	def test_check_format_dirpath_2(self):
+		schema = openmediavault.datamodel.Schema({})
+		schema._check_format("Library/App Support/Logs/",
 			{ "format": "dirpath" }, "field1")
 
 	def test_check_format_dirpath_fail(self):
