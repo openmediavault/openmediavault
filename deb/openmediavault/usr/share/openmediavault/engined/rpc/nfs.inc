@@ -236,11 +236,11 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 		if (FALSE === $db->exists("conf.service.nfs.share", [
 			"operator" => "stringEquals",
 			"arg0" => "mntentref",
-			"arg1" => $object['mntentref']
+			"arg1" => $object->get('mntentref')
 		])) {
 			  // Delete the associated mount point.
 			  \OMV\Rpc\Rpc::call("FsTab", "delete", [
-				  "uuid" => $object['mntentref']
+				  "uuid" => $object->get('mntentref')
 			  ], $context);
 		  }
 		// Return the deleted configuration object.
