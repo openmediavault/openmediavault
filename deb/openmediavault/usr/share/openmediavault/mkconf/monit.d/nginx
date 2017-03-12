@@ -43,10 +43,10 @@ EOF
 # Append additional test cases based on the current configuration.
 xmlstarlet sel -t -m "//webadmin" \
   -i "forcesslonly[. = '0']" \
-    -v "concat('  if failed host 127.0.0.1 port ',port,' protocol http then restart')" -n \
+    -v "concat('  if failed host 127.0.0.1 port ',port,' protocol http timeout 15 seconds for 2 times within 3 cycles then restart')" -n \
   -b \
   -i "enablessl[. = '1']" \
-    -v "concat('  if failed host 127.0.0.1 port ',sslport,' type tcpssl protocol http then restart')" -n \
+    -v "concat('  if failed host 127.0.0.1 port ',sslport,' type tcpssl protocol http timeout 15 seconds for 2 times within 3 cycles then restart')" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_MONIT_SERVICE_NGINX_CONFIG}
 
