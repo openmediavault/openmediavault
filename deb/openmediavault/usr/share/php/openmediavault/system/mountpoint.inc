@@ -24,7 +24,7 @@ namespace OMV\System;
 require_once("openmediavault/functions.inc");
 
 /**
- * A class that implements a mount point.
+ * A class that implements a mountpoint.
  * @ingroup api
  */
 class MountPoint {
@@ -65,7 +65,7 @@ class MountPoint {
 	}
 
 	/**
-	 * Create the mount point of the file system.
+	 * Create the mountpoint of the file system.
 	 * @param mode Set the file mode (as in chmod), e.g. '0755'.
 	 *   Defaults to '0700'.
 	 * @return None.
@@ -85,7 +85,7 @@ class MountPoint {
 	}
 
 	/**
-	 * Unlink the mount point of the file system.
+	 * Unlink the mountpoint of the file system.
 	 * @param force Set to TRUE to ignore nonexistent files. Defaults to TRUE.
 	 * @return None.
 	 * @throw \OMV\ExecException
@@ -104,8 +104,8 @@ class MountPoint {
 	}
 
 	/**
-	 * See if the directory is a mount point.
-	 * @return TRUE if the directory is a mount point, FALSE if not.
+	 * See if the directory is a mountpoint.
+	 * @return TRUE if the directory is a mountpoint, FALSE if not.
 	 */
 	public function isMountPoint() {
 		$cmdArgs = [];
@@ -127,7 +127,48 @@ class MountPoint {
 	}
 
 	/**
-	 * Get the mount point path where the file system should be mounted to.
+	 * Mount the this mountpoint.
+	 * @param options An array or comma seperated string of additional mount
+	 *   options. Defaults to "".
+	 * @return None.
+	 * @throw \OMV\ExecException
+	 */
+	public function mount($options = "") {
+		$cmdArgs = [];
+		$cmdArgs[] = "-v";
+		if (!empty($options)) {
+			if (!is_array($options))
+				$options = array($options);
+			$cmdArgs[] = sprintf("-o %s", implode(",", $options));
+		}
+		$cmdArgs[] = escapeshellarg($this->getPath());
+		$cmd = new \OMV\System\Process("mount", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute();
+	}
+
+	/**
+	 * Unmount the this mountpoint.
+	 * @param force Set to TRUE to force unmount. Defaults to FALSE.
+	 * @param lazy Set to TRUE to lazy unmount. Defaults to FALSE.
+	 * @return None.
+	 * @throw \OMV\ExecException
+	 */
+	public function umount($force = FALSE, $lazy = FALSE) {
+		$cmdArgs = [];
+		$cmdArgs[] = "-v";
+		if (TRUE === $force)
+			$cmdArgs[] = "-f";
+		if (TRUE === $lazy)
+			$cmdArgs[] = "-l";
+		$cmdArgs[] = escapeshellarg($this->getPath());
+		$cmd = new \OMV\System\Process("umount", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute();
+	}
+
+	/**
+	 * Get the mountpoint path where the file system should be mounted to.
 	 * Note, this path is OMV specific: /media/<FSUUID>.
 	 * @param id The name or UUID of the file system, e.g.
 	 *   <ul>
