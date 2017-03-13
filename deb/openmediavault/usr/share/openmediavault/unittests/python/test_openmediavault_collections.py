@@ -88,6 +88,26 @@ class DotDictTestCase(unittest.TestCase):
 		d = self._get_dict()
 		self.assertFalse("a.x" in d)
 
+	def test_set_1(self):
+		d = self._get_dict()
+		d.y.z[0].bb = "bb"
+		self.assertEqual(d.y.z[0].bb, "bb")
+
+	def test_set_2(self):
+		d = self._get_dict()
+		d["y.z[0].bb"] = "bb"
+		self.assertEqual(d["y.z[0].bb"], "bb")
+
+	def test_set_3(self):
+		d = self._get_dict()
+		d.y.z[0].dd = "dd"
+		self.assertEqual(d.y.z[0].dd, "dd")
+
+	def test_set_4(self):
+		d = self._get_dict()
+		d["y.z[0].dd"] = "dd"
+		self.assertEqual(d["y.z[0].dd"], "dd")
+
 	def test_flatten(self):
 		d = self._get_dict()
 		d_flat = openmediavault.collections.flatten(d)
