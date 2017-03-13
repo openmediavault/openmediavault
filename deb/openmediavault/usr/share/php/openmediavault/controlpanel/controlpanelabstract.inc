@@ -208,8 +208,14 @@ EOF;
 	 */
 	protected function getTitle() {
 		$prd = new \OMV\ProductInfo();
-		return sprintf("%s %s - %s", $prd->getName(), gettext("control panel"),
-		  \OMV\System\Net\Dns::getFqdn());
+		$title = sprintf("%s %s", $prd->getName(), gettext("control panel"));
+		try {
+			$fqdn = \OMV\System\Net\Dns::getFqdn();
+			$title = sprintf("%s - %s", $title, $fqdn);
+		} catch(\Exception $e) {
+			// Nothing to do here.
+		}
+		return $title;
 	}
 
 	/**
