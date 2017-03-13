@@ -65,6 +65,20 @@ class MountPoint {
 	}
 
 	/**
+	 * Check whether the directory exists.
+	 * @return Returns TRUE if the directory exists, otherwise FALSE.
+	 */
+	public function exists() {
+		if (FALSE == file_exists($this->getPath()))
+			return FALSE;
+		if (FALSE === is_dir($this->getPath())) {
+			throw new \OMV\Exception("The file '%s' is no directory.",
+				$this->getPath());
+		}
+		return TRUE;
+	}
+
+	/**
 	 * Create the mountpoint of the file system.
 	 * @param mode Set the file mode (as in chmod), e.g. '0755'.
 	 *   Defaults to '0700'.
@@ -73,7 +87,7 @@ class MountPoint {
 	 */
 	public function create($mode = "0700") {
 		// Exit immediatelly if the directory already exists.
-		if (TRUE === is_dir($this->getPath()))
+		if (TRUE === $this->exists())
 			return;
 		$cmdArgs = [];
 		$cmdArgs[] = "--parents";
@@ -91,8 +105,8 @@ class MountPoint {
 	 * @throw \OMV\ExecException
 	 */
 	public function unlink($force = TRUE) {
-		// Exit immediatelly if the directory already exists.
-		if (FALSE === is_dir($this->getPath()))
+		// Exit immediatelly if the directory doesn't exists.
+		if (FALSE === $this->exists())
 			return;
 		$cmdArgs = [];
 		$cmdArgs[] = "--recursive";
@@ -106,9 +120,11 @@ class MountPoint {
 	/**
 	 * See if the directory is a mountpoint.
 	 * @return TRUE if the directory is a mountpoint, FALSE if not.
+	 * @throw \OMV\ExecException
 	 */
 	public function isMountPoint() {
 		$cmdArgs = [];
+		$cmdArgs[] = "-d";
 		$cmdArgs[] = escapeshellarg($this->getPath());
 		$cmd = new \OMV\System\Process("mountpoint", $cmdArgs);
 		$cmd->setQuiet(TRUE);
@@ -127,6 +143,17 @@ class MountPoint {
 	}
 
 	/**
+	 * Check if the associated mountpoint is mounted.
+	 * @return TRUE if the mountpoint is mounted, otherwise FALSE.
+	 * @throw \OMV\ExecException
+	 */
+	public function isMounted() {
+		// If the directory is a mountpoint, then we can assume that the
+		// associated filesystem is mounted.
+		return $this->isMountPoint();
+	}
+
+	/**
 	 * Mount the this mountpoint.
 	 * @param options An array or comma seperated string of additional mount
 	 *   options. Defaults to "".
@@ -141,7 +168,7 @@ class MountPoint {
 				$options = array($options);
 			$cmdArgs[] = sprintf("-o %s", implode(",", $options));
 		}
-		$cmdArgs[] = escapeshellarg($this->getPath());
+		$cmdArgs[] = sprintf("--target %s", escapeshellarg($this->getPath()));
 		$cmd = new \OMV\System\Process("mount", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute();

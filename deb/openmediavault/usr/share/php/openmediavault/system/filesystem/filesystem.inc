@@ -712,7 +712,8 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 		if (TRUE === $this->hasUuid())
 			$cmdArgs[] = sprintf("-U %s", $this->getUuid());
 		else
-			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
+			$cmdArgs[] = sprintf("--source %s", escapeshellarg(
+				$this->getDeviceFile()));
 		if (!empty($dir))
 			$cmdArgs[] = escapeshellarg($dir);
 		$cmd = new \OMV\System\Process("mount", $cmdArgs);

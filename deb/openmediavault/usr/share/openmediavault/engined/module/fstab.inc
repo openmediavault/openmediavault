@@ -49,19 +49,42 @@ class OMVModuleFsTab extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function startService() {
 		$db = \OMV\Config\Database::getInstance();
-		$objects = $db->get("conf.system.filesystem.mountpoint");
-		// Process all configured mount points and mount them if necessary.
+		// Process all configured mountpoints and mount them if necessary:
+		// 1. Process all mountpoints except 'bind'.
+		$objects = $db->getByFilter("conf.system.filesystem.mountpoint", [
+			"operator" => "not",
+			"arg0" => [
+				"operator" => "stringContains",
+				"arg0" => "opts",
+				"arg1" => "bind"
+			]
+		]);
 		foreach ($objects as $objectk => $objectv) {
-			// Ensure the mount point exists.
+			// Ensure the mountpoint exists.
 			$mp = new \OMV\System\MountPoint($objectv->get("dir"));
 			$mp->create();
-			// Mount the filesystem?
+			// Mount it?
 			$fs = \OMV\System\Filesystem\Filesystem::getImpl(
 				$objectv->get("fsname"));
 			if (is_null($fs) || !$fs->exists())
 				continue;
 			if (FALSE === $fs->isMounted())
 				$fs->mount();
+		}
+		// 2. Process all 'bind' mountpoints. Note, such mountpoints
+		//    must be mounted using their target directories.
+		$objects = $db->getByFilter("conf.system.filesystem.mountpoint", [
+			"operator" => "stringContains",
+			"arg0" => "opts",
+			"arg1" => "bind"
+		]);
+		foreach ($objects as $objectk => $objectv) {
+			// Ensure the mountpoint exists.
+			$mp = new \OMV\System\MountPoint($objectv->get("dir"));
+			$mp->create();
+			// Mount it?
+			if (FALSE === $mp->isMounted())
+				$mp->mount();
 		}
 	}
 
@@ -84,18 +107,17 @@ class OMVModuleFsTab extends \OMV\Engine\Module\ServiceAbstract
 		// Try to get the file system. If it is not found, then it might
 		// already be wiped or the device is not accessible anymore, e.g.
 		// an unplugged USB device.
-		$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['fsname']);
-		if (is_null($fs) || !$fs->exists())
+		$mp = new \OMV\System\MountPoint($params['dir']);
+		if (FALSE === $mp->exists())
 			return;
 		// Check whether the file system is mounted and unmount it if
 		// necessary.
-		if (TRUE === $fs->isMounted())
-			$fs->umount(TRUE, TRUE);
+		if (TRUE === $mp->isMounted())
+			$mp->umount(TRUE, TRUE);
 		// Check whether the directory is still a mount point. If this is
 		// the case, then throw an error, otherwise unlinking the
 		// directory might delete the file systems data. This can happen
 		// when the file system is unmounted but busy (e.g. NFS exports).
-		$mp = new \OMV\System\MountPoint($params['dir']);
 		if (TRUE === $mp->isMountPoint()) {
 			throw new \OMV\Exception("Removing the directory '%s' has ".
 				"been aborted, the resource is busy.", $params['dir']);
