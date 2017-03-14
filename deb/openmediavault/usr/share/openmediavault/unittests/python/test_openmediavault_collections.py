@@ -110,6 +110,15 @@ class DotDictTestCase(unittest.TestCase):
 		self.assertEqual(d["y.z[0]"], {'aa': '1', 'bb': '2', 'cc': '3',
 			'dd': 'dd'})
 
+	def test_set_5(self):
+		d = openmediavault.collections.DotDict({'jobs': {'job': []}})
+		d["jobs.job.0"] = {'acls': 0}
+		self.assertEqual(d["jobs.job"], [{'acls': 0}])
+		d["jobs.job.0.comment"] = ""
+		d["jobs.job[0].enable"] = False
+		self.assertEqual(d["jobs.job"], [{'acls': 0, 'comment': '',
+			'enable': False}])
+
 	def test_flatten(self):
 		d = self._get_dict()
 		d_flat = openmediavault.collections.flatten(d)

@@ -129,6 +129,27 @@ class DotDict(dict):
 		elif not key is None and "." in key:
 			first, rest = key.split(".", 1)
 			branch = self.setdefault(first, DotDict())
+			if isinstance(branch, list):
+				index = rest
+				if "." not in index:
+					rest = None
+				else:
+					index, rest = index.split(".", 1)
+				if not index.isdigit():
+					raise KeyError("Key '{}' must be a number.".format(index))
+				index = int(index)
+				# Auto-expand list if necessary.
+				size = len(branch)
+				if index >= size:
+					branch.extend(None for _ in range(size, index + 1))
+				# Populate the list at the given index.
+				if rest is None:
+					branch[index] = DotDict(value) if isinstance(
+						value, dict) else value
+					return
+				if not isinstance(branch[index], DotDict):
+					branch[index] = DotDict()
+				branch = branch[index]
 			if not isinstance(branch, DotDict):
 				branch = DotDict()
 			branch[rest] = value
