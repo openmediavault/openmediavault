@@ -388,6 +388,8 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 				value = self._element_to_dict(child_element)
 			else:
 				value = child_element.text
+				# Empty strings are None, so convert them.
+				value = "" if value is None else value
 			tag = child_element.tag
 			if tag in self._force_list:
 				try:
