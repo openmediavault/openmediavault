@@ -121,11 +121,18 @@ class DotDict(dict):
 			index = int(matches.group(2))
 			rest = matches.group(4)
 			branch = self.setdefault(first, DotDict())
+
+			# Auto-expand list if necessary.
+			size = len(branch)
+			if index >= size:
+				branch.extend(DotDict() for _ in range(size, index + 1))
+			# Populate the list at the given index.
 			if rest is None:
-				branch[index] = value
+				branch[index] = DotDict(value) if isinstance(value, dict) else value
 			else:
-				branch = branch[index]
-				branch[rest] = value
+				if not isinstance(branch[index], DotDict):
+					raise TypeError("Expected dictionary.")
+				branch[index][rest] = value
 		elif not key is None and "." in key:
 			first, rest = key.split(".", 1)
 			branch = self.setdefault(first, DotDict())
@@ -141,14 +148,13 @@ class DotDict(dict):
 				# Auto-expand list if necessary.
 				size = len(branch)
 				if index >= size:
-					branch.extend(None for _ in range(size, index + 1))
+					branch.extend(DotDict() for _ in range(size, index + 1))
 				# Populate the list at the given index.
 				if rest is None:
-					branch[index] = DotDict(value) if isinstance(
-						value, dict) else value
+					branch[index] = DotDict(value) if isinstance(value, dict) else value
 					return
 				if not isinstance(branch[index], DotDict):
-					branch[index] = DotDict()
+					raise TypeError("Expected dictionary.")
 				branch = branch[index]
 			if not isinstance(branch, DotDict):
 				branch = DotDict()
