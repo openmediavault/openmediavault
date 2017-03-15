@@ -66,6 +66,9 @@ class ConfigObjectTestCase(unittest.TestCase):
 				"enable": True
 			})
 		self.assertTrue(conf_obj.get("enable"))
+		self.assertEqual(conf_obj.get("comment"), "test")
+		self.assertIsNotNone(conf_obj.get("extraoptions"))
+		self.assertEqual(conf_obj.get("extraoptions"), "")
 
 	def test_is_empty(self):
 		conf_obj = openmediavault.config.Object("conf.service.ftp.share")

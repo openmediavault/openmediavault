@@ -120,8 +120,7 @@ class DotDict(dict):
 			first = matches.group(1)
 			index = int(matches.group(2))
 			rest = matches.group(4)
-			branch = self.setdefault(first, DotDict())
-
+			branch = self.setdefault(first, list())
 			# Auto-expand list if necessary.
 			size = len(branch)
 			if index >= size:
@@ -135,16 +134,16 @@ class DotDict(dict):
 				branch[index][rest] = value
 		elif not key is None and "." in key:
 			first, rest = key.split(".", 1)
-			branch = self.setdefault(first, DotDict())
-			if isinstance(branch, list):
-				index = rest
-				if "." not in index:
-					rest = None
-				else:
-					index, rest = index.split(".", 1)
-				if not index.isdigit():
-					raise KeyError("Key '{}' must be a number.".format(index))
-				index = int(index)
+			# Is it a list?
+			matches = re.match(r'(\d+)(.(\w+))?', rest)
+			if not matches:
+				branch = self.setdefault(first, DotDict())
+			else:
+				branch = self.setdefault(first, list())
+				if not isinstance(branch, list):
+					raise TypeError("Expected list.")
+				index = int(matches.group(1))
+				rest = matches.group(3)
 				# Auto-expand list if necessary.
 				size = len(branch)
 				if index >= size:
