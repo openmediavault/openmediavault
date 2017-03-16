@@ -3,6 +3,8 @@ openmediavault (3.0.66) stable; urgency=low
   * Fix /root/.ssh/id_rsa issue in debian/openmediavault.postinst script.
   * Reduce unnecessary restarts of nginx. Thanks to kochinc for the improvement.
   * Allow using spaces in path names.
+  * Detect disk size change as well when scanning for new devices. Thanks
+    to ZsZs73 for this contribution.
   * Mantis 0001696: Failing hostname --fqdn should not cause web interface
     login failure.
   * Mantis 0001697: NFS bind not mounted when adding new share.

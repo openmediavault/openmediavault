@@ -283,7 +283,13 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 		$script = new \OMV\System\ShellScript(
 		  "[ -x /sys/class/scsi_host ] && for hostdir in ".
 		  "\$(find /sys/class/scsi_host -iname \"host*\" -type l); ".
-		  "do echo \"- - -\" | tee \${hostdir}/scan >/dev/null; done");
+		  "do echo \"- - -\" > \${hostdir}/scan; done");
+		$script->execute();
+		// Execute shell script to detect SCSI device size changes.
+		$script = new \OMV\System\ShellScript(
+		  "[ -x /sys/class/scsi_device ] && for devicedir in ".
+		  "\$(find /sys/class/scsi_device -iname \"*:*\" -type l); ".
+		  "do echo 1 > \${devicedir}/device/rescan; done");
 		$script->execute();
 	}
 }
