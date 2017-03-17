@@ -95,8 +95,8 @@ case "$1" in
 			# Setup all services.
 			####################################################################
 			echo "Updating service units ..."
-			deb-systemd-helper disable systemd-timesyncd.service || :
-			deb-systemd-invoke stop systemd-timesyncd.service || :
+			deb-systemd-helper disable ntp.service || :
+			deb-systemd-invoke stop ntp.service || :
 			deb-systemd-helper disable smartmontools.service || :
 			deb-systemd-invoke stop smartmontools.service || :
 			deb-systemd-helper disable tftpd-hpa.service || :
