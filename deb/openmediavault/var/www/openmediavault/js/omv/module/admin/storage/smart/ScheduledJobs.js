@@ -268,6 +268,7 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Jobs", {
 			"O": _("Offline immediate test")
 		}
 	},{
+		xtype: "textcolumn",
 		text: _("Hour"),
 		sortable: true,
 		dataIndex: "hour",
@@ -291,6 +292,7 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Jobs", {
 		stateId: "dayofweek",
 		renderer: OMV.util.Format.arrayRenderer(Date.mapDayOfWeek)
 	},{
+		xtype: "textcolumn",
 		text: _("Comment"),
 		sortable: true,
 		dataIndex: "comment",

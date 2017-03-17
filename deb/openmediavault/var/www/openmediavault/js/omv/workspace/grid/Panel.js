@@ -30,6 +30,7 @@
 // require("js/omv/grid/column/UnixTimestamp.js")
 // require("js/omv/grid/column/WhiteSpace.js")
 // require("js/omv/grid/column/Map.js")
+// require("js/omv/grid/column/Text.js")
 // require("js/omv/grid/column/ToolTip.js")
 // require("js/omv/grid/column/NumberRange.js")
 // require("js/omv/window/MessageBox.js")

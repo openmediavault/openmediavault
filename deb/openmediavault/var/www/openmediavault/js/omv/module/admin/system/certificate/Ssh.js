@@ -122,6 +122,7 @@ Ext.define("OMV.module.admin.system.certificate.ssh.Certificates", {
 	stateful: true,
 	stateId: "bdd0b2ca-1016-11e5-be00-0002b3a176b4",
 	columns: [{
+		xtype: "textcolumn",
 		text: _("Comment"),
 		sortable: true,
 		dataIndex: "comment",

@@ -636,6 +636,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 	stateful: true,
 	stateId: "9ab0d7f9-73e0-4815-8960-84157d4b85e5",
 	columns: [{
+		xtype: "textcolumn",
 		text: _("Name"),
 		sortable: true,
 		dataIndex: "name",
@@ -647,17 +648,20 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 		dataIndex: "device",
 		stateId: "device"
 	},{
+		xtype: "textcolumn",
 		text: _("Relative Path"),
 		sortable: true,
 		dataIndex: "reldirpath",
 		stateId: "reldirpath"
 	},{
+		xtype: "textcolumn",
 		text: _("Absolute Path"),
 		sortable: true,
 		hidden: true,
 		dataIndex: "absdirpath",
 		stateId: "absdirpath"
 	},{
+		xtype: "textcolumn",
 		text: _("Comment"),
 		sortable: true,
 		dataIndex: "comment",

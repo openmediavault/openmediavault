@@ -184,7 +184,7 @@ case "$1" in
 			deb-systemd-invoke restart watchdog.service || :
 			deb-systemd-invoke restart rrdcached.service || :
 			deb-systemd-invoke restart collectd.service || :
-			deb-systemd-invoke restart php7.0-fpm.service || :
+			deb-systemd-invoke restart php5-fpm.service || :
 			deb-systemd-invoke restart nginx.service || :
 			deb-systemd-invoke restart monit.service || :
 			deb-systemd-invoke restart avahi-daemon.service || :
@@ -464,12 +464,6 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.0.59"; then
 			omv-mkconf apt
-		fi
-		if dpkg --compare-versions "$2" lt-nl "4.0.2"; then
-			omv-mkconf nginx
-			omv-mkconf php-fpm
-			deb-systemd-invoke restart php7.0-fpm.service || :
-			deb-systemd-invoke restart nginx.service || :
 		fi
 
 		########################################################################

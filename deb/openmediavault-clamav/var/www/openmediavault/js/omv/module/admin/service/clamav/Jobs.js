@@ -271,6 +271,7 @@ Ext.define("OMV.module.admin.service.clamav.Jobs", {
 		resizable: false,
 		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
 	},{
+		xtype: "textcolumn",
 		text: _("Shared folder"),
 		sortable: true,
 		dataIndex: "sharedfoldername",
@@ -329,6 +330,7 @@ Ext.define("OMV.module.admin.service.clamav.Jobs", {
 		stateId: "dayofweek",
 		renderer: OMV.util.Format.arrayRenderer(Date.mapDayOfWeek)
 	},{
+		xtype: "textcolumn",
 		text: _("Comment"),
 		sortable: true,
 		dataIndex: "comment",

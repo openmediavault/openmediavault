@@ -308,6 +308,7 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Jobs", {
 		sortable: true,
 		stateId: "scheduling"
 	},{
+		xtype: "textcolumn",
 		text: _("Comment"),
 		sortable: true,
 		dataIndex: "comment",
