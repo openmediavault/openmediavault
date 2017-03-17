@@ -274,21 +274,18 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Jobs", {
 		dataIndex: "hour",
 		stateId: "hour"
 	},{
-		xtype: "textcolumn",
 		text: _("Day of month"),
 		sortable: true,
 		dataIndex: "dayofmonth",
 		stateId: "dayofmonth",
 		renderer: OMV.util.Format.arrayRenderer(Date.mapDayOfMonth2Digits)
 	},{
-		xtype: "textcolumn",
 		text: _("Month"),
 		sortable: true,
 		dataIndex: "month",
 		stateId: "month",
 		renderer: OMV.util.Format.arrayRenderer(Date.mapMonth2Digits)
 	},{
-		xtype: "textcolumn",
 		text: _("Day of week"),
 		sortable: true,
 		dataIndex: "dayofweek",
