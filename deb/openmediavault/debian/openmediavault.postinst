@@ -465,6 +465,20 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "3.0.59"; then
 			omv-mkconf apt
 		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.67"; then
+			# Use NTP instead of systemd-timesyncd. Make sure all services
+			# are disabled. FInally enable NTP if necessary.
+			timedatectl set-ntp no || :
+			deb-systemd-helper disable systemd-timesyncd || :
+			deb-systemd-invoke stop systemd-timesyncd || :
+			deb-systemd-helper disable ntp.service || :
+			deb-systemd-invoke stop ntp.service || :
+			if omv_checkyesno "$(omv-confdbadm read "conf.system.time" | jq '.ntp.enable')"; then
+				omv-mkconf ntp
+				deb-systemd-helper enable ntp.service || :
+				deb-systemd-invoke start ntp.service || :
+			fi
+		fi
 
 		########################################################################
 		# Show help text.
