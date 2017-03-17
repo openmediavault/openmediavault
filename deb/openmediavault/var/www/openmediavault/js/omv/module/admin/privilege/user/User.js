@@ -191,6 +191,7 @@ Ext.define("OMV.module.admin.privilege.user.user.Groups", {
 		})
 	}],
 	columns: [{
+		xtype: "textcolumn",
 		text: _("Name"),
 		sortable: true,
 		dataIndex: "name",
@@ -590,16 +591,19 @@ Ext.define("OMV.module.admin.privilege.user.Users", {
 	stateful: true,
 	stateId: "98d6fe31-8e12-407b-82f2-7e0acf4006c1",
 	columns: [{
+		xtype: "textcolumn",
 		text: _("Name"),
 		sortable: true,
 		dataIndex: "name",
 		stateId: "name"
 	},{
+		xtype: "textcolumn",
 		text: _("Email"),
 		sortable: true,
 		dataIndex: "email",
 		stateId: "email"
 	},{
+		xtype: "textcolumn",
 		text: _("Comment"),
 		sortable: true,
 		dataIndex: "comment",

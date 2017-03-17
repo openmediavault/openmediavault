@@ -165,8 +165,7 @@ Ext.define("OMV.window.MessageBox", {
 						text += _("Error #") + error.code + ":\n";
 					if(!Ext.isEmpty(error.trace))
 						text += error.trace;
-					details.update(OMV.util.Format.whitespace(
-					  Ext.util.Format.htmlDecode(text), "pre"));
+					details.update(OMV.util.Format.whitespace(text), "pre");
 					if(details.isVisible()) {
 						details.hide();
 						c.setText(_("Show details"));
@@ -201,7 +200,7 @@ Ext.define("OMV.window.MessageBox", {
 						cls: me.baseCls + "-text",
 						html: (Ext.isEmpty(error.message) ?
 						  _("An error has occured") :
-						  Ext.util.Format.htmlDecode(error.message))
+						  Ext.util.Format.htmlEncode(error.message))
 					}]
 				}]
 			}, details = Ext.create("Ext.panel.Panel", {

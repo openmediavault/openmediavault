@@ -268,29 +268,34 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Jobs", {
 			"O": _("Offline immediate test")
 		}
 	},{
+		xtype: "textcolumn",
 		text: _("Hour"),
 		sortable: true,
 		dataIndex: "hour",
 		stateId: "hour"
 	},{
+		xtype: "textcolumn",
 		text: _("Day of month"),
 		sortable: true,
 		dataIndex: "dayofmonth",
 		stateId: "dayofmonth",
 		renderer: OMV.util.Format.arrayRenderer(Date.mapDayOfMonth2Digits)
 	},{
+		xtype: "textcolumn",
 		text: _("Month"),
 		sortable: true,
 		dataIndex: "month",
 		stateId: "month",
 		renderer: OMV.util.Format.arrayRenderer(Date.mapMonth2Digits)
 	},{
+		xtype: "textcolumn",
 		text: _("Day of week"),
 		sortable: true,
 		dataIndex: "dayofweek",
 		stateId: "dayofweek",
 		renderer: OMV.util.Format.arrayRenderer(Date.mapDayOfWeek)
 	},{
+		xtype: "textcolumn",
 		text: _("Comment"),
 		sortable: true,
 		dataIndex: "comment",

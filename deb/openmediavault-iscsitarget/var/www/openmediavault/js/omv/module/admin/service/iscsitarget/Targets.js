@@ -438,21 +438,25 @@ Ext.define("OMV.module.admin.service.iscsitarget.target.LUNs", {
 	stateful: true,
 	stateId: "3107db90-c1e9-11e0-90c8-00221568ca88",
 	columns: [{
+		xtype: "textcolumn",
 		text: _("Id"),
 		sortable: true,
 		dataIndex: "id",
 		stateId: "id"
 	},{
+		xtype: "textcolumn",
 		text: _("Device"),
 		sortable: true,
 		dataIndex: "devicefile",
 		stateId: "devicefile"
 	},{
+		xtype: "textcolumn",
 		text: _("SCSI Id."),
 		sortable: true,
 		dataIndex: "scsiid",
 		stateId: "scsiid"
 	},{
+		xtype: "textcolumn",
 		text: _("SCSI serial no."),
 		sortable: true,
 		dataIndex: "scsisn",
@@ -635,21 +639,25 @@ Ext.define("OMV.module.admin.service.iscsitarget.target.Targets", {
 	stateful: true,
 	stateId: "15e18b72-c1e9-11e0-a91c-00221568ca88",
 	columns: [{
+		xtype: "textcolumn",
 		text: _("IQN"),
 		sortable: true,
 		dataIndex: "iqn",
 		stateId: "iqn"
 	},{
+		xtype: "textcolumn",
 		text: _("Alias"),
 		sortable: true,
 		dataIndex: "alias",
 		stateId: "alias"
 	},{
+		xtype: "textcolumn",
 		text: _("Max. connections"),
 		sortable: true,
 		dataIndex: "maxconnections",
 		stateId: "maxconnections"
 	},{
+		xtype: "textcolumn",
 		text: _("Comment"),
 		sortable: true,
 		dataIndex: "comment",

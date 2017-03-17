@@ -308,16 +308,19 @@ Ext.define("OMV.module.admin.system.cron.Jobs", {
 		sortable: true,
 		stateId: "scheduling"
 	},{
+		xtype: "textcolumn",
 		text: _("User"),
 		sortable: true,
 		dataIndex: "username",
 		stateId: "username"
 	},{
+		xtype: "textcolumn",
 		text: _("Command"),
 		sortable: true,
 		dataIndex: "command",
 		stateId: "command"
 	},{
+		xtype: "textcolumn",
 		text: _("Comment"),
 		sortable: true,
 		dataIndex: "comment",

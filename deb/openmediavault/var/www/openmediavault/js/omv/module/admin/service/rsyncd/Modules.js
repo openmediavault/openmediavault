@@ -290,6 +290,7 @@ Ext.define("OMV.module.admin.service.rsyncd.module.AuthUsers", {
 	stateful: true,
 	stateId: "42a21c5a-3dc5-11e1-9f73-af7c01c6821f",
 	columns: [{
+		xtype: "textcolumn",
 		text: _("Name"),
 		sortable: true,
 		dataIndex: "name",
@@ -462,16 +463,19 @@ Ext.define("OMV.module.admin.service.rsyncd.Modules", {
 		resizable: false,
 		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
 	},{
+		xtype: "textcolumn",
 		text: _("Shared folder"),
 		sortable: true,
 		dataIndex: "sharedfoldername",
 		stateId: "sharedfoldername"
 	},{
+		xtype: "textcolumn",
 		text: _("Name"),
 		sortable: true,
 		dataIndex: "name",
 		stateId: "name"
 	},{
+		xtype: "textcolumn",
 		text: _("Comment"),
 		sortable: true,
 		dataIndex: "comment",

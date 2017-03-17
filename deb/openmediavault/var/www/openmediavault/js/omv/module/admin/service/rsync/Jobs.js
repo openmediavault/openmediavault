@@ -628,16 +628,19 @@ Ext.define("OMV.module.admin.service.rsync.Jobs", {
 			"remote": _("Remote")
 		}
 	},{
+		xtype: "textcolumn",
 		text: _("Source"),
 		sortable: true,
 		dataIndex: "srcname",
 		stateId: "srcname"
 	},{
+		xtype: "textcolumn",
 		text: _("Destination"),
 		sortable: true,
 		dataIndex: "destname",
 		stateId: "destname"
 	},{
+		xtype: "textcolumn",
 		text: _("Comment"),
 		sortable: true,
 		dataIndex: "comment",

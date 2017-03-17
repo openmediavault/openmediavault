@@ -538,6 +538,7 @@ Ext.define("OMV.module.admin.system.certificate.ssl.Certificates", {
 	stateful: true,
 	stateId: "af67e357-d388-4b92-a6d1-076f834c1a0f",
 	columns: [{
+		xtype: "textcolumn",
 		text: _("Name"),
 		sortable: true,
 		dataIndex: "name",
@@ -549,6 +550,7 @@ Ext.define("OMV.module.admin.system.certificate.ssl.Certificates", {
 		dataIndex: "validto",
 		stateId: "validto"
 	},{
+		xtype: "textcolumn",
 		text: _("Comment"),
 		sortable: true,
 		dataIndex: "comment",

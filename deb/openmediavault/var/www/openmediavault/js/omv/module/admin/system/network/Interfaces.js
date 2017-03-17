@@ -971,6 +971,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		stateId: "wol",
 		width: 45
 	},{
+		xtype: "textcolumn",
 		text: _("Comment"),
 		sortable: true,
 		hidden: true,

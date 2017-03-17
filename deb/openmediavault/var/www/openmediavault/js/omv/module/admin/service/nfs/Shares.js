@@ -129,11 +129,13 @@ Ext.define("OMV.module.admin.service.nfs.Shares", {
 	stateful: true,
 	stateId: "4da5f715-4381-4c6b-8c83-ab23d284d0e3",
 	columns: [{
+		xtype: "textcolumn",
 		text: _("Shared folder"),
 		sortable: true,
 		dataIndex: "sharedfoldername",
 		stateId: "sharedfoldername"
 	},{
+		xtype: "textcolumn",
 		text: _("Client"),
 		sortable: true,
 		dataIndex: "client",
@@ -152,6 +154,7 @@ Ext.define("OMV.module.admin.service.nfs.Shares", {
 			return value;
 		}
 	},{
+		xtype: "textcolumn",
 		text: _("Comment"),
 		sortable: true,
 		dataIndex: "comment",

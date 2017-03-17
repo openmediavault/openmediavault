@@ -290,11 +290,13 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 			"!icmpv6": _("Not ICMPv6")
 		}
 	},{
+		xtype: "textcolumn",
 		text: _("Extra options"),
 		sortable: false,
 		dataIndex: "extraoptions",
 		stateId: "extraoptions"
 	},{
+		xtype: "textcolumn",
 		text: _("Comment"),
 		sortable: false,
 		dataIndex: "comment",
