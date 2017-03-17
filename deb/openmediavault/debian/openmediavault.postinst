@@ -467,7 +467,7 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "3.0.67"; then
 			# Use NTP instead of systemd-timesyncd. Make sure all services
-			# are disabled. FInally enable NTP if necessary.
+			# are disabled. Finally enable NTP if necessary.
 			timedatectl set-ntp no || :
 			deb-systemd-helper disable systemd-timesyncd || :
 			deb-systemd-invoke stop systemd-timesyncd || :
