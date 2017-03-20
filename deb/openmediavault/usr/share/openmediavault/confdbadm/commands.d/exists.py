@@ -19,17 +19,16 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os.path
-import sys
 import argparse
+import sys
 import openmediavault.confdbadm
 import openmediavault.config.database
-import openmediavault.config.object
 
 class Command(openmediavault.confdbadm.ICommand,
 		openmediavault.confdbadm.CommandHelper):
 	@property
 	def description(self):
-		return "Update a configuration object."
+		return "Check if configuration object(s) exists."
 
 	def execute(self, *args):
 		rc = 0
@@ -38,17 +37,16 @@ class Command(openmediavault.confdbadm.ICommand,
 			prog="%s %s" % (os.path.basename(args[0]), args[1]),
 			description=self.description)
 		parser.add_argument("id", type=self.argparse_is_datamodel_id,
-			help="The data model ID, e.g. 'conf.service.ssh'")
-		parser.add_argument("data", type=self.argparse_is_json_stdin,
-			help="The JSON data. Set to '-' to read from STDIN.")
+			help="The data model ID, e.g. 'conf.system.sharedfolder'")
+		parser.add_argument("--filter", nargs="?", type=self.argparse_is_json)
 		cmd_args = parser.parse_args(args[2:])
-		# Create the configuration object.
-		obj = openmediavault.config.Object(cmd_args.id)
-		obj.set_dict(cmd_args.data)
-		# Put the configuration object.
+		# Get the filter.
+		filter = None
+		if cmd_args.filter:
+			filter = openmediavault.config.DatabaseFilter(cmd_args.filter)
+		# Query the database.
 		db = openmediavault.config.Database()
-		db.set(obj)
-		return rc
+		return 0 if db.exists(cmd_args.id, filter) else 1
 
 if __name__ == "__main__":
 	rc = 1
