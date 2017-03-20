@@ -328,7 +328,7 @@ Ext.define("OMV.module.admin.storage.smart.device.information.SelfTestLogs", {
 		resizable: false,
 		align: "center",
 		renderer: function(value) {
-			return value + "%";
+			return Ext.String.htmlEncode(value) + "%";
 		}
 	},{
 		xtype: "textcolumn",
