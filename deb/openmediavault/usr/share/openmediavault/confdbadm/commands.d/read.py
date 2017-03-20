@@ -68,7 +68,7 @@ class Command(openmediavault.confdbadm.ICommand,
 			data = objs.get_dict()
 		# Print the configuration objects as JSON to STDOUT.
 		if cmd_args.prettify:
-			print(json.dumps(data, sort_keys=False, indent=4))
+			print(json.dumps(data, sort_keys=True, indent=4))
 		else:
 			print(json.dumps(data))
 		return rc
