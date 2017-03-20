@@ -256,7 +256,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 				renderer: function(value) {
 					if (value <= 0)
 						value = "--";
-					return value;
+					return Ext.String.htmlEncode(value);
 				}
 			},{
 				text: _("Quota"),
@@ -274,7 +274,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 				renderer: function(value) {
 					if ((value <= 0) || Ext.isEmpty(value))
 						value = "--";
-					return value;
+					return Ext.String.htmlEncode(value);
 				}
 			},{
 				text: _("Unit"),
