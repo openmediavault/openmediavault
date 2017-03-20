@@ -1,6 +1,8 @@
 openmediavault (3.0.67) stable; urgency=low
 
   * Improve foreign content handling.
+  * Adapt nginx SSL ciphers to latest intermediate profile according to
+    https://mozilla.github.io/server-side-tls/ssl-config-generator.
   * Mantis 0001701: Switch back to NTP daemon.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 17 Mar 2017 09:59:46 +0100
