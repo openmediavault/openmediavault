@@ -41,10 +41,13 @@ class Command(openmediavault.confdbadm.ICommand,
 			description=self.description)
 		parser.add_argument("id", type=self.argparse_is_datamodel_id,
 			help="The data model ID, e.g. 'conf.service.ssh'")
+		parser.add_argument("--prettify", action="store_true",
+			help="Prettifies the output, by adding spaces and indentation.")
 		group1 = parser.add_mutually_exclusive_group()
-		group1.add_argument("--defaults", action="store_true")
+		group1.add_argument("--defaults", action="store_true",
+			help="Print the default values.")
 		group2 = group1.add_mutually_exclusive_group()
-		group2.add_argument("--uuid", nargs="?", type=self.argparse_is_uuid4, help="sdasda")
+		group2.add_argument("--uuid", nargs="?", type=self.argparse_is_uuid4)
 		group2.add_argument("--filter", nargs="?", type=self.argparse_is_json)
 		cmd_args = parser.parse_args(args[2:])
 		# Get the configuration object with its default values?
@@ -58,15 +61,16 @@ class Command(openmediavault.confdbadm.ICommand,
 				objs = db.get_by_filter(cmd_args.id, filter)
 			else:
 				objs = db.get(cmd_args.id, cmd_args.uuid)
-		# Print the configuration objects to STDOUT.
+		# Prepare the output.
 		if isinstance(objs, list):
-			# Print list of objects as JSON string.
-			data = []
-			for obj in objs:
-				data.append(obj.get_dict())
-			print(json.dumps(data))
+			data = [ obj.get_dict() for obj in objs ]
 		else:
-			print(objs)
+			data = objs.get_dict()
+		# Print the configuration objects as JSON to STDOUT.
+		if cmd_args.prettify:
+			print(json.dumps(data, sort_keys=False, indent=4))
+		else:
+			print(json.dumps(data))
 		return rc
 
 if __name__ == "__main__":
