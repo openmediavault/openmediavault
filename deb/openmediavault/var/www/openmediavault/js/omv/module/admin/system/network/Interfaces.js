@@ -448,12 +448,14 @@ Ext.define("OMV.module.admin.system.network.interface.window.Bond", {
 					stateful: true,
 					stateId: "0c92444c-a911-11e2-ba78-00221568ca88",
 					columns: [{
+						xtype: "textcolumn",
 						text: _("Device"),
 						sortable: true,
 						dataIndex: "devicename",
 						stateId: "devicename",
 						flex: 1
 					},{
+						xtype: "textcolumn",
 						text: _("MAC address"),
 						sortable: true,
 						dataIndex: "ether",
@@ -899,6 +901,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 	stateful: true,
 	stateId: "85093f5d-9f9f-45bf-a46f-ead6bc36884a",
 	columns: [{
+		xtype: "textcolumn",
 		text: _("Name"),
 		sortable: true,
 		dataIndex: "devicename",

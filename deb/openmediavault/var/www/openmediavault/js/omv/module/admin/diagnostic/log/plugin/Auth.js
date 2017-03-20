@@ -46,6 +46,7 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.Auth", {
 			return record.get("date");
 		}
 	},{
+		xtype: "textcolumn",
 		text: _("Hostname"),
 		hidden: true,
 		sortable: true,

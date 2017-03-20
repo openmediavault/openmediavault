@@ -47,6 +47,7 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.ftp.Syslog", {
 			return record.get("date");
 		}
 	},{
+		xtype: "textcolumn",
 		text: _("Hostname"),
 		hidden: true,
 		sortable: true,
@@ -94,11 +95,13 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.ftp.Xferlog", {
 			return record.get("date");
 		}
 	},{
+		xtype: "textcolumn",
 		text: _("Remote host"),
 		sortable: true,
 		dataIndex: "remotehost",
 		stateId: "remotehost"
 	},{
+		xtype: "textcolumn",
 		text: _("Filename"),
 		sortable: true,
 		dataIndex: "filename",
@@ -147,11 +150,13 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.ftp.Xferlog", {
 			return map[value];
 		}
 	},{
+		xtype: "textcolumn",
 		text: _("Username"),
 		sortable: true,
 		dataIndex: "username",
 		stateId: "username"
 	},{
+		xtype: "textcolumn",
 		text: _("Servicename"),
 		sortable: true,
 		dataIndex: "servicename",

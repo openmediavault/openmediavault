@@ -157,6 +157,7 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 	stateful: true,
 	stateId: "70556b35-44c5-49d6-8d2e-29c045a57f9c",
 	columns: [{
+		xtype: "textcolumn",
 		text: _("ID"),
 		dataIndex: "id",
 		stateId: "id",
@@ -300,6 +301,7 @@ Ext.define("OMV.module.admin.storage.smart.device.information.SelfTestLogs", {
 	stateful: true,
 	stateId: "ac2859c4-fb88-4757-870c-794e5919c221",
 	columns: [{
+		xtype: "textcolumn",
 		text: _("Num"),
 		dataIndex: "num",
 		stateId: "num",
@@ -307,11 +309,13 @@ Ext.define("OMV.module.admin.storage.smart.device.information.SelfTestLogs", {
 		resizable: false,
 		align: "right"
 	},{
+		xtype: "textcolumn",
 		text: _("Test description"),
 		dataIndex: "description",
 		stateId: "description",
 		flex: 1
 	},{
+		xtype: "textcolumn",
 		text: _("Status"),
 		dataIndex: "status",
 		stateId: "status",
@@ -327,6 +331,7 @@ Ext.define("OMV.module.admin.storage.smart.device.information.SelfTestLogs", {
 			return value + "%";
 		}
 	},{
+		xtype: "textcolumn",
 		text: _("Lifetime"),
 		dataIndex: "lifetime",
 		stateId: "lifetime",
@@ -334,6 +339,7 @@ Ext.define("OMV.module.admin.storage.smart.device.information.SelfTestLogs", {
 		resizable: false,
 		align: "center"
 	},{
+		xtype: "textcolumn",
 		text: _("LBA of first error"),
 		dataIndex: "lbaoffirsterror",
 		stateId: "lbaoffirsterror"

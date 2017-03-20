@@ -73,6 +73,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 			_("Repository") + ': {[Ext.String.htmlEncode(values.repository)]}<br/>' +
 		  '</tpl>'
 	},{
+		xtype: "textcolumn",
 		text: _("Name"),
 		sortable: true,
 		dataIndex: "name",
@@ -80,6 +81,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 		width: 180,
 		hidden: true
 	},{
+		xtype: "textcolumn",
 		text: _("Version"),
 		sortable: false,
 		dataIndex: "version",
@@ -87,6 +89,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 		width: 120,
 		hidden: true
 	},{
+		xtype: "textcolumn",
 		text: _("Repository"),
 		sortable: true,
 		dataIndex: "repository",
@@ -94,6 +97,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 		width: 160,
 		hidden: true
 	},{
+		xtype: "textcolumn",
 		text: _("Abstract"),
 		sortable: true,
 		dataIndex: "abstract",
@@ -117,6 +121,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 		width: 80,
 		hidden: true
 	},{
+		xtype: "textcolumn",
 		text: _("Maintainer"),
 		sortable: true,
 		dataIndex: "maintainer",

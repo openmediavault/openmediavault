@@ -54,6 +54,7 @@ Ext.define("OMV.module.admin.dashboard.view.NetworkInterfaces", {
 				stateful: true,
 				stateId: "85bc79a2-f7f5-11e4-a5ad-0002b3a176b4",
 				columns: [{
+					xtype: "textcolumn",
 					text: _("Name"),
 					sortable: true,
 					dataIndex: "devicename",

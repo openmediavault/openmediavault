@@ -52,6 +52,7 @@ Ext.define("OMV.module.admin.dashboard.view.ServiceStatus", {
 				stateful: true,
 				stateId: "08ee3b76-e325-11e3-ad0a-00221568ca88",
 				columns: [{
+					xtype: "textcolumn",
 					text: _("Service"),
 					sortable: true,
 					dataIndex: "title",

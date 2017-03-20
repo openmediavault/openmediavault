@@ -47,6 +47,7 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.smb.Audit", {
 			return record.get("date");
 		}
 	},{
+		xtype: "textcolumn",
 		text: _("Hostname"),
 		hidden: true,
 		sortable: true,

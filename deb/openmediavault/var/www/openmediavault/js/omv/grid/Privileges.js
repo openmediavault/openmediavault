@@ -157,6 +157,7 @@ Ext.define("OMV.grid.Privileges", {
 					return "";
 				}
 			},{
+				xtype: "textcolumn",
 				text: _("Name"),
 				sortable: true,
 				dataIndex: "name",
