@@ -154,7 +154,11 @@ class Database(object):
 		"""
 		query = openmediavault.config.DatabaseGetByFilterQuery(id, filter)
 		query.execute()
-		return 0 < len(query.response)
+		if query.response is None:
+			return False
+		if isinstance(query.response, list) and 0 >= len(query.response):
+			return False
+		return True
 
 	def is_referenced(self, obj):
 		"""
@@ -613,7 +617,8 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 
 class DatabaseGetByFilterQuery(DatabaseQuery):
 	def __init__(self, id, filter):
-		assert(isinstance(filter, DatabaseFilter))
+		if not filter is None:
+			assert(isinstance(filter, DatabaseFilter))
 		self._filter = filter
 		super().__init__(id)
 

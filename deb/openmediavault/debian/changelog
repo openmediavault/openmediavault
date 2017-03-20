@@ -1,3 +1,10 @@
+openmediavault (3.0.68) stable; urgency=low
+
+  * Various bug fixes and improvements.
+  * Add 'omv-confdbadm exists' command.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 20 Mar 2017 12:38:22 +0100
+
 openmediavault (3.0.67) stable; urgency=low
 
   * Improve foreign content handling.
