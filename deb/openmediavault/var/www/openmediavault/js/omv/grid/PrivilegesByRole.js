@@ -104,6 +104,7 @@ Ext.define("OMV.grid.PrivilegesByRole", {
 				}
 			}),
 			columns: [{
+				xtype: "textcolumn",
 				text: _("Name"),
 				sortable: true,
 				dataIndex: "name",

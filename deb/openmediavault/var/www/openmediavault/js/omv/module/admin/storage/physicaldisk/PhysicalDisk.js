@@ -173,6 +173,7 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 	stateful: true,
 	stateId: "5e5cc148-c1e7-11e0-99e1-00221568ca88",
 	columns: [{
+		xtype: "textcolumn",
 		text: _("Device"),
 		sortable: true,
 		dataIndex: "devicefile",

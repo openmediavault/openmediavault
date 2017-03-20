@@ -33,6 +33,7 @@ Ext.define("OMV.grid.column.Empty", {
 	emptyText: _("n/a"),
 
 	defaultRenderer: function(value) {
-		return Ext.util.Format.defaultValue(value, this.emptyText);
+		return Ext.util.Format.defaultValue(Ext.String.htmlEncode(value),
+			this.emptyText);
 	}
 });

@@ -45,7 +45,7 @@ Ext.define("OMV.grid.column.NumberRange", {
 			return this.invalidText;
 		if (!(Ext.isNumber(this.maxValue) && (value <= this.maxValue)))
 			return this.invalidText;
-		return value;
+		return Ext.String.htmlEncode(value);
 	},
 
 	updater: function(cell, value) {

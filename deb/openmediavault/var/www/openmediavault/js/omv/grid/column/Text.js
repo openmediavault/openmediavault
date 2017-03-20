@@ -18,7 +18,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/util/Format.js")
 
 /**
  * @ingroup webgui
@@ -30,6 +29,6 @@ Ext.define("OMV.grid.column.Text", {
 	alias: [ "widget.textcolumn" ],
 
 	defaultRenderer: function(value) {
-		return Ext.util.Format.htmlEncode(value);
+		return Ext.String.htmlEncode(value);
 	}
 });

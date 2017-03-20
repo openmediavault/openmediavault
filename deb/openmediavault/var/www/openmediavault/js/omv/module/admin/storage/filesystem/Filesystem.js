@@ -241,6 +241,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 					return "";
 				}
 			},{
+				xtype: "textcolumn",
 				text: _("Name"),
 				sortable: true,
 				dataIndex: "name",

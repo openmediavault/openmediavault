@@ -87,6 +87,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 			_("Repository") + ': {[Ext.String.htmlEncode(values.repository)]}<br/>' +
 		  '</tpl>'
 	},{
+		xtype: "textcolumn",
 		text: _("Section"),
 		sortable: true,
 		dataIndex: "pluginsection",
@@ -94,6 +95,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 		flex: 1,
 		hidden: true
 	},{
+		xtype: "textcolumn",
 		text: _("Name"),
 		sortable: true,
 		dataIndex: "name",
@@ -101,6 +103,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 		width: 180,
 		hidden: true
 	},{
+		xtype: "textcolumn",
 		text: _("Version"),
 		sortable: false,
 		dataIndex: "version",
@@ -108,6 +111,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 		width: 120,
 		hidden: true
 	},{
+		xtype: "textcolumn",
 		text: _("Repository"),
 		sortable: true,
 		dataIndex: "repository",
@@ -115,6 +119,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 		width: 160,
 		hidden: true
 	},{
+		xtype: "textcolumn",
 		text: _("Abstract"),
 		sortable: true,
 		dataIndex: "abstract",
@@ -138,6 +143,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 		width: 80,
 		hidden: true
 	},{
+		xtype: "textcolumn",
 		text: _("Maintainer"),
 		sortable: true,
 		dataIndex: "maintainer",

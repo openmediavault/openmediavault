@@ -46,6 +46,7 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.Syslog", {
 			return record.get("date");
 		}
 	},{
+		xtype: "textcolumn",
 		text: _("Hostname"),
 		hidden: true,
 		sortable: true,
@@ -59,7 +60,7 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.Syslog", {
 		stateId: "message",
 		flex: 1
 	}],
-	rpcParams: { 
+	rpcParams: {
 		id: "syslog"
 	},
 	rpcFields: [

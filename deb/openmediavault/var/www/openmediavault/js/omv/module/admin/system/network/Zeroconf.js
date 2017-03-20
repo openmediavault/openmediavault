@@ -57,6 +57,7 @@ Ext.define("OMV.module.admin.system.network.Zeroconf", {
 			return _(value);
 		}
 	},{
+		xtype: "textcolumn",
 		text: _("Name"),
 		sortable: true,
 		dataIndex: "name",

@@ -40,7 +40,7 @@ Ext.define("OMV.grid.column.ToolTip", {
 			metaData.tdAttr = Ext.String.format("data-qtip='{0}'",
 			  Ext.String.htmlEncode(text));
 		}
-		return value;
+		return Ext.String.htmlEncode(value);
 	},
 
 	updater: function(cell, value) {

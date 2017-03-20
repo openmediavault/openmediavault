@@ -74,6 +74,7 @@ Ext.define("OMV.module.admin.dashboard.view.FileSystemStatus", {
 					hidden: true,
 					flex: 1
 				},{
+					xtype: "textcolumn",
 					text: _("Label"),
 					sortable: true,
 					dataIndex: "label",

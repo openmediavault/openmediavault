@@ -198,6 +198,7 @@ Ext.define("OMV.module.admin.privilege.user.user.Groups", {
 		stateId: "name",
 		flex: 2
 	},{
+		xtype: "textcolumn",
 		text: _("GID"),
 		sortable: true,
 		dataIndex: "gid",
