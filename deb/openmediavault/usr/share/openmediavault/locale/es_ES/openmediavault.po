@@ -5,14 +5,14 @@
 # Translators:
 # jmcainzos <jmcainzos@vodafone.es>, 2013
 # jmcainzos <jmcainzos@vodafone.es>, 2012
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2016
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2017
 # Volker <votdev@gmx.de>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-06 06:19+0100\n"
-"PO-Revision-Date: 2016-12-06 09:16+0000\n"
+"PO-Revision-Date: 2017-03-17 20:22+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/votdev/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -1290,7 +1290,7 @@ msgid "File"
 msgstr "Archivo"
 
 msgid "File Systems"
-msgstr "Sitemas de Archivos"
+msgstr "Sistema de Archivos"
 
 msgid "File system"
 msgstr "Sistema de Archivos"
