@@ -31,7 +31,6 @@ class Command(openmediavault.confdbadm.ICommand,
 		return "Check if configuration object(s) exists."
 
 	def execute(self, *args):
-		rc = 0
 		# Parse the command line arguments.
 		parser = argparse.ArgumentParser(
 			prog="%s %s" % (os.path.basename(args[0]), args[1]),
