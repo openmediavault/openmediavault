@@ -105,8 +105,7 @@ abstract class BackendAbstract {
 	}
 
 	/**
-	 * Return the device file to be used to create a filesystem.
-	 * @note Only one partition per storage device is supported.
+	 * Return the device file to be used to create a file system.
 	 * @param string $deviceFile Specifies the device file, e.g.
 	 *   <ul>
 	 *   \li /dev/sdb => /dev/sdb1
@@ -115,10 +114,11 @@ abstract class BackendAbstract {
 	 *   \li /dev/dm-0 => /dev/dm-0
 	 *   \li /dev/md0 => /dev/md0
 	 *   </ul>
-	 * @return The device file. Defaults to /dev/xxx1.
+	 * @param number $partition The partition number. Defaults to 1.
+	 * @return Returns the device file, e.g. /dev/sda5.
 	 */
-	public function fsDeviceFile($deviceFile) {
-		return sprintf("%s1", $deviceFile);
+	public function fsDeviceFile($deviceFile, $partition = 1) {
+		return sprintf("%s%d", $deviceFile, $partition);
 	}
 
 	/**

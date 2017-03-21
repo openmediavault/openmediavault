@@ -107,9 +107,9 @@ Ext.define("OMV.module.admin.dashboard.view.FileSystemStatus", {
 						if (-1 == percentage)
 							return _("n/a");
 						var text = Ext.String.format("{0}% [{1}]",
-						  percentage, value);
+							percentage, value);
 						var renderer = OMV.util.Format.progressBarRenderer(
-						  percentage / 100, text);
+							percentage / 100, text, 0.85);
 						return renderer.apply(this, arguments);
 					}
 				}],

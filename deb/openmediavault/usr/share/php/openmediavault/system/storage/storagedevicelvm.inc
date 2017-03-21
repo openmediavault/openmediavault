@@ -156,8 +156,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	/**
 	 * Create the logical volume.
 	 * @param name The name for the new logical volume.
-	 * @param size Gives the size of bytes to allocate for the new
-	 *   logical volume.
+	 * @param size The size of bytes to allocate for the new logical volume.
 	 * @param vgName The name of the volume group where to create the
 	 *   logical volume.
 	 * @return None.
@@ -168,6 +167,26 @@ class StorageDeviceLvm extends StorageDeviceDM {
 		$cmdArgs[] = sprintf("--name %s", escapeshellarg($name));
 		$cmdArgs[] = sprintf("--size %sK", binary_convert($size, "B", "KiB"));
 		$cmdArgs[] = escapeshellarg($vgName);
+		$cmd = new \OMV\System\Process("lvcreate", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute();
+	}
+
+	/**
+	 * Create a snapshot of a logical volume.
+	 * @param name The name for the snapshot.
+	 * @param size The size of the snapshot in bytes.
+	 * @param lvName The name of the logical volume the snapshot is based on,
+	 *   e.g. '/dev/mapper/vg01-lv01'.
+	 * @return None.
+	 * @throw \OMV\ExecException
+	 */
+	public function createSnapshot($name, $size, $lvName) {
+		$cmdArgs = [];
+		$cmdArgs[] = "--snapshot";
+		$cmdArgs[] = sprintf("--name %s", escapeshellarg($name));
+		$cmdArgs[] = sprintf("--size %sK", binary_convert($size, "B", "KiB"));
+		$cmdArgs[] = escapeshellarg($lvName);
 		$cmd = new \OMV\System\Process("lvcreate", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute();
