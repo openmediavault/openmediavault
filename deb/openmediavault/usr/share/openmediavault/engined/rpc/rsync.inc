@@ -246,12 +246,11 @@ class OMVRpcServiceRsync extends \OMV\Rpc\ServiceAbstract {
 			$cmd = new \OMV\System\Process("sudo", $cmdArgs);
 			$cmd->setEnv("SHELL", "/bin/sh");
 			$cmd->setRedirect2to1();
-			$cmdLine = $cmd->getCommandLine();
-			// Execute the command.
-			$exitStatus = $this->exec($cmdLine, $output, $bgOutputFilename);
-			// Check the exit status.
-			if (0 !== $exitStatus)
-				throw new \OMV\ExecException($cmdLine, $output, $exitStatus);
+			if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
+				$output, $bgOutputFilename))) {
+				throw new \OMV\ExecException($cmd->getCommandLine(), $output,
+					$exitStatus);
+			}
 			return $output;
 		});
 	}

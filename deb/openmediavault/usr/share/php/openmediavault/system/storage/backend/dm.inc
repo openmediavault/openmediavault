@@ -61,7 +61,7 @@ class DM extends BackendAbstract {
 		return new \OMV\System\Storage\StorageDeviceDM($args);
 	}
 
-	function fsDeviceFile($deviceFile) {
+	function fsDeviceFile($deviceFile, $partition = 1) {
 		return $deviceFile;
 	}
 }

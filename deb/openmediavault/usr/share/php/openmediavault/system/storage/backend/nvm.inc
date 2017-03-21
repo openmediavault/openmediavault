@@ -55,8 +55,8 @@ class NVM extends BackendAbstract {
 		return preg_replace("/(p\d+)$/", "", $deviceFile);
 	}
 
-	function fsDeviceFile($deviceFile) {
+	function fsDeviceFile($deviceFile, $partition = 1) {
 		// E.g. /dev/nvme0n1p1
-		return sprintf("%sp1", $deviceFile);
+		return sprintf("%sp%d", $deviceFile, $partition);
 	}
 }

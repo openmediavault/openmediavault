@@ -222,10 +222,10 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				$cmdArgs[] = escapeshellarg($params['devicefile']);
 				$cmd = new \OMV\System\Process("shred", $cmdArgs);
 				$cmd->setRedirect2to1();
-				if (0 !== $this->exec($cmd->getCommandLine(), $output,
-				  $bgOutputFilename)) {
+				if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
+					$output, $bgOutputFilename))) {
 					throw new \OMV\ExecException($cmd->getCommandLine(),
-					  $output);
+						$output, $exitStatus);
 				}
 			} else {
 				// Quick wipe the device (see omv-initfs).
@@ -234,10 +234,10 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				$cmdArgs[] = escapeshellarg($params['devicefile']);
 				$cmd = new \OMV\System\Process("sgdisk", $cmdArgs);
 				$cmd->setRedirect2to1();
-				if (0 !== $this->exec($cmd->getCommandLine(), $output,
-				  $bgOutputFilename)) {
+				if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
+					$output, $bgOutputFilename))) {
 					throw new \OMV\ExecException($cmd->getCommandLine(),
-					  $output);
+						$output, $exitStatus);
 				}
 				// To make sure really everything is wiped ...
 				$cmdArgs = [];
@@ -248,10 +248,10 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				$cmdArgs[] = "count=1";
 				$cmd = new \OMV\System\Process("dd", $cmdArgs);
 				$cmd->setRedirect2to1();
-				if (0 !== $this->exec($cmd->getCommandLine(), $output,
-				  $bgOutputFilename)) {
+				if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
+					$output, $bgOutputFilename))) {
 					throw new \OMV\ExecException($cmd->getCommandLine(),
-					  $output);
+						$output, $exitStatus);
 				}
 			}
 			// Reread partition table.
@@ -260,9 +260,11 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = escapeshellarg($params['devicefile']);
 			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
 			$cmd->setRedirect2to1();
-			$cmdLine = $cmd->getCommandLine();
-			if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
-				throw new \OMV\ExecException($cmdLine, $output);
+			if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
+				$output, $bgOutputFilename))) {
+				throw new \OMV\ExecException($cmd->getCommandLine(), $output,
+					$exitStatus);
+			}
 			return $output;
 		});
 	}

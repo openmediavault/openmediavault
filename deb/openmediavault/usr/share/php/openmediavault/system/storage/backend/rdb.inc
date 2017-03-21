@@ -69,8 +69,8 @@ class RDB extends BackendAbstract {
 	/**
 	 * See interface definition.
 	 */
-	function fsDeviceFile($deviceFile) {
+	function fsDeviceFile($deviceFile, $partition = 1) {
 		// E.g. /dev/rbd2p1
-		return sprintf("%sp1", $deviceFile);
+		return sprintf("%sp%d", $deviceFile, $partition);
 	}
 }

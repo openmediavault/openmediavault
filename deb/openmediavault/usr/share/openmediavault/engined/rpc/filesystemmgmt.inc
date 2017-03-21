@@ -553,39 +553,21 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				"label" => $params['label']
 			]);
 			$jsonFile->close();
-			// Create partitions if necessary.
+			// Wipe all existing data on the storage device.
+			$this->writeBgProcOutput($bgOutputFilename,
+				"===== Wipe signatures from device =====\n");
+			$sd->wipe();
+			// Create the partition if necessary.
 			switch ($sdb->getType()) {
 			case OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID:
 			case OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER:
 			case OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE:
-				// Wipe existing file systems.
-				$this->writeBgProcOutput($bgOutputFilename,
-				  "===== Wipe signatures from device =====\n");
-				$cmdArgs = [];
-				$cmdArgs[] = "--all";
-				$cmdArgs[] = escapeshellarg($sd->getDeviceFile());
-				$cmd = new \OMV\System\Process("wipefs", $cmdArgs);
-				$cmd->setRedirect2to1();
-				$cmdLine = $cmd->getCommandLine();
-				if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
-					throw new \OMV\ExecException($cmdLine, $output);
-				// No need to create a partition.
+				// No need to create a partition for those types.
 				break;
 			default:
-				// Wipe existing file systems.
+				// Create a partition across the entire storage device.
 				$this->writeBgProcOutput($bgOutputFilename,
-				  "===== Wipe signatures from device =====\n");
-				$cmdArgs = [];
-				$cmdArgs[] = "--zap-all";
-				$cmdArgs[] = escapeshellarg($sd->getDeviceFile());
-				$cmd = new \OMV\System\Process("sgdisk", $cmdArgs);
-				$cmd->setRedirect2to1();
-				$cmdLine = $cmd->getCommandLine();
-				if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
-					throw new \OMV\ExecException($cmdLine, $output);
-				// Use entire device.
-				$this->writeBgProcOutput($bgOutputFilename,
-				  "===== Create partition =====\n");
+					"===== Create partition =====\n");
 				$cmdArgs = [];
 				$cmdArgs[] = "--new=1:0:0";
 				$cmdArgs[] = "--typecode=1:8300";
@@ -593,29 +575,31 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				$cmdArgs[] = escapeshellarg($sd->getDeviceFile());
 				$cmd = new \OMV\System\Process("sgdisk", $cmdArgs);
 				$cmd->setRedirect2to1();
-				$cmdLine = $cmd->getCommandLine();
-				if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
-					throw new \OMV\ExecException($cmdLine, $output);
-				sleep(2);
+				if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
+					$output, $bgOutputFilename))) {
+					throw new \OMV\ExecException($cmd->getCommandLine(),
+						$output, $exitStatus);
+				}
 				break;
 			}
-			// Re-read partition table.
+			// Re-read the partition table.
 			$cmdArgs = [];
 			$cmdArgs[] = escapeshellarg($sd->getDeviceFile());
 			$cmd = new \OMV\System\Process("partprobe", $cmdArgs);
 			$cmd->setRedirect2to1();
-			$cmdLine = $cmd->getCommandLine();
-			if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
-				throw new \OMV\ExecException($cmdLine, $output);
-			// We need to wait to give the kernel some time to re-read
-			// the partition table and until the device file exists.
-			// Abort if the device file does not exist after the given
-			// time.
+			if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
+				$output, $bgOutputFilename))) {
+				throw new \OMV\ExecException($cmd->getCommandLine(),
+					$output, $exitStatus);
+			}
+			// We need to wait to give the kernel some time to re-read the
+			// partition table and until the device file exists. Abort if
+			// the device file does not exist after the specified time.
 			$fsbd = new \OMV\System\BlockDevice($fsDeviceFile);
-			$fsbd->waitForDevice(5);
+			$fsbd->waitForDevice(10);
 			// Create the file system.
 			$this->writeBgProcOutput($bgOutputFilename,
-			  "===== Create file system =====\n");
+				"===== Create file system =====\n");
 			$cmdArgs = [];
 			$cmdArgs[] = "-V";
 			$cmdArgs[] = sprintf("-t %s", $fsb->getType());
@@ -627,18 +611,20 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = escapeshellarg($fsbd->getDeviceFile());
 			$cmd = new \OMV\System\Process("mkfs", $cmdArgs);
 			$cmd->setRedirect2to1();
-			$cmdLine = $cmd->getCommandLine();
-			if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
-				throw new \OMV\ExecException($cmdLine, $output);
+			if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
+				$output, $bgOutputFilename))) {
+				throw new \OMV\ExecException($cmd->getCommandLine(), $output,
+					$exitStatus);
+			}
 			// Notify configuration changes.
 			$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 			$dispatcher->notify(OMV_NOTIFY_CREATE,
-			  "org.openmediavault.conf.system.filesystem", [
-				  "devicefile" => $sd->getDeviceFile(),
-				  "parentdevicefile" => $sd->getDeviceFile(),
-				  "type" => $fsb->getType(),
-				  "label" => $params['label']
-			  ]);
+				"org.openmediavault.conf.system.filesystem", [
+					"devicefile" => $fsDeviceFile,
+					"parentdevicefile" => $sd->getDeviceFile(),
+					"type" => $fsb->getType(),
+					"label" => $params['label']
+				]);
 			return $output;
 		}, NULL, function() use($jsonFile) {
 			// Cleanup

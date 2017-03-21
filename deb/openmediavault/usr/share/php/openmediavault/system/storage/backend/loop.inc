@@ -44,7 +44,7 @@ class Loop extends BackendAbstract {
 		return new \OMV\System\Storage\StorageDeviceLoop($args);
 	}
 
-	function fsDeviceFile($deviceFile) {
+	function fsDeviceFile($deviceFile, $partition = 1) {
 		return $deviceFile;
 	}
 }

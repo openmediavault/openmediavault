@@ -185,9 +185,11 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 			$cmd = new \OMV\System\Process("apt-get", $cmdArgs);
 			$cmd->setRedirect2to1();
 			$cmd->setEnv("DEBIAN_FRONTEND", "noninteractive");
-			$cmdLine = $cmd->getCommandLine();
-			if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
-				throw new \OMV\ExecException($cmdLine, $output);
+			if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
+				$output, $bgOutputFilename))) {
+				throw new \OMV\ExecException($cmd->getCommandLine(), $output,
+					$exitStatus);
+			}
 			return $output;
 		});
 	}
@@ -211,9 +213,11 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 			// Update package database.
 			$cmd = new \OMV\System\Process("apt-get", "update");
 			$cmd->setRedirect2to1();
-			$cmdLine = $cmd->getCommandLine();
-			if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
-				throw new \OMV\ExecException($cmdLine, $output);
+			if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
+				$output, $bgOutputFilename))) {
+				throw new \OMV\ExecException($cmd->getCommandLine(), $output,
+					$exitStatus);
+			}
 			return $output;
 		});
 	}
@@ -357,9 +361,11 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 			$cmd = new \OMV\System\Process("gzip", $cmdArgs);
 			$cmd->setInputFromFile($matches[0]);
 			$cmd->setRedirect2to1();
-			$cmdLine = $cmd->getCommandLine();
-			if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename))
-				throw new \OMV\ExecException($cmdLine, $output);
+			if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
+				$output, $bgOutputFilename))) {
+				throw new \OMV\ExecException($cmd->getCommandLine(), $output,
+					$exitStatus);
+			}
 			return $output;
 		});
 	}
