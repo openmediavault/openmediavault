@@ -189,4 +189,10 @@ interface IStorageDevice {
 	 *   otherwise FALSE.
 	 */
 	public function hasSmartSupport();
+
+	/**
+	 * Wipe the storage device.
+	 * @return None
+	 */
+	public function wipe();
 }
