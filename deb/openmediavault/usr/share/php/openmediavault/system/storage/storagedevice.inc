@@ -239,15 +239,6 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 		$cmd = new \OMV\System\Process("sgdisk", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute();
-		// To make sure really everything is wiped ...
-		$cmdArgs = [];
-		$cmdArgs[] = "if=/dev/zero";
-		$cmdArgs[] = sprintf("of=%s", escapeshellarg($this->getDeviceFile()));
-		$cmdArgs[] = "bs=4M";
-		$cmdArgs[] = "count=1";
-		$cmd = new \OMV\System\Process("dd", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute();
 	}
 
 	/**
