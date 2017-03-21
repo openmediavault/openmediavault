@@ -229,6 +229,28 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 	}
 
 	/**
+	 * Wipe the storage device.
+	 * @return None
+	 */
+	public function wipe() {
+		$cmdArgs = [];
+		$cmdArgs[] = "--zap-all";
+		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
+		$cmd = new \OMV\System\Process("sgdisk", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute();
+		// To make sure really everything is wiped ...
+		$cmdArgs = [];
+		$cmdArgs[] = "if=/dev/zero";
+		$cmdArgs[] = sprintf("of=%s", escapeshellarg($this->getDeviceFile()));
+		$cmdArgs[] = "bs=4M";
+		$cmdArgs[] = "count=1";
+		$cmd = new \OMV\System\Process("dd", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute();
+	}
+
+	/**
 	 * Enumerate devices matching the given storage device type.
 	 * @param type Defines the storage device type, e.g. hard disk, hard or
 	 *   Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.

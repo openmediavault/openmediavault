@@ -56,13 +56,13 @@ class StorageDeviceMdadm extends StorageDevice {
 		$cmd = new \OMV\System\Process("mdadm", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
-		$attributes = array(
+		$attributes = [
 			"name" => "",
 			"level" => "",
 			"num-devices" => -1,
 			"uuid" => "",
 			"devices" => ""
-		);
+		];
 		$output = explode(" ", implode(" ", $output));
 		foreach ($output as $outputk => &$outputv) {
 			$keyValue = explode("=", $outputv);

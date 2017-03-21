@@ -145,24 +145,25 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Skip read-only devices like CDROM.
 			if (TRUE === $sd->isReadOnly())
 				continue;
-			// Check if device is referenced/used by a plugin.
-/* !!! Can not be done with the new database implementation at the moment !!!
-			$xpath = sprintf("//services/devicefile[contains(.,'%s')]",
-			  $sd->getDeviceFile());
-			if (TRUE === $xmlConfig->exists($xpath))
+			// Check if the device is referenced/used by a plugin.
+			$db = \OMV\Config\Database::getInstance();
+			if (TRUE === $db->exists("conf.service", [
+					"operator" => "stringContains",
+					"arg0" => "devicefile",
+					"arg1" => $sd->getDeviceFile()
+				]))
 				continue;
-*/
 			// Does this device already contain a filesystem?
 			if (FALSE !== \OMV\System\Filesystem\Filesystem::hasFileSystem(
-			  $sd->getDeviceFile()))
+				$sd->getDeviceFile()))
 				continue;
 			// The device is a potential candidate to be used as a
 			// physical volume.
-			$result[] = array(
+			$result[] = [
 				"devicefile" => $sd->getDeviceFile(),
 				"size" => $sd->getSize(),
 				"description" => $sd->getDescription()
-			);
+			];
 		}
 		return $result;
 	}
@@ -182,22 +183,19 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.common.devicefile");
 		// Make sure the disk device is clean, no partition table
 		// should exist, otherwise pvcreate fails.
-		$cmdArgs = [];
-		$cmdArgs[] = "if=/dev/zero";
-		$cmdArgs[] = sprintf("of=%s", $params['devicefile']);
-		$cmdArgs[] = "bs=512";
-		$cmdArgs[] = "count=1";
-		$cmd = new \OMV\System\Process("dd", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute();
+		\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
+			$params['devicefile']);
+		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
+			$params['devicefile']);
+		$sd->wipe();
 		// Create the physical volume.
-		$pv = new \OMV\System\Storage\Lvm\PhysicalVolume($params['devicefile']);
+		$pv = new \OMV\System\Storage\Lvm\PhysicalVolume($sd->getDeviceFile());
 		$pv->create();
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_CREATE,
 		  "org.openmediavault.conf.system.storage.lvm.physicalvolume", [
-			  "devicefile" => $params['devicefile']
+			  "devicefile" => $sd->getDeviceFile()
 		  ]);
 	}
 

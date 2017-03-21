@@ -189,14 +189,14 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Check if the device is referenced/used by a plugin.
 			$db = \OMV\Config\Database::getInstance();
 			if (TRUE === $db->exists("conf.service", [
-				  "operator" => "stringContains",
-				  "arg0" => "devicefile",
-				  "arg1" => $sd->getDeviceFile()
-			  ]))
+					"operator" => "stringContains",
+					"arg0" => "devicefile",
+					"arg1" => $sd->getDeviceFile()
+				]))
 				continue;
 			// Does this device already contain a filesystem?
 			if (FALSE !== \OMV\System\Filesystem\Filesystem::hasFileSystem(
-			  $sd->getDeviceFile()))
+				$sd->getDeviceFile()))
 				continue;
 			// The device is a potential candidate to be a member of a
 			// Software RAID.
