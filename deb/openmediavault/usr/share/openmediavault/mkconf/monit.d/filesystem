@@ -25,7 +25,7 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_MONIT_SERVICE_FILESYSTEM_CONFIG=${OMV_MONIT_SERVICE_FILESYSTEM_CONFIG:-"/etc/monit/conf.d/openmediavault-filesystem.conf"}
-OMV_MONIT_SERVICE_FILESYSTEM_SPACEUSAGE=${OMV_MONIT_SERVICE_FILESYSTEM_SPACEUSAGE:-"80"}
+OMV_MONIT_SERVICE_FILESYSTEM_SPACEUSAGE=${OMV_MONIT_SERVICE_FILESYSTEM_SPACEUSAGE:-"85"}
 
 if [ "$(omv_config_get "//system/notification/notifications/notification[id='monitfilesystems']/enable")" = "1" ]; then
 	# Monitor root filesystem.

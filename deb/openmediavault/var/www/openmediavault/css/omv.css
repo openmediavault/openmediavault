@@ -305,6 +305,9 @@ div#headerrlogo {
 	background-color: #98b7cf; /* Cooperate color */
 	background-image: none; /* Flat design */
 }
+.x-progress-warning .x-progress-bar-default {
+	background-color: #ff3b30; /* Red */
+}
 /* Tabs */
 .x-tab-invalid {
 	border: 1px solid #cc3300;
