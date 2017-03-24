@@ -118,9 +118,11 @@ class Manager implements \IteratorAggregate {
 			$found = FALSE;
 			if (is_devicefile($id)) {
 				// Compare the device file name. Use the canonical device
-				// file for an additional check.
-				$found = (($id == $enumv['devicefile']) ||
-				  (realpath($id) == $enumv['devicefile']));
+				// files for an additional check.
+				if ($id == $enumv['devicefile'])
+					$found = TRUE;
+				else if (realpath($id) == realpath($enumv['devicefile']))
+					$found = TRUE;
 			} else if (is_fs_uuid($id)) {
 				// Compare the filesystem UUID.
 				$found = ($id == $enumv['uuid']);

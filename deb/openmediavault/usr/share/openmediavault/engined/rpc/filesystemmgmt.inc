@@ -787,12 +787,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.filesystemmgmt.mount");
 		// Get the corresponding filesystem backend.
 		$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
+		$fsbMngr->assertBackendExistsById($params['id']);
 		$fsb = $fsbMngr->getBackendById($params['id']);
-		if (is_null($fsb)) {
-			throw new \OMV\Exception(
-			  "Filesystem '%s' not found or no backend exists.",
-			  $params['id']);
-		}
 		// Get the filesystem.
 		$fs = $fsb->getImpl($params['id']);
 		if (is_null($fs) || !$fs->exists()) {
@@ -812,32 +808,18 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		  $parentDeviceFile);
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 		  $parentDeviceFile);
-		// Get mount options depending on the filesystem type.
-		switch (strtolower($fs->getType())) {
-		case "ext2":
-		case "ext3":
-		case "ext4":
-		case "jfs":
-		case "xfs":
-		case "hfsplus":
-		case "btrfs":
-		case "reiserfs":
-		case "iso9660":
-		case "udf":
-			$fsName = $fs->getUuid();
-			$opts = $fsb->getFstabMntOptions($sd);
-			break;
-		case "exfat":
-		case "vfat":
-		case "ntfs":
-			$fsName = $fs->getDeviceFileByUuid();
-			$opts = $fsb->getFstabMntOptions($sd);
-			break;
-		default:
-			throw new \OMV\Exception("Filesystem '%s' not supported.",
-			  $fs->getType());
-			break;
-		}
+		// Get the special device file of the filesystem.
+		// Note, the preferred device file is:
+		// - /dev/disk/by-label/xxx
+		// - /dev/disk/by-id/xxx
+		// - /dev/disk/by-uuid/xxx
+		// - /dev/xxx
+		// Do not use the filesystem UUID itself, e.g.:
+		// UUID=448f889a-105b-11e7-a91c-2b545744f57a
+		// This is because this will make problems with LV/BTRFS snapshots
+		// due the fact that they have the same filesystem UUID as their
+		// origin.
+		$fsName = $fs->getPreferredDeviceFile();
 		// Try to obtain the mount point configuration object if this exists.
 		$meObject = \OMV\Rpc\Rpc::call("FsTab", "getByFsName", [
 			"fsname" => $fsName
@@ -853,7 +835,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 					"fsname" => $fsName,
 					"dir" => \OMV\System\MountPoint::buildPath($fs->getUuid()),
 					"type" => $fs->getType(),
-					"opts" => implode(",", $opts),
+					"opts" => implode(",", $fsb->getFstabMntOptions($sd)),
 					"freq" => 0,
 					"passno" => 2
 				], $context);

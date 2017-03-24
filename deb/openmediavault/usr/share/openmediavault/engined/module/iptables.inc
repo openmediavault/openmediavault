@@ -54,5 +54,5 @@ class OMVModuleIptables extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.conf.system.network.iptables.rule",
 		  [ $this, "setDirty" ]);
-    }
+	}
 }
