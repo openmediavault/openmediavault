@@ -2,6 +2,9 @@ openmediavault (3.0.68) stable; urgency=low
 
   * Various bug fixes and improvements.
   * Add 'omv-confdbadm exists' command.
+  * Do not use /etc/fstab entries like UUID=<xxx> anymore because this
+    will make problems with LV/BTRFS snapshots. Use /dev/disk/by-xxx/xxx
+    device files instead.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 20 Mar 2017 12:38:22 +0100
 

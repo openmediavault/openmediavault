@@ -417,7 +417,8 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	 * \li /dev/sdb1 => /dev/sdb
 	 * \li /dev/cciss/c0d0p2 => /dev/cciss/c0d0
 	 * </ul>
-	 * @return The device file of the underlying storage device.
+	 * @return The device file of the underlying storage device or FALSE
+	 *   on failure.
 	 */
 	public function getParentDeviceFile() {
 		$this->getData();
@@ -454,13 +455,11 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	}
 
 	/**
-	 * Get the special device file to present in the UI instead of the
-	 * value of the getDeviceFile method.
 	 * Get the special device file in the following preferred order:
 	 * <ul>
 	 * \li /dev/disk/by-label/xxx
-	 * \li /dev/disk/by-uuid/xxx
 	 * \li /dev/disk/by-id/xxx
+	 * \li /dev/disk/by-uuid/xxx
 	 * \li /dev/xxx
 	 * </ul>
 	 * @return Returns the device file.
@@ -468,10 +467,10 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	public function getPreferredDeviceFile() {
 		if (TRUE === $this->hasDeviceFileByLabel())
 			return $this->getDeviceFileByLabel();
-		else if (TRUE === $this->hasDeviceFileByUuid())
-			return $this->getDeviceFileByUuid();
 		else if (TRUE === $this->hasDeviceFileById())
 			return $this->getDeviceFileById();
+		else if (TRUE === $this->hasDeviceFileByUuid())
+			return $this->getDeviceFileByUuid();
 		return $this->getDeviceFile();
 	}
 

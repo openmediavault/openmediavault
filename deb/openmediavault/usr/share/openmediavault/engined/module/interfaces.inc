@@ -97,5 +97,5 @@ class OMVModuleInterfaces extends \OMV\Engine\Module\ServiceAbstract
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.conf.system.network.interface",
 		  [ $moduleMngr->getModule("networking"), "setDirty" ]);
-    }
+	}
 }

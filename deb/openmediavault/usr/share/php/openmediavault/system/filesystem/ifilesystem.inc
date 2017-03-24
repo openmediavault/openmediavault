@@ -89,13 +89,11 @@ interface IFilesystem {
 	public function getDeviceFileByLabel();
 
 	/**
-	 * Get the special device file to present in the UI instead of the
-	 * value of the getDeviceFile method.
 	 * Get the special device file in the following preferred order:
 	 * <ul>
 	 * \li /dev/disk/by-label/xxx
-	 * \li /dev/disk/by-uuid/xxx
 	 * \li /dev/disk/by-id/xxx
+	 * \li /dev/disk/by-uuid/xxx
 	 * \li /dev/xxx
 	 * </ul>
 	 * @return Returns the special device file.
