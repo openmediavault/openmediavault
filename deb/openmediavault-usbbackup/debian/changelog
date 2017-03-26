@@ -1,3 +1,9 @@
+openmediavault-usbbackup (3.2.17) stable; urgency=low
+
+  * Fix bug caused by erroneous API usage.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 26 Mar 2017 23:43:35 +0200
+
 openmediavault-usbbackup (3.2.16) stable; urgency=low
 
   * Various improvements.
