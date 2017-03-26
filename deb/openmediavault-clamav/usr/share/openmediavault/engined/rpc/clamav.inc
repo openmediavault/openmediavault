@@ -59,7 +59,7 @@ class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 		$result['enable'] = $object->get("enable");
 		$result['checks'] = $object->get("freshclam.checks");
 		$result['quarantine_sharedfolderref'] = $object->get(
-		  "quarantine_sharedfolderref");
+		  "quarantine.sharedfolderref");
 		return $result;
 	}
 
@@ -82,7 +82,7 @@ class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 		$object = $db->get("conf.service.clamav");
 		$object->setFlatAssoc([
 			"enable" => $params['enable'],
-			"quarantine_sharedfolderref" => $params[
+			"quarantine.sharedfolderref" => $params[
 			  'quarantine_sharedfolderref'],
 			"clamd.logclean" => $params['logclean'],
 			"clamd.scanpe" => $params['scanpe'],
@@ -103,7 +103,7 @@ class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Do some validations:
 		// - Check if quarantine shared folder is referenced and required.
-		if (TRUE === $object->isEmpty("quarantine_sharedfolderref")) {
+		if (TRUE === $object->isEmpty("quarantine.sharedfolderref")) {
 			if (TRUE === $db->exists("conf.service.clamav.job", [
 				"operator" => "stringEquals",
 				"arg0" => "virusaction",
@@ -197,7 +197,7 @@ class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		if ("quarantine" === $object->get("virusaction")) {
 			$object2 = $db->get("conf.service.clamav");
-			if ($object2->isEmpty("quarantine_sharedfolderref")) {
+			if ($object2->isEmpty("quarantine.sharedfolderref")) {
 				throw new \OMV\Exception("No quarantine folder is set.");
 			}
 		}

@@ -11,15 +11,21 @@
 			"type": "boolean",
 			"default": false
 		},
-		"quarantine_sharedfolderref": {
-			"type": "string",
-			"oneOf": [{
-				"type": "string",
-				"format": "uuidv4"
-			},{
-				"type": "string",
-				"maxLength": 0
-			}]
+		"quarantine": {
+			"type": "object",
+			"properties": {
+				"sharedfolderref": {
+					"type": "string",
+					"oneOf": [{
+						"type": "string",
+						"format": "uuidv4"
+					},{
+						"type": "string",
+						"maxLength": 0
+					}],
+					"default": ""
+				}
+			}
 		},
 		"clamd": {
 			"type": "object",
