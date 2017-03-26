@@ -182,7 +182,7 @@ xmlstarlet sel -t \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CLAMAV_FRESHCLAM_CONFIG}
 
 # Get the quarantine shared folder.
-sfref=$(omv_config_get "//services/clamav/quarantine_sharedfolderref")
+sfref=$(omv_config_get "//services/clamav/quarantine/sharedfolderref")
 sfpath=$(omv_get_sharedfolder_path "${sfref}")
 
 # Create the cron jobs.

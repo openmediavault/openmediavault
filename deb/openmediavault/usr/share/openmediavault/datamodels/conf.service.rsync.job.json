@@ -30,24 +30,44 @@
 			"default": "local"
 		},
 		"src": {
-			"type": "string",
-			"oneOf": [{
-				"type": "string",
-				"format": "uuidv4"
-			},{
-				"type": "string"
-			}],
-			"default": ""
+			"type": "object",
+			"properties": {
+				"sharedfolderref": {
+					"type": "string",
+					"oneOf": [{
+						"type": "string",
+						"format": "uuidv4"
+					},{
+						"type": "string",
+						"maxLength": 0
+					}],
+					"default": ""
+				},
+				"uri": {
+					"type": "string",
+					"default": ""
+				}
+			}
 		},
 		"dest": {
-			"type": "string",
-			"oneOf": [{
-				"type": "string",
-				"format": "uuidv4"
-			},{
-				"type": "string"
-			}],
-			"default": ""
+			"type": "object",
+			"properties": {
+				"sharedfolderref": {
+					"type": "string",
+					"oneOf": [{
+						"type": "string",
+						"format": "uuidv4"
+					},{
+						"type": "string",
+						"maxLength": 0
+					}],
+					"default": ""
+				},
+				"uri": {
+					"type": "string",
+					"default": ""
+				}
+			}
 		},
 		"minute": {
 			"type": "string",

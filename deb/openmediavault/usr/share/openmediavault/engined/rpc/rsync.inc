@@ -130,18 +130,18 @@ class OMVRpcServiceRsync extends \OMV\Rpc\ServiceAbstract {
 		// Add additional information.
 		switch ($object->get("type")) {
 		case "local":
-			$object->copy("src", "srcsharedfolderref");
-			$object->copy("dest", "destsharedfolderref");
+			$object->copy("src.sharedfolderref", "srcsharedfolderref");
+			$object->copy("dest.sharedfolderref", "destsharedfolderref");
 			break;
 		case "remote":
 			switch ($object->get("mode")) {
 			case "push":
-				$object->copy("src", "srcsharedfolderref");
-				$object->copy("dest", "desturi");
+				$object->copy("src.sharedfolderref", "srcsharedfolderref");
+				$object->copy("dest.uri", "desturi");
 				break;
 			case "pull":
-				$object->copy("src", "srcuri");
-				$object->copy("dest", "destsharedfolderref");
+				$object->copy("src.uri", "srcuri");
+				$object->copy("dest.sharedfolderref", "destsharedfolderref");
 				break;
 			}
 			break;
@@ -167,18 +167,28 @@ class OMVRpcServiceRsync extends \OMV\Rpc\ServiceAbstract {
 		$object->setAssoc($params, TRUE, TRUE);
 		switch ($params['type']) {
 		case "local":
-			$object->set("src", $params['srcsharedfolderref']);
-			$object->set("dest", $params['destsharedfolderref']);
+			$object->set("src.sharedfolderref", $params[
+				'srcsharedfolderref']);
+			$object->set("src.uri", "");
+			$object->set("dest.sharedfolderref", $params[
+				'destsharedfolderref']);
+			$object->set("dest.uri", "");
 			break;
 		case "remote":
 			switch ($params['mode']) {
 			case "push":
-				$object->set("src", $params['srcsharedfolderref']);
-				$object->set("dest", $params['desturi']);
+				$object->set("src.sharedfolderref", $params[
+					'srcsharedfolderref']);
+				$object->set("src.uri", "");
+				$object->set("dest.sharedfolderref", "");
+				$object->set("dest.uri", $params['desturi']);
 				break;
 			case "pull":
-				$object->set("src", $params['srcuri']);
-				$object->set("dest", $params['destsharedfolderref']);
+				$object->set("src.sharedfolderref", "");
+				$object->set("src.uri", $params['srcuri']);
+				$object->set("dest.sharedfolderref", $params[
+					'destsharedfolderref']);
+				$object->set("dest.uri", "");
 				break;
 			}
 			break;
