@@ -74,12 +74,12 @@ class OMVRpcServiceRsync extends \OMV\Rpc\ServiceAbstract {
 				// Get the shared folder configuration object and update the
 				// 'srcname' property.
 				$sfObject = $db->get("conf.system.sharedfolder",
-				  $objectv->get("src"));
+				  $objectv->get("src.sharedfolderref"));
 				$objectv->set("srcname", $sfObject->get("name"));
 				// Get the shared folder configuration object and update the
 				// 'destname' property.
 				$sfObject = $db->get("conf.system.sharedfolder",
-				  $objectv->get("dest"));
+				  $objectv->get("dest.sharedfolderref"));
 				$objectv->set("destname", $sfObject->get("name"));
 				break;
 			case "remote":
@@ -87,18 +87,18 @@ class OMVRpcServiceRsync extends \OMV\Rpc\ServiceAbstract {
 				case "push":
 					// Get the shared folder config object.
 					$sfObject = $db->get("conf.system.sharedfolder",
-					  $objectv->get("src"));
+					  $objectv->get("src.sharedfolderref"));
 					// Set the additional 'srcname' and 'destname' properties.
 					$objectv->set("srcname", $sfObject->get("name"));
-					$objectv->copy("dest", "destname");
+					$objectv->copy("dest.uri", "destname");
 					break;
 				case "pull":
 					// Get the shared folder config object.
 					$sfObject = $db->get("conf.system.sharedfolder",
-					  $objectv->get("dest"));
+					  $objectv->get("dest.sharedfolderref"));
 					// Set the additional 'srcname' and 'destname' properties.
 					$objectv->set("destname", $sfObject->get("name"));
-					$objectv->copy("src", "srcname");
+					$objectv->copy("src.uri", "srcname");
 					break;
 				}
 				break;
