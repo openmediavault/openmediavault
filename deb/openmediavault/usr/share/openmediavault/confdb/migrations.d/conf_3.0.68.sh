@@ -24,8 +24,7 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 xmlstarlet sel -t -m "/config/services/rsync/jobs/job" \
-	-v "uuid" \
-	-i "position() != last()" -n -b \
+	-v "uuid" -n \
 	${OMV_CONFIG_FILE} | xmlstarlet unesc |
 	while read uuid; do
 		src=$(omv_config_get "/config/services/rsync/jobs/job[uuid='${uuid}']/src")
