@@ -19,6 +19,8 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+require_once("openmediavault/functions.inc");
+
 class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
@@ -77,7 +79,7 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 			$fs = $fsb->getImpl($objectv['devicefile']);
 			// Get the parent storage device containing the filesystem.
 			$parentDeviceFile = $fs->getParentDeviceFile();
-			if (TRUE === is_null($parentDeviceFile))
+			if (FALSE === is_devicefile($parentDeviceFile))
 				continue;
 			\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
 			  $parentDeviceFile);

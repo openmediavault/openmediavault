@@ -798,7 +798,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Get the parent storage device containing the filesystem, e.g.
 		// /dev/sdb or /dev/cciss/c0d0.
-		if (FALSE === ($parentDeviceFile = $fs->getParentDeviceFile())) {
+		$parentDeviceFile = $fs->getParentDeviceFile();
+		if (FALSE === is_devicefile($parentDeviceFile)) {
 			throw new \OMV\Exception(
 			  "Failed to get parent storage device file from '%s'.",
 			  $fs->getDeviceFile());
