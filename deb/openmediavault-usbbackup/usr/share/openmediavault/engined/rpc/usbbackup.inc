@@ -76,7 +76,8 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 			// Get the filesystem implementation.
 			$fs = $fsb->getImpl($objectv['devicefile']);
 			// Get the parent storage device containing the filesystem.
-			if (FALSE === ($parentDeviceFile = $fs->getParentDeviceFile()))
+			$parentDeviceFile = $fs->getParentDeviceFile();
+			if (TRUE === is_null($parentDeviceFile))
 				continue;
 			\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
 			  $parentDeviceFile);

@@ -127,7 +127,8 @@ interface IFilesystem {
 	 * \li /dev/sdb1 => /dev/sdb
 	 * \li /dev/cciss/c0d0p2 => /dev/cciss/c0d0
 	 * </ul>
-	 * @return The device file of the underlying storage device.
+	 * @return The device file of the underlying storage device or NULL
+	 *   on failure.
 	 */
 	public function getParentDeviceFile();
 
