@@ -683,11 +683,16 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 			// Skip everything that does not look like '/dev/xxx'.
 			if (FALSE === is_devicefile($parts[0]))
 				continue;
+			// Compare the device files.
+			if (realpath($parts[0]) == realpath($this->getDeviceFile())) {
+				$result = TRUE;
+				break;
+			}
 			// Compare the filesystem UUID.
-			if ($parts[1] !== $this->getUuid())
-				continue;
-			$result = TRUE;
-			break;
+			//if ($parts[1] == $this->getUuid()) {
+			//	$result = TRUE;
+			//	break;
+			//}
 		}
 		return $result;
 	}
@@ -708,11 +713,13 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 				$options = [ $options ];
 			$cmdArgs[] = sprintf("-o %s", implode(",", $options));
 		}
-		if (TRUE === $this->hasUuid())
-			$cmdArgs[] = sprintf("-U %s", $this->getUuid());
-		else
-			$cmdArgs[] = sprintf("--source %s", escapeshellarg(
-				$this->getDeviceFile()));
+		//if (TRUE === $this->hasUuid())
+		//	$cmdArgs[] = sprintf("-U %s", $this->getUuid());
+		//else
+		//	$cmdArgs[] = sprintf("--source %s", escapeshellarg(
+		//		$this->getDeviceFile()));
+		$cmdArgs[] = sprintf("--source %s", escapeshellarg(
+			$this->getDeviceFile()));
 		if (!empty($dir))
 			$cmdArgs[] = escapeshellarg($dir);
 		$cmd = new \OMV\System\Process("mount", $cmdArgs);
