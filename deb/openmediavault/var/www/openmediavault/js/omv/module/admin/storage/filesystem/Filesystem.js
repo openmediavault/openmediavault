@@ -497,7 +497,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,
 				model: OMV.data.Model.createImplicit({
-					idProperty: "id",
+					idProperty: "devicefile",
 					fields: [
 						{ name: "id", type: "string", persist: false },
 						{ name: "uuid", type: "string" },
@@ -533,19 +533,19 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 					},
 					reader: {
 						type: "rpcjson",
-					    transform: {
-					        fn: function(data) {
-					            return data.data.map(function(item) {
-							// Convert the 'id' field value.
-							item.id = item.devicefile;
-							if (!Ext.isEmpty(item.uuid)) {
-								item.id = Ext.String.format(
-								  "UUID={0}", item.uuid);
+						transform: {
+							fn: function(data) {
+								return data.data.map(function(item) {
+									// Convert the 'id' field value.
+									item.id = item.devicefile;
+									if (!Ext.isEmpty(item.uuid)) {
+										item.id = Ext.String.format(
+											"UUID={0}", item.uuid);
+									}
+									return item;
+								});
 							}
-					                return item;
-					            });
-					         }
-					      }
+						}
 					}
 				},
 				remoteSort: true,

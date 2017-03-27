@@ -158,4 +158,21 @@
 			}
 		}
 	}
+},{
+	"type": "rpc",
+	"id": "rpc.logicalvolumemgmt.createlogicalvolumesnapshot",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devicefile": {
+				"type": "string",
+				"format": "devicefile",
+				"required": true
+			},
+			"size": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
 }]
