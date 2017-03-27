@@ -176,17 +176,15 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	 * Create a snapshot of a logical volume.
 	 * @param name The name for the snapshot.
 	 * @param size The size of the snapshot in bytes.
-	 * @param lvName The name of the logical volume the snapshot is based on,
-	 *   e.g. '/dev/mapper/vg01-lv01'.
 	 * @return None.
 	 * @throw \OMV\ExecException
 	 */
-	public function createSnapshot($name, $size, $lvName) {
+	public function createSnapshot($name, $size) {
 		$cmdArgs = [];
 		$cmdArgs[] = "--snapshot";
 		$cmdArgs[] = sprintf("--name %s", escapeshellarg($name));
 		$cmdArgs[] = sprintf("--size %sK", binary_convert($size, "B", "KiB"));
-		$cmdArgs[] = escapeshellarg($lvName);
+		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("lvcreate", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute();

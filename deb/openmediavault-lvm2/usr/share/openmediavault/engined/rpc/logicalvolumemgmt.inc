@@ -54,6 +54,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("renameLogicalVolume");
 		$this->registerMethod("deleteLogicalVolume");
 		$this->registerMethod("modifyLogicalVolume");
+		$this->registerMethod("createLogicalVolumeSnapshot");
 	}
 
 	/**
@@ -801,5 +802,38 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			  "devicefile" => $params['devicefile'],
 			  "size" => $params['size']
 		  ]);
+	}
+
+	/**
+	 * Create a logical volume snapshot.
+	 * @param params An array containing the following fields:
+	 *   \em devicefile The device file of the logical volume.
+	 *   \em size The size of the logical volume in bytes. This is a string to
+	 *      support volumes > 2GiB on 32bit systems.
+	 * @param context The context of the caller.
+	 * @return None.
+	 */
+	public function createLogicalVolumeSnapshot($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params,
+			"rpc.logicalvolumemgmt.createlogicalvolumesnapshot");
+		// Get the logical volume.
+		$lv = new \OMV\System\Storage\Lvm\LogicalVolume($params['devicefile']);
+		$lv->assertExists();
+		// Create the snapshot.
+		$name = sprintf("%s_snapshot_%s", $lv->getName(), date("Ymd-Hms"));
+		$lv->createSnapshot($name, $params['size']);
+		// Notify configuration changes.
+		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
+		$dispatcher->notify(OMV_NOTIFY_CREATE,
+			"org.openmediavault.conf.system.storage.lvm.logicalvolume", [
+				"name" => $name,
+				"size" => $params['size'],
+				"vgname" => $lv->getVGName()
+			]);
 	}
 }
