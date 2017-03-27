@@ -779,7 +779,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 				service: "FileSystemMgmt",
 				method: "mount",
 				params: {
-					id: record.get("uuid"),
+					id: record.get("devicefile"),
 					fstab: true
 				}
 			}
@@ -789,11 +789,6 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 	onUnmountButton: function() {
 		var me = this;
 		var record = me.getSelected();
-		// Prefer the file system UUID, but in some cases a file system does
-		// not have a UUID, then use the devicefile instead.
-		var id = record.get("uuid");
-		if(Ext.isEmpty(id))
-			id = record.get("devicefile");
 		// Execute RPC.
 		OMV.Rpc.request({
 			scope: me,
@@ -805,7 +800,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 				service: "FileSystemMgmt",
 				method: "umount",
 				params: {
-					id: id,
+					id: record.get("devicefile"),
 					fstab: true
 				}
 			}
