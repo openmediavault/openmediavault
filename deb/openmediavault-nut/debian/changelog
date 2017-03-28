@@ -1,3 +1,9 @@
+openmediavault-nut (3.2.10) stable; urgency=low
+
+  * Modify monit configuration to be able to monitor the process status.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 28 Mar 2017 21:17:47 +0200
+
 openmediavault-nut (3.2.9) stable; urgency=low
 
   * Fix first installation bug.
