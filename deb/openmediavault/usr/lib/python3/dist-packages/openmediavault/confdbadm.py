@@ -29,6 +29,7 @@ import re
 import sys
 import tempfile
 import openmediavault
+import openmediavault.config.datamodel
 import openmediavault.string
 
 class ICommand(metaclass=abc.ABCMeta):
@@ -128,4 +129,8 @@ class CommandHelper():
 		"""
 		if not re.match(r'^conf(\..+)?$', arg):
 			raise argparse.ArgumentTypeError("No valid data model ID.")
+		try:
+			openmediavault.config.Datamodel(arg)
+		except Exception as e:
+			raise argparse.ArgumentTypeError(str(e))
 		return arg
