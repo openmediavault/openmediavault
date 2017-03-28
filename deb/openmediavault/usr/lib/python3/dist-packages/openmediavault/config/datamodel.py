@@ -29,7 +29,7 @@ import openmediavault.json.schema
 class DatamodelNotFoundException(Exception):
 	def __init__(self, id):
 		self._id = id
-		super().__init__("No such datamodel: %s" % id)
+		super().__init__("No such data model: %s" % id)
 
 	@property
 	def id(self):
