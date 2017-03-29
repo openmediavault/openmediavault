@@ -6,7 +6,7 @@ openmediavault (3.0.68) stable; urgency=low
     will make problems with LV/BTRFS snapshots. Use /dev/disk/by-xxx/xxx
     device files instead.
   * Improve the datamodel to be able to resolve shared folder references.
-  * File systems will be mounted below /srv now.
+  * File systems will be mounted according to FHS below /srv now.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 20 Mar 2017 12:38:22 +0100
 
