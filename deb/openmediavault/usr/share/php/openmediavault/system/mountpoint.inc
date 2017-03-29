@@ -197,16 +197,26 @@ class MountPoint {
 	/**
 	 * Get the mountpoint path where the file system should be mounted to.
 	 * Note, this path is OMV specific: /media/<FSUUID>.
-	 * @param id The name or UUID of the file system, e.g.
+	 * @param id string The device file or UUID of the file system, e.g.
 	 *   <ul>
 	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
 	 *   \li 7A48-BA97 (FAT)
 	 *   \li 2ED43920D438EC29 (NTFS)
+	 *   \li /dev/sda2
+	 *   \li /dev/sdb
+	 *   \li /dev/md1
+	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6
+	 *   \li /dev/disk/by-id/wwn-0x5000cca211cc703c-part1
 	 *   </ul>
 	 * @return The path where to mount the file system, e.g.
 	 *   /media/85732966-949a-4d8b-87d7-d7e6681f787e.
 	 */
 	public static function buildPath($id) {
+		if (is_devicefile($id)) {
+			// Transform the device file into something useful.
+			$id = preg_replace("/^\/dev\/(disk\/by-.+\/)?/i", "", $id);
+			$id = str_replace("/", "_", $id);
+		}
 		return build_path(DIRECTORY_SEPARATOR, \OMV\Environment::get(
 		  "OMV_MOUNT_DIR"), $id);
 	}
