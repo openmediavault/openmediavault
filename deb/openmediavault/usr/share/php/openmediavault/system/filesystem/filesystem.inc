@@ -566,35 +566,40 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 		$this->getData();
 		$cmdArgs = [];
 		$cmdArgs[] = "-cnrv";
-		$cmdArgs[] = "-o SOURCE,UUID,TARGET";
+		$cmdArgs[] = "-o SOURCE,TARGET";
 		$cmd = new \OMV\System\Process("findmnt", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		// Parse command output:
-		// sysfs  /sys
-		// proc  /proc
-		// udev  /dev
-		// devpts  /dev/pts
-		// tmpfs  /run
-		// /dev/sda1 df68201c-c816-4228-9bf9-5563b03e6bc1 /
-		// tmpfs  /run/lock
-		// tmpfs  /run/shm
-		// tmpfs  /tmp
-		// /dev/sde1 8c982ec2-8aa7-4fe2-a912-7478f0429e06 /media/8c982ec2-8aa7-4fe2-a912-7478f0429e06
-		// /dev/sdc1 ea792ccb-cce6-409d-ab9b-0e3fd2bfbfc4 /media/ea792ccb-cce6-409d-ab9b-0e3fd2bfbfc4
-		// /dev/md0 2853402e-fe8f-443b-abd5-c42892f25be1 /media/2853402e-fe8f-443b-abd5-c42892f25be1
-		// rpc_pipefs  /var/lib/nfs/rpc_pipefs
-		// /dev/sdf1 7A48-BA97 /media/7A48-BA97
+		// sysfs /sys
+		// proc /proc
+		// udev /dev
+		// devpts /dev/pts
+		// tmpfs /run
+		// /dev/sda1 /
+		// tmpfs /run/lock
+		// tmpfs /run/shm
+		// tmpfs /tmp
+		// /dev/sde1 /media/8c982ec2-8aa7-4fe2-a912-7478f0429e06
+		// /dev/sdc1 /media/ea792ccb-cce6-409d-ab9b-0e3fd2bfbfc4
+		// /dev/md0 /media/2853402e-fe8f-443b-abd5-c42892f25be1
+		// rpc_pipefs /var/lib/nfs/rpc_pipefs
+		// /dev/sdf1 /media/7A48-BA97
+		// /dev/mapper/vg01-lv01 /srv/_dev_disk_by-id_dm-name-vg01-lv01
 		$result = FALSE;
 		foreach ($output as $outputk => $outputv) {
+			// Split the line into parts.
+			$parts = preg_split("/[\s]+/", $outputv);
+			// Skip everything that does not contain two parts.
+			if (2 !== count($parts))
+				continue;
 			// Skip everything that does not look like '/dev/xxx'.
-			$regex = '/^(\/dev\/\S+)\s+(\S+)\s+(\S+)$/i';
-			if (1 !== preg_match($regex, $outputv, $matches))
+			if (FALSE === is_devicefile($parts[0]))
 				continue;
-			if ($matches[2] !== $this->getUuid())
-				continue;
-			$result = $matches[3];
-			break;
+			if (realpath($parts[0]) == $this->getCanonicalDeviceFile()) {
+				$result = $parts[1];
+				break;
+			}
 		}
 		return $result;
 	}
@@ -658,7 +663,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 		$this->getData();
 		$cmdArgs = [];
 		$cmdArgs[] = "-cnrv";
-		$cmdArgs[] = "-o SOURCE,UUID";
+		$cmdArgs[] = "-o SOURCE";
 		$cmd = new \OMV\System\Process("findmnt", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
@@ -668,31 +673,22 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 		// udev
 		// devpts
 		// tmpfs
-		// /dev/sda1 df68201c-c816-4228-9bf9-5563b03e6bc1
-		// /dev/sde1 8c982ec2-8aa7-4fe2-a912-7478f0429e06
-		// /dev/sdc1 ea792ccb-cce6-409d-ab9b-0e3fd2bfbfc4
-		// /dev/md0 2853402e-fe8f-443b-abd5-c42892f25be1
-		// /dev/sdf1 7A48-BA97
+		// /dev/sda1
+		// /dev/sde1
+		// /dev/sdc1
+		// /dev/md0
+		// /dev/sdf1
+		// /dev/mapper/vg01-lv01
 		$result = FALSE;
 		foreach ($output as $outputk => $outputv) {
-			// Split the line into parts.
-			$parts = preg_split("/[\s]+/", $outputv);
-			// Skip everything that does not contain two parts.
-			if (2 !== count($parts))
-				continue;
 			// Skip everything that does not look like '/dev/xxx'.
-			if (FALSE === is_devicefile($parts[0]))
+			if (FALSE === is_devicefile($outputv))
 				continue;
 			// Compare the device files.
-			if (realpath($parts[0]) == realpath($this->getDeviceFile())) {
+			if (realpath($outputv) == $this->getCanonicalDeviceFile()) {
 				$result = TRUE;
 				break;
 			}
-			// Compare the filesystem UUID.
-			//if ($parts[1] == $this->getUuid()) {
-			//	$result = TRUE;
-			//	break;
-			//}
 		}
 		return $result;
 	}
