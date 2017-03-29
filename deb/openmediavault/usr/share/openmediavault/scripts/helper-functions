@@ -22,7 +22,7 @@
 # Helper makro for 'xmlstarlet' to get the shared folder path for a
 # given 'sharedfolderref'. The 'sharedfolderref' element must be a child
 # of the current processed node.
-# @return The shared folder path, e.g /media/85732966-949a-4d8b-87d7-d7e6681f787e/data.
+# @return The shared folder path, e.g /srv/85732966-949a-4d8b-87d7-d7e6681f787e/data.
 OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH=${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH=-m "//system/shares/sharedfolder[uuid=current()/sharedfolderref]" -v "concat(//system/fstab/mntent[uuid=current()/mntentref]/dir,'/',reldirpath)" -b}
 
 # Helper makro for 'xmlstarlet' to get the shared folder name for a
@@ -34,7 +34,7 @@ OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME=${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME=-m "
 # Helper makro for 'xmlstarlet' to get the shared folders mount directory for
 # a given 'sharedfolderref'. The 'sharedfolderref' element must be a child
 # of the current processed node.
-# @return The shared folder path, e.g /media/85732966-949a-4d8b-87d7-d7e6681f787e/data.
+# @return The shared folder path, e.g /srv/85732966-949a-4d8b-87d7-d7e6681f787e/data.
 OMV_XMLSTARLET_GET_SHAREDFOLDER_MOUNT_DIR=${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH=-m "//system/shares/sharedfolder[uuid=current()/sharedfolderref]" -v "//system/fstab/mntent[uuid=current()/mntentref]/dir" -b}
 
 # omv_isnumber <value>
@@ -846,7 +846,7 @@ omv_get_sharedfolder_name() {
 # omv_get_sharedfolder_path <uuid>
 # Get the path of the given shared folder. Trailing slashes will be removed.
 # @param The UUID of the shared folder
-# @return The shared folder path, e.g /media/85732966-949a-4d8b-87d7-d7e6681f787e/data.
+# @return The shared folder path, e.g /srv/85732966-949a-4d8b-87d7-d7e6681f787e/data.
 omv_get_sharedfolder_path() {
 	xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='$1']" \
 	  -v "//system/fstab/mntent[uuid=current()/mntentref]/dir" \
@@ -879,7 +879,7 @@ omv_mkdir_sharedfolder() {
 # Get the mount directory of the given shared folder. The field 'dir' of
 # the associated mount point configuration object is returned.
 # @param The UUID of the shared folder configuration object.
-# @return The directory path, e.g /media/85732966-949a-4d8b-87d7-d7e6681f787e
+# @return The directory path, e.g /srv/85732966-949a-4d8b-87d7-d7e6681f787e
 omv_get_sharedfolder_mount_dir() {
 	xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='$1']" \
 	  -v "//system/fstab/mntent[uuid=current()/mntentref]/dir" \
@@ -892,8 +892,8 @@ omv_get_sharedfolder_mount_dir() {
 # available (e.g. mounted, USB device plugged in, ...), otherwise it is not
 # possible to get the file system UUID.
 # @param id The device file or the file system UUID.
-# @return The directory path, e.g /media/6c5be784-50a8-440c-9d25-aab99b9c6fb1
-#   or /media/_dev_disk_by-id_wwn-0x5000cca211cc703c-part1.
+# @return The directory path, e.g /srv/6c5be784-50a8-440c-9d25-aab99b9c6fb1
+#   or /srv/_dev_disk_by-id_wwn-0x5000cca211cc703c-part1.
 omv_build_mount_dir() {
 	echo -n "${OMV_MOUNT_DIR}/$(echo $1 | tr '/' '_')"
 	return 0
