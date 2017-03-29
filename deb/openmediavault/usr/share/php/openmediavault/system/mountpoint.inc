@@ -209,15 +209,11 @@ class MountPoint {
 	 *   \li /dev/disk/by-id/wwn-0x5000cca211cc703c-part1
 	 *   </ul>
 	 * @return The path where to mount the file system, e.g.
-	 *   /media/85732966-949a-4d8b-87d7-d7e6681f787e.
+	 *   /media/85732966-949a-4d8b-87d7-d7e6681f787e or
+	 *   /media/_dev_disk_by-id_wwn-0x5000cca211cc703c-part1.
 	 */
 	public static function buildPath($id) {
-		if (is_devicefile($id)) {
-			// Transform the device file into something useful.
-			$id = preg_replace("/^\/dev\/(disk\/by-.+\/)?/i", "", $id);
-			$id = str_replace("/", "_", $id);
-		}
 		return build_path(DIRECTORY_SEPARATOR, \OMV\Environment::get(
-		  "OMV_MOUNT_DIR"), $id);
+		  "OMV_MOUNT_DIR"), str_replace("/", "_", $id));
 	}
 }
