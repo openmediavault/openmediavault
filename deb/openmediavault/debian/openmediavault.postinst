@@ -479,6 +479,9 @@ case "$1" in
 				deb-systemd-invoke start ntp.service || :
 			fi
 		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.68"; then
+			omv_set_default "OMV_MOUNT_DIR" "/srv"
+		fi
 
 		########################################################################
 		# Show help text.

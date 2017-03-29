@@ -34,9 +34,9 @@ class MountPoint {
 	 * Constructor
 	 * @param dir Path to the directory, e.g.
 	 *   <ul>
-	 *   \li /media/78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
-	 *   \li /media/7A48-BA97 (FAT)
-	 *   \li /media/2ED43920D438EC29 (NTFS)
+	 *   \li /srv/78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
+	 *   \li /srv/7A48-BA97 (FAT)
+	 *   \li /srv/2ED43920D438EC29 (NTFS)
 	 *   </ul>
 	 */
 	public function __construct($dir) {
@@ -54,9 +54,9 @@ class MountPoint {
 	/**
 	 * Set the directory path, e.g.
 	 *   <ul>
-	 *   \li /media/78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
-	 *   \li /media/7A48-BA97 (FAT)
-	 *   \li /media/2ED43920D438EC29 (NTFS)
+	 *   \li /srv/78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
+	 *   \li /srv/7A48-BA97 (FAT)
+	 *   \li /srv/2ED43920D438EC29 (NTFS)
 	 *   </ul>
 	 * @return None.
 	 */
@@ -196,7 +196,7 @@ class MountPoint {
 
 	/**
 	 * Get the mountpoint path where the file system should be mounted to.
-	 * Note, this path is OMV specific: /media/<FSUUID>.
+	 * Note, this path is OMV specific: /srv/<FSUUID>.
 	 * @param id string The device file or UUID of the file system, e.g.
 	 *   <ul>
 	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
@@ -209,8 +209,8 @@ class MountPoint {
 	 *   \li /dev/disk/by-id/wwn-0x5000cca211cc703c-part1
 	 *   </ul>
 	 * @return The path where to mount the file system, e.g.
-	 *   /media/85732966-949a-4d8b-87d7-d7e6681f787e or
-	 *   /media/_dev_disk_by-id_wwn-0x5000cca211cc703c-part1.
+	 *   /srv/85732966-949a-4d8b-87d7-d7e6681f787e or
+	 *   /srv/_dev_disk_by-id_wwn-0x5000cca211cc703c-part1.
 	 */
 	public static function buildPath($id) {
 		return build_path(DIRECTORY_SEPARATOR, \OMV\Environment::get(

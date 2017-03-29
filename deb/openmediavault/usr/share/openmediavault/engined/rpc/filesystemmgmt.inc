@@ -713,10 +713,10 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			} else {
 				// Use the filesystem UUID to identify the object by its mount
 				// point directory:
-				// /media/<fsuuid>
-				// /media/D81A-F053 (VFAT)
-				// /media/74A225C8A2258F (NTFS)
-				// /media/9e8aaee0-ab3a-467f-9bdb-7cced3b8afc4 (EXT2/3/4, JFS, XFS)
+				// /srv/<fsuuid>
+				// /srv/D81A-F053 (VFAT)
+				// /srv/74A225C8A2258F (NTFS)
+				// /srv/9e8aaee0-ab3a-467f-9bdb-7cced3b8afc4 (EXT2/3/4, JFS, XFS)
 				$meObject = $db->getByFilter(
 				  "conf.system.filesystem.mountpoint", [
 					  "operator" => "stringEquals",
@@ -834,7 +834,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 					"uuid" => \OMV\Environment::get(
 					  "OMV_CONFIGOBJECT_NEW_UUID"),
 					"fsname" => $fsName,
-					"dir" => \OMV\System\MountPoint::buildPath($fs->getUuid()),
+					"dir" => \OMV\System\MountPoint::buildPath($fsName),
 					"type" => $fs->getType(),
 					"opts" => implode(",", $fsb->getFstabMntOptions($sd)),
 					"freq" => 0,
@@ -913,11 +913,11 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			} else {
 				// Use the filesystem UUID to identify the object by its mount
 				// point directory:
-				// /media/<fsuuid>
-				// /media/D81A-F053 (VFAT)
-				// /media/74A225C8A2258F (NTFS)
-				// /media/9e8aaee0-ab3a-467f-9bdb-7cced3b8afc4 (EXT2/3/4, JFS, XFS)
-				// /media/2015-04-25-12-52-13-00 (ISO9660, UDF)
+				// /srv/<fsuuid>
+				// /srv/D81A-F053 (VFAT)
+				// /srv/74A225C8A2258F (NTFS)
+				// /srv/9e8aaee0-ab3a-467f-9bdb-7cced3b8afc4 (EXT2/3/4, JFS, XFS)
+				// /srv/2015-04-25-12-52-13-00 (ISO9660, UDF)
 				$filter = [
 					"operator" => "stringEquals",
 					"arg0" => "dir",
