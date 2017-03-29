@@ -417,7 +417,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	 * \li /dev/sdb1 => /dev/sdb
 	 * \li /dev/cciss/c0d0p2 => /dev/cciss/c0d0
 	 * </ul>
-	 * @return The device file of the underlying storage device or NULL
+	 * @return The device file of the underlying storage device or FALSE
 	 *   on failure.
 	 */
 	public function getParentDeviceFile() {
@@ -437,7 +437,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 		// - /dev/loop0 => /dev/loop0
 		$mngr = \OMV\System\Storage\Backend\Manager::getInstance();
 		if (NULL === ($backend = $mngr->getBackend($deviceFile)))
-			return NULL;
+			return FALSE;
 		$parentDeviceFile = $backend->baseDeviceFile($deviceFile);
 		if (FALSE === is_devicefile_by_id($parentDeviceFile)) {
 			// Get the storage device file of the filesystems parent device.
@@ -479,7 +479,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	 * @return An array that contains the component devices of the filesystem.
 	 */
 	public function getDeviceFiles() {
-		return [ $this->getCanonicalDeviceFile() ];
+		return [ $this->getPreferredDeviceFile() ];
 	}
 
 	/**
