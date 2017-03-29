@@ -887,25 +887,15 @@ omv_get_sharedfolder_mount_dir() {
 }
 
 # omv_build_mount_dir <id>
-# Build the mount directory for the given device file or filesystem UUID.
-# Note, if the device file is given, it is necessary that the filesystem is
+# Build the mount directory for the given device file or file system UUID.
+# Note, if the device file is given, it is necessary that the file system is
 # available (e.g. mounted, USB device plugged in, ...), otherwise it is not
-# possible to get the filesystem UUID.
-# @param id The device file or the filesystem UUID.
+# possible to get the file system UUID.
+# @param id The device file or the file system UUID.
 # @return The directory path, e.g /media/6c5be784-50a8-440c-9d25-aab99b9c6fb1
-#   or /media/3849-705A.
+#   or /media/_dev_disk_by-id_wwn-0x5000cca211cc703c-part1.
 omv_build_mount_dir() {
-	local fsuuid
-	if omv_is_devicefile "$1"; then
-		fsuuid=$(blkid -o value -s UUID $1)
-	else
-		fsuuid=${1}
-	fi
-	if [ -z "${fsuuid}" ]; then
-		omv_debug "omv_build_mount_dir: Filesystem '$1' does not have an UUID"
-		return 1
-	fi
-	echo -n "${OMV_MOUNT_DIR}/${fsuuid}"
+	echo -n "${OMV_MOUNT_DIR}/$(echo $1 | tr '/' '_')"
 	return 0
 }
 
