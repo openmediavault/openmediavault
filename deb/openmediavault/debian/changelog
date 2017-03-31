@@ -7,6 +7,8 @@ openmediavault (3.0.68) stable; urgency=low
     device files instead.
   * Improve the datamodel to be able to resolve shared folder references.
   * File systems will be mounted according to FHS below /srv now.
+  * Outsource TFTP into a plugin. Please note that the existing configuration
+    will be deleted.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 20 Mar 2017 12:38:22 +0100
 

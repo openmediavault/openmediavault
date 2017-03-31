@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-tftp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-tftp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-31 09:17+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Volker <votdev@gmx.de>, 2017\n"
+"Language-Team: Danish (https://www.transifex.com/votdev/teams/14254/da/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Allow new files"
+msgstr "Tillad nye filer"
+
+msgid "Allow new files to be created."
+msgstr "Tillad nye filer at blive oprettet."
+
+msgid "Blocksize"
+msgstr "Blokstørrelse"
+
+msgid "By default, only files that already exist are allowed to be uploaded."
+msgstr ""
+"Som standard, har kun filer der allerede eksisterer lov til at blive "
+"uploadet."
+
+msgid ""
+"Determine the default timeout, in microseconds, before the first packet is "
+"retransmitted."
+msgstr ""
+"Bestem den standard timeout, i mikrosekunder, før den første pakke bliver "
+"gensendt."
+
+msgid "Enable"
+msgstr "Aktiver"
+
+msgid "Extra options"
+msgstr "Ekstra valgmuligheder"
+
+msgid ""
+"Please make sure that the shared folder is publicly writable if new files "
+"are allowed."
+msgstr ""
+"Vær venligst sikker, at den delte mappe er offentlig skrivebar hvis nye "
+"filer er tilladt."
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Port to listen on."
+msgstr "Port, der skal lyttes på."
+
+msgid "Retry timeout"
+msgstr "Forsøg timeout igen"
+
+msgid "Settings"
+msgstr "Indstillinger"
+
+msgid "Shared folder"
+msgstr "Delt mappe"
+
+msgid ""
+"Specifies the maximum permitted block size. The permitted range for this "
+"parameter is from 512 to 65464."
+msgstr ""
+"Angiver den maksimale tilladte blokstørrelse. Det tilladte område for denne "
+"parameter er fra 512 til 65464."
+
+msgid "TFTP"
+msgstr "TFTP"
+
+msgid "The location of the files to share."
+msgstr "Placeringen af filerne, der skal deles."

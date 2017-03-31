@@ -14,7 +14,7 @@ Depends: ${perl:Depends}, libjs-extjs5 (>= 5.1.1), php5-fpm, libpam-modules,
  sdparm, ifupdown, mdadm, postfix, libsasl2-modules, bsd-mailx, python3-dbus,
  cpufrequtils, rsyslog, logrotate, smartmontools, openssl, openssh-server,
  openssh-blacklist-extra, uuid, tzdata, nfs-kernel-server, proftpd-basic,
- wget, tftpd-hpa, util-linux, samba, samba-common-bin, rsync, apt-utils,
+ wget, util-linux, samba, samba-common-bin, rsync, apt-utils,
  snmpd, avahi-daemon, libnss-mdns, iptables, monit (>= 5.4), acpid, beep,
  gdisk, rrdtool, collectd (>= 5.1.0), cron, anacron, cron-apt, quota,
  quotatool, whiptail, lvm2, watchdog, ca-certificates, perl, libjson-perl,
@@ -25,8 +25,8 @@ Depends: ${perl:Depends}, libjs-extjs5 (>= 5.1.1), php5-fpm, libpam-modules,
  samba-vfs-modules, pciutils, python3-pyudev, python3-natsort, jq, ntp,
  python3-netifaces, udev, apt-transport-https, python3-lxml, ${misc:Depends}
 Description: Open network attached storage solution
- OpenMediaVault is a small and simple to use network attached storage system with
- a smart WebGUI.
+ openmediavault is a small and simple to use network attached storage system
+ with a smart WebGUI.
 
 Package: openmediavault-installer
 Package-Type: udeb

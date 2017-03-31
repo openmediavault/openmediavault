@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 06:19+0100\n"
+"POT-Creation-Date: 2017-03-31 15:47+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -298,12 +298,6 @@ msgstr ""
 msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr ""
 
-msgid "Allow new files"
-msgstr ""
-
-msgid "Allow new files to be created."
-msgstr ""
-
 msgid "Allow this server to advertise itself as a time server to Windows clients"
 msgstr ""
 
@@ -481,9 +475,6 @@ msgstr ""
 msgid "Block layer cache [%s, %s]"
 msgstr ""
 
-msgid "Blocksize"
-msgstr ""
-
 msgid "Bolivia"
 msgstr ""
 
@@ -527,9 +518,6 @@ msgid "Burkina Faso"
 msgstr ""
 
 msgid "Burundi"
-msgstr ""
-
-msgid "By default, only files that already exist are allowed to be uploaded."
 msgstr ""
 
 msgid "CPU usage"
@@ -812,9 +800,6 @@ msgid "Destination shared folder"
 msgstr ""
 
 msgid "Detail"
-msgstr ""
-
-msgid "Determine the default timeout, in microseconds, before the first packet is retransmitted."
 msgstr ""
 
 msgid "Device"
@@ -2311,9 +2296,6 @@ msgstr ""
 msgid "Please first select a device."
 msgstr ""
 
-msgid "Please make sure that the shared folder is publicly writable if new files are allowed."
-msgstr ""
-
 msgid "Please note that no communication with the system is possible during this test."
 msgstr ""
 
@@ -2333,9 +2315,6 @@ msgid "Poland"
 msgstr ""
 
 msgid "Port"
-msgstr ""
-
-msgid "Port to listen on."
 msgstr ""
 
 msgid "Portugal"
@@ -2579,9 +2558,6 @@ msgid "Result"
 msgstr ""
 
 msgid "Resume"
-msgstr ""
-
-msgid "Retry timeout"
 msgstr ""
 
 msgid "Reunion"
@@ -3007,9 +2983,6 @@ msgstr ""
 msgid "Specifies the amount of time, in seconds, between checking and updating the masquerade address by resolving the IP address. Set this value to 0 to disable this option."
 msgstr ""
 
-msgid "Specifies the maximum permitted block size. The permitted range for this parameter is from 512 to 65464."
-msgstr ""
-
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr ""
 
@@ -3131,9 +3104,6 @@ msgid "TAR"
 msgstr ""
 
 msgid "TCP forwarding"
-msgstr ""
-
-msgid "TFTP"
 msgstr ""
 
 msgid "Taiwan"

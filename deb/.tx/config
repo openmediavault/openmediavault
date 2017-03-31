@@ -62,3 +62,8 @@ source_lang = en
 file_filter = openmediavault-shairport/usr/share/openmediavault/locale/<lang>/openmediavault-shairport.po
 source_file = openmediavault-shairport/usr/share/openmediavault/locale/openmediavault-shairport.pot
 source_lang = en
+
+[openmediavault.openmediavault-tftp]
+file_filter = openmediavault-tftp/usr/share/openmediavault/locale/<lang>/openmediavault-tftp.po
+source_file = openmediavault-tftp/usr/share/openmediavault/locale/openmediavault-tftp.pot
+source_lang = en

@@ -64,6 +64,8 @@ class Command(openmediavault.confdbadm.ICommand,
 		if isinstance(objs, list):
 			data = [ obj.get_dict() for obj in objs ]
 		else:
+			if not isinstance(objs, openmediavault.config.Object):
+				return 1
 			data = objs.get_dict()
 		# Print the configuration objects as JSON to STDOUT.
 		if cmd_args.prettify:

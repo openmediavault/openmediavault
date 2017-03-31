@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-tftp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-tftp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-31 09:17+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Volker <votdev@gmx.de>, 2017\n"
+"Language-Team: Spanish (Spain) (https://www.transifex.com/votdev/teams/14254/es_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Allow new files"
+msgstr "Permitir nuevos archivos"
+
+msgid "Allow new files to be created."
+msgstr "Permitir la creación de nuevos archivos."
+
+msgid "Blocksize"
+msgstr "Tamaño de bloque"
+
+msgid "By default, only files that already exist are allowed to be uploaded."
+msgstr "Por defecto, solo se permite subir archivos existentes."
+
+msgid ""
+"Determine the default timeout, in microseconds, before the first packet is "
+"retransmitted."
+msgstr ""
+"Determina el tiempo por defecto en microsegundos, antes de que el primer "
+"paquete sea retransmitido."
+
+msgid "Enable"
+msgstr "Habilitar"
+
+msgid "Extra options"
+msgstr "Opciones extra"
+
+msgid ""
+"Please make sure that the shared folder is publicly writable if new files "
+"are allowed."
+msgstr ""
+"Por favor verifique que la carpeta compartida tiene permisos de escritura "
+"por si nuevos archivos fuesen necesarios."
+
+msgid "Port"
+msgstr "Puerto"
+
+msgid "Port to listen on."
+msgstr "Puerto de escucha."
+
+msgid "Retry timeout"
+msgstr "Tiempo de reintento"
+
+msgid "Settings"
+msgstr "Configuración"
+
+msgid "Shared folder"
+msgstr "Carpeta Compartida"
+
+msgid ""
+"Specifies the maximum permitted block size. The permitted range for this "
+"parameter is from 512 to 65464."
+msgstr "Max. tamaño de bloque permitido. El rango permitido es de 512 a 65464"
+
+msgid "TFTP"
+msgstr "TFTP"
+
+msgid "The location of the files to share."
+msgstr "La ubicación de los archivos a compartir."

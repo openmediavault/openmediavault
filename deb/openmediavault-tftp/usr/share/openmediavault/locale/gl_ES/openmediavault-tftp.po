@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-tftp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-tftp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-31 09:17+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Volker <votdev@gmx.de>, 2017\n"
+"Language-Team: Galician (Spain) (https://www.transifex.com/votdev/teams/14254/gl_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: gl_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Allow new files"
+msgstr "Permetre nous arxius"
+
+msgid "Allow new files to be created."
+msgstr "Permetre la creació de nous arxius."
+
+msgid "Blocksize"
+msgstr "Mida del bloc"
+
+msgid "By default, only files that already exist are allowed to be uploaded."
+msgstr "Per defecte, només es permet pujar arxius existents."
+
+msgid ""
+"Determine the default timeout, in microseconds, before the first packet is "
+"retransmitted."
+msgstr ""
+"Determina el temps per defecte en microsegons, abans que el primer paquet es"
+" transmeti."
+
+msgid "Enable"
+msgstr "Habilitar"
+
+msgid "Extra options"
+msgstr "Opcions extra"
+
+msgid ""
+"Please make sure that the shared folder is publicly writable if new files "
+"are allowed."
+msgstr ""
+"Per favor verifiqui que la carpeta compartida té permisos d’escriptura per "
+"si calguessin nous arxius."
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Port to listen on."
+msgstr "Port d’escolta."
+
+msgid "Retry timeout"
+msgstr "Temps de reintent"
+
+msgid "Settings"
+msgstr "Configuració"
+
+msgid "Shared folder"
+msgstr "Carpeta compartida"
+
+msgid ""
+"Specifies the maximum permitted block size. The permitted range for this "
+"parameter is from 512 to 65464."
+msgstr "Mida màx. de bloc permès. El rang permès és de 512 a 65464"
+
+msgid "TFTP"
+msgstr "TFTP"
+
+msgid "The location of the files to share."
+msgstr "La ubicació dels arxius a compartir."

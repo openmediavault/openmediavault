@@ -23,6 +23,7 @@ set -e
 
 . /usr/share/openmediavault/scripts/helper-functions
 
+# Modify the model of the rsync jobs.
 xmlstarlet sel -t -m "/config/services/rsync/jobs/job" \
 	-v "uuid" -n \
 	${OMV_CONFIG_FILE} | xmlstarlet unesc |
@@ -49,5 +50,9 @@ xmlstarlet sel -t -m "/config/services/rsync/jobs/job" \
 			omv_config_add_key "/config/services/rsync/jobs/job[uuid='${uuid}']/dest" "uri" "${dest}"
 		fi
 	done
+
+# Remove the TFTP configuration.
+omv_config_delete "/config/services/tftp"
+omv_config_delete "/config/services/zeroconf/services/service[uuid='1e70f7f8-f4db-11e5-9e90-000c2972b176']"
 
 exit 0

@@ -19,8 +19,9 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-class OMVModuleTftp extends \OMV\Engine\Module\ServiceAbstract
-  implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus, \OMV\Engine\Module\IZeroconf {
+class OMVModuleTftp extends \OMV\Engine\Module\ServiceAbstract implements
+	\OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus,
+	\OMV\Engine\Module\IZeroconf {
 	/**
 	 * Get the module name.
 	 */

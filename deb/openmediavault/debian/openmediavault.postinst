@@ -99,8 +99,6 @@ case "$1" in
 			deb-systemd-invoke stop ntp.service || :
 			deb-systemd-helper disable smartmontools.service || :
 			deb-systemd-invoke stop smartmontools.service || :
-			deb-systemd-helper disable tftpd-hpa.service || :
-			deb-systemd-invoke stop tftpd-hpa.service || :
 			deb-systemd-helper disable rsync.service || :
 			deb-systemd-invoke stop rsync.service || :
 			deb-systemd-helper disable snmpd.service || :

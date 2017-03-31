@@ -724,26 +724,43 @@ class DatabaseSetQuery(DatabaseQuery):
 		# Execute the query.
 		elements = self._execute_xpath()
 		# Validate the query result.
-		# If an identifier was set for an iterable object, then there MUST
-		# exist an element.
-		if self.model.is_iterable and not self.object.is_new:
-			if len(elements) == 0:
-				# Raise an exception.
-				raise DatabaseQueryNotFoundException(
-					self.xpath, self.object.model)
-		# Note, new iterable elements MUST be handled different.
-		if self.model.is_iterable and self.object.is_new:
-			# Create the new identifier if necessary.
-			self.object.create_id()
-			# A new iterable element MUST be append to the parent element.
-			append_element = True
+		if self.model.is_iterable:
+			# If an identifier was set for an iterable object, then there
+			# MUST exist at least one element.
+			if not self.object.is_new:
+				if 0 == len(elements):
+					raise DatabaseQueryNotFoundException(
+						self.xpath, self.object.model)
+			# Note, new iterable elements MUST be handled different.
+			if self.object.is_new:
+				# Create the new object identifier.
+				self.object.create_id()
+				# A new iterable element MUST be append to the parent element.
+				append_element = True
+		else:
+			# Handle non-iterable elements that do not exist until now.
+			if 0 == len(elements):
+				# Split the XPath to get the parent and the tag name.
+				xpath, tag = self.xpath.rsplit("/", 1)
+				# Get the first parent element that is found.
+				root_element = self._get_root_element()
+				parent = root_element.find(xpath)
+				assert(lxml.etree.iselement(parent))
+				# Append a new element to the XML tree.
+				element = lxml.etree.Element(tag)
+				parent.append(element)
+				# Append the element to the result list. Thus we can continue
+				# as normal.
+				elements.append(element)
 		# Put the configuration object.
 		for element in elements:
+			# Get the parent element.
+			parent = element.getparent()
+			assert(lxml.etree.iselement(parent))
 			# Create the clone of the element and set the new values.
 			new_element = lxml.etree.Element(element.tag)
 			self._dict_to_elements(self.object.get_dict(), new_element)
 			# Append/Update the element.
-			parent = element.getparent()
 			if append_element: # Add mode
 				# Append the new element to the parent element.
 				parent.append(new_element)
