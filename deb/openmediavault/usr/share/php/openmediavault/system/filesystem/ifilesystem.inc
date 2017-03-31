@@ -94,9 +94,10 @@ interface IFilesystem {
 	 * \li /dev/disk/by-label/xxx
 	 * \li /dev/disk/by-id/xxx
 	 * \li /dev/disk/by-uuid/xxx
+	 * \li /dev/disk/by-path/xxx
 	 * \li /dev/xxx
 	 * </ul>
-	 * @return Returns the special device file.
+	 * @return Returns the device file.
 	 */
 	public function getPreferredDeviceFile();
 

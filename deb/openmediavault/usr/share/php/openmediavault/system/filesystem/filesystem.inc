@@ -460,6 +460,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	 * \li /dev/disk/by-label/xxx
 	 * \li /dev/disk/by-id/xxx
 	 * \li /dev/disk/by-uuid/xxx
+	 * \li /dev/disk/by-path/xxx
 	 * \li /dev/xxx
 	 * </ul>
 	 * @return Returns the device file.
@@ -471,7 +472,9 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 			return $this->getDeviceFileById();
 		else if (TRUE === $this->hasDeviceFileByUuid())
 			return $this->getDeviceFileByUuid();
-		return $this->getDeviceFile();
+		if (TRUE === $this->hasDeviceFileByPath())
+			return $this->getDeviceFileByPath();
+		return $this->getCanonicalDeviceFile();
 	}
 
 	/**
