@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-tftp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-tftp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-31 09:17+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Volker <votdev@gmx.de>, 2017\n"
+"Language-Team: Dutch (Netherlands) (https://www.transifex.com/votdev/teams/14254/nl_NL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl_NL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Allow new files"
+msgstr "Nieuwe bestanden toestaan"
+
+msgid "Allow new files to be created."
+msgstr "Het aanmaken van nieuwe bestanden toestaan."
+
+msgid "Blocksize"
+msgstr "Blokgrootte"
+
+msgid "By default, only files that already exist are allowed to be uploaded."
+msgstr ""
+"Standaard worden alleen de bestanden die reeds bestaan ​​toegestaan om "
+"geüpload te worden."
+
+msgid ""
+"Determine the default timeout, in microseconds, before the first packet is "
+"retransmitted."
+msgstr ""
+"Bepaal de standaard time-out, in microseconden, voordat het eerste pakket is"
+" verstuurd."
+
+msgid "Enable"
+msgstr "Inschakelen"
+
+msgid "Extra options"
+msgstr "Extra opties"
+
+msgid ""
+"Please make sure that the shared folder is publicly writable if new files "
+"are allowed."
+msgstr ""
+"Controleer of de gedeelde map schrijfrechten heeft indien nieuwe bestanden "
+"zijn toegestaan"
+
+msgid "Port"
+msgstr "Poort"
+
+msgid "Port to listen on."
+msgstr "Poort om te beluisteren."
+
+msgid "Retry timeout"
+msgstr "Time-out tijdens opnieuw proberen"
+
+msgid "Settings"
+msgstr "Instellingen"
+
+msgid "Shared folder"
+msgstr "Gedeelde map"
+
+msgid ""
+"Specifies the maximum permitted block size. The permitted range for this "
+"parameter is from 512 to 65464."
+msgstr ""
+"Specifieert de maximum toegestaane blokgrootte. Het toegestane bereik voor "
+"deze parameter loopt van 512 tot 65464."
+
+msgid "TFTP"
+msgstr "TFTP"
+
+msgid "The location of the files to share."
+msgstr "De locatie van te delen bestanden."

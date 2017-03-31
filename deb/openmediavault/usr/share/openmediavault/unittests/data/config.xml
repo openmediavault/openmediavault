@@ -750,15 +750,6 @@ iSrj/B/KRCZkkrDdYcDAvqRs6dA+ScRZ
         </job>
       </scheduledtests>
     </smart>
-    <tftp>
-      <enable>0</enable>
-      <port>69</port>
-      <retransmit>1000000</retransmit>
-      <blocksize>512</blocksize>
-      <allownewfiles>0</allownewfiles>
-      <sharedfolderref></sharedfolderref>
-      <extraoptions></extraoptions>
-    </tftp>
     <smb>
       <enable>0</enable>
       <workgroup>WORKGROUP</workgroup>
@@ -925,12 +916,6 @@ iSrj/B/KRCZkkrDdYcDAvqRs6dA+ScRZ
           <id>ftp</id>
           <enable>1</enable>
           <name>%h - FTP</name>
-        </service>
-        <service>
-          <uuid>1e70f7f8-f4db-11e5-9e90-000c2972b176</uuid>
-          <id>tftp</id>
-          <enable>1</enable>
-          <name>%h - TFTP</name>
         </service>
         <service>
           <uuid>06e1e0b6-f4db-11e5-98f1-000c2972b176</uuid>

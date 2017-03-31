@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-tftp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-tftp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-31 09:17+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Volker <votdev@gmx.de>, 2017\n"
+"Language-Team: Italian (https://www.transifex.com/votdev/teams/14254/it/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Allow new files"
+msgstr "Consenti nuovi file"
+
+msgid "Allow new files to be created."
+msgstr "Consenti la creazione di nuovi file."
+
+msgid "Blocksize"
+msgstr "Dimensione blocco"
+
+msgid "By default, only files that already exist are allowed to be uploaded."
+msgstr ""
+"Per impostazione predefinita, solo i file già esistenti possono essere "
+"caricati."
+
+msgid ""
+"Determine the default timeout, in microseconds, before the first packet is "
+"retransmitted."
+msgstr ""
+"Determina il timeout di default, in microsecondi, prima di ritrasmettere il "
+"primo pacchetto."
+
+msgid "Enable"
+msgstr "Abilita"
+
+msgid "Extra options"
+msgstr "Opzioni extra"
+
+msgid ""
+"Please make sure that the shared folder is publicly writable if new files "
+"are allowed."
+msgstr ""
+"Assicurarsi che la cartella condivisa sia scrivibile pubblicamente se sono "
+"consentiti nuovi file."
+
+msgid "Port"
+msgstr "Porta"
+
+msgid "Port to listen on."
+msgstr "Porta su cui ascoltare."
+
+msgid "Retry timeout"
+msgstr "Timeout riesecuzione"
+
+msgid "Settings"
+msgstr "Impostazioni"
+
+msgid "Shared folder"
+msgstr "Cartella condivisa"
+
+msgid ""
+"Specifies the maximum permitted block size. The permitted range for this "
+"parameter is from 512 to 65464."
+msgstr ""
+"Specifica la massima dimensione permessa per un block. Il range ammesso per "
+"questo parametro va da 512 a 65464."
+
+msgid "TFTP"
+msgstr "TFTP"
+
+msgid "The location of the files to share."
+msgstr "Il percorso dei file da condividere."

@@ -385,11 +385,6 @@ Files: /var/www/openmediavault/images/logs.png
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
 
-Files: /var/www/openmediavault/images/tftp.png
-       /var/www/openmediavault/images/tftp.svg
-Copyright: David Ferreira (http://cargocollective.com/davidferreira)
-License: CC-BY-SA-3.0
-
 Files: /var/www/openmediavault/images/folder.png
        /var/www/openmediavault/images/folder.svg
 Copyright: WebHostingHub <http://www.webhostinghub.com>

@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-tftp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-tftp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-31 09:17+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Volker <votdev@gmx.de>, 2017\n"
+"Language-Team: Swedish (https://www.transifex.com/votdev/teams/14254/sv/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Allow new files"
+msgstr "Tillåt nya filer"
+
+msgid "Allow new files to be created."
+msgstr "Tillåt att nya filer skapas."
+
+msgid "Blocksize"
+msgstr "Blockstorlek"
+
+msgid "By default, only files that already exist are allowed to be uploaded."
+msgstr "Som standard visas bara filer som redan finns som får laddas upp."
+
+msgid ""
+"Determine the default timeout, in microseconds, before the first packet is "
+"retransmitted."
+msgstr ""
+"Bestäm standard-timeout, i mikrosekunder, innan det första paketet är "
+"återsänt."
+
+msgid "Enable"
+msgstr "Aktivera"
+
+msgid "Extra options"
+msgstr "Extra inställningar"
+
+msgid ""
+"Please make sure that the shared folder is publicly writable if new files "
+"are allowed."
+msgstr ""
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Port to listen on."
+msgstr "Port att lyssna på."
+
+msgid "Retry timeout"
+msgstr "Timeout för att försöka igen"
+
+msgid "Settings"
+msgstr "Inställningar"
+
+msgid "Shared folder"
+msgstr "Delad mapp"
+
+msgid ""
+"Specifies the maximum permitted block size. The permitted range for this "
+"parameter is from 512 to 65464."
+msgstr ""
+"Anger högsta tillåtna blockstorleken. Det tillåtna området för denna "
+"parameter är 512 till 65464."
+
+msgid "TFTP"
+msgstr "TFTP"
+
+msgid "The location of the files to share."
+msgstr "Placeringen av filerna att dela."

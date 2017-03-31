@@ -22,10 +22,12 @@ openmediavault (3.0.68) stable; urgency=low
   * Various bug fixes and improvements.
   * Add 'omv-confdbadm exists' command.
   * Do not use /etc/fstab entries like UUID=<xxx> anymore because this
-     will make problems with LV/BTRFS snapshots. Use /dev/disk/by-xxx/xxx
-     device files instead.
+    will make problems with LV/BTRFS snapshots. Use /dev/disk/by-xxx/xxx
+    device files instead.
   * Improve the datamodel to be able to resolve shared folder references.
-  * File systems will be mounted below /srv now.
+  * File systems will be mounted according to FHS below /srv now.
+  * Outsource TFTP into a plugin. Please note that the existing configuration
+    will be deleted.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 20 Mar 2017 12:38:22 +0100
 
@@ -33,7 +35,7 @@ openmediavault (3.0.67) stable; urgency=low
 
   * Improve foreign content handling.
   * Adapt nginx SSL ciphers to latest intermediate profile according to
-     https://mozilla.github.io/server-side-tls/ssl-config-generator.
+    https://mozilla.github.io/server-side-tls/ssl-config-generator.
   * Mantis 0001701: Switch back to NTP daemon.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 17 Mar 2017 09:59:46 +0100
@@ -45,9 +47,9 @@ openmediavault (3.0.66) stable; urgency=low
   * Reduce unnecessary restarts of nginx. Thanks to kochinc for the improvement.
   * Allow using spaces in path names.
   * Detect disk size change as well when scanning for new devices. Thanks
-     to ZsZs73 for this contribution.
+    to ZsZs73 for this contribution.
   * Mantis 0001696: Failing hostname --fqdn should not cause web interface
-     login failure.
+    login failure.
   * Mantis 0001697: NFS bind not mounted when adding new share.
   * Mantis 0001698: Fix error when removing a NFS share.
 

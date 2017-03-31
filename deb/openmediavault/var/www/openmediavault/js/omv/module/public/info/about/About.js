@@ -88,9 +88,6 @@ Ext.define("OMV.module.public.info.about.About", {
 			name: "ProFTPD",
 			url: "http://www.proftpd.org"
 		},{
-			name: "TFTP",
-			url: "http://www.kernel.org/pub/software/network/tftp"
-		},{
 			name: "Samba",
 			url: "http://www.samba.org"
 		},{

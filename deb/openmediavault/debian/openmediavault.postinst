@@ -99,8 +99,6 @@ case "$1" in
 			deb-systemd-invoke stop ntp.service || :
 			deb-systemd-helper disable smartmontools.service || :
 			deb-systemd-invoke stop smartmontools.service || :
-			deb-systemd-helper disable tftpd-hpa.service || :
-			deb-systemd-invoke stop tftpd-hpa.service || :
 			deb-systemd-helper disable rsync.service || :
 			deb-systemd-invoke stop rsync.service || :
 			deb-systemd-helper disable snmpd.service || :
@@ -184,7 +182,7 @@ case "$1" in
 			deb-systemd-invoke restart watchdog.service || :
 			deb-systemd-invoke restart rrdcached.service || :
 			deb-systemd-invoke restart collectd.service || :
-			deb-systemd-invoke restart php7.0-fpm.service || :
+			deb-systemd-invoke restart php5-fpm.service || :
 			deb-systemd-invoke restart nginx.service || :
 			deb-systemd-invoke restart monit.service || :
 			deb-systemd-invoke restart avahi-daemon.service || :

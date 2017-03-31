@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-tftp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-tftp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-31 09:17+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Volker <votdev@gmx.de>, 2017\n"
+"Language-Team: Greek (Greece) (https://www.transifex.com/votdev/teams/14254/el_GR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Allow new files"
+msgstr "Επιτρέπονται νέα αρχεία"
+
+msgid "Allow new files to be created."
+msgstr "Επιτρέπεται η δημιουργία καινούργιων αρχείων"
+
+msgid "Blocksize"
+msgstr "Μέγεθος τμήματος"
+
+msgid "By default, only files that already exist are allowed to be uploaded."
+msgstr "Εξ'ορισμού, επιτρέπεται να μεταφορτωθούν μόνο αρχεία που υπάρχουν ήδη"
+
+msgid ""
+"Determine the default timeout, in microseconds, before the first packet is "
+"retransmitted."
+msgstr ""
+"Καθορισμός προθεσμίας, σε εκατομμυριοστά του δευτερολέπτου, πριν την "
+"επανάληψη αποστολής του πρώτου πακέτου."
+
+msgid "Enable"
+msgstr "Ενεργοποίηση"
+
+msgid "Extra options"
+msgstr "Επιπλέον ρυθμίσεις"
+
+msgid ""
+"Please make sure that the shared folder is publicly writable if new files "
+"are allowed."
+msgstr ""
+"Βεβαιωθείτε πως ο κοινόχρηστος φάκελος είναι δημόσια εγγράψιμος αν "
+"επιτρέπονται νέα αρχεία."
+
+msgid "Port"
+msgstr "Θύρα"
+
+msgid "Port to listen on."
+msgstr "Θύρα για ακρόαση."
+
+msgid "Retry timeout"
+msgstr "Προθεσμία επανάληψης προσπάθειας."
+
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+msgid "Shared folder"
+msgstr "Κοινόχρηστος φάκελος"
+
+msgid ""
+"Specifies the maximum permitted block size. The permitted range for this "
+"parameter is from 512 to 65464."
+msgstr "Χρήση του ορισμένου διακομιστή WINS."
+
+msgid "TFTP"
+msgstr "TFTP"
+
+msgid "The location of the files to share."
+msgstr "Η θέση των αρχείων προς διαμοιρασμό"

@@ -6,10 +6,10 @@
 # Alexander Savchenko, 2014
 # Alexander Savchenko <>, 2012
 # Alexander Savchenko, 2014
-# Александр <phg.azlk@gmail.com>, 2012
+# azlk azlk <phg.azlk@gmail.com>, 2012
 # Ichi <ichiperm@gmail.com>, 2012
 # mictian <ffrants@gmail.com>, 2012
-# Александр <phg.azlk@gmail.com>, 2012
+# azlk azlk <phg.azlk@gmail.com>, 2012
 # Артур Мудрых <arturmon82@gmail.com>, 2012-2013,2015-2016
 msgid ""
 msgstr ""

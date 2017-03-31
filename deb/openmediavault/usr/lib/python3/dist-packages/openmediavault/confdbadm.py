@@ -129,6 +129,8 @@ class CommandHelper():
 		"""
 		if not re.match(r'^conf(\..+)?$', arg):
 			raise argparse.ArgumentTypeError("No valid data model ID.")
+		if "conf" == arg:
+			return arg
 		try:
 			openmediavault.config.Datamodel(arg)
 		except Exception as e:

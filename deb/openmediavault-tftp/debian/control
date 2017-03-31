@@ -1,0 +1,16 @@
+Source: openmediavault-tftp
+Section: net
+XB-Plugin-Section: network
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>> 7), gettext
+Standards-Version: 3.9.6
+Homepage: http://www.openmediavault.org
+
+Package: openmediavault-tftp
+Architecture: all
+Depends: openmediavault (>= 3.0.68), tftpd-hpa
+Priority: optional
+Description: OpenMediaVault TFTP-Server plugin
+ A TFTP server is mainly required for booting operating systems or
+ configurations over the network.

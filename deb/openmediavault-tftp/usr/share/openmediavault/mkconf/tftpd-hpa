@@ -35,13 +35,13 @@ fi
 
 # Create '/etc/default/tftpd-hpa' file
 xmlstarlet sel -t -m "//services/tftp" \
-  -o "TFTP_OPTIONS=\"${OMV_TFTPD_OPTIONS}" \
-  -v "concat(' --retransmit ',retransmit)" \
-  -i "allownewfiles[. = '1']" -o " --create" -b \
-  -i "string-length(blocksize) > 0" -v "concat(' --blocksize ',blocksize)" -b \
-  -i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
-  -o "\"" -n \
-  -o "TFTP_USERNAME=\"${OMV_TFTPD_USERNAME}\"" -n \
-  -o "TFTP_DIRECTORY=\"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "\"" -n \
-  -v "concat('TFTP_ADDRESS=\"0.0.0.0:',port,'\"')" \
-  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_TFTPD_DEFAULT}
+	-o "TFTP_OPTIONS=\"${OMV_TFTPD_OPTIONS}" \
+	-v "concat(' --retransmit ',retransmit)" \
+	-i "allownewfiles[. = '1']" -o " --create" -b \
+	-i "string-length(blocksize) > 0" -v "concat(' --blocksize ',blocksize)" -b \
+	-i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
+	-o "\"" -n \
+	-o "TFTP_USERNAME=\"${OMV_TFTPD_USERNAME}\"" -n \
+	-o "TFTP_DIRECTORY=\"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "\"" -n \
+	-v "concat('TFTP_ADDRESS=\"0.0.0.0:',port,'\"')" \
+	${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_TFTPD_DEFAULT}
