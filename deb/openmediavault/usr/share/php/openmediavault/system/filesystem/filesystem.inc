@@ -455,23 +455,20 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	}
 
 	/**
-	 * Get the special device file in the following preferred order:
+	 * Get the device file in the following order:
 	 * <ul>
 	 * \li /dev/disk/by-label/xxx
 	 * \li /dev/disk/by-id/xxx
-	 * \li /dev/disk/by-uuid/xxx
 	 * \li /dev/disk/by-path/xxx
 	 * \li /dev/xxx
 	 * </ul>
-	 * @return Returns the device file.
+	 * @return Returns a device file.
 	 */
-	public function getPreferredDeviceFile() {
+	public function getPredictableDeviceFile() {
 		if (TRUE === $this->hasDeviceFileByLabel())
 			return $this->getDeviceFileByLabel();
 		else if (TRUE === $this->hasDeviceFileById())
 			return $this->getDeviceFileById();
-		else if (TRUE === $this->hasDeviceFileByUuid())
-			return $this->getDeviceFileByUuid();
 		if (TRUE === $this->hasDeviceFileByPath())
 			return $this->getDeviceFileByPath();
 		return $this->getCanonicalDeviceFile();

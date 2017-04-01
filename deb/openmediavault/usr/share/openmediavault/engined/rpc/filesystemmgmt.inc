@@ -809,18 +809,16 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		  $parentDeviceFile);
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
 		  $parentDeviceFile);
-		// Get the special device file of the filesystem.
-		// Note, the preferred device file is:
+		// Get a predictable device file of the filesystem:
 		// - /dev/disk/by-label/xxx
 		// - /dev/disk/by-id/xxx
-		// - /dev/disk/by-uuid/xxx
 		// - /dev/xxx
 		// Do not use the filesystem UUID itself, e.g.:
 		// UUID=448f889a-105b-11e7-a91c-2b545744f57a
 		// This is because this will make problems with LV/BTRFS snapshots
 		// due the fact that they have the same filesystem UUID as their
 		// origin.
-		$fsName = $fs->getPreferredDeviceFile();
+		$fsName = $fs->getPredictableDeviceFile();
 		// Try to obtain the mount point configuration object if this exists.
 		$meObject = \OMV\Rpc\Rpc::call("FsTab", "getByFsName", [
 			"fsname" => $fsName

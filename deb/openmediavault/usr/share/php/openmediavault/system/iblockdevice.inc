@@ -91,13 +91,24 @@ interface IBlockDevice {
 	public function hasDeviceFileByPath();
 
 	/**
-	 * Get the special device file in the following preferred order:
+	 * Get a predictable device file in the following order:
 	 * <ul>
 	 * \li /dev/disk/by-id/xxx
 	 * \li /dev/disk/by-path/xxx
 	 * \li /dev/xxx
 	 * </ul>
-	 * @return Returns the device file.
+	 * @return Returns a device file.
+	 */
+	public function getPredictableDeviceFile();
+
+	/**
+	 * Get the device file to present in the UI, e.g.:
+	 * <ul>
+	 * \li /dev/disk/by-id/xxx
+	 * \li /dev/disk/by-path/xxx
+	 * \li /dev/xxx
+	 * </ul>
+	 * @return Returns a device file.
 	 */
 	public function getPreferredDeviceFile();
 
