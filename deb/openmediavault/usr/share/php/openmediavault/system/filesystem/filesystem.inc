@@ -50,6 +50,8 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0-part2
 	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
 	 *   \li /dev/cciss/c0d0p2
+	 *   \li /dev/disk/by-id/md-name-vmpc01:data
+	 *   \li /dev/disk/by-id/md-uuid-75de9de9:6beca92e:8442575c:73eabbc9
 	 *   </ul>
 	 */
 	public function __construct($id) {

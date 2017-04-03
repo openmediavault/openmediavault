@@ -37,13 +37,16 @@ class BlockDevice implements IBlockDevice {
 
 	/**
 	 * Constructor
-	 * @param deviceFile The device file, e.g. <ul>
-	 * \li /dev/sda2
-	 * \li /dev/sdb
-	 * \li /dev/md1
-	 * \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6
-	 * \li /dev/disk/by-id/wwn-0x5000cca211cc703c-part1
-	 * </ul>
+	 * @param deviceFile The device file, e.g.
+	 *   <ul>
+	 *   \li /dev/sda2
+	 *   \li /dev/sdb
+	 *   \li /dev/md1
+	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6
+	 *   \li /dev/disk/by-id/wwn-0x5000cca211cc703c-part1
+	 *   \li /dev/disk/by-id/md-name-vmpc01:data
+	 *   \li /dev/disk/by-id/md-uuid-75de9de9:6beca92e:8442575c:73eabbc9
+	 *   </ul>
 	 */
 	public function __construct($deviceFile) {
 		if (TRUE === is_devicefile_by_id($deviceFile)) {
