@@ -6,14 +6,14 @@
 # Milan Toet <milantoet@gmail.com>, 2012-2014,2016
 # sebak <seba.kerckhof@gmail.com>, 2012
 # stokerh <stoker.pc@home.nl>, 2012
-# Tim <co_ti@hotmail.com>, 2013-2014,2016
+# Tim <co_ti@hotmail.com>, 2013-2014,2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-06 06:19+0100\n"
-"PO-Revision-Date: 2016-12-06 05:21+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2017-04-01 17:05+0000\n"
+"Last-Translator: Tim <co_ti@hotmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/votdev/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -129,7 +129,7 @@ msgid "300 minutes"
 msgstr "300 minuten"
 
 msgid "330 minutes"
-msgstr ""
+msgstr "330 minuten"
 
 msgid "4 days"
 msgstr "4 dagen"
@@ -171,7 +171,7 @@ msgid "About"
 msgstr "Over"
 
 msgid "Absolute Path"
-msgstr ""
+msgstr "Absoluut pad"
 
 msgid "Abstract"
 msgstr "Abstractie"
@@ -848,7 +848,7 @@ msgid "Device Mapper %s [%s, %s]"
 msgstr "Apparaatmapper %s [%s, %s]"
 
 msgid "Device Symlinks"
-msgstr ""
+msgstr "Apparaat symlinks"
 
 msgid "Device has a few bad sectors"
 msgstr "Apparaat bevat een aantal slechte sectoren"
@@ -2060,7 +2060,7 @@ msgid "Mount"
 msgstr "Koppelen"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "Koppelpunt"
 
 msgid "Mounted"
 msgstr "Gekoppeld"
@@ -2635,7 +2635,7 @@ msgid "Refresh"
 msgstr "Verversen"
 
 msgid "Relative Path"
-msgstr ""
+msgstr "Relatief pad"
 
 msgid "Reload"
 msgstr "Herladen"
@@ -2755,7 +2755,7 @@ msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T.-controle moet worden geactiveerd op het geselecteerde apparaat."
 
 msgid "S/N"
-msgstr ""
+msgstr "S/N"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"

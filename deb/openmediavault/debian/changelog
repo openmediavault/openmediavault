@@ -1,5 +1,6 @@
 openmediavault (3.0.69) stable; urgency=low
 
+  * Update locales.
   * Display short device names, e.g. /dev/sdX, in the UI, but use predictable
     device files in the backend, database and config files.
   * Fix issues related to new mount point schema.
