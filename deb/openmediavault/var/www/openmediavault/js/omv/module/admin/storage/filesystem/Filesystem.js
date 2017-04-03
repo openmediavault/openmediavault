@@ -454,6 +454,8 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			var percentage = parseInt(record.get("percentage"));
 			if (-1 == percentage)
 				return _("n/a");
+			//var text = Ext.String.format("{0}% [{1}]",
+			//	percentage, value);
 			var renderer = OMV.util.Format.progressBarRenderer(
 				percentage / 100, value, 0.85);
 			return renderer.apply(this, arguments);
