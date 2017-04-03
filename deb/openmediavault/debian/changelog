@@ -1,3 +1,9 @@
+openmediavault (3.0.70) stable; urgency=low
+
+  * Fix bug in omv-firstaid command 'Clear local upload package repository'. 
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 03 Apr 2017 17:39:59 +0200
+
 openmediavault (3.0.69) stable; urgency=low
 
   * Update locales.
