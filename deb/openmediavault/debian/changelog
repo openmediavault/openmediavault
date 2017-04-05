@@ -1,6 +1,7 @@
 openmediavault (3.0.70) stable; urgency=low
 
-  * Fix bug in omv-firstaid command 'Clear local upload package repository'. 
+  * Fix bug in omv-firstaid command 'Clear local upload package repository'.
+  * Fix bug in the file system references detection.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 03 Apr 2017 17:39:59 +0200
 

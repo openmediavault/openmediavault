@@ -107,21 +107,13 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// corresponding mount point configuration object. If such object
 			// exists, then check if it is referenced by any other object,
 			// e.g. by a shared folder configuration object.
-			//
-			// Use the device file by default, but ask the backend if the
-			// filesystem supports this. If not, the use the UUID instead.
-			// If the device file is used then FsTab::getByFsName will
-			// add the UUID automatically if the filesystem supports this.
-			$fsId = $fs->getDeviceFile();
-			if (FALSE === $fsb->hasDeviceFile())
-				$fsId = $fs->getUuid();
-			if (FALSE !== ($meObject = \OMV\Rpc\Rpc::call(
-			  "FsTab", "getByFsName", [ "fsname" => $fsId ], $context))) {
+			if (FALSE !== ($meObject = \OMV\Rpc\Rpc::call("FsTab",
+			  "getByFsName", [ "fsname" => $object['devicefile'] ],
+			  $context))) {
 				$db = \OMV\Config\Database::getInstance();
 				$meObject = $db->get("conf.system.filesystem.mountpoint",
 				  $meObject['uuid']);
-				if ($db->isReferenced($meObject))
-					$object['_used'] = TRUE;
+				$object['_used'] = $db->isReferenced($meObject);
 			}
 			// Mark the device where the operating system is installed on
 			// as used and read-only.

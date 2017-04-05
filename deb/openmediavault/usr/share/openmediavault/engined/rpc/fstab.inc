@@ -174,13 +174,16 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 		// Add function parameter to search argument list.
 		$args = [];
 		$args[] = $params['fsname'];
-		// If the function parameter is a device file, then try to get the
-		// file system UUID and add it to the search argument list. This is
-		// done to increase the probability to find the fstab config object.
-		if (is_devicefile($params['fsname'])) {
-			$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['fsname']);
-			if (!is_null($fs) && $fs->exists() && $fs->hasUuid())
+		// Get all existing device files and the UUID of the file system to
+		// add them to the search argument list. This is done to increase the
+		// probability to find the mount point configuration object.
+		$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['fsname']);
+		if (!is_null($fs) && $fs->exists()) {
+			$args = array_merge($args, $fs->getDeviceFileSymlinks());
+			if ($fs->hasUuid())
 				$args[] = $fs->getUuid();
+			// Remove duplicates and re-index the array.
+			$args = array_values(array_unique($args));
 		}
 		// Try to find the configuration object matching the given search
 		// arguments. Note, the field 'fsname' may contain a device file
@@ -199,7 +202,7 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 						break;
 					}
 				} else {
-					if ($argv === $objectv['fsname']) {
+					if ($argv == $objectv['fsname']) {
 						$result = $objectv;
 						break;
 					}
