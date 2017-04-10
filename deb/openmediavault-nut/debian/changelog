@@ -1,5 +1,6 @@
 openmediavault-nut (3.2.11) stable; urgency=low
 
+  * Update locales.
   * Mantis 0001716: Fix bug in /etc/nut/upsd.users.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 10 Apr 2017 17:03:55 +0200

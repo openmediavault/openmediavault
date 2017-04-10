@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Stefan Thrane Overby <stoverby@gmail.com>, 2012-2015
+# Volker <votdev@gmx.de>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2015-08-28 09:24+0000\n"
-"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"PO-Revision-Date: 2017-04-10 15:03+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/votdev/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -90,7 +91,7 @@ msgid ""
 "To get more information how to configure your UPS please check the Network "
 "UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
 "target='_blank'>documentation</a>."
-msgstr "For at få flere oplysninger om hvordan du konfigurerer dine UPS så kontroller venligst Network UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'> dokumentation </ a >."
+msgstr "For at få flere oplysninger om hvordan du konfigurerer dine UPS så kontroller venligst Network UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>dokumentation</a>."
 
 msgid "UPS"
 msgstr "UPS"
