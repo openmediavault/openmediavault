@@ -29,8 +29,17 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+# Set the default governor based on the system architecture. Can be overridden
+# via the environment variable OMV_CPUFREQUTILS_GOVERNOR.
+governor="ondemand"
+case "$(dpkg --print-architecture)" in
+amd64|i386)
+	governor="conservative"
+	;;
+esac
+
 OMV_CPUFREQUTILS_DEFAULT=${OMV_CPUFREQUTILS_DEFAULT:-"/etc/default/cpufrequtils"}
-OMV_CPUFREQUTILS_GOVERNOR=${OMV_CPUFREQUTILS_GOVERNOR:-"conservative"}
+OMV_CPUFREQUTILS_GOVERNOR=${OMV_CPUFREQUTILS_GOVERNOR:-"${governor}"}
 OMV_CPUFREQUTILS_MAXSPEED=${OMV_CPUFREQUTILS_MAXSPEED:-"0"}
 OMV_CPUFREQUTILS_MINSPEED=${OMV_CPUFREQUTILS_MINSPEED:-"0"}
 OMV_LOADCPUFREQ_DEFAULT=${OMV_LOADCPUFREQ_DEFAULT:-"/etc/default/loadcpufreq"}

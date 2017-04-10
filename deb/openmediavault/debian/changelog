@@ -2,6 +2,9 @@ openmediavault (3.0.70) stable; urgency=low
 
   * Fix bug in omv-firstaid command 'Clear local upload package repository'.
   * Fix bug in the file system references detection.
+  * Set the default CPU frequency scaling governor to 'conservative' for
+    AMD64/i386 systems and to 'ondemand' for others. Based on suggestions
+    mentioned in Mantis 0001718.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 03 Apr 2017 17:39:59 +0200
 
