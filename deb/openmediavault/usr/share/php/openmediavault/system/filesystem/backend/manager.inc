@@ -211,12 +211,12 @@ class Manager implements \IteratorAggregate {
 			if (1 !== preg_match($regex, $outputv, $matches))
 				continue;
 			// Set default values and extract key/value pairs.
-			$data = array(
+			$data = [
 				"devicefile" => $matches[1],
 				"uuid" => "",
 				"label" => "",
 				"type" => ""
-			);
+			];
 			$parts = preg_split("/(\S+=\\\"[^\\\"]+\\\")|[\s]+/", $matches[2],
 			  -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
 			foreach ($parts as $partk => $partv) {
@@ -245,7 +245,10 @@ class Manager implements \IteratorAggregate {
 			// Ask the backend implementation for candidates.
 			if (FALSE === ($data = $backendv->enumerate()))
 				continue;
-			if (empty($data))
+			// Validate the returned data to ensure the array/dictionary
+			// contains the required fields.
+			$requiredKeys = ['devicefile', 'uuid', 'label', 'type'];
+			if (!is_array($data) || !array_keys_exists($requiredKeys, $data))
 				continue;
 			$result = array_merge($result, $data);
 		}
