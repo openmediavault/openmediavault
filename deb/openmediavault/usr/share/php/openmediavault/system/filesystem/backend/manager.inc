@@ -180,6 +180,7 @@ class Manager implements \IteratorAggregate {
 	 * @return An array of objects with the fields \em devicefile, \em uuid,
 	 *   \em label and \em type.
 	 * @throw \OMV\ExecException
+	 * @throw \UnexpectedValueException
 	 */
 	final public function enumerate() {
 		$result = [];
@@ -243,14 +244,18 @@ class Manager implements \IteratorAggregate {
 			if (TRUE === $backendv->isBlkidEnumerated())
 				continue;
 			// Ask the backend implementation for candidates.
-			if (FALSE === ($data = $backendv->enumerate()))
+			$enums = $backendv->enumerate();
+			if (empty($enums))
 				continue;
 			// Validate the returned data to ensure the array/dictionary
 			// contains the required fields.
-			$requiredKeys = ['devicefile', 'uuid', 'label', 'type'];
-			if (!is_array($data) || !array_keys_exists($requiredKeys, $data))
-				continue;
-			$result = array_merge($result, $data);
+			$keys = ['devicefile', 'uuid', 'label', 'type'];
+			if (!array_keys_exists($keys, $enums)) {
+				throw new \UnexpectedValueException(sprintf(
+					"The array does not contain the required keys %s.",
+					implode(", ", $keys)));
+			}
+			$result = array_merge($result, $enums);
 		}
 		return $result;
 	}
