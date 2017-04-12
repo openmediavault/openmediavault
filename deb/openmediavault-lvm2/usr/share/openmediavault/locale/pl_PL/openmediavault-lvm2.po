@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-lvm2 package.
 # 
 # Translators:
 # Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012
@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2016-04-23 17:16+0000\n"
+"POT-Creation-Date: 2017-04-12 18:35+0200\n"
+"PO-Revision-Date: 2017-04-12 16:36+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/votdev/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -120,6 +120,9 @@ msgstr "Wybierz urządzenie..."
 
 msgid "Size"
 msgstr "Rozmiar"
+
+msgid "Snapshot"
+msgstr ""
 
 msgid "Used"
 msgstr "Użyte"
