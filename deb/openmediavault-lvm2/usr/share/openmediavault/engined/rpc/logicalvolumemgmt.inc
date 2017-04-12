@@ -616,7 +616,8 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 				"uuid" => $lv->getUuid(),
 				"name" => $lv->getName(),
 				"size" => $lv->getSize(),
-				"vgname" => $lv->getVGName()
+				"vgname" => $lv->getVGName(),
+				"issnapshot" => $lv->isSnapshot()
 			];
 		}
 		return $result;

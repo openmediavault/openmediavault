@@ -433,6 +433,7 @@ Ext.define("OMV.module.admin.storage.lvm.LogicalVolumes", {
 						{ name: "name", type: "string" },
 						{ name: "size", type: "string" },
 						{ name: "vgname", type: "string" },
+						{ name: "issnapshot", type: "boolean" },
 						{ name: "_used", type: "boolean" }
 					]
 				}),
@@ -467,7 +468,10 @@ Ext.define("OMV.module.admin.storage.lvm.LogicalVolumes", {
 			disabled: true,
 			selectionConfig: {
 				minSelections: 1,
-				maxSelections: 1
+				maxSelections: 1,
+				enabledFn: function(c, records) {
+					return !records[0].get("issnapshot");
+				}
 			}
 		},{
 			id: me.getId() + "-extend",
@@ -560,9 +564,9 @@ Ext.define("OMV.module.admin.storage.lvm.LogicalVolumes", {
 				method: "createLogicalVolumeSnapshot",
 				params: {
 					devicefile: record.get("devicefile")
-				},
-				relayErrors: false
-			}
+				}
+			},
+			relayErrors: false
 		});
 	},
 

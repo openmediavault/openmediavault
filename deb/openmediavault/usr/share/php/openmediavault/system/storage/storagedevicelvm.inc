@@ -46,8 +46,6 @@ class StorageDeviceLvm extends StorageDeviceDM {
 		if (FALSE !== $this->dataCached)
 			return;
 
-		// Parse command output:
-		// VOSP6y-Lw75-pbTs-3v8A-6Qek-XBKJ-Md2G1q|vltest|test|12582912B
 		$cmdArgs = [];
 		$cmdArgs[] = "--noheadings";
 		$cmdArgs[] = "--separator '|'";
@@ -60,6 +58,8 @@ class StorageDeviceLvm extends StorageDeviceDM {
 		$cmd->setRedirect2toFile("/dev/null");
 		$cmd->execute($output);
 
+		// Parse command output:
+		// CRMY9K-pnVP-oxNv-bimZ-1WoX-FoAe-yLgGwk|lv01_snapshot_20170412-150418|vg01|569410322432B|swi-aos---|253|1
 		$output = explode("|", trim($output[0]));
 
 		$this->uuid = $output[0];
@@ -141,6 +141,16 @@ class StorageDeviceLvm extends StorageDeviceDM {
 		$this->getData();
 		return $this->uuid;
 	}
+
+	/**
+	 * Check if the given logical volume is a snapshot.
+	 * @return Returns TRUE if it is a snapshot, otherwise FALSE.
+	 */
+	 public function isSnapshot() {
+ 		$this->getData();
+		// http://www.unixarena.com/2013/08/redhat-linux-lvm-volume-attributes.html
+ 		return "s" == substr($this->attr, 0, 1);
+ 	}
 
 	/**
 	 * Get the description of the logical volume.
