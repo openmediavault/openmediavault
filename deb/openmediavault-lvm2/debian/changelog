@@ -1,3 +1,9 @@
+openmediavault-lvm2 (3.2) stable; urgency=low
+
+  * Add ability to create snapshots.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 12 Apr 2017 17:57:05 +0200
+
 openmediavault-lvm2 (3.1.5) stable; urgency=low
 
   * Various improvements.

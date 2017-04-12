@@ -458,6 +458,18 @@ Ext.define("OMV.module.admin.storage.lvm.LogicalVolumes", {
 		var items = me.callParent(arguments);
 		// Add additional buttons.
 		Ext.Array.insert(items, 2, [{
+			id: me.getId() + "-snapshot",
+			xtype: "button",
+			text: _("Snapshot"),
+			icon: "images/snapshot.png",
+			handler: Ext.Function.bind(me.onSnapshotButton, me, [ me ]),
+			scope: me,
+			disabled: true,
+			selectionConfig: {
+				minSelections: 1,
+				maxSelections: 1
+			}
+		},{
 			id: me.getId() + "-extend",
 			xtype: "button",
 			text: _("Extend"),
@@ -477,7 +489,7 @@ Ext.define("OMV.module.admin.storage.lvm.LogicalVolumes", {
 			handler: Ext.Function.bind(me.onReduceButton, me, [ me ]),
 			scope: me,
 			disabled: true,
-			hidden: true, // Not supported at the moment
+			hidden: true, // 'Reduce' is not supported at the moment
 			selectionConfig: {
 				minSelections: 1,
 				maxSelections: 1
@@ -533,6 +545,25 @@ Ext.define("OMV.module.admin.storage.lvm.LogicalVolumes", {
 
 	onReduceButton: function() {
 		// Not supported at the moment.
+	},
+
+	onSnapshotButton: function() {
+		var me = this;
+		var record = me.getSelected();
+		OMV.Rpc.request({
+			scope: me,
+			callback: function(id, success, response) {
+				this.doReload();
+			},
+			rpcData: {
+				service: "LogicalVolumeMgmt",
+				method: "createLogicalVolumeSnapshot",
+				params: {
+					devicefile: record.get("devicefile")
+				},
+				relayErrors: false
+			}
+		});
 	},
 
 	doDeletion: function(record) {
