@@ -245,17 +245,19 @@ class Manager implements \IteratorAggregate {
 				continue;
 			// Ask the backend implementation for candidates.
 			$enums = $backendv->enumerate();
-			if (empty($enums))
+			if (FALSE === is_array($enums))
 				continue;
-			// Validate the returned data to ensure the array/dictionary
-			// contains the required fields.
-			$keys = ['devicefile', 'uuid', 'label', 'type'];
-			if (!array_keys_exists($keys, $enums)) {
-				throw new \UnexpectedValueException(sprintf(
-					"The array does not contain the required keys %s.",
-					implode(", ", $keys)));
+			foreach ($enums as $enumk => $enumv) {
+				// Validate the returned data to ensure the array/dictionary
+				// contains the required fields.
+				$keys = ['devicefile', 'uuid', 'label', 'type'];
+				if (!array_keys_exists($keys, $enumv)) {
+					throw new \UnexpectedValueException(sprintf(
+						"The array does not contain the required keys %s.",
+						implode(", ", $keys)));
+				}
+				$result[] = $enumv;
 			}
-			$result = array_merge($result, $enums);
 		}
 		return $result;
 	}
