@@ -794,7 +794,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 		$cmdArgs[] = "grep";
 		$cmdArgs[] = "-E";
 		$cmdArgs[] = escapeshellarg(sprintf("^%s.*:.+\sTYPE=.+$",
-		  $deviceFile));
+		  realpath($deviceFile)));
 		$cmd = new \OMV\System\Process("blkid", $cmdArgs);
 		$cmd->setQuiet(TRUE);
 		$cmd->execute($output, $exitStatus);
