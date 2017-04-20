@@ -449,7 +449,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			throw new \OMV\Exception("Failed to get list of unused devices.");
 		// Get a list of all detected filesystems.
 		$filesystems = \OMV\System\Filesystem\Filesystem::getFilesystems();
-		// Get the list of devicefiles that are occupied by a filesystem.
+		// Get the list of device files that are occupied by a filesystem.
 		$usedDevs = [];
 		foreach ($filesystems as $filesystemk => $filesystemv) {
 			$usedDevs[] = $filesystemv->getParentDeviceFile();

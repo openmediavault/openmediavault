@@ -419,17 +419,15 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	 * \li /dev/sdb1 => /dev/sdb
 	 * \li /dev/cciss/c0d0p2 => /dev/cciss/c0d0
 	 * </ul>
-	 * @return The device file of the underlying storage device or FALSE
+	 * @return The device file of the underlying storage device or NULL
 	 *   on failure.
 	 */
 	public function getParentDeviceFile() {
 		$this->getData();
-		$deviceFile = $this->getDeviceFile();
 		// The following line is not necessary but will be kept to be safe.
 		// If the device file looks like /dev/disk/by-(id|label|path|uuid)/*
 		// then it is necessary to get the /dev/xxx equivalent.
-		if (1 == preg_match("/^\/dev\/disk\/by-.+$/", $deviceFile))
-			$deviceFile = realpath($deviceFile);
+		$deviceFile = $this->getCanonicalDeviceFile();
 		// Truncate the partition appendix, e.g.:
 		// - /dev/sdb1 => /dev/sdb
 		// - /dev/cciss/c0d0p2 => /dev/cciss/c0d0
@@ -439,21 +437,12 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 		// - /dev/loop0 => /dev/loop0
 		$mngr = \OMV\System\Storage\Backend\Manager::getInstance();
 		if (NULL === ($backend = $mngr->getBackend($deviceFile)))
-			return FALSE;
+			return NULL;
 		$parentDeviceFile = $backend->baseDeviceFile($deviceFile);
-		if (FALSE === is_devicefile_by_id($parentDeviceFile)) {
-			// Get the storage device file of the filesystems parent device.
-			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
-			  $parentDeviceFile);
-			if (FALSE === is_null($sd)) {
-				// Try to get the disk/by-id device file, e.g.
-				// - /dev/disk/by-id/ata-WDC_WD15EARS-00MBWR0_WD-WMAZA2574223
-				// - /dev/disk/by-id/wwn-0x50023ed655e21720
-				if (TRUE === $sd->hasDeviceFileById())
-					$parentDeviceFile = $sd->getDeviceFileById();
-			}
-		}
-		return $parentDeviceFile;
+		if (!is_devicefile($parentDeviceFile))
+			return NULL;
+		// Return the canonical device file.
+		return realpath($parentDeviceFile);
 	}
 
 	/**
