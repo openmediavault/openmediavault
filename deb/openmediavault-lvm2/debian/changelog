@@ -1,5 +1,6 @@
 openmediavault-lvm2 (3.2) stable; urgency=low
 
+  * Update locales.
   * Add ability to create snapshots.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 12 Apr 2017 17:57:05 +0200
