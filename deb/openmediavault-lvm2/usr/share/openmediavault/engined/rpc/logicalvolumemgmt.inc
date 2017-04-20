@@ -79,7 +79,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			if (!$pv->exists())
 				continue;
 			$result[] = array(
-				"devicefile" => $pv->getDeviceFile(),
+				"devicefile" => $pv->getPreferredDeviceFile(),
 				"free" => $pv->getFree(),
 				"used" => $pv->getUsed(),
 				"size" => $pv->getSize(),
@@ -278,7 +278,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			if (!$vg->exists())
 				continue;
 			$result[] = array(
-				"devicefile" => $vg->getDeviceFile(),
+				"devicefile" => $vg->getPreferredDeviceFile(),
 				"uuid" => $vg->getUuid(),
 				"name" => $vg->getName(),
 				"free" => $vg->getFree(),
@@ -612,7 +612,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			if (FALSE === $lv->exists())
 				continue;
 			$result[] = [
-				"devicefile" => $lv->getDeviceFile(),
+				"devicefile" => $lv->getPreferredDeviceFile(),
 				"uuid" => $lv->getUuid(),
 				"name" => $lv->getName(),
 				"size" => $lv->getSize(),

@@ -398,6 +398,13 @@ Ext.define("OMV.module.admin.storage.lvm.VolumeGroups", {
 	stateful: true,
 	stateId: "af0712c4-9f60-493a-9be4-c9658f958f99",
 	columns: [{
+		xtype: "textcolumn",
+		text: _("Device"),
+		sortable: true,
+		hidden: true,
+		dataIndex: "devicefile",
+		stateId: "devicefile",
+	},{
 		text: _("Name"),
 		sortable: true,
 		dataIndex: "name",

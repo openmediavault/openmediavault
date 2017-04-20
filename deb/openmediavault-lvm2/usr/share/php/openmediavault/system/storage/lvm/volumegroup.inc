@@ -174,6 +174,29 @@ class VolumeGroup {
 	}
 
 	/**
+	 * Get the canonical device file, e.g. <ul>
+	 * \li /dev/mapper/vg0-lv0 -> /dev/dm-0
+	 * </ul>
+	 * @return Returns the canonical device file.
+	 */
+	public function getCanonicalDeviceFile() {
+		return realpath($this->getDeviceFile());
+	}
+
+	/**
+	 * Get the device file to present in the UI, e.g.:
+	 * <ul>
+	 * \li /dev/disk/by-id/xxx
+	 * \li /dev/disk/by-path/xxx
+	 * \li /dev/xxx
+	 * </ul>
+	 * @return Returns a device file.
+	 */
+	public function getPreferredDeviceFile() {
+		return $this->getCanonicalDeviceFile();
+	}
+
+	/**
 	 * Get the UUID of the volume group.
 	 * @return The UUID of the volume group.
 	 */
@@ -270,9 +293,9 @@ class VolumeGroup {
 	 */
 	public function getDescription() {
 		$this->getData();
-		return sprintf("LVM volume group [%s, %s, %s free]",
-		  $this->getDeviceFile(), binary_format($this->getSize()),
-		  binary_format($this->getFree()));
+		return sprintf("LVM volume group %s [%s, %s, %s free]",
+		  $this->getName(), $this->getPreferredDeviceFile(),
+		  binary_format($this->getSize()), binary_format($this->getFree()));
 	}
 
 	/**

@@ -28,24 +28,6 @@ namespace OMV\System\Storage;
  */
 class StorageDeviceDM extends StorageDevice {
 	/**
-	 * Constructor
-	 * @param deviceFile Specifies the device file, e.g. /dev/dm-1,
-	 *   /dev/vg0/lv0 or /dev/mapper/vg0-lv0.
-	 */
-	public function __construct($deviceFile) {
-		// Call parent constructor.
-		parent::__construct($deviceFile);
-		// Any devices of the form /dev/dm-n are for internal use only and
-		// should never be used. Because of that the device file returned
-		// should look like /dev/mapper/<xyz>. See for more information:
-		// https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html-single/DM_Multipath
-		if (1 == preg_match("/^\/dev\/dm-\d+$/", $this->deviceFile)) {
-			if (FALSE !== ($name = $this->getDeviceMapperName()))
-				$this->deviceFile = sprintf("/dev/mapper/%s", $name);
-		}
-	}
-
-	/**
 	 * Get the name of the device mapper device.
 	 * @return The name of the device mapper device.
 	 */
@@ -100,7 +82,7 @@ class StorageDeviceDM extends StorageDevice {
 	 */
 	public function getDescription() {
 		return sprintf(gettext("Device Mapper %s [%s, %s]"),
-		  $this->getDeviceMapperName(), $this->getDeviceFile(),
+		  $this->getDeviceMapperName(), $this->getPreferredDeviceFile(),
 		  binary_format($this->getSize()));
 	}
 }
