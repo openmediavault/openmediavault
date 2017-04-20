@@ -447,6 +447,13 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Get a list of all potential usable devices.
 		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerateUnused()))
 			throw new \OMV\Exception("Failed to get list of unused devices.");
+		// Get a list of all detected filesystems.
+		$filesystems = \OMV\System\Filesystem\Filesystem::getFilesystems();
+		// Get the list of devicefiles that are occupied by a filesystem.
+		$usedDevs = [];
+		foreach ($filesystems as $filesystemk => $filesystemv) {
+			$usedDevs[] = $filesystemv->getParentDeviceFile();
+		}
 		// Prepare the result list.
 		$result = [];
 		foreach ($devs as $devk => $devv) {
@@ -469,8 +476,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				continue;
 */
 			// Does this device already contain a filesystem?
-			if (FALSE !== \OMV\System\Filesystem\Filesystem::hasFileSystem(
-			  $sd->getDeviceFile()))
+			if (in_array($sd->getCanonicalDeviceFile(), $usedDevs))
 				continue;
 			// The device is a potential candidate to create a filesystem
 			// on it.
