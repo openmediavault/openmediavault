@@ -29,27 +29,27 @@ namespace OMV\System\Storage;
 class StorageDeviceDM extends StorageDevice {
 	/**
 	 * Get the name of the device mapper device.
-	 * @return The name of the device mapper device.
+	 * @return The name of the device mapper device, otherwise NULL.
 	 */
 	public function getDeviceMapperName() {
 		// Make sure the canonical device file is used to extract the name
 		// of the device.
 		$path = sprintf("/sys/block/%s/dm/name", $this->getDeviceName(TRUE));
 		if (!file_exists($path))
-			return FALSE;
+			return NULL;
 		return trim(file_get_contents($path));
 	}
 
 	/**
 	 * Get the UUID of the device mapper device.
-	 * @return The UUID of the device mapper device, otherwise FALSE.
+	 * @return The UUID of the device mapper device, otherwise NULL.
 	 */
 	public function getDeviceMapperUuid() {
 		// Make sure the canonical device file is used to extract the name
 		// of the device.
 		$path = sprintf("/sys/block/%s/dm/uuid", $this->getDeviceName(TRUE));
 		if (!file_exists($path))
-			return FALSE;
+			return NULL;
 		return trim(file_get_contents($path));
 	}
 

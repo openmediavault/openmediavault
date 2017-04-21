@@ -37,6 +37,30 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	private $dataCached = FALSE;
 
 	/**
+	 * Constructor
+	 * @param deviceFile Specifies the device file, e.g. /dev/dm-1,
+	 *   /dev/vg0/lv0 or /dev/mapper/vg0-lv0.
+	 */
+	public function __construct($deviceFile) {
+		// Call parent constructor.
+		parent::__construct($deviceFile);
+		// Any devices of the form /dev/dm-n are for internal use only
+		// and should never be used.
+		//
+		// Example:
+		// # lvdisplay --noheadings --separator ... --unit b /dev/dm-0
+		//   Volume group "dm-0" not found
+		//   Skipping volume group dm-0
+		//
+		// Because of that we simply use device files that look like
+		// /dev/mapper/<xyz>.
+		if (1 == preg_match("/^\/dev\/dm-\d+$/", $this->deviceFile)) {
+			if (NULL !== ($name = $this->getDeviceMapperName()))
+				$this->deviceFile = sprintf("/dev/mapper/%s", $name);
+		}
+	}
+
+	/**
 	 * Get the logical volume detailed information.
 	 * @private
 	 * @return None.
