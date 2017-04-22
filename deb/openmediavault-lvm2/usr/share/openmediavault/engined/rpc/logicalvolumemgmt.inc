@@ -78,7 +78,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			$pv = new \OMV\System\Storage\Lvm\PhysicalVolume($devv);
 			if (!$pv->exists())
 				continue;
-			$result[] = array(
+			$result[] = [
 				"devicefile" => $pv->getPreferredDeviceFile(),
 				"free" => $pv->getFree(),
 				"used" => $pv->getUsed(),
@@ -86,7 +86,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 				"vguuid" => $pv->getVGUuid(),
 				"vgname" => $pv->getVGName(),
 				"description" => $pv->getDescription()
-			);
+			];
 		}
 		return $result;
 	}
@@ -277,7 +277,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			$vg = new \OMV\System\Storage\Lvm\VolumeGroup($vgv);
 			if (!$vg->exists())
 				continue;
-			$result[] = array(
+			$result[] = [
 				"devicefile" => $vg->getPreferredDeviceFile(),
 				"uuid" => $vg->getUuid(),
 				"name" => $vg->getName(),
@@ -288,8 +288,9 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 				"extentsize" => $vg->getExtentSize(),
 				"numextents" => $vg->getNumExtents(),
 				"numfreeextents" => $vg->getNumFreeExtents(),
+				"attributes" => $vg->getAttributes(),
 				"description" => $vg->getDescription()
-			);
+			];
 		}
 		return $result;
 	}
@@ -617,7 +618,8 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 				"name" => $lv->getName(),
 				"size" => $lv->getSize(),
 				"vgname" => $lv->getVGName(),
-				"issnapshot" => $lv->isSnapshot()
+				"attributes" => $lv->getAttributes(),
+				"vgattributes" => $lv->getVGAttributes()
 			];
 		}
 		return $result;

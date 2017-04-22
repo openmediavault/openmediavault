@@ -440,7 +440,8 @@ Ext.define("OMV.module.admin.storage.lvm.LogicalVolumes", {
 						{ name: "name", type: "string" },
 						{ name: "size", type: "string" },
 						{ name: "vgname", type: "string" },
-						{ name: "issnapshot", type: "boolean" },
+						{ name: "attributes", type: "array" },
+						{ name: "vgattributes", type: "array" },
 						{ name: "_used", type: "boolean" }
 					]
 				}),
@@ -477,7 +478,8 @@ Ext.define("OMV.module.admin.storage.lvm.LogicalVolumes", {
 				minSelections: 1,
 				maxSelections: 1,
 				enabledFn: function(c, records) {
-					return !records[0].get("issnapshot");
+					var attr = records[0].get("attributes");
+					return !attr.snapshot;
 				}
 			}
 		},{
@@ -490,7 +492,11 @@ Ext.define("OMV.module.admin.storage.lvm.LogicalVolumes", {
 			disabled: true,
 			selectionConfig: {
 				minSelections: 1,
-				maxSelections: 1
+				maxSelections: 1,
+				enabledFn: function(c, records) {
+					var attr = records[0].get("vgattributes");
+					return attr.resizeable;
+				}
 			}
 		},{
 			id: me.getId() + "-reduce",
@@ -503,7 +509,11 @@ Ext.define("OMV.module.admin.storage.lvm.LogicalVolumes", {
 			hidden: true, // 'Reduce' is not supported at the moment
 			selectionConfig: {
 				minSelections: 1,
-				maxSelections: 1
+				maxSelections: 1,
+				enabledFn: function(c, records) {
+					var attr = records[0].get("vgattributes");
+					return attr.resizeable;
+				}
 			}
 		}]);
 		return items;

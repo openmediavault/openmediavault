@@ -36,6 +36,7 @@ class VolumeGroup {
 	protected $extentSize = "";
 	protected $extentCount = "";
 	protected $freeCount = "";
+	protected $attr = "";
 	private $dataCached = FALSE;
 
 	/**
@@ -63,7 +64,7 @@ class VolumeGroup {
 		$cmdArgs[] = "--separator '|'";
 		$cmdArgs[] = "-C";
 		$cmdArgs[] = "-o vg_uuid,vg_name,vg_size,vg_free,pv_count,lv_count,".
-		  "vg_extent_size,vg_extent_count,vg_free_count";
+		  "vg_extent_size,vg_extent_count,vg_free_count,vg_attr";
 		$cmdArgs[] = "--unit b";
 		$cmdArgs[] = escapeshellarg($this->getName());
 		$cmd = new \OMV\System\Process("vgdisplay", $cmdArgs);
@@ -81,6 +82,7 @@ class VolumeGroup {
 		$this->extentSize = substr($output[6], 0, -1);
 		$this->extentCount = $output[7];
 		$this->freeCount = $output[8];
+		$this->attr = $output[9];
 
 		// Get the names of the physical volumes.
 		$this->pvName = [];
@@ -285,6 +287,32 @@ class VolumeGroup {
 	public function getNumFreeExtents() {
 		$this->getData();
 		return $this->freeCount;
+	}
+
+	/**
+	 * Get the volume group attributes.
+	 * @see http://www.unixarena.com/2013/08/redhat-linux-lvm-volume-attributes.html
+	 * @return Returns an array with the attribtes.
+	 */
+	public function getAttributes() {
+		$this->getData();
+		return [
+			"access" => [
+				"read" => ("r" == substr($this->vgAttr, 0, 1)),
+				"write" => ("w" == substr($this->vgAttr, 0, 1))
+			],
+			"resizeable" => ("z" == substr($this->vgAttr, 1, 1)),
+			"exported" => ("x" == substr($this->vgAttr, 2, 1)),
+			"partial" => ("p" == substr($this->vgAttr, 3, 1)),
+			"allocationpolicy" => [
+				"contiguous" => ("c" == substr($this->vgAttr, 4, 1)),
+				"cling" => ("l" == substr($this->vgAttr, 4, 1)),
+				"normal" => ("n" == substr($this->vgAttr, 4, 1)),
+				"anywhere" => ("a" == substr($this->vgAttr, 4, 1)),
+				"inherited" => ("i" == substr($this->vgAttr, 4, 1)),
+			],
+			"cluster" => ("c" == substr($this->vgAttr, 5, 1)),
+		];
 	}
 
 	/**

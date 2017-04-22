@@ -1,5 +1,6 @@
 openmediavault-lvm2 (3.2.1) stable; urgency=low
 
+  * Various API improvements.
   * Display the devicefile of the PV/VG/LV in the WebUI.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 20 Apr 2017 23:04:03 +0200

@@ -29,7 +29,8 @@ require_once("openmediavault/functions.inc");
  */
 class StorageDeviceLvm extends StorageDeviceDM {
 	protected $uuid = "";
-	protected $attr = "";
+	protected $lvAttr = "";
+	protected $vgAttr = "";
 	protected $kernelMajor = "";
 	protected $kernelMinor = "";
 	protected $lvName = "";
@@ -75,7 +76,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 		$cmdArgs[] = "--separator '|'";
 		$cmdArgs[] = "-C";
 		$cmdArgs[] = "-o lv_uuid,lv_name,vg_name,lv_size,lv_attr,".
-		  "lv_kernel_major,lv_kernel_minor";
+		  "lv_kernel_major,lv_kernel_minor,vg_attr";
 		$cmdArgs[] = "--unit b";
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("lvdisplay", $cmdArgs);
@@ -90,9 +91,10 @@ class StorageDeviceLvm extends StorageDeviceDM {
 		$this->lvName = $output[1];
 		$this->vgName = $output[2];
 		$this->size = substr($output[3], 0, -1);
-		$this->attr = $output[4];
+		$this->lvAttr = $output[4];
 		$this->kernelMajor = intval($output[5]);
 		$this->kernelMinor = intval($output[6]);
+		$this->vgAttr = $output[7];
 
 		// Set flag to mark information has been successfully read.
 		$this->dataCached = TRUE;
@@ -167,14 +169,48 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	}
 
 	/**
-	 * Check if the given logical volume is a snapshot.
-	 * @return Returns TRUE if it is a snapshot, otherwise FALSE.
+	 * Get the logical volume attributes.
+	 * @see http://www.unixarena.com/2013/08/redhat-linux-lvm-volume-attributes.html
+	 * @return Returns an array with the attribtes.
 	 */
-	 public function isSnapshot() {
- 		$this->getData();
-		// http://www.unixarena.com/2013/08/redhat-linux-lvm-volume-attributes.html
- 		return "s" == substr($this->attr, 0, 1);
- 	}
+	public function getAttributes() {
+		$this->getData();
+		// ToDo: Add all the other attributes on demand.
+		return [
+			"origin" => ("o" == substr($this->lvAttr, 0, 1)),
+			"snapshot" => ("s" == substr($this->lvAttr, 0, 1)),
+			"invalidsnapshot" => ("S" == substr($this->lvAttr, 0, 1)),
+			"mirrored" => ("m" == substr($this->lvAttr, 0, 1)),
+			"virtual" => ("v" == substr($this->lvAttr, 0, 1)),
+			"pvmove" => ("p" == substr($this->lvAttr, 0, 1))
+		];
+	}
+
+	/**
+	 * Get the volume group attributes.
+	 * @see http://www.unixarena.com/2013/08/redhat-linux-lvm-volume-attributes.html
+	 * @return Returns an array with the attribtes.
+	 */
+	public function getVGAttributes() {
+		$this->getData();
+		return [
+			"access" => [
+				"read" => ("r" == substr($this->vgAttr, 0, 1)),
+				"write" => ("w" == substr($this->vgAttr, 0, 1))
+			],
+			"resizeable" => ("z" == substr($this->vgAttr, 1, 1)),
+			"exported" => ("x" == substr($this->vgAttr, 2, 1)),
+			"partial" => ("p" == substr($this->vgAttr, 3, 1)),
+			"allocationpolicy" => [
+				"contiguous" => ("c" == substr($this->vgAttr, 4, 1)),
+				"cling" => ("l" == substr($this->vgAttr, 4, 1)),
+				"normal" => ("n" == substr($this->vgAttr, 4, 1)),
+				"anywhere" => ("a" == substr($this->vgAttr, 4, 1)),
+				"inherited" => ("i" == substr($this->vgAttr, 4, 1)),
+			],
+			"cluster" => ("c" == substr($this->vgAttr, 5, 1)),
+		];
+	}
 
 	/**
 	 * Get the description of the logical volume.
