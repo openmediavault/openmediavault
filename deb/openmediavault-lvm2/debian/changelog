@@ -1,5 +1,6 @@
 openmediavault-lvm2 (3.2.1) stable; urgency=low
 
+  * Update locales.
   * Various API improvements.
   * Display the devicefile of the PV/VG/LV in the WebUI.
 
