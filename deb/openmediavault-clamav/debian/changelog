@@ -1,3 +1,9 @@
+openmediavault-clamav (3.3.1) stable; urgency=low
+
+  * Fix bug in database creation script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 23 Apr 2017 22:02:04 +0200
+
 openmediavault-clamav (3.3) stable; urgency=low
 
   * Improve the datamodel to be able to resolve shared folder references.
