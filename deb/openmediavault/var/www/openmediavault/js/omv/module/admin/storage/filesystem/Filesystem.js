@@ -658,11 +658,6 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 				tbarBtnDisabled["unmount"] = false;
 			} else {
 				tbarBtnDisabled["mount"] = false;
-				// Disable the 'Mount' button if the file system does not
-				// provide a UUID.
-				if(Ext.isEmpty(record.get("uuid"))) {
-					tbarBtnDisabled["mount"] = true;
-				}
 			}
 			// If the file system is in use, then also disable the unmount
 			// button.
