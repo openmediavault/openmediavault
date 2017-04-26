@@ -835,3 +835,23 @@ function get_declared_subclasses($class) {
 	}
 	return $classNames;
 }
+
+/**
+ * Send a signal to a process and its children.
+ * @param pid The process identifier.
+ * @param sig One of the PCNTL signals constants.
+ * @return Returns TRUE on success or FALSE on failure.
+ */
+function posix_kill_ex($pid, $sig) {
+	exec("ps --no-headers -e -o pid,ppid", $output, $exitStatus);
+	if ($exitStatus)
+		return FALSE;
+	foreach ($output as $rowk => $rowv) {
+		if (1 !== preg_match('/^\s*(\d+)\s+(\d+)\s*$/', $rowv, $matches))
+			continue;
+		if (intval($matches[2]) !== $pid)
+			continue;
+		posix_kill_ex(intval($matches[1]), $sig);
+	}
+	return posix_kill($pid, $sig);
+}
