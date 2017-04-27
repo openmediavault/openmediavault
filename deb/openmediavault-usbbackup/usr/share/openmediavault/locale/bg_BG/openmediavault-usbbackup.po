@@ -1,0 +1,179 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Plamen Vasilev <p.vasileff@gmail.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"PO-Revision-Date: 2017-04-26 19:18+0000\n"
+"Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>\n"
+"Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/votdev/openmediavault/language/bg_BG/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: bg_BG\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Add backup job"
+msgstr "Добави бекъп задача"
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"administrator."
+msgstr "Имейл съобщение с изход от командата (ако има такъв) се изпраща на администратора."
+
+msgid "Archive"
+msgstr "Архив"
+
+msgid "Backup jobs"
+msgstr "Бекъп задачи"
+
+msgid "Comment"
+msgstr "Коментар"
+
+msgid "Compress"
+msgstr "Компресия"
+
+msgid "Compress file data during the transfer."
+msgstr "Компресиране на файловете по време на трансфер."
+
+msgid "Delete"
+msgstr "Премахни"
+
+msgid "Delete files on the receiving side that don't exist on sender."
+msgstr "Изтриване на файловете на приемащата страна, ако не съществуват при изпращащата."
+
+msgid "Device"
+msgstr "Устройство"
+
+msgid "Edit backup job"
+msgstr "Редактирай бекъп задача"
+
+msgid "Enable"
+msgstr "Разреши"
+
+msgid "Enable archive mode."
+msgstr "Разреши режим на архивиране."
+
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr "Разрешете тази опция, за да запазите частично прехвърлените файлове, в противен случай те ще бъдат изтрити, ако прехвърлянето бъде прекъснато."
+
+msgid "Enabled"
+msgstr "Разрешено"
+
+msgid "Execute backup job"
+msgstr "Изпълнете бекъп задача"
+
+msgid "External storage device"
+msgstr "Външно устройство за съхранение"
+
+msgid "Extra options"
+msgstr "Допълнителни опции"
+
+msgid "From external storage to shared folder"
+msgstr "От външно хранилище до споделена папка"
+
+msgid "From shared folder to external storage"
+msgstr "От споделена папка до външно хранилище"
+
+msgid "Keep partially transferred files"
+msgstr "Съхранявайте частично прехвърлените файлове"
+
+msgid "Mode"
+msgstr "Режим"
+
+msgid ""
+"Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Моля, посетете <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>помощната страница</a> за повече информация."
+
+msgid ""
+"Please note that the web interface is blocked until the manually started "
+"backup job has been finished. However the backup job is automatically "
+"executed in the background when the storage device is connected to the host."
+msgstr "Моля, имайте предвид, че уеб интерфейсът е блокиран, докато не приключи ръчно стартираната бекъп задача. Въпреки това бекъп задачата се изпълнява автоматично във фонов режим, когато устройството за съхранение е свързано към хоста."
+
+msgid "Preserve ACLs"
+msgstr "Запазване на ACL"
+
+msgid "Preserve extended attributes"
+msgstr "Запазете разширените атрибути"
+
+msgid "Preserve modification times."
+msgstr "Запазете датите на модифициране."
+
+msgid "Preserve permissions"
+msgstr "Запазете разрешенията"
+
+msgid "Quiet"
+msgstr "Безшумен"
+
+msgid "Recurse into directories."
+msgstr "Рекурсивно в директориите"
+
+msgid "Recursive"
+msgstr "Рекурсивно"
+
+msgid "Run"
+msgstr "Изпълни"
+
+msgid "Scan"
+msgstr "Сканирай"
+
+msgid "Select a device ..."
+msgstr "Избери устройство ..."
+
+msgid "Send command output via email."
+msgstr "Изпрати изхода от командата на имейл."
+
+msgid "Send email"
+msgstr "Изпрати имейл"
+
+msgid ""
+"Set the destination permissions to be the same as the source permissions."
+msgstr "Задайте разрешенията за дестинацията да бъдат същите като разрешенията на източника."
+
+msgid "Shared folder"
+msgstr "Споделена папка"
+
+msgid "Suppress non-error messages."
+msgstr "Потискайте съобщенията без грешки."
+
+msgid "Synchronise from/to directory on external storage device."
+msgstr "Синхронизиране от/към директория на външно хранилище."
+
+msgid "The external storage device."
+msgstr "Външното устройство за съхранение."
+
+msgid ""
+"The shared folder content is synchronised from/to the root of the external "
+"storage device if this option is not set. The name of the directory is taken"
+" from the shared folder."
+msgstr "Съдържанието на споделената папка се синхронизира от/към root на външното устройство за съхранение, ако тази опция не е зададена. Името на директорията е взето от споделената папка."
+
+msgid ""
+"The shared folder to synchronise when the external storage device is "
+"connected."
+msgstr "Споделената папка, която да се синхронизира, когато е свързано външното устройство за съхранение."
+
+msgid "Times"
+msgstr "Пъти"
+
+msgid "USB Backup"
+msgstr "USB Бекъп"
+
+msgid "Update the destination ACLs to be the same as the source ACLs."
+msgstr "Обновете ACL-те от дестинацията да са същите като ACL-те на източника."
+
+msgid ""
+"Update the destination extended attributes to be the same as the local ones."
+msgstr "Актуализирайте разширените атрибути на местоназначението, за да бъдат същите като местните."
+
+msgid "n/a"
+msgstr "n/a"
