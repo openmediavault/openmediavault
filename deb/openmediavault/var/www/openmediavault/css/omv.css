@@ -607,3 +607,11 @@ div#headerrlogo {
 /******************************************************************************/
 /* Bugfixes/Workarounds
 /******************************************************************************/
+/* Fix Chrome 56 render bug (EXTJS-23628) */
+/* https://www.sencha.com/forum/showthread.php?335045-Text-field-heights-are-incorrect-and-text-is-misaligned-in-Chrome-56&p=1171870&viewfull=1#post1171870 */
+.x-webkit .x-form-text {
+	height: 100% !important;
+}
+.x-webkit :not(.x-form-textarea-body) > .x-form-trigger-wrap {
+	height: initial;
+}
