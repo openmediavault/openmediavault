@@ -1,5 +1,6 @@
 openmediavault (3.0.73) stable; urgency=low
 
+  * Update locales.
   * Enable mounting of filesystems without an UUID.
   * Mantis 0001729: Unable to stop rsync job once it has begun.
     This issue relates to all jobs that are started via WebUI.
