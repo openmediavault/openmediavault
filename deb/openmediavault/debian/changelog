@@ -1,3 +1,9 @@
+openmediavault (2.2.14) stable; urgency=low
+
+  * Backport Chrome browser workaround to fix WebUI render issues.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Apr 2017 22:00:14 +0200
+
 openmediavault (2.2.13) stable; urgency=low
 
   * Various improvements.
