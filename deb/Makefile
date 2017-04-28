@@ -30,4 +30,7 @@ clean binary omv_tx_pull_po omv_tx_push_pot omv_build_pot:
 		cd $(CURDIR)/$$dir && fakeroot debian/rules $@; \
 	done
 
-.PHONY: clean binary omv_tx_pull_po omv_tx_push_pot omv_build_pot
+install_build_tools:
+	sudo apt-get install debhelper fakeroot
+
+.PHONY: install_build_tools clean binary omv_tx_pull_po omv_tx_push_pot omv_build_pot
