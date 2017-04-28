@@ -1,0 +1,64 @@
+# -*- mode: ruby -*-
+#
+# This file is part of openmediavault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2017 Volker Theile
+#
+# openmediavault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# openmediavault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with openmediavault. If not, see <http://www.gnu.org/licenses/>.
+
+# Default values.
+hostname = "omv2box"
+
+Vagrant.configure("2") do |config|
+	# Debian 8/Jessie
+	config.vm.box = "debian/wheezy64"
+	config.vm.define hostname
+	config.vm.provision :shell, :path => "install.sh"
+	config.vm.network "private_network", ip: "192.172.16.22"
+	config.vm.hostname = hostname
+	config.vm.provider :virtualbox do |prov|
+		prov.name = hostname
+		prov.memory = "2048"
+		# Add some disks.
+		for i in 0..2 do
+			filename = "./disks/#{hostname}-disk#{i}.vmdk"
+			unless File.exist?(filename)
+				prov.customize ["createmedium", "disk", "--filename", filename,
+					"--size", 1000 * 1024]
+				prov.customize ["storageattach", :id, "--storagectl",
+					"SATA Controller", "--port", i + 1, "--device", 0,
+					"--type", "hdd", "--medium", filename]
+			end
+		end
+	end
+	config.vm.provider :libvirt do |prov|
+		prov.memory = "2048"
+		# Add some disks.
+		prov.storage :file, :size => "1G", :bus => "scsi"
+		prov.storage :file, :size => "1G", :bus => "scsi"
+		prov.storage :file, :size => "1G", :bus => "scsi"
+	end
+	config.vm.synced_folder "../deb", "/home/vagrant/openmediavault",
+		:nfs => true,
+		:mount_options => ["nolock,vers=3,udp,noatime,actimeo=1"]
+	if Vagrant.has_plugin?("vagrant-cachier")
+		config.cache.scope = :box
+		config.cache.synced_folder_opts = {
+			type: :nfs,
+			mount_options: ["rw", "vers=3", "tcp", "nolock"]
+		}
+	end
+end
