@@ -31,6 +31,6 @@ clean binary omv_tx_pull_po omv_tx_push_pot omv_build_pot:
 	done
 
 install_build_tools:
-	sudo apt-get install debhelper fakeroot
+	sudo apt-get install debhelper fakeroot gettext
 
 .PHONY: install_build_tools clean binary omv_tx_pull_po omv_tx_push_pot omv_build_pot
