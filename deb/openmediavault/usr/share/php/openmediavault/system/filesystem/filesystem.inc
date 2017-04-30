@@ -272,7 +272,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	/**
 	 * Get the partition scheme, e.g. 'gpt', 'mbr', 'apm' or 'dos'.
 	 * @deprecated
-	 * @return The filesystem type, otherwise FALSE.
+	 * @return The filesystem type, otherwise NULL.
 	 */
 	public function getPartitionType() {
 		return $this->getPartitionScheme();
@@ -280,7 +280,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 
 	/**
 	 * Get the partition scheme, e.g. 'gpt', 'mbr', 'apm' or 'dos'.
-	 * @return The filesystem type.
+	 * @return The filesystem type, otherwise NULL.
 	 */
 	public function getPartitionScheme() {
 		$this->getData();
@@ -299,7 +299,8 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	/**
 	 * Get the partition entry information.
 	 * @return An array with the fields \em scheme, \em uuid, \em type,
-	 *   \em flags, \em number, \em offset, \em size and \em disk.
+	 *   \em flags, \em number, \em offset, \em size and \em disk,
+	 *   otherwise NULL.
 	 */
 	public function getPartitionEntry() {
 		$this->getData();
@@ -341,11 +342,11 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	 */
 	public function hasDeviceFileByUuid() {
 		try {
-			$this->getDeviceFileByUuid();
+			$deviceFile = $this->getDeviceFileByUuid();
 		} catch(\Exception $e) {
 			return FALSE;
 		}
-		return TRUE;
+		return is_devicefile_by_uuid($deviceFile);
 	}
 
 	/**
@@ -372,11 +373,11 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	 */
 	public function hasDeviceFileById() {
 		try {
-			$this->getDeviceFileById();
+			$deviceFile = $this->getDeviceFileById();
 		} catch(\Exception $e) {
 			return FALSE;
 		}
-		return TRUE;
+		return is_devicefile_by_id($deviceFile);
 	}
 
 	/**
@@ -404,11 +405,11 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	 */
 	public function hasDeviceFileByLabel() {
 		try {
-			$this->getDeviceFileByLabel();
+			$deviceFile = $this->getDeviceFileByLabel();
 		} catch(\Exception $e) {
 			return FALSE;
 		}
-		return TRUE;
+		return is_devicefile_by_label($deviceFile);
 	}
 
 	/**

@@ -72,21 +72,44 @@ interface IFilesystem {
 	public function getDeviceFileById();
 
 	/**
+	 * Check whether the filesystem has a /dev/disk/by-id/xxx device path.
+	 * @return Returns TRUE if a disk/by-id device path exists,
+	 *   otherwise FALSE.
+	 */
+	public function hasDeviceFileById();
+
+	/**
 	 * Get the device path by UUID, e.g. <ul>
 	 * \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
 	 * \li /dev/disk/by-uuid/2ED43920D438EC29 (NTFS)
 	 * </ul>
-	 * @return The device path (/dev/disk/by-uuid/xxx).
+	 * @return The device file (/dev/disk/by-uuid/xxx) if available,
+	 *   otherwise NULL will be returned.
 	 */
 	public function getDeviceFileByUuid();
+
+	/**
+	 * Check whether the filesystem has a /dev/disk/by-uuid/xxx device path.
+	 * @return Returns TRUE if a disk/by-uuid device path exists,
+	 *   otherwise FALSE.
+	 */
+	public function hasDeviceFileByUuid();
 
 	/**
 	 * Get the device path by label, e.g. <ul>
 	 * \li /dev/disk/by-label/data
 	 * </ul>
-	 * @return The device path (/dev/disk/by-label/xxx).
+	 * @return The device file (/dev/disk/by-label/xxx) if available,
+	 *   otherwise NULL will be returned.
 	 */
 	public function getDeviceFileByLabel();
+
+	/**
+	 * Check whether the filesystem has a /dev/disk/by-label/xxx device path.
+	 * @return Returns TRUE if a disk/by-label device path exists,
+	 *   otherwise FALSE.
+	 */
+	public function hasDeviceFileByLabel();
 
 	/**
 	 * Get a predictable device file in the following order:
