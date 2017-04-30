@@ -279,7 +279,6 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 			onTrigger1Click: function() {
 				// Reset the filter settings.
 				this.reset();
-				this.onTrigger2Click();
 			},
 			onTrigger2Click: function() {
 				// Get the entered text that should be searched for.
@@ -308,10 +307,9 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 				}
 			},
 			listeners: {
-				specialkey: function(field, e){
-					if (e.getKey() == e.ENTER) {
-						field.onTrigger2Click();
-					}
+				// Implement a combobox type ahead logic.
+				change: function(field, e) {
+					field.onTrigger2Click();
 				}
 			}
 		}]);
