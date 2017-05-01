@@ -47,15 +47,13 @@ Ext.define("OMV.module.admin.system.network.Zeroconf", {
 	hideApplyButton: false,
 	hideRefreshButton: false,
 	columns: [{
+		xtype: "textcolumn",
 		text: _("Service"),
 		sortable: true,
 		dataIndex: "title",
 		stateId: "title",
 		flex: 1,
-		renderer: function(value, metaData, record, rowIndex,
-		  colIndex, store, view) {
-			return _(value);
-		}
+		translateText: true
 	},{
 		xtype: "textcolumn",
 		text: _("Name"),
