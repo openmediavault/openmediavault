@@ -838,6 +838,7 @@ function get_declared_subclasses($class) {
 
 /**
  * Send a signal to a process and its children.
+ * @ingroup api
  * @param pid The process identifier.
  * @param sig One of the PCNTL signals constants.
  * @return Returns TRUE on success or FALSE on failure.
