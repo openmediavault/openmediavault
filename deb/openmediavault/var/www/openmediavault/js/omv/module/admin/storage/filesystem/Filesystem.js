@@ -191,7 +191,8 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 		"OMV.data.Store",
 		"OMV.data.Model",
 		"OMV.data.proxy.Rpc",
-		"OMV.workspace.window.plugin.ConfigObject"
+		"OMV.workspace.window.plugin.ConfigObject",
+		"Ext.grid.plugin.RowEditing"
 	],
 
 	rpcService: "Quota",
@@ -211,9 +212,10 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 			border: false,
 			stateful: true,
 			stateId: "24f018e6-8de6-41e1-b6c4-db0edd49a73b",
-			plugins: Ext.create("Ext.grid.plugin.CellEditing", {
+			plugins: [{
+				ptype: "rowediting",
 				clicksToEdit: 1
-			}),
+			}],
 			columns: [{
 				text: _("Type"),
 				sortable: true,

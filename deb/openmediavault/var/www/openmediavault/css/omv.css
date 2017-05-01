@@ -254,14 +254,17 @@ div#headerrlogo {
 	border: 1px solid #cc3300;
 }
 /* Grid checkbox column */
-.x-grid-checkcolumn {
+.x-grid-checkcolumn,
+.x-form-checkbox-grid-cell {
 	width: 32px;
-    height: 16px;
+	height: 16px;
 	background-position: inherit;
-    background-image: url("../images/switch_off.png");
+	background-image: url("../images/switch_off.png");
 	background-image: url("../images/switch_off.svg"), none;
 }
-.x-grid-checkcolumn-checked {
+.x-grid-checkcolumn-checked,
+.x-form-cb-checked .x-form-checkbox-grid-cell {
+	background-position: inherit;
 	background-image: url("../images/switch_on.png");
 	background-image: url("../images/switch_on.svg"), none;
 }

@@ -36,7 +36,7 @@ Ext.define("OMV.module.admin.system.network.Zeroconf", {
 		"OMV.data.Store",
 		"OMV.data.Model",
 		"OMV.data.proxy.Rpc",
-		"Ext.grid.plugin.CellEditing"
+		"Ext.grid.plugin.RowEditing"
 	],
 
 	stateful: true,
@@ -75,10 +75,13 @@ Ext.define("OMV.module.admin.system.network.Zeroconf", {
 		stateId: "enable",
 		align: "center",
 		width: 80,
-		resizable: false
+		resizable: false,
+		editor: {
+			xtype: "checkboxfield"
+		}
 	}],
 	plugins: [{
-		ptype: "cellediting",
+		ptype: "rowediting",
 		clicksToEdit: 1
 	}],
 
