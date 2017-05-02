@@ -20,10 +20,61 @@
  */
 // require("js/omv/WorkspaceManager.js")
 // require("js/omv/workspace/grid/Panel.js")
+// require("js/omv/workspace/window/Form.js")
 // require("js/omv/Rpc.js")
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
+
+/**
+ * @class OMV.module.admin.system.network.zeroconf.Service
+ * @derived OMV.workspace.window.Form
+ * @param uuid The UUID of the configuration object.
+ * @param service The name of the service.
+ */
+Ext.define("OMV.module.admin.system.network.zeroconf.Service", {
+	extend: "OMV.workspace.window.Form",
+
+	rpcService: "Zeroconf",
+	rpcGetMethod: "get",
+	rpcSetMethod: "set",
+	title: _("Edit service"),
+	width: 350,
+
+	getFormItems: function() {
+		var me = this;
+		return [{
+			xtype: "textfield",
+			fieldLabel: _("Service"),
+			readOnly: true,
+			submitValue: false,
+			value: me.service
+		},{
+			xtype: "textfield",
+			name: "name",
+			fieldLabel: _("Name")
+		},{
+			xtype: "checkbox",
+			name: "enable",
+			fieldLabel: _("Enable"),
+			checked: false
+		},{
+			xtype: "hidden",
+			name: "uuid",
+			value: me.uuid
+		},{
+			xtype: "hidden",
+			name: "id"
+		}];
+	},
+
+	getRpcGetParams: function() {
+		var me = this;
+		return Ext.apply({}, {
+			uuid: me.uuid
+		});
+	}
+});
 
 /**
  * @class OMV.module.admin.system.network.Zeroconf
@@ -35,16 +86,16 @@ Ext.define("OMV.module.admin.system.network.Zeroconf", {
 		"OMV.Rpc",
 		"OMV.data.Store",
 		"OMV.data.Model",
-		"OMV.data.proxy.Rpc",
-		"Ext.grid.plugin.RowEditing"
+		"OMV.data.proxy.Rpc"
+	],
+	uses: [
+		"OMV.module.admin.system.network.zeroconf.Service"
 	],
 
-	hideTopToolbar: true,
 	hidePagingToolbar: false,
 	stateful: true,
 	stateId: "9dcb85a4-5cb3-11e2-a2ee-000c29f7c0eb",
 	hideAddButton: true,
-	hideEditButton: true,
 	hideDeleteButton: true,
 	columns: [{
 		xtype: "textcolumn",
@@ -60,11 +111,7 @@ Ext.define("OMV.module.admin.system.network.Zeroconf", {
 		sortable: true,
 		dataIndex: "name",
 		stateId: "name",
-		flex: 1,
-		editor: {
-			xtype: "textfield",
-			allowBlank: false
-		}
+		flex: 1
 	},{
 		xtype: "booleaniconcolumn",
 		text: _("Enable"),
@@ -74,14 +121,7 @@ Ext.define("OMV.module.admin.system.network.Zeroconf", {
 		align: "center",
 		width: 80,
 		resizable: false,
-		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch",
-		editor: {
-			xtype: "checkboxfield"
-		}
-	}],
-	plugins: [{
-		ptype: "rowediting",
-		clicksToEdit: 1
+		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
 	}],
 
 	initComponent: function() {
@@ -110,28 +150,24 @@ Ext.define("OMV.module.admin.system.network.Zeroconf", {
 					direction: "ASC",
 					property: "title"
 				}]
-			}),
-			listeners: {
-				scope: me,
-				edit: function(editor, context, eOpts) {
-					OMV.Rpc.request({
-						scope: this,
-						callback: function(id, success, response) {
-							this.store.reload();
-						},
-						relayErrors: false,
-						rpcData: {
-							service: "Zeroconf",
-							method: "set",
-							params: context.record.getData({
-								persist: true
-							})
-						}
-					});
-				}
-			}
+			})
 		});
 		me.callParent(arguments);
+	},
+
+	onEditButton: function() {
+		var me = this;
+		var record = me.getSelected();
+		Ext.create("OMV.module.admin.system.network.zeroconf.Service", {
+			uuid: record.get("uuid"),
+			service: record.get("title"),
+			listeners: {
+				scope: me,
+				submit: function() {
+					this.doReload();
+				}
+			}
+		}).show();
 	}
 });
 
