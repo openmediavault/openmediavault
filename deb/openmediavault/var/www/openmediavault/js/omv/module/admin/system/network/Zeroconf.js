@@ -39,13 +39,13 @@ Ext.define("OMV.module.admin.system.network.Zeroconf", {
 		"Ext.grid.plugin.RowEditing"
 	],
 
+	hideTopToolbar: true,
+	hidePagingToolbar: false,
 	stateful: true,
 	stateId: "9dcb85a4-5cb3-11e2-a2ee-000c29f7c0eb",
 	hideAddButton: true,
 	hideEditButton: true,
 	hideDeleteButton: true,
-	hideApplyButton: false,
-	hideRefreshButton: false,
 	columns: [{
 		xtype: "textcolumn",
 		text: _("Service"),
@@ -66,7 +66,7 @@ Ext.define("OMV.module.admin.system.network.Zeroconf", {
 			allowBlank: false
 		}
 	},{
-		xtype: "checkcolumn",
+		xtype: "booleaniconcolumn",
 		text: _("Enable"),
 		groupable: false,
 		dataIndex: "enable",
@@ -74,6 +74,7 @@ Ext.define("OMV.module.admin.system.network.Zeroconf", {
 		align: "center",
 		width: 80,
 		resizable: false,
+		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch",
 		editor: {
 			xtype: "checkboxfield"
 		}
@@ -94,52 +95,43 @@ Ext.define("OMV.module.admin.system.network.Zeroconf", {
 						{ name: "uuid", type: "string" },
 						{ name: "id", type: "string" },
 						{ name: "name", type: "string" },
-						{ name: "title", type: "string" },
+						{ name: "title", type: "string", persist: false },
 						{ name: "enable", type: "boolean" }
 					]
 				}),
 				proxy: {
 					type: "rpc",
-					appendSortParams: false,
 					rpcData: {
 						service: "Zeroconf",
-						method: "get"
+						method: "getList"
 					}
 				},
 				sorters: [{
 					direction: "ASC",
 					property: "title"
 				}]
-			})
-		});
-		me.callParent(arguments);
-	},
-
-	onApplyButton: function() {
-		var me = this;
-		var records = me.store.getRange();
-		var params = [];
-		Ext.Array.each(records, function(record) {
-			params.push({
-				"uuid": record.get("uuid"),
-				"id": record.get("id"),
-				"enable": record.get("enable"),
-				"name": record.get("name")
-			});
-		});
-		// Execute RPC.
-		OMV.Rpc.request({
-			scope: me,
-			callback: function(id, success, response) {
-				this.store.reload();
-			},
-			relayErrors: false,
-			rpcData: {
-				service: "Zeroconf",
-				method: "set",
-				params: params
+			}),
+			listeners: {
+				scope: me,
+				edit: function(editor, context, eOpts) {
+					OMV.Rpc.request({
+						scope: this,
+						callback: function(id, success, response) {
+							this.store.reload();
+						},
+						relayErrors: false,
+						rpcData: {
+							service: "Zeroconf",
+							method: "set",
+							params: context.record.getData({
+								persist: true
+							})
+						}
+					});
+				}
 			}
 		});
+		me.callParent(arguments);
 	}
 });
 

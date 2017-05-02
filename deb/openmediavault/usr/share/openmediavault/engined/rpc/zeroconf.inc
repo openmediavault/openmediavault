@@ -31,22 +31,30 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 	 * Initialize the RPC service.
 	 */
 	public function initialize() {
+		$this->registerMethod("getList");
 		$this->registerMethod("get");
 		$this->registerMethod("set");
 	}
 
 	/**
-	 * Get the Zeroconf services configuration.
-	 * @param params The method parameters.
+	 * Get list of Zeroconf configuration objects.
+	 * @param params An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
 	 * @param context The context of the caller.
-	 * @return An array containing the Zeroconf services configuration.
+	 * @return An array containing the requested objects. The field \em total
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
 	 */
-	function get($params, $context) {
+	function getList($params, $context) {
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		$result = [];
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.common.getlist");
 		// Get the list of registered modules.
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getModules();
@@ -68,11 +76,32 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 				$result[] = $object->getAssoc();
 			}
 		}
-		return $result;
+		// Filter the result.
+		return $this->applyFilter($result, $params['start'],
+		  $params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
 	/**
-	 * Set the Zeroconf services configuration.
+	 * Get a Zeroconf service configuration.
+	 * @param params An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @param context The context of the caller.
+	 * @return The requested configuration object.
+	 */
+	function get($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.common.objectuuid");
+		// Get the configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		return $db->getAssoc("conf.service.zeroconf.service", $params['uuid']);
+	}
+
+	/**
+	 * Set a Zeroconf service configuration.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
@@ -84,39 +113,13 @@ class OMVRpcServiceZeroconf extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.zeroconf.set");
-		// Prepare the result array.
-		$objectsAssoc = [];
-		// Get the list of registered modules.
-		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
-		$modules = $moduleMngr->getModules();
-		foreach ($modules as $modulev) {
-			// Check if the module implements the required interface.
-			if ($modulev instanceof \OMV\Engine\Module\IZeroconf) {
-				$config = $modulev->getZeroconfConfig();
-				// Set default values.
-				$object = new \OMV\Config\ConfigObject(
-				  "conf.service.zeroconf.service");
-				$object->set("id", $config['id']);
-				$object->set("enable", FALSE);
-				$object->set("name", $config['title']);
-				// Process the RPC arguments.
-				foreach ($params as $paramk => $paramv) {
-					if ($paramv['id'] === $config['id']) {
-						$object->setFlatAssoc([
-							"uuid" => $paramv['uuid'],
-							"name" => $paramv['name'],
-							"enable" => $paramv['enable']
-						]);
-						break;
-					}
-				}
-				// Set the configuration object.
-				$db = \OMV\Config\Database::getInstance();
-				$db->set($object);
-				$objectsAssoc[] = $object->getAssoc();
-			}
-		}
-		// Return the configuration objects.
-		return $objectsAssoc;
+		// Prepare the configuration object.
+		$object = new \OMV\Config\ConfigObject("conf.service.zeroconf.service");
+		$object->setAssoc($params);
+		// Set the configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$db->set($object);
+		// Return the configuration object.
+		return $object->getAssoc();
 	}
 }
