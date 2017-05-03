@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-31 15:47+0200\n"
+"POT-Creation-Date: 2017-05-03 21:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1015,6 +1015,9 @@ msgstr ""
 msgid "Edit scheduled test"
 msgstr ""
 
+msgid "Edit service"
+msgstr ""
+
 msgid "Edit share"
 msgstr ""
 
@@ -1136,6 +1139,9 @@ msgid "Error"
 msgstr ""
 
 msgid "Error #"
+msgstr ""
+
+msgid "Errors"
 msgstr ""
 
 msgid "Estonia"
@@ -3752,6 +3758,9 @@ msgid "Yemen"
 msgstr ""
 
 msgid "Yes"
+msgstr ""
+
+msgid "You need to commit or cancel your changes"
 msgstr ""
 
 msgid "Zambia"
