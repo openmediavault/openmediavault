@@ -83,6 +83,11 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 		$jsonFile = new \OMV\Json\File(\OMV\Environment::get(
 		  "OMV_ENGINED_DIRTY_MODULES_FILE"));
 		$jsonFile->open("c+");
+		// Make sure we have a valid JSON file. Keep in mind that the file
+		// is empty if it was created by the \OMV\Json\File::open method.
+		if ($jsonFile->isEmpty())
+			$jsonFile->write([]);
+		// Read the file content.
 		$dirtyModules = $jsonFile->read();
 		// Remove non-existing modules from list. It may happen that the
 		// list contains entries from already deinstalled plugins.
