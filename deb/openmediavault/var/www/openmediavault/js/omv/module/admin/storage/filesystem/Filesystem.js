@@ -241,6 +241,16 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 					  "grid-cell-usergroupiconcolumn" + " " +
 					  Ext.baseCSSPrefix + iconCls;
 					return "";
+				},
+				editRenderer: function(value) {
+					var iconCls = ("user" === value) ?
+						"grid-cell-usergroupiconcolumn-user" :
+						"grid-cell-usergroupiconcolumn-group";
+					return '<div class="' +
+						Ext.baseCSSPrefix + "form-display-field " +
+						Ext.baseCSSPrefix + "form-display-field-grid-cell " +
+						Ext.baseCSSPrefix + "grid-cell-usergroupiconcolumn " +
+						Ext.baseCSSPrefix + iconCls + '"></div>';
 				}
 			},{
 				xtype: "textcolumn",
