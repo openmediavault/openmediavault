@@ -103,7 +103,7 @@ Ext.define("OMV.workspace.node.Node", {
 		var me = this;
 		// Append default values.
 		config = Ext.apply({
-			id: Ext.id(),
+			internalId: Ext.id(),
 			childNodes: new Ext.util.MixedCollection()
 		}, config);
 		me.initConfig(config);

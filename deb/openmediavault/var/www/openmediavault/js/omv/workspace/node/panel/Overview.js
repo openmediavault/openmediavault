@@ -111,7 +111,7 @@ Ext.define("OMV.workspace.node.panel.Overview", {
 					for (i = startIndex; i <= endIndex; i++) {
 						//node = nodes[i];
 						node = Ext.Array.findBy(nodes, function(item, index) {
-							return item.id == records[i].get("uri");
+							return item.id == records[i].get("internalId");
 						});
 						node.setAttribute('data-recordIndex', i);
 						node.setAttribute('data-recordId', records[i].internalId);
@@ -124,7 +124,7 @@ Ext.define("OMV.workspace.node.panel.Overview", {
 							'<tpl if="values.header == true">',
 								'<div class="',Ext.baseCSSPrefix,'workspace-node-view-category">',
 									'<div class="',Ext.baseCSSPrefix,'workspace-node-view-category-header">',
-										'<div class="thumb-wrap" id="{uri:stripTags}">',
+										'<div class="thumb-wrap" id="{internalId}">',
 											'{[this.renderCategoryHeaderText(values)]}',
 										'</div>',
 									'</div>',
@@ -144,7 +144,7 @@ Ext.define("OMV.workspace.node.panel.Overview", {
 							var tpl = Ext.create("Ext.XTemplate",
 								'<tpl for=".">',
 									'<tpl if="this.isRenderNode(values)">',
-										'<div class="thumb-wrap" id="{uri:stripTags}">',
+										'<div class="thumb-wrap" id="{internalId}">',
 											'<div class="thumb"><img src="{[this.renderIcon(values)]}" title="{[this.renderText(values)]}"></div>',
 											'<span>{[this.renderText(values)]}</span>',
 										'</div>',
