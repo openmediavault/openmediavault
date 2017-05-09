@@ -101,23 +101,23 @@ Ext.define("OMV.workspace.node.panel.Overview", {
 					// data structure if the data view tems are out of
 					// order than they are stored in the store.
 					var nodes = this.all.elements,
-					    node,
-					    records = this.getViewRange(),
-					    i,
-					    myId = this.id;
+						node,
+						records = this.getViewRange(),
+						i,
+						myId = this.id;
 					startIndex = startIndex || 0;
 					endIndex = endIndex || ((endIndex === 0) ?
 					  0 : (nodes.length - 1));
 					for (i = startIndex; i <= endIndex; i++) {
-					    //node = nodes[i];
+						//node = nodes[i];
 						node = Ext.Array.findBy(nodes, function(item, index) {
-			        		return item.id == records[i].get("uri");
-			        	});
-					    node.setAttribute('data-recordIndex', i);
-					    node.setAttribute('data-recordId', records[i].internalId);
-					    node.setAttribute('data-boundView', myId);
+							return item.id == records[i].get("uri");
+						});
+						node.setAttribute('data-recordIndex', i);
+						node.setAttribute('data-recordId', records[i].internalId);
+						node.setAttribute('data-boundView', myId);
 					}
-			    },
+				},
 				tpl: Ext.create("Ext.XTemplate",
 					'<div class="',Ext.baseCSSPrefix,'workspace-node-view-categories">',
 						'<tpl for=".">',
