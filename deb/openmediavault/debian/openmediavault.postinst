@@ -480,6 +480,13 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "3.0.68"; then
 			omv_set_default "OMV_MOUNT_DIR" "/srv"
 		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.70"; then
+			# Recreate and reload configuration files because of switching
+			# to ExtJS6.
+			omv-mkconf nginx
+			deb-systemd-invoke reload nginx.service || :
+			deb-systemd-invoke reload php5-fpm.service || :
+		fi
 
 		########################################################################
 		# Show help text.

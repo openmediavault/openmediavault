@@ -1,0 +1,192 @@
+/**
+ * This file is part of OpenMediaVault.
+ *
+ * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @author    Volker Theile <volker.theile@openmediavault.org>
+ * @copyright Copyright (c) 2009-2017 Volker Theile
+ *
+ * OpenMediaVault is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * OpenMediaVault is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/******************************************************************************/
+/* Trigger field */
+.x-form-password-trigger {
+	cursor: pointer;
+	background-image: url("/images/password-trigger.png");
+}
+.x-form-add-trigger {
+	background-image: url("../images/add-trigger.png");
+}
+.x-form-folder-trigger {
+	background-image: url("../images/folder-trigger.png");
+}
+.x-form-copy-trigger {
+	background-image: url("../images/copy-trigger.png");
+}
+/******************************************************************************/
+/* Checkbox */
+.x-form-checkbox-default,
+.x-form-radio-default {
+    width: 32px;
+    height: 16px;
+}
+.x-form-cb-default {
+    margin-top: 3px;
+}
+.x-form-cb-label-default.x-form-cb-label-after {
+    padding-left: 37px;
+}
+.x-form-checkbox-default {
+	background-position: left;
+	background-image: url("../images/switch_off.png");
+	background-image: url("../images/switch_off.svg"), none;
+}
+.x-form-cb-checked .x-form-checkbox-default {
+	background-position: left;
+	background-image: url("../images/switch_on.png");
+	background-image: url("../images/switch_on.svg"), none;
+}
+.x-form-checkbox-focus.x-form-checkbox-default,
+.x-form-cb-checked .x-form-checkbox-focus.x-form-checkbox-default {
+	background-position: left;
+}
+/******************************************************************************/
+/* Checkbox field */
+.x-form-type-checkbox input.x-form-invalid-field {
+	border: 1px solid #cc3300;
+}
+/******************************************************************************/
+/* Grid checkbox column */
+.x-grid-checkcolumn {
+	width: 32px;
+    height: 16px;
+	background-position: inherit;
+    background-image: url("../images/switch_off.png");
+	background-image: url("../images/switch_off.svg"), none;
+}
+.x-grid-checkcolumn-checked {
+	background-image: url("../images/switch_on.png");
+	background-image: url("../images/switch_on.svg"), none;
+}
+/******************************************************************************/
+/* Message box */
+.x-message-box-info, .x-message-box-warning, .x-message-box-question,
+.x-message-box-error {
+	background-size: 32px 32px;
+}
+.x-message-box-info, .x-message-box-question {
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+	opacity: 0.7;
+}
+.x-message-box-info {
+	background-image: url("/images/icon-info.png");
+	background-image: url("/images/icon-info.svg"), none;
+}
+.x-message-box-warning {
+	background-image: url("/images/icon-warning.png");
+	background-image: url("/images/icon-warning.svg"), none;
+}
+.x-message-box-question {
+	background-image: url("/images/icon-question.png");
+	background-image: url("/images/icon-question.svg"), none;
+}
+.x-message-box-error {
+	background-image: url("/images/icon-error.png");
+	background-image: url("/images/icon-error.svg"), none;
+}
+/******************************************************************************/
+/* Grid */
+.x-grid-cell-boolean-icon {
+	text-align: center;
+	vertical-align: middle;
+}
+.x-grid-cell-gray {
+	background-color: #eee;
+}
+/******************************************************************************/
+/* Tree */
+.x-tree-icon, .x-tree-elbow-img {
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+	opacity: 0.7;
+}
+.x-tree-icon-16x16 {
+	background-size: 16px 16px;
+}
+.x-tree-icon-parent,
+.x-grid-tree-node-expanded .x-tree-icon-parent {
+	background-size: 16px 16px;
+}
+.x-tree-icon-parent {
+	background-image: url("../images/folder.png");
+	background-image: url("../images/folder.svg"), none;
+}
+.x-tree-icon-parent-expanded {
+	background-image: url("../images/folder-open.png");
+	background-image: url("../images/folder-open.svg"), none;
+}
+.x-tree-lines .x-tree-elbow-plus,
+.x-tree-lines .x-tree-elbow-end-plus,
+.x-tree-lines .x-grid-tree-node-expanded .x-tree-elbow-plus,
+.x-tree-lines .x-grid-tree-node-expanded .x-tree-elbow-end-plus {
+	background-size: 12px 12px;
+	background-position: center center;
+}
+.x-tree-lines .x-tree-elbow-plus,
+.x-tree-lines .x-tree-elbow-end-plus {
+	background-image: url("../images/tree-folder.png");
+	background-image: url("../images/tree-folder.svg"), none;
+}
+.x-tree-lines .x-grid-tree-node-expanded .x-tree-elbow-plus,
+.x-tree-lines .x-grid-tree-node-expanded .x-tree-elbow-end-plus {
+	background-image: url("../images/tree-folder-open.png");
+	background-image: url("../images/tree-folder-open.svg"), none;
+}
+/******************************************************************************/
+/* Paging toolbar */
+.x-tbar-page-first,
+.x-item-disabled .x-tbar-page-first {
+	background-image: url("../images/page-first.png");
+	background-image: url("../images/page-first.svg"), none;
+}
+.x-tbar-page-prev,
+.x-item-disabled .x-tbar-page-prev {
+	background-image: url("../images/page-prev.png");
+	background-image: url("../images/page-prev.svg"), none;
+}
+.x-tbar-page-next,
+.x-item-disabled .x-tbar-page-next {
+	background-image: url("../images/page-next.png");
+	background-image: url("../images/page-next.svg"), none;
+}
+.x-tbar-page-last,
+.x-item-disabled .x-tbar-page-last {
+	background-image: url("../images/page-last.png");
+	background-image: url("../images/page-last.svg"), none;
+}
+.x-tbar-loading,
+.x-item-disabled .x-tbar-loading {
+	background-image: url("../images/page-refresh.png");
+	background-image: url("../images/page-refresh.svg"), none;
+}
+/******************************************************************************/
+/* Configuration activation toolbar */
+.x-toolbar-applycfg .x-message-box-warning {
+	margin: 5px;
+	width: 16px;
+	height: 16px;
+	background-image: url("/images/alert.png");
+	background-image: url("/images/alert.svg"), none;
+	background-position: center center;
+	background-size: 16px 16px;
+}

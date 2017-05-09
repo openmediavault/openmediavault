@@ -340,7 +340,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 
 	title: _("Modify shared folder ACL"),
 	width: 700,
-	height: 520,
+	height: 600,
 	layout: "border",
 	modal: true,
 	buttonAlign: "center",
@@ -442,7 +442,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 			split: true,
 			collapsible: true,
 			bodyPadding: "5 5 0",
-			border: true,
+			border: false,
 			items: [{
 				xtype: "compositefield",
 				fieldLabel: _("Owner"),

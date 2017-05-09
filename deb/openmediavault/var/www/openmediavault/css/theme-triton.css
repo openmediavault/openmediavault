@@ -1,0 +1,253 @@
+/**
+ * This file is part of OpenMediaVault.
+ *
+ * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @author    Volker Theile <volker.theile@openmediavault.org>
+ * @copyright Copyright (c) 2009-2017 Volker Theile
+ *
+ * OpenMediaVault is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * OpenMediaVault is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+ /******************************************************************************/
+ /* Corporate colors
+ /* default:     #98b7cf
+ /* darker:      #829bad
+ /* more darker: #6c8191
+ /******************************************************************************/
+
+/******************************************************************************/
+/* Body */
+body > .x-mask {
+	background-color: rgba(47, 52, 63, 0.5);
+}
+/******************************************************************************/
+/* Trigger field */
+.x-form-password-trigger:before {
+	content: "\f06e";
+}
+.x-form-add-trigger:before {
+	content: "\f067";
+}
+.x-form-folder-trigger:before {
+	content: "\f114";
+}
+.x-form-copy-trigger:before {
+	content: "\f0ea";
+}
+.x-form-trigger-default.x-form-trigger-over {
+	border-color: #dbdbdb;
+	background-image: none;
+	background-color: #ececec;
+}
+.x-form-trigger-wrap-default.x-form-trigger-wrap-focus {
+	border-color: #98b7cf;
+}
+.x-form-trigger-wrap-default.x-form-trigger-wrap-invalid {
+	border-color: #cc3300;
+}
+/******************************************************************************/
+/* Spinner field */
+.x-form-spinner-default.x-form-spinner-over {
+	border-color: #dbdbdb;
+	background-color: #ececec;
+}
+/******************************************************************************/
+/* Panel */
+.x-panel-default {
+	border-color: #98b7cf;
+}
+.x-panel-default-outer-border-l {
+	border-left-color: #98b7cf !important;
+}
+.x-panel-default-outer-border-b {
+	border-bottom-color: #98b7cf !important;
+}
+.x-panel-default-outer-border-trbl {
+	border-color: #98b7cf !important;
+}
+.x-panel-default-outer-border-bl {
+	border-bottom-color: #98b7cf !important;
+	border-left-color: #98b7cf !important;
+}
+.x-panel-default-outer-border-r {
+	border-right-color: #98b7cf !important;
+}
+.x-panel-default-outer-border-rl {
+	border-right-color: #98b7cf !important;
+	border-left-color: #98b7cf !important;
+}
+.x-panel-default-outer-border-rb {
+	border-right-color: #98b7cf !important;
+	border-bottom-color: #98b7cf !important;
+}
+.x-panel-default-outer-border-trl {
+	border-top-color: #98b7cf !important;
+	border-right-color: #98b7cf !important;
+	border-left-color: #98b7cf !important;
+}
+.x-panel-default-outer-border-rbl {
+	border-right-color: #98b7cf !important;
+	border-bottom-color: #98b7cf !important;
+	border-left-color: #98b7cf !important;
+}
+.x-panel-header-default-vertical {
+	background-color: #98b7cf;
+}
+.x-panel-header-default .x-tool-tool-el {
+	background-color: #98b7cf;
+}
+.x-panel-header-default {
+	border: 1px solid #98b7cf;
+	background-color: #98b7cf;
+}
+/******************************************************************************/
+/* Tree */
+.x-tree-icon, .x-tree-elbow-img {
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+	opacity: 0.7;
+}
+.x-tree-icon-custom {
+	background-size: 16px 16px;
+}
+.x-tree-elbow-plus,
+.x-tree-elbow-end-plus,
+.x-tree-icon,
+.x-tree-icon-parent,
+.x-tree-icon-parent-expanded,
+.x-tree-icon-leaf,
+.x-grid-tree-node-expanded .x-tree-elbow-plus,
+.x-grid-tree-node-expanded .x-tree-elbow-end-plus {
+	color: #000000;
+}
+/******************************************************************************/
+/* Grid */
+.x-grid-item-focused .x-grid-cell-inner:before {
+	border-color: #98b7cf;
+}
+.x-grid-group-hd-collapsed .x-grid-group-title:before,
+.x-grid-group-hd-collapsible .x-grid-group-title:before {
+	color: #000000;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+	opacity: 0.7;
+}
+/******************************************************************************/
+/* Workspace node tree */
+.x-workspace-node-tree .x-panel-header-default {
+	border: 0px;
+	background-color: #ececec; /* gray */
+}
+.x-workspace-node-tree .x-panel-header-default .x-tool-tool-el {
+
+	background-color: #ececec; /* gray */
+}
+.x-workspace-node-tree .x-tool-collapse-left:before {
+	color: black;
+}
+.x-workspace-node-tree .x-grid-row-over .x-grid-td {
+	cursor: pointer;
+}
+.x-workspace-node-tree .x-tree-icon-parent,
+.x-workspace-node-tree .x-tree-icon-parent-expanded {
+	width: 0px;
+	visibility: hidden;
+}
+.x-workspace-node-tree.x-tree-lines .x-tree-elbow-line {
+	visibility: hidden;
+}
+.x-workspace-node-tree .x-tree-elbow,
+.x-workspace-node-tree .x-tree-elbow-end {
+	width: 0px;
+	visibility: hidden;
+}
+/******************************************************************************/
+/* Workscape dashboard */
+.x-workspace-dashboard-widget-icon {
+	filter: invert(100%);
+	opacity: 1;
+}
+/******************************************************************************/
+/* Workspace navigation toolbar */
+.x-workspace-navigation-toolbar.x-toolbar-default {
+	background-color: #ececec; /* gray */
+}
+/******************************************************************************/
+/* Tabs */
+.x-tab.x-tab-active.x-tab-default .x-tab-inner-default {
+	color: #98b7cf;
+}
+.x-tab-focus.x-tab-default {
+	outline: 1px solid #98b7cf;
+}
+.x-tab-invalid {
+	background-color: #cc3300;
+}
+/******************************************************************************/
+/* Windows */
+.x-window-default {
+	border-color: #6c8191; /* more darker */
+	border-width: 1px;
+}
+.x-window-body-default {
+	border-color: #829bad !important; /* darker */
+}
+.x-window-header-default {
+	border-color: #829bad; /* darker */
+	background-color: #829bad; /* darker */
+}
+.x-window-header-default .x-tool-img {
+	background-color: #829bad; /* darker */
+}
+/******************************************************************************/
+/* Buttons */
+.x-btn-default-small {
+	border-color: #98b7cf;
+	background-color: #98b7cf;
+}
+.x-btn-focus.x-btn-default-small {
+	border-color: #98b7cf;
+	background-color: #98b7cf;
+}
+.x-btn-over.x-btn-default-small {
+	border-color: #829bad; /* darker */
+	background-color: #829bad; /* darker */
+}
+.x-btn.x-btn-pressed.x-btn-default-small {
+	border-color: #6c8191; /* more darker */
+	background-color: #6c8191; /* more darker */
+}
+/******************************************************************************/
+/* Checkbox */
+.x-form-checkbox-focus.x-form-checkbox-default {
+	color: #98b7cf;
+}
+/******************************************************************************/
+/* Combobox */
+.x-boundlist-item-over {
+	background: #98b7cf;
+	border-color: #98b7cf;
+}
+.x-boundlist-selected {
+	background: #829bad; /* darker */
+	border-color: #829bad; /* darker */
+}
+/******************************************************************************/
+/* Menu */
+.x-menu-item-default.x-menu-item-focus,
+.x-menu-item-default.x-menu-item-active {
+	background-color: #98b7cf;
+}
+.x-menu-item-default-menubar.x-menu-item-focus,
+.x-menu-item-default-menubar.x-menu-item-active {
+	background-color: #98b7cf;
+}

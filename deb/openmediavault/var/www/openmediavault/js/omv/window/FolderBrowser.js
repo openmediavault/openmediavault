@@ -43,7 +43,7 @@ Ext.define("OMV.window.FolderBrowser", {
 	height: 400,
 	layout: "fit",
 	modal: true,
-	border: true,
+	border: false,
 	buttonAlign: "center",
 
 	constructor: function() {
