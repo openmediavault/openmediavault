@@ -1,6 +1,8 @@
 openmediavault (3.0.75) stable; urgency=low
 
   * Fix bug reading /var/lib/openmediavault/dirtymodules.json.
+  * Mantis 0001735: smartd refuses to monitor devices due to exceeding
+    maximum line length.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 05 May 2017 00:35:22 +0200
 
