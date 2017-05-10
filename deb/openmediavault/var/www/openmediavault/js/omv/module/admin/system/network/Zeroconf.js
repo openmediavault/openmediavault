@@ -114,7 +114,7 @@ Ext.define("OMV.module.admin.system.network.Zeroconf", {
 		flex: 1
 	},{
 		xtype: "booleaniconcolumn",
-		text: _("Enable"),
+		text: _("Enabled"),
 		groupable: false,
 		dataIndex: "enable",
 		stateId: "enable",
