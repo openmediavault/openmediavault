@@ -1,5 +1,6 @@
 openmediavault (3.0.75) stable; urgency=low
 
+  * Upgrade WebUI to Sencha ExtJS6.
   * Fix bug reading /var/lib/openmediavault/dirtymodules.json.
   * Mantis 0001735: smartd refuses to monitor devices due to exceeding
     maximum line length.

@@ -1,14 +1,13 @@
 Format: http://dep.debian.net/deps/dep5
 Upstream-Contact: Volker Theile <volker.theile@openmediavault.org>
-Source: http://www.sencha.com/products/extjs/download/ext-js-5.1.0/3301
+Source: https://www.sencha.com/legal/gpl/
 
-Ext JS 5.1.0.107 - JavaScript Library
-Copyright (c) 2006-2014, Sencha Inc.
+Ext JS 6.2.0.981 - JavaScript Library
+Copyright (c) 2006-2016, Sencha Inc.
 All rights reserved.
 licensing@sencha.com
 
 http://www.sencha.com/license
-
 
 Open Source License
 ------------------------------------------------------------------------------------------
@@ -21,11 +20,11 @@ open source applications that are distributed under a license other than GPL.
 
 * Open Source License Exception for Applications
 
- http://www.sencha.com/products/floss-exception.php
+  http://www.sencha.com/products/floss-exception.php
 
 * Open Source License Exception for Development
 
- http://www.sencha.com/products/ux-exception.php
+  http://www.sencha.com/products/ux-exception.php
 
 
 Alternate Licensing
@@ -53,9 +52,17 @@ Library: flexible-js-formatting - date parsing and formatting
 License: MIT
 Location: http://code.google.com/p/flexible-js-formatting/
 
-Library: sparkline.js ? micro charts
+Library: sparkline.js - micro charts
 License: BSD
 Location: http://omnipotent.net/jquery.sparkline
+
+Library: DeftJS
+License: MIT
+Location: http://deftjs.org/
+
+Library: Open-Sans
+License: Apache
+Location: http://www.fontsquirrel.com/fonts/open-sans
 
 
 Examples
@@ -66,8 +73,7 @@ Location: http://www.famfamfam.com/lab/icons/silk/
 
 --
 
-THIS SOFTWARE IS DISTRIBUTED "AS-IS" WITHOUT ANY WARRANTIES, CONDITIONS AND
-REPRESENTATIONS WHETHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION THE
-IMPLIED WARRANTIES AND CONDITIONS OF MERCHANTABILITY, MERCHANTABLE QUALITY,
-FITNESS FOR A PARTICULAR PURPOSE, DURABILITY, NON-INFRINGEMENT, PERFORMANCE
-AND THOSE ARISING BY STATUTE OR FROM CUSTOM OR USAGE OF TRADE OR COURSE OF DEALING.
+THIS SOFTWARE IS DISTRIBUTED "AS-IS" WITHOUT ANY WARRANTIES, CONDITIONS AND REPRESENTATIONS WHETHER EXPRESS OR IMPLIED,
+INCLUDING WITHOUT LIMITATION THE IMPLIED WARRANTIES AND CONDITIONS OF MERCHANTABILITY, MERCHANTABLE QUALITY, FITNESS FOR A
+PARTICULAR PURPOSE, DURABILITY, NON-INFRINGEMENT, PERFORMANCE AND THOSE ARISING BY STATUTE OR FROM CUSTOM OR USAGE OF TRADE
+OR COURSE OF DEALING.

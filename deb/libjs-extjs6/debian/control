@@ -1,12 +1,12 @@
-Source: libjs-extjs5
+Source: libjs-extjs6
 Section: web
 Priority: extra
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
-Build-Depends: debhelper (>= 9), unzip, quilt
+Build-Depends: debhelper (>= 9), unzip
 Standards-Version: 3.9.4
 Homepage: http://www.sencha.com
 
-Package: libjs-extjs5
+Package: libjs-extjs6
 Architecture: all
 Depends: ${misc:Depends}
 Description: Ext JS is a cross-browser JavaScript library for building rich internet applications.

@@ -56,6 +56,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 	}],
 	columns: [{
 		xtype: "booleaniconcolumn",
+		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch",
 		text: _("Installed"),
 		sortable: true,
 		dataIndex: "installed",

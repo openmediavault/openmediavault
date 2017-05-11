@@ -1,10 +1,10 @@
 #!/usr/bin/make -f
 
 #export DH_VERBOSE=1
-EXTJSVERSION=5.1.1
+EXTJSVERSION=6.2.0
 
 %:
-	dh $@ --with quilt
+	dh $@
 
 override_dh_auto_clean:
 	find . -maxdepth 1 -not -iname "debian" -not -name ".*" \
@@ -17,21 +17,14 @@ extract-stamp:
 	rm -rf $(CURDIR)/ext-$(EXTJSVERSION)
 	touch extract-stamp
 
-override_dh_quilt_patch: extract
-	dh_quilt_patch
-
-override_dh_auto_build:
+override_dh_auto_build: extract
 
 override_dh_prep:
 	dh_prep
-	# Relocate files from <pkgname>/build/ to <pkgname>/.
-	find build/packages/ -type d -iname "build" -print0 | \
-	  for path in $$(xargs -0r); do \
-		  mv $$path/* $$path/..; \
-		  rm -rf $$path; \
-	  done
 	# Remove useless files.
-	find build/packages/ \( -iname "*.rb" -o -iname "*.scss" \
-	  -o -iname "*.md" \) -exec rm -r '{}' \;
+	for name in classic modern packages; do \
+		find build/$$name/ \( -iname "*.rb" -o -iname "*.scss" \
+			-o -iname "*.md" \) -exec rm -r '{}' \; ;\
+	done
 
 .PHONY: extract

@@ -32,7 +32,7 @@ Ext.define("OMV.workspace.dashboard.View", {
 		refreshInterval: 0
 	},
 
-	border: false,
+	border: true,
 	layout: "fit",
 	height: 200,
 
