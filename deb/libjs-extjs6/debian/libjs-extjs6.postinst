@@ -4,8 +4,8 @@ set -e
 
 case "$1" in
 	configure)
-		chmod 755 /usr/share/javascript/extjs5/*
-		chown -R www-data:www-data /usr/share/javascript/extjs5/*
+		chmod 755 /usr/share/javascript/extjs6/*
+		chown -R www-data:www-data /usr/share/javascript/extjs6/*
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
