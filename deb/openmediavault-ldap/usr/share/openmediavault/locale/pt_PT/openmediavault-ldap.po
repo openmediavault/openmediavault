@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-ldap package.
 # 
 # Translators:
 # Nelson Rosado <nelsontrosado@gmail.com>, 2012,2014-2015
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"POT-Creation-Date: 2017-05-03 21:34+0200\n"
 "PO-Revision-Date: 2015-06-16 16:18+0000\n"
 "Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/votdev/openmediavault/language/pt_PT/)\n"

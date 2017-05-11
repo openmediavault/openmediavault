@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
+# Plamen Vasilev <p.vasileff@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 06:19+0100\n"
-"PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2017-05-03 21:34+0200\n"
+"PO-Revision-Date: 2017-05-05 11:07+0000\n"
+"Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/votdev/openmediavault/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,215 +23,215 @@ msgid "% completed ..."
 msgstr ""
 
 msgid "%s (%s available)"
-msgstr ""
+msgstr "%s (%s свободни)"
 
 msgid "%s [%s (%d%%) used, %s available]"
-msgstr ""
+msgstr "%s [%s (%d%%) използвани, %s свободни]"
 
 msgid "%s [on %s, %s]"
-msgstr ""
+msgstr "%s [на %s, %s]"
 
 msgid "'All' is not allowed"
-msgstr ""
+msgstr "'All' не е позволено"
 
 msgid "0 KiB/s means unlimited."
-msgstr ""
+msgstr "0 KiB/s означава без ограничение."
 
 msgid "1 - Minimum power usage with standby (spindown)"
-msgstr ""
+msgstr "1 - Минимална консумация на мощност при режим на готовност (spindown)"
 
 msgid "1 day"
-msgstr ""
+msgstr "1 ден"
 
 msgid "1 month"
-msgstr ""
+msgstr "1 месец"
 
 msgid "1 week"
-msgstr ""
+msgstr "1 седмица"
 
 msgid "1 year"
-msgstr ""
+msgstr "1 година"
 
 msgid "10 minutes"
-msgstr ""
+msgstr "10 минути"
 
 msgid "10 years"
-msgstr ""
+msgstr "10 години"
 
 #, javascript-format
 msgid "100% completed ..."
 msgstr ""
 
 msgid "120 minutes"
-msgstr ""
+msgstr "120 минути"
 
 msgid "127 - Intermediate power usage with standby"
-msgstr ""
+msgstr "127 - Междинна консумация на енергия с режим на готовност"
 
 msgid "128 - Minimum power usage without standby (no spindown)"
-msgstr ""
+msgstr "128 - Минимална консумация на електроенергия без режим на готовност (без spindown)"
 
 msgid "15 years"
-msgstr ""
+msgstr "15 години"
 
 msgid "180 minutes"
-msgstr ""
+msgstr "180 минути"
 
 msgid "192 - Intermediate power usage without standby"
-msgstr ""
+msgstr "192 - Междинна консумация на енергия без режим на готовност"
 
 msgid "2 days"
-msgstr ""
+msgstr "2 дни"
 
 msgid "2 weeks"
-msgstr ""
+msgstr "2 седмици"
 
 msgid "2 years"
-msgstr ""
+msgstr "2 години"
 
 msgid "20 minutes"
-msgstr ""
+msgstr "20 минути"
 
 msgid "20 years"
-msgstr ""
+msgstr "20 години"
 
 msgid "240 minutes"
-msgstr ""
+msgstr "240 минути"
 
 msgid "25 years"
-msgstr ""
+msgstr "25 години"
 
 msgid "254 - Maximum performance, maximum power usage"
-msgstr ""
+msgstr "254 - Максимална производителност, максимална мощност"
 
 msgid "255 - Disabled"
-msgstr ""
+msgstr "255 - Забранено"
 
 msgid "3 days"
-msgstr ""
+msgstr "3 дни"
 
 msgid "3 months"
-msgstr ""
+msgstr "3 месеца"
 
 msgid "3 weeks"
-msgstr ""
+msgstr "3 седмици"
 
 msgid "3 years"
-msgstr ""
+msgstr "3 години"
 
 msgid "30 minutes"
-msgstr ""
+msgstr "30 минути"
 
 msgid "300 minutes"
-msgstr ""
+msgstr "300 минути"
 
 msgid "330 minutes"
-msgstr ""
+msgstr "330 минути"
 
 msgid "4 days"
-msgstr ""
+msgstr "4 дни"
 
 msgid "4 years"
-msgstr ""
+msgstr "4 години"
 
 msgid "5 days"
-msgstr ""
+msgstr "5 дни"
 
 msgid "5 minutes"
-msgstr ""
+msgstr "5 минути"
 
 msgid "5 years"
-msgstr ""
+msgstr "5 години"
 
 msgid "6 days"
-msgstr ""
+msgstr "6 дни"
 
 msgid "6 months"
-msgstr ""
+msgstr "6 месеца"
 
 msgid "60 minutes"
-msgstr ""
+msgstr "60 минути"
 
 msgid "64 - Intermediate power usage with standby"
-msgstr ""
+msgstr "64 - Междинна консумация на енергия с режим на готовност"
 
 msgid "9 months"
-msgstr ""
+msgstr "9 месеца"
 
 msgid "ACL"
-msgstr ""
+msgstr "ACL"
 
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 msgid "About"
-msgstr ""
+msgstr "Относно"
 
 msgid "Absolute Path"
-msgstr ""
+msgstr "Абсолютен път"
 
 msgid "Abstract"
-msgstr ""
+msgstr "Абстрактен"
 
 msgid "Access Right Management"
-msgstr ""
+msgstr "Управление на достъпа до права"
 
 msgid "Access Rights Management"
-msgstr ""
+msgstr "Управление на правата за достъп"
 
 msgid "Access mode"
-msgstr ""
+msgstr "Режим на достъп"
 
 msgid "Act as a WINS server."
-msgstr ""
+msgstr "Действа като WINS сървър."
 
 msgid "Action"
-msgstr ""
+msgstr "Действие"
 
 msgid "Activate S.M.A.R.T. monitoring."
-msgstr ""
+msgstr "Активирайте S.M.A.R.T. мониторинг."
 
 msgid "Add"
-msgstr ""
+msgstr "Добави"
 
 msgid "Add VLAN connection"
-msgstr ""
+msgstr "Добави VLAN връзка"
 
 msgid "Add Wi-Fi connection"
-msgstr ""
+msgstr "Добави Wi-Fi връзка"
 
 msgid "Add bond connection"
-msgstr ""
+msgstr "Добави BOND връзка"
 
 msgid "Add devices to RAID device"
-msgstr ""
+msgstr "Добави устройства в RAID "
 
 msgid "Add ethernet connection"
-msgstr ""
+msgstr "Добави ethernet връзка"
 
 msgid "Add firewall rule"
-msgstr ""
+msgstr "Добави firewall правило"
 
 msgid "Add group"
-msgstr ""
+msgstr "Добави група"
 
 msgid "Add hot spares / recover RAID device"
-msgstr ""
+msgstr "Добави spares / recover RAID устройство"
 
 msgid "Add module"
-msgstr ""
+msgstr "Добави модул"
 
 msgid "Add public key"
-msgstr ""
+msgstr "Добави публичен ключ"
 
 msgid "Add rsync job"
-msgstr ""
+msgstr "Добави rsync задача"
 
 msgid "Add rule"
-msgstr ""
+msgstr "Добави правило"
 
 msgid "Add scheduled job"
-msgstr ""
+msgstr "Добави планирана задача"
 
 msgid "Add scheduled test"
 msgstr ""
@@ -301,12 +302,6 @@ msgid ""
 msgstr ""
 
 msgid "Allow clients to resume interrupted uploads and downloads"
-msgstr ""
-
-msgid "Allow new files"
-msgstr ""
-
-msgid "Allow new files to be created."
 msgstr ""
 
 msgid ""
@@ -491,9 +486,6 @@ msgstr ""
 msgid "Block layer cache [%s, %s]"
 msgstr ""
 
-msgid "Blocksize"
-msgstr ""
-
 msgid "Bolivia"
 msgstr ""
 
@@ -537,9 +529,6 @@ msgid "Burkina Faso"
 msgstr ""
 
 msgid "Burundi"
-msgstr ""
-
-msgid "By default, only files that already exist are allowed to be uploaded."
 msgstr ""
 
 msgid "CPU usage"
@@ -832,11 +821,6 @@ msgstr ""
 msgid "Detail"
 msgstr ""
 
-msgid ""
-"Determine the default timeout, in microseconds, before the first packet is "
-"retransmitted."
-msgstr ""
-
 msgid "Device"
 msgstr ""
 
@@ -1062,6 +1046,9 @@ msgstr ""
 msgid "Edit scheduled test"
 msgstr ""
 
+msgid "Edit service"
+msgstr ""
+
 msgid "Edit share"
 msgstr ""
 
@@ -1188,6 +1175,9 @@ msgid "Error"
 msgstr ""
 
 msgid "Error #"
+msgstr ""
+
+msgid "Errors"
 msgstr ""
 
 msgid "Estonia"
@@ -2411,11 +2401,6 @@ msgid "Please first select a device."
 msgstr ""
 
 msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr ""
-
-msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
 msgstr ""
@@ -2438,9 +2423,6 @@ msgid "Poland"
 msgstr ""
 
 msgid "Port"
-msgstr ""
-
-msgid "Port to listen on."
 msgstr ""
 
 msgid "Portugal"
@@ -2700,9 +2682,6 @@ msgid "Result"
 msgstr ""
 
 msgid "Resume"
-msgstr ""
-
-msgid "Retry timeout"
 msgstr ""
 
 msgid "Reunion"
@@ -3137,11 +3116,6 @@ msgid ""
 "disable this option."
 msgstr ""
 
-msgid ""
-"Specifies the maximum permitted block size. The permitted range for this "
-"parameter is from 512 to 65464."
-msgstr ""
-
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr ""
 
@@ -3273,9 +3247,6 @@ msgid "TAR"
 msgstr ""
 
 msgid "TCP forwarding"
-msgstr ""
-
-msgid "TFTP"
 msgstr ""
 
 msgid "Taiwan"
@@ -4015,6 +3986,9 @@ msgid "Yemen"
 msgstr ""
 
 msgid "Yes"
+msgstr ""
+
+msgid "You need to commit or cancel your changes"
 msgstr ""
 
 msgid "Zambia"

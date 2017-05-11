@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 06:19+0100\n"
-"PO-Revision-Date: 2016-12-16 10:26+0000\n"
-"Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
+"POT-Creation-Date: 2017-05-03 21:34+0200\n"
+"PO-Revision-Date: 2017-05-03 19:36+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Italian (http://www.transifex.com/votdev/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -309,12 +309,6 @@ msgstr "Consenti ai client ti tentare la memorizzazione di attributi estesi in s
 msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr "Consenti ai client di riprendere upload e download interrotti"
 
-msgid "Allow new files"
-msgstr "Consenti nuovi file"
-
-msgid "Allow new files to be created."
-msgstr "Consenti la creazione di nuovi file."
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Consenti a questo server di comparire come server orario ai client Windows"
@@ -497,9 +491,6 @@ msgstr "Binario"
 msgid "Block layer cache [%s, %s]"
 msgstr "Block layer cache [%s, %s]"
 
-msgid "Blocksize"
-msgstr "Dimensione blocco"
-
 msgid "Bolivia"
 msgstr "Bolivia"
 
@@ -544,9 +535,6 @@ msgstr "Burkina Faso"
 
 msgid "Burundi"
 msgstr "Burundi"
-
-msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr "Per impostazione predefinita, solo i file già esistenti possono essere caricati."
 
 msgid "CPU usage"
 msgstr "Utilizzo CPU"
@@ -838,11 +826,6 @@ msgstr "Cartella condivisa di destinazione"
 msgid "Detail"
 msgstr "Dettaglio"
 
-msgid ""
-"Determine the default timeout, in microseconds, before the first packet is "
-"retransmitted."
-msgstr "Determina il timeout di default, in microsecondi, prima di ritrasmettere il primo pacchetto."
-
 msgid "Device"
 msgstr "Dispositivo"
 
@@ -1068,6 +1051,9 @@ msgstr "Modifica processo pianificato"
 msgid "Edit scheduled test"
 msgstr "Modifica test pianificato"
 
+msgid "Edit service"
+msgstr ""
+
 msgid "Edit share"
 msgstr "Modifica condivisione"
 
@@ -1195,6 +1181,9 @@ msgstr "Errore"
 
 msgid "Error #"
 msgstr "Errore #"
+
+msgid "Errors"
+msgstr ""
 
 msgid "Estonia"
 msgstr "Estonia"
@@ -2417,11 +2406,6 @@ msgid "Please first select a device."
 msgstr "Per favore seleziona prima un dispositivo."
 
 msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr "Assicurarsi che la cartella condivisa sia scrivibile pubblicamente se sono consentiti nuovi file."
-
-msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
 msgstr "Si prega di notare che non sarà possibile alcuna comunicazione con il sistema durante questo test."
@@ -2445,9 +2429,6 @@ msgstr "Polonia"
 
 msgid "Port"
 msgstr "Porta"
-
-msgid "Port to listen on."
-msgstr "Porta su cui ascoltare."
 
 msgid "Portugal"
 msgstr "Portogallo"
@@ -2707,9 +2688,6 @@ msgstr "Risultato"
 
 msgid "Resume"
 msgstr "Riprendi"
-
-msgid "Retry timeout"
-msgstr "Timeout riesecuzione"
 
 msgid "Reunion"
 msgstr "Riunione"
@@ -3143,11 +3121,6 @@ msgid ""
 "disable this option."
 msgstr "Specifica la quantità di tempo che intercorre, in secondi, tra la verifica e l'aggiornamento dell'indirizzo mascherato tramite risoluzione dell'indirizzo IP. Impostare a 0 per disabilitare questa opzione."
 
-msgid ""
-"Specifies the maximum permitted block size. The permitted range for this "
-"parameter is from 512 to 65464."
-msgstr "Specifica la massima dimensione permessa per un block. Il range ammesso per questo parametro va da 512 a 65464."
-
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "Specifica il tempo in hh:mm:ss dopo il quale il ban scade."
 
@@ -3280,9 +3253,6 @@ msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "TCP forwarding"
-
-msgid "TFTP"
-msgstr "TFTP"
 
 msgid "Taiwan"
 msgstr "Taiwan"
@@ -4022,6 +3992,9 @@ msgstr "Yemen"
 
 msgid "Yes"
 msgstr "Sì"
+
+msgid "You need to commit or cancel your changes"
+msgstr ""
 
 msgid "Zambia"
 msgstr "Zambia"

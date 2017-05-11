@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 06:19+0100\n"
-"PO-Revision-Date: 2016-12-06 05:21+0000\n"
+"POT-Creation-Date: 2017-05-03 21:34+0200\n"
+"PO-Revision-Date: 2017-05-03 19:36+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -306,12 +306,6 @@ msgstr "공유에 대해 OS/2 형식의 확장 속성(EA)을 클라이언트가 
 msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr "중단된 올려주기와 내려받기를 이어서 할 수 있게 합니다."
 
-msgid "Allow new files"
-msgstr "새 파일을 허용합니다."
-
-msgid "Allow new files to be created."
-msgstr "새로운 파일이 생성되도록 허용합니다."
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "이 서버가 Windows 클라이언트에게 자신을 시간 서버로 알리는 것을 가능하게 합니다."
@@ -494,9 +488,6 @@ msgstr "이진"
 msgid "Block layer cache [%s, %s]"
 msgstr "블록 계층 캐시 [%s, %s]"
 
-msgid "Blocksize"
-msgstr "블록 크기"
-
 msgid "Bolivia"
 msgstr "볼리비아"
 
@@ -541,9 +532,6 @@ msgstr "브루키나 파소"
 
 msgid "Burundi"
 msgstr "부룬디"
-
-msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr "기본적으로, 이미 존재하는 파일만 올려주기될 수 있습니다."
 
 msgid "CPU usage"
 msgstr "CPU 사용량"
@@ -835,11 +823,6 @@ msgstr "대상 공유 폴더"
 msgid "Detail"
 msgstr "정보"
 
-msgid ""
-"Determine the default timeout, in microseconds, before the first packet is "
-"retransmitted."
-msgstr "첫 번째 패킷이 재전송되기 전에 마이크로초 단위의 기본 만료 시간을 정합니다,"
-
 msgid "Device"
 msgstr "장치"
 
@@ -1065,6 +1048,9 @@ msgstr "예약된 작업 편집"
 msgid "Edit scheduled test"
 msgstr "예약된 검사 편집"
 
+msgid "Edit service"
+msgstr ""
+
 msgid "Edit share"
 msgstr "공유 편집"
 
@@ -1192,6 +1178,9 @@ msgstr "오류"
 
 msgid "Error #"
 msgstr "오류 #"
+
+msgid "Errors"
+msgstr ""
 
 msgid "Estonia"
 msgstr "에스토니아"
@@ -2414,11 +2403,6 @@ msgid "Please first select a device."
 msgstr ""
 
 msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr "새 파일들이 허용된다면 공유된 폴더가 공개적으로 쓰기가 가능한지 확인해주시길 바랍니다."
-
-msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
 msgstr "이 검사가 진행되는 동안 시스템의 응답이 없을 수도 있음을 주의하시기 바랍니다."
@@ -2442,9 +2426,6 @@ msgstr "폴란드"
 
 msgid "Port"
 msgstr "포트"
-
-msgid "Port to listen on."
-msgstr "청취를 위한 포트"
 
 msgid "Portugal"
 msgstr "포르투갈"
@@ -2704,9 +2685,6 @@ msgstr "결과"
 
 msgid "Resume"
 msgstr "다시 시작"
-
-msgid "Retry timeout"
-msgstr "재시도 시간만료"
 
 msgid "Reunion"
 msgstr "재결합"
@@ -3140,11 +3118,6 @@ msgid ""
 "disable this option."
 msgstr "IP 주소의 해석을 통해 마스커레이드 주소를 검사하고 갱신하는 사이의 시간 간격을 초 단위로 지정합니다. 0으로 설정하면 이 옵션은 비활성화됩니다."
 
-msgid ""
-"Specifies the maximum permitted block size. The permitted range for this "
-"parameter is from 512 to 65464."
-msgstr "최대 허용된 블록의 크기를 지정합니다. 이 매개변수에 대한 허용 범위는 512부터 65464입니다."
-
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "차단이 만료될 시간을 시:분:초 형식으로 지정합니다."
 
@@ -3277,9 +3250,6 @@ msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "TCP 포워드"
-
-msgid "TFTP"
-msgstr "TFTP"
 
 msgid "Taiwan"
 msgstr "대만"
@@ -4019,6 +3989,9 @@ msgstr "예맨"
 
 msgid "Yes"
 msgstr "예"
+
+msgid "You need to commit or cancel your changes"
+msgstr ""
 
 msgid "Zambia"
 msgstr "잠비아"

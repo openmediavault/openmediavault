@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 06:19+0100\n"
-"PO-Revision-Date: 2017-02-12 14:10+0000\n"
-"Last-Translator: Quim Farriol <quim@iscinformatica.cat>\n"
+"POT-Creation-Date: 2017-05-03 21:34+0200\n"
+"PO-Revision-Date: 2017-05-03 19:36+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/votdev/openmediavault/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -305,12 +305,6 @@ msgstr "Permetre que s’intenti gravar atributs estesos del tipus OS/2 en el co
 msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr "Permetre reprendre pujades / baixades interrompudes"
 
-msgid "Allow new files"
-msgstr "Permetre nous arxius"
-
-msgid "Allow new files to be created."
-msgstr "Permetre la creació de nous arxius."
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Permetre a aquest servidor anunciar-se a si mateix com un servidor d’hora de Windows"
@@ -493,9 +487,6 @@ msgstr "Binari"
 msgid "Block layer cache [%s, %s]"
 msgstr "Block layer cache [%s, %s]"
 
-msgid "Blocksize"
-msgstr "Mida del bloc"
-
 msgid "Bolivia"
 msgstr "Bolívia"
 
@@ -540,9 +531,6 @@ msgstr "Burkina Faso"
 
 msgid "Burundi"
 msgstr "Burundi"
-
-msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr "Per defecte, només es permet pujar arxius existents."
 
 msgid "CPU usage"
 msgstr "Ús de la CPU"
@@ -834,11 +822,6 @@ msgstr "Carpeta compartida de destí"
 msgid "Detail"
 msgstr "Detall"
 
-msgid ""
-"Determine the default timeout, in microseconds, before the first packet is "
-"retransmitted."
-msgstr "Determina el temps per defecte en microsegons, abans que el primer paquet es transmeti."
-
 msgid "Device"
 msgstr "Dispositiu"
 
@@ -1064,6 +1047,9 @@ msgstr "Editar tasca programada"
 msgid "Edit scheduled test"
 msgstr "Editar prova programada"
 
+msgid "Edit service"
+msgstr ""
+
 msgid "Edit share"
 msgstr "Editar compartit"
 
@@ -1191,6 +1177,9 @@ msgstr "Error"
 
 msgid "Error #"
 msgstr "Error #"
+
+msgid "Errors"
+msgstr ""
 
 msgid "Estonia"
 msgstr "Estònia"
@@ -2413,11 +2402,6 @@ msgid "Please first select a device."
 msgstr "Seleccioni primer un dispositiu"
 
 msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr "Per favor verifiqui que la carpeta compartida té permisos d’escriptura per si calguessin nous arxius."
-
-msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
 msgstr "Per favor sigui conscient que no serà possible comunicar amb el sistema mentra duri la prova."
@@ -2441,9 +2425,6 @@ msgstr "Polònia"
 
 msgid "Port"
 msgstr "Port"
-
-msgid "Port to listen on."
-msgstr "Port d’escolta."
 
 msgid "Portugal"
 msgstr "Portugal"
@@ -2703,9 +2684,6 @@ msgstr "Resultat"
 
 msgid "Resume"
 msgstr "Continuar"
-
-msgid "Retry timeout"
-msgstr "Temps de reintent"
 
 msgid "Reunion"
 msgstr "Reunió"
@@ -3139,11 +3117,6 @@ msgid ""
 "disable this option."
 msgstr "Especifica la quantitat de temps en segons, entre la comprovació i la actualització de la mascara, per a resoldre una adreça IP.\n\"0\" per a deshabilitar l’opció."
 
-msgid ""
-"Specifies the maximum permitted block size. The permitted range for this "
-"parameter is from 512 to 65464."
-msgstr "Mida màx. de bloc permès. El rang permès és de 512 a 65464"
-
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "Especifica el temps en hh:mm:ss perquè expiri la prohibició (ban)"
 
@@ -3276,9 +3249,6 @@ msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "Reenviament TCP"
-
-msgid "TFTP"
-msgstr "TFTP"
 
 msgid "Taiwan"
 msgstr "Taiwan"
@@ -4018,6 +3988,9 @@ msgstr "Iemen"
 
 msgid "Yes"
 msgstr "Si"
+
+msgid "You need to commit or cancel your changes"
+msgstr ""
 
 msgid "Zambia"
 msgstr "Zàmbia"

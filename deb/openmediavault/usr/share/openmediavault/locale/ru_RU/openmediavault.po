@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 06:19+0100\n"
-"PO-Revision-Date: 2016-12-13 07:29+0000\n"
-"Last-Translator: Артур Мудрых <arturmon82@gmail.com>\n"
+"POT-Creation-Date: 2017-05-03 21:34+0200\n"
+"PO-Revision-Date: 2017-05-03 19:36+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/votdev/openmediavault/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -311,12 +311,6 @@ msgstr "Разрешить клиентам пытаться сохранить 
 msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr "Разрешить клиентам возобновлять прерванные закачки"
 
-msgid "Allow new files"
-msgstr "Разрешить новые файлы"
-
-msgid "Allow new files to be created."
-msgstr "Разрешить создание новых файлов."
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Разрешить этому серверу выступать в качестве сервера времени для Windows клиентов"
@@ -499,9 +493,6 @@ msgstr "Двоичный"
 msgid "Block layer cache [%s, %s]"
 msgstr "Кэш Слой блока [%s, %s]"
 
-msgid "Blocksize"
-msgstr "Размер блока"
-
 msgid "Bolivia"
 msgstr "Боливия"
 
@@ -546,9 +537,6 @@ msgstr "Буркина-Фасо"
 
 msgid "Burundi"
 msgstr "Бурунди"
-
-msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr "По умолчанию разрешено загружать только те файлы, которые уже существуют."
 
 msgid "CPU usage"
 msgstr "Использование процессора"
@@ -840,11 +828,6 @@ msgstr "Назначить совместно используемую папк�
 msgid "Detail"
 msgstr "Детали"
 
-msgid ""
-"Determine the default timeout, in microseconds, before the first packet is "
-"retransmitted."
-msgstr "Определить время ожидания по умолчанию в микросекундах перед повторной передачей первого пакета."
-
 msgid "Device"
 msgstr "Устройство"
 
@@ -1070,6 +1053,9 @@ msgstr "Изменить запланированное задание"
 msgid "Edit scheduled test"
 msgstr "Редактировать запланированный тест"
 
+msgid "Edit service"
+msgstr ""
+
 msgid "Edit share"
 msgstr "Редактировать общий ресурс"
 
@@ -1197,6 +1183,9 @@ msgstr "Ошибка"
 
 msgid "Error #"
 msgstr "Ошибка #"
+
+msgid "Errors"
+msgstr ""
 
 msgid "Estonia"
 msgstr "Эстония"
@@ -2419,11 +2408,6 @@ msgid "Please first select a device."
 msgstr "Пожалуйста, сначала выберите устройство."
 
 msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr "Пожалуйста, убедитесь, что общая папка доступна для записи."
-
-msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
 msgstr "Обратите внимание, что во время этого теста связь с системой будет потеряна."
@@ -2447,9 +2431,6 @@ msgstr "Польша"
 
 msgid "Port"
 msgstr "Порт"
-
-msgid "Port to listen on."
-msgstr "Порт для прослушивания."
 
 msgid "Portugal"
 msgstr "Португалия"
@@ -2709,9 +2690,6 @@ msgstr "Результат"
 
 msgid "Resume"
 msgstr "Сводка"
-
-msgid "Retry timeout"
-msgstr "Ожидание повтора"
 
 msgid "Reunion"
 msgstr "Воссоединение"
@@ -3145,11 +3123,6 @@ msgid ""
 "disable this option."
 msgstr "Определяет количество времени в секундах между проверкой и обновлением адреса подмены, разрешая IP-адрес. Установите значение 0, чтобы отключить эту опцию."
 
-msgid ""
-"Specifies the maximum permitted block size. The permitted range for this "
-"parameter is from 512 to 65464."
-msgstr "Определяет максимально допустимый размер блока. Допустимый диапазон для этого параметра составляет от 512 до 65464."
-
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "Определяет время действия бана в формате чч:мм:сс."
 
@@ -3282,9 +3255,6 @@ msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "Перенаправление TCP"
-
-msgid "TFTP"
-msgstr "TFTP"
 
 msgid "Taiwan"
 msgstr "Тайвань"
@@ -4024,6 +3994,9 @@ msgstr "Йемен"
 
 msgid "Yes"
 msgstr "Да"
+
+msgid "You need to commit or cancel your changes"
+msgstr ""
 
 msgid "Zambia"
 msgstr "Замбия"

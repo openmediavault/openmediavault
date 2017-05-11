@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Toshihiro Kan <kansuke4649@gmail.com>, 2014-2016
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 06:19+0100\n"
-"PO-Revision-Date: 2016-12-08 09:43+0000\n"
+"POT-Creation-Date: 2017-05-03 21:34+0200\n"
+"PO-Revision-Date: 2017-05-08 08:55+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/votdev/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -304,12 +304,6 @@ msgstr "クライアントが共有に、OS/2スタイルの拡張属性を格�
 msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr "アップロードとダウンロードの中断時のレジュームをクライアントに許可"
 
-msgid "Allow new files"
-msgstr "新しいファイルを許可"
-
-msgid "Allow new files to be created."
-msgstr "新しいファイルの作成を許可"
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "このサーバがWindowsクライアントへのタイムサーバとして自身をアドバタイズすることを許可"
@@ -492,9 +486,6 @@ msgstr "バイナリ"
 msgid "Block layer cache [%s, %s]"
 msgstr "ブロックレイヤキャッシュ [%s, %s]"
 
-msgid "Blocksize"
-msgstr "ブロックサイズ"
-
 msgid "Bolivia"
 msgstr "ボリビア"
 
@@ -539,9 +530,6 @@ msgstr "ブルキナファソ"
 
 msgid "Burundi"
 msgstr "ブルンジ"
-
-msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr "デフォルトでは、すでに存在しているファイルだけをアップロードすることが許可されています。"
 
 msgid "CPU usage"
 msgstr "CPU使用率"
@@ -833,11 +821,6 @@ msgstr "送信先共有フォルダ"
 msgid "Detail"
 msgstr "詳細"
 
-msgid ""
-"Determine the default timeout, in microseconds, before the first packet is "
-"retransmitted."
-msgstr "最初のパケットが再送信される前に、マイクロ秒単位でデフォルトのタイムアウトを決定します。"
-
 msgid "Device"
 msgstr "デバイス"
 
@@ -1063,6 +1046,9 @@ msgstr "スケジュールされたジョブの編集"
 msgid "Edit scheduled test"
 msgstr "スケジュールされたテストの編集"
 
+msgid "Edit service"
+msgstr "サービスの編集"
+
 msgid "Edit share"
 msgstr "共有の編集"
 
@@ -1190,6 +1176,9 @@ msgstr "エラー"
 
 msgid "Error #"
 msgstr "エラー #"
+
+msgid "Errors"
+msgstr "エラー"
 
 msgid "Estonia"
 msgstr "エストニア"
@@ -2412,11 +2401,6 @@ msgid "Please first select a device."
 msgstr "最初にデバイスを選択してください。"
 
 msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr "新規ファイルの作成が許可されている場合、共有フォルダが公に書き込み可能かを確認してください。"
-
-msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
 msgstr "このテスト中はシステムとの通信ができません。注意してください。"
@@ -2440,9 +2424,6 @@ msgstr "ポーランド"
 
 msgid "Port"
 msgstr "ポート"
-
-msgid "Port to listen on."
-msgstr "待ちうけポート"
 
 msgid "Portugal"
 msgstr "ポルトガル"
@@ -2702,9 +2683,6 @@ msgstr "結果"
 
 msgid "Resume"
 msgstr "リジューム"
-
-msgid "Retry timeout"
-msgstr "リトライタイムアウト"
 
 msgid "Reunion"
 msgstr "レユニオン"
@@ -3138,11 +3116,6 @@ msgid ""
 "disable this option."
 msgstr "IPアドレスを名前解決してマスカレードアドレスのチェック、アップデートをする間隔を秒単位で指定します。"
 
-msgid ""
-"Specifies the maximum permitted block size. The permitted range for this "
-"parameter is from 512 to 65464."
-msgstr "許可するブロックサイズの最大値を指定します。このパラメータの有効範囲は 512 から 65464 です。"
-
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "指定した時間を過ぎると期限切れとなります。hh:mm:ss 形式で時間を指定します。"
 
@@ -3275,9 +3248,6 @@ msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "TCP転送"
-
-msgid "TFTP"
-msgstr "TFTP"
 
 msgid "Taiwan"
 msgstr "台湾"
@@ -4017,6 +3987,9 @@ msgstr "イエメン"
 
 msgid "Yes"
 msgstr "はい"
+
+msgid "You need to commit or cancel your changes"
+msgstr "変更をコミットするかキャンセルする必要があります"
 
 msgid "Zambia"
 msgstr "ザンビア"

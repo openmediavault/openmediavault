@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Jan Štourač <wormsik666@gmail.com>, 2014-2015
-# Pavel Borecki <pavel.borecki@gmail.com>, 2014-2016
+# Pavel Borecki <pavel.borecki@gmail.com>, 2014-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 06:19+0100\n"
-"PO-Revision-Date: 2016-12-06 23:02+0000\n"
+"POT-Creation-Date: 2017-05-03 21:34+0200\n"
+"PO-Revision-Date: 2017-05-04 15:43+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -305,12 +305,6 @@ msgstr "Na sdílení umožnit klientům pokoušet se uložit rozšířené atrib
 msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr "Umožnit klientům pokračovat v přerušeném stahování nebo nahrávání"
 
-msgid "Allow new files"
-msgstr "Umožnit vytváření nových souborů"
-
-msgid "Allow new files to be created."
-msgstr "Umožnit vytváření nových souborů."
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Povolit tomuto serveru propagovat se Windows klientům jako časový server"
@@ -493,9 +487,6 @@ msgstr "Binární"
 msgid "Block layer cache [%s, %s]"
 msgstr "Mezipaměť blokové vrstvy [%s, %s]"
 
-msgid "Blocksize"
-msgstr "Velikost bloku"
-
 msgid "Bolivia"
 msgstr "Bolívie"
 
@@ -540,9 +531,6 @@ msgstr "Burkina Faso"
 
 msgid "Burundi"
 msgstr "Burundi"
-
-msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr "Ve výchozím stavu mohou být nahrávány pouze soubory nazvané stejně, jako ty už existující."
 
 msgid "CPU usage"
 msgstr "Spotřeba výpočet. výkonu"
@@ -834,11 +822,6 @@ msgstr "Cílová sdílená složka"
 msgid "Detail"
 msgstr "Podrobnosti"
 
-msgid ""
-"Determine the default timeout, in microseconds, before the first packet is "
-"retransmitted."
-msgstr "Určuje výchozí časový limit (v mikrosekundách), po jehož překročení je opakován přenos prvního paketu."
-
 msgid "Device"
 msgstr "Zařízení"
 
@@ -1064,6 +1047,9 @@ msgstr "Upravit naplánovanou úlohu"
 msgid "Edit scheduled test"
 msgstr "Upravit naplánovaný test"
 
+msgid "Edit service"
+msgstr "Upravit službu"
+
 msgid "Edit share"
 msgstr "Upravit sdílení"
 
@@ -1191,6 +1177,9 @@ msgstr "Chyba"
 
 msgid "Error #"
 msgstr "Chyba č."
+
+msgid "Errors"
+msgstr "Chyby"
 
 msgid "Estonia"
 msgstr "Estonsko"
@@ -2413,11 +2402,6 @@ msgid "Please first select a device."
 msgstr "Nejprve je třeba zvolit zařízení."
 
 msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr "V případě, že zde umožníte vytváření nových souborů ověřte, zda je sdílená složka zapisovatelná komukoliv."
-
-msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
 msgstr "Pozor – v průběhu rozpoznávání nebude možné se systémem jakkoliv komunikovat."
@@ -2441,9 +2425,6 @@ msgstr "Polsko"
 
 msgid "Port"
 msgstr "Port"
-
-msgid "Port to listen on."
-msgstr "Port, na kterém očekávat spojení."
 
 msgid "Portugal"
 msgstr "Portugalsko"
@@ -2703,9 +2684,6 @@ msgstr "Výsledek"
 
 msgid "Resume"
 msgstr "Pokračovat"
-
-msgid "Retry timeout"
-msgstr "Časový limit pro opětovný pokus"
 
 msgid "Reunion"
 msgstr "Opětovné spojení"
@@ -3139,11 +3117,6 @@ msgid ""
 "disable this option."
 msgstr "Určuje časové rozmezí (v sekundách) jednotlivých zjišťování a aktualizací vnější veřejné IP adresy (dotazem do jmenné služby DNS), na které probíhá překlad na vnitřní, neveřejné (NAT). Pokud se adresa nemění, můžete toto zjišťování vypnout nastavením na 0 (nula)."
 
-msgid ""
-"Specifies the maximum permitted block size. The permitted range for this "
-"parameter is from 512 to 65464."
-msgstr "Určuje nejvyšší umožněnou velikost bloku. Ta může nabývat hodnot z rozsahu 512 až 65464."
-
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "Určuje lhůtu (ve formátu hh:mm:ss), po jejímž uplynutí skončí platnost vyloučení."
 
@@ -3276,9 +3249,6 @@ msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "Přeposílání TCP"
-
-msgid "TFTP"
-msgstr "TFTP"
 
 msgid "Taiwan"
 msgstr "Taiwan"
@@ -4018,6 +3988,9 @@ msgstr "Jemen"
 
 msgid "Yes"
 msgstr "Ano"
+
+msgid "You need to commit or cancel your changes"
+msgstr "Změny je třeba buď použít nebo zahodit"
 
 msgid "Zambia"
 msgstr "Zambie"

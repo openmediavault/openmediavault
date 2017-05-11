@@ -1,15 +1,16 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-route package.
 # 
 # Translators:
+# Plamen Vasilev <p.vasileff@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2012-08-31 18:46+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2017-05-03 21:34+0200\n"
+"PO-Revision-Date: 2017-05-05 10:32+0000\n"
+"Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/votdev/openmediavault/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,25 +19,25 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add static route"
-msgstr ""
+msgstr "Добави статичен route"
 
 msgid "Comment"
-msgstr ""
+msgstr "Коментар"
 
 msgid "Edit static route"
-msgstr ""
+msgstr "Редактирай статичен route"
 
 msgid "Gateway"
-msgstr ""
+msgstr "Gateway"
 
 msgid "Gateway used to reach the above network address."
-msgstr ""
+msgstr "Gateway-a се използва за достигане на горепосочения адрес."
 
 msgid "IP or network address."
-msgstr ""
+msgstr "IP или мрежов адрес."
 
 msgid "Network"
-msgstr ""
+msgstr "Мрежа"
 
 msgid "Static Routes"
-msgstr ""
+msgstr "Статични route-ве"

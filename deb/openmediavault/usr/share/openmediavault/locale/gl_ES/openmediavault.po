@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 06:19+0100\n"
-"PO-Revision-Date: 2016-12-06 05:21+0000\n"
+"POT-Creation-Date: 2017-05-03 21:34+0200\n"
+"PO-Revision-Date: 2017-05-03 19:36+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Galician (Spain) (http://www.transifex.com/votdev/openmediavault/language/gl_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -307,12 +307,6 @@ msgstr "Permitir que os clientes tenten almacenar atributos estendidos estilo OS
 msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr "Permitir que os clientes continúen cos envíos e descargas interrompidos "
 
-msgid "Allow new files"
-msgstr "Permitir ficheiros novos"
-
-msgid "Allow new files to be created."
-msgstr "Permitir que sexan creados ficheiros novos."
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Permitir que este servidor se anuncie como un servidor de tempo para os clientes de Windows"
@@ -495,9 +489,6 @@ msgstr "Binario"
 msgid "Block layer cache [%s, %s]"
 msgstr "Bloquear o caché de capa [%s, %s]"
 
-msgid "Blocksize"
-msgstr "Tamaño do bloque"
-
 msgid "Bolivia"
 msgstr "Bolivia"
 
@@ -542,9 +533,6 @@ msgstr "Burquina Faso"
 
 msgid "Burundi"
 msgstr "Burundi"
-
-msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr "De forma predeterminada, só poden cargarse os ficheiros que xa existen."
 
 msgid "CPU usage"
 msgstr "Uso da CPU"
@@ -836,11 +824,6 @@ msgstr "Cartafol compartido de destino"
 msgid "Detail"
 msgstr "Detalle"
 
-msgid ""
-"Determine the default timeout, in microseconds, before the first packet is "
-"retransmitted."
-msgstr "Determinar o tempo de espera predeterminado, en microsegundos, antes de que o primeiro paquete sexa retransmitido."
-
 msgid "Device"
 msgstr "Dispositivo"
 
@@ -1066,6 +1049,9 @@ msgstr "Editar o traballo planificado"
 msgid "Edit scheduled test"
 msgstr "Editar proba planificada"
 
+msgid "Edit service"
+msgstr ""
+
 msgid "Edit share"
 msgstr "Editar a compartición"
 
@@ -1193,6 +1179,9 @@ msgstr "Erro"
 
 msgid "Error #"
 msgstr "Erro núm."
+
+msgid "Errors"
+msgstr ""
 
 msgid "Estonia"
 msgstr "Estonia"
@@ -2415,11 +2404,6 @@ msgid "Please first select a device."
 msgstr ""
 
 msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr "Asegúrese de que o cartafol compartido é de escritura pública se permite novos ficheiros"
-
-msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
 msgstr "Teña en conta que non é posíbel a comunicación co sistema durante esta proba."
@@ -2443,9 +2427,6 @@ msgstr "Polonia"
 
 msgid "Port"
 msgstr "Porto"
-
-msgid "Port to listen on."
-msgstr "Porto a empregar."
 
 msgid "Portugal"
 msgstr "Portugal"
@@ -2705,9 +2686,6 @@ msgstr "Resultado"
 
 msgid "Resume"
 msgstr "Continuar"
-
-msgid "Retry timeout"
-msgstr "Tentar de novo o tempo de espera"
 
 msgid "Reunion"
 msgstr "Reunión"
@@ -3141,11 +3119,6 @@ msgid ""
 "disable this option."
 msgstr "Especifica a cantidade de tempo, en segundos, entre o control e a actualización do enderezo enmascarado para determinar o enderezo IP. Estabeleza este valor en 0 para desactivar isto"
 
-msgid ""
-"Specifies the maximum permitted block size. The permitted range for this "
-"parameter is from 512 to 65464."
-msgstr "Especifica o tamaño máximo permitido de bloques. O intervalo permitido para este parámetro é de 512 a 65464."
-
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "Especifica a hora no formato hh:mm:ss despois de que caduque a prohibición."
 
@@ -3278,9 +3251,6 @@ msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "Reenvío TCP"
-
-msgid "TFTP"
-msgstr "TFTP"
 
 msgid "Taiwan"
 msgstr "Taiwán"
@@ -4020,6 +3990,9 @@ msgstr "Iemen"
 
 msgid "Yes"
 msgstr "Si"
+
+msgid "You need to commit or cancel your changes"
+msgstr ""
 
 msgid "Zambia"
 msgstr "Zambia"

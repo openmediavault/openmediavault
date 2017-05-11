@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 06:19+0100\n"
-"PO-Revision-Date: 2016-12-06 05:21+0000\n"
+"POT-Creation-Date: 2017-05-03 21:34+0200\n"
+"PO-Revision-Date: 2017-05-03 19:36+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/votdev/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -305,12 +305,6 @@ msgstr "Tillat klienter å forsøke å lagre OS/2 stilede attributter på et del
 msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr "Tillat klienter å gjenopta avbrutte ned- og opplastninger"
 
-msgid "Allow new files"
-msgstr "Tillat nye filer"
-
-msgid "Allow new files to be created."
-msgstr "Tillat at nye filer blir opprettet."
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Tillat denne serveren å gjøre seg kjent som en tidserver overfor Windows klienter"
@@ -493,9 +487,6 @@ msgstr "Binær"
 msgid "Block layer cache [%s, %s]"
 msgstr ""
 
-msgid "Blocksize"
-msgstr "Blokkstørrelse"
-
 msgid "Bolivia"
 msgstr "Bolivia"
 
@@ -540,9 +531,6 @@ msgstr "Burkina Faso"
 
 msgid "Burundi"
 msgstr "Burundi"
-
-msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr "Som standard kan kun filer som allerede eksisterer laste opp."
 
 msgid "CPU usage"
 msgstr "CPU belastning"
@@ -834,11 +822,6 @@ msgstr "Målmappe"
 msgid "Detail"
 msgstr "Detaljer"
 
-msgid ""
-"Determine the default timeout, in microseconds, before the first packet is "
-"retransmitted."
-msgstr "Sett standard timeout i millisekunder, før den første pakken er sendt på nytt."
-
 msgid "Device"
 msgstr "Enhet"
 
@@ -1064,6 +1047,9 @@ msgstr "Rediger planlagt oppgave"
 msgid "Edit scheduled test"
 msgstr "Endre planlagt test"
 
+msgid "Edit service"
+msgstr ""
+
 msgid "Edit share"
 msgstr "Endre delt område"
 
@@ -1191,6 +1177,9 @@ msgstr "Feil"
 
 msgid "Error #"
 msgstr "Feil #"
+
+msgid "Errors"
+msgstr ""
 
 msgid "Estonia"
 msgstr "Estland"
@@ -2413,11 +2402,6 @@ msgid "Please first select a device."
 msgstr ""
 
 msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr ""
-
-msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
 msgstr "Vær oppmerksom på at ingen kommunikasjon med systemet er mulig under denne testen."
@@ -2441,9 +2425,6 @@ msgstr "Polen"
 
 msgid "Port"
 msgstr "Port"
-
-msgid "Port to listen on."
-msgstr "Port å lytte på."
 
 msgid "Portugal"
 msgstr "Portugal"
@@ -2703,9 +2684,6 @@ msgstr ""
 
 msgid "Resume"
 msgstr "Gjenopta"
-
-msgid "Retry timeout"
-msgstr "Forsøk tidsavbrudd på nytt"
 
 msgid "Reunion"
 msgstr "Gjenforening"
@@ -3139,11 +3117,6 @@ msgid ""
 "disable this option."
 msgstr "Spesifiser tiden, i sekunder, mellom kontroll og oppdatering av masquerade adresse ved å løse IP adressen. Sett verdien til 0 for å slå av denne funksjonen."
 
-msgid ""
-"Specifies the maximum permitted block size. The permitted range for this "
-"parameter is from 512 to 65464."
-msgstr "Angir maksimalt tillat blokk størrelse. Det tillatte området for denne parameteren er fra 512 til 65464."
-
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "Angir tiden i tt:mm:ss hvoretter forbudet utløper."
 
@@ -3276,9 +3249,6 @@ msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "TCP videresending"
-
-msgid "TFTP"
-msgstr "TFTP"
 
 msgid "Taiwan"
 msgstr "Taiwan"
@@ -4018,6 +3988,9 @@ msgstr "Jemen"
 
 msgid "Yes"
 msgstr "Ja"
+
+msgid "You need to commit or cancel your changes"
+msgstr ""
 
 msgid "Zambia"
 msgstr "Sambia"

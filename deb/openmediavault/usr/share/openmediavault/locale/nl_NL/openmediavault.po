@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Milan Toet <milantoet@gmail.com>, 2012-2014,2016
+# Milan Toet <milantoet@gmail.com>, 2012-2014,2016-2017
 # sebak <seba.kerckhof@gmail.com>, 2012
 # stokerh <stoker.pc@home.nl>, 2012
 # Tim <co_ti@hotmail.com>, 2013-2014,2016-2017
@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 06:19+0100\n"
-"PO-Revision-Date: 2017-04-01 17:05+0000\n"
-"Last-Translator: Tim <co_ti@hotmail.com>\n"
+"POT-Creation-Date: 2017-05-03 21:34+0200\n"
+"PO-Revision-Date: 2017-05-05 09:13+0000\n"
+"Last-Translator: Milan Toet <milantoet@gmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/votdev/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -307,12 +307,6 @@ msgstr "Clienten toestaan om OS/2-stijl uitgebreide attributen op te slaan op ee
 msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr "Cliënten toestaan om onderbroken uploads en downloads te hervatten"
 
-msgid "Allow new files"
-msgstr "Nieuwe bestanden toestaan"
-
-msgid "Allow new files to be created."
-msgstr "Het aanmaken van nieuwe bestanden toestaan."
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "De server toestaan om zichzelf als tijdserver te identificeren bij Windows clients"
@@ -495,9 +489,6 @@ msgstr "Binair"
 msgid "Block layer cache [%s, %s]"
 msgstr "Block layer cache [%s, %s]"
 
-msgid "Blocksize"
-msgstr "Blokgrootte"
-
 msgid "Bolivia"
 msgstr "Bolivia"
 
@@ -542,9 +533,6 @@ msgstr "Burkina Faso"
 
 msgid "Burundi"
 msgstr "Burundi"
-
-msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr "Standaard worden alleen de bestanden die reeds bestaan ​​toegestaan om geüpload te worden."
 
 msgid "CPU usage"
 msgstr "CPU-gebruik"
@@ -836,11 +824,6 @@ msgstr "Bestemming gedeelde map"
 msgid "Detail"
 msgstr "Detail"
 
-msgid ""
-"Determine the default timeout, in microseconds, before the first packet is "
-"retransmitted."
-msgstr "Bepaal de standaard time-out, in microseconden, voordat het eerste pakket is verstuurd."
-
 msgid "Device"
 msgstr "Apparaat"
 
@@ -1066,6 +1049,9 @@ msgstr "Geplande taak aanpassen"
 msgid "Edit scheduled test"
 msgstr "Geplande test aanpassen"
 
+msgid "Edit service"
+msgstr "Dienst aanpassen"
+
 msgid "Edit share"
 msgstr "Gedeelde bron aanpassen"
 
@@ -1193,6 +1179,9 @@ msgstr "Fout"
 
 msgid "Error #"
 msgstr "Fout #"
+
+msgid "Errors"
+msgstr "Fouten"
 
 msgid "Estonia"
 msgstr "Estland"
@@ -2415,11 +2404,6 @@ msgid "Please first select a device."
 msgstr "Selecteer eerst een apparaat."
 
 msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr "Controleer of de gedeelde map schrijfrechten heeft indien nieuwe bestanden zijn toegestaan"
-
-msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
 msgstr "Houd er rekening mee dat er geen communicatie met het systeem mogelijk is tijdens deze test."
@@ -2443,9 +2427,6 @@ msgstr "Polen"
 
 msgid "Port"
 msgstr "Poort"
-
-msgid "Port to listen on."
-msgstr "Poort om te beluisteren."
 
 msgid "Portugal"
 msgstr "Portugal"
@@ -2705,9 +2686,6 @@ msgstr "Uitslag"
 
 msgid "Resume"
 msgstr "Hervatten"
-
-msgid "Retry timeout"
-msgstr "Time-out tijdens opnieuw proberen"
 
 msgid "Reunion"
 msgstr "Reünie"
@@ -3141,11 +3119,6 @@ msgid ""
 "disable this option."
 msgstr "Geeft de tijdsduur in seconden aan, tussen het controleren en het bijwerken van het masquerade address door het herleiden van het IP-adres. Stel de waarde op 0 in om deze optie uit te schakelen."
 
-msgid ""
-"Specifies the maximum permitted block size. The permitted range for this "
-"parameter is from 512 to 65464."
-msgstr "Specifieert de maximum toegestaane blokgrootte. Het toegestane bereik voor deze parameter loopt van 512 tot 65464."
-
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "Geeft de tijd weer, in uu:mm:ss, wanneer de uitsluiting opgeheven wordt."
 
@@ -3278,9 +3251,6 @@ msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "TCP-forwarden"
-
-msgid "TFTP"
-msgstr "TFTP"
 
 msgid "Taiwan"
 msgstr "Taiwan"
@@ -4020,6 +3990,9 @@ msgstr "Yemen"
 
 msgid "Yes"
 msgstr "Ja"
+
+msgid "You need to commit or cancel your changes"
+msgstr "U dient de wijzigingen in te dienen, of te laten vervallen"
 
 msgid "Zambia"
 msgstr "Zambia"

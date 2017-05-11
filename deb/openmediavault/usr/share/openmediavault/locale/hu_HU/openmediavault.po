@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 06:19+0100\n"
-"PO-Revision-Date: 2017-02-26 17:27+0000\n"
+"POT-Creation-Date: 2017-05-03 21:34+0200\n"
+"PO-Revision-Date: 2017-05-09 12:20+0000\n"
 "Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgid "%s [%s (%d%%) used, %s available]"
 msgstr "%s [%s (%d%%) foglalt, %s elérhető]"
 
 msgid "%s [on %s, %s]"
-msgstr "%s [a %s, %s]"
+msgstr "%s [-n %s, %s]"
 
 msgid "'All' is not allowed"
 msgstr "'Összes' nem megengedett"
@@ -305,12 +305,6 @@ msgstr "Az engedélyezett kliensek megpróbálják tárolni az OS/2 stílusú ki
 msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr "Megszakadt feltöltések és letöltések folytatásának engedélyezése a kliensek számára"
 
-msgid "Allow new files"
-msgstr "Új fájlok engedélyezése"
-
-msgid "Allow new files to be created."
-msgstr "Új fájlok létrehozásának engedélyezése."
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Szerver közzétételének engedélyezése mint idő szerver, Windows klienseken"
@@ -493,9 +487,6 @@ msgstr "Bináris"
 msgid "Block layer cache [%s, %s]"
 msgstr "Réteg cache blokkolás [%s, %s]"
 
-msgid "Blocksize"
-msgstr "Blokkméret"
-
 msgid "Bolivia"
 msgstr "Bolívia"
 
@@ -540,9 +531,6 @@ msgstr "Burkina Faso"
 
 msgid "Burundi"
 msgstr "Burundi"
-
-msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr "Alapértelmezésként csak azok a fájlok kerülnek feltöltésre, melyek már engedélyezve vannak."
 
 msgid "CPU usage"
 msgstr "CPU használat"
@@ -834,11 +822,6 @@ msgstr "Cél mappa"
 msgid "Detail"
 msgstr "Részlet"
 
-msgid ""
-"Determine the default timeout, in microseconds, before the first packet is "
-"retransmitted."
-msgstr "Alapértelmezett időtúllépés meghatározása, mikroszekundumban, mielőtt újraküldi az első csomagot."
-
 msgid "Device"
 msgstr "Meghajtó"
 
@@ -873,7 +856,7 @@ msgid "Device(s)"
 msgstr "Eszköz(ök)"
 
 msgid "Device/Label"
-msgstr "Eszköz/Címke"
+msgstr "Eszköz/címke"
 
 msgid "Devices"
 msgstr "Meghajtók"
@@ -1064,6 +1047,9 @@ msgstr "Ütemezett feladat módosítása"
 msgid "Edit scheduled test"
 msgstr "Ütemezett teszt szerkesztése"
 
+msgid "Edit service"
+msgstr "Szolgáltatás szerkesztése"
+
 msgid "Edit share"
 msgstr "Megosztás szerkesztése"
 
@@ -1191,6 +1177,9 @@ msgstr "Hiba"
 
 msgid "Error #"
 msgstr "Hiba #"
+
+msgid "Errors"
+msgstr "Hibák"
 
 msgid "Estonia"
 msgstr "Észtország"
@@ -2388,7 +2377,7 @@ msgstr "Kérlek tekintsd meg a <a href='http://www.proftpd.org/docs/directives/c
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
 "name.html' target='_blank'>manual page</a> for more details."
-msgstr "Kérlek tekintsd meg a <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>kézikönyvet</a> a további részletekért."
+msgstr "Kérlek tekintsd meg a  <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>kézikönyvet</a> a további részletekért."
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
@@ -2411,11 +2400,6 @@ msgstr "Válaszd ki a módszert a meghajtó törlésére, vagy a 'Mégsem'-et a 
 
 msgid "Please first select a device."
 msgstr "Kérlek előbb válassz ki egy eszközt."
-
-msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr "Kérlek győződj meg róla, hogy a megosztott mappa nyilvánosan írható és az új fájlok engedélyezettek e."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2441,9 +2425,6 @@ msgstr "Lengyelország"
 
 msgid "Port"
 msgstr "Port"
-
-msgid "Port to listen on."
-msgstr "Beállítás erre a portra."
 
 msgid "Portugal"
 msgstr "Portugália"
@@ -2703,9 +2684,6 @@ msgstr "Eredmény"
 
 msgid "Resume"
 msgstr "Folytatás"
-
-msgid "Retry timeout"
-msgstr "Újbóli időtúllépés"
 
 msgid "Reunion"
 msgstr "Újraegyesítés"
@@ -3139,11 +3117,6 @@ msgid ""
 "disable this option."
 msgstr "Az IP cím feloldás ellenőrzésének és frissítésének megadása másodpercben az ál címen keresztül. A 0 beállítás letiltja az opciót."
 
-msgid ""
-"Specifies the maximum permitted block size. The permitted range for this "
-"parameter is from 512 to 65464."
-msgstr "Maximálisan engedélyezett blokkméret meghatározása. A megengedett tartomány mérete 512 és 65464 között van."
-
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "Kitiltási idő lejárásának meghatározása óó:pp:mm formátumban."
 
@@ -3276,9 +3249,6 @@ msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "TCP továbbítás"
-
-msgid "TFTP"
-msgstr "TFTP"
 
 msgid "Taiwan"
 msgstr "Tajvan"
@@ -4018,6 +3988,9 @@ msgstr "Jemen"
 
 msgid "Yes"
 msgstr "Igen"
+
+msgid "You need to commit or cancel your changes"
+msgstr "El kell végezned, vagy törölnöd kell a módosításokat"
 
 msgid "Zambia"
 msgstr "Zambia"

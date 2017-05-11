@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# songming <by@songming.me>, 2013-2016
+# songming <by@songming.me>, 2013-2017
 # Wei Ding <dyw.net@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 06:19+0100\n"
-"PO-Revision-Date: 2016-12-08 05:14+0000\n"
+"POT-Creation-Date: 2017-05-03 21:34+0200\n"
+"PO-Revision-Date: 2017-05-10 08:58+0000\n"
 "Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -305,12 +305,6 @@ msgstr "允许客户端通过共享存储 OS/2 类型扩展特性。"
 msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr "允许客户端恢复中断的上传和下载"
 
-msgid "Allow new files"
-msgstr "允许新文件"
-
-msgid "Allow new files to be created."
-msgstr "允许创建新文件。"
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "允许此服务器作为 Windows 客户端的时间服务器"
@@ -493,9 +487,6 @@ msgstr "二进制"
 msgid "Block layer cache [%s, %s]"
 msgstr "区块层缓存 [%s, %s]"
 
-msgid "Blocksize"
-msgstr "块大小"
-
 msgid "Bolivia"
 msgstr "玻利维亚"
 
@@ -540,9 +531,6 @@ msgstr "布基纳法索"
 
 msgid "Burundi"
 msgstr "布隆迪"
-
-msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr "默认只有已经存在的文件才允许上传。"
 
 msgid "CPU usage"
 msgstr "CPU 使用率"
@@ -834,11 +822,6 @@ msgstr "目标共享文件夹"
 msgid "Detail"
 msgstr "细节"
 
-msgid ""
-"Determine the default timeout, in microseconds, before the first packet is "
-"retransmitted."
-msgstr "决定在重新传输第一个数据包之前的默认超时时间，时间单位微秒。"
-
 msgid "Device"
 msgstr "设备"
 
@@ -1064,6 +1047,9 @@ msgstr "编辑计划任务"
 msgid "Edit scheduled test"
 msgstr "编辑测试计划"
 
+msgid "Edit service"
+msgstr "编辑服务"
+
 msgid "Edit share"
 msgstr "编辑共享"
 
@@ -1191,6 +1177,9 @@ msgstr "错误"
 
 msgid "Error #"
 msgstr "错误 #"
+
+msgid "Errors"
+msgstr "错误"
 
 msgid "Estonia"
 msgstr "爱沙尼亚"
@@ -2413,11 +2402,6 @@ msgid "Please first select a device."
 msgstr "请先选择一个设备。"
 
 msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr "如果有新文件写入，请确保该共享文件夹开放公共写权限。"
-
-msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
 msgstr "请注意在此测试期间可能不能和系统进行通讯。"
@@ -2441,9 +2425,6 @@ msgstr "波兰"
 
 msgid "Port"
 msgstr "端口"
-
-msgid "Port to listen on."
-msgstr "监听端口。"
 
 msgid "Portugal"
 msgstr "葡萄牙"
@@ -2703,9 +2684,6 @@ msgstr "结果"
 
 msgid "Resume"
 msgstr "恢复"
-
-msgid "Retry timeout"
-msgstr "重试超时"
 
 msgid "Reunion"
 msgstr "留尼汪"
@@ -3139,11 +3117,6 @@ msgid ""
 "disable this option."
 msgstr "指定多少秒的时间作为检查和更新伪装地址的 IP 时间间隔，设为 0 则表示停用。"
 
-msgid ""
-"Specifies the maximum permitted block size. The permitted range for this "
-"parameter is from 512 to 65464."
-msgstr "指定允许的最大块大小，该范围允许值 512 到 65464 。"
-
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "以 hh:mm:ss 的格式来指定时间，这个时间后禁止策略失效。"
 
@@ -3276,9 +3249,6 @@ msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "TCP 转发"
-
-msgid "TFTP"
-msgstr "TFTP"
 
 msgid "Taiwan"
 msgstr "台湾"
@@ -4018,6 +3988,9 @@ msgstr "也门"
 
 msgid "Yes"
 msgstr "是"
+
+msgid "You need to commit or cancel your changes"
+msgstr "你需要提交或取消变更。"
 
 msgid "Zambia"
 msgstr "赞比亚"
