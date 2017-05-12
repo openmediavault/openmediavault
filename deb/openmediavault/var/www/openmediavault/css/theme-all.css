@@ -168,6 +168,8 @@ div#headerrlogo {
 	color: #000;
 	background-image: url("../images/exclamation.png");
 	background-image: url("../images/exclamation.svg"), none;
+	background-position: 3px center;
+	padding: 6px 3px 0px 25px;
 }
 /* Tip toolbar */
 .x-toolbar-tip {
@@ -362,6 +364,37 @@ div#headerrlogo {
 }
 .x-btn-icon-16x16 {
 	background-size: 16px 16px;
+}
+/******************************************************************************/
+/* Checkbox */
+.x-form-cb-default {
+	margin-top: 8px;
+}
+.x-form-checkbox-default,
+.x-form-radio-default {
+	width: 32px;
+	height: 16px;
+}
+.x-form-cb-label-default.x-form-cb-label-after {
+	padding-left: 37px;
+}
+.x-form-checkbox-default:before,
+.x-form-cb-checked .x-form-checkbox-default:before {
+	content: none;
+}
+.x-form-cb-checked .x-form-checkbox-default {
+	background-position: left;
+	background-image: url("../images/switch_on.png");
+	background-image: url("../images/switch_on.svg"), none;
+}
+.x-form-checkbox-default {
+	background-position: left;
+	background-image: url("../images/switch_off.png");
+	background-image: url("../images/switch_off.svg"), none;
+}
+.x-form-checkbox-focus.x-form-checkbox-default,
+.x-form-cb-checked .x-form-checkbox-focus.x-form-checkbox-default {
+	background-position: left;
 }
 /******************************************************************************/
 /* Tabs */

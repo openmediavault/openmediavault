@@ -231,6 +231,10 @@ body > .x-mask {
 .x-form-checkbox-focus.x-form-checkbox-default {
 	color: #98b7cf;
 }
+.x-form-checkbox-default:before,
+.x-form-cb-checked .x-form-checkbox-default:before {
+	content: none;
+}
 /******************************************************************************/
 /* Combobox */
 .x-boundlist-item-over {
