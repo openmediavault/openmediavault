@@ -28,10 +28,12 @@
 
 /******************************************************************************/
 /* Miscellaneous */
+.x-body,
 .x-form-item-label-default,
 .x-form-cb-label-default,
 .x-form-text-default,
 .x-grid-item,
+.x-menu-item-text-default,
 .x-panel-body-default,
 .x-panel-header-title-default,
 .x-tree-node-text {
