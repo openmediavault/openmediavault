@@ -19,17 +19,33 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 
- /******************************************************************************/
- /* Corporate colors
- /* default:     #98b7cf
- /* darker:      #829bad
- /* more darker: #6c8191
- /******************************************************************************/
+/******************************************************************************/
+/* Corporate colors
+/* default:     #98b7cf
+/* darker:      #829bad
+/* more darker: #6c8191
+/******************************************************************************/
 
+/******************************************************************************/
+/* Miscellaneous */
+.x-form-item-label-default,
+.x-form-cb-label-default,
+.x-form-text-default,
+.x-grid-item,
+.x-panel-body-default,
+.x-panel-header-title-default,
+.x-tree-node-text {
+	font-weight: 400;
+}
 /******************************************************************************/
 /* Body */
 body > .x-mask {
 	background-color: rgba(47, 52, 63, 0.5);
+}
+/******************************************************************************/
+/* Form fieldset */
+.x-fieldset-header-default > .x-fieldset-header-text {
+	color: #6c8191; /* more darker */
 }
 /******************************************************************************/
 /* Trigger field */
