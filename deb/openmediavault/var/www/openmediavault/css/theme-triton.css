@@ -212,6 +212,9 @@ body > .x-mask {
 .x-tab-invalid {
 	background-color: #cc3300;
 }
+.x-box-scroller-tab-bar-default {
+	background-color: #829bad; /* darker */
+}
 /******************************************************************************/
 /* Windows */
 .x-window-default {
@@ -242,7 +245,8 @@ body > .x-mask {
 	border-color: #829bad; /* darker */
 	background-color: #829bad; /* darker */
 }
-.x-btn.x-btn-pressed.x-btn-default-small {
+.x-btn.x-btn-pressed.x-btn-default-small,
+.x-btn.x-btn-disabled.x-btn-default-small {
 	border-color: #6c8191; /* more darker */
 	background-color: #6c8191; /* more darker */
 }
