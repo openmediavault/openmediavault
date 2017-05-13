@@ -36,7 +36,9 @@
 .x-menu-item-text-default,
 .x-panel-body-default,
 .x-panel-header-title-default,
-.x-tree-node-text {
+.x-toolbar-text-default,
+.x-tree-node-text,
+.x-window-body-default {
 	font-weight: 400;
 }
 /******************************************************************************/
