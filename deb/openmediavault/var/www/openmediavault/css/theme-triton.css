@@ -150,6 +150,10 @@ body > .x-mask {
 .x-grid-tree-node-expanded .x-tree-elbow-end-plus {
 	color: #000000;
 }
+.x-tree-icon, .x-tree-elbow-img, .x-tree-checkbox {
+	margin-top: -5px;
+	margin-bottom: -5px;
+}
 /******************************************************************************/
 /* Grid */
 .x-grid-item-focused .x-grid-cell-inner:before {
@@ -162,9 +166,9 @@ body > .x-mask {
 	opacity: 0.7;
 }
 .x-grid-cell-inner {
-	padding: 4px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
-
 /******************************************************************************/
 /* Workspace node tree */
 .x-workspace-node-tree .x-panel-header-default {
