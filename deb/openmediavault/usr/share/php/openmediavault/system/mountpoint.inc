@@ -124,7 +124,7 @@ class MountPoint {
 	 */
 	public function isMountPoint() {
 		$cmdArgs = [];
-		$cmdArgs[] = "-d";
+		$cmdArgs[] = "-q";
 		$cmdArgs[] = escapeshellarg($this->getPath());
 		$cmd = new \OMV\System\Process("mountpoint", $cmdArgs);
 		$cmd->setQuiet(TRUE);
