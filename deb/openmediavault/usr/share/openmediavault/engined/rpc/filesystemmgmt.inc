@@ -908,6 +908,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// to be sure to find a mount point configuration object.
 			$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['id']);
 			if (!is_null($fs) && $fs->exists()) {
+				// Add all existing filesystem device files.
 				$devs = $fs->getDeviceFileSymlinks();
 				foreach ($devs as $devk => $devv) {
 					$filter = [
@@ -917,6 +918,19 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 							"operator" => "stringEquals",
 							"arg0" => "fsname",
 							"arg1" => $devv
+						]
+					];
+				}
+				// To keep backward compatibility we need to search for the
+				// filesystem UUID, too.
+				if (TRUE === $fs->hasUuid()) {
+					$filter = [
+						"operator" => "or",
+						"arg0" => $filter,
+						"arg1" => [
+							"operator" => "stringEquals",
+							"arg0" => "fsname",
+							"arg1" => $fs->getUuid()
 						]
 					];
 				}
