@@ -1,6 +1,9 @@
 openmediavault (3.0.76) stable; urgency=low
 
   * Various API and UI improvements.
+  * Add support to configure the WebUI theme via environment variable. Add
+    OMV_WEBUI_THEME=(triton|gray) to /etc/default/openmediavault to switch
+    the default theme.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 12 May 2017 00:36:54 +0200
 
@@ -12,7 +15,7 @@ openmediavault (3.0.75.1) stable; urgency=low
 
 openmediavault (3.0.75) stable; urgency=low
 
-  * Upgrade WebUI to Sencha ExtJS6.
+  * Upgrade WebUI to Sencha ExtJS6. Introduce a new UI theme.
   * Fix bug reading /var/lib/openmediavault/dirtymodules.json.
   * Mantis 0001735: smartd refuses to monitor devices due to exceeding
     maximum line length.
