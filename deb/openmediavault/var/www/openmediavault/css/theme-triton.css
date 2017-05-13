@@ -161,6 +161,10 @@ body > .x-mask {
 	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
 	opacity: 0.7;
 }
+.x-grid-cell-inner {
+	padding: 4px;
+}
+
 /******************************************************************************/
 /* Workspace node tree */
 .x-workspace-node-tree .x-panel-header-default {
