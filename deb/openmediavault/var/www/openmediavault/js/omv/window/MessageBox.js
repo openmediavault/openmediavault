@@ -222,7 +222,6 @@ Ext.define("OMV.window.MessageBox", {
 			width: 400,
 			minHeight: 100,
 			resizable: true,
-			scrollable: true,
 			constrain: true,
 			minimizable: false,
 			maximizable: false,
@@ -260,6 +259,7 @@ Ext.define("OMV.window.MessageBox", {
 				},{
 					xtype: "container",
 					flex: 1,
+					scrollable: true,
 					layout: {
 						type: "vbox",
 						align: "stretch"
