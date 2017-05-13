@@ -160,7 +160,6 @@ Ext.define("OMV.module.admin.service.usbbackup.Job", {
 			name: "usesubdir",
 			fieldLabel: "&nbsp",
 			checked: true,
-			inputValue: 1,
 			boxLabel: _("Synchronise from/to directory on external storage device."),
 			plugins: [{
 				ptype: "fieldinfo",
