@@ -186,24 +186,31 @@ Ext.define("OMV.window.MessageBox", {
 				},
 				items: [{
 					xtype: "component",
-					cls: Ext.baseCSSPrefix + "message-box-icon " +
-					  Ext.baseCSSPrefix + "dlg-icon " + me.ERROR
+					cls: [
+						Ext.baseCSSPrefix + "message-box-icon",
+						Ext.baseCSSPrefix + "dlg-icon",
+						me.ERROR
+					]
 				},{
 					xtype: "container",
 					flex: 1,
 					layout: {
 						type: "vbox",
-                        align: "stretch"
+						align: "stretch"
 					},
 					items: [{
 						xtype: "component",
-						cls: me.baseCls + "-text",
+						cls: [
+							Ext.baseCSSPrefix + "selectable",
+							me.baseCls + "-text"
+						],
 						html: (Ext.isEmpty(error.message) ?
 						  _("An error has occured") :
 						  Ext.util.Format.htmlEncode(error.message))
 					}]
 				}]
 			}, details = Ext.create("Ext.panel.Panel", {
+				cls: Ext.baseCSSPrefix + "selectable",
 				flex: 1,
 				hidden: true,
 				scrollable: true,
