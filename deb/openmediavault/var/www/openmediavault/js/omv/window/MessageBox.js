@@ -205,14 +205,91 @@ Ext.define("OMV.window.MessageBox", {
 					}]
 				}]
 			}, details = Ext.create("Ext.panel.Panel", {
+				title: _("Details"),
 				cls: Ext.baseCSSPrefix + "selectable",
 				flex: 1,
 				hidden: true,
 				scrollable: true,
-				height: 150,
+				height: 175,
 				html: detailsText
 			})]
 		});
+		/*
+		// Display the details in a collapsible panel.
+		var dlg = Ext.create("Ext.Window", {
+			title: title || _("Error"),
+			modal: true,
+			width: 400,
+			minHeight: 100,
+			resizable: true,
+			scrollable: true,
+			constrain: true,
+			minimizable: false,
+			maximizable: false,
+			closable: true,
+			layout: {
+				type: "vbox",
+				align: "stretch"
+			},
+			buttonAlign: "center",
+			defaultFocus: 0,
+			buttons: [{
+				text: this.buttonText.ok,
+				handler: function(c, e) {
+					// Close the dialog.
+					dlg.close();
+					// Execute given callback function.
+					if (Ext.isFunction(fn))
+						fn.call(scope || me, me);
+				}
+			}],
+			items: [{
+				flex: 1,
+				layout: "hbox",
+				padding: 10,
+				style: {
+					overflow: "hidden"
+				},
+				items: [{
+					xtype: "component",
+					cls: [
+						Ext.baseCSSPrefix + "message-box-icon",
+						Ext.baseCSSPrefix + "dlg-icon",
+						me.ERROR
+					]
+				},{
+					xtype: "container",
+					flex: 1,
+					layout: {
+						type: "vbox",
+						align: "stretch"
+					},
+					items: [{
+						xtype: "component",
+						cls: [
+							Ext.baseCSSPrefix + "selectable",
+							me.baseCls + "-text"
+						],
+						html: (Ext.isEmpty(error.message) ?
+							_("An error has occured") :
+							Ext.util.Format.htmlEncode(error.message))
+					}]
+				}]
+			},{
+				xtype: "panel",
+				title: _("Details"),
+				cls: Ext.baseCSSPrefix + "selectable",
+				flex: 1,
+				animCollapse: false,
+				titleCollapse: true,
+				collapsible: true,
+				collapsed: true,
+				scrollable: true,
+				hidden: Ext.isEmpty(detailsText),
+				html: detailsText
+			}]
+		});
+		*/
 		return dlg.show();
 	},
 
