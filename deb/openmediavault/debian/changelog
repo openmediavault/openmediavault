@@ -16,7 +16,8 @@ openmediavault (3.0.75.1) stable; urgency=low
 
 openmediavault (3.0.75) stable; urgency=low
 
-  * Upgrade WebUI to Sencha ExtJS6. Introduce a new UI theme.
+  * Upgrade WebUI to Sencha ExtJS6 and introduce a new UI theme. The WebUI can
+    be customized via /var/www/openmediavault/css/theme-custom.css.
   * Fix bug reading /var/lib/openmediavault/dirtymodules.json.
   * Mantis 0001735: smartd refuses to monitor devices due to exceeding
     maximum line length.
