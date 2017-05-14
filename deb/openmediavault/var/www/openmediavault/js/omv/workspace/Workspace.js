@@ -107,14 +107,14 @@ Ext.define("OMV.workspace.Workspace", {
 	buildTree: function() {
 		var me = this;
 		return me.tp = Ext.create("OMV.workspace.node.tree.Panel", {
-//			plugins: "responsive",
-//			responsiveConfig: {
+			plugins: "responsive",
+			responsiveConfig: {
 				// On tablet/phone/touch devices the tree panel will not
 				// be displayed.
-//				"tablet || phone || touch": {
-//					hidden: true
-//				}
-//			},
+				"tablet || phone || touch": {
+					hidden: true
+				}
+			},
 			region: "west",
 			split: true,
 			width: 210,

@@ -180,7 +180,7 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 		$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['fsname']);
 		if (!is_null($fs) && $fs->exists()) {
 			$args = array_merge($args, $fs->getDeviceFileSymlinks());
-			if ($fs->hasUuid())
+			if (TRUE === $fs->hasUuid())
 				$args[] = $fs->getUuid();
 			// Remove duplicates and re-index the array.
 			$args = array_values(array_unique($args));

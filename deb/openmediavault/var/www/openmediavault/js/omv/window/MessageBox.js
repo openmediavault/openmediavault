@@ -205,8 +205,9 @@ Ext.define("OMV.window.MessageBox", {
 					}]
 				}]
 			}, details = Ext.create("Ext.panel.Panel", {
-				title: _("Details"),
 				cls: Ext.baseCSSPrefix + "selectable",
+				border: true,
+				padding: 10,
 				flex: 1,
 				hidden: true,
 				scrollable: true,
