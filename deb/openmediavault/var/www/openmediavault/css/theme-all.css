@@ -356,6 +356,9 @@ div#headerrlogo {
 .x-grid-checkcolumn-cell-inner :focus {
 	outline: 0px;
 }
+.x-grid-cell.x-selmodel-column {
+	vertical-align: middle;
+}
 /******************************************************************************/
 /* Button */
 .x-btn-icon-el {
