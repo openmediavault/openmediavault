@@ -21,9 +21,10 @@ Depends: ${perl:Depends}, libjs-extjs6 (>= 6.2), php5-fpm, libpam-modules,
  liblocale-po-perl, proftpd-mod-vroot, libjavascript-minifier-xs-perl,
  coreutils, xmlstarlet (>= 1.6.1), mount, parted, bash, diffutils, lsof,
  socat, rrdcached, locales, nginx (>= 1.6.2), bash-completion, python3,
- python3-apt, pm-utils, wpasupplicant, systemd, systemd-sysv, btrfs-tools,
+ python3-apt, pm-utils, wpasupplicant, systemd, systemd-sysv,
  samba-vfs-modules, pciutils, python3-pyudev, python3-natsort, jq, ntp,
- python3-netifaces, udev, apt-transport-https, python3-lxml, ${misc:Depends}
+ python3-netifaces, udev, apt-transport-https, python3-lxml,
+ btrfs-tools | btrfs-progs, ${misc:Depends}
 Description: Open network attached storage solution
  openmediavault is a small and simple to use network attached storage system
  with a smart WebGUI.
