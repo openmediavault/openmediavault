@@ -103,6 +103,10 @@ xmlstarlet sel -t \
 		  -o "    echo \"Destination storage device <${destmntdir}> not mounted!\"" -n \
 		  -o "    exit 1" -n \
 		  -o "fi" -n \
+		   -o "if ! omv_is_mounted \"${srcmntdir}\" ; then" -n \
+		  -o "    echo \"Source storage device <${srcmntdir}> not mounted!\"" -n \
+		  -o "    exit 1" -n \
+		  -o "fi" -n \
 		-b \
 		-o "trap cleanup 0 1 2 5 15" -n \
 		-o "touch ${runfile}" -n \
