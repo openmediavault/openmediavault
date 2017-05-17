@@ -184,9 +184,6 @@ Ext.define("OMV.workspace.grid.Panel", {
 					return;
 				// Remember the previously selected nodes.
 				me.previousSelected = selModel.getSelection();
-				// Deselect all nodes, otherwise the 'selectionchange' event
-				// will not be fired later.
-				selModel.deselectAll();
 			});
 			me.getView().on("refresh", function(view) {
 				if (Ext.isEmpty(me.previousSelected))
@@ -198,6 +195,9 @@ Ext.define("OMV.workspace.grid.Panel", {
 						select.push(record);
 				});
 				delete me.previousSelected;
+				// Deselect all nodes, otherwise the 'selectionchange' event
+				// will not be fired later.
+				selModel.deselectAll();
 				if (select.length > 0) {
 					selModel.select(select, false, false);
 					selModel.view.focusNode(select[0]);
