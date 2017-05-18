@@ -151,7 +151,7 @@ body > .x-mask {
 	color: #000000;
 }
 .x-tree-icon, .x-tree-elbow-img, .x-tree-checkbox {
-	margin-top: -5px;
+	margin-top: -5px; /* opposite of .x-grid-cell-inner */
 	margin-bottom: -5px;
 }
 /******************************************************************************/
