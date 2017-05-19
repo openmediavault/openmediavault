@@ -150,6 +150,10 @@ body > .x-mask {
 .x-grid-tree-node-expanded .x-tree-elbow-end-plus {
 	color: #000000;
 }
+.x-grid-cell-inner-treecolumn {
+	padding-top: 5px;
+	padding-bottom: 4px;
+}
 /******************************************************************************/
 /* Grid */
 .x-grid-item-focused .x-grid-cell-inner:before {
