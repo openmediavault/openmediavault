@@ -109,12 +109,12 @@ Ext.define("OMV.workspace.Workspace", {
 		return me.tp = Ext.create("OMV.workspace.node.tree.Panel", {
 			plugins: "responsive",
 			responsiveConfig: {
-				// On phone the tree panel will not be displayed.
-				phone: {
+				// On phone/tablet the tree panel will not be displayed.
+				"phone || tablet": {
 					hidden: true
 				},
-				// On tablet/touch devices the tree panel is collapsed
-				"tablet || touch": {
+				// On touch devices the tree panel is collapsed
+				touch: {
 					// collapsed: true only work if collapsible
 					// is called
 					collapsible: true,
