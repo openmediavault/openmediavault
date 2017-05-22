@@ -124,7 +124,7 @@ Ext.define("OMV.module.admin.service.ftp.Shares", {
 		align: "center",
 		width: 80,
 		resizable: false,
-		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
+		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-led"
 	},{
 		xtype: "textcolumn",
 		text: _("Shared folder"),

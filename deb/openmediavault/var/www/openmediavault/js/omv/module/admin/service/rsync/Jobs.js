@@ -616,7 +616,7 @@ Ext.define("OMV.module.admin.service.rsync.Jobs", {
 		align: "center",
 		width: 80,
 		resizable: false,
-		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
+		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-led"
 	},{
 		xtype: "mapcolumn",
 		text: _("Type"),
