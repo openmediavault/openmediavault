@@ -124,6 +124,7 @@ Ext.define("OMV.workspace.Workspace", {
 				desktop: {
 					collapsible: true
 				},
+			},
 			region: "west",
 			split: true,
 			width: 210,
