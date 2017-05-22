@@ -109,18 +109,29 @@ Ext.define("OMV.workspace.Workspace", {
 		return me.tp = Ext.create("OMV.workspace.node.tree.Panel", {
 			plugins: "responsive",
 			responsiveConfig: {
-				// On tablet/phone/touch devices the tree panel will not
-				// be displayed.
-				"tablet || phone || touch": {
+				// On phone/tablet the tree panel will not be displayed.
+				"phone || tablet": {
 					hidden: true
-				}
+				},
+				// On touch devices the tree panel is collapsed
+				touch: {
+					// collapsed: true only work if collapsible
+					// is called
+					collapsible: true,
+					collapsed: true
+				},
+				// On desktop the tree is collapsible (as before)
+				desktop: {
+					collapsible: true
+				},
 			},
 			region: "west",
 			split: true,
 			width: 210,
 			minSize: 150,
 			maxSize: 280,
-			collapsible: true,
+			// Will result in exception if called twice
+			//collapsible: true,
 			layout: "fit",
 			border: true,
 			scrollable: true,
