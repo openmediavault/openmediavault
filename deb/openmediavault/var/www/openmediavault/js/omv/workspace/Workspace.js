@@ -113,14 +113,14 @@ Ext.define("OMV.workspace.Workspace", {
 				"phone || tablet": {
 					hidden: true
 				},
-				// On touch devices the tree panel is collapsed
+				// On touch devices the tree panel is collapsed.
 				touch: {
 					// collapsed: true only work if collapsible
 					// is called
 					collapsible: true,
 					collapsed: true
 				},
-				// On desktop the tree is collapsible (as before)
+				// On desktop the tree is collapsible.
 				desktop: {
 					collapsible: true
 				},
@@ -130,8 +130,6 @@ Ext.define("OMV.workspace.Workspace", {
 			width: 210,
 			minSize: 150,
 			maxSize: 280,
-			// Will result in exception if called twice
-			//collapsible: true,
 			layout: "fit",
 			border: true,
 			scrollable: true,
