@@ -487,6 +487,12 @@ case "$1" in
 			deb-systemd-invoke reload nginx.service || :
 			deb-systemd-invoke reload php5-fpm.service || :
 		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.77"; then
+			if deb-systemd-invoke -q is-active postfix; then
+				omv-mkconf postfix
+				deb-systemd-invoke reload postfix || :
+			fi
+		fi
 
 		########################################################################
 		# Show help text.

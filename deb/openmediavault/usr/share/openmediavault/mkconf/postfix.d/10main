@@ -46,7 +46,7 @@ xmlstarlet sel -t -m "//system/email" \
   -o "mydestination = ${OMV_POSTFIX_MAIN_MYDESTINATION}" -n \
   -o "inet_interfaces = ${OMV_POSTFIX_MAIN_INET_INTERFACES}" -n \
   -v "concat('relayhost = ',server,':',port)" -n \
-  -o "sender_canonical_maps = hash:${OMV_POSTFIX_MAIN_SENDER_CANONICAL_MAPS}" -n \
+  -o "sender_canonical_maps = regexp:${OMV_POSTFIX_MAIN_SENDER_CANONICAL_MAPS}" -n \
   -o "sender_bcc_maps = hash:${OMV_POSTFIX_MAIN_SENDER_BCC_MAPS}" -n \
   -o "recipient_canonical_maps = hash:${OMV_POSTFIX_MAIN_RECIPIENT_CANONICAL_MAPS}" -n \
   -o "recipient_bcc_maps = hash:${OMV_POSTFIX_MAIN_RECIPIENT_BCC_MAPS}" -n \
