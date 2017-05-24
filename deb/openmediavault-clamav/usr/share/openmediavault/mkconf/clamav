@@ -185,6 +185,13 @@ xmlstarlet sel -t \
 sfref=$(omv_config_get "//services/clamav/quarantine/sharedfolderref")
 sfpath=$(omv_get_sharedfolder_path "${sfref}")
 
+# Create the /var/run/clamav path
+if [ ! -d /var/run/clamav ]; then
+    mkdir -p /var/run/clamav
+    chown root:root /var/run/clamav
+    chmod 755 /var/run/clamav
+fi
+
 # Create the cron jobs.
 rm -f ${OMV_CRONSCRIPTS_DIR}/${OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT_TEMPLATE}*
 xmlstarlet sel -t \
