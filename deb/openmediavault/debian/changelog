@@ -1,6 +1,7 @@
 openmediavault (3.0.77) stable; urgency=low
 
-  * Improve postfix configuration.
+  * Update locales.
+  * Improve postfix configuration. This should prevent bounced emails.
   * Improve rsync jobs. Check if the source mount point exists.
   * Mantis 0001683: Change btrfs-tools dependency to btrfs-tools | btrfs-progs.
   * Mantis 0001742: Focused line twitches when "File systems" page is
