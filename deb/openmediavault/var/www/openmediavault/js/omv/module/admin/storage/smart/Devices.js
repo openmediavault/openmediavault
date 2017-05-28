@@ -474,7 +474,7 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 		align: "center",
 		width: 80,
 		resizable: false,
-		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
+		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-led"
 	},{
 		text: _("Device"),
 		sortable: true,

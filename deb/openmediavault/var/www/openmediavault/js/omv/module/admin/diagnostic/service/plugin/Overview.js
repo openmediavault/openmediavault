@@ -67,7 +67,7 @@ Ext.define("OMV.module.admin.diagnostic.service.plugin.Overview", {
 				width: 80,
 				resizable: false,
 				align: "center",
-				iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
+				iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-led"
 			},{
 				text: _("Running"),
 				sortable: true,

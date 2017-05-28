@@ -318,16 +318,6 @@ div#headerrlogo {
 	background-image: url("../images/led_red.png");
 	background-image: url("../images/led_red.svg"), none;
 }
-.x-grid-cell-booleaniconcolumn-switch-true,
-.x-grid-cell-booleaniconcolumn-switch-on {
-	background-image: url("../images/switch_on.png");
-	background-image: url("../images/switch_on.svg"), none;
-}
-.x-grid-cell-booleaniconcolumn-switch-false,
-.x-grid-cell-booleaniconcolumn-switch-off {
-	background-image: url("../images/switch_off.png");
-	background-image: url("../images/switch_off.svg"), none;
-}
 .x-grid-cell-usergroupiconcolumn {
 	background-repeat: no-repeat;
 	background-position: center;
