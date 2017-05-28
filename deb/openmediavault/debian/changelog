@@ -1,3 +1,9 @@
+openmediavault (3.0.78) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 28 May 2017 21:34:27 +0200
+
 openmediavault (3.0.77) stable; urgency=low
 
   * Update locales.
@@ -6,6 +12,7 @@ openmediavault (3.0.77) stable; urgency=low
   * Mantis 0001683: Change btrfs-tools dependency to btrfs-tools | btrfs-progs.
   * Mantis 0001742: Focused line twitches when "File systems" page is
     dynamically refreshing.
+  * Fix navigation display issue on touch devices.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 16 May 2017 13:20:28 +0200
 
