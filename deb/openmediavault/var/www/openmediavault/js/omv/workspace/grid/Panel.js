@@ -26,6 +26,7 @@
 // require("js/omv/grid/column/DeviceFiles.js")
 // require("js/omv/grid/column/DeviceInfo.js")
 // require("js/omv/grid/column/Empty.js")
+// require("js/omv/grid/column/Enabled.js")
 // require("js/omv/grid/column/Hyperlink.js")
 // require("js/omv/grid/column/UnixTimestamp.js")
 // require("js/omv/grid/column/WhiteSpace.js")
@@ -100,6 +101,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 		"OMV.grid.column.DeviceFiles",
 		"OMV.grid.column.DeviceInfo",
 		"OMV.grid.column.Empty",
+		"OMV.grid.column.Enabled",
 		"OMV.grid.column.Hyperlink",
 		"OMV.grid.column.UnixTimestamp",
 		"OMV.grid.column.WhiteSpace",

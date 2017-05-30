@@ -55,14 +55,11 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 		ftype: "grouping"
 	}],
 	columns: [{
-		xtype: "booleaniconcolumn",
-		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch",
+		xtype: "enabledcolumn",
 		text: _("Installed"),
 		sortable: true,
 		dataIndex: "installed",
-		stateId: "installed",
-		resizable: false,
-		width: 80
+		stateId: "installed"
 	},{
 		xtype: "templatecolumn",
 		text: _("Package information"),

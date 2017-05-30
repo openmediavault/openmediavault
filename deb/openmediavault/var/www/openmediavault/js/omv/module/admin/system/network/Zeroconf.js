@@ -113,15 +113,11 @@ Ext.define("OMV.module.admin.system.network.Zeroconf", {
 		stateId: "name",
 		flex: 1
 	},{
-		xtype: "booleaniconcolumn",
+		xtype: "enabledcolumn",
 		text: _("Enabled"),
 		groupable: false,
 		dataIndex: "enable",
-		stateId: "enable",
-		align: "center",
-		width: 80,
-		resizable: false,
-		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
+		stateId: "enable"
 	}],
 
 	initComponent: function() {

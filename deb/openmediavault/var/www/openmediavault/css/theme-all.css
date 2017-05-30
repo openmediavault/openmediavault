@@ -301,12 +301,14 @@ div#headerrlogo {
 	background-image: url("../images/led_blue.png");
 	background-image: url("../images/led_blue.svg"), none;
 }
+.x-grid-cell-booleaniconcolumn-enabled-false,
 .x-grid-cell-booleaniconcolumn-led-false,
 .x-grid-cell-booleaniconcolumn-led-gray,
 .x-grid-cell-iconcolumn-led-gray {
 	background-image: url("../images/led_gray.png");
 	background-image: url("../images/led_gray.svg"), none;
 }
+.x-grid-cell-booleaniconcolumn-enabled-true,
 .x-grid-cell-booleaniconcolumn-led-true,
 .x-grid-cell-booleaniconcolumn-led-green,
 .x-grid-cell-iconcolumn-led-green {

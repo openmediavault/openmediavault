@@ -317,15 +317,11 @@ Ext.define("OMV.module.admin.service.smb.Shares", {
 	stateful: true,
 	stateId: "e0bbeb12-8441-4b70-899e-800e2dab53ee",
 	columns: [{
-		xtype: "booleaniconcolumn",
+		xtype: "enabledcolumn",
 		text: _("Enabled"),
 		sortable: true,
 		dataIndex: "enable",
-		stateId: "enable",
-		align: "center",
-		width: 80,
-		resizable: false,
-		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
+		stateId: "enable"
 	},{
 		xtype: "textcolumn",
 		text: _("Shared folder"),
