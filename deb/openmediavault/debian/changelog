@@ -1,6 +1,6 @@
 openmediavault (3.0.78) stable; urgency=low
 
-  * Introduce OMV.grid.column.OnOffSwitch UI control.
+  * Introduce OMV.grid.column.Enabled UI control.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 30 May 2017 20:56:26 +0200
 
