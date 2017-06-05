@@ -1,3 +1,9 @@
+openmediavault-nut (3.2.12) stable; urgency=low
+
+  * Mantis 0001755: Outdated configuration of rsyslog.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 05 Jun 2017 20:35:28 +0200
+
 openmediavault-nut (3.2.11) stable; urgency=low
 
   * Update locales.
