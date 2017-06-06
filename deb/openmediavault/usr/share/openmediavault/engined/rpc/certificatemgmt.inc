@@ -301,7 +301,8 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Unlink the temporary files.
 			unlink($keyfile);
 			unlink($crtfile);
-			throw new \OMV\ExecException($cmd->getCommandLine(), $output);
+			throw new \OMV\ExecException($cmd->getCommandLine(), $output,
+				$exitStatus);
 		}
 		// Read certificate and key content, then unlink the temporary files.
 		$keydata = file_get_contents($keyfile);
@@ -380,11 +381,11 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs[] = sprintf("-f %s", escapeshellarg($file));
 		$cmd = sprintf("export LANG=C; (echo y) | ssh-keygen %s 2>&1",
 		  implode(" ", $cmdArgs));
-		if (0 !== $this->exec($cmd, $output)) {
+		if (0 !== ($exitStatus = $this->exec($cmd, $output))) {
 			// Unlink the temporary files.
 			unlink($file);
 			unlink($file.".pub");
-			throw new \OMV\ExecException($cmd, $output);
+			throw new \OMV\ExecException($cmd, $output, $exitStatus);
 		}
 		// Read certificate and key content, then unlink the temporary files.
 		$privatekey = file_get_contents($file);

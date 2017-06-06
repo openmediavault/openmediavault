@@ -1,3 +1,9 @@
+openmediavault (3.0.79) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 06 Jun 2017 23:28:11 +0200
+
 openmediavault (3.0.78) stable; urgency=low
 
   * Introduce OMV.grid.column.Enabled UI control.
