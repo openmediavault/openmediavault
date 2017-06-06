@@ -215,11 +215,11 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs[] = "x509";
 		$cmdArgs[] = "-text";
 		$cmdArgs[] = "-noout";
-		$cmdArgs[] = "-in";
-		$cmdArgs[] = sprintf("%s/certs/%s%s.crt",
-		  \OMV\Environment::get("OMV_SSL_CERTIFICATE_DIR"),
-		  \OMV\Environment::get("OMV_SSL_CERTIFICATE_PREFIX"),
-		  $params['uuid']);
+		$cmdArgs[] = sprintf("-in %s", escapeshellarg(sprintf(
+			"%s/certs/%s%s.crt",
+			\OMV\Environment::get("OMV_SSL_CERTIFICATE_DIR"),
+			\OMV\Environment::get("OMV_SSL_CERTIFICATE_PREFIX"),
+			$params['uuid'])));
 		$cmd = new \OMV\System\Process("openssl", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
@@ -258,7 +258,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			// http://www-03.ibm.com/systems/i/software/ldap/underdn.html
 			// http://msdn.microsoft.com/en-us/library/windows/desktop/aa366101(v=vs.85).aspx
 			$replace = [];
-			foreach (array(',','+','<','>',';','\r','=','#','/') as $v) {
+			foreach ([ ',', '+', '<', '>', ';', '\r', '=', '#', '/' ] as $v) {
 				$replace[$v] = sprintf("\\%s", strtoupper(str_pad(dechex(
 				  ord($v)), 2, "0")));
 			}
