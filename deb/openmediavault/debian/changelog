@@ -1,3 +1,9 @@
+openmediavault (3.0.80) stable; urgency=low
+
+  * Fix bug in shutdown page.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 12 Jun 2017 14:20:48 +0200
+
 openmediavault (3.0.79) stable; urgency=low
 
   * Various improvements.

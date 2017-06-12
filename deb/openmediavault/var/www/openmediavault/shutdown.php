@@ -29,7 +29,7 @@ $prd = new \OMV\ProductInfo();
 		<title><?=$prd->getName();?></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
-		<link rel="stylesheet" type="text/css" href="css/omv.css"/>
+		<link rel="stylesheet" type="text/css" href="css/theme-all.css"/>
 	</head>
 	<body class="shutdown-page">
 		<a href='/'><div class="shutdown-icon"></div></a>
