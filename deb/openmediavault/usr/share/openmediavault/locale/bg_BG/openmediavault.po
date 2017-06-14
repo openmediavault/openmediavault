@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-05-05 11:07+0000\n"
+"PO-Revision-Date: 2017-06-11 19:02+0000\n"
 "Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/votdev/openmediavault/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #, javascript-format
 msgid "% completed ..."
-msgstr ""
+msgstr "% завършени ..."
 
 msgid "%s (%s available)"
 msgstr "%s (%s свободни)"
@@ -60,7 +60,7 @@ msgstr "10 години"
 
 #, javascript-format
 msgid "100% completed ..."
-msgstr ""
+msgstr "100% завършени ..."
 
 msgid "120 minutes"
 msgstr "120 минути"
@@ -174,7 +174,7 @@ msgid "Abstract"
 msgstr "Абстрактен"
 
 msgid "Access Right Management"
-msgstr "Управление на достъпа до права"
+msgstr "Управление на права за достъп"
 
 msgid "Access Rights Management"
 msgstr "Управление на правата за достъп"
@@ -571,7 +571,7 @@ msgid "Certificate details"
 msgstr ""
 
 msgid "Certificates"
-msgstr ""
+msgstr "Сертификати"
 
 msgid "Chad"
 msgstr ""
@@ -586,7 +586,7 @@ msgid "Check interval"
 msgstr ""
 
 msgid "Checking for new plugins ..."
-msgstr ""
+msgstr "Проверяване за нови плъгини ..."
 
 msgid "Checking for new updates ..."
 msgstr ""
@@ -759,13 +759,13 @@ msgid "Daily"
 msgstr ""
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Табло"
 
 msgid "Date"
 msgstr ""
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Дата и час"
 
 msgid "Day of month"
 msgstr ""
@@ -861,7 +861,7 @@ msgid "Devices"
 msgstr ""
 
 msgid "Diagnostics"
-msgstr ""
+msgstr "Диагностика"
 
 msgid "Difference"
 msgstr ""
@@ -914,13 +914,13 @@ msgid "Do you really want to leave the page?"
 msgstr ""
 
 msgid "Do you really want to logout?"
-msgstr ""
+msgstr "Наистина ли искаш да излезеш?"
 
 msgid "Do you really want to put the system into standby?"
 msgstr ""
 
 msgid "Do you really want to reboot the system?"
-msgstr ""
+msgstr "Наистина ли искаш да рестартираш системата?"
 
 msgid ""
 "Do you really want to relocate the shared folder? The content of the shared "
@@ -946,7 +946,7 @@ msgid "Do you really want to revert the configuration changes?"
 msgstr ""
 
 msgid "Do you really want to shutdown the system?"
-msgstr ""
+msgstr "Наистина ли искаш да изключиш системата?"
 
 msgid "Do you really want to uninstall the selected plugin(s)?"
 msgstr ""
@@ -967,7 +967,7 @@ msgid "Dominican Republic"
 msgstr ""
 
 msgid "Donate"
-msgstr ""
+msgstr "Дарения"
 
 msgid "Done ..."
 msgstr ""
@@ -1026,7 +1026,7 @@ msgid "Edit firewall rule"
 msgstr ""
 
 msgid "Edit group"
-msgstr ""
+msgstr "Редактирай група"
 
 msgid "Edit module"
 msgstr ""
@@ -1276,10 +1276,10 @@ msgid "File"
 msgstr ""
 
 msgid "File Systems"
-msgstr ""
+msgstr "Файлови системи"
 
 msgid "File system"
-msgstr ""
+msgstr "Файлова система"
 
 msgid "Filename"
 msgstr ""
@@ -1298,10 +1298,10 @@ msgid "Filesize"
 msgstr ""
 
 msgid "Filesystem Type"
-msgstr ""
+msgstr "Тип файлова система"
 
 msgid "Filesystems"
-msgstr ""
+msgstr "Файлови системи"
 
 msgid "Finland"
 msgstr ""
@@ -1358,10 +1358,10 @@ msgid "General"
 msgstr ""
 
 msgid "General Settings"
-msgstr ""
+msgstr "Основни настройки"
 
 msgid "General settings"
-msgstr ""
+msgstr "Основни настройки"
 
 msgid "Generating graphs ..."
 msgstr ""
@@ -1394,10 +1394,10 @@ msgid "Grenada"
 msgstr ""
 
 msgid "Group"
-msgstr ""
+msgstr "Група"
 
 msgid "Groups"
-msgstr ""
+msgstr "Групи"
 
 msgid "Grow"
 msgstr ""
@@ -1620,7 +1620,7 @@ msgid "Informal"
 msgstr ""
 
 msgid "Information"
-msgstr ""
+msgstr "Информация"
 
 msgid "Inherit ACLs"
 msgstr ""
@@ -1641,7 +1641,7 @@ msgid "Installed"
 msgstr ""
 
 msgid "Installing plugins ..."
-msgstr ""
+msgstr "Инсталиране на плъгини ..."
 
 msgid "Installing updates ..."
 msgstr ""
@@ -1749,7 +1749,7 @@ msgid "Label"
 msgstr ""
 
 msgid "Language"
-msgstr ""
+msgstr "Език"
 
 msgid "Laos"
 msgstr ""
@@ -1823,7 +1823,7 @@ msgid "Login"
 msgstr ""
 
 msgid "Logout"
-msgstr ""
+msgstr "Изход"
 
 msgid "Logs"
 msgstr ""
@@ -2028,7 +2028,7 @@ msgid "Monitor"
 msgstr ""
 
 msgid "Monitoring"
-msgstr ""
+msgstr "Мониторинг"
 
 msgid "Month"
 msgstr ""
@@ -2082,13 +2082,13 @@ msgid "Netmask"
 msgstr ""
 
 msgid "Network"
-msgstr ""
+msgstr "Мрежа"
 
 msgid "Network Interfaces"
-msgstr ""
+msgstr "Мрежови интерфейси"
 
 msgid "Network interfaces"
-msgstr ""
+msgstr "Мрежови интерфейси"
 
 msgid "Neutral Zone"
 msgstr ""
@@ -2184,7 +2184,7 @@ msgid "Notification"
 msgstr ""
 
 msgid "Notifications"
-msgstr ""
+msgstr "Известия"
 
 msgid "November"
 msgstr ""
@@ -2253,7 +2253,7 @@ msgid "Pacific Islands Trust Territory"
 msgstr ""
 
 msgid "Package information"
-msgstr ""
+msgstr "Информация за пакета"
 
 msgid "Page not found"
 msgstr ""
@@ -2343,7 +2343,7 @@ msgid "Philippines"
 msgstr ""
 
 msgid "Physical Disks"
-msgstr ""
+msgstr "Физически дискове"
 
 msgid "Physical disk properties"
 msgstr ""
@@ -2417,7 +2417,7 @@ msgid ""
 msgstr ""
 
 msgid "Plugins"
-msgstr ""
+msgstr "Плъгини"
 
 msgid "Poland"
 msgstr ""
@@ -2429,7 +2429,7 @@ msgid "Portugal"
 msgstr ""
 
 msgid "Power Management"
-msgstr ""
+msgstr "Управление на захранването"
 
 msgid "Power button"
 msgstr ""
@@ -2556,7 +2556,7 @@ msgid "RAID 6"
 msgstr ""
 
 msgid "RAID Management"
-msgstr ""
+msgstr "RAID управление"
 
 msgid "RFC931"
 msgstr ""
@@ -2589,7 +2589,7 @@ msgid "Real"
 msgstr ""
 
 msgid "Reboot"
-msgstr ""
+msgstr "Рестарт"
 
 msgid "Recipient"
 msgstr ""
@@ -2665,10 +2665,10 @@ msgid "Required"
 msgstr ""
 
 msgid "Reset"
-msgstr ""
+msgstr "Нулирай"
 
 msgid "Reset UI to defaults"
-msgstr ""
+msgstr "Нулирай потребителския интерфейс"
 
 msgid ""
 "Reset the UI settings to their default values, e.g. the order of the grid "
@@ -2724,7 +2724,7 @@ msgid "S.M.A.R.T."
 msgstr ""
 
 msgid "S.M.A.R.T. information"
-msgstr ""
+msgstr "S.M.A.R.T. информация"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr ""
@@ -2805,7 +2805,7 @@ msgid "Saudi Arabia"
 msgstr ""
 
 msgid "Save"
-msgstr ""
+msgstr "Запази"
 
 msgid "Saving ..."
 msgstr ""
@@ -2817,7 +2817,7 @@ msgid "Scanning for new devices ..."
 msgstr ""
 
 msgid "Scheduled Jobs"
-msgstr ""
+msgstr "Планирани задачи"
 
 msgid "Scheduled tests"
 msgstr ""
@@ -2871,7 +2871,7 @@ msgid "Select a group name ..."
 msgstr ""
 
 msgid "Select a language ..."
-msgstr ""
+msgstr "Избери език ..."
 
 msgid "Select a parent interface ..."
 msgstr ""
@@ -2952,7 +2952,7 @@ msgid "Servicename"
 msgstr ""
 
 msgid "Services"
-msgstr ""
+msgstr "Услуги"
 
 msgid "Session expired."
 msgstr ""
@@ -2988,10 +2988,10 @@ msgid "Seychelles"
 msgstr ""
 
 msgid "Shared Folders"
-msgstr ""
+msgstr "Споделени папки"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Споделена папка"
 
 msgid "Shared folder + content"
 msgstr ""
@@ -3033,7 +3033,7 @@ msgid "Show privileges"
 msgstr ""
 
 msgid "Shutdown"
-msgstr ""
+msgstr "Изключване"
 
 msgid "Sierra Leone"
 msgstr ""
@@ -3163,7 +3163,7 @@ msgid "Sri Lanka"
 msgstr ""
 
 msgid "Standby"
-msgstr ""
+msgstr "Режим на готовност"
 
 msgid "Start"
 msgstr ""
@@ -3184,7 +3184,7 @@ msgid "Stop"
 msgstr ""
 
 msgid "Storage"
-msgstr ""
+msgstr "Масив"
 
 msgid "Store DOS attributes"
 msgstr ""
@@ -3202,7 +3202,7 @@ msgid "Sunday"
 msgstr ""
 
 msgid "Support"
-msgstr ""
+msgstr "Поддръжка"
 
 msgid "Suppress non-error messages"
 msgstr ""
@@ -3229,13 +3229,13 @@ msgid "Syslog"
 msgstr ""
 
 msgid "System"
-msgstr ""
+msgstr "Система"
 
 msgid "System Information"
-msgstr ""
+msgstr "Системна информация"
 
 msgid "System Logs"
-msgstr ""
+msgstr "Системни логове"
 
 msgid "System accounts"
 msgstr ""
@@ -3385,7 +3385,7 @@ msgstr ""
 
 msgid ""
 "The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr ""
+msgstr "Времето за изчакване на сесията в минути. Задайте 0, за да деактивирате автоматичното излизане."
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3729,7 +3729,7 @@ msgid "Uninstall"
 msgstr ""
 
 msgid "Uninstall plugins ..."
-msgstr ""
+msgstr "Деинсталиране на плъгини ..."
 
 msgid "Union of Soviet Socialist Republics"
 msgstr ""
@@ -3765,13 +3765,13 @@ msgid "Up delay"
 msgstr ""
 
 msgid "Update Management"
-msgstr ""
+msgstr "Управление на ъпдейти"
 
 msgid "Update Management - History"
-msgstr ""
+msgstr "Управление на ъпдейти - История"
 
 msgid "Update Management - Terminal output"
-msgstr ""
+msgstr "Управление на ъпдейти - Конзолен изход"
 
 msgid "Update now"
 msgstr ""
@@ -3846,25 +3846,25 @@ msgid "Used capacity"
 msgstr ""
 
 msgid "User"
-msgstr ""
+msgstr "Потребител"
 
 msgid "User accounts"
-msgstr ""
+msgstr "Потребителски акаунти"
 
 msgid "User home directory"
-msgstr ""
+msgstr "Директория на потребителя"
 
 msgid "User information"
-msgstr ""
+msgstr "Потребителска информация"
 
 msgid "User/Group permissions"
-msgstr ""
+msgstr "Права на Потребител/Група"
 
 msgid "Username"
-msgstr ""
+msgstr "Потребителско име"
 
 msgid "Users"
-msgstr ""
+msgstr "Потребитли"
 
 msgid "Uzbekistan"
 msgstr ""

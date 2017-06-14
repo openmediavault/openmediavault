@@ -1,5 +1,6 @@
 openmediavault (3.0.80) stable; urgency=low
 
+  * Update locales.
   * Fix bug in shutdown page.
   * Improve PHP class \OMV\System\SystemCtl.
 
