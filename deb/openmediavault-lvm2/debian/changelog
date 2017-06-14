@@ -1,3 +1,9 @@
+openmediavault-lvm2 (3.2.2) stable; urgency=low
+
+  * Mantis 0001761: Can not create a lv.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 14 Jun 2017 08:05:25 +0200
+
 openmediavault-lvm2 (3.2.1) stable; urgency=low
 
   * Update locales.

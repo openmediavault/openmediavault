@@ -76,7 +76,7 @@ Ext.define("OMV.module.admin.storage.lvm.lv.Create", {
 				model: OMV.data.Model.createImplicit({
 					idProperty: "devicefile",
 					fields: [
-						{ name: "devicefile", type: "string" },
+						{ name: "name", type: "string" },
 						{ name: "description", type: "string" },
 						{ name: "free", type: "string" }
 					]
@@ -91,11 +91,11 @@ Ext.define("OMV.module.admin.storage.lvm.lv.Create", {
 				},
 				sorters: [{
 					direction: "ASC",
-					property: "devicefile"
+					property: "name"
 				}]
 			}),
 			displayField: "description",
-			valueField: "devicefile",
+			valueField: "name",
 			allowBlank: false,
 			editable: false,
 			triggerAction: "all",
