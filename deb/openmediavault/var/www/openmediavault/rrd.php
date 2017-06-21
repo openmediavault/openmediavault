@@ -47,7 +47,7 @@ try {
 	fpassthru($fd);
 } catch(\Exception $e) {
 	header("Content-Type: text/html");
-	printf("Error #".$e->getCode().":<br/>%s", str_replace("\n", "<br/>",
-	  $e->__toString()));
+	printf("Error #%s:<br/>%s", strval($e->getCode()),
+		str_replace("\n", "<br/>", htmlentities($e->__toString())));
 }
 ?>
