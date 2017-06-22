@@ -1,6 +1,7 @@
 openmediavault (3.0.81) stable; urgency=low
 
   * Fix XSS vulnerability JVN#73173030.
+  * Make sure a label is unique when creating a filesystem.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 21 Jun 2017 17:45:52 +0200
 

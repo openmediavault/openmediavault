@@ -519,6 +519,18 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			throw new \OMV\Exception("A mount point already exists for '%s'.",
 			  $sd->getDeviceFile());
 		}
+		// Is the filesystem label unique?
+		if (FALSE === empty($params['label'])) {
+			$filesystems = \OMV\System\Filesystem\Filesystem::getFilesystems();
+			foreach ($filesystems as $filesystemk => $filesystemv) {
+				if (FALSE === $filesystemv->hasLabel())
+				 	continue;
+				if ($filesystemv->getLabel() === $params['label']) {
+					throw new \OMV\Exception("The label '%s' already exists.",
+						$params['label']);
+				}
+			}
+		}
 		// Get the storage device backend of the given device.
 		$sdbMngr = \OMV\System\Storage\Backend\Manager::getInstance();
 		$sdbMngr->assertBackendExists($sd->getDeviceFile());
