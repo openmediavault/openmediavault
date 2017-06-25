@@ -1,5 +1,6 @@
 openmediavault (3.0.81) stable; urgency=low
 
+  * Various improvements.
   * Fix XSS vulnerability JVN#73173030.
   * Make sure a label is unique when creating a filesystem.
   * Improve polling RPCs. Do not call them before the previous is finished.

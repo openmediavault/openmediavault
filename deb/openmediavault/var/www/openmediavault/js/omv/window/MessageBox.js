@@ -139,6 +139,7 @@ Ext.define("OMV.window.MessageBox", {
 			modal: true,
 			width: 400,
 			minHeight: 100,
+			maxHeight: 600,
 			resizable: true,
 			constrain: true,
 			minimizable: false,

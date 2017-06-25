@@ -42,9 +42,8 @@ Ext.define("OMV.window.Login", {
 
 	title: _("Login"),
 	layout: "fit",
-	width: 320,
+	width: 350,
 	closable: false,
-	resizable: false,
 	buttonAlign: "center",
 
 	constructor: function() {
