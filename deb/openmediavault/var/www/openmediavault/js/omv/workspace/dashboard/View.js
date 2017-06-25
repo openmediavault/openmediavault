@@ -38,11 +38,14 @@ Ext.define("OMV.workspace.dashboard.View", {
 
 	onBoxReady: function() {
 		var me = this;
-		if ((me.getRefreshInterval() > 0) && Ext.isEmpty(me.refreshTask)) {
+		var interval = me.getRefreshInterval();
+		if ((interval > 0) && !Ext.isDefined(me.refreshTask) &&
+			Ext.isFunction(me.doRefresh))
+		{
 			me.refreshTask = Ext.util.TaskManager.newTask({
 				run: me.doRefresh,
 				scope: me,
-				interval: me.getRefreshInterval(),
+				interval: interval,
 				fireOnStart: true
 			});
 			me.refreshTask.start();
@@ -53,7 +56,7 @@ Ext.define("OMV.workspace.dashboard.View", {
 	destroy: function() {
 		var me = this;
 		// Stop a running task?
-		if (!Ext.isEmpty(me.refreshTask) && (me.refreshTask.isTask)) {
+		if (Ext.isDefined(me.refreshTask) && (me.refreshTask.isTask)) {
 			me.refreshTask.destroy();
 			me.refreshTask = null;
 		}
