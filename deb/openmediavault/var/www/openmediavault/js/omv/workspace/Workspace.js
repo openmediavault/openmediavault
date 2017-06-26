@@ -91,6 +91,7 @@ Ext.define("OMV.workspace.Workspace", {
 		var me = this;
 		return Ext.create("Ext.Component", {
 			region: "north",
+			cls: Ext.baseCSSPrefix + "workspace-header",
 			autoEl: {
 				tag: "div",
 				html: "<div id='header'><a title='" + OMV.PRODUCT_NAME +

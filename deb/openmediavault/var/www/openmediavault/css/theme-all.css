@@ -438,6 +438,10 @@ div#headerrlogo {
 	background-size: 16px 16px;
 }
 /******************************************************************************/
+/* Workspace header */
+.x-workspace-header {
+}
+/******************************************************************************/
 /* Workspace navigation toolbar */
 .x-workspace-navigation-toolbar {
 }
