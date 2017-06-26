@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-06-11 19:02+0000\n"
+"PO-Revision-Date: 2017-06-21 08:25+0000\n"
 "Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/votdev/openmediavault/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -532,7 +532,7 @@ msgid "Burundi"
 msgstr ""
 
 msgid "CPU usage"
-msgstr ""
+msgstr "Използване на процесора"
 
 msgid "Cambodia"
 msgstr ""
@@ -768,10 +768,10 @@ msgid "Date & Time"
 msgstr "Дата и час"
 
 msgid "Day of month"
-msgstr ""
+msgstr "Ден от месеца"
 
 msgid "Day of week"
-msgstr ""
+msgstr "Ден от седмицата"
 
 msgid "Debug"
 msgstr ""
@@ -1193,13 +1193,13 @@ msgid "Event"
 msgstr ""
 
 msgid "Every N day of month"
-msgstr ""
+msgstr "Всеки X ден от месеца"
 
 msgid "Every N hour"
-msgstr ""
+msgstr "Всеки X час"
 
 msgid "Every N minute"
-msgstr ""
+msgstr "Всеки X минута"
 
 msgid "Everyone: read/write"
 msgstr ""
@@ -1310,7 +1310,7 @@ msgid "Firewall"
 msgstr ""
 
 msgid "Firmware version"
-msgstr ""
+msgstr "Фърмуер версия"
 
 msgid "Flags"
 msgstr ""
@@ -1337,7 +1337,7 @@ msgid "French Southern and Antarctic Territories"
 msgstr ""
 
 msgid "Friday"
-msgstr ""
+msgstr "Петък"
 
 msgid "Full"
 msgstr ""
@@ -1472,7 +1472,7 @@ msgid "Host"
 msgstr ""
 
 msgid "Hostname"
-msgstr ""
+msgstr "Хост"
 
 msgid "Hosts allow"
 msgstr ""
@@ -1481,10 +1481,10 @@ msgid "Hosts deny"
 msgstr ""
 
 msgid "Hour"
-msgstr ""
+msgstr "Час"
 
 msgid "Hourly"
-msgstr ""
+msgstr "Всеки час"
 
 msgid "Hungary"
 msgstr ""
@@ -1605,7 +1605,7 @@ msgid "Incomplete"
 msgstr ""
 
 msgid "Incorrect username or password."
-msgstr ""
+msgstr "Грешно потребителско име или парола."
 
 msgid "India"
 msgstr ""
@@ -1796,13 +1796,13 @@ msgid "Lithuania"
 msgstr ""
 
 msgid "Load average"
-msgstr ""
+msgstr "Средно натоварване"
 
 msgid "Loading ..."
 msgstr ""
 
 msgid "Loading, please wait ..."
-msgstr ""
+msgstr "Зареждане, моля изчакайте ..."
 
 msgid "Local"
 msgstr ""
@@ -1820,7 +1820,7 @@ msgid "Log level"
 msgstr ""
 
 msgid "Login"
-msgstr ""
+msgstr "Вход"
 
 msgid "Logout"
 msgstr "Изход"
@@ -1953,7 +1953,7 @@ msgid "Members"
 msgstr ""
 
 msgid "Memory usage"
-msgstr ""
+msgstr "Използване на паметта"
 
 msgid "Message"
 msgstr ""
@@ -1989,7 +1989,7 @@ msgid "Minimum {0} selected item(s) required"
 msgstr ""
 
 msgid "Minute"
-msgstr ""
+msgstr "Минута"
 
 msgid "Mirror"
 msgstr ""
@@ -2019,7 +2019,7 @@ msgid "Monaco"
 msgstr ""
 
 msgid "Monday"
-msgstr ""
+msgstr "Понеделник"
 
 msgid "Mongolia"
 msgstr ""
@@ -2289,13 +2289,13 @@ msgid "Passive FTP"
 msgstr ""
 
 msgid "Password"
-msgstr ""
+msgstr "Парола"
 
 msgid "Password authentication"
 msgstr ""
 
 msgid "Passwords don't match"
-msgstr ""
+msgstr "Паролите не съвпадат"
 
 msgid "Paste a RSA certificate in X.509 PEM format here."
 msgstr ""
@@ -2331,7 +2331,7 @@ msgid "Permissions of owner."
 msgstr ""
 
 msgid "Permit root login"
-msgstr ""
+msgstr "Разреши логването с root"
 
 msgid "Permit to do SSH tunneling"
 msgstr ""
@@ -2409,7 +2409,7 @@ msgid "Please reload the page to let the changes take effect."
 msgstr ""
 
 msgid "Please wait ..."
-msgstr ""
+msgstr "Моля изчакайте ..."
 
 msgid ""
 "Please wait until the RAID has been initialized before creating a file "
@@ -2496,7 +2496,7 @@ msgid "Processes"
 msgstr ""
 
 msgid "Processor"
-msgstr ""
+msgstr "Процесор"
 
 msgid "Protocol"
 msgstr ""
@@ -2799,7 +2799,7 @@ msgid "Sao Tome and Principe"
 msgstr ""
 
 msgid "Saturday"
-msgstr ""
+msgstr "Събота"
 
 msgid "Saudi Arabia"
 msgstr ""
@@ -2829,10 +2829,10 @@ msgid "Search domains"
 msgstr ""
 
 msgid "Secondary email"
-msgstr ""
+msgstr "Допълнителен имейл"
 
 msgid "Seconds"
-msgstr ""
+msgstr "Секунди"
 
 msgid "Section"
 msgstr ""
@@ -3027,7 +3027,7 @@ msgid "Show details"
 msgstr ""
 
 msgid "Show password"
-msgstr ""
+msgstr "Покажи парола"
 
 msgid "Show privileges"
 msgstr ""
@@ -3199,7 +3199,7 @@ msgid "Sudan"
 msgstr ""
 
 msgid "Sunday"
-msgstr ""
+msgstr "Неделя"
 
 msgid "Support"
 msgstr "Поддръжка"
@@ -3241,7 +3241,7 @@ msgid "System accounts"
 msgstr ""
 
 msgid "System time"
-msgstr ""
+msgstr "Системно време"
 
 msgid "TAR"
 msgstr ""
@@ -3342,13 +3342,13 @@ msgid "The name of the share."
 msgstr ""
 
 msgid "The number of days the certificate is valid for."
-msgstr ""
+msgstr "Броят на дните, за които да е валиден сертификата."
 
 msgid "The page will reload now to let the changes take effect."
 msgstr ""
 
 msgid "The password contains invalid characters"
-msgstr ""
+msgstr "Паролата съдържа невалидни символи"
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
@@ -3621,7 +3621,7 @@ msgid "This will create a recycle bin on the share."
 msgstr ""
 
 msgid "Thursday"
-msgstr ""
+msgstr "Четвъртък"
 
 msgid "TiB"
 msgstr ""
@@ -3684,7 +3684,7 @@ msgid "Trinidad and Tobago"
 msgstr ""
 
 msgid "Tuesday"
-msgstr ""
+msgstr "Вторник"
 
 msgid "Tunisia"
 msgstr ""
@@ -3808,7 +3808,7 @@ msgid "Uploading file ..."
 msgstr ""
 
 msgid "Uptime"
-msgstr ""
+msgstr "Системата работи от"
 
 msgid "Uruguay"
 msgstr ""
@@ -3894,7 +3894,7 @@ msgid "Venezuela"
 msgstr ""
 
 msgid "Version"
-msgstr ""
+msgstr "Версия"
 
 msgid "Vietnam"
 msgstr ""
@@ -3930,13 +3930,13 @@ msgid "Web Administration"
 msgstr ""
 
 msgid "Web Administrator Password"
-msgstr ""
+msgstr "Парола за уеб администрация"
 
 msgid "Web control panel"
 msgstr ""
 
 msgid "Wednesday"
-msgstr ""
+msgstr "Сряда"
 
 msgid "Weekly"
 msgstr ""
@@ -4001,22 +4001,22 @@ msgid "control panel"
 msgstr ""
 
 msgid "day"
-msgstr ""
+msgstr "ден"
 
 msgid "days"
-msgstr ""
+msgstr "дни"
 
 msgid "hour"
-msgstr ""
+msgstr "час"
 
 msgid "hours"
-msgstr ""
+msgstr "часа"
 
 msgid "minute"
-msgstr ""
+msgstr "минута"
 
 msgid "minutes"
-msgstr ""
+msgstr "минути"
 
 msgid "n/a"
 msgstr ""
@@ -4028,4 +4028,4 @@ msgid "prefail"
 msgstr ""
 
 msgid "seconds"
-msgstr ""
+msgstr "секунди"
