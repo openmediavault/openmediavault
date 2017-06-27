@@ -47,6 +47,13 @@ class DatabaseTestCase(unittest.TestCase):
 		db = openmediavault.config.Database()
 		self.assertIsNotNone(db)
 
+	def test_empty_objects(self):
+		db = openmediavault.config.Database()
+		obj = db.get("conf.service.rsyncd")
+		self.assertIsInstance(obj.get("modules"), dict)
+		self.assertIsInstance(obj.get("modules.module"), list)
+		self.assertEqual(obj.get("modules.module"), [])
+
 	def test_get_1(self):
 		db = openmediavault.config.Database()
 		obj = db.get("conf.system.time")
@@ -100,9 +107,17 @@ class DatabaseTestCase(unittest.TestCase):
 				'arg1': 'smartmontools'
 			})))
 
-	def test_get_list_elements(self):
+	def test_get_list_tags(self):
 		query = openmediavault.config.DatabaseGetQuery("conf.service.rsyncd")
-		self.assertEqual(query._get_array_properties(), [ "module", "user" ])
+		# Attention, this is a private class member.
+		self.assertIsInstance(query._force_list_tags, list)
+		self.assertEqual(query._force_list_tags, [ "module", "user" ])
+
+	def test_get_dict_tags(self):
+		query = openmediavault.config.DatabaseGetQuery("conf.service.rsyncd")
+		# Attention, this is a private class member.
+		self.assertIsInstance(query._force_dict_tags, list)
+		self.assertEqual(query._force_dict_tags, [ "modules", "users" ])
 
 	def test_get_query(self):
 		query = openmediavault.config.DatabaseGetQuery("conf.system.time")
