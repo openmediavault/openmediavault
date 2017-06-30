@@ -62,6 +62,7 @@ Ext.define("OMV.workspace.window.Form", {
 			trackResetOnLoad: true,
 			fieldDefaults: {
 				readOnly: me.readOnly,
+				editable: !me.readOnly,
 				anchor: "100%",
 				labelSeparator: ""
 			},

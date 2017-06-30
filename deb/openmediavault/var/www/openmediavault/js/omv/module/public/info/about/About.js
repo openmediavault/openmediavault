@@ -142,9 +142,6 @@ Ext.define("OMV.module.public.info.about.About", {
 			name: "ntp",
 			url: "http://support.ntp.org"
 		},{
-			name: "scponly",
-			url: "http://sublimation.org/scponly"
-		},{
 			name: "uuid",
 			url: "http://www.ossp.org/pkg/lib/uuid"
 		},{
