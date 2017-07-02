@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-05-07 20:31+0000\n"
-"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
+"POT-Creation-Date: 2017-07-02 15:50+0200\n"
+"PO-Revision-Date: 2017-07-02 13:53+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/votdev/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -884,6 +884,9 @@ msgstr "Disk kullanımı"
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Ögeler gösteriliyor {0} - {1} / {2}"
 
+msgid "Displaying {0} - {1} of {2}"
+msgstr ""
+
 msgid "Djibouti"
 msgstr "Cibuti"
 
@@ -1311,6 +1314,9 @@ msgstr "Güvenlik duvarı"
 
 msgid "Firmware version"
 msgstr "Gömülü yazılım sürümü"
+
+msgid "First Page"
+msgstr ""
 
 msgid "Flags"
 msgstr "Flamalar"
@@ -1754,6 +1760,9 @@ msgstr "Dil"
 msgid "Laos"
 msgstr "Laos"
 
+msgid "Last Page"
+msgstr ""
+
 msgid "Latvia"
 msgstr "Letonya"
 
@@ -2102,6 +2111,9 @@ msgstr "Yeni Kaledonya"
 msgid "New Zealand"
 msgstr "Yeni Zellanda"
 
+msgid "Next Page"
+msgstr ""
+
 msgid "Nicaragua"
 msgstr "Nikaragua"
 
@@ -2131,6 +2143,9 @@ msgstr "Sertifika talebi yok"
 
 msgid "No connections"
 msgstr "Baülantı yok"
+
+msgid "No data to display"
+msgstr ""
 
 msgid "No items to display"
 msgstr "Gösterilecek herhangi bir öge yok"
@@ -2254,6 +2269,9 @@ msgstr "Pasifik Adaları Ortaklığı Bölgesi"
 
 msgid "Package information"
 msgstr "Paket bilgisi"
+
+msgid "Page"
+msgstr ""
 
 msgid "Page not found"
 msgstr "Sayfa bulunamadı"
@@ -2467,6 +2485,9 @@ msgid ""
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
 msgstr "Düzenli konttroller sırasında diskin tekrar dönmesini önler.<br/><ul><li>Asla - Aygıtı güç durumuna bakmaksızın kontrol eder. Bu dönmesi durdurulmuş bir diskin tekrar dönmeye başlamasına neden olabilir.</li><li>Uyku - Aygıtı UYKU durumu dışında ise kontrol eder.</li><li>Bekleme - Aygıtı UYKU veya BEKLEME durumları dışında ise kontrol eder. Bu modlarda pek çok disk dönmemektedir, yani her kontrolde disklerin tekrar dönmeye başlamasını istemiyor iseniz, bu size en uygun seçenektir.</li><li>Hazır - Aygıtı UYKU, BEKLEME yada HAZIR modlarında kontrol eder. HAZIR durumunda pek çok disk hala dönmektedir, yani bu muhtemelen sizin isteğinize uygun değildir.</li><ul>"
+
+msgid "Previous Page"
+msgstr ""
 
 msgid "Primary"
 msgstr "Birincil"
@@ -4020,6 +4041,9 @@ msgstr "dakika"
 
 msgid "n/a"
 msgstr "yok"
+
+msgid "of {0}"
+msgstr ""
 
 msgid "old-age"
 msgstr "Yaşlı"

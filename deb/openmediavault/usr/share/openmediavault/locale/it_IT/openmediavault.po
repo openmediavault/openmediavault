@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-06-17 17:42+0000\n"
-"Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
+"POT-Creation-Date: 2017-07-02 15:50+0200\n"
+"PO-Revision-Date: 2017-07-02 13:53+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Italian (http://www.transifex.com/votdev/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -889,6 +889,9 @@ msgstr "Utilizzo del disco"
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Mostrati {0} - {1} di {2} elementi"
 
+msgid "Displaying {0} - {1} of {2}"
+msgstr ""
+
 msgid "Djibouti"
 msgstr "Gibuti"
 
@@ -1316,6 +1319,9 @@ msgstr "Firewall"
 
 msgid "Firmware version"
 msgstr "Versione del firmware"
+
+msgid "First Page"
+msgstr ""
 
 msgid "Flags"
 msgstr "Flag"
@@ -1759,6 +1765,9 @@ msgstr "Lingua"
 msgid "Laos"
 msgstr "Laos"
 
+msgid "Last Page"
+msgstr ""
+
 msgid "Latvia"
 msgstr "Lettonia"
 
@@ -2107,6 +2116,9 @@ msgstr "Nuova Caledonia"
 msgid "New Zealand"
 msgstr "Nuova Zelanda"
 
+msgid "Next Page"
+msgstr ""
+
 msgid "Nicaragua"
 msgstr "Nicaragua"
 
@@ -2136,6 +2148,9 @@ msgstr "Richiesta senza certificato"
 
 msgid "No connections"
 msgstr "Nessuna connessione"
+
+msgid "No data to display"
+msgstr ""
 
 msgid "No items to display"
 msgstr "Nessun oggetto da visualizzare"
@@ -2259,6 +2274,9 @@ msgstr "Territorio fiduciario delle Isole del Pacifico"
 
 msgid "Package information"
 msgstr "Informazioni del pacchetto"
+
+msgid "Page"
+msgstr ""
 
 msgid "Page not found"
 msgstr "Pagina non trovata"
@@ -2472,6 +2490,9 @@ msgid ""
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
 msgstr "Evita che un disco diventi spun-up se interrogato periodicamente.<br/><br/><ul><li>Mai - Interroga (verifica) il dispositivo indipendentemente dalla sua modalità energetica. Potrebbe fra diventare spun-up un disco che si trovi nello stato spun-down al momento della sua interrogazione.</li><li>Sleep - Verifica il dispositivo a meno che non sia in modalità SLEEP.</li><li>Standby - verifica il dispositivo a meno che non si trovi in stato SLEEP o STANDBY. In questi stati molti dischi non sono in rotazione, così se vuoi evitare che un disco si rimetta in moto ad ogni interrogazione, questa è probabilmente l'opzione che desideri.</li><li>Idle - Verifica il dispositivo a meno che non si trovi in stato SLEEP, STANDBY o IDLE. Nello stato IDLE, molti dischi continuano a girare, quindi probabilmente questa non è la soluzione che desideri.</li></ul>"
+
+msgid "Previous Page"
+msgstr ""
 
 msgid "Primary"
 msgstr "Primario"
@@ -4025,6 +4046,9 @@ msgstr "minuti"
 
 msgid "n/a"
 msgstr "n/c"
+
+msgid "of {0}"
+msgstr ""
 
 msgid "old-age"
 msgstr "old-age"

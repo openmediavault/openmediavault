@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-05-09 12:20+0000\n"
-"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
+"POT-Creation-Date: 2017-07-02 15:50+0200\n"
+"PO-Revision-Date: 2017-07-02 13:53+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -885,6 +885,9 @@ msgstr "Lemez használat"
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Tételek megjelenítése {0} - {1} közül {2}"
 
+msgid "Displaying {0} - {1} of {2}"
+msgstr ""
+
 msgid "Djibouti"
 msgstr "Dzsibuti"
 
@@ -1312,6 +1315,9 @@ msgstr "Tűzfal"
 
 msgid "Firmware version"
 msgstr "Firmware verzió"
+
+msgid "First Page"
+msgstr ""
 
 msgid "Flags"
 msgstr "Zászlók"
@@ -1755,6 +1761,9 @@ msgstr "Nyelv"
 msgid "Laos"
 msgstr "Laosz"
 
+msgid "Last Page"
+msgstr ""
+
 msgid "Latvia"
 msgstr "Lettország"
 
@@ -2103,6 +2112,9 @@ msgstr "Új-Kaledónia"
 msgid "New Zealand"
 msgstr "Új-Zéland "
 
+msgid "Next Page"
+msgstr ""
+
 msgid "Nicaragua"
 msgstr "Nicaragua"
 
@@ -2132,6 +2144,9 @@ msgstr "Nincs tanúsítvány kérés"
 
 msgid "No connections"
 msgstr "Nincsenek kapcsolatok"
+
+msgid "No data to display"
+msgstr ""
 
 msgid "No items to display"
 msgstr "Nincsenek megjeleníthető tételek"
@@ -2255,6 +2270,9 @@ msgstr "Csendes-óceáni terület"
 
 msgid "Package information"
 msgstr "Csomag információ"
+
+msgid "Page"
+msgstr ""
 
 msgid "Page not found"
 msgstr "Az oldal nem található"
@@ -2468,6 +2486,9 @@ msgid ""
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
 msgstr "Lemez felpörgésének megakadályozása, az időnkénti elérési lekérdezés miatt.<br/><br/><ul><li>Soha - Lekérdezés (ellenőrzés) figyelmen kívül hagyja a lemez energiagazdálkodási módját. Ez okozhatja a lemez felpörgését és leállását.</li><li>Alvóállapot - Lemez ellenőrzése, kivéve ha ALVÓ üzemmódba van.</li><li>Készenlét - Lemez ellenőrzése, kivéve ha ALVÓ vagy KÉSZENLÉTI üzemmódba van. Ebben a módban a legtöbb lemez nem pörög, ezért ha megakarod akadályozni a lemez felpörgését az egyes lekérdezések miatt, valószínűleg erre a módra van szükséged.</li><li>Tétlen - Lemez ellenőrzése, kivéve ha ALVÓ, KÉSZENLÉTI vagy TÉTLEN üzemmódba van. Tétlen állapotban a legtöbb lemez pörög, valószínűleg ez nem az amit akarsz.</li></ul>"
+
+msgid "Previous Page"
+msgstr ""
 
 msgid "Primary"
 msgstr "Elsődleges"
@@ -4021,6 +4042,9 @@ msgstr "perc"
 
 msgid "n/a"
 msgstr "n/a"
+
+msgid "of {0}"
+msgstr ""
 
 msgid "old-age"
 msgstr "elhasználódás"

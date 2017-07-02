@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-06-21 08:25+0000\n"
-"Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>\n"
+"POT-Creation-Date: 2017-07-02 15:50+0200\n"
+"PO-Revision-Date: 2017-07-02 13:53+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/votdev/openmediavault/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -884,6 +884,9 @@ msgstr ""
 msgid "Displaying items {0} - {1} of {2}"
 msgstr ""
 
+msgid "Displaying {0} - {1} of {2}"
+msgstr ""
+
 msgid "Djibouti"
 msgstr ""
 
@@ -1311,6 +1314,9 @@ msgstr ""
 
 msgid "Firmware version"
 msgstr "Фърмуер версия"
+
+msgid "First Page"
+msgstr ""
 
 msgid "Flags"
 msgstr ""
@@ -1754,6 +1760,9 @@ msgstr "Език"
 msgid "Laos"
 msgstr ""
 
+msgid "Last Page"
+msgstr ""
+
 msgid "Latvia"
 msgstr ""
 
@@ -2102,6 +2111,9 @@ msgstr ""
 msgid "New Zealand"
 msgstr ""
 
+msgid "Next Page"
+msgstr ""
+
 msgid "Nicaragua"
 msgstr ""
 
@@ -2130,6 +2142,9 @@ msgid "No certificate request"
 msgstr ""
 
 msgid "No connections"
+msgstr ""
+
+msgid "No data to display"
 msgstr ""
 
 msgid "No items to display"
@@ -2254,6 +2269,9 @@ msgstr ""
 
 msgid "Package information"
 msgstr "Информация за пакета"
+
+msgid "Page"
+msgstr ""
 
 msgid "Page not found"
 msgstr ""
@@ -2466,6 +2484,9 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
+msgstr ""
+
+msgid "Previous Page"
 msgstr ""
 
 msgid "Primary"
@@ -4019,6 +4040,9 @@ msgid "minutes"
 msgstr "минути"
 
 msgid "n/a"
+msgstr ""
+
+msgid "of {0}"
 msgstr ""
 
 msgid "old-age"

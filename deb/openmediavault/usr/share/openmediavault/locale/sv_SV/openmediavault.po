@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-05-03 19:36+0000\n"
+"POT-Creation-Date: 2017-07-02 15:50+0200\n"
+"PO-Revision-Date: 2017-07-02 13:53+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -884,6 +884,9 @@ msgstr "Diskanvändning"
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Visar objekt {0} - {1} of {2}"
 
+msgid "Displaying {0} - {1} of {2}"
+msgstr ""
+
 msgid "Djibouti"
 msgstr "Djibouti"
 
@@ -1311,6 +1314,9 @@ msgstr "Brandvägg"
 
 msgid "Firmware version"
 msgstr "Firmware-version"
+
+msgid "First Page"
+msgstr ""
 
 msgid "Flags"
 msgstr ""
@@ -1754,6 +1760,9 @@ msgstr "Språk"
 msgid "Laos"
 msgstr "Laos"
 
+msgid "Last Page"
+msgstr ""
+
 msgid "Latvia"
 msgstr "Lettland"
 
@@ -2102,6 +2111,9 @@ msgstr "Nya Kaledonien"
 msgid "New Zealand"
 msgstr "Nya Zeeland"
 
+msgid "Next Page"
+msgstr ""
+
 msgid "Nicaragua"
 msgstr "Nicaragua"
 
@@ -2130,6 +2142,9 @@ msgid "No certificate request"
 msgstr "Ingen begäran om certifikat"
 
 msgid "No connections"
+msgstr ""
+
+msgid "No data to display"
 msgstr ""
 
 msgid "No items to display"
@@ -2254,6 +2269,9 @@ msgstr "Pacific Islands Förtroende-område"
 
 msgid "Package information"
 msgstr "Paketinformation"
+
+msgid "Page"
+msgstr ""
 
 msgid "Page not found"
 msgstr ""
@@ -2466,6 +2484,9 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
+msgstr ""
+
+msgid "Previous Page"
 msgstr ""
 
 msgid "Primary"
@@ -4020,6 +4041,9 @@ msgstr "minuter"
 
 msgid "n/a"
 msgstr "n/a"
+
+msgid "of {0}"
+msgstr ""
 
 msgid "old-age"
 msgstr ""

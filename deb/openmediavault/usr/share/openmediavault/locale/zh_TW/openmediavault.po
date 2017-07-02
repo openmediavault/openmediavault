@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-05-05 15:41+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>\n"
+"POT-Creation-Date: 2017-07-02 15:50+0200\n"
+"PO-Revision-Date: 2017-07-02 13:53+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/votdev/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -885,6 +885,9 @@ msgstr "磁碟使用量"
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "顯示項目 {0} - {1} 總共 {2}"
 
+msgid "Displaying {0} - {1} of {2}"
+msgstr ""
+
 msgid "Djibouti"
 msgstr "吉布提"
 
@@ -1312,6 +1315,9 @@ msgstr "防火牆"
 
 msgid "Firmware version"
 msgstr "韌體版本"
+
+msgid "First Page"
+msgstr ""
 
 msgid "Flags"
 msgstr "旗標"
@@ -1755,6 +1761,9 @@ msgstr "語言"
 msgid "Laos"
 msgstr "寮國"
 
+msgid "Last Page"
+msgstr ""
+
 msgid "Latvia"
 msgstr "拉托維亞"
 
@@ -2103,6 +2112,9 @@ msgstr "新卡里多尼亞"
 msgid "New Zealand"
 msgstr "紐西蘭"
 
+msgid "Next Page"
+msgstr ""
+
 msgid "Nicaragua"
 msgstr "尼加拉瓜"
 
@@ -2132,6 +2144,9 @@ msgstr "不提出證書請求"
 
 msgid "No connections"
 msgstr "沒有連線"
+
+msgid "No data to display"
+msgstr ""
 
 msgid "No items to display"
 msgstr "無項目可顯示"
@@ -2255,6 +2270,9 @@ msgstr "太平洋島嶼託管領地"
 
 msgid "Package information"
 msgstr "套件資訊"
+
+msgid "Page"
+msgstr ""
 
 msgid "Page not found"
 msgstr "未找到網頁"
@@ -2467,7 +2485,10 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr "當定時查驗磁碟時，避免它開始轉動。<br/><ul><li>允不 - 查驗裝置，不論它的耗電模式是什麼。當進行檢查時，這可能會造成已經停止轉動的磁碟開始轉動。</li><li>睡眠 - 檢查裝置，除非它正處於睡眠模式。</li><li>待機 - 檢查裝置，除非它正處於睡眠或待機模式。在這些模式下大多數磁碟都沒有轉動，所以如果你想避免磁碟在每次查驗時開始轉動，這可能就是你想要的。</li><li>閒置 - 檢查裝置，除非它正處於睡眠、待機或閒置模式。在閒置狀態下，大多數磁碟都還在轉動，所以這可能不是你想要的。</li></ul>"
+msgstr "當做定時查驗時，避免磁碟開始轉動。<br/><ul><li>永不 - 查驗(檢查)裝置，不論它的耗電模式是什麼。當進行檢查時，這可能會造成已經停止轉動的磁碟開始轉動。</li><li>睡眠 - 檢查裝置，除非它正處於睡眠模式。</li><li>待機 - 檢查裝置，除非它正處於睡眠或待機模式。在這些模式下大多數磁碟都沒有轉動，所以如果你想避免磁碟在每次查驗時開始轉動，這可能就是你想要的。</li><li>閒置 - 檢查裝置，除非它正處於睡眠、待機或閒置模式。在閒置狀態下，大多數磁碟都還在轉動，所以這可能不是你想要的。</li></ul>"
+
+msgid "Previous Page"
+msgstr ""
 
 msgid "Primary"
 msgstr "主要"
@@ -4021,6 +4042,9 @@ msgstr "分"
 
 msgid "n/a"
 msgstr "n/a"
+
+msgid "of {0}"
+msgstr ""
 
 msgid "old-age"
 msgstr "老齡"

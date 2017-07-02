@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-06-26 05:51+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
+"POT-Creation-Date: 2017-07-02 15:50+0200\n"
+"PO-Revision-Date: 2017-07-02 13:53+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/votdev/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -887,6 +887,9 @@ msgstr "Uso del disco"
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Ver  {0} - {1} of {2}"
 
+msgid "Displaying {0} - {1} of {2}"
+msgstr ""
+
 msgid "Djibouti"
 msgstr "Djibouti"
 
@@ -1314,6 +1317,9 @@ msgstr "Firewall"
 
 msgid "Firmware version"
 msgstr "Version del Firmware"
+
+msgid "First Page"
+msgstr ""
 
 msgid "Flags"
 msgstr "Banderas"
@@ -1757,6 +1763,9 @@ msgstr "Idioma"
 msgid "Laos"
 msgstr "Laos"
 
+msgid "Last Page"
+msgstr ""
+
 msgid "Latvia"
 msgstr "Letonia"
 
@@ -2105,6 +2114,9 @@ msgstr "Nueva Caledonia"
 msgid "New Zealand"
 msgstr "Nueva Zelanda"
 
+msgid "Next Page"
+msgstr ""
+
 msgid "Nicaragua"
 msgstr "Nicaragua"
 
@@ -2134,6 +2146,9 @@ msgstr "No se pide certificado"
 
 msgid "No connections"
 msgstr "Sin conexiones"
+
+msgid "No data to display"
+msgstr ""
 
 msgid "No items to display"
 msgstr "Nada que mostrar"
@@ -2257,6 +2272,9 @@ msgstr "Territorio en Fideicomiso de las Islas del Pacífico"
 
 msgid "Package information"
 msgstr "Información del paquete"
+
+msgid "Page"
+msgstr ""
 
 msgid "Page not found"
 msgstr "Página no encontrada"
@@ -2470,6 +2488,9 @@ msgid ""
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
 msgstr "Evita que un disco sea puesto en marcha cuando sea periódicamente interrogado.<br/><br/><ul><li>NUNCA - Interroga (comprueba) el dispositivo con independencia de su modo de energía. Puede provocar que un disco que esté frenando sea acelerado al comprobarlo.</li><li>SLEEP - Comprueba el dispositivo a no ser que esté en modo SLEEP.</li><li>REPOSO - Comprueba el dispositivo a no ser que esté en SLEEP o en REPOSO. En estos modos la mayoría de los discos no están girando, por lo que si lo que quiere es evitar que empiece a girar en cada comprobación, esto es lo que probabemente quiere.</li><li>INACTIVO - Comprueba el dispositivo a no ser que esté en REPOSO, REPOSO o INACTIVO. En el modo INACTIVO la mayoría de los discos están todavía girando, por lo que esto no es probablemente lo que quiere.</li></ul>"
+
+msgid "Previous Page"
+msgstr ""
 
 msgid "Primary"
 msgstr "Primario"
@@ -4023,6 +4044,9 @@ msgstr "minutos"
 
 msgid "n/a"
 msgstr "n/d"
+
+msgid "of {0}"
+msgstr ""
 
 msgid "old-age"
 msgstr "Edad"

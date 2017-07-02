@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-05-03 19:36+0000\n"
+"POT-Creation-Date: 2017-07-02 15:50+0200\n"
+"PO-Revision-Date: 2017-07-02 13:53+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/votdev/openmediavault/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -885,6 +885,9 @@ msgstr "Ús del disc"
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Vegeu {0} - {1} of {2}"
 
+msgid "Displaying {0} - {1} of {2}"
+msgstr ""
+
 msgid "Djibouti"
 msgstr "Djibouti"
 
@@ -1312,6 +1315,9 @@ msgstr "Firewall"
 
 msgid "Firmware version"
 msgstr "Versió del Firmware"
+
+msgid "First Page"
+msgstr ""
 
 msgid "Flags"
 msgstr "Banderes"
@@ -1755,6 +1761,9 @@ msgstr "Idioma"
 msgid "Laos"
 msgstr "Laos"
 
+msgid "Last Page"
+msgstr ""
+
 msgid "Latvia"
 msgstr "Letònia"
 
@@ -2103,6 +2112,9 @@ msgstr "Nova Caledònia"
 msgid "New Zealand"
 msgstr "Nova Zelanda"
 
+msgid "Next Page"
+msgstr ""
+
 msgid "Nicaragua"
 msgstr "Nicaragua"
 
@@ -2132,6 +2144,9 @@ msgstr "No es demana certificat"
 
 msgid "No connections"
 msgstr "Sense connexions"
+
+msgid "No data to display"
+msgstr ""
 
 msgid "No items to display"
 msgstr "Res a mostrar"
@@ -2255,6 +2270,9 @@ msgstr "Territori en Fideïcomís de les Illes del Pacífic"
 
 msgid "Package information"
 msgstr "Informació del paquet"
+
+msgid "Page"
+msgstr ""
 
 msgid "Page not found"
 msgstr "Pàgina no trobada"
@@ -2468,6 +2486,9 @@ msgid ""
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
 msgstr "Evita que un disc sigui posat en marxa quan sigui periòdicament interrogat. <br/> <br/> <Ul> <li> MAI - Interroga (comprova) el dispositiu amb independència del seu mode d'energia. Pot provocar que un disc que estigui frenant sigui accelerat a comprovar-ho. </ li> <li> SLEEP - Comprova el dispositiu tret que estigui en mode SLEEP. </ li> <li> REPÒS - Comprova el dispositiu tret que estigui en SLEEP o en REPÒS . en aquests modes la majoria dels discos no estan girant, per la qual cosa si el que vol és evitar que comenci a girar en cada comprovació, això és el que probablement vol. </ li> <li> INACTIU - Comprova el dispositiu tret que estigui en REPÒS, REPÒS o INACTIU. en mode INACTIU la majoria dels discos encara girant, pel que això probablement no és el que vol. </ li> </ ul> "
+
+msgid "Previous Page"
+msgstr ""
 
 msgid "Primary"
 msgstr "Primari"
@@ -4021,6 +4042,9 @@ msgstr "minuts"
 
 msgid "n/a"
 msgstr "n/d"
+
+msgid "of {0}"
+msgstr ""
 
 msgid "old-age"
 msgstr "Etat"

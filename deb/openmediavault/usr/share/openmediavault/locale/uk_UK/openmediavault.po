@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Андрей Чапалда <ansilent@gmail.com>, 2012
-# zubr139, 2013-2016
+# zubr139, 2013-2017
 # Андрей Чапалда <ansilent@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-05-03 19:36+0000\n"
+"POT-Creation-Date: 2017-07-02 15:50+0200\n"
+"PO-Revision-Date: 2017-07-02 13:53+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -886,6 +886,9 @@ msgstr "Використання диску"
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Показано значень {0} - {1} із {2}"
 
+msgid "Displaying {0} - {1} of {2}"
+msgstr ""
+
 msgid "Djibouti"
 msgstr "Джібуті"
 
@@ -1049,7 +1052,7 @@ msgid "Edit scheduled test"
 msgstr "Редагувати запланований тест"
 
 msgid "Edit service"
-msgstr ""
+msgstr "Редагувати службу"
 
 msgid "Edit share"
 msgstr "Редагувати спільний ресурс"
@@ -1180,7 +1183,7 @@ msgid "Error #"
 msgstr "Помилка #"
 
 msgid "Errors"
-msgstr ""
+msgstr "Помилки"
 
 msgid "Estonia"
 msgstr "Естонія"
@@ -1313,6 +1316,9 @@ msgstr "Брандмауер"
 
 msgid "Firmware version"
 msgstr "Версія прошивки"
+
+msgid "First Page"
+msgstr ""
 
 msgid "Flags"
 msgstr "Прапори"
@@ -1756,6 +1762,9 @@ msgstr "Мова"
 msgid "Laos"
 msgstr "Лаос"
 
+msgid "Last Page"
+msgstr ""
+
 msgid "Latvia"
 msgstr "Латвія"
 
@@ -2104,6 +2113,9 @@ msgstr "Нова Каледонія"
 msgid "New Zealand"
 msgstr "Нова Зеландія"
 
+msgid "Next Page"
+msgstr ""
+
 msgid "Nicaragua"
 msgstr "Нікарагуа"
 
@@ -2133,6 +2145,9 @@ msgstr "Немає запиту сертифіката"
 
 msgid "No connections"
 msgstr "Немає з'єднання"
+
+msgid "No data to display"
+msgstr ""
 
 msgid "No items to display"
 msgstr "Елементи для показу відсутні"
@@ -2256,6 +2271,9 @@ msgstr "Підопічна територія ООН Тихоокеанські 
 
 msgid "Package information"
 msgstr "Інформація про пакет"
+
+msgid "Page"
+msgstr ""
 
 msgid "Page not found"
 msgstr "Сторінку не знайдено"
@@ -2469,6 +2487,9 @@ msgid ""
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
 msgstr "Запобігає розкручуванню диска при періодичних запитах. <br/><ul><li> Ніколи - Опитувати (перевіряти) пристрій незалежно від режиму живлення. Це може привести до того, що зупинений диск буде знову розкручений, коли буде перевірений.</li><li>Сон - Перевіряти пристрій, якщо він не знаходиться в режимі СОН.</li><li>Очікування - Перевіряти пристрій, якщо він не знаходиться в режимі СОН або ОЧІКУВАННЯ. У цих режимах більшість дисків не розкручуються, так що якщо Ви хочете запобігти розкручування диска при кожному запиті, швидше за все це той режим, який Вам потрібен.</li><li>Неактивний - Перевіряти пристрій, якщо він не знаходиться в режимі СОН, ОЧІКУВАННЯ або НЕАКТИВНИЙ. У режимі НЕАКТИВНИЙ більшість дисків продовжують розкручуватися, так що швидше за все це не той режим, який Вам потрібен.</li></ul>"
+
+msgid "Previous Page"
+msgstr ""
 
 msgid "Primary"
 msgstr "Первинний"
@@ -3991,7 +4012,7 @@ msgid "Yes"
 msgstr "Так"
 
 msgid "You need to commit or cancel your changes"
-msgstr ""
+msgstr "Вам потрібно внести чи скасувати свої зміни"
 
 msgid "Zambia"
 msgstr "Замбія"
@@ -4022,6 +4043,9 @@ msgstr "хвилин"
 
 msgid "n/a"
 msgstr "н/д"
+
+msgid "of {0}"
+msgstr ""
 
 msgid "old-age"
 msgstr "Старі"

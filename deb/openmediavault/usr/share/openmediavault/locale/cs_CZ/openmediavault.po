@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-05-04 15:43+0000\n"
-"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
+"POT-Creation-Date: 2017-07-02 15:50+0200\n"
+"PO-Revision-Date: 2017-07-02 13:53+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -885,6 +885,9 @@ msgstr "Využití disku"
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Zobrazeno položek {0} - {1} z {2}"
 
+msgid "Displaying {0} - {1} of {2}"
+msgstr ""
+
 msgid "Djibouti"
 msgstr "Džibutsko"
 
@@ -1312,6 +1315,9 @@ msgstr "Brána firewall"
 
 msgid "Firmware version"
 msgstr "Verze firmware"
+
+msgid "First Page"
+msgstr ""
 
 msgid "Flags"
 msgstr "Příznaky"
@@ -1755,6 +1761,9 @@ msgstr "Jazyk"
 msgid "Laos"
 msgstr "Laos"
 
+msgid "Last Page"
+msgstr ""
+
 msgid "Latvia"
 msgstr "Lotyšsko"
 
@@ -2103,6 +2112,9 @@ msgstr "Nová Kaledonie"
 msgid "New Zealand"
 msgstr "Nový Zéland"
 
+msgid "Next Page"
+msgstr ""
+
 msgid "Nicaragua"
 msgstr "Nikaragua"
 
@@ -2132,6 +2144,9 @@ msgstr "Žádný požadavek na certifikát"
 
 msgid "No connections"
 msgstr "Žádná spojení"
+
+msgid "No data to display"
+msgstr ""
 
 msgid "No items to display"
 msgstr "Žádné položky k zobrazení"
@@ -2255,6 +2270,9 @@ msgstr "Poručenské území Tichomořské ostrovy"
 
 msgid "Package information"
 msgstr "Informace o balíčku"
+
+msgid "Page"
+msgstr ""
 
 msgid "Page not found"
 msgstr "Stránka nebyla nalezena"
@@ -2468,6 +2486,9 @@ msgid ""
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
 msgstr "Zamezit roztáčení zastavených disků jen kvůli pravidelnému dotazování v případě:<br/><ul><li>Nikdy – Dotázat zařízení bez ohledu na stav napájení, ve kterém se nachází. Může způsobovat zbytečné roztáčení stojích disků.</li><li>Spánku – Dotázat se zařízení jen pokud se nenachází v režimu SPÁNKU.</li><li>Pohotovosti – Dotázat se zařízení jen pokud se nenachází v režimu SPÁNKU či POHOTOVOSTI.<br/>(V těchto režimech bývá většina disků zastavena, takže když chcete zabránit zbytečnému roztáčení disků, je tato volba nejspíš nejvhodnější.)</li><li>Nečinnosti – Zkontrolovat zařízení pouze pokud se nenachází v režimu SPÁNKU, POHOTOVOSTI či NEČINNOSTI.<br/>(Ve stavu NEČINNOSTI se ale většina disků stejně točí, takže toto nejspíš není to, co potřebujete.)</li></ul>"
+
+msgid "Previous Page"
+msgstr ""
 
 msgid "Primary"
 msgstr "Hlavní"
@@ -4021,6 +4042,9 @@ msgstr "minuty"
 
 msgid "n/a"
 msgstr "neaplikovatelné"
+
+msgid "of {0}"
+msgstr ""
 
 msgid "old-age"
 msgstr "v minulosti"

@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-05-05 09:13+0000\n"
-"Last-Translator: Milan Toet <milantoet@gmail.com>\n"
+"POT-Creation-Date: 2017-07-02 15:50+0200\n"
+"PO-Revision-Date: 2017-07-02 13:53+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/votdev/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -887,6 +887,9 @@ msgstr "Schijfgebruik"
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Items {0} - {1} van {2} worden getoond"
 
+msgid "Displaying {0} - {1} of {2}"
+msgstr ""
+
 msgid "Djibouti"
 msgstr "Djibouti"
 
@@ -1314,6 +1317,9 @@ msgstr "Firewall"
 
 msgid "Firmware version"
 msgstr "Firmware versie"
+
+msgid "First Page"
+msgstr ""
 
 msgid "Flags"
 msgstr "Vlaggen"
@@ -1757,6 +1763,9 @@ msgstr "Taal"
 msgid "Laos"
 msgstr "Laos"
 
+msgid "Last Page"
+msgstr ""
+
 msgid "Latvia"
 msgstr "Letland"
 
@@ -2105,6 +2114,9 @@ msgstr "Nieuw-Caledonië"
 msgid "New Zealand"
 msgstr "Nieuw-Zeeland"
 
+msgid "Next Page"
+msgstr ""
+
 msgid "Nicaragua"
 msgstr "Nicaragua"
 
@@ -2134,6 +2146,9 @@ msgstr "Geen certificaat vereist"
 
 msgid "No connections"
 msgstr "Geen verbindingen"
+
+msgid "No data to display"
+msgstr ""
 
 msgid "No items to display"
 msgstr "Geen items om weer te geven"
@@ -2257,6 +2272,9 @@ msgstr "Pacifische Eilanden Trust Territorium"
 
 msgid "Package information"
 msgstr "Pakketinformatie"
+
+msgid "Page"
+msgstr ""
 
 msgid "Page not found"
 msgstr "Pagina niet gevonden"
@@ -2470,6 +2488,9 @@ msgid ""
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
 msgstr "Voorkom dat een schijf een spin-up doet wanner het periodiek wordt aangeroepen.<br/><ul><li>Voer nooit - Poll(check)- uit ondanks de powerstatus. Het kan dan gebeuren dat een schijf de spin-up is de status spin-down geeft.</li><li>Sleep-Check het apparaat tenzij deze zich in SLEEP-modus bevindt.</li><li>Standby - Check het apparaat tenzij het zich in SLEEP of STANDBY-modus bevindt. In deze modi zullen de meeste apparaten niet spinnen, dus als u wilt voorkomen dat schijven spinnen na elke aanroep, dan is dit waarschijnlijk de instelling die u zoekt. </li><li>Idle - Check het apparaat tenzij het zich in SLEEP, STANDBY of IDLE-modus bevindt. In IDLE-modus spinnen de meeste schijven nog, dus dit is waarschijnlijk niet wat u zoekt.</li></ul>"
+
+msgid "Previous Page"
+msgstr ""
 
 msgid "Primary"
 msgstr "Primair"
@@ -4023,6 +4044,9 @@ msgstr "minuten"
 
 msgid "n/a"
 msgstr "n.v.t."
+
+msgid "of {0}"
+msgstr ""
 
 msgid "old-age"
 msgstr "ouderdomssporen"

@@ -1,5 +1,6 @@
 openmediavault (3.0.82) stable; urgency=low
 
+  * Update locales.
   * Various improvements.
   * Make SNMP location and contact fields optional.
 

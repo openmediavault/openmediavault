@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-05-08 08:55+0000\n"
-"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
+"POT-Creation-Date: 2017-07-02 15:50+0200\n"
+"PO-Revision-Date: 2017-07-02 13:53+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/votdev/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -884,6 +884,9 @@ msgstr "ディスク使用量"
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "表示中のアイテム {0} - {1} of {2}"
 
+msgid "Displaying {0} - {1} of {2}"
+msgstr ""
+
 msgid "Djibouti"
 msgstr "ジブチ"
 
@@ -1311,6 +1314,9 @@ msgstr "ファイアウォール"
 
 msgid "Firmware version"
 msgstr "ファームウェアのバージョン"
+
+msgid "First Page"
+msgstr ""
 
 msgid "Flags"
 msgstr "フラグ"
@@ -1754,6 +1760,9 @@ msgstr "言語"
 msgid "Laos"
 msgstr "ラオス"
 
+msgid "Last Page"
+msgstr ""
+
 msgid "Latvia"
 msgstr "ラトビア"
 
@@ -2102,6 +2111,9 @@ msgstr "ニューカレドニア"
 msgid "New Zealand"
 msgstr "ニュージーランド"
 
+msgid "Next Page"
+msgstr ""
+
 msgid "Nicaragua"
 msgstr "ニカラグア"
 
@@ -2131,6 +2143,9 @@ msgstr "証明書要求はありません"
 
 msgid "No connections"
 msgstr "接続はありません"
+
+msgid "No data to display"
+msgstr ""
 
 msgid "No items to display"
 msgstr "表示できるアイテムはありません"
@@ -2254,6 +2269,9 @@ msgstr "太平洋諸島信託統治領"
 
 msgid "Package information"
 msgstr "パッケージ情報"
+
+msgid "Page"
+msgstr ""
 
 msgid "Page not found"
 msgstr "ページがありません"
@@ -2467,6 +2485,9 @@ msgid ""
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
 msgstr "ポーリングによるディスクのスピンアップの防止方法。<br/><ul><li>Never - 電源モードに関わらず、デバイスをポーリング (チェック) します。これは、スピンダウンしているディスクに対してのチェックが行われる際にスピンアップする可能性があります。</li><li>Sleep - スリープモードで無い場合にデバイスをチェックします。</li><li>Standby - スリープ又はスタンバイモードで無い限り、デバイスをチェックします。これらのモードではディスクはほとんど回転しません。ラップトップで使用しているディスクでポーリングによるスピンアップを防止したい場合は望まれる選択肢です。</li><li>Idle - スリープ、スタンバイ、アイドルモードで無い場合にデバイスをチェックします。アイドル状態でもほとんどのディスクは回転しているので、これは望む選択肢ではないかもしれません。</li></ul>"
+
+msgid "Previous Page"
+msgstr ""
 
 msgid "Primary"
 msgstr "プライマリ"
@@ -4020,6 +4041,9 @@ msgstr "分"
 
 msgid "n/a"
 msgstr "n/a"
+
+msgid "of {0}"
+msgstr ""
 
 msgid "old-age"
 msgstr "old-age"

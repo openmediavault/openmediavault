@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-05-03 19:36+0000\n"
+"POT-Creation-Date: 2017-07-02 15:50+0200\n"
+"PO-Revision-Date: 2017-07-02 13:53+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/votdev/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -885,6 +885,9 @@ msgstr "Diskbruk"
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Viser {0} - {1} av {2}"
 
+msgid "Displaying {0} - {1} of {2}"
+msgstr ""
+
 msgid "Djibouti"
 msgstr "Djibouti"
 
@@ -1312,6 +1315,9 @@ msgstr "Brannmur"
 
 msgid "Firmware version"
 msgstr "Firmwareversjon"
+
+msgid "First Page"
+msgstr ""
 
 msgid "Flags"
 msgstr ""
@@ -1755,6 +1761,9 @@ msgstr "Språk"
 msgid "Laos"
 msgstr "Laos"
 
+msgid "Last Page"
+msgstr ""
+
 msgid "Latvia"
 msgstr "Latvia"
 
@@ -2103,6 +2112,9 @@ msgstr "Ny-Caledonia"
 msgid "New Zealand"
 msgstr "New Zealand"
 
+msgid "Next Page"
+msgstr ""
+
 msgid "Nicaragua"
 msgstr "Nicaragua"
 
@@ -2132,6 +2144,9 @@ msgstr "Sertifikat kreves ikke"
 
 msgid "No connections"
 msgstr "Ingen tilkoblinger"
+
+msgid "No data to display"
+msgstr ""
 
 msgid "No items to display"
 msgstr "Ingen elementer å vise"
@@ -2255,6 +2270,9 @@ msgstr "USAs stillehavsprotektorat"
 
 msgid "Package information"
 msgstr "Pakkeinformasjon"
+
+msgid "Page"
+msgstr ""
 
 msgid "Page not found"
 msgstr ""
@@ -2468,6 +2486,9 @@ msgid ""
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
 msgstr "Hindre en disk fra å være spunnet opp når den er periodisk forespurt.<br/><ul><li>Aldri - Spørr (kontroller) enheten uavhengig av strømtilstand. Dette kan føre til at en disk som er spunnet ned blir spunnet opp for å kontrolleres.</li><li>Sover - Kontroller enheten med mindre den er i SOVEMODUS.</li><li>Ventemodus - Kontroller enheten med mindre den er i VENTE- eller SOVEMODUS. I disse modusene står de fleste disker stille, så hvis du ønsker å hindre en disk dra å spinne opp ved hver kontroll er det sannsynligvis dette du ønsker.</li><li>Inaktiv - Kotroller enheten med mindre den er i SOVE, VENTE eller INAKTIV modus. I inaktivt modus spinner fortsatt de fleste disker så dette er sannsynligvis ikke det du vil.</li></ul>"
+
+msgid "Previous Page"
+msgstr ""
 
 msgid "Primary"
 msgstr "Primær"
@@ -4021,6 +4042,9 @@ msgstr "minutter"
 
 msgid "n/a"
 msgstr "n/a"
+
+msgid "of {0}"
+msgstr ""
 
 msgid "old-age"
 msgstr ""

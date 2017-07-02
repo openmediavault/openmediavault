@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-05-03 19:36+0000\n"
+"POT-Creation-Date: 2017-07-02 15:50+0200\n"
+"PO-Revision-Date: 2017-07-02 13:53+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Galician (Spain) (http://www.transifex.com/votdev/openmediavault/language/gl_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -887,6 +887,9 @@ msgstr "Uso do disco"
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Amosando os elementos {0} - {1} de {2}"
 
+msgid "Displaying {0} - {1} of {2}"
+msgstr ""
+
 msgid "Djibouti"
 msgstr "Xibuti"
 
@@ -1314,6 +1317,9 @@ msgstr "Devasa"
 
 msgid "Firmware version"
 msgstr "Versión do firmware"
+
+msgid "First Page"
+msgstr ""
 
 msgid "Flags"
 msgstr "Marcas"
@@ -1757,6 +1763,9 @@ msgstr "Idioma"
 msgid "Laos"
 msgstr "Laos"
 
+msgid "Last Page"
+msgstr ""
+
 msgid "Latvia"
 msgstr "Letonia"
 
@@ -2105,6 +2114,9 @@ msgstr "Nova Caledonia"
 msgid "New Zealand"
 msgstr "Nova Celandia"
 
+msgid "Next Page"
+msgstr ""
+
 msgid "Nicaragua"
 msgstr "Nicaragua"
 
@@ -2134,6 +2146,9 @@ msgstr "Sen solicitude de certificado"
 
 msgid "No connections"
 msgstr "Sen conexións"
+
+msgid "No data to display"
+msgstr ""
 
 msgid "No items to display"
 msgstr "Non hai elementos para presentar"
@@ -2257,6 +2272,9 @@ msgstr "Illas do Pacífico (territorio en fideicomiso)"
 
 msgid "Package information"
 msgstr "Información do paquete"
+
+msgid "Page"
+msgstr ""
 
 msgid "Page not found"
 msgstr ""
@@ -2470,6 +2488,9 @@ msgid ""
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
 msgstr "Evitar que o disco xire cando sexa comprobado periodicamente.<br/><ul><li>Nunca - Non revisar nunca o dispositivo independentemente do modo de enerxía seleccionado. Isto pode facer que o disco deixe de xirar e comece a xirar cando se comprobe.</li><li>Hibernar - Comproba o dispositivo a a non ser que estea no modo HIBERNAR.</li><li>Suspender - Comproba o dispositivo a non ser que estea no modo HIBERNAR ou SUSPENDER. Nestes modos a maioría dos discos non están xirando, así que se quere evitar que o disco xire en cada revisión, seguramente sexa iso o que ten que axustar.</li><li>Desocupado - Comproba o dispositivo a a non ser que estea no modo HIBERNAR, SUSPENDER ou DESOCUPADO, no caso DESOCUPADO a maioría dos discos están xirando, así que probablemente no sexa isto o que quere.</li></ul>"
+
+msgid "Previous Page"
+msgstr ""
 
 msgid "Primary"
 msgstr "Primario"
@@ -4023,6 +4044,9 @@ msgstr "minutos"
 
 msgid "n/a"
 msgstr "n/d"
+
+msgid "of {0}"
+msgstr ""
 
 msgid "old-age"
 msgstr ""

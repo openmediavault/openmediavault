@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-05-10 08:58+0000\n"
-"Last-Translator: songming <by@songming.me>\n"
+"POT-Creation-Date: 2017-07-02 15:50+0200\n"
+"PO-Revision-Date: 2017-07-02 13:53+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -885,6 +885,9 @@ msgstr "磁盘使用"
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "显示项目 {0} - {1} 一共 {2}"
 
+msgid "Displaying {0} - {1} of {2}"
+msgstr ""
+
 msgid "Djibouti"
 msgstr "吉布提"
 
@@ -1312,6 +1315,9 @@ msgstr "防火墙"
 
 msgid "Firmware version"
 msgstr "固件版本"
+
+msgid "First Page"
+msgstr ""
 
 msgid "Flags"
 msgstr "标签"
@@ -1755,6 +1761,9 @@ msgstr "语言"
 msgid "Laos"
 msgstr "老挝"
 
+msgid "Last Page"
+msgstr ""
+
 msgid "Latvia"
 msgstr " 拉脱维亚"
 
@@ -2103,6 +2112,9 @@ msgstr "新喀里多尼亚"
 msgid "New Zealand"
 msgstr "新西兰"
 
+msgid "Next Page"
+msgstr ""
+
 msgid "Nicaragua"
 msgstr "尼加拉瓜"
 
@@ -2132,6 +2144,9 @@ msgstr "无证书请求"
 
 msgid "No connections"
 msgstr "无连接"
+
+msgid "No data to display"
+msgstr ""
 
 msgid "No items to display"
 msgstr "无项目可显示"
@@ -2255,6 +2270,9 @@ msgstr "太平洋岛屿托管领土"
 
 msgid "Package information"
 msgstr "软件包信息"
+
+msgid "Page"
+msgstr ""
 
 msgid "Page not found"
 msgstr "没有找到页面"
@@ -2468,6 +2486,9 @@ msgid ""
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
 msgstr "当定时检查磁盘时避免它开始转动。<br/><ul><li>永不-测试(检查)设备无论是什么功耗模式，当检查时，这可能会停转的磁盘开始转动。</li><li>睡眠-检查设备除非处于睡眠模式。</li><li>待机-检查设备除非设备处于待机和睡眠模式。此模式下磁盘大多没有转动，如果你不想每次检查都转动磁盘，那么这个模式比较适合。</li><li>闲置-检查设备除非设备处于待机、睡眠、闲置模式，在闲置状态下，大多数磁盘还在转动，所以这可能不适合你。</li></ul>"
+
+msgid "Previous Page"
+msgstr ""
 
 msgid "Primary"
 msgstr "主要"
@@ -4021,6 +4042,9 @@ msgstr "分"
 
 msgid "n/a"
 msgstr "n/a"
+
+msgid "of {0}"
+msgstr ""
 
 msgid "old-age"
 msgstr "已老化"

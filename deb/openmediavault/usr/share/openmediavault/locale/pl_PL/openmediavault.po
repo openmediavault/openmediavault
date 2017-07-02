@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Cyryl Sochacki <>, 2012
-# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012-2016
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012-2017
 # Jacek Niedziółka <>, 2012
 # jacekniedziolka71 <lucas71@interia.pl>, 2012
 # Jakub Górny <jakub@world.pl>, 2012
@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-05-03 19:36+0000\n"
+"POT-Creation-Date: 2017-07-02 15:50+0200\n"
+"PO-Revision-Date: 2017-07-02 13:53+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/votdev/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -888,6 +888,9 @@ msgstr "Użycie dysku"
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Wyświetla elementy {0} - {1} z {2}"
 
+msgid "Displaying {0} - {1} of {2}"
+msgstr ""
+
 msgid "Djibouti"
 msgstr "Djibouti"
 
@@ -1051,7 +1054,7 @@ msgid "Edit scheduled test"
 msgstr "Edycja zaplanowanego testu"
 
 msgid "Edit service"
-msgstr ""
+msgstr "Edytuj serwisy"
 
 msgid "Edit share"
 msgstr "Edytuj udział"
@@ -1182,7 +1185,7 @@ msgid "Error #"
 msgstr "Błąd #"
 
 msgid "Errors"
-msgstr ""
+msgstr "Błedy"
 
 msgid "Estonia"
 msgstr "Estonia"
@@ -1315,6 +1318,9 @@ msgstr "Firewall"
 
 msgid "Firmware version"
 msgstr "Wersja Firmware"
+
+msgid "First Page"
+msgstr ""
 
 msgid "Flags"
 msgstr "Flagi"
@@ -1758,6 +1764,9 @@ msgstr "Język"
 msgid "Laos"
 msgstr "Laos"
 
+msgid "Last Page"
+msgstr ""
+
 msgid "Latvia"
 msgstr "Latvia"
 
@@ -2106,6 +2115,9 @@ msgstr "New Caledonia"
 msgid "New Zealand"
 msgstr "New Zealand"
 
+msgid "Next Page"
+msgstr ""
+
 msgid "Nicaragua"
 msgstr "Nicaragua"
 
@@ -2135,6 +2147,9 @@ msgstr "Brak żądania certyfikatu"
 
 msgid "No connections"
 msgstr "Brak połączeń"
+
+msgid "No data to display"
+msgstr ""
 
 msgid "No items to display"
 msgstr "Brak elementów do wyświetlenia"
@@ -2258,6 +2273,9 @@ msgstr "Pacific Islands Trust Territory"
 
 msgid "Package information"
 msgstr "Informacja o pakiecie"
+
+msgid "Page"
+msgstr ""
 
 msgid "Page not found"
 msgstr "Strony nie znaleziono"
@@ -2471,6 +2489,9 @@ msgid ""
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
 msgstr "Zapobiegaj przed obracaniem dysku, kiedy jest okresowo sprawdzany.<br/><ul><li>Nigdy - (sprawdź) w zależności czy urządzenie jest w trybie zasilania. To może spowodować, że urządzenie zostanie uruchomione podczas sprawdzania.</li><li>Uśpienie - Sprawdzaj urządzenie do momentu kiedy jest w trybie uśpienia.</li><li>Czuwanie - Sprawdzaj urządzenie do momentu kiedy jest w trybie uśpienia lub czuwania. W tych trybach większość dysków nie obracają się, więc jeśli chcesz zapobiec obracaniu się dysku przy każdym odpytywaniu, jest to tryb, którego potrzebujesz.</li><li>Bezczynny - Sprawdzaj urządzenie do momentu kiedy jest w trybie uśpienia, czuwania lub bezczynności. W tym stanie większość dysków obraca się ciągle, więc prawdopodobnie to nie jest to, czego potrzebujesz.</li></ul>"
+
+msgid "Previous Page"
+msgstr ""
 
 msgid "Primary"
 msgstr "Podstawowy"
@@ -3993,7 +4014,7 @@ msgid "Yes"
 msgstr "Tak"
 
 msgid "You need to commit or cancel your changes"
-msgstr ""
+msgstr "Musisz zatwierdzić albo anulować zmiany"
 
 msgid "Zambia"
 msgstr "Zambia"
@@ -4024,6 +4045,9 @@ msgstr "minut"
 
 msgid "n/a"
 msgstr "n/a"
+
+msgid "of {0}"
+msgstr ""
 
 msgid "old-age"
 msgstr "stary"

@@ -8,7 +8,7 @@
 # mattjes04 <mattjes04@googlemail.com>, 2013
 # mattjes04 <mattjes04@googlemail.com>, 2012
 # Stephan Steiner, 2014
-# Volker <votdev@gmx.de>, 2013-2016
+# Volker <votdev@gmx.de>, 2013-2017
 # Volker <votdev@gmx.de>, 2012
 # Volker <votdev@gmx.de>, 2012
 # warhog <warhog@gmx.de>, 2013
@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-05-03 19:36+0000\n"
+"POT-Creation-Date: 2017-07-02 15:50+0200\n"
+"PO-Revision-Date: 2017-07-02 13:58+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -893,6 +893,9 @@ msgstr "Plattenbelegung"
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "{0} - {1} von {2} angezeigt"
 
+msgid "Displaying {0} - {1} of {2}"
+msgstr "{0} - {1} von {2} angezeigt"
+
 msgid "Djibouti"
 msgstr "Dschibuti"
 
@@ -1056,7 +1059,7 @@ msgid "Edit scheduled test"
 msgstr "Geplanten Test bearbeiten"
 
 msgid "Edit service"
-msgstr ""
+msgstr "Dienst bearbeiten"
 
 msgid "Edit share"
 msgstr "Freigabe bearbeiten"
@@ -1187,7 +1190,7 @@ msgid "Error #"
 msgstr "Fehler #"
 
 msgid "Errors"
-msgstr ""
+msgstr "Fehler"
 
 msgid "Estonia"
 msgstr "Estland"
@@ -1320,6 +1323,9 @@ msgstr "Firewall"
 
 msgid "Firmware version"
 msgstr "Firmware Version"
+
+msgid "First Page"
+msgstr "Erste Seite"
 
 msgid "Flags"
 msgstr "Flags"
@@ -1763,6 +1769,9 @@ msgstr "Sprache"
 msgid "Laos"
 msgstr "Laos"
 
+msgid "Last Page"
+msgstr "Letzte Seite"
+
 msgid "Latvia"
 msgstr "Lettland"
 
@@ -2111,6 +2120,9 @@ msgstr "Neukaledonien"
 msgid "New Zealand"
 msgstr "Neuseeland"
 
+msgid "Next Page"
+msgstr "Nächste Seite"
+
 msgid "Nicaragua"
 msgstr "Nicaragua"
 
@@ -2140,6 +2152,9 @@ msgstr "Keine Zertifikat-Anforderung"
 
 msgid "No connections"
 msgstr "Keine Verbindungen"
+
+msgid "No data to display"
+msgstr "Keine Daten zum Anzeigen"
 
 msgid "No items to display"
 msgstr "Keine Einträge zum Anzeigen"
@@ -2263,6 +2278,9 @@ msgstr "Treuhandgebiet Pazifische Inseln"
 
 msgid "Package information"
 msgstr "Paketinformationen"
+
+msgid "Page"
+msgstr "Seite"
 
 msgid "Page not found"
 msgstr "Seite nicht gefunden"
@@ -2476,6 +2494,9 @@ msgid ""
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
 msgstr "Verhindert den Spin-Up einer Platte wenn S.M.A.R.T. Daten periodisch geholt werden.<br/><ul><li>Nie - Pollen (Prüfen) unabhängig vom Power Mode erlauben. Falls die Platte im Spin-Down Modus ist wird ein Spin-Up durchgeführt.</li><li>Schlafen - Prüfen, es sei denn das Laufwerk ist im SLEEP Modus.</li><li>Bereitschaft - Prüfen, es sei denn das Laufwerk ist im SLEEP oder BEREITSCHAFT Modus. Damit die sich in diesen Modi meist nicht drehenden Platten nicht bei jeder Abfrage aufwachen, ist dies die beste Einstellung.</li><li>Idle - Prüfen, es sei denn das Laufwerk ist im SLEEP, BEREITSCHAFT oder IDLE Modus. Im IDLE Modus drehen sich die meisten Platten noch, deshalb wird diese Einstellung nicht empfohlen.</li></ul>"
+
+msgid "Previous Page"
+msgstr "Vorherige Seite"
 
 msgid "Primary"
 msgstr "Primär"
@@ -3998,7 +4019,7 @@ msgid "Yes"
 msgstr "Ja"
 
 msgid "You need to commit or cancel your changes"
-msgstr ""
+msgstr "Sie müssen Ihre Änderungen übernehmen oder wiederrufen"
 
 msgid "Zambia"
 msgstr "Sambia"
@@ -4029,6 +4050,9 @@ msgstr "Minuten"
 
 msgid "n/a"
 msgstr "N/V"
+
+msgid "of {0}"
+msgstr "von {0}"
 
 msgid "old-age"
 msgstr "Alterserscheinungen"
