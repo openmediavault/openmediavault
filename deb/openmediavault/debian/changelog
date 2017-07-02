@@ -1,6 +1,7 @@
 openmediavault (3.0.82) stable; urgency=low
 
   * Various improvements.
+  * Make SNMP location and contact fields optional.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 26 Jun 2017 22:44:51 +0200
 
