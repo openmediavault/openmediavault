@@ -50,8 +50,8 @@ Ext.define("OMV.module.admin.service.usbbackup.Job", {
 	plugins: [{
 		ptype: "configobject"
 	}],
-	width: 570,
-	height: 400,
+	width: 600,
+	height: 450,
 
 	/**
 	 * The class constructor.
