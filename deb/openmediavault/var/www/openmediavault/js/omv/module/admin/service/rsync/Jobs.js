@@ -608,15 +608,11 @@ Ext.define("OMV.module.admin.service.rsync.Jobs", {
 	stateful: true,
 	stateId: "31924bfb-8e25-4ada-82f4-99a3a5c9e9a5",
 	columns: [{
-		xtype: "booleaniconcolumn",
+		xtype: "enabledcolumn",
 		text: _("Enabled"),
 		sortable: true,
 		dataIndex: "enable",
-		stateId: "enable",
-		align: "center",
-		width: 80,
-		resizable: false,
-		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
+		stateId: "enable"
 	},{
 		xtype: "mapcolumn",
 		text: _("Type"),

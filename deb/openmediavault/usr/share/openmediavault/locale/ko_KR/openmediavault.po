@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 06:19+0100\n"
-"PO-Revision-Date: 2016-12-06 05:21+0000\n"
+"POT-Creation-Date: 2017-07-02 15:50+0200\n"
+"PO-Revision-Date: 2017-07-02 13:53+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -306,12 +306,6 @@ msgstr "공유에 대해 OS/2 형식의 확장 속성(EA)을 클라이언트가 
 msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr "중단된 올려주기와 내려받기를 이어서 할 수 있게 합니다."
 
-msgid "Allow new files"
-msgstr "새 파일을 허용합니다."
-
-msgid "Allow new files to be created."
-msgstr "새로운 파일이 생성되도록 허용합니다."
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "이 서버가 Windows 클라이언트에게 자신을 시간 서버로 알리는 것을 가능하게 합니다."
@@ -494,9 +488,6 @@ msgstr "이진"
 msgid "Block layer cache [%s, %s]"
 msgstr "블록 계층 캐시 [%s, %s]"
 
-msgid "Blocksize"
-msgstr "블록 크기"
-
 msgid "Bolivia"
 msgstr "볼리비아"
 
@@ -541,9 +532,6 @@ msgstr "브루키나 파소"
 
 msgid "Burundi"
 msgstr "부룬디"
-
-msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr "기본적으로, 이미 존재하는 파일만 올려주기될 수 있습니다."
 
 msgid "CPU usage"
 msgstr "CPU 사용량"
@@ -835,11 +823,6 @@ msgstr "대상 공유 폴더"
 msgid "Detail"
 msgstr "정보"
 
-msgid ""
-"Determine the default timeout, in microseconds, before the first packet is "
-"retransmitted."
-msgstr "첫 번째 패킷이 재전송되기 전에 마이크로초 단위의 기본 만료 시간을 정합니다,"
-
 msgid "Device"
 msgstr "장치"
 
@@ -902,6 +885,9 @@ msgstr "디스크 사용량"
 
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "{2}중 {0} - {1}항목 표시 중 "
+
+msgid "Displaying {0} - {1} of {2}"
+msgstr ""
 
 msgid "Djibouti"
 msgstr "지부티"
@@ -1065,6 +1051,9 @@ msgstr "예약된 작업 편집"
 msgid "Edit scheduled test"
 msgstr "예약된 검사 편집"
 
+msgid "Edit service"
+msgstr ""
+
 msgid "Edit share"
 msgstr "공유 편집"
 
@@ -1192,6 +1181,9 @@ msgstr "오류"
 
 msgid "Error #"
 msgstr "오류 #"
+
+msgid "Errors"
+msgstr ""
 
 msgid "Estonia"
 msgstr "에스토니아"
@@ -1324,6 +1316,9 @@ msgstr "방화벽"
 
 msgid "Firmware version"
 msgstr "펌웨어 버전"
+
+msgid "First Page"
+msgstr ""
 
 msgid "Flags"
 msgstr "플래그"
@@ -1767,6 +1762,9 @@ msgstr "언어"
 msgid "Laos"
 msgstr "라오스"
 
+msgid "Last Page"
+msgstr ""
+
 msgid "Latvia"
 msgstr "라트비아"
 
@@ -2115,6 +2113,9 @@ msgstr "뉴칼레도니아"
 msgid "New Zealand"
 msgstr "뉴질랜드"
 
+msgid "Next Page"
+msgstr ""
+
 msgid "Nicaragua"
 msgstr "니카라과"
 
@@ -2144,6 +2145,9 @@ msgstr "인증서 요청 없음"
 
 msgid "No connections"
 msgstr "연결 없음"
+
+msgid "No data to display"
+msgstr ""
 
 msgid "No items to display"
 msgstr "표시할 항목 없음"
@@ -2254,7 +2258,7 @@ msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "송신 SMTP 메일 서버 주소. 예를 들어, smtp.mycorp.com."
 
 msgid "Outlying Oceania"
-msgstr "오세아니아 외곽"
+msgstr ""
 
 msgid "Overview"
 msgstr "개요"
@@ -2263,10 +2267,13 @@ msgid "Owner"
 msgstr "소유자"
 
 msgid "Pacific Islands Trust Territory"
-msgstr "태평양 제도 신탁통치령"
+msgstr ""
 
 msgid "Package information"
 msgstr "패키지 정보"
+
+msgid "Page"
+msgstr ""
 
 msgid "Page not found"
 msgstr ""
@@ -2314,7 +2321,7 @@ msgid "Paste a RSA certificate in X.509 PEM format here."
 msgstr "X.509 PEM 형식의 RSA 인증서를 여기에 붙여 넣습니다."
 
 msgid "Paste an private RSA key in X.509 PEM format here."
-msgstr "X.509 PEM 형식의 개인 RSA 키를 여기에 붙여 넣습니다."
+msgstr ""
 
 msgid "Path"
 msgstr "경로"
@@ -2323,13 +2330,13 @@ msgid "People's Democratic Republic of Yemen"
 msgstr "예멘 인민 민주 공화국"
 
 msgid "Perform a trial run with no changes made"
-msgstr "변경이 생기지 않는 시동작을 수행합니다."
+msgstr ""
 
 msgid "Performance statistics"
 msgstr "성능 통계"
 
 msgid "Period of validity"
-msgstr "유효성 주기"
+msgstr ""
 
 msgid "Permissions"
 msgstr "권한"
@@ -2338,7 +2345,7 @@ msgid "Permissions of group."
 msgstr "그룹 권한"
 
 msgid "Permissions of others (e.g. anonymous FTP users)."
-msgstr "기타 권한 (예를 들어, 익명 FTP 사용자)"
+msgstr ""
 
 msgid "Permissions of owner."
 msgstr "소유자 권한"
@@ -2347,7 +2354,7 @@ msgid "Permit root login"
 msgstr "루트 로그인을 허용합니다."
 
 msgid "Permit to do SSH tunneling"
-msgstr "SSH 터널링을 허용합니다."
+msgstr ""
 
 msgid "Peru"
 msgstr "페루"
@@ -2408,23 +2415,18 @@ msgid ""
 msgstr "자세한 내용은 <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>매뉴얼 페이지</a>를 참고하세요."
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
-msgstr "장치를 지우기 위한 방법을 선택하거나 '취소'를 눌러 중단하시길 바랍니다."
+msgstr ""
 
 msgid "Please first select a device."
 msgstr ""
 
 msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr "새 파일들이 허용된다면 공유된 폴더가 공개적으로 쓰기가 가능한지 확인해주시길 바랍니다."
-
-msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
-msgstr "이 검사가 진행되는 동안 시스템의 응답이 없을 수도 있음을 주의하시기 바랍니다."
+msgstr ""
 
 msgid "Please reload the page to let the changes take effect."
-msgstr "변경을 반영하기 위해 이 페이지를 새로 고치시기 바랍니다."
+msgstr ""
 
 msgid "Please wait ..."
 msgstr "잠시 기다려주십시오 ..."
@@ -2432,7 +2434,7 @@ msgstr "잠시 기다려주십시오 ..."
 msgid ""
 "Please wait until the RAID has been initialized before creating a file "
 "system."
-msgstr "파일 시스템을 만들기 전에 RAID가 초기화될 때까지 기다려주시기 바랍니다."
+msgstr ""
 
 msgid "Plugins"
 msgstr "플러그인"
@@ -2442,9 +2444,6 @@ msgstr "폴란드"
 
 msgid "Port"
 msgstr "포트"
-
-msgid "Port to listen on."
-msgstr "청취를 위한 포트"
 
 msgid "Portugal"
 msgstr "포르투갈"
@@ -2489,8 +2488,11 @@ msgid ""
 " not what you want.</li></ul>"
 msgstr "디스크가 주기적으로 폴링될 때 스핀-업되는 것을 방지합니다.<br/><ul><li>절대 안함 - 전원 모드에 상관 없이 장치를 폴링(검사)합니다. 이는 검사 시점에서 스핀-다운된 디스크를 스핀-업 상태로 만들 수 있습니다. </li><li>휴면 - 장치가 휴면 상태가 아닌 한 검사를 수행합니다.</li><li>대기 - 장치가 휴면 혹은 대기 상태가 아닌 한 검사를 수행합니다. 이런 상태에 있는 대부분의 디스크들은 동작 중이지 않습니다. 따라서 매 폴링마다 스핀-업되는 것을 방지하기 위해서는 이 옵션이 원하는 선택이 될 수 있습니다.</li><li>유휴 - 장치가 휴면, 대기 혹은 유휴 상태가 아닌 한 검사를 수행합니다. 유휴 상태에서, 대부분의 디스크는 동작 중이기 때문에 이는 당신이 원하는 옵션이 아닐 것입니다.</li></ul>"
 
+msgid "Previous Page"
+msgstr ""
+
 msgid "Primary"
-msgstr "주"
+msgstr ""
 
 msgid "Primary email"
 msgstr "주 전자우편"
@@ -2499,7 +2501,7 @@ msgid "Privacy passphrase"
 msgstr "개인 정보 암호"
 
 msgid "Privacy type"
-msgstr "개인 정보 유형"
+msgstr ""
 
 msgid "Private key"
 msgstr "개인 키"
@@ -2541,19 +2543,19 @@ msgid "Puerto Rico"
 msgstr "푸에르토리코"
 
 msgid "Pull"
-msgstr "당겨오기"
+msgstr ""
 
 msgid "Push"
 msgstr "밀어넣기"
 
 msgid "Qatar"
-msgstr "카타르"
+msgstr ""
 
 msgid "Quick"
-msgstr "빠른"
+msgstr ""
 
 msgid "Quiet"
-msgstr "조용한"
+msgstr ""
 
 msgid "Quota"
 msgstr "할당량"
@@ -2586,10 +2588,10 @@ msgid "RSync server"
 msgstr "RSync 서버"
 
 msgid "Ranges of numbers are not allowed"
-msgstr "허용되지 않는 범위의 숫자입니다."
+msgstr ""
 
 msgid "Raw value"
-msgstr "원시 값"
+msgstr ""
 
 msgid "Read only"
 msgstr "읽기 전용"
@@ -2613,13 +2615,13 @@ msgid "Reboot"
 msgstr "재시작"
 
 msgid "Recipient"
-msgstr "수신자"
+msgstr ""
 
 msgid "Recover"
 msgstr "복구"
 
 msgid "Recurse into directories"
-msgstr "디렉터리에 재귀"
+msgstr ""
 
 msgid "Recursive"
 msgstr "재귀적으로"
@@ -2628,7 +2630,7 @@ msgid "Recycle bin"
 msgstr "휴지통"
 
 msgid "Referenced"
-msgstr "참조되는"
+msgstr ""
 
 msgid "Refresh"
 msgstr "새로 고침"
@@ -2640,7 +2642,7 @@ msgid "Reload"
 msgstr "다시 불러오기"
 
 msgid "Remaining"
-msgstr "이름 바꾸기"
+msgstr ""
 
 msgid "Remote"
 msgstr "원격"
@@ -2652,7 +2654,7 @@ msgid "Remote syslog"
 msgstr "원격 syslog"
 
 msgid "Remove"
-msgstr "제거"
+msgstr ""
 
 msgid "Remove devices from RAID device"
 msgstr "RAID 장치로부터 장치들을 제거"
@@ -2669,21 +2671,21 @@ msgstr "보고"
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
 "last report. Set to 0 to disable this report."
-msgstr "온도가 마지막 보고 이후에 섭씨 N도로 변하면 보고합니다. 0으로 설정하면 이 보고를 비활성화 합니다."
+msgstr ""
 
 msgid ""
 "Report if the temperature is greater or equal than N degrees Celsius. Set to"
 " 0 to disable this report."
-msgstr "온도가 섭씨 N도 이상이 되면 보고합니다. 0으로 설정하면 이 보고를 비활성화합니다."
+msgstr ""
 
 msgid "Repository"
-msgstr "저장소"
+msgstr ""
 
 msgid "Require valid shell"
-msgstr "올바른 쉘이 필요합니다."
+msgstr ""
 
 msgid "Required"
-msgstr "요구되는"
+msgstr ""
 
 msgid "Reset"
 msgstr "재설정"
@@ -2704,9 +2706,6 @@ msgstr "결과"
 
 msgid "Resume"
 msgstr "다시 시작"
-
-msgid "Retry timeout"
-msgstr "재시도 시간만료"
 
 msgid "Reunion"
 msgstr "재결합"
@@ -3140,11 +3139,6 @@ msgid ""
 "disable this option."
 msgstr "IP 주소의 해석을 통해 마스커레이드 주소를 검사하고 갱신하는 사이의 시간 간격을 초 단위로 지정합니다. 0으로 설정하면 이 옵션은 비활성화됩니다."
 
-msgid ""
-"Specifies the maximum permitted block size. The permitted range for this "
-"parameter is from 512 to 65464."
-msgstr "최대 허용된 블록의 크기를 지정합니다. 이 매개변수에 대한 허용 범위는 512부터 65464입니다."
-
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "차단이 만료될 시간을 시:분:초 형식으로 지정합니다."
 
@@ -3277,9 +3271,6 @@ msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "TCP 포워드"
-
-msgid "TFTP"
-msgstr "TFTP"
 
 msgid "Taiwan"
 msgstr "대만"
@@ -4020,6 +4011,9 @@ msgstr "예맨"
 msgid "Yes"
 msgstr "예"
 
+msgid "You need to commit or cancel your changes"
+msgstr ""
+
 msgid "Zambia"
 msgstr "잠비아"
 
@@ -4049,6 +4043,9 @@ msgstr "분"
 
 msgid "n/a"
 msgstr "해당 없음"
+
+msgid "of {0}"
+msgstr ""
 
 msgid "old-age"
 msgstr ""

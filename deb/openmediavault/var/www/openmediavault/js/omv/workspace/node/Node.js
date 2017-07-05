@@ -103,7 +103,7 @@ Ext.define("OMV.workspace.node.Node", {
 		var me = this;
 		// Append default values.
 		config = Ext.apply({
-			id: Ext.id(),
+			internalId: Ext.id(),
 			childNodes: new Ext.util.MixedCollection()
 		}, config);
 		me.initConfig(config);
@@ -310,11 +310,11 @@ Ext.define("OMV.workspace.node.Node", {
 		return me.self.buildUri([ me.getPath(), me.getId() ], separator);
 	},
 
-    /**
-     * Flattens all the nodes into an array.
-     * @return The flattened nodes.
-     */
-    flatten: function() {
+	/**
+	 * Flattens all the nodes into an array.
+	 * @return The flattened nodes.
+	 */
+	flatten: function() {
 		var me = this;
 		var fn = function(node) {
 			var childNodes = [];

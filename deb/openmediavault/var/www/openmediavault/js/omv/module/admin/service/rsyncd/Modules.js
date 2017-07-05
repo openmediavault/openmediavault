@@ -453,15 +453,11 @@ Ext.define("OMV.module.admin.service.rsyncd.Modules", {
 	stateful: true,
 	stateId: "72d6ab93-f08d-4d34-820b-fcbb832f723c",
 	columns: [{
-		xtype: "booleaniconcolumn",
+		xtype: "enabledcolumn",
 		text: _("Enabled"),
 		sortable: true,
 		dataIndex: "enable",
-		stateId: "enable",
-		align: "center",
-		width: 80,
-		resizable: false,
-		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
+		stateId: "enable"
 	},{
 		xtype: "textcolumn",
 		text: _("Shared folder"),

@@ -73,14 +73,42 @@ interface IBlockDevice {
 	public function hasDeviceFileById();
 
 	/**
-	 * Get the special device file to present in the UI instead of the
-	 * value of the getDeviceFile method.
-	 * Get the special device file in the following preferred order:
+	 * Get the device file by PATH, e.g. <ul>
+	 * \li /dev/disk/by-path/pci-0000:00:17.0-ata-3
+	 * \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
+	 * \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:1:0-part1
+	 * </ul>
+	 * @return The device file (/dev/disk/by-path/xxx) if available,
+	 *   otherwise NULL will be returned.
+	 */
+	public function getDeviceFileByPath();
+
+	/**
+	 * Check whether the device has a /dev/disk/by-path/xxx device path.
+	 * @return Returns TRUE if a disk/by-path device path exists,
+	 *   otherwise FALSE.
+	 */
+	public function hasDeviceFileByPath();
+
+	/**
+	 * Get a predictable device file in the following order:
 	 * <ul>
 	 * \li /dev/disk/by-id/xxx
+	 * \li /dev/disk/by-path/xxx
 	 * \li /dev/xxx
 	 * </ul>
-	 * @return Returns the special device file.
+	 * @return Returns a device file.
+	 */
+	public function getPredictableDeviceFile();
+
+	/**
+	 * Get the device file to present in the UI, e.g.:
+	 * <ul>
+	 * \li /dev/disk/by-id/xxx
+	 * \li /dev/disk/by-path/xxx
+	 * \li /dev/xxx
+	 * </ul>
+	 * @return Returns a device file.
 	 */
 	public function getPreferredDeviceFile();
 

@@ -50,6 +50,8 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0-part2
 	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
 	 *   \li /dev/cciss/c0d0p2
+	 *   \li /dev/disk/by-id/md-name-vmpc01:data
+	 *   \li /dev/disk/by-id/md-uuid-75de9de9:6beca92e:8442575c:73eabbc9
 	 *   </ul>
 	 */
 	public function __construct($id) {
@@ -270,7 +272,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	/**
 	 * Get the partition scheme, e.g. 'gpt', 'mbr', 'apm' or 'dos'.
 	 * @deprecated
-	 * @return The filesystem type, otherwise FALSE.
+	 * @return The filesystem type, otherwise NULL.
 	 */
 	public function getPartitionType() {
 		return $this->getPartitionScheme();
@@ -278,7 +280,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 
 	/**
 	 * Get the partition scheme, e.g. 'gpt', 'mbr', 'apm' or 'dos'.
-	 * @return The filesystem type.
+	 * @return The filesystem type, otherwise NULL.
 	 */
 	public function getPartitionScheme() {
 		$this->getData();
@@ -297,7 +299,8 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	/**
 	 * Get the partition entry information.
 	 * @return An array with the fields \em scheme, \em uuid, \em type,
-	 *   \em flags, \em number, \em offset, \em size and \em disk.
+	 *   \em flags, \em number, \em offset, \em size and \em disk,
+	 *   otherwise NULL.
 	 */
 	public function getPartitionEntry() {
 		$this->getData();
@@ -339,11 +342,11 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	 */
 	public function hasDeviceFileByUuid() {
 		try {
-			$this->getDeviceFileByUuid();
+			$deviceFile = $this->getDeviceFileByUuid();
 		} catch(\Exception $e) {
 			return FALSE;
 		}
-		return TRUE;
+		return is_devicefile_by_uuid($deviceFile);
 	}
 
 	/**
@@ -370,11 +373,11 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	 */
 	public function hasDeviceFileById() {
 		try {
-			$this->getDeviceFileById();
+			$deviceFile = $this->getDeviceFileById();
 		} catch(\Exception $e) {
 			return FALSE;
 		}
-		return TRUE;
+		return is_devicefile_by_id($deviceFile);
 	}
 
 	/**
@@ -402,11 +405,11 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	 */
 	public function hasDeviceFileByLabel() {
 		try {
-			$this->getDeviceFileByLabel();
+			$deviceFile = $this->getDeviceFileByLabel();
 		} catch(\Exception $e) {
 			return FALSE;
 		}
-		return TRUE;
+		return is_devicefile_by_label($deviceFile);
 	}
 
 	/**
@@ -417,17 +420,15 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	 * \li /dev/sdb1 => /dev/sdb
 	 * \li /dev/cciss/c0d0p2 => /dev/cciss/c0d0
 	 * </ul>
-	 * @return The device file of the underlying storage device or FALSE
+	 * @return The device file of the underlying storage device or NULL
 	 *   on failure.
 	 */
 	public function getParentDeviceFile() {
 		$this->getData();
-		$deviceFile = $this->getDeviceFile();
 		// The following line is not necessary but will be kept to be safe.
 		// If the device file looks like /dev/disk/by-(id|label|path|uuid)/*
 		// then it is necessary to get the /dev/xxx equivalent.
-		if (1 == preg_match("/^\/dev\/disk\/by-.+$/", $deviceFile))
-			$deviceFile = realpath($deviceFile);
+		$deviceFile = $this->getCanonicalDeviceFile();
 		// Truncate the partition appendix, e.g.:
 		// - /dev/sdb1 => /dev/sdb
 		// - /dev/cciss/c0d0p2 => /dev/cciss/c0d0
@@ -437,41 +438,32 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 		// - /dev/loop0 => /dev/loop0
 		$mngr = \OMV\System\Storage\Backend\Manager::getInstance();
 		if (NULL === ($backend = $mngr->getBackend($deviceFile)))
-			return FALSE;
+			return NULL;
 		$parentDeviceFile = $backend->baseDeviceFile($deviceFile);
-		if (FALSE === is_devicefile_by_id($parentDeviceFile)) {
-			// Get the storage device file of the filesystems parent device.
-			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
-			  $parentDeviceFile);
-			if (FALSE === is_null($sd)) {
-				// Try to get the disk/by-id device file, e.g.
-				// - /dev/disk/by-id/ata-WDC_WD15EARS-00MBWR0_WD-WMAZA2574223
-				// - /dev/disk/by-id/wwn-0x50023ed655e21720
-				if (TRUE === $sd->hasDeviceFileById())
-					$parentDeviceFile = $sd->getDeviceFileById();
-			}
-		}
-		return $parentDeviceFile;
+		if (!is_devicefile($parentDeviceFile))
+			return NULL;
+		// Return the canonical device file.
+		return realpath($parentDeviceFile);
 	}
 
 	/**
-	 * Get the special device file in the following preferred order:
+	 * Get the device file in the following order:
 	 * <ul>
 	 * \li /dev/disk/by-label/xxx
 	 * \li /dev/disk/by-id/xxx
-	 * \li /dev/disk/by-uuid/xxx
+	 * \li /dev/disk/by-path/xxx
 	 * \li /dev/xxx
 	 * </ul>
-	 * @return Returns the device file.
+	 * @return Returns a device file.
 	 */
-	public function getPreferredDeviceFile() {
+	public function getPredictableDeviceFile() {
 		if (TRUE === $this->hasDeviceFileByLabel())
 			return $this->getDeviceFileByLabel();
 		else if (TRUE === $this->hasDeviceFileById())
 			return $this->getDeviceFileById();
-		else if (TRUE === $this->hasDeviceFileByUuid())
-			return $this->getDeviceFileByUuid();
-		return $this->getDeviceFile();
+		if (TRUE === $this->hasDeviceFileByPath())
+			return $this->getDeviceFileByPath();
+		return $this->getCanonicalDeviceFile();
 	}
 
 	/**
@@ -792,7 +784,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 		$cmdArgs[] = "grep";
 		$cmdArgs[] = "-E";
 		$cmdArgs[] = escapeshellarg(sprintf("^%s.*:.+\sTYPE=.+$",
-		  $deviceFile));
+		  realpath($deviceFile)));
 		$cmd = new \OMV\System\Process("blkid", $cmdArgs);
 		$cmd->setQuiet(TRUE);
 		$cmd->execute($output, $exitStatus);

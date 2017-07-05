@@ -1,16 +1,16 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-lvm2 package.
 # 
 # Translators:
-# Kostas Moho <kgounaris@hotmail.com>, 2012-2015
+# Kostas Moho <kgounaris@hotmail.com>, 2012-2015,2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2016-04-23 17:16+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2017-05-03 21:34+0200\n"
+"PO-Revision-Date: 2017-04-13 10:08+0000\n"
+"Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/votdev/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -118,6 +118,9 @@ msgstr "Επιλογή συσκευής ..."
 
 msgid "Size"
 msgstr "Μέγεθος"
+
+msgid "Snapshot"
+msgstr "Στιγμιότυπο"
 
 msgid "Used"
 msgstr "Χρησιμοποιημένο"

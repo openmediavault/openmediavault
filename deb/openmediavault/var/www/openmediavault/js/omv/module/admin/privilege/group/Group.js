@@ -226,7 +226,7 @@ Ext.define("OMV.module.admin.privilege.group.Group", {
 	rpcSetMethod: "setGroup",
 
 	width: 420,
-	height: 300,
+	height: 350,
 
 	getTabItems: function() {
 		var me = this;

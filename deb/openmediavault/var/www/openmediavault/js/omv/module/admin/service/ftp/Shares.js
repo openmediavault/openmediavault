@@ -116,15 +116,11 @@ Ext.define("OMV.module.admin.service.ftp.Shares", {
 	stateful: true,
 	stateId: "9889057b-b1c0-4c48-a4c1-8c8b4fb54d7b",
 	columns: [{
-		xtype: "booleaniconcolumn",
+		xtype: "enabledcolumn",
 		text: _("Enabled"),
 		sortable: true,
 		dataIndex: "enable",
-		stateId: "enable",
-		align: "center",
-		width: 80,
-		resizable: false,
-		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
+		stateId: "enable"
 	},{
 		xtype: "textcolumn",
 		text: _("Shared folder"),

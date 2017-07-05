@@ -1,3 +1,15 @@
+openmediavault-netatalk (3.2.10) stable; urgency=low
+
+  * Various UI improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 30 May 2017 20:59:12 +0200
+
+openmediavault-netatalk (3.2.9) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 20 Apr 2017 21:34:10 +0200
+
 openmediavault-netatalk (3.2.8) stable; urgency=low
 
   * Various improvements.

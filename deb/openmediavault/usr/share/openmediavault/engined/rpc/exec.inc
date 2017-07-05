@@ -55,7 +55,8 @@ class OMVRpcServiceExec extends \OMV\Rpc\ServiceAbstract {
 		$status = new \OMV\Rpc\BgStatusFile($this->getBgProcStatus(
 		  $params['filename']));
 		// Kill the background process.
-		if (!posix_kill($status->getPid(), SIGTERM)) {
+		$this->debug("Sending SIGTERM to process %d", $status->getPid());
+		if (!posix_kill_ex($status->getPid(), SIGTERM)) {
 			throw new \OMV\Exception("Failed to kill process (pid=%d).",
 			  $status->getPid());
 		}

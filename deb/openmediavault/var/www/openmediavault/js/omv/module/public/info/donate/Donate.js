@@ -30,9 +30,9 @@ Ext.define("OMV.module.public.info.donate.Donate", {
 
 	initComponent: function() {
 		var me = this;
-		me.html = me.createBox("OpenMediaVault is free, but costs money and time to produce, support and distribute. This gift to the developer would demonstrate your appreciation of this software and help its future development." +
-		  "<br/>" + 
-		  "To help OpenMediaVault in a monetary way, you can show your appreciation with a donation via PayPal." +
+		me.html = me.createBox("openmediavault is free, but costs money and time to produce, support and distribute. This gift to the developer would demonstrate your appreciation of this software and help its future development." +
+		  "<br/>" +
+		  "To help openmediavault in a monetary way, you can show your appreciation with a donation via PayPal." +
 		  "<br/><br/>" +
 		  "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_blank'>" +
 		  "<input type='hidden' name='cmd' value='_s-xclick'>" +

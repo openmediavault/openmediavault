@@ -285,13 +285,15 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		"""
 		:param id: The data model identifier, e.g. 'conf.service.ftp.share'.
 		"""
-		# Create the data model object.
-		self._model = openmediavault.config.Datamodel(id)
 		# Get the path to the database.
 		self._database_file = openmediavault.getenv("OMV_CONFIG_FILE")
 		os.stat(self._database_file)
-		# Get the property names that must be handled as lists/arrays.
-		self._force_list = self._get_array_properties()
+		# Create the data model object.
+		self._model = openmediavault.config.Datamodel(id)
+		# Get the property names that must be handled as lists and dicts.
+		self._force_list_tags = []
+		self._force_dict_tags = []
+		self._parse_model()
 		# Set the default response value.
 		self._response = None
 		# The XML tree.
@@ -326,20 +328,27 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		Execute the database query.
 		"""
 
-	def _get_array_properties(self):
+	def _parse_model(self):
 		"""
 		Parse the data model and get the properties that must be handled
-		as arrays/lists.
-		:returns:	Returns an array of properties that must be handled as
-					arrays/lists.
+		as lists and dicts.
 		"""
 		def callback(model, name, path, schema, user_data):
-			if "array" == schema['type']:
-				user_data.append(name)
+			if "array" == schema['type'] and name:
+				user_data['lists'].append(name)
+			if "object" == schema['type'] and name:
+				user_data['dicts'].append(name)
 
-		names = []
-		self.model.walk_schema("", callback, names)
-		return names
+		tags = {
+			"lists": [],
+			"dicts": []
+		}
+		# ToDo: Refactor the whole process of collecting and processing
+		# the special properties.
+		self.model.walk_schema("", callback, tags)
+		self._force_list_tags = tags['lists']
+		self._force_dict_tags = [ name for name in tags['dicts']
+			if name not in tags['lists'] ]
 
 	def _load(self):
 		"""
@@ -395,7 +404,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 				# Empty strings are None, so convert them.
 				value = "" if value is None else value
 			tag = child_element.tag
-			if tag in self._force_list:
+			if tag in self._force_list_tags:
 				try:
 					# Add value to an existing list.
 					result[tag].append(value)
@@ -405,6 +414,9 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 				except KeyError:
 					# Add a new entry.
 					result[tag] = [ value ]
+			elif tag in self._force_dict_tags and value == "":
+				# Create an empty dictionary if value is an empty string.
+				result[tag] = {}
 			else:
 				result[tag] = value
 		return result
@@ -459,7 +471,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 				for sub_key, sub_value in value.items():
 					# Skip those properties that must be handled as an
 					# array/list and that are empty.
-					if sub_key in self._force_list and not sub_value:
+					if sub_key in self._force_list_tags and not sub_value:
 						continue
 					sub_element = lxml.etree.Element(sub_key)
 					element.append(sub_element)

@@ -23,12 +23,18 @@
  * @ingroup webgui
  * @class OMV.grid.column.Text
  * @derived Ext.grid.column.Column
+ * @param translateText Translate the displayed text. Defaults to FALSE.
  */
 Ext.define("OMV.grid.column.Text", {
 	extend: "Ext.grid.column.Column",
 	alias: [ "widget.textcolumn" ],
 
+	translateText: false,
+
 	defaultRenderer: function(value) {
+		var me = this;
+		if (true === me.translateText)
+			value = _(value);
 		return Ext.String.htmlEncode(value);
 	}
 });

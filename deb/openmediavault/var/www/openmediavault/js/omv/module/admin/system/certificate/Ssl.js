@@ -465,7 +465,7 @@ Ext.define("OMV.module.admin.system.certificate.ssl.Edit", {
 			// certificate is processed.
 			hidden: !me.isNew(),
 			disabled: !me.isNew(),
-			height: 150,
+			minHeight: 150,
 			flex: 1,
 			plugins: [{
 				ptype: "fieldinfo",
@@ -480,7 +480,7 @@ Ext.define("OMV.module.admin.system.certificate.ssl.Edit", {
 			// Set this field to read-only when an existing certificate
 			// is processed.
 			readOnly: !me.isNew(),
-			height: 150,
+			minHeight: 150,
 			flex: 1,
 			plugins: [{
 				ptype: "fieldinfo",

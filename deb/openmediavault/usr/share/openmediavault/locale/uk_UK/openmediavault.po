@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Андрей Чапалда <ansilent@gmail.com>, 2012
-# zubr139, 2013-2016
+# zubr139, 2013-2017
 # Андрей Чапалда <ansilent@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 06:19+0100\n"
-"PO-Revision-Date: 2016-12-11 21:48+0000\n"
-"Last-Translator: zubr139\n"
+"POT-Creation-Date: 2017-07-02 15:50+0200\n"
+"PO-Revision-Date: 2017-07-02 13:53+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -306,12 +306,6 @@ msgstr "Дозволити клієнтам спробувати зберіга�
 msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr "Дозволити клієнтам відновити перервані відвантаження та завантаження"
 
-msgid "Allow new files"
-msgstr "Дозволити нові файли"
-
-msgid "Allow new files to be created."
-msgstr "Дозволити створювати нові файли"
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Дозволити цьому серверу видавати себе в якості сервера часу для Windows клієнтів"
@@ -494,9 +488,6 @@ msgstr "Двійковий"
 msgid "Block layer cache [%s, %s]"
 msgstr "Кеш шар блоку [%s, %s]"
 
-msgid "Blocksize"
-msgstr "Розмір блоку"
-
 msgid "Bolivia"
 msgstr "Болівія"
 
@@ -541,9 +532,6 @@ msgstr "Буркіна-Фасо"
 
 msgid "Burundi"
 msgstr "Бурунді"
-
-msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr "Типово відображаються лише файли, які вже існують та доступні для завантаження."
 
 msgid "CPU usage"
 msgstr "Завантаження ЦП"
@@ -835,11 +823,6 @@ msgstr "Розташування спільної теки"
 msgid "Detail"
 msgstr "Деталі"
 
-msgid ""
-"Determine the default timeout, in microseconds, before the first packet is "
-"retransmitted."
-msgstr "Визначити час очікування типово, в мікросекундах, перш ніж перший пакет передається повторно."
-
 msgid "Device"
 msgstr "Пристрій"
 
@@ -902,6 +885,9 @@ msgstr "Використання диску"
 
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Показано значень {0} - {1} із {2}"
+
+msgid "Displaying {0} - {1} of {2}"
+msgstr ""
 
 msgid "Djibouti"
 msgstr "Джібуті"
@@ -1065,6 +1051,9 @@ msgstr "Редагувати заплановане завдання"
 msgid "Edit scheduled test"
 msgstr "Редагувати запланований тест"
 
+msgid "Edit service"
+msgstr "Редагувати службу"
+
 msgid "Edit share"
 msgstr "Редагувати спільний ресурс"
 
@@ -1192,6 +1181,9 @@ msgstr "Помилка"
 
 msgid "Error #"
 msgstr "Помилка #"
+
+msgid "Errors"
+msgstr "Помилки"
 
 msgid "Estonia"
 msgstr "Естонія"
@@ -1324,6 +1316,9 @@ msgstr "Брандмауер"
 
 msgid "Firmware version"
 msgstr "Версія прошивки"
+
+msgid "First Page"
+msgstr ""
 
 msgid "Flags"
 msgstr "Прапори"
@@ -1767,6 +1762,9 @@ msgstr "Мова"
 msgid "Laos"
 msgstr "Лаос"
 
+msgid "Last Page"
+msgstr ""
+
 msgid "Latvia"
 msgstr "Латвія"
 
@@ -2115,6 +2113,9 @@ msgstr "Нова Каледонія"
 msgid "New Zealand"
 msgstr "Нова Зеландія"
 
+msgid "Next Page"
+msgstr ""
+
 msgid "Nicaragua"
 msgstr "Нікарагуа"
 
@@ -2144,6 +2145,9 @@ msgstr "Немає запиту сертифіката"
 
 msgid "No connections"
 msgstr "Немає з'єднання"
+
+msgid "No data to display"
+msgstr ""
 
 msgid "No items to display"
 msgstr "Елементи для показу відсутні"
@@ -2267,6 +2271,9 @@ msgstr "Підопічна територія ООН Тихоокеанські 
 
 msgid "Package information"
 msgstr "Інформація про пакет"
+
+msgid "Page"
+msgstr ""
 
 msgid "Page not found"
 msgstr "Сторінку не знайдено"
@@ -2414,11 +2421,6 @@ msgid "Please first select a device."
 msgstr "Будь ласка, спочатку оберіть пристрій."
 
 msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr "Будь ласка, переконайтеся, що спільна тека доступна для запису."
-
-msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
 msgstr "Зверніть увагу, під час цього тесту зв'язку з системою небуде."
@@ -2442,9 +2444,6 @@ msgstr "Польща"
 
 msgid "Port"
 msgstr "Порт"
-
-msgid "Port to listen on."
-msgstr "Порт для прослуховування."
 
 msgid "Portugal"
 msgstr "Португалія"
@@ -2488,6 +2487,9 @@ msgid ""
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
 msgstr "Запобігає розкручуванню диска при періодичних запитах. <br/><ul><li> Ніколи - Опитувати (перевіряти) пристрій незалежно від режиму живлення. Це може привести до того, що зупинений диск буде знову розкручений, коли буде перевірений.</li><li>Сон - Перевіряти пристрій, якщо він не знаходиться в режимі СОН.</li><li>Очікування - Перевіряти пристрій, якщо він не знаходиться в режимі СОН або ОЧІКУВАННЯ. У цих режимах більшість дисків не розкручуються, так що якщо Ви хочете запобігти розкручування диска при кожному запиті, швидше за все це той режим, який Вам потрібен.</li><li>Неактивний - Перевіряти пристрій, якщо він не знаходиться в режимі СОН, ОЧІКУВАННЯ або НЕАКТИВНИЙ. У режимі НЕАКТИВНИЙ більшість дисків продовжують розкручуватися, так що швидше за все це не той режим, який Вам потрібен.</li></ul>"
+
+msgid "Previous Page"
+msgstr ""
 
 msgid "Primary"
 msgstr "Первинний"
@@ -2704,9 +2706,6 @@ msgstr "Результат"
 
 msgid "Resume"
 msgstr "Підсумок"
-
-msgid "Retry timeout"
-msgstr "Очікування повтору"
 
 msgid "Reunion"
 msgstr "Поновити з’єднання"
@@ -3140,11 +3139,6 @@ msgid ""
 "disable this option."
 msgstr "Визначає кількість часу в секундах, між перевіркою та оновленням маскараду адрес за допомогою дозволу IP-адреси. Встановіть це значення в 0, щоб відключити дану опцію."
 
-msgid ""
-"Specifies the maximum permitted block size. The permitted range for this "
-"parameter is from 512 to 65464."
-msgstr "Визначає максимальний дозволений розмір блоку. Допустимий діапазон значень для цього параметра від 512 до 65464."
-
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "Визначає час дії бану у форматі гг:хв:сс."
 
@@ -3277,9 +3271,6 @@ msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "TCP переадресація"
-
-msgid "TFTP"
-msgstr "TFTP"
 
 msgid "Taiwan"
 msgstr "Тайвань"
@@ -4020,6 +4011,9 @@ msgstr "Ємен"
 msgid "Yes"
 msgstr "Так"
 
+msgid "You need to commit or cancel your changes"
+msgstr "Вам потрібно внести чи скасувати свої зміни"
+
 msgid "Zambia"
 msgstr "Замбія"
 
@@ -4049,6 +4043,9 @@ msgstr "хвилин"
 
 msgid "n/a"
 msgstr "н/д"
+
+msgid "of {0}"
+msgstr ""
 
 msgid "old-age"
 msgstr "Старі"

@@ -55,6 +55,7 @@ OMV.languages = [
 	[ "no_NO","Norsk" ], // Norwegian
 	[ "sv_SV","Svenska" ], // Swedish
 	[ "pt_PT","Português" ], // Portuguese
+	[ "bg_BG","​Български" ], // Bulgarian
 	[ "zh_CN","简体中文" ], // Chinese (Simplified Chinese)
 	[ "zh_TW","繁體中文" ], // Chinese (Taiwan)
 	[ "ja_JP","日本語" ], // Japanese (Japan)

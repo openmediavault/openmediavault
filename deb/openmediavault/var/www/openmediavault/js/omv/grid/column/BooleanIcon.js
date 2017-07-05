@@ -60,5 +60,5 @@ Ext.define("OMV.grid.column.BooleanIcon", {
 		cell.firstChild.innerHTML = me.defaultRenderer(value, metaData);
 		if (metaData.tdCls)
 			Ext.fly(cell).addCls(metaData.tdCls);
-		}
+	}
 });

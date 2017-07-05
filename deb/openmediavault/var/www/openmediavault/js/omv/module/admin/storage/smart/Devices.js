@@ -100,10 +100,10 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Information", {
 	initComponent: function() {
 		var me = this;
 		Ext.apply(me, {
-			fieldDefaults: Ext.apply({}, {
+			defaults: {
 				editable: false,
 				readOnly: true
-			}, me.fieldDefaults),
+			},
 			rpcGetParams: {
 				devicefile: me.devicefile
 			}
@@ -466,15 +466,11 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 	stateful: true,
 	stateId: "103a18fd-df1c-4934-b5fd-e90b3e08fa91",
 	columns: [{
-		xtype: "booleaniconcolumn",
+		xtype: "enabledcolumn",
 		text: _("Monitor"),
 		sortable: true,
 		dataIndex: "monitor",
-		stateId: "monitor",
-		align: "center",
-		width: 80,
-		resizable: false,
-		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
+		stateId: "monitor"
 	},{
 		text: _("Device"),
 		sortable: true,

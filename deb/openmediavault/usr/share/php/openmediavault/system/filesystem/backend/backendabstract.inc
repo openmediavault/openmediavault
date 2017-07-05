@@ -56,10 +56,10 @@ abstract class BackendAbstract {
 	 * This method is only called when the method \ref isBlkidEnumerated
 	 * returns FALSE.
 	 * @return An array of objects with the fields \em devicefile, \em uuid,
-	 *   \em label and \em type, otherwise FALSE.
+	 *   \em label and \em type.
 	 */
 	public function enumerate() {
-		return FALSE;
+		return [];
 	}
 
 	/**

@@ -21,6 +21,14 @@
 
 # Documentation/Howto:
 # http://serverfault.com/a/650176
+# https://serverfault.com/questions/312940/rewrite-recipient-of-all-except-one-recipient-outgoing-e-mail
+# https://wiki.ubuntuusers.de/Postfix/Erweiterte_Konfiguration
+# https://www.unixwitch.de/de/sysadmin/tools/postfix
+
+# Testing:
+# echo "test" | mail -s "test" root
+# postmap -fq "<USER>" regexp:/etc/postfix/sender_canonical
+# postmap -fq "<USER>" regexp:/etc/postfix/recipient_canonical
 
 set -e
 
@@ -70,11 +78,11 @@ postmap ${OMV_POSTFIX_MAIN_SMTP_SASL_PASSWORD_MAPS}
 # will be redirected to the configured primary recipient address.
 xmlstarlet sel -t -m "//system/email" \
   -i "enable[. = '1']" \
-	-v "concat('root ',primaryemail)" -n \
-	-m "//system/usermanagement/users/user[email != '']" \
-	  -v "concat(name,' ',email)" -n \
-	-b \
-	-v "concat('@${myhostname} ',primaryemail)" -n \
+    -v "concat('root ',primaryemail)" -n \
+    -m "//system/usermanagement/users/user[email != '']" \
+      -v "concat(name,' ',email)" -n \
+    -b \
+    -v "concat('@${myhostname} ',primaryemail)" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_MAIN_RECIPIENT_CANONICAL_MAPS}
 chown root:root ${OMV_POSTFIX_MAIN_RECIPIENT_CANONICAL_MAPS}
@@ -91,8 +99,7 @@ postmap ${OMV_POSTFIX_MAIN_RECIPIENT_CANONICAL_MAPS}
 #   logged in user {mp030} (in reply to MAIL FROM command))
 xmlstarlet sel -t -m "//system/email" \
   -i "enable[. = '1']" \
-	-v "concat('@${myhostname} ',sender)" -n \
-	-v "concat('\"\" ',sender)" -n \
+    -v "concat('/.+/ ',sender)" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_MAIN_SENDER_CANONICAL_MAPS}
 chown root:root ${OMV_POSTFIX_MAIN_SENDER_CANONICAL_MAPS}
@@ -105,7 +112,7 @@ postmap ${OMV_POSTFIX_MAIN_SENDER_CANONICAL_MAPS}
 # otherwise all emails, including local users, will be sent, too.
 xmlstarlet sel -t -m "//system/email" \
   -i "enable[. = '1'] and string-length(secondaryemail) > 0" \
-	  -v "concat(primaryemail,' ',secondaryemail)" -n \
+    -v "concat(primaryemail,' ',secondaryemail)" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_MAIN_RECIPIENT_BCC_MAPS}
 chown root:root ${OMV_POSTFIX_MAIN_RECIPIENT_BCC_MAPS}

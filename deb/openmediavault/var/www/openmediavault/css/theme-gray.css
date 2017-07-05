@@ -36,30 +36,8 @@
 }
 /******************************************************************************/
 /* Checkbox */
-.x-form-checkbox-default,
-.x-form-radio-default {
-    width: 32px;
-    height: 16px;
-}
 .x-form-cb-default {
-    margin-top: 3px;
-}
-.x-form-cb-label-default.x-form-cb-label-after {
-    padding-left: 37px;
-}
-.x-form-checkbox-default {
-	background-position: left;
-	background-image: url("../images/switch_off.png");
-	background-image: url("../images/switch_off.svg"), none;
-}
-.x-form-cb-checked .x-form-checkbox-default {
-	background-position: left;
-	background-image: url("../images/switch_on.png");
-	background-image: url("../images/switch_on.svg"), none;
-}
-.x-form-checkbox-focus.x-form-checkbox-default,
-.x-form-cb-checked .x-form-checkbox-focus.x-form-checkbox-default {
-	background-position: left;
+	margin-top: 3px;
 }
 /******************************************************************************/
 /* Checkbox field */

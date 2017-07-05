@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-clamav package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-clamav\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"POT-Creation-Date: 2017-05-03 21:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -158,7 +158,7 @@ msgstr ""
 msgid "Perform a deeper analysis of executable files."
 msgstr ""
 
-msgid "Please check the <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>manual page</a> for more details."
+msgid "Please check the <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more details."
 msgstr ""
 
 msgid "Quarantine"

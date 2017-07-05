@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-nut package.
 # 
 # Translators:
 # Antonio Pelaez Redondo <antorayman@gmail.com>, 2012
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-23 19:15+0200\n"
+"POT-Creation-Date: 2017-05-03 21:34+0200\n"
 "PO-Revision-Date: 2014-05-22 15:08+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/votdev/openmediavault/language/es_ES/)\n"

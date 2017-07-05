@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-clamav package.
 # 
 # Translators:
 # Nelson Rosado <nelsontrosado@gmail.com>, 2012,2014
@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2014-11-30 01:10+0000\n"
+"POT-Creation-Date: 2017-05-03 21:34+0200\n"
+"PO-Revision-Date: 2017-05-03 19:36+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/votdev/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -165,9 +165,10 @@ msgid "Perform a deeper analysis of executable files."
 msgstr "Realize uma analise mais profunda aos ficheiros executáveis."
 
 msgid ""
-"Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
-"target='_blank'>manual page</a> for more details."
-msgstr "Por favor verifique <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>manual page</a> para mais detalhes."
+"Please check the <a href='https://github.com/vrtadmin/clamav-"
+"faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
+"details."
+msgstr ""
 
 msgid "Quarantine"
 msgstr "Quarentena"

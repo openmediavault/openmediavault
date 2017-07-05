@@ -91,7 +91,7 @@ Ext.define("OMV.workspace.node.panel.Category", {
 					'<div class="',Ext.baseCSSPrefix,'workspace-node-view-category">',
 						'<div class="',Ext.baseCSSPrefix,'workspace-node-view-category-items">',
 							'<tpl for=".">',
-								'<div class="thumb-wrap" id="{uri:stripTags}">',
+								'<div class="thumb-wrap" id="{internalId}">',
 									'<div class="thumb"><img src="{[this.renderIcon(values)]}" title="{[this.renderText(values)]}"></div>',
 									'<span>{[this.renderText(values)]}</span>',
 								'</div>',

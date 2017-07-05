@@ -59,15 +59,11 @@ Ext.define("OMV.module.admin.dashboard.view.ServiceStatus", {
 					stateId: "title",
 					flex: 1
 				},{
-					xtype: "booleaniconcolumn",
+					xtype: "enabledcolumn",
 					text: _("Enabled"),
 					sortable: true,
 					dataIndex: "enabled",
-					stateId: "enabled",
-					width: 80,
-					resizable: false,
-					align: "center",
-					iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
+					stateId: "enabled"
 				},{
 					text: _("Running"),
 					sortable: true,

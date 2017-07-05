@@ -191,7 +191,8 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 		"OMV.data.Store",
 		"OMV.data.Model",
 		"OMV.data.proxy.Rpc",
-		"OMV.workspace.window.plugin.ConfigObject"
+		"OMV.workspace.window.plugin.ConfigObject",
+		"Ext.grid.plugin.RowEditing"
 	],
 
 	rpcService: "Quota",
@@ -211,9 +212,10 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 			border: false,
 			stateful: true,
 			stateId: "24f018e6-8de6-41e1-b6c4-db0edd49a73b",
-			plugins: Ext.create("Ext.grid.plugin.CellEditing", {
+			plugins: [{
+				ptype: "rowediting",
 				clicksToEdit: 1
-			}),
+			}],
 			columns: [{
 				text: _("Type"),
 				sortable: true,
@@ -239,6 +241,16 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 					  "grid-cell-usergroupiconcolumn" + " " +
 					  Ext.baseCSSPrefix + iconCls;
 					return "";
+				},
+				editRenderer: function(value) {
+					var iconCls = ("user" === value) ?
+						"grid-cell-usergroupiconcolumn-user" :
+						"grid-cell-usergroupiconcolumn-group";
+					return '<div class="' +
+						Ext.baseCSSPrefix + "form-display-field " +
+						Ext.baseCSSPrefix + "form-display-field-grid-cell " +
+						Ext.baseCSSPrefix + "grid-cell-usergroupiconcolumn " +
+						Ext.baseCSSPrefix + iconCls + '"></div>';
 				}
 			},{
 				xtype: "textcolumn",
@@ -454,6 +466,8 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			var percentage = parseInt(record.get("percentage"));
 			if (-1 == percentage)
 				return _("n/a");
+			//var text = Ext.String.format("{0}% [{1}]",
+			//	percentage, value);
 			var renderer = OMV.util.Format.progressBarRenderer(
 				percentage / 100, value, 0.85);
 			return renderer.apply(this, arguments);
@@ -656,11 +670,6 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 				tbarBtnDisabled["unmount"] = false;
 			} else {
 				tbarBtnDisabled["mount"] = false;
-				// Disable the 'Mount' button if the file system does not
-				// provide a UUID.
-				if(Ext.isEmpty(record.get("uuid"))) {
-					tbarBtnDisabled["mount"] = true;
-				}
 			}
 			// If the file system is in use, then also disable the unmount
 			// button.

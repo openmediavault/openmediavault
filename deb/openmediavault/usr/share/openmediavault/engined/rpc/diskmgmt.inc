@@ -77,7 +77,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				continue;
 			$objects[] = [
 				"devicename" => $sd->getDeviceName(),
-				"devicefile" => $sd->getCanonicalDeviceFile(),
+				"devicefile" => $sd->getPreferredDeviceFile(),
 				"devicelinks" => $sd->getDeviceFileSymlinks(),
 				"model" => $sd->getModel(),
 				"size" => $sd->getSize(),

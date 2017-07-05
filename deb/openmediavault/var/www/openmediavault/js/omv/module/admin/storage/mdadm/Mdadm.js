@@ -69,7 +69,6 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Create", {
 	autoLoadData: false,
 	hideResetButton: true,
 	width: 550,
-	height: 260,
 
 	getFormConfig: function() {
 		return {
@@ -141,6 +140,7 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Create", {
 			valueField: "devicefile",
 			minSelections: 3, // Min. number of devices for RAID5
 			useStringValue: true,
+			minHeight: 170,
 			flex: 1,
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,

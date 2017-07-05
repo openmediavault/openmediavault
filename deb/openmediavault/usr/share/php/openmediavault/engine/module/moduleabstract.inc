@@ -107,12 +107,13 @@ abstract class ModuleAbstract {
 		$filename = sprintf("/var/lib/openmediavault/%s_tasks.json",
 		  $this->getName());
 		$jsonFile = new \OMV\Json\File($filename);
-		$exists = $jsonFile->exists();
 		$jsonFile->open("c+");
-		if ($exists)
-			$tasks = $jsonFile->read();
-		else
-			$tasks = [];
+		// Make sure we have a valid JSON file. Keep in mind that the file
+		// is empty if it was created by the \OMV\Json\File::open method.
+		if ($jsonFile->isEmpty())
+			$jsonFile->write([]);
+		// Read the file content.
+		$tasks = $jsonFile->read();
 		// Add the new task to the list of pending tasks.
 		$tasks[] = [
 			"id" => $id,

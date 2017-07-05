@@ -74,7 +74,7 @@ Ext.define("OMV.module.admin.system.certificate.ssh.Edit", {
 			// certificate is processed.
 			hidden: !me.isNew(),
 			disabled: !me.isNew(),
-			height: 150,
+			minHeight: 150,
 			flex: 1,
 			plugins: [{
 				ptype: "fieldinfo",

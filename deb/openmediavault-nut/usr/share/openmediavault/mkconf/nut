@@ -101,7 +101,7 @@ EOF
 	  -o "password = ${OMV_NUT_UPSDUSERS_ADMIN_PASSWORD}" -n \
 	  -o "actions = set" -n \
 	  -o "actions = fsd" -n \
-	  -o "instcmds ${OMV_NUT_UPSDUSERS_ADMIN_INSTCMDS}" -n \
+	  -o "instcmds = ${OMV_NUT_UPSDUSERS_ADMIN_INSTCMDS}" -n \
 	  -n \
 	  -o "[${OMV_NUT_UPSDUSERS_MONITOR_USER}]" -n \
 	  -o "password = ${OMV_NUT_UPSDUSERS_MONITOR_PASSWORD}" -n \

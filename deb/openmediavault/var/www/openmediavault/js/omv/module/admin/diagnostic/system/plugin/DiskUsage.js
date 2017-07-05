@@ -80,7 +80,7 @@ Ext.define("OMV.module.admin.diagnostic.system.plugin.DiskUsage", {
 					var item = record.getData();
 					item.title = item.devicefile;
 					if (false === Ext.isEmpty(item.label)) {
-						item.title = Ext.String.format("{0} [{1}])",
+						item.title = Ext.String.format("{0} [{1}]",
 							item.title, item.label);
 					}
 					if ("/" == item.mountpoint) {

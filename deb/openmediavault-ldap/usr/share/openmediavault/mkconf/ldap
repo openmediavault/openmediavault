@@ -57,7 +57,7 @@ xmlstarlet sel -t \
     -o "pam_password crypt" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_LDAP_PAM_CONFIG}
-
+chmod 600 ${OMV_LDAP_PAM_CONFIG}
 
 xmlstarlet sel -t \
   -m "//services/ldap" \

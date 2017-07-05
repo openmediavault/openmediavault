@@ -1,3 +1,21 @@
+openmediavault-clamav (3.3.3) stable; urgency=low
+
+  * Various UI improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 30 May 2017 20:57:51 +0200
+
+openmediavault-clamav (3.3.2) stable; urgency=low
+
+  * Relocate PID files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 24 May 2017 16:04:03 +0200
+
+openmediavault-clamav (3.3.1) stable; urgency=low
+
+  * Fix bug in database creation script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 23 Apr 2017 22:02:04 +0200
+
 openmediavault-clamav (3.3) stable; urgency=low
 
   * Improve the datamodel to be able to resolve shared folder references.

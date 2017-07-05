@@ -1,16 +1,16 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-nut package.
 # 
 # Translators:
-# kochin <kochinc@outlook.com>, 2013-2014,2016
+# kochin <kochinc@outlook.com>, 2013-2014,2016-2017
 # kochin <kochinc@outlook.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-23 19:15+0200\n"
-"PO-Revision-Date: 2016-11-14 14:26+0000\n"
+"POT-Creation-Date: 2017-05-03 21:34+0200\n"
+"PO-Revision-Date: 2017-06-13 21:49+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/votdev/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -94,13 +94,13 @@ msgid ""
 msgstr "有關如何配置你的 UPS 之詳細訊息，請查看 Network UPS Tools 網站的<a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>文件</a>。"
 
 msgid "UPS"
-msgstr "UPS"
+msgstr "不斷電系統"
 
 msgid "UPS goes on battery"
-msgstr "UPS 開始使用電池供電"
+msgstr "不斷電系統開始使用電池供電"
 
 msgid "UPS reaches low battery"
-msgstr "UPS 達到低電池電量"
+msgstr "不斷電系統電池達到低電量"
 
 msgid "Used for remote authentication."
 msgstr "用於遠端驗證。"

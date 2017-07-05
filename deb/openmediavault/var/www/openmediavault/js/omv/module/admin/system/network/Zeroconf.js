@@ -20,10 +20,61 @@
  */
 // require("js/omv/WorkspaceManager.js")
 // require("js/omv/workspace/grid/Panel.js")
+// require("js/omv/workspace/window/Form.js")
 // require("js/omv/Rpc.js")
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
+
+/**
+ * @class OMV.module.admin.system.network.zeroconf.Service
+ * @derived OMV.workspace.window.Form
+ * @param uuid The UUID of the configuration object.
+ * @param service The name of the service.
+ */
+Ext.define("OMV.module.admin.system.network.zeroconf.Service", {
+	extend: "OMV.workspace.window.Form",
+
+	rpcService: "Zeroconf",
+	rpcGetMethod: "get",
+	rpcSetMethod: "set",
+	title: _("Edit service"),
+	width: 350,
+
+	getFormItems: function() {
+		var me = this;
+		return [{
+			xtype: "textfield",
+			fieldLabel: _("Service"),
+			readOnly: true,
+			submitValue: false,
+			value: me.service
+		},{
+			xtype: "textfield",
+			name: "name",
+			fieldLabel: _("Name")
+		},{
+			xtype: "checkbox",
+			name: "enable",
+			fieldLabel: _("Enable"),
+			checked: false
+		},{
+			xtype: "hidden",
+			name: "uuid",
+			value: me.uuid
+		},{
+			xtype: "hidden",
+			name: "id"
+		}];
+	},
+
+	getRpcGetParams: function() {
+		var me = this;
+		return Ext.apply({}, {
+			uuid: me.uuid
+		});
+	}
+});
 
 /**
  * @class OMV.module.admin.system.network.Zeroconf
@@ -35,51 +86,38 @@ Ext.define("OMV.module.admin.system.network.Zeroconf", {
 		"OMV.Rpc",
 		"OMV.data.Store",
 		"OMV.data.Model",
-		"OMV.data.proxy.Rpc",
-		"Ext.grid.plugin.CellEditing"
+		"OMV.data.proxy.Rpc"
+	],
+	uses: [
+		"OMV.module.admin.system.network.zeroconf.Service"
 	],
 
+	hidePagingToolbar: false,
 	stateful: true,
 	stateId: "9dcb85a4-5cb3-11e2-a2ee-000c29f7c0eb",
 	hideAddButton: true,
-	hideEditButton: true,
 	hideDeleteButton: true,
-	hideApplyButton: false,
-	hideRefreshButton: false,
 	columns: [{
+		xtype: "textcolumn",
 		text: _("Service"),
 		sortable: true,
 		dataIndex: "title",
 		stateId: "title",
 		flex: 1,
-		renderer: function(value, metaData, record, rowIndex,
-		  colIndex, store, view) {
-			return _(value);
-		}
+		translateText: true
 	},{
 		xtype: "textcolumn",
 		text: _("Name"),
 		sortable: true,
 		dataIndex: "name",
 		stateId: "name",
-		flex: 1,
-		editor: {
-			xtype: "textfield",
-			allowBlank: false
-		}
+		flex: 1
 	},{
-		xtype: "checkcolumn",
-		text: _("Enable"),
+		xtype: "enabledcolumn",
+		text: _("Enabled"),
 		groupable: false,
 		dataIndex: "enable",
-		stateId: "enable",
-		align: "center",
-		width: 80,
-		resizable: false
-	}],
-	plugins: [{
-		ptype: "cellediting",
-		clicksToEdit: 1
+		stateId: "enable"
 	}],
 
 	initComponent: function() {
@@ -93,16 +131,15 @@ Ext.define("OMV.module.admin.system.network.Zeroconf", {
 						{ name: "uuid", type: "string" },
 						{ name: "id", type: "string" },
 						{ name: "name", type: "string" },
-						{ name: "title", type: "string" },
+						{ name: "title", type: "string", persist: false },
 						{ name: "enable", type: "boolean" }
 					]
 				}),
 				proxy: {
 					type: "rpc",
-					appendSortParams: false,
 					rpcData: {
 						service: "Zeroconf",
-						method: "get"
+						method: "getList"
 					}
 				},
 				sorters: [{
@@ -114,31 +151,19 @@ Ext.define("OMV.module.admin.system.network.Zeroconf", {
 		me.callParent(arguments);
 	},
 
-	onApplyButton: function() {
+	onEditButton: function() {
 		var me = this;
-		var records = me.store.getRange();
-		var params = [];
-		Ext.Array.each(records, function(record) {
-			params.push({
-				"uuid": record.get("uuid"),
-				"id": record.get("id"),
-				"enable": record.get("enable"),
-				"name": record.get("name")
-			});
-		});
-		// Execute RPC.
-		OMV.Rpc.request({
-			scope: me,
-			callback: function(id, success, response) {
-				this.store.reload();
-			},
-			relayErrors: false,
-			rpcData: {
-				service: "Zeroconf",
-				method: "set",
-				params: params
+		var record = me.getSelected();
+		Ext.create("OMV.module.admin.system.network.zeroconf.Service", {
+			uuid: record.get("uuid"),
+			service: record.get("title"),
+			listeners: {
+				scope: me,
+				submit: function() {
+					this.doReload();
+				}
 			}
-		});
+		}).show();
 	}
 });
 

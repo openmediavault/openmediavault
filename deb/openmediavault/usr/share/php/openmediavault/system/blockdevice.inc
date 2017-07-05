@@ -37,13 +37,16 @@ class BlockDevice implements IBlockDevice {
 
 	/**
 	 * Constructor
-	 * @param deviceFile The device file, e.g. <ul>
-	 * \li /dev/sda2
-	 * \li /dev/sdb
-	 * \li /dev/md1
-	 * \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6
-	 * \li /dev/disk/by-id/wwn-0x5000cca211cc703c-part1
-	 * </ul>
+	 * @param deviceFile The device file, e.g.
+	 *   <ul>
+	 *   \li /dev/sda2
+	 *   \li /dev/sdb
+	 *   \li /dev/md1
+	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6
+	 *   \li /dev/disk/by-id/wwn-0x5000cca211cc703c-part1
+	 *   \li /dev/disk/by-id/md-name-vmpc01:data
+	 *   \li /dev/disk/by-id/md-uuid-75de9de9:6beca92e:8442575c:73eabbc9
+	 *   </ul>
 	 */
 	public function __construct($deviceFile) {
 		if (TRUE === is_devicefile_by_id($deviceFile)) {
@@ -159,9 +162,61 @@ class BlockDevice implements IBlockDevice {
 	}
 
 	/**
-	 * Get the special device file to present in the UI. Defaults
-	 * to the canonical representation of special device file.
-	 * @return Returns the special device file to present in the UI.
+	 * Get the device file by PATH, e.g. <ul>
+	 * \li /dev/disk/by-path/pci-0000:00:17.0-ata-3
+	 * \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
+	 * \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:1:0-part1
+	 * </ul>
+	 * @return The device file (/dev/disk/by-path/xxx) if available,
+	 *   otherwise NULL will be returned.
+	 */
+	public function getDeviceFileByPath() {
+		$result = NULL;
+		// Get all device file symlinks.
+		$symlinks = $this->getDeviceFileSymlinks();
+		foreach ($symlinks as $symlinkk => $symlinkv) {
+			if (TRUE === is_devicefile_by_path($symlinkv)) {
+				$result = $symlinkv;
+				break;
+			}
+		}
+		return $result;
+	}
+
+	/**
+	 * Check whether the device has a /dev/disk/by-path/xxx device path.
+	 * @return Returns TRUE if a disk/by-path device path exists,
+	 *   otherwise FALSE.
+	 */
+	public function hasDeviceFileByPath() {
+		return is_devicefile_by_path($this->getDeviceFileByPath());
+	}
+
+	/**
+	 * Get a predictable device file in the following order:
+	 * <ul>
+	 * \li /dev/disk/by-id/xxx
+	 * \li /dev/disk/by-path/xxx
+	 * \li /dev/xxx
+	 * </ul>
+	 * @return Returns a device file.
+	 */
+	public function getPredictableDeviceFile() {
+		if (TRUE === $this->hasDeviceFileById())
+			return $this->getDeviceFileById();
+		if (TRUE === $this->hasDeviceFileByPath())
+			return $this->getDeviceFileByPath();
+		return $this->getCanonicalDeviceFile();
+	}
+
+	/**
+	 * Get the device file to present in the UI, e.g.:
+	 * <ul>
+	 * \li /dev/disk/by-id/xxx
+	 * \li /dev/disk/by-path/xxx
+	 * \li /dev/xxx
+	 * </ul>
+	 * @return Returns a device file.
 	 */
 	public function getPreferredDeviceFile() {
 		return $this->getCanonicalDeviceFile();

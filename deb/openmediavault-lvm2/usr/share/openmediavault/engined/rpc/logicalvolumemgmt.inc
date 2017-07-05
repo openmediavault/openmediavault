@@ -78,15 +78,15 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			$pv = new \OMV\System\Storage\Lvm\PhysicalVolume($devv);
 			if (!$pv->exists())
 				continue;
-			$result[] = array(
-				"devicefile" => $pv->getDeviceFile(),
+			$result[] = [
+				"devicefile" => $pv->getPreferredDeviceFile(),
 				"free" => $pv->getFree(),
 				"used" => $pv->getUsed(),
 				"size" => $pv->getSize(),
 				"vguuid" => $pv->getVGUuid(),
 				"vgname" => $pv->getVGName(),
 				"description" => $pv->getDescription()
-			);
+			];
 		}
 		return $result;
 	}
@@ -277,8 +277,8 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			$vg = new \OMV\System\Storage\Lvm\VolumeGroup($vgv);
 			if (!$vg->exists())
 				continue;
-			$result[] = array(
-				"devicefile" => $vg->getDeviceFile(),
+			$result[] = [
+				"devicefile" => $vg->getPreferredDeviceFile(),
 				"uuid" => $vg->getUuid(),
 				"name" => $vg->getName(),
 				"free" => $vg->getFree(),
@@ -288,8 +288,9 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 				"extentsize" => $vg->getExtentSize(),
 				"numextents" => $vg->getNumExtents(),
 				"numfreeextents" => $vg->getNumFreeExtents(),
+				"attributes" => $vg->getAttributes(),
 				"description" => $vg->getDescription()
-			);
+			];
 		}
 		return $result;
 	}
@@ -612,11 +613,13 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 			if (FALSE === $lv->exists())
 				continue;
 			$result[] = [
-				"devicefile" => $lv->getDeviceFile(),
+				"devicefile" => $lv->getPreferredDeviceFile(),
 				"uuid" => $lv->getUuid(),
 				"name" => $lv->getName(),
 				"size" => $lv->getSize(),
-				"vgname" => $lv->getVGName()
+				"vgname" => $lv->getVGName(),
+				"attributes" => $lv->getAttributes(),
+				"vgattributes" => $lv->getVGAttributes()
 			];
 		}
 		return $result;
@@ -809,7 +812,8 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params An array containing the following fields:
 	 *   \em devicefile The device file of the logical volume.
 	 *   \em size The size of the logical volume in bytes. This is a string to
-	 *      support volumes > 2GiB on 32bit systems.
+	 *      support volumes > 2GiB on 32bit systems. If this parameter is not
+	 *      set, then the size of the specified \em devicefile is used.
 	 * @param context The context of the caller.
 	 * @return None.
 	 */
@@ -826,13 +830,14 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 		$lv->assertExists();
 		// Create the snapshot.
 		$name = sprintf("%s_snapshot_%s", $lv->getName(), date("Ymd-Hms"));
-		$lv->createSnapshot($name, $params['size']);
+		$size = array_value($params, "size", $lv->getSize());
+		$lv->createSnapshot($name, $size);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_CREATE,
 			"org.openmediavault.conf.system.storage.lvm.logicalvolume", [
 				"name" => $name,
-				"size" => $params['size'],
+				"size" => $size,
 				"vgname" => $lv->getVGName()
 			]);
 	}
