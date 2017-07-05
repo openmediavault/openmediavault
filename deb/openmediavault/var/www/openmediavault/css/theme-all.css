@@ -144,6 +144,14 @@ div#headerrlogo {
 	text-align: center;
 }
 /******************************************************************************/
+/* Windows */
+.omv-window .x-toolbar-footer .x-btn.x-btn-disabled {
+	/* Show the 'not-allowed' cursor for disabled buttons in the footer */
+	/* toolbar. These are for example the 'OK' or 'Cancel' buttons. */
+	cursor: not-allowed;
+	pointer-events: auto;
+}
+/******************************************************************************/
 /* Tooltip - Default */
 .x-tip-default {
 	border-color: #2f343f;

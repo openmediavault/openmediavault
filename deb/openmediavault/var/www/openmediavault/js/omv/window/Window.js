@@ -30,5 +30,7 @@ Ext.define("OMV.window.Window", {
 
 	config: {
 		helpId: null
-	}
+	},
+
+	cls: OMV.baseCSSPrefix + "window"
 });
