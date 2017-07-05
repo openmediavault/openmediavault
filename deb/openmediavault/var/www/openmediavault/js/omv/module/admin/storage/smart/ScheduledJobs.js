@@ -241,15 +241,11 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Jobs", {
 	stateful: true,
 	stateId: "ca86feba-53c1-42b4-8eea-5119f0244fb5",
 	columns: [{
-		xtype: "booleaniconcolumn",
+		xtype: "enabledcolumn",
 		text: _("Enabled"),
 		sortable: true,
 		dataIndex: "enable",
-		stateId: "enable",
-		align: "center",
-		width: 80,
-		resizable: false,
-		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
+		stateId: "enable"
 	},{
 		xtype: "deviceinfocolumn",
 		text: _("Device"),

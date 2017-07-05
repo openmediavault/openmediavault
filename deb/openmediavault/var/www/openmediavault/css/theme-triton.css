@@ -20,6 +20,38 @@
  */
 
 /******************************************************************************/
+/* Corporate colors
+/* default:     #98b7cf
+/* darker:      #829bad
+/* more darker: #6c8191
+/******************************************************************************/
+
+/******************************************************************************/
+/* Miscellaneous */
+.x-body,
+.x-form-item-label-default,
+.x-form-cb-label-default,
+.x-form-text-default,
+.x-grid-item,
+.x-menu-item-text-default,
+.x-panel-body-default,
+.x-panel-header-title-default,
+.x-toolbar-text-default,
+.x-tree-node-text,
+.x-window-body-default {
+	font-weight: 400;
+}
+/******************************************************************************/
+/* Body */
+body > .x-mask {
+	background-color: rgba(47, 52, 63, 0.5);
+}
+/******************************************************************************/
+/* Form fieldset */
+.x-fieldset-header-default > .x-fieldset-header-text {
+	color: #6c8191; /* more darker */
+}
+/******************************************************************************/
 /* Trigger field */
 .x-form-password-trigger:before {
 	content: "\f06e";
@@ -55,6 +87,30 @@
 .x-panel-default {
 	border-color: #98b7cf;
 }
+.x-panel-default-outer-border-l {
+	border-left-color: #98b7cf !important;
+}
+.x-panel-default-outer-border-b {
+	border-bottom-color: #98b7cf !important;
+}
+.x-panel-default-outer-border-trbl {
+	border-color: #98b7cf !important;
+}
+.x-panel-default-outer-border-bl {
+	border-bottom-color: #98b7cf !important;
+	border-left-color: #98b7cf !important;
+}
+.x-panel-default-outer-border-r {
+	border-right-color: #98b7cf !important;
+}
+.x-panel-default-outer-border-rl {
+	border-right-color: #98b7cf !important;
+	border-left-color: #98b7cf !important;
+}
+.x-panel-default-outer-border-rb {
+	border-right-color: #98b7cf !important;
+	border-bottom-color: #98b7cf !important;
+}
 .x-panel-default-outer-border-trl {
 	border-top-color: #98b7cf !important;
 	border-right-color: #98b7cf !important;
@@ -86,14 +142,28 @@
 }
 .x-tree-elbow-plus,
 .x-tree-elbow-end-plus,
+.x-tree-icon,
+.x-tree-icon-parent,
+.x-tree-icon-parent-expanded,
+.x-tree-icon-leaf,
 .x-grid-tree-node-expanded .x-tree-elbow-plus,
 .x-grid-tree-node-expanded .x-tree-elbow-end-plus {
-	color: #98b7cf;
+	color: #000000;
+}
+.x-grid-cell-inner-treecolumn {
+	padding-top: 5px;
+	padding-bottom: 4px;
 }
 /******************************************************************************/
 /* Grid */
 .x-grid-item-focused .x-grid-cell-inner:before {
 	border-color: #98b7cf;
+}
+.x-grid-group-hd-collapsed .x-grid-group-title:before,
+.x-grid-group-hd-collapsible .x-grid-group-title:before {
+	color: #000000;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+	opacity: 0.7;
 }
 /******************************************************************************/
 /* Workspace node tree */
@@ -102,7 +172,6 @@
 	background-color: #ececec; /* gray */
 }
 .x-workspace-node-tree .x-panel-header-default .x-tool-tool-el {
-
 	background-color: #ececec; /* gray */
 }
 .x-workspace-node-tree .x-tool-collapse-left:before {
@@ -146,17 +215,24 @@
 .x-tab-invalid {
 	background-color: #cc3300;
 }
+.x-box-scroller-tab-bar-default {
+	background-color: #829bad; /* darker */
+}
 /******************************************************************************/
 /* Windows */
 .x-window-default {
-	border-color: #88a2b5; /* darker */
+	border-color: #6c8191; /* more darker */
+	border-width: 1px;
+}
+.x-window-body-default {
+	border-color: #829bad !important; /* darker */
 }
 .x-window-header-default {
-	border-color: #88a2b5; /* darker */
-	background-color: #88a2b5; /* darker */
+	border-color: #829bad; /* darker */
+	background-color: #829bad; /* darker */
 }
 .x-window-header-default .x-tool-img {
-	background-color: #88a2b5; /* darker */
+	background-color: #829bad; /* darker */
 }
 /******************************************************************************/
 /* Buttons */
@@ -169,10 +245,11 @@
 	background-color: #98b7cf;
 }
 .x-btn-over.x-btn-default-small {
-	border-color: #88a2b5; /* darker */
-	background-color: #88a2b5; /* darker */
+	border-color: #829bad; /* darker */
+	background-color: #829bad; /* darker */
 }
-.x-btn.x-btn-pressed.x-btn-default-small {
+.x-btn.x-btn-pressed.x-btn-default-small,
+.x-btn.x-btn-disabled.x-btn-default-small {
 	border-color: #6c8191; /* more darker */
 	background-color: #6c8191; /* more darker */
 }
@@ -180,4 +257,28 @@
 /* Checkbox */
 .x-form-checkbox-focus.x-form-checkbox-default {
 	color: #98b7cf;
+}
+.x-form-checkbox-default:before,
+.x-form-cb-checked .x-form-checkbox-default:before {
+	content: none;
+}
+/******************************************************************************/
+/* Combobox */
+.x-boundlist-item-over {
+	background: #98b7cf;
+	border-color: #98b7cf;
+}
+.x-boundlist-selected {
+	background: #829bad; /* darker */
+	border-color: #829bad; /* darker */
+}
+/******************************************************************************/
+/* Menu */
+.x-menu-item-default.x-menu-item-focus,
+.x-menu-item-default.x-menu-item-active {
+	background-color: #98b7cf;
+}
+.x-menu-item-default-menubar.x-menu-item-focus,
+.x-menu-item-default-menubar.x-menu-item-active {
+	background-color: #98b7cf;
 }

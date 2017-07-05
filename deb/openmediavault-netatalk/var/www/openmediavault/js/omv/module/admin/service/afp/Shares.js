@@ -201,15 +201,11 @@ Ext.define("OMV.module.admin.service.afp.Shares", {
 	stateful: true,
 	stateId: "b2878122-c1e7-11e0-9bbc-00221568ca88",
 	columns: [{
-		xtype: "booleaniconcolumn",
+		xtype: "enabledcolumn",
 		text: _("Enabled"),
 		sortable: true,
 		dataIndex: "enable",
-		stateId: "enable",
-		align: "center",
-		width: 80,
-		resizable: false,
-		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
+		stateId: "enable"
 	},{
 		xtype: "textcolumn",
 		text: _("Shared folder"),

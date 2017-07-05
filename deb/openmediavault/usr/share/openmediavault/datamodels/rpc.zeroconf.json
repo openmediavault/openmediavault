@@ -2,27 +2,24 @@
 	"type": "rpc",
 	"id": "rpc.zeroconf.set",
 	"params": {
-		"type": "array",
-		"items": {
-			"type": "object",
-			"properties": {
-				"uuid":{
-					"type": "string",
-					"format": "uuidv4",
-					"required": true
-				},
-				"id":{
-					"type": "string",
-					"required": true
-				},
-				"name":{
-					"type": "string",
-					"required": true
-				},
-				"enable": {
-					"type": "boolean",
-					"required": true
-				}
+		"type": "object",
+		"properties": {
+			"uuid":{
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"id":{
+				"type": "string",
+				"required": true
+			},
+			"name":{
+				"type": "string",
+				"required": true
+			},
+			"enable": {
+				"type": "boolean",
+				"required": true
 			}
 		}
 	}

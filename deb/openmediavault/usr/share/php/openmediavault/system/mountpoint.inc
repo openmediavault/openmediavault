@@ -124,7 +124,7 @@ class MountPoint {
 	 */
 	public function isMountPoint() {
 		$cmdArgs = [];
-		$cmdArgs[] = "-d";
+		$cmdArgs[] = "-q";
 		$cmdArgs[] = escapeshellarg($this->getPath());
 		$cmd = new \OMV\System\Process("mountpoint", $cmdArgs);
 		$cmd->setQuiet(TRUE);
@@ -207,13 +207,18 @@ class MountPoint {
 	 *   \li /dev/md1
 	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6
 	 *   \li /dev/disk/by-id/wwn-0x5000cca211cc703c-part1
+	 *   \li /dev/disk/by-id/md-name-vmpc01:data
+	 *   \li /dev/disk/by-id/md-uuid-75de9de9:6beca92e:8442575c:73eabbc9
 	 *   </ul>
 	 * @return The path where to mount the file system, e.g.
 	 *   /srv/85732966-949a-4d8b-87d7-d7e6681f787e or
-	 *   /srv/_dev_disk_by-id_wwn-0x5000cca211cc703c-part1.
+	 *   /srv/dev-disk-by-id-wwn-0x5000cca211cc703c-part1 or
+	 *   /srv/dev-disk-by-id-md-name-vmpc01-data.
 	 */
 	public static function buildPath($id) {
+		if (TRUE === is_devicefile($id))
+			$id = str_replace(["/", ":"], "-", trim($id, "/"));
 		return build_path(DIRECTORY_SEPARATOR, \OMV\Environment::get(
-		  "OMV_MOUNT_DIR"), str_replace("/", "_", $id));
+			"OMV_MOUNT_DIR"), $id);
 	}
 }

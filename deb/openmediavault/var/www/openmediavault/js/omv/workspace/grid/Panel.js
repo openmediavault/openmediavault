@@ -26,6 +26,7 @@
 // require("js/omv/grid/column/DeviceFiles.js")
 // require("js/omv/grid/column/DeviceInfo.js")
 // require("js/omv/grid/column/Empty.js")
+// require("js/omv/grid/column/Enabled.js")
 // require("js/omv/grid/column/Hyperlink.js")
 // require("js/omv/grid/column/UnixTimestamp.js")
 // require("js/omv/grid/column/WhiteSpace.js")
@@ -100,6 +101,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 		"OMV.grid.column.DeviceFiles",
 		"OMV.grid.column.DeviceInfo",
 		"OMV.grid.column.Empty",
+		"OMV.grid.column.Enabled",
 		"OMV.grid.column.Hyperlink",
 		"OMV.grid.column.UnixTimestamp",
 		"OMV.grid.column.WhiteSpace",
@@ -184,9 +186,6 @@ Ext.define("OMV.workspace.grid.Panel", {
 					return;
 				// Remember the previously selected nodes.
 				me.previousSelected = selModel.getSelection();
-				// Deselect all nodes, otherwise the 'selectionchange' event
-				// will not be fired later.
-				selModel.deselectAll();
 			});
 			me.getView().on("refresh", function(view) {
 				if (Ext.isEmpty(me.previousSelected))
@@ -198,6 +197,9 @@ Ext.define("OMV.workspace.grid.Panel", {
 						select.push(record);
 				});
 				delete me.previousSelected;
+				// Deselect all nodes, otherwise the 'selectionchange' event
+				// will not be fired later.
+				selModel.deselectAll();
 				if (select.length > 0) {
 					selModel.select(select, false, false);
 					selModel.view.focusNode(select[0]);

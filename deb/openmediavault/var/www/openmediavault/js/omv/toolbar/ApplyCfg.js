@@ -155,7 +155,7 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 		var me = this;
 		// If user does not have administrator privileges, then never
 		// show this toolbar.
-		if(!OMV.SessionManager.isAdministrator())
+		if (!OMV.SessionManager.isAdministrator())
 			visible = false;
 		return me.callParent([ visible ]);
 	},
@@ -195,15 +195,19 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 		// Exit immediatelly if configuration is applied at the moment.
 		if (Ext.isDefined(me.inProgress) && (true === me.inProgress))
 			return;
+		// Exit immediatelly if there is a pending RPC request.
+		if (Ext.isDefined(me.pendingRequest) && (-1 !== me.pendingRequest))
+			return;
 		// Execute RPC in background, this means errors will be ignored and
 		// not forwarded to the caller.
-		OMV.Rpc.request({
+		me.pendingRequest = OMV.Rpc.request({
 			scope: me,
 			callback: function(id, success, response) {
-				me.setVisible(response);
+				delete me.pendingRequest;
+				if (true === success) {
+					me.setVisible(response);
+				}
 			},
-			relayErrors: false,
-			showErrors: false,
 			rpcData: {
 				service: "Config",
 				method: "isDirty",

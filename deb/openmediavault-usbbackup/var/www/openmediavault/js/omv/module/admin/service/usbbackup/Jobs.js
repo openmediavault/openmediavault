@@ -50,8 +50,8 @@ Ext.define("OMV.module.admin.service.usbbackup.Job", {
 	plugins: [{
 		ptype: "configobject"
 	}],
-	width: 570,
-	height: 400,
+	width: 600,
+	height: 450,
 
 	/**
 	 * The class constructor.
@@ -160,7 +160,6 @@ Ext.define("OMV.module.admin.service.usbbackup.Job", {
 			name: "usesubdir",
 			fieldLabel: "&nbsp",
 			checked: true,
-			inputValue: 1,
 			boxLabel: _("Synchronise from/to directory on external storage device."),
 			plugins: [{
 				ptype: "fieldinfo",
@@ -276,15 +275,11 @@ Ext.define("OMV.module.admin.service.usbbackup.Jobs", {
 	stateful: true,
 	stateId: "693bddb2-7765-11e2-8c62-00221568ca88",
 	columns: [{
-		xtype: "booleaniconcolumn",
+		xtype: "enabledcolumn",
 		text: _("Enabled"),
 		sortable: true,
 		dataIndex: "enable",
-		stateId: "enable",
-		align: "center",
-		width: 80,
-		resizable: false,
-		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
+		stateId: "enable"
 	},{
 		xtype: "textcolumn",
 		text: _("Shared folder"),

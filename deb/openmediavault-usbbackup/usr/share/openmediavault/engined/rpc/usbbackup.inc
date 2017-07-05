@@ -68,12 +68,11 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 			if (\OMV\System\System::isRootDeviceFile($objectv['devicefile']))
 				continue;
 			// Get the filesystem backend.
-			$fsbMngr->assertBackendExistsByType($objectv['type']);
 			$fsb = $fsbMngr->getBackendByType($objectv['type']);
 			// Skip filesystems that support union mounts, e.g. UnionFS,
 			// aufs or mhddfs. Such filesystems do not have a device file
 			// which is required to write the UDEV rule.
-			if (!$fsb->hasDeviceFile())
+			if (FALSE === $fsb->hasDeviceFile())
 				continue;
 			// Get the filesystem implementation.
 			$fs = $fsb->getImpl($objectv['devicefile']);
@@ -92,7 +91,7 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 			// Prepare result object.
 			$result[] = [
 				"uuid" => $objectv['uuid'],
-				"devicefile" => $fs->getDeviceFileById(),
+				"devicefile" => $fs->getPredictableDeviceFile(),
 				"label" => $objectv['label'],
 				"type" => $objectv['type'],
 				"description" => $sd->getDescription()

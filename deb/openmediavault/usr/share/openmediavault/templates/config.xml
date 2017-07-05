@@ -563,8 +563,14 @@
 					<sendemail>0|1<sendemail>
 					<comment>xxx</comment>
 					<type>local|remote</type>
-					<src>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|xxx</src>
-					<dest>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|xxx</dest>
+					<src>
+						<sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
+						<uri>xxx</uri>
+					</src>
+					<dest>
+						<sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
+						<uri>xxx</uri>
+					</dest>
 					<minute>[00-59|*]</minute>
 					<everynminute>0|1</everynminute>
 					<hour>[00-23|*]</hour>

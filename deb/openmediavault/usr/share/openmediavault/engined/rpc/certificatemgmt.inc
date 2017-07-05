@@ -215,11 +215,11 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs[] = "x509";
 		$cmdArgs[] = "-text";
 		$cmdArgs[] = "-noout";
-		$cmdArgs[] = "-in";
-		$cmdArgs[] = sprintf("%s/certs/%s%s.crt",
-		  \OMV\Environment::get("OMV_SSL_CERTIFICATE_DIR"),
-		  \OMV\Environment::get("OMV_SSL_CERTIFICATE_PREFIX"),
-		  $params['uuid']);
+		$cmdArgs[] = sprintf("-in %s", escapeshellarg(sprintf(
+			"%s/certs/%s%s.crt",
+			\OMV\Environment::get("OMV_SSL_CERTIFICATE_DIR"),
+			\OMV\Environment::get("OMV_SSL_CERTIFICATE_PREFIX"),
+			$params['uuid'])));
 		$cmd = new \OMV\System\Process("openssl", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
@@ -248,71 +248,106 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.certificatemgmt.create");
+		// Make a copy of the openssl.cnf file to append additional
+		// configuration options.
+		$opensslCnfFile = \OMV\Environment::get("OMV_SSL_CONFIG",
+			"/etc/ssl/openssl.cnf");
+		$cnfFile = tempnam(sys_get_temp_dir(), "cnf");
+		if (FALSE === copy($opensslCnfFile, $cnfFile)) {
+			unlink($cnfFile);
+			throw new \OMV\Exception("Failed to copy the file %s.",
+				$opensslCnfFile);
+		}
+		file_put_contents($cnfFile,
+			"\n[ v3_ca_san ]\n".
+			"subjectKeyIdentifier = hash\n".
+			"authorityKeyIdentifier = keyid:always,issuer\n".
+			"basicConstraints = CA:true\n".
+			"subjectAltName = @alt_names\n".
+			"\n[ alt_names ]\n", FILE_APPEND);
+		if (!empty($params['cn'])) {
+			file_put_contents($cnfFile, sprintf(
+				"%s = %s\n",
+				is_ipaddr($params['cn']) ? "IP" : "DNS",
+				$params['cn']),
+				FILE_APPEND);
+		}
+		if (!empty($params['email'])) {
+			file_put_contents($cnfFile, sprintf(
+				"email = %s\n",
+				$params['email']),
+				FILE_APPEND);
+		}
 		// Generate the certificate subject string.
-		$rdnfields = [ "c", "st", "l", "o", "ou", "cn" ];
+		$rdnFields = [ "c", "st", "l", "o", "ou", "cn" ];
 		$subject = "";
-		foreach ($rdnfields as $rdnfieldk => $rdnfieldv) {
-			if (empty($params[$rdnfieldv]))
+		foreach ($rdnFields as $rdnFieldk => $rdnFieldv) {
+			if (empty($params[$rdnFieldv]))
 				continue;
 			// Escape RDN attribute value, see
 			// http://www-03.ibm.com/systems/i/software/ldap/underdn.html
 			// http://msdn.microsoft.com/en-us/library/windows/desktop/aa366101(v=vs.85).aspx
 			$replace = [];
-			foreach (array(',','+','<','>',';','\r','=','#','/') as $v) {
+			foreach ([ ',', '+', '<', '>', ';', '\r', '=', '#', '/' ] as $v) {
 				$replace[$v] = sprintf("\\%s", strtoupper(str_pad(dechex(
 				  ord($v)), 2, "0")));
 			}
-			$params[$rdnfieldv] = strtr($params[$rdnfieldv], $replace);
-			$params[$rdnfieldv] = addcslashes($params[$rdnfieldv], '"\\');
+			$params[$rdnFieldv] = strtr($params[$rdnFieldv], $replace);
+			$params[$rdnFieldv] = addcslashes($params[$rdnFieldv], '"\\');
 			// Append to subject.
-			switch ($rdnfieldv) {
+			switch ($rdnFieldv) {
 			case "cn":
 				// Append the email address.
 				if (!empty($params['email'])) {
-					$params[$rdnfieldv] = sprintf("%s/emailAddress=%s",
-					  $params[$rdnfieldv], $params['email']);
+					$params[$rdnFieldv] = sprintf("%s/emailAddress=%s",
+					  $params[$rdnFieldv], $params['email']);
 				}
 			default:
-				$subject .= sprintf("/%s=%s", strtoupper($rdnfieldv),
-				  $params[$rdnfieldv]);
+				$subject .= sprintf("/%s=%s", strtoupper($rdnFieldv),
+				  $params[$rdnFieldv]);
 			}
 		}
 		// Create the requested certificate.
 		// http://www.zytrax.com/tech/survival/ssl.html
-		$keyfile = tempnam(sys_get_temp_dir(), "cert");
-		$crtfile = tempnam(sys_get_temp_dir(), "cert");
+		$keyFile = tempnam(sys_get_temp_dir(), "key");
+		$crtFile = tempnam(sys_get_temp_dir(), "crt");
 		$cmdArgs = [];
 		$cmdArgs[] = "req";
+		$cmdArgs[] = "-new";
 		$cmdArgs[] = "-x509";
 		$cmdArgs[] = "-nodes";
 		$cmdArgs[] = sprintf("-days %d", $params['days']);
 		$cmdArgs[] = "-sha256";
 		$cmdArgs[] = "-batch";
 		$cmdArgs[] = sprintf("-newkey rsa:%d", $params['size']);
-		$cmdArgs[] = sprintf("-keyout %s", escapeshellarg($keyfile));
-		$cmdArgs[] = sprintf("-out %s", escapeshellarg($crtfile));
+		$cmdArgs[] = sprintf("-keyout %s", escapeshellarg($keyFile));
+		$cmdArgs[] = sprintf("-out %s", escapeshellarg($crtFile));
 		if (!empty($subject))
 			$cmdArgs[] = sprintf("-subj %s", escapeshellarg($subject));
+		$cmdArgs[] = "-extensions v3_ca_san";
+		$cmdArgs[] = sprintf("-config %s", escapeshellarg($cnfFile));
 		$cmd = new \OMV\System\Process("openssl", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->setQuiet(TRUE);
 		$cmd->execute($output, $exitStatus);
 		if (0 !== $exitStatus) {
-			// Unlink the temporary files.
-			unlink($keyfile);
-			unlink($crtfile);
-			throw new \OMV\ExecException($cmd->getCommandLine(), $output);
+			unlink($cnfFile);
+			unlink($keyFile);
+			unlink($crtFile);
+			throw new \OMV\ExecException($cmd->getCommandLine(), $output,
+				$exitStatus);
 		}
 		// Read certificate and key content, then unlink the temporary files.
-		$keydata = file_get_contents($keyfile);
-		$crtdata = file_get_contents($crtfile);
-		unlink($keyfile);
-		unlink($crtfile);
+		$keyData = file_get_contents($keyFile);
+		$crtData = file_get_contents($crtFile);
+		unlink($cnfFile);
+		unlink($keyFile);
+		unlink($crtFile);
 		// Finally import generated certificate.
 		return $this->callMethod("set", [
 			  "uuid" => \OMV\Environment::get("OMV_CONFIGOBJECT_NEW_UUID"),
-			  "certificate" => $crtdata,
-			  "privatekey" => $keydata,
+			  "certificate" => $crtData,
+			  "privatekey" => $keyData,
 			  "comment" => !empty($subject) ? $subject : ""
 		  ], $context);
 	}
@@ -380,11 +415,11 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs[] = sprintf("-f %s", escapeshellarg($file));
 		$cmd = sprintf("export LANG=C; (echo y) | ssh-keygen %s 2>&1",
 		  implode(" ", $cmdArgs));
-		if (0 !== $this->exec($cmd, $output)) {
+		if (0 !== ($exitStatus = $this->exec($cmd, $output))) {
 			// Unlink the temporary files.
 			unlink($file);
 			unlink($file.".pub");
-			throw new \OMV\ExecException($cmd, $output);
+			throw new \OMV\ExecException($cmd, $output, $exitStatus);
 		}
 		// Read certificate and key content, then unlink the temporary files.
 		$privatekey = file_get_contents($file);

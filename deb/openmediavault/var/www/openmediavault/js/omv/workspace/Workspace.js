@@ -91,6 +91,7 @@ Ext.define("OMV.workspace.Workspace", {
 		var me = this;
 		return Ext.create("Ext.Component", {
 			region: "north",
+			cls: Ext.baseCSSPrefix + "workspace-header",
 			autoEl: {
 				tag: "div",
 				html: "<div id='header'><a title='" + OMV.PRODUCT_NAME +
@@ -107,20 +108,29 @@ Ext.define("OMV.workspace.Workspace", {
 	buildTree: function() {
 		var me = this;
 		return me.tp = Ext.create("OMV.workspace.node.tree.Panel", {
-//			plugins: "responsive",
-//			responsiveConfig: {
-				// On tablet/phone/touch devices the tree panel will not
-				// be displayed.
-//				"tablet || phone || touch": {
-//					hidden: true
-//				}
-//			},
+			plugins: "responsive",
+			responsiveConfig: {
+				// On phone/tablet the tree panel will not be displayed.
+				"phone || tablet": {
+					hidden: true
+				},
+				// On touch devices the tree panel is collapsed.
+				touch: {
+					// collapsed: true only work if collapsible
+					// is called
+					collapsible: true,
+					collapsed: true
+				},
+				// On desktop the tree is collapsible.
+				desktop: {
+					collapsible: true
+				}
+			},
 			region: "west",
 			split: true,
 			width: 210,
 			minSize: 150,
 			maxSize: 280,
-			collapsible: true,
 			layout: "fit",
 			border: true,
 			scrollable: true,

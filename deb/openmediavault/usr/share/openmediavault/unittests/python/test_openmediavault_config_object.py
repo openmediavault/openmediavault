@@ -24,11 +24,6 @@ import openmediavault
 import openmediavault.config.object
 
 class ConfigObjectTestCase(unittest.TestCase):
-	def setUp(self):
-		# Tell the database implementation to use the test database.
-		openmediavault.setenv("OMV_CONFIG_FILE", "%s/data/config.xml" %
-			os.getcwd())
-
 	def test_constructor(self):
 		conf_obj = openmediavault.config.Object("conf.service.ftp.share")
 
@@ -41,6 +36,12 @@ class ConfigObjectTestCase(unittest.TestCase):
 			'uuid': 'fa4b1c66-ef79-11e5-87a0-0002b3a176b4',
 			'sharedfolderref': '',
 			'extraoptions': '' })
+
+	def test_empty_objects(self):
+		conf_obj = openmediavault.config.Object("conf.service.rsyncd")
+		self.assertIsInstance(conf_obj.get("modules"), dict)
+		self.assertIsInstance(conf_obj.get("modules.module"), list)
+		self.assertEqual(conf_obj.get("modules.module"), [])
 
 	def test_set_get_1(self):
 		conf_obj = openmediavault.config.Object("conf.service.ftp.share")

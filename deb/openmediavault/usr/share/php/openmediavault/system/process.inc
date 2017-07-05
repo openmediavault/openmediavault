@@ -33,10 +33,10 @@ class Process {
 	private $inputFromFile = FALSE;
 	private $quiet = FALSE;
 	private $background = FALSE;
-	private $env = array(
+	private $env = [
 		"PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin",
 		"LANG=C"
-	);
+	];
 
 	/**
 	 * Constructor

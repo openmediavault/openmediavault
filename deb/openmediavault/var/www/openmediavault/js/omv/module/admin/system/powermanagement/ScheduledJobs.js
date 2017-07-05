@@ -282,15 +282,11 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Jobs", {
 	stateful: true,
 	stateId: "7db7131c-a7ec-4048-88de-606fd587af8e",
 	columns: [{
-		xtype: "booleaniconcolumn",
+		xtype: "enabledcolumn",
 		text: _("Enabled"),
 		sortable: true,
 		dataIndex: "enable",
-		stateId: "enable",
-		align: "center",
-		width: 80,
-		resizable: false,
-		iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-switch"
+		stateId: "enable"
 	},{
 		xtype: "mapcolumn",
 		text: _("Type"),

@@ -29,12 +29,37 @@ require_once("openmediavault/functions.inc");
  */
 class StorageDeviceLvm extends StorageDeviceDM {
 	protected $uuid = "";
-	protected $attr = "";
+	protected $lvAttr = "";
+	protected $vgAttr = "";
 	protected $kernelMajor = "";
 	protected $kernelMinor = "";
 	protected $lvName = "";
 	protected $vgName = "";
 	private $dataCached = FALSE;
+
+	/**
+	 * Constructor
+	 * @param deviceFile Specifies the device file, e.g. /dev/dm-1,
+	 *   /dev/vg0/lv0 or /dev/mapper/vg0-lv0.
+	 */
+	public function __construct($deviceFile) {
+		// Call parent constructor.
+		parent::__construct($deviceFile);
+		// Any devices of the form /dev/dm-n are for internal use only
+		// and should never be used.
+		//
+		// Example:
+		// # lvdisplay --noheadings --separator ... --unit b /dev/dm-0
+		//   Volume group "dm-0" not found
+		//   Skipping volume group dm-0
+		//
+		// Because of that we simply use device files that look like
+		// /dev/mapper/<xyz>.
+		if (1 == preg_match("/^\/dev\/dm-\d+$/", $this->deviceFile)) {
+			if (NULL !== ($name = $this->getDeviceMapperName()))
+				$this->deviceFile = sprintf("/dev/mapper/%s", $name);
+		}
+	}
 
 	/**
 	 * Get the logical volume detailed information.
@@ -46,29 +71,30 @@ class StorageDeviceLvm extends StorageDeviceDM {
 		if (FALSE !== $this->dataCached)
 			return;
 
-		// Parse command output:
-		// VOSP6y-Lw75-pbTs-3v8A-6Qek-XBKJ-Md2G1q|vltest|test|12582912B
 		$cmdArgs = [];
 		$cmdArgs[] = "--noheadings";
 		$cmdArgs[] = "--separator '|'";
 		$cmdArgs[] = "-C";
 		$cmdArgs[] = "-o lv_uuid,lv_name,vg_name,lv_size,lv_attr,".
-		  "lv_kernel_major,lv_kernel_minor";
+		  "lv_kernel_major,lv_kernel_minor,vg_attr";
 		$cmdArgs[] = "--unit b";
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("lvdisplay", $cmdArgs);
 		$cmd->setRedirect2toFile("/dev/null");
 		$cmd->execute($output);
 
+		// Parse command output:
+		// CRMY9K-pnVP-oxNv-bimZ-1WoX-FoAe-yLgGwk|lv01_snapshot_20170412-150418|vg01|569410322432B|swi-aos---|253|1
 		$output = explode("|", trim($output[0]));
 
 		$this->uuid = $output[0];
 		$this->lvName = $output[1];
 		$this->vgName = $output[2];
 		$this->size = substr($output[3], 0, -1);
-		$this->attr = $output[4];
+		$this->lvAttr = $output[4];
 		$this->kernelMajor = intval($output[5]);
 		$this->kernelMinor = intval($output[6]);
+		$this->vgAttr = $output[7];
 
 		// Set flag to mark information has been successfully read.
 		$this->dataCached = TRUE;
@@ -140,6 +166,50 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	public function getUuid() {
 		$this->getData();
 		return $this->uuid;
+	}
+
+	/**
+	 * Get the logical volume attributes.
+	 * @see http://www.unixarena.com/2013/08/redhat-linux-lvm-volume-attributes.html
+	 * @return Returns an array with the attribtes.
+	 */
+	public function getAttributes() {
+		$this->getData();
+		// ToDo: Add all the other attributes on demand.
+		return [
+			"origin" => ("o" == substr($this->lvAttr, 0, 1)),
+			"snapshot" => ("s" == substr($this->lvAttr, 0, 1)),
+			"invalidsnapshot" => ("S" == substr($this->lvAttr, 0, 1)),
+			"mirrored" => ("m" == substr($this->lvAttr, 0, 1)),
+			"virtual" => ("v" == substr($this->lvAttr, 0, 1)),
+			"pvmove" => ("p" == substr($this->lvAttr, 0, 1))
+		];
+	}
+
+	/**
+	 * Get the volume group attributes.
+	 * @see http://www.unixarena.com/2013/08/redhat-linux-lvm-volume-attributes.html
+	 * @return Returns an array with the attribtes.
+	 */
+	public function getVGAttributes() {
+		$this->getData();
+		return [
+			"access" => [
+				"read" => ("r" == substr($this->vgAttr, 0, 1)),
+				"write" => ("w" == substr($this->vgAttr, 0, 1))
+			],
+			"resizeable" => ("z" == substr($this->vgAttr, 1, 1)),
+			"exported" => ("x" == substr($this->vgAttr, 2, 1)),
+			"partial" => ("p" == substr($this->vgAttr, 3, 1)),
+			"allocationpolicy" => [
+				"contiguous" => ("c" == substr($this->vgAttr, 4, 1)),
+				"cling" => ("l" == substr($this->vgAttr, 4, 1)),
+				"normal" => ("n" == substr($this->vgAttr, 4, 1)),
+				"anywhere" => ("a" == substr($this->vgAttr, 4, 1)),
+				"inherited" => ("i" == substr($this->vgAttr, 4, 1)),
+			],
+			"cluster" => ("c" == substr($this->vgAttr, 5, 1)),
+		];
 	}
 
 	/**

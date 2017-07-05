@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Milan Toet <milantoet@gmail.com>, 2012-2014,2016
+# Milan Toet <milantoet@gmail.com>, 2012-2014,2016-2017
 # sebak <seba.kerckhof@gmail.com>, 2012
 # stokerh <stoker.pc@home.nl>, 2012
-# Tim <co_ti@hotmail.com>, 2013-2014,2016
+# Tim <co_ti@hotmail.com>, 2013-2014,2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 06:19+0100\n"
-"PO-Revision-Date: 2016-12-06 05:21+0000\n"
+"POT-Creation-Date: 2017-07-02 15:50+0200\n"
+"PO-Revision-Date: 2017-07-02 13:53+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/votdev/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -129,7 +129,7 @@ msgid "300 minutes"
 msgstr "300 minuten"
 
 msgid "330 minutes"
-msgstr ""
+msgstr "330 minuten"
 
 msgid "4 days"
 msgstr "4 dagen"
@@ -171,7 +171,7 @@ msgid "About"
 msgstr "Over"
 
 msgid "Absolute Path"
-msgstr ""
+msgstr "Absoluut pad"
 
 msgid "Abstract"
 msgstr "Abstractie"
@@ -306,12 +306,6 @@ msgstr "Clienten toestaan om OS/2-stijl uitgebreide attributen op te slaan op ee
 
 msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr "Cliënten toestaan om onderbroken uploads en downloads te hervatten"
-
-msgid "Allow new files"
-msgstr "Nieuwe bestanden toestaan"
-
-msgid "Allow new files to be created."
-msgstr "Het aanmaken van nieuwe bestanden toestaan."
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
@@ -495,9 +489,6 @@ msgstr "Binair"
 msgid "Block layer cache [%s, %s]"
 msgstr "Block layer cache [%s, %s]"
 
-msgid "Blocksize"
-msgstr "Blokgrootte"
-
 msgid "Bolivia"
 msgstr "Bolivia"
 
@@ -542,9 +533,6 @@ msgstr "Burkina Faso"
 
 msgid "Burundi"
 msgstr "Burundi"
-
-msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr "Standaard worden alleen de bestanden die reeds bestaan ​​toegestaan om geüpload te worden."
 
 msgid "CPU usage"
 msgstr "CPU-gebruik"
@@ -836,11 +824,6 @@ msgstr "Bestemming gedeelde map"
 msgid "Detail"
 msgstr "Detail"
 
-msgid ""
-"Determine the default timeout, in microseconds, before the first packet is "
-"retransmitted."
-msgstr "Bepaal de standaard time-out, in microseconden, voordat het eerste pakket is verstuurd."
-
 msgid "Device"
 msgstr "Apparaat"
 
@@ -848,7 +831,7 @@ msgid "Device Mapper %s [%s, %s]"
 msgstr "Apparaatmapper %s [%s, %s]"
 
 msgid "Device Symlinks"
-msgstr ""
+msgstr "Apparaat symlinks"
 
 msgid "Device has a few bad sectors"
 msgstr "Apparaat bevat een aantal slechte sectoren"
@@ -903,6 +886,9 @@ msgstr "Schijfgebruik"
 
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Items {0} - {1} van {2} worden getoond"
+
+msgid "Displaying {0} - {1} of {2}"
+msgstr ""
 
 msgid "Djibouti"
 msgstr "Djibouti"
@@ -1066,6 +1052,9 @@ msgstr "Geplande taak aanpassen"
 msgid "Edit scheduled test"
 msgstr "Geplande test aanpassen"
 
+msgid "Edit service"
+msgstr "Dienst aanpassen"
+
 msgid "Edit share"
 msgstr "Gedeelde bron aanpassen"
 
@@ -1193,6 +1182,9 @@ msgstr "Fout"
 
 msgid "Error #"
 msgstr "Fout #"
+
+msgid "Errors"
+msgstr "Fouten"
 
 msgid "Estonia"
 msgstr "Estland"
@@ -1325,6 +1317,9 @@ msgstr "Firewall"
 
 msgid "Firmware version"
 msgstr "Firmware versie"
+
+msgid "First Page"
+msgstr ""
 
 msgid "Flags"
 msgstr "Vlaggen"
@@ -1768,6 +1763,9 @@ msgstr "Taal"
 msgid "Laos"
 msgstr "Laos"
 
+msgid "Last Page"
+msgstr ""
+
 msgid "Latvia"
 msgstr "Letland"
 
@@ -2060,7 +2058,7 @@ msgid "Mount"
 msgstr "Koppelen"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "Koppelpunt"
 
 msgid "Mounted"
 msgstr "Gekoppeld"
@@ -2116,6 +2114,9 @@ msgstr "Nieuw-Caledonië"
 msgid "New Zealand"
 msgstr "Nieuw-Zeeland"
 
+msgid "Next Page"
+msgstr ""
+
 msgid "Nicaragua"
 msgstr "Nicaragua"
 
@@ -2145,6 +2146,9 @@ msgstr "Geen certificaat vereist"
 
 msgid "No connections"
 msgstr "Geen verbindingen"
+
+msgid "No data to display"
+msgstr ""
 
 msgid "No items to display"
 msgstr "Geen items om weer te geven"
@@ -2268,6 +2272,9 @@ msgstr "Pacifische Eilanden Trust Territorium"
 
 msgid "Package information"
 msgstr "Pakketinformatie"
+
+msgid "Page"
+msgstr ""
 
 msgid "Page not found"
 msgstr "Pagina niet gevonden"
@@ -2415,11 +2422,6 @@ msgid "Please first select a device."
 msgstr "Selecteer eerst een apparaat."
 
 msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr "Controleer of de gedeelde map schrijfrechten heeft indien nieuwe bestanden zijn toegestaan"
-
-msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
 msgstr "Houd er rekening mee dat er geen communicatie met het systeem mogelijk is tijdens deze test."
@@ -2443,9 +2445,6 @@ msgstr "Polen"
 
 msgid "Port"
 msgstr "Poort"
-
-msgid "Port to listen on."
-msgstr "Poort om te beluisteren."
 
 msgid "Portugal"
 msgstr "Portugal"
@@ -2489,6 +2488,9 @@ msgid ""
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
 msgstr "Voorkom dat een schijf een spin-up doet wanner het periodiek wordt aangeroepen.<br/><ul><li>Voer nooit - Poll(check)- uit ondanks de powerstatus. Het kan dan gebeuren dat een schijf de spin-up is de status spin-down geeft.</li><li>Sleep-Check het apparaat tenzij deze zich in SLEEP-modus bevindt.</li><li>Standby - Check het apparaat tenzij het zich in SLEEP of STANDBY-modus bevindt. In deze modi zullen de meeste apparaten niet spinnen, dus als u wilt voorkomen dat schijven spinnen na elke aanroep, dan is dit waarschijnlijk de instelling die u zoekt. </li><li>Idle - Check het apparaat tenzij het zich in SLEEP, STANDBY of IDLE-modus bevindt. In IDLE-modus spinnen de meeste schijven nog, dus dit is waarschijnlijk niet wat u zoekt.</li></ul>"
+
+msgid "Previous Page"
+msgstr ""
 
 msgid "Primary"
 msgstr "Primair"
@@ -2635,7 +2637,7 @@ msgid "Refresh"
 msgstr "Verversen"
 
 msgid "Relative Path"
-msgstr ""
+msgstr "Relatief pad"
 
 msgid "Reload"
 msgstr "Herladen"
@@ -2706,9 +2708,6 @@ msgstr "Uitslag"
 msgid "Resume"
 msgstr "Hervatten"
 
-msgid "Retry timeout"
-msgstr "Time-out tijdens opnieuw proberen"
-
 msgid "Reunion"
 msgstr "Reünie"
 
@@ -2755,7 +2754,7 @@ msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T.-controle moet worden geactiveerd op het geselecteerde apparaat."
 
 msgid "S/N"
-msgstr ""
+msgstr "S/N"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -3141,11 +3140,6 @@ msgid ""
 "disable this option."
 msgstr "Geeft de tijdsduur in seconden aan, tussen het controleren en het bijwerken van het masquerade address door het herleiden van het IP-adres. Stel de waarde op 0 in om deze optie uit te schakelen."
 
-msgid ""
-"Specifies the maximum permitted block size. The permitted range for this "
-"parameter is from 512 to 65464."
-msgstr "Specifieert de maximum toegestaane blokgrootte. Het toegestane bereik voor deze parameter loopt van 512 tot 65464."
-
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "Geeft de tijd weer, in uu:mm:ss, wanneer de uitsluiting opgeheven wordt."
 
@@ -3278,9 +3272,6 @@ msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "TCP-forwarden"
-
-msgid "TFTP"
-msgstr "TFTP"
 
 msgid "Taiwan"
 msgstr "Taiwan"
@@ -4021,6 +4012,9 @@ msgstr "Yemen"
 msgid "Yes"
 msgstr "Ja"
 
+msgid "You need to commit or cancel your changes"
+msgstr "U dient de wijzigingen in te dienen, of te laten vervallen"
+
 msgid "Zambia"
 msgstr "Zambia"
 
@@ -4050,6 +4044,9 @@ msgstr "minuten"
 
 msgid "n/a"
 msgstr "n.v.t."
+
+msgid "of {0}"
+msgstr ""
 
 msgid "old-age"
 msgstr "ouderdomssporen"

@@ -54,6 +54,9 @@ case "$1" in
 		########################################################################
 		# Action to be done depending on the previous version.
 		########################################################################
+		if dpkg --compare-versions "$2" lt-nl "3.1.6"; then
+			omv-mkconf ldap
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

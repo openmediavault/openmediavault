@@ -107,21 +107,13 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// corresponding mount point configuration object. If such object
 			// exists, then check if it is referenced by any other object,
 			// e.g. by a shared folder configuration object.
-			//
-			// Use the device file by default, but ask the backend if the
-			// filesystem supports this. If not, the use the UUID instead.
-			// If the device file is used then FsTab::getByFsName will
-			// add the UUID automatically if the filesystem supports this.
-			$fsId = $fs->getDeviceFile();
-			if (FALSE === $fsb->hasDeviceFile())
-				$fsId = $fs->getUuid();
-			if (FALSE !== ($meObject = \OMV\Rpc\Rpc::call(
-			  "FsTab", "getByFsName", [ "fsname" => $fsId ], $context))) {
+			if (FALSE !== ($meObject = \OMV\Rpc\Rpc::call("FsTab",
+			  "getByFsName", [ "fsname" => $object['devicefile'] ],
+			  $context))) {
 				$db = \OMV\Config\Database::getInstance();
 				$meObject = $db->get("conf.system.filesystem.mountpoint",
 				  $meObject['uuid']);
-				if ($db->isReferenced($meObject))
-					$object['_used'] = TRUE;
+				$object['_used'] = $db->isReferenced($meObject);
 			}
 			// Mark the device where the operating system is installed on
 			// as used and read-only.
@@ -455,6 +447,13 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Get a list of all potential usable devices.
 		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerateUnused()))
 			throw new \OMV\Exception("Failed to get list of unused devices.");
+		// Get a list of all detected filesystems.
+		$filesystems = \OMV\System\Filesystem\Filesystem::getFilesystems();
+		// Get the list of device files that are occupied by a filesystem.
+		$usedDevs = [];
+		foreach ($filesystems as $filesystemk => $filesystemv) {
+			$usedDevs[] = $filesystemv->getParentDeviceFile();
+		}
 		// Prepare the result list.
 		$result = [];
 		foreach ($devs as $devk => $devv) {
@@ -477,8 +476,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				continue;
 */
 			// Does this device already contain a filesystem?
-			if (FALSE !== \OMV\System\Filesystem\Filesystem::hasFileSystem(
-			  $sd->getDeviceFile()))
+			if (in_array($sd->getCanonicalDeviceFile(), $usedDevs))
 				continue;
 			// The device is a potential candidate to create a filesystem
 			// on it.
@@ -520,6 +518,18 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		], $context)) {
 			throw new \OMV\Exception("A mount point already exists for '%s'.",
 			  $sd->getDeviceFile());
+		}
+		// Is the filesystem label unique?
+		if (FALSE === empty($params['label'])) {
+			$filesystems = \OMV\System\Filesystem\Filesystem::getFilesystems();
+			foreach ($filesystems as $filesystemk => $filesystemv) {
+				if (FALSE === $filesystemv->hasLabel())
+				 	continue;
+				if ($filesystemv->getLabel() === $params['label']) {
+					throw new \OMV\Exception("The label '%s' already exists.",
+						$params['label']);
+				}
+			}
 		}
 		// Get the storage device backend of the given device.
 		$sdbMngr = \OMV\System\Storage\Backend\Manager::getInstance();
@@ -688,9 +698,41 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.filesystemmgmt.delete");
 
 		// !!! Note !!!
-		// If the filesystem is missing some of the following code paths
+		// If the file system is missing some of the following code paths
 		// are ignored. In this case only the configuration is modified.
 
+		// Get the file system if available.
+		$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['id']);
+		// Get the mount point configuration object that belongs to
+		// the file system to be deleted.
+		$filter = [
+			"operator" => "stringEquals",
+			"arg0" => "fsname",
+			"arg1" => $params['id']
+		];
+		// If the file system exists, then append additional filters
+		// to be sure to find a mount point configuration object.
+		if (!is_null($fs) && $fs->exists()) {
+			$devs = $fs->getDeviceFileSymlinks();
+			foreach ($devs as $devk => $devv) {
+				$filter = [
+					"operator" => "or",
+					"arg0" => $filter,
+					"arg1" => [
+						"operator" => "stringEquals",
+						"arg0" => "fsname",
+						"arg1" => $devv
+					]
+				];
+			}
+		}
+		try {
+			$db = \OMV\Config\Database::getInstance();
+			$meObject = $db->getByFilter("conf.system.filesystem.mountpoint",
+				$filter, 1);
+		} catch(\Exception $e) {
+			$meObject = NULL;
+		}
 		// Initialize the default notification object.
 		$fsObject = [
 			"devicefile" => is_devicefile($params['id']) ? $params['id'] : "",
@@ -698,37 +740,6 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			"label" => "",
 			"type" => ""
 		];
-		// Get the mount point configuration object that belongs to
-		// the filesystem to be deleted.
-		$db = \OMV\Config\Database::getInstance();
-		try {
-			if (is_devicefile($params['id'])) {
-				// Use the filesystem name to identify the object.
-				$meObject = $db->getByFilter(
-				  "conf.system.filesystem.mountpoint", [
-					  "operator" => "stringEquals",
-					  "arg0" => "fsname",
-					  "arg1" => $params['id']
-				  ], 1);
-			} else {
-				// Use the filesystem UUID to identify the object by its mount
-				// point directory:
-				// /srv/<fsuuid>
-				// /srv/D81A-F053 (VFAT)
-				// /srv/74A225C8A2258F (NTFS)
-				// /srv/9e8aaee0-ab3a-467f-9bdb-7cced3b8afc4 (EXT2/3/4, JFS, XFS)
-				$meObject = $db->getByFilter(
-				  "conf.system.filesystem.mountpoint", [
-					  "operator" => "stringEquals",
-					  "arg0" => "dir",
-					  "arg1" => \OMV\System\MountPoint::buildPath($params['id'])
-				  ], 1);
-			}
-		} catch(\Exception $e) {
-			$meObject = NULL;
-		}
-		// Get the filesystem if available.
-		$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['id']);
 		// Update the notification object.
 		if (!is_null($fs) && $fs->exists()) {
 			$fsObject = [
@@ -743,7 +754,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_PREDELETE,
-		  "org.openmediavault.conf.system.filesystem", $fsObject);
+			"org.openmediavault.conf.system.filesystem", $fsObject);
 		// Delete the associated fstab mount point entry.
 		if (!is_null($meObject)) {
 			// Delete the mount point configuration object. Unmount the
@@ -762,7 +773,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			$fs->remove();
 		// Notify configuration changes.
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  "org.openmediavault.conf.system.filesystem", $fsObject);
+			"org.openmediavault.conf.system.filesystem", $fsObject);
 		// Return the configuration object.
 		return $fsObject;
 	}
@@ -793,34 +804,32 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$fs = $fsb->getImpl($params['id']);
 		if (is_null($fs) || !$fs->exists()) {
 			throw new \OMV\Exception(
-			  "Failed to get the '%s' filesystem implementation or '%s' ".
-			  "does not exist.", $fsb->getType(), $params['id']);
+				"Failed to get the '%s' filesystem implementation or '%s' ".
+				"does not exist.", $fsb->getType(), $params['id']);
 		}
 		// Get the parent storage device containing the filesystem, e.g.
 		// /dev/sdb or /dev/cciss/c0d0.
 		$parentDeviceFile = $fs->getParentDeviceFile();
 		if (FALSE === is_devicefile($parentDeviceFile)) {
 			throw new \OMV\Exception(
-			  "Failed to get parent storage device file from '%s'.",
-			  $fs->getDeviceFile());
+				"Failed to get parent storage device file from '%s'.",
+				$fs->getDeviceFile());
 		}
 		// Get the according storage device object.
 		\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
-		  $parentDeviceFile);
+			$parentDeviceFile);
 		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
-		  $parentDeviceFile);
-		// Get the special device file of the filesystem.
-		// Note, the preferred device file is:
+			$parentDeviceFile);
+		// Get a predictable device file of the filesystem:
 		// - /dev/disk/by-label/xxx
 		// - /dev/disk/by-id/xxx
-		// - /dev/disk/by-uuid/xxx
 		// - /dev/xxx
 		// Do not use the filesystem UUID itself, e.g.:
 		// UUID=448f889a-105b-11e7-a91c-2b545744f57a
 		// This is because this will make problems with LV/BTRFS snapshots
 		// due the fact that they have the same filesystem UUID as their
 		// origin.
-		$fsName = $fs->getPreferredDeviceFile();
+		$fsName = $fs->getPredictableDeviceFile();
 		// Try to obtain the mount point configuration object if this exists.
 		$meObject = \OMV\Rpc\Rpc::call("FsTab", "getByFsName", [
 			"fsname" => $fsName
@@ -832,7 +841,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			if (FALSE === $meObject) {
 				\OMV\Rpc\Rpc::call("FsTab", "set", [
 					"uuid" => \OMV\Environment::get(
-					  "OMV_CONFIGOBJECT_NEW_UUID"),
+						"OMV_CONFIGOBJECT_NEW_UUID"),
 					"fsname" => $fsName,
 					"dir" => \OMV\System\MountPoint::buildPath($fsName),
 					"type" => $fs->getType(),
@@ -901,31 +910,46 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.filesystemmgmt.umount");
 		// Remove fstab entry?
 		if (TRUE === boolvalEx($params['fstab'])) {
-			$db = \OMV\Config\Database::getInstance();
 			// Get the fstab mount point configuration object.
-			if (is_devicefile($params['id'])) {
-				// Use the filesystem name to identify the object.
-				$filter = [
-					"operator" => "stringEquals",
-					"arg0" => "fsname",
-					"arg1" => $params['id']
-				];
-			} else {
-				// Use the filesystem UUID to identify the object by its mount
-				// point directory:
-				// /srv/<fsuuid>
-				// /srv/D81A-F053 (VFAT)
-				// /srv/74A225C8A2258F (NTFS)
-				// /srv/9e8aaee0-ab3a-467f-9bdb-7cced3b8afc4 (EXT2/3/4, JFS, XFS)
-				// /srv/2015-04-25-12-52-13-00 (ISO9660, UDF)
-				$filter = [
-					"operator" => "stringEquals",
-					"arg0" => "dir",
-					"arg1" => \OMV\System\MountPoint::buildPath($params['id'])
-				];
+			$filter = [
+				"operator" => "stringEquals",
+				"arg0" => "fsname",
+				"arg1" => $params['id']
+			];
+			// If the file system exists, then append additional filters
+			// to be sure to find a mount point configuration object.
+			$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['id']);
+			if (!is_null($fs) && $fs->exists()) {
+				// Add all existing filesystem device files.
+				$devs = $fs->getDeviceFileSymlinks();
+				foreach ($devs as $devk => $devv) {
+					$filter = [
+						"operator" => "or",
+						"arg0" => $filter,
+						"arg1" => [
+							"operator" => "stringEquals",
+							"arg0" => "fsname",
+							"arg1" => $devv
+						]
+					];
+				}
+				// To keep backward compatibility we need to search for the
+				// filesystem UUID, too.
+				if (TRUE === $fs->hasUuid()) {
+					$filter = [
+						"operator" => "or",
+						"arg0" => $filter,
+						"arg1" => [
+							"operator" => "stringEquals",
+							"arg0" => "fsname",
+							"arg1" => $fs->getUuid()
+						]
+					];
+				}
 			}
+			$db = \OMV\Config\Database::getInstance();
 			$meObject = $db->getByFilter("conf.system.filesystem.mountpoint",
-			  $filter, 1);
+				$filter, 1);
 			// Delete the mount point configuration object. Unmount the
 			// filesystem and unlink the mount point. Changes to the fstab
 			// module must not be applied immediately.
@@ -961,6 +985,6 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.filesystemmgmt.hasfilesystem");
 		// Check if the given device file contains a filesystem.
 		return (FALSE !== \OMV\System\Filesystem\Filesystem::hasFileSystem(
-		  $params['devicefile']));
+			$params['devicefile']));
 	}
 }

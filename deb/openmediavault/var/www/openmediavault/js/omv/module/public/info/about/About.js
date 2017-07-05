@@ -32,17 +32,17 @@ Ext.define("OMV.module.public.info.about.About", {
 		var me = this;
 		me.html = "<form style='overflow: auto; height: 100%;'>";
 		// Copyright
-		me.html += me.createBox("OpenMediaVault is Copyright © 2009-2017 by Volker Theile (volker.theile@openmediavault.org).<br/>" +
+		me.html += me.createBox("openmediavault is Copyright © 2009-2017 by Volker Theile (volker.theile@openmediavault.org).<br/>" +
 		  "All rights reserved.<br/><br/>" +
-		  "OpenMediaVault is free software: you can redistribute it and/or modify " +
+		  "openmediavault is free software: you can redistribute it and/or modify " +
 		  "it under the terms of the GNU General Public License v3 as published by " +
 		  "the Free Software Foundation.<br/><br/>" +
-		  "OpenMediaVault is distributed in the hope that it will be useful, " +
+		  "openmediavault is distributed in the hope that it will be useful, " +
 		  "but WITHOUT ANY WARRANTY; without even the implied warranty of " +
 		  "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the " +
 		  "GNU General Public License for more details.<br/><br/>" +
 		  "You should have received a copy of the GNU General Public License " +
-		  "along with OpenMediaVault. If not, see &lt;<a href='http://www.gnu.org/licenses' " +
+		  "along with openmediavault. If not, see &lt;<a href='http://www.gnu.org/licenses' " +
 		  "target='_blank'>http://www.gnu.org/licenses</a>&gt;.");
 		// Render list of used software and licenses
 		me.html += me.createBox(me.renderSoftware() + "<br/>" +
@@ -66,6 +66,9 @@ Ext.define("OMV.module.public.info.about.About", {
 		},{
 			name: "PHP",
 			url: "http://www.php.net"
+		},{
+			name: "Python",
+			url: "http://www.python.net"
 		},{
 			name: "xmlstarlet",
 			url: "http://xmlstar.sourceforge.net"
@@ -139,9 +142,6 @@ Ext.define("OMV.module.public.info.about.About", {
 			name: "ntp",
 			url: "http://support.ntp.org"
 		},{
-			name: "scponly",
-			url: "http://sublimation.org/scponly"
-		},{
 			name: "uuid",
 			url: "http://www.ossp.org/pkg/lib/uuid"
 		},{
@@ -153,9 +153,6 @@ Ext.define("OMV.module.public.info.about.About", {
 		},{
 			name: "quota",
 			url: "http://sourceforge.net/projects/linuxquota"
-		},{
-			name: "whiptail",
-			url: "https://fedorahosted.org/newt"
 		}];
 		// Shuffle list of packages.
 		packages.sort(function() {return 0.5 - Math.random()});
@@ -169,7 +166,7 @@ Ext.define("OMV.module.public.info.about.About", {
 			  "style='font-size:{1}px;font-style:normal;'>{2}</a>",
 			  packages[i].url, fontSize, packages[i].name);
 		}
-		return "OpenMediaVault is based upon various free software " +
+		return "openmediavault is based upon various free software " +
 		  "like:<br/><br/><div id='wordcloud'>" + html + "...</div>";
 	},
 
@@ -185,6 +182,9 @@ Ext.define("OMV.module.public.info.about.About", {
 		},{
 			name: "PHP License",
 			url: "licenses/php-3_01.txt",
+		},{
+			name: "Python License",
+			url: "licenses/python.txt",
 		},{
 			name: "IBM Public License",
 			url: "licenses/ibm-public-1_0.txt",

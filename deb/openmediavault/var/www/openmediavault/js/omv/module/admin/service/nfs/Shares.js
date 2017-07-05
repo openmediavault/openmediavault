@@ -45,7 +45,6 @@ Ext.define("OMV.module.admin.service.nfs.Share", {
 	plugins: [{
 		ptype: "configobject"
 	}],
-	height: 280,
 
 	/**
 	 * The class constructor.

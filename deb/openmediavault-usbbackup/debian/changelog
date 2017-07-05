@@ -1,3 +1,22 @@
+openmediavault-usbbackup (3.2.20) stable; urgency=low
+
+  * Various UI improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 30 May 2017 20:59:56 +0200
+
+openmediavault-usbbackup (3.2.19) stable; urgency=low
+
+  * Update locales.
+  * Fix bug "usesubdir: The value '1' is not a boolean".
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 13 May 2017 12:42:36 +0200
+
+openmediavault-usbbackup (3.2.18) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Apr 2017 18:47:01 +0200
+
 openmediavault-usbbackup (3.2.17) stable; urgency=low
 
   * Fix bug caused by erroneous API usage.

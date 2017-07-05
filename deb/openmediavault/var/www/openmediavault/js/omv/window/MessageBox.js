@@ -121,24 +121,29 @@ Ext.define("OMV.window.MessageBox", {
 	 * @param scope (optional) The scope in which the callback is executed.
 	 */
 	error: function(title, error, fn, scope) {
-		if(!Ext.isObject(error)) {
+		var me = this;
+		if (!Ext.isObject(error)) {
 			this.failure(title, error);
 			return;
 		}
-		var me = this, defaultHeight = 120;
+		// Build the details text.
+		var detailsText = "";
+		if (!Ext.isEmpty(error.code))
+			detailsText += _("Error #") + error.code + ":\n";
+		if (!Ext.isEmpty(error.trace))
+			detailsText += error.trace;
+		detailsText = OMV.util.Format.whitespace(detailsText, "pre");
+		// Display the error dialog.
 		var dlg = Ext.create("Ext.Window", {
-			border: false,
 			title: title || _("Error"),
 			modal: true,
 			width: 400,
-			height: defaultHeight,
 			minHeight: 100,
-			plain: true,
+			maxHeight: 600,
 			resizable: true,
 			constrain: true,
 			minimizable: false,
 			maximizable: false,
-			stateful: false,
 			closable: true,
 			layout: {
 				type: "vbox",
@@ -152,29 +157,20 @@ Ext.define("OMV.window.MessageBox", {
 					// Close the dialog.
 					dlg.close();
 					// Execute given callback function.
-					if(Ext.isFunction(fn))
+					if (Ext.isFunction(fn))
 						fn.call(scope || me, me);
 				}
 			},{
 				text: _("Show details"),
-				hidden: Ext.isEmpty(error.code) &&
-				  Ext.isEmpty(error.trace),
+				hidden: Ext.isEmpty(detailsText),
 				handler: function(c, e) {
-					var text = "";
-					if(!Ext.isEmpty(error.code))
-						text += _("Error #") + error.code + ":\n";
-					if(!Ext.isEmpty(error.trace))
-						text += error.trace;
-					details.update(OMV.util.Format.whitespace(text), "pre");
-					if(details.isVisible()) {
+					if (details.isVisible()) {
 						details.hide();
 						c.setText(_("Show details"));
 					} else {
 						details.show();
 						c.setText(_("Hide details"));
 					}
-					// Recalculate dialog height.
-					dlg.setHeight(null);
 				}
 			}],
 			items: [{
@@ -186,30 +182,116 @@ Ext.define("OMV.window.MessageBox", {
 				},
 				items: [{
 					xtype: "component",
-					cls: Ext.baseCSSPrefix + "message-box-icon " +
-					  Ext.baseCSSPrefix + "dlg-icon " + me.ERROR
+					cls: [
+						Ext.baseCSSPrefix + "message-box-icon",
+						Ext.baseCSSPrefix + "dlg-icon",
+						me.ERROR
+					]
 				},{
 					xtype: "container",
 					flex: 1,
 					layout: {
 						type: "vbox",
-                        align: "stretch"
+						align: "stretch"
 					},
 					items: [{
 						xtype: "component",
-						cls: me.baseCls + "-text",
+						cls: [
+							Ext.baseCSSPrefix + "selectable",
+							me.baseCls + "-text"
+						],
 						html: (Ext.isEmpty(error.message) ?
-						  _("An error has occured") :
-						  Ext.util.Format.htmlEncode(error.message))
+							_("An error has occured") :
+							Ext.util.Format.htmlEncode(error.message))
 					}]
 				}]
 			}, details = Ext.create("Ext.panel.Panel", {
+				cls: Ext.baseCSSPrefix + "selectable",
+				border: true,
+				padding: 10,
 				flex: 1,
 				hidden: true,
 				scrollable: true,
-				height: 150
+				height: 175,
+				html: detailsText
 			})]
 		});
+		/*
+		// Display the details in a collapsible panel.
+		var dlg = Ext.create("Ext.Window", {
+			title: title || _("Error"),
+			modal: true,
+			width: 400,
+			minHeight: 100,
+			resizable: true,
+			constrain: true,
+			minimizable: false,
+			maximizable: false,
+			closable: true,
+			layout: {
+				type: "vbox",
+				align: "stretch"
+			},
+			buttonAlign: "center",
+			defaultFocus: 0,
+			buttons: [{
+				text: this.buttonText.ok,
+				handler: function(c, e) {
+					// Close the dialog.
+					dlg.close();
+					// Execute given callback function.
+					if (Ext.isFunction(fn))
+						fn.call(scope || me, me);
+				}
+			}],
+			items: [{
+				flex: 1,
+				layout: "hbox",
+				padding: 10,
+				style: {
+					overflow: "hidden"
+				},
+				items: [{
+					xtype: "component",
+					cls: [
+						Ext.baseCSSPrefix + "message-box-icon",
+						Ext.baseCSSPrefix + "dlg-icon",
+						me.ERROR
+					]
+				},{
+					xtype: "container",
+					flex: 1,
+					scrollable: true,
+					layout: {
+						type: "vbox",
+						align: "stretch"
+					},
+					items: [{
+						xtype: "component",
+						cls: [
+							Ext.baseCSSPrefix + "selectable",
+							me.baseCls + "-text"
+						],
+						html: (Ext.isEmpty(error.message) ?
+							_("An error has occured") :
+							Ext.util.Format.htmlEncode(error.message))
+					}]
+				}]
+			},{
+				xtype: "panel",
+				title: _("Details"),
+				cls: Ext.baseCSSPrefix + "selectable",
+				flex: 1,
+				animCollapse: false,
+				titleCollapse: true,
+				collapsible: true,
+				collapsed: true,
+				scrollable: true,
+				hidden: Ext.isEmpty(detailsText),
+				html: detailsText
+			}]
+		});
+		*/
 		return dlg.show();
 	},
 

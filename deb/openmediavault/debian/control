@@ -24,14 +24,14 @@ Depends: ${perl:Depends}, libjs-extjs6, php-fpm, libpam-modules, php-json,
  python3-apt, pm-utils, wpasupplicant, systemd, systemd-sysv, btrfs-progs,
  samba-vfs-modules, pciutils, python3-pyudev, python3-natsort, jq, ntp,
  python3-netifaces, udev, apt-transport-https, python3-lxml, ${misc:Depends}
-Description: Open network attached storage solution
- OpenMediaVault is a small and simple to use network attached storage system with
- a smart WebGUI.
+Description: openmediavault - The open network attached storage solution
+ openmediavault is a small and simple to use network attached storage system
+ with a smart WebGUI.
 
 Package: openmediavault-installer
 Package-Type: udeb
 Architecture: all
 Section: debian-installer
 Depends: ${misc:Depends}, partman-base, finish-install
-Description: OpenMediaVault scripts, for debian-installer
+Description: openmediavault scripts for debian-installer
  This package contains scripts that are for use in debian-installer.

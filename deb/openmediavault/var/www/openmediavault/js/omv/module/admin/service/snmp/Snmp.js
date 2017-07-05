@@ -111,7 +111,6 @@ Ext.define("OMV.module.admin.service.snmp.Settings", {
 				xtype: "textfield",
 				name: "syslocation",
 				fieldLabel: _("Location"),
-				allowBlank: false,
 				plugins: [{
 					ptype: "fieldinfo",
 					text: _("Location information, e.g. physical location of this system.")
@@ -120,7 +119,6 @@ Ext.define("OMV.module.admin.service.snmp.Settings", {
 				xtype: "textfield",
 				name: "syscontact",
 				fieldLabel: _("Contact"),
-				allowBlank: false,
 				plugins: [{
 					ptype: "fieldinfo",
 					text: _("Contact information, e.g. name or email address of the person responsible for this system.")

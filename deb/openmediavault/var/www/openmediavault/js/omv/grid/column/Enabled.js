@@ -1,4 +1,3 @@
-<?php
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,33 +18,18 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-class OMVModulePhp5fpm extends \OMV\Engine\Module\ServiceAbstract {
-	/**
-	 * Get the module name.
-	 */
-	public function getName() {
-		return "php5fpm";
-	}
+// require("js/omv/grid/column/BooleanIcon.js")
 
-	/**
-	 * Generate the configuration.
-	 */
-	public function applyConfig() {
-		// Build the configuration.
-		$cmd = new \OMV\System\Process("omv-mkconf", "php5fpm");
-		$cmd->setRedirect2to1();
-		$cmd->execute();
-		// Test the new configuration.
-		$cmd = new \OMV\System\Process("php5-fpm", "-t");
-		$cmd->setRedirect2to1();
-		$cmd->execute();
-	}
+/**
+ * @ingroup webgui
+ * @class OMV.grid.column.Enabled
+ * @derived OMV.grid.column.BooleanIcon
+ */
+Ext.define("OMV.grid.column.Enabled", {
+	extend: "OMV.grid.column.BooleanIcon",
+	alias: [ "widget.enabledcolumn" ],
 
-	/**
-	 * Start the managed service.
-	 */
-	public function startService() {
-		$systemCtl = new \OMV\System\SystemCtl("php5-fpm");
-		$systemCtl->reload();
-	}
-}
+	iconCls: Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-enabled",
+	resizable: false,
+	width: 80
+});

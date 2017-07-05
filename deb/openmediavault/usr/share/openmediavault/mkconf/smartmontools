@@ -80,7 +80,7 @@ xmlstarlet sel -t \
 		  -v "concat(' -n ',powermode,',q')" \
 		-b \
 		-m "//services/smart/scheduledtests/job[devicefile=//services/smart/monitor/device[uuid='${uuid}']/devicefile][enable='1']" \
-		  -i "position() = 1" -o " -s " -b \
+		  -i "position() = 1" -o " \\" -n -o "  -s " -b \
 		  -i "last() > 1 and position() = 1" -o "(" -b \
 		  -i "position() > 1" -o "|" -b \
 		  -v "type" \
@@ -100,7 +100,8 @@ xmlstarlet sel -t \
 		-b \
 		-m "//system/email" \
 		  -i "enable[. = '1'] and //system/notification/notifications/notification[id='smartmontools'][enable = '1']" \
-			-v "concat(' -m ',primaryemail)" \
+			-o " \\" -n \
+			-v "concat('  -m ',primaryemail)" \
 			-i "string-length(secondaryemail) > 0" \
 			  -v "concat(',',secondaryemail)" \
 			-b \

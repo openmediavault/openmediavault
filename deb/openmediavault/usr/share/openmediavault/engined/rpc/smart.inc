@@ -295,16 +295,13 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		  $params['devicefile']);
 		// Ensure that the device has S.M.A.R.T. support.
 		$sd->assertHasSmartSupport();
-		// Try to get a /dev/disk/by-id device file.
-		if (TRUE === $sd->hasDeviceFileById())
-			$params['devicefile'] = $sd->getDeviceFileById();
 		// Prepare the configuration data.
 		$object = new \OMV\Config\ConfigObject(
 		  "conf.service.smartmontools.device");
 		$object->setAssoc([
 			"uuid" => $params['uuid'],
 			"enable" => $params['enable'],
-			"devicefile" => $params['devicefile'],
+			"devicefile" => $sd->getPredictableDeviceFile(),
 			"devicetype" => $sd->getSmartDeviceType()
 		]);
 		// Set the configuration object.
@@ -516,9 +513,8 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		  $params['devicefile']);
 		// Ensure that the device has S.M.A.R.T. support.
 		$sd->assertHasSmartSupport();
-		// Try to get a /dev/disk/by-id device file.
-		if (TRUE === $sd->hasDeviceFileById())
-			$params['devicefile'] = $sd->getDeviceFileById();
+		// Use a predictable device file.
+		$params['devicefile'] = $sd->getPredictableDeviceFile();
 		// Prepare the configuration data.
 		$object = new \OMV\Config\ConfigObject(
 		  "conf.service.smartmontools.job");

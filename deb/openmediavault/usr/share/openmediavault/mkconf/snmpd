@@ -78,8 +78,8 @@ mkconf() {
 		  -v "concat('access MyROGroup \"\" usm ',securitylevel,' exact all none none')" -n \
 	  -b \
 	  -v "concat('sysName ',//system/network/dns/hostname)" -n \
-	  -v "concat('sysLocation ',syslocation)" -n \
-	  -v "concat('sysContact ',syscontact)" -n \
+	  -i "string-length(syslocation) > 0" -v "concat('sysLocation ',syslocation)" -n -b \
+	  -i "string-length(syscontact) > 0" -v "concat('sysContact ',syscontact)" -n -b \
 	  -i "trap/enable[. = '1']" \
 		  -v "concat('trapcommunity ',trap/community)" -n \
 		  -v "concat('trapsink ',trap/host,' ',trap/community,' ',trap/port)" -n \

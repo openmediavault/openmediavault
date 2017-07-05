@@ -8,7 +8,7 @@
 # mattjes04 <mattjes04@googlemail.com>, 2013
 # mattjes04 <mattjes04@googlemail.com>, 2012
 # Stephan Steiner, 2014
-# Volker <votdev@gmx.de>, 2013-2016
+# Volker <votdev@gmx.de>, 2013-2017
 # Volker <votdev@gmx.de>, 2012
 # Volker <votdev@gmx.de>, 2012
 # warhog <warhog@gmx.de>, 2013
@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 06:19+0100\n"
-"PO-Revision-Date: 2016-12-12 23:52+0000\n"
+"POT-Creation-Date: 2017-07-02 15:50+0200\n"
+"PO-Revision-Date: 2017-07-02 13:58+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -313,12 +313,6 @@ msgstr "Erlaube Clients erweiterte OS/2 Attribute auf der Freigabe zu speichern.
 msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr "Erlaube Clients unterbrochene Up- und Downloads fortzusetzen"
 
-msgid "Allow new files"
-msgstr "Neue Dateien zulassen"
-
-msgid "Allow new files to be created."
-msgstr "Erlaube es neue Dateien anzulegen."
-
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Erlaube diesem Server sich selbst als Zeitserver für Windows Clients bekannt zu machen"
@@ -501,9 +495,6 @@ msgstr "Binär"
 msgid "Block layer cache [%s, %s]"
 msgstr "Block layer cache [%s, %s]"
 
-msgid "Blocksize"
-msgstr "Blockgröße"
-
 msgid "Bolivia"
 msgstr "Bolivien"
 
@@ -548,9 +539,6 @@ msgstr "Burkina Faso"
 
 msgid "Burundi"
 msgstr "Burundi"
-
-msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr "Standardmäßig dürfen nur Dateien die schon existieren hochgeladen werden."
 
 msgid "CPU usage"
 msgstr "CPU Auslastung"
@@ -842,11 +830,6 @@ msgstr "Ziel-Freigabe"
 msgid "Detail"
 msgstr "Detail"
 
-msgid ""
-"Determine the default timeout, in microseconds, before the first packet is "
-"retransmitted."
-msgstr "Legt die Standard-Zeitüberschreitung fest bevor das erste Paket erneut gesendet wird."
-
 msgid "Device"
 msgstr "Laufwerk"
 
@@ -908,6 +891,9 @@ msgid "Disk usage"
 msgstr "Plattenbelegung"
 
 msgid "Displaying items {0} - {1} of {2}"
+msgstr "{0} - {1} von {2} angezeigt"
+
+msgid "Displaying {0} - {1} of {2}"
 msgstr "{0} - {1} von {2} angezeigt"
 
 msgid "Djibouti"
@@ -1072,6 +1058,9 @@ msgstr "Geplante Aufgabe bearbeiten"
 msgid "Edit scheduled test"
 msgstr "Geplanten Test bearbeiten"
 
+msgid "Edit service"
+msgstr "Dienst bearbeiten"
+
 msgid "Edit share"
 msgstr "Freigabe bearbeiten"
 
@@ -1199,6 +1188,9 @@ msgstr "Fehler"
 
 msgid "Error #"
 msgstr "Fehler #"
+
+msgid "Errors"
+msgstr "Fehler"
 
 msgid "Estonia"
 msgstr "Estland"
@@ -1331,6 +1323,9 @@ msgstr "Firewall"
 
 msgid "Firmware version"
 msgstr "Firmware Version"
+
+msgid "First Page"
+msgstr "Erste Seite"
 
 msgid "Flags"
 msgstr "Flags"
@@ -1774,6 +1769,9 @@ msgstr "Sprache"
 msgid "Laos"
 msgstr "Laos"
 
+msgid "Last Page"
+msgstr "Letzte Seite"
+
 msgid "Latvia"
 msgstr "Lettland"
 
@@ -2122,6 +2120,9 @@ msgstr "Neukaledonien"
 msgid "New Zealand"
 msgstr "Neuseeland"
 
+msgid "Next Page"
+msgstr "Nächste Seite"
+
 msgid "Nicaragua"
 msgstr "Nicaragua"
 
@@ -2151,6 +2152,9 @@ msgstr "Keine Zertifikat-Anforderung"
 
 msgid "No connections"
 msgstr "Keine Verbindungen"
+
+msgid "No data to display"
+msgstr "Keine Daten zum Anzeigen"
 
 msgid "No items to display"
 msgstr "Keine Einträge zum Anzeigen"
@@ -2274,6 +2278,9 @@ msgstr "Treuhandgebiet Pazifische Inseln"
 
 msgid "Package information"
 msgstr "Paketinformationen"
+
+msgid "Page"
+msgstr "Seite"
 
 msgid "Page not found"
 msgstr "Seite nicht gefunden"
@@ -2421,11 +2428,6 @@ msgid "Please first select a device."
 msgstr "Bitte wählen Sie zuerst ein Gerät."
 
 msgid ""
-"Please make sure that the shared folder is publicly writable if new files "
-"are allowed."
-msgstr "Bitte stellen Sie sicher dass der freigegebene Ordner öffentlich beschreibbar ist wenn neue Dateien erlaubt sind."
-
-msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
 msgstr "Beachten Sie das währen dem Test keine Kommunikation mit dem System möglich ist."
@@ -2449,9 +2451,6 @@ msgstr "Polen"
 
 msgid "Port"
 msgstr "Port"
-
-msgid "Port to listen on."
-msgstr "Port auf dem gelauscht wird."
 
 msgid "Portugal"
 msgstr "Portugal"
@@ -2495,6 +2494,9 @@ msgid ""
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
 msgstr "Verhindert den Spin-Up einer Platte wenn S.M.A.R.T. Daten periodisch geholt werden.<br/><ul><li>Nie - Pollen (Prüfen) unabhängig vom Power Mode erlauben. Falls die Platte im Spin-Down Modus ist wird ein Spin-Up durchgeführt.</li><li>Schlafen - Prüfen, es sei denn das Laufwerk ist im SLEEP Modus.</li><li>Bereitschaft - Prüfen, es sei denn das Laufwerk ist im SLEEP oder BEREITSCHAFT Modus. Damit die sich in diesen Modi meist nicht drehenden Platten nicht bei jeder Abfrage aufwachen, ist dies die beste Einstellung.</li><li>Idle - Prüfen, es sei denn das Laufwerk ist im SLEEP, BEREITSCHAFT oder IDLE Modus. Im IDLE Modus drehen sich die meisten Platten noch, deshalb wird diese Einstellung nicht empfohlen.</li></ul>"
+
+msgid "Previous Page"
+msgstr "Vorherige Seite"
 
 msgid "Primary"
 msgstr "Primär"
@@ -2711,9 +2713,6 @@ msgstr "Ergebnis"
 
 msgid "Resume"
 msgstr "Fortsetzen"
-
-msgid "Retry timeout"
-msgstr "Zeitspanne bis Neuversuch"
 
 msgid "Reunion"
 msgstr "Wiedervereinigung"
@@ -3147,11 +3146,6 @@ msgid ""
 "disable this option."
 msgstr "Gibt die Zeit in Sekunden an zwischen dem Prüfen und Aktualisieren der Masquerade Adresse durch Auflösen der IP-Adresse. Setzen Sie diesen Wert auf 0, um diese Option zu deaktivieren."
 
-msgid ""
-"Specifies the maximum permitted block size. The permitted range for this "
-"parameter is from 512 to 65464."
-msgstr "Legt die maximal zulässige Blocksize fest. Der zugelassene Bereich für diesen Parameter ist zwischen 512 und 65464."
-
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "Legt die Zeit in hh:mm:ss fest, nach welcher der Ban verfällt."
 
@@ -3284,9 +3278,6 @@ msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "TCP Weiterleitung"
-
-msgid "TFTP"
-msgstr "TFTP"
 
 msgid "Taiwan"
 msgstr "Taiwan"
@@ -4027,6 +4018,9 @@ msgstr "Jemen"
 msgid "Yes"
 msgstr "Ja"
 
+msgid "You need to commit or cancel your changes"
+msgstr "Sie müssen Ihre Änderungen übernehmen oder wiederrufen"
+
 msgid "Zambia"
 msgstr "Sambia"
 
@@ -4056,6 +4050,9 @@ msgstr "Minuten"
 
 msgid "n/a"
 msgstr "N/V"
+
+msgid "of {0}"
+msgstr "von {0}"
 
 msgid "old-age"
 msgstr "Alterserscheinungen"

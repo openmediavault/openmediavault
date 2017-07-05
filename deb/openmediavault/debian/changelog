@@ -17,6 +17,130 @@ openmediavault (4.0) stable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 22 Feb 2017 13:28:40 +0100
 
+openmediavault (3.0.82) stable; urgency=low
+
+  * Update locales.
+  * Various improvements.
+  * Make SNMP location and contact fields optional.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 26 Jun 2017 22:44:51 +0200
+
+openmediavault (3.0.81) stable; urgency=low
+
+  * Update locales.
+  * Various improvements.
+  * Fix XSS vulnerability JVN#73173030.
+  * Make sure a label is unique when creating a filesystem.
+  * Improve polling RPCs. Do not call them before the previous is finished.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 21 Jun 2017 17:45:52 +0200
+
+openmediavault (3.0.80) stable; urgency=low
+
+  * Update locales.
+  * Fix bug in shutdown page.
+  * Improve PHP class \OMV\System\SystemCtl.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 12 Jun 2017 14:20:48 +0200
+
+openmediavault (3.0.79) stable; urgency=low
+
+  * Various improvements.
+  * Mantis 0001754: Add SAN (Subject Alternative Name) to self-signed SSL
+    certificates.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 06 Jun 2017 23:28:11 +0200
+
+openmediavault (3.0.78) stable; urgency=low
+
+  * Introduce OMV.grid.column.Enabled UI control.
+  * Mantis 0001755: Outdated configuration of rsyslog.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 30 May 2017 20:56:26 +0200
+
+openmediavault (3.0.77) stable; urgency=low
+
+  * Improve postfix configuration.
+  * Improve rsync jobs. Check if the source mount point exists.
+  * Mantis 0001683: Change btrfs-tools dependency to btrfs-tools | btrfs-progs.
+  * Mantis 0001742: Focused line twitches when "File systems" page is
+    dynamically refreshing.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 16 May 2017 13:20:28 +0200
+
+openmediavault (3.0.76) stable; urgency=low
+
+  * Various API and UI improvements.
+  * Add support to configure the WebUI theme via environment variable. Add
+    OMV_WEBUI_THEME=(triton|gray) to /etc/default/openmediavault to switch
+    the default theme.
+  * Mantis 0001736: Error when unmounting filesystem (legacy mount point).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 12 May 2017 00:36:54 +0200
+
+openmediavault (3.0.75.1) stable; urgency=low
+
+  * Fix bug in debian/openmediavault.postinst script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 11 May 2017 23:55:17 +0200
+
+openmediavault (3.0.75) stable; urgency=low
+
+  * Upgrade WebUI to Sencha ExtJS6 and introduce a new UI theme. The WebUI can
+    be customized via /var/www/openmediavault/css/theme-custom.css.
+  * Fix bug reading /var/lib/openmediavault/dirtymodules.json.
+  * Mantis 0001735: smartd refuses to monitor devices due to exceeding
+    maximum line length.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 05 May 2017 00:35:22 +0200
+
+openmediavault (3.0.74) stable; urgency=low
+
+  * Various API and UI improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 30 Apr 2017 17:34:07 +0200
+
+openmediavault (3.0.73) stable; urgency=low
+
+  * Update locales.
+  * Enable mounting of filesystems without an UUID.
+  * Mantis 0001729: Unable to stop rsync job once it has begun.
+    This issue relates to all jobs that are started via WebUI.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Apr 2017 23:10:04 +0200
+
+openmediavault (3.0.72) stable; urgency=low
+
+  * Various bug fixes and improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 20 Apr 2017 23:13:33 +0200
+
+openmediavault (3.0.71) stable; urgency=low
+
+  * Update locales.
+  * Various bug fixes and improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 20 Apr 2017 21:35:11 +0200
+
+openmediavault (3.0.70) stable; urgency=low
+
+  * Fix bug in omv-firstaid command 'Clear local upload package repository'.
+  * Fix bug in the file system references detection.
+  * Set the default CPU frequency scaling governor to 'conservative' for
+    AMD64/i386 systems and to 'ondemand' for others. Based on suggestions
+    mentioned in Mantis 0001718.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 03 Apr 2017 17:39:59 +0200
+
+openmediavault (3.0.69) stable; urgency=low
+
+  * Update locales.
+  * Display short device names, e.g. /dev/sdX, in the UI, but use predictable
+    device files in the backend, database and config files.
+  * Fix issues related to new mount point schema.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 31 Mar 2017 20:31:36 +0200
+
 openmediavault (3.0.68) stable; urgency=low
 
   * Various bug fixes and improvements.

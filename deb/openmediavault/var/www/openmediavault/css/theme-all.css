@@ -20,6 +20,13 @@
  */
 
 /******************************************************************************/
+/* Corporate colors
+/* default:     #98b7cf
+/* darker:      #829bad
+/* more darker: #6c8191
+/******************************************************************************/
+
+/******************************************************************************/
 /* Common pages                                                               */
 /******************************************************************************/
 .login-page .product-logo,
@@ -99,7 +106,7 @@
 /* Workspace page                                                             */
 /******************************************************************************/
 a {
-	color: #7F9ABE;
+	color: #6c8191; /* more darker */
 }
 div#header {
 	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
@@ -139,8 +146,8 @@ div#headerrlogo {
 /******************************************************************************/
 /* Tooltip - Default */
 .x-tip-default {
-	border-color: #333;
-	background-color: #333;
+	border-color: #2f343f;
+	background-color: #2f343f;
 	box-shadow: none !important;
 }
 .x-tip-body-default {
@@ -161,6 +168,8 @@ div#headerrlogo {
 	color: #000;
 	background-image: url("../images/exclamation.png");
 	background-image: url("../images/exclamation.svg"), none;
+	background-position: 3px center;
+	padding: 6px 3px 0px 25px;
 }
 /* Tip toolbar */
 .x-toolbar-tip {
@@ -174,9 +183,12 @@ div#headerrlogo {
 }
 /******************************************************************************/
 /* Loadmask */
+.x-mask.x-focus {
+	border-color: #98b7cf;
+}
 .x-mask-msg {
 	padding: none;
-	background: #333;
+	background: #2f343f;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	-ms-border-radius: 4px;
@@ -184,13 +196,13 @@ div#headerrlogo {
 	border-radius: 4px;
 	border-style: solid;
 	border-width: 1px;
-	border-color: #333;
+	border-color: #2f343f;
 }
 .x-mask-msg-inner {
 	padding: 0 5px;
 	border-style: solid;
 	border-width: 0px;
-	background-color: #333;
+	background-color: #2f343f;
 	color: #fff;
 }
 .x-mask-msg-text {
@@ -289,12 +301,14 @@ div#headerrlogo {
 	background-image: url("../images/led_blue.png");
 	background-image: url("../images/led_blue.svg"), none;
 }
+.x-grid-cell-booleaniconcolumn-enabled-false,
 .x-grid-cell-booleaniconcolumn-led-false,
 .x-grid-cell-booleaniconcolumn-led-gray,
 .x-grid-cell-iconcolumn-led-gray {
 	background-image: url("../images/led_gray.png");
 	background-image: url("../images/led_gray.svg"), none;
 }
+.x-grid-cell-booleaniconcolumn-enabled-true,
 .x-grid-cell-booleaniconcolumn-led-true,
 .x-grid-cell-booleaniconcolumn-led-green,
 .x-grid-cell-iconcolumn-led-green {
@@ -344,6 +358,9 @@ div#headerrlogo {
 .x-grid-checkcolumn-cell-inner :focus {
 	outline: 0px;
 }
+.x-grid-cell.x-selmodel-column {
+	vertical-align: middle;
+}
 /******************************************************************************/
 /* Button */
 .x-btn-icon-el {
@@ -352,6 +369,37 @@ div#headerrlogo {
 }
 .x-btn-icon-16x16 {
 	background-size: 16px 16px;
+}
+/******************************************************************************/
+/* Checkbox */
+.x-form-cb-default {
+	margin-top: 8px;
+}
+.x-form-checkbox-default,
+.x-form-radio-default {
+	width: 32px;
+	height: 16px;
+}
+.x-form-cb-label-default.x-form-cb-label-after {
+	padding-left: 37px;
+}
+.x-form-checkbox-default:before,
+.x-form-cb-checked .x-form-checkbox-default:before {
+	content: none;
+}
+.x-form-cb-checked .x-form-checkbox-default {
+	background-position: left;
+	background-image: url("../images/switch_on.png");
+	background-image: url("../images/switch_on.svg"), none;
+}
+.x-form-checkbox-default {
+	background-position: left;
+	background-image: url("../images/switch_off.png");
+	background-image: url("../images/switch_off.svg"), none;
+}
+.x-form-checkbox-focus.x-form-checkbox-default,
+.x-form-cb-checked .x-form-checkbox-focus.x-form-checkbox-default {
+	background-position: left;
 }
 /******************************************************************************/
 /* Tabs */
@@ -374,7 +422,7 @@ div#headerrlogo {
 	border-width: 0px; /* Flat design */
 }
 .x-progress-default .x-progress-bar-default {
-	background-color: #98b7cf; /* Cooperate color */
+	background-color: #4cd964; /* Green */
 	background-image: none; /* Flat design */
 }
 .x-progress-warning .x-progress-bar-default {
@@ -388,6 +436,10 @@ div#headerrlogo {
 }
 .x-menu-item-icon-16x16 {
 	background-size: 16px 16px;
+}
+/******************************************************************************/
+/* Workspace header */
+.x-workspace-header {
 }
 /******************************************************************************/
 /* Workspace navigation toolbar */
@@ -518,4 +570,15 @@ div#headerrlogo {
 	border: 0 none;
 	font-size: 11px;
 	margin: 1px 1px 1px 1px;
+}
+/******************************************************************************/
+/* Bugfixes/Workarounds
+/******************************************************************************/
+/* Fix Chrome 56 render bug (EXTJS-23628) */
+/* https://www.sencha.com/forum/showthread.php?335045-Text-field-heights-are-incorrect-and-text-is-misaligned-in-Chrome-56&p=1171870&viewfull=1#post1171870 */
+.x-webkit .x-form-text {
+	height: 100% !important;
+}
+.x-webkit :not(.x-form-textarea-body) > .x-form-trigger-wrap {
+	height: initial;
 }

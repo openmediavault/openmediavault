@@ -60,8 +60,11 @@ Ext.define("OMV.workspace.window.Form", {
 			bodyPadding: "5 5 0",
 			scrollable: true,
 			trackResetOnLoad: true,
-			fieldDefaults: {
+			defaults: {
 				readOnly: me.readOnly,
+				editable: !me.readOnly
+			},
+			fieldDefaults: {
 				anchor: "100%",
 				labelSeparator: ""
 			},

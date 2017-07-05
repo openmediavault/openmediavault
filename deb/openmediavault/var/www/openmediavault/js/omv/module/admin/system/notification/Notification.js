@@ -271,7 +271,7 @@ Ext.define("OMV.module.admin.system.notification.Notifications", {
 		}
 	},{
 		xtype: "checkcolumn",
-		text: _("Enable"),
+		text: _("Enabled"),
 		groupable: false,
 		dataIndex: "enable",
 		stateId: "enable",

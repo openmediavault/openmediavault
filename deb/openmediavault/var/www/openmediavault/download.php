@@ -51,8 +51,8 @@ if (array_keys_exists(array("service", "method"), $_POST)) {
 		if (isset($server))
 			$server->cleanup();
 		header("Content-Type: text/html");
-		printf("Error #".$e->getCode().":<br/>%s", str_replace("\n", "<br/>",
-		  $e->__toString()));
+		printf("Error #%s:<br/>%s", strval($e->getCode()),
+			str_replace("\n", "<br/>", htmlentities($e->__toString())));
 	}
 } else {
 	// Return the HTML code of the form containing the fields required
