@@ -25,6 +25,9 @@
 
 Ext.ns("OMV");
 
+// The base prefix.
+OMV.baseCSSPrefix = "omv-";
+
 // Configure the dynamic dependency loading capability.
 Ext.Loader.setConfig({
 	enabled: false, // Disable the dynamic dependency loading feature.
