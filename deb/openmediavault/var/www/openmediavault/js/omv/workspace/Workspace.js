@@ -124,7 +124,7 @@ Ext.define("OMV.workspace.Workspace", {
 				// On desktop the tree is collapsible.
 				desktop: {
 					collapsible: true
-				},
+				}
 			},
 			region: "west",
 			split: true,
