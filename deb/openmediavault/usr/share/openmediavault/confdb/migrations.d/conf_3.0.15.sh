@@ -30,7 +30,7 @@ xmlstarlet sel -t -m "/config/system/notification/notifications/*[not(name(.)='n
 	${OMV_CONFIG_FILE} | xmlstarlet unesc |
 	while read id; do
 		# Generate the new notification object.
-		enable=$(omv_config_get "/config/system/notification/notifications/${id}" | omv_trim)
+		enable=$(omv_config_get "/config/system/notification/notifications/${id}")
 		object="<uuid>$(omv_uuid)</uuid>"
 		object="${object}<id>${id}</id>"
 		object="${object}<enable>${enable}</enable>"
