@@ -144,6 +144,7 @@ Ext.define("OMV.window.MessageBox", {
 			constrain: true,
 			minimizable: false,
 			maximizable: false,
+			scrollable: true,
 			closable: true,
 			layout: {
 				type: "vbox",
@@ -164,13 +165,9 @@ Ext.define("OMV.window.MessageBox", {
 				text: _("Show details"),
 				hidden: Ext.isEmpty(detailsText),
 				handler: function(c, e) {
-					if (details.isVisible()) {
-						details.hide();
-						c.setText(_("Show details"));
-					} else {
-						details.show();
-						c.setText(_("Hide details"));
-					}
+					var visible = details.isVisible();
+					c.setText(visible ? _("Hide details") : _("Show details"));
+					details.setVisible(!visible);
 				}
 			}],
 			items: [{
@@ -212,7 +209,7 @@ Ext.define("OMV.window.MessageBox", {
 				flex: 1,
 				hidden: true,
 				scrollable: true,
-				height: 175,
+				minHeight: 175,
 				html: detailsText
 			})]
 		});
