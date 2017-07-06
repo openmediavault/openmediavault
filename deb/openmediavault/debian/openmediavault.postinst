@@ -95,25 +95,25 @@ case "$1" in
 			# Setup all services.
 			####################################################################
 			echo "Updating service units ..."
-			deb-systemd-helper disable ntp.service || :
+			deb-systemd-helper disable ntp.service
 			deb-systemd-invoke stop ntp.service || :
-			deb-systemd-helper disable smartmontools.service || :
+			deb-systemd-helper disable smartmontools.service
 			deb-systemd-invoke stop smartmontools.service || :
-			deb-systemd-helper disable rsync.service || :
+			deb-systemd-helper disable rsync.service
 			deb-systemd-invoke stop rsync.service || :
-			deb-systemd-helper disable snmpd.service || :
+			deb-systemd-helper disable snmpd.service
 			deb-systemd-invoke stop snmpd.service || :
-			deb-systemd-helper disable proftpd.service || :
+			deb-systemd-helper disable proftpd.service
 			deb-systemd-invoke stop proftpd.service || :
-			deb-systemd-helper disable nfs-kernel-server.service || :
+			deb-systemd-helper disable nfs-kernel-server.service
 			deb-systemd-invoke stop nfs-kernel-server.service || :
-			deb-systemd-helper disable nfs-common.service || :
+			deb-systemd-helper disable nfs-common.service
 			deb-systemd-invoke stop nfs-common.service || :
-			deb-systemd-helper disable smbd.service || :
+			deb-systemd-helper disable smbd.service
 			deb-systemd-invoke stop smbd.service || :
-			deb-systemd-helper disable nmbd.service || :
+			deb-systemd-helper disable nmbd.service
 			deb-systemd-invoke stop nmbd.service || :
-			deb-systemd-helper disable postfix.service || :
+			deb-systemd-helper disable postfix.service
 			deb-systemd-invoke stop postfix.service || :
 		fi
 		# Create public/private SSH key pair for user root.
@@ -121,11 +121,11 @@ case "$1" in
 			ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa
 		fi
 		# Enable all Systemd services.
-		deb-systemd-helper enable openmediavault-beep-up.service || :
-		deb-systemd-helper enable openmediavault-beep-down.service || :
-		deb-systemd-helper enable openmediavault-cleanup-monit.service || :
-		deb-systemd-helper enable openmediavault-cleanup-php.service || :
-		deb-systemd-helper enable openmediavault-engined.service || :
+		deb-systemd-helper enable openmediavault-beep-up.service
+		deb-systemd-helper enable openmediavault-beep-down.service
+		deb-systemd-helper enable openmediavault-cleanup-monit.service
+		deb-systemd-helper enable openmediavault-cleanup-php.service
+		deb-systemd-helper enable openmediavault-engined.service
 
 		########################################################################
 		# Trigger file permission update.
@@ -467,13 +467,13 @@ case "$1" in
 			# Use NTP instead of systemd-timesyncd. Make sure all services
 			# are disabled. Finally enable NTP if necessary.
 			timedatectl set-ntp no || :
-			deb-systemd-helper disable systemd-timesyncd || :
+			deb-systemd-helper disable systemd-timesyncd
 			deb-systemd-invoke stop systemd-timesyncd || :
-			deb-systemd-helper disable ntp.service || :
+			deb-systemd-helper disable ntp.service
 			deb-systemd-invoke stop ntp.service || :
 			if omv_checkyesno "$(omv-confdbadm read "conf.system.time" | jq '.ntp.enable')"; then
 				omv-mkconf ntp
-				deb-systemd-helper enable ntp.service || :
+				deb-systemd-helper enable ntp.service
 				deb-systemd-invoke start ntp.service || :
 			fi
 		fi
