@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-lvm2 package.
 # 
 # Translators:
-# zubr139, 2013,2016
+# zubr139, 2013,2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-04-12 16:36+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2017-07-02 11:47+0000\n"
+"Last-Translator: zubr139\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -120,7 +120,7 @@ msgid "Size"
 msgstr "Розмір"
 
 msgid "Snapshot"
-msgstr ""
+msgstr "Знімок"
 
 msgid "Used"
 msgstr "Використано"

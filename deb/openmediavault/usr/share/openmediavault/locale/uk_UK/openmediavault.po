@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-02 15:50+0200\n"
-"PO-Revision-Date: 2017-07-02 13:53+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2017-07-02 19:36+0000\n"
+"Last-Translator: zubr139\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -887,7 +887,7 @@ msgid "Displaying items {0} - {1} of {2}"
 msgstr "Показано значень {0} - {1} із {2}"
 
 msgid "Displaying {0} - {1} of {2}"
-msgstr ""
+msgstr "Відображення {0} - {1} of {2}"
 
 msgid "Djibouti"
 msgstr "Джібуті"
@@ -1318,7 +1318,7 @@ msgid "Firmware version"
 msgstr "Версія прошивки"
 
 msgid "First Page"
-msgstr ""
+msgstr "Перша сторінка"
 
 msgid "Flags"
 msgstr "Прапори"
@@ -1763,7 +1763,7 @@ msgid "Laos"
 msgstr "Лаос"
 
 msgid "Last Page"
-msgstr ""
+msgstr "Остання Сторінка"
 
 msgid "Latvia"
 msgstr "Латвія"
@@ -2114,7 +2114,7 @@ msgid "New Zealand"
 msgstr "Нова Зеландія"
 
 msgid "Next Page"
-msgstr ""
+msgstr "Наступна Сторінка"
 
 msgid "Nicaragua"
 msgstr "Нікарагуа"
@@ -2147,7 +2147,7 @@ msgid "No connections"
 msgstr "Немає з'єднання"
 
 msgid "No data to display"
-msgstr ""
+msgstr "Немає даних для відображення"
 
 msgid "No items to display"
 msgstr "Елементи для показу відсутні"
@@ -2273,7 +2273,7 @@ msgid "Package information"
 msgstr "Інформація про пакет"
 
 msgid "Page"
-msgstr ""
+msgstr "Сторінка"
 
 msgid "Page not found"
 msgstr "Сторінку не знайдено"
@@ -2489,7 +2489,7 @@ msgid ""
 msgstr "Запобігає розкручуванню диска при періодичних запитах. <br/><ul><li> Ніколи - Опитувати (перевіряти) пристрій незалежно від режиму живлення. Це може привести до того, що зупинений диск буде знову розкручений, коли буде перевірений.</li><li>Сон - Перевіряти пристрій, якщо він не знаходиться в режимі СОН.</li><li>Очікування - Перевіряти пристрій, якщо він не знаходиться в режимі СОН або ОЧІКУВАННЯ. У цих режимах більшість дисків не розкручуються, так що якщо Ви хочете запобігти розкручування диска при кожному запиті, швидше за все це той режим, який Вам потрібен.</li><li>Неактивний - Перевіряти пристрій, якщо він не знаходиться в режимі СОН, ОЧІКУВАННЯ або НЕАКТИВНИЙ. У режимі НЕАКТИВНИЙ більшість дисків продовжують розкручуватися, так що швидше за все це не той режим, який Вам потрібен.</li></ul>"
 
 msgid "Previous Page"
-msgstr ""
+msgstr "Попередня сторінка"
 
 msgid "Primary"
 msgstr "Первинний"
@@ -2984,7 +2984,7 @@ msgid "Session not authenticated."
 msgstr "Сесія не пройшла перевірку автентичності."
 
 msgid "Session timeout"
-msgstr "Час  сесії закінчився"
+msgstr "Час сесії"
 
 msgid "Set browseable"
 msgstr "Дозволити переглядати"
@@ -4045,7 +4045,7 @@ msgid "n/a"
 msgstr "н/д"
 
 msgid "of {0}"
-msgstr ""
+msgstr "з {0}"
 
 msgid "old-age"
 msgstr "Старі"
