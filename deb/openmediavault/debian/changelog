@@ -20,6 +20,7 @@ openmediavault (4.0) stable; urgency=low
 openmediavault (3.0.83) stable; urgency=low
 
   * Improve error dialog with long messages.
+  * Fix bug in the Quota::set() RPC.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 06 Jul 2017 15:39:07 +0200
  
