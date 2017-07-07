@@ -208,6 +208,9 @@ class OMVRpcServiceQuota extends \OMV\Rpc\ServiceAbstract {
 			// filesystem we can simply use the first found object.
 			$object = $db->getByFilter("conf.system.filesystem.quota",
 			  $filter, 1);
+			// Reset the existing quotas.
+			$object->set("usrquota", []);
+			$object->set("grpquota", []);
 		} else {
 			// Create a new configuration object.
 			$object = new \OMV\Config\ConfigObject(
