@@ -355,8 +355,10 @@ Ext.define("OMV.window.Execute", {
 	getValue: function() {
 		var me = this;
 		var value = "";
-		if(false === me.progress) {
-			value = me.contentCtrl.getValue();
+		if (false === me.progress) {
+			if (me.contentCtrl && me.contentCtrl.isComponent) {
+				value = me.contentCtrl.getValue();
+			}
 		} else {
 			value = me.content;
 		}
