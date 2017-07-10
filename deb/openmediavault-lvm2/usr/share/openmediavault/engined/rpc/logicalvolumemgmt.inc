@@ -609,7 +609,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 		$result = [];
 		foreach ($lvs as $lvk => $lvv) {
 			// Get the physical volume details.
-			$lv = new OMV\System\Storage\Lvm\LogicalVolume($lvv);
+			$lv = new \OMV\System\Storage\Lvm\LogicalVolume($lvv);
 			if (FALSE === $lv->exists())
 				continue;
 			$result[] = [
