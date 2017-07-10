@@ -1,9 +1,3 @@
-php-pam (1.0.3-2) stable; urgency=low
-
-  * Adapt build dependencies.
-
- -- Volker Theile <volker.theile@openmediavault.org>  Mon, 10 Jul 2017 23:16:35 +0200
-
 php-pam (1.0.3-1) stable; urgency=low
 
   * Initial release for Debian Stretch.
