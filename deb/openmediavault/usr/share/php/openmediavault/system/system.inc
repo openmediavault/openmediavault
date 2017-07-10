@@ -89,6 +89,8 @@ class System {
 		// #SYS_UID_MIN              100
 		// #SYS_UID_MAX              999
 		$file = new \OMV\Util\KeyValueFile("/etc/login.defs");
+		$file->setKeyValueDelimiter("\\s");
+		$file->setKeyCaseSensitiv(TRUE); // Do not lowercase keys.
 		return $file->getAssoc();
 	}
 
