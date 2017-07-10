@@ -19,6 +19,7 @@ openmediavault (4.0) stable; urgency=low
 
 openmediavault (3.0.83) stable; urgency=low
 
+  * Update locales.
   * Improve error dialog with long messages.
   * Fix bug in the Quota::set() RPC.
   * Mantis 0001773: UID_MAX and GID_MAX from login.defs not read.
