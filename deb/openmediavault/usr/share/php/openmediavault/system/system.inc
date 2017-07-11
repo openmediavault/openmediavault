@@ -329,7 +329,7 @@ class System {
 		$diffTotal = $tnowTotal - $tprevTotal;
 		// Get the processor name.
 		$modelName = gettext("n/a");
-		foreach ([ "modelname", "cpumodel", "Processor" ] as $key) {
+		foreach ([ "modelname", "cpumodel", "Processor", "Hardware" ] as $key) {
 			if (TRUE === $cpuInfo->exists($key)) {
 				$modelName = $cpuInfo->get($key);
 				break;
