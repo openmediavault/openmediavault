@@ -1,3 +1,9 @@
+openmediavault (4.0.3) stable; urgency=low
+
+  * Get correct CPU information for NanoPi NEO 2.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 11 Jul 2017 22:20:31 +0200
+
 openmediavault (4.0.2) stable; urgency=low
 
   * Various improvements.
@@ -25,7 +31,7 @@ openmediavault (3.0.83) stable; urgency=low
   * Mantis 0001773: UID_MAX and GID_MAX from login.defs not read.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 06 Jul 2017 15:39:07 +0200
- 
+
 openmediavault (3.0.82) stable; urgency=low
 
   * Update locales.

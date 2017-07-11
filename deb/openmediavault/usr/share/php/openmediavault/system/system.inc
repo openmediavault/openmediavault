@@ -328,6 +328,14 @@ class System {
 		$diffIdle = $tnow[3] - $tprev[3];
 		$diffTotal = $tnowTotal - $tprevTotal;
 		// Get the processor name.
+		// Parse output:
+		// ...
+		// CPU part	: 0xd03
+		// CPU revision	: 4
+		//
+		// Hardware		: Allwinnersun50iw2Family
+		// Revision		: 0000
+		// Serial		: 0000000000000000
 		$modelName = gettext("n/a");
 		foreach ([ "modelname", "cpumodel", "Processor", "Hardware" ] as $key) {
 			if (TRUE === $cpuInfo->exists($key)) {
