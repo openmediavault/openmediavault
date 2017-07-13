@@ -44,6 +44,11 @@ Ext.define("OMV.module.admin.system.network.zeroconf.Service", {
 	getFormItems: function() {
 		var me = this;
 		return [{
+			xtype: "checkbox",
+			name: "enable",
+			fieldLabel: _("Enable"),
+			checked: false
+		},{
 			xtype: "textfield",
 			fieldLabel: _("Service"),
 			readOnly: true,
@@ -53,11 +58,6 @@ Ext.define("OMV.module.admin.system.network.zeroconf.Service", {
 			xtype: "textfield",
 			name: "name",
 			fieldLabel: _("Name")
-		},{
-			xtype: "checkbox",
-			name: "enable",
-			fieldLabel: _("Enable"),
-			checked: false
 		},{
 			xtype: "hidden",
 			name: "uuid",
