@@ -176,13 +176,26 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	public function getAttributes() {
 		$this->getData();
 		// ToDo: Add all the other attributes on demand.
+		// Example:
+		// - owi-aos---
+		// - swi-a-s---
 		return [
 			"origin" => ("o" == substr($this->lvAttr, 0, 1)),
 			"snapshot" => ("s" == substr($this->lvAttr, 0, 1)),
 			"invalidsnapshot" => ("S" == substr($this->lvAttr, 0, 1)),
 			"mirrored" => ("m" == substr($this->lvAttr, 0, 1)),
 			"virtual" => ("v" == substr($this->lvAttr, 0, 1)),
-			"pvmove" => ("p" == substr($this->lvAttr, 0, 1))
+			"pvmove" => ("p" == substr($this->lvAttr, 0, 1)),
+			"state" => [
+				"active" => ("a" == substr($this->lvAttr, 4, 1)),
+				"suspended" => ("s" == substr($this->lvAttr, 4, 1)),
+				"invalidsnapshot" => ("I" == substr($this->lvAttr, 4, 1)),
+				"invalidsuspendedsnapshot" => ("S" == substr($this->lvAttr, 4, 1))
+			],
+			"device" => [
+				"open" => ("o" == substr($this->lvAttr, 5, 1)),
+				"unknown" => ("X" == substr($this->lvAttr, 5, 1))
+			]
 		];
 	}
 
@@ -193,6 +206,8 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	 */
 	public function getVGAttributes() {
 		$this->getData();
+		// Example:
+		// - wz--n-
 		return [
 			"access" => [
 				"read" => ("r" == substr($this->vgAttr, 0, 1)),
@@ -210,6 +225,15 @@ class StorageDeviceLvm extends StorageDeviceDM {
 			],
 			"cluster" => ("c" == substr($this->vgAttr, 5, 1)),
 		];
+	}
+
+	/**
+	 * Check if a medium is available.
+	 * @return Set to FALSE if no medium is available.
+	 */
+	public function IsMediaAvailable() {
+		$attr = $this->getAttributes();
+		return $attr['state']['active'];
 	}
 
 	/**

@@ -1,3 +1,9 @@
+openmediavault-lvm2 (3.2.4) stable; urgency=low
+
+  * Display logical volume status.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 14 Jul 2017 19:43:53 +0200
+
 openmediavault-lvm2 (3.2.3) stable; urgency=low
 
   * Various improvements and small bugfixes.

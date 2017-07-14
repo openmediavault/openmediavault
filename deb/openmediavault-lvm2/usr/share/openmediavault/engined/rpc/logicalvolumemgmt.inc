@@ -619,7 +619,8 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 				"size" => $lv->getSize(),
 				"vgname" => $lv->getVGName(),
 				"attributes" => $lv->getAttributes(),
-				"vgattributes" => $lv->getVGAttributes()
+				"vgattributes" => $lv->getVGAttributes(),
+				"isavailable" => $lv->IsMediaAvailable()
 			];
 		}
 		return $result;

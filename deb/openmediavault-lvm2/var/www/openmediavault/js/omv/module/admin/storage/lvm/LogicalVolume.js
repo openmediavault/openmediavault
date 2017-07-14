@@ -425,6 +425,12 @@ Ext.define("OMV.module.admin.storage.lvm.LogicalVolumes", {
 		sortable: true,
 		dataIndex: "vgname",
 		stateId: "vgname"
+	},{
+		xtype: "booleantextcolumn",
+		text: _("Active"),
+		sortable: true,
+		dataIndex: "isavailable",
+		stateId: "isavailable"
 	}],
 
 	initComponent: function() {
@@ -442,6 +448,7 @@ Ext.define("OMV.module.admin.storage.lvm.LogicalVolumes", {
 						{ name: "vgname", type: "string" },
 						{ name: "attributes", type: "array" },
 						{ name: "vgattributes", type: "array" },
+						{ name: "isavailable", type: "boolean" },
 						{ name: "_used", type: "boolean" }
 					]
 				}),
