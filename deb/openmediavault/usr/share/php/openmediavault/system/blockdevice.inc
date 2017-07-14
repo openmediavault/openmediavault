@@ -89,7 +89,7 @@ class BlockDevice implements IBlockDevice {
 	public function getCanonicalDeviceFile() {
 		$deviceFile = realpath($this->deviceFile);
 		if (FALSE === $deviceFile) {
-			throw new \OMV\AssertException("Device '%s' does not exist.",
+			throw new \OMV\Exception("Device '%s' does not exist.",
 			  $this->deviceFile);
 		}
 		return $deviceFile;
