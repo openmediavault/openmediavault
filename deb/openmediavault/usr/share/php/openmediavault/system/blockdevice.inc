@@ -87,7 +87,12 @@ class BlockDevice implements IBlockDevice {
 	 * See interface definition.
 	 */
 	public function getCanonicalDeviceFile() {
-		return realpath($this->deviceFile);
+		$deviceFile = realpath($this->deviceFile);
+		if (FALSE === $deviceFile) {
+			throw new \OMV\AssertException("Device '%s' does not exist.",
+			  $this->deviceFile);
+		}
+		return $deviceFile;
 	}
 
 	/**
