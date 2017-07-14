@@ -133,7 +133,7 @@ Ext.define("OMV.Rpc", {
 		}
 
 		// Handle special errors.
-		if(!success) {
+		if (!success) {
 			var abort = false;
 			var reload = false;
 			// Translate various error messages and decide if RPC response
@@ -148,6 +148,16 @@ Ext.define("OMV.Rpc", {
 				abort = true;
 				reload = true;
 				rpcResponse.message = _("Session expired.");
+				break;
+			case OMV.E_SESSION_INVALID_USER:
+				abort = true;
+				reload = true;
+				rpcResponse.message = _("The session user no longer exists.");
+				break;
+			case OMV.E_SESSION_INVALID_IPADDRESS:
+				abort = true;
+				reload = true;
+				rpcResponse.message = _("The session IP address has been changed.");
 				break;
 			}
 			// Reload page and display a message box?

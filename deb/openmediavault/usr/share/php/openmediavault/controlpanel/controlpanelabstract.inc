@@ -195,11 +195,13 @@ EOF;
 
 		// Get the body code to be rendered
 		$bodyClass = $this->getBodyClass();
+		$bodyBaseContent = $this->getBaseBodyContent();
 		$bodyContent = $this->getBodyContent();
 
 		echo <<<EOF
 	</head>
 	<body class='{$bodyClass}'>
+{$bodyBaseContent}
 {$bodyContent}
 	</body>
 </html>
@@ -237,7 +239,43 @@ EOF;
 	abstract protected function getBodyClass();
 
 	/**
-	 * Get the HTML body code
+	 * Get the base HTML body code.
+	 */
+	protected function getBaseBodyContent() {
+		$prd = new \OMV\ProductInfo();
+		// Define global constants.
+		$globalDefs = sprintf(
+		  "OMV.UUID_UNDEFINED = '%s'; ".
+		  "OMV.ROLE_ADMINISTRATOR = %d; ".
+		  "OMV.HTTPREQUEST_TIMEOUT = %s; ".
+		  "OMV.PRODUCT_NAME = '%s'; ".
+		  "OMV.PRODUCT_URL = '%s'; ".
+		  "OMV.PRODUCT_COPYRIGHT = '%s'; ".
+		  "OMV.PRODUCT_PACKAGENAME = '%s';",
+		  \OMV\Environment::get("OMV_CONFIGOBJECT_NEW_UUID"),
+		  OMV_ROLE_ADMINISTRATOR,
+		  \OMV\Environment::get("OMV_HTTPREQUEST_TIMEOUT"),
+		  $prd->getName(), $prd->getURL(), $prd->getCopyright(),
+		  $prd->getPackageName());
+		// Process the RPC error codes.
+		$errorCodes = [];
+		$reflectionClass = new \ReflectionClass("\OMV\ErrorMsgException");
+		foreach ($reflectionClass->getConstants() as $kConst => $vConst) {
+			$errorCodes[] = sprintf("OMV.%s = %s;", $kConst, $vConst);
+		}
+		$errorCodes = implode(" ", $errorCodes);
+		return <<<EOF
+		<script type="application/javascript">
+			// Global defines
+			{$globalDefs}
+			// RPC error codes
+			{$errorCodes}
+		</script>
+EOF;
+	}
+
+	/**
+	 * Get the HTML body code.
 	 */
 	abstract protected function getBodyContent();
 
