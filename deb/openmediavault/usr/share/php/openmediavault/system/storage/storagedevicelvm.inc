@@ -123,6 +123,23 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	}
 
 	/**
+	 * Get the device file to present in the UI, e.g.:
+	 * <ul>
+	 * \li /dev/disk/by-id/xxx
+	 * \li /dev/disk/by-path/xxx
+	 * \li /dev/xxx
+	 * </ul>
+	 * @return Returns a device file.
+	 */
+	public function getPreferredDeviceFile() {
+		// If the logical volume is inactive, then return the device
+		// file as is, otherwise return the canonical device file.
+		if (FALSE === $this->IsMediaAvailable())
+			return $this->getDeviceFile();
+		return $this->getCanonicalDeviceFile();
+	}
+
+	/**
 	 * Get the name of the volume group.
 	 * @return The volume group name, FALSE on failure.
 	 */
