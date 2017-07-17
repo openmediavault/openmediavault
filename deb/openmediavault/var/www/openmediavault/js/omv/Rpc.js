@@ -55,13 +55,12 @@ Ext.define("OMV.Rpc", {
 	 *   \li showErrors Set to FALSE to do not show an error message
 	 *     dialog in case of an error. This option is only used when
 	 *     relayErrors is set to FALSE. Defaults to TRUE.
-	 * @return The id of the server transaction or -1 if requests are
-	 *   disabled.
+	 * @return The request object. This may be used to abort the request.
 	 */
 	request: function(options) {
 		var me = this;
-		if (true === me.disabled)
-			return null;
+		if (true === me.getDisabled())
+			return Ext.Deferred.rejected("Requests are disabled.");
 		// Apply default values.
 		options = Ext.apply({
 			timeout: OMV.HTTPREQUEST_TIMEOUT,
@@ -162,12 +161,15 @@ Ext.define("OMV.Rpc", {
 			}
 			// Reload page and display a message box?
 			if (true === reload) {
-				// Disable further request, otherwise error message dialogs
+				// Exit immediatelly if a message box is already displayed.
+				if (Ext.isDefined(me.guru) && me.guru.isWindow)
+					return;
+				// Disable further requests, otherwise error message dialogs
 				// (e.g. 'Invalid context') will pop up.
 				me.setDisabled(true);
 				// Display a dialog forcing user to click 'OK' to reload
 				// the page.
-				OMV.MessageBox.guru({
+				me.guru = OMV.MessageBox.guru({
 					msg: rpcResponse.message,
 					fn: function() {
 						OMV.confirmPageUnload = false;
