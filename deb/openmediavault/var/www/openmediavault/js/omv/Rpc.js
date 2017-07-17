@@ -30,6 +30,7 @@ Ext.define("OMV.Rpc", {
 	requires: [ "OMV.window.MessageBox" ],
 	singleton: true,
 	autoAbort: false,
+	guru: null,
 
 	config: {
 		disabled: false
@@ -167,7 +168,11 @@ Ext.define("OMV.Rpc", {
 				me.setDisabled(true);
 				// Display a dialog forcing user to click 'OK' to reload
 				// the page.
-				OMV.MessageBox.guru({
+				if (this.guru)
+				{
+					this.guru.destroy();
+				}
+				this.guru = OMV.MessageBox.guru({
 					msg: rpcResponse.message,
 					fn: function() {
 						OMV.confirmPageUnload = false;
