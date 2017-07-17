@@ -346,7 +346,13 @@ Ext.define("OMV.window.MessageBox", {
 			y: 0,
 			baseCls: Ext.baseCSSPrefix + "message-box-guru",
 			html: Ext.String.format("Software Failure.&nbsp;&nbsp;&nbsp;" +
-			  "Press left mouse button to continue.<br/>{0}", config.msg)
+			  "Press left mouse button to continue.<br/>{0}", config.msg),
+			onDestroy: function(){
+			  Ext.getBody().un({
+				keypress: fn,
+				click: fn
+			  });
+			}
 		});
 		// Monitor key press and mouse clicks.
 		var fn = function(e, t, eOpts) {
