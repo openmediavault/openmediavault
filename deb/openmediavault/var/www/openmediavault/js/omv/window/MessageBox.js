@@ -332,7 +332,7 @@ Ext.define("OMV.window.MessageBox", {
 		// when the z-index issue is solved. The problem here is how to
 		// calculate it, this is normally done by the Ext.ZIndexManager
 		// class.
-		var dlg = Ext.create("Ext.Window", {
+		var dlg = Ext.create("Ext.window.Window", {
 			border: true,
 			modal: true,
 			width: "100%",
