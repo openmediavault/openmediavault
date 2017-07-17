@@ -251,7 +251,8 @@ Ext.define("OMV.workspace.Workspace", {
 						}],
 						listeners: {
 							click: function(menu, item, e, eOpts) {
-								if(!Ext.isDefined(item.action))
+								if (!(Ext.isObject(item) && Ext.isDefined(
+										item.action)))
 									return;
 								OMV.MessageBox.show({
 									title: _("Confirmation"),
