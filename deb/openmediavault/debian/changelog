@@ -2,6 +2,7 @@ openmediavault (3.0.85) stable; urgency=low
 
   * Various improvements in the WebUI.
   * Mantis 0001777: Memory leak when calling Guru Meditation window.
+  * Mantis 0001781: Increase granularity on SSH "Permit root login" setting.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 17 Jul 2017 17:55:39 +0200
 
