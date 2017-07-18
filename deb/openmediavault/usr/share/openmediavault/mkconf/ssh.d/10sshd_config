@@ -98,7 +98,8 @@ xmlstarlet sel -t \
   -m "//services/ssh" \
 	  -v "concat('Port ',port)" -n \
 	  -i "permitrootlogin = 0" -o "PermitRootLogin no" -n -b \
-	  -i "permitrootlogin = 1" -o "PermitRootLogin yes" -n -b \
+	  -i "permitrootlogin = 1 and passwordauthentication = 0" -o "PermitRootLogin without-password" -n -b \
+	  -i "permitrootlogin = 1 and passwordauthentication = 1" -o "PermitRootLogin yes" -n -b \
 	  -i "tcpforwarding = 0" -o "AllowTcpForwarding no" -n -b \
 	  -i "tcpforwarding = 1" -o "AllowTcpForwarding yes" -n -b \
 	  -i "compression = 0" -o "Compression no" -n -b \
