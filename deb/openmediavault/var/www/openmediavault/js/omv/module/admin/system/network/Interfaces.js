@@ -267,6 +267,7 @@ Ext.define("OMV.module.admin.system.network.interface.window.Generic", {
 				allowBlank: false,
 				allowDecimals: false,
 				minValue: 0,
+				maxValue: 65535,
 				value: 0
 			},{
 				xtype: "checkbox",
@@ -966,7 +967,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		stateId: "mtu",
 		width: 45,
 		minValue: 1,
-		maxValue: 2147483647
+		maxValue: 65535
 	},{
 		xtype: "booleantextcolumn",
 		text: _("WOL"),
