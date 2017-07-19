@@ -60,7 +60,7 @@
 			"mtu": {
 			   "type": "integer",
 			   "minimum": 0,
-			   "maximin": 65535,
+			   "maximum": 65535,
 			   "required": true
 			},
 			"wol": {
@@ -137,9 +137,9 @@
 			   "required": true
 			},
 			"mtu": {
-			   "type": [ "integer", "string" ],
+			   "type": "integer",
 			   "minimum": 0,
-			   "maximin": 65535,
+			   "maximum": 65535,
 			   "required": true
 			},
 			"wol": {
@@ -245,9 +245,9 @@
 			   "required": true
 			},
 			"mtu": {
-			   "type": [ "integer", "string" ],
+			   "type": "integer",
 			   "minimum": 0,
-			   "maximin": 65535,
+			   "maximum": 65535,
 			   "required": true
 			},
 			"wol": {
@@ -334,9 +334,9 @@
 			   "required": true
 			},
 			"mtu": {
-			   "type": [ "integer", "string" ],
+			   "type": "integer",
 			   "minimum": 0,
-			   "maximin": 65535,
+			   "maximum": 65535,
 			   "required": true
 			},
 			"wol": {
