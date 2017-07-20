@@ -252,6 +252,13 @@ class SmartInformation {
 			$attrData['assessment'] = self::SMART_ASSESSMENT_BAD_ATTRIBUTE_IN_THE_PAST;
 			return;
 		}
+		// Check for bad sectors (Reallocated_Sector_Ct and Current_Pending_Sector).
+		if ($attrData['id'] == 5 || $attrData['id'] == 197) {
+			if (1 <= $attrData['rawvalue']) {
+				$attrData['assessment'] = self::SMART_ASSESSMENT_BAD_SECTOR;
+				return;
+			}
+		}
 	}
 
 	/**
