@@ -230,6 +230,7 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 				case "GOOD":
 					ledColor = "green";
 					break;
+				case "BAD_SECTOR":
 				case "BAD_ATTRIBUTE_NOW":
 				case "BAD_ATTRIBUTE_IN_THE_PAST":
 					ledColor = "red";
