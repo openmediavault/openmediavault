@@ -76,9 +76,13 @@ xmlstarlet sel -t -m "//webadmin" \
   -o "    }" -n \
   -o "    location /extjs6/ {" -n \
   -o "        alias /usr/share/javascript/extjs6/;" -n \
+  -o "        expires 2d;" -n \
   -o "    }" -n \
-  -o "    location /images/ {" -n \
-  -o "        alias ${OMV_DOCUMENTROOT_DIR}/images/;" -n \
+  -o "    location ~ ^/(css|js|images)/ {" -n \
+  -o "        expires 2d;" -n \
+  -o "    }" -n \
+  -o "    location /favicon {" -n \
+  -o "        expires 14d;" -n \
   -o "    }" -n \
   -o "    location ~ \.php$ {" -n \
   -o "        try_files \$uri =404;" -n \
