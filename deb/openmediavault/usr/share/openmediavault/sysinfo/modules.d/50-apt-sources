@@ -25,7 +25,7 @@ set -e
 
 omv_sysinfo_begin_msg "Configured APT data sources"
 omv_sysinfo_msg_caption "/etc/apt/sources.list"
-if test -e /etc/apt/sources.list; then
+if [ -e /etc/apt/sources.list ]; then
 	omv_sysinfo_msg </etc/apt/sources.list
 fi
 omv_sysinfo_msg_separator
