@@ -19,38 +19,19 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Storage\Backend;
-
+namespace OMV\System\Storage;
 /**
- * Implements the storage device backend for harddisk devices.
+ * This class provides a simple interface to handle Xen virtual disk devices.
  * @ingroup api
  */
-class HDD extends BackendAbstract {
-	function getType() {
-		return OMV_STORAGE_DEVICE_TYPE_HDD;
-	}
-
-	function enumerate() {
-		// Examples:
-		// - /dev/hda
-		// - /dev/sdb
-		return $this->enumerateProcFs("(h|s)d[a-z]+");
-	}
-
-	function isTypeOf($deviceFile) {
-		// Examples:
-		// - /dev/hdc2
-		// - /dev/sdb
-		// - /dev/sda1
-		$regex = "(h|s)d[a-z]+[0-9]*";
-		return $this->isTypeOfByName($deviceFile, $regex);
-	}
-
-	function getImpl($args) {
-		return new \OMV\System\Storage\StorageDeviceHDD($args);
-	}
-
-	function baseDeviceFile($deviceFile) {
-		return preg_replace("/(\d+)$/", "", $deviceFile);
+class StorageDeviceXen extends StorageDevice {
+	/**
+	 * See interface definition.
+	 */
+	public function getDescription() {
+		$model = $this->getModel();
+		return sprintf("%s [%s, %s]", gettext("Xen virtual disk device"),
+			$this->getDeviceFile(),
+			binary_format($this->getSize()));
 	}
 }
