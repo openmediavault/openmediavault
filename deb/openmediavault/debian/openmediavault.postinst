@@ -473,7 +473,7 @@ case "$1" in
 			deb-systemd-invoke stop ntp.service || :
 			if omv_checkyesno "$(omv-confdbadm read "conf.system.time" | jq '.ntp.enable')"; then
 				omv-mkconf ntp
-				deb-systemd-helper enable ntp.service
+				systemctl enable ntp.service
 				deb-systemd-invoke start ntp.service || :
 			fi
 		fi
