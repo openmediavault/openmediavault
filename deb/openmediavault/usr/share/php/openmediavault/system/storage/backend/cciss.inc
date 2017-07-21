@@ -31,6 +31,11 @@ class CCISS extends BackendAbstract {
 	}
 
 	function enumerate() {
+		// major minor  #blocks  name
+		// 104     0  292935982 cciss/c0d0
+		// 104     1     265041 cciss/c0d0p1
+		// 104     2  292664137 cciss/c0d0p2
+		// 104    16  586029016 cciss/c0d1
 		return $this->enumerateProcFs("cciss\/c[0-9]+d[0-9]+");
 	}
 
