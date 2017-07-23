@@ -1,5 +1,6 @@
 openmediavault (3.0.85) stable; urgency=low
 
+  * Update locales.
   * Various improvements in the WebUI.
   * Display auto network interfaces (e.g. bonded and vlan interfaces) in the
     CLI welcome message.

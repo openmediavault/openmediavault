@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Ádám Balajti <balajtiadam@gmail.com>, 2012
+# Gábor Sári <sari.gabor@gmail.com>, 2017
 # Grawens <szabolcs.szanyi@gmail.com>, 2014-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-02 15:50+0200\n"
-"PO-Revision-Date: 2017-07-04 07:48+0000\n"
+"PO-Revision-Date: 2017-07-20 10:55+0000\n"
 "Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -178,7 +179,7 @@ msgid "Access Right Management"
 msgstr "Hozzáférési jog kezelése"
 
 msgid "Access Rights Management"
-msgstr "Hozzáférési jogok kezelés"
+msgstr "Hozzáférési jogok kezelése"
 
 msgid "Access mode"
 msgstr "Hozzáférési mód"
@@ -256,19 +257,19 @@ msgid "Address"
 msgstr "Cím"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
-msgstr "Adminisztrátor: olvasás/írás, Felhasználó: nincs hozzáférés, Mások: nincs hozzáférés"
+msgstr "Adminisztrátor: olvasás/írás, Felhasználók: nincs hozzáférés, Mások: nincs hozzáférés"
 
 msgid "Administrator: read/write, Users: read-only, Others: no access"
-msgstr "Adminisztrátor: olvasás/írás, Felhasználó: csak olvasás, Mások: nincs hozzáférés"
+msgstr "Adminisztrátor: olvasás/írás, Felhasználók: csak olvasás, Mások: nincs hozzáférés"
 
 msgid "Administrator: read/write, Users: read-only, Others: read-only"
-msgstr "Adminisztrátor: olvasás/írás, Felhasználó: csak olvasás, Mások: csak olvasás"
+msgstr "Adminisztrátor: olvasás/írás, Felhasználók: csak olvasás, Mások: csak olvasás"
 
 msgid "Administrator: read/write, Users: read/write, Others: no access"
 msgstr "Adminisztrátor: olvasás/írás, Felhasználók: olvasás/írás, Mások: nincs hozzáférés"
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
-msgstr "Adminisztrátor: olvasás/írás, Felhasználó: olvasás/írás, Mások: csak olvasás"
+msgstr "Adminisztrátor: olvasás/írás, Felhasználók: olvasás/írás, Mások: csak olvasás"
 
 msgid "Advanced Power Management"
 msgstr "Fejlett energiagazdálkodás"
@@ -563,7 +564,7 @@ msgid "Central African Republic"
 msgstr "Közép-afrikai Köztársaság"
 
 msgid "Certain date"
-msgstr "Bizonyos dátum"
+msgstr "Adott dátum"
 
 msgid "Certificate"
 msgstr "Tanúsítvány"
@@ -641,7 +642,7 @@ msgid "Community"
 msgstr "Közösség"
 
 msgid "Community-maintained updates."
-msgstr "Közösség számára fenntartott frissítések."
+msgstr "Közösségileg karbantartott frissítések."
 
 msgid "Comoros"
 msgstr "Comore-szigetek"
@@ -650,7 +651,7 @@ msgid "Complete"
 msgstr "Kész"
 
 msgid "Completion status"
-msgstr "Elkészülés állapota"
+msgstr "Készültség állapota"
 
 msgid "Compress"
 msgstr "Tömörítés"
@@ -712,7 +713,7 @@ msgid "Create"
 msgstr "Létrehozás"
 
 msgid "Create RAID device"
-msgstr "RAID tömb létrehozás"
+msgstr "RAID tömb létrehozása"
 
 msgid "Create file system"
 msgstr "Fájlrendszer létrehozása"
@@ -757,7 +758,7 @@ msgid "Daemon"
 msgstr "Démon"
 
 msgid "Daily"
-msgstr "Napi"
+msgstr "Naponta"
 
 msgid "Dashboard"
 msgstr "Műszerfal"
@@ -769,10 +770,10 @@ msgid "Date & Time"
 msgstr "Dátum és idő"
 
 msgid "Day of month"
-msgstr "Hónap napján"
+msgstr "Hónap adott napján"
 
 msgid "Day of week"
-msgstr "Hét napján"
+msgstr "Hét adott napján"
 
 msgid "Debug"
 msgstr "Hibakeresés"
@@ -826,7 +827,7 @@ msgid "Device"
 msgstr "Meghajtó"
 
 msgid "Device Mapper %s [%s, %s]"
-msgstr "Eszköz mappaló %s [%s, %s]"
+msgstr "Eszköz mapper %s [%s, %s]"
 
 msgid "Device Symlinks"
 msgstr "Symlink eszköz"
@@ -1155,7 +1156,7 @@ msgid "Enable user authentication"
 msgstr "Felhasználó hitelesítés engedélyezése"
 
 msgid "Enable user home directories"
-msgstr "Felhasználói saját könyvtárak engedélyezése"
+msgstr "Felhasználó saját könyvtárak engedélyezése"
 
 msgid "Enable write-cache."
 msgstr "Gyorsítótár engedélyezése."
@@ -1271,7 +1272,7 @@ msgid "February"
 msgstr "Február"
 
 msgid "Fields must be exclusive"
-msgstr "Mezőknek különlegesnek kell lennie"
+msgstr "A mezőknek kizárólagosnak kell lenniük"
 
 msgid "Fiji"
 msgstr "Fidzsi"
@@ -1317,7 +1318,7 @@ msgid "Firmware version"
 msgstr "Firmware verzió"
 
 msgid "First Page"
-msgstr "Első oldal"
+msgstr "Jelzők"
 
 msgid "Flags"
 msgstr "Zászlók"
@@ -1491,7 +1492,7 @@ msgid "Hour"
 msgstr "Óra"
 
 msgid "Hourly"
-msgstr "Óránkénti"
+msgstr "Óránként"
 
 msgid "Hungary"
 msgstr "Magyarország"
@@ -1612,7 +1613,7 @@ msgid "Incomplete"
 msgstr "Befejezetlen"
 
 msgid "Incorrect username or password."
-msgstr "Helytelen felhasználónév vagy jelszó."
+msgstr "Helytelen felhasználónév és/vagy jelszó."
 
 msgid "India"
 msgstr "India"
@@ -1735,7 +1736,7 @@ msgid "Key size"
 msgstr "Kulcs méret"
 
 msgid "KiB"
-msgstr "KB"
+msgstr "kB"
 
 msgid "Kiribati"
 msgstr "Kiribati"
@@ -1773,7 +1774,7 @@ msgstr "Libanon"
 msgid ""
 "Length of time in seconds to blink one or more LEDs on the specific ethernet"
 " port."
-msgstr "Az ethernet port LEDjeinek egyszeri, vagy többszöri villogásának ideje másodpercben megadva."
+msgstr "A hálózat csatlakozó LED-jeinek egyszeri, vagy többszöri villogásának ideje másodpercben megadva."
 
 msgid "Lesotho"
 msgstr "Lesothó"
@@ -1827,7 +1828,7 @@ msgid "Location information, e.g. physical location of this system."
 msgstr "Területi információ, pl. a rendszer fizikai elhelyezkedése."
 
 msgid "Log level"
-msgstr "Naplózó szint"
+msgstr "Naplózási szint"
 
 msgid "Login"
 msgstr "Bejelentkezés"
@@ -2035,7 +2036,7 @@ msgid "Mongolia"
 msgstr "Mongólia"
 
 msgid "Monitor"
-msgstr "Figyelő"
+msgstr "Figyelés"
 
 msgid "Monitoring"
 msgstr "Ellenőrzés"
@@ -2044,7 +2045,7 @@ msgid "Month"
 msgstr "Hónap"
 
 msgid "Monthly"
-msgstr "Havi"
+msgstr "Havonta"
 
 msgid "Montserrat"
 msgstr "Montserrat"
@@ -2194,7 +2195,7 @@ msgid "Not UDP"
 msgstr "Nem UDP"
 
 msgid "Nothing"
-msgstr "Semmi"
+msgstr "Nincs hatása"
 
 msgid "Notification"
 msgstr "Értesítés"
@@ -2224,7 +2225,7 @@ msgid "October"
 msgstr "Október"
 
 msgid "Offline immediate test"
-msgstr "Azonnali offline teszt"
+msgstr "Azonnali Offline teszt"
 
 msgid "Oman"
 msgstr "Omán"
@@ -2659,10 +2660,10 @@ msgid "Remove devices from RAID device"
 msgstr "Eszköz eltávolítása a RAID tömbből"
 
 msgid "Replace"
-msgstr "Eltávolítás"
+msgstr "Csere"
 
 msgid "Replace all existing permissions"
-msgstr "Minden létező jogosultság eltávolítása"
+msgstr "Minden létező jogosultság kicserélése"
 
 msgid "Report"
 msgstr "Jelentés"
@@ -2713,7 +2714,7 @@ msgid "Reverse DNS lookup"
 msgstr "Fordított DNS figyelés"
 
 msgid "Revert"
-msgstr "Visszaszáll"
+msgstr "Visszavonás"
 
 msgid "Revert configuration changes"
 msgstr "Konfigurációs változások visszavonása"
@@ -2734,7 +2735,7 @@ msgid "Run"
 msgstr "Futtatás"
 
 msgid "Running"
-msgstr "Futás"
+msgstr "Jelenleg fut"
 
 msgid "Russia"
 msgstr "Oroszország"
@@ -2749,7 +2750,7 @@ msgid "S.M.A.R.T. information"
 msgstr "S.M.A.R.T. információ"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
-msgstr "S.M.A.R.T. ellenőrzésnek aktívnak kell lennie a kiválasztott meghajtón."
+msgstr "A S.M.A.R.T. ellenőrzésnek aktívnak kell lennie a kiválasztott meghajtón."
 
 msgid "S/N"
 msgstr "S/N"
@@ -2983,7 +2984,7 @@ msgid "Session not authenticated."
 msgstr "Munkamenet nem hitelesített."
 
 msgid "Session timeout"
-msgstr "Munkamenet lejárti idő"
+msgstr "Munkamenet időtúllépés"
 
 msgid "Set browseable"
 msgstr "Beállítás böngészhetőnek"
@@ -3165,7 +3166,7 @@ msgstr "Rendszergazdaként való bejelentkezés engedélyezése."
 msgid ""
 "Specifies whether the system performance statistics are collected "
 "periodically."
-msgstr "Rendszeres teljesítmény statisztikák gyűjtése."
+msgstr "Rendszeres teljesítménystatisztikák gyűjtése."
 
 msgid ""
 "Specifies whether to monitor the system status and select the most "
@@ -3248,13 +3249,13 @@ msgid "Syria"
 msgstr "Szíria"
 
 msgid "Syslog"
-msgstr "Rendszer napló"
+msgstr "Rendszernapló"
 
 msgid "System"
 msgstr "Rendszer"
 
 msgid "System Information"
-msgstr "Rendszer információ"
+msgstr "Rendszer információk"
 
 msgid "System Logs"
 msgstr "Rendszernaplók"
@@ -3398,7 +3399,7 @@ msgstr "A nyilvános kulcs az RFC 4716 SSH nyilvános kulcs fájlformátumban."
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
-msgstr "A tároló ellenőrizve lesz az új, eltávolított vagy frissített szoftverekért."
+msgstr "A tároló ellenőrizve lesz az új, eltávolított, vagy frissített szoftverekért."
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
@@ -3407,7 +3408,7 @@ msgstr "Annak a követelménye, hogy az SSL munkamenettől a vezérlő kapcsolat
 
 msgid ""
 "The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr "A munkamenet lejárta percben. A 0 érték beállítása letiltja az automatikus kijelentkezést."
+msgstr "A munkamenet időtúllépése percben. A 0 érték beállítása letiltja az automatikus kijelentkezést."
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3421,13 +3422,13 @@ msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "A megadott kvóta meghaladja a max. lehetséges 4TB értéket."
 
 msgid "The system will reboot now. This may take some time ..."
-msgstr "A rendszer most újraindul. Ez eltarthat egy ideig."
+msgstr "A rendszer most újraindul. Ez eltarthat egy kis ideig..."
 
 msgid "The test email has been sent successfully. Please check your mailbox."
-msgstr "A teszt e-mail sikeresen elküldve. Kérlek tekintsd meg a postaládádat."
+msgstr "A teszt e-mail sikeresen elküldve. Kérlek tekintsd meg a postafiókodat."
 
 msgid "The volume label for the file system."
-msgstr "A kötet címkéje a fájlrendszeren."
+msgstr "A fájlrendszer kötetcímkéje."
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
@@ -3775,7 +3776,7 @@ msgid "Unknown"
 msgstr "Ismeretlen"
 
 msgid "Unknown network interface type."
-msgstr "Ismeretlen hálózati interfész típus."
+msgstr "Ismeretlen hálózati interface típus."
 
 msgid "Unmount"
 msgstr "Leválasztás"
@@ -3790,7 +3791,7 @@ msgid "Update Management"
 msgstr "Frissítés kezelő"
 
 msgid "Update Management - History"
-msgstr "Frissítés kezelő - Előzmény"
+msgstr "Frissítés kezelő - Előzmények"
 
 msgid "Update Management - Terminal output"
 msgstr "Frissítés kezelő - Terminál kimenet"
@@ -3874,10 +3875,10 @@ msgid "User accounts"
 msgstr "Felhasználói fiókok"
 
 msgid "User home directory"
-msgstr "Felhasználói saját könyvtár"
+msgstr "Felhasználó saját könyvtára"
 
 msgid "User information"
-msgstr "Felhasználó információ"
+msgstr "Felhasználói információ"
 
 msgid "User/Group permissions"
 msgstr "Felhasználó/Csoport jogosultságok"
@@ -3910,7 +3911,7 @@ msgid "Vatican"
 msgstr "Vatikán"
 
 msgid "Vendor"
-msgstr "Csatlakozás"
+msgstr "Vendor"
 
 msgid "Venezuela"
 msgstr "Venezuela"
@@ -3922,7 +3923,7 @@ msgid "Vietnam"
 msgstr "Vietnám"
 
 msgid "VirtIO device"
-msgstr "Virt.IO eszköz"
+msgstr "VirtIO eszköz"
 
 msgid "WINS"
 msgstr "WINS"
@@ -3955,13 +3956,13 @@ msgid "Web Administrator Password"
 msgstr "Web adminisztrátor jelszó"
 
 msgid "Web control panel"
-msgstr "Web központ"
+msgstr "Web vezérlőpult"
 
 msgid "Wednesday"
 msgstr "Szerda"
 
 msgid "Weekly"
-msgstr "Heti"
+msgstr "Hetente"
 
 msgid "Welcome message"
 msgstr "Üdvözlő üzenet"
@@ -3975,7 +3976,7 @@ msgid ""
 msgstr "Mikor egy kliens először csatlakozik a szerverhez, akkor az azonosító protokollt használja, hogy megpróbálja azonosítani a távoli felhasználót."
 
 msgid "When failed"
-msgstr "Mikor sikertelen"
+msgstr "Ha nem sikerült"
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
@@ -3993,7 +3994,7 @@ msgid "Worst"
 msgstr "Legrosszabb"
 
 msgid "Write cache"
-msgstr "Cache írás"
+msgstr "Gyorsítótár írás"
 
 msgid "Write only"
 msgstr "Csak írás"
