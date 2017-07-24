@@ -44,7 +44,7 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Job", {
 	plugins: [{
 		ptype: "configobject"
 	}],
-	height: 330,
+	height: 450,
 
 	/**
 	 * The class constructor.
@@ -54,10 +54,11 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Job", {
 
 	getFormConfig: function() {
 		return {
-			layout: {
-				type: "vbox",
-				align: "stretch"
-			},
+// ToDo: EXTJS-13864 bug, see http://www.sencha.com/forum/showthread.php?286026-4.2.2-Form-field-height-incorrect-with-afterSubTpl-flex-and-layout-vbox&p=1046055&viewfull=1#post1046055
+//			layout: {
+//				type: "vbox",
+//				align: "stretch"
+//			},
 			plugins: [{
 				ptype: "linkedfields",
 				correlations: [{
