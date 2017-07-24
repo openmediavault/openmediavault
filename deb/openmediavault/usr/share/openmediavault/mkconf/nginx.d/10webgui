@@ -39,6 +39,7 @@ OMV_NGINX_SITE_WEBGUI_CONFIG=${OMV_NGINX_SITE_WEBGUI_CONFIG:-"/etc/nginx/sites-a
 OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR=${OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR:-"/etc/nginx/openmediavault-webgui.d"}
 OMV_NGINX_SITE_WEBGUI_LOGLEVEL=${OMV_NGINX_SITE_WEBGUI_LOGLEVEL:-"error"}
 OMV_NGINX_SITE_WEBGUI_CLIENT_MAX_BODY_SIZE=${OMV_NGINX_SITE_WEBGUI_CLIENT_MAX_BODY_SIZE:-"25M"}
+OMV_NGINX_SITE_WEBGUI_CONTENT_EXPIRES=${OMV_NGINX_SITE_WEBGUI_CONTENT_EXPIRES:-"2d"}
 OMV_NGINX_SITE_WEBGUI_SECURITY_CONFIG=${OMV_NGINX_SITE_WEBGUI_SECURITY_CONFIG:-"${OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR}/security.conf"}
 OMV_NGINX_SITE_WEBGUI_SECURITY_CSP_ENABLE=${OMV_NGINX_SITE_WEBGUI_SECURITY_CSP_ENABLE:-"yes"}
 OMV_NGINX_SITE_WEBGUI_SECURITY_CSP=${OMV_NGINX_SITE_WEBGUI_SECURITY_CSP:-"default-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data:;"}
@@ -76,10 +77,10 @@ xmlstarlet sel -t -m "//webadmin" \
   -o "    }" -n \
   -o "    location /extjs6/ {" -n \
   -o "        alias /usr/share/javascript/extjs6/;" -n \
-  -o "        expires 2d;" -n \
+  -o "        expires ${OMV_NGINX_SITE_WEBGUI_CONTENT_EXPIRES};" -n \
   -o "    }" -n \
   -o "    location ~ ^/(css|js|images)/ {" -n \
-  -o "        expires 2d;" -n \
+  -o "        expires ${OMV_NGINX_SITE_WEBGUI_CONTENT_EXPIRES};" -n \
   -o "    }" -n \
   -o "    location /favicon {" -n \
   -o "        expires 14d;" -n \
