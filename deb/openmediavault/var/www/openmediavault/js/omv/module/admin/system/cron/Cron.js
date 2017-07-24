@@ -57,10 +57,11 @@ Ext.define("OMV.module.admin.system.cron.Job", {
 
 	getFormConfig: function() {
 		return {
-			layout: {
-				type: "vbox",
-				align: "stretch"
-			},
+// ToDo: EXTJS-13864 bug, see http://www.sencha.com/forum/showthread.php?286026-4.2.2-Form-field-height-incorrect-with-afterSubTpl-flex-and-layout-vbox&p=1046055&viewfull=1#post1046055
+//			layout: {
+//				type: "vbox",
+//				align: "stretch"
+//			},
 			plugins: [{
 				ptype: "linkedfields",
 				correlations: [{
