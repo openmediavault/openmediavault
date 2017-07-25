@@ -42,7 +42,7 @@ grep -iP "^\s*iface\s+(eth|wlan)[0-9]+\s+(inet|inet6)\s+(static|dhcp)" ${OMV_INT
 	  object="${object}<dnsnameservers></dnsnameservers>"
 	  object="${object}<dnssearch></dnssearch>"
 	  object="${object}<wol>0</wol>"
-	  object="${object}<mtu></mtu>"
+	  object="${object}<mtu>0</mtu>"
 	  object="${object}<options></options>"
 	  object="${object}<comment></comment>"
 	  # DHCP or static?

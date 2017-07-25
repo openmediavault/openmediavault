@@ -26,6 +26,7 @@ openmediavault (4.0) stable; urgency=low
 openmediavault (3.0.86) stable; urgency=low
 
   * Various improvements in the WebUI.
+  * Fix bug in omv-initsystem.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Jul 2017 22:03:00 +0200
 
