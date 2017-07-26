@@ -56,14 +56,15 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Job", {
 	 * @param uuid The UUID of the database/configuration object. Required.
 	 */
 
-	getFormConfig: function() {
-		return {
-			layout: {
-				type: "vbox",
-				align: "stretch"
-			}
-		};
-	},
+// ToDo: EXTJS-13864 bug, see http://www.sencha.com/forum/showthread.php?286026-4.2.2-Form-field-height-incorrect-with-afterSubTpl-flex-and-layout-vbox&p=1046055&viewfull=1#post1046055
+//	getFormConfig: function() {
+//		return {
+//			layout: {
+//				type: "vbox",
+//				align: "stretch"
+//			}
+//		};
+//	},
 
 	getFormItems: function() {
 		return [{
@@ -249,8 +250,9 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Jobs", {
 	},{
 		xtype: "deviceinfocolumn",
 		text: _("Device"),
-		stateId: "device",
-		sortable: true
+		sortable: true,
+		dataIndex: "devicefile",
+		stateId: "device"
 	},{
 		xtype: "mapcolumn",
 		text: _("Type"),
