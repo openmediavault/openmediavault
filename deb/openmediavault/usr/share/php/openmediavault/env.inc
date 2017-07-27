@@ -46,8 +46,9 @@ try {
 	} else {
 		// See http://php.net/manual/en/timezones.others.php for more
 		// information.
-		syslog(LOG_ERR, sprintf("Unknown or unsupported timezone [tz=%s]",
-		  $object->get("timezone")));
+		syslog(LOG_ERR, sprintf("Unknown or deprecated time zone [tz=%s]. ".
+			"Please reconfigure your time zone settings.",
+			$object->get("timezone")));
 	}
 } catch(\Exception $e) {
 	// Nothing to do here.
