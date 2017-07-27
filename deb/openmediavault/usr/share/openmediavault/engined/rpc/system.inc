@@ -338,7 +338,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Prepare list of time zone identifiers (for ComboBox store).
-		$timezoneIdentifiers = DateTimeZone::listIdentifiers();
+		$timezoneIdentifiers = \DateTimeZone::listIdentifiers();
 		sort($timezoneIdentifiers, SORT_NATURAL);
 		return $timezoneIdentifiers;
 	}
