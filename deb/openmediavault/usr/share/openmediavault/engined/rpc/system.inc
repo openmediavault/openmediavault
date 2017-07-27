@@ -344,8 +344,11 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		// Prepare list of time zone identifiers (for ComboBox store).
-		$timezoneIdentifiers = \DateTimeZone::listIdentifiers();
+		// According to http://php.net/manual/en/timezones.others.php
+		// some of the time zones that the Debian installer supports are
+		// deprectated. To prevent errors we support them to (ALL_WITH_BC).
+		$timezoneIdentifiers = \DateTimeZone::listIdentifiers(
+			\DateTimeZone::ALL_WITH_BC);
 		sort($timezoneIdentifiers, SORT_NATURAL);
 		return $timezoneIdentifiers;
 	}

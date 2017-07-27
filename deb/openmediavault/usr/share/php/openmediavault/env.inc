@@ -41,7 +41,11 @@ try {
 	// Get session timeout from the configuration.
 	$db = &\OMV\Config\Database::getInstance();
 	$object = $db->get("conf.system.time");
-	if (in_array($object->get("timezone"), timezone_identifiers_list())) {
+	// According to http://php.net/manual/en/timezones.others.php
+	// some of the time zones that the Debian installer supports are
+	// deprectated. To prevent errors we support them to (ALL_WITH_BC).
+	if (in_array($object->get("timezone"), \DateTimeZone::listIdentifiers(
+			\DateTimeZone::ALL_WITH_BC))) {
 		date_default_timezone_set($object->get("timezone"));
 	} else {
 		// See http://php.net/manual/en/timezones.others.php for more
