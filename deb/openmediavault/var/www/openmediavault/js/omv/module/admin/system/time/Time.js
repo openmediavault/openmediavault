@@ -153,14 +153,12 @@ Ext.define("OMV.module.admin.system.time.Time", {
 					xtype: "datefield",
 					name: "date",
 					fieldLabel: _("Date"),
-					width: 100,
 					value: dtNow,
 					submitValue: false
 				},{
 					xtype: "compositefield",
 					name: "manualtime",
 					fieldLabel: _("Time"),
-					width: 200,
 					items: [{
 						xtype: "combo",
 						name: "hour",
@@ -169,7 +167,7 @@ Ext.define("OMV.module.admin.system.time.Time", {
 						readOnly: true,
 						editable: false,
 						triggerAction: "all",
-						width: 50,
+						flex: 1,
 						value: dtNow.getHours(),
 						submitValue: false,
 						reset: function() {
@@ -188,7 +186,7 @@ Ext.define("OMV.module.admin.system.time.Time", {
 						readOnly: true,
 						editable: false,
 						triggerAction: "all",
-						width: 50,
+						flex: 1,
 						value: dtNow.getMinutes(),
 						submitValue: false,
 						reset: function() {
@@ -207,7 +205,7 @@ Ext.define("OMV.module.admin.system.time.Time", {
 						readOnly: true,
 						editable: false,
 						triggerAction: "all",
-						width: 50,
+						flex: 1,
 						value: dtNow.getSeconds(),
 						submitValue: false,
 						reset: function() {

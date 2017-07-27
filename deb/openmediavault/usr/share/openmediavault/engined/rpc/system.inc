@@ -262,6 +262,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
+	 * @throw \OMV\Exception
 	 */
 	public function setTimeSettings($params, $context) {
 		// Validate the RPC caller context.
@@ -270,7 +271,13 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.system.settimesettings");
-		// Get the existing configuration object.
+		// Validate the time zone.
+		$tzList = $this->callMethod("getTimeZoneList", NULL, $context);
+		if (FALSE === in_array($params['timezone'], $tzList)) {
+			throw new \OMV\Exception("Invalid time zone '%s'",
+				$params['timezone']);
+		}
+		// Get and update the existing configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.system.time");
 		$object->set("timezone", $params['timezone']);
