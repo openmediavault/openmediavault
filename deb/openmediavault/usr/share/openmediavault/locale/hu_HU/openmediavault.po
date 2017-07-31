@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-02 15:50+0200\n"
-"PO-Revision-Date: 2017-07-20 10:55+0000\n"
+"PO-Revision-Date: 2017-07-24 06:15+0000\n"
 "Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #, javascript-format
 msgid "% completed ..."
-msgstr "% kész ..."
+msgstr "% elkészült ..."
 
 msgid "%s (%s available)"
 msgstr "%s (%s elérhető)"
@@ -854,7 +854,7 @@ msgid "Device was used outside of design parameters in the past"
 msgstr "Az eszköz a tervezési paramétereken kívül volt használatban az elmúlt időszakban."
 
 msgid "Device(s)"
-msgstr "Eszköz(ök)"
+msgstr "Meghajtó(k)"
 
 msgid "Device/Label"
 msgstr "Eszköz/címke"
@@ -1885,7 +1885,7 @@ msgid "Malta"
 msgstr "Málta"
 
 msgid "Manual"
-msgstr "Kézi"
+msgstr "Kézi beállítás"
 
 msgid "March"
 msgstr "Március"
@@ -2090,7 +2090,7 @@ msgid "Netherlands Antilles"
 msgstr "Holland Antillák"
 
 msgid "Netmask"
-msgstr "Netmaszk"
+msgstr "Protokol"
 
 msgid "Network"
 msgstr "Hálózat"
@@ -3683,7 +3683,7 @@ msgid "Tonga"
 msgstr "Tonga"
 
 msgid "Total"
-msgstr "Teljes"
+msgstr "Kapacitás"
 
 msgid "Transfer log"
 msgstr "Átviteli napló"
