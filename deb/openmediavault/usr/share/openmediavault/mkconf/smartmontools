@@ -69,7 +69,7 @@ xmlstarlet sel -t \
 	  xmlstarlet sel -t \
 		-m "//services/smart/monitor/device[uuid='${uuid}']" \
 		  -v devicefile \
-		  -i "string-length(type) > 0" \
+		  -i "string-length(devicetype) > 0" \
 			-v "concat(' -d ',devicetype)" \
 		  -b \
 		-b \
