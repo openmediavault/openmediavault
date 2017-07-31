@@ -27,6 +27,7 @@ openmediavault (3.0.86) stable; urgency=low
 
   * Various improvements in the WebUI.
   * Fix bug in omv-initsystem.
+  * Fix bug in /etc/smartd.conf.
   * Mantis 0001788: Support all time zones including backwards compatible.
   * Mantis 0001790: Make S.M.A.R.T. scheduled jobs sortable by device.
 
