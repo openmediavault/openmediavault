@@ -76,7 +76,7 @@ xmlstarlet sel -t \
 		-o " ${OMV_SMARTMONTOOLS_DEFAULTDIRECTIVES}" \
 		-m "//services/smart" \
 		  -v "concat(' -W ',tempdiff,',',tempinfo,',',tempcrit)" \
-		  -i "tempdiff = '0' and tempinfo = '0' and tempcrit = '0'" -o " -I 194 -I 231" -b \
+		  -i "tempdiff = '0' and tempinfo = '0' and tempcrit = '0'" -o " -I 190 -I 194 -I 231" -b \
 		  -v "concat(' -n ',powermode,',q')" \
 		-b \
 		-m "//services/smart/scheduledtests/job[devicefile=//services/smart/monitor/device[uuid='${uuid}']/devicefile][enable='1']" \
