@@ -96,6 +96,8 @@ class System {
 
 	/**
 	 * Get the next free device name.
+	 * Note, do not use this method combined with predictable network
+	 * device names.
 	 * @param type The type of the device, e.g. disk or iface
 	 * @param name The device name, e.g. sda, hda, md, eth or bond
 	 * @return The next free device name, e.g. md3
@@ -105,13 +107,16 @@ class System {
 			"disk" => "cat /proc/partitions | awk '{print $4}'",
 			"iface" => "export LANG=C; netstat -i | awk '{print $1}'"
 		];
-		$cmd = sprintf("%s | grep '^%s[0-9]\{1,\}$' | sort -r | " .
-		  "head -n 1", $cmdList[$type], $name);
-		$cmd = new \OMV\System\Process($cmd);
-		$deviceName = $cmd->execute();
-		$deviceName = strrev($deviceName);
-		return sprintf("%s%d", $name, !empty($deviceName) ?
-		  intval($deviceName[0]) + 1 : 0);
+		$cmd = new \OMV\System\Process($cmdList[$type]);
+		$cmd->execute($output);
+		$nums = [];
+		$regex = sprintf("/^%s(\d+)$/", $name);
+		foreach ($output as $itemk => $itemv) {
+			if (1 !== preg_match($regex, $itemv, $matches))
+				continue;
+			$nums[] = $matches[1];
+		}
+		return sprintf("%s%d", $name, !empty($nums) ? max($nums) + 1 : 0);
 	}
 
 	/**

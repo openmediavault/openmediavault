@@ -23,6 +23,12 @@ openmediavault (4.0) stable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 22 Feb 2017 13:28:40 +0100
 
+openmediavault (3.0.87) stable; urgency=low
+
+  * Fix bug in \OMV\System::getNextDevice().
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 07 Aug 2017 17:13:23 +0200
+
 openmediavault (3.0.86) stable; urgency=low
 
   * Various improvements in the WebUI.
