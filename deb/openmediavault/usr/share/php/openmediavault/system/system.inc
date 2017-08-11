@@ -95,12 +95,12 @@ class System {
 	}
 
 	/**
-	 * Get the next free device name.
+	 * Get the next free device name, e.g. md3 or bond2.
 	 * Note, do not use this method combined with predictable network
 	 * device names.
 	 * @param type The type of the device, e.g. disk or iface
 	 * @param name The device name, e.g. sda, hda, md, eth or bond
-	 * @return The next free device name, e.g. md3
+	 * @return The next free device name, or FALSE on failure.
 	 */
 	public static function getNextDevice($type, $name) {
 		$cmdList = [
@@ -116,7 +116,17 @@ class System {
 				continue;
 			$nums[] = $matches[1];
 		}
-		return sprintf("%s%d", $name, !empty($nums) ? max($nums) + 1 : 0);
+		// Try to find the next free number.
+		$num = -1;
+		for ($i = 0; $i <= 255; $i++) {
+			if (TRUE === in_array($i, $nums))
+				continue;
+			$num = $i;
+			break;
+		}
+		if (0 > $num)
+			return FALSE;
+		return sprintf("%s%d", $name, $num);
 	}
 
 	/**
