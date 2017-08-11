@@ -25,6 +25,7 @@ openmediavault (4.0) stable; urgency=low
 
 openmediavault (3.0.87) stable; urgency=low
 
+  * Update locales.
   * Fix bug in \OMV\System::getNextDevice().
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 07 Aug 2017 17:13:23 +0200
