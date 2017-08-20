@@ -53,8 +53,10 @@ class OMVModuleNetworkRoute extends \OMV\Engine\Module\ServiceAbstract
 		foreach ($objects as $objectk => $objectv) {
 			$cmdArgs = [];
 			$cmdArgs[] = "route";
-			$cmdArgs[] = sprintf("replace %s", $objectv->get("network"));
-			$cmdArgs[] = sprintf("via %s", $objectv->get("gateway"));
+			$cmdArgs[] = sprintf("replace %s", escapeshellarg(
+				$objectv->get("network")));
+			$cmdArgs[] = sprintf("via %s", escapeshellarg(
+				$objectv->get("gateway")));
 			$cmd = new \OMV\System\Process("ip", $cmdArgs);
 			$cmd->setRedirect2to1();
 			$cmd->execute();
@@ -79,8 +81,8 @@ class OMVModuleNetworkRoute extends \OMV\Engine\Module\ServiceAbstract
 		// Delete the static route.
 		$cmdArgs = [];
 		$cmdArgs[] = "route";
-		$cmdArgs[] = sprintf("delete %s", $objectv['network']);
-		$cmdArgs[] = sprintf("via %s", $objectv['gateway']);
+		$cmdArgs[] = sprintf("delete %s", escapeshellarg($objectv['network']));
+		$cmdArgs[] = sprintf("via %s", escapeshellarg($objectv['gateway']));
 		$cmd = new \OMV\System\Process("ip", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->setQuiet(TRUE);
