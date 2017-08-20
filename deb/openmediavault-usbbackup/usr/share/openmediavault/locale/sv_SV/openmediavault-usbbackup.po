@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
+# Jonatan Nyberg, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2016-04-23 17:16+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2017-08-12 07:46+0000\n"
+"Last-Translator: Jonatan Nyberg\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,161 +19,161 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add backup job"
-msgstr ""
+msgstr "Lägg till säkerhetskopieringsjobb"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "Ett e-postmeddelande med kommandoutmatningen (om någon produceras) skickas till administratören."
 
 msgid "Archive"
-msgstr ""
+msgstr "Arkiv"
 
 msgid "Backup jobs"
-msgstr ""
+msgstr "Säkerhetskopieringsjobb"
 
 msgid "Comment"
-msgstr ""
+msgstr "Kommentar"
 
 msgid "Compress"
-msgstr ""
+msgstr "Komprimera"
 
 msgid "Compress file data during the transfer."
-msgstr ""
+msgstr "Komprimera fildata under överföringen."
 
 msgid "Delete"
-msgstr ""
+msgstr "Ta bort"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr ""
+msgstr "Ta bort filer på mottagningssidan som inte finns hos avsändaren."
 
 msgid "Device"
-msgstr ""
+msgstr "Enhet"
 
 msgid "Edit backup job"
-msgstr ""
+msgstr "Redigera säkerhetskopieringsjobb"
 
 msgid "Enable"
-msgstr ""
+msgstr "Aktivera"
 
 msgid "Enable archive mode."
-msgstr ""
+msgstr "Aktivera arkivläge."
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr ""
+msgstr "Aktivera det här alternativet för att behålla delvis överförda filer, annars kommer de att raderas om överföringen avbryts."
 
 msgid "Enabled"
-msgstr ""
+msgstr "Aktiverad"
 
 msgid "Execute backup job"
-msgstr ""
+msgstr "Utför säkerhetskopieringsjobb"
 
 msgid "External storage device"
-msgstr ""
+msgstr "Extern lagringsenhet"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Extra alternativ"
 
 msgid "From external storage to shared folder"
-msgstr ""
+msgstr "Från externt lagringsutrymme till delad mapp"
 
 msgid "From shared folder to external storage"
-msgstr ""
+msgstr "Från delad mapp till externt lagringsutrymme"
 
 msgid "Keep partially transferred files"
-msgstr ""
+msgstr "Behåll delvis överförda filer"
 
 msgid "Mode"
-msgstr ""
+msgstr "Läge"
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Se <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manualsidan</a> för mer detaljer."
 
 msgid ""
 "Please note that the web interface is blocked until the manually started "
 "backup job has been finished. However the backup job is automatically "
 "executed in the background when the storage device is connected to the host."
-msgstr ""
+msgstr "Observera att webbgränssnittet är blockerat tills det manuellt startade säkerhetskopieringsjobbet har slutförts. Men säkerhetskopieringsjobbet utförs automatiskt i bakgrunden när lagringsenheten är ansluten till värden."
 
 msgid "Preserve ACLs"
-msgstr ""
+msgstr "Bevara ACL:er"
 
 msgid "Preserve extended attributes"
-msgstr ""
+msgstr "Bevara utökade attribut"
 
 msgid "Preserve modification times."
-msgstr ""
+msgstr "Bevara ändringstider."
 
 msgid "Preserve permissions"
-msgstr ""
+msgstr "Bevara behörigheter"
 
 msgid "Quiet"
-msgstr ""
+msgstr "Tyst"
 
 msgid "Recurse into directories."
 msgstr ""
 
 msgid "Recursive"
-msgstr ""
+msgstr "Rekursiv"
 
 msgid "Run"
-msgstr ""
+msgstr "Kör"
 
 msgid "Scan"
-msgstr ""
+msgstr "Skanna"
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "Välj en enhet ..."
 
 msgid "Send command output via email."
-msgstr ""
+msgstr "Skicka kommandoutdata via e-post."
 
 msgid "Send email"
-msgstr ""
+msgstr "Skicka e-post"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr ""
+msgstr "Ställ in destinationsbehörigheterna att vara desamma som källtillstånden."
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Delad mapp"
 
 msgid "Suppress non-error messages."
-msgstr ""
+msgstr "Undertryck icke-felmeddelanden."
 
 msgid "Synchronise from/to directory on external storage device."
-msgstr ""
+msgstr "Synkronisera från/till katalog på extern lagringsenhet."
 
 msgid "The external storage device."
-msgstr ""
+msgstr "Den externa lagringsenheten."
 
 msgid ""
 "The shared folder content is synchronised from/to the root of the external "
 "storage device if this option is not set. The name of the directory is taken"
 " from the shared folder."
-msgstr ""
+msgstr "Det delade mappinnehållet synkroniseras från/till roten på den externa lagringsenheten om det här alternativet inte är inställt. Namnet på katalogen tas från den delade mappen."
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
 "connected."
-msgstr ""
+msgstr "Den delade mappen synkroniseras när den externa lagringsenheten är ansluten."
 
 msgid "Times"
-msgstr ""
+msgstr "Tider"
 
 msgid "USB Backup"
-msgstr ""
+msgstr "USB-säkerhetskopiering"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr ""
+msgstr "Uppdatera destinations-ACL:erna för att vara desamma som käll-ACL:erna."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr ""
+msgstr "Uppdatera destinations utökade attribut för att vara samma som de lokala."
 
 msgid "n/a"
-msgstr ""
+msgstr "ingen uppgift"

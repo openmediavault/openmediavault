@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Henrik Sandström <henrik.sandstroem@gmail.com>, 2012
+# Jonatan Nyberg, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2013-11-20 12:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2017-08-12 07:46+0000\n"
+"Last-Translator: Jonatan Nyberg\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,13 +44,13 @@ msgid "Port to listen on."
 msgstr "Port att lyssna på."
 
 msgid "Settings"
-msgstr ""
+msgstr "Inställningar"
 
 msgid "Shared folder"
 msgstr "Delad mapp"
 
 msgid "The location of the media files to share."
-msgstr "Placeringen av de mediafiler som ska delas."
+msgstr "Placeringen av de mediafiler som ska utdelas."
 
 msgid "The name of the library as displayed by the clients."
 msgstr "Namnet på biblioteket visas av klienterna."
