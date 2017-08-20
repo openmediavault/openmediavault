@@ -1,4 +1,4 @@
-openmediavault-route (4.0) stable; urgency=low
+openmediavault-route (4.0-1) stable; urgency=low
 
   * Adapt to Debian 9 (Stretch).
 

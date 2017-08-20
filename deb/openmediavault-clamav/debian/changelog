@@ -1,3 +1,9 @@
+openmediavault-clamav (4.0-1) stable; urgency=low
+
+  * Adapt to Debian 9 (Stretch).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 20 Aug 2017 13:04:01 +0200
+
 openmediavault-clamav (3.3.3) stable; urgency=low
 
   * Various UI improvements.
