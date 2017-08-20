@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Henrik Sandström <henrik.sandstroem@gmail.com>, 2012
+# Jonatan Nyberg, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2013-11-19 16:30+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2017-08-16 08:29+0000\n"
+"Last-Translator: Jonatan Nyberg\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,7 +38,7 @@ msgid "Assign a unique serial number to the iSCSI volume optionally."
 msgstr "Tilldela ett unikt serienummer till iSCSI-volymen valfritt."
 
 msgid "Authentication"
-msgstr ""
+msgstr "Autentisering"
 
 msgid "Block IO"
 msgstr "'Block IO'"
@@ -90,7 +91,7 @@ msgid "First burst length"
 msgstr "Första 'burst length'"
 
 msgid "General"
-msgstr ""
+msgstr "Allmänt"
 
 msgid "General settings"
 msgstr "Allmänna inställningar"
@@ -151,7 +152,7 @@ msgid "Initial R2T"
 msgstr "Initial R2T"
 
 msgid "LUN"
-msgstr ""
+msgstr "LUN"
 
 msgid "Max. burst length"
 msgstr "Max. dataströmlängd"

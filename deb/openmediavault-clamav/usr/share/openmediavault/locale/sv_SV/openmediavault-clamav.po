@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Henrik Sandström <henrik.sandstroem@gmail.com>, 2012
+# Jonatan Nyberg, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-05-03 19:36+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2017-08-16 08:28+0000\n"
+"Last-Translator: Jonatan Nyberg\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -95,7 +96,7 @@ msgid "Enabled"
 msgstr "Aktiverad"
 
 msgid "Every N day of month"
-msgstr "Varje N dag i månad"
+msgstr "Varje N dag i månaden"
 
 msgid "Every N hour"
 msgstr "Varje N timme"
@@ -104,7 +105,7 @@ msgid "Every N minute"
 msgstr "Varje N minut"
 
 msgid "Execute cron job"
-msgstr ""
+msgstr "Utför cron jobb"
 
 msgid "Extra options"
 msgstr "Extra inställningar"
@@ -128,25 +129,25 @@ msgid "Hour"
 msgstr "Timme"
 
 msgid "Infected files"
-msgstr ""
+msgstr "Infekterade filer"
 
 msgid "Jobs"
 msgstr "Jobb"
 
 msgid "Log clean files"
-msgstr ""
+msgstr "Logga rena filer"
 
 msgid "Log clean files. This drastically increases the log size."
-msgstr ""
+msgstr "Logga rena filer. Detta ökar loggstorleken kraftigt."
 
 msgid "Message"
-msgstr ""
+msgstr "Meddelande"
 
 msgid "Minute"
 msgstr "Minut"
 
 msgid "Monitor the shared folder and scan new or modified files."
-msgstr "Övervaka den utdelade mappen och sök efter nya eller ändrade filer."
+msgstr "Övervaka den delade mappen och sök efter nya eller ändrade filer."
 
 msgid "Month"
 msgstr "Månad"
@@ -167,10 +168,10 @@ msgid ""
 "Please check the <a href='https://github.com/vrtadmin/clamav-"
 "faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
 "details."
-msgstr ""
+msgstr "Se <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>manualsidan</a> för mer detaljer."
 
 msgid "Quarantine"
-msgstr ""
+msgstr "Karantän"
 
 msgid "Run"
 msgstr "Kör"
@@ -212,13 +213,13 @@ msgid "The location of the files to scan."
 msgstr "Plats för filer att skanna."
 
 msgid "The location which is used as quarantine."
-msgstr ""
+msgstr "Den plats som används som karantän."
 
 msgid "The option, how to handle infected files."
-msgstr ""
+msgstr "Alternativet, hur man hanterar infekterade filer."
 
 msgid "Verbose"
 msgstr "Pratig"
 
 msgid "n/a"
-msgstr "n/a"
+msgstr "ingen uppgift"

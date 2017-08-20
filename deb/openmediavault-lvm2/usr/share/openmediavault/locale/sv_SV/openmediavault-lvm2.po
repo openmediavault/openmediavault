@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Henrik Sandström <henrik.sandstroem@gmail.com>, 2012
+# Jonatan Nyberg, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-14 20:04+0200\n"
-"PO-Revision-Date: 2017-07-14 18:04+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2017-08-11 20:47+0000\n"
+"Last-Translator: Jonatan Nyberg\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,10 +20,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Active"
-msgstr ""
+msgstr "Aktiv"
 
 msgid "Add physical volume"
-msgstr ""
+msgstr "Lägg till fysisk volym"
 
 msgid ""
 "After the logical volume has been extended you can resize the containing "
@@ -63,7 +64,7 @@ msgid "Do you really want to create the volume group?"
 msgstr "Vill du verkligen skapa volymgruppen?"
 
 msgid "Do you really want to resize the selected physical volume?"
-msgstr ""
+msgstr "Vill du verkligen ändra storlek på den valda fysiska volymen?"
 
 msgid "Edit logical volume"
 msgstr "Redigera logisk volym"
@@ -84,7 +85,7 @@ msgid "Free"
 msgstr "Ledigt"
 
 msgid "Invalid name"
-msgstr ""
+msgstr "Ogiltigt namn"
 
 msgid "Logical Volume Management"
 msgstr "Logisk volymhantering"
@@ -96,10 +97,10 @@ msgid "Name"
 msgstr "Namn"
 
 msgid "No free space available to create a logical volume."
-msgstr ""
+msgstr "Inget ledigt utrymme tillgängligt för att skapa en logisk volym."
 
 msgid "No free space available to extend the logical volume."
-msgstr ""
+msgstr "Inget ledigt utrymme tillgängligt för att utöka den logiska volymen."
 
 msgid "Physical volumes"
 msgstr "Fysiska volymer"
@@ -111,7 +112,7 @@ msgid "Reduce volume group"
 msgstr "Minska volymgrupp"
 
 msgid "Resize"
-msgstr ""
+msgstr "Ändra storlek"
 
 msgid "Select a volume group ..."
 msgstr "Välj en volymgrupp ..."
@@ -123,7 +124,7 @@ msgid "Size"
 msgstr "Storlek"
 
 msgid "Snapshot"
-msgstr ""
+msgstr "Ögonblicksbild"
 
 msgid "Used"
 msgstr "Använt"

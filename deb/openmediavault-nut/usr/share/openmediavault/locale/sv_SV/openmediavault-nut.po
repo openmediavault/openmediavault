@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Henrik Sandström <henrik.sandstroem@gmail.com>, 2012
+# Jonatan Nyberg, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2014-05-19 17:18+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2017-08-16 08:26+0000\n"
+"Last-Translator: Jonatan Nyberg\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +26,7 @@ msgid "Comment"
 msgstr "Kommentar"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Datum & tid"
 
 msgid "Defines when the shutdown is initiated."
 msgstr "Definiera när avstängning initieras."
@@ -40,7 +41,7 @@ msgid "Enable remote monitoring of the local connected UPS."
 msgstr "Aktivera fjärrövervakning för den lokalt anslutna UPS:en."
 
 msgid "General settings"
-msgstr "Generella inställningar"
+msgstr "Allmänna Inställningar"
 
 msgid "Identifier"
 msgstr "Identifierare"
@@ -49,16 +50,16 @@ msgid "Load"
 msgstr "Belastning"
 
 msgid "Message"
-msgstr ""
+msgstr "Meddelande"
 
 msgid "PID"
-msgstr ""
+msgstr "PID"
 
 msgid "Password"
 msgstr "Lösenord"
 
 msgid "Program"
-msgstr ""
+msgstr "Program"
 
 msgid "Remote monitoring"
 msgstr "Fjärrövervakning"
@@ -67,7 +68,7 @@ msgid "Service disabled"
 msgstr "Tjänst inaktiverad"
 
 msgid "Settings"
-msgstr ""
+msgstr "Inställningar"
 
 msgid "Shutdown mode"
 msgstr "Avstängningsläge"
