@@ -1,3 +1,9 @@
+openmediavault-tftp (4.0-1) stable; urgency=low
+
+  * Adapt to Debian 9 (Stretch).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 20 Aug 2017 13:22:33 +0200
+
 openmediavault-tftp (3.0) stable; urgency=low
 
   * Initial release.
