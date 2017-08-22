@@ -34,4 +34,4 @@ if [ "$ADDRFAM" != "inet" ] && [ "$ADDRFAM" != "inet6" ]; then
 	exit 0
 fi
 
-omv-mkconf issue
+omv-mkconf issue || :
