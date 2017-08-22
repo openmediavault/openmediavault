@@ -26,6 +26,8 @@ openmediavault (4.0) stable; urgency=low
 openmediavault (3.0.88) stable; urgency=low
 
   * Various improvements.
+  * Fix bug in 'omv-mkconf issue' command. Don't run any hook scripts when
+    executing ifquery.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 11 Aug 2017 09:33:39 +0200
 
