@@ -57,8 +57,6 @@ class OMVModuleNfs extends \OMV\Engine\Module\ServiceAbstract
 	public function stopService() {
 		$systemCtl = new \OMV\System\SystemCtl("nfs-kernel-server");
 		$systemCtl->disable(TRUE);
-		$systemCtl = new \OMV\System\SystemCtl("nfs-common");
-		$systemCtl->disable(TRUE);
 	}
 
 	/**
@@ -69,8 +67,6 @@ class OMVModuleNfs extends \OMV\Engine\Module\ServiceAbstract
 		$object = $db->get("conf.service.nfs");
 		if (TRUE !== $object->get("enable"))
 			return;
-		$systemCtl = new \OMV\System\SystemCtl("nfs-common");
-		$systemCtl->enable(TRUE);
 		$systemCtl = new \OMV\System\SystemCtl("nfs-kernel-server");
 		$systemCtl->enable(TRUE);
 	}

@@ -107,8 +107,6 @@ case "$1" in
 			deb-systemd-invoke stop proftpd.service || :
 			deb-systemd-helper disable nfs-kernel-server.service
 			deb-systemd-invoke stop nfs-kernel-server.service || :
-			deb-systemd-helper disable nfs-common.service
-			deb-systemd-invoke stop nfs-common.service || :
 			deb-systemd-helper disable smbd.service
 			deb-systemd-invoke stop smbd.service || :
 			deb-systemd-helper disable nmbd.service
