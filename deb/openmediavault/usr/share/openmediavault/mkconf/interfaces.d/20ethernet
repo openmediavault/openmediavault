@@ -39,7 +39,6 @@ xmlstarlet sel -t \
 	  -i "count(//system/network/interfaces/interface/slaves[contains(.,current()/devicename)]) = 0" \
 		  -n \
 		  -v "concat('# ',devicename,' network interface')" -n \
-		  -v "concat('auto ',devicename)" -n \
 		  -v "concat('allow-hotplug ',devicename)" -n \
           -v "concat('iface ',devicename,' inet ',method)" -n \
 		  -i "method = 'manual'" \
