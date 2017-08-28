@@ -1,5 +1,9 @@
 openmediavault (4.0.4-1) stable; urgency=low
 
+  * Mantis 0001791: Folder to represent the shared folders on the filesystem.
+    All shared folders are mapped to the directory '/sharedfolders/<SFNAME>'
+    for easy access in scripts. Plugin developers should not use them, instead
+    use the origin directory which is located at /srv/<FILESYSDEVNAME>/<SFPATH>.
   * Mantis 0001809: nfs-common service unit is masked.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 23 Aug 2017 12:13:53 +0200

@@ -491,6 +491,10 @@ case "$1" in
 				deb-systemd-invoke reload postfix || :
 			fi
 		fi
+		if dpkg --compare-versions "$2" lt-nl "4.0.4"; then
+			omv_set_default "OMV_SHAREDFOLDERS_DIR" "/sharedfolders"
+			omv-mkconf systemd
+		fi
 
 		########################################################################
 		# Show help text.
