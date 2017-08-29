@@ -78,6 +78,15 @@ set -e
 #         </job>
 #         -->
 #       </jobs>
+#       <onaccesspaths>
+#         <!--
+#         <onaccesspath>
+#           <uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+#           <enable>0|1</enable>
+#           <sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
+#         </onaccesspath>
+#         -->
+#       </onaccesspaths>
 #     </clamav>
 #   </services>
 # </config>
@@ -105,6 +114,7 @@ if ! omv_config_exists "/config/services/clamav"; then
 	omv_config_add_key "/config/services/clamav/freshclam" "enable" "1"
 	omv_config_add_key "/config/services/clamav/freshclam" "checks" "24"
 	omv_config_add_node "/config/services/clamav" "jobs"
+	omv_config_add_node "/config/services/clamav" "onaccesspaths"
 fi
 
 exit 0

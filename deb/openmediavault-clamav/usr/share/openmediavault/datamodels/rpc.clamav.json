@@ -5,17 +5,17 @@
 		"type": "object",
 		"properties": {
 			"enable": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"checks": {
-			    "type": "integer",
-			    "minimum": 0,
-			    "maximum": 50,
+				"type": "integer",
+				"minimum": 0,
+				"maximum": 50,
 				"required": true
 			},
 			"quarantine_sharedfolderref": {
-			    "type": "string",
+				"type": "string",
 				"oneOf": [{
 					"type": "string",
 					"format": "uuidv4"
@@ -26,55 +26,55 @@
 				"required": true
 			},
 			"logclean": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"scanpe": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"scanole2": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"scanhtml": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"scanpdf": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"scanelf": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"scanarchive": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"detectbrokenexecutables": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"algorithmicdetection": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"followdirectorysymlinks": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"followfilesymlinks": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"detectpua": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"extraoptions": {
-			    "type": "string",
+				"type": "string",
 				"required": true
 			}
 		}
@@ -86,16 +86,16 @@
 		"type": "object",
 		"properties": {
 			"uuid": {
-			    "type": "string",
+				"type": "string",
 				"format": "uuidv4",
 				"required": true
 			},
 			"enable": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"sharedfolderref": {
-			    "type": "string",
+				"type": "string",
 				"oneOf": [{
 					"type": "string",
 					"format": "uuidv4"
@@ -143,28 +143,50 @@
 				"required": true
 			},
 			"sendemail": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"onaccess": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"virusaction": {
-			    "type": "string",
-			    "enum":[ "nothing", "quarantine", "delete" ],
+				"type": "string",
+				"enum":[ "nothing", "quarantine", "delete" ],
 				"required": true
 			},
 			"multiscan": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"verbose": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"comment": {
-			    "type": "string",
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.clamav.setOnAccessPath",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
+			"sharedfolderref": {
+				"type": "string",
+				"format": "uuidv4",
 				"required": true
 			}
 		}

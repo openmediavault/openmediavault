@@ -102,19 +102,23 @@ class OMVModuleClamAV extends \OMV\Engine\Module\ServiceAbstract implements
 	 */
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.clamav",
-		  [ $this, "setDirty" ]);
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.service.clamav",
+			[ $this, "setDirty" ]);
 		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.conf.service.clamav.job",
-		  [ $this, "setDirty" ]);
+			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+			"org.openmediavault.conf.service.clamav.job",
+			[ $this, "setDirty" ]);
 		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.sharedfolder",
-		  [ $this, "onSharedFolder" ]);
+			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+			"org.openmediavault.conf.service.clamav.onaccesspath",
+			[ $this, "setDirty" ]);
+		$dispatcher->addListener(
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.system.sharedfolder",
+			[ $this, "onSharedFolder" ]);
 		$dispatcher->addListener(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.network.proxy",
-		  [ $this, "setDirty" ]);
+			"org.openmediavault.conf.system.network.proxy",
+			[ $this, "setDirty" ]);
 	}
 }
