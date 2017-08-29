@@ -210,12 +210,12 @@ xmlstarlet sel -t -m "//services/clamav/clamd" \
   -o "CrossFilesystems ${OMV_CLAMAV_CLAMD_CROSSFILESYSTEMS}" -n \
   -o "VirusEvent ${OMV_CLAMAV_CLAMD_VIRUSEVENT}" -n \
   -i "count(//services/clamav/onaccesspaths/onaccesspath[enable='1']) = 0" \
-    -o "ScanOnAccess false" -n \
     -o "User ${OMV_CLAMAV_CLAMD_USER}" -n \
+    -o "ScanOnAccess false" -n \
   -b \
   -i "count(//services/clamav/onaccesspaths/onaccesspath[enable='1']) > 0" \
+    -o "User root" -n \
     -o "ScanOnAccess true" -n \
-	-o "User root" -n \
     -o "OnAccessMaxFileSize ${OMV_CLAMAV_CLAMD_ONACCESSMAXFILESIZE}" -n \
     -o "OnAccessDisableDDD ${OMV_CLAMAV_CLAMD_ONACCESSDISABLEDDD}" -n \
     -o "OnAccessPrevention ${OMV_CLAMAV_CLAMD_ONACCESSPREVENTION}" -n \
