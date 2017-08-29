@@ -1,6 +1,7 @@
-openmediavault-clamav (4.0.1-1) stable; urgency=low
+openmediavault-clamav (4.1-1) stable; urgency=low
 
   * Various UI improvements.
+  * Add support for on-access scanning.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 29 Aug 2017 18:12:47 +0200
 

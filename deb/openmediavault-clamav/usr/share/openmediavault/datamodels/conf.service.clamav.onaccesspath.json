@@ -1,0 +1,24 @@
+{
+	"type": "config",
+	"id": "conf.service.clamav.onaccesspath",
+	"title": "ClamAV Antivirus on-access scanning path",
+	"queryinfo": {
+		"xpath": "//services/clamav/onaccesspaths/onaccesspath",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"sharedfolderref": {
+			"type": "string",
+			"format": "uuidv4"
+		}
+	}
+}

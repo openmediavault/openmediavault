@@ -98,6 +98,31 @@
 				}
 			}
 		},
+		"onaccesspaths": {
+			"type": "object",
+			"properties": {
+				"onaccesspath": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"uuid": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"enable": {
+								"type": "boolean",
+								"default": false
+							},
+							"sharedfolderref": {
+								"type": "string",
+								"format": "uuidv4"
+							}
+						}
+					}
+				}
+			}
+		},
 		"jobs": {
 			"type": "object",
 			"properties": {

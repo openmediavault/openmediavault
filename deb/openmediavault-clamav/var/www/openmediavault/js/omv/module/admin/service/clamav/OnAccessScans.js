@@ -29,22 +29,23 @@
 // require("js/omv/form/field/SharedFolderComboBox.js")
 
 /**
- * @class OMV.module.admin.service.ftp.Share
+ * @class OMV.module.admin.service.clamav.OnAccessScan
  * @derived OMV.workspace.window.Form
  */
-Ext.define("OMV.module.admin.service.ftp.Share", {
+Ext.define("OMV.module.admin.service.clamav.OnAccessScan", {
 	extend: "OMV.workspace.window.Form",
-	uses: [
+	requires: [
 		"OMV.form.field.SharedFolderComboBox",
 		"OMV.workspace.window.plugin.ConfigObject"
 	],
 
-	rpcService: "FTP",
-	rpcGetMethod: "getShare",
-	rpcSetMethod: "setShare",
+	rpcService: "ClamAV",
+	rpcGetMethod: "getOnAccessPath",
+	rpcSetMethod: "setOnAccessPath",
 	plugins: [{
 		ptype: "configobject"
 	}],
+	width: 400,
 
 	/**
 	 * The class constructor.
@@ -52,17 +53,7 @@ Ext.define("OMV.module.admin.service.ftp.Share", {
 	 * @param uuid The UUID of the database/configuration object. Required.
 	 */
 
-	getFormConfig: function() {
-		return {
-			layout: {
-				type: "vbox",
-				align: "stretch"
-			}
-		};
-	},
-
 	getFormItems: function() {
-		var me = this;
 		return [{
 			xtype: "checkbox",
 			name: "enable",
@@ -74,33 +65,17 @@ Ext.define("OMV.module.admin.service.ftp.Share", {
 			fieldLabel: _("Shared folder"),
 			plugins: [{
 				ptype: "fieldinfo",
-				text: _("The location of the files to share.")
+				text: _("The location of the files to scan on-access.")
 			}]
-		},{
-			xtype: "textarea",
-			name: "extraoptions",
-			fieldLabel: _("Extra options"),
-			allowBlank: true,
-			flex: 1,
-			plugins: [{
-				ptype: "fieldinfo",
-				text: _("Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>manual page</a> for more details.")
-			}]
-		},{
-			xtype: "textfield",
-			name: "comment",
-			fieldLabel: _("Comment"),
-			allowBlank: true,
-			vtype: "comment"
 		}];
 	}
 });
 
 /**
- * @class OMV.module.admin.service.ftp.Shares
+ * @class OMV.module.admin.service.clamav.OnAccessScans
  * @derived OMV.workspace.grid.Panel
  */
-Ext.define("OMV.module.admin.service.ftp.Shares", {
+Ext.define("OMV.module.admin.service.clamav.OnAccessScans", {
 	extend: "OMV.workspace.grid.Panel",
 	requires: [
 		"OMV.Rpc",
@@ -109,12 +84,12 @@ Ext.define("OMV.module.admin.service.ftp.Shares", {
 		"OMV.data.proxy.Rpc"
 	],
 	uses: [
-		"OMV.module.admin.service.ftp.Share"
+		"OMV.module.admin.service.clamav.OnAccessScan"
 	],
 
 	hidePagingToolbar: false,
 	stateful: true,
-	stateId: "9889057b-b1c0-4c48-a4c1-8c8b4fb54d7b",
+	stateId: "ff76df7a-8cf5-11e7-8a62-0800278dc04d",
 	columns: [{
 		xtype: "enabledcolumn",
 		text: _("Enabled"),
@@ -127,12 +102,6 @@ Ext.define("OMV.module.admin.service.ftp.Shares", {
 		sortable: true,
 		dataIndex: "sharedfoldername",
 		stateId: "sharedfoldername"
-	},{
-		xtype: "textcolumn",
-		text: _("Comment"),
-		sortable: true,
-		dataIndex: "comment",
-		stateId: "comment"
 	}],
 
 	initComponent: function() {
@@ -145,15 +114,14 @@ Ext.define("OMV.module.admin.service.ftp.Shares", {
 					fields: [
 						{ name: "uuid", type: "string" },
 						{ name: "enable", type: "boolean" },
-						{ name: "sharedfoldername", type: "string" },
-						{ name: "comment", type: "string" }
+						{ name: "sharedfoldername", type: "string" }
 					]
 				}),
 				proxy: {
 					type: "rpc",
 					rpcData: {
-						service: "FTP",
-						method: "getShareList"
+						service: "ClamAV",
+						method: "getOnAccessPathList"
 					}
 				},
 				remoteSort: true,
@@ -168,8 +136,8 @@ Ext.define("OMV.module.admin.service.ftp.Shares", {
 
 	onAddButton: function() {
 		var me = this;
-		Ext.create("OMV.module.admin.service.ftp.Share", {
-			title: _("Add share"),
+		Ext.create("OMV.module.admin.service.clamav.OnAccessScan", {
+			title: _("Add on-access scan"),
 			uuid: OMV.UUID_UNDEFINED,
 			listeners: {
 				scope: me,
@@ -183,8 +151,8 @@ Ext.define("OMV.module.admin.service.ftp.Shares", {
 	onEditButton: function() {
 		var me = this;
 		var record = me.getSelected();
-		Ext.create("OMV.module.admin.service.ftp.Share", {
-			title: _("Edit share"),
+		Ext.create("OMV.module.admin.service.clamav.OnAccessScan", {
+			title: _("Edit on-access scan"),
 			uuid: record.get("uuid"),
 			listeners: {
 				scope: me,
@@ -201,8 +169,8 @@ Ext.define("OMV.module.admin.service.ftp.Shares", {
 			scope: me,
 			callback: me.onDeletion,
 			rpcData: {
-				service: "FTP",
-				method: "deleteShare",
+				service: "ClamAV",
+				method: "deleteOnAccessPath",
 				params: {
 					uuid: record.get("uuid")
 				}
@@ -212,9 +180,9 @@ Ext.define("OMV.module.admin.service.ftp.Shares", {
 });
 
 OMV.WorkspaceManager.registerPanel({
-	id: "shares",
-	path: "/service/ftp",
-	text: _("Shares"),
-	position: 40,
-	className: "OMV.module.admin.service.ftp.Shares"
+	id: "onaccessscans",
+	path: "/service/clamav",
+	text: _("On Access Scans"),
+	position: 20,
+	className: "OMV.module.admin.service.clamav.OnAccessScans"
 });

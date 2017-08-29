@@ -396,7 +396,7 @@ Ext.define("OMV.module.admin.service.clamav.Jobs", {
 	onAddButton: function() {
 		var me = this;
 		Ext.create("OMV.module.admin.service.clamav.Job", {
-			title: _("Add job"),
+			title: _("Add scheduled job"),
 			uuid: OMV.UUID_UNDEFINED,
 			listeners: {
 				scope: me,
@@ -411,7 +411,7 @@ Ext.define("OMV.module.admin.service.clamav.Jobs", {
 		var me = this;
 		var record = me.getSelected();
 		Ext.create("OMV.module.admin.service.clamav.Job", {
-			title: _("Edit job"),
+			title: _("Edit scheduled job"),
 			uuid: record.get("uuid"),
 			listeners: {
 				scope: me,
@@ -461,6 +461,6 @@ OMV.WorkspaceManager.registerPanel({
 	id: "jobs",
 	path: "/service/clamav",
 	text: _("Scheduled Jobs"),
-	position: 20,
+	position: 30,
 	className: "OMV.module.admin.service.clamav.Jobs"
 });
