@@ -198,7 +198,9 @@ openmediavault (3.0.68) stable; urgency=low
 
 openmediavault (3.0.67) stable; urgency=low
 
-  * Improve foreign content handling.
+  * Improve foreign content handling. This will fix CVE-2017-1000065 that was
+    discovered by: Machaj Wojciech, Mariusz Sucajtys, Artur Wojtkowski,
+    Marcin Kozłowski, Paweł Piekutowski, COMP S.A.
   * Adapt nginx SSL ciphers to latest intermediate profile according to
     https://mozilla.github.io/server-side-tls/ssl-config-generator.
   * Mantis 0001701: Switch back to NTP daemon.
