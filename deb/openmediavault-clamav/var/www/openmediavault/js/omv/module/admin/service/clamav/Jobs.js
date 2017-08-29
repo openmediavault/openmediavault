@@ -460,7 +460,7 @@ Ext.define("OMV.module.admin.service.clamav.Jobs", {
 OMV.WorkspaceManager.registerPanel({
 	id: "jobs",
 	path: "/service/clamav",
-	text: _("Jobs"),
+	text: _("Scheduled Jobs"),
 	position: 20,
 	className: "OMV.module.admin.service.clamav.Jobs"
 });
