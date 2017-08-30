@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-02 15:50+0200\n"
-"PO-Revision-Date: 2017-07-02 18:00+0000\n"
-"Last-Translator: Milan Toet <milantoet@gmail.com>\n"
+"POT-Creation-Date: 2017-08-30 08:41+0200\n"
+"PO-Revision-Date: 2017-08-30 06:42+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/votdev/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3407,9 +3407,15 @@ msgid ""
 "for data connections is not required."
 msgstr "De eis dat de SSL-sessie van de control verbinding wordt hergebruikt voor data-verbindingen is niet verplicht."
 
+msgid "The session IP address has been changed."
+msgstr ""
+
 msgid ""
 "The session timeout time in minutes. Set to 0 to disable automatic logout."
 msgstr "De sessieverlooptijd in minuten. Stel de waarde op 0 in om automatisch afmelden uit te schakelen."
+
+msgid "The session user no longer exists."
+msgstr ""
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -4002,6 +4008,9 @@ msgstr "Alleen lezen"
 
 msgid "Write/Execute"
 msgstr "Schrijven/Uitvoeren"
+
+msgid "Xen virtual disk device"
+msgstr ""
 
 msgid "Yearly"
 msgstr "Jaarlijks"

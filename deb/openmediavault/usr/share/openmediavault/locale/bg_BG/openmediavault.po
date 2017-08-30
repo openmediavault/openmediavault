@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-02 15:50+0200\n"
-"PO-Revision-Date: 2017-07-02 13:53+0000\n"
+"POT-Creation-Date: 2017-08-30 08:41+0200\n"
+"PO-Revision-Date: 2017-08-30 06:42+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/votdev/openmediavault/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -3404,9 +3404,15 @@ msgid ""
 "for data connections is not required."
 msgstr ""
 
+msgid "The session IP address has been changed."
+msgstr ""
+
 msgid ""
 "The session timeout time in minutes. Set to 0 to disable automatic logout."
 msgstr "Времето за изчакване на сесията в минути. Задайте 0, за да деактивирате автоматичното излизане."
+
+msgid "The session user no longer exists."
+msgstr ""
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3998,6 +4004,9 @@ msgid "Write only"
 msgstr ""
 
 msgid "Write/Execute"
+msgstr ""
+
+msgid "Xen virtual disk device"
 msgstr ""
 
 msgid "Yearly"

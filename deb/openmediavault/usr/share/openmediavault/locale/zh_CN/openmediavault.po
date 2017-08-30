@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-02 15:50+0200\n"
-"PO-Revision-Date: 2017-07-20 03:05+0000\n"
-"Last-Translator: songming <by@songming.me>\n"
+"POT-Creation-Date: 2017-08-30 08:41+0200\n"
+"PO-Revision-Date: 2017-08-30 06:42+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3405,9 +3405,15 @@ msgid ""
 "for data connections is not required."
 msgstr "不要求控制连接 SSL 会话重用与数据连接。"
 
+msgid "The session IP address has been changed."
+msgstr ""
+
 msgid ""
 "The session timeout time in minutes. Set to 0 to disable automatic logout."
 msgstr "会话超时多少分钟后注销，设置 0 后不自动注销。"
+
+msgid "The session user no longer exists."
+msgstr ""
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -4000,6 +4006,9 @@ msgstr "只写"
 
 msgid "Write/Execute"
 msgstr "写/执行"
+
+msgid "Xen virtual disk device"
+msgstr ""
 
 msgid "Yearly"
 msgstr "每年"

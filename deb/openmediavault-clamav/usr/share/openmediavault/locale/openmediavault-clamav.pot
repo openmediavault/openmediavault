@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-clamav\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 21:34+0200\n"
+"POT-Creation-Date: 2017-08-30 08:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -125,9 +125,6 @@ msgstr ""
 msgid "Infected files"
 msgstr ""
 
-msgid "Jobs"
-msgstr ""
-
 msgid "Log clean files"
 msgstr ""
 
@@ -186,6 +183,9 @@ msgid "Scan archives"
 msgstr ""
 
 msgid "Scan the directory contents in parallel using available threads."
+msgstr ""
+
+msgid "Scheduled Jobs"
 msgstr ""
 
 msgid "Send command output via email"

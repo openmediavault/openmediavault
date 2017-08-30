@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-08-16 08:28+0000\n"
-"Last-Translator: Jonatan Nyberg\n"
+"POT-Creation-Date: 2017-08-30 08:41+0200\n"
+"PO-Revision-Date: 2017-08-30 06:41+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -131,9 +131,6 @@ msgstr "Timme"
 msgid "Infected files"
 msgstr "Infekterade filer"
 
-msgid "Jobs"
-msgstr "Jobb"
-
 msgid "Log clean files"
 msgstr "Logga rena filer"
 
@@ -197,6 +194,9 @@ msgstr "Skanna arkiv"
 msgid "Scan the directory contents in parallel using available threads."
 msgstr "Skanna mappinnehåll med tillgängliga trådar i paralell."
 
+msgid "Scheduled Jobs"
+msgstr ""
+
 msgid "Send command output via email"
 msgstr "Skicka resultatet av kommandot via e-post"
 
@@ -210,10 +210,10 @@ msgid "Shared folder"
 msgstr "Delad mapp"
 
 msgid "The location of the files to scan."
-msgstr "Plats för filer att skanna."
+msgstr "Platsen för filerna som ska skannas."
 
 msgid "The location which is used as quarantine."
-msgstr "Den plats som används som karantän."
+msgstr "Platsen som används som karantän."
 
 msgid "The option, how to handle infected files."
 msgstr "Alternativet, hur man hanterar infekterade filer."

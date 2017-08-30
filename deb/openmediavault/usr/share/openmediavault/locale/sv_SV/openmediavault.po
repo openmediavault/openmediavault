@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-02 15:50+0200\n"
-"PO-Revision-Date: 2017-08-12 07:46+0000\n"
-"Last-Translator: Jonatan Nyberg\n"
+"POT-Creation-Date: 2017-08-30 08:41+0200\n"
+"PO-Revision-Date: 2017-08-30 06:42+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,7 +39,7 @@ msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s betyder ingen begränsning."
 
 msgid "1 - Minimum power usage with standby (spindown)"
-msgstr "1 - Minsta strömförbrukning med vänteläge (spindown)"
+msgstr "1 - Minimal strömförbrukning med vänteläge (spindown)"
 
 msgid "1 day"
 msgstr "1 dag"
@@ -70,7 +70,7 @@ msgid "127 - Intermediate power usage with standby"
 msgstr "127 - Mellanliggande strömförbrukning med vänteläge"
 
 msgid "128 - Minimum power usage without standby (no spindown)"
-msgstr "128 - Minsta strömförbrukning utan vänteläge (ingen spindown)"
+msgstr "128 - Minimal strömförbrukning utan vänteläge (ingen spindown)"
 
 msgid "15 years"
 msgstr "15 år"
@@ -1990,13 +1990,13 @@ msgid "Midway Islands"
 msgstr "Midwayöarna"
 
 msgid "Minimum"
-msgstr "Minimum"
+msgstr "Minimal"
 
 msgid "Minimum performance, Minimum acoustic output"
-msgstr "Minimum prestanda, Minimum ljudnivå"
+msgstr "Minimal prestanda, minimal ljudnivå"
 
 msgid "Minimum {0} selected item(s) required"
-msgstr "Minsta {0} markerade objekt som krävs"
+msgstr "Minst {0} vald(a) objekt krävs"
 
 msgid "Minute"
 msgstr "Minut"
@@ -3350,15 +3350,15 @@ msgid ""
 msgstr "Informationen om tillgänglig programvara är föråldrad. Du måste ladda om informationen om tillgänglig programvara."
 
 msgid "The location of the files to share."
-msgstr "Placeringen av filerna att dela."
+msgstr "Platsen för filerna som ska delas."
 
 msgid ""
 "The location of the files to share. The share will be accessible at "
 "/export/<name>."
-msgstr "Placeringen av filerna att dela. Den delade resursen kommer att vara tillgänglig i /export/<name>."
+msgstr "Platsen för filerna som ska delas. Den delade resursen kommer att vara tillgänglig i /export/<name>."
 
 msgid "The location of the user home directories."
-msgstr "Placeringen för hemkataloger."
+msgstr "Platsen för användarens hemkataloger."
 
 msgid "The name of the share."
 msgstr "Namnet på den delade resursen."
@@ -3405,9 +3405,15 @@ msgid ""
 "for data connections is not required."
 msgstr "Kravet på att SSL-sessionen från kontrollanslutningen återanvänds för dataanslutningar krävs inte."
 
+msgid "The session IP address has been changed."
+msgstr ""
+
 msgid ""
 "The session timeout time in minutes. Set to 0 to disable automatic logout."
 msgstr "Sessionsutlösningstiden i minuter. Sätt till 0 för att inaktivera automatisk utloggning."
+
+msgid "The session user no longer exists."
+msgstr ""
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3803,7 +3809,7 @@ msgstr "Uppdatera destinationens ACL för att vara samma som källans ACL"
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones"
-msgstr "Uppdatera destinationens utökade attribut för att vara detsamma som de lokala"
+msgstr "Uppdatera destinationens utökade attribut för att vara desamma som de lokala"
 
 msgid "Updates"
 msgstr "Uppdateringar"
@@ -4000,6 +4006,9 @@ msgstr "Endast skriva"
 
 msgid "Write/Execute"
 msgstr "Skriv/Utför"
+
+msgid "Xen virtual disk device"
+msgstr ""
 
 msgid "Yearly"
 msgstr "Årligen"

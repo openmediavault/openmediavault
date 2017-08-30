@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-05-03 19:36+0000\n"
+"POT-Creation-Date: 2017-08-30 08:41+0200\n"
+"PO-Revision-Date: 2017-08-30 06:41+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/votdev/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -131,9 +131,6 @@ msgstr "Heures"
 msgid "Infected files"
 msgstr "Fichiers infectés"
 
-msgid "Jobs"
-msgstr "Tâches"
-
 msgid "Log clean files"
 msgstr "Logger les fichiers propres"
 
@@ -196,6 +193,9 @@ msgstr "Analyser archives"
 
 msgid "Scan the directory contents in parallel using available threads."
 msgstr "Scanner le contenu des répertoires en parallèle en utilisant les threads disponibles."
+
+msgid "Scheduled Jobs"
+msgstr ""
 
 msgid "Send command output via email"
 msgstr "Envois par mail des traces de la commande"

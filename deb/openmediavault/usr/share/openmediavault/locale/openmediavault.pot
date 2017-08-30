@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-02 15:50+0200\n"
+"POT-Creation-Date: 2017-08-30 08:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3247,7 +3247,13 @@ msgstr ""
 msgid "The requirement that the SSL session from the control connection is reused for data connections is not required."
 msgstr ""
 
+msgid "The session IP address has been changed."
+msgstr ""
+
 msgid "The session timeout time in minutes. Set to 0 to disable automatic logout."
+msgstr ""
+
+msgid "The session user no longer exists."
 msgstr ""
 
 msgid "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or rsync://[USER@]HOST[:PORT]/SRC."
@@ -3770,6 +3776,9 @@ msgid "Write only"
 msgstr ""
 
 msgid "Write/Execute"
+msgstr ""
+
+msgid "Xen virtual disk device"
 msgstr ""
 
 msgid "Yearly"
