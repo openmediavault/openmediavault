@@ -230,4 +230,22 @@ class SystemCtl {
 		$options[] = sprintf("--signal=%s", $signal);
 		return (0 == $this->exec("kill", $options, $quiet));
 	}
+
+	/**
+	 * Escape strings for usage in system unit names.
+	 * @see https://www.freedesktop.org/software/systemd/man/systemd-escape.html
+	 * @param str The string to escape.
+	 * @param options An array of 'systemd-escape' options.
+	 * @return Returns the escaped string.
+	 * @throw \OMV\Exception
+	 */
+	public static function escape($str, $options) {
+		$cmdArgs = [];
+		if (!empty($options) && is_array($options))
+			$cmdArgs = array_merge($cmdArgs, $options);
+		$cmdArgs[] = $str;
+		$cmd = new \OMV\System\Process("systemd-escape", $cmdArgs);
+		$cmd->setRedirect2to1();
+		return $cmd->execute();
+	}
 }
