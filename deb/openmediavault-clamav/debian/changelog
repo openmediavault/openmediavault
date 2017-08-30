@@ -1,5 +1,6 @@
 openmediavault-clamav (4.1-1) stable; urgency=low
 
+  * Update locales.
   * Various UI improvements.
   * Add support for on-access scanning.
 

@@ -1,5 +1,6 @@
 openmediavault (4.0.4-1) stable; urgency=low
 
+  * Update locales.
   * Mantis 0001791: Folder to represent the shared folders on the filesystem.
     All shared folders are mapped to the directory '/sharedfolders/<SFNAME>'
     for easy access in scripts. Plugin developers should not use them, instead
