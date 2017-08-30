@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-03 21:34+0200\n"
-"PO-Revision-Date: 2017-08-12 07:46+0000\n"
+"PO-Revision-Date: 2017-08-22 17:27+0000\n"
 "Last-Translator: Jonatan Nyberg\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -173,7 +173,7 @@ msgstr "Uppdatera destinations-ACL:erna för att vara desamma som käll-ACL:erna
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr "Uppdatera destinations utökade attribut för att vara samma som de lokala."
+msgstr "Uppdatera destinationens utökade attribut för att vara desamma som de lokala."
 
 msgid "n/a"
 msgstr "ingen uppgift"

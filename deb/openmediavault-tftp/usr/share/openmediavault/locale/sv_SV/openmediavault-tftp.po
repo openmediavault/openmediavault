@@ -76,4 +76,4 @@ msgid "TFTP"
 msgstr "TFTP"
 
 msgid "The location of the files to share."
-msgstr "Placeringen av filerna att utdela."
+msgstr "Platsen för filerna som ska delas."
