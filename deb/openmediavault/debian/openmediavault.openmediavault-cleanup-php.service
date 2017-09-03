@@ -2,11 +2,11 @@
 Description=Cleanup PHP session files
 DefaultDependencies=no
 After=local-fs.target
-Before=nginx.service php5-fpm.service
+Before=nginx.service php7.0-fpm.service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/find /var/lib/php5/sessions -type f -exec rm -rf {} \;
+ExecStart=/usr/bin/find /var/lib/php/sessions -type f -exec rm -rf {} \;
 
 [Install]
 WantedBy=multi-user.target
