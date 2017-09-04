@@ -1,3 +1,9 @@
+openmediavault-nut (4.0-1) stable; urgency=low
+
+  * Adapt to Debian 9 (Stretch).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 03 Sep 2017 16:12:25 +0200
+
 openmediavault-nut (3.2.12) stable; urgency=low
 
   * Mantis 0001755: Outdated configuration of rsyslog.
