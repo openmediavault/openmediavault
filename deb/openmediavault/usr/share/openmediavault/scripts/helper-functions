@@ -1127,3 +1127,15 @@ omv_group_id_exists() {
 omv_md5() {
 	echo -n "$*" | md5sum - | cut -b-32
 }
+
+# omv_pwgen <length>
+# Generate a random password.
+omv_pwgen() {
+	local num tmpfile
+	num=$1
+	tmpfile=$(tempfile)
+	# Prevent "unable to write 'random state'" error messages in case of
+	# HOME and RANDFILE is not set.
+	RANDFILE="${tmpfile}" openssl rand -hex "${num}"
+	rm -f "${tmpfile}"
+}
