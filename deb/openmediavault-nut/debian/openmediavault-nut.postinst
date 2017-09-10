@@ -36,8 +36,6 @@ case "$1" in
 			deb-systemd-helper disable nut-server || :
 			deb-systemd-invoke stop nut-monitor || :
 			deb-systemd-helper disable nut-monitor || :
-			deb-systemd-invoke stop nut-driver || :
-			deb-systemd-helper disable nut-driver || :
 		fi
 
 		########################################################################
