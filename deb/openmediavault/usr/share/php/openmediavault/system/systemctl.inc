@@ -78,7 +78,7 @@ class SystemCtl {
 		if (!empty($options) && is_array($options))
 			$cmdArgs = array_merge($cmdArgs, $options);
 		$cmdArgs[] = $command;
-		$cmdArgs[] = $this->getName();
+		$cmdArgs[] = escapeshellarg($this->getName());
 		// Execute the command.
 		$cmd = new \OMV\System\Process("systemctl", $cmdArgs);
 		$cmd->setRedirect2to1();
