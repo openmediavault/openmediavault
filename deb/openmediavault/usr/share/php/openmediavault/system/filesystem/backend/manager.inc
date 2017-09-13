@@ -53,14 +53,28 @@ class Manager implements \IteratorAggregate {
 	final public function registerBackend(BackendAbstract $backend) {
 		if (!isset($backend))
 			return FALSE;
-		$type = $backend->getType();
+		$type = strtolower($backend->getType());
 		// Check if the filesystem backend already exists.
 		if (NULL !== ($registeredBackend = $this->getBackendByType($type))) {
 			throw new \OMV\Exception("The filesystem backend (type=%s, ".
 			  "class=%s) is already registered (class=%s).", $type,
 			  get_class($backend), get_class($registeredBackend));
 		}
-		$this->map[strtolower($type)] = $backend;
+		$this->map[$type] = $backend;
+		ksort($this->map);
+		return TRUE;
+	}
+
+	/**
+	 * Unregister a filesystem backend.
+	 * @param type Specifies the filesystem type, e.g. 'ext3', 'vfat', ...
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	final public function unregisterBackend($type) {
+		$type = strtolower($type);
+		if (NULL === $this->getBackendByType($type))
+			return FALSE;
+		unset($this->map[$type]);
 		ksort($this->map);
 		return TRUE;
 	}
