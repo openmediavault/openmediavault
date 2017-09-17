@@ -25,7 +25,7 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_APT_USE_KERNEL_BACKPORTS=${OMV_APT_USE_KERNEL_BACKPORTS:-"yes"}
-OMV_APT_KERNEL_BACKPORTS_ARCHIVE=${OMV_APT_KERNEL_BACKPORTS_ARCHIVE:-"jessie-backports"}
+OMV_APT_KERNEL_BACKPORTS_ARCHIVE=${OMV_APT_KERNEL_BACKPORTS_ARCHIVE:-"$(lsb_release --short --codename)-backports"}
 OMV_APT_KERNEL_BACKPORTS_PINPRIORITY=${OMV_APT_KERNEL_BACKPORTS_PINPRIORITY:-"500"}
 
 # Remove existing configuration files.
