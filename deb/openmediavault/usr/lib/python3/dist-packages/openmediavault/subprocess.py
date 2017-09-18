@@ -44,8 +44,7 @@ def _modify_kwargs(kwargs):
 	if "env" not in kwargs:
 		kwargs["env"] = dict(os.environ, LANG="C")
 	else:
-		if "LANG" not in kwargs["env"]:
-			kwargs["env"].update({ "LANG": "C" })
+		kwargs["env"].update({"LANG": "C"})
 
 def call(*popenargs, **kwargs):
 	_modify_kwargs(kwargs)
