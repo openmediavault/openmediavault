@@ -27,7 +27,7 @@ set -e
 case "$1" in
 	configure)
 		########################################################################
-		# Set the default settings of the tftpd-hpa ckage to those
+		# Set the default settings of the tftpd-hpa package to those
 		# expected by OpenMediaVault.
 		########################################################################
 		if [ -z "$2" ]; then
