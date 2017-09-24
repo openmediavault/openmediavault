@@ -74,7 +74,7 @@ Ext.define("OMV.module.admin.system.general.Settings", {
 			},{
 				xtype: "combo",
 				name: "timeout",
-				fieldLabel: _("Session timeout"),
+				fieldLabel: _("Auto logout"),
 				queryMode: "local",
 				store: [
 					[ 0, _("Disabled") ],

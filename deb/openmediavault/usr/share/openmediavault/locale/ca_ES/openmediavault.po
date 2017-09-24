@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-08-30 06:42+0000\n"
+"POT-Creation-Date: 2017-09-24 12:54+0200\n"
+"PO-Revision-Date: 2017-09-24 10:54+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/votdev/openmediavault/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -44,6 +44,9 @@ msgstr "1 - Consum mínim en repos (spindown)"
 msgid "1 day"
 msgstr "1 dia"
 
+msgid "1 minute"
+msgstr ""
+
 msgid "1 month"
 msgstr "1 mes"
 
@@ -72,6 +75,9 @@ msgstr "127 - Consum mig en repòs"
 msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - Consum mínim sense repòs (no spindown)"
 
+msgid "15 minutes"
+msgstr ""
+
 msgid "15 years"
 msgstr "15 anys"
 
@@ -83,6 +89,9 @@ msgstr "192 - Consum mig sense repòs"
 
 msgid "2 days"
 msgstr "2 dies"
+
+msgid "2 minutes"
+msgstr ""
 
 msgid "2 weeks"
 msgstr "2 setmanes"
@@ -111,6 +120,9 @@ msgstr "255 - Deshabilitat"
 msgid "3 days"
 msgstr "3 dies"
 
+msgid "3 minutes"
+msgstr ""
+
 msgid "3 months"
 msgstr "3 mesos"
 
@@ -131,6 +143,9 @@ msgstr "330 minuts"
 
 msgid "4 days"
 msgstr "4 dies"
+
+msgid "4 minutes"
+msgstr ""
 
 msgid "4 years"
 msgstr "4 anys"
@@ -432,6 +447,12 @@ msgstr "Tipus d’autentificació"
 
 msgid "Auto"
 msgstr "Auto"
+
+msgid "Auto logout"
+msgstr ""
+
+msgid "Auto logout after the specified idle period."
+msgstr ""
 
 msgid "Automatic Acoustic Management"
 msgstr "AAM Ajust del soroll produït"
@@ -2982,9 +3003,6 @@ msgstr "Sessió expirada"
 msgid "Session not authenticated."
 msgstr "Sesió no autenticada"
 
-msgid "Session timeout"
-msgstr "Caducitat de la sesió"
-
 msgid "Set browseable"
 msgstr "Establir com a navegable"
 
@@ -3407,10 +3425,6 @@ msgstr "Els requeriments de la sessió SSL no són necessaris per a la connexió
 
 msgid "The session IP address has been changed."
 msgstr ""
-
-msgid ""
-"The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr "Duració de la sessió en minuts. seleccionar \"0\" para deshabilitar el logout automàtic."
 
 msgid "The session user no longer exists."
 msgstr ""

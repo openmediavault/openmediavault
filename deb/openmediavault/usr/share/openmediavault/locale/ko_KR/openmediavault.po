@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-08-30 06:42+0000\n"
+"POT-Creation-Date: 2017-09-24 12:54+0200\n"
+"PO-Revision-Date: 2017-09-24 10:54+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -45,6 +45,9 @@ msgstr "1 - 대기와 최소 전력 사용량 (스핀다운)"
 msgid "1 day"
 msgstr "1일"
 
+msgid "1 minute"
+msgstr ""
+
 msgid "1 month"
 msgstr "1개월"
 
@@ -73,6 +76,9 @@ msgstr "127 - 대기와 보통의 전력 사용량"
 msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - 대기 없이 최소 전력 사용량 (스핀다운 없음)"
 
+msgid "15 minutes"
+msgstr ""
+
 msgid "15 years"
 msgstr "15년"
 
@@ -84,6 +90,9 @@ msgstr "192 - 대기 없이 보통 전력 사용량"
 
 msgid "2 days"
 msgstr "2일"
+
+msgid "2 minutes"
+msgstr ""
 
 msgid "2 weeks"
 msgstr "2주"
@@ -112,6 +121,9 @@ msgstr "255 - 비활성화"
 msgid "3 days"
 msgstr "3일"
 
+msgid "3 minutes"
+msgstr ""
+
 msgid "3 months"
 msgstr "3개월"
 
@@ -132,6 +144,9 @@ msgstr ""
 
 msgid "4 days"
 msgstr "4일"
+
+msgid "4 minutes"
+msgstr ""
 
 msgid "4 years"
 msgstr "4년"
@@ -433,6 +448,12 @@ msgstr "인증 유형"
 
 msgid "Auto"
 msgstr "자동"
+
+msgid "Auto logout"
+msgstr ""
+
+msgid "Auto logout after the specified idle period."
+msgstr ""
 
 msgid "Automatic Acoustic Management"
 msgstr "자동 음향 관리(AAM)"
@@ -2983,9 +3004,6 @@ msgstr "세션 만료됨."
 msgid "Session not authenticated."
 msgstr "세션 인증되지 않음."
 
-msgid "Session timeout"
-msgstr "세션 만료"
-
 msgid "Set browseable"
 msgstr "검색 가능하게 설정"
 
@@ -3408,10 +3426,6 @@ msgstr "컨트롤 연결에서 SSL 세션 데이터 연결에 재사용되는 �
 
 msgid "The session IP address has been changed."
 msgstr ""
-
-msgid ""
-"The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr "세션이 만료될 시간. 0으로 설정하여 자동 로그아웃을 비활성화합니다."
 
 msgid "The session user no longer exists."
 msgstr ""

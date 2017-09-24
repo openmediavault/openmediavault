@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-08-30 06:42+0000\n"
+"POT-Creation-Date: 2017-09-24 12:54+0200\n"
+"PO-Revision-Date: 2017-09-24 10:54+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/votdev/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -46,6 +46,9 @@ msgstr "1 - Minimaal stroomgebruik tijdens stand-by (spindown)"
 msgid "1 day"
 msgstr "1 dag"
 
+msgid "1 minute"
+msgstr ""
+
 msgid "1 month"
 msgstr "1 maand"
 
@@ -74,6 +77,9 @@ msgstr "127 - Intermediair stroomgebruik met stand-by"
 msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - Minimaal stroomgebruik zonder stand-by (geen spindown)"
 
+msgid "15 minutes"
+msgstr ""
+
 msgid "15 years"
 msgstr "15 jaren"
 
@@ -85,6 +91,9 @@ msgstr "192 - Intermediair stroomverbruik zonder stand-by"
 
 msgid "2 days"
 msgstr "2 dagen"
+
+msgid "2 minutes"
+msgstr ""
 
 msgid "2 weeks"
 msgstr "2 weken"
@@ -113,6 +122,9 @@ msgstr "255 - uitgeschakeld"
 msgid "3 days"
 msgstr "3 dagen"
 
+msgid "3 minutes"
+msgstr ""
+
 msgid "3 months"
 msgstr "3 maanden"
 
@@ -133,6 +145,9 @@ msgstr "330 minuten"
 
 msgid "4 days"
 msgstr "4 dagen"
+
+msgid "4 minutes"
+msgstr ""
 
 msgid "4 years"
 msgstr "4 jaren"
@@ -434,6 +449,12 @@ msgstr "Authenticatie type"
 
 msgid "Auto"
 msgstr "Auto"
+
+msgid "Auto logout"
+msgstr ""
+
+msgid "Auto logout after the specified idle period."
+msgstr ""
 
 msgid "Automatic Acoustic Management"
 msgstr "Automatic Acoustic Management"
@@ -2984,9 +3005,6 @@ msgstr "Sessie verlopen"
 msgid "Session not authenticated."
 msgstr "Sessie niet toegestaan"
 
-msgid "Session timeout"
-msgstr "Sessie timeout"
-
 msgid "Set browseable"
 msgstr "Browseable aan"
 
@@ -3409,10 +3427,6 @@ msgstr "De eis dat de SSL-sessie van de control verbinding wordt hergebruikt voo
 
 msgid "The session IP address has been changed."
 msgstr ""
-
-msgid ""
-"The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr "De sessieverlooptijd in minuten. Stel de waarde op 0 in om automatisch afmelden uit te schakelen."
 
 msgid "The session user no longer exists."
 msgstr ""

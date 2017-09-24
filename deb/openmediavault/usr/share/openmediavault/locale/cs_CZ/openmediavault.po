@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-08-30 08:47+0000\n"
-"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
+"POT-Creation-Date: 2017-09-24 12:54+0200\n"
+"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,6 +44,9 @@ msgstr "1 – nejnižší spotřeba energie s pohotovostním režimem (zastaven�
 msgid "1 day"
 msgstr "1 den"
 
+msgid "1 minute"
+msgstr ""
+
 msgid "1 month"
 msgstr "1 měsíc"
 
@@ -72,6 +75,9 @@ msgstr "127 – střední spotřeba energie s pohotovostním režimem"
 msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 – nejnižší spotřeba energie bez přechodu do pohotovostního režimu (bez zastavení otáčení ploten)"
 
+msgid "15 minutes"
+msgstr ""
+
 msgid "15 years"
 msgstr "15 let"
 
@@ -83,6 +89,9 @@ msgstr "192 – střední spotřeba energie bez přechodu do pohotovostního re�
 
 msgid "2 days"
 msgstr "2 dny"
+
+msgid "2 minutes"
+msgstr ""
 
 msgid "2 weeks"
 msgstr "2 týdny"
@@ -111,6 +120,9 @@ msgstr "255 – správa napájení vypnutá"
 msgid "3 days"
 msgstr "3 dny"
 
+msgid "3 minutes"
+msgstr ""
+
 msgid "3 months"
 msgstr "3 měsíce"
 
@@ -131,6 +143,9 @@ msgstr "330 minut"
 
 msgid "4 days"
 msgstr "4 dny"
+
+msgid "4 minutes"
+msgstr ""
 
 msgid "4 years"
 msgstr "4 roky"
@@ -432,6 +447,12 @@ msgstr "Typ ověřování"
 
 msgid "Auto"
 msgstr "Automatické"
+
+msgid "Auto logout"
+msgstr ""
+
+msgid "Auto logout after the specified idle period."
+msgstr ""
 
 msgid "Automatic Acoustic Management"
 msgstr "Automatická správa hlučnosti"
@@ -2982,9 +3003,6 @@ msgstr "Platnost relace skončila."
 msgid "Session not authenticated."
 msgstr "Relace nebyla ověřena."
 
-msgid "Session timeout"
-msgstr "Prodleva nečinné relace"
-
 msgid "Set browseable"
 msgstr "Umožnit procházení"
 
@@ -3407,10 +3425,6 @@ msgstr "Není vyžadováno, aby SSL relace z řídícího spojení byla následn
 
 msgid "The session IP address has been changed."
 msgstr "IP adresa relace byla změněna."
-
-msgid ""
-"The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr "Při nečinnosti uživatele, za jak dlouho (v minutách) ukončit jeho relaci. Toto automatické odhlašování je možné vypnout nastavením na hodnotu 0 (nula)."
 
 msgid "The session user no longer exists."
 msgstr "Uživatel této relace už neexistuje."

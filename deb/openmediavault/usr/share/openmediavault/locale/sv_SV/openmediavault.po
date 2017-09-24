@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-03 11:09+0000\n"
-"Last-Translator: Jonatan Nyberg\n"
+"POT-Creation-Date: 2017-09-24 12:54+0200\n"
+"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,6 +44,9 @@ msgstr "1 - Minimal strömförbrukning med vänteläge (spindown)"
 msgid "1 day"
 msgstr "1 dag"
 
+msgid "1 minute"
+msgstr ""
+
 msgid "1 month"
 msgstr "1 månad"
 
@@ -72,6 +75,9 @@ msgstr "127 - Mellanliggande strömförbrukning med vänteläge"
 msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - Minimal strömförbrukning utan vänteläge (ingen spindown)"
 
+msgid "15 minutes"
+msgstr ""
+
 msgid "15 years"
 msgstr "15 år"
 
@@ -83,6 +89,9 @@ msgstr "192 - Mellanliggande strömförbrukning utan viloläge"
 
 msgid "2 days"
 msgstr "2 dagar"
+
+msgid "2 minutes"
+msgstr ""
 
 msgid "2 weeks"
 msgstr "2 veckor"
@@ -111,6 +120,9 @@ msgstr "255 - Inaktiverad"
 msgid "3 days"
 msgstr "3 dagar"
 
+msgid "3 minutes"
+msgstr ""
+
 msgid "3 months"
 msgstr "3 månader"
 
@@ -131,6 +143,9 @@ msgstr "330 minuter"
 
 msgid "4 days"
 msgstr "4 dagar"
+
+msgid "4 minutes"
+msgstr ""
 
 msgid "4 years"
 msgstr "4 år"
@@ -432,6 +447,12 @@ msgstr "Autentiseringstyp"
 
 msgid "Auto"
 msgstr "Automatisk"
+
+msgid "Auto logout"
+msgstr ""
+
+msgid "Auto logout after the specified idle period."
+msgstr ""
 
 msgid "Automatic Acoustic Management"
 msgstr "Automatisk akustisk hantering"
@@ -2982,9 +3003,6 @@ msgstr "Sessionen löpte ut."
 msgid "Session not authenticated."
 msgstr "Session inte autentiserad."
 
-msgid "Session timeout"
-msgstr "Timeout för session"
-
 msgid "Set browseable"
 msgstr "Ange bläddringsbar"
 
@@ -3407,10 +3425,6 @@ msgstr "Kravet på att SSL-sessionen från kontrollanslutningen återanvänds f�
 
 msgid "The session IP address has been changed."
 msgstr "Sessions-IP-adressen har ändrats."
-
-msgid ""
-"The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr "Sessionsutlösningstiden i minuter. Sätt till 0 för att inaktivera automatisk utloggning."
 
 msgid "The session user no longer exists."
 msgstr "Sessionsanvändaren finns inte längre."

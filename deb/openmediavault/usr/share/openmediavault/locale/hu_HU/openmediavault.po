@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-12 05:45+0000\n"
-"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
+"POT-Creation-Date: 2017-09-24 12:54+0200\n"
+"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,6 +45,9 @@ msgstr "1 - Minimális energiahasználat készenléti állapotban (leállítás)
 msgid "1 day"
 msgstr "1 nap"
 
+msgid "1 minute"
+msgstr ""
+
 msgid "1 month"
 msgstr "1 hónap"
 
@@ -73,6 +76,9 @@ msgstr "127 - Közepes energiahasználat készenléti állapotban"
 msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - Minimális energiahasználat készenléti állapot nélkül (nincs leállítás)"
 
+msgid "15 minutes"
+msgstr ""
+
 msgid "15 years"
 msgstr "15 év"
 
@@ -84,6 +90,9 @@ msgstr "192 - Közepes energiahasználat készenléti állapot nélkül"
 
 msgid "2 days"
 msgstr "2 nap"
+
+msgid "2 minutes"
+msgstr ""
 
 msgid "2 weeks"
 msgstr "2 hét"
@@ -112,6 +121,9 @@ msgstr "255 - Letiltva"
 msgid "3 days"
 msgstr "3 nap"
 
+msgid "3 minutes"
+msgstr ""
+
 msgid "3 months"
 msgstr "3 hónap"
 
@@ -132,6 +144,9 @@ msgstr "330 perc"
 
 msgid "4 days"
 msgstr "4 nap"
+
+msgid "4 minutes"
+msgstr ""
 
 msgid "4 years"
 msgstr "4 év"
@@ -433,6 +448,12 @@ msgstr "Hitelesítés típus"
 
 msgid "Auto"
 msgstr "Auto"
+
+msgid "Auto logout"
+msgstr ""
+
+msgid "Auto logout after the specified idle period."
+msgstr ""
 
 msgid "Automatic Acoustic Management"
 msgstr "Automatikus zajszint kezelés"
@@ -2983,9 +3004,6 @@ msgstr "Munkamenet lejárt."
 msgid "Session not authenticated."
 msgstr "Munkamenet nem hitelesített."
 
-msgid "Session timeout"
-msgstr "Munkamenet időtúllépés"
-
 msgid "Set browseable"
 msgstr "Beállítás böngészhetőnek"
 
@@ -3408,10 +3426,6 @@ msgstr "Annak a követelménye, hogy az SSL munkamenettől a vezérlő kapcsolat
 
 msgid "The session IP address has been changed."
 msgstr "A munkamenet IP címe megváltozott."
-
-msgid ""
-"The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr "A munkamenet időtúllépése percben. A 0 érték beállítása letiltja az automatikus kijelentkezést."
 
 msgid "The session user no longer exists."
 msgstr "A munkamenet felhasználó már nem létezik."

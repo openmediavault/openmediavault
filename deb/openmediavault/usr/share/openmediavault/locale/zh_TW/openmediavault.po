@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-08-30 12:15+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>\n"
+"POT-Creation-Date: 2017-09-24 12:54+0200\n"
+"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/votdev/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,6 +44,9 @@ msgstr "1 - 最低用電量、待機狀態 (停止轉動)"
 msgid "1 day"
 msgstr "1 天"
 
+msgid "1 minute"
+msgstr ""
+
 msgid "1 month"
 msgstr "1 月"
 
@@ -72,6 +75,9 @@ msgstr "127 - 中等用電量、待機狀態"
 msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - 最低用電量、非待機狀態(未停止轉動)"
 
+msgid "15 minutes"
+msgstr ""
+
 msgid "15 years"
 msgstr "15 年"
 
@@ -83,6 +89,9 @@ msgstr "192 - 中等用電量、非待機狀態"
 
 msgid "2 days"
 msgstr "2 天"
+
+msgid "2 minutes"
+msgstr ""
 
 msgid "2 weeks"
 msgstr "2 週"
@@ -111,6 +120,9 @@ msgstr "255 - 停用"
 msgid "3 days"
 msgstr "3 天"
 
+msgid "3 minutes"
+msgstr ""
+
 msgid "3 months"
 msgstr "3 月"
 
@@ -131,6 +143,9 @@ msgstr "330 分鐘"
 
 msgid "4 days"
 msgstr "4 天"
+
+msgid "4 minutes"
+msgstr ""
 
 msgid "4 years"
 msgstr "4 年"
@@ -432,6 +447,12 @@ msgstr "驗證型式"
 
 msgid "Auto"
 msgstr "自動"
+
+msgid "Auto logout"
+msgstr ""
+
+msgid "Auto logout after the specified idle period."
+msgstr ""
 
 msgid "Automatic Acoustic Management"
 msgstr "自動聲響管理"
@@ -2982,9 +3003,6 @@ msgstr "作業階段已逾時"
 msgid "Session not authenticated."
 msgstr "作業階段未通過驗證"
 
-msgid "Session timeout"
-msgstr "作業階段逾時時間"
-
 msgid "Set browseable"
 msgstr "設為可瀏覽"
 
@@ -3407,10 +3425,6 @@ msgstr "從控制連線來的 SSL 作業階段須被重用做資料連線的需�
 
 msgid "The session IP address has been changed."
 msgstr "該作業階段的 IP 地址已經被改變。"
-
-msgid ""
-"The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr "作業階段的逾時時間，以分鐘為單位。設定為 0 來停用自動登出。"
 
 msgid "The session user no longer exists."
 msgstr "該作業階段的用戶不再存在。"

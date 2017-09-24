@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-08-30 10:53+0000\n"
-"Last-Translator: Артур Мудрых <arturmon82@gmail.com>\n"
+"POT-Creation-Date: 2017-09-24 12:54+0200\n"
+"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/votdev/openmediavault/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,6 +51,9 @@ msgstr "1 - минимальное энергопотребление в реж�
 msgid "1 day"
 msgstr "1 день"
 
+msgid "1 minute"
+msgstr ""
+
 msgid "1 month"
 msgstr "1 месяц"
 
@@ -79,6 +82,9 @@ msgstr "127 - Промежуточное энергопотребление с �
 msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - минимальное энергопотребление без ожидания (не spindown)"
 
+msgid "15 minutes"
+msgstr ""
+
 msgid "15 years"
 msgstr "15 лет"
 
@@ -90,6 +96,9 @@ msgstr "192 - Промежуточное энергопотребление бе
 
 msgid "2 days"
 msgstr "2 дня"
+
+msgid "2 minutes"
+msgstr ""
 
 msgid "2 weeks"
 msgstr "2 недели"
@@ -118,6 +127,9 @@ msgstr "255 - Отключено"
 msgid "3 days"
 msgstr "3 дня"
 
+msgid "3 minutes"
+msgstr ""
+
 msgid "3 months"
 msgstr "3 месяца"
 
@@ -138,6 +150,9 @@ msgstr "330 минут"
 
 msgid "4 days"
 msgstr "4 дня"
+
+msgid "4 minutes"
+msgstr ""
 
 msgid "4 years"
 msgstr "4 года"
@@ -439,6 +454,12 @@ msgstr "Тип аутентификации"
 
 msgid "Auto"
 msgstr "Автоматически"
+
+msgid "Auto logout"
+msgstr ""
+
+msgid "Auto logout after the specified idle period."
+msgstr ""
 
 msgid "Automatic Acoustic Management"
 msgstr "Автоматическое управление уровнем шума"
@@ -2989,9 +3010,6 @@ msgstr "Сессия истекла."
 msgid "Session not authenticated."
 msgstr "Сессия не прошла проверку подлинности"
 
-msgid "Session timeout"
-msgstr "Закончилось время сессии"
-
 msgid "Set browseable"
 msgstr "Разрешить просматривать"
 
@@ -3414,10 +3432,6 @@ msgstr "Установка повторного использования се�
 
 msgid "The session IP address has been changed."
 msgstr "IP-адрес сеанса был изменен."
-
-msgid ""
-"The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr "Время тайм-аута сеанса в минутах. Установите 0, чтобы отключить автоматический выход из системы."
 
 msgid "The session user no longer exists."
 msgstr "Пользователь сеанса больше не существует."

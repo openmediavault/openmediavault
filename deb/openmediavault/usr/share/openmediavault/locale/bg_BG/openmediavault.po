@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-08-30 06:42+0000\n"
+"POT-Creation-Date: 2017-09-24 12:54+0200\n"
+"PO-Revision-Date: 2017-09-24 10:54+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/votdev/openmediavault/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -43,6 +43,9 @@ msgstr "1 - Минимална консумация на мощност при �
 msgid "1 day"
 msgstr "1 ден"
 
+msgid "1 minute"
+msgstr ""
+
 msgid "1 month"
 msgstr "1 месец"
 
@@ -71,6 +74,9 @@ msgstr "127 - Междинна консумация на енергия с ре�
 msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - Минимална консумация на електроенергия без режим на готовност (без spindown)"
 
+msgid "15 minutes"
+msgstr ""
+
 msgid "15 years"
 msgstr "15 години"
 
@@ -82,6 +88,9 @@ msgstr "192 - Междинна консумация на енергия без �
 
 msgid "2 days"
 msgstr "2 дни"
+
+msgid "2 minutes"
+msgstr ""
 
 msgid "2 weeks"
 msgstr "2 седмици"
@@ -110,6 +119,9 @@ msgstr "255 - Забранено"
 msgid "3 days"
 msgstr "3 дни"
 
+msgid "3 minutes"
+msgstr ""
+
 msgid "3 months"
 msgstr "3 месеца"
 
@@ -130,6 +142,9 @@ msgstr "330 минути"
 
 msgid "4 days"
 msgstr "4 дни"
+
+msgid "4 minutes"
+msgstr ""
 
 msgid "4 years"
 msgstr "4 години"
@@ -430,6 +445,12 @@ msgid "Authentication type"
 msgstr ""
 
 msgid "Auto"
+msgstr ""
+
+msgid "Auto logout"
+msgstr ""
+
+msgid "Auto logout after the specified idle period."
 msgstr ""
 
 msgid "Automatic Acoustic Management"
@@ -2981,9 +3002,6 @@ msgstr ""
 msgid "Session not authenticated."
 msgstr ""
 
-msgid "Session timeout"
-msgstr ""
-
 msgid "Set browseable"
 msgstr ""
 
@@ -3406,10 +3424,6 @@ msgstr ""
 
 msgid "The session IP address has been changed."
 msgstr ""
-
-msgid ""
-"The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr "Времето за изчакване на сесията в минути. Задайте 0, за да деактивирате автоматичното излизане."
 
 msgid "The session user no longer exists."
 msgstr ""

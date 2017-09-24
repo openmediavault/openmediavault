@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-09 10:46+0000\n"
-"Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
+"POT-Creation-Date: 2017-09-24 12:54+0200\n"
+"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/votdev/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,6 +43,9 @@ msgstr "1 - Ελάχιστη κατανάλωση ενέργειας με στά
 msgid "1 day"
 msgstr "1 ημέρα"
 
+msgid "1 minute"
+msgstr ""
+
 msgid "1 month"
 msgstr "1 μήνας"
 
@@ -71,6 +74,9 @@ msgstr "127 - Μέτρια κατανάλωση ενέργειας με στάσ
 msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - Ελάχιστη κατανάλωση ενέργειας χωρίς στάση"
 
+msgid "15 minutes"
+msgstr ""
+
 msgid "15 years"
 msgstr "15 έτη"
 
@@ -82,6 +88,9 @@ msgstr "192 - Μέτρια κατανάλωση ενέργειας χωρίς σ
 
 msgid "2 days"
 msgstr "2 ημέρες"
+
+msgid "2 minutes"
+msgstr ""
 
 msgid "2 weeks"
 msgstr "2 εβδομάδες"
@@ -110,6 +119,9 @@ msgstr "255 - Ανενεργό"
 msgid "3 days"
 msgstr "3 έτη"
 
+msgid "3 minutes"
+msgstr ""
+
 msgid "3 months"
 msgstr "3 μήνες"
 
@@ -130,6 +142,9 @@ msgstr "330 λεπτά"
 
 msgid "4 days"
 msgstr "4 ημέρες"
+
+msgid "4 minutes"
+msgstr ""
 
 msgid "4 years"
 msgstr "4 έτη"
@@ -431,6 +446,12 @@ msgstr "Τύπος πιστοποίησης"
 
 msgid "Auto"
 msgstr "Αυτόματο"
+
+msgid "Auto logout"
+msgstr ""
+
+msgid "Auto logout after the specified idle period."
+msgstr ""
 
 msgid "Automatic Acoustic Management"
 msgstr "Αυτόματη Ακουστική Διαχείριση"
@@ -2981,9 +3002,6 @@ msgstr "Η σύνδεση έληξε."
 msgid "Session not authenticated."
 msgstr "Η σύνδεση δεν πιστοποιήθηκε."
 
-msgid "Session timeout"
-msgstr "Χρονικό όριο συνεδρίας"
-
 msgid "Set browseable"
 msgstr "Ορισμός ως πλοηγήσιμο"
 
@@ -3406,10 +3424,6 @@ msgstr "Δεν θα είναι απαραίτητο να χρησιμοποιε�
 
 msgid "The session IP address has been changed."
 msgstr "Η διεύθυνση ΙΡ της συνεδρίας έχει αλλάξει."
-
-msgid ""
-"The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr "Ο χρόνος λήξης της συνεδρίας σε λεπτά. Με 0 απενεργοποιείται."
 
 msgid "The session user no longer exists."
 msgstr "Ο χρήστης της συνεδρίας δεν υπάρχει πλέον."

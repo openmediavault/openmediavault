@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-08-30 06:42+0000\n"
+"POT-Creation-Date: 2017-09-24 12:54+0200\n"
+"PO-Revision-Date: 2017-09-24 10:54+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/votdev/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -43,6 +43,9 @@ msgstr "1 - Minimum güç kullanımı - Bekleme (dönüş durması) ile"
 msgid "1 day"
 msgstr "1 gün"
 
+msgid "1 minute"
+msgstr ""
+
 msgid "1 month"
 msgstr "1 ay"
 
@@ -71,6 +74,9 @@ msgstr "127 - Orta düzey güç kullanımı - Bekleme ile"
 msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - En az güç kullanımı - Bekleme (dönüş durması) olmaksızın"
 
+msgid "15 minutes"
+msgstr ""
+
 msgid "15 years"
 msgstr "15 yıl"
 
@@ -82,6 +88,9 @@ msgstr "192 - Orta düzey güç kullanımı - bekleme olmaksızın"
 
 msgid "2 days"
 msgstr "2 gün"
+
+msgid "2 minutes"
+msgstr ""
 
 msgid "2 weeks"
 msgstr "2 hafta"
@@ -110,6 +119,9 @@ msgstr "255 - Kapatılmış"
 msgid "3 days"
 msgstr "3 gün"
 
+msgid "3 minutes"
+msgstr ""
+
 msgid "3 months"
 msgstr "3 ay"
 
@@ -130,6 +142,9 @@ msgstr "330 dakika"
 
 msgid "4 days"
 msgstr "4 gün"
+
+msgid "4 minutes"
+msgstr ""
 
 msgid "4 years"
 msgstr "4 yıl"
@@ -431,6 +446,12 @@ msgstr "Onaylana tipi"
 
 msgid "Auto"
 msgstr "Otomatik"
+
+msgid "Auto logout"
+msgstr ""
+
+msgid "Auto logout after the specified idle period."
+msgstr ""
 
 msgid "Automatic Acoustic Management"
 msgstr "Otomatik Akustik Yönetimi"
@@ -2981,9 +3002,6 @@ msgstr "Oturum zaman aşımına uğradı"
 msgid "Session not authenticated."
 msgstr "Oturum onaylanmadı"
 
-msgid "Session timeout"
-msgstr "Oturum zamanaşımı"
-
 msgid "Set browseable"
 msgstr "Taranabilir yap"
 
@@ -3405,14 +3423,10 @@ msgid ""
 msgstr "Kontrol bağlantılarındaki SSL oturumlarının data bağlantılarında yeniden kullanılması gerekli değildir."
 
 msgid "The session IP address has been changed."
-msgstr ""
-
-msgid ""
-"The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr "Dakika olarak oturum sonlandırma süresi. Otomatik çıkışı iptal etmek için değeri 0 olarak ayarlayınız."
+msgstr "Oturum IP adresi deiğişmiştir."
 
 msgid "The session user no longer exists."
-msgstr ""
+msgstr "Oturum artık geçerli değildir."
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -4007,7 +4021,7 @@ msgid "Write/Execute"
 msgstr "Yaz/Çalıştır"
 
 msgid "Xen virtual disk device"
-msgstr ""
+msgstr "Xen sanal disk aygıtı"
 
 msgid "Yearly"
 msgstr "Yılda bir"

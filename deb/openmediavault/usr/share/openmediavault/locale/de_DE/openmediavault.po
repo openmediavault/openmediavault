@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-08-30 06:42+0000\n"
+"POT-Creation-Date: 2017-09-24 12:54+0200\n"
+"PO-Revision-Date: 2017-09-24 10:58+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -52,6 +52,9 @@ msgstr "1 - Minimaler Energieverbrauch mit Bereitschaft (Spindown)"
 msgid "1 day"
 msgstr "1 Tag"
 
+msgid "1 minute"
+msgstr "1 Minute"
+
 msgid "1 month"
 msgstr "1 Monat"
 
@@ -80,6 +83,9 @@ msgstr "127 - Durchschnittlicher Energieverbrauch mit Bereitschaft"
 msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - Minimaler Energieverbrauch ohne Bereitschaft (kein Spindown)"
 
+msgid "15 minutes"
+msgstr "15 Minuten"
+
 msgid "15 years"
 msgstr "15 Jahre"
 
@@ -91,6 +97,9 @@ msgstr "192 - Durchschnittlicher Energieverbrauch ohne Bereitschaft"
 
 msgid "2 days"
 msgstr "2 Tage"
+
+msgid "2 minutes"
+msgstr "2 Minuten"
 
 msgid "2 weeks"
 msgstr "2 Wochen"
@@ -119,6 +128,9 @@ msgstr "255 - Deaktiviert"
 msgid "3 days"
 msgstr "3 Tage"
 
+msgid "3 minutes"
+msgstr "3 Minuten"
+
 msgid "3 months"
 msgstr "3 Monate"
 
@@ -139,6 +151,9 @@ msgstr "330 Minuten"
 
 msgid "4 days"
 msgstr "4 Tage"
+
+msgid "4 minutes"
+msgstr "4 Minuten"
 
 msgid "4 years"
 msgstr "4 Jahre"
@@ -440,6 +455,12 @@ msgstr "Authentifizierungstyp"
 
 msgid "Auto"
 msgstr "Auto"
+
+msgid "Auto logout"
+msgstr "Automatische Abmeldung"
+
+msgid "Auto logout after the specified idle period."
+msgstr "Automatisches Abmelden nach der angegebenen Wartezeit."
 
 msgid "Automatic Acoustic Management"
 msgstr "Automatisches Akustikmanagement"
@@ -2990,9 +3011,6 @@ msgstr "Sitzungszeit abgelaufen."
 msgid "Session not authenticated."
 msgstr "Sitzung nicht authentifiziert."
 
-msgid "Session timeout"
-msgstr "Sitzungszeitlimit"
-
 msgid "Set browseable"
 msgstr "Durchsuchbar setzen"
 
@@ -3414,14 +3432,10 @@ msgid ""
 msgstr "Es ist keine Voraussetzung das die Kontrollverbindung einer SSL-Session für die Datenverbindung wiederverwendet wird."
 
 msgid "The session IP address has been changed."
-msgstr ""
-
-msgid ""
-"The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr "Das Sitzungszeitlimit in Minuten. Auf 0 setzen um das automatische Abmelden zu deaktivieren."
+msgstr "Die IP-Adresse der Sitzung hat sich geändert."
 
 msgid "The session user no longer exists."
-msgstr ""
+msgstr "Der Sitzungsbenutzer existiert nicht mehr."
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -4016,7 +4030,7 @@ msgid "Write/Execute"
 msgstr "Schreiben/Ausführen"
 
 msgid "Xen virtual disk device"
-msgstr ""
+msgstr "Xen virtuelles Laufwerk"
 
 msgid "Yearly"
 msgstr "Jährlich"

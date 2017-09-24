@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-08 18:55+0000\n"
-"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"POT-Creation-Date: 2017-09-24 12:54+0200\n"
+"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/votdev/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,6 +43,9 @@ msgstr "1 - Minimum strømforbrug med standby (spindown)"
 msgid "1 day"
 msgstr "1 dag"
 
+msgid "1 minute"
+msgstr ""
+
 msgid "1 month"
 msgstr "1 måned"
 
@@ -71,6 +74,9 @@ msgstr "127 - Mellemliggende strømforbrug med standby"
 msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - Minimum strømforbrug uden standby (ingen spindown)"
 
+msgid "15 minutes"
+msgstr ""
+
 msgid "15 years"
 msgstr "15 år"
 
@@ -82,6 +88,9 @@ msgstr "192 - Mellemliggende strømforbrug uden standby"
 
 msgid "2 days"
 msgstr "2 dage"
+
+msgid "2 minutes"
+msgstr ""
 
 msgid "2 weeks"
 msgstr "2 uge"
@@ -110,6 +119,9 @@ msgstr "255 - Deaktiveret"
 msgid "3 days"
 msgstr "3 dage"
 
+msgid "3 minutes"
+msgstr ""
+
 msgid "3 months"
 msgstr "3 måneder"
 
@@ -130,6 +142,9 @@ msgstr "330 minutter"
 
 msgid "4 days"
 msgstr "4 dage"
+
+msgid "4 minutes"
+msgstr ""
 
 msgid "4 years"
 msgstr "4 år"
@@ -431,6 +446,12 @@ msgstr "Godkendelses type"
 
 msgid "Auto"
 msgstr "Auto"
+
+msgid "Auto logout"
+msgstr ""
+
+msgid "Auto logout after the specified idle period."
+msgstr ""
 
 msgid "Automatic Acoustic Management"
 msgstr "Automatisk Akustisk Håndtering"
@@ -2981,9 +3002,6 @@ msgstr "Session udløbet"
 msgid "Session not authenticated."
 msgstr "Session ikke godkendt"
 
-msgid "Session timeout"
-msgstr "Session udløbstid"
-
 msgid "Set browseable"
 msgstr "Gør søgebar"
 
@@ -3406,10 +3424,6 @@ msgstr "Kravet om, at SSL-sessionen fra kontrolforbindelsen bliver genanvendt ti
 
 msgid "The session IP address has been changed."
 msgstr "Sessionens IP adresse er blevet ændret."
-
-msgid ""
-"The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr "Session udløbstid i minutter. Sæt til 0 for at deaktivere automatisk log ud."
 
 msgid "The session user no longer exists."
 msgstr "Sessionens bruger eksistere ikke mere."

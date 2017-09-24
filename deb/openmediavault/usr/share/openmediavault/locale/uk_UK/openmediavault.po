@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-16 22:07+0000\n"
-"Last-Translator: zubr139\n"
+"POT-Creation-Date: 2017-09-24 12:54+0200\n"
+"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,6 +45,9 @@ msgstr "1 - Мінімальне енергоспоживання в режим�
 msgid "1 day"
 msgstr "1 день"
 
+msgid "1 minute"
+msgstr ""
+
 msgid "1 month"
 msgstr " 1 місяць"
 
@@ -73,6 +76,9 @@ msgstr "127 - проміжне споживання енергії з очіку
 msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - Мінімальне енергоспоживання без режиму очікування (no spindown)"
 
+msgid "15 minutes"
+msgstr ""
+
 msgid "15 years"
 msgstr "15 років"
 
@@ -84,6 +90,9 @@ msgstr "192 - проміжне споживання енергії без очі
 
 msgid "2 days"
 msgstr "2 дні"
+
+msgid "2 minutes"
+msgstr ""
 
 msgid "2 weeks"
 msgstr "2 тижні"
@@ -112,6 +121,9 @@ msgstr "255 - Вимкнено"
 msgid "3 days"
 msgstr "3 дні"
 
+msgid "3 minutes"
+msgstr ""
+
 msgid "3 months"
 msgstr "3 місяці"
 
@@ -132,6 +144,9 @@ msgstr "330 хвилин"
 
 msgid "4 days"
 msgstr "4 дні"
+
+msgid "4 minutes"
+msgstr ""
 
 msgid "4 years"
 msgstr "4 роки"
@@ -433,6 +448,12 @@ msgstr "Тип аутентифікації"
 
 msgid "Auto"
 msgstr "Авто"
+
+msgid "Auto logout"
+msgstr ""
+
+msgid "Auto logout after the specified idle period."
+msgstr ""
 
 msgid "Automatic Acoustic Management"
 msgstr "Автоматичний акустичний контроль"
@@ -2983,9 +3004,6 @@ msgstr "Сесія протермінована."
 msgid "Session not authenticated."
 msgstr "Сесія не пройшла перевірку автентичності."
 
-msgid "Session timeout"
-msgstr "Час сесії"
-
 msgid "Set browseable"
 msgstr "Дозволити переглядати"
 
@@ -3408,10 +3426,6 @@ msgstr "Встановлення повторного використання �
 
 msgid "The session IP address has been changed."
 msgstr "IP-адреса сесії була змінена."
-
-msgid ""
-"The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr "Час очікування сеансу у хвилинах. Встановіть 0 щоб відключити автоматичний вихід із системи."
 
 msgid "The session user no longer exists."
 msgstr "Сеанс користувача більше не існує."

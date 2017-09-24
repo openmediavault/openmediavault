@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-08-30 06:42+0000\n"
+"POT-Creation-Date: 2017-09-24 12:54+0200\n"
+"PO-Revision-Date: 2017-09-24 10:54+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/votdev/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -44,6 +44,9 @@ msgstr "1 - Minste strømforbruk uten standby (spindown)"
 msgid "1 day"
 msgstr "1 dag"
 
+msgid "1 minute"
+msgstr ""
+
 msgid "1 month"
 msgstr "1 måned"
 
@@ -72,6 +75,9 @@ msgstr "127 - Gjennomsnittlig strømforbruk med standby"
 msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - Minste strømforbruk uten standby (ingen spindown)"
 
+msgid "15 minutes"
+msgstr ""
+
 msgid "15 years"
 msgstr "15 år"
 
@@ -83,6 +89,9 @@ msgstr "192 - Gjennomsnittlig strømforbruk uten standby"
 
 msgid "2 days"
 msgstr "2 dager"
+
+msgid "2 minutes"
+msgstr ""
 
 msgid "2 weeks"
 msgstr "2 uker"
@@ -111,6 +120,9 @@ msgstr "255 - Deaktivert"
 msgid "3 days"
 msgstr "3 dager"
 
+msgid "3 minutes"
+msgstr ""
+
 msgid "3 months"
 msgstr "3 måneder"
 
@@ -131,6 +143,9 @@ msgstr ""
 
 msgid "4 days"
 msgstr "4 dager"
+
+msgid "4 minutes"
+msgstr ""
 
 msgid "4 years"
 msgstr "4 år"
@@ -431,6 +446,12 @@ msgid "Authentication type"
 msgstr "Autentiseringstype"
 
 msgid "Auto"
+msgstr ""
+
+msgid "Auto logout"
+msgstr ""
+
+msgid "Auto logout after the specified idle period."
 msgstr ""
 
 msgid "Automatic Acoustic Management"
@@ -2982,9 +3003,6 @@ msgstr "Sesjon utgått."
 msgid "Session not authenticated."
 msgstr "Sesjon ikke autentisert."
 
-msgid "Session timeout"
-msgstr "Tidsavbrudd for sesjonen"
-
 msgid "Set browseable"
 msgstr "Sett søkbar"
 
@@ -3407,10 +3425,6 @@ msgstr "Kravet om at SSL-økt fra kontrolltilkobling gjenbrukes for datatilkobli
 
 msgid "The session IP address has been changed."
 msgstr ""
-
-msgid ""
-"The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr "Sesjonens timeout i minutter. Sett til 0 for å deaktivere automatisk utlogging."
 
 msgid "The session user no longer exists."
 msgstr ""

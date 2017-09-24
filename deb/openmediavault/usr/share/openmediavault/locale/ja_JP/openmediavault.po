@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-08-30 06:42+0000\n"
+"POT-Creation-Date: 2017-09-24 12:54+0200\n"
+"PO-Revision-Date: 2017-09-24 10:54+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/votdev/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -43,6 +43,9 @@ msgstr "1 - スタンバイ（スピンダウン）を使った最小の消費�
 msgid "1 day"
 msgstr "1 日"
 
+msgid "1 minute"
+msgstr ""
+
 msgid "1 month"
 msgstr "1 月"
 
@@ -71,6 +74,9 @@ msgstr "127 - スタンバイを使った中間的な電力消費"
 msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - スタンバイ（スピンダウン）を使わない最小の消費電力"
 
+msgid "15 minutes"
+msgstr ""
+
 msgid "15 years"
 msgstr "15 年"
 
@@ -82,6 +88,9 @@ msgstr "192 - スタンバイを使わない中間的な電力消費"
 
 msgid "2 days"
 msgstr "2 日"
+
+msgid "2 minutes"
+msgstr ""
 
 msgid "2 weeks"
 msgstr "2 週間"
@@ -110,6 +119,9 @@ msgstr "255 - 無効"
 msgid "3 days"
 msgstr "3 日"
 
+msgid "3 minutes"
+msgstr ""
+
 msgid "3 months"
 msgstr "3 か月"
 
@@ -130,6 +142,9 @@ msgstr "330 分"
 
 msgid "4 days"
 msgstr "4 日"
+
+msgid "4 minutes"
+msgstr ""
 
 msgid "4 years"
 msgstr "4 年"
@@ -431,6 +446,12 @@ msgstr "認証のタイプ"
 
 msgid "Auto"
 msgstr "自動"
+
+msgid "Auto logout"
+msgstr ""
+
+msgid "Auto logout after the specified idle period."
+msgstr ""
 
 msgid "Automatic Acoustic Management"
 msgstr "Automatic Acoustic Management(AAM)"
@@ -2981,9 +3002,6 @@ msgstr "セッションの期限が切れました。"
 msgid "Session not authenticated."
 msgstr "セッションは認証されていません。"
 
-msgid "Session timeout"
-msgstr "セッションタイムアウト"
-
 msgid "Set browseable"
 msgstr "参照可能に設定"
 
@@ -3406,10 +3424,6 @@ msgstr "コントロールコネクションからのSSLセッションがデー
 
 msgid "The session IP address has been changed."
 msgstr ""
-
-msgid ""
-"The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr "分単位でセッションタイムアウト値を設定します。自動ログアウトを無効にするには0を設定します。"
 
 msgid "The session user no longer exists."
 msgstr ""

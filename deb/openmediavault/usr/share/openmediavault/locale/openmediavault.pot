@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 09:56+0200\n"
+"POT-Creation-Date: 2017-09-24 12:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -434,6 +434,9 @@ msgid "Authentication type"
 msgstr ""
 
 msgid "Auto"
+msgstr ""
+
+msgid "Auto logout"
 msgstr ""
 
 msgid "Auto logout after the specified idle period."
@@ -2879,9 +2882,6 @@ msgid "Session expired."
 msgstr ""
 
 msgid "Session not authenticated."
-msgstr ""
-
-msgid "Session timeout"
 msgstr ""
 
 msgid "Set browseable"
