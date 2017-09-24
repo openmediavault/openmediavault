@@ -124,16 +124,16 @@ class Session {
 			// Get session timeout from the configuration.
 			$db = &\OMV\Config\Database::getInstance();
 			$object = $db->get("conf.webadmin");
-			$enable = $object->get("timeoutenable");
-			$seconds = $object->get("timeoutseconds");
+			$timeout = $object->get("timeout") * 60;
 		} catch(\Exception $e) {
 			// Set default to 5 minutes.
-			$enable = TRUE;
-			$seconds = 300;
+			$timeout = 300;
 		}
-		if (FALSE === $enable)
+		// If the timeout value is set the 0 the session timeout
+		// validation is disabled.
+		if (0 == $timeout)
 			return FALSE;
-		return ((time() - $_SESSION['lastaccess']) > $seconds) ? TRUE : FALSE;
+		return ((time() - $_SESSION['lastaccess']) > $timeout) ? TRUE : FALSE;
 	}
 
 	/**

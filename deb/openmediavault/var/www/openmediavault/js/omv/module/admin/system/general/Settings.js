@@ -72,30 +72,30 @@ Ext.define("OMV.module.admin.system.general.Settings", {
 				allowBlank: false,
 				value: 80
 			},{
-				xtype: "fieldcontainer",
+				xtype: "combo",
+				name: "timeout",
 				fieldLabel: _("Session timeout"),
-				layout: "anchor",
-				fieldDefaults: {
-					readOnly: me.readOnly,
-					anchor: "100%"
-				},
-				items: [{
-					xtype: "checkbox",
-					name: "timeoutenable",
-					checked: true,
-					boxLabel: _("Enable automatic logout.")
-				},{
-					xtype: "numberfield",
-					name: "timeoutseconds",
-					minValue: 30,
-					maxValue: 3600,
-					allowDecimals: false,
-					allowBlank: false,
-					value: 300,
-					plugins: [{
-						ptype: "fieldinfo",
-						text: _("The session timeout in seconds.")
-					}]
+				queryMode: "local",
+				store: [
+					[ 0, _("Disabled") ],
+					[ 1, _("1 min") ],
+					[ 2, _("2 min") ],
+					[ 3, _("3 min") ],
+					[ 4, _("4 min") ],
+					[ 5, _("5 min") ],
+					[ 10, _("10 min") ],
+					[ 15, _("15 min") ],
+					[ 30, _("30 min") ],
+					[ 60, _("60 min") ],
+					[ 1440, _("1 d") ]
+				],
+				allowBlank: false,
+				editable: false,
+				triggerAction: "all",
+				value: 5,
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("The session timeout time in minutes.")
 				}]
 			}]
 		},{

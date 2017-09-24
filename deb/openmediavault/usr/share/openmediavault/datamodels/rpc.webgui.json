@@ -28,14 +28,10 @@
 				"type": "string",
 				"required": true
 			},
-			"timeoutenable": {
-				"type": "boolean",
-				"required": true
-			},
-			"timeoutseconds": {
+			"timeout": {
 				"type": "integer",
-				"minimum": 30,
-				"maximum": 3600,
+				"minimum": 0,
+				"maximum": 1440,
 				"required": true
 			}
 		}

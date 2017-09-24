@@ -129,8 +129,7 @@ class Module(openmediavault.firstaid.IModule):
 			"sslport": sslport,
 			"forcesslonly": forcesslonly,
 			"sslcertificateref": sslcertificateref,
-			"timeoutenable": true,
-			"timeoutseconds": 300 })
+			"timeout": 5 })
 		# Apply the configuration changes.
 		openmediavault.rpc.call("Config", "applyChanges", {
 			"modules": [], "force": False })
