@@ -95,7 +95,7 @@ Ext.define("OMV.module.admin.system.general.Settings", {
 				value: 5,
 				plugins: [{
 					ptype: "fieldinfo",
-					text: _("The session timeout time in minutes.")
+					text: _("Auto logout after the specified idle period.")
 				}]
 			}]
 		},{
