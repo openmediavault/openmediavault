@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 12:54+0200\n"
-"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"POT-Creation-Date: 2017-09-24 21:10+0200\n"
+"PO-Revision-Date: 2017-09-24 19:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/votdev/openmediavault/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
@@ -434,23 +434,11 @@ msgstr "Аутентифицируемый идентификатор польз
 msgid "Authentication"
 msgstr "Аутентификация"
 
-msgid "Authentication and no privacy"
-msgstr "Аутентификация без конфиденциальности"
-
-msgid "Authentication and privacy"
-msgstr "Аутентификация и конфиденциальность"
-
 msgid "Authentication method"
 msgstr "Метод аутентификации"
 
-msgid "Authentication passphrase"
-msgstr "Пароль проверки подлинности"
-
 msgid "Authentication required"
 msgstr "Требуется аутентификация"
-
-msgid "Authentication type"
-msgstr "Тип аутентификации"
 
 msgid "Auto"
 msgstr "Автоматически"
@@ -665,9 +653,6 @@ msgstr "Коментарий"
 msgid "Common Name"
 msgstr "Общее имя"
 
-msgid "Community"
-msgstr "Сообщество"
-
 msgid "Community-maintained updates."
 msgstr "Обновления поддерживаемые сообществом."
 
@@ -712,14 +697,6 @@ msgstr "Конго (Киншаса)"
 
 msgid "Connections"
 msgstr "Соединение"
-
-msgid "Contact"
-msgstr "Связаться"
-
-msgid ""
-"Contact information, e.g. name or email address of the person responsible "
-"for this system."
-msgstr "Контактная информация, например, имя или адрес электронной почты лица, ответственного за эту систему."
 
 msgid "Conveyance self-test"
 msgstr "Тест для выяснения дефектов, возникших при транспортировке"
@@ -1851,9 +1828,6 @@ msgstr "Локальный главный браузер"
 msgid "Location"
 msgstr "Местоположение"
 
-msgid "Location information, e.g. physical location of this system."
-msgstr "Информация о местоположении, например, физическое расположение этой системы."
-
 msgid "Log level"
 msgstr "Уровень журналирования"
 
@@ -2163,9 +2137,6 @@ msgstr "Нет доступа"
 
 msgid "No action"
 msgstr "Никаких действий"
-
-msgid "No authentication and no privacy"
-msgstr "Без аутентификации и конфиденциальности"
 
 msgid "No certificate request"
 msgstr "Нет запроса на сертификат"
@@ -2524,12 +2495,6 @@ msgstr "Основной"
 msgid "Primary email"
 msgstr "Основной e-mail"
 
-msgid "Privacy passphrase"
-msgstr "Защита пароля"
-
-msgid "Privacy type"
-msgstr "Тип конфиденциальности"
-
 msgid "Private key"
 msgstr "Секретный ключ"
 
@@ -2797,15 +2762,6 @@ msgstr "Сервер SMTP"
 msgid "SMTP settings"
 msgstr "Настройки SMTP"
 
-msgid "SNMP"
-msgstr "SNMP"
-
-msgid "SNMP version 1/2c"
-msgstr "SNMP версия 1/2c"
-
-msgid "SNMP version 3"
-msgstr "SNMP версия 3"
-
 msgid "SSH"
 msgstr "SSH"
 
@@ -2892,9 +2848,6 @@ msgstr "Безопасный"
 
 msgid "Secure connection"
 msgstr "Безопасное соединение"
-
-msgid "Security level"
-msgstr "Уровень безопасности"
 
 msgid "Select a SSH certificate ..."
 msgstr "Выберите SSH сертификат..."
@@ -3719,9 +3672,6 @@ msgstr "Время передачи"
 
 msgid "Transfer type"
 msgstr "Тип передачи"
-
-msgid "Traps"
-msgstr "Ловушки"
 
 msgid "Treshold"
 msgstr "Порог"

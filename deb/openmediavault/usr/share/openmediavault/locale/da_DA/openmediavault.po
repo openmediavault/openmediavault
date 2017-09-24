@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 12:54+0200\n"
-"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"POT-Creation-Date: 2017-09-24 21:10+0200\n"
+"PO-Revision-Date: 2017-09-24 19:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/votdev/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -426,23 +426,11 @@ msgstr "Godkendt bruger ID"
 msgid "Authentication"
 msgstr "Godkendelse"
 
-msgid "Authentication and no privacy"
-msgstr "Godkendelse og intet privatliv"
-
-msgid "Authentication and privacy"
-msgstr "Godkendelse og privatliv"
-
 msgid "Authentication method"
 msgstr "Godkendelses metode"
 
-msgid "Authentication passphrase"
-msgstr "Godkendelses løsen"
-
 msgid "Authentication required"
 msgstr "Godkendelse påkrævet"
-
-msgid "Authentication type"
-msgstr "Godkendelses type"
 
 msgid "Auto"
 msgstr "Auto"
@@ -657,9 +645,6 @@ msgstr "Kommentar"
 msgid "Common Name"
 msgstr "Fælles Navn"
 
-msgid "Community"
-msgstr "Fællesskab"
-
 msgid "Community-maintained updates."
 msgstr "Fællesskab-vedligeholdes opdateringer."
 
@@ -704,14 +689,6 @@ msgstr "Congo (Kinshasa)"
 
 msgid "Connections"
 msgstr "Forbindelser"
-
-msgid "Contact"
-msgstr "Kontakt"
-
-msgid ""
-"Contact information, e.g. name or email address of the person responsible "
-"for this system."
-msgstr "Kontakt oplysninger, f.eks. navn eller email adresse på den person der er ansvarlig for systemet."
 
 msgid "Conveyance self-test"
 msgstr "Overførings selvtest"
@@ -1843,9 +1820,6 @@ msgstr "Lokal master browser"
 msgid "Location"
 msgstr "Placering"
 
-msgid "Location information, e.g. physical location of this system."
-msgstr "Placerings oplysninger, f.eks. fysisk placering af dette system."
-
 msgid "Log level"
 msgstr "Log niveau"
 
@@ -2155,9 +2129,6 @@ msgstr "Ingen adgang"
 
 msgid "No action"
 msgstr "Ingen handling"
-
-msgid "No authentication and no privacy"
-msgstr "Ingen godkendelse og intet privatliv"
 
 msgid "No certificate request"
 msgstr "Ingen certifikat forespørgsel"
@@ -2516,12 +2487,6 @@ msgstr "Primær"
 msgid "Primary email"
 msgstr "Primær email"
 
-msgid "Privacy passphrase"
-msgstr "Fortroligheds løsen"
-
-msgid "Privacy type"
-msgstr "Fortroligheds type"
-
 msgid "Private key"
 msgstr "Privat nøgle"
 
@@ -2789,15 +2754,6 @@ msgstr "SMTP server"
 msgid "SMTP settings"
 msgstr "SMTP indstillinger"
 
-msgid "SNMP"
-msgstr "SNMP"
-
-msgid "SNMP version 1/2c"
-msgstr "SNMP version 1/2c"
-
-msgid "SNMP version 3"
-msgstr "SNMP version 3"
-
 msgid "SSH"
 msgstr "SSH"
 
@@ -2884,9 +2840,6 @@ msgstr "Sikkert"
 
 msgid "Secure connection"
 msgstr "Sikker forbindelse"
-
-msgid "Security level"
-msgstr "Sikkerhedsniveau"
 
 msgid "Select a SSH certificate ..."
 msgstr "Vælg et SSH certifikat ..."
@@ -3711,9 +3664,6 @@ msgstr "Overførelses tid"
 
 msgid "Transfer type"
 msgstr "Overførelses type"
-
-msgid "Traps"
-msgstr "Fælder"
 
 msgid "Treshold"
 msgstr "Tærskel"

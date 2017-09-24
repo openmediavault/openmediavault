@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 12:54+0200\n"
-"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"POT-Creation-Date: 2017-09-24 21:10+0200\n"
+"PO-Revision-Date: 2017-09-24 19:11+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/votdev/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -44,7 +44,7 @@ msgid "1 day"
 msgstr "1 gün"
 
 msgid "1 minute"
-msgstr ""
+msgstr "1 dakika"
 
 msgid "1 month"
 msgstr "1 ay"
@@ -75,7 +75,7 @@ msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - En az güç kullanımı - Bekleme (dönüş durması) olmaksızın"
 
 msgid "15 minutes"
-msgstr ""
+msgstr "15 dakika"
 
 msgid "15 years"
 msgstr "15 yıl"
@@ -90,7 +90,7 @@ msgid "2 days"
 msgstr "2 gün"
 
 msgid "2 minutes"
-msgstr ""
+msgstr "2 dakika"
 
 msgid "2 weeks"
 msgstr "2 hafta"
@@ -120,7 +120,7 @@ msgid "3 days"
 msgstr "3 gün"
 
 msgid "3 minutes"
-msgstr ""
+msgstr "3 dakika"
 
 msgid "3 months"
 msgstr "3 ay"
@@ -144,7 +144,7 @@ msgid "4 days"
 msgstr "4 gün"
 
 msgid "4 minutes"
-msgstr ""
+msgstr "4 dakika"
 
 msgid "4 years"
 msgstr "4 yıl"
@@ -426,32 +426,20 @@ msgstr "Onaylanmış kullanıcı kimliği"
 msgid "Authentication"
 msgstr "Onaylama"
 
-msgid "Authentication and no privacy"
-msgstr "Kimlik denetimi ve gizlilik olmaması"
-
-msgid "Authentication and privacy"
-msgstr "Kimlik denetimi ve gizlilik"
-
 msgid "Authentication method"
 msgstr "Doğrulama metodu"
 
-msgid "Authentication passphrase"
-msgstr "Onaylama parolası"
-
 msgid "Authentication required"
 msgstr "Onaylama gereklidir"
-
-msgid "Authentication type"
-msgstr "Onaylana tipi"
 
 msgid "Auto"
 msgstr "Otomatik"
 
 msgid "Auto logout"
-msgstr ""
+msgstr "Otomatik çıkış"
 
 msgid "Auto logout after the specified idle period."
-msgstr ""
+msgstr "Belirlenmiş süre sonunda otomatik çıkış."
 
 msgid "Automatic Acoustic Management"
 msgstr "Otomatik Akustik Yönetimi"
@@ -657,9 +645,6 @@ msgstr "Açıklama"
 msgid "Common Name"
 msgstr "Genel İsim"
 
-msgid "Community"
-msgstr "Topluluk"
-
 msgid "Community-maintained updates."
 msgstr "Topluluk tarafından yönetilen güncellemeler."
 
@@ -704,14 +689,6 @@ msgstr "Kongo (Kinsaşa)"
 
 msgid "Connections"
 msgstr "Bağlantılar"
-
-msgid "Contact"
-msgstr "İletişim"
-
-msgid ""
-"Contact information, e.g. name or email address of the person responsible "
-"for this system."
-msgstr "İletişim bilgisi, örn. sistem sorumlusunun adı ve e-mail adresi."
 
 msgid "Conveyance self-test"
 msgstr "Geri bildirimli iç kontrol"
@@ -1843,9 +1820,6 @@ msgstr "Yerel ana tarayıcı"
 msgid "Location"
 msgstr "Yerleşim"
 
-msgid "Location information, e.g. physical location of this system."
-msgstr "Yerleşim bilgisi, örneğin sistemin fiziksel yerleşimi."
-
 msgid "Log level"
 msgstr "Kayıt seviyesi"
 
@@ -2155,9 +2129,6 @@ msgstr "Erişim yok"
 
 msgid "No action"
 msgstr "İşlem yapma"
-
-msgid "No authentication and no privacy"
-msgstr "Kimlik doğrulama ve gizlilik yok"
 
 msgid "No certificate request"
 msgstr "Sertifika talebi yok"
@@ -2516,12 +2487,6 @@ msgstr "Birincil"
 msgid "Primary email"
 msgstr "Birincil e-posta"
 
-msgid "Privacy passphrase"
-msgstr "Gizlilik parolası"
-
-msgid "Privacy type"
-msgstr "Gizlilik tipi"
-
 msgid "Private key"
 msgstr "Gizli anahtar"
 
@@ -2789,15 +2754,6 @@ msgstr "SMTP sunucu"
 msgid "SMTP settings"
 msgstr "SMTP ayarları"
 
-msgid "SNMP"
-msgstr "SNMP"
-
-msgid "SNMP version 1/2c"
-msgstr "SNMP sürüm 1/2c"
-
-msgid "SNMP version 3"
-msgstr "SNMP sürüm 3"
-
 msgid "SSH"
 msgstr "SSH"
 
@@ -2884,9 +2840,6 @@ msgstr "Güvenli"
 
 msgid "Secure connection"
 msgstr "Güvenli bağlantı"
-
-msgid "Security level"
-msgstr "Güvenlik seviyesi"
 
 msgid "Select a SSH certificate ..."
 msgstr "SSH sertifikası seçiniz ..."
@@ -3711,9 +3664,6 @@ msgstr "Aktarım zamanı"
 
 msgid "Transfer type"
 msgstr "Aktarım tipi"
-
-msgid "Traps"
-msgstr "Kapan"
 
 msgid "Treshold"
 msgstr "Eşik değer"

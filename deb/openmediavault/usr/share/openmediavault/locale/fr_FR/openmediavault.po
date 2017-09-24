@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 12:54+0200\n"
-"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"POT-Creation-Date: 2017-09-24 21:10+0200\n"
+"PO-Revision-Date: 2017-09-24 19:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/votdev/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -431,23 +431,11 @@ msgstr "ID d'utilisateur authentifié"
 msgid "Authentication"
 msgstr "Authentification"
 
-msgid "Authentication and no privacy"
-msgstr "Authentification sans secret"
-
-msgid "Authentication and privacy"
-msgstr "Authentification avec secret"
-
 msgid "Authentication method"
 msgstr "Méthode d'authentification"
 
-msgid "Authentication passphrase"
-msgstr "Mot de passe d'authentification"
-
 msgid "Authentication required"
 msgstr "Authentification requise"
-
-msgid "Authentication type"
-msgstr "Type d'authentification"
 
 msgid "Auto"
 msgstr "Auto"
@@ -662,9 +650,6 @@ msgstr "Commentaire"
 msgid "Common Name"
 msgstr "Nom commun"
 
-msgid "Community"
-msgstr "Communauté"
-
 msgid "Community-maintained updates."
 msgstr "Mises à jour maintenues par la communauté."
 
@@ -709,14 +694,6 @@ msgstr "Congo (Kinshasa)"
 
 msgid "Connections"
 msgstr "Connexions"
-
-msgid "Contact"
-msgstr "Contact"
-
-msgid ""
-"Contact information, e.g. name or email address of the person responsible "
-"for this system."
-msgstr "Informations du contact (ex: nom ou adresse mail de la personne responsable du système)."
 
 msgid "Conveyance self-test"
 msgstr "Conveyance self-test"
@@ -1848,9 +1825,6 @@ msgstr "Explorateur maître local"
 msgid "Location"
 msgstr "Emplacement"
 
-msgid "Location information, e.g. physical location of this system."
-msgstr "Informations de localisation (ex: implantation physique du système)."
-
 msgid "Log level"
 msgstr "Niveau de journal"
 
@@ -2160,9 +2134,6 @@ msgstr "Pas d'accès"
 
 msgid "No action"
 msgstr "Aucune action"
-
-msgid "No authentication and no privacy"
-msgstr "Aucune authentification"
 
 msgid "No certificate request"
 msgstr "Aucune requête de certificat"
@@ -2521,12 +2492,6 @@ msgstr "Primaire"
 msgid "Primary email"
 msgstr "Mail primaire"
 
-msgid "Privacy passphrase"
-msgstr "Mot de passe confidentiel"
-
-msgid "Privacy type"
-msgstr "Type confidentiel"
-
 msgid "Private key"
 msgstr "Clé privée"
 
@@ -2794,15 +2759,6 @@ msgstr "Serveur SMTP"
 msgid "SMTP settings"
 msgstr "Paramètres SMTP"
 
-msgid "SNMP"
-msgstr "SNMP"
-
-msgid "SNMP version 1/2c"
-msgstr "SNMP version 1/2c"
-
-msgid "SNMP version 3"
-msgstr "SNMP version 3"
-
 msgid "SSH"
 msgstr "SSH"
 
@@ -2889,9 +2845,6 @@ msgstr "Sécurisé"
 
 msgid "Secure connection"
 msgstr "Connections sécurisées"
-
-msgid "Security level"
-msgstr "Niveau de sécurité"
 
 msgid "Select a SSH certificate ..."
 msgstr "Sélectionnez un certificat SSH ..."
@@ -3716,9 +3669,6 @@ msgstr "Temps de transfert"
 
 msgid "Transfer type"
 msgstr "Type de transfert"
-
-msgid "Traps"
-msgstr "Trappes"
 
 msgid "Treshold"
 msgstr "Seuil"

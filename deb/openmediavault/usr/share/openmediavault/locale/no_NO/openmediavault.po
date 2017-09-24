@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 12:54+0200\n"
-"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"POT-Creation-Date: 2017-09-24 21:10+0200\n"
+"PO-Revision-Date: 2017-09-24 19:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/votdev/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -427,23 +427,11 @@ msgstr "Autentisert bruker ID"
 msgid "Authentication"
 msgstr "Godkjenning"
 
-msgid "Authentication and no privacy"
-msgstr "Autentisering og ingen kryptering"
-
-msgid "Authentication and privacy"
-msgstr "Autentisering og kryptering"
-
 msgid "Authentication method"
 msgstr "Autentiseringsmetode"
 
-msgid "Authentication passphrase"
-msgstr "Godkjenningspassord"
-
 msgid "Authentication required"
 msgstr "Autentisering kreves"
-
-msgid "Authentication type"
-msgstr "Autentiseringstype"
 
 msgid "Auto"
 msgstr ""
@@ -658,9 +646,6 @@ msgstr "Kommentar"
 msgid "Common Name"
 msgstr "Fellesnavn"
 
-msgid "Community"
-msgstr "Community"
-
 msgid "Community-maintained updates."
 msgstr ""
 
@@ -705,14 +690,6 @@ msgstr "Kongo"
 
 msgid "Connections"
 msgstr "Tilkoblinger"
-
-msgid "Contact"
-msgstr "Kontakt"
-
-msgid ""
-"Contact information, e.g. name or email address of the person responsible "
-"for this system."
-msgstr "Kontaktinformasjon, f.eks. navn eller epostadresse til personen ansvarlig for dette systemet."
 
 msgid "Conveyance self-test"
 msgstr "Conveyance selvtest"
@@ -1844,9 +1821,6 @@ msgstr "Lokal master browser"
 msgid "Location"
 msgstr "Plassering"
 
-msgid "Location information, e.g. physical location of this system."
-msgstr "Plasseringsinformasjon, f.eks. den fysiske plasseringen av dette systemet."
-
 msgid "Log level"
 msgstr "Loggnivået"
 
@@ -2156,9 +2130,6 @@ msgstr "Ingen tilgang"
 
 msgid "No action"
 msgstr "Ingen handling"
-
-msgid "No authentication and no privacy"
-msgstr "Ingen autentisering og ingen kryptering"
 
 msgid "No certificate request"
 msgstr "Sertifikat kreves ikke"
@@ -2517,12 +2488,6 @@ msgstr "Primær"
 msgid "Primary email"
 msgstr "Primær epost"
 
-msgid "Privacy passphrase"
-msgstr "Passord for kryptering"
-
-msgid "Privacy type"
-msgstr "Krypteringstype"
-
 msgid "Private key"
 msgstr "Privat nøkkel"
 
@@ -2790,15 +2755,6 @@ msgstr "SMTP server"
 msgid "SMTP settings"
 msgstr "SMTP instillinger"
 
-msgid "SNMP"
-msgstr "SNMP"
-
-msgid "SNMP version 1/2c"
-msgstr "SNMP versjon 1/2c"
-
-msgid "SNMP version 3"
-msgstr "SNMP versjon 3"
-
 msgid "SSH"
 msgstr "SSH"
 
@@ -2885,9 +2841,6 @@ msgstr "Sikker"
 
 msgid "Secure connection"
 msgstr "Sikker tikobling"
-
-msgid "Security level"
-msgstr "Sikkerhetsnivå"
 
 msgid "Select a SSH certificate ..."
 msgstr ""
@@ -3712,9 +3665,6 @@ msgstr "Overføringstid"
 
 msgid "Transfer type"
 msgstr "Overføringstype"
-
-msgid "Traps"
-msgstr "Traps"
 
 msgid "Treshold"
 msgstr "Terskel"

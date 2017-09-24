@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 12:54+0200\n"
-"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"POT-Creation-Date: 2017-09-24 21:10+0200\n"
+"PO-Revision-Date: 2017-09-24 19:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/votdev/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -426,23 +426,11 @@ msgstr "認証されたユーザーID"
 msgid "Authentication"
 msgstr "認証"
 
-msgid "Authentication and no privacy"
-msgstr "認証とプライバシーなし"
-
-msgid "Authentication and privacy"
-msgstr "認証とプライバシー"
-
 msgid "Authentication method"
 msgstr "認証方法"
 
-msgid "Authentication passphrase"
-msgstr "認証パスフレーズ"
-
 msgid "Authentication required"
 msgstr "認証の要求"
-
-msgid "Authentication type"
-msgstr "認証のタイプ"
 
 msgid "Auto"
 msgstr "自動"
@@ -657,9 +645,6 @@ msgstr "コメント"
 msgid "Common Name"
 msgstr "コモンネーム"
 
-msgid "Community"
-msgstr "コミュニティ"
-
 msgid "Community-maintained updates."
 msgstr "コミュニティーによるメンテナンスアップデート。"
 
@@ -704,14 +689,6 @@ msgstr "コンゴ（キンシャサ）"
 
 msgid "Connections"
 msgstr "接続"
-
-msgid "Contact"
-msgstr "連絡先"
-
-msgid ""
-"Contact information, e.g. name or email address of the person responsible "
-"for this system."
-msgstr "連絡先情報 例)名前またはこのシステムの責任者の電子メールアドレス"
 
 msgid "Conveyance self-test"
 msgstr "コンベイアンスセルフテスト"
@@ -1843,9 +1820,6 @@ msgstr "ローカルマスタブラウザ"
 msgid "Location"
 msgstr "ロケーション"
 
-msgid "Location information, e.g. physical location of this system."
-msgstr "位置情報 例）このシステムの物理的な場所"
-
 msgid "Log level"
 msgstr "ログレベル"
 
@@ -2155,9 +2129,6 @@ msgstr "アクセスはありません"
 
 msgid "No action"
 msgstr "アクションはありません"
-
-msgid "No authentication and no privacy"
-msgstr "認証なしとプライバシーなし"
 
 msgid "No certificate request"
 msgstr "証明書要求はありません"
@@ -2516,12 +2487,6 @@ msgstr "プライマリ"
 msgid "Primary email"
 msgstr "プライマリメール"
 
-msgid "Privacy passphrase"
-msgstr "プライバシーパスフレーズ"
-
-msgid "Privacy type"
-msgstr "プライバシータイプ"
-
 msgid "Private key"
 msgstr "プライベートキー"
 
@@ -2789,15 +2754,6 @@ msgstr "SMTP サーバー"
 msgid "SMTP settings"
 msgstr "SMTP 設定"
 
-msgid "SNMP"
-msgstr "SNMP"
-
-msgid "SNMP version 1/2c"
-msgstr "SNMP version 1/2c"
-
-msgid "SNMP version 3"
-msgstr "SNMP version 3"
-
 msgid "SSH"
 msgstr "SSH"
 
@@ -2884,9 +2840,6 @@ msgstr "セキュア"
 
 msgid "Secure connection"
 msgstr "セキュアコネクション"
-
-msgid "Security level"
-msgstr "セキュリティレベル"
 
 msgid "Select a SSH certificate ..."
 msgstr "SSH証明書を選択 ..."
@@ -3711,9 +3664,6 @@ msgstr "転送時間"
 
 msgid "Transfer type"
 msgstr "転送タイプ"
-
-msgid "Traps"
-msgstr "トラップ"
 
 msgid "Treshold"
 msgstr "しきい値"

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 12:54+0200\n"
-"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"POT-Creation-Date: 2017-09-24 21:10+0200\n"
+"PO-Revision-Date: 2017-09-24 19:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -428,23 +428,11 @@ msgstr "Hitelesített felhasználói ID"
 msgid "Authentication"
 msgstr "Hitelesítés"
 
-msgid "Authentication and no privacy"
-msgstr "Hitelesítés és nincs titkosítás"
-
-msgid "Authentication and privacy"
-msgstr "Hitelesítés és titkosítás"
-
 msgid "Authentication method"
 msgstr "Hitelesítési eljárás"
 
-msgid "Authentication passphrase"
-msgstr "Hitelesítés jelszó"
-
 msgid "Authentication required"
 msgstr "Hitelesítés szükséges"
-
-msgid "Authentication type"
-msgstr "Hitelesítés típus"
 
 msgid "Auto"
 msgstr "Auto"
@@ -659,9 +647,6 @@ msgstr "Megjegyzés"
 msgid "Common Name"
 msgstr "Közös név"
 
-msgid "Community"
-msgstr "Közösség"
-
 msgid "Community-maintained updates."
 msgstr "Közösségileg karbantartott frissítések."
 
@@ -706,14 +691,6 @@ msgstr "Kongó (Kinshasa)"
 
 msgid "Connections"
 msgstr "Kapcsolatok"
-
-msgid "Contact"
-msgstr "Kapcsolat"
-
-msgid ""
-"Contact information, e.g. name or email address of the person responsible "
-"for this system."
-msgstr "Elérhetőség, pl. a rendszerért felelős személy neve, vagy e-mail címe. "
 
 msgid "Conveyance self-test"
 msgstr "Önteszt továbbítása"
@@ -1845,9 +1822,6 @@ msgstr "Helyi főtallózó"
 msgid "Location"
 msgstr "Hely"
 
-msgid "Location information, e.g. physical location of this system."
-msgstr "Területi információ, pl. a rendszer fizikai elhelyezkedése."
-
 msgid "Log level"
 msgstr "Naplózási szint"
 
@@ -2157,9 +2131,6 @@ msgstr "Nincs hozzáférés"
 
 msgid "No action"
 msgstr "Nincs művelet"
-
-msgid "No authentication and no privacy"
-msgstr "Nincs hitelesítés és nincs titkosítás"
 
 msgid "No certificate request"
 msgstr "Nincs tanúsítvány kérés"
@@ -2518,12 +2489,6 @@ msgstr "Elsődleges"
 msgid "Primary email"
 msgstr "Elsődleges e-mail cím"
 
-msgid "Privacy passphrase"
-msgstr "Titkosítási jelszó"
-
-msgid "Privacy type"
-msgstr "Titkosítás típusa"
-
 msgid "Private key"
 msgstr "Privát kulcs"
 
@@ -2791,15 +2756,6 @@ msgstr "SMTP szerver"
 msgid "SMTP settings"
 msgstr "SMTP beállítások"
 
-msgid "SNMP"
-msgstr "SNMP"
-
-msgid "SNMP version 1/2c"
-msgstr "SNMP verzió 1/2c"
-
-msgid "SNMP version 3"
-msgstr "SNMP verzió 3"
-
 msgid "SSH"
 msgstr "SSH"
 
@@ -2886,9 +2842,6 @@ msgstr "Biztonságos"
 
 msgid "Secure connection"
 msgstr "Biztonságos kapcsolat"
-
-msgid "Security level"
-msgstr "Biztonsági szint"
 
 msgid "Select a SSH certificate ..."
 msgstr "Válassz ki egy SSH tanúsítványt ..."
@@ -3713,9 +3666,6 @@ msgstr "Átviteli idő"
 
 msgid "Transfer type"
 msgstr "Átviteli típus"
-
-msgid "Traps"
-msgstr "Trap-ek"
 
 msgid "Treshold"
 msgstr "Határérték"

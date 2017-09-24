@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 12:54+0200\n"
-"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"POT-Creation-Date: 2017-09-24 21:10+0200\n"
+"PO-Revision-Date: 2017-09-24 19:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/votdev/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -45,7 +45,7 @@ msgid "1 day"
 msgstr "1 天"
 
 msgid "1 minute"
-msgstr ""
+msgstr "1 分鐘"
 
 msgid "1 month"
 msgstr "1 月"
@@ -76,7 +76,7 @@ msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - 最低用電量、非待機狀態(未停止轉動)"
 
 msgid "15 minutes"
-msgstr ""
+msgstr "15 分鐘"
 
 msgid "15 years"
 msgstr "15 年"
@@ -91,7 +91,7 @@ msgid "2 days"
 msgstr "2 天"
 
 msgid "2 minutes"
-msgstr ""
+msgstr "2 分鐘"
 
 msgid "2 weeks"
 msgstr "2 週"
@@ -121,7 +121,7 @@ msgid "3 days"
 msgstr "3 天"
 
 msgid "3 minutes"
-msgstr ""
+msgstr "3 分鐘"
 
 msgid "3 months"
 msgstr "3 月"
@@ -145,7 +145,7 @@ msgid "4 days"
 msgstr "4 天"
 
 msgid "4 minutes"
-msgstr ""
+msgstr "4 分鐘"
 
 msgid "4 years"
 msgstr "4 年"
@@ -427,32 +427,20 @@ msgstr "驗證過的用戶 ID"
 msgid "Authentication"
 msgstr "驗證"
 
-msgid "Authentication and no privacy"
-msgstr "驗證及無隱私"
-
-msgid "Authentication and privacy"
-msgstr "驗證及隱私"
-
 msgid "Authentication method"
 msgstr "驗證方式"
 
-msgid "Authentication passphrase"
-msgstr "驗證密語"
-
 msgid "Authentication required"
 msgstr "必須驗證"
-
-msgid "Authentication type"
-msgstr "驗證型式"
 
 msgid "Auto"
 msgstr "自動"
 
 msgid "Auto logout"
-msgstr ""
+msgstr "自動登出"
 
 msgid "Auto logout after the specified idle period."
-msgstr ""
+msgstr "過了所指定的閒置時段後自動登出。"
 
 msgid "Automatic Acoustic Management"
 msgstr "自動聲響管理"
@@ -658,9 +646,6 @@ msgstr "註釋"
 msgid "Common Name"
 msgstr "通用名稱"
 
-msgid "Community"
-msgstr "社群"
-
 msgid "Community-maintained updates."
 msgstr "社群維護的更新。"
 
@@ -705,14 +690,6 @@ msgstr "剛果(金沙薩)"
 
 msgid "Connections"
 msgstr "連線"
-
-msgid "Contact"
-msgstr "聯絡"
-
-msgid ""
-"Contact information, e.g. name or email address of the person responsible "
-"for this system."
-msgstr "聯絡資料，例如此系統負責人的姓名或電子郵件地址。"
 
 msgid "Conveyance self-test"
 msgstr "運送自我測試"
@@ -1844,9 +1821,6 @@ msgstr "本地主控瀏覽器"
 msgid "Location"
 msgstr "位置"
 
-msgid "Location information, e.g. physical location of this system."
-msgstr "位置資訊，例如：本系統的實體位置。"
-
 msgid "Log level"
 msgstr "日誌層級"
 
@@ -2156,9 +2130,6 @@ msgstr "禁止存取"
 
 msgid "No action"
 msgstr "無動作"
-
-msgid "No authentication and no privacy"
-msgstr "無驗證及無隱私"
 
 msgid "No certificate request"
 msgstr "不提出證書請求"
@@ -2517,12 +2488,6 @@ msgstr "主要"
 msgid "Primary email"
 msgstr "主要電子郵件"
 
-msgid "Privacy passphrase"
-msgstr "隱私密語"
-
-msgid "Privacy type"
-msgstr "隱私型式"
-
 msgid "Private key"
 msgstr "私有密鑰"
 
@@ -2790,15 +2755,6 @@ msgstr "SMTP 伺服器"
 msgid "SMTP settings"
 msgstr "SMTP 設定"
 
-msgid "SNMP"
-msgstr "SNMP"
-
-msgid "SNMP version 1/2c"
-msgstr "SNMP 第 1/2c 版"
-
-msgid "SNMP version 3"
-msgstr "SNMP 第 3 版"
-
 msgid "SSH"
 msgstr "SSH"
 
@@ -2885,9 +2841,6 @@ msgstr "安全"
 
 msgid "Secure connection"
 msgstr "安全連線"
-
-msgid "Security level"
-msgstr "安全性層級"
 
 msgid "Select a SSH certificate ..."
 msgstr "選擇一份 SSL 證書 ..."
@@ -3712,9 +3665,6 @@ msgstr "傳輸時間"
 
 msgid "Transfer type"
 msgstr "傳輸型式"
-
-msgid "Traps"
-msgstr "捕捉"
 
 msgid "Treshold"
 msgstr "定限值"

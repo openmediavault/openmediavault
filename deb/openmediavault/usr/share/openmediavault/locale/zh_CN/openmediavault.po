@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 12:54+0200\n"
-"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"POT-Creation-Date: 2017-09-24 21:10+0200\n"
+"PO-Revision-Date: 2017-09-24 19:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -45,7 +45,7 @@ msgid "1 day"
 msgstr "1 天"
 
 msgid "1 minute"
-msgstr ""
+msgstr "1 分钟"
 
 msgid "1 month"
 msgstr "1 月"
@@ -76,7 +76,7 @@ msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - 非待机状态时最低功耗(磁头运转中)"
 
 msgid "15 minutes"
-msgstr ""
+msgstr "15 分钟"
 
 msgid "15 years"
 msgstr "15 年"
@@ -91,7 +91,7 @@ msgid "2 days"
 msgstr "2 天"
 
 msgid "2 minutes"
-msgstr ""
+msgstr "2 分钟"
 
 msgid "2 weeks"
 msgstr "2 周"
@@ -121,7 +121,7 @@ msgid "3 days"
 msgstr "3 天"
 
 msgid "3 minutes"
-msgstr ""
+msgstr "3 分钟"
 
 msgid "3 months"
 msgstr "3 月"
@@ -145,7 +145,7 @@ msgid "4 days"
 msgstr "4 天"
 
 msgid "4 minutes"
-msgstr ""
+msgstr "4 分钟"
 
 msgid "4 years"
 msgstr "4 年"
@@ -427,32 +427,20 @@ msgstr "验证过的用户 ID"
 msgid "Authentication"
 msgstr "验证"
 
-msgid "Authentication and no privacy"
-msgstr "验证与无隐私"
-
-msgid "Authentication and privacy"
-msgstr "验证与隐私"
-
 msgid "Authentication method"
 msgstr "验证方式"
 
-msgid "Authentication passphrase"
-msgstr "验证密码"
-
 msgid "Authentication required"
 msgstr "需要验证"
-
-msgid "Authentication type"
-msgstr "验证类型"
 
 msgid "Auto"
 msgstr "自动"
 
 msgid "Auto logout"
-msgstr ""
+msgstr "自动登出"
 
 msgid "Auto logout after the specified idle period."
-msgstr ""
+msgstr "指定空闲多久后自动登出."
 
 msgid "Automatic Acoustic Management"
 msgstr "自动声音管理"
@@ -658,9 +646,6 @@ msgstr "注释"
 msgid "Common Name"
 msgstr "通用名"
 
-msgid "Community"
-msgstr "社区"
-
 msgid "Community-maintained updates."
 msgstr "社区维护更新。"
 
@@ -705,14 +690,6 @@ msgstr "刚果(金沙萨)"
 
 msgid "Connections"
 msgstr "连接"
-
-msgid "Contact"
-msgstr "联系"
-
-msgid ""
-"Contact information, e.g. name or email address of the person responsible "
-"for this system."
-msgstr "联系信息，例如此系统的联系人姓名和电邮地址。"
 
 msgid "Conveyance self-test"
 msgstr "传输时自检"
@@ -1844,9 +1821,6 @@ msgstr "本地主机浏览"
 msgid "Location"
 msgstr "位置"
 
-msgid "Location information, e.g. physical location of this system."
-msgstr "位置信息，例如该系统的真实位置。"
-
 msgid "Log level"
 msgstr "日志级别"
 
@@ -2156,9 +2130,6 @@ msgstr "禁止读写"
 
 msgid "No action"
 msgstr "无动作"
-
-msgid "No authentication and no privacy"
-msgstr "无验证，无隐私"
 
 msgid "No certificate request"
 msgstr "无证书请求"
@@ -2517,12 +2488,6 @@ msgstr "主要"
 msgid "Primary email"
 msgstr "主要 Email"
 
-msgid "Privacy passphrase"
-msgstr "隐私密码"
-
-msgid "Privacy type"
-msgstr "隐私类型"
-
 msgid "Private key"
 msgstr "私钥"
 
@@ -2790,15 +2755,6 @@ msgstr "SMTP 服务器"
 msgid "SMTP settings"
 msgstr "SMTP 设置"
 
-msgid "SNMP"
-msgstr "SNMP"
-
-msgid "SNMP version 1/2c"
-msgstr "SNMP 版本 1/2c"
-
-msgid "SNMP version 3"
-msgstr "SNMP 版本 3"
-
 msgid "SSH"
 msgstr "SSH"
 
@@ -2885,9 +2841,6 @@ msgstr "安全"
 
 msgid "Secure connection"
 msgstr "安全连接"
-
-msgid "Security level"
-msgstr "安全级别"
 
 msgid "Select a SSH certificate ..."
 msgstr "选择 SSH 证书 ..."
@@ -3712,9 +3665,6 @@ msgstr "传输时间"
 
 msgid "Transfer type"
 msgstr "传输类型"
-
-msgid "Traps"
-msgstr "陷阱"
 
 msgid "Treshold"
 msgstr "临界值"

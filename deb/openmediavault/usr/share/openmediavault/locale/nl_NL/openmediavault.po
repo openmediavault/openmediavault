@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 12:54+0200\n"
-"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"POT-Creation-Date: 2017-09-24 21:10+0200\n"
+"PO-Revision-Date: 2017-09-24 19:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/votdev/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -429,23 +429,11 @@ msgstr "Authenticated user ID"
 msgid "Authentication"
 msgstr "Authenticatie"
 
-msgid "Authentication and no privacy"
-msgstr "Authenticatie en geen privacy"
-
-msgid "Authentication and privacy"
-msgstr "Authenticatie en privacy"
-
 msgid "Authentication method"
 msgstr "Authenticatiemethode"
 
-msgid "Authentication passphrase"
-msgstr "Authenticatie wachtwoord"
-
 msgid "Authentication required"
 msgstr "Authenticatie vereist"
-
-msgid "Authentication type"
-msgstr "Authenticatie type"
 
 msgid "Auto"
 msgstr "Auto"
@@ -660,9 +648,6 @@ msgstr "Opmerking"
 msgid "Common Name"
 msgstr "Algemene naam"
 
-msgid "Community"
-msgstr "Gemeenschap"
-
 msgid "Community-maintained updates."
 msgstr "Door de gemeenschap onderhouden updates"
 
@@ -707,14 +692,6 @@ msgstr "Congo (Kinshasa)"
 
 msgid "Connections"
 msgstr "Verbindingen"
-
-msgid "Contact"
-msgstr "Contact"
-
-msgid ""
-"Contact information, e.g. name or email address of the person responsible "
-"for this system."
-msgstr "Contactgegevens, bijv. naam of e-mailadres van de verantwoordelijke persoon voor dit systeem."
 
 msgid "Conveyance self-test"
 msgstr "Overdrachtszelftest"
@@ -1846,9 +1823,6 @@ msgstr "Lokale hoofdbrowser"
 msgid "Location"
 msgstr "Locatie"
 
-msgid "Location information, e.g. physical location of this system."
-msgstr "Locatieinformatie, bijv. fysieke locatie van dit systeem "
-
 msgid "Log level"
 msgstr "Logniveau"
 
@@ -2158,9 +2132,6 @@ msgstr "Geen toegang"
 
 msgid "No action"
 msgstr "Geen handeling"
-
-msgid "No authentication and no privacy"
-msgstr "Geen authenticatie en geen privacy"
 
 msgid "No certificate request"
 msgstr "Geen certificaat vereist"
@@ -2519,12 +2490,6 @@ msgstr "Primair"
 msgid "Primary email"
 msgstr "Primaire e-mail"
 
-msgid "Privacy passphrase"
-msgstr "Privacy wachtwoord"
-
-msgid "Privacy type"
-msgstr "Privacy type"
-
 msgid "Private key"
 msgstr "Privé-sleutel"
 
@@ -2792,15 +2757,6 @@ msgstr "SMTPserver"
 msgid "SMTP settings"
 msgstr "SMTP-instellingen"
 
-msgid "SNMP"
-msgstr "SNMP"
-
-msgid "SNMP version 1/2c"
-msgstr "SNMP-versie 1/2c"
-
-msgid "SNMP version 3"
-msgstr "SNMP-versie 3"
-
 msgid "SSH"
 msgstr "SSH"
 
@@ -2887,9 +2843,6 @@ msgstr "Veilig"
 
 msgid "Secure connection"
 msgstr "Veilige verbinding"
-
-msgid "Security level"
-msgstr "Veiligheidsniveau"
 
 msgid "Select a SSH certificate ..."
 msgstr "Een SSH-certificaat selecteren ..."
@@ -3714,9 +3667,6 @@ msgstr "Overdrachtstijd"
 
 msgid "Transfer type"
 msgstr "Overdrachtstype"
-
-msgid "Traps"
-msgstr "Valluiken"
 
 msgid "Treshold"
 msgstr "Grens"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 12:54+0200\n"
-"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"POT-Creation-Date: 2017-09-24 21:10+0200\n"
+"PO-Revision-Date: 2017-09-24 19:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/votdev/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -426,23 +426,11 @@ msgstr "Πιστοποιημένο αναγνωριστικό χρήστη"
 msgid "Authentication"
 msgstr "Πιστοποίηση"
 
-msgid "Authentication and no privacy"
-msgstr "Πιστοποίηση χωρίς ιδιωτικότητα"
-
-msgid "Authentication and privacy"
-msgstr "Πιστοποίηση με ιδιωτικότητα"
-
 msgid "Authentication method"
 msgstr "Μέθοδος πιστοποίησης"
 
-msgid "Authentication passphrase"
-msgstr "Κωδικός πιστοποίησης"
-
 msgid "Authentication required"
 msgstr "Απαιτείται πιστοποίηση"
-
-msgid "Authentication type"
-msgstr "Τύπος πιστοποίησης"
 
 msgid "Auto"
 msgstr "Αυτόματο"
@@ -657,9 +645,6 @@ msgstr "Σχόλιο"
 msgid "Common Name"
 msgstr "Κοινό όνομα"
 
-msgid "Community"
-msgstr "Κοινότητα"
-
 msgid "Community-maintained updates."
 msgstr "Ενημερώσεις συντηρούμενες από την κοινότητα."
 
@@ -704,14 +689,6 @@ msgstr "Congo (Kinshasa)"
 
 msgid "Connections"
 msgstr "Συνδέσεις"
-
-msgid "Contact"
-msgstr "Επικοινωνία"
-
-msgid ""
-"Contact information, e.g. name or email address of the person responsible "
-"for this system."
-msgstr "Στοιχεία επικοινωνίας, π.χ. όνομα ή διεύθυνση ηλεκτρονικού ταχυδρομείου για τον διαχειριστή αυτού του συστήματος."
 
 msgid "Conveyance self-test"
 msgstr "Έλεγχος μετάδοσης"
@@ -1843,9 +1820,6 @@ msgstr "Κεντρικός τοπικός περιηγητής"
 msgid "Location"
 msgstr "Τοποθεσία"
 
-msgid "Location information, e.g. physical location of this system."
-msgstr "Πληροφορίες τοποθεσίας συστήματος"
-
 msgid "Log level"
 msgstr "Επίπεδο καταγραφής"
 
@@ -2155,9 +2129,6 @@ msgstr "Καμία πρόσβαση"
 
 msgid "No action"
 msgstr "Αδράνεια"
-
-msgid "No authentication and no privacy"
-msgstr "Χωρίς πιστοποίηση και χωρίς ιδιοτικότητα"
 
 msgid "No certificate request"
 msgstr "Δεν απαιτείται πιστοποιητικό"
@@ -2516,12 +2487,6 @@ msgstr "Πρωτεύον"
 msgid "Primary email"
 msgstr "Κύρια διεύθυνση ηλεκτρονικού ταχυδρομείου"
 
-msgid "Privacy passphrase"
-msgstr "Φράση-κλειδί"
-
-msgid "Privacy type"
-msgstr "Τύπος ιδιοτικότητας"
-
 msgid "Private key"
 msgstr "Ιδιωτικό κλειδί"
 
@@ -2789,15 +2754,6 @@ msgstr "Διακομιστής SMTP"
 msgid "SMTP settings"
 msgstr "Ρυθμίσεις SMTP"
 
-msgid "SNMP"
-msgstr "SNMP"
-
-msgid "SNMP version 1/2c"
-msgstr "SNMP έκδοση 1/2c"
-
-msgid "SNMP version 3"
-msgstr "SNMP έκδοση 3"
-
 msgid "SSH"
 msgstr "SSH"
 
@@ -2884,9 +2840,6 @@ msgstr "Ασφαλής"
 
 msgid "Secure connection"
 msgstr "Ασφαλής σύνδεση"
-
-msgid "Security level"
-msgstr "Επίπεδο ασφάλειας"
 
 msgid "Select a SSH certificate ..."
 msgstr "Επιλογή πιστοποιητικού SSH ..."
@@ -3711,9 +3664,6 @@ msgstr "Χρόνος μεταφοράς"
 
 msgid "Transfer type"
 msgstr "Είδος μεταφοράς"
-
-msgid "Traps"
-msgstr "Διεγέρσεις"
 
 msgid "Treshold"
 msgstr "Κατώφλι"

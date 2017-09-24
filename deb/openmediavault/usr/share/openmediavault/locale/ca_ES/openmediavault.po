@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 12:54+0200\n"
-"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"POT-Creation-Date: 2017-09-24 21:10+0200\n"
+"PO-Revision-Date: 2017-09-24 19:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/votdev/openmediavault/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -427,23 +427,11 @@ msgstr "ID de l’usuari autenticat"
 msgid "Authentication"
 msgstr "Autentificació"
 
-msgid "Authentication and no privacy"
-msgstr "Autentificació sense privacitat"
-
-msgid "Authentication and privacy"
-msgstr "Autentificació i privacitat"
-
 msgid "Authentication method"
 msgstr "Mètode d’autenticació"
 
-msgid "Authentication passphrase"
-msgstr "Contrasenya per a Autentificació"
-
 msgid "Authentication required"
 msgstr "Cal autentificació"
-
-msgid "Authentication type"
-msgstr "Tipus d’autentificació"
 
 msgid "Auto"
 msgstr "Auto"
@@ -658,9 +646,6 @@ msgstr "Comentari"
 msgid "Common Name"
 msgstr "Nom propi"
 
-msgid "Community"
-msgstr "Comunitat"
-
 msgid "Community-maintained updates."
 msgstr "Actualitzacions de la comunitat"
 
@@ -705,14 +690,6 @@ msgstr "Congo (Kinshasa)"
 
 msgid "Connections"
 msgstr "Connexions"
-
-msgid "Contact"
-msgstr "Contacte"
-
-msgid ""
-"Contact information, e.g. name or email address of the person responsible "
-"for this system."
-msgstr "Informació de contacte, p.e.: Nom o e-mail del responsable d’aquest sistema."
 
 msgid "Conveyance self-test"
 msgstr "Auto prova de transferència"
@@ -1844,9 +1821,6 @@ msgstr "Local master browser"
 msgid "Location"
 msgstr "Ubicació"
 
-msgid "Location information, e.g. physical location of this system."
-msgstr "Informació de la ubicació, p.e: casa, despatx"
-
 msgid "Log level"
 msgstr "Nivell de Log"
 
@@ -2156,9 +2130,6 @@ msgstr "Sense accés"
 
 msgid "No action"
 msgstr "Sense acció"
-
-msgid "No authentication and no privacy"
-msgstr "Sense autenticació i sense privacitat"
 
 msgid "No certificate request"
 msgstr "No es demana certificat"
@@ -2517,12 +2488,6 @@ msgstr "Primari"
 msgid "Primary email"
 msgstr "E-mail principal"
 
-msgid "Privacy passphrase"
-msgstr "Contrasenya"
-
-msgid "Privacy type"
-msgstr "Tipus de privacitat"
-
 msgid "Private key"
 msgstr "Clau privada"
 
@@ -2790,15 +2755,6 @@ msgstr "Servidor SMTP"
 msgid "SMTP settings"
 msgstr "Opcions SMTP"
 
-msgid "SNMP"
-msgstr "SNMP"
-
-msgid "SNMP version 1/2c"
-msgstr "SNMP versió 1/2c"
-
-msgid "SNMP version 3"
-msgstr "SNMP versió 3"
-
 msgid "SSH"
 msgstr "SSH"
 
@@ -2885,9 +2841,6 @@ msgstr "Segur"
 
 msgid "Secure connection"
 msgstr "Connexió segura"
-
-msgid "Security level"
-msgstr "Nivell de seguretat"
 
 msgid "Select a SSH certificate ..."
 msgstr "Seleccionar certificat SSH ..."
@@ -3712,9 +3665,6 @@ msgstr "Temps de transferència"
 
 msgid "Transfer type"
 msgstr "Tipus de transferència"
-
-msgid "Traps"
-msgstr "Excepció"
 
 msgid "Treshold"
 msgstr "Llindar"

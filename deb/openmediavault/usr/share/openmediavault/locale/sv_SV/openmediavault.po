@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 12:54+0200\n"
-"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"POT-Creation-Date: 2017-09-24 21:10+0200\n"
+"PO-Revision-Date: 2017-09-24 19:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -427,23 +427,11 @@ msgstr "Autentiserat användar-ID"
 msgid "Authentication"
 msgstr "Autentisering"
 
-msgid "Authentication and no privacy"
-msgstr "Autentisering och ingen sekretess"
-
-msgid "Authentication and privacy"
-msgstr "Autentisering och sekretess"
-
 msgid "Authentication method"
 msgstr "Autentiseringsmetod"
 
-msgid "Authentication passphrase"
-msgstr "Lösenordsfras för autentisering"
-
 msgid "Authentication required"
 msgstr "Autentisering krävs"
-
-msgid "Authentication type"
-msgstr "Autentiseringstyp"
 
 msgid "Auto"
 msgstr "Automatisk"
@@ -658,9 +646,6 @@ msgstr "Kommentar"
 msgid "Common Name"
 msgstr "Vanligt namn"
 
-msgid "Community"
-msgstr "Gemenskap"
-
 msgid "Community-maintained updates."
 msgstr "Gemenskap-underhållna uppdateringar."
 
@@ -705,14 +690,6 @@ msgstr "Kongo (Kinshasa)"
 
 msgid "Connections"
 msgstr "Anslutningar"
-
-msgid "Contact"
-msgstr "Kontakt"
-
-msgid ""
-"Contact information, e.g. name or email address of the person responsible "
-"for this system."
-msgstr "Kontaktuppgifter, t.ex. namn eller e-postadress till den person som ansvarar för detta system."
 
 msgid "Conveyance self-test"
 msgstr "Överföringssjälvtest"
@@ -1844,9 +1821,6 @@ msgstr "Lokal \"master-browser\""
 msgid "Location"
 msgstr "Plats"
 
-msgid "Location information, e.g. physical location of this system."
-msgstr "Platsinformation, t.ex. fysisk plats för det här systemet."
-
 msgid "Log level"
 msgstr "Loggnivå"
 
@@ -2156,9 +2130,6 @@ msgstr "Ingen åtkomst"
 
 msgid "No action"
 msgstr "Ingen åtgärd"
-
-msgid "No authentication and no privacy"
-msgstr "Ingen autentisering och ingen integritet"
 
 msgid "No certificate request"
 msgstr "Ingen begäran om certifikat"
@@ -2517,12 +2488,6 @@ msgstr "Primär"
 msgid "Primary email"
 msgstr "Primär e-post"
 
-msgid "Privacy passphrase"
-msgstr "Lösenordsintegritet"
-
-msgid "Privacy type"
-msgstr "Integritetstyp"
-
 msgid "Private key"
 msgstr "Privat nyckel"
 
@@ -2790,15 +2755,6 @@ msgstr "SMTP-server"
 msgid "SMTP settings"
 msgstr "SMTP-inställningar"
 
-msgid "SNMP"
-msgstr "SNMP"
-
-msgid "SNMP version 1/2c"
-msgstr "SNMP version 1/2c"
-
-msgid "SNMP version 3"
-msgstr "SNMP version 3"
-
 msgid "SSH"
 msgstr "SSH"
 
@@ -2885,9 +2841,6 @@ msgstr "Säker"
 
 msgid "Secure connection"
 msgstr "Säker anslutning"
-
-msgid "Security level"
-msgstr "Säkerhetsnivå"
 
 msgid "Select a SSH certificate ..."
 msgstr "Välj ett SSH-certifikat ..."
@@ -3712,9 +3665,6 @@ msgstr "Överföringstid"
 
 msgid "Transfer type"
 msgstr "Överföringstyp"
-
-msgid "Traps"
-msgstr "Traps"
 
 msgid "Treshold"
 msgstr "Tröskelvärde"

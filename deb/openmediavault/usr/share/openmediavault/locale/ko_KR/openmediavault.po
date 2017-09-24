@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 12:54+0200\n"
-"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"POT-Creation-Date: 2017-09-24 21:10+0200\n"
+"PO-Revision-Date: 2017-09-24 19:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -428,23 +428,11 @@ msgstr "인증된 사용자 식별자"
 msgid "Authentication"
 msgstr "인증"
 
-msgid "Authentication and no privacy"
-msgstr "인증하며 개인 정보 정책은 없음"
-
-msgid "Authentication and privacy"
-msgstr "인증하며 개인 정보 보호함"
-
 msgid "Authentication method"
 msgstr "인증 방법"
 
-msgid "Authentication passphrase"
-msgstr "인증 패스프레이즈"
-
 msgid "Authentication required"
 msgstr "인증 요구"
-
-msgid "Authentication type"
-msgstr "인증 유형"
 
 msgid "Auto"
 msgstr "자동"
@@ -659,9 +647,6 @@ msgstr "설명"
 msgid "Common Name"
 msgstr "일반 이름"
 
-msgid "Community"
-msgstr "공동체"
-
 msgid "Community-maintained updates."
 msgstr "공동체-유지 업데이트"
 
@@ -706,14 +691,6 @@ msgstr "콩고 (킨샤사)"
 
 msgid "Connections"
 msgstr "연결"
-
-msgid "Contact"
-msgstr "연락"
-
-msgid ""
-"Contact information, e.g. name or email address of the person responsible "
-"for this system."
-msgstr "연락처 정보. 예를 들어, 이 시스템을 관리하는 사람의 이름 혹은 전자우편 주소."
 
 msgid "Conveyance self-test"
 msgstr "전송 자가 진단"
@@ -1845,9 +1822,6 @@ msgstr "로컬 마스터 브라우저"
 msgid "Location"
 msgstr "위치"
 
-msgid "Location information, e.g. physical location of this system."
-msgstr "위치 정보. 예를 들어, 이 시스템의 물리적인 위치."
-
 msgid "Log level"
 msgstr "기록 수준"
 
@@ -2157,9 +2131,6 @@ msgstr "접근 금지"
 
 msgid "No action"
 msgstr "조치 안함"
-
-msgid "No authentication and no privacy"
-msgstr "인증과 개인 정보 보호 모두 없음"
 
 msgid "No certificate request"
 msgstr "인증서 요청 없음"
@@ -2518,12 +2489,6 @@ msgstr ""
 msgid "Primary email"
 msgstr "주 전자우편"
 
-msgid "Privacy passphrase"
-msgstr "개인 정보 암호"
-
-msgid "Privacy type"
-msgstr ""
-
 msgid "Private key"
 msgstr "개인 키"
 
@@ -2791,15 +2756,6 @@ msgstr "SMTP 서버"
 msgid "SMTP settings"
 msgstr "SMTP 설정"
 
-msgid "SNMP"
-msgstr "SNMP"
-
-msgid "SNMP version 1/2c"
-msgstr "SNMP 버전 1/2c"
-
-msgid "SNMP version 3"
-msgstr "SNMP 버전 3"
-
 msgid "SSH"
 msgstr "SSH"
 
@@ -2886,9 +2842,6 @@ msgstr "보안"
 
 msgid "Secure connection"
 msgstr "보안 연결"
-
-msgid "Security level"
-msgstr "보안 수준"
 
 msgid "Select a SSH certificate ..."
 msgstr "SSL 인증을 선택하세요 ..."
@@ -3713,9 +3666,6 @@ msgstr "전송 시간"
 
 msgid "Transfer type"
 msgstr "전송 유형"
-
-msgid "Traps"
-msgstr "트랩"
 
 msgid "Treshold"
 msgstr "한계점"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 12:54+0200\n"
-"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"POT-Creation-Date: 2017-09-24 21:10+0200\n"
+"PO-Revision-Date: 2017-09-24 19:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/votdev/openmediavault/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -426,22 +426,10 @@ msgstr ""
 msgid "Authentication"
 msgstr ""
 
-msgid "Authentication and no privacy"
-msgstr ""
-
-msgid "Authentication and privacy"
-msgstr ""
-
 msgid "Authentication method"
 msgstr ""
 
-msgid "Authentication passphrase"
-msgstr ""
-
 msgid "Authentication required"
-msgstr ""
-
-msgid "Authentication type"
 msgstr ""
 
 msgid "Auto"
@@ -657,9 +645,6 @@ msgstr ""
 msgid "Common Name"
 msgstr ""
 
-msgid "Community"
-msgstr ""
-
 msgid "Community-maintained updates."
 msgstr ""
 
@@ -703,14 +688,6 @@ msgid "Congo (Kinshasa)"
 msgstr ""
 
 msgid "Connections"
-msgstr ""
-
-msgid "Contact"
-msgstr ""
-
-msgid ""
-"Contact information, e.g. name or email address of the person responsible "
-"for this system."
 msgstr ""
 
 msgid "Conveyance self-test"
@@ -1843,9 +1820,6 @@ msgstr ""
 msgid "Location"
 msgstr ""
 
-msgid "Location information, e.g. physical location of this system."
-msgstr ""
-
 msgid "Log level"
 msgstr ""
 
@@ -2154,9 +2128,6 @@ msgid "No access"
 msgstr ""
 
 msgid "No action"
-msgstr ""
-
-msgid "No authentication and no privacy"
 msgstr ""
 
 msgid "No certificate request"
@@ -2516,12 +2487,6 @@ msgstr ""
 msgid "Primary email"
 msgstr ""
 
-msgid "Privacy passphrase"
-msgstr ""
-
-msgid "Privacy type"
-msgstr ""
-
 msgid "Private key"
 msgstr ""
 
@@ -2789,15 +2754,6 @@ msgstr ""
 msgid "SMTP settings"
 msgstr ""
 
-msgid "SNMP"
-msgstr ""
-
-msgid "SNMP version 1/2c"
-msgstr ""
-
-msgid "SNMP version 3"
-msgstr ""
-
 msgid "SSH"
 msgstr ""
 
@@ -2883,9 +2839,6 @@ msgid "Secure"
 msgstr ""
 
 msgid "Secure connection"
-msgstr ""
-
-msgid "Security level"
 msgstr ""
 
 msgid "Select a SSH certificate ..."
@@ -3710,9 +3663,6 @@ msgid "Transfer time"
 msgstr ""
 
 msgid "Transfer type"
-msgstr ""
-
-msgid "Traps"
 msgstr ""
 
 msgid "Treshold"

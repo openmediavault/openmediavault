@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 12:54+0200\n"
-"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"POT-Creation-Date: 2017-09-24 21:10+0200\n"
+"PO-Revision-Date: 2017-09-24 19:11+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -45,7 +45,7 @@ msgid "1 day"
 msgstr "1 den"
 
 msgid "1 minute"
-msgstr ""
+msgstr "1 munuta"
 
 msgid "1 month"
 msgstr "1 měsíc"
@@ -76,7 +76,7 @@ msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 – nejnižší spotřeba energie bez přechodu do pohotovostního režimu (bez zastavení otáčení ploten)"
 
 msgid "15 minutes"
-msgstr ""
+msgstr "15 minut"
 
 msgid "15 years"
 msgstr "15 let"
@@ -91,7 +91,7 @@ msgid "2 days"
 msgstr "2 dny"
 
 msgid "2 minutes"
-msgstr ""
+msgstr "2 minuty"
 
 msgid "2 weeks"
 msgstr "2 týdny"
@@ -121,7 +121,7 @@ msgid "3 days"
 msgstr "3 dny"
 
 msgid "3 minutes"
-msgstr ""
+msgstr "3 minuty"
 
 msgid "3 months"
 msgstr "3 měsíce"
@@ -145,7 +145,7 @@ msgid "4 days"
 msgstr "4 dny"
 
 msgid "4 minutes"
-msgstr ""
+msgstr "4 minuty"
 
 msgid "4 years"
 msgstr "4 roky"
@@ -427,32 +427,20 @@ msgstr "Identifikátor přihlášeného uživatele"
 msgid "Authentication"
 msgstr "Ověřování"
 
-msgid "Authentication and no privacy"
-msgstr "Ověřování a žádné soukromí"
-
-msgid "Authentication and privacy"
-msgstr "Ověřování a soukromí"
-
 msgid "Authentication method"
 msgstr "Metoda ověřování"
 
-msgid "Authentication passphrase"
-msgstr "Přihlašovací heslo"
-
 msgid "Authentication required"
 msgstr "Vyžaduje přihlášení"
-
-msgid "Authentication type"
-msgstr "Typ ověřování"
 
 msgid "Auto"
 msgstr "Automatické"
 
 msgid "Auto logout"
-msgstr ""
+msgstr "Automatické odhlášení"
 
 msgid "Auto logout after the specified idle period."
-msgstr ""
+msgstr "Po uplynutí zadaného období nečinnosti automaticky odhlásit."
 
 msgid "Automatic Acoustic Management"
 msgstr "Automatická správa hlučnosti"
@@ -658,9 +646,6 @@ msgstr "Komentář"
 msgid "Common Name"
 msgstr "Adresa stroje"
 
-msgid "Community"
-msgstr "Komunita"
-
 msgid "Community-maintained updates."
 msgstr "Aktualizace spravované komunitou."
 
@@ -705,14 +690,6 @@ msgstr "Demokratická republika Kongo (Kinhasa)"
 
 msgid "Connections"
 msgstr "Spojení"
-
-msgid "Contact"
-msgstr "Kontakt"
-
-msgid ""
-"Contact information, e.g. name or email address of the person responsible "
-"for this system."
-msgstr "Kontaktní informace, např. jméno nebo e-mailová adresa osoby odpovědné za tento systém."
 
 msgid "Conveyance self-test"
 msgstr "Kontrola případného poškození při přepravě"
@@ -1844,9 +1821,6 @@ msgstr "Místní hlavní prohlížeč (WINS)"
 msgid "Location"
 msgstr "Umístění"
 
-msgid "Location information, e.g. physical location of this system."
-msgstr "Informace o umístění, např. kde se stroj fyzicky nachází."
-
 msgid "Log level"
 msgstr "Úroveň podrobnosti záznamu událostí"
 
@@ -2156,9 +2130,6 @@ msgstr "Žádný přístup"
 
 msgid "No action"
 msgstr "Žádná akce"
-
-msgid "No authentication and no privacy"
-msgstr "Žádné ověřování a soukromí"
 
 msgid "No certificate request"
 msgstr "Žádný požadavek na certifikát"
@@ -2517,12 +2488,6 @@ msgstr "Hlavní"
 msgid "Primary email"
 msgstr "Hlavní e-mail"
 
-msgid "Privacy passphrase"
-msgstr "Heslo k soukromí"
-
-msgid "Privacy type"
-msgstr "Typ soukromí"
-
 msgid "Private key"
 msgstr "Soukromá část klíče"
 
@@ -2790,15 +2755,6 @@ msgstr "SMTP server"
 msgid "SMTP settings"
 msgstr "Nastavení protokolu SMTP"
 
-msgid "SNMP"
-msgstr "SNMP"
-
-msgid "SNMP version 1/2c"
-msgstr "SNMP verze 1/2c"
-
-msgid "SNMP version 3"
-msgstr "SNMP verze 3"
-
 msgid "SSH"
 msgstr "SSH"
 
@@ -2885,9 +2841,6 @@ msgstr "Zabezpečené"
 
 msgid "Secure connection"
 msgstr "Zabezpečené spojení"
-
-msgid "Security level"
-msgstr "Úroveň zabezpečení"
 
 msgid "Select a SSH certificate ..."
 msgstr "Vyberte SSH certifikát…"
@@ -3712,9 +3665,6 @@ msgstr "Čas přenosu"
 
 msgid "Transfer type"
 msgstr "Typ přenosu"
-
-msgid "Traps"
-msgstr "Hlášení událostí (SNMP trap)"
 
 msgid "Treshold"
 msgstr "Práh"

@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 12:54+0200\n"
-"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"POT-Creation-Date: 2017-09-24 21:10+0200\n"
+"PO-Revision-Date: 2017-09-24 19:11+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/votdev/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -47,7 +47,7 @@ msgid "1 day"
 msgstr "1 día"
 
 msgid "1 minute"
-msgstr ""
+msgstr "1 minuto"
 
 msgid "1 month"
 msgstr "1 mes"
@@ -78,7 +78,7 @@ msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - Consumo mínimo sin reposo (no spindown)"
 
 msgid "15 minutes"
-msgstr ""
+msgstr "15 minutos"
 
 msgid "15 years"
 msgstr "15 años"
@@ -93,7 +93,7 @@ msgid "2 days"
 msgstr "2 días"
 
 msgid "2 minutes"
-msgstr ""
+msgstr "2 minutos"
 
 msgid "2 weeks"
 msgstr "2 semanas"
@@ -123,7 +123,7 @@ msgid "3 days"
 msgstr "3 días"
 
 msgid "3 minutes"
-msgstr ""
+msgstr "3 minutos"
 
 msgid "3 months"
 msgstr "3 meses"
@@ -147,7 +147,7 @@ msgid "4 days"
 msgstr "4 días"
 
 msgid "4 minutes"
-msgstr ""
+msgstr "4 minotos"
 
 msgid "4 years"
 msgstr "4 años"
@@ -429,32 +429,20 @@ msgstr "ID del usuario autenticado"
 msgid "Authentication"
 msgstr "Autentificación"
 
-msgid "Authentication and no privacy"
-msgstr "Autentificación sin privacidad"
-
-msgid "Authentication and privacy"
-msgstr "Autentificación y privacidad"
-
 msgid "Authentication method"
 msgstr "Metodo de autenticación"
 
-msgid "Authentication passphrase"
-msgstr "Contraseña para Autentificación"
-
 msgid "Authentication required"
 msgstr "Se requiere autentificación"
-
-msgid "Authentication type"
-msgstr "Tipo de autentificación"
 
 msgid "Auto"
 msgstr "Auto"
 
 msgid "Auto logout"
-msgstr ""
+msgstr "Salir automáticamente"
 
 msgid "Auto logout after the specified idle period."
-msgstr ""
+msgstr "Salir despues de un periodo de tiempo sin interacción."
 
 msgid "Automatic Acoustic Management"
 msgstr "AAM Ajuste del ruido producido"
@@ -660,9 +648,6 @@ msgstr "Comentario"
 msgid "Common Name"
 msgstr "Nombre propio"
 
-msgid "Community"
-msgstr "Comunidad"
-
 msgid "Community-maintained updates."
 msgstr "Actualizaciones de la comunidad"
 
@@ -707,14 +692,6 @@ msgstr "Congo (Kinshasa)"
 
 msgid "Connections"
 msgstr "Conexiones"
-
-msgid "Contact"
-msgstr "Contacto"
-
-msgid ""
-"Contact information, e.g. name or email address of the person responsible "
-"for this system."
-msgstr "Información de contacto, p.ej: nombre o e-mail del responsable de este sistema."
 
 msgid "Conveyance self-test"
 msgstr "Auto prueba de transferencia"
@@ -1846,9 +1823,6 @@ msgstr "Local master browser"
 msgid "Location"
 msgstr "Ubicación"
 
-msgid "Location information, e.g. physical location of this system."
-msgstr "Información de la ubicación, p.ej: casa, despacho"
-
 msgid "Log level"
 msgstr "Nivel de Log"
 
@@ -2158,9 +2132,6 @@ msgstr "Sin acceso"
 
 msgid "No action"
 msgstr "Sin acción"
-
-msgid "No authentication and no privacy"
-msgstr "Sin autenticación y sin privacidad"
 
 msgid "No certificate request"
 msgstr "No se pide certificado"
@@ -2519,12 +2490,6 @@ msgstr "Primario"
 msgid "Primary email"
 msgstr "E-mail principal"
 
-msgid "Privacy passphrase"
-msgstr "Contraseña"
-
-msgid "Privacy type"
-msgstr "Tipo de privacidad"
-
 msgid "Private key"
 msgstr "Clave privada"
 
@@ -2792,15 +2757,6 @@ msgstr "Servidor SMTP"
 msgid "SMTP settings"
 msgstr "Opciones SMTP"
 
-msgid "SNMP"
-msgstr "SNMP"
-
-msgid "SNMP version 1/2c"
-msgstr "SNMP versión 1/2c"
-
-msgid "SNMP version 3"
-msgstr "SNMP versión 3"
-
 msgid "SSH"
 msgstr "SSH"
 
@@ -2887,9 +2843,6 @@ msgstr "Seguro"
 
 msgid "Secure connection"
 msgstr "Conexión segura"
-
-msgid "Security level"
-msgstr "Nivel de seguridad"
 
 msgid "Select a SSH certificate ..."
 msgstr "Seleccionar certificado SSH ..."
@@ -3714,9 +3667,6 @@ msgstr "Tiempo de transferencia"
 
 msgid "Transfer type"
 msgstr "Tipo de transferencia"
-
-msgid "Traps"
-msgstr "Excepción"
 
 msgid "Treshold"
 msgstr "Umbral"

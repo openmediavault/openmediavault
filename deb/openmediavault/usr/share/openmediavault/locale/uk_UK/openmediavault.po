@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 12:54+0200\n"
-"PO-Revision-Date: 2017-09-24 10:54+0000\n"
+"POT-Creation-Date: 2017-09-24 21:10+0200\n"
+"PO-Revision-Date: 2017-09-24 19:11+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +46,7 @@ msgid "1 day"
 msgstr "1 день"
 
 msgid "1 minute"
-msgstr ""
+msgstr "1 хвилина"
 
 msgid "1 month"
 msgstr " 1 місяць"
@@ -77,7 +77,7 @@ msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - Мінімальне енергоспоживання без режиму очікування (no spindown)"
 
 msgid "15 minutes"
-msgstr ""
+msgstr "15 хвилин"
 
 msgid "15 years"
 msgstr "15 років"
@@ -92,7 +92,7 @@ msgid "2 days"
 msgstr "2 дні"
 
 msgid "2 minutes"
-msgstr ""
+msgstr "2 хвилини"
 
 msgid "2 weeks"
 msgstr "2 тижні"
@@ -122,7 +122,7 @@ msgid "3 days"
 msgstr "3 дні"
 
 msgid "3 minutes"
-msgstr ""
+msgstr "3 хвилини"
 
 msgid "3 months"
 msgstr "3 місяці"
@@ -146,7 +146,7 @@ msgid "4 days"
 msgstr "4 дні"
 
 msgid "4 minutes"
-msgstr ""
+msgstr "4 хвилини"
 
 msgid "4 years"
 msgstr "4 роки"
@@ -428,32 +428,20 @@ msgstr "Завірений ідентифікатор користувача"
 msgid "Authentication"
 msgstr "Аутентифікація"
 
-msgid "Authentication and no privacy"
-msgstr "Аутентифікація без конфіденційності"
-
-msgid "Authentication and privacy"
-msgstr "Аутентифікація і конфіденційність"
-
 msgid "Authentication method"
 msgstr "Метод перевірки автентичності"
 
-msgid "Authentication passphrase"
-msgstr "Перевірка достовірності пароля"
-
 msgid "Authentication required"
 msgstr "Потрібна аутентифікація"
-
-msgid "Authentication type"
-msgstr "Тип аутентифікації"
 
 msgid "Auto"
 msgstr "Авто"
 
 msgid "Auto logout"
-msgstr ""
+msgstr "Автоматичний вихід із системи"
 
 msgid "Auto logout after the specified idle period."
-msgstr ""
+msgstr "Авто вихід після вказаного періоду бездіяльності."
 
 msgid "Automatic Acoustic Management"
 msgstr "Автоматичний акустичний контроль"
@@ -659,9 +647,6 @@ msgstr "Коментар"
 msgid "Common Name"
 msgstr "Загальне ім'я"
 
-msgid "Community"
-msgstr "Спільнота"
-
 msgid "Community-maintained updates."
 msgstr "Оновлення надані спільнотою."
 
@@ -706,14 +691,6 @@ msgstr "Конго (Кіншаса)"
 
 msgid "Connections"
 msgstr "З'єднання"
-
-msgid "Contact"
-msgstr "Контакт"
-
-msgid ""
-"Contact information, e.g. name or email address of the person responsible "
-"for this system."
-msgstr "Контактна інформація, наприклад, ім'я або адресу електронної пошти особи, відповідальної за цю систему."
 
 msgid "Conveyance self-test"
 msgstr "Тест для виявлення дефектів, що виникли при транспортуванні"
@@ -1845,9 +1822,6 @@ msgstr "Головний локальний переглядач"
 msgid "Location"
 msgstr "Розташування"
 
-msgid "Location information, e.g. physical location of this system."
-msgstr "Розміщення інформації, наприклад фізичне місце розташування цієї системи."
-
 msgid "Log level"
 msgstr "Рівень входу"
 
@@ -2157,9 +2131,6 @@ msgstr "Немає доступу"
 
 msgid "No action"
 msgstr "Жодних дій"
-
-msgid "No authentication and no privacy"
-msgstr "Без аутентифікації і конфіденційності"
 
 msgid "No certificate request"
 msgstr "Немає запиту сертифіката"
@@ -2518,12 +2489,6 @@ msgstr "Первинний"
 msgid "Primary email"
 msgstr "Первинний email"
 
-msgid "Privacy passphrase"
-msgstr "Захист пароля"
-
-msgid "Privacy type"
-msgstr "Тип конфіденційності"
-
 msgid "Private key"
 msgstr "Приватний ключ"
 
@@ -2791,15 +2756,6 @@ msgstr "SMTP сервер"
 msgid "SMTP settings"
 msgstr "Налаштування SMTP"
 
-msgid "SNMP"
-msgstr "SNMP"
-
-msgid "SNMP version 1/2c"
-msgstr "SNMP version 1/2c"
-
-msgid "SNMP version 3"
-msgstr "SNMP version 3"
-
 msgid "SSH"
 msgstr "SSH"
 
@@ -2886,9 +2842,6 @@ msgstr "Безпечно"
 
 msgid "Secure connection"
 msgstr "Безпечне з'єднання"
-
-msgid "Security level"
-msgstr "Рівень безпеки"
 
 msgid "Select a SSH certificate ..."
 msgstr "Оберіть сертифікат SSH ..."
@@ -3713,9 +3666,6 @@ msgstr "Час передачі"
 
 msgid "Transfer type"
 msgstr "Тип передачі"
-
-msgid "Traps"
-msgstr "Пастки"
 
 msgid "Treshold"
 msgstr "Поріг"
