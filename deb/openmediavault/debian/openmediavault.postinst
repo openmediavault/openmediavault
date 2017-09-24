@@ -499,6 +499,10 @@ case "$1" in
 			omv_set_default "OMV_SHAREDFOLDERS_DIR" "/sharedfolders"
 			omv-mkconf systemd
 		fi
+		if dpkg --compare-versions "$2" lt-nl "4.0.6"; then
+			deb-systemd-helper disable snmpd.service
+			deb-systemd-invoke stop snmpd.service || :
+		fi
 
 		########################################################################
 		# Show help text.
