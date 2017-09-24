@@ -160,11 +160,6 @@ Files: /var/www/openmediavault/images/arrow-down.png
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
 
-Files: /var/www/openmediavault/images/snmp.png
-       /var/www/openmediavault/images/snmp.svg
-Copyright: David Ferreira (http://cargocollective.com/davidferreira)
-License: CC-BY-SA-3.0
-
 Files: /var/www/openmediavault/images/error.png
        /var/www/openmediavault/images/error.png
 Copyright: Volker Theile

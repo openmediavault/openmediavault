@@ -1,0 +1,98 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-snmp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-snmp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-24 20:46+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Volker <votdev@gmx.de>, 2017\n"
+"Language-Team: German (https://www.transifex.com/votdev/teams/14254/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Authentication and no privacy"
+msgstr "Authentifizierung und keine Verschlüsselung"
+
+msgid "Authentication and privacy"
+msgstr "Authentifizierung und Verschlüsselung"
+
+msgid "Authentication passphrase"
+msgstr "Passphrase für Authentifizierung"
+
+msgid "Authentication type"
+msgstr "Authentifizierungstyp"
+
+msgid "Community"
+msgstr "Community"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid ""
+"Contact information, e.g. name or email address of the person responsible "
+"for this system."
+msgstr ""
+"Kontaktdaten, z.B. Name oder E-Mail Adresse der für dieses System "
+"verantwortlichen Person."
+
+msgid "Enable"
+msgstr "Aktivieren"
+
+msgid "Extra options"
+msgstr "Erweiterte Optionen"
+
+msgid "General settings"
+msgstr "Allgemeine Einstellungen"
+
+msgid "Host"
+msgstr "Host"
+
+msgid "Location"
+msgstr "Speicherort"
+
+msgid "Location information, e.g. physical location of this system."
+msgstr "Standortinformation, z.B. physikalischer Standort dieses Systems"
+
+msgid "No authentication and no privacy"
+msgstr "Keine Authentifizierung und keine Verschlüsselung"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Privacy passphrase"
+msgstr "Passphrase für Verschlüsselung"
+
+msgid "Privacy type"
+msgstr "Verschlüsselung"
+
+msgid "SNMP"
+msgstr "SNMP"
+
+msgid "SNMP version 1/2c"
+msgstr "SNMP version 1/2c"
+
+msgid "SNMP version 3"
+msgstr "SNMP version 3"
+
+msgid "Security level"
+msgstr "Sicherheitslevel"
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Traps"
+msgstr "Traps"
+
+msgid "Username"
+msgstr "Benutzername"
+
+msgid "Version"
+msgstr "Version"

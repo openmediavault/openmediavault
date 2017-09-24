@@ -1,6 +1,7 @@
 openmediavault (4.0.6-1) stable; urgency=low
 
   * Various improvements.
+  * Outsource SNMP into a separate plugin.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 24 Sep 2017 02:08:28 +0200
 

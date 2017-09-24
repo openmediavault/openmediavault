@@ -1,0 +1,17 @@
+Source: openmediavault-snmp
+Section: net
+XB-Plugin-Section: network
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>> 7), gettext
+Standards-Version: 3.9.6
+Homepage: http://www.openmediavault.org
+
+Package: openmediavault-snmp
+Architecture: all
+Depends: openmediavault (>= 4.0), snmpd
+Priority: optional
+Description: OpenMediaVault SNMP (Simple Network Management Protocol) plugin
+ The Simple Network Management Protocol (SNMP) provides a framework
+ for the exchange of management information between agents (servers)
+ and clients.

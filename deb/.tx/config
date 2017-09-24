@@ -67,3 +67,8 @@ source_lang = en
 file_filter = openmediavault-tftp/usr/share/openmediavault/locale/<lang>/openmediavault-tftp.po
 source_file = openmediavault-tftp/usr/share/openmediavault/locale/openmediavault-tftp.pot
 source_lang = en
+
+[openmediavault.openmediavault-snmp]
+file_filter = openmediavault-snmp/usr/share/openmediavault/locale/<lang>/openmediavault-snmp.po
+source_file = openmediavault-snmp/usr/share/openmediavault/locale/openmediavault-snmp.pot
+source_lang = en

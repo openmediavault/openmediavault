@@ -836,26 +836,6 @@ iSrj/B/KRCZkkrDdYcDAvqRs6dA+ScRZ
 				-->
       </jobs>
     </rsync>
-    <snmp>
-      <enable>0</enable>
-      <community>public</community>
-      <syslocation>Kolhar</syslocation>
-      <syscontact>xyz@xyz.abc</syscontact>
-      <version>2c</version>
-      <username></username>
-      <securitylevel>noauth</securitylevel>
-      <authtype>MD5</authtype>
-      <authpassphrase></authpassphrase>
-      <privtype>DES</privtype>
-      <privpassphrase></privpassphrase>
-      <extraoptions></extraoptions>
-      <trap>
-        <enable>0</enable>
-        <community>public</community>
-        <host>localhost</host>
-        <port>162</port>
-      </trap>
-    </snmp>
     <zeroconf>
       <services>
         <!--

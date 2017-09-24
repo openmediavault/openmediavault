@@ -100,9 +100,6 @@ Ext.define("OMV.module.public.info.about.About", {
 			name: "rsync",
 			url: "http://rsync.samba.org"
 		},{
-			name: "snmpd",
-			url: "http://net-snmp.sourceforge.net"
-		},{
 			name: "Avahi",
 			url: "http://avahi.org"
 		},{

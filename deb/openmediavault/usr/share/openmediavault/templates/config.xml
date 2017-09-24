@@ -601,32 +601,6 @@
 				-->
 			</jobs>
 		</rsync>
-		<snmp>
-			<!--
-			<version>2c|3</version>
-			<securitylevel>noauth|auth|priv</securitylevel>
-			<authtype>MD5|SHA</authtype>
-			<privtype>DES|AES</privtype>
-			-->
-			<enable>0</enable>
-			<community>public</community>
-			<syslocation></syslocation>
-			<syscontact></syscontact>
-			<version>2c</version>
-			<username></username>
-			<securitylevel>noauth</securitylevel>
-			<authtype>MD5</authtype>
-			<authpassphrase></authpassphrase>
-			<privtype>DES</privtype>
-			<privpassphrase></privpassphrase>
-			<extraoptions></extraoptions>
-			<trap>
-				<enable>0</enable>
-				<community>public</community>
-				<host>localhost</host>
-				<port>162</port>
-			</trap>
-		</snmp>
 		<zeroconf>
 			<services>
 				<!--
