@@ -58,6 +58,12 @@ if ! omv_is_ipv6_enabled; then
 	ipv6enabled=0
 fi
 
+# Disable adding or modifying the “Expires” and “Cache-Control” response
+# header fields if debugging is enabled.
+if omv_checkyesno "${OMV_DEBUG_EXTJS}"; then
+	OMV_NGINX_SITE_WEBGUI_CONTENT_EXPIRES="off"
+fi
+
 # Create '/etc/nginx/sites-available/openmediavault-webgui' file
 xmlstarlet sel -t -m "//webadmin" \
   -o "server {" -n \
