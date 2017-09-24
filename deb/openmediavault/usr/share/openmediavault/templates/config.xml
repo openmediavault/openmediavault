@@ -354,7 +354,8 @@
 		<sslport>443</sslport>
 		<forcesslonly>0</forcesslonly>
 		<sslcertificateref></sslcertificateref>
-		<timeout>5</timeout>
+		<timeoutenable>1</timeoutenable>
+		<timeoutseconds>300</timeoutseconds>
 	</webadmin>
 	<!-- Plugin configuration area -->
 	<services>

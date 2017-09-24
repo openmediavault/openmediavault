@@ -38,7 +38,7 @@ try {
 	// Make sure the data models are loaded.
 	$modelMngr = \OMV\DataModel\Manager::getInstance();
 	$modelMngr->load();
-	// Get session timeout from the configuration.
+	// Get the configured timezone.
 	$db = &\OMV\Config\Database::getInstance();
 	$object = $db->get("conf.system.time");
 	// According to http://php.net/manual/en/timezones.others.php

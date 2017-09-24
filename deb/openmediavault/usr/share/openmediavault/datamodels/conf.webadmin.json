@@ -36,11 +36,15 @@
 				"maxLength": 0
 			}]
 		},
-		"timeout": {
+		"timeoutenable": {
+			"type": "boolean",
+			"default": true
+		},
+		"timeoutseconds": {
 			"type": "integer",
-			"minimum": 0,
-			"maximum": 30,
-			"default": 5
+			"minimum": 30,
+			"maximum": 3600,
+			"default": 300
 		}
 	}
 }

@@ -124,9 +124,13 @@ class Module(openmediavault.firstaid.IModule):
 		# Update the configuration.
 		print("Updating web control panel settings. Please wait ...")
 		openmediavault.rpc.call("WebGui", "setSettings", {
-			"port": port, "enablessl": enablessl, "sslport": sslport,
+			"port": port,
+			"enablessl": enablessl,
+			"sslport": sslport,
 			"forcesslonly": forcesslonly,
-			"sslcertificateref": sslcertificateref, "timeout": 5 })
+			"sslcertificateref": sslcertificateref,
+			"timeoutenable": true,
+			"timeoutseconds": 300 })
 		# Apply the configuration changes.
 		openmediavault.rpc.call("Config", "applyChanges", {
 			"modules": [], "force": False })
