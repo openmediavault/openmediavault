@@ -9,7 +9,7 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault-snmp
 Architecture: all
-Depends: openmediavault (>= 4.0), snmpd
+Depends: openmediavault (>= 4.0.6), snmpd
 Priority: optional
 Description: OpenMediaVault SNMP (Simple Network Management Protocol) plugin
  The Simple Network Management Protocol (SNMP) provides a framework
