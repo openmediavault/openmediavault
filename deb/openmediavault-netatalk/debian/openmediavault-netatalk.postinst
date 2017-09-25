@@ -36,6 +36,9 @@ case "$1" in
 			deb-systemd-helper disable netatalk || :
 		fi
 
+		# Prevent logrotate throwing errors if user does not access AFP shares.
+		touch /var/log/netatalk.log
+
 		########################################################################
 		# Activate package triggers. These triggers are only set during the
 		# package installation.
@@ -59,11 +62,6 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "0.2.3.1"; then
 			rm -f /etc/monit/conf.d/netatalk
 		fi
-
-		########################################################################
-		# Prevent logrotate throwing errors if user does not access AFP shares
-		########################################################################
-		touch /var/log/netatalk.log
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
