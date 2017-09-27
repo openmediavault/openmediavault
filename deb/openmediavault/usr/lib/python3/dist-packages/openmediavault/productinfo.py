@@ -35,6 +35,9 @@ class ProductInfo(object):
 			"/usr/share/openmediavault/productinfo.xml")
 		tree = xml.etree.ElementTree.parse(prod_file)
 		for child in tree.iter():
+			# Skip all elements with children.
+			if list(child):
+				continue
 			self._dict[child.tag] = child.text
 
 	def as_dict(self):
