@@ -38,23 +38,11 @@ class OMVModuleAcpid extends \OMV\Engine\Module\ServiceAbstract
 	}
 
 	/**
-	 * Stop the managed service.
-	 */
-	public function stopService() {
-		$systemCtl = new \OMV\System\SystemCtl("acpid");
-		$systemCtl->stop();
-	}
-
-	/**
 	 * Start the managed service.
 	 */
 	public function startService() {
-		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.system.powermngmnt");
-		if (TRUE !== $object->get("powerbtn"))
-			return;
 		$systemCtl = new \OMV\System\SystemCtl("acpid");
-		$systemCtl->start();
+		$systemCtl->restart();
 	}
 
 	/**
