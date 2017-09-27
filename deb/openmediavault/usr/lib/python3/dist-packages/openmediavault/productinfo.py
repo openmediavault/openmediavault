@@ -35,7 +35,17 @@ class ProductInfo(object):
 			"/usr/share/openmediavault/productinfo.xml")
 		tree = xml.etree.ElementTree.parse(prod_file)
 		for child in tree.iter():
+			# Skip all elements with children.
+			if list(child):
+				continue
 			self._dict[child.tag] = child.text
+
+	def as_dict(self):
+		"""
+		Get the product information as Python dictionary.
+		:returns: Returns the product information as Python dictionary.
+		"""
+		return self._dict;
 
 	@property
 	def name(self):
