@@ -42,7 +42,7 @@ class OMVModuleZeroconf extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	public function stopService() {
 		// Only stop the service because it is always running.
-		// Note, it is necessary to stop the service instead of simply relead
+		// Note, it is necessary to stop the service instead of simply reload
 		// the configuration, otherwise the configuration is auto-reloaded
 		// in the meanwhile.
 		$systemCtl = new \OMV\System\SystemCtl("avahi-daemon");
