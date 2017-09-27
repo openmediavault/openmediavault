@@ -38,6 +38,14 @@ class ProductInfo(object):
 			self._dict[child.tag] = child.text
 
 	@property
+	def as_dict(self):
+		"""
+		Get the product information as Python dictionary.
+		:returns: Returns the product information as Python dictionary.
+		"""
+		return self._dict;
+
+	@property
 	def name(self):
 		"""
 		Get the product name.
