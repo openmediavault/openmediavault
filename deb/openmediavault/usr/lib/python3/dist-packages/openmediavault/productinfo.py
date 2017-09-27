@@ -37,7 +37,6 @@ class ProductInfo(object):
 		for child in tree.iter():
 			self._dict[child.tag] = child.text
 
-	@property
 	def as_dict(self):
 		"""
 		Get the product information as Python dictionary.

@@ -26,5 +26,9 @@ class ProductInfoTestCase(unittest.TestCase):
 		pi = openmediavault.productinfo.ProductInfo()
 		pi.name
 
+	def test_as_dict(self):
+		pi = openmediavault.productinfo.ProductInfo()
+		self.assertIsInstance(pi.as_dict(), dict)
+
 if __name__ == "__main__":
 	unittest.main()
