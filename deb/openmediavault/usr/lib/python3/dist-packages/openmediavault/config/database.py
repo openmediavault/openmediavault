@@ -511,6 +511,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 		| greater          | property name | value        |
 		| lessEqual        | property name | value        |
 		| greaterEqual     | property name | value        |
+		| distinct         | property name |              |
 		'-------------------------------------------------'
 		Example 1:
 		[type='bond' and devicename='bond0']
@@ -622,6 +623,8 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 			result = "%s<=%s" % (filter['arg0'], filter['arg1'])
 		elif filter['operator'] in [ '>=', 'greaterEqual' ]:
 			result = "%s>=%s" % (filter['arg0'], filter['arg1'])
+		elif "distinct" == filter['operator']:
+			result = "not({0}=preceding-sibling::*/{0})".format(filter['arg0'])
 		else:
 			raise ValueError("The operator '%s' is not defined." %
 				filter['operator'])

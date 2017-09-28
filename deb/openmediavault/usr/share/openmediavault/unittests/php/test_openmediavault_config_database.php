@@ -103,6 +103,16 @@ class test_openmediavault_config_database extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals(count($objects), 5);
 	}
 
+	public function testGetByFilter3() {
+		$db = new \OMV\Config\Database();
+		$objects = $db->getByFilter("conf.service.smartmontools.device", [
+			'operator' => 'distinct',
+			'arg0' => 'enable'
+		]);
+		$this->assertInternalType("array", $objects);
+		$this->assertEquals(count($objects), 2);
+	}
+
 	public function testExists() {
 		$db = new \OMV\Config\Database();
 		$this->assertTrue($db->exists(

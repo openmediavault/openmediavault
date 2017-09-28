@@ -98,6 +98,16 @@ class DatabaseTestCase(unittest.TestCase):
 		self.assertIsInstance(objs, list)
 		self.assertEqual(len(objs), 5)
 
+	def test_get_by_filter_3(self):
+		db = openmediavault.config.Database()
+		objs = db.get_by_filter("conf.service.smartmontools.device",
+			openmediavault.config.DatabaseFilter({
+				'operator': 'distinct',
+				'arg0': 'enable'
+			}))
+		self.assertIsInstance(objs, list)
+		self.assertEqual(len(objs), 2)
+
 	def test_exists(self):
 		db = openmediavault.config.Database()
 		self.assertTrue(db.exists("conf.system.notification.notification",

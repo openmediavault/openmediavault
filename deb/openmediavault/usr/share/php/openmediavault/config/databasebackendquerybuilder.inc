@@ -80,6 +80,7 @@ class DatabaseBackendQueryBuilder {
 	 * | greater          | property name | value        |
 	 * | lessEqual        | property name | value        |
 	 * | greaterEqual     | property name | value        |
+	 * | distinct         | property name |              |
 	 * '-------------------------------------------------'
 	 * Example 1:
 	 * [type='bond' and devicename='bond0']
@@ -234,6 +235,10 @@ class DatabaseBackendQueryBuilder {
 		case ">=":
 		case "greaterEqual":
 			$result = sprintf("%s>=%s", $filter['arg0'], $filter['arg1']);
+			break;
+		case "distinct":
+			$result = sprintf("not(%s=preceding-sibling::*/%s)",
+				$filter['arg0'], $filter['arg0']);
 			break;
 		default:
 			throw new \InvalidArgumentException(sprintf(

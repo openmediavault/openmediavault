@@ -712,13 +712,13 @@ iSrj/B/KRCZkkrDdYcDAvqRs6dA+ScRZ
         <device>
           <uuid>6f1edc19-eb97-402b-a711-415edbda4434</uuid>
           <devicefile>/dev/disk/by-id/ata-VMware_Virtual_SATA_Hard_Drive_02000000000000000001</devicefile>
-          <enable></enable>
+          <enable>0</enable>
           <devicetype></devicetype>
         </device>
         <device>
           <uuid>020440c4-fe94-4776-91e3-57153e5904fa</uuid>
           <devicefile>/dev/sde</devicefile>
-          <enable></enable>
+          <enable>0</enable>
           <devicetype></devicetype>
         </device>
       </monitor>
