@@ -4,6 +4,7 @@ openmediavault (4.0.6-1) stable; urgency=low
   * Outsource SNMP into a separate plugin. Please note that the existing
     configuration will be deleted.
   * Mantis 0001823: Monit collectd and PID file.
+  * Mantis 0001826: Fix hdparm issue.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 24 Sep 2017 02:08:28 +0200
 

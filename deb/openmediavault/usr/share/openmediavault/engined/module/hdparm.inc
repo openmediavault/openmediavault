@@ -38,14 +38,6 @@ class OMVModuleHdParm extends \OMV\Engine\Module\ServiceAbstract
 	}
 
 	/**
-	 * Start the managed service.
-	 */
-	public function startService() {
-		$systemCtl = new \OMV\System\SystemCtl("hdparm");
-		$systemCtl->reload();
-	}
-
-	/**
 	 * Bind listeners.
 	 */
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
