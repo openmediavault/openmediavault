@@ -81,7 +81,7 @@ class OMVModuleCollectd extends \OMV\Engine\Module\ServiceAbstract
 		$monit->monitor();
 		// Generate RRD graph images based on the latest configuration as a
 		// background job (rendering may take some time).
-		$cmd = new \OMV\System\Process("omv-mkgraph");
+		$cmd = new \OMV\System\Process("omv-mkrrdgraph");
 		$cmd->setRedirect2to1();
 		$cmd->setBackground(TRUE);
 		$cmd->execute();

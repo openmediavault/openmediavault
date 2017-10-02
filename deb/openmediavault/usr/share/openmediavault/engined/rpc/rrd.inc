@@ -49,7 +49,7 @@ class OMVRpcServiceRrd extends \OMV\Rpc\ServiceAbstract {
 		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
 		  use ($params) {
-			$cmd = new \OMV\System\Process("omv-mkgraph");
+			$cmd = new \OMV\System\Process("omv-mkrrdgraph");
 			$cmd->setRedirect2to1();
 			$cmd->execute($output);
 			return $output;

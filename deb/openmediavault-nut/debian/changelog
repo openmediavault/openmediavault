@@ -1,3 +1,9 @@
+openmediavault-nut (4.0.1-1) stable; urgency=low
+
+  * Adapt to new RRD graph tool.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 03 Oct 2017 00:36:52 +0200
+
 openmediavault-nut (4.0-1) stable; urgency=low
 
   * Adapt to Debian 9 (Stretch).

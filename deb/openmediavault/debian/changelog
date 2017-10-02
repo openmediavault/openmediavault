@@ -3,6 +3,7 @@ openmediavault (4.0.6-1) stable; urgency=low
   * Various improvements.
   * Outsource SNMP into a separate plugin. Please note that the existing
     configuration will be deleted.
+  * Refactor RRD graph generation. Introduce omv-mkrrdgraph tool.
   * Mantis 0001823: Monit collectd and PID file.
   * Mantis 0001826: Fix hdparm issue.
 
