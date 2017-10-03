@@ -39,9 +39,8 @@ OMV_MKCONF_SCRIPTS_DIR=${OMV_MKCONF_SCRIPTS_DIR:-"/usr/share/openmediavault/mkco
 
 OMV_COLLECTD_CONFIG=${OMV_COLLECTD_CONFIG:-"/etc/collectd/collectd.conf"}
 OMV_COLLECTD_CONFIG_DIR=${OMV_COLLECTD_CONFIG_DIR:-"/etc/collectd/collectd.conf.d"}
-OMV_COLLECTD_DEFAULT=${OMV_COLLECTD_DEFAULT:-"/etc/default/collectd"}
 OMV_COLLECTD_PIDFILE=${OMV_COLLECTD_PIDFILE:-"/var/run/collectd.pid"}
-OMV_COLLECTD_CRON=${OMV_COLLECTD_CRON:-"/etc/cron.d/openmediavault-rrdtoolgraph"}
+OMV_COLLECTD_CRON=${OMV_COLLECTD_CRON:-"/etc/cron.d/openmediavault-mkrrdgraph"}
 OMV_COLLECTD_PLUGINS_DIR=${OMV_COLLECTD_PLUGINS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/collectd.d"}
 OMV_COLLECTD_HOSTNAME=${OMV_COLLECTD_HOSTNAME:-"localhost"}
 OMV_COLLECTD_FQDNLOOKUP=${OMV_COLLECTD_FQDNLOOKUP:-"true"}
@@ -59,27 +58,6 @@ FQDNLookup ${OMV_COLLECTD_FQDNLOOKUP}
 <Include "${OMV_COLLECTD_CONFIG_DIR}">
 	Filter "*.conf"
 </Include>
-EOF
-
-	# Create '/etc/default/collectd' file
-	cat <<EOF > ${OMV_COLLECTD_DEFAULT}
-# /etc/default/collectd
-
-# 0: start collectd on boot, 1: do not start collectd on boot
-# default: 0
-DISABLE=0
-
-# 0: start collectd in stand-alone mode, 1: monitor collectd using collectdmon
-# default: 1
-USE_COLLECTDMON=0
-
-# number of seconds to wait for collectd to shut down
-# default: 30
-MAXWAIT=30
-
-# 0: do not enable core-files, 1: enable core-files ... if collectd crashes
-# default: 0
-ENABLE_COREFILES=0
 EOF
 
 	# Remove the cron job.
