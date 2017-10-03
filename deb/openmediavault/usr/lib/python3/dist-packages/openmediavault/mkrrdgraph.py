@@ -36,6 +36,15 @@ class IPlugin(metaclass=abc.ABCMeta):
 		Build the RRD graph.
 		"""
 
+def call_rrdtool_graph(args):
+	"""
+	Call the rrdtool command line executable with the given arguments.
+	"""
+	# The command below does not work because the RRD tool synatx is escaped
+	# and the graph legend is not rendered as expected.
+	#return openmediavault.subprocess.check_output(['rrdtool', 'graph', *args])
+	return os.system(' '.join(['rrdtool', 'graph', *args]))
+
 def copy_placeholder_image(filename):
 	"""
 	Helper function to copy the error graph image.

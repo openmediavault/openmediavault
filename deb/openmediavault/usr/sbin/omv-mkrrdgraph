@@ -63,8 +63,8 @@ def main():
 				'localhost')),
 		'image_dir': openmediavault.getenv('OMV_COLLECTD_RRDTOOL_GRAPH_IMGDIR',
 			'/var/lib/openmediavault/rrd'),
-		'last_update': 'Last update: {}\r'.format(
-			time.ctime()).replace(':', '\:')
+		'last_update': 'Last update: {}\\r'.format(time.ctime()).replace(
+			':', '\:')
 	}
 	period_config = {
 		'hour': {

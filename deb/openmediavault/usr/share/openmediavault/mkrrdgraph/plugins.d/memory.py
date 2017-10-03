@@ -31,8 +31,8 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 			'color_memory_buffered': '#c979ff', # pink
 			'color_memory_used': '#ff7a70'      # red
 		})
-		args = ['rrdtool', 'graph']
-		args.append('{image_dir}/memory-0-{period}.png'.format(**config))
+		args = []
+		args.append('{image_dir}/memory-{period}.png'.format(**config))
 		args.extend(config['defaults'])
 		args.extend(['--start', config['start']])
 		args.extend(['--title', '"{title_memory}{title_by_period}"'.format(**config)])
@@ -73,4 +73,5 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 		args.append('GPRINT:fmax:MAX:"%5.1lf%sB Max"'.format(**config))
 		args.append('GPRINT:favg:LAST:"%5.1lf%sB Last\l"'.format(**config))
 		args.append('COMMENT:"{last_update}"'.format(**config))
-		return openmediavault.subprocess.check_output(args)
+		openmediavault.mkrrdgraph.call_rrdtool_graph(args)
+		return 0

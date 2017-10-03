@@ -38,7 +38,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 			if mountpoint == '/':
 				mountpoint = 'root'
 			config['mountpoint'] = mountpoint.lstrip('/').replace('/', '-')
-			args = ['rrdtool', 'graph']
+			args = []
 			args.append('{image_dir}/df-{mountpoint}-{period}.png'.format(**config))
 			args.extend(config['defaults'])
 			args.extend(['--start', config['start']])
@@ -66,5 +66,5 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 			args.append('GPRINT:umax:MAX:"%5.1lf%sB Max"'.format(**config))
 			args.append('GPRINT:uavg:LAST:"%5.1lf%sB Last\l"'.format(**config))
 			args.append('COMMENT:"{last_update}"'.format(**config))
-			openmediavault.subprocess.check_output(args)
+			openmediavault.mkrrdgraph.call_rrdtool_graph(args)
 		return 0

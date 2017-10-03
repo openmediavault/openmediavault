@@ -33,7 +33,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 			'interface', 'Interface')
 		for interface in interfaces:
 			config['interface'] = interface
-			args = ['rrdtool', 'graph']
+			args = []
 			args.append('{image_dir}/interface-{interface}-{period}.png'.format(**config))
 			args.extend(config['defaults'])
 			args.extend(['--start', config['start']])
@@ -73,5 +73,5 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 			args.append('GPRINT:tmax:MAX:"%5.1lf%s Max"'.format(**config))
 			args.append('GPRINT:tavg:LAST:"%5.1lf%s Last\l"'.format(**config))
 			args.append('COMMENT:"{last_update}"'.format(**config))
-			openmediavault.subprocess.check_output(args)
+			openmediavault.mkrrdgraph.call_rrdtool_graph(args)
 		return 0

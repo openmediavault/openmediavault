@@ -51,7 +51,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 
 			image_filename = '{image_dir}/nut-charge-{period}.png'.format(**config)
 			if os.path.exists('{data_dir}/nut-{upsname}/percent-charge.rrd'.format(**config)):
-				args = ['rrdtool', 'graph']
+				args = []
 				args.append(image_filename)
 				args.extend(config['defaults'])
 				args.extend(['--start', config['start']])
@@ -70,13 +70,13 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 				args.append('GPRINT:max:MAX:"%4.2lf Max"'.format(**config))
 				args.append('GPRINT:avg:LAST:"%4.2lf Last\l"'.format(**config))
 				args.append('COMMENT:"{last_update}"'.format(**config))
-				openmediavault.subprocess.check_output(args)
+				openmediavault.mkrrdgraph.call_rrdtool_graph(args)
 			else:
 				openmediavault.mkrrdgraph.copy_placeholder_image(image_filename)
 
 			image_filename = '{image_dir}/nut-load-{period}.png'.format(**config)
 			if os.path.exists('{data_dir}/nut-{upsname}/percent-load.rrd'.format(**config)):
-				args = ['rrdtool', 'graph']
+				args = []
 				args.append(image_filename)
 				args.extend(config['defaults'])
 				args.extend(['--start', config['start']])
@@ -95,7 +95,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 				args.append('GPRINT:max:MAX:"%4.2lf Max"'.format(**config))
 				args.append('GPRINT:avg:LAST:"%4.2lf Last\l"'.format(**config))
 				args.append('COMMENT:"{last_update}"'.format(**config))
-				openmediavault.subprocess.check_output(args)
+				openmediavault.mkrrdgraph.call_rrdtool_graph(args)
 			else:
 				openmediavault.mkrrdgraph.copy_placeholder_image(image_filename)
 
@@ -106,7 +106,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 			# informations.
 			image_filename = '{image_dir}/nut-temperature-{period}.png'.format(**config)
 			if os.path.exists('{data_dir}/nut-{upsname}/temperature-battery.rrd'.format(**config)):
-				args = ['rrdtool', 'graph']
+				args = []
 				args.append(image_filename)
 				args.extend(config['defaults'])
 				args.extend(['--start', config['start']])
@@ -123,9 +123,9 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 				args.append('GPRINT:max:MAX:"%4.2lf Max"'.format(**config))
 				args.append('GPRINT:avg:LAST:"%4.2lf Last\l"'.format(**config))
 				args.append('COMMENT:"{last_update}"'.format(**config))
-				openmediavault.subprocess.check_output(args)
+				openmediavault.mkrrdgraph.call_rrdtool_graph(args)
 			elif os.path.exists('{data_dir}/nut-{upsname}/temperature-ups.rrd'.format(**config)):
-				args = ['rrdtool', 'graph']
+				args = []
 				args.append(image_filename)
 				args.extend(config['defaults'])
 				args.extend(['--start', config['start']])
@@ -142,7 +142,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 				args.append('GPRINT:max:MAX:"%4.2lf Max"'.format(**config))
 				args.append('GPRINT:avg:LAST:"%4.2lf Last\l"'.format(**config))
 				args.append('COMMENT:"{last_update}"'.format(**config))
-				openmediavault.subprocess.check_output(args)
+				openmediavault.mkrrdgraph.call_rrdtool_graph(args)
 			else:
 				openmediavault.mkrrdgraph.copy_placeholder_image(image_filename)
 
@@ -150,7 +150,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 			if os.path.exists('{data_dir}/nut-{upsname}/voltage-battery.rrd'.format(**config)) and
 					os.path.exists('{data_dir}/nut-{upsname}/voltage-input.rrd'.format(**config)) and
 					os.path.exists('{data_dir}/nut-{upsname}/voltage-output.rrd'.format(**config)):
-				args = ['rrdtool', 'graph']
+				args = []
 				args.append(image_filename)
 				args.extend(config['defaults'])
 				args.extend(['--start', config['start']])
@@ -183,10 +183,10 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 				args.append('GPRINT:omax:MAX:"%4.2lf Max"'.format(**config))
 				args.append('GPRINT:oavg:LAST:"%4.2lf Last\l"'.format(**config))
 				args.append('COMMENT:"{last_update}"'.format(**config))
-				openmediavault.subprocess.check_output(args)
+				openmediavault.mkrrdgraph.call_rrdtool_graph(args)
 			elif os.path.exists('{data_dir}/nut-{upsname}/voltage-battery.rrd'.format(**config)) and
 					os.path.exists('{data_dir}/nut-{upsname}/voltage-input.rrd'.format(**config)):
-				args = ['rrdtool', 'graph']
+				args = []
 				args.append(image_filename)
 				args.extend(config['defaults'])
 				args.extend(['--start', config['start']])
@@ -211,10 +211,10 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 				args.append('GPRINT:imax:MAX:"%4.2lf Max"'.format(**config))
 				args.append('GPRINT:iavg:LAST:"%4.2lf Last\l"'.format(**config))
 				args.append('COMMENT:"{last_update}"'.format(**config))
-				openmediavault.subprocess.check_output(args)
+				openmediavault.mkrrdgraph.call_rrdtool_graph(args)
 			elif os.path.exists('{data_dir}/nut-{upsname}/voltage-battery.rrd'.format(**config)) and
 					os.path.exists('{data_dir}/nut-{upsname}/voltage-input.rrd'.format(**config)):
-				args = ['rrdtool', 'graph']
+				args = []
 				args.append(image_filename)
 				args.extend(config['defaults'])
 				args.extend(['--start', config['start']])
@@ -239,7 +239,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 				args.append('GPRINT:omax:MAX:"%4.2lf Max"'.format(**config))
 				args.append('GPRINT:oavg:LAST:"%4.2lf Last\l"'.format(**config))
 				args.append('COMMENT:"{last_update}"'.format(**config))
-				openmediavault.subprocess.check_output(args)
+				openmediavault.mkrrdgraph.call_rrdtool_graph(args)
 			else:
 				openmediavault.mkrrdgraph.copy_placeholder_image(image_filename)
 		return 0

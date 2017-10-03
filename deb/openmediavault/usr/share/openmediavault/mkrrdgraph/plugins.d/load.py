@@ -30,7 +30,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 			'color_load_midterm': '#0bb6ff',   # blue
 			'color_load_longterm': '#ff1300'   # red
 		})
-		args = ['rrdtool', 'graph']
+		args = []
 		args.append('{image_dir}/load-{period}.png'.format(**config))
 		args.extend(config['defaults'])
 		args.extend(['--start', config['start']])
@@ -63,4 +63,5 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 		args.append('GPRINT:lmax:MAX:"%4.2lf Max"'.format(**config))
 		args.append('GPRINT:lavg:LAST:"%4.2lf Last\l"'.format(**config))
 		args.append('COMMENT:"{last_update}"'.format(**config))
-		return openmediavault.subprocess.check_output(args)
+		openmediavault.mkrrdgraph.call_rrdtool_graph(args)
+		return 0

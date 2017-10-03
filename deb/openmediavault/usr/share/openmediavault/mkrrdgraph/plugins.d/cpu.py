@@ -35,7 +35,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 			'color_cpu_irq': '#9f009f',
 			'color_cpu_steal': '#000000'
 		})
-		args = ['rrdtool', 'graph']
+		args = []
 		args.append('{image_dir}/cpu-0-{period}.png'.format(**config))
 		args.extend(config['defaults'])
 		args.extend(['--start', config['start']])
@@ -62,4 +62,5 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 		args.append('AREA:interrupt{color_cpu_irq}:"IRQ":STACK'.format(**config))
 		args.append('AREA:idle{color_cpu_idle}:"Idle\c":STACK'.format(**config))
 		args.append('COMMENT:"{last_update}"'.format(**config))
-		return openmediavault.subprocess.check_output(args)
+		openmediavault.mkrrdgraph.call_rrdtool_graph(args)
+		return 0
