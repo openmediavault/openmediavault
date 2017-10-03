@@ -1,0 +1,109 @@
+#!/usr/bin/env python3
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2017 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+import os
+import time
+import sys
+import openmediavault
+import openmediavault.mkrrdgraph
+import openmediavault.log
+
+def load_plugins():
+	plugins = {}
+	path = openmediavault.getenv("OMV_MKRRDGRAPH_PLUGINS_DIR",
+		"/usr/share/openmediavault/mkrrdgraph/plugins.d");
+	sys.path.insert(0, path)
+	for name in os.listdir(path):
+		plugin_name, ext = os.path.splitext(name)
+		if not ext == ".py":
+			continue
+		plugin = __import__(plugin_name)
+		plugin_inst = plugin.Plugin()
+		if not isinstance(plugin_inst, openmediavault.mkrrdgraph.IPlugin):
+			continue
+		plugins[plugin_name] = plugin_inst
+	sys.path.pop(0)
+	return plugins
+
+def main():
+	default_config = {
+		'defaults': [
+			'--daemon', 'unix:{}'.format(openmediavault.getenv(
+				'OMV_RRDCACHED_SOCKETFILE', '/var/run/rrdcached.sock')),
+			'--imgformat', openmediavault.getenv(
+				'OMV_COLLECTD_RRDTOOL_GRAPH_IMGFORMAT', 'PNG'),
+			'--width', openmediavault.getenv(
+				'OMV_COLLECTD_RRDTOOL_GRAPH_WIDTH', '400'),
+			'--height', openmediavault.getenv(
+				'OMV_COLLECTD_RRDTOOL_GRAPH_HEIGHT', '120'),
+			'--alt-y-grid',
+			'--interlaced',
+			'--font', 'TITLE:9:.'],
+		'data_dir': os.path.join(
+			openmediavault.getenv('OMV_RRDCACHED_BASEDIR',
+				'/var/lib/rrdcached/db'),
+			openmediavault.getenv('OMV_COLLECTD_HOSTNAME',
+				'localhost')),
+		'image_dir': openmediavault.getenv('OMV_COLLECTD_RRDTOOL_GRAPH_IMGDIR',
+			'/var/lib/openmediavault/rrd'),
+		'last_update': 'Last update: {}\r'.format(
+			time.ctime()).replace(':', '\:')
+	}
+	period_config = {
+		'hour': {
+			'start': '-1h',
+			'title_by_period': ' - by hour'
+		},
+		'day': {
+			'start': '-1d',
+			'title_by_period': ' - by day'
+		},
+		'week': {
+			'start': '-1w',
+			'title_by_period': ' - by week'
+		},
+		'month': {
+			'start': '-1m',
+			'title_by_period': ' - by month'
+		},
+		'year': {
+			'start': '-1y',
+			'title_by_period': ' - by year'
+		}
+	}
+	# Load the plugins.
+	plugins = load_plugins()
+	# Create the RRD graphs.
+	for period in ['hour', 'day', 'week', 'month', 'year']:
+		config = default_config.copy()
+		config.update(period_config[period])
+		config['period'] = period
+		# Get the command arguments to create the graph image.
+		for plugin_name, plugin_inst in plugins.items():
+			try:
+				plugin_inst.create_graph(config)
+			except Exception as e:
+				openmediavault.log.error(
+					'Failed to build graph (plugin=%s, period=%s): %s',
+					plugin_name, period, str(e))
+	return 0
+
+if __name__ == '__main__':
+	sys.exit(main())

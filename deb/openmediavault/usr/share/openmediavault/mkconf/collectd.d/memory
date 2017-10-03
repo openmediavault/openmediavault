@@ -24,58 +24,8 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_COLLECTD_CONFIG=${OMV_COLLECTD_CONFIG:-"/etc/collectd/collectd.conf"}
-OMV_COLLECTD_RRDTOOL_MKGRAPH=${OMV_COLLECTD_RRDTOOL_MKGRAPH:-"/usr/sbin/omv-mkgraph"}
+OMV_COLLECTD_CONFIG_DIR=${OMV_COLLECTD_CONFIG_DIR:-"/etc/collectd/collectd.conf.d"}
 
-cat <<EOF >> ${OMV_COLLECTD_CONFIG}
+cat <<EOF >> "${OMV_COLLECTD_CONFIG_DIR}/memory.conf"
 LoadPlugin memory
 EOF
-
-cat <<EOF >> ${OMV_COLLECTD_RRDTOOL_MKGRAPH}
-# Plugin: memory
-# http://paletton.com/#uid=33r0-0kwi++bu++hX++++rd++kX
-TITLE_MEMORY="Memory usage"
-COLOR_MEMORY_FREE="#76D6FF"     # blue
-COLOR_MEMORY_CACHED="#FFDB70"   # yellow
-COLOR_MEMORY_BUFFERED="#C979FF" # pink
-COLOR_MEMORY_USED="#FF7A70"     # red
-EOF
-for ucperiod in HOUR DAY WEEK MONTH YEAR; do
-	lcperiod=$(echo ${ucperiod} | tr '[:upper:]' '[:lower:]')
-	cat <<EOF >> ${OMV_COLLECTD_RRDTOOL_MKGRAPH}
-rrdtool graph \${IMGDIR}/memory-${lcperiod}.png --start \${${ucperiod}START} \${DEFAULTS} --title "\${TITLE_MEMORY}\${${ucperiod}TITLE}" --slope-mode --lower-limit 0 --base 1024 --vertical-label "Bytes" \
-  DEF:bavg=\${DATA}/memory/memory-buffered.rrd:value:AVERAGE \
-  DEF:bmin=\${DATA}/memory/memory-buffered.rrd:value:MIN \
-  DEF:bmax=\${DATA}/memory/memory-buffered.rrd:value:MAX \
-  DEF:cavg=\${DATA}/memory/memory-cached.rrd:value:AVERAGE \
-  DEF:cmin=\${DATA}/memory/memory-cached.rrd:value:MIN \
-  DEF:cmax=\${DATA}/memory/memory-cached.rrd:value:MAX \
-  DEF:favg=\${DATA}/memory/memory-free.rrd:value:AVERAGE \
-  DEF:fmin=\${DATA}/memory/memory-free.rrd:value:MIN \
-  DEF:fmax=\${DATA}/memory/memory-free.rrd:value:MAX \
-  DEF:uavg=\${DATA}/memory/memory-used.rrd:value:AVERAGE \
-  DEF:umin=\${DATA}/memory/memory-used.rrd:value:MIN \
-  DEF:umax=\${DATA}/memory/memory-used.rrd:value:MAX \
-  AREA:uavg\${COLOR_MEMORY_USED}:"Used        " \
-  GPRINT:umin:MIN:"%5.1lf%sB Min" \
-  GPRINT:uavg:AVERAGE:"%5.1lf%sB Avg" \
-  GPRINT:umax:MAX:"%5.1lf%sB Max" \
-  GPRINT:uavg:LAST:"%5.1lf%sB Last\l" \
-  AREA:bavg\${COLOR_MEMORY_BUFFERED}:"Buffer cache":STACK \
-  GPRINT:bmin:MIN:"%5.1lf%sB Min" \
-  GPRINT:bavg:AVERAGE:"%5.1lf%sB Avg" \
-  GPRINT:bmax:MAX:"%5.1lf%sB Max" \
-  GPRINT:bavg:LAST:"%5.1lf%sB Last\l" \
-  AREA:cavg\${COLOR_MEMORY_CACHED}:"Page cache  ":STACK \
-  GPRINT:cmin:MIN:"%5.1lf%sB Min" \
-  GPRINT:cavg:AVERAGE:"%5.1lf%sB Avg" \
-  GPRINT:cmax:MAX:"%5.1lf%sB Max" \
-  GPRINT:cavg:LAST:"%5.1lf%sB Last\l" \
-  AREA:favg\${COLOR_MEMORY_FREE}:"Free        ":STACK \
-  GPRINT:fmin:MIN:"%5.1lf%sB Min" \
-  GPRINT:favg:AVERAGE:"%5.1lf%sB Avg" \
-  GPRINT:fmax:MAX:"%5.1lf%sB Max" \
-  GPRINT:favg:LAST:"%5.1lf%sB Last\l" \
-  COMMENT:"\${LASTUPDATE}" >/dev/null
-EOF
-done

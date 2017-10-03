@@ -502,6 +502,11 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "4.0.6"; then
 			deb-systemd-helper disable snmpd.service
 			deb-systemd-invoke stop snmpd.service || :
+			# Remove old RRG graph generation script and rebuild
+			# the collectd configuration.
+			rm -f /usr/sbin/omv-mkgraph
+			omv-mkconf collectd
+			deb-systemd-invoke restart collectd.service || :
 		fi
 
 		########################################################################
