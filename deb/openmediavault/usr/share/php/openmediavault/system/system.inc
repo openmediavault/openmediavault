@@ -279,7 +279,7 @@ class System {
 				];
 			} else if (preg_match('/^Total:\s+(\d+)\s+(\d+)\s+(\d+)$/',
 			  $outputv, $matches)) {
-				$result['swap'] = [
+				$result['total'] = [
 					"total" => $matches[1],
 					"used" => $matches[2],
 					"free" => $matches[3]
