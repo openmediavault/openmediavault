@@ -220,7 +220,7 @@ class System {
 		$result['used'] = $result['total'] - $result['free'];
 		$result['percent'] = round(($result['used'] * 100) / $result['total']);
 */
-		$cmd = new \OMV\System\Process("free", "-b");
+		$cmd = new \OMV\System\Process("free", "-b", "-t", "-w");
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		$result = [
@@ -230,11 +230,8 @@ class System {
 				"free" => 0,
 				"shared" => 0,
 				"buffers" => 0,
-				"cached" => 0
-			],
-			"wobufferscache" => [
-				"used" => 0,
-				"free" => 0
+				"cache" => 0,
+				"available" => 0
 			],
 			"swap" => [
 				"total" => 0,
@@ -248,13 +245,12 @@ class System {
 			]
 		];
 		// Parse command output:
-		//              total       used       free     shared    buffers     cached
-		// Mem:     526987264  195010560  331976704          0   28565504  120373248
-		// -/+ buffers/cache:   46071808  480915456
-		// Swap:    401596416          0  401596416
-		// Total:   928583680  195137536  733446144
+		//               total        used        free      shared     buffers       cache   available
+		// Mem:     2101825536    98390016  1823117312    12967936    16809984   163508224  1844318208
+		// Swap:             0           0           0
+		// Total:   2101825536    98390016  1823117312
 		foreach ($output as $outputk => $outputv) {
-			if (preg_match('/^Mem:\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)$/',
+			if (preg_match('/^Mem:\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)$/',
 			  $outputv, $matches)) {
 				$result['mem'] = [
 					"total" => $matches[1],
@@ -262,13 +258,8 @@ class System {
 					"free" => $matches[3],
 					"shared" => $matches[4],
 					"buffers" => $matches[5],
-					"cached" => $matches[6]
-				];
-			} else if (preg_match('/^-\/\+ buffers\/cache:\s+(\d+)\s+(\d+)$/',
-			  $outputv, $matches)) {
-				$result['wobufferscache'] = [
-					"used" => $matches[1],
-					"free" => $matches[2]
+					"cache" => $matches[6],
+					"available" => $matches[7]
 				];
 			} else if (preg_match('/^Swap:\s+(\d+)\s+(\d+)\s+(\d+)$/',
 			  $outputv, $matches)) {
@@ -279,7 +270,7 @@ class System {
 				];
 			} else if (preg_match('/^Total:\s+(\d+)\s+(\d+)\s+(\d+)$/',
 			  $outputv, $matches)) {
-				$result['swap'] = [
+				$result['total'] = [
 					"total" => $matches[1],
 					"used" => $matches[2],
 					"free" => $matches[3]
