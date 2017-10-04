@@ -6,6 +6,7 @@ openmediavault (4.0.6-1) stable; urgency=low
   * Refactor RRD graph generation. Introduce omv-mkrrdgraph tool.
   * Mantis 0001823: Monit collectd and PID file.
   * Mantis 0001826: Fix hdparm issue.
+  * Mantis 0001828: Dashboard shows memory use of zero.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 24 Sep 2017 02:08:28 +0200
 

@@ -369,8 +369,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 		$uname = posix_uname();
 		$memStats = \OMV\System\System::getMemoryStats();
 		$memStats['wobufferscache']['percentage'] = round(
-		  ($memStats['wobufferscache']['used'] * 100) /
-		  $memStats['mem']['total']);
+		  ($memStats['mem']['used'] * 100) / $memStats['mem']['total']);
 		$cpuStats = \OMV\System\System::getCpuStats();
 		$index = 0;
 		return [
