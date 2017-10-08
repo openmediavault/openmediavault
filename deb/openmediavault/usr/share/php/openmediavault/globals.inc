@@ -83,6 +83,7 @@ define("OMV_NETWORK_INTERFACE_TYPE_ALL", 0xFF);
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_BTRFS", "defaults,nofail");
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_ISO9660", "ro");
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_UDF", "ro");
+\OMV\Environment::set("OMV_FSTAB_MNTOPS_BIND", "nofail");
 \OMV\Environment::set("OMV_APT_PLUGINS_INDEX_FILE", "/var/lib/openmediavault/apt/pluginsindex.json");
 \OMV\Environment::set("OMV_APT_UPGRADE_INDEX_FILE", "/var/lib/openmediavault/apt/upgradeindex.json");
 \OMV\Environment::set("OMV_NETWORK_INTERFACE_TYPE_NAMES", [
