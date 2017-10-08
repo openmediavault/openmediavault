@@ -186,7 +186,8 @@ class OMVRpcServiceNfs extends \OMV\Rpc\ServiceAbstract {
 						$meObject->get("dir"), $sfObject->get("reldirpath")),
 					"dir" => $dir,
 					"type" => "none",
-					"opts" => "bind" . "," . \OMV\Environment::get("OMV_FSTAB_MNTOPS_BIND"),
+					"opts" => implode(",", ["bind", \OMV\Environment::get(
+						"OMV_FSTAB_MNTOPS_BIND")]),
 					"freq" => 0,
 					"passno" => 0
 				]);
