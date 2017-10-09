@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-24 20:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Paolo Velati <paolo.velati@gmail.com>, 2017\n"
 "Language-Team: Italian (https://www.transifex.com/votdev/teams/14254/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
@@ -18,78 +19,80 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Authentication and no privacy"
-msgstr ""
+msgstr "Autenticazione senza privacy"
 
 msgid "Authentication and privacy"
-msgstr ""
+msgstr "Autenticazione e privacy"
 
 msgid "Authentication passphrase"
-msgstr ""
+msgstr "Passphrase di autenticazione"
 
 msgid "Authentication type"
-msgstr ""
+msgstr "Tipo di autenticazione"
 
 msgid "Community"
-msgstr ""
+msgstr "Comunità"
 
 msgid "Contact"
-msgstr ""
+msgstr "Contatto"
 
 msgid ""
 "Contact information, e.g. name or email address of the person responsible "
 "for this system."
 msgstr ""
+"Informazioni sul contatto, es. nome o indirizzo email del responsabile di "
+"questo sistema."
 
 msgid "Enable"
-msgstr ""
+msgstr "Abilita"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Opzioni aggiuntive"
 
 msgid "General settings"
-msgstr ""
+msgstr "Impostazioni generali"
 
 msgid "Host"
-msgstr ""
+msgstr "Host"
 
 msgid "Location"
-msgstr ""
+msgstr "Posizione"
 
 msgid "Location information, e.g. physical location of this system."
-msgstr ""
+msgstr "Informazioni sulla posizione, es. posizione fisica di questo sistema."
 
 msgid "No authentication and no privacy"
-msgstr ""
+msgstr "Nessuna autenticazione e nessuna privacy"
 
 msgid "Port"
-msgstr ""
+msgstr "Porta"
 
 msgid "Privacy passphrase"
-msgstr ""
+msgstr "Privacy passphrase"
 
 msgid "Privacy type"
-msgstr ""
+msgstr "Tipo di privacy"
 
 msgid "SNMP"
-msgstr ""
+msgstr "SNMP"
 
 msgid "SNMP version 1/2c"
-msgstr ""
+msgstr "SNMP versione 1/2c"
 
 msgid "SNMP version 3"
-msgstr ""
+msgstr "SNMP versione 3"
 
 msgid "Security level"
-msgstr ""
+msgstr "Livello di sicurezza"
 
 msgid "Settings"
-msgstr ""
+msgstr "Impostazioni"
 
 msgid "Traps"
-msgstr ""
+msgstr "Trappole"
 
 msgid "Username"
-msgstr ""
+msgstr "Nome utente"
 
 msgid "Version"
-msgstr ""
+msgstr "Versione"

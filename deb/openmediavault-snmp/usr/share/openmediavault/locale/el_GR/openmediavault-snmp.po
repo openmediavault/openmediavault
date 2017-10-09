@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-24 20:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kostas Moho <kgounaris@hotmail.com>, 2017\n"
 "Language-Team: Greek (Greece) (https://www.transifex.com/votdev/teams/14254/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
@@ -18,78 +19,80 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Authentication and no privacy"
-msgstr ""
+msgstr "Πιστοποίηση χωρίς ιδιωτικότητα"
 
 msgid "Authentication and privacy"
-msgstr ""
+msgstr "Πιστοποίηση με ιδιωτικότητα"
 
 msgid "Authentication passphrase"
-msgstr ""
+msgstr "Κωδικός πιστοποίησης"
 
 msgid "Authentication type"
-msgstr ""
+msgstr "Τύπος πιστοποίησης"
 
 msgid "Community"
-msgstr ""
+msgstr "Κοινότητα"
 
 msgid "Contact"
-msgstr ""
+msgstr "Επικοινωνία"
 
 msgid ""
 "Contact information, e.g. name or email address of the person responsible "
 "for this system."
 msgstr ""
+"Στοιχεία επικοινωνίας, π.χ. όνομα ή διεύθυνση ηλεκτρονικού ταχυδρομείου για "
+"τον διαχειριστή αυτού του συστήματος."
 
 msgid "Enable"
-msgstr ""
+msgstr "Ενεργοποίηση"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Επιπλέον επιλογές"
 
 msgid "General settings"
-msgstr ""
+msgstr "Γενικές ρυθμίσεις"
 
 msgid "Host"
-msgstr ""
+msgstr "Σύστημα"
 
 msgid "Location"
-msgstr ""
+msgstr "Τοποθεσία"
 
 msgid "Location information, e.g. physical location of this system."
-msgstr ""
+msgstr "Πληροφορίες τοποθεσίας συστήματος"
 
 msgid "No authentication and no privacy"
-msgstr ""
+msgstr "Χωρίς πιστοποίηση και χωρίς ιδιοτικότητα"
 
 msgid "Port"
-msgstr ""
+msgstr "Θύρα"
 
 msgid "Privacy passphrase"
-msgstr ""
+msgstr "Φράση-κλειδί"
 
 msgid "Privacy type"
-msgstr ""
+msgstr "Τύπος ιδιοτικότητας"
 
 msgid "SNMP"
-msgstr ""
+msgstr "SNMP"
 
 msgid "SNMP version 1/2c"
-msgstr ""
+msgstr "SNMP έκδοση 1/2c"
 
 msgid "SNMP version 3"
-msgstr ""
+msgstr "SNMP έκδοση 3"
 
 msgid "Security level"
-msgstr ""
+msgstr "Επίπεδο ασφάλειας"
 
 msgid "Settings"
-msgstr ""
+msgstr "Ρυθμίσεις"
 
 msgid "Traps"
-msgstr ""
+msgstr "Διεγέρσεις"
 
 msgid "Username"
-msgstr ""
+msgstr "Όνομα χρήστη"
 
 msgid "Version"
-msgstr ""
+msgstr "Έκδοση"

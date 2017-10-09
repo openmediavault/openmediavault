@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-24 20:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2017\n"
 "Language-Team: Japanese (Japan) (https://www.transifex.com/votdev/teams/14254/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
@@ -18,78 +19,78 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Authentication and no privacy"
-msgstr ""
+msgstr "認証とプライバシーなし"
 
 msgid "Authentication and privacy"
-msgstr ""
+msgstr "認証とプライバシー"
 
 msgid "Authentication passphrase"
-msgstr ""
+msgstr "認証パスフレーズ"
 
 msgid "Authentication type"
-msgstr ""
+msgstr "認証タイプ"
 
 msgid "Community"
-msgstr ""
+msgstr "コミュニティー"
 
 msgid "Contact"
-msgstr ""
+msgstr "コンタクト"
 
 msgid ""
 "Contact information, e.g. name or email address of the person responsible "
 "for this system."
-msgstr ""
+msgstr "コンタクト情報、例えば、このシステムの責任者の名前または電子メールアドレス。"
 
 msgid "Enable"
-msgstr ""
+msgstr "有効"
 
 msgid "Extra options"
-msgstr ""
+msgstr "その他のオプション"
 
 msgid "General settings"
-msgstr ""
+msgstr "一般設定"
 
 msgid "Host"
-msgstr ""
+msgstr "ホスト"
 
 msgid "Location"
-msgstr ""
+msgstr "ロケーション"
 
 msgid "Location information, e.g. physical location of this system."
-msgstr ""
+msgstr "ロケーション情報、例えば、このシステムの物理的な場所。"
 
 msgid "No authentication and no privacy"
-msgstr ""
+msgstr "認証なしとプライバシーなし"
 
 msgid "Port"
-msgstr ""
+msgstr "ポート"
 
 msgid "Privacy passphrase"
-msgstr ""
+msgstr "プライバシーパスフレーズ"
 
 msgid "Privacy type"
-msgstr ""
+msgstr "プライバシータイプ"
 
 msgid "SNMP"
-msgstr ""
+msgstr "SNMP"
 
 msgid "SNMP version 1/2c"
-msgstr ""
+msgstr "SNMP version 1/2c"
 
 msgid "SNMP version 3"
-msgstr ""
+msgstr "SNMP version 3"
 
 msgid "Security level"
-msgstr ""
+msgstr "セキュリティレベル"
 
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 msgid "Traps"
-msgstr ""
+msgstr "トラップ"
 
 msgid "Username"
-msgstr ""
+msgstr "ユーザー名"
 
 msgid "Version"
-msgstr ""
+msgstr "バージョン"

@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-lvm2 package.
 # 
 # Translators:
-# Henrik Sandström <henrik.sandstroem@gmail.com>, 2012
+# Henrik Sandström <inactive+sandstroem@transifex.com>, 2012
 # Jonatan Nyberg, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-08-11 20:47+0000\n"
+"PO-Revision-Date: 2017-09-19 12:44+0000\n"
 "Last-Translator: Jonatan Nyberg\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"

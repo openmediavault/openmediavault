@@ -8,13 +8,14 @@
 # Jacek Niedziółka <>, 2012
 # jacekniedziolka71 <lucas71@interia.pl>, 2012
 # Jakub Górny <jakub@world.pl>, 2012
+# jacekniedziolka71 <lucas71@interia.pl>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-24 21:10+0200\n"
-"PO-Revision-Date: 2017-09-24 19:10+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2017-09-25 09:27+0000\n"
+"Last-Translator: jacekniedziolka71 <lucas71@interia.pl>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/votdev/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,7 +49,7 @@ msgid "1 day"
 msgstr "1 dzień"
 
 msgid "1 minute"
-msgstr ""
+msgstr "minuta"
 
 msgid "1 month"
 msgstr "1 miesiąc"
@@ -79,7 +80,7 @@ msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - Minimalne zużycie energii bez czuwania (bez zwalniania wirowania)"
 
 msgid "15 minutes"
-msgstr ""
+msgstr "15 minut"
 
 msgid "15 years"
 msgstr "15 lat"
@@ -94,7 +95,7 @@ msgid "2 days"
 msgstr "2 dni"
 
 msgid "2 minutes"
-msgstr ""
+msgstr "2 minuty"
 
 msgid "2 weeks"
 msgstr "2 tygodnie"
@@ -124,7 +125,7 @@ msgid "3 days"
 msgstr "3 dni"
 
 msgid "3 minutes"
-msgstr ""
+msgstr "3 minuty"
 
 msgid "3 months"
 msgstr "3 miesiące"
@@ -148,7 +149,7 @@ msgid "4 days"
 msgstr "4 dni"
 
 msgid "4 minutes"
-msgstr ""
+msgstr "4 minuty"
 
 msgid "4 years"
 msgstr "4 lata"
@@ -440,10 +441,10 @@ msgid "Auto"
 msgstr "Auto"
 
 msgid "Auto logout"
-msgstr ""
+msgstr "Automatyczne wylogowanie"
 
 msgid "Auto logout after the specified idle period."
-msgstr ""
+msgstr "Automatyczne wylogowanie po upływie określonego czasu"
 
 msgid "Automatic Acoustic Management"
 msgstr "Automatyczne zarządzanie akustyką"
@@ -887,7 +888,7 @@ msgid "Displaying items {0} - {1} of {2}"
 msgstr "Wyświetla elementy {0} - {1} z {2}"
 
 msgid "Displaying {0} - {1} of {2}"
-msgstr ""
+msgstr "Wyświetla [0] - [1] z [2]"
 
 msgid "Djibouti"
 msgstr "Djibouti"
@@ -1318,7 +1319,7 @@ msgid "Firmware version"
 msgstr "Wersja Firmware"
 
 msgid "First Page"
-msgstr ""
+msgstr "Pierwsza strona"
 
 msgid "Flags"
 msgstr "Flagi"
@@ -1763,7 +1764,7 @@ msgid "Laos"
 msgstr "Laos"
 
 msgid "Last Page"
-msgstr ""
+msgstr "Ostatnia strona"
 
 msgid "Latvia"
 msgstr "Latvia"
@@ -2111,7 +2112,7 @@ msgid "New Zealand"
 msgstr "New Zealand"
 
 msgid "Next Page"
-msgstr ""
+msgstr "Następna strona"
 
 msgid "Nicaragua"
 msgstr "Nicaragua"
@@ -2141,7 +2142,7 @@ msgid "No connections"
 msgstr "Brak połączeń"
 
 msgid "No data to display"
-msgstr ""
+msgstr "Brak danych do wyświetlania"
 
 msgid "No items to display"
 msgstr "Brak elementów do wyświetlenia"
@@ -2267,7 +2268,7 @@ msgid "Package information"
 msgstr "Informacja o pakiecie"
 
 msgid "Page"
-msgstr ""
+msgstr "Strona"
 
 msgid "Page not found"
 msgstr "Strony nie znaleziono"
@@ -2483,7 +2484,7 @@ msgid ""
 msgstr "Zapobiegaj przed obracaniem dysku, kiedy jest okresowo sprawdzany.<br/><ul><li>Nigdy - (sprawdź) w zależności czy urządzenie jest w trybie zasilania. To może spowodować, że urządzenie zostanie uruchomione podczas sprawdzania.</li><li>Uśpienie - Sprawdzaj urządzenie do momentu kiedy jest w trybie uśpienia.</li><li>Czuwanie - Sprawdzaj urządzenie do momentu kiedy jest w trybie uśpienia lub czuwania. W tych trybach większość dysków nie obracają się, więc jeśli chcesz zapobiec obracaniu się dysku przy każdym odpytywaniu, jest to tryb, którego potrzebujesz.</li><li>Bezczynny - Sprawdzaj urządzenie do momentu kiedy jest w trybie uśpienia, czuwania lub bezczynności. W tym stanie większość dysków obraca się ciągle, więc prawdopodobnie to nie jest to, czego potrzebujesz.</li></ul>"
 
 msgid "Previous Page"
-msgstr ""
+msgstr "Poprzednia strona"
 
 msgid "Primary"
 msgstr "Podstawowy"
@@ -3380,10 +3381,10 @@ msgid ""
 msgstr "Wymagaj połączenia SSL z panelem konfiguracyjnym, użycie dla połączeń danych nie jest wymagane."
 
 msgid "The session IP address has been changed."
-msgstr ""
+msgstr "Adres IP sesji został zmieniony"
 
 msgid "The session user no longer exists."
-msgstr ""
+msgstr "Użytkownik sesji już nie istnieje"
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3975,7 +3976,7 @@ msgid "Write/Execute"
 msgstr "Zapis/Wykonanie"
 
 msgid "Xen virtual disk device"
-msgstr ""
+msgstr "Urządzenie wirtualnego dysku XEN"
 
 msgid "Yearly"
 msgstr "Roczne"
@@ -4020,7 +4021,7 @@ msgid "n/a"
 msgstr "n/a"
 
 msgid "of {0}"
-msgstr ""
+msgstr "z {0}"
 
 msgid "old-age"
 msgstr "stary"

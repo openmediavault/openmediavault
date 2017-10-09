@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-24 20:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2017\n"
 "Language-Team: Czech (Czech Republic) (https://www.transifex.com/votdev/teams/14254/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
@@ -18,78 +19,80 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 msgid "Authentication and no privacy"
-msgstr ""
+msgstr "Ověřování a žádné soukromí"
 
 msgid "Authentication and privacy"
-msgstr ""
+msgstr "Ověřování a soukromí"
 
 msgid "Authentication passphrase"
-msgstr ""
+msgstr "Ověřovací heslová fráze"
 
 msgid "Authentication type"
-msgstr ""
+msgstr "Typ ověřování"
 
 msgid "Community"
-msgstr ""
+msgstr "Komunita (heslo)"
 
 msgid "Contact"
-msgstr ""
+msgstr "Kontakt"
 
 msgid ""
 "Contact information, e.g. name or email address of the person responsible "
 "for this system."
 msgstr ""
+"Kontaktní informace, např. jméno nebo e-mailová adresa osoby odpovědné za "
+"tento systém."
 
 msgid "Enable"
-msgstr ""
+msgstr "Zapnout"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Rozšířené předvolby"
 
 msgid "General settings"
-msgstr ""
+msgstr "Obecná nastavení"
 
 msgid "Host"
-msgstr ""
+msgstr "Stroj"
 
 msgid "Location"
-msgstr ""
+msgstr "Umístění"
 
 msgid "Location information, e.g. physical location of this system."
-msgstr ""
+msgstr "Informace o umístění, např. kde se stroj fyzicky nachází."
 
 msgid "No authentication and no privacy"
-msgstr ""
+msgstr "Žádné ověřování a soukromí"
 
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 msgid "Privacy passphrase"
-msgstr ""
+msgstr "Heslová fráze k soukromí"
 
 msgid "Privacy type"
-msgstr ""
+msgstr "Typ soukromí"
 
 msgid "SNMP"
-msgstr ""
+msgstr "SNMP"
 
 msgid "SNMP version 1/2c"
-msgstr ""
+msgstr "SNMP verze 1/2c"
 
 msgid "SNMP version 3"
-msgstr ""
+msgstr "SNMP verze 3"
 
 msgid "Security level"
-msgstr ""
+msgstr "Úroveň zabezpečení"
 
 msgid "Settings"
-msgstr ""
+msgstr "Nastavení"
 
 msgid "Traps"
-msgstr ""
+msgstr "Hlášení událostí (SNMP trap)"
 
 msgid "Username"
-msgstr ""
+msgstr "Uživatelské jméno"
 
 msgid "Version"
-msgstr ""
+msgstr " Verze"

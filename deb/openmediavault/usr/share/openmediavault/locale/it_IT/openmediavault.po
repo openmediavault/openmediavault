@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-24 21:10+0200\n"
-"PO-Revision-Date: 2017-09-24 19:10+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2017-09-27 22:48+0000\n"
+"Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/votdev/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,7 +49,7 @@ msgid "1 day"
 msgstr "1 giorno"
 
 msgid "1 minute"
-msgstr ""
+msgstr "1 minuto"
 
 msgid "1 month"
 msgstr "1 mese"
@@ -80,7 +80,7 @@ msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - Consumo di energia minimo senza standby (no spindown)"
 
 msgid "15 minutes"
-msgstr ""
+msgstr "15 minuti"
 
 msgid "15 years"
 msgstr "15 anni"
@@ -95,7 +95,7 @@ msgid "2 days"
 msgstr "2 giorni"
 
 msgid "2 minutes"
-msgstr ""
+msgstr "2 minuti"
 
 msgid "2 weeks"
 msgstr "2 settimane"
@@ -125,7 +125,7 @@ msgid "3 days"
 msgstr "3 giorni"
 
 msgid "3 minutes"
-msgstr ""
+msgstr "3 minuti"
 
 msgid "3 months"
 msgstr "3 mesi"
@@ -149,7 +149,7 @@ msgid "4 days"
 msgstr "4 giorni"
 
 msgid "4 minutes"
-msgstr ""
+msgstr "4 minuti"
 
 msgid "4 years"
 msgstr "4 anni"
@@ -441,10 +441,10 @@ msgid "Auto"
 msgstr "Auto"
 
 msgid "Auto logout"
-msgstr ""
+msgstr "Disconnessione automatica"
 
 msgid "Auto logout after the specified idle period."
-msgstr ""
+msgstr "Disconnessione automatica dopo il periodo di inattività specificato."
 
 msgid "Automatic Acoustic Management"
 msgstr "Gestione Automatica della Rumorosità"
