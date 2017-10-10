@@ -19,7 +19,15 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# Documentation/Howto:
 # https://www.freedesktop.org/software/systemd/man/systemd.mount.html
+# https://copyninja.info/blog/systemd_automount_entry.html
+# https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files
+# https://utcc.utoronto.ca/~cks/space/blog/linux/SystemdBindMountUnits
+
+# Testing:
+# systemctl cat sharedfolders-test1.mount
+# systemctl show -p Requires,After sharedfolders-test1.mount
 
 set -e
 
@@ -46,6 +54,8 @@ omv-confdbadm read "conf.system.sharedfolder" |
         cat <<EOF > ${unitfile}
 # This configuration file is auto-generated.
 [Unit]
+DefaultDependencies=no
+Conflicts=umount.target
 RequiresMountsFor=${what} ${OMV_SHAREDFOLDERS_DIR}
 
 [Mount]
@@ -55,6 +65,6 @@ Type=none
 Options=bind,nofail
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=local-fs.target
 EOF
     done;
