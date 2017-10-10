@@ -19,6 +19,13 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# Documentation/Howto:
+# https://copyninja.info/blog/systemd_automount_entry.html
+
+# Testing:
+# ls -alh /run/systemd/generator
+# cat systemctl cat export-test1.mount
+
 set -e
 
 . /etc/default/openmediavault
