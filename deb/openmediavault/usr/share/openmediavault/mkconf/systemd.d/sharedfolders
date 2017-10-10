@@ -45,6 +45,9 @@ omv-confdbadm read "conf.system.sharedfolder" |
 
         cat <<EOF > ${unitfile}
 # This configuration file is auto-generated.
+[Unit]
+RequiresMountsFor=${what} ${OMV_SHAREDFOLDERS_DIR}
+
 [Mount]
 What=${what}
 Where=${where}
