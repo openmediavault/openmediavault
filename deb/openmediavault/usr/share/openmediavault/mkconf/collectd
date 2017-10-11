@@ -73,6 +73,7 @@ EOF
 # m h dom mon dow user    command
 */${OMV_MKRRDGRAPH_INTERVAL} * * * * root ${OMV_MKRRDGRAPH} >/dev/null 2>&1
 EOF
+		chmod 644 ${OMV_COLLECTD_CRON}
 	fi
 
 	# Process the collectd plugins.
