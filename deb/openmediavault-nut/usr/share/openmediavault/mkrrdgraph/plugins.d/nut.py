@@ -20,6 +20,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import openmediavault.mkrrdgraph
 import openmediavault.subprocess
+import os
 import re
 
 class Plugin(openmediavault.mkrrdgraph.IPlugin):
@@ -147,9 +148,9 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 				openmediavault.mkrrdgraph.copy_placeholder_image(image_filename)
 
 			image_filename = '{image_dir}/nut-voltage-{period}.png'.format(**config)
-			if os.path.exists('{data_dir}/nut-{upsname}/voltage-battery.rrd'.format(**config)) and
+			if (os.path.exists('{data_dir}/nut-{upsname}/voltage-battery.rrd'.format(**config)) and
 					os.path.exists('{data_dir}/nut-{upsname}/voltage-input.rrd'.format(**config)) and
-					os.path.exists('{data_dir}/nut-{upsname}/voltage-output.rrd'.format(**config)):
+					os.path.exists('{data_dir}/nut-{upsname}/voltage-output.rrd'.format(**config))):
 				args = []
 				args.append(image_filename)
 				args.extend(config['defaults'])
@@ -184,8 +185,8 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 				args.append('GPRINT:oavg:LAST:"%4.2lf Last\l"'.format(**config))
 				args.append('COMMENT:"{last_update}"'.format(**config))
 				openmediavault.mkrrdgraph.call_rrdtool_graph(args)
-			elif os.path.exists('{data_dir}/nut-{upsname}/voltage-battery.rrd'.format(**config)) and
-					os.path.exists('{data_dir}/nut-{upsname}/voltage-input.rrd'.format(**config)):
+			elif (os.path.exists('{data_dir}/nut-{upsname}/voltage-battery.rrd'.format(**config)) and
+					os.path.exists('{data_dir}/nut-{upsname}/voltage-input.rrd'.format(**config))):
 				args = []
 				args.append(image_filename)
 				args.extend(config['defaults'])
@@ -212,8 +213,8 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 				args.append('GPRINT:iavg:LAST:"%4.2lf Last\l"'.format(**config))
 				args.append('COMMENT:"{last_update}"'.format(**config))
 				openmediavault.mkrrdgraph.call_rrdtool_graph(args)
-			elif os.path.exists('{data_dir}/nut-{upsname}/voltage-battery.rrd'.format(**config)) and
-					os.path.exists('{data_dir}/nut-{upsname}/voltage-input.rrd'.format(**config)):
+			elif (os.path.exists('{data_dir}/nut-{upsname}/voltage-battery.rrd'.format(**config)) and
+					os.path.exists('{data_dir}/nut-{upsname}/voltage-input.rrd'.format(**config))):
 				args = []
 				args.append(image_filename)
 				args.extend(config['defaults'])

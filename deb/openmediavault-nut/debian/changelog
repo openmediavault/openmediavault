@@ -1,3 +1,9 @@
+openmediavault-nut (4.0.2-1) stable; urgency=low
+
+  * Mantis 0001829: Fix bug in omv-mkrrdgraph plugin.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 15 Oct 2017 20:05:55 +0200
+
 openmediavault-nut (4.0.1-1) stable; urgency=low
 
   * Adapt to new RRD graph tool.
