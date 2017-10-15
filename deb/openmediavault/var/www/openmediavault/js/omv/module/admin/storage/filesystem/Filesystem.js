@@ -556,7 +556,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 						type: "rpcjson",
 						transform: {
 							fn: function(data) {
-								return data.data.map(function(item) {
+								data.data.map(function(item) {
 									// Convert the 'id' field value.
 									item.id = item.devicefile;
 									if (!Ext.isEmpty(item.uuid)) {
@@ -565,6 +565,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 									}
 									return item;
 								});
+								return data;
 							}
 						}
 					}
