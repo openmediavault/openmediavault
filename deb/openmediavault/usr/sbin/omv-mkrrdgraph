@@ -90,6 +90,8 @@ def main():
 	}
 	# Load the plugins.
 	plugins = load_plugins()
+	# Make sure the image directory exists.
+	os.makedirs(default_config['image_dir'], mode=0o755, exist_ok=True)
 	# Create the RRD graphs.
 	for period in ['hour', 'day', 'week', 'month', 'year']:
 		config = default_config.copy()
