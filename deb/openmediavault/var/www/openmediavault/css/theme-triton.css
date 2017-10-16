@@ -158,8 +158,10 @@ body > .x-mask {
 }
 /******************************************************************************/
 /* Grid */
+.x-grid-item-over {
+}
 .x-grid-item-focused .x-grid-cell-inner:before {
-	border-color: #5DACDF;
+	border-color: #5DACDF; /* default */
 }
 .x-grid-group-hd-collapsed .x-grid-group-title:before,
 .x-grid-group-hd-collapsible .x-grid-group-title:before {
@@ -239,21 +241,24 @@ body > .x-mask {
 /******************************************************************************/
 /* Buttons */
 .x-btn-default-small {
-	border-color: #5DACDF;
-	background-color: #5DACDF;
+	border-color: #5DACDF; /* default */
+	background-color: #5DACDF; /* default */
 }
 .x-btn-focus.x-btn-default-small {
-	border-color: #5DACDF;
-	background-color: #5DACDF;
+	border-color: #5DACDF; /* default */
+	background-color: #5DACDF; /* default */
 }
 .x-btn-over.x-btn-default-small {
 	border-color: #3B95CF; /* darker */
 	background-color: #3B95CF; /* darker */
 }
-.x-btn.x-btn-pressed.x-btn-default-small,
-.x-btn.x-btn-disabled.x-btn-default-small {
+.x-btn.x-btn-pressed.x-btn-default-small {
 	border-color: #1B7BBA; /* more darker */
 	background-color: #1B7BBA; /* more darker */
+}
+.x-btn.x-btn-disabled.x-btn-default-small {
+	border-color: #85C3EC; /* lighter */
+	background-color: #85C3EC; /* lighter */
 }
 /******************************************************************************/
 /* Checkbox */
@@ -267,20 +272,20 @@ body > .x-mask {
 /******************************************************************************/
 /* Combobox */
 .x-boundlist-item-over {
-	background: #5DACDF;
-	border-color: #5DACDF;
+	background: #85C3EC; /* lighter */
+	border-color: #85C3EC; /* lighter */
 }
 .x-boundlist-selected {
-	background: #3B95CF; /* darker */
-	border-color: #3B95CF; /* darker */
+	background: #5DACDF; /* default */
+	border-color: #5DACDF; /* default */
 }
 /******************************************************************************/
 /* Menu */
 .x-menu-item-default.x-menu-item-focus,
 .x-menu-item-default.x-menu-item-active {
-	background-color: #5DACDF;
+	background-color: #85C3EC; /* lighter */
 }
 .x-menu-item-default-menubar.x-menu-item-focus,
 .x-menu-item-default-menubar.x-menu-item-active {
-	background-color: #5DACDF;
+	background-color: #85C3EC; /* lighter */
 }
