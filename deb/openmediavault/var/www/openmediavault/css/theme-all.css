@@ -20,10 +20,12 @@
  */
 
 /******************************************************************************/
-/* Corporate colors
-/* default:     #98b7cf
-/* darker:      #829bad
-/* more darker: #6c8191
+/* Corporate colors (http://paletton.com/#uid=13v0u0kjPPS8-YpePUsofKdt2CQ)
+/* more lighter: #B9DFF8
+/* lighter:      #85C3EC
+/* default:      #5DACDF
+/* darker:       #3B95CF
+/* more darker:  #1B7BBA
 /******************************************************************************/
 
 /******************************************************************************/
@@ -50,13 +52,13 @@
 /* Login page                                                                 */
 /******************************************************************************/
 .login-page {
-	background: #98b7cf;
+	background: #5DACDF;
 }
 /******************************************************************************/
 /* Shutdown page                                                              */
 /******************************************************************************/
 .shutdown-page {
-	background: #98b7cf;
+	background: #5DACDF;
 }
 .shutdown-page .shutdown-icon {
 	position: absolute;
@@ -78,7 +80,7 @@
 .error-page {
 	font-family: "Open Sans", sans-serif;
     font-size: 14px;
-	background: #98b7cf;
+	background: #5DACDF;
 	color: #ffffff;
 }
 .error-page hr {
@@ -106,13 +108,13 @@
 /* Workspace page                                                             */
 /******************************************************************************/
 a {
-	color: #6c8191; /* more darker */
+	color: #1B7BBA; /* more darker */
 }
 div#header {
 	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	height: 80px;
-	background: #98b7cf; /* #475668, #98b7cf, #3C404B */
+	background: #5DACDF; /* #475668, #5DACDF, #3C404B */
 }
 div#headerlogo {
 	float: left;
@@ -192,7 +194,7 @@ div#headerrlogo {
 /******************************************************************************/
 /* Loadmask */
 .x-mask.x-focus {
-	border-color: #98b7cf;
+	border-color: #5DACDF;
 }
 .x-mask-msg {
 	padding: none;
@@ -412,7 +414,7 @@ div#headerrlogo {
 /******************************************************************************/
 /* Tabs */
 .x-tab-bar-default {
-	background-color: #98b7cf;
+	background-color: #5DACDF;
 }
 .x-tab-invalid {
 	border: 1px solid #cc3300;
@@ -530,7 +532,7 @@ div#headerrlogo {
 /*
 @supports ((filter: invert()) or (-webkit-filter: invert())) {
 	.x-workspace-node-tree .x-grid-body {
-		background: #98b7cf;
+		background: #5DACDF;
 	}
 	.x-workspace-node-tree .x-grid-cell {
 		background-color: transparent;
