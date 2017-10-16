@@ -14,11 +14,11 @@
    viewBox="0 0 128 128"
    id="svg4578"
    version="1.1"
-   inkscape:version="0.91 r13725"
-   sodipodi:docname="apple-touch-icon.svg"
-   inkscape:export-filename="./apple-touch-icon_180x180.png"
-   inkscape:export-xdpi="126.56"
-   inkscape:export-ydpi="126.56">
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="favicon.svg"
+   inkscape:export-filename="./favicon_180x180.png"
+   inkscape:export-xdpi="135"
+   inkscape:export-ydpi="135">
   <title
      id="title4144">OpenMediaVault logo</title>
   <defs
@@ -31,16 +31,16 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="4.7046466"
-     inkscape:cx="26.597407"
-     inkscape:cy="50.309218"
+     inkscape:cx="84.837701"
+     inkscape:cy="51.797109"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1145"
-     inkscape:window-x="0"
-     inkscape:window-y="27"
-     inkscape:window-maximized="1"
+     inkscape:window-width="1148"
+     inkscape:window-height="824"
+     inkscape:window-x="40"
+     inkscape:window-y="68"
+     inkscape:window-maximized="0"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
@@ -75,7 +75,7 @@
      id="layer1"
      transform="translate(-130.69566,-505.14818)">
     <rect
-       style="fill:#98b7cf;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#5dacdf;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4142"
        width="128"
        height="128"
