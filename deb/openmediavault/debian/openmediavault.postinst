@@ -508,9 +508,6 @@ case "$1" in
 			omv-mkconf collectd
 			deb-systemd-invoke restart collectd.service || :
 		fi
-		if dpkg --compare-versions "$2" lt-nl "4.0.6"; then
-			omv-mkconf cron
-		fi
 
 		########################################################################
 		# Show help text.

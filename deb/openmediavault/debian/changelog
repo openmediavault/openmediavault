@@ -1,7 +1,6 @@
 openmediavault (4.0.7-1) stable; urgency=low
 
   * Fix dependency order of shared folder systemd mount units.
-  * Fix permission issue of userdefined scripts executed by cron job.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 10 Oct 2017 21:41:40 +0200
 
