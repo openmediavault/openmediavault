@@ -1,5 +1,6 @@
 openmediavault-nut (4.0.2-1) stable; urgency=low
 
+  * Fix collectd configuration issue.
   * Mantis 0001829: Fix bug in omv-mkrrdgraph plugin.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 15 Oct 2017 20:05:55 +0200

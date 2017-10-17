@@ -24,9 +24,10 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_COLLECTD_CONFIG=${OMV_COLLECTD_CONFIG:-"/etc/collectd/collectd.conf"}
+OMV_COLLECTD_CONFIG_DIR=${OMV_COLLECTD_CONFIG_DIR:-"/etc/collectd/collectd.conf.d"}
 OMV_NUT_UPSD_PORT=${OMV_NUT_UPSD_PORT:-"3493"}
 
+rm -f "${OMV_COLLECTD_CONFIG_DIR}/nut.conf"
 [ "$(omv_config_get "//services/nut/enable")" = "0" ] && exit 0
 
 xmlstarlet sel -t -m "//services/nut" \
@@ -34,4 +35,4 @@ xmlstarlet sel -t -m "//services/nut" \
   -o "<Plugin nut>" -n \
   -v "concat('  UPS \"',upsname,'@localhost:${OMV_NUT_UPSD_PORT}\"')" -n \
   -o "</Plugin>" -n \
-  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_COLLECTD_CONFIG}
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > "${OMV_COLLECTD_CONFIG_DIR}/nut.conf"
