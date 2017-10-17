@@ -26,6 +26,6 @@ set -e
 
 OMV_COLLECTD_CONFIG_DIR=${OMV_COLLECTD_CONFIG_DIR:-"/etc/collectd/collectd.conf.d"}
 
-cat <<EOF >> "${OMV_COLLECTD_CONFIG_DIR}/cpu.conf"
+cat <<EOF > "${OMV_COLLECTD_CONFIG_DIR}/cpu.conf"
 LoadPlugin cpu
 EOF

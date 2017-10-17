@@ -37,7 +37,7 @@ IFACE=$(xmlstarlet sel -t \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc)
 
-cat <<EOF >> "${OMV_COLLECTD_CONFIG_DIR}/interface.conf"
+cat <<EOF > "${OMV_COLLECTD_CONFIG_DIR}/interface.conf"
 LoadPlugin interface
 <Plugin interface>
 EOF

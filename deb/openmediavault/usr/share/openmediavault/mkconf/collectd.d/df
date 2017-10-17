@@ -42,4 +42,4 @@ xmlstarlet sel -t \
   -b \
   -o "  IgnoreSelected false" -n \
   -o "</Plugin>" -n \
-  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> "${OMV_COLLECTD_CONFIG_DIR}/df.conf"
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > "${OMV_COLLECTD_CONFIG_DIR}/df.conf"
