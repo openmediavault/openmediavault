@@ -19,6 +19,11 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# Documentation/Howto:
+# http://www.postfix.org/TLS_README.html
+# https://en.wikipedia.org/wiki/SMTPS
+# http://blog.mailgun.com/25-465-587-what-port-should-i-use/
+
 set -e
 
 . /etc/default/openmediavault
@@ -35,7 +40,8 @@ OMV_POSTFIX_MAIN_SMTP_SASL_AUTH_ENABLE=${OMV_POSTFIX_MAIN_SMTP_SASL_AUTH_ENABLE:
 OMV_POSTFIX_MAIN_SMTP_SASL_SECURITY_OPTIONS=${OMV_POSTFIX_MAIN_SMTP_SASL_SECURITY_OPTIONS:-"noanonymous"}
 OMV_POSTFIX_MAIN_SMTP_SASL_PASSWORD_MAPS=${OMV_POSTFIX_MAIN_SMTP_SASL_PASSWORD_MAPS:-"/etc/postfix/sasl_passwd"}
 OMV_POSTFIX_MAIN_SMTP_SASL_MECHANISM_FILTER=${OMV_POSTFIX_MAIN_SMTP_SASL_MECHANISM_FILTER:-""}
-OMV_POSTFIX_MAIN_SMTP_TLS_SECURITY_LEVEL=${OMV_POSTFIX_MAIN_SMTP_TLS_SECURITY_LEVEL:-"may"}
+OMV_POSTFIX_MAIN_SMTP_TLS_SECURITY_LEVEL=${OMV_POSTFIX_MAIN_SMTP_TLS_SECURITY_LEVEL:-"encrypt"}
+OMV_POSTFIX_MAIN_SMTP_TLS_WRAPPERMODE=${OMV_POSTFIX_MAIN_SMTP_TLS_WRAPPERMODE:-"yes"}
 OMV_POSTFIX_MAIN_SMTP_TLS_CAFILE=${OMV_POSTFIX_MAIN_SMTP_TLS_CAFILE:-"/etc/ssl/certs/ca-certificates.crt"}
 OMV_POSTFIX_MAIN_SMTP_TLS_CAPATH=${OMV_POSTFIX_MAIN_SMTP_TLS_CAPATH:-"/etc/ssl/certs"}
 OMV_POSTFIX_MAIN_SMTP_HEADER_CHECKS=${OMV_POSTFIX_MAIN_SMTP_HEADER_CHECKS:-"/etc/postfix/smtp_header_checks"}
@@ -57,6 +63,9 @@ xmlstarlet sel -t -m "//system/email" \
     -o "smtp_sasl_mechanism_filter = ${OMV_POSTFIX_MAIN_SMTP_SASL_MECHANISM_FILTER}" -n \
   -b \
   -i "tls[. = '1']" \
+    -i "port[. = '465']" -o
+      -o "smtpd_tls_wrappermode = ${OMV_POSTFIX_MAIN_SMTP_TLS_WRAPPERMODE}" -n \
+    -b \
     -o "smtp_tls_security_level = ${OMV_POSTFIX_MAIN_SMTP_TLS_SECURITY_LEVEL}" -n \
     -o "smtp_tls_CAfile = ${OMV_POSTFIX_MAIN_SMTP_TLS_CAFILE}" -n \
     -o "smtp_tls_CApath = ${OMV_POSTFIX_MAIN_SMTP_TLS_CAPATH}" -n \
