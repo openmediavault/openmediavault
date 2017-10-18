@@ -612,8 +612,8 @@ class DatabaseQuery(metaclass=abc.ABCMeta):
 				parts.append("%s='%s'" % (filter['arg0'], enumv))
 			result = "(%s)" % " or ".join(parts)
 		elif filter['operator'] in [ '!', 'not' ]:
-			result = "not(%s)" % DatabaseGetByFilterQuery(self.model.id,
-				DatabaseFilter(filter['arg0'])).xpath
+			result = "not(%s)" % (
+				self._build_predicate(DatabaseFilter(filter['arg0'])))
 		elif filter['operator'] in [ '<', 'less' ]:
 			result = "%s<%s" % (filter['arg0'], filter['arg1'])
 		elif filter['operator'] in [ '>', 'greater' ]:
