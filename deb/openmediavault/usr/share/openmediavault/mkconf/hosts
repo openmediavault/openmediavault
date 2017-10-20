@@ -63,18 +63,10 @@ xmlstarlet sel -t \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read devicename address address6; do
-	  if [ -n "${address}" ]; then
-		  if [ -n "${alias}" ]; then
-			  echo "${address} ${fqdn} ${alias}" >> ${OMV_HOSTS_CONFIG}
-		  else
-			  echo "${address} ${fqdn}" >> ${OMV_HOSTS_CONFIG}
-		  fi
+	  if omv_is_ipaddr4 "${address}"; then
+		  echo "${address} ${fqdn} ${alias}" >> ${OMV_HOSTS_CONFIG}
 	  fi
-	  if [ -n "${address6}" ]; then
-		  if [ -n "${alias}" ]; then
-			  echo "${address6} ${fqdn} ${alias}" >> ${OMV_HOSTS_CONFIG}
-		  else
-			  echo "${address6} ${fqdn}" >> ${OMV_HOSTS_CONFIG}
-		  fi
+	  if omv_is_ipaddr6 "${address6}"; then
+		  echo "${address6} ${fqdn} ${alias}" >> ${OMV_HOSTS_CONFIG}
 	  fi
   done
