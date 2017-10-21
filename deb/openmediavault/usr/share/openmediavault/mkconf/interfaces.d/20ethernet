@@ -72,7 +72,7 @@ xmlstarlet sel -t \
 		  -i "string-length(options) > 0" \
 			  -v "concat('    pre-up ethtool -s \$IFACE ',options)" -n \
 		  -b \
-	          -v "concat('iface ',devicename,' inet6 ',method6)" -n \
+		  -v "concat('iface ',devicename,' inet6 ',method6)" -n \
 		  -i "method6 = 'manual'" \
 			  -o "    pre-down ip -6 addr flush dev \$IFACE" -n \
 		  -b \
