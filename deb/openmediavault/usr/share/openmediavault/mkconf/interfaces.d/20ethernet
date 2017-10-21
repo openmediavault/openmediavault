@@ -44,15 +44,6 @@ xmlstarlet sel -t \
           -v "concat('iface ',devicename,' inet ',method)" -n \
 		  -i "method = 'manual'" \
 			  -o "    pre-down ip -4 addr flush dev \$IFACE" -n \
-			  -i "string-length(mtu) > 0 and mtu > 0" \
-				  -v "concat('    mtu ',mtu)" -n \
-			  -b \
-			  -i "wol = 1" \
-				  -o "    pre-down ethtool -s \$IFACE wol ${OMV_INTERFACES_WOL_OPTION}" -n \
-			  -b \
-			  -i "string-length(options) > 0" \
-				  -v "concat('    pre-up ethtool -s \$IFACE ',options)" -n \
-			  -b \
 		  -b \
 		  -i "method = 'static'" \
 			  -v "concat('    address ',address)" -n \
@@ -64,7 +55,7 @@ xmlstarlet sel -t \
 		  -i "method = 'dhcp'" \
 		  -b \
 		  -i "string-length(mtu) > 0 and mtu > 0" \
-			  -v "concat('    post-up /sbin/ifconfig \$IFACE mtu ',mtu)" -n \
+			  -v "concat('    mtu ',mtu)" -n \
 		  -b \
 		  -i "string-length(dnsnameservers) > 0" \
 			  -v "concat('    dns-nameservers ',dnsnameservers)" -n \
