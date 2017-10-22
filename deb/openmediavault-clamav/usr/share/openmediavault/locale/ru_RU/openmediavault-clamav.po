@@ -205,7 +205,7 @@ msgid "Send command output via email"
 msgstr "Отправить вывод комманды по электронной почте"
 
 msgid "Send email"
-msgstr "Отпавить электронное письмо"
+msgstr "Отправить электронное письмо"
 
 msgid "Settings"
 msgstr "Настройки"
