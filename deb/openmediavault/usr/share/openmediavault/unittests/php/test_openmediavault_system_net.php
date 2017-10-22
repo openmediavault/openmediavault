@@ -44,6 +44,16 @@ class test_openmediavault_system_net extends \PHPUnit_Framework_TestCase {
 		return new NetworkInterfaceMock();
 	}
 
+	public function test_getDeviceName() {
+		$mock = $this->getNetworkInterfaceMock();
+		$this->assertEquals($mock->getDeviceName(), "ens6");
+	}
+
+	public function test_exists() {
+		$mock = $this->getNetworkInterfaceMock();
+		$this->assertTrue($mock->exists());
+	}
+
 	public function test_getIP() {
 		$mock = $this->getNetworkInterfaceMock();
 		$this->assertEquals($mock->getIP(), "192.168.121.38");
@@ -72,5 +82,15 @@ class test_openmediavault_system_net extends \PHPUnit_Framework_TestCase {
 	public function test_getMask6() {
 		$mock = $this->getNetworkInterfaceMock();
 		$this->assertEquals($mock->getMask6(), 64);
+	}
+
+	public function test_getState() {
+		$mock = $this->getNetworkInterfaceMock();
+		$this->assertEquals($mock->getState(), "UP");
+	}
+
+	public function test_isVlan() {
+		$mock = $this->getNetworkInterfaceMock();
+		$this->assertFalse($mock->isVlan());
 	}
 }
