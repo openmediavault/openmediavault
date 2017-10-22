@@ -1,6 +1,6 @@
 openmediavault (4.0.7-1) stable; urgency=low
 
-  * Get rid of package dependency net-tools.
+  * Get rid of net-tools package dependency.
   * Improve PHP \OMV\System\Net\NetworkInterface class. Add PHP unit tests.
   * Improve various postfix issues. Set smtp_tls_security_level=encrypt by
     default. and set smtpd_tls_wrappermode=yes if port is 465.
