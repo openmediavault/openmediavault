@@ -313,7 +313,7 @@ omv_exec_rpc() {
 omv_get_if() {
 	case $1 in
 	[Aa][Uu][Tt][Oo])
-		ifconfig -s | tail -n +2 | head -n 1 | awk '{print $1}'
+		ls -1 /sys/class/net | head -n 1
 		;;
 	*)
 		echo -n "$1"
