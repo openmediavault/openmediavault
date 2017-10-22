@@ -20,7 +20,8 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/functions.inc");
+require_once("openmediavault/autoloader.inc");
+require_once("openmediavault/globals.inc");
 
 class test_openmediavault_util_keyvaluefile extends \PHPUnit_Framework_TestCase {
 	public function test_space_keyvalue_delimiter() {
