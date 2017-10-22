@@ -91,8 +91,8 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			$gateway6 = $iface->getGateway6();
 			$address = $iface->getIP();
 			$address6 = $iface->getIP6();
-			$netmask = $iface->getMask();
-			$netmask6 = $iface->getMask6();
+			$netmask = $iface->getNetmask();
+			$netmask6 = $iface->getNetmask6();
 			$ether = $iface->getMAC();
 			$state = $iface->getState();
 			$speed = $iface->getSpeed();
@@ -100,6 +100,8 @@ class OMVRpcServiceNetwork extends \OMV\Rpc\ServiceAbstract {
 			$obj['gateway6'] = !$gateway6 ? "" : $gateway6;
 			$obj['address'] = !$address ? "" : $address;
 			$obj['address6'] = !$address6 ? "" : $address6;
+			$obj['prefix'] = $iface->getPrefix();
+			$obj['prefix6'] = $iface->getPrefix6();
 			$obj['netmask'] = !$netmask ? "" : $netmask;
 			$obj['netmask6'] = !$netmask6 ? -1 : $netmask6;
 			$obj['ether'] = !$ether ? "" : $ether;

@@ -44,53 +44,78 @@ class test_openmediavault_system_net extends \PHPUnit_Framework_TestCase {
 		return new NetworkInterfaceMock();
 	}
 
-	public function test_getDeviceName() {
+	public function test_getDeviceName_mocked() {
 		$mock = $this->getNetworkInterfaceMock();
 		$this->assertEquals($mock->getDeviceName(), "ens6");
 	}
 
-	public function test_exists() {
+	public function test_exists_mocked() {
 		$mock = $this->getNetworkInterfaceMock();
 		$this->assertTrue($mock->exists());
 	}
 
-	public function test_getIP() {
+	public function test_getIP_mocked() {
 		$mock = $this->getNetworkInterfaceMock();
 		$this->assertEquals($mock->getIP(), "192.168.121.38");
 	}
 
-	public function test_getIP6() {
+	public function test_getIP6_mocked() {
 		$mock = $this->getNetworkInterfaceMock();
 		$this->assertEquals($mock->getIP6(), "::ffff:192.168.121.38");
 	}
 
-	public function test_getPrefix() {
+	public function test_getPrefix_mocked() {
 		$mock = $this->getNetworkInterfaceMock();
 		$this->assertEquals($mock->getPrefix(), 24);
 	}
 
-	public function test_getPrefix6() {
+	public function test_getPrefix6_mocked() {
 		$mock = $this->getNetworkInterfaceMock();
 		$this->assertEquals($mock->getPrefix6(), 64);
 	}
 
-	public function test_getMask() {
+	public function test_getNetmask_mocked() {
 		$mock = $this->getNetworkInterfaceMock();
-		$this->assertEquals($mock->getMask(), "255.255.255.0");
+		$this->assertEquals($mock->getNetmask(), "255.255.255.0");
 	}
 
-	public function test_getMask6() {
+	public function test_getNetmask6_mocked() {
 		$mock = $this->getNetworkInterfaceMock();
-		$this->assertEquals($mock->getMask6(), 64);
+		$this->assertEquals($mock->getNetmask6(), 64);
 	}
 
-	public function test_getState() {
+	public function test_getState_mocked() {
 		$mock = $this->getNetworkInterfaceMock();
 		$this->assertEquals($mock->getState(), "UP");
 	}
 
-	public function test_isVlan() {
+	public function test_isVlan_mocked() {
 		$mock = $this->getNetworkInterfaceMock();
 		$this->assertFalse($mock->isVlan());
+	}
+
+	public function test_real_interface() {
+		$backend = new \OMV\System\Net\NetworkInterfaceBackend\Ethernet();
+		$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
+		$mngr->registerBackend($backend);
+		// Get existing devices.
+		$devs = $mngr->enumerate(OMV_NETWORK_INTERFACE_TYPE_ETHERNET);
+		$this->assertInternalType("array", $devs);
+		// Create an interface device object.
+		$netIf = $mngr->getImpl($devs[0]);
+		$this->assertInstanceOf("OMV\System\Net\NetworkInterface", $netIf);
+		// Test various methods.
+		// Assume the following:
+		// - the interface is UP
+		// - check only IPv4 method
+		$this->assertTrue($netIf->exists());
+		$this->assertInternalType("string", $netIf->getDeviceName());
+		$this->assertInternalType("string", $netIf->getIP());
+		$this->assertInternalType("int", $netIf->getPrefix());
+		$this->assertInternalType("string", $netIf->getNetmask());
+		$this->assertInternalType("string", $netIf->getMAC());
+		$this->assertInternalType("string", $netIf->getMTU());
+		$this->assertInternalType("string", $netIf->getGateway());
+		$this->assertEquals($netIf->getState(), "UP");
 	}
 }

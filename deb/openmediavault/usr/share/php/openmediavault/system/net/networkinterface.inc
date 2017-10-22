@@ -177,7 +177,7 @@ class NetworkInterface {
 	 * @return The network interface netmask, otherwise FALSE.
 	 * @throw \OMV\ExecException
 	 */
-	public function getMask() {
+	public function getNetmask() {
 		if (FALSE === ($prefix = $this->getPrefix()))
 			return FALSE;
 		return long2ip(ip2long("255.255.255.255") << (32 - $prefix));
@@ -189,9 +189,23 @@ class NetworkInterface {
 	 *   otherwise FALSE.
 	 * @throw \OMV\ExecException
 	 */
-	public function getMask6() {
+	public function getNetmask6() {
 		// ToDo: Return the real netmask and not the prefix length here.
 		return $this->getPrefix6();
+	}
+
+	/**
+	 * @deprecated Will be removed in OMV5.
+	 */
+	public function getMask() {
+		return $this->getNetmask();
+	}
+
+	/**
+	 * @deprecated Will be removed in OMV5.
+	 */
+	public function getMask6() {
+		return $this->getNetmask6();
 	}
 
 	/**
