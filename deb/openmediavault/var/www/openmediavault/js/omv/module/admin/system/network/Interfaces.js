@@ -921,6 +921,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 					  var methods = {
 						  manual: _("Disabled"),
 						  dhcp: _("DHCP"),
+						  auto: _("Auto"),
 						  static: _("Static")
 					  };
 					  return Ext.util.Format.defaultValue(methods[value], "-");
