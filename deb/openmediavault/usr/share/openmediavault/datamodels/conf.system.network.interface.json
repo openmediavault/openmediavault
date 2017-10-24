@@ -53,7 +53,8 @@
 			"type": "string"
 		},
 		"dnsnameservers": {
-			"type": "string"
+			"type": "string",
+			"pattern": "/^([^.]+\\s+)*[^.]+$/i"
 		},
 		"dnssearch": {
 			"type": "string"
