@@ -51,10 +51,12 @@
 			},
 			"dnsnameservers": {
 			   "type": "string",
+			   "pattern": "/^(\\S+[,;])*\\S+$/i",
 			   "required": true
 			},
 			"dnssearch": {
 			   "type": "string",
+			   "pattern": "/^(\\S+[,;])*\\S+$/i",
 			   "required": true
 			},
 			"mtu": {
@@ -130,10 +132,12 @@
 			},
 			"dnsnameservers": {
 			   "type": "string",
+			   "pattern": "/^(\\S+[,;])*\\S+$/i",
 			   "required": true
 			},
 			"dnssearch": {
 			   "type": "string",
+			   "pattern": "/^(\\S+[,;])*\\S+$/i",
 			   "required": true
 			},
 			"mtu": {
@@ -238,10 +242,12 @@
 			},
 			"dnsnameservers": {
 			   "type": "string",
+			   "pattern": "/^(\\S+[,;])*\\S+$/i",
 			   "required": true
 			},
 			"dnssearch": {
 			   "type": "string",
+			   "pattern": "/^(\\S+[,;])*\\S+$/i",
 			   "required": true
 			},
 			"mtu": {
@@ -327,10 +333,12 @@
 			},
 			"dnsnameservers": {
 			   "type": "string",
+			   "pattern": "/^(\\S+[,;])*\\S+$/i",
 			   "required": true
 			},
 			"dnssearch": {
 			   "type": "string",
+			   "pattern": "/^(\\S+[,;])*\\S+$/i",
 			   "required": true
 			},
 			"mtu": {
