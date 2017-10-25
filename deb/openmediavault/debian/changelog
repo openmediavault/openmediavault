@@ -2,6 +2,7 @@ openmediavault (3.0.90) stable; urgency=low
 
   * Various improvements.
   * Mantis 0001824: File System tab page 2 not accessible.
+  * Mantis 0001837: Wrong permissions of default SSL certificate.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Oct 2017 21:55:19 +0200
 
