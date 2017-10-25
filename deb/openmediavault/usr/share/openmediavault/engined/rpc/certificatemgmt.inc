@@ -160,6 +160,10 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			// The private key is required here.
 			if ($object->isEmpty("privatekey"))
 				throw new \OMV\Exception("Private key does not exist.");
+		} else {
+			$oldObject = $db->get("conf.system.certificate.ssl",
+				$object->getIdentifier());
+			$object->set("privatekey", $oldObject->get("privatekey"));
 		}
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
@@ -488,6 +492,10 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			// The private key is required here.
 			if ($object->isEmpty("privatekey"))
 				throw new \OMV\Exception("Private key does not exist.");
+		} else {
+			$oldObject = $db->get("conf.system.certificate.ssh",
+				$object->getIdentifier());
+			$object->set("privatekey", $oldObject->get("privatekey"));
 		}
 		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
