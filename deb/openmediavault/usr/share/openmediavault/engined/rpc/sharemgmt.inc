@@ -293,7 +293,8 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		if (FALSE === $object->isNew()) {
 			// Get the existing configuration object.
-			$oldObject = $db->get("conf.system.sharedfolder", $params['uuid']);
+			$oldObject = $db->get("conf.system.sharedfolder",
+				$object->getIdentifier());
 			// Copy the privileges.
 			if (FALSE === $oldObject->isEmpty("privileges"))
 				$object->set("privileges", $oldObject->get("privileges"));
