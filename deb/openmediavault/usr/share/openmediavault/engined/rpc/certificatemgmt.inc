@@ -156,6 +156,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		openssl_x509_free($certificate);
 		// Set the configuration object.
+		$db = \OMV\Config\Database::getInstance();
 		if (TRUE === $object->isNew()) {
 			// The private key is required here.
 			if ($object->isEmpty("privatekey"))
@@ -165,7 +166,6 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 				$object->getIdentifier());
 			$object->set("privatekey", $oldObject->get("privatekey"));
 		}
-		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
 		// Return the configuration object.
 		return $object->getAssoc();
@@ -488,6 +488,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			openssl_pkey_free($privatekey);
 		}
 		// Set the configuration data.
+		$db = \OMV\Config\Database::getInstance();
 		if (TRUE === $object->isNew()) {
 			// The private key is required here.
 			if ($object->isEmpty("privatekey"))
@@ -497,7 +498,6 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 				$object->getIdentifier());
 			$object->set("privatekey", $oldObject->get("privatekey"));
 		}
-		$db = \OMV\Config\Database::getInstance();
 		$db->set($object);
 		// Return the configuration object.
 		return $object->getAssoc();
