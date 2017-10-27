@@ -100,4 +100,4 @@ xmlstarlet sel -t \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_IPTABLES_CONFIG}
 
-chmod 755 ${OMV_IPTABLES_CONFIG}
+chmod 750 ${OMV_IPTABLES_CONFIG}
