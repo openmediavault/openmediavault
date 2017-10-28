@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-24 20:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: songming <by@songming.me>, 2017\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/votdev/teams/14254/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
@@ -18,78 +19,78 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Authentication and no privacy"
-msgstr ""
+msgstr "认证不加密"
 
 msgid "Authentication and privacy"
-msgstr ""
+msgstr "认证并加密"
 
 msgid "Authentication passphrase"
-msgstr ""
+msgstr "认证密钥"
 
 msgid "Authentication type"
-msgstr ""
+msgstr "认证类型"
 
 msgid "Community"
-msgstr ""
+msgstr "团体"
 
 msgid "Contact"
-msgstr ""
+msgstr "联系"
 
 msgid ""
 "Contact information, e.g. name or email address of the person responsible "
 "for this system."
-msgstr ""
+msgstr "联系信息，例如此系统的联系人姓名和电邮地址。"
 
 msgid "Enable"
-msgstr ""
+msgstr "启用"
 
 msgid "Extra options"
-msgstr ""
+msgstr "扩展选项"
 
 msgid "General settings"
-msgstr ""
+msgstr "常规设置"
 
 msgid "Host"
-msgstr ""
+msgstr "主机"
 
 msgid "Location"
-msgstr ""
+msgstr "位置"
 
 msgid "Location information, e.g. physical location of this system."
-msgstr ""
+msgstr "位置信息，例如该系统的物理位置。"
 
 msgid "No authentication and no privacy"
-msgstr ""
+msgstr "不认证不加密"
 
 msgid "Port"
-msgstr ""
+msgstr "端口"
 
 msgid "Privacy passphrase"
-msgstr ""
+msgstr "加密密钥"
 
 msgid "Privacy type"
-msgstr ""
+msgstr "加密类型"
 
 msgid "SNMP"
-msgstr ""
+msgstr "SNMP"
 
 msgid "SNMP version 1/2c"
-msgstr ""
+msgstr "SNMP 版本 1/2c"
 
 msgid "SNMP version 3"
-msgstr ""
+msgstr "SNMP 版本 3"
 
 msgid "Security level"
-msgstr ""
+msgstr "安全级别"
 
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 msgid "Traps"
-msgstr ""
+msgstr "Traps"
 
 msgid "Username"
-msgstr ""
+msgstr "用户名"
 
 msgid "Version"
-msgstr ""
+msgstr "版本"
