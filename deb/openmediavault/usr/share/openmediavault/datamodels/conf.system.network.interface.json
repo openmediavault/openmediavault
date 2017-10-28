@@ -54,11 +54,11 @@
 		},
 		"dnsnameservers": {
 			"type": "string",
-			"pattern": "/^(\\S+\\s+)*\\S+$/i"
+			"pattern": "/^((\\S+\\s+)*\\S+)?$/i"
 		},
 		"dnssearch": {
 			"type": "string",
-			"pattern": "/^(\\S+\\s+)*\\S+$/i"
+			"pattern": "/^((\\S+\\s+)*\\S+)?$/i"
 		},
 		"mtu": {
 			"type": "integer",
