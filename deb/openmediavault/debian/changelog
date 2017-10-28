@@ -1,3 +1,9 @@
+openmediavault (4.0.8-1) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 28 Oct 2017 17:18:06 +0200
+
 openmediavault (4.0.7-1) stable; urgency=low
 
   * Get rid of net-tools package dependency.
