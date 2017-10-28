@@ -100,3 +100,4 @@ find ${OMV_MONIT_CONFIG_INCLUDE_DIR} -type f -print0 | xargs -0r chmod 0600
 cat <<EOF >> ${OMV_MONIT_CONFIG}
 include ${OMV_MONIT_CONFIG_INCLUDE_DIR}/*
 EOF
+chmod 700 ${OMV_MONIT_CONFIG}
