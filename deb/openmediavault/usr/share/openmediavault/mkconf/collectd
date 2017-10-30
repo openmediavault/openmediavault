@@ -21,10 +21,8 @@
 
 # Documentation/Howto:
 # http://www.korbinian-pauli.de/artikel/mit-lm-sensors-und-rrd-cpu-und-mb-temperatur-uberwachen
-# http://www.uvm.edu/~bcodding/ticker/archives/33
 # http://blog.stefan-betz.net/2009/1/6/collectd-und-rrdtool-im-einsatz
 # http://wiki.lugbz.de/HowTo/SelfMadeMonitoring
-# https://jeremy.visser.name/2010/02/23/enable-caching-in-collectd
 # https://collectd.org/wiki/index.php/Inside_the_RRDtool_plugin
 
 # Testing:
