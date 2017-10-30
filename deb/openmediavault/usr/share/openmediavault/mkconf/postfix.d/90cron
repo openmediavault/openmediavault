@@ -34,7 +34,7 @@ if [ "$(omv_config_get "//system/email/enable")" = "0" ]; then
 # Flush the mail queue every hour if email notification is disabled.
 postsuper -d ALL
 EOF
-	chmod 755 ${OMV_POSTFIX_CRON_CONFIG}
+	chmod 750 ${OMV_POSTFIX_CRON_CONFIG}
 else
 	rm -f ${OMV_POSTFIX_CRON_CONFIG}
 fi
