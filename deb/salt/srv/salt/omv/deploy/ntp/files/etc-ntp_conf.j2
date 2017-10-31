@@ -1,0 +1,26 @@
+# /etc/ntp.conf, configuration for ntpd; see ntp.conf(5) for help
+
+driftfile /var/lib/ntp/ntp.drift
+
+# Disable the panic feature.
+tinker panic 0
+
+statistics loopstats peerstats clockstats
+filegen loopstats file loopstats type day enable
+filegen peerstats file peerstats type day enable
+filegen clockstats file clockstats type day enable
+
+server 127.127.1.0 # Local clock
+fudge 127.127.1.0 stratum 12
+
+{% for timeserver in timeservers.replace(',', ' ').replace(';', ' ').split() -%}
+server {{ timeserver }} iburst
+{% endfor %}
+
+# By default, exchange time with everybody, but do not allow configuration.
+restrict -4 default kod notrap nomodify nopeer noquery
+restrict -6 default kod notrap nomodify nopeer noquery
+
+# Local users may interrogate the ntp server more closely.
+restrict 127.0.0.1
+restrict ::1

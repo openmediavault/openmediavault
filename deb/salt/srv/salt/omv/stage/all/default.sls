@@ -1,0 +1,3 @@
+include:
+  - ..prepare
+  - ..deploy

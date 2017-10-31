@@ -1,0 +1,9 @@
+{% set options = salt['pillar.get']('default:OMV_ACPID_OPTIONS', '') -%}
+{% set modules = salt['pillar.get']('default:OMV_ACPID_MODULES', 'button') -%}
+# Options to pass to acpid
+#
+# OPTIONS are appended to the acpid command-line
+OPTIONS="{{ options }}"
+
+# Linux kernel modules to load before starting acpid
+MODULES="{{ modules }}"

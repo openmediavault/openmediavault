@@ -1,0 +1,69 @@
+{%- set ipv6_enabled = not '/proc/net/if_inet6' | is_empty_file -%}
+{%- set server_name = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SERVERNAME', 'openmediavault-webgui') -%}
+{%- set root = salt['pillar.get']('default:OMV_DOCUMENTROOT_DIR', '/var/www/openmediavault') -%}
+{%- set client_max_body_size = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_CLIENT_MAX_BODY_SIZE', '25M') -%}
+{%- set log_dir = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_LOG_DIR', '/var/log/nginx') -%}
+{%- set error_log_level = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_LOGLEVEL', 'error') -%}
+{%- set expires = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_CONTENT_EXPIRES', '2d') -%}
+{%- set fastcgi_read_timeout = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_FASTCGI_READ_TIMEOUT', '60s') -%}
+{%- set fastcgi_param_script_filename = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_FASTCGI_PARAM_SCRIPT_FILENAME', '\$document_root\$fastcgi_script_name') -%}
+{%- set ssl_cert_dir = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_DIR', '/etc/ssl') -%}
+{%- set ssl_cert_prefix = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_PREFIX', 'openmediavault') -%}
+{%- set include_dir = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR', '/etc/nginx/openmediavault-webgui.d') -%}
+{{ pillar['headers']['multiline'] }}
+server {
+    server_name {{ server_name }};
+    root {{ root }};
+    index index.php;
+    autoindex off;
+    server_tokens off;
+    sendfile on;
+    large_client_header_buffers 4 32k;
+    client_max_body_size {{ client_max_body_size }};
+    error_log {{ log_dir | path_join(server_name + '_error.log') }} {{ error_log_level }};
+    access_log {{ log_dir | path_join(server_name + '_access.log') }} combined;
+    error_page 404 = /404.php;
+    location /404.html {
+        internal;
+    }
+    location /extjs6/ {
+        alias /usr/share/javascript/extjs6/;
+        expires {{ expires }};
+    }
+    location ~ ^/(css|js|images)/ {
+        expires {{ expires }};
+    }
+    location /favicon {
+        expires 14d;
+    }
+    location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass unix:/var/run/php-fpm-openmediavault-webgui.sock;
+        fastcgi_index index.php;
+        fastcgi_read_timeout {{ fastcgi_read_timeout }};
+        include fastcgi.conf;
+        fastcgi_param SCRIPT_FILENAME {{ fastcgi_param_script_filename }};
+    }
+{%- if ipv6_enabled | to_bool %}
+    listen [::]:{{ config.port }} ipv6only=off;
+{%- else %}
+    listen {{ config.port }};
+{%- endif %}
+{%- if config.enablessl | to_bool and config.forcesslonly | to_bool %}
+      if (\$scheme = http) {
+          # Force redirection to HTTPS.
+        return 301 https://$host:{{ config.sslport }}$request_uri;
+      }
+{%- endif %}
+{%- if config.enablessl | to_bool %}
+{%- if ipv6_enabled | to_bool %}
+    listen [::]:{{ config.sslport }} ipv6only=off ssl deferred;
+{%- else %}
+    listen {{ config.sslport }} ssl deferred;
+{%- endif %}
+    ssl_certificate {{ ssl_cert_dir | path_join('certs', ssl_cert_prefix + config.sslcertificateref + '.crt') }};
+    ssl_certificate_key {{ ssl_cert_dir | path_join('private', ssl_cert_prefix + config.sslcertificateref + '.key') }};
+{%- endif %}
+    include {{ include_dir }}/*.conf;
+}

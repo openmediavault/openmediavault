@@ -1,0 +1,3 @@
+{%- if config.authentication.enable | to_bool -%}
+{{ config.server }}:{{ config.port }} {{ config.authentication.username }}:{{ config.authentication.password }}
+{%- endif -%}

@@ -1,0 +1,2 @@
+{% set detect_local = salt['pillar.get']('default:OMV_AVAHIDAEMON_DETECTLOCAL', '0') -%}
+AVAHI_DAEMON_DETECT_LOCAL={{ detect_local }}

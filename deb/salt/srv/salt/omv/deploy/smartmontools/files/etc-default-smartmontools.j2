@@ -1,0 +1,9 @@
+# Defaults for smartmontools initscript (/etc/init.d/smartmontools)
+# This is a POSIX shell fragment
+
+{% if enable -%}
+start_smartd=yes
+{% else -%}
+#start_smartd=yes
+{% endif -%}
+smartd_opts="--quit=never --interval={{ interval }}"

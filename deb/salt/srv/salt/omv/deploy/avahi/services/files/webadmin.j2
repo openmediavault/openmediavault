@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+<service-group>
+    <name replace-wildcards="yes">{{ name }}</name>
+{%- if enablessl %}
+    <service>
+        <type>_https._tcp</type>
+        <port>{{ sslport }}</port>
+        <txt-record>path=/index.php</txt-record>
+    </service>
+{%- endif %}
+{%- if not enablessl or not forcesslonly %}
+    <service>
+        <type>_http._tcp</type>
+        <port>{{ port }}</port>
+        <txt-record>path=/index.php</txt-record>
+    </service>
+{%- endif %}
+</service-group>
