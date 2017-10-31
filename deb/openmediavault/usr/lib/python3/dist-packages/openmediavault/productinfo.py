@@ -45,7 +45,9 @@ class ProductInfo(object):
 		Get the product information as Python dictionary.
 		:returns: Returns the product information as Python dictionary.
 		"""
-		return self._dict;
+		result = self._dict.copy()
+		result['version'] = self.version
+		return result;
 
 	@property
 	def name(self):
