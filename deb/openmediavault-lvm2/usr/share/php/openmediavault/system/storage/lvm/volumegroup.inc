@@ -21,6 +21,8 @@
  */
 namespace OMV\System\Storage\Lvm;
 
+require_once("openmediavault/functions.inc");
+
 /**
  * Class to handle a LVM volume group.
  */
