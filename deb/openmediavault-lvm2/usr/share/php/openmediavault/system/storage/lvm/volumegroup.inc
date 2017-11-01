@@ -21,6 +21,8 @@
  */
 namespace OMV\System\Storage\Lvm;
 
+require_once("openmediavault/functions.inc");
+
 /**
  * Class to handle a LVM volume group.
  */
@@ -195,7 +197,14 @@ class VolumeGroup {
 	 * @return Returns a device file.
 	 */
 	public function getPreferredDeviceFile() {
-		return $this->getCanonicalDeviceFile();
+		// Get the canonical device file.
+		$deviceFile = $this->getCanonicalDeviceFile();
+		// Note, if the VG does not contain a logical volume, then there
+		// is no device file. In that case simply return the /dev/xxx
+		// device file.
+		if (!is_block($deviceFile))
+			$deviceFile = $this->getDeviceFile();
+		return $deviceFile;
 	}
 
 	/**
