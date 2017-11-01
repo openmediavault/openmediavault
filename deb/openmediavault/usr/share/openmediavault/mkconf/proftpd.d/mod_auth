@@ -32,7 +32,7 @@ xmlstarlet sel -t -m "//services/ftp" \
 	  -o "<IfModule mod_auth.c>" -n \
       -o "  DefaultRoot ${OMV_PROFTPD_MODAUTH_DEFAULTROOT}" -n \
       -v "concat('  MaxClients ',maxclients)" -n \
-      -i "maxloginattempts[. > '0']" -v "concat('  MaxLoginAttempts ',maxloginattempts )" -n -b \
+      -i "maxloginattempts[. > '0']" -v "concat('  MaxLoginAttempts ',maxloginattempts)" -n -b \
       -i "requirevalidshell[. = '0']" -o "  RequireValidShell off" -n -b \
 	  -i "requirevalidshell[. = '1']" -o "  RequireValidShell on" -n -b \
       -i "rootlogin[. = '1']" -o "  RootLogin on" -n -b \
