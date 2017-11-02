@@ -49,7 +49,7 @@ xmlstarlet sel -t \
   -m "//system/network/iptables/rule" -s A:T:L family -s A:N:L rulenum \
 	  -i "family='inet'" -o "iptables" -b \
 	  -i "family='inet6'" -o "ip6tables" -b \
-	  -v "concat(' -I ',chain,' ',rulenum + 1)" \
+	  -v "concat(' -A ',chain)" \
 	  -i "starts-with(protocol,'!')" \
 		  -v "concat(' ! -p ',translate(protocol,'!',''))" \
 	  -b \
