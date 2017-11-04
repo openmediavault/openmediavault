@@ -34,7 +34,7 @@ class Btrfs extends BackendAbstract {
 	/**
 	 * See parent class definition.
 	 */
-	public function processBlkidEnumerated(array $enums) {
+	public function enumerateByBlkid(array $enums) {
 		// Sort filesystems by device names.
 		array_sort_key($enums, "devicefile");
 		// Filter filesystems with duplicate UUID, e.g. when they are

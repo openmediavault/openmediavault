@@ -83,7 +83,7 @@ abstract class BackendAbstract {
 	 * @return Returns an array of associative arrays of the processed
 	 *   filesystems.
 	 */
-	public function processBlkidEnumerated(array $enums) {
+	public function enumerateByBlkid(array $enums) {
 		return $enums;
 	}
 

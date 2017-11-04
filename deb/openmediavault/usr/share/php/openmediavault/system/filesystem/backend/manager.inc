@@ -257,7 +257,7 @@ class Manager implements \IteratorAggregate {
 				if (!is_array($blkidEnums) || empty($blkidEnums))
 					continue;
 				// Let the backend process the list of detected filesystems.
-				$enums = $backendv->processBlkidEnumerated($blkidEnums);
+				$enums = $backendv->enumerateByBlkid($blkidEnums);
 			} else {
 				// Ask the backend for filesystem candidates.
 				$enums = $backendv->enumerate();
