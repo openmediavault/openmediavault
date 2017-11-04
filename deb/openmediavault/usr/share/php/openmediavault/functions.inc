@@ -133,16 +133,16 @@ function array_keys_exists(array $keys, array $search, &$missing = NULL) {
  * Removes duplicate values from an multi-dimensional array.
  * @param array $array The array to process.
  * @param string $key The key used as filter criteria.
- * @return Returns the filtered array.
+ * @return Returns the filtered array or FALSE on failure.
  */
 function array_unique_key(array $array, $key) {
 	if (!is_multi_array($array))
-		return $array;
+		return FALSE;
 	$result = [];
-	$found = [];
+	$values = [];
 	foreach ($array as $arrayk => $arrayv) {
-		if (!in_array($arrayv[$key], $found)) {
-			$found[] = $arrayv[$key];
+		if (!in_array($arrayv[$key], $values)) {
+			$values[] = $arrayv[$key];
 			$result[] = $arrayv;
 		}
 	}

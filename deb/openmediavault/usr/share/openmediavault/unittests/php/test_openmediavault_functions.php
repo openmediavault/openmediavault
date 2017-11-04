@@ -158,10 +158,23 @@ class test_openmediavault_functions extends \PHPUnit_Framework_TestCase {
 			"a771f738"));
 	}
 
-	public function test_is_json() {
-		$this->assertTrue(is_json("{'z': [1, 2, 3], 'x': 3, 'a.b.c': 100}"));
+	public function test_is_json_1() {
+		$this->assertTrue(is_json('{"z": "test", "x": 0, "a.b.c": 123}'));
+	}
+
+	public function test_is_json_2() {
+		$this->assertTrue(is_json('{"z": [1, 2, 3], "x": 3, "a.b.c": 100}'));
+	}
+
+	public function test_is_json_fail_1() {
 		$this->assertFalse(is_json("'z': [1, 2, 3]"));
+	}
+
+	public function test_is_json_fail_2() {
 		$this->assertFalse(is_json("xyz"));
+	}
+
+	public function test_is_json_fail_3() {
 		$this->assertFalse(is_json(123));
 	}
 
@@ -188,5 +201,28 @@ class test_openmediavault_functions extends \PHPUnit_Framework_TestCase {
 		$this->assertInternalType("array", $data);
 		$k = "äöü$%#".chr(0x09).chr(0x0A).chr(0x0C).chr(0x0D);
 		$this->assertEquals($data['k'], $k);
+	}
+
+	public function test_array_unique_key() {
+		$d = [
+			['id' => 3, 'text' => 'c'],
+			['id' => 1, 'text' => 'a'],
+			['id' => 2, 'text' => 'c'],
+			['id' => 4, 'text' => 'b'],
+			['id' => 5, 'text' => 'b']
+		];
+		$d = array_unique_key($d, "text");
+		$this->assertInternalType("array", $d);
+		$this->assertEquals($d, [
+			['id' => 3, 'text' => 'c'],
+			['id' => 1, 'text' => 'a'],
+			['id' => 4, 'text' => 'b']
+		]);
+	}
+
+	public function test_array_unique_key_fail() {
+		$d = array_unique_key([1, 2, 3], "text");
+		$this->assertInternalType("bool", $d);
+		$this->assertFalse($d);
 	}
 }
