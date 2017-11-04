@@ -95,7 +95,7 @@ function array_sort_key(array &$array, $key) {
 /**
  * Filter an array of by key and values.
  * @ingroup api
- * @param array $array The array to sort.
+ * @param array $array The array to process.
  * @param string $key The key used as filter criteria.
  * @param string $value The value used as filter criteria.
  * @return Returns the filtered array.
