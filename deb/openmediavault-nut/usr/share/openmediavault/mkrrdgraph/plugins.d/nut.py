@@ -42,10 +42,14 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 		})
 		# Get the UPS' from the collectd configuration file.
 		# Note, we assume that only ONE UPS is configured.
-		upsnames = openmediavault.mkrrdgraph.load_collectd_config(
+		# Examples:
+		# upsname@hostname[:port]
+		# myups@localhost:3493
+		ups_configs = openmediavault.mkrrdgraph.load_collectd_config(
 			'nut', 'UPS')
-		for upsname in upsnames:
-			m = re.match(r'^(\S+)@(\S+):(\d+)$'.format(plugin_name), upsname)
+		for ups_config in ups_configs:
+			# Get the configuration name of the UPS.
+			m = re.match(r'^(\S+)@(\S+):(\d+)$', ups_config)
 			if not m:
 				continue
 			config['upsname'] = m[1]
