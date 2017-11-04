@@ -198,7 +198,7 @@ class Manager implements \IteratorAggregate {
 	 */
 	final public function enumerate() {
 		$result = [];
-		$blkidEnums = [];
+		$blkidEnumsByType = [];
 		// Get all file systems that are identified by the block device
 		// identification library.
 		// !!! Note !!!
@@ -253,20 +253,20 @@ class Manager implements \IteratorAggregate {
 				continue;
 			// Append the found filesystem to the list for further processing.
 			$type = $backend->getType();
-			if (!array_key_exists($type, $blkidEnums))
-				$blkidEnums[$type] = [];
-			$blkidEnums[$type][] = $data;
+			if (!array_key_exists($type, $blkidEnumsByType))
+				$blkidEnumsByType[$type] = [];
+			$blkidEnumsByType[$type][] = $data;
 		}
 		// Post process the filesystem identified by the block device
 		// identification library.
 		foreach ($this->map as $backendk => $backendv) {
 			if (FALSE === $backendv->isBlkidEnumerated())
 				continue;
-			$filesystems = $blkidEnums[$backendv->getType()];
-			if (!is_array($filesystems) || empty($filesystems))
+			$blkidEnums = $blkidEnumsByType[$backendv->getType()];
+			if (!is_array($blkidEnums) || empty($blkidEnums))
 				continue;
 			$result = array_merge($result, $backendv->postBlkidEnumerate(
-				$filesystems));
+				$blkidEnums));
 		}
 		// Get the filesystems that are not identified by the block device
 		// identification library.
