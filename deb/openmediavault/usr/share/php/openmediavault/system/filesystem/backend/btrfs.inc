@@ -37,7 +37,12 @@ class Btrfs extends BackendAbstract {
 	public function postBlkidEnumerate(array $filesystems) {
 		// Sort filesystems by device names.
 		array_sort_key($filesystems, "devicefile");
-		// Filter filesystems with duplicate UUID.
+		// Filter filesystems with duplicate UUID, e.g. when they are
+		// used in a RAID. Because of the previous sorting always the
+		// lower device is used.
+		// The following example of a RAID1 will return /dev/sdk.
+		// /dev/sdk: LABEL="TestFS" UUID="b7adba40-b980-4067-b33c-dd5c8ee17044" UUID_SUB="7b19094b-e7df-4a3e-a3db-57e2d4c548b3" TYPE="btrfs"
+		// /dev/sdl: LABEL="TestFS" UUID="b7adba40-b980-4067-b33c-dd5c8ee17044" UUID_SUB="ba1e2b16-5022-4cbd-ad35-6d609e9560e9" TYPE="btrfs"
 		return array_unique_key($filesystems, "uuid");
 	}
 
