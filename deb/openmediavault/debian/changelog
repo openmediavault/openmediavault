@@ -1,6 +1,7 @@
 openmediavault (4.0.9-1) stable; urgency=low
 
   * Various improvements.
+  * Mantis 0001844: BTRFS RAID filesystems shows twice in OMV filesystems view.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 31 Oct 2017 17:05:47 +0100
 

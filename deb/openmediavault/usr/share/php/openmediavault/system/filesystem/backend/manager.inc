@@ -198,6 +198,7 @@ class Manager implements \IteratorAggregate {
 	 */
 	final public function enumerate() {
 		$result = [];
+		$blkidEnums = [];
 		// Get all file systems that are identified by the block device
 		// identification library.
 		// !!! Note !!!
@@ -221,6 +222,8 @@ class Manager implements \IteratorAggregate {
 			// /dev/sr0: LABEL="Debian 7.5.0 amd64 1" TYPE="iso9660"
 			// /dev/sr0: UUID="2015-04-25-12-52-13-00" LABEL="Debian 8.0.0 amd64 1" TYPE="iso9660" PTUUID="5e97595e" PTTYPE="dos"
 			// /dev/sda1: LABEL="Music" UUID="54AF-0252" TYPE="exfat"
+			// /dev/sdk: LABEL="TestFS" UUID="b7adba40-b980-4067-b33c-dd5c8ee17044" UUID_SUB="7b19094b-e7df-4a3e-a3db-57e2d4c548b3" TYPE="btrfs"
+			// /dev/sdl: LABEL="TestFS" UUID="b7adba40-b980-4067-b33c-dd5c8ee17044" UUID_SUB="ba1e2b16-5022-4cbd-ad35-6d609e9560e9" TYPE="btrfs"
 			$regex = '/^(\S+):\s*(.+)$/i';
 			unset($matches);
 			if (1 !== preg_match($regex, $outputv, $matches))
@@ -248,7 +251,22 @@ class Manager implements \IteratorAggregate {
 			// block device identification library.
 			if (FALSE === $backend->isBlkidEnumerated())
 				continue;
-			$result[] = $data;
+			// Append the found filesystem to the list for further processing.
+			$type = $backend->getType();
+			if (!array_key_exists($type, $blkidEnums))
+				$blkidEnums[$type] = [];
+			$blkidEnums[$type][] = $data;
+		}
+		// Post process the filesystem identified by the block device
+		// identification library.
+		foreach ($this->map as $backendk => $backendv) {
+			if (FALSE === $backendv->isBlkidEnumerated())
+				continue;
+			$filesystems = $blkidEnums[$backendv->getType()];
+			if (!is_array($filesystems) || empty($filesystems))
+				continue;
+			$result = array_merge($result, $backendv->postBlkidEnumerate(
+				$filesystems));
 		}
 		// Get the filesystems that are not identified by the block device
 		// identification library.

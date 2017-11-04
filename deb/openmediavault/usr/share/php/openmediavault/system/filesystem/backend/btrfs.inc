@@ -34,6 +34,16 @@ class Btrfs extends BackendAbstract {
 	/**
 	 * See parent class definition.
 	 */
+	public function postBlkidEnumerate(array $filesystems) {
+		// Sort filesystems by device names.
+		array_sort_key($filesystems, "devicefile");
+		// Filter filesystems with duplicate UUID.
+		return array_unique_key($filesystems, "uuid");
+	}
+
+	/**
+	 * See parent class definition.
+	 */
 	public function getFstabMntOptions(
 	  \OMV\System\Storage\StorageDevice $sd = null) {
 		$options = parent::getFstabMntOptions($sd);

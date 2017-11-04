@@ -130,6 +130,26 @@ function array_keys_exists(array $keys, array $search, &$missing = NULL) {
 }
 
 /**
+ * Removes duplicate values from an multi-dimensional array.
+ * @param array $array The array to process.
+ * @param string $key The key used as filter criteria.
+ * @return Returns the filtered array.
+ */
+function array_unique_key(array $array, $key) {
+	if (!is_multi_array($array))
+		return $array;
+	$result = [];
+	$found = [];
+	foreach ($array as $arrayk => $arrayv) {
+		if (!in_array($arrayv[$key], $found)) {
+			$found[] = $arrayv[$key];
+			$result[] = $arrayv;
+		}
+	}
+	return $result;
+}
+
+/**
  * Convert an object to an array.
  * @ingroup api
  * @param object $object The object instance.

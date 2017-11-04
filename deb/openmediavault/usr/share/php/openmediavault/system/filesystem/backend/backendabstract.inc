@@ -75,6 +75,16 @@ abstract class BackendAbstract {
 	}
 
 	/**
+	 * Post process the detected filesystems that are identified by the block
+	 * device identification library.
+	 * @param filesystems An array of dictionaries of the detected filesystems.
+	 * @return The processed filesystems array.
+	 */
+	public function postBlkidEnumerate(array $filesystems) {
+		return $filesystems;
+	}
+
+	/**
 	 * Check whether the given filesystem identifier is represented by this
 	 * filesystem backend.
 	 * @param id The filesystem identifier (e.g. UUID or device path), e.g.
