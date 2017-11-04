@@ -243,50 +243,33 @@ class Manager implements \IteratorAggregate {
 					continue;
 				$data[strtolower($keyValue[0])] = substr($keyValue[1], 1, -1);
 			}
-			// Get the backend implementation. If the backend exists, then
-			// we are sure this filesystem is supported by this framework.
-			if (NULL == ($backend = $this->getBackendByType($data['type'])))
-				continue;
-			// Skip this backend if the filesystem is not detected via the
-			// block device identification library.
-			if (FALSE === $backend->isBlkidEnumerated())
-				continue;
 			// Append the found filesystem to the list for further processing.
-			$type = $backend->getType();
-			if (!array_key_exists($type, $blkidEnumsByType))
-				$blkidEnumsByType[$type] = [];
-			$blkidEnumsByType[$type][] = $data;
+			if (!array_key_exists($data['type'], $blkidEnumsByType))
+				$blkidEnumsByType[$data['type']] = [];
+			$blkidEnumsByType[$data['type']][] = $data;
 		}
-		// Post process the filesystem identified by the block device
-		// identification library.
+		// Now process all filesystems that are supported.
 		foreach ($this->map as $backendk => $backendv) {
-			if (FALSE === $backendv->isBlkidEnumerated())
-				continue;
-			$blkidEnums = $blkidEnumsByType[$backendv->getType()];
-			if (!is_array($blkidEnums) || empty($blkidEnums))
-				continue;
-			$result = array_merge($result, $backendv->postBlkidEnumerate(
-				$blkidEnums));
-		}
-		// Get the filesystems that are not identified by the block device
-		// identification library.
-		foreach ($this->map as $backendk => $backendv) {
-			// Skip this backend if the filesystem is detected via the block
-			// device identification library.
-			if (TRUE === $backendv->isBlkidEnumerated())
-				continue;
-			// Ask the backend implementation for candidates.
-			$enums = $backendv->enumerate();
-			if (FALSE === is_array($enums))
-				continue;
+			$enums = [];
+			if (TRUE === $backendv->isBlkidEnumerated()) {
+				// Get the filesystems that are processed by this backend.
+				$blkidEnums = $blkidEnumsByType[$backendv->getType()];
+				if (!is_array($blkidEnums) || empty($blkidEnums))
+					continue;
+				// Let the backend process the list of detected filesystems.
+				$enums = $backendv->processBlkidEnumerated($blkidEnums);
+			} else {
+				// Ask the backend for filesystem candidates.
+				$enums = $backendv->enumerate();
+			}
+			// Validate the filesystems to ensure that the associative
+			// array/dictionary contains at least the required fields.
 			foreach ($enums as $enumk => $enumv) {
-				// Validate the returned data to ensure the array/dictionary
-				// contains the required fields.
-				$keys = ['devicefile', 'uuid', 'label', 'type'];
-				if (!array_keys_exists($keys, $enumv)) {
+				$requiredKeys = ['devicefile', 'uuid', 'label', 'type'];
+				if (!array_keys_exists($requiredKeys, $enumv)) {
 					throw new \UnexpectedValueException(sprintf(
 						"The array does not contain the required keys %s.",
-						implode(", ", $keys)));
+						implode(", ", $requiredKeys)));
 				}
 				$result[] = $enumv;
 			}
