@@ -1,3 +1,9 @@
+openmediavault (4.0.10-1) stable; urgency=low
+
+  * Send notification email if a mount point is missing.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 05 Nov 2017 21:26:53 +0100
+
 openmediavault (4.0.9-1) stable; urgency=low
 
   * Various improvements.
