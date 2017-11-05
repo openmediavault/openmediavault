@@ -707,7 +707,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 		//	$cmdArgs[] = sprintf("--source %s", escapeshellarg(
 		//		$this->getDeviceFile()));
 		$cmdArgs[] = sprintf("--source %s", escapeshellarg(
-			$this->getDeviceFile()));
+			$this->getPredictableDeviceFile()));
 		if (!empty($dir))
 			$cmdArgs[] = escapeshellarg($dir);
 		$cmd = new \OMV\System\Process("mount", $cmdArgs);
@@ -729,7 +729,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 			$cmdArgs[] = "-f";
 		if (TRUE === $lazy)
 			$cmdArgs[] = "-l";
-		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
+		$cmdArgs[] = escapeshellarg($this->getPredictableDeviceFile());
 		$cmd = new \OMV\System\Process("umount", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute();
