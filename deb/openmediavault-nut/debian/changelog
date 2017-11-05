@@ -1,3 +1,9 @@
+openmediavault-nut (4.0.4-1) stable; urgency=low
+
+  * Fix bug in omv-mkrrdgraph plugin.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 05 Nov 2017 19:56:01 +0100
+
 openmediavault-nut (4.0.3-1) stable; urgency=low
 
   * Fix bug in omv-mkrrdgraph plugin.

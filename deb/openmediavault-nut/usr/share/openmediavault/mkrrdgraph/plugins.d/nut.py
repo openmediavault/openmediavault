@@ -52,7 +52,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 			m = re.match(r'^(\S+)@(\S+):(\d+)$', ups_config)
 			if not m:
 				continue
-			config['upsname'] = m[1]
+			config['upsname'] = m.group(1)
 
 			image_filename = '{image_dir}/nut-charge-{period}.png'.format(**config)
 			if os.path.exists('{data_dir}/nut-{upsname}/percent-charge.rrd'.format(**config)):
