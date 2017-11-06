@@ -49,6 +49,9 @@ OMV_POSTFIX_MAIN_TRANSPORT_MAPS=${OMV_POSTFIX_MAIN_TRANSPORT_MAPS:-"/etc/postfix
 
 # Create '/etc/postfix/main.cf' configuration file.
 xmlstarlet sel -t -m "//system/email" \
+  -m "//system/network/dns" \
+    -i "string-length(domainname) > 0" -v "concat('mydomain = ',domainname)" -n -b \
+  -b \
   -o "mydestination = ${OMV_POSTFIX_MAIN_MYDESTINATION}" -n \
   -o "inet_interfaces = ${OMV_POSTFIX_MAIN_INET_INTERFACES}" -n \
   -v "concat('relayhost = ',server,':',port)" -n \
