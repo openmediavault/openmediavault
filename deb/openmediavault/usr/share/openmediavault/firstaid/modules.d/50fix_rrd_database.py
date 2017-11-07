@@ -24,6 +24,7 @@ import glob
 import datetime
 import dialog
 import openmediavault
+import openmediavault.config.database
 import openmediavault.firstaid
 import openmediavault.subprocess
 
@@ -39,7 +40,13 @@ class Module(openmediavault.firstaid.IModule):
 		rrd_files = glob.glob(os.path.join(path, "localhost",
 			"*", "*.rrd"))
 		invalid = 0
-		openmediavault.subprocess.check_call([ "monit", "stop", "rrdcached" ])
+		# Get the performance statistics configuration?
+		db = openmediavault.config.Database()
+		obj = db.get("conf.system.monitoring.perfstats")
+		# Disable rrdcached if performance stats are enabled.
+		if obj.get("enable"):
+			openmediavault.subprocess.check_call(
+				["monit", "stop", "rrdcached"])
 		for rrd_file in rrd_files:
 			ts_last = int(openmediavault.subprocess.check_output(
 				[ "rrdtool", "last", rrd_file ]).decode())
@@ -63,7 +70,10 @@ class Module(openmediavault.firstaid.IModule):
 		else:
 			print("{} invalid RRD database files were removed.".format(
 				invalid))
-		openmediavault.subprocess.call([ "monit", "start", "rrdcached" ])
+		# Re-enable rrdcached if performance stats are enabled.
+		if obj.get("enable"):
+			openmediavault.subprocess.check_call(
+				["monit", "start", "rrdcached"])
 		return 0
 
 if __name__ == "__main__":
