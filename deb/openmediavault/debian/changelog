@@ -86,6 +86,7 @@ openmediavault (3.0.92) stable; urgency=low
 
   * Fix issue in omv-firstaid 'Check RRD database' when performance statistics
     are disabled.
+  * Fix time zone configuration issue.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 07 Nov 2017 07:20:17 +0100
 

@@ -26,5 +26,9 @@ set -e
 
 OMV_TIMEZONE_CONFIG=${OMV_TIMEZONE_CONFIG:-"/etc/timezone"}
 
+# Write the '/etc/timezone' file.
 xmlstarlet sel -t -v "//system/time/timezone" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_TIMEZONE_CONFIG}
+
+# Create '/etc/localtime' symlink.
+ln -nsf "/usr/share/zoneinfo/$(cat ${OMV_TIMEZONE_CONFIG})" /etc/localtime
