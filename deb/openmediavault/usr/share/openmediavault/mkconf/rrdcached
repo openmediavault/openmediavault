@@ -57,7 +57,7 @@ BASE_PATH=${OMV_RRDCACHED_BASEDIR}
 JOURNAL_PATH=${OMV_RRDCACHED_JOURNALDIR}
 
 # FHS standard placement for process ID file.
-PIDFILE=/var/run/rrdcached.pid
+PIDFILE=${OMV_RRDCACHED_PIDFILE}
 
 # FHS standard placement for local control socket.
 SOCKFILE=${OMV_RRDCACHED_SOCKETFILE}
