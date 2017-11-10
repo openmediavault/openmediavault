@@ -37,18 +37,18 @@ xmlstarlet sel -t \
 	  # Get the device file from the given filesystem UUID.
 	  devicefile=$(blkid -U ${fsuuid}) || true
 	  if [ -n "${devicefile}" ]; then
+		  # Turn filesystem quotas off.
+		  quotaoff -gu ${devicefile}
+		  # Check if there exists any user or group quota, otherwise it is not
+		  # necessary to turn on quota for this filesystem.
+		  quotaon=$(xmlstarlet sel -t -m "//system/storage/filesystem/quota[uuid='${uuid}']" \
+			-i "count(usrquota) > 0 or count(grpquota) > 0" -o "1" -b \
+			-i "count(usrquota) = 0 and count(grpquota) = 0" -o "0" -b \
+			${OMV_CONFIG_FILE})
+		  [ ${quotaon} -eq 0 ] && continue;
 		  # Get the filesystem type, e.g. ext4 or xfs.
 		  fstype=$(blkid -o value -s TYPE ${devicefile})
-			  # Turn filesystem quotas off.
-			  quotaoff -gu ${devicefile}
-			  # Check if there exists any user or group quota, otherwise it is not
-			  # necessary to turn on quota for this filesystem.
-			  quotaon=$(xmlstarlet sel -t -m "//system/storage/filesystem/quota[uuid='${uuid}']" \
-				-i "count(usrquota) > 0 or count(grpquota) > 0" -o "1" -b \
-				-i "count(usrquota) = 0 and count(grpquota) = 0" -o "0" -b \
-				${OMV_CONFIG_FILE})
-			  [ ${quotaon} -eq 0 ] && continue;
-			  # Create the quota files.
+		  # Create the quota files.
 		  case ${fstype} in
 		  xfs|XFS)
 		      # XFS considers quota information as filesystem metadata, thus
