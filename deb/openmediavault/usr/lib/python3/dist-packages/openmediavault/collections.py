@@ -76,7 +76,7 @@ class DotDict(dict):
 		return default
 
 	def __getitem__(self, key):
-		matches = re.match(r'(\w+)\[(\d+)\](.(\w+))?', key)
+		matches = re.match(r'(\w+)\[(\d+)\](.(\S+))?', key)
 		if not matches is None:
 			first = matches.group(1)
 			index = int(matches.group(2))
@@ -115,7 +115,7 @@ class DotDict(dict):
 	__getattr__ = __getitem__
 
 	def __setitem__(self, key, value):
-		matches = re.match(r'(\w+)\[(\d+)\](.(\w+))?', key)
+		matches = re.match(r'(\w+)\[(\d+)\](.(\S+))?', key)
 		if not matches is None:
 			first = matches.group(1)
 			index = int(matches.group(2))
@@ -135,7 +135,7 @@ class DotDict(dict):
 		elif not key is None and "." in key:
 			first, rest = key.split(".", 1)
 			# Is it a list?
-			matches = re.match(r'(\d+)(.(\w+))?', rest)
+			matches = re.match(r'(\d+)(.(\S+))?', rest)
 			if not matches:
 				branch = self.setdefault(first, DotDict())
 			else:
@@ -169,7 +169,7 @@ class DotDict(dict):
 	__setattr__ = __setitem__
 
 	def __contains__(self, key):
-		matches = re.match(r'(\w+)\[(\d+)\](.(\w+))?', key)
+		matches = re.match(r'(\w+)\[(\d+)\](.(\S+))?', key)
 		if not matches is None:
 			first = matches.group(1)
 			index = int(matches.group(2))
