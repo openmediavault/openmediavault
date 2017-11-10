@@ -80,6 +80,14 @@ class DotDictTestCase(unittest.TestCase):
 		d = self._get_dict()
 		self.assertEqual(d.y.z[0].bb, "2")
 
+	def test_9(self):
+		d = self._get_dict()
+		self.assertEqual(d['k.2'], "o")
+
+	def test_10(self):
+		d = self._get_dict()
+		self.assertEqual(d.k[2], "o")
+
 	def test_in(self):
 		d = self._get_dict()
 		self.assertTrue("a.b.c" in d)
@@ -118,6 +126,27 @@ class DotDictTestCase(unittest.TestCase):
 		d["jobs.job[0].enable"] = False
 		self.assertEqual(d["jobs.job"], [{'acls': 0, 'comment': '',
 			'enable': False}])
+
+	def test_set_6(self):
+		d = openmediavault.collections.DotDict({'modules': {'module': []}})
+		self.assertIsInstance(d.modules, object)
+		self.assertIsInstance(d['modules.module'], list)
+		d['modules.module[0]'] = {
+			'enable': False,
+			'readonly': True,
+			'users': {
+				'user': []
+			}
+		}
+		self.assertIsInstance(d['modules.module.0.users'], object)
+		self.assertIsInstance(d.modules.module[0].users.user, list)
+		self.assertEqual(len(d.modules.module[0].users.user), 0)
+		d['modules.module.0.users.user.0.name'] = "user01"
+		d['modules.module.0.users.user.0.password'] = "test"
+		self.assertIsInstance(d['modules.module.0.users'], object)
+		self.assertIsInstance(d['modules.module[0].users.user'], list)
+		self.assertEqual(len(d.modules.module[0].users.user), 1)
+		self.assertIsInstance(d['modules.module.0.users.user[0].name'], str)
 
 	def test_flatten(self):
 		d = self._get_dict()
