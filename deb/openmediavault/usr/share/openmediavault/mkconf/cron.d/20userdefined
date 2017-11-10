@@ -29,15 +29,16 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_CRONTAB_CRONSCRIPTS_DIR=${OMV_CRONTAB_CRONSCRIPTS_DIR:-"/var/lib/openmediavault/cron.d"}
+OMV_CRONSCRIPTS_DIR=${OMV_CRONSCRIPTS_DIR:-"/var/lib/openmediavault/cron.d"}
+
 OMV_CRONTAB_CRONSCRIPTS_MASK=${OMV_CRONTAB_CRONSCRIPTS_MASK:-"755"}
 OMV_CRONTAB_USERDEFINED_CONFIG=${OMV_CRONTAB_USERDEFINED_CONFIG:-"/etc/cron.d/openmediavault-userdefined"}
 OMV_CRONTAB_USERDEFINED_PREFIX=${OMV_CRONTAB_USERDEFINED_PREFIX:-"userdefined-"}
 
 # Create the user-defined cron jobs. Each job is configured in a seperate
 # script.
-mkdir -p ${OMV_CRONTAB_CRONSCRIPTS_DIR}
-find "${OMV_CRONTAB_CRONSCRIPTS_DIR}" -type f -iname "${OMV_CRONTAB_USERDEFINED_PREFIX}*" -print0 | xargs -0r rm -f
+mkdir -p ${OMV_CRONSCRIPTS_DIR}
+find "${OMV_CRONSCRIPTS_DIR}" -type f -iname "${OMV_CRONTAB_USERDEFINED_PREFIX}*" -print0 | xargs -0r rm -f
 
 # Create the user defined scripts.
 xmlstarlet sel -t \
@@ -46,7 +47,7 @@ xmlstarlet sel -t \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read uuid; do
-	  filename="${OMV_CRONTAB_CRONSCRIPTS_DIR}/${OMV_CRONTAB_USERDEFINED_PREFIX}${uuid}"
+	  filename="${OMV_CRONSCRIPTS_DIR}/${OMV_CRONTAB_USERDEFINED_PREFIX}${uuid}"
 	  xmlstarlet sel -t -m "//system/crontab/job[uuid='${uuid}']" \
 		-o "#!/bin/sh" -n \
 		-o "# This configuration file is auto-generated." -n \
@@ -74,7 +75,7 @@ xmlstarlet sel -t \
     -i "execution[. != 'exactly']" \
       -v "concat('@',execution)" \
     -b \
-    -v "concat(' ',username,' ${OMV_CRONTAB_CRONSCRIPTS_DIR}/${OMV_CRONTAB_USERDEFINED_PREFIX}',uuid)" \
+    -v "concat(' ',username,' ${OMV_CRONSCRIPTS_DIR}/${OMV_CRONTAB_USERDEFINED_PREFIX}',uuid)" \
 	-i "sendemail[. = '0']" \
 	  -o " >/dev/null 2>&1" \
 	-b \
