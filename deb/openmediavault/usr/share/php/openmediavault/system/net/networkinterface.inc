@@ -35,7 +35,7 @@ class NetworkInterface {
 		"ipv4" => '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}',
 		"ipv4cidr" => '(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\/(\d{1,2})',
 		"ipv6" => '[a-f0-9:.]+',
-		"ipv6cidr" => '([a-f0-9:.]+)\/(\d{1,2})',
+		"ipv6cidr" => '([a-f0-9:.]+)\/(\d{1,3})',
 		"state" => 'UP|DOWN|UNKNOWN'
 	];
 
