@@ -88,6 +88,8 @@ openmediavault (3.0.92) stable; urgency=low
     are disabled.
   * Fix time zone configuration issue.
   * Fix bug in omv.collections.DotDict class.
+  * Fix IPv6 regular expression. Now IPv6 addresses are displayed in the
+    dashboard widget.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 07 Nov 2017 07:20:17 +0100
 
