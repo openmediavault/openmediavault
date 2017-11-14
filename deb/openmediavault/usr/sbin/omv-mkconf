@@ -29,7 +29,7 @@ __args = []
 def list_scripts():
 	scripts_dir = openmediavault.getenv('OMV_MKCONF_SCRIPTS_DIR');
 	names = [ name for name in os.listdir(scripts_dir) if os.path.isfile(
-	  os.path.join(scripts_dir, name)) ]
+		os.path.join(scripts_dir, name)) ]
 	names.sort()
 	print("\n".join(names))
 
