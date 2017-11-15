@@ -41,8 +41,7 @@ Ext.define("OMV.WorkspaceManager", {
 			path: "/",
 			text: _("Overview"),
 			leaf: false,
-			icon16: "images/home.png",
-			iconSvg: "images/home.svg"
+			iconCls: "x-fa fa-home"
 		});
 	},
 

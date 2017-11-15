@@ -377,9 +377,6 @@ div#headerrlogo {
 	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
 	opacity: 0.7;
 }
-.x-btn-icon-el.x-fa {
-	color: #000000;
-}
 .x-btn-icon-16x16 {
 	background-size: 16px 16px;
 }
@@ -447,9 +444,6 @@ div#headerrlogo {
 	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
 	opacity: 0.7;
 }
-.x-menu-item-icon.x-fa {
-	color: #000000;
-}
 .x-menu-item-icon-16x16 {
 	background-size: 16px 16px;
 }
@@ -495,9 +489,10 @@ div#headerrlogo {
 	padding: 5px;
 	padding-bottom: 0;
 }
-.x-workspace-node-view-category-items .thumb-wrap .thumb img {
+.x-workspace-node-view-category-items .thumb-wrap .thumb .thumb-icon {
 	height: 32px;
 	width: 32px;
+	display: inline-block;
 }
 .x-workspace-node-view-category-items .thumb-wrap {
 	float: left;
@@ -586,6 +581,20 @@ div#headerrlogo {
 	border: 0 none;
 	font-size: 11px;
 	margin: 1px 1px 1px 1px;
+}
+/******************************************************************************/
+/* Font Awesome icons */
+.x-fa {
+	color: #000000;
+}
+.x-workspace-node-tree .x-fa,
+.x-workspace-navigation-toolbar .x-fa {
+	font-size: 18px;
+}
+.x-workspace-node-view-category-items .x-fa {
+	font-size: 36px;
+	font-style: normal;
+	vertical-align: middle;
 }
 /******************************************************************************/
 /* Bugfixes/Workarounds

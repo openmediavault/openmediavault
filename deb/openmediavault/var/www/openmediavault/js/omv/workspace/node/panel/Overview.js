@@ -145,7 +145,7 @@ Ext.define("OMV.workspace.node.panel.Overview", {
 								'<tpl for=".">',
 									'<tpl if="this.isRenderNode(values)">',
 										'<div class="thumb-wrap" id="{internalId}">',
-											'<div class="thumb"><img src="{[this.renderIcon(values)]}" title="{[this.renderText(values)]}"></div>',
+											'<div class="thumb">{[this.renderIcon(values)]}</div>',
 											'<span>{[this.renderText(values)]}</span>',
 										'</div>',
 									'</tpl>',
@@ -161,7 +161,16 @@ Ext.define("OMV.workspace.node.panel.Overview", {
 										  node.getText());
 									},
 									renderIcon: function(node) {
-										return node.getProperIcon32();
+										var html = Ext.String.format(
+											"<div class='thumb-icon'><i class='{0}'></i></div>",
+											node.getIconCls());
+										if (Ext.isEmpty(node.iconCls) && node.hasIcon(
+												"svg|raster32")) {
+											html = Ext.String.format(
+												"<img class='thumb-icon' src='{0}'>",
+												node.getProperIcon32());
+										}
+										return html;
 									}
 								});
 							return tpl.apply(models);

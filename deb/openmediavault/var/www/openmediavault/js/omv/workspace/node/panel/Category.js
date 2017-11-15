@@ -104,11 +104,13 @@ Ext.define("OMV.workspace.node.panel.Category", {
 							return Ext.String.htmlEncode(node.getText());
 						},
 						renderIcon: function(node) {
-							var html = Ext.String.format("<i class='{0}'></i>",
+							var html = Ext.String.format(
+								"<div class='thumb-icon'><i class='{0}'></i></div>",
 								node.getIconCls());
 							if (Ext.isEmpty(node.iconCls) && node.hasIcon(
 									"svg|raster32")) {
-								html = Ext.String.format("<img src='{0}'>",
+								html = Ext.String.format(
+									"<img class='thumb-icon' src='{0}'>",
 									node.getProperIcon32());
 							}
 							return html;
