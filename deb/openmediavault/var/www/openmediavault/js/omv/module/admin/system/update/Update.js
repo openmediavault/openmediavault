@@ -24,7 +24,6 @@ OMV.WorkspaceManager.registerNode({
 	id: "update",
 	path: "/system",
 	text: _("Update Management"),
-	icon16: "images/software.png",
-	iconSvg: "images/software.svg",
+	iconCls: "mdi mdi-flip-h mdi-cached",
 	position: 80
 });

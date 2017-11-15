@@ -24,7 +24,6 @@ OMV.WorkspaceManager.registerNode({
 	id: "monitoring",
 	path: "/system",
 	text: _("Monitoring"),
-	icon16: "images/statistics.png",
-	iconSvg: "images/statistics.svg",
+	iconCls: "x-fa fa-heartbeat",
 	position: 55
 });

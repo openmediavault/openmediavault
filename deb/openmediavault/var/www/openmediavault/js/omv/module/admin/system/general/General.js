@@ -24,6 +24,6 @@ OMV.WorkspaceManager.registerNode({
 	id: "general",
 	path: "/system",
 	text: _("General Settings"),
-	iconCls: "mdi mdi-settings",
+	iconCls: "x-fa fa-cogs",
 	position: 10
 });
