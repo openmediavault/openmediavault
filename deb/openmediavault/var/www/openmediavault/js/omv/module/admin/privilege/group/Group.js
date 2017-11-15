@@ -561,8 +561,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "group",
 	path: "/privilege",
 	text: _("Group"),
-	icon16: "images/group.png",
-	iconSvg: "images/group.svg",
+	iconCls: "mdi mdi-account-multiple",
 	position: 20
 });
 

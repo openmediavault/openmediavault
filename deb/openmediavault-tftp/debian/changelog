@@ -1,3 +1,10 @@
+openmediavault-tftp (4.0.1-1) stable; urgency=low
+
+  * Update locales.
+  * Use Material Design icons.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 15 Nov 2017 22:22:32 +0100
+
 openmediavault-tftp (4.0-1) stable; urgency=low
 
   * Adapt to Debian 9 (Stretch).

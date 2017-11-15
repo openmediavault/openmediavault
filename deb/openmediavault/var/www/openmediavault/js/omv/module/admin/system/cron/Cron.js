@@ -458,8 +458,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "cron",
 	path: "/system",
 	text: _("Scheduled Jobs"),
-	icon16: "images/alarm.png",
-	iconSvg: "images/alarm.svg",
+	iconCls: "mdi mdi-alarm",
 	position: 70
 });
 

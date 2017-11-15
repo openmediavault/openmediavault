@@ -250,8 +250,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "snmp",
 	path: "/service",
 	text: _("SNMP"),
-	icon16: "images/snmp.png",
-	iconSvg: "images/snmp.svg"
+	iconCls: "mdi mdi-access-point-network"
 });
 
 OMV.WorkspaceManager.registerPanel({

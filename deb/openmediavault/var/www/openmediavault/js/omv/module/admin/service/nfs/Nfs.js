@@ -24,6 +24,5 @@ OMV.WorkspaceManager.registerNode({
 	id: "nfs",
 	path: "/service",
 	text: _("NFS"),
-	icon16: "images/nfs.png",
-	iconSvg: "images/nfs.svg"
+	iconCls: "mdi mdi-network"
 });

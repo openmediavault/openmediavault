@@ -95,8 +95,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "ssh",
 	path: "/service",
 	text: _("SSH"),
-	icon16: "images/terminal.png",
-	iconSvg: "images/terminal.svg"
+	iconCls: "mdi mdi-console"
 });
 
 OMV.WorkspaceManager.registerPanel({

@@ -2,7 +2,7 @@ openmediavault (4.0.10-1) stable; urgency=low
 
   * Send notification email if a mount point is missing.
   * Set domain name in Postfix configuration.
-  * Use Font Awesome icons.
+  * Use Font Awesome and Material Design icons.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 05 Nov 2017 21:26:53 +0100
 

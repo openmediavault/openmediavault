@@ -150,6 +150,9 @@ Ext.define("OMV.module.public.info.about.About", {
 		},{
 			name: "quota",
 			url: "http://sourceforge.net/projects/linuxquota"
+		},{
+			name: "Material Design Icons",
+			url: "https://materialdesignicons.com"
 		}];
 		// Shuffle list of packages.
 		packages.sort(function() {return 0.5 - Math.random()});
@@ -185,6 +188,9 @@ Ext.define("OMV.module.public.info.about.About", {
 		},{
 			name: "IBM Public License",
 			url: "licenses/ibm-public-1_0.txt",
+		},{
+			name: "SIL Open Font License",
+			url: "licenses/sil-1_1.txt",
 		}]
 		licenses.forEach(function(o) {
 			if(!Ext.isEmpty(html)) html += ", ";
@@ -199,7 +205,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "about",
 	path: "/info",
 	text: _("About"),
-	iconCls: "x-fa fa-info-circle",
+	iconCls: "mdi mdi-information-outline",
 	position: 30
 });
 

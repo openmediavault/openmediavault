@@ -30,7 +30,7 @@ Ext.define("OMV.module.admin.dashboard.part.NetworkInterfaces", {
 
 	config: {
 		title: _("Network Interfaces"),
-		icon: "images/network.svg",
+		iconCls: "mdi mdi-ethernet",
 		viewXType: "module.admin.dashboard.view.networkinterfaces"
 	}
 });

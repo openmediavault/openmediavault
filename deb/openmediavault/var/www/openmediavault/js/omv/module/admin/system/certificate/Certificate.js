@@ -24,6 +24,6 @@ OMV.WorkspaceManager.registerNode({
 	id: "certificate",
 	path: "/system",
 	text: _("Certificates"),
-	iconCls: "x-fa fa-certificate",
+	iconCls: "mdi mdi-certificate",
 	position: 60
 });

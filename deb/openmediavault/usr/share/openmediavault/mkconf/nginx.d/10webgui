@@ -85,7 +85,7 @@ xmlstarlet sel -t -m "//webadmin" \
   -o "        alias /usr/share/javascript/extjs6/;" -n \
   -o "        expires ${OMV_NGINX_SITE_WEBGUI_CONTENT_EXPIRES};" -n \
   -o "    }" -n \
-  -o "    location ~ ^/(css|js|images)/ {" -n \
+  -o "    location ~ ^/(css|fonts|js|images)/ {" -n \
   -o "        expires ${OMV_NGINX_SITE_WEBGUI_CONTENT_EXPIRES};" -n \
   -o "    }" -n \
   -o "    location /favicon {" -n \

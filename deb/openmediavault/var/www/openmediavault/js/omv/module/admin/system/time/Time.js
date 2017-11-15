@@ -270,7 +270,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "time",
 	path: "/system",
 	text: _("Date & Time"),
-	iconCls: "x-fa fa-clock-o",
+	iconCls: "mdi mdi-clock",
 	position: 20
 });
 

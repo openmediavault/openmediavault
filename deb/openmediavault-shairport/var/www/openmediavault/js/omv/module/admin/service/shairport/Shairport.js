@@ -84,8 +84,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "shairport",
 	path: "/service",
 	text: _("Shairport"),
-	icon16: "images/airplay.png",
-	iconSvg: "images/airplay.svg"
+	iconCls: "mdi mdi-airplay"
 });
 
 OMV.WorkspaceManager.registerPanel({

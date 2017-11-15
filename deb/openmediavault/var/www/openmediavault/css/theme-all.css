@@ -600,6 +600,24 @@ div#headerrlogo {
 	vertical-align: sub;
 }
 /******************************************************************************/
+/* Material Design Icons */
+.mdi {
+	color: #000000;
+}
+.x-workspace-node-tree .mdi,
+.x-workspace-navigation-toolbar .mdi {
+	font-size: 18px;
+}
+.x-workspace-node-view-category-items .thumb-icon.mdi {
+	font-size: 36px;
+	font-style: normal;
+	margin-bottom: 4px;
+}
+.x-workspace-node-view-category-items .thumb-icon.mdi:before {
+	vertical-align: sub;
+}
+
+/******************************************************************************/
 /* Bugfixes/Workarounds
 /******************************************************************************/
 /* Fix Chrome 56 render bug (EXTJS-23628) */

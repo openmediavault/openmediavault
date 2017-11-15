@@ -41,7 +41,6 @@ OMV.WorkspaceManager.registerPanel({
 	path: "/diagnostic",
 	text: _("Dashboard"),
 	position: 1,
-	icon16: "images/grid.png",
-	iconSvg: "images/grid.svg",
+	iconCls: "mdi mdi-view-dashboard",
 	className: "OMV.module.admin.dashboard.Dashboard"
 });
