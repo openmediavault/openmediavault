@@ -900,8 +900,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "sharedfolder",
 	path: "/privilege",
 	text: _("Shared Folders"),
-	icon16: "images/share.png",
-	iconSvg: "images/share.svg",
+	iconCls: "x-fa fa-share-alt",
 	position: 30
 });
 

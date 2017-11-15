@@ -589,12 +589,15 @@ div#headerrlogo {
 }
 .x-workspace-node-tree .x-fa,
 .x-workspace-navigation-toolbar .x-fa {
-	font-size: 18px;
+	font-size: 16px;
 }
-.x-workspace-node-view-category-items .x-fa {
-	font-size: 36px;
+.x-workspace-node-view-category-items .thumb-icon.x-fa {
+	font-size: 32px;
 	font-style: normal;
-	vertical-align: middle;
+	margin-bottom: 4px;
+}
+.x-workspace-node-view-category-items .thumb-icon.x-fa:before {
+	vertical-align: sub;
 }
 /******************************************************************************/
 /* Bugfixes/Workarounds

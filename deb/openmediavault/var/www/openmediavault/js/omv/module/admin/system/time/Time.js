@@ -270,8 +270,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "time",
 	path: "/system",
 	text: _("Date & Time"),
-	icon16: "images/clock.png",
-	iconSvg: "images/clock.svg",
+	iconCls: "x-fa fa-clock-o",
 	position: 20
 });
 

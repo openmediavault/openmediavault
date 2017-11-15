@@ -24,7 +24,6 @@ OMV.WorkspaceManager.registerNode({
 	id: "certificate",
 	path: "/system",
 	text: _("Certificates"),
-	icon16: "images/certificate.png",
-	iconSvg: "images/certificate.svg",
+	iconCls: "x-fa fa-certificate",
 	position: 60
 });

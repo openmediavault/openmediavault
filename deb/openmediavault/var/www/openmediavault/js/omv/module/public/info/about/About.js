@@ -199,8 +199,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "about",
 	path: "/info",
 	text: _("About"),
-	icon16: "images/about.png",
-	iconSvg: "images/about.svg",
+	iconCls: "x-fa fa-info-circle",
 	position: 30
 });
 

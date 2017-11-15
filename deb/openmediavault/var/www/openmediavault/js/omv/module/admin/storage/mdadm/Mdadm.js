@@ -832,8 +832,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "mdadm",
 	path: "/storage",
 	text: _("RAID Management"),
-	icon16: "images/raid.png",
-	iconSvg: "images/raid.svg",
+	iconCls: "x-fa fa-database",
 	position: 30
 });
 

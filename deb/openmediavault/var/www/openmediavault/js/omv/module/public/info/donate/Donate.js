@@ -53,8 +53,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "donate",
 	path: "/info",
 	text: _("Donate"),
-	icon16: "images/donate.png",
-	iconSvg: "images/donate.svg",
+	iconCls: "x-fa fa-heart-o",
 	position: 10
 });
 

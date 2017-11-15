@@ -24,7 +24,6 @@ OMV.WorkspaceManager.registerNode({
 	id: "powermanagement",
 	path: "/system",
 	text: _("Power Management"),
-	icon16: "images/battery.png",
-	iconSvg: "images/battery.svg",
+	iconCls: "x-fa fa-battery-three-quarters",
 	position: 50
 });

@@ -51,8 +51,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "support",
 	path: "/info",
 	text: _("Support"),
-	icon16: "images/help.png",
-	iconSvg: "images/help.svg",
+	iconCls: "x-fa fa-question",
 	position: 20
 });
 

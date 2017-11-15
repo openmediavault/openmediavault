@@ -162,7 +162,7 @@ Ext.define("OMV.workspace.node.panel.Overview", {
 									},
 									renderIcon: function(node) {
 										var html = Ext.String.format(
-											"<div class='thumb-icon'><i class='{0}'></i></div>",
+											"<div class='thumb-icon {0}'></div>",
 											node.getIconCls());
 										if (Ext.isEmpty(node.iconCls) && node.hasIcon(
 												"svg|raster32")) {
