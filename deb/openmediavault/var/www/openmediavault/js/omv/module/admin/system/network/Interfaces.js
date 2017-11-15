@@ -1037,8 +1037,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 			id: me.getId() + "-add",
 			xtype: "splitbutton",
 			text: _("Add"),
-			icon: "images/add.png",
-			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			iconCls: "x-fa fa-plus",
 			handler: function() {
 				this.showMenu();
 			},
@@ -1057,17 +1056,12 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 				}
 			})
 		}]);
-		// Override 'Edit' button in top toolbar.
-		Ext.apply(items[1], {
-			icon: "images/edit.png"
-		});
 		// Add 'Identify' button to top toolbar.
 		Ext.Array.insert(items, 2, [{
 			id: me.getId() + "-identify",
 			xtype: "button",
 			text: _("Identify"),
-			icon: "images/search.png",
-			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			iconCls: "x-fa fa-search",
 			handler: Ext.Function.bind(me.onIdentifyButton, me, [ me ]),
 			scope: me,
 			disabled: true

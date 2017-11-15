@@ -30,7 +30,7 @@ Ext.define("OMV.module.admin.dashboard.part.SysInfo", {
 
 	config: {
 		title: _("System Information"),
-		icon: "images/statistics.svg",
+		iconCls: "x-fa fa-bar-chart",
 		viewXType: "module.admin.dashboard.view.sysinfo",
 		showAtFirstStartup: true
 	}

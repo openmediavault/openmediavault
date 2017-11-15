@@ -662,8 +662,7 @@ Ext.define("OMV.module.admin.privilege.user.Users", {
 			id: me.getId() + "-add",
 			xtype: "splitbutton",
 			text: me.addButtonText,
-			icon: me.addButtonIcon,
-			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			iconCls: me.addButtonIconCls,
 			handler: function(c) {
 				c.showMenu();
 			},
@@ -685,8 +684,7 @@ Ext.define("OMV.module.admin.privilege.user.Users", {
 			id: me.getId() + "-privileges",
 			xtype: "button",
 			text: _("Privileges"),
-			icon: "images/share.png",
-			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			iconCls: "x-fa fa-share-alt",
 			handler: me.onPrivilegesButton,
 			scope: me,
 			disabled: true,

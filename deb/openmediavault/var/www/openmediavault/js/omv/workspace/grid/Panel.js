@@ -73,13 +73,13 @@
  * @param downButtonText The button text. Defaults to 'Down'.
  * @param applyButtonText The button text. Defaults to 'Save'.
  * @param refreshButtonText The button text. Defaults to 'Refresh'.
- * @param addButtonIcon The button icon.
- * @param editButtonIcon The button icon.
- * @param deleteButtonIcon The button icon.
- * @param upButtonIcon The button icon.
- * @param downButtonIcon The button icon.
- * @param applyButtonIcon The button icon.
- * @param refreshButtonIcon The button icon.
+ * @param addButtonIconCls The button icon CSS class.
+ * @param editButtonIconCls The button icon CSS class.
+ * @param deleteButtonIconCls The button icon CSS class.
+ * @param upButtonIconCls The button icon CSS class.
+ * @param downButtonIconCls The button icon CSS class.
+ * @param applyButtonIconCls The button icon CSS class.
+ * @param refreshButtonIconCls The button icon CSS class.
  * @param deletionConfirmRequired Set to TRUE to force the user to confirm
  *   the deletion request. Defaults to TRUE.
  * @param deletionWaitMsg The message displayed during the deletion process.
@@ -135,13 +135,13 @@ Ext.define("OMV.workspace.grid.Panel", {
 	downButtonText: _("Down"),
 	applyButtonText: _("Save"),
 	refreshButtonText: _("Refresh"),
-	addButtonIcon: "images/add.png",
-	editButtonIcon: "images/edit.png",
-	deleteButtonIcon: "images/delete.png",
-	upButtonIcon: "images/arrow-up.png",
-	downButtonIcon: "images/arrow-down.png",
-	applyButtonIcon: "images/checkmark.png",
-	refreshButtonIcon: "images/refresh.png",
+	addButtonIconCls: "x-fa fa-plus",
+	editButtonIconCls: "x-fa fa-pencil",
+	deleteButtonIconCls: "x-fa fa-times",
+	upButtonIconCls: "x-fa fa-arrow-up",
+	downButtonIconCls: "x-fa fa-arrow-down",
+	applyButtonIconCls: "x-fa fa-check",
+	refreshButtonIconCls: "x-fa fa-refresh",
 	deletionConfirmRequired: true,
 	deletionWaitMsg: _("Deleting selected item(s)"),
 	mode: "remote",
@@ -229,8 +229,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 			id: me.getId() + "-add",
 			xtype: "button",
 			text: me.addButtonText,
-			icon: me.addButtonIcon,
-			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			iconCls: me.addButtonIconCls,
 			hidden: me.hideAddButton,
 			handler: Ext.Function.bind(me.onAddButton, me, [ me ]),
 			scope: me
@@ -238,8 +237,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 			id: me.getId() + "-edit",
 			xtype: "button",
 			text: me.editButtonText,
-			icon: me.editButtonIcon,
-			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			iconCls: me.editButtonIconCls,
 			hidden: me.hideEditButton,
 			handler: Ext.Function.bind(me.onEditButton, me, [ me ]),
 			scope: me,
@@ -252,8 +250,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 			id: me.getId() + "-delete",
 			xtype: "button",
 			text: me.deleteButtonText,
-			icon: me.deleteButtonIcon,
-			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			iconCls: me.deleteButtonIconCls,
 			hidden: me.hideDeleteButton,
 			handler: Ext.Function.bind(me.onDeleteButton, me, [ me ]),
 			scope: me,
@@ -276,8 +273,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 			id: me.getId() + "-up",
 			xtype: "button",
 			text: me.upButtonText,
-			icon: me.upButtonIcon,
-			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			iconCls: me.upButtonIconCls,
 			hidden: me.hideUpButton,
 			handler: Ext.Function.bind(me.onUpButton, me, [ me ]),
 			scope: me,
@@ -290,8 +286,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 			id: me.getId() + "-down",
 			xtype: "button",
 			text: me.downButtonText,
-			icon: me.downButtonIcon,
-			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			iconCls: me.downButtonIconCls,
 			hidden: me.hideDownButton,
 			handler: Ext.Function.bind(me.onDownButton, me, [ me ]),
 			scope: me,
@@ -304,7 +299,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 			id: me.getId() + "-apply",
 			xtype: "button",
 			text: me.applyButtonText,
-			icon: me.applyButtonIcon,
+			iconCls: me.applyButtonIconCls,
 			hidden: me.hideApplyButton,
 			handler: Ext.Function.bind(me.onApplyButton, me, [ me ]),
 			scope: me
@@ -312,8 +307,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 			id: me.getId() + "-refresh",
 			xtype: "button",
 			text: me.refreshButtonText,
-			icon: me.refreshButtonIcon,
-			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			iconCls: me.refreshButtonIconCls,
 			hidden: me.hideRefreshButton,
 			handler: Ext.Function.bind(me.onRefreshButton, me, [ me ]),
 			scope: me

@@ -89,8 +89,7 @@ Ext.define("OMV.workspace.panel.Textarea", {
 			id: me.getId() + "-download",
 			xtype: "button",
 			text: _("Download"),
-			icon: "images/download.png",
-			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			iconCls: "x-fa fa-download",
 			hidden: me.hideDownloadButton,
 			handler: Ext.Function.bind(me.onDownloadButton, me, [ me ]),
 			scope: me

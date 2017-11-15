@@ -173,20 +173,14 @@ Ext.define("OMV.workspace.Workspace", {
 					xtype: "tbfill"
 				},{
 					xtype: "splitbutton",
-					icon: Ext.supports.Svg ? "images/more.svg" :
-					  "images/more.png",
-					iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+					iconCls: "x-fa fa-ellipsis-v",
 					handler: function() {
 						this.showMenu();
 					},
 					menu: Ext.create("Ext.menu.Menu", {
-						defaults: {
-							iconCls: Ext.baseCSSPrefix + "menu-item-icon-16x16"
-						},
 						items: [{
 							text: _("Language"),
-							icon: Ext.supports.Svg ? "images/globe.svg" :
-							  "images/globe.png",
+							iconCls: "x-fa fa-globe",
 							menu: {
 								items: function() {
 									var items = [];
@@ -218,35 +212,31 @@ Ext.define("OMV.workspace.Workspace", {
 							action: "resetdefaults",
 							msg: _("Do you really want to reset the UI settings to their default values, e.g. the order of the grid columns?"),
 							tooltip: _("Reset the UI settings to their default values, e.g. the order of the grid columns."),
-							icon: Ext.supports.Svg ? "images/refresh.svg" : "images/refresh.png"
+							iconCls: "x-fa fa-refresh"
 						},{
 							xtype: "menuseparator"
 						},{
 							text: _("Logout"),
 							action: "logout",
 							msg: _("Do you really want to logout?"),
-							icon: Ext.supports.Svg ? "images/logout.svg" :
-							  "images/logout.png"
+							iconCls: "x-fa fa-sign-out"
 						},{
 							text: _("Reboot"),
 							action: "reboot",
 							msg: _("Do you really want to reboot the system?"),
-							icon: Ext.supports.Svg ? "images/reboot.svg" :
-							  "images/reboot.png",
+							iconCls: "x-fa fa-repeat",
 							hidden: !OMV.SessionManager.isAdministrator()
 						},{
 							text: _("Standby"),
 							action: "standby",
 							msg: _("Do you really want to put the system into standby?"),
-							icon: Ext.supports.Svg ? "images/pause.svg" :
-							  "images/pause.png",
+							iconCls: "x-fa fa-pause",
 							hidden: !OMV.SessionManager.isAdministrator()
 						},{
 							text: _("Shutdown"),
 							action: "shutdown",
 							msg: _("Do you really want to shutdown the system?"),
-							icon: Ext.supports.Svg ? "images/shutdown.svg" :
-							  "images/shutdown.png",
+							iconCls: "x-fa fa-power-off",
 							hidden: !OMV.SessionManager.isAdministrator()
 						}],
 						listeners: {

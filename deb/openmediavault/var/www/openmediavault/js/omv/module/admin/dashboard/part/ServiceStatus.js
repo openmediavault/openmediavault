@@ -30,7 +30,7 @@ Ext.define("OMV.module.admin.dashboard.part.ServiceStatus", {
 
 	config: {
 		title: _("Services"),
-		icon: "images/wrench.svg",
+		iconCls: "x-fa fa-wrench",
 		viewXType: "module.admin.dashboard.view.servicestatus",
 		showAtFirstStartup: true
 	}
