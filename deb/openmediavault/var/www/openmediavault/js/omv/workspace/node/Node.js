@@ -36,6 +36,7 @@ Ext.define("OMV.workspace.node.Node", {
 		icon16: null,
 		icon32: null,
 		iconSvg: null,
+		iconCls: null,
 		childNodes: null,
 		parentNode: null,
 		leaf: false,
@@ -288,12 +289,20 @@ Ext.define("OMV.workspace.node.Node", {
 			break;
 		case "raster":
 			result = !Ext.isEmpty(me.getIcon16()) || !Ext.isEmpty(
-			  me.getIcon32());
+				me.getIcon32());
+			break;
+		case "svg|raster16":
+			result = (!Ext.isEmpty(me.getIconSvg()) && Ext.supports.Svg) ||
+				!Ext.isEmpty(me.getIcon16());
+			break;
+		case "svg|raster32":
+			result = (!Ext.isEmpty(me.getIconSvg()) && Ext.supports.Svg) ||
+				!Ext.isEmpty(me.getIcon32());
 			break;
 		default:
 			result = !Ext.isEmpty(me.getIcon16()) || !Ext.isEmpty(
-			  me.getIcon32()) || (!Ext.isEmpty(me.getIconSvg()) &&
-			  Ext.supports.Svg);
+				me.getIcon32()) || (!Ext.isEmpty(me.getIconSvg()) &&
+				Ext.supports.Svg);
 			break;
 		}
 		return result;

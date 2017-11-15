@@ -98,20 +98,21 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 			var treeNode = {
 				id: Ext.id(),
 				text: node.getText(),
-				iconCls: Ext.baseCSSPrefix + "tree-icon-16x16",
+				iconCls: node.getIconCls(),
 				node: node,
 				leaf: node.isLeaf(),
 				children: []
 			};
-			if(node.hasChildNodes()) {
+			if (Ext.isEmpty(treeNode.iconCls) && node.hasChildNodes()) {
 				Ext.apply(treeNode, {
 					cls: "folder",
 					expanded: true
 				});
 			}
-			if(node.hasIcon("raster16")) {
+			if (node.hasIcon("svg|raster16")) {
 				Ext.apply(treeNode, {
-					icon: node.getProperIcon16()
+					icon: node.getProperIcon16(),
+					iconCls: Ext.baseCSSPrefix + "tree-icon-16x16"
 				});
 			}
 			node.eachChild(function(childNode) {
@@ -120,9 +121,15 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 					text: childNode.getText(),
 					leaf: true,
 					node: childNode,
-					icon: childNode.getProperIcon16(),
-					iconCls: Ext.baseCSSPrefix + "tree-icon-16x16"
+					iconCls: childNode.getIconCls()
 				};
+				if (Ext.isEmpty(treeChildNode.iconCls) && childNode.hasIcon(
+						"svg|raster16")) {
+					Ext.apply(treeChildNode, {
+						icon: childNode.getProperIcon16(),
+						iconCls: Ext.baseCSSPrefix + "tree-icon-16x16"
+					});
+				}
 				treeNode.children.push(treeChildNode);
 			});
 			root.appendChild(treeNode);

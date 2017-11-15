@@ -42,6 +42,7 @@ Ext.define("OMV.workspace.node.Model", {
 		{ name: "icon16", type: "string" },
 		{ name: "icon32", type: "string" },
 		{ name: "iconSvg", type: "string" },
+		{ name: "iconCls", type: "string" },
 		{ name: "leaf", type: "boolean" },
 		{ name: "uri", type: "string", convert: function(v, rec) {
 			return OMV.workspace.node.Node.buildUri([ rec.get("path"),

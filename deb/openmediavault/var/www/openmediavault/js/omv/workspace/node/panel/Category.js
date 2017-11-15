@@ -92,7 +92,7 @@ Ext.define("OMV.workspace.node.panel.Category", {
 						'<div class="',Ext.baseCSSPrefix,'workspace-node-view-category-items">',
 							'<tpl for=".">',
 								'<div class="thumb-wrap" id="{internalId}">',
-									'<div class="thumb"><img src="{[this.renderIcon(values)]}" title="{[this.renderText(values)]}"></div>',
+									'<div class="thumb">{[this.renderIcon(values)]}</div>',
 									'<span>{[this.renderText(values)]}</span>',
 								'</div>',
 							'</tpl>',
@@ -104,7 +104,13 @@ Ext.define("OMV.workspace.node.panel.Category", {
 							return Ext.String.htmlEncode(node.getText());
 						},
 						renderIcon: function(node) {
-							return node.getProperIcon32();
+							var html = Ext.String.format("<i class='{0}'></i>",
+								node.getIconCls());
+							if (Ext.isEmpty(node.iconCls) && node.hasIcon("svg|raster32")) {
+								html = Ext.String.format("<img src='{0}'>",
+									node.getProperIcon32());
+							}
+							return html;
 						}
 					}
 				),

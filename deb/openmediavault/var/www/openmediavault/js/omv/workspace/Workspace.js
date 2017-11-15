@@ -449,6 +449,7 @@ Ext.define("OMV.workspace.Workspace", {
 				var config = {
 					xtype: "button",
 					cls: Ext.baseCSSPrefix + "workspace-node-toolbar-item",
+					iconCls: parentNode.getIconCls(),
 					handler: function() {
 						var iconView = (parentNode.getPath() == "/");
 						me.onSelectNode(parentNode, iconView);
@@ -459,7 +460,8 @@ Ext.define("OMV.workspace.Workspace", {
 						text: parentNode.getText()
 					});
 				}
-				if (parentNode.hasIcon("raster16")) {
+				if (Ext.isEmpty(parentNode.iconCls) && parentNode.hasIcon(
+						"svg|raster16")) {
 					Ext.apply(config, {
 						icon: parentNode.getProperIcon16(),
 						iconCls: Ext.baseCSSPrefix + "btn-icon-16x16"
