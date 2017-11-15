@@ -24,7 +24,6 @@ OMV.WorkspaceManager.registerNode({
 	id: "lvm",
 	path: "/storage",
 	text: _("Logical Volume Management"),
-	icon16: "images/lvm.png",
-	iconSvg: "images/lvm.svg",
+	iconCls: "x-fa fa-database",
 	position: 25
 });

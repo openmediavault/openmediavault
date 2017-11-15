@@ -24,7 +24,6 @@ OMV.WorkspaceManager.registerNode({
 	id: "system",
 	path: "/diagnostic",
 	text: _("System Information"),
-	icon16: "images/statistics.png",
-	iconSvg: "images/statistics.svg",
+	iconCls: "x-fa fa-bar-chart",
 	position: 50
 });

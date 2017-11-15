@@ -870,8 +870,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "filesystem",
 	path: "/storage",
 	text: _("File Systems"),
-	icon16: "images/filesystem.png",
-	iconSvg: "images/filesystem.svg",
+	iconCls: "x-fa fa-folder-o",
 	position: 40
 });
 
