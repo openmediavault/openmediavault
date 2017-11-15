@@ -117,16 +117,14 @@ Ext.define("OMV.module.admin.diagnostic.log.Logs", {
 			id: me.getId() + "-clear",
 			xtype: "button",
 			text: _("Clear"),
-			icon: "images/trashcan.png",
-			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			iconCls: "x-fa fa-trash",
 			handler: Ext.Function.bind(me.onClearButton, me, [ me ]),
 			scope: me
 		},{
 			id: me.getId() + "-download",
 			xtype: "button",
 			text: _("Download"),
-			icon: "images/download.png",
-			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			iconCls: "x-fa fa-download",
 			handler: Ext.Function.bind(me.onDownloadButton, me, [ me ]),
 			scope: me
 		}];

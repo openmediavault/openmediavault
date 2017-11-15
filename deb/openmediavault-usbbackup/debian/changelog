@@ -1,3 +1,10 @@
+openmediavault-usbbackup (4.0.1-1) stable; urgency=low
+
+  * Update locales.
+  * Use Font Awesome icons.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 15 Nov 2017 12:31:13 +0100
+
 openmediavault-usbbackup (4.0-1) stable; urgency=low
 
   * Adapt to Debian 9 (Stretch).

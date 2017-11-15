@@ -1,3 +1,10 @@
+openmediavault-lvm2 (4.0.2-1) stable; urgency=low
+
+  * Update locales.
+  * Use Font Awesome icons.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 15 Nov 2017 12:30:10 +0100
+
 openmediavault-lvm2 (4.0.1-1) stable; urgency=low
 
   * Update locales.

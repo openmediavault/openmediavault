@@ -34,6 +34,7 @@ Ext.define("OMV.workspace.dashboard.Part", {
 
 	config: {
 		icon: "",
+		iconCls: "",
 		title: "",
 		viewXType: "",
 		showAtFirstStartup: false
@@ -47,10 +48,15 @@ Ext.define("OMV.workspace.dashboard.Part", {
 
 	buildViewTemplate: function() {
 		var me = this;
+		var icon = me.getIcon();
+		var iconCls = me.getIconCls();
+		if (!Ext.isEmpty(icon)) {
+			iconCls = Ext.baseCSSPrefix + "workspace-dashboard-widget-icon"
+		}
 		return {
 			frame: false,
-			icon: me.getIcon(),
-			iconCls: Ext.baseCSSPrefix + "workspace-dashboard-widget-icon",
+			icon: icon,
+			iconCls: iconCls,
 			title: me.getTitle(),
 			items: [{
 				xtype: me.getViewXType()

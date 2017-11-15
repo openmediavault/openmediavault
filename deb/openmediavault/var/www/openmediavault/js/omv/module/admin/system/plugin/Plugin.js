@@ -221,24 +221,21 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 			id: me.getId() + "-check",
 			xtype: "button",
 			text: _("Check"),
-			icon: "images/refresh.png",
-			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			iconCls: "x-fa fa-refresh",
 			handler: Ext.Function.bind(me.onCheckButton, me, [ me ]),
 			scope: me
 		},{
 			id: me.getId() + "-upload",
 			xtype: "button",
 			text: _("Upload"),
-			icon: "images/upload.png",
-			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			iconCls: "x-fa fa-upload",
 			handler: Ext.Function.bind(me.onUploadButton, me, [ me ]),
 			scope: me
 		},{
 			id: me.getId() + "-install",
 			xtype: "button",
 			text: _("Install"),
-			icon: "images/add.png",
-			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			iconCls: "x-fa fa-plus",
 			handler: Ext.Function.bind(me.onInstallButton, me, [ me ]),
 			scope: me,
 			disabled: true,

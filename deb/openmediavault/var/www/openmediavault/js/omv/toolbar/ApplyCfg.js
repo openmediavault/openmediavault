@@ -63,8 +63,7 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 			},{
 				xtype: "button",
 				text: _("Apply"),
-				icon: "images/checkmark.png",
-				iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+				iconCls: "x-fa fa-check",
 				tooltip: _("Apply configuration changes"),
 				listeners: {
 					scope: me,
@@ -107,8 +106,7 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 			},{
 				xtype: "button",
 				text: _("Revert"),
-				icon: "images/undo.png",
-				iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+				iconCls: "x-fa fa-undo",
 				tooltip: _("Revert configuration changes"),
 				listeners: {
 					scope: me,

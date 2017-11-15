@@ -77,11 +77,21 @@ Ext.define("OMV.workspace.dashboard.Dashboard", {
 			var part = Ext.create(alias);
 			if (!Ext.isObject(part) || !part.isPart)
 				return;
-			menuItems.push({
+			var menuItem = {
 				text: part.getTitle(),
-				icon: part.getIcon(),
 				type: part.getType()
-			});
+			};
+			if (!Ext.isEmpty(part.getIcon())) {
+				Ext.apply(menuItem, {
+					icon: part.getIcon(),
+					iconCls: Ext.baseCSSPrefix + "menu-item-icon-16x16"
+				});
+			} else if (!Ext.isEmpty(part.getIconCls())) {
+				Ext.apply(menuItem, {
+					iconCls: part.getIconCls()
+				});
+			}
+			menuItems.push(menuItem);
 		});
 		Ext.Array.sort(menuItems, function(a, b) {
 			return a.text > b.text ? 1 : (a.text < b.text ? -1 : 0);
@@ -90,11 +100,8 @@ Ext.define("OMV.workspace.dashboard.Dashboard", {
 		Ext.Array.insert(items, 0, [{
 			id: me.getId() + "-add",
 			text: _("Add"),
-			icon: "images/add.png",
+			iconCls: "x-fa fa-plus",
 			menu: Ext.create("Ext.menu.Menu", {
-				defaults: {
-					iconCls: Ext.baseCSSPrefix + "menu-item-icon-16x16"
-				},
 				items: menuItems,
 				listeners: {
 					scope: me,

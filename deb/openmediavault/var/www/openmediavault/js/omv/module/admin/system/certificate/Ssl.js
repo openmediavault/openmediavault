@@ -598,8 +598,7 @@ Ext.define("OMV.module.admin.system.certificate.ssl.Certificates", {
 			id: me.getId() + "-add",
 			xtype: "splitbutton",
 			text: _("Add"),
-			icon: "images/add.png",
-			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			iconCls: "x-fa fa-plus",
 			handler: function() {
 				this.showMenu();
 			},
@@ -621,8 +620,7 @@ Ext.define("OMV.module.admin.system.certificate.ssl.Certificates", {
 			id: me.getId() + "-detail",
 			xtype: "button",
 			text: _("Detail"),
-			icon: "images/details.png",
-			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			iconCls: "x-fa fa-info",
 			handler: Ext.Function.bind(me.onDetailButton, me, [ me ]),
 			scope: me,
 			disabled: true,

@@ -40,7 +40,9 @@
  * @param hideOkButton Hide the 'OK' button.
  * @param hideResetButton Hide the 'Reset' button.
  * @param okButtonText The 'OK' button text. Defaults to 'Apply'.
+ * @param okButtonIconCls The button icon CSS class.
  * @param resetButtonText The 'Reset' button text. Defaults to 'Reset'.
+ * @param resetButtonIconCls The button icon CSS class.
  * @param onlySubmitIfDirty Only submit the form values if the form is
  *   marked as dirty. Defaults to TRUE.
  * @param autoLoadData Automatically execute the doLoad method after
@@ -66,9 +68,9 @@ Ext.define("OMV.workspace.form.Panel", {
 	hideOkButton: false,
 	hideResetButton: false,
 	okButtonText: _("Save"),
-	okButtonIcon: "images/checkmark.png",
+	okButtonIconCls: "x-fa fa-check",
 	resetButtonText: _("Reset"),
-	resetButtonIcon: "images/refresh.png",
+	resetButtonIconCls: "x-fa fa-repeat",
 	autoLoadData: true,
 	loadMsg: _("Loading ..."),
 	submitMsg: _("Saving ..."),
@@ -146,8 +148,7 @@ Ext.define("OMV.workspace.form.Panel", {
 			id: me.getId() + "-ok",
 			xtype: "button",
 			text: me.okButtonText,
-			icon: me.okButtonIcon,
-			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			iconCls: me.okButtonIconCls,
 			hidden: me.hideOkButton,
 			handler: Ext.Function.bind(me.onOkButton, me, [ me ]),
 			scope: me
@@ -155,8 +156,7 @@ Ext.define("OMV.workspace.form.Panel", {
 			id: me.getId() + "-reset",
 			xtype: "button",
 			text: me.resetButtonText,
-			icon: me.resetButtonIcon,
-			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			iconCls: me.resetButtonIconCls,
 			hidden: me.hideResetButton,
 			handler: Ext.Function.bind(me.onResetButton, me, [ me ]),
 			scope: me
