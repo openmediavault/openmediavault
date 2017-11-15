@@ -870,7 +870,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "filesystem",
 	path: "/storage",
 	text: _("File Systems"),
-	iconCls: "x-fa fa-folder-o",
+	iconCls: "mdi mdi-folder-multiple",
 	position: 40
 });
 

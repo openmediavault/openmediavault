@@ -120,8 +120,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "user",
 	path: "/privilege",
 	text: _("User"),
-	icon16: "images/user.png",
-	iconSvg: "images/user.svg",
+	iconCls: "mdi mdi-account",
 	position: 10
 });
 

@@ -30,7 +30,7 @@ Ext.define("OMV.module.admin.dashboard.part.FileSystemStatus", {
 
 	config: {
 		title: _("File Systems"),
-		iconCls: "x-fa fa-folder-o",
+		iconCls: "mdi mdi-folder-multiple",
 		viewXType: "module.admin.dashboard.view.filesystemstatus"
 	}
 });

@@ -1,3 +1,9 @@
+openmediavault-route (4.0.1-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 15 Nov 2017 22:17:29 +0100
+
 openmediavault-route (4.0-1) stable; urgency=low
 
   * Adapt to Debian 9 (Stretch).

@@ -51,7 +51,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "support",
 	path: "/info",
 	text: _("Support"),
-	iconCls: "x-fa fa-question",
+	iconCls: "mdi mdi-help-circle-outline",
 	position: 20
 });
 

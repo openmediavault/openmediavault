@@ -400,7 +400,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "physicaldisk",
 	path: "/storage",
 	text: _("Physical Disks"),
-	iconCls: "x-fa fa-hdd-o",
+	iconCls: "mdi mdi-harddisk",
 	position: 10
 });
 

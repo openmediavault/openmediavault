@@ -24,6 +24,5 @@ OMV.WorkspaceManager.registerNode({
 	id: "rsync",
 	path: "/service",
 	text: _("Rsync"),
-	icon16: "images/rsync.png",
-	iconSvg: "images/rsync.svg"
+	iconCls: "mdi mdi-lan-connect"
 });

@@ -120,7 +120,8 @@ EOF;
 		$cssList = [
 			sprintf("/extjs6/classic/theme-%s/resources/theme-%s-all.css", $theme, $theme),
 			"css/theme-all.css",
-			sprintf("css/theme-%s.css", $theme)
+			sprintf("css/theme-%s.css", $theme),
+			"css/materialdesignicons.min.css"
 		];
 		// Add additional CSS files.
 		$cssList = array_merge($cssList, array_values(array_unique(
@@ -129,7 +130,7 @@ EOF;
 		if (file_exists($fileName))
 			$cssList[] = $fileName;
 		foreach ($cssList as $cssListv) {
-			print "<link rel='stylesheet' type='text/css' href='{$cssListv}'/>\n";
+			print "<link rel='stylesheet' type='text/css' media='all' href='{$cssListv}'/>\n";
 		}
 
 		// Add core javascript files.

@@ -5,8 +5,3 @@ Source: http://www.openmediavault.org
 Files: *
 Copyright: 2009-2017 Volker Theile <volker.theile@openmediavault.org>
 License: GPL-3
-
-Files: /var/www/openmediavault/images/nut.png
-       /var/www/openmediavault/images/nut.svg
-Copyright: WebHostingHub <http://www.webhostinghub.com>
-License: CC-BY-3.0

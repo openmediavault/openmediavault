@@ -117,8 +117,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "daapd",
 	path: "/service",
 	text: _("iTunes/DAAP"),
-	icon16: "images/forkeddaapd.png",
-	iconSvg: "images/forkeddaapd.svg"
+	iconCls: "mdi mdi-volume-high"
 });
 
 OMV.WorkspaceManager.registerPanel({

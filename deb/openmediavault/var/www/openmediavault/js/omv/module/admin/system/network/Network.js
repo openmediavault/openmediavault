@@ -24,7 +24,6 @@ OMV.WorkspaceManager.registerNode({
 	id: "network",
 	path: "/system",
 	text: _("Network"),
-	icon16: "images/network.png",
-	iconSvg: "images/network.svg",
+	iconCls: "mdi mdi-lan",
 	position: 30
 });

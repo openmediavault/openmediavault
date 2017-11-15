@@ -204,8 +204,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "nut",
 	path: "/service",
 	text: _("UPS"),
-	icon16: "images/nut.png",
-	iconSvg: "images/nut.svg"
+	iconCls: "mdi mdi-car-battery"
 });
 
 OMV.WorkspaceManager.registerPanel({

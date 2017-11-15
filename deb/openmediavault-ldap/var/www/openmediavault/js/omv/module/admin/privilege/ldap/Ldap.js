@@ -24,7 +24,6 @@ OMV.WorkspaceManager.registerNode({
 	id: "ldap",
 	path: "/privilege",
 	text: _("Directory Service"),
-	icon16: "images/ldap.png",
-	iconSvg: "images/ldap.svg",
+	iconCls: "mdi mdi-account-card-details",
 	position: 5
 });

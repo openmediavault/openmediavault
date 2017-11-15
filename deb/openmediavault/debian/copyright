@@ -6,6 +6,17 @@ Files: *
 Copyright: 2009-2017 Volker Theile <volker.theile@openmediavault.org>
 License: GPL-3
 
+Files: /var/www/openmediavault/css/materialdesignicons.min.css
+       /var/www/openmediavault/fonts/materialdesignicons-webfont.eot
+       /var/www/openmediavault/fonts/materialdesignicons-webfont.svg
+       /var/www/openmediavault/fonts/materialdesignicons-webfont.ttf
+       /var/www/openmediavault/fonts/materialdesignicons-webfont.woff
+       /var/www/openmediavault/fonts/materialdesignicons-webfont.woff2
+Copyright: (c) 2014, Austin Andrews (http://materialdesignicons.com/),
+           with Reserved Font Name Material Design Icons.
+           (c) 2014, Google (http://www.google.com/design/)
+License: SIL-OPEN-FONT-LICENSE-and-CC-BY
+
 Files: /var/www/openmediavault/images/ftp.png
        /var/www/openmediavault/images/ftp.svg
 Copyright: WebHostingHub <http://www.webhostinghub.com>

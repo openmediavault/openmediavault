@@ -348,7 +348,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "notification",
 	path: "/system",
 	text: _("Notification"),
-	iconCls: "x-fa fa-envelope",
+	iconCls: "mdi mdi-email",
 	position: 40
 });
 
