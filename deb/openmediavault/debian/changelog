@@ -1,5 +1,7 @@
 openmediavault (4.0.10-1) stable; urgency=low
 
+  * Update locales.
+  * Add slovenian language support.
   * Send notification email if a mount point is missing.
   * Set domain name in Postfix configuration.
   * Use Font Awesome and Material Design icons.
