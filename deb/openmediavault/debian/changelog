@@ -7,6 +7,8 @@ openmediavault (4.0.10-1) stable; urgency=low
   * Use Font Awesome and Material Design icons.
   * Remove support of the old 'Gray' theme because it does not include and
     use Font Awesome which is now required by the OMV UI.
+  * Mantis 0001854: Rsync notification mail - header information printed
+    in quiet mode.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 05 Nov 2017 21:26:53 +0100
 
