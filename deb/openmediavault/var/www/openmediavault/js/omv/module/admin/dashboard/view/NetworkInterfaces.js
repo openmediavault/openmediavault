@@ -116,15 +116,21 @@ Ext.define("OMV.module.admin.dashboard.view.NetworkInterfaces", {
 					},
 					flex: 1
 				},{
-					xtype: "booleaniconcolumn",
+					xtype: "booleanfonticoncolumn",
 					text: _("Link"),
 					sortable: true,
 					dataIndex: "link",
 					stateId: "link",
-					align: "center",
 					width: 80,
 					resizable: false,
-					iconCls:  Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-rj45"
+					trueCls: [
+						"mdi mdi-ethernet",
+						Ext.baseCSSPrefix + "color-boolean-true"
+					].join(" "),
+					falseCls: [
+						"mdi mdi-ethernet",
+						Ext.baseCSSPrefix + "color-boolean-false"
+					].join(" ")
 				}],
 				viewConfig: {
 					markDirty: false,

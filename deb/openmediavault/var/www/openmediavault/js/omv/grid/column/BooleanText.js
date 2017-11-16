@@ -39,6 +39,6 @@ Ext.define("OMV.grid.column.BooleanText", {
 	},
 
 	updater: function(cell, value, record, view, dataSource) {
-        cell.firstChild.innerHTML = this.defaultRenderer(value, null);
-    }
+		cell.firstChild.innerHTML = this.defaultRenderer(value, null);
+	}
 });

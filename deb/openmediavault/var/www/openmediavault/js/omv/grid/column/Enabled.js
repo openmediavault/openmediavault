@@ -18,18 +18,26 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/grid/column/BooleanIcon.js")
+// require("js/omv/grid/column/BooleanFontIcon.js")
 
 /**
  * @ingroup webgui
  * @class OMV.grid.column.Enabled
- * @derived OMV.grid.column.BooleanIcon
+ * @derived OMV.grid.column.BooleanFontIcon
  */
 Ext.define("OMV.grid.column.Enabled", {
-	extend: "OMV.grid.column.BooleanIcon",
+	extend: "OMV.grid.column.BooleanFontIcon",
 	alias: [ "widget.enabledcolumn" ],
 
-	iconCls: Ext.baseCSSPrefix + "grid-cell-booleaniconcolumn-enabled",
+	trueCls: [
+		"mdi mdi-checkbox-blank-circle",
+		Ext.baseCSSPrefix + "color-boolean-true"
+	].join(" "),
+	falseCls: [
+		"mdi mdi-checkbox-blank-circle",
+		Ext.baseCSSPrefix + "color-boolean-false"
+	].join(" "),
+
 	resizable: false,
 	width: 80
 });

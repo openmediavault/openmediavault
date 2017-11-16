@@ -29,6 +29,67 @@
 /******************************************************************************/
 
 /******************************************************************************/
+/* Font Awesome icons                                                         */
+/******************************************************************************/
+.x-fa {
+	color: #000000;
+}
+.x-grid .x-fa,
+.x-workspace-node-tree .x-fa,
+.x-workspace-navigation-toolbar .x-fa,
+.x-title-icon.x-title-icon-default.x-fa {
+	font-size: 16px;
+}
+.x-workspace-node-view-category-items .thumb-icon.x-fa {
+	font-size: 32px;
+	font-style: normal;
+	margin-bottom: 4px;
+}
+.x-workspace-node-view-category-items .thumb-icon.x-fa:before {
+	vertical-align: sub;
+}
+/******************************************************************************/
+/* Material Design Icons                                                      */
+/******************************************************************************/
+.mdi {
+	color: #000000;
+}
+.x-grid .mdi,
+.x-workspace-node-tree .mdi,
+.x-workspace-navigation-toolbar .mdi,
+.x-title-icon.x-title-icon-default.mdi {
+	font-size: 18px;
+}
+.x-workspace-node-view-category-items .thumb-icon.mdi {
+	font-size: 36px;
+	font-style: normal;
+	margin-bottom: 4px;
+}
+.x-workspace-node-view-category-items .thumb-icon.mdi:before {
+	vertical-align: sub;
+}
+/******************************************************************************/
+/* Global colors                                                              */
+/******************************************************************************/
+.x-color-red,
+.x-color-error {
+	color: #ff3b30;
+}
+.x-color-green,
+.x-color-boolean-true {
+	color: #4cd964;
+}
+.x-color-gray,
+.x-color-boolean-false {
+	color: #d8d8d8;
+}
+.x-color-warning {
+	color: #f8d400; /* Yellow */
+}
+.x-color-corporate {
+	color: #5dacdf;
+}
+/******************************************************************************/
 /* Common pages                                                               */
 /******************************************************************************/
 .login-page .product-logo,
@@ -291,6 +352,11 @@ div#headerrlogo {
 }
 /******************************************************************************/
 /* Grid columns */
+.x-grid-cell-booleanfonticoncolumn-td,
+.x-grid-cell-enabledcolumn-td,
+.x-grid-cell-fonticoncolumn-td {
+	vertical-align: middle;
+}
 .x-grid-cell-booleaniconcolumn,
 .x-grid-cell-iconcolumn {
 	background-repeat: no-repeat;
@@ -311,14 +377,12 @@ div#headerrlogo {
 	background-image: url("../images/led_blue.png");
 	background-image: url("../images/led_blue.svg"), none;
 }
-.x-grid-cell-booleaniconcolumn-enabled-false,
 .x-grid-cell-booleaniconcolumn-led-false,
 .x-grid-cell-booleaniconcolumn-led-gray,
 .x-grid-cell-iconcolumn-led-gray {
 	background-image: url("../images/led_gray.png");
 	background-image: url("../images/led_gray.svg"), none;
 }
-.x-grid-cell-booleaniconcolumn-enabled-true,
 .x-grid-cell-booleaniconcolumn-led-true,
 .x-grid-cell-booleaniconcolumn-led-green,
 .x-grid-cell-iconcolumn-led-green {
@@ -359,8 +423,6 @@ div#headerrlogo {
 /******************************************************************************/
 /* Button */
 .x-btn-icon-el {
-	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
-	opacity: 0.7;
 }
 .x-btn-icon-16x16 {
 	background-size: 16px 16px;
@@ -426,8 +488,6 @@ div#headerrlogo {
 /******************************************************************************/
 /* Menu */
 .x-menu-item-icon {
-	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
-	opacity: 0.7;
 }
 .x-menu-item-icon-16x16 {
 	background-size: 16px 16px;
@@ -443,15 +503,11 @@ div#headerrlogo {
 /******************************************************************************/
 /* Workspace dashboard */
 .x-workspace-dashboard-widget-icon {
-	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
-	opacity: 0.7;
 	background-size: 16px 16px;
 }
 /******************************************************************************/
 /* Workspace node view */
 .x-workspace-node-view {
-	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
-	opacity: 0.7;
 }
 .x-workspace-node-view-category {
 }
@@ -566,41 +622,6 @@ div#headerrlogo {
 	border: 0 none;
 	font-size: 11px;
 	margin: 1px 1px 1px 1px;
-}
-/******************************************************************************/
-/* Font Awesome icons */
-.x-fa {
-	color: #000000;
-}
-.x-workspace-node-tree .x-fa,
-.x-workspace-navigation-toolbar .x-fa {
-	font-size: 16px;
-}
-.x-workspace-node-view-category-items .thumb-icon.x-fa {
-	font-size: 32px;
-	font-style: normal;
-	margin-bottom: 4px;
-}
-.x-workspace-node-view-category-items .thumb-icon.x-fa:before {
-	vertical-align: sub;
-}
-/******************************************************************************/
-/* Material Design Icons */
-.mdi {
-	color: #000000;
-}
-.x-grid .mdi,
-.x-workspace-node-tree .mdi,
-.x-workspace-navigation-toolbar .mdi {
-	font-size: 18px;
-}
-.x-workspace-node-view-category-items .thumb-icon.mdi {
-	font-size: 36px;
-	font-style: normal;
-	margin-bottom: 4px;
-}
-.x-workspace-node-view-category-items .thumb-icon.mdi:before {
-	vertical-align: sub;
 }
 /******************************************************************************/
 /* Bugfixes/Workarounds

@@ -20,6 +20,7 @@
  */
 // require("js/omv/grid/Panel.js")
 // require("js/omv/grid/column/BinaryUnit.js")
+// require("js/omv/grid/column/BooleanFontIcon.js")
 // require("js/omv/grid/column/BooleanIcon.js")
 // require("js/omv/grid/column/BooleanText.js")
 // require("js/omv/grid/column/CronScheduling.js")
@@ -96,6 +97,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 	requires: [
 		"OMV.window.MessageBox",
 		"OMV.grid.column.BinaryUnit",
+		"OMV.grid.column.BooleanFontIcon",
 		"OMV.grid.column.BooleanIcon",
 		"OMV.grid.column.BooleanText",
 		"OMV.grid.column.CronScheduling",

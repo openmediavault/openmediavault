@@ -23,6 +23,8 @@
  * @ingroup webgui
  * @class OMV.grid.column.FontIcon
  * @derived Ext.grid.column.Column
+ * @param extraIconCls An optional extra CSS class that will be added to
+ *   the font icon. Defaults to ''.
  * @param getFontIconCls The callback function that is called to get the
  *   classnames for font icon to be rendered in the column cell.
  */
@@ -30,13 +32,22 @@ Ext.define("OMV.grid.column.FontIcon", {
 	extend: "Ext.grid.column.Column",
 	alias: [ "widget.fonticoncolumn" ],
 
+	extraIconCls: "",
 	getFontIconCls: Ext.emptyFn(),
 
-	defaultRenderer: function() {
+	defaultRenderer: function(value, metaData) {
 		var me = this;
+		var cls = [me.extraIconCls];
+		metaData.tdCls = Ext.String.format("{0}grid-cell-{1}-td",
+			Ext.baseCSSPrefix, me.xtype);
+		Ext.Array.push(cls, Ext.String.format("{0}grid-{1}",
+			Ext.baseCSSPrefix, me.xtype));
+		Ext.Array.push(cls, me.getFontIconCls.apply(me, arguments));
 		var tpl = new Ext.XTemplate("<i class='{cls}'></i>");
-		return tpl.apply({
-			cls: me.getFontIconCls.apply(me, arguments)
-		});
+		return tpl.apply({cls: cls.join(" ")});
+	},
+
+	updater: function(cell, value, record, view, dataSource) {
+		cell.firstChild.innerHTML = this.defaultRenderer(value, null);
 	}
 });
