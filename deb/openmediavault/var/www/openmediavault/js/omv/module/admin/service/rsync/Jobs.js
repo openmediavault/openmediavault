@@ -744,7 +744,7 @@ Ext.define("OMV.module.admin.service.rsync.Jobs", {
 	onRunButton: function() {
 		var me = this;
 		var record = me.getSelected();
-		Ext.create("OMV.window.Execute", {
+		var wnd = Ext.create("OMV.window.Execute", {
 			title: _("Execute rsync job"),
 			rpcService: "Rsync",
 			rpcMethod: "execute",
@@ -753,6 +753,9 @@ Ext.define("OMV.module.admin.service.rsync.Jobs", {
 			},
 			listeners: {
 				scope: me,
+				finish: function(wnd, response) {
+					wnd.appendValue(_("Done ..."));
+				},
 				exception: function(wnd, error) {
 					OMV.MessageBox.error(null, error);
 				}

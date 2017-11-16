@@ -24,6 +24,6 @@ OMV.WorkspaceManager.registerNode({
 	id: "system",
 	path: "/diagnostic",
 	text: _("System Information"),
-	iconCls: "x-fa fa-bar-chart",
+	iconCls: "mdi mdi-information-outline",
 	position: 50
 });
