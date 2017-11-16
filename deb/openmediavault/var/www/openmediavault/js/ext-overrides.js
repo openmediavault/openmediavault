@@ -492,6 +492,67 @@ Ext.apply(Ext.grid.RowEditor.prototype, {
 	dirtyText: _("You need to commit or cancel your changes")
 });
 
+// https://www.sencha.com/forum/showthread.php?107914-Row-Editor-Checkbox-alignment-problem
+// https://stackoverflow.com/a/23888701
+Ext.define("Ext.overrides.grid.RowEditor", {
+	override: "Ext.grid.RowEditor",
+	compatibility: "6.2.0.981",
+	requires: [
+		"Ext.grid.RowEditor"
+	],
+	addFieldsForColumn: function(column, initial) {
+		var me = this, i, len, field, style;
+		if (Ext.isArray(column)) {
+			for (i = 0, len = column.length; i < len; i++) {
+				me.addFieldsForColumn(column[i], initial);
+			}
+			return;
+		}
+		if (column.getEditor) {
+			field = column.getEditor(null, me.getDefaultFieldCfg());
+			if (column.align === 'right') {
+				style = field.fieldStyle;
+				if (style) {
+					if (Ext.isObject(style)) {
+						style = Ext.apply({}, style);
+					} else {
+						style = Ext.dom.Element.parseStyles(style);
+					}
+					if (!style.textAlign && !style['text-align']) {
+						style.textAlign = 'right';
+					}
+				} else {
+					style = 'text-align:right';
+				}
+				field.fieldStyle = style;
+			}
+			// ===> STARTFIX
+			if (column.align === 'center') {
+				field.fieldStyle = 'text-align:center';
+			}
+			// <=== ENDFIX
+			if (column.xtype === 'actioncolumn') {
+				field.fieldCls += ' ' + Ext.baseCSSPrefix + 'form-action-col-field';
+			}
+			if (me.isVisible() && me.context) {
+				if (field.is('displayfield')) {
+					me.renderColumnData(field, me.context.record, column);
+				} else {
+					field.suspendEvents();
+					field.setValue(me.context.record.get(column.dataIndex));
+					field.resumeEvents();
+				}
+			}
+			if (column.hidden) {
+				me.onColumnHide(column);
+			} else if (column.rendered && !initial) {
+				// Setting after initial render
+				me.onColumnShow(column);
+			}
+		}
+	}
+});
+
 ////////////////////////////////////////////////////////////////////////////////
 // Ext.toolbar.Paging
 ////////////////////////////////////////////////////////////////////////////////
