@@ -113,14 +113,11 @@ abstract class ControlPanelAbstract {
 
 EOF;
 
-		// Get the theme name.
-		$theme = \OMV\Environment::get("OMV_WEBUI_THEME", "triton");
-
 		// Set core CSS files.
 		$cssList = [
-			sprintf("/extjs6/classic/theme-%s/resources/theme-%s-all.css", $theme, $theme),
+			"/extjs6/classic/theme-triton/resources/theme-triton-all.css",
 			"css/theme-all.css",
-			sprintf("css/theme-%s.css", $theme),
+			"css/theme-triton.css",
 			"css/materialdesignicons.min.css"
 		];
 		// Add additional CSS files.
@@ -144,12 +141,12 @@ EOF;
 		if (TRUE === \OMV\Environment::getBoolean("OMV_DEBUG_EXTJS")) {
 			$jsList = array_merge([
 				"/extjs6/ext-all-debug.js",
-				sprintf("/extjs6/classic/theme-%s/theme-%s-debug.js", $theme, $theme)
+				"/extjs6/classic/theme-triton/theme-triton-debug.js"
 			], $jsList);
 		} else {
 			$jsList = array_merge([
 				"/extjs6/ext-all.js",
-				sprintf("/extjs6/classic/theme-%s/theme-%s.js", $theme, $theme)
+				"/extjs6/classic/theme-triton/theme-triton.js"
 			], $jsList);
 		}
 		foreach ($jsList as $jsListv) {
