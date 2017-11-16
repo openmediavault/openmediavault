@@ -34,7 +34,7 @@ Ext.define("OMV.workspace.dashboard.Part", {
 
 	config: {
 		icon: "",
-		iconCls: "",
+		iconCls: "mdi mdi-widgets",
 		title: "",
 		viewXType: "",
 		showAtFirstStartup: false
