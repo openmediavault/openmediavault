@@ -399,7 +399,7 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 OMV.WorkspaceManager.registerNode({
 	id: "physicaldisk",
 	path: "/storage",
-	text: _("Physical Disks"),
+	text: _("Disks"),
 	iconCls: "mdi mdi-harddisk",
 	position: 10
 });

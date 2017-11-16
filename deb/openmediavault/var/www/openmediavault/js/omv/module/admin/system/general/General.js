@@ -24,6 +24,6 @@ OMV.WorkspaceManager.registerNode({
 	id: "general",
 	path: "/system",
 	text: _("General Settings"),
-	iconCls: "x-fa fa-cogs",
+	iconCls: "x-fa fa-gear",
 	position: 10
 });

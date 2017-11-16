@@ -1,7 +1,7 @@
 openmediavault-snmp (4.0.1-1) stable; urgency=low
 
   * Update locales.
-  * Use Material Design icons.
+  * Use Font Awesome icons.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 15 Nov 2017 22:33:12 +0100
 
