@@ -131,6 +131,7 @@ Ext.define("OMV.grid.Privileges", {
 				}
 			}),
 			columns: [{
+				xtype: "fonticoncolumn",
 				text: _("Type"),
 				sortable: true,
 				dataIndex: "type",
@@ -138,23 +139,10 @@ Ext.define("OMV.grid.Privileges", {
 				align: "center",
 				width: 60,
 				resizable: false,
-				renderer: function(value, metaData) {
-					var iconCls, text;
-					switch (value) {
-					case "user":
-						text = _("User");
-						iconCls = "grid-cell-usergroupiconcolumn-user";
-						break;
-					case "group":
-						text = _("Group");
-						iconCls = "grid-cell-usergroupiconcolumn-group";
-						break;
-					}
-					metaData.tdAttr = "data-qtip='" + text + "'";
-					metaData.tdCls = Ext.baseCSSPrefix +
-					  "grid-cell-usergroupiconcolumn" + " " +
-					  Ext.baseCSSPrefix + iconCls;
-					return "";
+				getFontIconCls: function(value) {
+					if (value == "user")
+						return "mdi mdi-account";
+					return "mdi mdi-account-multiple";
 				}
 			},{
 				xtype: "textcolumn",

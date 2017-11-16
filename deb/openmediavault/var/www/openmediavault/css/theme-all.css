@@ -340,21 +340,6 @@ div#headerrlogo {
 	background-image: url("../images/switch_off.png");
 	background-image: url("../images/switch_off.svg"), none;
 }
-.x-grid-cell-usergroupiconcolumn {
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 16px 16px;
-	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
-	opacity: 0.7;
-}
-.x-grid-cell-usergroupiconcolumn-user {
-	background-image: url("../images/user.png");
-	background-image: url("../images/user.svg"), none;
-}
-.x-grid-cell-usergroupiconcolumn-group {
-	background-image: url("../images/group.png");
-	background-image: url("../images/group.svg"), none;
-}
 .x-grid-cell-booleaniconcolumn-rj45-true {
 	background-image: url("../images/rj45_yes.png");
 	background-image: url("../images/rj45_yes.svg"), none;
@@ -604,6 +589,7 @@ div#headerrlogo {
 .mdi {
 	color: #000000;
 }
+.x-grid .mdi,
 .x-workspace-node-tree .mdi,
 .x-workspace-navigation-toolbar .mdi {
 	font-size: 18px;

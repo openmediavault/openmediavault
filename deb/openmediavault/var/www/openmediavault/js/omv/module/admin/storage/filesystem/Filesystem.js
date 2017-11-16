@@ -217,6 +217,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 				clicksToEdit: 1
 			}],
 			columns: [{
+				xtype: "fonticoncolumn",
 				text: _("Type"),
 				sortable: true,
 				dataIndex: "type",
@@ -224,33 +225,10 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 				align: "center",
 				width: 60,
 				resizable: false,
-				renderer: function(value, metaData, record) {
-					var iconCls, text;
-					switch (value) {
-					case "user":
-						text = _("User");
-						iconCls = "grid-cell-usergroupiconcolumn-user";
-						break;
-					case "group":
-						text = _("Group");
-						iconCls = "grid-cell-usergroupiconcolumn-group";
-						break;
-					}
-					metaData.tdAttr = "data-qtip='" + text + "'";
-					metaData.tdCls = Ext.baseCSSPrefix +
-					  "grid-cell-usergroupiconcolumn" + " " +
-					  Ext.baseCSSPrefix + iconCls;
-					return "";
-				},
-				editRenderer: function(value) {
-					var iconCls = ("user" === value) ?
-						"grid-cell-usergroupiconcolumn-user" :
-						"grid-cell-usergroupiconcolumn-group";
-					return '<div class="' +
-						Ext.baseCSSPrefix + "form-display-field " +
-						Ext.baseCSSPrefix + "form-display-field-grid-cell " +
-						Ext.baseCSSPrefix + "grid-cell-usergroupiconcolumn " +
-						Ext.baseCSSPrefix + iconCls + '"></div>';
+				getFontIconCls: function(value) {
+					if (value == "user")
+						return "mdi mdi-account";
+					return "mdi mdi-account-multiple";
 				}
 			},{
 				xtype: "textcolumn",
