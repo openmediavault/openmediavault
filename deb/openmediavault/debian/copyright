@@ -491,20 +491,6 @@ Files: /var/www/openmediavault/images/loading.gif
 Copyright: <http://www.ajaxload.info>
 License: WTFPL
 
-Files: /var/www/openmediavault/images/rj45_yes.png
-       /var/www/openmediavault/images/rj45_yes.svg
-Copyright: Volker Theile
-License: permissive
- .Free for commercial use
-Comment: www.openmediavault.org
-
-Files: /var/www/openmediavault/images/rj45_no.png
-       /var/www/openmediavault/images/rj45_no.svg
-Copyright: Volker Theile
-License: permissive
- .Free for commercial use
-Comment: www.openmediavault.org
-
 Files: /var/www/openmediavault/images/tree-folder.png
        /var/www/openmediavault/images/tree-folder.svg
 Copyright: Google <https://www.google.com/design/icons>
