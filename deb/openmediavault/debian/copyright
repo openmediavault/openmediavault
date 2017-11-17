@@ -304,13 +304,6 @@ Files: /var/www/openmediavault/images/erase.png
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
 
-Files: /var/www/openmediavault/images/add-trigger.png
-       /var/www/openmediavault/images/folder-trigger.png
-       /var/www/openmediavault/images/password-trigger.png
-	   /var/www/openmediavault/images/copy-trigger.png
-Copyright: Volker Theile, based on WebHostingHub and ExtJS trigger template
-License: GPL
-
 Files: /var/www/openmediavault/images/wrench.png
        /var/www/openmediavault/images/wrench.png
 Copyright: Keyamoon <http://icomoon.io>
