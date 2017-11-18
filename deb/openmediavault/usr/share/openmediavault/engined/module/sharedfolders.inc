@@ -82,7 +82,7 @@ class OMVModuleSharedfolders extends \OMV\Engine\Module\ServiceAbstract
 			[ "--path", "--suffix=mount" ]);
 		// Umount the shared folder bind mount.
 		$systemCtl = new \OMV\System\SystemCtl($unitName);
-		$systemCtl->stop();
+		$systemCtl->stop(TRUE); // Be quiet here.
 		// Unlink the directory.
 		$mp = new \OMV\System\MountPoint($dirPath);
 		if (FALSE === $mp->isMountPoint())
