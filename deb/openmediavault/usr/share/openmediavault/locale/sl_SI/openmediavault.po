@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
+# Miha Bezjak <miha@bezjak.info>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-24 21:10+0200\n"
-"PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2017-11-17 09:30+0000\n"
+"Last-Translator: Miha Bezjak <miha@bezjak.info>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/votdev/openmediavault/language/sl_SI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,53 +20,53 @@ msgstr ""
 
 #, javascript-format
 msgid "% completed ..."
-msgstr ""
+msgstr "% končano..."
 
 msgid "%s (%s available)"
-msgstr ""
+msgstr "%s (%s na voljo)"
 
 msgid "%s [%s (%d%%) used, %s available]"
-msgstr ""
+msgstr "%s [%s (%d%%) porabljeno, %s na voljo]"
 
 msgid "%s [on %s, %s]"
-msgstr ""
+msgstr "%s [na %s, %s]"
 
 msgid "'All' is not allowed"
-msgstr ""
+msgstr "\"Vse\" ni dovoljeno"
 
 msgid "0 KiB/s means unlimited."
-msgstr ""
+msgstr "0 KiB/s pomeni neomejeno."
 
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr ""
 
 msgid "1 day"
-msgstr ""
+msgstr "1 dan"
 
 msgid "1 minute"
-msgstr ""
+msgstr "1 minuta"
 
 msgid "1 month"
-msgstr ""
+msgstr "1 mesec"
 
 msgid "1 week"
-msgstr ""
+msgstr "1 teden"
 
 msgid "1 year"
-msgstr ""
+msgstr "1 leto"
 
 msgid "10 minutes"
-msgstr ""
+msgstr "10 minut"
 
 msgid "10 years"
-msgstr ""
+msgstr "10 let"
 
 #, javascript-format
 msgid "100% completed ..."
-msgstr ""
+msgstr "100% končano..."
 
 msgid "120 minutes"
-msgstr ""
+msgstr "120 minut"
 
 msgid "127 - Intermediate power usage with standby"
 msgstr ""
@@ -74,118 +75,118 @@ msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr ""
 
 msgid "15 minutes"
-msgstr ""
+msgstr "15 minut"
 
 msgid "15 years"
-msgstr ""
+msgstr "15 let"
 
 msgid "180 minutes"
-msgstr ""
+msgstr "180 minut"
 
 msgid "192 - Intermediate power usage without standby"
 msgstr ""
 
 msgid "2 days"
-msgstr ""
+msgstr "2 dneva"
 
 msgid "2 minutes"
-msgstr ""
+msgstr "2 minuti"
 
 msgid "2 weeks"
-msgstr ""
+msgstr "2 tedna"
 
 msgid "2 years"
-msgstr ""
+msgstr "2 leti"
 
 msgid "20 minutes"
-msgstr ""
+msgstr "20 minut"
 
 msgid "20 years"
-msgstr ""
+msgstr "20 let"
 
 msgid "240 minutes"
-msgstr ""
+msgstr "240 minut"
 
 msgid "25 years"
-msgstr ""
+msgstr "25 let"
 
 msgid "254 - Maximum performance, maximum power usage"
-msgstr ""
+msgstr "254 - Maksimalna moč, maksimalna poraba energije"
 
 msgid "255 - Disabled"
-msgstr ""
+msgstr "255 - Onemogočeno"
 
 msgid "3 days"
-msgstr ""
+msgstr "3 dni"
 
 msgid "3 minutes"
-msgstr ""
+msgstr "3 minute"
 
 msgid "3 months"
-msgstr ""
+msgstr "3 meseci"
 
 msgid "3 weeks"
-msgstr ""
+msgstr "3 tedni"
 
 msgid "3 years"
-msgstr ""
+msgstr "3 leta"
 
 msgid "30 minutes"
-msgstr ""
+msgstr "30 minut"
 
 msgid "300 minutes"
-msgstr ""
+msgstr "300 minut"
 
 msgid "330 minutes"
-msgstr ""
+msgstr "330 minut"
 
 msgid "4 days"
-msgstr ""
+msgstr "4 dni"
 
 msgid "4 minutes"
-msgstr ""
+msgstr "4 minute"
 
 msgid "4 years"
-msgstr ""
+msgstr "4 leta"
 
 msgid "5 days"
-msgstr ""
+msgstr "5 dni"
 
 msgid "5 minutes"
-msgstr ""
+msgstr "5 minut"
 
 msgid "5 years"
-msgstr ""
+msgstr "5 let"
 
 msgid "6 days"
-msgstr ""
+msgstr "6 dni"
 
 msgid "6 months"
-msgstr ""
+msgstr "6 mesecev"
 
 msgid "60 minutes"
-msgstr ""
+msgstr "60 minut"
 
 msgid "64 - Intermediate power usage with standby"
-msgstr ""
+msgstr "64 - Vmesna poraba energije z načinom v pripravljenosti"
 
 msgid "9 months"
-msgstr ""
+msgstr "9 mesecev"
 
 msgid "ACL"
-msgstr ""
+msgstr "ACL"
 
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 msgid "About"
-msgstr ""
+msgstr "O nas"
 
 msgid "Absolute Path"
-msgstr ""
+msgstr "Absolutna pot"
 
 msgid "Abstract"
-msgstr ""
+msgstr "Povzetek"
 
 msgid "Access Right Management"
 msgstr ""
@@ -197,67 +198,67 @@ msgid "Access mode"
 msgstr ""
 
 msgid "Act as a WINS server."
-msgstr ""
+msgstr "Obnašaj se kot WINS strežnik"
 
 msgid "Action"
-msgstr ""
+msgstr "Dejanje"
 
 msgid "Activate S.M.A.R.T. monitoring."
-msgstr ""
+msgstr "Vklopi S.M.A.R.T. nadzor"
 
 msgid "Add"
-msgstr ""
+msgstr "Dodaj"
 
 msgid "Add VLAN connection"
-msgstr ""
+msgstr "Dodaj VLAN povezavo"
 
 msgid "Add Wi-Fi connection"
-msgstr ""
+msgstr "Dodaj Wi-Fi povezavo"
 
 msgid "Add bond connection"
 msgstr ""
 
 msgid "Add devices to RAID device"
-msgstr ""
+msgstr "Dodaj diske v RAID polje"
 
 msgid "Add ethernet connection"
-msgstr ""
+msgstr "Dodaj ethernet povezavo"
 
 msgid "Add firewall rule"
-msgstr ""
+msgstr "Dodaj pravilo v požarni zid"
 
 msgid "Add group"
-msgstr ""
+msgstr "Dodaj skupino"
 
 msgid "Add hot spares / recover RAID device"
-msgstr ""
+msgstr "Dodaj vročo rezervo / popravi RAID polje"
 
 msgid "Add module"
-msgstr ""
+msgstr "Dodaj modul"
 
 msgid "Add public key"
-msgstr ""
+msgstr "Dodaj javni ključ"
 
 msgid "Add rsync job"
-msgstr ""
+msgstr "Dodaj rsync opravilo"
 
 msgid "Add rule"
-msgstr ""
+msgstr "Dodaj pravilo"
 
 msgid "Add scheduled job"
-msgstr ""
+msgstr "Dodaj načrtovano opravilo"
 
 msgid "Add scheduled test"
-msgstr ""
+msgstr "Dodaj načrtovan test"
 
 msgid "Add share"
-msgstr ""
+msgstr "Dodaj deljeno mapo"
 
 msgid "Add shared folder"
-msgstr ""
+msgstr "Dodaj deljeno mapo"
 
 msgid "Add user"
-msgstr ""
+msgstr "Dodaj uporabnika"
 
 msgid ""
 "Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
@@ -266,50 +267,50 @@ msgid ""
 msgstr ""
 
 msgid "Address"
-msgstr ""
+msgstr "Naslov"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
-msgstr ""
+msgstr "Administrator: beri/piši, Uporabniki: brez dostopa, Ostali: brez dostopa"
 
 msgid "Administrator: read/write, Users: read-only, Others: no access"
-msgstr ""
+msgstr "Administrator: beri/piši, Uporabniki: samo branje, Ostali: brez dostopa"
 
 msgid "Administrator: read/write, Users: read-only, Others: read-only"
-msgstr ""
+msgstr "Administrator: beri/piši, Uporabniki: samo branje, Ostali: samo branje"
 
 msgid "Administrator: read/write, Users: read/write, Others: no access"
-msgstr ""
+msgstr "Administrator: beri/piši, Uporabniki: beri/piši, Ostali: brez dostopa"
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
-msgstr ""
+msgstr "Administrator: beri/piši, Uporabniki: beri/piši, Ostali: samo branje"
 
 msgid "Advanced Power Management"
-msgstr ""
+msgstr "Napredne Nastavitve Napajanja"
 
 msgid "Advanced settings"
-msgstr ""
+msgstr "Napredne nastavitve"
 
 msgid "Afghanistan"
-msgstr ""
+msgstr "Afghanistan"
 
 msgid ""
 "After the RAID has been grown you can resize the containing file system."
 msgstr ""
 
 msgid "Aland Islands"
-msgstr ""
+msgstr "Alandski otoki"
 
 msgid "Albania"
-msgstr ""
+msgstr "Albanija"
 
 msgid "Algeria"
-msgstr ""
+msgstr "Alžirija"
 
 msgid "All"
-msgstr ""
+msgstr "Vse"
 
 msgid "Allow client access to accounts that have null passwords"
-msgstr ""
+msgstr "Dovoli dostop do odjemalcev računom, ki nimajo nastavljenega gesla."
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
@@ -326,7 +327,7 @@ msgid "Allow this server to try and become a local master browser"
 msgstr ""
 
 msgid "American Samoa"
-msgstr ""
+msgstr "Ameriška Samoa"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -339,103 +340,103 @@ msgid ""
 msgstr ""
 
 msgid "An error has occured"
-msgstr ""
+msgstr "Prišlo je do napake"
 
 msgid "Andorra"
-msgstr ""
+msgstr "Andora"
 
 msgid "Angola"
-msgstr ""
+msgstr "Angola"
 
 msgid "Anguilla"
-msgstr ""
+msgstr "Angvila"
 
 msgid "Anonymous"
-msgstr ""
+msgstr "Anonimno"
 
 msgid "Anonymous FTP"
-msgstr ""
+msgstr "Anonimno FTP"
 
 msgid "Antarctica"
-msgstr ""
+msgstr "Antarktika"
 
 msgid "Antigua and Barbuda"
-msgstr ""
+msgstr "Antigva in Barbuda"
 
 msgid "Apply"
-msgstr ""
+msgstr "Uporabi"
 
 msgid "Apply configuration changes"
-msgstr ""
+msgstr "Potrdi uporabljene spremembe"
 
 msgid "Apply permissions to files and subfolders"
-msgstr ""
+msgstr "Uporabi dovoljenja za datoteke in podmape"
 
 msgid "April"
-msgstr ""
+msgstr "April"
 
 msgid "Archive"
 msgstr ""
 
 msgid "Argentina"
-msgstr ""
+msgstr "Argentina"
 
 msgid "Armenia"
-msgstr ""
+msgstr "Armenija"
 
 msgid "Array details"
-msgstr ""
+msgstr "Podatki o RAID polju"
 
 msgid "Aruba"
-msgstr ""
+msgstr "Aruba"
 
 msgid "Asynchronous I/O"
-msgstr ""
+msgstr "Asinhron I/O"
 
 msgid "At reboot"
-msgstr ""
+msgstr "Ob ponovnem zagonu"
 
 msgid "Attribute name"
-msgstr ""
+msgstr "Ime atributa"
 
 msgid "Attributes"
-msgstr ""
+msgstr "Atributi"
 
 msgid "Audit"
-msgstr ""
+msgstr "Pregled"
 
 msgid "Audit file operations."
 msgstr ""
 
 msgid "August"
-msgstr ""
+msgstr "Avgust"
 
 msgid "Australia"
-msgstr ""
+msgstr "Avstralija"
 
 msgid "Austria"
-msgstr ""
+msgstr "Avstrija"
 
 msgid "Authenticate users"
-msgstr ""
+msgstr "Avtenticiraj uporabnike"
 
 msgid "Authenticated user ID"
-msgstr ""
+msgstr "Avtenticiran uporabniški ID"
 
 msgid "Authentication"
-msgstr ""
+msgstr "Avtentikacija"
 
 msgid "Authentication method"
-msgstr ""
+msgstr "Metoda avtentikacije"
 
 msgid "Authentication required"
-msgstr ""
+msgstr "Zahtevana je avtentikacija"
 
 msgid "Auto"
 msgstr ""
 
 msgid "Auto logout"
-msgstr ""
+msgstr "Samodejna odjava"
 
 msgid "Auto logout after the specified idle period."
 msgstr ""
@@ -444,361 +445,361 @@ msgid "Automatic Acoustic Management"
 msgstr ""
 
 msgid "Available"
-msgstr ""
+msgstr "Na voljo"
 
 msgid "Azerbaijan"
-msgstr ""
+msgstr "Azerbajdžan"
 
 msgid "Bahamas"
-msgstr ""
+msgstr "Bahami"
 
 msgid "Bahrain"
-msgstr ""
+msgstr "Bahrajn"
 
 msgid "Ban list"
-msgstr ""
+msgstr "Lista blokiranih"
 
 msgid "Ban statistics:"
-msgstr ""
+msgstr "Statistika blokiranih:"
 
 msgid "Bandwidth restriction"
-msgstr ""
+msgstr "Omejitev pasovne širine"
 
 msgid "Bangladesh"
-msgstr ""
+msgstr "Bangladeš"
 
 msgid "Barbados"
-msgstr ""
+msgstr "Barbados"
 
 msgid "Belarus"
-msgstr ""
+msgstr "Belorusija"
 
 msgid "Belgium"
-msgstr ""
+msgstr "Belgija"
 
 msgid "Belize"
-msgstr ""
+msgstr "Belize"
 
 msgid "Benin"
-msgstr ""
+msgstr "Benin"
 
 msgid "Bermuda"
-msgstr ""
+msgstr "Bermudi"
 
 msgid "Bhutan"
-msgstr ""
+msgstr "Butan"
 
 msgid "Binary"
-msgstr ""
+msgstr "Binarno"
 
 msgid "Block layer cache [%s, %s]"
 msgstr ""
 
 msgid "Bolivia"
-msgstr ""
+msgstr "Bolivija"
 
 msgid "Bond"
 msgstr ""
 
 msgid "Boot"
-msgstr ""
+msgstr "Zagon naprave"
 
 msgid "Bosnia and Herzegovina"
-msgstr ""
+msgstr "Bosna in Hercegovina"
 
 msgid "Botswana"
-msgstr ""
+msgstr "Bocvana"
 
 msgid "Bouvet Island"
-msgstr ""
+msgstr "Bouvetov otok"
 
 msgid "Brazil"
-msgstr ""
+msgstr "Brazilija"
 
 msgid "British Antarctic Territory"
-msgstr ""
+msgstr "Britansko antarktično ozemlje"
 
 msgid "British Indian Ocean Territory"
-msgstr ""
+msgstr "Britansko ozemlje v Indijskem oceanu"
 
 msgid "British Virgin Islands"
-msgstr ""
+msgstr "Britanski Deviški otoki"
 
 msgid "Browseable"
-msgstr ""
+msgstr "Nastavljeno za brskanje"
 
 msgid "Brunei"
-msgstr ""
+msgstr "Brunej"
 
 msgid "Bulgaria"
-msgstr ""
+msgstr "Bulgarija"
 
 msgid "Burkina Faso"
-msgstr ""
+msgstr "Burkina Faso"
 
 msgid "Burundi"
-msgstr ""
+msgstr "Burundi"
 
 msgid "CPU usage"
-msgstr ""
+msgstr "Poraba CPE"
 
 msgid "Cambodia"
-msgstr ""
+msgstr "Kambodža"
 
 msgid "Cameroon"
-msgstr ""
+msgstr "Kamerun"
 
 msgid "Canada"
-msgstr ""
+msgstr "Kanada"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Prekliči"
 
 msgid "Canton and Enderbury Islands"
-msgstr ""
+msgstr "Otoka Kanton in Enderbury"
 
 msgid "Capacity"
-msgstr ""
+msgstr "Kapaciteta"
 
 msgid "Cape Verde"
-msgstr ""
+msgstr "Zelenortski otoki"
 
 msgid "Cayman Islands"
-msgstr ""
+msgstr "Kajmanski otoki"
 
 msgid "Central African Republic"
-msgstr ""
+msgstr "Srednjeafriška republika"
 
 msgid "Certain date"
-msgstr ""
+msgstr "Točen datum"
 
 msgid "Certificate"
-msgstr ""
+msgstr "Potrdilo"
 
 msgid "Certificate details"
-msgstr ""
+msgstr "Podrobnosti potrdila"
 
 msgid "Certificates"
-msgstr ""
+msgstr "Potrdila"
 
 msgid "Chad"
-msgstr ""
+msgstr "Čad"
 
 msgid "Changelog"
-msgstr ""
+msgstr "Dnevnik sprememb"
 
 msgid "Check"
-msgstr ""
+msgstr "Preveri"
 
 msgid "Check interval"
-msgstr ""
+msgstr "Interval preverjanja"
 
 msgid "Checking for new plugins ..."
-msgstr ""
+msgstr "Preverjanje za nove vtičnike ..."
 
 msgid "Checking for new updates ..."
-msgstr ""
+msgstr "Preverjanje za nove posodobitve ..."
 
 msgid "Chile"
-msgstr ""
+msgstr "Čile"
 
 msgid "China"
-msgstr ""
+msgstr "Kitajska"
 
 msgid "Christmas Island"
-msgstr ""
+msgstr "Božični otok"
 
 msgid "City"
-msgstr ""
+msgstr "Mesto"
 
 msgid "Clear"
-msgstr ""
+msgstr "Počisti"
 
 msgid "Client"
-msgstr ""
+msgstr "Odjemalec"
 
 msgid "Client NetBIOS name"
-msgstr ""
+msgstr "djemalčevo NetBIOS ime"
 
 msgid "Client address"
-msgstr ""
+msgstr "Naslov odjemalca"
 
 msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
 msgstr ""
 
 msgid "Close"
-msgstr ""
+msgstr "Zapri"
 
 msgid "Cocos (Keeling) Islands"
-msgstr ""
+msgstr "Kokosovi otoki"
 
 msgid "Colombia"
-msgstr ""
+msgstr "Kolumbija"
 
 msgid "Command"
-msgstr ""
+msgstr "Ukaz"
 
 msgid "Comment"
-msgstr ""
+msgstr "Komentar"
 
 msgid "Common Name"
-msgstr ""
+msgstr "Splošno ime"
 
 msgid "Community-maintained updates."
 msgstr ""
 
 msgid "Comoros"
-msgstr ""
+msgstr "Komori"
 
 msgid "Complete"
-msgstr ""
+msgstr "Končano"
 
 msgid "Completion status"
-msgstr ""
+msgstr "Status zaključka"
 
 msgid "Compress"
-msgstr ""
+msgstr "Stisni"
 
 msgid "Compress file data during the transfer"
-msgstr ""
+msgstr "Stisni datoteko med prenosom"
 
 msgid "Compressed"
-msgstr ""
+msgstr "Stisnjeno"
 
 msgid "Compression"
-msgstr ""
+msgstr "Stiskanje"
 
 msgid ""
 "Compression is worth using if your connection is slow. The efficiency of the"
 " compression depends on the type of the file, and varies widely. Useful for "
 "internet transfer only."
-msgstr ""
+msgstr "Uporaba stiskanja je vredna uporabe, v kolikor imate počasno povezavo. Učinkovitost stiskanja je odvisna od vrste datoteke in lahko niha. Uporabno samo za povezave preko interneta."
 
 msgid "Confirm password"
-msgstr ""
+msgstr "Potrdi geslo"
 
 msgid "Confirmation"
-msgstr ""
+msgstr "Potrditev"
 
 msgid "Congo (Brazzaville)"
-msgstr ""
+msgstr "Zahodni Kongo"
 
 msgid "Congo (Kinshasa)"
-msgstr ""
+msgstr "Kongo-Kinšasa"
 
 msgid "Connections"
-msgstr ""
+msgstr "Povezave"
 
 msgid "Conveyance self-test"
 msgstr ""
 
 msgid "Cook Islands"
-msgstr ""
+msgstr "Cookovi otoki"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopiraj v odložišče"
 
 msgid "Costa Rica"
-msgstr ""
+msgstr "Kostarika"
 
 msgid "Country"
-msgstr ""
+msgstr "Država"
 
 msgid "Create"
-msgstr ""
+msgstr "Ustvari"
 
 msgid "Create RAID device"
-msgstr ""
+msgstr "Ustvari RAID polje"
 
 msgid "Create file system"
-msgstr ""
+msgstr "Ustvari datotečni sistem"
 
 msgid "Create self-signed SSL certificate"
-msgstr ""
+msgstr "Ustvari samopodpisano SSL potrdilo"
 
 msgid "Creating the file system, please wait ..."
-msgstr ""
+msgstr "Ustvarjanje datotečnega sistema, prosimo počakajte..."
 
 msgid "Critical"
-msgstr ""
+msgstr "Kritično"
 
 msgid "Croatia"
-msgstr ""
+msgstr "Hrvaška"
 
 msgid "Cuba"
-msgstr ""
+msgstr "Kuba"
 
 msgid "Current time"
-msgstr ""
+msgstr "Trenutni čas"
 
 msgid "Currently logged in users"
-msgstr ""
+msgstr "Trenutno prijavljeni uporabniki"
 
 msgid "Currently logged in users:"
-msgstr ""
+msgstr "Trenutno prijavljeni uporabniki:"
 
 msgid "Cyprus"
-msgstr ""
+msgstr "Ciper"
 
 msgid "Czech Republic"
-msgstr ""
+msgstr "Češka republika"
 
 msgid "DHCP"
-msgstr ""
+msgstr "DHCP"
 
 msgid "DNS servers"
-msgstr ""
+msgstr "DNS strežniki"
 
 msgid "Daemon"
-msgstr ""
+msgstr "Daemon"
 
 msgid "Daily"
-msgstr ""
+msgstr "Dnevno"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Nadzorna plošča"
 
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Datum in čas"
 
 msgid "Day of month"
-msgstr ""
+msgstr "Dan v mesecu"
 
 msgid "Day of week"
-msgstr ""
+msgstr "Dan v tednu"
 
 msgid "Debug"
-msgstr ""
+msgstr "Razhroščevanje"
 
 msgid "December"
-msgstr ""
+msgstr "December"
 
 msgid "Delete"
-msgstr ""
+msgstr "Izbriši"
 
 msgid "Delete file system"
-msgstr ""
+msgstr "Izbriši datotečni sistem"
 
 msgid "Delete files on the receiving side that don't exist on sender"
-msgstr ""
+msgstr "Izbriši datoteke, ki obstajajo na strani naslovnika in ne obstajajo na strani pošiljatelja"
 
 msgid "Deleting selected item(s)"
-msgstr ""
+msgstr "Izbriši izbran(e) predmet(e)"
 
 msgid "Denmark"
-msgstr ""
+msgstr "Danska"
 
 msgid "Deny logins which do not have a valid shell"
-msgstr ""
+msgstr "Zavrni prijave, ki nimajo veljavne lupine"
 
 msgid "Description"
-msgstr ""
+msgstr "Opis"
 
 msgid "Destination"
-msgstr ""
+msgstr "Cilj"
 
 msgid ""
 "Destination address can be either a network IP address (with /mask), a IP "
@@ -807,120 +808,120 @@ msgid ""
 msgstr ""
 
 msgid "Destination port"
-msgstr ""
+msgstr "Vrata cilja (port)"
 
 msgid "Destination server"
-msgstr ""
+msgstr "Ciljni strežnik"
 
 msgid "Destination shared folder"
-msgstr ""
+msgstr "Mapa v skupni rabi na ciljni strani"
 
 msgid "Detail"
-msgstr ""
+msgstr "Podrobnost"
 
 msgid "Device"
-msgstr ""
+msgstr "Naprava"
 
 msgid "Device Mapper %s [%s, %s]"
 msgstr ""
 
 msgid "Device Symlinks"
-msgstr ""
+msgstr "Simbolične povezave naprave"
 
 msgid "Device has a few bad sectors"
-msgstr ""
+msgstr "Naprava ima nekaj slabih sektorjev"
 
 msgid "Device has many bad sectors"
-msgstr ""
+msgstr "Naprava ima veliko slabih sektorjev"
 
 msgid "Device information"
-msgstr ""
+msgstr "Informacije o napravi"
 
 msgid "Device is being used outside design parameters"
-msgstr ""
+msgstr "Naprava se uporablja izven tovarniških parametrov"
 
 msgid "Device model"
-msgstr ""
+msgstr "Model naprave"
 
 msgid "Device properties"
-msgstr ""
+msgstr "Natavitve naprave"
 
 msgid "Device was used outside of design parameters in the past"
-msgstr ""
+msgstr "V preteklosti je bila naprava uporabljena izven tovarniških parametrov"
 
 msgid "Device(s)"
-msgstr ""
+msgstr "Naprava/naprave"
 
 msgid "Device/Label"
-msgstr ""
+msgstr "Naprava/oznake"
 
 msgid "Devices"
-msgstr ""
+msgstr "Naprave"
 
 msgid "Diagnostics"
-msgstr ""
+msgstr "Diagnostika"
 
 msgid "Difference"
-msgstr ""
+msgstr "Razlika"
 
 msgid "Direction"
-msgstr ""
+msgstr "Smer"
 
 msgid "Directory"
-msgstr ""
+msgstr "Mapa"
 
 msgid "Disabled"
-msgstr ""
+msgstr "Onemogočeno"
 
 msgid "Disallow the user to modify his account."
-msgstr ""
+msgstr "Uporabniku ne dovoli spreminjanja svojega računa."
 
 msgid "Disk usage"
-msgstr ""
+msgstr "Poraba diska"
 
 msgid "Displaying items {0} - {1} of {2}"
-msgstr ""
+msgstr "Prikazani podatki {0} - {1} of {2}"
 
 msgid "Displaying {0} - {1} of {2}"
-msgstr ""
+msgstr "Prikazano {0} - {1} of {2}"
 
 msgid "Djibouti"
-msgstr ""
+msgstr "Džibuti"
 
 msgid "Do you really want to apply the configuration changes?"
-msgstr ""
+msgstr "Res želite potrditi uporabljene spremembe?"
 
 msgid "Do you really want to clear the log file?"
-msgstr ""
+msgstr "Res želite počistiti dnevniško datoteko?"
 
 msgid "Do you really want to create the RAID device?"
-msgstr ""
+msgstr "Res želite ustvariti RAID polje?"
 
 msgid "Do you really want to delete the file system? All data will be lost."
-msgstr ""
+msgstr "Res želite izbrisati datotečni sistem? Vsi podatki bodo izbrisani."
 
 msgid "Do you really want to delete the selected item(s)?"
-msgstr ""
+msgstr "Res želite izbrisati izbrane predmete?"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
 "Please note that the file system creation may take some time."
-msgstr ""
+msgstr "Rez želite formatirati to napravo? Vsi podatki na njej bodo izbrisani. Izdelava datotečnega sistema lahko traja kar nekaj časa."
 
 msgid "Do you really want to install the selected plugin(s)?"
-msgstr ""
+msgstr "Res želite namestiti izbran(e) vtičnik(e)?"
 
 msgid "Do you really want to leave the page?"
-msgstr ""
+msgstr "Res želite zapustiti to stran?"
 
 msgid "Do you really want to logout?"
-msgstr ""
+msgstr "Se res želite odjaviti iz sistema?"
 
 msgid "Do you really want to put the system into standby?"
-msgstr ""
+msgstr "Res želite postaviti sistem v stanje pripravljenosti?"
 
 msgid "Do you really want to reboot the system?"
-msgstr ""
+msgstr "Res želite ponovno zagnati sistem?"
 
 msgid ""
 "Do you really want to relocate the shared folder? The content of the shared "
@@ -943,168 +944,168 @@ msgid ""
 msgstr ""
 
 msgid "Do you really want to revert the configuration changes?"
-msgstr ""
+msgstr "Ali res želite povrniti spremembe v konfiguraciji?"
 
 msgid "Do you really want to shutdown the system?"
-msgstr ""
+msgstr "Res želite ugasniti sistem?"
 
 msgid "Do you really want to uninstall the selected plugin(s)?"
-msgstr ""
+msgstr "Res želite odstraniti izbran(e) vtičnik(e)?"
 
 msgid "Do you really want to wipe the selected device?"
-msgstr ""
+msgstr "Res želite počistiti izbrano napravo?"
 
 msgid "Domain name"
-msgstr ""
+msgstr "Ime domene"
 
 msgid "Domains used when resolving host names."
-msgstr ""
+msgstr "Domene uporabljene ob razreševanju imen gostiteljev."
 
 msgid "Dominica"
-msgstr ""
+msgstr "Dominika"
 
 msgid "Dominican Republic"
-msgstr ""
+msgstr "Dominikanska republika"
 
 msgid "Donate"
-msgstr ""
+msgstr "Doniraj"
 
 msgid "Done ..."
-msgstr ""
+msgstr "Končano..."
 
 msgid "Down"
-msgstr ""
+msgstr "Ni na voljo"
 
 msgid "Down delay"
 msgstr ""
 
 msgid "Download"
-msgstr ""
+msgstr "Prenos"
 
 msgid "Downloading package information"
-msgstr ""
+msgstr "Prenašanje informacij paketov"
 
 msgid "Dronning Maud Land"
-msgstr ""
+msgstr "Ozemlje Dronning Maud"
 
 msgid "Each line represents one group."
-msgstr ""
+msgstr "Vsaka vrstica predstavlja eno skupino."
 
 msgid ""
 "Each line represents one user. Note, the password must be entered in plain "
 "text."
-msgstr ""
+msgstr "Vsaka vrstica predstavlja enega uporabnika. Geslo mora biti vpisano kot izvorno besedilo."
 
 msgid "East Timor"
-msgstr ""
+msgstr "Vzhodni Timor"
 
 msgid "Ecuador"
-msgstr ""
+msgstr "Ekvador"
 
 msgid "Edit"
-msgstr ""
+msgstr "Uredi"
 
 msgid "Edit SSH certificate"
-msgstr ""
+msgstr "Uredi SSH potrdilo"
 
 msgid "Edit SSL certificate"
-msgstr ""
+msgstr "Uredi SSH potrdilo"
 
 msgid "Edit VLAN connection"
-msgstr ""
+msgstr "Uredi VLAN povezavo"
 
 msgid "Edit Wi-Fi connection"
-msgstr ""
+msgstr "Uredi Wi-Fi povezavo"
 
 msgid "Edit bond connection"
 msgstr ""
 
 msgid "Edit ethernet connection"
-msgstr ""
+msgstr "Uredi povezavo ethernet"
 
 msgid "Edit firewall rule"
-msgstr ""
+msgstr "Uredi pravilo požarnega zidu"
 
 msgid "Edit group"
-msgstr ""
+msgstr "Uredi skupino"
 
 msgid "Edit module"
-msgstr ""
+msgstr "Uredi modul"
 
 msgid "Edit quota"
-msgstr ""
+msgstr "Uredi kvoto"
 
 msgid "Edit rsync job"
-msgstr ""
+msgstr "Iredi rsync opravilo"
 
 msgid "Edit rule"
-msgstr ""
+msgstr "Uredi pravilo"
 
 msgid "Edit scheduled job"
-msgstr ""
+msgstr "Uredi načrtovano opravilo"
 
 msgid "Edit scheduled test"
-msgstr ""
+msgstr "Uredi načrtovan test"
 
 msgid "Edit service"
-msgstr ""
+msgstr "Uredi servis"
 
 msgid "Edit share"
-msgstr ""
+msgstr "Uredi deljeno mapo"
 
 msgid "Edit shared folder"
-msgstr ""
+msgstr "Uredi deljeno mapo"
 
 msgid "Edit user"
-msgstr ""
+msgstr "Uredi uporabnika"
 
 msgid "Egypt"
-msgstr ""
+msgstr "Egipt"
 
 msgid "El Salvador"
-msgstr ""
+msgstr "Salvador"
 
 msgid "Email"
-msgstr ""
+msgstr "E-pošta"
 
 msgid "Empty now"
-msgstr ""
+msgstr "Izprazni zdaj"
 
 msgid "Empty recycle bin"
-msgstr ""
+msgstr "Izprazni koš"
 
 msgid "Enable"
-msgstr ""
+msgstr "Omogoči"
 
 msgid "Enable FXP protocol"
-msgstr ""
+msgstr "Omogoči FXP protokol"
 
 msgid "Enable SSL/TLS"
-msgstr ""
+msgstr "Omogoči SSL/TLS protokol"
 
 msgid "Enable SSL/TLS connections"
-msgstr ""
+msgstr "Omogoči SSL/TLS povezave"
 
 msgid "Enable WINS server"
-msgstr ""
+msgstr "Omogoči WINS strežnik"
 
 msgid "Enable anonymous FTP"
-msgstr ""
+msgstr "Omogoči anonimen FTP"
 
 msgid "Enable archive mode"
-msgstr ""
+msgstr "Omogoči način arhiviranja"
 
 msgid "Enable asynchronous I/O (AIO) support."
-msgstr ""
+msgstr "Omogoči asinhrono I/O (AIO) podporo."
 
 msgid "Enable chroot."
-msgstr ""
+msgstr "Omogoči  chroot."
 
 msgid "Enable compression"
-msgstr ""
+msgstr "Omogoči stiskanje"
 
 msgid "Enable extended attribute support"
-msgstr ""
+msgstr "Omogoči podporo razširjenih atributov"
 
 msgid "Enable keyboard-interactive authentication"
 msgstr ""
@@ -1113,16 +1114,16 @@ msgid "Enable module listing"
 msgstr ""
 
 msgid "Enable permission inheritance"
-msgstr ""
+msgstr "Omogoči dedovanje pravic"
 
 msgid "Enable public key authentication"
-msgstr ""
+msgstr "Omogoči avtentikacijo preko javnega ključa"
 
 msgid "Enable recycle bin"
-msgstr ""
+msgstr "Izprazni koš"
 
 msgid "Enable reverse DNS lookup"
-msgstr ""
+msgstr "Omogoči reverzni DNS pregled"
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
@@ -1131,13 +1132,13 @@ msgid ""
 msgstr ""
 
 msgid "Enable secure connection."
-msgstr ""
+msgstr "Omogoči varno povezavo."
 
 msgid "Enable store DOS attributes support"
 msgstr ""
 
 msgid "Enable the ident protocol (RFC1413)"
-msgstr ""
+msgstr "Omogoči identifikacijski protokol (RFC1413)"
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
@@ -1145,10 +1146,10 @@ msgid ""
 msgstr ""
 
 msgid "Enable transfer log"
-msgstr ""
+msgstr "Omogoči dnevniško datoteko za prenos"
 
 msgid "Enable user authentication"
-msgstr ""
+msgstr "Omogoči avtentikacijo s strani uporabnika"
 
 msgid "Enable user home directories"
 msgstr ""
@@ -1157,94 +1158,94 @@ msgid "Enable write-cache."
 msgstr ""
 
 msgid "Enabled"
-msgstr ""
+msgstr "Omogočeno"
 
 msgid "Enter your password"
-msgstr ""
+msgstr "Vpišite vaše geslo"
 
 msgid "Enter your username"
-msgstr ""
+msgstr "Vpišite vaše uporabniško ime"
 
 msgid "Equatorial Guinea"
-msgstr ""
+msgstr "Ekvatorialna Gvineja"
 
 msgid "Eritrea"
-msgstr ""
+msgstr "Eritreja"
 
 msgid "Error"
-msgstr ""
+msgstr "Napaka"
 
 msgid "Error #"
-msgstr ""
+msgstr "Napaka #"
 
 msgid "Errors"
-msgstr ""
+msgstr "Napake"
 
 msgid "Estonia"
-msgstr ""
+msgstr "Estonija"
 
 msgid "Ethernet"
-msgstr ""
+msgstr "Eternet"
 
 msgid "Ethiopia"
-msgstr ""
+msgstr "Etiopija"
 
 msgid "Event"
-msgstr ""
+msgstr "Dogodek"
 
 msgid "Every N day of month"
-msgstr ""
+msgstr "Vsaki N dan v mesecu"
 
 msgid "Every N hour"
-msgstr ""
+msgstr "Vsako N uro"
 
 msgid "Every N minute"
-msgstr ""
+msgstr "Vsako N minuto"
 
 msgid "Everyone: read/write"
-msgstr ""
+msgstr "Vsi: beri/piši"
 
 msgid "Exactly"
-msgstr ""
+msgstr "Točno"
 
 msgid "Execute command"
-msgstr ""
+msgstr "Izvedi ukaz"
 
 msgid "Execute cron job"
-msgstr ""
+msgstr "Izvedi cron job"
 
 msgid "Execute only"
-msgstr ""
+msgstr "Izvedi samo"
 
 msgid "Execute rsync job"
-msgstr ""
+msgstr "Izvedi rsync opravilo"
 
 msgid "Execute scheduled test"
-msgstr ""
+msgstr "Izvedi načrtovan test"
 
 msgid "Expire"
-msgstr ""
+msgstr "Poteče"
 
 msgid "Extended attributes"
-msgstr ""
+msgstr "Razširjeni atributi"
 
 msgid "Extended information"
-msgstr ""
+msgstr "Razširjene informacije"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Dodatne nastavitve"
 
 msgid "FTP"
-msgstr ""
+msgstr "FTP"
 
 msgid "FTP - Transfer log"
-msgstr ""
+msgstr "FTP - Dnevniška datoteka prenosov"
 
 msgid "FTP-Proxy"
-msgstr ""
+msgstr "FTP-Proxy"
 
 msgid "FXP"
-msgstr ""
+msgstr "FXP"
 
 msgid ""
 "FXP allows transfers between two remote servers without any file data going "
@@ -1252,37 +1253,37 @@ msgid ""
 msgstr ""
 
 msgid "Falkland Islands"
-msgstr ""
+msgstr "Falklandski otoki"
 
 msgid "Family"
-msgstr ""
+msgstr "Družina"
 
 msgid "Faroe Islands"
-msgstr ""
+msgstr "Ferski otoki"
 
 msgid "Fatal error"
-msgstr ""
+msgstr "Usodna napaka"
 
 msgid "February"
-msgstr ""
+msgstr "Februar"
 
 msgid "Fields must be exclusive"
-msgstr ""
+msgstr "Polja morajo biti univerzalna"
 
 msgid "Fiji"
-msgstr ""
+msgstr "Fidži"
 
 msgid "File"
-msgstr ""
+msgstr "Datoteka"
 
 msgid "File Systems"
-msgstr ""
+msgstr "Datotečni sistemi"
 
 msgid "File system"
-msgstr ""
+msgstr "Datotečni sistem"
 
 msgid "Filename"
-msgstr ""
+msgstr "Ime datoteke"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1295,232 +1296,232 @@ msgid ""
 msgstr ""
 
 msgid "Filesize"
-msgstr ""
+msgstr "Velikost datotek(e)"
 
 msgid "Filesystem Type"
-msgstr ""
+msgstr "Vrsta datotečnega sistema"
 
 msgid "Filesystems"
-msgstr ""
+msgstr "Datotečni sistemi"
 
 msgid "Finland"
-msgstr ""
+msgstr "Finska"
 
 msgid "Firewall"
-msgstr ""
+msgstr "Datotečni sistem"
 
 msgid "Firmware version"
-msgstr ""
+msgstr "Različica sistemske programske oreme"
 
 msgid "First Page"
-msgstr ""
+msgstr "Prva stran"
 
 msgid "Flags"
-msgstr ""
+msgstr "Zastavice"
 
 msgid "Force SSL/TLS"
-msgstr ""
+msgstr "Vsili SSL/TLS"
 
 msgid "Force secure connection only."
-msgstr ""
+msgstr "Vsili le varno povezavo"
 
 msgid "France"
-msgstr ""
+msgstr "Francija"
 
 msgid "French Guiana"
-msgstr ""
+msgstr "Francoska Gvajana"
 
 msgid "French Polynesia"
-msgstr ""
+msgstr "Francoska Polinezija"
 
 msgid "French Southern Territories"
-msgstr ""
+msgstr "Francoska južna ozemlja"
 
 msgid "French Southern and Antarctic Territories"
-msgstr ""
+msgstr "Francoska južna in antarktična ozemlja"
 
 msgid "Friday"
-msgstr ""
+msgstr "Petek"
 
 msgid "Full"
-msgstr ""
+msgstr "Polno"
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Gabon"
-msgstr ""
+msgstr "Gabon"
 
 msgid "Gambia"
-msgstr ""
+msgstr "Gambija"
 
 msgid "Gateway"
-msgstr ""
+msgstr "Prehod"
 
 msgid "General"
-msgstr ""
+msgstr "SPlošno"
 
 msgid "General Settings"
-msgstr ""
+msgstr "Splošne nastavitve"
 
 msgid "General settings"
-msgstr ""
+msgstr "Splošne nastavitve"
 
 msgid "Generating graphs ..."
-msgstr ""
+msgstr "Ustvarjanje grafov..."
 
 msgid "Georgia"
-msgstr ""
+msgstr "Gruzija"
 
 msgid "Germany"
-msgstr ""
+msgstr "Nemčija"
 
 msgid "Ghana"
-msgstr ""
+msgstr "Gana"
 
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 msgid "Gibraltar"
-msgstr ""
+msgstr "Gibraltar"
 
 msgid "Good"
-msgstr ""
+msgstr "Dobro"
 
 msgid "Greece"
-msgstr ""
+msgstr "Grčija"
 
 msgid "Greenland"
-msgstr ""
+msgstr "Grenlandija"
 
 msgid "Grenada"
-msgstr ""
+msgstr "Grenada"
 
 msgid "Group"
-msgstr ""
+msgstr "Skupina"
 
 msgid "Groups"
-msgstr ""
+msgstr "Skupine"
 
 msgid "Grow"
-msgstr ""
+msgstr "Povečaj"
 
 msgid "Grow RAID device"
-msgstr ""
+msgstr "Povečaj RAID polje"
 
 msgid "Guadeloupe"
-msgstr ""
+msgstr "Gvadelup"
 
 msgid "Guam"
-msgstr ""
+msgstr "Gvam"
 
 msgid "Guatemala"
-msgstr ""
+msgstr "Gvatemala"
 
 msgid "Guest"
-msgstr ""
+msgstr "Gost"
 
 msgid "Guest allowed"
-msgstr ""
+msgstr "Gost dovoljen"
 
 msgid "Guests allowed"
-msgstr ""
+msgstr "Gosti dovoljeni"
 
 msgid "Guinea"
-msgstr ""
+msgstr "Gvineja"
 
 msgid "Guinea-Bissau"
-msgstr ""
+msgstr "Gvineja Bissau"
 
 msgid "Guyana"
-msgstr ""
+msgstr "Gvajana"
 
 msgid "HTTP-Proxy"
-msgstr ""
+msgstr "HTTP-Proxy"
 
 msgid "HTTPS-Proxy"
-msgstr ""
+msgstr "HTTPS-Proxy"
 
 msgid "Haiti"
-msgstr ""
+msgstr "Haiti"
 
 msgid "Hardware address"
-msgstr ""
+msgstr "Strojni naslov"
 
 msgid "Heard Island and McDonald Islands"
-msgstr ""
+msgstr "Otok Heard in otočje McDonald"
 
 msgid "Hide details"
-msgstr ""
+msgstr "Skrij podrobnosti"
 
 msgid "Hide dot files"
-msgstr ""
+msgstr "Skrij datoteke, ki se začnejo s piko"
 
 msgid "Home directories"
-msgstr ""
+msgstr "Domače mape"
 
 msgid "Homepage"
-msgstr ""
+msgstr "Domača stran"
 
 msgid "Honduras"
-msgstr ""
+msgstr "Honduras"
 
 msgid "Hong Kong S.A.R., China"
-msgstr ""
+msgstr "Hong Kong"
 
 msgid "Honor existing ACLs"
-msgstr ""
+msgstr "Spoštuj obstoječe ACL-je"
 
 msgid "Host"
-msgstr ""
+msgstr "Gostitelj"
 
 msgid "Hostname"
-msgstr ""
+msgstr "Ime gostitelja"
 
 msgid "Hosts allow"
-msgstr ""
+msgstr "Dovoli gostitelje"
 
 msgid "Hosts deny"
-msgstr ""
+msgstr "Ne dovoli gostitelje"
 
 msgid "Hour"
-msgstr ""
+msgstr "Ura"
 
 msgid "Hourly"
-msgstr ""
+msgstr "Vsako uro"
 
 msgid "Hungary"
-msgstr ""
+msgstr "Madžarska"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "IP addresses of domain name servers used to resolve host names."
 msgstr ""
 
 msgid "IPv4"
-msgstr ""
+msgstr "IPv4"
 
 msgid "IPv6"
-msgstr ""
+msgstr "IPv6"
 
 msgid "Iceland"
-msgstr ""
+msgstr "Islandija"
 
 msgid "Ident protocol"
-msgstr ""
+msgstr "Ident protokol"
 
 msgid "Identify"
-msgstr ""
+msgstr "Identiteta"
 
 msgid "Identify As"
-msgstr ""
+msgstr "Identificiraj kot"
 
 msgid "Identify network interface device"
 msgstr ""
 
 msgid "Idle"
-msgstr ""
+msgstr "Brezdelni način"
 
 msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
@@ -1567,28 +1568,28 @@ msgid ""
 msgstr ""
 
 msgid "Implicit SSL"
-msgstr ""
+msgstr "Implicitni SSL"
 
 msgid "Import"
-msgstr ""
+msgstr "Uvozi"
 
 msgid "Import SSH certificate"
-msgstr ""
+msgstr "Uvozi SSH potrdilo"
 
 msgid "Import SSL certificate"
-msgstr ""
+msgstr "Uvozi SSL potrdilo"
 
 msgid "Import groups"
-msgstr ""
+msgstr "Uvozi skupino"
 
 msgid "Import users"
-msgstr ""
+msgstr "Uvozi uporabnikr"
 
 msgid "Importing groups ..."
-msgstr ""
+msgstr "Uvažanje skupin..."
 
 msgid "Importing users ..."
-msgstr ""
+msgstr "Uvažanje uporabnikov..."
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -1602,169 +1603,169 @@ msgid ""
 msgstr ""
 
 msgid "Incoming"
-msgstr ""
+msgstr "Prihajajoče"
 
 msgid "Incomplete"
-msgstr ""
+msgstr "edokončano"
 
 msgid "Incorrect username or password."
-msgstr ""
+msgstr "Napačno uporabniško ime in/ali geslo."
 
 msgid "India"
-msgstr ""
+msgstr "Indija"
 
 msgid "Indonesia"
-msgstr ""
+msgstr "Indonezija"
 
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 msgid "Informal"
-msgstr ""
+msgstr "Neuradno"
 
 msgid "Information"
-msgstr ""
+msgstr "Informacije"
 
 msgid "Inherit ACLs"
-msgstr ""
+msgstr "Deduj ACL-je"
 
 msgid "Inherit permissions"
-msgstr ""
+msgstr "Deduj pravice"
 
 msgid "Initializing"
-msgstr ""
+msgstr "Inicializacija"
 
 msgid "Install"
-msgstr ""
+msgstr "Namesti"
 
 msgid "Install updates from"
-msgstr ""
+msgstr "Namesti posodobitve iz"
 
 msgid "Installed"
-msgstr ""
+msgstr "Nameščeno"
 
 msgid "Installing plugins ..."
-msgstr ""
+msgstr "Nameščevanje vtičnikov..."
 
 msgid "Installing updates ..."
-msgstr ""
+msgstr "Nameščevanje posodobitev ..."
 
 msgid "Interfaces"
-msgstr ""
+msgstr "Vmesniki"
 
 msgid "Invalid SSH public key (RFC 4716)"
-msgstr ""
+msgstr "Neveljaven SSH javni ključ (RFC 4716)"
 
 msgid "Invalid domain name"
-msgstr ""
+msgstr "Neveljavno ime domene"
 
 msgid "Invalid file system label"
-msgstr ""
+msgstr "Neveljavna oznaka datotečnega sistema"
 
 msgid "Invalid group name"
-msgstr ""
+msgstr "Neveljavno ime skupine"
 
 msgid "Invalid host name"
-msgstr ""
+msgstr "Neveljavno ime gostitelja"
 
 msgid "Invalid name"
-msgstr ""
+msgstr "Neveljavno ime"
 
 msgid "Invalid user name"
-msgstr ""
+msgstr "Neveljavno uporabniško ime"
 
 msgid "Iran"
-msgstr ""
+msgstr "Iran"
 
 msgid "Iraq"
-msgstr ""
+msgstr "Irak"
 
 msgid "Ireland"
-msgstr ""
+msgstr "Irska"
 
 msgid "Israel"
-msgstr ""
+msgstr "Izrael"
 
 msgid "Italy"
-msgstr ""
+msgstr "Italija"
 
 msgid "Ivory Coast"
-msgstr ""
+msgstr "Slonokoščena obala"
 
 msgid "Jamaica"
-msgstr ""
+msgstr "Jamajka"
 
 msgid "January"
-msgstr ""
+msgstr "Januar"
 
 msgid "Japan"
-msgstr ""
+msgstr "aponska"
 
 msgid "Jobs"
-msgstr ""
+msgstr "Opravila"
 
 msgid "Johnston Island"
-msgstr ""
+msgstr "Johnstonov atol"
 
 msgid "Jordan"
-msgstr ""
+msgstr "Jordanija"
 
 msgid "July"
-msgstr ""
+msgstr "Julij"
 
 msgid "June"
-msgstr ""
+msgstr "Junij"
 
 msgid "Kazakhstan"
-msgstr ""
+msgstr "Kazahstan"
 
 msgid "Keep partially transferred files"
-msgstr ""
+msgstr "Obdrži delno prenesene datoteke"
 
 msgid "Kenya"
-msgstr ""
+msgstr "Kenija"
 
 msgid "Kernel"
-msgstr ""
+msgstr "Jedro"
 
 msgid "Key size"
-msgstr ""
+msgstr "Velikost ključa"
 
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 msgid "Kiribati"
-msgstr ""
+msgstr "Kiribati"
 
 msgid "Kuwait"
-msgstr ""
+msgstr "Kuvajt"
 
 msgid "Kyrgyzstan"
-msgstr ""
+msgstr "Kirgizistan"
 
 msgid "LBA of first error"
-msgstr ""
+msgstr "LBA prve napake"
 
 msgid "LVM logical volume %s [%s, %s]"
 msgstr ""
 
 msgid "Label"
-msgstr ""
+msgstr "Oznaka"
 
 msgid "Language"
-msgstr ""
+msgstr "Jezik"
 
 msgid "Laos"
-msgstr ""
+msgstr "Laos"
 
 msgid "Last Page"
-msgstr ""
+msgstr "Zadnja stran"
 
 msgid "Latvia"
-msgstr ""
+msgstr "Latvija"
 
 msgid "Lebanon"
-msgstr ""
+msgstr "Libanon"
 
 msgid ""
 "Length of time in seconds to blink one or more LEDs on the specific ethernet"
@@ -1772,124 +1773,124 @@ msgid ""
 msgstr ""
 
 msgid "Lesotho"
-msgstr ""
+msgstr "Lesoto"
 
 msgid "Level"
 msgstr ""
 
 msgid "Liberia"
-msgstr ""
+msgstr "Liberija"
 
 msgid "Libya"
-msgstr ""
+msgstr "Libija"
 
 msgid "Liechtenstein"
-msgstr ""
+msgstr "Lihtenštajn"
 
 msgid "Lifetime"
 msgstr ""
 
 msgid "Linear"
-msgstr ""
+msgstr "Linearno"
 
 msgid "Link"
-msgstr ""
+msgstr "Povezava"
 
 msgid "List"
-msgstr ""
+msgstr "Seznam"
 
 msgid "Lithuania"
-msgstr ""
+msgstr "Litva"
 
 msgid "Load average"
-msgstr ""
+msgstr "Povprečna obremenitev"
 
 msgid "Loading ..."
-msgstr ""
+msgstr "Nalaganje ..."
 
 msgid "Loading, please wait ..."
-msgstr ""
+msgstr "Nalaganje, prosimo počakajte ..."
 
 msgid "Local"
-msgstr ""
+msgstr "Lokalno"
 
 msgid "Local master browser"
-msgstr ""
+msgstr "Glavni lokalni brskalnik"
 
 msgid "Location"
-msgstr ""
+msgstr "Lokacija"
 
 msgid "Log level"
-msgstr ""
+msgstr "Nivo dnevniške datoteke"
 
 msgid "Login"
-msgstr ""
+msgstr "Prijava"
 
 msgid "Logout"
-msgstr ""
+msgstr "Odjava"
 
 msgid "Logs"
-msgstr ""
+msgstr "Dnevniške datoteke"
 
 msgid "Long self-test"
-msgstr ""
+msgstr "Dolgo samotestiranje"
 
 msgid "Loop device [%s, %s]"
-msgstr ""
+msgstr "Loop naprava [%s, %s]"
 
 msgid "Luxembourg"
-msgstr ""
+msgstr "Luksemburg"
 
 msgid "MAC address"
-msgstr ""
+msgstr "MAC naslov"
 
 msgid "MII monitoring frequency"
-msgstr ""
+msgstr "Frekvenca MII monitoringa"
 
 msgid "MTU"
-msgstr ""
+msgstr "MTU"
 
 msgid "Macao S.A.R., China"
-msgstr ""
+msgstr "Macau"
 
 msgid "Macedonia"
-msgstr ""
+msgstr "Makedonija"
 
 msgid "Madagascar"
-msgstr ""
+msgstr "Madagaskar"
 
 msgid "Maintainer"
-msgstr ""
+msgstr "Vzdrževalec"
 
 msgid "Malawi"
-msgstr ""
+msgstr "Malavi"
 
 msgid "Malaysia"
-msgstr ""
+msgstr "Malezija"
 
 msgid "Maldives"
-msgstr ""
+msgstr "Maldivi"
 
 msgid "Mali"
-msgstr ""
+msgstr "Mali"
 
 msgid "Malta"
-msgstr ""
+msgstr "Malta"
 
 msgid "Manual"
-msgstr ""
+msgstr "Navodila za uporabo"
 
 msgid "March"
-msgstr ""
+msgstr "Marec"
 
 msgid "Marshall Islands"
-msgstr ""
+msgstr "Marshallovi otoki"
 
 msgid "Martinique"
-msgstr ""
+msgstr "Martinik"
 
 msgid "Masquerade address"
-msgstr ""
+msgstr "Zakrij naslov"
 
 msgid ""
 "Match if the destination port is one of the given ports. E.g. 21 or !443 or "
@@ -1902,25 +1903,25 @@ msgid ""
 msgstr ""
 
 msgid "Mauritania"
-msgstr ""
+msgstr "Mavretanija"
 
 msgid "Mauritius"
-msgstr ""
+msgstr "Mavricij"
 
 msgid "Max. clients"
-msgstr ""
+msgstr "Maks. št. odjemalcev"
 
 msgid "Max. connections"
-msgstr ""
+msgstr "Maks. št. povezav"
 
 msgid "Max. connections per host"
-msgstr ""
+msgstr "Maks. št. povezav na gostitelja"
 
 msgid "Max. login attempts"
-msgstr ""
+msgstr "Maks. št. poskusov prijave"
 
 msgid "Maximum download rate (KiB/s)"
-msgstr ""
+msgstr "Najhitrejši prenos podatkov (KiB/s)"
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1935,55 +1936,55 @@ msgid "Maximum number of connections per IP (0 = unlimited)."
 msgstr ""
 
 msgid "Maximum number of simultaneous clients."
-msgstr ""
+msgstr "Največje število trenutvo priavljenih odjemalcev."
 
 msgid "Maximum performance, maximum acoustic output"
 msgstr ""
 
 msgid "Maximum upload rate (KiB/s)"
-msgstr ""
+msgstr "Največja hitrost oddajanja (KiB/s)"
 
 msgid "Maximum {0} selected item(s) allowed"
-msgstr ""
+msgstr "Največ {0} izbranih elementov je dovoljenih"
 
 msgid "May"
-msgstr ""
+msgstr "Maj"
 
 msgid "Mayotte"
-msgstr ""
+msgstr "Mayotte"
 
 msgid "Members"
-msgstr ""
+msgstr "Člani"
 
 msgid "Memory usage"
-msgstr ""
+msgstr "Poraba pomnilnika"
 
 msgid "Message"
-msgstr ""
+msgstr "Sporočilo"
 
 msgid "Messages"
-msgstr ""
+msgstr "Sporočil"
 
 msgid "Method"
-msgstr ""
+msgstr "Metoda"
 
 msgid "Metropolitan France"
-msgstr ""
+msgstr "Metropolitanska Francija"
 
 msgid "Mexico"
-msgstr ""
+msgstr "Mehika"
 
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 msgid "Micronesia"
-msgstr ""
+msgstr "Mikronezija"
 
 msgid "Midway Islands"
-msgstr ""
+msgstr "Midwayski atol"
 
 msgid "Minimum"
-msgstr ""
+msgstr "Minimum"
 
 msgid "Minimum performance, Minimum acoustic output"
 msgstr ""
@@ -1992,253 +1993,253 @@ msgid "Minimum {0} selected item(s) required"
 msgstr ""
 
 msgid "Minute"
-msgstr ""
+msgstr "Minuta"
 
 msgid "Mirror"
-msgstr ""
+msgstr "Ogledalo"
 
 msgid "Missing"
-msgstr ""
+msgstr "Manjka"
 
 msgid "Mode"
 msgstr ""
 
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgid "Modify account"
-msgstr ""
+msgstr "Posodobi račun"
 
 msgid "Modify shared folder ACL"
-msgstr ""
+msgstr "Posodobi ACL-je deljene mape"
 
 msgid "Modules"
-msgstr ""
+msgstr "Moduli"
 
 msgid "Moldova"
-msgstr ""
+msgstr "Moldavija"
 
 msgid "Monaco"
-msgstr ""
+msgstr "Monako"
 
 msgid "Monday"
-msgstr ""
+msgstr "Ponedeljek"
 
 msgid "Mongolia"
-msgstr ""
+msgstr "Mongolija"
 
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 msgid "Monitoring"
-msgstr ""
+msgstr "Monitoring"
 
 msgid "Month"
-msgstr ""
+msgstr "Mesec"
 
 msgid "Monthly"
-msgstr ""
+msgstr "Mesečno"
 
 msgid "Montserrat"
-msgstr ""
+msgstr "Monserat"
 
 msgid "Morocco"
-msgstr ""
+msgstr "Maroko"
 
 msgid "Mount"
-msgstr ""
+msgstr "Priklop"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "Točka priklopa"
 
 msgid "Mounted"
-msgstr ""
+msgstr "Priklopljeno"
 
 msgid "Mozambique"
-msgstr ""
+msgstr "Mozambik"
 
 msgid "Myanmar"
-msgstr ""
+msgstr "Mjanmar"
 
 msgid "NFS"
-msgstr ""
+msgstr "NFS"
 
 msgid "Name"
-msgstr ""
+msgstr "Ime"
 
 msgid "Namibia"
-msgstr ""
+msgstr "Namibija"
 
 msgid "Nauru"
-msgstr ""
+msgstr "Nauru"
 
 msgid "Nepal"
-msgstr ""
+msgstr "Nepal"
 
 msgid "Netherlands"
-msgstr ""
+msgstr "Nizozemska"
 
 msgid "Netherlands Antilles"
-msgstr ""
+msgstr "Nizozemski Antili"
 
 msgid "Netmask"
-msgstr ""
+msgstr "Maska omrežja"
 
 msgid "Network"
-msgstr ""
+msgstr "Omrežje"
 
 msgid "Network Interfaces"
-msgstr ""
+msgstr "Omrežni Vmesniki"
 
 msgid "Network interfaces"
-msgstr ""
+msgstr "Omrežni vmesniki"
 
 msgid "Neutral Zone"
-msgstr ""
+msgstr "Nevtralna cona"
 
 msgid "Never"
-msgstr ""
+msgstr "Nikoli"
 
 msgid "New Caledonia"
-msgstr ""
+msgstr "Nova Kaledonija"
 
 msgid "New Zealand"
-msgstr ""
+msgstr "Nova Zelandija"
 
 msgid "Next Page"
-msgstr ""
+msgstr "Naslednja stran"
 
 msgid "Nicaragua"
-msgstr ""
+msgstr "Nikaragva"
 
 msgid "Niger"
-msgstr ""
+msgstr "Niger"
 
 msgid "Nigeria"
-msgstr ""
+msgstr "Nigerija"
 
 msgid "Niue"
-msgstr ""
+msgstr "Niue"
 
 msgid "No"
-msgstr ""
+msgstr "Ne"
 
 msgid "No access"
-msgstr ""
+msgstr "Ni dostopa"
 
 msgid "No action"
-msgstr ""
+msgstr "Brez dejanj"
 
 msgid "No certificate request"
-msgstr ""
+msgstr "Ni zahtevkov potrdil"
 
 msgid "No connections"
-msgstr ""
+msgstr "Ni povezav"
 
 msgid "No data to display"
-msgstr ""
+msgstr "Ni podatkov za prikaz"
 
 msgid "No items to display"
-msgstr ""
+msgstr "Ni predmetov za prikaz"
 
 msgid "No session reuse required"
 msgstr ""
 
 msgid "No users connected"
-msgstr ""
+msgstr "Ni prijavljenih uporabnikov"
 
 msgid "No users defined"
-msgstr ""
+msgstr "Ni definiranih uporabnikov"
 
 msgid "None"
-msgstr ""
+msgstr "Nič"
 
 msgid "Norfolk Island"
-msgstr ""
+msgstr "Norfolški otok"
 
 msgid "Normal"
-msgstr ""
+msgstr "Normalno"
 
 msgid "North Korea"
-msgstr ""
+msgstr "Severna Koreja"
 
 msgid "North Vietnam"
-msgstr ""
+msgstr "Severni Vietnam "
 
 msgid "Northern Mariana Islands"
-msgstr ""
+msgstr "Severni Marijanski otoki"
 
 msgid "Norway"
-msgstr ""
+msgstr "Norveška"
 
 msgid "Not ICMP"
-msgstr ""
+msgstr "Ni ICMP"
 
 msgid "Not ICMPv6"
-msgstr ""
+msgstr "Ni ICMPv6"
 
 msgid "Not TCP"
-msgstr ""
+msgstr "Ni TCP"
 
 msgid "Not UDP"
-msgstr ""
+msgstr "Ni UDP"
 
 msgid "Nothing"
-msgstr ""
+msgstr "č"
 
 msgid "Notification"
-msgstr ""
+msgstr "Obvestilo"
 
 msgid "Notifications"
-msgstr ""
+msgstr "Obvestila"
 
 msgid "November"
-msgstr ""
+msgstr "November"
 
 msgid "Null passwords"
-msgstr ""
+msgstr "Prazna gesla"
 
 msgid "Num"
-msgstr ""
+msgstr "Število"
 
 msgid "Number of servers"
-msgstr ""
+msgstr "Število strežnikov"
 
 msgid "OK"
-msgstr ""
+msgstr "V redu"
 
 msgid "Occurrence"
-msgstr ""
+msgstr "Pojavnost"
 
 msgid "October"
-msgstr ""
+msgstr "Oktober"
 
 msgid "Offline immediate test"
-msgstr ""
+msgstr "Takojšni test v ugasnjenem načinu"
 
 msgid "Oman"
-msgstr ""
+msgstr "Oman"
 
 msgid "Online"
-msgstr ""
+msgstr "Na spletu"
 
 msgid "Only guests"
-msgstr ""
+msgstr "Samo gostje"
 
 msgid "Operation"
-msgstr ""
+msgstr "Delovanje"
 
 msgid "Options"
-msgstr ""
+msgstr "Možnosti"
 
 msgid "Organization Name"
-msgstr ""
+msgstr "Ime organizacije"
 
 msgid "Organizational Unit"
-msgstr ""
+msgstr "Oddelek v org,"
 
 msgid "Others"
-msgstr ""
+msgstr "Ostali"
 
 msgid "Outgoing"
 msgstr ""
@@ -2247,46 +2248,46 @@ msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr ""
 
 msgid "Outlying Oceania"
-msgstr ""
+msgstr "Zunajležeča Oceanija"
 
 msgid "Overview"
-msgstr ""
+msgstr "Pregled"
 
 msgid "Owner"
-msgstr ""
+msgstr "Lastnik"
 
 msgid "Pacific Islands Trust Territory"
 msgstr ""
 
 msgid "Package information"
-msgstr ""
+msgstr "Informacije o paketu"
 
 msgid "Page"
-msgstr ""
+msgstr "Stran"
 
 msgid "Page not found"
-msgstr ""
+msgstr "Strani ni mogoče najti"
 
 msgid "Pakistan"
-msgstr ""
+msgstr "Pakistan"
 
 msgid "Palau"
-msgstr ""
+msgstr "Palau"
 
 msgid "Palestinian Territory"
-msgstr ""
+msgstr "Palestina"
 
 msgid "Panama"
-msgstr ""
+msgstr "Panama"
 
 msgid "Panama Canal Zone"
-msgstr ""
+msgstr "Panama - območje prekopa"
 
 msgid "Papua New Guinea"
-msgstr ""
+msgstr "Papuanska Nova Gvineja"
 
 msgid "Paraguay"
-msgstr ""
+msgstr "Paragvaj"
 
 msgid "Parent Device"
 msgstr ""
@@ -2295,43 +2296,43 @@ msgid "Parent interface"
 msgstr ""
 
 msgid "Passive FTP"
-msgstr ""
+msgstr "Pasivni FTP"
 
 msgid "Password"
-msgstr ""
+msgstr "Geslo"
 
 msgid "Password authentication"
-msgstr ""
+msgstr "Avtentikacija z geslom"
 
 msgid "Passwords don't match"
-msgstr ""
+msgstr "Gesli se ne ujemata"
 
 msgid "Paste a RSA certificate in X.509 PEM format here."
 msgstr ""
 
 msgid "Paste an private RSA key in X.509 PEM format here."
-msgstr ""
+msgstr "Prilepi privatni RSA ključ v X.509 PEM formatu tukaj."
 
 msgid "Path"
-msgstr ""
+msgstr "ort"
 
 msgid "People's Democratic Republic of Yemen"
-msgstr ""
+msgstr "Jemen"
 
 msgid "Perform a trial run with no changes made"
 msgstr ""
 
 msgid "Performance statistics"
-msgstr ""
+msgstr "Statistika zmogljivosti"
 
 msgid "Period of validity"
-msgstr ""
+msgstr "Obdobje veljavnosti"
 
 msgid "Permissions"
-msgstr ""
+msgstr "Dovoljenja"
 
 msgid "Permissions of group."
-msgstr ""
+msgstr "Dovoljenja skupine"
 
 msgid "Permissions of others (e.g. anonymous FTP users)."
 msgstr ""
@@ -2340,22 +2341,22 @@ msgid "Permissions of owner."
 msgstr ""
 
 msgid "Permit root login"
-msgstr ""
+msgstr "Dovoli root prijavo"
 
 msgid "Permit to do SSH tunneling"
 msgstr ""
 
 msgid "Peru"
-msgstr ""
+msgstr "Peru"
 
 msgid "Philippines"
-msgstr ""
+msgstr "Filipini"
 
 msgid "Physical Disks"
-msgstr ""
+msgstr "Fizični diski"
 
 msgid "Physical disk properties"
-msgstr ""
+msgstr "Lastnosti fizičnih diskov"
 
 msgid "Pitcairn"
 msgstr ""
@@ -2407,7 +2408,7 @@ msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr ""
 
 msgid "Please first select a device."
-msgstr ""
+msgstr "Prosimo, da izberete napravo."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2418,7 +2419,7 @@ msgid "Please reload the page to let the changes take effect."
 msgstr ""
 
 msgid "Please wait ..."
-msgstr ""
+msgstr "Prosimo počakajte ..."
 
 msgid ""
 "Please wait until the RAID has been initialized before creating a file "
@@ -2426,22 +2427,22 @@ msgid ""
 msgstr ""
 
 msgid "Plugins"
-msgstr ""
+msgstr "Vtičniki"
 
 msgid "Poland"
-msgstr ""
+msgstr "oland"
 
 msgid "Port"
-msgstr ""
+msgstr "Vrata"
 
 msgid "Portugal"
-msgstr ""
+msgstr "Portugalska"
 
 msgid "Power Management"
 msgstr ""
 
 msgid "Power button"
-msgstr ""
+msgstr "Gumb za vklop"
 
 msgid "Power mode"
 msgstr ""
@@ -2450,10 +2451,10 @@ msgid "Pre-release updates."
 msgstr ""
 
 msgid "Prefix length"
-msgstr ""
+msgstr "Dolžina predpone"
 
 msgid "Preserve ACLs"
-msgstr ""
+msgstr "Ohrani ACL-je"
 
 msgid "Preserve extended attributes"
 msgstr ""
@@ -2462,7 +2463,7 @@ msgid "Preserve modification times"
 msgstr ""
 
 msgid "Preserve permissions"
-msgstr ""
+msgstr "Ohrani pravice"
 
 msgid ""
 "Prevent a disk from being spun-up when it is periodically "
@@ -2478,16 +2479,16 @@ msgid ""
 msgstr ""
 
 msgid "Previous Page"
-msgstr ""
+msgstr "Prejšnja stran"
 
 msgid "Primary"
-msgstr ""
+msgstr "Primarno"
 
 msgid "Primary email"
-msgstr ""
+msgstr "Primarni elektronski naslov"
 
 msgid "Private key"
-msgstr ""
+msgstr "Privatni ključ"
 
 msgid "Privilege"
 msgstr ""
@@ -2499,157 +2500,157 @@ msgid "Process monitoring"
 msgstr ""
 
 msgid "Processes"
-msgstr ""
+msgstr "Procesi"
 
 msgid "Processor"
-msgstr ""
+msgstr "Procesor"
 
 msgid "Protocol"
-msgstr ""
+msgstr "Protokol"
 
 msgid "Proxy"
-msgstr ""
+msgstr "Proxy"
 
 msgid "Public"
-msgstr ""
+msgstr "Javno"
 
 msgid "Public key"
-msgstr ""
+msgstr "Javni ključ"
 
 msgid "Public key authentication"
-msgstr ""
+msgstr "Avtentikacija z javnim ključem"
 
 msgid "Public keys"
-msgstr ""
+msgstr "Javni Ključi"
 
 msgid "Puerto Rico"
-msgstr ""
+msgstr "Portoriko"
 
 msgid "Pull"
-msgstr ""
+msgstr "Povleci"
 
 msgid "Push"
-msgstr ""
+msgstr "Potisni"
 
 msgid "Qatar"
-msgstr ""
+msgstr "Katar"
 
 msgid "Quick"
-msgstr ""
+msgstr "Hitro"
 
 msgid "Quiet"
-msgstr ""
+msgstr "Tiho"
 
 msgid "Quota"
-msgstr ""
+msgstr "vota"
 
 msgid "RAID 10"
-msgstr ""
+msgstr "RAID 10"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
-msgstr ""
+msgstr "RAID 5"
 
 msgid "RAID 6"
-msgstr ""
+msgstr "RAID 6"
 
 msgid "RAID Management"
-msgstr ""
+msgstr "RAID Upravljanje"
 
 msgid "RFC931"
-msgstr ""
+msgstr "RFC931"
 
 msgid "RSync server"
-msgstr ""
+msgstr "RSync strežnik"
 
 msgid "Ranges of numbers are not allowed"
 msgstr ""
 
 msgid "Raw value"
-msgstr ""
+msgstr "Surova vrednost"
 
 msgid "Read only"
-msgstr ""
+msgstr "Samo za branje"
 
 msgid "Read-only"
-msgstr ""
+msgstr "Samo za branje"
 
 msgid "Read/Execute"
-msgstr ""
+msgstr "Beri/Izvajaj"
 
 msgid "Read/Write"
-msgstr ""
+msgstr "Beri/Piši"
 
 msgid "Read/Write/Execute"
-msgstr ""
+msgstr "Beri/Piši/Izvajaj"
 
 msgid "Real"
-msgstr ""
+msgstr "Resnično"
 
 msgid "Reboot"
-msgstr ""
+msgstr "Ponovni zagon"
 
 msgid "Recipient"
-msgstr ""
+msgstr "Prejemnik"
 
 msgid "Recover"
-msgstr ""
+msgstr "Reši"
 
 msgid "Recurse into directories"
-msgstr ""
+msgstr "Rekurzivno v mape"
 
 msgid "Recursive"
-msgstr ""
+msgstr "Rekurzivno"
 
 msgid "Recycle bin"
-msgstr ""
+msgstr "Koš"
 
 msgid "Referenced"
 msgstr ""
 
 msgid "Refresh"
-msgstr ""
+msgstr "Osveži"
 
 msgid "Relative Path"
-msgstr ""
+msgstr "Relativna Pot"
 
 msgid "Reload"
-msgstr ""
+msgstr "Ponovno naloži"
 
 msgid "Remaining"
-msgstr ""
+msgstr "Ostaja"
 
 msgid "Remote"
-msgstr ""
+msgstr "Oddaljen"
 
 msgid "Remote host"
-msgstr ""
+msgstr "Oddaljen gostitelj"
 
 msgid "Remote syslog"
-msgstr ""
+msgstr "Oddaljen syslog"
 
 msgid "Remove"
-msgstr ""
+msgstr "Odstrani"
 
 msgid "Remove devices from RAID device"
-msgstr ""
+msgstr "Odstrani naprave iz RAID polja"
 
 msgid "Replace"
-msgstr ""
+msgstr "Zamenjaj"
 
 msgid "Replace all existing permissions"
-msgstr ""
+msgstr "Zamenjaj vsa obstoječa dovoljenja"
 
 msgid "Report"
-msgstr ""
+msgstr "ijavi"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
@@ -2662,19 +2663,19 @@ msgid ""
 msgstr ""
 
 msgid "Repository"
-msgstr ""
+msgstr "Repozitorij"
 
 msgid "Require valid shell"
-msgstr ""
+msgstr "Zahtevaj veljavno lupino"
 
 msgid "Required"
-msgstr ""
+msgstr "htevano"
 
 msgid "Reset"
-msgstr ""
+msgstr "Ponastavitev"
 
 msgid "Reset UI to defaults"
-msgstr ""
+msgstr "Ponastavi uporabniški vmesnik na privzeto"
 
 msgid ""
 "Reset the UI settings to their default values, e.g. the order of the grid "
@@ -2682,190 +2683,190 @@ msgid ""
 msgstr ""
 
 msgid "Resize"
-msgstr ""
+msgstr "Spremeni velikost"
 
 msgid "Result"
-msgstr ""
+msgstr "Rezultat"
 
 msgid "Resume"
-msgstr ""
+msgstr "Nadaljuj"
 
 msgid "Reunion"
-msgstr ""
+msgstr "Združitev"
 
 msgid "Reverse DNS lookup"
-msgstr ""
+msgstr "Reverzni DNS vpogled"
 
 msgid "Revert"
-msgstr ""
+msgstr "Nazaj"
 
 msgid "Revert configuration changes"
 msgstr ""
 
 msgid "Romania"
-msgstr ""
+msgstr "Romunija"
 
 msgid "Rsync"
-msgstr ""
+msgstr "Rsync"
 
 msgid "Rsync - Jobs"
-msgstr ""
+msgstr "Rsync - Opravila"
 
 msgid "Rsync - Server"
-msgstr ""
+msgstr "Rsync - Strežnik"
 
 msgid "Run"
-msgstr ""
+msgstr "Zaženi"
 
 msgid "Running"
-msgstr ""
+msgstr "Tečejo"
 
 msgid "Russia"
-msgstr ""
+msgstr "Rusija"
 
 msgid "Rwanda"
-msgstr ""
+msgstr "Ruanda"
 
 msgid "S.M.A.R.T."
-msgstr ""
+msgstr "S.M.A.R.T."
 
 msgid "S.M.A.R.T. information"
-msgstr ""
+msgstr "S.M.A.R.T. informacije"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
-msgstr ""
+msgstr "S.M.A.R.T. monitoring mora biti vklopljen za izbrano napravo."
 
 msgid "S/N"
-msgstr ""
+msgstr "S/N"
 
 msgid "SMB/CIFS"
-msgstr ""
+msgstr "SMB/CIFS"
 
 msgid "SMB/CIFS - Audit"
-msgstr ""
+msgstr "SMB/CIFS - Audit"
 
 msgid "SMTP port"
-msgstr ""
+msgstr "SMTP vrata"
 
 msgid "SMTP server"
-msgstr ""
+msgstr "SMTP strežnik"
 
 msgid "SMTP settings"
-msgstr ""
+msgstr "SMTP nastavitve"
 
 msgid "SSH"
-msgstr ""
+msgstr "SSH"
 
 msgid "SSH certificate"
-msgstr ""
+msgstr "SSH potrdilo"
 
 msgid "SSH port"
-msgstr ""
+msgstr "SSH vrata"
 
 msgid "SSID"
-msgstr ""
+msgstr "SSID"
 
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 msgid "SSL/TLS"
-msgstr ""
+msgstr "SSL/TLS"
 
 msgid "Saint Helena"
-msgstr ""
+msgstr "Sveta Helena"
 
 msgid "Saint Kitts and Nevis"
-msgstr ""
+msgstr "Sveti Krištof in Nevis"
 
 msgid "Saint Lucia"
-msgstr ""
+msgstr "Sveta Lucija"
 
 msgid "Saint Pierre and Miquelon"
-msgstr ""
+msgstr "Saint Pierre in Miquelon"
 
 msgid "Saint Vincent and the Grenadines"
-msgstr ""
+msgstr "Sveti Vincencij in Grenadine"
 
 msgid "Samoa"
-msgstr ""
+msgstr "Samoa"
 
 msgid "San Marino"
-msgstr ""
+msgstr "San Marino"
 
 msgid "Sao Tome and Principe"
-msgstr ""
+msgstr "Sveti Tomaž in Princ"
 
 msgid "Saturday"
-msgstr ""
+msgstr "Sobota"
 
 msgid "Saudi Arabia"
-msgstr ""
+msgstr "Saudova Arabija"
 
 msgid "Save"
-msgstr ""
+msgstr "Shrani"
 
 msgid "Saving ..."
-msgstr ""
+msgstr "Shranjevanje ..."
 
 msgid "Scan"
-msgstr ""
+msgstr "Išči"
 
 msgid "Scanning for new devices ..."
-msgstr ""
+msgstr "Iskanje novih naprav ..."
 
 msgid "Scheduled Jobs"
-msgstr ""
+msgstr "Načrtovana Opravila"
 
 msgid "Scheduled tests"
-msgstr ""
+msgstr "Načrtovani testi"
 
 msgid "Scheduling"
-msgstr ""
+msgstr "Načrtovanje opravil"
 
 msgid "Search domains"
-msgstr ""
+msgstr "Išči domene"
 
 msgid "Secondary email"
-msgstr ""
+msgstr "Sekundarni elektronski naslov"
 
 msgid "Seconds"
-msgstr ""
+msgstr "Sekunde"
 
 msgid "Section"
-msgstr ""
+msgstr "Odsek"
 
 msgid "Secure"
-msgstr ""
+msgstr "Varno"
 
 msgid "Secure connection"
-msgstr ""
+msgstr "Varna povezava"
 
 msgid "Select a SSH certificate ..."
-msgstr ""
+msgstr "Izberi SSH potrdilo ..."
 
 msgid "Select a SSL certificate ..."
-msgstr ""
+msgstr "Izberi SSL potrdilo ..."
 
 msgid "Select a country ..."
-msgstr ""
+msgstr "Izberi državo ..."
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "Izberi napravo ..."
 
 msgid "Select a directory"
-msgstr ""
+msgstr "Izberi mapo"
 
 msgid "Select a file permission ..."
 msgstr ""
 
 msgid "Select a file system ..."
-msgstr ""
+msgstr "Izbriši datotečni sistem"
 
 msgid "Select a group name ..."
-msgstr ""
+msgstr "izberi ime skupine ..."
 
 msgid "Select a language ..."
-msgstr ""
+msgstr "Izberi jezik ..."
 
 msgid "Select a parent interface ..."
 msgstr ""
@@ -2874,98 +2875,98 @@ msgid "Select a primary interface ..."
 msgstr ""
 
 msgid "Select a protocol ..."
-msgstr ""
+msgstr "Izberi protokol ..."
 
 msgid "Select a shared folder ..."
-msgstr ""
+msgstr "Izberi deljeno mapo ..."
 
 msgid "Select a shell ..."
-msgstr ""
+msgstr "Izberi lupino ..."
 
 msgid "Select a user name ..."
-msgstr ""
+msgstr "Izberi uporabniško ime ..."
 
 msgid "Select an authentication mode ..."
-msgstr ""
+msgstr "Izberi metodo overovitve ..."
 
 msgid "Select devices to be added to the RAID device"
-msgstr ""
+msgstr "Izberite naprave za dodajanje v RAID polje"
 
 msgid "Select devices to be removed from the RAID device."
-msgstr ""
+msgstr "Izberite naprave za odstranitev iz RAID polja."
 
 msgid "Select or enter a user name ..."
-msgstr ""
+msgstr "Izberite ali vpišite uporabniško ime ..."
 
 msgid "Self-test logs"
 msgstr ""
 
 msgid "Send a test email"
-msgstr ""
+msgstr "Pošlji testno sporočilo"
 
 msgid "Send command output via email"
-msgstr ""
+msgstr "Pošlji rezultat ukaza preko elektronske pošte"
 
 msgid "Send email"
-msgstr ""
+msgstr "Pošlji elektronsko poročilo"
 
 msgid "Sender email"
-msgstr ""
+msgstr "Pošiljatelj elektronskega sporočila"
 
 msgid "Sending test email ..."
-msgstr ""
+msgstr "Pošiljanje testnega sporočila ..."
 
 msgid "Senegal"
-msgstr ""
+msgstr "Senegal"
 
 msgid "September"
-msgstr ""
+msgstr "September"
 
 msgid "Serbia And Montenegro"
-msgstr ""
+msgstr "Srbija in Črna Gora"
 
 msgid "Serial Number"
-msgstr ""
+msgstr "Serijska Številka"
 
 msgid "Serial number"
-msgstr ""
+msgstr "Serijska številka"
 
 msgid "Server"
-msgstr ""
+msgstr "Strežnik"
 
 msgid "Service"
-msgstr ""
+msgstr "Storitev"
 
 msgid "Service Discovery"
-msgstr ""
+msgstr "Odkrivanje Storitev"
 
 msgid "Service disabled"
-msgstr ""
+msgstr "Storitev onemogočena"
 
 msgid "Servicename"
 msgstr ""
 
 msgid "Services"
-msgstr ""
+msgstr "Storitve"
 
 msgid "Session expired."
-msgstr ""
+msgstr "Seja je potekla."
 
 msgid "Session not authenticated."
-msgstr ""
+msgstr "Seja ni avtenticirana."
 
 msgid "Set browseable"
-msgstr ""
+msgstr "Nastavi samo za brskanje"
 
 msgid "Set read only"
-msgstr ""
+msgstr "Nastavi samo za branje"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions"
 msgstr ""
 
 msgid "Set write only"
-msgstr ""
+msgstr "Nastavi samo za pisanje"
 
 msgid ""
 "Sets the interval between disk checks to N seconds, logging S.M.A.R.T. "
@@ -2973,94 +2974,94 @@ msgid ""
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "Nastavitve"
 
 msgid "Seychelles"
-msgstr ""
+msgstr "Sejšeli"
 
 msgid "Shared Folders"
-msgstr ""
+msgstr "Deljene Mape"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Deljena mapa"
 
 msgid "Shared folder + content"
-msgstr ""
+msgstr "Deljena mapa in vsebina"
 
 msgid "Shared folder must not be equal"
-msgstr ""
+msgstr "Deljena mapa ne sme biti enaka"
 
 msgid "Shared folder name"
-msgstr ""
+msgstr "Ime deljene mape"
 
 msgid "Shared folder path"
-msgstr ""
+msgstr "Pot deljene mape"
 
 msgid "Shared folder privileges"
 msgstr ""
 
 msgid "Shares"
-msgstr ""
+msgstr "Vse deljene mape"
 
 msgid "Shell"
-msgstr ""
+msgstr "Lupina"
 
 msgid "Short self-test"
-msgstr ""
+msgstr "Kratko samotestiranje"
 
 msgid "Show certificate"
-msgstr ""
+msgstr "Prikaži potrdilo"
 
 msgid "Show changelog"
-msgstr ""
+msgstr "Prikaži spremembe"
 
 msgid "Show details"
-msgstr ""
+msgstr "Pokaži podrobnosti"
 
 msgid "Show password"
-msgstr ""
+msgstr "Pokaži geslo"
 
 msgid "Show privileges"
 msgstr ""
 
 msgid "Shutdown"
-msgstr ""
+msgstr "Izklop"
 
 msgid "Sierra Leone"
-msgstr ""
+msgstr "Sierra Leone"
 
 msgid "Singapore"
-msgstr ""
+msgstr "Singapur"
 
 msgid "Size"
-msgstr ""
+msgstr "Velikost"
 
 msgid "Slaves"
-msgstr ""
+msgstr "Sužnji (slaves)"
 
 msgid "Sleep"
-msgstr ""
+msgstr "Spanje"
 
 msgid "Slovakia"
-msgstr ""
+msgstr "Slovaška"
 
 msgid "Slovenia"
-msgstr ""
+msgstr "Slovenija"
 
 msgid "Software RAID"
-msgstr ""
+msgstr "Programski RAID"
 
 msgid "Software updates"
-msgstr ""
+msgstr "Programske Posodobitve"
 
 msgid "Solomon Islands"
-msgstr ""
+msgstr "Salomonovi otoki"
 
 msgid "Somalia"
-msgstr ""
+msgstr "Somalija"
 
 msgid "Source"
-msgstr ""
+msgstr "Izvor"
 
 msgid ""
 "Source address can be either a network IP address (with /mask), a IP range "
@@ -3069,25 +3070,25 @@ msgid ""
 msgstr ""
 
 msgid "Source port"
-msgstr ""
+msgstr "Vrata izvora"
 
 msgid "Source server"
-msgstr ""
+msgstr "Izvorni strežnik"
 
 msgid "Source shared folder"
-msgstr ""
+msgstr "Izvor za deljeno mapo"
 
 msgid "South Africa"
-msgstr ""
+msgstr "Republika Južna Afrika"
 
 msgid "South Georgia and the South Sandwich Islands"
-msgstr ""
+msgstr "Južna Georgia in Južni Sandwichevi otoki"
 
 msgid "South Korea"
-msgstr ""
+msgstr "Južna Koreja"
 
 msgid "Spain"
-msgstr ""
+msgstr "Španija"
 
 msgid "Special action flag"
 msgstr ""
@@ -3145,34 +3146,34 @@ msgid "Specifies which slave is the primary device."
 msgstr ""
 
 msgid "Speed"
-msgstr ""
+msgstr "Hitrost"
 
 msgid "Spindown time"
 msgstr ""
 
 msgid "Sri Lanka"
-msgstr ""
+msgstr "Šrilanka"
 
 msgid "Standby"
-msgstr ""
+msgstr "Stanje pripravljenosti"
 
 msgid "Start"
-msgstr ""
+msgstr "Zaženi"
 
 msgid "State"
 msgstr ""
 
 msgid "State/Province"
-msgstr ""
+msgstr "Država/Provinca"
 
 msgid "Static"
 msgstr ""
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "Stop"
-msgstr ""
+msgstr "Stop"
 
 msgid "Storage"
 msgstr ""
@@ -3184,106 +3185,106 @@ msgid "Stripe"
 msgstr ""
 
 msgid "Success"
-msgstr ""
+msgstr "Uspeh"
 
 msgid "Sudan"
-msgstr ""
+msgstr "Sudan"
 
 msgid "Sunday"
-msgstr ""
+msgstr "Nedelja"
 
 msgid "Support"
-msgstr ""
+msgstr "Pomoč"
 
 msgid "Suppress non-error messages"
 msgstr ""
 
 msgid "Suriname"
-msgstr ""
+msgstr "Priimek"
 
 msgid "Svalbard and Jan Mayen"
-msgstr ""
+msgstr "Svalbard in Jan Mayen"
 
 msgid "Swaziland"
-msgstr ""
+msgstr "Svazi"
 
 msgid "Sweden"
-msgstr ""
+msgstr "Švedska"
 
 msgid "Switzerland"
-msgstr ""
+msgstr "Švica"
 
 msgid "Syria"
-msgstr ""
+msgstr "Sirija"
 
 msgid "Syslog"
-msgstr ""
+msgstr "Syslog"
 
 msgid "System"
-msgstr ""
+msgstr "Sistem"
 
 msgid "System Information"
-msgstr ""
+msgstr "Sistemske Informacije"
 
 msgid "System Logs"
-msgstr ""
+msgstr "Sistemske dnevniške datoteke"
 
 msgid "System accounts"
-msgstr ""
+msgstr "Sistemski računi"
 
 msgid "System time"
-msgstr ""
+msgstr "Sistemski čas"
 
 msgid "TAR"
-msgstr ""
+msgstr "TAR"
 
 msgid "TCP forwarding"
-msgstr ""
+msgstr "TCP posredovanje"
 
 msgid "Taiwan"
-msgstr ""
+msgstr "Tajvan"
 
 msgid "Tajikistan"
-msgstr ""
+msgstr "Tadžikistan"
 
 msgid "Tanzania"
-msgstr ""
+msgstr "Tanzanija"
 
 msgid "Temperature"
-msgstr ""
+msgstr "Temperatura"
 
 msgid "Temperature monitoring"
-msgstr ""
+msgstr "Nadzor temperature"
 
 msgid "Test description"
 msgstr ""
 
 msgid "Thailand"
-msgstr ""
+msgstr "Tajska"
 
 msgid "The NT description field."
 msgstr ""
 
 msgid "The RSA key length."
-msgstr ""
+msgstr "Dolžina RSA ključa."
 
 msgid "The RSA public key in OpenSSH format."
-msgstr ""
+msgstr "RSA javni ključ v OpenSSH formatu."
 
 msgid "The SSH certificate used for authentication."
-msgstr ""
+msgstr "SSH potrdilo uporabljeno za overovitev."
 
 msgid "The SSL certificate."
-msgstr ""
+msgstr "SSL potrdilo"
 
 msgid "The action to be done when pressing the power button."
 msgstr ""
 
 msgid "The changes have been applied successfully."
-msgstr ""
+msgstr "Spremembe so bile uspešno nastavljene."
 
 msgid "The comment contains invalid characters"
-msgstr ""
+msgstr "Komentar vsebuje neveljavne znake"
 
 msgid ""
 "The configuration has been changed. You must apply the changes in order for "
@@ -3299,10 +3300,10 @@ msgid ""
 msgstr ""
 
 msgid "The destination shared folder."
-msgstr ""
+msgstr "Deljena mapa cilja"
 
 msgid "The device does not exist"
-msgstr ""
+msgstr "Naprava ne obstaja"
 
 msgid "The file mode of the shared folder path."
 msgstr ""
@@ -3319,7 +3320,7 @@ msgid ""
 msgstr ""
 
 msgid "The location of the files to share."
-msgstr ""
+msgstr "Lokacija datotek za deljenje."
 
 msgid ""
 "The location of the files to share. The share will be accessible at "
@@ -3333,13 +3334,13 @@ msgid "The name of the share."
 msgstr ""
 
 msgid "The number of days the certificate is valid for."
-msgstr ""
+msgstr "Število dni veljavnosti potrdila."
 
 msgid "The page will reload now to let the changes take effect."
-msgstr ""
+msgstr "Stran se bo zaradi novih nastavitev sedaj ponovno naložila."
 
 msgid "The password contains invalid characters"
-msgstr ""
+msgstr "Geslo vsebuje neveljavne znake"
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
@@ -3359,15 +3360,15 @@ msgid ""
 msgstr ""
 
 msgid "The private RSA key in X.509 PEM format."
-msgstr ""
+msgstr "Privatni RSA ključ v X.509 PEM formatu."
 
 msgid "The public key in RFC 4716 SSH public key file format."
-msgstr ""
+msgstr "Javni ključ v RFC 4716 SSH formatu javnega ključa."
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
-msgstr ""
+msgstr "Repozitorij bo preverjen za nove, odstranjene ali nadgrajene programske pakete."
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
@@ -3375,7 +3376,7 @@ msgid ""
 msgstr ""
 
 msgid "The session IP address has been changed."
-msgstr ""
+msgstr "IP naslov seje je bil spremenjen."
 
 msgid "The session user no longer exists."
 msgstr ""
@@ -3392,10 +3393,10 @@ msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr ""
 
 msgid "The system will reboot now. This may take some time ..."
-msgstr ""
+msgstr "Sistem se ponovno zaganja. To lahko traja kar nekaj časa ..."
 
 msgid "The test email has been sent successfully. Please check your mailbox."
-msgstr ""
+msgstr "Testno elektronsko sporočilo je bilo uspešno poslano. Prosim preverite vaš poštni predal."
 
 msgid "The volume label for the file system."
 msgstr ""
@@ -3419,37 +3420,37 @@ msgid ""
 msgstr ""
 
 msgid "This field does not allow blanks"
-msgstr ""
+msgstr "To polje ne sme biti prazno"
 
 msgid "This field is required"
-msgstr ""
+msgstr "To polje je obvezno"
 
 msgid "This field must have the format hh:mm:ss"
-msgstr ""
+msgstr "TO polje mora biti v formatu hh:mm:ss"
 
 msgid "This field should be a IP network address in CIDR notation"
-msgstr ""
+msgstr "V tem polju mora biti IP omrežni naslov v CIDR formatu"
 
 msgid "This field should be a IPv4 network address"
-msgstr ""
+msgstr "V tem polju mora biti IPv4 omrežni naslov"
 
 msgid "This field should be a IPv4 network address in CIDR notation"
-msgstr ""
+msgstr "V tem polju mora biti IPv4 omrežni naslov v CIDR formatu"
 
 msgid "This field should be a IPv6 network address in CIDR notation"
-msgstr ""
+msgstr "V tem polju mora biti IPv6 omrežni naslov v CIDR formatu"
 
 msgid "This field should be a domain name or an IP address"
-msgstr ""
+msgstr "V tem polju mora biti vpisan domenski ali IP naslov"
 
 msgid "This field should be a domain name or an IPv4 address"
-msgstr ""
+msgstr "V tem polju mora biti vpisan domenski ali IPv4 naslov"
 
 msgid "This field should be a host name or an IP address"
-msgstr ""
+msgstr "V tem polju mora biti vpisano ime gostitelja ali IP naslov"
 
 msgid "This field should be a host name or an IPv4 address"
-msgstr ""
+msgstr "V tem polju mora biti vpisano ime gostitelja ali IPv4 naslov"
 
 msgid "This field should be a list of domain names or IP addresses"
 msgstr ""
@@ -3469,20 +3470,20 @@ msgid ""
 msgstr ""
 
 msgid "This field should be a port in the range of 1 - 65535"
-msgstr ""
+msgstr "V tem polju morajo biti vpisana vrata v razponu med 1 -65535"
 
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
 msgstr ""
 
 msgid "This field should be an IP address"
-msgstr ""
+msgstr "V tem polju mora biti vpisan IP naslov"
 
 msgid "This field should be an IPv4 address"
-msgstr ""
+msgstr "V tem polju mora biti vpisan IPv4 naslov"
 
 msgid "This field should be an IPv6 address"
-msgstr ""
+msgstr "V tem polju mora biti vpisan IPv6 omrežni naslov"
 
 msgid ""
 "This field should be either a IPv4 network address (with /mask), a IPv4 "
@@ -3497,7 +3498,7 @@ msgid ""
 msgstr ""
 
 msgid "This field should only contain numbers"
-msgstr ""
+msgstr "To polje lahko vsebuje le številke"
 
 msgid "This field should only contain numbers separated by <,> or <;>"
 msgstr ""
@@ -3614,157 +3615,157 @@ msgid "This will create a recycle bin on the share."
 msgstr ""
 
 msgid "Thursday"
-msgstr ""
+msgstr "Četrtek"
 
 msgid "TiB"
-msgstr ""
+msgstr "TiB"
 
 msgid "Time"
-msgstr ""
+msgstr "Čas"
 
 msgid "Time interval"
-msgstr ""
+msgstr "Časovni interval"
 
 msgid "Time of execution"
-msgstr ""
+msgstr "Čas izvajanja"
 
 msgid "Time server"
-msgstr ""
+msgstr "Časovni strežnik"
 
 msgid "Time servers"
-msgstr ""
+msgstr "Časovni strežniki"
 
 msgid "Time zone"
-msgstr ""
+msgstr "Časovni pas"
 
 msgid "Timeout"
-msgstr ""
+msgstr "Časovna omejitev"
 
 msgid "Times"
-msgstr ""
+msgstr "Časi"
 
 msgid "Togo"
-msgstr ""
+msgstr "Togo"
 
 msgid "Tokelau"
-msgstr ""
+msgstr "Tokelav"
 
 msgid "Tonga"
-msgstr ""
+msgstr "Tonga"
 
 msgid "Total"
-msgstr ""
+msgstr "Skupaj"
 
 msgid "Transfer log"
 msgstr ""
 
 msgid "Transfer time"
-msgstr ""
+msgstr "Čas prenosa"
 
 msgid "Transfer type"
-msgstr ""
+msgstr "Tip prenosa"
 
 msgid "Treshold"
-msgstr ""
+msgstr "Prag"
 
 msgid "Trial run"
-msgstr ""
+msgstr "Testni zagon"
 
 msgid "Trinidad and Tobago"
-msgstr ""
+msgstr "Trinidad in Tobago"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "Torek"
 
 msgid "Tunisia"
-msgstr ""
+msgstr "Tunizija"
 
 msgid "Turkey"
-msgstr ""
+msgstr "Turčija"
 
 msgid "Turkmenistan"
-msgstr ""
+msgstr "Turkmenistan"
 
 msgid "Turks and Caicos Islands"
-msgstr ""
+msgstr "Otoki Turks in Caicos"
 
 msgid "Tuvalu"
-msgstr ""
+msgstr "Tuvalu"
 
 msgid "Type"
-msgstr ""
+msgstr "Tip"
 
 msgid "U.S. Miscellaneous Pacific Islands"
-msgstr ""
+msgstr "Različni Pacifiški otoki ZDA"
 
 msgid "U.S. Virgin Islands"
-msgstr ""
+msgstr "Deviški otoki Združenih držav"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "UNKNOWN"
-msgstr ""
+msgstr "NEZNANO"
 
 msgid "Uganda"
-msgstr ""
+msgstr "Uganda"
 
 msgid "Ukraine"
-msgstr ""
+msgstr "Ukrajina"
 
 msgid "Uncompressed"
-msgstr ""
+msgstr "Nestisnjeno"
 
 msgid "Uninstall"
-msgstr ""
+msgstr "Odstrani"
 
 msgid "Uninstall plugins ..."
-msgstr ""
+msgstr "ke ..."
 
 msgid "Union of Soviet Socialist Republics"
-msgstr ""
+msgstr "Sovjetska zveza ZSSR"
 
 msgid "Unit"
-msgstr ""
+msgstr "Enota"
 
 msgid "United Arab Emirates"
-msgstr ""
+msgstr "Združeni Arabski Emirati"
 
 msgid "United Kingdom"
-msgstr ""
+msgstr "Združeno Kraljestvo"
 
 msgid "United States"
-msgstr ""
+msgstr "Združene Države Amerike"
 
 msgid "United States Minor Outlying Islands"
-msgstr ""
+msgstr "Stranski zunanji otoki Združenih držav"
 
 msgid "Unknown"
-msgstr ""
+msgstr "Neznano"
 
 msgid "Unknown network interface type."
 msgstr ""
 
 msgid "Unmount"
-msgstr ""
+msgstr "Odklopi"
 
 msgid "Up"
-msgstr ""
+msgstr "Na voljo"
 
 msgid "Up delay"
 msgstr ""
 
 msgid "Update Management"
-msgstr ""
+msgstr "Upravljanje posodobitev"
 
 msgid "Update Management - History"
-msgstr ""
+msgstr "Upravljanje posodobitev - Zgodovina"
 
 msgid "Update Management - Terminal output"
 msgstr ""
 
 msgid "Update now"
-msgstr ""
+msgstr "Posodobi zdaj"
 
 msgid "Update the destination ACLs to be the same as the source ACLs"
 msgstr ""
@@ -3774,43 +3775,43 @@ msgid ""
 msgstr ""
 
 msgid "Updates"
-msgstr ""
+msgstr "Posodobitve"
 
 msgid "Updating ACL settings"
-msgstr ""
+msgstr "Posodabljanje ACL nastavitev"
 
 msgid "Upgrade"
-msgstr ""
+msgstr "Posodobi"
 
 msgid "Upload"
-msgstr ""
+msgstr "Naloži"
 
 msgid "Upload file"
-msgstr ""
+msgstr "Naloži datoteko"
 
 msgid "Upload package"
-msgstr ""
+msgstr "Naloži paket"
 
 msgid "Upload plugin"
-msgstr ""
+msgstr "Naloži vtičnik"
 
 msgid "Uploading file ..."
-msgstr ""
+msgstr "Nalaganje datoteke ..."
 
 msgid "Uptime"
-msgstr ""
+msgstr "Čas od vklopa"
 
 msgid "Uruguay"
-msgstr ""
+msgstr "Urugvaj"
 
 msgid "Use NTP server"
-msgstr ""
+msgstr "Uporabi NTP strežnik"
 
 msgid "Use SSL/TLS secure connection"
-msgstr ""
+msgstr "Uporabi SSL/TLS varno povezavo"
 
 msgid "Use chroot"
-msgstr ""
+msgstr "Uporabi chroot"
 
 msgid "Use sendfile"
 msgstr ""
@@ -3819,7 +3820,7 @@ msgid "Use the following bandwidth restriction:"
 msgstr ""
 
 msgid "Use the following port range:"
-msgstr ""
+msgstr "Uporabi naslednji razpon vrat:"
 
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
@@ -3830,112 +3831,112 @@ msgid "Use the specified WINS server."
 msgstr ""
 
 msgid "Used"
-msgstr ""
+msgstr "Porabljeno"
 
 msgid "Used capacity"
-msgstr ""
+msgstr "Uporabljena kapaciteta"
 
 msgid "User"
-msgstr ""
+msgstr "Uporabnik"
 
 msgid "User accounts"
-msgstr ""
+msgstr "Uporabniški računi"
 
 msgid "User home directory"
-msgstr ""
+msgstr "Domača mapa uporabnika"
 
 msgid "User information"
-msgstr ""
+msgstr "Informacije o uporabniku"
 
 msgid "User/Group permissions"
 msgstr ""
 
 msgid "Username"
-msgstr ""
+msgstr "Uporabniško ime"
 
 msgid "Users"
-msgstr ""
+msgstr "Uporabniki"
 
 msgid "Uzbekistan"
-msgstr ""
+msgstr "Uzbekistan"
 
 msgid "VLAN"
-msgstr ""
+msgstr "VLAN"
 
 msgid "VLAN id"
-msgstr ""
+msgstr "VLAN id"
 
 msgid "Valid to"
-msgstr ""
+msgstr "Veljaven do"
 
 msgid "Value"
-msgstr ""
+msgstr "Vrednost"
 
 msgid "Vanuatu"
-msgstr ""
+msgstr "Vanuatu"
 
 msgid "Vatican"
-msgstr ""
+msgstr "Vatikan"
 
 msgid "Vendor"
-msgstr ""
+msgstr "Prodajalec"
 
 msgid "Venezuela"
-msgstr ""
+msgstr "Venezuela"
 
 msgid "Version"
-msgstr ""
+msgstr "Različica"
 
 msgid "Vietnam"
-msgstr ""
+msgstr "Vietnam"
 
 msgid "VirtIO device"
-msgstr ""
+msgstr "VirtIO naprava"
 
 msgid "WINS"
-msgstr ""
+msgstr "WINS"
 
 msgid "WINS server"
-msgstr ""
+msgstr "WINS strežnik"
 
 msgid "WINS support"
-msgstr ""
+msgstr "WINS podpora"
 
 msgid "WOL"
-msgstr ""
+msgstr "WOL"
 
 msgid "Wake Island"
-msgstr ""
+msgstr "Otok Wake"
 
 msgid "Wake-on-LAN"
-msgstr ""
+msgstr "Wake-on-LAN"
 
 msgid "Wallis and Futuna"
-msgstr ""
+msgstr "Wallis in Futuna"
 
 msgid "Warning"
-msgstr ""
+msgstr "Opozorilo"
 
 msgid "Web Administration"
-msgstr ""
+msgstr "Spletna Administracija"
 
 msgid "Web Administrator Password"
-msgstr ""
+msgstr "Geslo Spletnega Vmesnika"
 
 msgid "Web control panel"
-msgstr ""
+msgstr "Spletna nadzorna plošča"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "Sreda"
 
 msgid "Weekly"
-msgstr ""
+msgstr "Tedensko"
 
 msgid "Welcome message"
-msgstr ""
+msgstr "Pozdravno sporočilo"
 
 msgid "Western Sahara"
-msgstr ""
+msgstr "Zahodna Sahara"
 
 msgid ""
 "When a client initially connects to the server the ident protocol is used to"
@@ -3943,76 +3944,76 @@ msgid ""
 msgstr ""
 
 msgid "When failed"
-msgstr ""
+msgstr "Ko ni uspešno"
 
 msgid "Wi-Fi"
-msgstr ""
+msgstr "Wi-Fi"
 
 msgid "Wipe"
-msgstr ""
+msgstr "Počisti"
 
 msgid "Wiping device ..."
-msgstr ""
+msgstr "Čiščenje naprave ..."
 
 msgid "Workgroup"
-msgstr ""
+msgstr "Delovna skupina"
 
 msgid "Worst"
-msgstr ""
+msgstr "Najslabše"
 
 msgid "Write cache"
 msgstr ""
 
 msgid "Write only"
-msgstr ""
+msgstr "Samo za branje"
 
 msgid "Write/Execute"
-msgstr ""
+msgstr "Beri/Izvedi"
 
 msgid "Xen virtual disk device"
 msgstr ""
 
 msgid "Yearly"
-msgstr ""
+msgstr "Letno"
 
 msgid "Yemen"
-msgstr ""
+msgstr "Jemen"
 
 msgid "Yes"
-msgstr ""
+msgstr "Da"
 
 msgid "You need to commit or cancel your changes"
-msgstr ""
+msgstr "Spremembe morate potrditi ali preklicati"
 
 msgid "Zambia"
-msgstr ""
+msgstr "Zambija"
 
 msgid "Zimbabwe"
-msgstr ""
+msgstr "Zimbabve"
 
 msgid "control panel"
-msgstr ""
+msgstr "kontrolna plošča"
 
 msgid "day"
-msgstr ""
+msgstr "dan"
 
 msgid "days"
-msgstr ""
+msgstr "dnevi"
 
 msgid "hour"
-msgstr ""
+msgstr "ura"
 
 msgid "hours"
-msgstr ""
+msgstr "ure"
 
 msgid "minute"
-msgstr ""
+msgstr "minuta"
 
 msgid "minutes"
-msgstr ""
+msgstr "minute"
 
 msgid "n/a"
-msgstr ""
+msgstr "n/a"
 
 msgid "of {0}"
 msgstr ""
@@ -4024,4 +4025,4 @@ msgid "prefail"
 msgstr ""
 
 msgid "seconds"
-msgstr ""
+msgstr "sekund"

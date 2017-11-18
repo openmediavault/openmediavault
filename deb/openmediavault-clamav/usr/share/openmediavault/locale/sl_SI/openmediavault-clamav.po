@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the openmediavault-clamav package.
 # 
 # Translators:
+# Miha Bezjak <miha@bezjak.info>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2012-05-18 22:06+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2017-11-17 08:33+0000\n"
+"Last-Translator: Miha Bezjak <miha@bezjak.info>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/votdev/openmediavault/language/sl_SI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,10 +19,10 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
 msgid "Add job"
-msgstr ""
+msgstr "Dodaj opravilo"
 
 msgid "Algorithmic detection"
-msgstr ""
+msgstr "Algoritemska detekcija"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -29,49 +30,49 @@ msgid ""
 msgstr ""
 
 msgid "Antivirus"
-msgstr ""
+msgstr "Antivirus"
 
 msgid "Be verbose."
-msgstr ""
+msgstr "Bodi gostobeseden."
 
 msgid "Comment"
-msgstr ""
+msgstr "Komentar"
 
 msgid "Database checks"
-msgstr ""
+msgstr "Pregled baze"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Datum in čas"
 
 msgid "Day of month"
-msgstr ""
+msgstr "Dan v mesecu"
 
 msgid "Day of week"
-msgstr ""
+msgstr "Dan v tednu"
 
 msgid "Detect PUA"
-msgstr ""
+msgstr "Zaznaj PUA"
 
 msgid "Detect broken executables"
-msgstr ""
+msgstr "Odkrij pokvarjene izvedljive datoteke"
 
 msgid "Edit job"
-msgstr ""
+msgstr "Uredi opravilo"
 
 msgid "Enable"
-msgstr ""
+msgstr "Omogoči"
 
 msgid "Enable HTML detection and normalisation."
-msgstr ""
+msgstr "Omogoči odkrivanje in normaliziranje HTML."
 
 msgid "Enable archive scanning."
-msgstr ""
+msgstr "Omogoči skeniranje arhivov."
 
 msgid "Enable on-access virus scanning"
 msgstr ""
 
 msgid "Enable scanning of ELF files."
-msgstr ""
+msgstr "Omogoči skeniranje ELF datotek."
 
 msgid ""
 "Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
@@ -79,34 +80,34 @@ msgid ""
 msgstr ""
 
 msgid "Enable scanning within PDF files."
-msgstr ""
+msgstr "Omogoči skeniranje znotraj PDF datotek."
 
 msgid "Enable the algorithmic detection."
-msgstr ""
+msgstr "Omogoči algoritemsko detekcijo."
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr ""
 
 msgid "Enable the detection of possibly unwanted applications."
-msgstr ""
+msgstr "Omogoči odkrivanje morebitnih neželenih aplikacij."
 
 msgid "Enabled"
-msgstr ""
+msgstr "Omogočeno"
 
 msgid "Every N day of month"
-msgstr ""
+msgstr "Vsaki N dan v mesecu"
 
 msgid "Every N hour"
-msgstr ""
+msgstr "Vsako N uro"
 
 msgid "Every N minute"
-msgstr ""
+msgstr "Vsako N minuto"
 
 msgid "Execute cron job"
-msgstr ""
+msgstr "Izvedi opravilo cron"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Dodatne nastavitve"
 
 msgid "Follow directory symlinks"
 msgstr ""
@@ -121,13 +122,13 @@ msgid "Follow regular file symlinks."
 msgstr ""
 
 msgid "General settings"
-msgstr ""
+msgstr "Splošne nastavitve"
 
 msgid "Hour"
-msgstr ""
+msgstr "Ura"
 
 msgid "Infected files"
-msgstr ""
+msgstr "Okužene datoteke"
 
 msgid "Log clean files"
 msgstr ""
@@ -136,16 +137,16 @@ msgid "Log clean files. This drastically increases the log size."
 msgstr ""
 
 msgid "Message"
-msgstr ""
+msgstr "Sporočilo"
 
 msgid "Minute"
-msgstr ""
+msgstr "Minuta"
 
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr ""
 
 msgid "Month"
-msgstr ""
+msgstr "Mesec"
 
 msgid "Multiscan"
 msgstr ""
@@ -157,7 +158,7 @@ msgid "On-access"
 msgstr ""
 
 msgid "Perform a deeper analysis of executable files."
-msgstr ""
+msgstr "Izvedi globjo analizo izvršljivih datotek,"
 
 msgid ""
 "Please check the <a href='https://github.com/vrtadmin/clamav-"
@@ -166,58 +167,58 @@ msgid ""
 msgstr ""
 
 msgid "Quarantine"
-msgstr ""
+msgstr "Karantena"
 
 msgid "Run"
-msgstr ""
+msgstr "Zaženi"
 
 msgid "Scan ELF"
-msgstr ""
+msgstr "Skeniraj ELF"
 
 msgid "Scan HTML"
-msgstr ""
+msgstr "Skeniraj HTML"
 
 msgid "Scan OLE2"
-msgstr ""
+msgstr "Skeniraj OLE2"
 
 msgid "Scan PDF"
-msgstr ""
+msgstr "Skeniraj PDF"
 
 msgid "Scan Portable Executable"
 msgstr ""
 
 msgid "Scan archives"
-msgstr ""
+msgstr "Skeniraj arhive"
 
 msgid "Scan the directory contents in parallel using available threads."
 msgstr ""
 
 msgid "Scheduled Jobs"
-msgstr ""
+msgstr "Načrtovana Opravila"
 
 msgid "Send command output via email"
-msgstr ""
+msgstr "Pošlji rezultat ukaza preko elektronske pošte"
 
 msgid "Send email"
-msgstr ""
+msgstr "Pošlji elektronsko poročilo"
 
 msgid "Settings"
-msgstr ""
+msgstr "Nastavitve"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Deljena mapa"
 
 msgid "The location of the files to scan."
-msgstr ""
+msgstr "Lokacija datotek za skeniranje."
 
 msgid "The location which is used as quarantine."
-msgstr ""
+msgstr "Lokacija, ki je uporabljena za karanteno."
 
 msgid "The option, how to handle infected files."
-msgstr ""
+msgstr "Možnost, kako ravnati z okuženimi datotekami."
 
 msgid "Verbose"
 msgstr ""
 
 msgid "n/a"
-msgstr ""
+msgstr "n/a"
