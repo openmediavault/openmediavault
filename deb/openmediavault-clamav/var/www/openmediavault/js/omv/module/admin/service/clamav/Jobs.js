@@ -440,7 +440,7 @@ Ext.define("OMV.module.admin.service.clamav.Jobs", {
 		var me = this;
 		var record = me.getSelected();
 		var wnd = Ext.create("OMV.window.Execute", {
-			title: _("Execute cron job"),
+			title: _("Execute scheduled job"),
 			rpcService: "ClamAV",
 			rpcMethod: "executeJob",
 			rpcParams: {
