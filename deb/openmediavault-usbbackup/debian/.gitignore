@@ -5,3 +5,4 @@
 /*.postrm.debhelper
 /*.substvars
 /*-stamp
+/.debhelper/
