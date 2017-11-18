@@ -293,7 +293,7 @@ xmlstarlet sel -t \
 		-o "[ -e ${runfile} ] && exit 1" -n \
 		-o "trap cleanup 0 1 2 5 15" -n \
 		-o "touch ${runfile}" -n \
-		-o "echo \"Please wait, scanning shared folder <" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -o "> ...\n\"" -n \
+		-o "omv_log \"Please wait, scanning shared folder <" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -o "> ...\n\"" -n \
 		-o "clamdscan ${OMV_CLAMAV_CLAMDSCAN_CMDARGS}" \
 		-i "virusaction[. = 'delete']" -o " --remove" -b \
 		-i "virusaction[. = 'quarantine']" -o " --move=\"${sfpath}\"" -b \

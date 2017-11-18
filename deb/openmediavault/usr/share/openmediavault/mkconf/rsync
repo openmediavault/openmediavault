@@ -102,20 +102,20 @@ xmlstarlet sel -t \
 		-o "[ -e ${runfile} ] && exit 1" -n \
 		-i "type[. = 'local'] or mode[. = 'push']" \
 		  -o "if ! omv_is_mounted \"${srcmntdir}\" ; then" -n \
-		  -o "    echo \"Source storage device not mounted at <${srcmntdir}>!\"" -n \
+		  -o "    omv_error \"Source storage device not mounted at <${srcmntdir}>!\"" -n \
 		  -o "    exit 1" -n \
 		  -o "fi" -n \
 		-b \
 		-i "type[. = 'local'] or mode[. = 'pull']" \
 		  -o "if ! omv_is_mounted \"${destmntdir}\" ; then" -n \
-		  -o "    echo \"Destination storage device not mounted at <${destmntdir}>!\"" -n \
+		  -o "    omv_error \"Destination storage device not mounted at <${destmntdir}>!\"" -n \
 		  -o "    exit 1" -n \
 		  -o "fi" -n \
 		-b \
 		-o "trap cleanup 0 1 2 5 15" -n \
 		-o "touch ${runfile}" -n \
 		-i "quiet = '0'" \
-			-o "echo \"Please wait, syncing <${srcuri}> to <${desturi}> ...\n\"" -n \
+		  -o "omv_log \"Please wait, syncing <${srcuri}> to <${desturi}> ...\n\"" -n \
 		-b \
 		-i "authentication = 'password'" \
 		  -i "string-length(password) > 0" -v "concat('env RSYNC_PASSWORD=\"',password,'\" ')" -b \
@@ -141,6 +141,9 @@ xmlstarlet sel -t \
 		-i "partial = '1'" -o " --partial" -b \
 		-i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
 		-o " ${srcuriarg} ${desturiarg} & wait \$!" \
+		-i "quiet = '0'" \
+		  -n -o "omv_log \"\nThe synchronisation has completed successfully.\"" \
+		-b \
 		${OMV_CONFIG_FILE} | xmlstarlet unesc > ${filename}
 	  chmod ${OMV_RSYNC_CRONSCRIPT_MASK} ${filename}
   done

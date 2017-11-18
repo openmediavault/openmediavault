@@ -439,7 +439,7 @@ Ext.define("OMV.module.admin.service.clamav.Jobs", {
 	onRunButton: function() {
 		var me = this;
 		var record = me.getSelected();
-		Ext.create("OMV.window.Execute", {
+		var wnd = Ext.create("OMV.window.Execute", {
 			title: _("Execute cron job"),
 			rpcService: "ClamAV",
 			rpcMethod: "executeJob",
@@ -448,6 +448,9 @@ Ext.define("OMV.module.admin.service.clamav.Jobs", {
 			},
 			listeners: {
 				scope: me,
+				finish: function(wnd, response) {
+					wnd.appendValue(_("Done ..."));
+				},
 				exception: function(wnd, error) {
 					OMV.MessageBox.error(null, error);
 				}
