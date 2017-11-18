@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-clamav\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Add job"
+msgid "Add on-access scan"
+msgstr ""
+
+msgid "Add scheduled job"
 msgstr ""
 
 msgid "Algorithmic detection"
@@ -53,7 +56,13 @@ msgstr ""
 msgid "Detect broken executables"
 msgstr ""
 
-msgid "Edit job"
+msgid "Done ..."
+msgstr ""
+
+msgid "Edit on-access scan"
+msgstr ""
+
+msgid "Edit scheduled job"
 msgstr ""
 
 msgid "Enable"
@@ -98,7 +107,7 @@ msgstr ""
 msgid "Every N minute"
 msgstr ""
 
-msgid "Execute cron job"
+msgid "Execute scheduled job"
 msgstr ""
 
 msgid "Extra options"
@@ -147,6 +156,9 @@ msgid "Multiscan"
 msgstr ""
 
 msgid "Number of database update checks per day. Set to 0 to disable."
+msgstr ""
+
+msgid "On Access Scans"
 msgstr ""
 
 msgid "On-access"
@@ -198,6 +210,9 @@ msgid "Settings"
 msgstr ""
 
 msgid "Shared folder"
+msgstr ""
+
+msgid "The location of the files to scan on-access."
 msgstr ""
 
 msgid "The location of the files to scan."
