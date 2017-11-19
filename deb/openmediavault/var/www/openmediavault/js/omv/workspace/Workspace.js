@@ -67,6 +67,7 @@ Ext.define("OMV.workspace.Workspace", {
 	mask: function(config) {
 		var me = this;
 		if(!Ext.isDefined(me.loadMask)) {
+			config = config || {};
 			Ext.apply(config, {
 				target: me,
 				useMsg: true
