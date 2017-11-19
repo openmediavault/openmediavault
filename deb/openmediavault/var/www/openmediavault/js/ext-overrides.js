@@ -734,6 +734,25 @@ Ext.apply(Ext.state.LocalStorageProvider.prototype, {
 });
 
 ////////////////////////////////////////////////////////////////////////////////
+// Ext.form.Basic
+////////////////////////////////////////////////////////////////////////////////
+
+// When clicking very fast in the navigation tree this method fails because
+// of the missing ckeck if 'this.monitor' is defined.
+Ext.define("Ext.overrides.form.Basic", {
+	override: "Ext.form.Basic",
+	compatibility: "6.2.0.981",
+	requires: [
+		"Ext.form.Basic"
+	],
+	getFields: function() {
+		if (!Ext.isObject(this.monitor))
+			return new Ext.util.MixedCollection();
+		return this.monitor.getItems();
+	}
+});
+
+////////////////////////////////////////////////////////////////////////////////
 // Ext.form.field.Checkbox
 ////////////////////////////////////////////////////////////////////////////////
 
