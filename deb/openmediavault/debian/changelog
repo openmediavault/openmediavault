@@ -104,6 +104,12 @@ openmediavault (4.0) stable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 22 Feb 2017 13:28:40 +0100
 
+openmediavault (3.0.93) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 19 Nov 2017 13:13:10 +0100
+
 openmediavault (3.0.92) stable; urgency=low
 
   * Fix issue in omv-firstaid 'Check RRD database' when performance statistics
