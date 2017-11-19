@@ -1,6 +1,7 @@
 openmediavault (3.0.93) stable; urgency=low
 
   * Various improvements.
+  * Fix issue when clicking very fast in the left navigation tree.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 19 Nov 2017 13:13:10 +0100
 
