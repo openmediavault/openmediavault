@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Stephan Steiner, 2014
-# Volker <votdev@gmx.de>, 2013-2014
+# Volker <votdev@gmx.de>, 2013-2014,2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-18 11:05+0100\n"
-"PO-Revision-Date: 2017-11-18 10:08+0000\n"
+"PO-Revision-Date: 2017-11-20 19:05+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -52,7 +52,7 @@ msgid "Device"
 msgstr "Gerät"
 
 msgid "Done ..."
-msgstr ""
+msgstr "Fertig ..."
 
 msgid "Edit backup job"
 msgstr "Backup Auftrag ändern"

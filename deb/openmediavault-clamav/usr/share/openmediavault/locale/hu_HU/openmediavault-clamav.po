@@ -5,14 +5,15 @@
 # Translators:
 # Ádám Balajti <balajtiadam@gmail.com>, 2012
 # Gábor Sári <sari.gabor@gmail.com>, 2017
+# Gyuris Gellért <gellert.gyuris@protonmail.com>, 2017
 # Grawens <szabolcs.szanyi@gmail.com>, 2014,2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-18 11:05+0100\n"
-"PO-Revision-Date: 2017-11-18 10:08+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2017-11-20 17:55+0000\n"
+"Last-Translator: Gyuris Gellért <gellert.gyuris@protonmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,10 +22,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add on-access scan"
-msgstr ""
+msgstr "Hozzáférési átvizsgálás hozzáadása"
 
 msgid "Add scheduled job"
-msgstr ""
+msgstr "Ütemezett feladat hozzáadása"
 
 msgid "Algorithmic detection"
 msgstr "Algoritmikus észlelés"
@@ -62,13 +63,13 @@ msgid "Detect broken executables"
 msgstr "Hibás futtatható fájlok észlelése"
 
 msgid "Done ..."
-msgstr ""
+msgstr "Kész..."
 
 msgid "Edit on-access scan"
-msgstr ""
+msgstr "Hozzáférési átvizsgálás szerkesztése"
 
 msgid "Edit scheduled job"
-msgstr ""
+msgstr "Ütemezett feladat szerkesztése"
 
 msgid "Enable"
 msgstr "Engedélyezés"
@@ -115,7 +116,7 @@ msgid "Every N minute"
 msgstr "Minden N percben"
 
 msgid "Execute scheduled job"
-msgstr ""
+msgstr "Ütemezett feladat végrehajtása"
 
 msgid "Extra options"
 msgstr "Extra beállítások"
@@ -166,7 +167,7 @@ msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Adatbázis frissítés ellenőrzések száma naponta. A 0 beállítás tiltja a funkciót."
 
 msgid "On Access Scans"
-msgstr ""
+msgstr "Hozzáférési átvizsgálás"
 
 msgid "On-access"
 msgstr "Hozzáférés"
@@ -223,7 +224,7 @@ msgid "Shared folder"
 msgstr "Megosztott mappa"
 
 msgid "The location of the files to scan on-access."
-msgstr ""
+msgstr "A fájok helyének átvizsgálása hozzáféréskor."
 
 msgid "The location of the files to scan."
 msgstr "Átvizsgálandó fájlok helye."

@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the openmediavault-clamav package.
 # 
 # Translators:
-# Volker <votdev@gmx.de>, 2014,2016
+# Volker <votdev@gmx.de>, 2014,2016-2017
 # Volker <votdev@gmx.de>, 2012
 # warhog <warhog@gmx.de>, 2012
 msgid ""
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-18 11:05+0100\n"
-"PO-Revision-Date: 2017-11-18 10:08+0000\n"
+"PO-Revision-Date: 2017-11-20 19:05+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -21,10 +21,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add on-access scan"
-msgstr ""
+msgstr "On-Access-Scan hinzufügen"
 
 msgid "Add scheduled job"
-msgstr ""
+msgstr "Geplante Aufgabe hinzufügen"
 
 msgid "Algorithmic detection"
 msgstr "Algorithmische Erkennung"
@@ -62,13 +62,13 @@ msgid "Detect broken executables"
 msgstr "Erkenne defekte ausführbare Dateien"
 
 msgid "Done ..."
-msgstr ""
+msgstr "Fertig ..."
 
 msgid "Edit on-access scan"
-msgstr ""
+msgstr "On-Access-Scan bearbeiten"
 
 msgid "Edit scheduled job"
-msgstr ""
+msgstr "Geplante Aufgabe bearbeiten"
 
 msgid "Enable"
 msgstr "Aktivieren"
@@ -115,7 +115,7 @@ msgid "Every N minute"
 msgstr "Jede N. Minute"
 
 msgid "Execute scheduled job"
-msgstr ""
+msgstr "Geplante Aufgabe ausführen"
 
 msgid "Extra options"
 msgstr "Erweiterte Optionen"
@@ -166,7 +166,7 @@ msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Anzahl der Datenbank-Update-Prüfungen pro Tag. Auf 0 setzen zum deaktivieren."
 
 msgid "On Access Scans"
-msgstr ""
+msgstr "On-Access-Scan"
 
 msgid "On-access"
 msgstr "On-Access"
@@ -178,7 +178,7 @@ msgid ""
 "Please check the <a href='https://github.com/vrtadmin/clamav-"
 "faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
 "details."
-msgstr ""
+msgstr "Bitte die <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>Hilfeseiten</a> für weitere Details lesen."
 
 msgid "Quarantine"
 msgstr "Quarantäne"
@@ -208,7 +208,7 @@ msgid "Scan the directory contents in parallel using available threads."
 msgstr "Scanne die Verzeichnis-Inhalte parallel mithilfe der verfügbaren Threads."
 
 msgid "Scheduled Jobs"
-msgstr ""
+msgstr "Geplante Aufgaben"
 
 msgid "Send command output via email"
 msgstr "Sende Kommando-Ausgabe via E-Mail"
@@ -223,7 +223,7 @@ msgid "Shared folder"
 msgstr "Freigegebene Ordner"
 
 msgid "The location of the files to scan on-access."
-msgstr ""
+msgstr "Der Speicherort der Dateien, die beim Zugriff gescannt werden sollen."
 
 msgid "The location of the files to scan."
 msgstr "Der Ort der zu scannenden Dateien."
