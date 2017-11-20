@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-23 12:45+0000\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 10:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/votdev/openmediavault/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -18,8 +18,11 @@ msgstr ""
 "Language: ca_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add job"
-msgstr "Afegir tasca"
+msgid "Add on-access scan"
+msgstr ""
+
+msgid "Add scheduled job"
+msgstr ""
 
 msgid "Algorithmic detection"
 msgstr "Detecció Algorítmica"
@@ -56,8 +59,14 @@ msgstr "Detectar PUA"
 msgid "Detect broken executables"
 msgstr "Detectar executables trencats"
 
-msgid "Edit job"
-msgstr "Editar la tasca"
+msgid "Done ..."
+msgstr ""
+
+msgid "Edit on-access scan"
+msgstr ""
+
+msgid "Edit scheduled job"
+msgstr ""
 
 msgid "Enable"
 msgstr "Habilitar"
@@ -103,8 +112,8 @@ msgstr "Cada N hores"
 msgid "Every N minute"
 msgstr "Cada N minuts"
 
-msgid "Execute cron job"
-msgstr "Executar tasca programada"
+msgid "Execute scheduled job"
+msgstr ""
 
 msgid "Extra options"
 msgstr "Opcions addicionals"
@@ -153,6 +162,9 @@ msgstr "Multiscan"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Nombre de consultes d'actualització de la BBDD per dia. Poseu 0 per deshabilitar-ho."
+
+msgid "On Access Scans"
+msgstr ""
 
 msgid "On-access"
 msgstr "Quan s'accedeixi"
@@ -207,6 +219,9 @@ msgstr "Opcions"
 
 msgid "Shared folder"
 msgstr "Carpeta compartida"
+
+msgid "The location of the files to scan on-access."
+msgstr ""
 
 msgid "The location of the files to scan."
 msgstr "Ubicació dels fitxers que s'han de comprovar"

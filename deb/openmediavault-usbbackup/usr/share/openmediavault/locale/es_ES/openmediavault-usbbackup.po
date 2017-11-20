@@ -4,14 +4,14 @@
 # 
 # Translators:
 # jmcainzos <jmcainzos@vodafone.es>, 2013
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2013-2014
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2013-2014,2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-19 15:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 13:27+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/votdev/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,6 +50,9 @@ msgstr "Borrar archivos en la parte receptora que no existan en la parte emisora
 
 msgid "Device"
 msgstr "Dispositivo"
+
+msgid "Done ..."
+msgstr "Hecho ..."
 
 msgid "Edit backup job"
 msgstr "Editar tarea de Backup"

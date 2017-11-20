@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 21:10+0200\n"
-"PO-Revision-Date: 2017-09-24 19:10+0000\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 10:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/votdev/openmediavault/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -877,6 +877,9 @@ msgid "Disallow the user to modify his account."
 msgstr ""
 
 msgid "Disk usage"
+msgstr ""
+
+msgid "Disks"
 msgstr ""
 
 msgid "Displaying items {0} - {1} of {2}"
@@ -2351,9 +2354,6 @@ msgstr ""
 
 msgid "Philippines"
 msgstr ""
-
-msgid "Physical Disks"
-msgstr "Физически дискове"
 
 msgid "Physical disk properties"
 msgstr ""

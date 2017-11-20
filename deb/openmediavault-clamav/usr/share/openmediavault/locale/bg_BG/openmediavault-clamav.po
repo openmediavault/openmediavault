@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-08-30 06:41+0000\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 10:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/votdev/openmediavault/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,10 @@ msgstr ""
 "Language: bg_BG\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add job"
+msgid "Add on-access scan"
+msgstr ""
+
+msgid "Add scheduled job"
 msgstr ""
 
 msgid "Algorithmic detection"
@@ -55,7 +58,13 @@ msgstr ""
 msgid "Detect broken executables"
 msgstr ""
 
-msgid "Edit job"
+msgid "Done ..."
+msgstr ""
+
+msgid "Edit on-access scan"
+msgstr ""
+
+msgid "Edit scheduled job"
 msgstr ""
 
 msgid "Enable"
@@ -102,7 +111,7 @@ msgstr ""
 msgid "Every N minute"
 msgstr ""
 
-msgid "Execute cron job"
+msgid "Execute scheduled job"
 msgstr ""
 
 msgid "Extra options"
@@ -151,6 +160,9 @@ msgid "Multiscan"
 msgstr ""
 
 msgid "Number of database update checks per day. Set to 0 to disable."
+msgstr ""
+
+msgid "On Access Scans"
 msgstr ""
 
 msgid "On-access"
@@ -205,6 +217,9 @@ msgid "Settings"
 msgstr ""
 
 msgid "Shared folder"
+msgstr ""
+
+msgid "The location of the files to scan on-access."
 msgstr ""
 
 msgid "The location of the files to scan."

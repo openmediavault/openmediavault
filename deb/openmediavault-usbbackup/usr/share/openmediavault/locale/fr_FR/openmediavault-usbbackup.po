@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-19 15:03+0000\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 10:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/votdev/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -51,6 +51,9 @@ msgstr "Supprimer les fichiers de destination qui n'existe pas dans les fichiers
 
 msgid "Device"
 msgstr "Périphérique"
+
+msgid "Done ..."
+msgstr ""
 
 msgid "Edit backup job"
 msgstr "Modifier une tâche de sauvegarde"

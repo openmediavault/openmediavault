@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-23 18:13+0000\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 10:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -20,8 +20,11 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add job"
-msgstr "Aufgabe hinzufügen"
+msgid "Add on-access scan"
+msgstr ""
+
+msgid "Add scheduled job"
+msgstr ""
 
 msgid "Algorithmic detection"
 msgstr "Algorithmische Erkennung"
@@ -58,8 +61,14 @@ msgstr "Erkenne PUA"
 msgid "Detect broken executables"
 msgstr "Erkenne defekte ausführbare Dateien"
 
-msgid "Edit job"
-msgstr "Aufgabe bearbeiten"
+msgid "Done ..."
+msgstr ""
+
+msgid "Edit on-access scan"
+msgstr ""
+
+msgid "Edit scheduled job"
+msgstr ""
 
 msgid "Enable"
 msgstr "Aktivieren"
@@ -105,8 +114,8 @@ msgstr "Jede N. Stunde"
 msgid "Every N minute"
 msgstr "Jede N. Minute"
 
-msgid "Execute cron job"
-msgstr "Führe Cron Job aus"
+msgid "Execute scheduled job"
+msgstr ""
 
 msgid "Extra options"
 msgstr "Erweiterte Optionen"
@@ -155,6 +164,9 @@ msgstr "Multiscan"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Anzahl der Datenbank-Update-Prüfungen pro Tag. Auf 0 setzen zum deaktivieren."
+
+msgid "On Access Scans"
+msgstr ""
 
 msgid "On-access"
 msgstr "On-Access"
@@ -209,6 +221,9 @@ msgstr "Einstellungen"
 
 msgid "Shared folder"
 msgstr "Freigegebene Ordner"
+
+msgid "The location of the files to scan on-access."
+msgstr ""
 
 msgid "The location of the files to scan."
 msgstr "Der Ort der zu scannenden Dateien."

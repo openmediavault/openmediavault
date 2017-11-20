@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-20 11:04+0000\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 10:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -50,6 +50,9 @@ msgstr "수신 측에서 송신 측에 존재하지 않는 파일을 삭제합�
 
 msgid "Device"
 msgstr "장치"
+
+msgid "Done ..."
+msgstr ""
 
 msgid "Edit backup job"
 msgstr "백업 작업 편집"

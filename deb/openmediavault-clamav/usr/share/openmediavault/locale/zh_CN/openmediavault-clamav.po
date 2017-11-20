@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-19 22:49+0000\n"
-"Last-Translator: songming <by@songming.me>\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 10:08+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,8 +18,11 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "Add job"
-msgstr "添加任务"
+msgid "Add on-access scan"
+msgstr ""
+
+msgid "Add scheduled job"
+msgstr ""
 
 msgid "Algorithmic detection"
 msgstr "检测算法"
@@ -56,8 +59,14 @@ msgstr "PUA 检测"
 msgid "Detect broken executables"
 msgstr "检测损坏的可执行文件"
 
-msgid "Edit job"
-msgstr "编辑任务"
+msgid "Done ..."
+msgstr ""
+
+msgid "Edit on-access scan"
+msgstr ""
+
+msgid "Edit scheduled job"
+msgstr ""
 
 msgid "Enable"
 msgstr "启用"
@@ -103,8 +112,8 @@ msgstr "每 N 小时"
 msgid "Every N minute"
 msgstr "每 N 分钟"
 
-msgid "Execute cron job"
-msgstr "执行计划任务"
+msgid "Execute scheduled job"
+msgstr ""
 
 msgid "Extra options"
 msgstr "扩展选项"
@@ -153,6 +162,9 @@ msgstr "多线程扫描"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "每天数据库更新检查次数，0 为不检查。"
+
+msgid "On Access Scans"
+msgstr ""
 
 msgid "On-access"
 msgstr "存取时"
@@ -207,6 +219,9 @@ msgstr "设置"
 
 msgid "Shared folder"
 msgstr "共享文件夹"
+
+msgid "The location of the files to scan on-access."
+msgstr ""
 
 msgid "The location of the files to scan."
 msgstr "要扫描病毒的位置。"

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 21:10+0200\n"
-"PO-Revision-Date: 2017-09-24 19:10+0000\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 10:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -880,6 +880,9 @@ msgstr "사용자가 계정을 수정하지 못하게 합니다."
 
 msgid "Disk usage"
 msgstr "디스크 사용량"
+
+msgid "Disks"
+msgstr ""
 
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "{2}중 {0} - {1}항목 표시 중 "
@@ -2353,9 +2356,6 @@ msgstr "페루"
 
 msgid "Philippines"
 msgstr "필리핀"
-
-msgid "Physical Disks"
-msgstr "물리 디스크"
 
 msgid "Physical disk properties"
 msgstr "물리 디스크 속성"

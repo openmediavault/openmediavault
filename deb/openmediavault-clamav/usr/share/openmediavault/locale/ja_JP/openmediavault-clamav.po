@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-26 09:47+0000\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-20 04:18+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/votdev/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -18,8 +18,11 @@ msgstr ""
 "Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "Add job"
-msgstr "ジョブの追加"
+msgid "Add on-access scan"
+msgstr "アクセス時のスキャンを追加"
+
+msgid "Add scheduled job"
+msgstr "スケジュールされたJobを追加"
 
 msgid "Algorithmic detection"
 msgstr "アルゴリズム的検出"
@@ -56,8 +59,14 @@ msgstr "PUAの検出"
 msgid "Detect broken executables"
 msgstr "壊れた実行ファイルを検出"
 
-msgid "Edit job"
-msgstr "ジョブの編集"
+msgid "Done ..."
+msgstr "完了 ..."
+
+msgid "Edit on-access scan"
+msgstr "アクセス時のスキャンを編集"
+
+msgid "Edit scheduled job"
+msgstr "スケジュールされたJobを編集"
 
 msgid "Enable"
 msgstr "有効"
@@ -103,8 +112,8 @@ msgstr "N時間ごと"
 msgid "Every N minute"
 msgstr "N分ごと"
 
-msgid "Execute cron job"
-msgstr "Cronジョブの実行"
+msgid "Execute scheduled job"
+msgstr "スケジュールされたJobを実行"
 
 msgid "Extra options"
 msgstr "その他のオプション"
@@ -153,6 +162,9 @@ msgstr "マルチスキャン"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "データベースの更新を1日に何回確認するかを設定します。0に設定すると確認しません。"
+
+msgid "On Access Scans"
+msgstr "アクセス時のスキャン"
 
 msgid "On-access"
 msgstr "オン-アクセス"
@@ -207,6 +219,9 @@ msgstr "設定"
 
 msgid "Shared folder"
 msgstr "共有フォルダ"
+
+msgid "The location of the files to scan on-access."
+msgstr "アクセス時のスキャンを行うファイルの場所。"
 
 msgid "The location of the files to scan."
 msgstr "スキャンするファイルの場所。"

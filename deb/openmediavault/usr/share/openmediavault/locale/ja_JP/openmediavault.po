@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 21:10+0200\n"
-"PO-Revision-Date: 2017-09-26 09:47+0000\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-20 04:19+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/votdev/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -878,6 +878,9 @@ msgstr "自分のアカウントの変更をユーザーに許可しない。"
 
 msgid "Disk usage"
 msgstr "ディスク使用量"
+
+msgid "Disks"
+msgstr "ディスク"
 
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "表示中のアイテム {0} - {1} of {2}"
@@ -2351,9 +2354,6 @@ msgstr "ペルー"
 
 msgid "Philippines"
 msgstr "フィリピン"
-
-msgid "Physical Disks"
-msgstr "物理ディスク"
 
 msgid "Physical disk properties"
 msgstr "物理ディスクのプロパティ"

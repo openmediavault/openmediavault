@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 21:10+0200\n"
-"PO-Revision-Date: 2017-09-24 19:11+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 19:08+0000\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -879,6 +879,9 @@ msgstr "Neumožnit uživateli upravovat svůj účet."
 
 msgid "Disk usage"
 msgstr "Využití disku"
+
+msgid "Disks"
+msgstr "Jednotky datových úložišť"
 
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Zobrazeno položek {0} - {1} z {2}"
@@ -2352,9 +2355,6 @@ msgstr "Peru"
 
 msgid "Philippines"
 msgstr "Filipíny"
-
-msgid "Physical Disks"
-msgstr "Fyzická úložná zařízení"
 
 msgid "Physical disk properties"
 msgstr "Vlastnosti fyzického úložného zařízení"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-19 12:45+0000\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 13:29+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/votdev/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -18,8 +18,11 @@ msgstr ""
 "Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add job"
-msgstr "Añadir trabajo"
+msgid "Add on-access scan"
+msgstr "Añadir escaneo al acceder"
+
+msgid "Add scheduled job"
+msgstr "Añadir Trabajo programado"
 
 msgid "Algorithmic detection"
 msgstr "Detección Algoritmica"
@@ -56,8 +59,14 @@ msgstr "Detectar PUA"
 msgid "Detect broken executables"
 msgstr "Detectar ejecutables rotos"
 
-msgid "Edit job"
-msgstr "Editar trabajo"
+msgid "Done ..."
+msgstr "Hecho ..."
+
+msgid "Edit on-access scan"
+msgstr "Editar escaneo al acceder"
+
+msgid "Edit scheduled job"
+msgstr "Editar trabajo programado"
 
 msgid "Enable"
 msgstr "Habilitar"
@@ -103,8 +112,8 @@ msgstr "Cada N horas"
 msgid "Every N minute"
 msgstr "Cada N minutos"
 
-msgid "Execute cron job"
-msgstr "Ejecutar tarea programada"
+msgid "Execute scheduled job"
+msgstr "Ejecutar trabajo programado"
 
 msgid "Extra options"
 msgstr "Opciones extras"
@@ -153,6 +162,9 @@ msgstr "Multiscan"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Numero de consultas de actualización de la BBDD por día. 0 para deshabilitarlo."
+
+msgid "On Access Scans"
+msgstr "Escaneos al acceder"
 
 msgid "On-access"
 msgstr "Al acceder"
@@ -207,6 +219,9 @@ msgstr "Opciones"
 
 msgid "Shared folder"
 msgstr "Carpeta compartida"
+
+msgid "The location of the files to scan on-access."
+msgstr "Ubicación de los archivos a escanear al acceder."
 
 msgid "The location of the files to scan."
 msgstr "Ubicación de los archivos a comprobar"

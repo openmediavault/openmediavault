@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-20 11:04+0000\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 10:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -20,8 +20,11 @@ msgstr ""
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "Add job"
-msgstr "작업 추가"
+msgid "Add on-access scan"
+msgstr ""
+
+msgid "Add scheduled job"
+msgstr ""
 
 msgid "Algorithmic detection"
 msgstr "알고리즘적 감지"
@@ -58,8 +61,14 @@ msgstr "PUA 검색"
 msgid "Detect broken executables"
 msgstr "실행 파일의 손상을 검사"
 
-msgid "Edit job"
-msgstr "작업 편집"
+msgid "Done ..."
+msgstr ""
+
+msgid "Edit on-access scan"
+msgstr ""
+
+msgid "Edit scheduled job"
+msgstr ""
 
 msgid "Enable"
 msgstr "활성화"
@@ -105,8 +114,8 @@ msgstr "매 N시간마다"
 msgid "Every N minute"
 msgstr "매 N분마다"
 
-msgid "Execute cron job"
-msgstr "cron 작업 실행"
+msgid "Execute scheduled job"
+msgstr ""
 
 msgid "Extra options"
 msgstr "추가 옵션"
@@ -155,6 +164,9 @@ msgstr "다중 검색"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "요일당 데이터베이스 갱신을 검사할 횟수. 0은 비활성화."
+
+msgid "On Access Scans"
+msgstr ""
 
 msgid "On-access"
 msgstr "접근 기반"
@@ -209,6 +221,9 @@ msgstr "설정"
 
 msgid "Shared folder"
 msgstr "공유 폴더"
+
+msgid "The location of the files to scan on-access."
+msgstr ""
 
 msgid "The location of the files to scan."
 msgstr "스캔할 파일 위치"

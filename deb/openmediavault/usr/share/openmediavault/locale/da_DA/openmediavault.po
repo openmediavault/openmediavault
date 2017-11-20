@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 21:10+0200\n"
-"PO-Revision-Date: 2017-09-24 19:10+0000\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 10:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/votdev/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -878,6 +878,9 @@ msgstr "Forbyd brugeren at ændre hans konto."
 
 msgid "Disk usage"
 msgstr "Disk forbrug"
+
+msgid "Disks"
+msgstr ""
 
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Viser emne {0} - {1} af {2}"
@@ -2351,9 +2354,6 @@ msgstr "Peru"
 
 msgid "Philippines"
 msgstr "Philippines"
-
-msgid "Physical Disks"
-msgstr "Fysiske Diske"
 
 msgid "Physical disk properties"
 msgstr "Fysisk disk egenskaber"

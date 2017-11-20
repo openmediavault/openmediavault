@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-16 22:02+0000\n"
-"Last-Translator: zubr139\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 10:08+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,8 +18,11 @@ msgstr ""
 "Language: uk\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-msgid "Add job"
-msgstr "Додати завдання"
+msgid "Add on-access scan"
+msgstr ""
+
+msgid "Add scheduled job"
+msgstr ""
 
 msgid "Algorithmic detection"
 msgstr "Алгоритмічне виявлення"
@@ -56,8 +59,14 @@ msgstr "Виявлення PUA"
 msgid "Detect broken executables"
 msgstr "Виявлення пошкоджених виконуваних файлів"
 
-msgid "Edit job"
-msgstr "Редагувати завдання"
+msgid "Done ..."
+msgstr ""
+
+msgid "Edit on-access scan"
+msgstr ""
+
+msgid "Edit scheduled job"
+msgstr ""
 
 msgid "Enable"
 msgstr "Увімкнути"
@@ -103,8 +112,8 @@ msgstr "Кожну N годину"
 msgid "Every N minute"
 msgstr "Кожну N хвилину"
 
-msgid "Execute cron job"
-msgstr "Виконати завдання Cron"
+msgid "Execute scheduled job"
+msgstr ""
 
 msgid "Extra options"
 msgstr "Додаткові опції"
@@ -153,6 +162,9 @@ msgstr "Мульти сканування"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Кількість перевірок оновлень бази даних в день. Встановіть 0, щоб відключити."
+
+msgid "On Access Scans"
+msgstr ""
 
 msgid "On-access"
 msgstr "При доступі"
@@ -207,6 +219,9 @@ msgstr "Налаштування"
 
 msgid "Shared folder"
 msgstr "Спільна тека"
+
+msgid "The location of the files to scan on-access."
+msgstr ""
 
 msgid "The location of the files to scan."
 msgstr "Розташування файлів для сканування."

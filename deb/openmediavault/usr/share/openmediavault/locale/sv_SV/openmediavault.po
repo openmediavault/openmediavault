@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 21:10+0200\n"
-"PO-Revision-Date: 2017-09-25 19:35+0000\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-19 17:30+0000\n"
 "Last-Translator: Jonatan Nyberg\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -879,6 +879,9 @@ msgstr "Förhindra att användaren ändrar sitt konto."
 
 msgid "Disk usage"
 msgstr "Diskanvändning"
+
+msgid "Disks"
+msgstr "Diskar"
 
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Visar objekt {0} - {1} av {2}"
@@ -2352,9 +2355,6 @@ msgstr "Peru"
 
 msgid "Philippines"
 msgstr "Filippinerna"
-
-msgid "Physical Disks"
-msgstr "Fysiska diskar"
 
 msgid "Physical disk properties"
 msgstr "Fysiska diskegenskaper"

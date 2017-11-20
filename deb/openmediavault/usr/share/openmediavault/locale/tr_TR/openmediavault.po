@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 21:10+0200\n"
-"PO-Revision-Date: 2017-09-24 19:11+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 22:04+0000\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/votdev/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -878,6 +878,9 @@ msgstr "Kullanıcıların bu hesabı değiştirmesini engelle."
 
 msgid "Disk usage"
 msgstr "Disk kullanımı"
+
+msgid "Disks"
+msgstr "Diskler"
 
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Ögeler gösteriliyor {0} - {1} / {2}"
@@ -2351,9 +2354,6 @@ msgstr "Peru"
 
 msgid "Philippines"
 msgstr "Filipinler"
-
-msgid "Physical Disks"
-msgstr "Fiziksel Disk"
 
 msgid "Physical disk properties"
 msgstr "Fiziksel disk özellikleri"

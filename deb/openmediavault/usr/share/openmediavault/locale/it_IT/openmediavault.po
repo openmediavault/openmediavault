@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 21:10+0200\n"
-"PO-Revision-Date: 2017-09-27 22:48+0000\n"
-"Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 10:08+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Italian (http://www.transifex.com/votdev/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -883,6 +883,9 @@ msgstr "Nega all'utente la possibilità di modificare il suo account."
 
 msgid "Disk usage"
 msgstr "Utilizzo del disco"
+
+msgid "Disks"
+msgstr ""
 
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Mostrati {0} - {1} di {2} elementi"
@@ -2356,9 +2359,6 @@ msgstr "Perù"
 
 msgid "Philippines"
 msgstr "Filippine"
-
-msgid "Physical Disks"
-msgstr "Dischi fisici"
 
 msgid "Physical disk properties"
 msgstr "Proprietà del disco fisico"

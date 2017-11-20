@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-25 09:32+0000\n"
-"Last-Translator: jacekniedziolka71 <lucas71@interia.pl>\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 10:08+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/votdev/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,8 +20,11 @@ msgstr ""
 "Language: pl_PL\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-msgid "Add job"
-msgstr "Dodaj zadanie"
+msgid "Add on-access scan"
+msgstr ""
+
+msgid "Add scheduled job"
+msgstr ""
 
 msgid "Algorithmic detection"
 msgstr "Wykrywanie algorytmiczne"
@@ -58,8 +61,14 @@ msgstr "Wykrywanie PUA"
 msgid "Detect broken executables"
 msgstr "Wykryj przerwane pliki wykonywalne"
 
-msgid "Edit job"
-msgstr "Edytuj zadanie"
+msgid "Done ..."
+msgstr ""
+
+msgid "Edit on-access scan"
+msgstr ""
+
+msgid "Edit scheduled job"
+msgstr ""
 
 msgid "Enable"
 msgstr "Włącz"
@@ -105,8 +114,8 @@ msgstr "Co N godzin"
 msgid "Every N minute"
 msgstr "Co N minut"
 
-msgid "Execute cron job"
-msgstr "Wykonaj zadanie cron'a"
+msgid "Execute scheduled job"
+msgstr ""
 
 msgid "Extra options"
 msgstr "Dodatkowe opcje"
@@ -155,6 +164,9 @@ msgstr "Multiskan"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Liczba sprawdza aktualizacji bazy wirusów w ciągu dnia. Ustaw na 0, aby wyłączyć."
+
+msgid "On Access Scans"
+msgstr ""
 
 msgid "On-access"
 msgstr "Przy dostępie"
@@ -209,6 +221,9 @@ msgstr "Ustawienia"
 
 msgid "Shared folder"
 msgstr "Folder udostępniony"
+
+msgid "The location of the files to scan on-access."
+msgstr ""
 
 msgid "The location of the files to scan."
 msgstr "Lokalizacja plików do skanowania."

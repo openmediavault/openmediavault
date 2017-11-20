@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-19 15:03+0000\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 10:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/votdev/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -50,6 +50,9 @@ msgstr "Verwijder bestanden aan de ontvangende kant die niet bestaan bij de verz
 
 msgid "Device"
 msgstr "Apparaat"
+
+msgid "Done ..."
+msgstr ""
 
 msgid "Edit backup job"
 msgstr "Geplande backup-taak aanpassen"

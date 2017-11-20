@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 21:10+0200\n"
-"PO-Revision-Date: 2017-10-14 12:28+0000\n"
-"Last-Translator: songming <by@songming.me>\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 10:08+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -879,6 +879,9 @@ msgstr "不允许用户修改自己的账户。"
 
 msgid "Disk usage"
 msgstr "磁盘使用"
+
+msgid "Disks"
+msgstr ""
 
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "显示项目 {0} - {1} 一共 {2} 项"
@@ -2352,9 +2355,6 @@ msgstr "秘鲁"
 
 msgid "Philippines"
 msgstr "菲律宾"
-
-msgid "Physical Disks"
-msgstr "物理磁盘"
 
 msgid "Physical disk properties"
 msgstr "物理磁盘属性"

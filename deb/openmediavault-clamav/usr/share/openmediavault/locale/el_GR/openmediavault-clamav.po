@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-19 12:45+0000\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-20 07:47+0000\n"
 "Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/votdev/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -18,8 +18,11 @@ msgstr ""
 "Language: el_GR\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add job"
-msgstr "Προσθήκη εργασίας"
+msgid "Add on-access scan"
+msgstr "Προσθήκη σάρωσης κατά την πρόσβαση"
+
+msgid "Add scheduled job"
+msgstr "Προσθήκη προγραμματισμένης εργασίας"
 
 msgid "Algorithmic detection"
 msgstr "Αλγοριθμική ανίχνευση"
@@ -56,8 +59,14 @@ msgstr "Ανίχνευση PUA"
 msgid "Detect broken executables"
 msgstr "Ανίχνευση χαμασμένων εκτελέσιμων"
 
-msgid "Edit job"
-msgstr "Επεξεργασία εργασίας"
+msgid "Done ..."
+msgstr "Ολοκλήρωση ..."
+
+msgid "Edit on-access scan"
+msgstr "Επεξεργασία σάρωσης κατά την πρόσβαση"
+
+msgid "Edit scheduled job"
+msgstr "Επεξεργασία προγραμματισμένης εργασίας"
 
 msgid "Enable"
 msgstr "Ενεργοποίηση"
@@ -103,7 +112,7 @@ msgstr "Κάθε Ν ώρα"
 msgid "Every N minute"
 msgstr "Κάθε Ν λεπτό"
 
-msgid "Execute cron job"
+msgid "Execute scheduled job"
 msgstr "Εκτέλεση προγραμματισμένης εργασίας"
 
 msgid "Extra options"
@@ -153,6 +162,9 @@ msgstr "Πολλαπλή ανίχνευση"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Αριθμός ελέγχου ενημερώσεων ημερησίως. 0 για καμία."
+
+msgid "On Access Scans"
+msgstr "Σάρωση κατά την πρόσβαση"
 
 msgid "On-access"
 msgstr "Έλεγχος κατά την πρόσβαση"
@@ -207,6 +219,9 @@ msgstr "Ρυθμίσεις"
 
 msgid "Shared folder"
 msgstr "Κοινόχρηστος φάκελος"
+
+msgid "The location of the files to scan on-access."
+msgstr "Η τοποθεσία των αρχείων για σάρωση κατά την πρόσβαση"
 
 msgid "The location of the files to scan."
 msgstr "Η τοποθεσία των αρχείων προς έλεγχο."

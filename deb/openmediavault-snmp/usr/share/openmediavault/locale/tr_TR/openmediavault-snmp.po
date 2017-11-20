@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-24 20:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2017\n"
 "Language-Team: Turkish (Turkey) (https://www.transifex.com/votdev/teams/14254/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
@@ -18,78 +19,80 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Authentication and no privacy"
-msgstr ""
+msgstr "Gizlilik olmadan kimlik denetimi"
 
 msgid "Authentication and privacy"
-msgstr ""
+msgstr "Gizlilik sağlanarak kimlik denetimi"
 
 msgid "Authentication passphrase"
-msgstr ""
+msgstr "Kimlik doğrulama paralosı"
 
 msgid "Authentication type"
-msgstr ""
+msgstr "Kimlik doğrulama tipi"
 
 msgid "Community"
-msgstr ""
+msgstr "Topluluk"
 
 msgid "Contact"
-msgstr ""
+msgstr "İletişim"
 
 msgid ""
 "Contact information, e.g. name or email address of the person responsible "
 "for this system."
 msgstr ""
+"İletişim bilgisi, örneğin bu sistemden sorumlu kişinin adı ya da e-posta "
+"adresi."
 
 msgid "Enable"
-msgstr ""
+msgstr "Aktif"
 
 msgid "Extra options"
-msgstr ""
+msgstr "İlave seçenekler"
 
 msgid "General settings"
-msgstr ""
+msgstr "Genel ayarlar"
 
 msgid "Host"
-msgstr ""
+msgstr "Sistem"
 
 msgid "Location"
-msgstr ""
+msgstr "Yerleşim"
 
 msgid "Location information, e.g. physical location of this system."
-msgstr ""
+msgstr "Yerleşim bilgisi, örneğin bu sistemin fiziksel yeri."
 
 msgid "No authentication and no privacy"
-msgstr ""
+msgstr "Kimlik denetimi ve gizlilik yok"
 
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 msgid "Privacy passphrase"
-msgstr ""
+msgstr "Gizlilik parolası"
 
 msgid "Privacy type"
-msgstr ""
+msgstr "Gizlilik tipi"
 
 msgid "SNMP"
-msgstr ""
+msgstr "SNMP"
 
 msgid "SNMP version 1/2c"
-msgstr ""
+msgstr "SNMP sürüm 1/2c"
 
 msgid "SNMP version 3"
-msgstr ""
+msgstr "SNMP sürüm 3"
 
 msgid "Security level"
-msgstr ""
+msgstr "Güvenlik seviyesi"
 
 msgid "Settings"
-msgstr ""
+msgstr "Ayarlar"
 
 msgid "Traps"
-msgstr ""
+msgstr "Yakalayıcılar"
 
 msgid "Username"
-msgstr ""
+msgstr "Kullanıcı adı"
 
 msgid "Version"
-msgstr ""
+msgstr "Sürüm"

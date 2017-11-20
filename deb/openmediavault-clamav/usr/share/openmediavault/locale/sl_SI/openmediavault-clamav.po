@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-11-17 08:33+0000\n"
-"Last-Translator: Miha Bezjak <miha@bezjak.info>\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 10:08+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/votdev/openmediavault/language/sl_SI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,8 +18,11 @@ msgstr ""
 "Language: sl_SI\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
-msgid "Add job"
-msgstr "Dodaj opravilo"
+msgid "Add on-access scan"
+msgstr ""
+
+msgid "Add scheduled job"
+msgstr ""
 
 msgid "Algorithmic detection"
 msgstr "Algoritemska detekcija"
@@ -56,8 +59,14 @@ msgstr "Zaznaj PUA"
 msgid "Detect broken executables"
 msgstr "Odkrij pokvarjene izvedljive datoteke"
 
-msgid "Edit job"
-msgstr "Uredi opravilo"
+msgid "Done ..."
+msgstr ""
+
+msgid "Edit on-access scan"
+msgstr ""
+
+msgid "Edit scheduled job"
+msgstr ""
 
 msgid "Enable"
 msgstr "Omogoči"
@@ -103,8 +112,8 @@ msgstr "Vsako N uro"
 msgid "Every N minute"
 msgstr "Vsako N minuto"
 
-msgid "Execute cron job"
-msgstr "Izvedi opravilo cron"
+msgid "Execute scheduled job"
+msgstr ""
 
 msgid "Extra options"
 msgstr "Dodatne nastavitve"
@@ -152,6 +161,9 @@ msgid "Multiscan"
 msgstr ""
 
 msgid "Number of database update checks per day. Set to 0 to disable."
+msgstr ""
+
+msgid "On Access Scans"
 msgstr ""
 
 msgid "On-access"
@@ -207,6 +219,9 @@ msgstr "Nastavitve"
 
 msgid "Shared folder"
 msgstr "Deljena mapa"
+
+msgid "The location of the files to scan on-access."
+msgstr ""
 
 msgid "The location of the files to scan."
 msgstr "Lokacija datotek za skeniranje."

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-19 16:04+0000\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 22:07+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/votdev/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -18,8 +18,11 @@ msgstr ""
 "Language: tr_TR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "Add job"
-msgstr "Görev ekle"
+msgid "Add on-access scan"
+msgstr "Erişim anında tarama görevi ekle"
+
+msgid "Add scheduled job"
+msgstr "Zamanlanmış görev ekle"
 
 msgid "Algorithmic detection"
 msgstr "Algoritmik saptama"
@@ -56,8 +59,14 @@ msgstr "PUA bul"
 msgid "Detect broken executables"
 msgstr "Bozuk çalışabilir dosyaları tespit et"
 
-msgid "Edit job"
-msgstr "Görev düzenle"
+msgid "Done ..."
+msgstr "Tamamlandı ..."
+
+msgid "Edit on-access scan"
+msgstr "Erişim anında tarama görevini düzenle"
+
+msgid "Edit scheduled job"
+msgstr "Zamanlanmış görevi düzenle"
 
 msgid "Enable"
 msgstr "Aktif"
@@ -103,8 +112,8 @@ msgstr "Her N saat"
 msgid "Every N minute"
 msgstr "Her N dakika"
 
-msgid "Execute cron job"
-msgstr "Cron görevi çalıştır"
+msgid "Execute scheduled job"
+msgstr "Zamanlanmış görevi başlat"
 
 msgid "Extra options"
 msgstr "Ekstra seçenekler"
@@ -153,6 +162,9 @@ msgstr "Çoklu tarama"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Günlük veritabanı güncelleştirme kontrol adedi. İptal etmek için 0 giriniz."
+
+msgid "On Access Scans"
+msgstr "Erişim anı taramaları"
 
 msgid "On-access"
 msgstr "Erişim anında"
@@ -207,6 +219,9 @@ msgstr "Ayarlar"
 
 msgid "Shared folder"
 msgstr "Paylaşılmış klasör"
+
+msgid "The location of the files to scan on-access."
+msgstr "Erşim anında taranacak dosyaların konumu"
 
 msgid "The location of the files to scan."
 msgstr "Taranacak dosyaların yeri."

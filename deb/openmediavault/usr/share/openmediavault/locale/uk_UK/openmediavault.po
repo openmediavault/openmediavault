@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 21:10+0200\n"
-"PO-Revision-Date: 2017-09-24 19:11+0000\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 10:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -880,6 +880,9 @@ msgstr "Заборонити користувачу редагувати акк�
 
 msgid "Disk usage"
 msgstr "Використання диску"
+
+msgid "Disks"
+msgstr ""
 
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Показано значень {0} - {1} із {2}"
@@ -2353,9 +2356,6 @@ msgstr "Перу"
 
 msgid "Philippines"
 msgstr "Філіппіни"
-
-msgid "Physical Disks"
-msgstr "Фізичні диски"
 
 msgid "Physical disk properties"
 msgstr "Фізичні властивості диска"

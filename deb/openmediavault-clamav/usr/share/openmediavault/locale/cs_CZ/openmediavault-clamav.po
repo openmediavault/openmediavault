@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-21 16:50+0000\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 19:08+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -19,8 +19,11 @@ msgstr ""
 "Language: cs_CZ\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-msgid "Add job"
-msgstr "Přidat úlohu"
+msgid "Add on-access scan"
+msgstr "Přidat kontrolu spouštěnou přístupem"
+
+msgid "Add scheduled job"
+msgstr "Přidat naplánovanou úlohu"
 
 msgid "Algorithmic detection"
 msgstr "Rozpoznávat dle algoritmu"
@@ -57,8 +60,14 @@ msgstr "Zjišťovat potenciálně nežádoucí aplikace"
 msgid "Detect broken executables"
 msgstr "Zjišťovat poškozené spustitelné"
 
-msgid "Edit job"
-msgstr "Upravit úlohu"
+msgid "Done ..."
+msgstr "Hotovo…"
+
+msgid "Edit on-access scan"
+msgstr "Upravit kontrolu spouštěnou přístupem"
+
+msgid "Edit scheduled job"
+msgstr "Upravit naplánovanou úlohu"
 
 msgid "Enable"
 msgstr "Zapnout"
@@ -104,8 +113,8 @@ msgstr "Každých N hodin"
 msgid "Every N minute"
 msgstr "Každých N minut"
 
-msgid "Execute cron job"
-msgstr "Spustit naplánovanou (cron) úlohu"
+msgid "Execute scheduled job"
+msgstr "Spustit naplánovanou úlohu"
 
 msgid "Extra options"
 msgstr "Rozšířené předvolby"
@@ -154,6 +163,9 @@ msgstr "Skenovat paralelně"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Kolikrát za den zjišťovat případné aktualizace pro databázi virů. Nastavení na 0 (nula) automatickou aktualizaci vypne."
+
+msgid "On Access Scans"
+msgstr "Skenování spouštěné přístupem"
 
 msgid "On-access"
 msgstr "Kontrolovat při otevírání"
@@ -208,6 +220,9 @@ msgstr "Nastavení"
 
 msgid "Shared folder"
 msgstr "Sdílená složka"
+
+msgid "The location of the files to scan on-access."
+msgstr "Umístění souborů které skenovat při přístupu."
 
 msgid "The location of the files to scan."
 msgstr "Kde se nacházejí soubory, které zkontrolovat."

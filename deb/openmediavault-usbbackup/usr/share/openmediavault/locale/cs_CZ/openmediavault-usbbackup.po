@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
-# Pavel Borecki <pavel.borecki@gmail.com>, 2014-2016
+# Pavel Borecki <pavel.borecki@gmail.com>, 2014-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-21 16:50+0000\n"
+"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"PO-Revision-Date: 2017-11-18 19:06+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -49,6 +49,9 @@ msgstr "V cíli smazat ty soubory, které neexistují na straně zdroje."
 
 msgid "Device"
 msgstr "Zařízení"
+
+msgid "Done ..."
+msgstr "Hotovo…"
 
 msgid "Edit backup job"
 msgstr "Upravit zálohovací úlohu"
