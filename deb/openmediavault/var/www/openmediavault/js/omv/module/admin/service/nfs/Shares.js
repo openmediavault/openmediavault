@@ -90,6 +90,7 @@ Ext.define("OMV.module.admin.service.nfs.Share", {
 			name: "extraoptions",
 			fieldLabel: _("Extra options"),
 			allowBlank: true,
+			vtype: "textCommaList",
 			value: "subtree_check,secure",
 			plugins: [{
 				ptype: "fieldinfo",

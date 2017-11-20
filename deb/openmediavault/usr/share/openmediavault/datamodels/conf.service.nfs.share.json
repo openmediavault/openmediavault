@@ -30,7 +30,8 @@
 			"type": "string"
 		},
 		"extraoptions": {
-			"type": "string"
+			"type": "string",
+			"pattern": "/^(\\w+[,])*\\w+$/"
 		}
 	}
 }
