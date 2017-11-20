@@ -83,7 +83,7 @@ class OMVModuleSharedfolders extends \OMV\Engine\Module\ServiceAbstract
 		// Umount and disable the shared folder bind mount.
 		$systemCtl = new \OMV\System\SystemCtl($unitName);
 		if ($systemCtl->isActive())
-			$systemCtl->disable($now = TRUE);
+			$systemCtl->disable(TRUE);
 		// Unlink the directory.
 		$mp = new \OMV\System\MountPoint($dirPath);
 		if (FALSE === $mp->isMountPoint())
