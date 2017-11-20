@@ -22,12 +22,6 @@
 set -e
 
 case "$1" in
-	purge)
-		# Remove the configuration data.
-		echo "Cleaning up configuration database ..."
-		omv-confdbadm delete "conf.service.shairport"
-	;;
-
 	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
 	;;
 

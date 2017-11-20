@@ -9,7 +9,7 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault-netatalk
 Architecture: all
-Depends: openmediavault (>= 4.0.10), netatalk (>= 3.1.9)
+Depends: openmediavault (>= 4.0.12), netatalk (>= 3.1.9)
 Priority: optional
 Description: OpenMediaVault netatalk (AppleTalk Protocol Suite) plugin
  Netatalk is an implementation of the AppleTalk Protocol Suite.

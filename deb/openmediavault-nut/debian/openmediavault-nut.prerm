@@ -22,13 +22,15 @@
 set -e
 
 case "$1" in
-	purge)
-		# Remove the configuration data.
-		echo "Cleaning up configuration database ..."
-		omv-confdbadm delete "conf.service.nut"
+	remove)
+		# Stop services.
+		deb-systemd-invoke stop nut-server || :
+		deb-systemd-helper disable nut-server || :
+		deb-systemd-invoke stop nut-monitor || :
+		deb-systemd-helper disable nut-monitor || :
 	;;
 
-	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+	upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
 	;;
 
 	*)

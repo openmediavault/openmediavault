@@ -21,22 +21,7 @@
 
 set -e
 
-. /etc/default/openmediavault
-. /usr/share/openmediavault/scripts/helper-functions
-
 case "$1" in
-	purge)
-		# Disable the service.
-		omv_config_update "/config/services/ldap/enable" "0"
-		# Regenerate configuration files.
-		omv-mkconf ldap
-		omv-mkconf nsswitch
-		omv-mkconf pam
-		# Remove the configuration data.
-		echo "Cleaning up configuration database ..."
-		omv-confdbadm delete "conf.service.ldap"
-	;;
-
 	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
 	;;
 
