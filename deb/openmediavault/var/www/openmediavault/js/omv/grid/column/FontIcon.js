@@ -38,8 +38,10 @@ Ext.define("OMV.grid.column.FontIcon", {
 	defaultRenderer: function(value, metaData) {
 		var me = this;
 		var cls = [me.extraIconCls];
-		metaData.tdCls = Ext.String.format("{0}grid-cell-{1}-td",
-			Ext.baseCSSPrefix, me.xtype);
+		if (Ext.isObject(metaData)) {
+			metaData.tdCls = Ext.String.format("{0}grid-cell-{1}-td",
+				Ext.baseCSSPrefix, me.xtype);
+		}
 		Ext.Array.push(cls, Ext.String.format("{0}grid-{1}",
 			Ext.baseCSSPrefix, me.xtype));
 		Ext.Array.push(cls, me.getFontIconCls.apply(me, arguments));
