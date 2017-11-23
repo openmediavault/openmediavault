@@ -322,8 +322,15 @@ div#headerrlogo {
 .x-form-invalid-under-default,
 .x-form-invalid-icon-toolbar,
 .x-form-invalid-under-toolbar {
-	background-image: url("../images/exclamation.png");
-	background-image: url("../images/exclamation.svg"), none;
+	background-image: none;
+	color: #ff3b30; /* Red */
+	font-size: 16px;
+}
+.x-form-invalid-icon-default:before,
+.x-form-invalid-under-default:before,
+.x-form-invalid-icon-toolbar:before,
+.x-form-invalid-under-toolbar:before {
+	content: "\f06a"; /* fa-exclamation-circle */
 }
 .x-form-invalid-icon-default {
 	background-repeat: no-repeat;
