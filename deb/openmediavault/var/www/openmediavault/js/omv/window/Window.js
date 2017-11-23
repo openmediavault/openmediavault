@@ -32,5 +32,29 @@ Ext.define("OMV.window.Window", {
 		helpId: null
 	},
 
-	cls: OMV.baseCSSPrefix + "window"
+	cls: OMV.baseCSSPrefix + "window",
+	responsiveConfigMaximized: true,
+
+	initComponent: function() {
+		var me = this;
+		me.initResponsiveConfig();
+		me.callParent(arguments);
+	},
+
+	initResponsiveConfig: function() {
+		var me = this;
+		Ext.apply(me, {
+			responsiveConfig: {
+				"phone || tablet || touch": {
+					maximized: me.responsiveConfigMaximized,
+					maximizable: true
+				}
+			}
+		});
+		if (!Ext.isDefined(me.plugins))
+			me.plugins = [];
+		if (!Ext.isArray(me.plugins))
+			me.plugins = [me.plugins];
+		Ext.Array.push(me.plugins, "responsive");
+	}
 });

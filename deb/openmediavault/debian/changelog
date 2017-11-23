@@ -4,6 +4,7 @@ openmediavault (4.0.12-1) stable; urgency=low
   * Mantis 0001853: Don't throw an exception if shared folder bind mount
     can not be stopped.
   * Make sure NFS shares 'Extra options' are valid.
+  * Improve UI usablility on mobile and touch devices.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 18 Nov 2017 11:14:37 +0100
 
