@@ -29,11 +29,11 @@ Ext.define("OMV.window.Window", {
 	extend: "Ext.window.Window",
 
 	config: {
-		helpId: null
+		helpId: null,
+		enableResponsiveness: true
 	},
 
 	cls: OMV.baseCSSPrefix + "window",
-	responsiveConfigMaximized: true,
 
 	initComponent: function() {
 		var me = this;
@@ -43,10 +43,12 @@ Ext.define("OMV.window.Window", {
 
 	initResponsiveConfig: function() {
 		var me = this;
+		if (!me.getEnableResponsiveness())
+			return;
 		Ext.apply(me, {
 			responsiveConfig: {
 				"phone || tablet || touch": {
-					maximized: me.responsiveConfigMaximized,
+					maximized: true,
 					maximizable: true
 				}
 			}
