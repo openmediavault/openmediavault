@@ -33,6 +33,13 @@ Ext.define("OMV.workspace.dashboard.Dashboard", {
 	border: false,
 	stateful: true,
 	stateId: "68f8e3e8-c288-11e4-98d4-0002b3a176b4",
+	plugins: "responsive",
+	responsiveConfig: {
+		// On phone/tablet only one column is used.
+		"phone": {
+			maxColumns: 1,
+		}
+	},
 	columnWidths: [
 		0.50,
 		0.50
