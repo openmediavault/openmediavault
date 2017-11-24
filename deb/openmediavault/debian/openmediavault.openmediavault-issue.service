@@ -1,0 +1,12 @@
+[Unit]
+Description=Generate the prelogin message
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/omv-mkconf issue
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
