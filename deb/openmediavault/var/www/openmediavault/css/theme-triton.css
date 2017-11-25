@@ -136,8 +136,6 @@ body > .x-mask {
 /******************************************************************************/
 /* Tree */
 .x-tree-icon, .x-tree-elbow-img {
-	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
-	opacity: 0.7;
 }
 .x-tree-icon-custom {
 	background-size: 16px 16px;
@@ -166,8 +164,6 @@ body > .x-mask {
 .x-grid-group-hd-collapsed .x-grid-group-title:before,
 .x-grid-group-hd-collapsible .x-grid-group-title:before {
 	color: #000000;
-	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
-	opacity: 0.7;
 }
 /******************************************************************************/
 /* Workspace node tree */
@@ -200,8 +196,6 @@ body > .x-mask {
 /******************************************************************************/
 /* Workscape dashboard */
 .x-workspace-dashboard-widget-icon {
-	filter: invert(100%);
-	opacity: 1;
 }
 /******************************************************************************/
 /* Workspace navigation toolbar */
