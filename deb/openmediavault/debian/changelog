@@ -1,5 +1,6 @@
 openmediavault (4.0.12-1) stable; urgency=low
 
+  * Update locales.
   * Various improvements.
   * Mantis 0001853: Don't throw an exception if shared folder bind mount
     can not be stopped.
