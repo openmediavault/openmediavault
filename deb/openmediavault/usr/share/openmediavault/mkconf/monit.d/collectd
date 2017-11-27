@@ -31,7 +31,7 @@ OMV_MONIT_SERVICE_COLLECTD_CONFIG=${OMV_MONIT_SERVICE_COLLECTD_CONFIG:-"/etc/mon
 OMV_MONIT_SERVICE_COLLECTD_MODE=${OMV_MONIT_SERVICE_COLLECTD_MODE:-"active"}
 
 rm -f ${OMV_MONIT_SERVICE_COLLECTD_CONFIG}
-[ "$(omv_config_get "//system/monitoring/perfstats/enable")" = "0" ] && exit 0
+[ "$(omv_config_get "//system/monitoring/perfstats/enable")" != "1" ] && exit 0
 
 cat <<EOF > ${OMV_MONIT_SERVICE_COLLECTD_CONFIG}
 check process collectd with matching collectd

@@ -24,7 +24,7 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-[ "$(omv_config_get "//system/email/enable")" = "0" ] && exit 0
+[ "$(omv_config_get "//system/email/enable")" != "1" ] && exit 0
 
 # Check if there are locked users.
 if [ $(pam_tally2 | grep -P "^\S+\s+\d+\s+.+$" | wc -l) -gt 0 ]; then

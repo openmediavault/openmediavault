@@ -33,8 +33,8 @@ OMV_SAMBA_LDAP_SSL=${OMV_SAMBA_LDAP_SSL:-"off"}
 OMV_SAMBA_LDAP_PASSWDSYNC=${OMV_SAMBA_LDAP_PASSWDSYNC:-"yes"}
 OMV_SAMBA_LDAP_LDAPSAMTRUSTED=${OMV_SAMBA_LDAP_LDAPSAMTRUSTED:-"no"}
 
-[ "$(omv_config_get "//services/smb/enable")" = "0" -o \
-  "$(omv_config_get "//services/ldap/enable")" = "0" ] && exit 0
+[ "$(omv_config_get "//services/smb/enable")" != "1" -o \
+  "$(omv_config_get "//services/ldap/enable")" != "1" ] && exit 0
 
 rootbindpw=$(omv_config_get "//services/ldap/rootbindpw")
 

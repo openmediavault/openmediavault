@@ -1,3 +1,9 @@
+openmediavault-netatalk (4.0.5-1) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 27 Nov 2017 08:37:58 +0100
+
 openmediavault-netatalk (4.0.4-1) stable; urgency=low
 
   * Remove configuration in database when package is purged.

@@ -1,3 +1,9 @@
+openmediavault-nut (4.0.8-1) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 27 Nov 2017 07:38:32 +0100
+
 openmediavault-nut (4.0.7-1) stable; urgency=low
 
   * Remove configuration in database when package is purged.

@@ -28,7 +28,7 @@ OMV_MONIT_SERVICE_FORKEDDAAPD_CONFIG=${OMV_MONIT_SERVICE_FORKEDDAAPD_CONFIG:-"/e
 OMV_MONIT_SERVICE_FORKEDDAAPD_MODE=${OMV_MONIT_SERVICE_FORKEDDAAPD_MODE:-"active"}
 
 rm -f ${OMV_MONIT_SERVICE_FORKEDDAAPD_CONFIG}
-[ "$(omv_config_get "//services/daap/enable")" = "0" ] && exit 0
+[ "$(omv_config_get "//services/daap/enable")" != "1" ] && exit 0
 
 cat <<EOF > ${OMV_MONIT_SERVICE_FORKEDDAAPD_CONFIG}
 check process forked-daapd with pidfile /var/run/forked-daapd.pid
