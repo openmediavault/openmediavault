@@ -152,10 +152,10 @@ class Monit {
 		//  collectd                  Execution failed | Does...  Process
 		//  rootfs                    Accessible                  Filesystem
 		foreach ($output as $outputk => $outputv) {
-			$regex = '/^\s+([^\']+)\s+(.+)\s+Process$/i';
+			$regex = '/^\s+([\S]+)\s+(.+)\s+Process$/i';
 			if (1 !== preg_match($regex, $outputv, $matches))
 				continue;
-			if ($matches[1] != $this->name)
+			if ($matches[1] !== $this->name)
 				continue;
 			$status = trim($matches[2]);
 			break;

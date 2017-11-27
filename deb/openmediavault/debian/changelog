@@ -2,6 +2,7 @@ openmediavault (4.0.13-1) stable; urgency=low
 
   * Various improvements.
   * Fix bug in monit configuration script.
+  * Fix bug in \OMV\System\Monit::status().
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 27 Nov 2017 08:30:10 +0100
 
