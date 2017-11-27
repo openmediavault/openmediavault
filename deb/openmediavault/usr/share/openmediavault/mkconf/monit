@@ -97,7 +97,7 @@ run-parts --exit-on-error ${OMV_MONIT_EXTENSIONS_DIR}
 find ${OMV_MONIT_CONFIG_INCLUDE_DIR} -type f -print0 | xargs -0r chmod 0600
 
 # Include custom config files.
-cat <<EOF >> ${OMV_MONIT_CONFIG}
+cat >> ${OMV_MONIT_CONFIG} <<EOF
 include ${OMV_MONIT_CONFIG_INCLUDE_DIR}/*
 EOF
 chmod 700 ${OMV_MONIT_CONFIG}
