@@ -49,7 +49,7 @@ To manage the system visit the ${prdname} web control panel:
 EOF
 
 	ifaces=$(ifquery --list --no-scripts --allow=hotplug --allow=auto -X lo)
-	if [ -n "${ifaces}" ]; then
+	if [ -n "${ifaces}" ] && udevadm settle; then
 		for iface in ${ifaces} ; do
 			ipaddr=$(omv_get_ipaddr ${iface})
 			if [ -n "${ipaddr}" ]; then
