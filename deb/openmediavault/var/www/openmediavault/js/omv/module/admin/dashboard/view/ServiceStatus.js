@@ -88,7 +88,7 @@ Ext.define("OMV.module.admin.dashboard.view.ServiceStatus", {
 								Ext.baseCSSPrefix + "color-boolean-false");
 							break;
 						}
-						return cls.join(" ");
+						return cls;
 					}
 				}],
 				viewConfig: {

@@ -88,7 +88,7 @@ Ext.define("OMV.module.admin.diagnostic.service.plugin.Overview", {
 							Ext.baseCSSPrefix + "color-boolean-false");
 						break;
 					}
-					return cls.join(" ");
+					return cls;
 				}
 			}]
 		}, config || {});
