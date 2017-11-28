@@ -218,30 +218,29 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 		trueText: _("prefail"),
 		falseText: _("old-age")
 	},{
+		xtype: "fonticoncolumn",
 		text: _("Status"),
 		sortable: true,
 		dataIndex: "assessment",
 		stateId: "assessment",
 		align: "center",
+		resizable: false,
+		width: 80,
 		renderer: function(value, metaData, record) {
-			var ledColor = "gray";
+			var colorCls = Ext.baseCSSPrefix + "color-gray";
 			if (true === record.get("prefailure")) {
 				switch (value) {
 				case "GOOD":
-					ledColor = "green";
+					colorCls = Ext.baseCSSPrefix + "color-good";
 					break;
 				case "BAD_SECTOR":
 				case "BAD_ATTRIBUTE_NOW":
 				case "BAD_ATTRIBUTE_IN_THE_PAST":
-					ledColor = "red";
+					colorCls = Ext.baseCSSPrefix + "color-error";
 					break;
 				}
 			}
-			metaData.tdCls = Ext.String.format("{0} {1}-{2}",
-			  Ext.baseCSSPrefix + "grid-cell-iconcolumn",
-			  Ext.baseCSSPrefix + "grid-cell-iconcolumn-led",
-			  ledColor);
-			return "";
+			return ["mdi mdi-checkbox-blank-circle", colorCls];
 		}
 	}],
 
@@ -515,45 +514,42 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 		dataIndex: "temperature",
 		stateId: "temperature"
 	},{
+		xtype: "fonticoncolumn",
 		text: _("Status"),
 		sortable: true,
 		dataIndex: "overallstatus",
 		stateId: "overallstatus",
 		align: "center",
-		renderer: function(value, metaData) {
+		resizable: false,
+		width: 80,
+		getFontIconCls: function(value, metaData) {
+			var text = _("Unknown");
+			var colorCls = Ext.baseCSSPrefix + "color-gray";
 			switch (value) {
 			case "GOOD":
 				text = _("Good");
-				ledColor = "green";
+				colorCls = Ext.baseCSSPrefix + "color-good";
 				break;
 			case "BAD_ATTRIBUTE_NOW":
 				text = _("Device is being used outside design parameters");
-				ledColor = "red";
+				colorCls = Ext.baseCSSPrefix + "color-error";
 				break;
 			case "BAD_ATTRIBUTE_IN_THE_PAST":
 				text = _("Device was used outside of design parameters in the past");
-				ledColor = "red";
+				colorCls = Ext.baseCSSPrefix + "color-error";
 				break;
 			case "BAD_SECTOR":
 				text = _("Device has a few bad sectors");
-				ledColor = "red";
+				colorCls = Ext.baseCSSPrefix + "color-error";
 				break;
 			case "BAD_SECTOR_MANY":
 				text = _("Device has many bad sectors");
-				ledColor = "red";
-				break;
-			default:
-				text = _("Unknown");
-				ledColor = "gray";
+				colorCls = Ext.baseCSSPrefix + "color-error";
 				break;
 			}
-			metaData.tdCls = Ext.String.format("{0} {1}-{2}",
-			  Ext.baseCSSPrefix + "grid-cell-iconcolumn",
-			  Ext.baseCSSPrefix + "grid-cell-iconcolumn-led",
-			  ledColor);
 			metaData.tdAttr = Ext.String.format("data-qtip='{0}'",
 			  Ext.String.htmlEncode(text));
-			return "";
+			return ["mdi mdi-checkbox-blank-circle", colorCls];
 		}
 	}],
 

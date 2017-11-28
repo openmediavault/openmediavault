@@ -51,6 +51,6 @@ Ext.define("OMV.grid.column.BooleanFontIcon", {
 				Ext.baseCSSPrefix, me.xtype));
 			Ext.Array.push(cls, me.falseCls);
 		}
-		return cls.join(" ");
+		return cls;
 	}
 });

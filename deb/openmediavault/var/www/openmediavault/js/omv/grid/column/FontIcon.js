@@ -27,6 +27,8 @@
  *   the font icon. Defaults to ''.
  * @param getFontIconCls The callback function that is called to get the
  *   classnames for font icon to be rendered in the column cell.
+ *   The callback function should return a string or an array of CSS
+ *   classes.
  */
 Ext.define("OMV.grid.column.FontIcon", {
 	extend: "Ext.grid.column.Column",
@@ -44,7 +46,10 @@ Ext.define("OMV.grid.column.FontIcon", {
 		}
 		Ext.Array.push(cls, Ext.String.format("{0}grid-{1}",
 			Ext.baseCSSPrefix, me.xtype));
-		Ext.Array.push(cls, me.getFontIconCls.apply(me, arguments));
+		var fontIconCls = me.getFontIconCls.apply(me, arguments);
+		if (!Ext.isArray(fontIconCls))
+			fontIconCls = [fontIconCls];
+		cls = Ext.Array.merge(cls, fontIconCls);
 		var tpl = new Ext.XTemplate("<i class='{cls}'></i>");
 		return tpl.apply({cls: cls.join(" ")});
 	},
