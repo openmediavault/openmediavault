@@ -2,6 +2,7 @@ openmediavault (4.0.14-1) stable; urgency=low
 
   * Various improvements.
   * Improve internal bond interface management.
+  * Get rid of netstat.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 28 Nov 2017 18:00:05 +0100
 

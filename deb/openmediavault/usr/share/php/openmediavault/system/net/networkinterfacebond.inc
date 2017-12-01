@@ -64,6 +64,25 @@ class NetworkInterfaceBond extends NetworkInterface {
 		$content = file_get_contents($filename);
 		if (FALSE === $content)
 			return FALSE;
-		return explode(" ", $content);
+		return array_map("trim", explode(" ", $content));
+	}
+
+	/**
+	 * Get the next free device name.
+	 * @return The next free device name, or FALSE on failure.
+	 */
+	public static function getNextDeviceName() {
+		$result = FALSE;
+		$deviceNames = self::enumerate();
+		if (FALSE === $deviceNames)
+			$deviceNames = [];
+		for ($i = 0; $i <= 255; $i++) {
+			$deviceName = sprintf("bond%d", $i);
+			if (FALSE === in_array($deviceName, $deviceNames)) {
+				$result = $deviceName;
+				break;
+			}
+		}
+		return $result;
 	}
 }

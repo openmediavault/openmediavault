@@ -24,7 +24,7 @@ set -e
 . /usr/share/openmediavault/sysinfo/functions
 
 omv_sysinfo_begin_msg "Network connections"
-netstat -nap | omv_sysinfo_msg
+ss -na | omv_sysinfo_msg
 omv_sysinfo_end_msg
 
 exit 0

@@ -105,14 +105,14 @@ class System {
 	public static function getNextDevice($type, $name) {
 		$cmdList = [
 			"disk" => "cat /proc/partitions | awk '{print $4}'",
-			"iface" => "export LANG=C; netstat -i | awk '{print $1}'"
+			"iface" => "cat /proc/net/dev | awk -F: '/[:]/ {print $1}'"
 		];
 		$cmd = new \OMV\System\Process($cmdList[$type]);
 		$cmd->execute($output);
 		$nums = [];
 		$regex = sprintf("/^%s(\d+)$/", $name);
 		foreach ($output as $itemk => $itemv) {
-			if (1 !== preg_match($regex, $itemv, $matches))
+			if (1 !== preg_match($regex, trim($itemv), $matches))
 				continue;
 			$nums[] = $matches[1];
 		}
