@@ -35,7 +35,35 @@ class NetworkInterfaceBond extends NetworkInterface {
 		  $this->getDeviceName());
 		if (!file_exists($filename))
 			return FALSE;
-		$slaves = file($filename);
-		return $slaves;
+		return file($filename);
+	}
+
+	/**
+	 * Delete a bond interface.
+	 * @return Returns TRUE on success, otherwise FALSE.
+	 */
+	public function delete() {
+		$filename = "/sys/class/net/bonding_masters";
+		if (!file_exists($filename))
+			return FALSE;
+		// See http://backdrift.org/manage-linux-bonding-without-ifenslave-using-sysfs
+		$content = sprintf("-%s", $this->getDeviceName());
+		return (FALSE !== file_put_contents($filename, $content)) ?
+			TRUE : FALSE;
+	}
+
+	/**
+	 * Get a list of all bond network interfaces.
+	 * @return Returns an array containing the bond interface names,
+	 *   otherwise FALSE.
+	 */
+	public static function enumerate() {
+		$filename = "/sys/class/net/bonding_masters";
+		if (!file_exists($filename))
+			return [];
+		$content = file_get_contents($filename);
+		if (FALSE === $content)
+			return FALSE;
+		return explode(" ", $content);
 	}
 }
