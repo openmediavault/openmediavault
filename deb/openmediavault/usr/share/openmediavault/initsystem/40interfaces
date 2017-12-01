@@ -27,7 +27,9 @@ set -e
 OMV_INTERFACES_CONFIG=${OMV_INTERFACES_CONFIG:-"/etc/network/interfaces"}
 
 # Configure IPv4 network interfaces.
-grep -iP "^\s*iface\s+(eth|wlan)[0-9]+\s+(inet|inet6)\s+(static|dhcp)" ${OMV_INTERFACES_CONFIG} |
+# Understanding systemd’s predictable network device names:
+# https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c
+grep -iP "^\s*iface\s+((eth|wlan)[0-9]+|(en|wl)[a-z0-9]+)\s+(inet|inet6)\s+(static|dhcp)" ${OMV_INTERFACES_CONFIG} |
   while read type devname family method; do
 	  # Skip IPv6.
 	  [ "inet6" = "${family}" ] && continue

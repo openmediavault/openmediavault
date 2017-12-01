@@ -50,6 +50,9 @@ class Ethernet extends BackendAbstract {
 	//   [P<domain>]p<bus>s<slot>[f<function>][n<phys_port_name>|d<dev_port>]
 	// - USB port number chain
 	//   [P<domain>]p<bus>s<slot>[f<function>][u<port>][..][c<config>][i<interface>]
+	//
+	// Understanding systemd’s predictable network device names:
+	// https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c
 	protected $regex = "/^(eth|venet)[0-9]+|veth[a-z0-9]+|".
 		"en(b\d+|c\d+|o\d+(n\S+|d\d+)?|s\d+(f\d+)?(n\S+|d\d+)?|".
 		"x[\da-f]{12}|(P\d+)?p\d+s\d+(f\d+)?(n\S+|d\d+)?|".
