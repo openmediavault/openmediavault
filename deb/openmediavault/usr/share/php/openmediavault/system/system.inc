@@ -104,8 +104,8 @@ class System {
 	 */
 	public static function getNextDevice($type, $name) {
 		$cmdList = [
-			"disk" => "cat /proc/partitions | awk '{print $4}'",
-			"iface" => "cat /proc/net/dev | awk -F: '/[:]/ {print $1}'"
+			"disk" => "awk '{print $4}' /proc/partitions",
+			"iface" => "awk -F: '/[:]/ {print $1}' /proc/net/dev"
 		];
 		$cmd = new \OMV\System\Process($cmdList[$type]);
 		$cmd->execute($output);
