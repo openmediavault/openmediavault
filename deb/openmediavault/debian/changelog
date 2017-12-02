@@ -1,3 +1,9 @@
+openmediavault (3.0.95) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 02 Dec 2017 13:55:14 +0100
+
 openmediavault (3.0.94) stable; urgency=low
 
   * Support predictable network device names in omv-initsystem.
