@@ -238,7 +238,7 @@ class BlockDevice implements IBlockDevice {
 		// - disk/by-id/usb-Kingston_DataTraveler_G2_001CC0EC21ADF011C6A20E35-0:0-part1 disk/by-path/pci-0000:02:02.0-usb-0:1:1.0-scsi-0:0:0:0-part1 disk/by-uuid/3849-705A
 		// - /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
 		// - /dev/disk/by-id/ata-ST1000DM003-1CH132_S2DF60PB /dev/disk/by-id/wwn-0x5000b5016caa4832
-		$parts = explode(" ", $property);
+		$parts = array_map("trim", explode(" ", $property));
 		$result = [];
 		foreach ($parts as $partk => $partv) {
 			// Make sure that the device path is correct.
@@ -424,8 +424,8 @@ class BlockDevice implements IBlockDevice {
 				$data = explode("=", $row);
 				if (empty($data))
 					continue;
-				$key = trim($data[0]);
-				$this->udevData[$key] = $data[1];
+				// Trim only the key, do not touch the value.
+				$this->udevData[trim($data[0])] = $data[1];
 			}
 		}
 	}
