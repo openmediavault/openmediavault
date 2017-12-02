@@ -46,6 +46,7 @@ class BlockDevice implements IBlockDevice {
 	 *   \li /dev/disk/by-id/wwn-0x5000cca211cc703c-part1
 	 *   \li /dev/disk/by-id/md-name-vmpc01:data
 	 *   \li /dev/disk/by-id/md-uuid-75de9de9:6beca92e:8442575c:73eabbc9
+	 *   \li /dev/disk/by-id/lvm-pv-uuid-VDH5Om-Rkjc-cQid-PeJI-Sfqm-66DI-w0dpCO
 	 *   </ul>
 	 */
 	public function __construct($deviceFile) {
@@ -136,6 +137,7 @@ class BlockDevice implements IBlockDevice {
 			// ata-WDC_WD2002FAEX-007BA0_WD-WCAY01065572
 			// wwn-0x50014ee25d4cdecd
 			// scsi-SATA_WDC_WD2002FAEX-_WD-WCAY01065572
+			// lvm-pv-uuid-VDH5Om-Rkjc-cQid-PeJI-Sfqm-66DI-w0dpCO
 			// xxx...
 			// yyy...
 			usort($deviceNamesById, create_function('$a, $b',
