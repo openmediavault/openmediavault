@@ -156,7 +156,7 @@ Ext.define("OMV.WorkspaceManager", {
 		}
 		// Find the parent node.
 		var parent = me.getNodeByPath(config.path);
-		if(null == parent) {
+		if(!Ext.isObject(parent)) {
 			// Extract and rebuild node path.
 			var parts = me.explodeNodePath(config.path);
 			var id = parts.pop();
