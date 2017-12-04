@@ -317,6 +317,19 @@ Ext.apply(Ext.form.field.VTypes, {
 	domainnameIPListText: _("This field should be a list of domain names or IP addresses"),
 	domainnameIPListMask: /[a-z0-9:\-\.,;]/i,
 
+	smtpserver: function(v) {
+		if (!Ext.isString(v))
+			return false;
+		v = v.replace(/[\[\]]/g, "");
+		if (Ext.form.field.VTypes.domainname(v))
+			return true;
+		if (Ext.form.field.VTypes.IP(v))
+			return true;
+		return false;
+	},
+	smtpserverText: _("This field should be a domain name or an IP address"),
+	smtpserverMask: /[a-z0-9:\[\]\-\.]/i,
+
 	groupname: function(v) {
 		return /^[a-zA-Z0-9\-\.]+$/.test(v);
 	},

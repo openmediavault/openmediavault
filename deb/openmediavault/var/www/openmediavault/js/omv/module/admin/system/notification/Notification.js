@@ -157,7 +157,7 @@ Ext.define("OMV.module.admin.system.notification.Settings", {
 				name: "server",
 				fieldLabel: _("SMTP server"),
 				allowBlank: true,
-				vtype: "domainnameIP",
+				vtype: "smtpserver",
 				plugins: [{
 					ptype: "fieldinfo",
 					text: _("Outgoing SMTP mail server address, e.g. smtp.mycorp.com.")
