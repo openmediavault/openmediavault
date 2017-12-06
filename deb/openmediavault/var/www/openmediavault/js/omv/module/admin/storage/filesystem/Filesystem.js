@@ -271,7 +271,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 				sortable: true,
 				dataIndex: "bunit",
 				stateId: "bunit",
-				width: 60,
+				width: 80,
 				resizable: false,
 				editor: {
 					xtype: "combo",
