@@ -948,18 +948,28 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				}
 			}
 			$db = \OMV\Config\Database::getInstance();
-			$meObject = $db->getByFilter("conf.system.filesystem.mountpoint",
-				$filter, 1);
-			// Delete the mount point configuration object. Unmount the
-			// filesystem and unlink the mount point. Changes to the fstab
-			// module must not be applied immediately.
-			\OMV\Rpc\Rpc::call("FsTab", "delete", [
-				"uuid" => $meObject->get("uuid")
-			], $context);
-			\OMV\Rpc\Rpc::call("Config", "applyChanges", [
-				"modules" => [ "fstab" ],
-				"force" => TRUE
-			], $context);
+			$meObjects = $db->getByFilter("conf.system.filesystem.mountpoint",
+				$filter);
+			// If there is a mount point configuration object for this file
+			// system then delete it, otherwise unmount the file system only.
+			if (!empty($meObjects)) {
+				$meObject = $meObjects[0];
+				// Delete the mount point configuration object. Unmount the
+				// filesystem and unlink the mount point. Changes to the fstab
+				// module must not be applied immediately.
+				\OMV\Rpc\Rpc::call("FsTab", "delete", [
+					"uuid" => $meObject->get("uuid")
+				], $context);
+				\OMV\Rpc\Rpc::call("Config", "applyChanges", [
+					"modules" => [ "fstab" ],
+					"force" => TRUE
+				], $context);
+			} else {
+				// Unmount the file system if it exists, otherwise NO action
+				// is necessary in this code path.
+				if (!is_null($fs) && $fs->exists())
+					$fs->umount(TRUE, TRUE);
+			}
 		} else { // Only unmount the filesystem.
 			\OMV\System\Filesystem\Filesystem::assertGetImpl($params['id']);
 			$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['id']);
