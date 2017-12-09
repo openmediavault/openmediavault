@@ -512,6 +512,10 @@ case "$1" in
 			omv-mkconf monit
 			monit reload || :
 		fi
+		if dpkg --compare-versions "$2" lt-nl "4.0.15"; then
+			rm -f /etc/network/if-post-down.d/openmediavault-issue
+			rm -f /etc/network/if-up.d/openmediavault-issue
+		fi
 
 		########################################################################
 		# Show help text.
