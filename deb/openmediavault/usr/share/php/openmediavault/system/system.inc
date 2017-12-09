@@ -332,6 +332,7 @@ class System {
 		$tnowTotal = array_sum($tnow);
 		// Calculate the CPU usage since we last checked.
 		$diffIdle = $tnow[3] - $tprev[3];
+		$diffIowait = $tnow[4] - $tprev[4];
 		$diffTotal = $tnowTotal - $tprevTotal;
 		// Get the processor name.
 		// Parse output:
@@ -353,7 +354,7 @@ class System {
 			"modelname" => $modelName,
 			"cpumhz" => $cpuInfo->exists("cpumhz") ?
 			  $cpuInfo->get("cpumhz") : gettext("n/a"),
-			"usage" => (0 == $diffTotal) ? 0 : (($diffTotal - $diffIdle) /
+			"usage" => (0 == $diffTotal) ? 0 : (($diffTotal - $diffIowait - $diffIdle) /
 			  $diffTotal) * 100
 		];
 	}
