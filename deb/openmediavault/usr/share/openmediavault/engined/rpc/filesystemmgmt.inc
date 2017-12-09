@@ -965,8 +965,11 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 					"force" => TRUE
 				], $context);
 			} else {
-				// Unmount the file system if it exists, otherwise NO action
-				// is necessary in this code path.
+				// This file systems seems to be not under our control because
+				// of the missing 'conf.system.filesystem.mountpoint'
+				// configuration object. In this case unmount the file system
+				// if it exists, otherwise NO further action is necessary in
+				// this code path.
 				if (!is_null($fs) && $fs->exists())
 					$fs->umount(TRUE, TRUE);
 			}
