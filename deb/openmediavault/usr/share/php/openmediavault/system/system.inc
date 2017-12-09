@@ -320,6 +320,10 @@ class System {
 		// * iowait: waiting for I/O to complete
 		// * irq: servicing interrupts
 		// * softirq: servicing softirqs
+		//
+		// See also
+		// - https://serverfault.com/a/667250.
+		// - https://en.wikipedia.org/wiki/Load_(computing)
 		$tprev = file("/proc/stat");
 		sleep(1);
 		$tnow = file("/proc/stat");
@@ -353,9 +357,9 @@ class System {
 		return [
 			"modelname" => $modelName,
 			"cpumhz" => $cpuInfo->exists("cpumhz") ?
-			  $cpuInfo->get("cpumhz") : gettext("n/a"),
-			"usage" => (0 == $diffTotal) ? 0 : (($diffTotal - $diffIowait - $diffIdle) /
-			  $diffTotal) * 100
+				$cpuInfo->get("cpumhz") : gettext("n/a"),
+			"usage" => (0 == $diffTotal) ? 0 :
+				(($diffTotal - $diffIowait - $diffIdle) / $diffTotal) * 100
 		];
 	}
 }
