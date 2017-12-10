@@ -908,6 +908,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.filesystemmgmt.umount");
+		// Get the file system.
+		$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['id']);
 		// Remove fstab entry?
 		if (TRUE === boolvalEx($params['fstab'])) {
 			// Get the fstab mount point configuration object.
@@ -918,7 +920,6 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			];
 			// If the file system exists, then append additional filters
 			// to be sure to find a mount point configuration object.
-			$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['id']);
 			if (!is_null($fs) && $fs->exists()) {
 				// Add all existing filesystem device files.
 				$devs = $fs->getDeviceFileSymlinks();
@@ -964,18 +965,20 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 					"modules" => [ "fstab" ],
 					"force" => TRUE
 				], $context);
+				// Exit here, everything is done.
+				return;
 			} else {
 				// This file systems seems to be not under our control because
 				// of the missing 'conf.system.filesystem.mountpoint'
 				// configuration object. In this case unmount the file system
-				// if it exists, otherwise NO further action is necessary in
-				// this code path.
-				if (!is_null($fs) && $fs->exists())
-					$fs->umount(TRUE, TRUE);
+				// if it exists, otherwise NO further action is necessary.
 			}
 		} else { // Only unmount the filesystem.
+			// The file system MUST exist here, otherwise throw an error.
 			\OMV\System\Filesystem\Filesystem::assertGetImpl($params['id']);
-			$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['id']);
+		}
+		// Finally unmount the specified file system if it exists.
+		if (!is_null($fs) && $fs->exists()) {
 			if (TRUE === $fs->isMounted())
 				$fs->umount(TRUE);
 		}
