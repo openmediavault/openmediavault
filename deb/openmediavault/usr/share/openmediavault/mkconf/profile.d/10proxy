@@ -25,6 +25,7 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_PROFILE_PROXY_CONFIG=${OMV_PROFILE_PROXY_CONFIG:-"/etc/profile.d/10openmediavault-proxy.sh"}
+OMV_PROFILE_PROXY_CONFIG_MASK=${OMV_PROFILE_PROXY_CONFIG_MASK:-"640"}
 
 xmlstarlet sel -t \
   -m "//system/network/proxy/http" \
@@ -58,3 +59,4 @@ xmlstarlet sel -t \
     -b \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_PROFILE_PROXY_CONFIG}
+chmod ${OMV_PROFILE_PROXY_CONFIG_MASK} ${OMV_PROFILE_PROXY_CONFIG}
