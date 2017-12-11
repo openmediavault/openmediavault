@@ -37,7 +37,7 @@ xmlstarlet sel -t \
       -i "string-length(username) > 0" \
         -v "concat(username,':',password,'@')" \
       -b \
-      -v "concat(host,':',port,'\"')" -n \
+      -v "concat(host,':',port,'\";')" -n \
     -b \
   -b \
   -m "//system/network/proxy/https" \
@@ -46,7 +46,7 @@ xmlstarlet sel -t \
       -i "string-length(username) > 0" \
         -v "concat(username,':',password,'@')" \
       -b \
-      -v "concat(host,':',port,'\"')" -n \
+      -v "concat(host,':',port,'\";')" -n \
     -b \
   -b \
   -m "//system/network/proxy/ftp" \
@@ -55,7 +55,7 @@ xmlstarlet sel -t \
       -i "string-length(username) > 0" \
         -v "concat(username,':',password,'@')" \
       -b \
-      -v "concat(host,':',port,'\"')" -n \
+      -v "concat(host,':',port,'\";')" -n \
     -b \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_APT_PROXY_CONFIG}
