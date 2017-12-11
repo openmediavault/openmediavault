@@ -1,6 +1,7 @@
 openmediavault (4.0.15-1) stable; urgency=low
 
   * Mantis 0000595: SMTP relayhost should be encapsulated in square brackets.
+  * Mantis 0001866: Configure APT proxy settings.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 02 Dec 2017 13:54:19 +0100
 
