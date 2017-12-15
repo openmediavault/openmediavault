@@ -2,6 +2,7 @@ openmediavault (4.0.15-1) stable; urgency=low
 
   * Adapt nginx SSL ciphers to latest modern profile according to
     https://mozilla.github.io/server-side-tls/ssl-config-generator.
+  * Use full login shell in user defined cron scripts.
   * Mantis 0000595: SMTP relayhost should be encapsulated in square brackets.
   * Mantis 0001866: Configure APT proxy settings.
   * Mantis 0001868: Use full login shell in S.M.A.R.T. cron script to use
