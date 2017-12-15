@@ -30,8 +30,9 @@ OMV_CONFIG_TEMPLATE_FILE=${OMV_CONFIG_TEMPLATE_FILE:-"/usr/share/openmediavault/
 # Install the configuration database.
 if [ ! -e "${OMV_CONFIG_FILE}" ]; then
 	cp ${OMV_CONFIG_TEMPLATE_FILE} ${OMV_CONFIG_FILE}
-	chmod 660 ${OMV_CONFIG_FILE}
-	chown :openmediavault-config ${OMV_CONFIG_FILE}
 fi
+# Always update the file permissions.
+chmod 660 ${OMV_CONFIG_FILE}
+chown :openmediavault-config ${OMV_CONFIG_FILE}
 
 exit 0
