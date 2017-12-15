@@ -772,19 +772,13 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 
 	/**
 	 * Check if the given device file contains a file system.
-	 * @param deviceFile The devicefile to check.
+	 * @param deviceFile The devicefile to check, e.g. /dev/sda.
 	 * @return TRUE if the devicefile has a file system, otherwise FALSE.
 	 */
 	public static function hasFileSystem($deviceFile) {
-		// An alternative implementation is:
-		// blkid -p -u filesystem <devicefile>
-		// Scan output for tag PTTYPE.
 		$cmdArgs = [];
-		$cmdArgs[] = "|";
-		$cmdArgs[] = "grep";
-		$cmdArgs[] = "-E";
-		$cmdArgs[] = escapeshellarg(sprintf("^%s.*:.+\sTYPE=.+$",
-		  realpath($deviceFile)));
+		$cmdArgs[] = "-u filesystem";
+		$cmdArgs[] = escapeshellarg($deviceFile);
 		$cmd = new \OMV\System\Process("blkid", $cmdArgs);
 		$cmd->setQuiet(TRUE);
 		$cmd->execute($output, $exitStatus);
