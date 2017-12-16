@@ -48,7 +48,7 @@ To manage the system visit the ${prdname} web control panel:
 
 EOF
 
-	ifaces=$(ifquery --list --no-scripts --allow=hotplug --allow=auto -X lo)
+	ifaces=$(ifquery --list --no-scripts --allow=hotplug --allow=auto -X lo | sort)
 	if [ -n "${ifaces}" ]; then
 		for iface in ${ifaces} ; do
 			ipaddr=$(omv_get_ipaddr ${iface})
