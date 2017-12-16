@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -l
 #
 # This file is part of OpenMediaVault.
 #
