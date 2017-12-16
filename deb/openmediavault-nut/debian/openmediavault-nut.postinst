@@ -52,7 +52,7 @@ case "$1" in
 		if [ -z "$2" ]; then
 			echo "Restarting services ..."
 			if deb-systemd-helper is-enabled collectd.service; then
-				monit restart collectd || :
+				deb-systemd-invoke restart collectd.service || :
 			fi
 			deb-systemd-invoke force-reload rsyslog || :
 		fi
