@@ -54,6 +54,7 @@ omv-confdbadm read "conf.system.sharedfolder" |
         cat <<EOF > ${unitfile}
 # This configuration file is auto-generated.
 [Unit]
+Description=Mount shared folder ${name} to ${where}
 DefaultDependencies=no
 After=zfs-mount.service
 Conflicts=umount.target
