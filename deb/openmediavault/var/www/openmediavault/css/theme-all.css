@@ -71,6 +71,9 @@
 /******************************************************************************/
 /* Global colors                                                              */
 /******************************************************************************/
+.x-color-white {
+	color: white;
+}
 .x-color-red,
 .x-color-error {
 	color: #ff3b30;
@@ -121,20 +124,13 @@
 /******************************************************************************/
 .shutdown-page {
 	background: #5DACDF;
+	font-style: normal;
 }
 .shutdown-page .shutdown-icon {
 	position: absolute;
-	width: 100%;
-	height: 100%;
-	left: 0px;
-	top: 0px;
-	right: 0px;
-	background: url("/images/shutdown_64.png");
-	background: url("/images/shutdown_64.svg"), none;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-color: transparent;
-	background-position: center;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 /******************************************************************************/
 /* 404 page                                                                   */

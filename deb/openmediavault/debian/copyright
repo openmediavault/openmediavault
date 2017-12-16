@@ -207,12 +207,6 @@ Files: /var/www/openmediavault/images/raid.png
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
 
-Files: /var/www/openmediavault/images/shutdown_64.png
-       /var/www/openmediavault/images/shutdown_64.png
-Copyright: Volker Theile
-License: CC-BY-3.0
-Comment: Based on shutdown.svg from WebHostingHub
-
 Files: /var/www/openmediavault/images/details.png
        /var/www/openmediavault/images/details.svg
 Copyright: WebHostingHub <http://www.webhostinghub.com>
