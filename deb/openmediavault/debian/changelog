@@ -3,6 +3,7 @@ openmediavault (3.0.95) stable; urgency=low
   * Increase 'Unit' column size in file system quota dialog.
   * Fix calculation of CPU utilization.
   * Use full login shell in user defined cron scripts.
+  * Fix broken dependencies in place when updating packages via WebUI.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 02 Dec 2017 13:55:14 +0100
 

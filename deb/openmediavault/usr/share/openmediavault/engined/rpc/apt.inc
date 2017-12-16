@@ -175,6 +175,7 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs = [];
 			$cmdArgs[] = "--yes";
 			$cmdArgs[] = "--force-yes";
+			$cmdArgs[] = "--fix-broken"; // Fix broken dependencies in place.
 			$cmdArgs[] = "--fix-missing";
 			$cmdArgs[] = "--auto-remove";
 			$cmdArgs[] = "--allow-unauthenticated";
