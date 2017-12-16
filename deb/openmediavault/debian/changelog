@@ -2,7 +2,6 @@ openmediavault (4.0.15-1) stable; urgency=low
 
   * Adapt nginx SSL ciphers to latest modern profile according to
     https://mozilla.github.io/server-side-tls/ssl-config-generator.
-  * Use full login shell in user defined cron scripts.
   * Mantis 0000595: SMTP relayhost should be encapsulated in square brackets.
   * Mantis 0001866: Configure APT proxy settings.
   * Mantis 0001868: Use full login shell in S.M.A.R.T. cron script to use
@@ -140,6 +139,10 @@ openmediavault (3.0.95) stable; urgency=low
 
   * Increase 'Unit' column size in file system quota dialog.
   * Fix calculation of CPU utilization.
+  * Use full login shell in user defined cron scripts.
+  * Fix broken dependencies in place when updating packages via WebUI.
+  * Improve \OMV\System\Filesystem\Filesystem::hasFileSystem() method.
+  * Use atomic mkdir to create lock file in SMB recycle dir cron script.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 02 Dec 2017 13:55:14 +0100
 
