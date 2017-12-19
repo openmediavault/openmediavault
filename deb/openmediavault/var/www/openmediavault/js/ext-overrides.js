@@ -68,7 +68,7 @@ Ext.apply(Ext.form.field.VTypes, {
 	IPText: _("This field should be an IP address"),
 	IPMask: /[0-9a-f\.:]/i,
 
-	IPList:  function(v) {
+	IPList: function(v) {
 		var valid = true;
 		// Split string into several IP addresses.
 		Ext.each(v.split(/[,;]/), function(ip) {
@@ -99,7 +99,7 @@ Ext.apply(Ext.form.field.VTypes, {
 	IPv4Text: _("This field should be an IPv4 address"),
 	IPv4Mask: /[\d\.]/i,
 
-	IPv4List:  function(v) {
+	IPv4List: function(v) {
 		var valid = true;
 		// Split string into several IPv4 addresses.
 		Ext.each(v.split(/[,;]/), function(ip) {
