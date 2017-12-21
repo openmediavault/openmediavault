@@ -51,10 +51,12 @@ EOF
 
 xmlstarlet sel -t \
   -i "count(//system/network/iptables/rule[family='inet']) > 0" \
-	  -o "iptables -t filter -F" -n \
+	  -o "iptables -t filter -F INPUT" -n \
+	  -o "iptables -t filter -F OUTPUT" -n \
   -b \
   -i "count(//system/network/iptables/rule[family='inet6']) > 0" \
-	  -o "ip6tables -t filter -F" -n \
+	  -o "ip6tables -t filter -F INPUT" -n \
+	  -o "ip6tables -t filter -F OUTPUT" -n \
   -b \
   -m "//system/network/iptables/rule" -s A:T:L family -s A:N:L rulenum \
 	  -i "family='inet'" -o "iptables" -b \
