@@ -1,6 +1,6 @@
 openmediavault (4.0.16-1) stable; urgency=low
 
-  * Only flush iptables INPUT/OUTPUT chains.
+  * Various improvements.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 21 Dec 2017 09:18:54 +0100
 
@@ -150,6 +150,7 @@ openmediavault (3.0.95) stable; urgency=low
   * Fix broken dependencies in place when updating packages via WebUI.
   * Improve \OMV\System\Filesystem\Filesystem::hasFileSystem() method.
   * Use atomic mkdir to create lock file in SMB recycle dir cron script.
+  * Only flush iptables INPUT/OUTPUT chains.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 02 Dec 2017 13:55:14 +0100
 
