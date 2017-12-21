@@ -1,3 +1,9 @@
+openmediavault (4.0.16-1) stable; urgency=low
+
+  * Only flush iptables INPUT/OUTPUT chains.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 21 Dec 2017 09:18:54 +0100
+
 openmediavault (4.0.15-1) stable; urgency=low
 
   * Adapt nginx SSL ciphers to latest modern profile according to
