@@ -324,19 +324,34 @@ class Database {
 	 *     ]
 	 * ]
 	 * @endcode
+	 * @param quiet If set to TRUE, then no notification message is send.
+	 *   Defaults to FALSE.
 	 * @return None.
 	 * @throw \OMV\Config\DatabaseException
 	 */
-	public function deleteByFilter($id, $filter) {
+	public function deleteByFilter($id, $filter, $quiet = FALSE) {
 		// Get the specified data model.
 		$mngr = \OMV\DataModel\Manager::getInstance();
 		$model = $mngr->getModel($id);
+		// Get the objects to be deleted.
+		$objects = [];
+		if (FALSE === $quiet)
+			$objects = $this->getByFilter($id, $filter);
 		// Create the query builder.
 		$queryBuilder = new DatabaseBackendQueryBuilder($id);
 		$xpath = $queryBuilder->buildQueryByFilter($filter);
 		if (FALSE === $this->getBackend()->delete($xpath)) {
 			throw new DatabaseException("Failed to execute XPath query '%s'.",
 			  $xpath);
+		}
+		// Submit the notification message.
+		if (FALSE === $quiet) {
+			$notifyDispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
+			foreach ($objects as $objectk => $objectv) {
+				$notifyDispatcher->notify(OMV_NOTIFY_DELETE,
+					$model->getNotificationId(),
+					$objectv->getAssoc());
+			}
 		}
 	}
 
