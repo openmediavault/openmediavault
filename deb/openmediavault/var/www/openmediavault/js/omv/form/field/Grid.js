@@ -159,8 +159,8 @@ Ext.define("OMV.form.field.Grid", {
 		if(!me.disabled && me.submitValue && !me.isFileUpload()) {
 			var value = me.getValue();
 			data = {};
-			data[me.getName()] = Ext.isString(me.delimiter) ?
-			  value.join(me.delimiter) : value;
+			data[me.getName()] = (Ext.isString(me.delimiter) &&
+				Ext.isArray(value)) ? value.join(me.delimiter) : value;
 		}
 		return data;
 	},
