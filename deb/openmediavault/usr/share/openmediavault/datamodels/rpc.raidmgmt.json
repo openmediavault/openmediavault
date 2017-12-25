@@ -17,26 +17,26 @@
 	"params": {
 		"type": "object",
 		"properties": {
-		    "devices": {
-		        "type": "string",
+			"devices": {
+				"type": "string",
 				"required": true
-		    },
-		    "name": {
-		        "type": "string",
+			},
+			"name": {
+				"type": "string",
 				"required": true
-		    },
-		    "level": {
-		        "type": "string",
-		        "enum": [
-		            "stripe",
-		            "mirror",
-		            "linear",
-		            "raid10",
-		            "raid5",
-		            "raid6"
-		        ],
+			},
+			"level": {
+				"type": "string",
+				"enum": [
+					"stripe",
+					"mirror",
+					"linear",
+					"raid10",
+					"raid5",
+					"raid6"
+				],
 				"required": true
-		    }
+			}
 		}
 	}
 },{
@@ -50,10 +50,10 @@
 				"format": "devicefile",
 				"required": true
 			},
-		    "devices": {
-		        "type": "string",
+			"devices": {
+				"type": "string",
 				"required": true
-		    }
+			}
 		}
 	}
 },{
@@ -67,10 +67,10 @@
 				"format": "devicefile",
 				"required": true
 			},
-		    "devices": {
-		        "type": "string",
+			"devices": {
+				"type": "string",
 				"required": true
-		    }
+			}
 		}
 	}
 },{
@@ -84,10 +84,10 @@
 				"format": "devicefile",
 				"required": true
 			},
-		    "devices": {
-		        "type": "string",
+			"devices": {
+				"type": "string",
 				"required": true
-		    }
+			}
 		}
 	}
 },{

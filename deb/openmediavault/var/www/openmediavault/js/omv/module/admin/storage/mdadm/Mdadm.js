@@ -288,6 +288,7 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Add", {
 			name: "devices",
 			fieldLabel: _("Devices"),
 			valueField: "devicefile",
+			minSelections: 1,
 			useStringValue: true,
 			height: 130,
 //			flex: 1, // Hides the field info due render error
