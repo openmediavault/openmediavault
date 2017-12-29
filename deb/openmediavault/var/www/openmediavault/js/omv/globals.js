@@ -40,6 +40,7 @@ Ext.Loader.setConfig({
 // The supported languages are hardcoded and are not translated.
 OMV.languages = [
 	[ "en","English" ], // English
+	[ "en_US","English" ], // English
 	[ "de_DE","Deutsch" ], // German
 	[ "ru_RU","Русский" ], // Russian
 	[ "nl_NL","Nederlands" ], // Dutch
