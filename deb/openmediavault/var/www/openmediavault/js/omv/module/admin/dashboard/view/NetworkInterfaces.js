@@ -59,7 +59,7 @@ Ext.define("OMV.module.admin.dashboard.view.NetworkInterfaces", {
 					sortable: true,
 					dataIndex: "devicename",
 					stateId: "devicename",
-					width: 45
+					flex: 1
 				},{
 					xtype: "templatecolumn",
 					text: _("Address"),
@@ -103,7 +103,7 @@ Ext.define("OMV.module.admin.dashboard.view.NetworkInterfaces", {
 					sortable: true,
 					dataIndex: "mtu",
 					stateId: "mtu",
-					width: 45
+					width: 60
 				},{
 					text: _("Speed"),
 					sortable: true,
