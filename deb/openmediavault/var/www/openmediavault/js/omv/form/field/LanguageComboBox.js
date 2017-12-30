@@ -53,13 +53,19 @@ Ext.define("OMV.form.field.LanguageComboBox", {
 
 	initComponent: function() {
 		var me = this;
+		// Get the browser locale. If this is a not supported language, then
+		// set it to english by default.
+		var locale = OMV.util.i18n.getLocale();
+		if (0 > Ext.Array.indexOf(OMV.languages, locale)) {
+			locale = "en";
+		}
 		Ext.apply(me, {
 			store: {
 				type: "array",
-				fields: [ "value", "text" ],
+				fields: ["value", "text"],
 				data: OMV.languages
 			},
-			value: OMV.util.i18n.getLocale()
+			value: locale
 		});
 		me.callParent(arguments);
 		me.on("change", function(combo, newValue, oldValue, eOpts) {
