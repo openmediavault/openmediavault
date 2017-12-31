@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
-# zubr139, 2013,2015-2016
+# zubr139, 2013,2015-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-18 11:05+0100\n"
-"PO-Revision-Date: 2017-11-18 10:08+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2017-12-23 19:46+0000\n"
+"Last-Translator: zubr139\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,7 +51,7 @@ msgid "Device"
 msgstr "Пристрій"
 
 msgid "Done ..."
-msgstr ""
+msgstr "Виконано ..."
 
 msgid "Edit backup job"
 msgstr "Редагувати завдання резервного копіювання"
