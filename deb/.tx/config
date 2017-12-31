@@ -72,3 +72,8 @@ source_lang = en
 file_filter = openmediavault-snmp/usr/share/openmediavault/locale/<lang>/openmediavault-snmp.po
 source_file = openmediavault-snmp/usr/share/openmediavault/locale/openmediavault-snmp.pot
 source_lang = en
+
+[openmediavault.openmediavault-diskstats]
+file_filter = openmediavault-diskstats/usr/share/openmediavault/locale/<lang>/openmediavault-diskstats.po
+source_file = openmediavault-diskstats/usr/share/openmediavault/locale/openmediavault-diskstats.pot
+source_lang = en

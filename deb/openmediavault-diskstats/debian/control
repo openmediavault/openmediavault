@@ -1,0 +1,15 @@
+Source: openmediavault-diskstats
+Section: net
+XB-Plugin-Section: monitoring
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>> 7), gettext
+Standards-Version: 3.9.6
+Homepage: http://www.openmediavault.org
+
+Package: openmediavault-diskstats
+Architecture: all
+Depends: openmediavault (>= 4.0.14)
+Priority: optional
+Description: OpenMediaVault disk monitoring plugin
+ The disk monitoring plugin collects performance statistics of hard-disks.
