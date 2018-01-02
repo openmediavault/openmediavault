@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Quim Farriol <quim@iscinformatica.cat>, 2017
+# Quim Farriol <quim@iscinformatica.cat>, 2017-2018
 # Quim Farriol <quim@iscinformatica.cat>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-18 11:05+0100\n"
-"PO-Revision-Date: 2017-11-18 10:08+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2018-01-01 18:57+0000\n"
+"Last-Translator: Quim Farriol <quim@iscinformatica.cat>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/votdev/openmediavault/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,7 +45,7 @@ msgid "1 day"
 msgstr "1 dia"
 
 msgid "1 minute"
-msgstr ""
+msgstr "1 minut"
 
 msgid "1 month"
 msgstr "1 mes"
@@ -76,7 +76,7 @@ msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - Consum mínim sense repòs (no spindown)"
 
 msgid "15 minutes"
-msgstr ""
+msgstr "15 minuts"
 
 msgid "15 years"
 msgstr "15 anys"
@@ -91,7 +91,7 @@ msgid "2 days"
 msgstr "2 dies"
 
 msgid "2 minutes"
-msgstr ""
+msgstr "2 minuts"
 
 msgid "2 weeks"
 msgstr "2 setmanes"
@@ -121,7 +121,7 @@ msgid "3 days"
 msgstr "3 dies"
 
 msgid "3 minutes"
-msgstr ""
+msgstr "3 minuts"
 
 msgid "3 months"
 msgstr "3 mesos"
@@ -145,7 +145,7 @@ msgid "4 days"
 msgstr "4 dies"
 
 msgid "4 minutes"
-msgstr ""
+msgstr "4 minuts"
 
 msgid "4 years"
 msgstr "4 anys"
@@ -437,10 +437,10 @@ msgid "Auto"
 msgstr "Auto"
 
 msgid "Auto logout"
-msgstr ""
+msgstr "Sortida automàtica"
 
 msgid "Auto logout after the specified idle period."
-msgstr ""
+msgstr "Sortida automàtica després del període inactiu especificat."
 
 msgid "Automatic Acoustic Management"
 msgstr "AAM Ajust del soroll produït"
@@ -881,13 +881,13 @@ msgid "Disk usage"
 msgstr "Ús del disc"
 
 msgid "Disks"
-msgstr ""
+msgstr "Discs"
 
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Vegeu {0} - {1} of {2}"
 
 msgid "Displaying {0} - {1} of {2}"
-msgstr ""
+msgstr "Vegeu  {0} - {1} de {2}"
 
 msgid "Djibouti"
 msgstr "Djibouti"
@@ -1052,7 +1052,7 @@ msgid "Edit scheduled test"
 msgstr "Editar prova programada"
 
 msgid "Edit service"
-msgstr ""
+msgstr "Edita el servei"
 
 msgid "Edit share"
 msgstr "Editar compartit"
@@ -1183,7 +1183,7 @@ msgid "Error #"
 msgstr "Error #"
 
 msgid "Errors"
-msgstr ""
+msgstr "Errors"
 
 msgid "Estonia"
 msgstr "Estònia"
@@ -1318,7 +1318,7 @@ msgid "Firmware version"
 msgstr "Versió del Firmware"
 
 msgid "First Page"
-msgstr ""
+msgstr "Primera pàgina"
 
 msgid "Flags"
 msgstr "Banderes"
@@ -1763,7 +1763,7 @@ msgid "Laos"
 msgstr "Laos"
 
 msgid "Last Page"
-msgstr ""
+msgstr "Última pàgina"
 
 msgid "Latvia"
 msgstr "Letònia"
@@ -2111,7 +2111,7 @@ msgid "New Zealand"
 msgstr "Nova Zelanda"
 
 msgid "Next Page"
-msgstr ""
+msgstr "Pàgina següent"
 
 msgid "Nicaragua"
 msgstr "Nicaragua"
@@ -2141,7 +2141,7 @@ msgid "No connections"
 msgstr "Sense connexions"
 
 msgid "No data to display"
-msgstr ""
+msgstr "No hi ha dades per a mostrar"
 
 msgid "No items to display"
 msgstr "Res a mostrar"
@@ -2267,7 +2267,7 @@ msgid "Package information"
 msgstr "Informació del paquet"
 
 msgid "Page"
-msgstr ""
+msgstr "Pàgina"
 
 msgid "Page not found"
 msgstr "Pàgina no trobada"
@@ -2480,7 +2480,7 @@ msgid ""
 msgstr "Evita que un disc sigui posat en marxa quan sigui periòdicament interrogat. <br/> <br/> <Ul> <li> MAI - Interroga (comprova) el dispositiu amb independència del seu mode d'energia. Pot provocar que un disc que estigui frenant sigui accelerat a comprovar-ho. </ li> <li> SLEEP - Comprova el dispositiu tret que estigui en mode SLEEP. </ li> <li> REPÒS - Comprova el dispositiu tret que estigui en SLEEP o en REPÒS . en aquests modes la majoria dels discos no estan girant, per la qual cosa si el que vol és evitar que comenci a girar en cada comprovació, això és el que probablement vol. </ li> <li> INACTIU - Comprova el dispositiu tret que estigui en REPÒS, REPÒS o INACTIU. en mode INACTIU la majoria dels discos encara girant, pel que això probablement no és el que vol. </ li> </ ul> "
 
 msgid "Previous Page"
-msgstr ""
+msgstr "Pàgina anterior"
 
 msgid "Primary"
 msgstr "Primari"
@@ -3377,10 +3377,10 @@ msgid ""
 msgstr "Els requeriments de la sessió SSL no són necessaris per a la connexió de dades"
 
 msgid "The session IP address has been changed."
-msgstr ""
+msgstr "S'ha canviat l'adreça IP de la sessió."
 
 msgid "The session user no longer exists."
-msgstr ""
+msgstr "L'usuari de la sessió ja no existeix."
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3972,7 +3972,7 @@ msgid "Write/Execute"
 msgstr "Escriure/Executar"
 
 msgid "Xen virtual disk device"
-msgstr ""
+msgstr "Dispositiu de disc virtual Xen"
 
 msgid "Yearly"
 msgstr "Anualment"
@@ -3984,7 +3984,7 @@ msgid "Yes"
 msgstr "Si"
 
 msgid "You need to commit or cancel your changes"
-msgstr ""
+msgstr "Heu de confirmar o cancel·lar els canvis"
 
 msgid "Zambia"
 msgstr "Zàmbia"
@@ -4017,7 +4017,7 @@ msgid "n/a"
 msgstr "n/d"
 
 msgid "of {0}"
-msgstr ""
+msgstr "de {0}"
 
 msgid "old-age"
 msgstr "Etat"

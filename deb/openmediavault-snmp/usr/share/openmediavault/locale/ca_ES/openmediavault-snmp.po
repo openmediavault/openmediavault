@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-24 20:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Quim Farriol <quim@iscinformatica.cat>, 2018\n"
 "Language-Team: Catalan (Spain) (https://www.transifex.com/votdev/teams/14254/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
@@ -18,78 +19,80 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Authentication and no privacy"
-msgstr ""
+msgstr "Autenticació i sense privadesa"
 
 msgid "Authentication and privacy"
-msgstr ""
+msgstr "Autenticació i amb privadesa"
 
 msgid "Authentication passphrase"
-msgstr ""
+msgstr "Contrasenya d'autenticació"
 
 msgid "Authentication type"
-msgstr ""
+msgstr "Tipus d'autenticació"
 
 msgid "Community"
-msgstr ""
+msgstr "Comunitat"
 
 msgid "Contact"
-msgstr ""
+msgstr "Contacte"
 
 msgid ""
 "Contact information, e.g. name or email address of the person responsible "
 "for this system."
 msgstr ""
+"Informació de contacte, p.e. nom o adreça de correu electrònic de la persona"
+" responsable d'aquest sistema."
 
 msgid "Enable"
-msgstr ""
+msgstr "Habilita"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Opcions addicionals"
 
 msgid "General settings"
-msgstr ""
+msgstr "Configuració general"
 
 msgid "Host"
-msgstr ""
+msgstr "Amfitrió"
 
 msgid "Location"
-msgstr ""
+msgstr "Ubicació"
 
 msgid "Location information, e.g. physical location of this system."
-msgstr ""
+msgstr "Informació d'ubicació, p.e. ubicació física d'aquest sistema."
 
 msgid "No authentication and no privacy"
-msgstr ""
+msgstr "No hi ha autenticació ni privadesa"
 
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 msgid "Privacy passphrase"
-msgstr ""
+msgstr "Contrasenya de privacitat"
 
 msgid "Privacy type"
-msgstr ""
+msgstr "Tipus de privacitat"
 
 msgid "SNMP"
-msgstr ""
+msgstr "SNMP"
 
 msgid "SNMP version 1/2c"
-msgstr ""
+msgstr "SNMP versió 1/2c"
 
 msgid "SNMP version 3"
-msgstr ""
+msgstr "SNMP versió 3"
 
 msgid "Security level"
-msgstr ""
+msgstr "Nivell de seguretat"
 
 msgid "Settings"
-msgstr ""
+msgstr "Configuració"
 
 msgid "Traps"
-msgstr ""
+msgstr "Trampes"
 
 msgid "Username"
-msgstr ""
+msgstr "Nom d'usuari"
 
 msgid "Version"
-msgstr ""
+msgstr "Versió"

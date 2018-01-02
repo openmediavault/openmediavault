@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the openmediavault-clamav package.
 # 
 # Translators:
+# Quim Farriol <quim@iscinformatica.cat>, 2018
 # Quim Farriol <quim@iscinformatica.cat>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-18 11:05+0100\n"
-"PO-Revision-Date: 2017-11-18 10:08+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2018-01-01 19:08+0000\n"
+"Last-Translator: Quim Farriol <quim@iscinformatica.cat>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/votdev/openmediavault/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,10 +20,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add on-access scan"
-msgstr ""
+msgstr "Afegiu escanejar al accedir"
 
 msgid "Add scheduled job"
-msgstr ""
+msgstr "Afegeix feina programada"
 
 msgid "Algorithmic detection"
 msgstr "Detecció Algorítmica"
@@ -60,13 +61,13 @@ msgid "Detect broken executables"
 msgstr "Detectar executables trencats"
 
 msgid "Done ..."
-msgstr ""
+msgstr "Fet ..."
 
 msgid "Edit on-access scan"
-msgstr ""
+msgstr "Edita l'escaneix al accedir"
 
 msgid "Edit scheduled job"
-msgstr ""
+msgstr "Edita feina programada"
 
 msgid "Enable"
 msgstr "Habilitar"
@@ -113,7 +114,7 @@ msgid "Every N minute"
 msgstr "Cada N minuts"
 
 msgid "Execute scheduled job"
-msgstr ""
+msgstr "Executa feina programada"
 
 msgid "Extra options"
 msgstr "Opcions addicionals"
@@ -164,7 +165,7 @@ msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Nombre de consultes d'actualització de la BBDD per dia. Poseu 0 per deshabilitar-ho."
 
 msgid "On Access Scans"
-msgstr ""
+msgstr "Escaneja al accedir"
 
 msgid "On-access"
 msgstr "Quan s'accedeixi"
@@ -176,7 +177,7 @@ msgid ""
 "Please check the <a href='https://github.com/vrtadmin/clamav-"
 "faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
 "details."
-msgstr ""
+msgstr "Si us plau, consulteu la <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>pàgina del manual</a> per obtenir més informació."
 
 msgid "Quarantine"
 msgstr "Quarantena"
@@ -206,7 +207,7 @@ msgid "Scan the directory contents in parallel using available threads."
 msgstr "Escanejar el contingut dels directoris en paral·lel usant tots els fils disponibles."
 
 msgid "Scheduled Jobs"
-msgstr ""
+msgstr "Feines programades"
 
 msgid "Send command output via email"
 msgstr "Enviar el resultat de la comanda per e-mail"
@@ -221,7 +222,7 @@ msgid "Shared folder"
 msgstr "Carpeta compartida"
 
 msgid "The location of the files to scan on-access."
-msgstr ""
+msgstr "La ubicació dels fitxers per escanejar en l'accés."
 
 msgid "The location of the files to scan."
 msgstr "Ubicació dels fitxers que s'han de comprovar"
