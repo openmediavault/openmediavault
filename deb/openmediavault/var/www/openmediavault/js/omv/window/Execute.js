@@ -372,12 +372,15 @@ Ext.define("OMV.window.Execute", {
 	 */
 	setValue: function(value, scrollBottom) {
 		var me = this;
-		if(false === me.progress) {
-			me.contentCtrl.setValue(value);
-			if(true === me.scrollBottom) {
-				var el = me.contentCtrl.inputEl;
-				if(el && el.dom)
-					el.dom.scrollTop = el.dom.scrollHeight
+		if (false === me.progress) {
+			if (me.contentCtrl && me.contentCtrl.isComponent) {
+				me.contentCtrl.setValue(value);
+				if (true === me.scrollBottom) {
+					var el = me.contentCtrl.inputEl;
+					if (el && el.dom) {
+						el.dom.scrollTop = el.dom.scrollHeight
+					}
+				}
 			}
 		} else {
 			me.content = value;
