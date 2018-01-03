@@ -35,7 +35,12 @@ case "$1" in
 		omv_config_delete "/config/services/staticroutes"
 	;;
 
-	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+	remove)
+		# Activate trigger to purge cached files.
+		dpkg-trigger update-fixperms
+	;;
+
+	upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
 	;;
 
 	*)

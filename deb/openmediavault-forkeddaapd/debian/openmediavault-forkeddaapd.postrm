@@ -41,6 +41,8 @@ case "$1" in
 		# reload the monit configuration.
 		omv-mkconf monit
 		deb-systemd-invoke reload monit.service || :
+		# Activate trigger to purge cached files.
+		dpkg-trigger update-fixperms
 	;;
 
 	upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)

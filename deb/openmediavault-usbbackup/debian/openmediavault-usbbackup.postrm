@@ -41,6 +41,8 @@ case "$1" in
 		# Remove udev-rule.
 		rm -f ${OMV_USBBACKUP_UDEV_RULE_CONFIG}
 		udevadm control --reload-rules
+		# Activate trigger to purge cached files.
+		dpkg-trigger update-fixperms
 	;;
 
 	upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
