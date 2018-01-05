@@ -878,13 +878,28 @@ function posix_kill_ex($pid, $sig) {
 }
 
 /**
- * Escape a string to be used as a device file. Various characters will be
- * replaced with their hexadecimal representation, e.g. a whitespace will be
+ * Escape a path to be used in a shell environment. Various characters will
+ * be replaced with their hexadecimal representation, e.g. a whitespace will be
  * replaced by \x20.
+ * Example:
+ * /srv/dev-disk-by-label-xx yy => /srv/dev-disk-by-label-xx\x20yy
  * @param string $var The variable that will be escaped.
  * @return The escaped string.
  */
-function escape_devicefile($var) {
+function escape_path($var) {
 	$var = str_replace(" ", "\\x20", $var);
+	return $var;
+}
+
+/**
+ * Unescape a path. Various hexadecimal characters will be replaced with
+ * their ASCII representation, e.g. \x20 will be replaced by a whitespace.
+ * Example:
+ * /srv/dev-disk-by-label-xx\x20yy => /srv/dev-disk-by-label-xx yy
+ * @param string $var The variable that will be unescaped.
+ * @return The unescaped string.
+ */
+function unescape_path($var) {
+	$var = str_replace("\\x20", " ", $var);
 	return $var;
 }
