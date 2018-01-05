@@ -225,4 +225,14 @@ class test_openmediavault_functions extends \PHPUnit_Framework_TestCase {
 		$this->assertInternalType("bool", $d);
 		$this->assertFalse($d);
 	}
+
+	public function test_escape_path() {
+		$this->assertEquals(escape_path("/srv/dev-disk-by-label-xx yy"),
+			"/srv/dev-disk-by-label-xx\\x20yy");
+	}
+
+	public function test_unescape_path() {
+		$this->assertEquals(unescape_path("/srv/dev-disk-by-label-xx\\x20yy"),
+			"/srv/dev-disk-by-label-xx yy");
+	}
 }
