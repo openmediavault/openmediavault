@@ -389,7 +389,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	public function getDeviceFileByLabel() {
 		$this->getData();
 		$this->assertLabel();
-		$deviceFile = escape_devicefile(sprintf("/dev/disk/by-label/%s",
+		$deviceFile = escape_path(sprintf("/dev/disk/by-label/%s",
 			$this->getLabel()));
 		if (FALSE === is_block($deviceFile)) {
 			throw new \OMV\Exception(
@@ -579,6 +579,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 		// rpc_pipefs /var/lib/nfs/rpc_pipefs
 		// /dev/sdf1 /media/7A48-BA97
 		// /dev/mapper/vg01-lv01 /srv/_dev_disk_by-id_dm-name-vg01-lv01
+		// /dev/sdb1 /srv/dev-disk-by-label-xx\x20yy
 		$result = FALSE;
 		foreach ($output as $outputk => $outputv) {
 			// Split the line into parts.
@@ -590,7 +591,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 			if (FALSE === is_devicefile($parts[0]))
 				continue;
 			if (realpath($parts[0]) == $this->getCanonicalDeviceFile()) {
-				$result = $parts[1];
+				$result = unescape_path($parts[1]);
 				break;
 			}
 		}
@@ -627,20 +628,23 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 		// tmpfs                                                  tmpfs         342320       0    342320       0% /run/shm
 		// tmpfs                                                  tmpfs         511768       4    511764       1% /tmp
 		// /dev/sdb1                                              ext4          100156    4164     95992       5% /media/b994e5e8-94ae-482c-ae54-70a0bbb2737e
+		// /dev/sdc1                                              ext4         1014660    2548    995728       1% /srv/dev-disk-by-label-xx yy
 		$result = FALSE;
 		foreach ($output as $outputk => $outputv) {
-			$matches = preg_split("/[\s,]+/", $outputv);
-			if (0 !== strcasecmp($mountPoint, $matches[6]))
+			$regex = '/^(\S+)\s+(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)%\s+(.+)$/i';
+			if (1 !== preg_match($regex, $outputv, $matches))
+				continue;
+			if (0 !== strcasecmp($mountPoint, $matches[7]))
 				continue;
 			$result = [
 				"devicefile" => $this->deviceFile,
-				"type" => $matches[1],
-				"blocks" => $matches[2],
-				"size" => bcmul($matches[2], "1024", 0),
-				"used" => binary_convert($matches[3], "KiB", "B"),
-				"available" => binary_convert($matches[4], "KiB", "B"),
-				"percentage" => intval(trim($matches[5], "%")),
-				"mountpoint" => $matches[6]
+				"type" => $matches[2],
+				"blocks" => $matches[3],
+				"size" => bcmul($matches[3], "1024", 0),
+				"used" => binary_convert($matches[4], "KiB", "B"),
+				"available" => binary_convert($matches[5], "KiB", "B"),
+				"percentage" => intval(trim($matches[6], "%")),
+				"mountpoint" => $matches[7]
 			];
 			break;
 		}

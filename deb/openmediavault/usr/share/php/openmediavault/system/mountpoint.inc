@@ -209,6 +209,7 @@ class MountPoint {
 	 *   \li /dev/disk/by-id/wwn-0x5000cca211cc703c-part1
 	 *   \li /dev/disk/by-id/md-name-vmpc01:data
 	 *   \li /dev/disk/by-id/md-uuid-75de9de9:6beca92e:8442575c:73eabbc9
+	 *   \li /srv/dev-disk-by-label-xx\x20yy
 	 *   </ul>
 	 * @return The path where to mount the file system, e.g.
 	 *   /srv/85732966-949a-4d8b-87d7-d7e6681f787e or
@@ -216,8 +217,10 @@ class MountPoint {
 	 *   /srv/dev-disk-by-id-md-name-vmpc01-data.
 	 */
 	public static function buildPath($id) {
-		if (TRUE === is_devicefile($id))
+		if (TRUE === is_devicefile($id)) {
+			$id = unescape_path($id);
 			$id = str_replace(["/", ":"], "-", trim($id, "/"));
+		}
 		return build_path(DIRECTORY_SEPARATOR, \OMV\Environment::get(
 			"OMV_MOUNT_DIR"), $id);
 	}
