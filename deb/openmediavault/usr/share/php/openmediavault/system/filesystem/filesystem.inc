@@ -389,7 +389,8 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	public function getDeviceFileByLabel() {
 		$this->getData();
 		$this->assertLabel();
-		$deviceFile = sprintf("/dev/disk/by-label/%s", $this->getLabel());
+		$deviceFile = escape_devicefile(sprintf("/dev/disk/by-label/%s",
+			$this->getLabel()));
 		if (FALSE === is_block($deviceFile)) {
 			throw new \OMV\Exception(
 			  "Filesystem '%s' does not have a disk/by-label device file.",
