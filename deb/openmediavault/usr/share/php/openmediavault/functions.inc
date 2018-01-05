@@ -856,3 +856,15 @@ function posix_kill_ex($pid, $sig) {
 	}
 	return posix_kill($pid, $sig);
 }
+
+/**
+ * Escape a string to be used as a device file. Various characters will be
+ * replaced with their hexadecimal representation, e.g. a whitespace will be
+ * replaced by \x20.
+ * @param string $var The variable that will be escaped.
+ * @return The escaped string.
+ */
+function escape_devicefile($var) {
+	$var = str_replace(" ", "\\x20", $var);
+	return $var;
+}

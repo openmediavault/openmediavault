@@ -1,6 +1,7 @@
 openmediavault (3.0.96) stable; urgency=low
 
   * Various improvements.
+  * Mantis 0001876: Create valid /dev/disk/by-label device files.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 25 Dec 2017 20:56:49 +0100
 
