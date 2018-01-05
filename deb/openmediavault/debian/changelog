@@ -2,6 +2,7 @@ openmediavault (3.0.96) stable; urgency=low
 
   * Various improvements.
   * Mantis 0001876: Create valid /dev/disk/by-label device files.
+  * Mantis 0001877: Helper function omv_is_ipv6_enabled is broken.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 25 Dec 2017 20:56:49 +0100
 
