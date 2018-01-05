@@ -32,7 +32,7 @@ OMV_COLLECTD_CONFIG_DIR=${OMV_COLLECTD_CONFIG_DIR:-"/etc/collectd/collectd.conf.
 
 # Get the devices containing the file systems.
 disks=$(omv-rpc 'FileSystemMgmt' 'enumerateMountedFilesystems' '{"includeroot": true}' |
-    jq --raw-output '.[] | .parentdevicefile | ltrimstr("/dev/")')
+    jq --raw-output '.[] | .parentdevicefile | tostring | select(startswith("/dev/")) | ltrimstr("/dev/")')
 
 cat <<EOF > "${OMV_COLLECTD_CONFIG_DIR}/disk.conf"
 LoadPlugin disk

@@ -61,6 +61,7 @@ Ext.define("OMV.module.admin.diagnostic.system.plugin.DiskIO", {
 					}],
 					data: response
 				});
+				store.filter("parentdevicefile", /^\/dev\/.+$/);
 				store.each(function(record) {
 					var deviceName = record.get("parentdevicefile").replace(
 						/^\/dev\//, "");
