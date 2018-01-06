@@ -191,21 +191,9 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 		$result = FALSE;
 		foreach ($objects as $objectk => $objectv) {
 			foreach ($args as $argk => $argv) {
-				// Device files must be handled seperate because the device
-				// may contain partitions.
-				if (is_devicefile($argv)) {
-					// Check the name of the device special file, e.g.
-					// - /dev/sdd1
-					// - /dev/disk/by-uuid/4B04EA317E4AA567
-					if (FALSE !== strpos($objectv['fsname'], $argv)) {
-						$result = $objectv;
-						break;
-					}
-				} else {
-					if ($argv == $objectv['fsname']) {
-						$result = $objectv;
-						break;
-					}
+				if ($argv == $objectv['fsname']) {
+					$result = $objectv;
+					break;
 				}
 			}
 			if (FALSE !== $result)
