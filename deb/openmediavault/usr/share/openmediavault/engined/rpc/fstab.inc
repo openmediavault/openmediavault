@@ -190,14 +190,10 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 		// or a file system UUID.
 		$result = FALSE;
 		foreach ($objects as $objectk => $objectv) {
-			foreach ($args as $argk => $argv) {
-				if ($argv == $objectv['fsname']) {
-					$result = $objectv;
-					break;
-				}
-			}
-			if (FALSE !== $result)
+			if (TRUE === in_array($objectv['fsname'], $args)) {
+				$result = $objectv;
 				break;
+			}
 		}
 		return $result;
 	}
