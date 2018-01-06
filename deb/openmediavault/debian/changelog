@@ -145,6 +145,7 @@ openmediavault (4.0) stable; urgency=low
 openmediavault (3.0.96) stable; urgency=low
 
   * Various improvements.
+  * Mantis 0001870: Can't mount some disks.
   * Mantis 0001876: Create valid /dev/disk/by-label device files.
   * Mantis 0001877: Helper function omv_is_ipv6_enabled is broken.
 
