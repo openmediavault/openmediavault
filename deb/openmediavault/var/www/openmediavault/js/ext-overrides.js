@@ -408,7 +408,13 @@ Ext.apply(Ext.form.field.VTypes, {
 		return /^ssh-rsa AAAA[0-9A-Za-z+/]+[=]{0,3}\s*([^@]+@[^@]+|.+)*$/.test(v);
 	},
 	sshPubKeyOpenSSHText: _("Invalid SSH public key"),
-	sshPubKeyOpenSSHMask: /[a-zA-Z0-9@+/=\- ]/
+	sshPubKeyOpenSSHMask: /[a-zA-Z0-9@+/=\- ]/,
+
+	nfsOptionList: function(v) {
+		return /^(([a-zA-Z_]+)(=([\w@:/]+))?[,])*([a-zA-Z_]+)(=([\w@:/]+))?$/.test(v);
+	},
+	nfsOptionListText: _("This field should only contain options separated by <,>"),
+	nfsOptionListMask: /[\w,@:/=]/i
 });
 
 ////////////////////////////////////////////////////////////////////////////////

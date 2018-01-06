@@ -1,6 +1,7 @@
 openmediavault (4.0.16-1) stable; urgency=low
 
   * Various improvements.
+  * Improve regular expression to validate NFS extra options.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 21 Dec 2017 09:18:54 +0100
 
