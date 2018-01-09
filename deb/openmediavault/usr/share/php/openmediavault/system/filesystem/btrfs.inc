@@ -209,7 +209,7 @@ class Btrfs extends Filesystem {
 
 		$cmdArgs = [];
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
-		$cmd = new \OMV\System\Process("btrfs-show-super", $cmdArgs);
+		$cmd = new \OMV\System\Process("btrfs inspect-internal dump-super", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 
