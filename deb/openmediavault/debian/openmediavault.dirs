@@ -12,3 +12,4 @@ var/cache/openmediavault
 var/cache/openmediavault/archives
 var/log/openmediavault
 export
+sharedfolders

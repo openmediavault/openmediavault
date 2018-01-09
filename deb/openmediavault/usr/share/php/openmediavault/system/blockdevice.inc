@@ -140,18 +140,21 @@ class BlockDevice implements IBlockDevice {
 			// lvm-pv-uuid-VDH5Om-Rkjc-cQid-PeJI-Sfqm-66DI-w0dpCO
 			// xxx...
 			// yyy...
-			usort($deviceNamesById, create_function('$a, $b',
-			  '$map = array("a" => 0, "w" => 1, "s" => 2);'.
-			  '$indexA = array_key_exists($a[0], $map) ? $map[$a[0]] : 3;'.
-			  '$indexB = array_key_exists($b[0], $map) ? $map[$b[0]] : 3;'.
-			  '$cmpMatrix = array('.
-			  '    0 => array(0, -1, -1, -1),'.
-			  '    1 => array(1,  0, -1, -1),'.
-			  '    2 => array(1,  1,  0, -1),'.
-			  '    3 => array(1,  1,  1,  0)'.
-			  ');'.
-			  '$cmpResult = $cmpMatrix[$indexA][$indexB];'.
-			  'return (0 !== $cmpResult) ? $cmpResult : strnatcmp($a, $b);'));
+			//
+			// Use a decorate-sort-undecorate method to sort the list of
+			// device names.
+			array_walk($deviceNamesById, function(&$v, $k) {
+				$map = array("a" => 0, "w" => 1, "s" => 2);
+				$v = array($v, array_key_exists($v[0], $map) ?
+					$map[$v[0]] : 3);
+			});
+			usort($deviceNamesById, function($a, $b) {
+				return ($a[1] < $b[1]) ? -1 : (($a[1] > $b[1]) ? 1 :
+					strnatcmp($a[0], $b[0]));
+			});
+			array_walk($deviceNamesById, function(&$v, $k) {
+				$v = $v[0];
+			});
 			// Finally build the whole path of the device file.
 			$this->deviceFileById = sprintf("/dev/disk/by-id/%s",
 			  array_shift($deviceNamesById));
