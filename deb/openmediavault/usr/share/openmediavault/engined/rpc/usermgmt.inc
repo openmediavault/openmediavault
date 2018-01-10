@@ -147,7 +147,7 @@ finish:
 			// Append user 'root'?
 			if ((0 == strcasecmp("root", $userInfo['name'])) &&
 			  (FALSE == \OMV\Environment::getBoolean(
-			  "OMV_USERMGMT_ENUMERATE_USER_ROOT")))
+			  "OMV_USERMGMT_ENUMERATE_USER_ROOT", TRUE)))
 				continue;
 			// Check if the current user is requested.
 			$append = FALSE;
