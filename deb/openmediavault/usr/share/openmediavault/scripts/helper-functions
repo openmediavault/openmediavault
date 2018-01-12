@@ -822,7 +822,7 @@ omv_is_gateway6() {
 # Check if IPv6 is enabled.
 # @return 0 if enabled, otherwise 1.
 omv_is_ipv6_enabled() {
-	[ -e /proc/net/if_inet6 -a $(sed -r '/\s+lo$/d' /proc/net/if_inet6 | wc -l) -gt 0 ] && return 0
+	[ -e /proc/net/if_inet6 -a $(grep --count --invert-match 'lo$' /proc/net/if_inet6) -gt 0 ] && return 0
 	return 1
 }
 
