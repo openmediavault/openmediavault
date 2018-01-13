@@ -157,14 +157,15 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		openssl_x509_free($certificate);
 		// Set the configuration object.
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $object->isNew()) {
-			// The private key is required here.
-			if ($object->isEmpty("privatekey"))
+		// The private key is required here.
+		if ($object->isEmpty("privatekey")) {
+			if (TRUE === $object->isNew()) {
 				throw new \OMV\Exception("Private key does not exist.");
-		} else {
-			$oldObject = $db->get("conf.system.certificate.ssl",
-				$object->getIdentifier());
-			$object->set("privatekey", $oldObject->get("privatekey"));
+			} else {
+				$oldObject = $db->get("conf.system.certificate.ssl",
+					$object->getIdentifier());
+				$object->set("privatekey", $oldObject->get("privatekey"));
+			}
 		}
 		$db->set($object);
 		// Return the configuration object.
