@@ -487,7 +487,6 @@
 			<loglevel>0</loglevel>
 			<usesendfile>1</usesendfile>
 			<aio>1</aio>
-			<nullpasswords>0</nullpasswords>
 			<localmaster>1</localmaster>
 			<timeserver>0</timeserver>
 			<winssupport>0</winssupport>

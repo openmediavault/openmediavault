@@ -32,10 +32,6 @@
 			"type": "boolean",
 			"default": true
 		},
-		"nullpasswords": {
-			"type": "boolean",
-			"default": false
-		},
 		"localmaster": {
 			"type": "boolean",
 			"default": true

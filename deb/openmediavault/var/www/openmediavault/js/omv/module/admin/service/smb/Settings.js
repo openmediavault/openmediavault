@@ -156,12 +156,6 @@ Ext.define("OMV.module.admin.service.smb.Settings", {
 				value: 0
 			},{
 				xtype: "checkbox",
-				name: "nullpasswords",
-				fieldLabel: _("Null passwords"),
-				checked: false,
-				boxLabel: _("Allow client access to accounts that have null passwords")
-			},{
-				xtype: "checkbox",
 				name: "usesendfile",
 				fieldLabel: _("Use sendfile"),
 				checked: true,
