@@ -5,6 +5,7 @@
 # Translators:
 # Ádám Balajti <balajtiadam@gmail.com>, 2012
 # Gábor Sári <sari.gabor@gmail.com>, 2017
+# Gyuris Gellért <bubu@ujevangelizacio.hu>, 2018
 # Gyuris Gellért <bubu@ujevangelizacio.hu>, 2017
 # Grawens <szabolcs.szanyi@gmail.com>, 2014-2017
 msgid ""
@@ -12,7 +13,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-18 11:05+0100\n"
-"PO-Revision-Date: 2017-11-20 17:49+0000\n"
+"PO-Revision-Date: 2018-01-12 11:08+0000\n"
 "Last-Translator: Gyuris Gellért <bubu@ujevangelizacio.hu>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -2089,7 +2090,7 @@ msgid "Netherlands Antilles"
 msgstr "Holland Antillák"
 
 msgid "Netmask"
-msgstr "Protokol"
+msgstr "Hálózati maszk"
 
 msgid "Network"
 msgstr "Hálózat"
@@ -3470,7 +3471,7 @@ msgstr "Ennek a mezőnek egy hosztnév listának vagy egy IP címnek kell lennie
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
-msgstr "Ennek a mezőnek egy skálán belüli 128.0.0.0 - 255.255.255.252 netmaszknak kell lennie"
+msgstr "Ennek a mezőnek egy skálán belüli 128.0.0.0 - 255.255.255.252 hálózati maszknak kell lennie"
 
 msgid "This field should be a port in the range of 1 - 65535"
 msgstr "Ennek a mezőnek egy skálán belüli 1 - 65535 portnak kell lennie"
@@ -3544,7 +3545,7 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr "Ez az opció egy vessző, szóköz vagy tabbal meghatározott hosztnak a beállítására szolgál, melyeknek NEM engedélyezett a hozzáférés ehhez a modulhoz. Ha a listák összeütköznek, az engedélyezett lista elsőbbséget élvez. Abban az esetben ha szükség van az összes tiltására, alapértelmezésben használd az ALL kulcsszót (vagy a 0.0.0.0/0 netmaszkot), majd egyértelműen meg kell határozni a hosztok engedélyezett paraméterét és azon hosztoknak a hozzáférését is engedélyezni kell. Hagyd üresen, hogy az alapértelmezett beállítások legyenek használva."
+msgstr "Ez az opció egy vessző, szóköz vagy tabbal meghatározott hosztnak a beállítására szolgál, melyeknek NEM engedélyezett a hozzáférés ehhez a modulhoz. Ha a listák összeütköznek, az engedélyezett lista elsőbbséget élvez. Abban az esetben ha szükség van az összes tiltására, alapértelmezésben használd az ALL kulcsszót (vagy a 0.0.0.0/0 hálózati maszkot), majd egyértelműen meg kell határozni a hosztok engedélyezett paraméterét és azon hosztoknak a hozzáférését is engedélyezni kell. Hagyd üresen, hogy az alapértelmezett beállítások legyenek használva."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of host which are NOT "
@@ -3553,7 +3554,7 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr "Ez az opció egy vessző, szóköz vagy tabbal meghatározott hosztnak a beállítására szolgál, melyeknek NEM engedélyezett a hozzáférés ehhez a megosztáshoz. Ha a listák összeütköznek, az engedélyezett lista elsőbbséget élvez. Abban az esetben ha szükség van az összes tiltására, alapértelmezésben használd az ALL kulcsszót (vagy a 0.0.0.0/0 netmaszkot), majd egyértelműen meg kell határozni a hosztok engedélyezett paraméterét és azon hosztoknak a hozzáférését is engedélyezni kell. Hagyd üresen, hogy az alapértelmezett beállítások legyenek használva."
+msgstr "Ez az opció egy vessző, szóköz vagy tabbal meghatározott hosztnak a beállítására szolgál, melyeknek NEM engedélyezett a hozzáférés ehhez a megosztáshoz. Ha a listák összeütköznek, az engedélyezett lista elsőbbséget élvez. Abban az esetben ha szükség van az összes tiltására, alapértelmezésben használd az ALL kulcsszót (vagy a 0.0.0.0/0 hálózati maszkot), majd egyértelműen meg kell határozni a hosztok engedélyezett paraméterét és azon hosztoknak a hozzáférését is engedélyezni kell. Hagyd üresen, hogy az alapértelmezett beállítások legyenek használva."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
