@@ -1,7 +1,6 @@
 openmediavault-netatalk (4.0.6-1) stable; urgency=low
 
   * Update locales.
-  * Fix bug in the group privileges share configuration.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 19 Jan 2018 21:13:29 +0100
 
@@ -41,6 +40,12 @@ openmediavault-netatalk (4.0-1) stable; urgency=low
   * Adapt to Debian 9 (Stretch).
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 22 Aug 2017 12:54:59 +0200
+
+openmediavault-netatalk (3.2.11) stable; urgency=low
+
+  * Fix bug in the group privileges share configuration.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 19 Jan 2018 21:17:12 +0100
 
 openmediavault-netatalk (3.2.10) stable; urgency=low
 
