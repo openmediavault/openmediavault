@@ -111,17 +111,17 @@ while [ ${index} -gt 0 ]; do
 			# Append group to list
 			case ${perms} in
 			0)	[ -n "${invalidusers}" ] && invalidusers="${invalidusers} ";
-				invalidusers="${invalidusers}@\"${name}\"";;
+				invalidusers="${invalidusers}\"@${name}\"";;
 			5)
 				[ -n "${readlist}" ] && readlist="${readlist} ";
-				readlist="${readlist}@\"${name}\"";
+				readlist="${readlist}\"@${name}\"";
 				[ -n "${validusers}" ] && validusers="${validusers} ";
-				validusers="${validusers}@\"${name}\"";;
+				validusers="${validusers}\"@${name}\"";;
 			7)
 				[ -n "${writelist}" ] && writelist="${writelist} ";
-				writelist="${writelist}@\"${name}\"";
+				writelist="${writelist}\"@${name}\"";
 				[ -n "${validusers}" ] && validusers="${validusers} ";
-				validusers="${validusers}@\"${name}\"";;
+				validusers="${validusers}\"@${name}\"";;
 			esac
 		done
 		unset IFS
