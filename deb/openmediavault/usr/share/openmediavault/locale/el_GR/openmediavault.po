@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-18 11:05+0100\n"
-"PO-Revision-Date: 2017-11-20 07:08+0000\n"
-"Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
+"POT-Creation-Date: 2018-01-21 11:50+0100\n"
+"PO-Revision-Date: 2018-01-21 10:50+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/votdev/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -308,9 +308,6 @@ msgstr "Algeria"
 
 msgid "All"
 msgstr "Όλα"
-
-msgid "Allow client access to accounts that have null passwords"
-msgstr "Επιτρέπεται πρόσβαση σε χρήστες χωρίς κωδικό"
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
@@ -2199,9 +2196,6 @@ msgstr "Ειδοποιήσεις"
 msgid "November"
 msgstr "Νοέμβριος"
 
-msgid "Null passwords"
-msgstr "Κενοί κωδικοί"
-
 msgid "Num"
 msgstr "Αριθμός"
 
@@ -2367,12 +2361,6 @@ msgid ""
 msgstr "Για περισσότερες λεπτομέρειες : <a href='http://linux.die.net/man/5/exports' target='_blank'>εδώ</a>."
 
 msgid ""
-"Please check the <a href='http://www.openbsd.org/cgi-"
-"bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for"
-" more details."
-msgstr "Για περισσότερες λεπτομέρειες : <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>εδώ</a>."
-
-msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Δες το <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>manual page</a> για περισσότερες λεπτομέρειες."
@@ -2403,6 +2391,11 @@ msgid ""
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Please check the <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> for more details."
+
+msgid ""
+"Please check the <a href='https://man.openbsd.org/sshd_config.5' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "Επιλογή μεθόδου εκκένωσης της συσκευής η 'Ακύρωση' για έξοδο."
@@ -3503,9 +3496,15 @@ msgstr "Το πεδίο πρέπει να περιέχει μόνο αριθμο
 msgid "This field should only contain numbers separated by <,> or <;>"
 msgstr "Το πεδίο πρέπει να περιέχει μόνο αριθμούς χωρισμένους με <,> ή <;>"
 
+msgid "This field should only contain options separated by <,>"
+msgstr ""
+
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
 msgstr "Το πεδίο πρέπει να περιέχει μόνο θύρες (0 - 65535) χωρισμένες με <,> ή <;>"
+
+msgid "This field should only contain strings separated by <,>"
+msgstr ""
 
 msgid "This field should only contain strings separated by <,> or <;>"
 msgstr "Το πεδίο πρέπει να περιέχει μόνο λέξεις χωρισμένες με <,> ή <;>"

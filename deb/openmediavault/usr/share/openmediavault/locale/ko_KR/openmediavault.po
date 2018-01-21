@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-18 11:05+0100\n"
-"PO-Revision-Date: 2017-11-18 10:08+0000\n"
+"POT-Creation-Date: 2018-01-21 11:50+0100\n"
+"PO-Revision-Date: 2018-01-21 10:50+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -310,9 +310,6 @@ msgstr "알제리"
 
 msgid "All"
 msgstr "모두"
-
-msgid "Allow client access to accounts that have null passwords"
-msgstr "널 패스워드를 갖는 계정에 대한 클라이언트 접근을 허용합니다."
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
@@ -2201,9 +2198,6 @@ msgstr "알림"
 msgid "November"
 msgstr "11월"
 
-msgid "Null passwords"
-msgstr "빈 암호"
-
 msgid "Num"
 msgstr "숫자"
 
@@ -2369,12 +2363,6 @@ msgid ""
 msgstr "자세한 내용은 <a href='http://linux.die.net/man/5/exports' target='_blank'>매뉴얼 페이지</a>를 참고하세요."
 
 msgid ""
-"Please check the <a href='http://www.openbsd.org/cgi-"
-"bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for"
-" more details."
-msgstr "자세한 내용은 <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>매뉴얼 페이지<a>를 참고하세요."
-
-msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "자세한 내용은 <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>매뉴얼 페이지</a> 를 참고하세요."
@@ -2405,6 +2393,11 @@ msgid ""
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "자세한 내용은 <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>매뉴얼 페이지</a>를 참고하세요."
+
+msgid ""
+"Please check the <a href='https://man.openbsd.org/sshd_config.5' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr ""
@@ -3505,9 +3498,15 @@ msgstr "이 영역은 숫자만을 포함할 수 있습니다."
 msgid "This field should only contain numbers separated by <,> or <;>"
 msgstr "이 영역은 <,> 또는 <;>으로 구분되는 숫자만을 포함할 수 있습니다."
 
+msgid "This field should only contain options separated by <,>"
+msgstr ""
+
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
 msgstr "이 영역은 <,> 또는 <;>으로 구분되는 포트 (0 - 65535)만을 포함할 수 있습니다."
+
+msgid "This field should only contain strings separated by <,>"
+msgstr ""
 
 msgid "This field should only contain strings separated by <,> or <;>"
 msgstr "이 영역은 <,> 또는 <;>으로 구분되는 문자열만을 포함할 수 있습니다."

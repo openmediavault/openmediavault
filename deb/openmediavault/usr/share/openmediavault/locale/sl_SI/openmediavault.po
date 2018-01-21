@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-18 11:05+0100\n"
-"PO-Revision-Date: 2017-11-18 10:08+0000\n"
+"POT-Creation-Date: 2018-01-21 11:50+0100\n"
+"PO-Revision-Date: 2018-01-21 10:50+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/votdev/openmediavault/language/sl_SI/)\n"
 "MIME-Version: 1.0\n"
@@ -308,9 +308,6 @@ msgstr "Alžirija"
 
 msgid "All"
 msgstr "Vse"
-
-msgid "Allow client access to accounts that have null passwords"
-msgstr "Dovoli dostop do odjemalcev računom, ki nimajo nastavljenega gesla."
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
@@ -2199,9 +2196,6 @@ msgstr "Obvestila"
 msgid "November"
 msgstr "November"
 
-msgid "Null passwords"
-msgstr "Prazna gesla"
-
 msgid "Num"
 msgstr "Število"
 
@@ -2367,12 +2361,6 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Please check the <a href='http://www.openbsd.org/cgi-"
-"bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for"
-" more details."
-msgstr ""
-
-msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr ""
@@ -2401,6 +2389,11 @@ msgstr ""
 msgid ""
 "Please check the <a "
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+
+msgid ""
+"Please check the <a href='https://man.openbsd.org/sshd_config.5' "
 "target='_blank'>manual page</a> for more details."
 msgstr ""
 
@@ -3503,8 +3496,14 @@ msgstr "To polje lahko vsebuje le številke"
 msgid "This field should only contain numbers separated by <,> or <;>"
 msgstr ""
 
+msgid "This field should only contain options separated by <,>"
+msgstr ""
+
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
+msgstr ""
+
+msgid "This field should only contain strings separated by <,>"
 msgstr ""
 
 msgid "This field should only contain strings separated by <,> or <;>"

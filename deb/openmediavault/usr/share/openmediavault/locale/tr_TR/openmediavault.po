@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-18 11:05+0100\n"
-"PO-Revision-Date: 2017-11-18 22:04+0000\n"
-"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
+"POT-Creation-Date: 2018-01-21 11:50+0100\n"
+"PO-Revision-Date: 2018-01-21 10:50+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/votdev/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -308,9 +308,6 @@ msgstr "Cezayir"
 
 msgid "All"
 msgstr "Tüm"
-
-msgid "Allow client access to accounts that have null passwords"
-msgstr "Kullanıcıların hesaplarına boş şifre ile ulaşmalarına izin ver"
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
@@ -2199,9 +2196,6 @@ msgstr "Uyarılar"
 msgid "November"
 msgstr "Kasım"
 
-msgid "Null passwords"
-msgstr "Boş şifreler"
-
 msgid "Num"
 msgstr "Rakam"
 
@@ -2367,12 +2361,6 @@ msgid ""
 msgstr "Daha fazla bilgi için lütfen <a href='http://linux.die.net/man/5/exports' target='_blank'>manual page</a> adresini ziyaret ediniz."
 
 msgid ""
-"Please check the <a href='http://www.openbsd.org/cgi-"
-"bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for"
-" more details."
-msgstr "Daha fazla bilgi için lütfen <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> adresini ziyaret ediniz."
-
-msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Daha fazla bilgi için lütfen <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>manual page</a> adresiniz ziyaret ediniz."
@@ -2403,6 +2391,11 @@ msgid ""
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Daha fazla bilgi için lütfen <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manual page</a> adresini ziyaret ediniz."
+
+msgid ""
+"Please check the <a href='https://man.openbsd.org/sshd_config.5' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "Lütfen aygıtı silmek için bir metod seçiniz ya da iptal etmek için \"İptal\" tuşuna basınız."
@@ -3503,9 +3496,15 @@ msgstr "Bu alan sadece rakam içerebilir"
 msgid "This field should only contain numbers separated by <,> or <;>"
 msgstr "Bu alan sadece <,> veya <;> ile ayrılmış rakam içerebilir"
 
+msgid "This field should only contain options separated by <,>"
+msgstr ""
+
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
 msgstr "Bu alan sadece <,> veya <;> ile ayrılmış port (0 - 65535) numarası içerebilir"
+
+msgid "This field should only contain strings separated by <,>"
+msgstr ""
 
 msgid "This field should only contain strings separated by <,> or <;>"
 msgstr "Bu alan sadece <,> veya <;> ile ayrılmış değer içerebilir"

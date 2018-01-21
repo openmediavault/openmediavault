@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-18 11:05+0100\n"
-"PO-Revision-Date: 2017-11-18 10:08+0000\n"
+"POT-Creation-Date: 2018-01-21 11:50+0100\n"
+"PO-Revision-Date: 2018-01-21 10:50+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/votdev/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -313,9 +313,6 @@ msgstr "Algeria"
 
 msgid "All"
 msgstr "Wszystkie"
-
-msgid "Allow client access to accounts that have null passwords"
-msgstr "Zezwalaj na dostęp klientów do kont, które mają puste hasła"
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
@@ -2204,9 +2201,6 @@ msgstr "Powiadomienia"
 msgid "November"
 msgstr "Listopad"
 
-msgid "Null passwords"
-msgstr "Puste hasło"
-
 msgid "Num"
 msgstr "Num"
 
@@ -2372,12 +2366,6 @@ msgid ""
 msgstr "Więcej informacji w instrukcji <a href='http://linux.die.net/man/5/exports' target='_blank'>manual page</a>."
 
 msgid ""
-"Please check the <a href='http://www.openbsd.org/cgi-"
-"bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for"
-" more details."
-msgstr "Więcej informacji na <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a>."
-
-msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Proszę sprawdź<a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'> stronę podręcznika</a> aby dowiedzieć się więcej."
@@ -2408,6 +2396,11 @@ msgid ""
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Więcej informacji na <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a>."
+
+msgid ""
+"Please check the <a href='https://man.openbsd.org/sshd_config.5' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "Wybierz metodę do czyszczenia urządzenia lub wybierz \"Anuluj\", aby anulować."
@@ -3508,9 +3501,15 @@ msgstr "To pole powinno zawierać wyłącznie cyfry"
 msgid "This field should only contain numbers separated by <,> or <;>"
 msgstr "To pole powinno zawierać tylko liczby oddzielone <,> lub <;>"
 
+msgid "This field should only contain options separated by <,>"
+msgstr ""
+
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
 msgstr "To pole powinno zawierać tylko porty (0 - 65535) oddzielone  <,> lub <;>"
+
+msgid "This field should only contain strings separated by <,>"
+msgstr ""
 
 msgid "This field should only contain strings separated by <,> or <;>"
 msgstr "To pole powinno zawierać tylko ciągi znaków oddzielone <,> lub <;>"

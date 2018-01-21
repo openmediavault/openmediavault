@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"POT-Creation-Date: 2018-01-21 11:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -302,9 +302,6 @@ msgid "Algeria"
 msgstr ""
 
 msgid "All"
-msgstr ""
-
-msgid "Allow client access to accounts that have null passwords"
 msgstr ""
 
 msgid "Allow clients to attempt to store OS/2 style extended attributes on a share."
@@ -2122,9 +2119,6 @@ msgstr ""
 msgid "November"
 msgstr ""
 
-msgid "Null passwords"
-msgstr ""
-
 msgid "Num"
 msgstr ""
 
@@ -2287,9 +2281,6 @@ msgstr ""
 msgid "Please check the <a href='http://linux.die.net/man/5/exports' target='_blank'>manual page</a> for more details."
 msgstr ""
 
-msgid "Please check the <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for more details."
-msgstr ""
-
 msgid "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>manual page</a> for more details."
 msgstr ""
 
@@ -2306,6 +2297,9 @@ msgid "Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html
 msgstr ""
 
 msgid "Please check the <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> for more details."
+msgstr ""
+
+msgid "Please check the <a href='https://man.openbsd.org/sshd_config.5' target='_blank'>manual page</a> for more details."
 msgstr ""
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
@@ -3328,7 +3322,13 @@ msgstr ""
 msgid "This field should only contain numbers separated by <,> or <;>"
 msgstr ""
 
+msgid "This field should only contain options separated by <,>"
+msgstr ""
+
 msgid "This field should only contain ports (0 - 65535) separated by <,> or <;>"
+msgstr ""
+
+msgid "This field should only contain strings separated by <,>"
 msgstr ""
 
 msgid "This field should only contain strings separated by <,> or <;>"

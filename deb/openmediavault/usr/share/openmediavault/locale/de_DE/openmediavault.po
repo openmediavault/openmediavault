@@ -8,7 +8,7 @@
 # mattjes04 <mattjes04@googlemail.com>, 2013
 # mattjes04 <mattjes04@googlemail.com>, 2012
 # Stephan Steiner, 2014
-# Volker <votdev@gmx.de>, 2013-2017
+# Volker <votdev@gmx.de>, 2013-2018
 # Volker <votdev@gmx.de>, 2012
 # Volker <votdev@gmx.de>, 2012
 # warhog <warhog@gmx.de>, 2013
@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-18 11:05+0100\n"
-"PO-Revision-Date: 2017-11-25 00:59+0000\n"
+"POT-Creation-Date: 2018-01-21 11:50+0100\n"
+"PO-Revision-Date: 2018-01-21 10:54+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -317,9 +317,6 @@ msgstr "Algerien"
 
 msgid "All"
 msgstr "Alle"
-
-msgid "Allow client access to accounts that have null passwords"
-msgstr "Erlaube Client Zugriff auf passwortlose Zugänge."
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
@@ -2208,9 +2205,6 @@ msgstr "Benachrichtigungen"
 msgid "November"
 msgstr "November"
 
-msgid "Null passwords"
-msgstr "Keine Passwörter"
-
 msgid "Num"
 msgstr "Nr."
 
@@ -2376,12 +2370,6 @@ msgid ""
 msgstr "Bitte die <a href='http://linux.die.net/man/5/exports' target='_blank'>Hilfeseiten</a> für weitere Details lesen."
 
 msgid ""
-"Please check the <a href='http://www.openbsd.org/cgi-"
-"bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for"
-" more details."
-msgstr "Bitte die <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>Hilfeseiten</a> für weitere Details lesen."
-
-msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Bitte die <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>Hilfeseiten</a> für weiter Details lesen."
@@ -2412,6 +2400,11 @@ msgid ""
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Bitte die <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>Hilfeseiten</a> für weitere Details lesen."
+
+msgid ""
+"Please check the <a href='https://man.openbsd.org/sshd_config.5' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Bitte die <a href='https://man.openbsd.org/sshd_config.5' target='_blank'></a>Hilfeseiten</a> für weitere Details lesen."
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "Bitte wählen Sie die Methode um das Laufwerk zu löschen oder 'Abbrechen' um den Vorgang abzubrechen."
@@ -3512,9 +3505,15 @@ msgstr "Dieses Feld darf ausschließlich Nummern enthalten"
 msgid "This field should only contain numbers separated by <,> or <;>"
 msgstr "Dieses Feld sollte ausschließlich Nummern separiert mit <,> oder <;>  enthalten"
 
+msgid "This field should only contain options separated by <,>"
+msgstr "Dieses Feld sollte ausschließlich Optionen separiert mit <,> enthalten"
+
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
 msgstr "Dieses Feld sollte ausschließlich Ports (0 - 65535) separiert mit <,> oder <;>  enthalten"
+
+msgid "This field should only contain strings separated by <,>"
+msgstr "Dieses Feld sollte ausschließlich Strings separiert mit <,> enthalten"
 
 msgid "This field should only contain strings separated by <,> or <;>"
 msgstr "Dieses Feld sollte ausschließlich Strings separiert mit <,> oder <;>  enthalten"

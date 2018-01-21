@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-18 11:05+0100\n"
-"PO-Revision-Date: 2017-11-18 10:08+0000\n"
+"POT-Creation-Date: 2018-01-21 11:50+0100\n"
+"PO-Revision-Date: 2018-01-21 10:50+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/votdev/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -309,9 +309,6 @@ msgstr "Algéria"
 
 msgid "All"
 msgstr "Tudo"
-
-msgid "Allow client access to accounts that have null passwords"
-msgstr "Permitir o acesso dos clientes a contas que não tenham senhas de acesso"
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
@@ -2200,9 +2197,6 @@ msgstr "Notificações"
 msgid "November"
 msgstr "Novembro"
 
-msgid "Null passwords"
-msgstr "Senhas de acesso em branco"
-
 msgid "Num"
 msgstr "Num"
 
@@ -2368,12 +2362,6 @@ msgid ""
 msgstr "Por favor verifique em <a href='http://linux.die.net/man/5/exports' target='_blank'>manual page</a> para mais detalhes."
 
 msgid ""
-"Please check the <a href='http://www.openbsd.org/cgi-"
-"bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for"
-" more details."
-msgstr "Por favor verifique em <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> para mais."
-
-msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Verifique por favor <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>manual page</a> para mais detalhes"
@@ -2404,6 +2392,11 @@ msgid ""
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Por favor verifique em <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> para mais detalhes."
+
+msgid ""
+"Please check the <a href='https://man.openbsd.org/sshd_config.5' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "Por favor escolha o método para limpar o aparelho ou Cancel para abortar."
@@ -3504,8 +3497,14 @@ msgstr "Este campo deve conter apenas números"
 msgid "This field should only contain numbers separated by <,> or <;>"
 msgstr ""
 
+msgid "This field should only contain options separated by <,>"
+msgstr ""
+
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
+msgstr ""
+
+msgid "This field should only contain strings separated by <,>"
 msgstr ""
 
 msgid "This field should only contain strings separated by <,> or <;>"
