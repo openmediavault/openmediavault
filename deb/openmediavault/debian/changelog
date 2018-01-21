@@ -1,6 +1,7 @@
 openmediavault (4.0.17-1) stable; urgency=low
 
   * Add 'Clear web control panel cache' option to omv-firstaid.
+  * Mantis 0001878: Fix URL to external manual page in the SSH service page.
   * Mantis 0001880: Remove 'Null passwords' option from SMB/CIFS configuration.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 06 Jan 2018 18:55:28 +0100

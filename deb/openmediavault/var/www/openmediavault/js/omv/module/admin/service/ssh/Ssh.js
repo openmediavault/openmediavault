@@ -85,7 +85,7 @@ Ext.define("OMV.module.admin.service.ssh.Settings", {
 			allowBlank: true,
 			plugins: [{
 				ptype: "fieldinfo",
-				text: _("Please check the <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for more details."),
+				text: _("Please check the <a href='https://man.openbsd.org/sshd_config.5' target='_blank'>manual page</a> for more details."),
 			}]
 		}];
 	}
