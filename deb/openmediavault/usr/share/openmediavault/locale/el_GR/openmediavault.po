@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Kostas Moho <kgounaris@hotmail.com>, 2012-2017
+# Kostas Moho <kgounaris@hotmail.com>, 2012-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-21 11:50+0100\n"
-"PO-Revision-Date: 2018-01-21 10:50+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2018-01-22 07:28+0000\n"
+"Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/votdev/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2395,7 +2395,7 @@ msgstr "Please check the <a href='http://www.samba.org/samba/docs/man/manpages-3
 msgid ""
 "Please check the <a href='https://man.openbsd.org/sshd_config.5' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Διαβάστε το <a href='https://man.openbsd.org/sshd_config.5' target='_blank'>εγχειρίδιο</a> για περισσότερες πληροφορίες."
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "Επιλογή μεθόδου εκκένωσης της συσκευής η 'Ακύρωση' για έξοδο."
@@ -3497,14 +3497,14 @@ msgid "This field should only contain numbers separated by <,> or <;>"
 msgstr "Το πεδίο πρέπει να περιέχει μόνο αριθμούς χωρισμένους με <,> ή <;>"
 
 msgid "This field should only contain options separated by <,>"
-msgstr ""
+msgstr "Το πεδίο πρέπει να περιέχει μόνο επιλογές χωρισμένες με <,>"
 
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
 msgstr "Το πεδίο πρέπει να περιέχει μόνο θύρες (0 - 65535) χωρισμένες με <,> ή <;>"
 
 msgid "This field should only contain strings separated by <,>"
-msgstr ""
+msgstr "Το πεδίο πρέπει να περιέχει μόνο λέξεις χωρισμένες με <,>"
 
 msgid "This field should only contain strings separated by <,> or <;>"
 msgstr "Το πεδίο πρέπει να περιέχει μόνο λέξεις χωρισμένες με <,> ή <;>"

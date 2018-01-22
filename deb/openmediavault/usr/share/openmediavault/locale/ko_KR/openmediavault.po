@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Chang-Eon Byeon <ksna0827@gmail.com>, 2014-2016
-# Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015
+# Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018
 # Volker <votdev@gmx.de>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-21 11:50+0100\n"
-"PO-Revision-Date: 2018-01-21 10:50+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2018-01-22 04:44+0000\n"
+"Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,7 @@ msgid "%s (%s available)"
 msgstr "%s (%s 사용 가능)"
 
 msgid "%s [%s (%d%%) used, %s available]"
-msgstr ""
+msgstr "%s [%s (%d%%) 사용 중, %s 사용 가능]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [on %s, %s]"
@@ -46,7 +46,7 @@ msgid "1 day"
 msgstr "1일"
 
 msgid "1 minute"
-msgstr ""
+msgstr "1분"
 
 msgid "1 month"
 msgstr "1개월"
@@ -77,7 +77,7 @@ msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - 대기 없이 최소 전력 사용량 (스핀다운 없음)"
 
 msgid "15 minutes"
-msgstr ""
+msgstr "15분"
 
 msgid "15 years"
 msgstr "15년"
@@ -92,7 +92,7 @@ msgid "2 days"
 msgstr "2일"
 
 msgid "2 minutes"
-msgstr ""
+msgstr "2분"
 
 msgid "2 weeks"
 msgstr "2주"
@@ -122,7 +122,7 @@ msgid "3 days"
 msgstr "3일"
 
 msgid "3 minutes"
-msgstr ""
+msgstr "3분"
 
 msgid "3 months"
 msgstr "3개월"
@@ -140,13 +140,13 @@ msgid "300 minutes"
 msgstr "300분"
 
 msgid "330 minutes"
-msgstr ""
+msgstr "330분"
 
 msgid "4 days"
 msgstr "4일"
 
 msgid "4 minutes"
-msgstr ""
+msgstr "4분"
 
 msgid "4 years"
 msgstr "4년"
@@ -185,7 +185,7 @@ msgid "About"
 msgstr "대하여"
 
 msgid "Absolute Path"
-msgstr ""
+msgstr "절대 경로"
 
 msgid "Abstract"
 msgstr "추상적인"
@@ -438,7 +438,7 @@ msgid "Auto logout"
 msgstr ""
 
 msgid "Auto logout after the specified idle period."
-msgstr ""
+msgstr "지정된 유휴 기간이 지난 후에 자동으로 로그아웃"
 
 msgid "Automatic Acoustic Management"
 msgstr "자동 음향 관리(AAM)"
@@ -696,7 +696,7 @@ msgid "Cook Islands"
 msgstr "쿡 제도"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "클립보드로 복사"
 
 msgid "Costa Rica"
 msgstr "코스타리카"
@@ -825,13 +825,13 @@ msgid "Device Mapper %s [%s, %s]"
 msgstr "장치 매퍼 %s [%s, %s]"
 
 msgid "Device Symlinks"
-msgstr ""
+msgstr "장치 심볼릭 링크"
 
 msgid "Device has a few bad sectors"
-msgstr ""
+msgstr "장치에 일부 베드 섹터가 있음"
 
 msgid "Device has many bad sectors"
-msgstr ""
+msgstr "장치에 다수의 베드 섹터가 있음"
 
 msgid "Device information"
 msgstr "장치 정보"
@@ -849,7 +849,7 @@ msgid "Device was used outside of design parameters in the past"
 msgstr ""
 
 msgid "Device(s)"
-msgstr ""
+msgstr "장치(들)"
 
 msgid "Device/Label"
 msgstr "장치/레이블"
@@ -879,13 +879,13 @@ msgid "Disk usage"
 msgstr "디스크 사용량"
 
 msgid "Disks"
-msgstr ""
+msgstr "디스크"
 
 msgid "Displaying items {0} - {1} of {2}"
-msgstr "{2}중 {0} - {1}항목 표시 중 "
+msgstr "{2} 중 {0} - {1} 항목 표시 중 "
 
 msgid "Displaying {0} - {1} of {2}"
-msgstr ""
+msgstr "{2} 중 {0} - {1} 표시 중"
 
 msgid "Djibouti"
 msgstr "지부티"
@@ -938,7 +938,7 @@ msgstr "공유 폴더 내용을 정말 삭제하시겠습니까? 영구적으로
 msgid ""
 "Do you really want to reset the UI settings to their default values, e.g. "
 "the order of the grid columns?"
-msgstr ""
+msgstr "그리드 열 순서와 같은 UI 설정의 기본값을 재설정하시겠습니까?"
 
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
@@ -1050,7 +1050,7 @@ msgid "Edit scheduled test"
 msgstr "예약된 검사 편집"
 
 msgid "Edit service"
-msgstr ""
+msgstr "서비스 편집"
 
 msgid "Edit share"
 msgstr "공유 편집"
@@ -1181,7 +1181,7 @@ msgid "Error #"
 msgstr "오류 #"
 
 msgid "Errors"
-msgstr ""
+msgstr "오류"
 
 msgid "Estonia"
 msgstr "에스토니아"
@@ -1244,7 +1244,7 @@ msgid "FTP - Transfer log"
 msgstr "FTP - 전송 기록"
 
 msgid "FTP-Proxy"
-msgstr ""
+msgstr "FTP-프록시"
 
 msgid "FXP"
 msgstr "FXP"
@@ -1316,7 +1316,7 @@ msgid "Firmware version"
 msgstr "펌웨어 버전"
 
 msgid "First Page"
-msgstr ""
+msgstr "첫 페이지"
 
 msgid "Flags"
 msgstr "플래그"
@@ -1439,16 +1439,16 @@ msgid "Guyana"
 msgstr "가이아나"
 
 msgid "HTTP-Proxy"
-msgstr ""
+msgstr "HTTP-프록시"
 
 msgid "HTTPS-Proxy"
-msgstr ""
+msgstr "HTTPS-프록시"
 
 msgid "Haiti"
 msgstr "아이티"
 
 msgid "Hardware address"
-msgstr ""
+msgstr "하드웨어 주소"
 
 msgid "Heard Island and McDonald Islands"
 msgstr "허드 섬 및 맥도널드 제도"
@@ -1761,7 +1761,7 @@ msgid "Laos"
 msgstr "라오스"
 
 msgid "Last Page"
-msgstr ""
+msgstr "마지막 페이지"
 
 msgid "Latvia"
 msgstr "라트비아"
@@ -2109,7 +2109,7 @@ msgid "New Zealand"
 msgstr "뉴질랜드"
 
 msgid "Next Page"
-msgstr ""
+msgstr "다음 페이지"
 
 msgid "Nicaragua"
 msgstr "니카라과"
@@ -2139,7 +2139,7 @@ msgid "No connections"
 msgstr "연결 없음"
 
 msgid "No data to display"
-msgstr ""
+msgstr "표시할 데이터가 없음"
 
 msgid "No items to display"
 msgstr "표시할 항목 없음"
@@ -2262,10 +2262,10 @@ msgid "Package information"
 msgstr "패키지 정보"
 
 msgid "Page"
-msgstr ""
+msgstr "페이지"
 
 msgid "Page not found"
-msgstr ""
+msgstr "페이지를 찾을 수 없음"
 
 msgid "Pakistan"
 msgstr "파키스탄"
@@ -2289,7 +2289,7 @@ msgid "Paraguay"
 msgstr "파라과이"
 
 msgid "Parent Device"
-msgstr ""
+msgstr "부모 장치"
 
 msgid "Parent interface"
 msgstr "부모 인터페이스"
@@ -2310,7 +2310,7 @@ msgid "Paste a RSA certificate in X.509 PEM format here."
 msgstr "X.509 PEM 형식의 RSA 인증서를 여기에 붙여 넣습니다."
 
 msgid "Paste an private RSA key in X.509 PEM format here."
-msgstr ""
+msgstr "X.509 PEM 형식의 개인 RSA 키를 여기에 붙여 넣습니다."
 
 msgid "Path"
 msgstr "경로"
@@ -2319,13 +2319,13 @@ msgid "People's Democratic Republic of Yemen"
 msgstr "예멘 인민 민주 공화국"
 
 msgid "Perform a trial run with no changes made"
-msgstr ""
+msgstr "변경을 반영하지 않고 시험 동작을 수행합니다."
 
 msgid "Performance statistics"
 msgstr "성능 통계"
 
 msgid "Period of validity"
-msgstr ""
+msgstr "유효 기간"
 
 msgid "Permissions"
 msgstr "권한"
@@ -2334,7 +2334,7 @@ msgid "Permissions of group."
 msgstr "그룹 권한"
 
 msgid "Permissions of others (e.g. anonymous FTP users)."
-msgstr ""
+msgstr "기타 권한 (예를 들어 익명 FTP 사용자)."
 
 msgid "Permissions of owner."
 msgstr "소유자 권한"
@@ -2343,7 +2343,7 @@ msgid "Permit root login"
 msgstr "루트 로그인을 허용합니다."
 
 msgid "Permit to do SSH tunneling"
-msgstr ""
+msgstr "SSH 터널링을 허용합니다."
 
 msgid "Peru"
 msgstr "페루"
@@ -2397,13 +2397,13 @@ msgstr "자세한 내용은 <a href='http://www.samba.org/samba/docs/man/manpage
 msgid ""
 "Please check the <a href='https://man.openbsd.org/sshd_config.5' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "자세한 내용은 <a href='https://man.openbsd.org/sshd_config.5' target='_blank'>매뉴얼 페이지</a>를 참고하세요."
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
-msgstr ""
+msgstr "이 장치를 초기화할 방법을 선택하거나 취소를 눌러 중단해 주세요."
 
 msgid "Please first select a device."
-msgstr ""
+msgstr "먼저 장치를 선택하세요."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2474,10 +2474,10 @@ msgid ""
 msgstr "디스크가 주기적으로 폴링될 때 스핀-업되는 것을 방지합니다.<br/><ul><li>절대 안함 - 전원 모드에 상관 없이 장치를 폴링(검사)합니다. 이는 검사 시점에서 스핀-다운된 디스크를 스핀-업 상태로 만들 수 있습니다. </li><li>휴면 - 장치가 휴면 상태가 아닌 한 검사를 수행합니다.</li><li>대기 - 장치가 휴면 혹은 대기 상태가 아닌 한 검사를 수행합니다. 이런 상태에 있는 대부분의 디스크들은 동작 중이지 않습니다. 따라서 매 폴링마다 스핀-업되는 것을 방지하기 위해서는 이 옵션이 원하는 선택이 될 수 있습니다.</li><li>유휴 - 장치가 휴면, 대기 혹은 유휴 상태가 아닌 한 검사를 수행합니다. 유휴 상태에서, 대부분의 디스크는 동작 중이기 때문에 이는 당신이 원하는 옵션이 아닐 것입니다.</li></ul>"
 
 msgid "Previous Page"
-msgstr ""
+msgstr "이전 페이지"
 
 msgid "Primary"
-msgstr ""
+msgstr "주"
 
 msgid "Primary email"
 msgstr "주 전자우편"
@@ -2504,7 +2504,7 @@ msgid "Protocol"
 msgstr "프로토콜"
 
 msgid "Proxy"
-msgstr ""
+msgstr "프록시"
 
 msgid "Public"
 msgstr "공개"
@@ -2522,7 +2522,7 @@ msgid "Puerto Rico"
 msgstr "푸에르토리코"
 
 msgid "Pull"
-msgstr ""
+msgstr "당겨오기"
 
 msgid "Push"
 msgstr "밀어넣기"
@@ -2531,10 +2531,10 @@ msgid "Qatar"
 msgstr ""
 
 msgid "Quick"
-msgstr ""
+msgstr "빠르게"
 
 msgid "Quiet"
-msgstr ""
+msgstr "조용히"
 
 msgid "Quota"
 msgstr "할당량"
@@ -2567,10 +2567,10 @@ msgid "RSync server"
 msgstr "RSync 서버"
 
 msgid "Ranges of numbers are not allowed"
-msgstr ""
+msgstr "허용되지 않은 숫자 범위입니다."
 
 msgid "Raw value"
-msgstr ""
+msgstr "Raw 값"
 
 msgid "Read only"
 msgstr "읽기 전용"
@@ -2594,13 +2594,13 @@ msgid "Reboot"
 msgstr "재시작"
 
 msgid "Recipient"
-msgstr ""
+msgstr "수신자"
 
 msgid "Recover"
 msgstr "복구"
 
 msgid "Recurse into directories"
-msgstr ""
+msgstr "디렉터리로 재귀"
 
 msgid "Recursive"
 msgstr "재귀적으로"
@@ -2615,13 +2615,13 @@ msgid "Refresh"
 msgstr "새로 고침"
 
 msgid "Relative Path"
-msgstr ""
+msgstr "상대 경로"
 
 msgid "Reload"
 msgstr "다시 불러오기"
 
 msgid "Remaining"
-msgstr ""
+msgstr "잔여"
 
 msgid "Remote"
 msgstr "원격"
@@ -2633,7 +2633,7 @@ msgid "Remote syslog"
 msgstr "원격 syslog"
 
 msgid "Remove"
-msgstr ""
+msgstr "제거"
 
 msgid "Remove devices from RAID device"
 msgstr "RAID 장치로부터 장치들을 제거"
@@ -2658,10 +2658,10 @@ msgid ""
 msgstr ""
 
 msgid "Repository"
-msgstr ""
+msgstr "저장소"
 
 msgid "Require valid shell"
-msgstr ""
+msgstr "유효한 쉘이 필요합니다."
 
 msgid "Required"
 msgstr ""
@@ -2670,7 +2670,7 @@ msgid "Reset"
 msgstr "재설정"
 
 msgid "Reset UI to defaults"
-msgstr ""
+msgstr "UI를 기본값으로 재설정"
 
 msgid ""
 "Reset the UI settings to their default values, e.g. the order of the grid "
@@ -2753,10 +2753,10 @@ msgid "SSH"
 msgstr "SSH"
 
 msgid "SSH certificate"
-msgstr ""
+msgstr "SSH 인증"
 
 msgid "SSH port"
-msgstr ""
+msgstr "SSH 포트"
 
 msgid "SSID"
 msgstr "SSID"
@@ -2882,7 +2882,7 @@ msgid "Select a user name ..."
 msgstr "사용자 이름을 선택하세요 ..."
 
 msgid "Select an authentication mode ..."
-msgstr ""
+msgstr "인증 방법을 선택하세요 ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr "RAID 장치에 추가될 장치를 선택하세요"
@@ -3267,7 +3267,7 @@ msgid "The RSA public key in OpenSSH format."
 msgstr "OpenSSH 포맷의 RSA 공개 키"
 
 msgid "The SSH certificate used for authentication."
-msgstr ""
+msgstr "인증에 사용되는 SSH 인증서"
 
 msgid "The SSL certificate."
 msgstr "SSL 인증"
@@ -3371,10 +3371,10 @@ msgid ""
 msgstr "컨트롤 연결에서 SSL 세션 데이터 연결에 재사용되는 경우 이 요구 사항은 필요하지 않습니다."
 
 msgid "The session IP address has been changed."
-msgstr ""
+msgstr "이 세션의 IP 주소가 변경되었습니다."
 
 msgid "The session user no longer exists."
-msgstr ""
+msgstr "이 세션의 사용자는 더 이상 존재하지 않습니다."
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3757,13 +3757,13 @@ msgid "Up delay"
 msgstr "활성화 지연"
 
 msgid "Update Management"
-msgstr ""
+msgstr "업데이트 관리"
 
 msgid "Update Management - History"
-msgstr ""
+msgstr "업데이트 관리 - 기록"
 
 msgid "Update Management - Terminal output"
-msgstr ""
+msgstr "업데이트 관리 - 터미널 출력"
 
 msgid "Update now"
 msgstr "지금 업데이트"
@@ -3925,7 +3925,7 @@ msgid "Web Administrator Password"
 msgstr "웹 관리자 암호"
 
 msgid "Web control panel"
-msgstr ""
+msgstr "웹 제어 패널"
 
 msgid "Wednesday"
 msgstr "수요일"
@@ -3972,7 +3972,7 @@ msgid "Write/Execute"
 msgstr "쓰기/실행"
 
 msgid "Xen virtual disk device"
-msgstr ""
+msgstr "Xen 가상 디스크 장치"
 
 msgid "Yearly"
 msgstr "매년"
@@ -3984,7 +3984,7 @@ msgid "Yes"
 msgstr "예"
 
 msgid "You need to commit or cancel your changes"
-msgstr ""
+msgstr "변경을 커밋하거나 취소할 필요가 있습니다"
 
 msgid "Zambia"
 msgstr "잠비아"
@@ -3993,7 +3993,7 @@ msgid "Zimbabwe"
 msgstr "짐바브웨"
 
 msgid "control panel"
-msgstr ""
+msgstr "제어 패널"
 
 msgid "day"
 msgstr "일"
@@ -4017,13 +4017,13 @@ msgid "n/a"
 msgstr "해당 없음"
 
 msgid "of {0}"
-msgstr ""
+msgstr "{0}의"
 
 msgid "old-age"
-msgstr ""
+msgstr "노화된"
 
 msgid "prefail"
-msgstr ""
+msgstr "사전 오류"
 
 msgid "seconds"
 msgstr "초"
