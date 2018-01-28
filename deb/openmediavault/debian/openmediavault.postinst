@@ -122,6 +122,7 @@ case "$1" in
 		deb-systemd-helper enable openmediavault-cleanup-monit.service
 		deb-systemd-helper enable openmediavault-cleanup-php.service
 		deb-systemd-helper enable openmediavault-engined.service
+		deb-systemd-helper enable openmediavault-issue
 
 		########################################################################
 		# Trigger file permission update.
