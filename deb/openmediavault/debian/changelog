@@ -159,6 +159,12 @@ openmediavault (4.0) stable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 22 Feb 2017 13:28:40 +0100
 
+openmediavault (3.0.97) stable; urgency=low
+
+  * Mantis 0001883: Fix bug in omv-firstaid IPv6 prefix length validation.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 06 Jan 2018 18:54:45 +0100
+
 openmediavault (3.0.96) stable; urgency=low
 
   * Various improvements.
