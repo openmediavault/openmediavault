@@ -212,9 +212,7 @@ class Module(openmediavault.firstaid.IModule):
 							backtitle=self.description,
 							height=5, width=32)
 						continue
-					try:
-						ipaddress.ip_address(netmask6)
-					except:
+					if int(netmask6) < 0 or int(netmask6) > 128:
 						netmask6 = None
 						d.msgbox("Please enter a valid netmask.",
 							backtitle=self.description,
