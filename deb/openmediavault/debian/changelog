@@ -2,6 +2,7 @@ openmediavault (4.0.18-1) stable; urgency=low
 
   * Mantis 0001882: Add 'source-directory interfaces.d' to
     /etc/network/interfaces to include additional interface stanzas.
+  * Fix WebUI issue in Firefox browser.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 22 Jan 2018 17:34:27 +0100
 
