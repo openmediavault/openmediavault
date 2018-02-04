@@ -33,11 +33,10 @@ Ext.define("OMV.module.public.info.support.Support", {
 		me.html = "<form style='overflow: auto; height: 100%;'>";
 		me.html += me.createBox(
 		  "<b>Project homepage</b><br/><a href='http://www.openmediavault.org' target='_blank'>http://www.openmediavault.org</a><br/><br/>" +
-		  "<b>Wiki</b><br/><a href='http://wiki.openmediavault.org' target='_blank'>http://wiki.openmediavault.org</a><br/><br/>" +
 		  "<b>Forum</b><br/><a href='http://forum.openmediavault.org' target='_blank'>http://forum.openmediavault.org</a><br/><br/>" +
 		  "<b>Documentation</b><br/><a href='http://docs.openmediavault.org' target='_blank'>http://docs.openmediavault.org</a><br/><br/>" +
+		  "<b>API documentation</b><br/><a href='http://apidocs.openmediavault.org' target='_blank'>http://apidocs.openmediavault.org</a><br/><br/>" +
 		  "<b>Bugtracker</b><br/><a href='http://bugtracker.openmediavault.org' target='_blank'>http://bugtracker.openmediavault.org</a><br/><br/>" +
-		  "<b>Contributors</b><br/><a href='http://wiki.openmediavault.org/index.php?title=Contributors' target='_blank'>http://wiki.openmediavault.org/index.php?title=Contributors</a><br/>");
 		me.html += "</form>";
 		me.callParent(arguments);
 	},
