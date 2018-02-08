@@ -19,14 +19,7 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 
-/******************************************************************************/
-/* Corporate colors (http://paletton.com/#uid=13v0u0kjPPS8-YpePUsofKdt2CQ)
-/* more lighter: #B9DFF8
-/* lighter:      #85C3EC
-/* default:      #5DACDF
-/* darker:       #3B95CF
-/* more darker:  #1B7BBA
-/******************************************************************************/
+@import 'defaults';
 
 /******************************************************************************/
 /* Font Awesome icons                                                         */
@@ -91,7 +84,7 @@
 	color: #f8d400; /* Yellow */
 }
 .x-color-corporate {
-	color: #5dacdf;
+	color: $omv-color-default;
 }
 /******************************************************************************/
 /* Common pages                                                               */
@@ -117,13 +110,13 @@
 /* Login page                                                                 */
 /******************************************************************************/
 .login-page {
-	background: #5DACDF;
+	background: $omv-color-default;
 }
 /******************************************************************************/
 /* Shutdown page                                                              */
 /******************************************************************************/
 .shutdown-page {
-	background: #5DACDF;
+	background: $omv-color-default;
 	font-style: normal;
 }
 .shutdown-page .shutdown-icon {
@@ -138,7 +131,7 @@
 .error-page {
 	font-family: "Open Sans", sans-serif;
     font-size: 14px;
-	background: #5DACDF;
+	background: $omv-color-default;
 	color: #ffffff;
 }
 .error-page hr {
@@ -166,13 +159,13 @@
 /* Workspace page                                                             */
 /******************************************************************************/
 a {
-	color: #1B7BBA; /* more darker */
+	color: $omv-color-more-darker;
 }
 div#header {
 	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	height: 80px;
-	background: #5DACDF; /* #475668, #5DACDF, #3C404B */
+	background: $omv-color-default;
 }
 div#headerlogo {
 	float: left;
@@ -252,7 +245,7 @@ div#headerrlogo {
 /******************************************************************************/
 /* Loadmask */
 .x-mask.x-focus {
-	border-color: #5DACDF;
+	border-color: $omv-color-default;
 }
 .x-mask-msg {
 	padding: none;
@@ -465,7 +458,7 @@ div#headerrlogo {
 /******************************************************************************/
 /* Tabs */
 .x-tab-bar-default {
-	background-color: #5DACDF;
+	background-color: $omv-color-default;
 }
 .x-tab-invalid {
 	border: 1px solid #cc3300;
@@ -578,7 +571,7 @@ div#headerrlogo {
 /*
 @supports ((filter: invert()) or (-webkit-filter: invert())) {
 	.x-workspace-node-tree .x-grid-body {
-		background: #5DACDF;
+		background: $omv-color-default;
 	}
 	.x-workspace-node-tree .x-grid-cell {
 		background-color: transparent;

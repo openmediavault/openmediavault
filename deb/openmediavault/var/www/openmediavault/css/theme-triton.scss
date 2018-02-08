@@ -19,14 +19,7 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 
-/******************************************************************************/
-/* Corporate colors (http://paletton.com/#uid=13v0u0kjPPS8-YpePUsofKdt2CQ)
-/* more lighter: #B9DFF8
-/* lighter:      #85C3EC
-/* default:      #5DACDF
-/* darker:       #3B95CF
-/* more darker:  #1B7BBA
-/******************************************************************************/
+@import 'defaults';
 
 /******************************************************************************/
 /* Miscellaneous */
@@ -51,7 +44,7 @@ body > .x-mask {
 /******************************************************************************/
 /* Form fieldset */
 .x-fieldset-header-default > .x-fieldset-header-text {
-	color: #1B7BBA; /* more darker */
+	color: $omv-color-more-darker;
 }
 /******************************************************************************/
 /* Trigger field */
@@ -73,7 +66,7 @@ body > .x-mask {
 	background-color: #ececec;
 }
 .x-form-trigger-wrap-default.x-form-trigger-wrap-focus {
-	border-color: #5DACDF;
+	border-color: $omv-color-default;
 }
 .x-form-trigger-wrap-default.x-form-trigger-wrap-invalid {
 	border-color: #cc3300;
@@ -87,51 +80,51 @@ body > .x-mask {
 /******************************************************************************/
 /* Panel */
 .x-panel-default {
-	border-color: #5DACDF;
+	border-color: $omv-color-default;
 }
 .x-panel-default-outer-border-l {
-	border-left-color: #5DACDF !important;
+	border-left-color: $omv-color-default !important;
 }
 .x-panel-default-outer-border-b {
-	border-bottom-color: #5DACDF !important;
+	border-bottom-color: $omv-color-default !important;
 }
 .x-panel-default-outer-border-trbl {
-	border-color: #5DACDF !important;
+	border-color: $omv-color-default !important;
 }
 .x-panel-default-outer-border-bl {
-	border-bottom-color: #5DACDF !important;
-	border-left-color: #5DACDF !important;
+	border-bottom-color: $omv-color-default !important;
+	border-left-color: $omv-color-default !important;
 }
 .x-panel-default-outer-border-r {
-	border-right-color: #5DACDF !important;
+	border-right-color: $omv-color-default !important;
 }
 .x-panel-default-outer-border-rl {
-	border-right-color: #5DACDF !important;
-	border-left-color: #5DACDF !important;
+	border-right-color: $omv-color-default !important;
+	border-left-color: $omv-color-default !important;
 }
 .x-panel-default-outer-border-rb {
-	border-right-color: #5DACDF !important;
-	border-bottom-color: #5DACDF !important;
+	border-right-color: $omv-color-default !important;
+	border-bottom-color: $omv-color-default !important;
 }
 .x-panel-default-outer-border-trl {
-	border-top-color: #5DACDF !important;
-	border-right-color: #5DACDF !important;
-	border-left-color: #5DACDF !important;
+	border-top-color: $omv-color-default !important;
+	border-right-color: $omv-color-default !important;
+	border-left-color: $omv-color-default !important;
 }
 .x-panel-default-outer-border-rbl {
-	border-right-color: #5DACDF !important;
-	border-bottom-color: #5DACDF !important;
-	border-left-color: #5DACDF !important;
+	border-right-color: $omv-color-default !important;
+	border-bottom-color: $omv-color-default !important;
+	border-left-color: $omv-color-default !important;
 }
 .x-panel-header-default-vertical {
-	background-color: #5DACDF;
+	background-color: $omv-color-default;
 }
 .x-panel-header-default .x-tool-tool-el {
-	background-color: #5DACDF;
+	background-color: $omv-color-default;
 }
 .x-panel-header-default {
-	border: 1px solid #5DACDF;
-	background-color: #5DACDF;
+	border: 1px solid $omv-color-default;
+	background-color: $omv-color-default;
 }
 /******************************************************************************/
 /* Tree */
@@ -159,7 +152,7 @@ body > .x-mask {
 .x-grid-item-over {
 }
 .x-grid-item-focused .x-grid-cell-inner:before {
-	border-color: #5DACDF; /* default */
+	border-color: $omv-color-default;
 }
 .x-grid-group-hd-collapsed .x-grid-group-title:before,
 .x-grid-group-hd-collapsible .x-grid-group-title:before {
@@ -205,59 +198,59 @@ body > .x-mask {
 /******************************************************************************/
 /* Tabs */
 .x-tab.x-tab-active.x-tab-default .x-tab-inner-default {
-	color: #5DACDF;
+	color: $omv-color-default;
 }
 .x-tab-focus.x-tab-default {
-	outline: 1px solid #5DACDF;
+	outline: 1px solid $omv-color-default;
 }
 .x-tab-invalid {
 	background-color: #cc3300;
 }
 .x-box-scroller-tab-bar-default {
-	background-color: #3B95CF; /* darker */
+	background-color: $omv-color-darker;
 }
 /******************************************************************************/
 /* Windows */
 .x-window-default {
-	border-color: #1B7BBA; /* more darker */
+	border-color: $omv-color-more-darker;
 	border-width: 1px;
 }
 .x-window-body-default {
-	border-color: #3B95CF !important; /* darker */
+	border-color: $omv-color-darker !important;
 }
 .x-window-header-default {
-	border-color: #3B95CF; /* darker */
-	background-color: #3B95CF; /* darker */
+	border-color: $omv-color-darker;
+	background-color: $omv-color-darker;
 }
 .x-window-header-default .x-tool-img {
-	background-color: #3B95CF; /* darker */
+	background-color: $omv-color-darker;
 }
 /******************************************************************************/
 /* Buttons */
 .x-btn-default-small {
-	border-color: #5DACDF; /* default */
-	background-color: #5DACDF; /* default */
+	border-color: $omv-color-default;
+	background-color: $omv-color-default;
 }
 .x-btn-focus.x-btn-default-small {
-	border-color: #5DACDF; /* default */
-	background-color: #5DACDF; /* default */
+	border-color: $omv-color-default;
+	background-color: $omv-color-default;
 }
 .x-btn-over.x-btn-default-small {
-	border-color: #3B95CF; /* darker */
-	background-color: #3B95CF; /* darker */
+	border-color: $omv-color-darker;
+	background-color: $omv-color-darker;
 }
 .x-btn.x-btn-pressed.x-btn-default-small {
-	border-color: #1B7BBA; /* more darker */
-	background-color: #1B7BBA; /* more darker */
+	border-color: $omv-color-more-darker;
+	background-color: $omv-color-more-darker;
 }
 .x-btn.x-btn-disabled.x-btn-default-small {
-	border-color: #85C3EC; /* lighter */
-	background-color: #85C3EC; /* lighter */
+	border-color: $omv-color-lighter;
+	background-color: $omv-color-lighter;
 }
 /******************************************************************************/
 /* Checkbox */
 .x-form-checkbox-focus.x-form-checkbox-default {
-	color: #5DACDF;
+	color: $omv-color-default;
 }
 .x-form-checkbox-default:before,
 .x-form-cb-checked .x-form-checkbox-default:before {
@@ -266,20 +259,20 @@ body > .x-mask {
 /******************************************************************************/
 /* Combobox */
 .x-boundlist-item-over {
-	background: #85C3EC; /* lighter */
-	border-color: #85C3EC; /* lighter */
+	background: $omv-color-lighter;
+	border-color: $omv-color-lighter;
 }
 .x-boundlist-selected {
-	background: #5DACDF; /* default */
-	border-color: #5DACDF; /* default */
+	background: $omv-color-default;
+	border-color: $omv-color-default;
 }
 /******************************************************************************/
 /* Menu */
 .x-menu-item-default.x-menu-item-focus,
 .x-menu-item-default.x-menu-item-active {
-	background-color: #85C3EC; /* lighter */
+	background-color: $omv-color-lighter;
 }
 .x-menu-item-default-menubar.x-menu-item-focus,
 .x-menu-item-default-menubar.x-menu-item-active {
-	background-color: #85C3EC; /* lighter */
+	background-color: $omv-color-lighter;
 }

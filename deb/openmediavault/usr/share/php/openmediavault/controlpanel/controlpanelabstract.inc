@@ -116,8 +116,8 @@ EOF;
 		// Set core CSS files.
 		$cssList = [
 			"/extjs6/classic/theme-triton/resources/theme-triton-all.css",
-			"css/theme-all.css",
-			"css/theme-triton.css",
+			"css/theme-all.min.css",
+			"css/theme-triton.min.css",
 			"css/materialdesignicons.min.css"
 		];
 		// Add additional CSS files.
