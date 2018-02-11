@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# kochin <kochinc@outlook.com>, 2013-2017
+# kochin <kochinc@outlook.com>, 2013-2018
 # kochin <kochinc@outlook.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-21 11:50+0100\n"
-"PO-Revision-Date: 2018-01-21 10:50+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2018-01-26 11:18+0000\n"
+"Last-Translator: kochin <kochinc@outlook.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/votdev/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -572,13 +572,13 @@ msgid "Certain date"
 msgstr "某個日期"
 
 msgid "Certificate"
-msgstr "證書"
+msgstr "憑證"
 
 msgid "Certificate details"
-msgstr "證書詳細資訊"
+msgstr "憑證詳細資訊"
 
 msgid "Certificates"
-msgstr "證書"
+msgstr "憑證"
 
 msgid "Chad"
 msgstr "查德"
@@ -713,7 +713,7 @@ msgid "Create file system"
 msgstr "新建檔案系統"
 
 msgid "Create self-signed SSL certificate"
-msgstr "新建自我簽名的 SSL 證書"
+msgstr "新建自我簽名的 SSL 憑證"
 
 msgid "Creating the file system, please wait ..."
 msgstr "創建檔案系統中，請稍待 ..."
@@ -1007,10 +1007,10 @@ msgid "Edit"
 msgstr "編輯"
 
 msgid "Edit SSH certificate"
-msgstr "編輯 SSL 證書"
+msgstr "編輯 SSL 憑證"
 
 msgid "Edit SSL certificate"
-msgstr "編輯 SSL 證書"
+msgstr "編輯 SSL 憑證"
 
 msgid "Edit VLAN connection"
 msgstr "編輯 VLAN 連線"
@@ -1575,10 +1575,10 @@ msgid "Import"
 msgstr "匯入"
 
 msgid "Import SSH certificate"
-msgstr "匯入 SSL 證書"
+msgstr "匯入 SSL 憑證"
 
 msgid "Import SSL certificate"
-msgstr "匯入 SSL 證書"
+msgstr "匯入 SSL 憑證"
 
 msgid "Import groups"
 msgstr "匯入群組"
@@ -2132,7 +2132,7 @@ msgid "No action"
 msgstr "無動作"
 
 msgid "No certificate request"
-msgstr "不提出證書請求"
+msgstr "不提出憑證請求"
 
 msgid "No connections"
 msgstr "沒有連線"
@@ -2306,7 +2306,7 @@ msgid "Passwords don't match"
 msgstr "密碼不相符"
 
 msgid "Paste a RSA certificate in X.509 PEM format here."
-msgstr "貼上 X.509 PEM 格式的 RSA 證書。"
+msgstr "貼上 X.509 PEM 格式的 RSA 憑證。"
 
 msgid "Paste an private RSA key in X.509 PEM format here."
 msgstr "貼上私人 X.509 PEM 格式的 RSA 密鑰。"
@@ -2396,7 +2396,7 @@ msgstr "詳情請查看<a href='http://www.samba.org/samba/docs/man/manpages-3/s
 msgid ""
 "Please check the <a href='https://man.openbsd.org/sshd_config.5' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "詳情請查看<a href='https://man.openbsd.org/sshd_config.5' target='_blank'>手冊頁</a>。"
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "請選擇抹除裝置的方式或選 '取消' 來中止。"
@@ -2836,10 +2836,10 @@ msgid "Secure connection"
 msgstr "安全連線"
 
 msgid "Select a SSH certificate ..."
-msgstr "選擇一份 SSL 證書 ..."
+msgstr "選擇一份 SSL 憑證 ..."
 
 msgid "Select a SSL certificate ..."
-msgstr "選擇一份 SSL 證書 ..."
+msgstr "選擇一份 SSL 憑證 ..."
 
 msgid "Select a country ..."
 msgstr "選擇一個國家 ..."
@@ -3004,7 +3004,7 @@ msgid "Short self-test"
 msgstr "簡短自我測試"
 
 msgid "Show certificate"
-msgstr "顯示證書"
+msgstr "顯示憑證"
 
 msgid "Show changelog"
 msgstr "顯示變更日誌"
@@ -3269,7 +3269,7 @@ msgid "The SSH certificate used for authentication."
 msgstr "用來鑑別的 SSH 憑證"
 
 msgid "The SSL certificate."
-msgstr "SSL 證書。"
+msgstr "SSL 憑證。"
 
 msgid "The action to be done when pressing the power button."
 msgstr "當按下電源按鈕時，將執行的動作。"
@@ -3328,7 +3328,7 @@ msgid "The name of the share."
 msgstr "該共享的名稱。"
 
 msgid "The number of days the certificate is valid for."
-msgstr "證書有效的天數。"
+msgstr "憑證有效的天數。"
 
 msgid "The page will reload now to let the changes take effect."
 msgstr "現在網頁將重新載入頁面以讓更改生效。"
@@ -3498,14 +3498,14 @@ msgid "This field should only contain numbers separated by <,> or <;>"
 msgstr "此欄位應該只包含以 <,> 或 <;> 分隔的數字"
 
 msgid "This field should only contain options separated by <,>"
-msgstr ""
+msgstr "此欄位應該只含有以 <,> 分隔的選項"
 
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
 msgstr "此欄位應該只包含以 <,> 或 <;> 分隔的通訊埠(0 - 65535)"
 
 msgid "This field should only contain strings separated by <,>"
-msgstr ""
+msgstr "此欄位應該只含有以 <,> 分隔的字串"
 
 msgid "This field should only contain strings separated by <,> or <;>"
 msgstr "此欄位應該只包含以 <,> 或 <;> 分隔的字串"
@@ -3527,7 +3527,7 @@ msgstr "這可更有效率地使用系統的 CPU，並使 Samba 執行更快。�
 msgid ""
 "This option causes the server to not send a certificate request during a SSL"
 " handshake."
-msgstr "此選項會導致伺服器在 SSL 握手過程不要發送證書請求。"
+msgstr "此選項會導致伺服器在 SSL 握手過程不要發送憑證請求。"
 
 msgid ""
 "This option determines if this module should be listed when the client asks "

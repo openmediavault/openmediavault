@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
-# Jonatan Nyberg, 2017
+# Jonatan Nyberg, 2017-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-18 11:05+0100\n"
-"PO-Revision-Date: 2017-11-19 17:30+0000\n"
+"PO-Revision-Date: 2018-01-28 13:36+0000\n"
 "Last-Translator: Jonatan Nyberg\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -118,7 +118,7 @@ msgid "Quiet"
 msgstr "Tyst"
 
 msgid "Recurse into directories."
-msgstr ""
+msgstr "Rekursivt in i kataloger."
 
 msgid "Recursive"
 msgstr "Rekursiv"
