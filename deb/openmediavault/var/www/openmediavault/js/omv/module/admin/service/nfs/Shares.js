@@ -91,7 +91,7 @@ Ext.define("OMV.module.admin.service.nfs.Share", {
 			fieldLabel: _("Extra options"),
 			allowBlank: true,
 			vtype: "nfsOptionList",
-			value: "subtree_check,secure",
+			value: "subtree_check,insecure",
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("Please check the <a href='http://linux.die.net/man/5/exports' target='_blank'>manual page</a> for more details.")
