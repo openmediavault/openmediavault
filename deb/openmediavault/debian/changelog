@@ -1,6 +1,6 @@
 openmediavault (4.0.19-1) stable; urgency=low
 
-  *
+  * Fix install problem of openmediavault-issue systemd unit.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 11 Feb 2018 19:37:56 +0100
 
