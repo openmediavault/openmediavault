@@ -107,12 +107,12 @@ class OMVModuleNetworkUPSTools extends \OMV\Engine\Module\ServiceAbstract
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.nut");
-		$monit = new \OMV\System\Monit("nut-monitor");
+		$systemCtl = new \OMV\System\SystemCtl("nut-monitor");
 		return [
 			"name" => $this->getName(),
 			"title" => gettext("UPS"),
 			"enabled" => $object->get("enable"),
-			"running" => $monit->isRunning()
+			"running" => $systemCtl->isActive()
 		];
 	}
 

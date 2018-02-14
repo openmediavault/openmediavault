@@ -1,3 +1,10 @@
+openmediavault-nut (4.0.10-1) stable; urgency=low
+
+  * Update locales.
+  * Use systemctl instead of Monit to get the current status.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 14 Feb 2018 17:36:12 +0100
+
 openmediavault-nut (4.0.9-1) stable; urgency=low
 
   * Improve package postinst script. Restart collectd only if system
