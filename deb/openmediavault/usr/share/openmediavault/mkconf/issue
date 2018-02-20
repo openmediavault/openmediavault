@@ -48,9 +48,17 @@ To manage the system visit the ${prdname} web control panel:
 
 EOF
 
-	ifaces=$(ifquery --list --no-scripts --allow=hotplug --allow=auto -X lo | sort)
+	ifaces=""
+	for iface in $(ls /sys/class/net | sort); do
+		# https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-class-net
+		# https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/plain/include/uapi/linux/if_arp.h?id=HEAD
+		[ $(cat "/sys/class/net/${iface}/type") -ne 1 ] && continue
+		[ $(cat "/sys/class/net/${iface}/operstate") != "up" ] && continue
+		ifaces="${ifaces} ${iface}"
+	done
+
 	if [ -n "${ifaces}" ] && udevadm settle; then
-		for iface in ${ifaces} ; do
+		for iface in ${ifaces}; do
 			ipaddr=$(omv_get_ipaddr ${iface})
 			if [ -n "${ipaddr}" ]; then
 				echo "${iface}: ${ipaddr}" >> ${OMV_ISSUE_CONFIG}
