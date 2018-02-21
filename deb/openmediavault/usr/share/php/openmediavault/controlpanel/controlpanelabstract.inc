@@ -138,7 +138,7 @@ EOF;
 			"js/js-overrides.js",
 			"js/omv/globals.js"
 		];
-		if (TRUE === \OMV\Environment::getBoolean("OMV_DEBUG_EXTJS")) {
+		if (TRUE === \OMV\Environment::getBoolean("OMV_DEBUG_EXTJS", FALSE)) {
 			$jsList = array_merge([
 				"/extjs6/ext-all-debug.js",
 				"/extjs6/classic/theme-triton/theme-triton-debug.js"
