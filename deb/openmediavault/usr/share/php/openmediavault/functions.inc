@@ -879,27 +879,34 @@ function posix_kill_ex($pid, $sig) {
 
 /**
  * Escape a path to be used in a shell environment. Various characters will
- * be replaced with their hexadecimal representation, e.g. a whitespace will be
- * replaced by \x20.
+ * be replaced with their hexadecimal/octal representation, e.g. a whitespace
+ * will be replaced by \x20 or \040.
  * Example:
  * /srv/dev-disk-by-label-xx yy => /srv/dev-disk-by-label-xx\x20yy
+ * /srv/dev-disk-by-label-xx yy => /srv/dev-disk-by-label-xx\040yy
  * @param string $var The variable that will be escaped.
+ * @param boolean $octal If TRUE, convert octal values, otherwise hexadecimal.
+ *   Defaults to FALSE.
  * @return The escaped string.
  */
-function escape_path($var) {
-	$var = str_replace(" ", "\\x20", $var);
+function escape_path($var, $octal = FALSE) {
+	$var = str_replace(" ", $octal ? "\\040" : "\\x20", $var);
 	return $var;
 }
 
 /**
- * Unescape a path. Various hexadecimal characters will be replaced with
- * their ASCII representation, e.g. \x20 will be replaced by a whitespace.
+ * Unescape a path. Various hexadecimal/octal characters will be replaced
+ * with their ASCII representation, e.g. \x20 or \040 will be replaced by
+ * a whitespace.
  * Example:
  * /srv/dev-disk-by-label-xx\x20yy => /srv/dev-disk-by-label-xx yy
+ * /srv/dev-disk-by-label-xx\040yy => /srv/dev-disk-by-label-xx yy
  * @param string $var The variable that will be unescaped.
+ * @param boolean $octal If TRUE, convert octal values, otherwise hexadecimal.
+ *   Defaults to FALSE.
  * @return The unescaped string.
  */
-function unescape_path($var) {
-	$var = str_replace("\\x20", " ", $var);
+function unescape_path($var, $octal = FALSE) {
+	$var = str_replace($octal ? "\\040" : "\\x20", " ", $var);
 	return $var;
 }

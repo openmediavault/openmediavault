@@ -875,7 +875,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 			// /dev/sdb2 /home/ftp/data ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
 			// /dev/sde1 /media/46607e80-dc8e-427e-9939-7909985dfe5b ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
 			$parts = explode(" ", $rowv);
-			if ($parts[1] == $dir) {
+			if ($parts[1] == escape_path($dir, TRUE)) {
 				// Get the backend by the file system type (e.g. ext4, xfs,
 				// nfs, aufs, ...).
 				$mngr = Backend\Manager::getInstance();
