@@ -1,3 +1,9 @@
+openmediavault (3.0.98) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 21 Feb 2018 12:19:32 +0100
+
 openmediavault (3.0.97) stable; urgency=low
 
   * Add 'Clear web control panel cache' option to omv-firstaid.
