@@ -29,7 +29,7 @@ class CDROM extends BackendAbstract {
 	protected $regex = "sr[0-9]+";
 
 	function getType() {
-		return OMV_STORAGE_DEVICE_TYPE_HDD;
+		return OMV_STORAGE_DEVICE_TYPE_DISK;
 	}
 
 	function enumerate() {

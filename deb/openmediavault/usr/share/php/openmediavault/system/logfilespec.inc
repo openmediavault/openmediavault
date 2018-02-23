@@ -78,7 +78,7 @@ class LogFileSpec {
 	 * @param id The identifier of the log file specification, e.g.
 	 *   'syslog' or 'auth'.
 	 * @param spec The log file specification.
-	 * @return None
+	 * @return void
 	 */
 	public static function registerSpecification($id, array $spec) {
 		// Validate the specification.
@@ -95,7 +95,7 @@ class LogFileSpec {
 	/**
 	 * Checks if a log file specification is registered.
 	 * @param id The identifier of the log file specification.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\AssertException
 	 */
 	public static function assertIsRegistered($id) {

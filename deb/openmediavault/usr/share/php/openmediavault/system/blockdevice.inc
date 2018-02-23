@@ -27,13 +27,14 @@ require_once("openmediavault/functions.inc");
  * This class implements an interface to a generic Linux block device.
  * @ingroup api
  */
-class BlockDevice implements IBlockDevice {
+class BlockDevice implements BlockDeviceInterface, UdevInterface {
+	use UdevTrait;
+
 	protected $deviceFile = NULL;
 	protected $deviceFileById = NULL;
 	protected $size = FALSE;
 	protected $blockSize = FALSE;
 	protected $sectorSize = FALSE;
-	protected $udevData = NULL;
 
 	/**
 	 * Constructor
@@ -62,12 +63,12 @@ class BlockDevice implements IBlockDevice {
 	 * See interface definition.
 	 */
 	public function exists() {
-		return is_block($this->getDeviceFile());
+		return is_block_device($this->getDeviceFile());
 	}
 
 	/**
 	 * Assert that the device exists.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\AssertException
 	 */
 	public function assertExists() {
@@ -163,22 +164,14 @@ class BlockDevice implements IBlockDevice {
 	}
 
 	/**
-	 * Check whether the device has a /dev/disk/by-id/xxx device path.
-	 * @return Returns TRUE if a disk/by-id device path exists,
-	 *   otherwise FALSE.
+	 * See interface definition.
 	 */
 	public function hasDeviceFileById() {
 		return is_devicefile_by_id($this->getDeviceFileById());
 	}
 
 	/**
-	 * Get the device file by PATH, e.g. <ul>
-	 * \li /dev/disk/by-path/pci-0000:00:17.0-ata-3
-	 * \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
-	 * \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:1:0-part1
-	 * </ul>
-	 * @return The device file (/dev/disk/by-path/xxx) if available,
-	 *   otherwise NULL will be returned.
+	 * See interface definition.
 	 */
 	public function getDeviceFileByPath() {
 		$result = NULL;
@@ -194,22 +187,14 @@ class BlockDevice implements IBlockDevice {
 	}
 
 	/**
-	 * Check whether the device has a /dev/disk/by-path/xxx device path.
-	 * @return Returns TRUE if a disk/by-path device path exists,
-	 *   otherwise FALSE.
+	 * See interface definition.
 	 */
 	public function hasDeviceFileByPath() {
 		return is_devicefile_by_path($this->getDeviceFileByPath());
 	}
 
 	/**
-	 * Get a predictable device file in the following order:
-	 * <ul>
-	 * \li /dev/disk/by-id/xxx
-	 * \li /dev/disk/by-path/xxx
-	 * \li /dev/xxx
-	 * </ul>
-	 * @return Returns a device file.
+	 * See interface definition.
 	 */
 	public function getPredictableDeviceFile() {
 		if (TRUE === $this->hasDeviceFileById())
@@ -220,13 +205,7 @@ class BlockDevice implements IBlockDevice {
 	}
 
 	/**
-	 * Get the device file to present in the UI, e.g.:
-	 * <ul>
-	 * \li /dev/disk/by-id/xxx
-	 * \li /dev/disk/by-path/xxx
-	 * \li /dev/xxx
-	 * </ul>
-	 * @return Returns a device file.
+	 * See interface definition.
 	 */
 	public function getPreferredDeviceFile() {
 		return $this->getCanonicalDeviceFile();
@@ -266,9 +245,7 @@ class BlockDevice implements IBlockDevice {
 	}
 
 	/**
-	 * Get the size of the device in bytes.
-	 * @return The size (64bit) of the device in bytes as string.
-	 * @throw \OMV\ExecException
+	 * See interface definition.
 	 */
 	public function getSize() {
 		if (FALSE === $this->size) {
@@ -284,9 +261,7 @@ class BlockDevice implements IBlockDevice {
 	}
 
 	/**
-	 * Get the blocksize of the device in bytes.
-	 * @return The blocksize of the device in bytes.
-	 * @throw \OMV\ExecException
+	 * See interface definition.
 	 */
 	public function getBlockSize() {
 		if (FALSE === $this->blockSize) {
@@ -302,9 +277,7 @@ class BlockDevice implements IBlockDevice {
 	}
 
 	/**
-	 * Get the sectorsize of the device in bytes.
-	 * @return The sectorsize of the device in bytes.
-	 * @throw \OMV\ExecException
+	 * See interface definition.
 	 */
 	public function getSectorSize() {
 		if (FALSE === $this->sectorSize) {
@@ -362,123 +335,7 @@ class BlockDevice implements IBlockDevice {
 	}
 
 	/**
-	 * Queries the udev database for device information stored in the
-	 * udev database.
-	 * @param force Force the collection of the information, even when the
-	 *   information is already cached. Defaults to FALSE.
-	 */
-	protected function getUdevData($force = FALSE) {
-		// Do we need to get the udev information?
-		if ((TRUE === $force) || is_null($this->udevData)) {
-			$cmdArgs = [];
-			$cmdArgs[] = "info";
-			$cmdArgs[] = "--query=property";
-			$cmdArgs[] = sprintf("--name=%s", escapeshellarg(
-			  $this->getDeviceFile()));
-			$cmd = new \OMV\System\Process("udevadm", $cmdArgs);
-			$cmd->setRedirect2to1();
-			$cmd->execute($output);
-			// Parse output:
-			// UDEV_LOG=3
-			// DEVPATH=/devices/pci0000:00/0000:00:10.0/host2/target2:0:1/2:0:1:0/block/sdb
-			// MAJOR=8
-			// MINOR=16
-			// DEVNAME=/dev/sdb
-			// DEVTYPE=disk
-			// SUBSYSTEM=block
-			// ID_SCSI=1
-			// ID_VENDOR=VMware_
-			// ID_VENDOR_ENC=VMware\x2c\x20
-			// ID_MODEL=VMware_Virtual_S
-			// ID_MODEL_ENC=VMware\x20Virtual\x20S
-			//
-			// DEVLINKS=/dev/disk/by-id/ata-IBM-DTTA-341050_WF0WABH1579 /dev/disk/by-id/scsi-SATA_IBM-DTTA-341050_WF0WABH1579 /dev/disk/by-path/pci-0000:00:02.5-scsi-0:0:0:0
-			// DEVNAME=/dev/sda
-			// DEVPATH=/devices/pci0000:00/0000:00:02.5/host0/target0:0:0/0:0:0:0/block/sda
-			// DEVTYPE=disk
-			// ID_ATA=1
-			// ID_ATA_FEATURE_SET_HPA=1
-			// ID_ATA_FEATURE_SET_HPA_ENABLED=1
-			// ID_ATA_FEATURE_SET_PM=1
-			// ID_ATA_FEATURE_SET_PM_ENABLED=1
-			// ID_ATA_FEATURE_SET_SECURITY=1
-			// ID_ATA_FEATURE_SET_SECURITY_ENABLED=0
-			// ID_ATA_FEATURE_SET_SECURITY_ERASE_UNIT_MIN=22
-			// ID_ATA_FEATURE_SET_SMART=1
-			// ID_ATA_FEATURE_SET_SMART_ENABLED=0
-			// ID_ATA_WRITE_CACHE=1
-			// ID_ATA_WRITE_CACHE_ENABLED=1
-			// ID_BUS=ata
-			// ID_MODEL=IBM-DTTA-351010
-			// ID_MODEL_ENC=IBM-DTTA-351010\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
-			// ID_PART_TABLE_TYPE=dos
-			// ID_PATH=pci-0000:00:02.5-scsi-0:0:0:0
-			// ID_PATH_TAG=pci-0000_00_02_5-scsi-0_0_0_0
-			// ID_REVISION=T56OA7A3
-			// ID_SCSI_COMPAT=SATA_IBM-DTTA-341050_WF0WABH1579
-			// ID_SERIAL=IBM-DTTA-341050_WF0WABH1579
-			// ID_SERIAL_SHORT=WF0WFJH1486
-			// ID_TYPE=disk
-			// MAJOR=8
-			// MINOR=0
-			// SUBSYSTEM=block
-			// UDEV_LOG=3
-			// USEC_INITIALIZED=16872806
-			$this->udevData = [];
-			foreach ($output as $row) {
-				$data = explode("=", $row);
-				if (empty($data))
-					continue;
-				// Trim only the key, do not touch the value.
-				$this->udevData[trim($data[0])] = $data[1];
-			}
-		}
-	}
-
-	/**
-	 * Checks if a udev property exists.
-	 * @param id The name of the property, e.g. ID_VENDOR, ID_MODEL or
-	 *   ID_SERIAL_SHORT.
-	 * @return Returns TRUE if the property exists, otherwise FALSE.
-	 */
-	public function hasUdevProperty($id) {
-		$this->getUdevData();
-		return array_key_exists($id, $this->udevData);
-	}
-
-	/**
-	 * Assert that a udev property exists.
-	 * @param id The name of the property, e.g. ID_VENDOR, ID_MODEL or
-	 *   ID_SERIAL_SHORT.
-	 * @return None.
-	 * @throw \OMV\AssertException
-	 */
-	public function assertUdevProperty($id) {
-		if (FALSE === $this->hasUdevProperty($id)) {
-			throw new \OMV\AssertException(
-			  "The udev property '%s' does not exist.", $id);
-		}
-	}
-
-	/**
-	 * Queries the udev database for device information stored in the udev
-	 * database.
-	 * @param id The name of the property, e.g. ID_VENDOR, ID_MODEL or
-	 *   ID_SERIAL_SHORT.
-	 * @return The requested property, otherwise FALSE.
-	 */
-	public function getUdevProperty($id) {
-		$this->getUdevData();
-		$this->assertUdevProperty($id);
-		return $this->udevData[$id];
-	}
-
-	/**
-	 * Wait for the specified device. If the device file is not available
-	 * within the given time, then an exception is thrown.
-	 * @param timeout Timeout in seconds to wait for an available device.
-	 * @return None.
-	 * @throw \OMV\Exception
+	 * See interface definition.
 	 */
 	public function waitForDevice($timeout) {
 		for ($i = 0; $i < $timeout; $i++) {

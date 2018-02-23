@@ -647,7 +647,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params An array containing the following fields:
 	 *   \em id The UUID or block special device of the filesystem to resize.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Exception
 	 */
 	public function resize($params, $context) {
@@ -686,7 +686,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params An array containing the following fields:
 	 *   \em id The UUID or block special device of the filesystem to delete.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Exception
 	 */
 	public function delete($params, $context) {
@@ -785,7 +785,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em fstab If set to FALSE, no fstab entry will be created, thus the
 	 *     given filesystem is mounted only.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Exception
 	 * @throw \OMV\Config\ConfigDirtyException
 	 */
@@ -898,7 +898,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em fstab If set to FALSE, the fstab entry will not be removed (if
 	 *     existing), thus the given filesystem is unmounted only.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Exception
 	 */
 	public function umount($params, $context) {

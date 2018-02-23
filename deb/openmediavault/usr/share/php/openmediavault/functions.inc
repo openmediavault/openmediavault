@@ -378,11 +378,23 @@ function is_devicefile_by_path($var) {
 /**
  * Tells whether the given file is a block device.
  * @ingroup api
+ * @deprecated
  * @param string $filename Path to the file.
  * @param bool $dereference Follow links. Defaults to TRUE.
  * @return Returns TRUE if the file is a block device, FALSE otherwise.
  */
 function is_block($filename, $dereference = TRUE) {
+	return is_block_device($filename, $dereference);
+}
+
+/**
+ * Tells whether the given file is a block device.
+ * @ingroup api
+ * @param string $filename Path to the file.
+ * @param bool $dereference Follow links. Defaults to TRUE.
+ * @return Returns TRUE if the file is a block device, FALSE otherwise.
+ */
+function is_block_device($filename, $dereference = TRUE) {
 	if (FALSE === is_string($filename))
 		return FALSE;
 	if (FALSE === file_exists($filename))
@@ -391,6 +403,24 @@ function is_block($filename, $dereference = TRUE) {
 	if (TRUE === $dereference)
 		$filename = realpath($filename);
 	return ("block" == filetype($filename));
+}
+
+/**
+ * Tells whether the given file is a block device.
+ * @ingroup api
+ * @param string $filename Path to the file.
+ * @param bool $dereference Follow links. Defaults to TRUE.
+ * @return Returns TRUE if the file is a block device, FALSE otherwise.
+ */
+function is_char_device($filename, $dereference = TRUE) {
+	if (FALSE === is_string($filename))
+		return FALSE;
+	if (FALSE === file_exists($filename))
+		return FALSE;
+	clearstatcache(TRUE, $filename);
+	if (TRUE === $dereference)
+		$filename = realpath($filename);
+	return ("char" == filetype($filename));
 }
 
 /**

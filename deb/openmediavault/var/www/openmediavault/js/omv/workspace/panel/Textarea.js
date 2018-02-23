@@ -124,7 +124,7 @@ Ext.define("OMV.workspace.panel.Textarea", {
 	/**
 	 * Set the textarea content to be displayed.
 	 * @param value The value to set.
-	 * @return None.
+	 * @return void
 	 */
 	setValue: function(value) {
 		var me = this;

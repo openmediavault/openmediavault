@@ -28,7 +28,7 @@ require_once("openmediavault/functions.inc");
  * @ingroup api
  */
 abstract class ServiceAbstract {
-	use \OMV\Debugable;
+	use \OMV\DebugTrait;
 
 	private $registeredMethods = [];
 	private $registeredMethodSequences = [];
@@ -159,7 +159,7 @@ abstract class ServiceAbstract {
 	 *   Can be given as UTF-8 encoded JSON or an associative array.
 	 *   Alternatively this can be the identifier of a data model used
 	 *   for validation.
-	 * @return None.
+	 * @return void
 	 */
 	final protected function validateMethodParams($params, $schema) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -174,7 +174,7 @@ abstract class ServiceAbstract {
 	 * Helper function to validate the method caller context.
 	 * @param context The caller context to be validated.
 	 * @param required The required context.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Rpc\Exception
 	 */
 	final protected function validateMethodContext($context, $required) {
@@ -361,7 +361,7 @@ abstract class ServiceAbstract {
 	/**
 	 * Helper function to unlink the background process status file.
 	 * @param filename The name of the status file.
-	 * @return None.
+	 * @return void
 	 */
 	final protected function unlinkBgProcStatus($filename) {
 		$jsonFile = new \OMV\Json\File($filename);

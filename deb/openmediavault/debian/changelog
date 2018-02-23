@@ -1,7 +1,10 @@
-openmediavault (4.0.20-1) stable; urgency=low
+openmediavault (4.1.0-1) stable; urgency=low
 
   * Replace ifquery command in 'omv-mkconf issue' script.
   * Fix handling of file system labels containing whitespaces.
+  * Refactored PHP API.
+  * Rename all PHP interfaces from IXxxYyyZzz to XxxYyyZzzInterface according
+    to PSR (PHP Standards Recommendations), see https://www.php-fig.org/psr.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 11 Feb 2018 19:54:12 +0100
 

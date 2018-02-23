@@ -58,7 +58,7 @@ class MountPoint {
 	 *   \li /srv/7A48-BA97 (FAT)
 	 *   \li /srv/2ED43920D438EC29 (NTFS)
 	 *   </ul>
-	 * @return None.
+	 * @return void
 	 */
 	public function setPath($dir) {
 		$this->dir = $dir;
@@ -82,7 +82,7 @@ class MountPoint {
 	 * Create the mountpoint of the file system.
 	 * @param mode Set the file mode (as in chmod), e.g. '0755'.
 	 *   Defaults to '0700'.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function create($mode = "0700") {
@@ -101,7 +101,7 @@ class MountPoint {
 	/**
 	 * Unlink the mountpoint of the file system.
 	 * @param force Set to TRUE to ignore nonexistent files. Defaults to TRUE.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function unlink($force = TRUE) {
@@ -157,7 +157,7 @@ class MountPoint {
 	 * Mount the this mountpoint.
 	 * @param options An array or comma seperated string of additional mount
 	 *   options. Defaults to "".
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function mount($options = "") {
@@ -178,7 +178,7 @@ class MountPoint {
 	 * Unmount the this mountpoint.
 	 * @param force Set to TRUE to force unmount. Defaults to FALSE.
 	 * @param lazy Set to TRUE to lazy unmount. Defaults to FALSE.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function umount($force = FALSE, $lazy = FALSE) {

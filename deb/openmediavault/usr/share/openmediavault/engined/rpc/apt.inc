@@ -230,7 +230,7 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em filename The original name of the file.
 	 *   \em filepath The path to the uploaded file.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	function upload($params, $context) {
 		// Validate the RPC caller context.

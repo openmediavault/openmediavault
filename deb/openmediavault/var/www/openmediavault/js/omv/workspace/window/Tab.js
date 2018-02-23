@@ -170,7 +170,7 @@ Ext.define("OMV.workspace.window.Tab", {
 	/**
 	 * Set values for fields in this tab in bulk.
 	 * @param values The values to set in the tab of an object hash.
-	 * @return None.
+	 * @return void
 	 */
 	setValues: function(values) {
 		var me = this;

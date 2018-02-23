@@ -147,7 +147,7 @@ Ext.define("OMV.grid.Panel", {
 	/**
 	 * Loads an array of data straight into the grid.
 	 * @param values The values to load into the grids store.
-	 * @return None.
+	 * @return void
 	 */
 	setValues: function(values) {
 		var me = this;

@@ -27,8 +27,8 @@ require_once("openmediavault/functions.inc");
  * Class to get detailed information about a filesystem.
  * @ingroup api
  */
-class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
-  ISharedFolderCandidate {
+class Filesystem extends \OMV\System\BlockDevice
+		implements FilesystemInterface, SharedFolderCandidateInterface {
 	protected $uuid = "";
 	protected $type = "";
 	protected $label = "";
@@ -71,7 +71,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	/**
 	 * Get the filesystem detailed information.
 	 * @private
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	protected function getData() {
@@ -170,7 +170,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 
 	/**
 	 * Refresh the cached information.
-	 * @return None.
+	 * @return void
 	 */
 	public function refresh() {
 		$this->setCached(FALSE);
@@ -206,7 +206,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 
 	/**
 	 * Assert that the filesystem has an UUID.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\AssertException
 	 */
 	public function assertUuid() {
@@ -239,7 +239,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 
 	/**
 	 * Assert that the filesystem has a label.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\AssertException
 	 */
 	public function assertLabel() {
@@ -327,7 +327,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 		$this->getData();
 		$this->assertUuid();
 		$deviceFile = sprintf("/dev/disk/by-uuid/%s", $this->getUuid());
-		if (FALSE === is_block($deviceFile)) {
+		if (FALSE === is_block_device($deviceFile)) {
 			throw new \OMV\Exception(
 			  "Filesystem '%s' does not have a disk/by-uuid device file.",
 			  $this->getDeviceFile());
@@ -358,7 +358,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	public function getDeviceFileById() {
 		$this->getData();
 		$deviceFile = parent::getDeviceFileById();
-		if (FALSE === is_block($deviceFile)) {
+		if (FALSE === is_block_device($deviceFile)) {
 			throw new \OMV\Exception(
 			  "Filesystem '%s' does not have a disk/by-id device file.",
 			  $this->getDeviceFile());
@@ -391,7 +391,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 		$this->assertLabel();
 		$deviceFile = escape_path(sprintf("/dev/disk/by-label/%s",
 			$this->getLabel()));
-		if (FALSE === is_block($deviceFile)) {
+		if (FALSE === is_block_device($deviceFile)) {
 			throw new \OMV\Exception(
 			  "Filesystem '%s' does not have a disk/by-label device file.",
 			  $this->getDeviceFile());
@@ -505,7 +505,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 
 	/**
 	 * Grow the filesystem.
-	 * @return None.
+	 * @return void
 	 */
 	public function grow() {
 		// Nothing to do here.
@@ -513,7 +513,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 
 	/**
 	 * Shrink the filesystem.
-	 * @return None.
+	 * @return void
 	 */
 	public function shrink() {
 		// Nothing to do here.
@@ -521,7 +521,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 
 	/**
 	 * Remove the filesystem.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function remove() {
@@ -695,7 +695,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	 * @param options Additional mount options as array or string.
 	 *   Defaults to "".
 	 * @param dir The optional mount directory. Defaults to "".
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function mount($options = "", $dir = "") {
@@ -724,7 +724,7 @@ class Filesystem extends \OMV\System\BlockDevice implements IFilesystem,
 	 * Unmount the filesystem.
 	 * @param force Set to TRUE to force unmount. Defaults to FALSE.
 	 * @param lazy Set to TRUE to lazy unmount. Defaults to FALSE.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function umount($force = FALSE, $lazy = FALSE) {

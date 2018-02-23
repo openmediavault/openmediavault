@@ -29,7 +29,7 @@ require_once("openmediavault/functions.inc");
  * @ingroup api
  */
 class DatabaseBackend {
-	use \OMV\Debugable;
+	use \OMV\DebugTrait;
 
 	private $forceReload = TRUE;
 	private $autoCommit = TRUE;
@@ -367,7 +367,7 @@ class DatabaseBackend {
 	 * Revert changes. All existing revision files will be deleted.
 	 * @param filename The revision file. Defaults to NONE.
 	 * @note This only takes action if versioning is enabled.
-	 * @return None.
+	 * @return void
 	 */
 	public function revert($filename) {
 		if (TRUE !== $this->versioning)

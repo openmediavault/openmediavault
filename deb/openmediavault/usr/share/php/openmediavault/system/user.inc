@@ -56,7 +56,7 @@ class User {
 	/**
 	 * Get the system group data.
 	 * @private
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Exception
 	 * @throw \OMV\ExecException
 	 */

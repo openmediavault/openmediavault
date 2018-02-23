@@ -127,7 +127,7 @@ class File {
 
 	/**
 	 * Close the file.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Exception
 	 */
 	public function close() {
@@ -231,7 +231,7 @@ class File {
 	/**
 	 * Truncates the file to a given length.
 	 * @param size The size to truncate to.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Exception
 	 */
 	public function truncate($size) {

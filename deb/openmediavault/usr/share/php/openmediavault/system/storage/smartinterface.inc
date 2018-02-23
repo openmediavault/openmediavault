@@ -19,51 +19,39 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Storage\Backend;
+namespace OMV\System\Storage;
 
 /**
- * Implements the storage device backend for Xen virtual disk devices.
+ * Interface for S.M.A.R.T. AT Attachment (ATA) devices.
  * @ingroup api
  */
-class Xen extends BackendAbstract {
-	function getType() {
-		return OMV_STORAGE_DEVICE_TYPE_DISK;
-	}
+interface SmartInterface {
+	/**
+	 * Identify the device type required by the smartctl utility program.
+	 * @see https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in
+	 * @return string Returns the identified device type, e.g. 'sat', 'scsi',
+	 *   'usbcypress', ... or an empty string.
+	 */
+	public function getSmartDeviceType();
 
 	/**
-	 * See interface definition.
+	 * Get the S.M.A.R.T. information.
+	 * @return SmartInformation An \OMV\System\Storage\SmartInformation object.
+	 * @throw \OMV\Exception
 	 */
-	function enumerate() {
-		// major minor  #blocks  name
-		// 202        0    6145024 xvda
-		// 202        1     104391 xvda1
-		// 202        2    6040440 xvda2
-		return $this->enumerateProcFs("xvd[a-z]+");
-	}
+	public function getSmartInformation();
 
 	/**
-	 * See interface definition.
+	 * Execute a S.M.A.R.T. self test.
+	 * @param string test The test to be used. This can be:
+	 *   <ul>
+	 *   \li short (s)
+	 *   \li long (l)
+	 *   \li conveyance (c)
+	 *   \li offline (o)
+	 *   </ul>
+	 * @return void
+	 * @throw \OMV\Exception
 	 */
-	function isTypeOf($deviceFile) {
-		// Examples:
-		// - /dev/xvda
-		// - /dev/xvda1
-		// - /dev/xvdtq37
-		$regex = "xvd[a-z]+[0-9]*";
-		return $this->isTypeOfByName($deviceFile, $regex);
-	}
-
-	/**
-	 * See interface definition.
-	 */
-	function getImpl($args) {
-		return new \OMV\System\Storage\StorageDeviceXen($args);
-	}
-
-	/**
-	 * See interface definition.
-	 */
-	function baseDeviceFile($deviceFile) {
-		return preg_replace("/(\d+)$/", "", $deviceFile);
-	}
+	public function executeSmartSelfTest($test);
 }

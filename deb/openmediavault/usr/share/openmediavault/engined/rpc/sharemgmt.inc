@@ -89,7 +89,7 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Skip file systems that do not implement the required interface
 			// to be handled as shared folder candidate.
 			if (FALSE === ($fs instanceof
-				\OMV\System\Filesystem\ISharedFolderCandidate))
+				\OMV\System\Filesystem\SharedFolderCandidateInterface))
 				continue;
 			// Append the shared folder candidate.
 			$result[] = [

@@ -40,7 +40,7 @@ class Monit {
 	 * Set the group option. If set, then the methods start, stop, restart,
 	 * monitor and unmonitor will be applied to the given group name.
 	 * @param value Set to TRUE to use the group option, otherwise FALSE.
-	 * @return None
+	 * @return void
 	 */
 	final public function setGroup($value) {
 		$this->group = $value;
@@ -49,7 +49,7 @@ class Monit {
 	/**
 	 * Start the named service and enable monitoring for it.
 	 * @param quiet Do not throw an error on failure. Defaults to FALSE.
-	 * @return None
+	 * @return void
 	 */
 	public function start($quiet = FALSE) {
 		$this->action("start", $quiet);
@@ -58,7 +58,7 @@ class Monit {
 	/**
 	 * Stop the named service and disable its monitoring.
 	 * @param quiet Do not throw an error on failure. Defaults to FALSE.
-	 * @return None
+	 * @return void
 	 */
 	public function stop($quiet = FALSE) {
 		$this->action("stop", $quiet);
@@ -67,7 +67,7 @@ class Monit {
 	/**
 	 * Restart the named service.
 	 * @param quiet Do not throw an error on failure. Defaults to FALSE.
-	 * @return None
+	 * @return void
 	 */
 	public function restart($quiet = FALSE) {
 		$this->action("restart", $quiet);
@@ -76,7 +76,7 @@ class Monit {
 	/**
 	 * Enable monitoring of the named service.
 	 * @param quiet Do not throw an error on failure. Defaults to FALSE.
-	 * @return None
+	 * @return void
 	 */
 	public function monitor($quiet = FALSE) {
 		$this->action("monitor", $quiet);
@@ -85,7 +85,7 @@ class Monit {
 	/**
 	 * Disable monitoring of the named service.
 	 * @param quiet Do not throw an error on failure. Defaults to FALSE.
-	 * @return None
+	 * @return void
 	 */
 	public function unmonitor($quiet = FALSE) {
 		$this->action("unmonitor", $quiet);
@@ -95,7 +95,7 @@ class Monit {
 	 * Execute the given action.
 	 * @param action The action to execute, e.g. start, stop, restart, ...
 	 * @param quiet Do not throw an error on failure. Defaults to FALSE.
-	 * @return None
+	 * @return void
 	 */
 	private function action($action, $quiet = FALSE) {
 		$cmdArgs = [];

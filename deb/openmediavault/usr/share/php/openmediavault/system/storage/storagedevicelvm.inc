@@ -64,7 +64,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	/**
 	 * Get the logical volume detailed information.
 	 * @private
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	private function getData() {
@@ -102,7 +102,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 
 	/**
 	 * Refresh the cached information.
-	 * @return None.
+	 * @return void
 	 */
 	public function refresh() {
 		$this->dataCached = FALSE;
@@ -270,7 +270,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	 * @param size The size of bytes to allocate for the new logical volume.
 	 * @param vgName The name of the volume group where to create the
 	 *   logical volume.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function create($name, $size, $vgName) {
@@ -287,7 +287,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	 * Create a snapshot of a logical volume.
 	 * @param name The name for the snapshot.
 	 * @param size The size of the snapshot in bytes.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function createSnapshot($name, $size) {
@@ -303,7 +303,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 
 	/**
 	 * Remove the logical volume.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function remove() {
@@ -318,7 +318,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	/**
 	 * Rename the logical volume.
 	 * @param name The new logical volume path/name.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function rename($name) {
@@ -334,7 +334,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	/**
 	 * Extend the logical volume.
 	 * @param size Gives the size of bytes to extend the logical volume.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function extend($size) {
@@ -350,7 +350,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	/**
 	 * Reduce the logical volume.
 	 * @param size Gives the size of bytes to extend the logical volume.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function reduce($size) {

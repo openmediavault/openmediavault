@@ -44,7 +44,7 @@ Ext.define("OMV.data.Download", {
 	 * @param service The name/class of the service to be executed.
 	 * @param method The method name to be executed.
 	 * @param params The parameters of the method to be executed as object.
-	 * @return None.
+	 * @return void
 	 */
 	request: function(service, method, params) {
 		var me = this;

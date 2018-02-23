@@ -52,7 +52,7 @@ class Dictionary {
 	/**
 	 * Assert that the given key is valid.
 	 * @param key The key in dot notation, e.g. 'a.b.c'.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\AssertException
 	 */
 	protected function assertValidKey($key) {
@@ -83,7 +83,7 @@ class Dictionary {
 	/**
 	 * Assert that the specified key exists.
 	 * @param key The key in dot notation, e.g. 'a.b.c'.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\AssertException
 	 */
 	public function assertExists($key) {
@@ -125,7 +125,7 @@ class Dictionary {
 	 * Set a value for a key.
 	 * @param key The key in dot notation, e.g. 'a.b.c'.
 	 * @param value The value of the given key.
-	 * @return None.
+	 * @return void
 	 */
 	public function set($key, $value) {
 		$this->assertValidKey($key);
@@ -153,7 +153,7 @@ class Dictionary {
 	 * Copy a key.
 	 * @param srcKey The source key in dot notation, e.g. 'a.b.c'.
 	 * @param destKey The destination key in dot notation, e.g. 'a.b.c'.
-	 * @return None.
+	 * @return void
 	 */
 	public function copy($srcKey, $destKey) {
 		$this->assertExists($srcKey);
@@ -164,7 +164,7 @@ class Dictionary {
 	/**
 	 * Remove a key.
 	 * @param key The key in dot notation, e.g. 'a.b.c'.
-	 * @return None.
+	 * @return void
 	 */
 	public function remove($key) {
 		$this->assertExists($key);
@@ -194,7 +194,7 @@ class Dictionary {
 	/**
 	 * Import JSON data.
 	 * @param json The JSON string.
-	 * @return None.
+	 * @return void
 	 */
 	public function fromJson($json = "") {
 		if (NULL === ($data = json_decode_safe($json, TRUE))) {

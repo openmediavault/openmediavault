@@ -27,7 +27,7 @@ namespace OMV\System\Storage\Backend;
  */
 class MMC extends BackendAbstract {
 	function getType() {
-		return OMV_STORAGE_DEVICE_TYPE_HDD;
+		return OMV_STORAGE_DEVICE_TYPE_DISK;
 	}
 
 	function enumerate() {

@@ -36,12 +36,18 @@ define("OMV_ROLE_ADMINISTRATOR", 0x1);
 define("OMV_ROLE_USER",          0x2);
 define("OMV_ROLE_EVERYONE",      OMV_ROLE_ADMINISTRATOR | OMV_ROLE_USER);
 
-define("OMV_STORAGE_DEVICE_TYPE_HDD", 0x1);
+define("OMV_STORAGE_DEVICE_TYPE_DISK", 0x1);
 define("OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID", 0x2);
 define("OMV_STORAGE_DEVICE_TYPE_HBA", 0x4);
 define("OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE", 0x8);
 define("OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER", 0x10);
-define("OMV_STORAGE_DEVICE_TYPE_ALL", 0xFF);
+define("OMV_STORAGE_DEVICE_TYPE_SCSIGENERIC", 0x20); // !!! Character device
+define("OMV_STORAGE_DEVICE_TYPE_ALL",
+	OMV_STORAGE_DEVICE_TYPE_DISK |
+	OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID |
+	OMV_STORAGE_DEVICE_TYPE_HBA |
+	OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE |
+	OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER);
 
 define("OMV_NETWORK_INTERFACE_TYPE_ETHERNET", 0x1);
 define("OMV_NETWORK_INTERFACE_TYPE_BOND", 0x2);
@@ -87,52 +93,52 @@ define("OMV_NETWORK_INTERFACE_TYPE_ALL", 0xFF);
 \OMV\Environment::set("OMV_APT_PLUGINS_INDEX_FILE", "/var/lib/openmediavault/apt/pluginsindex.json");
 \OMV\Environment::set("OMV_APT_UPGRADE_INDEX_FILE", "/var/lib/openmediavault/apt/upgradeindex.json");
 \OMV\Environment::set("OMV_NETWORK_INTERFACE_TYPE_NAMES", [
-    OMV_NETWORK_INTERFACE_TYPE_ETHERNET => "ethernet",
-    OMV_NETWORK_INTERFACE_TYPE_BOND => "bond",
-    OMV_NETWORK_INTERFACE_TYPE_VLAN => "vlan",
-    OMV_NETWORK_INTERFACE_TYPE_BRIDGE => "bridge",
-    OMV_NETWORK_INTERFACE_TYPE_WIRELESS => "wireless",
-    OMV_NETWORK_INTERFACE_TYPE_VIRTUAL => "virtual",
-    OMV_NETWORK_INTERFACE_TYPE_LOOPBACK => "loopback"
+	OMV_NETWORK_INTERFACE_TYPE_ETHERNET => "ethernet",
+	OMV_NETWORK_INTERFACE_TYPE_BOND => "bond",
+	OMV_NETWORK_INTERFACE_TYPE_VLAN => "vlan",
+	OMV_NETWORK_INTERFACE_TYPE_BRIDGE => "bridge",
+	OMV_NETWORK_INTERFACE_TYPE_WIRELESS => "wireless",
+	OMV_NETWORK_INTERFACE_TYPE_VIRTUAL => "virtual",
+	OMV_NETWORK_INTERFACE_TYPE_LOOPBACK => "loopback"
 ]);
 \OMV\Environment::set("OMV_DUNE_QUOTES", [ // http://www.nightsolo.net/dune/god.html
-    "The beginning of knowledge is the discovery of something ".
-      "we do not understand.",
-    "He who controls the spice controls the universe.",
-    "Try looking into that place where you dare not look! You'll ".
-      "find me there, staring out at you!",
-    "A large populace held in check by a small but powerful force ".
-      "is quite a common situation in our universe. And we know the ".
-      "major conditions wherein this large populace may turn upon ".
-      "its keepers: When they find a leader. This is the most ".
-      "volatile threat to the powerful; they must retain control of ".
-      "leaders. When the populace recognizes its chains. Keep the ".
-      "populace blind and unquestioning. When the populace perceives ".
-      "a hope of escape from bondage. They must never even believe ".
-      "that escape is possible!",
-    "I must not fear. Fear is the mind-killer. Fear is the ".
-      "little-death that brings total obliteration. I will face my ".
-      "fear. I will permit it to pass over me and through me. And ".
-      "when it has gone past I will turn the inner eye to see its ".
-      "path. Where the fear has gone there will be nothing. Only I ".
-      "will remain.",
-    "People always fear the unknown, if they are truthful about ".
-      "it. But i can face my fears.",
-    "Fear is the mind-killer.",
-    "Without change something sleeps inside us, and seldom awakens. ".
-      "The sleeper must awaken.",
-    "What does a mirror look at?"
+	"The beginning of knowledge is the discovery of something ".
+		"we do not understand.",
+	"He who controls the spice controls the universe.",
+	"Try looking into that place where you dare not look! You'll ".
+		"find me there, staring out at you!",
+	"A large populace held in check by a small but powerful force ".
+		"is quite a common situation in our universe. And we know the ".
+		"major conditions wherein this large populace may turn upon ".
+		"its keepers: When they find a leader. This is the most ".
+		"volatile threat to the powerful; they must retain control of ".
+		"leaders. When the populace recognizes its chains. Keep the ".
+		"populace blind and unquestioning. When the populace perceives ".
+		"a hope of escape from bondage. They must never even believe ".
+		"that escape is possible!",
+	"I must not fear. Fear is the mind-killer. Fear is the ".
+		"little-death that brings total obliteration. I will face my ".
+		"fear. I will permit it to pass over me and through me. And ".
+		"when it has gone past I will turn the inner eye to see its ".
+		"path. Where the fear has gone there will be nothing. Only I ".
+		"will remain.",
+	"People always fear the unknown, if they are truthful about ".
+		"it. But i can face my fears.",
+	"Fear is the mind-killer.",
+	"Without change something sleeps inside us, and seldom awakens. ".
+		"The sleeper must awaken.",
+	"What does a mirror look at?"
 ]);
 
 // Read the default file.
 $defaultFile = \OMV\Environment::get("OMV_DEFAULT_FILE");
 if (posix_access($defaultFile, POSIX_F_OK | POSIX_R_OK)) {
-    $lines = file($defaultFile);
-    foreach ($lines as $kline => $vline) {
-        $regex = "/^(OMV_[A-Z0-9_]+)=(\")?([^\"]+)(\")?$/";
-        if (1 == preg_match($regex, trim($vline), $matches))
-            \OMV\Environment::set($matches[1], $matches[3]);
-        unset($matches);
-    }
-    unset($lines);
+	$lines = file($defaultFile);
+	foreach ($lines as $kline => $vline) {
+		$regex = "/^(OMV_[A-Z0-9_]+)=(\")?([^\"]+)(\")?$/";
+		if (1 == preg_match($regex, trim($vline), $matches))
+			\OMV\Environment::set($matches[1], $matches[3]);
+		unset($matches);
+	}
+	unset($lines);
 }

@@ -47,7 +47,7 @@ class Manager {
 
 	/**
 	 * Load the data models.
-	 * @return None.
+	 * @return void
 	 */
 	final public function load() {
 		if ($this->isLoaded())
@@ -108,7 +108,7 @@ class Manager {
 	/**
 	 * Register a model.
 	 * @param model The model class to be registered.
-	 * @return None.
+	 * @return void
 	 */
 	final public function registerModel(DataModel $model) {
 		$ids = [];

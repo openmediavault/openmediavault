@@ -26,7 +26,9 @@ namespace OMV\System\Storage;
  * devices, e.g. HP's Smart Array hardware RAID controller.
  * @ingroup api
  */
-class StorageDeviceCCISS extends SmartStorageDeviceAbstract {
+class StorageDeviceCCISS extends StorageDevice implements SmartInterface {
+	use SmartTrait;
+
 	public function getDeviceName($canonical = FALSE) {
 		// Get the device name and convert '/' character to '!', e.g.
 		// cciss/c0d0 => cciss!c0d0.
@@ -38,22 +40,13 @@ class StorageDeviceCCISS extends SmartStorageDeviceAbstract {
 	}
 
 	/**
-	 * Identify the device type required by the smartctl command.
-	 * @return Returns the identified device type or an empty string.
+	 * See \OMV\System\Storage\SmartInterface interface definition.
 	 */
 	public function getSmartDeviceType() {
-		$type = parent::getSmartDeviceType();
-		// Note, 'auto' attempts to guess the device type from the device
-		// name or from controller type info provided by the operating system
-		// or from a matching USB ID entry in the drive database. Thus we
-		// have to do the job ourself for various hardware RAID devices.
-		if (empty($type) || ("auto" === $type)) {
-			$regex = "/^cciss!c(\d)d(\d)$/";
-			if (1 == preg_match($regex, $this->getDeviceName(), $matches)) {
-				$type = $this->setSmartDeviceType(sprintf("cciss,%s",
-				  $matches[2]));
-			}
+		$regex = "/^cciss!c(\d)d(\d)$/";
+		if (1 == preg_match($regex, $this->getDeviceName(), $matches)) {
+			return sprintf("cciss,%s", $matches[2]);
 		}
-		return $type;
+		return "";
 	}
 }

@@ -198,7 +198,7 @@ class Database {
 	 * @param object The configuration object to use.
 	 * @param quiet If set to TRUE, then no notification message is send.
 	 *   Defaults to FALSE.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Config\DatabaseException
 	 */
 	public function set(ConfigObject &$object, $quiet = FALSE) {
@@ -257,7 +257,7 @@ class Database {
 	 * @param object The configuration object to use.
 	 * @param quiet If set to TRUE, then no notification message is send.
 	 *   Defaults to FALSE.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Config\DatabaseException
 	 */
 	public function delete(ConfigObject $object, $quiet = FALSE) {
@@ -326,7 +326,7 @@ class Database {
 	 * @endcode
 	 * @param quiet If set to TRUE, then no notification message is send.
 	 *   Defaults to FALSE.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Config\DatabaseException
 	 */
 	public function deleteByFilter($id, $filter, $quiet = FALSE) {
@@ -375,7 +375,7 @@ class Database {
 	/**
 	 * Assert that the specified configuration object is referenced.
 	 * @param object The configuration object to use.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\AssertException
 	 */
 	public function assertIsReferenced(ConfigObject $object) {
@@ -389,7 +389,7 @@ class Database {
 	/**
 	 * Assert that the specified configuration object is not referenced.
 	 * @param object The configuration object to use.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\AssertException
 	 */
 	public function assertIsNotReferenced(ConfigObject $object) {
@@ -487,7 +487,7 @@ class Database {
 	 * property is unique.
 	 * @param object The configuration object to use.
 	 * @param property The name of the data model property.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\AssertException
 	 */
 	public function assertIsUnique(ConfigObject $object, $property) {
@@ -505,7 +505,7 @@ class Database {
 	 * @param object The configuration object to use.
 	 * @param filter A filter specifying constraints on the objects
 	 *   to check.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\AssertException
 	 */
 	public function assertIsUniqueByFilter(ConfigObject $object, $filter) {
@@ -527,7 +527,7 @@ class Database {
 	/**
 	 * Revert changes. All existing revision files will be deleted.
 	 * @param filename The revision file. Defaults to NONE.
-	 * @return None.
+	 * @return void
 	 */
 	public function revert($filename) {
 		$this->getBackend()->revert($filename);

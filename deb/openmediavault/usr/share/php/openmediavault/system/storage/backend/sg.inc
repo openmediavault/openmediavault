@@ -22,35 +22,41 @@
 namespace OMV\System\Storage\Backend;
 
 /**
- * Implements the storage device backend for harddisk devices.
+ * Implements the storage device backend for SCSI generic character devices.
+ * https://www.kernel.org/doc/Documentation/scsi/scsi-generic.txt
  * @ingroup api
  */
-class HDD extends BackendAbstract {
+class SG extends BackendAbstract {
 	function getType() {
-		return OMV_STORAGE_DEVICE_TYPE_HDD;
+		return OMV_STORAGE_DEVICE_TYPE_SCSIGENERIC;
 	}
 
 	function enumerate() {
-		// Examples:
-		// - /dev/hda
-		// - /dev/sdb
-		return $this->enumerateProcFs("(h|s)d[a-z]+");
+		$result = [];
+		foreach (new \DirectoryIterator("/sys/class/scsi_generic") as $item) {
+			if ($item->isDot() || !$item->isLink())
+				continue;
+			if (1 !== preg_match("/^sg[0-9]+$/", $item->getFilename()))
+				continue;
+			// Check if it is a SCSI generic disk.
+			$sd = $this->getImpl(sprintf("/dev/%s", $item->getFilename()));
+			if (0 !== $sd->getType())
+				continue;
+			$result[] = $sd->getDeviceFile();
+		}
+		if (!sort($result, SORT_NATURAL))
+			return FALSE;
+		return $result;
 	}
 
 	function isTypeOf($deviceFile) {
 		// Examples:
-		// - /dev/hdc2
-		// - /dev/sdb
-		// - /dev/sda1
-		$regex = "(h|s)d[a-z]+[0-9]*";
-		return $this->isTypeOfByName($deviceFile, $regex);
+		// - /dev/sg0
+		// - /dev/sg17
+		return $this->isTypeOfByName($deviceFile, "sg[0-9]+");
 	}
 
 	function getImpl($args) {
-		return new \OMV\System\Storage\StorageDeviceHDD($args);
-	}
-
-	function baseDeviceFile($deviceFile) {
-		return preg_replace("/(\d+)$/", "", $deviceFile);
+		return new \OMV\System\Storage\StorageDeviceSG($args);
 	}
 }

@@ -65,7 +65,7 @@ class SysVInitScript {
 	/**
 	 * Enable or remove a system init script.
 	 * @param disable Set TRUE to remove the system init script.
-	 * @return None.
+	 * @return void
 	 */
 	private function update($disable) {
 		if (!$this->update)

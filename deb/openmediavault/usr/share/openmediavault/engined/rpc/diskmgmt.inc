@@ -61,7 +61,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 		$rootDeviceFile = \OMV\System\System::getRootDeviceFile();
 		// Get all existing devices except software RAID devices.
 		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerate(
-		  OMV_STORAGE_DEVICE_TYPE_HDD | OMV_STORAGE_DEVICE_TYPE_HBA))) {
+		  OMV_STORAGE_DEVICE_TYPE_DISK | OMV_STORAGE_DEVICE_TYPE_HBA))) {
 			throw new \OMV\Exception(
 			  "Failed to get list of hard disks and hardware RAID devices.");
 		}
@@ -273,7 +273,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * Rescan SCSI bus.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function rescan($params, $context) {

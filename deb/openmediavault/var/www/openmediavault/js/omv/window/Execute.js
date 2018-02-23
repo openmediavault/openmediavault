@@ -368,7 +368,7 @@ Ext.define("OMV.window.Execute", {
 	/**
 	 * Set the content displayed in the dialog.
 	 * @param value The value to be displayed in the dialog.
-	 * @return None
+	 * @return void
 	 */
 	setValue: function(value, scrollBottom) {
 		var me = this;
@@ -390,7 +390,7 @@ Ext.define("OMV.window.Execute", {
 	/**
 	 * Appends the given value to the displayed content.
 	 * @param value The value to be appended to the displayed content.
-	 * @return None
+	 * @return void
 	 */
 	appendValue: function(value) {
 		var me = this;

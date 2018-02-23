@@ -41,7 +41,7 @@ class OMVRpcServiceExec extends \OMV\Rpc\ServiceAbstract {
 	 * @param params An array containing the following fields:
 	 *   \em filename The name of the background process status file.
 	 * @param context The context of the caller.
-	 * @return None
+	 * @return void
 	 * @throw \OMV\Exception
 	 */
 	public function stop($params, $context) {

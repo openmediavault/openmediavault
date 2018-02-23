@@ -436,7 +436,7 @@ omv_config_get_count() {
 # omv_config_add_node "/config/system" "email"
 # @param xpath The XPath to use.
 # @param name The name of the node.
-# @return None
+# @return void
 omv_config_add_node() {
 	local xpath name tmpfile
 
@@ -474,7 +474,7 @@ omv_config_add_node() {
 # @param name The name of the key.
 # @param value The value of the key. Note, special XML characters
 #   MUST be escaped.
-# @return None
+# @return void
 omv_config_add_key() {
 	local xpath name value tmpfile
 
@@ -510,7 +510,7 @@ omv_config_add_key() {
 # @param xpath The XPath to use.
 # @param name The name of the node.
 # @param data The XML data of the node. Special XML characters MUST be escaped.
-# @return None
+# @return void
 omv_config_add_node_data() {
 	local xpath name data tmpdata tmpfile
 
@@ -548,7 +548,7 @@ omv_config_add_node_data() {
 # @param name The name of the element to add
 # @param value The element value. Special XML characters MUST be escaped.
 # @param xml Set to TRUE when the value contains XML data. Defaults to FALSE.
-# @return None
+# @return void
 omv_config_add_element() {
 	local tmpfile xpath name value xml
 
@@ -592,7 +592,7 @@ omv_config_add_element() {
 # Rename the attribute at the given XPath in the configuration file.
 # @param xpath The XPath to use.
 # @param name The new name.
-# @return None
+# @return void
 omv_config_rename() {
 	local tmpfile xpath name
 
@@ -618,7 +618,7 @@ omv_config_rename() {
 # Move the given XPath to another one in the configuration file.
 # @param xpath1 The source XPath to use.
 # @param xpath2 The destination XPath to use.
-# @return None
+# @return void
 omv_config_move() {
 	local tmpfile xpath1 xpath2
 
@@ -645,7 +645,7 @@ omv_config_move() {
 # @param xpath The XPath to use
 # @param value The element value. Special XML characters MUST be escaped.
 # @param xml Set to true when the value contains XML data. Defaults to false.
-# @return None
+# @return void
 omv_config_update() {
 	local tmpfile xpath value xml
 
@@ -684,7 +684,7 @@ omv_config_update() {
 # omv_config_delete <xpath>
 # Delete the elements at the given XPath in the configuration file.
 # @param xpath The XPath to use
-# @return None
+# @return void
 omv_config_delete() {
 	local tmpfile xpath
 
@@ -944,7 +944,7 @@ omv_purge_internal_cache() {
 # @param value The environment variable value.
 # @param override Set to FALSE to do not override an existing variable.
 #   Defaults to TRUE.
-# @return None
+# @return void
 omv_set_default() {
 	local _key _value _override
 	_key=$1

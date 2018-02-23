@@ -27,7 +27,7 @@ namespace OMV\System\Storage\Backend;
  */
 class FIO extends BackendAbstract {
 	function getType() {
-		return OMV_STORAGE_DEVICE_TYPE_HDD;
+		return OMV_STORAGE_DEVICE_TYPE_DISK;
 	}
 
 	function enumerate() {
@@ -49,6 +49,6 @@ class FIO extends BackendAbstract {
 	}
 
 	function getImpl($args) {
-		return new \OMV\System\Storage\StorageDeviceHDD($args);
+		return new \OMV\System\Storage\StorageDeviceSD($args);
 	}
 }

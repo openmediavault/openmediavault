@@ -26,9 +26,10 @@ require_once("openmediavault/functions.inc");
 /**
  * @ingroup api
  */
-trait Debugable {
+trait DebugTrait {
 	/**
 	 * Print debug message to stdout and file if debugging is enabled.
+	 * @return void
 	 */
 	final protected function debug() {
 		if (TRUE !== \OMV\Environment::getBoolean("OMV_DEBUG_PHP", FALSE))
