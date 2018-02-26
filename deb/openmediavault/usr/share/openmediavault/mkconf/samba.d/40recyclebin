@@ -69,9 +69,9 @@ done
 # Exit if 'recyclemaxage' is zero.
 [ "\${amin}" -eq "0" ] && exit 0
 # Exit if another job is running.
-if ! mkdir "${lockfile}" &>/dev/null; then
-	exit 0
-fi
+[ -e ${lockfile} ] && exit 0
+# Create lock
+mkdir "${lockfile}" &>/dev/null
 # Initialize the trap to cleanup on exit.
 trap "rm -rf ${lockfile}; exit" 0 1 2 5 15
 # Exit if the recycle bin directory does not exist.
