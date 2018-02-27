@@ -1,11 +1,17 @@
 openmediavault (4.1.0-1) stable; urgency=low
 
   * Replace ifquery command in 'omv-mkconf issue' script.
-  * Fix locking issue in SMB recycle bin cleanup and iptables scripts.
-  * Fix handling of file system labels containing whitespaces.
-  * Refactored PHP API.
-  * Rename all PHP interfaces from IXxxYyyZzz to XxxYyyZzzInterface according
-    to PSR (PHP Standards Recommendations), see https://www.php-fig.org/psr.
+  * Increase package version to 4.1.0 according to semantic versioning
+    (https://semver.org/).
+  * Refactor and cleanup many things in the PHP API.
+  * Add SCSI generic backend (experimental to support such devices in the
+    S.M.A.R.T. page in a later step)
+  * Enhance API docs.
+  * Rename many PHP interfaces related to the storage backend from IXxxYyyZzz
+    to XxxYyyZzzInterface according to PSR (PHP Standards Recommendations),
+    see https://www.php-fig.org/psr. All others will be renamed in OMV5
+    because this would be too much work for existing OMV4 plugins right now.
+  * Rename \OMV\Debugable to \OMV\DebugTrait.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 11 Feb 2018 19:54:12 +0100
 
@@ -176,6 +182,18 @@ openmediavault (4.0) stable; urgency=low
   * Mantis 0001499: Monit collectd and PID file.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 22 Feb 2017 13:28:40 +0100
+
+openmediavault (3.0.98) stable; urgency=low
+
+  * Fix locking issue in SMB recycle bin cleanup and iptables scripts.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 21 Feb 2018 12:19:32 +0100
+
+openmediavault (3.0.98) stable; urgency=low
+
+  * Fix locking issue in SMB recycle bin cleanup and iptables scripts.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 21 Feb 2018 12:19:32 +0100
 
 openmediavault (3.0.97) stable; urgency=low
 
