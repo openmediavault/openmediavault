@@ -99,16 +99,16 @@ class SmartInformation {
 
 	/**
 	 * Constructor
-	 * @param deviceFile Specifies the device file, e.g.
+	 * @param string deviceFile Specifies the device file, e.g.
 	 *   <ul>
 	 *   \li /dev/sdb
 	 *   \li /dev/cciss/c0d0
 	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6
 	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
 	 *   </ul>
-	 * @param type Specifies the type of the device, e.g. 'ata', 'cciss'
-	 *   or '3ware'. For more details please check the option '-d' in
-	 *   http://smartmontools.sourceforge.net/man5/smartd.conf.5.html.
+	 * @param string type Specifies the type of the device, e.g. 'ata',
+	 *   'cciss' or '3ware'. For more details please check the option '-d'
+	 *   at http://smartmontools.sourceforge.net/man5/smartd.conf.5.html.
 	 * @param sd The storage device object. Defaults to NULL.
 	 */
 	public function __construct($deviceFile, $type, $sd = null) {
@@ -119,16 +119,16 @@ class SmartInformation {
 
 	/**
 	 * Get the device path, e.g. /dev/sda.
-	 * @return The device path.
+	 * @return string The device path.
 	 */
 	public function getDeviceFile() {
 		return $this->deviceFile;
 	}
 
 	/**
-	 * Get the type of the device, e.g. 'ata', 'sat', 'cciss' or '3ware'.
-	 * Note, this can be an empty string.
-	 * @return The device type.
+	 * Get the type of the device, e.g. 'ata', 'scsi', 'sat', 'cciss'
+	 * or '3ware'. Note, this can be an empty string.
+	 * @return string The device type.
 	 */
 	public function getType() {
 		return $this->type;
@@ -137,7 +137,7 @@ class SmartInformation {
 	/**
 	 * Get S.M.A.R.T. information.
 	 * @private
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	private function getData() {
@@ -169,7 +169,7 @@ class SmartInformation {
 
 	/**
 	 * Refresh the cached information.
-	 * @return None.
+	 * @return void
 	 */
 	public function refresh() {
 		$this->dataCached = FALSE;
@@ -178,7 +178,7 @@ class SmartInformation {
 
 	/**
 	 * Get the plain text 'smartctl' command output.
-	 * @return The command output.
+	 * @return string The command output.
 	 */
 	public function getExtendedInformation() {
 		$this->getData();
@@ -187,7 +187,7 @@ class SmartInformation {
 
 	/**
 	 * Get the S.M.A.R.T. attributes data structure.
-	 * @return An array of S.M.A.R.T. attributes data.
+	 * @return array An array of S.M.A.R.T. attributes data.
 	 */
 	public function getAttributes() {
 		$this->getData();
@@ -263,7 +263,8 @@ class SmartInformation {
 
 	/**
 	 * Get a specific attribute by ID.
-	 * @return An object with the requested attribute data, otherwise FALSE.
+	 * @return object|boolean An object with the requested attribute data,
+	 *   otherwise FALSE.
 	 */
 	public function getAttribute($id) {
 		if (FALSE === ($attributes = $this->getAttributes()))
@@ -280,7 +281,7 @@ class SmartInformation {
 
 	/**
 	 * Get the S.M.A.R.T. Self-test log structure.
-	 * @return An array of S.M.A.R.T. self-test logs.
+	 * @return array An array of S.M.A.R.T. self-test logs.
 	 */
 	public function getSelfTestLogs() {
 		$this->getData();
@@ -310,7 +311,7 @@ class SmartInformation {
 
 	/**
 	 * Get various device information.
-	 * @return An array of strings.
+	 * @return array An array of strings.
 	 */
 	public function getInformation() {
 		$this->getData();
@@ -370,7 +371,7 @@ class SmartInformation {
 
 	/**
 	 * Get the device temperature in °C (value only, no unit).
-	 * @return The temperature value, otherwise FALSE.
+	 * @return string|boolean The temperature value, otherwise FALSE.
 	 */
 	public function getTemperature() {
 		if (FALSE === ($attributes = $this->getAttributes()))
@@ -453,7 +454,7 @@ class SmartInformation {
 
 	/**
 	 * Get the overall assessment for the device.
-	 * @return Returns the following strings:
+	 * @return string Returns the following strings:
 	 *    <ul>
 	 *   \li GOOD
 	 *   \li BAD_ATTRIBUTE_NOW

@@ -19,18 +19,37 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Filesystem;
+namespace OMV\System\Storage\Backend;
 
 /**
- * An interface that must be implemented by file systems to make it work as
- * a shared folder candidate.
+ * Implements the storage device backend for SCSI disk (block) devices.
+ * @see https://linux.die.net/man/4/sd
  * @ingroup api
  */
-interface ISharedFolderCandidate {
-	/**
-	 * Get the description (e.g. incl. additional information like used
-	 * and available disk space usage) of the file system.
-	 * @return The file system description.
-	 */
-	public function getDescription();
+class SD extends BackendAbstract {
+	function getType() {
+		return OMV_STORAGE_DEVICE_TYPE_DISK;
+	}
+
+	function enumerate() {
+		// Examples:
+		// - /dev/sdb
+		return $this->enumerateProcFs("sd[a-z]+");
+	}
+
+	function isTypeOf($deviceFile) {
+		// Examples:
+		// - /dev/sdb
+		// - /dev/sda1
+		$regex = "sd[a-z]+[0-9]*";
+		return $this->isTypeOfByName($deviceFile, $regex);
+	}
+
+	function getImpl($args) {
+		return new \OMV\System\Storage\StorageDeviceSD($args);
+	}
+
+	function baseDeviceFile($deviceFile) {
+		return preg_replace("/(\d+)$/", "", $deviceFile);
+	}
 }

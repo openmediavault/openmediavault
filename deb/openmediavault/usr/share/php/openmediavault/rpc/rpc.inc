@@ -28,7 +28,7 @@ require_once("openmediavault/functions.inc");
  * @ingroup api
  */
 class Rpc {
-	use \OMV\Debugable;
+	use \OMV\DebugTrait;
 
 	const MODE_LOCAL = 0x1;
 	const MODE_REMOTE = 0x2;

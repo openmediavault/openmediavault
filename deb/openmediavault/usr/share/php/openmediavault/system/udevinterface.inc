@@ -19,39 +19,36 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Storage;
+namespace OMV\System;
 
 /**
- * Interface for S.M.A.R.T. AT Attachment (ATA) devices.
+ * Interface to access udev information.
  * @ingroup api
  */
-interface ISmartStorageDevice {
+interface UdevInterface {
 	/**
-	 * Identify the device type required by the smartctl utility program.
-	 * @see https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in
-	 * @return Returns the identified device type, e.g. 'sat', 'scsi',
-	 *   'usbcypress', ... or an empty string.
+	 * Queries the udev database for device information stored in the
+	 * udev database.
+	 * @param boolean force Force the collection of the information, even
+	 *   when the information is already cached. Defaults to FALSE.
+	 * @result void
 	 */
-	public function getSmartDeviceType();
+	public function queryUdevInfo($force = FALSE);
 
 	/**
-	 * Get the S.M.A.R.T. information.
-	 * @return An object of the \OMV\System\Storage\SmartInformation class.
-	 * @throw \OMV\Exception
+	 * Checks if a udev property exists.
+	 * @param string id The name of the property, e.g. ID_VENDOR, ID_MODEL
+	 *   or ID_SERIAL_SHORT.
+	 * @return boolean Returns TRUE if the property exists, otherwise FALSE.
 	 */
-	public function getSmartInformation();
+	public function hasUdevProperty($id);
 
 	/**
-	 * Execute a S.M.A.R.T. self test.
-	 * @param test The test to be used. This can be:
-	 *   <ul>
-	 *   \li short (s)
-	 *   \li long (l)
-	 *   \li conveyance (c)
-	 *   \li offline (o)
-	 *   </ul>
-	 * @return None.
-	 * @throw \OMV\Exception
+	 * Queries the udev database for device information stored in the udev
+	 * database.
+	 * @param string id The name of the property, e.g. ID_VENDOR, ID_MODEL
+	 *   or ID_SERIAL_SHORT.
+	 * @return mixed|boolean The requested property, otherwise FALSE.
 	 */
-	public function executeSmartSelfTest($test);
+	public function getUdevProperty($id);
 }

@@ -113,7 +113,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 * @param params An array containing the following fields:
 	 *   \em delay The number of seconds to delay.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function reboot($params, $context) {
 		// Validate the RPC caller context.
@@ -141,7 +141,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 * @param params An array containing the following fields:
 	 *   \em delay The number of seconds to delay.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function shutdown($params, $context) {
 		// Validate the RPC caller context.
@@ -176,7 +176,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 * @param params An array containing the following fields:
 	 *   \em delay The number of seconds to delay.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function standby($params, $context) {
 		// Validate the RPC caller context.
@@ -204,7 +204,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 * supported the system will be shut down.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function suspend($params, $context) {
 		// Validate the RPC caller context.
@@ -220,7 +220,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 * supported the system will be shut down.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function hibernate($params, $context) {
 		// Validate the RPC caller context.
@@ -294,7 +294,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 * @param params An array containing the following fields:
 	 *   \em timestamp The date to set as UNIX timestamp.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function setDate($params, $context) {
@@ -316,7 +316,7 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 	 * Set the system date via NTP.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function setNtpDate($params, $context) {

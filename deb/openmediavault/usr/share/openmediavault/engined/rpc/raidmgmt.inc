@@ -220,7 +220,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em level The RAID level, e.g. stripe, mirror, linear ,raid10,
 	 *   raid5 or raid6.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function create($params, $context) {
 		// Validate the RPC caller context.
@@ -271,7 +271,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em devices The devices to be added. The devices must be seperated
 	 *   by comma.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function grow($params, $context) {
 		// Validate the RPC caller context.
@@ -333,7 +333,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em devices The devices to be added. The devices must be seperated
 	 *   by comma.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function add($params, $context) {
 		// Validate the RPC caller context.
@@ -385,7 +385,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em devices The devices to be removed. The devices must be seperated
 	 *   by comma.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function remove($params, $context) {
 		// Validate the RPC caller context.
@@ -446,7 +446,7 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params An array containing the following fields:
 	 *   \em devicefile The RAID device file to be deleted, e.g. /dev/md0.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function delete($params, $context) {
 		// Validate the RPC caller context.

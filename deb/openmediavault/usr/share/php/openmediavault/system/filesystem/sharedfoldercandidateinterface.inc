@@ -19,15 +19,18 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Storage\Backend;
+namespace OMV\System\Filesystem;
 
-///////////////////////////////////////////////////////////////////////////////
-// Register default storage device backends.
-///////////////////////////////////////////////////////////////////////////////
-$backends = [ "Bcache", "CCISS", "CDROM", "DM", "FIO", "HD", "I2O",
-  "Loop", "LVM", "Mdadm", "MMC", "NVM", "RDB", "SD", "Virtio", "Xen" ];
-$mngr = Manager::getInstance();
-foreach ($backends as $backendk => $backendv) {
-	$className = sprintf("%s\%s", __NAMESPACE__, $backendv);
-	$mngr->registerBackend(new $className());
+/**
+ * An interface that must be implemented by file systems to make it work as
+ * a shared folder candidate.
+ * @ingroup api
+ */
+interface SharedFolderCandidateInterface {
+	/**
+	 * Get the description (e.g. incl. additional information like used
+	 * and available disk space usage) of the file system.
+	 * @return The file system description.
+	 */
+	public function getDescription();
 }

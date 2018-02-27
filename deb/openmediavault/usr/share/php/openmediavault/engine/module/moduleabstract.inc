@@ -92,7 +92,7 @@ abstract class ModuleAbstract {
 	 * @param id The identifier of the task type.
 	 * @param name The name of the class method to be executed.
 	 * @param params The parameters passed to the method when it is executed.
-	 * @return None.
+	 * @return void
 	 */
 	final protected function addTask($id, $name, $params) {
 		// Check if class method exists.
@@ -128,7 +128,7 @@ abstract class ModuleAbstract {
 	/**
 	 * Execute the tasks with the given identifier.
 	 * @param id The identifier of the tasks to be executed.
-	 * @return None.
+	 * @return void
 	 */
 	final protected function execTasks($id) {
 		$filename = sprintf("/var/lib/openmediavault/%s_tasks.json",

@@ -66,7 +66,7 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 	 *   \em force Set to TRUE to update all modules, regardless if marked
 	 *   as dirty or not.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Exception
 	 */
 	public function applyChanges($params, $context) {
@@ -219,7 +219,7 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 	 *   \em filename The revision file. Set to empty to automatically detect
 	 *   the correct revision file.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Exception
 	 */
 	public function revertChanges($params, $context) {

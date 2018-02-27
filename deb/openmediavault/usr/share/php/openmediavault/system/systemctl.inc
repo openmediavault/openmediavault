@@ -204,7 +204,7 @@ class SystemCtl {
 	 * Wait until the specified unit is active. If the unit is not active
 	 * within the given time, then an exception is thrown.
 	 * @param timeout Timeout in seconds to wait for an active unit.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Exception
 	 */
 	public function waitUntilActive($timeout) {

@@ -27,7 +27,7 @@ require_once("openmediavault/functions.inc");
  * @ingroup api
  */
 class ConfigObject {
-	use \OMV\Debugable;
+	use \OMV\DebugTrait;
 
 	private $model;
 	private $properties;
@@ -63,7 +63,7 @@ class ConfigObject {
 	/**
 	 * Assert that the specified property exists.
 	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\AssertException
 	 */
 	protected function assertExists($name) {
@@ -169,7 +169,7 @@ class ConfigObject {
 
 	/**
 	 * Set the default property values as defined in the data model.
-	 * @return None.
+	 * @return void
 	 */
 	public function setDefaults() {
 		$this->properties = new \OMV\Dictionary($this->getDefaultsAssoc());
@@ -179,7 +179,7 @@ class ConfigObject {
 	 * Set a property.
 	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
 	 * @param value The value of the property.
-	 * @return None.
+	 * @return void
 	 */
 	public function set($name, $value, $validate = TRUE) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -225,7 +225,7 @@ class ConfigObject {
 	 *   Defaults to TRUE.
 	 * @param bool $ignore Set to TRUE to ignore and skip unknown properties.
 	 *   Defaults to FALSE.
-	 * @return None.
+	 * @return void
 	 */
 	public function setAssoc(array $data, $validate = TRUE, $ignore = FALSE) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -254,7 +254,7 @@ class ConfigObject {
 	 *   Defaults to TRUE.
 	 * @param bool $ignore Set to TRUE to ignore and skip unknown properties.
 	 *   Defaults to FALSE.
-	 * @return None.
+	 * @return void
 	 */
 	public function setFlatAssoc(array $data, $validate = TRUE,
 	  $ignore = FALSE) {
@@ -282,7 +282,7 @@ class ConfigObject {
 	 *   Defaults to TRUE.
 	 * @param bool $ignore Set to TRUE to ignore and skip unknown properties.
 	 *   Defaults to FALSE.
-	 * @return None.
+	 * @return void
 	 */
 	public function setIndexed(array $data, $validate = TRUE,
 	  $ignore = FALSE) {
@@ -293,7 +293,7 @@ class ConfigObject {
 	 * Remove/unset the specified property. Note, this will modify the data
 	 * model of this object.
 	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
-	 * @return None.
+	 * @return void
 	 */
 	public function remove($name) {
 		$this->assertExists($name);
@@ -304,14 +304,14 @@ class ConfigObject {
 	}
 
 	/**
-	* Add a new property. This can be accessed by the get/set methods.
-	* Note, this will modify the data model of this object. In common this
-	* is only useful for scalar types like string, boolean, integer, ...
-	* @param name The name of the property in dot notation, e.g. 'a.b.c'.
-	* @param type The type of the property, e.g. 'string' or 'boolean'.
-	* @param default An optional default value.
-	* @return None.
-	*/
+	 * Add a new property. This can be accessed by the get/set methods.
+	 * Note, this will modify the data model of this object. In common this
+	 * is only useful for scalar types like string, boolean, integer, ...
+	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
+	 * @param type The type of the property, e.g. 'string' or 'boolean'.
+	 * @param default An optional default value.
+	 * @return void
+	 */
 	public function add($name, $type, $default = NULL) {
 		// Add the property to the data model schema.
 		$this->getModel()->addProperty($name, $type);
@@ -326,7 +326,7 @@ class ConfigObject {
 	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
 	 * @param targetName The name of the target property in dot notation,
 	 *   e.g. 'x.y'.
-	 * @return None.
+	 * @return void
 	 */
 	public function copy($name, $targetName) {
 		$this->assertExists($name);
@@ -348,7 +348,7 @@ class ConfigObject {
 	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
 	 * @param targetName The name of the target property in dot notation,
 	 *   e.g. 'x.y'.
-	 * @return None.
+	 * @return void
 	 */
 	public function move($name, $targetName) {
 		// Relocate the source property to a temporary property. This is
@@ -368,7 +368,7 @@ class ConfigObject {
 	/**
 	 * Reset a property to its default value as defined in the data model.
 	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
-	 * @return None.
+	 * @return void
 	 */
 	public function reset($name) {
 		$defaults = new \OMV\Dictionary($this->getDefaultsAssoc());
@@ -419,7 +419,7 @@ class ConfigObject {
 	/**
 	 * Mark the configuration object as new. The 'uuid' property is
 	 * modified in this case.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Exception
 	 */
 	public function setNew() {

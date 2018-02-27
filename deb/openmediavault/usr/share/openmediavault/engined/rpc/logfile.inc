@@ -121,7 +121,7 @@ class OMVRpcServiceLogFile extends \OMV\Rpc\ServiceAbstract {
 	 * @param params An array containing the following fields:
 	 *   \em id The identifier of the registered log file type.
 	 * @param context The context of the caller.
-	 * @return None
+	 * @return void
 	 * @throw \OMV\Exception
 	 */
 	function clear($params, $context) {

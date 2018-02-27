@@ -22,46 +22,40 @@
 namespace OMV\System\Storage;
 
 /**
- * An abstract class which implements the interface for S.M.A.R.T.
- * AT Attachment (ATA) devices.
+ * Implements the interface for S.M.A.R.T. AT Attachment (ATA) devices.
+ * @see https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in
  * @ingroup api
  */
-abstract class SmartStorageDeviceAbstract extends StorageDevice
-  implements ISmartStorageDevice {
-	private $smartDeviceType = "";
-
+trait SmartTrait {
 	/**
-	 * Set the device type required by the smartctl utility program.
-	 * @return Returns the device type.
+	 * Get the device file, e.g. /dev/sda.
+	 * @return string Returns the device file.
 	 */
-	protected function setSmartDeviceType($type) {
-		$this->smartDeviceType = $type;
-		return $this->smartDeviceType;
-	}
+	abstract public function getDeviceFile();
 
 	/**
-	 * See interface definition.
+	 * See \OMV\System\Storage\SmartInterface interface definition.
 	 */
 	public function getSmartDeviceType() {
-		return $this->smartDeviceType;
+		return "";
 	}
 
 	/**
-	 * See interface definition.
+	 * See \OMV\System\Storage\SmartInterface interface definition.
 	 */
 	public function getSmartInformation() {
 		$smartInfo = new SmartInformation($this->getDeviceFile(),
 		  $this->getSmartDeviceType(), $this);
 		if (is_null($smartInfo)) {
 			throw new \OMV\Exception(
-			  "Failed to get S.M.A.R.T. interface for device '%s'.",
+			  "Failed to get S.M.A.R.T. information for device '%s'.",
 			  $this->getDeviceFile());
 		}
 		return $smartInfo;
 	}
 
 	/**
-	 * See interface definition.
+	 * See \OMV\System\Storage\SmartInterface interface definition.
 	 */
 	public function executeSmartSelfTest($test) {
 		$testMap = [

@@ -65,7 +65,7 @@ class DataModel extends \OMV\DataModel\DataModel {
 	/**
 	 * Validate the specified data against the data model.
 	 * @param data The JSON data to validate.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Json\SchemaException
 	 * @throw \OMV\Json\SchemaValidationException
 	 */

@@ -24,7 +24,7 @@ namespace OMV\System\Filesystem;
 class Jfs extends Filesystem {
 	/**
 	 * Grow the filesystem.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	final public function grow() {

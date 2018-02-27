@@ -39,7 +39,7 @@ class StorageDeviceMdadm extends StorageDevice {
 	/**
 	 * Get the software RAID device detailed information.
 	 * @private
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	private function getData() {
@@ -150,7 +150,7 @@ class StorageDeviceMdadm extends StorageDevice {
 
 	/**
 	 * Refresh the cached information.
-	 * @return None.
+	 * @return void
 	 */
 	public function refresh() {
 		$this->dataCached = FALSE;

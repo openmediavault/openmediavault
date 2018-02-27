@@ -24,14 +24,8 @@ namespace OMV\System\Storage;
  * This class provides a simple interface to handle KVM VirtIO devices.
  * @ingroup api
  */
-class StorageDeviceVirtIO extends SmartStorageDeviceAbstract {
-	/**
-	 * Identify the device type required by the smartctl command.
-	 * @return Returns the identified device type or an empty string.
-	 */
-	public function getSmartDeviceType() {
-		return "sat";
-	}
+class StorageDeviceVirtIO extends StorageDevice implements SmartInterface {
+	use SmartTrait;
 
 	/**
 	 * See interface definition.
@@ -41,5 +35,12 @@ class StorageDeviceVirtIO extends SmartStorageDeviceAbstract {
 		return sprintf("%s [%s, %s]", !empty($model) ? $model :
 		  gettext("VirtIO device"), $this->getDeviceFile(),
 		  binary_format($this->getSize()));
+	}
+
+	/**
+	 * See \OMV\System\Storage\SmartInterface interface definition.
+	 */
+	public function getSmartDeviceType() {
+		return "sat";
 	}
 }

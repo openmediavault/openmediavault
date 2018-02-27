@@ -30,7 +30,7 @@ require_once("openmediavault/functions.inc");
  * @see http://json-schema.org/latest/json-schema-validation.html
  */
 class Schema {
-	use \OMV\Debugable;
+	use \OMV\DebugTrait;
 
 	private $schema = [];
 
@@ -240,7 +240,7 @@ class Schema {
 	 * @param value The value to validate.
 	 * @param name The JSON path of the entity to validate, e.g. 'aa.bb.cc',
 	 *   defaults to an empty string. Use an empty value for the root.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Json\SchemaException
 	 * @throw \OMV\Json\SchemaValidationException
 	 */

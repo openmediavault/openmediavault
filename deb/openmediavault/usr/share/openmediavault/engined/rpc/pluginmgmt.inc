@@ -162,7 +162,7 @@ class OMVRpcServicePluginMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em filename The original name of the file.
 	 *   \em filepath The path to the uploaded file.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Exception
 	 */
 	function upload($params, $context) {

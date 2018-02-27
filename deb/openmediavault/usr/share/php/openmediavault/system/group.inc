@@ -45,7 +45,7 @@ class Group {
 	/**
 	 * Get the system group data.
 	 * @private
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Exception
 	 */
 	private function getData() {
@@ -72,7 +72,7 @@ class Group {
 
 	/**
 	 * Refresh the cached information.
-	 * @return None.
+	 * @return void
 	 */
 	public function refresh() {
 		$this->dataCached = FALSE;

@@ -576,7 +576,7 @@ finish:
 	 *   \em email The email address.
 	 *   \em comment The comment.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	function setUserByContext($params, $context) {
 		// Validate the RPC caller context.
@@ -653,7 +653,7 @@ finish:
 	 *   test2;1200;comment2;test2@xyz.com;foobarpwd2;adm,audio,www-data;0
 	 *   test3;;comment3;test3@xyz.com;foobarpwd3;ssh;1
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	function importUsers($params, $context) {
 		// Validate the RPC caller context.
@@ -930,7 +930,7 @@ finish:
 	 *   grp1;;comment1
 	 *   grp2;1200;comment2
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	function importGroups($params, $context) {
 		// Validate the RPC caller context.

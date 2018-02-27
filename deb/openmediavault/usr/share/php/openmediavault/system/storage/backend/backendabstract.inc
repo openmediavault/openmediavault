@@ -38,7 +38,7 @@ namespace OMV\System\Storage\Backend;
 abstract class BackendAbstract {
 	/**
 	 * Get the type of the storage device backend, e.g.
-	 * OMV_STORAGE_DEVICE_TYPE_HDD, OMV_STORAGE_DEVICE_TYPE_HBA, ...
+	 * OMV_STORAGE_DEVICE_TYPE_DISK, OMV_STORAGE_DEVICE_TYPE_HBA, ...
 	 */
 	abstract function getType();
 
@@ -126,7 +126,7 @@ abstract class BackendAbstract {
 	 * device backend via the /proc filesystem.
 	 * @param string $regex The regular expression used to identify the devices
 	 *   represented by this storage backend.
-	 * @return A list of devicefile names, otherwise FALSE.
+	 * @return A list of devicefile names.
 	 */
 	final protected function enumerateProcFs($regex) {
 		$result = [];
@@ -149,7 +149,7 @@ abstract class BackendAbstract {
 	final protected function isTypeOfByName($deviceFile, $regex) {
 		// If the device file looks like /dev/disk/by-(id|label|path|uuid)/*
 		// then it is necessary to get the /dev/xxx equivalent.
-		if (1 == preg_match("/^\/dev\/disk\/by-.+$/", $deviceFile))
+		if (TRUE === is_devicefile_by($deviceFile))
 			$deviceFile = realpath($deviceFile);
 		// Extract the device name, e.g.:
 		// - /dev/sdb => sdb

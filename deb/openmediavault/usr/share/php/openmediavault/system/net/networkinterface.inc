@@ -50,7 +50,7 @@ class NetworkInterface {
 	/**
 	 * Get the network interface configuration
 	 * @private
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	private function getData($type) {

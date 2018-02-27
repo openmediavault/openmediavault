@@ -26,47 +26,35 @@ require_once("openmediavault/functions.inc");
 /**
  * @ingroup api
  */
-class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
-	protected $model = NULL;
-	protected $vendor = NULL;
-
+class StorageDevice extends \OMV\System\BlockDevice
+		implements StorageDeviceInterface {
 	/**
 	 * Get the device model.
-	 * @return The device model, otherwise an empty string.
+	 * @return string The device model, otherwise an empty string.
 	 */
 	public function getModel() {
-		if (FALSE === is_string($this->model)) {
-			$filename = sprintf("/sys/block/%s/device/model",
-			  $this->getDeviceName());
-			if (file_exists($filename)) {
-				$this->model = trim(file_get_contents($filename));
-			} else {
-				$this->model = "";
-			}
-		}
-		return $this->model;
+		$filename = sprintf("/sys/block/%s/device/model",
+			$this->getDeviceName());
+		if (file_exists($filename))
+			return trim(file_get_contents($filename));
+		return "";
 	}
 
 	/**
 	 * Get the device vendor.
-	 * @return The device vendor, otherwise an empty string.
+	 * @return string The device vendor, otherwise an empty string.
 	 */
 	public function getVendor() {
-		if (FALSE === is_string($this->vendor)) {
-			$filename = sprintf("/sys/block/%s/device/vendor",
-			  $this->getDeviceName());
-			if (file_exists($filename)) {
-				$this->vendor = trim(file_get_contents($filename));
-			} else {
-				$this->vendor = "";
-			}
-		}
-		return $this->vendor;
+		$filename = sprintf("/sys/block/%s/device/vendor",
+			$this->getDeviceName());
+		if (file_exists($filename))
+			$this->_vendor = trim(file_get_contents($filename));
+		return "";
 	}
 
 	/**
 	 * Get the device serial number.
-	 * @return The device serial number, otherwise an empty string.
+	 * @return string The device serial number, otherwise an empty string.
 	 */
 	public function getSerialNumber() {
 		if (FALSE === $this->hasUdevProperty("ID_SERIAL_SHORT"))
@@ -87,7 +75,7 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 	/**
 	 * Check if the device is of rotational type or non-rotational type.
 	 * See https://www.kernel.org/doc/Documentation/block/queue-sysfs.txt
-	 * @return TRUE if device is of rotational type, otherwise FALSE.
+	 * @return boolean TRUE if device is of rotational type, otherwise FALSE.
 	 */
 	public function isRotational() {
 		// Use udev property.
@@ -122,7 +110,7 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 
 	/**
 	* Check if the device is removable.
-	* @return TRUE if device is removable, otherwise FALSE.
+	* @return boolean TRUE if device is removable, otherwise FALSE.
 	*/
 	public function isRemovable() {
 		$filename = sprintf("/sys/block/%s/removable",
@@ -134,7 +122,7 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 
 	/**
 	 * Check if the given device is a hardware/software RAID device.
-	 * @return TRUE if the device is a hardware/software RAID,
+	 * @return boolean TRUE if the device is a hardware/software RAID,
 	 *   otherwise FALSE.
 	 */
 	public function isRaid() {
@@ -143,7 +131,8 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 
 	/**
 	 * Check if the given device is an USB device.
-	 * @return TRUE if the device is a connected via USB, otherwise FALSE.
+	 * @return boolean TRUE if the device is a connected via USB,
+	 *   otherwise FALSE.
 	 */
 	public function isUsb() {
 		// Identify USB devices via 'ID_BUS=usb'.
@@ -178,7 +167,8 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 
 	/**
 	 * Check if the given device is connected via ATA.
-	 * @return TRUE if the device is connected via ATA, otherwise FALSE.
+	 * @return boolean TRUE if the device is connected via ATA,
+	 *   otherwise FALSE.
 	 */
 	public function isAta() {
 		if (FALSE === $this->hasUdevProperty("ID_BUS"))
@@ -189,7 +179,7 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 
 	/**
 	 * Check if the given device is read-only.
-	 * @return TRUE if the device is read-only, otherwise FALSE.
+	 * @return boolean TRUE if the device is read-only, otherwise FALSE.
 	 */
 	public function isReadOnly() {
 		return FALSE;
@@ -198,7 +188,7 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 	/**
 	 * Check if a medium is available. The method should always return TRUE
 	 * for devices without removable media.
-	 * @return Set to FALSE if no medium is available.
+	 * @return boolean Returns FALSE if no medium is available.
 	 */
 	public function IsMediaAvailable() {
 		return TRUE;
@@ -206,31 +196,30 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 
 	/**
 	 * Check if the given device has S.M.A.R.T. support.
-	 * @return Returns TRUE if the device supports S.M.A.R.T.,
+	 * @return boolean Returns TRUE if the device supports S.M.A.R.T.,
 	 *   otherwise FALSE.
 	 */
 	public function hasSmartSupport() {
-		// Check whether this object implements the ISmartStorageDevice
-		// interface.
-		return is_a($this, "\OMV\System\Storage\ISmartStorageDevice");
+		// Check whether this object implements the SmartInterface interface.
+		return is_a($this, "\OMV\System\Storage\SmartInterface");
 	}
 
 	/**
 	 * Assert that the given device has S.M.A.R.T. support.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\AssertException
 	 */
 	public function assertHasSmartSupport() {
 		if (FALSE === $this->hasSmartSupport()) {
 			throw new \OMV\AssertException(
-			  "Device '%s' does not support S.M.A.R.T.",
-			  $this->getDeviceFile());
+				"Device '%s' does not support S.M.A.R.T.",
+				$this->getDeviceFile());
 		}
 	}
 
 	/**
 	 * Wipe the storage device.
-	 * @return None
+	 * @return void
 	 */
 	public function wipe() {
 		$cmdArgs = [];
@@ -243,9 +232,9 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 
 	/**
 	 * Enumerate devices matching the given storage device type.
-	 * @param type Defines the storage device type, e.g. hard disk, hard or
-	 *   Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.
-	 * @return A list of devicefile names, otherwise FALSE.
+	 * @param integer type Defines the storage device type, e.g. hard disk,
+	 *   hard or Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.
+	 * @return array|boolean A list of devicefile names, otherwise FALSE.
 	 */
 	public static function enumerate($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
 		$result = [];
@@ -269,9 +258,9 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 	 * Enumerate all unused devices. This list contains all devices of the
 	 * given type except the devices that are used by other storage devices
 	 * (e.g. LVM as physical volume or a member of a Software RAID).
-	 * @param type Defines the storage device type, e.g. hard disk, hard or
-	 *   Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.
-	 * @return A list of devicefile names, otherwise FALSE.
+	 * @param integer type Defines the storage device type, e.g. hard disk,
+	 *   hard or Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.
+	 * @return array|boolean A list of devicefile names, otherwise FALSE.
 	 */
 	public static function enumerateUnused($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
 		// Append all available storage devices.
@@ -301,9 +290,9 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 	 * Enumerate all used devices. The list contains all those devices that
 	 * are used by the given storage devices, e.g. all members of a LVM
 	 * or Software RAID.
-	 * @param type Defines the storage device type, e.g. hard disk, hard or
-	 *   Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.
-	 * @return A list of devicefile names, otherwise FALSE.
+	 * @param integer type Defines the storage device type, e.g. hard disk,
+	 *   hard or Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.
+	 * @return array|boolean A list of devicefile names, otherwise FALSE.
 	 */
 	public static function enumerateUsed($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
 		$result = [];
@@ -327,7 +316,7 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 
 	/**
 	 * Check if the given device is used/consumed by another storage device.
-	 * @param deviceFile Specifies the device file, e.g.
+	 * @param string deviceFile Specifies the device file, e.g.
 	 *   <ul>
 	 *   \li /dev/sdb
 	 *   \li /dev/md1
@@ -337,10 +326,10 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
 	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
 	 *   </ul>
-	 * @param type Defines the storage device type, e.g. hard disk, hard or
-	 *   Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.
-	 * @return TRUE if the given device is used/consumed by another storage
-	 *   device, otherwise FALSE.
+	 * @param integer type Defines the storage device type, e.g. hard disk,
+	 *   hard or Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.
+	 * @return boolean TRUE if the given device is used/consumed by another
+	 *   storage device, otherwise FALSE.
 	 */
 	public static function isUsed($deviceFile, $type = OMV_STORAGE_DEVICE_TYPE_ALL) {
 		$result = FALSE;
@@ -361,7 +350,7 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 	/**
 	 * Factory method to get the object of the class which implements the
 	 * given storage device.
-	 * @param deviceFile Specifies the device file, e.g.
+	 * @param string deviceFile Specifies the device file, e.g.
 	 *   <ul>
 	 *   \li /dev/sdb
 	 *   \li /dev/md1
@@ -387,7 +376,7 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 	/**
 	 * Assert that the object of the class which implements the given storage
 	 * device exists.
-	 * @param deviceFile Specifies the device file, e.g.
+	 * @param string deviceFile Specifies the device file, e.g.
 	 *   <ul>
 	 *   \li /dev/sdb
 	 *   \li /dev/md1
@@ -397,14 +386,14 @@ class StorageDevice extends \OMV\System\BlockDevice implements IStorageDevice {
 	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
 	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
 	 *   </ul>
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\AssertException
 	 */
 	public static function assertStorageDeviceExists($deviceFile) {
 		$result = self::getStorageDevice($deviceFile);
 		if (is_null($result) || !$result->exists()) {
 			throw new \OMV\AssertException("Device '%s' not found.",
-			  $deviceFile);
+				$deviceFile);
 		}
 	}
 }

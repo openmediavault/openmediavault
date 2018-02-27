@@ -38,7 +38,7 @@ Ext.define("OMV.PluginManager", {
 	 *   \em id The id of the item.
 	 *   \em className The class name.
 	 *   \em text The text to be displayed.
-	 * @return None
+	 * @return void
 	 * @deprecated
 	 */
 	register: function(config) {

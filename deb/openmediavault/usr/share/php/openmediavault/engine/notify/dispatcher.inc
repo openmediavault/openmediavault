@@ -29,7 +29,7 @@ require_once("openmediavault/functions.inc");
  * @ingroup api
  */
 class Dispatcher {
-	use \OMV\Debugable;
+	use \OMV\DebugTrait;
 
 	private static $instances = [];
 	private $name = null;

@@ -66,7 +66,7 @@ class KeyValueFile {
 	 * Specifies whether case-sensitive key matching should be
 	 * used.
 	 * @param caseSensitive TRUE for case-sensitive matching.
-	 * @return None.
+	 * @return void
 	 */
 	final public function setKeyCaseSensitiv($caseSensitive) {
 		$this->keyCaseSensitiv = $caseSensitive;

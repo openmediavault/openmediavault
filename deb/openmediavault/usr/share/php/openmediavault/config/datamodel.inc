@@ -25,7 +25,7 @@ namespace OMV\Config;
  * @ingroup api
  */
 class DataModel extends \OMV\DataModel\DataModel {
-	use \OMV\Debugable;
+	use \OMV\DebugTrait;
 
 	private $propertiesSchema = null;
 
@@ -143,7 +143,7 @@ class DataModel extends \OMV\DataModel\DataModel {
 	/**
 	 * Validate the specified data against the data model.
 	 * @param data The JSON data to validate.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Json\SchemaException
 	 * @throw \OMV\Json\SchemaValidationException
 	 */
@@ -159,7 +159,7 @@ class DataModel extends \OMV\DataModel\DataModel {
 	 * Add a new property to the model.
 	 * @param path The path of the property, e.g. "aaa.bbb.ccc".
 	 * @param type The type of the property, e.g. 'string' or 'boolean'.
-	 * @return None.
+	 * @return void
 	 */
 	public function addProperty($path, $type, array $schema = array()) {
 		$schema['type'] = $type;
@@ -170,7 +170,7 @@ class DataModel extends \OMV\DataModel\DataModel {
 	 * Copies a property from one item to another.
 	 * @param path The path of the property, e.g. "aaa.bbb.ccc".
 	 * @param targetPath The path of the new property, e.g. "xxx.yyy.zzz".
-	 * @return None.
+	 * @return void
 	 */
 	public function copyProperty($path, $targetPath) {
 		$propSchema = $this->getPropertiesSchema()->getAssocByPath($path);
@@ -311,7 +311,7 @@ class DataModel extends \OMV\DataModel\DataModel {
 	/**
 	 * Assert that the specified property exists.
 	 * @param path The path of the property, e.g. "aaa.bbb.ccc".
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\AssertException
 	 */
 	public function assertPropertyExists($path) {
@@ -324,7 +324,7 @@ class DataModel extends \OMV\DataModel\DataModel {
 	/**
 	 * Assert that the specified property does not exist.
 	 * @param path The path of the property, e.g. "aaa.bbb.ccc".
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Json\SchemaPathException
 	 */
 	public function assertPropertyNotExists($path) {

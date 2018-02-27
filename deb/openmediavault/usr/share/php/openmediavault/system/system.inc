@@ -46,7 +46,7 @@ class System {
 		// Do not use /dev/root anymore because Debian has removed this
 		// symlink in Jessie. The OMV workaround to create this symlink
 		// during the boot process via an udev rule does not work reliable.
-		//if (is_block("/dev/root"))
+		//if (is_block_device("/dev/root"))
 		//	return realpath("/dev/root");
 		$cmd = new \OMV\System\Process("findmnt", "-f", "-n",
 		  "-o SOURCE", "/");

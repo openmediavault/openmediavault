@@ -21,13 +21,34 @@
  */
 namespace OMV\System\Storage\Backend;
 
-///////////////////////////////////////////////////////////////////////////////
-// Register default storage device backends.
-///////////////////////////////////////////////////////////////////////////////
-$backends = [ "Bcache", "CCISS", "CDROM", "DM", "FIO", "HD", "I2O",
-  "Loop", "LVM", "Mdadm", "MMC", "NVM", "RDB", "SD", "Virtio", "Xen" ];
-$mngr = Manager::getInstance();
-foreach ($backends as $backendk => $backendv) {
-	$className = sprintf("%s\%s", __NAMESPACE__, $backendv);
-	$mngr->registerBackend(new $className());
+/**
+ * Implements the storage device backend for MFM/IDE hard disk devices.
+ * @see https://linux.die.net/man/4/hd
+ * @ingroup api
+ */
+class HD extends BackendAbstract {
+	function getType() {
+		return OMV_STORAGE_DEVICE_TYPE_DISK;
+	}
+
+	function enumerate() {
+		// Examples:
+		// - /dev/hda
+		return $this->enumerateProcFs("hd[a-z]+");
+	}
+
+	function isTypeOf($deviceFile) {
+		// Examples:
+		// - /dev/hdc2
+		$regex = "hd[a-z]+[0-9]*";
+		return $this->isTypeOfByName($deviceFile, $regex);
+	}
+
+	function getImpl($args) {
+		return new \OMV\System\Storage\StorageDeviceHD($args);
+	}
+
+	function baseDeviceFile($deviceFile) {
+		return preg_replace("/(\d+)$/", "", $deviceFile);
+	}
 }

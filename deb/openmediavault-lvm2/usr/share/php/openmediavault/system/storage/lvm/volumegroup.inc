@@ -52,7 +52,7 @@ class VolumeGroup {
 	/**
 	 * Get the volume group detailed informations.
 	 * @private
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	private function getData() {
@@ -128,7 +128,7 @@ class VolumeGroup {
 
 	/**
 	 * Refresh the cached informations.
-	 * @return None.
+	 * @return void
 	 */
 	public function refresh() {
 		$this->dataCached = FALSE;
@@ -150,7 +150,7 @@ class VolumeGroup {
 
 	/**
 	 * Assert that the volume group exists.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\AssertException
 	 */
 	public function assertExists() {
@@ -202,7 +202,7 @@ class VolumeGroup {
 		// Note, if the VG does not contain a logical volume, then there
 		// is no device file. In that case simply return the /dev/xxx
 		// device file.
-		if (!is_block($deviceFile))
+		if (!is_block_device($deviceFile))
 			$deviceFile = $this->getDeviceFile();
 		return $deviceFile;
 	}
@@ -338,7 +338,7 @@ class VolumeGroup {
 	/**
 	 * Create the volume group.
 	 * @param devices An array containing the physical device paths.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function create($devices) {
@@ -352,7 +352,7 @@ class VolumeGroup {
 
 	/**
 	 * Remove the volume group.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function remove() {
@@ -367,7 +367,7 @@ class VolumeGroup {
 	/**
 	 * Rename the volume group.
 	 * @param name The new volume group path/name.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function rename($name) {
@@ -384,7 +384,7 @@ class VolumeGroup {
 	 * Extend the volume group.
 	 * @param devices An array containing the physical device paths to be
 	 *   added.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function extend($devices) {
@@ -400,7 +400,7 @@ class VolumeGroup {
 	 * Reduce the volume group.
 	 * @param devices An array containing the physical device paths to
 	 *   be removed.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function reduce($devices) {

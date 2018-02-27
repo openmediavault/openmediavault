@@ -69,7 +69,7 @@ class Email {
 
 	/**
 	 * Send the email.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\AssertException
 	 */
 	public function assertSend() {

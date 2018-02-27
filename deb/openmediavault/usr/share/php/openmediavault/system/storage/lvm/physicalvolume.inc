@@ -46,7 +46,7 @@ class PhysicalVolume {
 	/**
 	 * Get the physical volume detailed informations.
 	 * @private
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	private function getData() {
@@ -83,7 +83,7 @@ class PhysicalVolume {
 
 	/**
 	 * Refresh the cached informations.
-	 * @return None.
+	 * @return void
 	 */
 	public function refresh() {
 		$this->dataCached = FALSE;
@@ -105,7 +105,7 @@ class PhysicalVolume {
 
 	/**
 	 * Assert that the volume group exists.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\AssertException
 	 */
 	public function assertExists() {
@@ -221,7 +221,7 @@ class PhysicalVolume {
 
 	/**
 	 * Create the physical volume.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function create() {
@@ -234,7 +234,7 @@ class PhysicalVolume {
 
 	/**
 	 * Remove the physical volume.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function remove() {
@@ -249,7 +249,7 @@ class PhysicalVolume {
 
 	/**
 	 * Resize the physical volume.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function resize() {

@@ -25,7 +25,7 @@ namespace OMV\System\Filesystem;
  * Interface for filesystems.
  * @ingroup api
  */
-interface IFilesystem {
+interface FilesystemInterface {
 	/**
 	 * Checks if the device exists.
 	 * @return TRUE if the device exists, otherwise FALSE.
@@ -229,7 +229,7 @@ interface IFilesystem {
 	/**
 	 * Mount the filesystem by its device file or UUID.
 	 * @param options Additional mount options.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Exception
 	 */
 	public function mount($options);
@@ -238,28 +238,28 @@ interface IFilesystem {
 	 * Unmount the filesystem.
 	 * @param force Set to TRUE to force unmount.
 	 * @param lazy Set to TRUE to lazy unmount.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Exception
 	 */
 	public function umount($force, $lazy);
 
 	/**
 	 * Grow the filesystem.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Exception
 	 */
 	public function grow();
 
 	/**
 	 * Shrink the filesystem.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Exception
 	 */
 	public function shrink();
 
 	/**
 	 * Remove the filesystem.
-	 * @return None.
+	 * @return void
 	 * @throw \OMV\Exception
 	 */
 	public function remove();

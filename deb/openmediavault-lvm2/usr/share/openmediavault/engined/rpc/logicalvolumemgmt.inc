@@ -173,7 +173,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * Create a physical volume.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function createPhysicalVolume($params, $context) {
 		// Validate the RPC caller context.
@@ -205,7 +205,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params An array containing the following fields:
 	 *   \em devicefile The devicefile of the physical volume.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function deletePhysicalVolume($params, $context) {
 		// Validate the RPC caller context.
@@ -232,7 +232,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params An array containing the following fields:
 	 *   \em devicefile The devicefile of the physical volume.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function resizePhysicalVolume($params, $context) {
 		// Validate the RPC caller context.
@@ -369,7 +369,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * Create a volume group.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function createVolumeGroup($params, $context) {
 		// Validate the RPC caller context.
@@ -434,7 +434,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params An array containing the following fields:
 	 *   \em name The name of the volume group, e.g. vg0 or /dev/vg1.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function deleteVolumeGroup($params, $context) {
 		// Validate the RPC caller context.
@@ -497,7 +497,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * Rename a volume group.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function renameVolumeGroup($params, $context) {
 		// Validate the RPC caller context.
@@ -527,7 +527,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * Extend a volume group.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function extendVolumeGroup($params, $context) {
 		// Validate the RPC caller context.
@@ -561,7 +561,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * Reduce a volume group.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function reduceVolumeGroup($params, $context) {
 		// Validate the RPC caller context.
@@ -685,7 +685,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *      support volumes > 2GiB on 32bit systems.
 	 *   \em vgname The name of the volume group, e.g. /dev/vg0.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function createLogicalVolume($params, $context) {
 		// Validate the RPC caller context.
@@ -713,7 +713,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * Rename a logical volume.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function renameLogicalVolume($params, $context) {
 		// Validate the RPC caller context.
@@ -744,7 +744,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params An array containing the following fields:
 	 *   \em devicefile The device file of the logical volume.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function deleteLogicalVolume($params, $context) {
 		// Validate the RPC caller context.
@@ -773,7 +773,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *   \em size The new size of the logical volume in bytes. This is a string
 	 *      to support volumes > 2GiB on 32bit systems.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function modifyLogicalVolume($params, $context) {
 		// Validate the RPC caller context.
@@ -816,7 +816,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 	 *      support volumes > 2GiB on 32bit systems. If this parameter is not
 	 *      set, then the size of the specified \em devicefile is used.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	public function createLogicalVolumeSnapshot($params, $context) {
 		// Validate the RPC caller context.

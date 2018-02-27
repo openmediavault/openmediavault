@@ -112,7 +112,7 @@ class Json {
 	/**
 	 * Validate the RPC parameters. An exception is thrown when
 	 * the validation fails.
-	 * @return None.
+	 * @return void
 	 */
 	protected function validate() {
 		$schema = new \OMV\Json\Schema('{
@@ -129,7 +129,7 @@ class Json {
 
 	/**
 	 * Do additional stuff before RPC is executed.
-	 * @return None.
+	 * @return void
 	 */
 	protected function preExecute() {
 		// Nothing to do here.
@@ -138,7 +138,7 @@ class Json {
 	/**
 	 * Do additional stuff after RPC has been executed.
 	 * @param response The RPC response
-	 * @return None.
+	 * @return void
 	 */
 	protected function postExecute(&$response) {
 		// Nothing to do here.
@@ -147,7 +147,7 @@ class Json {
 	/**
 	 * Print the RPC responce.
 	 * @param response The RPC response
-	 * @return None.
+	 * @return void
 	 */
 	protected function handleResponse($response) {
 		header("Content-Type: application/json");

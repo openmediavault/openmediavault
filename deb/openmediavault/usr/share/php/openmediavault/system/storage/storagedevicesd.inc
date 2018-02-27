@@ -22,15 +22,15 @@
 namespace OMV\System\Storage;
 
 /**
- * This class provides a simple interface to handle ATA/SATA and SCSI
- * hard disk devices. Try to use sysfs only to get the required information,
- * otherwise the disk will spin-up if it is in sleep mode.
+ * This class provides a simple interface to handle SCSI disk devices.
  * @ingroup api
  */
-class StorageDeviceHDD extends SmartStorageDeviceAbstract {
+class StorageDeviceSD extends StorageDevice implements SmartInterface {
+	use SmartTrait;
+
 	/**
 	 * Get the current power mode status.
-	 * @return The current power mode status which can be
+	 * @return string The current power mode status which can be
 	 *   <ul>
 	 *   \li unknown
 	 *   \li active/idle
@@ -65,15 +65,9 @@ class StorageDeviceHDD extends SmartStorageDeviceAbstract {
 	}
 
 	/**
-	 * Identify the device type required by the smartctl command.
-	 * @return Returns the identified device type or an empty string.
+	 * See \OMV\System\Storage\SmartInterface interface definition.
 	 */
 	public function getSmartDeviceType() {
-		$type = parent::getSmartDeviceType();
-		if (empty($type)) {
-			if (TRUE === $this->isUsb())
-				$type = $this->setSmartDeviceType("sat");
-		}
-		return $type;
+		return (TRUE === $this->isUsb()) ? "sat" : "";
 	}
 }

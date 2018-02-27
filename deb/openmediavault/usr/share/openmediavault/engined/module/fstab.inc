@@ -93,7 +93,7 @@ class OMVModuleFsTab extends \OMV\Engine\Module\ServiceAbstract
 	 * @param type The event message type.
 	 * @param path The event message path.
 	 * @param object The configuration object.
-	 * @return None.
+	 * @return void
 	 */
 	final public function onDelete($type, $path, $object) {
 		$this->addTask("delete", "deleteEntry", $object);

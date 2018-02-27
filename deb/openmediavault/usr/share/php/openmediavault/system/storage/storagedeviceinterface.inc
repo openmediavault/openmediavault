@@ -19,13 +19,13 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System;
+namespace OMV\System\Storage;
 
 /**
- * Interface for block devices.
+ * Interface for storage devices.
  * @ingroup api
  */
-interface IBlockDevice {
+interface StorageDeviceInterface {
 	/**
 	 * Checks if the device exists.
 	 * @return TRUE if the device exists, otherwise FALSE.
@@ -73,46 +73,6 @@ interface IBlockDevice {
 	public function hasDeviceFileById();
 
 	/**
-	 * Get the device file by PATH, e.g. <ul>
-	 * \li /dev/disk/by-path/pci-0000:00:17.0-ata-3
-	 * \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
-	 * \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:1:0-part1
-	 * </ul>
-	 * @return The device file (/dev/disk/by-path/xxx) if available,
-	 *   otherwise NULL will be returned.
-	 */
-	public function getDeviceFileByPath();
-
-	/**
-	 * Check whether the device has a /dev/disk/by-path/xxx device path.
-	 * @return Returns TRUE if a disk/by-path device path exists,
-	 *   otherwise FALSE.
-	 */
-	public function hasDeviceFileByPath();
-
-	/**
-	 * Get a predictable device file in the following order:
-	 * <ul>
-	 * \li /dev/disk/by-id/xxx
-	 * \li /dev/disk/by-path/xxx
-	 * \li /dev/xxx
-	 * </ul>
-	 * @return Returns a device file.
-	 */
-	public function getPredictableDeviceFile();
-
-	/**
-	 * Get the device file to present in the UI, e.g.:
-	 * <ul>
-	 * \li /dev/disk/by-id/xxx
-	 * \li /dev/disk/by-path/xxx
-	 * \li /dev/xxx
-	 * </ul>
-	 * @return Returns a device file.
-	 */
-	public function getPreferredDeviceFile();
-
-	/**
 	* Get all device file symlinks via udev, e.g. <ul>
 	* \li /dev/disk/by-id/wwn-0x5000cca211cc703c
 	* \li /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
@@ -134,32 +94,8 @@ interface IBlockDevice {
 	public function getDeviceName($canonical = FALSE);
 
 	/**
-	 * Get the device number, e.g. 8:17.
-	 * @link See https://www.kernel.org/doc/Documentation/devices.txt for
-	 *   more information. @endlink
-	 * @return The device number as string or FALSE on failure.
-	 */
-	public function getDeviceNumber();
-
-	/**
-	 * Get the major device number.
-	 * @link See https://www.kernel.org/doc/Documentation/devices.txt for
-	 *   more information. @endlink
-	 * @return The major device number or FALSE on failure.
-	 */
-	public function getMajor();
-
-	/**
-	 * Get the minor device number.
-	 * @link See https://www.kernel.org/doc/Documentation/devices.txt for
-	 *   more information. @endlink
-	 * @return The minor device number or FALSE on failure.
-	 */
-	public function getMinor();
-
-	/**
 	 * Get the size of the device in bytes.
-	 * @return The size (64bit) of the device in bytes as string.
+	 * @return The size of the device in bytes.
 	 * @throw \OMV\Exception
 	 */
 	public function getSize();
@@ -179,17 +115,84 @@ interface IBlockDevice {
 	public function getSectorSize();
 
 	/**
+	 * Get the device model.
+	 * @return The device model, otherwise an empty string.
+	 */
+	public function getModel();
+
+	/**
+	 * Get the device vendor.
+	 * @return The device vendor, otherwise an empty string.
+	 */
+	public function getVendor();
+
+	/**
+	 * Get the device serial number.
+	 * @return The device serial number, otherwise an empty string.
+	 */
+	public function getSerialNumber();
+
+	/**
 	 * Get the description of the device.
 	 * @return The device description.
 	 */
 	public function getDescription();
 
 	/**
-	 * Wait for the specified device. If the device file is not available
-	 * within the given time, then an exception is thrown.
-	 * @param timeout Timeout in seconds to wait for an available device.
-	 * @return None.
-	 * @throw \OMV\Exception
+	 * Check if the device is of rotational type or non-rotational type.
+	 * See https://www.kernel.org/doc/Documentation/block/queue-sysfs.txt
+	 * @return TRUE if device is of rotational type, otherwise FALSE.
 	 */
-	public function waitForDevice($timeout);
+	public function isRotational();
+
+	/**
+	* Check if the device is removable.
+	* @return TRUE if device is removable, otherwise FALSE.
+	*/
+	public function isRemovable();
+
+	/**
+	 * Check if the given device is a hardware/software RAID device.
+	 * @return TRUE if the device is a hardware/software RAID,
+	 *   otherwise FALSE.
+	 */
+	public function isRaid();
+
+	/**
+	 * Check if the given device is an USB device.
+	 * @return TRUE if the device is a connected via USB, otherwise FALSE.
+	 */
+	public function isUsb();
+
+	/**
+	 * Check if the given device is connected via ATA.
+	 * @return TRUE if the device is connected via ATA, otherwise FALSE.
+	 */
+	public function isAta();
+
+	/**
+	 * Check if the given device is read-only.
+	 * @return TRUE if the device is read-only, otherwise FALSE.
+	 */
+	public function isReadOnly();
+
+	/**
+	 * Check if a medium is available. The method should always return TRUE
+	 * for devices without removable media.
+	 * @return Set to FALSE if no medium is available.
+	 */
+	public function isMediaAvailable();
+
+	/**
+	 * Check if the given device has S.M.A.R.T. support.
+	 * @return Returns TRUE if the device supports S.M.A.R.T.,
+	 *   otherwise FALSE.
+	 */
+	public function hasSmartSupport();
+
+	/**
+	 * Wipe the storage device.
+	 * @return void
+	 */
+	public function wipe();
 }

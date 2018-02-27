@@ -81,7 +81,7 @@ class OMVRpcServiceWebGui extends \OMV\Rpc\ServiceAbstract {
 	 * @param params An array containing the following fields:
 	 *   \em password The new password.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return void
 	 */
 	function setPassword($params, $context) {
 		// Validate the RPC caller context.

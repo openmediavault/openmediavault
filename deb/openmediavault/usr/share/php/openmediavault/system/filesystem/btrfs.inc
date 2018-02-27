@@ -268,7 +268,7 @@ class Btrfs extends Filesystem {
 
 	/**
 	 * Remove the filesystem.
-	 * @return None.
+	 * @return void
 	 */
 	public function remove() {
 		$this->getData();
