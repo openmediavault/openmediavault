@@ -128,7 +128,7 @@ interface BlockDeviceInterface {
 
 	/**
 	 * Get the device name, e.g. sda or hdb.
-	 * @param canonical If set to TRUE the canonical device file will
+	 * @param boolean canonical If set to TRUE the canonical device file will
 	 *   be used. Defaults to FALSE.
 	 * @return string The device name.
 	 */
