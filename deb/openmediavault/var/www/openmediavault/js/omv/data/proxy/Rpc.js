@@ -69,13 +69,13 @@ Ext.define("OMV.data.proxy.Rpc", {
 		var me = this;
 		var request = me.buildRequest(operation);
 		Ext.apply(request, {
-			timeout: me.timeout,
 			scope: me,
 			callback: me.createRequestCallback(request, operation,
 			  callback, scope),
 			method: me.getMethod(request),
 			disableCaching: false
 		});
+		request.setTimeout(me.timeout);
 		OMV.Rpc.request(request);
 		return request;
 	},
