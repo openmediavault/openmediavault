@@ -2,6 +2,7 @@ openmediavault (4.1.0-1) stable; urgency=low
 
   * Update locales.
   * Replace ifquery command in 'omv-mkconf issue' script.
+  * Create RRD graphs for filesystems with whitespaces in their labels.
   * Increase package version to 4.1.0 according to semantic versioning
     (https://semver.org/).
   * Refactor and cleanup many things in the PHP API.
