@@ -1,3 +1,9 @@
+openmediavault-diskstats (4.0.2-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 03 Mar 2018 07:21:06 +0100
+
 openmediavault-diskstats (4.0.1-1) stable; urgency=low
 
   * Update locales.

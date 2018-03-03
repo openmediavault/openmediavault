@@ -1,3 +1,9 @@
+openmediavault-clamav (4.1.5-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 03 Mar 2018 07:20:16 +0100
+
 openmediavault-clamav (4.1.4-1) stable; urgency=low
 
   * Update locales.

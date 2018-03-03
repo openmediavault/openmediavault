@@ -1,3 +1,9 @@
+openmediavault-shairport (4.0.5-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 03 Mar 2018 07:23:54 +0100
+
 openmediavault-shairport (4.0.4-1) stable; urgency=low
 
   * Various improvements.
