@@ -191,12 +191,6 @@ openmediavault (3.0.98) stable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 21 Feb 2018 12:19:32 +0100
 
-openmediavault (3.0.98) stable; urgency=low
-
-  * Fix locking issue in SMB recycle bin cleanup and iptables scripts.
-
- -- Volker Theile <volker.theile@openmediavault.org>  Wed, 21 Feb 2018 12:19:32 +0100
-
 openmediavault (3.0.97) stable; urgency=low
 
   * Mantis 0000196: Switch the NFS shares default option from secure to
