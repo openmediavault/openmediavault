@@ -75,6 +75,8 @@ Ext.define("OMV.data.proxy.Rpc", {
 			method: me.getMethod(request),
 			disableCaching: false
 		});
+		// Use setTimeout() here because 'Ext.data.request.Base' uses the
+		// getter method to access the timeout config option.
 		request.setTimeout(me.timeout);
 		OMV.Rpc.request(request);
 		return request;
