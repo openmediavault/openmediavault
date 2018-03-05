@@ -69,13 +69,15 @@ Ext.define("OMV.data.proxy.Rpc", {
 		var me = this;
 		var request = me.buildRequest(operation);
 		Ext.apply(request, {
-			timeout: me.timeout,
 			scope: me,
 			callback: me.createRequestCallback(request, operation,
 			  callback, scope),
 			method: me.getMethod(request),
 			disableCaching: false
 		});
+		// Apply the request to the given operation.
+		operation.setRequest(request);
+		// Finally execute the RPC request.
 		OMV.Rpc.request(request);
 		return request;
 	},
@@ -103,7 +105,9 @@ Ext.define("OMV.data.proxy.Rpc", {
 			rpcData: rpcData,
 			relayErrors: true
 		});
-		operation.request = request;
+		// Use setTimeout() here because 'Ext.data.request.Base' uses
+		// the getter method to access the timeout config option.
+		request.setTimeout(me.timeout);
 		return request;
 	},
 

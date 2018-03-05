@@ -1,3 +1,9 @@
+openmediavault (3.0.99) stable; urgency=low
+
+  * Set correct timeout in OMV.data.proxy.Rpc.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 05 Mar 2018 18:28:29 +0100
+
 openmediavault (3.0.98) stable; urgency=low
 
   * Fix locking issue in SMB recycle bin cleanup and iptables scripts.
