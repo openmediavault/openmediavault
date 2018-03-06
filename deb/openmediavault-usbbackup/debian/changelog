@@ -1,3 +1,9 @@
+openmediavault-usbbackup (4.0.6-1) stable; urgency=low
+
+  * Fix postrm script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 06 Mar 2018 19:28:43 +0100
+
 openmediavault-usbbackup (4.0.5-1) stable; urgency=low
 
   * Update locales.

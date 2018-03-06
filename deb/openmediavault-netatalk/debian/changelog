@@ -1,3 +1,9 @@
+openmediavault-netatalk (4.0.8-1) stable; urgency=low
+
+  * Fix postrm script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 06 Mar 2018 19:26:28 +0100
+
 openmediavault-netatalk (4.0.7-1) stable; urgency=low
 
   * Update locales.

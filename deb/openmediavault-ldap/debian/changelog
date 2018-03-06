@@ -1,3 +1,9 @@
+openmediavault-ldap (4.0.6-1) stable; urgency=low
+
+  * Fix postrm script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 06 Mar 2018 19:25:59 +0100
+
 openmediavault-ldap (4.0.5-1) stable; urgency=low
 
   * Update locales.

@@ -1,3 +1,9 @@
+openmediavault-tftp (4.0.5-1) stable; urgency=low
+
+  * Fix postrm script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 06 Mar 2018 19:28:23 +0100
+
 openmediavault-tftp (4.0.4-1) stable; urgency=low
 
   * Update locales.

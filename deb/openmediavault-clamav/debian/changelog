@@ -1,3 +1,9 @@
+openmediavault-clamav (4.1.6-1) stable; urgency=low
+
+  * Fix postrm script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 06 Mar 2018 19:24:26 +0100
+
 openmediavault-clamav (4.1.5-1) stable; urgency=low
 
   * Update locales.
