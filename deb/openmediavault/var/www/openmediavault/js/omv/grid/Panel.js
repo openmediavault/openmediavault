@@ -165,6 +165,7 @@ Ext.define("OMV.grid.Panel", {
 
 	/**
 	 * Load the grid content.
+	 * @return void
 	 */
 	doLoad: function() {
 		var me = this;
@@ -173,9 +174,14 @@ Ext.define("OMV.grid.Panel", {
 
 	/**
 	 * Reload the grid content.
+	 * @return void
 	 */
 	doReload: function() {
 		var me = this;
+		// Do not reload the store if it is currently performing a
+		// load operation.
+		if (me.getStore().isLoading())
+			return;
 		me.getStore().reload();
 	}
 });

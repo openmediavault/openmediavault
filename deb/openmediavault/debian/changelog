@@ -1,6 +1,7 @@
 openmediavault (3.0.99) stable; urgency=low
 
   * Set correct timeout in OMV.data.proxy.Rpc.
+  * Do not reload the store if it is currently performing a load operation.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 05 Mar 2018 18:28:29 +0100
 

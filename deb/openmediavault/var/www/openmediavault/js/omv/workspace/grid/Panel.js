@@ -345,23 +345,29 @@ Ext.define("OMV.workspace.grid.Panel", {
 
 	/**
 	 * Load the grid content.
+	 * @return void
 	 */
 	doLoad: function() {
 		var me = this;
 		if (me.mode === "remote") {
-			if (me.store && Ext.isObject(me.store) && me.store.isStore)
-				me.store.load();
+			// Call parent of the current method if the store exists.
+			if (me.store && Ext.isObject(me.store) && me.store.isStore) {
+				me.callParent();
+			}
 		}
 	},
 
 	/**
 	 * Reload the grid content.
+	 * @return void
 	 */
 	doReload: function() {
 		var me = this;
 		if (me.mode === "remote") {
-			if (me.store && Ext.isObject(me.store) && me.store.isStore)
-				me.store.reload();
+			// Call parent of the current method if the store exists.
+			if (me.store && Ext.isObject(me.store) && me.store.isStore) {
+				me.callParent();
+			}
 		}
 	},
 
