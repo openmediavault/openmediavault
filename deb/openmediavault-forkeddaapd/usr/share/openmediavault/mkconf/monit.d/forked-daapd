@@ -31,7 +31,7 @@ rm -f ${OMV_MONIT_SERVICE_FORKEDDAAPD_CONFIG}
 [ "$(omv_config_get "//services/daap/enable")" != "1" ] && exit 0
 
 cat <<EOF > ${OMV_MONIT_SERVICE_FORKEDDAAPD_CONFIG}
-check process forked-daapd with pidfile /var/run/forked-daapd.pid
+check process forked-daapd matching forked-daapd
   start program = "/bin/systemctl start forked-daapd"
   stop program = "/bin/systemctl stop forked-daapd"
   mode ${OMV_MONIT_SERVICE_FORKEDDAAPD_MODE}
