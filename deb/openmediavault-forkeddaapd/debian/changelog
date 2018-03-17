@@ -3,7 +3,7 @@ openmediavault-forkeddaapd (4.0.7-1) stable; urgency=low
   * Issue #62: Monit config for forked-daapd causes monit to think forked-daapd
     is not running.
 
- -- vot <vot@arrakis>  Sat, 17 Mar 2018 09:06:09 +0100
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 17 Mar 2018 09:06:09 +0100
 
 openmediavault-forkeddaapd (4.0.6-1) stable; urgency=low
 
