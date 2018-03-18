@@ -51,7 +51,8 @@ class OMVModuleSharedfolders extends \OMV\Engine\Module\ServiceAbstract
 		foreach ($objects as $objectk => $objectv) {
 			$unitName = \OMV\System\SystemCtl::escape(build_path(
 				DIRECTORY_SEPARATOR,
-				\OMV\Environment::get("OMV_SHAREDFOLDERS_DIR"),
+				\OMV\Environment::get("OMV_SHAREDFOLDERS_DIR",
+					"/sharedfolders"),
 				$objectv->get("name")), [ "--path", "--suffix=mount" ]);
 			// Mount the shared folder bind mount.
 			$systemCtl = new \OMV\System\SystemCtl($unitName);
