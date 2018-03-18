@@ -51,7 +51,7 @@ fi
 
 # Modify default release.
 if [ -e "/etc/apt/apt.conf" ]; then
-	sed -i -r "s/${OMV_UPGRADE_DEBIAN_RELEASENAME_CURRENT}(-lts)/${OMV_UPGRADE_DEBIAN_RELEASENAME_NEXT}/g" /etc/apt/apt.conf
+	sed -i -r "s/${OMV_UPGRADE_DEBIAN_RELEASENAME_CURRENT}(-lts)?/${OMV_UPGRADE_DEBIAN_RELEASENAME_NEXT}/g" /etc/apt/apt.conf
 fi
 
 exit 0
