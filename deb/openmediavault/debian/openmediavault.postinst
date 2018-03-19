@@ -517,6 +517,22 @@ case "$1" in
 			rm -f /etc/network/if-post-down.d/openmediavault-issue
 			rm -f /etc/network/if-up.d/openmediavault-issue
 		fi
+		if dpkg --compare-versions "$2" lt-nl "4.1.1"; then
+			# Cleanup existing Sys-V scripts when upgrading from
+			# Debian 8 to 9.
+			update-rc.d openmediavault remove || :
+			update-rc.d openmediavault-beep remove || :
+			update-rc.d openmediavault-configimport remove || :
+			update-rc.d openmediavault-engined remove || :
+			rm -f /etc/init.d/openmediavault
+			rm -f /etc/init.d/openmediavault-beep
+			rm -f /etc/init.d/openmediavault-configimport
+			rm -f /etc/init.d/openmediavault-engined
+			# Rebuild rrdcached configuration. It may be overwritten
+			# during the upgrade from Debian 8 to 9.
+			omv-mkconf rrdcached
+			deb-systemd-invoke restart rrdcached.service || :
+		fi
 
 		########################################################################
 		# Show help text.
