@@ -31,7 +31,7 @@ rm -f ${OMV_MONIT_SERVICE_SHAIRPORT_CONFIG}
 [ "$(omv_config_get "//services/shairport/enable")" != "1" ] && exit 0
 
 cat <<EOF > ${OMV_MONIT_SERVICE_SHAIRPORT_CONFIG}
-check process shairport-sync with pidfile /var/run/shairport-sync.pid
+check process shairport-sync with pidfile /var/run/shairport-sync/shairport-sync.pid
   start program = "/bin/systemctl start shairport-sync"
   stop program = "/bin/systemctl stop shairport-sync"
   mode ${OMV_MONIT_SERVICE_SHAIRPORT_MODE}
