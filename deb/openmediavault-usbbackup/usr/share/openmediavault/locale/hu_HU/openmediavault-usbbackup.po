@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
-# Gábor Sári <sari.gabor@gmail.com>, 2017
+# Sári Gábor <sari.gabor@gmail.com>, 2017
 # Gyuris Gellért <bubu@ujevangelizacio.hu>, 2017
 # Grawens <szabolcs.szanyi@gmail.com>, 2014,2017
 msgid ""
