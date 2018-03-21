@@ -111,7 +111,7 @@ class DatabaseBackend {
 	public function load() {
 		$this->domdoc = new \DOMDocument();
 		if (FALSE === ($result = $this->domdoc->load($this->filename,
-		  LIBXML_NOBLANKS | LIBXML_NONET))) {
+				LIBXML_NOBLANKS | LIBXML_NONET))) {
 			throw new DatabaseException($this->getLibXmlError());
 		}
 		return $result;
@@ -400,8 +400,9 @@ class DatabaseBackend {
 		// !!! Note, the file permissions of the target file will
 		// not be touched when using the copy operation.
 		if (!copy($filename, $this->filename)) {
+			$error = error_get_last();
 			sem_release($this->semaphore);
-			throw new DatabaseException(error_get_last());
+			throw new DatabaseException($error['message']);
 		}
 		// Unlink all revision files.
 		$this->unlinkRevisions();
@@ -459,8 +460,8 @@ class DatabaseBackend {
 			// on failure to do not corrupt the original file. Note, the
 			// current changes can get lost.
 			if (!copy($this->filename, $filename)) {
-				$this->setLastError(error_get_last());
-				return FALSE;
+				$error = error_get_last();
+				throw new DatabaseException($error['message']);
 			}
 			// Update file permissions.
 			chmod($filename, 0600);
@@ -469,8 +470,8 @@ class DatabaseBackend {
 		$this->domdoc->encoding = "UTF-8";
 		$this->domdoc->formatOutput = true;
 		if (FALSE === ($result = $this->domdoc->save($this->filename,
-		  LIBXML_NOEMPTYTAG))) {
-			$this->setLastError($this->getLibXmlError());
+				LIBXML_NOEMPTYTAG))) {
+			throw new DatabaseException($this->getLibXmlError());
 		}
 		return $result;
 	}
@@ -482,11 +483,11 @@ class DatabaseBackend {
 	 */
 	final private function getLibXmlError() {
 		$text = "";
-		$errLevels = array(
+		$errLevels = [
 			LIBXML_ERR_WARNING => gettext("Warning"),
 			LIBXML_ERR_ERROR => gettext("Error"),
 			LIBXML_ERR_FATAL => gettext("Fatal error")
-		);
+		];
 		foreach (libxml_get_errors() as $errork => $errorv) {
 			if ($errork > 0) $text .= "; ";
 			$text .= sprintf("%s %d: %s (line=%d, column=%d)",
