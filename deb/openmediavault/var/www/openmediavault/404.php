@@ -30,15 +30,19 @@ $title = sprintf("%s - %s", $prd->getName(), gettext("Page not found"));
 		<title><?=$title;?></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
-		<link rel="stylesheet" type="text/css" href="css/omv.css"/>
+		<link rel="stylesheet" type="text/css" href="/extjs6/classic/theme-triton/resources/theme-triton-all.css"/>
+		<link rel="stylesheet" type="text/css" href="css/theme-all.min.css"/>
 	</head>
 	<body class="error-page">
-		<div class="error-icon"></div>
+		<span class="error-icon x-fa fa-stack fa-2x">
+			<i class="x-color-red x-fa fa fa-stack-2x fa-circle"></i>
+			<i class="x-color-white x-fa fa fa-stack-1x fa-exclamation"></i>
+		</span>
 		<center>
-            <h1>Error 404</h1>
-            <p>Sorry, the page you requested was not found.</p>
-        </center>
-        <hr>
+			<h1>Error 404</h1>
+			<p>Sorry, the page you requested was not found.</p>
+		</center>
+		<hr>
 		<a title='<?=$prd->getName();?>' href='<?=$prd->getURL();?>' target='_blank'><div class="product-logo"></div></a>
 	</body>
 </html>

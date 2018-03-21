@@ -30,7 +30,7 @@ $prd = new \OMV\ProductInfo();
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
 		<link rel="stylesheet" type="text/css" href="/extjs6/classic/theme-triton/resources/theme-triton-all.css"/>
-		<link rel="stylesheet" type="text/css" href="css/theme-all.css"/>
+		<link rel="stylesheet" type="text/css" href="css/theme-all.min.css"/>
 	</head>
 	<body class="shutdown-page">
 		<span class="shutdown-icon x-fa fa-stack fa-2x">
