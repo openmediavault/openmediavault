@@ -96,12 +96,12 @@ class OMVRpcServiceExec extends \OMV\Rpc\ServiceAbstract {
 			  $error['message'], $error['trace']);
 		}
 		// Prepare the result object.
-		$result = array(
+		$result = [
 			"filename" => $params['filename'],
 			"pos" => 0,
 			"output" => "",
 			"running" => $status->isRunning()
-		);
+		];
 		// Check if there is a background process output file and try to
 		// read the content starting from the given position to the end
 		// of the file.
