@@ -145,10 +145,19 @@ abstract class ServiceAbstract {
 	final public function callMethodBg($name, $params, $context) {
 		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
-		  use ($name, $params, $context) {
-			  // Execute the given RPC service method.
-			  return $this->callMethod($name, $params, $context);
-		  });
+			use ($name, $params, $context) {
+				// Execute the given RPC service method.
+				$result = $this->callMethod($name, $params, $context);
+				// Write the RPC result to the background process output file.
+				// Make sure the content is a strings, so convert associative
+				// arrays to JSON strings.
+				$content = $result;
+				if (is_assoc_array($content)) {
+					$content = json_encode_safe($content);
+				}
+				$this->writeBgProcOutput($bgOutputFilename, $content);
+				return $result;
+			});
 	}
 
 	/**
@@ -255,11 +264,11 @@ abstract class ServiceAbstract {
 	}
 
 	/**
-	 * Helper function to write a string to the background process output.
-	 * @param filename Path to the file where to write the content.
-	 * @param content The content to write.
-	 * @return This function returns the number of bytes that were written
-	 *   to the file, or FALSE on failure.
+	 * Helper function to write content to the background process output.
+	 * @param string $filename Path to the file where to write the content.
+	 * @param string $content The content to write.
+	 * @return boolean This function returns the number of bytes that were
+	 *   written to the file, or FALSE on failure.
 	 */
 	final protected function writeBgProcOutput($filename, $content) {
 		return file_put_contents($filename, $content, FILE_APPEND | LOCK_EX);
