@@ -2,6 +2,7 @@ openmediavault (4.1.2-1) stable; urgency=low
 
   * Various bugfixes.
   * Fix display issue in shutdown page.
+  * Issue #60: Timeout on filesystems page when having many filesystems.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 20 Mar 2018 20:02:18 +0100
 
