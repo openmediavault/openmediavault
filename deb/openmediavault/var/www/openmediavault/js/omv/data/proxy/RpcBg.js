@@ -50,6 +50,12 @@ Ext.define("OMV.data.proxy.RpcBg", {
 		};
 	},
 
+	processResponse: function(success, operation, request, response) {
+		var me = this;
+		delete me.bgStatusFilename;
+		me.callParent(arguments);
+	},
+
 	doGetOutput: function(request, operation) {
 		var me = this;
 		OMV.Rpc.request({
@@ -62,10 +68,7 @@ Ext.define("OMV.data.proxy.RpcBg", {
 						return;
 					} else {
 						response = Ext.JSON.decode(response.output);
-						delete me.bgStatusFilename;
 					}
-				} else {
-					delete me.bgStatusFilename;
 				}
 				this.processResponse(success, operation, request, response);
 			},
