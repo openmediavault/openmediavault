@@ -36,7 +36,9 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("enumerateFilesystems");
 		$this->registerMethod("enumerateMountedFilesystems");
 		$this->registerMethod("getList");
+		$this->registerMethod("getListBg");
 		$this->registerMethod("getCandidates");
+		$this->registerMethod("getCandidatesBg");
 		$this->registerMethod("create");
 		$this->registerMethod("resize");
 		$this->registerMethod("delete");
@@ -258,13 +260,13 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 
 	/**
 	 * Get the list of filesystems that have been detected.
-	 * @param params An array containing the following fields:
+	 * @param object $params An object containing the following fields:
 	 *   \em start The index where to start.
 	 *   \em limit The number of objects to process.
 	 *   \em sortfield The name of the column used to sort.
 	 *   \em sortdir The sort direction, ASC or DESC.
-	 * @param context The context of the caller.
-	 * @return An array of objects with the following fields: \em uuid,
+	 * @param object $context The context of the caller.
+	 * @return array An array of objects with the following fields: \em uuid,
 	 *   \em devicefile, \em type, \em label, \em blocks, \em size,
 	 *   \em mountpoint, \em blocks, \em used, \em available,
 	 *   \em description, \em mounted, \em percentage, \em status,
@@ -432,10 +434,17 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 	}
 
 	/**
+	 * Execute the getList() RPC as background process.
+	 */
+	public function getListBg($params, $context) {
+		return $this->callMethodBg("getList", $params, $context);
+	}
+
+	/**
 	 * Get list of devices that can be used to create a filesystem on.
-	 * @param params The method parameters.
-	 * @param context The context of the caller.
-	 * @return An array containing objects with the following fields:
+	 * @param object $params The method parameters.
+	 * @param object $context The context of the caller.
+	 * @return array An array containing objects with the following fields:
 	 *   devicefile, size and description.
 	 * @throw \OMV\Exception
 	 */
@@ -487,6 +496,13 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			];
 		}
 		return $result;
+	}
+
+	/**
+	 * Execute the getCandidates() RPC as background process.
+	 */
+	public function getCandidatesBg($params, $context) {
+		return $this->callMethodBg("getCandidates", $params, $context);
 	}
 
 	/**

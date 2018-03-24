@@ -29,6 +29,7 @@
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
+// require("js/omv/data/proxy/RpcBg.js")
 
 /**
  * @class OMV.module.admin.storage.smart.device.Settings
@@ -453,7 +454,7 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 	requires: [
 		"OMV.data.Store",
 		"OMV.data.Model",
-		"OMV.data.proxy.Rpc",
+		"OMV.data.proxy.RpcBg",
 	],
 	uses: [
 		"OMV.module.admin.storage.smart.device.Settings",
@@ -574,10 +575,10 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 					]
 				}),
 				proxy: {
-					type: "rpc",
+					type: "rpcbg",
 					rpcData: {
 						service: "Smart",
-						method: "getList"
+						method: "getListBg"
 					}
 				},
 				remoteSort: true,

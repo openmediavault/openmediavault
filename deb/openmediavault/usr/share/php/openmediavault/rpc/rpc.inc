@@ -202,4 +202,37 @@ class Rpc {
 			return $response['response'];
 		}
 	}
+
+	/**
+	 * Execute the given RPC as background process.
+	 * @param string $service The name of the service.
+	 * @param string $method The name of the method.
+	 * @param mixed $params The parameters hash object to be passed to
+	 *   the method of the given service.
+	 * @param object $context The context hash object of the caller containing
+	 *   the fields \em username and \em role.
+	 * @return object The RPC response.
+	 */
+	public static function callBg($service, $method, $params, $context) {
+		$rpcServiceMngr = &\OMV\Rpc\ServiceManager::getInstance();
+		if (FALSE !== ($rpcService = $rpcServiceMngr->getService($service))) {
+			if (TRUE === $rpcService->hasMethod($method)) {
+				// Restore server and execution environment information
+				// if exists.
+				if (array_key_exists("_SERVER", $context)) {
+					foreach ($context['_SERVER'] as $key => $value) {
+						$_SERVER[$key] = $value;
+					}
+					unset($context['_SERVER']);
+				}
+				// Execute the RPC service method as a background process.
+				return $rpcService->callMethodBg($method, $params, $context);
+			} else {
+				throw new Exception("The method '%s' does not exist ".
+					"for the RPC service '%s'.", $method, $service);
+			}
+		} else {
+			throw new Exception("RPC service '%s' not found.", $service);
+		}
+	}
 }

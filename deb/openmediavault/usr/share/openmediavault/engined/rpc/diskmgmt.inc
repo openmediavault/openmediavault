@@ -35,6 +35,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 	public function initialize() {
 		$this->registerMethod("enumerateDevices");
 		$this->registerMethod("getList");
+		$this->registerMethod("getListBg");
 		$this->registerMethod("getHdParm");
 		$this->registerMethod("setHdParm");
 		$this->registerMethod("wipe");
@@ -97,15 +98,15 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * added to the hard disk objects if there exists additional hard disk
 	 * parameters (e.g. S.M.A.R.T. or AAM) that can be defined individually
 	 * per hard disk.
-	 * @param params An array containing the following fields:
+	 * @param object $params An object containing the following fields:
 	 *   \em start The index where to start.
 	 *   \em limit The number of objects to process.
 	 *   \em sortfield The name of the column used to sort.
 	 *   \em sortdir The sort direction, ASC or DESC.
-	 * @param context The context of the caller.
-	 * @return An array containing the requested objects. The field \em total
-	 *   contains the total number of objects, \em data contains the object
-	 *   array. An exception will be thrown in case of an error.
+	 * @param object $context The context of the caller.
+	 * @return object An array containing the requested objects. The field
+	 *   \em total contains the total number of objects, \em data contains
+	 *   the object array. An exception will be thrown in case of an error.
 	 */
 	public function getList($params, $context) {
 		// Validate the RPC caller context.
@@ -136,6 +137,13 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Filter result.
 		return $this->applyFilter($objects, $params['start'],
 			$params['limit'], $params['sortfield'], $params['sortdir']);
+	}
+
+	/**
+	 * Execute the getList() RPC as background process.
+	 */
+	public function getListBg($params, $context) {
+		return $this->callMethodBg("getList", $params, $context);
 	}
 
 	/**
