@@ -88,6 +88,14 @@ Ext.define("OMV.data.proxy.Rpc", {
 		};
 	},
 
+	setException: function(operation, response) {
+		operation.setException({
+			status: response.code,
+			statusText: response.message,
+			response: response
+		});
+	},
+
 	buildRequest: function(operation) {
 		var me = this, request = null, rpcData = me.rpcData;
 		rpcData.params = Ext.applyIf(rpcData.params || {},
