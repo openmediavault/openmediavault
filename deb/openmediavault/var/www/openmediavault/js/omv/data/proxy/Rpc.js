@@ -65,13 +65,12 @@ Ext.define("OMV.data.proxy.Rpc", {
 		});
 	},
 
-	doRequest: function(operation, callback, scope) {
+	doRequest: function(operation) {
 		var me = this;
 		var request = me.buildRequest(operation);
 		Ext.apply(request, {
 			scope: me,
-			callback: me.createRequestCallback(request, operation,
-			  callback, scope),
+			callback: me.createRequestCallback(request, operation),
 			method: me.getMethod(request),
 			disableCaching: false
 		});
@@ -82,11 +81,10 @@ Ext.define("OMV.data.proxy.Rpc", {
 		return request;
 	},
 
-	createRequestCallback: function(request, operation, callback, scope) {
+	createRequestCallback: function(request, operation) {
 		var me = this;
 		return function(id, success, response) {
-			me.processResponse(success, operation, request, response,
-			  callback, scope);
+			me.processResponse(success, operation, request, response);
 		};
 	},
 
