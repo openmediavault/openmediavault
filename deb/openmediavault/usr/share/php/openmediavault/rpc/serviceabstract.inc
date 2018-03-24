@@ -149,10 +149,10 @@ abstract class ServiceAbstract {
 				// Execute the given RPC service method.
 				$result = $this->callMethod($name, $params, $context);
 				// Write the RPC result to the background process output file.
-				// Make sure the content is a strings, so convert associative
-				// arrays to JSON strings.
+				// Make sure the content is a strings, so convert arrays to
+				// JSON strings.
 				$content = $result;
-				if (is_assoc_array($content)) {
+				if (is_array($content) || is_assoc_array($content)) {
 					$content = json_encode_safe($content);
 				}
 				$this->writeBgProcOutput($bgOutputFilename, $content);

@@ -26,7 +26,7 @@
 // require("js/omv/Rpc.js")
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")
-// require("js/omv/data/proxy/Rpc.js")
+// require("js/omv/data/proxy/RpcBg.js")
 // require("js/omv/util/Format.js")
 // require("js/omv/window/Execute.js")
 
@@ -39,7 +39,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Create", {
 	requires: [
 		"OMV.data.Store",
 		"OMV.data.Model",
-		"OMV.data.proxy.Rpc",
+		"OMV.data.proxy.RpcBg",
 		"OMV.window.Execute"
 	],
 
@@ -86,11 +86,11 @@ Ext.define("OMV.module.admin.storage.filesystem.Create", {
 					]
 				}),
 				proxy: {
-					type: "rpc",
+					type: "rpcbg",
 					appendSortParams: false,
 					rpcData: {
 						service: "FileSystemMgmt",
-						method: "getCandidates"
+						method: "getCandidatesBg"
 					}
 				},
 				sorters: [{
@@ -190,7 +190,6 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 	requires: [
 		"OMV.data.Store",
 		"OMV.data.Model",
-		"OMV.data.proxy.Rpc",
 		"OMV.workspace.window.plugin.ConfigObject",
 		"Ext.grid.plugin.RowEditing"
 	],
@@ -310,7 +309,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 			listeners: {
 				scope: me,
 				beforeedit: function(editor, e, eOpts) {
-					switch(e.field) {
+					switch (e.field) {
 					case "bhardlimit":
 						// Display a empty number field if value is 0.
 						if (e.value == 0)
@@ -370,7 +369,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 	requires: [
 		"OMV.data.Store",
 		"OMV.data.Model",
-		"OMV.data.proxy.Rpc"
+		"OMV.data.proxy.RpcBg"
 	],
 	uses: [
 		"OMV.module.admin.storage.filesystem.Create",
@@ -522,10 +521,10 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 					]
 				}),
 				proxy: {
-					type: "rpc",
+					type: "rpcbg",
 					rpcData: {
 						service: "FileSystemMgmt",
-						method: "getList",
+						method: "getListBg",
 						options: {
 							updatelastaccess: false
 						}

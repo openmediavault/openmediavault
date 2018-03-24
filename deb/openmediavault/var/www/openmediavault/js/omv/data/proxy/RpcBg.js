@@ -42,8 +42,9 @@ Ext.define("OMV.data.proxy.RpcBg", {
 			} else {
 				// The RPC returns the name of the background status file.
 				me.bgStatusFilename = response;
-				// Check the background process until it has been finished
-				// or an error occurs.
+				// Check if the background process is running until it
+				// has been finished or an error occurs. If successfully
+				// finished, then process the retrieved content.
 				me.doGetOutput(request, operation);
 			}
 		};
@@ -63,8 +64,10 @@ Ext.define("OMV.data.proxy.RpcBg", {
 						response = Ext.JSON.decode(response.output);
 						delete me.bgStatusFilename;
 					}
+				} else {
+					delete me.bgStatusFilename;
 				}
-				me.processResponse(success, operation, request, response);
+				this.processResponse(success, operation, request, response);
 			},
 			relayErrors: true,
 			rpcData: {

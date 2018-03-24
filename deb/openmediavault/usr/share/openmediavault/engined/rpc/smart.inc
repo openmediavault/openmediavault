@@ -34,6 +34,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("enumerateDevices");
 		$this->registerMethod("enumerateMonitoredDevices");
 		$this->registerMethod("getList");
+		$this->registerMethod("getListBg");
 		$this->registerMethod("getSettings");
 		$this->registerMethod("setSettings");
 		$this->registerMethod("getDeviceSettings");
@@ -143,15 +144,15 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 
 	/**
 	 * Get all devices supporting S.M.A.R.T.
-	 * @param params An array containing the following fields:
+	 * @param object $params An object containing the following fields:
 	 *   \em start The index where to start.
 	 *   \em limit The number of objects to process.
 	 *   \em sortfield The name of the column used to sort.
 	 *   \em sortdir The sort direction, ASC or DESC.
-	 * @param context The context of the caller.
-	 * @return An array containing the requested objects. The field \em total
-	 *   contains the total number of objects, \em data contains the object
-	 *   array. An exception will be thrown in case of an error.
+	 * @param object $context The context of the caller.
+	 * @return array An array containing the requested objects. The field
+	 *   \em total contains the total number of objects, \em data contains
+	 *   the object array. An exception will be thrown in case of an error.
 	 */
 	public function getList($params, $context) {
 		// Validate the RPC caller context.
@@ -190,6 +191,13 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 		// Filter result.
 		return $this->applyFilter($objects, $params['start'],
 		  $params['limit'], $params['sortfield'], $params['sortdir']);
+	}
+
+	/**
+	 * Execute the getList() RPC as background process.
+	 */
+	public function getListBg($params, $context) {
+		return $this->callMethodBg("getList", $params, $context);
 	}
 
 	/**
