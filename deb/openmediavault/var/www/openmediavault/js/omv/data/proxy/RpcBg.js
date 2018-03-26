@@ -32,28 +32,23 @@ Ext.define("OMV.data.proxy.RpcBg", {
 	extend: "OMV.data.proxy.Rpc",
 	alias: "proxy.rpcbg",
 
-	rpcDelay: 500,
+	rpcDelay: 1000, // 1 second
 
 	createRequestCallback: function(request, operation) {
 		var me = this;
 		return function(id, success, response) {
 			if (!success) {
+				// Error handling.
 				me.processResponse(success, operation, request, response);
 			} else {
 				// The RPC returns the name of the background status file.
-				me.bgStatusFilename = response;
+				request.rpcBgStatusFilename = response;
 				// Check if the background process is running until it
 				// has been finished or an error occurs. If successfully
 				// finished, then process the retrieved content.
 				me.doGetOutput(request, operation);
 			}
 		};
-	},
-
-	processResponse: function(success, operation, request, response) {
-		var me = this;
-		delete me.bgStatusFilename;
-		me.callParent(arguments);
 	},
 
 	doGetOutput: function(request, operation) {
@@ -66,9 +61,8 @@ Ext.define("OMV.data.proxy.RpcBg", {
 						Ext.Function.defer(this.doGetOutput, this.rpcDelay,
 							this, [request, operation]);
 						return;
-					} else {
-						response = Ext.JSON.decode(response.output);
 					}
+					response = Ext.JSON.decode(response.output);
 				}
 				this.processResponse(success, operation, request, response);
 			},
@@ -77,7 +71,7 @@ Ext.define("OMV.data.proxy.RpcBg", {
 				service: "Exec",
 				method: "getOutput",
 				params: {
-					filename: me.bgStatusFilename,
+					filename: request.rpcBgStatusFilename,
 					pos: 0
 				}
 			}
