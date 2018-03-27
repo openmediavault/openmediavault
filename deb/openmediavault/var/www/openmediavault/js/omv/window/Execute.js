@@ -116,10 +116,11 @@ Ext.define("OMV.window.Execute", {
 				value: me.welcomeText
 			});
 		} else {
-			me.height = 81;
+			me.height = 90;
 			me.content = "";
 			me.contentCtrl = Ext.create("Ext.ProgressBar", {
-				text: me.progressText
+				text: me.progressText,
+				margin: "10 10 10 10"
 			});
 		}
 		Ext.apply(me, {
@@ -156,6 +157,13 @@ Ext.define("OMV.window.Execute", {
 				ui: "footer",
 				text: me.infoText
 			});
+		}
+		// Hide the bottom toolbar if a progress bar is displayed.
+		if (true === me.progress) {
+			var dockedItems = me.getDockedItems('toolbar[dock="bottom"]');
+			if (dockedItems.length > 0) {
+				dockedItems[0].hide();
+			}
 		}
 	},
 
