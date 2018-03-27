@@ -270,6 +270,15 @@ Ext.define("OMV.window.Execute", {
 							  this.setLoading(false);
 						  // Update the command content.
 						  this.appendValue(response.output);
+						  // Update button states.
+						  if (true === this.adaptButtonState) {
+							  this.setButtonDisabled("start",
+								this.cmdIsRunning);
+							  this.setButtonDisabled("stop",
+								!this.cmdIsRunning);
+							  this.setButtonDisabled("close",
+								this.cmdIsRunning);
+						  }
 						  // If command is still running then do another RPC
 						  // request.
 						  if (this.cmdIsRunning === true) {
@@ -281,15 +290,6 @@ Ext.define("OMV.window.Execute", {
 							  else
 								  this.setLoading(false);
 							  this.fireEvent("finish", this, response);
-						  }
-						  // Update button states.
-						  if (true === this.adaptButtonState) {
-							  this.setButtonDisabled("start",
-								this.cmdIsRunning);
-							  this.setButtonDisabled("stop",
-								!this.cmdIsRunning);
-							  this.setButtonDisabled("close",
-								this.cmdIsRunning);
 						  }
 					  } else {
 						  var ignore = false;
