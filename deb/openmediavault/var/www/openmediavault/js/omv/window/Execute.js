@@ -79,6 +79,7 @@ Ext.define("OMV.window.Execute", {
 	progressText: _("Please wait ..."),
 	scrollBottom: true,
 	welcomeText: "",
+	infoText: "",
 
 	cmdIsRunning: false,
 	getContentAllowed: false,
@@ -115,7 +116,7 @@ Ext.define("OMV.window.Execute", {
 				value: me.welcomeText
 			});
 		} else {
-			me.height = 58;
+			me.height = 81;
 			me.content = "";
 			me.contentCtrl = Ext.create("Ext.ProgressBar", {
 				text: me.progressText
