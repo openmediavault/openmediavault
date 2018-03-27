@@ -148,6 +148,11 @@ abstract class ServiceAbstract {
 			use ($name, $params, $context) {
 				// Execute the given RPC service method.
 				$result = $this->callMethod($name, $params, $context);
+				// Make sure the content is a strings, so convert arrays to
+				// JSON strings.
+				if (is_array($result) || is_assoc_array($result)) {
+					$result = json_encode_safe($result);
+				}
 				// Write the RPC result to the background process output file.
 				$this->writeBgProcOutput($bgOutputFilename, $result);
 				return $result;
@@ -265,11 +270,6 @@ abstract class ServiceAbstract {
 	 *   written to the file, or FALSE on failure.
 	 */
 	final protected function writeBgProcOutput($filename, $content) {
-		// Make sure the content is a strings, so convert arrays to
-		// JSON strings.
-		if (is_array($content) || is_assoc_array($content)) {
-			$content = json_encode_safe($content);
-		}
 		return file_put_contents($filename, $content, FILE_APPEND | LOCK_EX);
 	}
 
