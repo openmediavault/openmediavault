@@ -30,6 +30,7 @@
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
+// require("js/omv/toolbar/Tip.js")
 
 /**
  * @class OMV.module.admin.privilege.group.group.General
@@ -245,6 +246,9 @@ Ext.define("OMV.module.admin.privilege.group.Group", {
  */
 Ext.define("OMV.module.admin.privilege.group.Import", {
 	extend: "OMV.workspace.window.TextArea",
+	uses: [
+		"OMV.toolbar.Tip"
+	],
 
 	title: _("Import groups"),
 	width: 580,
@@ -301,6 +305,9 @@ Ext.define("OMV.module.admin.privilege.group.SharedFolderPrivileges", {
 	extend: "OMV.workspace.window.Grid",
 	requires: [
 		"OMV.grid.PrivilegesByRole"
+	],
+	uses: [
+		"OMV.toolbar.Tip"
 	],
 
 	rpcService: "ShareMgmt",

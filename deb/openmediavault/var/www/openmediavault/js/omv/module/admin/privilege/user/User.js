@@ -34,6 +34,7 @@
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/data/reader/RpcArray.js")
+// require("js/omv/toolbar/Tip.js")
 
 /**
  * @class OMV.module.admin.privilege.user.user.General
@@ -304,6 +305,9 @@ Ext.define("OMV.module.admin.privilege.user.user.Groups", {
  */
 Ext.define("OMV.module.admin.privilege.user.user.sshpubkeys.PubKey", {
 	extend: "OMV.workspace.window.TextArea",
+	uses: [
+		"OMV.toolbar.Tip"
+	],
 
 	width: 500,
 	height: 250,
@@ -445,6 +449,9 @@ Ext.define("OMV.module.admin.privilege.user.User", {
  */
 Ext.define("OMV.module.admin.privilege.user.Import", {
 	extend: "OMV.workspace.window.TextArea",
+	uses: [
+		"OMV.toolbar.Tip"
+	],
 
 	title: _("Import users"),
 	width: 580,
@@ -501,6 +508,9 @@ Ext.define("OMV.module.admin.privilege.user.SharedFolderPrivileges", {
 	extend: "OMV.workspace.window.Grid",
 	requires: [
 		"OMV.grid.PrivilegesByRole"
+	],
+	uses: [
+		"OMV.toolbar.Tip"
 	],
 
 	rpcService: "ShareMgmt",

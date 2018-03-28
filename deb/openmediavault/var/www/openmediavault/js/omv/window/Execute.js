@@ -21,6 +21,7 @@
 // require("js/omv/Rpc.js")
 // require("js/omv/window/Window.js")
 // require("js/omv/window/MessageBox.js")
+// require("js/omv/toolbar/Tip.js")
 
 /**
  * @class OMV.window.Execute
@@ -56,7 +57,8 @@ Ext.define("OMV.window.Execute", {
 	extend: "OMV.window.Window",
 	uses: [
 		"OMV.Rpc",
-		"OMV.window.MessageBox"
+		"OMV.window.MessageBox",
+		"OMV.toolbar.Tip"
 	],
 
 	title: _("Execute command"),
@@ -158,9 +160,10 @@ Ext.define("OMV.window.Execute", {
 				text: me.infoText
 			});
 		}
-		// Hide the bottom toolbar if a progress bar is displayed.
+		// Hide the button toolbar if a progress bar is displayed.
 		if (true === me.progress) {
-			var dockedItems = me.getDockedItems('toolbar[dock="bottom"]');
+			var selector = "toolbar[dock='bottom'][xtype='toolbar']";
+			var dockedItems = me.getDockedItems(selector);
 			if (dockedItems.length > 0) {
 				dockedItems[0].hide();
 			}
