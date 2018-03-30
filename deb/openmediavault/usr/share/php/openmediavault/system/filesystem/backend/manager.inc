@@ -252,11 +252,19 @@ class Manager implements \IteratorAggregate {
 		foreach ($this->map as $backendk => $backendv) {
 			$enums = [];
 			if (TRUE === $backendv->isBlkidEnumerated()) {
-				// Get the filesystems that are processed by this backend.
-				$blkidEnums = $blkidEnumsByType[$backendv->getType()];
-				if (!is_array($blkidEnums) || empty($blkidEnums))
+				// Get the filesystem type handled by this backend, e.g.
+				// 'vfat', 'ntfs' or 'ext4'.
+				$type = $backendv->getType();
+				// Check if the 'blkid' command in the previous step has
+				// detected some filesystems of this type.
+				if (!array_key_exists($type, $blkidEnumsByType))
 					continue;
-				// Let the backend process the list of detected filesystems.
+				// Get the details of the filesystems that are detected by
+				// 'blkid'. This is an array of objects with (at least) the
+				// fields \em devicefile, \em uuid, \em label and \em type.
+				$blkidEnums = $blkidEnumsByType[$type];
+				// Finally let the backend process the list of detected
+				// filesystems.
 				$enums = $backendv->enumerateByBlkid($blkidEnums);
 			} else {
 				// Ask the backend for filesystem candidates.
