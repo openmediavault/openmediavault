@@ -42,6 +42,11 @@ import openmediavault.productinfo
 pi = openmediavault.productinfo.ProductInfo()
 
 class OpenMediaVaultPluginsFilter(apt.cache.Filter):
+	"""
+	Filter that returns all openmediavault plugins except the packages:
+	- openmediavault
+	- openmediavault-keyring
+	"""
 	def apply(self, pkg):
 		m = re.match(r"^%s-(\S+)$" % pi.package_name, pkg.name)
 		if not m:
@@ -98,7 +103,7 @@ for pkg in cache.get_changes():
 		"summary": pkg.candidate.summary,
 		"description": pkg.candidate.record.get("Description", ""),
 		"extendeddescription": get_extended_description(
-		  pkg.candidate.raw_description),
+			pkg.candidate.raw_description),
 		"homepage": pkg.candidate.homepage,
 		"descriptionmd5": pkg.candidate.record.get("Description-md5", ""),
 		"multiarch": pkg.candidate.record.get("Multi-Arch", ""),
@@ -121,9 +126,9 @@ with open(openmediavault.getenv('OMV_APT_UPGRADE_INDEX_FILE',
 print("Creating index of %s plugins ..." % pi.name)
 data = []
 cache = apt.cache.Cache()
-fcache = apt.cache.FilteredCache(cache)
-fcache.set_filter(OpenMediaVaultPluginsFilter())
-for pkg in fcache:
+filtered = apt.cache.FilteredCache(cache)
+filtered.set_filter(OpenMediaVaultPluginsFilter())
+for pkg in filtered:
 	if pkg.candidate is None:
 		continue
 	data.append({
@@ -145,7 +150,7 @@ for pkg in fcache:
 		"summary": pkg.candidate.summary,
 		"description": pkg.candidate.record.get("Description", ""),
 		"extendeddescription": get_extended_description(
-		  pkg.candidate.raw_description),
+			pkg.candidate.raw_description),
 		"homepage": pkg.candidate.homepage,
 		"descriptionmd5": pkg.candidate.record.get("Description-md5", ""),
 		"multiarch": pkg.candidate.record.get("Multi-Arch", ""),
