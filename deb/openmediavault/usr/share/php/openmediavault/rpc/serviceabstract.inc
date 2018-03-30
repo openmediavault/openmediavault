@@ -137,24 +137,24 @@ abstract class ServiceAbstract {
 	 * Call the given RPC service method in a background process.
 	 * Registered method hooks will be called after the origin method
 	 * has been successfully called.
-	 * @param name The name of the method.
-	 * @param params The method parameters.
-	 * @param context The context of the caller.
-	 * @return The name of the background process status file.
+	 * @param string name The name of the method.
+	 * @param object params The method parameters.
+	 * @param object context The context of the caller.
+	 * @return string The name of the background process status file.
 	 */
 	final public function callMethodBg($name, $params, $context) {
-		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
 			use ($name, $params, $context) {
 				// Execute the given RPC service method.
 				$result = $this->callMethod($name, $params, $context);
-				// Make sure the content is a strings, so convert arrays to
-				// JSON strings.
-				if (is_array($result) || is_assoc_array($result)) {
-					$result = json_encode_safe($result);
+				// Make sure the content of the background process output file
+				// is a strings, so convert arrays to JSON strings.
+				$content = $result;
+				if (is_array($content) || is_assoc_array($content)) {
+					$content = json_encode_safe($content);
 				}
 				// Write the RPC result to the background process output file.
-				$this->writeBgProcOutput($bgOutputFilename, $result);
+				$this->writeBgProcOutput($bgOutputFilename, $content);
 				return $result;
 			});
 	}
