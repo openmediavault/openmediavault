@@ -265,7 +265,7 @@ abstract class ServiceAbstract {
 	/**
 	 * Helper function to write content to the background process output.
 	 * @param string $filename Path to the file where to write the content.
-	 * @param mixed $content The content to write.
+	 * @param string $content The content to write.
 	 * @return boolean This function returns the number of bytes that were
 	 *   written to the file, or FALSE on failure.
 	 */
