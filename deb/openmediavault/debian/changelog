@@ -1,6 +1,8 @@
 openmediavault (4.1.4-1) stable; urgency=low
 
   * Rename class \OMV\Rpc\BgStatusFile to \OMV\Rpc\BgStatus.
+  * Force browser to refresh the WebUI from server after installing or
+    uninstalling plugins via WebUI.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 31 Mar 2018 09:42:59 +0200
 

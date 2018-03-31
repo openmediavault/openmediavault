@@ -443,7 +443,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 								fn: function() {
 									// Reload the page.
 									OMV.confirmPageUnload = false;
-									document.location.reload();
+									document.location.reload(true);
 								}
 							});
 						}
@@ -501,7 +501,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 								fn: function() {
 									// Reload the page.
 									OMV.confirmPageUnload = false;
-									document.location.reload();
+									document.location.reload(true);
 								}
 							});
 						},
