@@ -729,7 +729,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 			id: me.getId() + "-privileges",
 			xtype: "button",
 			text: _("Privileges"),
-			iconCls: "x-fa fa-share-alt",
+			iconCls: "mdi mdi-share-variant",
 			handler: me.onPrivilegesButton,
 			scope: me,
 			disabled: true,
@@ -900,7 +900,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "sharedfolder",
 	path: "/privilege",
 	text: _("Shared Folders"),
-	iconCls: "x-fa fa-share-alt",
+	iconCls: "mdi mdi-share-variant",
 	position: 30
 });
 

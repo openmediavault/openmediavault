@@ -458,7 +458,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "cron",
 	path: "/system",
 	text: _("Scheduled Jobs"),
-	iconCls: "mdi mdi-alarm",
+	iconCls: "mdi mdi-calendar-clock",
 	position: 70
 });
 
