@@ -22,6 +22,9 @@
 # Documentation/Howto:
 # http://wiki.debianforum.de/Hdparm
 
+# hdparm is now triggered via UDEV.
+# See /lib/udev/rules.d/85-hdparm.rules script.
+
 set -e
 
 . /etc/default/openmediavault
