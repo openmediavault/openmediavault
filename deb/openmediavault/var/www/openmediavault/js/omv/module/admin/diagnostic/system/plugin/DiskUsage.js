@@ -79,17 +79,16 @@ Ext.define("OMV.module.admin.diagnostic.system.plugin.DiskUsage", {
 				store.each(function(record) {
 					var item = record.getData();
 					item.title = item.devicefile;
-					if (false === Ext.isEmpty(item.label)) {
+					if (("/" == item.mountpoint) && Ext.isEmpty(item.label)) {
+						item.label = _("System");
+					}
+					if (!Ext.isEmpty(item.label)) {
 						item.title = Ext.String.format("{0} [{1}]",
 							item.title, item.label);
 					}
-					if ("/" == item.mountpoint) {
-						item.title = Ext.String.format("{0} [{1}]",
-							item.title, _("System"));
-					}
 					// Create a tab panel for each filesystem.
 					this.add(Ext.create("OMV.workspace.panel.RrdGraph",
-					  fnBuildRrdGraphConfig(item)));
+						fnBuildRrdGraphConfig(item)));
 				}, me);
 			},
 			relayErrors: false,
