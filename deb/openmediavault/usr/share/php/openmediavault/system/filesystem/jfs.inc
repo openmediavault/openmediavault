@@ -31,8 +31,7 @@ class Jfs extends Filesystem {
 		$this->getData();
 		$cmdArgs = [];
 		$cmdArgs[] = "-o remount,resize";
-		$cmdArgs[] = escapeshellarg(\OMV\System\MountPoint::buildPath(
-			$this->getUuid()));
+		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("mount", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute();
