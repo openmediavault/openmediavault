@@ -3,7 +3,7 @@ openmediavault (4.1.5-1) stable; urgency=low
   * Update Material Design icons to version 2.2.43.
   * Issue #84: Perf. statistics/Disk usage tab: double label if the system
     disk has already a label
-  * Issue 87: Use device file when resizing XFS/JFS filesystems.
+  * Issue #87: Use device file when resizing XFS/JFS filesystems.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 10 Apr 2018 20:30:26 +0200
 
