@@ -8,13 +8,13 @@
 # Nadley-Nahir Mohamed <nahirmoha@gmail.com>, 2012-2013
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012-2013
 # Stéphane BOCQUET <stephane_bocquet@hotmail.com>, 2012
-# Volker <votdev@gmx.de>, 2015-2016
+# Volker <votdev@gmx.de>, 2015-2016,2018
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-21 11:50+0100\n"
-"PO-Revision-Date: 2018-01-21 10:50+0000\n"
+"PO-Revision-Date: 2018-04-25 06:56+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/votdev/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -188,7 +188,7 @@ msgid "About"
 msgstr "A propos"
 
 msgid "Absolute Path"
-msgstr ""
+msgstr "Chemin absolue"
 
 msgid "Abstract"
 msgstr "Résumé"
@@ -438,10 +438,10 @@ msgid "Auto"
 msgstr "Auto"
 
 msgid "Auto logout"
-msgstr ""
+msgstr "Déconnexion automatique"
 
 msgid "Auto logout after the specified idle period."
-msgstr ""
+msgstr "Déconnexion automatique après la prériode de temps spécifiée."
 
 msgid "Automatic Acoustic Management"
 msgstr "Gestion acoustique automatique"
@@ -699,7 +699,7 @@ msgid "Cook Islands"
 msgstr "Îles Cook"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Copier vers le presse-papier"
 
 msgid "Costa Rica"
 msgstr "Costa Rica"
@@ -828,19 +828,19 @@ msgid "Device Mapper %s [%s, %s]"
 msgstr "Correspondance de périphériques (device mapper) %s [%s, %s]"
 
 msgid "Device Symlinks"
-msgstr ""
+msgstr "Lien symbolique d'appareil"
 
 msgid "Device has a few bad sectors"
-msgstr ""
+msgstr "L'appareil a quelques mauvais secteurs"
 
 msgid "Device has many bad sectors"
-msgstr ""
+msgstr "L'appareil a beaucoup de mauvais secteurs"
 
 msgid "Device information"
 msgstr "Informations sur le périphérique"
 
 msgid "Device is being used outside design parameters"
-msgstr ""
+msgstr "Le périphérique est utilisé en dehors des paramètres prévus"
 
 msgid "Device model"
 msgstr "Modèle de périphérique"
@@ -849,10 +849,10 @@ msgid "Device properties"
 msgstr "Propriétés du périphérique"
 
 msgid "Device was used outside of design parameters in the past"
-msgstr ""
+msgstr "Le périphérique a était utilisé en dehors des paramètres prévus dans le passé"
 
 msgid "Device(s)"
-msgstr ""
+msgstr "Périphérique(s)"
 
 msgid "Device/Label"
 msgstr "Périphérique/Label"
@@ -882,7 +882,7 @@ msgid "Disk usage"
 msgstr "Disques"
 
 msgid "Disks"
-msgstr ""
+msgstr "Disques"
 
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Afficher les éléments {0} - {1} de {2}"
@@ -941,7 +941,7 @@ msgstr "Voulez-vous vraiment supprimer le contenu du dossier partagé ? Le conte
 msgid ""
 "Do you really want to reset the UI settings to their default values, e.g. "
 "the order of the grid columns?"
-msgstr ""
+msgstr "Voulez-vous vraiment redéfinir les paramètres de l'interface utilisateur à leurs valeurs par défaut, par exemple, l'ordre des colonnes de tableau?"
 
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
@@ -1053,7 +1053,7 @@ msgid "Edit scheduled test"
 msgstr "Modifier le test planifié"
 
 msgid "Edit service"
-msgstr ""
+msgstr "Modifier le service"
 
 msgid "Edit share"
 msgstr "Modifier le partage"
@@ -1184,7 +1184,7 @@ msgid "Error #"
 msgstr "Erreur #"
 
 msgid "Errors"
-msgstr ""
+msgstr "Erreurs"
 
 msgid "Estonia"
 msgstr "Estonie"
@@ -1247,7 +1247,7 @@ msgid "FTP - Transfer log"
 msgstr "FTP - Logs de transfert"
 
 msgid "FTP-Proxy"
-msgstr ""
+msgstr "Proxy FTP"
 
 msgid "FXP"
 msgstr "FXP"
@@ -1304,7 +1304,7 @@ msgid "Filesize"
 msgstr "Taille de fichier"
 
 msgid "Filesystem Type"
-msgstr ""
+msgstr "Type de système de fichier"
 
 msgid "Filesystems"
 msgstr "Systèmes de fichiers"
@@ -1319,7 +1319,7 @@ msgid "Firmware version"
 msgstr "Firmware"
 
 msgid "First Page"
-msgstr ""
+msgstr "Première Page"
 
 msgid "Flags"
 msgstr "Drapeaux"
@@ -1391,7 +1391,7 @@ msgid "Gibraltar"
 msgstr "Gibraltar"
 
 msgid "Good"
-msgstr ""
+msgstr "Bon"
 
 msgid "Greece"
 msgstr "Grèce"
@@ -1442,16 +1442,16 @@ msgid "Guyana"
 msgstr "Guyane"
 
 msgid "HTTP-Proxy"
-msgstr ""
+msgstr "Proxy HTTP"
 
 msgid "HTTPS-Proxy"
-msgstr ""
+msgstr "Proxy HTTPS"
 
 msgid "Haiti"
 msgstr "Haitï"
 
 msgid "Hardware address"
-msgstr ""
+msgstr "Adresse physique"
 
 msgid "Heard Island and McDonald Islands"
 msgstr "Île Heard et Îles McDonald"
@@ -1520,7 +1520,7 @@ msgid "Identify"
 msgstr "Identifier"
 
 msgid "Identify As"
-msgstr ""
+msgstr "Identifié comme"
 
 msgid "Identify network interface device"
 msgstr "Identifier la prise réseau"
@@ -2055,7 +2055,7 @@ msgid "Mount"
 msgstr "Monter"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "Point de montage"
 
 msgid "Mounted"
 msgstr "Monté"
@@ -2094,7 +2094,7 @@ msgid "Network"
 msgstr "Réseau"
 
 msgid "Network Interfaces"
-msgstr ""
+msgstr "Interfaces réseau"
 
 msgid "Network interfaces"
 msgstr "Interfaces réseau"
@@ -2112,7 +2112,7 @@ msgid "New Zealand"
 msgstr "Nouvelle-Zélande"
 
 msgid "Next Page"
-msgstr ""
+msgstr "Page suivante"
 
 msgid "Nicaragua"
 msgstr "Nicaragua"
@@ -2142,7 +2142,7 @@ msgid "No connections"
 msgstr "Aucune connexion"
 
 msgid "No data to display"
-msgstr ""
+msgstr "Aucune données à afficher"
 
 msgid "No items to display"
 msgstr "Aucun élément à afficher"
@@ -2268,7 +2268,7 @@ msgid "Page"
 msgstr ""
 
 msgid "Page not found"
-msgstr ""
+msgstr "Page non trouvée"
 
 msgid "Pakistan"
 msgstr "Pakistan"
@@ -2292,7 +2292,7 @@ msgid "Paraguay"
 msgstr "Paraguay"
 
 msgid "Parent Device"
-msgstr ""
+msgstr "Périphérique parent"
 
 msgid "Parent interface"
 msgstr "Interface parent"
@@ -2477,7 +2477,7 @@ msgid ""
 msgstr "Eviter qu'un disque soit remis en rotation lorsqu'il est sondé périodiquement.<br/><ul><li>Jamais - Sonder (vérifier) le périphérique quel que soit son mode d'économie d'énergie. Si le disque est arrêté, cela peut le remettre en rotation lorsqu'il est sondé.</li><li>Dormant (sleep) - Sonder le périphérique s'il n'est pas en mode dormant.</li><li>Veille (standby) - Sonder le périphérique s'il n'est pas en mode dormant, ni en mode veille. Dans ces modes, la plupart des disques ne sont pas en rotation. C'est probablement la configuration la mieux adaptée si vous voulez éviter de remettre les disques en rotation à chaque sondage.</li><li>Repos (idle) - Sonder le périphérique s'il n'est pas en mode dormant , ni en mode veille, ni en mode repos. En mode repos, la plupart des disques sont encore en rotation. Ce n'est donc probablement pas la configuration la mieux adaptée.</li></ul>"
 
 msgid "Previous Page"
-msgstr ""
+msgstr "Page précédente"
 
 msgid "Primary"
 msgstr "Primaire"
@@ -2618,7 +2618,7 @@ msgid "Refresh"
 msgstr "Rafraîchir"
 
 msgid "Relative Path"
-msgstr ""
+msgstr "Chemin relatif"
 
 msgid "Reload"
 msgstr "Recharger"
@@ -2673,12 +2673,12 @@ msgid "Reset"
 msgstr "Réinitialiser"
 
 msgid "Reset UI to defaults"
-msgstr ""
+msgstr "Réinitialiser aux paramètres par défaut"
 
 msgid ""
 "Reset the UI settings to their default values, e.g. the order of the grid "
 "columns."
-msgstr ""
+msgstr "Réinitialiser les paramètres de l'interface utilisateur à leurs valeurs par défault, par exemple, l'ordre des colonnes des tableaux."
 
 msgid "Resize"
 msgstr "Redimensionner"
@@ -2756,10 +2756,10 @@ msgid "SSH"
 msgstr "SSH"
 
 msgid "SSH certificate"
-msgstr ""
+msgstr "Certificat SSH"
 
 msgid "SSH port"
-msgstr ""
+msgstr "Port SSH"
 
 msgid "SSID"
 msgstr "SSID"
@@ -2885,7 +2885,7 @@ msgid "Select a user name ..."
 msgstr "Sélectionnez un nom d'utilisateur..."
 
 msgid "Select an authentication mode ..."
-msgstr ""
+msgstr "Sélectionner un mode d'authentification..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr "Sélectionnez le périphérique à ajouter au groupement RAID"
@@ -2984,7 +2984,7 @@ msgid "Shared folder"
 msgstr "Dossier partagé"
 
 msgid "Shared folder + content"
-msgstr ""
+msgstr "Dossier partagé + contenu"
 
 msgid "Shared folder must not be equal"
 msgstr "Le dossier partagé ne doit pas être égal"
@@ -3270,7 +3270,7 @@ msgid "The RSA public key in OpenSSH format."
 msgstr "La clé publique RSA dans un format OpenSSH"
 
 msgid "The SSH certificate used for authentication."
-msgstr ""
+msgstr "Le certificat SSH utilisé pour l'authentification"
 
 msgid "The SSL certificate."
 msgstr "Le certificat SSL à utiliser."
@@ -3374,10 +3374,10 @@ msgid ""
 msgstr "Il n'est pas nécessaire que la session SSL de la connexion de contrôle soit réutilisée pour les connexions de données."
 
 msgid "The session IP address has been changed."
-msgstr ""
+msgstr "L'adresse IP de la session a changée."
 
 msgid "The session user no longer exists."
-msgstr ""
+msgstr "La session utilisateur n'existe plus."
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3456,12 +3456,12 @@ msgstr "Ce champ doit contenir une liste de noms de domaine ou d'adresses IP"
 msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
-msgstr ""
+msgstr "Le champ doit être une liste de noms de domain ou d'adresses IP séparées par <,> ou <;>"
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
 "or <;>"
-msgstr ""
+msgstr "Le champ doit être une liste de noms d'hôtes ou d'adresses IP séparées par <,> ou <;>"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3499,20 +3499,20 @@ msgid "This field should only contain numbers"
 msgstr "Ce champ ne doit contenir que des chiffres"
 
 msgid "This field should only contain numbers separated by <,> or <;>"
-msgstr ""
+msgstr "Ce champ doit seulement contenir des nombres séparées par <,> ou <;>"
 
 msgid "This field should only contain options separated by <,>"
-msgstr ""
+msgstr "Ce champ doit seulement contenir des options séparées par <,>"
 
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
-msgstr ""
+msgstr "Ce champ doit seulement contenir des ports (0 - 65535) séparées par <,> ou <;>"
 
 msgid "This field should only contain strings separated by <,>"
-msgstr ""
+msgstr "Ce champ doit contenir seulement des chaines de caractères séparées par <,>"
 
 msgid "This field should only contain strings separated by <,> or <;>"
-msgstr ""
+msgstr "Ce champ doit contenir seulement des chaines de caractères séparées par <,> ou <;>"
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr "Cette fonction n'est effective que si le disque dur la supporte."
@@ -3745,7 +3745,7 @@ msgid "United States Minor Outlying Islands"
 msgstr "Îles mineures éloignées des États-Unis"
 
 msgid "Unknown"
-msgstr ""
+msgstr "Inconnu"
 
 msgid "Unknown network interface type."
 msgstr "Type d'interface réseau inconnue."
@@ -3760,13 +3760,13 @@ msgid "Up delay"
 msgstr "Délai de reprise"
 
 msgid "Update Management"
-msgstr ""
+msgstr "Gestionaire de mises à jour"
 
 msgid "Update Management - History"
-msgstr ""
+msgstr "Gestionaire de mises à jour - Historique"
 
 msgid "Update Management - Terminal output"
-msgstr ""
+msgstr "Gestionaire de mises à jour - Sortie du terminal"
 
 msgid "Update now"
 msgstr "Mettre à jour"
@@ -3844,7 +3844,7 @@ msgid "User"
 msgstr "Utilisateur"
 
 msgid "User accounts"
-msgstr ""
+msgstr "Comptes utilisateur"
 
 msgid "User home directory"
 msgstr "Répertoires personnels des utilisateurs"
@@ -3928,7 +3928,7 @@ msgid "Web Administrator Password"
 msgstr "Sécurité Administrateur"
 
 msgid "Web control panel"
-msgstr ""
+msgstr "Panneau de contrôle Web"
 
 msgid "Wednesday"
 msgstr "Mercredi"
@@ -3987,7 +3987,7 @@ msgid "Yes"
 msgstr "Oui"
 
 msgid "You need to commit or cancel your changes"
-msgstr ""
+msgstr "Vous devez commit ou annuler vos changements"
 
 msgid "Zambia"
 msgstr "Zambie"
@@ -3996,7 +3996,7 @@ msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
 msgid "control panel"
-msgstr ""
+msgstr "panneau de contrôle"
 
 msgid "day"
 msgstr "jour"
@@ -4020,7 +4020,7 @@ msgid "n/a"
 msgstr "n/a"
 
 msgid "of {0}"
-msgstr ""
+msgstr "de {0}"
 
 msgid "old-age"
 msgstr ""
