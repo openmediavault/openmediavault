@@ -106,16 +106,37 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				"_used" => FALSE
 			];
 			// Check if the filesystem is used. First try to get the
-			// corresponding mount point configuration object. If such object
-			// exists, then check if it is referenced by any other object,
-			// e.g. by a shared folder configuration object.
-			if (FALSE !== ($meObject = \OMV\Rpc\Rpc::call("FsTab",
-			  "getByFsName", [ "fsname" => $object['devicefile'] ],
-			  $context))) {
-				$db = \OMV\Config\Database::getInstance();
-				$meObject = $db->get("conf.system.filesystem.mountpoint",
-				  $meObject['uuid']);
-				$object['_used'] = $db->isReferenced($meObject);
+			// corresponding mount point configuration object. Query the
+			// database for all device files that exist for the given
+			// filesystem to increase the probability to find the mount
+			// point configuration object. If such object exist, then
+			// check if it is referenced by any other object, e.g. by a
+			// shared folder configuration object.
+			$fsNames = $fs->getDeviceFileSymlinks();
+			if (TRUE === $fs->hasUuid()) {
+				$fsNames[] = $fs->getUuid();
+			}
+			$filter = [
+				"operator" => "stringEquals",
+				"arg0" => "fsname",
+				"arg1" => array_shift($fsNames)
+			];
+			foreach ($fsNames as $fsNamek => $fsNamev) {
+				$filter = [
+					"operator" => "or",
+					"arg0" => $filter,
+					"arg1" => [
+						"operator" => "stringEquals",
+						"arg0" => "fsname",
+						"arg1" => $fsNamev
+					]
+				];
+			}
+			$db = \OMV\Config\Database::getInstance();
+			$mpObjects = $db->getByFilter("conf.system.filesystem.mountpoint",
+				$filter);
+			if (!empty($mpObjects)) {
+				$object['_used'] = $db->isReferenced($mpObjects[0]);
 			}
 			// Mark the device where the operating system is installed on
 			// as used and read-only.

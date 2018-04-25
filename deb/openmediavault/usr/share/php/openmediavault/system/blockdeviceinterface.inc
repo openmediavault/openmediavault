@@ -122,7 +122,7 @@ interface BlockDeviceInterface {
 	* \li /dev/disk/by-id/ata-WDC_WD15EARS-00MVWB0_WD-WMAZB2574325-part1
 	* \li /dev/disk/by-uuid/fc3e1da5-fd8d-4fda-341e-d0135efa7a7c
 	* </ul>
-	* @return string Returns an string array of device files.
+	* @return array Returns an array of strings with the device files.
 	*/
 	public function getDeviceFileSymlinks();
 
