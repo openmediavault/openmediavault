@@ -136,8 +136,8 @@ class Database {
 	 *   @endcode
 	 * @param maxResult The maximum number of objects that are returned.
 	 *   Defaults to NULL.
-	 * @return An array containing the requested configuration objects. If
-	 *   \em maxResult is set to 1, then the first found object is returned.
+	 * @return array An array containing the requested configuration objects.
+	 *   If \em maxResult is set to 1, then the first found object is returned.
 	 *   In this case the method does not return an array of configuration
 	 *   objects.
 	 * @throw \InvalidArgumentException

@@ -169,33 +169,46 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.fstab.getbyfsname");
-		// Get the list of mount point configuration objects.
-		$objects = $this->callMethod("enumerateEntries", NULL, $context);
-		// Add function parameter to search argument list.
-		$args = [];
-		$args[] = $params['fsname'];
+		// Get the values we are searching for.
+		$fsNames = [];
+		$fsNames[] = $params['fsname'];
 		// Get all existing device files and the UUID of the file system to
-		// add them to the search argument list. This is done to increase the
+		// add them to the search arguments. This is done to increase the
 		// probability to find the mount point configuration object.
 		$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['fsname']);
 		if (!is_null($fs) && $fs->exists()) {
-			$args = array_merge($args, $fs->getDeviceFileSymlinks());
-			if (TRUE === $fs->hasUuid())
-				$args[] = $fs->getUuid();
-			// Remove duplicates and re-index the array.
-			$args = array_values(array_unique($args));
-		}
-		// Try to find the configuration object matching the given search
-		// arguments. Note, the field 'fsname' may contain a device file
-		// or a file system UUID.
-		$result = FALSE;
-		foreach ($objects as $objectk => $objectv) {
-			if (TRUE === in_array($objectv['fsname'], $args)) {
-				$result = $objectv;
-				break;
+			$fsNames = array_merge($fsNames, $fs->getDeviceFileSymlinks());
+			if (TRUE === $fs->hasUuid()) {
+				$fsNames[] = $fs->getUuid();
 			}
+			// Remove duplicates and re-index the array.
+			$fsNames = array_values(array_unique($fsNames));
 		}
-		return $result;
+		// Build the filter and try to find the configuration object matching
+		// the given search arguments.
+		$filter = [
+			"operator" => "stringEquals",
+			"arg0" => "fsname",
+			"arg1" => array_shift($fsNames)
+		];
+		foreach ($fsNames as $fsNamek => $fsNamev) {
+			$filter = [
+				"operator" => "or",
+				"arg0" => $filter,
+				"arg1" => [
+					"operator" => "stringEquals",
+					"arg0" => "fsname",
+					"arg1" => $fsNamev
+				]
+			];
+		}
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->getByFilter("conf.system.filesystem.mountpoint",
+			$filter);
+		if (empty($objects)) {
+			return FALSE;
+		}
+		return $objects[0]->getAssoc();
 	}
 
 	/**
@@ -212,17 +225,17 @@ class OMVRpcServiceFsTab extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.fstab.getbydir");
-		// Get the list of mount point configuration objects.
-		$objects = $this->callMethod("enumerateEntries", NULL, $context);
 		// Try to find the configuration object matching the given search
 		// arguments.
-		$result = FALSE;
-		foreach ($objects as $objectk => $objectv) {
-			if ($params['dir'] === $objectv['dir']) {
-				$result = $objectv;
-				break;
-			}
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->getByFilter("conf.system.filesystem.mountpoint", [
+			"operator" => "stringEquals",
+			"arg0" => "dir",
+			"arg1" => $params['dir']
+		]);
+		if (empty($objects)) {
+			return FALSE;
 		}
-		return $result;
+		return $objects[0]->getAssoc();
 	}
 }
