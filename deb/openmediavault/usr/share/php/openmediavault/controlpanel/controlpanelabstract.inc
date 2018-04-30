@@ -170,13 +170,11 @@ EOF;
 			try {
 				$jsonFile->open("r");
 				$jsList = $jsonFile->read();
-				$jsonFile->close();
-			} catch(\Exception $e) {
-				// Ensure the file is closed and recreate the cache file in
-				// the next step (e.g. because of invalid JSON data).
+			} finally {
 				$jsonFile->close();
 			}
 		}
+		// Recreate the cache file e.g. because of invalid JSON data?
 		if (TRUE === empty($jsList)) {
 			$jsList = array_values(array_unique(
 			  $this->getJavascriptIncludes()));
