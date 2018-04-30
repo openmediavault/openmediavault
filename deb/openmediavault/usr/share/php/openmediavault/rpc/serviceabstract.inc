@@ -239,9 +239,8 @@ abstract class ServiceAbstract {
 	final protected function createBgProcStatus() {
 		$filename = tempnam(sys_get_temp_dir(), "bgstatus");
 		if (FALSE === touch($filename)) {
-			throw new Exception(
-			  "Failed to create background process status file (filename=%s).",
-			  $filename);
+			throw new Exception("Failed to create background ".
+				"process status file (filename=%s).", $filename);
 		}
 		return $filename;
 	}
@@ -255,9 +254,8 @@ abstract class ServiceAbstract {
 	final protected function createBgProcOutput($prefix = "bgoutput") {
 		$filename = tempnam(sys_get_temp_dir(), $prefix);
 		if (FALSE === touch($filename)) {
-			throw new Exception(
-			  "Failed to create file background process output (filename=%s).",
-			  $filename);
+			throw new Exception("Failed to create file background ".
+				"process output (filename=%s).", $filename);
 		}
 		return $filename;
 	}
@@ -282,20 +280,48 @@ abstract class ServiceAbstract {
 	final protected function initializeBgProcStatus($filename, $pid) {
 		$jsonFile = new \OMV\Json\File($filename);
 		$jsonFile->open("r+");
-		if ($jsonFile->isEmpty()) {
-			$status = [
-				"pid" => $pid,
-				"running" => TRUE
-			];
-			$jsonFile->write($status);
-		} else {
-			// Note, by default the file should be empty, but it can
-			// happen that the child process was faster and has already
-			// been updated the file content.
-			$status = $jsonFile->read();
-		}
+		$status = [
+			"pid" => $pid,
+			"running" => TRUE
+		];
+		$jsonFile->write($status);
 		$jsonFile->close();
 		return $status;
+	}
+
+	/**
+	 * Helper function to wait until the background process status file
+	 * has been created. If the file is not initialized within the
+	 * specified timeout, then an exception will be thrown.
+	 * @param string filename The name of the status file.
+	 * @param integer timeout Timeout in seconds to wait for.
+	 *   Defaults to 1 second.
+	 * @return void
+	 * @throw \OMV\Rpc\Exception
+	 */
+	final protected function waitForBgProcStatus($filename, $timeout = 1) {
+		for ($i = 0; $i < $timeout * 5; $i++) {
+			usleep(200000); // Delay 1/5 second.
+			// Check if the background process status file is initialized.
+			// We only check if the file size is > 0 because the method
+			// createBgProcStatus() simply creates an empty file which is
+			// filled with valid JSON by initializeBgProcStatus().
+			$initialized = FALSE;
+			$jsonFile = new \OMV\Json\File($filename);
+			try {
+				$jsonFile->open("r+");
+				$initialized = !$jsonFile->isEmpty();
+			} finally {
+				$jsonFile->close();
+			}
+			if ($initialized)
+				return;
+		}
+		// Finally throw an exception if the background process status file
+		// is not initialized in the meanwhile.
+		throw new Exception("The background process status file ".
+			"(filename=%s) was not initialized after a waiting period ".
+			"of %d seconds.", $filename, $timeout);
 	}
 
 	/**
@@ -526,6 +552,9 @@ abstract class ServiceAbstract {
 		// Child process.
 		$status = 1;
 		try {
+			// We need to wait until the background process status file
+			// has been created by the parent process.
+			$this->waitForBgProcStatus($bgStatusFilename);
 			// Create the background process output file and update
 			// the status file.
 			$bgOutputFilename = $this->createBgProcOutput();

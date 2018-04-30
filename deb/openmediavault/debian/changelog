@@ -1,8 +1,9 @@
 openmediavault (4.1.6) stable; urgency=low
 
   * Various improvements.
+  * Issue #95: Failed to read file '/tmp/bgstatus*' (size=0).
 
- -- Volker Theile <volker.theile@openmediavault.org>  Mon, 30 Apr 2018 17:03:51 +0200
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 30 Apr 2018 18:18:51 +0200
 
 openmediavault (4.1.5-1) stable; urgency=low
 
