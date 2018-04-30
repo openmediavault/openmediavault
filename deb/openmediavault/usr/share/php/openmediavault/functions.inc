@@ -424,7 +424,7 @@ function is_char_device($filename, $dereference = TRUE) {
 }
 
 /**
- * Finds out whether a variable is JSON.
+ * Finds out whether a variable is a JSON encoded string.
  * @ingroup api
  * @param mixed $var The variable being evaluated.
  * @return TRUE if the variable is JSON, otherwise FALSE.
@@ -432,6 +432,7 @@ function is_char_device($filename, $dereference = TRUE) {
 function is_json($var) {
 	if (!is_string($var))
 		return FALSE;
+	// An empty string is not a valid JSON value.
 	if (empty($var))
 		return FALSE;
 	// E.g. '1.1.1.1' is identified as JSON by json_decode.

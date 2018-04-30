@@ -104,15 +104,11 @@ class File {
 	}
 
 	/**
-	 * Validate the JSON data.
-	 * @param data The JSON data to validate.
-	 * @return TRUE if the JSON data is valid, otherwise FALSE.
+	 * Validate the JSON encoded string.
+	 * @param data The JSON encoded string to validate.
+	 * @return TRUE if the JSON encoded string is valid, otherwise FALSE.
 	 */
 	protected function validate($data) {
-		// An empty JSON file must contain '[]' or '{}' at least.
-		if (TRUE === empty($data))
-			return FALSE;
-		// Validate the JSON data.
 		return is_json($data);
 	}
 
@@ -154,6 +150,10 @@ class File {
 	 * @throw \OMV\Exception
 	 */
 	public function write($data) {
+		if (is_string($data) && empty($data)) {
+			throw new \OMV\Exception("An empty string is not a valid ".
+				"JSON value.");
+		}
 		if (FALSE === rewind($this->fh)) {
 			throw new \OMV\Exception("Failed to rewind file '%s'.",
 			  $this->filename);
@@ -212,10 +212,11 @@ class File {
 	public function read($decode = TRUE, $assoc = TRUE) {
 		// Read the whole file contents.
 		$contents = $this->getContents();
-		// Validate the JSON data.
+		// Validate the JSON encoded data.
 		if (FALSE === $this->validate($contents)) {
 			throw new \OMV\Exception("File '%s' contains invalid JSON: %s",
-			  $this->filename, json_last_error_msg());
+				$this->filename,
+				empty($contents) ? "No content" : json_last_error_msg());
 		}
 		// Decode the content if requested.
 		if (TRUE === $decode) {
