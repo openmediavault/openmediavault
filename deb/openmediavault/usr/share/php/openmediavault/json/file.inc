@@ -113,8 +113,8 @@ class File {
 	}
 
 	/**
-	 * Check if the JSON data is valid.
-	 * @return TRUE if the JSON data is valid, otherwise FALSE.
+	 * Check if the file content is valid JSON.
+	 * @return TRUE if the file content is valid JSON, otherwise FALSE.
 	 */
 	public function isValid() {
 		$contents = $this->getContents();
@@ -179,8 +179,9 @@ class File {
 	}
 
 	/**
-	 * Reads entire file into a string.
-	 * @return The method returns the read data.
+	 * Reads the entire file content into a string. The JSON encoded string
+	 * is not validated.
+	 * @return Returns the file content as JSON encoded string.
 	 * @throw \OMV\Exception
 	 */
 	public function getContents() {
@@ -203,7 +204,8 @@ class File {
 	}
 
 	/**
-	 * Read the JSON encoded data from the file.
+	 * Read the JSON encoded content from the file. The JSON encoded string
+	 * is validated and decoded if specified.
 	 * @param decode Set to TRUE to decode the JSON content. Defaults to TRUE.
 	 * @return The content read from the file. If \em decode was set to TRUE
 	 *   the decoded content is returned.
