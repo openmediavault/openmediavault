@@ -460,7 +460,7 @@ class Filesystem extends \OMV\System\BlockDevice
 		// Do not support labels anymore.
 		//if (TRUE === $this->hasDeviceFileByLabel())
 		//	return $this->getDeviceFileByLabel();
-		else if (TRUE === $this->hasDeviceFileById())
+		if (TRUE === $this->hasDeviceFileById())
 			return $this->getDeviceFileById();
 		if (TRUE === $this->hasDeviceFileByPath())
 			return $this->getDeviceFileByPath();
