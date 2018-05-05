@@ -563,7 +563,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				if (FALSE === $filesystemv->hasLabel())
 				 	continue;
 				if ($filesystemv->getLabel() === $params['label']) {
-					throw new \OMV\Exception("The label '%s' already exists.",
+					throw new \OMV\Exception(
+						"The filesystem label '%s' already exists.",
 						$params['label']);
 				}
 			}
