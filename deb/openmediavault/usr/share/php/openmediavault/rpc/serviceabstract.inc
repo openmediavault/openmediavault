@@ -295,11 +295,11 @@ abstract class ServiceAbstract {
 	 * specified timeout, then an exception will be thrown.
 	 * @param string filename The name of the status file.
 	 * @param integer timeout Timeout in seconds to wait for.
-	 *   Defaults to 1 second.
+	 *   Defaults to 5 second.
 	 * @return void
 	 * @throw \OMV\Rpc\Exception
 	 */
-	final protected function waitForBgProcStatus($filename, $timeout = 1) {
+	final protected function waitForBgProcStatus($filename, $timeout = 5) {
 		for ($i = 0; $i < $timeout * 5; $i++) {
 			usleep(200000); // Delay 1/5 second.
 			// Check if the background process status file is initialized.
