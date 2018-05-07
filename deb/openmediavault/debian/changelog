@@ -1,5 +1,6 @@
 openmediavault (4.1.6) stable; urgency=low
 
+  * Update locales.
   * Various improvements.
   * Issue #95: Failed to read file '/tmp/bgstatus*' (size=0).
 
