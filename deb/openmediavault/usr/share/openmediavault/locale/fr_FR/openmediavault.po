@@ -3,19 +3,19 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Jérémy D <bxt@mondedie.fr>, 2018
 # Benoit Maliar <maliarbenoit@msn.com>, 2015
 # Christophe Lherieau <skimpax@gmail.com>, 2012-2015
+# Jérémy D <bxt@mondedie.fr>, 2018
 # Nadley-Nahir Mohamed <nahirmoha@gmail.com>, 2012-2013
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012-2013
-# Stéphane BOCQUET <stephane_bocquet@hotmail.com>, 2012
+# Stéphane Bocquet <stephane_bocquet@hotmail.com>, 2012
 # Volker <votdev@gmx.de>, 2015-2016,2018
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-21 11:50+0100\n"
-"PO-Revision-Date: 2018-04-25 06:56+0000\n"
+"PO-Revision-Date: 2018-05-09 07:25+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/votdev/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
