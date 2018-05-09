@@ -1,3 +1,9 @@
+openmediavault (4.1.7) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 09 May 2018 09:31:03 +0200
+
 openmediavault (4.1.6) stable; urgency=low
 
   * Update locales.
