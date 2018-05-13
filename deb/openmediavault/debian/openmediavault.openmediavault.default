@@ -17,7 +17,8 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-# Default values
+# Global default values. Please restart the openmediavault-engined systemd
+# service to take changes into affect.
 OMV_CONFIG_FILE="/etc/openmediavault/config.xml"
 OMV_CONFIG_TEMPLATE_FILE="/usr/share/openmediavault/templates/config.xml"
 OMV_PRODUCTINFO_FILE="/usr/share/openmediavault/productinfo.xml"
