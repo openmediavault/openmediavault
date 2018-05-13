@@ -46,7 +46,7 @@ class Dispatcher {
 	/**
 	 * Get the name of the dispatcher.
 	 * The name is the unique identifier of a dispatcher.
-	 * @return The name of the dispatcher.
+	 * @return string The name of the dispatcher.
 	 */
 	function getName() {
 		return $this->name;
@@ -54,7 +54,7 @@ class Dispatcher {
 
 	/**
 	 * Returns all listeners.
-	 * @return An array of listeners.
+	 * @return array An array of listeners.
 	 */
 	public function getListeners() {
 		if (!isset($this->listeners))
@@ -65,7 +65,7 @@ class Dispatcher {
 	/**
 	 * Returns a dispatcher singleton.
 	 * @param name The name of the notification dispatcher.
-	 * @return The dispatcher object.
+	 * @return object The dispatcher object.
 	 */
 	public static function &getInstance($name = "default") {
 		if (!isset(self::$instances[$name]))
@@ -80,18 +80,25 @@ class Dispatcher {
 	 *   OMV_NOTIFY_MODIFY|OMV_NOTIFY_DELETE.
 	 * @param arg2 The notification identifier that should be monitored,
 	 *   e.g. 'org.openmediavault.abc.xyz'.
-	 * @param arg3 The callback function.
+	 * @param arg3 The callable to be called. A method of an instantiated
+	 *   object is passed as an array containing an object at index 0 and
+	 *   the method name at index 1. Accessing protected and private methods
+	 *   from within a class is allowed.
 	 * @param arg4 The sequence number of the called function. Default
 	 *   is 20. If you want a function to be execute as the first one
 	 *   then set it to 1.
 	 */
 	function addListener($arg1, $arg2 = null, $arg3 = null, $arg4 = 20) {
+		// Bind listeners if method is called with an class object.
 		if (is_a($arg1, "\OMV\Engine\Notify\IListener"))
 			return $arg1->bindListeners($this);
+		// Reject invalid method calls.
+		if (!(is_integer($arg1) && is_string($arg2) && is_callable($arg3)))
+			return;
 		// Add the listerer.
-//		$this->debug(sprintf("Add listener (type=%s, message=%s, " .
-//		  "callback=%s::%s, seqnum=%s", $arg1, $arg2, get_class($arg3[0]),
-//		  $arg3[1], $arg4));
+		$this->debug(sprintf("Add listener (type=%s, message=%s, " .
+			"callback=%s::%s, seqnum=%s", $arg1, $arg2, get_class($arg3[0]),
+			$arg3[1], $arg4));
 		$this->listeners[] = [
 			"type" => $arg1,
 			"id" => $arg2,
@@ -110,7 +117,6 @@ class Dispatcher {
 	 * @param argX The parameters to be passed.
 	 */
 	function notify($type, $id /* [, $arg1 [, $... ]] */) {
-//		$this->debug(var_export(func_get_args(), TRUE));
 		// Filter list of registered listeners.
 		$listeners = array_filter_ex($this->listeners, "id", $id);
 		// Sort list of registered listeners.
@@ -119,13 +125,13 @@ class Dispatcher {
 		if (!empty($listeners)) {
 			foreach ($listeners as $listenerk => $listenerv) {
 				if ($listenerv['type'] & $type) {
-//					$this->debug(sprintf("Notify listener (type=%s, " .
-//					  "id=%s, callback=%s::%s, seqnum=%s",
-//					  $listenerv['type'], $listenerv['id'],
-//					  get_class($listenerv['callback'][0]),
-//					  $listenerv['callback'][1], $listenerv['seqnum']));
+					$this->debug(sprintf("Notify listener (type=%s, " .
+						"id=%s, callback=%s::%s, seqnum=%s",
+						$listenerv['type'], $listenerv['id'],
+						get_class($listenerv['callback'][0]),
+						$listenerv['callback'][1], $listenerv['seqnum']));
 					call_user_func_array($listenerv['callback'],
-					  func_get_args());
+						func_get_args());
 				}
 			}
 		}

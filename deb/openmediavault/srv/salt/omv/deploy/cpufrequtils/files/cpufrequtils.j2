@@ -1,0 +1,10 @@
+{%- set max_speed = salt['pillar.get']('default:OMV_CPUFREQUTILS_MAXSPEED', '0') %}
+{%- set min_speed = salt['pillar.get']('default:OMV_CPUFREQUTILS_MINSPEED', '0') %}
+{%- if cpufreq -%}
+ENABLE="true"
+{%- else -%}
+ENABLE="false"
+{%- endif %}
+GOVERNOR="{{ governor }}"
+MAX_SPEED="{{ max_speed }}"
+MIN_SPEED="{{ min_speed }}"

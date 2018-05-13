@@ -19,7 +19,9 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
+namespace Engined\Rpc;
+
+class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
 	 */
@@ -213,7 +215,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Check if the module is marked as dirty. This is an indication
 		// that the certificate has not been created or updated until now.
-		if ($this->isModuleDirty("certificatemgmt"))
+		if ($this->isModuleDirty("certificates"))
 			throw new \OMV\Config\ConfigDirtyException();
 		// Get certificate details.
 		$cmdArgs = [];

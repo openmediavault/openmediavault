@@ -19,7 +19,9 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-class OMVRpcServiceWebGui extends \OMV\Rpc\ServiceAbstract {
+namespace Engined\Rpc;
+
+class WebGui extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
 	 */
@@ -90,13 +92,11 @@ class OMVRpcServiceWebGui extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.webgui.setpassword");
-		// Modify the 'admin' user password.
-		$cmdArgs = [];
-		$cmdArgs[] = sprintf("--password %s", escapeshellarg(crypt(
-		  $params['password'])));
-		$cmdArgs[] = "admin";
-		$cmd = new \OMV\System\Process("usermod", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute();
+		// Create a new task that will update the administrator
+		// password.
+		\OMV\Salt\Task::create("omv.task.user.setpassword", [
+			"name" => "admin",
+			"password" => crypt($params['password'])
+		]);
 	}
 }

@@ -27,63 +27,35 @@ namespace OMV\Engine\Module;
  */
 interface IService {
 	/**
-	 * Defines the modules that if present should build their configuration
-	 * before the service provided by this module. Nevertheless, the module
-	 * can still apply the configuration if the listed dependencies are
-	 * missing.
-	 * @return An array of modules. Returns an empty array if no
+	 * Ensures that this module is deployed after the listed modules.
+	 * Nevertheless, the module can still be deployed if the listed
+	 * dependencies are missing.
+	 * @return array A list of module names. Returns an empty array if no
 	 *   dependencies exist.
 	 */
-	public function shouldApply();
+	public function deployAfter(): array;
 
 	/**
-	 * Defines the modules that if present should start before the service
-	 * provided by this module. Nevertheless, the module can still start if
-	 * the listed dependencies are missing.
-	 * @return An array of modules. Returns an empty array if no
+	 * Ensures that this module is deployed before the listed modules.
+	 * Nevertheless, the module can still be deployed if the listed
+	 * dependencies are missing.
+	 * @return array A list of module names. Returns an empty array if no
 	 *   dependencies exist.
 	 */
-	public function shouldStart();
+	public function deployBefore(): array;
 
 	/**
-	 * Defines the modules that if present should start after the service
-	 * provided by this module.
-	 * @return An array of modules. Returns an empty array if no
-	 *   dependencies exist.
+	 * This method is called before the module is deployed.
 	 */
-	public function startBefore();
+	public function preDeploy();
 
 	/**
-	 * Defines the modules that if present should be stopped after the
-	 * service provided by this module. Normally you would include here the
-	 * same dependencies as those provided with the shouldStart method.
-	 * Nevertheless, the module can still stop if the listed dependencies
-	 * are missing.
-	 * @return An array of modules. Returns an empty array if no
-	 *   dependencies exist.
+	 * Deploy the configuration.
 	 */
-	public function shouldStop();
+	public function deploy();
 
 	/**
-	 * Defines the modules that if present should stop before the service
-	 * provided by this module.
-	 * @return An array of modules. Returns an empty array if no
-	 *   dependencies exist.
+	 * This method is called after the module has been deployed.
 	 */
-	public function stopAfter();
-
-	/**
-	 * Generate the configuration.
-	 */
-	public function applyConfig();
-
-	/**
-	 * Stop the managed service.
-	 */
-	public function stopService();
-
-	/**
-	 * Start the managed service.
-	 */
-	public function startService();
+	public function postDeploy();
 }

@@ -28,15 +28,25 @@ require_once("openmediavault/functions.inc");
  * @ingroup api
  */
 abstract class ModuleAbstract {
+	use \OMV\DebugTrait;
+
 	/**
 	 * Get the name of the module.
-	 * @return The name of the module.
+	 * @return string The name of the module.
 	 */
 	abstract public function getName();
 
 	/**
+	 * Get the alias of the module.
+	 * @return string|null The alias of the module. Defaults to NULL.
+	 */
+	public function getAlias() {
+		return NULL;
+	}
+
+	/**
 	 * Helper function to mark this module as dirty.
-	 * @return The list of dirty modules.
+	 * @return array The list of dirty modules.
 	 */
 	final public function setDirty() {
 		return $this->setDirtyByName($this->getName());
@@ -45,7 +55,7 @@ abstract class ModuleAbstract {
 	/**
 	 * Helper function to mark the given module as dirty.
 	 * @param name The name of the module.
-	 * @return The list of dirty modules.
+	 * @return array The list of dirty modules.
 	 */
 	final public function setDirtyByName($name) {
 		$moduleMngr = Manager::getInstance();
@@ -54,7 +64,7 @@ abstract class ModuleAbstract {
 
 	/**
 	 * Helper function to check whether the module is marked dirty.
-	 * @return TRUE if the module is marked dirty, otherwise FALSE.
+	 * @return bool TRUE if the module is marked dirty, otherwise FALSE.
 	 */
 	final public function isDirty() {
 		$moduleMngr = Manager::getInstance();
@@ -67,7 +77,7 @@ abstract class ModuleAbstract {
 	 * @param output If the output argument is present, then the specified
 	 *   array will be filled with every line of output from the command.
 	 *   Trailing whitespace, such as \n, is not included in this array.
-	 * @return The exit code of the command.
+	 * @return integer The exit code of the command.
 	 */
 	final protected function exec($command, &$output = NULL) {
 		$cmd = new \OMV\System\Process($command);
@@ -78,7 +88,7 @@ abstract class ModuleAbstract {
 
 	/**
 	 * Helper function to get the administrator context.
-	 * @return The administrator context object.
+	 * @return array The administrator context object.
 	 */
 	final protected function getAdminContext() {
 		return [
@@ -92,7 +102,6 @@ abstract class ModuleAbstract {
 	 * @param id The identifier of the task type.
 	 * @param name The name of the class method to be executed.
 	 * @param params The parameters passed to the method when it is executed.
-	 * @return void
 	 */
 	final protected function addTask($id, $name, $params) {
 		// Check if class method exists.
@@ -128,11 +137,10 @@ abstract class ModuleAbstract {
 	/**
 	 * Execute the tasks with the given identifier.
 	 * @param id The identifier of the tasks to be executed.
-	 * @return void
 	 */
 	final protected function execTasks($id) {
 		$filename = sprintf("/var/lib/openmediavault/%s_tasks.json",
-		  $this->getName());
+			$this->getName());
 		$jsonFile = new \OMV\Json\File($filename);
 		if (!$jsonFile->exists())
 			return;
@@ -141,6 +149,8 @@ abstract class ModuleAbstract {
 		// Get list of tasks to be executed.
 		$runTasks = array_filter_ex($tasks, "id", $id);
 		foreach ($runTasks as $taskk => $taskv) {
+			$this->debug("Executing task (callback=%s::%s)",
+				get_class($this), $taskv['func']);
 			call_user_func_array(array($this, $taskv['func']), [
 				$taskv['params']
 			]);

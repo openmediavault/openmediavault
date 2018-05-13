@@ -1,0 +1,41 @@
+{% set keyfile = salt['pillar.get']('default:OMV_CHRONY_KEYFILE', '/etc/chrony/chrony.keys') -%}
+{% set driftfile = salt['pillar.get']('default:OMV_CHRONY_DRIFTFILE', '/var/lib/chrony/chrony.drift') -%}
+{% set logdir = salt['pillar.get']('default:OMV_CHRONY_LOGDIR', '/var/log/chrony') -%}
+{% set maxupdateskew = salt['pillar.get']('default:OMV_CHRONY_MAXUPDATESKEW', '100.0') -%}
+{% set hwclockfile = salt['pillar.get']('default:OMV_CHRONY_HWCLOCKFILE', '/etc/adjtime') -%}
+{% set makestep = salt['pillar.get']('default:OMV_CHRONY_MAKESTEP', '1 3') -%}
+
+{{ pillar['headers']['multiline'] }}
+
+{%- for timeserver in timeservers.replace(',', ' ').replace(';', ' ').split() -%}
+server {{ timeserver }} iburst
+{%- endfor %}
+
+# This directive specify the location of the file containing ID/key pairs for
+# NTP authentication.
+keyfile {{ keyfile }}
+
+# This directive specify the file into which chronyd will store the rate
+# information.
+driftfile {{ driftfile }}
+
+# Uncomment the following line to turn logging on.
+#log tracking measurements statistics
+
+# Log files location.
+logdir {{ logdir }}
+
+# Stop bad estimates upsetting machine clock.
+maxupdateskew {{ maxupdateskew }}
+
+# This directive tells 'chronyd' to parse the 'adjtime' file to find out if the
+# real-time clock keeps local time or UTC. It overrides the 'rtconutc' directive.
+hwclockfile {{ hwclockfile }}
+
+# This directive enables kernel synchronisation (every 11 minutes) of the
+# real-time clock. Note that it can't be used along with the 'rtcfile' directive.
+rtcsync
+
+# Step the system clock instead of slewing it if the adjustment is larger than
+# one second, but only in the first three clock updates.
+makestep {{ makestep }}

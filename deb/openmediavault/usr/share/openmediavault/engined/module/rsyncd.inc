@@ -19,48 +19,15 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
-  implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus,
-  \OMV\Engine\Module\IZeroconf {
-	/**
-	 * Get the module name.
-	 */
+namespace Engined\Module;
+
+class Rsyncd extends \OMV\Engine\Module\ServiceAbstract
+		implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus,
+		\OMV\Engine\Module\IZeroconf {
 	public function getName() {
 		return "rsyncd";
 	}
 
-	/**
-	 * Generate the configuration.
-	 */
-	public function applyConfig() {
-		$cmd = new \OMV\System\Process("omv-mkconf", "rsyncd");
-		$cmd->setRedirect2to1();
-		$cmd->execute();
-	}
-
-	/**
-	 * Stop the managed service.
-	 */
-	public function stopService() {
-		$systemCtl = new \OMV\System\SystemCtl("rsync");
-		$systemCtl->disable(TRUE);
-	}
-
-	/**
-	 * Start the managed service.
-	 */
-	public function startService() {
-		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.service.rsyncd");
-		if (TRUE !== $object->get("enable"))
-			return;
-		$systemCtl = new \OMV\System\SystemCtl("rsync");
-		$systemCtl->enable(TRUE);
-	}
-
-	/**
-	 * Get the status of the managed service.
-	 */
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.rsyncd");
@@ -73,9 +40,6 @@ class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
 		];
 	}
 
-	/**
-	 * Get the Zeroconf service configuration.
-	 */
 	public function getZeroconfConfig() {
 		return [
 			"id" => "rsync",
@@ -102,30 +66,27 @@ class OMVModuleRsyncd extends \OMV\Engine\Module\ServiceAbstract
 		}
 	}
 
-	/**
-	 * Bind listeners.
-	 */
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.rsyncd",
-		  [ $this, "setDirty" ]);
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.service.rsyncd",
+			[$this, "setDirty"]);
 		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.conf.service.rsyncd.module",
-		  [ $this, "setDirty" ]);
+			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+			"org.openmediavault.conf.service.rsyncd.module",
+			[$this, "setDirty"]);
 		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.sharedfolder",
-		  [ $this, "onSharedFolder" ]);
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.system.sharedfolder",
+			[$this, "onSharedFolder"]);
 		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.sharedfolder.privilege",
-		  [ $this, "onSharedFolder" ]);
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.system.sharedfolder.privilege",
+			[$this, "onSharedFolder"]);
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.rsyncd",
-		  [ $moduleMngr->getModule("zeroconf"), "setDirty" ]);
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.service.rsyncd",
+			[$moduleMngr->getModule("zeroconf"), "setDirty"]);
 	}
 }

@@ -1,0 +1,9 @@
+{%- if config.http.enable | to_bool and config.http.host | length > 0 %}
+Acquire::http::Proxy "http://{% if config.http.username | length > 0 %}{{ config.http.username }}:{{ config.http.password }}@{% endif %}{{ config.http.host }}:{{ config.http.port }}";
+{%- endif %}
+{%- if config.https.enable | to_bool and config.https.host | length > 0 %}
+Acquire::https::Proxy "https://{% if config.https.username | length > 0 %}{{ config.https.username }}:{{ config.https.password }}@{% endif %}{{ config.https.host }}:{{ config.https.port }}";
+{%- endif %}
+{%- if config.ftp.enable | to_bool and config.ftp.host | length > 0 %}
+Acquire::ftp::Proxy "ftp://{% if config.ftp.username | length > 0 %}{{ config.ftp.username }}:{{ config.ftp.password }}@{% endif %}{{ config.ftp.host }}:{{ config.ftp.port }}";
+{%- endif %}

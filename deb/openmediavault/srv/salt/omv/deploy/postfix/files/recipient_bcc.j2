@@ -1,0 +1,3 @@
+{%- if config.enable | to_bool and config.secondaryemail | length > 0 -%}
+{{ config.primaryemail }} {{ config.secondaryemail }}
+{%- endif -%}

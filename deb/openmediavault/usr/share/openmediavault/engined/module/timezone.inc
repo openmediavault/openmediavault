@@ -19,45 +19,18 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-class OMVModuleTimezone extends \OMV\Engine\Module\ServiceAbstract
-  implements \OMV\Engine\Notify\IListener {
-	/**
-	 * Get the module name.
-	 */
+namespace Engined\Module;
+
+class Timezone extends \OMV\Engine\Module\ServiceAbstract
+		implements \OMV\Engine\Notify\IListener {
 	public function getName() {
 		return "timezone";
 	}
 
-	/**
-	 * Generate the configuration.
-	 */
-	public function applyConfig() {
-		$cmd = new \OMV\System\Process("omv-mkconf", "timezone");
-		$cmd->setRedirect2to1();
-		$cmd->execute();
-	}
-
-	/**
-	 * Start the managed service.
-	 */
-	public function startService() {
-		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.system.time");
-		$cmdArgs = [];
-		$cmdArgs[] = sprintf("set-timezone %s", escapeshellarg(
-		  $object->get("timezone")));
-		$cmd = new \OMV\System\Process("timedatectl", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute();
-	}
-
-	/**
-	 * Bind listeners.
-	 */
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.time",
-		  [ $this, "setDirty" ]);
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.system.time",
+			[$this, "setDirty"]);
 	}
 }

@@ -1,0 +1,14 @@
+{%- set v_root_engine = salt['pillar.get']('default:OMV_PROFTPD_MODVROOT_VROOTENGINE', 'on') -%}
+{%- set v_root_log = salt['pillar.get']('default:OMV_PROFTPD_MODVROOT_VROOTLOG', '/var/log/proftpd/vroot.log') -%}
+LoadModule mod_vroot.c
+<IfModule mod_vroot.c>
+  VRootEngine {{ v_root_engine }}
+  VRootLog {{ v_root_log }}
+{%- for share in config.shares.share -%}
+{%- if share.enable | to_bool -%}
+{%- set sfname = salt['omv.get_sharedfolder_path'](share.sharedfolderref) -%}
+{%- set sfpath = salt['omv.get_sharedfolder_name'](share.sharedfolderref) %}
+  VRootAlias "{{ sfname }}" "{{ sfpath.rstrip('/') }}"
+{%- endif -%}
+{%- endfor %}
+</IfModule>

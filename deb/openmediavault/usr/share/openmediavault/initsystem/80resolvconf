@@ -21,12 +21,6 @@
 
 set -e
 
-. /etc/default/openmediavault
-. /usr/share/openmediavault/scripts/helper-functions
-
-########################################################################
-# Reconfigure resolvconf
-########################################################################
 dpkg-reconfigure --frontend=noninteractive resolvconf
 
 exit 0

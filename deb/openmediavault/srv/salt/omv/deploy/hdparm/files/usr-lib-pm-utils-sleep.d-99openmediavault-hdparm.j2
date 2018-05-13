@@ -1,0 +1,21 @@
+#!/bin/sh
+{{ pillar['headers']['multiline'] }}
+case "$1" in
+suspend|hibernate)
+    ;;
+resume|thaw)
+{%- for device in config %}
+{%- if device.aam > 0 %}
+    hdparm -M {{ device.aam }} {{ device.devicefile }};
+{%- endif -%}
+{%- if device.apm > 0 %}
+    hdparm -B {{ device.apm }} {{ device.devicefile }};
+{%- endif -%}
+{%- if device.spindowntime > 0 %}
+    hdparm -S {{ device.spindowntime }} {{ device.devicefile }};
+{%- endif -%}
+{% endfor %}
+    ;;
+*) exit $NA;;
+esac
+exit 0

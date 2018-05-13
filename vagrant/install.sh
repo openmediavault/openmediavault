@@ -54,9 +54,5 @@ apt-get --yes --auto-remove --show-upgraded \
 # Initialize the system and database.
 omv-initsystem
 
-# Rebuild configurations.
-omv-mkconf interfaces
-omv-mkconf issue
-
 # Display the login information.
 cat /etc/issue

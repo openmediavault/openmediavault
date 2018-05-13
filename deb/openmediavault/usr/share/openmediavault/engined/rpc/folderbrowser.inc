@@ -19,9 +19,11 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+namespace Engined\Rpc;
+
 require_once("openmediavault/functions.inc");
 
-class OMVRpcServiceFolderBrowser extends \OMV\Rpc\ServiceAbstract {
+class FolderBrowser extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
 	 */
@@ -45,7 +47,7 @@ class OMVRpcServiceFolderBrowser extends \OMV\Rpc\ServiceAbstract {
 	 *   or 'mntent'.
 	 *   \em path The relative directory path.
 	 * @param context The context of the caller.
-	 * @return An array of directory names.
+	 * @return array An array of directory names.
 	 * @ŧhrow \OMV\Exception
 	 */
 	public function get($params, $context) {
@@ -73,7 +75,7 @@ class OMVRpcServiceFolderBrowser extends \OMV\Rpc\ServiceAbstract {
 			// Get the mount point configuration object.
 			$db = \OMV\Config\Database::getInstance();
 			$object = $db->get("conf.system.filesystem.mountpoint",
-			  $params['uuid']);
+				$params['uuid']);
 			$rootPath = $object->get("dir");
 			break;
 		}

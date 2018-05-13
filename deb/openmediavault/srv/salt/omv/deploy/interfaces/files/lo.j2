@@ -1,0 +1,9 @@
+{%- set interfaces = salt['omv.get_config_by_filter'](
+  'conf.system.network.interface',
+  '{"operator": "stringNotEquals", "arg0": "method6", "arg1": "manual"}') -%}
+# The loopback network interface
+auto lo
+iface lo inet loopback
+{%- if interfaces | length > 0 %}
+iface lo inet6 loopback
+{%- endif %}

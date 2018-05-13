@@ -19,39 +19,18 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-class OMVModuleIssue extends \OMV\Engine\Module\ServiceAbstract
-  implements \OMV\Engine\Notify\IListener {
-	/**
-	 * Get the module name.
-	 */
+namespace Engined\Module;
+
+class Issue extends \OMV\Engine\Module\ServiceAbstract
+		implements \OMV\Engine\Notify\IListener {
 	public function getName() {
 		return "issue";
 	}
 
-	/**
-	 * Defines the modules that if present should start before the service
-	 * provided by this module.
-	 * @return An array of modules.
-	 */
-	function shouldStart() { return [ "networking" ]; }
-
-	/**
-	 * Start the managed service.
-	 */
-	public function startService() {
-		// Create the /etc/issue file after the network is up.
-		$cmd = new \OMV\System\Process("omv-mkconf", "issue");
-		$cmd->setRedirect2to1();
-		$cmd->execute();
-	}
-
-	/**
-	 * Bind listeners.
-	 */
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 			"org.openmediavault.conf.system.network.interface",
-			[ $this, "setDirty" ]);
+			[$this, "setDirty"]);
 	}
 }

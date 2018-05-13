@@ -1,0 +1,34 @@
+{%- set check_interval = salt['pillar.get']('default:OMV_MONIT_CHECK_INTERVAL', '30') -%}
+{%- set delay_seconds = salt['pillar.get']('default:OMV_MONIT_DELAY_SECONDS', '5') -%}
+{%- set logfile = salt['pillar.get']('default:OMV_MONIT_LOGFILE', 'syslog facility log_daemon') -%}
+{%- set idfile = salt['pillar.get']('default:OMV_MONIT_IDFILE', '/var/lib/monit/id') -%}
+{%- set statefile = salt['pillar.get']('default:OMV_MONIT_STATEFILE', '/var/lib/monit/state') -%}
+{%- set port = salt['pillar.get']('default:OMV_MONIT_PORT', '2812') -%}
+{%- set eventqueue_basedir = salt['pillar.get']('default:OMV_MONIT_EVENTQUEUE_BASEDIR', '/var/lib/monit/events') -%}
+{%- set eventqueue_slots = salt['pillar.get']('default:OMV_MONIT_EVENTQUEUE_SLOTS', '100') -%}
+{%- set include_dir = salt['pillar.get']('default:OMV_MONIT_CONFIG_INCLUDE_DIR', '/etc/monit/conf.d') -%}
+{%- set email_timeout = salt['pillar.get']('default:OMV_MONIT_EMAIL_TIMEOUT', '5') -%}
+{%- set email_alert_noevents = salt['pillar.get']('default:OMV_MONIT_EMAIL_ALERT_NOTEVENTS', 'action, instance') -%}
+{{ pillar['headers']['multiline'] }}
+set daemon {{ check_interval }} with start delay {{ delay_seconds }}
+set logfile {{ logfile }}
+set idfile {{ idfile }}
+set statefile {{ statefile }}
+
+set httpd
+    port {{ port }}
+    use address localhost  # only accept connection from localhost
+    allow localhost        # allow localhost to connect to the server and
+
+set eventqueue
+    basedir {{ eventqueue_basedir }}
+    slots {{ eventqueue_slots }}
+
+{%- if email_config.enable | to_bool  %}
+set mailserver 127.0.0.1
+    with timeout {{ email_timeout }} seconds
+set mail-format { from: {{ email_config.sender }} }
+set alert {{ email_config.primaryemail }} but not on { {{ email_alert_noevents }} }
+{% endif %}
+
+include {{ include_dir }}/*

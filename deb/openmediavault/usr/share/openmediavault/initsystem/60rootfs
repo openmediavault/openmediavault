@@ -26,6 +26,7 @@
 # http://superuser.com/questions/228657/which-linux-filesystem-works-best-with-ssd
 
 set -e
+set -x
 
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
@@ -37,17 +38,37 @@ OMV_FSTAB_MNTOPS_NONROTATIONAL=${OMV_FSTAB_MNTOPS_NONROTATIONAL:-"noatime,nodira
 udevadm control --reload-rules
 udevadm trigger
 
-# Get the root device file or exit immediatelly.
-devicefile=$(omv_get_root_devicefile || true)
-[ -z "${devicefile}" ] && exit 0
+# Get the mount configuration for the root filesystem.
+# {
+#   "device": "UUID=199a4bbc-59c9-4a3b-b592-950eaffb2530",
+#   "pass": "1",
+#   "opts": [
+#     "errors=remount-ro"
+#   ],
+#   "dump": "0",
+#   "fstype": "ext4"
+# }
+fstab=$(salt-call --local --retcode-passthrough --no-color --out=json mount.fstab | \
+	jq --compact-output '.[] | ."/"')
+fstab_device=$(echo ${fstab} | jq --raw-output '.device')
 
-# Modify rootfs mount options for non-rotational devices.
-if omv_is_device_nonrotational "${devicefile}"; then
-	# UUID=cd69fda0-e2be-4e1c-99ea-78d5907618bc /               ext4    errors=remount-ro 0       1
-	options=$(grep -P -i '^\S+\s+/\s+ext4\s+\S+\s+\d+\s+\d+\s*$' /etc/fstab | awk '{ print $4 }')
-	if [ -n "${options}" ]; then
-		sed -i -e "s/\/\s*\(\S*\)\s*${options}\s*0/\/\t\1\t${OMV_FSTAB_MNTOPS_NONROTATIONAL},${options}\t0/" /etc/fstab
-	fi
-fi
+# Get the root device file or exit immediatelly.
+devicefile=$(findfs ${fstab_device})
+! omv_is_devicefile "${devicefile}" && exit 0
+
+# Modify rootfs mount options for non-rotational devices, otherwise
+# exit immediatelly.
+! omv_is_device_nonrotational "${devicefile}" && exit 0
+
+fstab_opts=$(echo ${fstab} | jq --raw-output '.opts | join(",")')
+fstab_fstype=$(echo ${fstab} | jq --raw-output '.fstype')
+fstab_dump=$(echo ${fstab} | jq --raw-output '.dump')
+fstab_pass=$(echo ${fstab} | jq --raw-output '.pass')
+
+# Modify the options and update the fstab entry.
+salt-call --local --retcode-passthrough --no-color mount.set_fstab \
+	name="/" device="${fstab_device}" fstype="${fstab_fstype}" \
+	opts="${OMV_FSTAB_MNTOPS_NONROTATIONAL},${fstab_opts}" \
+	dump="${fstab_dump}" pass_num="${fstab_pass}"
 
 exit 0

@@ -21,9 +21,6 @@
 
 set -e
 
-. /etc/default/openmediavault
-. /usr/share/openmediavault/scripts/helper-functions
-
 # Use tmpfs for /tmp to reduce write access to the root device
 sed -i -e "/^tmpfs[ ]*\/tmp[ ].*$/d" /etc/fstab
 echo "tmpfs           /tmp            tmpfs   defaults        0       0" >> /etc/fstab

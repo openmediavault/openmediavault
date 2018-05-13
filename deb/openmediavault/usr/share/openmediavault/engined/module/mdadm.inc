@@ -19,34 +19,18 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-class OMVModuleMdadm extends \OMV\Engine\Module\ServiceAbstract
-  implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\INotification {
-	/**
-	 * Get the module name.
-	 */
+namespace Engined\Module;
+
+class MdAdm extends \OMV\Engine\Module\ServiceAbstract
+		implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\INotification {
 	public function getName() {
 		return "mdadm";
 	}
 
-	/**
-	 * Defines the modules that if present should start before the service
-	 * provided by this module.
-	 * @return An array of modules.
-	 */
-	public function shouldStart() { return [ "email" ]; }
-
-	/**
-	 * Generate the configuration.
-	 */
-	public function applyConfig() {
-		$cmd = new \OMV\System\Process("omv-mkconf", "mdadm");
-		$cmd->setRedirect2to1();
-		$cmd->execute();
+	public function deployAfter(): array {
+		return ["email"];
 	}
 
-	/**
-	 * Get the notification configuration.
-	 */
 	public function getNotificationConfig() {
 		return [
 			[
@@ -57,21 +41,18 @@ class OMVModuleMdadm extends \OMV\Engine\Module\ServiceAbstract
 		];
 	}
 
-	/**
-	 * Bind listeners.
-	 */
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.conf.system.mdadm.device",
-		  [ $this, "setDirty" ]);
+			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+			"org.openmediavault.conf.system.mdadm.device",
+			[$this, "setDirty"]);
 		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.notification.email",
-		  [ $this, "setDirty" ]);
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.system.notification.email",
+			[$this, "setDirty"]);
 		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.notification.notification",
-		  [ $this, "setDirty" ]);
+			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.system.notification.notification",
+			[$this, "setDirty"]);
 	}
 }
