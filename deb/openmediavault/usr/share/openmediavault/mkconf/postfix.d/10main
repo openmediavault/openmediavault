@@ -67,7 +67,7 @@ xmlstarlet sel -t -m "//system/email" \
   -b \
   -i "tls[. = '1']" \
     -i "port[. = '465']" \
-      -o "smtpd_tls_wrappermode = ${OMV_POSTFIX_MAIN_SMTP_TLS_WRAPPERMODE}" -n \
+      -o "smtp_tls_wrappermode = ${OMV_POSTFIX_MAIN_SMTP_TLS_WRAPPERMODE}" -n \
     -b \
     -o "smtp_tls_security_level = ${OMV_POSTFIX_MAIN_SMTP_TLS_SECURITY_LEVEL}" -n \
     -o "smtp_tls_CAfile = ${OMV_POSTFIX_MAIN_SMTP_TLS_CAFILE}" -n \

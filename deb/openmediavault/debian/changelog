@@ -1,6 +1,7 @@
 openmediavault (4.1.7) stable; urgency=low
 
   * Update locales.
+  * Fix bug in Postfix when using port 465 (SSL/TLS).
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 09 May 2018 09:31:03 +0200
 
