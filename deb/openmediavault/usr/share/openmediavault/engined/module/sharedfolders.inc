@@ -105,7 +105,7 @@ class OMVModuleSharedfolders extends \OMV\Engine\Module\ServiceAbstract
 			[ $this, "onDelete" ]);
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
-			OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
+			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 			"org.openmediavault.conf.system.sharedfolder",
 			[ $moduleMngr->getModule("systemd"), "setDirty" ]);
 	}
