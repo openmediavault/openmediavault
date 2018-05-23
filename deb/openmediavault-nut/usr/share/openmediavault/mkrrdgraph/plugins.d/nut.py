@@ -217,8 +217,8 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 				args.append('GPRINT:iavg:LAST:"%4.2lf Last\l"')
 				args.append('COMMENT:"{last_update}"'.format(**config))
 				openmediavault.mkrrdgraph.call_rrdtool_graph(args)
-			elif (os.path.exists('{data_dir}/nut-{upsname}/voltage-battery.rrd'.format(**config)) and
-					os.path.exists('{data_dir}/nut-{upsname}/voltage-input.rrd'.format(**config))):
+			elif (os.path.exists('{data_dir}/nut-{upsname}/voltage-input.rrd'.format(**config)) and
+					os.path.exists('{data_dir}/nut-{upsname}/voltage-output.rrd'.format(**config))):
 				args = []
 				args.append(image_filename)
 				args.extend(config['defaults'])
