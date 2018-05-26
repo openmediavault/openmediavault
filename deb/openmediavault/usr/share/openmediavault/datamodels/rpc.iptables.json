@@ -49,7 +49,7 @@
 				},
 				"protocol": {
 					"type": "string",
-					"pattern": "/^(!?(tcp|udp|icmp))|all$/",
+					"pattern": "^(!?(tcp|udp|icmp))|all$",
 					"required": true
 				},
 				"extraoptions": {
@@ -114,7 +114,7 @@
 				},
 				"protocol": {
 					"type": "string",
-					"pattern": "/^(!?(tcp|udp|icmp))|all$/",
+					"pattern": "^(!?(tcp|udp|icmp))|all$",
 					"required": true
 				},
 				"extraoptions": {
@@ -177,7 +177,7 @@
 			},
 			"protocol": {
 				"type": "string",
-				"pattern": "/^(!?(tcp|udp|icmp))|all$/",
+				"pattern": "^(!?(tcp|udp|icmp))|all$",
 				"required": true
 			},
 			"extraoptions": {

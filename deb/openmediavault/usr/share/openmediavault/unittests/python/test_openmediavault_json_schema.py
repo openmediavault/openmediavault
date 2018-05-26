@@ -66,6 +66,10 @@ class SchemaTestCase(unittest.TestCase):
 							}
 						}
 					}
+				},
+				"slaves": {
+					"type": "string",
+					"pattern": "^(((eth|wlan)\\d+|(en|wl)\\S+),)*((eth|wlan)\\d+|(en|wl)\\S+)$"
 				}
 			}
 		})
@@ -90,29 +94,29 @@ class SchemaTestCase(unittest.TestCase):
 		self.assertRaises(openmediavault.json.SchemaPathException,
 			lambda: schema.get_by_path("a.b.c"))
 
-	def test_validate(self):
+	def test_validate_fail(self):
 		schema = self._get_schema()
 		self.assertRaises(openmediavault.json.SchemaValidationException,
 			lambda: schema.validate({ "price": 38 }))
 
-	def test_validate_maximum(self):
+	def test_validate_maximum_fail(self):
 		schema = self._get_schema()
 		self.assertRaises(openmediavault.json.SchemaValidationException,
 			lambda: schema.validate({ "name": "Apple", "price": 41 }))
 
-	def test_validate_minimum(self):
+	def test_validate_minimum_fail(self):
 		schema = self._get_schema()
 		self.assertRaises(openmediavault.json.SchemaValidationException,
 			lambda: schema.validate({ "name": "Eggs", "price": 34.99 }))
 
-	def test_check_format_unknown(self):
+	def test_check_format_unknown_fail(self):
 		schema = openmediavault.json.Schema({})
 		self.assertRaises(openmediavault.json.SchemaException, lambda:
 			schema._check_format("abc", { "format": "abc" }, "abc"))
 
 	def test_check_format_regex(self):
 		schema = openmediavault.json.Schema({})
-		schema._check_format('/^\d{4}-\d{2}-\d{2}$/',
+		schema._check_format('^\d{4}-\d{2}-\d{2}$',
 			{ "format": "regex" }, "field1")
 
 	def test_check_format_email(self):
@@ -143,6 +147,15 @@ class SchemaTestCase(unittest.TestCase):
 					"format": "ipv4"
 				}]
 			}, "field3")
+
+	def test_validate_pattern(self):
+		schema = self._get_schema()
+		schema.validate({ "name": "Eggs", "slaves": "eth0" })
+
+	def test_validate_pattern_fail(self):
+		schema = self._get_schema()
+		self.assertRaises(openmediavault.json.SchemaValidationException,
+			lambda: schema.validate({ "name": "Eggs", "slaves": "xyz0" }))
 
 if __name__ == "__main__":
 	unittest.main()

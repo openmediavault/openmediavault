@@ -72,7 +72,7 @@
 			},
 			"minute": {
 				"type": "string",
-				"pattern": "/^[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[*]$/",
+				"pattern": "^[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[*]$",
 				"required": true
 			},
 			"everynminute": {
@@ -81,7 +81,7 @@
 			},
 			"hour": {
 				"type": "string",
-				"pattern":"/^[0-9]|1[0-9]|2[0-3]|[*]$/",
+				"pattern": "^[0-9]|1[0-9]|2[0-3]|[*]$",
 				"required": true
 			},
 			"everynhour": {
@@ -90,12 +90,12 @@
 			},
 			"month": {
 				"type": "string",
-				"pattern": "/^[1-9]|1[0-2]|[*]$/",
+				"pattern": "^[1-9]|1[0-2]|[*]$",
 				"required": true
 			},
 			"dayofmonth": {
 				"type": "string",
-				"pattern": "/^[1-9]|1[0-9]|2[0-9]|3[0-1]|[*]$/",
+				"pattern": "^[1-9]|1[0-9]|2[0-9]|3[0-1]|[*]$",
 				"required": true
 			},
 			"everyndayofmonth": {
@@ -104,7 +104,7 @@
 			},
 			"dayofweek": {
 				"type": "string",
-				"pattern": "/^[1-7]|[*]$/",
+				"pattern": "^[1-7]|[*]$",
 				"required": true
 			},
 			"username": {

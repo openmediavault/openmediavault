@@ -1,3 +1,10 @@
+openmediavault-clamav (4.1.7-1) stable; urgency=low
+
+  * Fix the pattern attribute in the JSON schemas according to the ECMA 262
+    regular expression dialect.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 26 May 2018 10:56:09 +0200
+
 openmediavault-clamav (4.1.6-1) stable; urgency=low
 
   * Fix postrm script.

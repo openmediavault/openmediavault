@@ -1,6 +1,8 @@
 openmediavault-nut (4.0.13-1) stable; urgency=low
 
   * Issue #110: No UPS voltage graphs.
+  * Fix the pattern attribute in the JSON schemas according to the ECMA 262
+    regular expression dialect.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 23 May 2018 11:54:01 +0200
 

@@ -13,7 +13,7 @@
 		},
 		"upsname": {
 			"type": "string",
-			"pattern": "/^[a-z0-9_-]+$/i"
+			"pattern": "^[a-z0-9_-]+$"
 		},
 		"comment": {
 			"type": "string"
