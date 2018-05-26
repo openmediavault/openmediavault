@@ -735,7 +735,22 @@ class DatabaseSetQuery(DatabaseQuery):
 		return self.model.queryinfo['xpath']
 
 	def execute(self):
-		append_element = False
+		def _create_child_element():
+			# Split the XPath to get the parent path and the tag name.
+			# Example:
+			# //system/network/interfaces/interface =>
+			#   parent path = //system/network/interfaces
+			#   tag = interface
+			xpath, tag = self.xpath.rsplit("/", 1)
+			# Get the first parent element that is found.
+			root_element = self._get_root_element()
+			parent_element = root_element.find(xpath)
+			assert(lxml.etree.iselement(parent_element))
+			# Create and append the child element to the parent element.
+			child_element = lxml.etree.Element(tag)
+			parent_element.append(child_element)
+			return child_element
+
 		# Execute the query.
 		elements = self._execute_xpath()
 		# Validate the query result.
@@ -748,25 +763,22 @@ class DatabaseSetQuery(DatabaseQuery):
 						self.xpath, self.object.model)
 			# Note, new iterable elements MUST be handled different.
 			if self.object.is_new:
-				# Create the new object identifier.
+				# Create an empty element in the XML tree. It will be replaced
+				# with the correct object values in a following step.
+				child_element = _create_child_element()
+				# Note, we need to take care that already existing elements
+				# are not overwritten. So clear them out and only append the
+				# new one.
+				elements.clear();
+				elements.append(child_element)
+				# Finally create the new object identifier.
 				self.object.create_id()
-				# A new iterable element MUST be append to the parent element.
-				append_element = True
 		else:
 			# Handle non-iterable elements that do not exist until now.
 			if 0 == len(elements):
-				# Split the XPath to get the parent and the tag name.
-				xpath, tag = self.xpath.rsplit("/", 1)
-				# Get the first parent element that is found.
-				root_element = self._get_root_element()
-				parent = root_element.find(xpath)
-				assert(lxml.etree.iselement(parent))
-				# Append a new element to the XML tree.
-				element = lxml.etree.Element(tag)
-				parent.append(element)
-				# Append the element to the result list. Thus we can continue
-				# as normal.
-				elements.append(element)
+				# Create an empty element in the XML tree.
+				child_element = _create_child_element()
+				elements.append(child_element)
 		# Put the configuration object.
 		for element in elements:
 			# Get the parent element.
@@ -775,15 +787,8 @@ class DatabaseSetQuery(DatabaseQuery):
 			# Create the clone of the element and set the new values.
 			new_element = lxml.etree.Element(element.tag)
 			self._dict_to_elements(self.object.get_dict(), new_element)
-			# Append/Update the element.
-			if append_element: # Add mode
-				# Append the new element to the parent element.
-				parent.append(new_element)
-				# Immediatelly abort because nothing more has to be done.
-				break
-			else: # Update mode
-				# Replace the old element with the new one.
-				parent.replace(element, new_element)
+			# Replace the old element with the new one.
+			parent.replace(element, new_element)
 		self._save()
 
 class DatabaseDeleteQuery(DatabaseQuery):
