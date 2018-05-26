@@ -26,61 +26,48 @@ set -e
 
 OMV_INTERFACES_CONFIG=${OMV_INTERFACES_CONFIG:-"/etc/network/interfaces"}
 
-# Configure IPv4 network interfaces.
-# Understanding systemd’s predictable network device names:
-# https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c
-grep -iP "^\s*iface\s+((eth|wlan)[0-9]+|(en|wl)[a-z0-9]+)\s+(inet|inet6)\s+(static|dhcp)" ${OMV_INTERFACES_CONFIG} |
-  while read type devname family method; do
-	  # Skip IPv6.
-	  [ "inet6" = "${family}" ] && continue
-	  # Init 'iface' configuration object.
-	  object="<uuid>$(uuid)</uuid>"
-      object="${object}<type>ethernet</type>"
-	  object="${object}<devicename>${devname}</devicename>"
-	  object="${object}<method6>manual</method6>"
-	  object="${object}<address6></address6>"
-	  object="${object}<netmask6>64</netmask6>"
-	  object="${object}<gateway6></gateway6>"
-	  object="${object}<dnsnameservers></dnsnameservers>"
-	  object="${object}<dnssearch></dnssearch>"
-	  object="${object}<wol>0</wol>"
-	  object="${object}<mtu>0</mtu>"
-	  object="${object}<options></options>"
-	  object="${object}<comment></comment>"
-	  # DHCP or static?
-	  if [ "dhcp" = "${method}" ]; then
-		  object="${object}<method>dhcp</method>"
-		  object="${object}<address></address>"
-		  object="${object}<netmask></netmask>"
-		  object="${object}<gateway></gateway>"
-	  else
-		  # Get interface configuration.
-		  value=$(ip -4 -o addr show dev ${devname} | awk '{print $4}')
-		  address=${value%/*}
-		  netmask=$(omv_cidr2mask ${value#*/})
-		  gateway=$(omv_get_gateway ${devname})
-		  # Prepare 'iface' configuration object.
-		  object="${object}<method>static</method>"
-		  object="${object}<address>${address}</address>"
-		  object="${object}<netmask>${netmask}</netmask>"
-		  object="${object}<gateway>${gateway}</gateway>"
-	  fi
-	  # Add interface if it does not already exist.
-	  if ! omv_config_exists "/config/system/network/interfaces/interface[type='ethernet' and devicename='${devname}']"; then
-		  omv_config_add_node_data "/config/system/network/interfaces" "interface" "${object}"
-	  fi
-  done
-
-# Configure DNS name servers.
+# Get the DNS name servers.
 # Note, we are setting all name servers for each interface because this is
 # much less complicated.
 dnsnameservers=""
-for dnsnameserver in $(grep -iP "^\s*dns-nameservers\s+.*$" ${OMV_INTERFACES_CONFIG} | sed -e 's/\s*dns-nameservers\s\+\(.\+\)/\1/gi'); do
-	dnsnameservers=$(omv_trim "${dnsnameservers} ${dnsnameserver}")
+for dnsnameserver in $(grep -iP "^\s*dns-nameservers\s+.*$" ${OMV_INTERFACES_CONFIG} |
+        sed -e 's/\s*dns-nameservers\s\+\(.\+\)/\1/gi'); do
+    dnsnameservers=$(omv_trim "${dnsnameservers} ${dnsnameserver}")
 done
-if [ -n "${dnsnameservers}" ]; then
-    omv_config_update "/config/system/network/interfaces/interface/dnsnameservers" "${dnsnameservers}"
-fi
+
+# Configure ethernet network interfaces.
+# Understanding systemd’s predictable network device names:
+# https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c
+grep -iP "^\s*iface\s+(eth[0-9]+|en[a-z0-9]+)\s+(inet|inet6)\s+(static|dhcp)" ${OMV_INTERFACES_CONFIG} |
+    while read type devname family method; do
+        # Skip IPv6 for now. Should be fixed in a future version.
+        [ "inet6" = "${family}" ] && continue
+        # Add interface if it does not already exist.
+        if ! omv-confdbadm exists --filter "{\"operator\":\"and\", \
+                \"arg0\":{\"operator\":\"stringEquals\",\"arg0\":\"type\", \
+                \"arg1\":\"ethernet\"},\"arg1\":{\"operator\":\"stringEquals\", \
+                \"arg0\":\"devicename\",\"arg1\":\"${devname}\"}}" \
+                "conf.system.network.interface"; then
+            address=""
+            netmask=""
+            gateway=""
+            if [ "static" = "${method}" ]; then
+                data=$(ip -4 -o addr show dev ${devname} | awk '{print $4}')
+                address=${data%/*}
+                netmask=$(omv_cidr2mask ${data#*/})
+                gateway=$(omv_get_gateway ${devname})
+            fi
+            jq --null-input --compact-output "{uuid: \"${OMV_CONFIGOBJECT_NEW_UUID}\", \
+                devicename: \"${devname}\", type: \"ethernet\", method6: \"manual\", \
+                address6: \"\", netmask6: 64, gateway6: \"\", \
+                dnsnameservers: \"${dnsnameservers}\", dnssearch: \"\", \
+                wol: false, mtu: 0, \
+                options: \"\", comment: \"\", method: \"${method}\", \
+                address: \"${address}\", netmask: \"${netmask}\", \
+                gateway: \"${gateway}\"}" |
+                omv-confdbadm update "conf.system.network.interface" -
+        fi
+    done
 
 # Create a backup of the original configuration file.
 cp "${OMV_INTERFACES_CONFIG}" "${OMV_INTERFACES_CONFIG}.bak"
