@@ -1,5 +1,6 @@
 openmediavault-lvm2 (4.0.6-1) stable; urgency=low
 
+  * Update locales.
   * Fix the pattern attribute in the JSON schemas according to the ECMA 262
     regular expression dialect.
 
