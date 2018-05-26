@@ -2,6 +2,8 @@ openmediavault (4.1.7) stable; urgency=low
 
   * Update locales.
   * Fix bug in Postfix when using port 465 (SSL/TLS).
+  * Fix the pattern attribute in the JSON schemas according to the ECMA 262
+    regular expression dialect.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 09 May 2018 09:31:03 +0200
 

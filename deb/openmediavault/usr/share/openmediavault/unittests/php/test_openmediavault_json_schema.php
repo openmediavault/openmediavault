@@ -68,6 +68,10 @@ class test_openmediavault_json_schema extends \PHPUnit_Framework_TestCase {
 							]
 						]
 					]
+				],
+				"slaves" => [
+					"type" => "string",
+					"pattern" => "^(((eth|wlan)\\d+|(en|wl)\\S+),)*((eth|wlan)\\d+|(en|wl)\\S+)$"
 				]
 			]
 		]);
@@ -102,7 +106,7 @@ class test_openmediavault_json_schema extends \PHPUnit_Framework_TestCase {
 	/**
 	 * @expectedException OMV\Json\SchemaValidationException
 	 */
-	public function testValidate() {
+	public function testValidateFail() {
 		$schema = $this->getSchema();
 		$schema->validate(["price" => 38]);
 	}
@@ -110,7 +114,7 @@ class test_openmediavault_json_schema extends \PHPUnit_Framework_TestCase {
 	/**
 	 * @expectedException OMV\Json\SchemaValidationException
 	 */
-	public function testValidateMaximum() {
+	public function testValidateMaximumFail() {
 		$schema = $this->getSchema();
 		$schema->validate(["name" => "Apple", "price" => 41]);
 	}
@@ -118,8 +122,21 @@ class test_openmediavault_json_schema extends \PHPUnit_Framework_TestCase {
 	/**
 	 * @expectedException OMV\Json\SchemaValidationException
 	 */
-	public function testValidateMinimum() {
+	public function testValidateMinimumFail() {
 		$schema = $this->getSchema();
 		$schema->validate(["name" => "Eggs", "price" => 34.99]);
+	}
+
+	public function testValidatePattern() {
+		$schema = $this->getSchema();
+		$schema->validate(["name" => "Eggs", "slaves" => "eth0"]);
+	}
+
+	/**
+	 * @expectedException OMV\Json\SchemaValidationException
+	 */
+	public function testValidatePatternFail() {
+		$schema = $this->getSchema();
+		$schema->validate(["name" => "Eggs", "slaves" => "xyz0"]);
 	}
 }

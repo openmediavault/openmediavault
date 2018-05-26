@@ -10,7 +10,7 @@
 			},
 			"devices": {
 				"type": "string",
-				"pattern": "/^(.+[,;])*.+$/i",
+				"pattern": "^(.+[,;])*.+$",
 				"required": true
 			}
 		}
@@ -81,7 +81,7 @@
 			},
 			"devices": {
 				"type": "string",
-				"pattern": "/^(.+[,;])*.+$/i",
+				"pattern": "^(.+[,;])*.+$",
 				"required": true
 			}
 		}
@@ -99,7 +99,7 @@
 			},
 			"devices": {
 				"type": "string",
-				"pattern": "/^(.+[,;])*.+$/i",
+				"pattern": "^(.+[,;])*.+$",
 				"required": true
 			}
 		}
