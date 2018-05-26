@@ -51,12 +51,12 @@
 			},
 			"dnsnameservers": {
 			   "type": "string",
-			   "pattern": "/^((\\S+[,;])*\\S+)?$/i",
+			   "pattern": "^((\\S+[,;])*\\S+)?$",
 			   "required": true
 			},
 			"dnssearch": {
 			   "type": "string",
-			   "pattern": "/^((\\S+[,;])*\\S+)?$/i",
+			   "pattern": "^((\\S+[,;])*\\S+)?$",
 			   "required": true
 			},
 			"mtu": {
@@ -132,12 +132,12 @@
 			},
 			"dnsnameservers": {
 			   "type": "string",
-			   "pattern": "/^((\\S+[,;])*\\S+)?$/i",
+			   "pattern": "^((\\S+[,;])*\\S+)?$",
 			   "required": true
 			},
 			"dnssearch": {
 			   "type": "string",
-			   "pattern": "/^((\\S+[,;])*\\S+)?$/i",
+			   "pattern": "^((\\S+[,;])*\\S+)?$",
 			   "required": true
 			},
 			"mtu": {
@@ -160,7 +160,7 @@
 		   },
 		   "slaves": {
 			   "type": "string",
-			   "pattern": "/^(((eth|wlan)\\d+|(en|wl)\\S+),)*((eth|wlan)\\d+|(en|wl)\\S+)$/i",
+			   "pattern": "^(((eth|wlan)\\d+|(en|wl)\\S+),)*((eth|wlan)\\d+|(en|wl)\\S+)$",
 			   "required": true
 		   },
 		   "bondprimary": {
@@ -242,12 +242,12 @@
 			},
 			"dnsnameservers": {
 			   "type": "string",
-			   "pattern": "/^((\\S+[,;])*\\S+)?$/i",
+			   "pattern": "^((\\S+[,;])*\\S+)?$",
 			   "required": true
 			},
 			"dnssearch": {
 			   "type": "string",
-			   "pattern": "/^((\\S+[,;])*\\S+)?$/i",
+			   "pattern": "^((\\S+[,;])*\\S+)?$",
 			   "required": true
 			},
 			"mtu": {
@@ -333,12 +333,12 @@
 			},
 			"dnsnameservers": {
 			   "type": "string",
-			   "pattern": "/^((\\S+[,;])*\\S+)?$/i",
+			   "pattern": "^((\\S+[,;])*\\S+)?$",
 			   "required": true
 			},
 			"dnssearch": {
 			   "type": "string",
-			   "pattern": "/^((\\S+[,;])*\\S+)?$/i",
+			   "pattern": "^((\\S+[,;])*\\S+)?$",
 			   "required": true
 			},
 			"mtu": {
