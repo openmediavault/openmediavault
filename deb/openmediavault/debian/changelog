@@ -1,33 +1,39 @@
 openmediavault (5.0) unstable; urgency=low
 
-  * Update locales.
-  * Fix bug in Postfix when using port 465 (SSL/TLS).
-  * Fix the pattern attribute in the JSON schemas according to the ECMA 262
-    regular expression dialect.
+  *
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 May 2018 22:06:11 +0200
 
-openmediavault (4.1.6) stable; urgency=low
+ openmediavault (4.1.7-1) stable; urgency=low
 
-  * Update locales.
-  * Various improvements.
-  * Issue #95: Failed to read file '/tmp/bgstatus*' (size=0).
+   * Update locales.
+   * Fix bug in Postfix when using port 465 (SSL/TLS).
+   * Fix the pattern attribute in the JSON schemas according to the ECMA 262
+     regular expression dialect.
 
- -- Volker Theile <volker.theile@openmediavault.org>  Mon, 30 Apr 2018 18:18:51 +0200
+  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 09 May 2018 09:31:03 +0200
 
-openmediavault (4.1.5-1) stable; urgency=low
+ openmediavault (4.1.6-1) stable; urgency=low
 
-  * Update locales.
-  * Update Material Design icons to version 2.2.43.
-  * Issue #84: Perf. statistics/Disk usage tab: double label if the system
-    disk has already a label
-  * Issue #87: Use device file when resizing XFS/JFS filesystems.
-  * Issue #88: Refactor RPC FileSystemMgmt::enumerateFilesystems() to speedup
-    filesystem detection.
+   * Update locales.
+   * Various improvements.
+   * Issue #95: Failed to read file '/tmp/bgstatus*' (size=0).
 
- -- Volker Theile <volker.theile@openmediavault.org>  Tue, 10 Apr 2018 20:30:26 +0200
+  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 30 Apr 2018 18:18:51 +0200
 
-openmediavault (4.1.4-1) stable; urgency=low
+ openmediavault (4.1.5-1) stable; urgency=low
+
+   * Update locales.
+   * Update Material Design icons to version 2.2.43.
+   * Issue #84: Perf. statistics/Disk usage tab: double label if the system
+     disk has already a label
+   * Issue #87: Use device file when resizing XFS/JFS filesystems.
+   * Issue #88: Refactor RPC FileSystemMgmt::enumerateFilesystems() to speedup
+     filesystem detection.
+
+  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 10 Apr 2018 20:30:26 +0200
+
+ openmediavault (4.1.4-1) stable; urgency=low
 
   * Rename class \OMV\Rpc\BgStatusFile to \OMV\Rpc\BgStatus.
   * Force browser to refresh the WebUI from server after installing or
