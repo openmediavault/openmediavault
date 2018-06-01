@@ -534,6 +534,7 @@ case "$1" in
 			deb-systemd-invoke restart rrdcached.service || :
 		fi
 		if dpkg --compare-versions "$2" lt-nl "4.1.8"; then
+			systemctl daemon-reload
 			omv-mkconf monit
 			monit reload || :
 		fi
