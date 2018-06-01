@@ -1,6 +1,12 @@
 openmediavault (4.1.8-1) stable; urgency=low
 
-  *
+  * Issue #113: Reduce monit delay from 30 to 5 seconds after the daemon is
+    (re-)started. This is a delay until monit starts monitoring the configured
+    services. During this time to CLI tool was not useable and results in an
+    socket not available error. To allow the monitored services to be started
+    before monit is starting monitoring, it will be started at least by systemd.
+    If there are still services that require more time to setup the delay
+    can be customized via the environment variable OMV_MONIT_DELAY_SECONDS.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 26 May 2018 17:02:31 +0200
 
