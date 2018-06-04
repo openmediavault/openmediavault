@@ -7,6 +7,8 @@ openmediavault (4.1.8-1) stable; urgency=low
     before monit is starting monitoring, it will be started at least by systemd.
     If there are still services that require more time to setup the delay
     can be customized via the environment variable OMV_MONIT_DELAY_SECONDS.
+  * Reload the shared folder systemd mount units if the volume of the shared
+    folder has been changed.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 26 May 2018 17:02:31 +0200
 
