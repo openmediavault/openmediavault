@@ -56,7 +56,14 @@ class OMVModuleSharedfolders extends \OMV\Engine\Module\ServiceAbstract
 				$objectv->get("name")), [ "--path", "--suffix=mount" ]);
 			// Mount the shared folder bind mount.
 			$systemCtl = new \OMV\System\SystemCtl($unitName);
-			$systemCtl->enable(TRUE);
+			// Enable the mount unit if this is not done already, otherwise
+			// reload it to take care that the unit file is up-to-date. This
+			// is necessary because it is possible that the file system of the
+			// shared folder may have been changed in the meanwhile.
+			if (FALSE === $systemCtl->isEnabled())
+				$systemCtl->enable(TRUE);
+			else
+				$systemCtl->restart();
 		}
 	}
 
@@ -96,7 +103,7 @@ class OMVModuleSharedfolders extends \OMV\Engine\Module\ServiceAbstract
 	 */
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
-			OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
+			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 			"org.openmediavault.conf.system.sharedfolder",
 			[ $this, "setDirty" ]);
 		$dispatcher->addListener(
