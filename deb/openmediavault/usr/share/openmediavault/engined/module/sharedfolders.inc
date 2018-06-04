@@ -57,7 +57,7 @@ class OMVModuleSharedfolders extends \OMV\Engine\Module\ServiceAbstract
 			// Mount the shared folder bind mount.
 			$systemCtl = new \OMV\System\SystemCtl($unitName);
 			// Enable the mount unit if this is not done already, otherwise
-			// reload it to take care that the unit file is up-to-date. This
+			// restart it to take care that the unit file is up-to-date. This
 			// is necessary because it is possible that the file system of the
 			// shared folder may have been changed in the meanwhile.
 			if (FALSE === $systemCtl->isEnabled())
