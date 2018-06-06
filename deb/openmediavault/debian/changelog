@@ -15,6 +15,7 @@ openmediavault (4.1.8-1) stable; urgency=low
     can be customized via the environment variable OMV_MONIT_DELAY_SECONDS.
   * Reload the shared folder systemd mount units if the volume of the shared
     folder has been changed.
+  * Issue #120: Grow mdadm RAID device adds new device as spare.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 26 May 2018 17:02:31 +0200
 
