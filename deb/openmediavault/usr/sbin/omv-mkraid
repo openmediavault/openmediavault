@@ -20,7 +20,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# http://linux-raid.osdl.org/index.php/RAID_setup
+# https://www.thomas-krenn.com/de/wiki/Software_RAID_mit_MDADM_verwalten#RAID_0_mit_MDADM
 
 set -e
 
@@ -86,7 +86,5 @@ if [ -n "${name}" ]; then
 	cmdargs="${cmdargs} --name=${name}"
 fi
 mdadm ${cmdargs} ${OMV_MKRAID_CMDARGS} ${componentdevices} 2>&1
-sleep 2
-mdadm --readwrite ${device} | true
 
 exit 0
