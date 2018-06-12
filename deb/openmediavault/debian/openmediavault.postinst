@@ -536,7 +536,7 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "4.1.8.1"; then
 			systemctl daemon-reload
 			omv-mkconf monit
-			monit reload || :
+			deb-systemd-invoke restart monit.service || :
 		fi
 
 		########################################################################
