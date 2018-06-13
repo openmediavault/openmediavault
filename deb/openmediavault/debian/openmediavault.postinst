@@ -533,7 +533,8 @@ case "$1" in
 			omv-mkconf rrdcached
 			deb-systemd-invoke restart rrdcached.service || :
 		fi
-		if dpkg --compare-versions "$2" lt-nl "4.1.8.1"; then
+		if dpkg --compare-versions "$2" lt-nl "4.1.8.2"; then
+			rm -f /etc/systemd/system/monit.service.d/openmediavault.conf
 			systemctl daemon-reload
 			omv-mkconf monit
 			deb-systemd-invoke restart monit.service || :
