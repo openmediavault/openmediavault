@@ -165,8 +165,8 @@ EOF;
 		  implode("_", array_filter($parts))));
 		// Try to read the cache file if it exists.
 		if ($jsonFile->exists() && !(\OMV\Environment::getBoolean(
-		  "OMV_DEBUG_PHP") || \OMV\Environment::getBoolean(
-		  "OMV_DEBUG_EXTJS"))) {
+		  "OMV_DEBUG_PHP", FALSE) || \OMV\Environment::getBoolean(
+		  "OMV_DEBUG_EXTJS", FALSE))) {
 			try {
 				$jsonFile->open("r");
 				$jsList = $jsonFile->read();
