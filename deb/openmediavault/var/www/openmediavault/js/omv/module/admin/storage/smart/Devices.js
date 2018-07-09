@@ -162,8 +162,7 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 		text: _("ID"),
 		dataIndex: "id",
 		stateId: "id",
-		width: 40,
-		resizable: false,
+		width: 60,
 		align: "right"
 	},{
 		xtype: "tooltipcolumn",
@@ -171,6 +170,7 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 		dataIndex: "attrname",
 		stateId: "attrname",
 		flex: 1,
+		minWidth: 100,
 		getTooltipText: function(value, record) {
 			return record.get("description");
 		}
@@ -178,29 +178,25 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 		text: _("Flags"),
 		dataIndex: "flags",
 		stateId: "flags",
-		width: 60,
-		resizable: false,
+		width: 80,
 		align: "center"
 	},{
 		text: _("Value"),
 		dataIndex: "value",
 		stateId: "value",
 		width: 55,
-		resizable: false,
 		align: "center"
 	},{
 		text: _("Worst"),
 		dataIndex: "worst",
 		stateId: "worst",
 		width: 55,
-		resizable: false,
 		align: "center"
 	},{
 		text: _("Treshold"),
 		dataIndex: "treshold",
 		stateId: "treshold",
 		width: 55,
-		resizable: false,
 		align: "center"
 	},{
 		text: _("When failed"),
@@ -225,7 +221,6 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 		dataIndex: "assessment",
 		stateId: "assessment",
 		align: "center",
-		resizable: false,
 		width: 80,
 		renderer: function(value, metaData, record) {
 			var colorCls = Ext.baseCSSPrefix + "color-gray";
@@ -306,8 +301,7 @@ Ext.define("OMV.module.admin.storage.smart.device.information.SelfTestLogs", {
 		text: _("Num"),
 		dataIndex: "num",
 		stateId: "num",
-		width: 45,
-		resizable: false,
+		width: 60,
 		align: "right"
 	},{
 		xtype: "textcolumn",
@@ -326,7 +320,6 @@ Ext.define("OMV.module.admin.storage.smart.device.information.SelfTestLogs", {
 		dataIndex: "remaining",
 		stateId: "remaining",
 		width: 60,
-		resizable: false,
 		align: "center",
 		renderer: function(value) {
 			return Ext.String.htmlEncode(value) + "%";
@@ -336,14 +329,14 @@ Ext.define("OMV.module.admin.storage.smart.device.information.SelfTestLogs", {
 		text: _("Lifetime"),
 		dataIndex: "lifetime",
 		stateId: "lifetime",
-		width: 55,
-		resizable: false,
+		width: 60,
 		align: "center"
 	},{
 		xtype: "textcolumn",
 		text: _("LBA of first error"),
 		dataIndex: "lbaoffirsterror",
-		stateId: "lbaoffirsterror"
+		stateId: "lbaoffirsterror",
+		width: 100
 	}],
 
 	initComponent: function() {

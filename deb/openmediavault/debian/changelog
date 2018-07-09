@@ -4,6 +4,12 @@ openmediavault (5.0) unstable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 May 2018 22:06:11 +0200
 
+openmediavault (4.1.9) stable; urgency=low
+
+  * Issue #128: Fix column widths in S.M.A.R.T. tables.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Jul 2018 10:58:10 +0200
+
 openmediavault (4.1.8.2-1) stable; urgency=low
 
   * Fix debian/postinst issue.
