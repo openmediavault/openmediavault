@@ -1,6 +1,7 @@
 openmediavault (4.1.9) stable; urgency=low
 
   * Issue #128: Fix column widths in S.M.A.R.T. tables.
+  * Issue #129: Fix selection bug in icon panel.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Jul 2018 10:58:10 +0200
 
