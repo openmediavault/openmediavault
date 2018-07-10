@@ -60,10 +60,15 @@ class File {
 
 	/**
 	 * Open the file.
+	 *
+	 * \note The file may be auto-created by fopen, so it will not contain
+	 * valid JSON. You're responsible to pre-fill it with valid content in
+	 * this case.
+	 *
 	 * @param accessMode The parameter specifies the type of access you
 	 *   require to the stream. Defaults to 'w+'.
 	 * @param lockMode The lock mode. Defaults to LOCK_EX.
-	 * @return The file handle.
+	 * @return resource The file handle.
 	 * @throw \OMV\Exception
 	 */
 	public function open($accessMode = "w+", $lockMode = LOCK_EX) {
