@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Sári Gábor <sari.gabor@gmail.com>, 2017
+# Sári Gábor <sari.gabor@gmail.com>, 2018
 # Grawens <szabolcs.szanyi@gmail.com>, 2014-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-20 06:11+0000\n"
+"PO-Revision-Date: 2018-07-06 07:35+0000\n"
 "Last-Translator: Sári Gábor <sari.gabor@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -46,4 +47,4 @@ msgstr "Shairport"
 msgid ""
 "The name the service will advertise to clients. Leave this field empty to "
 "use the hostname by default."
-msgstr "A név a szolgáltatás reklámozására az ügyfelek részére. Hagyd ezt a mezőt üresen vagy alapértelmezés szerint használd a hosztnevet."
+msgstr "A név a szolgáltatás reklámozására az ügyfelek részére. Hagyja ezt a mezőt üresen vagy alapértelmezés szerint használja a hosztnevet."
