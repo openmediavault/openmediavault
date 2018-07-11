@@ -834,23 +834,6 @@ Ext.form.field.Text.prototype.afterRender = Ext.Function.createInterceptor(
 	}
 });
 
-Ext.apply(Ext.form.field.Text.prototype, {
-	/**
-	 * @deprecated
-	 */
-	getTriggerButtonEl: function(id) {
-		var me = this, el = null;
-		if (Ext.isNumber(id)) {
-			el = me.triggerEl.item(id);
-		} else if(Ext.isString(id)) {
-			// Search by the given CSS class.
-			var selector = Ext.String.format("[class~={0}][role=presentation]", id);
-			el = me.getEl().query(selector)[0];
-		}
-		return el;
-	}
-});
-
 ////////////////////////////////////////////////////////////////////////////////
 // Ext.form.field.ComboBox
 ////////////////////////////////////////////////////////////////////////////////
@@ -1128,14 +1111,6 @@ Ext.applyIf(Ext, {
 		  Ext.isEmpty(value))
 			return false;
 		return /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(value);
-	},
-
-	/**
-	 * Deprecated.
-	 */
-	isUUID: function(value) {
-		Ext.log.warn("Ext.isUUID() is deprecated. Use Ext.isUuid() instead.");
-		return Ext.isUuid(value);
 	},
 
 	/**

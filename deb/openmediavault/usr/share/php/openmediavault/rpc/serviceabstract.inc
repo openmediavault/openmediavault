@@ -610,41 +610,6 @@ abstract class ServiceAbstract {
 	}
 
 	/**
-	 * Helper function to delete an configuration object.
-	 * The notifications OMV_NOTIFY_PREDELETE and OMV_NOTIFY_DELETE
-	 * will be submitted to its subscribers.
-	 * @deprecated
-	 * @param model The data model identifier of the configuration object.
-	 * @param uuid The UUID of the configuration object.
-	 * @param notifyId The notification identifier to be submitted.
-	 * @return The deleted configuration object.
-	 */
-	protected function deleteConfigObjectByUuid($model, $uuid, $notifyId) {
-		// Get the configuration object.
-		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get($model, $uuid);
-		return $this->deleteConfigObjectByObject($object, $notifyId);
-	}
-
-	/**
-	 * Helper function to delete an configuration object.
-	 * The notifications OMV_NOTIFY_PREDELETE and OMV_NOTIFY_DELETE
-	 * will be submitted to its subscribers.
-	 * @deprecated
-	 * @param object The configuration object.
-	 * @param notifyId The notification identifier to be submitted.
-	 * @return The deleted configuration object.
-	 */
-	protected function deleteConfigObjectByObject(
-	  \OMV\Config\ConfigObject $object, $notifyId) {
-		// Delete configuration object.
-		$db = \OMV\Config\Database::getInstance();
-		$db->delete($object);
-		// Return the deleted configuration object.
-		return $object->getAssoc();
-	}
-
-	/**
 	 * Helper function to mark a module as dirty.
 	 * @param name The name of the module.
 	 * @return The list of dirty modules.

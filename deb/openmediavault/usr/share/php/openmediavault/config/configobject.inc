@@ -273,23 +273,6 @@ class ConfigObject {
 	}
 
 	/**
-	 * Set properties.
-	 * @deprecated
-	 * @param array $data The single dimension array of key/value pairs.
-	 *   The key must be in dot notation, e.g. 'a.b.c' or 'a.b.0.c.1'
-	 * @param bool $validate Set to FALSE to do not validate the property
-	 *   values against the property schema defined in the model.
-	 *   Defaults to TRUE.
-	 * @param bool $ignore Set to TRUE to ignore and skip unknown properties.
-	 *   Defaults to FALSE.
-	 * @return void
-	 */
-	public function setIndexed(array $data, $validate = TRUE,
-	  $ignore = FALSE) {
-		$this->setFlatAssoc($data, $validate, $ignore);
-	}
-
-	/**
 	 * Remove/unset the specified property. Note, this will modify the data
 	 * model of this object.
 	 * @param name The name of the property in dot notation, e.g. 'a.b.c'.
@@ -487,15 +470,6 @@ class ConfigObject {
 	 */
 	public function isReferenceable() {
 		return $this->getModel()->isReferenceable();
-	}
-
-	/**
-	 * Get the data model identifier of this configuration object.
-	 * @deprecated
-	 * @return The data model identifier.
-	 */
-	public function getId() {
-		return $this->getModelId();
 	}
 
 	/**

@@ -47,39 +47,6 @@ OMV.util.Format = function() {
 			},
 
 			/**
-			 * @method booleanRenderer
-			 * Returns a boolean rendering function
-			 * @return The boolean rendering function.
-			 * @deprecated Use grid column 'booleantextcolumn' instead.
-			 */
-			booleanRenderer: function() {
-				return function(value) {
-					return OMV.util.Format.boolean(value);
-				};
-			},
-
-			/**
-			 * @method booleanIconRenderer
-			 * Returns a boolean rendering function which renders an image
-			 * @param trueIcon The icon to use, defaults to 'yes.png'
-			 * @param falseIcon The icon to use, defaults to 'no.png'
-			 * @return The boolean rendering function.
-			 * @deprecated Use grid column 'booleaniconcolumn' instead.
-			 */
-			booleanIconRenderer: function(trueIcon, falseIcon) {
-				trueIcon = trueIcon || "yes.png";
-				falseIcon = falseIcon || "no.png";
-				return function(value) {
-					if((true === value) || (1 == value))
-						img = trueIcon;
-					else
-						img = falseIcon;
-					return "<img border='0' src='images/" + img + "' alt='" +
-					  OMV.util.Format.boolean(value) + "'>";
-				};
-			},
-
-			/**
 			 * @method arrayRenderer
 			 * Returns an array rendering function
 			 * @param data The array containing the key/value pairs used to
@@ -116,7 +83,6 @@ OMV.util.Format = function() {
 			 * UNIX epoch timestamp in human readable form using the
 			 * local time format.
 			 * @return The rendering function.
-			 * @deprecated Use grid column 'unixtimestampcolumn' instead.
 			 */
 			localeTimeRenderer: function() {
 				return function(value) {
@@ -141,34 +107,6 @@ OMV.util.Format = function() {
 			},
 
 			/**
-			 * @method whitespaceRenderer
-			 * Return a rendering function that formats a value using the
-			 * defined white-space mode.
-			 * @param mode The mode to use. This can be: normal, nowrap, pre,
-			 *   pre-line, pre-wrap or inherit. Defaults to 'normal'.
-			 * @return The rendering function.
-			 * @deprecated Use grid column 'whitespacecolumn' instead.
-			 */
-			whitespaceRenderer: function(mode) {
-				return function(value) {
-					return OMV.util.Format.whitespace(value, mode);
-				};
-			},
-
-			/**
-			 * @method emptyRenderer
-			 * Returns a rendering function that displays 'n/a' if the value
-			 * is empty.
-			 * @return The rendering function.
-			 * @deprecated Use grid column 'emptycolumn' instead.
-			 */
-			emptyRenderer: function() {
-				return function(value) {
-					return Ext.isEmpty(value) ? _("n/a") : value;
-				};
-			},
-
-			/**
 			 * @method binaryUnit
 			 * Convert a value into the highest possible binary unit.
 			 * @param value The value to format.
@@ -182,19 +120,6 @@ OMV.util.Format = function() {
 				if (!Ext.isNumber(v) || (0 > v))
 					return invalidText;
 				return v.binaryFormat();
-			},
-
-			/**
-			 * @method binaryUnitRenderer
-			 * Returns a rendering function that displays the value in the
-			 * highest possible binary unit.
-			 * @return The rendering function.
-			 * @deprecated Use grid column 'binaryunitcolumn' instead.
-			 */
-			binaryUnitRenderer: function() {
-				return function(value) {
-					return OMV.util.Format.binaryUnit(value);
-				};
 			},
 
 			/**

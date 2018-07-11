@@ -541,53 +541,6 @@ omv_config_add_node_data() {
 	rm -f -- "${tmpfile}"
 }
 
-# omv_config_add_element <xpath> <namevalue> [<xml>]
-# Add a new element to the configuration.
-# @deprecated
-# @param xpath The XPath to use
-# @param name The name of the element to add
-# @param value The element value. Special XML characters MUST be escaped.
-# @param xml Set to TRUE when the value contains XML data. Defaults to FALSE.
-# @return void
-omv_config_add_element() {
-	local tmpfile xpath name value xml
-
-	tmpfile=$(tempfile)
-	xpath=$1
-	name=$2
-	value=$3
-	xml=${4:-"false"}
-
-	# Display a warning that the function is deprecated.
-	omv_warning "The function 'omv_config_add_element' is deprecated."
-
-	# If value contains XML data it must be handled different.
-	if omv_checkyesno ${xml}; then
-		# Create a unique value that will be inserted instead. It will be
-		# replaced by the real value later.
-		value=$(mktemp --dry-run "XXXXXXXXXXXX")
-	fi
-
-	# !Attention! It is necessary to redirect the modified XML data to another
-	# file because xmlstarlet does not like to use the same file
-	# for input and output in a pipe like xmlstarlet ... file > file
-	xmlstarlet edit -P -s "${xpath}" -t elem -n "${name}" -v "${value}" \
-	  "${OMV_CONFIG_FILE}" | tee "${tmpfile}" >/dev/null
-
-	if omv_checkyesno ${xml}; then
-		# If the value contains XML data then special characters must be
-		# escaped for sed, otherwise they will be misinterpreted.
-		sed -i "s/${value}/$(omv_quotemeta "$3")/" "${tmpfile}"
-	fi
-
-	# Copy temporary file content to config file. Note, the config file
-	# permissions must be kept.
-	cat "${tmpfile}" > "${OMV_CONFIG_FILE}"
-
-	# Remove temporary file.
-	rm -f -- "${tmpfile}"
-}
-
 # omv_config_rename <xpath> <name>
 # Rename the attribute at the given XPath in the configuration file.
 # @param xpath The XPath to use.

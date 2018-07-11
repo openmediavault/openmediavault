@@ -271,15 +271,6 @@ class Filesystem extends \OMV\System\BlockDevice
 
 	/**
 	 * Get the partition scheme, e.g. 'gpt', 'mbr', 'apm' or 'dos'.
-	 * @deprecated
-	 * @return The filesystem type, otherwise NULL.
-	 */
-	public function getPartitionType() {
-		return $this->getPartitionScheme();
-	}
-
-	/**
-	 * Get the partition scheme, e.g. 'gpt', 'mbr', 'apm' or 'dos'.
 	 * @return The filesystem type, otherwise NULL.
 	 */
 	public function getPartitionScheme() {

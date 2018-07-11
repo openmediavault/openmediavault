@@ -195,20 +195,6 @@ class NetworkInterface {
 	}
 
 	/**
-	 * @deprecated Will be removed in OMV5.
-	 */
-	public function getMask() {
-		return $this->getNetmask();
-	}
-
-	/**
-	 * @deprecated Will be removed in OMV5.
-	 */
-	public function getMask6() {
-		return $this->getNetmask6();
-	}
-
-	/**
 	 * Get the network interface MAC address.
 	 * @return The network interface MAC address, otherwise FALSE.
 	 */

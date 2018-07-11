@@ -378,18 +378,6 @@ function is_devicefile_by_path($var) {
 /**
  * Tells whether the given file is a block device.
  * @ingroup api
- * @deprecated
- * @param string $filename Path to the file.
- * @param bool $dereference Follow links. Defaults to TRUE.
- * @return Returns TRUE if the file is a block device, FALSE otherwise.
- */
-function is_block($filename, $dereference = TRUE) {
-	return is_block_device($filename, $dereference);
-}
-
-/**
- * Tells whether the given file is a block device.
- * @ingroup api
  * @param string $filename Path to the file.
  * @param bool $dereference Follow links. Defaults to TRUE.
  * @return Returns TRUE if the file is a block device, FALSE otherwise.
@@ -494,17 +482,6 @@ function is_multi_array($var) {
 }
 
 /**
- * Finds out whether a variable is a multidimensional array.
- * @deprecated
- * @ingroup api
- * @param mixed $var The variable being evaluated.
- * @return TRUE if the variable is a multidimensional array, otherwise FALSE.
- */
-function is_multiarray($var) {
-	return is_multi_array($var);
-}
-
-/**
  * Finds out whether a variable is an associative array.
  * @ingroup api
  * @param mixed $var The variable being evaluated.
@@ -515,17 +492,6 @@ function is_assoc_array($var) {
 		return FALSE;
 	$keys = array_keys($var);
 	return array_keys($keys) !== $keys;
-}
-
-/**
- * Finds out whether a variable is an associative array.
- * @deprecated
- * @ingroup api
- * @param mixed $var The variable being evaluated.
- * @return TRUE if the variable is an associative array, otherwise FALSE.
- */
-function is_assoc($var) {
-	return is_assoc_array($var);
 }
 
 /**
