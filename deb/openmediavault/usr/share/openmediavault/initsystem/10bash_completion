@@ -21,14 +21,18 @@
 
 set -e
 
-# Customize the readline initialization file of user root.
-touch /root/.inputrc
-cat <<EOF >> /root/.inputrc
+# Enable bash completion.
+touch /root/.bashrc
+cat <<EOF >> /root/.bashrc
+# Enable bash completion in interactive shells.
 # Added by openmediavault.
-"\C-[OA": history-search-backward
-"\C-[[A": history-search-backward
-"\C-[OB": history-search-forward
-"\C-[[B": history-search-forward
+if ! shopt -oq posix; then
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        . /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
+    fi
+fi
 EOF
 
 exit 0
