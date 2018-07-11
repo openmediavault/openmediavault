@@ -4,14 +4,15 @@
 # 
 # Translators:
 # Ádám Balajti <balajtiadam@gmail.com>, 2012
+# Sári Gábor <sari.gabor@gmail.com>, 2018
 # Grawens <szabolcs.szanyi@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-19 13:57+0000\n"
-"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
+"PO-Revision-Date: 2018-07-06 18:37+0000\n"
+"Last-Translator: Sári Gábor <sari.gabor@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +30,7 @@ msgid "Enable"
 msgstr "Bekapcsolás"
 
 msgid "Enable PAM"
-msgstr "PAM bekapcsolása"
+msgstr "PAM engedélyezése"
 
 msgid "Enable SSL/TLS"
 msgstr "SSL/TLS bekapcsolása"
@@ -58,12 +59,12 @@ msgstr "Jelszó"
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/ldap.conf' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Kérlek tekintsd meg a <a href='http://linux.die.net/man/5/ldap.conf' target='_blank'>kézikönyvet</a> a további részletekért."
+msgstr "Tekintse meg a <a href='http://linux.die.net/man/5/ldap.conf' target='_blank'>kézikönyvet</a> további részletekért."
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/nss_ldap' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Kérlek tekintsd meg a <a href='http://linux.die.net/man/5/nss_ldap' target='_blank'>kézikönyvet</a> a további részletekért."
+msgstr "Tekintse meg a <a href='http://linux.die.net/man/5/nss_ldap' target='_blank'>kézikönyvet</a> további részletekért."
 
 msgid "Root Bind DN"
 msgstr "Kötött Gyökér DN"
@@ -94,7 +95,7 @@ msgid "Specifies the user suffix, e.g. 'ou=Users'."
 msgstr "Felhasználó képző meghatározása, pl. 'ou=Users'."
 
 msgid "The FQDN or IP address of the server."
-msgstr "Az FQDN vagy IP címe a szervernek."
+msgstr "A szerver FQDN vagy IP címe."
 
 msgid ""
 "Use LDAP for authentication system-wide along with other authentication "

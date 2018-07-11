@@ -6,13 +6,14 @@
 # Ádám Balajti <balajtiadam@gmail.com>, 2012
 # Sári Gábor <sari.gabor@gmail.com>, 2017
 # mersaint <mersaint@gmail.com>, 2012
+# Sári Gábor <sari.gabor@gmail.com>, 2018
 # Grawens <szabolcs.szanyi@gmail.com>, 2014-2015,2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-19 12:24+0000\n"
+"PO-Revision-Date: 2018-07-06 07:41+0000\n"
 "Last-Translator: Sári Gábor <sari.gabor@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -57,16 +58,16 @@ msgid "Devices"
 msgstr "Meghajtók"
 
 msgid "Do you really want to create the logical volume?"
-msgstr "Valóban létre szeretnéd hozni a logikai kötetet?"
+msgstr "Valóban létre szeretné hozni a logikai kötetet?"
 
 msgid "Do you really want to create the physical volume?"
-msgstr "Valóban létre szeretnéd hozni a fizikai kötetet?"
+msgstr "Valóban létre szeretné hozni a fizikai kötetet?"
 
 msgid "Do you really want to create the volume group?"
-msgstr "Valóban létre szeretnéd hozni a kötetcsoportot?"
+msgstr "Valóban létre szeretné hozni a kötetcsoportot?"
 
 msgid "Do you really want to resize the selected physical volume?"
-msgstr "Valóban át szeretnéd méretezni a kiválasztott fizikai kötetet?"
+msgstr "Valóban át szeretné méretezni a kiválasztott fizikai kötetet?"
 
 msgid "Edit logical volume"
 msgstr "Logikai kötet szerkesztése"
@@ -117,10 +118,10 @@ msgid "Resize"
 msgstr "Átméretezés"
 
 msgid "Select a volume group ..."
-msgstr "Válassz ki egy kötetcsoportot ..."
+msgstr "Válasszon ki egy kötetcsoportot..."
 
 msgid "Select an device ..."
-msgstr "Válassz ki egy meghajtót ..."
+msgstr "Válasszon ki egy meghajtót..."
 
 msgid "Size"
 msgstr "Méret"

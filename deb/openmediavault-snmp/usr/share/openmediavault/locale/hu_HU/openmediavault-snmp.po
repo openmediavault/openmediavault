@@ -89,7 +89,7 @@ msgid "Settings"
 msgstr "Beállítások"
 
 msgid "Traps"
-msgstr "Trep-ek"
+msgstr "Csapdák (Traps)"
 
 msgid "Username"
 msgstr "Felhasználónév"
