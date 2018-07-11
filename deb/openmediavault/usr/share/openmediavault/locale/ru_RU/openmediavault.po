@@ -2366,7 +2366,7 @@ msgstr "Питкэрн"
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/exports' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Ознакомьтесь со <a href='http://linux.die.net/man/5/exports' target='_blank'>страницей описания</ A> для более подробной информации."
+msgstr "Ознакомьтесь со <a href='http://linux.die.net/man/5/exports' target='_blank'>страницей описания</a> для более подробной информации."
 
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
