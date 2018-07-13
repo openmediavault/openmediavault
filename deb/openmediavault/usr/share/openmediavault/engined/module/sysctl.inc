@@ -19,29 +19,10 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-class OMVModuleSysctl extends \OMV\Engine\Module\ServiceAbstract {
-	/**
-	 * Get the module name.
-	 */
+namespace Engined\Module;
+
+class Sysctl extends \OMV\Engine\Module\ServiceAbstract {
 	public function getName() {
 		return "sysctl";
-	}
-
-	/**
-	 * Generate the configuration.
-	 */
-	public function applyConfig() {
-		$cmd = new \OMV\System\Process("omv-mkconf", "sysctl");
-		$cmd->setRedirect2to1();
-		$cmd->execute();
-	}
-
-	/**
-	 * Start the managed service.
-	 */
-	public function startService() {
-		$cmd = new \OMV\System\Process("sysctl", "-p");
-		$cmd->setRedirect2to1();
-		$cmd->execute();
 	}
 }

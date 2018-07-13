@@ -1,0 +1,73 @@
+{%- set separator = ' ' -%}
+{%- set script_prefix = salt['pillar.get']('default:OMV_RSYNC_CRONSCRIPT_PREFIX', 'rsync-') -%}
+{%- set ssh_keys_dir = salt['pillar.get']('default:OMV_SSH_KEYS_DIR', '/etc/ssh') -%}
+{%- set ssh_key_prefix = salt['pillar.get']('default:OMV_SSH_KEY_PREFIX', 'openmediavault-') -%}
+{%- set logfile = salt['pillar.get']('default:OMV_RSYNC_LOGFILE', '/var/log/rsync.log') -%}
+{%- set runfile = '/var/run' | path_join(script_prefix ~ job.uuid) -%}
+{%- if job.type == 'local' -%}
+  {%- set srcuri = salt['omv.get_sharedfolder_path'](job.src.sharedfolderref) -%}
+  {%- set srcmntdir = salt['omv.get_sharedfolder_mount_dir'](job.src.sharedfolderref) -%}
+  {%- set desturi = salt['omv.get_sharedfolder_path'](job.dest.sharedfolderref) -%}
+  {%- set destmntdir = salt['omv.get_sharedfolder_mount_dir'](job.dest.sharedfolderref) -%}
+{%- elif job.type == 'remote' -%}
+  {%- if job.mode == 'push' -%}
+    {%- set srcuri = salt['omv.get_sharedfolder_path'](job.src.sharedfolderref) -%}
+    {%- set srcmntdir = salt['omv.get_sharedfolder_mount_dir'](job.src.sharedfolderref) -%}
+    {%- set desturi = salt['omv.get_sharedfolder_path'](job.dest.uri) -%}
+  {%- elif job.mode == 'pull' -%}
+    {%- set srcuri = salt['omv.get_sharedfolder_path'](job.src.uri) -%}
+    {%- set desturi = salt['omv.get_sharedfolder_path'](job.dest.sharedfolderref) -%}
+    {%- set destmntdir = salt['omv.get_sharedfolder_mount_dir'](job.dest.sharedfolderref) -%}
+  {%- endif -%}
+{%- endif -%}
+#!/bin/sh
+{{ pillar['headers']['multiline'] -}}
+. /usr/share/openmediavault/scripts/helper-functions
+cleanup() {" -n \
+    omv_kill_children $$
+    rm -f {{ runfile }}
+    exit
+}
+[ -e {{ runfile }} ] && exit 1
+{%- if job.type == 'local' or job.mode == 'push' %}
+if ! omv_is_mounted "{{ srcmntdir }}" ; then
+    omv_error "Source storage device not mounted at <{{ srcmntdir }}>!"
+    exit 1
+fi
+{%- endif %}
+{%- if job.type == 'local' or job.mode == 'pull' %}
+if ! omv_is_mounted "{{ destmntdir }}" ; then
+    omv_error "Destination storage device not mounted at <{{ destmntdir }}>!"
+    exit 1
+fi
+{%- endif %}
+trap cleanup 0 1 2 5 15
+touch {{ runfile }}
+{%- if not job.quiet | to_bool %}
+omv_log "Please wait, syncing <{{ srcuri }}> to <{{ desturi }}> ...\n"
+{%- endif %}
+{%- if job.authentication == 'password' and job.password | length > 0 %}
+env RSYNC_PASSWORD="{{ job.password }}"{{ separator }}
+{%- endif %}
+{%- if job.authentication == 'pubkey' %}
+eval $(ssh-agent) >/dev/null
+ssh-add {{ ssh_keys_dir | path_join(ssh_key_prefix ~ job.sshcertificateref) }} >/dev/null
+{%- endif %}
+rsync --verbose --log-file="{{ logfile }}"
+{%- if job.authentication == 'pubkey' %}{{ separator }}--rsh "ssh -p {{ job.sshport }}"{%- endif %}
+{%- if job.recursive | to_bool %}{{ separator }}--recursive{%- endif %}
+{%- if job.times | to_bool %}{{ separator }}--times{%- endif %}
+{%- if job.compress | to_bool %}{{ separator }}--compress{%- endif %}
+{%- if job.archive | to_bool %}{{ separator }}--archive{%- endif %}
+{%- if job.delete | to_bool %}{{ separator }}--delete{%- endif %}
+{%- if job.quiet | to_bool %}{{ separator }}--quiet{%- endif %}
+{%- if job.perms | to_bool %}{{ separator }}--perms{%- endif %}
+{%- if job.acls | to_bool %}{{ separator }}--acls{%- endif %}
+{%- if job.xattrs | to_bool %}{{ separator }}--xattrs{%- endif %}
+{%- if job.dryrun | to_bool %}{{ separator }}--dry-run{%- endif %}
+{%- if job.partial | to_bool %}{{ separator }}--partial{%- endif %}
+{%- if job.extraoptions | length > 0 %}{{ separator }}{{ job.extraoptions }}{%- endif -%}
+{{ separator }}"{{ srcuri }}" "{{ desturi }}" & wait $!
+{%- if not job.quiet | to_bool %}
+omv_log "\nThe synchronisation has completed successfully."
+{%- endif %}

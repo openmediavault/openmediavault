@@ -21,8 +21,9 @@
 
 set -e
 
-# Set hostname which is set by the user during the installation
-timezone=$(cat /etc/timezone)
+# Get the current timezone and update the database.
+timezone=$(salt-call --local --retcode-passthrough --no-color --out=json timezone.get_zone | \
+    jq --raw-output '.[]')
 data=$(omv-confdbadm read "conf.system.time" | jq ".timezone = \"${timezone}\"")
 omv-confdbadm update "conf.system.time" "${data}"
 

@@ -19,61 +19,19 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-class OMVModuleNfs extends \OMV\Engine\Module\ServiceAbstract
-  implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus, \OMV\Engine\Module\IZeroconf {
-	/**
-	 * Get the module name.
-	 */
+namespace Engined\Module;
+
+class Nfs extends \OMV\Engine\Module\ServiceAbstract
+		implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus,
+		\OMV\Engine\Module\IZeroconf {
 	public function getName() {
 		return "nfs";
 	}
 
-	/**
-	 * Defines the modules that if present should start before the service
-	 * provided by this module.
-	 * @return An array of modules.
-	 */
-	public function shouldStart() { return [ "fstab" ]; }
-
-	/**
-	 * Defines the modules that if present should be stopped after the
-	 * service provided by this module.
-	 * @return An array of modules.
-	 */
-	function shouldStop() { return [ "fstab" ]; }
-
-	/**
-	 * Generate the configuration.
-	 */
-	public function applyConfig() {
-		$cmd = new \OMV\System\Process("omv-mkconf", "nfsd");
-		$cmd->setRedirect2to1();
-		$cmd->execute();
+	public function deployAfter(): array {
+		return ["fstab"];
 	}
 
-	/**
-	 * Stop the managed service.
-	 */
-	public function stopService() {
-		$systemCtl = new \OMV\System\SystemCtl("nfs-kernel-server");
-		$systemCtl->disable(TRUE);
-	}
-
-	/**
-	 * Start the managed service.
-	 */
-	public function startService() {
-		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.service.nfs");
-		if (TRUE !== $object->get("enable"))
-			return;
-		$systemCtl = new \OMV\System\SystemCtl("nfs-kernel-server");
-		$systemCtl->enable(TRUE);
-	}
-
-	/**
-	 * Get the status of the managed service.
-	 */
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.nfs");
@@ -86,9 +44,6 @@ class OMVModuleNfs extends \OMV\Engine\Module\ServiceAbstract
 		];
 	}
 
-	/**
-	 * Get the Zeroconf service configuration.
-	 */
 	public function getZeroconfConfig() {
 		return [
 			"id" => "nfs",
@@ -116,26 +71,23 @@ class OMVModuleNfs extends \OMV\Engine\Module\ServiceAbstract
 		}
 	}
 
-	/**
-	 * Bind listeners.
-	 */
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.nfs",
-		  [ $this, "setDirty" ]);
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.service.nfs",
+			[$this, "setDirty"]);
 		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.conf.service.nfs.share",
-		  [ $this, "setDirty" ]);
+			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+			"org.openmediavault.conf.service.nfs.share",
+			[$this, "setDirty"]);
 		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.sharedfolder",
-		  [ $this, "onSharedFolder" ]);
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.system.sharedfolder",
+			[$this, "onSharedFolder"]);
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.nfs",
-		  [ $moduleMngr->getModule("zeroconf"), "setDirty" ]);
-    }
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.service.nfs",
+			[$moduleMngr->getModule("zeroconf"), "setDirty"]);
+	}
 }

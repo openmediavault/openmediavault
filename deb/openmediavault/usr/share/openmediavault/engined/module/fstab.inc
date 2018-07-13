@@ -19,73 +19,16 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-class OMVModuleFsTab extends \OMV\Engine\Module\ServiceAbstract
-  implements \OMV\Engine\Notify\IListener {
-	/**
-	 * Get the module name.
-	 */
+namespace Engined\Module;
+
+class FSTab extends \OMV\Engine\Module\ServiceAbstract
+		implements \OMV\Engine\Notify\IListener {
 	public function getName() {
 		return "fstab";
 	}
 
-	/**
-	 * Generate the configuration.
-	 */
-	public function applyConfig() {
-		$cmd = new \OMV\System\Process("omv-mkconf", "fstab");
-		$cmd->setRedirect2to1();
-		$cmd->execute();
-	}
-
-	/**
-	 * Stop the managed service.
-	 */
-	public function stopService() {
+	public function preDeploy() {
 		$this->execTasks("delete");
-	}
-
-	/**
-	 * Start the managed service.
-	 */
-	public function startService() {
-		$db = \OMV\Config\Database::getInstance();
-		// Process all configured mountpoints and mount them if necessary:
-		// 1. Process all mountpoints except 'bind'.
-		$objects = $db->getByFilter("conf.system.filesystem.mountpoint", [
-			"operator" => "not",
-			"arg0" => [
-				"operator" => "stringContains",
-				"arg0" => "opts",
-				"arg1" => "bind"
-			]
-		]);
-		foreach ($objects as $objectk => $objectv) {
-			// Ensure the mountpoint exists.
-			$mp = new \OMV\System\MountPoint($objectv->get("dir"));
-			$mp->create();
-			// Mount it?
-			$fs = \OMV\System\Filesystem\Filesystem::getImpl(
-				$objectv->get("fsname"));
-			if (is_null($fs) || !$fs->exists())
-				continue;
-			if (FALSE === $fs->isMounted())
-				$fs->mount();
-		}
-		// 2. Process all 'bind' mountpoints. Note, such mountpoints
-		//    must be mounted using their target directories.
-		$objects = $db->getByFilter("conf.system.filesystem.mountpoint", [
-			"operator" => "stringContains",
-			"arg0" => "opts",
-			"arg1" => "bind"
-		]);
-		foreach ($objects as $objectk => $objectv) {
-			// Ensure the mountpoint exists.
-			$mp = new \OMV\System\MountPoint($objectv->get("dir"));
-			$mp->create();
-			// Mount it?
-			if (FALSE === $mp->isMounted())
-				$mp->mount();
-		}
 	}
 
 	/**
@@ -126,22 +69,19 @@ class OMVModuleFsTab extends \OMV\Engine\Module\ServiceAbstract
 		$mp->unlink();
 	}
 
-	/**
-	 * Bind listeners.
-	 */
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.conf.system.filesystem.mountpoint",
-		  [ $this, "setDirty" ]);
+			OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
+			"org.openmediavault.conf.system.filesystem.mountpoint",
+			[$this, "setDirty"]);
 		$dispatcher->addListener(
-		  OMV_NOTIFY_DELETE,
-		  "org.openmediavault.conf.system.filesystem.mountpoint",
-		  [ $this, "onDelete" ]);
+			OMV_NOTIFY_DELETE,
+			"org.openmediavault.conf.system.filesystem.mountpoint",
+			[$this, "onDelete"]);
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.conf.system.filesystem.mountpoint",
-		  [ $moduleMngr->getModule("monit"), "setDirty" ]);
+			OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
+			"org.openmediavault.conf.system.filesystem.mountpoint",
+			[$moduleMngr->getModule("monit"), "setDirty"]);
 	}
 }

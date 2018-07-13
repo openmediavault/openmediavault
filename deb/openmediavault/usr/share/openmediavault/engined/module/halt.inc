@@ -19,31 +19,18 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-class OMVModuleHalt extends \OMV\Engine\Module\ServiceAbstract
-  implements \OMV\Engine\Notify\IListener {
-	/**
-	 * Get the module name.
-	 */
+namespace Engined\Module;
+
+class Halt extends \OMV\Engine\Module\ServiceAbstract
+		implements \OMV\Engine\Notify\IListener {
 	public function getName() {
 		return "halt";
 	}
 
-	/**
-	 * Generate the configuration.
-	 */
-	public function applyConfig() {
-		$cmd = new \OMV\System\Process("omv-mkconf", "halt");
-		$cmd->setRedirect2to1();
-		$cmd->execute();
-	}
-
-	/**
-	 * Bind listeners.
-	 */
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.conf.system.network.interface",
-		  [ $this, "setDirty" ]);
+			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+			"org.openmediavault.conf.system.network.interface",
+			[$this, "setDirty"]);
 	}
 }

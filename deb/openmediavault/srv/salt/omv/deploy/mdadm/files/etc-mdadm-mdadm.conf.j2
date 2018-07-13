@@ -1,0 +1,27 @@
+{%- set mail_from = salt['pillar.get']('default:OMV_MDADM_MAILFROM', 'root') -%}
+{{ pillar['headers']['multiline'] }}
+# mdadm.conf
+#
+# Please refer to mdadm.conf(5) for information about this file.
+#
+
+# by default, scan all partitions (/proc/partitions) for MD superblocks.
+# alternatively, specify devices to scan, using wildcards if desired.
+# Note, if no DEVICE line is present, then "DEVICE partitions" is assumed.
+# To avoid the auto-assembly of RAID devices a pattern that CAN'T match is
+# used if no RAID devices are configured.
+DEVICE partitions
+
+# auto-create devices with Debian standard permissions
+CREATE owner=root group=disk mode=0660 auto=yes
+
+# automatically tag new arrays as belonging to the local system
+HOMEHOST <system>
+
+{%- if email_config.enable | to_bool and not notification_config.enable | to_bool %}
+# instruct the monitoring daemon where to send mail alerts
+MAILADDR {{ email_config.primaryemail }}
+MAILFROM {{ mail_from }}
+{%- endif %}
+
+# definitions of existing MD arrays

@@ -21,11 +21,9 @@
 
 set -e
 
-# Set hostname and domain name which is set by the user during the
-# installation.
-hostname=$(hostname --short)
-domainname=$(dnsdomainname)
-omv-confdbadm update "conf.system.network.dns" \
-	"{\"hostname\":\"${hostname}\",\"domainname\":\"${domainname}\"}"
+# Get the current hostname and update the database.
+data=$(salt-call --local --retcode-passthrough --no-color --out=json grains.item host domain | \
+	jq --raw-output '.[] | .["hostname"]=.host | .["domainname"]=.domain | del(.host, .domain)')
+omv-confdbadm update "conf.system.network.dns" "${data}"
 
 exit 0

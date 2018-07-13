@@ -52,10 +52,15 @@ grep -iP "^\s*iface\s+(eth[0-9]+|en[a-z0-9]+)\s+(inet|inet6)\s+(static|dhcp)" ${
             netmask=""
             gateway=""
             if [ "static" = "${method}" ]; then
-                data=$(ip -4 -o addr show dev ${devname} | awk '{print $4}')
-                address=${data%/*}
-                netmask=$(omv_cidr2mask ${data#*/})
-                gateway=$(omv_get_gateway ${devname})
+                data=$(salt-call --local --retcode-passthrough --no-color \
+                    --out=json network.interface "${devname}" | \
+                    jq --compact-output '.[]')
+                address=$(echo ${iface} | jq --raw-output '.address // empty')
+                netmask=$(echo ${iface} | jq --raw-output '.netmask // empty')
+                gateway=$(salt-call --local --retcode-passthrough --no-color \
+                    --out=json network.routes inet | \
+                    jq --raw-output ".[] | map(select((.interface == \"${devname}\") and \
+                    (.flags == \"UG\"))) | first | .gateway // empty")
             fi
             jq --null-input --compact-output "{uuid: \"${OMV_CONFIGOBJECT_NEW_UUID}\", \
                 devicename: \"${devname}\", type: \"ethernet\", method6: \"manual\", \

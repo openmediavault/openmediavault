@@ -19,7 +19,9 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
+namespace Engined\Rpc;
+
+class System extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
 	 */
@@ -42,7 +44,6 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("getTimeSettings");
 		$this->registerMethod("setTimeSettings");
 		$this->registerMethod("setDate");
-		$this->registerMethod("setNtpDate");
 		$this->registerMethod("getTimeZoneList");
 		$this->registerMethod("getInformation");
 		$this->registerMethod("getDiagnosticReport");
@@ -308,27 +309,6 @@ class OMVRpcServiceSystem extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs = [];
 		$cmdArgs[] = sprintf("--set='@%d'", $params['timestamp']);
 		$cmd = new \OMV\System\Process("date", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute();
-	}
-
-	/**
-	 * Set the system date via NTP.
-	 * @param params The method parameters.
-	 * @param context The context of the caller.
-	 * @return void
-	 * @throw \OMV\ExecException
-	 */
-	public function setNtpDate($params, $context) {
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, [
-			"role" => OMV_ROLE_ADMINISTRATOR
-		]);
-		// Set the system date via NTP.
-		$cmdArgs = [];
-		$cmdArgs[] = "-g";
-		$cmdArgs[] = "-q";
-		$cmd = new \OMV\System\Process("ntpd", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}

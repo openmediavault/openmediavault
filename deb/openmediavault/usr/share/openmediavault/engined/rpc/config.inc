@@ -19,7 +19,9 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
+namespace Engined\Rpc;
+
+class Config extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
 	 */
@@ -101,7 +103,7 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 			// Remove module name from list of dirty modules. Note, the
 			// array must be re-indexed.
 			$dirtyModules = array_values(array_diff($dirtyModules,
-			  $removeDirtyModules));
+				$removeDirtyModules));
 		}
 		// Get list of modules to be processed. If the parameter 'modules'
 		// is empty, then process all registered modules.
@@ -113,87 +115,58 @@ class OMVRpcServiceConfig extends \OMV\Rpc\ServiceAbstract {
 			// Skip module if 'force' is disabled and module is not marked
 			// as dirty.
 			if (!in_array($modulev, $dirtyModules) &&
-			  (FALSE === $params['force']))
-				continue;
+				(FALSE === $params['force'])) {
+					continue;
+				}
 			// Get the module object and apply the configuration.
-			if (FALSE === ($object = $moduleMngr->getModule($modulev))) {
+			if (is_null($inst = $moduleMngr->getModule($modulev))) {
 				throw new \OMV\Exception("Module '%s' not found.",
-				  $modulev);
+					$modulev);
 			}
 			// Append module to list of modules that have to be processed.
-			$processModules[$modulev] = $object;
+			$processModules[$modulev] = $inst;
 			// Remove module name from list of dirty modules. Note, the
 			// array must be re-indexed.
 			$dirtyModules = array_values(array_diff($dirtyModules,
-			  [ $modulev ]));
+				[$modulev]));
 		}
-		// Build the dependency list and stop all services.
+		// Build the dependency list and deploy the configuration for the
+		// specified modules.
 		$tsort = new \OMV\Util\TopologicalSort();
-		foreach ($processModules as $name => $object) {
-			if (FALSE === $tsort->add($name, $object->shouldStop())) {
+		$tsort->clean();
+		foreach ($processModules as $name => $inst) {
+			// Add the modules that need to be executed before the
+			// given module.
+			$afterNames = $inst->deployAfter();
+			if (FALSE === $tsort->add($name, $afterNames)) {
 				throw new \OMV\Exception(
-				  "Failed to add node (name=%s, dependencies=[%s]).",
-				  $name, implode(",", $object->shouldStop()));
+					"Failed to add node (name=%s, dependencies=[%s]).",
+					$name, implode(",", $afterNames));
 			}
-			$stopAfterDeps = $object->stopAfter();
-			foreach ($stopAfterDeps as $depk => $depv) {
-				// Skip modules that are not marked as dirty.
-				if (!array_key_exists($depv, $processModules))
-					continue;
-				if (FALSE === $tsort->add($depv, $name)) {
+			// Add the modules that need to be executed after the
+			// given module.
+			$beforeNames = $inst->deployBefore();
+			foreach ($beforeNames as $beforeNamek => $beforeNamev) {
+				if (FALSE === $tsort->add($beforeNamev, [$name])) {
 					throw new \OMV\Exception(
-					  "Failed to add node (name=%s, dependencies=[%s]).",
-					  $depv, $name);
+						"Failed to add node (name=%s, dependencies=[%s]).",
+						$beforeNamev, $name);
 				}
 			}
 		}
 		foreach ($tsort->sort() as $name) {
-			$this->debug("Stopping service '%s'", $name);
-			$processModules[$name]->stopService();
-			$notifyDispatcher->notify(OMV_NOTIFY_EVENT, strtolower(sprintf(
-			  "org.openmediavault.module.service.%s.stop", $name)));
-		}
-		// Build the dependency list and apply the configuration for the
-		// given services.
-		$tsort->clean();
-		foreach ($processModules as $name => $object) {
-			if (FALSE === $tsort->add($name, $object->shouldApply())) {
-				throw new \OMV\Exception(
-				  "Failed to add node (name=%s, dependencies=[%s]).",
-				  $name, implode(",", $object->shouldApply()));
-			}
-		}
-		foreach ($tsort->sort() as $name) {
-			$this->debug("Applying configuration '%s'", $name);
-			$processModules[$name]->applyConfig();
-			$notifyDispatcher->notify(OMV_NOTIFY_EVENT, strtolower(sprintf(
-			  "org.openmediavault.module.service.%s.applyconfig", $name)));
-		}
-		// Build the dependency list and start all services.
-		$tsort->clean();
-		foreach ($processModules as $name => $object) {
-			if (FALSE === $tsort->add($name, $object->shouldStart())) {
-				throw new \OMV\Exception(
-				  "Failed to add node (name=%s, dependencies=[%s]).",
-				  $name, implode(",", $object->shouldStart()));
-			}
-			$startBeforeDeps = $object->startBefore();
-			foreach ($startBeforeDeps as $depk => $depv) {
-				// Skip modules that are not marked as dirty.
-				if (!array_key_exists($depv, $processModules))
-					continue;
-				if (FALSE === $tsort->add($depv, $name)) {
-					throw new \OMV\Exception(
-					  "Failed to add node (name=%s, dependencies=[%s]).",
-					  $depv, $name);
-				}
-			}
-		}
-		foreach ($tsort->sort() as $name) {
-			$this->debug("Starting service '%s'", $name);
-			$processModules[$name]->startService();
-			$notifyDispatcher->notify(OMV_NOTIFY_EVENT, strtolower(sprintf(
-			  "org.openmediavault.module.service.%s.start", $name)));
+			$this->debug("Deploying configuration for module '%s'", $name);
+			$name = strtolower($name);
+			$uri = "org.openmediavault.module.service.%s.%s";
+			$processModules[$name]->preDeploy();
+			$notifyDispatcher->notify(OMV_NOTIFY_EVENT,
+				sprintf($uri, $name, "predeploy"));
+			$processModules[$name]->deploy();
+			$notifyDispatcher->notify(OMV_NOTIFY_EVENT,
+				sprintf($uri, $name, "deploy"));
+			$processModules[$name]->postDeploy();
+			$notifyDispatcher->notify(OMV_NOTIFY_EVENT,
+				sprintf($uri, $name, "postdeploy"));
 		}
 		// Reset list of dirty modules.
 		$jsonFile->write($dirtyModules);

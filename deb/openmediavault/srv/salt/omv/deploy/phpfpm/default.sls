@@ -1,0 +1,57 @@
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2018 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+{% set dirpath = '/srv/salt' | path_join(slspath) %}
+{% set files = salt['file.find'](dirpath, iname='*.sls', print='name') | difference(['init.sls', 'default.sls']) %}
+
+prereq_phpfpm_service_monit:
+  salt.state:
+    - tgt: '*'
+    - sls: omv.deploy.monit
+
+{% if files | length > 0 %}
+
+include:
+{% for file in files %}
+  - .{{ file | replace('.sls', '') }}
+{% endfor %}
+
+{% endif  %}
+
+test_phpfpm_service_config:
+  cmd.run:
+    - name: "php-fpm7.0 --test"
+
+restart_phpfpm_service:
+  # Force service.running to always restart the service.
+  test.succeed_with_changes:
+    - watch_in:
+      - service: restart_phpfpm_service
+  service.running:
+    - name: php7.0-fpm
+    - enable: True
+    - require:
+      - cmd: test_phpfpm_service_config
+
+monitor_phpfpm_service:
+  module.run:
+    - name: monit.monitor
+    - m_name: php-fpm
+    - require:
+      - service: restart_phpfpm_service

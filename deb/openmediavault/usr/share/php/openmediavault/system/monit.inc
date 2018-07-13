@@ -116,20 +116,6 @@ class Monit {
 	}
 
 	/**
-	 * Create the monit configuration and reinitialize monit.
-	 */
-	public function update() {
-		// Create monit and monitored services configuration files.
-		$cmd = new \OMV\System\Process("omv-mkconf", "monit");
-		$cmd->setRedirect2to1();
-		$cmd->execute();
-		// Reinitialize monit.
-		$cmd = new \OMV\System\Process("monit", "reload");
-		$cmd->setRedirect2to1();
-		$cmd->execute();
-	}
-
-	/**
 	 * Get the status of a monitored process.
 	 * @return The status of the monitored service, e.g. 'running',
 	 *   'does not exist' or 'not monitored'.
