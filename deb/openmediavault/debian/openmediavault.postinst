@@ -164,8 +164,8 @@ case "$1" in
 
 			# Deploy the configurations for the following services.
 			echo "Deploying service configurations ..."
-			omv-salt --quiet deploy run mdadm cpufrequtils cronapt watchdog \
-				monit rrdcached avahi ssh phpfpm nginx collectd issue sysctl \
+			omv-salt deploy run --quiet mdadm cpufrequtils cronapt watchdog \
+				monit rrdcached avahi ssh nginx collectd phpfpm issue sysctl \
 				acpid
 		fi
 
@@ -181,7 +181,7 @@ case "$1" in
 			# Finally enable chrony if necessary.
 			deb-systemd-helper disable ntp.service
 			deb-systemd-invoke stop ntp.service || :
-			omv-salt --quiet deploy run chrony
+			omv-salt deploy run --quiet chrony
 		fi
 
 		########################################################################
