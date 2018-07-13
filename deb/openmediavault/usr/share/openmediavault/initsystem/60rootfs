@@ -26,7 +26,6 @@
 # http://superuser.com/questions/228657/which-linux-filesystem-works-best-with-ssd
 
 set -e
-set -x
 
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions

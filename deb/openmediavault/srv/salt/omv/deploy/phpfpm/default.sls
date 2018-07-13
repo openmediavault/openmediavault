@@ -18,31 +18,22 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 {% set dirpath = '/srv/salt' | path_join(slspath) %}
-{% set files = salt['file.find'](dirpath, iname='*.sls', print='name') | difference(['init.sls', 'default.sls']) %}
 
 prereq_phpfpm_service_monit:
   salt.state:
     - tgt: '*'
     - sls: omv.deploy.monit
 
-{% if files | length > 0 %}
-
 include:
-{% for file in files %}
+{% for file in salt['file.find'](dirpath, iname='*.sls', print='name') | difference(['init.sls', 'default.sls']) %}
   - .{{ file | replace('.sls', '') }}
 {% endfor %}
-
-{% endif  %}
 
 test_phpfpm_service_config:
   cmd.run:
     - name: "php-fpm7.0 --test"
 
 restart_phpfpm_service:
-  # Force service.running to always restart the service.
-  test.succeed_with_changes:
-    - watch_in:
-      - service: restart_phpfpm_service
   service.running:
     - name: php7.0-fpm
     - enable: True

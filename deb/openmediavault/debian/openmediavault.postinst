@@ -156,7 +156,7 @@ case "$1" in
 			omv.stage.prepare >/dev/null
 
 		########################################################################
-		# Set the services when the package is installed the first time.
+		# Deploy various services when the package is installed the first time.
 		########################################################################
 		if [ -z "$2" ]; then
 			# Disable default nginx site.
@@ -165,7 +165,7 @@ case "$1" in
 			# Deploy the configurations for the following services.
 			echo "Deploying service configurations ..."
 			omv-salt --quiet deploy run mdadm cpufrequtils cronapt watchdog \
-				monit rrdcached avahi ssh nginx collectd phpfpm issue sysctl \
+				monit rrdcached avahi ssh phpfpm nginx collectd issue sysctl \
 				acpid
 		fi
 
