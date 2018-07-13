@@ -25,10 +25,8 @@ prereq_nginx_service_monit:
     - sls: omv.deploy.monit
 
 include:
-{% for file in salt['file.readdir'](dirpath) | sort %}
-{% if file | regex_match('^(\d+.+).sls$', ignorecase=True) %}
+{% for file in salt['file.find'](dirpath, iname='*.sls', print='name') | difference(['init.sls', 'default.sls']) %}
   - .{{ file | replace('.sls', '') }}
-{% endif %}
 {% endfor %}
 
 test_nginx_service_config:
@@ -36,10 +34,6 @@ test_nginx_service_config:
     - name: "nginx -t"
 
 restart_nginx_service:
-  # Force service.running to always restart the service.
-  test.succeed_with_changes:
-    - watch_in:
-      - service: restart_nginx_service
   service.running:
     - name: nginx
     - enable: True
