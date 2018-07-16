@@ -54,7 +54,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 				continue
 			config['upsname'] = m.group(1)
 
-			image_filename = '{image_dir}/nut-charge-{period}.png'.format(**config)
+			image_filename = '{image_dir}/nut-charge-{period}.svg'.format(**config)
 			if os.path.exists('{data_dir}/nut-{upsname}/percent-charge.rrd'.format(**config)):
 				args = []
 				args.append(image_filename)
@@ -79,7 +79,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 			else:
 				openmediavault.mkrrdgraph.copy_placeholder_image(image_filename)
 
-			image_filename = '{image_dir}/nut-load-{period}.png'.format(**config)
+			image_filename = '{image_dir}/nut-load-{period}.svg'.format(**config)
 			if os.path.exists('{data_dir}/nut-{upsname}/percent-load.rrd'.format(**config)):
 				args = []
 				args.append(image_filename)
@@ -109,7 +109,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 			# the more important value. Only one temperature can be displayed
 			# because the WebGUI does not display multiple temperature
 			# informations.
-			image_filename = '{image_dir}/nut-temperature-{period}.png'.format(**config)
+			image_filename = '{image_dir}/nut-temperature-{period}.svg'.format(**config)
 			if os.path.exists('{data_dir}/nut-{upsname}/temperature-battery.rrd'.format(**config)):
 				args = []
 				args.append(image_filename)
@@ -151,7 +151,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 			else:
 				openmediavault.mkrrdgraph.copy_placeholder_image(image_filename)
 
-			image_filename = '{image_dir}/nut-voltage-{period}.png'.format(**config)
+			image_filename = '{image_dir}/nut-voltage-{period}.svg'.format(**config)
 			if (os.path.exists('{data_dir}/nut-{upsname}/voltage-battery.rrd'.format(**config)) and
 					os.path.exists('{data_dir}/nut-{upsname}/voltage-input.rrd'.format(**config)) and
 					os.path.exists('{data_dir}/nut-{upsname}/voltage-output.rrd'.format(**config))):

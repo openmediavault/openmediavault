@@ -39,7 +39,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 				mountpoint = 'root'
 			config['mountpoint'] = mountpoint.lstrip('/').replace('/', '-')
 			args = []
-			args.append('"{image_dir}/df-{mountpoint}-{period}.png"'.format(**config))
+			args.append('"{image_dir}/df-{mountpoint}-{period}.svg"'.format(**config))
 			args.extend(config['defaults'])
 			args.extend(['--start', config['start']])
 			args.extend(['--title', '"{title_df}{title_by_period}"'.format(**config)])

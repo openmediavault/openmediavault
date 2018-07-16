@@ -34,7 +34,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 		for interface in interfaces:
 			config['interface'] = interface
 			args = []
-			args.append('{image_dir}/interface-{interface}-{period}.png'.format(**config))
+			args.append('{image_dir}/interface-{interface}-{period}.svg'.format(**config))
 			args.extend(config['defaults'])
 			args.extend(['--start', config['start']])
 			args.extend(['--title', '"{interface} traffic{title_by_period}"'.format(**config)])

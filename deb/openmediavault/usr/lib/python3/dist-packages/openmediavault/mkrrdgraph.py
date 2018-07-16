@@ -51,7 +51,7 @@ def copy_placeholder_image(filename):
 	:param filename: The destination filename.
 	"""
 	src = openmediavault.getenv('OMV_RRDGRAPH_ERROR_IMAGE',
-		'/usr/share/openmediavault/icons/rrd_graph_error_64.png');
+		'/usr/share/openmediavault/icons/rrd_graph_error_64.svg');
 	shutil.copyfile(src, filename)
 
 def load_collectd_config(plugin_name, option):

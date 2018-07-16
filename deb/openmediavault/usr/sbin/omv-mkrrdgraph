@@ -48,14 +48,16 @@ def main():
 			'--daemon', 'unix:{}'.format(openmediavault.getenv(
 				'OMV_RRDCACHED_SOCKETFILE', '/var/run/rrdcached.sock')),
 			'--imgformat', openmediavault.getenv(
-				'OMV_COLLECTD_RRDTOOL_GRAPH_IMGFORMAT', 'PNG'),
+				'OMV_COLLECTD_RRDTOOL_GRAPH_IMGFORMAT', 'SVG'),
 			'--width', openmediavault.getenv(
 				'OMV_COLLECTD_RRDTOOL_GRAPH_WIDTH', '400'),
 			'--height', openmediavault.getenv(
 				'OMV_COLLECTD_RRDTOOL_GRAPH_HEIGHT', '120'),
 			'--alt-y-grid',
 			'--interlaced',
-			'--font', 'TITLE:9:.'],
+			'--font', 'DEFAULT:7:.',
+			'--font', 'WATERMARK:5:.',
+			'--font', 'TITLE:8:.'],
 		'data_dir': os.path.join(
 			openmediavault.getenv('OMV_RRDCACHED_BASEDIR',
 				'/var/lib/rrdcached/db'),

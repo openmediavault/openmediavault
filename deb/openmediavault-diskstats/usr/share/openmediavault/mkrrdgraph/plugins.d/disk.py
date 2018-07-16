@@ -37,7 +37,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 		for devname in devnames:
 			config['devname'] = devname
 
-			image_filename = '{image_dir}/disk-octets-{devname}-{period}.png'.format(**config)
+			image_filename = '{image_dir}/disk-octets-{devname}-{period}.svg'.format(**config)
 			if os.path.exists('{data_dir}/disk-{devname}/disk_octets.rrd'.format(**config)):
 				args = []
 				args.append(image_filename)
@@ -70,7 +70,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 			else:
 				openmediavault.mkrrdgraph.copy_placeholder_image(image_filename)
 
-			image_filename = '{image_dir}/disk-ops-{devname}-{period}.png'.format(**config)
+			image_filename = '{image_dir}/disk-ops-{devname}-{period}.svg'.format(**config)
 			if os.path.exists('{data_dir}/disk-{devname}/disk_ops.rrd'.format(**config)):
 				args = []
 				args.append(image_filename)
@@ -103,7 +103,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 			else:
 				openmediavault.mkrrdgraph.copy_placeholder_image(image_filename)
 
-			image_filename = '{image_dir}/disk-time-{devname}-{period}.png'.format(**config)
+			image_filename = '{image_dir}/disk-time-{devname}-{period}.svg'.format(**config)
 			if os.path.exists('{data_dir}/disk-{devname}/disk_time.rrd'.format(**config)):
 				args = []
 				args.append(image_filename)

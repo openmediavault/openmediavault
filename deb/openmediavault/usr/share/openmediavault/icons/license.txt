@@ -2,3 +2,8 @@ Image: rrd_graph_error_64.png
 Designer: Volker Theile
 License: GPL3
 URL: none
+
+Image: rrd_graph_error_64.svg
+Designer: Florian Floimair (derived from rrd_graph_error_64.png by Volker Theile)
+License: GPL3
+URL: none

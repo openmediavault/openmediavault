@@ -28,7 +28,7 @@
  * @derived OMV.workspace.panel.Panel
  * Panel that is displaying RRD graphs.
  * @param rrdGraphName (required) The name of the RRD graph file. Such a
- *   file looks like xxxxx-(hour|day|week|month|year).png.
+ *   file looks like xxxxx-(hour|day|week|month|year).svg.
  */
 Ext.define("OMV.workspace.panel.RrdGraph", {
 	extend: "OMV.workspace.panel.Panel",
@@ -58,11 +58,11 @@ Ext.define("OMV.workspace.panel.RrdGraph", {
 	getTemplate: function() {
 		return Ext.create("Ext.XTemplate",
 		  '<div class="x-panel-rrdgraph">',
-		  '  <img src="rrd.php?name={name}-hour.png&time={time}" alt="RRD graph - by hour"/><br/>',
-		  '  <img src="rrd.php?name={name}-day.png&time={time}" alt="RRD graph - by day"/><br/>',
-		  '  <img src="rrd.php?name={name}-week.png&time={time}" alt="RRD graph - by week"/><br/>',
-		  '  <img src="rrd.php?name={name}-month.png&time={time}" alt="RRD graph - by month"/><br/>',
-		  '  <img src="rrd.php?name={name}-year.png&time={time}" alt="RRD graph - by year"/>',
+		  '  <img src="rrd.php?name={name}-hour.svg&time={time}" alt="RRD graph - by hour"/><br/>',
+		  '  <img src="rrd.php?name={name}-day.svg&time={time}" alt="RRD graph - by day"/><br/>',
+		  '  <img src="rrd.php?name={name}-week.svg&time={time}" alt="RRD graph - by week"/><br/>',
+		  '  <img src="rrd.php?name={name}-month.svg&time={time}" alt="RRD graph - by month"/><br/>',
+		  '  <img src="rrd.php?name={name}-year.svg&time={time}" alt="RRD graph - by year"/>',
 		  '</div>');
 	},
 

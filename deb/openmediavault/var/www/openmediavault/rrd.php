@@ -43,7 +43,7 @@ try {
 	if (!file_exists($pathName))
 		$pathName = \OMV\Environment::get("OMV_RRDGRAPH_ERROR_IMAGE");
 	$fd = fopen($pathName, "r");
-	header("Content-type: image/png");
+	header("Content-type: image/svg+xml");
 	fpassthru($fd);
 } catch(\Exception $e) {
 	header("Content-Type: text/html");

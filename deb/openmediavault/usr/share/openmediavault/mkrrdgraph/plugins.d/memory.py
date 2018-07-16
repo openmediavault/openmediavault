@@ -32,7 +32,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 			'color_memory_used': '#ff7a70'      # red
 		})
 		args = []
-		args.append('{image_dir}/memory-{period}.png'.format(**config))
+		args.append('{image_dir}/memory-{period}.svg'.format(**config))
 		args.extend(config['defaults'])
 		args.extend(['--start', config['start']])
 		args.extend(['--title', '"{title_memory}{title_by_period}"'.format(**config)])
