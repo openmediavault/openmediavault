@@ -1,7 +1,8 @@
 openmediavault (5.0) unstable; urgency=low
 
-  * Use Salt to create and apply configuration settings.
-  * The omv-applyconf CLI command superseds omv-mkconf. Note, the command
+  * Use Salt to deploy configuration settings. Using 'omv-salt stage run all'
+    will deploy the whole system according to the configuration database.
+  * The omv-salt CLI command superseds omv-mkconf. Note, the command
     will not only create the configuration files, it will also take care
     about to start/stop/restart the services.
   * Issue #93: Use chrony instead of ntpd.
