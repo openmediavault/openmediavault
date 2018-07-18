@@ -4,6 +4,7 @@ openmediavault (4.1.9) stable; urgency=low
   * Issue #128: Fix column widths in S.M.A.R.T. tables.
   * Issue #129: Fix selection bug in icon panel.
   * Update Material Design icons to version 2.4.85.
+  * Ensure a mdadm device name is unique when creating a RAID device.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Jul 2018 10:58:10 +0200
 

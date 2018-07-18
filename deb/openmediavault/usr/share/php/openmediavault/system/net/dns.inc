@@ -26,33 +26,47 @@ namespace OMV\System\Net;
  */
 class Dns {
 	/**
-	 * Get the systems host name.
-	 * @return The host name.
+	 * Get the system's host name.
+	 * @return string The system's host name.
 	 */
 	final public static function getHostname() {
-		$cmd = new \OMV\System\Process("hostname", $options);
+		$cmd = new \OMV\System\Process("hostname");
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		return $output[0];
 	}
 
 	/**
-	 * Get the systems fully qualified domain name (FQDN).
-	 * @return The fully qualified domain name.
+	 * Get the system's short host name. This is the host name cut at
+	 * the first dot.
+	 * @return string The system's short host name.
+	 */
+	final public static function getShortHostname() {
+		$cmd = new \OMV\System\Process("hostname", ["--short"]);
+		$cmd->setRedirect2to1();
+		$cmd->execute($output);
+		return $output[0];
+	}
+
+	/**
+	 * Get the system's fully qualified domain name (FQDN), e.g.
+	 * 'leto.example.com'. It is usually the hostname followed by
+         * the DNS domain name (the part after the first dot).
+	 * @return string The system's fully qualified domain name.
 	 */
 	final public static function getFqdn() {
-		$cmd = new \OMV\System\Process("hostname", "--fqdn");
+		$cmd = new \OMV\System\Process("hostname", ["--fqdn"]);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		return $output[0];
 	}
 
 	/**
-	 * Get the systems domain name.
-	 * @return The domain name.
+	 * Get the name of the system's DNS domain.
+	 * @return string The system's DNS domain name.
 	 */
 	final public static function getDomain() {
-		$cmd = new \OMV\System\Process("hostname", "--domain");
+		$cmd = new \OMV\System\Process("hostname", ["--domain"]);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		return $output[0];

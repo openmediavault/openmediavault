@@ -229,6 +229,17 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.raidmgmt.create");
+		// Check if name is unique.
+		if (!empty($params['name'])) {
+			// A name looks like: '<HOSTNAME>:<NAME>'
+			$name = sprintf("%s:%s", \OMV\System\Net\Dns::getHostname(),
+				$params['name']);
+			$devs = $this->callMethod("enumerateDevices", NULL, $context);
+			if (!empty(array_filter_ex($devs, 'name', $name))) {
+				throw new \OMV\Exception("The name '%s' already exists.",
+					$params['name']);
+			}
+		}
 		// Generate the RAID device name.
 		$deviceName = \OMV\System\System::getNextDevice("disk", "md");
 		$devices = preg_split("/[,;]/", $params['devices']);
