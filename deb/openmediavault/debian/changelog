@@ -14,6 +14,7 @@ openmediavault (4.1.9) stable; urgency=low
   * Update locales.
   * Issue #128: Fix column widths in S.M.A.R.T. tables.
   * Issue #129: Fix selection bug in icon panel.
+  * Issue #139: Remove deprecated smb.conf syslog setting.
   * Update Material Design icons to version 2.4.85.
   * Ensure a mdadm device name is unique when creating a RAID device.
 
