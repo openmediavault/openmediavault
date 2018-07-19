@@ -58,7 +58,6 @@ xmlstarlet sel -t -m "//services/smb" \
   -v "concat('server string = ',serverstring)" -n \
   -o "dns proxy = ${OMV_SAMBA_DNSPROXY}" -n \
   -v "concat('log level = ',loglevel)" -n \
-  -v "concat('syslog = ',loglevel)" -n \
   -o "log file = ${OMV_SAMBA_LOGFILE}" -n \
   -o "max log size = ${OMV_SAMBA_MAXLOGSIZE}" -n \
   -o "syslog only = ${OMV_SAMBA_SYSLOGONLY}" -n \
