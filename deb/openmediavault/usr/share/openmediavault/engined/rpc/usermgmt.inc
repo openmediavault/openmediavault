@@ -1029,6 +1029,11 @@ finish:
 		// Update the non-system user.
 		$users = $this->enumerateUsersByType("normal");
 		foreach ($users as $userk => $userv) {
+			// Only process users that are in group 'users'.
+			$defaultGroup = \OMV\Environment::get(
+				"OMV_USERMGMT_DEFAULT_GROUP", "users");
+			if (!in_array($defaultGroup, $userv['groups']))
+				continue;
 			$cmdArgs = [];
 			if (!empty($sfPath)) {
 				$homeDirPath = build_path(DIRECTORY_SEPARATOR, $sfPath,
