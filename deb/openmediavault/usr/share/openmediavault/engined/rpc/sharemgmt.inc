@@ -337,7 +337,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Change group owner of directory to configured default group,
 		// e.g. 'users'.
 		if (FALSE === chgrp($pathName, \OMV\Environment::get(
-		  "OMV_USERMGMT_DEFAULT_GROUP"))) {
+				"OMV_USERMGMT_DEFAULT_GROUP", "users"))) {
 			$error = error_get_last();
 			throw new \OMV\Exception(
 			  "Failed to set file group to '%s' for '%s': %s",
