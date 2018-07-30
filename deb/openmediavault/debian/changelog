@@ -6,6 +6,7 @@ openmediavault (5.0) unstable; urgency=low
     will not only create the configuration files, it will also take care
     about to start/stop/restart the services.
   * Issue #93: Use chrony instead of ntpd.
+  * Issue #146: Use systemd to configure the network.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 May 2018 22:06:11 +0200
 

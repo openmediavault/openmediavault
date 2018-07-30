@@ -17,11 +17,9 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set source_directory = salt['pillar.get']('default:OMV_INTERFACES_SOURCE_DIRECTORY', 'interfaces.d') %}
-
-configure_interfaces_defaults:
-  file.append:
-    - name: "/etc/network/interfaces"
-    - text: |
-        # Include additional interface stanzas.
-        source-directory {{ source_directory }}
+remove_systemd_networkd_config_files:
+  module.run:
+    - file.find:
+      - path: "/etc/systemd/network/"
+      - iname: "openmediavault-*"
+      - delete: "f"

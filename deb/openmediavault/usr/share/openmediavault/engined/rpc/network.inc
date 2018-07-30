@@ -127,9 +127,9 @@ class Network extends \OMV\Rpc\ServiceAbstract {
     private function setInterfaceConfig($params, $ifaceParams) {
 		// Modify various configuration attributes.
 		$params['dnsnameservers'] = preg_replace("/[,;]/", " ",
-		  $params['dnsnameservers']);
+			$params['dnsnameservers']);
 		$params['dnssearch'] = preg_replace("/[,;]/", " ",
-		  $params['dnssearch']);
+			$params['dnssearch']);
 		// Prepare the configuration object.
 		$object = new \OMV\Config\ConfigObject("conf.system.network.interface");
 		$object->setAssoc($params);
@@ -155,7 +155,7 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 		$db->set($object);
 		// Return the configuration object.
 		return $object->getAssoc();
-    }
+	}
 
 	/**
 	 * Get general network settings.
@@ -321,7 +321,7 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-        // Get all network interface configuration objects.
+		// Get all network interface configuration objects.
 		$db = \OMV\Config\Database::getInstance();
 		$objects = $db->get("conf.system.network.interface");
 		// Now get the network interface configuration objects.
@@ -728,7 +728,7 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Set the configuration object.
 		return $this->setInterfaceConfig($params, [
-            "type" => "bond",
+			"type" => "bond",
 			"bondprimary" => $params['bondprimary'],
 			"bondmode" => $params['bondmode'],
 			"bondmiimon" => $params['bondmiimon'],
@@ -797,7 +797,7 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Set the configuration object.
 		return $this->setInterfaceConfig($params, [
-            "type" => "vlan",
+			"type" => "vlan",
 			"vlanid" => $params['vlanid'],
 			"vlanrawdevice" => $params['vlanrawdevice']
 		]);
@@ -874,7 +874,7 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.network.setwirelessiface");
 		// Set the configuration object.
 		return $this->setInterfaceConfig($params, [
-            "type" => "wireless",
+			"type" => "wireless",
 			"wpassid" => $params['wpassid'],
 			"wpapsk" => $params['wpapsk']
 		]);

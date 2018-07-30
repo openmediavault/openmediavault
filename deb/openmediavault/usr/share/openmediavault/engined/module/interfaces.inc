@@ -27,31 +27,25 @@ class Interfaces extends \OMV\Engine\Module\ServiceAbstract
 		return "interfaces";
 	}
 
-	public function preDeploy() {
-		$this->execTasks("delete");
+	public function deployAfter(): array {
+		return ["task"];
 	}
 
 	/**
-	 * Helper function to add a new task when an interface is deleted.
+	 * Helper function that is called when an network interface
+	 * configuration object is deleted.
 	 * @param type The event message type.
 	 * @param path The event message path.
 	 * @param object The configuration object.
 	 * @return void
 	 */
 	final public function onDeleteInterface($type, $path, $object) {
-		if ("bond" == $object['type'])
-			$this->addTask("delete", "deleteBondInterface", $object);
-	}
-
-	/**
-	 * Helper method to remove a bond interface.
-	 * @param params The method parameters.
-	 */
-	final public function deleteBondInterface($params) {
-		$iface = new \OMV\System\Net\NetworkInterfaceBond(
-			$params['devicename']);
-		if ($iface->exists())
-			$iface->delete();
+		// Create a new task that will delete the network interface
+		// before the network configuration is deployed.
+		\OMV\Salt\Task::create("omv.task.network.interface.delete", [
+			"name" => $object['devicename'],
+			"type" => $object['type']
+		]);
 	}
 
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {

@@ -148,7 +148,6 @@
 					<dnssearch></dnssearch>
 					<mtu>0...n</mtu>
 					<wol>0|1</wol>
-					<options></options>
 					<comment>xxx</comment>
 					# Optional arguments by type:
 					# - ethernet

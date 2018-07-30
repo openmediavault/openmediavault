@@ -18,14 +18,10 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# https://docs.saltstack.com/en/latest/ref/states/all/salt.states.network.html
-# https://github.com/saltstack/salt/blob/develop/salt/states/network.py
-# https://github.com/saltstack/salt/blob/develop/salt/modules/debian_ip.py
-# https://github.com/saltstack/salt/blob/develop/salt/templates/debian_ip/debian_eth.jinja
+# https://www.redpill-linpro.com/techblog/2016/08/17/systemd-network.html
 
-configure_interfaces_lo:
-  file.append:
-    - name: "/etc/network/interfaces"
-    - sources:
-      - salt://{{ slspath }}/files/lo.j2
-    - template: jinja
+symlink_systemd_resolvconf:
+  file.symlink:
+    - name: /etc/resolv.conf
+    - target: /run/systemd/resolve/resolv.conf
+    - force: True

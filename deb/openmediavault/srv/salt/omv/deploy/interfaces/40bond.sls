@@ -18,20 +18,21 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# https://wiki.archlinux.org/index.php/Systemd-networkd
-# http://enricorossi.org/blog/2017/systemd_network_vlan_interface_up/
+# https://wiki.debian.org/Bonding
+# https://forum.manjaro.org/t/how-to-create-lacp-802-3ad-bond-using-systemd-networkd/14655
+# https://kerlilow.me/blog/setting-up-systemd-networkd-with-bonding/
 
 {% set interfaces = salt['omv.get_config_by_filter'](
   'conf.system.network.interface',
-  '{"operator": "stringEquals", "arg0": "type", "arg1": "vlan"}') %}
+  '{"operator": "stringEquals", "arg0": "type", "arg1": "bond"}') %}
 
 {% for interface in interfaces %}
 
-configure_interface_vlan_{{ interface.vlanrawdevice }}.{{ interface.vlanid }}_netdev:
+configure_interface_bond_{{ interface.devicename }}_netdev:
   file.managed:
-    - name: "/etc/systemd/network/openmediavault-{{ interface.vlanrawdevice }}.{{ interface.vlanid }}.netdev"
+    - name: "/etc/systemd/network/openmediavault-{{ interface.devicename }}.netdev"
     - source:
-      - salt://{{ slspath }}/files/vlan_netdev.j2
+      - salt://{{ slspath }}/files/bond_netdev.j2
     - template: jinja
     - context:
         interface: {{ interface | json }}
@@ -39,11 +40,11 @@ configure_interface_vlan_{{ interface.vlanrawdevice }}.{{ interface.vlanid }}_ne
     - group: root
     - mode: 644
 
-configure_interface_vlan_{{ interface.vlanrawdevice }}.{{ interface.vlanid }}_network:
+configure_interface_bond_{{ interface.devicename }}_network:
   file.managed:
-    - name: "/etc/systemd/network/openmediavault-{{ interface.vlanrawdevice }}.{{ interface.vlanid }}.network"
+    - name: "/etc/systemd/network/openmediavault-{{ interface.devicename }}.network"
     - source:
-      - salt://{{ slspath }}/files/vlan_network.j2
+      - salt://{{ slspath }}/files/bond_network.j2
     - template: jinja
     - context:
         interface: {{ interface | json }}
@@ -51,14 +52,20 @@ configure_interface_vlan_{{ interface.vlanrawdevice }}.{{ interface.vlanid }}_ne
     - group: root
     - mode: 644
 
-configure_interface_vlan_{{ interface.vlanrawdevice }}_network:
+{% for slave in interface.slaves.split(',') %}
+
+configure_interface_bond_{{ slave }}_network:
   file.touch:
-    - name: "/etc/systemd/network/openmediavault-{{ interface.vlanrawdevice }}.network"
+    - name: "/etc/systemd/network/openmediavault-{{ slave }}.network"
   ini.options_present:
-    - name: "/etc/systemd/network/openmediavault-{{ interface.vlanrawdevice }}.network"
+    - name: "/etc/systemd/network/openmediavault-{{ slave }}.network"
     - separator: "="
     - sections:
+        Match:
+          Name: {{ slave }}
         Network:
-          VLAN: {{ interface.vlanrawdevice }}.{{ interface.vlanid }}
+          Bond: {{ interface.devicename }}
+
+{% endfor %}
 
 {% endfor %}

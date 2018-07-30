@@ -39,17 +39,19 @@ class NetworkInterfaceBond extends NetworkInterface {
 	}
 
 	/**
-	 * Delete a bond interface.
-	 * @return Returns TRUE on success, otherwise FALSE.
+	 * Delete the network interface.
+	 * @throw \OMV\ExecException
 	 */
 	public function delete() {
-		$filename = "/sys/class/net/bonding_masters";
-		if (!file_exists($filename))
-			return FALSE;
-		// See http://backdrift.org/manage-linux-bonding-without-ifenslave-using-sysfs
-		$content = sprintf("-%s", $this->getDeviceName());
-		return (FALSE !== file_put_contents($filename, $content)) ?
-			TRUE : FALSE;
+		parent::delete();
+		$cmdArgs = [];
+		$cmdArgs[] = "link";
+		$cmdArgs[] = "del";
+		$cmdArgs[] = "dev";
+		$cmdArgs[] = escapeshellarg($this->getDeviceName());
+		$cmd = new \OMV\System\Process("ip", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute();
 	}
 
 	/**

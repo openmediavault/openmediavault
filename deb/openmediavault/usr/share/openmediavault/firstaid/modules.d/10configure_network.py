@@ -280,7 +280,6 @@ class Module(openmediavault.firstaid.IModule):
 			"dnssearch": "",
 			"mtu": 0,
 			"wol": wol,
-			"options": "",
 			"comment": "",
 		})
 		# Do we process a wireless network interface?
