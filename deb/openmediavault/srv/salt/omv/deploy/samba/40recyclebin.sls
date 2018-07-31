@@ -39,11 +39,10 @@ configure_samba_recyclebin_cron:
 
 remove_samba_recyclebin_cron_scripts:
   module.run:
-    - name: file.find
-    - path: "{{ scripts_dir }}"
-    - kwargs:
-        iname: "{{ cron_scripts_prefix }}*"
-        delete: "f"
+    - file.find:
+      - path: "{{ scripts_dir }}"
+      - iname: "{{ cron_scripts_prefix }}*"
+      - delete: "f"
 
 {% if config.enable | to_bool %}
 

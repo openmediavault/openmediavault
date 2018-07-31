@@ -23,11 +23,10 @@
 
 remove_sharedfolder_mount_unit_files:
   module.run:
-    - name: file.find
-    - path: "/etc/systemd/system"
-    - kwargs:
-        iname: "{{ sharedfolders_path_escaped }}-*.mount"
-        delete: "f"
+    - file.find:
+      - path: "/etc/systemd/system"
+      - iname: "{{ sharedfolders_path_escaped }}-*.mount"
+      - delete: "f"
 
 {% for sharedfolder in sharedfolders %}
 {% set what = salt['omv.get_sharedfolder_path'](sharedfolder.uuid) %}

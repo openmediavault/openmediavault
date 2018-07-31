@@ -30,11 +30,10 @@
 
 remove_cron_userdefined_scripts:
   module.run:
-    - name: file.find
-    - path: "{{ scripts_dir }}"
-    - kwargs:
-        iname: "{{ script_prefix }}*"
-        delete: "f"
+    - file.find:
+      - path: "{{ scripts_dir }}"
+      - iname: "{{ script_prefix }}*"
+      - delete: "f"
 
 {% for cron_job in cron_jobs %}
 create_cron_userdefined_{{ cron_job.uuid }}_script:

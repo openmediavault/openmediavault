@@ -22,11 +22,10 @@
 
 remove_ssh_certificates:
   module.run:
-    - name: file.find
-    - path: "/etc/ssh"
-    - kwargs:
-        iname: "{{ ssh_key_prefix }}*"
-        delete: "f"
+    - file.find:
+      - path: "/etc/ssh"
+      - iname: "{{ ssh_key_prefix }}*"
+      - delete: "f"
 
 {% for certificate in certificates %}
 

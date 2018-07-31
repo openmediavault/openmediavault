@@ -22,11 +22,10 @@
 
 remove_ssl_certificates_crt:
   module.run:
-    - name: file.find
-    - path: "/etc/ssl/certs"
-    - kwargs:
-        iname: "{{ certificate_prefix }}*.crt"
-        delete: "f"
+    - file.find:
+      - path: "/etc/ssl/certs"
+      - iname: "{{ certificate_prefix }}*.crt"
+      - delete: "f"
 
 remove_ssl_certificates_key:
   module.run:

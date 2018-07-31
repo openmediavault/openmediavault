@@ -25,11 +25,10 @@
 
 remove_avahi_service_nfs:
   module.run:
-    - name: file.find
-    - path: "/etc/avahi/services"
-    - kwargs:
-        iname: "nfs-*.service"
-        delete: "f"
+    - file.find:
+      - path: "/etc/avahi/services"
+      - iname: "nfs-*.service"
+      - delete: "f"
 
 {% if nfs_config.enable | to_bool and zeroconf_config.enable | to_bool %}
 

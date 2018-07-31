@@ -43,11 +43,10 @@ configure_rsync_cron:
 
 remove_rsync_cron_scripts:
   module.run:
-    - name: file.find
-    - path: "{{ scripts_dir }}"
-    - kwargs:
-        iname: "{{ script_prefix }}*"
-        delete: "f"
+    - file.find:
+      - path: "{{ scripts_dir }}"
+      - iname: "{{ script_prefix }}*"
+      - delete: "f"
 
 {% for job in jobs %}
 

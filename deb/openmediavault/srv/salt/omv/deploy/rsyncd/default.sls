@@ -40,11 +40,10 @@ configure_rsyncd_conf:
 
 remove_rsyncd_secrets:
   module.run:
-    - name: file.find
-    - path: "{{ secrets_dir }}"
-    - kwargs:
-        iname: "rsyncd-*.secrets"
-        delete: "f"
+    - file.find:
+      - path: "{{ secrets_dir }}"
+      - iname: "rsyncd-*.secrets"
+      - delete: "f"
 
 {% for module in config.modules.module | selectattr('enable') | selectattr('authusers') %}
 
