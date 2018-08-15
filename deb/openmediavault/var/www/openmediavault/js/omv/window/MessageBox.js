@@ -132,7 +132,6 @@ Ext.define("OMV.window.MessageBox", {
 			detailsText += _("Error #") + error.code + ":\n";
 		if (!Ext.isEmpty(error.trace))
 			detailsText += error.trace;
-		detailsText = OMV.util.Format.whitespace(detailsText, "pre");
 		// Display the error dialog.
 		var dlg = Ext.create("Ext.Window", {
 			title: title || _("Error"),
@@ -210,7 +209,7 @@ Ext.define("OMV.window.MessageBox", {
 				hidden: true,
 				scrollable: true,
 				minHeight: 175,
-				html: detailsText
+				html: OMV.util.Format.whitespace(detailsText, "pre")
 			})]
 		});
 		/*
