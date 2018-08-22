@@ -1042,12 +1042,22 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 				this.showMenu();
 			},
 			menu: Ext.create("Ext.menu.Menu", {
-				items: [
-					{ text: _("Ethernet"), value: "ethernet" },
-					{ text: _("Wi-Fi"), value: "wireless" },
-					{ text: _("Bond"), value: "bond" },
-					{ text: _("VLAN"), value: "vlan" }
-				],
+				items: [{
+					iconCls: "mdi mdi-ethernet",
+					text: _("Ethernet"),
+					value: "ethernet"
+				},{
+					iconCls: "mdi mdi-wifi",
+					text: _("Wi-Fi"),
+					value: "wireless"
+				},{
+					iconCls: "mdi mdi-link-variant",
+					text: _("Bond"),
+					value: "bond"
+				},{
+					text: _("VLAN"),
+					value: "vlan"
+				}],
 				listeners: {
 					scope: me,
 					click: function(menu, item, e, eOpts) {

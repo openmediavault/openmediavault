@@ -167,16 +167,21 @@ Ext.define("OMV.module.admin.system.certificate.ssh.Certificates", {
 		Ext.Array.insert(items, 0, [{
 			id: me.getId() + "-add",
 			xtype: "splitbutton",
-			text: _("Add"),
+			text: me.addButtonText,
 			iconCls: "x-fa fa-plus",
 			handler: function() {
 				this.showMenu();
 			},
 			menu: Ext.create("Ext.menu.Menu", {
-				items: [
-					{ text: _("Create"), value: "create" },
-					{ text: _("Import"), value: "import" }
-				],
+				items: [{
+					iconCls: "x-fa fa-plus",
+					text: me.addButtonText,
+					value: "create"
+				},{
+					iconCls: "mdi mdi-import",
+					text: _("Import"),
+					value: "import"
+				}],
 				listeners: {
 					scope: me,
 					click: function(menu, item, e, eOpts) {
