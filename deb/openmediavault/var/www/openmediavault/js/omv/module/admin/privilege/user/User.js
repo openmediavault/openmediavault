@@ -677,10 +677,15 @@ Ext.define("OMV.module.admin.privilege.user.Users", {
 				c.showMenu();
 			},
 			menu: Ext.create("Ext.menu.Menu", {
-				items: [
-					{ text: _("Add"), value: "add" },
-					{ text: _("Import"), value: "import" }
-				],
+				items: [{
+					iconCls: "x-fa fa-plus",
+					text: me.addButtonText,
+					value: "create"
+				},{
+					iconCls: "mdi mdi-import",
+					text: _("Import"),
+					value: "import"
+				}],
 				listeners: {
 					scope: me,
 					click: function(menu, item, e, eOpts) {
@@ -709,7 +714,7 @@ Ext.define("OMV.module.admin.privilege.user.Users", {
 	onAddButton: function(action) {
 		var me = this;
 		switch(action) {
-		case "add":
+		case "create":
 			Ext.create("OMV.module.admin.privilege.user.User", {
 				title: _("Add user"),
 				listeners: {
