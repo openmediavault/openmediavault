@@ -678,7 +678,7 @@ Ext.define("OMV.module.admin.privilege.user.Users", {
 			},
 			menu: Ext.create("Ext.menu.Menu", {
 				items: [{
-					iconCls: "x-fa fa-plus",
+					iconCls: me.addButtonIconCls,
 					text: me.addButtonText,
 					value: "create"
 				},{

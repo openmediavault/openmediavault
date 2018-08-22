@@ -174,7 +174,7 @@ Ext.define("OMV.module.admin.system.certificate.ssh.Certificates", {
 			},
 			menu: Ext.create("Ext.menu.Menu", {
 				items: [{
-					iconCls: "x-fa fa-plus",
+					iconCls: me.addButtonIconCls,
 					text: me.addButtonText,
 					value: "create"
 				},{
