@@ -2,7 +2,7 @@
 <productinfo>
 	<name>openmediavault</name>
 	<versionname>Arrakis</versionname>
-	<url>http://www.openmediavault.org</url>
+	<url>https://www.openmediavault.org</url>
 	<copyright>Copyright (C) 2009-2018 by Volker Theile. All rights reserved.</copyright>
 	<packagename>openmediavault</packagename>
 	<distribution>arrakis</distribution>
