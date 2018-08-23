@@ -1,5 +1,5 @@
 {%- set mydestination = salt['pillar.get']('default:OMV_POSTFIX_MAIN_MYDESTINATION', '') -%}
-{%- set inet_interfaces = salt['pillar.get']('default:OMV_POSTFIX_MAIN_INET_INTERFACES', 'loopback-only') -%}
+{%- set inet_interfaces = salt['pillar.get']('default:OMV_POSTFIX_MAIN_INET_INTERFACES', 'localhost') -%}
 {%- set sender_canonical_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SENDER_CANONICAL_MAPS', '/etc/postfix/sender_canonical') -%}
 {%- set sender_bcc_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SENDER_BCC_MAPS', '/etc/postfix/sender_bcc') -%}
 {%- set recipient_canonical_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_RECIPIENT_CANONICAL_MAPS', '/etc/postfix/recipient_canonical') -%}
