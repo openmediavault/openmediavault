@@ -13,6 +13,7 @@ openmediavault (4.1.10) stable; urgency=low
 
   * Do not show details button in error dialog if text is empty.
   * Postfix now listens on localhost instead of loopback-only.
+  * Issue #161: omv_is_ipv6_enabled function raises error with IPv4 only.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 22 Aug 2018 08:46:58 +0200
 
