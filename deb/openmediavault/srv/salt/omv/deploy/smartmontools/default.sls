@@ -48,6 +48,19 @@ configure_smartd_conf:
 
 {% if config.enable | to_bool %}
 
+{% set smart_devices = salt['omv.get_config_by_filter'](
+  'conf.service.smartmontools.device',
+  '{"operator": "equals", "arg0": "enable", "arg1": "1"}') %}
+
+{% for device in smart_devices %}
+
+enable_smart_on_{{ device.devicefile }}:
+  cmd.run:
+    - name: "export LANG=C; smartctl -s on {{ device.devicefile }}"
+    - onlyif: "export LANG=C; smartctl -i {{ device.devicefile }} | grep -q 'SMART support is: Disabled'"
+
+{% endfor %}
+
 start_smartd_service:
   service.running:
     - name: smartd
