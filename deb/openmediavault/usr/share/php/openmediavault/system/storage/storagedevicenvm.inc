@@ -26,7 +26,9 @@ namespace OMV\System\Storage;
  * (NVM) devices.
  * @ingroup api
  */
-class StorageDeviceNVM extends StorageDevice {
+class StorageDeviceNVM extends StorageDevice implements SmartInterface {
+	use SmartTrait;
+
 	public function isRotational() {
 		return FALSE;
 	}
