@@ -1,3 +1,10 @@
+openmediavault-usbbackup (4.0.7-1) stable; urgency=low
+
+  * Fix bug in scripts when devicefile like /dev/disk/by-label/...
+    contain blanks.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 26 Aug 2018 22:09:03 +0200
+
 openmediavault-usbbackup (4.0.6-1) stable; urgency=low
 
   * Fix postrm script.

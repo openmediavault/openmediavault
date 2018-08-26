@@ -114,7 +114,7 @@ xmlstarlet sel -t \
     -v "devicefile" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
-  while read devicefile; do
+  while read -r devicefile; do
 	  id=$(omv_md5 ${devicefile})
 	  scriptfile="${OMV_USBBACKUP_SCRIPTS_DIR}/${OMV_USBBACKUP_JOBS_SCRIPT_PREFIX}${id}"
 	  runfile="/var/run/${OMV_USBBACKUP_JOBS_SCRIPT_PREFIX}${id}"
