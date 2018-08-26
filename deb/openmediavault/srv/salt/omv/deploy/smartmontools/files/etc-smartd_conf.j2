@@ -20,7 +20,7 @@
 {{ job.type }}/
 {%- if job.month == '*' %}..{% else %}{{ job.month }}{% endif %}/
 {%- if job.dayofmonth == '*' %}..{% else %}{{ job.dayofmonth }}{% endif %}/
-{%- if job.dayofweek == '*' %}..{% else %}{{ job.dayofweek }}{% endif %}/
+{%- if job.dayofweek == '*' %}.{% else %}{{ job.dayofweek }}{% endif %}/
 {%- if job.hour == '*' %}..{% else %}{{ job.hour }}{% endif %}
 {%- if loop.last %}){% endif -%}
 {% endfor -%}
