@@ -1,7 +1,7 @@
 openmediavault-usbbackup (4.0.7-1) stable; urgency=low
 
-  * Fix bug in scripts when devicefile like /dev/disk/by-label/...
-    contain blanks.
+  * Fix various bugs, e.g. in shell scripts when the devicefile looks like
+    /dev/disk/by-label/... and contains blanks.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 26 Aug 2018 22:09:03 +0200
 
