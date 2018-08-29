@@ -106,7 +106,7 @@ Ext.define("OMV.module.admin.storage.smart.Settings", {
 				value: 0,
 				plugins: [{
 					ptype: "fieldinfo",
-					text: _("Report if the temperature is greater or equal than N degrees Celsius. Set to 0 to disable this report.")
+					text: _("Report if the temperature is greater than or equal to N degrees Celsius. Set to 0 to disable this report.")
 				}]
 			},{
 				xtype: "numberfield",
@@ -119,7 +119,7 @@ Ext.define("OMV.module.admin.storage.smart.Settings", {
 				value: 0,
 				plugins: [{
 					ptype: "fieldinfo",
-					text: _("Report if the temperature is greater or equal than N degrees Celsius. Set to 0 to disable this report.")
+					text: _("Report if the temperature is greater than or equal to N degrees Celsius. Set to 0 to disable this report.")
 				}]
 			}]
 		}];
