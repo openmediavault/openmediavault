@@ -230,10 +230,16 @@ body > .x-mask {
 .x-btn-default-small {
 	border-color: $omv-color-default;
 	background-color: $omv-color-default;
+	border-radius: 2px;
 }
 .x-btn-focus.x-btn-default-small {
-	border-color: $omv-color-default;
-	background-color: $omv-color-default;
+	border-color: $omv-color-darker;
+	background-color: $omv-color-darker;
+}
+.x-btn-focus.x-btn-default-small,
+.x-btn-focus.x-btn-over.x-btn-default-small,
+.x-btn-focus.x-btn-pressed.x-btn-default-small {
+	box-shadow: none;
 }
 .x-btn-over.x-btn-default-small {
 	border-color: $omv-color-darker;
