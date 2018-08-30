@@ -19,30 +19,17 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/env.inc");
+try {
+	require_once("openmediavault/autoloader.inc");
 
-$prd = new \OMV\ProductInfo();
-$title = sprintf("%s - %s", $prd->getName(), gettext("Page not found"));
+	$page = new \OMV\ControlPanel\Http404();
+	$page->render();
+} catch(\Exception $e) {
+	// Send an error message to the web server's error log.
+	error_log($e->getMessage());
+	// Print the error message.
+	header("Content-Type: text/html");
+	printf("Error #".$e->getCode().":<br/>%s", str_replace("\n", "<br/>",
+	  $e->__toString()));
+}
 ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<title><?=$title;?></title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
-		<link rel="stylesheet" type="text/css" href="/extjs6/classic/theme-triton/resources/theme-triton-all.css"/>
-		<link rel="stylesheet" type="text/css" href="css/theme-all.min.css"/>
-	</head>
-	<body class="error-page">
-		<span class="error-icon x-fa fa-stack fa-2x">
-			<i class="x-color-red x-fa fa fa-stack-2x fa-circle"></i>
-			<i class="x-color-white x-fa fa fa-stack-1x fa-exclamation"></i>
-		</span>
-		<center>
-			<h1>Error 404</h1>
-			<p>Sorry, the page you requested was not found.</p>
-		</center>
-		<hr>
-		<a title='<?=$prd->getName();?>' href='<?=$prd->getURL();?>' target='_blank'><div class="product-logo"></div></a>
-	</body>
-</html>
