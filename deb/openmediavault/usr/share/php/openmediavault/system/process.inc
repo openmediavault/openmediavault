@@ -34,8 +34,8 @@ class Process {
 	private $quiet = FALSE;
 	private $background = FALSE;
 	private $env = [
-		"PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin",
-		"LANG=C"
+		"PATH" => "/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin",
+		"LANG" => "C"
 	];
 
 	/**
@@ -123,16 +123,23 @@ class Process {
 	}
 
 	/**
-	 * Set an environment variable.
-	 * @param name The name of the environment variable.
-	 * @param value The value of the environment variable.
+	 * Set an environment variable. To remove an environment variable
+	 * simply set an empty string value.
+	 * @param string $name The name of the environment variable.
+	 * @param mixed $value The value of the environment variable.
 	 * @return void
 	 */
 	public function setEnv($name, $value) {
-		if (1 == func_num_args())
-			$this->env[] = $name; // Keep backward compatibility.
-		else
-			$this->env[] = sprintf("%s=%s", $name, $value);
+		if (1 == func_num_args()) {
+			$parts = explode("=", $name);
+			$name = $parts[0];
+			$value = $parts[1];
+		}
+		if (empty($value)) {
+			array_remove_key($this->env, $name);
+			return;
+		}
+		$this->env[$name] = $value;
 	}
 
 	/**
@@ -141,8 +148,8 @@ class Process {
 	 */
 	public function getCommandLine() {
 		$cmdArgs = [];
-		foreach ($this->env as $env)
-			$cmdArgs[] = sprintf("export %s;", $env);
+		foreach ($this->env as $envk => $envv)
+			$cmdArgs[] = sprintf("export %s=%s;", $envk, strval($envv));
 		$cmdArgs = array_merge($cmdArgs, $this->cmdArgs);
 		if (FALSE === empty($this->redirect1toFile))
 			$cmdArgs[] = sprintf("1>%s", $this->redirect1toFile);

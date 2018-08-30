@@ -93,6 +93,19 @@ function array_sort_key(array &$array, $key) {
 }
 
 /**
+ * Remove an key from the given array.
+ * @param array $array The array to remove the key from.
+ * @param mixed $key The key to be removed.
+ * @return Returns TRUE on success, otherwise FALSE.
+ */
+function array_remove_key(array &$array, $key) {
+	if (FALSE === array_key_exists($key, $array))
+		return FALSE;
+	unset($array[$key]);
+	return TRUE;
+}
+
+/**
  * Filter an array of by key and values.
  * @ingroup api
  * @param array $array The array to process.

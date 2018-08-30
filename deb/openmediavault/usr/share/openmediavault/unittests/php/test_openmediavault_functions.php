@@ -235,4 +235,15 @@ class test_openmediavault_functions extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals(unescape_path("/srv/dev-disk-by-label-xx\\x20yy"),
 			"/srv/dev-disk-by-label-xx yy");
 	}
+
+	public function test_array_remove_key_exists() {
+		$d = ["a" => "xxx"];
+		$this->assertTrue(array_remove_key($d, "a"));
+		$this->assertEquals($d, []);
+	}
+
+	public function test_array_remove_key_not_exists() {
+		$d = ["b" => "yyy"];
+		$this->assertFalse(array_remove_key($d, "a"));
+	}
 }
