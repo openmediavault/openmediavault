@@ -12,6 +12,9 @@ openmediavault (5.0) unstable; urgency=low
 openmediavault (4.1.11) stable; urgency=low
 
   * Various CSS improvements.
+  * Issue #167: Improve \OMV\System\Process::setEnv() method to allow plugin
+    developers to disable localization when applications are executed. Default
+    is LANG=C.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 29 Aug 2018 07:43:07 +0200
 
