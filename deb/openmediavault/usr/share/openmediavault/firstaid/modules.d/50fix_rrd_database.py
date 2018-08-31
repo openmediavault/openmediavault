@@ -27,6 +27,7 @@ import openmediavault
 import openmediavault.config.database
 import openmediavault.firstaid
 import openmediavault.subprocess
+import subprocess
 
 class Module(openmediavault.firstaid.IModule):
 	@property
@@ -48,23 +49,37 @@ class Module(openmediavault.firstaid.IModule):
 			openmediavault.subprocess.check_call(
 				["monit", "stop", "rrdcached"])
 		for rrd_file in rrd_files:
-			ts_last = int(openmediavault.subprocess.check_output(
-				[ "rrdtool", "last", rrd_file ]).decode())
-			dt_now = datetime.datetime.now()
-			if datetime.datetime.utcfromtimestamp(ts_last) > dt_now:
-				invalid += 1
-				dirname = os.path.basename(os.path.dirname(rrd_file))
-				basename = os.path.basename(rrd_file)
-				d = dialog.Dialog(dialog="dialog")
-				code = d.yesno("The RRD file '../{}/{}' contains " \
-					"timestamps in future.\nDo you want to delete " \
-					"it?".format(dirname, basename),
-					backtitle=self.description,
-					height=7, width=65)
-				if code == d.ESC:
-					return 0
-				if code == d.OK:
-					os.remove(rrd_file)
+			output = None
+			remove_rrd = False
+			try:
+				output = openmediavault.subprocess.check_output(
+					[ "rrdtool", "last", rrd_file ],
+					stderr=subprocess.PIPE)
+			except subprocess.CalledProcessError as e:
+				if 'is not an RRD file' in e.stderr.decode():
+					invalid += 1
+					remove_rrd = True
+				else:
+					raise e
+			if output is not None:
+				ts_last = int(output.decode())
+				dt_now = datetime.datetime.now()
+				if datetime.datetime.utcfromtimestamp(ts_last) > dt_now:
+					invalid += 1
+					dirname = os.path.basename(os.path.dirname(rrd_file))
+					basename = os.path.basename(rrd_file)
+					d = dialog.Dialog(dialog="dialog")
+					code = d.yesno("The RRD file '../{}/{}' contains " \
+						"timestamps in future.\nDo you want to delete " \
+						"it?".format(dirname, basename),
+						backtitle=self.description,
+						height=7, width=65)
+					if code == d.ESC:
+						continue
+					if code == d.OK:
+						remove_rrd = True
+			if remove_rrd:
+				os.remove(rrd_file)
 		if invalid == 0:
 			print("All RRD database files are valid.")
 		else:
