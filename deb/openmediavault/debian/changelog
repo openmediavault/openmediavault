@@ -4,6 +4,8 @@ openmediavault (4.1.11) stable; urgency=low
   * Issue #167: Improve \OMV\System\Process::setEnv() method to allow plugin
     developers to disable localization when applications are executed. Default
     is LANG=C.
+  * Improve 'Check RRD database' in omv-firstaid. Handle errors like
+    'ERROR: '.../cpu-0/cpu-nice.rrd' is not an RRD file'.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 29 Aug 2018 07:43:07 +0200
 
