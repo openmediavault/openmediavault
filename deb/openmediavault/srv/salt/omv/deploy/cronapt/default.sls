@@ -21,6 +21,13 @@
   'conf.system.notification.notification',
   '{"operator": "stringEquals", "arg0": "id", "arg1": "cronapt"}')[0] %}
 {% set email_config = salt['omv.get_config']('conf.system.notification.email') %}
+{% set refrain_file = salt['pillar.get']('default:OMV_CRONAPT_REFRAINFILE', '/etc/cron-apt/refrain') %}
+
+# If this file exist cron-apt will silently exit, so make sure
+# it does not exist.
+remove_cron-apt_refrain_file:
+  file.absent:
+    - name: "{{ refrain_file }}"
 
 create_cron-apt_config:
   file.managed:
