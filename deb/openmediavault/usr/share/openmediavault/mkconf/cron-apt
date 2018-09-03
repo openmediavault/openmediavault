@@ -28,6 +28,7 @@ OMV_CRONAPT_CONFIG=${OMV_CRONAPT_CONFIG:-"/etc/cron-apt/config"}
 OMV_CRONAPT_MAILON=${OMV_CRONAPT_MAILON:-"upgrade"}
 OMV_CRONAPT_SYSLOGON=${OMV_CRONAPT_SYSLOGON:-"always"}
 OMV_CRONAPT_OPTIONS=${OMV_CRONAPT_OPTIONS:-"-o Acquire::http::Dl-Limit=25"}
+OMV_CRONAPT_REFRAINFILE=${OMV_CRONAPT_REFRAINFILE:-"/etc/cron-apt/refrain"}
 
 mkconf() {
 	# Disable email notification?
@@ -82,11 +83,15 @@ OPTIONS="${OMV_CRONAPT_OPTIONS}"
 
 EOF
 
-xmlstarlet sel -t -m "//system/email" \
-  -o "# The email address to send mail to." -n \
-  -i "enable[. != '1'] or //system/notification/notifications/cronapt[. != '1']" -o "#" -b \
-  -v "concat('MAILTO=\"',primaryemail,'\"')" \
-  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_CRONAPT_CONFIG}
+	xmlstarlet sel -t -m "//system/email" \
+	  -o "# The email address to send mail to." -n \
+	  -i "enable[. != '1'] or //system/notification/notifications/cronapt[. != '1']" -o "#" -b \
+	  -v "concat('MAILTO=\"',primaryemail,'\"')" \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_CRONAPT_CONFIG}
+
+	# If this file exist cron-apt will silently exit, so make sure
+	# it does not exist.
+	rm -rf "${OMV_CRONAPT_REFRAINFILE}"
 }
 
 case "$1" in
