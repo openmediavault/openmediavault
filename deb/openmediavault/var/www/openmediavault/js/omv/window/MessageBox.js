@@ -321,6 +321,8 @@ Ext.define("OMV.window.MessageBox", {
 	 *     or key has been pressed.
 	 *   \li scope The scope (this reference) in which the function will
 	 *     be executed.
+	 *   \li closable Set to FALSE to ignore mouse clicks and indefinitely
+	 *     display the message box.
 	 * @return The window object.
 	 */
 	guru: function(config) {
@@ -347,23 +349,25 @@ Ext.define("OMV.window.MessageBox", {
 			html: Ext.String.format("Software Failure.&nbsp;&nbsp;&nbsp;" +
 			  "Press left mouse button to continue.<br/>{0}", config.msg)
 		});
-		// Monitor key press and mouse clicks.
-		var fn = function(e, t, eOpts) {
-			// Unregister event handlers.
-			Ext.getBody().un({
+		if (!Ext.isDefined(config.closable) || (true === config.closable)) {
+			// Monitor key press and mouse clicks.
+			var fn = function(e, t, eOpts) {
+				// Unregister event handlers.
+				Ext.getBody().un({
+					keypress: fn,
+					click: fn
+				});
+				// Remove message box.
+				dlg.close();
+				// Execute given callback function.
+				if (Ext.isFunction(config.fn))
+					config.fn.call(config.scope || me, me);
+			};
+			Ext.getBody().on({
 				keypress: fn,
 				click: fn
 			});
-			// Remove message box.
-			dlg.close();
-			// Execute given callback function.
-			if (Ext.isFunction(config.fn))
-				config.fn.call(config.scope || me, me);
-		};
-		Ext.getBody().on({
-			keypress: fn,
-			click: fn
-		});
+		}
 		return dlg.show();
 	}
 }, function() {
