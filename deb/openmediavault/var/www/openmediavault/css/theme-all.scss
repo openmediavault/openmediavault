@@ -97,8 +97,8 @@
 	height: 42px;
 	right: 20px;
 	bottom: 20px;
-	background: url("/images/header_logo.png");
-	background: url("/images/header_logo.svg"), none;
+	background: url("../images/header_logo.png");
+	background: url("../images/header_logo.svg"), none;
 	background-size: 100% 100%;
 	background-attachment: scroll;
 	background-repeat: no-repeat;
@@ -164,8 +164,8 @@ div#headerlogo {
 	height: 42px;
 	margin-top: 20px;
 	margin-left: 20px;
-	background: url("/images/header_logo.png");
-	background: url("/images/header_logo.svg"), none;
+	background: url("../images/header_logo.png");
+	background: url("../images/header_logo.svg"), none;
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	background-color: transparent;
@@ -175,7 +175,7 @@ div#headerrlogo {
 	float: right;
 	height: 100%;
 	width: 362px;
-	background-image: url("/images/header_rlogo.png");
+	background-image: url("../images/header_rlogo.png");
 	display: none;
 }
 /******************************************************************************/
@@ -259,7 +259,7 @@ div#headerrlogo {
 }
 .x-mask-msg-text {
 	padding: 5px 5px 5px 20px;
-	background-image: url("/images/loading.gif");
+	background-image: url("../images/loading.gif");
 	background-repeat: no-repeat;
 	background-position: 0 center;
 }
