@@ -296,7 +296,7 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			// http://msdn.microsoft.com/en-us/library/windows/desktop/aa366101(v=vs.85).aspx
 			$replace = [];
 			foreach ([ ',', '+', '<', '>', ';', '\r', '=', '#', '/' ] as $v) {
-				$replace[$v] = sprintf("\\%s", strtoupper(str_pad(dechex(
+				$replace[$v] = sprintf("\\%s", mb_strtoupper(str_pad(dechex(
 				  ord($v)), 2, "0")));
 			}
 			$params[$rdnFieldv] = strtr($params[$rdnFieldv], $replace);
@@ -310,7 +310,7 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 					  $params[$rdnFieldv], $params['email']);
 				}
 			default:
-				$subject .= sprintf("/%s=%s", strtoupper($rdnFieldv),
+				$subject .= sprintf("/%s=%s", mb_strtoupper($rdnFieldv),
 				  $params[$rdnFieldv]);
 			}
 		}

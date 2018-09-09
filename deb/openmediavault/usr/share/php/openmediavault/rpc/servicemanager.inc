@@ -67,7 +67,7 @@ class ServiceManager {
 			  "The RPC service already exists (name=%s, class=%s)",
 			  $name, get_class($service));
 		}
-		$this->map[strtolower($name)] = $service;
+		$this->map[mb_strtolower($name)] = $service;
 		ksort($this->map);
 		return TRUE;
 	}
@@ -78,7 +78,7 @@ class ServiceManager {
 	 * @return The RPC service object or FALSE on failure.
 	 */
 	final public function getService($name) {
-		$name = strtolower($name);
+		$name = mb_strtolower($name);
 		if (!array_key_exists($name, $this->map))
 			return FALSE;
 		return $this->map[$name];

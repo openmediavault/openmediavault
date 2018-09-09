@@ -146,7 +146,7 @@ class Monit {
 			$status = trim($matches[2]);
 			break;
 		}
-		return strtolower($status);
+		return mb_strtolower($status);
 	}
 
 	/**

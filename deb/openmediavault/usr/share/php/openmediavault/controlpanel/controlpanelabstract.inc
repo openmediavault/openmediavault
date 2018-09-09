@@ -82,7 +82,7 @@ abstract class ControlPanelAbstract {
 			if ($item->isDot())
 				continue;
 			if ($item->isFile()) {
-				if ("js" !== strtolower($item->getExtension()))
+				if ("js" !== mb_strtolower($item->getExtension()))
 					continue;
 				$this->scanFiles($item->getPathname(), $incList);
 			}
@@ -157,7 +157,7 @@ EOF;
 		// list of include files will be cached.
 		$jsList = [];
 		$parts = [];
-		$parts[] = strtolower(get_class($this));
+		$parts[] = mb_strtolower(get_class($this));
 		$parts[] = $this->getCacheFileId();
 		$parts[] = "js";
 		$jsonFile = new \OMV\Json\File(sprintf("%s/cache.%s.json",

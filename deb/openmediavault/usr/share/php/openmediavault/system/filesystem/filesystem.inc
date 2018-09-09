@@ -145,7 +145,7 @@ class Filesystem extends \OMV\System\BlockDevice
 			$keyValue = explode("=", $partv);
 			if (count($keyValue) != 2)
 				continue;
-			$data[strtolower($keyValue[0])] = substr($keyValue[1], 1, -1);
+			$data[mb_strtolower($keyValue[0])] = substr($keyValue[1], 1, -1);
 		}
 
 		$this->deviceFile = $data['devicefile'];

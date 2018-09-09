@@ -362,7 +362,7 @@ class SmartInformation {
 				continue;
 			// Convert the attribute name, e.g. 'Device Model' to
 			// 'devicemodel'.
-			$attrKey = strtolower(str_replace(" ", "", $matches[1]));
+			$attrKey = mb_strtolower(str_replace(" ", "", $matches[1]));
 			// Append key/value to result array.
 			$result[$attrKey] = $matches[2];
 		}

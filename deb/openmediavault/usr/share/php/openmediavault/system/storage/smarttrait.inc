@@ -64,7 +64,7 @@ trait SmartTrait {
 			"c" => "conveyance",
 			"o" => "offline"
 		];
-		$test = strtolower($test);
+		$test = mb_strtolower($test);
 		if (TRUE === array_key_exists($test, $testMap))
 			$test = $testMap[$test];
 		$cmdArgs = [];

@@ -65,7 +65,7 @@ class Manager {
 				"It is already registered by '%s'.",
 				$name, get_class($module), get_class($existingModule));
 		}
-		$this->map[strtolower($name)] = $module;
+		$this->map[mb_strtolower($name)] = $module;
 		// Use optional alias?
 		$alias = $module->getAlias();
 		if (is_string($alias) && !empty($alias)) {
@@ -76,7 +76,7 @@ class Manager {
 					"It is already registered by '%s'.",
 					$alias, get_class($module), get_class($existingModule));
 			}
-			$this->map[strtolower($alias)] = $module;
+			$this->map[mb_strtolower($alias)] = $module;
 		}
 		ksort($this->map);
 		return TRUE;
@@ -88,7 +88,7 @@ class Manager {
 	 * @return object|null The module instance or FALSE on failure.
 	 */
 	final public function getModule($name) {
-		$name = strtolower($name);
+		$name = mb_strtolower($name);
 		if (!array_key_exists($name, $this->map))
 			return NULL;
 		return $this->map[$name];
@@ -136,7 +136,7 @@ class Manager {
 		else
 			$modules = $jsonFile->read();
 		// Append the specified dirty module.
-		$modules[] = strtolower($name);
+		$modules[] = mb_strtolower($name);
 		$modules = array_unique($modules);
 		$jsonFile->write($modules);
 		$jsonFile->close();
@@ -150,7 +150,7 @@ class Manager {
 	 */
 	final public function isModuleDirty($name) {
 		$modules = $this->getDirtyModules();
-		return in_array(strtolower($name), $modules);
+		return in_array(mb_strtolower($name), $modules);
 	}
 
 	/**

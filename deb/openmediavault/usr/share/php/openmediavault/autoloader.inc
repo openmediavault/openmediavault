@@ -26,6 +26,6 @@ spl_autoload_register(function($className) {
 		return;
 	array_unshift($parts, "openmediavault");
 	$pathName = mb_strtolower(sprintf("%s.inc", implode(DIRECTORY_SEPARATOR,
-		$parts)), "UTF-8");
+		$parts)));
 	include_once $pathName;
 });
