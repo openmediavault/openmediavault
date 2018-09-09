@@ -115,7 +115,7 @@ EOF;
 
 		// Set core CSS files.
 		$cssList = [
-			"/extjs6/classic/theme-triton/resources/theme-triton-all.css",
+			"extjs6/classic/theme-triton/resources/theme-triton-all.css",
 			"css/theme-all.min.css",
 			"css/theme-triton.min.css",
 			"css/materialdesignicons.min.css"
@@ -140,13 +140,13 @@ EOF;
 		];
 		if (TRUE === \OMV\Environment::getBoolean("OMV_DEBUG_EXTJS", FALSE)) {
 			$jsList = array_merge([
-				"/extjs6/ext-all-debug.js",
-				"/extjs6/classic/theme-triton/theme-triton-debug.js"
+				"extjs6/ext-all-debug.js",
+				"extjs6/classic/theme-triton/theme-triton-debug.js"
 			], $jsList);
 		} else {
 			$jsList = array_merge([
-				"/extjs6/ext-all.js",
-				"/extjs6/classic/theme-triton/theme-triton.js"
+				"extjs6/ext-all.js",
+				"extjs6/classic/theme-triton/theme-triton.js"
 			], $jsList);
 		}
 		foreach ($jsList as $jsListv) {
