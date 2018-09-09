@@ -68,7 +68,7 @@ class StorageDeviceMdadm extends StorageDevice {
 			$keyValue = explode("=", $outputv);
 			if (count($keyValue) != 2)
 				continue;
-			$attributes[strtolower($keyValue[0])] = $keyValue[1];
+			$attributes[mb_strtolower($keyValue[0])] = $keyValue[1];
 		}
 
 		$this->name = $attributes['name'];
@@ -131,7 +131,7 @@ class StorageDeviceMdadm extends StorageDevice {
 			if (empty($parts))
 				continue;
 			$parts = array_map("trim", $parts);
-			switch (strtolower($parts[0])) {
+			switch (mb_strtolower($parts[0])) {
 			case "state":
 				$this->state = $parts[1];
 				break;

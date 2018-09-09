@@ -251,7 +251,7 @@ function array_boolval(array $array, $key) {
 function boolvalEx($var) {
 	$result = false;
 	// Boolean 'true' => '1'
-	switch (strtolower(strval($var))) {
+	switch (mb_strtolower(strval($var))) {
 		case "1":
 		case "on":
 		case "yes":
@@ -788,8 +788,8 @@ function listdir($directory, $extension = "", $sortFlags = SORT_NATURAL) {
 			continue;
 		if (!$item->isFile())
 			continue;
-		if (!empty($extension) && ($extension !== strtolower(
-		  $item->getExtension())))
+		if (!empty($extension) && ($extension !== mb_strtolower(
+				$item->getExtension())))
 			continue;
 		$files[] = $item->getPathname();
 	}

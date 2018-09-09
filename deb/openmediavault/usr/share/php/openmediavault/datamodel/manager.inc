@@ -124,7 +124,7 @@ class Manager {
 				  $idv);
 			}
 			// Append the model.
-			$this->map[strtolower($idv)] = $model;
+			$this->map[mb_strtolower($idv)] = $model;
 			ksort($this->map);
 		}
 	}
@@ -134,7 +134,7 @@ class Manager {
 	 * @return TRUE if the data model is already registered, otherwise FALSE.
 	 */
 	final public function isRegistered($id) {
-		return array_key_exists(strtolower($id), $this->map);
+		return array_key_exists(mb_strtolower($id), $this->map);
 	}
 
 	/**
@@ -144,7 +144,7 @@ class Manager {
 	 * @throw \OMV\Exception
 	 */
 	final public function getModel($id) {
-		$id = strtolower($id);
+		$id = mb_strtolower($id);
 		if (!array_key_exists($id, $this->map)) {
 			throw new \OMV\Exception(
 			  "The data model '%s' does not exist.",

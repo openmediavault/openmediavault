@@ -76,8 +76,8 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 		// Get the product information to customize the syslog identity
 		// and cookie name.
 		$prd = new \OMV\ProductInfo();
-		$ident = strtolower(sprintf("%s-webgui", $prd->getName()));
-		$prefix = strtoupper(sprintf("X-%s-LOGIN", $prd->getName()));
+		$ident = mb_strtolower(sprintf("%s-webgui", $prd->getName()));
+		$prefix = mb_strtoupper(sprintf("X-%s-LOGIN", $prd->getName()));
 		// Open connection to system logger.
 		openlog($ident, LOG_PID | LOG_PERROR, LOG_AUTH);
 		if (TRUE === $authenticated) {

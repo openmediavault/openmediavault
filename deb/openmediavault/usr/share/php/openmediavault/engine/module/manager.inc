@@ -64,7 +64,7 @@ class Manager {
 			  "The module already exists (name=%s, class=%s)",
 			  $name, get_class($module));
 		}
-		$this->map[strtolower($name)] = $module;
+		$this->map[mb_strtolower($name)] = $module;
 		ksort($this->map);
 		return TRUE;
 	}
@@ -75,7 +75,7 @@ class Manager {
 	 * @return The module object or FALSE on failure.
 	 */
 	final public function getModule($name) {
-		$name = strtolower($name);
+		$name = mb_strtolower($name);
 		if (!array_key_exists($name, $this->map))
 			return FALSE;
 		return $this->map[$name];
@@ -122,7 +122,7 @@ class Manager {
 		else
 			$modules = $jsonFile->read();
 		// Append the specified dirty module.
-		$modules[] = strtolower($name);
+		$modules[] = mb_strtolower($name);
 		$modules = array_unique($modules);
 		$jsonFile->write($modules);
 		$jsonFile->close();
@@ -136,7 +136,7 @@ class Manager {
 	 */
 	final public function isModuleDirty($name) {
 		$modules = $this->getDirtyModules();
-		return in_array(strtolower($name), $modules);
+		return in_array(mb_strtolower($name), $modules);
 	}
 
 	/**

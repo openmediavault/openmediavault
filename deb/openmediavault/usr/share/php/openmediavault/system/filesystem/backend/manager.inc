@@ -53,7 +53,7 @@ class Manager implements \IteratorAggregate {
 	final public function registerBackend(BackendAbstract $backend) {
 		if (!isset($backend))
 			return FALSE;
-		$type = strtolower($backend->getType());
+		$type = mb_strtolower($backend->getType());
 		// Check if the filesystem backend already exists.
 		if (NULL !== ($registeredBackend = $this->getBackendByType($type))) {
 			throw new \OMV\Exception("The filesystem backend (type=%s, ".
@@ -71,7 +71,7 @@ class Manager implements \IteratorAggregate {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	final public function unregisterBackend($type) {
-		$type = strtolower($type);
+		$type = mb_strtolower($type);
 		if (NULL === $this->getBackendByType($type))
 			return FALSE;
 		unset($this->map[$type]);
@@ -86,7 +86,7 @@ class Manager implements \IteratorAggregate {
 	 *   NULL.
 	 */
 	final public function getBackendByType($type) {
-		$type = strtolower($type);
+		$type = mb_strtolower($type);
 		if (!array_key_exists($type, $this->map))
 			return NULL;
 		return $this->map[$type];
@@ -241,7 +241,8 @@ class Manager implements \IteratorAggregate {
 				$keyValue = explode("=", $partv);
 				if (count($keyValue) != 2)
 					continue;
-				$data[strtolower($keyValue[0])] = substr($keyValue[1], 1, -1);
+				$data[mb_strtolower($keyValue[0])] = substr(
+					$keyValue[1], 1, -1);
 			}
 			// Append the found filesystem to the list for further processing.
 			if (!array_key_exists($data['type'], $blkidEnumsByType))

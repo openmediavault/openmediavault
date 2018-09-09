@@ -589,7 +589,7 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 				"c" => "conveyance",
 				"o" => "offline"
 			];
-			$test = strtolower($object->get("type"));
+			$test = mb_strtolower($object->get("type"));
 			if (TRUE === array_key_exists($test, $testMap))
 				$test = $testMap[$test];
 			$cmdArgs = [];

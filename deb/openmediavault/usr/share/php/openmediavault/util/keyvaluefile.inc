@@ -116,7 +116,7 @@ class KeyValueFile {
 			$key = trim($matches[1]);
 			$key = str_replace(" ", $this->keyNameDelimiter, $key);
 			if (FALSE === $this->keyCaseSensitiv)
-				$key = strtolower($key);
+				$key = mb_strtolower($key);
 			// Add key/value pair.
 			$map[$key] = trim($matches[2]);
 		}
