@@ -25,7 +25,7 @@ spl_autoload_register(function($className) {
 	if ("OMV" !== $prefix)
 		return;
 	array_unshift($parts, "openmediavault");
-	$pathName = strtolower(sprintf("%s.inc", implode(DIRECTORY_SEPARATOR,
-	  $parts)));
+	$pathName = mb_strtolower(sprintf("%s.inc", implode(DIRECTORY_SEPARATOR,
+		$parts)));
 	include_once $pathName;
 });
