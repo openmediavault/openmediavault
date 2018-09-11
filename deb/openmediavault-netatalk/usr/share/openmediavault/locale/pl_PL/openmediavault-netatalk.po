@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012
-# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013-2014,2016
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013-2014,2016,2018
 # Jacek Niedziółka <>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-30 08:41+0200\n"
-"PO-Revision-Date: 2017-09-19 12:24+0000\n"
+"PO-Revision-Date: 2018-08-31 07:27+0000\n"
 "Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/votdev/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +39,7 @@ msgid "Allow plain passwords"
 msgstr "Pozwól na nieszyfrowane hasła"
 
 msgid "Apple Filing"
-msgstr "Zgłoszenia Apple"
+msgstr "Zasoby Apple"
 
 msgid "Case folding"
 msgstr "Składana skrzynka"
