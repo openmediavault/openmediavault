@@ -11,6 +11,7 @@ openmediavault (5.0) unstable; urgency=low
 
 openmediavault (4.1.11) stable; urgency=low
 
+  * Update locales.
   * Various CSS improvements.
   * Use relative URL paths. Thanks to zguithues for showing this problem.
   * Issue #167: Improve \OMV\System\Process::setEnv() method to allow plugin
