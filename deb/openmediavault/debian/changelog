@@ -9,6 +9,12 @@ openmediavault (5.0) unstable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 May 2018 22:06:11 +0200
 
+openmediavault (4.1.12) stable; urgency=low
+
+  * Fix display bug in S.M.A.R.T. attributes grid.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 13 Sep 2018 07:59:35 +0200
+
 openmediavault (4.1.11) stable; urgency=low
 
   * Update locales.
