@@ -221,8 +221,9 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 		dataIndex: "assessment",
 		stateId: "assessment",
 		align: "center",
+		resizable: false,
 		width: 80,
-		renderer: function(value, metaData, record) {
+		getFontIconCls: function(value, metaData, record) {
 			var colorCls = Ext.baseCSSPrefix + "color-gray";
 			if (true === record.get("prefailure")) {
 				switch (value) {
