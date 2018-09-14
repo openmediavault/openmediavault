@@ -19,28 +19,26 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Net\NetworkInterfaceBackend;
+namespace OMV\System\Net;
 
 /**
- * Implements the network interface backend for VLAN devices.
+ * This class provides a interface to handle Linux VLAN network interfaces.
  * @ingroup api
  */
-class Vlan extends BackendAbstract {
-	protected $regex = "/^(\S+\d+)\.(\d+)$/i";
-
-	function getType() {
-		return OMV_NETWORK_INTERFACE_TYPE_VLAN;
-	}
-
-	function enumerate() {
-		return $this->enumerateSysFs($this->regex);
-	}
-
-	function isTypeOf($deviceName) {
-		return $this->isTypeOfByName($deviceName, $this->regex);
-	}
-
-	function getImpl($args) {
-		return new \OMV\System\Net\NetworkInterfaceVlan($args);
+class NetworkInterfaceVlan extends NetworkInterface {
+	/**
+	 * Delete the network interface.
+	 * @throw \OMV\ExecException
+	 */
+	public function delete() {
+		parent::delete();
+		$cmdArgs = [];
+		$cmdArgs[] = "link";
+		$cmdArgs[] = "del";
+		$cmdArgs[] = "dev";
+		$cmdArgs[] = escapeshellarg($this->getDeviceName());
+		$cmd = new \OMV\System\Process("ip", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute();
 	}
 }

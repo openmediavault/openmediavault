@@ -1,6 +1,7 @@
 openmediavault (4.1.12) stable; urgency=low
 
   * Fix display bug in S.M.A.R.T. attributes grid.
+  * Improve network interface deletion.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 13 Sep 2018 07:59:35 +0200
 

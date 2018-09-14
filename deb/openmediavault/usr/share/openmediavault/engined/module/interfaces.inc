@@ -60,19 +60,21 @@ class OMVModuleInterfaces extends \OMV\Engine\Module\ServiceAbstract
 	 * @return void
 	 */
 	final public function onDeleteInterface($type, $path, $object) {
-		if ("bond" == $object['type'])
-			$this->addTask("delete", "deleteBondInterface", $object);
+		if (!in_array($object['type'], [ "ethernet", "wireless" ])) {
+			$this->addTask("delete", "deleteInterface", $object);
+		}
 	}
 
 	/**
-	 * Helper method to remove a bond interface.
+	 * Helper method to remove a network interface.
 	 * @param params The method parameters.
 	 */
-	final public function deleteBondInterface($params) {
-		$iface = new \OMV\System\Net\NetworkInterfaceBond(
-			$params['devicename']);
-		if ($iface->exists())
+	final public function deleteInterface($params) {
+		$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
+		$iface = $mngr->getImpl($params['devicename']);
+		if (!is_null($iface) && $iface->exists()) {
 			$iface->delete();
+		};
 	}
 
 	/**
