@@ -1,3 +1,5 @@
+#!/bin/sh
+#
 # This file is part of OpenMediaVault.
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
@@ -17,20 +19,10 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set dirpath = '/srv/salt' | path_join(slspath) %}
+set -e
 
-include:
-{% for file in salt['file.readdir'](dirpath) | sort %}
-{% if file | regex_match('^(\d+.+).sls$', ignorecase=True) %}
-  - .{{ file | replace('.sls', '') }}
-{% endif %}
-{% endfor %}
+. /usr/share/openmediavault/scripts/helper-functions
 
-restart_systemd_networkd:
-  # Force service.running to always restart the service.
-  test.succeed_with_changes:
-    - watch_in:
-      - service: restart_systemd_networkd
-  service.running:
-    - name: systemd-networkd
-    - enable: True
+omv_config_delete "/config/system/network/interfaces/interface/options"
+
+exit 0

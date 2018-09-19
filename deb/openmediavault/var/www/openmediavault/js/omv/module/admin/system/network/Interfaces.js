@@ -274,15 +274,6 @@ Ext.define("OMV.module.admin.system.network.interface.window.Generic", {
 				name: "wol",
 				fieldLabel: _("Wake-on-LAN"),
 				checked: false
-			},{
-				xtype: "textfield",
-				name: "options",
-				fieldLabel: _("Options"),
-				allowBlank: true,
-				plugins: [{
-					ptype: "fieldinfo",
-					text: _("Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> for more details.")
-				}]
 			}]);
 			break;
 		}
@@ -1008,7 +999,6 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 						{ name: "dnssearch", type: "string" },
 						{ name: "mtu", type: "int" },
 						{ name: "wol", type: "boolean" },
-						{ name: "options", type: "string" },
 						{ name: "comment", type: "string" }
 					]
 				}),

@@ -18,20 +18,21 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# https://wiki.archlinux.org/index.php/Systemd-networkd
-# http://enricorossi.org/blog/2017/systemd_network_vlan_interface_up/
+# https://wiki.archlinux.org/index.php/Systemd-networkd#Wireless_adapter
+# https://www.linkedin.com/pulse/using-systemd-networkd-manage-your-network-ajibola-okubanjo
+# https://remy.grunblatt.org/using-systemd-networkd-with-wpa_supplicant-to-manage-wireless-network-configuration.html
 
 {% set interfaces = salt['omv.get_config_by_filter'](
   'conf.system.network.interface',
-  '{"operator": "stringEquals", "arg0": "type", "arg1": "vlan"}') %}
+  '{"operator": "stringEquals", "arg0": "type", "arg1": "wireless"}') %}
 
 {% for interface in interfaces %}
 
-configure_interface_vlan_{{ interface.vlanrawdevice }}.{{ interface.vlanid }}_netdev:
+configure_interface_wireless_{{ interface.devicename }}_network:
   file.managed:
-    - name: "/etc/systemd/network/openmediavault-{{ interface.vlanrawdevice }}.{{ interface.vlanid }}.netdev"
+    - name: "/etc/systemd/network/openmediavault-{{ interface.devicename }}.network"
     - source:
-      - salt://{{ slspath }}/files/vlan_netdev.j2
+      - salt://{{ slspath }}/files/wireless_network.j2
     - template: jinja
     - context:
         interface: {{ interface | json }}
@@ -39,26 +40,27 @@ configure_interface_vlan_{{ interface.vlanrawdevice }}.{{ interface.vlanid }}_ne
     - group: root
     - mode: 644
 
-configure_interface_vlan_{{ interface.vlanrawdevice }}.{{ interface.vlanid }}_network:
+configure_wpa_supplicant_{{ interface.devicename }}:
   file.managed:
-    - name: "/etc/systemd/network/openmediavault-{{ interface.vlanrawdevice }}.{{ interface.vlanid }}.network"
-    - source:
-      - salt://{{ slspath }}/files/vlan_network.j2
-    - template: jinja
-    - context:
-        interface: {{ interface | json }}
+    - name: "/etc/wpa_supplicant/wpa_supplicant-{{ interface.devicename }}.conf"
+    - contents: |
+        ctrl_interface=/var/run/wpa_supplicant
+        ctrl_interface_group=0
+        update_config=1
+        eapol_version=1
+        ap_scan=1
+        fast_reauth=1
+        network={
+          ssid="{{ interface.wpassid }}"
+          psk="{{ interface.wpapsk }}"
+        }
     - user: root
     - group: root
-    - mode: 644
+    - mode: 640
 
-configure_interface_vlan_{{ interface.vlanrawdevice }}_network:
-  file.touch:
-    - name: "/etc/systemd/network/openmediavault-{{ interface.vlanrawdevice }}.network"
-  ini.options_present:
-    - name: "/etc/systemd/network/openmediavault-{{ interface.vlanrawdevice }}.network"
-    - separator: "="
-    - sections:
-        Network:
-          VLAN: {{ interface.vlanrawdevice }}.{{ interface.vlanid }}
+restart_wpa_supplicant_{{ interface.devicename }}:
+  service.running:
+    - name: wpa_supplicant@{{ interface.devicename }}
+    - enable: True
 
 {% endfor %}

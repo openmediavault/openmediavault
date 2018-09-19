@@ -95,6 +95,7 @@ case "$1" in
 			# Setup all services.
 			####################################################################
 			echo "Updating service units ..."
+			# Stop/Disable various services.
 			deb-systemd-helper disable chrony.service
 			deb-systemd-invoke stop chrony.service || :
 			deb-systemd-helper disable smartmontools.service
@@ -114,6 +115,12 @@ case "$1" in
 			# The salt-minion service does not need to be running when
 			# running a masterless minion setup.
 			deb-systemd-invoke stop salt-minion.service || :
+
+			# Enable/Start various services.
+			deb-systemd-helper enable systemd-networkd.service
+			deb-systemd-invoke start systemd-networkd.service || :
+			deb-systemd-helper enable systemd-resolved.service
+			deb-systemd-invoke start systemd-resolved.service || :
 		fi
 
 		# Create public/private SSH key pair for user root.
@@ -166,7 +173,7 @@ case "$1" in
 			echo "Deploying service configurations ..."
 			omv-salt deploy run --quiet mdadm cpufrequtils cronapt watchdog \
 				monit rrdcached avahi ssh nginx collectd phpfpm issue sysctl \
-				acpid
+				acpid resolvconf
 		fi
 
 		########################################################################

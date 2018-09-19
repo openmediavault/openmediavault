@@ -70,9 +70,6 @@
 			"type": "boolean",
 			"default": false
 		},
-		"options": {
-			"type": "string"
-		},
 		"comment": {
 			"type": "string"
 		},

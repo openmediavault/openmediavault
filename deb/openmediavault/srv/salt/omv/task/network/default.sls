@@ -17,14 +17,13 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-configure_interfaces:
-  file.managed:
-    - name: "/etc/network/interfaces"
-    - contents:
-      - "{{ pillar['headers']['auto_generated'] }}"
-      - "{{ pillar['headers']['warning'] }}"
-      - ""
-      - ""
-    - user: root
-    - group: root
-    - mode: 644
+{% set dirpath = '/srv/salt' | path_join(slspath) %}
+
+include:
+{% for file in salt['file.readdir'](dirpath) %}
+{% if file not in ('.', '..', 'init.sls', 'default.sls') %}
+{% if file.endswith('.sls') %}
+  - .{{ file | replace('.sls', '') }}
+{% endif %}
+{% endif %}
+{% endfor %}

@@ -24,6 +24,10 @@ import os
 import re
 import subprocess
 
+# Import Salt libs
+import salt.utils.network
+from salt.utils.decorators.jinja import jinja_filter
+
 def _get_config(args):
 	"""
 	Use the CLI tool to query the database. As soon as Salt is Python 3
@@ -75,3 +79,11 @@ def is_ipv6_enabled():
 	# Filter unwanted interfaces.
 	lines = [l for l in lines if not re.match(r'^\s+lo$', l)]
 	return len(lines) > 0
+
+@jinja_filter('network_prefix_len')
+def get_net_size(mask):
+	"""
+	Turns an IPv4 netmask into it's corresponding prefix length
+	(255.255.255.0 -> 24 as in 192.168.1.10/24).
+	"""
+	return salt.utils.network.get_net_size(mask)

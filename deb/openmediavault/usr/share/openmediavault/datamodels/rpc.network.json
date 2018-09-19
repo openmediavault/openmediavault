@@ -69,10 +69,6 @@
 			   "type": "boolean",
 			   "required": true
 			},
-			"options": {
-			   "type": "string",
-			   "required": true
-			},
 			"comment": {
 			   "type": "string",
 			   "required": true
@@ -148,10 +144,6 @@
 			},
 			"wol": {
 			   "type": "boolean",
-			   "required": true
-			},
-			"options": {
-			   "type": "string",
 			   "required": true
 			},
 			"comment": {
@@ -260,10 +252,6 @@
 			   "type": "boolean",
 			   "required": true
 			},
-			"options": {
-			   "type": "string",
-			   "required": true
-			},
 			"comment": {
 			   "type": "string",
 			   "required": true
@@ -349,10 +337,6 @@
 			},
 			"wol": {
 			   "type": "boolean",
-			   "required": true
-			},
-			"options": {
-			   "type": "string",
 			   "required": true
 			},
 			"comment": {

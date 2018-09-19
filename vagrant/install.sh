@@ -21,6 +21,9 @@
 
 set -e
 
+# Remove the default systemd-networkd configuration file.
+rm -f /etc/systemd/network/99-dhcp.network
+
 # Append user 'vagrant' to group 'ssh', otherwise the user is not allowed
 # to log in via SSH.
 usermod --groups ssh --append vagrant

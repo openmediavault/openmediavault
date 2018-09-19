@@ -18,22 +18,26 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# https://docs.saltstack.com/en/latest/ref/states/all/salt.states.network.html
-# https://github.com/saltstack/salt/blob/develop/salt/states/network.py
-# https://github.com/saltstack/salt/blob/develop/salt/modules/debian_ip.py
-# https://github.com/saltstack/salt/blob/develop/salt/templates/debian_ip/debian_eth.jinja
+# https://www.freedesktop.org/software/systemd/man/systemd.network.html
+# https://wiki.archlinux.org/index.php/Systemd-networkd
+# https://manpages.debian.org/systemd/systemd.link.5.en.html
 
-{% set dns = salt['omv.get_config']('conf.system.network.dns') %}
 {% set interfaces = salt['omv.get_config_by_filter'](
   'conf.system.network.interface',
-  '{"operator": "stringEquals", "arg0": "type", "arg1": "wireless"}') %}
+  '{"operator": "stringEquals", "arg0": "type", "arg1": "ethernet"}') %}
 
-configure_interfaces_wl:
-  file.append:
-    - name: "/etc/network/interfaces"
-    - sources:
-      - salt://{{ slspath }}/files/wl.j2
+{% for interface in interfaces %}
+
+configure_interface_wired_{{ interface.devicename }}_network:
+  file.managed:
+    - name: "/etc/systemd/network/openmediavault-{{ interface.devicename }}.network"
+    - source:
+      - salt://{{ slspath }}/files/wired_network.j2
     - template: jinja
     - context:
-        dns: {{ dns | json }}
-        interfaces: {{ interfaces | json }}
+        interface: {{ interface | json }}
+    - user: root
+    - group: root
+    - mode: 644
+
+{% endfor %}
