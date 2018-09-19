@@ -28,11 +28,7 @@ class Sharedfolders extends \OMV\Engine\Module\ServiceAbstract
 	}
 
 	public function deployAfter(): array {
-		return ["systemd"];
-	}
-
-	public function preDeploy() {
-		$this->execTasks("delete");
+		return ["systemd", "task"];
 	}
 
 	public function deploy() {
@@ -45,28 +41,12 @@ class Sharedfolders extends \OMV\Engine\Module\ServiceAbstract
 	 * @param path The event message path.
 	 * @param object The configuration object.
 	 */
-	final public function onDelete($type, $path, $object) {
-		$this->addTask("delete", "deleteEntry", $object);
-	}
-
-	/**
-	 * Helper method to umount a shared folder alias.
-	 * @param params The method parameters.
-	 */
-	final public function deleteEntry($params) {
-		$dirPath = build_path(DIRECTORY_SEPARATOR,
-			\OMV\Environment::get("OMV_SHAREDFOLDERS_DIR"),
-			$params['name']);
-		$unitName = \OMV\System\SystemCtl::escape($dirPath,
-			["--path", "--suffix=mount"]);
-		// Umount and disable the shared folder bind mount.
-		$systemCtl = new \OMV\System\SystemCtl($unitName);
-		if ($systemCtl->isActive())
-			$systemCtl->disable(TRUE);
-		// Unlink the directory.
-		$mp = new \OMV\System\MountPoint($dirPath);
-		if (FALSE === $mp->isMountPoint())
-			$mp->unlink();
+	final public function onDeleteSharedFolder($type, $path, $object) {
+		// Create a new task that will delete the network interface
+		// before the network configuration is deployed.
+		\OMV\Salt\Task::create("omv.task.sharedfolder_alias.disable", [
+			"name" => $object['name']
+		]);
 	}
 
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
@@ -77,7 +57,7 @@ class Sharedfolders extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 			OMV_NOTIFY_DELETE,
 			"org.openmediavault.conf.system.sharedfolder",
-			[$this, "onDelete"]);
+			[$this, "onDeleteSharedFolder"]);
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
