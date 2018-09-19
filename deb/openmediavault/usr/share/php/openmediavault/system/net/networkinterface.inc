@@ -132,6 +132,15 @@ class NetworkInterface {
 		$cmd = new \OMV\System\Process("ip", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute();
+		// Remove all addresses.
+		$cmdArgs = [];
+		$cmdArgs[] = "addr";
+		$cmdArgs[] = "flush";
+		$cmdArgs[] = "dev";
+		$cmdArgs[] = escapeshellarg($this->getDeviceName());
+		$cmd = new \OMV\System\Process("ip", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute();
 	}
 
 	/**
