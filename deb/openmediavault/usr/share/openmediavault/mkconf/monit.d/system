@@ -42,7 +42,7 @@ EOF
 # Monitor load average.
 if [ "$(omv_config_get "//system/notification/notifications/notification[id='monitloadavg']/enable")" = "1" ]; then
 	# Get the number of CPU's
-	numcpu=$(grep -ci ^processor /proc/cpuinfo)
+	numcpu=$(nproc --all)
 
 	cat <<EOF >> ${OMV_MONIT_SERVICE_SYSTEM_CONFIG}
   if loadavg (1min) > $((${numcpu} * ${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_1MIN_MULT})) for ${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_1MIN_CYCLES} cycles then alert
