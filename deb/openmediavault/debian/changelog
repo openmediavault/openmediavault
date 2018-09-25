@@ -2,6 +2,7 @@ openmediavault (4.1.12) stable; urgency=low
 
   * Fix display bug in S.M.A.R.T. attributes grid.
   * Improve network interface deletion.
+  * Fix sharedfolders-<NAME>.mount issue.
   * Issue #174: omv-mkconf monit script may calculate incorrect number of CPUs.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 13 Sep 2018 07:59:35 +0200

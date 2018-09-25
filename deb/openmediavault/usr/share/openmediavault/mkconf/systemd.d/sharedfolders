@@ -45,6 +45,7 @@ find "${OMV_SYSTEMD_CUSTOM_UNITS_DIR}" -type f -iname "${unitfiletpl}-*.mount" -
 omv-confdbadm read "conf.system.sharedfolder" |
     jq -r ".[] | .uuid" |
     while read uuid; do
+        mntdir=$(omv_get_sharedfolder_mount_dir "${uuid}")
         name=$(omv_get_sharedfolder_name "${uuid}")
         what=$(omv_get_sharedfolder_path "${uuid}")
         where="${OMV_SHAREDFOLDERS_DIR}/${name}"
@@ -58,7 +59,10 @@ Description=Mount shared folder ${name} to ${where}
 DefaultDependencies=no
 After=zfs-mount.service
 Conflicts=umount.target
-RequiresMountsFor=${what} ${OMV_SHAREDFOLDERS_DIR}
+RequiresMountsFor=${mntdir}
+AssertPathIsDirectory=${what}
+AssertPathIsDirectory=${OMV_SHAREDFOLDERS_DIR}
+AssertPathIsMountPoint=${mntdir}
 
 [Mount]
 What=${what}
