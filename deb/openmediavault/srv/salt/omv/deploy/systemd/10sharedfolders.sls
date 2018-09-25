@@ -29,6 +29,7 @@ remove_sharedfolder_mount_unit_files:
       - delete: "f"
 
 {% for sharedfolder in sharedfolders %}
+{% set mntdir = salt['omv.get_sharedfolder_mount_dir'](sharedfolder.uuid) %}
 {% set what = salt['omv.get_sharedfolder_path'](sharedfolder.uuid) %}
 {% set where = sharedfolders_path | path_join(sharedfolder.name) %}
 {% set unit_name = salt['cmd.run']('systemd-escape --path --suffix=mount ' ~ where) %}
@@ -44,7 +45,10 @@ configure_sharedfolder_{{ sharedfolder.name }}_mount_unit_file:
         DefaultDependencies=no
         After=zfs-mount.service
         Conflicts=umount.target
-        RequiresMountsFor={{ what }} {{ sharedfolders_path }}
+        RequiresMountsFor={{ mntdir }}
+        AssertPathIsDirectory={{ what }}
+        AssertPathIsDirectory={{ sharedfolders_path }}
+        AssertPathIsMountPoint={{ mntdir }}
 
         [Mount]
         What={{ what }}
