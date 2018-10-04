@@ -4,6 +4,7 @@ openmediavault (4.1.12) stable; urgency=low
   * Improve network interface deletion.
   * Fix sharedfolders-<NAME>.mount issue.
   * Issue #174: omv-mkconf monit script may calculate incorrect number of CPUs.
+  * Issue #178: Improve password/public key handling in rsync jobs.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 13 Sep 2018 07:59:35 +0200
 
