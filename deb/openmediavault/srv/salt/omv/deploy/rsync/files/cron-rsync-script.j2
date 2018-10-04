@@ -47,14 +47,10 @@ touch {{ runfile }}
 omv_log "Please wait, syncing <{{ srcuri }}> to <{{ desturi }}> ...\n"
 {%- endif %}
 {%- if job.authentication == 'password' and job.password | length > 0 %}
-env RSYNC_PASSWORD="{{ job.password }}"{{ separator }}
-{%- endif %}
-{%- if job.authentication == 'pubkey' %}
-eval $(ssh-agent) >/dev/null
-ssh-add {{ ssh_keys_dir | path_join(ssh_key_prefix ~ job.sshcertificateref) }} >/dev/null
+export RSYNC_PASSWORD="{{ job.password }}"
 {%- endif %}
 rsync --verbose --log-file="{{ logfile }}"
-{%- if job.authentication == 'pubkey' %}{{ separator }}--rsh "ssh -p {{ job.sshport }}"{%- endif %}
+{%- if job.authentication == 'pubkey' %}{{ separator }}--rsh "ssh -p {{ job.sshport }} -i '{{ ssh_keys_dir | path_join(ssh_key_prefix ~ job.sshcertificateref) }}'"{%- endif %}
 {%- if job.recursive | to_bool %}{{ separator }}--recursive{%- endif %}
 {%- if job.times | to_bool %}{{ separator }}--times{%- endif %}
 {%- if job.compress | to_bool %}{{ separator }}--compress{%- endif %}

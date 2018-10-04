@@ -60,6 +60,6 @@ configure_rsync_cron_script_{{ job.uuid }}:
     - template: jinja
     - user: root
     - group: root
-    - mode: 744
+    - mode: 750
 
 {% endfor %}
