@@ -21,6 +21,9 @@
 
 # Documentation/Howto:
 # http://wiki.dreamhost.com/index.php/Crontab
+#
+# Copy public key to target system:
+# ssh-copy-id -i /etc/ssh/openmediavault-<UUID> <USERNAME>@<HOSTNAME>
 
 set -e
 
@@ -32,7 +35,7 @@ OMV_SSH_KEYS_DIR=${OMV_SSH_KEYS_DIR:-"/etc/ssh"}
 OMV_SSH_KEY_PREFIX=${OMV_SSH_KEY_PREFIX:-"openmediavault-"}
 
 OMV_RSYNC_CRONSCRIPT=${OMV_RSYNC_CRONSCRIPT:-"/etc/cron.d/openmediavault-rsync"}
-OMV_RSYNC_CRONSCRIPT_MASK=${OMV_RSYNC_CRONSCRIPT_MASK:-"755"}
+OMV_RSYNC_CRONSCRIPT_MASK=${OMV_RSYNC_CRONSCRIPT_MASK:-"750"}
 OMV_RSYNC_CRONSCRIPT_TEMPLATE=${OMV_RSYNC_CRONSCRIPT_TEMPLATE:-"rsync-"}
 OMV_RSYNC_CRONUSER=${OMV_RSYNC_CRONUSER:-"root"}
 OMV_RSYNC_LOGFILE=${OMV_RSYNC_LOGFILE:-"/var/log/rsync.log"}
@@ -118,15 +121,14 @@ xmlstarlet sel -t \
 		  -o "omv_log \"Please wait, syncing <${srcuri}> to <${desturi}> ...\n\"" -n \
 		-b \
 		-i "authentication = 'password'" \
-		  -i "string-length(password) > 0" -v "concat('env RSYNC_PASSWORD=\"',password,'\" ')" -b \
-		-b \
-		-i "authentication = 'pubkey'" \
-		  -o "eval \$(ssh-agent) >/dev/null" -n \
-		  -v "concat('ssh-add ${OMV_SSH_KEYS_DIR}/${OMV_SSH_KEY_PREFIX}',sshcertificateref,' >/dev/null')" -n \
+		  -i "string-length(password) > 0" -v "concat('export RSYNC_PASSWORD=\"',password,'\"')" -n -b \
 		-b \
 		-o "rsync --verbose --log-file=\"${OMV_RSYNC_LOGFILE}\"" \
 		-i "authentication = 'pubkey'" \
-		  -v "concat(' --rsh \"ssh -p ',sshport,'\"')" \
+		  -o " --rsh \"" \
+		  -v "concat('ssh -p ',sshport)" \
+		  -o " -i '${OMV_SSH_KEYS_DIR}/${OMV_SSH_KEY_PREFIX}" -v "sshcertificateref" -o "'" \
+		  -o "\"" \
 		-b \
 		-i "recursive = '1'" -o " --recursive" -b \
 		-i "times = '1'" -o " --times" -b \
