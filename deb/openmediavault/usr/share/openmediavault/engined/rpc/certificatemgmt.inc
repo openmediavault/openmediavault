@@ -42,6 +42,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("getSsh");
 		$this->registerMethod("setSsh");
 		$this->registerMethod("deleteSsh");
+		$this->registerMethod("copySshId");
 	}
 
 	/**
@@ -526,5 +527,48 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$db->delete($object);
 		// Return the deleted configuration object.
 		return $object->getAssoc();
+	}
+
+	/**
+	 * Copy the public key of a SSH certificate to a remote machine.
+	 * @param params An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 *   \em hostname The hostname of the remote machine.
+	 *   \em port The SSH port of the remote machine.
+	 *   \em username The name of the user.
+	 *   \em password The user password.
+	 * @param context The context of the caller.
+	 */
+	public function copySshId($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.certificatemgmt.copySshId");
+		// Simply ensure the specified SSH certificate exists.
+		$db = \OMV\Config\Database::getInstance();
+		$db->get("conf.system.certificate.ssh", $params['uuid']);
+		// Create the temporary file that contains the password.
+		$pwdFile = new \OMV\System\TmpFile();
+		$pwdFile->write($params['password']);
+		// Build the command to copy the public SSH key to the remote system.
+		$cmdArgs = [];
+		$cmdArgs[] = "-v";
+		$cmdArgs[] = "-f";
+		$cmdArgs[] = escapeshellarg($pwdFile->getFilename());
+		$cmdArgs[] = "--";
+		$cmdArgs[] = "ssh-copy-id";
+		$cmdArgs[] = "-i";
+		$cmdArgs[] = escapeshellarg(sprintf("%s/%s%s",
+			\OMV\Environment::get("OMV_SSH_KEYS_DIR", "/etc/ssh"),
+			\OMV\Environment::get("OMV_SSH_KEY_PREFIX", "openmediavault-"),
+			$params['uuid']));
+		$cmdArgs[] = "-p";
+		$cmdArgs[] = $params['port'];
+		$cmdArgs[] = sprintf("%s@%s", $params['username'], $params['hostname']);
+		$cmd = new \OMV\System\Process("sshpass", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute();
 	}
 }
