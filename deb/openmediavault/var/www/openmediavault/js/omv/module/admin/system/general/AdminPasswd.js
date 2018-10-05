@@ -29,7 +29,7 @@
 Ext.define("OMV.module.admin.system.general.AdminPasswd", {
 	extend: "OMV.workspace.form.Panel",
 	requires: [
-		"OMV.form.field.Password",
+		"OMV.form.field.Password"
 	],
 
 	rpcService: "WebGui",

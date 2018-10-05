@@ -115,4 +115,35 @@
 			}
 		}
 	}
+},{
+	"type": "rpc",
+	"id": "rpc.certificatemgmt.copySshId",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"hostname": {
+				"type": "string",
+				"required": true
+			},
+			"port":{
+				"type": "integer",
+				"minimum": 1,
+				"maximum": 65535,
+				"required": true
+			},
+			"username": {
+				"type": "string",
+				"required": true
+			},
+			"password": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
 }]
