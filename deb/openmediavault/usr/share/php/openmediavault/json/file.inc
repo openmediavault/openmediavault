@@ -29,14 +29,15 @@ require_once("openmediavault/functions.inc");
  * @ingroup api
  */
 class File {
-	private $filename = "";
-	private $fh = NULL;
+	private $filename;
+	private $fh;
 
 	/**
 	 * Constructor
 	 * @param filename The name of the file.
 	 */
 	function __construct($filename) {
+		$this->fh = NULL;
 		$this->filename = $filename;
 	}
 
@@ -45,9 +46,10 @@ class File {
 	 */
 	function __destruct() {
 		// Always ensure the file is unlocked.
-		if (!is_null($this->fh))
-        	flock($this->fh, LOCK_UN);
-    }
+		if (!is_null($this->fh)) {
+			flock($this->fh, LOCK_UN);
+		}
+	}
 
 	/**
 	 * Checks whether the file exists.
