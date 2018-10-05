@@ -548,6 +548,12 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.certificatemgmt.copySshId");
+		// Check if the module is marked as dirty. Abort immediatelly if
+		// that is the case because the specified SSH certificate might
+		// not exist then.
+		if ($this->isModuleDirty("certificates")) {
+			throw new \OMV\Config\ConfigDirtyException();
+		}
 		// Simply ensure the specified SSH certificate exists.
 		$db = \OMV\Config\Database::getInstance();
 		$db->get("conf.system.certificate.ssh", $params['uuid']);
