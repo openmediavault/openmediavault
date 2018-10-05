@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-21 11:50+0100\n"
-"PO-Revision-Date: 2018-01-24 17:56+0000\n"
-"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
+"POT-Creation-Date: 2018-10-05 22:03+0200\n"
+"PO-Revision-Date: 2018-10-05 20:04+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/votdev/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -692,6 +692,12 @@ msgstr "Geri bildirimli iç kontrol"
 
 msgid "Cook Islands"
 msgstr "Cook Adaları"
+
+msgid "Copy"
+msgstr ""
+
+msgid "Copy public SSH key"
+msgstr ""
 
 msgid "Copy to clipboard"
 msgstr "Panoya kopyala"
@@ -1436,6 +1442,9 @@ msgstr "Gine-Bissau"
 msgid "Guyana"
 msgstr "Guyana"
 
+msgid "HTTP 404 error"
+msgstr ""
+
 msgid "HTTP-Proxy"
 msgstr "HTTP-Vekil Sunucu"
 
@@ -1649,6 +1658,11 @@ msgstr "Eklentiler kuruluyor ..."
 
 msgid "Installing updates ..."
 msgstr "Güncellemeler kuruluyor ..."
+
+msgid ""
+"Installs the public SSH key on a remote system as an authorized key. Make "
+"sure password authentication is enabled on that remote system."
+msgstr ""
 
 msgid "Interfaces"
 msgstr "Arabirim"
@@ -3307,6 +3321,9 @@ msgstr "Dosya sistemi başarıyla oluşturuldu."
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Sistem adı, ağ üzerindeki bir sistemi belirleyen bir etikettir."
 
+msgid "The hostname of the remote system."
+msgstr ""
+
 msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
@@ -3352,6 +3369,9 @@ msgid ""
 "single share to be used flexibly by each user."
 msgstr "Yeni dosya ve klasörler üzerindeki yetkiler normalde oluşturma kalıbı ve klasör kalıbı ile düzenlenir fakat aktarılan yetkiler bu parametreleri geçersiz kılar. Bu özellikle çok kullanıcılı sistemlerde her bir kullanıcının tek bir paylaşımı rahatça kullanabilmesine imkan sağlar."
 
+msgid "The port on which SSH is running on the remote system."
+msgstr ""
+
 msgid "The private RSA key in X.509 PEM format."
 msgstr " X.509 PEM biöeminde özel RSA anahtarı."
 
@@ -3362,6 +3382,9 @@ msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
 msgstr "Yazılım deposu yeni, kaldırılmış ve güncellenmiş yazılım paketleri açısından kontrol edilecektir."
+
+msgid "The requested page was not found."
+msgstr ""
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "

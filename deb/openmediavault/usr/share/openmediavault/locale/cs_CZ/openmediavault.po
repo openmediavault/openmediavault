@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-21 11:50+0100\n"
-"PO-Revision-Date: 2018-01-21 17:40+0000\n"
-"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
+"POT-Creation-Date: 2018-10-05 22:03+0200\n"
+"PO-Revision-Date: 2018-10-05 20:04+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -693,6 +693,12 @@ msgstr "Kontrola případného poškození při přepravě"
 
 msgid "Cook Islands"
 msgstr "Cookovy ostrovy"
+
+msgid "Copy"
+msgstr ""
+
+msgid "Copy public SSH key"
+msgstr ""
 
 msgid "Copy to clipboard"
 msgstr "Zkopírovat do schránky"
@@ -1437,6 +1443,9 @@ msgstr "Guinea-Bissau"
 msgid "Guyana"
 msgstr "Guyana"
 
+msgid "HTTP 404 error"
+msgstr ""
+
 msgid "HTTP-Proxy"
 msgstr "HTTP proxy"
 
@@ -1650,6 +1659,11 @@ msgstr "Instalace zásuvných modulů…"
 
 msgid "Installing updates ..."
 msgstr "Instalace aktualizací…"
+
+msgid ""
+"Installs the public SSH key on a remote system as an authorized key. Make "
+"sure password authentication is enabled on that remote system."
+msgstr ""
 
 msgid "Interfaces"
 msgstr "Síťová rozhraní"
@@ -3308,6 +3322,9 @@ msgstr "Vytvoření souborového systému bylo úspěšně dokončeno."
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Název pod kterým stroj vystupuje na síti."
 
+msgid "The hostname of the remote system."
+msgstr ""
+
 msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
@@ -3353,6 +3370,9 @@ msgid ""
 "single share to be used flexibly by each user."
 msgstr "Oprávnění pro nově vytvářené soubory a složky jsou běžně řízeny maskou pro vytváření a maskou složky, ale parametr pro přebírání oprávnění toto přebíjí. Užitečné zejména na systémech, sloužících mnoha uživatelům, kdy je třeba, aby sdílení mohla být pružně používána každým z uživatelů."
 
+msgid "The port on which SSH is running on the remote system."
+msgstr ""
+
 msgid "The private RSA key in X.509 PEM format."
 msgstr "Soukromá část RSA klíče ve formátu PEM dle normy X.509."
 
@@ -3363,6 +3383,9 @@ msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
 msgstr "Budou zjištěny balíčky software, které jsou v repozitáři nové, aktualizované, nebo byly odebrány."
+
+msgid "The requested page was not found."
+msgstr ""
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "

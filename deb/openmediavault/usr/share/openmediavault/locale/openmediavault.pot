@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-21 11:50+0100\n"
+"POT-Creation-Date: 2018-10-05 22:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -677,6 +677,12 @@ msgid "Conveyance self-test"
 msgstr ""
 
 msgid "Cook Islands"
+msgstr ""
+
+msgid "Copy"
+msgstr ""
+
+msgid "Copy public SSH key"
 msgstr ""
 
 msgid "Copy to clipboard"
@@ -1396,6 +1402,9 @@ msgstr ""
 msgid "Guyana"
 msgstr ""
 
+msgid "HTTP 404 error"
+msgstr ""
+
 msgid "HTTP-Proxy"
 msgstr ""
 
@@ -1580,6 +1589,9 @@ msgid "Installing plugins ..."
 msgstr ""
 
 msgid "Installing updates ..."
+msgstr ""
+
+msgid "Installs the public SSH key on a remote system as an authorized key. Make sure password authentication is enabled on that remote system."
 msgstr ""
 
 msgid "Interfaces"
@@ -3169,6 +3181,9 @@ msgstr ""
 msgid "The hostname is a label that identifies the system to the network."
 msgstr ""
 
+msgid "The hostname of the remote system."
+msgstr ""
+
 msgid "The information about available software is out-of-date. You need to reload the information about available software."
 msgstr ""
 
@@ -3202,6 +3217,9 @@ msgstr ""
 msgid "The permissions on new files and directories are normally governed by create mask and directory mask but the inherit permissions parameter overrides this. This can be particularly useful on systems with many users to allow a single share to be used flexibly by each user."
 msgstr ""
 
+msgid "The port on which SSH is running on the remote system."
+msgstr ""
+
 msgid "The private RSA key in X.509 PEM format."
 msgstr ""
 
@@ -3209,6 +3227,9 @@ msgid "The public key in RFC 4716 SSH public key file format."
 msgstr ""
 
 msgid "The repository will be checked for new, removed or upgraded software packages."
+msgstr ""
+
+msgid "The requested page was not found."
 msgstr ""
 
 msgid "The requirement that the SSL session from the control connection is reused for data connections is not required."

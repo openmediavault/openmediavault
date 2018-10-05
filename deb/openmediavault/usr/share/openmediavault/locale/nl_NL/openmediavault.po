@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-21 11:50+0100\n"
-"PO-Revision-Date: 2018-01-21 10:50+0000\n"
+"POT-Creation-Date: 2018-10-05 22:03+0200\n"
+"PO-Revision-Date: 2018-10-05 20:04+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/votdev/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -695,6 +695,12 @@ msgstr "Overdrachtszelftest"
 
 msgid "Cook Islands"
 msgstr "Kook eilanden"
+
+msgid "Copy"
+msgstr ""
+
+msgid "Copy public SSH key"
+msgstr ""
 
 msgid "Copy to clipboard"
 msgstr "Kopieer naar het klembord"
@@ -1439,6 +1445,9 @@ msgstr "Guinee-Bissau"
 msgid "Guyana"
 msgstr "Guyana "
 
+msgid "HTTP 404 error"
+msgstr ""
+
 msgid "HTTP-Proxy"
 msgstr "HTTP-proxy"
 
@@ -1652,6 +1661,11 @@ msgstr "Extensies installeren ..."
 
 msgid "Installing updates ..."
 msgstr "Updates installeren ..."
+
+msgid ""
+"Installs the public SSH key on a remote system as an authorized key. Make "
+"sure password authentication is enabled on that remote system."
+msgstr ""
 
 msgid "Interfaces"
 msgstr "Interfaces"
@@ -3310,6 +3324,9 @@ msgstr "Aanmaken van het bestandssysteem succesvol afgerond."
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "De hostnaam is een naam waarmee het systeem zich kenbaar maakt aan het netwerk."
 
+msgid "The hostname of the remote system."
+msgstr ""
+
 msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
@@ -3355,6 +3372,9 @@ msgid ""
 "single share to be used flexibly by each user."
 msgstr "De rechten op nieuwe bestanden en mappen worden normaal toegekend door het aanmaak- en mapmasker, maar de parameter voor het erven van rechten overschrijft dit. Dit is in het bijzonder handig voor het flexibel gebruik van een gedeelde bron op een systeem met veel gebruikers."
 
+msgid "The port on which SSH is running on the remote system."
+msgstr ""
+
 msgid "The private RSA key in X.509 PEM format."
 msgstr "De privé RSA-sleutel in X.509 PEM-opmaak."
 
@@ -3365,6 +3385,9 @@ msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
 msgstr "De repository zal worden gecontroleerd op nieuwe, verwijderde of bijgewerkte pakketten."
+
+msgid "The requested page was not found."
+msgstr ""
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "

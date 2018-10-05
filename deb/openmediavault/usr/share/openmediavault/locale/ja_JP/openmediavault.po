@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-21 11:50+0100\n"
-"PO-Revision-Date: 2018-03-14 03:35+0000\n"
-"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
+"POT-Creation-Date: 2018-10-05 22:03+0200\n"
+"PO-Revision-Date: 2018-10-05 20:04+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/votdev/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -692,6 +692,12 @@ msgstr "コンベイアンスセルフテスト"
 
 msgid "Cook Islands"
 msgstr "クック諸島"
+
+msgid "Copy"
+msgstr ""
+
+msgid "Copy public SSH key"
+msgstr ""
 
 msgid "Copy to clipboard"
 msgstr "クリップボードへコピー"
@@ -1436,6 +1442,9 @@ msgstr "ギニアビサウ"
 msgid "Guyana"
 msgstr "ガイアナ"
 
+msgid "HTTP 404 error"
+msgstr ""
+
 msgid "HTTP-Proxy"
 msgstr "HTTP-プロキシ"
 
@@ -1649,6 +1658,11 @@ msgstr "プラグインをインストールしています ..."
 
 msgid "Installing updates ..."
 msgstr "アップデートをインストールしています ..."
+
+msgid ""
+"Installs the public SSH key on a remote system as an authorized key. Make "
+"sure password authentication is enabled on that remote system."
+msgstr ""
 
 msgid "Interfaces"
 msgstr "インタフェース"
@@ -3307,6 +3321,9 @@ msgstr "ファイルシステムは正常に作成されました。"
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "ホスト名はネットワーク上でシステムを識別するためのラベルです。"
 
+msgid "The hostname of the remote system."
+msgstr ""
+
 msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
@@ -3352,6 +3369,9 @@ msgid ""
 "single share to be used flexibly by each user."
 msgstr "新しいファイルとディレクトリのパーミッションは通常、Create mask と Directory mask によって制御されていますが、パーミッションパラメータはこれを無効にします。これは、1つの共有が各ユーザによって柔軟に利用される事を可能にし、多くのユーザとシステムで有益です。"
 
+msgid "The port on which SSH is running on the remote system."
+msgstr ""
+
 msgid "The private RSA key in X.509 PEM format."
 msgstr "X.509 PEM形式でのプライベートRSA鍵。"
 
@@ -3362,6 +3382,9 @@ msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
 msgstr "新規、削除またはアップデートされたソフトウェアパッケージが無いか、リポジトリをチェックします。"
+
+msgid "The requested page was not found."
+msgstr ""
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "

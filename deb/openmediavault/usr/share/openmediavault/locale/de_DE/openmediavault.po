@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-21 11:50+0100\n"
-"PO-Revision-Date: 2018-01-24 08:19+0000\n"
+"POT-Creation-Date: 2018-10-05 22:03+0200\n"
+"PO-Revision-Date: 2018-10-05 20:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -701,6 +701,12 @@ msgstr "Conveyance Selbsttest"
 
 msgid "Cook Islands"
 msgstr "Cookinseln"
+
+msgid "Copy"
+msgstr "Kopieren"
+
+msgid "Copy public SSH key"
+msgstr "Kopiere öffentlichen SSH Schlüssel"
 
 msgid "Copy to clipboard"
 msgstr "In die Zwischenablage kopieren"
@@ -1445,6 +1451,9 @@ msgstr "Guinea-Bissau"
 msgid "Guyana"
 msgstr "Guyana"
 
+msgid "HTTP 404 error"
+msgstr "HTTP 404 Fehler"
+
 msgid "HTTP-Proxy"
 msgstr "HTTP-Proxy"
 
@@ -1658,6 +1667,11 @@ msgstr "Installiere Erweiterungen ..."
 
 msgid "Installing updates ..."
 msgstr "Installiere Aktualisierungen ..."
+
+msgid ""
+"Installs the public SSH key on a remote system as an authorized key. Make "
+"sure password authentication is enabled on that remote system."
+msgstr "Installiert den öffentlichen SSH-Schlüssel auf einem Remote-System als autorisierten Schlüssel. Stellen Sie sicher, dass die Kennwortauthentifizierung auf diesem Remote-System aktiviert ist."
 
 msgid "Interfaces"
 msgstr "Schnittstellen"
@@ -3316,6 +3330,9 @@ msgstr "Das Erstellen des Dateisystems wurde erfolgreich abgeschlossen."
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Der Hostname identifiziert das System im Netzwerk."
 
+msgid "The hostname of the remote system."
+msgstr "Der Hostname des Remote-Systems."
+
 msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
@@ -3361,6 +3378,9 @@ msgid ""
 "single share to be used flexibly by each user."
 msgstr "Die Zugriffsrechte neuer Dateien und Verzeichnisse sind normalerweise durch die Create- und Directory-Maske geregelt, aber der Parameter Berechtigungen erben überschreibt dies. Das kann besonders auf Systemen mit vielen Benutzern nützlich sein um eine einzelne Freigabe flexibel von jedem Benutzer benutzbar zu machen."
 
+msgid "The port on which SSH is running on the remote system."
+msgstr "Der Port, auf dem SSH auf dem Remote-System ausgeführt wird."
+
 msgid "The private RSA key in X.509 PEM format."
 msgstr "Der private RSA Schlüssel im X.509 PEM Format."
 
@@ -3371,6 +3391,9 @@ msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
 msgstr "Das Repository wird nach neuen, entfernten oder aktualisierten Software-Pakete geprüft."
+
+msgid "The requested page was not found."
+msgstr "Die angeforderte Seite wurde nicht gefunden."
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "

@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-21 11:50+0100\n"
-"PO-Revision-Date: 2018-07-11 06:32+0000\n"
+"POT-Creation-Date: 2018-10-05 22:03+0200\n"
+"PO-Revision-Date: 2018-10-05 20:04+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/votdev/openmediavault/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
@@ -701,6 +701,12 @@ msgstr "Тест для выяснения дефектов, возникших 
 
 msgid "Cook Islands"
 msgstr "острова Кука"
+
+msgid "Copy"
+msgstr ""
+
+msgid "Copy public SSH key"
+msgstr ""
 
 msgid "Copy to clipboard"
 msgstr "Скопировать в буфер обмена"
@@ -1445,6 +1451,9 @@ msgstr "Гвинея-Бисау"
 msgid "Guyana"
 msgstr "Гайана"
 
+msgid "HTTP 404 error"
+msgstr ""
+
 msgid "HTTP-Proxy"
 msgstr "HTTP-Прокси"
 
@@ -1658,6 +1667,11 @@ msgstr "Установка плагинов ..."
 
 msgid "Installing updates ..."
 msgstr "Установка обновлений ..."
+
+msgid ""
+"Installs the public SSH key on a remote system as an authorized key. Make "
+"sure password authentication is enabled on that remote system."
+msgstr ""
 
 msgid "Interfaces"
 msgstr "Интерфейсы"
@@ -3316,6 +3330,9 @@ msgstr "Создание файловой системы успешно заве
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Имя узла - идентификатор системы в сети."
 
+msgid "The hostname of the remote system."
+msgstr ""
+
 msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
@@ -3361,6 +3378,9 @@ msgid ""
 "single share to be used flexibly by each user."
 msgstr "Разрешения на новые файлы и каталоги обычно регулируются маской, но параметр наследования имеет более высокий приоритет. Это позволяет гибко организовать совместное использование многими пользователями одного общего ресурса."
 
+msgid "The port on which SSH is running on the remote system."
+msgstr ""
+
 msgid "The private RSA key in X.509 PEM format."
 msgstr "Закрытый ключ RSA в формате X.509 PEM."
 
@@ -3371,6 +3391,9 @@ msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
 msgstr "Репозиторий будет проверен на новые, удаленные или обновленные пакеты программного обеспечения."
+
+msgid "The requested page was not found."
+msgstr ""
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
