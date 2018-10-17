@@ -114,6 +114,7 @@ Ext.define("OMV.WorkspaceManager", {
 			}
 		});
 		// Finally create/update the given node.
+		var result;
 		if(parent.containsChild(config.id)) {
 			result = parent.getChild(config.id);
 			result.setConfig(Ext.apply(config, {

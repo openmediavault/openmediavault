@@ -335,7 +335,7 @@ Ext.define("OMV.workspace.node.Node", {
 			}
 			// Duplicate primitive node values.
 			var elem = {};
-			for (attr in node.config) {
+			for (var attr in node.config) {
 				if (Ext.isPrimitive(node[attr]))
 					elem[attr] = node.getConfig(attr);
 			}

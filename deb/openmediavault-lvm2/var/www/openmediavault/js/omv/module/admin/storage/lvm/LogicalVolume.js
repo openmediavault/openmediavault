@@ -105,7 +105,7 @@ Ext.define("OMV.module.admin.storage.lvm.lv.Create", {
 					var disabled = false;
 					var free = parseInt(record.get("free"));
 					// Update the 'Size' slider control.
-					field = this.findField("sizeslider");
+					var field = this.findField("sizeslider");
 					if (0 >= free) {
 						disabled = true;
 						OMV.MessageBox.info(null, _("No free space available to create a logical volume."));
@@ -113,13 +113,13 @@ Ext.define("OMV.module.admin.storage.lvm.lv.Create", {
 						field.on("change", function(slider, newValue, thumb) {
 							// Update the hidden field storing the number of
 							// bytes to use.
-							var field = this.findField("size");
-							field.setValue(newValue);
+							var sizeField = this.findField("size");
+							sizeField.setValue(newValue);
 							// Display value in highest possible binary unit
 							// in the textfield right beside the slider
 							// control.
-							field = this.findField("sizetext");
-							field.setValue(newValue.binaryFormat());
+							sizeField = this.findField("sizetext");
+							sizeField.setValue(newValue.binaryFormat());
 						}, this);
 					}
 					field.setMaxValue(free);

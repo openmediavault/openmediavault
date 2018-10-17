@@ -473,7 +473,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 		var autoSort = me.store.getData().getAutoSort();
 		me.store.getData().setAutoSort(false);
 		// Store the new added records in a seperate variable for later use.
-		newRecords = [];
+		var newRecords = [];
 		Ext.Array.each(records, function(record) {
 			// Get the persistent data of the model.
 			var data = record.getData({

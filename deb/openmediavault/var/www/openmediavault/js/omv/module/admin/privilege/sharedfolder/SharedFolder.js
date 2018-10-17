@@ -557,7 +557,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 			}
 		});
 		// Setup the RPC parameters.
-		rpcParams = {
+		var rpcParams = {
 			uuid: me.uuid,
 			file: me.tp.getPathFromNode(node),
 			recursive: options.recursive,
