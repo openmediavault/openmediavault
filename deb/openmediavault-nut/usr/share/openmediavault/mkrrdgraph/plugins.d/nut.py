@@ -31,8 +31,6 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 			'color_nut_charge': '#0000fd', # blue
 			'title_nut_load': 'UPS load',
 			'color_nut_load': '#0000fd', # blue
-			'title_nut_temperature': 'UPS battery temperature',
-			'color_nut_temperature': '#ff0000', # red
 			'title_nut_temperature': 'UPS temperature',
 			'color_nut_temperature': '#ff0000', # red
 			'title_nut_voltage': 'UPS voltage',
