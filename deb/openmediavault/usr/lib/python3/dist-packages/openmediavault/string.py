@@ -46,7 +46,7 @@ def is_json(value):
 	if not isinstance(value, str):
 		return False
 	try:
-		json_object = json.loads(value)
+		_ = json.loads(value)
 	except ValueError:
 		return False
 	return True
@@ -58,8 +58,8 @@ def is_uuid4(value):
 	:returns: Returns True if the variable is an UUIDv4, otherwise False.
 	"""
 	try:
-		uuid.UUID(value, version=4)
-	except:
+		_ = uuid.UUID(value, version=4)
+	except Exception:
 		return False
 	return True
 

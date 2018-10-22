@@ -89,7 +89,6 @@ Ext.define("OMV.workspace.Workspace", {
 	 * @private
 	 */
 	buildHeader: function() {
-		var me = this;
 		return Ext.create("Ext.Component", {
 			region: "north",
 			cls: Ext.baseCSSPrefix + "workspace-header",

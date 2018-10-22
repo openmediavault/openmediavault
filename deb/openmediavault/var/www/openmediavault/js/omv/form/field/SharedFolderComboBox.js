@@ -151,7 +151,7 @@ Ext.define("OMV.form.field.SharedFolderComboBox", {
 					// created shared folder
 					var lastOptions = this.store.lastOptions;
 					Ext.apply(lastOptions, {
-						scope: me,
+						scope: me, // lgtm [js/overwritten-property]
 						callback: function(records, operation, success) {
 							if (success) {
 								var record;

@@ -168,10 +168,10 @@ Ext.define("OMV.form.plugin.LinkedFields", {
 						valid = (value >= condition.value);
 						break;
 					case "z": // String is null, that is, has zero length.
-						valid = Ext.isEmpty(value)
+						valid = Ext.isEmpty(value);
 						break;
 					case "n": // String is not null.
-						valid = !Ext.isEmpty(value)
+						valid = !Ext.isEmpty(value);
 						break;
 					}
 				} else {

@@ -57,7 +57,6 @@ Ext.define("OMV.module.admin.service.afp.Share", {
 	 */
 
 	getFormItems: function() {
-		var me = this;
 		return [{
 			xtype: "checkbox",
 			name: "enable",

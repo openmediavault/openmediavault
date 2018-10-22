@@ -70,7 +70,6 @@ Ext.define("OMV.module.admin.storage.filesystem.Create", {
 	},
 
 	getFormItems: function() {
-		var me = this;
 		return [{
 			xtype: "combo",
 			name: "devicefile",
@@ -146,7 +145,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Create", {
 					return;
 				// Display dialog showing the file system creation progress.
 				var params = me.getRpcSetParams();
-				var wnd = Ext.create("OMV.window.Execute", {
+				Ext.create("OMV.window.Execute", {
 					title: _("Create file system"),
 					rpcService: "FileSystemMgmt",
 					rpcMethod: "create",

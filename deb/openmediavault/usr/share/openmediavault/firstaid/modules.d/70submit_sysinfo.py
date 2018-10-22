@@ -40,7 +40,7 @@ class Module(openmediavault.firstaid.IModule):
 			manager = openmediavault.systemd.Manager()
 			unit = manager.get_unit("postfix.service")
 			active = unit["ActiveState"] == "active"
-		except:
+		except Exception:
 			active = False
 		if not active:
 			d = dialog.Dialog(dialog="dialog")

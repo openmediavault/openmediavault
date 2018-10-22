@@ -698,7 +698,6 @@ Ext.define("OMV.module.admin.service.rsync.Jobs", {
 
 	onAddButton: function() {
 		var me = this;
-		var record = me.getSelected();
 		Ext.create("OMV.module.admin.service.rsync.Job", {
 			title: _("Add rsync job"),
 			uuid: OMV.UUID_UNDEFINED,
@@ -744,7 +743,7 @@ Ext.define("OMV.module.admin.service.rsync.Jobs", {
 	onRunButton: function() {
 		var me = this;
 		var record = me.getSelected();
-		var wnd = Ext.create("OMV.window.Execute", {
+		Ext.create("OMV.window.Execute", {
 			title: _("Execute rsync job"),
 			rpcService: "Rsync",
 			rpcMethod: "execute",

@@ -29,7 +29,6 @@ Ext.define("OMV.grid.column.CronScheduling", {
 	alias: [ "widget.cronscheduling" ],
 
 	defaultRenderer: function(value, metaData, record) {
-		var me = this;
 		var execution = record.get("execution");
 		if ("exactly" !== execution) {
 			var mapExecution = {

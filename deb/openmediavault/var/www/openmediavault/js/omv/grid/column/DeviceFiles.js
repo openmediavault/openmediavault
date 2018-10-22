@@ -36,8 +36,8 @@ Ext.define("OMV.grid.column.DeviceFiles", {
 			return value;
 		if (Ext.isEmpty(value))
 			return me.emptyText;
-		Ext.Array.each(value, function(v) {
-			v = Ext.String.htmlEncode(v);
+		Ext.Array.each(value, function(v, index) {
+			value[index] = Ext.String.htmlEncode(v);
 		});
 		return value.join("<br/>");
 	}

@@ -355,7 +355,6 @@ Ext.define("OMV.module.admin.service.usbbackup.Jobs", {
 
 	onAddButton: function() {
 		var me = this;
-		var record = me.getSelected();
 		Ext.create("OMV.module.admin.service.usbbackup.Job", {
 			title: _("Add backup job"),
 			uuid: OMV.UUID_UNDEFINED,
@@ -401,7 +400,7 @@ Ext.define("OMV.module.admin.service.usbbackup.Jobs", {
 	onRunButton: function() {
 		var me = this;
 		var record = me.getSelected();
-		var wnd = Ext.create("OMV.window.Execute", {
+		Ext.create("OMV.window.Execute", {
 			title: _("Execute backup job"),
 			infoText: _("Please note that the web interface is blocked until the manually started backup job has been finished. However the backup job is automatically executed in the background when the storage device is connected to the host."),
 			rpcService: "UsbBackup",

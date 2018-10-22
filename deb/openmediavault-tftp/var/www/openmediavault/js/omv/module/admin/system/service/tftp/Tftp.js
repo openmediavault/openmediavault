@@ -45,7 +45,6 @@ Ext.define("OMV.module.admin.service.tftp.Settings", {
 	}],
 
 	getFormItems: function() {
-		var me = this;
 		return [{
 			xtype: "checkbox",
 			name: "enable",
