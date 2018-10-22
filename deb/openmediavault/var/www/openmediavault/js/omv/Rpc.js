@@ -244,7 +244,7 @@ Ext.define("OMV.RpcObserver", {
 			rpcDelay: 500
 		});
 		// Display a waiting dialog while the RPC is running.
-		OMV.MessageBox.wait(options.title, options.msg);
+		OMV.MessageBox.wait(options.title, options.msg, { text: "" });
 		// Execute RPC.
 		var fn = function(id, success, response) {
 			if (!success) {

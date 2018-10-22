@@ -295,9 +295,10 @@ Ext.define("OMV.window.MessageBox", {
 	 * Displays a message box with an infinitely auto-updating progress bar.
 	 * @param title The title bar text
 	 * @param msg The message box body text
+	 * @param config A Ext.ProgressBar#wait config object.
 	 */
-	wait: function(title, msg) {
-		return this.callParent([ msg, title || _("Please wait ...") ]);
+	wait: function(title, msg, config) {
+		return this.callParent([ msg, title || _("Please wait ..."), config ]);
 	},
 
 	/**
