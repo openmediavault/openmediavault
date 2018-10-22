@@ -10,6 +10,13 @@ openmediavault (5.0) unstable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 May 2018 22:06:11 +0200
 
+openmediavault (4.1.13) stable; urgency=low
+
+  * Issue #182: Remove percentage text in progress bar when config is
+    applied. It is not possible to display an accurate value here.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 22 Oct 2018 07:03:44 +0200
+
 openmediavault (4.1.12) stable; urgency=low
 
   * Fix display bug in S.M.A.R.T. attributes grid.
