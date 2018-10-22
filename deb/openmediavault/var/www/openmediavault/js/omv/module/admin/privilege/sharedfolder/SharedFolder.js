@@ -229,8 +229,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 						else // Close the window and exit.
 							this.close();
 					},
-					scope: me,
-					icon: Ext.Msg.QUESTION
+					scope: me
 				});
 			} else {
 				me.callParent(arguments);
@@ -557,7 +556,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 			}
 		});
 		// Setup the RPC parameters.
-		rpcParams = {
+		var rpcParams = {
 			uuid: me.uuid,
 			file: me.tp.getPathFromNode(node),
 			recursive: options.recursive,

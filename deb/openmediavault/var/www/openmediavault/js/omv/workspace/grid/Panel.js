@@ -473,7 +473,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 		var autoSort = me.store.getData().getAutoSort();
 		me.store.getData().setAutoSort(false);
 		// Store the new added records in a seperate variable for later use.
-		newRecords = [];
+		var newRecords = [];
 		Ext.Array.each(records, function(record) {
 			// Get the persistent data of the model.
 			var data = record.getData({
@@ -715,7 +715,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 				// Check whether the 'minSelections' option exists. The number
 				// of selected rows must be greater or equal than the given
 				// number to enable the button.
-				if (enabled && Ext.isDefined(config.minSelections) &&
+				if (Ext.isDefined(config.minSelections) &&
 				  (selected.length < config.minSelections))
 					enabled = false;
 				// Check whether the 'maxSelections' option exists. The number

@@ -275,7 +275,7 @@ Ext.applyIf(Number.prototype, {
 			number = (number / 1024).toFixed(decimalPlaces);
 		}
 
-		result = {
+		var result = {
 			"value": number,
 			"unit": prefixes[curExp],
 			"exponent": curExp,

@@ -31,8 +31,8 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 			'color_nut_charge': '#0000fd', # blue
 			'title_nut_load': 'UPS load',
 			'color_nut_load': '#0000fd', # blue
-			'title_nut_temperature': 'UPS battery temperature',
-			'color_nut_temperature': '#ff0000', # red
+			'title_nut_temperature_battery': 'UPS battery temperature',
+			'color_nut_temperature_battery': '#ff0000', # red
 			'title_nut_temperature': 'UPS temperature',
 			'color_nut_temperature': '#ff0000', # red
 			'title_nut_voltage': 'UPS voltage',
@@ -115,14 +115,14 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 				args.append(image_filename)
 				args.extend(config['defaults'])
 				args.extend(['--start', config['start']])
-				args.extend(['--title', '"{title_nut_temperature}{title_by_period}"'.format(**config)])
+				args.extend(['--title', '"{title_nut_temperature_battery}{title_by_period}"'.format(**config)])
 				args.append('--slope-mode')
 				args.extend(['--lower-limit', '0'])
 				args.extend(['--vertical-label', 'Celsius'])
 				args.append('DEF:avg={data_dir}/nut-{upsname}/temperature-battery.rrd:value:AVERAGE'.format(**config))
 				args.append('DEF:min={data_dir}/nut-{upsname}/temperature-battery.rrd:value:MIN'.format(**config))
 				args.append('DEF:max={data_dir}/nut-{upsname}/temperature-battery.rrd:value:MAX'.format(**config))
-				args.append('LINE1:avg{color_nut_temperature}:"Temperature"'.format(**config))
+				args.append('LINE1:avg{color_nut_temperature_battery}:"Temperature"'.format(**config))
 				args.append('GPRINT:min:MIN:"%4.2lf Min"')
 				args.append('GPRINT:avg:AVERAGE:"%4.2lf Avg"')
 				args.append('GPRINT:max:MAX:"%4.2lf Max"')

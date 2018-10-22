@@ -126,7 +126,7 @@ class Module(openmediavault.firstaid.IModule):
 					continue
 				try:
 					ipaddress.ip_address(netmask)
-				except:
+				except Exception:
 					netmask = None
 					d.msgbox("Please enter a valid netmask.",
 						backtitle=self.description,
@@ -142,7 +142,7 @@ class Module(openmediavault.firstaid.IModule):
 					return 0
 				try:
 					ipaddress.ip_address(gateway)
-				except:
+				except Exception:
 					gateway = None
 					d.msgbox("Please enter a valid gateway.",
 						backtitle=self.description,
@@ -192,7 +192,7 @@ class Module(openmediavault.firstaid.IModule):
 						continue
 					try:
 						ipaddress.ip_address(address6)
-					except:
+					except Exception:
 						address6 = None
 						d.msgbox("Please enter a valid IPv6 address.",
 							backtitle=self.description,
@@ -229,7 +229,7 @@ class Module(openmediavault.firstaid.IModule):
 						return 0
 					try:
 						ipaddress.ip_address(gateway6)
-					except:
+					except Exception:
 						gateway6 = None
 						d.msgbox("Please enter a valid gateway.",
 							backtitle=self.description,
@@ -251,7 +251,7 @@ class Module(openmediavault.firstaid.IModule):
 				try:
 					ipaddress.ip_address(dns_nameservers)
 					break
-				except:
+				except Exception:
 					dns_nameservers = ""
 					d.msgbox("Please enter a valid IP address.",
 						backtitle=self.description,

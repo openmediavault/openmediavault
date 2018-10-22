@@ -43,7 +43,7 @@ class Module(openmediavault.firstaid.IModule):
 			with open(path) as json_file:
 				json.load(json_file)
 			print("The configuration status file is valid.")
-		except:
+		except Exception:
 			print("Removing invalid configuration status file.")
 			os.unlink(json_path)
 		return 0

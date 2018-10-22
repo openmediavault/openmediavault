@@ -64,7 +64,6 @@ Ext.define("OMV.workspace.node.Node", {
 		buildUri: function(array, separator) {
 			separator = separator || "/";
 			var parts = [];
-			var uri = "";
 			Ext.Array.each(array, function(item) {
 				Ext.Array.push(parts, this.explodeUri(item));
 			}, this);
@@ -335,7 +334,7 @@ Ext.define("OMV.workspace.node.Node", {
 			}
 			// Duplicate primitive node values.
 			var elem = {};
-			for (attr in node.config) {
+			for (var attr in node.config) {
 				if (Ext.isPrimitive(node[attr]))
 					elem[attr] = node.getConfig(attr);
 			}

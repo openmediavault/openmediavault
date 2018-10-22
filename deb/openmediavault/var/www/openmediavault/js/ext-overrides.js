@@ -81,7 +81,7 @@ Ext.apply(Ext.form.field.VTypes, {
 		return valid;
 	},
 	IPListText: "This field should be a list of IP addresses separated by <,> or <;>",
-	IPMask: /[0-9a-f\.:,;]/i,
+	IPListMask: /[0-9a-f\.:,;]/i,
 
 	IPNetCIDR: function(v) {
 		if(Ext.form.field.VTypes.IPv4NetCIDR(v) ||

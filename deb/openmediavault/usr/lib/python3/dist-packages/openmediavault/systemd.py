@@ -85,7 +85,7 @@ class _Object(object):
 class Properties(object):
 	pass
 
-class Job(_Object):
+class Job(_Object): # lgtm[py/missing-call-to-init]
 	def __init__(self, job_path):
 		super().__init__(job_path, "org.freedesktop.systemd1.Job")
 
@@ -95,7 +95,7 @@ class Job(_Object):
 		except dbus.exceptions.DBusException as e:
 			raise SystemdException(error)
 
-class Manager(_Object):
+class Manager(_Object): # lgtm[py/missing-call-to-init]
 	def __init__(self):
 		super().__init__("/org/freedesktop/systemd1",
 			"org.freedesktop.systemd1.Manager")
@@ -157,7 +157,7 @@ class Manager(_Object):
 		except dbus.exceptions.DBusException as e:
 			raise SystemdError(e)
 
-class Unit(_Object):
+class Unit(_Object): # lgtm[py/missing-call-to-init]
 	def __init__(self, unit_path):
 		super().__init__(unit_path, "org.freedesktop.systemd1.Unit")
 

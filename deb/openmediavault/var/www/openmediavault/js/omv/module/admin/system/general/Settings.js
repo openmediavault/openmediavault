@@ -54,7 +54,6 @@ Ext.define("OMV.module.admin.system.general.Settings", {
 	}],
 
 	getFormItems: function() {
-		var me = this;
 		return [{
 			xtype: "fieldset",
 			title: _("General settings"),
