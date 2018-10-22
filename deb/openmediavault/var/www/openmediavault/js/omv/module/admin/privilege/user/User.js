@@ -388,7 +388,7 @@ Ext.define("OMV.module.admin.privilege.user.user.SshPubKeys", {
 			listeners: {
 				scope: me,
 				submit: function(c, value) {
-					value = Ext.String.rtrim(value, " \n");
+					value = value.rtrim(" \n");
 					me.getStore().addRawData([ value ]);
 				}
 			}
