@@ -280,7 +280,7 @@ class Database(object):
 		query.execute()
 		return obj
 
-class DatabaseQuery(metaclass=abc.ABCMeta):
+class DatabaseQuery(metaclass=abc.ABCMeta): # lgtm[py/syntax-error]
 	def __init__(self, id):
 		"""
 		:param id: The data model identifier, e.g. 'conf.service.ftp.share'.

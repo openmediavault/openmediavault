@@ -70,7 +70,6 @@ Ext.define("OMV.module.admin.system.certificate.ssh.Copy", {
 	},
 
 	getFormItems: function() {
-		var me = this;
 		return [{
 			xtype: "textfield",
 			name: "hostname",
@@ -309,7 +308,6 @@ Ext.define("OMV.module.admin.system.certificate.ssh.Certificates", {
 
 	onAddButton: function(action) {
 		var me = this;
-		var className, title;
 		switch (action) {
 		case "import":
 			Ext.create("OMV.module.admin.system.certificate.ssh.Edit", {

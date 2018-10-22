@@ -29,7 +29,7 @@ import os
 import re
 import shutil
 
-class IPlugin(metaclass=abc.ABCMeta):
+class IPlugin(metaclass=abc.ABCMeta): # lgtm[py/syntax-error]
 	@abc.abstractmethod
 	def create_graph(self, config):
 		"""

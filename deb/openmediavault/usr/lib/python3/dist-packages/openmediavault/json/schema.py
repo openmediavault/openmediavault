@@ -210,7 +210,7 @@ class Schema(object):
 				break;
 		# If the validation is not successful, then trow the
 		# last exception.
-		if False == valid:
+		if False == valid and last_exception is not None:
 			raise last_exception;
 
 	def _validate_any(self, value, schema, name):
@@ -222,7 +222,7 @@ class Schema(object):
 				"The value '%s' is not a boolean." %
 				("NULL" if (value is None) else str(value)))
 
-	def _validate_integer(self, value, schema, name):
+	def _validate_integer(self, value, schema, name): # lgtm[py/similar-function]
 		if not isinstance(value, int):
 			raise SchemaValidationException(name,
 				"The value '%s' is not an integer." %
@@ -246,7 +246,7 @@ class Schema(object):
 		self._check_enum(value, schema, name)
 		self._check_one_of(value, schema, name)
 
-	def _validate_string(self, value, schema, name):
+	def _validate_string(self, value, schema, name): # lgtm[py/similar-function]
 		if not isinstance(value, str):
 			raise SchemaValidationException(name,
 				"The value '%s' is not a string." %

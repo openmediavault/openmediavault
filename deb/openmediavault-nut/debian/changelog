@@ -1,3 +1,9 @@
+openmediavault-nut (4.0.14-1) stable; urgency=low
+
+  * Fix various issues found by the lgtm.com project.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 22 Oct 2018 18:39:44 +0200
+
 openmediavault-nut (4.0.13-1) stable; urgency=low
 
   * Update locales.

@@ -35,7 +35,7 @@ class DatamodelNotFoundException(Exception):
 	def id(self):
 		return self._id
 
-class Datamodel(openmediavault.datamodel.Datamodel):
+class Datamodel(openmediavault.datamodel.Datamodel): # lgtm[py/missing-call-to-init]
 	def __init__(self, id):
 		"""
 		:param id: The data model identifier, e.g. 'conf.service.ftp.share'.

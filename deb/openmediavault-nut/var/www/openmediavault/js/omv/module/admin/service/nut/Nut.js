@@ -179,7 +179,7 @@ Ext.define("OMV.module.admin.service.nut.Settings", {
 		// Update shutdown mode settings
 		var shutdownmode = this.findField("shutdownmode").getValue();
 		var fields = [ "shutdowntimer" ];
-		for(i = 0; i < fields.length; i++) {
+		for(var i = 0; i < fields.length; i++) {
 			var c = this.findField(fields[i]);
 			if(!Ext.isEmpty(c)) {
 				var visible = (shutdownmode === "onbatt");

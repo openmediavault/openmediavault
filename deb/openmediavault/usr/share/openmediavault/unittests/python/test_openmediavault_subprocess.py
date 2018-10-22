@@ -18,19 +18,16 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-__all__ = [ "IModule" ]
+import subprocess
+import unittest
+import openmediavault.subprocess
 
-import abc
+class SubprocessTestCase(unittest.TestCase):
+	def test_popen(self):
+		p = openmediavault.subprocess.Popen(["whoami"],
+			stdout=subprocess.PIPE, shell=False)
+		stdout, _ = p.communicate()
+		self.assertEqual(stdout.decode().strip(), "root")
 
-class IModule(metaclass=abc.ABCMeta): # lgtm[py/syntax-error]
-	@abc.abstractproperty
-	def description(self):
-		"""
-		Get the module description.
-		"""
-
-	@abc.abstractmethod
-	def execute(self):
-		"""
-		Execute the module implementation.
-		"""
+if __name__ == "__main__":
+	unittest.main()

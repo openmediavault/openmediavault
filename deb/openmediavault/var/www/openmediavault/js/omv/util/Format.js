@@ -26,7 +26,7 @@ Ext.ns("OMV.util");
  * @ingroup webgui
  */
 OMV.util.Format = function() {
-	f = function() {}
+	var f = function() {}
 	f.prototype = Ext.util.Format;
 	var o = function() {}
 	Ext.extend(o, f, function() {
@@ -219,7 +219,7 @@ OMV.util.Format = function() {
 							Ext.Function.defer(fn, 50);
 							return;
 						}
-						cls = ""
+						var cls = "";
 						if (Ext.isDefined(warningThreshold)) {
 							if (percentage >= warningThreshold)
 								cls = Ext.baseCSSPrefix + "progress-warning";

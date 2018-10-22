@@ -133,7 +133,6 @@ Ext.define("OMV.module.admin.system.notification.Settings", {
 	},
 
 	getFormItems: function() {
-		var me = this;
 		return [{
 			xtype: "fieldset",
 			title: _("General settings"),
