@@ -126,7 +126,7 @@ Ext.define("OMV.Rpc", {
 			rpcResponse = {
 				code: null,
 				message: Ext.isEmpty(response.statusText) ?
-				  "" : Ext.String.rtrim(response.statusText, " \n"),
+				  "" : response.statusText.rtrim(" \n"),
 				trace: response.responseText || response.statusText
 			};
 		}
