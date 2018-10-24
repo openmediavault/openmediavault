@@ -40,8 +40,9 @@ String.prototype.htmlspecialchars = function() {
  */
 String.prototype.ltrim = function(chars) {
 	var str = this;
-	chars = !chars ? " \\s\u00A0" : chars.replace(
-		/([\[\]\(\)\.\?\/\*\{\}\+\$\^\:\\])/g, "\\$1");
+	chars = !chars
+		? " \\s\u00A0"
+		: chars.replace(/([\[\]\(\)\.\?\/\*\{\}\+\$\^\:\\])/g, "\\$1");
 	return str.replace(new RegExp("^[" + chars + "]+", "g"), "");
 };
 
@@ -52,10 +53,11 @@ String.prototype.ltrim = function(chars) {
  */
 String.prototype.rtrim = function(chars) {
 	var str = this;
-	chars = !chars ? " \\s\u00A0" : chars.replace(
-		/([\[\]\(\)\.\?\/\*\{\}\+\$\^\:\\])/g, "\\$1");
+	chars = !chars
+		? " \\s\u00A0"
+		: chars.replace(/([\[\]\(\)\.\?\/\*\{\}\+\$\^\:\\])/g, "\\$1");
 	return str.replace(new RegExp("[" + chars + "]+$", "g"), "");
-}
+};
 
 Date.mapHour = [
 	["*", "*"],
