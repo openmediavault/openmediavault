@@ -481,7 +481,7 @@ Ext.define("OMV.module.admin.privilege.user.Import", {
 	getTextAreaConfig: function() {
 		return {
 			allowBlank: false,
-			value: "# <name>;<uid>;<comment>;<email>;<password>;<group,group,...>;<disallowusermod>"
+			value: "# <name>;<uid>;<comment>;<email>;<password>;<shell>;<group,group,...>;<disallowusermod>"
 		};
 	},
 
@@ -730,7 +730,7 @@ Ext.define("OMV.module.admin.privilege.user.Users", {
 				type: "user",
 				listeners: {
 					scope: me,
-					finish: function() {
+					submit: function() {
 						this.doReload();
 					}
 				}

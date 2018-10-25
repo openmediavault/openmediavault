@@ -508,7 +508,12 @@ finish:
 		$cmdArgs[] = "--gid";
 		$cmdArgs[] = escapeshellarg(\OMV\Environment::get(
 		  "OMV_USERMGMT_DEFAULT_GROUP"));
-		if (array_key_exists("shell", $params)) {
+		if (array_key_exists("shell", $params) && !empty($params['shell'])) {
+			// Make sure the shell exists.
+			if (!file_exists($params['shell'])) {
+				throw new \OMV\Exception("The shell '%s' does not exist.",
+						$params['shell']);
+			}
 			$cmdArgs[] = "--shell";
 			$cmdArgs[] = escapeshellarg($params['shell']);
 		}
@@ -517,6 +522,11 @@ finish:
 			$cmdArgs[] = escapeshellarg($params['comment']);
 		}
 		if (array_key_exists("groups", $params)) {
+			// Make sure the specified groups exists.
+			foreach ($params['groups'] as $groupk => $groupv) {
+				$group = new \OMV\System\Group($groupv);
+				$group->assertExists();
+			}
 			$cmdArgs[] = "--groups";
 			$cmdArgs[] = escapeshellarg(implode(",", $params['groups']));
 		}
@@ -676,9 +686,11 @@ finish:
 				if (empty($linev) || ($linev[0] === "#"))
 					continue;
 				# Parse line.
-				if (1 !== preg_match("/^([^;]+);(\d*);([^;]*);([^;]*);([^;]+);".
-				  "([^;]*);(true|1|yes|y|on|false|0|no|n|off)$/i",
-				  $linev, $matches)) {
+				# <name>;<uid>;<comment>;<email>;<password>;<shell>;<group,group,...>;<disallowusermod>
+				if (1 !== preg_match("/^([^;]+);(\d*);([^;]*);".
+						"([^;]*);([^;]+);([^;]+);([^;]*);".
+						"(true|1|yes|y|on|false|0|no|n|off)$/i",
+						$linev, $matches)) {
 					throw new \OMV\Exception("Invalid line: %s", $linev);
 				}
 				$object = [
@@ -686,29 +698,28 @@ finish:
 					"comment" => $matches[3],
 					"email" => $matches[4],
 					"password" => $matches[5],
-					"groups" => explode(",", $matches[6]),
-					"disallowusermod" => boolvalEx($matches[7]),
-					"shell" => "/bin/dash",
+					"groups" => explode(",", $matches[7]),
+					"disallowusermod" => boolvalEx($matches[8]),
+					"shell" => !empty($matches[6]) ? $matches[6] : "/bin/dash",
 					"sshpubkeys" => []
 				];
 				if (!empty($matches[2]) && is_numeric($matches[2]))
 					$object['uid'] = intval($matches[2]);
-				$objects[] = $object;
-			}
-			// Check if the users does not exist until now.
-			foreach ($objects as $objectk => $objectv) {
-				// Check if an user with the given name already exists.
-				$user = new \OMV\System\User($objectv['name']);
+				// Do some checks:
+				// - Check if an user with the given name already exists.
+				$user = new \OMV\System\User($object['name']);
 				$user->assertNotExists();
-				// Check if an user with the given UID already exists.
+				// - Check if an user with the given UID already exists.
 				if (array_key_exists("uid", $object)) {
-					$user = new \OMV\System\User($objectv['uid']);
+					$user = new \OMV\System\User($object['uid']);
 					$user->assertNotExists();
 				}
+				$objects[] = $object;
 			}
 			// Finally create the users.
-			foreach ($objects as $objectk => $objectv)
+			foreach ($objects as $objectk => $objectv) {
 				$this->callMethod("setUser", $objectv, $context);
+			}
 			return "";
 		});
 	}
