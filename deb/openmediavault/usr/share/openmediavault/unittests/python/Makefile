@@ -27,4 +27,8 @@ test:
 		echo; \
 	done
 
-.PHONY: test
+setup:
+	echo "Installing required packages ..."
+	sudo apt-get install python3-mock
+
+.PHONY: test setup
