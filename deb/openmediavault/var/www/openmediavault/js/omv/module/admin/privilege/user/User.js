@@ -119,7 +119,7 @@ Ext.define("OMV.module.admin.privilege.user.user.General", {
 				emptyText: _("Select a shell ..."),
 				valueField: "path",
 				displayField: "path",
-				value: "/bin/dash"
+				value: "/bin/sh"
 			},{
 				xtype: "checkbox",
 				name: "disallowusermod",

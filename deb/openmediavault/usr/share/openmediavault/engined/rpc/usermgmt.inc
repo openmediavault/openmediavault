@@ -698,7 +698,7 @@ finish:
 					"password" => $matches[5],
 					"groups" => explode(",", $matches[7]),
 					"disallowusermod" => boolvalEx($matches[8]),
-					"shell" => !empty($matches[6]) ? $matches[6] : "/bin/dash",
+					"shell" => !empty($matches[6]) ? $matches[6] : "/bin/sh",
 					"sshpubkeys" => []
 				];
 				if (!empty($matches[2]) && is_numeric($matches[2]))

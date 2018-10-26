@@ -1,6 +1,7 @@
 openmediavault (4.1.13-1) stable; urgency=low
 
   * Fix various issues found by the lgtm.com project.
+  * Use /bin/sh as default shell when creating/importing users via WebUI.
   * Issue #182: Remove percentage text in progress bar when config is
     applied. It is not possible to display an accurate value here.
   * Issue #192: Allow to define shell at user import.
