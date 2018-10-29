@@ -1,7 +1,7 @@
 {%- set dns_proxy = salt['pillar.get']('default:OMV_SAMBA_DNSPROXY', 'no') -%}
 {%- set log_file = salt['pillar.get']('default:OMV_SAMBA_LOGFILE', '/var/log/samba/log.%m') -%}
 {%- set max_log_size = salt['pillar.get']('default:OMV_SAMBA_MAXLOGSIZE', '1000') -%}
-{%- set syslog_only = salt['pillar.get']('default:OMV_SAMBA_SYSLOGONLY', 'yes') -%}
+{%- set logging = salt['pillar.get']('default:OMV_SAMBA_LOGGING', 'syslog') -%}
 {%- set panic_action = salt['pillar.get']('default:OMV_SAMBA_PANICACTION', '/usr/share/samba/panic-action %d') -%}
 {%- set encrypt_passwords = salt['pillar.get']('default:OMV_SAMBA_ENCRYPTPASSWORDS', 'true') -%}
 {%- set passdb_backend = salt['pillar.get']('default:OMV_SAMBA_PASSDBBACKEND', 'tdbsam') -%}
@@ -32,7 +32,7 @@ dns proxy = {{ dns_proxy }}
 log level = {{ config.loglevel }}
 log file = {{ log_file }}
 max log size = {{ max_log_size }}
-syslog only = {{ syslog_only }}
+logging = {{ logging }}
 panic action = {{ panic_action }}
 encrypt passwords = {{ encrypt_passwords }}
 passdb backend = {{ passdb_backend }}
