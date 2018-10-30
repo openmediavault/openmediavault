@@ -34,12 +34,13 @@ configure_avahi_service_smb:
   file.managed:
     - name: "/etc/avahi/services/smb.service"
     - source:
-      - salt://{{ slspath }}/files/template.j2
+      - salt://{{ slspath }}/files/smb.j2
     - template: jinja
     - context:
         type: "_smb._tcp"
         port: 445
         name: "{{ zeroconf_config.name }}"
+        shares: {{ smb_config.shares.share | json }}
     - user: root
     - group: root
     - mode: 644

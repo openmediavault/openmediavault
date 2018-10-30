@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+<service-group>
+    <name replace-wildcards="yes">{{ name }}</name>
+    <service>
+        <type>{{ type }}</type>
+        <port>{{ port }}</port>
+    </service>
+    <service>
+        <type>_adisk._tcp</type>
+        <txt-record>sys=waMa=0,adVF=0x100</txt-record>
+{%- for share in shares %}
+        <txt-record>dk{{ loop.index0 }}=adVN={{ salt['omv.get_sharedfolder_name'](share.sharedfolderref) }},adVF=0x82</txt-record>
+{%- endfor %}
+    </service>
+    <service>
+        <type>_device-info._tcp</type>
+        <port>0</port>
+        <txt-record>model=RackMac</txt-record>
+    </service>
+</service-group>

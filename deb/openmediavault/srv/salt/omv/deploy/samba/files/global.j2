@@ -23,6 +23,8 @@
 {%- set map_to_guest = salt['pillar.get']('default:OMV_SAMBA_MAPTOGUEST', 'Bad User') -%}
 {%- set aio_read_size = salt['pillar.get']('default:OMV_SAMBA_AIOREADSIZE', '16384') -%}
 {%- set aio_write_size = salt['pillar.get']('default:OMV_SAMBA_AIOWRITESIZE', '16384') -%}
+{%- set fruit_aapl = salt['pillar.get']('default:OMV_SAMBA_FRUIT_AAPL', 'yes') -%}
+{%- set fruit_model = salt['pillar.get']('default:OMV_SAMBA_FRUIT_MODEL', 'MacPro') -%}
 {{ pillar['headers']['multiline'] -}}
 #======================= Global Settings =======================
 [global]
@@ -65,6 +67,10 @@ wins support = {% if config.winssupport | to_bool %}yes{% else %}no{% endif %}
 {%- if config.winsserver | length > 0 %}
 wins server = {{ config.winsserver }}
 {%- endif %}
+# Special configuration for Apple's Time Machine
+fruit:aapl = {{ fruit_aapl }}
+fruit:model = {{ fruit_model }}
 {%- if config.extraoptions | length > 0 %}
+# Extra options
 {{ config.extraoptions }}
 {%- endif %}

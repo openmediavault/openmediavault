@@ -19,6 +19,11 @@
 {%- set force_directory_mode = salt['pillar.get']('default:OMV_SAMBA_SHARE_FORCEDIRECTORYMODE', '0775') -%}
 {%- set hide_special_files = salt['pillar.get']('default:OMV_SAMBA_SHARE_HIDESPECIALFILES', 'yes') -%}
 {%- set follow_symlinks = salt['pillar.get']('default:OMV_SAMBA_SHARE_FOLLOWSYMLINKS', 'yes') -%}
+{%- set fruit_time_machine = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_TIMEMACHINE', 'yes') -%}
+{%- set fruit_locking = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_LOCKING', 'none') -%}
+{%- set fruit_encoding = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_ENCODING', 'private') -%}
+{%- set fruit_metadata = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_METADATA', 'netatalk') -%}
+{%- set fruit_resource = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_RESOURCE', 'file') -%}
 #======================= Share Definitions =======================
 {%- for share in config.shares.share | selectattr('enable') %}
 [{{ salt['omv.get_sharedfolder_name'](share.sharedfolderref) }}]
@@ -54,6 +59,16 @@ full_audit:success = {{ full_audit_success }}
 full_audit:failure = {{ full_audit_failure }}
 full_audit:facility = {{ full_audit_facility }}
 full_audit:priority = {{ full_audit_priority }}
+{%- endif %}
+{%- if fruit_time_machine | to_bool %}
+{%- set _ = vfs_objects.append('catia') %}
+{%- set _ = vfs_objects.append('fruit') %}
+{%- set _ = vfs_objects.append('streams_xattr') %}
+fruit:encoding = {{ fruit_encoding }}
+fruit:locking = {{ fruit_locking }}
+fruit:metadata = {{ fruit_metadata }}
+fruit:resource = {{ fruit_resource }}
+fruit:time machine = yes
 {%- endif %}
 vfs objects = {{ vfs_objects | join(' ') }}
 printable = {{ printable }}
