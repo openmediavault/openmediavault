@@ -27,52 +27,55 @@ import openmediavault.firstaid
 import openmediavault.productinfo
 import openmediavault.log
 
+
 def load_modules():
-	modules = []
-	path = openmediavault.getenv("OMV_FIRSTAID_MODULES_DIR",
-		"/usr/share/openmediavault/firstaid/modules.d");
-	sys.path.insert(0, path)
-	for name in natsort.humansorted(os.listdir(path)):
-		modname, ext = os.path.splitext(name)
-		if not ext == ".py":
-			continue
-		mod = __import__(modname)
-		modinst = mod.Module()
-		if not isinstance(modinst, openmediavault.firstaid.IModule):
-			continue
-		modules.append(modinst)
-	sys.path.pop(0)
-	return modules
+    modules = []
+    path = openmediavault.getenv("OMV_FIRSTAID_MODULES_DIR",
+                                 "/usr/share/openmediavault/firstaid/modules.d")
+    sys.path.insert(0, path)
+    for name in natsort.humansorted(os.listdir(path)):
+        modname, ext = os.path.splitext(name)
+        if not ext == ".py":
+            continue
+        mod = __import__(modname)
+        modinst = mod.Module()
+        if not isinstance(modinst, openmediavault.firstaid.IModule):
+            continue
+        modules.append(modinst)
+    sys.path.pop(0)
+    return modules
+
 
 def main():
-	rc = 1 # lgtm[py/multiple-definition]
-	pi = openmediavault.productinfo.ProductInfo();
-	# Load the modules.
-	modules = load_modules()
-	# Fill the menu choices.
-	choices = []
-	for idx, module in enumerate(modules):
-		choices.append([ str(idx + 1), module.description ])
-	# Show the available modules.
-	d = dialog.Dialog(dialog="dialog")
-	while 1:
-		(code, tag) = d.menu("Please select a menu.",
-			title="First aid", cancel_label="Exit", clear=True,
-			backtitle="{} - {}".format(pi.name, pi.copyright),
-			height=17, width=65, menu_height=10, choices=choices)
-		if code in (d.CANCEL, d.ESC):
-			rc = 0
-			break
-		elif code == d.OK:
-			d.clear()
-			module = modules[int(tag) - 1]
-			try:
-				rc = module.execute()
-			except Exception as e:
-				rc = 1
-				openmediavault.log.error(str(e))
-			break
-	return rc
+    rc = 1  # lgtm[py/multiple-definition]
+    pi = openmediavault.productinfo.ProductInfo()
+    # Load the modules.
+    modules = load_modules()
+    # Fill the menu choices.
+    choices = []
+    for idx, module in enumerate(modules):
+        choices.append([str(idx + 1), module.description])
+    # Show the available modules.
+    d = dialog.Dialog(dialog="dialog")
+    while 1:
+        (code, tag) = d.menu("Please select a menu.",
+                             title="First aid", cancel_label="Exit", clear=True,
+                             backtitle="{} - {}".format(pi.name, pi.copyright),
+                             height=17, width=65, menu_height=10, choices=choices)
+        if code in (d.CANCEL, d.ESC):
+            rc = 0
+            break
+        elif code == d.OK:
+            d.clear()
+            module = modules[int(tag) - 1]
+            try:
+                rc = module.execute()
+            except Exception as e:
+                rc = 1
+                openmediavault.log.error(str(e))
+            break
+    return rc
+
 
 if __name__ == "__main__":
-	sys.exit(main())
+    sys.exit(main())

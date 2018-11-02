@@ -18,56 +18,61 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-__all__ = [ "info", "warning", "error", "debug" ]
+__all__ = ["info", "warning", "error", "debug"]
 
 import sys
 import syslog
 
+
 def _log(priority, msg, args, verbose=True):
-	tag = {
-		syslog.LOG_INFO: "INFO",
-		syslog.LOG_WARNING: "WARNING",
-		syslog.LOG_ERR: "ERROR",
-		syslog.LOG_DEBUG: "DEBUG"
-	}
-	if verbose:
-		sys.stderr.write("{}: {}\n".format(tag[priority], msg % args))
-	syslog.openlog(facility=syslog.LOG_SYSLOG)
-	syslog.syslog(priority, msg % args)
-	syslog.closelog()
+    tag = {
+        syslog.LOG_INFO: "INFO",
+        syslog.LOG_WARNING: "WARNING",
+        syslog.LOG_ERR: "ERROR",
+        syslog.LOG_DEBUG: "DEBUG"
+    }
+    if verbose:
+        sys.stderr.write("{}: {}\n".format(tag[priority], msg % args))
+    syslog.openlog(facility=syslog.LOG_SYSLOG)
+    syslog.syslog(priority, msg % args)
+    syslog.closelog()
+
 
 def info(msg, *args, **kwargs):
-	"""
-	Log 'msg % args' to STDERR and syslog with priority 'INFO'.
-	To do not write to STDERR, use the keyword argument verbose, e.g.
+    """
+    Log 'msg % args' to STDERR and syslog with priority 'INFO'.
+    To do not write to STDERR, use the keyword argument verbose, e.g.
 
-	info("This is a %s", "test", verbose=False)
-	"""
-	_log(syslog.LOG_INFO, msg, args, **kwargs)
+    info("This is a %s", "test", verbose=False)
+    """
+    _log(syslog.LOG_INFO, msg, args, **kwargs)
+
 
 def warning(msg, *args, **kwargs):
-	"""
-	Log 'msg % args' to STDERR and syslog with priority 'WARNING'.
-	To do not write to STDERR, use the keyword argument verbose, e.g.
+    """
+    Log 'msg % args' to STDERR and syslog with priority 'WARNING'.
+    To do not write to STDERR, use the keyword argument verbose, e.g.
 
-	warning("This is a %s", "test", verbose=False)
-	"""
-	_log(syslog.LOG_WARNING, msg, args, **kwargs)
+    warning("This is a %s", "test", verbose=False)
+    """
+    _log(syslog.LOG_WARNING, msg, args, **kwargs)
+
 
 def error(msg, *args, **kwargs):
-	"""
-	Log 'msg % args' to STDERR and syslog with priority 'ERR'.
-	To do not write to STDERR, use the keyword argument verbose, e.g.
+    """
+    Log 'msg % args' to STDERR and syslog with priority 'ERR'.
+    To do not write to STDERR, use the keyword argument verbose, e.g.
 
-	error("This is a %s", "test", verbose=False)
-	"""
-	_log(syslog.LOG_ERR, msg, args, **kwargs)
+    error("This is a %s", "test", verbose=False)
+    """
+    _log(syslog.LOG_ERR, msg, args, **kwargs)
+
 
 def debug(msg, *args, **kwargs):
-	"""
-	Log 'msg % args' to STDERR and syslog with priority 'DEBUG'.
-	To do not write to STDERR, use the keyword argument verbose, e.g.
+    """
+    Log 'msg % args' to STDERR and syslog with priority 'DEBUG'.
+    To do not write to STDERR, use the keyword argument verbose, e.g.
 
-	debug("This is a %s", "test", verbose=False)
-	"""
-	_log(syslog.LOG_DEBUG, msg, args, **kwargs)
+    debug("This is a %s", "test", verbose=False)
+    """
+    _log(syslog.LOG_DEBUG, msg, args, **kwargs)

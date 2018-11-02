@@ -19,6 +19,8 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+NUM_PROCESSORS := $(shell nproc)
+
 OMV_PACKAGE := $(shell pwd | sed 's|.*/||')
 OMV_POT_DIR := $(CURDIR)/usr/share/openmediavault/locale
 OMV_POT_FILE := $(OMV_PACKAGE).pot
@@ -60,9 +62,12 @@ omv_build_doc: debian/doxygen.conf
 	mkdir -p debian/doxygen
 	doxygen $<
 
+omv_beautify_py:
+	autopep8 --in-place --recursive --jobs $(NUM_PROCESSORS) .
+
 source: clean
 	dpkg-buildpackage -S -us -uc
 
 .PHONY: omv_tx_status omv_tx_pull_po omv_tx_push_pot
 .PHONY: omv_build_pot omv_build_doc omv_clean_scm
-.PHONY: source
+.PHONY: omv_beautify_py source

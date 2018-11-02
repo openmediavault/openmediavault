@@ -26,26 +26,27 @@ import yaml
 
 log = logging.getLogger(__name__)
 
+
 def populate_pillar():
-	"""
-	Populate the pillar data.
-	"""
-	# Create the pillar containing the default values. Read them from the
-	# file /etc/default/openmediavault.
-	data = openmediavault.settings.Environment.as_dict()
-	filename = '/srv/pillar/omv/default.sls'
-	log.info('Writing {}'.format(filename))
-	with open(filename, 'w') as fd:
-		fd.write(yaml.dump({'default': data},
-			Dumper=yaml.SafeDumper,
-			default_flow_style=False))
-	# Create the pillar containing the product information.
-	prod_info = openmediavault.productinfo.ProductInfo()
-	data = prod_info.as_dict()
-	filename = '/srv/pillar/omv/productinfo.sls'
-	log.info('Writing {}'.format(filename))
-	with open(filename, 'w') as fd:
-		fd.write(yaml.dump({'productinfo': data},
-			Dumper=yaml.SafeDumper,
-			default_flow_style=False))
-	return True
+    """
+    Populate the pillar data.
+    """
+    # Create the pillar containing the default values. Read them from the
+    # file /etc/default/openmediavault.
+    data = openmediavault.settings.Environment.as_dict()
+    filename = '/srv/pillar/omv/default.sls'
+    log.info('Writing {}'.format(filename))
+    with open(filename, 'w') as fd:
+        fd.write(yaml.dump({'default': data},
+                           Dumper=yaml.SafeDumper,
+                           default_flow_style=False))
+    # Create the pillar containing the product information.
+    prod_info = openmediavault.productinfo.ProductInfo()
+    data = prod_info.as_dict()
+    filename = '/srv/pillar/omv/productinfo.sls'
+    log.info('Writing {}'.format(filename))
+    with open(filename, 'w') as fd:
+        fd.write(yaml.dump({'productinfo': data},
+                           Dumper=yaml.SafeDumper,
+                           default_flow_style=False))
+    return True

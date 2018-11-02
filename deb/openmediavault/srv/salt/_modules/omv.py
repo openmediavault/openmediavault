@@ -29,54 +29,61 @@ import subprocess
 import salt.utils.network
 from salt.utils.decorators.jinja import jinja_filter
 
+
 def get_config(id, identifier=None):
-	db = openmediavault.config.Database()
-	objs = db.get(id, identifier)
-	if isinstance(objs, list):
-		return [obj.get_dict() for obj in objs]
-	return objs.get_dict()
+    db = openmediavault.config.Database()
+    objs = db.get(id, identifier)
+    if isinstance(objs, list):
+        return [obj.get_dict() for obj in objs]
+    return objs.get_dict()
+
 
 def get_config_by_filter(id, filter):
-	db = openmediavault.config.Database()
-	objs = db.get_by_filter(id, openmediavault.config.DatabaseFilter(filter))
-	if isinstance(objs, list):
-		return [obj.get_dict() for obj in objs]
-	return objs.get_dict()
+    db = openmediavault.config.Database()
+    objs = db.get_by_filter(id, openmediavault.config.DatabaseFilter(filter))
+    if isinstance(objs, list):
+        return [obj.get_dict() for obj in objs]
+    return objs.get_dict()
+
 
 def get_sharedfolder_path(uuid):
-	sf_obj = get_config('conf.system.sharedfolder', uuid)
-	mp_obj = get_config('conf.system.filesystem.mountpoint',
-						sf_obj['mntentref'])
-	return os.path.join(mp_obj['dir'], sf_obj['reldirpath'])
+    sf_obj = get_config('conf.system.sharedfolder', uuid)
+    mp_obj = get_config('conf.system.filesystem.mountpoint',
+                        sf_obj['mntentref'])
+    return os.path.join(mp_obj['dir'], sf_obj['reldirpath'])
+
 
 def get_sharedfolder_name(uuid):
-	sf_obj = get_config('conf.system.sharedfolder', uuid)
-	return sf_obj['name']
+    sf_obj = get_config('conf.system.sharedfolder', uuid)
+    return sf_obj['name']
+
 
 def get_sharedfolder_mount_dir(uuid):
-	sf_obj = get_config('conf.system.sharedfolder', uuid)
-	mp_obj = get_config('conf.system.filesystem.mountpoint',
-						sf_obj['mntentref'])
-	return mp_obj['dir']
+    sf_obj = get_config('conf.system.sharedfolder', uuid)
+    mp_obj = get_config('conf.system.filesystem.mountpoint',
+                        sf_obj['mntentref'])
+    return mp_obj['dir']
+
 
 def is_ipv6_enabled():
-	"""
-	Check whether IPv6 is enabled.
-	:return: Return True if IPv6 is enabled, otherwise False.
-	:rtype: bool
-	"""
-	if not os.path.exists('/proc/net/if_inet6'):
-		return False
-	with open('/proc/net/if_inet6') as f:
-		lines = f.readlines()
-	# Filter unwanted interfaces.
-	lines = [l for l in lines if not re.match(r'^\s+lo$', l)]
-	return len(lines) > 0
+    """
+    Check whether IPv6 is enabled.
+    :return: Return True if IPv6 is enabled, otherwise False.
+    :rtype: bool
+    """
+    if not os.path.exists('/proc/net/if_inet6'):
+        return False
+    with open('/proc/net/if_inet6') as f:
+        lines = f.readlines()
+    # Filter unwanted interfaces.
+    lines = [l for l in lines if not re.match(r'^\s+lo$', l)]
+    return len(lines) > 0
+
 
 @jinja_filter('network_prefix_len')
 def get_net_size(mask):
-	"""
-	Turns an IPv4 netmask into it's corresponding prefix length
-	(255.255.255.0 -> 24 as in 192.168.1.10/24).
-	"""
-	return salt.utils.network.get_net_size(mask)
+    """
+    Turns an IPv4 netmask into it's corresponding prefix length
+    (255.255.255.0 -> 24 as in 192.168.1.10/24).
+    """
+    return salt.utils.network.get_net_size(mask)

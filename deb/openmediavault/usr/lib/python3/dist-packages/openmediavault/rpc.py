@@ -23,52 +23,54 @@ import socket
 import struct
 import openmediavault
 
+
 class RpcException(Exception):
-	def __init__(self, message, code, trace):
-		super().__init__(message)
-		self._code = code
-		self._trace = trace
+    def __init__(self, message, code, trace):
+        super().__init__(message)
+        self._code = code
+        self._trace = trace
 
-	@property
-	def code(self):
-		return self._code
+    @property
+    def code(self):
+        return self._code
 
-	@property
-	def trace(self):
-		return self._trace
+    @property
+    def trace(self):
+        return self._trace
+
 
 def call(service, method, params=None):
-	address = openmediavault.getenv("OMV_ENGINED_SO_ADDRESS")
-	sndtimeo = openmediavault.getenv("OMV_ENGINED_SO_SNDTIMEO", type="int")
-	rcvtimeo = openmediavault.getenv("OMV_ENGINED_SO_RCVTIMEO", type="int")
-	s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-	s.setsockopt(socket.SOL_SOCKET, socket.SO_SNDTIMEO, struct.pack("ll",
-		sndtimeo, 0))
-	s.setsockopt(socket.SOL_SOCKET, socket.SO_RCVTIMEO, struct.pack("ll",
-		rcvtimeo, 0))
-	s.connect(address)
-	request = json.dumps({
-			"service": service,
-			"method": method,
-			"params": params,
-			"context": {
-					"username": "admin",
-					"role": 0x1
-			}
-	})
-	request = request + "\0"
-	s.sendall(request.encode())
-	chunks = []
-	success = False
-	while not success:
-		chunk = s.recv(4096)
-		if chunk == "":
-			raise RuntimeError("Socket connection broken")
-		if chunk.endswith(b"\0"):
-			chunk = chunk[:-1]
-			success = True
-		chunks.append(chunk.decode())
-	response = json.loads("".join(chunks))
-	if response["error"] is not None:
-		raise RpcException(**response["error"])
-	return response["response"]
+    address = openmediavault.getenv("OMV_ENGINED_SO_ADDRESS")
+    sndtimeo = openmediavault.getenv("OMV_ENGINED_SO_SNDTIMEO", type="int")
+    rcvtimeo = openmediavault.getenv("OMV_ENGINED_SO_RCVTIMEO", type="int")
+    s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+    s.setsockopt(socket.SOL_SOCKET, socket.SO_SNDTIMEO,
+                 struct.pack("ll", sndtimeo, 0))
+    s.setsockopt(socket.SOL_SOCKET, socket.SO_RCVTIMEO,
+                 struct.pack("ll", rcvtimeo, 0))
+    s.connect(address)
+    request = json.dumps({
+        "service": service,
+        "method": method,
+        "params": params,
+        "context": {
+            "username": "admin",
+            "role": 0x1
+        }
+    })
+    request = request + "\0"
+    s.sendall(request.encode())
+    chunks = []
+    success = False
+    while not success:
+        chunk = s.recv(4096)
+        if chunk == "":
+            raise RuntimeError("Socket connection broken")
+        if chunk.endswith(b"\0"):
+            chunk = chunk[:-1]
+            success = True
+        chunks.append(chunk.decode())
+    response = json.loads("".join(chunks))
+    if response["error"] is not None:
+        raise RpcException(**response["error"])
+    return response["response"]

@@ -24,34 +24,36 @@ import sys
 import openmediavault.confdbadm
 import openmediavault.config.database
 
-class Command(openmediavault.confdbadm.ICommand,
-		openmediavault.confdbadm.CommandHelper):
-	@property
-	def description(self):
-		return "Check if configuration object(s) exists."
 
-	def execute(self, *args):
-		# Parse the command line arguments.
-		parser = argparse.ArgumentParser(
-			prog="%s %s" % (os.path.basename(args[0]), args[1]),
-			description=self.description)
-		parser.add_argument("id", type=self.argparse_is_datamodel_id,
-			help="The data model ID, e.g. 'conf.system.sharedfolder'")
-		parser.add_argument("--filter", nargs="?", type=self.argparse_is_json)
-		cmd_args = parser.parse_args(args[2:])
-		# Get the filter.
-		filter = None
-		if cmd_args.filter:
-			filter = openmediavault.config.DatabaseFilter(cmd_args.filter)
-		# Query the database.
-		db = openmediavault.config.Database()
-		return 0 if db.exists(cmd_args.id, filter) else 1
+class Command(openmediavault.confdbadm.ICommand,
+              openmediavault.confdbadm.CommandHelper):
+    @property
+    def description(self):
+        return "Check if configuration object(s) exists."
+
+    def execute(self, *args):
+        # Parse the command line arguments.
+        parser = argparse.ArgumentParser(
+            prog="%s %s" % (os.path.basename(args[0]), args[1]),
+            description=self.description)
+        parser.add_argument("id", type=self.argparse_is_datamodel_id,
+                            help="The data model ID, e.g. 'conf.system.sharedfolder'")
+        parser.add_argument("--filter", nargs="?", type=self.argparse_is_json)
+        cmd_args = parser.parse_args(args[2:])
+        # Get the filter.
+        filter = None
+        if cmd_args.filter:
+            filter = openmediavault.config.DatabaseFilter(cmd_args.filter)
+        # Query the database.
+        db = openmediavault.config.Database()
+        return 0 if db.exists(cmd_args.id, filter) else 1
+
 
 if __name__ == "__main__":
-	rc = 1
-	command = Command();
-	if not command.validate_args(*sys.argv):
-		command.usage(*sys.argv)
-	else:
-		rc = command.execute(*sys.argv)
-	sys.exit(rc)
+    rc = 1
+    command = Command()
+    if not command.validate_args(*sys.argv):
+        command.usage(*sys.argv)
+    else:
+        rc = command.execute(*sys.argv)
+    sys.exit(rc)

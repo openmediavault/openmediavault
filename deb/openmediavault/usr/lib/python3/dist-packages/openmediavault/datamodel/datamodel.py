@@ -18,90 +18,91 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-__all__ = [ "Datamodel" ]
+__all__ = ["Datamodel"]
 
 import abc
 import json
 
+
 class Datamodel(object):
-	def __init__(self, model):
-		"""
-		:param model: The data model as Python dictionary or JSON string.
-		"""
-		# Convert into a JSON object if it is a string.
-		if isinstance(model, str):
-			model = json.loads(model)
-		else:
-			if not isinstance(model, dict):
-				raise TypeError("Expected dictionary.")
-		self._model = model
+    def __init__(self, model):
+        """
+        :param model: The data model as Python dictionary or JSON string.
+        """
+        # Convert into a JSON object if it is a string.
+        if isinstance(model, str):
+            model = json.loads(model)
+        else:
+            if not isinstance(model, dict):
+                raise TypeError("Expected dictionary.")
+        self._model = model
 
-	def as_dict(self):
-		"""
-		Get the data model as Python dictionary.
-		:returns: Returns the data model as Python dictionary.
-		"""
-		return self._model
+    def as_dict(self):
+        """
+        Get the data model as Python dictionary.
+        :returns: Returns the data model as Python dictionary.
+        """
+        return self._model
 
-	@property
-	def model(self):
-		"""
-		Get the data model as Python dictionary.
-		:returns: Returns the data model as Python dictionary.
-		"""
-		return self.as_dict()
+    @property
+    def model(self):
+        """
+        Get the data model as Python dictionary.
+        :returns: Returns the data model as Python dictionary.
+        """
+        return self.as_dict()
 
-	@property
-	def id(self):
-		"""
-		Get the model identifier, e.g. 'conf.service.rsyncd.module'.
-		:returns: Returns the model identifier.
-		"""
-		if not "id" in self.model:
-			return ""
-		return self.model['id']
+    @property
+    def id(self):
+        """
+        Get the model identifier, e.g. 'conf.service.rsyncd.module'.
+        :returns: Returns the model identifier.
+        """
+        if not "id" in self.model:
+            return ""
+        return self.model['id']
 
-	@property
-	def alias(self):
-		"""
-		Get the model identifier alias.
-		:returns: Returns the model identifier alias.
-		"""
-		if not "alias" in self.model:
-			return ""
-		return self._model['alias']
+    @property
+    def alias(self):
+        """
+        Get the model identifier alias.
+        :returns: Returns the model identifier alias.
+        """
+        if not "alias" in self.model:
+            return ""
+        return self._model['alias']
 
-	@property
-	def title(self):
-		"""
-		Get the model title, e.g. 'SSH certificate'.
-		:returns: Returns the model titel.
-		"""
-		if not "title" in self.model:
-			return ""
-		return self._model['title']
+    @property
+    def title(self):
+        """
+        Get the model title, e.g. 'SSH certificate'.
+        :returns: Returns the model titel.
+        """
+        if not "title" in self.model:
+            return ""
+        return self._model['title']
 
-	@property
-	def description(self):
-		"""
-		Get the model description.
-		:returns: Returns the model description.
-		"""
-		if not "description" in self.model:
-			return ""
-		return self._model['description']
+    @property
+    def description(self):
+        """
+        Get the model description.
+        :returns: Returns the model description.
+        """
+        if not "description" in self.model:
+            return ""
+        return self._model['description']
 
-	@abc.abstractmethod
-	def validate(self, data):
-		"""
-		Validate the specified data against the data model.
-		:param data: The JSON data to validate.
-		:returns: None.
-		"""
+    @abc.abstractmethod
+    def validate(self, data):
+        """
+        Validate the specified data against the data model.
+        :param data: The JSON data to validate.
+        :returns: None.
+        """
 
-	def __str__(self):
-		"""
-		Return the data model as JSON string.
-		:returns: Returns a JSON string.
-		"""
-		return json.dumps(self.model)
+    def __str__(self):
+        """
+        Return the data model as JSON string.
+        :returns: Returns a JSON string.
+        """
+        return json.dumps(self.model)
