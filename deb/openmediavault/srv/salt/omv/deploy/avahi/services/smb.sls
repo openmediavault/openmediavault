@@ -20,7 +20,7 @@
 {% set smb_config = salt['omv.get_config']('conf.service.smb') %}
 {% set zeroconf_config = salt['omv.get_config_by_filter'](
   'conf.service.zeroconf.service',
-  '{"operator": "stringEquals", "arg0": "id", "arg1": "smb"}')[0] %}
+  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'smb'})[0] %}
 
 {% if not (smb_config.enable | to_bool and zeroconf_config.enable | to_bool) %}
 

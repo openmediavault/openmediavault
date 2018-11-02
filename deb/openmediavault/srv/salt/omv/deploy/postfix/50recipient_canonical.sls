@@ -20,7 +20,7 @@
 {% set email_config = salt['omv.get_config']('conf.system.notification.email') %}
 {% set users = salt['omv.get_config_by_filter'](
   'conf.system.usermngmnt.user',
-  '{"operator": "stringNotEquals", "arg0": "email", "arg1": ""}') %}
+  {'operator': 'stringNotEquals', 'arg0': 'email', 'arg1': ''}) %}
 
 # Add a catch-all recipient, thus all emails send to an user/address not
 # existing will be redirected to the configured primary recipient address.

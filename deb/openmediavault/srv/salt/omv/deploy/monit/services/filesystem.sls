@@ -19,10 +19,10 @@
 
 {% set mountpoints = salt['omv.get_config_by_filter'](
   'conf.system.filesystem.mountpoint',
-  '{"operator": "and", "arg0": {"operator": "equals", "arg0": "hidden", "arg1": "0"}, "arg1": {"operator": "not", "arg0": {"operator": "or", "arg0": {"operator": "stringContains", "arg0": "opts", "arg1": "bind"}, "arg1": {"operator": "stringContains", "arg0": "opts", "arg1": "loop"}}}}') %}
+  {'operator': 'and', 'arg0': {'operator': 'equals', 'arg0': 'hidden', 'arg1': '0'}, 'arg1': {'operator': 'not', 'arg0': {'operator': 'or', 'arg0': {'operator': 'stringContains', 'arg0': 'opts', 'arg1': 'bind'}, 'arg1': {'operator': 'stringContains', 'arg0': 'opts', 'arg1': 'loop'}}}}) %}
 {% set notification_config = salt['omv.get_config_by_filter'](
   'conf.system.notification.notification',
-  '{"operator": "stringEquals", "arg0": "id", "arg1": "monitfilesystems"}')[0] %}
+  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'monitfilesystems'})[0] %}
 
 {% if notification_config.enable | to_bool %}
 

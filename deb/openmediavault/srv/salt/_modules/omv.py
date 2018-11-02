@@ -20,6 +20,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 import json
+import openmediavault.config
 import os
 import re
 import subprocess
@@ -28,43 +29,35 @@ import subprocess
 import salt.utils.network
 from salt.utils.decorators.jinja import jinja_filter
 
-def _get_config(args):
-	"""
-	Use the CLI tool to query the database. As soon as Salt is Python 3
-	compliant, then use the OMV Python API.
-	"""
-	#db = openmediavault.config.Database()
-	#return db.get(id, uuid)
-	output = subprocess.check_output(args, env=dict(os.environ, LANG='C'))
-	return json.loads(output)
-
-def get_config(id, uuid=None):
-	args = ['omv-confdbadm', 'read']
-	if uuid is not None:
-		args.append('--uuid')
-		args.append(uuid)
-	args.append(id)
-	return _get_config(args)
+def get_config(id, identifier=None):
+	db = openmediavault.config.Database()
+	objs = db.get(id, identifier)
+	if isinstance(objs, list):
+		return [obj.get_dict() for obj in objs]
+	return objs.get_dict()
 
 def get_config_by_filter(id, filter):
-	args = ['omv-confdbadm', 'read', '--filter']
-	args.append(filter)
-	args.append(id)
-	return _get_config(args)
+	db = openmediavault.config.Database()
+	objs = db.get_by_filter(id, openmediavault.config.DatabaseFilter(filter))
+	if isinstance(objs, list):
+		return [obj.get_dict() for obj in objs]
+	return objs.get_dict()
 
 def get_sharedfolder_path(uuid):
-	sfObj = get_config('conf.system.sharedfolder', uuid)
-	mpObj = get_config('conf.system.filesystem.mountpoint', sfObj['mntentref'])
-	return os.path.join(mpObj['dir'], sfObj['reldirpath'])
+	sf_obj = get_config('conf.system.sharedfolder', uuid)
+	mp_obj = get_config('conf.system.filesystem.mountpoint',
+						sf_obj['mntentref'])
+	return os.path.join(mp_obj['dir'], sf_obj['reldirpath'])
 
 def get_sharedfolder_name(uuid):
-	sfObj = get_config('conf.system.sharedfolder', uuid)
-	return sfObj['name']
+	sf_obj = get_config('conf.system.sharedfolder', uuid)
+	return sf_obj['name']
 
 def get_sharedfolder_mount_dir(uuid):
-	sfObj = get_config('conf.system.sharedfolder', uuid)
-	mpObj = get_config('conf.system.filesystem.mountpoint', sfObj['mntentref'])
-	return mpObj['dir']
+	sf_obj = get_config('conf.system.sharedfolder', uuid)
+	mp_obj = get_config('conf.system.filesystem.mountpoint',
+						sf_obj['mntentref'])
+	return mp_obj['dir']
 
 def is_ipv6_enabled():
 	"""

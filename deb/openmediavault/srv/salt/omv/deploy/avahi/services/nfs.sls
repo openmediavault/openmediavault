@@ -21,7 +21,7 @@
 {% set nfs_config = salt['omv.get_config']('conf.service.nfs') %}
 {% set zeroconf_config = salt['omv.get_config_by_filter'](
   'conf.service.zeroconf.service',
-  '{"operator": "stringEquals", "arg0": "id", "arg1": "nfs"}')[0] %}
+  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'nfs'})[0] %}
 
 remove_avahi_service_nfs:
   module.run:
@@ -35,7 +35,7 @@ remove_avahi_service_nfs:
 # Announce duplicate shares only once.
 {% set nfsshares = salt['omv.get_config_by_filter'](
   'conf.service.nfs.share',
-  '{"operator": "distinct", "arg0": "sharedfolderref"}') %}
+  {"operator": "distinct", "arg0": "sharedfolderref"}) %}
 {% for nfsshare in nfsshares %}
 
 {% set sharedfolder = salt['omv.get_config'](

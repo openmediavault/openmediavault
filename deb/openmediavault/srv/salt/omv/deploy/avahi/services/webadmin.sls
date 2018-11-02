@@ -20,7 +20,7 @@
 {% set webadmin_config = salt['omv.get_config']('conf.webadmin') %}
 {% set zeroconf_config = salt['omv.get_config_by_filter'](
   'conf.service.zeroconf.service',
-  '{"operator": "stringEquals", "arg0": "id", "arg1": "webadmin"}')[0] %}
+  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'webadmin'})[0] %}
 
 {% if not (zeroconf_config.enable | to_bool) %}
 
