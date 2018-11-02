@@ -29,9 +29,11 @@ import sys
 
 __args = {'quiet': False}
 __out = "highstate"
-__deploy_scripts_dir = openmediavault.getenv("OMV_SALT_SCRIPTS_DEPLOY_DIR",
+__deploy_scripts_dir = openmediavault.getenv(
+    "OMV_SALT_SCRIPTS_DEPLOY_DIR",
     "/srv/salt/omv/deploy");
-__stage_scripts_dir = openmediavault.getenv("OMV_SALT_SCRIPTS_STAGE_DIR",
+__stage_scripts_dir = openmediavault.getenv(
+    "OMV_SALT_SCRIPTS_STAGE_DIR",
     "/srv/salt/omv/stage");
 __salt_minion_config_file = openmediavault.getenv(
     "OMV_SALT_MINION_CONFIG_FILE", "/etc/salt/minion");
