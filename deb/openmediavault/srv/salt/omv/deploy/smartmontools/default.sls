@@ -50,7 +50,7 @@ configure_smartd_conf:
 
 {% set smart_devices = salt['omv.get_config_by_filter'](
   'conf.service.smartmontools.device',
-  '{"operator": "equals", "arg0": "enable", "arg1": "1"}') %}
+  {'operator': 'equals', 'arg0': 'enable', 'arg1': '1'}) %}
 
 {% for device in smart_devices %}
 

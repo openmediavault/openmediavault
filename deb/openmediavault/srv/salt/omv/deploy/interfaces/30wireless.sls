@@ -24,7 +24,7 @@
 
 {% set interfaces = salt['omv.get_config_by_filter'](
   'conf.system.network.interface',
-  '{"operator": "stringEquals", "arg0": "type", "arg1": "wireless"}') %}
+  {'operator': 'stringEquals', 'arg0': 'type', 'arg1': 'wireless'}) %}
 
 {% for interface in interfaces %}
 

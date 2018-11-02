@@ -20,7 +20,7 @@
 {% set ssh_config = salt['omv.get_config']('conf.service.ssh') %}
 {% set zeroconf_config = salt['omv.get_config_by_filter'](
   'conf.service.zeroconf.service',
-  '{"operator": "stringEquals", "arg0": "id", "arg1": "ssh"}')[0] %}
+  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'ssh'})[0] %}
 
 {% if not (ssh_config.enable | to_bool and zeroconf_config.enable | to_bool) %}
 

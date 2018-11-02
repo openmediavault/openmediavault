@@ -38,7 +38,7 @@ include:
 # Mount all filesystems without the 'bind' mount option.
 {% set no_bind_mountpoints = salt['omv.get_config_by_filter'](
   'conf.system.filesystem.mountpoint',
-  '{"operator": "not", "arg0": {"operator": "stringContains", "arg0": "opts", "arg1": "bind"}}') %}
+  {'operator': 'not', 'arg0': {'operator': 'stringContains', 'arg0': 'opts', 'arg1': 'bind'}}) %}
 
 {% for mountpoint in no_bind_mountpoints %}
 mount_no_bind_mountpoint_{{ mountpoint.uuid }}:
@@ -54,7 +54,7 @@ mount_no_bind_mountpoint_{{ mountpoint.uuid }}:
 # Mount all filesystems with containing the 'bind' mount option.
 {% set bind_mountpoints = salt['omv.get_config_by_filter'](
   'conf.system.filesystem.mountpoint',
-  '{"operator": "stringContains", "arg0": "opts", "arg1": "bind"}') %}
+  {'operator': 'stringContains', 'arg0': 'opts', 'arg1': 'bind'}) %}
 
 {% for mountpoint in bind_mountpoints %}
 mount_bind_mountpoint_{{ mountpoint.uuid }}:

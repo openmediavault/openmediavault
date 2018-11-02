@@ -26,10 +26,10 @@
 {% set rules = salt['omv.get_config']('conf.system.network.iptables.rule') %}
 {% set num_inet_rules = salt['omv.get_config_by_filter'](
   'conf.system.network.iptables.rule',
-  '{"operator": "stringEquals", "arg0": "family", "arg1": "inet"}') | length %}
+  {'operator': 'stringEquals', 'arg0': 'family', 'arg1': 'inet'}) | length %}
 {% set num_inet6_rules = salt['omv.get_config_by_filter'](
   'conf.system.network.iptables.rule',
-  '{"operator": "stringEquals", "arg0": "family", "arg1": "inet6"}') | length %}
+  {'operator': 'stringEquals', 'arg0': 'family', 'arg1': 'inet6'}) | length %}
 
 configure_ifupdown_iptables_rules:
   file.managed:
