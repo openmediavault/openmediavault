@@ -6,7 +6,12 @@ root = true
 end_of_line = lf
 insert_final_newline = true
 
-[*.{js,py,php,inc,sh,xml,json,html,css}]
+[*.{js,php,inc,sh,xml,json,html,css}]
 charset = utf-8
 indent_size = 4
 indent_style = tab
+
+[*.py]
+charset = utf-8
+indent_style = space
+indent_size = 4

@@ -26,34 +26,36 @@ import openmediavault.config.datamodel
 import os.path
 import sys
 
-class Command(openmediavault.confdbadm.ICommand,
-		openmediavault.confdbadm.CommandHelper):
-	@property
-	def description(self):
-		return "List all data model IDs."
 
-	def execute(self, *args):
-		datamodel_ids = []
-		# Load all data models.
-		datamodels_path = openmediavault.getenv("OMV_DATAMODELS_DIR",
-			"/usr/share/openmediavault/datamodels");
-		for f in glob.glob(os.path.join(datamodels_path, "conf.*.json")):
-			datamodel_id = os.path.splitext(os.path.basename(f))[0]
-			# Note, currently the filename is the data model id, but
-			# this may change someday, so we load the data model and
-			# ask for its identifier to be on the safe side.
-			datamodel = openmediavault.config.Datamodel(datamodel_id)
-			datamodel_ids.append(datamodel.id)
-		# Print the data model identifiers.
-		for datamodel_id in natsort.humansorted(datamodel_ids):
-			print(datamodel_id)
-		return 0
+class Command(openmediavault.confdbadm.ICommand,
+              openmediavault.confdbadm.CommandHelper):
+    @property
+    def description(self):
+        return "List all data model IDs."
+
+    def execute(self, *args):
+        datamodel_ids = []
+        # Load all data models.
+        datamodels_path = openmediavault.getenv("OMV_DATAMODELS_DIR",
+                                                "/usr/share/openmediavault/datamodels")
+        for f in glob.glob(os.path.join(datamodels_path, "conf.*.json")):
+            datamodel_id = os.path.splitext(os.path.basename(f))[0]
+            # Note, currently the filename is the data model id, but
+            # this may change someday, so we load the data model and
+            # ask for its identifier to be on the safe side.
+            datamodel = openmediavault.config.Datamodel(datamodel_id)
+            datamodel_ids.append(datamodel.id)
+        # Print the data model identifiers.
+        for datamodel_id in natsort.humansorted(datamodel_ids):
+            print(datamodel_id)
+        return 0
+
 
 if __name__ == "__main__":
-	rc = 1
-	command = Command();
-	if not command.validate_args(*sys.argv):
-		command.usage(*sys.argv)
-	else:
-		rc = command.execute(*sys.argv)
-	sys.exit(rc)
+    rc = 1
+    command = Command()
+    if not command.validate_args(*sys.argv):
+        command.usage(*sys.argv)
+    else:
+        rc = command.execute(*sys.argv)
+    sys.exit(rc)

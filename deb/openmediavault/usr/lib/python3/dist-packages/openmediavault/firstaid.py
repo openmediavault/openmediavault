@@ -18,19 +18,20 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-__all__ = [ "IModule" ]
+__all__ = ["IModule"]
 
 import abc
 
-class IModule(metaclass=abc.ABCMeta): # lgtm[py/syntax-error]
-	@abc.abstractproperty
-	def description(self):
-		"""
-		Get the module description.
-		"""
 
-	@abc.abstractmethod
-	def execute(self):
-		"""
-		Execute the module implementation.
-		"""
+class IModule(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
+    @abc.abstractproperty
+    def description(self):
+        """
+        Get the module description.
+        """
+
+    @abc.abstractmethod
+    def execute(self):
+        """
+        Execute the module implementation.
+        """

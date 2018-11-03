@@ -23,23 +23,25 @@ import sys
 import json
 import openmediavault.log
 
+
 def main():
-	parser = argparse.ArgumentParser(description="Convert JSON data to " \
-		"human-readable form.")
-	parser.add_argument("file", help="The JSON file to prettify. If not " \
-		"defined, stdin will be used.", nargs="?")
-	args = parser.parse_args()
-	try:
-		inFile = sys.stdin
-		if args.file is not None:
-			inFile = open(args.file)
-		data = json.load(inFile)
-		inFile.close()
-	except Exception as e:
-		openmediavault.log.error(str(e))
-		return 1
-	print(json.dumps(data, sort_keys=False, indent=4))
-	return 0
+    parser = argparse.ArgumentParser(description="Convert JSON data to "
+                                     "human-readable form.")
+    parser.add_argument("file", help="The JSON file to prettify. If not "
+                        "defined, stdin will be used.", nargs="?")
+    args = parser.parse_args()
+    try:
+        inFile = sys.stdin
+        if args.file is not None:
+            inFile = open(args.file)
+        data = json.load(inFile)
+        inFile.close()
+    except Exception as e:
+        openmediavault.log.error(str(e))
+        return 1
+    print(json.dumps(data, sort_keys=False, indent=4))
+    return 0
+
 
 if __name__ == "__main__":
-	sys.exit(main())
+    sys.exit(main())
