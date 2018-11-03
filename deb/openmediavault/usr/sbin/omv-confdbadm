@@ -23,44 +23,48 @@ import sys
 import openmediavault
 import openmediavault.confdbadm
 
+
 def usage(commands):
-	print("Usage: %s <command>\n\nCommon commands:" %
-		os.path.basename(sys.argv[0]))
-	for command in sorted(commands):
-		cmd_inst = commands[command]
-		print("  %s\t%s" % (command, cmd_inst.description))
+    print("Usage: %s <command>\n\nCommon commands:" %
+          os.path.basename(sys.argv[0]))
+    for command in sorted(commands):
+        cmd_inst = commands[command]
+        print("  %s\t%s" % (command, cmd_inst.description))
+
 
 def load_commands():
-	commands = {}
-	path = openmediavault.getenv("OMV_CONFDBADM_COMMANDS_DIR",
-		"/usr/share/openmediavault/confdbadm/commands.d");
-	sys.path.insert(0, path)
-	for name in os.listdir(path):
-		cmd_name, ext = os.path.splitext(name)
-		if not ext == ".py":
-			continue
-		cmd = __import__(cmd_name)
-		cmd_inst = cmd.Command()
-		if not isinstance(cmd_inst, openmediavault.confdbadm.ICommand):
-			continue
-		commands[cmd_name] = cmd_inst
-	sys.path.pop(0)
-	return commands
+    commands = {}
+    path = openmediavault.getenv("OMV_CONFDBADM_COMMANDS_DIR",
+                                 "/usr/share/openmediavault/confdbadm/commands.d")
+    sys.path.insert(0, path)
+    for name in os.listdir(path):
+        cmd_name, ext = os.path.splitext(name)
+        if not ext == ".py":
+            continue
+        cmd = __import__(cmd_name)
+        cmd_inst = cmd.Command()
+        if not isinstance(cmd_inst, openmediavault.confdbadm.ICommand):
+            continue
+        commands[cmd_name] = cmd_inst
+    sys.path.pop(0)
+    return commands
+
 
 def main():
-	# Load the commands.
-	commands = load_commands()
-	# Check the command line arguments.
-	if 1 >= len(sys.argv):
-		usage(commands)
-		return 1
-	# Does the command exist?
-	if sys.argv[1] not in commands:
-		usage(commands)
-		return 1
-	# Get the command instance and execute the command.
-	cmd_inst = commands[sys.argv[1]]
-	return cmd_inst.execute(*sys.argv)
+    # Load the commands.
+    commands = load_commands()
+    # Check the command line arguments.
+    if 1 >= len(sys.argv):
+        usage(commands)
+        return 1
+    # Does the command exist?
+    if sys.argv[1] not in commands:
+        usage(commands)
+        return 1
+    # Get the command instance and execute the command.
+    cmd_inst = commands[sys.argv[1]]
+    return cmd_inst.execute(*sys.argv)
+
 
 if __name__ == "__main__":
-	sys.exit(main())
+    sys.exit(main())

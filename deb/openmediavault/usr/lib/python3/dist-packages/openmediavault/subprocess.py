@@ -30,35 +30,40 @@ we always want to have not localized command output to do not
 get error message in foreign languages that the maintainers
 do not understand.
 """
-__all__ = [ "Popen", "call", "check_call", "check_output" ]
+__all__ = ["Popen", "call", "check_call", "check_output"]
 
 import os
-import subprocess # lgtm[py/import-own-module]
+import subprocess  # lgtm[py/import-own-module]
+
 
 def _modify_kwargs(kwargs):
-	"""
-	Append 'LANG="C"' to the 'env' keyword argument because we
-	always want untranslated command line output.
-	"""
-	# Append the env keyword if it does not exist.
-	if "env" not in kwargs:
-		kwargs["env"] = dict(os.environ, LANG="C")
-	else:
-		kwargs["env"].update({"LANG": "C"})
+    """
+    Append 'LANG="C"' to the 'env' keyword argument because we
+    always want untranslated command line output.
+    """
+    # Append the env keyword if it does not exist.
+    if "env" not in kwargs:
+        kwargs["env"] = dict(os.environ, LANG="C")
+    else:
+        kwargs["env"].update({"LANG": "C"})
+
 
 def call(*popenargs, **kwargs):
-	_modify_kwargs(kwargs)
-	return subprocess.call(*popenargs, **kwargs)
+    _modify_kwargs(kwargs)
+    return subprocess.call(*popenargs, **kwargs)
+
 
 def check_call(*popenargs, **kwargs):
-	_modify_kwargs(kwargs)
-	return subprocess.check_call(*popenargs, **kwargs)
+    _modify_kwargs(kwargs)
+    return subprocess.check_call(*popenargs, **kwargs)
+
 
 def check_output(*popenargs, **kwargs):
-	_modify_kwargs(kwargs)
-	return subprocess.check_output(*popenargs, **kwargs)
+    _modify_kwargs(kwargs)
+    return subprocess.check_output(*popenargs, **kwargs)
+
 
 class Popen(subprocess.Popen):
-	def __init__(self, *popenargs, **kwargs):
-		_modify_kwargs(kwargs)
-		super().__init__(*popenargs, **kwargs) # lgtm[py/super-in-old-style]
+    def __init__(self, *popenargs, **kwargs):
+        _modify_kwargs(kwargs)
+        super().__init__(*popenargs, **kwargs)  # lgtm[py/super-in-old-style]
