@@ -27,8 +27,9 @@ import openmediavault.config.object
 import openmediavault.config.database
 
 
-class Command(openmediavault.confdbadm.ICommand,
-              openmediavault.confdbadm.CommandHelper):
+class Command(
+    openmediavault.confdbadm.ICommand, openmediavault.confdbadm.CommandHelper
+):
     @property
     def description(self):
         return "Read configuration object(s)."
@@ -38,14 +39,24 @@ class Command(openmediavault.confdbadm.ICommand,
         # Parse the command line arguments.
         parser = argparse.ArgumentParser(
             prog="%s %s" % (os.path.basename(args[0]), args[1]),
-            description=self.description)
-        parser.add_argument("id", type=self.argparse_is_datamodel_id,
-                            help="The data model ID, e.g. 'conf.service.ssh'")
-        parser.add_argument("--prettify", action="store_true",
-                            help="Prettifies the output, by adding spaces and indentation.")
+            description=self.description
+        )
+        parser.add_argument(
+            "id",
+            type=self.argparse_is_datamodel_id,
+            help="The data model ID, e.g. 'conf.service.ssh'"
+        )
+        parser.add_argument(
+            "--prettify",
+            action="store_true",
+            help="Prettifies the output, by adding spaces and indentation."
+        )
         group1 = parser.add_mutually_exclusive_group()
-        group1.add_argument("--defaults", action="store_true",
-                            help="Print the default values.")
+        group1.add_argument(
+            "--defaults",
+            action="store_true",
+            help="Print the default values."
+        )
         group2 = group1.add_mutually_exclusive_group()
         group2.add_argument("--uuid", nargs="?", type=self.argparse_is_uuid4)
         group2.add_argument("--filter", nargs="?", type=self.argparse_is_json)
@@ -77,10 +88,6 @@ class Command(openmediavault.confdbadm.ICommand,
 
 
 if __name__ == "__main__":
-    rc = 1
     command = Command()
-    if not command.validate_args(*sys.argv):
-        command.usage(*sys.argv)
-    else:
-        rc = command.execute(*sys.argv)
+    rc = command.execute(*sys.argv)
     sys.exit(rc)

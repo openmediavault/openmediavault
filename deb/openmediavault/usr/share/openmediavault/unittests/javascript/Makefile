@@ -22,11 +22,11 @@
 test:
 	npm test
 
-setup:
+install:
 	echo "Installing required packages ..."
 	sudo apt-get install curl software-properties-common
 	curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
 	sudo apt-get install -y nodejs
 	npm install
 
-.PHONY: test setup
+.PHONY: test install

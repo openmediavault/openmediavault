@@ -21,35 +21,38 @@
 import unittest
 import openmediavault
 
+
 class FunctionsTestCase(unittest.TestCase):
-	def test_bool_yes(self):
-		value = openmediavault.bool("yes")
-		self.assertEqual(value, True)
+    def test_bool_yes(self):
+        value = openmediavault.bool("yes")
+        self.assertEqual(value, True)
 
-	def test_bool_no(self):
-		value = openmediavault.bool("no")
-		self.assertEqual(value, False)
+    def test_bool_no(self):
+        value = openmediavault.bool("no")
+        self.assertEqual(value, False)
 
-	def test_getenv_bool(self):
-		value = openmediavault.getenv("OMV_DEBUG_SCRIPT", type="bool")
-		self.assertEqual(isinstance(value, bool), True)
+    def test_getenv_bool(self):
+        value = openmediavault.getenv("OMV_DEBUG_SCRIPT", type="bool")
+        self.assertEqual(isinstance(value, bool), True)
 
-	def test_getenv_str(self):
-		value = openmediavault.getenv("OMV_MOUNT_DIR")
-		self.assertEqual(isinstance(value, str), True)
+    def test_getenv_str(self):
+        value = openmediavault.getenv("OMV_MOUNT_DIR")
+        self.assertEqual(isinstance(value, str), True)
 
-	def test_getenv_int(self):
-		value = openmediavault.getenv("OMV_ENGINED_SO_SNDTIMEO", type="int")
-		self.assertEqual(isinstance(value, int), True)
+    def test_getenv_int(self):
+        value = openmediavault.getenv("OMV_ENGINED_SO_SNDTIMEO", type="int")
+        self.assertEqual(isinstance(value, int), True)
 
-	def test_getenv_float(self):
-		value = openmediavault.getenv("OMV_ABC", 1.5, type="float")
-		self.assertEqual(isinstance(value, float), True)
+    def test_getenv_float(self):
+        value = openmediavault.getenv("OMV_ABC", 1.5, type="float")
+        self.assertEqual(isinstance(value, float), True)
 
-	def test_getenv_fail(self):
-		self.assertRaises(TypeError, lambda: openmediavault.getenv(
-			"OMV_ABC", 1.5, type="list"))
+    def test_getenv_fail(self):
+        self.assertRaises(
+            TypeError,
+            lambda: openmediavault.getenv("OMV_ABC", 1.5, type="list")
+        )
 
 
 if __name__ == "__main__":
-	unittest.main()
+    unittest.main()

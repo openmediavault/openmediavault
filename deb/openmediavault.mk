@@ -63,11 +63,15 @@ omv_build_doc: debian/doxygen.conf
 	doxygen $<
 
 omv_beautify_py:
-	autopep8 --in-place --recursive --jobs $(NUM_PROCESSORS) .
+	yapf --in-place --recursive --parallel .
+
+omv_lint_py:
+	find $(CURDIR) \( -iname *.py \) -type f -print0 | xargs -0r \
+	  pylint --rcfile="$(CURDIR)/../.pylintrc" --jobs=$(NUM_PROCESSORS)
 
 source: clean
 	dpkg-buildpackage -S -us -uc
 
 .PHONY: omv_tx_status omv_tx_pull_po omv_tx_push_pot
 .PHONY: omv_build_pot omv_build_doc omv_clean_scm
-.PHONY: omv_beautify_py source
+.PHONY: omv_beautify_py omv_lint_py source

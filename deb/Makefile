@@ -30,7 +30,9 @@ clean binary omv_tx_pull_po omv_tx_push_pot omv_build_pot:
 		cd $(CURDIR)/$$dir && fakeroot debian/rules $@; \
 	done
 
-install_build_tools:
+install:
+	echo "Installing required packages ..."
 	sudo apt-get install debhelper fakeroot gettext
+	pip3 install --upgrade yapf pylint
 
-.PHONY: install_build_tools clean binary omv_tx_pull_po omv_tx_push_pot omv_build_pot
+.PHONY: install clean binary omv_tx_pull_po omv_tx_push_pot omv_build_pot

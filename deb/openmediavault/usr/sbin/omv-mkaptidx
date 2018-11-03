@@ -40,34 +40,38 @@ import openmediavault.productinfo
 
 pi = openmediavault.productinfo.ProductInfo()
 
+
 class OpenMediaVaultPluginsFilter(apt.cache.Filter):
-	"""
-	Filter that returns all openmediavault plugins except the packages:
-	- openmediavault
-	- openmediavault-keyring
-	"""
-	def apply(self, pkg):
-		m = re.match(r"^%s-(\S+)$" % pi.package_name, pkg.name)
-		if not m:
-			return False
-		if m.group(1) == "keyring":
-			return False
-		return True
+    """
+    Filter that returns all openmediavault plugins except the packages:
+    - openmediavault
+    - openmediavault-keyring
+    """
+
+    def apply(self, pkg):
+        m = re.match(r"^%s-(\S+)$" % pi.package_name, pkg.name)
+        if not m:
+            return False
+        if m.group(1) == "keyring":
+            return False
+        return True
+
 
 def get_extended_description(raw_description):
-	"""
-	Return the extended description according to the Debian policy
-	(Chapter 5.6.13).
-	See http://www.debian.org/doc/debian-policy/ch-controlfields.html
-	for more information.
-	"""
-	parts = raw_description.partition("\n");
-	lines = parts[2].split("\n");
-	for i, line in enumerate(lines):
-		lines[i] = line.strip();
-		if lines[i] == ".":
-			lines[i] = "\n"
-	return "\n".join(lines)
+    """
+    Return the extended description according to the Debian policy
+    (Chapter 5.6.13).
+    See http://www.debian.org/doc/debian-policy/ch-controlfields.html
+    for more information.
+    """
+    parts = raw_description.partition("\n")
+    lines = parts[2].split("\n")
+    for i, line in enumerate(lines):
+        lines[i] = line.strip()
+        if lines[i] == ".":
+            lines[i] = "\n"
+    return "\n".join(lines)
+
 
 cache = apt.cache.Cache()
 
@@ -76,50 +80,52 @@ print("Creating index of upgradeable packages ...")
 data = []
 cache.upgrade(True)
 for pkg in cache.get_changes():
-	if pkg.candidate is None:
-		continue
-	data.append({
-		"name": pkg.name,
-		"oldversion": pkg.installed.version
-			if pkg.is_installed and pkg.installed is not None
-			else "",
-		"repository": "%s/%s" % (pkg.candidate.origins[0].label,
-			pkg.candidate.origins[0].archive)
-			if pkg.candidate.origins is not None
-			else "",
-		"package": pkg.candidate.record.get("Package"),
-		"source": pkg.candidate.source_name,
-		"sourceversion": pkg.candidate.source_version,
-		"version": pkg.candidate.version,
-		"installedsize": pkg.candidate.size,
-		"maintainer": pkg.candidate.record.get("Maintainer", ""),
-		"architecture": pkg.candidate.architecture,
-		"depends": pkg.candidate.record.get("Depends", ""),
-		"suggests": pkg.candidate.record.get("Suggests", ""),
-		"conflicts": pkg.candidate.record.get("Conflicts", ""),
-		"breaks": pkg.candidate.record.get("Breaks", ""),
-		"abstract": pkg.candidate.summary, # Deprecated
-		"summary": pkg.candidate.summary,
-		"description": pkg.candidate.record.get("Description", ""),
-		"extendeddescription": get_extended_description(
-			pkg.candidate.raw_description),
-		"homepage": pkg.candidate.homepage,
-		"descriptionmd5": pkg.candidate.record.get("Description-md5", ""),
-		"multiarch": pkg.candidate.record.get("Multi-Arch", ""),
-		"predepends": pkg.candidate.record.get("Pre-Depends", ""),
-		"section": pkg.candidate.section,
-		"priority": pkg.candidate.priority,
-		"filename": pkg.candidate.filename,
-		"size": pkg.candidate.size,
-		"md5sum": pkg.candidate.md5,
-		"sha1": pkg.candidate.sha1,
-		"sha256": pkg.candidate.sha256,
-		"uri": pkg.candidate.uri,
-		"uris": pkg.candidate.uris
-	})
-with open(openmediavault.getenv('OMV_APT_UPGRADE_INDEX_FILE',
-	'/var/lib/openmediavault/apt/upgradeindex.json'), 'w') as outfile:
-	json.dump(data, outfile, sort_keys=True, indent=4)
+    if pkg.candidate is None:
+        continue
+    data.append({
+        "name": pkg.name,
+        "oldversion": pkg.installed.version if pkg.is_installed
+            and pkg.installed is not None else "",
+        "repository": "%s/%s" % (pkg.candidate.origins[0].label,
+                                 pkg.candidate.origins[0].archive)
+                                 if pkg.candidate.origins is not None else "",
+        "package": pkg.candidate.record.get("Package"),
+        "source": pkg.candidate.source_name,
+        "sourceversion": pkg.candidate.source_version,
+        "version": pkg.candidate.version,
+        "installedsize": pkg.candidate.size,
+        "maintainer": pkg.candidate.record.get("Maintainer", ""),
+        "architecture": pkg.candidate.architecture,
+        "depends": pkg.candidate.record.get("Depends", ""),
+        "suggests": pkg.candidate.record.get("Suggests", ""),
+        "conflicts": pkg.candidate.record.get("Conflicts", ""),
+        "breaks": pkg.candidate.record.get("Breaks", ""),
+        "abstract": pkg.candidate.summary,  # Deprecated
+        "summary": pkg.candidate.summary,
+        "description": pkg.candidate.record.get("Description", ""),
+        "extendeddescription": get_extended_description(
+            pkg.candidate.raw_description),
+        "homepage": pkg.candidate.homepage,
+        "descriptionmd5": pkg.candidate.record.get("Description-md5", ""),
+        "multiarch": pkg.candidate.record.get("Multi-Arch", ""),
+        "predepends": pkg.candidate.record.get("Pre-Depends", ""),
+        "section": pkg.candidate.section,
+        "priority": pkg.candidate.priority,
+        "filename": pkg.candidate.filename,
+        "size": pkg.candidate.size,
+        "md5sum": pkg.candidate.md5,
+        "sha1": pkg.candidate.sha1,
+        "sha256": pkg.candidate.sha256,
+        "uri": pkg.candidate.uri,
+        "uris": pkg.candidate.uris
+    })  # yapf: disable
+with open(
+    openmediavault.getenv(
+        'OMV_APT_UPGRADE_INDEX_FILE',
+        '/var/lib/openmediavault/apt/upgradeindex.json'
+    ), 'w'
+) as outfile:
+    json.dump(data, outfile, sort_keys=True, indent=4)
 
 # Create the '/var/lib/openmediavault/apt/pluginsindex.json' file.
 print("Creating index of %s plugins ..." % pi.name)
@@ -128,44 +134,47 @@ cache = apt.cache.Cache()
 filtered = apt.cache.FilteredCache(cache)
 filtered.set_filter(OpenMediaVaultPluginsFilter())
 for pkg in filtered:
-	if pkg.candidate is None:
-		continue
-	data.append({
-		"name": pkg.name,
-		"repository": "%s/%s" % (pkg.candidate.origins[0].label,
-			pkg.candidate.origins[0].archive)
-			if pkg.candidate.origins is not None
-			else "",
-		"package": pkg.candidate.record.get("Package"),
-		"version": pkg.candidate.version,
-		"installedsize": pkg.candidate.size,
-		"maintainer": pkg.candidate.record.get("Maintainer", ""),
-		"architecture": pkg.candidate.architecture,
-		"depends": pkg.candidate.record.get("Depends", ""),
-		"suggests": pkg.candidate.record.get("Suggests", ""),
-		"conflicts": pkg.candidate.record.get("Conflicts", ""),
-		"breaks": pkg.candidate.record.get("Breaks", ""),
-		"abstract": pkg.candidate.summary, # Deprecated
-		"summary": pkg.candidate.summary,
-		"description": pkg.candidate.record.get("Description", ""),
-		"extendeddescription": get_extended_description(
-			pkg.candidate.raw_description),
-		"homepage": pkg.candidate.homepage,
-		"descriptionmd5": pkg.candidate.record.get("Description-md5", ""),
-		"multiarch": pkg.candidate.record.get("Multi-Arch", ""),
-		"predepends": pkg.candidate.record.get("Pre-Depends", ""),
-		"section": pkg.candidate.section,
-		"pluginsection": pkg.candidate.record.get("Plugin-Section", ""),
-		"priority": pkg.candidate.priority,
-		"filename": pkg.candidate.filename,
-		"size": pkg.candidate.size,
-		"md5sum": pkg.candidate.md5,
-		"sha1": pkg.candidate.sha1,
-		"sha256": pkg.candidate.sha256,
-		"installed": pkg.is_installed
-	})
-with open(openmediavault.getenv('OMV_APT_PLUGINS_INDEX_FILE',
-	'/var/lib/openmediavault/apt/pluginsindex.json'), 'w') as outfile:
-	json.dump(data, outfile, sort_keys=True, indent=4)
+    if pkg.candidate is None:
+        continue
+    data.append({
+        "name": pkg.name,
+        "repository": "%s/%s" % (pkg.candidate.origins[0].label,
+                                 pkg.candidate.origins[0].archive)
+                                 if pkg.candidate.origins is not None else "",
+        "package": pkg.candidate.record.get("Package"),
+        "version": pkg.candidate.version,
+        "installedsize": pkg.candidate.size,
+        "maintainer": pkg.candidate.record.get("Maintainer", ""),
+        "architecture": pkg.candidate.architecture,
+        "depends": pkg.candidate.record.get("Depends", ""),
+        "suggests": pkg.candidate.record.get("Suggests", ""),
+        "conflicts": pkg.candidate.record.get("Conflicts", ""),
+        "breaks": pkg.candidate.record.get("Breaks", ""),
+        "abstract": pkg.candidate.summary,  # Deprecated
+        "summary": pkg.candidate.summary,
+        "description": pkg.candidate.record.get("Description", ""),
+        "extendeddescription": get_extended_description(
+            pkg.candidate.raw_description),
+        "homepage": pkg.candidate.homepage,
+        "descriptionmd5": pkg.candidate.record.get("Description-md5", ""),
+        "multiarch": pkg.candidate.record.get("Multi-Arch", ""),
+        "predepends": pkg.candidate.record.get("Pre-Depends", ""),
+        "section": pkg.candidate.section,
+        "pluginsection": pkg.candidate.record.get("Plugin-Section", ""),
+        "priority": pkg.candidate.priority,
+        "filename": pkg.candidate.filename,
+        "size": pkg.candidate.size,
+        "md5sum": pkg.candidate.md5,
+        "sha1": pkg.candidate.sha1,
+        "sha256": pkg.candidate.sha256,
+        "installed": pkg.is_installed
+    })  # yapf: disable
+with open(
+    openmediavault.getenv(
+        'OMV_APT_PLUGINS_INDEX_FILE',
+        '/var/lib/openmediavault/apt/pluginsindex.json'
+    ), 'w'
+) as outfile:
+    json.dump(data, outfile, sort_keys=True, indent=4)
 
 sys.exit(0)

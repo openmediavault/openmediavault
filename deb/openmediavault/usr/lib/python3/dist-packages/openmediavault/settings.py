@@ -26,20 +26,21 @@ import openmediavault
 DEFAULT_FILE = "/etc/default/openmediavault"
 
 
-class Environment(object):
-    _values = {}
-
+class Environment:
     """
-	Access the environment variables defined within the file
-	/etc/default/openmediavault.
-	"""
+    Access the environment variables defined within the file
+    /etc/default/openmediavault.
+    """
+
+    _values = {}
 
     @staticmethod
     def load():
         with open(DEFAULT_FILE) as reader:
             for line in reader.readlines():
-                m = re.match(r"^(OMV_([A-Z0-9_]+))=(\")?([^\"]+)(\")?$",
-                             line.strip())
+                m = re.match(
+                    r"^(OMV_([A-Z0-9_]+))=(\")?([^\"]+)(\")?$", line.strip()
+                )
                 if not m:
                     continue
                 # Append variable, e.g. SCRIPTS_DIR
@@ -63,7 +64,8 @@ class Environment(object):
         if default is None:
             raise KeyError(
                 "The environment variable '%s' does not exist in '%s'" %
-                (key, DEFAULT_FILE))
+                (key, DEFAULT_FILE)
+            )
         return default
 
     @staticmethod

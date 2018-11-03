@@ -18,13 +18,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-__all__ = [
-    "SystemdException",
-    "Properties",
-    "Job",
-    "Manager",
-    "Unit"
-]
+__all__ = ["SystemdException", "Properties", "Job", "Manager", "Unit"]
 
 import dbus
 import dbus.mainloop.glib
@@ -34,27 +28,26 @@ dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
 
 class SystemdException(Exception):
     def __init__(self, error):
-        super().__init__("{}: {}".format(error.get_dbus_name(),
-                                         error.get_dbus_message()))
+        super().__init__(
+            "{}: {}".format(error.get_dbus_name(), error.get_dbus_message())
+        )
 
 
-class _Object(object):
+class _Object:
     def __init__(self, object_path, interface_path):
         self._object_path = object_path
         self._interface_path = interface_path
         self._bus = dbus.SystemBus()
         self._proxy = self._bus.get_object(
-            "org.freedesktop.systemd1",
-            self._object_path)
-        self._interface = dbus.Interface(
-            self._proxy,
-            self._interface_path)
+            "org.freedesktop.systemd1", self._object_path
+        )
+        self._interface = dbus.Interface(self._proxy, self._interface_path)
         self._properties_interface = dbus.Interface(
-            self._proxy,
-            "org.freedesktop.DBus.Properties")
+            self._proxy, "org.freedesktop.DBus.Properties"
+        )
         self._properties_interface.connect_to_signal(
-            "PropertiesChanged",
-            self._on_properties_changed)
+            "PropertiesChanged", self._on_properties_changed
+        )
         self._update_properties()
 
     @property
@@ -65,12 +58,14 @@ class _Object(object):
     def properties_interface(self):
         return self._properties_interface
 
+    # pylint: disable=unused-argument
     def _on_properties_changed(self, *args, **kargs):
         self._update_properties()
 
     def _update_properties(self):
         properties = self.properties_interface.GetAll(
-            self.interface.dbus_interface)
+            self.interface.dbus_interface
+        )
         properties_attr = Properties()
         for key, value in properties.items():
             setattr(properties_attr, key, value)
@@ -85,7 +80,7 @@ class _Object(object):
         return getattr(self.properties, property)
 
 
-class Properties(object):
+class Properties:
     pass
 
 
@@ -97,37 +92,38 @@ class Job(_Object):  # lgtm[py/missing-call-to-init]
         try:
             self.interface.Cancel()
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(error)
+            raise SystemdException(e)
 
 
 class Manager(_Object):  # lgtm[py/missing-call-to-init]
     def __init__(self):
-        super().__init__("/org/freedesktop/systemd1",
-                         "org.freedesktop.systemd1.Manager")
+        super().__init__(
+            "/org/freedesktop/systemd1", "org.freedesktop.systemd1.Manager"
+        )
 
     def halt(self):
         try:
             self.interface.Halt()
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(error)
+            raise SystemdException(e)
 
     def power_off(self):
         try:
             self.interface.PowerOff()
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(error)
+            raise SystemdException(e)
 
     def reboot(self):
         try:
             self.interface.Reboot()
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(error)
+            raise SystemdException(e)
 
     def reload(self):
         try:
             self.interface.Reload()
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(error)
+            raise SystemdException(e)
 
     def list_units(self):
         try:
@@ -136,7 +132,7 @@ class Manager(_Object):  # lgtm[py/missing-call-to-init]
                 units.append(Unit(unit[6]))
             return tuple(units)
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(error)
+            raise SystemdException(e)
 
     def get_unit(self, name):
         try:
@@ -144,7 +140,7 @@ class Manager(_Object):  # lgtm[py/missing-call-to-init]
             unit = Unit(unit_path)
             return unit
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(error)
+            raise SystemdException(e)
 
     def start_unit(self, name, mode):
         try:
@@ -152,7 +148,7 @@ class Manager(_Object):  # lgtm[py/missing-call-to-init]
             job = Job(job_path)
             return job
         except dbus.exceptions.DBusException as e:
-            raise SystemdError(e)
+            raise SystemdException(e)
 
     def stop_unit(self, name, mode):
         try:
@@ -160,7 +156,7 @@ class Manager(_Object):  # lgtm[py/missing-call-to-init]
             job = Job(job_path)
             return job
         except dbus.exceptions.DBusException as e:
-            raise SystemdError(e)
+            raise SystemdException(e)
 
 
 class Unit(_Object):  # lgtm[py/missing-call-to-init]
@@ -173,7 +169,7 @@ class Unit(_Object):  # lgtm[py/missing-call-to-init]
             job = Job(job_path)
             return job
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(error)
+            raise SystemdException(e)
 
     def stop(self, mode):
         try:
@@ -181,7 +177,7 @@ class Unit(_Object):  # lgtm[py/missing-call-to-init]
             job = Job(job_path)
             return job
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(error)
+            raise SystemdException(e)
 
     def reload(self, mode):
         try:
@@ -189,7 +185,7 @@ class Unit(_Object):  # lgtm[py/missing-call-to-init]
             job = Job(job_path)
             return job
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(error)
+            raise SystemdException(e)
 
     def restart(self, mode):
         try:
@@ -197,10 +193,10 @@ class Unit(_Object):  # lgtm[py/missing-call-to-init]
             job = Job(job_path)
             return job
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(error)
+            raise SystemdException(e)
 
     def kill(self, who, mode, signal):
         try:
             self.interface.KillUnit(who, mode, signal)
         except dbus.exceptions.DBusException as e:
-            raise SystemdException(error)
+            raise SystemdException(e)

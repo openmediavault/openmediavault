@@ -24,7 +24,7 @@ import abc
 import json
 
 
-class Datamodel(object):
+class Datamodel:
     def __init__(self, model):
         """
         :param model: The data model as Python dictionary or JSON string.
