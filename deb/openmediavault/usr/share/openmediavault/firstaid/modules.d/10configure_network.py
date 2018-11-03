@@ -21,13 +21,13 @@
 import sys
 import ipaddress
 import re
-import pyudev
 import natsort
 import openmediavault
 import openmediavault.firstaid
 import openmediavault.rpc
 import openmediavault.string
 import dialog
+import pyudev
 
 
 class Module(openmediavault.firstaid.IModule):
