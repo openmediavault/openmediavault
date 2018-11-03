@@ -28,6 +28,7 @@ import openmediavault.firstaid
 import openmediavault.rpc
 import openmediavault.string
 import dialog
+import pyudev
 
 
 class Module(openmediavault.firstaid.IModule):

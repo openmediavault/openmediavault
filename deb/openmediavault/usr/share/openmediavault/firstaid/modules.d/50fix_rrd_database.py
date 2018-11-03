@@ -22,12 +22,12 @@ import os
 import sys
 import glob
 import datetime
-import dialog
 import subprocess
 import openmediavault
 import openmediavault.config.database
 import openmediavault.firstaid
 import openmediavault.subprocess
+import dialog
 
 
 class Module(openmediavault.firstaid.IModule):

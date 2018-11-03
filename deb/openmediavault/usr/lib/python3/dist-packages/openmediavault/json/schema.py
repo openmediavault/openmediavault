@@ -212,11 +212,11 @@ class Schema:
                 last_exception = e
             # Break the foreach loop here because one of the defined types
             # is successfully validated.
-            if True == valid:
+            if valid is True:
                 break
         # If the validation is not successful, then trow the
         # last exception.
-        if False == valid and last_exception is not None:
+        if valid is False and last_exception is not None:
             # pylint: disable=raising-bad-type
             raise last_exception
 
@@ -319,7 +319,7 @@ class Schema:
             return
         if not (
             "exclusiveMinimum" in schema and
-            (True == schema['exclusiveMinimum'])
+            (schema['exclusiveMinimum'] is True)
         ):
             return
         if schema['minimum'] == value:
@@ -333,7 +333,7 @@ class Schema:
             return
         if not (
             "exclusiveMaximum" in schema and
-            (True == schema['exclusiveMaximum'])
+            (schema['exclusiveMaximum'] is True)
         ):
             return
         if schema['maximum'] == value:
@@ -486,7 +486,7 @@ class Schema:
             path = ".".join(parts)
             # Check if the 'required' attribute is set.
             if not propk in value:
-                if ("required" in propv) and (True == propv['required']):
+                if ("required" in propv) and (propv['required'] is True):
                     raise SchemaValidationException(
                         name, "Missing 'required' attribute '%s'." % path
                     )

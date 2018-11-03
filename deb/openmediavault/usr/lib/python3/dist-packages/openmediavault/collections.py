@@ -211,7 +211,7 @@ class DotCollapsedDict(dict):
     ``
     """
 
-    def __init__(self, d=None):
+    def __init__(self, d=None):  # pylint: disable=super-init-not-called
         """
         :param d: The Python dictionary to collapse.
         """

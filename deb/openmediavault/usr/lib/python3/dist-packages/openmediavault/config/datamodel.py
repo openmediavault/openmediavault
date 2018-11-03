@@ -349,7 +349,7 @@ class Datamodel(openmediavault.datamodel.Datamodel):
                         "No 'items' attribute defined at '%s'." % path
                     )
                 # Call the callback function.
-                if False == callback(self, name, path, schema, user_data):
+                if callback(self, name, path, schema, user_data) is False:
                     return
                 # Process the array items.
                 _walk_schema(name, path, schema['items'], callback, user_data)
@@ -360,7 +360,7 @@ class Datamodel(openmediavault.datamodel.Datamodel):
                         "No 'properties' attribute defined at '%s'." % path
                     )
                 # Call the callback function.
-                if False == callback(self, name, path, schema, user_data):
+                if callback(self, name, path, schema, user_data) is False:
                     return
                 # Process the object properties.
                 for prop_name, prop_schema in schema['properties'].items():
