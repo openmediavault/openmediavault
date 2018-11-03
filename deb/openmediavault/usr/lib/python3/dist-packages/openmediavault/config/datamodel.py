@@ -61,8 +61,9 @@ class Datamodel(openmediavault.datamodel.Datamodel):
         :raises openmediavault.datamodel.DatamodelNotFoundException:
         """
         # Load the file content.
-        datamodels_dir = openmediavault.getenv("OMV_DATAMODELS_DIR",
-                                               "/usr/share/openmediavault/datamodels")
+        datamodels_dir = openmediavault.getenv(
+            "OMV_DATAMODELS_DIR", "/usr/share/openmediavault/datamodels"
+        )
         datamodel_path = os.path.join(datamodels_dir, "%s.json" % id)
         if not os.path.exists(datamodel_path):
             raise DatamodelNotFoundException(id)
@@ -79,22 +80,59 @@ class Datamodel(openmediavault.datamodel.Datamodel):
         schema = openmediavault.json.Schema({
             "type": "object",
             "properties": {
-                "type": {"type": "string", "enum": ["config"], "required": True},
-                "id": {"type": "string", "required": True},
-                "alias": {"type": "string", "required": False},
-                "persistent": {"type": "boolean", "required": False},
-                "title": {"type": "string", "required": False},
-                "description": {"type": "string", "required": False},
-                "notificationid": {"type": "string", "required": False},
-                "properties": {"type": "any", "required": True},
+                "type": {
+                    "type": "string",
+                    "enum": ["config"],
+                    "required": True
+                },
+                "id": {
+                    "type": "string",
+                    "required": True
+                },
+                "alias": {
+                    "type": "string",
+                    "required": False
+                },
+                "persistent": {
+                    "type": "boolean",
+                    "required": False
+                },
+                "title": {
+                    "type": "string",
+                    "required": False
+                },
+                "description": {
+                    "type": "string",
+                    "required": False
+                },
+                "notificationid": {
+                    "type": "string",
+                    "required": False
+                },
+                "properties": {
+                    "type": "any",
+                    "required": True
+                },
                 "queryinfo": {
                     "type": "object",
                     "required": False,
                     "properties": {
-                        "xpath": {"type": "string", "required": True},
-                        "iterable": {"type": "boolean", "required": True},
-                        "idproperty": {"type": "string", "required": False},
-                        "refproperty": {"type": "string", "required": False}
+                        "xpath": {
+                            "type": "string",
+                            "required": True
+                        },
+                        "iterable": {
+                            "type": "boolean",
+                            "required": True
+                        },
+                        "idproperty": {
+                            "type": "string",
+                            "required": False
+                        },
+                        "refproperty": {
+                            "type": "string",
+                            "required": False
+                        }
                     }
                 }
             }
@@ -204,8 +242,8 @@ class Datamodel(openmediavault.datamodel.Datamodel):
         else:
             if isinstance(prop_schema['type'], list):
                 raise openmediavault.json.SchemaException(
-                    "The attribute 'type' must not be an array at '%s'." %
-                    path)
+                    "The attribute 'type' must not be an array at '%s'." % path
+                )
             type = "any"
             if "type" in prop_schema:
                 type = prop_schema['type']
@@ -225,7 +263,10 @@ class Datamodel(openmediavault.datamodel.Datamodel):
                     if "uuidv4" == prop_schema['format']:
                         if self.is_identifiable and self.idproperty == path:
                             result = openmediavault.getenv(
-                                "OMV_CONFIGOBJECT_NEW_UUID")
+                                "OMV_CONFIGOBJECT_NEW_UUID"
+                            )
+
+
 #			elif type in [ "any", "null", "float" ]:
 #				result = None
             else:
@@ -271,8 +312,8 @@ class Datamodel(openmediavault.datamodel.Datamodel):
         prop_schema = self.schema.get_by_path(name)
         if isinstance(prop_schema['type'], list):
             raise openmediavault.json.SchemaException(
-                "The attribute 'type' must not be an array at '%s'." %
-                path)
+                "The attribute 'type' must not be an array at '%s'." % path
+            )
         if "boolean" == prop_schema['type']:
             result = openmediavault.bool(value)
         elif "integer" == prop_schema['type']:
@@ -295,26 +336,29 @@ class Datamodel(openmediavault.datamodel.Datamodel):
         :param user_data: If the optional userdata parameter is supplied,
                           it will be passed to the callback function.
         """
+
         def _walk_schema(name, path, schema, callback, user_data):
             if not "type" in schema:
                 raise openmediavault.json.SchemaException(
-                    "No 'type' attribute defined at '%s'." % path)
+                    "No 'type' attribute defined at '%s'." % path
+                )
             if "array" == schema['type']:
                 # Validate the node.
                 if not "items" in schema:
                     raise openmediavault.json.SchemaException(
-                        "No 'items' attribute defined at '%s'." % path)
+                        "No 'items' attribute defined at '%s'." % path
+                    )
                 # Call the callback function.
                 if False == callback(self, name, path, schema, user_data):
                     return
                 # Process the array items.
-                _walk_schema(name, path, schema['items'], callback,
-                             user_data)
+                _walk_schema(name, path, schema['items'], callback, user_data)
             elif "object" == schema['type']:
                 # Validate the node.
                 if not "properties" in schema:
                     raise openmediavault.json.SchemaException(
-                        "No 'properties' attribute defined at '%s'." % path)
+                        "No 'properties' attribute defined at '%s'." % path
+                    )
                 # Call the callback function.
                 if False == callback(self, name, path, schema, user_data):
                     return
@@ -322,13 +366,14 @@ class Datamodel(openmediavault.datamodel.Datamodel):
                 for prop_name, prop_schema in schema['properties'].items():
                     # Build the property path. Take care that a valid path
                     # is generated. To ensure this, empty parts are removed.
-                    prop_path = ".".join([x for x in [path,
-                                                      prop_name] if x])
+                    prop_path = ".".join([x for x in [path, prop_name] if x])
                     # Process the property node.
-                    _walk_schema(prop_name, prop_path, prop_schema, callback,
-                                 user_data)
+                    _walk_schema(
+                        prop_name, prop_path, prop_schema, callback, user_data
+                    )
             else:
                 callback(self, name, path, schema, user_data)
 
-        _walk_schema("", path, self.schema.get_by_path(path), callback,
-                     user_data)
+        _walk_schema(
+            "", path, self.schema.get_by_path(path), callback, user_data
+        )

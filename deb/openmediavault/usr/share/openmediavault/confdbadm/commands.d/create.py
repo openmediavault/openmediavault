@@ -28,8 +28,9 @@ import openmediavault.log
 import openmediavault.subprocess
 
 
-class Command(openmediavault.confdbadm.ICommand,
-              openmediavault.confdbadm.CommandHelper):
+class Command(
+    openmediavault.confdbadm.ICommand, openmediavault.confdbadm.CommandHelper
+):
     @property
     def description(self):
         return "Create the default configuration for a data model."
@@ -39,13 +40,19 @@ class Command(openmediavault.confdbadm.ICommand,
         # Parse the command line arguments.
         parser = argparse.ArgumentParser(
             prog="%s %s" % (os.path.basename(args[0]), args[1]),
-            description=self.description)
-        parser.add_argument("id", type=self.argparse_is_datamodel_id,
-                            help="The data model ID, e.g. 'conf.service.ssh'")
+            description=self.description
+        )
+        parser.add_argument(
+            "id",
+            type=self.argparse_is_datamodel_id,
+            help="The data model ID, e.g. 'conf.service.ssh'"
+        )
         cmd_args = parser.parse_args(args[2:])
         # Find the script.
-        create_dir = openmediavault.getenv("OMV_CONFDB_CREATE_DIR",
-                                           "/usr/share/openmediavault/confdb/create.d")
+        create_dir = openmediavault.getenv(
+            "OMV_CONFDB_CREATE_DIR",
+            "/usr/share/openmediavault/confdb/create.d"
+        )
         script_name = ""
         for name in os.listdir(create_dir):
             # Split the script name into its parts:
@@ -59,18 +66,23 @@ class Command(openmediavault.confdbadm.ICommand,
             # Test if the script exists and is executable.
             script_path = os.path.join(create_dir, script_name)
             if not os.path.exists(script_path):
-                raise RuntimeError("The script '%s' does not exist" %
-                                   script_name)
+                raise RuntimeError(
+                    "The script '%s' does not exist" % script_name
+                )
             if not os.access(script_path, os.X_OK):
-                raise RuntimeError("The script '%s' is not "
-                                   "executable" % script_name)
+                raise RuntimeError(
+                    "The script '%s' is not "
+                    "executable" % script_name
+                )
             # Execute the script.
             openmediavault.subprocess.check_call([script_path])
             rc = 0
         except Exception as e:
             # Display the exception message.
-            openmediavault.log.error("Failed to create the default "
-                                     "configuration: %s" % str(e))
+            openmediavault.log.error(
+                "Failed to create the default "
+                "configuration: %s" % str(e)
+            )
             # Rollback all changes.
             self.rollbackChanges()
         finally:
@@ -80,10 +92,6 @@ class Command(openmediavault.confdbadm.ICommand,
 
 
 if __name__ == "__main__":
-    rc = 1
     command = Command()
-    if not command.validate_args(*sys.argv):
-        command.usage(*sys.argv)
-    else:
-        rc = command.execute(*sys.argv)
+    rc = command.execute(*sys.argv)
     sys.exit(rc)

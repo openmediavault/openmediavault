@@ -30,8 +30,10 @@ import openmediavault.log
 
 def load_modules():
     modules = []
-    path = openmediavault.getenv("OMV_FIRSTAID_MODULES_DIR",
-                                 "/usr/share/openmediavault/firstaid/modules.d")
+    path = openmediavault.getenv(
+        "OMV_FIRSTAID_MODULES_DIR",
+        "/usr/share/openmediavault/firstaid/modules.d"
+    )
     sys.path.insert(0, path)
     for name in natsort.humansorted(os.listdir(path)):
         modname, ext = os.path.splitext(name)
@@ -58,10 +60,17 @@ def main():
     # Show the available modules.
     d = dialog.Dialog(dialog="dialog")
     while 1:
-        (code, tag) = d.menu("Please select a menu.",
-                             title="First aid", cancel_label="Exit", clear=True,
-                             backtitle="{} - {}".format(pi.name, pi.copyright),
-                             height=17, width=65, menu_height=10, choices=choices)
+        (code, tag) = d.menu(
+            "Please select a menu.",
+            title="First aid",
+            cancel_label="Exit",
+            clear=True,
+            backtitle="{} - {}".format(pi.name, pi.copyright),
+            height=17,
+            width=65,
+            menu_height=10,
+            choices=choices
+        )
         if code in (d.CANCEL, d.ESC):
             rc = 0
             break

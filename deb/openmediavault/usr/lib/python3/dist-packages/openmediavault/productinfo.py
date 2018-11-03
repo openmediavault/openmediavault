@@ -20,20 +20,21 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 __all__ = ["ProductInfo"]
 
-import apt
 import xml.etree.ElementTree
+import apt
 import openmediavault
 
 
-class ProductInfo(object):
+class ProductInfo:
     """
     This class provides a simple interface to get product information.
     """
 
     def __init__(self):
         self._dict = {}
-        prod_file = openmediavault.getenv("OMV_PRODUCTINFO_FILE",
-                                          "/usr/share/openmediavault/productinfo.xml")
+        prod_file = openmediavault.getenv(
+            "OMV_PRODUCTINFO_FILE", "/usr/share/openmediavault/productinfo.xml"
+        )
         tree = xml.etree.ElementTree.parse(prod_file)
         for child in tree.iter():
             # Skip all elements with children.

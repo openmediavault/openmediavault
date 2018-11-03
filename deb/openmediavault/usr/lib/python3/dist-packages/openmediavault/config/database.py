@@ -19,17 +19,10 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 __all__ = [
-    "Database",
-    "DatabaseException",
-    "DatabaseQueryException",
-    "DatabaseQueryNotFoundException",
-    "DatabaseFilter",
-    "DatabaseGetQuery",
-    "DatabaseGetByFilterQuery",
-    "DatabaseSetQuery",
-    "DatabaseDeleteQuery",
-    "DatabaseDeleteByFilterQuery",
-    "DatabaseIsReferencedQuery"
+    "Database", "DatabaseException", "DatabaseQueryException",
+    "DatabaseQueryNotFoundException", "DatabaseFilter", "DatabaseGetQuery",
+    "DatabaseGetByFilterQuery", "DatabaseSetQuery", "DatabaseDeleteQuery",
+    "DatabaseDeleteByFilterQuery", "DatabaseIsReferencedQuery"
 ]
 
 import abc
@@ -69,7 +62,7 @@ class DatabaseFilter(openmediavault.collections.DotDict):
     pass
 
 
-class Database(object):
+class Database:
     def get(self, id, identifier=None):
         """
         Get the specified configuration object.
@@ -125,14 +118,18 @@ class Database(object):
         query.execute()
         if "min_result" in kwargs:
             if len(query.response) < kwargs.get("min_result"):
-                raise DatabaseException("The query does not return the "
-                                        "minimum number of %d object(s)." %
-                                        kwargs.get("min_result"))
+                raise DatabaseException(
+                    "The query does not return the "
+                    "minimum number of %d object(s)." %
+                    kwargs.get("min_result")
+                )
         if "max_result" in kwargs:
             if len(query.response) > kwargs.get("max_result"):
-                raise DatabaseException("The query returns more than the "
-                                        "maximum number of %d object(s)." %
-                                        kwargs.get("max_result"))
+                raise DatabaseException(
+                    "The query returns more than the "
+                    "maximum number of %d object(s)." %
+                    kwargs.get("max_result")
+                )
         return query.response
 
     def exists(self, id, filter=None):
@@ -160,6 +157,7 @@ class Database(object):
         query.execute()
         if query.response is None:
             return False
+        # pylint: disable=len-as-condition
         if isinstance(query.response, list) and 0 >= len(query.response):
             return False
         return True
@@ -183,12 +181,15 @@ class Database(object):
         :returns: True if no configuration object with the same
                   property value exists, otherwise False.
         """
-        assert(isinstance(obj, openmediavault.config.Object))
-        return self.is_unique_by_filter(obj, DatabaseFilter({
-            'operator': 'stringEquals',
-                        'arg0': property,
-                        'arg1': obj.get(property)
-        }))
+        assert isinstance(obj, openmediavault.config.Object)
+        return self.is_unique_by_filter(
+            obj,
+            DatabaseFilter({
+                'operator': 'stringEquals',
+                'arg0': property,
+                'arg1': obj.get(property)
+            })
+        )
 
     def is_unique_by_filter(self, obj, filter):
         """
@@ -209,22 +210,23 @@ class Database(object):
                   property values (specified by the filter) exists,
                   otherwise False.
         """
-        assert(isinstance(obj, openmediavault.config.Object))
-        assert(isinstance(filter, DatabaseFilter))
+        assert isinstance(obj, openmediavault.config.Object)
+        assert isinstance(filter, DatabaseFilter)
         # If the object is iterable and not new, then we need to modify the
         # filter to do not find the configuration object itself.
         if not obj.is_new and obj.model.is_iterable:
             filter = DatabaseFilter({
                 'operator': 'and',
-                            'arg0': {
-                                    'operator': 'stringNotEquals',
-                                    'arg0': obj.model.idproperty,
-                                    'arg1': obj.get(obj.model.idproperty)
-                                    },
-                            'arg1': filter
+                'arg0': {
+                    'operator': 'stringNotEquals',
+                    'arg0': obj.model.idproperty,
+                    'arg1': obj.get(obj.model.idproperty)
+                },
+                'arg1': filter
             })
         query = openmediavault.config.DatabaseGetByFilterQuery(
-            obj.model.id, filter)
+            obj.model.id, filter
+        )
         query.execute()
         return 0 == len(query.response)
 
@@ -234,7 +236,7 @@ class Database(object):
         :param obj: The configuration object to delete.
         :returns: Returns the deleted configuration object.
         """
-        assert(isinstance(obj, openmediavault.config.Object))
+        assert isinstance(obj, openmediavault.config.Object)
         query = openmediavault.config.DatabaseDeleteQuery(obj)
         query.execute()
         return query.response
@@ -279,7 +281,7 @@ class Database(object):
                   configuration object was new, then the identifier has
                   been modified, e.g. a new UUID.
         """
-        assert(isinstance(obj, openmediavault.config.Object))
+        assert isinstance(obj, openmediavault.config.Object)
         query = openmediavault.config.DatabaseSetQuery(obj)
         query.execute()
         return obj
@@ -338,22 +340,21 @@ class DatabaseQuery(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
         Parse the data model and get the properties that must be handled
         as lists and dicts.
         """
+
         def callback(model, name, path, schema, user_data):
             if "array" == schema['type'] and name:
                 user_data['lists'].append(name)
             if "object" == schema['type'] and name:
                 user_data['dicts'].append(name)
 
-        tags = {
-            "lists": [],
-            "dicts": []
-        }
+        tags = {"lists": [], "dicts": []}
         # ToDo: Refactor the whole process of collecting and processing
         # the special properties.
         self.model.walk_schema("", callback, tags)
         self._force_list_tags = tags['lists']
-        self._force_dict_tags = [name for name in tags['dicts']
-                                 if name not in tags['lists']]
+        self._force_dict_tags = [
+            name for name in tags['dicts'] if name not in tags['lists']
+        ]
 
     def _load(self):
         """
@@ -366,9 +367,14 @@ class DatabaseQuery(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
         # Save the XML configuration file.
         with open(self._database_file, "wb") as f:
             fcntl.flock(f, fcntl.LOCK_EX)
-            f.write(lxml.etree.tostring(self._root_element,
-                                        pretty_print=True, xml_declaration=True,
-                                        encoding="UTF-8"))
+            f.write(
+                lxml.etree.tostring(
+                    self._root_element,
+                    pretty_print=True,
+                    xml_declaration=True,
+                    encoding="UTF-8"
+                )
+            )
             fcntl.flock(f, fcntl.LOCK_UN)
 
     def _get_root_element(self):
@@ -396,7 +402,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
         :param element:	The lxml.etree.Element instance to convert.
         :returns: Returns a Python dictionary.
         """
-        assert(lxml.etree.iselement(element))
+        assert lxml.etree.iselement(element)
         result = {}
         for child_element in list(element):
             # Skip comments.
@@ -439,7 +445,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
                   returned for non-iterable configuration objects.
                   If no element is given, then None is returned.
         """
-        assert(isinstance(elements, list))
+        assert isinstance(elements, list)
         if self.model.is_iterable:
             result = []
             for element in elements:
@@ -448,7 +454,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
                 result.append(obj)
         else:
             result = None
-            if 0 < len(elements):
+            if 0 < len(elements):  # pylint: disable=len-as-condition
                 result = openmediavault.config.Object(self.model.id)
                 result.set_dict(self._element_to_dict(elements[0]), False)
         return result
@@ -462,8 +468,9 @@ class DatabaseQuery(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
         :param element: The parent lxml.etree.Element instance where to
                         append the dictionary values.
         """
+
         def _process_value(element, value):
-            assert(lxml.etree.iselement(element))
+            assert lxml.etree.iselement(element)
             if isinstance(value, list):
                 for sub_key, sub_value in enumerate(value):
                     if 0 == sub_key:
@@ -487,8 +494,8 @@ class DatabaseQuery(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
                 else:
                     element.text = str(value)
 
-        assert(isinstance(dictionary, dict))
-        assert(lxml.etree.iselement(element))
+        assert isinstance(dictionary, dict)
+        assert lxml.etree.iselement(element)
         for sub_key, sub_value in dictionary.items():
             sub_element = lxml.etree.Element(sub_key)
             element.append(sub_element)
@@ -584,7 +591,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
             ]
         ]
         """
-        assert(isinstance(filter, DatabaseFilter))
+        assert isinstance(filter, DatabaseFilter)
         if not "operator" in filter:
             raise KeyError("Invalid filter, the field 'operator' is missing.")
         result = ""
@@ -592,7 +599,8 @@ class DatabaseQuery(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
             result = "(%s %s %s)" % (
                 self._build_predicate(DatabaseFilter(filter['arg0'])),
                 filter['operator'],
-                self._build_predicate(DatabaseFilter(filter['arg1'])))
+                self._build_predicate(DatabaseFilter(filter['arg1']))
+            )
         elif filter['operator'] in ['=', 'equals']:
             result = "%s=%s" % (filter['arg0'], filter['arg1'])
         elif filter['operator'] in ['!=', 'notEquals']:
@@ -607,11 +615,9 @@ class DatabaseQuery(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
         elif filter['operator'] in ['!==', '!=', 'stringNotEquals']:
             result = "%s!='%s'" % (filter['arg0'], filter['arg1'])
         elif "stringContains" == filter['operator']:
-            result = "contains(%s,'%s')" % (filter['arg0'],
-                                            filter['arg1'])
+            result = "contains(%s,'%s')" % (filter['arg0'], filter['arg1'])
         elif "stringStartsWith" == filter['operator']:
-            result = "starts-with(%s,'%s')" % (filter['arg0'],
-                                               filter['arg1'])
+            result = "starts-with(%s,'%s')" % (filter['arg0'], filter['arg1'])
         elif "stringEnum" == filter['operator']:
             parts = []
             for enumv in filter['arg1']:
@@ -619,7 +625,8 @@ class DatabaseQuery(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
             result = "(%s)" % " or ".join(parts)
         elif filter['operator'] in ['!', 'not']:
             result = "not(%s)" % (
-                self._build_predicate(DatabaseFilter(filter['arg0'])))
+                self._build_predicate(DatabaseFilter(filter['arg0']))
+            )
         elif filter['operator'] in ['<', 'less']:
             result = "%s<%s" % (filter['arg0'], filter['arg1'])
         elif filter['operator'] in ['>', 'greater']:
@@ -631,15 +638,16 @@ class DatabaseQuery(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
         elif "distinct" == filter['operator']:
             result = "not({0}=preceding-sibling::*/{0})".format(filter['arg0'])
         else:
-            raise ValueError("The operator '%s' is not defined." %
-                             filter['operator'])
+            raise ValueError(
+                "The operator '%s' is not defined." % filter['operator']
+            )
         return result
 
 
 class DatabaseGetByFilterQuery(DatabaseQuery):
     def __init__(self, id, filter):
         if not filter is None:
-            assert(isinstance(filter, DatabaseFilter))
+            assert isinstance(filter, DatabaseFilter)
         self._filter = filter
         super().__init__(id)
 
@@ -650,8 +658,10 @@ class DatabaseGetByFilterQuery(DatabaseQuery):
     @property
     def xpath(self):
         if self.filter:
-            return "%s[%s]" % (self.model.queryinfo['xpath'],
-                               self._build_predicate(self.filter))
+            return "%s[%s]" % (
+                self.model.queryinfo['xpath'],
+                self._build_predicate(self.filter)
+            )
         return self.model.queryinfo['xpath']
 
     def execute(self):
@@ -671,12 +681,14 @@ class DatabaseGetQuery(DatabaseQuery):
     @property
     def xpath(self):
         if self.model.is_iterable and self.identifier:
-            return DatabaseGetByFilterQuery(self.model.id,
-                                            DatabaseFilter({
-                                                'operator': 'stringEquals',
-                                                'arg0': self.model.idproperty,
-                                                'arg1': self.identifier
-                                            })).xpath
+            return DatabaseGetByFilterQuery(
+                self.model.id,
+                DatabaseFilter({
+                    'operator': 'stringEquals',
+                    'arg0': self.model.idproperty,
+                    'arg1': self.identifier
+                })
+            ).xpath
         return self.model.queryinfo['xpath']
 
     def execute(self):
@@ -697,7 +709,7 @@ class DatabaseGetQuery(DatabaseQuery):
 
 class DatabaseIsReferencedQuery(DatabaseQuery):
     def __init__(self, obj):
-        assert(isinstance(obj, openmediavault.config.Object))
+        assert isinstance(obj, openmediavault.config.Object)
         self._obj = obj
         super().__init__(obj.model.id)
 
@@ -707,12 +719,16 @@ class DatabaseIsReferencedQuery(DatabaseQuery):
 
     @property
     def xpath(self):
-        return "//%s[%s]" % (self.model.refproperty,
-                             self._build_predicate(DatabaseFilter({
-                                 'operator': 'stringContains',
-                                 'arg0': '.',
-                                 'arg1': self.object.get(self.model.idproperty)
-                             })))
+        return "//%s[%s]" % (
+            self.model.refproperty,
+            self._build_predicate(
+                DatabaseFilter({
+                    'operator': 'stringContains',
+                    'arg0': '.',
+                    'arg1': self.object.get(self.model.idproperty)
+                })
+            )
+        )
 
     def execute(self):
         elements = self._execute_xpath()
@@ -721,7 +737,7 @@ class DatabaseIsReferencedQuery(DatabaseQuery):
 
 class DatabaseSetQuery(DatabaseQuery):
     def __init__(self, obj):
-        assert(isinstance(obj, openmediavault.config.Object))
+        assert isinstance(obj, openmediavault.config.Object)
         self._obj = obj
         super().__init__(obj.model.id)
 
@@ -733,12 +749,14 @@ class DatabaseSetQuery(DatabaseQuery):
     def xpath(self):
         if self.model.is_iterable and not self.object.is_new:
             # Find and update the element with the specified identifier.
-            return DatabaseGetByFilterQuery(self.model.id,
-                                            DatabaseFilter({
-                                                'operator': 'stringEquals',
-                                                'arg0': self.model.idproperty,
-                                                'arg1': self.object.get(self.model.idproperty)
-                                            })).xpath
+            return DatabaseGetByFilterQuery(
+                self.model.id,
+                DatabaseFilter({
+                    'operator': 'stringEquals',
+                    'arg0': self.model.idproperty,
+                    'arg1': self.object.get(self.model.idproperty)
+                })
+            ).xpath
 
         # Find all elements matching the XPath.
         return self.model.queryinfo['xpath']
@@ -754,7 +772,7 @@ class DatabaseSetQuery(DatabaseQuery):
             # Get the first parent element that is found.
             root_element = self._get_root_element()
             parent_element = root_element.find(xpath)
-            assert(lxml.etree.iselement(parent_element))
+            assert lxml.etree.iselement(parent_element)
             # Create and append the child element to the parent element.
             child_element = lxml.etree.Element(tag)
             parent_element.append(child_element)
@@ -767,9 +785,10 @@ class DatabaseSetQuery(DatabaseQuery):
             # If an identifier was set for an iterable object, then there
             # MUST exist at least one element.
             if not self.object.is_new:
-                if 0 == len(elements):
+                if 0 == len(elements):  # pylint: disable=len-as-condition
                     raise DatabaseQueryNotFoundException(
-                        self.xpath, self.object.model)
+                        self.xpath, self.object.model
+                    )
             # Note, new iterable elements MUST be handled different.
             if self.object.is_new:
                 # Create an empty element in the XML tree. It will be replaced
@@ -784,7 +803,7 @@ class DatabaseSetQuery(DatabaseQuery):
                 self.object.create_id()
         else:
             # Handle non-iterable elements that do not exist until now.
-            if 0 == len(elements):
+            if 0 == len(elements):  # pylint: disable=len-as-condition
                 # Create an empty element in the XML tree.
                 child_element = _create_child_element()
                 elements.append(child_element)
@@ -792,7 +811,7 @@ class DatabaseSetQuery(DatabaseQuery):
         for element in elements:
             # Get the parent element.
             parent = element.getparent()
-            assert(lxml.etree.iselement(parent))
+            assert lxml.etree.iselement(parent)
             # Create the clone of the element and set the new values.
             new_element = lxml.etree.Element(element.tag)
             self._dict_to_elements(self.object.get_dict(), new_element)
@@ -803,7 +822,7 @@ class DatabaseSetQuery(DatabaseQuery):
 
 class DatabaseDeleteQuery(DatabaseQuery):
     def __init__(self, obj):
-        assert(isinstance(obj, openmediavault.config.Object))
+        assert isinstance(obj, openmediavault.config.Object)
         self._obj = obj
         super().__init__(obj.model.id)
 
@@ -814,12 +833,14 @@ class DatabaseDeleteQuery(DatabaseQuery):
     @property
     def xpath(self):
         if self.model.is_iterable:
-            return DatabaseGetByFilterQuery(self.model.id,
-                                            DatabaseFilter({
-                                                'operator': 'stringEquals',
-                                                'arg0': self.model.idproperty,
-                                                'arg1': self.object.get(self.model.idproperty)
-                                            })).xpath
+            return DatabaseGetByFilterQuery(
+                self.model.id,
+                DatabaseFilter({
+                    'operator': 'stringEquals',
+                    'arg0': self.model.idproperty,
+                    'arg1': self.object.get(self.model.idproperty)
+                })
+            ).xpath
         return self.model.queryinfo['xpath']
 
     def execute(self):

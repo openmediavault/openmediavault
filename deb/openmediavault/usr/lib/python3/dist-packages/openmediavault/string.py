@@ -19,11 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 __all__ = [
-    "camelcase_to_underscore",
-    "truncate",
-    "is_json",
-    "is_uuid4",
-    "is_fs_uuid"
+    "camelcase_to_underscore", "truncate", "is_json", "is_uuid4", "is_fs_uuid"
 ]
 
 import re
@@ -32,8 +28,8 @@ import uuid
 
 
 def camelcase_to_underscore(value):
-    return re.sub("(((?<=[a-z])[A-Z])|([A-Z](?![A-Z]|$)))",
-                  "_\\1", value).lower().strip("_")
+    return re.sub("(((?<=[a-z])[A-Z])|([A-Z](?![A-Z]|$)))", "_\\1",
+                  value).lower().strip("_")
 
 
 def truncate(value, max_len):
@@ -84,6 +80,9 @@ def is_fs_uuid(value):
     if is_uuid4(value):
         return True
     # Check if it is a NTFS, FAT or ISO9660 filesystem identifier.
-    return None != re.match(r'^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{16}|'
-                            '[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2})$',
-                            value, flags=re.IGNORECASE)
+    return None != re.match(
+        r'^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{16}|'
+        '[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2})$',
+        value,
+        flags=re.IGNORECASE
+    )

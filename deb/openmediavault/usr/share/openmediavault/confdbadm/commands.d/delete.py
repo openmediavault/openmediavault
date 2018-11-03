@@ -25,8 +25,9 @@ import openmediavault
 import openmediavault.log
 
 
-class Command(openmediavault.confdbadm.ICommand,
-              openmediavault.confdbadm.CommandHelper):
+class Command(
+    openmediavault.confdbadm.ICommand, openmediavault.confdbadm.CommandHelper
+):
     @property
     def description(self):
         return "Delete a configuration object."
@@ -36,9 +37,13 @@ class Command(openmediavault.confdbadm.ICommand,
         # Parse the command line arguments.
         parser = argparse.ArgumentParser(
             prog="%s %s" % (os.path.basename(args[0]), args[1]),
-            description=self.description)
-        parser.add_argument("id", type=self.argparse_is_datamodel_id,
-                            help="The data model ID, e.g. 'conf.service.ssh'")
+            description=self.description
+        )
+        parser.add_argument(
+            "id",
+            type=self.argparse_is_datamodel_id,
+            help="The data model ID, e.g. 'conf.service.ssh'"
+        )
         group = parser.add_mutually_exclusive_group()
         group.add_argument("--uuid", nargs="?", type=self.argparse_is_uuid4)
         group.add_argument("--filter", nargs="?", type=self.argparse_is_json)
@@ -50,8 +55,10 @@ class Command(openmediavault.confdbadm.ICommand,
         try:
             if cmd_args.filter:
                 # Create the query filter.
-                filter = openmediavault.config.DatabaseFilter(cmd_args.filter)
-                objs = db.delete_by_filter(cmd_args.id, filter)
+                db_filter = openmediavault.config.DatabaseFilter(
+                    cmd_args.filter
+                )
+                objs = db.delete_by_filter(cmd_args.id, db_filter)
             else:
                 # Query the database.
                 objs = db.get(cmd_args.id, cmd_args.uuid)
@@ -66,8 +73,10 @@ class Command(openmediavault.confdbadm.ICommand,
         except Exception as e:
             rc = 1
             # Display the exception message.
-            openmediavault.log.error("Failed to delete the "
-                                     "configuration object: %s" % str(e))
+            openmediavault.log.error(
+                "Failed to delete the "
+                "configuration object: %s" % str(e)
+            )
             # Rollback all changes.
             self.rollbackChanges()
         finally:
@@ -80,10 +89,6 @@ class Command(openmediavault.confdbadm.ICommand,
 
 
 if __name__ == "__main__":
-    rc = 1
     command = Command()
-    if not command.validate_args(*sys.argv):
-        command.usage(*sys.argv)
-    else:
-        rc = command.execute(*sys.argv)
+    rc = command.execute(*sys.argv)
     sys.exit(rc)

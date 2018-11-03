@@ -24,30 +24,34 @@ import json
 import openmediavault
 import openmediavault.firstaid
 
-class Module(openmediavault.firstaid.IModule):
-	@property
-	def description(self):
-		return "Check configuration status file"
 
-	def execute(self):
-		print("Checking configuration status file. Please wait ...")
-		path = openmediavault.getenv("OMV_ENGINED_DIRTY_MODULES_FILE",
-			"/var/lib/openmediavault/dirtymodules.json")
-		if not os.path.exists(path):
-			print("No configuration changes file found.")
-			return 0
-		# Try to load the JSON file. If it fails, then remove it because
-		# in this case the file content is no valid JSON string and it
-		# is not possible to restore it.
-		try:
-			with open(path) as json_file:
-				json.load(json_file)
-			print("The configuration status file is valid.")
-		except Exception:
-			print("Removing invalid configuration status file.")
-			os.unlink(json_path)
-		return 0
+class Module(openmediavault.firstaid.IModule):
+    @property
+    def description(self):
+        return "Check configuration status file"
+
+    def execute(self):
+        print("Checking configuration status file. Please wait ...")
+        path = openmediavault.getenv(
+            "OMV_ENGINED_DIRTY_MODULES_FILE",
+            "/var/lib/openmediavault/dirtymodules.json"
+        )
+        if not os.path.exists(path):
+            print("No configuration changes file found.")
+            return 0
+        # Try to load the JSON file. If it fails, then remove it because
+        # in this case the file content is no valid JSON string and it
+        # is not possible to restore it.
+        try:
+            with open(path) as json_file:
+                json.load(json_file)
+            print("The configuration status file is valid.")
+        except Exception:
+            print("Removing invalid configuration status file.")
+            os.unlink(json_file)
+        return 0
+
 
 if __name__ == "__main__":
-	module = Module();
-	sys.exit(module.execute())
+    module = Module()
+    sys.exit(module.execute())

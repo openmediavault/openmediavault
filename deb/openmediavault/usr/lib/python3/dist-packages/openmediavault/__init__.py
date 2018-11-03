@@ -24,7 +24,7 @@ import re
 import openmediavault.settings
 
 
-def bool(x):
+def bool(x):  # pylint: disable=redefined-builtin
     """
     Get the boolean value of a variable. A boolean True will be returned for
     the values 1, '1', 'on', 'yes', 'y' and 'true'.
@@ -35,14 +35,14 @@ def bool(x):
     >>> assert bool("False") == False
     >>> assert bool(False) == False
     """
-    if type(x) == bool:
+    if type(x) == bool:  # pylint: disable=unidiomatic-typecheck
         return x
     if str(x).lower() in ["1", "on", "yes", "y", "true", "t"]:
         return True
     return False
 
 
-def getenv(key, default=None, type="str"):
+def getenv(key, default=None, type="str"):  # pylint: disable=redefined-builtin
     """
     Get an environment variable, return None if it doesn't exist.
     :param key:		The name of the variable.

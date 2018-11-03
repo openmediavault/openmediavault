@@ -18,11 +18,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-__all__ = [
-    "flatten",
-    "DotDict",
-    "DotCollapsedDict"
-]
+__all__ = ["flatten", "DotDict", "DotCollapsedDict"]
 
 import re
 
@@ -41,7 +37,7 @@ def flatten(d, seperator="."):
     :param seperator:	The character used as separator. Defaults to '.'.
     :returns:			A single-dimensional Python dictionary.
     """
-    assert(isinstance(d, dict))
+    assert isinstance(d, dict)
     result = {}
 
     def _process_item(value, key=""):
@@ -59,7 +55,7 @@ def flatten(d, seperator="."):
 
 
 class DotDict(dict):
-    def __init__(self, d=None):
+    def __init__(self, d=None):  # pylint: disable=super-init-not-called
         if d is None:
             return
         if not isinstance(d, dict):
@@ -110,8 +106,11 @@ class DotDict(dict):
                 if rest is None:
                     return branch
             if not isinstance(branch, DotDict):
-                raise KeyError("Can't get '{}' in '{}' ({}).".format(
-                    rest, first, str(branch)))
+                raise KeyError(
+                    "Can't get '{}' in '{}' ({}).".format(
+                        rest, first, str(branch)
+                    )
+                )
             return branch[rest]
 
     __getattr__ = __getitem__
@@ -130,7 +129,8 @@ class DotDict(dict):
             # Populate the list at the given index.
             if rest is None:
                 branch[index] = DotDict(value) if isinstance(
-                    value, dict) else value
+                    value, dict
+                ) else value
             else:
                 if not isinstance(branch[index], DotDict):
                     raise TypeError("Expected dictionary.")
@@ -154,7 +154,8 @@ class DotDict(dict):
                 # Populate the list at the given index.
                 if rest is None:
                     branch[index] = DotDict(value) if isinstance(
-                        value, dict) else value
+                        value, dict
+                    ) else value
                     return
                 if not isinstance(branch[index], DotDict):
                     raise TypeError("Expected dictionary.")
@@ -164,8 +165,10 @@ class DotDict(dict):
             branch[rest] = value
         else:
             if isinstance(value, list):
-                value = [DotDict(item) if isinstance(item, dict) else item
-                         for item in value]
+                value = [
+                    DotDict(item) if isinstance(item, dict) else item
+                    for item in value
+                ]
             if isinstance(value, dict) and not isinstance(value, DotDict):
                 value = DotDict(value)
             dict.__setitem__(self, key, value)

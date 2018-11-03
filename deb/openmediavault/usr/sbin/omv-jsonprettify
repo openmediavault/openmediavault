@@ -25,10 +25,16 @@ import openmediavault.log
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Convert JSON data to "
-                                     "human-readable form.")
-    parser.add_argument("file", help="The JSON file to prettify. If not "
-                        "defined, stdin will be used.", nargs="?")
+    parser = argparse.ArgumentParser(
+        description="Convert JSON data to "
+        "human-readable form."
+    )
+    parser.add_argument(
+        "file",
+        help="The JSON file to prettify. If not "
+        "defined, stdin will be used.",
+        nargs="?"
+    )
     args = parser.parse_args()
     try:
         inFile = sys.stdin

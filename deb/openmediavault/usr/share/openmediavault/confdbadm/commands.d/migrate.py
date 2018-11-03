@@ -30,8 +30,9 @@ import openmediavault.log
 import openmediavault.subprocess
 
 
-class Command(openmediavault.confdbadm.ICommand,
-              openmediavault.confdbadm.CommandHelper):
+class Command(
+    openmediavault.confdbadm.ICommand, openmediavault.confdbadm.CommandHelper
+):
     @property
     def description(self):
         return "Apply configuration migrations."
@@ -39,7 +40,6 @@ class Command(openmediavault.confdbadm.ICommand,
     def argparse_is_version(self, arg):
         try:
             ver = LooseVersion(arg)
-            ver.version
         except Exception:
             raise argparse.ArgumentTypeError("No valid version")
         return arg
@@ -49,15 +49,21 @@ class Command(openmediavault.confdbadm.ICommand,
         # Parse the command line arguments.
         parser = argparse.ArgumentParser(
             prog="%s %s" % (os.path.basename(args[0]), args[1]),
-            description=self.description)
-        parser.add_argument("id", type=self.argparse_is_datamodel_id,
-                            help="The data model ID, e.g. 'conf.service.ssh'")
+            description=self.description
+        )
+        parser.add_argument(
+            "id",
+            type=self.argparse_is_datamodel_id,
+            help="The data model ID, e.g. 'conf.service.ssh'"
+        )
         parser.add_argument("version", type=self.argparse_is_version)
         cmd_args = parser.parse_args(args[2:])
         # Get the migrations.
         migrations = {}
-        migrations_dir = openmediavault.getenv("OMV_CONFDB_MIGRATIONS_DIR",
-                                               "/usr/share/openmediavault/confdb/migrations.d")
+        migrations_dir = openmediavault.getenv(
+            "OMV_CONFDB_MIGRATIONS_DIR",
+            "/usr/share/openmediavault/confdb/migrations.d"
+        )
         # Collect the migrations to be executed.
         for name in os.listdir(migrations_dir):
             # Split the script name into its parts:
@@ -74,14 +80,19 @@ class Command(openmediavault.confdbadm.ICommand,
             # Create a backup of the configuration database.
             self.mkBackup()
             # Execute the configuration database migration scripts.
-            for cmd_args.version in sorted(migrations, key=lambda v: LooseVersion(v)):
+            for cmd_args.version in sorted(
+                migrations, key=lambda v: LooseVersion(v)
+            ):
                 name = "%s_%s" % (cmd_args.id, cmd_args.version)
                 path = os.path.join(
-                    migrations_dir, migrations[cmd_args.version])
+                    migrations_dir, migrations[cmd_args.version]
+                )
                 # Test if the script is executable.
                 if not os.access(path, os.X_OK):
-                    raise RuntimeError("The script '%s' is not "
-                                       "executable" % path)
+                    raise RuntimeError(
+                        "The script '%s' is not "
+                        "executable" % path
+                    )
                 # Execute the script.
                 print("  Running migration %s" % name)
                 openmediavault.subprocess.check_call([path])
@@ -98,10 +109,6 @@ class Command(openmediavault.confdbadm.ICommand,
 
 
 if __name__ == "__main__":
-    rc = 1
     command = Command()
-    if not command.validate_args(*sys.argv):
-        command.usage(*sys.argv)
-    else:
-        rc = command.execute(*sys.argv)
+    rc = command.execute(*sys.argv)
     sys.exit(rc)
