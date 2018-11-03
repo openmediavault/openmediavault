@@ -21,14 +21,16 @@
 import unittest
 import openmediavault.productinfo
 
-class ProductInfoTestCase(unittest.TestCase):
-	def test_name(self):
-		pi = openmediavault.productinfo.ProductInfo()
-		pi.name
 
-	def test_as_dict(self):
-		pi = openmediavault.productinfo.ProductInfo()
-		self.assertIsInstance(pi.as_dict(), dict)
+class ProductInfoTestCase(unittest.TestCase):
+    def test_name(self):
+        pi = openmediavault.productinfo.ProductInfo()
+        pi.name
+
+    def test_as_dict(self):
+        pi = openmediavault.productinfo.ProductInfo()
+        self.assertIsInstance(pi.as_dict(), dict)
+
 
 if __name__ == "__main__":
-	unittest.main()
+    unittest.main()

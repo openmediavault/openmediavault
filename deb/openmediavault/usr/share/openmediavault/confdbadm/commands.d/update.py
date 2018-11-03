@@ -26,8 +26,9 @@ import openmediavault.config.database
 import openmediavault.config.object
 
 
-class Command(openmediavault.confdbadm.ICommand,
-              openmediavault.confdbadm.CommandHelper):
+class Command(
+    openmediavault.confdbadm.ICommand, openmediavault.confdbadm.CommandHelper
+):
     @property
     def description(self):
         return "Update a configuration object."
@@ -37,11 +38,18 @@ class Command(openmediavault.confdbadm.ICommand,
         # Parse the command line arguments.
         parser = argparse.ArgumentParser(
             prog="%s %s" % (os.path.basename(args[0]), args[1]),
-            description=self.description)
-        parser.add_argument("id", type=self.argparse_is_datamodel_id,
-                            help="The data model ID, e.g. 'conf.service.ssh'")
-        parser.add_argument("data", type=self.argparse_is_json_stdin,
-                            help="The JSON data. Set to '-' to read from STDIN.")
+            description=self.description
+        )
+        parser.add_argument(
+            "id",
+            type=self.argparse_is_datamodel_id,
+            help="The data model ID, e.g. 'conf.service.ssh'"
+        )
+        parser.add_argument(
+            "data",
+            type=self.argparse_is_json_stdin,
+            help="The JSON data. Set to '-' to read from STDIN."
+        )
         cmd_args = parser.parse_args(args[2:])
         # Create the configuration object.
         obj = openmediavault.config.Object(cmd_args.id)
@@ -53,10 +61,6 @@ class Command(openmediavault.confdbadm.ICommand,
 
 
 if __name__ == "__main__":
-    rc = 1
     command = Command()
-    if not command.validate_args(*sys.argv):
-        command.usage(*sys.argv)
-    else:
-        rc = command.execute(*sys.argv)
+    rc = command.execute(*sys.argv)
     sys.exit(rc)

@@ -23,51 +23,71 @@ import dialog
 import openmediavault.firstaid
 import openmediavault.rpc
 
-class Module(openmediavault.firstaid.IModule):
-	@property
-	def description(self):
-		return "Change control panel administrator password"
 
-	def execute(self):
-		d = dialog.Dialog(dialog="dialog")
-		password = password_conf = None
-		while not password or (password != password_conf):
-			while not password:
-				(code, password) = d.passwordbox(
-					"Please enter the new password.",
-					backtitle=self.description,
-					insecure=True, clear=True, height=8, width=34)
-				if code != d.OK:
-					return 0
-				if not password:
-					d.msgbox("The password must not be empty.",
-						backtitle=self.description,
-						height=5, width=35)
-			while not password_conf:
-				(code, password_conf) = d.passwordbox(
-					"Please confirm the new password.",
-					backtitle=self.description,
-					insecure=True, clear=True, height=8, width=36)
-				if code != d.OK:
-					return 0
-				if not password_conf:
-					d.msgbox("The password must not be empty.",
-						backtitle=self.description,
-						height=5, width=35)
-			if password != password_conf:
-				password = password_conf = None
-				d.msgbox("The passwords don't match.",
-					backtitle=self.description,
-					height=5, width=30)
-		print("Updating control panel administrator password. Please wait ...")
-		openmediavault.rpc.call("WebGui", "setPassword",
-			{ "password": password })
-		#openmediavault.rpc.call("Config", "applyChanges",
-		#	{ "modules": [], "force": False })
-		print("The control panel administrator password was successfully " \
-			"changed.")
-		return 0
+class Module(openmediavault.firstaid.IModule):
+    @property
+    def description(self):
+        return "Change control panel administrator password"
+
+    def execute(self):
+        d = dialog.Dialog(dialog="dialog")
+        password = password_conf = None
+        while not password or (password != password_conf):
+            while not password:
+                (code, password) = d.passwordbox(
+                    "Please enter the new password.",
+                    backtitle=self.description,
+                    insecure=True,
+                    clear=True,
+                    height=8,
+                    width=34
+                )
+                if code != d.OK:
+                    return 0
+                if not password:
+                    d.msgbox(
+                        "The password must not be empty.",
+                        backtitle=self.description,
+                        height=5,
+                        width=35
+                    )
+            while not password_conf:
+                (code, password_conf) = d.passwordbox(
+                    "Please confirm the new password.",
+                    backtitle=self.description,
+                    insecure=True,
+                    clear=True,
+                    height=8,
+                    width=36
+                )
+                if code != d.OK:
+                    return 0
+                if not password_conf:
+                    d.msgbox(
+                        "The password must not be empty.",
+                        backtitle=self.description,
+                        height=5,
+                        width=35
+                    )
+            if password != password_conf:
+                password = password_conf = None
+                d.msgbox(
+                    "The passwords don't match.",
+                    backtitle=self.description,
+                    height=5,
+                    width=30
+                )
+        print("Updating control panel administrator password. Please wait ...")
+        openmediavault.rpc.call(
+            "WebGui", "setPassword", {"password": password}
+        )
+        #openmediavault.rpc.call("Config", "applyChanges",
+        #	{ "modules": [], "force": False })
+        print("The control panel administrator password was successfully " \
+            "changed.")
+        return 0
+
 
 if __name__ == "__main__":
-	module = Module();
-	sys.exit(module.execute())
+    module = Module()
+    sys.exit(module.execute())

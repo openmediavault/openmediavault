@@ -30,13 +30,14 @@ import sys
 __args = {'quiet': False}
 __out = "highstate"
 __deploy_scripts_dir = openmediavault.getenv(
-    "OMV_SALT_SCRIPTS_DEPLOY_DIR",
-    "/srv/salt/omv/deploy")
+    "OMV_SALT_SCRIPTS_DEPLOY_DIR", "/srv/salt/omv/deploy"
+)
 __stage_scripts_dir = openmediavault.getenv(
-    "OMV_SALT_SCRIPTS_STAGE_DIR",
-    "/srv/salt/omv/stage")
+    "OMV_SALT_SCRIPTS_STAGE_DIR", "/srv/salt/omv/stage"
+)
 __salt_minion_config_file = openmediavault.getenv(
-    "OMV_SALT_MINION_CONFIG_FILE", "/etc/salt/minion")
+    "OMV_SALT_MINION_CONFIG_FILE", "/etc/salt/minion"
+)
 
 
 @click.group()
@@ -51,8 +52,10 @@ def stage():
 
 @stage.command(name='list', help='List available stages and exit.')
 def stage_list():
-    names = [name for name in os.listdir(__stage_scripts_dir)
-             if os.path.isdir(os.path.join(__stage_scripts_dir, name))]
+    names = [
+        name for name in os.listdir(__stage_scripts_dir)
+        if os.path.isdir(os.path.join(__stage_scripts_dir, name))
+    ]
     names.sort()
     print('\n'.join(names))
     sys.exit(0)
@@ -60,8 +63,12 @@ def stage_list():
 
 @stage.command(name='run', help='Run the specified stage.')
 @click.argument('name', 'The stage name')
-@click.option('-q', '--quiet', is_flag=True,
-              help='Quiet mode, no messages are displayed.')
+@click.option(
+    '-q',
+    '--quiet',
+    is_flag=True,
+    help='Quiet mode, no messages are displayed.'
+)
 def stage_run(name, quiet):
     mopts = salt.config.minion_config(__salt_minion_config_file)
     caller = salt.client.Caller(mopts=mopts)
@@ -81,8 +88,10 @@ def deploy():
 
 @deploy.command(name='list', help='List available states and exit.')
 def deploy_list():
-    names = [name for name in os.listdir(__deploy_scripts_dir)
-             if os.path.isdir(os.path.join(__deploy_scripts_dir, name))]
+    names = [
+        name for name in os.listdir(__deploy_scripts_dir)
+        if os.path.isdir(os.path.join(__deploy_scripts_dir, name))
+    ]
     names.sort()
     print('\n'.join(names))
     sys.exit(0)
@@ -90,8 +99,12 @@ def deploy_list():
 
 @deploy.command(name='run', help='Run the specified state(s).')
 @click.argument('names', 'The state name(s)', nargs=-1, required=True)
-@click.option('-q', '--quiet', is_flag=True,
-              help='Quiet mode, no messages are displayed.')
+@click.option(
+    '-q',
+    '--quiet',
+    is_flag=True,
+    help='Quiet mode, no messages are displayed.'
+)
 def deploy_run(names, quiet):
     # Check if the states exists.
     for name in names:

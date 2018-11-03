@@ -28,8 +28,10 @@ import openmediavault.log
 
 def load_plugins():
     plugins = {}
-    path = openmediavault.getenv("OMV_MKRRDGRAPH_PLUGINS_DIR",
-                                 "/usr/share/openmediavault/mkrrdgraph/plugins.d")
+    path = openmediavault.getenv(
+        "OMV_MKRRDGRAPH_PLUGINS_DIR",
+        "/usr/share/openmediavault/mkrrdgraph/plugins.d"
+    )
     sys.path.insert(0, path)
     for name in os.listdir(path):
         plugin_name, ext = os.path.splitext(name)
@@ -57,17 +59,19 @@ def main():
                 'OMV_COLLECTD_RRDTOOL_GRAPH_HEIGHT', '120'),
             '--alt-y-grid',
             '--interlaced',
-            '--font', 'TITLE:9:.'],
+            '--font', 'TITLE:9:.'
+        ],
         'data_dir': os.path.join(
-            openmediavault.getenv('OMV_RRDCACHED_BASEDIR',
-                                  '/var/lib/rrdcached/db'),
-            openmediavault.getenv('OMV_COLLECTD_HOSTNAME',
-                                  'localhost')),
-        'image_dir': openmediavault.getenv('OMV_COLLECTD_RRDTOOL_GRAPH_IMGDIR',
-                                           '/var/lib/openmediavault/rrd'),
-        'last_update': 'Last update: {}\\r'.format(time.ctime()).replace(
-            ':', '\:')
-    }
+            openmediavault.getenv(
+                'OMV_RRDCACHED_BASEDIR', '/var/lib/rrdcached/db'),
+            openmediavault.getenv(
+                'OMV_COLLECTD_HOSTNAME', 'localhost')),
+        'image_dir': openmediavault.getenv(
+            'OMV_COLLECTD_RRDTOOL_GRAPH_IMGDIR',
+            '/var/lib/openmediavault/rrd'),
+        'last_update': 'Last update: {}\\r'.format(
+            time.ctime()).replace(':', '\:')
+    }  # yapf: disable
     period_config = {
         'hour': {
             'start': '-1h',
@@ -107,7 +111,8 @@ def main():
             except Exception as e:
                 openmediavault.log.error(
                     'Failed to build graph (plugin=%s, period=%s): %s',
-                    plugin_name, period, str(e))
+                    plugin_name, period, str(e)
+                )
     return 0
 
 

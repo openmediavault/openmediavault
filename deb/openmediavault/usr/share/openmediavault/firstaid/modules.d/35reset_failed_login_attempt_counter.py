@@ -24,36 +24,41 @@ import sys
 import openmediavault.firstaid
 import openmediavault.subprocess
 
-class Module(openmediavault.firstaid.IModule):
-	@property
-	def description(self):
-		return "Reset failed login attempt counter"
 
-	def execute(self):
-		choices = []
-		output = openmediavault.subprocess.check_output([ "pam_tally2" ])
-		for line in output.splitlines():
-			m = re.match(r"^(\S+)\s+((\d+)\s+(.+))$", line.decode().strip())
-			if not m:
-				continue
-			choices.append([ m.group(1), m.group(2) ])
-		if not choices:
-			print("No locked/banned users or candidates exists.")
-			return 0
-		d = dialog.Dialog(dialog="dialog")
-		(code, tag) = d.menu("Please select a user to reset the failed " \
-			"login attempt counter.",
-			backtitle=self.description, clear=True,
-			height=13, width=68, menu_height=5, choices=choices)
-		if code in (d.CANCEL, d.ESC):
-			return 0
-		username = tag
-		print("Reset failed login attempt counter for user '{}'.".format(
-			username))
-		openmediavault.subprocess.check_call([ "pam_tally2", "--quiet",
-			"--reset=0", "--user", username ])
-		return 0
+class Module(openmediavault.firstaid.IModule):
+    @property
+    def description(self):
+        return "Reset failed login attempt counter"
+
+    def execute(self):
+        choices = []
+        output = openmediavault.subprocess.check_output(["pam_tally2"])
+        for line in output.splitlines():
+            m = re.match(r"^(\S+)\s+((\d+)\s+(.+))$", line.decode().strip())
+            if not m:
+                continue
+            choices.append([m.group(1), m.group(2)])
+        if not choices:
+            print("No locked/banned users or candidates exists.")
+            return 0
+        d = dialog.Dialog(dialog="dialog")
+        (code, tag) = d.menu("Please select a user to reset the failed " \
+            "login attempt counter.",
+            backtitle=self.description, clear=True,
+            height=13, width=68, menu_height=5, choices=choices)
+        if code in (d.CANCEL, d.ESC):
+            return 0
+        username = tag
+        print(
+            "Reset failed login attempt counter for user '{}'.".
+            format(username)
+        )
+        openmediavault.subprocess.check_call([
+            "pam_tally2", "--quiet", "--reset=0", "--user", username
+        ])
+        return 0
+
 
 if __name__ == "__main__":
-	module = Module();
-	sys.exit(module.execute())
+    module = Module()
+    sys.exit(module.execute())

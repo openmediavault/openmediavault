@@ -48,8 +48,9 @@ def get_config_by_filter(id, filter):
 
 def get_sharedfolder_path(uuid):
     sf_obj = get_config('conf.system.sharedfolder', uuid)
-    mp_obj = get_config('conf.system.filesystem.mountpoint',
-                        sf_obj['mntentref'])
+    mp_obj = get_config(
+        'conf.system.filesystem.mountpoint', sf_obj['mntentref']
+    )
     return os.path.join(mp_obj['dir'], sf_obj['reldirpath'])
 
 
@@ -60,8 +61,9 @@ def get_sharedfolder_name(uuid):
 
 def get_sharedfolder_mount_dir(uuid):
     sf_obj = get_config('conf.system.sharedfolder', uuid)
-    mp_obj = get_config('conf.system.filesystem.mountpoint',
-                        sf_obj['mntentref'])
+    mp_obj = get_config(
+        'conf.system.filesystem.mountpoint', sf_obj['mntentref']
+    )
     return mp_obj['dir']
 
 

@@ -25,24 +25,28 @@ import openmediavault
 import openmediavault.firstaid
 import openmediavault.subprocess
 
-class Module(openmediavault.firstaid.IModule):
-	@property
-	def description(self):
-		return "Clear local upload package repository"
 
-	def execute(self):
-		print("Clear out the local repository of uploaded package " \
-			"files. Please wait ...")
-		path = openmediavault.getenv("OMV_DPKGARCHIVE_DIR",
-			"/var/cache/openmediavault/archives")
-		for f in glob.glob("{}/*.deb".format(path)):
-			os.remove(f)
-		openmediavault.subprocess.check_call(
-			"cd {} && apt-ftparchive packages . > Packages".format(path),
-			shell=True)
-		openmediavault.subprocess.check_call(["apt-get", "update"])
-		return 0
+class Module(openmediavault.firstaid.IModule):
+    @property
+    def description(self):
+        return "Clear local upload package repository"
+
+    def execute(self):
+        print("Clear out the local repository of uploaded package " \
+            "files. Please wait ...")
+        path = openmediavault.getenv(
+            "OMV_DPKGARCHIVE_DIR", "/var/cache/openmediavault/archives"
+        )
+        for f in glob.glob("{}/*.deb".format(path)):
+            os.remove(f)
+        openmediavault.subprocess.check_call(
+            "cd {} && apt-ftparchive packages . > Packages".format(path),
+            shell=True
+        )
+        openmediavault.subprocess.check_call(["apt-get", "update"])
+        return 0
+
 
 if __name__ == "__main__":
-	module = Module();
-	sys.exit(module.execute())
+    module = Module()
+    sys.exit(module.execute())

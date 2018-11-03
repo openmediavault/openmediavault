@@ -30,7 +30,7 @@ import openmediavault.exceptions
 import openmediavault.json.schema
 
 
-class Object(object):
+class Object:
     def __init__(self, id):
         """
         :param id: The data model identifier, e.g. 'conf.service.ftp.share'.
@@ -65,8 +65,10 @@ class Object(object):
         :returns: Returns the object identifier, e.g. an UUID.
         """
         if not (self.model.is_iterable and self.model.is_identifiable):
-            raise Exception("The configuration object '%s' is not iterable "
-                            "and identifiable." % self.model.id)
+            raise Exception(
+                "The configuration object '%s' is not iterable "
+                "and identifiable." % self.model.id
+            )
         return self.get(self.model.idproperty)
 
     def create_id(self):
@@ -76,11 +78,15 @@ class Object(object):
         :returns: Returns the new object identifier.
         """
         if not (self.model.is_iterable and self.model.is_identifiable):
-            raise Exception("The configuration object '%s' is not iterable "
-                            "and identifiable." % self.model.id)
+            raise Exception(
+                "The configuration object '%s' is not iterable "
+                "and identifiable." % self.model.id
+            )
         if "uuid" != self.model.idproperty.lower():
-            raise Exception("The configuration object identifier must be "
-                            "of type UUID.")
+            raise Exception(
+                "The configuration object identifier must be "
+                "of type UUID."
+            )
         new_id = str(uuid.uuid4())
         self.set(self.model.idproperty, new_id)
         return new_id
@@ -103,10 +109,11 @@ class Object(object):
         :returns: Returns the default values as defined in the data model
                   as openmediavault.collections.DotDict dictionary.
         """
+
         def callback(model, name, path, schema, user_data):
             # Abort immediatelly if the path is empty.
             if not path:
-                return
+                return None
             # Get the default value.
             user_data[path] = model.property_get_default(path)
             # Only get the default value for 'array' items, but do not further
@@ -141,7 +148,8 @@ class Object(object):
         if not self.exists(name):
             raise openmediavault.exceptions.AssertException(
                 "The property '%s' does not exist in the model '%s'." %
-                (name, self.model.id))
+                (name, self.model.id)
+            )
 
     def get(self, name):
         """

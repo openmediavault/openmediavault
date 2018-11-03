@@ -37,16 +37,24 @@ def populate_pillar():
     filename = '/srv/pillar/omv/default.sls'
     log.info('Writing {}'.format(filename))
     with open(filename, 'w') as fd:
-        fd.write(yaml.dump({'default': data},
-                           Dumper=yaml.SafeDumper,
-                           default_flow_style=False))
+        fd.write(
+            yaml.dump({
+                'default': data
+            },
+                      Dumper=yaml.SafeDumper,
+                      default_flow_style=False)
+        )
     # Create the pillar containing the product information.
     prod_info = openmediavault.productinfo.ProductInfo()
     data = prod_info.as_dict()
     filename = '/srv/pillar/omv/productinfo.sls'
     log.info('Writing {}'.format(filename))
     with open(filename, 'w') as fd:
-        fd.write(yaml.dump({'productinfo': data},
-                           Dumper=yaml.SafeDumper,
-                           default_flow_style=False))
+        fd.write(
+            yaml.dump({
+                'productinfo': data
+            },
+                      Dumper=yaml.SafeDumper,
+                      default_flow_style=False)
+        )
     return True
