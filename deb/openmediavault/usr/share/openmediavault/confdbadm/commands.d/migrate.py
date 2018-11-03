@@ -39,7 +39,7 @@ class Command(
 
     def argparse_is_version(self, arg):
         try:
-            ver = LooseVersion(arg)
+            _ = LooseVersion(arg)
         except Exception:
             raise argparse.ArgumentTypeError("No valid version")
         return arg

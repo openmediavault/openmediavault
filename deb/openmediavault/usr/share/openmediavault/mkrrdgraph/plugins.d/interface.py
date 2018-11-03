@@ -37,6 +37,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
             config['interface'] = interface
             args = []
             # yapf: disable
+            # pylint: disable=line-too-long
             args.append('{image_dir}/interface-{interface}-{period}.png'.format(**config))
             args.extend(config['defaults'])
             args.extend(['--start', config['start']])

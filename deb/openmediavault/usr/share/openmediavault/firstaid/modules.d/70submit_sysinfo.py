@@ -19,7 +19,6 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import sys
-import dialog
 import pyudev
 import tempfile
 import shutil
@@ -28,6 +27,7 @@ import time
 import openmediavault.firstaid
 import openmediavault.subprocess
 import openmediavault.systemd
+import dialog
 
 
 class Module(openmediavault.firstaid.IModule):

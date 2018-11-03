@@ -19,9 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import sys
-import dialog
 import openmediavault.firstaid
 import openmediavault.rpc
+import dialog
 
 
 class Module(openmediavault.firstaid.IModule):

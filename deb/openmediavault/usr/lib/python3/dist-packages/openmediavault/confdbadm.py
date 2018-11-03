@@ -49,7 +49,7 @@ class ICommand(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
         """
 
 
-class CommandHelper():
+class CommandHelper:
     _backup_path = None
 
     def mkBackup(self):

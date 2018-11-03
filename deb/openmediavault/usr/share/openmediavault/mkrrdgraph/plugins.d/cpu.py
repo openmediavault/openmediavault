@@ -38,6 +38,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
         })
         args = []
         # yapf: disable
+        # pylint: disable=line-too-long
         args.append('{image_dir}/cpu-0-{period}.png'.format(**config))
         args.extend(config['defaults'])
         args.extend(['--start', config['start']])

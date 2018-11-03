@@ -42,6 +42,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
             config['mountpoint'] = mountpoint.lstrip('/').replace('/', '-')
             args = []
             # yapf: disable
+            # pylint: disable=line-too-long
             args.append('"{image_dir}/df-{mountpoint}-{period}.png"'.format(**config))
             args.extend(config['defaults'])
             args.extend(['--start', config['start']])
