@@ -49,7 +49,7 @@ class Command(
         group.add_argument("--filter", nargs="?", type=self.argparse_is_json)
         cmd_args = parser.parse_args(args[2:])
         # Create a backup of the configuration database.
-        self.mkBackup()
+        self.create_backup()
         # Get the database.
         db = openmediavault.config.Database()
         try:
@@ -78,10 +78,10 @@ class Command(
                 "configuration object: %s" % str(e)
             )
             # Rollback all changes.
-            self.rollbackChanges()
+            self.rollback_changes()
         finally:
             # Unlink the configuration database backup.
-            self.unlinkBackup()
+            self.unlink_backup()
             # Output the number of deleted configuration objects.
             if 0 == rc:
                 print("Deleted %d object(s)" % len(objs))

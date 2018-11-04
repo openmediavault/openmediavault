@@ -54,6 +54,12 @@ class CommandHelper:
 
     def mkBackup(self):
         """
+        .. deprecated:: 5.0
+        """
+        return self.create_backup()
+
+    def create_backup(self):
+        """
         Create a backup of the configuration database.
         :returns: Returns the path of the backup file, otherwise None.
         """
@@ -67,6 +73,12 @@ class CommandHelper:
 
     def unlinkBackup(self):
         """
+        .. deprecated:: 5.0
+        """
+        return self.unlink_backup()
+
+    def unlink_backup(self):
+        """
         Unlink the backup of the configuration database.
         """
         if self._backup_path is None:
@@ -77,6 +89,12 @@ class CommandHelper:
         self._backup_path = None
 
     def rollbackChanges(self):
+        """
+        .. deprecated:: 5.0
+        """
+        return self.rollback_changes()
+
+    def rollback_changes(self):
         """
         Rollback all changes in the configuration database.
         """
@@ -92,7 +110,7 @@ class CommandHelper:
         """
         Check if the specified value is a valid UUID4.
         :param arg:	The value to check.
-        :returns:	The specified value.
+        :returns: The specified value.
         :raises argparse.ArgumentTypeError:
         """
         if not openmediavault.string.is_uuid4(arg):
@@ -103,7 +121,7 @@ class CommandHelper:
         """
         Check if the specified value is a valid JSON string.
         :param arg:	The value to check.
-        :returns:	The specified value as Python dictionary.
+        :returns: The specified value as Python dictionary.
         :raises argparse.ArgumentTypeError:
         """
         if not openmediavault.string.is_json(arg):
@@ -115,7 +133,7 @@ class CommandHelper:
         Check if the specified value is a valid JSON string. Loads the
         data from STDIN if '-' is given.
         :param arg:	The value to check.
-        :returns:	The specified value as Python dictionary.
+        :returns: The specified value as Python dictionary.
         :raises argparse.ArgumentTypeError:
         """
         if arg == "-":
@@ -127,7 +145,7 @@ class CommandHelper:
         Check if the specified value is a valid datamodel ID.
         Example: conf.service.ftp
         :param arg:	The value to check.
-        :returns:	The specified value.
+        :returns: The specified value.
         :raises argparse.ArgumentTypeError:
         """
         if not re.match(r'^conf(\..+)?$', arg):

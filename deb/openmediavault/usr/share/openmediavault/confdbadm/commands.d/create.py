@@ -62,7 +62,7 @@ class Command(
                 break
         try:
             # Create a backup of the configuration database.
-            self.mkBackup()
+            self.create_backup()
             # Test if the script exists and is executable.
             script_path = os.path.join(create_dir, script_name)
             if not os.path.exists(script_path):
@@ -84,10 +84,10 @@ class Command(
                 "configuration: %s" % str(e)
             )
             # Rollback all changes.
-            self.rollbackChanges()
+            self.rollback_changes()
         finally:
             # Unlink the configuration database backup.
-            self.unlinkBackup()
+            self.unlink_backup()
         return rc
 
 

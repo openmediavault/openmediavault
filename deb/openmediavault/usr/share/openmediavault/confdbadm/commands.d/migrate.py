@@ -78,7 +78,7 @@ class Command(
             migrations[parts[1]] = name
         try:
             # Create a backup of the configuration database.
-            self.mkBackup()
+            self.create_backup()
             # Execute the configuration database migration scripts.
             for cmd_args.version in sorted(
                 migrations, key=lambda v: LooseVersion(v)
@@ -101,10 +101,10 @@ class Command(
             # Display the exception message.
             openmediavault.log.error("Failed to apply migrations: %s" % str(e))
             # Rollback all changes.
-            self.rollbackChanges()
+            self.rollback_changes()
         finally:
             # Unlink the configuration database backup.
-            self.unlinkBackup()
+            self.unlink_backup()
         return rc
 
 
