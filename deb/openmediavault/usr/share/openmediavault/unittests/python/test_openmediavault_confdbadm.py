@@ -46,7 +46,8 @@ class ConfDbAdmTestCase(unittest.TestCase):
         with self.assertRaises(Exception) as ctx:
             self.command_helper.unlink_backup()
             self.assertEqual(
-                str(ctx.exception), "No configuration backup exists.")
+                str(ctx.exception), "No configuration backup exists."
+            )
 
     @mock.patch("os.unlink")
     def test_unlink_backup_fail_2(self, unlink_mock):
@@ -65,7 +66,8 @@ class ConfDbAdmTestCase(unittest.TestCase):
         with self.assertRaises(Exception) as ctx:
             self.command_helper.rollback_changes()
             self.assertEqual(
-                str(ctx.exception), "No configuration backup exists.")
+                str(ctx.exception), "No configuration backup exists."
+            )
 
     @mock.patch("shutil.copy")
     def test_rollback_changes_fail_2(self, mock_copy):
@@ -112,13 +114,15 @@ class ConfDbAdmTestCase(unittest.TestCase):
 
     def test_argparse_is_datamodel_id_1(self):
         self.assertEqual(
-            self.command_helper.argparse_is_datamodel_id("conf"), "conf")
+            self.command_helper.argparse_is_datamodel_id("conf"), "conf"
+        )
 
     @mock.patch("openmediavault.config.Datamodel")
     def test_argparse_is_datamodel_id_2(self, mock_datamodel):
         self.assertEqual(
             self.command_helper.argparse_is_datamodel_id("conf.service.ssh"),
-            "conf.service.ssh")
+            "conf.service.ssh"
+        )
 
 
 if __name__ == "__main__":

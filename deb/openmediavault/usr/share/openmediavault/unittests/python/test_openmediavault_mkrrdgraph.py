@@ -35,11 +35,13 @@ class MkRrdGraphTestCase(unittest.TestCase):
         args.append('GPRINT:lavg:LAST:"%4.2lf Last\l"')
         # yapf: enable
         openmediavault.mkrrdgraph.call_rrdtool_graph(args)
-        mock_system.assert_called_with("rrdtool graph --slope-mode "
-                                       "--lower-limit 0 --units-exponent 0 "
-                                       "GPRINT:lmax:MAX:\"%4.2lf Max\" "
-                                       "GPRINT:lavg:LAST:\"%4.2lf Last\\l\" "
-                                       ">/dev/null")
+        mock_system.assert_called_with(
+            "rrdtool graph --slope-mode "
+            "--lower-limit 0 --units-exponent 0 "
+            "GPRINT:lmax:MAX:\"%4.2lf Max\" "
+            "GPRINT:lavg:LAST:\"%4.2lf Last\\l\" "
+            ">/dev/null"
+        )
 
     @mock.patch("shutil.copyfile")
     def test_copy_placeholder_image(self, mock_copyfile):
@@ -59,7 +61,8 @@ class MkRrdGraphTestCase(unittest.TestCase):
         ]
         openmediavault.setenv("OMV_COLLECTD_CONFIG_DIR", "/x/y/z")
         result = openmediavault.mkrrdgraph.load_collectd_config(
-            "interface", "Interface")
+            "interface", "Interface"
+        )
         mock_exists.assert_called_with("/x/y/z/interface.conf")
         mock_open.assert_called_with("/x/y/z/interface.conf", "r")
         self.assertListEqual(result, ["ens6", "ens7"])
