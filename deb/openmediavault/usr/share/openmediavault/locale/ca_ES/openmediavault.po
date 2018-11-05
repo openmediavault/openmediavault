@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-21 11:50+0100\n"
-"PO-Revision-Date: 2018-01-21 10:50+0000\n"
+"POT-Creation-Date: 2018-10-05 22:03+0200\n"
+"PO-Revision-Date: 2018-10-05 20:04+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/votdev/openmediavault/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -693,6 +693,12 @@ msgstr "Auto prova de transferència"
 
 msgid "Cook Islands"
 msgstr "Illes Cook"
+
+msgid "Copy"
+msgstr ""
+
+msgid "Copy public SSH key"
+msgstr ""
 
 msgid "Copy to clipboard"
 msgstr "Copiar al porta-papers"
@@ -1437,6 +1443,9 @@ msgstr "Guinea-Bissau"
 msgid "Guyana"
 msgstr "República Cooperativa de Guyana"
 
+msgid "HTTP 404 error"
+msgstr ""
+
 msgid "HTTP-Proxy"
 msgstr "HTTP-Proxy"
 
@@ -1650,6 +1659,11 @@ msgstr "Instal·lant Plugins ..."
 
 msgid "Installing updates ..."
 msgstr "Instal·lant actualitzacions ..."
+
+msgid ""
+"Installs the public SSH key on a remote system as an authorized key. Make "
+"sure password authentication is enabled on that remote system."
+msgstr ""
 
 msgid "Interfaces"
 msgstr "Interfícies"
@@ -3308,6 +3322,9 @@ msgstr "S’ha creat satisfactòriament el sistema d'arxius."
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "El nom de host es una etiqueta que identifica al sistema a la ret."
 
+msgid "The hostname of the remote system."
+msgstr ""
+
 msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
@@ -3353,6 +3370,9 @@ msgid ""
 "single share to be used flexibly by each user."
 msgstr "Els permisos sobre els nous arxius i directoris s’estableixen per la màscara de creació i la màscara de directori, però el paràmetre d’herència de permisos preval. Pot ser útil especialment en sistemes amb molts usuaris per a permetre una utilització d’una mateixa compartició d’una forma flexible per a cada usuari."
 
+msgid "The port on which SSH is running on the remote system."
+msgstr ""
+
 msgid "The private RSA key in X.509 PEM format."
 msgstr "La clau pública RSA en format X.509 PEM."
 
@@ -3363,6 +3383,9 @@ msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
 msgstr "El repositori serà recarregat per a cercar nous, eliminats o millorats paquets de software."
+
+msgid "The requested page was not found."
+msgstr ""
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "

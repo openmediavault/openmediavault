@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-21 11:50+0100\n"
-"PO-Revision-Date: 2018-01-26 11:18+0000\n"
+"POT-Creation-Date: 2018-10-05 22:03+0200\n"
+"PO-Revision-Date: 2018-10-05 23:12+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/votdev/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -693,6 +693,12 @@ msgstr "運送自我測試"
 
 msgid "Cook Islands"
 msgstr "庫克群島"
+
+msgid "Copy"
+msgstr "複製"
+
+msgid "Copy public SSH key"
+msgstr "複製公開 SSH 金鑰"
 
 msgid "Copy to clipboard"
 msgstr "複製到剪貼板"
@@ -1437,6 +1443,9 @@ msgstr "幾內亞比紹"
 msgid "Guyana"
 msgstr "圭亞那"
 
+msgid "HTTP 404 error"
+msgstr "HTTP 404 錯誤"
+
 msgid "HTTP-Proxy"
 msgstr "HTTP-代理"
 
@@ -1650,6 +1659,11 @@ msgstr "安裝插件中 ..."
 
 msgid "Installing updates ..."
 msgstr "安裝更新中 ..."
+
+msgid ""
+"Installs the public SSH key on a remote system as an authorized key. Make "
+"sure password authentication is enabled on that remote system."
+msgstr "在遠端系統上安裝公開 SSH 金鑰以成為一個授權的金鑰。請確定在那個遠端系統上，密碼驗證有被啟用。"
 
 msgid "Interfaces"
 msgstr "介面"
@@ -3308,6 +3322,9 @@ msgstr "檔案系統創建已經成功地完成。"
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "主機名稱是一個用以於網路上識別系統的標籤。"
 
+msgid "The hostname of the remote system."
+msgstr "遠端系統的主機名稱"
+
 msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
@@ -3353,6 +3370,9 @@ msgid ""
 "single share to be used flexibly by each user."
 msgstr "新檔案和目錄的權限通常是由創建掩碼和目錄掩碼來控制，但繼承權限參數會蓋換它們。當系統上有許多用戶，並允許單一共享有彈性地被每一用戶使用時，這會特別有用處。"
 
+msgid "The port on which SSH is running on the remote system."
+msgstr "遠端系統 SSH 所使用的通訊埠。"
+
 msgid "The private RSA key in X.509 PEM format."
 msgstr "RSA 密鑰用的是 X.509 PEM 格式。"
 
@@ -3363,6 +3383,9 @@ msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
 msgstr "將對軟體套件庫查看新增、已移除或已升級的軟體套件。"
+
+msgid "The requested page was not found."
+msgstr "無法找到所要求的網頁。"
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "

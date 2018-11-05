@@ -12,7 +12,9 @@ openmediavault (5.0-1) unstable; urgency=low
 
 openmediavault (4.1.13-1) stable; urgency=low
 
+  * Update locales.
   * Fix various issues found by the lgtm.com project.
+  * Beatify and lint Python code.
   * Use /bin/sh as default shell when creating/importing users via WebUI.
   * Issue #182: Remove percentage text in progress bar when config is
     applied. It is not possible to display an accurate value here.
