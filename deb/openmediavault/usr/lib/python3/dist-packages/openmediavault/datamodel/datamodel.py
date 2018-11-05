@@ -53,7 +53,7 @@ class Datamodel:
         return self.as_dict()
 
     @property
-    def id(self):
+    def id(self):  # pylint: disable=invalid-name
         """
         Get the model identifier, e.g. 'conf.service.rsyncd.module'.
         :returns: Returns the model identifier.

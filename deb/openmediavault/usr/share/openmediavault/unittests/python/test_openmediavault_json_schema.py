@@ -140,8 +140,8 @@ class SchemaTestCase(unittest.TestCase):
     def test_check_format_hostname_fail(self):
         schema = openmediavault.json.Schema({})
         self.assertRaises(openmediavault.json.SchemaValidationException,
-         lambda: schema._check_format("myvault.local",
-         { "format": "host-name" }, "field3"))
+            lambda: schema._check_format("myvault.local",
+            { "format": "host-name" }, "field3"))
 
     def test_check_one_of(self):
         schema = openmediavault.json.Schema({})
@@ -166,7 +166,7 @@ class SchemaTestCase(unittest.TestCase):
     def test_validate_pattern_fail(self):
         schema = self._get_schema()
         self.assertRaises(openmediavault.json.SchemaValidationException,
-         lambda: schema.validate({ "name": "Eggs", "slaves": "xyz0" }))
+            lambda: schema.validate({ "name": "Eggs", "slaves": "xyz0" }))
 
 
 if __name__ == "__main__":

@@ -27,8 +27,8 @@ __all__ = [
 
 import abc
 import os
-import lxml.etree
 import fcntl
+import lxml.etree
 import openmediavault.collections
 import openmediavault.config.datamodel
 import openmediavault.config.object
@@ -341,7 +341,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
         as lists and dicts.
         """
 
-        def callback(model, name, path, schema, user_data):
+        def callback(model, name, path, schema, user_data):  # pylint: disable=unused-argument
             if "array" == schema['type'] and name:
                 user_data['lists'].append(name)
             if "object" == schema['type'] and name:

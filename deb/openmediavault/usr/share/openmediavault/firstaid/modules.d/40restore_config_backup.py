@@ -20,12 +20,12 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import sys
 import glob
-import natsort
 import subprocess
 import openmediavault
 import openmediavault.firstaid
 import openmediavault.subprocess
 import dialog
+import natsort
 
 
 class Module(openmediavault.firstaid.IModule):

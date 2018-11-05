@@ -393,7 +393,7 @@ class Schema:
                 )
         elif schema['format'] in ["host-name", "hostname"]:
             if not re.match(
-                r'^[a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])'
+                r'^[a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])' \
                 '{0,1}$', value
             ):
                 raise SchemaValidationException(
@@ -450,7 +450,7 @@ class Schema:
         for valuev in value:
             if not valuev in schema['enum']:
                 raise SchemaValidationException(
-                    name, "Invalid value '%s', allowed values are '%s'.",
+                    name, "Invalid value '%s', allowed values are '%s'." %
                     (valuev, ", ".join(schema['enum']))
                 )
 

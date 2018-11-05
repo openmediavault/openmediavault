@@ -117,6 +117,7 @@ class DotDict(dict):
 
     def __setitem__(self, key, value):
         matches = re.match(r'(\w+)\[(\d+)\](.(\S+))?', key)
+        # pylint: disable=too-many-branches
         if not matches is None:
             first = matches.group(1)
             index = int(matches.group(2))

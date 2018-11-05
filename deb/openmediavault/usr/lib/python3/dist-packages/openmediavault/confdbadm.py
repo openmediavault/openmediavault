@@ -52,7 +52,7 @@ class ICommand(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
 class CommandHelper:
     _backup_path = None
 
-    def mkBackup(self):
+    def mkBackup(self):  # pylint: disable=invalid-name
         """
         .. deprecated:: 5.0
         """
@@ -71,7 +71,7 @@ class CommandHelper:
         shutil.copy(config_path, self._backup_path)
         return self._backup_path
 
-    def unlinkBackup(self):
+    def unlinkBackup(self):  # pylint: disable=invalid-name
         """
         .. deprecated:: 5.0
         """
@@ -88,7 +88,7 @@ class CommandHelper:
         os.unlink(self._backup_path)
         self._backup_path = None
 
-    def rollbackChanges(self):
+    def rollbackChanges(self):  # pylint: disable=invalid-name
         """
         .. deprecated:: 5.0
         """

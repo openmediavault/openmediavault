@@ -74,6 +74,19 @@ class DatamodelTestCase(unittest.TestCase):
         value = datamodel.property_convert("integer", "20")
         self.assertEqual(value, 20)
 
+    def test_validate(self):
+        datamodel = self._get_model()
+        datamodel.validate({"proposed": True, "partner": False, "integer": 20})
+
+    def test_validate_fail(self):
+        datamodel = self._get_model()
+        self.assertRaises(openmediavault.json.SchemaValidationException,
+            lambda: datamodel.validate({
+                "proposed": "foo",
+                "partner": True,
+                "integer": True
+            }))
+
 
 if __name__ == "__main__":
     unittest.main()
