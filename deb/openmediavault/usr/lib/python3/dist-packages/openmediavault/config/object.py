@@ -31,7 +31,7 @@ import openmediavault.json.schema
 
 
 class Object:
-    def __init__(self, id):
+    def __init__(self, id):  # pylint: disable=redefined-builtin
         """
         :param id: The data model identifier, e.g. 'conf.service.ftp.share'.
         """
@@ -110,7 +110,7 @@ class Object:
                   as openmediavault.collections.DotDict dictionary.
         """
 
-        def callback(model, name, path, schema, user_data):
+        def callback(model, name, path, schema, user_data):  # pylint: disable=unused-argument
             # Abort immediatelly if the path is empty.
             if not path:
                 return None

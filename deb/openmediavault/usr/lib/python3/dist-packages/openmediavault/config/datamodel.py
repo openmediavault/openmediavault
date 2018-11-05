@@ -226,7 +226,7 @@ class Datamodel(openmediavault.datamodel.Datamodel):
         :raises openmediavault.json.SchemaException:
         :raises openmediavault.json.SchemaValidationException:
         """
-        self.schema.validate(value, name)
+        self.schema.validate(data)
 
     def property_get_default(self, path):
         """
@@ -312,7 +312,7 @@ class Datamodel(openmediavault.datamodel.Datamodel):
         prop_schema = self.schema.get_by_path(name)
         if isinstance(prop_schema['type'], list):
             raise openmediavault.json.SchemaException(
-                "The attribute 'type' must not be an array at '%s'." % path
+                "The attribute 'type' must not be an array at '%s'." % name
             )
         if "boolean" == prop_schema['type']:
             result = openmediavault.bool(value)
