@@ -27,6 +27,24 @@ class ConfDbAdmTestCase(unittest.TestCase):
     def setUp(self):
         self.command_helper = openmediavault.confdbadm.CommandHelper()
 
+    @mock.patch("openmediavault.confdbadm.CommandHelper.unlink_backup")
+    @mock.patch("openmediavault.confdbadm.CommandHelper.rollback_changes")
+    @mock.patch("openmediavault.confdbadm.CommandHelper.create_backup")
+    def test_create_class(
+        self, mock_create_backup, mock_rollback_changes, mock_unlink_backup
+    ):
+        class Command(openmediavault.confdbadm.CommandHelper):
+            def run_test(self):
+                self.create_backup()
+                self.rollback_changes()
+                self.unlink_backup()
+
+        command = Command()
+        command.run_test()
+        mock_create_backup.assert_called_once()
+        mock_rollback_changes.assert_called_once()
+        mock_unlink_backup.assert_called_once()
+
     def test_create_backup_fail(self):
         openmediavault.setenv("OMV_CONFIG_FILE", "xyz.conf")
         self.assertIsNone(self.command_helper.create_backup())
@@ -50,16 +68,16 @@ class ConfDbAdmTestCase(unittest.TestCase):
             )
 
     @mock.patch("os.unlink")
-    def test_unlink_backup_fail_2(self, unlink_mock):
+    def test_unlink_backup_fail_2(self, mock_unlink):
         self.command_helper._backup_path = False
         self.command_helper.unlink_backup()
-        unlink_mock.assert_not_called()
+        mock_unlink.assert_not_called()
 
     @mock.patch("os.unlink")
-    def test_unlink_backup(self, unlink_mock):
+    def test_unlink_backup(self, mock_unlink):
         self.command_helper._backup_path = "foo.conf"
         self.command_helper.unlink_backup()
-        unlink_mock.assert_called_once()
+        mock_unlink.assert_called_once()
         self.assertIsNone(self.command_helper._backup_path)
 
     def test_rollback_changes_fail(self):
