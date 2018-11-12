@@ -20,34 +20,18 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# http://www.thomas-krenn.com/de/wiki/Smartmontools_Drive_Database_aktualisieren
+# https://www.thomas-krenn.com/de/wiki/Smartmontools_Drive_Database_aktualisieren
 
 set -e
 
+. /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-tmpscript=$(mktemp)
+OMV_CRON_WEEKLY_UPDATE_SMART_DRIVEDB_ENABLED=${OMV_CRON_WEEKLY_UPDATE_SMART_DRIVEDB_ENABLED:-"yes"}
 
-cleanup() {
-	rm -f ${tmpscript}
-	exit
-}
-
-trap cleanup 0 1 2 5 15
-
-# Does the script exist? If not, then exit immediatelly. In this case the
-# Debian smartmontools package is not installed.
-which update-smart-drivedb >/dev/null || exit 0
-
-# Update the drive database.
-filepath=$(which update-smart-drivedb)
-version=$(sed -n 's/^VERSION="\(.*\)"$/\1/p' ${filepath})
-# Note, the script shipped with the Debian Jessie smartmontools package
-# contains a wrong URL. Because of that this must be modified to get the
-# script working. To do not modify the original script, which is under
-# APT control, we simply create a copy of the script, modify the URL and
-# finally execute it.
-cp -p ${filepath} ${tmpscript}
-sed -i "/^SRCEXPR=/{s#http://*#https://#}" ${tmpscript}
-omv_syslog_info "Updating smartmontools ${version} drive database ..."
-eval ${tmpscript} >/dev/null
+if omv_checkyesno "${OMV_CRON_WEEKLY_UPDATE_SMART_DRIVEDB_ENABLED}"; then
+    omv_syslog_info "Updating smartmontools drive database ..."
+    cd /var/lib/smartmontools/drivedb
+    wget --quiet --backups=1 https://raw.githubusercontent.com/mirror/smartmontools/master/drivedb.h
+    chown -c root:root drivedb.h
+fi
