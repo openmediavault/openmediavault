@@ -36,18 +36,11 @@ class PowerManagement {
 
 	/**
 	 * Helper function.
-	 * @return TRUE if command has been executed sucessfully, otherwise
-	 *   FALSE.
+	 * @param action The systemctl action to execute.
+	 * @return void
 	 */
 	private function exec($action) {
-		$mapCommand = [
-			"reboot" => [ "shutdown", "-r", "now" ],
-			"shutdown" => [ "shutdown", "-h", "-P", "now" ],
-			"suspendhybrid" => [ "pm-suspend-hybrid" ],
-			"hibernate" => [ "pm-hibernate" ],
-			"suspend" => [ "pm-suspend" ]
-		];
-		$cmd = new \OMV\System\Process($mapCommand[$action]);
+		$cmd = new \OMV\System\Process("systemctl", [$action]);
 		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
@@ -59,41 +52,28 @@ class PowerManagement {
 	 *   of an error NULL is returned.
 	 */
 	public function isStateSupported($state) {
-		$cmdArgs = [];
+		$result = FALSE;
+		$sys_power_states = array_map("trim", explode(" ", file_get_contents(
+			"/sys/power/state")));
 		switch ($state) {
 		case self::STATE_SUSPEND:
-			$cmdArgs[] = "--suspend";
+			$result = in_array("mem", $sys_power_states);
 			break;
 		case self::STATE_HIBERNATE:
-			$cmdArgs[] = "--hibernate";
+			if (in_array("disk", $sys_power_states)) {
+				if (is_file("/sys/power/disk")) {
+					$contents = file_get_contents("/sys/power/disk");
+					if ("[disabled]" !== $contents) {
+						$result = (count(file("/proc/swaps")) > 1);
+					}
+				}
+			}
 			break;
 		case self::STATE_SUSPENDHYBRID:
-			$cmdArgs[] = "--suspend-hybrid";
+			// ToDo...
 			break;
 		}
-		$cmd = new \OMV\System\Process("pm-is-supported", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->setQuiet(TRUE);
-		$cmd->execute($output, $exitStatus);
-		if (!(($exitStatus == 0) || ($exitStatus == 1))) {
-			throw new \OMV\ExecException($cmd->getCommandLine(), $output,
-				$exitStatus);
-		}
-		$supported = ($exitStatus == 0) ? TRUE : FALSE;
-/*
-		// In case of STATE_HIBERNATE and STATE_SUSPENDHYBRID the
-		// swap space must be greater than the physical memory size to
-		// work correctly.
-		if ((TRUE === $supported) && (self::STATE_SUSPEND !== $state)) {
-			if (FALSE === ($stats = OMVSystem::getMemoryStats()))
-				return NULL;
-			if ($stats['mem']['total'] > $stats['swap']['total']) {
-				$supported = FALSE;
-				syslog(LOG_NOTICE, gettext("Hybrid-suspend and hibernate mode are supported but ignored because the RAM size is greater than the available swap space."));
-			}
-		}
-*/
-		return $supported;
+		return $result;
 	}
 
 	/**
@@ -124,7 +104,7 @@ class PowerManagement {
 	 * @return void
 	 */
 	public function shutdown() {
-		$this->exec("shutdown");
+		$this->exec("poweroff");
 	}
 
 	/**
@@ -140,14 +120,14 @@ class PowerManagement {
 	 * @return void
 	 */
 	public function standby() {
-		$action = "shutdown";
 		if (TRUE === $this->isStateSupported(self::STATE_SUSPENDHYBRID))
-			$action = "suspendhybrid";
+			$this->suspendHybrid();
 		else if (TRUE === $this->isStateSupported(self::STATE_HIBERNATE))
-			$action = "hibernate";
+			$this->hibernate();
 		else if (TRUE === $this->isStateSupported(self::STATE_SUSPEND))
-			$action = "suspend";
-		$this->exec($action);
+			$this->suspend();
+		else
+			$this->shutdown();
 	}
 
 	/**
@@ -156,10 +136,9 @@ class PowerManagement {
 	 * @return void
 	 */
 	public function suspend() {
-		$action = "shutdown";
-		if (TRUE === $this->isStateSupported(self::STATE_SUSPEND))
-			$action = "suspend";
-		$this->exec($action);
+		if (FALSE === $this->isStateSupported(self::STATE_SUSPEND))
+			$this->shutdown();
+		$this->exec("suspend");
 	}
 
 	/**
@@ -168,10 +147,9 @@ class PowerManagement {
 	 * @return void
 	 */
 	public function hibernate() {
-		$action = "shutdown";
-		if (TRUE === $this->isStateSupported(self::STATE_HIBERNATE))
-			$action = "hibernate";
-		$this->exec($action);
+		if (FALSE === $this->isStateSupported(self::STATE_HIBERNATE))
+			$this->shutdown();
+		$this->exec("hibernate");
 	}
 
 	/**
@@ -180,9 +158,8 @@ class PowerManagement {
 	 * @return void
 	 */
 	public function suspendHybrid() {
-		$action = "shutdown";
-		if (TRUE === $this->isStateSupported(self::STATE_SUSPENDHYBRID))
-			$action = "suspendhybrid";
-		$this->exec($action);
+		if (FALSE === $this->isStateSupported(self::STATE_SUSPENDHYBRID))
+			$this->shutdown();
+		$this->exec("hybrid-sleep");
 	}
 }

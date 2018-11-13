@@ -173,7 +173,7 @@ case "$1" in
 			echo "Deploying service configurations ..."
 			omv-salt deploy run --quiet mdadm cpufrequtils cronapt watchdog \
 				monit rrdcached avahi ssh nginx collectd phpfpm issue sysctl \
-				acpid resolvconf
+				systemd-logind resolvconf
 		fi
 
 		########################################################################
