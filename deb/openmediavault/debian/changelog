@@ -1,5 +1,6 @@
 openmediavault (4.1.14-1) stable; urgency=low
 
+  * Issue #139: Remove deprecated smb.conf syslog setting.
   * Issue #206: Fix cron job to update SMART database.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 12 Nov 2018 13:31:00 +0100
