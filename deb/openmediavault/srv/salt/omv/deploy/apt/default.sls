@@ -43,7 +43,7 @@ configure_apt_proxy:
     - template: jinja
     - user: root
     - group: root
-    - mode: 640
+    - mode: 644
 
 {% if not use_kernel_backports | to_bool %}
 
