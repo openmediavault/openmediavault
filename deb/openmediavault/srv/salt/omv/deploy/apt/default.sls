@@ -33,6 +33,9 @@ configure_apt_sources_list_openmediavault:
     - group: root
     - mode: 644
 
+{% if proxy_config.http.enable | to_bool or proxy_config.https.enable |
+   to_bool or proxy_config.ftp.enable | to_bool %}
+
 configure_apt_proxy:
   file.managed:
     - name: "/etc/apt/apt.conf.d/99openmediavault-proxy"
@@ -44,6 +47,14 @@ configure_apt_proxy:
     - user: root
     - group: root
     - mode: 640
+
+{% else %}
+
+remove_apt_proxy:
+  file.absent:
+    - name: "/etc/apt/apt.conf.d/99openmediavault-proxy"
+
+{% endif %}
 
 {% if not use_kernel_backports | to_bool %}
 
