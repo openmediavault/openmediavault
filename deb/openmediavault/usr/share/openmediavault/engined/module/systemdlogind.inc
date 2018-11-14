@@ -21,10 +21,10 @@
  */
 namespace Engined\Module;
 
-class Acpid extends \OMV\Engine\Module\ServiceAbstract
+class SystemdLogind extends \OMV\Engine\Module\ServiceAbstract
 		implements \OMV\Engine\Notify\IListener {
 	public function getName() {
-		return "acpid";
+		return "systemd-logind";
 	}
 
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {

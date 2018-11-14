@@ -89,3 +89,14 @@ def get_net_size(mask):
     (255.255.255.0 -> 24 as in 192.168.1.10/24).
     """
     return salt.utils.network.get_net_size(mask)
+
+
+def is_file(path):
+    """
+    Check if path is an existing regular file. This follows symbolic
+    links, so both islink() and isfile() can be true for the same path.
+    :param path: The path to check.
+    :return: Return True if path is an existing regular file.
+    :rtype: bool
+    """
+    return os.path.isfile(os.path.expanduser(path))
