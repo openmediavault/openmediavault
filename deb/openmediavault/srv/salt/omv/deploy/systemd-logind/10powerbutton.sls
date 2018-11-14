@@ -29,8 +29,7 @@
     # * Shut down and turn of system
     # See https://cgit.freedesktop.org/pm-utils/tree/pm/pm-functions.in#n294
     {% if 'disk' in salt['sysfs.read']('power/state') and
-            salt['omv.is_file']('/sys/power/disk') and
-            '[disabled]' != salt['sysfs.read']('power/disk') and
+            salt['sysfs.read']('power/disk') not in ['[disabled]', False] and
             salt['mount.swaps']() | length > 1 %}
         {% set action = 'hibernate' %}
     {% elif 'mem' in salt['sysfs.read']('power/state') %}
