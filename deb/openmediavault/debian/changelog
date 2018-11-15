@@ -5,6 +5,8 @@ openmediavault (5.0-1) unstable; urgency=low
   * The omv-salt CLI command superseds omv-mkconf. Note, the command
     will not only create the configuration files, it will also take care
     about to start/stop/restart the services.
+  * Use systemd-logind to handle power button action.
+  * Use systemd to reboot/shutdown/standby the system.
   * Issue #93: Use chrony instead of ntpd.
   * Issue #146: Use systemd to configure the network.
 
