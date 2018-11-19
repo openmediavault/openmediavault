@@ -35,9 +35,6 @@ OMV_ACPID_POWERBTN_ACTION_NOTHING=${OMV_ACPID_POWERBTN_ACTION_NOTHING:-"/bin/tru
 OMV_ACPID_POWERBTN_ACTION_SHUTDOWN=${OMV_ACPID_POWERBTN_ACTION_SHUTDOWN:-"shutdown -h -P now \"Power button pressed\""}
 OMV_ACPID_POWERBTN_ACTION_STANDBY=${OMV_ACPID_POWERBTN_ACTION_STANDBY:-"omv-pm-standby"}
 
-# Modify '/etc/systemd/logind.conf' file
-sed -r -i "s/^#?HandlePowerKey=.*$/HandlePowerKey=ignore/" /etc/systemd/logind.conf
-
 # Create '/etc/default/acpid' file
 cat <<EOF > ${OMV_ACPID_DEFAULT}
 # Options to pass to acpid
