@@ -21,10 +21,9 @@
 
 set -e
 
-omv-mkconf acpid
-omv-mkconf systemd-logind
+. /etc/default/openmediavault
 
-systemctl restart acpid.service
-systemctl restart systemd-logind.service
+OMV_SYSTEMD_LOGIND_CONFIG=${OMV_SYSTEMD_LOGIND_CONFIG:-"/etc/systemd/logind.conf"}
 
-exit 0
+# Modify '/etc/systemd/logind.conf' file
+sed -r -i "s/^#?HandlePowerKey=.*$/HandlePowerKey=ignore/" ${OMV_SYSTEMD_LOGIND_CONFIG}
