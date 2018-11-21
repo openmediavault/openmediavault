@@ -22,7 +22,7 @@
 # http://security.stackexchange.com/questions/54639/nginx-recommended-ssl-ciphers-for-security-compatibility-with-pfs
 # http://en.wikipedia.org/wiki/List_of_HTTP_header_fields
 # http://www.pedaldrivenprogramming.com/2015/04/upgrading-wheezy-to-jessie:-nginx-and-php-fpm/
-# https://mozilla.github.io/server-side-tls/ssl-config-generator/?server=nginx-1.10.1&openssl=1.1.0f&hsts=yes&profile=modern
+# https://mozilla.github.io/server-side-tls/ssl-config-generator/?server=nginx-1.14.1&openssl=1.1.1&hsts=yes&profile=modern
 
 {% set include_dir = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR', '/etc/nginx/openmediavault-webgui.d') %}
 {% set config = salt['omv.get_config']('conf.webadmin') %}
