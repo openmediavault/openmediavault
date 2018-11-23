@@ -64,7 +64,7 @@ configure_sharedfolder_{{ sharedfolder.name }}_mount_unit_file:
 
 {% endfor %}
 
-systemctl_daemon_reload:
+sharedfolder_mount_units_systemctl_daemon_reload:
   module.run:
     - name: service.systemctl_reload
 
