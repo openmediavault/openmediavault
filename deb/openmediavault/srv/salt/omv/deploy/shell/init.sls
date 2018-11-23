@@ -1,5 +1,3 @@
-#!/bin/sh
-#
 # This file is part of OpenMediaVault.
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
@@ -19,16 +17,5 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-set -e
-
-# Customize the readline initialization file of user root.
-touch /root/.inputrc
-cat <<EOF >> /root/.inputrc
-# Added by openmediavault.
-"\C-[OA": history-search-backward
-"\C-[[A": history-search-backward
-"\C-[OB": history-search-forward
-"\C-[[B": history-search-forward
-EOF
-
-exit 0
+include:
+  - .{{ salt['pillar.get']('deploy_shell', 'default') }}

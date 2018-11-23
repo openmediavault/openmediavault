@@ -1,5 +1,3 @@
-#!/bin/sh
-#
 # This file is part of OpenMediaVault.
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
@@ -19,20 +17,11 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-set -e
+{% set dirpath = '/srv/salt' | path_join(slspath) %}
 
-# Enable bash completion.
-touch /root/.bashrc
-cat <<EOF >> /root/.bashrc
-# Enable bash completion in interactive shells.
-# Added by openmediavault.
-if ! shopt -oq posix; then
-    if [ -f /usr/share/bash-completion/bash_completion ]; then
-        . /usr/share/bash-completion/bash_completion
-    elif [ -f /etc/bash_completion ]; then
-        . /etc/bash_completion
-    fi
-fi
-EOF
-
-exit 0
+include:
+{% for file in salt['file.readdir'](dirpath) | sort %}
+{% if file | regex_match('^(\d+.+).sls$', ignorecase=True) %}
+  - .{{ file | replace('.sls', '') }}
+{% endif %}
+{% endfor %}

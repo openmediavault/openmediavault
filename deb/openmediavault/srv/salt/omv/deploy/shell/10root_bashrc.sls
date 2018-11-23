@@ -17,26 +17,22 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-configure_tmp_mount_unit_file:
+configure_root_bashrc:
   file.managed:
-    - name: '/etc/systemd/system/tmp.mount'
+    - name: '/root/.bashrc'
     - contents: |
         {{ pillar['headers']['auto_generated'] }}
         {{ pillar['headers']['warning'] }}
-        [Unit]
-        Description=Mount /tmp as tmpfs to reduce write access to the root device
-        Before=local-fs.target
 
-        [Mount]
-        What=tmpfs
-        Where=/tmp
-        Type=tmpfs
+        # Enable bash completion in interactive shells.
+        # Added by openmediavault.
+        if ! shopt -oq posix; then
+            if [ -f /usr/share/bash-completion/bash_completion ]; then
+                . /usr/share/bash-completion/bash_completion
+            elif [ -f /etc/bash_completion ]; then
+                . /etc/bash_completion
+            fi
+        fi
     - user: root
     - group: root
-    - mode: 644
-
-tmp_mount_unit_systemctl_daemon_reload:
-  module.run:
-    - name: service.systemctl_reload
-    - onchanges:
-      - file: configure_tmp_mount_unit_file
+    - mode: 600
