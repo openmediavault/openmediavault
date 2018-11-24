@@ -18,4 +18,4 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 include:
-  - .{{ salt['pillar.get']('deploy_shell', 'default') }}
+  - .{{ salt['pillar.get']('setup', 'default') }}

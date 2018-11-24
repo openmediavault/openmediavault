@@ -22,7 +22,7 @@ refresh_pillar:
     - tgt: '*'
     - sls: omv.refresh
 
-deploy:
+run_state_deploy:
   salt.state:
     - tgt: '*'
     - sls: omv.deploy
