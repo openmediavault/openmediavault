@@ -17,24 +17,13 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-# Sync runners from salt://_runners to the master.
-sync_runners:
-  salt.runner:
-    - name: saltutil.sync_runners
+{% set dirpath = '/srv/salt' | path_join(slspath) %}
 
-# Sync execution modules from salt://_modules to the master.
-sync_modules:
-  salt.runner:
-    - name: saltutil.sync_modules
-
-# Create openmediavault pillar data.
-populate_pillar:
-  salt.runner:
-    - name: omv.populate_pillar
-
-run_state_sync:
-  salt.state:
-    - tgt: '*'
-    - tgt_type: compound
-    - sls: omv.sync
-    - failhard: True
+include:
+{% for file in salt['file.readdir'](dirpath) %}
+{% if not file.endswith('.sls') %}
+{% if file not in ('.', '..') %}
+  - .{{ file }}
+{% endif %}
+{% endif %}
+{% endfor %}

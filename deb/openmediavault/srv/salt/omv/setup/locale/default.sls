@@ -17,24 +17,20 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-# Sync runners from salt://_runners to the master.
-sync_runners:
-  salt.runner:
-    - name: saltutil.sync_runners
+# Make sure locale is set up correct. The Python click library requires
+# a valid configuration.
+# https://click.palletsprojects.com/en/7.x/python3/#python-3-surrogate-handling
+# https://www.thomas-krenn.com/de/wiki/Locales_unter_Ubuntu_konfigurieren
 
-# Sync execution modules from salt://_modules to the master.
-sync_modules:
-  salt.runner:
-    - name: saltutil.sync_modules
+# Get the current configured locale.
+{% set lang = salt['environ.get']('LANG') %}
 
-# Create openmediavault pillar data.
-populate_pillar:
-  salt.runner:
-    - name: omv.populate_pillar
+generate_locale:
+  locale.present:
+    - name: {{ lang }}
 
-run_state_sync:
-  salt.state:
-    - tgt: '*'
-    - tgt_type: compound
-    - sls: omv.sync
-    - failhard: True
+set_system_locale:
+  locale.system:
+    - name: {{ lang }}
+    - require:
+      - locale: generate_locale
