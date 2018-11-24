@@ -34,7 +34,7 @@ class StorageDevice extends \OMV\System\BlockDevice
 	 */
 	public function getModel() {
 		$filename = sprintf("/sys/block/%s/device/model",
-			$this->getDeviceName());
+			$this->getDeviceName(TRUE));
 		if (file_exists($filename))
 			return trim(file_get_contents($filename));
 		return "";
@@ -46,7 +46,7 @@ class StorageDevice extends \OMV\System\BlockDevice
 	 */
 	public function getVendor() {
 		$filename = sprintf("/sys/block/%s/device/vendor",
-			$this->getDeviceName());
+			$this->getDeviceName(TRUE));
 		if (file_exists($filename))
 			$this->_vendor = trim(file_get_contents($filename));
 		return "";
@@ -96,7 +96,7 @@ class StorageDevice extends \OMV\System\BlockDevice
 		}
 		// Use kernel attribute.
 		$filename = sprintf("/sys/block/%s/queue/rotational",
-		  $this->getDeviceName());
+		  $this->getDeviceName(TRUE));
 		if (file_exists($filename)) {
 			// If file content is non-zero then it is rotational.
 			return ("0" == trim(file_get_contents($filename))) ? FALSE : TRUE;
@@ -114,7 +114,7 @@ class StorageDevice extends \OMV\System\BlockDevice
 	*/
 	public function isRemovable() {
 		$filename = sprintf("/sys/block/%s/removable",
-		  $this->getDeviceName());
+		  $this->getDeviceName(TRUE));
 		if (!file_exists($filename))
 			return FALSE;
 		return (trim(file_get_contents($filename)) == "1") ? TRUE : FALSE;
