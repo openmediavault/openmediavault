@@ -1,5 +1,6 @@
 openmediavault (4.1.14-1) stable; urgency=low
 
+  * Update locales.
   * Issue #139: Remove deprecated smb.conf syslog setting.
   * Issue #206: Fix cron job to update SMART database.
   * Issue #208: Fix bug in power button configuration.
