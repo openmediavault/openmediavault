@@ -1,5 +1,3 @@
-# -*- mode: makefile; coding: utf-8 -*-
-#
 # This file is part of OpenMediaVault.
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
@@ -18,18 +16,6 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-PY_FILES=$(wildcard *.py)
 
-test:
-	@for file in $(PY_FILES); do \
-		echo ">>> Processing $$file ..."; \
-		python3 $$file; \
-		echo; \
-	done
-
-install:
-	echo "Installing required packages ..."
-	sudo apt-get install python3-pip python3-mock
-	pip3 install pyfakefs
-
-.PHONY: test install
+include:
+  - .{{ salt['pillar.get']('setup_fstab', 'default') }}
