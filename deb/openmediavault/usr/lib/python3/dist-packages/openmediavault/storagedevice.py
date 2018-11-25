@@ -18,8 +18,6 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-__all__ = ["StorageDevice"]
-
 import os
 import openmediavault.blockdevice
 
@@ -32,10 +30,10 @@ class StorageDevice(openmediavault.blockdevice.BlockDevice):
         :return: The device model, otherwise an empty string.
         :rtype: str
         """
+        file = '/sys/block/{}/device/model'.format(self.device_name(True))
         try:
-            file = '/sys/block/{}/device/model'.format(self.device_name(True))
             with open(file, 'r') as f:
-                return f.readline().rstrip()
+                return f.readline().strip()
         except (IOError, FileNotFoundError):
             pass
         return ''
@@ -58,13 +56,11 @@ class StorageDevice(openmediavault.blockdevice.BlockDevice):
             # If ID_ATA_FEATURE_SET_AAM is non-zero then it is rotational.
             return self.get_udev_property('ID_ATA_FEATURE_SET_AAM') != '0'
         # Use kernel attribute.
+        file = '/sys/block/{}/queue/rotational'.format(self.device_name(True))
         try:
-            file = '/sys/block/{}/queue/rotational'.format(
-                self.device_name(True)
-            )
             with open(file, 'r') as f:
                 # If file content is non-zero then it is rotational.
-                return f.readline().rstrip() != '0'
+                return f.readline().strip() != '0'
         except (IOError, FileNotFoundError):
             pass
         # Use heuristic.

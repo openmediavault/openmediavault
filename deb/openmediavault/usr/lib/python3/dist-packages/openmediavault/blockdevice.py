@@ -18,12 +18,6 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-__all__ = [
-    "BlockDevice", "is_block_device", "is_device_file", "is_device_file_by",
-    "is_device_file_by_uuid", "is_device_file_by_id",
-    "is_device_file_by_label", "is_device_file_by_path"
-]
-
 import os
 import re
 import stat
@@ -195,6 +189,75 @@ class BlockDevice:
                 result.append('/dev/{}'.format(dev_link))
         return result
 
+    def get_predictable_device_file(self):
+        """
+        Get a predictable device file in the following order:
+
+        * /dev/disk/by-id/xxx
+        * /dev/disk/by-path/xxx
+        * /dev/xxx
+
+        :return: Returns a device file.
+        :rtype: str
+        """
+        if self.has_device_file_by_id():
+            return self.get_device_file_by_id()
+        if self.has_device_file_by_path():
+            return self.get_device_file_by_path()
+        return self.canonical_device_file
+
+    def has_device_file_by_id(self):
+        """
+        Check whether the device has a /dev/disk/by-id/xxx device path.
+        :return: Returns TRUE if a disk/by-id device path exists,
+            otherwise FALSE.
+        :rtype: bool
+        """
+        return is_device_file_by_id(self.get_device_file_by_id())
+
+    def get_device_file_by_id(self):
+        """
+        Get the device file, e.g.
+
+        * /dev/disk/by-id/wwn-0x5000cca211cc703c
+   	    * /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
+   	    * /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML-part2
+
+        :return: Returns the device file (/dev/disk/by-id/xxx) if available,
+   	        otherwise None.
+        :rtype: str|None
+        """
+        for dev_link in self.get_device_file_symlinks():
+            if is_device_file_by_id(dev_link):
+                return dev_link
+        return None
+
+    def has_device_file_by_path(self):
+        """
+        Check whether the device has a /dev/disk/by-path/xxx device path.
+        :return: Returns TRUE if a disk/by-path device path exists,
+            otherwise FALSE.
+        :rtype: bool
+        """
+        return is_device_file_by_path(self.get_device_file_by_path())
+
+    def get_device_file_by_path(self):
+        """
+        Get the device file, e.g.
+
+        * /dev/disk/by-path/pci-0000:00:17.0-ata-3
+   	    * /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
+   	    * /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:1:0-part1
+
+        :return: Returns the device file (/dev/disk/by-path/xxx) if available,
+   	        otherwise None.
+        :rtype: str|None
+        """
+        for dev_link in self.get_device_file_symlinks():
+            if is_device_file_by_path(dev_link):
+                return dev_link
+        return None
+
     def device_name(self, canonical=False):
         """
         Get the device name, e.g. sda or hdb.
@@ -204,9 +267,48 @@ class BlockDevice:
         :return: The device name.
         :rtype: str
         """
-        device_file = self.device_file if not canonical \
-            else self.canonical_device_file
-        return device_file.replace('/dev/', '')
+        return os.path.basename(self.device_file if not canonical \
+            else self.canonical_device_file)
+
+    def get_device_number(self):
+        """
+        Get the device number, e.g. 8:17.
+        See `<https://www.kernel.org/doc/Documentation/devices.txt> for more information`_.
+        :rtype: str|None
+        """
+        file = '/sys/class/block/{}/dev'.format(self.device_name(True))
+        try:
+            with open(file, 'r') as f:
+                return f.readline().strip()
+        except (IOError, FileNotFoundError):
+            pass
+        return None
+
+    def get_major_device_number(self):
+        """
+        Get the major device number.
+        See `<https://www.kernel.org/doc/Documentation/devices.txt> for more information`_.
+        :return: Returns the major device number or None on failure.
+        :rtype: int|None
+        """
+        device_number = self.get_device_number()
+        if device_number is None:
+            return None
+        parts = device_number.split(':')
+        return int(parts[0])
+
+    def get_minor_device_number(self):
+        """
+        Get the minor device number.
+        See `<https://www.kernel.org/doc/Documentation/devices.txt> for more information`_.
+        :return: Returns the minor device number or None on failure.
+        :rtype: int|None
+        """
+        device_number = self.get_device_number()
+        if device_number is None:
+            return None
+        parts = device_number.split(':')
+        return int(parts[1])
 
     @property
     def udev_properties(self):
