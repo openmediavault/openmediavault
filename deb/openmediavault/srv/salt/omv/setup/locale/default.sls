@@ -25,6 +25,10 @@
 # Get the current configured locale.
 {% set lang = salt['environ.get']('LANG') %}
 
+generate_C.UTF-8_locale:
+  locale.present:
+    - name: "C.UTF-8"
+
 generate_{{ lang }}_locale:
   locale.present:
     - name: "{{ lang }}"
