@@ -73,9 +73,9 @@ class StorageDevice extends \OMV\System\BlockDevice
 	}
 
 	/**
-	 * Check if the device is of rotational type or non-rotational type.
+	 * Check if the device is of rotational or non-rotational type.
 	 * See https://www.kernel.org/doc/Documentation/block/queue-sysfs.txt
-	 * @return boolean TRUE if device is of rotational type, otherwise FALSE.
+	 * @return boolean TRUE if device is rotational, otherwise FALSE.
 	 */
 	public function isRotational() {
 		// Use udev property.

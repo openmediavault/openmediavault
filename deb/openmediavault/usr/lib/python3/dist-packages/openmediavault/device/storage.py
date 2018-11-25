@@ -40,9 +40,9 @@ class StorageDevice(BlockDevice):
 
     def is_rotational(self):
         """
-        Check if the device is of rotational type or non-rotational type.
+        Check if the device is of rotational or non-rotational type.
         See https://www.kernel.org/doc/Documentation/block/queue-sysfs.txt
-        :return: Return True if device is of rotational type, otherwise False.
+        :return: Return True if device is rotational, otherwise False.
         :rtype: bool
         """
         if self.has_udev_property('ID_SSD'):

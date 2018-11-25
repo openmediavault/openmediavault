@@ -139,9 +139,9 @@ interface StorageDeviceInterface {
 	public function getDescription();
 
 	/**
-	 * Check if the device is of rotational type or non-rotational type.
+	 * Check if the device is of rotational or non-rotational type.
 	 * See https://www.kernel.org/doc/Documentation/block/queue-sysfs.txt
-	 * @return TRUE if device is of rotational type, otherwise FALSE.
+	 * @return TRUE if device is rotational, otherwise FALSE.
 	 */
 	public function isRotational();
 

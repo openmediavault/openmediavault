@@ -29,19 +29,15 @@ from .utils import (
 
 
 class BlockDevice:
-    _path = None
+    _device_file = None
     _udev_properties = {}
 
-    def __init__(self, path):
-        self._path = path
-
-    @property
-    def exists(self):
-        return is_block_device(self.device_file)
+    def __init__(self, device_file):
+        self._device_file = device_file
 
     @property
     def device_file(self):
-        return self._path
+        return self._device_file
 
     @property
     def canonical_device_file(self):
@@ -56,6 +52,10 @@ class BlockDevice:
         :rtype: str
         """
         return os.path.realpath(self.device_file)
+
+    @property
+    def exists(self):
+        return is_block_device(self.device_file)
 
     def get_device_file_symlinks(self):
         """
