@@ -32,9 +32,12 @@ class StorageDevice(openmediavault.blockdevice.BlockDevice):
         :return: The device model, otherwise an empty string.
         :rtype: str
         """
-        file = '/sys/block/{}/device/model'.format(self.device_name(True))
-        if os.path.exists(file):
-            return open(file, 'r').read().strip()
+        try:
+            file = '/sys/block/{}/device/model'.format(self.device_name(True))
+            with open(file, 'r') as f:
+                return f.readline().rstrip()
+        except (IOError, FileNotFoundError):
+            pass
         return ''
 
     @property
@@ -55,9 +58,14 @@ class StorageDevice(openmediavault.blockdevice.BlockDevice):
             # If ID_ATA_FEATURE_SET_AAM is non-zero then it is rotational.
             return self.get_udev_property('ID_ATA_FEATURE_SET_AAM') != '0'
         # Use kernel attribute.
-        file = '/sys/block/{}/queue/rotational'.format(self.device_name(True))
-        if os.path.exists(file):
-            # If file content is non-zero then it is rotational.
-            return open(file, 'r').read().strip() != '0'
+        try:
+            file = '/sys/block/{}/queue/rotational'.format(
+                self.device_name(True)
+            )
+            with open(file, 'r') as f:
+                # If file content is non-zero then it is rotational.
+                return f.readline().rstrip() != '0'
+        except (IOError, FileNotFoundError):
+            pass
         # Use heuristic.
         return 'SSD' in self.model
