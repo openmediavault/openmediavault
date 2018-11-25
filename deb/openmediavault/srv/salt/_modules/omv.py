@@ -20,6 +20,8 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 import json
+import openmediavault.blockdevice
+import openmediavault.storagedevice
 import openmediavault.config
 import os
 import re
@@ -91,12 +93,50 @@ def get_net_size(mask):
     return salt.utils.network.get_net_size(mask)
 
 
+@jinja_filter('is_file')
 def is_file(path):
     """
     Check if path is an existing regular file. This follows symbolic
     links, so both islink() and isfile() can be true for the same path.
     :param path: The path to check.
-    :return: Return True if path is an existing regular file.
+    :return: Return True if path is an existing regular file,
+        otherwise False.
     :rtype: bool
     """
     return os.path.isfile(os.path.expanduser(path))
+
+
+@jinja_filter('is_block_device')
+def is_block_device(path):
+    """
+    Check if path is a block device.
+    :param path: The path to check.
+    :return: Return True if path is a block device, otherwise False.
+    :rtype: bool
+    """
+    return openmediavault.blockdevice.is_block_device(path)
+
+
+@jinja_filter('is_device_file')
+def is_device_file(path):
+    """
+    Check if path describes a device file, e.g. /dev/sda1.
+    :param path: The path to check.
+    :return: Return True if path describes a device file,
+        otherwise False.
+    :rtype: bool
+    """
+    return openmediavault.blockdevice.is_device_file(path)
+
+
+def is_rotational(path):
+    """
+    Check if device is rotational.
+    :param path: The path to check.
+    :return: Return True if the device is rotational, otherwise False.
+    :rtype: bool
+    """
+    if not is_device_file(path) or not is_block_device(path):
+        return False
+    sd = openmediavault.storagedevice.StorageDevice(path)
+    return sd.is_rotational
