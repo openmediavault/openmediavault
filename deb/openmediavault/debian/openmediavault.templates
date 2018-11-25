@@ -3,7 +3,7 @@ Type: note
 Description: Complete the installation
  To complete the installation you need to run the following command:
  .
-  omv-initsystem
+  omv-initdb
  .
  To manage the system visit the openmediavault web control panel
  via a web browser:
