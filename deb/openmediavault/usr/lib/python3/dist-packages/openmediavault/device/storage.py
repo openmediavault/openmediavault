@@ -19,10 +19,10 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
-import openmediavault.blockdevice
+from .block import BlockDevice
 
 
-class StorageDevice(openmediavault.blockdevice.BlockDevice):
+class StorageDevice(BlockDevice):
     @property
     def model(self):
         """
@@ -38,7 +38,6 @@ class StorageDevice(openmediavault.blockdevice.BlockDevice):
             pass
         return ''
 
-    @property
     def is_rotational(self):
         """
         Check if the device is of rotational type or non-rotational type.

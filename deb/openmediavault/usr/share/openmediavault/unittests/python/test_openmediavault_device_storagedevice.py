@@ -20,7 +20,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import mock
 import unittest
-import openmediavault.storagedevice
+import openmediavault.device
 
 from pyfakefs import fake_filesystem
 
@@ -37,7 +37,7 @@ class StorageDeviceTestCase(unittest.TestCase):
         self.fs.create_file(
             '/sys/block/sda/device/model', contents='''FooBar\n'''
         )
-        sd = openmediavault.storagedevice.StorageDevice('/dev/sda')
+        sd = openmediavault.device.StorageDevice('/dev/sda')
         self.assertIsInstance(sd.model, str)
         self.assertEqual(sd.model, 'FooBar')
 
@@ -45,48 +45,49 @@ class StorageDeviceTestCase(unittest.TestCase):
         'openmediavault.subprocess.check_output', return_value='ID_SSD=0'
     )
     def test_is_rotational_1(self, mock_check_output):
-        sd = openmediavault.storagedevice.StorageDevice('/dev/sda')
-        self.assertIsInstance(sd.is_rotational, bool)
-        self.assertTrue(sd.is_rotational)
+        sd = openmediavault.device.StorageDevice('/dev/sda')
+        is_rotational = sd.is_rotational()
+        self.assertIsInstance(is_rotational, bool)
+        self.assertTrue(is_rotational)
 
     @mock.patch(
         'openmediavault.subprocess.check_output', return_value='ID_SSD=1'
     )
     def test_is_rotational_2(self, mock_check_output):
-        sd = openmediavault.storagedevice.StorageDevice('/dev/sda')
-        self.assertFalse(sd.is_rotational)
+        sd = openmediavault.device.StorageDevice('/dev/sda')
+        self.assertFalse(sd.is_rotational())
 
     @mock.patch(
         'openmediavault.subprocess.check_output',
         return_value='ID_ATA_ROTATION_RATE_RPM=0'
     )
     def test_is_rotational_3(self, mock_check_output):
-        sd = openmediavault.storagedevice.StorageDevice('/dev/sda')
-        self.assertFalse(sd.is_rotational)
+        sd = openmediavault.device.StorageDevice('/dev/sda')
+        self.assertFalse(sd.is_rotational())
 
     @mock.patch(
         'openmediavault.subprocess.check_output',
         return_value='ID_ATA_ROTATION_RATE_RPM=1000'
     )
     def test_is_rotational_4(self, mock_check_output):
-        sd = openmediavault.storagedevice.StorageDevice('/dev/sda')
-        self.assertTrue(sd.is_rotational)
+        sd = openmediavault.device.StorageDevice('/dev/sda')
+        self.assertTrue(sd.is_rotational())
 
     @mock.patch(
         'openmediavault.subprocess.check_output',
         return_value='ID_ATA_FEATURE_SET_AAM=0'
     )
     def test_is_rotational_5(self, mock_check_output):
-        sd = openmediavault.storagedevice.StorageDevice('/dev/sda')
-        self.assertFalse(sd.is_rotational)
+        sd = openmediavault.device.StorageDevice('/dev/sda')
+        self.assertFalse(sd.is_rotational())
 
     @mock.patch(
         'openmediavault.subprocess.check_output',
         return_value='ID_ATA_FEATURE_SET_AAM=1'
     )
     def test_is_rotational_6(self, mock_check_output):
-        sd = openmediavault.storagedevice.StorageDevice('/dev/sda')
-        self.assertTrue(sd.is_rotational)
+        sd = openmediavault.device.StorageDevice('/dev/sda')
+        self.assertTrue(sd.is_rotational())
 
     @mock.patch('openmediavault.subprocess.check_output', return_value='')
     @mock.patch('os.path.realpath', return_value='/dev/sda')
@@ -97,8 +98,8 @@ class StorageDeviceTestCase(unittest.TestCase):
         self.fs.create_file(
             '/sys/block/sda/queue/rotational', contents='''1\n'''
         )
-        sd = openmediavault.storagedevice.StorageDevice('/dev/sda')
-        self.assertTrue(sd.is_rotational)
+        sd = openmediavault.device.StorageDevice('/dev/sda')
+        self.assertTrue(sd.is_rotational())
 
     @mock.patch('openmediavault.subprocess.check_output', return_value='')
     @mock.patch('os.path.realpath', return_value='/dev/sda')
@@ -109,8 +110,8 @@ class StorageDeviceTestCase(unittest.TestCase):
         self.fs.create_file(
             '/sys/block/sda/queue/rotational', contents='''0\n'''
         )
-        sd = openmediavault.storagedevice.StorageDevice('/dev/sda')
-        self.assertFalse(sd.is_rotational)
+        sd = openmediavault.device.StorageDevice('/dev/sda')
+        self.assertFalse(sd.is_rotational())
 
     @mock.patch('openmediavault.subprocess.check_output', return_value='')
     @mock.patch('os.path.realpath', return_value='/dev/sda')
@@ -121,8 +122,8 @@ class StorageDeviceTestCase(unittest.TestCase):
         self.fs.create_file(
             '/sys/block/sda/device/model', contents='''I am a SSD\n'''
         )
-        sd = openmediavault.storagedevice.StorageDevice('/dev/sda')
-        self.assertTrue(sd.is_rotational)
+        sd = openmediavault.device.StorageDevice('/dev/sda')
+        self.assertTrue(sd.is_rotational())
 
     @mock.patch('openmediavault.subprocess.check_output', return_value='')
     @mock.patch('os.path.realpath', return_value='/dev/sda')
@@ -133,8 +134,8 @@ class StorageDeviceTestCase(unittest.TestCase):
         self.fs.create_file(
             '/sys/block/sda/device/model', contents='''Foo Bar\n'''
         )
-        sd = openmediavault.storagedevice.StorageDevice('/dev/sda')
-        self.assertFalse(sd.is_rotational)
+        sd = openmediavault.device.StorageDevice('/dev/sda')
+        self.assertFalse(sd.is_rotational())
 
 
 if __name__ == "__main__":
