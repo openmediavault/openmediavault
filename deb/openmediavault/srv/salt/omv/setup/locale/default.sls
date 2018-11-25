@@ -25,12 +25,12 @@
 # Get the current configured locale.
 {% set lang = salt['environ.get']('LANG') %}
 
-generate_locale:
+generate_{{ lang }}_locale:
   locale.present:
-    - name: {{ lang }}
+    - name: "{{ lang }}"
 
 set_system_locale:
   locale.system:
-    - name: {{ lang }}
+    - name: "{{ lang }}"
     - require:
-      - locale: generate_locale
+      - locale: generate_{{ lang }}_locale
