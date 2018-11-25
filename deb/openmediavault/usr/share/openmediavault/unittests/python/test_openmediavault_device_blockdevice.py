@@ -20,7 +20,9 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import mock
 import unittest
-import openmediavault.blockdevice
+import openmediavault.device
+
+from pyfakefs import fake_filesystem
 
 
 class BlockDeviceTestCase(unittest.TestCase):
@@ -30,87 +32,28 @@ class BlockDeviceTestCase(unittest.TestCase):
         'DEVPATH=/devices/pci0000:00/0000:00:02.5/host0/target0:0:0/0:0:0:0/block/sda',
         'DEVTYPE=disk', 'ID_ATA=1', 'ID_ATA_FEATURE_SET_HPA=1'
     ])
-
-    def test_is_device_file(self):
-        self.assertFalse(openmediavault.blockdevice.is_device_file('/foo/bar'))
-        self.assertTrue(openmediavault.blockdevice.is_device_file('/dev/sda'))
-
-    def test_is_device_file_by(self):
-        self.assertFalse(
-            openmediavault.blockdevice.is_device_file_by('/dev/sda')
-        )
-        self.assertTrue(
-            openmediavault.blockdevice.is_device_file_by(
-                '/dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895'
-            )
-        )
-        self.assertTrue(
-            openmediavault.blockdevice.is_device_file_by(
-                '/dev/disk/by-id/usb-Kingston_DataTraveler_G2_001CC0EC21ADF011C6A20E35-0:0-part1'
-            )
-        )
-        self.assertTrue(
-            openmediavault.blockdevice.
-            is_device_file_by('/dev/disk/by-label/data')
-        )
-
-    def test_is_device_file_by_uuid(self):
-        self.assertFalse(
-            openmediavault.blockdevice.is_device_file_by_uuid('/dev/sda')
-        )
-        self.assertTrue(
-            openmediavault.blockdevice.is_device_file_by_uuid(
-                '/dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895'
-            )
-        )
-
-    def test_is_device_file_by_id(self):
-        self.assertFalse(
-            openmediavault.blockdevice.is_device_file_by_id('/dev/sda')
-        )
-        self.assertTrue(
-            openmediavault.blockdevice.is_device_file_by_id(
-                '/dev/disk/by-id/wwn-0x4002c554a4d79cb9-part2'
-            )
-        )
-
-    def test_is_device_file_by_label(self):
-        self.assertFalse(
-            openmediavault.blockdevice.is_device_file_by_label('/dev/sda')
-        )
-        self.assertTrue(
-            openmediavault.blockdevice.
-            is_device_file_by_label('/dev/disk/by-label/data')
-        )
-
-    def test_is_device_file_by_path(self):
-        self.assertFalse(
-            openmediavault.blockdevice.is_device_file_by_path('/dev/sda')
-        )
-        self.assertTrue(
-            openmediavault.blockdevice.
-            is_device_file_by_path('/dev/disk/by-path/pci-0000:00:17.0-ata-3')
-        )
+    fs = fake_filesystem.FakeFilesystem()
+    f_open = fake_filesystem.FakeFileOpen(fs)
 
     def test_device_file(self):
-        bd = openmediavault.blockdevice.BlockDevice('/dev/sda')
+        bd = openmediavault.device.BlockDevice('/dev/sda')
         self.assertIsInstance(bd.device_file, str)
         self.assertEqual(bd.device_file, '/dev/sda')
 
     @mock.patch('os.path.realpath', return_value='/dev/sdd1')
     def test_canonical_device_file(self, mock_realpath):
-        bd = openmediavault.blockdevice.BlockDevice(
+        bd = openmediavault.device.BlockDevice(
             '/dev/disk/by-uuid/4B04EA317E4AA567'
         )
         self.assertEqual(bd.canonical_device_file, '/dev/sdd1')
 
     def test_device_name(self):
-        bd = openmediavault.blockdevice.BlockDevice('/dev/sda')
+        bd = openmediavault.device.BlockDevice('/dev/sda')
         self.assertEqual(bd.device_name(), 'sda')
 
     @mock.patch('os.path.realpath', return_value='/dev/sdd1')
     def test_device_name_canonical(self, mock_realpath):
-        bd = openmediavault.blockdevice.BlockDevice(
+        bd = openmediavault.device.BlockDevice(
             '/dev/disk/by-uuid/4B04EA317E4AA567'
         )
         self.assertEqual(bd.device_name(True), 'sdd1')
@@ -119,7 +62,7 @@ class BlockDeviceTestCase(unittest.TestCase):
         'openmediavault.subprocess.check_output', return_value=udevadm_output
     )
     def test_query_udev_properties(self, mock_check_output):
-        bd = openmediavault.blockdevice.BlockDevice('/dev/sda')
+        bd = openmediavault.device.BlockDevice('/dev/sda')
         self.assertTrue(bd.query_udev_properties())
         self.assertFalse(bd.query_udev_properties())
         self.assertTrue(bd.query_udev_properties(force=True))
@@ -128,35 +71,35 @@ class BlockDeviceTestCase(unittest.TestCase):
         'openmediavault.subprocess.check_output', return_value=udevadm_output
     )
     def test_udev_properties(self, mock_check_output):
-        bd = openmediavault.blockdevice.BlockDevice('/dev/sda')
+        bd = openmediavault.device.BlockDevice('/dev/sda')
         self.assertIsInstance(bd.udev_properties, dict)
 
     @mock.patch(
         'openmediavault.subprocess.check_output', return_value=udevadm_output
     )
     def test_has_udev_property_exists(self, mock_check_output):
-        bd = openmediavault.blockdevice.BlockDevice('/dev/sda')
+        bd = openmediavault.device.BlockDevice('/dev/sda')
         self.assertTrue(bd.has_udev_property('DEVNAME'))
 
     @mock.patch(
         'openmediavault.subprocess.check_output', return_value=udevadm_output
     )
     def test_has_udev_property_not_exists(self, mock_check_output):
-        bd = openmediavault.blockdevice.BlockDevice('/dev/sda')
+        bd = openmediavault.device.BlockDevice('/dev/sda')
         self.assertFalse(bd.has_udev_property('FOO'))
 
     @mock.patch(
         'openmediavault.subprocess.check_output', return_value=udevadm_output
     )
     def test_get_udev_property(self, mock_check_output):
-        bd = openmediavault.blockdevice.BlockDevice('/dev/sda')
+        bd = openmediavault.device.BlockDevice('/dev/sda')
         self.assertEqual(bd.get_udev_property('DEVTYPE'), 'disk')
 
     @mock.patch(
         'openmediavault.subprocess.check_output', return_value=udevadm_output
     )
     def test_get_device_file_symlinks(self, mock_check_output):
-        bd = openmediavault.blockdevice.BlockDevice('/dev/sda')
+        bd = openmediavault.device.BlockDevice('/dev/sda')
         dev_links = bd.get_device_file_symlinks()
         self.assertIsInstance(dev_links, list)
         self.assertEqual(
@@ -169,6 +112,58 @@ class BlockDeviceTestCase(unittest.TestCase):
         self.assertEqual(
             dev_links[2], '/dev/disk/by-path/pci-0000:00:02.5-scsi-0:0:0:0'
         )
+
+    @mock.patch(
+        'openmediavault.subprocess.check_output',
+        return_value='DEVLINKS=/dev/disk/by-id/foobar'
+    )
+    def test_device_file_by_id(self, mock_check_output):
+        bd = openmediavault.device.BlockDevice('/dev/sda')
+        self.assertTrue(bd.has_device_file_by_id())
+        self.assertFalse(bd.has_device_file_by_path())
+        self.assertEqual(bd.get_device_file_by_id(), '/dev/disk/by-id/foobar')
+        self.assertIsNone(bd.get_device_file_by_path())
+
+    @mock.patch(
+        'openmediavault.subprocess.check_output',
+        return_value='DEVLINKS=/dev/disk/by-path/xyz'
+    )
+    def test_device_file_by_path(self, mock_check_output):
+        bd = openmediavault.device.BlockDevice('/dev/sda')
+        self.assertFalse(bd.has_device_file_by_id())
+        self.assertTrue(bd.has_device_file_by_path())
+        self.assertIsNone(bd.get_device_file_by_id())
+        self.assertEqual(bd.get_device_file_by_path(), '/dev/disk/by-path/xyz')
+
+    @mock.patch(
+        'openmediavault.subprocess.check_output',
+        return_value='DEVLINKS=/dev/disk/by-path/xyz'
+    )
+    def test_get_predictable_device_file_1(self, mock_check_output):
+        bd = openmediavault.device.BlockDevice('/dev/sda')
+        self.assertEqual(
+            bd.get_predictable_device_file(), '/dev/disk/by-path/xyz'
+        )
+
+    @mock.patch('openmediavault.subprocess.check_output', return_value='')
+    def test_get_predictable_device_file_2(self, mock_check_output):
+        bd = openmediavault.device.BlockDevice('/dev/sda')
+        self.assertEqual(bd.get_predictable_device_file(), '/dev/sda')
+
+    @mock.patch('builtins.open', new=f_open)
+    def test_device_number(self):
+        self.fs.reset()
+        self.fs.create_file('/sys/class/block/sda/dev', contents='''8:17\n''')
+        bd = openmediavault.device.BlockDevice('/dev/sda')
+        self.assertEqual(bd.get_device_number(), '8:17')
+        self.assertIsInstance(bd.get_major_device_number(), int)
+        self.assertEqual(bd.get_major_device_number(), 8)
+        self.assertIsInstance(bd.get_minor_device_number(), int)
+        self.assertEqual(bd.get_minor_device_number(), 17)
+        bd = openmediavault.device.BlockDevice('/dev/sdb')
+        self.assertIsNone(bd.get_device_number())
+        self.assertIsNone(bd.get_major_device_number())
+        self.assertIsNone(bd.get_minor_device_number())
 
 
 if __name__ == "__main__":

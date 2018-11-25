@@ -20,9 +20,8 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 import json
-import openmediavault.blockdevice
-import openmediavault.storagedevice
 import openmediavault.config
+import openmediavault.device
 import os
 import re
 import subprocess
@@ -114,7 +113,7 @@ def is_block_device(path):
     :return: Return True if path is a block device, otherwise False.
     :rtype: bool
     """
-    return openmediavault.blockdevice.is_block_device(path)
+    return openmediavault.device.is_block_device(path)
 
 
 @jinja_filter('is_device_file')
@@ -126,7 +125,7 @@ def is_device_file(path):
         otherwise False.
     :rtype: bool
     """
-    return openmediavault.blockdevice.is_device_file(path)
+    return openmediavault.device.is_device_file(path)
 
 
 def is_rotational(path):
@@ -138,5 +137,5 @@ def is_rotational(path):
     """
     if not is_device_file(path) or not is_block_device(path):
         return False
-    sd = openmediavault.storagedevice.StorageDevice(path)
-    return sd.is_rotational
+    sd = openmediavault.device.StorageDevice(path)
+    return sd.is_rotational()

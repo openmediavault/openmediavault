@@ -53,7 +53,7 @@ interface BlockDeviceInterface {
 	 * Get the device file by ID, e.g. <ul>
 	 * \li /dev/disk/by-id/wwn-0x5000cca211cc703c
 	 * \li /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
-	 * \li /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML-part2#
+	 * \li /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML-part2
 	 * </ul>
 	 * The following order of paths will be retured if available: <ul>
 	 * \li ata-xxx
@@ -68,8 +68,8 @@ interface BlockDeviceInterface {
 
 	/**
 	 * Check whether the device has a /dev/disk/by-id/xxx device path.
-	 * @return string|null The device file (/dev/disk/by-path/xxx) if
-	 *   available, otherwise NULL will be returned.
+	 * @return boolean Returns TRUE if a disk/by-id device path exists,
+	 *   otherwise FALSE.
 	 */
 	public function hasDeviceFileById();
 
