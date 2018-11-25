@@ -29,7 +29,7 @@ class BlockDeviceTestCase(unittest.TestCase):
         'DEVNAME=/dev/sda',
         'DEVPATH=/devices/pci0000:00/0000:00:02.5/host0/target0:0:0/0:0:0:0/block/sda',
         'DEVTYPE=disk', 'ID_ATA=1', 'ID_ATA_FEATURE_SET_HPA=1'
-    ]).encode()
+    ])
 
     def test_is_device_file(self):
         self.assertFalse(openmediavault.blockdevice.is_device_file('/foo/bar'))

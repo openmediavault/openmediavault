@@ -19,7 +19,6 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
-import os.path
 import sys
 import argparse
 import openmediavault
@@ -71,8 +70,7 @@ class Command(
                 )
             if not os.access(script_path, os.X_OK):
                 raise RuntimeError(
-                    "The script '%s' is not "
-                    "executable" % script_name
+                    "The script '%s' is not executable" % script_name
                 )
             # Execute the script.
             openmediavault.subprocess.check_call([script_path])

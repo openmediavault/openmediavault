@@ -90,8 +90,7 @@ class Command(
                 # Test if the script is executable.
                 if not os.access(path, os.X_OK):
                     raise RuntimeError(
-                        "The script '%s' is not "
-                        "executable" % path
+                        "The script '%s' is not executable" % path
                     )
                 # Execute the script.
                 print("  Running migration %s" % name)

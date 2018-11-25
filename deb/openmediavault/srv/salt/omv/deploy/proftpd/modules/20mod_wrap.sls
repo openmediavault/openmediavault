@@ -35,11 +35,13 @@ configure_proftpd_mod_wrap:
 
 {% for host_file in tcp_access_files.split() %}
 
+# Make sure the file exists. Do not use file.touch state.
 create_proftpd_hosts_file_{{ host_file | replace('/', '-') }}:
   file.managed:
     - name: {{ host_file }}
     - user: root
     - group: root
     - mode: 644
+    - replace: False
 
 {% endfor %}

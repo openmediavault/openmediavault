@@ -254,10 +254,13 @@ class BlockDevice:
         """
         if not force and self._udev_properties:
             return False
-        output = openmediavault.subprocess.check_output([
+        args = [
             'udevadm', 'info', '--query', 'property', '--name',
             self.device_file
-        ])
+        ]
+        output = openmediavault.subprocess.check_output(
+            args, universal_newlines=True
+        )
         """
         Parse output:
         UDEV_LOG=3
@@ -308,7 +311,7 @@ class BlockDevice:
         """
         self._udev_properties = {}
         for line in output.splitlines():
-            parts = line.decode().split("=")
+            parts = line.split("=")
             if len(parts) != 2:
                 continue
             # Strip only the key, do not touch the value.
