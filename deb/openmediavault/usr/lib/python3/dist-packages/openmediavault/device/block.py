@@ -19,18 +19,15 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
-import re
-import openmediavault.subprocess
+import pyudev
 
 from .utils import (
-    is_block_device, is_device_file, is_device_file_by_id,
-    is_device_file_by_path
+    is_block_device, is_device_file_by_id, is_device_file_by_path
 )
 
 
 class BlockDevice:
     _device_file = None
-    _udev_properties = {}
 
     def __init__(self, device_file):
         self._device_file = device_file
@@ -57,31 +54,23 @@ class BlockDevice:
     def exists(self):
         return is_block_device(self.device_file)
 
-    def get_device_file_symlinks(self):
+    def get_device_links(self):
         """
-        Get all device file symlinks via udev, e.g.
+        Get all device file symlinks, e.g.
 
         * /dev/disk/by-id/wwn-0x5000cca211cc703c
-    	* /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
-    	* /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML
-    	* /dev/disk/by-path/pci-0000:00:02.5-scsi-0:0:0:0
-    	* /dev/disk/by-id/ata-WDC_WD15EARS-00MVWB0_WD-WMAZB2574325-part1
-    	* /dev/disk/by-uuid/fc3e1da5-fd8d-4fda-341e-d0135efa7a7c
+        * /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
+        * /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML
+        * /dev/disk/by-path/pci-0000:00:02.5-scsi-0:0:0:0
+        * /dev/disk/by-id/ata-WDC_WD15EARS-00MVWB0_WD-WMAZB2574325-part1
+        * /dev/disk/by-uuid/fc3e1da5-fd8d-4fda-341e-d0135efa7a7c
 
         :return: Returns an array of strings with the device files.
         :rtype: list
         """
-        result = []
-        if not self.has_udev_property('DEVLINKS'):
-            return result
-        dev_links = self.get_udev_property('DEVLINKS').split(' ')
-        for dev_link in dev_links:
-            dev_link = dev_link.strip()
-            if is_device_file(dev_link):
-                result.append(dev_link)
-            else:
-                result.append('/dev/{}'.format(dev_link))
-        return result
+        context = pyudev.Context()
+        device = pyudev.Devices.from_device_file(context, self.device_file)
+        return [device_link for device_link in device.device_links]
 
     def get_predictable_device_file(self):
         """
@@ -114,16 +103,16 @@ class BlockDevice:
         Get the device file, e.g.
 
         * /dev/disk/by-id/wwn-0x5000cca211cc703c
-   	    * /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
-   	    * /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML-part2
+        * /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
+        * /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML-part2
 
         :return: Returns the device file (/dev/disk/by-id/xxx) if available,
-   	        otherwise None.
+            otherwise None.
         :rtype: str|None
         """
-        for dev_link in self.get_device_file_symlinks():
-            if is_device_file_by_id(dev_link):
-                return dev_link
+        for device_link in self.get_device_links():
+            if is_device_file_by_id(device_link):
+                return device_link
         return None
 
     def has_device_file_by_path(self):
@@ -140,125 +129,63 @@ class BlockDevice:
         Get the device file, e.g.
 
         * /dev/disk/by-path/pci-0000:00:17.0-ata-3
-   	    * /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
-   	    * /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:1:0-part1
+        * /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
+        * /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:1:0-part1
 
         :return: Returns the device file (/dev/disk/by-path/xxx) if available,
-   	        otherwise None.
+            otherwise None.
         :rtype: str|None
         """
-        for dev_link in self.get_device_file_symlinks():
-            if is_device_file_by_path(dev_link):
-                return dev_link
+        for device_link in self.get_device_links():
+            if is_device_file_by_path(device_link):
+                return device_link
         return None
 
     def device_name(self, canonical=False):
         """
         Get the device name, e.g. sda or hdb.
         :param canonical: If set to True the canonical device file will
-   	        be used. Defaults to False.
+            be used. Defaults to False.
         :type canonical: bool
         :return: The device name.
         :rtype: str
         """
-        return os.path.basename(self.device_file if not canonical \
-            else self.canonical_device_file)
+        return os.path.basename(
+            self.device_file if not canonical else self.canonical_device_file
+        )
 
     def get_device_number(self):
         """
-        Get the device number, e.g. 8:17.
+        The device number of the associated device as integer.
         See `<https://www.kernel.org/doc/Documentation/devices.txt> for more information`_.
-        :rtype: str|None
+        :rtype: int
         """
-        file = '/sys/class/block/{}/dev'.format(self.device_name(True))
-        try:
-            with open(file, 'r') as f:
-                return f.readline().strip()
-        except (IOError, FileNotFoundError):
-            pass
-        return None
+        context = pyudev.Context()
+        device = pyudev.Devices.from_device_file(context, self.device_file)
+        return device.device_number
 
     def get_major_device_number(self):
         """
         Get the major device number.
         See `<https://www.kernel.org/doc/Documentation/devices.txt> for more information`_.
-        :return: Returns the major device number or None on failure.
-        :rtype: int|None
+        :return: Returns the major device number.
+        :rtype: int
         """
-        device_number = self.get_device_number()
-        if device_number is None:
-            return None
-        parts = device_number.split(':')
-        return int(parts[0])
+        return os.major(self.get_device_number())
 
     def get_minor_device_number(self):
         """
         Get the minor device number.
         See `<https://www.kernel.org/doc/Documentation/devices.txt> for more information`_.
-        :return: Returns the minor device number or None on failure.
-        :rtype: int|None
+        :return: Returns the minor device number.
+        :rtype: int
         """
-        device_number = self.get_device_number()
-        if device_number is None:
-            return None
-        parts = device_number.split(':')
-        return int(parts[1])
+        return os.minor(self.get_device_number())
 
-    @property
-    def udev_properties(self):
+    def get_udev_properties(self):
         """
         Get the udev properties.
-        :return: The udev properties.
-        :rtype: dict
-        """
-        return self._udev_properties
 
-    def has_udev_property(self, prop_id):
-        """
-        Checks if a udev property exists.
-        :param prop_id: The name of the property, e.g. ID_VENDOR, ID_MODEL
-            or ID_SERIAL_SHORT.
-        :type prop_id: str
-        :return: Returns True if the property exists, otherwise False.
-        :rtype: bool
-        """
-        self.query_udev_properties()
-        return prop_id in self.udev_properties
-
-    def get_udev_property(self, prop_id):
-        """
-        Get the specified udev property.
-        :param prop_id: The name of the property, e.g. ID_VENDOR, ID_MODEL
-            or ID_SERIAL_SHORT.
-        :type prop_id: str
-        :return: Returns the requested property, otherwise None.
-        :rtype: None|str
-        """
-        if not self.has_udev_property(prop_id):
-            return None
-        return self.udev_properties[prop_id]
-
-    def query_udev_properties(self, force=False):
-        """
-	    Queries the udev database for device information stored in the
-	    udev database.
-	    :param force: Force the collection of the information, although
-            the information is already cached. Defaults to False.
-        :type force: bool
-        :return: Return True if the properties has been queried.
-        :rtype: bool
-        """
-        if not force and self._udev_properties:
-            return False
-        args = [
-            'udevadm', 'info', '--query', 'property', '--name',
-            self.device_file
-        ]
-        output = openmediavault.subprocess.check_output(
-            args, universal_newlines=True
-        )
-        """
-        Parse output:
         UDEV_LOG=3
         DEVPATH=/devices/pci0000:00/0000:00:10.0/host2/target2:0:1/2:0:1:0/block/sdb
         MAJOR=8
@@ -304,12 +231,45 @@ class BlockDevice:
         SUBSYSTEM=block
         UDEV_LOG=3
         USEC_INITIALIZED=16872806
+
+        :return: The udev properties.
+        :rtype: dict
         """
-        self._udev_properties = {}
-        for line in output.splitlines():
-            parts = line.split("=")
-            if len(parts) != 2:
-                continue
-            # Strip only the key, do not touch the value.
-            self._udev_properties[parts[0].strip()] = parts[1]
-        return True
+        context = pyudev.Context()
+        device = pyudev.Devices.from_device_file(context, self.device_file)
+        result = {}
+        for prop in device.properties:
+            result[prop] = device.properties[prop]
+        return result
+
+    def has_udev_property(self, prop):
+        """
+        Checks if a udev property exists.
+        :param prop: The name of the property, e.g. ID_VENDOR, ID_MODEL
+            or ID_SERIAL_SHORT.
+        :type prop: str
+        :return: Returns True if the property exists, otherwise False.
+        :rtype: bool
+        """
+        context = pyudev.Context()
+        device = pyudev.Devices.from_device_file(context, self.device_file)
+        try:
+            _ = device.properties[prop]
+            return True
+        except KeyError:
+            pass
+        return False
+
+    def get_udev_property(self, prop):
+        """
+        Get the specified udev property.
+        :param prop: The name of the property, e.g. ID_VENDOR, ID_MODEL
+            or ID_SERIAL_SHORT.
+        :type prop: str
+        :return: Returns the requested property.
+        :rtype: str
+        :exc:`~exceptions.KeyError`, if the given property is not defined.
+        """
+        context = pyudev.Context()
+        device = pyudev.Devices.from_device_file(context, self.device_file)
+        return device.properties[prop]

@@ -178,7 +178,7 @@ class DotDict(dict):
 
     def __contains__(self, key):
         matches = re.match(r'(\w+)\[(\d+)\](.(\S+))?', key)
-        if not matches is None:
+        if matches is not None:
             first = matches.group(1)
             index = int(matches.group(2))
             rest = matches.group(4)
@@ -188,7 +188,7 @@ class DotDict(dict):
             branch = branch[index]
             return rest in branch
         else:
-            if key is None or not "." in key:
+            if key is None or "." not in key:
                 return dict.__contains__(self, key)
             else:
                 first, rest = key.split(".", 1)

@@ -36,18 +36,22 @@ class Environment:
 
     @staticmethod
     def load():
-        with open(DEFAULT_FILE) as reader:
-            for line in reader.readlines():
-                m = re.match(
-                    r"^(OMV_([A-Z0-9_]+))=(\")?([^\"]+)(\")?$", line.strip()
-                )
-                if not m:
-                    continue
-                # Append variable, e.g. SCRIPTS_DIR
-                Environment.set(m.group(2), str(m.group(4)))
-                # !!! DEPRECATED !!!
-                # Append variable, e.g. OMV_SCRIPTS_DIR (equal to PHP OMV framework)
-                Environment.set(m.group(1), str(m.group(4)))
+        try:
+            with open(DEFAULT_FILE) as reader:
+                for line in reader.readlines():
+                    m = re.match(
+                        r"^(OMV_([A-Z0-9_]+))=(\")?([^\"]+)(\")?$",
+                        line.strip()
+                    )
+                    if not m:
+                        continue
+                    # Append variable, e.g. SCRIPTS_DIR
+                    Environment.set(m.group(2), str(m.group(4)))
+                    # !!! DEPRECATED !!!
+                    # Append variable, e.g. OMV_SCRIPTS_DIR (equal to PHP OMV framework)
+                    Environment.set(m.group(1), str(m.group(4)))
+        except (IOError, FileNotFoundError):
+            pass
 
     @staticmethod
     def as_dict():
