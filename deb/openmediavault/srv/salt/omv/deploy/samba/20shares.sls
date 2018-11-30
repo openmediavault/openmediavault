@@ -27,7 +27,7 @@
 # http://askubuntu.com/questions/258284/setting-up-an-anonymous-public-samba-share-to-be-accessed-via-windows-7-and-xbmc
 # http://blog.jonaspasche.com/2010/11/24/endlich-verstehen-samba-rechtevergabe
 
-{% set config = salt['omv.get_config']('conf.service.smb') %}
+{% set config = salt['omv_conf.get']('conf.service.smb') %}
 
 configure_samba_shares:
   file.append:

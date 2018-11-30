@@ -20,7 +20,7 @@
 # Documentation/Howto:
 # http://www.debian.org/doc/manuals/debian-reference/ch03.en.html#_the_hostname
 
-{% set config = salt['omv.get_config']('conf.system.network.dns') %}
+{% set config = salt['omv_conf.get']('conf.system.network.dns') %}
 {% set fqdn = [config.hostname, config.domainname] | reject('equalto','') | join('.') %}
 
 configure_hostname:

@@ -1,4 +1,4 @@
-{%- set ipv6_enabled = salt['omv.is_ipv6_enabled']() -%}
+{%- set ipv6_enabled = salt['omv_utils.is_ipv6_enabled']() -%}
 {%- set server_name = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SERVERNAME', 'openmediavault-webgui') -%}
 {%- set root = salt['pillar.get']('default:OMV_DOCUMENTROOT_DIR', '/var/www/openmediavault') -%}
 {%- set client_max_body_size = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_CLIENT_MAX_BODY_SIZE', '25M') -%}

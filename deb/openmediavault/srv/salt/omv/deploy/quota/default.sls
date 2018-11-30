@@ -21,7 +21,7 @@
 # http://www.ibm.com/developerworks/linux/library/l-lpic1-v3-104-4/index.html
 # https://wiki.archlinux.org/index.php/disk_quota
 
-{% set config = salt['omv.get_config']('conf.system.filesystem.quota') %}
+{% set config = salt['omv_conf.get']('conf.system.filesystem.quota') %}
 
 {% for quota in config %}
 

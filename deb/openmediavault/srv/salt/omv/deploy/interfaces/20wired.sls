@@ -22,7 +22,7 @@
 # https://wiki.archlinux.org/index.php/Systemd-networkd
 # https://manpages.debian.org/systemd/systemd.link.5.en.html
 
-{% set interfaces = salt['omv.get_config_by_filter'](
+{% set interfaces = salt['omv_conf.get_by_filter'](
   'conf.system.network.interface',
   {'operator': 'stringEquals', 'arg0': 'type', 'arg1': 'ethernet'}) %}
 

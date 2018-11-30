@@ -17,8 +17,8 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set rsync_config = salt['omv.get_config']('conf.service.rsyncd') %}
-{% set zeroconf_config = salt['omv.get_config_by_filter'](
+{% set rsync_config = salt['omv_conf.get']('conf.service.rsyncd') %}
+{% set zeroconf_config = salt['omv_conf.get_by_filter'](
   'conf.service.zeroconf.service',
   {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'rsync'})[0] %}
 

@@ -26,11 +26,11 @@
 {%- set fruit_resource = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_RESOURCE', 'file') -%}
 #======================= Share Definitions =======================
 {%- for share in config.shares.share | selectattr('enable') %}
-[{{ salt['omv.get_sharedfolder_name'](share.sharedfolderref) }}]
+[{{ salt['omv_conf.get_sharedfolder_name'](share.sharedfolderref) }}]
 {%- if share.comment | length > 0 %}
 comment = {{ share.comment }}
 {%- endif %}
-path = {{ salt['omv.get_sharedfolder_path'](share.sharedfolderref) }}
+path = {{ salt['omv_conf.get_sharedfolder_path'](share.sharedfolderref) }}
 guest ok = {% if share.guest != 'no' %}yes{% else %}no{% endif %}
 guest only = {% if share.guest == 'only' %}yes{% else %}no{% endif %}
 read only = {% if share.readonly | to_bool %}yes{% else %}no{% endif %}
@@ -85,7 +85,7 @@ hosts allow = {{ share.hostsallow }}
 hosts deny = {{ share.hostsdeny }}
 {%- endif %}
 hide dot files = {% if share.hidedotfiles | to_bool %}yes{% else %}no{% endif %}
-{%- set sf_config = salt['omv.get_config']('conf.system.sharedfolder', share.sharedfolderref) -%}
+{%- set sf_config = salt['omv_conf.get']('conf.system.sharedfolder', share.sharedfolderref) -%}
 {%- set validusers = [] -%}
 {%- set invalidusers = [] -%}
 {%- set readlist = [] -%}

@@ -19,7 +19,7 @@
 
 {% set sharedfolders_path = salt['pillar.get']('default:OMV_SHAREDFOLDERS_DIR', '/sharedfolders') %}
 {% set sharedfolders_path_escaped = salt['cmd.run']('systemd-escape --path ' ~ sharedfolders_path) %}
-{% set sharedfolders = salt['omv.get_config']('conf.system.sharedfolder') %}
+{% set sharedfolders = salt['omv_conf.get']('conf.system.sharedfolder') %}
 
 remove_sharedfolder_mount_unit_files:
   module.run:
@@ -29,8 +29,8 @@ remove_sharedfolder_mount_unit_files:
       - delete: "f"
 
 {% for sharedfolder in sharedfolders %}
-{% set mntdir = salt['omv.get_sharedfolder_mount_dir'](sharedfolder.uuid) %}
-{% set what = salt['omv.get_sharedfolder_path'](sharedfolder.uuid) %}
+{% set mntdir = salt['omv_conf.get_sharedfolder_mount_dir'](sharedfolder.uuid) %}
+{% set what = salt['omv_conf.get_sharedfolder_path'](sharedfolder.uuid) %}
 {% set where = sharedfolders_path | path_join(sharedfolder.name) %}
 {% set unit_name = salt['cmd.run']('systemd-escape --path --suffix=mount ' ~ where) %}
 

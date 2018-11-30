@@ -20,7 +20,7 @@
 # Documentation/Howto:
 # http://wiki.debianforum.de/Hdparm
 
-{% set config = salt['omv.get_config']('conf.system.hdparm') %}
+{% set config = salt['omv_conf.get']('conf.system.hdparm') %}
 
 configure_hdparm_conf:
   file.managed:

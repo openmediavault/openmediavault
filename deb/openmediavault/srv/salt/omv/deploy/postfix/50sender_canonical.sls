@@ -17,7 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set config = salt['omv.get_config']('conf.system.notification.email') %}
+{% set config = salt['omv_conf.get']('conf.system.notification.email') %}
 
 # Rewrite all outgoing emails with the configured sender address, otherwise
 # the SMTP relay will bounce them, e.g.

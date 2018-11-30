@@ -17,9 +17,9 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set config = salt['omv.get_config']('conf.system.apt.distribution') %}
+{% set config = salt['omv_conf.get']('conf.system.apt.distribution') %}
 {% set use_kernel_backports = salt['pillar.get']('default:OMV_APT_USE_KERNEL_BACKPORTS', True) -%}
-{% set proxy_config = salt['omv.get_config']('conf.system.network.proxy') %}
+{% set proxy_config = salt['omv_conf.get']('conf.system.network.proxy') %}
 
 configure_apt_sources_list_openmediavault:
   file.managed:

@@ -20,7 +20,7 @@
 # Documentation/Howto:
 # http://us5.samba.org/samba/docs/man/manpages-3/smb.conf.5.html
 
-{% set config = salt['omv.get_config']('conf.service.smb') %}
+{% set config = salt['omv_conf.get']('conf.service.smb') %}
 
 {% if config.homesenable | to_bool %}
 

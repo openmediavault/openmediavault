@@ -9,7 +9,7 @@ port = {{ config.port }}
 {#- Specify a dot-dir in the module's path to indicate the point where the #}
 {#- chroot should occur, e.g. /var/rsync/./module1 #}
 {#- Note, this is a really bad workaround in Jinja2, but it works #}
-{%- set path = salt['omv.get_sharedfolder_path'](module.sharedfolderref).rstrip('/').split('/') -%}
+{%- set path = salt['omv_conf.get_sharedfolder_path'](module.sharedfolderref).rstrip('/').split('/') -%}
 {%- set last_item = path.pop() %}
 {%- set _ = path.append('.') %}
 {%- set _ = path.append(last_item) %}

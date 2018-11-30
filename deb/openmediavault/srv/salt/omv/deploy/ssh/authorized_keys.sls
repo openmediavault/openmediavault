@@ -26,7 +26,7 @@
 # ssh-keygen -e -f ~/.ssh/id_rsa.pub
 
 {% set authorizedKeysFileDir = salt['pillar.get']('default:OMV_SSHD_AUTHORIZEDKEYSFILE_DIR', '/var/lib/openmediavault/ssh/authorized_keys') %}
-{% set users = salt['omv.get_config']('conf.system.usermngmnt.user') %}
+{% set users = salt['omv_conf.get']('conf.system.usermngmnt.user') %}
 {% set all_users = salt['user.list_users']() %}
 
 # Remove all existing authorized_keys files. Use file.directory because

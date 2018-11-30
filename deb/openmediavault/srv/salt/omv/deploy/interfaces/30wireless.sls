@@ -22,7 +22,7 @@
 # https://www.linkedin.com/pulse/using-systemd-networkd-manage-your-network-ajibola-okubanjo
 # https://remy.grunblatt.org/using-systemd-networkd-with-wpa_supplicant-to-manage-wireless-network-configuration.html
 
-{% set interfaces = salt['omv.get_config_by_filter'](
+{% set interfaces = salt['omv_conf.get_by_filter'](
   'conf.system.network.interface',
   {'operator': 'stringEquals', 'arg0': 'type', 'arg1': 'wireless'}) %}
 

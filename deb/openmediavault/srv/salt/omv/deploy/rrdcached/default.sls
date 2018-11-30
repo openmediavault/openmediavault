@@ -20,7 +20,7 @@
 # Testing:
 # rrdtool info /var/lib/rrdcached/db/localhost/<xxx>/<xxx>.rrd
 
-{% set config = salt['omv.get_config']('conf.system.monitoring.perfstats') %}
+{% set config = salt['omv_conf.get']('conf.system.monitoring.perfstats') %}
 {% set daemon = salt['pillar.get']('default:OMV_RRDCACHED_DAEMON', '/usr/bin/rrdcached') %}
 {% set write_timeout = salt['pillar.get']('default:OMV_RRDCACHED_WRITETIMEOUT', '900') %}
 {% set base_path = salt['pillar.get']('default:OMV_RRDCACHED_BASEDIR', '/var/lib/rrdcached/db/') %}

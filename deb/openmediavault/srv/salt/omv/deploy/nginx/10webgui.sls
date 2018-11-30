@@ -25,7 +25,7 @@
 # https://mozilla.github.io/server-side-tls/ssl-config-generator/?server=nginx-1.14.1&openssl=1.1.1&hsts=yes&profile=modern
 
 {% set include_dir = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR', '/etc/nginx/openmediavault-webgui.d') %}
-{% set config = salt['omv.get_config']('conf.webadmin') %}
+{% set config = salt['omv_conf.get']('conf.webadmin') %}
 
 prereq_nginx_certificates:
   salt.state:

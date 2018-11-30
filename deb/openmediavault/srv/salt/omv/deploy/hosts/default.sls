@@ -20,8 +20,8 @@
 # Documentation/Howto:
 # http://www.debian.org/doc/manuals/debian-reference/ch05.en.html#_the_hostname_resolution
 
-{% set interfaces = salt['omv.get_config']('conf.system.network.interface') %}
-{% set dns = salt['omv.get_config']('conf.system.network.dns') %}
+{% set interfaces = salt['omv_conf.get']('conf.system.network.interface') %}
+{% set dns = salt['omv_conf.get']('conf.system.network.dns') %}
 {% set fqdn = dns.hostname %}
 {% set alias = "" %}
 {% if dns.domainname %}
