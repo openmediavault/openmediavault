@@ -30,7 +30,7 @@ class SubprocessTestCase(unittest.TestCase):
         self.assertIn("env", kwargs)
         env = kwargs["env"]
         self.assertIn("LANG", env)
-        self.assertEqual(env["LANG"], "C")
+        self.assertEqual(env["LANG"], "C.UTF-8")
 
     def test_popen(self):
         with mock.patch("subprocess.Popen.__init__") as mock_call:

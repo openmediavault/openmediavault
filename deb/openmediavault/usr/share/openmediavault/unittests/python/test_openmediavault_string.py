@@ -64,4 +64,5 @@ class StringTestCase(unittest.TestCase):
         self.assertFalse(valid)
 
 
-unittest.main()
+if __name__ == "__main__":
+    unittest.main()
