@@ -18,18 +18,12 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-PY_FILES=$(wildcard *.py)
-
 test:
-	@for file in $(PY_FILES); do \
-		echo ">>> Processing $$file ..."; \
-		python3 $$file; \
-		echo; \
-	done
+	py.test-3 -v
 
 install:
 	echo "Installing required packages ..."
-	sudo apt-get install python3-pip python3-mock
+	sudo apt-get install python3-pip python3-mock python3-pytest
 	pip3 install pyfakefs
 
 .PHONY: test install
