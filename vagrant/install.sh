@@ -54,8 +54,8 @@ apt-get --yes --auto-remove --show-upgraded \
 	--option DPkg::Options::="--force-confold" \
 	install postfix openmediavault
 
-# Initialize the system and database.
-omv-initsystem
+# Populate the database.
+omv-confdbadm populate
 
 # Display the login information.
 cat /etc/issue
