@@ -18,8 +18,8 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 {% set nfs_export_dir = salt['pillar.get']('default:OMV_NFSD_EXPORT_DIR', '/export') %}
-{% set nfs_config = salt['omv.get_config']('conf.service.nfs') %}
-{% set zeroconf_config = salt['omv.get_config_by_filter'](
+{% set nfs_config = salt['omv_conf.get']('conf.service.nfs') %}
+{% set zeroconf_config = salt['omv_conf.get_by_filter'](
   'conf.service.zeroconf.service',
   {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'nfs'})[0] %}
 
@@ -33,12 +33,12 @@ remove_avahi_service_nfs:
 {% if nfs_config.enable | to_bool and zeroconf_config.enable | to_bool %}
 
 # Announce duplicate shares only once.
-{% set nfsshares = salt['omv.get_config_by_filter'](
+{% set nfsshares = salt['omv_conf.get_by_filter'](
   'conf.service.nfs.share',
   {"operator": "distinct", "arg0": "sharedfolderref"}) %}
 {% for nfsshare in nfsshares %}
 
-{% set sharedfolder = salt['omv.get_config'](
+{% set sharedfolder = salt['omv_conf.get'](
   'conf.system.sharedfolder', nfsshare.sharedfolderref) %}
 
 configure_avahi_service_nfs:

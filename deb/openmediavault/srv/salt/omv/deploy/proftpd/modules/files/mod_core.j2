@@ -101,7 +101,7 @@ DisplayLogin {{ display_login }}
 {%- endif %}
 {# ================ Process shares ================ #}
 {%- for share in ftp_config.shares.share | selectattr('enable') -%}
-{%- set sf_config = salt['omv.get_config']('conf.system.sharedfolder', share.sharedfolderref) -%}
+{%- set sf_config = salt['omv_conf.get']('conf.system.sharedfolder', share.sharedfolderref) -%}
 {%- set limitall_allowuser = [] -%}
 {%- set limitall_allowgroup = [] -%}
 {%- set limitread_allowuser = [] -%}

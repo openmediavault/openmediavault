@@ -22,7 +22,7 @@
 
 {% set scripts_dir = salt['pillar.get']('default:OMV_CRONSCRIPTS_DIR', '/var/lib/openmediavault/cron.d') %}
 {% set script_prefix = salt['pillar.get']('default:OMV_RSYNC_CRONSCRIPT_PREFIX', 'rsync-') %}
-{% set jobs = salt['omv.get_config']('conf.service.rsync.job') %}
+{% set jobs = salt['omv_conf.get']('conf.service.rsync.job') %}
 
 prereq_rsync_certificates:
   salt.state:

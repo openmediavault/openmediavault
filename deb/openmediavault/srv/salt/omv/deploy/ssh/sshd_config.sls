@@ -21,7 +21,7 @@
 # http://linuxwiki.de/OpenSSH
 # https://help.ubuntu.com/community/SSH/OpenSSH/Configuring
 
-{% set config = salt['omv.get_config']('conf.service.ssh') %}
+{% set config = salt['omv_conf.get']('conf.service.ssh') %}
 
 configure_ssh_sshd_config:
   file.managed:

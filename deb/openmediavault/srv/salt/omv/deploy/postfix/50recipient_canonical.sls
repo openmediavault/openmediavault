@@ -17,8 +17,8 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set email_config = salt['omv.get_config']('conf.system.notification.email') %}
-{% set users = salt['omv.get_config_by_filter'](
+{% set email_config = salt['omv_conf.get']('conf.system.notification.email') %}
+{% set users = salt['omv_conf.get_by_filter'](
   'conf.system.usermngmnt.user',
   {'operator': 'stringNotEquals', 'arg0': 'email', 'arg1': ''}) %}
 

@@ -22,7 +22,7 @@
 # https://forum.manjaro.org/t/how-to-create-lacp-802-3ad-bond-using-systemd-networkd/14655
 # https://kerlilow.me/blog/setting-up-systemd-networkd-with-bonding/
 
-{% set interfaces = salt['omv.get_config_by_filter'](
+{% set interfaces = salt['omv_conf.get_by_filter'](
   'conf.system.network.interface',
   {'operator': 'stringEquals', 'arg0': 'type', 'arg1': 'bond'}) %}
 

@@ -6,8 +6,8 @@ LoadModule mod_vroot.c
   VRootLog {{ v_root_log }}
 {%- for share in config.shares.share -%}
 {%- if share.enable | to_bool -%}
-{%- set sfname = salt['omv.get_sharedfolder_path'](share.sharedfolderref) -%}
-{%- set sfpath = salt['omv.get_sharedfolder_name'](share.sharedfolderref) %}
+{%- set sfname = salt['omv_conf.get_sharedfolder_path'](share.sharedfolderref) -%}
+{%- set sfpath = salt['omv_conf.get_sharedfolder_name'](share.sharedfolderref) %}
   VRootAlias "{{ sfname }}" "{{ sfpath.rstrip('/') }}"
 {%- endif -%}
 {%- endfor %}

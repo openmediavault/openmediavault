@@ -22,7 +22,7 @@
 # http://en.gentoo-wiki.com/wiki/Smartmontools
 # http://www.linux-user.de/ausgabe/2004/10/056-smartmontools
 
-{% set config = salt['omv.get_config']('conf.service.smartmontools') %}
+{% set config = salt['omv_conf.get']('conf.service.smartmontools') %}
 
 configure_default_smartmontools:
   file.managed:
@@ -48,7 +48,7 @@ configure_smartd_conf:
 
 {% if config.enable | to_bool %}
 
-{% set smart_devices = salt['omv.get_config_by_filter'](
+{% set smart_devices = salt['omv_conf.get_by_filter'](
   'conf.service.smartmontools.device',
   {'operator': 'equals', 'arg0': 'enable', 'arg1': '1'}) %}
 

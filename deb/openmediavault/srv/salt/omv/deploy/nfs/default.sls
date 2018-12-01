@@ -28,7 +28,7 @@
 # Testing:
 # showmount -e <nfs-server>
 
-{% set config = salt['omv.get_config']('conf.service.nfs') %}
+{% set config = salt['omv_conf.get']('conf.service.nfs') %}
 
 {% if config.enable | to_bool %}
 

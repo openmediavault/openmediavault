@@ -1,4 +1,4 @@
-{% set config = salt['omv.get_config']('conf.service.ftp') %}
+{% set config = salt['omv_conf.get']('conf.service.ftp') %}
 
 prereq_proftpd_mod_tls_certificates:
   salt.state:

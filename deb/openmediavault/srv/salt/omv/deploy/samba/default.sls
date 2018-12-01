@@ -21,7 +21,7 @@
 # http://wiki.samba.org/index.php/1.0._Configuring_Samba
 # http://www.tim-bormann.de/anleitung-installation-samba-server-als-dateiserver-unter-debian-linux
 
-{% set config = salt['omv.get_config']('conf.service.smb') %}
+{% set config = salt['omv_conf.get']('conf.service.smb') %}
 {% set dirpath = '/srv/salt' | path_join(slspath) %}
 
 include:

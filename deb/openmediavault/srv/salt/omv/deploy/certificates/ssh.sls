@@ -17,7 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set certificates = salt['omv.get_config']('conf.system.certificate.ssh') %}
+{% set certificates = salt['omv_conf.get']('conf.system.certificate.ssh') %}
 {% set ssh_key_prefix = salt['pillar.get']('default:OMV_SSH_KEY_PREFIX', 'openmediavault-') %}
 
 remove_ssh_certificates:

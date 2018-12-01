@@ -18,17 +18,17 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 {% set interfaces = [] %}
-{% for interface in salt['omv.get_config_by_filter'](
+{% for interface in salt['omv_conf.get_by_filter'](
   'conf.system.network.interface',
   {'operator': 'or', 'arg0': {'operator': 'stringEquals', 'arg0': 'type', 'arg1': 'ethernet'}, 'arg1': {'operator': 'stringEquals', 'arg0': 'type', 'arg1': 'wireless'}}) %}
-{% set used_by = salt['omv.get_config_by_filter'](
+{% set used_by = salt['omv_conf.get_by_filter'](
   'conf.system.network.interface',
   {'operator': 'stringContains', 'arg0': 'slaves', 'arg1': interface.devicename}) %}
 {% if used_by | length == 0 %}
 {% set _ = interfaces.append(interface) %}
 {% endif %}
 {% endfor %}
-{% set interfaces = interfaces + salt['omv.get_config_by_filter'](
+{% set interfaces = interfaces + salt['omv_conf.get_by_filter'](
   'conf.system.network.interface',
   {'operator': 'or', 'arg0': {'operator': 'stringEquals', 'arg0': 'type', 'arg1': 'bond'}, 'arg1': {'operator': 'stringEquals', 'arg0': 'type', 'arg1': 'vlan'}}) %}
 

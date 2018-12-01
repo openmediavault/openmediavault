@@ -1,5 +1,5 @@
-{% set dns_config = salt['omv.get_config']('conf.system.network.dns') %}
-{% set ftp_config = salt['omv.get_config']('conf.service.ftp') %}
+{% set dns_config = salt['omv_conf.get']('conf.system.network.dns') %}
+{% set ftp_config = salt['omv_conf.get']('conf.service.ftp') %}
 
 configure_proftpd_mod_core:
   file.managed:

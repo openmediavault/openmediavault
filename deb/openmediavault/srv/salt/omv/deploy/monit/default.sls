@@ -34,7 +34,7 @@
 # http://wiki.ubuntuusers.de/Monit
 # http://viktorpetersson.com/2010/07/09/setting-up-monit-to-monitor-apache-and-postgresql-on-ubuntu
 
-{% set email_config = salt['omv.get_config']('conf.system.notification.email') %}
+{% set email_config = salt['omv_conf.get']('conf.system.notification.email') %}
 
 configure_default_monit:
   file.managed:

@@ -24,7 +24,7 @@
 # http://www.fredshack.com/docs/rsync.html
 
 {% set secrets_dir = salt['pillar.get']('default:OMV_RSYNCD_SECRETSFILE_DIR', '/var/lib/openmediavault') %}
-{% set config = salt['omv.get_config']('conf.service.rsyncd') %}
+{% set config = salt['omv_conf.get']('conf.service.rsyncd') %}
 
 configure_rsyncd_conf:
   file.managed:

@@ -19,7 +19,7 @@
 
 {% set mkrrdgraph = salt['pillar.get']('default:OMV_MKRRDGRAPH', '/usr/sbin/omv-mkrrdgraph') %}
 {% set mkrrdgraph_interval = salt['pillar.get']('default:OMV_MKRRDGRAPH_INTERVAL', '15') %}
-{% set config = salt['omv.get_config']('conf.system.monitoring.perfstats') %}
+{% set config = salt['omv_conf.get']('conf.system.monitoring.perfstats') %}
 
 prereq_collectd_service_monit:
   salt.state:

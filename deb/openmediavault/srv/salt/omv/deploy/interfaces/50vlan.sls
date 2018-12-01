@@ -21,7 +21,7 @@
 # https://wiki.archlinux.org/index.php/Systemd-networkd
 # http://enricorossi.org/blog/2017/systemd_network_vlan_interface_up/
 
-{% set interfaces = salt['omv.get_config_by_filter'](
+{% set interfaces = salt['omv_conf.get_by_filter'](
   'conf.system.network.interface',
   {'operator': 'stringEquals', 'arg0': 'type', 'arg1': 'vlan'}) %}
 

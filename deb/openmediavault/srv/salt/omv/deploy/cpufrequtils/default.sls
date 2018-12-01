@@ -22,7 +22,7 @@
 # http://wiki.hetzner.de/index.php/Cool%27n%27Quiet
 # http://wiki.ubuntuusers.de/powernowd
 
-{% set config = salt['omv.get_config']('conf.system.powermngmnt') %}
+{% set config = salt['omv_conf.get']('conf.system.powermngmnt') %}
 {%- set governor = salt['grains.filter_by']({
     "default": "ondemand",
     "amd64": "conservative",

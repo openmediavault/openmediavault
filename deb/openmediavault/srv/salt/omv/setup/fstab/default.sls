@@ -54,8 +54,8 @@ udevadm_trigger:
 {% set root_device_file = salt['cmd.run']('findfs ' ~ root_fstab_entry.device) %}
 
 {% if nonrot_options | difference(root_fstab_entry.opts) | length > 0 and
-      salt['omv.is_block_device'](root_device_file) and
-      not salt['omv.is_rotational'](root_device_file) %}
+      salt['omv_utils.is_block_device'](root_device_file) and
+      not salt['omv_utils.is_rotational'](root_device_file) %}
 
 update_root_fstab_entry:
   module.run:

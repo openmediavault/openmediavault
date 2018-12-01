@@ -23,7 +23,7 @@
 
 {% set scripts_dir = salt['pillar.get']('default:OMV_CRONSCRIPTS_DIR', '/var/lib/openmediavault/cron.d') %}
 {% set cron_scripts_prefix = salt['pillar.get']('default:OMV_SAMBA_SHARE_RECYCLE_CRONSCRIPT_PREFIX', 'samba-recycle-') %}
-{% set config = salt['omv.get_config']('conf.service.smb') %}
+{% set config = salt['omv_conf.get']('conf.service.smb') %}
 
 configure_samba_recyclebin_cron:
   file.managed:
