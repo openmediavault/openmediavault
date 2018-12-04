@@ -28,6 +28,19 @@ import salt.utils.network
 from salt.utils.decorators.jinja import jinja_filter
 
 
+def register_jinja_filters():
+    """
+    Call this function in a Salt state file to be able to use the
+    custom Jinja filters shipped by this execution module in any
+    Jinja template.
+    Note, it is NOT necessary to call this function if any other
+    function of this execution module is called in your Salt state
+    file. In this case Salt has already registered all Jinja filters
+    in this execution module.
+    """
+    pass
+
+
 def is_ipv6_enabled():
     """
     Check whether IPv6 is enabled.
