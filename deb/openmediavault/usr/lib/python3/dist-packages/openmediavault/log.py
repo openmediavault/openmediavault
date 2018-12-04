@@ -31,10 +31,11 @@ def _log(priority, msg, args, verbose=True):
         syslog.LOG_ERR: "ERROR",
         syslog.LOG_DEBUG: "DEBUG"
     }
+    msg = msg % args if args else msg
     if verbose:
-        sys.stderr.write("{}: {}\n".format(tag[priority], msg % args))
+        sys.stderr.write("{}: {}\n".format(tag[priority], msg))
     syslog.openlog(facility=syslog.LOG_SYSLOG)
-    syslog.syslog(priority, msg % args)
+    syslog.syslog(priority, msg)
     syslog.closelog()
 
 
