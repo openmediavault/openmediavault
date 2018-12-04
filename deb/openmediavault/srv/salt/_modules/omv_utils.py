@@ -20,6 +20,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import openmediavault.config
 import openmediavault.device
+import openmediavault.fs
 import os
 import re
 
@@ -61,6 +62,10 @@ def get_net_size(mask):
     """
     Turns an IPv4 netmask into it's corresponding prefix length
     (255.255.255.0 -> 24 as in 192.168.1.10/24).
+    :param mask: The network mask.
+    :type mask: str
+    :return: Returns the prefix length.
+    :rtype: int
     """
     return salt.utils.network.get_net_size(mask)
 
@@ -70,6 +75,7 @@ def is_dir(path):
     """
     Check if path is an existing directory.
     :param path: The path to check.
+    :type path: str
     :return: Return True if path is an existing directory,
         otherwise False.
     :rtype: bool
@@ -83,6 +89,7 @@ def is_file(path):
     Check if path is an existing regular file. This follows symbolic
     links, so both islink() and isfile() can be true for the same path.
     :param path: The path to check.
+    :type path: str
     :return: Return True if path is an existing regular file,
         otherwise False.
     :rtype: bool
@@ -95,6 +102,7 @@ def is_block_device(path):
     """
     Check if path is a block device.
     :param path: The path to check.
+    :type path: str
     :return: Return True if path is a block device, otherwise False.
     :rtype: bool
     """
@@ -106,6 +114,7 @@ def is_device_file(path):
     """
     Check if path describes a device file, e.g. /dev/sda1.
     :param path: The path to check.
+    :type path: str
     :return: Return True if path describes a device file,
         otherwise False.
     :rtype: bool
@@ -117,6 +126,7 @@ def is_rotational(path):
     """
     Check if device is rotational.
     :param path: The path to check.
+    :type path: str
     :return: Return True if the device is rotational, otherwise False.
     :rtype: bool
     """
@@ -124,3 +134,35 @@ def is_rotational(path):
         return False
     sd = openmediavault.device.StorageDevice(path)
     return sd.is_rotational()
+
+
+def get_fs_parent_device_file(id_):
+    """
+    Get the parent device of the specified filesystem.
+    :param id_: The filesystem identifier, e.g.
+
+    * /dev/sde1
+    * /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-1-part1
+    * /dev/cciss/c0d0p2
+    * /dev/disk/by-id/md-name-vmpc01:data
+    * 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
+    * 7A48-BA97 (FAT)
+    * 2ED43920D438EC29 (NTFS)
+
+    :type id_: str
+    :return: Returns the device file of the underlying storage device
+      or ``None`` in case of an error.
+    :rtype: str|None
+    """
+    fs = openmediavault.fs.Filesystem(id_)
+    return fs.get_parent_device_file()
+
+
+def get_root_filesystem():
+    """
+    Get the device file of the root filesystem, e.g. '/dev/sda1'.
+    :return: The device file of the root filesystem.
+    :rtype: str
+    """
+    fs = openmediavault.fs.Filesystem.from_root()
+    return fs.device_file

@@ -1,8 +1,8 @@
 LoadPlugin df
 <Plugin df>
 	MountPoint "/"
-{% for mountpoint in mountpoints -%}
+{%- for mountpoint in mountpoints %}
 	MountPoint "{{ mountpoint.dir }}"
-{% endfor -%}
+{%- endfor %}
 	IgnoreSelected false
 </Plugin>
