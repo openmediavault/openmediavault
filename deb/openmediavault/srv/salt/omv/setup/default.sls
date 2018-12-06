@@ -21,9 +21,7 @@
 
 include:
 {% for file in salt['file.readdir'](dirpath) %}
-{% if not file.endswith('.sls') %}
-{% if file not in ('.', '..') %}
+{% if salt['omv_utils.is_dir'](file) %}
   - .{{ file }}
-{% endif %}
 {% endif %}
 {% endfor %}

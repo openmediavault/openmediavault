@@ -65,6 +65,18 @@ def get_net_size(mask):
     return salt.utils.network.get_net_size(mask)
 
 
+@jinja_filter('is_dir')
+def is_dir(path):
+    """
+    Check if path is an existing directory.
+    :param path: The path to check.
+    :return: Return True if path is an existing directory,
+        otherwise False.
+    :rtype: bool
+    """
+    return os.path.isdir(os.path.expanduser(path))
+
+
 @jinja_filter('is_file')
 def is_file(path):
     """
