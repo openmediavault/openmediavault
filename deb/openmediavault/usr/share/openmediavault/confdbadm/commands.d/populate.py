@@ -37,6 +37,8 @@ class Command(openmediavault.confdbadm.ICommand):
             "/usr/share/openmediavault/confdb/populate.d"
         )
         for script_name in os.listdir(scripts_dir):
+            if script_name in ['README.md']:
+                continue
             # Make sure the script is executable.
             script_path = os.path.join(scripts_dir, script_name)
             if not os.access(script_path, os.X_OK):
