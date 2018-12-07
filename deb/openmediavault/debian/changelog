@@ -22,6 +22,7 @@ openmediavault (4.1.15-1) stable; urgency=low
 
   * Fix bug in PHP class OMV\System\Storage\StorageDevice. Forgot to use
     canonical device path when asking for the device name.
+  * Issue #228: Disable S.M.A.R.T. for FusionIO devices.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 24 Nov 2018 21:00:50 +0100
 
