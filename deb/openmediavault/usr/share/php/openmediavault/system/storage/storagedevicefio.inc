@@ -19,36 +19,18 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Storage\Backend;
+namespace OMV\System\Storage;
 
 /**
- * Implements the storage device backend for FusionIO devices.
+ * This class provides a simple interface to handle the FusionIO devices.
  * @ingroup api
  */
-class FIO extends BackendAbstract {
-	function getType() {
-		return OMV_STORAGE_DEVICE_TYPE_DISK;
+class StorageDeviceFIO extends StorageDevice {
+	public function isRotational() {
+		return FALSE;
 	}
 
-	function enumerate() {
-		// major minor  #blocks  name
-		//    8        0  312571224 sda
-		//    8        1    1052226 sda1
-		//    8        2    8393962 sda2
-		//  252        0  157143584 fioa
-		//  252        1  157139766 fioa1
-		return $this->enumerateProcFs("fio[a-z]+");
-	}
-
-	function isTypeOf($deviceFile) {
-		// Examples:
-		// - /dev/fioa
-		// - /dev/fioa1
-		$regex = "fio[a-z]+[0-9]*";
-		return $this->isTypeOfByName($deviceFile, $regex);
-	}
-
-	function getImpl($args) {
-		return new \OMV\System\Storage\StorageDeviceFIO($args);
+	public function hasSmartSupport() {
+		return FALSE;
 	}
 }
