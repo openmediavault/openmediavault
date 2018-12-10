@@ -6,4 +6,5 @@ following command in every subdirectory to install all necessary packages.
 $ apt-get install make
 $ cd javascript|php|python
 $ make install
+$ make test
 ```
