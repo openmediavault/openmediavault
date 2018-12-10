@@ -240,7 +240,7 @@ Ext.define("OMV.form.plugin.LinkedFields", {
 				case "show":
 				case "!hide":
 				case "notHide":
-					if(valid)
+					if (valid)
 						field.show();
 					else
 						field.hide();
@@ -248,7 +248,7 @@ Ext.define("OMV.form.plugin.LinkedFields", {
 				case "hide":
 				case "!show":
 				case "notShow":
-					if(valid)
+					if (valid)
 						field.hide();
 					else
 						field.show();
@@ -261,6 +261,15 @@ Ext.define("OMV.form.plugin.LinkedFields", {
 				case "notVisible":
 					if (Ext.isFunction(field.setVisible))
 						field.setVisible(!valid);
+					break;
+				case "checked":
+					if (valid && (field.xtype == "checkbox"))
+						field.setValue(true);
+					break;
+				case "!checked":
+				case "notChecked":
+					if (valid && (field.xtype == "checkbox"))
+						field.setValue(false);
 					break;
 				}
 			});

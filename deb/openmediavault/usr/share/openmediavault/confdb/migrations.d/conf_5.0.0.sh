@@ -25,4 +25,18 @@ set -e
 
 omv_config_delete "/config/system/network/interfaces/interface/options"
 
+omv_config_rename "/config/services/rsync/jobs/job/recursive" "optionrecursive"
+omv_config_rename "/config/services/rsync/jobs/job/times" "optiontimes"
+omv_config_rename "/config/services/rsync/jobs/job/compress" "optioncompress"
+omv_config_rename "/config/services/rsync/jobs/job/archive" "optionarchive"
+omv_config_rename "/config/services/rsync/jobs/job/delete" "optiondelete"
+omv_config_rename "/config/services/rsync/jobs/job/perms" "optionperms"
+omv_config_rename "/config/services/rsync/jobs/job/acls" "optionacls"
+omv_config_rename "/config/services/rsync/jobs/job/xattrs" "optionxattrs"
+omv_config_rename "/config/services/rsync/jobs/job/dryrun" "optiondryrun"
+omv_config_rename "/config/services/rsync/jobs/job/quiet" "optionquiet"
+omv_config_rename "/config/services/rsync/jobs/job/partial" "optionpartial"
+omv_config_add_key "/config/services/rsync/jobs/job" "optiongroup" "1"
+omv_config_add_key "/config/services/rsync/jobs/job" "optionowner" "1"
+
 exit 0

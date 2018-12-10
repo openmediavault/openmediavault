@@ -100,47 +100,55 @@
 			"type": "string",
 			"pattern": "^[1-7]|[*]$"
 		},
-		"recursive": {
+		"optionrecursive": {
 			"type": "boolean",
 			"default": true
 		},
-		"times": {
+		"optiontimes": {
 			"type": "boolean",
 			"default": true
 		},
-		"compress": {
+		"optiongroup": {
+			"type": "boolean",
+			"default": true
+		},
+		"optionowner": {
+			"type": "boolean",
+			"default": true
+		},
+		"optioncompress": {
 			"type": "boolean",
 			"default": false
 		},
-		"archive": {
+		"optionarchive": {
 			"type": "boolean",
 			"default": true
 		},
-		"delete": {
+		"optiondelete": {
 			"type": "boolean",
 			"default": false
 		},
-		"quiet": {
+		"optionquiet": {
 			"type":"boolean",
 			"default": true
 		},
-		"perms": {
+		"optionperms": {
 			"type": "boolean",
 			"default": true
 		},
-		"acls": {
+		"optionacls": {
 			"type": "boolean",
 			"default": false
 		},
-		"xattrs":{
+		"optionxattrs":{
 			"type": "boolean",
 			"default": false
 		},
-		"dryrun": {
+		"optiondryrun": {
 			"type": "boolean",
 			"default": false
 		},
-		"partial": {
+		"optionpartial": {
 			"type": "boolean",
 			"default": false
 		},
