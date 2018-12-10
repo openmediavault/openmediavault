@@ -29,9 +29,13 @@ generate_C.UTF-8_locale:
   locale.present:
     - name: "C.UTF-8"
 
+{% if lang.upper() != 'C.UTF-8' %}
+
 generate_{{ lang }}_locale:
   locale.present:
     - name: "{{ lang }}"
+
+{% endif %}
 
 set_system_locale:
   locale.system:
