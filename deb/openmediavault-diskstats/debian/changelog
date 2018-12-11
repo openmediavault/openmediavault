@@ -1,3 +1,9 @@
+openmediavault-diskstats (5.0-1) stable; urgency=low
+
+  * Adapt to Debian 10 (Buster).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 04 Dec 2018 16:45:44 +0100
+
 openmediavault-diskstats (4.0.2-1) stable; urgency=low
 
   * Update locales.

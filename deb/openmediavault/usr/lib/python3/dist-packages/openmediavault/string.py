@@ -39,7 +39,8 @@ def truncate(value, max_len):
 def is_json(value):
     """
     Finds out whether a string is JSON.
-    :param str: The string being evaluated.
+    :param value: The string being evaluated.
+    :type value: str
     :returns: True if the string is JSON, otherwise False.
     """
     if not isinstance(value, str):
@@ -54,7 +55,8 @@ def is_json(value):
 def is_uuid4(value):
     """
     Finds out whether a variable is an UUID v4.
-    :param var: The variable being evaluated.
+    :param value: The variable being evaluated.
+    :type value: str
     :returns: Returns True if the variable is an UUIDv4, otherwise False.
     """
     try:
@@ -73,6 +75,7 @@ def is_fs_uuid(value):
     - 2015-01-13-21-48-46-00 (ISO9660)
     See http://wiki.ubuntuusers.de/UUID
     :param value: The variable being evaluated.
+    :type value: str
     :returns: Returns True if the variable is a filesystem UUID,
               otherwise False.
     """

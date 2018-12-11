@@ -27,7 +27,7 @@ set -e
 case "$1" in
 	configure)
 		if [ -z "$2" ]; then
-			omv-mkconf collectd
+			omv-salt deploy run collectd
 			deb-systemd-invoke restart collectd.service || :
 		fi
 
