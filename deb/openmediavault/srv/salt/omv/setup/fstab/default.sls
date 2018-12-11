@@ -39,6 +39,11 @@ udevadm_trigger:
     - onchanges:
       - udevadm_reload_rules
 
+# Get the device file of the root filesystem.
+{% set root_fs_device = salt['omv_utils.get_root_filesystem']() %}
+# Get the parent device file of the root filesystem.
+{% set parent_root_fs_device = salt['omv_utils.get_fs_parent_device_file'](root_fs_device) %}
+
 {% set fstab_entries = salt['mount.fstab']() %}
 # Get the mount configuration for the root filesystem.
 # {
@@ -51,11 +56,10 @@ udevadm_trigger:
 #   "fstype": "ext4"
 # }
 {% set root_fstab_entry = fstab_entries['/'] %}
-{% set root_device_file = salt['cmd.run']('findfs ' ~ root_fstab_entry.device) %}
 
 {% if nonrot_options | difference(root_fstab_entry.opts) | length > 0 and
-      salt['omv_utils.is_block_device'](root_device_file) and
-      not salt['omv_utils.is_rotational'](root_device_file) %}
+      salt['omv_utils.is_block_device'](parent_root_fs_device) and
+      not salt['omv_utils.is_rotational'](parent_root_fs_device) %}
 
 update_root_fstab_entry:
   module.run:

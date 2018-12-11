@@ -57,9 +57,9 @@ class StorageDevice(BlockDevice):
         file = '/sys/block/{}/queue/rotational'.format(self.device_name(True))
         try:
             with open(file, 'r') as f:
-                # If file content is non-zero then it is rotational.
+                # 0 => SSD, 1 => HDD
                 return f.readline().strip() != '0'
         except (IOError, FileNotFoundError):
             pass
         # Use heuristic.
-        return 'SSD' in self.model
+        return 'SSD' not in self.model

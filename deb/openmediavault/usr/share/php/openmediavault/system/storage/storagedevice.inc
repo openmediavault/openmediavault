@@ -98,7 +98,7 @@ class StorageDevice extends \OMV\System\BlockDevice
 		$filename = sprintf("/sys/block/%s/queue/rotational",
 		  $this->getDeviceName(TRUE));
 		if (file_exists($filename)) {
-			// If file content is non-zero then it is rotational.
+			// 0 => SSD, 1 => HDD
 			return ("0" == trim(file_get_contents($filename))) ? FALSE : TRUE;
 		}
 		// Use heuristic.
