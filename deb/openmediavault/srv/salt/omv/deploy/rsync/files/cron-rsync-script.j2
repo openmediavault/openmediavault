@@ -23,12 +23,12 @@
 #!/bin/sh
 {{ pillar['headers']['multiline'] -}}
 . /usr/share/openmediavault/scripts/helper-functions
-cleanup() {" -n \
+cleanup() {
     omv_kill_children $$
-    rm -f {{ runfile }}
+    rm -f "{{ runfile }}"
     exit
 }
-[ -e {{ runfile }} ] && exit 1
+[ -e "{{ runfile }}" ] && exit 1
 {%- if job.type == 'local' or job.mode == 'push' %}
 if ! omv_is_mounted "{{ srcmntdir }}" ; then
     omv_error "Source storage device not mounted at <{{ srcmntdir }}>!"
@@ -42,8 +42,8 @@ if ! omv_is_mounted "{{ destmntdir }}" ; then
 fi
 {%- endif %}
 trap cleanup 0 1 2 5 15
-touch {{ runfile }}
-{%- if not job.quiet | to_bool %}
+touch "{{ runfile }}"
+{%- if not job.option_quiet | to_bool %}
 omv_log "Please wait, syncing <{{ srcuri }}> to <{{ desturi }}> ...\n"
 {%- endif %}
 {%- if job.authentication == 'password' and job.password | length > 0 %}
@@ -51,19 +51,30 @@ export RSYNC_PASSWORD="{{ job.password }}"
 {%- endif %}
 rsync --verbose --log-file="{{ logfile }}"
 {%- if job.authentication == 'pubkey' %}{{ separator }}--rsh "ssh -p {{ job.sshport }} -i '{{ ssh_keys_dir | path_join(ssh_key_prefix ~ job.sshcertificateref) }}'"{%- endif %}
-{%- if job.recursive | to_bool %}{{ separator }}--recursive{%- endif %}
-{%- if job.times | to_bool %}{{ separator }}--times{%- endif %}
-{%- if job.compress | to_bool %}{{ separator }}--compress{%- endif %}
-{%- if job.archive | to_bool %}{{ separator }}--archive{%- endif %}
-{%- if job.delete | to_bool %}{{ separator }}--delete{%- endif %}
-{%- if job.quiet | to_bool %}{{ separator }}--quiet{%- endif %}
-{%- if job.perms | to_bool %}{{ separator }}--perms{%- endif %}
-{%- if job.acls | to_bool %}{{ separator }}--acls{%- endif %}
-{%- if job.xattrs | to_bool %}{{ separator }}--xattrs{%- endif %}
-{%- if job.dryrun | to_bool %}{{ separator }}--dry-run{%- endif %}
-{%- if job.partial | to_bool %}{{ separator }}--partial{%- endif %}
+{%- if job.option_quiet | to_bool %}{{ separator }}--quiet{%- endif %}
+{%- if job.option_dryrun | to_bool %}{{ separator }}--dry-run{%- endif %}
+{%- if job.option_archive | to_bool %}{{ separator }}--archive{%- endif -%}
+{# Prefix implied archive options with '--no-' if enabled #}
+{%- if job.option_archive | to_bool %}
+{%- if not job.option_recursive | to_bool %}{{ separator }}--no-recursive{%- endif %}
+{%- if not job.option_perms | to_bool %}{{ separator }}--no-perms{%- endif %}
+{%- if not job.option_times | to_bool %}{{ separator }}--no-times{%- endif %}
+{%- if not job.option_group | to_bool %}{{ separator }}--no-group{%- endif %}
+{%- if not job.option_owner | to_bool %}{{ separator }}--no-owner{%- endif %}
+{%- else %}
+{%- if job.option_recursive | to_bool %}{{ separator }}--recursive{%- endif %}
+{%- if job.option_perms | to_bool %}{{ separator }}--perms{%- endif %}
+{%- if job.option_times | to_bool %}{{ separator }}--times{%- endif %}
+{%- if job.option_group | to_bool %}{{ separator }}--group{%- endif %}
+{%- if job.option_owner | to_bool %}{{ separator }}--owner{%- endif %}
+{%- endif %}
+{%- if job.option_compress | to_bool %}{{ separator }}--compress{%- endif %}
+{%- if job.option_delete | to_bool %}{{ separator }}--delete{%- endif %}
+{%- if job.option_acls | to_bool %}{{ separator }}--acls{%- endif %}
+{%- if job.option_xattrs | to_bool %}{{ separator }}--xattrs{%- endif %}
+{%- if job.option_partial | to_bool %}{{ separator }}--partial{%- endif %}
 {%- if job.extraoptions | length > 0 %}{{ separator }}{{ job.extraoptions }}{%- endif -%}
 {{ separator }}"{{ srcuri }}" "{{ desturi }}" & wait $!
-{%- if not job.quiet | to_bool %}
+{%- if not job.option_quiet | to_bool %}
 omv_log "\nThe synchronisation has completed successfully."
 {%- endif %}

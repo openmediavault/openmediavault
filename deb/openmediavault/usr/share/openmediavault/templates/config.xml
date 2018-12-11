@@ -559,6 +559,7 @@
 					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
 					<enable>0|1</enable>
 					<sendemail>0|1<sendemail>
+					<quiet>0</quiet>
 					<comment>xxx</comment>
 					<type>local|remote</type>
 					<src>
@@ -577,17 +578,18 @@
 					<everyndayofmonth>0|1</everyndayofmonth>
 					<month>[01-12|*]</month>
 					<dayofweek>[1-7|*]</dayofweek>
-					<recursive>1</recursive>
-					<times>1</times>
-					<compress>0</compress>
-					<archive>1</archive>
-					<delete>0</delete>
-					<quiet>0</quiet>
-					<perms>1</perms>
-					<acls>1</acls>
-					<xattrs>0</xattrs>
-					<dryrun>0</dryrun>
-					<partial>0</partial>
+					<optionrecursive>1</optionrecursive>
+					<optiontimes>1</optiontimes>
+					<optiongroup>1</optiongroup>
+					<optionowner>1</optionowner>
+					<optioncompress>0</optioncompress>
+					<optionarchive>1</optionarchive>
+					<optiondelete>0</optiondelete>
+					<optionperms>1</optionperms>
+					<optionacls>1</optionacls>
+					<optionxattrs>0</optionxattrs>
+					<optiondryrun>0</optiondryrun>
+					<optionpartial>0</optionpartial>
 					<extraoptions></extraoptions>
 					// remote
 					<mode>push|pull</mode>

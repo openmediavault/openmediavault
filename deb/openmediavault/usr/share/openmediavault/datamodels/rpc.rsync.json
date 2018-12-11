@@ -93,47 +93,55 @@
 				"pattern": "^[1-7]|[*]$",
 				"required": true
 			},
-			"recursive": {
+			"optionrecursive": {
 				"type": "boolean",
 				"required": true
 			},
-			"times": {
+			"optiontimes": {
 				"type": "boolean",
 				"required": true
 			},
-			"compress": {
+			"optiongroup": {
 				"type": "boolean",
 				"required": true
 			},
-			"archive": {
+			"optionowner": {
 				"type": "boolean",
 				"required": true
 			},
-			"delete": {
+			"optioncompress": {
 				"type": "boolean",
 				"required": true
 			},
-			"quiet": {
+			"optionarchive": {
+				"type": "boolean",
+				"required": true
+			},
+			"optiondelete": {
+				"type": "boolean",
+				"required": true
+			},
+			"optionquiet": {
 				"type":"boolean",
 				"required": true
 			},
-			"perms": {
+			"optionperms": {
 				"type": "boolean",
 				"required": true
 			},
-			"acls": {
+			"optionacls": {
 				"type": "boolean",
 				"required": true
 			},
-			"xattrs":{
+			"optionxattrs":{
 				"type": "boolean",
 				"required": true
 			},
-			"dryrun": {
+			"optiondryrun": {
 				"type": "boolean",
 				"required": true
 			},
-			"partial": {
+			"optionpartial": {
 				"type": "boolean",
 				"required": true
 			},
