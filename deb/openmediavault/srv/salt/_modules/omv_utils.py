@@ -164,5 +164,5 @@ def get_root_filesystem():
     :return: The device file of the root filesystem.
     :rtype: str
     """
-    fs = openmediavault.fs.Filesystem.from_root()
+    fs = openmediavault.fs.Filesystem.from_mount_point('/')
     return fs.device_file

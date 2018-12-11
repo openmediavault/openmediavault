@@ -131,7 +131,7 @@ class StorageDevice extends \OMV\System\BlockDevice
 
 	/**
 	 * Check if the given device is an USB device.
-	 * @return boolean TRUE if the device is a connected via USB,
+	 * @return boolean TRUE if the device is connected via USB,
 	 *   otherwise FALSE.
 	 */
 	public function isUsb() {

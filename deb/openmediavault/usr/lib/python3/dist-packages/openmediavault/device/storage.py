@@ -18,24 +18,41 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+import re
 from .block import BlockDevice
+
+import openmediavault.string
 
 
 class StorageDevice(BlockDevice):
-    @property
-    def model(self):
+    def get_model(self):
         """
         Get the device model.
         :return: The device model, otherwise an empty string.
         :rtype: str
         """
-        file = '/sys/block/{}/device/model'.format(self.device_name(True))
-        try:
-            with open(file, 'r') as f:
-                return f.readline().strip()
-        except (IOError, FileNotFoundError):
-            pass
-        return ''
+        return openmediavault.string.unescape_blank(
+            self.get_udev_property('ID_MODEL_ENC', '')
+        )
+
+    def get_vendor(self):
+        """
+        Get the device vendor.
+        :return: The device vendor, otherwise an empty string.
+        :rtype: str
+        """
+        return openmediavault.string.unescape_blank(
+            self.get_udev_property('ID_VENDOR_ENC', '')
+        )
+
+    def get_serial(self):
+        """
+        Get the device serial number.
+        :return: The device serial number, otherwise an empty string.
+        :rtype: str
+        """
+        serial = self.get_udev_property('ID_SERIAL_SHORT', '')
+        return serial.replace('_', ' ')
 
     def is_rotational(self):
         """
@@ -62,4 +79,52 @@ class StorageDevice(BlockDevice):
         except (IOError, FileNotFoundError):
             pass
         # Use heuristic.
-        return 'SSD' not in self.model
+        return 'SSD' not in self.get_model()
+
+    def is_removable(self):
+        """
+        Check if the device is removable.
+        :return: Returns ``True`` if the device is removable,
+            otherwise ``False``.
+        :rtype: bool
+        """
+        file = '/sys/block/{}/removable'.format(self.device_name(True))
+        try:
+            with open(file, 'r') as f:
+                return f.readline().strip() == '1'
+        except (IOError, FileNotFoundError):
+            pass
+        return False
+
+    def is_usb(self):
+        """
+        Check if the given device is an USB device.
+        :return: Returns ``True`` if the device is connected via USB,
+            otherwise ``False``.
+        :rtype: bool
+        """
+        # Identify USB devices via 'ID_BUS=usb'.
+        if self.has_udev_property('ID_BUS'):
+            return self.get_udev_property('ID_BUS') == 'usb'
+        # Identify USB devices via 'ID_USB_DRIVER=usb-storage'.
+        if self.has_udev_property('ID_USB_DRIVER'):
+            return self.get_udev_property('ID_USB_DRIVER') == 'usb-storage'
+        # Identify USB devices via 'ID_DRIVE_THUMB=1'.
+        if self.has_udev_property('ID_DRIVE_THUMB'):
+            return self.get_udev_property('ID_DRIVE_THUMB') == '1'
+        # Identify USB devices via 'ID_PATH=xxx-usb-xxx'.
+        # Example:
+        # ID_PATH=pci-0000:02:02.0-usb-0:1:1.0-scsi-0:0:0:0
+        # ID_PATH=pci-0000:00:12.2-usb-0:3:1.0-scsi-0:0:0:0
+        if self.has_udev_property('ID_PATH'):
+            value = self.get_udev_property('ID_PATH')
+            return re.match(r'^.+-usb-.+$', value)
+        return False
+
+    def wipe(self):
+        """
+        Wipe the storage device.
+        """
+        _ = openmediavault.subprocess.check_output([
+            'sgdisk', '--zap-all', self.device_file
+        ])

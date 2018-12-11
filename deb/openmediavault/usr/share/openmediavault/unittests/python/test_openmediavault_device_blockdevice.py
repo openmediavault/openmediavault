@@ -19,7 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import mock
+import pyudev
 import unittest
+
 import openmediavault.device
 
 
@@ -109,6 +111,33 @@ class BlockDeviceTestCase(unittest.TestCase):
         mock_from_device_file.return_value = device
         bd = openmediavault.device.BlockDevice('/dev/sda')
         self.assertEqual(bd.get_udev_property('DEVTYPE'), 'disk')
+
+    @mock.patch('pyudev.Devices.from_device_file')
+    def test_get_udev_property_default(self, mock_from_device_file):
+        device = MockedPyUdevDevice()
+        device.set_properties({'DEVTYPE': 'disk'})
+        mock_from_device_file.return_value = device
+        bd = openmediavault.device.BlockDevice('/dev/sda')
+        self.assertEqual(bd.get_udev_property('ID_FS_LABEL', 'foo'), 'foo')
+
+    @mock.patch('pyudev.Devices.from_device_file')
+    def test_get_udev_property_exception_1(self, mock_from_device_file):
+        device = MockedPyUdevDevice()
+        device.set_properties({'DEVTYPE': 'disk'})
+        mock_from_device_file.return_value = device
+        bd = openmediavault.device.BlockDevice('/dev/sda')
+        self.assertRaises(
+            KeyError, lambda: bd.get_udev_property('ID_FS_LABEL')
+        )
+
+    @mock.patch('pyudev.Devices.from_device_file')
+    def test_get_udev_property_exception_2(self, mock_from_device_file):
+        mock_from_device_file.side_effect = pyudev.DeviceNotFoundByFileError
+        bd = openmediavault.device.BlockDevice('/dev/vda')
+        self.assertRaises(
+            pyudev.DeviceNotFoundByFileError,
+            lambda: bd.get_udev_property('ID_FS_LABEL')
+        )
 
     @mock.patch('pyudev.Devices.from_device_file')
     def test_get_device_files(self, mock_from_device_file):

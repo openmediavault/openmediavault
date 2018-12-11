@@ -66,19 +66,24 @@ class Module(openmediavault.firstaid.IModule):
         choices = []
         for idx, sys_name in enumerate(devices):
             device = pyudev.Device.from_name(context, "net", sys_name)
-            for id in ["ID_MODEL_FROM_DATABASE", "ID_VENDOR_FROM_DATABASE"]:
-                if not id in device:
+            for id_ in ["ID_MODEL_FROM_DATABASE", "ID_VENDOR_FROM_DATABASE"]:
+                if id_ not in device:
                     continue
                 choices.append([
                     sys_name,
-                    openmediavault.string.truncate(device[id], 50)
+                    openmediavault.string.truncate(device[id_], 50)
                 ])
                 break
         d = dialog.Dialog(dialog="dialog")
-        (code, tag) = d.menu("Please select a network interface. Note, the " \
-   "existing network interface configuration will be deleted.",
-        backtitle=self.description, clear=True,
-        height=14, width=70, menu_height=6, choices=choices)
+        (code, tag) = d.menu(
+            "Please select a network interface. Note, the existing network interface configuration will be deleted.",
+            backtitle=self.description,
+            clear=True,
+            height=14,
+            width=70,
+            menu_height=6,
+            choices=choices
+        )
         if code in (d.CANCEL, d.ESC):
             return 0
         device_name = tag
@@ -118,7 +123,7 @@ class Module(openmediavault.firstaid.IModule):
                     continue
                 try:
                     ipaddress.ip_address(address)
-                except Exception as e:
+                except Exception:
                     address = None
                     d.msgbox(
                         "Please enter a valid IPv4 address.",
@@ -193,20 +198,24 @@ class Module(openmediavault.firstaid.IModule):
             return 0
         if code == d.OK:
             # Use stateful address autoconfiguration (DHCPv6)?
-            code = d.yesno("Do you want to enable stateful address " \
-    "autoconfiguration (DHCPv6)?",
-            backtitle=self.description,
-            height=6, width=42)
+            code = d.yesno(
+                "Do you want to enable stateful address autoconfiguration (DHCPv6)?",
+                backtitle=self.description,
+                height=6,
+                width=42
+            )
             if code == d.ESC:
                 return 0
             if code == d.OK:
                 method6 = "dhcp"
             else:
                 # Use stateless address autoconfiguration (SLAAC)?
-                code = d.yesno("Do you want to enable stateless address " \
-     "autoconfiguration (SLAAC)?",
-                backtitle=self.description,
-                height=6, width=42)
+                code = d.yesno(
+                    "Do you want to enable stateless address autoconfiguration (SLAAC)?",
+                    backtitle=self.description,
+                    height=6,
+                    width=42
+                )
                 if code == d.ESC:
                     return 0
                 if code == d.OK:
@@ -304,10 +313,13 @@ class Module(openmediavault.firstaid.IModule):
         if method == "static" or method6 == "static":
             while True:
                 (code, dns_nameservers) = d.inputbox(
-                "Please enter the DNS name server. If you don't want " \
-     "to use any name server, just leave this field blank.",
-                backtitle=self.description,
-                clear=True, height=8, width=60, init="")
+                    "Please enter the DNS name server. If you don't want to use any name server, just leave this field blank.",
+                    backtitle=self.description,
+                    clear=True,
+                    height=8,
+                    width=60,
+                    init=""
+                )
                 if code != d.OK:
                     return 0
                 if not dns_nameservers:

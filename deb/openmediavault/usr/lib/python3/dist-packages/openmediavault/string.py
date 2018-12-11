@@ -41,7 +41,9 @@ def is_json(value):
     Finds out whether a string is JSON.
     :param value: The string being evaluated.
     :type value: str
-    :returns: True if the string is JSON, otherwise False.
+    :return: Returns ``True`` if the string is JSON, otherwise ``False``.
+    :rtype: bool
+
     """
     if not isinstance(value, str):
         return False
@@ -57,27 +59,33 @@ def is_uuid4(value):
     Finds out whether a variable is an UUID v4.
     :param value: The variable being evaluated.
     :type value: str
-    :returns: Returns True if the variable is an UUIDv4, otherwise False.
+    :return: Returns ``True`` if the variable is an UUIDv4,
+        otherwise ``False``.
+    :rtype: bool
     """
     try:
         _ = uuid.UUID(value, version=4)
-    except Exception:
+    except ValueError:
         return False
     return True
 
 
 def is_fs_uuid(value):
     """
-    Finds out whether a variable is a filesystem UUID, e.g.
+    Finds out whether a variable is a filesystem UUID.
+
+    Example:
     - 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
     - 7A48-BA97 (FAT)
     - 2ED43920D438EC29 (NTFS)
     - 2015-01-13-21-48-46-00 (ISO9660)
+
     See http://wiki.ubuntuusers.de/UUID
     :param value: The variable being evaluated.
     :type value: str
-    :returns: Returns True if the variable is a filesystem UUID,
-              otherwise False.
+    :return: Returns ``True`` if the variable is a filesystem UUID,
+        otherwise ``False``.
+    :rtype: bool
     """
     # Check if it is an UUID v4.
     if is_uuid4(value):
@@ -89,3 +97,77 @@ def is_fs_uuid(value):
         value,
         flags=re.IGNORECASE
     )
+
+
+def escape_blank(value, octal=False):
+    """
+    Escape a string to be used in a shell environment. Various characters
+    will be replaced with their hexadecimal/octal representation, e.g.
+    a whitespace will be replaced by \x20 or \040.
+
+    Example:
+    - /srv/dev-disk-by-label-xx yy => /srv/dev-disk-by-label-xx\x20yy
+    - /srv/dev-disk-by-label-xx yy => /srv/dev-disk-by-label-xx\040yy
+
+    :param value: The value that will be escaped.
+    :type value: str
+    :param octal: If ``True``, convert octal values, otherwise
+        hexadecimal. Defaults to ``False``.
+    :type octal: bool
+    :return: The escaped string.
+    :rtype: str
+    """
+    return value.replace(' ', '\\040' if octal else '\\x20')
+
+
+def unescape_blank(value, octal=False):
+    """
+    Unescape a string. Various hexadecimal/octal characters will be
+    replaced with their ASCII representation, e.g. \x20 or \040 will
+    be replaced by a whitespace.
+
+    Example:
+    - /srv/dev-disk-by-label-xx\x20yy => /srv/dev-disk-by-label-xx yy
+    - /srv/dev-disk-by-label-xx\040yy => /srv/dev-disk-by-label-xx yy
+
+    :param value: The value that will be unescaped.
+    :type value: str
+    :param octal: If ``True``, convert octal values, otherwise
+        hexadecimal. Defaults to ``False``.
+    :type octal: bool
+    :return: The unescaped string.
+    :rtype: str
+    """
+    return value.replace('\\040' if octal else '\\x20', ' ')
+
+
+def binary_format(
+    value, precision=2, origin_unit='B', max_unit='YiB', return_json=False
+):
+    """
+    Convert a value into the highest possible binary unit.
+    :param value: The number to convert (per default this is in Bytes).
+    :type value: str|int
+    :param precision: Defaults to 2.
+    :param origin_unit: Defaults to ``B``.
+    :param max_unit: Defaults to ``YiB``.
+    :param return_json: Return value and unit as JSON object.
+        Defaults to ``False``.
+    :return: The converted string value including the unit or dictionary
+        with the keys \em value and \em unit.
+    :rtype: str
+    """
+    units = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB']
+    value = float(value)
+    exp = units.index(origin_unit)
+    max_exp = units.index(max_unit)
+
+    while value >= 1024 and exp < max_exp:
+        exp += 1
+        value = value / 1024
+
+    if not return_json:
+        result = '{:.{prec}f} {}'.format(value, units[exp], prec=precision)
+    else:
+        result = {'value': value, 'unit': units[exp]}
+    return result
