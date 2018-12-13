@@ -1,3 +1,9 @@
+openmediavault-clamav (4.1.8-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 13 Dec 2018 11:00:09 +0100
+
 openmediavault-clamav (4.1.7-1) stable; urgency=low
 
   * Fix the pattern attribute in the JSON schemas according to the ECMA 262
