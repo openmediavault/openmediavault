@@ -1,5 +1,6 @@
 openmediavault-lvm2 (4.0.7-1) stable; urgency=low
 
+  * Update locales.
   * Fix various issues found by the lgtm.com project.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 22 Oct 2018 18:44:39 +0200
