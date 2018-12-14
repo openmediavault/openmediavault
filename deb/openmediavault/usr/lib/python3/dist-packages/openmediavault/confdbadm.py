@@ -21,6 +21,7 @@
 __all__ = ["ICommand"]
 
 import abc
+import argparse
 import os
 import shutil
 import json
@@ -115,7 +116,6 @@ class CommandHelper:
         :raises argparse.ArgumentTypeError:
         """
         if not openmediavault.string.is_uuid4(arg):
-            import argparse
             raise argparse.ArgumentTypeError("No valid UUID4.")
         return arg
 
@@ -127,7 +127,6 @@ class CommandHelper:
         :raises argparse.ArgumentTypeError:
         """
         if not openmediavault.string.is_json(arg):
-            import argparse
             raise argparse.ArgumentTypeError("No valid JSON.")
         return json.loads(arg)
 
@@ -152,13 +151,11 @@ class CommandHelper:
         :raises argparse.ArgumentTypeError:
         """
         if not re.match(r'^conf(\..+)?$', arg):
-            import argparse
             raise argparse.ArgumentTypeError("No valid data model ID.")
         if "conf" == arg:
             return arg
         try:
             openmediavault.config.Datamodel(arg)
         except Exception as e:
-            import argparse
             raise argparse.ArgumentTypeError(str(e))
         return arg
