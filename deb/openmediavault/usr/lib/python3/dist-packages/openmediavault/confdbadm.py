@@ -21,20 +21,22 @@
 __all__ = ["ICommand"]
 
 import abc
-import os
 import argparse
+import os
 import shutil
 import json
 import re
 import sys
 import tempfile
+
 import openmediavault
 import openmediavault.config.datamodel
 import openmediavault.string
 
 
 class ICommand(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
-    @abc.abstractproperty
+    @property
+    @abc.abstractmethod
     def description(self):
         """
         Get the module description.
