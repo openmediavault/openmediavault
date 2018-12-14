@@ -27,21 +27,23 @@ def is_block_device(path):
     """
     Check if path is a device file, e.g. /dev/sda1.
     :param path: The path to check.
+    :type path: str
     :return: Return True if path describes a device file,
         otherwise False.
     :rtype: bool
     """
-    if not isinstance(path, str):
+    try:
+        st = os.stat(path)
+    except FileNotFoundError:
         return False
-    if not os.path.exists(path):
-        return False
-    return stat.S_ISBLK(os.stat(path).st_mode)
+    return stat.S_ISBLK(st.st_mode)
 
 
 def is_device_file(path):
     """
     Check if path describes a device file, e.g. /dev/sda1.
     :param path: The path to check.
+    :type path: str
     :return: Return True if path describes a device file,
         otherwise False.
     :rtype: bool
@@ -60,6 +62,7 @@ def is_device_file_by(path):
     * /dev/disk/by-label/data
 
     :param path: The path to check.
+    :type path: str
     :return: Return True if path describes a device file,
         otherwise False.
     :rtype: bool
@@ -77,6 +80,7 @@ def is_device_file_by_uuid(path):
     * /dev/disk/by-uuid/2ED43920D438EC29 (NTFS)
 
     :param path: The path to check.
+    :type path: str
     :return: Return True if path describes a device file,
         otherwise False.
     :rtype: bool
@@ -94,6 +98,7 @@ def is_device_file_by_id(path):
     * /dev/disk/by-id/wwn-0x4002c554a4d79cb9-part2
 
     :param path: The path to check.
+    :type path: str
     :return: Return True if path describes a device file,
         otherwise False.
     :rtype: bool
@@ -107,6 +112,7 @@ def is_device_file_by_label(path):
     """
     Check if path describes a device file, e.g. /dev/disk/by-label/data
     :param path: The path to check.
+    :type path: str
     :return: Return True if path describes a device file,
         otherwise False.
     :rtype: bool
@@ -124,6 +130,7 @@ def is_device_file_by_path(path):
     * /dev/disk/by-path/pci-0000:00:17.0-ata-3-part2
 
     :param path: The path to check.
+    :type path: str
     :return: Return True if path describes a device file,
         otherwise False.
     :rtype: bool

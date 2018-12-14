@@ -22,8 +22,11 @@ import os
 import pyudev
 
 from .utils import (
-    is_block_device, is_device_file_by_id, is_device_file_by_path
+    is_block_device, is_device_file_by_id, is_device_file_by_path,
+    is_device_file_by_uuid
 )
+
+import openmediavault.subprocess
 
 
 class BlockDevice:
@@ -141,6 +144,32 @@ class BlockDevice:
                 return device_link
         return None
 
+    def has_device_file_by_uuid(self):
+        """
+        Check whether the device has a /dev/disk/by-uuid/xxx device path.
+        :return: Returns TRUE if a disk/by-uuid device path exists,
+            otherwise FALSE.
+        :rtype: bool
+        """
+        return is_device_file_by_uuid(self.get_device_file_by_uuid())
+
+    def get_device_file_by_uuid(self):
+        """
+        Get the device file, e.g.
+
+        * /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
+        * /dev/disk/by-uuid/2ED43920D438EC29 (NTFS)
+        * /dev/disk/by-uuid/7A48-BA97 (FAT)
+
+        :return: Returns the device file (/dev/disk/by-uuid/xxx) if available,
+            otherwise None.
+        :rtype: str|None
+        """
+        for device_link in self.get_device_links():
+            if is_device_file_by_uuid(device_link):
+                return device_link
+        return None
+
     def device_name(self, canonical=False):
         """
         Get the device name, e.g. sda or hdb.
@@ -181,6 +210,28 @@ class BlockDevice:
         :rtype: int
         """
         return os.minor(self.get_device_number())
+
+    def get_block_size(self):
+        """
+        Get the block size.
+        :return: Returns the block size.
+        :rtype: int
+        """
+        output = openmediavault.subprocess.check_output([
+            'blockdev', '--getbsz', self.device_file
+        ])
+        return int(output.decode().strip())
+
+    def get_size(self):
+        """
+        Get the device size in bytes.
+        :return: Returns the device size in bytes.
+        :rtype: int
+        """
+        output = openmediavault.subprocess.check_output([
+            'blockdev', '--getsize64', self.device_file
+        ])
+        return int(output.decode().strip())
 
     def get_udev_properties(self):
         """
@@ -238,38 +289,40 @@ class BlockDevice:
         context = pyudev.Context()
         device = pyudev.Devices.from_device_file(context, self.device_file)
         result = {}
-        for prop in device.properties:
-            result[prop] = device.properties[prop]
+        for name in device.properties:
+            result[name] = device.properties[name]
         return result
 
-    def has_udev_property(self, prop):
+    def has_udev_property(self, name):
         """
         Checks if a udev property exists.
-        :param prop: The name of the property, e.g. ID_VENDOR, ID_MODEL
+        :param name: The name of the property, e.g. ID_VENDOR, ID_MODEL
             or ID_SERIAL_SHORT.
-        :type prop: str
+        :type name: str
         :return: Returns True if the property exists, otherwise False.
         :rtype: bool
         """
-        context = pyudev.Context()
-        device = pyudev.Devices.from_device_file(context, self.device_file)
-        try:
-            _ = device.properties[prop]
-            return True
-        except KeyError:
-            pass
-        return False
+        properties = self.get_udev_properties()
+        return name in properties
 
-    def get_udev_property(self, prop):
+    def get_udev_property(self, name, default=None):
         """
         Get the specified udev property.
-        :param prop: The name of the property, e.g. ID_VENDOR, ID_MODEL
+        :param name: The name of the property, e.g. ID_VENDOR, ID_MODEL
             or ID_SERIAL_SHORT.
-        :type prop: str
+        :type name: str
+        :param default: The default value if the property does not exist.
+            Defaults to None.
+        :type default: str
         :return: Returns the requested property.
         :rtype: str
-        :exc:`~exceptions.KeyError`, if the given property is not defined.
+        :raises: :exc:`~exceptions.KeyError`, if the given property is
+            not defined and no default value is specified.
         """
-        context = pyudev.Context()
-        device = pyudev.Devices.from_device_file(context, self.device_file)
-        return device.properties[prop]
+        properties = self.get_udev_properties()
+        try:
+            return properties[name]
+        except KeyError as e:
+            if default is not None:
+                return default
+            raise e

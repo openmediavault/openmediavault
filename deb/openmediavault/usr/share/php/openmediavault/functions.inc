@@ -627,7 +627,7 @@ if (!function_exists('json_last_error_msg')) {
 /**
  * Convert a number into the highest possible binary unit.
  * @ingroup api
- * @param mixed $value The number to convert (per default this is in Bytes).
+ * @param mixed $number The number to convert (per default this is in Bytes).
  * @param mixed $options An array of additional options. Defaults to NULL.
  * @return The converted string value including the unit or an indexed
  *   array with the fields \em value and \em unit.

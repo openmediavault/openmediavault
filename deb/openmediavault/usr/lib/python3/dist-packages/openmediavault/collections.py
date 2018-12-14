@@ -64,7 +64,7 @@ class DotDict(dict):
             self.__setitem__(key, value)
 
     def setdefault(self, key, default):
-        if not key in self:
+        if key not in self:
             self[key] = default
         return self[key]
 
@@ -75,7 +75,7 @@ class DotDict(dict):
 
     def __getitem__(self, key):
         matches = re.match(r'(\w+)\[(\d+)\](.(\S+))?', key)
-        if not matches is None:
+        if matches is not None:
             first = matches.group(1)
             index = int(matches.group(2))
             rest = matches.group(4)
@@ -118,7 +118,7 @@ class DotDict(dict):
     def __setitem__(self, key, value):
         matches = re.match(r'(\w+)\[(\d+)\](.(\S+))?', key)
         # pylint: disable=too-many-branches
-        if not matches is None:
+        if matches is not None:
             first = matches.group(1)
             index = int(matches.group(2))
             rest = matches.group(4)

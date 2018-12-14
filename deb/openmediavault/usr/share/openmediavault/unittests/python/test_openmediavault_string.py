@@ -63,6 +63,66 @@ class StringTestCase(unittest.TestCase):
         valid = openmediavault.string.is_fs_uuid("xyz")
         self.assertFalse(valid)
 
+    def test_escape_blank(self):
+        self.assertEqual(
+            openmediavault.string.escape_blank('foo bar  xyz'),
+            'foo\\x20bar\\x20\\x20xyz'
+        )
+
+    def test_escape_blank_octal(self):
+        self.assertEqual(
+            openmediavault.string.escape_blank('foo bar  xyz', True),
+            'foo\\040bar\\040\\040xyz'
+        )
+
+    def test_unescape_blank(self):
+        self.assertEqual(
+            openmediavault.string.unescape_blank('foo\\x20bar\\x20\\x20xyz'),
+            'foo bar  xyz'
+        )
+
+    def test_unescape_blank_octal(self):
+        self.assertEqual(
+            openmediavault.string.unescape_blank(
+                'foo\\040bar\\040\\040xyz', True
+            ), 'foo bar  xyz'
+        )
+
+    def test_binary_format_1(self):
+        result = openmediavault.string.binary_format(1073741824)
+        self.assertIsInstance(result, str)
+        self.assertEqual(result, '1.00 GiB')
+
+    def test_binary_format_2(self):
+        result = openmediavault.string.binary_format('2048')
+        self.assertIsInstance(result, str)
+        self.assertEqual(result, '2.00 KiB')
+
+    def test_binary_format_3(self):
+        result = openmediavault.string.binary_format(4096, precision=0)
+        self.assertIsInstance(result, str)
+        self.assertEqual(result, '4 KiB')
+
+    def test_binary_format_4(self):
+        result = openmediavault.string.binary_format(2048, return_json=True)
+        self.assertIsInstance(result, dict)
+        self.assertEqual(result['value'], 2.0)
+        self.assertEqual(result['unit'], 'KiB')
+
+    def test_binary_format_5(self):
+        result = openmediavault.string.binary_format(
+            1073741824, max_unit='MiB'
+        )
+        self.assertIsInstance(result, str)
+        self.assertEqual(result, '1024.00 MiB')
+
+    def test_binary_format_6(self):
+        result = openmediavault.string.binary_format(
+            2048, precision=0, origin_unit='KiB', max_unit='MiB'
+        )
+        self.assertIsInstance(result, str)
+        self.assertEqual(result, '2 MiB')
+
 
 if __name__ == "__main__":
     unittest.main()
