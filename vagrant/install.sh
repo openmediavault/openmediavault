@@ -41,7 +41,7 @@ deb http://packages.openmediavault.org/public usul main
 # deb http://downloads.sourceforge.net/project/openmediavault/packages usul partner
 EOF
 
-export LANG=C
+export LANG=C.UTF-8
 export DEBIAN_FRONTEND=noninteractive
 export APT_LISTCHANGES_FRONTEND=none
 wget -O "/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.asc" https://packages.openmediavault.org/public/archive.key
