@@ -21,7 +21,7 @@
 __all__ = ["Datamodel"]
 
 import os
-import os.path
+
 import openmediavault
 import openmediavault.datamodel.datamodel
 import openmediavault.json.schema

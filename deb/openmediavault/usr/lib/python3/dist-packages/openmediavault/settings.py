@@ -21,6 +21,7 @@
 __all__ = ["Environment"]
 
 import re
+
 import openmediavault
 
 DEFAULT_FILE = "/etc/default/openmediavault"

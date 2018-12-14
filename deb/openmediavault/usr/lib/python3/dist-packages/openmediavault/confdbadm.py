@@ -22,7 +22,6 @@ __all__ = ["ICommand"]
 
 import abc
 import os
-import argparse
 import shutil
 import json
 import re
@@ -34,7 +33,8 @@ import openmediavault.string
 
 
 class ICommand(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
-    @abc.abstractproperty
+    @property
+    @abc.abstractmethod
     def description(self):
         """
         Get the module description.
@@ -114,6 +114,7 @@ class CommandHelper:
         :raises argparse.ArgumentTypeError:
         """
         if not openmediavault.string.is_uuid4(arg):
+            import argparse
             raise argparse.ArgumentTypeError("No valid UUID4.")
         return arg
 
@@ -125,6 +126,7 @@ class CommandHelper:
         :raises argparse.ArgumentTypeError:
         """
         if not openmediavault.string.is_json(arg):
+            import argparse
             raise argparse.ArgumentTypeError("No valid JSON.")
         return json.loads(arg)
 
@@ -149,11 +151,13 @@ class CommandHelper:
         :raises argparse.ArgumentTypeError:
         """
         if not re.match(r'^conf(\..+)?$', arg):
+            import argparse
             raise argparse.ArgumentTypeError("No valid data model ID.")
         if "conf" == arg:
             return arg
         try:
             openmediavault.config.Datamodel(arg)
         except Exception as e:
+            import argparse
             raise argparse.ArgumentTypeError(str(e))
         return arg

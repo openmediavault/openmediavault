@@ -24,7 +24,8 @@ import abc
 
 
 class IModule(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
-    @abc.abstractproperty
+    @property
+    @abc.abstractmethod
     def description(self):
         """
         Get the module description.
