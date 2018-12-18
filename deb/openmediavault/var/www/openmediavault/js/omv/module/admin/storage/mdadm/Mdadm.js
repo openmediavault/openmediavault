@@ -69,6 +69,7 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Create", {
 	autoLoadData: false,
 	hideResetButton: true,
 	width: 550,
+	height: 390,
 
 	getFormConfig: function() {
 		return {
@@ -141,7 +142,7 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Create", {
 			minSelections: 3, // Min. number of devices for RAID5
 			useStringValue: true,
 			minHeight: 170,
-			flex: 1,
+			// flex: 1, // Hides the field info due render error
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,
 				model: OMV.data.Model.createImplicit({
@@ -199,7 +200,11 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Create", {
 					stateId: "serialnumber",
 					flex: 1
 				}]
-			}
+			},
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("Select the devices that will be used to create the RAID device. Devices connected via USB will not be listed (too unreliable).")
+			}]
 		}];
 	},
 
@@ -246,7 +251,7 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Add", {
 	autoLoadData: false,
 	hideResetButton: true,
 	width: 550,
-	height: 270,
+	height: 390,
 
 	getFormConfig: function() {
 		return {
@@ -290,8 +295,8 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Add", {
 			valueField: "devicefile",
 			minSelections: 1,
 			useStringValue: true,
-			height: 130,
-//			flex: 1, // Hides the field info due render error
+			height: 170,
+			// flex: 1, // Hides the field info due render error
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,
 				model: OMV.data.Model.createImplicit({
@@ -393,7 +398,7 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Remove", {
 	autoLoadData: false,
 	hideResetButton: true,
 	width: 550,
-	height: 270,
+	height: 390,
 
 	getFormConfig: function() {
 		return {
@@ -455,8 +460,8 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Remove", {
 			minSelections: 1,
 			maxSelections: maxSelections,
 			useStringValue: true,
-			height: 130,
-//			flex: 1, // Hides the field info due render error
+			height: 170,
+			// flex: 1, // Hides the field info due render error
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,
 				model: OMV.data.Model.createImplicit({

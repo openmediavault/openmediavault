@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-05 22:03+0200\n"
+"POT-Creation-Date: 2018-12-21 09:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2786,6 +2786,9 @@ msgid "Select devices to be removed from the RAID device."
 msgstr ""
 
 msgid "Select or enter a user name ..."
+msgstr ""
+
+msgid "Select the devices that will be used to create the RAID device. Devices connected via USB will not be listed (too unreliable)."
 msgstr ""
 
 msgid "Self-test logs"
