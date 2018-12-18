@@ -72,12 +72,21 @@ def get_extended_description(raw_description):
             lines[i] = "\n"
     return "\n".join(lines)
 
-def _get_value(f, default=None):
+
+def get_value(f, default=None):
+    """
+    :param f: The function to be executed.
+    :type f: callable
+    :param default: The default value. Defaults to ``None``.
+    :type default: str|int|None
+    :return: Returns the specified value, otherwise the default on failure.
+    """
     try:
         return f()
     except SystemError:
         pass
     return default
+
 
 cache = apt.cache.Cache()
 
@@ -119,9 +128,9 @@ for pkg in cache.get_changes():
         "priority": pkg.candidate.priority,
         "filename": pkg.candidate.filename,
         "size": pkg.candidate.size,
-        "md5sum": _get_value(lambda: pkg.candidate.md5),
-        "sha1": _get_value(lambda: pkg.candidate.sha1),
-        "sha256": _get_value(lambda: pkg.candidate.sha256),
+        "md5sum": get_value(lambda: pkg.candidate.md5),
+        "sha1": get_value(lambda: pkg.candidate.sha1),
+        "sha256": get_value(lambda: pkg.candidate.sha256),
         "uri": pkg.candidate.uri,
         "uris": pkg.candidate.uris
     })  # yapf: disable
@@ -170,9 +179,9 @@ for pkg in filtered:
         "priority": pkg.candidate.priority,
         "filename": pkg.candidate.filename,
         "size": pkg.candidate.size,
-        "md5sum": _get_value(lambda: pkg.candidate.md5),
-        "sha1": _get_value(lambda: pkg.candidate.sha1),
-        "sha256": _get_value(lambda: pkg.candidate.sha256),
+        "md5sum": get_value(lambda: pkg.candidate.md5),
+        "sha1": get_value(lambda: pkg.candidate.sha1),
+        "sha256": get_value(lambda: pkg.candidate.sha256),
         "installed": pkg.is_installed
     })  # yapf: disable
 with open(
