@@ -1,6 +1,7 @@
 openmediavault (4.1.16-1) stable; urgency=low
 
   * Fix some Python code issues.
+  * Fix bug in omv-mkaptidx.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 14 Dec 2018 09:26:08 +0100
 
