@@ -21,13 +21,10 @@
  */
 namespace OMV\System\Net\NetworkInterfaceBackend;
 
-///////////////////////////////////////////////////////////////////////////////
-// Register default network interface backends.
-///////////////////////////////////////////////////////////////////////////////
-$backends = [ "Bond", "Bridge", "Ethernet", "Infiniband", "Loopback",
-  "Virtual", "Vlan", "Wireless", "Thunderbolt" ];
-$mngr = Manager::getInstance();
-foreach ($backends as $backendk => $backendv) {
-	$className = sprintf("%s\%s", __NAMESPACE__, $backendv);
-	$mngr->registerBackend(new $className());
+/**
+ * Implements the network interface backend for Thunderbolt devices.
+ * @ingroup api
+ */
+class Thunderbolt extends Ethernet {
+	protected $regex = "/^thunderbolt[0-9]+$/i";
 }
