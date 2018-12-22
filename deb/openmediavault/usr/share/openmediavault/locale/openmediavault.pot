@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-21 09:01+0100\n"
+"POT-Creation-Date: 2018-12-22 17:15+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2788,7 +2788,7 @@ msgstr ""
 msgid "Select or enter a user name ..."
 msgstr ""
 
-msgid "Select the devices that will be used to create the RAID device. Devices connected via USB will not be listed (too unreliable)."
+msgid "Select the devices that will be used to create the RAID device."
 msgstr ""
 
 msgid "Self-test logs"
@@ -2948,6 +2948,9 @@ msgid "Solomon Islands"
 msgstr ""
 
 msgid "Somalia"
+msgstr ""
+
+msgid "Some of the selected devices are connected via USB which can lead to data loss. Do you want to continue anyway?"
 msgstr ""
 
 msgid "Source"

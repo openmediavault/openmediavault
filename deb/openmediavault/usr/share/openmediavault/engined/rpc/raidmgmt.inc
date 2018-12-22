@@ -186,9 +186,6 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Skip read-only devices like CDROM.
 			if (TRUE === $sd->isReadOnly())
 				continue;
-			// Skip devices that are connected via USB.
-			if (TRUE === $sd->isUsb())
-				continue;
 			// Check if the device is referenced/used by a plugin.
 			$db = \OMV\Config\Database::getInstance();
 			if (TRUE === $db->exists("conf.service", [
@@ -208,7 +205,8 @@ class OMVRpcServiceRaidMgmt extends \OMV\Rpc\ServiceAbstract {
 				"size" => $sd->getSize(),
 				"vendor" => $sd->getVendor(),
 				"serialnumber" => $sd->getSerialNumber(),
-				"description" => $sd->getDescription()
+				"description" => $sd->getDescription(),
+				"isusb" => $sd->isUsb()
 			];
 		}
 		return $result;

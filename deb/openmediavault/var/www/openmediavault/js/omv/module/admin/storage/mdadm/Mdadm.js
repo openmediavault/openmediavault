@@ -151,7 +151,8 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Create", {
 						{ name: "devicefile", type: "string" },
 						{ name: "size", type: "string" }, // This is a string
 						{ name: "vendor", type: "string" },
-						{ name: "serialnumber", type: "string" }
+						{ name: "serialnumber", type: "string" },
+						{ name: "isusb", type: "boolean" }
 					]
 				}),
 				proxy: {
@@ -203,26 +204,38 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Create", {
 			},
 			plugins: [{
 				ptype: "fieldinfo",
-				text: _("Select the devices that will be used to create the RAID device. Devices connected via USB will not be listed (too unreliable).")
+				text: _("Select the devices that will be used to create the RAID device.")
 			}]
 		}];
 	},
 
 	doSubmit: function() {
 		var me = this;
-		OMV.MessageBox.show({
-			title: _("Confirmation"),
-			msg: _("Do you really want to create the RAID device?"),
-			buttons: Ext.Msg.YESNO,
-			fn: function(answer) {
+		// Append warning message if USB devices are selected.
+		var devicesField = me.findField("devices");
+		var records = devicesField.getGrid().getSelection();
+		var isUsb = Ext.Array.some(records, function(record) {
+			return record.get("isusb");
+		});
+		OMV.MessageBox.confirm(
+			null,
+			_("Do you really want to create the RAID device?"),
+			function(answer) {
 				if (answer === "no")
 					return;
-				me.superclass.doSubmit.call(me);
-			},
-			scope: me,
-			icon: Ext.Msg.QUESTION,
-			defaultFocus: "no"
-		});
+				if (isUsb) {
+					OMV.MessageBox.confirmWarning(
+						null,
+						_("Some of the selected devices are connected via USB which can lead to data loss. Do you want to continue anyway?"),
+						function(answer) {
+							if (answer === "no")
+								return;
+							me.superclass.doSubmit.call(me);
+						});
+				} else {
+					me.superclass.doSubmit.call(me);
+				}
+			});
 	}
 });
 
