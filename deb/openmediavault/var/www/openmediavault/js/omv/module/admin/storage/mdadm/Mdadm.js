@@ -210,19 +210,13 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Create", {
 
 	doSubmit: function() {
 		var me = this;
-		OMV.MessageBox.show({
-			title: _("Confirmation"),
-			msg: _("Do you really want to create the RAID device?"),
-			buttons: Ext.Msg.YESNO,
-			fn: function(answer) {
+		OMV.MessageBox.confirm(null,
+			_("Do you really want to create the RAID device?"),
+			function(answer) {
 				if (answer === "no")
 					return;
 				me.superclass.doSubmit.call(me);
-			},
-			scope: me,
-			icon: Ext.Msg.QUESTION,
-			defaultFocus: "no"
-		});
+			}, me);
 	}
 });
 

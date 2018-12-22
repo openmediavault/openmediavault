@@ -313,15 +313,10 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 	onWipebutton: function() {
 		var me = this;
 		var record = me.getSelected();
-		OMV.MessageBox.show({
-			title: _("Confirmation"),
-			icon: Ext.Msg.QUESTION,
-			msg: _("Do you really want to wipe the selected device?"),
-			buttons: Ext.Msg.YESNO,
-			defaultFocus: "no",
-			scope: me,
-			fn: function(answer) {
-				if(answer !== "yes")
+		OMV.MessageBox.confirm(null,
+			_("Do you really want to wipe the selected device?"),
+			function(answer) {
+				if (answer !== "yes")
 					return;
 				OMV.MessageBox.show({
 					title: _("Wiping device ..."),
@@ -334,7 +329,7 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 					},
 					scope: this,
 					fn: function(answer) {
-						if(answer == "cancel")
+						if (answer == "cancel")
 							return;
 						var wnd = Ext.create("OMV.window.Execute", {
 							title: _("Wiping device ..."),
@@ -367,8 +362,7 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 						wnd.start();
 					}
 				});
-			}
-		});
+			}, me);
 	},
 
 	onScanButton: function() {
