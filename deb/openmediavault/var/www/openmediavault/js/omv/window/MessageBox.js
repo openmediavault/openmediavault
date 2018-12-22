@@ -32,8 +32,52 @@ Ext.define("OMV.window.MessageBox", {
 	YESCANCEL: 10,
 
 	/**
-	 * Display a info box.
-	 * @param title The title bar text.
+	 * Display a confirmation box that can be answered with 'Yes' or 'No'.
+	 * The 'No' button is focused by default.
+	 * @param title The title bar text. Defaults to 'Confirmation'.
+	 * @param msg The message box body text.
+	 * @param fn (optional) The callback function invoked after the.
+	 * message box is closed.
+	 * @param scope (optional) The scope in which the callback is executed.
+	 */
+	confirm: function(title, msg, fn, scope) {
+		return this.show({
+			title: title || _("Confirmation"),
+			msg: msg,
+			modal: true,
+			icon: this.QUESTION,
+			buttons: this.YESNO,
+			defaultFocus: "no",
+			fn: fn,
+			scope: scope
+		});
+	},
+
+	/**
+	 * Display a warning box that can be answered with 'Yes' or 'No'.
+	 * The 'No' button is focused by default.
+	 * @param title The title bar text. Defaults to 'Warning'.
+	 * @param msg The message box body text.
+	 * @param fn (optional) The callback function invoked after the.
+	 * message box is closed.
+	 * @param scope (optional) The scope in which the callback is executed.
+	 */
+	confirmWarning: function(title, msg, fn, scope) {
+		return this.show({
+			title: title || _("Warning"),
+			msg: msg,
+			modal: true,
+			icon: this.WARNING,
+			buttons: this.YESNO,
+			defaultFocus: "no",
+			fn: fn,
+			scope: scope
+		});
+	},
+
+	/**
+	 * Display an info box.
+	 * @param title The title bar text. Defaults to 'Information'.
 	 * @param msg The message box body text.
 	 * @param fn (optional) The callback function invoked after the.
 	 * message box is closed.
@@ -53,7 +97,7 @@ Ext.define("OMV.window.MessageBox", {
 
 	/**
 	 * Display a warning box.
-	 * @param title The title bar text.
+	 * @param title The title bar text. Defaults to 'Warning'.
 	 * @param msg The message box body text.
 	 * @param fn (optional) The callback function invoked after the.
 	 * message box is closed.
@@ -73,7 +117,7 @@ Ext.define("OMV.window.MessageBox", {
 
 	/**
 	 * Display a success box.
-	 * @param title The title bar text.
+	 * @param title The title bar text. Defaults to 'Success'.
 	 * @param msg The message box body text.
 	 * @param fn (optional) The callback function invoked after the.
 	 * message box is closed.
@@ -93,7 +137,7 @@ Ext.define("OMV.window.MessageBox", {
 
 	/**
 	 * Display a failure box.
-	 * @param title The title bar text.
+	 * @param title The title bar text. Defaults to 'Error'.
 	 * @param msg The message box body text.
 	 * @param fn (optional) The callback function invoked after the
 	 *   message box is closed.
