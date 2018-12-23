@@ -135,12 +135,9 @@ Ext.define("OMV.module.admin.storage.filesystem.Create", {
 
 	doSubmit: function() {
 		var me = this;
-		OMV.MessageBox.show({
-			title: _("Confirmation"),
-			msg: _("Do you really want to format this device? All data on it will be deleted. Please note that the file system creation may take some time."),
-			buttons: Ext.Msg.YESNO,
-			defaultFocus: "no",
-			fn: function(answer) {
+		OMV.MessageBox.confirm(null,
+			_("Do you really want to format this device? All data on it will be deleted. Please note that the file system creation may take some time."),
+			function(answer) {
 				if (answer === "no")
 					return;
 				// Display dialog showing the file system creation progress.
@@ -170,10 +167,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Create", {
 					}
 				}).start();
 				me.superclass.doSubmit.apply(this, arguments);
-			},
-			scope: me,
-			icon: Ext.Msg.QUESTION
-		});
+			}, me);
 	}
 });
 
@@ -714,15 +708,9 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 
 	onResizeButton: function() {
 		var me = this;
-		var msg = _("Do you really want to resize the selected file system? You have to do that after a RAID has been grown for example.");
-		OMV.MessageBox.show({
-			title: _("Confirmation"),
-			msg: msg,
-			buttons: Ext.Msg.YESNO,
-			icon: Ext.Msg.QUESTION,
-			defaultFocus: "no",
-			scope: me,
-			fn: function(answer) {
+		OMV.MessageBox.confirm(null,
+			_("Do you really want to resize the selected file system? You have to do that after a RAID has been grown for example.")
+			function(answer) {
 				if (answer !== "yes")
 					return;
 				var record = me.getSelected();
@@ -741,8 +729,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 						}
 					}
 				});
-			}
-		});
+			}, me);
 	},
 
 	onQuotaButton: function() {

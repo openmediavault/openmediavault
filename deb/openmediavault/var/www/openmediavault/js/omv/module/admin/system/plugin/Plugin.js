@@ -406,12 +406,9 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 		Ext.Array.each(records, function(record) {
 			packages.push(record.get("name"));
 		});
-		OMV.MessageBox.show({
-			title: _("Confirmation"),
-			msg: _("Do you really want to install the selected plugin(s)?"),
-			buttons: Ext.Msg.YESNO,
-			defaultFocus: "no",
-			fn: function(answer) {
+		OMV.MessageBox.confirm(null,
+			_("Do you really want to install the selected plugin(s)?"),
+			function(answer) {
 				if (answer !== "yes")
 					return;
 				var wnd = Ext.create("OMV.window.Execute", {
@@ -452,10 +449,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 				wnd.setButtonDisabled("close", true);
 				wnd.show();
 				wnd.start();
-			},
-			scope: me,
-			icon: Ext.Msg.QUESTION
-		});
+			}, me);
 	},
 
 	onDeleteButton: function() {
@@ -465,12 +459,9 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 		Ext.Array.each(records, function(record) {
 			packages.push(record.get("name"));
 		});
-		OMV.MessageBox.show({
-			title: _("Confirmation"),
-			msg: _("Do you really want to uninstall the selected plugin(s)?"),
-			buttons: Ext.Msg.YESNO,
-			defaultFocus: "no",
-			fn: function(answer) {
+		OMV.MessageBox.confirm(null,
+			_("Do you really want to uninstall the selected plugin(s)?"),
+			function(answer) {
 				if (answer !== "yes")
 					return;
 				var wnd = Ext.create("OMV.window.Execute", {
@@ -511,10 +502,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 				wnd.setButtonDisabled("close", true);
 				wnd.show();
 				wnd.start();
-			},
-			scope: me,
-			icon: Ext.Msg.QUESTION
-		});
+			}, me);
 	}
 });
 

@@ -244,13 +244,9 @@ Ext.define("OMV.workspace.Workspace", {
 								if (!(Ext.isObject(item) && Ext.isDefined(
 										item.action)))
 									return;
-								OMV.MessageBox.show({
-									title: _("Confirmation"),
-									msg: item.msg,
-									buttons: Ext.Msg.YESNO,
-									defaultFocus: "no",
-									fn: function(answer) {
-										if(answer !== "yes")
+								OMV.MessageBox.confirm(null, item.msg,
+									function(answer) {
+										if (answer !== "yes")
 											return;
 										switch (item.action) {
 										case "resetdefaults":
@@ -347,10 +343,7 @@ Ext.define("OMV.workspace.Workspace", {
 											});
 											break;
 										}
-									},
-									scope: this,
-									icon: Ext.Msg.QUESTION
-								});
+									}, this);
 							},
 							scope: this
 						}

@@ -515,20 +515,13 @@ Ext.define("OMV.workspace.grid.Panel", {
 		var me = this;
 		var records = me.getSelection();
 		if (me.deletionConfirmRequired === true) {
-			var msg = _("Do you really want to delete the selected item(s)?");
-			OMV.MessageBox.show({
-				title: _("Confirmation"),
-				msg: msg,
-				buttons: Ext.Msg.YESNO,
-				defaultFocus: "no",
-				fn: function(answer) {
+			OMV.MessageBox.confirm(null,
+				_("Do you really want to delete the selected item(s)?"),
+				function(answer) {
 					if (answer !== "yes")
 						return;
 					me.startDeletion(records);
-				},
-				scope: me,
-				icon: Ext.Msg.QUESTION
-			});
+				}, me);
 		} else {
 			me.startDeletion(records);
 		}

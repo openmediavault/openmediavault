@@ -136,15 +136,9 @@ Ext.define("OMV.module.admin.diagnostic.log.Logs", {
 	 */
 	onClearButton: function() {
 		var me = this;
-		var msg = _("Do you really want to clear the log file?");
-		OMV.MessageBox.show({
-			title: _("Confirmation"),
-			msg: msg,
-			buttons: Ext.Msg.YESNO,
-			icon: Ext.Msg.QUESTION,
-			defaultFocus: "no",
-			scope: me,
-			fn: function(answer) {
+		OMV.MessageBox.confirm(null,
+			_("Do you really want to clear the log file?"),
+			function(answer) {
 				if (answer !== "yes")
 					return;
 				// Execute RPC.
@@ -160,8 +154,7 @@ Ext.define("OMV.module.admin.diagnostic.log.Logs", {
 						params: this.activePlugin.rpcParams
 					}
 				});
-			}
-		});
+			}, me);
 	},
 
 	/**

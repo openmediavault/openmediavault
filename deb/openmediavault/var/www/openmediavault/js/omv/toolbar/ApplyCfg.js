@@ -68,12 +68,9 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 				listeners: {
 					scope: me,
 					click: function(c, e) {
-						OMV.MessageBox.show({
-							title: _("Confirmation"),
-							msg: _("Do you really want to apply the configuration changes?"),
-							buttons: Ext.Msg.YESNO,
-							defaultFocus: "no",
-							fn: function(answer) {
+						OMV.MessageBox.confirm(null,
+							_("Do you really want to apply the configuration changes?"),
+							function(answer) {
 								if (answer !== "yes")
 									return;
 								// Hide the toolbar during the process.
@@ -97,10 +94,7 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 									},
 									scope: this
 								});
-							},
-							scope: this,
-							icon: Ext.Msg.QUESTION
-						});
+							}, this);
 					}
 				}
 			},{
@@ -111,11 +105,9 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 				listeners: {
 					scope: me,
 					click: function(c, e) {
-						OMV.MessageBox.show({
-							title: _("Confirmation"),
-							msg: _("Do you really want to revert the configuration changes?"),
-							buttons: Ext.Msg.YESNO,
-							fn: function(answer) {
+						OMV.MessageBox.confirm(null,
+							_("Do you really want to revert the configuration changes?"),
+							function(answer) {
 								if (answer !== "yes")
 									return;
 								// Hide the toolbar during the process.
@@ -138,10 +130,7 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 									},
 									scope: this
 								});
-							},
-							scope: this,
-							icon: Ext.Msg.QUESTION
-						});
+							}, this);
 					}
 				}
 			}]
