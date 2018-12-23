@@ -1,0 +1,25 @@
+{%- set separator = ' ' -%}
+{%- set script_prefix = salt['pillar.get']('default:OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT_PREFIX', 'clamdscan-') -%}
+{%- set cmd_args = salt['pillar.get']('default:OMV_CLAMAV_CLAMDSCAN_CMDARGS', '--stdout') -%}
+{%- set runfile = '/var/run' | path_join(script_prefix ~ job.uuid) -%}
+#!/bin/sh
+{{ pillar['headers']['multiline'] -}}
+. /usr/share/openmediavault/scripts/helper-functions
+cleanup() {
+    omv_kill_children $$
+    rm -f "{{ runfile }}"
+    exit
+}
+[ -e "{{ runfile }}" ] && exit 1
+trap cleanup 0 1 2 5 15
+touch "{{ runfile }}"
+omv_log "Please wait, scanning shared folder <{{ salt['omv_conf.get_sharedfolder_name'](job.sharedfolderref) }}> ...\n"
+clamdscan {{ cmd_args }}
+{%- if job.virusaction == 'delete' %}{{ separator }}--remove{%- endif %}
+{%- if job.virusaction == 'quarantine' %}{{ separator }}--move="{{ salt['omv_conf.get_sharedfolder_path'](clamav_config.quarantine.sharedfolderref) }}"{%- endif %}
+{%- if job.multiscan | to_bool %}{{ separator }}--multiscan{%- endif %}
+{%- if job.verbose | to_bool %}{{ separator }}--verbose{%- endif -%}
+{{ separator }}"{{ salt['omv_conf.get_sharedfolder_path'](job.sharedfolderref) }}" & wait $!
+{%- if not job.option_quiet | to_bool %}
+omv_log "\nThe scan has completed successfully."
+{%- endif %}
