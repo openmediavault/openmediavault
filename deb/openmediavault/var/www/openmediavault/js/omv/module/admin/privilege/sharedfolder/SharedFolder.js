@@ -217,20 +217,14 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 					isDirty = true;
 			}, me);
 			if (true === isDirty) {
-				OMV.MessageBox.show({
-					title: _("Confirmation"),
-					msg: _("Do you really want to relocate the shared folder? The content of the shared folder will not be moved automatically, you have to do this yourself."),
-					icon: Ext.Msg.QUESTION,
-					buttons: Ext.Msg.YESNO,
-					defaultFocus: "no",
-					fn: function(answer) {
+				OMV.MessageBox.confirm(null,
+					_("Do you really want to relocate the shared folder? The content of the shared folder will not be moved automatically, you have to do this yourself."),
+					function(answer) {
 						if (answer == "yes") // Continue ...
 							me.superclass.doSubmit.apply(this, arguments);
 						else // Close the window and exit.
 							this.close();
-					},
-					scope: me
-				});
+					}, me);
 			} else {
 				me.callParent(arguments);
 			}
@@ -856,19 +850,13 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 			return;
 		}
 		// Recursively delete the shared folder configuration and its content.
-		OMV.MessageBox.show({
-			title: _("Confirmation"),
-			msg: _("Do you really want to remove the shared folder content? It will be permanently removed and cannot be recovered."),
-			icon: Ext.Msg.WARNING,
-			buttons: OMV.Msg.YESNO,
-			defaultFocus: "no",
-			scope: me,
-			fn: function(answer) {
+		OMV.MessageBox.confirmWarning(null,
+			_("Do you really want to remove the shared folder content? It will be permanently removed and cannot be recovered."),
+			function(answer) {
 				if (answer === "yes") {
 					me.superclass.startDeletion.apply(this, [ records ]);
 				}
-			}
-		});
+			}, me);
 	},
 
 	doDeletion: function(record) {

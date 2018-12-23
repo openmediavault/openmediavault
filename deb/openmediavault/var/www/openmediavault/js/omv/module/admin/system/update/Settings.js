@@ -45,7 +45,7 @@ Ext.define("OMV.module.admin.system.update.Settings", {
 					cancel: _("Close")
 				},
 				fn: function(answer) {
-					if("cancel" === answer)
+					if ("cancel" === answer)
 						return;
 					OMV.RpcObserver.request({
 						title: _("Downloading package information"),
