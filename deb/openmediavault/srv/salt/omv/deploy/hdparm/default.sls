@@ -20,6 +20,9 @@
 # Documentation/Howto:
 # http://wiki.debianforum.de/Hdparm
 
+# hdparm is now triggered via UDEV.
+# See /lib/udev/rules.d/85-hdparm.rules and /lib/udev/hdparm scripts.
+
 {% set config = salt['omv_conf.get']('conf.system.hdparm') %}
 
 configure_hdparm_conf:
