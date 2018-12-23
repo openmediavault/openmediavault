@@ -31,7 +31,7 @@ configure_chrony:
     - group: root
     - mode: 644
 
-{% if config.ntp.enable %}
+{% if config.ntp.enable | to_bool %}
 
 start_chrony_service:
   service.running:
