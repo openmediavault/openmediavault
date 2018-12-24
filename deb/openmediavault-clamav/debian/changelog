@@ -2,6 +2,7 @@ openmediavault-clamav (4.1.9) stable; urgency=low
 
   * Remove deprecated option StatsEnabled, StatsPEDisabled, StatsHostID
     and StatsTimeout.
+  * Disable freshclam if database checks are set to 0.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 23 Dec 2018 18:47:35 +0100
 

@@ -102,7 +102,7 @@ class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 			  'followdirectorysymlinks'],
 			"clamd.detectpua" => $params['detectpua'],
 			"clamd.extraoptions" => $params['extraoptions'],
-			"freshclam.enable" => $params['enable'],
+			"freshclam.enable" => $params['enable'] && $params['checks'] > 0,
 			"freshclam.checks" => $params['checks']
 		]);
 		// Do some validations:
