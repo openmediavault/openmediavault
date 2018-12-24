@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2017
+# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-21 09:01+0100\n"
-"PO-Revision-Date: 2018-12-21 08:02+0000\n"
+"POT-Creation-Date: 2018-12-23 17:24+0100\n"
+"PO-Revision-Date: 2018-12-23 16:24+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/votdev/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -44,7 +44,7 @@ msgid "1 day"
 msgstr "1 dag"
 
 msgid "1 minute"
-msgstr ""
+msgstr "1 minut"
 
 msgid "1 month"
 msgstr "1 måned"
@@ -75,7 +75,7 @@ msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - Minimum strømforbrug uden standby (ingen spindown)"
 
 msgid "15 minutes"
-msgstr ""
+msgstr "15 minutter"
 
 msgid "15 years"
 msgstr "15 år"
@@ -90,7 +90,7 @@ msgid "2 days"
 msgstr "2 dage"
 
 msgid "2 minutes"
-msgstr ""
+msgstr "2 minutter"
 
 msgid "2 weeks"
 msgstr "2 uge"
@@ -120,7 +120,7 @@ msgid "3 days"
 msgstr "3 dage"
 
 msgid "3 minutes"
-msgstr ""
+msgstr "3 minutter"
 
 msgid "3 months"
 msgstr "3 måneder"
@@ -144,7 +144,7 @@ msgid "4 days"
 msgstr "4 dage"
 
 msgid "4 minutes"
-msgstr ""
+msgstr "4 minutter"
 
 msgid "4 years"
 msgstr "4 år"
@@ -694,10 +694,10 @@ msgid "Cook Islands"
 msgstr "Cook Islands"
 
 msgid "Copy"
-msgstr ""
+msgstr "Kopier"
 
 msgid "Copy public SSH key"
-msgstr ""
+msgstr "Kopier offentlig SSH nøgle"
 
 msgid "Copy to clipboard"
 msgstr "Kopier til udklipsholder"
@@ -883,7 +883,7 @@ msgid "Disk usage"
 msgstr "Disk forbrug"
 
 msgid "Disks"
-msgstr ""
+msgstr "Diske"
 
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Viser emne {0} - {1} af {2}"
@@ -1443,7 +1443,7 @@ msgid "Guyana"
 msgstr "Guyana"
 
 msgid "HTTP 404 error"
-msgstr ""
+msgstr "HTTP 404 fejl"
 
 msgid "HTTP-Proxy"
 msgstr "HTTP-Proxy"
