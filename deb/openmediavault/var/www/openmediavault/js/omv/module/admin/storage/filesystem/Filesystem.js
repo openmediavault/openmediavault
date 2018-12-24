@@ -709,7 +709,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 	onResizeButton: function() {
 		var me = this;
 		OMV.MessageBox.confirm(null,
-			_("Do you really want to resize the selected file system? You have to do that after a RAID has been grown for example.")
+			_("Do you really want to resize the selected file system? You have to do that after a RAID has been grown for example."),
 			function(answer) {
 				if (answer !== "yes")
 					return;

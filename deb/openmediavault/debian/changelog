@@ -1,3 +1,9 @@
+openmediavault (4.1.16-2) stable; urgency=low
+
+  * Fix bug in file system UI.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Dec 2018 22:33:09 +0100
+
 openmediavault (4.1.16-1) stable; urgency=low
 
   * Update locales.
