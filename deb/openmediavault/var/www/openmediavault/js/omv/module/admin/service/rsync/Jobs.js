@@ -158,14 +158,14 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 					properties: "show"
 				},{
 					name: [
-						"option_recursive",
-						"option_perms",
-						"option_times",
-						"option_group",
-						"option_owner"
+						"optionrecursive",
+						"optionperms",
+						"optiontimes",
+						"optiongroup",
+						"optionowner"
 					],
 					conditions: [
-						{ name: "option_archive", value: true }
+						{ name: "optionarchive", value: true }
 					],
 					properties: "checked"
 				}]
@@ -417,79 +417,79 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 			}]
 		},{
 			xtype: "checkbox",
-			name: "option_dryrun",
+			name: "optiondryrun",
 			fieldLabel: _("Trial run"),
 			checked: false,
 			boxLabel: _("Perform a trial run with no changes made")
 		},{
 			xtype: "checkbox",
-			name: "option_quiet",
+			name: "optionquiet",
 			fieldLabel: _("Quiet"),
 			checked: false,
 			boxLabel: _("Suppress non-error messages")
 		},{
 			xtype: "checkbox",
-			name: "option_archive",
+			name: "optionarchive",
 			fieldLabel: _("Archive"),
 			checked: true,
 			boxLabel: _("Enable archive mode")
 		},{
 			xtype: "checkbox",
-			name: "option_recursive",
+			name: "optionrecursive",
 			fieldLabel: _("Recursive"),
 			checked: true,
 			boxLabel: _("Recurse into directories")
 		},{
 			xtype: "checkbox",
-			name: "option_perms",
+			name: "optionperms",
 			fieldLabel: _("Preserve permissions"),
 			checked: true,
 			boxLabel: _("Set the destination permissions to be the same as the source permissions")
 		},{
 			xtype: "checkbox",
-			name: "option_times",
+			name: "optiontimes",
 			fieldLabel: _("Times"),
 			checked: true,
 			boxLabel: _("Preserve modification times")
 		},{
 			xtype: "checkbox",
-			name: "option_group",
+			name: "optiongroup",
 			fieldLabel: _("Group"),
 			checked: true,
 			boxLabel: _("Preserve group")
 		},{
 			xtype: "checkbox",
-			name: "option_owner",
+			name: "optionowner",
 			fieldLabel: _("Owner"),
 			checked: true,
 			boxLabel: _("Preserve owner")
 		},{
 			xtype: "checkbox",
-			name: "option_compress",
+			name: "optioncompress",
 			fieldLabel: _("Compress"),
 			checked: false,
 			boxLabel: _("Compress file data during the transfer")
 		},{
 			xtype: "checkbox",
-			name: "option_acls",
+			name: "optionacls",
 			fieldLabel: _("Preserve ACLs"),
 			checked: false,
 			boxLabel: _("Update the destination ACLs to be the same as the source ACLs")
 		},{
 			xtype: "checkbox",
-			name: "option_xattrs",
+			name: "optionxattrs",
 			fieldLabel: _("Preserve extended attributes"),
 			checked: false,
 			boxLabel: _("Update the destination extended attributes to be the same as the local ones")
 		},{
 			xtype: "checkbox",
-			name: "option_partial",
+			name: "optionpartial",
 			fieldLabel: _("Keep partially transferred files"),
 			checked: false,
 			boxLabel: _("Enable this option to keep partially transferred files, otherwise they will be deleted if the transfer is interrupted.")
 		},{
 			xtype: "checkbox",
-			name: "option_delete",
+			name: "optiondelete",
 			fieldLabel: _("Delete"),
 			checked: false,
 			boxLabel: _("Delete files on the receiving side that don't exist on sender")
