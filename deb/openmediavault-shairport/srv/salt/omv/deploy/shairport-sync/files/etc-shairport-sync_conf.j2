@@ -1,0 +1,28 @@
+{%- set general_output_backend = salt['pillar.get']('default:OMV_SHAIRPORT_GENERAL_OUTPUTBACKEND', 'alsa') -%}
+{%- set general_mdns_backend = salt['pillar.get']('default:OMV_SHAIRPORT_GENERAL_MDNSBACKEND', 'avahi') -%}
+{%- set general_interpolation = salt['pillar.get']('default:OMV_SHAIRPORT_GENERAL_INTERPOLATION', 'basic') -%}
+{%- set general_log_verbosity = salt['pillar.get']('default:OMV_SHAIRPORT_GENERAL_LOGVERBOSITY', '0') -%}
+{%- set general_ignore_volume_control = salt['pillar.get']('default:OMV_SHAIRPORT_GENERAL_IGNOREVOLUMECONTROL', 'no') -%}
+{%- set metadata_enabled = salt['pillar.get']('default:OMV_SHAIRPORT_METADATA_ENABLED', 'yes') -%}
+{%- set metadata_include_cover_art = salt['pillar.get']('default:OMV_SHAIRPORT_METADATA_INCLUDECOVERART', 'yes') -%}
+{{ pillar['headers']['multiline'] -}}
+general =
+{
+{%- if config.name | length > 0 %}
+    name = "{{ config.name }}";
+{%- endif %}
+    output_backend = "{{ general_output_backend }}";
+    mdns_backend = "{{ general_mdns_backend }}";
+    interpolation = "{{ general_interpolation }}";
+    log_verbosity = {{ general_log_verbosity }};
+    ignore_volume_control = "{{ general_ignore_volume_control }}";
+{%- if config.passwordrequired | to_bool %}
+    password = "{{ config.password }}";
+{%- endif %}
+};
+
+metadata =
+{
+    enabled = "{{ metadata_enabled }}";
+    include_cover_art = "{{ metadata_include_cover_art }}";
+};
