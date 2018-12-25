@@ -30,7 +30,6 @@ case "$1" in
 
 	remove)
 		omv-salt deploy run collectd
-		deb-systemd-invoke restart collectd.service || :
 		# Activate trigger to purge cached files.
 		dpkg-trigger update-fixperms
 	;;
