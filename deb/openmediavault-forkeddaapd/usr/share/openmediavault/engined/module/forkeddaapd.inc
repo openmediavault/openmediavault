@@ -19,71 +19,16 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-class OMVModuleForkedDaapd extends \OMV\Engine\Module\ServiceAbstract
-  implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
-	/**
-	 * Get the module name.
-	 */
+class ForkedDaapd extends \OMV\Engine\Module\ServiceAbstract
+		implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
 	public function getName() {
-		return "daapd";
+		return "forked-daapd";
 	}
 
-	/**
-	 * Defines the modules that if present should start before the service
-	 * provided by this module.
-	 * @return An array of modules.
-	 */
-	public function shouldStart() { return [ "monit" ]; }
-
-	/**
-	 * Defines the modules that if present should be stopped after the
-	 * service provided by this module.
-	 * @return An array of modules.
-	 */
-	function shouldStop() { return [ "monit" ]; }
-
-	/**
-	 * Generate the configuration.
-	 */
-	public function applyConfig() {
-		$cmd = new \OMV\System\Process("omv-mkconf", "forked-daapd");
-		$cmd->setRedirect2to1();
-		$cmd->execute();
+	public function deployAfter(): array {
+		return ["monit"];
 	}
 
-	/**
-	 * Stop the managed service.
-	 */
-	public function stopService() {
-		// Disable monitoring of this service.
-		$monit = new \OMV\System\Monit("forked-daapd");
-		$monit->unmonitor(TRUE);
-		// Stop this service and disable the unit file.
-		$systemCtl = new \OMV\System\SystemCtl("forked-daapd");
-		$systemCtl->disable(TRUE);
-	}
-
-	/**
-	 * Start the managed service.
-	 */
-	public function startService() {
-		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.service.daapd");
-		if (TRUE !== $object->get("enable"))
-			return;
-		// Start this service and enable the unit file.
-		$systemCtl = new \OMV\System\SystemCtl("forked-daapd");
-		$systemCtl->enable(TRUE);
-		// Wait to allow the service to start.
-		$systemCtl->waitUntilActive(5);
-		// Enable monitoring of this service.
-		$monit = new \OMV\System\Monit("forked-daapd");
-		$monit->monitor();
-	}
-
-	/**
-	 * Get the status of the managed service.
-	 */
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.daapd");
@@ -132,17 +77,14 @@ class OMVModuleForkedDaapd extends \OMV\Engine\Module\ServiceAbstract
 			$this->setDirtyByName("monit");
 	}
 
-	/**
-	 * Bind listeners.
-	 */
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.daapd",
-		  [ $this, "onModifySettings" ]);
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.service.daapd",
+			[ $this, "onModifySettings" ]);
 		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.sharedfolder",
-		  [ $this, "onModifySharedFolder" ]);
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.system.sharedfolder",
+			[ $this, "onModifySharedFolder" ]);
 	}
 }
