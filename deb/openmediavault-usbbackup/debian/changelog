@@ -1,4 +1,17 @@
-openmediavault-usbbackup (4.0.7-1) stable; urgency=low
+openmediavault-usbbackup (5.0-1) stable; urgency=low
+
+  * Adapt to Debian 10 (Buster).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 25 Dec 2018 23:21:13 +0100
+
+openmediavault-usbbackup (4.0.8-1) stable; urgency=low
+
+  * Remove useless systemd unit file.
+  * Fix bug in UI. The whole UI was not usable after closing the job dialog.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Dec 2018 11:21:24 +0100
+
+ openmediavault-usbbackup (4.0.7-1) stable; urgency=low
 
   * Fix various bugs, e.g. in shell scripts when the devicefile looks like
     /dev/disk/by-label/... and contains blanks.

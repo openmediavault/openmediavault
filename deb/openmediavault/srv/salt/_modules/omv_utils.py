@@ -21,6 +21,7 @@
 import openmediavault.config
 import openmediavault.device
 import openmediavault.fs
+import openmediavault.string
 import os
 import re
 
@@ -168,17 +169,82 @@ def get_root_filesystem():
     return fs.device_file
 
 
-@jinja_filter('build_mount_path')
-def build_mount_path(id_):
+@jinja_filter('make_mount_path')
+def make_mount_path(id_):
     """
-    Build the mount path for the given device file or file system UUID.
+    Build the mount path from any given string, device file or
+    file system UUID.
     :param id_: The device file or the file system UUID.
     :type id_: str
-    :return: The mount path, e.g
+    :return: Returns the mount path, e.g
 
-    * /srv/6c5be784-50a8-440c-9d25-aab99b9c6fb1
-    * /srv/_dev_disk_by-id_wwn-0x5000cca211cc703c-part1
+    * /srv/6c5be784-50a8-440c-9d25-aab99b9c6fb1/
+    * /srv/_dev_disk_by-id_wwn-0x5000cca211cc703c-part1/
 
     :rtype: str
     """
-    return openmediavault.fs.build_mount_path(id_)
+    return openmediavault.fs.make_mount_path(id_)
+
+
+@jinja_filter('prettify_dir_path')
+def prettify_dir_path(path):
+    """
+    Make sure the directory path ends with a slash.
+    :param path: The path to process.
+    :type path: str
+    :return: Returns the prettified path.
+    :rtype: str
+    """
+    return openmediavault.string.prettify_dir_path(path)
+
+
+@jinja_filter('strip')
+def strip(value, chars=None):
+    """
+    Returns a copy of the string with the leading and trailing
+    characters removed.
+    :param value: The string to process.
+    :type value: str
+    :param chars: String specifying the set of characters to be
+        removed. If omitted or None, the chars argument defaults
+        to removing whitespace. Defaults to ``None``.
+    :type chars: str|None
+    :return: Returns the stripped string.
+    :rtype: str
+    """
+    assert isinstance(value, str)
+    return value.strip(chars)
+
+
+@jinja_filter('lstrip')
+def lstrip(value, chars=None):
+    """
+    Returns a copy of the string with leading characters removed.
+    :param value: The string to process.
+    :type value: str
+    :param chars: String specifying the set of characters to be
+        removed. If omitted or None, the chars argument defaults
+        to removing whitespace. Defaults to ``None``.
+    :type chars: str|None
+    :return: Returns the stripped string.
+    :rtype: str
+    """
+    assert isinstance(value, str)
+    return value.lstrip(chars)
+
+
+@jinja_filter('rstrip')
+def rstrip(value, chars=None):
+    """
+    Returns a copy of the string with trailing characters removed.
+    :param value: The string to process.
+    :type value: str
+    :param chars: String specifying the set of characters to be
+        removed. If omitted or None, the chars argument defaults
+        to removing whitespace. Defaults to ``None``.
+    :type chars: str|None
+    :return: Returns the stripped string.
+    :rtype: str
+    """
+    assert isinstance(value, str)
+    return value.rstrip(chars)
