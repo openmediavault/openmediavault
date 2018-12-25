@@ -92,7 +92,7 @@ monitor_rrdcached_service:
 unmonitor_rrdcached_service:
   module.run:
     - name: monit.unmonitor
-    - m_name: collectd
+    - m_name: rrdcached
 
 stop_rrdcached_service:
   service.dead:
