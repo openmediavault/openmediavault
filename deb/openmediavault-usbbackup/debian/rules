@@ -7,9 +7,3 @@ include ../openmediavault.mk
 
 %:
 	dh $@ --with systemd
-
-override_dh_systemd_enable:
-	dh_systemd_enable --name=openmediavault-usbbackup-automountfs@
-
-override_dh_systemd_start:
-	dh_systemd_start -r --no-start --name=openmediavault-usbbackup-automountfs@

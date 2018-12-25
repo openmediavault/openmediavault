@@ -147,6 +147,11 @@ Ext.define("OMV.module.admin.service.usbbackup.Job", {
 						target: trigger.getEl(),
 						text: _("Scan")
 					});
+				},
+				beforedestroy: function(c, eOpts) {
+					// Remove the quick tip from the trigger button.
+					var trigger = c.getTrigger("search");
+					Ext.tip.QuickTipManager.unregister(trigger.getEl());
 				}
 			},
 			onTrigger2Click: function(c) {
