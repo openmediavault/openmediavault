@@ -19,71 +19,16 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-class OMVModuleShairport extends \OMV\Engine\Module\ServiceAbstract
-  implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
-	/**
-	 * Get the module name.
-	 */
+class ShairportSync extends \OMV\Engine\Module\ServiceAbstract
+		implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
 	public function getName() {
-		return "shairport";
+		return "shairport-sync";
 	}
 
-	/**
-	 * Defines the modules that if present should start before the service
-	 * provided by this module.
-	 * @return An array of modules.
-	 */
-	public function shouldStart() { return [ "monit" ]; }
-
-	/**
-	 * Defines the modules that if present should be stopped after the
-	 * service provided by this module.
-	 * @return An array of modules.
-	 */
-	function shouldStop() { return [ "monit" ]; }
-
-	/**
-	 * Generate the configuration.
-	 */
-	public function applyConfig() {
-		$cmd = new \OMV\System\Process("omv-mkconf", "shairport-sync");
-		$cmd->setRedirect2to1();
-		$cmd->execute();
+	public function deployAfter(): array {
+		return ["monit"];
 	}
 
-	/**
-	 * Stop the managed service.
-	 */
-	public function stopService() {
-		// Disable monitoring of this service.
-		$monit = new \OMV\System\Monit("shairport-sync");
-		$monit->unmonitor(TRUE);
-		// Stop this service and disable the unit file.
-		$systemCtl = new \OMV\System\SystemCtl("shairport-sync");
-		$systemCtl->disable(TRUE);
-	}
-
-	/**
-	 * Start the managed service.
-	 */
-	public function startService() {
-		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.service.shairport");
-		if (TRUE !== $object->get("enable"))
-			return;
-		// Start this service and enable the unit file.
-		$systemCtl = new \OMV\System\SystemCtl("shairport-sync");
-		$systemCtl->enable(TRUE);
-		// Wait to allow the service to start.
-		$systemCtl->waitUntilActive(5);
-		// Enable monitoring of this service.
-		$monit = new \OMV\System\Monit("shairport-sync");
-		$monit->monitor();
-	}
-
-	/**
-	 * Get the status of the managed service.
-	 */
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.shairport");
@@ -96,22 +41,19 @@ class OMVModuleShairport extends \OMV\Engine\Module\ServiceAbstract
 		];
 	}
 
-	/**
-	 * Bind listeners.
-	 */
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.shairport",
-		  [ $this, "setDirty" ]);
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.service.shairport",
+			[ $this, "setDirty" ]);
 		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.network.dns",
-		  [ $this, "setDirty" ]);
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.system.network.dns",
+			[ $this, "setDirty" ]);
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.shairport",
-		  [ $moduleMngr->getModule("monit"), "setDirty" ]);
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.service.shairport",
+			[ $moduleMngr->getModule("monit"), "setDirty" ]);
 	}
 }
