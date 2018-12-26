@@ -448,21 +448,21 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 		},{
 			xtype: "checkbox",
 			name: "optiontimes",
-			fieldLabel: _("Times"),
+			fieldLabel: _("Preserve modification times"),
 			checked: true,
-			boxLabel: _("Preserve modification times")
+			boxLabel: _("Transfer modification times along with the files and update them on the remote system.")
 		},{
 			xtype: "checkbox",
 			name: "optiongroup",
-			fieldLabel: _("Group"),
+			fieldLabel: _("Preserve group"),
 			checked: true,
-			boxLabel: _("Preserve group")
+			boxLabel: _("Set the group of the destination file to be the same as the source file.")
 		},{
 			xtype: "checkbox",
 			name: "optionowner",
-			fieldLabel: _("Owner"),
+			fieldLabel: _("Preserve owner"),
 			checked: true,
-			boxLabel: _("Preserve owner")
+			boxLabel: _("Set the owner of the destination file to be the same as the source file, but only if the receiving rsync is being run as the super-user.")
 		},{
 			xtype: "checkbox",
 			name: "optioncompress",

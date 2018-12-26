@@ -123,6 +123,16 @@ class StringTestCase(unittest.TestCase):
         self.assertIsInstance(result, str)
         self.assertEqual(result, '2 MiB')
 
+    def test_prettify_dir_path_1(self):
+        self.assertEqual(
+            openmediavault.string.prettify_dir_path('/a/b/c'), '/a/b/c/'
+        )
+
+    def test_prettify_dir_path_2(self):
+        self.assertEqual(
+            openmediavault.string.prettify_dir_path('x/y///'), 'x/y/'
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -171,3 +171,15 @@ def binary_format(
     else:
         result = {'value': value, 'unit': units[exp]}
     return result
+
+
+def prettify_dir_path(path):
+    """
+    Make sure the directory path ends with a slash.
+    :param path: The path to process.
+    :type path: str
+    :return: Returns the prettified path.
+    :rtype: str
+    """
+    assert isinstance(path, str)
+    return path.rstrip('/') + '/'

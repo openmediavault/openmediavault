@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-#
 # This file is part of OpenMediaVault.
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
@@ -18,25 +16,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-import unittest
-import openmediavault.fs
+{% set _ = salt['omv_utils.register_jinja_filters']() %}
 
-
-class FsTestCase(unittest.TestCase):
-    def test_make_mount_path_1(self):
-        self.assertEqual(
-            openmediavault.fs.
-            make_mount_path('9d60bdbb-6946-4b56-b677-a7fb77e7ff4f'),
-            '/srv/9d60bdbb-6946-4b56-b677-a7fb77e7ff4f/'
-        )
-
-    def test_make_mount_path_1(self):
-        self.assertEqual(
-            openmediavault.fs.make_mount_path(
-                '/dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038'
-            ), '/srv/_dev_disk_by-id_scsi-SATA_IBM-DHEA-36481_SG0SGF08038/'
-        )
-
-
-if __name__ == "__main__":
-    unittest.main()
+include:
+  - .{{ salt['pillar.get']('deploy_usbbackup', 'default') }}

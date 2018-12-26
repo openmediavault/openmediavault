@@ -1,0 +1,60 @@
+{%- set separator = ' ' -%}
+{%- set script_prefix = salt['pillar.get']('default:OMV_USBBACKUP_RSYNC_SCRIPT_PREFIX', 'rsync-') -%}
+{%- set logfile = salt['pillar.get']('default:OMV_USBBACKUP_LOGFILE', '/var/log/rsync.log') -%}
+{%- set runfile = '/var/run' | path_join(script_prefix ~ job.uuid) -%}
+{%- set id = job.devicefile | md5 -%}
+{%- set mount_path = id | make_mount_path -%}
+{%- if job.mode == 'push' -%}
+  {%- set srcuri = salt['omv_conf.get_sharedfolder_path'](job.sharedfolderref) | prettify_dir_path -%}
+  {%- set desturi = (mount_path ~ salt['omv_conf.get_sharedfolder_name'](job.sharedfolderref) if job.usesubdir else '') | prettify_dir_path -%}
+{%- elif job.mode == 'pull' -%}
+  {%- set srcuri = (mount_path ~ salt['omv_conf.get_sharedfolder_name'](job.sharedfolderref) if job.usesubdir else '') | prettify_dir_path -%}
+  {%- set desturi = salt['omv_conf.get_sharedfolder_path'](job.sharedfolderref) | prettify_dir_path -%}
+{%- endif -%}
+#!/bin/sh
+{{ pillar['headers']['multiline'] -}}
+. /usr/share/openmediavault/scripts/helper-functions
+cleanup() {
+    omv_kill_children $$
+    rm -f "{{ runfile }}"
+    exit
+}
+[ -e "{{ runfile }}" ] && exit 1
+# Make sure the storage device is mounted.
+if ! omv_is_mounted "{{ mount_path }}" ; then
+     omv_error "External storage device '{{ job.devicefile }}' not mounted at <{{ mount_path }}>!"
+     exit 1
+fi
+trap cleanup 0 1 2 5 15
+touch "{{ runfile }}"
+{%- if job.mode == 'push' and job.usesubdir | to_bool %}
+# Create target directory on external storage device.
+mkdir --mode 777 --parents "{{ desturi }}"
+{%- endif %}
+# Synchronise directories ..."
+{%- if not job.optionquiet | to_bool %}
+omv_log "Please wait, syncing '{{ srcuri }}' to '{{ desturi }}' ...\n"
+{%- endif %}
+rsync --verbose --log-file="{{ logfile }}"
+{%- if job.optionquiet | to_bool %}{{ separator }}--quiet{%- endif %}
+{%- if job.optionarchive | to_bool %}{{ separator }}--archive{%- endif -%}
+{# Prefix implied archive options with '--no-' if enabled #}
+{%- if job.optionarchive | to_bool %}
+{%- if not job.optionrecursive | to_bool %}{{ separator }}--no-recursive{%- endif %}
+{%- if not job.optionperms | to_bool %}{{ separator }}--no-perms{%- endif %}
+{%- if not job.optiontimes | to_bool %}{{ separator }}--no-times{%- endif %}
+{%- else %}
+{%- if job.optionrecursive | to_bool %}{{ separator }}--recursive{%- endif %}
+{%- if job.optionperms | to_bool %}{{ separator }}--perms{%- endif %}
+{%- if job.optiontimes | to_bool %}{{ separator }}--times{%- endif %}
+{%- endif %}
+{%- if job.optioncompress | to_bool %}{{ separator }}--compress{%- endif %}
+{%- if job.optiondelete | to_bool %}{{ separator }}--delete{%- endif %}
+{%- if job.optionacls | to_bool %}{{ separator }}--acls{%- endif %}
+{%- if job.optionxattrs | to_bool %}{{ separator }}--xattrs{%- endif %}
+{%- if job.optionpartial | to_bool %}{{ separator }}--partial{%- endif %}
+{%- if job.extraoptions | length > 0 %}{{ separator }}{{ job.extraoptions }}{%- endif -%}
+{{ separator }}"{{ srcuri }}" "{{ desturi | rstrip('/') }}" & wait $!
+{%- if not job.optionquiet | to_bool %}
+omv_log "\nThe synchronisation has completed successfully."
+{%- endif %}

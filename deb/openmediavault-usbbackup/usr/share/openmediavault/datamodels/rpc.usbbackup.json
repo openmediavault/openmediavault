@@ -40,43 +40,51 @@
 			    "type": "boolean",
 				"required": true
 			},
-			"recursive": {
+			"optionrecursive": {
 			    "type": "boolean",
 				"required": true
 			},
-			"times": {
+			"optiontimes": {
 			    "type": "boolean",
 				"required": true
 			},
-			"compress": {
+			"optiongroup": {
+				"type": "boolean",
+				"required": true
+			},
+			"optionowner": {
+				"type": "boolean",
+				"required": true
+			},
+			"optioncompress": {
 			    "type": "boolean",
 				"required": true
 			},
-			"archive": {
+			"optionarchive": {
 			    "type": "boolean",
 				"required": true
 			},
-			"delete": {
+			"optiondelete": {
 			    "type": "boolean",
 				"required": true
 			},
-			"quiet": {
+			"optionquiet": {
 			    "type": "boolean",
 				"required": true
 			},
-			"perms": {
+			"optionperms": {
 			    "type": "boolean",
 				"required": true
 			},
-			"acls": {
+			"optionacls": {
 			    "type": "boolean",
 				"required": true
 			},
-			"xattrs": {
+			"optionxattrs": {
 			    "type": "boolean",
 				"required": true
 			},
-			"partial": {
+			"optionpartial": {
 			    "type": "boolean",
 				"required": true
 			},

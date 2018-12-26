@@ -19,72 +19,10 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-class OMVModuleUsbBackup extends \OMV\Engine\Module\ServiceAbstract
-  implements \OMV\Engine\Notify\IListener {
-	/**
-	 * Get the module name.
-	 */
+class UsbBackup extends \OMV\Engine\Module\ServiceAbstract
+		implements \OMV\Engine\Notify\IListener {
 	public function getName() {
 		return "usbbackup";
-	}
-
-	/**
-	 * Generate the configuration.
-	 */
-	public function applyConfig() {
-		// Build the rsync scripts and systemd unit files.
-		$cmd = new \OMV\System\Process("omv-mkconf", "usbbackup");
-		$cmd->setRedirect2to1();
-		$cmd->execute();
-		// Reload systemd unit files.
-		$cmd = new \OMV\System\Process("systemctl", "daemon-reload");
-		$cmd->setRedirect2to1();
-		$cmd->execute();
-	}
-
-	/**
-	 * Stop the managed service.
-	 */
-	public function stopService() {
-		$this->updateUnitFiles("disable");
-	}
-
-	/**
-	 * Start the managed service.
-	 */
-	public function startService() {
-		$this->updateUnitFiles("enable");
-	}
-
-	/**
-	 * Helper function to enable/disable the systemd unit files.
-	 */
-	private function updateUnitFiles($action) {
-		$directory = \OMV\Environment::get(
-		  "OMV_USBBACKUP_SYSTEMD_SCRIPTS_DIR",
-		  "/lib/systemd/system");
-		$prefix = \OMV\Environment::get(
-		  "OMV_USBBACKUP_SYSTEMD_UNITFILE_PREFIX",
-		  "openmediavault-usbbackup-");
-		foreach (new \DirectoryIterator($directory) as $item) {
-			if ($item->isDot())
-				continue;
-			if (FALSE === $item->isFile())
-				continue;
-			if (FALSE === fnmatch($prefix."*", $item->getFilename()))
-				continue;
-			$systemCtl = new \OMV\System\SystemCtl($item->getFilename());
-			switch ($action) {
-			case "enable":
-				// Enable the unit, but do not start it.
-				$systemCtl->enable(FALSE);
-				break;
-			case "disable":
-				// Disable the unit, but do not stop it.
-				$systemCtl->disable(FALSE);
-				break;
-			}
-		}
 	}
 
 	/**
@@ -106,17 +44,14 @@ class OMVModuleUsbBackup extends \OMV\Engine\Module\ServiceAbstract
 		}
 	}
 
-	/**
-	 * Bind listeners.
-	 */
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.conf.service.usbbackup.job",
-		  [ $this, "setDirty" ]);
+			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+			"org.openmediavault.conf.service.usbbackup.job",
+			[ $this, "setDirty" ]);
 		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.sharedfolder",
-		  [ $this, "onSharedFolder" ]);
-    }
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.system.sharedfolder",
+			[ $this, "onSharedFolder" ]);
+	}
 }

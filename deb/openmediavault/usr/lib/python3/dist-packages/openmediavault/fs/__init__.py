@@ -28,12 +28,13 @@ import openmediavault.subprocess
 import openmediavault.string
 
 
-def build_mount_path(id_):
+def make_mount_path(id_):
     """
-    Build the mount path for the given device file or file system UUID.
+    Build the mount path from any given string, device file or
+    file system UUID.
     :param id_: The device file or the file system UUID.
     :type id_: str
-    :return: The mount path, e.g
+    :return: Returns the mount path, e.g
 
     * /srv/6c5be784-50a8-440c-9d25-aab99b9c6fb1/
     * /srv/_dev_disk_by-id_wwn-0x5000cca211cc703c-part1/
@@ -43,7 +44,7 @@ def build_mount_path(id_):
     mount_path = os.path.join(
         openmediavault.getenv("OMV_MOUNT_DIR", "/srv"), id_.replace('/', '_')
     )
-    return mount_path + '/'
+    return openmediavault.string.prettify_dir_path(mount_path)
 
 
 class Filesystem(openmediavault.device.BlockDevice):
