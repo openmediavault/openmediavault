@@ -166,3 +166,19 @@ def get_root_filesystem():
     """
     fs = openmediavault.fs.Filesystem.from_mount_point('/')
     return fs.device_file
+
+
+@jinja_filter('build_mount_path')
+def build_mount_path(id_):
+    """
+    Build the mount path for the given device file or file system UUID.
+    :param id_: The device file or the file system UUID.
+    :type id_: str
+    :return: The mount path, e.g
+
+    * /srv/6c5be784-50a8-440c-9d25-aab99b9c6fb1
+    * /srv/_dev_disk_by-id_wwn-0x5000cca211cc703c-part1
+
+    :rtype: str
+    """
+    return openmediavault.fs.build_mount_path(id_)
