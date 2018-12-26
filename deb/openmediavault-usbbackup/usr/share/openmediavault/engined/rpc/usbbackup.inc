@@ -94,7 +94,8 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 				"devicefile" => $fs->getPredictableDeviceFile(),
 				"label" => $objectv['label'],
 				"type" => $objectv['type'],
-				"description" => $sd->getDescription()
+				"description" => $sd->getDescription(),
+				"propposixacl" => $fsb->hasPosixAclSupport()
 			];
 		}
 		return $result;

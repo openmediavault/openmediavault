@@ -47,6 +47,8 @@ remove_usbbackup_systemd_scripts:
 disable_usbbackup_systemd_unitfile_{{ file }}:
   service.disabled:
     - name: "{{ file }}"
+
+remove_usbbackup_systemd_unitfile_{{ file }}:
   file.absent:
     - name: "{{ usbbackup_systemd_unitfile_dir | path_join(file) }}"
 {% endif %}
