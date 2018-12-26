@@ -111,7 +111,7 @@ Ext.define("OMV.module.admin.storage.lvm.vg.Create", {
 					sortable: true,
 					dataIndex: "description",
 					stateId: "description",
-					flex: true
+					flex: 1
 				}]
 			}
 		}];
@@ -250,7 +250,7 @@ Ext.define("OMV.module.admin.storage.lvm.vg.Extend", {
 					sortable: true,
 					dataIndex: "description",
 					stateId: "description",
-					flex: true
+					flex: 1
 				}]
 			}
 		}];
@@ -364,7 +364,7 @@ Ext.define("OMV.module.admin.storage.lvm.vg.Reduce", {
 					sortable: true,
 					dataIndex: "description",
 					stateId: "description",
-					flex: true
+					flex: 1
 				}]
 			}
 		}];
