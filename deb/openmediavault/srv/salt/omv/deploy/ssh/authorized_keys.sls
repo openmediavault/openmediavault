@@ -32,9 +32,9 @@
 # Remove all existing authorized_keys files. Use file.directory because
 # Salt does not support wirdcards for file.absent.
 remove_ssh_authorized_keys:
-   file.directory:
-      - name: {{ authorizedKeysFileDir }}
-      - clean: True
+  file.directory:
+    - name: {{ authorizedKeysFileDir }}
+    - clean: True
 
 {% for user in users %}
 {% if user.name in all_users %}
