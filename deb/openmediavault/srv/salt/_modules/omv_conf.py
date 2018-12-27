@@ -68,7 +68,7 @@ def get_sharedfolder_name(uuid):
     return sf_obj['name']
 
 
-def get_sharedfolder_mount_dir(uuid):
+def get_sharedfolder_mount_path(uuid):
     """
     Get the mount path of the given shared folder.
     :param uuid: The UUID of the shared folder configuration object.

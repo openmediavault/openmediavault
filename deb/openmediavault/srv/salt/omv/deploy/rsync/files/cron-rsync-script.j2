@@ -6,18 +6,18 @@
 {%- set runfile = '/var/run' | path_join(script_prefix ~ job.uuid) -%}
 {%- if job.type == 'local' -%}
   {%- set srcuri = salt['omv_conf.get_sharedfolder_path'](job.src.sharedfolderref) -%}
-  {%- set srcmntdir = salt['omv_conf.get_sharedfolder_mount_dir'](job.src.sharedfolderref) -%}
+  {%- set srcmntdir = salt['omv_conf.get_sharedfolder_mount_path'](job.src.sharedfolderref) -%}
   {%- set desturi = salt['omv_conf.get_sharedfolder_path'](job.dest.sharedfolderref) -%}
-  {%- set destmntdir = salt['omv_conf.get_sharedfolder_mount_dir'](job.dest.sharedfolderref) -%}
+  {%- set destmntdir = salt['omv_conf.get_sharedfolder_mount_path'](job.dest.sharedfolderref) -%}
 {%- elif job.type == 'remote' -%}
   {%- if job.mode == 'push' -%}
     {%- set srcuri = salt['omv_conf.get_sharedfolder_path'](job.src.sharedfolderref) -%}
-    {%- set srcmntdir = salt['omv_conf.get_sharedfolder_mount_dir'](job.src.sharedfolderref) -%}
+    {%- set srcmntdir = salt['omv_conf.get_sharedfolder_mount_path'](job.src.sharedfolderref) -%}
     {%- set desturi = salt['omv_conf.get_sharedfolder_path'](job.dest.uri) -%}
   {%- elif job.mode == 'pull' -%}
     {%- set srcuri = salt['omv_conf.get_sharedfolder_path'](job.src.uri) -%}
     {%- set desturi = salt['omv_conf.get_sharedfolder_path'](job.dest.sharedfolderref) -%}
-    {%- set destmntdir = salt['omv_conf.get_sharedfolder_mount_dir'](job.dest.sharedfolderref) -%}
+    {%- set destmntdir = salt['omv_conf.get_sharedfolder_mount_path'](job.dest.sharedfolderref) -%}
   {%- endif -%}
 {%- endif -%}
 #!/bin/sh

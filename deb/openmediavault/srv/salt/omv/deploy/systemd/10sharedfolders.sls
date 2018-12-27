@@ -29,7 +29,7 @@ remove_sharedfolder_mount_unit_files:
       - delete: "f"
 
 {% for sharedfolder in sharedfolders %}
-{% set mntdir = salt['omv_conf.get_sharedfolder_mount_dir'](sharedfolder.uuid) %}
+{% set mntdir = salt['omv_conf.get_sharedfolder_mount_path'](sharedfolder.uuid) %}
 {% set what = salt['omv_conf.get_sharedfolder_path'](sharedfolder.uuid) %}
 {% set where = sharedfolders_path | path_join(sharedfolder.name) %}
 {% set unit_name = salt['cmd.run']('systemd-escape --path --suffix=mount ' ~ where) %}
