@@ -19,47 +19,12 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-class OMVModuleSnmp extends \OMV\Engine\Module\ServiceAbstract
-  implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
-	/**
-	 * Get the module name.
-	 */
+class Snmp extends \OMV\Engine\Module\ServiceAbstract
+		implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
 	public function getName() {
-		return "snmp";
+		return "snmpd";
 	}
 
-	/**
-	 * Generate the configuration.
-	 */
-	public function applyConfig() {
-		$cmd = new \OMV\System\Process("omv-mkconf", "snmpd");
-		$cmd->setRedirect2to1();
-		$cmd->execute();
-	}
-
-	/**
-	 * Stop the managed service.
-	 */
-	public function stopService() {
-		$systemCtl = new \OMV\System\SystemCtl("snmpd");
-		$systemCtl->disable(TRUE);
-	}
-
-	/**
-	 * Start the managed service.
-	 */
-	public function startService() {
-		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.service.snmp");
-		if (TRUE !== $object->get("enable"))
-			return;
-		$systemCtl = new \OMV\System\SystemCtl("snmpd");
-		$systemCtl->enable(TRUE);
-	}
-
-	/**
-	 * Get the status of the managed service.
-	 */
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.snmp");
@@ -72,13 +37,10 @@ class OMVModuleSnmp extends \OMV\Engine\Module\ServiceAbstract
 		];
 	}
 
-	/**
-	 * Bind listeners.
-	 */
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.service.snmp",
-		  [ $this, "setDirty" ]);
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.service.snmp",
+			[ $this, "setDirty" ]);
 	}
 }

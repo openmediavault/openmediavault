@@ -1,6 +1,6 @@
 openmediavault-usbbackup (5.0-1) stable; urgency=low
 
-  * Adapt to Debian 10 (Buster).
+  * Adapt to openmediavault 5 (Usul).
   * Disable various rsync options if the target file system is not
     POSIX compliant.
   * If the 'Archive' option is enabled and one of its implied option
