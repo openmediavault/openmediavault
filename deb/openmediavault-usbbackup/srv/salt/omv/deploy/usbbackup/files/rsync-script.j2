@@ -43,10 +43,14 @@ rsync --verbose --log-file="{{ logfile }}"
 {%- if not job.optionrecursive | to_bool %}{{ separator }}--no-recursive{%- endif %}
 {%- if not job.optionperms | to_bool %}{{ separator }}--no-perms{%- endif %}
 {%- if not job.optiontimes | to_bool %}{{ separator }}--no-times{%- endif %}
+{%- if not job.optiongroup | to_bool %}{{ separator }}--no-group{%- endif %}
+{%- if not job.optionowner | to_bool %}{{ separator }}--no-owner{%- endif %}
 {%- else %}
 {%- if job.optionrecursive | to_bool %}{{ separator }}--recursive{%- endif %}
 {%- if job.optionperms | to_bool %}{{ separator }}--perms{%- endif %}
 {%- if job.optiontimes | to_bool %}{{ separator }}--times{%- endif %}
+{%- if job.optiongroup | to_bool %}{{ separator }}--group{%- endif %}
+{%- if job.optionowner | to_bool %}{{ separator }}--owner{%- endif %}
 {%- endif %}
 {%- if job.optioncompress | to_bool %}{{ separator }}--compress{%- endif %}
 {%- if job.optiondelete | to_bool %}{{ separator }}--delete{%- endif %}

@@ -59,22 +59,63 @@ Ext.define("OMV.module.admin.service.usbbackup.Job", {
 	 * @param uuid The UUID of the database/configuration object. Required.
 	 */
 
-	 getFormConfig: function() {
+	getFormConfig: function() {
  		return {
  			plugins: [{
  				ptype: "linkedfields",
  				correlations: [{
  					name: [
- 						"optionrecursive",
+						"optionrecursive",
+						"optiontimes"
+					],
+ 					conditions: [{ name: "optionarchive", value: true }],
+ 					properties: "checked"
+ 				},{
+ 					name: [
  						"optionperms",
- 						"optiontimes",
  						"optiongroup",
  						"optionowner"
  					],
- 					conditions: [
- 						{ name: "optionarchive", value: true }
- 					],
+ 					conditions: [{
+						name: "optionarchive",
+						func: function(values) {
+							var valid = values.optionarchive;
+							if (this) {
+								var field = this.findField("devicefile");
+								var record = field.getSelection();
+								if (record && !record.get("propposixacl")) {
+									valid = false;
+								}
+							}
+							return valid;
+						}
+					}],
  					properties: "checked"
+ 				},{
+ 					name: [
+ 						"optionperms",
+ 						"optiongroup",
+ 						"optionowner",
+ 						"optionacls"
+ 					],
+ 					conditions: [{
+						name: "devicefile",
+						func: function() {
+							var valid = false;
+							if (this) {
+								var field = this.findField("devicefile");
+								var record = field.getSelection();
+								if (record && !record.get("propposixacl")) {
+									valid = true;
+								}
+							}
+							return valid;
+						}
+					}],
+ 					properties: [
+						"!checked",
+						"readOnly"
+					]
  				}]
  			}]
  		};
@@ -139,7 +180,8 @@ Ext.define("OMV.module.admin.service.usbbackup.Job", {
 						{ name: "devicefile", type: "string" },
 						{ name: "label", type: "string" },
 						{ name: "type", type: "string" },
-						{ name: "description", type: "string" }
+						{ name: "description", type: "string" },
+						{ name: "propposixacl", type: "boolean" }
 					]
 				}),
 				proxy: {

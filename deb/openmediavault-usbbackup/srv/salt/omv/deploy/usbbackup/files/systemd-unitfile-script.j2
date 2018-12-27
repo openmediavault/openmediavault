@@ -34,7 +34,7 @@ if [ ! -b "{{ devicefile }}" ]; then
     exit 1
 fi
 # Mount the storage device.
-mkdir -p "{{ mount_path }}"
+mkdir --mode=755 --parent "{{ mount_path }}"
 mount "{{ devicefile }}" "{{ mount_path }}"
 # Make sure the storage device is mounted.
 if ! omv_is_mounted "{{ mount_path }}"; then
