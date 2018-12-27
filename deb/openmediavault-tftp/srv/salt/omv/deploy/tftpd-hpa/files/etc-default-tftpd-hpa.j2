@@ -1,0 +1,9 @@
+{{ pillar['headers']['multiline'] -}}
+TFTP_USERNAME="tftp"
+TFTP_DIRECTORY="{{ salt['omv_conf.get_sharedfolder_path'](config.sharedfolderref) }}"
+TFTP_ADDRESS="0.0.0.0:{{ config.port }}"
+TFTP_OPTIONS="--secure --blocksize {{ config.blocksize }} --retransmit {{ config.retransmit }}
+{%- if not salt['omv_utils.is_ipv6_enabled']() %} --ipv4{% endif %}
+{%- if config.allownewfiles | to_bool %} --create{% endif %}
+{%- if config.extraoptions | length > 0 %} {{ config.extraoptions }}{% endif %}
+{%- set _ = true %}"

@@ -82,7 +82,7 @@ Ext.define("OMV.module.admin.service.tftp.Settings", {
 			minValue: 512,
 			maxValue: 65464,
 			allowDecimals: false,
-			allowBlank: true,
+			allowBlank: false,
 			value: 512,
 			plugins: [{
 				ptype: "fieldinfo",
