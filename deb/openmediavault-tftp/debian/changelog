@@ -1,3 +1,9 @@
+openmediavault-tftp (4.0.6-1) stable; urgency=low
+
+  * Fix bug in config. The block size is not written.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Dec 2018 14:31:48 +0100
+
 openmediavault-tftp (4.0.5-1) stable; urgency=low
 
   * Fix postrm script.

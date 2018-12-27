@@ -38,7 +38,7 @@ xmlstarlet sel -t -m "//services/tftp" \
 	-o "TFTP_OPTIONS=\"${OMV_TFTPD_OPTIONS}" \
 	-v "concat(' --retransmit ',retransmit)" \
 	-i "allownewfiles[. = '1']" -o " --create" -b \
-	-i "string-length(blocksize) > 0" -v "concat(' --blocksize ',blocksize)" -b \
+	-v "concat(' --blocksize ',blocksize)" \
 	-i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
 	-o "\"" -n \
 	-o "TFTP_USERNAME=\"${OMV_TFTPD_USERNAME}\"" -n \
