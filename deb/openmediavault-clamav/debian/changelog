@@ -1,6 +1,6 @@
 openmediavault-clamav (5.0-1) stable; urgency=low
 
-  * Adapt to Debian 10 (Buster).
+  * Adapt to openmediavault 5 (Usul).
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 23 Dec 2018 22:49:48 +0100
 
