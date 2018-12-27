@@ -1,3 +1,9 @@
+openmediavault-snmp (4.0.6-1) stable; urgency=low
+
+  * Remove useless /etc/default/snmpd.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Dec 2018 13:42:16 +0100
+
 openmediavault-snmp (4.0.5-1) stable; urgency=low
 
   * Fix postrm script.
