@@ -5,11 +5,11 @@
 {%- set id = job.devicefile | md5 -%}
 {%- set mount_path = id | make_mount_path -%}
 {%- if job.mode == 'push' -%}
-  {%- set srcuri = salt['omv_conf.get_sharedfolder_path'](job.sharedfolderref) | prettify_dir_path -%}
+  {%- set srcuri = salt['omv_conf.get_sharedfolder_path'](job.sharedfolderref) -%}
   {%- set desturi = (mount_path ~ salt['omv_conf.get_sharedfolder_name'](job.sharedfolderref) if job.usesubdir else '') | prettify_dir_path -%}
 {%- elif job.mode == 'pull' -%}
   {%- set srcuri = (mount_path ~ salt['omv_conf.get_sharedfolder_name'](job.sharedfolderref) if job.usesubdir else '') | prettify_dir_path -%}
-  {%- set desturi = salt['omv_conf.get_sharedfolder_path'](job.sharedfolderref) | prettify_dir_path -%}
+  {%- set desturi = salt['omv_conf.get_sharedfolder_path'](job.sharedfolderref) -%}
 {%- endif -%}
 #!/bin/sh
 {{ pillar['headers']['multiline'] -}}

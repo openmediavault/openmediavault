@@ -20,6 +20,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import openmediavault.config
 import openmediavault.device
+import openmediavault.string
 import os
 
 
@@ -40,17 +41,42 @@ def get_by_filter(id_, filter_):
 
 
 def get_sharedfolder_path(uuid):
+    """
+    Get the path of the given shared folder.
+    :param uuid: The UUID of the shared folder configuration object.
+    :type uuid: str
+    :return: Returns the path of the shared folder. A '/' is automatically
+        appended to the end.
+    :rtype: str
+    """
     sf_obj = get('conf.system.sharedfolder', uuid)
     mp_obj = get('conf.system.filesystem.mountpoint', sf_obj['mntentref'])
-    return os.path.join(mp_obj['dir'], sf_obj['reldirpath'])
+    return openmediavault.string.prettify_dir_path(
+        os.path.join(mp_obj['dir'], sf_obj['reldirpath'])
+    )
 
 
 def get_sharedfolder_name(uuid):
+    """
+    Get the name of the given shared folder.
+    :param uuid: The UUID of the shared folder configuration object.
+    :type uuid: str
+    :return: Returns the name of the shared folder.
+    :rtype: str
+    """
     sf_obj = get('conf.system.sharedfolder', uuid)
     return sf_obj['name']
 
 
 def get_sharedfolder_mount_dir(uuid):
+    """
+    Get the mount path of the given shared folder.
+    :param uuid: The UUID of the shared folder configuration object.
+    :type uuid: str
+    :return: Returns the mount path of the shared folder. A '/' is
+        automatically appended to the end.
+    :rtype: str
+    """
     sf_obj = get('conf.system.sharedfolder', uuid)
     mp_obj = get('conf.system.filesystem.mountpoint', sf_obj['mntentref'])
-    return mp_obj['dir']
+    return openmediavault.string.prettify_dir_path(mp_obj['dir'])
