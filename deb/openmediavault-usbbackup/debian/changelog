@@ -1,10 +1,12 @@
 openmediavault-usbbackup (5.0-1) stable; urgency=low
 
   * Adapt to Debian 10 (Buster).
-  * Disable various rsync options if target file system is not
+  * Disable various rsync options if the target file system is not
     POSIX compliant.
-  * When option 'Archive' is enabled, then all equal options that are
-    disabled are prefixed with --no. 
+  * If the 'Archive' option is enabled and one of its implied option
+    'Recursive', 'Preserve permissions', 'Times', 'Group' or 'Owner'
+    is disabled, then this option will be prefixed with '--no-xxx' in
+    the rsync command line.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 25 Dec 2018 23:21:13 +0100
 
