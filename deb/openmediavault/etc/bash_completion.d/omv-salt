@@ -20,7 +20,7 @@
 # Links:
 # https://github.com/scop/bash-completion
 
-_omv-salt()
+_omv-spice()
 {
 	local cur prev words cword
 	_init_completion || return
@@ -29,7 +29,7 @@ _omv-salt()
 	deploy)
 		case ${words[2]} in
 		run)
-			COMPREPLY=( $( compgen -W "$( command omv-salt deploy list \
+			COMPREPLY=( $( compgen -W "$( command omv-spice deploy list \
 			 	2>/dev/null )" -- "$cur" ) )
 			return 0
 			;;
@@ -45,7 +45,7 @@ _omv-salt()
 	stage)
 		case ${words[2]} in
 		run)
-			COMPREPLY=( $( compgen -W "$( command omv-salt stage list \
+			COMPREPLY=( $( compgen -W "$( command omv-spice stage list \
 				2>/dev/null )" -- "$cur" ) )
 			return 0
 			;;
@@ -64,4 +64,4 @@ _omv-salt()
 		;;
 	esac
 } &&
-complete -F _omv-salt omv-salt
+complete -F _omv-spice omv-spice

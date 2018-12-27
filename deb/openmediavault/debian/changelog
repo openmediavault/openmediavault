@@ -1,8 +1,8 @@
 openmediavault (5.0-1) unstable; urgency=low
 
-  * Use Salt to deploy configuration settings. Using 'omv-salt stage run all'
+  * Use Salt to deploy configuration settings. Using 'omv-spice stage run all'
     will deploy the whole system according to the configuration database.
-  * The omv-salt CLI command superseds omv-mkconf. Note, the command
+  * The omv-spice CLI command superseds omv-mkconf. Note, the command
     will not only create the configuration files, it will also take care
     about to start/stop/restart the services.
   * The omv-initsystem command has been replaced by 'omv-confdbadm populate'.

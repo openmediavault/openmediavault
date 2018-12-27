@@ -29,7 +29,7 @@ case "$1" in
 	;;
 
 	remove)
-		omv-salt deploy run collectd
+		omv-spice deploy run collectd
 		# Activate trigger to purge cached files.
 		dpkg-trigger update-fixperms
 	;;

@@ -5,7 +5,7 @@ After=network-online.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/sbin/omv-salt deploy run issue
+ExecStart=/usr/sbin/omv-spice deploy run issue
 RemainAfterExit=yes
 
 [Install]

@@ -18,6 +18,10 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# https://en.wikipedia.org/wiki/Melange_(fictional_drug)
+# http://dune.wikia.com/wiki/Spice_Melange
+
 import click
 import openmediavault
 import openmediavault.log
