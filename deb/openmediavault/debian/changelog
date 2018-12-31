@@ -1,3 +1,9 @@
+openmediavault (4.1.17-1) stable; urgency=low
+
+  * Issue #256: Get S.M.A.R.T. drive temperature from Samsung NVMe devices.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 31 Dec 2018 16:06:48 +0100
+
 openmediavault (4.1.16-2) stable; urgency=low
 
   * Fix bug in file system UI.
