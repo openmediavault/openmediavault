@@ -601,6 +601,12 @@ finish:
 		$object = $this->callMethod("getUser", [
 			"name" => $context['username']
 		], $this->getAdminContext());
+		// Make sure the user is allowed to modify his account.
+		if (TRUE === $object['disallowusermod']) {
+			throw new \OMV\Exception(
+				"Unauthorized attempt to modify the user account '%s'",
+				$object['name']);
+		}
 		// Update the user configuration.
 		return $this->callMethod("setUser", [
 			"name" => $object['name'],

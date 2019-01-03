@@ -25,6 +25,7 @@ openmediavault (5.0-1) unstable; urgency=low
 openmediavault (4.1.17-1) stable; urgency=low
 
   * Issue #256: Get S.M.A.R.T. drive temperature from Samsung NVMe devices.
+  * Issue #260: Make sure the user is allowed to modify his account.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 31 Dec 2018 16:06:48 +0100
 
