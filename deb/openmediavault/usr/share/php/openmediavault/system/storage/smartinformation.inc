@@ -428,7 +428,6 @@ class SmartInformation {
 		// ...
 		//
 		// Alternative output:
-		//
 		// ...
 		// SCT Status Version:                  3
 		// SCT Version (vendor specific):       256 (0x0100)
@@ -438,10 +437,19 @@ class SmartInformation {
 		// Power Cycle Min/Max Temperature:     23/28 Celsius
 		// Lifetime    Min/Max Temperature:     21/32 Celsius
 		// ...
+		//
+		// Alternative output:
+		// Warning  Comp. Temp. Threshold:     73 Celsius
+		// Critical Comp. Temp. Threshold:     76 Celsius
+		// Temperature:                        30 Celsius
+		// Warning  Comp. Temperature Time:    0
+		// Critical Comp. Temperature Time:    0
+		// Temperature Sensor 1:               30 Celsius
+		// Temperature Sensor 2:               35 Celsius
 		if (FALSE === $found) {
 			foreach ($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
-				$regex = '/^(Current Drive Temperature|Current Temperature):'.
-				  '\s+(\d+)\s+(C|Celsius)$/i';
+				$regex = '/^(Current Drive Temperature|Current Temperature|Temperature):'.
+					'\s+(\d+)\s+(C|Celsius)$/i';
 				if (1 == preg_match($regex, $cmdOutputv, $matches)) {
 					$result = $matches[2];
 					$found = TRUE;
