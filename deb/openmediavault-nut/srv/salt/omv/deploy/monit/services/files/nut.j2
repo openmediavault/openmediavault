@@ -1,0 +1,17 @@
+check process nut-server with matching upsd
+    group nut
+    start program = "/bin/systemctl start nut-server"
+    stop program = "/bin/systemctl stop nut-server"
+    mode active
+{%- if email_config.enable | to_bool and not notification_config.enable | to_bool %}
+    noalert {{ email_config.primaryemail }}
+{%- endif %}
+
+check process nut-monitor with matching upsmon
+    group nut
+    start program = "/bin/systemctl start nut-monitor"
+    stop program = "/bin/systemctl stop nut-monitor"
+    mode active
+{%- if email_config.enable | to_bool and not notification_config.enable | to_bool %}
+    noalert {{ email_config.primaryemail }}
+{%- endif %}

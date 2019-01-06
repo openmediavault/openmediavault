@@ -1,3 +1,9 @@
+openmediavault-nut (5.0-1) stable; urgency=low
+
+  * Adapt to openmediavault 5 (Usul).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 06 Jan 2019 17:26:43 +0100
+
 openmediavault-nut (4.0.14-1) stable; urgency=low
 
   * Fix various issues found by the lgtm.com project.
