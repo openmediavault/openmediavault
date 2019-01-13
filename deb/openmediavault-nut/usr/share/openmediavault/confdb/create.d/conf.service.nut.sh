@@ -42,11 +42,17 @@ set -e
 # </config>
 ########################################################################
 if ! omv_config_exists "/config/services/nut"; then
+	# Set driver configuration for an USB connected device as default.
+	driverconf=$(cat <<-EOF
+driver = usbhid-ups
+port = auto
+EOF
+)
 	omv_config_add_node "/config/services" "nut"
 	omv_config_add_key "/config/services/nut" "enable" "0"
 	omv_config_add_key "/config/services/nut" "upsname" "ups"
 	omv_config_add_key "/config/services/nut" "comment" ""
-	omv_config_add_key "/config/services/nut" "driverconf" ""
+	omv_config_add_key "/config/services/nut" "driverconf" "${driverconf}"
 	omv_config_add_key "/config/services/nut" "shutdownmode" "onbatt"
 	omv_config_add_key "/config/services/nut" "shutdowntimer" "30"
 	omv_config_add_key "/config/services/nut" "remotemonitor" "0"

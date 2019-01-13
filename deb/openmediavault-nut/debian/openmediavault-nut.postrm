@@ -30,18 +30,17 @@ remove_action() {
 	# Force the creation of the monit service configuration files. This
 	# way we can simply purge this service configuration file. Finally
 	# reload the monit configuration.
-	omv-mkconf monit
-	deb-systemd-invoke reload monit.service || :
+	rm -rf "/etc/monit/conf.d/openmediavault-nut.conf"
+	omv-salt deploy run monit
 	# Create new collectd configuration after nut plugin has been removed
 	# and restart the service if necessary.
-	omv-mkconf collectd
-	if deb-systemd-helper is-enabled collectd.service; then
-		monit restart collectd || :
-	fi
+	rm -rf "/etc/collectd/collectd.conf.d/nut.conf"
+	omv-salt deploy run collectd
 	# Remove udev-rule.
-	rm -f ${OMV_NUT_UDEV_RULE_CONFIG}
+	rm -f "${OMV_NUT_UDEV_RULE_CONFIG}"
 	udevadm control --reload-rules
-	# Reload rsyslog configuration.
+	# Reload rsyslog configuration because the nut configuration
+	# file has been removed by the package management.
 	deb-systemd-invoke force-reload rsyslog || :
 	# Activate trigger to purge cached files.
 	dpkg-trigger update-fixperms

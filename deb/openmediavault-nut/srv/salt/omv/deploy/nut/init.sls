@@ -1,5 +1,3 @@
-#!/bin/sh
-#
 # This file is part of OpenMediaVault.
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
@@ -19,20 +17,8 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-set -e
+# Make sure custom Jinja filters are registered.
+{% set _ = salt['omv_utils.register_jinja_filters']() %}
 
-. /etc/default/openmediavault
-. /usr/share/openmediavault/scripts/helper-functions
-
-OMV_COLLECTD_CONFIG_DIR=${OMV_COLLECTD_CONFIG_DIR:-"/etc/collectd/collectd.conf.d"}
-OMV_NUT_UPSD_PORT=${OMV_NUT_UPSD_PORT:-"3493"}
-
-rm -f "${OMV_COLLECTD_CONFIG_DIR}/nut.conf"
-[ "$(omv_config_get "//services/nut/enable")" != "1" ] && exit 0
-
-xmlstarlet sel -t -m "//services/nut" \
-  -o "LoadPlugin nut" -n \
-  -o "<Plugin nut>" -n \
-  -v "concat('  UPS \"',upsname,'@localhost:${OMV_NUT_UPSD_PORT}\"')" -n \
-  -o "</Plugin>" -n \
-  ${OMV_CONFIG_FILE} | xmlstarlet unesc > "${OMV_COLLECTD_CONFIG_DIR}/nut.conf"
+include:
+  - .{{ salt['pillar.get']('deploy_nut', 'default') }}

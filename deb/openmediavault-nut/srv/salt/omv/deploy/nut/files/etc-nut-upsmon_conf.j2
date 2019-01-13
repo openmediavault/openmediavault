@@ -1,0 +1,38 @@
+{%- set minsupplies = salt['pillar.get']('default:OMV_NUT_UPSMON_MINSUPPLIES', '1') -%}
+{%- set shutdowncmd = salt['pillar.get']('default:OMV_NUT_UPSMON_SHUTDOWNCMD', '/sbin/shutdown -h +0') -%}
+{%- set notifycmd = salt['pillar.get']('default:OMV_NUT_UPSMON_NOTIFYCMD', '/sbin/upssched') -%}
+{%- set pollfreq = salt['pillar.get']('default:OMV_NUT_UPSMON_POLLFREQ', '5') -%}
+{%- set pollfreqalert = salt['pillar.get']('default:OMV_NUT_UPSMON_POLLFREQALERT', '5') -%}
+{%- set hostsync = salt['pillar.get']('default:OMV_NUT_UPSMON_HOSTSYNC', '15') -%}
+{%- set deadtime = salt['pillar.get']('default:OMV_NUT_UPSMON_DEADTIME', '') -%}
+{#- Calulate the dead time value: take the larger of the two POLLFREQ values, and multiply by 3. -#}
+{#- See http://www.networkupstools.org/docs/man/upsmon.conf.html -#}
+{%- if not deadtime -%}
+{%- set deadtime = (pollfreqalert if pollfreqalert > pollfreq else pollfreq) * 3 -%}
+{%- endif -%}
+{%- set powerdownflag = salt['pillar.get']('default:OMV_NUT_UPSMON_POWERDOWNFLAG', '/etc/killpower') -%}
+{%- set rbwarntime = salt['pillar.get']('default:OMV_NUT_UPSMON_RBWARNTIME', '43200') -%}
+{%- set nocommwarntime = salt['pillar.get']('default:OMV_NUT_UPSMON_NOCOMMWARNTIME', '300') -%}
+{%- set finaldelay = salt['pillar.get']('default:OMV_NUT_UPSMON_FINALDELAY', '5') -%}
+{{ pillar['headers']['multiline'] -}}
+MONITOR {{ config.upsname }}@localhost 1 {{ monitor_user }} {{ monitor_passwd }} master
+MINSUPPLIES {{ minsupplies }}
+SHUTDOWNCMD "{{ shutdowncmd }}"
+NOTIFYCMD "{{ notifycmd }}"
+POLLFREQ {{ pollfreq }}
+POLLFREQALERT {{ pollfreqalert }}
+HOSTSYNC {{ hostsync }}
+DEADTIME {{ deadtime }}
+POWERDOWNFLAG {{ powerdownflag }}
+NOTIFYFLAG ONLINE SYSLOG+WALL+EXEC
+NOTIFYFLAG ONBATT SYSLOG+WALL+EXEC
+NOTIFYFLAG LOWBATT SYSLOG+WALL+EXEC
+NOTIFYFLAG COMMOK SYSLOG+WALL+EXEC
+NOTIFYFLAG COMMBAD SYSLOG+WALL+EXEC
+NOTIFYFLAG SHUTDOWN SYSLOG+WALL+EXEC
+NOTIFYFLAG REPLBATT SYSLOG+WALL+EXEC
+NOTIFYFLAG NOCOMM SYSLOG+WALL+EXEC
+NOTIFYFLAG FSD SYSLOG+WALL+EXEC
+RBWARNTIME {{ rbwarntime }}
+NOCOMMWARNTIME {{ nocommwarntime }}
+FINALDELAY {{ finaldelay }}

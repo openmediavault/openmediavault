@@ -186,18 +186,6 @@ def make_mount_path(id_):
     return openmediavault.fs.make_mount_path(id_)
 
 
-@jinja_filter('path_prettify')
-def path_prettify(path):
-    """
-    Make sure the directory path ends with a slash.
-    :param path: The path to process.
-    :type path: str
-    :return: Returns the prettified path.
-    :rtype: str
-    """
-    return openmediavault.string.path_prettify(path)
-
-
 @jinja_filter('strip')
 def strip(value, chars=None):
     """
@@ -264,3 +252,39 @@ def add_slashes(value):
     :rtype: str
     """
     return openmediavault.string.add_slashes(path)
+
+
+@jinja_filter('path_prettify')
+def path_prettify(path):
+    """
+    Make sure the directory path ends with a slash.
+    :param path: The path to process.
+    :type path: str
+    :return: Returns the prettified path.
+    :rtype: str
+    """
+    return openmediavault.string.path_prettify(path)
+
+
+@jinja_filter('path_basename')
+def path_basename(path):
+    """
+    Return the base name of pathname path.
+    :param path: The string to process.
+    :type path: str
+    :return: Returns the base name.
+    :rtype: str
+    """
+    return os.path.basename(path)
+
+
+@jinja_filter('path_dirname')
+def path_dirname(path):
+    """
+    Return the directory name of pathname path.
+    :param path: The string to process.
+    :type path: str
+    :return: Returns the directory name.
+    :rtype: str
+    """
+    return os.path.dirname(path)

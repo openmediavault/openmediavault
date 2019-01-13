@@ -1,0 +1,26 @@
+{%- set cmdscript = salt['pillar.get']('default:OMV_NUT_UPSSCHED_CMDSCRIPT', '/usr/bin/upssched-cmd') -%}
+{%- set pipefn = salt['pillar.get']('default:OMV_NUT_UPSSCHED_PIPEFN', '/var/run/nut/upssched.pipe') -%}
+{%- set lockfn = salt['pillar.get']('default:OMV_NUT_UPSSCHED_LOCKFN', '/var/run/nut/upssched.lock') -%}
+{{ pillar['headers']['multiline'] -}}
+CMDSCRIPT {{ cmdscript }}
+PIPEFN {{ pipefn }}
+LOCKFN {{ lockfn }}
+AT COMMOK * EXECUTE notify
+AT COMMBAD * EXECUTE notify
+AT REPLBATT * EXECUTE notify
+AT NOCOMM * EXECUTE notify
+AT FSD * EXECUTE forced-shutdown
+AT NOPARENT * EXECUTE notify
+AT SHUTDOWN * EXECUTE notify
+{%- if 'onbatt' == config.shutdownmode %}
+AT ONLINE * CANCEL-TIMER shutdown
+AT ONLINE * EXECUTE resume
+AT ONBATT * START-TIMER shutdown {{ config.shutdowntimer }}
+AT ONBATT * EXECUTE shutdown-warning
+AT LOWBATT * START-TIMER shutdown
+AT LOWBATT * EXECUTE shutdown-warning
+{%- else %}
+AT ONLINE * EXECUTE notify
+AT ONBATT * EXECUTE notify
+AT LOWBATT * EXECUTE notify
+{%- endif %}
