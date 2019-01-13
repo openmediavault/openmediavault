@@ -134,9 +134,9 @@ class StringTestCase(unittest.TestCase):
         )
 
     def test_add_slashes(self):
-        self.assertEqual(openmediavault.string.add_slashes("'"), "\\'"))
-        self.assertEqual(openmediavault.string.add_slashes('"'), '\\"'))
-        self.assertEqual(openmediavault.string.add_slashes('\\'), '\\\\'))
+        self.assertEqual(openmediavault.string.add_slashes("'"), "\\'")
+        self.assertEqual(openmediavault.string.add_slashes('"'), '\\"')
+        self.assertEqual(openmediavault.string.add_slashes('\\'), '\\\\')
 
 
 if __name__ == "__main__":
