@@ -187,7 +187,7 @@ def path_prettify(path):
 
 def add_slashes(value):
     """
-    Quote string with slashes.
+    Prefix certain characters of a string with '\'.
     :param value: The string to be escaped.
     :type value: str
     :return: Returns a string with backslashes added before characters
