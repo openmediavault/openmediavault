@@ -248,3 +248,19 @@ def rstrip(value, chars=None):
     """
     assert isinstance(value, str)
     return value.rstrip(chars)
+
+
+@jinja_filter('add_slashes')
+def add_slashes(value):
+    """
+    Quote string with slashes.
+    :param value: The string to be escaped.
+    :type value: str
+    :return: Returns a string with backslashes added before characters
+        that need to be escaped. These characters are:
+        * backslash (\)
+        * single quote (')
+        * double quote (")
+    :rtype: str
+    """
+    return openmediavault.string.add_slashes(path)

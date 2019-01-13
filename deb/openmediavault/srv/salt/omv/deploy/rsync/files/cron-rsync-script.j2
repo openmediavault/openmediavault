@@ -47,7 +47,7 @@ touch "{{ runfile }}"
 omv_log "Please wait, syncing <{{ srcuri }}> to <{{ desturi }}> ...\n"
 {%- endif %}
 {%- if job.authentication == 'password' and job.password | length > 0 %}
-export RSYNC_PASSWORD="{{ job.password }}"
+export RSYNC_PASSWORD="{{ job.password | add_slashes }}"
 {%- endif %}
 rsync --verbose --log-file="{{ logfile }}"
 {%- if job.authentication == 'pubkey' %}{{ separator }}--rsh "ssh -p {{ job.sshport }} -i '{{ ssh_keys_dir | path_join(ssh_key_prefix ~ job.sshcertificateref) }}'"{%- endif %}
