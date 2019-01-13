@@ -51,7 +51,7 @@ def get_sharedfolder_path(uuid):
     """
     sf_obj = get('conf.system.sharedfolder', uuid)
     mp_obj = get('conf.system.filesystem.mountpoint', sf_obj['mntentref'])
-    return openmediavault.string.prettify_dir_path(
+    return openmediavault.string.path_prettify(
         os.path.join(mp_obj['dir'], sf_obj['reldirpath'])
     )
 
@@ -79,4 +79,4 @@ def get_sharedfolder_mount_path(uuid):
     """
     sf_obj = get('conf.system.sharedfolder', uuid)
     mp_obj = get('conf.system.filesystem.mountpoint', sf_obj['mntentref'])
-    return openmediavault.string.prettify_dir_path(mp_obj['dir'])
+    return openmediavault.string.path_prettify(mp_obj['dir'])

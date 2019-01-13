@@ -44,7 +44,7 @@ def make_mount_path(id_):
     mount_path = os.path.join(
         openmediavault.getenv("OMV_MOUNT_DIR", "/srv"), id_.replace('/', '_')
     )
-    return openmediavault.string.prettify_dir_path(mount_path)
+    return openmediavault.string.path_prettify(mount_path)
 
 
 class Filesystem(openmediavault.device.BlockDevice):

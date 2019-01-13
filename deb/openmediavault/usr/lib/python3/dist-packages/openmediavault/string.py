@@ -173,7 +173,7 @@ def binary_format(
     return result
 
 
-def prettify_dir_path(path):
+def path_prettify(path):
     """
     Make sure the directory path ends with a slash.
     :param path: The path to process.
