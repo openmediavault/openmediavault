@@ -50,7 +50,8 @@ Ext.define("OMV.window.Window", {
 			responsiveConfig: {
 				"phone || tablet || touch": {
 					maximized: true,
-					maximizable: true
+					maximizable: true,
+					stateful: false
 				}
 			}
 		});
