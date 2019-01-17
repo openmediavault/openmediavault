@@ -34,6 +34,7 @@ Ext.define("OMV.window.Window", {
 	},
 
 	cls: OMV.baseCSSPrefix + "window",
+	stateful: true,
 
 	initComponent: function() {
 		var me = this;
@@ -58,5 +59,11 @@ Ext.define("OMV.window.Window", {
 		if (!Ext.isArray(me.plugins))
 			me.plugins = [me.plugins];
 		Ext.Array.push(me.plugins, "responsive");
+	},
+
+	getStateId: function() {
+		var me = this;
+		var stateId = md5(Ext.getClassName(me));
+		return stateId;
 	}
 });
