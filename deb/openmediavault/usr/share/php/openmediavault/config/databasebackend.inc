@@ -34,7 +34,6 @@ class DatabaseBackend {
 	private $forceReload = TRUE;
 	private $autoCommit = TRUE;
 	private $versioning = FALSE;
-	private $semaphore = NULL;
 	private $domdoc = NULL;
 	private $filename = "";
 	// These fields must be handled as arrays.
@@ -83,7 +82,6 @@ class DatabaseBackend {
 		$this->autoCommit = $autoCommit;
 		$this->versioning = $versioning;
 		$this->filename = $filename;
-		$this->semaphore = sem_get(ftok($filename, 'x'));
 	}
 
 	/**
@@ -124,10 +122,8 @@ class DatabaseBackend {
 	 * @return TRUE on success, otherwise FALSE.
 	 */
 	public function save() {
-		sem_acquire($this->semaphore);
-		$result = $this->commit(TRUE);
-		sem_release($this->semaphore);
-		return $result;
+		$mutex = new \OMV\Mutex($this->filename);
+		return $this->commit(TRUE);
 	}
 
 	/**
@@ -198,21 +194,17 @@ class DatabaseBackend {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function set($xpath, $data) {
-		sem_acquire($this->semaphore);
-		$result = FALSE;
+		$mutex = new \OMV\Mutex($this->filename);
 		$this->reload();
 		$domxpath = new \DOMXPath($this->domdoc);
 		$nodeList = $domxpath->query($xpath);
 		if (0 >= $nodeList->length)
-			goto finish;
+			return FALSE;
 		foreach ($nodeList as $node) {
 			$this->nodeFromArray($data, $node);
 		}
-		$result = TRUE;
 		$this->commit();
-	finish:
-		sem_release($this->semaphore);
-		return $result;
+		return TRUE;
 	}
 
 	/**
@@ -225,22 +217,18 @@ class DatabaseBackend {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function replace($xpath, $data) {
-		sem_acquire($this->semaphore);
-		$result = FALSE;
+		$mutex = new \OMV\Mutex($this->filename);
 		$this->reload();
 		$domxpath = new \DOMXPath($this->domdoc);
 		$nodeList = $domxpath->query($xpath);
 		if (0 >= $nodeList->length)
-			goto finish;
+			return FALSE;
 		foreach ($nodeList as $node) {
 			$this->deleteChildren($node);
 			$this->nodeFromArray($data, $node);
 		}
-		$result = TRUE;
 		$this->commit();
-	finish:
-		sem_release($this->semaphore);
-		return $result;
+		return TRUE;
 	}
 
 	/**
@@ -255,28 +243,24 @@ class DatabaseBackend {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function update($xpath, $data) {
-		sem_acquire($this->semaphore);
-		$result = FALSE;
+		$mutex = new \OMV\Mutex($this->filename);
 		// Get the configuration for the given XPath expression.
 		$currentData = $this->get($xpath);
 		if (is_null($currentData))
-			goto finish;
+			return FALSE;
 		// Merge the configuration.
 		$data = array_merge($currentData, $data);
 		// Replace the old configuration with the merged one.
 		$domxpath = new \DOMXPath($this->domdoc);
 		$nodeList = $domxpath->query($xpath);
 		if (0 >= $nodeList->length)
-			goto finish;
+			return FALSE;
 		foreach ($nodeList as $node) {
 			$this->deleteChildren($node);
 			$this->nodeFromArray($data, $node);
 		}
-		$result = TRUE;
 		$this->commit();
-	finish:
-		sem_release($this->semaphore);
-		return $result;
+		return TRUE;
 	}
 
 	/**
@@ -287,11 +271,9 @@ class DatabaseBackend {
 	 * @return Returns the deleted nodes, otherwise FALSE.
 	 */
 	public function delete($xpath) {
-		sem_acquire($this->semaphore);
-		$result = FALSE;
+		$mutex = new \OMV\Mutex($this->filename);
 		if (is_null($result = $this->get($xpath))) {
-			$result = FALSE;
-			goto finish;
+			return FALSE;
 		}
 		$domxpath = new \DOMXPath($this->domdoc);
 		$nodeList = $domxpath->query($xpath);
@@ -299,8 +281,6 @@ class DatabaseBackend {
 			$this->deleteNode($node);
 		}
 		$this->commit();
-	finish:
-		sem_release($this->semaphore);
 		return $result;
 	}
 
@@ -372,7 +352,7 @@ class DatabaseBackend {
 	public function revert($filename) {
 		if (TRUE !== $this->versioning)
 			throw new DatabaseException("Versioning is not enabled.");
-		sem_acquire($this->semaphore);
+		$mutex = new \OMV\Mutex($this->filename);
 		if (empty($filename)) {
 			// Determine the lowest revision number.
 			$revision = PHP_INT_MAX;
@@ -394,20 +374,17 @@ class DatabaseBackend {
 			}
 			// Any revision file found?
 			if (!file_exists($filename))
-				goto finish;
+				return;
 		}
 		// Replace the configuration file with the given revision.
 		// !!! Note, the file permissions of the target file will
 		// not be touched when using the copy operation.
 		if (!copy($filename, $this->filename)) {
 			$error = error_get_last();
-			sem_release($this->semaphore);
 			throw new DatabaseException($error['message']);
 		}
 		// Unlink all revision files.
 		$this->unlinkRevisions();
-	finish:
-		sem_release($this->semaphore);
 	}
 
 	/**

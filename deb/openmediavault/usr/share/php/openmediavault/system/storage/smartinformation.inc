@@ -144,6 +144,8 @@ class SmartInformation {
 		if ($this->dataCached !== FALSE)
 			return;
 
+		$mutex = new \OMV\Mutex(__CLASS__.__METHOD__);
+
 		// Get all available S.M.A.R.T. information.
 		$cmdArgs = [];
 		$cmdArgs[] = sprintf("-x %s", escapeshellarg($this->deviceFile));
