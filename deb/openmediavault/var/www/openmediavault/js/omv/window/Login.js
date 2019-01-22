@@ -46,6 +46,7 @@ Ext.define("OMV.window.Login", {
 	closable: false,
 	buttonAlign: "center",
 	enableResponsiveness: false,
+	stateful: false,
 
 	constructor: function() {
 		var me = this;
