@@ -1061,6 +1061,78 @@ Ext.define('EXTJS_23846.Gesture', {
 });
 
 ////////////////////////////////////////////////////////////////////////////////
+// Ext.ZIndexManager
+////////////////////////////////////////////////////////////////////////////////
+
+// https://twasink.net/2016/09/20/upgrading-to-extjs-6-2/
+Ext.define('Ext.overrides.ZIndexManager', {
+	override: 'Ext.ZIndexManager',
+	compatibility: '6.2.0.981',
+	requires: [
+		'Ext.ZIndexManager'
+	],
+	privates: {
+		syncModalMask: function(comp) {
+			// ExtJS 6.2.0.981 has a bug where it doesn't look to see if the
+			// mask is rendered before trying to sync it. That's not the best
+			// thing. Here's a tentative fix: do nothing if the mask doesn't
+			// have a target.
+			if (!this.mask || !this.mask.maskTarget) { return; }
+			this.callParent(arguments);
+		}
+	}
+});
+
+////////////////////////////////////////////////////////////////////////////////
+// Ext.window.Window
+////////////////////////////////////////////////////////////////////////////////
+
+// https://github.com/JarvusInnovations/sencha-hotfixes/blob/ext/6/2/0/981/overrides/window/ResizeChildren.js
+// Works around issue where a panel inside a window doesn't get resized
+// correctly after the window is resized.
+Ext.define('Ext.overrides.window.Window', {
+	override: 'Ext.window.Window',
+	compatibility: '6.2.0.981',
+	requires: [
+		'Ext.window.Window'
+	],
+	onShowComplete: function() {
+		var me = this;
+		me.callParent(arguments);
+		if (me.child('container:not(header)')) {
+			me.on('resize', 'doResizeChildrenHotfix', me);
+		}
+	},
+	doClose: function() {
+		this.un('resize', 'doResizeChildrenHotfix', this);
+		this.callParent(arguments);
+	},
+	doResizeChildrenHotfix: function() {
+		this.updateLayout();
+	}
+});
+
+////////////////////////////////////////////////////////////////////////////////
+// Ext.view.Table
+////////////////////////////////////////////////////////////////////////////////
+
+// https://github.com/JarvusInnovations/sencha-hotfixes/blob/ext/6/2/0/981/overrides/view/TableReplaceScroll.js
+// Works around issue where a grid's scroll will jump back to last focused
+// record when a group is expanded/collapsed
+Ext.define('Ext.overrides.view.Table', {
+	override: 'Ext.view.Table',
+	compatibility: '6.2.0.981',
+	requires: [
+		'Ext.view.Table'
+	],
+	onReplace: function() {
+		this.saveScrollState();
+		this.callParent(arguments);
+		this.restoreScrollState();
+	}
+});
+
+////////////////////////////////////////////////////////////////////////////////
 // Additional helper functions
 ////////////////////////////////////////////////////////////////////////////////
 
