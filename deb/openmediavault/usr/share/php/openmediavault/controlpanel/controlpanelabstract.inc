@@ -136,6 +136,7 @@ EOF;
 			"js/omv/util/i18nDict.js",
 			"js/ext-overrides.js",
 			"js/js-overrides.js",
+			"js/md5.min.js",
 			"js/omv/globals.js"
 		];
 		if (TRUE === \OMV\Environment::getBoolean("OMV_DEBUG_EXTJS", FALSE)) {
