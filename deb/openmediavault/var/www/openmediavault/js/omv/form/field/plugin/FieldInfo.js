@@ -35,11 +35,11 @@ Ext.define("OMV.form.field.plugin.FieldInfo", {
 
 	init: function(c) {
 		var me = this;
-		if(!c.isFieldLabelable)
+		if (!c.isFieldLabelable)
 			return;
-		if(!Ext.isEmpty(me.text)) {
-			c.afterSubTpl = Ext.String.format("<div class='{0}'>{1}</div>",
-			  me.getCls(), me.getText());
+		if (!Ext.isEmpty(me.text)) {
+			c.afterSubTpl = [ Ext.String.format("<div class='{0}'>{1}</div>",
+				me.getCls(), me.getText()) ];
 		}
 	}
 });
