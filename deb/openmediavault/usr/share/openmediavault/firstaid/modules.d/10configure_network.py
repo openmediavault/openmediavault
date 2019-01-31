@@ -222,6 +222,7 @@ class Module(openmediavault.firstaid.IModule):
                     method6 = "auto"
                 else:
                     method6 = "static"
+            if method6 == "static":
                 # Get static IPv6 address.
                 address6 = None
                 while not address6:
