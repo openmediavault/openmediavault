@@ -10,12 +10,17 @@ Address={{ interface.address }}/{{ interface.netmask | network_prefix_len }}
 Gateway={{ interface.gateway }}
 {%- endif %}
 {%- endif %}
+{%- if interface.method6 == "manual" %}
+IPv6AcceptRA=no
+LinkLocalAddressing=no
+{%- endif %}
 {%- if interface.method6 == "static" %}
 Address={{ interface.address6 }}/{{ interface.netmask6 }}
 {%- if interface.gateway6 | is_ipv6 %}
 Gateway={{ interface.gateway }}
 {%- endif %}
 IPv6PrivacyExtensions=yes
+IPv6AcceptRA=no
 {%- endif %}
 {%- if interface.method6 == "auto" %}
 IPv6PrivacyExtensions=yes
