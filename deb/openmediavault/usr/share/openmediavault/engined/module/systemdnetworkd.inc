@@ -21,10 +21,10 @@
  */
 namespace Engined\Module;
 
-class Interfaces extends \OMV\Engine\Module\ServiceAbstract
+class SystemdNetworkd extends \OMV\Engine\Module\ServiceAbstract
 		implements \OMV\Engine\Notify\IListener {
 	public function getName() {
-		return "interfaces";
+		return "systemd-logind";
 	}
 
 	public function deployAfter(): array {
