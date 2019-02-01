@@ -40,7 +40,7 @@ class Module(openmediavault.firstaid.IModule):
         try:
             manager = openmediavault.systemd.Manager()
             unit = manager.get_unit("postfix.service")
-            active = unit["ActiveState"] == "active"
+            active = unit.active
         except Exception:
             active = False
         if not active:
