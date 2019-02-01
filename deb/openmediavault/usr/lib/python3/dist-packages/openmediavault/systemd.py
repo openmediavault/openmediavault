@@ -195,6 +195,22 @@ class Unit(_Object):  # lgtm[py/missing-call-to-init]
         except dbus.exceptions.DBusException as e:
             raise SystemdException(e)
 
+    @property
+    def active(self):
+        """
+        :returns: Returns ``True`` if the unit is active, otherwise ``False``.
+        :rtype: bool
+        """
+        return self['ActiveState'] == 'active'
+
+    @property
+    def running(self):
+        """
+        :returns: Returns ``True`` if the unit is running, otherwise ``False``.
+        :rtype: bool
+        """
+        return self['SubState'] == 'running'
+
     def kill(self, who, mode, signal):
         try:
             self.interface.KillUnit(who, mode, signal)
