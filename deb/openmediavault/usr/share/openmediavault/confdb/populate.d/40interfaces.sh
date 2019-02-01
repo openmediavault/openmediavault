@@ -67,7 +67,7 @@ grep -iP "^\s*iface\s+(eth[0-9]+|en[a-z0-9]+)\s+(inet|inet6)\s+(static|dhcp)" ${
                 address6: \"\", netmask6: 64, gateway6: \"\", \
                 dnsnameservers: \"${dnsnameservers}\", dnssearch: \"\", \
                 wol: false, mtu: 0, \
-                options: \"\", comment: \"\", method: \"${method}\", \
+                comment: \"\", method: \"${method}\", \
                 address: \"${address}\", netmask: \"${netmask}\", \
                 gateway: \"${gateway}\"}" |
                 omv-confdbadm update "conf.system.network.interface" -
