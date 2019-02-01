@@ -196,6 +196,8 @@ case "$1" in
 			deb-systemd-helper disable ntp.service
 			deb-systemd-invoke stop ntp.service || :
 			omv-salt deploy run --quiet chrony
+			# Deploy collectd - uptime plugin has been added.
+			omv-salt deploy run --quiet collectd
 		fi
 
 		########################################################################
