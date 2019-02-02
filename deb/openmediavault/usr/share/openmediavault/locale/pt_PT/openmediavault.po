@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Nelson Rosado <nelsontrosado@gmail.com>, 2012-2015,2017
+# Nelson Rosado <nelsontrosado@gmail.com>, 2012-2015,2017,2019
 # Nelson Rosado <nelsontrosado@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-23 17:24+0100\n"
-"PO-Revision-Date: 2018-12-23 16:24+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2019-01-15 15:39+0000\n"
+"Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/votdev/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,7 +45,7 @@ msgid "1 day"
 msgstr "1 dia"
 
 msgid "1 minute"
-msgstr ""
+msgstr "1 minuto"
 
 msgid "1 month"
 msgstr "1 mês"
@@ -76,7 +76,7 @@ msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - Minimo consumo de energia sem espera (sem spindown)"
 
 msgid "15 minutes"
-msgstr ""
+msgstr "15 minutos"
 
 msgid "15 years"
 msgstr "15 anos"
@@ -91,7 +91,7 @@ msgid "2 days"
 msgstr "2 dias"
 
 msgid "2 minutes"
-msgstr ""
+msgstr "2 minutos"
 
 msgid "2 weeks"
 msgstr "2 semanas"
@@ -121,7 +121,7 @@ msgid "3 days"
 msgstr "3 dias"
 
 msgid "3 minutes"
-msgstr ""
+msgstr "3 minutos"
 
 msgid "3 months"
 msgstr "3 meses"
@@ -145,7 +145,7 @@ msgid "4 days"
 msgstr "4 dias"
 
 msgid "4 minutes"
-msgstr ""
+msgstr "4 minutos"
 
 msgid "4 years"
 msgstr "4 anos"
@@ -434,7 +434,7 @@ msgid "Auto"
 msgstr "Auto"
 
 msgid "Auto logout"
-msgstr ""
+msgstr "Auto logout"
 
 msgid "Auto logout after the specified idle period."
 msgstr ""
