@@ -377,7 +377,7 @@ class Module(openmediavault.firstaid.IModule):
             "dnssearch": "",
             "mtu": 0,
             "wol": wol,
-            "comment": "",
+            "comment": ""
         })
         # Do we process a wireless network interface?
         if re.match(r"^wlan[0-9]+$", device_name):
