@@ -38,7 +38,5 @@ generate_{{ lang }}_locale:
 {% endif %}
 
 set_system_locale:
-  locale.system:
-    - name: "{{ lang }}"
-    - require:
-      - locale: generate_{{ lang }}_locale
+  cmd.run:
+    - name: "update-locale LANG={{ lang }} LC_ALL={{ lang }}"
