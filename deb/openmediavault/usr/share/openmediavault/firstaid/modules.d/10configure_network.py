@@ -40,7 +40,7 @@ class Module(openmediavault.firstaid.IModule):
         address = ""
         netmask = ""
         gateway = ""
-        method = "dhcp"
+        method = "manual"
         address6 = ""
         method6 = "manual"
         netmask6 = 64
@@ -87,112 +87,125 @@ class Module(openmediavault.firstaid.IModule):
         if code in (d.CANCEL, d.ESC):
             return 0
         device_name = tag
-        # Use DHCP?
+        # Use IPv4?
         code = d.yesno(
-            "Do you want to use DHCPv4 for this interface?",
+            "Do you want to configure IPv4 for this interface?",
             backtitle=self.description,
             height=5,
-            width=49
+            width=53,
+            defaultno=True
         )
         if code == d.ESC:
             return 0
-        if code != d.OK:
-            address = None
-            netmask = None
-            gateway = None
-            method = "static"
-            # Get the static IPv4 address.
-            while not address:
-                (code, address) = d.inputbox(
-                    "Please enter the IPv4 address.",
-                    backtitle=self.description,
-                    clear=True,
-                    height=8,
-                    width=60,
-                    init=""
-                )
-                if code != d.OK:
-                    return 0
-                if not address:
-                    d.msgbox(
-                        "The field must not be empty.",
+        if code == d.OK:
+            # Use DHCPv4?
+            code = d.yesno(
+                "Do you want to use DHCPv4 for this interface?",
+                backtitle=self.description,
+                height=5,
+                width=49
+            )
+            if code == d.ESC:
+                return 0
+            if code == d.OK:
+                method = "dhcp"
+            if code != d.OK:
+                address = None
+                netmask = None
+                gateway = None
+                method = "static"
+                # Get the static IPv4 address.
+                while not address:
+                    (code, address) = d.inputbox(
+                        "Please enter the IPv4 address.",
                         backtitle=self.description,
-                        height=5,
-                        width=32
+                        clear=True,
+                        height=8,
+                        width=60,
+                        init=""
                     )
-                    continue
-                try:
-                    ipaddress.ip_address(address)
-                except Exception:
-                    address = None
-                    d.msgbox(
-                        "Please enter a valid IPv4 address.",
+                    if code != d.OK:
+                        return 0
+                    if not address:
+                        d.msgbox(
+                            "The field must not be empty.",
+                            backtitle=self.description,
+                            height=5,
+                            width=32
+                        )
+                        continue
+                    try:
+                        ipaddress.ip_address(address)
+                    except Exception:
+                        address = None
+                        d.msgbox(
+                            "Please enter a valid IPv4 address.",
+                            backtitle=self.description,
+                            height=5,
+                            width=38
+                        )
+                        continue
+                # Get the IPv4 netmask.
+                while not netmask:
+                    (code, netmask) = d.inputbox(
+                        "Please enter the IPv4 netmask.",
                         backtitle=self.description,
-                        height=5,
-                        width=38
+                        clear=True,
+                        height=8,
+                        width=60,
+                        init=""
                     )
-                    continue
-            # Get the IPv4 netmask.
-            while not netmask:
-                (code, netmask) = d.inputbox(
-                    "Please enter the IPv4 netmask.",
-                    backtitle=self.description,
-                    clear=True,
-                    height=8,
-                    width=60,
-                    init=""
-                )
-                if code != d.OK:
-                    return 0
-                if not netmask:
-                    d.msgbox(
-                        "The field must not be empty.",
+                    if code != d.OK:
+                        return 0
+                    if not netmask:
+                        d.msgbox(
+                            "The field must not be empty.",
+                            backtitle=self.description,
+                            height=5,
+                            width=32
+                        )
+                        continue
+                    try:
+                        ipaddress.ip_address(netmask)
+                    except Exception:
+                        netmask = None
+                        d.msgbox(
+                            "Please enter a valid netmask.",
+                            backtitle=self.description,
+                            height=5,
+                            width=33
+                        )
+                        continue
+                # Get default IPv4 gateway.
+                while not gateway:
+                    (code, gateway) = d.inputbox(
+                        "Please enter the default IPv4 gateway.",
                         backtitle=self.description,
-                        height=5,
-                        width=32
+                        clear=True,
+                        height=8,
+                        width=60,
+                        init=""
                     )
-                    continue
-                try:
-                    ipaddress.ip_address(netmask)
-                except Exception:
-                    netmask = None
-                    d.msgbox(
-                        "Please enter a valid netmask.",
-                        backtitle=self.description,
-                        height=5,
-                        width=33
-                    )
-                    continue
-            # Get default IPv4 gateway.
-            while not gateway:
-                (code, gateway) = d.inputbox(
-                    "Please enter the default IPv4 gateway.",
-                    backtitle=self.description,
-                    clear=True,
-                    height=8,
-                    width=60,
-                    init=""
-                )
-                if code != d.OK:
-                    return 0
-                try:
-                    ipaddress.ip_address(gateway)
-                except Exception:
-                    gateway = None
-                    d.msgbox(
-                        "Please enter a valid gateway.",
-                        backtitle=self.description,
-                        height=5,
-                        width=33
-                    )
-                    continue
+                    if code != d.OK:
+                        return 0
+                    try:
+                        ipaddress.ip_address(gateway)
+                    except Exception:
+                        gateway = None
+                        d.msgbox(
+                            "Please enter a valid gateway.",
+                            backtitle=self.description,
+                            height=5,
+                            width=33
+                        )
+                        continue
         # Use IPv6?
         code = d.yesno(
             "Do you want to configure IPv6 for this interface?",
             backtitle=self.description,
             height=5,
             width=53,
-            defaultno=True
+            defaultno=True if method != "manual" else False
         )
         if code == d.ESC:
             return 0
