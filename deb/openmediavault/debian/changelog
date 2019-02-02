@@ -1,5 +1,6 @@
 openmediavault (4.1.18-1) stable; urgency=low
 
+  * Fix bug in omv-firstaid when configuring the network.
   * Issue #270: Ensure smartctl command is not executed in parallel.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 19 Jan 2019 15:52:14 +0100
