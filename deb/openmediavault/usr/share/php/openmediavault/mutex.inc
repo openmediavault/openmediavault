@@ -46,7 +46,7 @@ class Mutex {
 	 */
 	function lock() {
 		if (!sem_acquire($this->semIdentifier)) {
-			throw \OMV\MutexLockException();
+			throw new \OMV\MutexLockException();
 		}
 	}
 
