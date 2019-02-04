@@ -28,17 +28,28 @@ namespace OMV;
  * @ingroup api
  */
 class Mutex {
+	private $auto = TRUE;
 	private $semIdentifier = NULL;
 
-	public function __construct($key, $lock = TRUE) {
+	/**
+	 * Constructor
+	 * @param string $key The unique identifier.
+	 * @param boolean $auto Automatically acquire the lock on
+	 *   creation and release it on destruction. Defaults
+	 *   to TRUE.
+	 */
+	public function __construct($key, $auto = TRUE) {
+		$this->auto = $auto;
 		$this->semIdentifier = sem_get(crc32($key));
-		if ($lock) {
+		if ($this->auto) {
 			$this->lock();
 		}
 	}
 
 	function __destruct() {
-		$this->unlock();
+		if ($this->auto) {
+			$this->unlock();
+		}
 	}
 
 	/**
