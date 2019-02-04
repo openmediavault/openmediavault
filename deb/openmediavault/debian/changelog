@@ -1,3 +1,9 @@
+openmediavault (4.1.18-2) stable; urgency=low
+
+  * Fix bug in \OMV\Mutex class.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 04 Feb 2019 10:43:50 +0100
+
 openmediavault (4.1.18-1) stable; urgency=low
 
   * Fix bug in omv-firstaid when configuring the network.
