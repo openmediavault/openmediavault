@@ -38,7 +38,7 @@ class Mutex {
 	}
 
 	function __destruct() {
-		sem_remove($this->semIdentifier);
+		$this->unlock();
 	}
 
 	/**
