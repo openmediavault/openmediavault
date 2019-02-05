@@ -479,8 +479,8 @@ class Schema {
 		$regex = sprintf("/%s/", $schema['pattern']);
 		if (!preg_match($regex, $value)) {
 			throw new SchemaValidationException(
-			  "%s: The value '%s' doesn't match the pattern '%s'.",
-			  $name, $value, $schema['pattern']);
+			  "%s: The value '%s' doesn't match the pattern '%s' (code=%d).",
+			  $name, $value, $schema['pattern'], preg_last_error());
 		}
 	}
 
