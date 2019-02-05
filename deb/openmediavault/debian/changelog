@@ -10,7 +10,7 @@ openmediavault (5.0-1) unstable; urgency=low
     into the database.
   * Default systems settings will now be applied by the Salt orchestration
     state 'omv.stage.setup'.
-  * Add Time Maschine support to SMB/CIFS shares.
+  * Add Time Machine support to SMB/CIFS shares.
   * Use systemd-logind to handle power button action.
   * Use systemd to reboot/shutdown/standby the system.
   * Issue #93: Use chrony instead of ntpd.
