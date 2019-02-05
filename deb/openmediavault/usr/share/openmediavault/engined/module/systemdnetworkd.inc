@@ -24,7 +24,7 @@ namespace Engined\Module;
 class SystemdNetworkd extends \OMV\Engine\Module\ServiceAbstract
 		implements \OMV\Engine\Notify\IListener {
 	public function getName() {
-		return "systemd-logind";
+		return "systemd-networkd";
 	}
 
 	public function deployAfter(): array {
