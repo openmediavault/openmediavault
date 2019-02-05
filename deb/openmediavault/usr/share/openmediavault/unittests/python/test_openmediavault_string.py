@@ -129,9 +129,7 @@ class StringTestCase(unittest.TestCase):
         )
 
     def test_path_prettify_2(self):
-        self.assertEqual(
-            openmediavault.string.path_prettify('x/y///'), 'x/y/'
-        )
+        self.assertEqual(openmediavault.string.path_prettify('x/y///'), 'x/y/')
 
     def test_add_slashes(self):
         self.assertEqual(openmediavault.string.add_slashes("'"), "\\'")
