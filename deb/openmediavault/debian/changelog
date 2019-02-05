@@ -1,3 +1,9 @@
+openmediavault (4.1.19-1) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 05 Feb 2019 22:25:08 +0100
+
 openmediavault (4.1.18-2) stable; urgency=low
 
   * Fix bug in \OMV\Mutex class.
