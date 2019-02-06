@@ -72,34 +72,40 @@ class OMVRpcServiceSmart extends \OMV\Rpc\ServiceAbstract {
 			throw new \OMV\Exception("Failed to get list of storage devices");
 		}
 		// Prepare result.
-		$objects = [];
+		$procs = [];
 		foreach ($devs as $devk => $devv) {
-			// Get the storage device object.
-			\OMV\System\Storage\StorageDevice::assertStorageDeviceExists($devv);
-			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
-			// Skip devices that do not support S.M.A.R.T.
-			if (FALSE === $sd->hasSmartSupport())
-				continue;
-			// Get the S.M.A.R.T. information about the given device.
-			$smartInfo = $sd->getSmartInformation();
-			// Try to get the device temperature via S.M.A.R.T.
-			$temperature = $smartInfo->getTemperature();
-			// Prepare device object
-			$objects[] = [
-				"devicename" => $sd->getDeviceName(),
-				"devicefile" => $sd->getPreferredDeviceFile(),
-				"devicelinks" => $sd->getDeviceFileSymlinks(),
-				"model" => $sd->getModel(),
-				"size" => $sd->getSize(),
-				"temperature" => (FALSE === $temperature) ?
-				  "" : sprintf("%d°C", $temperature),
-				"description" => $sd->getDescription(),
-				"vendor" => $sd->getVendor(),
-				"serialnumber" => $sd->getSerialNumber(),
-				"overallstatus" => $smartInfo->getOverallStatus()
-			];
+			// Collect the device information asynchronous.
+			$procs[] = $this->asyncProc(function() use ($devv) {
+				// Get the storage device object.
+				\OMV\System\Storage\StorageDevice::assertStorageDeviceExists($devv);
+				$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
+				// Skip devices that do not support S.M.A.R.T.
+				if (FALSE === $sd->hasSmartSupport()) {
+					return FALSE;
+				}
+				// Get the S.M.A.R.T. information about the given device.
+				$smartInfo = $sd->getSmartInformation();
+				// Try to get the device temperature via S.M.A.R.T.
+				$temperature = $smartInfo->getTemperature();
+				// Prepare device object
+				return [
+					"devicename" => $sd->getDeviceName(),
+					"devicefile" => $sd->getPreferredDeviceFile(),
+					"devicelinks" => $sd->getDeviceFileSymlinks(),
+					"model" => $sd->getModel(),
+					"size" => $sd->getSize(),
+					"temperature" => (FALSE === $temperature) ?
+					  "" : sprintf("%d°C", $temperature),
+					"description" => $sd->getDescription(),
+					"vendor" => $sd->getVendor(),
+					"serialnumber" => $sd->getSerialNumber(),
+					"overallstatus" => $smartInfo->getOverallStatus()
+				];
+			});
 		}
-		return $objects;
+		// Remove elements that are no associative arrays (these are devices
+		// without S.M.A.R.T. support).
+		return array_filter($this->waitAsyncProcs($procs), "is_assoc_array");
 	}
 
 	/**

@@ -579,6 +579,117 @@ abstract class ServiceAbstract {
 	}
 
 	/**
+	 * Execute the specified anonymous function as an asynchronous process by
+	 * forking the main process.
+	 * @param Closure $child An anonymous function that should return
+	 *   the process output.
+	 * @param int $maxRunTime The maximum time the process should run.
+	 *   Defaults to 300 seconds.
+	 * @return array Returns an array containing process information.
+	 */
+	public function asyncProc(\Closure $child, $maxRunTime = 300) : array {
+		if (FALSE === @socket_create_pair(AF_UNIX, SOCK_STREAM, 0, $sockets)) {
+			throw new Exception("Failed to create socket: %s",
+				socket_strerror(socket_last_error()));
+		}
+		list($parentSocket, $childSocket) = $sockets;
+		$pid = pcntl_fork();
+		if ($pid == -1) {
+			throw new Exception("Failed to fork process.");
+		} else if ($pid > 0) { // Parent process
+			@socket_close($parentSocket);
+			return [
+				"pid" => $pid,
+				"socket" => $childSocket,
+				"startTime" => time(),
+				"maxRunTime" => $maxRunTime
+			];
+		}
+		// Child process
+		@socket_close($childSocket);
+		try {
+			$data = [
+				"result" => $child(),
+				"error" => FALSE
+			];
+		} catch(\Exception $e) {
+			$data = [
+				"result" => NULL,
+				"error" => [
+					"code" => $e->getCode(),
+					"message" => $e->getMessage(),
+					"trace" => $e->__toString()
+				]
+			];
+		}
+		@socket_write($parentSocket, serialize($data));
+		@socket_close($parentSocket);
+		exit(0);
+	}
+
+	/**
+	 * Wait until all async processes are finished.
+	 * @param array $procs The array containing the process information.
+	 * @return array Returns an array containing the results returned by
+	 *   the processes.
+	 */
+	public function waitAsyncProcs(array $procs) : array {
+		$result = [];
+		while (count($procs)) {
+			foreach ($procs as $prock => $procv) {
+				$pid = pcntl_waitpid($procv['pid'], $status, WNOHANG | WUNTRACED);
+				if ($pid == $procv['pid']) {
+					unset($procs[$prock]);
+					// Skip child processes with exit status 0.
+					if (0 !== pcntl_wexitstatus($status)) {
+						continue;
+					}
+					$data = "";
+					// Read data from socket and deserialize it.
+					while (TRUE) {
+						$buf = @socket_read($procv['socket'], 4096, PHP_BINARY_READ);
+						if (FALSE === $buf) {
+							throw new Exception("Failed to read from socket: %s",
+								socket_strerror(socket_last_error()));
+						}
+						if (empty($buf)) {
+							break;
+						}
+						$data .= $buf;
+					}
+					@socket_close($procv['socket']);
+					$data = unserialize($data);
+					// Handle errors that may have occured in the child
+					// process. Rethrow this exception again in this
+					// (the parent) process.
+					if (FALSE !== $data['error']) {
+						$error = $data['error'];
+						throw new TraceException($error['message'],
+							$error['code'], $error['trace']);
+					}
+					// Finally append the result from the child process.
+					$result[] = $data['result'];
+				} else if ($pid == 0) {
+					if ($procv['startTime'] + $procv['maxRunTime'] < time() ||
+							pcntl_wifstopped($status)) {
+						if (!posix_kill($procv['pid'], SIGKILL)) {
+							throw new Exception("Failed to kill process %d: %s",
+								$procv['pid'],
+								posix_strerror(posix_get_last_error()));
+						}
+						unset($procs[$prock]);
+					}
+				} else {
+					throw new Exception("Failed to manage process %d",
+						$procv['pid']);
+				}
+			}
+			usleep(100000); // Wait 0,1 seconds
+		}
+		return $result;
+	}
+
+	/**
 	 * Helper function to filter the method result using the given
 	 * filter arguments.
 	 * @param array The array of objects to filter.
