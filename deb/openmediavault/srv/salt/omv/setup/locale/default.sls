@@ -37,6 +37,7 @@ generate_{{ lang }}_locale:
 
 {% endif %}
 
+# Update /etc/default/locale
 set_system_locale:
   cmd.run:
     - name: "update-locale LANG={{ lang }} LC_ALL={{ lang }}"
