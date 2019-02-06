@@ -60,7 +60,9 @@ mount_no_bind_mountpoint_{{ mountpoint.uuid }}:
 mount_bind_mountpoint_{{ mountpoint.uuid }}:
   mount.mounted:
     - name: {{ mountpoint.dir }}
-    - fstype: {{ mountpoint.type }}
+    - device: {{ mountpoint.fsname }}
+    - fstype: none
+    - opts: bind
     - mkmnt: True
     - persist: False
     - mount: True
