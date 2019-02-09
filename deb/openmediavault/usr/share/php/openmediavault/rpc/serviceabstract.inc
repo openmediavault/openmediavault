@@ -641,9 +641,9 @@ abstract class ServiceAbstract {
 				if ($pid == $procv['pid']) {
 					unset($procs[$prock]);
 					// Skip child processes without exit status 0.
-					if (0 !== pcntl_wexitstatus($status)) {
-						continue;
-					}
+					//if (0 !== pcntl_wexitstatus($status)) {
+					//	continue;
+					//}
 					$data = "";
 					// Read data from socket and deserialize it.
 					while (TRUE) {
