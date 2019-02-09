@@ -640,7 +640,7 @@ abstract class ServiceAbstract {
 				$pid = pcntl_waitpid($procv['pid'], $status, WNOHANG | WUNTRACED);
 				if ($pid == $procv['pid']) {
 					unset($procs[$prock]);
-					// Skip child processes with exit status 0.
+					// Skip child processes without exit status 0.
 					if (0 !== pcntl_wexitstatus($status)) {
 						continue;
 					}
