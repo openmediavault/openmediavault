@@ -27,7 +27,7 @@ openmediavault (5.0-1) unstable; urgency=low
 openmediavault (4.1.19-1) stable; urgency=low
 
   * Add the ability to execute RPC code in parallel.
-  * Parallelize S.M.A.R.T. data collection.
+  * Parallelize the RPC's to collect the S.M.A.R.T. and filesystem info.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 05 Feb 2019 22:25:08 +0100
 
