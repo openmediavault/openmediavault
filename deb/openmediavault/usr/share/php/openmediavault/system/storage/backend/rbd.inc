@@ -25,7 +25,7 @@ namespace OMV\System\Storage\Backend;
  * Implements the storage device backend for Ceph's RADOS Block Devices (RBD).
  * @ingroup api
  */
-class RDB extends BackendAbstract {
+class RBD extends BackendAbstract {
 	function getType() {
 		return OMV_STORAGE_DEVICE_TYPE_DISK;
 	}
@@ -56,7 +56,7 @@ class RDB extends BackendAbstract {
 	 * See interface definition.
 	 */
 	function getImpl($args) {
-		return new \OMV\System\Storage\StorageDeviceRDB($args);
+		return new \OMV\System\Storage\StorageDeviceRBD($args);
 	}
 
 	/**
