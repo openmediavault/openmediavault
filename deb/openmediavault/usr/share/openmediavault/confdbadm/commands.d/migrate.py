@@ -42,7 +42,15 @@ class Command(
             _ = LooseVersion(arg)
         except Exception:
             raise argparse.ArgumentTypeError("No valid version")
-        return arg
+
+        # Extract the upstream version.
+        # [epoch:]upstream_version[-debian_revision]
+        # https://www.debian.org/doc/debian-policy/ch-controlfields.html#version
+        # Note, the regex for the upstream version is simplified.
+        parts = re.match(
+            r'^(\d:)?([^:-]+)(-[a-z0-9\+\.~]+)?$', arg, flags=re.IGNORECASE
+        )
+        return parts.group(2)
 
     def execute(self, *args):
         rc = 1
