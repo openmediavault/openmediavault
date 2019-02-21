@@ -23,6 +23,7 @@
 // require("js/omv/Rpc.js")
 // require("js/omv/window/MessageBox.js")
 // require("js/omv/toolbar/ApplyCfg.js")
+// require("js/omv/toolbar/HostnameItem.js")
 // require("js/omv/workspace/tab/Panel.js")
 // require("js/omv/workspace/node/tree/Panel.js")
 // require("js/omv/workspace/node/panel/Category.js")
@@ -41,6 +42,7 @@ Ext.define("OMV.workspace.Workspace", {
 		"OMV.SessionManager",
 		"OMV.Rpc",
 		"OMV.toolbar.ApplyCfg",
+		"OMV.toolbar.HostnameItem",
 		"OMV.window.MessageBox",
 		"OMV.workspace.node.tree.Panel"
 	],
@@ -89,17 +91,24 @@ Ext.define("OMV.workspace.Workspace", {
 	 * @private
 	 */
 	buildHeader: function() {
-		return Ext.create("Ext.Component", {
+		return {
+			xtype: "container",
 			region: "north",
-			cls: Ext.baseCSSPrefix + "workspace-header",
-			autoEl: {
-				tag: "div",
-				html: "<div id='header'><a title='" + OMV.PRODUCT_NAME +
-				  "' href='" + OMV.PRODUCT_URL + "' target='_blank'>" +
-				  "<div id='headerlogo'></div></a><div id='headerrlogo'>" +
-				  "</div></div>"
-			}
-		});
+			fullscreen: true,
+			items: [{
+				xtype: "applycfgtoolbar"
+			},{
+				xtype: "component",
+				cls: Ext.baseCSSPrefix + "workspace-header",
+				autoEl: {
+					tag: "div",
+					html: "<div id='header'><a title='" + OMV.PRODUCT_NAME +
+						"' href='" + OMV.PRODUCT_URL + "' target='_blank'>" +
+						"<div id='headerlogo'></div></a><div id='headerrlogo'>" +
+						"</div></div>"
+				}
+			}]
+		};
 	},
 
 	/**
@@ -171,6 +180,8 @@ Ext.define("OMV.workspace.Workspace", {
 					text: "&nbsp;"
 				},{
 					xtype: "tbfill"
+				},{
+					xtype: "tbhostname"
 				},{
 					xtype: "splitbutton",
 					iconCls: "x-fa fa-ellipsis-v",
@@ -349,9 +360,7 @@ Ext.define("OMV.workspace.Workspace", {
 						}
 					})
 				}]
-			}),{
-				xtype: "applycfgtoolbar"
-			}]
+			})]
 		});
 	},
 

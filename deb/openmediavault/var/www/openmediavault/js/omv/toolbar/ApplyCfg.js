@@ -19,7 +19,7 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/SessionManager.js")
-// require("js/omv/Rpc.js")
+// require("js/omv/SystemInfo.js")
 // require("js/omv/window/MessageBox.js")
 
 /**
@@ -31,21 +31,17 @@
  * progress dialog will be displayed. The toolbar is hidden if no
  * outstanding configuration changes are available.
  * @param msgText The message to be displayed.
- * @param reloadInterval The frequency in milliseconds in which it is
- *   checked whether there are any outstanding configuration changes that
- *   can be applied. Defaults to 5 seconds.
  */
 Ext.define("OMV.toolbar.ApplyCfg", {
 	extend: "Ext.toolbar.Toolbar",
 	alias: "widget.applycfgtoolbar",
 	requires: [
 		"OMV.SessionManager",
-		"OMV.Rpc",
+		"OMV.SystemInfo",
 		"OMV.window.MessageBox"
 	],
 
 	msgText: _("The configuration has been changed. You must apply the changes in order for them to take effect."),
-	reloadInterval: 5000,
 
 	hidden: true,
 
@@ -136,6 +132,7 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 			}]
 		});
 		me.callParent(arguments);
+		OMV.SystemInfo.on("refresh", me.onRefreshSystemInfo, me);
 	},
 
 	setVisible: function(visible) {
@@ -147,61 +144,16 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 		return me.callParent([ visible ]);
 	},
 
-	afterRender: function() {
-		var me = this;
-		if (Ext.isEmpty(me.reloadTask)) {
-			me.reloadTask = Ext.util.TaskManager.newTask({
-				run: me.doCheck,
-				scope: me,
-				interval: me.reloadInterval,
-				fireOnStart: true
-			});
-			me.reloadTask.start();
-		}
-		me.callParent();
-	},
-
 	destroy: function() {
 		var me = this;
-		// Stop a running task?
-		if (!Ext.isEmpty(me.reloadTask) && (me.reloadTask.isTask)) {
-			me.reloadTask.destroy();
-			me.reloadTask = null;
-		}
+		OMV.SystemInfo.un("refresh", me.onRefreshSystemInfo, me);
 		me.callParent();
 	},
 
-	/**
-	 * @method doCheck
-	 * Private function that checks whether the configuration is marked
-	 * dirty. If the configuration is dirty, then the toolbar is shown,
-	 * otherwise it is hidden.
-	 */
-	doCheck: function() {
+	onRefreshSystemInfo: function(c, info) {
 		var me = this;
-		// Exit immediatelly if configuration is applied at the moment.
-		if (Ext.isDefined(me.inProgress) && (true === me.inProgress))
-			return;
-		// Exit immediatelly if there is a pending RPC request.
-		if (Ext.isDefined(me.pendingRequest) && (-1 !== me.pendingRequest))
-			return;
-		// Execute RPC in background, this means errors will be ignored and
-		// not forwarded to the caller.
-		me.pendingRequest = OMV.Rpc.request({
-			scope: me,
-			callback: function(id, success, response) {
-				delete me.pendingRequest;
-				if (true === success) {
-					me.setVisible(response);
-				}
-			},
-			rpcData: {
-				service: "Config",
-				method: "isDirty",
-				options: {
-					updatelastaccess: false
-				}
-			}
-		});
+		if (me.isVisible() !== info.configDirty) {
+			me.setVisible(info.configDirty);
+		}
 	}
 });

@@ -340,78 +340,36 @@ class System extends \OMV\Rpc\ServiceAbstract {
 	 * @return An array of system information.
 	 */
 	public function getInformation($params, $context) {
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, [
-			"role" => OMV_ROLE_ADMINISTRATOR
-		]);
-		// Get various system informations.
-		$prd = new \OMV\ProductInfo();
-		$uname = posix_uname();
-		$memStats = \OMV\System\System::getMemoryStats();
-		$memStats['wobufferscache']['percentage'] = round(
-		  ($memStats['mem']['used'] * 100) / $memStats['mem']['total']);
-		$cpuStats = \OMV\System\System::getCpuStats();
-		$index = 0;
-		return [
-			[
-				"name" => gettext("Hostname"),
-				"value" => \OMV\System\Net\Dns::getFqdn(),
-				"type" => "string",
-				"index" => $index++
-			],[
-				"name" => gettext("Version"),
-				"value" => sprintf("%s (%s)", $prd->getVersion(),
-				  $prd->getVersionName()),
-				"type" => "string",
-				"index" => $index++
-			],[
-				"name" => gettext("Processor"),
-				"value" => $cpuStats['modelname'],
-				"type" => "string",
-				"index" => $index++
-			],[
-				"name" => gettext("Kernel"),
-				"value" => sprintf("%s %s", $uname['sysname'],
-				  $uname['release']),
-				"type" => "string",
-				"index" => $index++
-			],[
-				"name" => gettext("System time"),
-				"value" => strftime("%c"),
-				"type" => "string",
-				"index" => $index++
-			],[
-				"name" => gettext("Uptime"),
-				"value" => \OMV\System\System::uptime(),
-				"type" => "string",
-				"index" => $index++
-			],[
-				"name" => gettext("Load average"),
-				"value" => \OMV\System\System::getLoadAverage(),
-				"type" => "string",
-				"index" => $index++
-			],[
-				"name" => gettext("CPU usage"),
-				"value" => [
-					"text" => sprintf("%d%%", $cpuStats['usage']),
-//					"text" => sprintf("%d%% of %s MHz", $cpuStats['usage'],
-//					  $cpuStats['cpumhz']),
-					"value" => $cpuStats['usage']
-				],
-				"type" => "progress",
-				"index" => $index++
-			],[
-				"name" => gettext("Memory usage"),
-				"value" => [
-					"text" => sprintf("%d%% of %s",
-					  $memStats['wobufferscache']['percentage'],
-					  binary_format($memStats['mem']['total'])),
-					"value" => $memStats['wobufferscache']['percentage']
-				],
-				"type" => "progress",
-				"index" => $index++
-			]
+		// The information everyone is allowed to see.
+		$result = [
+			"ts" => time(),
+			"time" => strftime("%c"),
+			"hostname" => \OMV\System\Net\Dns::getFqdn()
 		];
+		// Append the information that is only visible to an administrator.
+		if (TRUE === $this->hasContextRole($context, OMV_ROLE_ADMINISTRATOR)) {
+			$prd = new \OMV\ProductInfo();
+			$uname = posix_uname();
+			$memStats = \OMV\System\System::getMemoryStats();
+			$cpuStats = \OMV\System\System::getCpuStats();
+			$result = array_merge($result, [
+				"version" => sprintf("%s (%s)", $prd->getVersion(),
+					$prd->getVersionName()),
+				"cpuModelName" => $cpuStats['modelname'],
+				"cpuUsage" => $cpuStats['usage'],
+				"memTotal" => $memStats['mem']['total'],
+				"memUsed" => $memStats['mem']['used'],
+				"kernel" => sprintf("%s %s", $uname['sysname'],
+					$uname['release']),
+				"uptime" => \OMV\System\System::uptime(),
+				"loadAverage" => \OMV\System\System::getLoadAverage(),
+				"configDirty" => \OMV\Rpc\Rpc::call(
+					"Config", "isDirty", NULL, $context
+				),
+				"rebootRequired" => file_exists("/var/run/reboot-required")
+			]);
+		}
+		return $result;
 	}
 
 	/**
@@ -419,7 +377,7 @@ class System extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 *   The method does not have any paramaters.
 	 * @param context The context of the caller.
-	 * @return A quotation from the Dune novel, which is a string.
+	 * @return string Returns the diagnostic report as plain text.
 	 */
 	public function getDiagnosticReport($params, $context) {
 		// Validate the RPC caller context.

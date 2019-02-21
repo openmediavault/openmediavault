@@ -205,6 +205,18 @@ abstract class ServiceAbstract {
 	}
 
 	/**
+	 * Helper function to check if the context has the specified role.
+	 * @return boolean Returns TRUE if the context has the specified role,
+	 *   otherwise FALSE.
+	 */
+	final protected function hasContextRole($context, $role) {
+		if (array_key_exists("role", $context)) {
+			return !!($context['role'] & $role); // Convert to boolean
+		}
+		return FALSE;
+	}
+
+	/**
 	 * Helper function to get the administrator context.
 	 * @return The context object.
 	 */
