@@ -22,11 +22,14 @@
 
 /**
  * @ingroup webgui
- * @class OMV.SystemInfo
+ * @class OMV.service.SystemInfo
+ * Every event subscriber will be notified immediately with the latest data
+ * after subscription. After that the \em refresh event is triggered every
+ * \em refreshInterval milliseconds.
  * @param refreshInterval The frequency in milliseconds in which the
  *   system info is checked. Defaults to 5 seconds.
  */
-Ext.define("OMV.SystemInfo", {
+Ext.define("OMV.service.SystemInfo", {
 	singleton: true,
 	requires: [
 		"OMV.Rpc"
@@ -35,26 +38,27 @@ Ext.define("OMV.SystemInfo", {
 		"Ext.mixin.Observable"
 	],
 
-	refreshInterval: 5000,
-
-	// @private
-	data: [],
+	config: {
+		refreshInterval: 5000,
+		data: []
+	},
 
 	constructor: function(config) {
 		var me = this;
-		me.mixins.observable.constructor.call(me, config);
+		me.mixins.observable.constructor.call(me);
+		me.callParent([ config ]);
 		me.refreshTask = Ext.util.TaskManager.newTask({
 			run: me.doRefresh,
 			scope: me,
-			interval: me.refreshInterval,
+			interval: me.getRefreshInterval(),
 			fireOnStart: true
 		});
 		me.refreshTask.start();
 
 		/**
 		 * @event refresh
-		 * Fires when the status has been changed.
-		 * @param {OMV.SystemInfo} this
+		 * Fires when the system information has been changed.
+		 * @param {OMV.service.SystemInfo} this
 		 * @param e
 		 */
 	},
@@ -68,10 +72,13 @@ Ext.define("OMV.SystemInfo", {
 		me.callParent();
 	},
 
-	addListener: function() {
+	addListener: function(eventName, fn, scope) {
 		var me = this;
 		me.mixins.observable.addListener.apply(me, arguments);
-		me.fireEvent("refresh", me, me.data);
+		// Immediately call the listener function with the latest data.
+		if (Ext.isFunction(fn)) {
+			fn.call(scope || me, me, me.getData());
+		}
 	},
 
 	/**
@@ -88,8 +95,8 @@ Ext.define("OMV.SystemInfo", {
 			scope: me,
 			callback: function(id, success, response) {
 				delete me.pendingRequest;
-				me.data = response;
-				me.fireEvent("refresh", me, me.data);
+				me.setData(response);
+				me.fireEvent("refresh", me, me.getData());
 			},
 			rpcData: {
 				service: "System",

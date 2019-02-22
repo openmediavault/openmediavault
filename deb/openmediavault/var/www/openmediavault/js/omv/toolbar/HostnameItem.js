@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/SystemInfo.js")
+// require("js/omv/service/SystemInfo.js")
 
 /**
  * @ingroup webgui
@@ -30,18 +30,18 @@ Ext.define("OMV.toolbar.HostnameItem", {
 	extend: "Ext.toolbar.TextItem",
 	alias: "widget.tbhostname",
 	requires: [
-		"OMV.SystemInfo",
+		"OMV.service.SystemInfo",
 	],
 
 	initComponent: function() {
 		var me = this;
 		me.callParent(arguments);
-		OMV.SystemInfo.on("refresh", me.onRefreshSystemInfo, me);
+		OMV.service.SystemInfo.on("refresh", me.onRefreshSystemInfo, me);
 	},
 
 	destroy: function() {
 		var me = this;
-		OMV.SystemInfo.un("refresh", me.onRefreshSystemInfo, me);
+		OMV.service.SystemInfo.un("refresh", me.onRefreshSystemInfo, me);
 		me.callParent();
 	},
 
