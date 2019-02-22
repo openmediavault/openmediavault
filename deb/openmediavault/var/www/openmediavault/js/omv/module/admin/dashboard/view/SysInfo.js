@@ -23,7 +23,7 @@
 // require("js/omv/data/Model.js")
 // require("js/omv/workspace/grid/Panel.js")
 // require("js/omv/util/Format.js")
-// require("js/omv/SystemInfo.js")
+// require("js/omv/service/SystemInfo.js")
 
 /**
  * @class OMV.module.admin.dashboard.view.SysInfo
@@ -37,7 +37,7 @@ Ext.define("OMV.module.admin.dashboard.view.SysInfo", {
 		"OMV.data.Store",
 		"OMV.data.Model",
 		"OMV.util.Format",
-		"OMV.SystemInfo"
+		"OMV.service.SystemInfo"
 	],
 
 	height: 200,
@@ -107,12 +107,12 @@ Ext.define("OMV.module.admin.dashboard.view.SysInfo", {
 			}) ]
 		});
 		me.callParent(arguments);
-		OMV.SystemInfo.on("refresh", me.onRefreshSystemInfo, me);
+		OMV.service.SystemInfo.on("refresh", me.onRefreshSystemInfo, me);
 	},
 
 	destroy: function() {
 		var me = this;
-		OMV.SystemInfo.un("refresh", me.onRefreshSystemInfo, me);
+		OMV.service.SystemInfo.un("refresh", me.onRefreshSystemInfo, me);
 		me.callParent();
 	},
 

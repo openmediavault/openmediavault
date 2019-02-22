@@ -19,7 +19,7 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/SessionManager.js")
-// require("js/omv/SystemInfo.js")
+// require("js/omv/service/SystemInfo.js")
 // require("js/omv/window/MessageBox.js")
 
 /**
@@ -37,7 +37,7 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 	alias: "widget.applycfgtoolbar",
 	requires: [
 		"OMV.SessionManager",
-		"OMV.SystemInfo",
+		"OMV.service.SystemInfo",
 		"OMV.window.MessageBox"
 	],
 
@@ -132,7 +132,7 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 			}]
 		});
 		me.callParent(arguments);
-		OMV.SystemInfo.on("refresh", me.onRefreshSystemInfo, me);
+		OMV.service.SystemInfo.on("refresh", me.onRefreshSystemInfo, me);
 	},
 
 	setVisible: function(visible) {
@@ -146,7 +146,7 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 
 	destroy: function() {
 		var me = this;
-		OMV.SystemInfo.un("refresh", me.onRefreshSystemInfo, me);
+		OMV.service.SystemInfo.un("refresh", me.onRefreshSystemInfo, me);
 		me.callParent();
 	},
 

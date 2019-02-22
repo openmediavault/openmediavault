@@ -47,7 +47,7 @@ class Administration extends ControlPanelAbstract {
 
 	public function getJavascriptIncludes() {
 		$incList = [];
-		$this->scanFiles("js/omv/SystemInfo.js", $incList);
+		$this->scanFiles("js/omv/service/SystemInfo.js", $incList);
 		$this->scanFiles("js/omv/SessionManager.js", $incList);
 		$this->scanFiles("js/omv/workspace/Workspace.js", $incList);
 		$this->scanDir("js/omv/module/public", $incList, TRUE);
