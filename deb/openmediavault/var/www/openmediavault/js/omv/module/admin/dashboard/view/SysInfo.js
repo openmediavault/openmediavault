@@ -108,8 +108,6 @@ Ext.define("OMV.module.admin.dashboard.view.SysInfo", {
 		});
 		me.callParent(arguments);
 		OMV.SystemInfo.on("refresh", me.onRefreshSystemInfo, me);
-		// Force refreshing the data to immediatelly display them.
-		OMV.SystemInfo.refresh();
 	},
 
 	destroy: function() {
@@ -144,7 +142,7 @@ Ext.define("OMV.module.admin.dashboard.view.SysInfo", {
 				"type": "string",
 			},{
 				"name": _("System time"),
-				"value": info.time,
+				"value": new Date(info.ts * 1000).toLocaleString(),
 				"index": index++,
 				"type": "string",
 			},{

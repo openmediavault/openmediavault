@@ -37,6 +37,9 @@ Ext.define("OMV.SystemInfo", {
 
 	refreshInterval: 5000,
 
+	// @private
+	data: [],
+
 	constructor: function(config) {
 		var me = this;
 		me.mixins.observable.constructor.call(me, config);
@@ -65,14 +68,10 @@ Ext.define("OMV.SystemInfo", {
 		me.callParent();
 	},
 
-	/**
-	 * Refresh the system information.
-	 */
-	refresh: function() {
+	addListener: function() {
 		var me = this;
-		if (!Ext.isEmpty(me.refreshTask) && (me.refreshTask.isTask)) {
-			me.refreshTask.restart();
-		}
+		me.mixins.observable.addListener.apply(me, arguments);
+		me.fireEvent("refresh", me, me.data);
 	},
 
 	/**
@@ -89,7 +88,8 @@ Ext.define("OMV.SystemInfo", {
 			scope: me,
 			callback: function(id, success, response) {
 				delete me.pendingRequest;
-				me.fireEvent("refresh", me, response);
+				me.data = response;
+				me.fireEvent("refresh", me, me.data);
 			},
 			rpcData: {
 				service: "System",
