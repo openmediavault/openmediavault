@@ -132,21 +132,16 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 			}]
 		});
 		me.callParent(arguments);
-		OMV.service.SystemInfo.on("refresh", me.onRefreshSystemInfo, me);
-	},
-
-	setVisible: function(visible) {
-		var me = this;
-		// If user does not have administrator privileges, then never
-		// show this toolbar.
-		if (!OMV.SessionManager.isAdministrator())
-			visible = false;
-		return me.callParent([ visible ]);
+		if (OMV.SessionManager.isAdministrator()) {
+			OMV.service.SystemInfo.on("refresh", me.onRefreshSystemInfo, me);
+		}
 	},
 
 	destroy: function() {
 		var me = this;
-		OMV.service.SystemInfo.un("refresh", me.onRefreshSystemInfo, me);
+		if (OMV.SessionManager.isAdministrator()) {
+			OMV.service.SystemInfo.un("refresh", me.onRefreshSystemInfo, me);
+		}
 		me.callParent();
 	},
 
