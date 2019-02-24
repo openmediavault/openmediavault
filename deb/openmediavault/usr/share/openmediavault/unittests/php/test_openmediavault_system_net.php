@@ -36,6 +36,7 @@ class NetworkInterfaceMock extends \OMV\System\Net\NetworkInterface {
 			"    inet6 fe80::5054:ff:fea6:7653/64 scope link ",
 			"       valid_lft forever preferred_lft forever"
 		]);
+		$this->setCached(TRUE);
 	}
 }
 
