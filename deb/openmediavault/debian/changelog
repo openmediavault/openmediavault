@@ -17,6 +17,7 @@ openmediavault (5.0-1) unstable; urgency=low
   * Issue #146: Use systemd to configure the network.
   * Issue #266: Remember size and position of windows.
   * Issue #281: Display system uptime in RRD graph.
+  * Issue #302: Display reboot notification.
   * Add options 'Group' and 'Owner' to rsync settings. If the 'Archive' option
     is enabled and one of its implied option 'Recursive',
     'Preserve permissions', 'Times', 'Group' or 'Owner' is disabled, then this
