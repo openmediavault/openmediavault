@@ -24,6 +24,7 @@
 // require("js/omv/window/MessageBox.js")
 // require("js/omv/toolbar/ApplyCfg.js")
 // require("js/omv/toolbar/HostnameItem.js")
+// require("js/omv/toolbar/RebootRequiredItem.js")
 // require("js/omv/workspace/tab/Panel.js")
 // require("js/omv/workspace/node/tree/Panel.js")
 // require("js/omv/workspace/node/panel/Category.js")
@@ -182,6 +183,8 @@ Ext.define("OMV.workspace.Workspace", {
 					xtype: "tbfill"
 				},{
 					xtype: "tbhostname"
+				},{
+					xtype: "tbrebootrequired"
 				},{
 					xtype: "splitbutton",
 					iconCls: "x-fa fa-ellipsis-v",
