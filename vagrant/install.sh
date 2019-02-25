@@ -21,12 +21,18 @@
 
 set -e
 
-# Remove the default systemd-networkd configuration file.
-rm -f /etc/systemd/network/99-dhcp.network
-
 # Append user 'vagrant' to group 'ssh', otherwise the user is not allowed
 # to log in via SSH.
 usermod --groups ssh --append vagrant
+
+export LANG=C.UTF-8
+export DEBIAN_FRONTEND=noninteractive
+export APT_LISTCHANGES_FRONTEND=none
+
+# Install the openmediavault keyring manually.
+apt-get install --yes gnupg
+wget -O "/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.asc" https://packages.openmediavault.org/public/archive.key
+apt-key add "/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.asc"
 
 # Install openmediavault.
 cat <<EOF >> /etc/apt/sources.list.d/openmediavault.list
@@ -40,19 +46,13 @@ deb http://packages.openmediavault.org/public usul main
 # deb http://packages.openmediavault.org/public usul partner
 # deb http://downloads.sourceforge.net/project/openmediavault/packages usul partner
 EOF
-
-export LANG=C.UTF-8
-export DEBIAN_FRONTEND=noninteractive
-export APT_LISTCHANGES_FRONTEND=none
-wget -O "/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.asc" https://packages.openmediavault.org/public/archive.key
-apt-key add "/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.asc"
 apt-get update
 apt-get --yes --auto-remove --show-upgraded \
 	--allow-downgrades --allow-change-held-packages \
 	--no-install-recommends \
 	--option Dpkg::Options::="--force-confdef" \
 	--option DPkg::Options::="--force-confold" \
-	install postfix openmediavault-keyring openmediavault
+	install openmediavault-keyring openmediavault
 
 # Populate the database.
 omv-confdbadm populate

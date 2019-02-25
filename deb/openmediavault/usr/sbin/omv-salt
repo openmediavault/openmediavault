@@ -62,7 +62,7 @@ def stage_list():
 
 
 @stage.command(name='run', help='Run the specified stage.')
-@click.argument('name', 'The stage name')
+@click.argument('name')
 @click.option(
     '-q',
     '--quiet',
@@ -98,7 +98,7 @@ def deploy_list():
 
 
 @deploy.command(name='run', help='Run the specified state(s).')
-@click.argument('names', 'The state name(s)', nargs=-1, required=True)
+@click.argument('names', nargs=-1, required=True)
 @click.option(
     '-q',
     '--quiet',
