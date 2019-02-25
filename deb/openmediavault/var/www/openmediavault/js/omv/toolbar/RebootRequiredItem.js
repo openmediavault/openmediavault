@@ -18,6 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+// require("js/omv/SessionManager.js")
 // require("js/omv/service/SystemInfo.js")
 
 /**
@@ -30,6 +31,7 @@ Ext.define("OMV.toolbar.RebootRequiredItem", {
 	extend: "Ext.toolbar.TextItem",
 	alias: "widget.tbrebootrequired",
 	requires: [
+		"OMV.SessionManager",
 		"OMV.service.SystemInfo",
 	],
 
@@ -38,8 +40,8 @@ Ext.define("OMV.toolbar.RebootRequiredItem", {
 	initComponent: function() {
 		var me = this;
 		Ext.apply(me, {
-			html: "<span class='x-fa fa-repeat' data-qtip='" +
-				_("The system must be rebooted.") + "'></span>"
+			html: "<div class='x-fa fa-repeat fa-spin' data-qtip='" +
+				_("The system must be rebooted.") + "'></div>"
 		});
 		me.callParent(arguments);
 		if (OMV.SessionManager.isAdministrator()) {
