@@ -497,3 +497,9 @@ Files: /var/www/openmediavault/images/document.png
        /var/www/openmediavault/images/document.svg
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
+
+Files: /var/www/openmediavault/js/md5.js
+       /var/www/openmediavault/js/md5.min.js
+       /var/www/openmediavault/js/md5.min.js.map
+Copyright: 2011 Sebastian Tschan, https://blueimp.net
+License: MIT
