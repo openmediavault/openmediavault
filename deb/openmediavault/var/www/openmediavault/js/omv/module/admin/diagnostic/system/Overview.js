@@ -21,9 +21,9 @@
 // require("js/omv/WorkspaceManager.js")
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")
-// require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/workspace/grid/Panel.js")
 // require("js/omv/util/Format.js")
+// require("js/omv/service/SystemInfo.js")
 
 /**
  * @class OMV.module.admin.diagnostic.system.Overview
@@ -34,14 +34,11 @@ Ext.define("OMV.module.admin.diagnostic.system.Overview", {
 	requires: [
 		"OMV.data.Store",
 		"OMV.data.Model",
-		"OMV.data.proxy.Rpc",
-		"OMV.util.Format"
+		"OMV.util.Format",
+		"OMV.service.SystemInfo"
 	],
 
-	loadMask: true,
-	disableLoadMaskOnLoad: true,
-	autoReload: true,
-	reloadInterval: 5000,
+	autoReload: false,
 	hideTopToolbar: true,
 	hidePagingToolbar: true,
 	hideHeaders: true,
@@ -85,7 +82,7 @@ Ext.define("OMV.module.admin.diagnostic.system.Overview", {
 	initComponent: function() {
 		var me = this;
 		me.store = Ext.create("OMV.data.Store", {
-			autoLoad: true,
+			autoLoad: false,
 			model: OMV.data.Model.createImplicit({
 				idProperty: "index",
 				fields: [
@@ -95,23 +92,78 @@ Ext.define("OMV.module.admin.diagnostic.system.Overview", {
 					{ name: "value", type: "auto" }
 				]
 			}),
-			proxy: {
-				type: "rpc",
-				appendSortParams: false,
-				rpcData: {
-					service: "System",
-					method: "getInformation",
-					options: {
-						updatelastaccess: false
-					}
-				}
-			},
+			data: [],
 			sorters: [{
 				direction: "ASC",
 				property: "index"
 			}]
 		});
 		me.callParent(arguments);
+		OMV.service.SystemInfo.on("refresh", me.onRefreshSystemInfo, me);
+	},
+
+	destroy: function() {
+		var me = this;
+		OMV.service.SystemInfo.un("refresh", me.onRefreshSystemInfo, me);
+		me.callParent();
+	},
+
+	onRefreshSystemInfo: function(c, info) {
+		var me = this;
+		var index = 0;
+		me.getStore().addData([{
+			"name": _("Hostname"),
+			"value": info.hostname,
+			"index": index++,
+			"type": "string",
+		},{
+			"name": _("Version"),
+			"value": info.version,
+			"index": index++,
+			"type": "string",
+		},{
+			"name": _("Processor"),
+			"value": info.cpuModelName,
+			"index": index++,
+			"type": "string",
+		},{
+			"name": _("Kernel"),
+			"value": info.kernel,
+			"index": index++,
+			"type": "string",
+		},{
+			"name": _("System time"),
+			"value": info.time,
+			"index": index++,
+			"type": "string",
+		},{
+			"name": _("Uptime"),
+			"value": info.uptime,
+			"index": index++,
+			"type": "string",
+		},{
+			"name": _("Load average"),
+			"value": info.loadAverage,
+			"index": index++,
+			"type": "string",
+		},{
+			"name": _("CPU usage"),
+			"value": {
+				"text": info.cpuUsage.toFixed(1) + "%",
+				"value": info.cpuUsage
+			},
+			"index": index++,
+			"type": "progress",
+		},{
+			"name": _("Memory usage"),
+			"value": {
+				"text": (info.memUsed / info.memTotal).toFixed(1) +
+					"% of " + parseInt(info.memTotal).binaryFormat(),
+				"value": info.memUsed / info.memTotal
+			},
+			"index": index++,
+			"type": "progress",
+		}]);
 	}
 });
 
