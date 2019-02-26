@@ -118,59 +118,61 @@ Ext.define("OMV.module.admin.dashboard.view.SysInfo", {
 
 	onRefreshSystemInfo: function(c, info) {
 		var me = this;
-		var index = 0;
-		me.gp.getStore().addData([{
-			"name": _("Hostname"),
-			"value": info.hostname,
-			"index": index++,
-			"type": "string",
-		},{
-			"name": _("Version"),
-			"value": info.version,
-			"index": index++,
-			"type": "string",
-		},{
-			"name": _("Processor"),
-			"value": info.cpuModelName,
-			"index": index++,
-			"type": "string",
-		},{
-			"name": _("Kernel"),
-			"value": info.kernel,
-			"index": index++,
-			"type": "string",
-		},{
-			"name": _("System time"),
-			"value": info.time,
-			"index": index++,
-			"type": "string",
-		},{
-			"name": _("Uptime"),
-			"value": info.uptime,
-			"index": index++,
-			"type": "string",
-		},{
-			"name": _("Load average"),
-			"value": info.loadAverage,
-			"index": index++,
-			"type": "string",
-		},{
-			"name": _("CPU usage"),
-			"value": {
-				"text": info.cpuUsage.toFixed(1) + "%",
-				"value": info.cpuUsage
-			},
-			"index": index++,
-			"type": "progress",
-		},{
-			"name": _("Memory usage"),
-			"value": {
-				"text": (info.memUsed / info.memTotal).toFixed(1) +
-					"% of " + parseInt(info.memTotal).binaryFormat(),
-				"value": info.memUsed / info.memTotal
-			},
-			"index": index++,
-			"type": "progress",
-		}]);
+		if (!Ext.isEmpty(info)) {
+			var index = 0;
+			me.gp.getStore().addData([{
+				"name": _("Hostname"),
+				"value": info.hostname,
+				"index": index++,
+				"type": "string",
+			},{
+				"name": _("Version"),
+				"value": info.version,
+				"index": index++,
+				"type": "string",
+			},{
+				"name": _("Processor"),
+				"value": info.cpuModelName,
+				"index": index++,
+				"type": "string",
+			},{
+				"name": _("Kernel"),
+				"value": info.kernel,
+				"index": index++,
+				"type": "string",
+			},{
+				"name": _("System time"),
+				"value": info.time,
+				"index": index++,
+				"type": "string",
+			},{
+				"name": _("Uptime"),
+				"value": info.uptime,
+				"index": index++,
+				"type": "string",
+			},{
+				"name": _("Load average"),
+				"value": info.loadAverage,
+				"index": index++,
+				"type": "string",
+			},{
+				"name": _("CPU usage"),
+				"value": {
+					"text": info.cpuUsage.toFixed(1) + "%",
+					"value": info.cpuUsage
+				},
+				"index": index++,
+				"type": "progress",
+			},{
+				"name": _("Memory usage"),
+				"value": {
+					"text": (info.memUsed / info.memTotal).toFixed(1) +
+						"% of " + parseInt(info.memTotal).binaryFormat(),
+					"value": info.memUsed / info.memTotal
+				},
+				"index": index++,
+				"type": "progress",
+			}]);
+		}
 	}
 });
