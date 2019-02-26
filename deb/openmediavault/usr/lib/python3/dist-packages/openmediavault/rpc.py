@@ -51,7 +51,10 @@ def call(service, method, params=None):
     s.setsockopt(
         socket.SOL_SOCKET, socket.SO_RCVTIMEO, struct.pack("ll", rcvtimeo, 0)
     )
-    s.connect(address)
+    try:
+        s.connect(address)
+    except socket.error as e:
+        raise RuntimeError("Failed to connect {}: {}".format(address, e))
     request = json.dumps({
         "service": service,
         "method": method,
