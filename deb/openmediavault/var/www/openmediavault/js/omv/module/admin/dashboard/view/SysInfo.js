@@ -142,7 +142,7 @@ Ext.define("OMV.module.admin.dashboard.view.SysInfo", {
 				"type": "string",
 			},{
 				"name": _("System time"),
-				"value": new Date(info.ts * 1000).toLocaleString(),
+				"value": info.time,
 				"index": index++,
 				"type": "string",
 			},{

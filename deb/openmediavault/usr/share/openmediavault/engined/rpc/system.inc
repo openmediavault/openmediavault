@@ -343,6 +343,7 @@ class System extends \OMV\Rpc\ServiceAbstract {
 		// The information everyone is allowed to see.
 		$result = [
 			"ts" => time(),
+			"time" => strftime("%c"),
 			"hostname" => \OMV\System\Net\Dns::getFqdn()
 		];
 		// Append the information that is only visible to an administrator.
