@@ -39,4 +39,6 @@ omv_config_rename "/config/services/rsync/jobs/job/partial" "optionpartial"
 omv_config_add_key "/config/services/rsync/jobs/job" "optiongroup" "1"
 omv_config_add_key "/config/services/rsync/jobs/job" "optionowner" "1"
 
+omv_config_add_key "/config/services/smb/shares/share" "timemachine" "0"
+
 exit 0
