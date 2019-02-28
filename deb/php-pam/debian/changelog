@@ -1,6 +1,12 @@
+php-pam (1.0.3-1+deb10u1) stable; urgency=low
+
+  * Rebuild for Debian 10 (Buster).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 26 Feb 2019 00:10:17 +0100
+
 php-pam (1.0.3-1) stable; urgency=low
 
-  * Initial release for Debian Stretch.
+  * Initial release for Debian 9 (Stretch).
   * Adapt and apply patch from Gentoo for PHP7 (https://gitweb.gentoo.org/repo/gentoo.git/commit/?id=8f113e301d3d56ef3c9623c40014000a102db15c).
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 22 Feb 2017 04:40:38 -0500
