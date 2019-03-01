@@ -4,58 +4,58 @@
 	"params": {
 		"type": "object",
 		"properties": {
-		    "enable": {
-		        "type": "boolean",
-		        "required": true
-		    },
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
 			"workgroup": {
-			    "type": "string",
-		        "required": true
+				"type": "string",
+				"required": true
 			},
 			"serverstring": {
-			    "type": "string",
-		        "required": true
+				"type": "string",
+				"required": true
 			},
 			"loglevel": {
-			    "type": "integer",
-			    "enum":[ 0, 1, 2, 3, 10 ],
-		        "required": true
+				"type": "integer",
+				"enum":[ 0, 1, 2, 3, 10 ],
+				"required": true
 			},
 			"usesendfile": {
-			    "type": "boolean",
-		        "required": true
+				"type": "boolean",
+				"required": true
 			},
 			"aio": {
-			    "type": "boolean",
-		        "required": true
+				"type": "boolean",
+				"required": true
 			},
 			"localmaster": {
-			    "type": "boolean",
-		        "required": true
+				"type": "boolean",
+				"required": true
 			},
 			"timeserver": {
-			    "type": "boolean",
-		        "required": true
+				"type": "boolean",
+				"required": true
 			},
 			"winssupport": {
-			    "type": "boolean",
-		        "required": true
+				"type": "boolean",
+				"required": true
 			},
 			"winsserver": {
-			    "type": "string",
-		        "required": true
+				"type": "string",
+				"required": true
 			},
 			"homesenable": {
-			    "type": "boolean",
-		        "required": true
+				"type": "boolean",
+				"required": true
 			},
 			"homesbrowseable": {
-			    "type": "boolean",
-		        "required": true
+				"type": "boolean",
+				"required": true
 			},
 			"extraoptions": {
-			    "type": "string",
-		        "required": true
+				"type": "string",
+				"required": true
 			}
 		}
 	}
@@ -71,7 +71,7 @@
 				"required": true
 			},
 			"enable": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"sharedfolderref": {
@@ -84,66 +84,70 @@
 				"required": true
 			},
 			"guest": {
-			    "type": "string",
-			    "enum":[ "no", "allow", "only" ],
+				"type": "string",
+				"enum":[ "no", "allow", "only" ],
 				"required": true
 			},
 			"readonly": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"browseable": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"recyclebin": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"recyclemaxsize": {
-			    "type": "integer",
-			    "minimum": 0,
+				"type": "integer",
+				"minimum": 0,
 				"required": true
 			},
 			"recyclemaxage": {
-			    "type": "integer",
-			    "minimum": 0,
+				"type": "integer",
+				"minimum": 0,
 				"required": true
 			},
 			"hidedotfiles": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"inheritacls": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"inheritpermissions": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"easupport": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"storedosattributes": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"hostsallow": {
-			    "type": "string",
+				"type": "string",
 				"required": true
 			},
 			"hostsdeny": {
-			    "type": "string",
+				"type": "string",
 				"required": true
 			},
 			"audit": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
+			"timemachine": {
+				"type": "boolean",
+				"default": false
+			},
 			"extraoptions": {
-			    "type": "string",
+				"type": "string",
 				"required": true
 			}
 		}

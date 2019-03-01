@@ -138,6 +138,10 @@
 								"type": "boolean",
 								"default": false
 							},
+							"timemachine": {
+								"type": "boolean",
+								"default": false
+							},
 							"extraoptions": {
 								"type": "string"
 							}

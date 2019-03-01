@@ -19,7 +19,6 @@
 {%- set force_directory_mode = salt['pillar.get']('default:OMV_SAMBA_SHARE_FORCEDIRECTORYMODE', '0775') -%}
 {%- set hide_special_files = salt['pillar.get']('default:OMV_SAMBA_SHARE_HIDESPECIALFILES', 'yes') -%}
 {%- set follow_symlinks = salt['pillar.get']('default:OMV_SAMBA_SHARE_FOLLOWSYMLINKS', 'yes') -%}
-{%- set fruit_time_machine = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_TIMEMACHINE', 'yes') -%}
 {%- set fruit_locking = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_LOCKING', 'none') -%}
 {%- set fruit_encoding = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_ENCODING', 'private') -%}
 {%- set fruit_metadata = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_METADATA', 'netatalk') -%}
@@ -60,7 +59,7 @@ full_audit:failure = {{ full_audit_failure }}
 full_audit:facility = {{ full_audit_facility }}
 full_audit:priority = {{ full_audit_priority }}
 {%- endif %}
-{%- if fruit_time_machine | to_bool %}
+{%- if share.timemachine | to_bool %}
 {%- set _ = vfs_objects.append('catia') %}
 {%- set _ = vfs_objects.append('fruit') %}
 {%- set _ = vfs_objects.append('streams_xattr') %}

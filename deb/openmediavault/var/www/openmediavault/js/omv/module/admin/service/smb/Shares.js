@@ -146,6 +146,12 @@ Ext.define("OMV.module.admin.service.smb.Share", {
 			}]
 		},{
 			xtype: "checkbox",
+			name: "timemachine",
+			fieldLabel: _("Time Machine support"),
+			checked: false,
+			boxLabel: _("Enable Time Machine support for this share.")
+		},{
+			xtype: "checkbox",
 			name: "inheritacls",
 			fieldLabel: _("Inherit ACLs"),
 			checked: true,
