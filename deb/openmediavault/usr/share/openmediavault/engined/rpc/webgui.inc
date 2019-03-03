@@ -92,11 +92,13 @@ class WebGui extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.webgui.setpassword");
-		// Create a new task that will update the administrator
-		// password.
-		\OMV\Salt\Task::create("omv.task.user.setpassword", [
-			"name" => "admin",
-			"password" => crypt($params['password'])
-		]);
+		// Modify the 'admin' user password.
+		$cmdArgs = [];
+		$cmdArgs[] = sprintf("--password %s", escapeshellarg(crypt(
+		  $params['password'])));
+		$cmdArgs[] = "admin";
+		$cmd = new \OMV\System\Process("usermod", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute();
 	}
 }
