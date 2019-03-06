@@ -51,6 +51,11 @@ start_samba_service_nmbd:
     - name: nmbd
     - enable: True
 
+start_wsdd_service:
+  service.running:
+    - name: wsdd
+    - enable: True
+
 {% else %}
 
 start_samba_service:
@@ -64,6 +69,11 @@ stop_samba_service_smbd:
 stop_samba_service_nmbd:
   service.dead:
     - name: nmbd
+    - enable: False
+
+stop_wsdd_service:
+  service.dead:
+    - name: wsdd
     - enable: False
 
 {% endif %}
