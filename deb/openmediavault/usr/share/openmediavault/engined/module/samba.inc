@@ -48,6 +48,8 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 		$systemCtl->disable(TRUE);
 		$systemCtl = new \OMV\System\SystemCtl("nmbd");
 		$systemCtl->disable(TRUE);
+		$systemCtl = new \OMV\System\SystemCtl("wsdd");
+		$systemCtl->disable(TRUE);
 	}
 
 	/**
@@ -61,6 +63,8 @@ class OMVModuleSamba extends \OMV\Engine\Module\ServiceAbstract
 		$systemCtl = new \OMV\System\SystemCtl("smbd");
 		$systemCtl->enable(TRUE);
 		$systemCtl = new \OMV\System\SystemCtl("nmbd");
+		$systemCtl->enable(TRUE);
+		$systemCtl = new \OMV\System\SystemCtl("wsdd");
 		$systemCtl->enable(TRUE);
 	}
 
