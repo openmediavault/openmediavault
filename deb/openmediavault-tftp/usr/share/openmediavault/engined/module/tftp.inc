@@ -20,8 +20,7 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 class Tftp extends \OMV\Engine\Module\ServiceAbstract implements
-		\OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus,
-		\OMV\Engine\Module\IZeroconf {
+		\OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
 	public function getName() {
 		return "tftpd-hpa";
 	}
@@ -38,16 +37,6 @@ class Tftp extends \OMV\Engine\Module\ServiceAbstract implements
 			"title" => gettext("TFTP"),
 			"enabled" => $object->get("enable"),
 			"running" => $systemCtl->isActive()
-		];
-	}
-
-	/**
-	 * Get the Zeroconf service configuration.
-	 */
-	public function getZeroconfConfig() {
-		return [
-			"id" => "tftp",
-			"title" => gettext("TFTP")
 		];
 	}
 

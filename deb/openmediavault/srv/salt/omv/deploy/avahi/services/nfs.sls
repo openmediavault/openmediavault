@@ -19,9 +19,8 @@
 
 {% set nfs_export_dir = salt['pillar.get']('default:OMV_NFSD_EXPORT_DIR', '/export') %}
 {% set nfs_config = salt['omv_conf.get']('conf.service.nfs') %}
-{% set zeroconf_config = salt['omv_conf.get_by_filter'](
-  'conf.service.zeroconf.service',
-  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'nfs'})[0] %}
+{% set nfs_zeroconf_enabled = salt['pillar.get']('default:OMV_NFSD_ZEROCONF_ENABLED', 1) %}
+{% set nfs_zeroconf_name = salt['pillar.get']('default:OMV_NFSD_ZEROCONF_NAME', '%h - NFS') %}
 
 remove_avahi_service_nfs:
   module.run:
@@ -30,7 +29,7 @@ remove_avahi_service_nfs:
       - iname: "nfs-*.service"
       - delete: "f"
 
-{% if nfs_config.enable | to_bool and zeroconf_config.enable | to_bool %}
+{% if nfs_config.enable | to_bool and nfs_zeroconf_enabled | to_bool %}
 
 # Announce duplicate shares only once.
 {% set nfsshares = salt['omv_conf.get_by_filter'](
@@ -50,7 +49,7 @@ configure_avahi_service_nfs:
     - context:
         type: "_nfs._tcp"
         port: 2049
-        name: "{{ zeroconf_config.name }} - {{ sharedfolder.name }}"
+        name: "{{ nfs_zeroconf_name }} [{{ sharedfolder.name }}]"
         txtrecord: "path={{ nfs_export_dir }}/{{ sharedfolder.name }}"
     - user: root
     - group: root

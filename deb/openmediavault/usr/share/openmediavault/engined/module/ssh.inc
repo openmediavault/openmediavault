@@ -21,9 +21,8 @@
  */
 namespace Engined\Module;
 
-class Ssh extends \OMV\Engine\Module\ServiceAbstract
-		implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus,
-		\OMV\Engine\Module\IZeroconf {
+class Ssh extends \OMV\Engine\Module\ServiceAbstract implements
+		\OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
 	public function getName() {
 		return "ssh";
 	}
@@ -37,13 +36,6 @@ class Ssh extends \OMV\Engine\Module\ServiceAbstract
 			"title" => gettext("SSH"),
 			"enabled" => $object->get("enable"),
 			"running" => $systemCtl->isActive()
-		];
-	}
-
-	public function getZeroconfConfig() {
-		return [
-			"id" => "ssh",
-			"title" => gettext("SSH")
 		];
 	}
 

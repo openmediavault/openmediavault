@@ -22,7 +22,7 @@
 namespace Engined\Module;
 
 class Webadmin extends \OMV\Engine\Module\ModuleAbstract
-		implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IZeroconf {
+		implements \OMV\Engine\Notify\IListener {
 	public function getName() {
 		return "webadmin";
 	}

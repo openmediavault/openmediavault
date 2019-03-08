@@ -21,9 +21,8 @@
  */
 namespace Engined\Module;
 
-class Proftpd extends \OMV\Engine\Module\ServiceAbstract
-		implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus,
-		\OMV\Engine\Module\IZeroconf {
+class Proftpd extends \OMV\Engine\Module\ServiceAbstract implements
+		\OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
 	public function getName() {
 		return "proftpd";
 	}
@@ -45,13 +44,6 @@ class Proftpd extends \OMV\Engine\Module\ServiceAbstract
 			"title" => gettext("FTP"),
 			"enabled" => $object->get("enable"),
 			"running" => $systemCtl->isActive()
-		];
-	}
-
-	public function getZeroconfConfig() {
-		return [
-			"id" => "ftp",
-			"title" => gettext("FTP")
 		];
 	}
 

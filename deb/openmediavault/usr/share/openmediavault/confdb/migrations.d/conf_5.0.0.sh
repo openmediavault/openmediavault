@@ -24,6 +24,7 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 omv_config_delete "/config/system/network/interfaces/interface/options"
+omv_config_delete "/config/services/zeroconf"
 
 omv_config_rename "/config/services/rsync/jobs/job/recursive" "optionrecursive"
 omv_config_rename "/config/services/rsync/jobs/job/times" "optiontimes"

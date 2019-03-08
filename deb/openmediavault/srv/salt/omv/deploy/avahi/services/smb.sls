@@ -18,11 +18,10 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 {% set smb_config = salt['omv_conf.get']('conf.service.smb') %}
-{% set zeroconf_config = salt['omv_conf.get_by_filter'](
-  'conf.service.zeroconf.service',
-  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'smb'})[0] %}
+{% set smb_zeroconf_enabled = salt['pillar.get']('default:OMV_SAMBA_ZEROCONF_ENABLED', 1) %}
+{% set smb_zeroconf_name = salt['pillar.get']('default:OMV_SAMBA_ZEROCONF_NAME', '%h - SMB/CIFS') %}
 
-{% if not (smb_config.enable | to_bool and zeroconf_config.enable | to_bool) %}
+{% if not (smb_config.enable | to_bool and smb_zeroconf_enabled | to_bool) %}
 
 remove_avahi_service_smb:
   file.absent:
@@ -39,7 +38,7 @@ configure_avahi_service_smb:
     - context:
         type: "_smb._tcp"
         port: 445
-        name: "{{ zeroconf_config.name }}"
+        name: "{{ smb_zeroconf_name }}"
         shares: {{ smb_config.shares.share | json }}
     - user: root
     - group: root

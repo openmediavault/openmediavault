@@ -18,11 +18,10 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 {% set rsync_config = salt['omv_conf.get']('conf.service.rsyncd') %}
-{% set zeroconf_config = salt['omv_conf.get_by_filter'](
-  'conf.service.zeroconf.service',
-  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'rsync'})[0] %}
+{% set rsync_zeroconf_enabled = salt['pillar.get']('default:OMV_RSYNC_ZEROCONF_ENABLED', 1) %}
+{% set rsync_zeroconf_name = salt['pillar.get']('default:OMV_RSYNC_ZEROCONF_NAME', '%h - Rsync') %}
 
-{% if not (rsync_config.enable | to_bool and zeroconf_config.enable | to_bool) %}
+{% if not (rsync_config.enable | to_bool and rsync_zeroconf_enabled | to_bool) %}
 
 remove_avahi_service_rsync:
   file.absent:
@@ -39,7 +38,7 @@ configure_avahi_service_rsync:
     - context:
         type: "_rsync._tcp"
         port: {{ rsync_config.port }}
-        name: "{{ zeroconf_config.name }}"
+        name: "{{ rsync_zeroconf_name }}"
     - user: root
     - group: root
     - mode: 644

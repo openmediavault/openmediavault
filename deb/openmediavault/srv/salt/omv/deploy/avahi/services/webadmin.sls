@@ -18,11 +18,10 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 {% set webadmin_config = salt['omv_conf.get']('conf.webadmin') %}
-{% set zeroconf_config = salt['omv_conf.get_by_filter'](
-  'conf.service.zeroconf.service',
-  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'webadmin'})[0] %}
+{% set webadmin_zeroconf_enabled = salt['pillar.get']('default:OMV_WEBGUI_ZEROCONF_ENABLED', 1) %}
+{% set webadmin_zeroconf_name = salt['pillar.get']('default:OMV_WEBGUI_ZEROCONF_NAME', '%h - Web control panel') %}
 
-{% if not (zeroconf_config.enable | to_bool) %}
+{% if not (webadmin_zeroconf_enabled | to_bool) %}
 
 remove_avahi_service_webadmin:
   file.absent:
@@ -37,7 +36,7 @@ configure_avahi_service_webadmin:
       - salt://{{ slspath }}/files/webadmin.j2
     - template: jinja
     - context:
-        name: "{{ zeroconf_config.name }}"
+        name: "{{ webadmin_zeroconf_name }}"
         enablessl: {{ webadmin_config.enablessl }}
         forcesslonly: {{ webadmin_config.forcesslonly }}
         port: {{ webadmin_config.port }}
