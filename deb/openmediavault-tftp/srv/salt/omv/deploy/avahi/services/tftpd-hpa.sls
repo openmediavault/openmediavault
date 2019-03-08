@@ -18,11 +18,10 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 {% set tftp_config = salt['omv_conf.get']('conf.service.tftp') %}
-{% set zeroconf_config = salt['omv_conf.get_by_filter'](
-  'conf.service.zeroconf.service',
-  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'tftp'})[0] %}
+{% set tftp_zeroconf_enabled = salt['pillar.get']('default:OMV_TFTPDHPA_ZEROCONF_ENABLED', 1) %}
+{% set tftp_zeroconf_name = salt['pillar.get']('default:OMV_TFTPDHPA_ZEROCONF_NAME', '%h - TFTP') %}
 
-{% if not (tftp_config.enable | to_bool and zeroconf_config.enable | to_bool) %}
+{% if not (tftp_config.enable | to_bool and tftp_zeroconf_enabled | to_bool) %}
 
 remove_avahi_service_tftpd-hpa:
   file.absent:
@@ -39,7 +38,7 @@ configure_avahi_service_tftpd-hpa:
     - context:
         type: "_tftp._udp"
         port: {{ tftp_config.port }}
-        name: "{{ zeroconf_config.name }}"
+        name: "{{ tftp_zeroconf_name }}"
     - user: root
     - group: root
     - mode: 644

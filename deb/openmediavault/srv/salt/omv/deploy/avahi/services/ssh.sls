@@ -18,11 +18,10 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 {% set ssh_config = salt['omv_conf.get']('conf.service.ssh') %}
-{% set zeroconf_config = salt['omv_conf.get_by_filter'](
-  'conf.service.zeroconf.service',
-  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'ssh'})[0] %}
+{% set ssh_zeroconf_enabled = salt['pillar.get']('default:OMV_SSHD_ZEROCONF_ENABLED', 1) %}
+{% set ssh_zeroconf_name = salt['pillar.get']('default:OMV_SSHD_ZEROCONF_NAME', '%h - SSH') %}
 
-{% if not (ssh_config.enable | to_bool and zeroconf_config.enable | to_bool) %}
+{% if not (ssh_config.enable | to_bool and ssh_zeroconf_enabled | to_bool) %}
 
 remove_avahi_service_ssh:
   file.absent:
@@ -38,7 +37,7 @@ configure_avahi_service_ssh:
     - template: jinja
     - context:
         port: {{ ssh_config.port }}
-        name: "{{ zeroconf_config.name }}"
+        name: "{{ ssh_zeroconf_name }}"
     - user: root
     - group: root
     - mode: 644

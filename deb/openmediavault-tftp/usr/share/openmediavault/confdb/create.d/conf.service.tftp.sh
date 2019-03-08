@@ -44,8 +44,5 @@ set -e
 if ! omv-confdbadm exists "conf.service.tftp"; then
 	omv-confdbadm read --defaults "conf.service.tftp" | omv-confdbadm update "conf.service.tftp" -
 fi
-if ! omv-confdbadm exists "conf.service.zeroconf.service" --filter '{"operator":"stringEquals","arg0":"id","arg1":"tftp"}'; then
-	omv-confdbadm read --defaults "conf.service.zeroconf.service" | jq '.id="tftp" | .name="%h - TFTP"' - | omv-confdbadm update "conf.service.zeroconf.service" -
-fi
 
 exit 0

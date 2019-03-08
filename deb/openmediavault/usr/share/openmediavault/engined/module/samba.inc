@@ -21,9 +21,8 @@
  */
 namespace Engined\Module;
 
-class Samba extends \OMV\Engine\Module\ServiceAbstract
-		implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus,
-		\OMV\Engine\Module\IZeroconf {
+class Samba extends \OMV\Engine\Module\ServiceAbstract implements
+		\OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
 	private $invalidUsers = ["admin"];
 
 	public function getName() {
@@ -39,13 +38,6 @@ class Samba extends \OMV\Engine\Module\ServiceAbstract
 			"title" => gettext("SMB/CIFS"),
 			"enabled" => $object->get("enable"),
 			"running" => $systemCtl->isActive()
-		];
-	}
-
-	public function getZeroconfConfig() {
-		return [
-			"id" => "smb",
-			"title" => gettext("SMB/CIFS")
 		];
 	}
 

@@ -21,9 +21,8 @@
  */
 namespace Engined\Module;
 
-class Rsyncd extends \OMV\Engine\Module\ServiceAbstract
-		implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus,
-		\OMV\Engine\Module\IZeroconf {
+class Rsyncd extends \OMV\Engine\Module\ServiceAbstract implements
+		\OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
 	public function getName() {
 		return "rsyncd";
 	}
@@ -37,13 +36,6 @@ class Rsyncd extends \OMV\Engine\Module\ServiceAbstract
 			"title" => gettext("RSync server"),
 			"enabled" => $object->get("enable"),
 			"running" => $systemCtl->isActive()
-		];
-	}
-
-	public function getZeroconfConfig() {
-		return [
-			"id" => "rsync",
-			"title" => gettext("Rsync")
 		];
 	}
 

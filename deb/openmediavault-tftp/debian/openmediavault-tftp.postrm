@@ -26,7 +26,6 @@ set -e
 
 remove_action() {
 	echo "Updating configuration database ..."
-	omv-confdbadm delete "conf.service.zeroconf.service" --filter '{"operator":"stringEquals","arg0":"id","arg1":"tftp"}'
 	# Activate trigger to purge cached files.
 	dpkg-trigger update-fixperms
 }

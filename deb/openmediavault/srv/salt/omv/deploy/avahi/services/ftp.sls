@@ -18,11 +18,10 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 {% set ftp_config = salt['omv_conf.get']('conf.service.ftp') %}
-{% set zeroconf_config = salt['omv_conf.get_by_filter'](
-  'conf.service.zeroconf.service',
-  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'ftp'})[0] %}
+{% set ftp_zeroconf_enabled = salt['pillar.get']('default:OMV_PROFTPD_ZEROCONF_ENABLED', 1) %}
+{% set ftp_zeroconf_name = salt['pillar.get']('default:OMV_PROFTPD_ZEROCONF_NAME', '%h - FTP') %}
 
-{% if not (ftp_config.enable | to_bool and zeroconf_config.enable | to_bool) %}
+{% if not (ftp_config.enable | to_bool and ftp_zeroconf_enabled | to_bool) %}
 
 remove_avahi_service_ftp:
   file.absent:
@@ -39,7 +38,7 @@ configure_avahi_service_ftp:
     - context:
         type: "_ftp._tcp"
         port: {{ ftp_config.port }}
-        name: "{{ zeroconf_config.name }}"
+        name: "{{ ftp_zeroconf_name }}"
     - user: root
     - group: root
     - mode: 644

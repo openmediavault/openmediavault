@@ -21,9 +21,8 @@
  */
 namespace Engined\Module;
 
-class Nfs extends \OMV\Engine\Module\ServiceAbstract
-		implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus,
-		\OMV\Engine\Module\IZeroconf {
+class Nfs extends \OMV\Engine\Module\ServiceAbstract implements
+		\OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
 	public function getName() {
 		return "nfs";
 	}
@@ -41,13 +40,6 @@ class Nfs extends \OMV\Engine\Module\ServiceAbstract
 			"title" => gettext("NFS"),
 			"enabled" => $object->get("enable"),
 			"running" => $systemCtl->isActive()
-		];
-	}
-
-	public function getZeroconfConfig() {
-		return [
-			"id" => "nfs",
-			"title" => gettext("NFS")
 		];
 	}
 
