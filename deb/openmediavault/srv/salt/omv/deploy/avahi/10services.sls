@@ -17,11 +17,5 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set dirpath = '/srv/salt' | path_join(slspath) %}
-
 include:
-{% for file in salt['file.readdir'](dirpath) | sort %}
-{% if file | regex_match('^(\d+.+).sls$', ignorecase=True) %}
-  - .{{ file | replace('.sls', '') }}
-{% endif %}
-{% endfor %}
+  - .services
