@@ -218,7 +218,7 @@ class SmartInformation {
 					"flags" => $matches[3],
 					"value" => intval($matches[4]),
 					"worst" => intval($matches[5]),
-					"treshold" => ("---" == $matches[6]) ?
+					"threshold" => ("---" == $matches[6]) ?
 					  0 : intval($matches[6]),
 					"whenfailed" => $matches[7],
 					"rawvalue" => $matches[8],
@@ -244,16 +244,16 @@ class SmartInformation {
 		$attrData['assessment'] = self::SMART_ASSESSMENT_GOOD;
 		// Always-Fail and Always-Passing thresholds are not relevant
 		// for our assessment.
-		if (!(1 <= $attrData['treshold']) && (0xFD >= $attrData['treshold'])) {
+		if (!(1 <= $attrData['threshold']) && (0xFD >= $attrData['threshold'])) {
 			$attrData['assessment'] = self::SMART_ASSESSMENT_BAD_STATUS;
 			return;
 		}
 		// See https://wiki.ubuntuusers.de/Festplattenstatus
-		if ($attrData['value'] <= $attrData['treshold']) {
+		if ($attrData['value'] <= $attrData['threshold']) {
 			$attrData['assessment'] = self::SMART_ASSESSMENT_BAD_ATTRIBUTE_NOW;
 			return;
 		}
-		if ($attrData['worst'] <= $attrData['treshold']) {
+		if ($attrData['worst'] <= $attrData['threshold']) {
 			$attrData['assessment'] = self::SMART_ASSESSMENT_BAD_ATTRIBUTE_IN_THE_PAST;
 			return;
 		}

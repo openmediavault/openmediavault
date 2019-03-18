@@ -2,6 +2,7 @@ openmediavault (4.1.20-1) stable; urgency=low
 
   * Announce SMB/CIFS shares via WSD, so the are listed in Windows 10.
   * Issue #297: Extract upstream version for comparison.
+  * Issue #324: Fix typo in S.M.A.R.T. attributes data table.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 16 Feb 2019 18:21:28 +0100
 
