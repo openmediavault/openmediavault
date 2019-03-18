@@ -193,9 +193,9 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 		width: 55,
 		align: "center"
 	},{
-		text: _("Treshold"),
-		dataIndex: "treshold",
-		stateId: "treshold",
+		text: _("Threshold"),
+		dataIndex: "threshold",
+		stateId: "threshold",
 		width: 55,
 		align: "center"
 	},{
@@ -254,7 +254,7 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 						{ name: "flags", type: "string" },
 						{ name: "value", type: "int" },
 						{ name: "worst", type: "int" },
-						{ name: "treshold", type: "int" },
+						{ name: "threshold", type: "int" },
 						{ name: "whenfailed", type: "string" },
 						{ name: "rawvalue", type: "string" },
 						{ name: "description", type: "string" },
