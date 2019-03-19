@@ -54,9 +54,9 @@ grep -iP "^\s*iface\s+(eth[0-9]+|en[a-z0-9]+)\s+(inet|inet6)\s+(static|dhcp)" ${
             if [ "static" = "${method}" ]; then
                 data=$(salt-call --local --retcode-passthrough --no-color \
                     --out=json network.interface "${devname}" | \
-                    jq --compact-output '.[]')
-                address=$(echo ${iface} | jq --raw-output '.address // empty')
-                netmask=$(echo ${iface} | jq --raw-output '.netmask // empty')
+                    jq --compact-output '.[][0]')
+                address=$(echo ${data} | jq --raw-output '.address // empty')
+                netmask=$(echo ${data} | jq --raw-output '.netmask // empty')
                 gateway=$(salt-call --local --retcode-passthrough --no-color \
                     --out=json network.routes inet | \
                     jq --raw-output ".[] | map(select((.interface == \"${devname}\") and \
