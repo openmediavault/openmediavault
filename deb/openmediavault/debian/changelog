@@ -29,7 +29,8 @@ openmediavault (5.0-1) unstable; urgency=low
 
 openmediavault (4.1.20-1) stable; urgency=low
 
-  * Announce SMB/CIFS shares via WSD, so the are listed in Windows 10.
+  * Update locales.
+  * Announce SMB/CIFS shares via WSD, so they are listed in Windows 10.
   * Issue #297: Extract upstream version for comparison.
   * Issue #324: Fix typo in S.M.A.R.T. attributes data table.
 
