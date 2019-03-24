@@ -55,10 +55,10 @@ case "$1" in
 			####################################################################
 			if ! omv_user_id_exists openmediavault-webgui; then
 				useradd --system --user-group --no-create-home \
-				  --groups openmediavault-config,openmediavault-engined \
-				  --shell '/usr/sbin/nologin' \
-				  --comment 'openmediavault WebGUI Management' \
-				  openmediavault-webgui
+					--groups openmediavault-config,openmediavault-engined \
+					--shell '/usr/sbin/nologin' \
+					--comment 'openmediavault WebGUI Management' \
+					openmediavault-webgui
 			fi
 			####################################################################
 			# Create the user 'admin' which is used as the web interface
@@ -66,10 +66,10 @@ case "$1" in
 			####################################################################
 			if ! omv_user_id_exists admin; then
 				useradd --system --no-user-group --no-create-home \
-				  --password '$1$PjiW4uIZ$agjyA0foLeAcHClwOuad1.' \
-				  --shell '/usr/sbin/nologin' \
-				  --comment 'openmediavault WebGUI Administrator' \
-				  admin
+					--password '$1$PjiW4uIZ$agjyA0foLeAcHClwOuad1.' \
+					--shell '/usr/sbin/nologin' \
+					--comment 'openmediavault WebGUI Administrator' \
+					admin
 			fi
 
 			####################################################################
@@ -241,8 +241,8 @@ case "$1" in
 				restart-engined)
 					echo "Restarting engine daemon ..."
 					monit restart omv-engined || ( \
-					  deb-systemd-helper unmask openmediavault-engined.service; \
-					  deb-systemd-invoke restart openmediavault-engined.service)
+						deb-systemd-helper unmask openmediavault-engined.service; \
+						deb-systemd-invoke restart openmediavault-engined.service)
 				;;
 			esac
 		done
