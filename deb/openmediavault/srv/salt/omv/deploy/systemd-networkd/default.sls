@@ -26,6 +26,17 @@ include:
 {% endif %}
 {% endfor %}
 
+cleanup_etc_network_interfaces:
+  file.managed:
+    - name: "/etc/network/interfaces"
+    - contents: |
+        {{ pillar['headers']['auto_generated'] }}
+        {{ pillar['headers']['warning'] }}
+        # Use systemd-networkd to configure additional interface stanzas.
+    - user: root
+    - group: root
+    - mode: 644
+
 restart_systemd_networkd:
   # Force service.running to always restart the service.
   test.succeed_with_changes:
