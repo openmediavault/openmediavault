@@ -218,16 +218,19 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.diskmgmt.wipe");
+		// Get the device file and ensure it exists.
+		$bd = new \OMV\System\BlockDevice($params['devicefile']);
+		$bd->assertExists();
 		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
-		  use ($params) {
+		  use ($bd, $params) {
 			// Wipe the device.
 			if (TRUE === boolvalEx($params['secure'])) {
 				// Secure wipe the device.
 				$cmdArgs = [];
 				$cmdArgs[] = "-v";
 				$cmdArgs[] = "-n 1";
-				$cmdArgs[] = escapeshellarg($params['devicefile']);
+				$cmdArgs[] = escapeshellarg($bd->getDeviceFile());
 				$cmd = new \OMV\System\Process("shred", $cmdArgs);
 				$cmd->setRedirect2to1();
 				if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
@@ -236,7 +239,6 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 						$output, $exitStatus);
 				}
 			} else {
-				$bd = new \OMV\System\BlockDevice($params['devicefile']);
 				// Quick wipe the device (see omv-initfs).
 				$cmdArgs = [];
 				$cmdArgs[] = "--zap-all";
@@ -287,7 +289,7 @@ class OMVRpcServiceDiskMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Reread partition table.
 			$cmdArgs = [];
 			$cmdArgs[] = "--rereadpt";
-			$cmdArgs[] = escapeshellarg($params['devicefile']);
+			$cmdArgs[] = escapeshellarg($bd->getDeviceFile());
 			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
 			$cmd->setRedirect2to1();
 			if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
