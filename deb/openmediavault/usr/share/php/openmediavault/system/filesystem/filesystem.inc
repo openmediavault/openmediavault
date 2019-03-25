@@ -825,8 +825,8 @@ class Filesystem extends \OMV\System\BlockDevice
 	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
 	 *   \li /dev/cciss/c0d0p2
 	 *   </ul>
-	 * @return The object of the class implementing the given filesystem,
-	 *   otherwise NULL.
+	 * @return object|null The object of the class implementing the given
+	 *   filesystem, otherwise NULL.
 	 */
 	public static function getImpl($id) {
 		$mngr = Backend\Manager::getInstance();
@@ -836,6 +836,8 @@ class Filesystem extends \OMV\System\BlockDevice
 	}
 
 	/**
+	 * @see Filesystem::getImpl()
+	 * @return object The object of the class implementing the given filesystem.
 	 * @throw \OMV\AssertException
 	 */
 	public static function assertGetImpl($id) {
@@ -845,6 +847,7 @@ class Filesystem extends \OMV\System\BlockDevice
 			  "Failed to get the filesystem implementation for '%s' ".
 			  "or the filesystem does not exist.", $id);
 		}
+		return $result;
 	}
 
 	/**
