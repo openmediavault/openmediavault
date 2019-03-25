@@ -182,14 +182,11 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.diskmgmt.sethdparm");
-		// Check if the given device exists.
-		\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
-		  $params['devicefile']);
-		  // Try to get a /dev/disk/by-id device file.
-  		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
-  		  $params['devicefile']);
-  		if (TRUE === $sd->hasDeviceFileById())
-  			$params['devicefile'] = $sd->getDeviceFileById();
+		// Try to get a /dev/disk/by-id device file.
+		$sd = \OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+			$params['devicefile']);
+		if (TRUE === $sd->hasDeviceFileById())
+			$params['devicefile'] = $sd->getDeviceFileById();
 		// Create the configuration object.
 		$object = new \OMV\Config\ConfigObject("conf.system.hdparm");
 		$object->setAssoc($params);

@@ -184,9 +184,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodParams($params, "rpc.common.devicefile");
 		// Make sure the disk device is clean, no partition table
 		// should exist, otherwise pvcreate fails.
-		\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
-			$params['devicefile']);
-		$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
+		$sd = \OMV\System\Storage\StorageDevice::assertGetStorageDevice(
 			$params['devicefile']);
 		$sd->wipe();
 		// Create the physical volume.

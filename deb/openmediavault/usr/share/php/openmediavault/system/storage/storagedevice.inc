@@ -387,15 +387,4 @@ class StorageDevice extends \OMV\System\BlockDevice
 		}
 		return $result;
 	}
-
-	/**
-	 * @deprecated Use StorageDevice::assertGetStorageDevice() instead.
-	 */
-	public static function assertStorageDeviceExists($deviceFile) {
-		$result = self::getStorageDevice($deviceFile);
-		if (is_null($result) || !$result->exists()) {
-			throw new \OMV\AssertException("Device '%s' not found.",
-				$deviceFile);
-		}
-	}
 }

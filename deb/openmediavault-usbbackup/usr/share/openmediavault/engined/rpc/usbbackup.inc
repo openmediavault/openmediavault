@@ -80,10 +80,8 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 			$parentDeviceFile = $fs->getParentDeviceFile();
 			if (FALSE === is_devicefile($parentDeviceFile))
 				continue;
-			\OMV\System\Storage\StorageDevice::assertStorageDeviceExists(
-			  $parentDeviceFile);
-			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
-			  $parentDeviceFile);
+			$sd = \OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+				$parentDeviceFile);
 			// Skip everything which is not an USB or eSATA device or is a
 			// read-only medium.
 			if (!($sd->isUsb() || $sd->isAta()) || $sd->isReadOnly())
