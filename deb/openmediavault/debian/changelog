@@ -27,6 +27,12 @@ openmediavault (5.0-1) unstable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 May 2018 22:06:11 +0200
 
+openmediavault (4.1.21-1) stable; urgency=low
+
+  * Improve quick disk wiping. Remove signatures at the end of the device, too.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 23 Mar 2019 18:52:18 +0100
+
 openmediavault (4.1.20-1) stable; urgency=low
 
   * Update locales.

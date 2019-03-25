@@ -235,10 +235,11 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 						$output, $exitStatus);
 				}
 			} else {
+				$bd = new \OMV\System\BlockDevice($params['devicefile']);
 				// Quick wipe the device (see omv-initfs).
 				$cmdArgs = [];
 				$cmdArgs[] = "--zap-all";
-				$cmdArgs[] = escapeshellarg($params['devicefile']);
+				$cmdArgs[] = escapeshellarg($bd->getDeviceFile());
 				$cmd = new \OMV\System\Process("sgdisk", $cmdArgs);
 				$cmd->setRedirect2to1();
 				if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
@@ -250,9 +251,30 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				$cmdArgs = [];
 				$cmdArgs[] = "if=/dev/zero";
 				$cmdArgs[] = sprintf("of=%s", escapeshellarg(
-				  $params['devicefile']));
+					$bd->getDeviceFile()));
 				$cmdArgs[] = "bs=4M";
 				$cmdArgs[] = "count=1";
+				$cmd = new \OMV\System\Process("dd", $cmdArgs);
+				$cmd->setRedirect2to1();
+				if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
+					$output, $bgOutputFilename))) {
+					throw new \OMV\ExecException($cmd->getCommandLine(),
+						$output, $exitStatus);
+				}
+				// Erase the metadata/signatures at the end of the device.
+				// Note, we still need to support 32bit systems, so use
+				// BC math functions.
+				$sectorSize = $bd->getSectorSize();
+				$sizeInSectors = bcdiv($bd->getSize(), strval($sectorSize), 0);
+				$count = bcdiv("4194304", strval($sectorSize), 0); // 4MiB
+				$seek = bcsub($sizeInSectors, $count, 0);
+				$cmdArgs = [];
+				$cmdArgs[] = "if=/dev/zero";
+				$cmdArgs[] = sprintf("of=%s", escapeshellarg(
+					$bd->getDeviceFile()));
+				$cmdArgs[] = sprintf("bs=%d", $sectorSize);
+				$cmdArgs[] = sprintf("count=%s", $count);
+				$cmdArgs[] = sprintf("seek=%s", $seek);
 				$cmd = new \OMV\System\Process("dd", $cmdArgs);
 				$cmd->setRedirect2to1();
 				if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
