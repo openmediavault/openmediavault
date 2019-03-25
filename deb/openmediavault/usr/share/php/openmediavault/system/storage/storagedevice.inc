@@ -360,8 +360,8 @@ class StorageDevice extends \OMV\System\BlockDevice
 	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
 	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
 	 *   </ul>
-	 * @return The object of the class implementing the given storage device,
-	 *   otherwise NULL.
+	 * @return object|null The object of the class implementing the given
+	 *   storage device, otherwise NULL.
 	 */
 	public static function getStorageDevice($deviceFile) {
 		$mngr = Backend\Manager::getInstance();
@@ -374,20 +374,22 @@ class StorageDevice extends \OMV\System\BlockDevice
 	}
 
 	/**
-	 * Assert that the object of the class which implements the given storage
-	 * device exists.
-	 * @param string deviceFile Specifies the device file, e.g.
-	 *   <ul>
-	 *   \li /dev/sdb
-	 *   \li /dev/md1
-	 *   \li /dev/cciss/c0d0
-	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6
-	 *   \li /dev/disk/by-label/DATA
-	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
-	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
-	 *   </ul>
-	 * @return void
+	 * @see StorageDevice::getStorageDevice()
+	 * @return object The object of the class implementing the given
+	 *   storage device.
 	 * @throw \OMV\AssertException
+	 */
+	public static function assertGetStorageDevice($deviceFile) {
+		$result = self::getStorageDevice($deviceFile);
+		if (is_null($result) || !$result->exists()) {
+			throw new \OMV\AssertException("Device '%s' not found.",
+				$deviceFile);
+		}
+		return $result;
+	}
+
+	/**
+	 * @deprecated Use StorageDevice::assertGetStorageDevice() instead.
 	 */
 	public static function assertStorageDeviceExists($deviceFile) {
 		$result = self::getStorageDevice($deviceFile);
