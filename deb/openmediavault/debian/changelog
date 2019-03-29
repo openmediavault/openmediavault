@@ -1,6 +1,7 @@
 openmediavault (4.1.21-1) stable; urgency=low
 
   * Improve quick disk wiping. Remove signatures at the end of the device, too.
+  * Fix bug in wsdd configuration.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 23 Mar 2019 18:52:18 +0100
 

@@ -540,6 +540,17 @@ case "$1" in
 			deb-systemd-invoke restart monit.service || :
 		fi
 
+		if dpkg --compare-versions "$2" lt-nl "4.1.21"; then
+			if deb-systemd-invoke -q is-active smbd; then
+				omv-mkconf samba
+				deb-systemd-invoke reload smbd.service || :
+				deb-systemd-invoke restart wsdd.service || :
+			else
+				deb-systemd-helper disable wsdd.service
+				deb-systemd-invoke stop wsdd.service || :
+			fi
+		fi
+
 		########################################################################
 		# Show help text.
 		########################################################################
