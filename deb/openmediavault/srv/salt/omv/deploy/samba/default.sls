@@ -23,6 +23,7 @@
 
 {% set config = salt['omv_conf.get']('conf.service.smb') %}
 {% set dirpath = '/srv/salt' | path_join(slspath) %}
+{% set wsdd_enabled = salt['pillar.get']('default:OMV_WSDD_ENABLED', 1) %}
 
 include:
 {% for file in salt['file.readdir'](dirpath) | sort %}
@@ -51,10 +52,14 @@ start_samba_service_nmbd:
     - name: nmbd
     - enable: True
 
+{% if wsdd_enabled | to_bool %}
+
 start_wsdd_service:
   service.running:
     - name: wsdd
     - enable: True
+
+{% endif %}
 
 {% else %}
 
