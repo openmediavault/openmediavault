@@ -10,7 +10,7 @@ Package: openmediavault
 Architecture: all
 Depends: ${perl:Depends}, libjs-extjs6, php-fpm, libpam-modules, php-json,
  php-cgi, php-cli, php-mbstring, php-pam, sudo, ethtool, python3-dialog,
- acl, iproute2, xfsprogs, jfsutils, ntfs-3g, hdparm, wsdd,
+ acl, iproute2, xfsprogs, jfsutils, ntfs-3g, hdparm, wsdd (>= 0.3-2),
  sdparm, mdadm, postfix, libsasl2-modules, bsd-mailx, python3-dbus,
  cpufrequtils, rsyslog, logrotate, smartmontools, openssl, openssh-server,
  uuid, tzdata, nfs-kernel-server, proftpd-basic, lsb-release, sshpass,
