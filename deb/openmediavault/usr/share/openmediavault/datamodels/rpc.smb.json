@@ -29,10 +29,6 @@
 				"type": "boolean",
 				"required": true
 			},
-			"localmaster": {
-				"type": "boolean",
-				"required": true
-			},
 			"timeserver": {
 				"type": "boolean",
 				"required": true

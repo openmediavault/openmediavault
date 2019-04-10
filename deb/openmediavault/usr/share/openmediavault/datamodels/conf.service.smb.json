@@ -32,10 +32,6 @@
 			"type": "boolean",
 			"default": true
 		},
-		"localmaster": {
-			"type": "boolean",
-			"default": true
-		},
 		"timeserver": {
 			"type": "boolean",
 			"default": false
