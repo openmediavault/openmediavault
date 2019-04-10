@@ -634,7 +634,7 @@ msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
 msgstr "Clients denen erlaubt ist das Dateisystem zu mounten, z.B. 192.168.178.0/24"
 
 msgid "Close"
-msgstr "Schliessen"
+msgstr "Schließen"
 
 msgid "Cocos (Keeling) Islands"
 msgstr "Kokosinseln"
