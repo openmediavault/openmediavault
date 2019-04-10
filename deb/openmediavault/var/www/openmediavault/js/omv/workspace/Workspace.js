@@ -217,7 +217,7 @@ Ext.define("OMV.workspace.Workspace", {
 										// Force rendering of whole page with
 										// selected language.
 										OMV.confirmPageUnload = false;
-										document.location.reload();
+										document.location.reload(true);
 									}
 								}
 							}
@@ -268,7 +268,7 @@ Ext.define("OMV.workspace.Workspace", {
 											Ext.state.Manager.getProvider().clearAll();
 											// Reload the page.
 											OMV.confirmPageUnload = false;
-											document.location.reload();
+											document.location.reload(true);
 											break;
 										case "logout":
 											OMV.SessionManager.logout();
@@ -299,7 +299,7 @@ Ext.define("OMV.workspace.Workspace", {
 																	if(success) {
 																		if(this.hasRebooted) {
 																			OMV.confirmPageUnload = false;
-																			document.location.reload();
+																			document.location.reload(true);
 																		}
 																	} else {
 																		this.hasRebooted = true;
