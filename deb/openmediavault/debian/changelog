@@ -1,6 +1,6 @@
 openmediavault (4.1.22-1) stable; urgency=low
 
-  *
+  * Add Debian security repository.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 08 Apr 2019 09:25:24 +0200
 
