@@ -90,6 +90,16 @@ configure_apt_sources_list_kernel_backports:
 
 {% endif %}
 
+configure_apt_sources_list_debian_security:
+  file.managed:
+    - name: "/etc/apt/sources.list.d/openmediavault-debian-security.list"
+    - source:
+      - salt://{{ slspath }}/files/etc-apt-sources_list_d-openmediavault-debian-security_list.j2
+    - template: jinja
+    - user: root
+    - group: root
+    - mode: 644
+
 refresh_apt_database:
   module.run:
     - name: pkg.refresh_db
