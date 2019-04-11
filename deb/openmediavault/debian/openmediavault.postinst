@@ -493,6 +493,9 @@ case "$1" in
 				deb-systemd-invoke reload postfix || :
 			fi
 		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.100"; then
+			omv-mkconf apt
+		fi
 
 		########################################################################
 		# Show help text.
