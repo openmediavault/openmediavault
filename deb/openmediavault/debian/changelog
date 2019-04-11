@@ -24,6 +24,8 @@ openmediavault (5.0-1) unstable; urgency=low
     is enabled and one of its implied option 'Recursive',
     'Preserve permissions', 'Times', 'Group' or 'Owner' is disabled, then this
     option will be prefixed with '--no-xxx' in the rsync command line.
+  * Remove 'Local master browser' checkbox in the SMB/CIFS page.
+    If you still need that use the 'Extra Options' field to add it manually.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 May 2018 22:06:11 +0200
 

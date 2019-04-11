@@ -66,12 +66,6 @@ Ext.define("OMV.module.admin.service.smb.Settings", {
 				}]
 			},{
 				xtype: "checkbox",
-				name: "localmaster",
-				fieldLabel: _("Local master browser"),
-				checked: true,
-				boxLabel: _("Allow this server to try and become a local master browser")
-			},{
-				xtype: "checkbox",
 				name: "timeserver",
 				fieldLabel: _("Time server"),
 				checked: false,

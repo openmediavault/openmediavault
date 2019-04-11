@@ -61,7 +61,6 @@ use sendfile = {% if config.usesendfile | to_bool %}yes{% else %}no{% endif %}
 aio read size = {{ aio_read_size }}
 aio write size = {{ aio_write_size }}
 {%- endif %}
-local master = {% if config.localmaster | to_bool %}yes{% else %}no{% endif %}
 time server = {% if config.timeserver | to_bool %}yes{% else %}no{% endif %}
 wins support = {% if config.winssupport | to_bool %}yes{% else %}no{% endif %}
 {%- if config.winsserver | length > 0 %}
