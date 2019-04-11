@@ -54,5 +54,5 @@ Pin-Priority: ${OMV_APT_KERNEL_BACKPORTS_PINPRIORITY}
 EOF
 
 cat <<EOF > /etc/apt/sources.list.d/openmediavault-kernel-backports.list
-deb http://httpredir.debian.org/debian ${OMV_APT_KERNEL_BACKPORTS_ARCHIVE} main contrib non-free
+#deb http://httpredir.debian.org/debian ${OMV_APT_KERNEL_BACKPORTS_ARCHIVE} main contrib non-free
 EOF
