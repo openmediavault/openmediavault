@@ -506,7 +506,8 @@ finish:
 		$cmdArgs[] = "--gid";
 		$cmdArgs[] = escapeshellarg(\OMV\Environment::get(
 		  "OMV_USERMGMT_DEFAULT_GROUP"));
-		if (array_key_exists("shell", $params) && !empty($params['shell'])) {
+		if (array_key_exists("shell", $params) &&
+				!empty($params['shell'])) {
 			// Make sure the shell exists.
 			if (!file_exists($params['shell'])) {
 				throw new \OMV\Exception("The shell '%s' does not exist.",
@@ -515,11 +516,13 @@ finish:
 			$cmdArgs[] = "--shell";
 			$cmdArgs[] = escapeshellarg($params['shell']);
 		}
-		if (array_key_exists("comment", $params)) {
+		if (array_key_exists("comment", $params) &&
+				!empty($params['comment'])) {
 			$cmdArgs[] = "--comment";
 			$cmdArgs[] = escapeshellarg($params['comment']);
 		}
-		if (array_key_exists("groups", $params)) {
+		if (array_key_exists("groups", $params) &&
+				!empty($params['groups'])) {
 			// Make sure the specified groups exists.
 			foreach ($params['groups'] as $groupk => $groupv) {
 				$group = new \OMV\System\Group($groupv);
@@ -692,7 +695,7 @@ finish:
 				# Parse line.
 				# <name>;<uid>;<comment>;<email>;<password>;<shell>;<group,group,...>;<disallowusermod>
 				if (1 !== preg_match("/^([^;]+);(\d*);([^;]*);".
-						"([^;]*);([^;]+);([^;]+);([^;]*);".
+						"([^;]*);([^;]*);([^;]*);([^;]*);".
 						"(true|1|yes|y|on|false|0|no|n|off)$/i",
 						$linev, $matches)) {
 					throw new \OMV\Exception("Invalid line: %s", $linev);
@@ -702,9 +705,11 @@ finish:
 					"comment" => $matches[3],
 					"email" => $matches[4],
 					"password" => $matches[5],
-					"groups" => explode(",", $matches[7]),
+					"groups" => !empty($matches[7]) ?
+						explode(",", $matches[7]) : [],
 					"disallowusermod" => boolvalEx($matches[8]),
-					"shell" => !empty($matches[6]) ? $matches[6] : "/bin/sh",
+					"shell" => !empty($matches[6]) ?
+						$matches[6] : "/bin/sh",
 					"sshpubkeys" => []
 				];
 				if (!empty($matches[2]) && is_numeric($matches[2]))
