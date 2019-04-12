@@ -29,9 +29,17 @@ openmediavault (5.0-1) unstable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 May 2018 22:06:11 +0200
 
+openmediavault (4.1.22-1) stable; urgency=low
+
+  * Add Debian security repository.
+  * Fix bug in user import.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 08 Apr 2019 09:25:24 +0200
+
 openmediavault (4.1.21-1) stable; urgency=low
 
   * Improve quick disk wiping. Remove signatures at the end of the device, too.
+  * Fix bug in wsdd configuration.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 23 Mar 2019 18:52:18 +0100
 
