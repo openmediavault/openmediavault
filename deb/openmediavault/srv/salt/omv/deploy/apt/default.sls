@@ -90,6 +90,18 @@ configure_apt_sources_list_kernel_backports:
 
 {% endif %}
 
+remove_apt_sources_list_debian_security:
+  file.absent:
+    - name: "/etc/apt/sources.list.d/openmediavault-debian-security.list"
+
+# Check if the Debian security repository is already configured (e.g.
+# in /etc/apt/sources.list). Only add it if this is not the case.
+{% set repos = [] %}
+{% for key, value in salt['pkg.list_repos']().items() %}
+{% set _ = repos.append(value[0]) %}
+{% endfor %}
+{% if repos | rejectattr('disabled') | selectattr('type', 'equalto', 'deb') | map(attribute='uri') | unique | select('match', '^https?://security.debian.org/debian-security$') | list | length == 0 %}
+
 configure_apt_sources_list_debian_security:
   file.managed:
     - name: "/etc/apt/sources.list.d/openmediavault-debian-security.list"
@@ -99,6 +111,8 @@ configure_apt_sources_list_debian_security:
     - user: root
     - group: root
     - mode: 644
+
+{% endif %}
 
 refresh_apt_database:
   module.run:
