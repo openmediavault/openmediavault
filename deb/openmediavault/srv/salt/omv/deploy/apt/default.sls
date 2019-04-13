@@ -97,10 +97,10 @@ remove_apt_sources_list_debian_security:
 # Check if the Debian security repository is already configured (e.g.
 # in /etc/apt/sources.list). Only add it if this is not the case.
 {% set repos = [] %}
-{% for key, value in salt['pkg.list_repos']().items() %}
-{% set _ = repos.append(value[0]) %}
+{% for value in salt['pkg.list_repos']().values() %}
+{% set _ = repos.extend(value) %}
 {% endfor %}
-{% if repos | rejectattr('disabled') | selectattr('type', 'equalto', 'deb') | map(attribute='uri') | unique | select('match', '^https?://security.debian.org/debian-security$') | list | length == 0 %}
+{% if repos | rejectattr('disabled') | selectattr('type', 'equalto', 'deb') | selectattr('uri', 'match', '^https?://security.debian.org/debian-security$') | list | length == 0 %}
 
 configure_apt_sources_list_debian_security:
   file.managed:
