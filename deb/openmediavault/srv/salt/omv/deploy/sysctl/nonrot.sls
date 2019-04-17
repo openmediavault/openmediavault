@@ -36,6 +36,8 @@ remove_sysctl_nonrot:
     - name: /etc/sysctl.d/99-openmediavault-nonrot.conf
 
 {% set mounts = salt['mount.active'](True) %}
+{% if '/' in mounts %}
+
 {% set rotational = salt['sysfs.attr']('/sys/dev/block/' ~ mounts['/'].major ~ ':0/queue/rotational') %}
 {% if rotational == 0 %}
 
@@ -74,5 +76,7 @@ load_sysctl_settings:
     - name: sysctl --load
     - onchanges:
       - file: configure_sysctl_nonrot
+
+{% endif %}
 
 {% endif %}
