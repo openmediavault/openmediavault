@@ -39,12 +39,9 @@ udevadm_trigger:
     - onchanges:
       - udevadm_reload_rules
 
-# Get the device file of the root filesystem.
-{% set root_fs_device = salt['omv_utils.get_root_filesystem']() %}
-# Get the parent device file of the root filesystem.
-{% set parent_root_fs_device = salt['omv_utils.get_fs_parent_device_file'](root_fs_device) %}
-
 {% set fstab_entries = salt['mount.fstab']() %}
+{% if '/' in fstab_entries %}
+
 # Get the mount configuration for the root filesystem.
 # {
 #   "device": "UUID=199a4bbc-59c9-4a3b-b592-950eaffb2530",
@@ -56,6 +53,10 @@ udevadm_trigger:
 #   "fstype": "ext4"
 # }
 {% set root_fstab_entry = fstab_entries['/'] %}
+# Get the device file of the root filesystem.
+{% set root_fs_device = salt['omv_utils.get_root_filesystem']() %}
+# Get the parent device file of the root filesystem.
+{% set parent_root_fs_device = salt['omv_utils.get_fs_parent_device_file'](root_fs_device) %}
 
 {% if nonrot_options | difference(root_fstab_entry.opts) | length > 0 and
       salt['omv_utils.is_block_device'](parent_root_fs_device) and
@@ -70,5 +71,7 @@ update_root_fstab_entry:
       - opts: "{{ nonrot_options | union(root_fstab_entry.opts) | join(',') }}"
       - dump: "{{ root_fstab_entry.dump }}"
       - pass_num: "{{ root_fstab_entry.pass }}"
+
+{% endif %}
 
 {% endif %}
