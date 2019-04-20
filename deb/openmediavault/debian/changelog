@@ -1,3 +1,9 @@
+openmediavault (5.0.1-1) unstable; urgency=low
+
+  * Issue #340: Fix bug in Avahi NFS SLS file.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 20 Apr 2019 10:34:15 +0200
+
 openmediavault (5.0-1) unstable; urgency=low
 
   * Use Salt to deploy configuration settings. Using 'omv-salt stage run all'

@@ -40,7 +40,7 @@ remove_avahi_service_nfs:
 {% set sharedfolder = salt['omv_conf.get'](
   'conf.system.sharedfolder', nfsshare.sharedfolderref) %}
 
-configure_avahi_service_nfs:
+configure_avahi_service_nfs_{{ sharedfolder.name }}:
   file.managed:
     - name: "/etc/avahi/services/nfs-{{ sharedfolder.name }}.service"
     - source:
