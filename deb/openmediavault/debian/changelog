@@ -1,6 +1,7 @@
 openmediavault (5.0.1-1) unstable; urgency=low
 
   * Issue #340: Fix bug in Avahi NFS SLS file.
+  * Issue #347: Cannot create logical volume.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 20 Apr 2019 10:34:15 +0200
 
