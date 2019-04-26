@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Watchog need to be stopped otherwise system will reset during suspend/hibernate state
+case $1 in
+  suspend|hibernate)
+    if [ !$(systemctl is-active --quiet watchdog.service) ]; then
+      systemctl stop watchdog.service
+    fi
+  ;;
+  resume|thaw)
+    if [ !$(systemctl is-enabled --quiet watchdog.service) ]; then
+      systemctl start watchdog.service
+    fi
+  ;;
+esac
+
