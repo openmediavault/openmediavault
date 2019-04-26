@@ -695,8 +695,8 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract {
 		  "rpc.logicalvolumemgmt.createlogicalvolume");
 		// Create the logical volume. Convert size to KiB to ensure it is
 		// a multiple of 512.
-		$lv = new \OMV\System\Storage\Lvm\LogicalVolume();
-		$lv->create($params['name'], $params['size'], $params['vgname']);
+		\OMV\System\Storage\Lvm\LogicalVolume::create(
+			$params['name'], $params['size'], $params['vgname']);
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_CREATE,

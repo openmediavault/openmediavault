@@ -1,3 +1,10 @@
+openmediavault-lvm2 (5.0.1-1) stable; urgency=low
+
+  * Issue #346: Uninstallation of LVM plugin fails.
+  * Issue #347: Cannot create logical volume.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 25 Apr 2019 14:36:35 +0200
+
 openmediavault-lvm2 (5.0-1) stable; urgency=low
 
   * Adapt to Debian 10 (Buster).

@@ -273,7 +273,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	 * @return void
 	 * @throw \OMV\ExecException
 	 */
-	public function create($name, $size, $vgName) {
+	public static function create($name, $size, $vgName) {
 		$cmdArgs = [];
 		$cmdArgs[] = sprintf("--name %s", escapeshellarg($name));
 		$cmdArgs[] = sprintf("--size %sK", binary_convert($size, "B", "KiB"));
