@@ -40,7 +40,8 @@ remove_ssl_certificates_key:
 create_ssl_{{ certificate.uuid }}_crt:
   file.managed:
     - name: "/etc/ssl/certs/{{ certificate_prefix }}{{ certificate.uuid }}.crt"
-    - contents: "{{ certificate.certificate }}"
+    - contents: |
+        {{ certificate.certificate | indent(8) }}
     - user: root
     - group: root
     - mode: 644
@@ -48,7 +49,8 @@ create_ssl_{{ certificate.uuid }}_crt:
 create_ssl_{{ certificate.uuid }}_key:
   file.managed:
     - name: "/etc/ssl/private/{{ certificate_prefix }}{{ certificate.uuid }}.key"
-    - contents: "{{ certificate.privatekey }}"
+    - contents: |
+        {{ certificate.privatekey | indent(8) }}
     - user: root
     - group: root
     - mode: 640
