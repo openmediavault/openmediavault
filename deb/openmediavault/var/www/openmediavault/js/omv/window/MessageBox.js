@@ -209,7 +209,7 @@ Ext.define("OMV.window.MessageBox", {
 				hidden: Ext.isEmpty(detailsText),
 				handler: function(c, e) {
 					var visible = details.isVisible();
-					c.setText(visible ? _("Hide details") : _("Show details"));
+					c.setText(!visible ? _("Hide details") : _("Show details"));
 					details.setVisible(!visible);
 				}
 			}],
