@@ -362,4 +362,34 @@ class System {
 				(($diffTotal - $diffIowait - $diffIdle) / $diffTotal) * 100
 		];
 	}
+
+	/**
+	 * Get a list of Debian packages that are available to be upgraded.
+	 * This list is automatically generated via an APT trigger which is
+	 * executed when 'apt-get update' is called. Thus it is not necessary
+	 * to execute the very cost intensive code every RPC call.
+	 * @return array An array of objects containing the fields \em name,
+	 *   \em version, \em oldversion, \em repository, \em architecture,
+	 *   \em package, \em priority, \em section, \em installedsize,
+	 *   \em maintainer, \em filename, \em size, \em md5sum, \em sha1,
+	 *   \em sha256, \em abstract and \em homepage.
+	 *   The following fields are optional: \em description, \em depends,
+	 *   \em replaces and \em conflicts.
+	 * @throws \OMV\Exception
+	 */
+	public static function getAptUpgradeList() {
+		// Read the information from the package index. This will be
+		// updated automatically via APT trigger.
+		$file = new \OMV\Json\File(\OMV\Environment::get(
+			"OMV_APT_UPGRADE_INDEX_FILE"));
+		if (!$file->exists()) {
+			throw new \OMV\Exception(
+				"The index of upgradeable packages does not exist. Please ".
+				"re-synchronize the package index files from their sources.");
+		}
+		$file->open("r");
+		$result = $file->read();
+		$file->close();
+		return $result;
+	}
 }

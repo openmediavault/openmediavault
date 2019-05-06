@@ -337,7 +337,7 @@ class System extends \OMV\Rpc\ServiceAbstract {
 	 * Get various system information.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
-	 * @return An array of system information.
+	 * @return array An array of system information.
 	 */
 	public function getInformation($params, $context) {
 		// The information everyone is allowed to see.
@@ -346,6 +346,11 @@ class System extends \OMV\Rpc\ServiceAbstract {
 			"time" => strftime("%c"),
 			"hostname" => \OMV\System\Net\Dns::getFqdn()
 		];
+		try {
+			$pkgUpgradeList = \OMV\System\System::getAptUpgradeList();
+		} catch(\Exception $e) {
+			$pkgUpgradeList = [];
+		}
 		// Append the information that is only visible to an administrator.
 		if (TRUE === $this->hasContextRole($context, OMV_ROLE_ADMINISTRATOR)) {
 			$prd = new \OMV\ProductInfo();
@@ -366,7 +371,8 @@ class System extends \OMV\Rpc\ServiceAbstract {
 				"configDirty" => \OMV\Rpc\Rpc::call(
 					"Config", "isDirty", NULL, $context
 				),
-				"rebootRequired" => file_exists("/var/run/reboot-required")
+				"rebootRequired" => file_exists("/var/run/reboot-required"),
+				"pkgUpdatesAvailable" => !empty($pkgUpgradeList)
 			]);
 		}
 		return $result;

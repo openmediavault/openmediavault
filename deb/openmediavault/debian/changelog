@@ -1,5 +1,6 @@
 openmediavault (5.0.1-1) unstable; urgency=low
 
+  * Display 'Updates available' status in dashboard widget.
   * Issue #340: Fix bug in Avahi NFS SLS file.
   * Issue #347: Cannot create logical volume.
 
