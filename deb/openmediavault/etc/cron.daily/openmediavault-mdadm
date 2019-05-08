@@ -29,4 +29,7 @@ MDADM=/sbin/mdadm
 # displayed.
 [ -z "$(grep "^MAILADDR" /etc/mdadm/mdadm.conf)" ] && exit 0
 
+# Exit if no ARRAY is configured.
+[ -z "$(grep "^ARRAY" /etc/mdadm/mdadm.conf)" ] && exit 0
+
 exec $MDADM --monitor --scan --oneshot

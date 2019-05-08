@@ -51,7 +51,10 @@ configure_mdadm_conf:
     - group: root
     - mode: 644
 
-# Save RAID configuration to config file and update initramfs.
 mdadm_save_config:
-  module.run:
-    - name: raid.save_config
+  cmd.run:
+    - name: "mdadm --detail --scan >> /etc/mdadm/mdadm.conf"
+
+mdadm_update_initramfs:
+  cmd.run:
+    - name: "update-initramfs -u"

@@ -18,7 +18,7 @@ CREATE owner=root group=disk mode=0660 auto=yes
 # automatically tag new arrays as belonging to the local system
 HOMEHOST <system>
 
-{%- if email_config.enable | to_bool and not notification_config.enable | to_bool %}
+{%- if email_config.enable | to_bool and notification_config.enable | to_bool %}
 # instruct the monitoring daemon where to send mail alerts
 MAILADDR {{ email_config.primaryemail }}
 MAILFROM {{ mail_from }}
