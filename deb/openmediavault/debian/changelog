@@ -1,6 +1,7 @@
 openmediavault (4.1.22-1) stable; urgency=low
 
   * Fix bug in user import.
+  * Do not execute mdadm daily cron job if no array is defined.
   * Issue #349: Wrong button labels for "show/hide details".
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 08 Apr 2019 09:25:24 +0200
