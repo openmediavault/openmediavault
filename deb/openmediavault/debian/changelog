@@ -1,6 +1,7 @@
 openmediavault (5.0.1-1) unstable; urgency=low
 
   * Display 'Updates available' status in dashboard widget.
+  * Fix bug when writing file /etc/mdadm/mdadm.conf.
   * Issue #340: Fix bug in Avahi NFS SLS file.
   * Issue #347: Cannot create logical volume.
   * Issue #352: Fix bug SSL certificate deployment.
