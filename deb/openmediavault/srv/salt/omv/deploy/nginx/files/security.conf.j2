@@ -1,4 +1,4 @@
-{%- set ssl_protocols = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SSL_PROTOCOLS', 'TLSv1.2') -%}
+{%- set ssl_protocols = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SSL_PROTOCOLS', 'TLSv1.2 TLSv1.3') -%}
 {%- set ssl_prefer_server_ciphers = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SSL_PREFER_SERVER_CIPHERS', 'on') -%}
 {%- set ssl_ciphers = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SSL_CIPHERS', 'ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256') -%}
 {%- set hsts_header = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SECURITY_HSTS', 'max-age=15768000; includeSubdomains') -%}
