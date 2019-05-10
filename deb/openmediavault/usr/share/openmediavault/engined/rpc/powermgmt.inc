@@ -128,13 +128,24 @@ class PowerMgmt extends \OMV\Rpc\ServiceAbstract {
 		$params['sendemail'] = FALSE;
 		switch ($params['type']) {
 		case "reboot":
-			$params['command'] = "shutdown -r now";
+			$params['command'] = "systemctl reboot";
 			break;
 		case "shutdown":
-			$params['command'] = "shutdown -h -P now";
+			$params['command'] = "systemctl poweroff";
 			break;
 		case "standby":
-			$params['command'] = "omv-pm-standby";
+		    $pm = new \OMV\System\PowerManagement();
+		    if (TRUE === $pm->isStateSupported(
+		            \OMV\System\PowerManagement::STATE_SUSPENDHYBRID))
+		        $params['command'] = "systemctl hybrid-sleep";
+            else if (TRUE === $pm->isStateSupported(
+                    \OMV\System\PowerManagement::STATE_HIBERNATE))
+                $params['command'] = "systemctl hibernate";
+            else if (TRUE === $pm->isStateSupported(
+                    \OMV\System\PowerManagement::STATE_SUSPEND))
+                $params['command'] = "systemctl suspend";
+            else
+                $params['command'] = "systemctl poweroff";
 			break;
 		}
 		return \OMV\Rpc\Rpc::call("cron", "set", $params, $context);
