@@ -60,3 +60,21 @@ configure_rsyncd_secrets_{{ module.name }}:
     - mode: 600
 
 {% endfor %}
+
+{% if config.enable | to_bool %}
+
+start_rsyncd_service:
+  service.running:
+    - name: rsync
+    - enable: True
+    - watch:
+      - file: configure_rsyncd_conf
+
+{% else %}
+
+stop_rsyncd_service:
+  service.dead:
+    - name: rsync
+    - enable: False
+
+{% endif %}
