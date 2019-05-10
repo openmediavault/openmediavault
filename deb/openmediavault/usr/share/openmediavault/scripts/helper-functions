@@ -747,7 +747,7 @@ omv_is_gateway4() {
 omv_is_ipaddr6() {
 	local _valid
 #	perl -ne "use Socket qw(AF_INET6 inet_pton); print inet_pton(AF_INET6, '$1');"
-	_valid=$(php7.0 -n -r "filter_var('$1', FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? print 0 : print 1;")
+	_valid=$(php7.3 -n -r "filter_var('$1', FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? print 0 : print 1;")
 	return ${_valid}
 }
 
@@ -767,7 +767,7 @@ omv_is_netmask6() {
 omv_is_gateway6() {
 	local _valid
 #	perl -ne "use Socket qw(AF_INET6 inet_pton); print inet_pton(AF_INET6, '$1');"
-	_valid=$(php7.0 -n -r "filter_var('$1', FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? print 0 : print 1;")
+	_valid=$(php7.3 -n -r "filter_var('$1', FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? print 0 : print 1;")
 	return ${_valid}
 }
 
@@ -959,7 +959,7 @@ omv_kill_children() {
 # Mark the given module as dirty.
 # @param name The name of the module.
 omv_module_set_dirty() {
-	php7.0 -c /etc/openmediavault <<EOF
+	php7.3 -c /etc/openmediavault <<EOF
 <?php
 require_once('openmediavault/autoloader.inc'); \
 \$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
@@ -972,7 +972,7 @@ EOF
 # Check if any modules are marked as dirty.
 omv_module_is_dirty() {
 	local _dirty
-	_dirty=$(php7.0 -c /etc/openmediavault -r \
+	_dirty=$(php7.3 -c /etc/openmediavault -r \
 	  "require_once('openmediavault/autoloader.inc'); \
 	  \$moduleMngr = \OMV\Engine\Module\Manager::getInstance(); \
 	  \$dirtyModules = \$moduleMngr->getDirtyModules(); \
@@ -1026,7 +1026,7 @@ omv_is_proc_running_pid() {
 omv_is_device_nonrotational() {
 	local _rc
 	[ -z "$1" ] && return 1
-	_rc=$(php7.0 -c /etc/openmediavault <<EOF
+	_rc=$(php7.3 -c /etc/openmediavault <<EOF
 <?php
 require_once('openmediavault/autoloader.inc'); \
 \$result = TRUE;
