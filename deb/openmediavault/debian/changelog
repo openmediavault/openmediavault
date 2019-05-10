@@ -1,3 +1,9 @@
+openmediavault (5.0.2-1) unstable; urgency=low
+
+  * Fix rsyncd issue.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 10 May 2019 07:50:36 +0200
+
 openmediavault (5.0.1-1) unstable; urgency=low
 
   * Display 'Updates available' status in dashboard widget.
