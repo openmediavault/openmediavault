@@ -50,8 +50,6 @@ Ext.define("OMV.module.admin.system.certificate.ssl.Create", {
 			store: Ext.create("Ext.data.ArrayStore", {
 				fields: [ "value", "text" ],
 				data: [
-					[ 512, "512b" ],
-					[ 1024, "1024b" ],
 					[ 2048, "2048b" ],
 					[ 4096, "4096b" ]
 				]
