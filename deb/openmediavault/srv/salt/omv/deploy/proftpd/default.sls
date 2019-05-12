@@ -28,6 +28,13 @@ test_proftpd_service_config:
   cmd.run:
     - name: "proftpd --configtest"
 
+# It somehow happens that there is a PID file with incorrect permissions
+# that will let the sysvinit script fail:
+# proftpd[16533]: Starting ftp server: proftpdstart-stop-daemon: matching on world-writable pidfile /run/proftpd.pid is insecure
+remove_proftpd_pidfile:
+  file.absent:
+    - name: /run/proftpd.pid
+
 start_proftpd_service:
   service.running:
     - name: proftpd
