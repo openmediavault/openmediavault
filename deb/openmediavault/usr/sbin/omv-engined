@@ -179,6 +179,7 @@ function daemonize() {
 
 	// Create PID file.
 	file_put_contents($pidFile, posix_getpid());
+	chmod($pidFile, 0644);
 
 	if(FALSE === $debug) {
 		// Close all of the standard file descriptors.
