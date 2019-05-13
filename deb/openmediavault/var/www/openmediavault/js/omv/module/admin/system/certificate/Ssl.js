@@ -467,7 +467,7 @@ Ext.define("OMV.module.admin.system.certificate.ssl.Edit", {
 			flex: 1,
 			plugins: [{
 				ptype: "fieldinfo",
-				text: _("Paste an private RSA key in X.509 PEM format here.")
+				text: _("Paste a RSA or ECC private key in X.509 PEM format here.")
 			}]
 		},{
 			xtype: "textarea",
@@ -482,7 +482,7 @@ Ext.define("OMV.module.admin.system.certificate.ssl.Edit", {
 			flex: 1,
 			plugins: [{
 				ptype: "fieldinfo",
-				text: _("Paste a RSA certificate in X.509 PEM format here.")
+				text: _("Paste a RSA or ECC certificate in X.509 PEM format here.")
 			}]
 		},{
 			xtype: "textfield",
