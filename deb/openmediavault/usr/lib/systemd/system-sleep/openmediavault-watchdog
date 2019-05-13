@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Watchog need to be stopped otherwise system will reset during suspend state.
+case $1 in
+    pre)
+        if [ !$(systemctl is-active --quiet watchdog.service) ]; then
+            systemctl stop watchdog.service
+        fi
+        ;;
+    post)
+        if [ !$(systemctl is-enabled --quiet watchdog.service) ]; then
+            systemctl start watchdog.service
+        fi
+        ;;
+esac
