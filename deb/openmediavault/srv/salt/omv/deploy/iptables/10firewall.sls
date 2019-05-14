@@ -31,11 +31,11 @@
   'conf.system.network.iptables.rule',
   {'operator': 'stringEquals', 'arg0': 'family', 'arg1': 'inet6'}) | length %}
 
-configure_ifupdown_iptables_rules:
+configure_firewall_script:
   file.managed:
-    - name: "/etc/network/if-pre-up.d/openmediavault-iptables"
+    - name: "/etc/iptables/openmediavault-firewall.sh"
     - source:
-      - salt://{{ slspath }}/files/ifupdown.j2
+      - salt://{{ slspath }}/files/etc_iptables_openmediavault-firewall.j2
     - template: jinja
     - context:
         rules: {{ rules | json }}
@@ -44,9 +44,40 @@ configure_ifupdown_iptables_rules:
     - user: root
     - group: root
     - mode: 750
+    - makedirs: True
 
-apply_ifupdown_iptables_rules:
-  cmd.run:
-    - name: "/etc/network/if-pre-up.d/openmediavault-iptables"
-    - onchanges:
-      - file: configure_ifupdown_iptables_rules
+configure_firewall_unit_file:
+  file.managed:
+    - name: "/etc/systemd/system/openmediavault-firewall.service"
+    - contents: |
+        {{ pillar['headers']['auto_generated'] }}
+        {{ pillar['headers']['warning'] }}
+        [Unit]
+        Description=openmediavault iptables firewall service
+        After=network.target
+
+        [Service]
+        Type=oneshot
+        RemainAfterExit=yes
+        ExecStart=/etc/iptables/openmediavault-firewall.sh start
+        ExecStop=/etc/iptables/openmediavault-firewall.sh stop
+
+        [Install]
+        WantedBy=multi-user.target
+    - user: root
+    - group: root
+    - mode: 644
+
+iptables_systemctl_daemon_reload:
+  module.run:
+    - name: service.systemctl_reload
+
+enable_firewall_service:
+  service.enabled:
+    - name: openmediavault-firewall.service
+    - enable: True
+
+restart_firewall_service:
+  module.run:
+    - service.restart:
+      - name: openmediavault-firewall.service
