@@ -1,6 +1,9 @@
 openmediavault (4.1.23-1) stable; urgency=low
 
   * Issue #370: Remove weak RSA key lengths.
+  * Append 'source-directory interfaces.d' to the end of the file
+    /etc/network/interfaces to be able to use already configured
+    interfaces.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 10 May 2019 22:51:53 +0200
 
