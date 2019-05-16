@@ -1,7 +1,6 @@
 
 <!--
-Thank you for opening a pull request!  Here are some tips on creating
-a well formatted contribution.
+Thank you for opening a pull request! Here are some tips on creating a well formatted contribution.
 
 Please give your pull request a title like "[Short description]"
 
