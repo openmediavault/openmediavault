@@ -39,7 +39,7 @@ configure_default_nfs-kernel-server:
       - salt://{{ slspath }}/files/etc-default-nfs-kernel-server.j2
     - template: jinja
     - context:
-        config: {{ config | json }}
+        config: {{ config | tojson }}
     - user: root
     - group: root
     - mode: 644

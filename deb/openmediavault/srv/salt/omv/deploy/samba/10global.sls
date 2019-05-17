@@ -31,7 +31,7 @@ configure_samba_global:
       - salt://{{ slspath }}/files/global.j2
     - template: jinja
     - context:
-        config: {{ config | json }}
+        config: {{ config | tojson }}
     - user: root
     - group: root
     - mode: 644

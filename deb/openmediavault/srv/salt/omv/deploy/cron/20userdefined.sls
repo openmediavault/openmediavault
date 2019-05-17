@@ -56,7 +56,7 @@ create_cron_userdefined:
       - salt://{{ slspath }}/files/userdefined.j2
     - template: jinja
     - context:
-        jobs: {{ cron_jobs | json }}
+        jobs: {{ cron_jobs | tojson }}
     - user: root
     - group: root
     - mode: 644

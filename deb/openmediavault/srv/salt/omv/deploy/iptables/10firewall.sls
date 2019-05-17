@@ -38,7 +38,7 @@ configure_firewall_script:
       - salt://{{ slspath }}/files/etc_iptables_openmediavault-firewall.j2
     - template: jinja
     - context:
-        rules: {{ rules | json }}
+        rules: {{ rules | tojson }}
         num_inet_rules: {{ num_inet_rules }}
         num_inet6_rules: {{ num_inet6_rules }}
     - user: root

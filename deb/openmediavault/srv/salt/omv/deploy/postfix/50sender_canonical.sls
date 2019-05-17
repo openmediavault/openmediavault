@@ -33,7 +33,7 @@ configure_postfix_sender_canonical:
       - salt://{{ slspath }}/files/sender_canonical.j2
     - template: jinja
     - context:
-        config: {{ config | json }}
+        config: {{ config | tojson }}
     - user: root
     - group: root
     - mode: 600

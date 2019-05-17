@@ -35,7 +35,7 @@ configure_interface_wired_{{ interface.devicename }}_network:
       - salt://{{ slspath }}/files/wired_network.j2
     - template: jinja
     - context:
-        interface: {{ interface | json }}
+        interface: {{ interface | tojson }}
     - user: root
     - group: root
     - mode: 644

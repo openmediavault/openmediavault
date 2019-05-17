@@ -33,7 +33,7 @@ configure_monit_filesystem_service:
       - salt://{{ slspath }}/files/filesystem.j2
     - template: jinja
     - context:
-        mountpoints: {{ mountpoints | json }}
+        mountpoints: {{ mountpoints | tojson }}
     - user: root
     - group: root
     - mode: 644

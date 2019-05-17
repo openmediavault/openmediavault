@@ -36,6 +36,6 @@ configure_samba_shares:
       - salt://{{ slspath }}/files/shares.j2
     - template: jinja
     - context:
-        config: {{ config | json }}
+        config: {{ config | tojson }}
     - watch_in:
       - service: start_samba_service

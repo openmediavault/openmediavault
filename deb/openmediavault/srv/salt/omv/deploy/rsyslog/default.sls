@@ -25,7 +25,7 @@ configure_rsyslog_service:
     - source:
       - salt://{{ slspath }}/files/openmediavault-remote.conf.j2
     - context:
-        config: {{ config | json }}
+        config: {{ config | tojson }}
     - template: jinja
     - user: root
     - group: root

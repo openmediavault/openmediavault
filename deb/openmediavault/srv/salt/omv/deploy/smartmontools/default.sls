@@ -31,7 +31,7 @@ configure_default_smartmontools:
       - salt://{{ slspath }}/files/etc-default-smartmontools.j2
     - template: jinja
     - context:
-        config: {{ config | json }}
+        config: {{ config | tojson }}
     - user: root
     - group: root
     - mode: 644

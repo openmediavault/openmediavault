@@ -28,4 +28,4 @@ configure_collectd_conf_df_plugin:
       - salt://{{ slspath }}/files/collectd-df.j2
     - template: jinja
     - context:
-        mountpoints: {{ mountpoints | json }}
+        mountpoints: {{ mountpoints | tojson }}
