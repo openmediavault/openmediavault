@@ -39,7 +39,7 @@ configure_avahi_service_smb:
         type: "_smb._tcp"
         port: 445
         name: "{{ smb_zeroconf_name }}"
-        shares: {{ smb_config.shares.share | tojson }}
+        shares: {{ smb_config.shares.share | json }}
     - user: root
     - group: root
     - mode: 644

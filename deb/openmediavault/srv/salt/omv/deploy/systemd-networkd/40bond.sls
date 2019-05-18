@@ -35,7 +35,7 @@ configure_interface_bond_{{ interface.devicename }}_netdev:
       - salt://{{ slspath }}/files/bond_netdev.j2
     - template: jinja
     - context:
-        interface: {{ interface | tojson }}
+        interface: {{ interface | json }}
     - user: root
     - group: root
     - mode: 644
@@ -47,7 +47,7 @@ configure_interface_bond_{{ interface.devicename }}_network:
       - salt://{{ slspath }}/files/bond_network.j2
     - template: jinja
     - context:
-        interface: {{ interface | tojson }}
+        interface: {{ interface | json }}
     - user: root
     - group: root
     - mode: 644

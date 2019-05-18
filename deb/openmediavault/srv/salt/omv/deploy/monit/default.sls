@@ -56,7 +56,7 @@ configure_monit_monitrc:
       - salt://{{ slspath }}/files/etc-monit-monitrc.j2
     - template: jinja
     - context:
-        email_config: {{ email_config | tojson }}
+        email_config: {{ email_config | json }}
     - user: root
     - group: root
     - mode: 700

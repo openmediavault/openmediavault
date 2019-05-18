@@ -26,7 +26,7 @@ configure_postfix_sasl_passwd:
       - salt://{{ slspath }}/files/sasl_passwd.j2
     - template: jinja
     - context:
-        config: {{ config | tojson }}
+        config: {{ config | json }}
     - user: root
     - group: root
     - mode: 600

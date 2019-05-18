@@ -45,8 +45,8 @@ configure_mdadm_conf:
       - salt://{{ slspath }}/files/etc-mdadm-mdadm.conf.j2
     - template: jinja
     - context:
-        email_config: {{ email_config | tojson }}
-        notification_config: {{ notification_config | tojson }}
+        email_config: {{ email_config | json }}
+        notification_config: {{ notification_config | json }}
     - user: root
     - group: root
     - mode: 644

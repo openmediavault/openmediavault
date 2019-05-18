@@ -39,7 +39,7 @@ configure_nginx_site_webgui:
       - salt://{{ slspath }}/files/site-webgui.j2
     - template: jinja
     - context:
-        config: {{ config | tojson }}
+        config: {{ config | json }}
     - user: root
     - group: root
     - mode: 644
@@ -53,7 +53,7 @@ configure_nginx_security:
       - salt://{{ slspath }}/files/security.conf.j2
     - template: jinja
     - context:
-        config: {{ config | tojson }}
+        config: {{ config | json }}
     - user: root
     - group: root
     - mode: 644

@@ -39,4 +39,4 @@ configure_collectd_conf_interface_plugin:
       - salt://{{ slspath }}/files/collectd-interface.j2
     - template: jinja
     - context:
-        interfaces: {{ interfaces | tojson }}
+        interfaces: {{ interfaces | json }}

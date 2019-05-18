@@ -29,7 +29,7 @@ configure_postfix_recipient_bcc:
       - salt://{{ slspath }}/files/recipient_bcc.j2
     - template: jinja
     - context:
-        config: {{ config | tojson }}
+        config: {{ config | json }}
     - user: root
     - group: root
     - mode: 600

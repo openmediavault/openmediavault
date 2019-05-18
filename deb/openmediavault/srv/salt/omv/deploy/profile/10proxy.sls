@@ -25,7 +25,7 @@ configure_profile_proxy:
     - source:
       - salt://{{ slspath }}/files/10proxy.j2
     - context:
-        config: {{ config | tojson }}
+        config: {{ config | json }}
     - template: jinja
     - user: root
     - group: root

@@ -35,7 +35,7 @@ configure_rsync_cron:
     - source:
       - salt://{{ slspath }}/files/cron-rsync.j2
     - context:
-        jobs: {{ jobs | tojson }}
+        jobs: {{ jobs | json }}
     - template: jinja
     - user: root
     - group: root
@@ -56,7 +56,7 @@ configure_rsync_cron_script_{{ job.uuid }}:
     - source:
       - salt://{{ slspath }}/files/cron-rsync-script.j2
     - context:
-        job: {{ job | tojson }}
+        job: {{ job | json }}
     - template: jinja
     - user: root
     - group: root

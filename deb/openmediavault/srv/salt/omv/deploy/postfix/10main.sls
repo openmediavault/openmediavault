@@ -31,7 +31,7 @@ configure_postfix_main:
       - salt://{{ slspath }}/files/main.cf.j2
     - template: jinja
     - context:
-        config: {{ config | tojson }}
+        config: {{ config | json }}
     - user: root
     - group: root
     - mode: 644

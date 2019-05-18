@@ -31,7 +31,7 @@ configure_samba_homes:
       - salt://{{ slspath }}/files/homes.j2
     - template: jinja
     - context:
-        config: {{ config | tojson }}
+        config: {{ config | json }}
     - watch_in:
       - service: start_samba_service
 

@@ -30,7 +30,7 @@ configure_ssh_sshd_config:
       - salt://{{ slspath }}/files/sshd_config.j2
     - template: jinja
     - context:
-        config: {{ config | tojson }}
+        config: {{ config | json }}
     - user: root
     - group: root
     - mode: 644

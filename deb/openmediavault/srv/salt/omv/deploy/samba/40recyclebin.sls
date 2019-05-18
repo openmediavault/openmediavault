@@ -54,7 +54,7 @@ configure_samba_recyclebin_cron_script_{{ share.uuid }}:
     - source:
       - salt://{{ slspath }}/files/cron-recyclebin-script.j2
     - context:
-        share: {{ share | tojson }}
+        share: {{ share | json }}
     - template: jinja
     - user: root
     - group: root

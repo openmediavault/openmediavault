@@ -34,7 +34,7 @@ configure_interface_vlan_{{ interface.vlanrawdevice }}.{{ interface.vlanid }}_ne
       - salt://{{ slspath }}/files/vlan_netdev.j2
     - template: jinja
     - context:
-        interface: {{ interface | tojson }}
+        interface: {{ interface | json }}
     - user: root
     - group: root
     - mode: 644
@@ -46,7 +46,7 @@ configure_interface_vlan_{{ interface.vlanrawdevice }}.{{ interface.vlanid }}_ne
       - salt://{{ slspath }}/files/vlan_network.j2
     - template: jinja
     - context:
-        interface: {{ interface | tojson }}
+        interface: {{ interface | json }}
     - user: root
     - group: root
     - mode: 644

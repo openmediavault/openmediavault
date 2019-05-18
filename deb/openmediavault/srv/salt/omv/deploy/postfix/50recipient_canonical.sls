@@ -31,8 +31,8 @@ configure_postfix_recipient_canonical:
       - salt://{{ slspath }}/files/recipient_canonical.j2
     - template: jinja
     - context:
-        email_config: {{ email_config | tojson }}
-        users: {{ users | tojson }}
+        email_config: {{ email_config | json }}
+        users: {{ users | json }}
     - user: root
     - group: root
     - mode: 600

@@ -8,8 +8,8 @@ configure_proftpd_mod_core:
       - salt://{{ slspath }}/files/mod_core.j2
     - template: jinja
     - context:
-        dns_config: {{ dns_config | tojson }}
-        ftp_config: {{ ftp_config | tojson }}
+        dns_config: {{ dns_config | json }}
+        ftp_config: {{ ftp_config | json }}
     - user: root
     - group: root
     - mode: 644

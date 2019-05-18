@@ -26,6 +26,6 @@ configure_proftpd_mod_ban:
       - salt://{{ slspath }}/files/mod_ban.j2
     - template: jinja
     - context:
-        config: {{ config.modules.mod_ban | tojson }}
+        config: {{ config.modules.mod_ban | json }}
     - watch_in:
       - service: start_proftpd_service

@@ -32,7 +32,7 @@ configure_rsyncd_conf:
     - source:
       - salt://{{ slspath }}/files/rsyncd.conf.j2
     - context:
-        config: {{ config | tojson }}
+        config: {{ config | json }}
     - template: jinja
     - user: root
     - group: root
@@ -53,7 +53,7 @@ configure_rsyncd_secrets_{{ module.name }}:
     - source:
       - salt://{{ slspath }}/files/secrets.j2
     - context:
-        config: {{ module | tojson }}
+        config: {{ module | json }}
     - template: jinja
     - user: root
     - group: root

@@ -12,7 +12,7 @@ configure_proftpd_mod_tls:
       - salt://{{ slspath }}/files/mod_tls.j2
     - template: jinja
     - context:
-        config: {{ config.modules.mod_tls | tojson }}
+        config: {{ config.modules.mod_tls | json }}
     - user: root
     - group: root
     - mode: 644

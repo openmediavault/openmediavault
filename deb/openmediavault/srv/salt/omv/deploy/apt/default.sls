@@ -28,7 +28,7 @@ configure_apt_sources_list_openmediavault:
       - salt://{{ slspath }}/files/etc-apt-sources_list_d-openmediavault_list.j2
     - template: jinja
     - context:
-        config: {{ config | tojson }}
+        config: {{ config | json }}
     - user: root
     - group: root
     - mode: 644
@@ -42,7 +42,7 @@ configure_apt_proxy:
     - source:
       - salt://{{ slspath }}/files/etc-apt-apt_conf_d-99openmediavault-proxy.j2
     - context:
-        config: {{ proxy_config | tojson }}
+        config: {{ proxy_config | json }}
     - template: jinja
     - user: root
     - group: root

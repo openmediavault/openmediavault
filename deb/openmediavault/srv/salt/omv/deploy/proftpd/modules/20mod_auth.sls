@@ -7,7 +7,7 @@ configure_proftpd_mod_auth:
       - salt://{{ slspath }}/files/mod_auth.j2
     - template: jinja
     - context:
-        config: {{ config | tojson }}
+        config: {{ config | json }}
     - watch_in:
       - service: start_proftpd_service
 

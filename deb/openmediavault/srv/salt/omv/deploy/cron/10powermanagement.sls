@@ -33,7 +33,7 @@ create_cron_powermanagement:
       - salt://{{ slspath }}/files/powermanagement.j2
     - template: jinja
     - context:
-        jobs: {{ cron_jobs | tojson }}
+        jobs: {{ cron_jobs | json }}
     - user: root
     - group: root
     - mode: 644
