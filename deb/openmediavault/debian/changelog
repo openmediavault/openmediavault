@@ -2,6 +2,8 @@ openmediavault (5.0.2-1) unstable; urgency=low
 
   * Fix rsyncd issue.
   * Enable TLS 1.3 in WebGUI.
+  * Prefer X25519 over NIST P-384 and NIST P-256 in nginx's configuration
+    for the WebGUI.
   * Fix proftpd error raised by erroneous PID file permissions.
   * Issue #371: Fix issues with PHP version.
   * Issue #374: Fix iptables issue. Use systemd service instead of ifupdown.
