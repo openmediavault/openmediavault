@@ -32,11 +32,11 @@
 
 {% if config.enable | to_bool %}
 
-configure_default_nfs-kernel-server:
+configure_run_sysconfig_nfs_utils:
   file.managed:
-    - name: "/etc/default/nfs-kernel-server"
+    - name: "/run/sysconfig/nfs-utils"
     - source:
-      - salt://{{ slspath }}/files/etc-default-nfs-kernel-server.j2
+      - salt://{{ slspath }}/files/run-sysconfig-nfs-utils.j2
     - template: jinja
     - context:
         config: {{ config | json }}

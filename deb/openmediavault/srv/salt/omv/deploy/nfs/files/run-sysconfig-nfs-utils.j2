@@ -1,0 +1,10 @@
+{%- set pipefs_mountpoint = salt['pillar.get']('default:OMV_NFSD_PIPEFS_MOUNTPOINT', '/run/rpc_pipefs') -%}
+{%- set rpc_mountd_args = salt['pillar.get']('default:OMV_NFSD_RPCMOUNTDARGS', '--manage-gids') -%}
+{%- set statdargs = salt['pillar.get']('default:OMV_NFSD_NEEDSVCGSSD', '') -%}
+{%- set rpc_svcgssd_args = salt['pillar.get']('default:OMV_NFSD_RPCSVCGSSDARGS', '') -%}
+{{ pillar['headers']['multiline'] }}
+PIPEFS_MOUNTPOINT={{ pipefs_mountpoint }}
+RPCNFSDARGS="{{ config.numproc }}"
+RPCMOUNTDARGS="{{ rpc_mountd_args }}"
+STATDARGS="{{ statdargs }}"
+RPCSVCGSSDARGS="{{ rpc_svcgssd_args }}"
