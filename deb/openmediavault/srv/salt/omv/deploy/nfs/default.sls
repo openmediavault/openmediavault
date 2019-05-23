@@ -32,11 +32,11 @@
 
 {% if config.enable | to_bool %}
 
-configure_run_sysconfig_nfs_utils:
+configure_default_nfs-kernel-server:
   file.managed:
-    - name: "/run/sysconfig/nfs-utils"
+    - name: "/etc/default/nfs-kernel-server"
     - source:
-      - salt://{{ slspath }}/files/run-sysconfig-nfs-utils.j2
+      - salt://{{ slspath }}/files/etc-default-nfs-kernel-server.j2
     - template: jinja
     - context:
         config: {{ config | json }}
@@ -59,7 +59,7 @@ start_nfsd_service:
     - name: nfs-kernel-server
     - enable: True
     - watch:
-      - file: "/run/sysconfig/nfs-utils"
+      - file: "/etc/default/nfs-kernel-server"
       - file: "/etc/exports"
 
 {% else %}
