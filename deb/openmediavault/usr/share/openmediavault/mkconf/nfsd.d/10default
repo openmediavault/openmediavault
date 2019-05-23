@@ -36,6 +36,7 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_NFSD_DEFAULT=${OMV_NFSD_DEFAULT:-"/run/sysconfig/nfs-utils"}
+OMV_NFSD_PIPEFS_MOUNTPOINT=${OMV_NFSD_PIPEFS_MOUNTPOINT:-"/run/rpc_pipefs"}
 OMV_NFSD_RPCMOUNTDARGS=${OMV_NFSD_RPCMOUNTDARGS:-"--manage-gids"}
 OMV_NFSD_STATDARGS=${OMV_NFSD_STATDARGS:-""}
 OMV_NFSD_RPCSVCGSSDARGS=${OMV_NFSD_RPCSVCGSSDARGS:-""}
