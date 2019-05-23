@@ -59,7 +59,7 @@ start_nfsd_service:
     - name: nfs-kernel-server
     - enable: True
     - watch:
-      - file: "/etc/default/nfs-kernel-server"
+      - file: "/run/sysconfig/nfs-utils"
       - file: "/etc/exports"
 
 {% else %}
