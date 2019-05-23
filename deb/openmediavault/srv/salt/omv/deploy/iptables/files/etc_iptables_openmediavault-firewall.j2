@@ -15,11 +15,13 @@ trap "rm -rf ${LOCK_FILE}" 0 1 2 3 5 15
 case "$1" in
     start)
         {% if num_inet_rules > 0 -%}
-        iptables -t filter -F
+        iptables -t filter -F INPUT
+        iptables -t filter -F OUTPUT
         iptables -X
         {% endif -%}
         {%- if num_inet6_rules > 0 -%}
-        ip6tables -t filter -F
+        ip6tables -t filter -F INPUT
+        ip6tables -t filter -F OUTPUT
         ip6tables -X
         {% endif -%}
 
@@ -64,16 +66,16 @@ case "$1" in
         ;;
 
     stop)
-        iptables -t filter -F
+        iptables -t filter -F INPUT
+        iptables -t filter -F OUTPUT
         iptables -X
         iptables -P INPUT ACCEPT
         iptables -P OUTPUT ACCEPT
-        iptables -P FORWARD ACCEPT
-        ip6tables -t filter -F
+        ip6tables -t filter -F INPUT
+        ip6tables -t filter -F OUTPUT
         ip6tables -X
         ip6tables -P INPUT ACCEPT
         ip6tables -P OUTPUT ACCEPT
-        ip6tables -P FORWARD ACCEPT
         ;;
 esac
 
