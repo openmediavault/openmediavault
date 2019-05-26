@@ -47,6 +47,8 @@ try {
 	if (isset($server))
 		$server->cleanup();
 	header("Content-Type: text/html");
+	http_response_code(($e instanceof \OMV\BaseException) ?
+		$e->getHttpStatusCode() : 500);
 	print json_encode_safe(array(
 		"success" => false, // required by ExtJS
 		"responseText" => $e->getMessage(), // required by ExtJS

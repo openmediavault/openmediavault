@@ -546,7 +546,10 @@ while(FALSE === $sigTerm) {
 					"error" => [
 						"code" => $e->getCode(),
 						"message" => $e->getMessage(),
-						"trace" => $e->__toString()
+						"trace" => $e->__toString(),
+						"http_status_code" =>
+							($e instanceof \OMV\BaseException) ?
+							$e->getHttpStatusCode() : 500
 					]
 				]);
 			}

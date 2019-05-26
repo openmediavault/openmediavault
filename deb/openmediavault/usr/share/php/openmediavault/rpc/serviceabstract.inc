@@ -90,7 +90,7 @@ abstract class ServiceAbstract {
 		$rpcService->registeredMethodSequences[$method] = [
 			"service" => $this->getName(),
 			"method" => $method2
-	  	];
+		];
 	}
 
 	/**
@@ -171,11 +171,18 @@ abstract class ServiceAbstract {
 	 */
 	final protected function validateMethodParams($params, $schema) {
 //		$this->debug(var_export(func_get_args(), TRUE));
-		// Convert the given paramaters into JSON. This is necessary because
+		// Convert the given parameters into JSON. This is necessary because
 		// the 'params' variable contains an associative array which can not
 		// be processed by the validator.
-		$validator = new ParamsValidator($schema);
-		$validator->validate(json_encode_safe($params));
+		try {
+			$validator = new ParamsValidator($schema);
+			$validator->validate(json_encode_safe($params));
+		} catch(\Exception $e) {
+			if ($e instanceof \OMV\BaseException) {
+				$e->setHttpStatusCode(400);
+			}
+			throw $e;
+		}
 	}
 
 	/**
@@ -193,14 +200,20 @@ abstract class ServiceAbstract {
 			if (!is_array($required['username']))
 				$required['username'] = [ $required['username'] ];
 			foreach ($required['username'] as $usernamek => $usernamev) {
-				if ($context['username'] !== $usernamev)
-					throw new Exception("Invalid context.");
+				if ($context['username'] !== $usernamev) {
+					$e = new Exception("Invalid context username.");
+					$e->setHttpStatusCode(403);
+					throw $e;
+				}
 			}
 		}
 		// - Check the role
 		if (array_key_exists("role", $required)) {
-			if (!($context['role'] & $required['role']))
-				throw new Exception("Invalid context.");
+			if (!($context['role'] & $required['role'])) {
+				$e = new Exception("Invalid context role.");
+				$e->setHttpStatusCode(403);
+				throw $e;
+			}
 		}
 	}
 

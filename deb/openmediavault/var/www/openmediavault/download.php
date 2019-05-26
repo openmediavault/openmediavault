@@ -51,6 +51,8 @@ if (array_keys_exists(array("service", "method"), $_POST)) {
 		if (isset($server))
 			$server->cleanup();
 		header("Content-Type: text/html");
+		http_response_code(($e instanceof \OMV\BaseException) ?
+			$e->getHttpStatusCode() : 500);
 		printf("Error #%s:<br/>%s", strval($e->getCode()),
 			str_replace("\n", "<br/>", htmlentities($e->__toString())));
 	}

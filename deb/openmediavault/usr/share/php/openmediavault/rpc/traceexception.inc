@@ -27,24 +27,24 @@ namespace OMV\Rpc;
  * @ingroup api
  */
 class TraceException extends Exception {
-    private $trace; /**< The exception stack trace. */
+	private $trace; /**< The exception stack trace. */
 
-    /**
-     * Constructor
-     * @param message The exception message to throw.
-     * @param code The exception code.
-     * @param trace The exception stack trace.
-     */
-    public function __construct($message, $code = 0, $trace = "") {
-        $this->trace = $trace;
-        parent::__construct($message, $code);
-    }
+	/**
+	 * Constructor
+	 * @param message The exception message to throw.
+	 * @param code The exception code.
+	 * @param trace The exception stack trace.
+	 */
+	public function __construct($message, $code = 0, $trace = "") {
+		$this->trace = $trace;
+		parent::__construct($message, $code);
+	}
 
-    /**
-     * String representation of the exception.
-     * @return Returns the string representation of the exception.
-     */
-    public function __toString() {
-        return $this->trace;
-    }
+	/**
+	 * String representation of the exception.
+	 * @return Returns the string representation of the exception.
+	 */
+	public function __toString() {
+		return $this->trace;
+	}
 }

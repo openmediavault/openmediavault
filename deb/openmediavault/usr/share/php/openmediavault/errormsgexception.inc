@@ -26,7 +26,7 @@ namespace OMV;
  * to allow you to react on this somewhere, e.g. in the Javascript web UI.
  * This is used for session timeout exceptions for example.
  */
-class ErrorMsgException extends \Exception {
+class ErrorMsgException extends BaseException {
 	// RPC
 	const E_RPC_GET_PARAMS_FAILED = 1000;
 	const E_RPC_INVALID_PARAMS = 1001;
