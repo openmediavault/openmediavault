@@ -93,7 +93,7 @@ class Session {
 	public function isAuthenticated() {
 		if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated'])
 			return FALSE;
-	 	return TRUE;
+		return TRUE;
 	}
 
 	/**
@@ -103,7 +103,7 @@ class Session {
 	public function getUsername() {
 		if (!isset($_SESSION['username']))
 			return FALSE;
-	 	return $_SESSION['username'];
+		return $_SESSION['username'];
 	}
 
 	/**
@@ -170,7 +170,7 @@ class Session {
 		$userInfo = posix_getpwnam($_SESSION['username']);
 		if (FALSE === $userInfo) {
 			$this->destroy();
-			$exception = new \OMV\ErrorMsgException(
+			throw new new \OMV\ErrorMsgException(
 			  \OMV\ErrorMsgException::E_SESSION_INVALID_USER);
 		}
 	}
@@ -220,8 +220,8 @@ class Session {
 	 */
 	public function dump() {
 		$this->debug(var_export([
-			  "id" => session_id(),
-			  "data" => $_SESSION
-		  ], TRUE));
+			"id" => session_id(),
+			"data" => $_SESSION
+		], TRUE));
 	}
 }
