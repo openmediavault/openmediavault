@@ -29,7 +29,7 @@
 {% set alias = dns.hostname %}
 {% endif %}
 
-configure_hosts:
+configure_hosts_default_ipv4:
   file.managed:
     - name: "/etc/hosts"
     - contents: |
@@ -37,7 +37,16 @@ configure_hosts:
         {{ pillar['headers']['warning'] }}
         127.0.0.1 localhost
         127.0.1.1 {{ fqdn }} {{ alias }}
+    - user: root
+    - group: root
+    - mode: 644
 
+{% if salt['omv_utils.is_ipv6_enabled']() %}
+
+configure_hosts_default_ipv6:
+  file.append:
+    - name: "/etc/hosts"
+    - text: |
         # The following lines are desirable for IPv6 capable hosts.
         ::1     ip6-localhost ip6-loopback
         fe00::0 ip6-localnet
@@ -45,9 +54,8 @@ configure_hosts:
         ff02::1 ip6-allnodes
         ff02::2 ip6-allrouters
         ff02::3 ip6-allhosts
-    - user: root
-    - group: root
-    - mode: 644
+
+{% endif %}
 
 {% for interface in interfaces %}
 
