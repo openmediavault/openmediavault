@@ -4,6 +4,7 @@ openmediavault (4.1.23-1) stable; urgency=low
   * Append 'source-directory interfaces.d' to the end of the file
     /etc/network/interfaces to be able to use already configured
     interfaces.
+  * Do not write IPv6 /etc/hosts entries if IPv6 is disabled.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 10 May 2019 22:51:53 +0200
 

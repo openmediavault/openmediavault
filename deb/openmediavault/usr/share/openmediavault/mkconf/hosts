@@ -47,6 +47,10 @@ cat <<EOF > ${OMV_HOSTS_CONFIG}
 127.0.0.1 localhost
 127.0.1.1 ${fqdn} ${alias}
 
+EOF
+
+if omv_is_ipv6_enabled; then
+	cat <<EOF >> ${OMV_HOSTS_CONFIG}
 # The following lines are desirable for IPv6 capable hosts
 ::1     ip6-localhost ip6-loopback
 fe00::0 ip6-localnet
@@ -56,6 +60,7 @@ ff02::2 ip6-allrouters
 ff02::3 ip6-allhosts
 
 EOF
+fi
 
 xmlstarlet sel -t \
   -m "//system/network/interfaces/*" \
