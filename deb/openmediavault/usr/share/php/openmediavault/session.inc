@@ -170,7 +170,7 @@ class Session {
 		$userInfo = posix_getpwnam($_SESSION['username']);
 		if (FALSE === $userInfo) {
 			$this->destroy();
-			throw new new \OMV\ErrorMsgException(
+			throw new \OMV\ErrorMsgException(
 			  \OMV\ErrorMsgException::E_SESSION_INVALID_USER);
 		}
 	}
