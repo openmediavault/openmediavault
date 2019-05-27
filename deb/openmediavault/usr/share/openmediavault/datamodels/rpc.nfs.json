@@ -4,15 +4,9 @@
 	"params": {
 		"type": "object",
 		"properties": {
-		    "enable": {
-		        "type": "boolean",
-		        "required": true
-		    },
-		    "numproc": {
-		        "type": "integer",
-		        "minimum": 1,
-		        "maximum": 65535,
-		        "required": true
+			"enable": {
+				"type": "boolean",
+				"required": true
 			}
 		}
 	}

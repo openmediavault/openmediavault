@@ -11,10 +11,6 @@
 			"type": "boolean",
 			"default": false
 		},
-		"numproc": {
-			"type": "integer",
-			"default": 8
-		},
 		"shares": {
 			"type": "object",
 			"properties": {
