@@ -24,6 +24,7 @@ import openmediavault.fs
 import openmediavault.string
 import os
 import re
+import socket
 
 # Import Salt libs
 import salt.utils.network
@@ -49,13 +50,17 @@ def is_ipv6_enabled():
     :return: Return True if IPv6 is enabled, otherwise False.
     :rtype: bool
     """
-    if not os.path.exists('/proc/net/if_inet6'):
-        return False
-    with open('/proc/net/if_inet6') as f:
-        lines = f.readlines()
-    # Filter unwanted interfaces.
-    lines = [l for l in lines if not re.match(r'^\s+lo$', l)]
-    return len(lines) > 0
+    result = False
+    try:
+        s = socket.socket(socket.AF_INET6)
+        s.bind(('::1', 0))
+        result = True
+    except Exception:
+        pass
+    finally:
+        if s:
+            s.close()
+    return result
 
 
 @jinja_filter('network_prefix_len')
