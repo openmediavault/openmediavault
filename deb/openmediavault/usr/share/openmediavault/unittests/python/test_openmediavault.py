@@ -49,8 +49,8 @@ class FunctionsTestCase(unittest.TestCase):
 
     def test_getenv_fail(self):
         self.assertRaises(
-            TypeError,
-            lambda: openmediavault.getenv("OMV_ABC", 1.5, type="list")
+            TypeError, lambda: openmediavault.
+            getenv("OMV_ABC", 1.5, type="list")
         )
 
 

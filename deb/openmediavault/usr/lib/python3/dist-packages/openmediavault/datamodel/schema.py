@@ -42,8 +42,9 @@ class Schema(openmediavault.json.Schema):
             elif "fsuuid" == schema['format']:
                 if not openmediavault.string.is_fs_uuid(value):
                     raise openmediavault.json.SchemaValidationException(
-                        name, "The value '%s' is not a valid filesystem UUID."
-                        % value
+                        name,
+                        "The value '%s' is not a valid filesystem UUID." %
+                        value
                     )
             elif "devicefile" == schema['format']:
                 if not re.match(
@@ -68,8 +69,9 @@ class Schema(openmediavault.json.Schema):
                     '([^@]+@[^@]+|.+)*$', value
                 ):
                     raise openmediavault.json.SchemaValidationException(
-                        name, "The value '%s' is no SSH public key (OpenSSH)."
-                        % value
+                        name,
+                        "The value '%s' is no SSH public key (OpenSSH)." %
+                        value
                     )
             elif "sshpubkey-rfc4716" == schema['format']:
                 if not re.match(
@@ -80,8 +82,9 @@ class Schema(openmediavault.json.Schema):
                     flags=re.DOTALL | re.MULTILINE
                 ):
                     raise openmediavault.json.SchemaValidationException(
-                        name, "The value '%s' is no SSH public key (RFC4716)."
-                        % value
+                        name,
+                        "The value '%s' is no SSH public key (RFC4716)." %
+                        value
                     )
             elif "sshprivkey-rsa" == schema['format']:
                 if not re.match(

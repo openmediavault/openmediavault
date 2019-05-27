@@ -150,7 +150,10 @@ class DatabaseTestCase(unittest.TestCase):
         db = openmediavault.config.Database()
         self.assertRaises(
             openmediavault.config.database.DatabaseQueryNotFoundException,
-            lambda: db.get("conf.system.notification.notification", "c1cd54af-0000-1111-2222-2a19420355bb")
+            lambda: db.get(
+                "conf.system.notification.notification",
+                "c1cd54af-0000-1111-2222-2a19420355bb"
+            )
         )
 
     def test_get_query_iterable(self):

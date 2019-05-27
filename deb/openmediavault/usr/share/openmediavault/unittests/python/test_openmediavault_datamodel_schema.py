@@ -76,9 +76,12 @@ class SchemaTestCase(unittest.TestCase):
 
     def test_check_format_dirpath_fail(self):
         schema = openmediavault.datamodel.Schema({})
-        self.assertRaises(openmediavault.json.SchemaValidationException,
-            lambda: schema._check_format("/media/a/../../b/c",
-            { "format": "dirpath" }, "field1"))
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException, lambda: schema.
+            _check_format(
+                "/media/a/../../b/c", {"format": "dirpath"}, "field1"
+            )
+        )
 
     def test_check_format_sharename(self):
         schema = openmediavault.datamodel.Schema({})
@@ -98,8 +101,8 @@ class SchemaTestCase(unittest.TestCase):
     def test_check_format_domainname_fail(self):
         schema = openmediavault.datamodel.Schema({})
         self.assertRaises(
-            openmediavault.json.SchemaValidationException,
-            lambda: schema._check_format("te:t#com", {"format": "domainname"}, "field1")
+            openmediavault.json.SchemaValidationException, lambda: schema.
+            _check_format("te:t#com", {"format": "domainname"}, "field1")
         )
 
 
