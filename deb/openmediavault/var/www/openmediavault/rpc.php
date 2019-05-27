@@ -48,6 +48,8 @@ try {
 	if (isset($server))
 		$server->cleanup();
 	header("Content-Type: application/json");
+	http_response_code(($e instanceof \OMV\BaseException) ?
+		$e->getHttpStatusCode() : 500);
 	print json_encode_safe(array(
 		"response" => null,
 		"error" => array(

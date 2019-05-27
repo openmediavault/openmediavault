@@ -25,7 +25,7 @@ namespace OMV;
  * \em ExecException is thrown when the execution of a process fails.
  * @ingroup api
  */
-class ExecException extends \Exception {
+class ExecException extends BaseException {
 	private $cmdLine = NULL;
 	private $output = [];
 	private $exitStatus = NULL;

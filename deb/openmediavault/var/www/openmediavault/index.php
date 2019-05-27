@@ -50,6 +50,8 @@ try {
 	error_log($e->getMessage());
 	// Print the error message.
 	header("Content-Type: text/html");
+	http_response_code(($e instanceof \OMV\BaseException) ?
+		$e->getHttpStatusCode() : 500);
 	printf("Error #".$e->getCode().":<br/>%s", str_replace("\n", "<br/>",
 	  $e->__toString()));
 }

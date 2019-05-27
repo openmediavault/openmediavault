@@ -196,8 +196,10 @@ class Rpc {
 			if (array_key_exists("error", $response) && !is_null(
 			  $response['error'])) {
 				$error = $response['error'];
-				throw new TraceException($error['message'], $error['code'],
-				  $error['trace']);
+				$e = new TraceException($error['message'], $error['code'],
+					$error['trace']);
+				$e->setHttpStatusCode($error['http_status_code']);
+				throw $e;
 			}
 			return $response['response'];
 		}

@@ -102,17 +102,9 @@ Ext.define("OMV.Rpc", {
 
 		if (success) {
 			try {
-				// Decode RPC response. It contains the fields called
-				// response and error.
-				if(!Ext.isEmpty(response.responseText)) {
+				if (!Ext.isEmpty(response.responseText)) {
 					var o = Ext.JSON.decode(response.responseText);
-					// Check if RPC response contains an error object.
-					if(Ext.isObject(o.error)) {
-						success = false;
-						rpcResponse = o.error;
-					} else {
-						rpcResponse = o.response;
-					}
+					rpcResponse = o.response;
 				}
 			} catch(e) {
 				success = false;
@@ -123,12 +115,25 @@ Ext.define("OMV.Rpc", {
 				};
 			}
 		} else {
-			rpcResponse = {
-				code: null,
-				message: Ext.isEmpty(response.statusText) ?
-				  "" : response.statusText.rtrim(" \n"),
-				trace: response.responseText || response.statusText
-			};
+			if (!Ext.isEmpty(response.responseText)) {
+				try {
+					var o = Ext.JSON.decode(response.responseText);
+					rpcResponse = o.error;
+				} catch(e) {
+					rpcResponse = {
+						code: null,
+						message: "",
+						trace: response.responseText || e.toString()
+					};
+				}
+			} else {
+				rpcResponse = {
+					code: null,
+					message: Ext.isEmpty(response.statusText) ?
+						"" : response.statusText.rtrim(" \n"),
+					trace: response.responseText || response.statusText
+				};
+			}
 		}
 
 		// Handle special errors.

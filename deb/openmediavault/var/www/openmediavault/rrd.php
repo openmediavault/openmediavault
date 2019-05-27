@@ -39,7 +39,7 @@ try {
 	// Build the image file path. If it does not exist, then display an
 	// error image by default.
 	$pathName = build_path(DIRECTORY_SEPARATOR, \OMV\Environment::get(
-	  "OMV_RRDGRAPH_DIR"), $_GET['name']);
+		"OMV_RRDGRAPH_DIR"), $_GET['name']);
 	if (!file_exists($pathName))
 		$pathName = \OMV\Environment::get("OMV_RRDGRAPH_ERROR_IMAGE");
 	$fd = fopen($pathName, "r");
@@ -47,6 +47,8 @@ try {
 	fpassthru($fd);
 } catch(\Exception $e) {
 	header("Content-Type: text/html");
+	http_response_code(($e instanceof \OMV\BaseException) ?
+		$e->getHttpStatusCode() : 500);
 	printf("Error #%s:<br/>%s", strval($e->getCode()),
 		str_replace("\n", "<br/>", htmlentities($e->__toString())));
 }
