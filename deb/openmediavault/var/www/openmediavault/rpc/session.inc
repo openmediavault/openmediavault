@@ -61,8 +61,8 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 				// authenticated?
 				if ($session->getUsername() !== $params['username']) {
 					$session->commit();
-					throw new \OMV\ErrorMsgException(
-					  \OMV\ErrorMsgException::E_SESSION_ALREADY_AUTHENTICATED);
+					throw new \OMV\HttpErrorException(401,
+					    _("Another user is already authenticated."));
 				}
 			} else {
 				// Initialize session.

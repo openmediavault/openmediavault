@@ -143,11 +143,7 @@ class Session {
 	public function validateAuthentication() {
 		if (!$this->isAuthenticated()) {
 			$this->destroy();
-			// Throw a 4xx exception.
-			$e = new \OMV\ErrorMsgException(
-				\OMV\ErrorMsgException::E_SESSION_NOT_AUTHENTICATED);
-			$e->setHttpStatusCode(401);
-			throw $e;
+			throw new HttpErrorException(401, _("Session not authenticated."));
 		}
 	}
 
@@ -158,11 +154,7 @@ class Session {
 	public function validateTimeout() {
 		if ($this->isTimeout()) {
 			$this->destroy();
-			// Throw a 4xx exception.
-			$e = new \OMV\ErrorMsgException(
-				\OMV\ErrorMsgException::E_SESSION_TIMEOUT);
-			$e->setHttpStatusCode(403);
-			throw $e;
+			throw new HttpErrorException(403, _("Session expired."));
 		}
 	}
 
@@ -176,11 +168,7 @@ class Session {
 		$userInfo = posix_getpwnam($_SESSION['username']);
 		if (FALSE === $userInfo) {
 			$this->destroy();
-			// Throw a 4xx exception.
-			$e = new \OMV\ErrorMsgException(
-				\OMV\ErrorMsgException::E_SESSION_INVALID_USER);
-			$e->setHttpStatusCode(403);
-			throw $e;
+			throw new HttpErrorException(403, _("Invalid user."));
 		}
 	}
 
@@ -194,11 +182,7 @@ class Session {
 		if ($_SESSION['ipaddress'] == $_SERVER['REMOTE_ADDR'])
 			return;
 		$this->destroy();
-		// Throw a 4xx exception.
-		$e = new \OMV\ErrorMsgException(
-			\OMV\ErrorMsgException::E_SESSION_INVALID_IPADDRESS);
-		$e->setHttpStatusCode(403);
-		throw $e;
+		throw new HttpErrorException(403, _("Invalid IP address."));
 	}
 
 	/**
@@ -211,11 +195,7 @@ class Session {
 		if ($_SESSION['useragent'] == $_SERVER['HTTP_USER_AGENT'])
 			return;
 		$this->destroy();
-		// Throw a 4xx exception.
-		$e = new \OMV\ErrorMsgException(
-			\OMV\ErrorMsgException::E_SESSION_INVALID_USERAGENT);
-		$e->setHttpStatusCode(403);
-		throw $e;
+		throw new HttpErrorException(403, _("Invalid User-Agent."));
 	}
 
 	/**

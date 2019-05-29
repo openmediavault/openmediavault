@@ -254,19 +254,10 @@ EOF;
 		  \OMV\Environment::get("OMV_HTTPREQUEST_TIMEOUT"),
 		  $prd->getName(), $prd->getURL(), $prd->getCopyright(),
 		  $prd->getPackageName());
-		// Process the RPC error codes.
-		$errorCodes = [];
-		$reflectionClass = new \ReflectionClass("\OMV\ErrorMsgException");
-		foreach ($reflectionClass->getConstants() as $kConst => $vConst) {
-			$errorCodes[] = sprintf("OMV.%s = %s;", $kConst, $vConst);
-		}
-		$errorCodes = implode(" ", $errorCodes);
 		return <<<EOF
 		<script type="application/javascript">
 			// Global defines
 			{$globalDefs}
-			// RPC error codes
-			{$errorCodes}
 		</script>
 EOF;
 	}
