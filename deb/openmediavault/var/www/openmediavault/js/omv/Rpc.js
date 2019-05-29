@@ -138,31 +138,15 @@ Ext.define("OMV.Rpc", {
 
 		// Handle special errors.
 		if (!success) {
-			var abort = false;
 			var reload = false;
 			// Translate various error messages and decide if RPC response
 			// delivery is aborted.
-			switch (rpcResponse.code) {
-			case OMV.E_SESSION_NOT_AUTHENTICATED:
-				abort = true;
-				reload = true;
-				rpcResponse.message = _("Session not authenticated.");
-				break;
-			case OMV.E_SESSION_TIMEOUT:
-				abort = true;
-				reload = true;
-				rpcResponse.message = _("Session expired.");
-				break;
-			case OMV.E_SESSION_INVALID_USER:
-				abort = true;
-				reload = true;
-				rpcResponse.message = _("The session user no longer exists.");
-				break;
-			case OMV.E_SESSION_INVALID_IPADDRESS:
-				abort = true;
-				reload = true;
-				rpcResponse.message = _("The session IP address has been changed.");
-				break;
+			switch (response.status) {
+				case 400:
+				case 401:
+				case 403:
+					reload = true;
+					break;
 			}
 			// Reload page and display a message box?
 			if (true === reload) {
@@ -175,7 +159,7 @@ Ext.define("OMV.Rpc", {
 				// Display a dialog forcing user to click 'OK' to reload
 				// the page.
 				me.guru = OMV.MessageBox.guru({
-					msg: rpcResponse.message,
+					msg: _(rpcResponse.message),
 					fn: function() {
 						OMV.confirmPageUnload = false;
 						// Force browser to reload document. The login
@@ -183,10 +167,9 @@ Ext.define("OMV.Rpc", {
 						document.location.reload(true);
 					}
 				});
-			}
-			// Abort RPC response delivery?
-			if (true === abort)
+				// Abort RPC response delivery.
 				return;
+			}
 		}
 
 		// Handle other errors.

@@ -201,18 +201,16 @@ abstract class ServiceAbstract {
 				$required['username'] = [ $required['username'] ];
 			foreach ($required['username'] as $usernamek => $usernamev) {
 				if ($context['username'] !== $usernamev) {
-					$e = new Exception("Invalid context username.");
-					$e->setHttpStatusCode(403);
-					throw $e;
+					throw new \OMV\HttpErrorException(403,
+					    "Invalid context username.");
 				}
 			}
 		}
 		// - Check the role
 		if (array_key_exists("role", $required)) {
 			if (!($context['role'] & $required['role'])) {
-				$e = new Exception("Invalid context role.");
-				$e->setHttpStatusCode(403);
-				throw $e;
+				throw new \OMV\HttpErrorException(403,
+				    "Invalid context role.");
 			}
 		}
 	}
@@ -643,7 +641,10 @@ abstract class ServiceAbstract {
 				"error" => [
 					"code" => $e->getCode(),
 					"message" => $e->getMessage(),
-					"trace" => $e->__toString()
+					"trace" => $e->__toString(),
+					"http_status_code" =>
+					    ($e instanceof \OMV\BaseException) ?
+					    $e->getHttpStatusCode() : 500
 				]
 			];
 		}
@@ -689,8 +690,10 @@ abstract class ServiceAbstract {
 					// (the parent) process.
 					if (FALSE !== $data['error']) {
 						$error = $data['error'];
-						throw new TraceException($error['message'],
+						$e = new TraceException($error['message'],
 							$error['code'], $error['trace']);
+						$e->setHttpStatusCode($error['http_status_code']);
+						throw $e;
 					}
 					// Finally append the result from the child process.
 					$result[] = $data['result'];

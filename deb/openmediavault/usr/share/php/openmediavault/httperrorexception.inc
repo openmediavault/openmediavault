@@ -19,32 +19,20 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\Rpc;
+namespace OMV;
 
 /**
- * \em TraceException is a special exception that should be used when a
- * stack trace should be delivered to the exception catcher.
+ * Exception used to return an HTTP error code (4xx-5xx) to the client.
  * @ingroup api
  */
-class TraceException extends Exception {
-	private $trace; /**< The exception stack trace. */
-
+class HttpErrorException extends Exception {
 	/**
 	 * Constructor
-	 * @param message The exception message to throw.
-	 * @param code The exception code.
-	 * @param trace The exception stack trace.
+	 * @param int $httpStatusCode The HTTP status code.
 	 */
-	public function __construct($message, int $code = 0, string $trace = "") {
-		$this->trace = $trace;
-		parent::__construct($message, $code);
-	}
-
-	/**
-	 * String representation of the exception.
-	 * @return Returns the string representation of the exception.
-	 */
-	public function __toString() : string {
-		return $this->trace;
+	public function __construct() {
+		$args = func_get_args();
+		$this->setHttpStatusCode(array_shift($args));
+		parent::__construct(...$args);
 	}
 }
