@@ -19,6 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
+import re
 import pyudev
 import subprocess
 
@@ -102,6 +103,8 @@ class Filesystem(openmediavault.device.BlockDevice):
 
         * /dev/sdb1 => /dev/sdb
         * /dev/cciss/c0d0p2 => /dev/cciss/c0d0
+        * /dev/md0 => /dev/md0
+        * /dev/dm-0 => /dev/dm-0
 
         :return: Returns the device file of the underlying storage device
             or ``None`` in case of an error.
@@ -109,8 +112,15 @@ class Filesystem(openmediavault.device.BlockDevice):
         """
         context = pyudev.Context()
         device = pyudev.Devices.from_device_file(context, self.device_file)
-        parent_device = device.parent
-        return parent_device.device_node if parent_device is not None else None
+        if device and device.parent:
+            if device.parent.device_node is not None:
+                return device.parent.device_node
+        """
+        Device mapper devices must be specially treated.
+        """
+        if re.match(r'^(dm-|md)\d+$', self.device_name(True)):
+            return self.device_file
+        return None
 
     def has_label(self):
         """
