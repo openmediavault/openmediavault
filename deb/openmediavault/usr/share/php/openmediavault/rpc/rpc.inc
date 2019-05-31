@@ -236,7 +236,8 @@ class Rpc {
 					$method, $service);
 			}
 		} else {
-			throw new Exception("RPC service '%s' not found.", $service);
+			throw new \OMV\HttpErrorException(404,
+				"RPC service '%s' not found.", $service);
 		}
 	}
 }
