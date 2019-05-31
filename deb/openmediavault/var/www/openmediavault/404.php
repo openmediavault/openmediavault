@@ -22,6 +22,7 @@
 try {
 	require_once("openmediavault/autoloader.inc");
 
+	http_response_code(404);
 	$page = new \OMV\ControlPanel\Http404();
 	$page->render();
 } catch(\Exception $e) {
@@ -32,6 +33,6 @@ try {
 	http_response_code(($e instanceof \OMV\BaseException) ?
 		$e->getHttpStatusCode() : 500);
 	printf("Error #".$e->getCode().":<br/>%s", str_replace("\n", "<br/>",
-	  $e->__toString()));
+		$e->__toString()));
 }
 ?>
