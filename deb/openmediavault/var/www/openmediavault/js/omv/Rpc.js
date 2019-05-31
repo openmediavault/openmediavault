@@ -142,9 +142,8 @@ Ext.define("OMV.Rpc", {
 			// Translate various error messages and decide if RPC response
 			// delivery is aborted.
 			switch (response.status) {
-				case 400:
-				case 401:
-				case 403:
+				case 401: // Unauthorized
+				case 403: // Forbidden
 					reload = true;
 					break;
 			}
