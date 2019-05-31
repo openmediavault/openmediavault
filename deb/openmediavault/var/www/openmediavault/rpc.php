@@ -27,7 +27,7 @@ try {
 	// Load and initialize the RPC services that are not handled by the
 	// engine daemon.
 	$directory = build_path(DIRECTORY_SEPARATOR, \OMV\Environment::get(
-	  "OMV_DOCUMENTROOT_DIR"), "rpc");
+		"OMV_DOCUMENTROOT_DIR"), "rpc");
 	foreach (listdir($directory, "inc") as $path) {
 		require_once $path;
 	}

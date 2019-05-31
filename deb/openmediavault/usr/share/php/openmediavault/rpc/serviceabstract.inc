@@ -116,8 +116,8 @@ abstract class ServiceAbstract {
 		// PHP class methods from within the service class.
 		if (!method_exists($this, $name)) {
 			throw new Exception(
-			  "The method '%s' does not exist for RPC service '%s'.",
-			  $name, $this->getName());
+				"The method '%s' does not exist for RPC service '%s'.",
+				$name, $this->getName());
 		}
 		$result = call_user_func_array(array($this, $name), [
 			$params, $context
@@ -125,9 +125,9 @@ abstract class ServiceAbstract {
 		// Process registered RPC service method hooks.
 		if (array_key_exists($name, $this->registeredMethodSequences)) {
 			foreach ($this->registeredMethodSequences[$name] as
-			  $hookk => $hookv) {
+					$hookk => $hookv) {
 				\OMV\Rpc\Rpc::call($hookv['service'], $hookv['method'],
-				  $params, $context);
+					$params, $context);
 			}
 		}
 		return $result;
@@ -202,7 +202,7 @@ abstract class ServiceAbstract {
 			foreach ($required['username'] as $usernamek => $usernamev) {
 				if ($context['username'] !== $usernamev) {
 					throw new \OMV\HttpErrorException(403,
-					    "Invalid context username.");
+						"Invalid context username.");
 				}
 			}
 		}
@@ -210,7 +210,7 @@ abstract class ServiceAbstract {
 		if (array_key_exists("role", $required)) {
 			if (!($context['role'] & $required['role'])) {
 				throw new \OMV\HttpErrorException(403,
-				    "Invalid context role.");
+					"Invalid context role.");
 			}
 		}
 	}

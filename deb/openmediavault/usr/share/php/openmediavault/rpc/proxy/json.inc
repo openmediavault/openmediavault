@@ -77,6 +77,8 @@ class Json {
 		$rpcServiceMngr = &\OMV\Rpc\ServiceManager::getInstance();
 		if (FALSE === ($rpcService = $rpcServiceMngr->getService(
 		  $this->params['service']))) {
+			// Ensure user exists.
+			$session->validateUser();
 			// Session MUST be authenticated at this point.
 			$session->validateAuthentication();
 			// If service is not available locally, then we can commit
