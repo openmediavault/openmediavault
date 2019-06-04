@@ -32,7 +32,7 @@ class MkRrdGraphTestCase(unittest.TestCase):
         args.extend(['--lower-limit', '0'])
         args.extend(['--units-exponent', '0'])
         args.append('GPRINT:lmax:MAX:"%4.2lf Max"')
-        args.append('GPRINT:lavg:LAST:"%4.2lf Last\l"')
+        args.append('GPRINT:lavg:LAST:"%4.2lf Last\\l"')
         # yapf: enable
         openmediavault.mkrrdgraph.call_rrdtool_graph(args)
         mock_system.assert_called_with(
