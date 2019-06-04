@@ -40,7 +40,7 @@ class NetworkInterfaceMock extends \OMV\System\Net\NetworkInterface {
 	}
 }
 
-class test_openmediavault_system_net extends \PHPUnit_Framework_TestCase {
+class test_openmediavault_system_net extends \PHPUnit\Framework\TestCase {
 	protected function getNetworkInterfaceMock() {
 		return new NetworkInterfaceMock();
 	}

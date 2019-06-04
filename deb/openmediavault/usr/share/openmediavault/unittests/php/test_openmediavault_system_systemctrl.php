@@ -23,7 +23,7 @@
 require_once("openmediavault/autoloader.inc");
 require_once("openmediavault/globals.inc");
 
-class test_openmediavault_system_systemctrl extends \PHPUnit_Framework_TestCase {
+class test_openmediavault_system_systemctrl extends \PHPUnit\Framework\TestCase {
 	public function test_is_enabled() {
 		$systemCtl = new \OMV\System\SystemCtl("rsyslog.service");
 		$this->assertTrue($systemCtl->isEnabled());

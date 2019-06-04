@@ -23,7 +23,7 @@
 require_once("openmediavault/autoloader.inc");
 require_once("openmediavault/globals.inc");
 
-class test_openmediavault_util_keyvaluefile extends \PHPUnit_Framework_TestCase {
+class test_openmediavault_util_keyvaluefile extends \PHPUnit\Framework\TestCase {
 	public function test_space_keyvalue_delimiter() {
 		$file = new \OMV\Util\KeyValueFile(sprintf(
 			"%s/../data/login.defs", getcwd()));

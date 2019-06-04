@@ -23,7 +23,7 @@
 require_once("openmediavault/autoloader.inc");
 require_once("openmediavault/globals.inc");
 
-class test_openmediavault_config_database extends \PHPUnit_Framework_TestCase {
+class test_openmediavault_config_database extends \PHPUnit\Framework\TestCase {
 	public function setUp() {
 		// Tell the database implementation to use the test database.
 		\OMV\Environment::set("OMV_CONFIG_FILE", sprintf(

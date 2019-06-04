@@ -23,7 +23,7 @@
 require_once("openmediavault/autoloader.inc");
 require_once("openmediavault/globals.inc");
 
-class test_openmediavault_json_schema extends \PHPUnit_Framework_TestCase {
+class test_openmediavault_json_schema extends \PHPUnit\Framework\TestCase {
 	protected function getSchema() {
 		return new \OMV\Json\Schema([
 			"type" => "object",

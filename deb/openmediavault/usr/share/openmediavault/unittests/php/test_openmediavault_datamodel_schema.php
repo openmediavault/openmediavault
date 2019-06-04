@@ -30,7 +30,7 @@ class Schema extends \OMV\DataModel\Schema {
 	}
 }
 
-class test_openmediavault_datamodel_schema extends \PHPUnit_Framework_TestCase {
+class test_openmediavault_datamodel_schema extends \PHPUnit\Framework\TestCase {
 	protected function getSchema() {
 		return new Schema([
 			"type" => "object",

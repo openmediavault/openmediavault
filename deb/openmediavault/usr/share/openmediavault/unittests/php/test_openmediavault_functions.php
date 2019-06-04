@@ -22,7 +22,7 @@
  */
 require_once("openmediavault/functions.inc");
 
-class test_openmediavault_functions extends \PHPUnit_Framework_TestCase {
+class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 	private function getDict() {
 		return [
 			'x' => 3,
