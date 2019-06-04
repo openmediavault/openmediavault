@@ -46,7 +46,7 @@ class Module(openmediavault.firstaid.IModule):
                 clear=True,
                 height=8,
                 width=64,
-                init="80"
+                init="80",
             )
             if code != d.OK:
                 return 0
@@ -55,7 +55,7 @@ class Module(openmediavault.firstaid.IModule):
                     "The field must not be empty.",
                     backtitle=self.description,
                     height=5,
-                    width=32
+                    width=32,
                 )
                 continue
             if not port.isdigit():
@@ -64,7 +64,7 @@ class Module(openmediavault.firstaid.IModule):
                     "Please enter a valid port.",
                     backtitle=self.description,
                     height=5,
-                    width=32
+                    width=32,
                 )
                 continue
             port = int(port)
@@ -74,25 +74,22 @@ class Module(openmediavault.firstaid.IModule):
                     "Please enter a valid port.",
                     backtitle=self.description,
                     height=5,
-                    width=32
+                    width=32,
                 )
                 continue
         # Before asking to enable HTTPS check if there are any SSL
         # certificates available.
         ssl_certs = openmediavault.rpc.call(
-            "CertificateMgmt", "getList", {
-                "start": 0,
-                "limit": -1,
-                "sortfield": None,
-                "sortdir": None
-            }
+            "CertificateMgmt",
+            "getList",
+            {"start": 0, "limit": -1, "sortfield": None, "sortdir": None},
         )
         if ssl_certs["total"] > 0:
             code = d.yesno(
                 "Do you want to enable HTTPS?",
                 backtitle=self.description,
                 height=5,
-                width=32
+                width=32,
             )
             if code == d.ESC:
                 return 0
@@ -101,10 +98,15 @@ class Module(openmediavault.firstaid.IModule):
                 sslport = None
                 # Get the port for HTTPS.
                 while not sslport:
-                    (code, sslport) = d.inputbox("Please enter the port " \
+                    (code, sslport) = d.inputbox(
+                        "Please enter the port "
                         "to access the control panel via HTTPS.",
                         backtitle=self.description,
-                        clear=True, height=8, width=65, init="443")
+                        clear=True,
+                        height=8,
+                        width=65,
+                        init="443",
+                    )
                     if code != d.OK:
                         return 0
                     if not sslport:
@@ -112,7 +114,7 @@ class Module(openmediavault.firstaid.IModule):
                             "The field must not be empty.",
                             backtitle=self.description,
                             height=5,
-                            width=32
+                            width=32,
                         )
                         continue
                     if not sslport.isdigit():
@@ -121,7 +123,7 @@ class Module(openmediavault.firstaid.IModule):
                             "Please enter a valid port.",
                             backtitle=self.description,
                             height=5,
-                            width=32
+                            width=32,
                         )
                         continue
                     sslport = int(sslport)
@@ -131,7 +133,7 @@ class Module(openmediavault.firstaid.IModule):
                             "Please enter a valid port.",
                             backtitle=self.description,
                             height=5,
-                            width=32
+                            width=32,
                         )
                         continue
                 # Display dialog to choose SSL certificate
@@ -145,7 +147,7 @@ class Module(openmediavault.firstaid.IModule):
                     height=15,
                     width=65,
                     menu_height=8,
-                    choices=choices
+                    choices=choices,
                 )
                 if code in (d.CANCEL, d.ESC):
                     return 0
@@ -157,7 +159,7 @@ class Module(openmediavault.firstaid.IModule):
                     backtitle=self.description,
                     defaultno=True,
                     height=5,
-                    width=40
+                    width=40,
                 )
                 if code == d.ESC:
                     return 0
@@ -166,21 +168,20 @@ class Module(openmediavault.firstaid.IModule):
         # Update the configuration.
         print("Updating web control panel settings. Please wait ...")
         openmediavault.rpc.call(
-            "WebGui", "setSettings", {
+            "WebGui",
+            "setSettings",
+            {
                 "port": port,
                 "enablessl": enablessl,
                 "sslport": sslport,
                 "forcesslonly": forcesslonly,
                 "sslcertificateref": sslcertificateref,
-                "timeout": 5
-            }
+                "timeout": 5,
+            },
         )
         # Apply the configuration changes.
         openmediavault.rpc.call(
-            "Config", "applyChanges", {
-                "modules": [],
-                "force": False
-            }
+            "Config", "applyChanges", {"modules": [], "force": False}
         )
         print("The web control panel settings were successfully changed.")
         # Display the URL's available to reach the web control panel.

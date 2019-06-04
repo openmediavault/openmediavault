@@ -32,13 +32,14 @@ class ConfigObjectTestCase(unittest.TestCase):
         conf_obj = openmediavault.config.Object("conf.service.ftp.share")
         defaults = conf_obj.get_defaults()
         self.assertEqual(
-            defaults, {
+            defaults,
+            {
                 'comment': '',
                 'enable': False,
                 'uuid': 'fa4b1c66-ef79-11e5-87a0-0002b3a176b4',
                 'sharedfolderref': '',
-                'extraoptions': ''
-            }
+                'extraoptions': '',
+            },
         )
 
     def test_empty_objects(self):
@@ -58,7 +59,7 @@ class ConfigObjectTestCase(unittest.TestCase):
         self.assertFalse(conf_obj.get("ntp.enable"))
         self.assertEqual(
             conf_obj.get("ntp.timeservers"),
-            "pool.ntp.org,pool1.ntp.org;pool2.ntp.org"
+            "pool.ntp.org,pool1.ntp.org;pool2.ntp.org",
         )
 
     def test_set_get_3(self):

@@ -25,10 +25,12 @@ import openmediavault.subprocess
 class Plugin(openmediavault.mkrrdgraph.IPlugin):
     def create_graph(self, config):
         # http://paletton.com/#uid=33r0-0kwi++bu++hX++++rd++kX
-        config.update({
-            'color_interface_incoming': '#0bb6ff',  # blue
-            'color_interface_outgoing': '#ff1300'  # red
-        })
+        config.update(
+            {
+                'color_interface_incoming': '#0bb6ff',  # blue
+                'color_interface_outgoing': '#ff1300',  # red
+            }
+        )
         # Get the network interfaces from the collectd configuration file.
         interfaces = openmediavault.mkrrdgraph.load_collectd_config(
             'interface', 'Interface'

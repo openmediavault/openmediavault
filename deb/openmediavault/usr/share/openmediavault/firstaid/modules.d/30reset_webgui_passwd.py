@@ -40,7 +40,7 @@ class Module(openmediavault.firstaid.IModule):
                     insecure=True,
                     clear=True,
                     height=8,
-                    width=34
+                    width=34,
                 )
                 if code != d.OK:
                     return 0
@@ -49,7 +49,7 @@ class Module(openmediavault.firstaid.IModule):
                         "The password must not be empty.",
                         backtitle=self.description,
                         height=5,
-                        width=35
+                        width=35,
                     )
             while not password_conf:
                 (code, password_conf) = d.passwordbox(
@@ -58,7 +58,7 @@ class Module(openmediavault.firstaid.IModule):
                     insecure=True,
                     clear=True,
                     height=8,
-                    width=36
+                    width=36,
                 )
                 if code != d.OK:
                     return 0
@@ -67,7 +67,7 @@ class Module(openmediavault.firstaid.IModule):
                         "The password must not be empty.",
                         backtitle=self.description,
                         height=5,
-                        width=35
+                        width=35,
                     )
             if password != password_conf:
                 password = password_conf = None
@@ -75,16 +75,16 @@ class Module(openmediavault.firstaid.IModule):
                     "The passwords don't match.",
                     backtitle=self.description,
                     height=5,
-                    width=30
+                    width=30,
                 )
         print("Updating control panel administrator password. Please wait ...")
-        openmediavault.rpc.call(
-            "WebGui", "setPassword", {"password": password}
+        openmediavault.rpc.call("WebGui", "setPassword", {"password": password})
+        # openmediavault.rpc.call("Config", "applyChanges",
+        # 	{ "modules": [], "force": False })
+        print(
+            "The control panel administrator password was successfully "
+            "changed."
         )
-        #openmediavault.rpc.call("Config", "applyChanges",
-        #	{ "modules": [], "force": False })
-        print("The control panel administrator password was successfully " \
-            "changed.")
         return 0
 
 

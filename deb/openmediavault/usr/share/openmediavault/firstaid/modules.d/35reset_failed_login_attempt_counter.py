@@ -42,20 +42,25 @@ class Module(openmediavault.firstaid.IModule):
             print("No locked/banned users or candidates exists.")
             return 0
         d = dialog.Dialog(dialog="dialog")
-        (code, tag) = d.menu("Please select a user to reset the failed " \
+        (code, tag) = d.menu(
+            "Please select a user to reset the failed "
             "login attempt counter.",
-            backtitle=self.description, clear=True,
-            height=13, width=68, menu_height=5, choices=choices)
+            backtitle=self.description,
+            clear=True,
+            height=13,
+            width=68,
+            menu_height=5,
+            choices=choices,
+        )
         if code in (d.CANCEL, d.ESC):
             return 0
         username = tag
         print(
-            "Reset failed login attempt counter for user '{}'.".
-            format(username)
+            "Reset failed login attempt counter for user '{}'.".format(username)
         )
-        openmediavault.subprocess.check_call([
-            "pam_tally2", "--quiet", "--reset=0", "--user", username
-        ])
+        openmediavault.subprocess.check_call(
+            ["pam_tally2", "--quiet", "--reset=0", "--user", username]
+        )
         return 0
 
 

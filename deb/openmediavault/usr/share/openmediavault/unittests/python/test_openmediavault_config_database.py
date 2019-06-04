@@ -81,11 +81,13 @@ class DatabaseTestCase(unittest.TestCase):
         db = openmediavault.config.Database()
         objs = db.get_by_filter(
             "conf.system.notification.notification",
-            openmediavault.config.DatabaseFilter({
-                'operator': 'stringEquals',
-                'arg0': 'uuid',
-                'arg1': '03dc067d-1310-45b5-899f-b471a0ae9233'
-            })
+            openmediavault.config.DatabaseFilter(
+                {
+                    'operator': 'stringEquals',
+                    'arg0': 'uuid',
+                    'arg1': '03dc067d-1310-45b5-899f-b471a0ae9233',
+                }
+            ),
         )
         self.assertIsInstance(objs, list)
         self.assertEqual(len(objs), 1)
@@ -95,11 +97,9 @@ class DatabaseTestCase(unittest.TestCase):
         db = openmediavault.config.Database()
         objs = db.get_by_filter(
             "conf.system.notification.notification",
-            openmediavault.config.DatabaseFilter({
-                'operator': 'stringContains',
-                'arg0': 'id',
-                'arg1': 'monit'
-            })
+            openmediavault.config.DatabaseFilter(
+                {'operator': 'stringContains', 'arg0': 'id', 'arg1': 'monit'}
+            ),
         )
         self.assertIsInstance(objs, list)
         self.assertEqual(len(objs), 5)
@@ -108,10 +108,9 @@ class DatabaseTestCase(unittest.TestCase):
         db = openmediavault.config.Database()
         objs = db.get_by_filter(
             "conf.service.smartmontools.device",
-            openmediavault.config.DatabaseFilter({
-                'operator': 'distinct',
-                'arg0': 'enable'
-            })
+            openmediavault.config.DatabaseFilter(
+                {'operator': 'distinct', 'arg0': 'enable'}
+            ),
         )
         self.assertIsInstance(objs, list)
         self.assertEqual(len(objs), 2)
@@ -121,11 +120,13 @@ class DatabaseTestCase(unittest.TestCase):
         self.assertTrue(
             db.exists(
                 "conf.system.notification.notification",
-                openmediavault.config.DatabaseFilter({
-                    'operator': 'stringEquals',
-                    'arg0': 'id',
-                    'arg1': 'smartmontools'
-                })
+                openmediavault.config.DatabaseFilter(
+                    {
+                        'operator': 'stringEquals',
+                        'arg0': 'id',
+                        'arg1': 'smartmontools',
+                    }
+                ),
             )
         )
 
@@ -152,55 +153,58 @@ class DatabaseTestCase(unittest.TestCase):
             openmediavault.config.database.DatabaseQueryNotFoundException,
             lambda: db.get(
                 "conf.system.notification.notification",
-                "c1cd54af-0000-1111-2222-2a19420355bb"
-            )
+                "c1cd54af-0000-1111-2222-2a19420355bb",
+            ),
         )
 
     def test_get_query_iterable(self):
         query = openmediavault.config.DatabaseGetQuery(
             "conf.system.notification.notification",
-            "394cd565-e463-4094-a6ab-12e80270e9b4"
+            "394cd565-e463-4094-a6ab-12e80270e9b4",
         )
-        self.assertEqual(query.xpath, "//system/notification/notifications/" \
-         "notification[uuid='394cd565-e463-4094-a6ab-12e80270e9b4']")
+        self.assertEqual(
+            query.xpath,
+            "//system/notification/notifications/"
+            "notification[uuid='394cd565-e463-4094-a6ab-12e80270e9b4']",
+        )
 
     def test_filter_query_1(self):
         query = openmediavault.config.DatabaseGetByFilterQuery(
             "conf.system.notification.notification",
-            openmediavault.config.DatabaseFilter({
-                'operator': 'stringContains',
-                'arg0': 'id',
-                'arg1': 'monit'
-            })
+            openmediavault.config.DatabaseFilter(
+                {'operator': 'stringContains', 'arg0': 'id', 'arg1': 'monit'}
+            ),
         )
-        self.assertEqual(query.xpath, "//system/notification/notifications/" \
-         "notification[contains(id,'monit')]")
+        self.assertEqual(
+            query.xpath,
+            "//system/notification/notifications/"
+            "notification[contains(id,'monit')]",
+        )
 
     def test_filter_query_2(self):
         query = openmediavault.config.DatabaseGetByFilterQuery(
             "conf.system.network.proxy",
-            openmediavault.config.DatabaseFilter({
-                'operator': 'or',
-                'arg0': {
-                    'operator': '=',
-                    'arg0': 'port',
-                    'arg1': 8080
-                },
-                'arg1': {
-                    'operator': 'equals',
-                    'arg0': 'port',
-                    'arg1': 4443
+            openmediavault.config.DatabaseFilter(
+                {
+                    'operator': 'or',
+                    'arg0': {'operator': '=', 'arg0': 'port', 'arg1': 8080},
+                    'arg1': {
+                        'operator': 'equals',
+                        'arg0': 'port',
+                        'arg1': 4443,
+                    },
                 }
-            })
+            ),
         )
-        self.assertEqual(query.xpath, "//system/network/proxy[(port=8080 or " \
-         "port=4443)]")
+        self.assertEqual(
+            query.xpath, "//system/network/proxy[(port=8080 or " "port=4443)]"
+        )
 
     def test_is_unique(self):
         db = openmediavault.config.Database()
         obj = db.get(
             "conf.system.notification.notification",
-            "c1cd54af-660d-4311-8e21-2a19420355bb"
+            "c1cd54af-660d-4311-8e21-2a19420355bb",
         )
         self.assertIsInstance(obj, openmediavault.config.Object)
         self.assertTrue(db.is_unique(obj, "uuid"))
@@ -226,12 +230,15 @@ class DatabaseTestCase(unittest.TestCase):
         db = openmediavault.config.Database()
         obj = db.get(
             "conf.system.notification.notification",
-            "03dc067d-1310-45b5-899f-b471a0ae9233"
+            "03dc067d-1310-45b5-899f-b471a0ae9233",
         )
         self.assertIsInstance(obj, openmediavault.config.Object)
         query = openmediavault.config.DatabaseDeleteQuery(obj)
-        self.assertEqual(query.xpath, "//system/notification/notifications/" \
-         "notification[uuid='03dc067d-1310-45b5-899f-b471a0ae9233']")
+        self.assertEqual(
+            query.xpath,
+            "//system/notification/notifications/"
+            "notification[uuid='03dc067d-1310-45b5-899f-b471a0ae9233']",
+        )
         query.execute()
         self.assertIsInstance(query.response, openmediavault.config.Object)
         self.assertEqual(query.response.get("id"), "monitmemoryusage")
@@ -239,11 +246,13 @@ class DatabaseTestCase(unittest.TestCase):
         self.assertFalse(
             db.exists(
                 obj.model.id,
-                openmediavault.config.DatabaseFilter({
-                    'operator': 'stringEquals',
-                    'arg0': obj.model.idproperty,
-                    'arg1': obj.get(obj.model.idproperty)
-                })
+                openmediavault.config.DatabaseFilter(
+                    {
+                        'operator': 'stringEquals',
+                        'arg0': obj.model.idproperty,
+                        'arg1': obj.get(obj.model.idproperty),
+                    }
+                ),
             )
         )
 
@@ -252,11 +261,9 @@ class DatabaseTestCase(unittest.TestCase):
         db = openmediavault.config.Database()
         objs = db.delete_by_filter(
             "conf.system.notification.notification",
-            openmediavault.config.DatabaseFilter({
-                'operator': 'stringContains',
-                'arg0': 'id',
-                'arg1': 'monit'
-            })
+            openmediavault.config.DatabaseFilter(
+                {'operator': 'stringContains', 'arg0': 'id', 'arg1': 'monit'}
+            ),
         )
         self.assertIsInstance(objs, list)
         self.assertEqual(len(objs), 5)
@@ -270,19 +277,18 @@ class DatabaseTestCase(unittest.TestCase):
             "conf.system.notification.notification"
         )
         root = lxml.etree.Element("config")
-        query._dict_to_elements({
-            'a': 1,
-            'b1': False,
-            'b2': True,
-            'c': {
-                'x': "test"
+        query._dict_to_elements(
+            {
+                'a': 1,
+                'b1': False,
+                'b2': True,
+                'c': {'x': "test"},
+                'd': 5.45,
+                'f': {'z': [1, 2, 3]},
+                'g': ['x', 'y'],
             },
-            'd': 5.45,
-            'f': {
-                'z': [1, 2, 3]
-            },
-            'g': ['x', 'y']
-        }, root)
+            root,
+        )
         """
 		The result XML tree should look like:
 		<config>
@@ -302,10 +308,10 @@ class DatabaseTestCase(unittest.TestCase):
 			<g>y</g>
 		</config>
 		"""
-        #xml = lxml.etree.tostring(root, encoding="unicode")
-        #self.assertEqual(xml, "<config><b1>0</b1><c><x>test</x></c>" \
-        #	"<b2>1</b2><f><z>1</z><z>2</z><z>3</z></f><d>5.45</d>" \
-        #	"<a>1</a><g>x</g><g>y</g></config>")
+        # xml = lxml.etree.tostring(root, encoding="unicode")
+        # self.assertEqual(xml, "<config><b1>0</b1><c><x>test</x></c>" \
+        # 	"<b2>1</b2><f><z>1</z><z>2</z><z>3</z></f><d>5.45</d>" \
+        # 	"<a>1</a><g>x</g><g>y</g></config>")
 
     def test_update(self):
         self._use_tmp_config_database()
@@ -331,17 +337,19 @@ class DatabaseTestCase(unittest.TestCase):
         new_obj = openmediavault.config.Object(
             "conf.system.notification.notification"
         )
-        new_obj.set_dict({
-            'uuid': openmediavault.getenv('OMV_CONFIGOBJECT_NEW_UUID'),
-            'id': 'test',
-            'enable': False
-        })
+        new_obj.set_dict(
+            {
+                'uuid': openmediavault.getenv('OMV_CONFIGOBJECT_NEW_UUID'),
+                'id': 'test',
+                'enable': False,
+            }
+        )
         result_obj = db.set(new_obj)
         # Validate the returned configuration object.
         self.assertIsInstance(result_obj, openmediavault.config.Object)
         self.assertNotEqual(
             result_obj.get("uuid"),
-            openmediavault.getenv('OMV_CONFIGOBJECT_NEW_UUID')
+            openmediavault.getenv('OMV_CONFIGOBJECT_NEW_UUID'),
         )
         # Check whether the new configuration object was stored.
         objs = db.get("conf.system.notification.notification")
@@ -361,14 +369,16 @@ class DatabaseTestCase(unittest.TestCase):
         obj = openmediavault.config.Object(
             "conf.system.notification.notification"
         )
-        obj.set_dict({
-            'uuid': '2f6bffd8-f5c2-11e6-9584-17a40dfa0331',
-            'id': 'xyz',
-            'enable': True
-        })
+        obj.set_dict(
+            {
+                'uuid': '2f6bffd8-f5c2-11e6-9584-17a40dfa0331',
+                'id': 'xyz',
+                'enable': True,
+            }
+        )
         self.assertRaises(
             openmediavault.config.database.DatabaseQueryNotFoundException,
-            lambda: db.set(obj)
+            lambda: db.set(obj),
         )
 
     def test_update_iterable(self):
@@ -377,7 +387,7 @@ class DatabaseTestCase(unittest.TestCase):
         # Get the configuration object.
         obj = db.get(
             "conf.system.notification.notification",
-            "c1cd54af-660d-4311-8e21-2a19420355bb"
+            "c1cd54af-660d-4311-8e21-2a19420355bb",
         )
         self.assertIsInstance(obj, openmediavault.config.Object)
         self.assertTrue(obj.get("enable"))
@@ -393,7 +403,7 @@ class DatabaseTestCase(unittest.TestCase):
         # Get the configuration object to validate its properties.
         obj = db.get(
             "conf.system.notification.notification",
-            "c1cd54af-660d-4311-8e21-2a19420355bb"
+            "c1cd54af-660d-4311-8e21-2a19420355bb",
         )
         self.assertIsInstance(obj, openmediavault.config.Object)
         self.assertFalse(obj.get("enable"))

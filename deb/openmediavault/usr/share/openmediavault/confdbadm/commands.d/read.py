@@ -39,23 +39,21 @@ class Command(
         # Parse the command line arguments.
         parser = argparse.ArgumentParser(
             prog="%s %s" % (os.path.basename(args[0]), args[1]),
-            description=self.description
+            description=self.description,
         )
         parser.add_argument(
             "id",
             type=self.argparse_is_datamodel_id,
-            help="The data model ID, e.g. 'conf.service.ssh'"
+            help="The data model ID, e.g. 'conf.service.ssh'",
         )
         parser.add_argument(
             "--prettify",
             action="store_true",
-            help="Prettifies the output, by adding spaces and indentation."
+            help="Prettifies the output, by adding spaces and indentation.",
         )
         group1 = parser.add_mutually_exclusive_group()
         group1.add_argument(
-            "--defaults",
-            action="store_true",
-            help="Print the default values."
+            "--defaults", action="store_true", help="Print the default values."
         )
         group2 = group1.add_mutually_exclusive_group()
         group2.add_argument("--uuid", nargs="?", type=self.argparse_is_uuid4)

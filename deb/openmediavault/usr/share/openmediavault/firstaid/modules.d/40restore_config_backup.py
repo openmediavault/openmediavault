@@ -45,7 +45,7 @@ class Module(openmediavault.firstaid.IModule):
                 "No configuration backup found!",
                 backtitle=self.description,
                 height=5,
-                width=34
+                width=34,
             )
             return 0
         # Get the latest configuration backup file.
@@ -53,32 +53,48 @@ class Module(openmediavault.firstaid.IModule):
         # Only show a diff, if there's a difference.
         rc = openmediavault.subprocess.call(  # yapf: disable
             [
-                "diff", "--brief",
-                openmediavault.getenv("OMV_CONFIG_FILE"), configbak
+                "diff",
+                "--brief",
+                openmediavault.getenv("OMV_CONFIG_FILE"),
+                configbak,
             ],
-            stdout=subprocess.PIPE)
+            stdout=subprocess.PIPE,
+        )
         if rc == 0:
-            d.msgbox("There's no difference between the configuration " \
+            d.msgbox(
+                "There's no difference between the configuration "
                 "files. Nothing to restore.",
                 backtitle=self.description,
-                height=6, width=58)
+                height=6,
+                width=58,
+            )
             return 0
         # Display the differences?
-        code = d.yesno("Do you want to see the differences between the " \
+        code = d.yesno(
+            "Do you want to see the differences between the "
             "current configuration and the backup.",
             backtitle=self.description,
-            height=6, width=46)
+            height=6,
+            width=46,
+        )
         if code == d.ESC:
             return 0
         if code == d.OK:
-            output = "===================================================================\n" \
-             "All lines with '-' will be changed to the lines with '+'\n" \
-             "===================================================================\n"
-            p = openmediavault.subprocess.Popen([
-                    "diff", "--unified=1",
-                    openmediavault.getenv("OMV_CONFIG_FILE"), configbak
+            output = (
+                "===================================================================\n"
+                "All lines with '-' will be changed to the lines with '+'\n"
+                "===================================================================\n"
+            )
+            p = openmediavault.subprocess.Popen(
+                [
+                    "diff",
+                    "--unified=1",
+                    openmediavault.getenv("OMV_CONFIG_FILE"),
+                    configbak,
                 ],
-                stdout=subprocess.PIPE, shell=False)  # yapf: disable
+                stdout=subprocess.PIPE,
+                shell=False,
+            )  # yapf: disable
             stdout, _ = p.communicate()
             output += stdout.decode()
             d.scrollbox(
@@ -86,13 +102,17 @@ class Module(openmediavault.firstaid.IModule):
                 backtitle=self.description,
                 height=18,
                 width=72,
-                clear=True
+                clear=True,
             )
         # Restore configuration backup?
-        code = d.yesno("Do you want to restore the configuration backup? " \
+        code = d.yesno(
+            "Do you want to restore the configuration backup? "
             "This will overwrite the actual configuration?",
             backtitle=self.description,
-            height=6, width=57, defaultno=True)
+            height=6,
+            width=57,
+            defaultno=True,
+        )
         if code != d.OK:
             return 0
         openmediavault.rpc.call(

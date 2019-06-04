@@ -45,24 +45,30 @@ class Module(openmediavault.firstaid.IModule):
             active = False
         if not active:
             d = dialog.Dialog(dialog="dialog")
-            code = d.msgbox("Failed to submit the system diagnostic " \
-                "report to the administrator account via email because " \
+            code = d.msgbox(
+                "Failed to submit the system diagnostic "
+                "report to the administrator account via email because "
                 "the email notification service is disabled.",
                 backtitle=self.description,
-                height=7, width=56)
+                height=7,
+                width=56,
+            )
             if code != d.OK:
                 return 0
-            code = d.yesno("Do you want to copy the system diagnostic " \
+            code = d.yesno(
+                "Do you want to copy the system diagnostic "
                 "report onto an USB device?",
                 backtitle=self.description,
-                height=6, width=45)
+                height=6,
+                width=45,
+            )
             if code != d.OK:
                 return 0
             d.infobox(
                 "Please connect the USB device now.",
                 backtitle=self.description,
                 height=3,
-                width=38
+                width=38,
             )
             # Wait until USB device is plugged in.
             context = pyudev.Context()
@@ -83,40 +89,49 @@ class Module(openmediavault.firstaid.IModule):
                 ),
                 backtitle=self.description,
                 height=3,
-                width=50
+                width=50,
             )
             try:
                 mntdir = tempfile.mkdtemp()
                 outfile = "{}/sysinfo-{}-{}.txt".format(
                     mntdir, socket.gethostname(), time.strftime("%Y%m%d%H%M")
                 )
-                openmediavault.subprocess.check_call([
-                    "mount", device.get("DEVNAME"), mntdir
-                ])
+                openmediavault.subprocess.check_call(
+                    ["mount", device.get("DEVNAME"), mntdir]
+                )
                 with open(outfile, "w") as out:
-                    openmediavault.subprocess.check_call(["omv-sysinfo"],
-                                                         stdout=out)
+                    openmediavault.subprocess.check_call(
+                        ["omv-sysinfo"], stdout=out
+                    )
             except:
                 raise
             finally:
-                openmediavault.subprocess.check_call([
-                    "umount", device.get("DEVNAME")
-                ])
+                openmediavault.subprocess.check_call(
+                    ["umount", device.get("DEVNAME")]
+                )
                 shutil.rmtree(mntdir)
             d.infobox(
                 "You can disconnect the USB device now.",
                 backtitle=self.description,
                 height=3,
-                width=42
+                width=42,
             )
         else:
-            print("Submitting system diagnostic report to the " \
-                "administrator account. Please check your email " \
-                "mailbox ...")
-            openmediavault.subprocess.check_call([
-                "omv-sysinfo", "|", "mail", "-s", "System diagnostic report",
-                "root"
-            ])
+            print(
+                "Submitting system diagnostic report to the "
+                "administrator account. Please check your email "
+                "mailbox ..."
+            )
+            openmediavault.subprocess.check_call(
+                [
+                    "omv-sysinfo",
+                    "|",
+                    "mail",
+                    "-s",
+                    "System diagnostic report",
+                    "root",
+                ]
+            )
         return 0
 
 

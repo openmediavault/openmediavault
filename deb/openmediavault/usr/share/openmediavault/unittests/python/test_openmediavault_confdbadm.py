@@ -97,8 +97,9 @@ class ConfDbAdmTestCase(unittest.TestCase):
             self.assertEqual(str(ctx.exception), "No valid UUID4.")
 
     def test_argparse_is_json(self):
-        self.assertDictEqual({"a": 0},
-                             self.command_helper.argparse_is_json('{"a": 0}'))
+        self.assertDictEqual(
+            {"a": 0}, self.command_helper.argparse_is_json('{"a": 0}')
+        )
 
     def test_argparse_is_json_fail(self):
         with self.assertRaises(Exception) as ctx:
@@ -107,8 +108,9 @@ class ConfDbAdmTestCase(unittest.TestCase):
 
     @mock.patch("sys.stdin.read", return_value='{"foo": "bar"}')
     def test_argparse_is_json_stdin(self, mock_read):
-        self.assertDictEqual({"foo": "bar"},
-                             self.command_helper.argparse_is_json_stdin("-"))
+        self.assertDictEqual(
+            {"foo": "bar"}, self.command_helper.argparse_is_json_stdin("-")
+        )
 
     def test_argparse_is_datamodel_id_fail(self):
         with self.assertRaises(Exception) as ctx:
@@ -124,7 +126,7 @@ class ConfDbAdmTestCase(unittest.TestCase):
     def test_argparse_is_datamodel_id_2(self, mock_datamodel):
         self.assertEqual(
             self.command_helper.argparse_is_datamodel_id("conf.service.ssh"),
-            "conf.service.ssh"
+            "conf.service.ssh",
         )
 
 

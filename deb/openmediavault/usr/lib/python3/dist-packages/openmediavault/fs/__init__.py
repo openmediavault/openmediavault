@@ -81,9 +81,9 @@ class Filesystem(openmediavault.device.BlockDevice):
         if self._device_file is None:
             if openmediavault.string.is_fs_uuid(self._id):
                 # Find the filesystem.
-                output = openmediavault.subprocess.check_output([
-                    'findfs', 'UUID={}'.format(self._id)
-                ])
+                output = openmediavault.subprocess.check_output(
+                    ['findfs', 'UUID={}'.format(self._id)]
+                )
                 self._device_file = output.decode().strip()
             else:
                 # We assume the specified filesystem identifier is
@@ -165,17 +165,22 @@ class Filesystem(openmediavault.device.BlockDevice):
         :rtype: str|None
         """
         try:
-            output = openmediavault.subprocess.check_output([
-                'findmnt', '--canonicalize', '--first-only', '--noheadings',
-                '--output=TARGET', '--raw', self.canonical_device_file
-            ])
+            output = openmediavault.subprocess.check_output(
+                [
+                    'findmnt',
+                    '--canonicalize',
+                    '--first-only',
+                    '--noheadings',
+                    '--output=TARGET',
+                    '--raw',
+                    self.canonical_device_file,
+                ]
+            )
             # Examples:
             # /media/8c982ec2-8aa7-4fe2-a912-7478f0429e06
             # /srv/_dev_disk_by-id_dm-name-vg01-lv01
             # /srv/dev-disk-by-label-xx\x20yy
-            return openmediavault.string.unescape_blank(
-                output.decode().strip()
-            )
+            return openmediavault.string.unescape_blank(output.decode().strip())
         except subprocess.CalledProcessError:
             pass
         return None
@@ -185,10 +190,17 @@ class Filesystem(openmediavault.device.BlockDevice):
         Check if a filesystem is mounted.
         """
         try:
-            _ = openmediavault.subprocess.check_output([
-                'findmnt', '--canonicalize', '--first-only', '--noheadings',
-                '--raw', '--nofsroot', self.canonical_device_file
-            ])
+            _ = openmediavault.subprocess.check_output(
+                [
+                    'findmnt',
+                    '--canonicalize',
+                    '--first-only',
+                    '--noheadings',
+                    '--raw',
+                    '--nofsroot',
+                    self.canonical_device_file,
+                ]
+            )
             return True
         except subprocess.CalledProcessError:
             pass
@@ -234,13 +246,17 @@ class Filesystem(openmediavault.device.BlockDevice):
         # wipefs: error: / dev / sdh1: appears to contain 'dos' partition table
         if self.get_partition_scheme() in ['dos', 'vfat']:
             # http://en.wikipedia.org / wiki / Master_boot_record
-            _ = openmediavault.subprocess.check_output([
-                'dd', 'if=/dev/zero', 'of={}'.format(self.device_file),
-                'count=1'
-            ])
-        _ = openmediavault.subprocess.check_output([
-            'wipefs', '--all', self.device_file
-        ])
+            _ = openmediavault.subprocess.check_output(
+                [
+                    'dd',
+                    'if=/dev/zero',
+                    'of={}'.format(self.device_file),
+                    'count=1',
+                ]
+            )
+        _ = openmediavault.subprocess.check_output(
+            ['wipefs', '--all', self.device_file]
+        )
 
     def grow(self):
         """

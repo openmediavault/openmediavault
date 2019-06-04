@@ -38,9 +38,11 @@ def populate_pillar():
     log.info('Writing {}'.format(filename))
     with open(filename, 'w') as fd:
         fd.write(
-            yaml.dump({'default': data},
-                      Dumper=yaml.SafeDumper,
-                      default_flow_style=False)
+            yaml.dump(
+                {'default': data},
+                Dumper=yaml.SafeDumper,
+                default_flow_style=False,
+            )
         )
     # Create the pillar containing the product information.
     prod_info = openmediavault.productinfo.ProductInfo()
@@ -49,8 +51,10 @@ def populate_pillar():
     log.info('Writing {}'.format(filename))
     with open(filename, 'w') as fd:
         fd.write(
-            yaml.dump({'productinfo': data},
-                      Dumper=yaml.SafeDumper,
-                      default_flow_style=False)
+            yaml.dump(
+                {'productinfo': data},
+                Dumper=yaml.SafeDumper,
+                default_flow_style=False,
+            )
         )
     return True

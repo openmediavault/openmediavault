@@ -25,17 +25,19 @@ import openmediavault.subprocess
 class Plugin(openmediavault.mkrrdgraph.IPlugin):
     def create_graph(self, config):
         # http://paletton.com/#uid=33r0-0kwi++bu++hX++++rd++kX
-        config.update({
-            'title_cpu': 'CPU usage',
-            'color_cpu_idle': '#e7e7e7',
-            'color_cpu_nice': '#00df00',
-            'color_cpu_user': '#0000fd',
-            'color_cpu_waitio': '#fdaf00',
-            'color_cpu_system': '#fd0000',
-            'color_cpu_softirq': '#fd00fd',
-            'color_cpu_irq': '#9f009f',
-            'color_cpu_steal': '#000000'
-        })
+        config.update(
+            {
+                'title_cpu': 'CPU usage',
+                'color_cpu_idle': '#e7e7e7',
+                'color_cpu_nice': '#00df00',
+                'color_cpu_user': '#0000fd',
+                'color_cpu_waitio': '#fdaf00',
+                'color_cpu_system': '#fd0000',
+                'color_cpu_softirq': '#fd00fd',
+                'color_cpu_irq': '#9f009f',
+                'color_cpu_steal': '#000000',
+            }
+        )
         args = []
         # yapf: disable
         # pylint: disable=line-too-long

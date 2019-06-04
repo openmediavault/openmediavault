@@ -24,28 +24,21 @@ import openmediavault.config.datamodel
 
 class DatamodelTestCase(unittest.TestCase):
     def _get_model(self):
-        return openmediavault.config.Datamodel({
-            "type": "config",
-            "id": "conf.system.apt.distribution",
-            "queryinfo": {
-                "xpath": "//system/apt/distribution",
-                "iterable": False
-            },
-            "properties": {
-                "proposed": {
-                    "type": "boolean",
-                    "default": False
+        return openmediavault.config.Datamodel(
+            {
+                "type": "config",
+                "id": "conf.system.apt.distribution",
+                "queryinfo": {
+                    "xpath": "//system/apt/distribution",
+                    "iterable": False,
                 },
-                "partner": {
-                    "type": "boolean",
-                    "default": False
+                "properties": {
+                    "proposed": {"type": "boolean", "default": False},
+                    "partner": {"type": "boolean", "default": False},
+                    "integer": {"type": "integer", "default": 10},
                 },
-                "integer": {
-                    "type": "integer",
-                    "default": 10
-                }
             }
-        })
+        )
 
     def test_schema(self):
         datamodel = self._get_model()
@@ -80,12 +73,12 @@ class DatamodelTestCase(unittest.TestCase):
 
     def test_validate_fail(self):
         datamodel = self._get_model()
-        self.assertRaises(openmediavault.json.SchemaValidationException,
-            lambda: datamodel.validate({
-                "proposed": "foo",
-                "partner": True,
-                "integer": True
-            }))
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: datamodel.validate(
+                {"proposed": "foo", "partner": True, "integer": True}
+            ),
+        )
 
 
 if __name__ == "__main__":

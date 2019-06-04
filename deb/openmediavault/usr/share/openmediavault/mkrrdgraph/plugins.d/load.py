@@ -25,12 +25,14 @@ import openmediavault.subprocess
 class Plugin(openmediavault.mkrrdgraph.IPlugin):
     def create_graph(self, config):
         # http://paletton.com/#uid=33r0-0kwi++bu++hX++++rd++kX
-        config.update({
-            'title_load': 'Load average',
-            'color_load_shortterm': '#ffbf00',  # yellow
-            'color_load_midterm': '#0bb6ff',  # blue
-            'color_load_longterm': '#ff1300'  # red
-        })
+        config.update(
+            {
+                'title_load': 'Load average',
+                'color_load_shortterm': '#ffbf00',  # yellow
+                'color_load_midterm': '#0bb6ff',  # blue
+                'color_load_longterm': '#ff1300',  # red
+            }
+        )
         args = []
         # yapf: disable
         # pylint: disable=line-too-long

@@ -35,7 +35,9 @@ def bool(value):  # pylint: disable=redefined-builtin
     >>> assert bool("False") == False
     >>> assert bool(False) == False
     """
-    if type(value) == bool:  # pylint: disable=unidiomatic-typecheck,comparison-with-callable
+    if (
+        type(value) == bool
+    ):  # pylint: disable=unidiomatic-typecheck,comparison-with-callable
         return value
     if str(value).lower() in ["1", "on", "yes", "y", "true", "t"]:
         return True

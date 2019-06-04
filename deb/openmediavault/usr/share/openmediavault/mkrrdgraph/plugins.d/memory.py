@@ -25,13 +25,15 @@ import openmediavault.subprocess
 class Plugin(openmediavault.mkrrdgraph.IPlugin):
     def create_graph(self, config):
         # http://paletton.com/#uid=33r0-0kwi++bu++hX++++rd++kX
-        config.update({
-            'title_memory': 'Memory usage',
-            'color_memory_free': '#76d6ff',  # blue
-            'color_memory_cached': '#ffdb70',  # yellow
-            'color_memory_buffered': '#c979ff',  # pink
-            'color_memory_used': '#ff7a70'  # red
-        })
+        config.update(
+            {
+                'title_memory': 'Memory usage',
+                'color_memory_free': '#76d6ff',  # blue
+                'color_memory_cached': '#ffdb70',  # yellow
+                'color_memory_buffered': '#c979ff',  # pink
+                'color_memory_used': '#ff7a70',  # red
+            }
+        )
         args = []
         # yapf: disable
         # pylint: disable=line-too-long

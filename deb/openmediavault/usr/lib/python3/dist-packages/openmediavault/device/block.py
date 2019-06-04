@@ -22,8 +22,10 @@ import os
 import pyudev
 
 from .utils import (
-    is_block_device, is_device_file_by_id, is_device_file_by_path,
-    is_device_file_by_uuid
+    is_block_device,
+    is_device_file_by_id,
+    is_device_file_by_path,
+    is_device_file_by_uuid,
 )
 
 import openmediavault.subprocess
@@ -217,9 +219,9 @@ class BlockDevice:
         :return: Returns the block size.
         :rtype: int
         """
-        output = openmediavault.subprocess.check_output([
-            'blockdev', '--getbsz', self.device_file
-        ])
+        output = openmediavault.subprocess.check_output(
+            ['blockdev', '--getbsz', self.device_file]
+        )
         return int(output.decode().strip())
 
     def get_size(self):
@@ -228,9 +230,9 @@ class BlockDevice:
         :return: Returns the device size in bytes.
         :rtype: int
         """
-        output = openmediavault.subprocess.check_output([
-            'blockdev', '--getsize64', self.device_file
-        ])
+        output = openmediavault.subprocess.check_output(
+            ['blockdev', '--getsize64', self.device_file]
+        )
         return int(output.decode().strip())
 
     def get_udev_properties(self):

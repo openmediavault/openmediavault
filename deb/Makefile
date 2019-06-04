@@ -33,6 +33,6 @@ clean binary omv_tx_pull_po omv_tx_push_pot omv_build_pot:
 install:
 	echo "Installing required packages ..."
 	sudo apt-get install debhelper fakeroot gettext python3-pip
-	pip3 install --upgrade yapf pylint
+	pip3 install --upgrade black pylint
 
 .PHONY: install clean binary omv_tx_pull_po omv_tx_push_pot omv_build_pot

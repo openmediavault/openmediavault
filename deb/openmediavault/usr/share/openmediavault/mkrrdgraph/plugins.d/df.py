@@ -25,13 +25,15 @@ import openmediavault.subprocess
 class Plugin(openmediavault.mkrrdgraph.IPlugin):
     def create_graph(self, config):
         # http://paletton.com/#uid=33r0-0kwi++bu++hX++++rd++kX
-        config.update({
-            'title_df': 'Disk usage',
-            'color_line_df_free': '#0bb6ff',  # blue
-            'color_line_df_used': '#ff1300',  # red
-            'color_area_df_free': '#76d6ff',  # blue
-            'color_area_df_used': '#ff7a70'  # red
-        })
+        config.update(
+            {
+                'title_df': 'Disk usage',
+                'color_line_df_free': '#0bb6ff',  # blue
+                'color_line_df_used': '#ff1300',  # red
+                'color_area_df_free': '#76d6ff',  # blue
+                'color_area_df_used': '#ff7a70',  # red
+            }
+        )
         # Get the mount points from the collectd configuration file.
         mountpoints = openmediavault.mkrrdgraph.load_collectd_config(
             'df', 'MountPoint'

@@ -41,8 +41,7 @@ class Environment:
             with open(DEFAULT_FILE) as reader:
                 for line in reader.readlines():
                     m = re.match(
-                        r"^(OMV_([A-Z0-9_]+))=(\")?([^\"]+)(\")?$",
-                        line.strip()
+                        r"^(OMV_([A-Z0-9_]+))=(\")?([^\"]+)(\")?$", line.strip()
                     )
                     if not m:
                         continue
@@ -68,8 +67,8 @@ class Environment:
             return Environment._values[key]
         if default is None:
             raise KeyError(
-                "The environment variable '%s' does not exist in '%s'" %
-                (key, DEFAULT_FILE)
+                "The environment variable '%s' does not exist in '%s'"
+                % (key, DEFAULT_FILE)
             )
         return default
 

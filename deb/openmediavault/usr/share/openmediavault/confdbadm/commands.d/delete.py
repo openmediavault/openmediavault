@@ -37,12 +37,12 @@ class Command(
         # Parse the command line arguments.
         parser = argparse.ArgumentParser(
             prog="%s %s" % (os.path.basename(args[0]), args[1]),
-            description=self.description
+            description=self.description,
         )
         parser.add_argument(
             "id",
             type=self.argparse_is_datamodel_id,
-            help="The data model ID, e.g. 'conf.service.ssh'"
+            help="The data model ID, e.g. 'conf.service.ssh'",
         )
         group = parser.add_mutually_exclusive_group()
         group.add_argument("--uuid", nargs="?", type=self.argparse_is_uuid4)
@@ -74,8 +74,7 @@ class Command(
             rc = 1
             # Display the exception message.
             openmediavault.log.error(
-                "Failed to delete the "
-                "configuration object: %s" % str(e)
+                "Failed to delete the " "configuration object: %s" % str(e)
             )
             # Rollback all changes.
             self.rollback_changes()

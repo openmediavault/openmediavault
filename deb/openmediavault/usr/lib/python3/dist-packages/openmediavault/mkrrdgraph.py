@@ -53,7 +53,7 @@ def copy_placeholder_image(filename):
     """
     src = openmediavault.getenv(
         'OMV_RRDGRAPH_ERROR_IMAGE',
-        '/usr/share/openmediavault/icons/rrd_graph_error_64.png'
+        '/usr/share/openmediavault/icons/rrd_graph_error_64.png',
     )
     shutil.copyfile(src, filename)
 
@@ -67,7 +67,8 @@ def load_collectd_config(plugin_name, option):
     filename = os.path.join(
         openmediavault.getenv(
             'OMV_COLLECTD_CONFIG_DIR', '/etc/collectd/collectd.conf.d'
-        ), '{}.conf'.format(plugin_name)
+        ),
+        '{}.conf'.format(plugin_name),
     )
     if os.path.exists(filename):
         with open(filename, 'r') as fd:
@@ -76,7 +77,7 @@ def load_collectd_config(plugin_name, option):
                 m = re.match(
                     r'^<Plugin\s+{}\s*>$'.format(plugin_name),
                     line,
-                    flags=re.IGNORECASE
+                    flags=re.IGNORECASE,
                 )
                 if m:
                     section_found = True
@@ -85,7 +86,7 @@ def load_collectd_config(plugin_name, option):
                     m = re.match(
                         r'^\s*{}\s*(.+)$'.format(option),
                         line,
-                        flags=re.IGNORECASE
+                        flags=re.IGNORECASE,
                     )
                     if m:
                         result.append(m.group(1).strip('"\''))
