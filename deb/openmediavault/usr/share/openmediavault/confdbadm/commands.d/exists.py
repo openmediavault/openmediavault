@@ -36,12 +36,12 @@ class Command(
         # Parse the command line arguments.
         parser = argparse.ArgumentParser(
             prog="%s %s" % (os.path.basename(args[0]), args[1]),
-            description=self.description
+            description=self.description,
         )
         parser.add_argument(
             "id",
             type=self.argparse_is_datamodel_id,
-            help="The data model ID, e.g. 'conf.system.sharedfolder'"
+            help="The data model ID, e.g. 'conf.system.sharedfolder'",
         )
         parser.add_argument("--filter", nargs="?", type=self.argparse_is_json)
         cmd_args = parser.parse_args(args[2:])

@@ -71,11 +71,14 @@ class Module(openmediavault.firstaid.IModule):
                     dirname = os.path.basename(os.path.dirname(rrd_file))
                     basename = os.path.basename(rrd_file)
                     d = dialog.Dialog(dialog="dialog")
-                    code = d.yesno("The RRD file '../{}/{}' contains " \
-                        "timestamps in future.\nDo you want to delete " \
+                    code = d.yesno(
+                        "The RRD file '../{}/{}' contains "
+                        "timestamps in future.\nDo you want to delete "
                         "it?".format(dirname, basename),
                         backtitle=self.description,
-                        height=7, width=65)
+                        height=7,
+                        width=65,
+                    )
                     if code == d.ESC:
                         continue
                     if code == d.OK:
@@ -85,9 +88,7 @@ class Module(openmediavault.firstaid.IModule):
         if invalid == 0:
             print("All RRD database files are valid.")
         else:
-            print(
-                "{} invalid RRD database files were removed.".format(invalid)
-            )
+            print("{} invalid RRD database files were removed.".format(invalid))
         # Re-enable rrdcached if performance stats are enabled.
         if obj.get("enable"):
             monit_rrdcached.start()

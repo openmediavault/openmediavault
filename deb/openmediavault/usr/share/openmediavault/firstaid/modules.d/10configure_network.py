@@ -69,10 +69,9 @@ class Module(openmediavault.firstaid.IModule):
             for id_ in ["ID_MODEL_FROM_DATABASE", "ID_VENDOR_FROM_DATABASE"]:
                 if id_ not in device:
                     continue
-                choices.append([
-                    sys_name,
-                    openmediavault.string.truncate(device[id_], 50)
-                ])
+                choices.append(
+                    [sys_name, openmediavault.string.truncate(device[id_], 50)]
+                )
                 break
         d = dialog.Dialog(dialog="dialog")
         (code, tag) = d.menu(
@@ -82,7 +81,7 @@ class Module(openmediavault.firstaid.IModule):
             height=14,
             width=70,
             menu_height=6,
-            choices=choices
+            choices=choices,
         )
         if code in (d.CANCEL, d.ESC):
             return 0
@@ -93,7 +92,7 @@ class Module(openmediavault.firstaid.IModule):
             backtitle=self.description,
             height=5,
             width=53,
-            defaultno=True
+            defaultno=True,
         )
         if code == d.ESC:
             return 0
@@ -103,7 +102,7 @@ class Module(openmediavault.firstaid.IModule):
                 "Do you want to use DHCPv4 for this interface?",
                 backtitle=self.description,
                 height=5,
-                width=49
+                width=49,
             )
             if code == d.ESC:
                 return 0
@@ -122,7 +121,7 @@ class Module(openmediavault.firstaid.IModule):
                         clear=True,
                         height=8,
                         width=60,
-                        init=""
+                        init="",
                     )
                     if code != d.OK:
                         return 0
@@ -131,7 +130,7 @@ class Module(openmediavault.firstaid.IModule):
                             "The field must not be empty.",
                             backtitle=self.description,
                             height=5,
-                            width=32
+                            width=32,
                         )
                         continue
                     try:
@@ -142,7 +141,7 @@ class Module(openmediavault.firstaid.IModule):
                             "Please enter a valid IPv4 address.",
                             backtitle=self.description,
                             height=5,
-                            width=38
+                            width=38,
                         )
                         continue
                 # Get the IPv4 netmask.
@@ -153,7 +152,7 @@ class Module(openmediavault.firstaid.IModule):
                         clear=True,
                         height=8,
                         width=60,
-                        init=""
+                        init="",
                     )
                     if code != d.OK:
                         return 0
@@ -162,7 +161,7 @@ class Module(openmediavault.firstaid.IModule):
                             "The field must not be empty.",
                             backtitle=self.description,
                             height=5,
-                            width=32
+                            width=32,
                         )
                         continue
                     try:
@@ -173,7 +172,7 @@ class Module(openmediavault.firstaid.IModule):
                             "Please enter a valid netmask.",
                             backtitle=self.description,
                             height=5,
-                            width=33
+                            width=33,
                         )
                         continue
                 # Get default IPv4 gateway.
@@ -184,7 +183,7 @@ class Module(openmediavault.firstaid.IModule):
                         clear=True,
                         height=8,
                         width=60,
-                        init=""
+                        init="",
                     )
                     if code != d.OK:
                         return 0
@@ -196,7 +195,7 @@ class Module(openmediavault.firstaid.IModule):
                             "Please enter a valid gateway.",
                             backtitle=self.description,
                             height=5,
-                            width=33
+                            width=33,
                         )
                         continue
         # Use IPv6?
@@ -205,7 +204,7 @@ class Module(openmediavault.firstaid.IModule):
             backtitle=self.description,
             height=5,
             width=53,
-            defaultno=True if method != "manual" else False
+            defaultno=True if method != "manual" else False,
         )
         if code == d.ESC:
             return 0
@@ -215,7 +214,7 @@ class Module(openmediavault.firstaid.IModule):
                 "Do you want to enable stateful address autoconfiguration (DHCPv6)?",
                 backtitle=self.description,
                 height=6,
-                width=42
+                width=42,
             )
             if code == d.ESC:
                 return 0
@@ -227,7 +226,7 @@ class Module(openmediavault.firstaid.IModule):
                     "Do you want to enable stateless address autoconfiguration (SLAAC)?",
                     backtitle=self.description,
                     height=6,
-                    width=42
+                    width=42,
                 )
                 if code == d.ESC:
                     return 0
@@ -245,7 +244,7 @@ class Module(openmediavault.firstaid.IModule):
                         clear=True,
                         height=8,
                         width=60,
-                        init=""
+                        init="",
                     )
                     if code != d.OK:
                         return 0
@@ -254,7 +253,7 @@ class Module(openmediavault.firstaid.IModule):
                             "The field must not be empty.",
                             backtitle=self.description,
                             height=5,
-                            width=32
+                            width=32,
                         )
                         continue
                     try:
@@ -265,7 +264,7 @@ class Module(openmediavault.firstaid.IModule):
                             "Please enter a valid IPv6 address.",
                             backtitle=self.description,
                             height=5,
-                            width=38
+                            width=38,
                         )
                         continue
                 # Get the prefix length.
@@ -277,7 +276,7 @@ class Module(openmediavault.firstaid.IModule):
                         clear=True,
                         height=8,
                         width=64,
-                        init="64"
+                        init="64",
                     )
                     if code != d.OK:
                         return 0
@@ -286,7 +285,7 @@ class Module(openmediavault.firstaid.IModule):
                             "The field must not be empty.",
                             backtitle=self.description,
                             height=5,
-                            width=32
+                            width=32,
                         )
                         continue
                     if int(netmask6) < 0 or int(netmask6) > 128:
@@ -295,7 +294,7 @@ class Module(openmediavault.firstaid.IModule):
                             "Please enter a valid netmask.",
                             backtitle=self.description,
                             height=5,
-                            width=33
+                            width=33,
                         )
                         continue
                 # Get default IPv6 gateway.
@@ -307,7 +306,7 @@ class Module(openmediavault.firstaid.IModule):
                         clear=True,
                         height=8,
                         width=60,
-                        init=""
+                        init="",
                     )
                     if code != d.OK:
                         return 0
@@ -319,7 +318,7 @@ class Module(openmediavault.firstaid.IModule):
                             "Please enter a valid gateway.",
                             backtitle=self.description,
                             height=5,
-                            width=33
+                            width=33,
                         )
                         continue
         # Get the DNS name servers. Note, only one IP address is
@@ -332,7 +331,7 @@ class Module(openmediavault.firstaid.IModule):
                     clear=True,
                     height=8,
                     width=60,
-                    init=""
+                    init="",
                 )
                 if code != d.OK:
                     return 0
@@ -347,7 +346,7 @@ class Module(openmediavault.firstaid.IModule):
                         "Please enter a valid IP address.",
                         backtitle=self.description,
                         height=5,
-                        width=30
+                        width=30,
                     )
         # Enable WOL?
         code = d.yesno(
@@ -355,30 +354,32 @@ class Module(openmediavault.firstaid.IModule):
             backtitle=self.description,
             height=5,
             width=50,
-            defaultno=True
+            defaultno=True,
         )
         if code == d.ESC:
             return 0
         if code == d.OK:
             wol = True
         # Set the default RPC parameters.
-        rpc_params.update({
-            "uuid": openmediavault.getenv("OMV_CONFIGOBJECT_NEW_UUID"),
-            "devicename": device_name,
-            "method": method,
-            "address": address,
-            "netmask": netmask,
-            "gateway": gateway,
-            "method6": method6,
-            "address6": address6,
-            "netmask6": netmask6,
-            "gateway6": gateway6,
-            "dnsnameservers": dns_nameservers,
-            "dnssearch": "",
-            "mtu": 0,
-            "wol": wol,
-            "comment": ""
-        })
+        rpc_params.update(
+            {
+                "uuid": openmediavault.getenv("OMV_CONFIGOBJECT_NEW_UUID"),
+                "devicename": device_name,
+                "method": method,
+                "address": address,
+                "netmask": netmask,
+                "gateway": gateway,
+                "method6": method6,
+                "address6": address6,
+                "netmask6": netmask6,
+                "gateway6": gateway6,
+                "dnsnameservers": dns_nameservers,
+                "dnssearch": "",
+                "mtu": 0,
+                "wol": wol,
+                "comment": "",
+            }
+        )
         # Do we process a wireless network interface?
         if re.match(r"^wlan[0-9]+$", device_name):
             rpc_method = "setWirelessIface"
@@ -390,7 +391,7 @@ class Module(openmediavault.firstaid.IModule):
                     clear=True,
                     height=8,
                     width=60,
-                    init=""
+                    init="",
                 )
                 if code != d.OK:
                     return 0
@@ -399,7 +400,7 @@ class Module(openmediavault.firstaid.IModule):
                         "The field must not be empty.",
                         backtitle=self.description,
                         height=5,
-                        width=32
+                        width=32,
                     )
             rpc_params["wpassid"] = wpa_ssid
             # Get the pre-shared key.
@@ -410,7 +411,7 @@ class Module(openmediavault.firstaid.IModule):
                     clear=True,
                     height=8,
                     width=45,
-                    init=""
+                    init="",
                 )
                 if code != d.OK:
                     return 0
@@ -419,7 +420,7 @@ class Module(openmediavault.firstaid.IModule):
                         "The field must not be empty.",
                         backtitle=self.description,
                         height=5,
-                        width=32
+                        width=32,
                     )
             rpc_params["wpapsk"] = wpa_psk
         # Update the interface configuration.
@@ -435,10 +436,7 @@ class Module(openmediavault.firstaid.IModule):
         # Insert a new network interface configuration object.
         openmediavault.rpc.call("Network", rpc_method, rpc_params)
         openmediavault.rpc.call(
-            "Config", "applyChanges", {
-                "modules": [],
-                "force": False
-            }
+            "Config", "applyChanges", {"modules": [], "force": False}
         )
         print("The network interface configuration was successfully changed.")
         return 0

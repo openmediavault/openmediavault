@@ -24,27 +24,23 @@ import openmediavault.datamodel.datamodel
 
 class DatamodelTestCase(unittest.TestCase):
     def _get_model(self):
-        return openmediavault.datamodel.Datamodel({
-            "type": "config",
-            "id": "conf.system.apt.distribution",
-            "alias": "conf.system.xyz",
-            "description": "abc",
-            "title": "xyz",
-            "queryinfo": {
-                "xpath": "//system/apt/distribution",
-                "iterable": False
-            },
-            "properties": {
-                "proposed": {
-                    "type": "boolean",
-                    "default": False
+        return openmediavault.datamodel.Datamodel(
+            {
+                "type": "config",
+                "id": "conf.system.apt.distribution",
+                "alias": "conf.system.xyz",
+                "description": "abc",
+                "title": "xyz",
+                "queryinfo": {
+                    "xpath": "//system/apt/distribution",
+                    "iterable": False,
                 },
-                "partner": {
-                    "type": "boolean",
-                    "default": False
-                }
+                "properties": {
+                    "proposed": {"type": "boolean", "default": False},
+                    "partner": {"type": "boolean", "default": False},
+                },
             }
-        })
+        )
 
     def test_model(self):
         datamodel = self._get_model()

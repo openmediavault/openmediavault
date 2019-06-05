@@ -28,8 +28,9 @@ class SchemaTestCase(unittest.TestCase):
         # EXT2/3/4, JFS, XFS
         schema = openmediavault.datamodel.Schema({})
         schema._check_format(
-            "113dbaac-e496-11e6-ac68-73bc0f572bae", {"format": "fsuuid"},
-            "field1"
+            "113dbaac-e496-11e6-ac68-73bc0f572bae",
+            {"format": "fsuuid"},
+            "field1",
         )
 
     def test_check_format_fsuuid_2(self):
@@ -40,9 +41,7 @@ class SchemaTestCase(unittest.TestCase):
     def test_check_format_fsuuid_3(self):
         # NTFS
         schema = openmediavault.datamodel.Schema({})
-        schema._check_format(
-            "2ED43920D438EC29", {"format": "fsuuid"}, "field1"
-        )
+        schema._check_format("2ED43920D438EC29", {"format": "fsuuid"}, "field1")
 
     def test_check_format_fsuuid_3(self):
         # ISO9660
@@ -58,8 +57,9 @@ class SchemaTestCase(unittest.TestCase):
     def test_check_format_devicefile_2(self):
         schema = openmediavault.datamodel.Schema({})
         schema._check_format(
-            "/dev/disk/by-id/wwn-0x5020c298d81c1c3a", {"format": "devicefile"},
-            "field1"
+            "/dev/disk/by-id/wwn-0x5020c298d81c1c3a",
+            {"format": "devicefile"},
+            "field1",
         )
 
     def test_check_format_dirpath_1(self):
@@ -77,10 +77,10 @@ class SchemaTestCase(unittest.TestCase):
     def test_check_format_dirpath_fail(self):
         schema = openmediavault.datamodel.Schema({})
         self.assertRaises(
-            openmediavault.json.SchemaValidationException, lambda: schema.
-            _check_format(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
                 "/media/a/../../b/c", {"format": "dirpath"}, "field1"
-            )
+            ),
         )
 
     def test_check_format_sharename(self):
@@ -91,7 +91,9 @@ class SchemaTestCase(unittest.TestCase):
         schema = openmediavault.datamodel.Schema({})
         self.assertRaises(
             openmediavault.json.SchemaValidationException,
-            lambda: schema._check_format(".foo", {"format": "sharename"}, "field1")
+            lambda: schema._check_format(
+                ".foo", {"format": "sharename"}, "field1"
+            ),
         )
 
     def test_check_format_domainname(self):
@@ -101,8 +103,10 @@ class SchemaTestCase(unittest.TestCase):
     def test_check_format_domainname_fail(self):
         schema = openmediavault.datamodel.Schema({})
         self.assertRaises(
-            openmediavault.json.SchemaValidationException, lambda: schema.
-            _check_format("te:t#com", {"format": "domainname"}, "field1")
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "te:t#com", {"format": "domainname"}, "field1"
+            ),
         )
 
 

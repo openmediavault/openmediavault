@@ -24,26 +24,19 @@ import openmediavault.collections
 
 class DotDictTestCase(unittest.TestCase):
     def _get_dict(self):
-        return openmediavault.collections.DotDict({
-            'x': 3,
-            'a': {
-                'b': {
-                    'c': 100
-                }
-            },
-            'k': ['u', 'i', 'o'],
-            'y': {
-                'z': [{
-                    'aa': '1',
-                    'bb': '2',
-                    'cc': '3'
-                }, {
-                    'aa': '11',
-                    'bb': '22',
-                    'cc': '33'
-                }]
+        return openmediavault.collections.DotDict(
+            {
+                'x': 3,
+                'a': {'b': {'c': 100}},
+                'k': ['u', 'i', 'o'],
+                'y': {
+                    'z': [
+                        {'aa': '1', 'bb': '2', 'cc': '3'},
+                        {'aa': '11', 'bb': '22', 'cc': '33'},
+                    ]
+                },
             }
-        })
+        )
 
     def test_1(self):
         d = self._get_dict()
@@ -111,24 +104,14 @@ class DotDictTestCase(unittest.TestCase):
         d = self._get_dict()
         d.y.z[0].dd = "dd"
         self.assertEqual(
-            d.y.z[0], {
-                'aa': '1',
-                'bb': '2',
-                'cc': '3',
-                'dd': 'dd'
-            }
+            d.y.z[0], {'aa': '1', 'bb': '2', 'cc': '3', 'dd': 'dd'}
         )
 
     def test_set_4(self):
         d = self._get_dict()
         d["y.z[0].dd"] = "dd"
         self.assertEqual(
-            d["y.z[0]"], {
-                'aa': '1',
-                'bb': '2',
-                'cc': '3',
-                'dd': 'dd'
-            }
+            d["y.z[0]"], {'aa': '1', 'bb': '2', 'cc': '3', 'dd': 'dd'}
         )
 
     def test_set_5(self):
@@ -138,11 +121,7 @@ class DotDictTestCase(unittest.TestCase):
         d["jobs.job.0.comment"] = ""
         d["jobs.job[0].enable"] = False
         self.assertEqual(
-            d["jobs.job"], [{
-                'acls': 0,
-                'comment': '',
-                'enable': False
-            }]
+            d["jobs.job"], [{'acls': 0, 'comment': '', 'enable': False}]
         )
 
     def test_set_6(self):
@@ -152,9 +131,7 @@ class DotDictTestCase(unittest.TestCase):
         d['modules.module[0]'] = {
             'enable': False,
             'readonly': True,
-            'users': {
-                'user': []
-            }
+            'users': {'user': []},
         }
         self.assertIsInstance(d['modules.module.0.users'], object)
         self.assertIsInstance(d.modules.module[0].users.user, list)
@@ -170,7 +147,8 @@ class DotDictTestCase(unittest.TestCase):
         d = self._get_dict()
         d_flat = openmediavault.collections.flatten(d)
         self.assertEqual(
-            d_flat, {
+            d_flat,
+            {
                 'x': 3,
                 'a.b.c': 100,
                 'k.0': 'u',
@@ -181,15 +159,16 @@ class DotDictTestCase(unittest.TestCase):
                 'y.z.0.cc': '3',
                 'y.z.1.aa': '11',
                 'y.z.1.bb': '22',
-                'y.z.1.cc': '33'
-            }
+                'y.z.1.cc': '33',
+            },
         )
 
     def test_dotcollapseddict(self):
         d = self._get_dict()
         d_flat = openmediavault.collections.DotCollapsedDict(d)
         self.assertEqual(
-            d_flat, {
+            d_flat,
+            {
                 'x': 3,
                 'a.b.c': 100,
                 'k[0]': 'u',
@@ -200,8 +179,8 @@ class DotDictTestCase(unittest.TestCase):
                 'y.z[0].cc': '3',
                 'y.z[1].aa': '11',
                 'y.z[1].bb': '22',
-                'y.z[1].cc': '33'
-            }
+                'y.z[1].cc': '33',
+            },
         )
 
 

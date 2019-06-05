@@ -36,9 +36,11 @@ class Monit:
 
     def _exec(self, action, quiet):
         try:
-            openmediavault.subprocess.check_call(['monit', action, self.name],
-                                                 stdout=subprocess.PIPE,
-                                                 stderr=subprocess.PIPE)
+            openmediavault.subprocess.check_call(
+                ['monit', action, self.name],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+            )
         except subprocess.CalledProcessError as e:
             if not quiet:
                 raise e
@@ -92,9 +94,9 @@ class Monit:
         """
         Get the status of a monitored process.
         """
-        output = openmediavault.subprocess.check_output([
-            'monit', '-B', 'summary'
-        ])
+        output = openmediavault.subprocess.check_output(
+            ['monit', '-B', 'summary']
+        )
         # Parse the command output.
         # Example:
         # Monit 5.20.0 uptime: 6m
@@ -110,7 +112,7 @@ class Monit:
             m = re.match(
                 r'^(\S+)\s+(.+)\s+Process$',
                 line.decode().strip(),
-                flags=re.IGNORECASE
+                flags=re.IGNORECASE,
             )
             if not m:
                 continue

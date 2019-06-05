@@ -85,8 +85,7 @@ class Object:
             )
         if "uuid" != self.model.idproperty.lower():
             raise Exception(
-                "The configuration object identifier must be "
-                "of type UUID."
+                "The configuration object identifier must be " "of type UUID."
             )
         new_id = str(uuid.uuid4())
         self.set(self.model.idproperty, new_id)
@@ -111,7 +110,9 @@ class Object:
                   as openmediavault.collections.DotDict dictionary.
         """
 
-        def callback(model, name, path, schema, user_data):  # pylint: disable=unused-argument
+        def callback(
+            model, name, path, schema, user_data
+        ):  # pylint: disable=unused-argument
             # Abort immediatelly if the path is empty.
             if not path:
                 return None
@@ -148,8 +149,8 @@ class Object:
         """
         if not self.exists(name):
             raise openmediavault.exceptions.AssertException(
-                "The property '%s' does not exist in the model '%s'." %
-                (name, self.model.id)
+                "The property '%s' does not exist in the model '%s'."
+                % (name, self.model.id)
             )
 
     def get(self, name):

@@ -34,7 +34,7 @@ class Module(openmediavault.firstaid.IModule):
         print("Checking configuration status file. Please wait ...")
         path = openmediavault.getenv(
             "OMV_ENGINED_DIRTY_MODULES_FILE",
-            "/var/lib/openmediavault/dirtymodules.json"
+            "/var/lib/openmediavault/dirtymodules.json",
         )
         if not os.path.exists(path):
             print("No configuration changes file found.")

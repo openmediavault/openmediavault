@@ -25,13 +25,15 @@ import openmediavault.subprocess
 class Plugin(openmediavault.mkrrdgraph.IPlugin):
     def create_graph(self, config):
         # http://paletton.com/#uid=33r0-0kwi++bu++hX++++rd++kX
-        config.update({
-            'title_uptime': 'System uptime',
-            'color_uptime_current': '#f17742',  # orange
-            'color_uptime_max': '#ff1300',  # red
-            'color_uptime_min': '#ffdb70',  # yellow
-            'color_uptime_avg': '#76d6ff'  # blue
-        })
+        config.update(
+            {
+                'title_uptime': 'System uptime',
+                'color_uptime_current': '#f17742',  # orange
+                'color_uptime_max': '#ff1300',  # red
+                'color_uptime_min': '#ffdb70',  # yellow
+                'color_uptime_avg': '#76d6ff',  # blue
+            }
+        )
         args = []
         # yapf: disable
         # pylint: disable=line-too-long

@@ -29,7 +29,7 @@ def _log(priority, msg, args, verbose=True):
         syslog.LOG_INFO: "INFO",
         syslog.LOG_WARNING: "WARNING",
         syslog.LOG_ERR: "ERROR",
-        syslog.LOG_DEBUG: "DEBUG"
+        syslog.LOG_DEBUG: "DEBUG",
     }
     msg = msg % args if args else msg
     if verbose:

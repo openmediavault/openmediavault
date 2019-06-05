@@ -76,11 +76,9 @@ class BlockDeviceTestCase(unittest.TestCase):
     @mock.patch('pyudev.Devices.from_device_file')
     def test_get_udev_properties(self, mock_from_device_file):
         device = MockedPyUdevDevice()
-        device.set_properties({
-            'DEVTYPE': 'disk',
-            'ID_ATA': '1',
-            'ID_ATA_FEATURE_SET_HPA': '1'
-        })
+        device.set_properties(
+            {'DEVTYPE': 'disk', 'ID_ATA': '1', 'ID_ATA_FEATURE_SET_HPA': '1'}
+        )
         mock_from_device_file.return_value = device
         bd = openmediavault.device.BlockDevice('/dev/sda')
         self.assertIsInstance(bd.get_udev_properties(), dict)
@@ -104,10 +102,9 @@ class BlockDeviceTestCase(unittest.TestCase):
     @mock.patch('pyudev.Devices.from_device_file')
     def test_get_udev_property(self, mock_from_device_file):
         device = MockedPyUdevDevice()
-        device.set_properties({
-            'DEVTYPE': 'disk',
-            'ID_ATA_FEATURE_SET_HPA': '1'
-        })
+        device.set_properties(
+            {'DEVTYPE': 'disk', 'ID_ATA_FEATURE_SET_HPA': '1'}
+        )
         mock_from_device_file.return_value = device
         bd = openmediavault.device.BlockDevice('/dev/sda')
         self.assertEqual(bd.get_udev_property('DEVTYPE'), 'disk')
@@ -126,9 +123,7 @@ class BlockDeviceTestCase(unittest.TestCase):
         device.set_properties({'DEVTYPE': 'disk'})
         mock_from_device_file.return_value = device
         bd = openmediavault.device.BlockDevice('/dev/sda')
-        self.assertRaises(
-            KeyError, lambda: bd.get_udev_property('ID_FS_LABEL')
-        )
+        self.assertRaises(KeyError, lambda: bd.get_udev_property('ID_FS_LABEL'))
 
     @mock.patch('pyudev.Devices.from_device_file')
     def test_get_udev_property_exception_2(self, mock_from_device_file):
@@ -136,7 +131,7 @@ class BlockDeviceTestCase(unittest.TestCase):
         bd = openmediavault.device.BlockDevice('/dev/vda')
         self.assertRaises(
             pyudev.DeviceNotFoundByFileError,
-            lambda: bd.get_udev_property('ID_FS_LABEL')
+            lambda: bd.get_udev_property('ID_FS_LABEL'),
         )
 
     @mock.patch('pyudev.Devices.from_device_file')

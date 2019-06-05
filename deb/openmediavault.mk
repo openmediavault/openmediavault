@@ -63,7 +63,7 @@ omv_build_doc: debian/doxygen.conf
 	doxygen $<
 
 omv_beautify_py:
-	yapf --in-place --recursive --parallel .
+	black --target-version py37 --line-length 80 --skip-string-normalization .
 
 omv_lint_py:
 	find $(CURDIR) \( -iname *.py \) -type f -print0 | xargs -0r \

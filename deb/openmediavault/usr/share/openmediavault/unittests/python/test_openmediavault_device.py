@@ -54,9 +54,7 @@ class DeviceTestCase(unittest.TestCase):
         )
 
     def test_is_device_file_by_id(self):
-        self.assertFalse(
-            openmediavault.device.is_device_file_by_id('/dev/sda')
-        )
+        self.assertFalse(openmediavault.device.is_device_file_by_id('/dev/sda'))
         self.assertTrue(
             openmediavault.device.is_device_file_by_id(
                 '/dev/disk/by-id/wwn-0x4002c554a4d79cb9-part2'
@@ -68,8 +66,9 @@ class DeviceTestCase(unittest.TestCase):
             openmediavault.device.is_device_file_by_label('/dev/sda')
         )
         self.assertTrue(
-            openmediavault.device.
-            is_device_file_by_label('/dev/disk/by-label/data')
+            openmediavault.device.is_device_file_by_label(
+                '/dev/disk/by-label/data'
+            )
         )
 
     def test_is_device_file_by_path(self):
@@ -77,8 +76,9 @@ class DeviceTestCase(unittest.TestCase):
             openmediavault.device.is_device_file_by_path('/dev/sda')
         )
         self.assertTrue(
-            openmediavault.device.
-            is_device_file_by_path('/dev/disk/by-path/pci-0000:00:17.0-ata-3')
+            openmediavault.device.is_device_file_by_path(
+                '/dev/disk/by-path/pci-0000:00:17.0-ata-3'
+            )
         )
 
 

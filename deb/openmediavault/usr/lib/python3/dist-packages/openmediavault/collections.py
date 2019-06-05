@@ -129,9 +129,9 @@ class DotDict(dict):
                 branch.extend(DotDict() for _ in range(size, index + 1))
             # Populate the list at the given index.
             if rest is None:
-                branch[index] = DotDict(value) if isinstance(
-                    value, dict
-                ) else value
+                branch[index] = (
+                    DotDict(value) if isinstance(value, dict) else value
+                )
             else:
                 if not isinstance(branch[index], DotDict):
                     raise TypeError("Expected dictionary.")
@@ -154,9 +154,9 @@ class DotDict(dict):
                     branch.extend(DotDict() for _ in range(size, index + 1))
                 # Populate the list at the given index.
                 if rest is None:
-                    branch[index] = DotDict(value) if isinstance(
-                        value, dict
-                    ) else value
+                    branch[index] = (
+                        DotDict(value) if isinstance(value, dict) else value
+                    )
                     return
                 if not isinstance(branch[index], DotDict):
                     raise TypeError("Expected dictionary.")

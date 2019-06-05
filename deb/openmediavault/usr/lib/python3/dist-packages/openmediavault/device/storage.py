@@ -125,6 +125,6 @@ class StorageDevice(BlockDevice):
         """
         Wipe the storage device.
         """
-        _ = openmediavault.subprocess.check_output([
-            'sgdisk', '--zap-all', self.device_file
-        ])
+        _ = openmediavault.subprocess.check_output(
+            ['sgdisk', '--zap-all', self.device_file]
+        )

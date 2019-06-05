@@ -39,18 +39,17 @@ class Command(
         # Parse the command line arguments.
         parser = argparse.ArgumentParser(
             prog="%s %s" % (os.path.basename(args[0]), args[1]),
-            description=self.description
+            description=self.description,
         )
         parser.add_argument(
             "id",
             type=self.argparse_is_datamodel_id,
-            help="The data model ID, e.g. 'conf.service.ssh'"
+            help="The data model ID, e.g. 'conf.service.ssh'",
         )
         cmd_args = parser.parse_args(args[2:])
         # Find the script.
         create_dir = openmediavault.getenv(
-            "OMV_CONFDB_CREATE_DIR",
-            "/usr/share/openmediavault/confdb/create.d"
+            "OMV_CONFDB_CREATE_DIR", "/usr/share/openmediavault/confdb/create.d"
         )
         script_name = ""
         for name in os.listdir(create_dir):
@@ -78,8 +77,7 @@ class Command(
         except Exception as e:
             # Display the exception message.
             openmediavault.log.error(
-                "Failed to create the default "
-                "configuration: %s" % str(e)
+                "Failed to create the default " "configuration: %s" % str(e)
             )
             # Rollback all changes.
             self.rollback_changes()

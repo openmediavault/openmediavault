@@ -25,16 +25,18 @@ import openmediavault.fs
 class FsTestCase(unittest.TestCase):
     def test_make_mount_path_1(self):
         self.assertEqual(
-            openmediavault.fs.
-            make_mount_path('9d60bdbb-6946-4b56-b677-a7fb77e7ff4f'),
-            '/srv/9d60bdbb-6946-4b56-b677-a7fb77e7ff4f/'
+            openmediavault.fs.make_mount_path(
+                '9d60bdbb-6946-4b56-b677-a7fb77e7ff4f'
+            ),
+            '/srv/9d60bdbb-6946-4b56-b677-a7fb77e7ff4f/',
         )
 
     def test_make_mount_path_1(self):
         self.assertEqual(
             openmediavault.fs.make_mount_path(
                 '/dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038'
-            ), '/srv/_dev_disk_by-id_scsi-SATA_IBM-DHEA-36481_SG0SGF08038/'
+            ),
+            '/srv/_dev_disk_by-id_scsi-SATA_IBM-DHEA-36481_SG0SGF08038/',
         )
 
 

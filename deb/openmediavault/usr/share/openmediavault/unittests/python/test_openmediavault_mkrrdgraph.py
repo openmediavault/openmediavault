@@ -56,8 +56,12 @@ class MkRrdGraphTestCase(unittest.TestCase):
         # with for "line in file".
         # https://bugs.python.org/issue32933
         mock_open.return_value.__iter__.return_value = [
-            "LoadPlugin interface", "<Plugin interface>", "  Interface 'ens6'",
-            "  Interface \"ens7\"", "  IgnoreSelected false", "</Plugin>"
+            "LoadPlugin interface",
+            "<Plugin interface>",
+            "  Interface 'ens6'",
+            "  Interface \"ens7\"",
+            "  IgnoreSelected false",
+            "</Plugin>",
         ]
         openmediavault.setenv("OMV_COLLECTD_CONFIG_DIR", "/x/y/z")
         result = openmediavault.mkrrdgraph.load_collectd_config(

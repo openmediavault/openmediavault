@@ -44,9 +44,9 @@ class StorageDeviceTestCase(unittest.TestCase):
 
     @mock.patch('pyudev.Devices.from_device_file')
     def test_get_model_1(self, mock_from_device_file):
-        mock_from_device_file.return_value = MockedPyUdevDevice({
-            'ID_MODEL_ENC': 'Foo\\x20Bar'
-        })
+        mock_from_device_file.return_value = MockedPyUdevDevice(
+            {'ID_MODEL_ENC': 'Foo\\x20Bar'}
+        )
         sd = openmediavault.device.StorageDevice('/dev/sdx')
         self.assertIsInstance(sd.get_model(), str)
         self.assertEqual(sd.get_model(), 'Foo Bar')
@@ -60,9 +60,9 @@ class StorageDeviceTestCase(unittest.TestCase):
 
     @mock.patch('pyudev.Devices.from_device_file')
     def test_get_vendor_1(self, mock_from_device_file):
-        mock_from_device_file.return_value = MockedPyUdevDevice({
-            'ID_VENDOR_ENC': 'Foo\\x20Bar\\x20\\x20'
-        })
+        mock_from_device_file.return_value = MockedPyUdevDevice(
+            {'ID_VENDOR_ENC': 'Foo\\x20Bar\\x20\\x20'}
+        )
         sd = openmediavault.device.StorageDevice('/dev/sdx')
         self.assertIsInstance(sd.get_vendor(), str)
         self.assertEqual(sd.get_vendor(), 'Foo Bar  ')
@@ -76,9 +76,9 @@ class StorageDeviceTestCase(unittest.TestCase):
 
     @mock.patch('pyudev.Devices.from_device_file')
     def test_get_serial_1(self, mock_from_device_file):
-        mock_from_device_file.return_value = MockedPyUdevDevice({
-            'ID_SERIAL_SHORT': 'Foo_Bar'
-        })
+        mock_from_device_file.return_value = MockedPyUdevDevice(
+            {'ID_SERIAL_SHORT': 'Foo_Bar'}
+        )
         sd = openmediavault.device.StorageDevice('/dev/sdx')
         self.assertIsInstance(sd.get_serial(), str)
         self.assertEqual(sd.get_serial(), 'Foo Bar')
@@ -100,17 +100,13 @@ class StorageDeviceTestCase(unittest.TestCase):
     @mock.patch('builtins.open', new=f_open)
     @mock.patch('os.path.exists', new=f_os.path.exists)
     def test_is_removable_2(self):
-        self.fs.create_file(
-            '/sys/block/sdx/removable', contents='''FooBar\n'''
-        )
+        self.fs.create_file('/sys/block/sdx/removable', contents='''FooBar\n''')
         sd = openmediavault.device.StorageDevice('/dev/sdx')
         self.assertFalse(sd.is_removable())
 
     @mock.patch('pyudev.Devices.from_device_file')
     def test_is_rotational_1(self, mock_from_device_file):
-        mock_from_device_file.return_value = MockedPyUdevDevice({
-            'ID_SSD': '0'
-        })
+        mock_from_device_file.return_value = MockedPyUdevDevice({'ID_SSD': '0'})
         sd = openmediavault.device.StorageDevice('/dev/sdx')
         is_rotational = sd.is_rotational()
         self.assertIsInstance(is_rotational, bool)
@@ -118,41 +114,39 @@ class StorageDeviceTestCase(unittest.TestCase):
 
     @mock.patch('pyudev.Devices.from_device_file')
     def test_is_rotational_2(self, mock_from_device_file):
-        mock_from_device_file.return_value = MockedPyUdevDevice({
-            'ID_SSD': '1'
-        })
+        mock_from_device_file.return_value = MockedPyUdevDevice({'ID_SSD': '1'})
         sd = openmediavault.device.StorageDevice('/dev/sdx')
         self.assertFalse(sd.is_rotational())
 
     @mock.patch('pyudev.Devices.from_device_file')
     def test_is_rotational_3(self, mock_from_device_file):
-        mock_from_device_file.return_value = MockedPyUdevDevice({
-            'ID_ATA_ROTATION_RATE_RPM': '0'
-        })
+        mock_from_device_file.return_value = MockedPyUdevDevice(
+            {'ID_ATA_ROTATION_RATE_RPM': '0'}
+        )
         sd = openmediavault.device.StorageDevice('/dev/sdx')
         self.assertFalse(sd.is_rotational())
 
     @mock.patch('pyudev.Devices.from_device_file')
     def test_is_rotational_4(self, mock_from_device_file):
-        mock_from_device_file.return_value = MockedPyUdevDevice({
-            'ID_ATA_ROTATION_RATE_RPM': '1000'
-        })
+        mock_from_device_file.return_value = MockedPyUdevDevice(
+            {'ID_ATA_ROTATION_RATE_RPM': '1000'}
+        )
         sd = openmediavault.device.StorageDevice('/dev/sdx')
         self.assertTrue(sd.is_rotational())
 
     @mock.patch('pyudev.Devices.from_device_file')
     def test_is_rotational_5(self, mock_from_device_file):
-        mock_from_device_file.return_value = MockedPyUdevDevice({
-            'ID_ATA_FEATURE_SET_AAM': '0'
-        })
+        mock_from_device_file.return_value = MockedPyUdevDevice(
+            {'ID_ATA_FEATURE_SET_AAM': '0'}
+        )
         sd = openmediavault.device.StorageDevice('/dev/sdx')
         self.assertFalse(sd.is_rotational())
 
     @mock.patch('pyudev.Devices.from_device_file')
     def test_is_rotational_6(self, mock_from_device_file):
-        mock_from_device_file.return_value = MockedPyUdevDevice({
-            'ID_ATA_FEATURE_SET_AAM': '1'
-        })
+        mock_from_device_file.return_value = MockedPyUdevDevice(
+            {'ID_ATA_FEATURE_SET_AAM': '1'}
+        )
         sd = openmediavault.device.StorageDevice('/dev/sdx')
         self.assertTrue(sd.is_rotational())
 
@@ -182,17 +176,17 @@ class StorageDeviceTestCase(unittest.TestCase):
 
     @mock.patch('pyudev.Devices.from_device_file')
     def test_is_rotational_9(self, mock_from_device_file):
-        mock_from_device_file.return_value = MockedPyUdevDevice({
-            'ID_MODEL_ENC': 'I\\x20am\\x20a\\x20SSD'
-        })
+        mock_from_device_file.return_value = MockedPyUdevDevice(
+            {'ID_MODEL_ENC': 'I\\x20am\\x20a\\x20SSD'}
+        )
         sd = openmediavault.device.StorageDevice('/dev/sdx')
         self.assertFalse(sd.is_rotational())
 
     @mock.patch('pyudev.Devices.from_device_file')
     def test_is_rotational_10(self, mock_from_device_file):
-        mock_from_device_file.return_value = MockedPyUdevDevice({
-            'ID_MODEL_ENC': 'Foo\\x20Bar'
-        })
+        mock_from_device_file.return_value = MockedPyUdevDevice(
+            {'ID_MODEL_ENC': 'Foo\\x20Bar'}
+        )
         sd = openmediavault.device.StorageDevice('/dev/sdx')
         self.assertTrue(sd.is_rotational())
 

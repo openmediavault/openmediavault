@@ -34,9 +34,9 @@ class SubprocessTestCase(unittest.TestCase):
 
     def test_popen(self):
         with mock.patch("subprocess.Popen.__init__") as mock_call:
-            p = openmediavault.subprocess.Popen(["cat", "/proc/uptime"],
-                                                stdout=subprocess.PIPE,
-                                                shell=False)
+            p = openmediavault.subprocess.Popen(
+                ["cat", "/proc/uptime"], stdout=subprocess.PIPE, shell=False
+            )
             self._validate_call_args(mock_call.call_args_list[0])
 
     def test_call(self):

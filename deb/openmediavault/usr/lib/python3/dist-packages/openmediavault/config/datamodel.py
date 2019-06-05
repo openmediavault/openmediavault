@@ -77,66 +77,38 @@ class Datamodel(openmediavault.datamodel.Datamodel):
         :param model: The data model as JSON object or string.
         :returns: None.
         """
-        schema = openmediavault.json.Schema({
-            "type": "object",
-            "properties": {
-                "type": {
-                    "type": "string",
-                    "enum": ["config"],
-                    "required": True
-                },
-                "id": {
-                    "type": "string",
-                    "required": True
-                },
-                "alias": {
-                    "type": "string",
-                    "required": False
-                },
-                "persistent": {
-                    "type": "boolean",
-                    "required": False
-                },
-                "title": {
-                    "type": "string",
-                    "required": False
-                },
-                "description": {
-                    "type": "string",
-                    "required": False
-                },
-                "notificationid": {
-                    "type": "string",
-                    "required": False
-                },
+        schema = openmediavault.json.Schema(
+            {
+                "type": "object",
                 "properties": {
-                    "type": "any",
-                    "required": True
+                    "type": {
+                        "type": "string",
+                        "enum": ["config"],
+                        "required": True,
+                    },
+                    "id": {"type": "string", "required": True},
+                    "alias": {"type": "string", "required": False},
+                    "persistent": {"type": "boolean", "required": False},
+                    "title": {"type": "string", "required": False},
+                    "description": {"type": "string", "required": False},
+                    "notificationid": {"type": "string", "required": False},
+                    "properties": {"type": "any", "required": True},
+                    "queryinfo": {
+                        "type": "object",
+                        "required": False,
+                        "properties": {
+                            "xpath": {"type": "string", "required": True},
+                            "iterable": {"type": "boolean", "required": True},
+                            "idproperty": {"type": "string", "required": False},
+                            "refproperty": {
+                                "type": "string",
+                                "required": False,
+                            },
+                        },
+                    },
                 },
-                "queryinfo": {
-                    "type": "object",
-                    "required": False,
-                    "properties": {
-                        "xpath": {
-                            "type": "string",
-                            "required": True
-                        },
-                        "iterable": {
-                            "type": "boolean",
-                            "required": True
-                        },
-                        "idproperty": {
-                            "type": "string",
-                            "required": False
-                        },
-                        "refproperty": {
-                            "type": "string",
-                            "required": False
-                        }
-                    }
-                }
             }
-        })
+        )
         try:
             schema.validate(model)
         except openmediavault.json.SchemaValidationException as e:
@@ -182,10 +154,9 @@ class Datamodel(openmediavault.datamodel.Datamodel):
                   as openmediavault.datamodel.Schema object.
         """
         # Build a valid JSON schema.
-        schema = openmediavault.datamodel.Schema({
-            "type": "object",
-            "properties": self.model['properties']
-        })
+        schema = openmediavault.datamodel.Schema(
+            {"type": "object", "properties": self.model['properties']}
+        )
         return schema
 
     @property
@@ -266,9 +237,8 @@ class Datamodel(openmediavault.datamodel.Datamodel):
                                 "OMV_CONFIGOBJECT_NEW_UUID"
                             )
 
-
-#			elif type in [ "any", "null", "float" ]:
-#				result = None
+            # 			elif type in [ "any", "null", "float" ]:
+            # 				result = None
             else:
                 result = None
         return result

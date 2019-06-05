@@ -57,12 +57,12 @@ class Command(
         # Parse the command line arguments.
         parser = argparse.ArgumentParser(
             prog="%s %s" % (os.path.basename(args[0]), args[1]),
-            description=self.description
+            description=self.description,
         )
         parser.add_argument(
             "id",
             type=self.argparse_is_datamodel_id,
-            help="The data model ID, e.g. 'conf.service.ssh'"
+            help="The data model ID, e.g. 'conf.service.ssh'",
         )
         parser.add_argument("version", type=self.argparse_is_version)
         cmd_args = parser.parse_args(args[2:])
@@ -70,7 +70,7 @@ class Command(
         migrations = {}
         migrations_dir = openmediavault.getenv(
             "OMV_CONFDB_MIGRATIONS_DIR",
-            "/usr/share/openmediavault/confdb/migrations.d"
+            "/usr/share/openmediavault/confdb/migrations.d",
         )
         # Collect the migrations to be executed.
         for name in os.listdir(migrations_dir):

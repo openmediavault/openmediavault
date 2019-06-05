@@ -66,26 +66,27 @@ class StringTestCase(unittest.TestCase):
     def test_escape_blank(self):
         self.assertEqual(
             openmediavault.string.escape_blank('foo bar  xyz'),
-            'foo\\x20bar\\x20\\x20xyz'
+            'foo\\x20bar\\x20\\x20xyz',
         )
 
     def test_escape_blank_octal(self):
         self.assertEqual(
             openmediavault.string.escape_blank('foo bar  xyz', True),
-            'foo\\040bar\\040\\040xyz'
+            'foo\\040bar\\040\\040xyz',
         )
 
     def test_unescape_blank(self):
         self.assertEqual(
             openmediavault.string.unescape_blank('foo\\x20bar\\x20\\x20xyz'),
-            'foo bar  xyz'
+            'foo bar  xyz',
         )
 
     def test_unescape_blank_octal(self):
         self.assertEqual(
             openmediavault.string.unescape_blank(
                 'foo\\040bar\\040\\040xyz', True
-            ), 'foo bar  xyz'
+            ),
+            'foo bar  xyz',
         )
 
     def test_binary_format_1(self):
@@ -110,9 +111,7 @@ class StringTestCase(unittest.TestCase):
         self.assertEqual(result['unit'], 'KiB')
 
     def test_binary_format_5(self):
-        result = openmediavault.string.binary_format(
-            1073741824, max_unit='MiB'
-        )
+        result = openmediavault.string.binary_format(1073741824, max_unit='MiB')
         self.assertIsInstance(result, str)
         self.assertEqual(result, '1024.00 MiB')
 

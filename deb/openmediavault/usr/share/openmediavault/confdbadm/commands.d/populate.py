@@ -34,7 +34,7 @@ class Command(openmediavault.confdbadm.ICommand):
         # Execute all scripts located in the directory.
         scripts_dir = openmediavault.getenv(
             "OMV_CONFDB_POPULATE_DIR",
-            "/usr/share/openmediavault/confdb/populate.d"
+            "/usr/share/openmediavault/confdb/populate.d",
         )
         for script_name in os.listdir(scripts_dir):
             if script_name in ['README.md']:

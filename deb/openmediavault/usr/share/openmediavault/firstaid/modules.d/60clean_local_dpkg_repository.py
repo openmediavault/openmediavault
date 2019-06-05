@@ -32,8 +32,10 @@ class Module(openmediavault.firstaid.IModule):
         return "Clear local upload package repository"
 
     def execute(self):
-        print("Clear out the local repository of uploaded package " \
-            "files. Please wait ...")
+        print(
+            "Clear out the local repository of uploaded package "
+            "files. Please wait ..."
+        )
         path = openmediavault.getenv(
             "OMV_DPKGARCHIVE_DIR", "/var/cache/openmediavault/archives"
         )
@@ -41,7 +43,7 @@ class Module(openmediavault.firstaid.IModule):
             os.remove(f)
         openmediavault.subprocess.check_call(
             "cd {} && apt-ftparchive packages . > Packages".format(path),
-            shell=True
+            shell=True,
         )
         openmediavault.subprocess.check_call(["apt-get", "update"])
         return 0

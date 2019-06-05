@@ -55,15 +55,14 @@ def call(service, method, params=None):
         s.connect(address)
     except socket.error as e:
         raise RuntimeError("Failed to connect {}: {}".format(address, e))
-    request = json.dumps({
-        "service": service,
-        "method": method,
-        "params": params,
-        "context": {
-            "username": "admin",
-            "role": 0x1
+    request = json.dumps(
+        {
+            "service": service,
+            "method": method,
+            "params": params,
+            "context": {"username": "admin", "role": 0x1},
         }
-    })
+    )
     request = request + "\0"
     s.sendall(request.encode())
     chunks = []

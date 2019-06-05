@@ -19,10 +19,17 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 __all__ = [
-    "Database", "DatabaseException", "DatabaseQueryException",
-    "DatabaseQueryNotFoundException", "DatabaseFilter", "DatabaseGetQuery",
-    "DatabaseGetByFilterQuery", "DatabaseSetQuery", "DatabaseDeleteQuery",
-    "DatabaseDeleteByFilterQuery", "DatabaseIsReferencedQuery"
+    "Database",
+    "DatabaseException",
+    "DatabaseQueryException",
+    "DatabaseQueryNotFoundException",
+    "DatabaseFilter",
+    "DatabaseGetQuery",
+    "DatabaseGetByFilterQuery",
+    "DatabaseSetQuery",
+    "DatabaseDeleteQuery",
+    "DatabaseDeleteByFilterQuery",
+    "DatabaseIsReferencedQuery",
 ]
 
 import abc
@@ -121,15 +128,13 @@ class Database:
             if len(query.response) < kwargs.get("min_result"):
                 raise DatabaseException(
                     "The query does not return the "
-                    "minimum number of %d object(s)." %
-                    kwargs.get("min_result")
+                    "minimum number of %d object(s)." % kwargs.get("min_result")
                 )
         if "max_result" in kwargs:
             if len(query.response) > kwargs.get("max_result"):
                 raise DatabaseException(
                     "The query returns more than the "
-                    "maximum number of %d object(s)." %
-                    kwargs.get("max_result")
+                    "maximum number of %d object(s)." % kwargs.get("max_result")
                 )
         return query.response
 
@@ -185,11 +190,13 @@ class Database:
         assert isinstance(obj, openmediavault.config.Object)
         return self.is_unique_by_filter(
             obj,
-            DatabaseFilter({
-                'operator': 'stringEquals',
-                'arg0': property,
-                'arg1': obj.get(property)
-            })
+            DatabaseFilter(
+                {
+                    'operator': 'stringEquals',
+                    'arg0': property,
+                    'arg1': obj.get(property),
+                }
+            ),
         )
 
     def is_unique_by_filter(self, obj, filter):
@@ -216,15 +223,17 @@ class Database:
         # If the object is iterable and not new, then we need to modify the
         # filter to do not find the configuration object itself.
         if not obj.is_new and obj.model.is_iterable:
-            filter = DatabaseFilter({
-                'operator': 'and',
-                'arg0': {
-                    'operator': 'stringNotEquals',
-                    'arg0': obj.model.idproperty,
-                    'arg1': obj.get(obj.model.idproperty)
-                },
-                'arg1': filter
-            })
+            filter = DatabaseFilter(
+                {
+                    'operator': 'and',
+                    'arg0': {
+                        'operator': 'stringNotEquals',
+                        'arg0': obj.model.idproperty,
+                        'arg1': obj.get(obj.model.idproperty),
+                    },
+                    'arg1': filter,
+                }
+            )
         query = openmediavault.config.DatabaseGetByFilterQuery(
             obj.model.id, filter
         )
@@ -342,7 +351,9 @@ class DatabaseQuery(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
         as lists and dicts.
         """
 
-        def callback(model, name, path, schema, user_data):  # pylint: disable=unused-argument
+        def callback(
+            model, name, path, schema, user_data
+        ):  # pylint: disable=unused-argument
             if "array" == schema['type'] and name:
                 user_data['lists'].append(name)
             if "object" == schema['type'] and name:
@@ -373,7 +384,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
                     self._root_element,
                     pretty_print=True,
                     xml_declaration=True,
-                    encoding="UTF-8"
+                    encoding="UTF-8",
                 )
             )
             fcntl.flock(f, fcntl.LOCK_UN)
@@ -600,7 +611,7 @@ class DatabaseQuery(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
             result = "(%s %s %s)" % (
                 self._build_predicate(DatabaseFilter(filter['arg0'])),
                 filter['operator'],
-                self._build_predicate(DatabaseFilter(filter['arg1']))
+                self._build_predicate(DatabaseFilter(filter['arg1'])),
             )
         elif filter['operator'] in ['=', 'equals']:
             result = "%s=%s" % (filter['arg0'], filter['arg1'])
@@ -661,7 +672,7 @@ class DatabaseGetByFilterQuery(DatabaseQuery):
         if self.filter:
             return "%s[%s]" % (
                 self.model.queryinfo['xpath'],
-                self._build_predicate(self.filter)
+                self._build_predicate(self.filter),
             )
         return self.model.queryinfo['xpath']
 
@@ -684,11 +695,13 @@ class DatabaseGetQuery(DatabaseQuery):
         if self.model.is_iterable and self.identifier:
             return DatabaseGetByFilterQuery(
                 self.model.id,
-                DatabaseFilter({
-                    'operator': 'stringEquals',
-                    'arg0': self.model.idproperty,
-                    'arg1': self.identifier
-                })
+                DatabaseFilter(
+                    {
+                        'operator': 'stringEquals',
+                        'arg0': self.model.idproperty,
+                        'arg1': self.identifier,
+                    }
+                ),
             ).xpath
         return self.model.queryinfo['xpath']
 
@@ -723,12 +736,14 @@ class DatabaseIsReferencedQuery(DatabaseQuery):
         return "//%s[%s]" % (
             self.model.refproperty,
             self._build_predicate(
-                DatabaseFilter({
-                    'operator': 'stringContains',
-                    'arg0': '.',
-                    'arg1': self.object.get(self.model.idproperty)
-                })
-            )
+                DatabaseFilter(
+                    {
+                        'operator': 'stringContains',
+                        'arg0': '.',
+                        'arg1': self.object.get(self.model.idproperty),
+                    }
+                )
+            ),
         )
 
     def execute(self):
@@ -752,11 +767,13 @@ class DatabaseSetQuery(DatabaseQuery):
             # Find and update the element with the specified identifier.
             return DatabaseGetByFilterQuery(
                 self.model.id,
-                DatabaseFilter({
-                    'operator': 'stringEquals',
-                    'arg0': self.model.idproperty,
-                    'arg1': self.object.get(self.model.idproperty)
-                })
+                DatabaseFilter(
+                    {
+                        'operator': 'stringEquals',
+                        'arg0': self.model.idproperty,
+                        'arg1': self.object.get(self.model.idproperty),
+                    }
+                ),
             ).xpath
 
         # Find all elements matching the XPath.
@@ -836,11 +853,13 @@ class DatabaseDeleteQuery(DatabaseQuery):
         if self.model.is_iterable:
             return DatabaseGetByFilterQuery(
                 self.model.id,
-                DatabaseFilter({
-                    'operator': 'stringEquals',
-                    'arg0': self.model.idproperty,
-                    'arg1': self.object.get(self.model.idproperty)
-                })
+                DatabaseFilter(
+                    {
+                        'operator': 'stringEquals',
+                        'arg0': self.model.idproperty,
+                        'arg1': self.object.get(self.model.idproperty),
+                    }
+                ),
             ).xpath
         return self.model.queryinfo['xpath']
 

@@ -24,58 +24,43 @@ import openmediavault.json.schema
 
 class SchemaTestCase(unittest.TestCase):
     def _get_schema(self):
-        return openmediavault.json.Schema({
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "required": True
-                },
-                "price": {
-                    "type": "number",
-                    "minimum": 35,
-                    "maximum": 40
-                },
-                "ntp": {
-                    "type": "object",
-                    "properties": {
-                        "enable": {
-                            "type": "boolean",
-                            "default": False
-                        },
-                        "timeservers": {
-                            "type": "string",
-                            "default": "pool.ntp.org"
-                        }
-                    }
-                },
-                "privilege": {
-                    "type": "array",
-                    "items": {
+        return openmediavault.json.Schema(
+            {
+                "type": "object",
+                "properties": {
+                    "name": {"type": "string", "required": True},
+                    "price": {"type": "number", "minimum": 35, "maximum": 40},
+                    "ntp": {
                         "type": "object",
                         "properties": {
-                            "type": {
+                            "enable": {"type": "boolean", "default": False},
+                            "timeservers": {
                                 "type": "string",
-                                "enum": ["user", "group"]
+                                "default": "pool.ntp.org",
                             },
-                            "name": {
-                                "type": "string"
+                        },
+                    },
+                    "privilege": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "type": {
+                                    "type": "string",
+                                    "enum": ["user", "group"],
+                                },
+                                "name": {"type": "string"},
+                                "perms": {"type": "integer", "enum": [0, 5, 7]},
                             },
-                            "perms": {
-                                "type": "integer",
-                                "enum": [0, 5, 7]
-                            }
-                        }
-                    }
+                        },
+                    },
+                    "slaves": {
+                        "type": "string",
+                        "pattern": "^(((eth|wlan)\\d+|(en|wl)\\S+),)*((eth|wlan)\\d+|(en|wl)\\S+)$",
+                    },
                 },
-                "slaves": {
-                    "type":
-                        "string",
-                    "pattern":
-                        "^(((eth|wlan)\\d+|(en|wl)\\S+),)*((eth|wlan)\\d+|(en|wl)\\S+)$"
-                }
             }
-        })
+        )
 
     def test_as_dict(self):
         schema = self._get_schema()
@@ -88,39 +73,43 @@ class SchemaTestCase(unittest.TestCase):
     def test_get_by_path_2(self):
         schema = self._get_schema()
         self.assertEqual(
-            schema.get_by_path("ntp.enable"), {
-                "type": "boolean",
-                "default": False
-            }
+            schema.get_by_path("ntp.enable"),
+            {"type": "boolean", "default": False},
         )
 
     def test_get_by_path_fail(self):
         schema = self._get_schema()
         self.assertRaises(
             openmediavault.json.SchemaPathException,
-            lambda: schema.get_by_path("a.b.c")
+            lambda: schema.get_by_path("a.b.c"),
         )
 
     def test_validate_fail(self):
         schema = self._get_schema()
-        self.assertRaises(openmediavault.json.SchemaValidationException,
-         lambda: schema.validate({ "price": 38 }))
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema.validate({"price": 38}),
+        )
 
     def test_validate_maximum_fail(self):
         schema = self._get_schema()
-        self.assertRaises(openmediavault.json.SchemaValidationException,
-         lambda: schema.validate({ "name": "Apple", "price": 41 }))
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema.validate({"name": "Apple", "price": 41}),
+        )
 
     def test_validate_minimum_fail(self):
         schema = self._get_schema()
-        self.assertRaises(openmediavault.json.SchemaValidationException,
-         lambda: schema.validate({ "name": "Eggs", "price": 34.99 }))
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema.validate({"name": "Eggs", "price": 34.99}),
+        )
 
     def test_check_format_unknown_fail(self):
         schema = openmediavault.json.Schema({})
         self.assertRaises(
             openmediavault.json.SchemaException,
-            lambda: schema._check_format("abc", {"format": "abc"}, "abc")
+            lambda: schema._check_format("abc", {"format": "abc"}, "abc"),
         )
 
     def test_check_format_regex(self):
@@ -139,24 +128,25 @@ class SchemaTestCase(unittest.TestCase):
 
     def test_check_format_hostname_fail(self):
         schema = openmediavault.json.Schema({})
-        self.assertRaises(openmediavault.json.SchemaValidationException,
-            lambda: schema._check_format("myvault.local",
-            { "format": "host-name" }, "field3"))
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "myvault.local", {"format": "host-name"}, "field3"
+            ),
+        )
 
     def test_check_one_of(self):
         schema = openmediavault.json.Schema({})
         schema._check_format(
-            "192.168.10.101", {
-                "type":
-                    "string",
-                "oneOf": [{
-                    "type": "string",
-                    "format": "ipv6"
-                }, {
-                    "type": "string",
-                    "format": "ipv4"
-                }]
-            }, "field3"
+            "192.168.10.101",
+            {
+                "type": "string",
+                "oneOf": [
+                    {"type": "string", "format": "ipv6"},
+                    {"type": "string", "format": "ipv4"},
+                ],
+            },
+            "field3",
         )
 
     def test_validate_pattern(self):
@@ -165,8 +155,10 @@ class SchemaTestCase(unittest.TestCase):
 
     def test_validate_pattern_fail(self):
         schema = self._get_schema()
-        self.assertRaises(openmediavault.json.SchemaValidationException,
-            lambda: schema.validate({ "name": "Eggs", "slaves": "xyz0" }))
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema.validate({"name": "Eggs", "slaves": "xyz0"}),
+        )
 
 
 if __name__ == "__main__":
