@@ -53,7 +53,7 @@ describe('Date', () => {
 
 	it('Should convert to unix timestamp', () => {
 		var dt = new Date('December 17, 1995 03:24:00');
-		expect(dt.toUnixTimestamp()).toEqual(819170640);
+		expect(dt.toUnixTimestamp()).toEqual(819167040);
 	});
 });
 
