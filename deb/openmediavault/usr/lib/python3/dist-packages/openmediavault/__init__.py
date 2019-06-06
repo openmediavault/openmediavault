@@ -47,12 +47,12 @@ def bool(value):  # pylint: disable=redefined-builtin
 def getenv(key, default=None, type="str"):  # pylint: disable=redefined-builtin
     """
     Get an environment variable, return None if it doesn't exist.
-    :param key:		The name of the variable.
+    :param key:     The name of the variable.
     :param default: The optional second argument can specify an alternate
-                                    default. Defaults to None.
-    :param type:	The type in which the result value is converted.
-                                    Defaults to 'str'.
-    :returns:		Returns the value of the requested environment variable.
+                    default. Defaults to None.
+    :param type:    The type in which the result value is converted.
+                    Defaults to 'str'.
+    :returns:       Returns the value of the requested environment variable.
     """
     value = openmediavault.settings.Environment.get_str(key, default)
     if "str" == type:
