@@ -3,6 +3,13 @@
 		"*.inc": "php"
 	},
 	"python.formatting.provider": "black",
+	"python.formatting.blackArgs": [
+		"--target-version", 
+		"py37", 
+		"--line-length", 
+		"80", 
+		"--skip-string-normalization"
+	],
 	"python.linting.pylintEnabled": true,
 	"python.linting.pylintArgs": [
 		"--rcfile",
