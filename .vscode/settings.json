@@ -1,0 +1,11 @@
+{
+	"files.associations": {
+		"*.inc": "php"
+	},
+	"python.formatting.provider": "black",
+	"python.linting.pylintEnabled": true,
+	"python.linting.pylintArgs": [
+		"--rcfile",
+		"${workspaceFolder}/.pylintrc"
+	]
+}
