@@ -3,6 +3,7 @@
 	"files.associations": {
 		"*.inc": "php"
 	},
+	"files.trimTrailingWhitespace": true,
 	"python.formatting.provider": "black",
 	"python.formatting.blackArgs": [
 		"--target-version",
