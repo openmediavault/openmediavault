@@ -52,19 +52,38 @@ class Filesystem(openmediavault.device.BlockDevice):
     _id = None
 
     def __init__(self, id_):
+        """
+        :param id_: The filesystem UUID or device file, e.g.
+
+        * 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
+        * 7A48-BA97 (FAT)
+        * 2ED43920D438EC29 (NTFS)
+        * /dev/sde1
+        * /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6-part1
+        * /dev/disk/by-label/DATA
+        * /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0-part2
+        * /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
+        * /dev/cciss/c0d0p2
+        * /dev/disk/by-id/md-name-vmpc01:data
+        * /dev/disk/by-id/md-uuid-75de9de9:6beca92e:8442575c:73eabbc9
+
+        :type id_: str
+        """
         self._id = id_
         super().__init__(None)
 
     @classmethod
     def from_mount_point(cls, path):
         """
-        Create a new filesystem for the specified mount point.
+        Create a new :class:`Filesystem` object for the specified mount
+        point.
         :param path: The mount point, e.g.
-            - /
-            - /srv/dev-disk-by-id-scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-1-part1
+
+        * /
+        * /srv/dev-disk-by-id-scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-1-part1
+
         :type path: str
-        :return: Return a :class:`Filesystem` object for the mount point
-            or ``None`` in case of an error.
+        :return: Return a :class:`Filesystem` object for the mount point.
         :rtype: :class:`Filesystem`
         :raises: :exc:`~exceptions.Exception`, if the given path is no
             mount point.
@@ -93,6 +112,13 @@ class Filesystem(openmediavault.device.BlockDevice):
 
     @property
     def uuid(self):
+        """
+        Get the UUID of the filesystem.
+        @see http://wiki.ubuntuusers.de/UUID
+        :return: Returns the UUID of the filesystem, otherwise throws
+            an exception.
+        :rtype: str
+        """
         if openmediavault.string.is_fs_uuid(self._id):
             return self._id
         return self.get_udev_property('ID_FS_UUID')
