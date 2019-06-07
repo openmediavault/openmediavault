@@ -1,18 +1,16 @@
 {
+	"editor.rulers": [80],
 	"files.associations": {
 		"*.inc": "php"
 	},
 	"python.formatting.provider": "black",
 	"python.formatting.blackArgs": [
-		"--target-version", 
-		"py37", 
-		"--line-length", 
-		"80", 
+		"--target-version",
+		"py37",
+		"--line-length",
+		"80",
 		"--skip-string-normalization"
 	],
 	"python.linting.pylintEnabled": true,
-	"python.linting.pylintArgs": [
-		"--rcfile",
-		"${workspaceFolder}/.pylintrc"
-	]
+	"python.linting.pylintArgs": ["--rcfile", "${workspaceFolder}/.pylintrc"]
 }
