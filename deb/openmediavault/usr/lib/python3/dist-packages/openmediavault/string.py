@@ -161,7 +161,7 @@ def binary_format(
     :param return_json: Return value and unit as JSON object.
         Defaults to ``False``.
     :return: The converted string value including the unit or dictionary
-        with the keys \em value and \em unit.
+        with the keys ``value`` and ``unit``.
     :rtype: str
     """
     units = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB']
@@ -199,7 +199,7 @@ def add_slashes(value):
     :type value: str
     :return: Returns a string with backslashes added before characters
         that need to be escaped. These characters are:
-        * backslash (\)
+        * backslash (\\)
         * single quote (')
         * double quote (")
     :rtype: str

@@ -20,7 +20,6 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 __all__ = ["bool", "getenv", "setenv"]
 
-import re
 import openmediavault.settings
 
 
