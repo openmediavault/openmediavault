@@ -51,7 +51,7 @@ server {
     listen {{ config.port }};
 {%- endif %}
 {%- if config.enablessl | to_bool and config.forcesslonly | to_bool %}
-      if (\$scheme = http) {
+      if ($scheme = http) {
           # Force redirection to HTTPS.
         return 301 https://$host:{{ config.sslport }}$request_uri;
       }
