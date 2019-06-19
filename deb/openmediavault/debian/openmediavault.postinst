@@ -25,6 +25,10 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 . /usr/share/debconf/confmodule
 
+OMV_CACHE_DIR=${OMV_CACHE_DIR:-"/var/cache/openmediavault"}
+OMV_WEBGUI_FILE_OWNERGROUP_NAME=${OMV_WEBGUI_FILE_OWNERGROUP_NAME:-"openmediavault-webgui"}
+OMV_DPKGARCHIVE_DIR=${OMV_DPKGARCHIVE_DIR:-"/var/cache/openmediavault/archives"}
+
 case "$1" in
 	configure)
 		########################################################################
@@ -81,15 +85,15 @@ case "$1" in
 			# Setup various file permissions.
 			####################################################################
 			# Allow the web interface to read/write cached files.
-			chmod 775 ${OMV_CACHE_DIR}
-			chown :${OMV_WEBGUI_FILE_OWNERGROUP_NAME} ${OMV_CACHE_DIR}
+			chmod 775 "${OMV_CACHE_DIR}"
+			chown ":${OMV_WEBGUI_FILE_OWNERGROUP_NAME}" "${OMV_CACHE_DIR}"
 
 			####################################################################
 			# Update the local plugin packages archive. The 'packages' command
 			# should be run in the root of the tree.
 			####################################################################
 			echo "Updating local package archive ..."
-			cd ${OMV_DPKGARCHIVE_DIR} && apt-ftparchive packages . > Packages
+			cd "${OMV_DPKGARCHIVE_DIR}" && apt-ftparchive packages . > Packages
 
 			####################################################################
 			# Setup all services.
