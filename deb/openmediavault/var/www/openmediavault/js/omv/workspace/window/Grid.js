@@ -116,6 +116,15 @@ Ext.define("OMV.workspace.window.Grid", {
 		return me.getGrid().getValues();
 	},
 
+	onLoad: function(id, success, response) {
+		var me = this;
+		me.callParent(arguments);
+		// Notify the store listeners, too.
+		var store = me.getGrid().getStore();
+		var records = store.getRange();
+		store.fireEvent("load", store, records, success);
+	},
+
 	/**
 	 * Method that is called when the 'Reset' button is pressed. Reject
 	 * all changes done in the grid.

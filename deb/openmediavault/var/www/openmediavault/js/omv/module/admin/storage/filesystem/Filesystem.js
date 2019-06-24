@@ -297,6 +297,19 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 					reader: {
 						type: "json"
 					}
+				},
+				listeners: {
+					scope: me,
+					load: function(store, records) {
+						// Records with client-side generated values for
+						// idProperty are called phantom records. These
+						// records need to be modified, otherwise the
+						// 'Reset' button feature will remove them from
+						// the store.
+						Ext.Array.each(records, function(record) {
+							record.phantom = false;
+						});
+					}
 				}
 			}),
 			listeners: {
