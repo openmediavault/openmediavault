@@ -4,6 +4,7 @@ openmediavault (5.0.3-1) unstable; urgency=low
   * Set correct HTTP status codes.
   * Issue #322: Process Device Mapper devices correctly in method
     openmediavault.fs.Filesystem::get_parent_device_file().
+  * Disable quota service if not used.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 19 May 2019 16:21:00 +0200
 
@@ -67,6 +68,7 @@ openmediavault (4.1.23-1) stable; urgency=low
     /etc/network/interfaces to be able to use already configured
     interfaces.
   * Do not write IPv6 /etc/hosts entries if IPv6 is disabled.
+  * Fix 'Reset' button issue in filesystem quota dialog.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 10 May 2019 22:51:53 +0200
 
