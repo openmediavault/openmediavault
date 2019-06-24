@@ -5,6 +5,7 @@ openmediavault (4.1.23-1) stable; urgency=low
     /etc/network/interfaces to be able to use already configured
     interfaces.
   * Do not write IPv6 /etc/hosts entries if IPv6 is disabled.
+  * Fix 'Reset' button issue in filesystem quota dialog.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 10 May 2019 22:51:53 +0200
 
