@@ -1,6 +1,8 @@
 openmediavault (4.1.23-1) stable; urgency=low
 
   * Issue #370: Remove weak RSA key lengths.
+  * Issue #394: Postfix will resolve SMTP server with IPv6 even if
+    IPv6 is disabled.
   * Append 'source-directory interfaces.d' to the end of the file
     /etc/network/interfaces to be able to use already configured
     interfaces.

@@ -77,4 +77,10 @@ xmlstarlet sel -t -m "//system/email" \
   -o "transport_maps = hash:${OMV_POSTFIX_MAIN_TRANSPORT_MAPS}" -n \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_MAIN_CONFIG}
 
+if ! omv_is_ipv6_enabled; then
+  cat <<EOF >> ${OMV_POSTFIX_MAIN_CONFIG}
+inet_protocols = ipv4
+EOF
+fi
+
 exit 0
