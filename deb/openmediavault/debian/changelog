@@ -63,14 +63,16 @@ openmediavault (5.0-1) unstable; urgency=low
 
 openmediavault (4.1.23-1) stable; urgency=low
 
-  * Issue #370: Remove weak RSA key lengths.
-  * Issue #394: Postfix will resolve SMTP server with IPv6 even if
-    IPv6 is disabled.
   * Append 'source-directory interfaces.d' to the end of the file
     /etc/network/interfaces to be able to use already configured
     interfaces.
   * Do not write IPv6 /etc/hosts entries if IPv6 is disabled.
-  * Fix 'Reset' button issue in filesystem quota dialog.
+  * Fix 'Reset' button issue in file system quota dialog.
+  * Purge quota configuration when file sytem is deleted.
+  * Issue #370: Remove weak RSA key lengths.
+  * Issue #394: Postfix will resolve SMTP server with IPv6 even if
+    IPv6 is disabled.
+  * Issue #396: Prevent mdadm defines no arrays warning message.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 10 May 2019 22:51:53 +0200
 

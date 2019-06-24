@@ -37,15 +37,16 @@ class Quota extends \OMV\Engine\Module\ServiceAbstract
 	public function onDeleteFilesystem($type, $path, $object) {
 		// Does a quota configuration exists for the deleted filesystem?
 		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $db->exists("conf.system.filesystem.quota", [
+		$confObjects = $db->getByFilter("conf.system.filesystem.quota", [
 			"operator" => "stringEquals",
 			"arg0" => "fsuuid",
 			"arg1" => $object['uuid']
-		])) {
+		]);
+		foreach ($confObjects as $confObjectk => $confObjectv) {
 			// Execute RPC to delete the configuration object.
-			\OMV\Rpc\Rpc::call("Quota", "delete", array(
-			  "uuid" => $qObject['uuid']),
-			  $this->getAdminContext());
+			\OMV\Rpc\Rpc::call("Quota", "delete",
+				["uuid" => $confObjectv->getIdentifier()],
+				$this->getAdminContext());
 		}
 	}
 
