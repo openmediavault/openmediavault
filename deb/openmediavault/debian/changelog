@@ -4,6 +4,8 @@ openmediavault (5.0.3-1) unstable; urgency=low
   * Set correct HTTP status codes.
   * Issue #322: Process Device Mapper devices correctly in method
     openmediavault.fs.Filesystem::get_parent_device_file().
+  * Issue #394: Postfix will resolve SMTP server with IPv6 even if
+    IPv6 is disabled.
   * Disable quota service if not used.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 19 May 2019 16:21:00 +0200

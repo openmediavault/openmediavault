@@ -20,6 +20,9 @@ mydomain = {{ grains['domain'] }}
 {%- endif %}
 mydestination = {{ mydestination }}
 inet_interfaces = {{ inet_interfaces }}
+{%- if not salt['omv_utils.is_ipv6_enabled']() %}
+inet_protocols = ipv4
+{%- endif %}
 relayhost = {{ config.server }}:{{ config.port }}
 sender_canonical_maps = regexp:{{ sender_canonical_maps }}
 sender_bcc_maps = hash:{{ sender_bcc_maps }}
