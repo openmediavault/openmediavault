@@ -23,6 +23,9 @@
 
 {% set config = salt['omv_conf.get']('conf.system.filesystem.quota') %}
 
+# Workaround for Jinja2 variables can't be modified from an inner block scope.
+{% set ns = namespace(enable_service=False) %}
+
 {% for quota in config %}
 
 {% set device = salt['cmd.run']('blkid -U ' ~ quota.fsuuid) %}
@@ -36,6 +39,8 @@ quota_off_{{ quota.fsuuid }}:
     - name: quotaoff --group --user {{ device }}
 
 {% if enabled | to_bool %}
+
+{% set ns.enable_service = True %}
 
 {% set fstype = salt['disk.fstype'](device) %}
 {% if fstype | check_whitelist_blacklist(blacklist=['xfs']) %}
@@ -63,3 +68,18 @@ quota_ser_group_{{ quota.fsuuid }}_{{ grpquota.name }}:
 {% endif %}
 
 {% endfor %}
+
+# Enable or disable quota service.
+{% if ns.enable_service | to_bool %}
+
+enable_quota_service:
+  service.enabled:
+    - name: quota
+
+{% else %}
+
+disable_quota_service:
+  service.disabled:
+    - name: quota
+
+{% endif %}
