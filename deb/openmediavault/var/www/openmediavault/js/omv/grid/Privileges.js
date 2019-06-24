@@ -108,7 +108,7 @@ Ext.define("OMV.grid.Privileges", {
 				}],
 				listeners: {
 					scope: me,
-					load: function(store, records, successful, eOpts) {
+					load: function(store, records, successful, operation, eOpts) {
 						Ext.Array.each(records, function(record) {
 							record.beginEdit();
 							switch(record.get("perms")) {

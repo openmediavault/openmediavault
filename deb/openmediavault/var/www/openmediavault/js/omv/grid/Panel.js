@@ -71,7 +71,7 @@ Ext.define("OMV.grid.Panel", {
 		if (me.disableLoadMaskOnLoad) {
 			me.store.on({
 				single: true,
-				load: function(store, records, options) {
+				load: function(store, records, successful, operation, eOpts) {
 					if (Ext.isObject(me.view)) {
 						if (Ext.isObject(me.view.loadMask)) {
 							me.view.loadMask.bindStore(null);

@@ -92,7 +92,7 @@ Ext.define("OMV.form.field.CheckboxGrid", {
 
 	getStoreListeners: function() {
 		return {
-			load: function(store, records, successful, eOpts) {
+			load: function(store, records, successful, operation, eOpts) {
 				this.syncSelections();
 			}
 		};

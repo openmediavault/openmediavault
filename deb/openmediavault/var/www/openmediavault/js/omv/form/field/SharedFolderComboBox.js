@@ -97,7 +97,7 @@ Ext.define("OMV.form.field.SharedFolderComboBox", {
 				}],
 				listeners: {
 					scope: me,
-					load: function(store, records, options) {
+					load: function(store, records, successful, operation, eOpts) {
 						if (me.allowNone === false)
 							return;
 						// Append the 'None' entry.

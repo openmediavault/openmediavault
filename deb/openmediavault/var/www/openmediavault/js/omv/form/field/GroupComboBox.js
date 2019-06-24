@@ -81,7 +81,7 @@ Ext.define("OMV.form.field.GroupComboBox", {
 				}],
 				listeners: {
 					scope: me,
-					load: function(store, records, options) {
+					load: function(store, records, successful, operation, eOpts) {
 						// Switch combobox to queryMode = 'local' to do not
 						// execute an RPC on each query (e.g. typeahead).
 						if (true === me.typeAhead)

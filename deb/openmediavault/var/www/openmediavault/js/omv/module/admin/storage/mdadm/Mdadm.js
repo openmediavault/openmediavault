@@ -316,7 +316,7 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Add", {
 				}],
 				listeners: {
 					scope: me,
-					load: function(store, records, successful, operation) {
+					load: function(store, records, successful, operation, eOpts) {
 						// Remove the RAID device file.
 						var record = store.findExactRecord("devicefile",
 						  me.devicefile);

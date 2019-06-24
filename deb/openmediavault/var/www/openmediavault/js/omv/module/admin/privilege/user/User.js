@@ -246,7 +246,7 @@ Ext.define("OMV.module.admin.privilege.user.user.Groups", {
 				}],
 				listeners: {
 					scope: me,
-					load: function(store, records) {
+					load: function(store, records, successful, operation, eOpts) {
 						// Always select the 'users' group.
 						var record = store.findExactRecord("name", "users");
 						if (Ext.isObject(record) && record.isModel)

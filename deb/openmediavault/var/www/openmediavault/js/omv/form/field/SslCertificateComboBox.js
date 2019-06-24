@@ -85,7 +85,7 @@ Ext.define("OMV.form.field.SslCertificateComboBox", {
 				},
 				listeners: {
 					scope: me,
-					load: function(store, records, options) {
+					load: function(store, records, successful, operation, eOpts) {
 						if (me.allowNone === false)
 							return;
 						// Push the 'None' entry to the beginning of
