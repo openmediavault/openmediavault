@@ -92,8 +92,8 @@ class OMVRpcServiceExec extends \OMV\Rpc\ServiceAbstract {
 		// process.
 		if ($status->hasError()) {
 			$error = $status->getError();
-			throw new \OMV\Rpc\TraceException($error['code'],
-			  $error['message'], $error['trace']);
+			throw new \OMV\Rpc\TraceException($error['message'],
+			  $error['code'], $error['trace']);
 		}
 		// Prepare the result object.
 		$result = [
@@ -154,8 +154,8 @@ class OMVRpcServiceExec extends \OMV\Rpc\ServiceAbstract {
 		// process.
 		if ($status->hasError()) {
 			$error = $status->getError();
-			throw new \OMV\Rpc\TraceException($error['code'],
-			  $error['message'], $error['trace']);
+			throw new \OMV\Rpc\TraceException($error['message'],
+			  $error['code'], $error['trace']);
 		}
 		// Cleanup if process is not running anymore.
 		if (FALSE === $status->isRunning())
