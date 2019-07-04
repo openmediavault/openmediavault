@@ -117,7 +117,7 @@ def deploy_run(names, quiet):
     names = map(lambda x: "omv.deploy.{}".format(x), names)
     mopts = salt.config.minion_config(__salt_minion_config_file)
     caller = salt.client.Caller(mopts=mopts)
-    result = caller.cmd("state.orchestrate", names)
+    result = caller.cmd("state.orchestrate", list(names))
     rc = result["retcode"]
     # Print the output.
     if not quiet:
