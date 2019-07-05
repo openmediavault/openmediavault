@@ -1,3 +1,9 @@
+openmediavault (5.0.4-1) unstable; urgency=low
+
+  * Issue #405: Fix file permissions for 5.0.3 migration script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 05 Jul 2019 09:34:58 +0200
+
 openmediavault (5.0.3-1) unstable; urgency=low
 
   * Code cleanup.
