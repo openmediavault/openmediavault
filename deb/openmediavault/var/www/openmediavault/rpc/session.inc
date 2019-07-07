@@ -141,6 +141,9 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 			syslog(LOG_ALERT, sprintf("Unauthorized login attempt from %s ".
 			  "[username=%s, user-agent=%s]", $_SERVER['REMOTE_ADDR'],
 			  $params['username'], $_SERVER['HTTP_USER_AGENT']));
+			closelog();
+			throw new \OMV\HttpErrorException(401,
+				_("Incorrect username or password."));
 		}
 		closelog();
 		return [
