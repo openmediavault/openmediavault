@@ -27,7 +27,7 @@ try {
 	// Load and initialize the RPC services that are not handled by the
 	// engine daemon.
 	$directory = build_path(DIRECTORY_SEPARATOR, \OMV\Environment::get(
-	  "OMV_DOCUMENTROOT_DIR"), "rpc");
+		"OMV_DOCUMENTROOT_DIR"), "rpc");
 	foreach (listdir($directory, "inc") as $path) {
 		require_once $path;
 	}
@@ -48,13 +48,13 @@ try {
 	if (isset($server))
 		$server->cleanup();
 	header("Content-Type: application/json");
-	print json_encode_safe(array(
+	print json_encode_safe([
 		"response" => null,
-		"error" => array(
+		"error" => [
 			"code" => $e->getCode(),
 			"message" => $e->getMessage(),
 			"trace" => $e->__toString()
-		)
-	));
+		]
+	]);
 }
 ?>

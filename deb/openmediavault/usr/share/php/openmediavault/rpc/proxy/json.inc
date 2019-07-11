@@ -79,6 +79,8 @@ class Json {
 		  $this->params['service']))) {
 			// Session MUST be authenticated at this point.
 			$session->validateAuthentication();
+			// Ensure user exists.
+			$session->validateUser();
 			// If service is not available locally, then we can commit
 			// the session due the fact that the RPC is redirected to
 			// the omv-engined daemon which does not have access to this
