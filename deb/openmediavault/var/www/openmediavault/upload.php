@@ -49,13 +49,13 @@ try {
 	header("Content-Type: text/html");
 	http_response_code(($e instanceof \OMV\BaseException) ?
 		$e->getHttpStatusCode() : 500);
-	print json_encode_safe(array(
+	print json_encode_safe([
 		"success" => false, // required by ExtJS
 		"responseText" => $e->getMessage(), // required by ExtJS
 		"errors" => null, // required by ExtJS
 		"code" => $e->getCode(),
 		"message" => $e->getMessage(),
 		"trace" => $e->__toString()
-	));
+	]);
 }
 ?>

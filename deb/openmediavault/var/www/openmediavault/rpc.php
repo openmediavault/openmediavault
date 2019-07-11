@@ -50,13 +50,13 @@ try {
 	header("Content-Type: application/json");
 	http_response_code(($e instanceof \OMV\BaseException) ?
 		$e->getHttpStatusCode() : 500);
-	print json_encode_safe(array(
+	print json_encode_safe([
 		"response" => null,
-		"error" => array(
+		"error" => [
 			"code" => $e->getCode(),
 			"message" => $e->getMessage(),
 			"trace" => $e->__toString()
-		)
-	));
+		]
+	]);
 }
 ?>
