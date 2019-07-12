@@ -61,7 +61,7 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 				// authenticated?
 				if ($session->getUsername() !== $params['username']) {
 					$session->commit();
-					throw new \OMV\HttpErrorException(401,
+					throw new \OMV\HttpErrorException(400,
 					    _("Another user is already authenticated."));
 				}
 			} else {
@@ -142,7 +142,7 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 			  "[username=%s, user-agent=%s]", $_SERVER['REMOTE_ADDR'],
 			  $params['username'], $_SERVER['HTTP_USER_AGENT']));
 			closelog();
-			throw new \OMV\HttpErrorException(401,
+			throw new \OMV\HttpErrorException(400,
 				_("Incorrect username or password."));
 		}
 		closelog();
