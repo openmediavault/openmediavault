@@ -154,7 +154,7 @@ class Session {
 	public function validateTimeout() {
 		if ($this->isTimeout()) {
 			$this->destroy();
-			throw new HttpErrorException(403, _("Session expired."));
+			throw new HttpErrorException(401, _("Session expired."));
 		}
 	}
 
@@ -168,7 +168,7 @@ class Session {
 		$userInfo = posix_getpwnam($_SESSION['username']);
 		if (FALSE === $userInfo) {
 			$this->destroy();
-			throw new HttpErrorException(403, _("Invalid user."));
+			throw new HttpErrorException(401, _("Invalid user."));
 		}
 	}
 
@@ -182,7 +182,7 @@ class Session {
 		if ($_SESSION['ipaddress'] == $_SERVER['REMOTE_ADDR'])
 			return;
 		$this->destroy();
-		throw new HttpErrorException(403, _("Invalid IP address."));
+		throw new HttpErrorException(401, _("Invalid IP address."));
 	}
 
 	/**
@@ -195,7 +195,7 @@ class Session {
 		if ($_SESSION['useragent'] == $_SERVER['HTTP_USER_AGENT'])
 			return;
 		$this->destroy();
-		throw new HttpErrorException(403, _("Invalid User-Agent."));
+		throw new HttpErrorException(401, _("Invalid User-Agent."));
 	}
 
 	/**
