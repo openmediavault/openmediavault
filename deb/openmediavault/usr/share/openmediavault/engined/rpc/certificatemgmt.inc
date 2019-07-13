@@ -417,6 +417,7 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$file = tempnam(sys_get_temp_dir(), "id_rsa");
 		$cmdArgs = [];
 		$cmdArgs[] = "-t rsa";
+		$cmdArgs[] = "-m PEM";
 		$cmdArgs[] = "-P ''";
 		$cmdArgs[] = sprintf("-C %s", escapeshellarg(trim(array_value(
 		  $params, "comment", ""))));
