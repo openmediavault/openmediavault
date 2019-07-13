@@ -369,7 +369,6 @@
 		</ssh>
 		<nfs>
 			<enable>0</enable>
-			<numproc>8</numproc>
 			<shares>
 				<!--
 				<share>
