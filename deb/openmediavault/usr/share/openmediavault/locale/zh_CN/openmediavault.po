@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Herald Yu <yuhr123@gmail.com>, 2018
-# songming <by@songming.me>, 2013-2018
+# songming <by@songming.me>, 2013-2019
 # Wei Ding <dyw.net@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-23 17:24+0100\n"
-"PO-Revision-Date: 2018-12-24 01:29+0000\n"
+"PO-Revision-Date: 2019-07-10 02:14+0000\n"
 "Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -1635,7 +1635,7 @@ msgid "Informal"
 msgstr "非正式"
 
 msgid "Information"
-msgstr "资讯"
+msgstr "信息"
 
 msgid "Inherit ACLs"
 msgstr "继承 ACLs"
@@ -4048,10 +4048,10 @@ msgid "of {0}"
 msgstr "共 {0} 页"
 
 msgid "old-age"
-msgstr "已老化"
+msgstr "old-age"
 
 msgid "prefail"
-msgstr "即将故障"
+msgstr "prefail"
 
 msgid "seconds"
 msgstr "秒"

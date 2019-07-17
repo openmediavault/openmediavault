@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-23 17:24+0100\n"
-"PO-Revision-Date: 2019-02-15 07:58+0000\n"
+"PO-Revision-Date: 2019-07-04 13:31+0000\n"
 "Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -982,7 +982,7 @@ msgid "Donate"
 msgstr "Támogatás"
 
 msgid "Done ..."
-msgstr "Kész"
+msgstr "Kész..."
 
 msgid "Down"
 msgstr "Le"
@@ -1017,22 +1017,22 @@ msgid "Edit"
 msgstr "Szerkesztés"
 
 msgid "Edit SSH certificate"
-msgstr "SSH tanúsítvány módosítása"
+msgstr "SSH tanúsítvány szerkesztése"
 
 msgid "Edit SSL certificate"
 msgstr "SSL tanúsítvány szerkesztése"
 
 msgid "Edit VLAN connection"
-msgstr "VLAN kapcsolat módosítása"
+msgstr "VLAN kapcsolat szerkesztése"
 
 msgid "Edit Wi-Fi connection"
-msgstr "Wi-Fi kapcsolat módosítás"
+msgstr "Wi-Fi kapcsolat szerkesztése"
 
 msgid "Edit bond connection"
-msgstr "Kötegelt kapcsolat módosítása"
+msgstr "Kötegelt kapcsolat szerkesztése"
 
 msgid "Edit ethernet connection"
-msgstr "Ethernet kapcsolat módosítása"
+msgstr "Ethernet kapcsolat szerkesztése"
 
 msgid "Edit firewall rule"
 msgstr "Tűzfal szabály szerkesztése"
@@ -1053,7 +1053,7 @@ msgid "Edit rule"
 msgstr "Szabály szerkesztése"
 
 msgid "Edit scheduled job"
-msgstr "Ütemezett feladat módosítása"
+msgstr "Ütemezett feladat szerkesztése"
 
 msgid "Edit scheduled test"
 msgstr "Ütemezett teszt szerkesztése"
@@ -1205,13 +1205,13 @@ msgid "Event"
 msgstr "Esemény"
 
 msgid "Every N day of month"
-msgstr "Minden N napon a hónapban"
+msgstr "Minden \"x\" napon a hónapban"
 
 msgid "Every N hour"
-msgstr "Minden N órában"
+msgstr "Minden \"x\" órában"
 
 msgid "Every N minute"
-msgstr "Minden N percben"
+msgstr "Minden \"x\" percben"
 
 msgid "Everyone: read/write"
 msgstr "Mindenki: olvasás/írás"
@@ -1244,7 +1244,7 @@ msgid "Extended information"
 msgstr "További információ"
 
 msgid "Extra options"
-msgstr "Extra opciók"
+msgstr "További beállítások"
 
 msgid "FTP"
 msgstr "FTP"
@@ -1508,7 +1508,7 @@ msgid "Hungary"
 msgstr "Magyarország"
 
 msgid "ID"
-msgstr "ID"
+msgstr "Azonosító"
 
 msgid "IP addresses of domain name servers used to resolve host names."
 msgstr "IP címek a távoli névszerverek feloldásához."
@@ -1623,7 +1623,7 @@ msgid "Incomplete"
 msgstr "Befejezetlen"
 
 msgid "Incorrect username or password."
-msgstr "Helytelen felhasználónév és/vagy jelszó."
+msgstr "Helytelen felhasználónév, vagy jelszó."
 
 msgid "India"
 msgstr "India"
@@ -1816,7 +1816,7 @@ msgid "Link"
 msgstr "Link"
 
 msgid "List"
-msgstr "Jegyzék"
+msgstr "Lista"
 
 msgid "Lithuania"
 msgstr "Litvánia"
@@ -1897,7 +1897,7 @@ msgid "Malta"
 msgstr "Málta"
 
 msgid "Manual"
-msgstr "Kézi beállítás"
+msgstr "Kézikönyv"
 
 msgid "March"
 msgstr "Március"
@@ -1909,7 +1909,7 @@ msgid "Martinique"
 msgstr "Martinique"
 
 msgid "Masquerade address"
-msgstr "Álcím"
+msgstr "Maszkolási cím"
 
 msgid ""
 "Match if the destination port is one of the given ports. E.g. 21 or !443 or "
@@ -1985,7 +1985,7 @@ msgid "Messages"
 msgstr "Üzenetek"
 
 msgid "Method"
-msgstr "Típus"
+msgstr "Eljárás"
 
 msgid "Metropolitan France"
 msgstr "Francia főváros"
@@ -2204,7 +2204,7 @@ msgid "Not UDP"
 msgstr "Nem UDP"
 
 msgid "Nothing"
-msgstr "Nincs művelet"
+msgstr "Semmi"
 
 msgid "Notification"
 msgstr "Értesítés"
@@ -3093,7 +3093,7 @@ msgid "Source server"
 msgstr "Forrás szerver"
 
 msgid "Source shared folder"
-msgstr "Forrás mappa"
+msgstr "Megosztott forrás mappa"
 
 msgid "South Africa"
 msgstr "Dél-Afrika"
@@ -3241,7 +3241,7 @@ msgid "System"
 msgstr "Rendszer"
 
 msgid "System Information"
-msgstr "Rendszerinformációk"
+msgstr "Rendszerinformáció"
 
 msgid "System Logs"
 msgstr "Rendszernaplók"
@@ -3332,7 +3332,7 @@ msgid "The hostname is a label that identifies the system to the network."
 msgstr "A hosztnév egy címke, ami azonosítja a rendszert a hálózaton."
 
 msgid "The hostname of the remote system."
-msgstr "Távoli rendszer kiszolgálóneve."
+msgstr "A rendszer távoli kiszolgálóneve."
 
 msgid ""
 "The information about available software is out-of-date. You need to reload "
@@ -3701,7 +3701,7 @@ msgid "Treshold"
 msgstr "Határérték"
 
 msgid "Trial run"
-msgstr "Próbaüzem"
+msgstr "Próba futás"
 
 msgid "Trinidad and Tobago"
 msgstr "Trinidad és Tobago"
@@ -3776,7 +3776,7 @@ msgid "Unknown"
 msgstr "Ismeretlen"
 
 msgid "Unknown network interface type."
-msgstr "Ismeretlen hálózati interface típus."
+msgstr "Ismeretlen hálózati csatolótípus."
 
 msgid "Unmount"
 msgstr "Leválasztás"
@@ -3828,7 +3828,7 @@ msgid "Upload plugin"
 msgstr "Bővítmény feltöltése"
 
 msgid "Uploading file ..."
-msgstr "Fájl feltöltés..."
+msgstr "Fájl feltöltése..."
 
 msgid "Uptime"
 msgstr "Üzemidő"
@@ -3911,7 +3911,7 @@ msgid "Vatican"
 msgstr "Vatikán"
 
 msgid "Vendor"
-msgstr "Vendor"
+msgstr "Gyártó"
 
 msgid "Venezuela"
 msgstr "Venezuela"
@@ -3985,7 +3985,7 @@ msgid "Wipe"
 msgstr "Törlés"
 
 msgid "Wiping device ..."
-msgstr "Meghajtó formázása..."
+msgstr "Meghajtó törlése..."
 
 msgid "Workgroup"
 msgstr "Munkacsoport"
@@ -4015,7 +4015,7 @@ msgid "Yes"
 msgstr "Igen"
 
 msgid "You need to commit or cancel your changes"
-msgstr "A változtatásokat mentenie vagy törölnie kell"
+msgstr "A változtatásokat mentenie, vagy törölnie kell"
 
 msgid "Zambia"
 msgstr "Zambia"

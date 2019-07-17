@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Kostas Moho <kgounaris@hotmail.com>, 2017
+# Kostas Moho, 2017
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-24 20:46+0200\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
-"Last-Translator: Kostas Moho <kgounaris@hotmail.com>, 2017\n"
+"Last-Translator: Kostas Moho, 2017\n"
 "Language-Team: Greek (Greece) (https://www.transifex.com/votdev/teams/14254/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"

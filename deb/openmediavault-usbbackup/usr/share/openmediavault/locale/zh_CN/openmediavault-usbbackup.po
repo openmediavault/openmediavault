@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
+# Herald Yu <yuhr123@gmail.com>, 2019
 # songming <by@songming.me>, 2013-2014,2016-2017
 # Wei Ding <dyw.net@gmail.com>, 2014
 msgid ""
@@ -10,8 +11,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-18 11:05+0100\n"
-"PO-Revision-Date: 2017-11-26 16:06+0000\n"
-"Last-Translator: songming <by@songming.me>\n"
+"PO-Revision-Date: 2019-07-14 08:12+0000\n"
+"Last-Translator: Herald Yu <yuhr123@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -66,7 +67,7 @@ msgstr "启用归档模式。"
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr "启用此选项可以保留部分已经传输的文件，否则传输中断的文件会被删除。"
+msgstr "启用此选项以保存未传输完整的文件，否则在传输中断时将删除这些文件。"
 
 msgid "Enabled"
 msgstr "已启用"
@@ -78,7 +79,7 @@ msgid "External storage device"
 msgstr "外部存储设备"
 
 msgid "Extra options"
-msgstr "扩展选项"
+msgstr "额外选项"
 
 msgid "From external storage to shared folder"
 msgstr "从外部存储设备到共享文件夹"
@@ -87,7 +88,7 @@ msgid "From shared folder to external storage"
 msgstr "从共享文件夹到外部存储设备"
 
 msgid "Keep partially transferred files"
-msgstr "保留传输了一部分的文件"
+msgstr "保留为传输完整的文件"
 
 msgid "Mode"
 msgstr "模式"
@@ -116,7 +117,7 @@ msgid "Preserve permissions"
 msgstr "保存权限"
 
 msgid "Quiet"
-msgstr "安静"
+msgstr "静默模式"
 
 msgid "Recurse into directories."
 msgstr "递归到目录。"
@@ -134,7 +135,7 @@ msgid "Select a device ..."
 msgstr "选择设备 ..."
 
 msgid "Send command output via email."
-msgstr "通过 Email 发送命令输出结果。"
+msgstr "通过 Email 发送命令行输出的结果。"
 
 msgid "Send email"
 msgstr "发送 Email"
@@ -159,7 +160,7 @@ msgid ""
 "The shared folder content is synchronised from/to the root of the external "
 "storage device if this option is not set. The name of the directory is taken"
 " from the shared folder."
-msgstr "如果此选项没有设置，共享文件夹的内容将同步到/被 外部存储设备的根目录，目录的名称取决于共享文件夹。"
+msgstr "如果不勾选此选项，共享文件夹的内容将同步到外部存储的根目录（或将外部存储的根目录中的内容同步到共享文件夹），并以共享文件夹的名称作为目录名称。"
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
