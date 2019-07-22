@@ -737,7 +737,7 @@ abstract class ServiceAbstract {
 		if ($total > 0) {
 			if (!is_null($sortField))
 				array_sort_key($array, $sortField);
-			if (!is_null($sortDir) && $sortDir === "DESC")
+			if (!is_null($sortDir) && strtolower($sortDir) === "desc")
 				$array = array_reverse($array);
 			if (($start >= 0) && ($limit >= 0))
 				$array = array_slice($array, $start, $limit);

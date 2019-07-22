@@ -1,3 +1,9 @@
+openmediavault (5.0.5-1) unstable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 21 Jul 2019 21:23:30 +0200
+
 openmediavault (5.0.4-1) unstable; urgency=low
 
   * Fix obsolete NFS config setting issue.
