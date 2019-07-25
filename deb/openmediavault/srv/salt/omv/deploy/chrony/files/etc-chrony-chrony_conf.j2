@@ -7,7 +7,7 @@
 
 {{ pillar['headers']['multiline'] }}
 
-{%- for timeserver in timeservers.replace(',', ' ').replace(';', ' ').split() -%}
+{%- for timeserver in timeservers.replace(',', ' ').replace(';', ' ').split() %}
 server {{ timeserver }} iburst
 {%- endfor %}
 
