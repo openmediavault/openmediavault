@@ -54,7 +54,12 @@ configure_nfsd_exports:
     - group: root
     - mode: 644
 
-start_nfsd_service:
+start_rpc_statd_service:
+  service.running:
+    - name: rpc-statd
+    - enable: True
+
+start_nfs_kernel_server_service:
   service.running:
     - name: nfs-kernel-server
     - enable: True
@@ -64,9 +69,14 @@ start_nfsd_service:
 
 {% else %}
 
-stop_nfsd_service:
+stop_nfs_kernel_server_service:
   service.dead:
     - name: nfs-kernel-server
+    - enable: False
+
+stop_rpc_statd_service:
+  service.dead:
+    - name: rpc-statd
     - enable: False
 
 {% endif %}

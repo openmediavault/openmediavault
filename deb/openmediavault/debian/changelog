@@ -1,5 +1,6 @@
 openmediavault (5.0.5-1) unstable; urgency=low
 
+  * Issue #380: Start rpc-statd service when NFS is enabled.
   * Issue #412: Fix bug in chrony.conf when there are multiple time servers.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 21 Jul 2019 21:23:30 +0200
