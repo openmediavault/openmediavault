@@ -99,7 +99,7 @@ def get_sharedfolder_path(uuid):
         # !!! Attention !!! If a component is an absolute path, all previous
         # components are thrown away and joining continues from the absolute
         # path component.
-        os.path.join(mp_obj['dir'], sf_obj['reldirpath'].lstrip('/'))
+        os.path.join(mp_obj['dir'], sf_obj['reldirpath'].lstrip(os.sep))
     )
 
 
