@@ -96,7 +96,10 @@ def get_sharedfolder_path(uuid):
     sf_obj = get('conf.system.sharedfolder', uuid)
     mp_obj = get('conf.system.filesystem.mountpoint', sf_obj['mntentref'])
     return openmediavault.string.path_prettify(
-        os.path.join(mp_obj['dir'], sf_obj['reldirpath'])
+        # !!! Attention !!! If a component is an absolute path, all previous
+        # components are thrown away and joining continues from the absolute
+        # path component.
+        os.path.join(mp_obj['dir'], sf_obj['reldirpath'].lstrip('/'))
     )
 
 
