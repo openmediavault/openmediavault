@@ -116,11 +116,10 @@ class Database:
                        ``
         :param min_result: The minimum number of objects that are expected.
         :param max_result: The maximum number of objects that are expected.
-        :returns: An array containing the requested configuration
-                  objects. If *max_result* is set to 1, then the
-                  first found object is returned.
-                  In this case the method does not return a list
-                  of configuration objects.
+        :returns: A list containing the requested configuration objects.
+                  If *max_result* is set to 1, then the first found object
+                  is returned. In this case the method does not return a
+                  list of configuration objects.
         """
         query = openmediavault.config.DatabaseGetByFilterQuery(id, filter)
         query.execute()

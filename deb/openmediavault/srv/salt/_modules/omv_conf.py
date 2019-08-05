@@ -18,13 +18,22 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+import os
 import openmediavault.config
 import openmediavault.device
 import openmediavault.string
-import os
 
 
 def get(id_, identifier=None):
+    """
+    Get the specified configuration object.
+    :param id_: The data model identifier, e.g. 'conf.service.ftp'.
+    :param identifier: The identifier of the configuration object, e.g.
+        the UUID. Defaults to None.
+    :returns: Depending on the configuration object and whether *identifier*
+        is set, a list of configuration objects or a single object is
+        returned.
+    """
     db = openmediavault.config.Database()
     objs = db.get(id_, identifier)
     if isinstance(objs, list):
@@ -33,6 +42,41 @@ def get(id_, identifier=None):
 
 
 def get_by_filter(id_, filter_):
+    """
+    Get the iterable configuration objects that are matching the specified
+    constraints.
+    :param id_: The data model identifier, e.g. 'conf.service.ftp'.
+    :param filter_: A filter specifying constraints on the objects
+        to retrieve.
+        ``
+        Example 1:
+        {
+            "operator": "stringEquals",
+            "arg0": "fsname",
+            "arg1": "xyz"
+        }
+        Example 2:
+        {
+            "operator": "and",
+            "arg0": {
+                "operator": "stringEquals",
+                "arg0": "type",
+                "arg1": "bond"
+            },
+            "arg1": {
+                "operator": "stringEquals",
+                "arg0": "devicename",
+                "arg1": "bond0"
+            }
+        }
+        ``
+    :param min_result: The minimum number of objects that are expected.
+    :param max_result: The maximum number of objects that are expected.
+    :returns: A list containing the requested configuration objects.
+        If *max_result* is set to 1, then the first found object
+        is returned. In this case the method does not return a
+        list of configuration objects.
+    """
     db = openmediavault.config.Database()
     objs = db.get_by_filter(id_, openmediavault.config.DatabaseFilter(filter_))
     if isinstance(objs, list):
