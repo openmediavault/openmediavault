@@ -90,10 +90,31 @@ class Filesystem(openmediavault.device.BlockDevice):
         """
         if not os.path.ismount(path):
             raise Exception('Path \'{}\' is not a mount point'.format(path))
-        st = os.stat(path)
-        context = pyudev.Context()
-        device = pyudev.Devices.from_device_number(context, 'block', st.st_dev)
-        return Filesystem(device.device_node)
+        try:
+            # Try to get the device file via device number of the root filesystem.
+            st = os.stat(path)
+            context = pyudev.Context()
+            device = pyudev.Devices.from_device_number(
+                context, 'block', st.st_dev
+            )
+            device_file = device.device_node
+        except pyudev.DeviceNotFoundByNumberError:
+            # If we are reaching this code path we are surely processing a Btrfs
+            # filesystem. A Btrfs subvolume is an independently mountable POSIX
+            # filetree and not a block device (and cannot be treated as one).
+            # So let the findmnt command do the (more expensive) job as fallback.
+            output = openmediavault.subprocess.check_output(
+                [
+                    'findmnt',
+                    '--first-only',
+                    '--noheadings',
+                    '--output=SOURCE',
+                    '--raw',
+                    path,
+                ]
+            )
+            device_file = output.decode().strip()
+        return Filesystem(device_file)
 
     @property
     def device_file(self):
