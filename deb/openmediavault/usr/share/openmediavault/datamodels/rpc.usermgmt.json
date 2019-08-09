@@ -1,6 +1,6 @@
 [{
 	"type": "rpc",
-	"id": "rpc.usermngmt.authuser",
+	"id": "rpc.usermgmt.authuser",
 	"params": {
 		"type": "object",
 		"properties": {
@@ -16,7 +16,7 @@
 	}
 },{
 	"type": "rpc",
-	"id": "rpc.usermngmt.getuser",
+	"id": "rpc.usermgmt.getuser",
 	"params": {
 		"type": "object",
 		"properties": {
@@ -28,7 +28,7 @@
 	}
 },{
 	"type": "rpc",
-	"id": "rpc.usermngmt.setuser",
+	"id": "rpc.usermgmt.setuser",
 	"params": {
 		"type": "object",
 		"properties": {
@@ -87,7 +87,7 @@
 	}
 },{
 	"type": "rpc",
-	"id": "rpc.usermngmt.setuserbycontext",
+	"id": "rpc.usermgmt.setuserbycontext",
 	"params": {
 		"type": "object",
 		"properties": {
@@ -114,7 +114,7 @@
 	}
 },{
 	"type": "rpc",
-	"id": "rpc.usermngmt.deleteuser",
+	"id": "rpc.usermgmt.deleteuser",
 	"params": {
 		"type": "object",
 		"properties": {
@@ -126,7 +126,7 @@
 	}
 },{
 	"type": "rpc",
-	"id": "rpc.usermngmt.importuser",
+	"id": "rpc.usermgmt.importuser",
 	"params": {
 		"type": "object",
 		"properties": {
@@ -138,7 +138,7 @@
 	}
 },{
 	"type": "rpc",
-	"id": "rpc.usermngmt.getgroup",
+	"id": "rpc.usermgmt.getgroup",
 	"params": {
 		"type": "object",
 		"properties": {
@@ -150,7 +150,7 @@
 	}
 },{
 	"type": "rpc",
-	"id": "rpc.usermngmt.setgroup",
+	"id": "rpc.usermgmt.setgroup",
 	"params": {
 		"type": "object",
 		"properties": {
@@ -177,7 +177,7 @@
 	}
 },{
 	"type": "rpc",
-	"id": "rpc.usermngmt.deletegroup",
+	"id": "rpc.usermgmt.deletegroup",
 	"params": {
 		"type": "object",
 		"properties": {
@@ -189,7 +189,7 @@
 	}
 },{
 	"type": "rpc",
-	"id": "rpc.usermngmt.importgroup",
+	"id": "rpc.usermgmt.importgroup",
 	"params": {
 		"type": "object",
 		"properties": {
@@ -201,7 +201,7 @@
 	}
 },{
 	"type": "rpc",
-	"id": "rpc.usermngmt.setsettings",
+	"id": "rpc.usermgmt.setsettings",
 	"params": {
 		"type": "object",
 		"properties": {

@@ -74,7 +74,7 @@ class UserMgmt extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.usermngmt.authuser");
+		$this->validateMethodParams($params, "rpc.usermgmt.authuser");
 		// Authenticate the user.
 		$authenticated = FALSE;
 		$user = new \OMV\System\User($params['username']);
@@ -380,7 +380,7 @@ finish:
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.usermngmt.getuser");
+		$this->validateMethodParams($params, "rpc.usermgmt.getuser");
 		// Ensure the user exists.
 		$user = new \OMV\System\User($params['name']);
 		$user->assertExists();
@@ -463,7 +463,7 @@ finish:
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.usermngmt.setuser");
+		$this->validateMethodParams($params, "rpc.usermgmt.setuser");
 		// Check if the given user is a system account. Abort this attempt.
 		$user = new \OMV\System\User($params['name']);
 		if ($user->exists() && $user->isSystemAccount()) {
@@ -599,7 +599,7 @@ finish:
 			"role" => OMV_ROLE_EVERYONE
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.usermngmt.setuserbycontext");
+		$this->validateMethodParams($params, "rpc.usermgmt.setuserbycontext");
 		// Get the user configuration object.
 		$object = $this->callMethod("getUser", [
 			"name" => $context['username']
@@ -637,7 +637,7 @@ finish:
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.usermngmt.deleteuser");
+		$this->validateMethodParams($params, "rpc.usermgmt.deleteuser");
 		// Get the user configuration object (required for the notification
 		// event).
 		$object = $this->callMethod("getUser", array(
@@ -682,7 +682,7 @@ finish:
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.usermngmt.importuser");
+		$this->validateMethodParams($params, "rpc.usermgmt.importuser");
 		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
 		  use ($params, $context) {
@@ -791,7 +791,7 @@ finish:
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.usermngmt.getgroup");
+		$this->validateMethodParams($params, "rpc.usermgmt.getgroup");
 		// Get the group information.
 		$group = new \OMV\System\Group($params['name']);
 		$group->assertExists();
@@ -830,7 +830,7 @@ finish:
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.usermngmt.setgroup");
+		$this->validateMethodParams($params, "rpc.usermgmt.setgroup");
 		// Check if the given group is a system account. Abort this attempt.
 		$group = new \OMV\System\Group($params['name']);
 		if ($group->exists() && $group->isSystemAccount()) {
@@ -918,7 +918,7 @@ finish:
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.usermngmt.deletegroup");
+		$this->validateMethodParams($params, "rpc.usermgmt.deletegroup");
 		// Get the group configuration object (required for the notification
 		// event).
 		$object = $this->callMethod("getGroup", [
@@ -962,7 +962,7 @@ finish:
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.usermngmt.importgroup");
+		$this->validateMethodParams($params, "rpc.usermgmt.importgroup");
 		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
 		  use ($params, $context) {
@@ -1034,7 +1034,7 @@ finish:
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.usermngmt.setsettings");
+		$this->validateMethodParams($params, "rpc.usermgmt.setsettings");
 		// Prepare the configuration object.
 		$object = new \OMV\Config\ConfigObject(
 		  "conf.system.usermngmnt.homedir");
