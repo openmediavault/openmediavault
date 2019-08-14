@@ -183,13 +183,15 @@ def binary_format(
 def path_prettify(path):
     """
     Make sure the directory path ends with a slash.
+    >>> assert path_prettify('/foo/bar') == '/foo/bar/'
+    >>> assert path_prettify('/foo/bar//') == '/foo/bar/'
     :param path: The path to process.
     :type path: str
     :return: Returns the prettified path.
     :rtype: str
     """
     assert isinstance(path, str)
-    return path.rstrip('/') + '/'
+    return '{}/'.format(path.rstrip('/'))
 
 
 def add_slashes(value):
