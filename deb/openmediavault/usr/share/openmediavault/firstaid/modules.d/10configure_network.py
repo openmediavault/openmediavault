@@ -56,9 +56,9 @@ class Module(openmediavault.firstaid.IModule):
         context = pyudev.Context()
         for device in context.list_devices(subsystem="net"):
             # Skip unwanted network interface devices.
-            if device.sys_name in ("lo"):
+            if device.sys_name in ["lo"]:
                 continue
-            if device.device_type and device.device_type in ("bond"):
+            if device.device_type and device.device_type in ["bond"]:
                 continue
             # Append the network interface name for later use.
             devices.append(device.sys_name)
@@ -73,6 +73,8 @@ class Module(openmediavault.firstaid.IModule):
                     [sys_name, openmediavault.string.truncate(device[id_], 50)]
                 )
                 break
+        if not choices:
+            raise Exception("No network interfaces found.")
         d = dialog.Dialog(dialog="dialog")
         (code, tag) = d.menu(
             "Please select a network interface. Note, the existing network interface configuration will be deleted.",

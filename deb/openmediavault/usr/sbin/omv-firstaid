@@ -79,7 +79,7 @@ def main():
             module = modules[int(tag) - 1]
             try:
                 rc = module.execute()
-            except Exception as e:
+            except Exception as e: # pylint: disable=broad-except
                 rc = 1
                 openmediavault.log.error(str(e))
             break
