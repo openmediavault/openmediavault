@@ -65,7 +65,7 @@ class Module(openmediavault.firstaid.IModule):
         devices = natsort.humansorted(devices)
         choices = []
         for _, sys_name in enumerate(devices):
-            device = pyudev.Device.from_name(context, "net", sys_name)
+            device = pyudev.Devices.from_name(context, "net", sys_name)
             for id_ in ["ID_MODEL_FROM_DATABASE", "ID_VENDOR_FROM_DATABASE"]:
                 if id_ not in device:
                     continue
