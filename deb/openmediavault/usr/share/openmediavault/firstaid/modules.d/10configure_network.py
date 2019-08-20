@@ -79,7 +79,7 @@ class Module(openmediavault.firstaid.IModule):
             backtitle=self.description,
             clear=True,
             height=14,
-            width=68,
+            width=70,
             menu_height=6,
             choices=choices,
         )
