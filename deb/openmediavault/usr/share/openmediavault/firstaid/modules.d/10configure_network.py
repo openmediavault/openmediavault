@@ -64,16 +64,20 @@ class Module(openmediavault.firstaid.IModule):
             devices.append(device.sys_name)
         devices = natsort.humansorted(devices)
         choices = []
+        # Get a description for each network interface to help the user to
+        # choose the correct one.
         for _, sys_name in enumerate(devices):
             device = pyudev.Device.from_name(context, "net", sys_name)
-            for id_ in ["ID_MODEL_FROM_DATABASE", "ID_VENDOR_FROM_DATABASE"]:
-                if id_ not in device:
+            description = ""
+            # Use the following properties as description in the specified order:
+            for prop in ["ID_MODEL_FROM_DATABASE", "ID_VENDOR_FROM_DATABASE", "ID_NET_NAME_MAC"]:
+                if prop not in device.properties:
                     continue
-                choices.append([
-                    sys_name,
-                    openmediavault.string.truncate(device[id_], 50)
-                ])
+                description = device.properties.get(prop)
                 break
+            choices.append(
+                [sys_name, openmediavault.string.truncate(description, 50)]
+            )
         if not choices:
             raise Exception("No network interfaces found.")
         d = dialog.Dialog(dialog="dialog")
