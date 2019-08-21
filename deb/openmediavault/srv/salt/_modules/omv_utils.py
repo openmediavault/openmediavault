@@ -23,7 +23,6 @@ import openmediavault.device
 import openmediavault.fs
 import openmediavault.string
 import os
-import re
 import socket
 
 # Import Salt libs
