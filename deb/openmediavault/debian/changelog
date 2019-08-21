@@ -1,5 +1,6 @@
-openmediavault (4.1.24) stable; urgency=low
+openmediavault (4.1.24-1) stable; urgency=low
 
+  * Fix bug in uploading Debian packages via UI.
   * Issue #417: Exit omv-firstaid and show an error when no network interfaces
     are detected.
 

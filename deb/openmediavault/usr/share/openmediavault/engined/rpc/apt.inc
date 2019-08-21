@@ -240,7 +240,7 @@ class OMVRpcServiceApt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.apt.upload");
 		// Check the file type.
-		$finfo = new finfo(FILEINFO_NONE);
+		$finfo = new \finfo(FILEINFO_NONE);
 		$fileType = $finfo->file($params['filepath']);
 		if (0 == preg_match("/^Debian binary package.+$/", $fileType)) {
 			throw new \OMV\Exception(
