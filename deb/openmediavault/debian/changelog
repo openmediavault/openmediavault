@@ -79,7 +79,7 @@ openmediavault (5.0-1) unstable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 May 2018 22:06:11 +0200
 
-openmediavault (4.1.24) stable; urgency=low
+openmediavault (4.1.24-1) stable; urgency=low
 
   * Fix bug in uploading Debian packages via UI.
   * Issue #417: Exit omv-firstaid and show an error when no network interfaces
