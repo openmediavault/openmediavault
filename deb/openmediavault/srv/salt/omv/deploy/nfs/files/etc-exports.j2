@@ -11,13 +11,14 @@
 # /etc/exports: the access control list for filesystems which may be exported
 #               to NFS clients.  See exports(5).
 {% for share_v3 in shares_v3 %}
+{% set v3_loop = loop %}
 {%- set shares = salt['omv_conf.get_by_filter'](
   'conf.service.nfs.share',
   {'operator': 'stringEquals', 'arg0': 'sharedfolderref', 'arg1': share_v3.sharedfolderref}) %}
 {%- for share in shares %}
 {%- set sharedfolder = salt['omv_conf.get']('conf.system.sharedfolder', share.sharedfolderref) %}
 {%- if loop.first %}{{ export_dir | path_join(sharedfolder.name) }}{% endif -%}
-{{ separator }}{{ share.client | trim }}(fsid={{ loop.index }},{{ share.options }}{% if share.extraoptions | length > 0 %},{{ share.extraoptions }}{% endif %})
+{{ separator }}{{ share.client | trim }}(fsid={{ v3_loop.index }},{{ share.options }}{% if share.extraoptions | length > 0 %},{{ share.extraoptions }}{% endif %})
 {% endfor -%}
 {% endfor -%}
 
