@@ -13,9 +13,9 @@
   {%- if job.mode == 'push' -%}
     {%- set srcuri = salt['omv_conf.get_sharedfolder_path'](job.src.sharedfolderref) -%}
     {%- set srcmntdir = salt['omv_conf.get_sharedfolder_mount_path'](job.src.sharedfolderref) -%}
-    {%- set desturi = salt['omv_conf.get_sharedfolder_path'](job.dest.uri) -%}
+    {%- set desturi = job.dest.uri -%}
   {%- elif job.mode == 'pull' -%}
-    {%- set srcuri = salt['omv_conf.get_sharedfolder_path'](job.src.uri) -%}
+    {%- set srcuri = job.src.uri -%}
     {%- set desturi = salt['omv_conf.get_sharedfolder_path'](job.dest.sharedfolderref) -%}
     {%- set destmntdir = salt['omv_conf.get_sharedfolder_mount_path'](job.dest.sharedfolderref) -%}
   {%- endif -%}

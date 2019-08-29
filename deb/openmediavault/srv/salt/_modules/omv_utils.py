@@ -255,7 +255,7 @@ def add_slashes(value):
         * double quote (")
     :rtype: str
     """
-    return openmediavault.string.add_slashes(path)
+    return openmediavault.string.add_slashes(value)
 
 
 @jinja_filter('path_prettify')

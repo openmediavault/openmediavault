@@ -1,5 +1,6 @@
 openmediavault (5.0.6-1) unstable; urgency=low
 
+  * Fix bug in creating rsync configuration.
   * Issue #419: Fix bug in NFS configuration file. The fsid was not
     incremented correctly.
 
