@@ -1,3 +1,9 @@
+openmediavault (5.0.7-1) unstable; urgency=low
+
+  * Issue #431: Fix bug in monit configuration.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 03 Sep 2019 21:45:53 +0200
+
 openmediavault (5.0.6-1) unstable; urgency=low
 
   * Fix bug in creating rsync configuration.
