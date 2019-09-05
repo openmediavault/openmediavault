@@ -21,6 +21,7 @@
 
 # Documentation/Howto:
 # https://www.freedesktop.org/software/systemd/man/systemd.mount.html
+# https://www.freedesktop.org/software/systemd/man/bootup.html#System%20Manager%20Bootup
 # https://copyninja.info/blog/systemd_automount_entry.html
 # https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files
 # https://utcc.utoronto.ca/~cks/space/blog/linux/SystemdBindMountUnits
@@ -57,7 +58,7 @@ omv-confdbadm read "conf.system.sharedfolder" |
 [Unit]
 Description=Mount shared folder ${name} to ${where}
 DefaultDependencies=no
-After=zfs-mount.service
+Wants=sysinit.target
 Conflicts=umount.target
 RequiresMountsFor=${mntdir}
 AssertPathIsDirectory=${what}
@@ -71,6 +72,6 @@ Type=none
 Options=bind,nofail
 
 [Install]
-WantedBy=local-fs.target
+WantedBy=basic.target
 EOF
     done;
