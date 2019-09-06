@@ -32,4 +32,8 @@ class StorageDeviceNVM extends StorageDevice implements SmartInterface {
 	public function isRotational() {
 		return FALSE;
 	}
+
+	public function getSmartDeviceType() {
+		return "nvme"
+	}
 }
