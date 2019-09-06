@@ -38,7 +38,7 @@ inherit acls = {% if share.inheritacls | to_bool %}yes{% else %}no{% endif %}
 inherit permissions = {% if share.inheritpermissions | to_bool %}yes{% else %}no{% endif %}
 ea support = {% if share.easupport | to_bool %}yes{% else %}no{% endif %}
 store dos attributes = {% if share.storedosattributes | to_bool %}yes{% else %}no{% endif %}
-{%- set vfs_objects = [] %}
+{%- set vfs_objects = vfs_objects.split(' ') %}
 {%- if share.recyclebin | to_bool %}
 {%- set _ = vfs_objects.append('recycle') %}
 recycle:repository = {{ recycle_repository }}
