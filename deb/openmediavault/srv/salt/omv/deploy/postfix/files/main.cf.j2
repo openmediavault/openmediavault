@@ -13,6 +13,7 @@
 {%- set smtp_tls_CAfile = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTP_TLS_CAFILE', '/etc/ssl/certs/ca-certificates.crt') -%}
 {%- set smtp_tls_CApath = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTP_TLS_CAPATH', '/etc/ssl/certs') -%}
 {%- set smtp_header_checks = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTP_HEADER_CHECKS', '/etc/postfix/smtp_header_checks') -%}
+{%- set smtp_relay_restrictions = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTP_RELAY_RESTRICTIONS', 'permit_mynetworks, permit_sasl_authenticated, defer_unauth_destination') -%}
 {%- set transport_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_TRANSPORT_MAPS', '/etc/postfix/transport') -%}
 {{ pillar['headers']['multiline'] }}
 {%- if grains['domain'] | length > 0 %}
@@ -43,4 +44,5 @@ smtp_tls_CAfile = {{ smtp_tls_CAfile }}
 smtp_tls_CApath = {{ smtp_tls_CApath }}
 {%- endif %}
 smtp_header_checks = regexp:{{ smtp_header_checks }}
+smtpd_relay_restrictions = {{ smtp_relay_restrictions }}
 transport_maps = hash:{{ transport_maps }}
