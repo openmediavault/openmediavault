@@ -69,7 +69,7 @@ fruit:metadata = {{ fruit_metadata }}
 fruit:resource = {{ fruit_resource }}
 fruit:time machine = yes
 {%- endif %}
-vfs objects = {{ vfs_objects | join(' ') }}
+vfs objects = {{ vfs_objects | unique | join(' ') }}
 printable = {{ printable }}
 create mask = {{ create_mask }}
 force create mode = {{ force_create_mode }}
