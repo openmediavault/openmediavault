@@ -101,6 +101,7 @@ openmediavault (4.1.24-1) stable; urgency=low
   * Fix bug in uploading Debian packages via UI.
   * Issue #417: Exit omv-firstaid and show an error when no network interfaces
     are detected.
+  * Issue #437: Fix bug collecting S.M.A.R.T. data from NVMe's.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 20 Aug 2019 13:41:23 +0200
 
