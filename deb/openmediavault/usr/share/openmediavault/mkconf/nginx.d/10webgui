@@ -105,7 +105,8 @@ xmlstarlet sel -t -m "//webadmin" \
     -v "concat('    listen ',port,';')" -n \
   -b \
   -i "${ipv6enabled} = 1" \
-    -v "concat('    listen [::]:',port,' ipv6only=off;')" -n \
+    -v "concat('    listen ',port,';')" -n \  
+    -v "concat('    listen [::]:',port,';')" -n \
   -b \
   -i "enablessl[. = '1'] and forcesslonly[. = '1']" \
     -o "    if (\$scheme = http) {" -n \
@@ -115,10 +116,11 @@ xmlstarlet sel -t -m "//webadmin" \
   -b \
   -i "enablessl[. = '1']" \
     -i "${ipv6enabled} = 0" \
-      -v "concat('    listen ',sslport,' ssl deferred;')" -n \
+      -v "concat('    listen ',sslport,' ssl;')" -n \
     -b \
     -i "${ipv6enabled} = 1" \
-      -v "concat('    listen [::]:',sslport,' ipv6only=off ssl deferred;')" -n \
+      -v "concat('    listen ',sslport,' ssl;')" -n \    
+      -v "concat('    listen [::]:',sslport,' ssl;')" -n \
     -b \
     -v "concat('    ssl_certificate ${OMV_SSL_CERTIFICATE_DIR}/certs/${OMV_SSL_CERTIFICATE_PREFIX}',sslcertificateref,'.crt;')" -n \
     -v "concat('    ssl_certificate_key ${OMV_SSL_CERTIFICATE_DIR}/private/${OMV_SSL_CERTIFICATE_PREFIX}',sslcertificateref,'.key;')" -n \
