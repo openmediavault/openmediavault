@@ -124,7 +124,7 @@ class Config extends \OMV\Rpc\ServiceAbstract {
 					$modulev);
 			}
 			// Append module to list of modules that have to be processed.
-			$processModules[$modulev] = $inst;
+			$processModules[mb_strtolower($modulev)] = $inst;
 			// Remove module name from list of dirty modules. Note, the
 			// array must be re-indexed.
 			$dirtyModules = array_values(array_diff($dirtyModules,
@@ -156,15 +156,15 @@ class Config extends \OMV\Rpc\ServiceAbstract {
 		}
 		foreach ($tsort->sort() as $name) {
 			$this->debug("Deploying configuration for module '%s'", $name);
-			$name = strtolower($name);
+			$inst = $processModules[$name];
 			$uri = "org.openmediavault.module.service.%s.%s";
-			$processModules[$name]->preDeploy();
+			$inst->preDeploy();
 			$notifyDispatcher->notify(OMV_NOTIFY_EVENT,
 				sprintf($uri, $name, "predeploy"));
-			$processModules[$name]->deploy();
+			$inst->deploy();
 			$notifyDispatcher->notify(OMV_NOTIFY_EVENT,
 				sprintf($uri, $name, "deploy"));
-			$processModules[$name]->postDeploy();
+			$inst->postDeploy();
 			$notifyDispatcher->notify(OMV_NOTIFY_EVENT,
 				sprintf($uri, $name, "postdeploy"));
 		}
