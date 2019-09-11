@@ -17,6 +17,9 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# Documentation/Howto:
+# https://www.freedesktop.org/software/systemd/man/bootup.html#System%20Manager%20Bootup
+
 {% set sharedfolders_path = salt['pillar.get']('default:OMV_SHAREDFOLDERS_DIR', '/sharedfolders') %}
 {% set sharedfolders_path_escaped = salt['cmd.run']('systemd-escape --path ' ~ sharedfolders_path) %}
 {% set sharedfolders = salt['omv_conf.get']('conf.system.sharedfolder') %}
@@ -43,7 +46,7 @@ configure_sharedfolder_{{ sharedfolder.name }}_mount_unit_file:
         [Unit]
         Description=Mount shared folder {{ sharedfolder.name }} to {{ where }}
         DefaultDependencies=no
-        After=zfs-mount.service
+        Wants=sysinit.target
         Conflicts=umount.target
         RequiresMountsFor={{ mntdir }}
         AssertPathIsDirectory={{ what }}
@@ -57,7 +60,7 @@ configure_sharedfolder_{{ sharedfolder.name }}_mount_unit_file:
         Options=bind,nofail
 
         [Install]
-        WantedBy=local-fs.target
+        WantedBy=basic.target
     - user: root
     - group: root
     - mode: 644

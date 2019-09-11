@@ -66,6 +66,7 @@ wins support = {% if config.winssupport | to_bool %}yes{% else %}no{% endif %}
 {%- if config.winsserver | length > 0 %}
 wins server = {{ config.winsserver }}
 {%- endif %}
+multicast dns register = no
 # Special configuration for Apple's Time Machine
 fruit:aapl = {{ fruit_aapl }}
 fruit:model = {{ fruit_model }}
