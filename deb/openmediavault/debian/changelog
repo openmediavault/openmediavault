@@ -1,6 +1,6 @@
 openmediavault (5.0.7-1) unstable; urgency=low
 
-  * Fix bug in Postfix configuration when SMTPS wrappermode is enabled.
+  * Fix various bugs in Postfix configuration.
   * Issue #431: Fix bug in monit configuration.
   * Issue #434: The environment variable OMV_SAMBA_SHARE_VFSOBJECTS was
     not taken into action when writing smb.conf.

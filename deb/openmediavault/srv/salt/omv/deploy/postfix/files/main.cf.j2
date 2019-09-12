@@ -1,3 +1,4 @@
+{%- set compatibility_level = salt['pillar.get']('default:OMV_POSTFIX_MAIN_COMPATIBILITY_LEVEL', 2) -%}
 {%- set mydestination = salt['pillar.get']('default:OMV_POSTFIX_MAIN_MYDESTINATION', '') -%}
 {%- set inet_interfaces = salt['pillar.get']('default:OMV_POSTFIX_MAIN_INET_INTERFACES', 'localhost') -%}
 {%- set sender_canonical_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SENDER_CANONICAL_MAPS', '/etc/postfix/sender_canonical') -%}
@@ -13,8 +14,10 @@
 {%- set smtp_tls_CAfile = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTP_TLS_CAFILE', '/etc/ssl/certs/ca-certificates.crt') -%}
 {%- set smtp_tls_CApath = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTP_TLS_CAPATH', '/etc/ssl/certs') -%}
 {%- set smtp_header_checks = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTP_HEADER_CHECKS', '/etc/postfix/smtp_header_checks') -%}
-{%- set transport_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_TRANSPORT_MAPS', '/etc/postfix/transport') -%}
+{%- set alias_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_ALIAS_MAPS', 'hash:/etc/aliases') -%}
+{%- set transport_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_TRANSPORT_MAPS', 'hash:/etc/postfix/transport') -%}
 {{ pillar['headers']['multiline'] }}
+compatibility_level = {{ compatibility_level }}
 {%- if grains['domain'] | length > 0 %}
 mydomain = {{ grains['domain'] }}
 {%- endif %}
@@ -43,4 +46,5 @@ smtp_tls_CAfile = {{ smtp_tls_CAfile }}
 smtp_tls_CApath = {{ smtp_tls_CApath }}
 {%- endif %}
 smtp_header_checks = regexp:{{ smtp_header_checks }}
-transport_maps = hash:{{ transport_maps }}
+alias_maps = {{ alias_maps }}
+transport_maps = {{ transport_maps }}
