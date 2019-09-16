@@ -1,6 +1,11 @@
-openmediavault (5.0.7-1) unstable; urgency=low
+openmediavault (5.0.8-1) unstable; urgency=low
 
   * Handle filesystem labels containing blanks correctly.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 16 Sep 2019 18:45:51 +0200
+
+openmediavault (5.0.7-1) unstable; urgency=low
+
   * Fix various bugs in Postfix configuration.
   * Issue #431: Fix bug in monit configuration.
   * Issue #434: The environment variable OMV_SAMBA_SHARE_VFSOBJECTS was
