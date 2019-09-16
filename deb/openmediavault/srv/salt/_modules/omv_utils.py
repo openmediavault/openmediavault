@@ -18,12 +18,13 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+import os
+import socket
+
 import openmediavault.config
 import openmediavault.device
 import openmediavault.fs
 import openmediavault.string
-import os
-import socket
 
 # Import Salt libs
 import salt.utils.network
