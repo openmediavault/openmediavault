@@ -43,8 +43,8 @@ include:
 {% for mountpoint in no_bind_mountpoints %}
 mount_no_bind_mountpoint_{{ mountpoint.uuid }}:
   mount.mounted:
-    - name: {{ mountpoint.dir }}
-    - device: {{ mountpoint.fsname | replace('\\ ','\\040') }}
+    - name: {{ mountpoint.dir | escape_blank(True) | replace('\\', '\\\\') }}
+    - device: {{ mountpoint.fsname | replace('\\', '\\\\') }}
     - fstype: {{ mountpoint.type }}
     - mkmnt: True
     - persist: False
@@ -59,8 +59,8 @@ mount_no_bind_mountpoint_{{ mountpoint.uuid }}:
 {% for mountpoint in bind_mountpoints %}
 mount_bind_mountpoint_{{ mountpoint.uuid }}:
   mount.mounted:
-    - name: {{ mountpoint.dir }}
-    - device: {{ mountpoint.fsname }}
+    - name: {{ mountpoint.dir | escape_blank(True) | replace('\\', '\\\\') }}
+    - device: {{ mountpoint.fsname | replace('\\', '\\\\') }}
     - fstype: none
     - opts: bind
     - mkmnt: True

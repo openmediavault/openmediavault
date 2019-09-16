@@ -25,7 +25,7 @@
 create_filesystem_mountpoint_{{ mountpoint.uuid }}:
   file.accumulated:
     - filename: "/etc/fstab"
-    - text: "{{ mountpoint.fsname | replace('\\ ','\\040') }}\t\t{{ mountpoint.dir }}\t{{ mountpoint.type }}\t{{ mountpoint.opts }}\t{{ mountpoint.freq }} {{ mountpoint.passno }}"
+    - text: "{{ mountpoint.fsname | replace('\\', '\\\\') }}\t\t{{ mountpoint.dir | escape_blank(True) | replace('\\', '\\\\') }}\t{{ mountpoint.type }}\t{{ mountpoint.opts }}\t{{ mountpoint.freq }} {{ mountpoint.passno }}"
     - require_in:
       - file: append_fstab_entries
 {% endfor %}

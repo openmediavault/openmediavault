@@ -108,9 +108,9 @@ def is_fs_uuid(value):
 
 def escape_blank(value, octal=False):
     """
-    Escape a string to be used in a shell environment. Various characters
-    will be replaced with their hexadecimal/octal representation, e.g.
-    a whitespace will be replaced by \x20 or \040.
+    Escape a string to be used in a shell environment. Blank characters
+    will be replaced with their hexadecimal (\x20) or octal (\040)
+    representation.
 
     Example:
     - /srv/dev-disk-by-label-xx yy => /srv/dev-disk-by-label-xx\x20yy
@@ -118,7 +118,7 @@ def escape_blank(value, octal=False):
 
     :param value: The value that will be escaped.
     :type value: str
-    :param octal: If ``True``, convert octal values, otherwise
+    :param octal: If ``True``, convert to octal values, otherwise
         hexadecimal. Defaults to ``False``.
     :type octal: bool
     :return: The escaped string.
@@ -129,9 +129,8 @@ def escape_blank(value, octal=False):
 
 def unescape_blank(value, octal=False):
     """
-    Unescape a string. Various hexadecimal/octal characters will be
-    replaced with their ASCII representation, e.g. \x20 or \040 will
-    be replaced by a whitespace.
+    Unescape a string. A hexadecimal (\x20) or octal (\040) blank will
+    be replaced by their ASCII representation.
 
     Example:
     - /srv/dev-disk-by-label-xx\x20yy => /srv/dev-disk-by-label-xx yy

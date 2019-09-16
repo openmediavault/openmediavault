@@ -1,5 +1,6 @@
 openmediavault (5.0.7-1) unstable; urgency=low
 
+  * Handle filesystem labels containing blanks correctly.
   * Fix various bugs in Postfix configuration.
   * Issue #431: Fix bug in monit configuration.
   * Issue #434: The environment variable OMV_SAMBA_SHARE_VFSOBJECTS was

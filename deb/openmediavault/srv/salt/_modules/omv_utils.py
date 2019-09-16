@@ -293,3 +293,26 @@ def path_dirname(path):
     :rtype: str
     """
     return os.path.dirname(path)
+
+
+@jinja_filter('escape_blank')
+def escape_blank(value, octal=False):
+    """
+    Escape a string to be used in a shell environment. Blank characters
+    will be replaced with their hexadecimal (\x20) or octal (\040)
+    representation.
+
+    Example:
+    - /srv/dev-disk-by-label-xx yy => /srv/dev-disk-by-label-xx\x20yy
+    - /srv/dev-disk-by-label-xx yy => /srv/dev-disk-by-label-xx\040yy
+
+    :param value: The value that will be escaped.
+    :type value: str
+    :param octal: If ``True``, convert to octal values, otherwise
+        hexadecimal. Defaults to ``False``.
+    :type octal: bool
+    :return: The escaped string.
+    :rtype: str
+    """
+    assert isinstance(value, str)
+    return openmediavault.string.escape_blank(value, octal)
