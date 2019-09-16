@@ -41,12 +41,16 @@ include:
   {'operator': 'not', 'arg0': {'operator': 'stringContains', 'arg0': 'opts', 'arg1': 'bind'}}) %}
 
 {% for mountpoint in no_bind_mountpoints %}
+mkdir_no_bind_mountpoint_{{ mountpoint.uuid }}:
+  file.directory:
+    - name: {{ mountpoint.dir }}
+
 mount_no_bind_mountpoint_{{ mountpoint.uuid }}:
   mount.mounted:
-    - name: {{ mountpoint.dir | replace(' ', '\\ ') }}
+    - name: {{ mountpoint.dir }}
     - device: {{ mountpoint.fsname | replace('\\', '\\\\') }}
     - fstype: {{ mountpoint.type }}
-    - mkmnt: True
+    - mkmnt: False
     - persist: False
     - mount: True
 {% endfor %}
@@ -57,13 +61,17 @@ mount_no_bind_mountpoint_{{ mountpoint.uuid }}:
   {'operator': 'stringContains', 'arg0': 'opts', 'arg1': 'bind'}) %}
 
 {% for mountpoint in bind_mountpoints %}
+mkdir_bind_mountpoint_{{ mountpoint.uuid }}:
+  file.directory:
+    - name: {{ mountpoint.dir }}
+
 mount_bind_mountpoint_{{ mountpoint.uuid }}:
   mount.mounted:
-    - name: {{ mountpoint.dir | replace(' ', '\\ ') }}
+    - name: {{ mountpoint.dir }}
     - device: {{ mountpoint.fsname | replace('\\', '\\\\') }}
     - fstype: none
     - opts: bind
-    - mkmnt: True
+    - mkmnt: False
     - persist: False
     - mount: True
 {% endfor %}
