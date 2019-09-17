@@ -61,6 +61,7 @@ class Filesystem(openmediavault.device.BlockDevice):
         * /dev/sde1
         * /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6-part1
         * /dev/disk/by-label/DATA
+        * /dev/disk/by-label/My\x20Passport\x20Blue
         * /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0-part2
         * /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
         * /dev/cciss/c0d0p2
@@ -81,6 +82,7 @@ class Filesystem(openmediavault.device.BlockDevice):
 
         * /
         * /srv/dev-disk-by-id-scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-1-part1
+        * /srv/dev-disk-by-label-My\040Passport\040Blue
 
         :type path: str
         :return: Return a :class:`Filesystem` object for the mount point.

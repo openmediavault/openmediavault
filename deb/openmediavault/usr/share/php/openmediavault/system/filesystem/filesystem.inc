@@ -47,6 +47,7 @@ class Filesystem extends \OMV\System\BlockDevice
 	 *   \li /dev/sde1
 	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6-part1
 	 *   \li /dev/disk/by-label/DATA
+	 *   \li /dev/disk/by-label/My\x20Passport\x20Blue
 	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0-part2
 	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
 	 *   \li /dev/cciss/c0d0p2
