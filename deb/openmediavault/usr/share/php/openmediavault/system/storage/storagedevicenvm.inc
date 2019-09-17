@@ -34,6 +34,6 @@ class StorageDeviceNVM extends StorageDevice implements SmartInterface {
 	}
 
 	public function getSmartDeviceType() {
-		return "nvme"
+		return "nvme";
 	}
 }
