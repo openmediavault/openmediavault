@@ -205,6 +205,9 @@ case "$1" in
 			# Deploy collectd - uptime plugin has been added.
 			omv-salt deploy run --quiet collectd
 		fi
+		if dpkg --compare-versions "$2" lt-nl "5.0.8"; then
+		  omv-salt deploy run --quiet monit
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the

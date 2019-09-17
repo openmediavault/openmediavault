@@ -273,7 +273,7 @@ $timeout = 1;
 $debug = FALSE;
 $daemon = TRUE;
 $xdebug = FALSE;
-$pidFile = "/var/run/{$cmdName}.pid";
+$pidFile = "/run/{$cmdName}.pid";
 $children = [];
 
 $stdIn = NULL;

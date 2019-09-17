@@ -1,6 +1,7 @@
 openmediavault (5.0.8-1) unstable; urgency=low
 
   * Handle filesystem labels containing blanks correctly.
+  * Relocate omv-engined PID file to /run/.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 16 Sep 2019 18:45:51 +0200
 
