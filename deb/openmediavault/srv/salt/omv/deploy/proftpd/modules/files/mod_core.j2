@@ -22,6 +22,9 @@
 {%- set timeout_stalled = salt['pillar.get']('default:OMV_PROFTPD_TIMEOUTSTALLED', '600') -%}
 {%- set delete_aborted_stores = salt['pillar.get']('default:OMV_PROFTPD_DELETEABORTEDSTORES', 'off') -%}
 Include /etc/proftpd/modules.conf
+{%- if ftp_config.modules.mod_tls.enable | to_bool %}
+Include /etc/proftpd/tls.conf
+{%- endif %}
 UseIPv6 {{ use_ipv6 }}
 ServerName {{ dns_config.hostname }}
 ServerType {{ server_type }}
