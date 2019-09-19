@@ -46,6 +46,7 @@ configure_sharedfolder_{{ sharedfolder.name }}_mount_unit_file:
         [Unit]
         Description=Mount shared folder {{ sharedfolder.name }} to {{ where }}
         DefaultDependencies=no
+        After=zfs-mount.service
         Wants=sysinit.target
         Conflicts=umount.target
         RequiresMountsFor={{ mntdir }}
