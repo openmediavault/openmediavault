@@ -1,3 +1,9 @@
+openmediavault (4.1.25-1) stable; urgency=low
+
+  * Issue #452: SharedFolders do not mount on ZFS File system.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 19 Sep 2019 08:22:45 +0200
+
 openmediavault (4.1.24-1) stable; urgency=low
 
   * Fix bug in uploading Debian packages via UI.

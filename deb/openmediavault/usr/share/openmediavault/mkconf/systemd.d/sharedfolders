@@ -58,6 +58,7 @@ omv-confdbadm read "conf.system.sharedfolder" |
 [Unit]
 Description=Mount shared folder ${name} to ${where}
 DefaultDependencies=no
+After=zfs-mount.service
 Wants=sysinit.target
 Conflicts=umount.target
 RequiresMountsFor=${mntdir}
