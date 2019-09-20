@@ -1,6 +1,7 @@
 openmediavault (5.0.9-1) unstable; urgency=low
 
   * Fix bug in proftpd. It was not possible to use TLS.
+  * Issue #454: Applying firewall rules fails.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 18 Sep 2019 20:31:50 +0200
 
