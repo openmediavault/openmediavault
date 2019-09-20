@@ -1,5 +1,4 @@
 {% set protocol = salt['pillar.get']('default:OMV_SSHD_PROTOCOL', '2') -%}
-{% set usePrivilegeSeparation = salt['pillar.get']('default:OMV_SSHD_USEPRIVILEGESEPARATION', 'yes') -%}
 {% set syslogFacility = salt['pillar.get']('default:OMV_SSHD_SYSLOGFACILITY', 'AUTH') -%}
 {% set logLevel = salt['pillar.get']('default:OMV_SSHD_LOGLEVEL', 'INFO') -%}
 {% set loginGraceTime = salt['pillar.get']('default:OMV_SSHD_LOGINGRACETIME', '120') -%}
@@ -26,7 +25,6 @@ HostKey /etc/ssh/ssh_host_rsa_key
 HostKey /etc/ssh/ssh_host_dsa_key
 HostKey /etc/ssh/ssh_host_ecdsa_key
 HostKey /etc/ssh/ssh_host_ed25519_key
-UsePrivilegeSeparation {{ usePrivilegeSeparation }}
 SyslogFacility {{ syslogFacility }}
 LogLevel {{ logLevel }}
 LoginGraceTime {{ loginGraceTime }}
