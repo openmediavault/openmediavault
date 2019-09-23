@@ -133,7 +133,7 @@ DisplayLogin {{ display_login }}
     AllowUser OR {{ limitall_allowuser | join(',') }}
 {%- endif %}
 {%- if limitall_allowgroup | length > 0 %}
-    AllowGroup OR {{ limitall_allowuser | join(',') }}
+    AllowGroup OR {{ limitall_allowgroup | join(',') }}
 {%- endif %}
     DenyAll
   </Limit>
