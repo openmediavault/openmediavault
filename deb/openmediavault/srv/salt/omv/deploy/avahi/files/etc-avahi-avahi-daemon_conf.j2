@@ -1,9 +1,12 @@
+{%- set use_ipv4 = salt['pillar.get']('default:OMV_AVAHIDAEMON_USE_IPV4', 'yes') -%}
+{%- set use_ipv6 = salt['pillar.get']('default:OMV_AVAHIDAEMON_USE_IPV6', 'yes') -%}
+{%- set rlimit_nproc = salt['pillar.get']('default:OMV_AVAHIDAEMON_RLIMIT_NPROC', '3') -%}
 [server]
 #host-name=foo
 #domain-name=local
 #browse-domains=0pointer.de, zeroconf.org
-use-ipv4=yes
-use-ipv6=yes
+use-ipv4={{ use_ipv4 }}
+use-ipv6={{ use_ipv6 }}
 #allow-interfaces=eth0
 #deny-interfaces=eth1
 #check-response-ttl=no
@@ -45,4 +48,4 @@ rlimit-data=4194304
 rlimit-fsize=0
 rlimit-nofile=768
 rlimit-stack=4194304
-rlimit-nproc=3
+rlimit-nproc={{ rlimit_nproc }}
