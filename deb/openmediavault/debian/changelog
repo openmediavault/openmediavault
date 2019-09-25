@@ -1,6 +1,7 @@
 openmediavault (5.0.10-1) unstable; urgency=low
 
   * Fix group privileges issue in proftpd.
+  * Fix bugs in NFS configuration file /etc/exports.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 24 Sep 2019 00:35:23 +0200
 

@@ -10,7 +10,7 @@
 {{ pillar['headers']['multiline'] }}
 # /etc/exports: the access control list for filesystems which may be exported
 #               to NFS clients.  See exports(5).
-{% for share_v3 in shares_v3 %}
+{%- for share_v3 in shares_v3 %}
 {% set v3_loop = loop %}
 {%- set shares = salt['omv_conf.get_by_filter'](
   'conf.service.nfs.share',
@@ -19,10 +19,10 @@
 {%- set sharedfolder = salt['omv_conf.get']('conf.system.sharedfolder', share.sharedfolderref) %}
 {%- if loop.first %}{{ export_dir | path_join(sharedfolder.name) }}{% endif -%}
 {{ separator }}{{ share.client | trim }}(fsid={{ v3_loop.index }},{{ share.options }}{% if share.extraoptions | length > 0 %},{{ share.extraoptions }}{% endif %})
-{% endfor -%}
-{% endfor -%}
+{%- endfor %}
+{%- endfor %}
 
 # NFSv4 - pseudo filesystem root
 {%- for share_v4 in shares_v4 %}
 {{ export_dir }} {{ share_v4.client | trim }}({{ v4_default_options }})
-{% endfor -%}
+{%- endfor %}
