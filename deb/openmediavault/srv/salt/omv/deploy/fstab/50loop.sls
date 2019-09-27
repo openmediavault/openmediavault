@@ -28,4 +28,13 @@ create_loop_mountpoint_{{ mountpoint.uuid }}:
     - text: "{{ mountpoint.fsname | replace('\\', '\\\\') }}\t\t{{ mountpoint.dir | escape_blank(True) | replace('\\', '\\\\') }}\t{{ mountpoint.type }}\t{{ mountpoint.opts }}\t{{ mountpoint.freq }} {{ mountpoint.passno }}"
     - require_in:
       - file: append_fstab_entries
+
+mount_loop_mountpoint_{{ mountpoint.uuid }}:
+  mount.mounted:
+    - name: {{ mountpoint.dir }}
+    - device: {{ mountpoint.fsname | replace('\\', '\\\\') }}
+    - fstype: {{ mountpoint.type }}
+    - mkmnt: True
+    - persist: False
+    - mount: True
 {% endfor %}
