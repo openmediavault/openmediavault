@@ -2,6 +2,8 @@ openmediavault (5.0.10-1) unstable; urgency=low
 
   * Fix group privileges issue in proftpd.
   * Fix bugs in NFS configuration file /etc/exports.
+  * Change /etc/fstab creation behaviour. Each * .sls file is responsible
+    for mounting the mount points processed by this file.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 24 Sep 2019 00:35:23 +0200
 
