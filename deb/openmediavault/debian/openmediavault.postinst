@@ -554,6 +554,9 @@ case "$1" in
 				deb-systemd-invoke stop wsdd.service || :
 			fi
 		fi
+		if dpkg --compare-versions "$2" lt-nl "4.1.26"; then
+			omv-mkconf systemd
+		fi
 
 		########################################################################
 		# Show help text.
