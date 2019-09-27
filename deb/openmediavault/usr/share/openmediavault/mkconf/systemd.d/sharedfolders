@@ -62,9 +62,9 @@ After=zfs-mount.service
 Wants=sysinit.target
 Conflicts=umount.target
 RequiresMountsFor=${mntdir}
-AssertPathIsDirectory=${what}
 AssertPathIsDirectory=${OMV_SHAREDFOLDERS_DIR}
 AssertPathIsMountPoint=${mntdir}
+AssertPathIsDirectory=${what}
 
 [Mount]
 What=${what}
