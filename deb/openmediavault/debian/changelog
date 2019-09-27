@@ -122,6 +122,14 @@ openmediavault (5.0-1) unstable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 May 2018 22:06:11 +0200
 
+openmediavault (4.1.26-1) stable; urgency=low
+
+  * The smbd daemon must be restarted when groups are modified in order to
+    take these changes into action, otherwise it is possible that a user
+    still works with privileges that are already obsolete.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 27 Sep 2019 16:44:26 +0200
+
 openmediavault (4.1.25-1) stable; urgency=low
 
   * Issue #452: SharedFolders do not mount on ZFS File system.

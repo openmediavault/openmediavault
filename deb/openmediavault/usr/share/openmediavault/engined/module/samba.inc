@@ -203,6 +203,14 @@ class Samba extends \OMV\Engine\Module\ServiceAbstract implements
 			OMV_NOTIFY_DELETE,
 			"org.openmediavault.conf.system.usermngmnt.user",
 			[$this, "onDeleteUser"]);
+		// The smbd daemon must be restarted when groups are modified
+		// in order to take these changes into action, otherwise it is
+		// possible that a user still works with privileges that are
+		// already obsolete.
+		$dispatcher->addListener(
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.conf.system.usermngmnt.group",
+			[$this, "setDirty"]);
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$dispatcher->addListener(
 			OMV_NOTIFY_MODIFY,
