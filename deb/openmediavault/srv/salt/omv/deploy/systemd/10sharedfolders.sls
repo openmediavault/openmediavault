@@ -50,9 +50,9 @@ configure_sharedfolder_{{ sharedfolder.name }}_mount_unit_file:
         Wants=sysinit.target
         Conflicts=umount.target
         RequiresMountsFor={{ mntdir }}
-        AssertPathIsDirectory={{ what }}
         AssertPathIsDirectory={{ sharedfolders_path }}
         AssertPathIsMountPoint={{ mntdir }}
+        AssertPathIsDirectory={{ what }}
 
         [Mount]
         What={{ what }}
