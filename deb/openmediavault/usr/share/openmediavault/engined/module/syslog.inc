@@ -24,7 +24,7 @@ namespace Engined\Module;
 class Syslog extends \OMV\Engine\Module\ServiceAbstract
 		implements \OMV\Engine\Notify\IListener {
 	public function getName() {
-		return "syslog";
+		return "rsyslog";
 	}
 
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
