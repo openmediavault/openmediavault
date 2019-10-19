@@ -23,6 +23,9 @@
 hostname = "omv5box"
 
 Vagrant.configure("2") do |config|
+  # Prevent TTY-related pseudo-errors
+  # We do this by not allocating a pseudo-tty (the default is bash -l)
+  config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
 	config.vm.box = "debian/buster64"
 	config.vm.define hostname
 	config.vm.provision :shell, :path => "install.sh"
