@@ -5,7 +5,3 @@ $ sudo apt-get install virtualbox
 $ sudo apt-get install nfs-kernel-server
 
 3. Download Vagrant from https://www.vagrantup.com/downloads.html
-
-4. Install plugins
-$ vagrant plugin install vagrant-vbguest
-$ vagrant plugin install vagrant-cachier

@@ -54,11 +54,4 @@ Vagrant.configure("2") do |config|
 	config.vm.synced_folder "../deb", "/home/vagrant/openmediavault",
 		:nfs => true,
 		:mount_options => ["nolock,vers=3,udp,noatime,actimeo=1"]
-	#if Vagrant.has_plugin?("vagrant-cachier")
-	#	config.cache.scope = :box
-	#	config.cache.synced_folder_opts = {
-	#		type: :nfs,
-	#		mount_options: ["rw", "vers=3", "tcp", "nolock"]
-	#	}
-	#end
 end
