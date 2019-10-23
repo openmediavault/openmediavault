@@ -1,6 +1,8 @@
 openmediavault (5.0.11) unstable; urgency=low
 
   * Use the correct deploy target when enabling remote syslog.
+  * Prevent the TTY error "mesg: ttyname failed: Inappropriate ioctl for
+    device".
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 30 Sep 2019 08:30:29 +0200
 
