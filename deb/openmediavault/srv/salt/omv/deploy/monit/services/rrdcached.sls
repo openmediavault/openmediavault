@@ -17,6 +17,10 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+{% set perfstats_config = salt['omv_conf.get']('conf.system.monitoring.perfstats') %}
+
+{% if perfstats_config.enable | to_bool %}
+
 {% set email_config = salt['omv_conf.get']('conf.system.notification.email') %}
 {% set notification_config = salt['omv_conf.get_by_filter'](
   'conf.system.notification.notification',
@@ -34,3 +38,11 @@ configure_monit_rrdcached_service:
     - user: root
     - group: root
     - mode: 644
+
+{% else %}
+
+remove_monit_rrdcached_service:
+  file.absent:
+    - name: "/etc/monit/conf.d/openmediavault-rrdcached.conf"
+
+{% endif %}
