@@ -3,6 +3,7 @@ openmediavault (5.0.11) unstable; urgency=low
   * Use the correct deploy target when enabling remote syslog.
   * Prevent the TTY error "mesg: ttyname failed: Inappropriate ioctl for
     device".
+  * Fix bug in /srv/salt/omv/deploy/rrdcached/default.sls file.
   * Issue #468: Rrdcached monit config is not removed when collecting
     performance statistics is disabled.
 

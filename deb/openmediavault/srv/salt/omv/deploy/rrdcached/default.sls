@@ -28,7 +28,7 @@
 {% set pidfile = salt['pillar.get']('default:OMV_RRDCACHED_PIDFILE', '/var/run/rrdcached.pid') %}
 {% set sockfile = salt['pillar.get']('default:OMV_RRDCACHED_SOCKETFILE', '/var/run/rrdcached.sock') %}
 {% set flush_interval = salt['pillar.get']('default:OMV_RRDCACHED_FLUSHINTERVAL', '3600') %}
-{% set base_options = salt['pillar.get']('default:OMV_RRDCACHED_BASEOPTIONS', '-B -F -f ' ~flush_interval) %}
+{% set base_options = salt['pillar.get']('default:OMV_RRDCACHED_BASEOPTIONS', '-B -F -f ' ~ flush_interval) %}
 
 prereq_rrdcached_service_monit:
   salt.state:
