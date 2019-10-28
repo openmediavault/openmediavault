@@ -51,15 +51,14 @@ def is_ipv6_enabled():
     :rtype: bool
     """
     result = False
+    s = socket.socket(socket.AF_INET6)
     try:
-        s = socket.socket(socket.AF_INET6)
         s.bind(('::1', 0))
         result = True
     except Exception:
         pass
     finally:
-        if s:
-            s.close()
+        s.close()
     return result
 
 
