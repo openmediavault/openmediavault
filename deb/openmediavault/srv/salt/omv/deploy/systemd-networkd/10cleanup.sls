@@ -18,6 +18,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 {% for file in salt['file.find']('/etc/systemd/network/', iname='openmediavault-*.network', print='name') | sort %}
+
 {% set ifname = file | replace('openmediavault-', '') | replace('.network', '') %}
 
 flush_interface_{{ ifname }}:

@@ -1,0 +1,65 @@
+{%- set dns = salt['omv_conf.get']('conf.system.network.dns') -%}
+{%- set wake_on_lan = salt['pillar.get']('default:OMV_INTERFACES_LINK_WAKEONLAN', 'magic') -%}
+[Match]
+Name={{ interface.devicename }}
+
+[Network]
+{%- if interface.method == "static" %}
+Address={{ interface.address }}/{{ interface.netmask | network_prefix_len }}
+{%- if interface.gateway | is_ip %}
+Gateway={{ interface.gateway }}
+{%- endif %}
+{%- endif %}
+{%- if interface.method6 == "manual" %}
+IPv6AcceptRA=no
+LinkLocalAddressing=no
+{%- endif %}
+{%- if interface.method6 == "static" %}
+Address={{ interface.address6 }}/{{ interface.netmask6 }}
+{%- if interface.gateway6 | is_ipv6 %}
+Gateway={{ interface.gateway }}
+{%- endif %}
+IPv6PrivacyExtensions=yes
+IPv6AcceptRA=no
+{%- endif %}
+{%- if interface.method6 == "auto" %}
+IPv6PrivacyExtensions=yes
+IPv6AcceptRA=yes
+{%- endif %}
+{%- if interface.method == "dhcp" and interface.method6 == "dhcp" %}
+DHCP=both
+IPv6AcceptRA=yes
+{%- endif %}
+{%- if interface.method == "dhcp" and not interface.method6 == "dhcp" %}
+DHCP=ipv4
+{%- endif %}
+{%- if not interface.method == "dhcp" and interface.method6 == "dhcp" %}
+DHCP=ipv6
+IPv6AcceptRA=yes
+{%- endif %}
+{%- if not interface.dnsnameservers == "" %}
+UseDNS=yes
+{%- for dnsserver in interface.dnsnameservers.split(',') %}
+DNS={{ dnsserver }}
+{%- endfor %}
+{%- endif %}
+{%- if interface.dnssearch | length > 0 %}
+Domains={{ interface.dnssearch }}
+{%- else %}
+{%- if dns.domainname | length > 0 and dns.domainname != "local" %}
+Domains={{ dns.domainname }}
+{%- endif %}
+{%- endif %}
+
+[Link]
+{%- if interface.mtu > 0 %}
+MTUBytes={{ interface.mtu }}
+{%- endif %}
+{%- if interface.wol | to_bool %}
+WakeOnLan={{ wake_on_lan }}
+{%- endif %}
+
+[IPv6Prefix]
+{%- if interface.method6 == "auto" %}
+AddressAutoconfiguration=yes
+{%- endif %}
