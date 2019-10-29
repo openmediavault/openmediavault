@@ -115,7 +115,7 @@ Ext.define("OMV.module.admin.system.notification.Settings", {
 							OMV.MessageBox.updateProgress(1);
 							OMV.MessageBox.hide();
 							if(success) {
-								OMV.MessageBox.success(null, _("The test email has been sent successfully. Please check your mailbox."));
+								OMV.MessageBox.success(null, _("An attempt to send the test email has been made. Please check your mailbox. If the email does not arrive, check any spam folders and also check there are no Postfix related errors in the system log."));
 							} else {
 								OMV.MessageBox.error(null, response);
 							}
