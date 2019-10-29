@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-usbbackup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-18 11:05+0100\n"
+"POT-Creation-Date: 2019-10-29 17:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -98,7 +98,13 @@ msgstr ""
 msgid "Preserve extended attributes"
 msgstr ""
 
-msgid "Preserve modification times."
+msgid "Preserve group"
+msgstr ""
+
+msgid "Preserve modification times"
+msgstr ""
+
+msgid "Preserve owner"
 msgstr ""
 
 msgid "Preserve permissions"
@@ -131,6 +137,12 @@ msgstr ""
 msgid "Set the destination permissions to be the same as the source permissions."
 msgstr ""
 
+msgid "Set the group of the destination file to be the same as the source file."
+msgstr ""
+
+msgid "Set the owner of the destination file to be the same as the source file, but only if the receiving rsync is being run as the super-user."
+msgstr ""
+
 msgid "Shared folder"
 msgstr ""
 
@@ -149,7 +161,7 @@ msgstr ""
 msgid "The shared folder to synchronise when the external storage device is connected."
 msgstr ""
 
-msgid "Times"
+msgid "Transfer modification times along with the files and update them on the remote system."
 msgstr ""
 
 msgid "USB Backup"
