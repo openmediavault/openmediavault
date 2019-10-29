@@ -51,7 +51,7 @@ configure_interface_vlan_{{ interface.vlanrawdevice }}.{{ interface.vlanid }}_ne
     - group: root
     - mode: 644
 
-configure_interface_vlan_{{ interface.vlanrawdevice }}_network:
+configure_interface_vlan_{{ interface.vlanrawdevice }}_network_append_{{ interface.vlanrawdevice }}.{{ interface.vlanid }}:
   file.touch:
     - name: "/etc/systemd/network/openmediavault-{{ interface.vlanrawdevice }}.network"
   ini.options_present:

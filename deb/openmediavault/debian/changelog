@@ -7,6 +7,7 @@ openmediavault (5.0.11) unstable; urgency=low
     into an malformed BASE_OPTIONS variable in /etc/default/rrdcached.
   * Issue #468: Rrdcached monit config is not removed when collecting
     performance statistics is disabled.
+  * Issue #480: Cannot to create multiple VLANs.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 30 Sep 2019 08:30:29 +0200
 
