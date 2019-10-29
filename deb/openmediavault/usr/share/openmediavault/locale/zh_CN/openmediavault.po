@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-23 17:24+0100\n"
-"PO-Revision-Date: 2019-07-10 02:14+0000\n"
-"Last-Translator: songming <by@songming.me>\n"
+"POT-Creation-Date: 2019-10-29 17:17+0100\n"
+"PO-Revision-Date: 2019-10-29 16:20+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -262,12 +262,6 @@ msgstr "添加共享文件夹"
 msgid "Add user"
 msgstr "添加用户"
 
-msgid ""
-"Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
-" href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
-"for more details."
-msgstr "附加设置，例如 :'autoneg off speed 100 duplex full'。详情请见 <a href='http://linux.die.net/man/8/ethtool' target='_blank'> 手册 </a>。"
-
 msgid "Address"
 msgstr "地址"
 
@@ -322,11 +316,14 @@ msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "允许此服务器作为 Windows 客户端的时间服务器"
 
-msgid "Allow this server to try and become a local master browser"
-msgstr "允许本服务器作为 local master browser，LMB 主要是扫描局域网内工作组和电脑名称，如果局域网中没有域控制器建议开启此项。"
-
 msgid "American Samoa"
 msgstr "美属萨摩亚"
+
+msgid ""
+"An attempt to send the test email has been made. Please check your mailbox. "
+"If the email does not arrive, check any spam folders and also check there "
+"are no Postfix related errors in the system log."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -355,6 +352,9 @@ msgstr "匿名"
 
 msgid "Anonymous FTP"
 msgstr "匿名 FTP"
+
+msgid "Another user is already authenticated."
+msgstr ""
 
 msgid "Antarctica"
 msgstr "南极洲"
@@ -1055,9 +1055,6 @@ msgstr "编辑计划任务"
 msgid "Edit scheduled test"
 msgstr "编辑测试计划"
 
-msgid "Edit service"
-msgstr "编辑服务"
-
 msgid "Edit share"
 msgstr "编辑共享"
 
@@ -1093,6 +1090,9 @@ msgstr "启用 SSL/TLS"
 
 msgid "Enable SSL/TLS connections"
 msgstr "启用 SSL/TLS 连接"
+
+msgid "Enable Time Machine support for this share."
+msgstr ""
 
 msgid "Enable WINS server"
 msgstr "启用 WINS 服务器"
@@ -1669,8 +1669,14 @@ msgstr "将 SSH 公钥作为授权秘钥添加到远程系统。请确保远程�
 msgid "Interfaces"
 msgstr "接口"
 
+msgid "Invalid IP address."
+msgstr ""
+
 msgid "Invalid SSH public key (RFC 4716)"
 msgstr "无效 SSH 公钥 (RFC 4716)"
+
+msgid "Invalid User-Agent."
+msgstr ""
 
 msgid "Invalid domain name"
 msgstr "无效域名"
@@ -1689,6 +1695,9 @@ msgstr "无效名称"
 
 msgid "Invalid user name"
 msgstr "无效用户名"
+
+msgid "Invalid user."
+msgstr ""
 
 msgid "Iran"
 msgstr "伊朗"
@@ -1829,9 +1838,6 @@ msgstr "载入中，请稍等 ..."
 
 msgid "Local"
 msgstr "本地"
-
-msgid "Local master browser"
-msgstr "本地主机浏览"
 
 msgid "Location"
 msgstr "位置"
@@ -2215,9 +2221,6 @@ msgstr "十一月"
 msgid "Num"
 msgstr "号码"
 
-msgid "Number of servers"
-msgstr "服务器数量"
-
 msgid "OK"
 msgstr "是"
 
@@ -2320,11 +2323,11 @@ msgstr "密码验证"
 msgid "Passwords don't match"
 msgstr "密码不匹配"
 
-msgid "Paste a RSA certificate in X.509 PEM format here."
-msgstr "在这粘贴 X.509 格式的 RSA 证书"
+msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
+msgstr ""
 
-msgid "Paste an private RSA key in X.509 PEM format here."
-msgstr "在这粘贴 X.509 格式的 RSA 私钥"
+msgid "Paste a RSA or ECC private key in X.509 PEM format here."
+msgstr ""
 
 msgid "Path"
 msgstr "路径"
@@ -2468,8 +2471,14 @@ msgstr "保存 ACLs"
 msgid "Preserve extended attributes"
 msgstr "保留扩展属性"
 
+msgid "Preserve group"
+msgstr ""
+
 msgid "Preserve modification times"
 msgstr "保存修改时间"
+
+msgid "Preserve owner"
+msgstr ""
 
 msgid "Preserve permissions"
 msgstr "保存权限"
@@ -2667,9 +2676,9 @@ msgid ""
 msgstr "自上次报告以来温度变化至少 N 度，则需报告，设置为 0 则关闭报告。"
 
 msgid ""
-"Report if the temperature is greater or equal than N degrees Celsius. Set to"
-" 0 to disable this report."
-msgstr "如果温度大于或等于 N 度则报告，设置为 0 则关闭报告。"
+"Report if the temperature is greater than or equal to N degrees Celsius. Set"
+" to 0 to disable this report."
+msgstr ""
 
 msgid "Repository"
 msgstr "软件源"
@@ -2951,9 +2960,6 @@ msgstr "服务器"
 msgid "Service"
 msgstr "服务"
 
-msgid "Service Discovery"
-msgstr "服务发现"
-
 msgid "Service disabled"
 msgstr "服务被禁用"
 
@@ -2978,6 +2984,15 @@ msgstr "设为只读"
 msgid ""
 "Set the destination permissions to be the same as the source permissions"
 msgstr "将目标权限与源权限设为一样"
+
+msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr ""
+
+msgid ""
+"Set the owner of the destination file to be the same as the source file, but"
+" only if the receiving rsync is being run as the super-user."
+msgstr ""
 
 msgid "Set write only"
 msgstr "设为只写"
@@ -3106,9 +3121,6 @@ msgstr "西班牙"
 
 msgid "Special action flag"
 msgstr "特殊动作标志"
-
-msgid "Specifies how many server threads to create."
-msgstr "指定创建多少个服务器线程。"
 
 msgid "Specifies one of the bonding policies."
 msgstr "指定一个汇聚策略。"
@@ -3398,12 +3410,6 @@ msgid ""
 "for data connections is not required."
 msgstr "不要求控制连接 SSL 会话重用与数据连接。"
 
-msgid "The session IP address has been changed."
-msgstr "需要改变回话 IP 地址。"
-
-msgid "The session user no longer exists."
-msgstr "回话用户不存在。"
-
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
@@ -3415,11 +3421,11 @@ msgstr "源共享文件夹。"
 msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "指定的配额过大，可能超过了 4TB。"
 
+msgid "The system must be rebooted."
+msgstr ""
+
 msgid "The system will reboot now. This may take some time ..."
 msgstr "系统将要重启，这需要一些时间 ..."
-
-msgid "The test email has been sent successfully. Please check your mailbox."
-msgstr "测试邮件已成功发送，请查收。"
 
 msgid "The volume label for the file system."
 msgstr "文件系统卷标签"
@@ -3643,6 +3649,9 @@ msgstr "该规则是如果数据包匹配则做什么。"
 msgid "This will create a recycle bin on the share."
 msgstr "在共享上创建回收站。"
 
+msgid "Threshold"
+msgstr ""
+
 msgid "Thursday"
 msgstr "星期四"
 
@@ -3651,6 +3660,9 @@ msgstr "TB"
 
 msgid "Time"
 msgstr "时间"
+
+msgid "Time Machine support"
+msgstr ""
 
 msgid "Time interval"
 msgstr "时间间隔"
@@ -3670,9 +3682,6 @@ msgstr "时区"
 msgid "Timeout"
 msgstr "超时"
 
-msgid "Times"
-msgstr "时间"
-
 msgid "Togo"
 msgstr "多哥"
 
@@ -3688,14 +3697,16 @@ msgstr "总计"
 msgid "Transfer log"
 msgstr "传输日志"
 
+msgid ""
+"Transfer modification times along with the files and update them on the "
+"remote system."
+msgstr ""
+
 msgid "Transfer time"
 msgstr "传输时间"
 
 msgid "Transfer type"
 msgstr "传输类型"
-
-msgid "Treshold"
-msgstr "临界值"
 
 msgid "Trial run"
 msgstr "试运行"
@@ -3805,6 +3816,9 @@ msgstr "更新目标扩展属性与本地一致"
 
 msgid "Updates"
 msgstr "更新"
+
+msgid "Updates available"
+msgstr ""
 
 msgid "Updating ACL settings"
 msgstr "更新 ACL 设置中"

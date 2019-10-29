@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-23 17:24+0100\n"
-"PO-Revision-Date: 2019-01-07 04:17+0000\n"
-"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
+"POT-Creation-Date: 2019-10-29 17:17+0100\n"
+"PO-Revision-Date: 2019-10-29 16:20+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/votdev/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -260,12 +260,6 @@ msgstr "共有フォルダの追加"
 msgid "Add user"
 msgstr "ユーザーの追加"
 
-msgid ""
-"Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
-" href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
-"for more details."
-msgstr "追加のデバイス設定 例)'autoneg off speed 100 duplex full' 詳細は<a href='http://linux.die.net/man/8/ethtool' target='_blank'>マニュアルページ</a>を参照してください。"
-
 msgid "Address"
 msgstr "アドレス"
 
@@ -320,11 +314,14 @@ msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "このサーバがWindowsクライアントへのタイムサーバとして自身をアドバタイズすることを許可"
 
-msgid "Allow this server to try and become a local master browser"
-msgstr "サーバーがローカルマスターブラウザになることを試行することを許可"
-
 msgid "American Samoa"
 msgstr "アメリカ領サモア"
+
+msgid ""
+"An attempt to send the test email has been made. Please check your mailbox. "
+"If the email does not arrive, check any spam folders and also check there "
+"are no Postfix related errors in the system log."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -353,6 +350,9 @@ msgstr "Anonymous"
 
 msgid "Anonymous FTP"
 msgstr "Anonymous FTP"
+
+msgid "Another user is already authenticated."
+msgstr ""
 
 msgid "Antarctica"
 msgstr "南極大陸"
@@ -1053,9 +1053,6 @@ msgstr "スケジュールされたジョブの編集"
 msgid "Edit scheduled test"
 msgstr "スケジュールされたテストの編集"
 
-msgid "Edit service"
-msgstr "サービスの編集"
-
 msgid "Edit share"
 msgstr "共有の編集"
 
@@ -1091,6 +1088,9 @@ msgstr "SSL/TLSを有効化"
 
 msgid "Enable SSL/TLS connections"
 msgstr "SSL/TLS接続を有効化"
+
+msgid "Enable Time Machine support for this share."
+msgstr ""
 
 msgid "Enable WINS server"
 msgstr "WINSサーバーを有効化"
@@ -1667,8 +1667,14 @@ msgstr "公開鍵をリモートシステムにインストールします。 �
 msgid "Interfaces"
 msgstr "インタフェース"
 
+msgid "Invalid IP address."
+msgstr ""
+
 msgid "Invalid SSH public key (RFC 4716)"
 msgstr "無効なSSH公開鍵 (RFC 4716)"
+
+msgid "Invalid User-Agent."
+msgstr ""
 
 msgid "Invalid domain name"
 msgstr "無効なドメイン名"
@@ -1687,6 +1693,9 @@ msgstr "名前が不正です"
 
 msgid "Invalid user name"
 msgstr "ユーザー名が不正です"
+
+msgid "Invalid user."
+msgstr ""
 
 msgid "Iran"
 msgstr "イラン"
@@ -1827,9 +1836,6 @@ msgstr "読み込んでいます、しばらくお待ちください ..."
 
 msgid "Local"
 msgstr "ローカル"
-
-msgid "Local master browser"
-msgstr "ローカルマスタブラウザ"
 
 msgid "Location"
 msgstr "ロケーション"
@@ -2213,9 +2219,6 @@ msgstr "11月"
 msgid "Num"
 msgstr "番号"
 
-msgid "Number of servers"
-msgstr "サービス番号"
-
 msgid "OK"
 msgstr "はい"
 
@@ -2318,11 +2321,11 @@ msgstr "パスワード認証"
 msgid "Passwords don't match"
 msgstr "パスワード不一致"
 
-msgid "Paste a RSA certificate in X.509 PEM format here."
-msgstr "ここにX.509 PEM形式のRSA証明書を貼り付けます。"
+msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
+msgstr ""
 
-msgid "Paste an private RSA key in X.509 PEM format here."
-msgstr "ここにX.509 PEM形式のRSA秘密鍵を貼り付けます。"
+msgid "Paste a RSA or ECC private key in X.509 PEM format here."
+msgstr ""
 
 msgid "Path"
 msgstr "パス"
@@ -2466,8 +2469,14 @@ msgstr "ACLを保存"
 msgid "Preserve extended attributes"
 msgstr "拡張属性を保存"
 
+msgid "Preserve group"
+msgstr ""
+
 msgid "Preserve modification times"
 msgstr "修正時刻を保存"
+
+msgid "Preserve owner"
+msgstr ""
 
 msgid "Preserve permissions"
 msgstr "パーミッションを保存"
@@ -2665,9 +2674,9 @@ msgid ""
 msgstr "最後のレポートから温度が摂氏 N 度変化した場合にレポートします。0に設定するとレポートしません。"
 
 msgid ""
-"Report if the temperature is greater or equal than N degrees Celsius. Set to"
-" 0 to disable this report."
-msgstr "温度が摂氏 N 度を超えるか、同じになった場合にレポートします。0に設定するとレポートしません。"
+"Report if the temperature is greater than or equal to N degrees Celsius. Set"
+" to 0 to disable this report."
+msgstr ""
 
 msgid "Repository"
 msgstr "リポジトリ"
@@ -2949,9 +2958,6 @@ msgstr "サーバ"
 msgid "Service"
 msgstr "サービス"
 
-msgid "Service Discovery"
-msgstr "サービスディスカバリ"
-
 msgid "Service disabled"
 msgstr "サービス無効化"
 
@@ -2976,6 +2982,15 @@ msgstr "読み込み専用に設定"
 msgid ""
 "Set the destination permissions to be the same as the source permissions"
 msgstr "元のパーミッションと同じになるように先のパーミッションを設定"
+
+msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr ""
+
+msgid ""
+"Set the owner of the destination file to be the same as the source file, but"
+" only if the receiving rsync is being run as the super-user."
+msgstr ""
 
 msgid "Set write only"
 msgstr "書き込み専用に設定"
@@ -3104,9 +3119,6 @@ msgstr "スペイン"
 
 msgid "Special action flag"
 msgstr "特殊なアクションフラグ"
-
-msgid "Specifies how many server threads to create."
-msgstr "いくつのサーバースレッドを生成するか指定します。"
 
 msgid "Specifies one of the bonding policies."
 msgstr "ボンディングポリシーの一つを指定します。"
@@ -3396,12 +3408,6 @@ msgid ""
 "for data connections is not required."
 msgstr "コントロールコネクションからのSSLセッションがデータ接続に再利用される場合は本要件は不要です。"
 
-msgid "The session IP address has been changed."
-msgstr "セッションのIPアドレスが変更されました。"
-
-msgid "The session user no longer exists."
-msgstr "セッションのユーザーは存在しません。"
-
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
@@ -3413,11 +3419,11 @@ msgstr "ソース共有フォルダ。"
 msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "指定されたクォータは最大値を超えています。4TiBまでの値を設定。"
 
+msgid "The system must be rebooted."
+msgstr ""
+
 msgid "The system will reboot now. This may take some time ..."
 msgstr "システムが再起動されます。これにはしばらく時間がかかることがあります..."
-
-msgid "The test email has been sent successfully. Please check your mailbox."
-msgstr "テストメールが正常に送信されました。あなたのメールボックスを確認してください。"
 
 msgid "The volume label for the file system."
 msgstr "ファイルシステムのボリュームラベル。"
@@ -3641,6 +3647,9 @@ msgstr "パケットが一致した場合にどうするかを指定します。
 msgid "This will create a recycle bin on the share."
 msgstr "これは共有上にごみ箱が作成されます。"
 
+msgid "Threshold"
+msgstr ""
+
 msgid "Thursday"
 msgstr "木曜"
 
@@ -3649,6 +3658,9 @@ msgstr "TiB"
 
 msgid "Time"
 msgstr "時刻"
+
+msgid "Time Machine support"
+msgstr ""
 
 msgid "Time interval"
 msgstr "タイムインターバル"
@@ -3668,9 +3680,6 @@ msgstr "タイムゾーン"
 msgid "Timeout"
 msgstr "タイムアウト"
 
-msgid "Times"
-msgstr "時刻"
-
 msgid "Togo"
 msgstr "トーゴ"
 
@@ -3686,14 +3695,16 @@ msgstr "トータル"
 msgid "Transfer log"
 msgstr "転送ログ"
 
+msgid ""
+"Transfer modification times along with the files and update them on the "
+"remote system."
+msgstr ""
+
 msgid "Transfer time"
 msgstr "転送時間"
 
 msgid "Transfer type"
 msgstr "転送タイプ"
-
-msgid "Treshold"
-msgstr "しきい値"
 
 msgid "Trial run"
 msgstr "テスト実行"
@@ -3803,6 +3814,9 @@ msgstr "ローカルの属性と同じになるように宛先の拡張属性を
 
 msgid "Updates"
 msgstr "アップデート"
+
+msgid "Updates available"
+msgstr ""
 
 msgid "Updating ACL settings"
 msgstr "ACL設定のアップデート"

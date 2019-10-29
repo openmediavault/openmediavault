@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-23 17:24+0100\n"
-"PO-Revision-Date: 2018-12-23 16:24+0000\n"
+"POT-Creation-Date: 2019-10-29 17:17+0100\n"
+"PO-Revision-Date: 2019-10-29 16:20+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/votdev/openmediavault/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -260,12 +260,6 @@ msgstr ""
 msgid "Add user"
 msgstr ""
 
-msgid ""
-"Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
-" href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
-"for more details."
-msgstr ""
-
 msgid "Address"
 msgstr ""
 
@@ -320,10 +314,13 @@ msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr ""
 
-msgid "Allow this server to try and become a local master browser"
+msgid "American Samoa"
 msgstr ""
 
-msgid "American Samoa"
+msgid ""
+"An attempt to send the test email has been made. Please check your mailbox. "
+"If the email does not arrive, check any spam folders and also check there "
+"are no Postfix related errors in the system log."
 msgstr ""
 
 msgid ""
@@ -352,6 +349,9 @@ msgid "Anonymous"
 msgstr ""
 
 msgid "Anonymous FTP"
+msgstr ""
+
+msgid "Another user is already authenticated."
 msgstr ""
 
 msgid "Antarctica"
@@ -1053,9 +1053,6 @@ msgstr ""
 msgid "Edit scheduled test"
 msgstr ""
 
-msgid "Edit service"
-msgstr ""
-
 msgid "Edit share"
 msgstr ""
 
@@ -1090,6 +1087,9 @@ msgid "Enable SSL/TLS"
 msgstr ""
 
 msgid "Enable SSL/TLS connections"
+msgstr ""
+
+msgid "Enable Time Machine support for this share."
 msgstr ""
 
 msgid "Enable WINS server"
@@ -1667,7 +1667,13 @@ msgstr ""
 msgid "Interfaces"
 msgstr ""
 
+msgid "Invalid IP address."
+msgstr ""
+
 msgid "Invalid SSH public key (RFC 4716)"
+msgstr ""
+
+msgid "Invalid User-Agent."
 msgstr ""
 
 msgid "Invalid domain name"
@@ -1686,6 +1692,9 @@ msgid "Invalid name"
 msgstr ""
 
 msgid "Invalid user name"
+msgstr ""
+
+msgid "Invalid user."
 msgstr ""
 
 msgid "Iran"
@@ -1826,9 +1835,6 @@ msgid "Loading, please wait ..."
 msgstr "Зареждане, моля изчакайте ..."
 
 msgid "Local"
-msgstr ""
-
-msgid "Local master browser"
 msgstr ""
 
 msgid "Location"
@@ -2213,9 +2219,6 @@ msgstr ""
 msgid "Num"
 msgstr ""
 
-msgid "Number of servers"
-msgstr ""
-
 msgid "OK"
 msgstr ""
 
@@ -2318,10 +2321,10 @@ msgstr ""
 msgid "Passwords don't match"
 msgstr "Паролите не съвпадат"
 
-msgid "Paste a RSA certificate in X.509 PEM format here."
+msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
 msgstr ""
 
-msgid "Paste an private RSA key in X.509 PEM format here."
+msgid "Paste a RSA or ECC private key in X.509 PEM format here."
 msgstr ""
 
 msgid "Path"
@@ -2466,7 +2469,13 @@ msgstr ""
 msgid "Preserve extended attributes"
 msgstr ""
 
+msgid "Preserve group"
+msgstr ""
+
 msgid "Preserve modification times"
+msgstr ""
+
+msgid "Preserve owner"
 msgstr ""
 
 msgid "Preserve permissions"
@@ -2665,8 +2674,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Report if the temperature is greater or equal than N degrees Celsius. Set to"
-" 0 to disable this report."
+"Report if the temperature is greater than or equal to N degrees Celsius. Set"
+" to 0 to disable this report."
 msgstr ""
 
 msgid "Repository"
@@ -2949,9 +2958,6 @@ msgstr ""
 msgid "Service"
 msgstr ""
 
-msgid "Service Discovery"
-msgstr ""
-
 msgid "Service disabled"
 msgstr ""
 
@@ -2975,6 +2981,15 @@ msgstr ""
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions"
+msgstr ""
+
+msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr ""
+
+msgid ""
+"Set the owner of the destination file to be the same as the source file, but"
+" only if the receiving rsync is being run as the super-user."
 msgstr ""
 
 msgid "Set write only"
@@ -3103,9 +3118,6 @@ msgid "Spain"
 msgstr ""
 
 msgid "Special action flag"
-msgstr ""
-
-msgid "Specifies how many server threads to create."
 msgstr ""
 
 msgid "Specifies one of the bonding policies."
@@ -3396,12 +3408,6 @@ msgid ""
 "for data connections is not required."
 msgstr ""
 
-msgid "The session IP address has been changed."
-msgstr ""
-
-msgid "The session user no longer exists."
-msgstr ""
-
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
@@ -3413,10 +3419,10 @@ msgstr ""
 msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr ""
 
-msgid "The system will reboot now. This may take some time ..."
+msgid "The system must be rebooted."
 msgstr ""
 
-msgid "The test email has been sent successfully. Please check your mailbox."
+msgid "The system will reboot now. This may take some time ..."
 msgstr ""
 
 msgid "The volume label for the file system."
@@ -3641,6 +3647,9 @@ msgstr ""
 msgid "This will create a recycle bin on the share."
 msgstr ""
 
+msgid "Threshold"
+msgstr ""
+
 msgid "Thursday"
 msgstr "Четвъртък"
 
@@ -3648,6 +3657,9 @@ msgid "TiB"
 msgstr ""
 
 msgid "Time"
+msgstr ""
+
+msgid "Time Machine support"
 msgstr ""
 
 msgid "Time interval"
@@ -3668,9 +3680,6 @@ msgstr ""
 msgid "Timeout"
 msgstr ""
 
-msgid "Times"
-msgstr ""
-
 msgid "Togo"
 msgstr ""
 
@@ -3686,13 +3695,15 @@ msgstr ""
 msgid "Transfer log"
 msgstr ""
 
+msgid ""
+"Transfer modification times along with the files and update them on the "
+"remote system."
+msgstr ""
+
 msgid "Transfer time"
 msgstr ""
 
 msgid "Transfer type"
-msgstr ""
-
-msgid "Treshold"
 msgstr ""
 
 msgid "Trial run"
@@ -3802,6 +3813,9 @@ msgid ""
 msgstr ""
 
 msgid "Updates"
+msgstr ""
+
+msgid "Updates available"
 msgstr ""
 
 msgid "Updating ACL settings"

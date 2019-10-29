@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-23 17:24+0100\n"
-"PO-Revision-Date: 2019-04-10 07:24+0000\n"
+"POT-Creation-Date: 2019-10-29 17:17+0100\n"
+"PO-Revision-Date: 2019-10-29 16:27+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -269,12 +269,6 @@ msgstr "Freigegebenen Ordner hinzufügen"
 msgid "Add user"
 msgstr "Benutzer hinzufügen"
 
-msgid ""
-"Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
-" href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
-"for more details."
-msgstr "Zusätzliche Geräteeinstellungen, Z.B. 'autoneg off speed 100 duplex full'. Siehe <a href='http://linux.die.net/man/8/ethtool' target='_blank'>Hilfeseiten</a> für weitere Details."
-
 msgid "Address"
 msgstr "Adresse"
 
@@ -329,11 +323,14 @@ msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Erlaube diesem Server sich selbst als Zeitserver für Windows Clients bekannt zu machen"
 
-msgid "Allow this server to try and become a local master browser"
-msgstr "Erlaube diesem Server der Local Master Browser zu werden"
-
 msgid "American Samoa"
 msgstr "Amerikanisch-Samoa"
+
+msgid ""
+"An attempt to send the test email has been made. Please check your mailbox. "
+"If the email does not arrive, check any spam folders and also check there "
+"are no Postfix related errors in the system log."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -362,6 +359,9 @@ msgstr "Anonym"
 
 msgid "Anonymous FTP"
 msgstr "Anonymes FTP "
+
+msgid "Another user is already authenticated."
+msgstr "Ein anderer Benutzer ist bereits authentifiziert."
 
 msgid "Antarctica"
 msgstr "Antarktika"
@@ -1062,9 +1062,6 @@ msgstr "Geplante Aufgabe bearbeiten"
 msgid "Edit scheduled test"
 msgstr "Geplanten Test bearbeiten"
 
-msgid "Edit service"
-msgstr "Dienst bearbeiten"
-
 msgid "Edit share"
 msgstr "Freigabe bearbeiten"
 
@@ -1100,6 +1097,9 @@ msgstr "Aktiviere SSL/TLS"
 
 msgid "Enable SSL/TLS connections"
 msgstr "Aktiviere SSL/TLS Verbindungen"
+
+msgid "Enable Time Machine support for this share."
+msgstr "Aktivieren der Time Machine-Unterstützung für diese Freigabe."
 
 msgid "Enable WINS server"
 msgstr "WINS Server aktivieren"
@@ -1676,8 +1676,14 @@ msgstr "Installiert den öffentlichen SSH-Schlüssel auf einem Remote-System als
 msgid "Interfaces"
 msgstr "Schnittstellen"
 
+msgid "Invalid IP address."
+msgstr "IP Adresse ungültig"
+
 msgid "Invalid SSH public key (RFC 4716)"
 msgstr "Ungültiger SSH Public-Key (RFC 4716)"
+
+msgid "Invalid User-Agent."
+msgstr "User-Agent ungültig."
 
 msgid "Invalid domain name"
 msgstr "Ungültiger Domainname"
@@ -1696,6 +1702,9 @@ msgstr "Name ungültig"
 
 msgid "Invalid user name"
 msgstr "Benutzername ungültig"
+
+msgid "Invalid user."
+msgstr "Benutzer ungültig."
 
 msgid "Iran"
 msgstr "Iran"
@@ -1836,9 +1845,6 @@ msgstr "Lade, bitte warten ..."
 
 msgid "Local"
 msgstr "Lokal"
-
-msgid "Local master browser"
-msgstr "Local Master Browser"
 
 msgid "Location"
 msgstr "Speicherort"
@@ -2222,9 +2228,6 @@ msgstr "November"
 msgid "Num"
 msgstr "Nr."
 
-msgid "Number of servers"
-msgstr "Anzahl Threads"
-
 msgid "OK"
 msgstr "OK"
 
@@ -2327,11 +2330,11 @@ msgstr "Authentifizierung mit Passwort"
 msgid "Passwords don't match"
 msgstr "Passwörter sind nicht gleich"
 
-msgid "Paste a RSA certificate in X.509 PEM format here."
-msgstr "Hier ein RSA Zertifikat im X.509 PEM Format einfügen."
+msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
+msgstr ""
 
-msgid "Paste an private RSA key in X.509 PEM format here."
-msgstr "Hier ein privates RSA Zertifikat im X.509 PEM Format einfügen."
+msgid "Paste a RSA or ECC private key in X.509 PEM format here."
+msgstr ""
 
 msgid "Path"
 msgstr "Pfad"
@@ -2475,8 +2478,14 @@ msgstr "Erhalte ACLs"
 msgid "Preserve extended attributes"
 msgstr "Erhalte erweiterte Attribute"
 
+msgid "Preserve group"
+msgstr "Erhalte Gruppe"
+
 msgid "Preserve modification times"
 msgstr "Erhalte Änderungszeit"
+
+msgid "Preserve owner"
+msgstr "Erhalte Besitzer"
 
 msgid "Preserve permissions"
 msgstr "Erhalten der Berechtigungen"
@@ -2674,9 +2683,9 @@ msgid ""
 msgstr "Berichte wenn sich die Temperatur um mindestens N Grad Celsius seit dem letzten Bericht geändert hat. Auf 0 setzen um diesen Bericht zu deaktivieren."
 
 msgid ""
-"Report if the temperature is greater or equal than N degrees Celsius. Set to"
-" 0 to disable this report."
-msgstr "Berichte wenn die Temperatur größer oder gleich N Grad Celsius ist. Auf 0 setzen um diesen Bericht zu deaktivieren."
+"Report if the temperature is greater than or equal to N degrees Celsius. Set"
+" to 0 to disable this report."
+msgstr ""
 
 msgid "Repository"
 msgstr "Quelle"
@@ -2958,9 +2967,6 @@ msgstr "Server"
 msgid "Service"
 msgstr "Service"
 
-msgid "Service Discovery"
-msgstr "Service Discovery"
-
 msgid "Service disabled"
 msgstr "Service deaktiviert"
 
@@ -2985,6 +2991,15 @@ msgstr "Nur lesen einstellen"
 msgid ""
 "Set the destination permissions to be the same as the source permissions"
 msgstr "Setze die Ziel-Zugriffsrechte auf die selben wie die Quell-Zugriffsrechte"
+
+msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr ""
+
+msgid ""
+"Set the owner of the destination file to be the same as the source file, but"
+" only if the receiving rsync is being run as the super-user."
+msgstr ""
 
 msgid "Set write only"
 msgstr "Nur schreiben einstellen"
@@ -3113,9 +3128,6 @@ msgstr "Spanien"
 
 msgid "Special action flag"
 msgstr "Spezielles Aktionsignal"
-
-msgid "Specifies how many server threads to create."
-msgstr "Legt fest wie viele Server Threads generiert werden sollen."
 
 msgid "Specifies one of the bonding policies."
 msgstr "Bestimmt eine der bindenden Richtlinien"
@@ -3405,12 +3417,6 @@ msgid ""
 "for data connections is not required."
 msgstr "Es ist keine Voraussetzung das die Kontrollverbindung einer SSL-Session für die Datenverbindung wiederverwendet wird."
 
-msgid "The session IP address has been changed."
-msgstr "Die IP-Adresse der Sitzung hat sich geändert."
-
-msgid "The session user no longer exists."
-msgstr "Der Sitzungsbenutzer existiert nicht mehr."
-
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
@@ -3422,11 +3428,11 @@ msgstr "Der freigegebene Quellordner."
 msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "Die angegebene Quota überschreitet den maximal möglichen Wert von 4TiB."
 
+msgid "The system must be rebooted."
+msgstr "Das System muss neu gestartet werden."
+
 msgid "The system will reboot now. This may take some time ..."
 msgstr "Das System wird neu gestartet. Dies kann einige Zeit in Anspruch nehmen ..."
-
-msgid "The test email has been sent successfully. Please check your mailbox."
-msgstr "Die Test E-Mail wurde erfolgreich versendet. Bitte überprüfen Sie Ihr Postfach."
 
 msgid "The volume label for the file system."
 msgstr "Die Datenträgerbezeichnung für das Dateisystem."
@@ -3650,6 +3656,9 @@ msgstr "Dies legt fest, was zu tun ist, wenn das Paket passt."
 msgid "This will create a recycle bin on the share."
 msgstr "Diese Option erzeugt einen Papierkorb für die Freigabe."
 
+msgid "Threshold"
+msgstr "Schwelle"
+
 msgid "Thursday"
 msgstr "Donnerstag"
 
@@ -3658,6 +3667,9 @@ msgstr "TiB"
 
 msgid "Time"
 msgstr "Zeit"
+
+msgid "Time Machine support"
+msgstr "Time Machine Unterstützung"
 
 msgid "Time interval"
 msgstr "Zeitintervall"
@@ -3677,9 +3689,6 @@ msgstr "Zeitzone"
 msgid "Timeout"
 msgstr "Zeitüberschreitung"
 
-msgid "Times"
-msgstr "Zeiten"
-
 msgid "Togo"
 msgstr "Togo"
 
@@ -3695,14 +3704,16 @@ msgstr "Gesamt"
 msgid "Transfer log"
 msgstr "Übertragungsprotokoll"
 
+msgid ""
+"Transfer modification times along with the files and update them on the "
+"remote system."
+msgstr ""
+
 msgid "Transfer time"
 msgstr "Übertragungszeit"
 
 msgid "Transfer type"
 msgstr "Übertragungsart"
-
-msgid "Treshold"
-msgstr "Schwelle"
 
 msgid "Trial run"
 msgstr "Probelauf"
@@ -3812,6 +3823,9 @@ msgstr "Erweiterte Ziel-Attribute aktualisieren damit sie den Lokalen entspreche
 
 msgid "Updates"
 msgstr "Aktualisierungen"
+
+msgid "Updates available"
+msgstr "Aktualisierungen verfügbar"
 
 msgid "Updating ACL settings"
 msgstr "ACL Einstellungen aktualisieren"

@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-23 17:24+0100\n"
-"PO-Revision-Date: 2018-12-24 07:12+0000\n"
-"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
+"POT-Creation-Date: 2019-10-29 17:17+0100\n"
+"PO-Revision-Date: 2019-10-29 16:20+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -261,12 +261,6 @@ msgstr "Přidat sdílenou složku"
 msgid "Add user"
 msgstr "Přidat uživatele"
 
-msgid ""
-"Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
-" href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
-"for more details."
-msgstr "Další nastavení zařízení, např. „autoneg off speed 100 duplex full“. Podrobnosti naleznete v <a href='http://linux.die.net/man/8/ethtool' target='_blank'>manuálových stránkách</a> (v angličtině)."
-
 msgid "Address"
 msgstr "Adresa"
 
@@ -321,11 +315,14 @@ msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Povolit tomuto serveru propagovat se Windows klientům jako časový server"
 
-msgid "Allow this server to try and become a local master browser"
-msgstr "Povolit tomuto serveru aby se pokusil stát se místním hlavním prohlížečem (WINS)"
-
 msgid "American Samoa"
 msgstr "Americká Samoa"
+
+msgid ""
+"An attempt to send the test email has been made. Please check your mailbox. "
+"If the email does not arrive, check any spam folders and also check there "
+"are no Postfix related errors in the system log."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -354,6 +351,9 @@ msgstr "Anonymní"
 
 msgid "Anonymous FTP"
 msgstr "Anonymní FTP"
+
+msgid "Another user is already authenticated."
+msgstr ""
 
 msgid "Antarctica"
 msgstr "Antarktida"
@@ -1054,9 +1054,6 @@ msgstr "Upravit naplánovanou úlohu"
 msgid "Edit scheduled test"
 msgstr "Upravit naplánovaný test"
 
-msgid "Edit service"
-msgstr "Upravit službu"
-
 msgid "Edit share"
 msgstr "Upravit sdílení"
 
@@ -1092,6 +1089,9 @@ msgstr "Zapnout SSL/TLS"
 
 msgid "Enable SSL/TLS connections"
 msgstr "Používat SSL/TLS spojení"
+
+msgid "Enable Time Machine support for this share."
+msgstr ""
 
 msgid "Enable WINS server"
 msgstr "Zapnout WINS server"
@@ -1668,8 +1668,14 @@ msgstr "Nainstaluje veřejnou část SSH klíče mezi ty oprávněné na protěj
 msgid "Interfaces"
 msgstr "Síťová rozhraní"
 
+msgid "Invalid IP address."
+msgstr ""
+
 msgid "Invalid SSH public key (RFC 4716)"
 msgstr "Neplatná veřejná část SSH klíče (dle normy RFC 4716)"
+
+msgid "Invalid User-Agent."
+msgstr ""
 
 msgid "Invalid domain name"
 msgstr "Neplatný doménový název"
@@ -1688,6 +1694,9 @@ msgstr "Neplatný název"
 
 msgid "Invalid user name"
 msgstr "Neplatné uživatelské jméno"
+
+msgid "Invalid user."
+msgstr ""
 
 msgid "Iran"
 msgstr "Írán"
@@ -1828,9 +1837,6 @@ msgstr "Načítání, čekejte prosím…"
 
 msgid "Local"
 msgstr "Místní"
-
-msgid "Local master browser"
-msgstr "Místní hlavní prohlížeč (WINS)"
 
 msgid "Location"
 msgstr "Umístění"
@@ -2214,9 +2220,6 @@ msgstr "Listopad"
 msgid "Num"
 msgstr "Číslo"
 
-msgid "Number of servers"
-msgstr "Počet serverů"
-
 msgid "OK"
 msgstr "OK"
 
@@ -2319,11 +2322,11 @@ msgstr "Ověřování heslem"
 msgid "Passwords don't match"
 msgstr "Hesla se neshodují"
 
-msgid "Paste a RSA certificate in X.509 PEM format here."
-msgstr "Sem vložte RSA certifikát ve formátu X.509 PEM."
+msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
+msgstr ""
 
-msgid "Paste an private RSA key in X.509 PEM format here."
-msgstr "Sem vložte soukromou část RSA klíče ve formátu X.509 PEM."
+msgid "Paste a RSA or ECC private key in X.509 PEM format here."
+msgstr ""
 
 msgid "Path"
 msgstr "Umístění"
@@ -2467,8 +2470,14 @@ msgstr "Zachovat ACL seznamy"
 msgid "Preserve extended attributes"
 msgstr "Zachovat rozšířené atributy"
 
+msgid "Preserve group"
+msgstr ""
+
 msgid "Preserve modification times"
 msgstr "Zachovat časy úprav"
+
+msgid "Preserve owner"
+msgstr ""
 
 msgid "Preserve permissions"
 msgstr "Zachovat oprávnění"
@@ -2666,9 +2675,9 @@ msgid ""
 msgstr "Hlásit, pokud se teplota od minulého hlášení změní přinejmenším o zadaný počet stupňů Celsia. Hlášení vypnete zadáním 0 (nula)."
 
 msgid ""
-"Report if the temperature is greater or equal than N degrees Celsius. Set to"
-" 0 to disable this report."
-msgstr "Hlásit, pokud teplota dosáhne nebo převýší zadanou hranici stupňů Celsia. Hlášení vypnete zadáním 0 (nula)."
+"Report if the temperature is greater than or equal to N degrees Celsius. Set"
+" to 0 to disable this report."
+msgstr ""
 
 msgid "Repository"
 msgstr "Repozitář"
@@ -2950,9 +2959,6 @@ msgstr "Server"
 msgid "Service"
 msgstr "Služba"
 
-msgid "Service Discovery"
-msgstr "Zjišťování služby"
-
 msgid "Service disabled"
 msgstr "Poskytování služby je vypnuto"
 
@@ -2977,6 +2983,15 @@ msgstr "Umožnit pouze čtení"
 msgid ""
 "Set the destination permissions to be the same as the source permissions"
 msgstr "Nastavit oprávnění v cíli na shodná se zdrojem"
+
+msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr ""
+
+msgid ""
+"Set the owner of the destination file to be the same as the source file, but"
+" only if the receiving rsync is being run as the super-user."
+msgstr ""
 
 msgid "Set write only"
 msgstr "Umožnit pouze zápis"
@@ -3105,9 +3120,6 @@ msgstr "Španělsko"
 
 msgid "Special action flag"
 msgstr "Příznak zvláštní akce"
-
-msgid "Specifies how many server threads to create."
-msgstr "Určuje kolik vláken serveru vytvořit."
 
 msgid "Specifies one of the bonding policies."
 msgstr "Určuje jednu ze zásad spřažení."
@@ -3397,12 +3409,6 @@ msgid ""
 "for data connections is not required."
 msgstr "Není vyžadováno, aby SSL relace z řídícího spojení byla následně použita i pro to datové."
 
-msgid "The session IP address has been changed."
-msgstr "IP adresa relace byla změněna."
-
-msgid "The session user no longer exists."
-msgstr "Uživatel této relace už neexistuje."
-
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
@@ -3414,11 +3420,11 @@ msgstr "Zdrojová sdílená složka."
 msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "Zadaná kvóta překračuje nejvyšší možnou hodnotu, kterou jsou 4TiB."
 
+msgid "The system must be rebooted."
+msgstr ""
+
 msgid "The system will reboot now. This may take some time ..."
 msgstr "Systém nyní bude restartován. Chvíli to potrvá…"
-
-msgid "The test email has been sent successfully. Please check your mailbox."
-msgstr "Zkušební zpráva byla úspěšně odeslána. Zkontrolujte svojí e-mailovou schránku."
 
 msgid "The volume label for the file system."
 msgstr "Popisek pro souborový systém."
@@ -3642,6 +3648,9 @@ msgstr "Toto určuje co dělat případě, že paket vyhoví pravidlu."
 msgid "This will create a recycle bin on the share."
 msgstr "Toto vytvoří na sdílení objekt Koš."
 
+msgid "Threshold"
+msgstr ""
+
 msgid "Thursday"
 msgstr "Čtvrtek"
 
@@ -3650,6 +3659,9 @@ msgstr "TiB"
 
 msgid "Time"
 msgstr "Čas"
+
+msgid "Time Machine support"
+msgstr ""
 
 msgid "Time interval"
 msgstr "Časové rozmezí"
@@ -3669,9 +3681,6 @@ msgstr "Časové pásmo"
 msgid "Timeout"
 msgstr "Limit časové prodlevy"
 
-msgid "Times"
-msgstr "Časy"
-
 msgid "Togo"
 msgstr "Togo"
 
@@ -3687,14 +3696,16 @@ msgstr "Celkem"
 msgid "Transfer log"
 msgstr "Záznam událostí při přenosu"
 
+msgid ""
+"Transfer modification times along with the files and update them on the "
+"remote system."
+msgstr ""
+
 msgid "Transfer time"
 msgstr "Čas přenosu"
 
 msgid "Transfer type"
 msgstr "Typ přenosu"
-
-msgid "Treshold"
-msgstr "Práh"
 
 msgid "Trial run"
 msgstr "Vyzkoušet nanečisto"
@@ -3804,6 +3815,9 @@ msgstr "Aktualizovat rozšířené atributy v cíli tak, aby byly stejné, jako 
 
 msgid "Updates"
 msgstr "Aktualizace"
+
+msgid "Updates available"
+msgstr ""
 
 msgid "Updating ACL settings"
 msgstr "Aktualizace nastavení ACL seznamů"

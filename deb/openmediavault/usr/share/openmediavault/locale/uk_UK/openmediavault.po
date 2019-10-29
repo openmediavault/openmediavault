@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-23 17:24+0100\n"
-"PO-Revision-Date: 2019-02-07 16:35+0000\n"
-"Last-Translator: zubr139\n"
+"POT-Creation-Date: 2019-10-29 17:17+0100\n"
+"PO-Revision-Date: 2019-10-29 16:20+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -262,12 +262,6 @@ msgstr "Додати спільну теку"
 msgid "Add user"
 msgstr "Додати користувача"
 
-msgid ""
-"Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
-" href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
-"for more details."
-msgstr "Додаткові налаштування пристрою, наприклад 'autoneg off speed 100 duplex full'. Дивитись<a href='http://linux.die.net/man/8/ethtool' target='_blank'>сторінку керівництва</a>"
-
 msgid "Address"
 msgstr "Адреса"
 
@@ -322,11 +316,14 @@ msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Дозволити цьому серверу видавати себе в якості сервера часу для Windows клієнтів"
 
-msgid "Allow this server to try and become a local master browser"
-msgstr "Дозволити цьому серверу стати локальним майстром списків"
-
 msgid "American Samoa"
 msgstr "Американське Самоа"
+
+msgid ""
+"An attempt to send the test email has been made. Please check your mailbox. "
+"If the email does not arrive, check any spam folders and also check there "
+"are no Postfix related errors in the system log."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -355,6 +352,9 @@ msgstr "Анонімний"
 
 msgid "Anonymous FTP"
 msgstr "Анонімний FTP"
+
+msgid "Another user is already authenticated."
+msgstr ""
 
 msgid "Antarctica"
 msgstr "Антарктида"
@@ -1055,9 +1055,6 @@ msgstr "Редагувати заплановане завдання"
 msgid "Edit scheduled test"
 msgstr "Редагувати запланований тест"
 
-msgid "Edit service"
-msgstr "Редагувати службу"
-
 msgid "Edit share"
 msgstr "Редагувати спільний ресурс"
 
@@ -1093,6 +1090,9 @@ msgstr "Увімкнути SSL/TLS"
 
 msgid "Enable SSL/TLS connections"
 msgstr "Увімкнути SSL/TLS з'єднання"
+
+msgid "Enable Time Machine support for this share."
+msgstr ""
 
 msgid "Enable WINS server"
 msgstr "Увімкнути WINS сервер"
@@ -1669,8 +1669,14 @@ msgstr "Встановлює загальнодоступний ключ SSH н�
 msgid "Interfaces"
 msgstr "Інтерфейси"
 
+msgid "Invalid IP address."
+msgstr ""
+
 msgid "Invalid SSH public key (RFC 4716)"
 msgstr "Неправильний відкритий ключ SSH (RFC 4716)"
+
+msgid "Invalid User-Agent."
+msgstr ""
 
 msgid "Invalid domain name"
 msgstr "Невірна назва домену"
@@ -1689,6 +1695,9 @@ msgstr "Невірна назва"
 
 msgid "Invalid user name"
 msgstr "Невірне ім'я користувача"
+
+msgid "Invalid user."
+msgstr ""
 
 msgid "Iran"
 msgstr "Іран"
@@ -1829,9 +1838,6 @@ msgstr "Зачекайте, йде завантаження ..."
 
 msgid "Local"
 msgstr "Локальний"
-
-msgid "Local master browser"
-msgstr "Головний локальний переглядач"
 
 msgid "Location"
 msgstr "Розташування"
@@ -2215,9 +2221,6 @@ msgstr "Листопад"
 msgid "Num"
 msgstr "Номер"
 
-msgid "Number of servers"
-msgstr "Кількість серверів"
-
 msgid "OK"
 msgstr "Гаразд"
 
@@ -2320,11 +2323,11 @@ msgstr "Аутентифікація за паролем"
 msgid "Passwords don't match"
 msgstr "Паролі не співпадають"
 
-msgid "Paste a RSA certificate in X.509 PEM format here."
-msgstr "Вставити тут сертифікат RSA в форматі X.509 PEM."
+msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
+msgstr ""
 
-msgid "Paste an private RSA key in X.509 PEM format here."
-msgstr "Вставити тут секретний ключ RSA в форматі X.509 PEM."
+msgid "Paste a RSA or ECC private key in X.509 PEM format here."
+msgstr ""
 
 msgid "Path"
 msgstr "Шлях"
@@ -2468,8 +2471,14 @@ msgstr "Зберігати списки ACLs"
 msgid "Preserve extended attributes"
 msgstr "Зберегти розширені атрибути"
 
+msgid "Preserve group"
+msgstr ""
+
 msgid "Preserve modification times"
 msgstr "Зберигти модифіковані пункти"
+
+msgid "Preserve owner"
+msgstr ""
 
 msgid "Preserve permissions"
 msgstr "Зберегти права доступу"
@@ -2667,9 +2676,9 @@ msgid ""
 msgstr "Повідомити, якщо температура змінилася, принаймні на N градусів за Цельсієм з часу останньої доповіді. Встановіть 0 щоб вимкнути цей звіт."
 
 msgid ""
-"Report if the temperature is greater or equal than N degrees Celsius. Set to"
-" 0 to disable this report."
-msgstr "Повідомити, якщо температура вища або рівна N градусів за Цельсієм. Встановіть 0 щоб вимкнути цей звіт."
+"Report if the temperature is greater than or equal to N degrees Celsius. Set"
+" to 0 to disable this report."
+msgstr ""
 
 msgid "Repository"
 msgstr "Репозиторій"
@@ -2951,9 +2960,6 @@ msgstr "Сервер"
 msgid "Service"
 msgstr "Служба"
 
-msgid "Service Discovery"
-msgstr "Cлужба виявлення"
-
 msgid "Service disabled"
 msgstr "Служба вимкнення"
 
@@ -2978,6 +2984,15 @@ msgstr "Встановити лише для читання"
 msgid ""
 "Set the destination permissions to be the same as the source permissions"
 msgstr "Встановити дозволи призначення такі ж, як на джерелі"
+
+msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr ""
+
+msgid ""
+"Set the owner of the destination file to be the same as the source file, but"
+" only if the receiving rsync is being run as the super-user."
+msgstr ""
 
 msgid "Set write only"
 msgstr "Встановити лише для запису"
@@ -3106,9 +3121,6 @@ msgstr "Іспанія"
 
 msgid "Special action flag"
 msgstr "Спеціальний прапор дії"
-
-msgid "Specifies how many server threads to create."
-msgstr "Визначає, скільки створювати потоків сервера."
 
 msgid "Specifies one of the bonding policies."
 msgstr "Визначає одну з політик скріплення."
@@ -3398,12 +3410,6 @@ msgid ""
 "for data connections is not required."
 msgstr "Встановлення повторного використання сесії SSL керуючого з'єднання для передачі даних."
 
-msgid "The session IP address has been changed."
-msgstr "IP-адреса сесії була змінена."
-
-msgid "The session user no longer exists."
-msgstr "Сеанс користувача більше не існує."
-
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
@@ -3415,11 +3421,11 @@ msgstr "Джерело спільної теки."
 msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "Вказана квота перевищує макс. можливе значення 4TiB."
 
+msgid "The system must be rebooted."
+msgstr ""
+
 msgid "The system will reboot now. This may take some time ..."
 msgstr "Зараз система буде перезавантажена. Це може зайняти деякий час..."
-
-msgid "The test email has been sent successfully. Please check your mailbox."
-msgstr "Тестове електронне повідомлення було успішно надіслано. Будь ласка, перевірте свою поштову скриньку."
 
 msgid "The volume label for the file system."
 msgstr "Мітка розділу для цієї файлової системи."
@@ -3643,6 +3649,9 @@ msgstr "Вказує, що робити, якщо пакет відповіда�
 msgid "This will create a recycle bin on the share."
 msgstr "Це створює кошика на спільному ресурсі."
 
+msgid "Threshold"
+msgstr ""
+
 msgid "Thursday"
 msgstr "Четвер"
 
@@ -3651,6 +3660,9 @@ msgstr "ТіБ"
 
 msgid "Time"
 msgstr "Час"
+
+msgid "Time Machine support"
+msgstr ""
 
 msgid "Time interval"
 msgstr "Інтервал часу"
@@ -3670,9 +3682,6 @@ msgstr "Часовий пояс"
 msgid "Timeout"
 msgstr "Тайм-аут"
 
-msgid "Times"
-msgstr "Час"
-
 msgid "Togo"
 msgstr "Тоґо"
 
@@ -3688,14 +3697,16 @@ msgstr "Загальний розмір"
 msgid "Transfer log"
 msgstr "Протокол передачі"
 
+msgid ""
+"Transfer modification times along with the files and update them on the "
+"remote system."
+msgstr ""
+
 msgid "Transfer time"
 msgstr "Час передачі"
 
 msgid "Transfer type"
 msgstr "Тип передачі"
-
-msgid "Treshold"
-msgstr "Поріг"
 
 msgid "Trial run"
 msgstr "Пробний запуск"
@@ -3805,6 +3816,9 @@ msgstr "Оновлювати розширені атрибути признач�
 
 msgid "Updates"
 msgstr "Оновлення"
+
+msgid "Updates available"
+msgstr ""
 
 msgid "Updating ACL settings"
 msgstr "Оновлення параметрів списку контролю доступом ACL"

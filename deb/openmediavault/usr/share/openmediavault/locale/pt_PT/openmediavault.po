@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-23 17:24+0100\n"
-"PO-Revision-Date: 2019-01-15 15:39+0000\n"
-"Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>\n"
+"POT-Creation-Date: 2019-10-29 17:17+0100\n"
+"PO-Revision-Date: 2019-10-29 16:20+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/votdev/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -261,12 +261,6 @@ msgstr "Adicionar pastas partilhadas"
 msgid "Add user"
 msgstr "Adicionar utilizador"
 
-msgid ""
-"Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
-" href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
-"for more details."
-msgstr "Outras configurações do dispositivo, por exemplo \"autoneg off duplex velocidade total de 100\". Veja <a href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a>  para mais detalhes."
-
 msgid "Address"
 msgstr "Endereço"
 
@@ -321,11 +315,14 @@ msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Permitir que este servidor o alerte de si mesmo como um servidor de horário para clientes Windows"
 
-msgid "Allow this server to try and become a local master browser"
-msgstr "Permitir que este servidor tente e se torne um localizador mestre local"
-
 msgid "American Samoa"
 msgstr "Samoa Americana"
+
+msgid ""
+"An attempt to send the test email has been made. Please check your mailbox. "
+"If the email does not arrive, check any spam folders and also check there "
+"are no Postfix related errors in the system log."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -354,6 +351,9 @@ msgstr "Anónimo"
 
 msgid "Anonymous FTP"
 msgstr "FTP Anonimo"
+
+msgid "Another user is already authenticated."
+msgstr ""
 
 msgid "Antarctica"
 msgstr "Antarctica"
@@ -1054,9 +1054,6 @@ msgstr "Editar o trabalho agendado"
 msgid "Edit scheduled test"
 msgstr "Editar teste agendado"
 
-msgid "Edit service"
-msgstr "Editar serviço"
-
 msgid "Edit share"
 msgstr "Editar partilha"
 
@@ -1092,6 +1089,9 @@ msgstr "Ativar SSl/TLS"
 
 msgid "Enable SSL/TLS connections"
 msgstr "Ativar ligações SSL/TLS "
+
+msgid "Enable Time Machine support for this share."
+msgstr ""
 
 msgid "Enable WINS server"
 msgstr "Ativar servidor WINS"
@@ -1668,8 +1668,14 @@ msgstr ""
 msgid "Interfaces"
 msgstr "Interfaces"
 
+msgid "Invalid IP address."
+msgstr ""
+
 msgid "Invalid SSH public key (RFC 4716)"
 msgstr "Importar chave pública (RFC 4716) SSH"
+
+msgid "Invalid User-Agent."
+msgstr ""
 
 msgid "Invalid domain name"
 msgstr "Nome de domínio inválido"
@@ -1688,6 +1694,9 @@ msgstr "Nome inválido"
 
 msgid "Invalid user name"
 msgstr "Nome de utilizador inválido"
+
+msgid "Invalid user."
+msgstr ""
 
 msgid "Iran"
 msgstr "Irão"
@@ -1828,9 +1837,6 @@ msgstr "A carregar, espere..."
 
 msgid "Local"
 msgstr "Local"
-
-msgid "Local master browser"
-msgstr "Localizador mestre local"
 
 msgid "Location"
 msgstr "Localização"
@@ -2214,9 +2220,6 @@ msgstr "Novembro"
 msgid "Num"
 msgstr "Num"
 
-msgid "Number of servers"
-msgstr "Número de servidores"
-
 msgid "OK"
 msgstr "Ok"
 
@@ -2319,11 +2322,11 @@ msgstr "Autenticação de senha"
 msgid "Passwords don't match"
 msgstr "As senhas não combinam"
 
-msgid "Paste a RSA certificate in X.509 PEM format here."
-msgstr "Cole um certificado RSA no formato X.509 PEM aqui."
+msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
+msgstr ""
 
-msgid "Paste an private RSA key in X.509 PEM format here."
-msgstr "Colar uma chave privada RSA no formato X.509 PEM aqui."
+msgid "Paste a RSA or ECC private key in X.509 PEM format here."
+msgstr ""
 
 msgid "Path"
 msgstr "Caminho"
@@ -2467,8 +2470,14 @@ msgstr "Preservar ACLs"
 msgid "Preserve extended attributes"
 msgstr "Preservar atributos avançados"
 
+msgid "Preserve group"
+msgstr ""
+
 msgid "Preserve modification times"
 msgstr "Preservar o tempo das alterações"
+
+msgid "Preserve owner"
+msgstr ""
 
 msgid "Preserve permissions"
 msgstr "Preservar as permissões"
@@ -2666,9 +2675,9 @@ msgid ""
 msgstr "Reportar se a temperatura mudou pelo menos N graus Celsius desde o ultimo relatório. Definir 0 para desativar este relatório."
 
 msgid ""
-"Report if the temperature is greater or equal than N degrees Celsius. Set to"
-" 0 to disable this report."
-msgstr "Reportar se a temperatura é maior or igual a N graus Celsius. Definir 0 para desativar este relatório."
+"Report if the temperature is greater than or equal to N degrees Celsius. Set"
+" to 0 to disable this report."
+msgstr ""
 
 msgid "Repository"
 msgstr "Repositório"
@@ -2950,9 +2959,6 @@ msgstr "Servidor"
 msgid "Service"
 msgstr "Serviço"
 
-msgid "Service Discovery"
-msgstr "Descobrir Serviço"
-
 msgid "Service disabled"
 msgstr "Serviço desativado"
 
@@ -2977,6 +2983,15 @@ msgstr "Definir apenas de leitura"
 msgid ""
 "Set the destination permissions to be the same as the source permissions"
 msgstr "Definir as permissões de destino para serem as mesmas que as de origem"
+
+msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr ""
+
+msgid ""
+"Set the owner of the destination file to be the same as the source file, but"
+" only if the receiving rsync is being run as the super-user."
+msgstr ""
 
 msgid "Set write only"
 msgstr "Definir apenas leitura"
@@ -3105,9 +3120,6 @@ msgstr "Espanha"
 
 msgid "Special action flag"
 msgstr "Bandeira ação especial"
-
-msgid "Specifies how many server threads to create."
-msgstr "Especifica quanto servidores encadeados podem ser criados."
 
 msgid "Specifies one of the bonding policies."
 msgstr "Especifica uma das políticas de ligação."
@@ -3397,12 +3409,6 @@ msgid ""
 "for data connections is not required."
 msgstr "O requisito de que a sessão SSL a partir da ligação de controle que é reutilizado para conexões de dados não é necessário."
 
-msgid "The session IP address has been changed."
-msgstr ""
-
-msgid "The session user no longer exists."
-msgstr ""
-
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
@@ -3414,11 +3420,11 @@ msgstr "A origem da pasta partilhada."
 msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "A quota especifica excede o valor máximo de 4TiB."
 
+msgid "The system must be rebooted."
+msgstr ""
+
 msgid "The system will reboot now. This may take some time ..."
 msgstr "O sistema irá reiniciar agora. Isto pode levar algum tempo..."
-
-msgid "The test email has been sent successfully. Please check your mailbox."
-msgstr "O email de teste foi enviado com sucesso. Por favor verifique o seu email."
 
 msgid "The volume label for the file system."
 msgstr "O rotulo para este sistema de ficheiros."
@@ -3642,6 +3648,9 @@ msgstr "Isto especifica o que fazer se os pacotes corresponderem."
 msgid "This will create a recycle bin on the share."
 msgstr "Isto irá criar uma reciclagem na partilha."
 
+msgid "Threshold"
+msgstr ""
+
 msgid "Thursday"
 msgstr "Quinta-feira"
 
@@ -3650,6 +3659,9 @@ msgstr "TiB"
 
 msgid "Time"
 msgstr "Tempo"
+
+msgid "Time Machine support"
+msgstr ""
 
 msgid "Time interval"
 msgstr "Intervalo de tempo"
@@ -3669,9 +3681,6 @@ msgstr "Fuso horário"
 msgid "Timeout"
 msgstr "Tempo limite"
 
-msgid "Times"
-msgstr "Tempos"
-
 msgid "Togo"
 msgstr "Togo"
 
@@ -3687,14 +3696,16 @@ msgstr "Total"
 msgid "Transfer log"
 msgstr "Log de transferência"
 
+msgid ""
+"Transfer modification times along with the files and update them on the "
+"remote system."
+msgstr ""
+
 msgid "Transfer time"
 msgstr "Tempo de transferência"
 
 msgid "Transfer type"
 msgstr "Tipo de transferência"
-
-msgid "Treshold"
-msgstr "Limiar"
 
 msgid "Trial run"
 msgstr "Ensaio"
@@ -3804,6 +3815,9 @@ msgstr "Actualizar os atributos de destino avançados para serem os mesmos que o
 
 msgid "Updates"
 msgstr "Actualizações"
+
+msgid "Updates available"
+msgstr ""
 
 msgid "Updating ACL settings"
 msgstr "A atualizar as definições ACL"

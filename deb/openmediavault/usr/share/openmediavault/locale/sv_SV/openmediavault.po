@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-23 17:24+0100\n"
-"PO-Revision-Date: 2019-02-23 13:11+0000\n"
-"Last-Translator: Jonatan Nyberg\n"
+"POT-Creation-Date: 2019-10-29 17:17+0100\n"
+"PO-Revision-Date: 2019-10-29 16:20+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -262,12 +262,6 @@ msgstr "Lägg till delad mapp"
 msgid "Add user"
 msgstr "Lägg till användare"
 
-msgid ""
-"Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
-" href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
-"for more details."
-msgstr "Ytterligare enhetsinställningar, t.ex. 'autoneg off speed 100 duplex full'. Se <a href='http://linux.die.net/man/8/ethtool' target='_blank'>manualsidor</a> för mer information."
-
 msgid "Address"
 msgstr "Adress"
 
@@ -322,11 +316,14 @@ msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Tillåt denna server att annonsera sig som en tidsserver till Windows-klienter"
 
-msgid "Allow this server to try and become a local master browser"
-msgstr "Tillåt denna server att försöka bli en lokal \"master browser\""
-
 msgid "American Samoa"
 msgstr "Amerikanska Samoa"
+
+msgid ""
+"An attempt to send the test email has been made. Please check your mailbox. "
+"If the email does not arrive, check any spam folders and also check there "
+"are no Postfix related errors in the system log."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -355,6 +352,9 @@ msgstr "Anonym"
 
 msgid "Anonymous FTP"
 msgstr "Anonym FTP"
+
+msgid "Another user is already authenticated."
+msgstr ""
 
 msgid "Antarctica"
 msgstr "Antarktis"
@@ -1055,9 +1055,6 @@ msgstr "Redigera schemalagt jobb"
 msgid "Edit scheduled test"
 msgstr "Redigera schemalagd test"
 
-msgid "Edit service"
-msgstr "Redigera tjänst"
-
 msgid "Edit share"
 msgstr "Redigera delad resurs"
 
@@ -1093,6 +1090,9 @@ msgstr "Aktivera SSL/TLS"
 
 msgid "Enable SSL/TLS connections"
 msgstr "Aktivera SSL/TLS anslutningar"
+
+msgid "Enable Time Machine support for this share."
+msgstr ""
 
 msgid "Enable WINS server"
 msgstr "Aktivera WINS-server"
@@ -1669,8 +1669,14 @@ msgstr "Installerar den offentliga SSH-nyckeln på ett fjärrsystem som en aukto
 msgid "Interfaces"
 msgstr "Gränssnitt"
 
+msgid "Invalid IP address."
+msgstr ""
+
 msgid "Invalid SSH public key (RFC 4716)"
 msgstr "Ogiltig SSH offentlig nyckel (RFC 4716)"
+
+msgid "Invalid User-Agent."
+msgstr ""
 
 msgid "Invalid domain name"
 msgstr "Ogiltigt domännamn"
@@ -1689,6 +1695,9 @@ msgstr "Ogiltigt namn"
 
 msgid "Invalid user name"
 msgstr "Ogiltigt användarnamn"
+
+msgid "Invalid user."
+msgstr ""
 
 msgid "Iran"
 msgstr "Iran"
@@ -1829,9 +1838,6 @@ msgstr "Laddar, vänta ..."
 
 msgid "Local"
 msgstr "Lokal"
-
-msgid "Local master browser"
-msgstr "Lokal \"master-browser\""
 
 msgid "Location"
 msgstr "Plats"
@@ -2215,9 +2221,6 @@ msgstr "November"
 msgid "Num"
 msgstr "Num"
 
-msgid "Number of servers"
-msgstr "Antal servrar"
-
 msgid "OK"
 msgstr "OK"
 
@@ -2320,11 +2323,11 @@ msgstr "Lösenordsautentisering"
 msgid "Passwords don't match"
 msgstr "Lösenorden matchar inte"
 
-msgid "Paste a RSA certificate in X.509 PEM format here."
-msgstr "Klistra in ett RSA-cerfitikat i X.509 PEM-format här."
+msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
+msgstr ""
 
-msgid "Paste an private RSA key in X.509 PEM format here."
-msgstr "Klistra in en privat RSA-nyckel i X.509 PEM-format här."
+msgid "Paste a RSA or ECC private key in X.509 PEM format here."
+msgstr ""
 
 msgid "Path"
 msgstr "Sökväg"
@@ -2468,8 +2471,14 @@ msgstr "Bevara ACL:er"
 msgid "Preserve extended attributes"
 msgstr "Bevara utökade attribut"
 
+msgid "Preserve group"
+msgstr ""
+
 msgid "Preserve modification times"
 msgstr "Bevara modifieringsgånger"
+
+msgid "Preserve owner"
+msgstr ""
 
 msgid "Preserve permissions"
 msgstr "Bevara behörigheter"
@@ -2667,9 +2676,9 @@ msgid ""
 msgstr "Rapportera om temperaturen har förändrats med minst N grader Celsius sedan den senaste rapporten. Ställ in 0 för att inaktivera denna rapport."
 
 msgid ""
-"Report if the temperature is greater or equal than N degrees Celsius. Set to"
-" 0 to disable this report."
-msgstr "Rapportera om temperaturen är högre än eller lika med N grader Celsius. Ställ in 0 för att inaktivera denna rapport."
+"Report if the temperature is greater than or equal to N degrees Celsius. Set"
+" to 0 to disable this report."
+msgstr ""
 
 msgid "Repository"
 msgstr "Förvaringsplats"
@@ -2951,9 +2960,6 @@ msgstr "Server"
 msgid "Service"
 msgstr "Tjänst"
 
-msgid "Service Discovery"
-msgstr "Tjänst upptäckt"
-
 msgid "Service disabled"
 msgstr "Tjänst inaktiverad"
 
@@ -2978,6 +2984,15 @@ msgstr "Ange skrivskydd"
 msgid ""
 "Set the destination permissions to be the same as the source permissions"
 msgstr "Ange destinationsbehörigheter att bli samma som källbehörigheter"
+
+msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr ""
+
+msgid ""
+"Set the owner of the destination file to be the same as the source file, but"
+" only if the receiving rsync is being run as the super-user."
+msgstr ""
 
 msgid "Set write only"
 msgstr "Ange endast skriv"
@@ -3106,9 +3121,6 @@ msgstr "Spanien"
 
 msgid "Special action flag"
 msgstr "Särskilda åtgärder flagga"
-
-msgid "Specifies how many server threads to create."
-msgstr "Anger hur många servertrådar att skapa."
 
 msgid "Specifies one of the bonding policies."
 msgstr "Anger en av de bindande policys."
@@ -3398,12 +3410,6 @@ msgid ""
 "for data connections is not required."
 msgstr "Kravet på att SSL-sessionen från kontrollanslutningen återanvänds för dataanslutningar krävs inte."
 
-msgid "The session IP address has been changed."
-msgstr "Sessions-IP-adressen har ändrats."
-
-msgid "The session user no longer exists."
-msgstr "Sessionsanvändaren finns inte längre."
-
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
@@ -3415,11 +3421,11 @@ msgstr "Delade mappens källa."
 msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "Den angivna kvoten överstiger max. möjliga värdet av 4TiB."
 
+msgid "The system must be rebooted."
+msgstr ""
+
 msgid "The system will reboot now. This may take some time ..."
 msgstr "Systemet startar nu om. Detta kan ta lite tid ..."
-
-msgid "The test email has been sent successfully. Please check your mailbox."
-msgstr "Testets e-postmeddelande har skickats. Kontrollera din brevlåda."
 
 msgid "The volume label for the file system."
 msgstr "Volymeniketten för filsystemet."
@@ -3643,6 +3649,9 @@ msgstr "Detta anger vad du ska göra om paketet matchar."
 msgid "This will create a recycle bin on the share."
 msgstr "Detta skapar en papperskorg på utdelningen."
 
+msgid "Threshold"
+msgstr ""
+
 msgid "Thursday"
 msgstr "Torsdag"
 
@@ -3651,6 +3660,9 @@ msgstr "TiB"
 
 msgid "Time"
 msgstr "Tid"
+
+msgid "Time Machine support"
+msgstr ""
 
 msgid "Time interval"
 msgstr "Tidsintervall"
@@ -3670,9 +3682,6 @@ msgstr "Tidszon"
 msgid "Timeout"
 msgstr "Timeout"
 
-msgid "Times"
-msgstr "Gånger"
-
 msgid "Togo"
 msgstr "Togo"
 
@@ -3688,14 +3697,16 @@ msgstr "Totalt"
 msgid "Transfer log"
 msgstr "Överföringslogg"
 
+msgid ""
+"Transfer modification times along with the files and update them on the "
+"remote system."
+msgstr ""
+
 msgid "Transfer time"
 msgstr "Överföringstid"
 
 msgid "Transfer type"
 msgstr "Överföringstyp"
-
-msgid "Treshold"
-msgstr "Tröskelvärde"
 
 msgid "Trial run"
 msgstr "Testkörning"
@@ -3805,6 +3816,9 @@ msgstr "Uppdatera destinationens utökade attribut för att vara desamma som de 
 
 msgid "Updates"
 msgstr "Uppdateringar"
+
+msgid "Updates available"
+msgstr ""
 
 msgid "Updating ACL settings"
 msgstr "Uppdaterar ACL-inställningar"

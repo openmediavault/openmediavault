@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Stephan Steiner, 2014
-# Volker <votdev@gmx.de>, 2013-2014,2017
+# Volker <votdev@gmx.de>, 2013-2014,2017,2019
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-18 11:05+0100\n"
-"PO-Revision-Date: 2017-11-20 19:05+0000\n"
+"POT-Creation-Date: 2019-10-29 17:17+0100\n"
+"PO-Revision-Date: 2019-10-29 16:23+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -109,8 +109,14 @@ msgstr "Erhalte ACLs"
 msgid "Preserve extended attributes"
 msgstr "Erhalte erweiterte Attribute"
 
-msgid "Preserve modification times."
-msgstr "Erhalte Änderungszeit."
+msgid "Preserve group"
+msgstr "Erhalte Gruppe"
+
+msgid "Preserve modification times"
+msgstr "Erhalte Änderungszeit"
+
+msgid "Preserve owner"
+msgstr "Erhalte Besitzer"
 
 msgid "Preserve permissions"
 msgstr "Erhalten der Berechtigungen"
@@ -143,6 +149,15 @@ msgid ""
 "Set the destination permissions to be the same as the source permissions."
 msgstr "Setze die Ziel-Zugriffsrechte auf die selben wie die Quell-Zugriffsrechte."
 
+msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr ""
+
+msgid ""
+"Set the owner of the destination file to be the same as the source file, but"
+" only if the receiving rsync is being run as the super-user."
+msgstr ""
+
 msgid "Shared folder"
 msgstr "Freigegebene Ordner"
 
@@ -166,8 +181,10 @@ msgid ""
 "connected."
 msgstr "Der freigegebene Ordner welcher zu synchronisieren ist wenn das externe Speichergerät angeschlossen wird."
 
-msgid "Times"
-msgstr "Zeiten"
+msgid ""
+"Transfer modification times along with the files and update them on the "
+"remote system."
+msgstr ""
 
 msgid "USB Backup"
 msgstr "USB Datensicherung"

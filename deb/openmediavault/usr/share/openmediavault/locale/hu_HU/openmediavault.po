@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-23 17:24+0100\n"
-"PO-Revision-Date: 2019-07-04 13:31+0000\n"
-"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
+"POT-Creation-Date: 2019-10-29 17:17+0100\n"
+"PO-Revision-Date: 2019-10-29 16:20+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -265,12 +265,6 @@ msgstr "Megosztott mappa hozzáadása"
 msgid "Add user"
 msgstr "Felhasználó hozzáadása"
 
-msgid ""
-"Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
-" href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
-"for more details."
-msgstr "További eszköz beállítások. Lásd a <a href='http://linux.die.net/man/8/ethtool' target='_blank'>kézikönyvben</a> a további részleteket."
-
 msgid "Address"
 msgstr "Cím"
 
@@ -325,11 +319,14 @@ msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Szerver közzétételének engedélyezése mint idő szerver, Windows klienseken"
 
-msgid "Allow this server to try and become a local master browser"
-msgstr "Helyi főtallózó használatának engedélyezése a szerver számára"
-
 msgid "American Samoa"
 msgstr "Amerikai Szamoa"
+
+msgid ""
+"An attempt to send the test email has been made. Please check your mailbox. "
+"If the email does not arrive, check any spam folders and also check there "
+"are no Postfix related errors in the system log."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -358,6 +355,9 @@ msgstr "Névtelen"
 
 msgid "Anonymous FTP"
 msgstr "Névtelen FTP"
+
+msgid "Another user is already authenticated."
+msgstr ""
 
 msgid "Antarctica"
 msgstr "Antarktika"
@@ -1058,9 +1058,6 @@ msgstr "Ütemezett feladat szerkesztése"
 msgid "Edit scheduled test"
 msgstr "Ütemezett teszt szerkesztése"
 
-msgid "Edit service"
-msgstr "Szolgáltatás szerkesztése"
-
 msgid "Edit share"
 msgstr "Megosztás szerkesztése"
 
@@ -1096,6 +1093,9 @@ msgstr "SSL/TLS engedélyezése"
 
 msgid "Enable SSL/TLS connections"
 msgstr "SSL/TLS kapcsolatok engedélyezése"
+
+msgid "Enable Time Machine support for this share."
+msgstr ""
 
 msgid "Enable WINS server"
 msgstr "WINS szerver engedélyezése"
@@ -1672,8 +1672,14 @@ msgstr "Telepíti a távoli rendszerre a nyilvános SSH-kulcsot hitelesített ku
 msgid "Interfaces"
 msgstr "Interfészek"
 
+msgid "Invalid IP address."
+msgstr ""
+
 msgid "Invalid SSH public key (RFC 4716)"
 msgstr "Érvénytelen SSH nyilvános kulcs (RFC 4716)"
+
+msgid "Invalid User-Agent."
+msgstr ""
 
 msgid "Invalid domain name"
 msgstr "Érvénytelen tartománynév"
@@ -1692,6 +1698,9 @@ msgstr "Érvénytelen név"
 
 msgid "Invalid user name"
 msgstr "Érvénytelen felhasználónév"
+
+msgid "Invalid user."
+msgstr ""
 
 msgid "Iran"
 msgstr "Irán"
@@ -1832,9 +1841,6 @@ msgstr "Betöltés, kis türelmet..."
 
 msgid "Local"
 msgstr "Helyi"
-
-msgid "Local master browser"
-msgstr "Helyi főtallózó"
 
 msgid "Location"
 msgstr "Hely"
@@ -2218,9 +2224,6 @@ msgstr "November"
 msgid "Num"
 msgstr "Szám"
 
-msgid "Number of servers"
-msgstr "Szerverek száma"
-
 msgid "OK"
 msgstr "OK"
 
@@ -2323,11 +2326,11 @@ msgstr "Jelszavas hitelesítés"
 msgid "Passwords don't match"
 msgstr "A jelszavak nem egyeznek"
 
-msgid "Paste a RSA certificate in X.509 PEM format here."
-msgstr "Illesszen be egy X.509 PEM formátumú RSA tanúsítványt ide."
+msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
+msgstr ""
 
-msgid "Paste an private RSA key in X.509 PEM format here."
-msgstr "Illesszen be egy X.509 PEM formátumú privát RSA kulcsot ide."
+msgid "Paste a RSA or ECC private key in X.509 PEM format here."
+msgstr ""
 
 msgid "Path"
 msgstr "Útvonal"
@@ -2471,8 +2474,14 @@ msgstr "ACL-ek megőrzése"
 msgid "Preserve extended attributes"
 msgstr "Kiterjesztett attribútumok megőrzése"
 
+msgid "Preserve group"
+msgstr ""
+
 msgid "Preserve modification times"
 msgstr "Módosított idő megőrzése"
+
+msgid "Preserve owner"
+msgstr ""
 
 msgid "Preserve permissions"
 msgstr "Jogosultságok megőrzése"
@@ -2670,9 +2679,9 @@ msgid ""
 msgstr "Jelzés, ha a hőmérséklet legalább N Celsius fokkal megváltozott az utolsó jelzés óta. A 0 beállítás letiltja a jelzést."
 
 msgid ""
-"Report if the temperature is greater or equal than N degrees Celsius. Set to"
-" 0 to disable this report."
-msgstr "Jelzés, ha a hőmérséklet nagyobb vagy egyenlő N Celsius fokkal. A 0 beállítás letiltja a jelzést."
+"Report if the temperature is greater than or equal to N degrees Celsius. Set"
+" to 0 to disable this report."
+msgstr ""
 
 msgid "Repository"
 msgstr "Gyűjtemény"
@@ -2954,9 +2963,6 @@ msgstr "Szerver"
 msgid "Service"
 msgstr "Szolgáltatás"
 
-msgid "Service Discovery"
-msgstr "Szolgáltatás felderítése"
-
 msgid "Service disabled"
 msgstr "Szolgáltatás letiltva"
 
@@ -2981,6 +2987,15 @@ msgstr "Beállítás csak olvashatónak"
 msgid ""
 "Set the destination permissions to be the same as the source permissions"
 msgstr "A célállomás jogosultságai egyezzenek meg a forrás jogosultságaival."
+
+msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr ""
+
+msgid ""
+"Set the owner of the destination file to be the same as the source file, but"
+" only if the receiving rsync is being run as the super-user."
+msgstr ""
 
 msgid "Set write only"
 msgstr "Beállítás csak írhatónak"
@@ -3109,9 +3124,6 @@ msgstr "Spanyolország"
 
 msgid "Special action flag"
 msgstr "Különleges jelzés"
-
-msgid "Specifies how many server threads to create."
-msgstr "Meghatározza, hogy hány szerver szálat lehet létrehozni."
 
 msgid "Specifies one of the bonding policies."
 msgstr "Megadja a kötés egyik eljárásmódjait."
@@ -3401,12 +3413,6 @@ msgid ""
 "for data connections is not required."
 msgstr "Annak a követelménye, hogy az SSL munkamenettől a vezérlő kapcsolat újra használatához nincs szükség adat kapcsolatokra."
 
-msgid "The session IP address has been changed."
-msgstr "A munkamenet IP címe megváltozott."
-
-msgid "The session user no longer exists."
-msgstr "A munkamenet felhasználó már nem létezik."
-
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
@@ -3418,11 +3424,11 @@ msgstr "Megosztott mappa forrása."
 msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "A megadott kvóta meghaladja a max. lehetséges 4TB értéket."
 
+msgid "The system must be rebooted."
+msgstr ""
+
 msgid "The system will reboot now. This may take some time ..."
 msgstr "A rendszer most újraindul. Ez eltarthat egy ideig..."
-
-msgid "The test email has been sent successfully. Please check your mailbox."
-msgstr "A teszt e-mail sikeresen elküldve. Ellenőrizze a postafiókot."
 
 msgid "The volume label for the file system."
 msgstr "A fájlrendszer kötetcímkéje."
@@ -3646,6 +3652,9 @@ msgstr "Ez határozza meg, hogy mit kell tenni, ha a csomag megegyezik."
 msgid "This will create a recycle bin on the share."
 msgstr "Egy lomtár lesz létrehozva a megosztásban."
 
+msgid "Threshold"
+msgstr ""
+
 msgid "Thursday"
 msgstr "Csütörtök"
 
@@ -3654,6 +3663,9 @@ msgstr "TB"
 
 msgid "Time"
 msgstr "Idő"
+
+msgid "Time Machine support"
+msgstr ""
 
 msgid "Time interval"
 msgstr "Idő intervallum"
@@ -3673,9 +3685,6 @@ msgstr "Időzóna"
 msgid "Timeout"
 msgstr "Időtúllépés"
 
-msgid "Times"
-msgstr "Idők"
-
 msgid "Togo"
 msgstr "Togo"
 
@@ -3691,14 +3700,16 @@ msgstr "Kapacitás"
 msgid "Transfer log"
 msgstr "Átviteli napló"
 
+msgid ""
+"Transfer modification times along with the files and update them on the "
+"remote system."
+msgstr ""
+
 msgid "Transfer time"
 msgstr "Átviteli idő"
 
 msgid "Transfer type"
 msgstr "Átviteli típus"
-
-msgid "Treshold"
-msgstr "Határérték"
 
 msgid "Trial run"
 msgstr "Próba futás"
@@ -3808,6 +3819,9 @@ msgstr "A célállomás kiterjesztett attribútumainak frissítése, hogy megegy
 
 msgid "Updates"
 msgstr "Frissítések"
+
+msgid "Updates available"
+msgstr ""
 
 msgid "Updating ACL settings"
 msgstr "ACL beállítások frissítése"
