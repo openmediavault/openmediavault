@@ -23,6 +23,7 @@
 flush_interface_{{ ifname }}:
   cmd.run:
     - name: "ip addr flush dev {{ ifname }}"
+    - onlyif: "test -e /sys/class/net/{{ ifname }}"
 
 {% endfor %}
 
