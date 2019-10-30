@@ -155,6 +155,9 @@ class Config extends \OMV\Rpc\ServiceAbstract {
 			}
 		}
 		foreach ($tsort->sort() as $name) {
+			// Skip modules that are not marked as dirty.
+			if (!array_key_exists($name, $processModules))
+				continue;
 			$this->debug("Deploying configuration for module '%s'", $name);
 			$inst = $processModules[$name];
 			$uri = "org.openmediavault.module.service.%s.%s";
