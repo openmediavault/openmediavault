@@ -20,9 +20,15 @@ list = {% if module.list | to_bool %}yes{% else %}no{% endif %}
 read only = {% if module.readonly | to_bool %}yes{% else %}no{% endif %}
 write only = {% if module.writeonly | to_bool %}yes{% else %}no{% endif %}
 use chroot = {% if module.usechroot | to_bool %}yes{% else %}no{% endif %}
-{%- if module.maxconnections > 0 %}max connections = {{ module.maxconnections }}{% endif %}
-{%- if module.hostsallow | length > 0 %}hosts allow = {{ module.hostsallow }}{% endif %}
-{%- if module.hostsdeny | length > 0 %}hosts deny = {{ module.hostsdeny }}{% endif %}
+{%- if module.maxconnections > 0 %}
+max connections = {{ module.maxconnections }}
+{%- endif %}
+{%- if module.hostsallow | length > 0 %}
+hosts allow = {{ module.hostsallow }}
+{%- endif %}
+{%- if module.hostsdeny | length > 0 %}
+hosts deny = {{ module.hostsdeny }}
+{%- endif %}
 {%- if module.authusers | to_bool %}
 auth users = {{ module.users.user | join(',', attribute='name') }}
 secrets file = {{ secrets_dir | path_join('rsyncd-' ~ module.name ~ '.secrets') }}
