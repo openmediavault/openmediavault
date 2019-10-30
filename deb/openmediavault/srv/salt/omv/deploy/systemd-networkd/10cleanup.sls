@@ -32,5 +32,5 @@ remove_systemd_networkd_config_files:
   module.run:
     - file.find:
       - path: "/etc/systemd/network/"
-      - iname: '^(*-)?openmediavault-*'
+      - iname: "^(*-)?openmediavault-*"
       - delete: "f"
