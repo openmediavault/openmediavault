@@ -56,9 +56,6 @@ BindCarrier={{ interface.slaves.replace(',', ' ') }}
 {%- if interface.mtu > 0 %}
 MTUBytes={{ interface.mtu }}
 {%- endif %}
-{%- if interface.wol | to_bool %}
-WakeOnLan={{ wake_on_lan }}
-{%- endif %}
 
 [IPv6Prefix]
 {%- if interface.method6 == "auto" %}

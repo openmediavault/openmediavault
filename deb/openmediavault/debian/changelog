@@ -1,6 +1,7 @@
 openmediavault (5.0.12-1) unstable; urgency=low
 
   * Fix bug in rsyncd.conf when setting hosts allow/deny in a module.
+  * Issue #442: WOL is not enabled.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 30 Oct 2019 07:40:03 +0100
 
