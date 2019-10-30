@@ -1,0 +1,8 @@
+{%- set wake_on_lan = salt['pillar.get']('default:OMV_INTERFACES_LINK_WAKEONLAN', 'magic') -%}
+[Match]
+OriginalName={{ interface.devicename }}
+
+[Link]
+{%- if interface.wol | to_bool %}
+WakeOnLan={{ wake_on_lan }}
+{%- endif %}

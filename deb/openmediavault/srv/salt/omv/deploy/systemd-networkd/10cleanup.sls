@@ -17,9 +17,9 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% for file in salt['file.find']('/etc/systemd/network/', iname='openmediavault-*.network', print='name') | sort %}
+{% for file in salt['file.find']('/etc/systemd/network/', iname='^(*-)?openmediavault-*.network$', print='name') | sort %}
 
-{% set ifname = file | replace('openmediavault-', '') | replace('.network', '') %}
+{% set ifname = file | regex_search('^\d+-openmediavault-(.+)\.network$') | first %}
 
 flush_interface_{{ ifname }}:
   cmd.run:
@@ -32,5 +32,5 @@ remove_systemd_networkd_config_files:
   module.run:
     - file.find:
       - path: "/etc/systemd/network/"
-      - iname: "openmediavault-*"
+      - iname: '^(*-)?openmediavault-*'
       - delete: "f"

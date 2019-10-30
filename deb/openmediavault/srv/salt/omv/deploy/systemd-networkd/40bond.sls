@@ -30,7 +30,7 @@
 
 configure_interface_bond_{{ interface.devicename }}_netdev:
   file.managed:
-    - name: "/etc/systemd/network/openmediavault-{{ interface.devicename }}.netdev"
+    - name: "/etc/systemd/network/99-openmediavault-{{ interface.devicename }}.netdev"
     - source:
       - salt://{{ slspath }}/files/bond_netdev.j2
     - template: jinja
@@ -42,9 +42,21 @@ configure_interface_bond_{{ interface.devicename }}_netdev:
 
 configure_interface_bond_{{ interface.devicename }}_network:
   file.managed:
-    - name: "/etc/systemd/network/openmediavault-{{ interface.devicename }}.network"
+    - name: "/etc/systemd/network/99-openmediavault-{{ interface.devicename }}.network"
     - source:
       - salt://{{ slspath }}/files/bond_network.j2
+    - template: jinja
+    - context:
+        interface: {{ interface | json }}
+    - user: root
+    - group: root
+    - mode: 644
+
+configure_interface_bond_{{ interface.devicename }}_link:
+  file.managed:
+    - name: "/etc/systemd/network/99-openmediavault-{{ interface.devicename }}.link"
+    - source:
+      - salt://{{ slspath }}/files/link.j2
     - template: jinja
     - context:
         interface: {{ interface | json }}
@@ -56,9 +68,9 @@ configure_interface_bond_{{ interface.devicename }}_network:
 
 configure_interface_bond_{{ slave }}_network:
   file.touch:
-    - name: "/etc/systemd/network/openmediavault-{{ slave }}.network"
+    - name: "/etc/systemd/network/99-openmediavault-{{ slave }}.network"
   ini.options_present:
-    - name: "/etc/systemd/network/openmediavault-{{ slave }}.network"
+    - name: "/etc/systemd/network/99-openmediavault-{{ slave }}.network"
     - separator: "="
     - sections:
         Match:
