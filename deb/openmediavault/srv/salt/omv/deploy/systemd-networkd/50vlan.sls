@@ -29,7 +29,7 @@
 
 configure_interface_vlan_{{ interface.devicename }}_netdev:
   file.managed:
-    - name: "/etc/systemd/network/99-openmediavault-{{ interface.devicename }}.netdev"
+    - name: "/etc/systemd/network/90-openmediavault-{{ interface.devicename }}.netdev"
     - source:
       - salt://{{ slspath }}/files/vlan_netdev.j2
     - template: jinja
@@ -41,21 +41,9 @@ configure_interface_vlan_{{ interface.devicename }}_netdev:
 
 configure_interface_vlan_{{ interface.devicename }}_network:
   file.managed:
-    - name: "/etc/systemd/network/99-openmediavault-{{ interface.devicename }}.network"
+    - name: "/etc/systemd/network/90-openmediavault-{{ interface.devicename }}.network"
     - source:
       - salt://{{ slspath }}/files/vlan_id_network.j2
-    - template: jinja
-    - context:
-        interface: {{ interface | json }}
-    - user: root
-    - group: root
-    - mode: 644
-
-configure_interface_vlan_{{ interface.devicename }}_link:
-  file.managed:
-    - name: "/etc/systemd/network/99-openmediavault-{{ interface.devicename }}.link"
-    - source:
-      - salt://{{ slspath }}/files/link.j2
     - template: jinja
     - context:
         interface: {{ interface | json }}
@@ -69,7 +57,7 @@ configure_interface_vlan_{{ interface.devicename }}_link:
 
 configure_interface_vlan_{{ devicename }}_network:
   file.managed:
-    - name: "/etc/systemd/network/99-openmediavault-{{ devicename }}.network"
+    - name: "/etc/systemd/network/90-openmediavault-{{ devicename }}.network"
     - source:
       - salt://{{ slspath }}/files/vlan_network.j2
     - template: jinja

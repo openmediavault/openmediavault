@@ -1,6 +1,11 @@
 {%- set wake_on_lan = salt['pillar.get']('default:OMV_INTERFACES_LINK_WAKEONLAN', 'magic') -%}
+{%- if interface.type == "bond" -%}
+{%- set mac_addr = salt['network.hwaddr'](interface.bondprimary) -%}
+{%- else -%}
+{%- set mac_addr = salt['network.hwaddr'](interface.devicename) -%}
+{%- endif -%}
 [Match]
-OriginalName={{ interface.devicename }}
+MACAddress={{ mac_addr }}
 
 [Link]
 {%- if interface.wol | to_bool %}
