@@ -25,7 +25,8 @@
 # Get the configured mount points.
 {% set mountpoints = salt['omv_conf.get_by_filter'](
   'conf.system.filesystem.mountpoint',
-  {'operator': 'not', 'arg0': {'operator': 'stringContains', 'arg0': 'opts', 'arg1': 'bind'}}) %}
+  {'operator': 'and', 'arg0': {'operator': 'equals', 'arg0': 'hidden', 'arg1': '0'}, 'arg1': {'operator': 'not', 'arg0': {'operator': 'stringContains', 'arg0': 'opts', 'arg1': 'bind'}}}) %}
+
 # Filter mounted file systems.
 {% for mountpoint in mountpoints %}
   # Example:
@@ -51,6 +52,7 @@
     {% set _ = disks.append(disk[5:]) %}
   {% endif %}
 {% endfor %}
+
 # Append the root filesystem.
 {% set root_fs = salt['omv_utils.get_root_filesystem']() %}
 {% set disk = salt['omv_utils.get_fs_parent_device_file'](root_fs) %}
@@ -63,4 +65,4 @@ configure_collectd_conf_disk_plugin:
       - salt://{{ slspath }}/files/collectd-disk.j2
     - template: jinja
     - context:
-        disks: {{ disks | json }}
+        disks: {{ disks | unique | json }}
