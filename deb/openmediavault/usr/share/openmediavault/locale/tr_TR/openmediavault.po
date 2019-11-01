@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # Serhat SUT <serhat.sut@gmail.com>, 2012-2018
 msgid ""
@@ -876,7 +876,7 @@ msgstr "Klasör"
 msgid "Disabled"
 msgstr "Kapatılmış"
 
-msgid "Disallow the user to modify his account."
+msgid "Disallow the user to modify their account."
 msgstr "Kullanıcıların bu hesabı değiştirmesini engelle."
 
 msgid "Disk usage"

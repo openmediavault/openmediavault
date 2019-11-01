@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # Jan Štourač <wormsik666@gmail.com>, 2014-2015
 # Pavel Borecki <pavel.borecki@gmail.com>, 2014-2018
@@ -877,7 +877,7 @@ msgstr "Složka"
 msgid "Disabled"
 msgstr "Vypnuto"
 
-msgid "Disallow the user to modify his account."
+msgid "Disallow the user to modify their account."
 msgstr "Neumožnit uživateli upravovat svůj účet."
 
 msgid "Disk usage"

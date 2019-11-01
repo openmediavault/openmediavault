@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # Alexander Savchenko, 2014
 # Alexander Savchenko <>, 2012
@@ -885,7 +885,7 @@ msgstr "Каталог"
 msgid "Disabled"
 msgstr "Выключено"
 
-msgid "Disallow the user to modify his account."
+msgid "Disallow the user to modify their account."
 msgstr "Запретить пользователю изменять аккаунт."
 
 msgid "Disk usage"

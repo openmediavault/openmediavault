@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013
 # Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013
@@ -879,7 +879,7 @@ msgstr "Directorio"
 msgid "Disabled"
 msgstr "Desactivado"
 
-msgid "Disallow the user to modify his account."
+msgid "Disallow the user to modify their account."
 msgstr "Non permitir que o usuario modifique a súa conta."
 
 msgid "Disk usage"

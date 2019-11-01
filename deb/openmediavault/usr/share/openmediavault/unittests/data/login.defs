@@ -44,7 +44,7 @@ FAILLOG_ENAB		yes
 #
 # Enable display of unknown usernames when login failures are recorded.
 #
-# WARNING: Unknown usernames may become world readable. 
+# WARNING: Unknown usernames may become world readable.
 # See #290803 and #298773 for details about how this could become a security
 # concern
 LOG_UNKFAIL_ENAB	no
@@ -117,7 +117,7 @@ ENV_PATH	PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 # However, the default and recommended value for TTYPERM is still 0600
 # to not allow anyone to write to anyone else console or terminal
 
-# Users can still allow other people to write them by issuing 
+# Users can still allow other people to write them by issuing
 # the "mesg y" command.
 
 TTYGROUP	tty
@@ -131,12 +131,12 @@ TTYPERM		0600
 #	UMASK		Default "umask" value.
 #
 # The ERASECHAR and KILLCHAR are used only on System V machines.
-# 
+#
 # UMASK is the default umask value for pam_umask and is used by
 # useradd and newusers to set the mode of the new home directories.
 # 022 is the "historical" value in Debian for UMASK
 # 027, or even 077, could be considered better for privacy
-# There is no One True Answer here : each sysadmin must make up his/her
+# There is no One True Answer here : each sysadmin must make up their
 # mind.
 #
 # If USERGROUPS_ENAB is set to "yes", that will modify this UMASK default value
@@ -197,7 +197,7 @@ LOGIN_TIMEOUT		60
 # any combination of letters "frwh" (full name, room number, work
 # phone, home phone).  If not defined, no changes are allowed.
 # For backward compatibility, "yes" = "rwh" and "no" = "frwh".
-# 
+#
 CHFN_RESTRICT		rwh
 
 #

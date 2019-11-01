@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # Herald Yu <yuhr123@gmail.com>, 2018
 # songming <by@songming.me>, 2013-2019
@@ -878,7 +878,7 @@ msgstr "目录"
 msgid "Disabled"
 msgstr "禁用"
 
-msgid "Disallow the user to modify his account."
+msgid "Disallow the user to modify their account."
 msgstr "不允许用户修改自己的账户。"
 
 msgid "Disk usage"

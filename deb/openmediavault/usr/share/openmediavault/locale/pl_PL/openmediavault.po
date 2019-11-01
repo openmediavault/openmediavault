@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # Cyryl Sochacki <>, 2012
 # Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012-2018
@@ -881,7 +881,7 @@ msgstr "Katalog"
 msgid "Disabled"
 msgstr "Wyłączony"
 
-msgid "Disallow the user to modify his account."
+msgid "Disallow the user to modify their account."
 msgstr "Odmów użytkownikowi na modyfikację jego konta."
 
 msgid "Disk usage"

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # Miha Bezjak <miha@bezjak.info>, 2017
 msgid ""
@@ -876,7 +876,7 @@ msgstr "Mapa"
 msgid "Disabled"
 msgstr "Onemogočeno"
 
-msgid "Disallow the user to modify his account."
+msgid "Disallow the user to modify their account."
 msgstr "Uporabniku ne dovoli spreminjanja svojega računa."
 
 msgid "Disk usage"

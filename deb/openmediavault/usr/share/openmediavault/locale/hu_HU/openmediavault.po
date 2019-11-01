@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # Ádám Balajti <balajtiadam@gmail.com>, 2012
 # Sári Gábor <sari.gabor@gmail.com>, 2017
@@ -881,7 +881,7 @@ msgstr "Könyvtár"
 msgid "Disabled"
 msgstr "Letiltva"
 
-msgid "Disallow the user to modify his account."
+msgid "Disallow the user to modify their account."
 msgstr "Felhasználói fiók módosításának tiltása."
 
 msgid "Disk usage"
