@@ -17,14 +17,39 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# Flush all network interfaces that are not configured anymore. To identify
+# devices that are not used/configured anymore, simply iterate through the
+# existing configuration files and extract the device names. Then check if
+# those devices exists in the database.
+# Note, systemd-networkd does not like that devices are flushed before they
+# are configured by the daemon. It will time out in such a case (bug???).
+
+# Get the network devices that are used after the configuration has
+# been applied.
+{% set interfaces = salt['omv_conf.get']('conf.system.network.interface') %}
+{% set used_devices_in_db = interfaces | map(attribute='devicename') | list %}
+{% for interface in interfaces %}
+{% for slave in interface.slaves.split(',') %}
+{% if slave %}
+{% set _ = used_devices_in_db.append(slave) %}
+{% endif %}
+{% endfor %}
+{% endfor %}
+
+# Get the network devices that are used at the moment BEFORE the new
+# configuration is applied.
+{% set used_devices = [] %}
 {% for file in salt['file.find']('/etc/systemd/network/', iname='^(*-)?openmediavault-*.network$', print='name') | sort %}
+{% set devicename = file | regex_search('^\d+-openmediavault-(.+)\.network$') | first %}
+{% set _ = used_devices.append(devicename) %}
+{% endfor %}
 
-{% set ifname = file | regex_search('^\d+-openmediavault-(.+)\.network$') | first %}
+{% for devicename in used_devices | difference(used_devices_in_db | unique) %}
 
-flush_interface_{{ ifname }}:
+flush_interface_{{ devicename }}:
   cmd.run:
-    - name: "ip addr flush dev {{ ifname }}"
-    - onlyif: "test -e /sys/class/net/{{ ifname }}"
+    - name: "ip addr flush dev {{ devicename }}"
+    - onlyif: "test -e /sys/class/net/{{ devicename }}"
 
 {% endfor %}
 
