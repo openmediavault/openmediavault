@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-#
+# 
 # Translators:
 # Milan Toet <milantoet@gmail.com>, 2012-2014,2016-2017
 # sebak <seba.kerckhof@gmail.com>, 2012
@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-29 17:17+0100\n"
-"PO-Revision-Date: 2019-10-29 16:20+0000\n"
+"POT-Creation-Date: 2019-11-01 14:47+0100\n"
+"PO-Revision-Date: 2019-11-01 13:50+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/votdev/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -880,7 +880,7 @@ msgid "Disabled"
 msgstr "Uitgeschakeld"
 
 msgid "Disallow the user to modify their account."
-msgstr "De gebruiker niet toestaan om dit account te wijzigen."
+msgstr ""
 
 msgid "Disk usage"
 msgstr "Schijfgebruik"

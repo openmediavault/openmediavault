@@ -1,15 +1,15 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-#
+# 
 # Translators:
 # Toshihiro Kan <kansuke4649@gmail.com>, 2014-2019
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-29 17:17+0100\n"
-"PO-Revision-Date: 2019-10-29 16:20+0000\n"
+"POT-Creation-Date: 2019-11-01 14:47+0100\n"
+"PO-Revision-Date: 2019-11-01 13:50+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/votdev/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -877,7 +877,7 @@ msgid "Disabled"
 msgstr "無効"
 
 msgid "Disallow the user to modify their account."
-msgstr "自分のアカウントの変更をユーザーに許可しない。"
+msgstr ""
 
 msgid "Disk usage"
 msgstr "ディスク使用量"

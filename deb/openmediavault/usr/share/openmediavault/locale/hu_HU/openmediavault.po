@@ -1,11 +1,11 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-#
+# 
 # Translators:
 # Ádám Balajti <balajtiadam@gmail.com>, 2012
 # Sári Gábor <sari.gabor@gmail.com>, 2017
-# Gyuris Gellért <bubu@ujevangelizacio.hu>, 2018
+# Gyuris Gellért <bubu@ujevangelizacio.hu>, 2018-2019
 # Gyuris Gellért <bubu@ujevangelizacio.hu>, 2017
 # Sári Gábor <sari.gabor@gmail.com>, 2018
 # Grawens <szabolcs.szanyi@gmail.com>, 2014-2019
@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-29 17:17+0100\n"
-"PO-Revision-Date: 2019-10-29 16:20+0000\n"
+"POT-Creation-Date: 2019-11-01 14:47+0100\n"
+"PO-Revision-Date: 2019-11-01 13:50+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -326,7 +326,7 @@ msgid ""
 "An attempt to send the test email has been made. Please check your mailbox. "
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
-msgstr ""
+msgstr "Megkíséreltünk egy teszt emailt küldeni. Ellenőrizze az e-mail fiókját.  Ha az e-mail nem érkezett meg, nézzen meg minden spam mappát valamint ellenőrizze, hogy a rendszernaplóban nincsenek-e Postfixhez kapcsolódó hibaüzenetek."
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -357,7 +357,7 @@ msgid "Anonymous FTP"
 msgstr "Névtelen FTP"
 
 msgid "Another user is already authenticated."
-msgstr ""
+msgstr "Egy másik felhasználó már hitelesítve lett."
 
 msgid "Antarctica"
 msgstr "Antarktika"
@@ -882,7 +882,7 @@ msgid "Disabled"
 msgstr "Letiltva"
 
 msgid "Disallow the user to modify their account."
-msgstr "Felhasználói fiók módosításának tiltása."
+msgstr ""
 
 msgid "Disk usage"
 msgstr "Lemez használat"
@@ -1095,7 +1095,7 @@ msgid "Enable SSL/TLS connections"
 msgstr "SSL/TLS kapcsolatok engedélyezése"
 
 msgid "Enable Time Machine support for this share."
-msgstr ""
+msgstr "Time Machine támogatás bekapcsolása ehhez a megosztáshoz."
 
 msgid "Enable WINS server"
 msgstr "WINS szerver engedélyezése"
@@ -1673,13 +1673,13 @@ msgid "Interfaces"
 msgstr "Interfészek"
 
 msgid "Invalid IP address."
-msgstr ""
+msgstr "Érvénytelen IP-cím."
 
 msgid "Invalid SSH public key (RFC 4716)"
 msgstr "Érvénytelen SSH nyilvános kulcs (RFC 4716)"
 
 msgid "Invalid User-Agent."
-msgstr ""
+msgstr "Érvénytelen felhasználói ügynök."
 
 msgid "Invalid domain name"
 msgstr "Érvénytelen tartománynév"
@@ -1700,7 +1700,7 @@ msgid "Invalid user name"
 msgstr "Érvénytelen felhasználónév"
 
 msgid "Invalid user."
-msgstr ""
+msgstr "Érvénytelen felhasználó."
 
 msgid "Iran"
 msgstr "Irán"
@@ -2327,10 +2327,10 @@ msgid "Passwords don't match"
 msgstr "A jelszavak nem egyeznek"
 
 msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
-msgstr ""
+msgstr "Illesszen be egy X.509 PEM formátumú RSA vagy ECC tanúsítványt ide."
 
 msgid "Paste a RSA or ECC private key in X.509 PEM format here."
-msgstr ""
+msgstr "Illesszen be egy X.509 PEM formátumú RSA vagy ECC személyes kulcsot ide."
 
 msgid "Path"
 msgstr "Útvonal"
@@ -2475,13 +2475,13 @@ msgid "Preserve extended attributes"
 msgstr "Kiterjesztett attribútumok megőrzése"
 
 msgid "Preserve group"
-msgstr ""
+msgstr "Csoport megőrzése"
 
 msgid "Preserve modification times"
 msgstr "Módosított idő megőrzése"
 
 msgid "Preserve owner"
-msgstr ""
+msgstr "Tulajdonos megőrzése"
 
 msgid "Preserve permissions"
 msgstr "Jogosultságok megőrzése"
@@ -2681,7 +2681,7 @@ msgstr "Jelzés, ha a hőmérséklet legalább N Celsius fokkal megváltozott az
 msgid ""
 "Report if the temperature is greater than or equal to N degrees Celsius. Set"
 " to 0 to disable this report."
-msgstr ""
+msgstr "Jelzés, ha a hőmérséklet nagyobb vagy egyenlő N Celsius fokkal. A 0 beállítás letiltja a jelzést."
 
 msgid "Repository"
 msgstr "Gyűjtemény"
@@ -2990,12 +2990,12 @@ msgstr "A célállomás jogosultságai egyezzenek meg a forrás jogosultságaiva
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "A célfájl csoportjának beállítása a forrásfájllal megegyezőre."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr ""
+msgstr "A célfájl tulajdonosának beállítása a forrásfájllal megegyezőre abban az esetben ha a fogadó rsync szuperfelhasználóként fut."
 
 msgid "Set write only"
 msgstr "Beállítás csak írhatónak"
@@ -3425,7 +3425,7 @@ msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "A megadott kvóta meghaladja a max. lehetséges 4TB értéket."
 
 msgid "The system must be rebooted."
-msgstr ""
+msgstr "A rendszert újra kell indítani."
 
 msgid "The system will reboot now. This may take some time ..."
 msgstr "A rendszer most újraindul. Ez eltarthat egy ideig..."
@@ -3653,7 +3653,7 @@ msgid "This will create a recycle bin on the share."
 msgstr "Egy lomtár lesz létrehozva a megosztásban."
 
 msgid "Threshold"
-msgstr ""
+msgstr "Küszöb"
 
 msgid "Thursday"
 msgstr "Csütörtök"
@@ -3665,7 +3665,7 @@ msgid "Time"
 msgstr "Idő"
 
 msgid "Time Machine support"
-msgstr ""
+msgstr "Time Machine támogatás"
 
 msgid "Time interval"
 msgstr "Idő intervallum"
@@ -3703,7 +3703,7 @@ msgstr "Átviteli napló"
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr ""
+msgstr "Módosítási idők áttöltése a fájlokkal és a távoli rendszeren való frissítésük."
 
 msgid "Transfer time"
 msgstr "Átviteli idő"
@@ -3821,7 +3821,7 @@ msgid "Updates"
 msgstr "Frissítések"
 
 msgid "Updates available"
-msgstr ""
+msgstr "Frissítések érhetőek el"
 
 msgid "Updating ACL settings"
 msgstr "ACL beállítások frissítése"

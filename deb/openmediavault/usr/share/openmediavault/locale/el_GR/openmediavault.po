@@ -1,15 +1,15 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-#
+# 
 # Translators:
-# Kostas Moho, 2012-2018
+# Kostas Moho, 2012-2019
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-29 17:17+0100\n"
-"PO-Revision-Date: 2019-10-29 16:20+0000\n"
+"POT-Creation-Date: 2019-11-01 14:47+0100\n"
+"PO-Revision-Date: 2019-11-01 13:50+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/votdev/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -321,7 +321,7 @@ msgid ""
 "An attempt to send the test email has been made. Please check your mailbox. "
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
-msgstr ""
+msgstr "Έγινε προσπάθεια αποστολής δοκιμαστικού μηνύματος. Παρακαλώ ελέγξτε το γραμματοκιβώτιό σας. Αν το μήνυμα δεν έρθει, ελέγξτε τους φακέλους ανεπιθυμήτων καθώς και το αρχείο καταγραφής του συστήματος για σφάλματα του Postfix."
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -352,7 +352,7 @@ msgid "Anonymous FTP"
 msgstr "Ανόνυμη πρόσβαση FTP"
 
 msgid "Another user is already authenticated."
-msgstr ""
+msgstr "Κάποιος άλλος χρήστης είναι ήδη πιστοποιημένος."
 
 msgid "Antarctica"
 msgstr "Antarctica"
@@ -877,7 +877,7 @@ msgid "Disabled"
 msgstr "Ανενεργό"
 
 msgid "Disallow the user to modify their account."
-msgstr "Δεν επιτρέπεται στον χρήστη να τροποποιήσει τον λογαριασμό του."
+msgstr ""
 
 msgid "Disk usage"
 msgstr "Χρήση δίσκου"
@@ -1090,7 +1090,7 @@ msgid "Enable SSL/TLS connections"
 msgstr "Ενεργοποίηση συνδέσεων SSL/TLS"
 
 msgid "Enable Time Machine support for this share."
-msgstr ""
+msgstr "Ενεργοποίηση της Χρονομηχανής για αυτό το κοινόχρηστο."
 
 msgid "Enable WINS server"
 msgstr "Ενεργοποίηση διακομιστή WINS"
@@ -1668,13 +1668,13 @@ msgid "Interfaces"
 msgstr "Διεπαφές"
 
 msgid "Invalid IP address."
-msgstr ""
+msgstr "Άκυρη διεύθυνση ΙΡ."
 
 msgid "Invalid SSH public key (RFC 4716)"
 msgstr "Μη αποδεκτό δημόσιο κλειδί SSH (RFC 4716)"
 
 msgid "Invalid User-Agent."
-msgstr ""
+msgstr "Άκυρος Πράκτορας Χρήστη."
 
 msgid "Invalid domain name"
 msgstr "Άκυρο όνομα τομέα"
@@ -1683,7 +1683,7 @@ msgid "Invalid file system label"
 msgstr "Άκυρη ονομασία συστήματος αρχείων"
 
 msgid "Invalid group name"
-msgstr "Άκυρη ονομασία ομάδας"
+msgstr "Άκυρο όνομα ομάδας"
 
 msgid "Invalid host name"
 msgstr "Άκυρο όνομα συστήματος"
@@ -1695,7 +1695,7 @@ msgid "Invalid user name"
 msgstr "Άκυρο όνομα χρήστη"
 
 msgid "Invalid user."
-msgstr ""
+msgstr "Άκυρος χρήστης."
 
 msgid "Iran"
 msgstr "Iran"
@@ -2322,10 +2322,10 @@ msgid "Passwords don't match"
 msgstr "Οι κωδικοι δεν είναι ίδιοι"
 
 msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
-msgstr ""
+msgstr "Επικόλληση πιστοποιητικού RSA ή ECC σε μορφή X.509 PEM εδώ."
 
 msgid "Paste a RSA or ECC private key in X.509 PEM format here."
-msgstr ""
+msgstr "Επικόλληση ιδιωτικού κλειδιού RSA ή ECC σε μορφή X.509 PEM εδώ."
 
 msgid "Path"
 msgstr "Διαδρομή"
@@ -2470,13 +2470,13 @@ msgid "Preserve extended attributes"
 msgstr "Διατήρηση εκτεταμένων ιδιοτήτων"
 
 msgid "Preserve group"
-msgstr ""
+msgstr "Διατήρηση ομάδας"
 
 msgid "Preserve modification times"
 msgstr "Διατήρηση χρόνου μεταβολής"
 
 msgid "Preserve owner"
-msgstr ""
+msgstr "Διατήρηση ιδιοκτήτη"
 
 msgid "Preserve permissions"
 msgstr "Διατήρηση αδειών"
@@ -2676,7 +2676,7 @@ msgstr "Αναφορά αν η θερμοκρασία έχει αλλάξει π
 msgid ""
 "Report if the temperature is greater than or equal to N degrees Celsius. Set"
 " to 0 to disable this report."
-msgstr ""
+msgstr "Αναφορά αν η θερμοκρασία είναι ίση ή μεγαλύτερη από Ν βαθμούς Κελσίου. Με 0 απενεργοποιείται."
 
 msgid "Repository"
 msgstr "Εναποθετήριο"
@@ -2985,12 +2985,12 @@ msgstr "Ορισμός αδειών προορισμού ως ίδιες με τ
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "Να τεθεί η ομάδα των αρχείων στον προορισμό όπως είναι στην πηγή."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr ""
+msgstr "Να τεθεί ο ιδιοκτήτης των αρχείων στον προορισμό όπως είναι στην πηγή, αλλά μόνο όταν ο αποδέκτης λειτουργεί ως υπερ-χρήστης."
 
 msgid "Set write only"
 msgstr "Ορισμός ως μόνο για εγγραφή"
@@ -3420,7 +3420,7 @@ msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "Το ποσοστό υπερβαίνει την μέγιστη επιτρεπτή τιμή των 4TiB."
 
 msgid "The system must be rebooted."
-msgstr ""
+msgstr "Το σύστημα πρέπει να επανεκκινηθεί."
 
 msgid "The system will reboot now. This may take some time ..."
 msgstr "Το σύστημα θα επανεκκινήσει τώρα. Αυτό μπορεί να πάρει λίγη ώρα ..."
@@ -3648,7 +3648,7 @@ msgid "This will create a recycle bin on the share."
 msgstr "Αυτό θα δημιουργήσει έναν κάδο ανακύκλωσης στο κοινόχρηστο."
 
 msgid "Threshold"
-msgstr ""
+msgstr "Όριο"
 
 msgid "Thursday"
 msgstr "Πέμπτη"
@@ -3660,7 +3660,7 @@ msgid "Time"
 msgstr "Ώρα"
 
 msgid "Time Machine support"
-msgstr ""
+msgstr "Υποστήριξη Χρονομηχανής"
 
 msgid "Time interval"
 msgstr "Χρονικό διάστημα"
@@ -3698,7 +3698,7 @@ msgstr "Καταγραφή μεταφορών"
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr ""
+msgstr "Να μεταφερθούν οι χρόνοι μεταβολής μαζί με τα αρχεία και να ενημερωθούν στο απομακρυσμένο σύστημα."
 
 msgid "Transfer time"
 msgstr "Χρόνος μεταφοράς"
@@ -3816,7 +3816,7 @@ msgid "Updates"
 msgstr "Ενημερώσεις"
 
 msgid "Updates available"
-msgstr ""
+msgstr "Διαθέσιμες ενημερώσεις"
 
 msgid "Updating ACL settings"
 msgstr "Ενημέρωση ρυθμίσεων λιστών πρόσβασης"

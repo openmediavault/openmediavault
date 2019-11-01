@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Sári Gábor <sari.gabor@gmail.com>, 2017
+# Gyuris Gellért <bubu@ujevangelizacio.hu>, 2019
 # Gyuris Gellért <bubu@ujevangelizacio.hu>, 2017
 # Sári Gábor <sari.gabor@gmail.com>, 2018
 # Grawens <szabolcs.szanyi@gmail.com>, 2014,2017
@@ -11,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-29 17:17+0100\n"
-"PO-Revision-Date: 2019-10-29 16:20+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2019-11-01 14:47+0100\n"
+"PO-Revision-Date: 2019-10-31 22:01+0000\n"
+"Last-Translator: Gyuris Gellért <bubu@ujevangelizacio.hu>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -112,13 +113,13 @@ msgid "Preserve extended attributes"
 msgstr "Kiterjesztett attribútumok megőrzése"
 
 msgid "Preserve group"
-msgstr ""
+msgstr "Csoport megőrzése"
 
 msgid "Preserve modification times"
-msgstr ""
+msgstr "Módosított idő megőrzése"
 
 msgid "Preserve owner"
-msgstr ""
+msgstr "Tulajdonos megőrzése"
 
 msgid "Preserve permissions"
 msgstr "Jogosultságok megőrzése"
@@ -153,12 +154,12 @@ msgstr "Célállomás jogosultságai egyezzenek meg a forrás jogosultságaival.
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "A célfájl csoportjának beállítása a forrásfájllal megegyezőre."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr ""
+msgstr "A célfájl tulajdonosának beállítása a forrásfájllal megegyezőre abban az esetben ha a fogadó rsync szuperfelhasználóként fut."
 
 msgid "Shared folder"
 msgstr "Megosztott mappa"
@@ -186,7 +187,7 @@ msgstr "A megosztott mappa szinkronizálása, amikor a külső tárolóeszköz c
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr ""
+msgstr "Módosítási idők áttöltése a fájlokkal és a távoli rendszeren való frissítésük."
 
 msgid "USB Backup"
 msgstr "USB biztonsági mentés"

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-#
+# 
 # Translators:
 # bejonwe <bejonwe@gmx.net>, 2012
 # Marcel Beck <fo3nik5@gmail.com>, 2012
@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-29 17:17+0100\n"
-"PO-Revision-Date: 2019-10-29 16:27+0000\n"
+"POT-Creation-Date: 2019-11-01 14:47+0100\n"
+"PO-Revision-Date: 2019-11-01 13:56+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -2331,10 +2331,10 @@ msgid "Passwords don't match"
 msgstr "Passwörter sind nicht gleich"
 
 msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
-msgstr ""
+msgstr "Hier ein RSA oder ECC Zertifikat im X.509 PEM Format einfügen."
 
 msgid "Paste a RSA or ECC private key in X.509 PEM format here."
-msgstr ""
+msgstr "Hier ein privates RSA oder ECC Zertifikat im X.509 PEM Format einfügen."
 
 msgid "Path"
 msgstr "Pfad"
@@ -2685,7 +2685,7 @@ msgstr "Berichte wenn sich die Temperatur um mindestens N Grad Celsius seit dem 
 msgid ""
 "Report if the temperature is greater than or equal to N degrees Celsius. Set"
 " to 0 to disable this report."
-msgstr ""
+msgstr "Berichte wenn die Temperatur größer oder gleich N Grad Celsius ist. Auf 0 setzen um diesen Bericht zu deaktivieren."
 
 msgid "Repository"
 msgstr "Quelle"
@@ -2994,7 +2994,7 @@ msgstr "Setze die Ziel-Zugriffsrechte auf die selben wie die Quell-Zugriffsrecht
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "Setze die Gruppe der Zieldatei auf die selben wie die der Quelldatei."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"

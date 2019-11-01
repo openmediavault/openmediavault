@@ -1,15 +1,15 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-#
+# 
 # Translators:
 # Miha Bezjak <miha@bezjak.info>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-29 17:17+0100\n"
-"PO-Revision-Date: 2019-10-29 16:20+0000\n"
+"POT-Creation-Date: 2019-11-01 14:47+0100\n"
+"PO-Revision-Date: 2019-11-01 13:50+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/votdev/openmediavault/language/sl_SI/)\n"
 "MIME-Version: 1.0\n"
@@ -877,7 +877,7 @@ msgid "Disabled"
 msgstr "Onemogočeno"
 
 msgid "Disallow the user to modify their account."
-msgstr "Uporabniku ne dovoli spreminjanja svojega računa."
+msgstr ""
 
 msgid "Disk usage"
 msgstr "Poraba diska"

@@ -1,16 +1,16 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-#
+# 
 # Translators:
 # Jan Štourač <wormsik666@gmail.com>, 2014-2015
-# Pavel Borecki <pavel.borecki@gmail.com>, 2014-2018
+# Pavel Borecki <pavel.borecki@gmail.com>, 2014-2019
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-29 17:17+0100\n"
-"PO-Revision-Date: 2019-10-29 16:20+0000\n"
+"POT-Creation-Date: 2019-11-01 14:47+0100\n"
+"PO-Revision-Date: 2019-11-01 13:50+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -322,7 +322,7 @@ msgid ""
 "An attempt to send the test email has been made. Please check your mailbox. "
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
-msgstr ""
+msgstr "Byl učiněn pokus o zaslání testovacího e-mailu. Podívejte se do své pošty. Pokud e-mail nedorazil, podívejte se do složky pro nevyžádanou poštu (spam) a také se podívejte, zda v záznamu událostí v systému nejsou nějaké chyby, týkající se Postfix."
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -353,7 +353,7 @@ msgid "Anonymous FTP"
 msgstr "Anonymní FTP"
 
 msgid "Another user is already authenticated."
-msgstr ""
+msgstr "Už je ověřen jiný uživatel."
 
 msgid "Antarctica"
 msgstr "Antarktida"
@@ -878,7 +878,7 @@ msgid "Disabled"
 msgstr "Vypnuto"
 
 msgid "Disallow the user to modify their account."
-msgstr "Neumožnit uživateli upravovat svůj účet."
+msgstr ""
 
 msgid "Disk usage"
 msgstr "Využití disku"
@@ -1091,7 +1091,7 @@ msgid "Enable SSL/TLS connections"
 msgstr "Používat SSL/TLS spojení"
 
 msgid "Enable Time Machine support for this share."
-msgstr ""
+msgstr "Zapnout pro toto sdílení podporu pro Apple Time Machine."
 
 msgid "Enable WINS server"
 msgstr "Zapnout WINS server"
@@ -1669,13 +1669,13 @@ msgid "Interfaces"
 msgstr "Síťová rozhraní"
 
 msgid "Invalid IP address."
-msgstr ""
+msgstr "Neplatná IP adresa."
 
 msgid "Invalid SSH public key (RFC 4716)"
 msgstr "Neplatná veřejná část SSH klíče (dle normy RFC 4716)"
 
 msgid "Invalid User-Agent."
-msgstr ""
+msgstr "Neplatný User-Agent."
 
 msgid "Invalid domain name"
 msgstr "Neplatný doménový název"
@@ -1696,7 +1696,7 @@ msgid "Invalid user name"
 msgstr "Neplatné uživatelské jméno"
 
 msgid "Invalid user."
-msgstr ""
+msgstr "Neplatný uživatel."
 
 msgid "Iran"
 msgstr "Írán"
@@ -2323,10 +2323,10 @@ msgid "Passwords don't match"
 msgstr "Hesla se neshodují"
 
 msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
-msgstr ""
+msgstr "Sem vložte obsah RSA nebo ECC certifikátu ve formátu X.509 PEM."
 
 msgid "Paste a RSA or ECC private key in X.509 PEM format here."
-msgstr ""
+msgstr "Sem vložte obsah RSA nebo ECC soukromého klíče ve formátu X.509 PEM."
 
 msgid "Path"
 msgstr "Umístění"
@@ -2471,13 +2471,13 @@ msgid "Preserve extended attributes"
 msgstr "Zachovat rozšířené atributy"
 
 msgid "Preserve group"
-msgstr ""
+msgstr "Zachovat skupinu"
 
 msgid "Preserve modification times"
 msgstr "Zachovat časy úprav"
 
 msgid "Preserve owner"
-msgstr ""
+msgstr "Zachovat vlastníka"
 
 msgid "Preserve permissions"
 msgstr "Zachovat oprávnění"
@@ -2677,7 +2677,7 @@ msgstr "Hlásit, pokud se teplota od minulého hlášení změní přinejmenší
 msgid ""
 "Report if the temperature is greater than or equal to N degrees Celsius. Set"
 " to 0 to disable this report."
-msgstr ""
+msgstr "Hlásit, pokud je teplota vyšší nebo rovna N stupňům Celsia. Toto hlášení vypnete nastavením na 0 (nula)."
 
 msgid "Repository"
 msgstr "Repozitář"
@@ -2986,12 +2986,12 @@ msgstr "Nastavit oprávnění v cíli na shodná se zdrojem"
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "Nastavit skupinu cílového souboru tak, aby byla stejná, jako na zdrojovém souboru."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr ""
+msgstr "Nastavit vlastníka cílového souboru tak, aby byla stejná jako na zdrojovém souboru, ale pouze pokud je přijímající rsync spuštěn pod účtem s právy správy."
 
 msgid "Set write only"
 msgstr "Umožnit pouze zápis"
@@ -3421,7 +3421,7 @@ msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "Zadaná kvóta překračuje nejvyšší možnou hodnotu, kterou jsou 4TiB."
 
 msgid "The system must be rebooted."
-msgstr ""
+msgstr "Systém je třeba restartovat."
 
 msgid "The system will reboot now. This may take some time ..."
 msgstr "Systém nyní bude restartován. Chvíli to potrvá…"
@@ -3649,7 +3649,7 @@ msgid "This will create a recycle bin on the share."
 msgstr "Toto vytvoří na sdílení objekt Koš."
 
 msgid "Threshold"
-msgstr ""
+msgstr "Práh"
 
 msgid "Thursday"
 msgstr "Čtvrtek"
@@ -3661,7 +3661,7 @@ msgid "Time"
 msgstr "Čas"
 
 msgid "Time Machine support"
-msgstr ""
+msgstr "Podpora pro Time Machine"
 
 msgid "Time interval"
 msgstr "Časové rozmezí"
@@ -3699,7 +3699,7 @@ msgstr "Záznam událostí při přenosu"
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr ""
+msgstr "Přenést společně se soubory časy okamžiku úprav a aktualizovat je na protějšku."
 
 msgid "Transfer time"
 msgstr "Čas přenosu"
@@ -3817,7 +3817,7 @@ msgid "Updates"
 msgstr "Aktualizace"
 
 msgid "Updates available"
-msgstr ""
+msgstr "Jsou k dispozici aktualizace"
 
 msgid "Updating ACL settings"
 msgstr "Aktualizace nastavení ACL seznamů"
