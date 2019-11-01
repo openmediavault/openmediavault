@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # Mario Varelli <mvarelli@biologia.unipi.it>, 2012
 # maurorulli <mauro.rulli@gmail.com>, 2013
@@ -881,7 +881,7 @@ msgstr "Directory"
 msgid "Disabled"
 msgstr "Disabilitato"
 
-msgid "Disallow the user to modify his account."
+msgid "Disallow the user to modify their account."
 msgstr "Nega all'utente la possibilità di modificare il suo account."
 
 msgid "Disk usage"

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # runesudden <runesudden@gmail.com>, 2013
 # runesudden <runesudden@gmail.com>, 2012
@@ -877,7 +877,7 @@ msgstr "Katalog"
 msgid "Disabled"
 msgstr "Deaktivert"
 
-msgid "Disallow the user to modify his account."
+msgid "Disallow the user to modify their account."
 msgstr "Hindre brukeren fra å endre kontoen"
 
 msgid "Disk usage"

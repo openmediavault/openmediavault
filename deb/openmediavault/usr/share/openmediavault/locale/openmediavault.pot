@@ -859,7 +859,7 @@ msgstr ""
 msgid "Disabled"
 msgstr ""
 
-msgid "Disallow the user to modify his account."
+msgid "Disallow the user to modify their account."
 msgstr ""
 
 msgid "Disk usage"

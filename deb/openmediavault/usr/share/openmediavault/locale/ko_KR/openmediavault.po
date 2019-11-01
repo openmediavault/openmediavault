@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # Chang-Eon Byeon <ksna0827@gmail.com>, 2014-2016
 # Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018
@@ -878,7 +878,7 @@ msgstr "디렉터리"
 msgid "Disabled"
 msgstr "비활성화"
 
-msgid "Disallow the user to modify his account."
+msgid "Disallow the user to modify their account."
 msgstr "사용자가 계정을 수정하지 못하게 합니다."
 
 msgid "Disk usage"

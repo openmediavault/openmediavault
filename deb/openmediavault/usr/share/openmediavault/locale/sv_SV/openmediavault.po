@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # Henrik Sandström <inactive+sandstroem@transifex.com>, 2012
 # Jonatan Nyberg, 2018-2019
@@ -878,7 +878,7 @@ msgstr "Mapp"
 msgid "Disabled"
 msgstr "Inaktiverad"
 
-msgid "Disallow the user to modify his account."
+msgid "Disallow the user to modify their account."
 msgstr "Förhindra att användaren ändrar sitt konto."
 
 msgid "Disk usage"

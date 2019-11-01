@@ -451,7 +451,7 @@ finish:
 	 *   \em password The plain password to use.
 	 *   \em email The users email address.
 	 *   \em comment Any text string. This field is optional.
-	 *   \em disallowusermod Set to FALSE to disallow the user to modify his
+	 *   \em disallowusermod Set to FALSE to disallow the user to modify their
 	 *     account.
 	 *   \em sshpubkeys The users SSH public keys.
 	 * @param context The context of the caller.
@@ -604,7 +604,7 @@ finish:
 		$object = $this->callMethod("getUser", [
 			"name" => $context['username']
 		], $this->getAdminContext());
-		// Make sure the user is allowed to modify his account.
+		// Make sure the user is allowed to modify their account.
 		if (TRUE === $object['disallowusermod']) {
 			throw new \OMV\Exception(
 				"Unauthorized attempt to modify the user account '%s'",

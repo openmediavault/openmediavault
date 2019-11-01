@@ -75,7 +75,7 @@ class BgStatus {
 	/**
 	 * Check whether the background process output is written to a temporary
 	 * file.
-	 * @return bool Returns TRUE if the background process writes his
+	 * @return bool Returns TRUE if the background process writes its
 	 *   output to a temporary file, otherwise FALSE.
 	 */
 	public function hasOutputFilename(): bool {

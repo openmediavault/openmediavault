@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # Toshihiro Kan <kansuke4649@gmail.com>, 2014-2019
 msgid ""
@@ -876,7 +876,7 @@ msgstr "ディレクトリ"
 msgid "Disabled"
 msgstr "無効"
 
-msgid "Disallow the user to modify his account."
+msgid "Disallow the user to modify their account."
 msgstr "自分のアカウントの変更をユーザーに許可しない。"
 
 msgid "Disk usage"

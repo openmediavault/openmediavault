@@ -125,7 +125,7 @@ Ext.define("OMV.module.admin.privilege.user.user.General", {
 				name: "disallowusermod",
 				fieldLabel: _("Modify account"),
 				checked: false,
-				boxLabel: _("Disallow the user to modify his account.")
+				boxLabel: _("Disallow the user to modify their account.")
 			}]
 		});
 		me.callParent(arguments);
