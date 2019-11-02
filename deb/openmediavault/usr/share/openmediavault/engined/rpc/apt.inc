@@ -330,7 +330,7 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 			}
 			$cmd = sprintf("export LANG=C; dpkg-deb --fsys-tarfile %s | ".
 			  "tar --extract --wildcards --directory=%s ".
-			  "./usr/share/doc/%s/changelog* 2>&1",
+			  "./usr/share/doc/%s/changelog\* 2>&1",
 			  escapeshellarg($packagePath), escapeshellarg($tmpDir),
 			  $packageName);
 			if (0 !== $this->exec($cmd, $output))
