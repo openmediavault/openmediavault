@@ -1,5 +1,6 @@
 openmediavault (5.0.12-1) unstable; urgency=low
 
+  * Update locales.
   * Fix bug in rsyncd.conf when setting hosts allow/deny in a module.
   * Issue #442: WOL is not enabled.
   * Issue #448: Building configuration fails when an omv-engined module

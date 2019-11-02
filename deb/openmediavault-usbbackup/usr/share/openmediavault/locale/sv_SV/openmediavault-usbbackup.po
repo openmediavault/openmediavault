@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
+# Jonatan Nyberg, 2019
 # Jonatan Nyberg, 2017-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-29 17:17+0100\n"
-"PO-Revision-Date: 2019-10-29 16:20+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2019-11-01 14:47+0100\n"
+"PO-Revision-Date: 2019-11-02 10:11+0000\n"
+"Last-Translator: Jonatan Nyberg\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -109,13 +110,13 @@ msgid "Preserve extended attributes"
 msgstr "Bevara utökade attribut"
 
 msgid "Preserve group"
-msgstr ""
+msgstr "Bevara grupp"
 
 msgid "Preserve modification times"
-msgstr ""
+msgstr "Bevara ändringstider"
 
 msgid "Preserve owner"
-msgstr ""
+msgstr "Bevara ägare"
 
 msgid "Preserve permissions"
 msgstr "Bevara behörigheter"
@@ -150,12 +151,12 @@ msgstr "Ställ in destinationsbehörigheterna att vara desamma som källtillstå
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "Ställ in gruppen för målfilen att vara samma som för källfilen."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr ""
+msgstr "Ställ in att ägaren till målfilen ska vara densamma som källfilen, men endast om den mottagande rsync körs som superanvändare."
 
 msgid "Shared folder"
 msgstr "Delad mapp"
@@ -183,7 +184,7 @@ msgstr "Den delade mappen synkroniseras när den externa lagringsenheten är ans
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr ""
+msgstr "Överför ändringstider tillsammans med filerna och uppdatera dem på fjärrsystemet."
 
 msgid "USB Backup"
 msgstr "USB-säkerhetskopiering"
