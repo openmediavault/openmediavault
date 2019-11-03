@@ -30,7 +30,8 @@
 			"type": "string"
 		},
 		"type": {
-			"type": "string"
+			"type": "string",
+			"minLength": 1
 		},
 		"opts": {
 			"type": "string"
