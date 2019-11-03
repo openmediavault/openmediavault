@@ -54,13 +54,13 @@ quota_on_{{ quota.fsuuid }}:
     - name: quotaon --group --user {{ device }}
 
 {% for usrquota in quota.usrquota %}
-quota_ser_user_{{ quota.fsuuid }}_{{ usrquota.name }}:
+quota_set_user_{{ quota.fsuuid }}_{{ usrquota.name }}:
   cmd.run:
     - name: setquota --user {{ usrquota.name }} {{ usrquota.bsoftlimit }} {{ usrquota.bhardlimit }} {{ usrquota.isoftlimit }} {{ usrquota.ihardlimit }} {{ device }}
 {% endfor %}
 
 {% for grpquota in quota.grpquota %}
-quota_ser_group_{{ quota.fsuuid }}_{{ grpquota.name }}:
+quota_set_group_{{ quota.fsuuid }}_{{ grpquota.name }}:
   cmd.run:
     - name: setquota --group {{ grpquota.name }} {{ grpquota.bsoftlimit }} {{ grpquota.bhardlimit }} {{ grpquota.isoftlimit }} {{ grpquota.ihardlimit }} {{ device }}
 {% endfor %}
