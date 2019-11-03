@@ -637,6 +637,14 @@ Ext.define("OMV.module.admin.system.network.interface.window.Vlan", {
 		var me = this;
 		var items = me.callParent(arguments);
 		switch (name) {
+		case "advanced":
+			Ext.apply(Ext.Array.findObject(items, "name", "mtu"), {
+				hidden: true
+			});
+			Ext.apply(Ext.Array.findObject(items, "name", "wol"),{
+				hidden: true
+			});
+			break;
 		case "vlan":
 			Ext.Array.push(items, [{
 				xtype: "combo",
