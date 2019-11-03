@@ -34,6 +34,7 @@ mount_filesystem_mountpoint_{{ mountpoint.uuid }}:
     - name: {{ mountpoint.dir }}
     - device: {{ mountpoint.fsname | replace('\\', '\\\\') }}
     - fstype: {{ mountpoint.type }}
+    - opts: {{ mountpoint.opts }}
     - mkmnt: True
     - persist: False
     - mount: True

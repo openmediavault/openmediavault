@@ -1,5 +1,6 @@
 openmediavault (5.0.13-1) unstable; urgency=low
 
+  * Apply opts when mounting a filesystem in fstab.sls.
   * Issue #489: Fix error when displaying the changelog of an
     update package.
 
