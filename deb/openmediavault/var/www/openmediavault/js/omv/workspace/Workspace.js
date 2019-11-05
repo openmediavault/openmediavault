@@ -263,13 +263,11 @@ Ext.define("OMV.workspace.Workspace", {
 											OMV.Rpc.request({
 												scope: this,
 												callback: function(id, success, response) {
-													OMV.MessageBox.show({
-														title: _("Information"),
-														icon: Ext.Msg.INFO,
-														msg: _("The system will reboot now. This may take some time ..."),
-														wait: true,
-														closable: false
-													});
+													OMV.MessageBox.wait(
+														_("Information"),
+														_("The system will reboot now. This may take some time ..."),
+														{ text: "" }
+													);
 													this.waitingForResponse = false;
 													this.hasRebooted = false;
 													Ext.util.TaskManager.start({

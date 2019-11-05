@@ -1,3 +1,10 @@
+openmediavault (4.1.27-1) stable; urgency=low
+
+  * Issue #492: Remove percentage text in progress bar when user
+    reboots from UI.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 05 Nov 2019 09:46:08 +0100
+
 openmediavault (4.1.26-1) stable; urgency=low
 
   * The smbd daemon must be restarted when groups are modified in order to
