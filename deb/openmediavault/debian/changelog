@@ -1,5 +1,6 @@
 openmediavault (4.1.27-1) stable; urgency=low
 
+  * Do not show MTU and WOL fields in VLAN interface dialog.
   * Issue #492: Remove percentage text in progress bar when user
     reboots from UI.
 
