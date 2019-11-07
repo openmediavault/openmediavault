@@ -17,7 +17,7 @@ LinkLocalAddressing=no
 {%- if interface.method6 == "static" %}
 Address={{ interface.address6 }}/{{ interface.netmask6 }}
 {%- if interface.gateway6 | is_ipv6 %}
-Gateway={{ interface.gateway }}
+Gateway={{ interface.gateway6 }}
 {%- endif %}
 IPv6PrivacyExtensions=yes
 IPv6AcceptRA=no
