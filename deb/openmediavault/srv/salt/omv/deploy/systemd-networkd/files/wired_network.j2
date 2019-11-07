@@ -6,7 +6,7 @@ Name={{ interface.devicename }}
 [Network]
 {%- if interface.method == "static" %}
 Address={{ interface.address }}/{{ interface.netmask | network_prefix_len }}
-{%- if interface.gateway | is_ip %}
+{%- if interface.gateway | is_ipv4 %}
 Gateway={{ interface.gateway }}
 {%- endif %}
 {%- endif %}
