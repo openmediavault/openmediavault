@@ -18,13 +18,16 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+import functools
 import re
+
 from .block import BlockDevice
 
 import openmediavault.string
 
 
 class StorageDevice(BlockDevice):
+    @functools.lru_cache()
     def get_model(self):
         """
         Get the device model.
@@ -35,6 +38,7 @@ class StorageDevice(BlockDevice):
             self.get_udev_property('ID_MODEL_ENC', '')
         )
 
+    @functools.lru_cache()
     def get_vendor(self):
         """
         Get the device vendor.
@@ -45,6 +49,7 @@ class StorageDevice(BlockDevice):
             self.get_udev_property('ID_VENDOR_ENC', '')
         )
 
+    @functools.lru_cache()
     def get_serial(self):
         """
         Get the device serial number.
@@ -54,6 +59,7 @@ class StorageDevice(BlockDevice):
         serial = self.get_udev_property('ID_SERIAL_SHORT', '')
         return serial.replace('_', ' ')
 
+    @functools.lru_cache()
     def is_rotational(self):
         """
         Check if the device is of rotational or non-rotational type.
@@ -81,6 +87,7 @@ class StorageDevice(BlockDevice):
         # Use heuristic.
         return 'SSD' not in self.get_model()
 
+    @functools.lru_cache()
     def is_removable(self):
         """
         Check if the device is removable.
@@ -96,6 +103,7 @@ class StorageDevice(BlockDevice):
             pass
         return False
 
+    @functools.lru_cache()
     def is_usb(self):
         """
         Check if the given device is an USB device.
