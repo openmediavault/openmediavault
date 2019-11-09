@@ -558,6 +558,8 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Create the temporary file that contains the password.
 		$pwdFile = new \OMV\System\TmpFile();
 		$pwdFile->write($params['password']);
+		// Get the home directory from user 'root'.
+		$user = new \OMV\System\User("root");
 		// Build the command to copy the public SSH key to the remote system.
 		$cmdArgs = [];
 		$cmdArgs[] = "-v";
@@ -565,8 +567,10 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs[] = escapeshellarg($pwdFile->getFilename());
 		$cmdArgs[] = "--";
 		$cmdArgs[] = "ssh-copy-id";
+		$cmdArgs[] = "-o";
+		$cmdArgs[] = "StrictHostKeyChecking=no";
 		$cmdArgs[] = "-i";
-		$cmdArgs[] = escapeshellarg(sprintf("%s/%s%s",
+		$cmdArgs[] = escapeshellarg(sprintf("%s/%s%s.pub",
 			\OMV\Environment::get("OMV_SSH_KEYS_DIR", "/etc/ssh"),
 			\OMV\Environment::get("OMV_SSH_KEY_PREFIX", "openmediavault-"),
 			$params['uuid']));
@@ -574,6 +578,7 @@ class OMVRpcServiceCertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs[] = $params['port'];
 		$cmdArgs[] = sprintf("%s@%s", $params['username'], $params['hostname']);
 		$cmd = new \OMV\System\Process("sshpass", $cmdArgs);
+		$cmd->setEnv("HOME", $user->getHomeDirectory());
 		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
