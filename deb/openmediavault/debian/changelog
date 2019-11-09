@@ -163,11 +163,21 @@ openmediavault (5.0-1) unstable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 May 2018 22:06:11 +0200
 
+openmediavault (4.1.27-1) stable; urgency=low
+
+  * Do not show MTU and WOL fields in VLAN interface dialog.
+  * Fix bug when copying a SSH pub key to a remote machine.
+  * Issue #492: Remove percentage text in progress bar when user
+    reboots from UI.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 05 Nov 2019 09:46:08 +0100
+
 openmediavault (4.1.26-1) stable; urgency=low
 
   * The smbd daemon must be restarted when groups are modified in order to
     take these changes into action, otherwise it is possible that a user
     still works with privileges that are already obsolete.
+  * Fix /sharedfolders mounting issue.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 27 Sep 2019 16:44:26 +0200
 
