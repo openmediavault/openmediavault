@@ -1,5 +1,6 @@
 openmediavault (5.0.14-1) unstable; urgency=low
 
+  * Fix bug when copying a SSH pub key to a remote machine.
   * Issue #492: Remove percentage text in progress bar when user
     reboots from UI.
   * Issue #499: IPv6 gateway not being set correctly.
