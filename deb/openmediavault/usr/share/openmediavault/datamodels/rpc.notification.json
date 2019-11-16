@@ -1,6 +1,6 @@
 [{
 	"type": "rpc",
-	"id": "rpc.notification.set",
+	"id": "rpc.notification.setList",
 	"params": {
 		"type": "array",
 		"items": {
@@ -19,6 +19,27 @@
 					"type": "boolean",
 					"required": true
 				}
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.notification.set",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid":{
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"id":{
+				"type": "string",
+				"required": true
+			},
+			"enable": {
+				"type": "boolean",
+				"required": true
 			}
 		}
 	}

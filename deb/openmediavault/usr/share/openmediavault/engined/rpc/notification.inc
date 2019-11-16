@@ -33,101 +33,161 @@ class Notification extends \OMV\Rpc\ServiceAbstract {
 	 * Initialize the RPC service.
 	 */
 	public function initialize() {
+		$this->registerMethod("getList");
+		$this->registerMethod("setList");
 		$this->registerMethod("get");
 		$this->registerMethod("set");
 		$this->registerMethod("isEnabled");
 	}
 
 	/**
-	 * Get the notification configuration.
-	 * @param params The method parameters.
-	 * @param context The context of the caller.
-	 * @return An array containing the notification configuration.
+	 * Get the notification configuration of all registered modules.
 	 */
-	function get($params, $context) {
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, [
-			"role" => OMV_ROLE_ADMINISTRATOR
-		]);
+	private function getNotificationConfig() {
 		$result = [];
-		// Get the list of registered modules.
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		$modules = $moduleMngr->getModules();
 		foreach ($modules as $modulev) {
 			// Check if the module implements the required interface.
 			if ($modulev instanceof \OMV\Engine\Module\INotification) {
 				$config = $modulev->getNotificationConfig();
-				foreach ($config as $configk => $configv) {
-					// Get the notification configuration object.
-					$db = \OMV\Config\Database::getInstance();
-					$object = $db->getByFilter(
-					  "conf.system.notification.notification", [
-						  "operator" => "stringEquals",
-						  "arg0" => "id",
-						  "arg1" => $configv['id']
-					  ], 1);
-					// Add additional properties.
-					$object->add("title", "string");
-					$object->add("type", "string");
-					$object->setFlatAssoc([
-						"title" => $configv['title'],
-						"type" => $configv['type']
-					]);
-					// Append object to result list.
-					$result[] = $object->getAssoc();
-				}
+				$result = array_merge($result, $config);
 			}
 		}
 		return $result;
 	}
 
 	/**
-	 * Set the notification configuration.
+	 * Get the notification configuration objects.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return An array containing the notification configuration.
+	 */
+	function getList($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		$result = [];
+		$notificationConfig = $this->getNotificationConfig();
+		foreach ($notificationConfig as $configk => $configv) {
+			// Get the notification configuration object.
+			$db = \OMV\Config\Database::getInstance();
+			$object = $db->getByFilter(
+			  "conf.system.notification.notification", [
+				  "operator" => "stringEquals",
+				  "arg0" => "id",
+				  "arg1" => $configv['id']
+			  ], 1);
+			// Add additional properties.
+			$object->add("title", "string");
+			$object->add("type", "string");
+			$object->setFlatAssoc([
+				"title" => $configv['title'],
+				"type" => $configv['type']
+			]);
+			// Append object to result list.
+			$result[] = $object->getAssoc();
+		}
+		return $result;
+	}
+
+	/**
+	 * Set a bunch of notification configuration objects.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array of the stored configuration objects.
 	 */
-	function set($params, $context) {
+	function setList($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.notification.setList");
+		// Prepare the result array.
+		$objectsAssoc = [];
+		$notificationConfig = $this->getNotificationConfig();
+		foreach ($notificationConfig as $configk => $configv) {
+			// Set default values.
+			$object = new \OMV\Config\ConfigObject(
+			  "conf.system.notification.notification");
+			$object->set("id", $configv['id']);
+			$object->set("enable", FALSE);
+			// Process the RPC arguments.
+			foreach ($params as $paramk => $paramv) {
+				if ($paramv['id'] === $configv['id']) {
+					$object->setFlatAssoc([
+						"uuid" => $paramv['uuid'],
+						"enable" => $paramv['enable']
+					]);
+					break;
+				}
+			}
+			// Set the configuration object.
+			$db = \OMV\Config\Database::getInstance();
+			$db->set($object);
+			$objectsAssoc[] = $object->getAssoc();
+		}
+		// Return the configuration objects.
+		return $objectsAssoc;
+	}
+
+	/**
+	 * Get a notification configuration object.
+	 * @param params An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @param context The context of the caller.
+	 * @return The requested configuration object.
+	 */
+	public function get($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.common.objectuuid");
+		$notificationConfig = $this->getNotificationConfig();
+		// Get the configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.system.notification.notification",
+			$params['uuid']);
+		// Add additional properties.
+		$object->add("title", "string");
+		$object->add("type", "string");
+		foreach ($notificationConfig as $configk => $configv) {
+			if ($object->get('id') === $configv['id']) {
+				$object->setFlatAssoc([
+					"title" => $configv['title'],
+					"type" => $configv['type']
+				]);
+				break;
+			}
+		}
+		return $object->getAssoc();
+	}
+
+	/**
+	 * Set a notification configuration object.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The stored configuration object.
+	 */
+	public function set($params, $context) {
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.notification.set");
-		// Prepare the result array.
-		$objectsAssoc = [];
-		// Get the list of registered modules.
-		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
-		$modules = $moduleMngr->getModules();
-		foreach ($modules as $modulev) {
-			// Check if the module implements the required interface.
-			if ($modulev instanceof \OMV\Engine\Module\INotification) {
-				$config = $modulev->getNotificationConfig();
-				foreach ($config as $configk => $configv) {
-					// Set default values.
-					$object = new \OMV\Config\ConfigObject(
-					  "conf.system.notification.notification");
-					$object->set("id", $configv['id']);
-					$object->set("enable", FALSE);
-					// Process the RPC arguments.
-					foreach ($params as $paramk => $paramv) {
-						if ($paramv['id'] === $configv['id']) {
-							$object->setFlatAssoc([
-								"uuid" => $paramv['uuid'],
-								"enable" => $paramv['enable']
-							]);
-							break;
-						}
-					}
-					// Set the configuration object.
-					$db = \OMV\Config\Database::getInstance();
-					$db->set($object);
-					$objectsAssoc[] = $object->getAssoc();
-				}
-			}
-		}
-		// Return the configuration objects.
-		return $objectsAssoc;
+		// Prepare the configuration object.
+		$object = new \OMV\Config\ConfigObject("conf.system.notification.notification");
+		$object->setAssoc($params);
+		// Set the configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$db->set($object);
+		// Return the configuration object.
+		return $object->getAssoc();
 	}
 
 	/**

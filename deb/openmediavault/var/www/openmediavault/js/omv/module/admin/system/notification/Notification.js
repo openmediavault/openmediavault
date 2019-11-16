@@ -304,7 +304,7 @@ Ext.define("OMV.module.admin.system.notification.Notifications", {
 					appendSortParams: false,
 					rpcData: {
 						service: "Notification",
-						method: "get"
+						method: "getList"
 					}
 				},
 				sorters: [{
@@ -336,7 +336,7 @@ Ext.define("OMV.module.admin.system.notification.Notifications", {
 			  relayErrors: false,
 			  rpcData: {
 				  service: "Notification",
-				  method: "set",
+				  method: "setList",
 				  params: params
 			  }
 		  });

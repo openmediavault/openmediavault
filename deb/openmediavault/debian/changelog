@@ -1,5 +1,6 @@
-openmediavault (5.0.15-1) unstable; urgency=low
+openmediavault (5.1.0-1) unstable; urgency=low
 
+  * Modify Notification RPCs.
   * Issue #503: Respect OMV_SAMBA_FRUIT_MODEL in Avahi SMB/CIFS service
     configuration. Defaults to 'MacPro'.
 
