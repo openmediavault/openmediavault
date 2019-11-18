@@ -23,7 +23,7 @@
 # http://www.cyberciti.biz/tips/linux-iptables-how-to-specify-a-range-of-ip-addresses-or-ports.html
 # http://manpages.debian.org/cgi-bin/man.cgi?query=iptables&apropos=0&sektion=0&manpath=Debian+7.8+wheezy&format=html&locale=en
 
-{% set rules = salt['omv_conf.get']('conf.system.network.iptables.rule') %}
+{% set rules_config = salt['omv_conf.get']('conf.system.network.iptables.rule') %}
 {% set num_inet_rules = salt['omv_conf.get_by_filter'](
   'conf.system.network.iptables.rule',
   {'operator': 'stringEquals', 'arg0': 'family', 'arg1': 'inet'}) | length %}
@@ -38,7 +38,7 @@ configure_firewall_script:
       - salt://{{ slspath }}/files/etc_iptables_openmediavault-firewall.j2
     - template: jinja
     - context:
-        rules: {{ rules | json }}
+        rules: {{ rules_config | json }}
         num_inet_rules: {{ num_inet_rules }}
         num_inet6_rules: {{ num_inet6_rules }}
     - user: root

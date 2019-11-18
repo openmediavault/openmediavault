@@ -1,4 +1,4 @@
-{%- set dns = salt['omv_conf.get']('conf.system.network.dns') -%}
+{%- set dns_config = salt['omv_conf.get']('conf.system.network.dns') -%}
 [Match]
 Name={{ interface.devicename }}
 
@@ -45,8 +45,8 @@ DNS={{ dnsserver }}
 {%- if interface.dnssearch | length > 0 %}
 Domains={{ interface.dnssearch }}
 {%- else %}
-{%- if dns.domainname | length > 0 and dns.domainname != "local" %}
-Domains={{ dns.domainname }}
+{%- if dns_config.domainname | length > 0 and dns_config.domainname != "local" %}
+Domains={{ dns_config.domainname }}
 {%- endif %}
 {%- endif %}
 

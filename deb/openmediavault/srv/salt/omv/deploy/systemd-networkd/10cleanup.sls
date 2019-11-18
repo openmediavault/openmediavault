@@ -26,9 +26,9 @@
 
 # Get the network devices that are used after the configuration has
 # been applied.
-{% set interfaces = salt['omv_conf.get']('conf.system.network.interface') %}
-{% set used_devices_in_db = interfaces | map(attribute='devicename') | list %}
-{% for interface in interfaces %}
+{% set interfaces_config = salt['omv_conf.get']('conf.system.network.interface') %}
+{% set used_devices_in_db = interfaces_config | map(attribute='devicename') | list %}
+{% for interface in interfaces_config %}
 {% for slave in interface.slaves.split(',') %}
 {% if slave %}
 {% set _ = used_devices_in_db.append(slave) %}

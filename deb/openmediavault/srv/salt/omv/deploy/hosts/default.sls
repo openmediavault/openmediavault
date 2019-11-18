@@ -20,13 +20,13 @@
 # Documentation/Howto:
 # http://www.debian.org/doc/manuals/debian-reference/ch05.en.html#_the_hostname_resolution
 
-{% set interfaces = salt['omv_conf.get']('conf.system.network.interface') %}
-{% set dns = salt['omv_conf.get']('conf.system.network.dns') %}
-{% set fqdn = dns.hostname %}
+{% set interfaces_config = salt['omv_conf.get']('conf.system.network.interface') %}
+{% set dns_config = salt['omv_conf.get']('conf.system.network.dns') %}
+{% set fqdn = dns_config.hostname %}
 {% set alias = "" %}
-{% if dns.domainname %}
-{% set fqdn = [dns.hostname, dns.domainname] | join('.') %}
-{% set alias = dns.hostname %}
+{% if dns_config.domainname %}
+{% set fqdn = [dns_config.hostname, dns_config.domainname] | join('.') %}
+{% set alias = dns_config.hostname %}
 {% endif %}
 
 configure_hosts_default_ipv4:
@@ -57,7 +57,7 @@ configure_hosts_default_ipv6:
 
 {% endif %}
 
-{% for interface in interfaces %}
+{% for interface in interfaces_config %}
 
 {% if interface.address | is_ipv4 %}
 append_hosts_{{ interface.devicename }}_v4:
