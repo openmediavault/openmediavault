@@ -23,7 +23,7 @@ Depends: ${perl:Depends}, libjs-extjs6, php-fpm, libpam-modules, php-json,
  socat, rrdcached, locales, nginx, bash-completion, python3,
  python3-apt, wpasupplicant, systemd, systemd-sysv, btrfs-progs,
  samba-vfs-modules, pciutils, python3-pyudev, python3-natsort, jq, chrony,
- python3-netifaces, udev, python3-lxml, salt-minion,
+ python3-netifaces, udev, python3-lxml, salt-minion, libnss-myhostname,
  php-yaml, python-click, python3-click, ${misc:Depends}
 Description: openmediavault - The open network attached storage solution
  openmediavault is a small and simple to use network attached storage system
