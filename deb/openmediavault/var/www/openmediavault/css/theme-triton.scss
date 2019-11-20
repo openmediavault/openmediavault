@@ -46,6 +46,11 @@ body > .x-mask {
 .x-fieldset-header-default > .x-fieldset-header-text {
 	color: $omv-color-more-darker;
 }
+/* Fix Safari browser issue */
+/* https://github.com/openmediavault/openmediavault/issues/467 */
+.x-fieldset-header-default > .x-fieldset-header-text {
+	position: unset;
+}
 /******************************************************************************/
 /* Trigger field */
 .x-form-password-trigger:before {
