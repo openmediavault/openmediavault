@@ -1,3 +1,9 @@
+openmediavault (4.1.28-1) stable; urgency=low
+
+  * Issue #467: Form fieldsets not showing titles in Safari browser.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 Nov 2019 17:41:55 +0100
+
 openmediavault (4.1.27-1) stable; urgency=low
 
   * Do not show MTU and WOL fields in VLAN interface dialog.
