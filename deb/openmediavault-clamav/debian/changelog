@@ -1,5 +1,6 @@
 openmediavault-clamav (4.1.10-1) stable; urgency=low
 
+  * Do not execute scheduled jobs in UI when service is disabled.
   * Adapt configuration settings according to
     https://blog.clamav.net/2018/12/clamav-01010-has-been-released.html
 
