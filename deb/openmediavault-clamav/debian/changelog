@@ -1,6 +1,8 @@
 openmediavault-clamav (5.0.1-1) stable; urgency=low
 
   * Do not execute scheduled jobs in UI when service is disabled.
+  * Make sure that the signature databases exists before starting
+    clamav-daemon.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 Nov 2019 17:56:00 +0100
 

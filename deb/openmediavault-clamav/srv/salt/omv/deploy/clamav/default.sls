@@ -92,6 +92,23 @@ configure_clamav_freshclam_logrotate:
     - group: root
     - mode: 644
 
+# Ensure the signature databases exists, otherwise starting
+# clamav-daemon will fail. If they do not exist, then restart
+# clamav-freshclam to automatically download them. Wait for
+# 3 minutes before aborting.
+restart_clamav_freshclam_service_force_db_download:
+  module.run:
+    - service.restart:
+      - name: clamav-freshclam
+    - onlyif: "test ! -e /var/lib/clamav/main.cvd"
+
+wait_for_clamav_freshclam_db_download:
+  file.exists:
+    - name: "/var/lib/clamav/main.cvd"
+    - retry:
+      - attempts: 36
+      - interval: 5
+
 {% else %}
 
 stop_clamav_freshclam_service:
