@@ -253,6 +253,13 @@ class OMVRpcServiceClamAV extends \OMV\Rpc\ServiceAbstract {
 		// until now.
 		if ($this->isModuleDirty("clamav"))
 			throw new \OMV\Config\ConfigDirtyException();
+		// Make sure the service is enabled.
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.clamav");
+		if (FALSE === $object->get("enable")) {
+			throw new \OMV\Exception(
+				"Failed to run scheduled job because the service is disabled.");
+		}
 		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
 		  use ($params) {
