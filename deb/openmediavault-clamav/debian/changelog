@@ -1,4 +1,11 @@
-openmediavault-clamav (4.1.9) stable; urgency=low
+openmediavault-clamav (4.1.10-1) stable; urgency=low
+
+  * Adapt configuration settings according to
+    https://blog.clamav.net/2018/12/clamav-01010-has-been-released.html
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 Nov 2019 20:12:41 +0100
+
+openmediavault-clamav (4.1.9-1) stable; urgency=low
 
   * Remove deprecated option StatsEnabled, StatsPEDisabled, StatsHostID
     and StatsTimeout.

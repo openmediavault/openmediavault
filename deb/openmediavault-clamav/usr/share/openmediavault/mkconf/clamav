@@ -126,7 +126,9 @@ xmlstarlet sel -t -m "//services/clamav/clamd" \
   -o "FixStaleSocket true" -n \
   -o "LocalSocketGroup ${OMV_CLAMAV_CLAMD_LOCALSOCKETGROUP}" -n \
   -o "LocalSocketMode ${OMV_CLAMAV_CLAMD_LOCALSOCKETMODE}" -n \
-  -o "ArchiveBlockEncrypted ${OMV_CLAMAV_CLAMD_ARCHIVEBLOCKENCRYPTED}" -n \
+  -o "AlertEncrypted ${OMV_CLAMAV_CLAMD_ARCHIVEBLOCKENCRYPTED}" -n \
+  -o "AlertEncryptedArchive ${OMV_CLAMAV_CLAMD_ARCHIVEBLOCKENCRYPTED}" -n \
+  -o "AlertEncryptedDoc ${OMV_CLAMAV_CLAMD_ARCHIVEBLOCKENCRYPTED}" -n \
   -o "MaxDirectoryRecursion ${OMV_CLAMAV_CLAMD_MAXDIRECTORYRECURSION}" -n \
   -v "concat('FollowDirectorySymlinks ',followdirectorysymlinks)" -n \
   -v "concat('FollowFileSymlinks ',followfilesymlinks)" -n \
@@ -155,16 +157,16 @@ xmlstarlet sel -t -m "//services/clamav/clamd" \
   -v "concat('ScanELF ',scanelf)" -n \
   -v "concat('ScanArchive ',scanarchive)" -n \
   -o "ScanMail ${OMV_CLAMAV_CLAMD_SCANMAIL}" -n \
-  -v "concat('DetectBrokenExecutables ',detectbrokenexecutables)" -n \
+  -v "concat('AlertBrokenExecutables ',detectbrokenexecutables)" -n \
   -o "ExitOnOOM ${OMV_CLAMAV_CLAMD_EXITONOOM}" -n \
   -o "LeaveTemporaryFiles ${OMV_CLAMAV_CLAMD_LEAVETEMPORARYFILES}" -n \
-  -v "concat('AlgorithmicDetection ',algorithmicdetection)" -n \
+  -v "concat('AlgorithmicDetection ',HeuristicAlerts)" -n \
   -o "IdleTimeout ${OMV_CLAMAV_CLAMD_IDLETIMEOUT}" -n \
   -o "PhishingSignatures ${OMV_CLAMAV_CLAMD_PHISHINGSIGNATURES}" -n \
   -o "PhishingScanURLs ${OMV_CLAMAV_CLAMD_PHISHINGSCANURLS}" -n \
-  -o "PhishingAlwaysBlockSSLMismatch ${OMV_CLAMAV_CLAMD_PHISHINGALWAYSBLOCKSSLMISMATCH}" -n \
-  -o "PhishingAlwaysBlockCloak ${OMV_CLAMAV_CLAMD_PHISHINGALWAYSBLOCKCLOAK}" -n \
-  -o "PartitionIntersection ${OMV_CLAMAV_CLAMD_PARTITIONINTERSECTION}" -n \
+  -o "AlertPhishingSSLMismatch ${OMV_CLAMAV_CLAMD_PHISHINGALWAYSBLOCKSSLMISMATCH}" -n \
+  -o "AlertPhishingCloak ${OMV_CLAMAV_CLAMD_PHISHINGALWAYSBLOCKCLOAK}" -n \
+  -o "AlertPartitionIntersection ${OMV_CLAMAV_CLAMD_PARTITIONINTERSECTION}" -n \
   -v "concat('DetectPUA ',detectpua)" -n \
   -o "ScanPartialMessages ${OMV_CLAMAV_CLAMD_SCANPARTIALMESSAGES}" -n \
   -o "HeuristicScanPrecedence ${OMV_CLAMAV_CLAMD_HEURISTICSCANPRECEDENCE}" -n \
@@ -173,7 +175,7 @@ xmlstarlet sel -t -m "//services/clamav/clamd" \
   -o "SendBufTimeout ${OMV_CLAMAV_CLAMD_SENDBUFTIMEOUT}" -n \
   -o "MaxQueue ${OMV_CLAMAV_CLAMD_MAXQUEUE}" -n \
   -o "ExtendedDetectionInfo ${OMV_CLAMAV_CLAMD_EXTENDEDDETECTIONINFO}" -n \
-  -o "OLE2BlockMacros ${OMV_CLAMAV_CLAMD_OLE2BLOCKMACROS}" -n \
+  -o "AlertOLE2Macros ${OMV_CLAMAV_CLAMD_OLE2BLOCKMACROS}" -n \
   -o "AllowAllMatchScan ${OMV_CLAMAV_CLAMD_ALLOWALLMATCHSCAN}" -n \
   -o "ForceToDisk ${OMV_CLAMAV_CLAMD_FORCETODISK}" -n \
   -o "DisableCertCheck ${OMV_CLAMAV_CLAMD_DISABLECERTCHECK}" -n \
