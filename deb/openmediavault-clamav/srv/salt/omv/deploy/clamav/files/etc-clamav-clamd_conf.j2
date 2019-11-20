@@ -74,7 +74,9 @@ LocalSocket {{ localsocket }}
 FixStaleSocket true
 LocalSocketGroup {{ localsocketgroup }}
 LocalSocketMode {{ localsocketmode }}
-ArchiveBlockEncrypted {{ archiveblockencrypted }}
+AlertEncrypted {{ archiveblockencrypted }}
+AlertEncryptedArchive {{ archiveblockencrypted }}
+AlertEncryptedDoc {{ archiveblockencrypted }}
 MaxDirectoryRecursion {{ maxdirectoryrecursion }}
 FollowDirectorySymlinks {{ config.clamd.followdirectorysymlinks }}
 FollowFileSymlinks {{ config.clamd.followfilesymlinks }}
@@ -103,16 +105,16 @@ ScanSWF {{ scanswf }}
 ScanELF {{ config.clamd.scanelf }}
 ScanArchive {{ config.clamd.scanarchive }}
 ScanMail {{ scanmail }}
-DetectBrokenExecutables {{ config.clamd.detectbrokenexecutables }}
+AlertBrokenExecutables {{ config.clamd.detectbrokenexecutables }}
 ExitOnOOM {{ exitonoom }}
 LeaveTemporaryFiles {{ leavetemporaryfiles }}
-AlgorithmicDetection {{ config.clamd.algorithmicdetection }}
+HeuristicAlerts {{ config.clamd.algorithmicdetection }}
 IdleTimeout {{ idletimeout }}
 PhishingSignatures {{ phishingsignatures }}
 PhishingScanURLs {{ phishingscanurls }}
-PhishingAlwaysBlockSSLMismatch {{ phishingalwaysblocksslmismatch }}
-PhishingAlwaysBlockCloak {{ phishingalwaysblockcloak }}
-PartitionIntersection {{ partitionintersection }}
+AlertPhishingSSLMismatch {{ phishingalwaysblocksslmismatch }}
+AlertPhishingCloak {{ phishingalwaysblockcloak }}
+AlertPartitionIntersection {{ partitionintersection }}
 DetectPUA {{ config.clamd.detectpua }}
 ScanPartialMessages {{ scanpartialmessages }}
 HeuristicScanPrecedence {{ heuristicscanprecedence }}
@@ -121,7 +123,7 @@ CommandReadTimeout {{ commandreadtimeout }}
 SendBufTimeout {{ sendbuftimeout }}
 MaxQueue {{ maxqueue }}
 ExtendedDetectionInfo {{ extendeddetectioninfo }}
-OLE2BlockMacros {{ ole2blockmacros }}
+AlertOLE2Macros {{ ole2blockmacros }}
 AllowAllMatchScan {{ allowallmatchscan }}
 ForceToDisk {{ forcetodisk }}
 DisableCertCheck {{ disablecertcheck }}
