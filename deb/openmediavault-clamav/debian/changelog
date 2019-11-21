@@ -1,3 +1,9 @@
+openmediavault-clamav (4.1.11-1) stable; urgency=low
+
+  * Fix bug in /etc/clamav/clamd.conf.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 21 Nov 2019 09:55:41 +0100
+
 openmediavault-clamav (4.1.10-1) stable; urgency=low
 
   * Do not execute scheduled jobs in UI when service is disabled.

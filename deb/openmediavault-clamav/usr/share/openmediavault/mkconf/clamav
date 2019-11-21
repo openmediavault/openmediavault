@@ -160,7 +160,7 @@ xmlstarlet sel -t -m "//services/clamav/clamd" \
   -v "concat('AlertBrokenExecutables ',detectbrokenexecutables)" -n \
   -o "ExitOnOOM ${OMV_CLAMAV_CLAMD_EXITONOOM}" -n \
   -o "LeaveTemporaryFiles ${OMV_CLAMAV_CLAMD_LEAVETEMPORARYFILES}" -n \
-  -v "concat('AlgorithmicDetection ',HeuristicAlerts)" -n \
+  -v "concat('HeuristicAlerts ',algorithmicdetection)" -n \
   -o "IdleTimeout ${OMV_CLAMAV_CLAMD_IDLETIMEOUT}" -n \
   -o "PhishingSignatures ${OMV_CLAMAV_CLAMD_PHISHINGSIGNATURES}" -n \
   -o "PhishingScanURLs ${OMV_CLAMAV_CLAMD_PHISHINGSCANURLS}" -n \
