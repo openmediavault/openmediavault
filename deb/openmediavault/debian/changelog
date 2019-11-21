@@ -1,5 +1,6 @@
 openmediavault (5.1.0-1) unstable; urgency=low
 
+  * Update locales.
   * Modify Notification RPCs.
   * Issue #467: Form fieldsets not showing titles in Safari browser.
   * Issue #503: Respect OMV_SAMBA_FRUIT_MODEL in Avahi SMB/CIFS service
