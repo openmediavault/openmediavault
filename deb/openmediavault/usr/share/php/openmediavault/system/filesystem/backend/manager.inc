@@ -214,8 +214,8 @@ class Manager implements \IteratorAggregate {
 		// Exit code 2 means no block devices were found
 		if($exit_code == 2)
 			$output = "";
-		else
-			throw new \OMV\ExecException("blkdid", $output, $exitStatus);
+		elseif($edit_code != 0)
+			throw new \OMV\ExecException("blkid", $output, $exitStatus);
 
 		foreach ($output as $outputk => $outputv) {
 			// Parse command output:
