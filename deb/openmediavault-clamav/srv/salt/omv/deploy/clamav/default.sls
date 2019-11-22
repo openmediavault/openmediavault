@@ -67,12 +67,29 @@ configure_clamav_freshclam:
     - group: root
     - mode: 644
 
+# Ensure the signature databases exists, otherwise starting
+# clamav-daemon will fail. If they do not exist, then stop
+# clamav-freshclam to automatically download them when it is
+# started again. Wait for 5 minutes (consider slow internet
+# connections) before aborting.
+stop_clamav_freshclam_service_to_force_db_download:
+  service.dead:
+    - name: clamav-freshclam
+    - onlyif: "test ! -e /var/lib/clamav/main.cvd"
+
 start_clamav_freshclam_service:
   service.running:
     - name: clamav-freshclam
     - enable: True
     - watch:
       - file: configure_clamav_freshclam
+
+wait_for_clamav_freshclam_db_download:
+  file.exists:
+    - name: "/var/lib/clamav/main.cvd"
+    - retry:
+      - attempts: 60
+      - interval: 5
 
 configure_clamav_freshclam_logrotate:
   file.managed:
@@ -91,23 +108,6 @@ configure_clamav_freshclam_logrotate:
     - user: {{ clamav_freshclam_user }}
     - group: root
     - mode: 644
-
-# Ensure the signature databases exists, otherwise starting
-# clamav-daemon will fail. If they do not exist, then restart
-# clamav-freshclam to automatically download them. Wait for
-# 3 minutes before aborting.
-restart_clamav_freshclam_service_force_db_download:
-  module.run:
-    - service.restart:
-      - name: clamav-freshclam
-    - onlyif: "test ! -e /var/lib/clamav/main.cvd"
-
-wait_for_clamav_freshclam_db_download:
-  file.exists:
-    - name: "/var/lib/clamav/main.cvd"
-    - retry:
-      - attempts: 36
-      - interval: 5
 
 {% else %}
 
