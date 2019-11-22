@@ -207,8 +207,16 @@ class Manager implements \IteratorAggregate {
 		// each backend must implement the \ref enumerate method and call the
 		// command 'blkid -t TYPE=<xxx> -o full'.
 		$cmd = new \OMV\System\Process("blkid", "-o full");
+		$cmd->setQuiet();
 		$cmd->setRedirect2to1();
-		$cmd->execute($output);
+		$cmd->execute($output, $exit_code);
+
+		// Exit code 2 means no block devices were found
+		if($exit_code == 2)
+			$output = "";
+		else
+			throw new \OMV\ExecException("blkdid", $output, $exitStatus);
+
 		foreach ($output as $outputk => $outputv) {
 			// Parse command output:
 			// /dev/sdb: UUID="e6a0f61e-d969-ffcb-d4c5-06e7711285a3" LABEL="dhcppc4:0" TYPE="linux_raid_member"
