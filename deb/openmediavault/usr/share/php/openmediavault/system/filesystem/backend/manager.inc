@@ -199,6 +199,7 @@ class Manager implements \IteratorAggregate {
 	final public function enumerate() {
 		$result = [];
 		$blkidEnumsByType = [];
+		$output = [];
 		// Get all file systems that are identified by the block device
 		// identification library.
 		// !!! Note !!!
@@ -208,7 +209,12 @@ class Manager implements \IteratorAggregate {
 		// command 'blkid -t TYPE=<xxx> -o full'.
 		$cmd = new \OMV\System\Process("blkid", "-o full");
 		$cmd->setRedirect2to1();
-		$cmd->execute($output);
+		$cmd->setQuiet(TRUE);
+		$cmd->execute($output, $exitStatus);
+		if (!in_array($exitStatus, [0, 2])) {
+			throw new \OMV\ExecException($cmd->getCommandLine(), $output,
+				$exitStatus);
+		}
 		foreach ($output as $outputk => $outputv) {
 			// Parse command output:
 			// /dev/sdb: UUID="e6a0f61e-d969-ffcb-d4c5-06e7711285a3" LABEL="dhcppc4:0" TYPE="linux_raid_member"
