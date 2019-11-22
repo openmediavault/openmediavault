@@ -199,6 +199,7 @@ class Manager implements \IteratorAggregate {
 	final public function enumerate() {
 		$result = [];
 		$blkidEnumsByType = [];
+		$output = [];
 		// Get all file systems that are identified by the block device
 		// identification library.
 		// !!! Note !!!
