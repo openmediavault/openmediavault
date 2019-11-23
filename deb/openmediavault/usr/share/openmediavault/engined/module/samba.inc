@@ -216,5 +216,9 @@ class Samba extends \OMV\Engine\Module\ServiceAbstract implements
 			OMV_NOTIFY_MODIFY,
 			"org.openmediavault.conf.service.smb",
 			[$moduleMngr->getModule("zeroconf"), "setDirty"]);
+		$dispatcher->addListener(
+			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+			"org.openmediavault.conf.service.smb.share",
+			[$moduleMngr->getModule("zeroconf"), "setDirty"]);
 	}
 }

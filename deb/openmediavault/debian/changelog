@@ -1,6 +1,8 @@
 openmediavault (5.1.1-1) unstable; urgency=low
 
   * Issue #514: List filesystems inside a LXC Containers.
+  * Issue #516: Reconfigure Avahi/Zeroconf when a SMB share is created,
+    modified or deleted.
   * Issue #517: Added OMV_WSDD_OPTIONS to customize the wsdd command
     line arguments.
 
