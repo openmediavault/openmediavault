@@ -1,6 +1,8 @@
 openmediavault (5.1.1-1) unstable; urgency=low
 
   * Issue #514: List filesystems inside a LXC Containers.
+  * Issue #517: Added OMV_WSDD_OPTIONS to customize the wsdd command
+    line arguments.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 22 Nov 2019 15:06:18 +0100
 
