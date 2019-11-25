@@ -1,5 +1,7 @@
 openmediavault (5.1.1-1) unstable; urgency=low
 
+  * Change OMV_SAMBA_FRUIT_MODEL default value to 'MacSamba'. Change
+    'sys=waMa=0,adVF=0x100' to 'sys=adVF=0x100' like Samba is doing it.
   * Issue #514: List filesystems inside a LXC Containers.
   * Issue #516: Reconfigure Avahi/Zeroconf when a SMB share is created,
     modified or deleted.
