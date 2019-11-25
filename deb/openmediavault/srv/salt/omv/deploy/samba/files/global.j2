@@ -24,7 +24,6 @@
 {%- set aio_read_size = salt['pillar.get']('default:OMV_SAMBA_AIOREADSIZE', '16384') -%}
 {%- set aio_write_size = salt['pillar.get']('default:OMV_SAMBA_AIOWRITESIZE', '16384') -%}
 {%- set fruit_aapl = salt['pillar.get']('default:OMV_SAMBA_FRUIT_AAPL', 'yes') -%}
-{%- set fruit_model = salt['pillar.get']('default:OMV_SAMBA_FRUIT_MODEL', 'MacPro') -%}
 {{ pillar['headers']['multiline'] -}}
 #======================= Global Settings =======================
 [global]
@@ -69,7 +68,6 @@ wins server = {{ config.winsserver }}
 multicast dns register = no
 # Special configuration for Apple's Time Machine
 fruit:aapl = {{ fruit_aapl }}
-fruit:model = {{ fruit_model }}
 {%- if config.extraoptions | length > 0 %}
 # Extra options
 {{ config.extraoptions }}
