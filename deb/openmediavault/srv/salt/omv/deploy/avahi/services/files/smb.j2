@@ -10,7 +10,7 @@
 {%- if shares | selectattr('timemachine') | list | length > 0 %}
     <service>
         <type>_adisk._tcp</type>
-        <txt-record>sys=waMa=0,adVF=0x100</txt-record>
+        <txt-record>sys=adVF=0x100</txt-record>
 {%- for share in shares | selectattr('timemachine') %}
         <txt-record>dk{{ loop.index0 }}=adVN={{ salt['omv_conf.get_sharedfolder_name'](share.sharedfolderref) }},adVF=0x82</txt-record>
 {%- endfor %}

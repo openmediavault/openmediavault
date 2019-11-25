@@ -17,6 +17,9 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# Documentation/Howto:
+# https://www.ohnekontur.de/2010/03/23/netatalk-2-0-5-time-machine-support/
+
 {% set smb_config = salt['omv_conf.get']('conf.service.smb') %}
 {% set smb_zeroconf_enabled = salt['pillar.get']('default:OMV_SAMBA_ZEROCONF_ENABLED', 1) %}
 {% set smb_zeroconf_name = salt['pillar.get']('default:OMV_SAMBA_ZEROCONF_NAME', '%h - SMB/CIFS') %}
