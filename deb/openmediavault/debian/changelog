@@ -1,3 +1,9 @@
+openmediavault (5.1.2-1) unstable; urgency=low
+
+  * Use an Unix socket for Monit HTTP interface.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 27 Nov 2019 08:37:44 +0100
+
 openmediavault (5.1.1-1) unstable; urgency=low
 
   * Change OMV_SAMBA_FRUIT_MODEL default value to 'MacSamba'. Change
