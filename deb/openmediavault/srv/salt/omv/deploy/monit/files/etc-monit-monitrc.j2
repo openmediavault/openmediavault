@@ -15,8 +15,7 @@ set logfile {{ logfile }}
 set idfile {{ idfile }}
 set statefile {{ statefile }}
 
-set httpd
-    unixsocket {{ unixsocket }}
+set httpd unixsocket {{ unixsocket }}
     allow localhost
 
 set eventqueue
