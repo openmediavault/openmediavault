@@ -50,7 +50,7 @@ OMV_MONIT_CHECK_INTERVAL=${OMV_MONIT_CHECK_INTERVAL:-"30"}
 OMV_MONIT_LOGFILE=${OMV_MONIT_LOGFILE:-"syslog facility log_daemon"}
 OMV_MONIT_IDFILE=${OMV_MONIT_IDFILE:-"/var/lib/monit/id"}
 OMV_MONIT_STATEFILE=${OMV_MONIT_STATEFILE:-"/var/lib/monit/state"}
-OMV_MONIT_PORT=${OMV_MONIT_PORT:-"2812"}
+OMV_MONIT_UNIXSOCKET=${OMV_MONIT_UNIXSOCKET:-"/var/run/monit.sock"}
 OMV_MONIT_EVENTQUEUE_BASEDIR=${OMV_MONIT_EVENTQUEUE_BASEDIR:-"/var/lib/monit/events"}
 OMV_MONIT_EVENTQUEUE_SLOTS=${OMV_MONIT_EVENTQUEUE_SLOTS:-"100"}
 OMV_MONIT_EMAIL_ALERT_NOTEVENTS=${OMV_MONIT_EMAIL_ALERT_NOTEVENTS:-"action, instance"}
@@ -73,10 +73,8 @@ set daemon ${OMV_MONIT_CHECK_INTERVAL} with start delay ${OMV_MONIT_DELAY_SECOND
 set logfile ${OMV_MONIT_LOGFILE}
 set idfile ${OMV_MONIT_IDFILE}
 set statefile ${OMV_MONIT_STATEFILE}
-set httpd port ${OMV_MONIT_PORT} and
-  use address localhost  # only accept connection from localhost
-  allow localhost        # allow localhost to connect to the server and
-# allow admin:monit      # require user 'admin' with password 'monit'
+set httpd unixsocket ${OMV_MONIT_UNIXSOCKET}
+  allow localhost
 set eventqueue
   basedir ${OMV_MONIT_EVENTQUEUE_BASEDIR}
   slots ${OMV_MONIT_EVENTQUEUE_SLOTS}

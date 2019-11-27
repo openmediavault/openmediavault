@@ -557,6 +557,10 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "4.1.26"; then
 			omv-mkconf systemd
 		fi
+		if dpkg --compare-versions "$2" lt-nl "4.1.28"; then
+			omv-mkconf monit
+			deb-systemd-invoke restart monit.service || :
+		fi
 
 		########################################################################
 		# Show help text.

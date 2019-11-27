@@ -1,5 +1,6 @@
 openmediavault (4.1.28-1) stable; urgency=low
 
+  * Use an Unix socket for Monit HTTP interface.
   * Issue #467: Form fieldsets not showing titles in Safari browser.
   * Issue #519: Setting MTU on VLAN interface.
 
