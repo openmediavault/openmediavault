@@ -321,9 +321,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Enumerate all detected filesystems.
 		$objects = $this->callMethod("enumerateFilesystems", NULL, $context);
 		foreach ($objects as $objectk => &$objectv) {
-			// Mark each filesystem as as initialized and 'Online'
-			// by default.
-			$objectv['status'] = 1;
+			// Mark each filesystem as 'Online' by default.
+			$objectv['status'] = 1; // Online
 		}
 		// Try to detect filesystems that are being initialized.
 		foreach (new \DirectoryIterator("/tmp") as $file) {
@@ -392,7 +391,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				"propcompress" => $fsb->hasCompressSupport(),
 				"propautodefrag" => $fsb->hasAutoDefragSupport(),
 				"hasmultipledevices" => false,
-				"status" => 2,
+				"status" => 2, // Initializing
 				"_used" => FALSE
 			];
 		}
@@ -430,7 +429,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			$fs = $fsb->getImpl($mntentv->get("fsname"));
 			if (!is_null($fs) && $fs->exists())
 				continue;
-			// Append as much informations as possible.
+			// Append as much information as possible.
 			$objects[] = [
 				"devicefile" => is_devicefile($mntentv->get("fsname")) ?
 					$mntentv->get("fsname") : "",
@@ -456,7 +455,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				"propcompress" => $fsb->hasCompressSupport(),
 				"propautodefrag" => $fsb->hasAutoDefragSupport(),
 				"hasMultipleDevices" => FALSE,
-				"status" => 3,
+				"status" => 3, // Missing
 				"_used" => $db->isReferenced($mntentv)
 			];
 		}

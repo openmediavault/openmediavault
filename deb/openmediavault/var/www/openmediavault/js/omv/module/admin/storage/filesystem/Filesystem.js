@@ -478,8 +478,8 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 		sortable: true,
 		dataIndex: "status",
 		stateId: "status",
-		renderer: function(value) {
-			switch(value) {
+		renderer: function(value, metaData) {
+			switch (value) {
 			case 1:
 				value = _("Online");
 				break;
@@ -488,6 +488,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 				  _("Initializing");
 				break;
 			default:
+				metaData.tdCls += " x-color-error";
 				value = _("Missing");
 				break;
 			}
