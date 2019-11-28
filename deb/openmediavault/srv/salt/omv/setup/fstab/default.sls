@@ -25,7 +25,7 @@
 # http://superuser.com/questions/228657/which-linux-filesystem-works-best-with-ssd
 
 {% set nonrot_options = salt['pillar.get']('default:OMV_FSTAB_MNTOPS_NONROTATIONAL',
-                                           'noatime,nodiratime,discard').split(',') %}
+                                           'noatime,nodiratime').split(',') %}
 
 # Reload udev rules to apply rules shipped with openmediavault, e.g.
 # to detect non-rotational devices.

@@ -35,6 +35,7 @@ abstract class BackendAbstract {
 	const PROP_READ_ONLY = 0x20;
 	const PROP_COMPRESS = 0x40;
 	const PROP_AUTO_DEFRAG = 0x80;
+	const PROP_MNTENT_DISCARD = 0x100;
 
 	protected $type = "";
 	protected $properties = self::PROP_NONE;
@@ -162,6 +163,18 @@ abstract class BackendAbstract {
 	}
 
 	/**
+	 * Check whether the filesystem should be mounted with the 'discard'
+	 * mount option.
+	 * @return TRUE if the filesystem should be mounted with 'discard'
+	 *   option, otherwise FALSE.
+	 */
+	public function hasFstabDiscardSupport() {
+		if (!$this->hasDiscardSupport())
+			return FALSE;
+		return $this->hasProperty(self::PROP_MNTENT_DISCARD);
+	}
+
+	/**
 	 * Does the filesystem support POSIX ACL.
 	 * @see http://de.wikipedia.org/wiki/Access_Control_List
 	 * @see http://www.suse.de/~agruen/acl/linux-acls/online
@@ -256,8 +269,9 @@ abstract class BackendAbstract {
 			if (FALSE === $sd->isRotational()) {
 				// File systems that support TRIM.
 				// See https://wiki.archlinux.org/index.php/Solid_State_Drives#TRIM
-				if ($this->hasDiscardSupport())
+				if ($this->hasFstabDiscardSupport()) {
 					array_push($options, "discard");
+				}
 				//array_push($options, "noatime");
 				//array_push($options, "nodiratime");
 			}
@@ -266,8 +280,9 @@ abstract class BackendAbstract {
 			// unplugged.
 			// !!! Note, if the device is unplugged then it will cause other
 			// !!! problems like writing data into the root filesystem.
-			if (TRUE === $sd->isRemovable())
+			if (TRUE === $sd->isRemovable()) {
 				array_push($options, "nofail");
+			}
 		}
 		// Remove duplicate entries.
 		return array_unique($options);
