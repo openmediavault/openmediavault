@@ -75,7 +75,7 @@ configure_clamav_freshclam:
 stop_clamav_freshclam_service_to_force_db_download:
   service.dead:
     - name: clamav-freshclam
-    - onlyif: "test ! -e /var/lib/clamav/main.cvd"
+    - onlyif: "test ! -e /var/lib/clamav/main.c*d"
 
 start_clamav_freshclam_service:
   service.running:
