@@ -18,12 +18,13 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 {% set shairport_sync_config = salt['omv_conf.get']('conf.service.shairport') %}
+
+{% if shairport_sync_config.enable | to_bool %}
+
 {% set email_config = salt['omv_conf.get']('conf.system.notification.email') %}
 {% set notification_config = salt['omv_conf.get_by_filter'](
   'conf.system.notification.notification',
   {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'monitprocevents'})[0] %}
-
-{% if shairport_sync_config.enable | to_bool %}
 
 configure_monit_shairport_sync_service:
   file.managed:

@@ -17,14 +17,15 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set mountpoints = salt['omv_conf.get_by_filter'](
-  'conf.system.filesystem.mountpoint',
-  {'operator': 'and', 'arg0': {'operator': 'equals', 'arg0': 'hidden', 'arg1': '0'}, 'arg1': {'operator': 'not', 'arg0': {'operator': 'or', 'arg0': {'operator': 'stringContains', 'arg0': 'opts', 'arg1': 'bind'}, 'arg1': {'operator': 'stringContains', 'arg0': 'opts', 'arg1': 'loop'}}}}) %}
 {% set notification_config = salt['omv_conf.get_by_filter'](
   'conf.system.notification.notification',
   {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'monitfilesystems'})[0] %}
 
 {% if notification_config.enable | to_bool %}
+
+{% set mountpoints = salt['omv_conf.get_by_filter'](
+  'conf.system.filesystem.mountpoint',
+  {'operator': 'and', 'arg0': {'operator': 'equals', 'arg0': 'hidden', 'arg1': '0'}, 'arg1': {'operator': 'not', 'arg0': {'operator': 'or', 'arg0': {'operator': 'stringContains', 'arg0': 'opts', 'arg1': 'bind'}, 'arg1': {'operator': 'stringContains', 'arg0': 'opts', 'arg1': 'loop'}}}}) %}
 
 configure_monit_filesystem_service:
   file.managed:
