@@ -32,7 +32,8 @@ remove_ssh_certificates:
 create_ssh_{{ certificate.uuid }}_priv:
   file.managed:
     - name: "/etc/ssh/{{ ssh_key_prefix }}{{ certificate.uuid }}"
-    - contents: "{{ certificate.privatekey }}"
+    - contents: |
+        {{ certificate.privatekey | indent(8) }}
     - user: root
     - group: root
     - mode: 600
@@ -40,7 +41,8 @@ create_ssh_{{ certificate.uuid }}_priv:
 create_ssh_{{ certificate.uuid }}_pub:
   file.managed:
     - name: "/etc/ssh/{{ ssh_key_prefix }}{{ certificate.uuid }}.pub"
-    - contents: "{{ certificate.publickey }}"
+    - contents: |
+        {{ certificate.publickey | indent(8) }}
     - user: root
     - group: root
     - mode: 644
