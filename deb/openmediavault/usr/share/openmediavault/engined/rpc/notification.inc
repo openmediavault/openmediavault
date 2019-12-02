@@ -302,7 +302,7 @@ class OMVRpcServiceEmailNotification extends \OMV\Rpc\ServiceAbstract {
 		// Check whether the module is marked dirty. In this case the
 		// current configuration is not applied and sending an email might
 		// fail.
-		if ($this->isModuleDirty("email"))
+		if ($this->isModuleDirty("postfix"))
 			throw new \OMV\Config\ConfigDirtyException();
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
