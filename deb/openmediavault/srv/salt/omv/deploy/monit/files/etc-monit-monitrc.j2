@@ -25,7 +25,24 @@ set eventqueue
 {%- if email_config.enable | to_bool  %}
 set mailserver 127.0.0.1
     with timeout {{ email_timeout }} seconds
-set mail-format { from: {{ email_config.sender }} }
+set mail-format {
+    from: {{ email_config.sender }}
+    subject: Monitoring $ACTION -- $EVENT $SERVICE
+    message:
+The system monitoring needs your attention.
+
+Host:        $HOST
+Date:        $DATE
+Service:     $SERVICE
+Event:       $EVENT
+Description: $DESCRIPTION
+
+This triggered the monitoring system to: $ACTION
+
+—
+You have received this notification because you have enabled the system monitoring on this host.
+To change your notification preferences, please go to the 'System | Notification' or 'System | Monitoring' page in the web interface.
+}
 set alert {{ email_config.primaryemail }} but not on { {{ email_alert_noevents }} }
 {% endif %}
 
