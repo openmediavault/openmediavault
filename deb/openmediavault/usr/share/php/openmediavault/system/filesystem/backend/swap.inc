@@ -21,16 +21,12 @@
  */
 namespace OMV\System\Filesystem\Backend;
 
-///////////////////////////////////////////////////////////////////////////////
-// Register default filesystem backends.
-///////////////////////////////////////////////////////////////////////////////
-$backends = [ "Btrfs", "Ext", "Ext2", "Ext3", "Ext4", "Hfsplus",
-  "Iso9660", "Jfs", "Msdos", "None", "Ntfs", "Reiserfs", "Udf", "Ufs",
-  "Umsdos", "Exfat", "Vfat", "Xfs", "Fuseblk", "Swap" ];
-$mngr = Manager::getInstance();
-foreach ($backends as $backendk => $backendv) {
-	$className = sprintf("%s\%s", __NAMESPACE__, $backendv);
-	$mngr->registerBackend(new $className());
+/**
+ * Swap is not a real filesystem, but it's the easiest way to
+ * integrate it.
+ */
+class Swap extends BackendAbstract {
+	public function __construct() {
+		$this->type = "swap";
+	}
 }
-if (TRUE === $debug)
-	$mngr->dump();
