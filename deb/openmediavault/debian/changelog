@@ -3,6 +3,7 @@ openmediavault (5.1.2-1) unstable; urgency=low
   * Use periodic filesystem trim instead of online.
   * Issue #522: SSH private key has incorrect format (missing line
     breaks).
+  * Issue #523: Modify the content of monit emails.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 27 Nov 2019 08:37:44 +0100
 
