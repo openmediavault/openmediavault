@@ -18,12 +18,13 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 {% set forked_daapd_config = salt['omv_conf.get']('conf.service.daapd') %}
+
+{% if forked_daapd_config.enable | to_bool %}
+
 {% set email_config = salt['omv_conf.get']('conf.system.notification.email') %}
 {% set notification_config = salt['omv_conf.get_by_filter'](
   'conf.system.notification.notification',
   {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'monitprocevents'})[0] %}
-
-{% if forked_daapd_config.enable | to_bool %}
 
 configure_monit_forked_daapd_service:
   file.managed:
