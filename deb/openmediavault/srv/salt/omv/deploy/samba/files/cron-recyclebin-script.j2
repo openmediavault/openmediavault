@@ -20,7 +20,7 @@ done
 # Exit if 'recyclemaxage' is zero.
 [ "${amin}" -eq "0" ] && exit 0
 # Exit if another job is running.
-if ! mkdir "${lockfile}" &>/dev/null; then
+if ! mkdir "${lockfile}" >/dev/null 2>&1; then
 	exit 0
 fi
 # Initialize the trap to cleanup on exit.
