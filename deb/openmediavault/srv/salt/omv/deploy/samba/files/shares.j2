@@ -3,6 +3,7 @@
 {%- set recycle_keeptree = salt['pillar.get']('default:OMV_SAMBA_SHARE_RECYCLE_KEEPTREE', 'yes') -%}
 {%- set recycle_versions = salt['pillar.get']('default:OMV_SAMBA_SHARE_RECYCLE_VERSIONS', 'yes') -%}
 {%- set recycle_touch = salt['pillar.get']('default:OMV_SAMBA_SHARE_RECYCLE_TOUCH', 'yes') -%}
+{%- set recycle_touch_mtime = salt['pillar.get']('default:OMV_SAMBA_SHARE_RECYCLE_TOUCH_MTIME', 'no') -%}
 {%- set recycle_directory_mode = salt['pillar.get']('default:OMV_SAMBA_SHARE_RECYCLE_DIRECTORYMODE', '0777') -%}
 {%- set recycle_subdir_mode = salt['pillar.get']('default:OMV_SAMBA_SHARE_RECYCLE_SUBDIRMODE', '0700') -%}
 {%- set recycle_exclude = salt['pillar.get']('default:OMV_SAMBA_SHARE_RECYCLE_EXCLUDE', '') -%}
@@ -45,6 +46,7 @@ recycle:repository = {{ recycle_repository }}
 recycle:keeptree = {{ recycle_keeptree }}
 recycle:versions = {{ recycle_versions }}
 recycle:touch = {{ recycle_touch }}
+recycle:touch_mtime = {{ recycle_touch_mtime }}
 recycle:directory_mode = {{ recycle_directory_mode }}
 recycle:subdir_mode = {{ recycle_subdir_mode }}
 recycle:exclude = {{ recycle_exclude }}
