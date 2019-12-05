@@ -1,0 +1,11 @@
+# - Use the sysV init script here instead of the systemd unit file.
+# - Use 'restart' to start the daemon, thus the sysV init script takes
+#   care about the PID file which seems not to be cleaned up correctly.
+check process proftpd with pidfile /var/run/proftpd.pid
+    start program = "/etc/init.d/proftpd restart"
+    stop program  = "/etc/init.d/proftpd stop"
+    mode active
+    if failed port {{ proftpd_config.port }} protocol ftp for 3 cycles then restart
+{%- if email_config.enable | to_bool and not notification_config.enable | to_bool %}
+    noalert {{ email_config.primaryemail }}
+{%- endif %}
