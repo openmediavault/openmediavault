@@ -45,10 +45,22 @@ start_proftpd_service:
     - require:
       - cmd: test_proftpd_service_config
 
+monitor_proftpd_service:
+  module.run:
+    - name: monit.monitor
+    - m_name: proftpd
+    - require:
+      - service: start_proftpd_service
+
 {% else %}
 
 start_proftpd_service:
   test.nop
+
+unmonitor_proftpd_service:
+  module.run:
+    - name: monit.unmonitor
+    - m_name: proftpd
 
 stop_proftpd_service:
   service.dead:

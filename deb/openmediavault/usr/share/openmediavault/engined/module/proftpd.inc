@@ -32,7 +32,7 @@ class Proftpd extends \OMV\Engine\Module\ServiceAbstract implements
 	}
 
 	public function deployAfter(): array {
-		return ["certificates"];
+		return ["certificates", "monit"];
 	}
 
 	public function getStatus() {
