@@ -1,3 +1,9 @@
+openmediavault (4.1.29-1) stable; urgency=low
+
+  * Rename 'source-directory' to 'source' in /etc/network/interfaces.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Dec 2019 07:55:16 +0100
+
 openmediavault (4.1.28-1) stable; urgency=low
 
   * Use an Unix socket for Monit HTTP interface.
