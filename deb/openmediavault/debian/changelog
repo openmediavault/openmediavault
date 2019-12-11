@@ -1,6 +1,8 @@
 openmediavault (4.1.29-1) stable; urgency=low
 
   * Rename 'source-directory' to 'source' in /etc/network/interfaces.
+  * Issue #528: Set correct permissions on shared folder with multi
+    levels path.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Dec 2019 07:55:16 +0100
 

@@ -334,13 +334,13 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Change group owner of directory to configured default group,
 		// e.g. 'users'.
-		if (FALSE === chgrp($pathName, \OMV\Environment::get(
-				"OMV_USERMGMT_DEFAULT_GROUP", "users"))) {
+		$defaultGroup = \OMV\Environment::get("OMV_USERMGMT_DEFAULT_GROUP",
+			"users");
+		if (FALSE === chgrp($pathName, $defaultGroup)) {
 			$error = error_get_last();
 			throw new \OMV\Exception(
 			  "Failed to set file group to '%s' for '%s': %s",
-			  \OMV\Environment::get("OMV_USERMGMT_DEFAULT_GROUP"),
-			  $pathName, $error['message']);
+			  $defaultGroup, $pathName, $error['message']);
 		}
 		// Set the setgid bit. Setting this permission means that all files
 		// created in the folder will inherit the group of the folder rather
@@ -351,6 +351,37 @@ class OMVRpcServiceShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			throw new \OMV\Exception(
 			  "Failed to set file mode to '%o' for '%s': %s",
 			  $mode, $pathName, $error['message']);
+		}
+		// Walk through the directory path to make sure group 'users' can
+		// access all subdirectories.
+		// Example:
+		// <sf_mount_dir>/<reldirpath>
+		// <sf_mount_dir>
+		//  |- dir1
+		//  |  |- dir1.1
+		//  |  '- dir1.2
+		//  |     '- dir1.2.1
+		//  '
+		$parts = explode(DIRECTORY_SEPARATOR, trim($object->get("reldirpath"),
+			DIRECTORY_SEPARATOR));
+		array_pop($parts); // Remove last directory, this is already processed.
+		if (count($parts) > 0) {
+			$absPath = $meObject->get("dir");
+			// To prevent reaching the command line length limit (we can
+			// not expect how long the absolute paths of all subdirectory
+			// will be nor how many subdirectories need to be processed)
+			// when processing all subdirectories with one 'setfacl' call,
+			// each subdirectory will be processed separately.
+			foreach ($parts as $partk => $partv) {
+				$absPath = build_path(DIRECTORY_SEPARATOR, $absPath, $partv);
+				$cmdArgs = [];
+				$cmdArgs[] = '--modify';
+				$cmdArgs[] = sprintf("group:%s:--x", $defaultGroup);
+				$cmdArgs[] = $absPath;
+				$cmd = new \OMV\System\Process("setfacl", $cmdArgs);
+				$cmd->setRedirect2to1();
+				$cmd->execute();
+			}
 		}
 		// Return the configuration object.
 		return $object->getAssoc();
