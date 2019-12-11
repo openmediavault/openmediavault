@@ -223,6 +223,7 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 		// - /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
 		// - /dev/disk/by-id/ata-ST1000DM003-1CH132_S2DF60PB /dev/disk/by-id/wwn-0x5000b5016caa4832
 		$parts = array_map("trim", explode(" ", $property));
+		sort($parts, SORT_NATURAL);
 		$result = [];
 		foreach ($parts as $partk => $partv) {
 			// Make sure that the device path is correct.
