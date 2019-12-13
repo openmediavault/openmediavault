@@ -460,11 +460,24 @@ class Filesystem extends \OMV\System\BlockDevice
 	}
 
 	/**
+	 * Get the device file to present in the UI, e.g.:
+	 * <ul>
+	 * \li /dev/disk/by-id/xxx
+	 * \li /dev/disk/by-path/xxx
+	 * \li /dev/xxx
+	 * </ul>
+	 * @return string Returns a device file.
+	 */
+	public function getPreferredDeviceFile() {
+		return $this->getPredictableDeviceFile();
+	}
+
+	/**
 	 * Get all devices that make up the filesystem.
 	 * @return An array that contains the component devices of the filesystem.
 	 */
 	public function getDeviceFiles() {
-		return [ $this->getPreferredDeviceFile() ];
+		return [ $this->getCanonicalDeviceFile() ];
 	}
 
 	/**
