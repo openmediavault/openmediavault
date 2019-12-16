@@ -141,19 +141,19 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 	}
 
 	/**
-	 * Upgrade the given packages.
+	 * Install the given packages.
 	 * @param params An array containing the following fields:
 	 *   \em packages An array of package names to upgrade.
 	 * @param context The context of the caller.
 	 * @return The name of the background process status file.
 	 */
-	function upgrade($params, $context) {
+	function install($params, $context) {
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.apt.upgrade");
+		$this->validateMethodParams($params, "rpc.apt.install");
 		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
 		  use ($params) {
@@ -171,6 +171,46 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = "--option DPkg::Options::=\"--force-confold\"";
 			$cmdArgs[] = "install";
 			$cmdArgs = array_merge($cmdArgs, $params['packages']);
+			$cmd = new \OMV\System\Process("apt-get", $cmdArgs);
+			$cmd->setRedirect2to1();
+			$cmd->setEnv("DEBIAN_FRONTEND", "noninteractive");
+			if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
+				$output, $bgOutputFilename))) {
+				throw new \OMV\ExecException($cmd->getCommandLine(), $output,
+					$exitStatus);
+			}
+			return $output;
+		});
+	}
+
+	/**
+	 * Upgrade the given packages.
+	 * @param params An array containing the following fields:
+	 *   \em packages An array of package names to upgrade.
+	 * @param context The context of the caller.
+	 * @return The name of the background process status file.
+	 */
+	function upgrade($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.apt.upgrade");
+		// Create the background process.
+		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
+		  use ($params) {
+			$cmdArgs = [];
+			$cmdArgs[] = "--yes";
+			$cmdArgs[] = "--allow-downgrades";
+			$cmdArgs[] = "--allow-change-held-packages";
+			$cmdArgs[] = "--fix-broken"; // Fix broken dependencies in place.
+			$cmdArgs[] = "--fix-missing";
+			$cmdArgs[] = "--auto-remove";
+			$cmdArgs[] = "--allow-unauthenticated";
+			$cmdArgs[] = "--show-upgraded";
+			$cmdArgs[] = "--option DPkg::Options::=\"--force-confold\"";
+			$cmdArgs[] = "upgrade";
 			$cmd = new \OMV\System\Process("apt-get", $cmdArgs);
 			$cmd->setRedirect2to1();
 			$cmd->setEnv("DEBIAN_FRONTEND", "noninteractive");

@@ -16,7 +16,7 @@
 	}
 },{
 	"type": "rpc",
-	"id": "rpc.apt.upgrade",
+	"id": "rpc.apt.install",
 	"params": {
 		"type": "object",
 		"properties": {
