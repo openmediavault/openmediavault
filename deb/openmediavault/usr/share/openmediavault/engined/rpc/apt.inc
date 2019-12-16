@@ -186,8 +186,7 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 
 	/**
 	 * Upgrade the given packages.
-	 * @param params An array containing the following fields:
-	 *   \em packages An array of package names to upgrade.
+	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The name of the background process status file.
 	 */
@@ -196,8 +195,6 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.apt.upgrade");
 		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
 		  use ($params) {
