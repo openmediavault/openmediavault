@@ -37,6 +37,7 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("setSettings");
 		$this->registerMethod("enumerateUpgraded");
 		$this->registerMethod("getUpgradedList");
+		$this->registerMethod("install");
 		$this->registerMethod("upgrade");
 		$this->registerMethod("update");
 		$this->registerMethod("upload");
