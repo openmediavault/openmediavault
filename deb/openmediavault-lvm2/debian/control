@@ -11,7 +11,7 @@ Package: openmediavault-lvm2
 Architecture: all
 Depends: openmediavault (>= 5.0.1), lvm2
 Priority: optional
-Description: OpenMediaVault Logical Volume Manager (LVM2) plugin
+Description: openmediavault Logical Volume Manager (LVM2) plugin
  LVM supports enterprise level volume management of disk and disk subsystems
  by grouping arbitrary disks into volume groups. The total capacity of volume
  groups can be allocated to logical volumes, which are accessed as regular

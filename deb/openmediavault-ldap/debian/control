@@ -12,7 +12,7 @@ Architecture: all
 Depends: openmediavault (>= 4.0.12), libnss-ldap, libpam-ldap
 Conflicts: openmediavault-ad
 Priority: optional
-Description: OpenMediaVault Lightweight Directory Access Protocol (LDAP) plugin
+Description: openmediavault Lightweight Directory Access Protocol (LDAP) plugin
  LDAP is an application protocol for accessing and maintaining distributed
  directory information services over an Internet Protocol network. This
  plugin adds user authentication support via LDAP.

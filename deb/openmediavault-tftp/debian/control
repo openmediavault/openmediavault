@@ -11,6 +11,6 @@ Package: openmediavault-tftp
 Architecture: all
 Depends: openmediavault (>= 5.0), tftpd-hpa
 Priority: optional
-Description: OpenMediaVault TFTP-Server plugin
+Description: openmediavault TFTP-Server plugin
  A TFTP server is mainly required for booting operating systems or
  configurations over the network.

@@ -11,8 +11,8 @@ Priority: important
 Architecture: all
 Depends: gpgv, ${misc:Depends}
 Recommends: gnupg
-Description: GnuPG archive keys of the OpenMediaVault archive
- The OpenMediaVault project digitally signs its Release files. This package
+Description: GnuPG archive keys of the openmediavault archive
+ The openmediavault project digitally signs its Release files. This package
  contains the archive keys used for that.
 
 Package: openmediavault-keyring-udeb
@@ -21,7 +21,7 @@ Architecture: all
 Section: debian-installer
 Depends: ${misc:Depends}
 Recommends: gpgv-udeb
-Description: GnuPG archive keys of the OpenMediaVault archive
- The OpenMediaVault project digitally signs its Release files. This package
+Description: GnuPG archive keys of the openmediavault archive
+ The openmediavault project digitally signs its Release files. This package
  contains the archive keys used for that, in a minimal form for use
  in the installer.

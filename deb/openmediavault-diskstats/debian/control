@@ -11,5 +11,5 @@ Package: openmediavault-diskstats
 Architecture: all
 Depends: openmediavault (>= 5.0.11)
 Priority: optional
-Description: OpenMediaVault disk monitoring plugin
+Description: openmediavault disk monitoring plugin
  The disk monitoring plugin collects performance statistics of hard-disks.
