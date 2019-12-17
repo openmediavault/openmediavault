@@ -29,7 +29,7 @@ case "$1" in
 	;;
 
 	remove)
-		omv-salt deploy run collectd
+		LANG=C.UTF-8 omv-salt deploy run --quiet collectd
 		# Activate trigger to purge cached files.
 		dpkg-trigger update-fixperms
 	;;
