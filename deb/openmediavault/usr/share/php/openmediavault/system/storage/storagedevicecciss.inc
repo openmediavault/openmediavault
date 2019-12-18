@@ -22,8 +22,8 @@
 namespace OMV\System\Storage;
 
 /**
- * This class provides a simple interface to handle the CCISS hardware RAID
- * devices, e.g. HP's Smart Array hardware RAID controller.
+ * Implements the storage device backend for HP Smart Array RAID
+ * controllers using the cciss driver.
  * @ingroup api
  */
 class StorageDeviceCCISS extends StorageDevice implements SmartInterface {

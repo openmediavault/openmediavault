@@ -22,7 +22,8 @@
 namespace OMV\System\Storage\Backend;
 
 /**
- * Implements the storage device backend for CCISS HBA devices.
+ * Implements the storage device backend for HP Smart Array RAID
+ * controllers using the cciss driver.
  * @ingroup api
  */
 class CCISS extends BackendAbstract {
