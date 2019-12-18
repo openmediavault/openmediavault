@@ -2,6 +2,7 @@ openmediavault (5.2.0-1) unstable; urgency=low
 
   * Rename RPC Apt::upgrade to Apt::install to install specified packages.
     Introduce a new RPC Apt::upgrade to execute a normal APT upgrade.
+  * Issue #536: Add ability to configure email encryption mode.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 16 Dec 2019 12:34:30 +0100
 
