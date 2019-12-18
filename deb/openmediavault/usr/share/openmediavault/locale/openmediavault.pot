@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-01 14:47+0100\n"
+"POT-Creation-Date: 2019-12-18 23:42+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1130,6 +1130,9 @@ msgid "Enable write-cache."
 msgstr ""
 
 msgid "Enabled"
+msgstr ""
+
+msgid "Encryption mode"
 msgstr ""
 
 msgid "Enter your password"
@@ -2671,6 +2674,9 @@ msgstr ""
 msgid "SSL/TLS"
 msgstr ""
 
+msgid "STARTTLS"
+msgstr ""
+
 msgid "Saint Helena"
 msgstr ""
 
@@ -3592,9 +3598,6 @@ msgstr ""
 msgid "Updating ACL settings"
 msgstr ""
 
-msgid "Upgrade"
-msgstr ""
-
 msgid "Upload"
 msgstr ""
 
@@ -3617,9 +3620,6 @@ msgid "Uruguay"
 msgstr ""
 
 msgid "Use NTP server"
-msgstr ""
-
-msgid "Use SSL/TLS secure connection"
 msgstr ""
 
 msgid "Use chroot"
