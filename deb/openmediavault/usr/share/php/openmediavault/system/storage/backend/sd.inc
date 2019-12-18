@@ -33,15 +33,8 @@ class SD extends BackendAbstract {
 
 	function enumerate() {
 		// Examples:
-		// - /dev/sda
 		// - /dev/sdb
-		$result = [];
-		foreach ($this->enumerateProcFs("sd[a-z]+") as $devk => $devv) {
-			if ($this->isTypeOf($devv)) {
-				$result[] = $devv;
-			}
-		}
-		return $result;
+		return $this->enumerateProcFs("sd[a-z]+");
 	}
 
 	function isTypeOf($deviceFile) {
@@ -49,14 +42,7 @@ class SD extends BackendAbstract {
 		// - /dev/sdb
 		// - /dev/sda1
 		$regex = "sd[a-z]+[0-9]*";
-		if (FALSE === $this->isTypeOfByName($deviceFile, $regex)) {
-			return FALSE;
-		}
-		// Check the name of the driver.
-		$sd = new \OMV\System\Storage\StorageDevice(
-			$this->baseDeviceFile($deviceFile));
-		$sd->assertExists();
-		return $sd->getDriver() === "sd";
+		return $this->isTypeOfByName($deviceFile, $regex);
 	}
 
 	function getImpl($args) {
