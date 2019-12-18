@@ -175,10 +175,17 @@ Ext.define("OMV.module.admin.system.notification.Settings", {
 					text: _("The default SMTP mail server port, e.g. 25 or 587.")
 				}]
 			},{
-				xtype: "checkbox",
+				xtype: "combo",
+				fieldLabel: _("Encryption mode"),
+				queryMode: "local",
+				editable: false,
 				name: "tls",
-				fieldLabel: _("Use SSL/TLS secure connection"),
-				checked: false
+				store: [
+					[ "none", _("None") ],
+					[ "ssl", _("SSL/TLS") ],
+					[ "starttls", _("STARTTLS") ],
+					[ "auto", _("Auto") ]
+				]
 			},{
 				xtype: "textfield",
 				name: "sender",

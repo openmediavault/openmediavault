@@ -40,7 +40,7 @@
 		<email>
 			<!--
 			<enable>0|1</enable>
-			<tls>0|1</tls>
+			<tls>none|ssl|startssl|auto</tls>
 			-->
 			<enable>0</enable>
 			<server></server>

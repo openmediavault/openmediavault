@@ -37,8 +37,8 @@ smtp_sasl_security_options = {{ smtp_sasl_security_options }}
 smtp_sasl_password_maps = hash:{{ smtp_sasl_password_maps }}
 smtp_sasl_mechanism_filter = {{ smtp_sasl_mechanism_filter }}
 {%- endif %}
-{%- if config.tls | to_bool %}
-{%- if config.port == 465 %}
+{%- if config.tls != 'none' %}
+{%- if config.tls == 'starttls' or (config.tls == 'auto' and config.port == 465) %}
 smtp_tls_wrappermode = {{ smtp_tls_wrappermode }}
 {%- endif %}
 smtp_tls_security_level = {{ smtp_tls_security_level }}
