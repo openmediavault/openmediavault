@@ -64,6 +64,19 @@ class StorageDevice extends \OMV\System\BlockDevice
 	}
 
 	/**
+	 * Get the name of the device driver.
+	 * @return The name of the device driver, otherwise an empty string.
+	 */
+	public function getDriver() {
+		$filename = sprintf("/sys/block/%s/device/driver",
+			$this->getDeviceName(TRUE));
+		if (!file_exists($filename)) {
+			return "";
+		}
+		return basename(realpath($filename));
+	}
+
+	/**
 	 * See interface definition.
 	 */
 	public function getDescription() {
