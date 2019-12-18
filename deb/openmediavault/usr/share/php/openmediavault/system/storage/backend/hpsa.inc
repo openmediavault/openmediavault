@@ -22,20 +22,21 @@
 namespace OMV\System\Storage\Backend;
 
 /**
- * Implements the storage device backend for SCSI disk (block) devices.
- * @see https://linux.die.net/man/4/sd
+ * Implements the storage device backend for HP Smart Array RAID
+ * controllers using the hpsa driver.
+ * @see https://linux.die.net/man/4/hpsa
  * @ingroup api
  */
-class SD extends BackendAbstract {
+class HPSA extends BackendAbstract {
 	function getType() {
-		return OMV_STORAGE_DEVICE_TYPE_DISK;
+		return OMV_STORAGE_DEVICE_TYPE_HBA;
 	}
 
 	function enumerate() {
+		$result = [];
 		// Examples:
 		// - /dev/sda
 		// - /dev/sdb
-		$result = [];
 		foreach ($this->enumerateProcFs("sd[a-z]+") as $devk => $devv) {
 			if ($this->isTypeOf($devv)) {
 				$result[] = $devv;
@@ -56,11 +57,11 @@ class SD extends BackendAbstract {
 		$sd = new \OMV\System\Storage\StorageDevice(
 			$this->baseDeviceFile($deviceFile));
 		$sd->assertExists();
-		return $sd->getDriver() === "sd";
+		return $sd->getDriver() === "hpsa";
 	}
 
 	function getImpl($args) {
-		return new \OMV\System\Storage\StorageDeviceSD($args);
+		return new \OMV\System\Storage\StorageDeviceHPSA($args);
 	}
 
 	function baseDeviceFile($deviceFile) {
