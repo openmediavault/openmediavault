@@ -19,16 +19,15 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Storage\Backend;
+namespace OMV\System\Storage;
 
-///////////////////////////////////////////////////////////////////////////////
-// Register default storage device backends.
-///////////////////////////////////////////////////////////////////////////////
-$backends = [ "Bcache", "CCISS", "CDROM", "DM", "FIO", "HD", "I2O",
-	"Loop", "LVM", "Mdadm", "MMC", "NVM", "RBD", "SD", "Virtio", "Xen",
-	"HPSA" ];
-$mngr = Manager::getInstance();
-foreach ($backends as $backendk => $backendv) {
-	$className = sprintf("%s\%s", __NAMESPACE__, $backendv);
-	$mngr->registerBackend(new $className());
+/**
+ * This class provides a simple interface to handle HP Smart Array RAID
+ * devices using the hpsa driver.
+ * @ingroup api
+ */
+class StorageDeviceHPSA extends StorageDevice {
+	public function isRaid() {
+		return TRUE;
+	}
 }
