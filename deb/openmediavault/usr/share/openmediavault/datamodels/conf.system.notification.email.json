@@ -21,8 +21,14 @@
 			"default": 25
 		},
 		"tls": {
-		    "type": "boolean",
-			"default": false
+		    "type": "string",
+			"enum": [
+				"no",
+				"ssl",
+				"starttls",
+				"auto"
+			],
+			"default": "no"
 		},
 		"sender": {
 		    "type": "string",

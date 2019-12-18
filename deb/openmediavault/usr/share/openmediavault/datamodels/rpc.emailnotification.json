@@ -19,8 +19,14 @@
 				"required": true
 			},
 			"tls": {
-			    "type": "boolean",
-				"required": true
+			    "type": "string",
+				"required": true,
+				"enum": [
+					"no",
+					"ssl",
+					"starttls",
+					"auto"
+				]
 			},
 			"sender": {
 				"type": "string",
