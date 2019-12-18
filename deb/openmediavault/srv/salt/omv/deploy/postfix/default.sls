@@ -39,7 +39,7 @@
 # - Modify /etc/ca-certificates.conf
 # - Execute update-ca-certificates
 
-{% set config = salt['omv_conf.get']('conf.system.email') %}
+{% set config = salt['omv_conf.get']('conf.system.notification.email') %}
 {% set dirpath = '/srv/salt' | path_join(slspath) %}
 
 # Make sure the hostname configuration is applied.
