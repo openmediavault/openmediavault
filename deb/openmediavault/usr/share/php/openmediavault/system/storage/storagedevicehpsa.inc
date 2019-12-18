@@ -19,34 +19,15 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Storage\Backend;
+namespace OMV\System\Storage;
 
 /**
- * Implements the storage device backend for I2O based HBA devices.
+ * This class provides a simple interface to handle HP Smart Array RAID
+ * devices using the hpsa driver.
  * @ingroup api
  */
-class I2O extends BackendAbstract {
-	function getType() {
-		return OMV_STORAGE_DEVICE_TYPE_DISK;
-	}
-
-	function enumerate() {
-		return $this->enumerateProcFs("i2o\/hd[a-z]+");
-	}
-
-	function isTypeOf($deviceFile) {
-		// Examples:
-		// - /dev/i2o/hda
-		// - /dev/i2o/hdb1
-		$regex = "i2o\/hd[a-z]+[0-9]*";
-		return $this->isTypeOfByName($deviceFile, $regex);
-	}
-
-	function getImpl($args) {
-		return new \OMV\System\Storage\StorageDeviceI2O($args);
-	}
-
-	function baseDeviceFile($deviceFile) {
-		return preg_replace("/(\d+)$/", "", $deviceFile);
+class StorageDeviceHPSA extends StorageDevice {
+	public function isRaid() {
+		return TRUE;
 	}
 }
