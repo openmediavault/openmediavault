@@ -133,12 +133,6 @@ interface StorageDeviceInterface {
 	public function getSerialNumber();
 
 	/**
-	 * Get the name of the device driver.
-	 * @return The name of the device driver, otherwise an empty string.
-	 */
-	public function getDriver();
-
-	/**
 	 * Get the description of the device.
 	 * @return The device description.
 	 */
