@@ -180,6 +180,7 @@ Ext.define("OMV.module.admin.system.notification.Settings", {
 				queryMode: "local",
 				editable: false,
 				name: "tls",
+				value: "none",
 				store: [
 					[ "none", _("None") ],
 					[ "ssl", _("SSL/TLS") ],
