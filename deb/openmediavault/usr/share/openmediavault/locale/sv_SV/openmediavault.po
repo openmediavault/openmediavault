@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-01 14:47+0100\n"
-"PO-Revision-Date: 2019-11-02 10:12+0000\n"
-"Last-Translator: Jonatan Nyberg\n"
+"POT-Creation-Date: 2019-12-18 23:42+0100\n"
+"PO-Revision-Date: 2019-12-18 22:44+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1167,6 +1167,9 @@ msgstr "Aktivera skriv-cache."
 
 msgid "Enabled"
 msgstr "Aktiverad"
+
+msgid "Encryption mode"
+msgstr ""
 
 msgid "Enter your password"
 msgstr "Ange ditt lösenord"
@@ -2790,6 +2793,9 @@ msgstr "SSL"
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
+msgid "STARTTLS"
+msgstr ""
+
 msgid "Saint Helena"
 msgstr "Saint Helena"
 
@@ -3823,9 +3829,6 @@ msgstr "Uppdateringar tillgängliga"
 msgid "Updating ACL settings"
 msgstr "Uppdaterar ACL-inställningar"
 
-msgid "Upgrade"
-msgstr "Uppgradera"
-
 msgid "Upload"
 msgstr "Ladda upp"
 
@@ -3849,9 +3852,6 @@ msgstr "Uruguay"
 
 msgid "Use NTP server"
 msgstr "Använd NTP-server"
-
-msgid "Use SSL/TLS secure connection"
-msgstr "Använd SSL/TLS säker anslutning"
 
 msgid "Use chroot"
 msgstr "Använd chroot"

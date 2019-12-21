@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-01 14:47+0100\n"
-"PO-Revision-Date: 2019-11-01 13:50+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2019-12-18 23:42+0100\n"
+"PO-Revision-Date: 2019-12-20 02:06+0000\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/votdev/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -321,7 +321,7 @@ msgid ""
 "An attempt to send the test email has been made. Please check your mailbox. "
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
-msgstr ""
+msgstr "テストメールを送信しました。 メールボックスを確認してください。 電子メールが届かない場合は、スパムフォルダーを確認し、システムログにPostfix関連のエラーがないことを確認してください。"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -352,7 +352,7 @@ msgid "Anonymous FTP"
 msgstr "Anonymous FTP"
 
 msgid "Another user is already authenticated."
-msgstr ""
+msgstr "別のユーザーですでに認証されています。"
 
 msgid "Antarctica"
 msgstr "南極大陸"
@@ -877,7 +877,7 @@ msgid "Disabled"
 msgstr "無効"
 
 msgid "Disallow the user to modify their account."
-msgstr ""
+msgstr "ユーザーによるアカウントの変更を許可しません。"
 
 msgid "Disk usage"
 msgstr "ディスク使用量"
@@ -1090,7 +1090,7 @@ msgid "Enable SSL/TLS connections"
 msgstr "SSL/TLS接続を有効化"
 
 msgid "Enable Time Machine support for this share."
-msgstr ""
+msgstr "この共有でTime Machineサポートを有効にします。"
 
 msgid "Enable WINS server"
 msgstr "WINSサーバーを有効化"
@@ -1165,6 +1165,9 @@ msgstr "ライトキャッシュを有効化"
 
 msgid "Enabled"
 msgstr "有効"
+
+msgid "Encryption mode"
+msgstr "暗号化モード"
 
 msgid "Enter your password"
 msgstr "パスワードを入力してください"
@@ -1668,13 +1671,13 @@ msgid "Interfaces"
 msgstr "インタフェース"
 
 msgid "Invalid IP address."
-msgstr ""
+msgstr "不正なIPアドレスです。"
 
 msgid "Invalid SSH public key (RFC 4716)"
 msgstr "無効なSSH公開鍵 (RFC 4716)"
 
 msgid "Invalid User-Agent."
-msgstr ""
+msgstr "不正なUser-Agentです。"
 
 msgid "Invalid domain name"
 msgstr "無効なドメイン名"
@@ -1695,7 +1698,7 @@ msgid "Invalid user name"
 msgstr "ユーザー名が不正です"
 
 msgid "Invalid user."
-msgstr ""
+msgstr "不正なユーザーです。"
 
 msgid "Iran"
 msgstr "イラン"
@@ -2322,10 +2325,10 @@ msgid "Passwords don't match"
 msgstr "パスワード不一致"
 
 msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
-msgstr ""
+msgstr "ここにX.509 PEM形式のRSAまたはECC証明書を貼り付けます"
 
 msgid "Paste a RSA or ECC private key in X.509 PEM format here."
-msgstr ""
+msgstr "ここにX.509 PEM形式のRSAまたはECCプライベートキーを貼り付けます。"
 
 msgid "Path"
 msgstr "パス"
@@ -2470,13 +2473,13 @@ msgid "Preserve extended attributes"
 msgstr "拡張属性を保存"
 
 msgid "Preserve group"
-msgstr ""
+msgstr "グループを維持"
 
 msgid "Preserve modification times"
 msgstr "修正時刻を保存"
 
 msgid "Preserve owner"
-msgstr ""
+msgstr "オーナーを維持"
 
 msgid "Preserve permissions"
 msgstr "パーミッションを保存"
@@ -2676,7 +2679,7 @@ msgstr "最後のレポートから温度が摂氏 N 度変化した場合にレ
 msgid ""
 "Report if the temperature is greater than or equal to N degrees Celsius. Set"
 " to 0 to disable this report."
-msgstr ""
+msgstr "温度が摂氏 N 度を超えるか、同じになった場合にレポートします。0に設定するとレポートしません。"
 
 msgid "Repository"
 msgstr "リポジトリ"
@@ -2787,6 +2790,9 @@ msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
+
+msgid "STARTTLS"
+msgstr "STARTTLS"
 
 msgid "Saint Helena"
 msgstr "セント·ヘレナ島"
@@ -2985,12 +2991,12 @@ msgstr "元のパーミッションと同じになるように先のパーミッ
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "宛先ファイルのグループを元のファイルと同じになるように設定します。"
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr ""
+msgstr "受信側のrsyncがスーパーユーザーとして実行されている場合のみ、送信先ファイルの所有者を送信元ファイルと同じに設定します。"
 
 msgid "Set write only"
 msgstr "書き込み専用に設定"
@@ -3420,7 +3426,7 @@ msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "指定されたクォータは最大値を超えています。4TiBまでの値を設定。"
 
 msgid "The system must be rebooted."
-msgstr ""
+msgstr "システムを再起動する必要があります。"
 
 msgid "The system will reboot now. This may take some time ..."
 msgstr "システムが再起動されます。これにはしばらく時間がかかることがあります..."
@@ -3648,7 +3654,7 @@ msgid "This will create a recycle bin on the share."
 msgstr "これは共有上にごみ箱が作成されます。"
 
 msgid "Threshold"
-msgstr ""
+msgstr "閾値"
 
 msgid "Thursday"
 msgstr "木曜"
@@ -3660,7 +3666,7 @@ msgid "Time"
 msgstr "時刻"
 
 msgid "Time Machine support"
-msgstr ""
+msgstr "Time Machineサポート"
 
 msgid "Time interval"
 msgstr "タイムインターバル"
@@ -3698,7 +3704,7 @@ msgstr "転送ログ"
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr ""
+msgstr "変更時間をファイルとともに転送し、リモートシステムで更新します。"
 
 msgid "Transfer time"
 msgstr "転送時間"
@@ -3816,13 +3822,10 @@ msgid "Updates"
 msgstr "アップデート"
 
 msgid "Updates available"
-msgstr ""
+msgstr "アップデートが利用可能です"
 
 msgid "Updating ACL settings"
 msgstr "ACL設定のアップデート"
-
-msgid "Upgrade"
-msgstr "アップグレード"
 
 msgid "Upload"
 msgstr "アップロード"
@@ -3847,9 +3850,6 @@ msgstr "ウルグアイ"
 
 msgid "Use NTP server"
 msgstr "NTPサーバを使用する"
-
-msgid "Use SSL/TLS secure connection"
-msgstr "SSL/TLSセキュアコネクションを使用する"
 
 msgid "Use chroot"
 msgstr "Chrootを利用する"

@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-01 14:47+0100\n"
-"PO-Revision-Date: 2019-11-01 13:50+0000\n"
+"POT-Creation-Date: 2019-12-18 23:42+0100\n"
+"PO-Revision-Date: 2019-12-18 22:44+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Italian (http://www.transifex.com/votdev/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -1170,6 +1170,9 @@ msgstr "abilita la cache in scrittura"
 
 msgid "Enabled"
 msgstr "Abilitato"
+
+msgid "Encryption mode"
+msgstr ""
 
 msgid "Enter your password"
 msgstr "Inserisci la tua password"
@@ -2793,6 +2796,9 @@ msgstr "SSL"
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
+msgid "STARTTLS"
+msgstr ""
+
 msgid "Saint Helena"
 msgstr "Sant'Elena"
 
@@ -3826,9 +3832,6 @@ msgstr ""
 msgid "Updating ACL settings"
 msgstr "Sto aggiornando le impostazioni delle ACL"
 
-msgid "Upgrade"
-msgstr "Upgrade"
-
 msgid "Upload"
 msgstr "Upload"
 
@@ -3852,9 +3855,6 @@ msgstr "Uruguay"
 
 msgid "Use NTP server"
 msgstr "Usa il server NTP"
-
-msgid "Use SSL/TLS secure connection"
-msgstr "Usa una connessione sicura SSL/TLS"
 
 msgid "Use chroot"
 msgstr "Usa chroot"

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-01 14:47+0100\n"
-"PO-Revision-Date: 2019-11-01 13:50+0000\n"
+"POT-Creation-Date: 2019-12-18 23:42+0100\n"
+"PO-Revision-Date: 2019-12-18 22:44+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -879,7 +879,7 @@ msgid "Disabled"
 msgstr "禁用"
 
 msgid "Disallow the user to modify their account."
-msgstr ""
+msgstr "不允许用户修改其账户。"
 
 msgid "Disk usage"
 msgstr "磁盘用量"
@@ -1167,6 +1167,9 @@ msgstr "开启写入缓存。"
 
 msgid "Enabled"
 msgstr "已启动"
+
+msgid "Encryption mode"
+msgstr ""
 
 msgid "Enter your password"
 msgstr "输入密码"
@@ -2790,6 +2793,9 @@ msgstr "SSL"
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
+msgid "STARTTLS"
+msgstr ""
+
 msgid "Saint Helena"
 msgstr "圣赫勒拿"
 
@@ -3823,9 +3829,6 @@ msgstr "有更新可用"
 msgid "Updating ACL settings"
 msgstr "更新 ACL 设置中"
 
-msgid "Upgrade"
-msgstr "升级"
-
 msgid "Upload"
 msgstr "上传"
 
@@ -3849,9 +3852,6 @@ msgstr "乌拉圭"
 
 msgid "Use NTP server"
 msgstr "使用 NTP 服务器"
-
-msgid "Use SSL/TLS secure connection"
-msgstr "使用 SSL/TLS 安全连接"
 
 msgid "Use chroot"
 msgstr "使用 chroot"

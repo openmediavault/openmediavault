@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-01 14:47+0100\n"
-"PO-Revision-Date: 2019-11-02 07:39+0000\n"
+"POT-Creation-Date: 2019-12-18 23:42+0100\n"
+"PO-Revision-Date: 2019-12-19 05:55+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -1166,6 +1166,9 @@ msgstr "Zapnout mezipaměť zápisu."
 
 msgid "Enabled"
 msgstr "Poskytováno"
+
+msgid "Encryption mode"
+msgstr "Režim šifrování"
 
 msgid "Enter your password"
 msgstr "Zadejte své heslo"
@@ -2789,6 +2792,9 @@ msgstr "SSL"
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
+msgid "STARTTLS"
+msgstr "STARTTLS"
+
 msgid "Saint Helena"
 msgstr "Svatá Helena"
 
@@ -3822,9 +3828,6 @@ msgstr "Jsou k dispozici aktualizace"
 msgid "Updating ACL settings"
 msgstr "Aktualizace nastavení ACL seznamů"
 
-msgid "Upgrade"
-msgstr "Nainstalovat novější verze"
-
 msgid "Upload"
 msgstr "Nahrát"
 
@@ -3848,9 +3851,6 @@ msgstr "Uruguay"
 
 msgid "Use NTP server"
 msgstr "Používat NTP server"
-
-msgid "Use SSL/TLS secure connection"
-msgstr "Používat zabezpečené SSL/TLS spojení"
 
 msgid "Use chroot"
 msgstr "Použít vyhrazené prostředí (chroot)"

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-01 14:47+0100\n"
-"PO-Revision-Date: 2019-11-01 13:50+0000\n"
+"POT-Creation-Date: 2019-12-18 23:42+0100\n"
+"PO-Revision-Date: 2019-12-18 22:44+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -1167,6 +1167,9 @@ msgstr "쓰기 캐시 활성화"
 
 msgid "Enabled"
 msgstr "활성화됨"
+
+msgid "Encryption mode"
+msgstr ""
 
 msgid "Enter your password"
 msgstr "암호를 입력하세요"
@@ -2790,6 +2793,9 @@ msgstr "SSL"
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
+msgid "STARTTLS"
+msgstr ""
+
 msgid "Saint Helena"
 msgstr "세인트 헬레나"
 
@@ -3823,9 +3829,6 @@ msgstr ""
 msgid "Updating ACL settings"
 msgstr "ACL 설정 업데이트"
 
-msgid "Upgrade"
-msgstr "업그레이드"
-
 msgid "Upload"
 msgstr "올리기"
 
@@ -3849,9 +3852,6 @@ msgstr "우루과이"
 
 msgid "Use NTP server"
 msgstr "NTP 서버 사용"
-
-msgid "Use SSL/TLS secure connection"
-msgstr "SSL/TLS 보안 연결 사용"
 
 msgid "Use chroot"
 msgstr "chroot 사용"

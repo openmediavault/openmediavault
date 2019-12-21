@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-01 14:47+0100\n"
-"PO-Revision-Date: 2019-11-01 13:50+0000\n"
+"POT-Creation-Date: 2019-12-18 23:42+0100\n"
+"PO-Revision-Date: 2019-12-18 22:44+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/votdev/openmediavault/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -878,7 +878,7 @@ msgid "Disabled"
 msgstr "Deshabilitat"
 
 msgid "Disallow the user to modify their account."
-msgstr "No permetre l’usuari modificar la seva pròpia compta"
+msgstr ""
 
 msgid "Disk usage"
 msgstr "Ús del disc"
@@ -1166,6 +1166,9 @@ msgstr "Habilitar cau (caché) d’escriptura."
 
 msgid "Enabled"
 msgstr "Habilitat"
+
+msgid "Encryption mode"
+msgstr ""
 
 msgid "Enter your password"
 msgstr "Introdueix la teva contrasenya"
@@ -2789,6 +2792,9 @@ msgstr "SSL"
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
+msgid "STARTTLS"
+msgstr ""
+
 msgid "Saint Helena"
 msgstr "Santa Helena"
 
@@ -3822,9 +3828,6 @@ msgstr ""
 msgid "Updating ACL settings"
 msgstr "Actualitzant configuració de les ACL"
 
-msgid "Upgrade"
-msgstr "Upgrade"
-
 msgid "Upload"
 msgstr "Carregar"
 
@@ -3848,9 +3851,6 @@ msgstr "Uruguai"
 
 msgid "Use NTP server"
 msgstr "Usar el servidor NTP"
-
-msgid "Use SSL/TLS secure connection"
-msgstr "Usar connexió SSL/TLS segura"
 
 msgid "Use chroot"
 msgstr "Habilitar chroot."

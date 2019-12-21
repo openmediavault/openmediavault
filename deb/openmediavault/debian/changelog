@@ -1,5 +1,6 @@
 openmediavault (5.2.0-1) unstable; urgency=low
 
+  * Update locales.
   * Rename RPC Apt::upgrade to Apt::install to install specified packages.
     Introduce a new RPC Apt::upgrade to execute a normal APT upgrade.
   * Issue #535: Add storage backend for HP Smart Array RAID controllers

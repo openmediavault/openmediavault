@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-01 14:47+0100\n"
-"PO-Revision-Date: 2019-11-02 08:00+0000\n"
+"POT-Creation-Date: 2019-12-18 23:42+0100\n"
+"PO-Revision-Date: 2019-12-20 08:29+0000\n"
 "Last-Translator: Kostas Moho\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/votdev/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -1165,6 +1165,9 @@ msgstr "Ενεργοποίηση "
 
 msgid "Enabled"
 msgstr "Ενεργό"
+
+msgid "Encryption mode"
+msgstr "Κρυπτογράφηση"
 
 msgid "Enter your password"
 msgstr "Εισάγωγή κωδικού"
@@ -2788,6 +2791,9 @@ msgstr "SSL"
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
+msgid "STARTTLS"
+msgstr "STARTTLS"
+
 msgid "Saint Helena"
 msgstr "Saint Helena"
 
@@ -3821,9 +3827,6 @@ msgstr "Διαθέσιμες ενημερώσεις"
 msgid "Updating ACL settings"
 msgstr "Ενημέρωση ρυθμίσεων λιστών πρόσβασης"
 
-msgid "Upgrade"
-msgstr "Αναβάθμιση"
-
 msgid "Upload"
 msgstr "Αποστολή"
 
@@ -3847,9 +3850,6 @@ msgstr "Uruguay"
 
 msgid "Use NTP server"
 msgstr "Χρήση διακομιστή ώρας"
-
-msgid "Use SSL/TLS secure connection"
-msgstr "Χρήση ασφαλούς σύνδεσης SSL/TLS"
 
 msgid "Use chroot"
 msgstr "Χρήση chroot"

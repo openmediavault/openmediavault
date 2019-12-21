@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-01 14:47+0100\n"
-"PO-Revision-Date: 2019-11-01 16:10+0000\n"
+"POT-Creation-Date: 2019-12-18 23:42+0100\n"
+"PO-Revision-Date: 2019-12-19 20:39+0000\n"
 "Last-Translator: Gyuris Gellért <bubu@ujevangelizacio.hu>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -1170,6 +1170,9 @@ msgstr "Gyorsítótár engedélyezése."
 
 msgid "Enabled"
 msgstr "Engedélyezve"
+
+msgid "Encryption mode"
+msgstr "Titkosítási mód"
 
 msgid "Enter your password"
 msgstr "Írja be a jelszavát"
@@ -2793,6 +2796,9 @@ msgstr "SSL"
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
+msgid "STARTTLS"
+msgstr "STARTTLS"
+
 msgid "Saint Helena"
 msgstr "Szent Ilona"
 
@@ -3826,9 +3832,6 @@ msgstr "Frissítések érhetőek el"
 msgid "Updating ACL settings"
 msgstr "ACL beállítások frissítése"
 
-msgid "Upgrade"
-msgstr "Telepítés"
-
 msgid "Upload"
 msgstr "Feltöltés"
 
@@ -3852,9 +3855,6 @@ msgstr "Uruguay"
 
 msgid "Use NTP server"
 msgstr "NTP szerver használata"
-
-msgid "Use SSL/TLS secure connection"
-msgstr "SSL/TLS biztonságos kapcsolat használata"
 
 msgid "Use chroot"
 msgstr "Chroot használata"
