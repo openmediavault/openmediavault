@@ -46,10 +46,36 @@ class SD extends BackendAbstract {
 	}
 
 	function getImpl($args) {
-		return new \OMV\System\Storage\StorageDeviceSD($args);
+		$result = NULL;
+		switch ($this->getHostDriver($args)) {
+		case "hpsa":
+			// Logical drives from HP Smart Array RAID controllers
+			// are accessed via the SCSI disk driver, so we need to
+			// identify such drives because these must be handled
+			// different in some cases (e.g. S.M.A.R.T.).
+			// @see https://linux.die.net/man/4/hpsa
+			$result = new \OMV\System\Storage\StorageDeviceHPSA($args);
+			break;
+		default:
+			$result = new \OMV\System\Storage\StorageDeviceSD($args);
+			break;
+		}
+		return $result;
 	}
 
 	function baseDeviceFile($deviceFile) {
 		return preg_replace("/(\d+)$/", "", $deviceFile);
+	}
+
+	private function getHostDriver($deviceFile) {
+		$sd = new \OMV\System\Storage\StorageDevice($deviceFile);
+		$sd->assertExists();
+		$hostPath = sprintf("/sys/block/%s/device/../..",
+			$sd->getDeviceName(TRUE));
+		$driverPath = realpath(sprintf("%s/../driver", $hostPath));
+		if (!file_exists($driverPath)) {
+			return "";
+		}
+		return basename($driverPath);
 	}
 }

@@ -28,7 +28,7 @@ namespace OMV\System\Storage\Backend;
  */
 class CCISS extends BackendAbstract {
 	function getType() {
-		return OMV_STORAGE_DEVICE_TYPE_HBA;
+		return OMV_STORAGE_DEVICE_TYPE_DISK;
 	}
 
 	function enumerate() {
