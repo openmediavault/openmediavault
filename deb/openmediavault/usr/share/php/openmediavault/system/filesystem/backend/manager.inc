@@ -130,18 +130,26 @@ class Manager implements \IteratorAggregate {
 		$enums = $this->enumerate();
 		foreach ($enums as $enumk => $enumv) {
 			$found = FALSE;
-			if (is_devicefile($id)) {
+			if ( is_fs_uuid($id)) {
+				// Compare the filesystem UUID.
+				$found = ($id == $enumv['uuid']);
+			}
+			if ( !$found && is_devicefile_by($id)) {
+				// The label consists of all not-slashes at the end of
+				// label device path
+				$regex = '/[^\/]+$/';
+				unset($matches);
+				if ( 1 == preg_match($regex, $id, $matches) ){
+					$found = ($matches[0] == $enumv['label']);
+				}
+			}
+			if ( !$found && is_devicefile($id)) {
 				// Compare the device file name. Use the canonical device
 				// files for an additional check.
 				if ($id == $enumv['devicefile'])
 					$found = TRUE;
 				else if (realpath($id) == realpath($enumv['devicefile']))
 					$found = TRUE;
-			} else if (is_fs_uuid($id)) {
-				// Compare the filesystem UUID.
-				$found = ($id == $enumv['uuid']);
-			} else {
-				$found = ($id == $enumv['label']);
 			}
 			if (TRUE === $found) {
 				$result = $this->getBackendByType($enumv['type']);
