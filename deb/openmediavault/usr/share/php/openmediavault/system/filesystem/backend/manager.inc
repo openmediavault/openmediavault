@@ -121,6 +121,7 @@ class Manager implements \IteratorAggregate {
 	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
 	 *   \li /dev/cciss/c0d0p2
 	 *   \li tank/multimedia/movies
+	 *   \li BigDataRAID (unescaped label)
 	 *   </ul>
 	 * @return The backend that implements the given filesystem, otherwise
 	 *   NULL.
@@ -166,6 +167,7 @@ class Manager implements \IteratorAggregate {
 	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
 	 *   \li /dev/cciss/c0d0p2
 	 *   \li tank/multimedia/movies
+	 *   \li BigDataRAID (unescaped label)
 	 *   </ul>
 	 * @throw \OMV\AssertException
 	 */
@@ -192,7 +194,7 @@ class Manager implements \IteratorAggregate {
 	/**
 	 * Enumerate all available/detected file systems.
 	 * @return An array of objects with the fields \em devicefile, \em uuid,
-	 *   \em label and \em type.
+	 *   \em label (unescaped) and \em type.
 	 * @throw \OMV\ExecException
 	 * @throw \UnexpectedValueException
 	 */
