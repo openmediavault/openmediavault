@@ -572,12 +572,12 @@ class Filesystem extends \OMV\System\BlockDevice
 		// tmpfs /run/lock
 		// tmpfs /run/shm
 		// tmpfs /tmp
-		// /dev/sde1 8c982ec2-8aa7-4fe2-a912-7478f0429e06 /media/8c982ec2-8aa7-4fe2-a912-7478f0429e06
-		// /dev/md0 2853402e-fe8f-443b-abd5-c42892f25be1 /srv/2853402e-fe8f-443b-abd5-c42892f25be1
+		// /dev/sde1 /media/8c982ec2-8aa7-4fe2-a912-7478f0429e06 8c982ec2-8aa7-4fe2-a912-7478f0429e06
+		// /dev/md0 /srv/2853402e-fe8f-443b-abd5-c42892f25be1 2853402e-fe8f-443b-abd5-c42892f25be1
 		// rpc_pipefs /var/lib/nfs/rpc_pipefs
-		// /dev/sdf1 7A48-BA97 /media/7A48-BA97
-		// /dev/mapper/vg01-lv01 82500674-26a5-11ea-88e2-c308d0da44db /srv/_dev_disk_by-id_dm-name-vg01-lv01
-		// /dev/sdb1 8a003c90-26a5-11ea-8789-ef3b0d18ebb6 /srv/dev-disk-by-label-xx\x20yy
+		// /dev/sdf1 /media/7A48-BA97 7A48-BA97
+		// /dev/mapper/vg01-lv01 /srv/_dev_disk_by-id_dm-name-vg01-lv01 82500674-26a5-11ea-88e2-c308d0da44db
+		// /dev/sdb1 /srv/dev-disk-by-label-xx\x20yy 8a003c90-26a5-11ea-8789-ef3b0d18ebb6
 		$result = FALSE;
 		foreach ($output as $outputk => $outputv) {
 			// Split the line into parts.
