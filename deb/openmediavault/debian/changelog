@@ -2,6 +2,7 @@ openmediavault (5.2.1-1) unstable; urgency=low
 
   * Issue #542: Add OMV_WATCHDOG_CONF_WATCHDOG_TIMEOUT to customize
     the watchdog timeout.
+  * Issue #543: Fix BTRFS mounting issue.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 22 Dec 2019 22:18:16 +0100
 
