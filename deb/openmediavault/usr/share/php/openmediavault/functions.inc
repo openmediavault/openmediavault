@@ -144,6 +144,7 @@ function array_keys_exists(array $keys, array $search, &$missing = NULL) {
 
 /**
  * Removes duplicate values from an multi-dimensional array.
+ * Note, the first found duplicate will be inserted to the result.
  * @param array $array The array to process.
  * @param string $key The key used as filter criteria.
  * @return Returns the filtered array or FALSE on failure.
