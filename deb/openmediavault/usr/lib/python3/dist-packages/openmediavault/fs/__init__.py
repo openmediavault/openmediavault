@@ -163,10 +163,12 @@ class Filesystem(openmediavault.device.BlockDevice):
         device = pyudev.Devices.from_device_file(context, self.device_file)
         if device and device.parent:
             if device.parent.device_node is not None:
+                # /dev/sdb1 => /dev/sdb
                 return device.parent.device_node
-        """
-        Device mapper devices must be specially treated.
-        """
+            else:
+                # /dev/sdb => /dev/sdb
+                return self.device_file
+        # Device mapper devices must be specially treated.
         if re.match(r'^(dm-|md)\d+$', self.device_name(True)):
             return self.device_file
         return None
