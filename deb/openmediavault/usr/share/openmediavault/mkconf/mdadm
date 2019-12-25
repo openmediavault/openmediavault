@@ -96,7 +96,7 @@ EOF
 
 # Append definition of existing arrays.
 mdadm --detail --scan >> ${OMV_MDADM_CONFIG}
-if [ -z $(mdadm --detail --scan) ]; then
+if [ -z "$(mdadm --detail --scan)" ]; then
 	echo "ARRAY <ignore> devices=*" >> ${OMV_MDADM_CONFIG}
 fi
 
