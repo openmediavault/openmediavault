@@ -113,11 +113,11 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 		width: 340,
 		hidden: true
 	},{
+		xtype: "binaryunitcolumn",
 		text: _("Size"),
 		sortable: true,
 		dataIndex: "size",
 		stateId: "size",
-		renderer: OMV.util.Format.binaryUnitRenderer(),
 		width: 80,
 		hidden: true
 	},{
