@@ -1,5 +1,6 @@
 openmediavault (4.1.31-1) stable; urgency=low
 
+  * Issue #430: Fix grid column render issue.
   * Issue #550: Fix bug in detecting BTRFS filesystems.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 01 Jan 2020 18:20:01 +0100
