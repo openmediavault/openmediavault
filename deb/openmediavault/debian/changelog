@@ -1,3 +1,9 @@
+openmediavault (4.1.31-1) stable; urgency=low
+
+  * Issue #550: Fix bug in detecting BTRFS filesystems.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 01 Jan 2020 18:20:01 +0100
+
 openmediavault (4.1.30-1) stable; urgency=low
 
   * Allow to use veth* and venet* network interfaces in bonded
