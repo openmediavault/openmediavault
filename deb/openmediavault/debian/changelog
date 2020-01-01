@@ -225,6 +225,20 @@ openmediavault (5.0-1) unstable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 May 2018 22:06:11 +0200
 
+openmediavault (4.1.31-1) stable; urgency=low
+
+  * Issue #550: Fix bug in detecting BTRFS filesystems.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 01 Jan 2020 18:20:01 +0100
+
+openmediavault (4.1.30-1) stable; urgency=low
+
+  * Allow to use veth* and venet* network interfaces in bonded
+    interfaces.
+  * Issue #543: Fix BTRFS mounting issue.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 18 Dec 2019 17:21:52 +0100
+
 openmediavault (4.1.29-1) stable; urgency=low
 
   * Rename 'source-directory' to 'source' in /etc/network/interfaces.

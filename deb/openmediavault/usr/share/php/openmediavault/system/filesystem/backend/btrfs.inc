@@ -47,16 +47,27 @@ class Btrfs extends BackendAbstract {
 		// /dev/sdb: LABEL="openmediavaultData" UUID="9b84cea2-3c7b-4f88-b346-f3bc1ee7c804" UUID_SUB="c86b22dd-c08d-47c5-93f3-90bd445931bb" TYPE="btrfs"
 		// /dev/sda: LABEL="openmediavaultData" UUID="9b84cea2-3c7b-4f88-b346-f3bc1ee7c804" UUID_SUB="04c92e67-4e6e-4cfc-bb71-18f9a109aa35" TYPE="btrfs"
 		// /dev/sdc: LABEL="openmediavaultData" UUID="9b84cea2-3c7b-4f88-b346-f3bc1ee7c804" UUID_SUB="9756742b-1552-46ce-9631-8e9376e1a918" TYPE="btrfs"
+		// /dev/mapper/sda-crypt: UUID="fbb9e5a9-53f0-4522-b753-b3c545e3bc6d" UUID_SUB="533a8498-5089-4bd7-8e03-ddbfe564b0d9" TYPE="btrfs"
 		//
 		// # ls -alh /dev/disk/by-label/openmediavaultData
 		// lrwxrwxrwx 1 root root 9 Dec 24 14:05 /dev/disk/by-label/openmediavaultData -> ../../sdc
+		// # ls -alh /dev/mapper/sda-crypt
+		// lrwxrwxrwx 1 root root 7 Jan  1 16:26 /dev/mapper/sda-crypt -> ../dm-0
 		//
-		// Because of that we need to find out the correct device file
+		// For RAID devices we need to find out the correct device file
 		// and return ONLY that device.
+		//
 		// To achieve this, we first filter for unique UUIDs and use
 		// the /dev/disk/by-uuid/<UUID> device file to get the
-		// canonical one. After that simply get the array element
-		// related to that device file.
+		// canonical one. After that we only need to find that device
+		// in the enum list given as input argument.
+
+		// First we need to convert all device files to their canonical
+		// equivalent, otherwise devices like '/dev/mapper/xxx' won't get
+		// found in the enum list given as input argument later.
+		foreach ($enums as $enumk => &$enumv) {
+			$enumv['devicefile'] = realpath($enumv['devicefile']);
+		}
 		$uniqueEnums = array_unique_key($enums, "uuid");
 		foreach ($uniqueEnums as $uniqueEnumk => $uniqueEnumv) {
 			$canonicalDeviceFile = realpath(sprintf("/dev/disk/by-uuid/%s",
