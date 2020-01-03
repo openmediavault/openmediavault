@@ -1,3 +1,9 @@
+openmediavault (5.2.2-1) unstable; urgency=low
+
+  * Issue #551: Fix STARTTLS issue in Postfix configuration.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 02 Jan 2020 23:08:38 +0100
+
 openmediavault (5.2.1-1) unstable; urgency=low
 
   * Issue #542: Add OMV_WATCHDOG_CONF_WATCHDOG_TIMEOUT to customize
