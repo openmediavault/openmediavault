@@ -1,3 +1,9 @@
+openmediavault-diskstats (5.0.3-1) stable; urgency=low
+
+  * Issue #554: Fix issue with BTRFS filesystems.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 07 Jan 2020 14:00:40 +0100
+
 openmediavault-diskstats (5.0.2-1) stable; urgency=low
 
   * Fix bug related to MergerFS filesystems.

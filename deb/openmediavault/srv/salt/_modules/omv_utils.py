@@ -104,6 +104,18 @@ def is_file(path):
     return os.path.isfile(os.path.expanduser(path))
 
 
+@jinja_filter('is_link')
+def is_link(path):
+    """
+    Check if path is a symbolic link.
+    :param path: The path to check.
+    :type path: str
+    :return: Return True if path is a symbolic link, otherwise False.
+    :rtype: bool
+    """
+    return os.path.islink(os.path.expanduser(path))
+
+
 @jinja_filter('is_block_device')
 def is_block_device(path):
     """
