@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-#
+# 
 # Translators:
 # Alexander Savchenko, 2014
 # Alexander Savchenko <>, 2012
@@ -9,16 +9,16 @@
 # azlk azlk <phg.azlk@gmail.com>, 2012
 # Ichi <ichiperm@gmail.com>, 2012
 # mictian <ffrants@gmail.com>, 2012
-# Volker <votdev@gmx.de>, 2018
+# Volker <votdev@gmx.de>, 2018,2020
 # azlk azlk <phg.azlk@gmail.com>, 2012
 # Артур Мудрых <arturmon82@gmail.com>, 2012-2013,2015-2016
-# Артур Мудрых <arturmon82@gmail.com>, 2017-2018
+# Артур Мудрых <arturmon82@gmail.com>, 2017-2019
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-23 17:24+0100\n"
-"PO-Revision-Date: 2018-12-23 16:24+0000\n"
+"POT-Creation-Date: 2020-01-07 17:31+0100\n"
+"PO-Revision-Date: 2020-01-07 12:30+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/votdev/openmediavault/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
@@ -269,12 +269,6 @@ msgstr "Добавить общую папку"
 msgid "Add user"
 msgstr "Добавить пользователя"
 
-msgid ""
-"Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
-" href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
-"for more details."
-msgstr "Дополнительные настройки устройства, например, 'autoneg off speed 100 duplex full'. Дополнительно смотрите <a href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a>."
-
 msgid "Address"
 msgstr "Адрес"
 
@@ -291,7 +285,7 @@ msgid "Administrator: read/write, Users: read/write, Others: no access"
 msgstr "Администратор: чтение/запись, Пользователи: чтение/запись, Другие: нет доступа"
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
-msgstr "Администратор: чтение / запись, Пользователи: чтение / запись, Другие: нет доступа"
+msgstr "Администратор: чтение / запись, Пользователи: чтение / запись, Другие: только чтение"
 
 msgid "Advanced Power Management"
 msgstr "Расширенное управление питанием"
@@ -329,11 +323,14 @@ msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Разрешить этому серверу выступать в качестве сервера времени для Windows клиентов"
 
-msgid "Allow this server to try and become a local master browser"
-msgstr "Разрешить этому серверу стать локальным мастером списков"
-
 msgid "American Samoa"
 msgstr "Американское Самоа"
+
+msgid ""
+"An attempt to send the test email has been made. Please check your mailbox. "
+"If the email does not arrive, check any spam folders and also check there "
+"are no Postfix related errors in the system log."
+msgstr "Предпринята попытка отправить тестовое электронное письмо. Пожалуйста, проверьте ваш почтовый ящик. Если электронное письмо не приходит, проверьте папки со спамом, а также убедитесь, что в системном журнале нет ошибок, связанных с Postfix."
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -362,6 +359,9 @@ msgstr "Анонимный"
 
 msgid "Anonymous FTP"
 msgstr "Анонимный FTP"
+
+msgid "Another user is already authenticated."
+msgstr "Другой пользователь уже аутентифицирован."
 
 msgid "Antarctica"
 msgstr "Антарктида"
@@ -886,7 +886,7 @@ msgid "Disabled"
 msgstr "Выключено"
 
 msgid "Disallow the user to modify their account."
-msgstr "Запретить пользователю изменять аккаунт."
+msgstr "Запретить пользователю изменять учетные записи."
 
 msgid "Disk usage"
 msgstr "Использование диска"
@@ -1062,9 +1062,6 @@ msgstr "Изменить запланированное задание"
 msgid "Edit scheduled test"
 msgstr "Редактировать запланированный тест"
 
-msgid "Edit service"
-msgstr "Редактировать сервис"
-
 msgid "Edit share"
 msgstr "Редактировать общий ресурс"
 
@@ -1100,6 +1097,9 @@ msgstr "Включить SSL/TLS"
 
 msgid "Enable SSL/TLS connections"
 msgstr "Включить соединения SSL/TLS"
+
+msgid "Enable Time Machine support for this share."
+msgstr "Включить поддержку Time Machine для этого общего ресурса."
 
 msgid "Enable WINS server"
 msgstr "Включить WINS сервер"
@@ -1174,6 +1174,9 @@ msgstr "Включить кэш записи"
 
 msgid "Enabled"
 msgstr "Включено"
+
+msgid "Encryption mode"
+msgstr "Режим шифрования"
 
 msgid "Enter your password"
 msgstr "Введите свой пароль"
@@ -1676,8 +1679,14 @@ msgstr "Устанавливается открытый SSH-ключ на уда
 msgid "Interfaces"
 msgstr "Интерфейсы"
 
+msgid "Invalid IP address."
+msgstr "Неверный IP-адрес."
+
 msgid "Invalid SSH public key (RFC 4716)"
 msgstr "Неверный открытый ключ SSH (RFC 4716)"
+
+msgid "Invalid User-Agent."
+msgstr "Неверный User-Agent."
 
 msgid "Invalid domain name"
 msgstr "Неверное имя домена"
@@ -1696,6 +1705,9 @@ msgstr "Недопустимое имя"
 
 msgid "Invalid user name"
 msgstr "Недопустимое имя пользователя"
+
+msgid "Invalid user."
+msgstr "Недействительный пользователь."
 
 msgid "Iran"
 msgstr "Иран"
@@ -1836,9 +1848,6 @@ msgstr "Подождите, идет загрузка ..."
 
 msgid "Local"
 msgstr "Локальный"
-
-msgid "Local master browser"
-msgstr "Локальный главный браузер"
 
 msgid "Location"
 msgstr "Местоположение"
@@ -2222,9 +2231,6 @@ msgstr "Ноябрь"
 msgid "Num"
 msgstr "Номер"
 
-msgid "Number of servers"
-msgstr "Число серверов"
-
 msgid "OK"
 msgstr "ОК"
 
@@ -2327,11 +2333,11 @@ msgstr "Аутентификация по паролю"
 msgid "Passwords don't match"
 msgstr "Пароли не совпадают"
 
-msgid "Paste a RSA certificate in X.509 PEM format here."
-msgstr "Вставить сюда RSA сертификат X.509 в PEM формате."
+msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
+msgstr "Вставить сюда сертификат RSA или ECC в формате PEM X.509."
 
-msgid "Paste an private RSA key in X.509 PEM format here."
-msgstr "Вставить сюда приватный RSA ключ в формате X.509 PEM."
+msgid "Paste a RSA or ECC private key in X.509 PEM format here."
+msgstr "Вставить сюда закрытый ключ RSA или ECC в формате PEM X.509."
 
 msgid "Path"
 msgstr "Путь"
@@ -2475,8 +2481,14 @@ msgstr "Сохранить ACLs"
 msgid "Preserve extended attributes"
 msgstr "Сохранить расширенные атрибуты"
 
+msgid "Preserve group"
+msgstr "Сохранить группу"
+
 msgid "Preserve modification times"
 msgstr "Сохранить время модификации"
+
+msgid "Preserve owner"
+msgstr "Сохранить владельца"
 
 msgid "Preserve permissions"
 msgstr "Сохранить права доступа"
@@ -2674,9 +2686,9 @@ msgid ""
 msgstr "Сообщать, если температура изменилась, по крайней мере, на N градусов Цельсия, начиная с последнего отчета. Установите 0 для отключения этого отчёта."
 
 msgid ""
-"Report if the temperature is greater or equal than N degrees Celsius. Set to"
-" 0 to disable this report."
-msgstr "Сообщать, если температура больше или равна N градусов по Цельсию. Установите 0 для отключения этого отчёта."
+"Report if the temperature is greater than or equal to N degrees Celsius. Set"
+" to 0 to disable this report."
+msgstr "Сообщите, если температура больше или равна N градусов Цельсия. Установите 0, чтобы отключить этот отчет."
 
 msgid "Repository"
 msgstr "Хранилище"
@@ -2787,6 +2799,9 @@ msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
+
+msgid "STARTTLS"
+msgstr "STARTTLS"
 
 msgid "Saint Helena"
 msgstr "Остров Святой Елены"
@@ -2917,7 +2932,7 @@ msgstr "Выберите или введите имя пользователя..
 msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
-msgstr ""
+msgstr "Выберите устройства, которые будут использоваться для создания устройства RAID. Устройства, подключенные через USB, не будут перечислены (слишком ненадежны)."
 
 msgid "Self-test logs"
 msgstr "Журналы самопроверки"
@@ -2958,9 +2973,6 @@ msgstr "Сервер"
 msgid "Service"
 msgstr "Сервис"
 
-msgid "Service Discovery"
-msgstr "Обозреватель сервисов"
-
 msgid "Service disabled"
 msgstr "Сервис отключен"
 
@@ -2985,6 +2997,15 @@ msgstr "Установить только для чтения"
 msgid ""
 "Set the destination permissions to be the same as the source permissions"
 msgstr "Установить целевые полномочия такими же, как исходные"
+
+msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "Установить группу целевого файла такой же, как исходный файл."
+
+msgid ""
+"Set the owner of the destination file to be the same as the source file, but"
+" only if the receiving rsync is being run as the super-user."
+msgstr "Установить владельца файла назначения таким же, как исходный файл, но только в том случае, если принимающий rsync запускается от имени суперпользователя."
 
 msgid "Set write only"
 msgstr "Установить только для записи"
@@ -3113,9 +3134,6 @@ msgstr "Испания"
 
 msgid "Special action flag"
 msgstr "Специальный флаг действия"
-
-msgid "Specifies how many server threads to create."
-msgstr "Определяет, сколько серверных потоков создавать."
 
 msgid "Specifies one of the bonding policies."
 msgstr "Определяет одну из политик связывания."
@@ -3405,12 +3423,6 @@ msgid ""
 "for data connections is not required."
 msgstr "Установка повторного использования сессии SSL управляющего соединения для передачи данных."
 
-msgid "The session IP address has been changed."
-msgstr "IP-адрес сеанса был изменен."
-
-msgid "The session user no longer exists."
-msgstr "Пользователь сеанса больше не существует."
-
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
@@ -3422,11 +3434,11 @@ msgstr "Исходный общий ресурс."
 msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "Указанная квота превышает максимальное возможное значение 4 TiB."
 
+msgid "The system must be rebooted."
+msgstr "Система должна быть перезагружена."
+
 msgid "The system will reboot now. This may take some time ..."
 msgstr "Система будет перезагружена сейчас. Это может занять некоторое время..."
-
-msgid "The test email has been sent successfully. Please check your mailbox."
-msgstr "Тестовое электронное письмо было успешно отправлено. Проверьте почтовый ящик."
 
 msgid "The volume label for the file system."
 msgstr "Метка тома для файловой системы."
@@ -3650,6 +3662,9 @@ msgstr "Указывает что делать, если пакет соотве
 msgid "This will create a recycle bin on the share."
 msgstr "Это создает корзину на общем ресурсе."
 
+msgid "Threshold"
+msgstr "Порог"
+
 msgid "Thursday"
 msgstr "Четверг"
 
@@ -3658,6 +3673,9 @@ msgstr "TiB"
 
 msgid "Time"
 msgstr "Время"
+
+msgid "Time Machine support"
+msgstr "Поддержка Time Machine"
 
 msgid "Time interval"
 msgstr "Временной интервал"
@@ -3677,9 +3695,6 @@ msgstr "Часовой пояс"
 msgid "Timeout"
 msgstr "Таймаут"
 
-msgid "Times"
-msgstr "Время"
-
 msgid "Togo"
 msgstr "Того"
 
@@ -3695,14 +3710,16 @@ msgstr "Общий"
 msgid "Transfer log"
 msgstr "Протокол передачи"
 
+msgid ""
+"Transfer modification times along with the files and update them on the "
+"remote system."
+msgstr "Передать время модификации вместе с файлами и обновить их в удаленной системе."
+
 msgid "Transfer time"
 msgstr "Время передачи"
 
 msgid "Transfer type"
 msgstr "Тип передачи"
-
-msgid "Treshold"
-msgstr "Порог"
 
 msgid "Trial run"
 msgstr "Пробный запуск"
@@ -3813,11 +3830,11 @@ msgstr "Обновляет целевые расширенные атрибут�
 msgid "Updates"
 msgstr "Обновления"
 
+msgid "Updates available"
+msgstr "Доступны обновления"
+
 msgid "Updating ACL settings"
 msgstr "Обновление ACL настроек"
-
-msgid "Upgrade"
-msgstr "Обновить"
 
 msgid "Upload"
 msgstr "Загрузить"
@@ -3842,9 +3859,6 @@ msgstr "Уругвай"
 
 msgid "Use NTP server"
 msgstr "Использование сервера NTP"
-
-msgid "Use SSL/TLS secure connection"
-msgstr "Использовать SSL/TLS для безопасного соединения"
 
 msgid "Use chroot"
 msgstr "Использовать chroot"
