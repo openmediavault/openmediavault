@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
-# Serhat SUT <serhat.sut@gmail.com>, 2013-2014,2017
+# Serhat SUT <serhat.sut@gmail.com>, 2013-2014,2017,2020
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-29 17:17+0100\n"
-"PO-Revision-Date: 2019-10-29 16:20+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2019-11-01 14:47+0100\n"
+"PO-Revision-Date: 2020-01-05 15:10+0000\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/votdev/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -109,13 +109,13 @@ msgid "Preserve extended attributes"
 msgstr "Genişletilmiş öznitelikleri koru"
 
 msgid "Preserve group"
-msgstr ""
+msgstr "Grubu koru"
 
 msgid "Preserve modification times"
-msgstr ""
+msgstr "Değişiklik zamanını koru"
 
 msgid "Preserve owner"
-msgstr ""
+msgstr "Sahibi koru"
 
 msgid "Preserve permissions"
 msgstr "Yetkileri koru"
@@ -150,12 +150,12 @@ msgstr "Hedef yetkilerini kaynak yetkileri ile aynı olacak şekilde ayarla"
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "Hedef dosya gurubunu kaynak dosya ile aynı olacak şekilde ayarla."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr ""
+msgstr "Sadece super-user tarafından çalıştırılan rsync ile alındığında hedef dosya sahiplik bilgisini kaynak dosya ile aynı olacak şekilde ayarla."
 
 msgid "Shared folder"
 msgstr "Paylaşılmış klasör"
@@ -183,7 +183,7 @@ msgstr "Harici depolama cihazı bağlandığında eşleştirilecek olan paylaş�
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr ""
+msgstr "Dosyaların değiştirilme zamanını transfer et ve uzak erişim sisteminde de güncelle."
 
 msgid "USB Backup"
 msgstr "USB yedekleme"

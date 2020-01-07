@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
-# Kostas Moho, 2013-2014,2017
+# Kostas Moho, 2013-2014,2017,2019
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-29 17:17+0100\n"
-"PO-Revision-Date: 2019-10-29 16:20+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2019-11-01 14:47+0100\n"
+"PO-Revision-Date: 2019-10-30 07:42+0000\n"
+"Last-Translator: Kostas Moho\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/votdev/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -109,13 +109,13 @@ msgid "Preserve extended attributes"
 msgstr "Διατήρηση εκτεταμένων ιδιοτήτων"
 
 msgid "Preserve group"
-msgstr ""
+msgstr "Διατήρηση ομάδας"
 
 msgid "Preserve modification times"
-msgstr ""
+msgstr "Διατήρηση χρόνων μεταβολής"
 
 msgid "Preserve owner"
-msgstr ""
+msgstr "Διατήρηση ιδιοκτήτη"
 
 msgid "Preserve permissions"
 msgstr "Διατήρηση δικαιωμάτων"
@@ -146,16 +146,16 @@ msgstr "Αποστολή μηνύματος"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr "Να τεθούν τα δικαιώματα στον προορισμό όπως είναι στην πηγή."
+msgstr "Να τεθούν τα δικαιώματα των αρχείων στον προορισμό όπως είναι στην πηγή."
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "Να τεθεί η ομάδα των αρχείων στον προορισμό όπως είναι στην πηγή."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr ""
+msgstr "Να τεθεί ο ιδιοκτήτης των αρχείων στον προορισμό όπως είναι στην πηγή, αλλά μόνο όταν ο αποδέκτης λειτουργεί ως υπερ-χρήστης."
 
 msgid "Shared folder"
 msgstr "Κοινόχρηστος φάκελος"
@@ -183,7 +183,7 @@ msgstr "Ο κοινόχρηστος φάκελος για συγχρονισμό
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr ""
+msgstr "Να μεταφερθούν οι χρόνοι μεταβολής μαζί με τα αρχεία και να ενημερωθούν στο απομακρυσμένο σύστημα."
 
 msgid "USB Backup"
 msgstr "Αντίγραφα ασφαλείας σε USB"

@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Serhat SUT <serhat.sut@gmail.com>, 2012-2018
+# Serhat SUT <serhat.sut@gmail.com>, 2012-2018,2020
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-18 23:42+0100\n"
-"PO-Revision-Date: 2019-12-18 22:44+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2020-01-05 15:23+0000\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/votdev/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -321,7 +321,7 @@ msgid ""
 "An attempt to send the test email has been made. Please check your mailbox. "
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
-msgstr ""
+msgstr "Test maili gönderme işlemi denedi. Lütfen posta kutunuzu kontrol ediniz. Mail gelmemiş ise spam mail klasörünüzü ve ayrıca sistem kayıtlarında yer alan ve Postfix ile bağlantılı olmayan hata kayıtlarını kontrol ediniz. "
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -352,7 +352,7 @@ msgid "Anonymous FTP"
 msgstr "Anonim FTP"
 
 msgid "Another user is already authenticated."
-msgstr ""
+msgstr "Bir başka kullanıcı zaten onaylandı."
 
 msgid "Antarctica"
 msgstr "Antartika"
@@ -877,7 +877,7 @@ msgid "Disabled"
 msgstr "Kapatılmış"
 
 msgid "Disallow the user to modify their account."
-msgstr ""
+msgstr "Kullanıcının hesabınında değişiklik yapmasını engelle."
 
 msgid "Disk usage"
 msgstr "Disk kullanımı"
@@ -1090,7 +1090,7 @@ msgid "Enable SSL/TLS connections"
 msgstr "SSL/TLS bağlantılarını aç"
 
 msgid "Enable Time Machine support for this share."
-msgstr ""
+msgstr "Bu paylaşımda Time Machine desteğini aktive et."
 
 msgid "Enable WINS server"
 msgstr "WINS sunucusu aç"
@@ -1167,7 +1167,7 @@ msgid "Enabled"
 msgstr "Aktif"
 
 msgid "Encryption mode"
-msgstr ""
+msgstr "Şifreleme modu"
 
 msgid "Enter your password"
 msgstr "Şifrenizi giriniz"
@@ -1671,13 +1671,13 @@ msgid "Interfaces"
 msgstr "Arabirim"
 
 msgid "Invalid IP address."
-msgstr ""
+msgstr "Geçersiz IP adresi."
 
 msgid "Invalid SSH public key (RFC 4716)"
 msgstr "Geçersiz SSH açık anahtarı (RFC 4716)"
 
 msgid "Invalid User-Agent."
-msgstr ""
+msgstr "Geçersiz kullanıcı aracı."
 
 msgid "Invalid domain name"
 msgstr "Geçersiz alan adı"
@@ -1698,7 +1698,7 @@ msgid "Invalid user name"
 msgstr "Geçersiz kullanıcı adı"
 
 msgid "Invalid user."
-msgstr ""
+msgstr "Geçersiz kullanıcı."
 
 msgid "Iran"
 msgstr "İran"
@@ -2325,10 +2325,10 @@ msgid "Passwords don't match"
 msgstr "Şifreler uyuşmuyor"
 
 msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
-msgstr ""
+msgstr "RSA ya da ECC sertifikasını X.509 PEM formatında buraya yapıştırınız."
 
 msgid "Paste a RSA or ECC private key in X.509 PEM format here."
-msgstr ""
+msgstr "RSA ya da ECC özel anahtarını X.509 PEM formatında buraya yapıştırınız."
 
 msgid "Path"
 msgstr "Yol"
@@ -2473,13 +2473,13 @@ msgid "Preserve extended attributes"
 msgstr "Genişletilmiş öznitelikleri koru"
 
 msgid "Preserve group"
-msgstr ""
+msgstr "Grubu koru"
 
 msgid "Preserve modification times"
 msgstr "Değiştirilme zamanlarını koru"
 
 msgid "Preserve owner"
-msgstr ""
+msgstr "Sahibi koru"
 
 msgid "Preserve permissions"
 msgstr "Yetkileri koru"
@@ -2679,7 +2679,7 @@ msgstr "Son raporlamadan bu yana sıcaklık en azından N derece değişmiş ise
 msgid ""
 "Report if the temperature is greater than or equal to N degrees Celsius. Set"
 " to 0 to disable this report."
-msgstr ""
+msgstr "Sıcaklık N derecesine eşit ya da büyük ise raporla. Bu raporu kapatmak için 0 giriniz."
 
 msgid "Repository"
 msgstr "Depo"
@@ -2792,7 +2792,7 @@ msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
 msgid "STARTTLS"
-msgstr ""
+msgstr "STARTTLS"
 
 msgid "Saint Helena"
 msgstr "Saint Helena"
@@ -2923,7 +2923,7 @@ msgstr "Bir kullanıcı adı seçiniz ya da giriniz..."
 msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
-msgstr ""
+msgstr "RAID aygıtını oluşturmak için kulalnılacak aygıtları seçiniz. USB arabiriminden bağlanan aygıtlar listelenmeyecektir (oldukça güvensiz)."
 
 msgid "Self-test logs"
 msgstr "İç kontrol kayıtları"
@@ -2991,12 +2991,12 @@ msgstr "Hedef yetkilerini kaynak yetkileri ile aynı olacak şekilde ayarla"
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "Hedef dosya grup bilgisini kaynak dosya ile aynı yap."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr ""
+msgstr "Sadece super-user tarafından çalıştırılan rsync ile alındığında hedef dosya sahiplik bilgisini kaynak dosya ile aynı olacak şekilde ayarla."
 
 msgid "Set write only"
 msgstr "Sadece yazılabilir ayarla"
@@ -3426,7 +3426,7 @@ msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "Belirlenen kota 4 TiB lık olabilecek en yüksek değere ulaştığında biter."
 
 msgid "The system must be rebooted."
-msgstr ""
+msgstr "Sistem yeniden başlatılmalıdır."
 
 msgid "The system will reboot now. This may take some time ..."
 msgstr "Sistem yeniden başlatılıyor. Bu işlem vakit alabilir ..."
@@ -3654,7 +3654,7 @@ msgid "This will create a recycle bin on the share."
 msgstr "Bu seçenek paylaşımda bir geri dönüşüm kutusu yaratır."
 
 msgid "Threshold"
-msgstr ""
+msgstr "Sınır"
 
 msgid "Thursday"
 msgstr "Perşembe"
@@ -3666,7 +3666,7 @@ msgid "Time"
 msgstr "Zaman"
 
 msgid "Time Machine support"
-msgstr ""
+msgstr "Tiem Machine desteği"
 
 msgid "Time interval"
 msgstr "Zaman aralığı"
@@ -3704,7 +3704,7 @@ msgstr "Altarım kaydı"
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr ""
+msgstr "Tüm dosyaların değişiklik zamanını değiştir ve uzak sistemde de güncelle."
 
 msgid "Transfer time"
 msgstr "Aktarım zamanı"
@@ -3822,7 +3822,7 @@ msgid "Updates"
 msgstr "Güncellemeler"
 
 msgid "Updates available"
-msgstr ""
+msgstr "Güncelleştirmeler mevcut"
 
 msgid "Updating ACL settings"
 msgstr "ACL ayarları güncelleniyor"

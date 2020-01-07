@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
-# Toshihiro Kan <kansuke4649@gmail.com>, 2014,2017
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014,2017,2019
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-29 17:17+0100\n"
-"PO-Revision-Date: 2019-10-29 16:20+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2019-11-01 14:47+0100\n"
+"PO-Revision-Date: 2019-11-05 01:28+0000\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/votdev/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -109,13 +109,13 @@ msgid "Preserve extended attributes"
 msgstr "拡張属性を維持する"
 
 msgid "Preserve group"
-msgstr ""
+msgstr "グループを維持"
 
 msgid "Preserve modification times"
-msgstr ""
+msgstr "変更時刻を保存"
 
 msgid "Preserve owner"
-msgstr ""
+msgstr "オーナーを維持"
 
 msgid "Preserve permissions"
 msgstr "パーミッションを維持する"
@@ -150,12 +150,12 @@ msgstr "元のアクセス権と同じになるように先のアクセス権を
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "宛先ファイルのグループを元のファイルと同じになるように設定します。"
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr ""
+msgstr "受信側のrsyncがスーパーユーザーとして実行されている場合のみ、送信先ファイルの所有者を送信元ファイルと同じに設定します。"
 
 msgid "Shared folder"
 msgstr "共有フォルダ"
@@ -183,7 +183,7 @@ msgstr "外部記憶装置が接続されているときに同期するための
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr ""
+msgstr "変更時間をファイルとともに転送し、リモートシステムで更新します。"
 
 msgid "USB Backup"
 msgstr "USBバックアップ"
