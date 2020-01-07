@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
-# 
+#
 # Translators:
 # Alexander Savchenko, 2014
 # Alexander Savchenko <>, 2012
@@ -291,7 +291,7 @@ msgid "Administrator: read/write, Users: read/write, Others: no access"
 msgstr "Администратор: чтение/запись, Пользователи: чтение/запись, Другие: нет доступа"
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
-msgstr "Администратор: чтение / запись, Пользователи: чтение / запись, Другие: нет доступа"
+msgstr "Администратор: чтение / запись, Пользователи: чтение / запись, Другие: только чтение"
 
 msgid "Advanced Power Management"
 msgstr "Расширенное управление питанием"
