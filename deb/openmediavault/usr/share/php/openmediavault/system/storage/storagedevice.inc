@@ -48,7 +48,7 @@ class StorageDevice extends \OMV\System\BlockDevice
 		$filename = sprintf("/sys/block/%s/device/vendor",
 			$this->getDeviceName(TRUE));
 		if (file_exists($filename))
-			$this->_vendor = trim(file_get_contents($filename));
+			return trim(file_get_contents($filename));
 		return "";
 	}
 
