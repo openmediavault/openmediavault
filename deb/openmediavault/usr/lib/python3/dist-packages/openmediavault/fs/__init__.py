@@ -159,15 +159,26 @@ class Filesystem(openmediavault.device.BlockDevice):
             or ``None`` in case of an error.
         :rtype: str|None
         """
-        context = pyudev.Context()
-        device = pyudev.Devices.from_device_file(context, self.device_file)
-        if device and device.parent:
-            if device.parent.device_node is not None:
-                # /dev/sdb1 => /dev/sdb
-                return device.parent.device_node
-            else:
-                # /dev/sdb => /dev/sdb
-                return self.device_file
+        try:
+            context = pyudev.Context()
+            device = pyudev.Devices.from_device_file(context, self.device_file)
+            if device and device.parent:
+                if device.parent.device_node is not None:
+                    # /dev/sdb1 => /dev/sdb
+                    return device.parent.device_node
+                else:
+                    # /dev/sdb => /dev/sdb
+                    return self.device_file
+        except pyudev.DeviceNotFoundByFileError as e:
+            # If we are reaching this code path we are surely processing a Btrfs
+            # filesystem. A Btrfs subvolume is an independently mountable POSIX
+            # filetree and not a block device (and cannot be treated as one).
+            # Try to get the parent device manually.
+            # Check if we are processing a 'sd' driver device.
+            if re.match(r'^sd\d+$', self.device_name(True)):
+                # Simply cut-off the partition from the name of the device file.
+                return re.sub(r'\d+', '', self.canonical_device_file)
+            raise e
         # Device mapper devices must be specially treated.
         if re.match(r'^(dm-|md)\d+$', self.device_name(True)):
             return self.device_file
