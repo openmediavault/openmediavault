@@ -1,3 +1,10 @@
+openmediavault (5.2.3-1) unstable; urgency=low
+
+  * Issue 564: Improve openmediavault.fs.Filesystem::get_parent_device_file()
+    to handle BTRFS subvolumes.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 11 Jan 2020 15:57:07 +0100
+
 openmediavault (5.2.2-1) unstable; urgency=low
 
   * Issue #551: Fix STARTTLS issue in Postfix configuration.
