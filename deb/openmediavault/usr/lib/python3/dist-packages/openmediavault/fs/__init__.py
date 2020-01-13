@@ -175,7 +175,7 @@ class Filesystem(openmediavault.device.BlockDevice):
             # filetree and not a block device (and cannot be treated as one).
             # Try to get the parent device manually.
             # Check if we are processing a 'sd' driver device.
-            if re.match(r'^sd\d+$', self.device_name(True)):
+            if re.match(r'^sd[a-z]+\d+$', self.device_name(True)):
                 # Simply cut-off the partition from the name of the device file.
                 return re.sub(r'\d+', '', self.canonical_device_file)
             raise e
