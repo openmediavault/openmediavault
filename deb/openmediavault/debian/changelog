@@ -1,13 +1,19 @@
+openmediavault (5.2.4-1) unstable; urgency=low
+
+  * Issue #567: Add storage backend for Areca RAID controllers.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 14 Jan 2020 08:20:11 +0100
+
 openmediavault (5.2.3-2) unstable; urgency=low
 
-  * Issue 564: Improve openmediavault.fs.Filesystem::get_parent_device_file()
+  * Issue #564: Improve openmediavault.fs.Filesystem::get_parent_device_file()
     to handle BTRFS subvolumes.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 13 Jan 2020 23:05:01 +0100
 
 openmediavault (5.2.3-1) unstable; urgency=low
 
-  * Issue 564: Improve openmediavault.fs.Filesystem::get_parent_device_file()
+  * Issue #564: Improve openmediavault.fs.Filesystem::get_parent_device_file()
     to handle BTRFS subvolumes.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 11 Jan 2020 15:57:07 +0100
