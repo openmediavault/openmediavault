@@ -48,6 +48,10 @@ class SD extends BackendAbstract {
 	function getImpl($args) {
 		$result = NULL;
 		switch ($this->getHostDriver($args)) {
+		case "arcmsr":
+			// Areca RAID controller
+			$result = new \OMV\System\Storage\StorageDeviceARCMSR($args);
+			break;
 		case "hpsa":
 			// Logical drives from HP Smart Array RAID controllers
 			// are accessed via the SCSI disk driver, so we need to
