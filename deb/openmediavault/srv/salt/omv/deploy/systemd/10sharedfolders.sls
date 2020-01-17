@@ -20,21 +20,23 @@
 # Documentation/Howto:
 # https://www.freedesktop.org/software/systemd/man/bootup.html#System%20Manager%20Bootup
 
-{% set sharedfolders_path = salt['pillar.get']('default:OMV_SHAREDFOLDERS_DIR', '/sharedfolders') %}
-{% set sharedfolders_path_escaped = salt['cmd.run']('systemd-escape --path ' ~ sharedfolders_path) %}
-{% set sharedfolders_config = salt['omv_conf.get']('conf.system.sharedfolder') %}
+{% set sharedfolders_dir_enabled = salt['pillar.get']('default:OMV_SHAREDFOLDERS_DIR_ENABLED', 'yes') %}
+{% set sharedfolders_dir = salt['pillar.get']('default:OMV_SHAREDFOLDERS_DIR', '/sharedfolders') %}
+{% set sharedfolders_dir_escaped = salt['cmd.run']('systemd-escape --path ' ~ sharedfolders_dir) %}
+{% set sharedfolder_config = salt['omv_conf.get']('conf.system.sharedfolder') %}
 
 remove_sharedfolder_mount_unit_files:
   module.run:
     - file.find:
       - path: "/etc/systemd/system"
-      - iname: "{{ sharedfolders_path_escaped }}-*.mount"
+      - iname: "{{ sharedfolders_dir_escaped }}-*.mount"
       - delete: "f"
 
-{% for sharedfolder in sharedfolders_config %}
+{% if sharedfolders_dir_enabled | to_bool %}
+{% for sharedfolder in sharedfolder_config %}
 {% set mntdir = salt['omv_conf.get_sharedfolder_mount_path'](sharedfolder.uuid) %}
 {% set what = salt['omv_conf.get_sharedfolder_path'](sharedfolder.uuid) %}
-{% set where = sharedfolders_path | path_join(sharedfolder.name) %}
+{% set where = sharedfolders_dir | path_join(sharedfolder.name) %}
 {% set unit_name = salt['cmd.run']('systemd-escape --path --suffix=mount ' ~ where) %}
 
 configure_sharedfolder_{{ sharedfolder.name }}_mount_unit_file:
@@ -50,7 +52,7 @@ configure_sharedfolder_{{ sharedfolder.name }}_mount_unit_file:
         Wants=sysinit.target
         Conflicts=umount.target
         RequiresMountsFor={{ mntdir }}
-        AssertPathIsDirectory={{ sharedfolders_path }}
+        AssertPathIsDirectory={{ sharedfolders_dir }}
         AssertPathIsMountPoint={{ mntdir }}
         AssertPathIsDirectory={{ what }}
 
@@ -67,13 +69,15 @@ configure_sharedfolder_{{ sharedfolder.name }}_mount_unit_file:
     - mode: 644
 
 {% endfor %}
+{% endif %}
 
 sharedfolder_mount_units_systemctl_daemon_reload:
   module.run:
     - name: service.systemctl_reload
 
-{% for sharedfolder in sharedfolders_config %}
-{% set where = sharedfolders_path | path_join(sharedfolder.name) %}
+{% if sharedfolders_dir_enabled | to_bool %}
+{% for sharedfolder in sharedfolder_config %}
+{% set where = sharedfolders_dir | path_join(sharedfolder.name) %}
 {% set unit_name = salt['cmd.run']('systemd-escape --path --suffix=mount ' ~ where) %}
 
 # Only enable the mount unit, do NOT take care that it is running.
@@ -91,3 +95,4 @@ restart_sharedfolder_{{ sharedfolder.name }}_mount_unit:
       - name: {{ unit_name }}
 
 {% endfor %}
+{% endif %}
