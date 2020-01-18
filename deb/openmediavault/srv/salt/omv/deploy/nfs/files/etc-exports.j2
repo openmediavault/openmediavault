@@ -1,6 +1,6 @@
 {%- set separator = ' ' %}
 {%- set export_dir = salt['pillar.get']('default:OMV_NFSD_EXPORT_DIR', '/export') -%}
-{%- set v4_default_options = salt['pillar.get']('default:OMV_NFSD_V4_DEFAULT_EXPORT_OPTIONS', 'ro,fsid=0,root_squash,no_subtree_check,hide') -%}
+{%- set v4_default_options = salt['pillar.get']('default:OMV_NFSD_V4_DEFAULT_EXPORT_OPTIONS', 'ro,fsid=0,root_squash,no_subtree_check,hide,sec=krb5p:krb5i:krb5:sys') -%}
 {%- set shares_v3 = salt['omv_conf.get_by_filter'](
   'conf.service.nfs.share',
   {'operator': 'distinct', 'arg0': 'sharedfolderref'}) -%}
