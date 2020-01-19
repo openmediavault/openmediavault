@@ -1,5 +1,10 @@
-{%- set max_speed = salt['pillar.get']('default:OMV_CPUFREQUTILS_MAXSPEED', '0') %}
-{%- set min_speed = salt['pillar.get']('default:OMV_CPUFREQUTILS_MINSPEED', '0') %}
+{%- set max_speed = salt['pillar.get']('default:OMV_CPUFREQUTILS_MAXSPEED', '0') -%}
+{%- set min_speed = salt['pillar.get']('default:OMV_CPUFREQUTILS_MINSPEED', '0') -%}
+{%- set governor = salt['pillar.get']('default:OMV_CPUFREQUTILS_GOVERNOR', salt['grains.filter_by']({
+    "default": "ondemand",
+    "amd64": "conservative",
+    "i386": "conservative"
+  }, grain="osarch")) -%}
 {%- if cpufreq -%}
 ENABLE="true"
 {%- else -%}

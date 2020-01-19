@@ -23,11 +23,6 @@
 # http://wiki.ubuntuusers.de/powernowd
 
 {% set config = salt['omv_conf.get']('conf.system.powermngmnt') %}
-{%- set governor = salt['grains.filter_by']({
-    "default": "ondemand",
-    "amd64": "conservative",
-    "i386": "conservative"
-  }, grain="osarch") %}
 
 configure_default_cpufrequtils:
   file.managed:
@@ -37,7 +32,6 @@ configure_default_cpufrequtils:
     - template: jinja
     - context:
         cpufreq: {{ config.cpufreq }}
-        governor: {{ governor }}
     - user: root
     - group: root
     - mode: 644

@@ -3,6 +3,7 @@ openmediavault (5.2.4-1) unstable; urgency=low
   * Issue #567: Add storage backend for Areca RAID controllers.
   * Add OMV_SHAREDFOLDERS_DIR_ENABLED environment variable to disable
     the creation of /sharedfolders/<XXX> directories.
+  * Make cpufrequtils governor customizable via OMV_CPUFREQUTILS_GOVERNOR.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 14 Jan 2020 08:20:11 +0100
 
