@@ -52,6 +52,9 @@ class test_openmediavault_datamodel_schema extends \PHPUnit\Framework\TestCase {
 		]);
 	}
 
+	/**
+	 * @doesNotPerformAssertions
+	 */
 	public function testCheckFormatFsuuid1() {
 		# EXT2/3/4, JFS, XFS
 		$schema = $this->getSchema();
@@ -59,6 +62,9 @@ class test_openmediavault_datamodel_schema extends \PHPUnit\Framework\TestCase {
 			[ "format" => "fsuuid" ], "field1");
 	}
 
+	/**
+	 * @doesNotPerformAssertions
+	 */
 	public function testCheckFormatFsuuid2() {
 		# FAT
 		$schema = $this->getSchema();
@@ -66,6 +72,9 @@ class test_openmediavault_datamodel_schema extends \PHPUnit\Framework\TestCase {
 			[ "format" => "fsuuid" ], "field1");
 	}
 
+	/**
+	 * @doesNotPerformAssertions
+	 */
 	public function testCheckFormatFsuuid3() {
 		# NTFS
 		$schema = $this->getSchema();
@@ -73,24 +82,36 @@ class test_openmediavault_datamodel_schema extends \PHPUnit\Framework\TestCase {
 			[ "format" => "fsuuid" ], "field1");
 	}
 
+	/**
+	 * @doesNotPerformAssertions
+	 */
 	public function testCheckFormatDevicefile1() {
 		$schema = $this->getSchema();
 		$schema->checkFormat("/dev/sda1",
 			[ "format" => "devicefile" ], "field1");
 	}
 
+	/**
+	 * @doesNotPerformAssertions
+	 */
 	public function testCheckFormatDevicefile2() {
 		$schema = $this->getSchema();
 		$schema->checkFormat("/dev/disk/by-id/wwn-0x5020c298d81c1c3a",
 			[ "format" => "devicefile" ], "field1");
 	}
 
+	/**
+	 * @doesNotPerformAssertions
+	 */
 	public function testCheckFormatDirpath1() {
 		$schema = $this->getSchema();
 		$schema->checkFormat("/media/a/b/c/@data",
 			[ "format" => "dirpath" ], "field1");
 	}
 
+	/**
+	 * @doesNotPerformAssertions
+	 */
 	public function testCheckFormatDirpath2() {
 		$schema = $this->getSchema();
 		$schema->checkFormat("Library/App Support/Logs/",

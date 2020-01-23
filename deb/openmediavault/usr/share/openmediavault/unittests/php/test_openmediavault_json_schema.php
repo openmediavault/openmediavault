@@ -139,11 +139,17 @@ class test_openmediavault_json_schema extends \PHPUnit\Framework\TestCase {
 		$schema->validate(["name" => "Eggs", "price" => 34.99]);
 	}
 
+	/**
+	 * @doesNotPerformAssertions
+	 */
 	public function testValidatePattern1() {
 		$schema = $this->getSchema();
 		$schema->validate(["name" => "Eggs", "slaves" => "eth0"]);
 	}
 
+	/**
+	 * @doesNotPerformAssertions
+	 */
 	public function testValidatePattern2() {
 		$schema = $this->getSchema();
 		$schema->validate([
@@ -152,6 +158,9 @@ class test_openmediavault_json_schema extends \PHPUnit\Framework\TestCase {
 		]);
 	}
 
+	/**
+	 * @doesNotPerformAssertions
+	 */
 	public function testValidatePattern3() {
 		$schema = $this->getSchema();
 		$schema->validate([
@@ -160,6 +169,9 @@ class test_openmediavault_json_schema extends \PHPUnit\Framework\TestCase {
 		]);
 	}
 
+	/**
+	 * @doesNotPerformAssertions
+	 */
 	public function testValidatePattern4() {
 		$schema = $this->getSchema();
 		$schema->validate([

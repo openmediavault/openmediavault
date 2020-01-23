@@ -33,6 +33,9 @@ class test_openmediavault_config_configobject extends \PHPUnit\Framework\TestCas
 		$modelMngr->load();
 	}
 
+	/**
+	 * @doesNotPerformAssertions
+	 */
 	public function testConstructor() {
 		$object = new \OMV\Config\ConfigObject("conf.service.ftp.share");
 	}
