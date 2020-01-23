@@ -59,7 +59,7 @@ configure_watchdog_conf:
         # your machine is really loaded
         realtime = {{ watchdog_conf_realtime }}
         priority = {{ watchdog_conf_priority }}
-        {%- if watchdog_conf_timeout %}
+        {%- if watchdog_conf_watchdog_timeout %}
         watchdog-timeout = {{ watchdog_conf_watchdog_timeout }}
         {% endif %}
     - user: root
