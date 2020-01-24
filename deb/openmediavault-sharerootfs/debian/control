@@ -1,0 +1,16 @@
+Source: openmediavault-sharerootfs
+Section: admin
+XB-Plugin-Section: admin
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>> 7), gettext
+Standards-Version: 3.9.6
+Homepage: https://www.openmediavault.org
+
+Package: openmediavault-sharerootfs
+Architecture: all
+Depends: openmediavault (>= 5.2.4)
+Priority: optional
+Description: openmediavault share root filesystem plugin
+ The plugin enables the ability to create shared folders in the
+ root filesystem.

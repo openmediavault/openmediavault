@@ -1,4 +1,4 @@
-# -*- mode: makefile; coding: utf-8 -*-
+#!/bin/sh
 #
 # This file is part of OpenMediaVault.
 #
@@ -19,14 +19,32 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-test:
-	npm test
+set -e
 
-install:
-	echo "Installing required packages ..."
-	sudo apt-get install curl software-properties-common
-	curl -sL https://deb.nodesource.com/setup_13.x | sudo bash -
-	sudo apt-get install -y nodejs
-	npm install
+. /usr/share/openmediavault/scripts/helper-functions
 
-.PHONY: test install
+case "$1" in
+	purge)
+	  # Try to purge the database configuration object. This is only possible
+	  # if there are no references (e.g. by shared folders) to the database
+	  # configuration object.
+		uuid="79684322-3eac-11ea-a974-63a080abab18"
+		if [ "$(omv_config_get_count "//mntentref[.='${uuid}']")" = "0" ]; then
+			echo "Cleaning up configuration database ..."
+			omv_config_delete "/config/system/fstab/mntent[uuid='${uuid}']"
+		fi
+	;;
+
+	remove)
+	;;
+
+	upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+	;;
+
+	*)
+		echo "postrm called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0

@@ -59,6 +59,17 @@ String.prototype.rtrim = function(chars) {
 	return str.replace(new RegExp("[" + chars + "]+$", "g"), "");
 };
 
+/**
+ * Strip whitespace or other characters from the beginning and
+ * the end of a string.
+ * The method does not affect the value of the string itself.
+ * @param chars The characters to be stripped.
+ */
+String.prototype.lrtrim = function(chars) {
+	var result = this.ltrim(chars);
+	return result.rtrim(chars);
+};
+
 Date.mapHour = [
 	["*", "*"],
 	["0", "0"],

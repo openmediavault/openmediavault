@@ -682,8 +682,15 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 							name: "absdirpath",
 							convert: function(value, record) {
 								var mntent = record.get("mntent");
-								return Ext.String.format("{0}/{1}",
-									mntent.dir, record.get("reldirpath"));
+								var parts = [
+									mntent.dir,
+									record.get("reldirpath")
+								];
+								return "/" + parts.map(function(part) {
+									return part.lrtrim("/");
+								}).filter(function(part) {
+									return part.length;
+								}).join("/");
 							},
 							type: "string"
 						},
