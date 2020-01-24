@@ -178,9 +178,34 @@ class test_openmediavault_functions extends \PHPUnit_Framework_TestCase {
 		$this->assertFalse(is_json(123));
 	}
 
-	public function test_build_path() {
+	public function test_build_path_1() {
 		$path = build_path(DIRECTORY_SEPARATOR, "/usr", "local", "share");
 		$this->assertEquals($path, "/usr/local/share");
+	}
+
+	public function test_build_path_2() {
+		$path = build_path(DIRECTORY_SEPARATOR, "usr", "//local", "/share//");
+		$this->assertEquals($path, "usr/local/share");
+	}
+
+	public function test_build_path_3() {
+		$path = build_path(DIRECTORY_SEPARATOR, "/", "");
+		$this->assertEquals($path, "/");
+	}
+
+	public function test_build_path_4() {
+		$path = build_path(DIRECTORY_SEPARATOR, "", "/");
+		$this->assertEquals($path, "/");
+	}
+
+	public function test_build_path_5() {
+		$path = build_path(DIRECTORY_SEPARATOR, "", "/", "/", "/usr", "");
+		$this->assertEquals($path, "/usr");
+	}
+
+	public function test_build_path_6() {
+		$path = build_path(DIRECTORY_SEPARATOR, ".", "/../", "../");
+		$this->assertEquals($path, "./../../");
 	}
 
 	public function test_json_encode_safe() {

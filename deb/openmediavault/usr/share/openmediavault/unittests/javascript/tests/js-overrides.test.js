@@ -20,6 +20,10 @@ describe('String', () => {
 		expect('\\\\foo'.ltrim('\\')).toBe('foo');
 		expect('bar\\\\'.rtrim('\\')).toBe('bar');
 	});
+
+	it('Should trim the string', () => {
+		expect('\n\ntest\n\n'.lrtrim('\n')).toBe('test');
+	});
 });
 
 describe('Date', () => {
