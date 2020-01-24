@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Herald Yu <yuhr123@gmail.com>, 2018-2019
-# songming <by@songming.me>, 2013-2019
+# songming <by@songming.me>, 2013-2020
 # Wei Ding <dyw.net@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-07 17:31+0100\n"
-"PO-Revision-Date: 2019-12-22 13:11+0000\n"
-"Last-Translator: Herald Yu <yuhr123@gmail.com>\n"
+"PO-Revision-Date: 2020-01-24 14:57+0000\n"
+"Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2794,7 +2794,7 @@ msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
 msgid "STARTTLS"
-msgstr ""
+msgstr "启用 TLS"
 
 msgid "Saint Helena"
 msgstr "圣赫勒拿"
