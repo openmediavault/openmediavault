@@ -74,7 +74,7 @@ class Command(
             rc = 1
             # Display the exception message.
             openmediavault.log.error(
-                "Failed to delete the " "configuration object: %s" % str(e)
+                "Failed to delete the configuration object: %s", str(e)
             )
             # Rollback all changes.
             self.rollback_changes()

@@ -77,7 +77,7 @@ class Command(
         except Exception as e:
             # Display the exception message.
             openmediavault.log.error(
-                "Failed to create the default " "configuration: %s" % str(e)
+                "Failed to create the default configuration: %s", str(e)
             )
             # Rollback all changes.
             self.rollback_changes()
