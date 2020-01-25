@@ -1,3 +1,9 @@
+openmediavault (4.1.33-1) stable; urgency=low
+
+  * Fix various issues.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 25 Jan 2020 09:54:04 +0100
+
 openmediavault (4.1.32-1) stable; urgency=low
 
   * Fix various issues.

@@ -107,7 +107,7 @@ class Command(
             rc = 0
         except Exception as e:
             # Display the exception message.
-            openmediavault.log.error("Failed to apply migrations: %s" % str(e))
+            openmediavault.log.error("Failed to apply migrations: %s", str(e))
             # Rollback all changes.
             self.rollback_changes()
         finally:
