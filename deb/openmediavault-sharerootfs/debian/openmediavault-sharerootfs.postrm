@@ -31,7 +31,7 @@ case "$1" in
 		uuid="79684322-3eac-11ea-a974-63a080abab18"
 		if [ "$(omv_config_get_count "//mntentref[.='${uuid}']")" = "0" ]; then
 			echo "Cleaning up configuration database ..."
-			omv_config_delete "/config/system/fstab/mntent[uuid='${uuid}']"
+			omv-confdbadm delete --uuid "${uuid}" "conf.system.filesystem.mountpoint"
 		fi
 	;;
 

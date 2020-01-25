@@ -30,7 +30,8 @@ case "$1" in
 	  # (this should help to identify the usage of this plugin in case of
 	  # help support issues).
 		uuid="79684322-3eac-11ea-a974-63a080abab18"
-		if ! omv-confdbadm exists --filter "{\"operator\":\"stringEquals\",\"arg0\":\"uuid\",\"arg1\":\"${uuid}\"}" conf.system.filesystem.mountpoint; then
+		if ! omv-confdbadm exists --filter "{\"operator\":\"stringEquals\",\"arg0\":\"uuid\",\"arg1\":\"${uuid}\"}" \
+		    "conf.system.filesystem.mountpoint"; then
 			mntent=$(salt-call --local --retcode-passthrough --no-color \
 					--out=json mount.fstab | \
 					jq --compact-output '.[] | .["/"]')
