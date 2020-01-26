@@ -31,7 +31,7 @@ omv_tx_status:
 	  --resource=$(OMV_TRANSIFEX_PROJECT_SLUG).$(OMV_PACKAGE)
 
 omv_tx_pull_po:
-	tx --root="$(CURDIR)/../" pull --all \
+	tx --root="$(CURDIR)/../" pull --all --force \
 	  --resource=$(OMV_TRANSIFEX_PROJECT_SLUG).$(OMV_PACKAGE)
 
 omv_tx_push_pot:
