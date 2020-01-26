@@ -24,43 +24,45 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 case "$1" in
-	configure)
-	  # Create a new mount point configuration for the root filesystem. Use
-	  # the same UUID on all systems for this database configuration object
-	  # (this should help to identify the usage of this plugin in case of
-	  # help support issues).
-		uuid="79684322-3eac-11ea-a974-63a080abab18"
-		if ! omv-confdbadm exists --filter "{\"operator\":\"stringEquals\",\"arg0\":\"uuid\",\"arg1\":\"${uuid}\"}" \
-		    "conf.system.filesystem.mountpoint"; then
-			mntent=$(salt-call --local --retcode-passthrough --no-color \
-					--out=json mount.fstab | \
-					jq --compact-output '.[] | .["/"]')
-			device=$(salt-call --local --retcode-passthrough --no-color \
-					--out=json omv_utils.get_root_filesystem | \
-					jq --raw-output '.[]')
-			fstype=$(echo ${mntent} | jq --raw-output '.fstype')
-			opts=$(echo ${mntent} | jq --raw-output '.opts | join(",")')
-			dump=$(echo ${mntent} | jq --raw-output '.dump')
-			pass=$(echo ${mntent} | jq --raw-output '.pass')
-			object="<uuid>${uuid}</uuid>"
-			object="${object}<fsname>${device}</fsname>"
-			object="${object}<dir>/</dir>"
-			object="${object}<type>${fstype}</type>"
-			object="${object}<opts>${opts}</opts>"
-			object="${object}<freq>${dump}</freq>"
-			object="${object}<passno>${pass}</passno>"
-			object="${object}<hidden>1</hidden>"
-			omv_config_add_node_data "/config/system/fstab" "mntent" "${object}"
-		fi
-	;;
+  configure)
+    # Create a new mount point configuration for the root filesystem. Use
+    # the same UUID on all systems for this database configuration object
+    # (this should help to identify the usage of this plugin in case of
+    # help support issues).
+    uuid="79684322-3eac-11ea-a974-63a080abab18"
+    if ! omv-confdbadm exists --filter "{\"operator\":\"stringEquals\",\"arg0\":\"uuid\",\"arg1\":\"${uuid}\"}" \
+        "conf.system.filesystem.mountpoint"; then
+      mntent=$(salt-call --local --retcode-passthrough --no-color \
+        --out=json mount.fstab | \
+        jq --compact-output '.[] | .["/"]')
+      if [ "${mntent}" != "null" ]; then
+        device=$(salt-call --local --retcode-passthrough --no-color \
+          --out=json omv_utils.get_root_filesystem | \
+          jq --raw-output '.[]')
+        fstype=$(echo ${mntent} | jq --raw-output '.fstype')
+        opts=$(echo ${mntent} | jq --raw-output '.opts | join(",")')
+        dump=$(echo ${mntent} | jq --raw-output '.dump')
+        pass=$(echo ${mntent} | jq --raw-output '.pass')
+        object="<uuid>${uuid}</uuid>"
+        object="${object}<fsname>${device}</fsname>"
+        object="${object}<dir>/</dir>"
+        object="${object}<type>${fstype}</type>"
+        object="${object}<opts>${opts}</opts>"
+        object="${object}<freq>${dump}</freq>"
+        object="${object}<passno>${pass}</passno>"
+        object="${object}<hidden>1</hidden>"
+        omv_config_add_node_data "/config/system/fstab" "mntent" "${object}"
+      fi
+    fi
+  ;;
 
-	abort-upgrade|abort-remove|abort-deconfigure)
-	;;
+  abort-upgrade|abort-remove|abort-deconfigure)
+  ;;
 
-	*)
-		echo "postinst called with unknown argument '$1'" >&2
-		exit 1
-	;;
+  *)
+    echo "postinst called with unknown argument '$1'" >&2
+    exit 1
+  ;;
 esac
 
 exit 0
