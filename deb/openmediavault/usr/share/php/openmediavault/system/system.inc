@@ -64,12 +64,19 @@ class System {
 	 *   otherwise FALSE.
 	 */
 	public static function isRootDeviceFile($deviceFile, $exact = TRUE) {
+		// '/dev/root' is obsolete, but we still keep it (maybe we will
+		// need it sometime).
 		if ("/dev/root" == $deviceFile)
 			return TRUE;
 		$rootDeviceFile = self::getRootDeviceFile();
-		if (TRUE === $exact)
-			return ($rootDeviceFile == $deviceFile) ? TRUE : FALSE;
-		return (0 === strpos($rootDeviceFile, $deviceFile)) ? TRUE : FALSE;
+		if (TRUE === $exact) {
+			return (($rootDeviceFile == $deviceFile) ||
+				($rootDeviceFile == realpath($deviceFile))) ?
+				TRUE : FALSE;
+		}
+		return ((0 === strpos($rootDeviceFile, $deviceFile)) ||
+			(0 === strpos($rootDeviceFile, realpath($deviceFile)))) ?
+			TRUE : FALSE;
 	}
 
 	/**
