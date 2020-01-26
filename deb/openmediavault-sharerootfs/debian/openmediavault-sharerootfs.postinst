@@ -52,6 +52,20 @@ case "$1" in
         object="${object}<passno>${pass}</passno>"
         object="${object}<hidden>1</hidden>"
         omv_config_add_node_data "/config/system/fstab" "mntent" "${object}"
+      else
+        # Looks like we are in a container environment.
+        # We need to fake some mount point attributes. Note, most of
+        # them are unimportant because this configuration object is
+        # never applied or used.
+        object="<uuid>${uuid}</uuid>"
+        object="${object}<fsname>/dev/root</fsname>"
+        object="${object}<dir>/</dir>"
+        object="${object}<type>none</type>"
+        object="${object}<opts></opts>"
+        object="${object}<freq>0</freq>"
+        object="${object}<passno>1</passno>"
+        object="${object}<hidden>1</hidden>"
+        omv_config_add_node_data "/config/system/fstab" "mntent" "${object}"
       fi
     fi
   ;;

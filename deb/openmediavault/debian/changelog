@@ -1,3 +1,9 @@
+openmediavault (5.2.5-1) unstable; urgency=low
+
+  * Improve \OMV\System\System::isRootDeviceFile() method.
+
+ -- vot <vot@arrakis>  Sun, 26 Jan 2020 13:58:08 +0100
+
 openmediavault (5.2.4-1) unstable; urgency=low
 
   * Issue #567: Add storage backend for Areca RAID controllers.
