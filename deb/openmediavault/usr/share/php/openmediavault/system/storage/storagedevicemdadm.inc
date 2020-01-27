@@ -213,7 +213,7 @@ class StorageDeviceMdadm extends StorageDevice {
 	}
 
 	/**
-	 * Get the list of device files used in the array.
+	 * Get the slave devices of this device.
 	 * @return A list of device files used in the array.
 	 */
 	public function getSlaves() {
@@ -262,22 +262,22 @@ class StorageDeviceMdadm extends StorageDevice {
 		if ((FALSE !== stristr($state, "resyncing")) ||
 		  (FALSE !== stristr($state, "recovering"))) {
 			if ("PENDING" == $progress) {
-				// The state is already in proper form.
-	  			// # cat /proc/mdstat
-	  			// Personalities : [raid6] [raid5] [raid4]
-	  			// md0 : active (auto-read-only) raid5 sda[0] sdd[3](S) sdc[2] sdb[1]
-	  			//       2095104 blocks super 1.2 level 5, 512k chunk, algorithm 2 [3/3] [UUU]
-	  			//       	resync=PENDING
-	  			//
-	  			// # mdadm --state
-	  			// ...
-	  			// Update Time : Fri Dec  2 15:32:42 2016
-	  			// State : clean, resyncing (PENDING)
-	  			// Active Devices : 3
-	  			// Working Devices : 4
-	  			// Failed Devices : 0
-	  			// Spare Devices : 1
-	  			// ...
+				# The state is already in proper form.
+	  			# # cat /proc/mdstat
+	  			# Personalities : [raid6] [raid5] [raid4]
+	  			# md0 : active (auto-read-only) raid5 sda[0] sdd[3](S) sdc[2] sdb[1]
+	  			#       2095104 blocks super 1.2 level 5, 512k chunk, algorithm 2 [3/3] [UUU]
+	  			#       	resync=PENDING
+	  			#
+	  			# # mdadm --state
+	  			# ...
+	  			# Update Time : Fri Dec  2 15:32:42 2016
+	  			# State : clean, resyncing (PENDING)
+	  			# Active Devices : 3
+	  			# Working Devices : 4
+	  			# Failed Devices : 0
+	  			# Spare Devices : 1
+	  			# ...
 			} else {
 				$state = sprintf("%s (%s)", $state, $progress);
 			}

@@ -1,9 +1,12 @@
-openmediavault (5.2.8-1) unstable; urgency=low
+openmediavault (5.3.0-1) unstable; urgency=low
 
   * Update locales.
   * Add right-to-left (RTL) support. Thanks to Abo Khalid.
+  * Refactor Python openmediavault.device.* classes. A plugin
+    infrastructure has been established to be able to add
+    support for additional storage backends.
 
- -- Volker Theile <volker.theile@openmediavault.org>  Fri, 07 Feb 2020 18:20:39 +0100
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 07 Feb 2020 00:06:29 +0100
 
 openmediavault (5.2.7-1) unstable; urgency=low
 

@@ -18,6 +18,22 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-from .utils import *
-from .block import BlockDevice
-from .storage import StorageDevice, IStorageDevicePlugin
+import os
+import re
+
+import openmediavault.device
+
+
+class StorageDevicePlugin(openmediavault.device.IStorageDevicePlugin):
+    def match(self, device_file):
+        device_name = re.sub(r'^/dev/', '', device_file)
+        return re.match(r'^loop[0-9]+$', device_name) is not None
+
+    def from_device_file(self, device_file):
+        return StorageDevice(device_file)
+
+
+class StorageDevice(openmediavault.device.StorageDevice):
+    @property
+    def description(self):
+        return 'Loop'

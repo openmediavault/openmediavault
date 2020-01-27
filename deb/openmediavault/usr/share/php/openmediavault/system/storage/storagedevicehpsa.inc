@@ -23,7 +23,7 @@ namespace OMV\System\Storage;
 
 /**
  * This class provides a simple interface to handle HP Smart Array RAID
- * devices using the hpsa driver.
+ * controllers using the hpsa driver.
  * @ingroup api
  */
 class StorageDeviceHPSA extends StorageDevice {

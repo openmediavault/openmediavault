@@ -151,19 +151,21 @@ def is_rotational(path):
     """
     if not is_device_file(path) or not is_block_device(path):
         return False
-    sd = openmediavault.device.StorageDevice(path)
-    return sd.is_rotational()
+    sd = openmediavault.device.StorageDevice.from_device_file(
+        os.path.realpath(path)
+    )
+    return sd.is_rotational
 
 
 def get_fs_parent_device_file(id_):
     """
-    Get the parent device of the specified filesystem.
+    Get the parent device file of the specified filesystem.
     :param id_: The filesystem identifier, e.g.
 
-    * /dev/sde1
-    * /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-1-part1
-    * /dev/cciss/c0d0p2
-    * /dev/disk/by-id/md-name-vmpc01:data
+    * /dev/sde1 => /dev/sde
+    * /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-1-part1 => .../scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-1
+    * /dev/cciss/c0d0p2 => /dev/cciss/c0d0
+    * /dev/disk/by-id/md-name-vmpc01:data => /dev/disk/by-id/md-name-vmpc01:data
     * 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
     * 7A48-BA97 (FAT)
     * 2ED43920D438EC29 (NTFS)
@@ -174,7 +176,7 @@ def get_fs_parent_device_file(id_):
     :rtype: str|None
     """
     fs = openmediavault.fs.Filesystem(id_)
-    return fs.get_parent_device_file()
+    return fs.parent_device_file
 
 
 def get_root_filesystem():
