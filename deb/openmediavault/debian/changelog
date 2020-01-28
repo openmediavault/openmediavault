@@ -1,6 +1,6 @@
 openmediavault (5.2.6-1) unstable; urgency=low
 
-  * Improve OMV\System\Filesystem\Filesystem::getImplByMountPoint() method.
+  * Improve \OMV\System\Filesystem\Filesystem::getImplByMountPoint() method.
     This should result in less parsing errors of the mount tab.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 28 Jan 2020 14:26:00 +0100
@@ -269,8 +269,26 @@ openmediavault (5.0-1) unstable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 May 2018 22:06:11 +0200
 
+openmediavault (4.1.33-1) stable; urgency=low
+
+  * Fix various issues.
+  * Improve \OMV\System\System::isRootDeviceFile() method.
+  * Improve \OMV\System\Filesystem\Filesystem::getImplByMountPoint() method.
+    This should result in less parsing errors of the mount tab.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 25 Jan 2020 09:54:04 +0100
+
+openmediavault (4.1.32-1) stable; urgency=low
+
+  * Fix various issues.
+  * Issue #559: Rename 'source' to 'source-directory' in
+    /etc/network/interfaces.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 08 Jan 2020 08:52:11 +0100
+
 openmediavault (4.1.31-1) stable; urgency=low
 
+  * Issue #430: Fix grid column render issue.
   * Issue #550: Fix bug in detecting BTRFS filesystems.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 01 Jan 2020 18:20:01 +0100
