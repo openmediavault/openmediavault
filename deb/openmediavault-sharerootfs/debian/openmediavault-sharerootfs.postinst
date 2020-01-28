@@ -53,7 +53,7 @@ case "$1" in
         object="${object}<hidden>1</hidden>"
         omv_config_add_node_data "/config/system/fstab" "mntent" "${object}"
       else
-        omv_log "No root filesystem has been found."
+        omv_warning "No root filesystem has been found."
       fi
     fi
   ;;

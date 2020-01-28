@@ -1,8 +1,14 @@
+openmediavault (5.2.6-1) unstable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 28 Jan 2020 14:26:00 +0100
+
 openmediavault (5.2.5-1) unstable; urgency=low
 
   * Improve \OMV\System\System::isRootDeviceFile() method.
 
- -- vot <vot@arrakis>  Sun, 26 Jan 2020 13:58:08 +0100
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 26 Jan 2020 13:58:08 +0100
 
 openmediavault (5.2.4-1) unstable; urgency=low
 
