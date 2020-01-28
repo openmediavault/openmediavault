@@ -2,6 +2,8 @@ openmediavault (4.1.33-1) stable; urgency=low
 
   * Fix various issues.
   * Improve \OMV\System\System::isRootDeviceFile() method.
+  * Improve \OMV\System\Filesystem\Filesystem::getImplByMountPoint() method.
+    This should result in less parsing errors of the mount tab.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 25 Jan 2020 09:54:04 +0100
 

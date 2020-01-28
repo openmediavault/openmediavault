@@ -873,33 +873,23 @@ class Filesystem extends \OMV\System\BlockDevice
 	}
 
 	/**
-	 * Get the object of the class which implements the specified filesystem
+	 * Get the object of the class which implements the filesystem
 	 * for the given mount point.
 	 * @param dir The file system path prefix, e.g. '/home/ftp/data'.
-	 * @return The class object or NULL on failure.
+	 * @return The class object (which implements the interface
+	 *   OMV\System\Filesystem\FilesystemInterface) or NULL on failure.
 	 */
 	public static function getImplByMountPoint($dir) {
 		if (TRUE === empty($dir))
 			return NULL;
-		$result = NULL;
-		foreach (file("/proc/mounts") as $rowk => $rowv) {
-			// Parse command output:
-			// rootfs / rootfs rw 0 0
-			// none /sys sysfs rw,nosuid,nodev,noexec,relatime 0 0
-			// none /proc proc rw,nosuid,nodev,noexec,relatime 0 0
-			// tmpfs /dev/shm tmpfs rw,nosuid,nodev,relatime 0 0
-			// /dev/sdb2 /home/ftp/data ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
-			// /dev/sde1 /media/46607e80-dc8e-427e-9939-7909985dfe5b ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
-			$parts = explode(" ", $rowv);
-			if ($parts[1] == escape_path($dir, TRUE)) {
-				// Get the backend by the file system type (e.g. ext4, xfs,
-				// nfs, aufs, ...).
-				$mngr = Backend\Manager::getInstance();
-				if (NULL !== ($backend = $mngr->getBackendByType($parts[2])))
-					$result = $backend->getImpl($parts[0]);
-				break;
-			}
-		}
-		return $result;
+		// Exit immediately if the specified directory is no mount point.
+		$mp = new \OMV\System\MountPoint($dir);
+		if (FALSE === $mp->isMountPoint())
+			return NULL;
+		// Get the device file that is mounted on the given directory.
+		$deviceFile = $mp->getDeviceFile();
+		$mngr = Backend\Manager::getInstance();
+		$backend = $mngr->getBackendById($deviceFile);
+		return $backend->getImpl($deviceFile);
 	}
 }
