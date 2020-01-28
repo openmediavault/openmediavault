@@ -195,6 +195,25 @@ class MountPoint {
 	}
 
 	/**
+	 * Get the device file that is mounted on the given directory.
+	 * Note, the device MUST be mounted.
+	 * @return The device file of that is mounted on the given
+	 *   directory, e.g. '/dev/vda1'.
+	 */
+	public function getDeviceFile() {
+		$cmdArgs = [];
+		$cmdArgs[] = "--first-only";
+		$cmdArgs[] = "--noheadings";
+		$cmdArgs[] = "--output=SOURCE";
+		$cmdArgs[] = "--raw";
+		$cmdArgs[] = escapeshellarg($this->getPath());
+		$cmd = new \OMV\System\Process("findmnt", $cmdArgs);
+		$cmd->setRedirect2to1();
+		$cmd->execute($output);
+		return trim($output[0]);
+	}
+
+	/**
 	 * Get the mountpoint path where the file system should be mounted to.
 	 * Note, this path is OMV specific: /srv/<FSUUID>.
 	 * @param id string The device file or UUID of the file system, e.g.
