@@ -1,3 +1,9 @@
+openmediavault (5.2.7-1) unstable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 29 Jan 2020 20:48:19 +0100
+
 openmediavault (5.2.6-1) unstable; urgency=low
 
   * Improve \OMV\System\Filesystem\Filesystem::getImplByMountPoint() method.
