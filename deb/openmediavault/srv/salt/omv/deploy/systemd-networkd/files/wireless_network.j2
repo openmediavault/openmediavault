@@ -37,7 +37,6 @@ DHCP=ipv6
 IPv6AcceptRA=yes
 {%- endif %}
 {%- if not interface.dnsnameservers == "" %}
-UseDNS=yes
 {%- for dnsserver in interface.dnsnameservers.split(',') %}
 DNS={{ dnsserver }}
 {%- endfor %}
