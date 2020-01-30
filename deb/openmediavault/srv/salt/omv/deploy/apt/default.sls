@@ -94,19 +94,23 @@ remove_apt_sources_list_debian_security:
   file.absent:
     - name: "/etc/apt/sources.list.d/openmediavault-debian-security.list"
 
-# Check if the Debian security repository is already configured (e.g.
+remove_apt_sources_list_os_security:
+  file.absent:
+    - name: "/etc/apt/sources.list.d/openmediavault-os-security.list"
+
+# Check if the Debian or Ubuntu security repository is already configured (e.g.
 # in /etc/apt/sources.list). Only add it if this is not the case.
 {% set repos = [] %}
 {% for value in salt['pkg.list_repos']().values() %}
 {% set _ = repos.extend(value) %}
 {% endfor %}
-{% if repos | rejectattr('disabled') | selectattr('type', 'equalto', 'deb') | selectattr('uri', 'match', '^https?://security.debian.org/debian-security$') | list | length == 0 %}
+{% if repos | rejectattr('disabled') | selectattr('type', 'equalto', 'deb') | selectattr('uri', 'match', '^https?://security.(debian.org|ubuntu.com)/.*-security$') | list | length == 0 %}
 
-configure_apt_sources_list_debian_security:
+configure_apt_sources_list_os_security:
   file.managed:
-    - name: "/etc/apt/sources.list.d/openmediavault-debian-security.list"
+    - name: "/etc/apt/sources.list.d/openmediavault-os-security.list"
     - source:
-      - salt://{{ slspath }}/files/etc-apt-sources_list_d-openmediavault-debian-security_list.j2
+      - salt://{{ slspath }}/files/etc-apt-sources_list_d-openmediavault-os-security_list.j2
     - template: jinja
     - user: root
     - group: root

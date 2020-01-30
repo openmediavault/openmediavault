@@ -1,1 +1,5 @@
+{%- if grains['os'] == 'Ubuntu' %}
+deb mirror://mirrors.ubuntu.com/mirrors.txt {{ grains['oscodename'] }}-backports main restricted universe
+{%- else %}
 deb http://httpredir.debian.org/debian {{ grains['oscodename'] }}-backports main contrib non-free
+{%- endif %}
