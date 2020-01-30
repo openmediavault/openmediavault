@@ -63,5 +63,6 @@ OMV.languages = [
 	[ "zh_CN","简体中文" ], // Chinese (Simplified Chinese)
 	[ "zh_TW","繁體中文" ], // Chinese (Taiwan)
 	[ "ja_JP","日本語" ], // Japanese (Japan)
-	[ "ko_KR","한국어"] // Korean
+	[ "ko_KR","한국어"], // Korean
+	[ "ar_SA","العربية" ] // Arabic
 ];
