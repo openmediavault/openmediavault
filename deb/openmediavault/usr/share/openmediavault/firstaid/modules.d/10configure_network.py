@@ -70,7 +70,11 @@ class Module(openmediavault.firstaid.IModule):
             device = pyudev.Devices.from_name(context, "net", sys_name)
             description = ""
             # Use the following properties as description in the specified order:
-            for prop in ["ID_MODEL_FROM_DATABASE", "ID_VENDOR_FROM_DATABASE", "ID_NET_NAME_MAC"]:
+            for prop in [
+                "ID_MODEL_FROM_DATABASE",
+                "ID_VENDOR_FROM_DATABASE",
+                "ID_NET_NAME_MAC",
+            ]:
                 if prop not in device.properties:
                     continue
                 description = device.properties.get(prop)
@@ -142,7 +146,7 @@ class Module(openmediavault.firstaid.IModule):
                         continue
                     try:
                         ipaddress.ip_address(address)
-                    except Exception: # pylint: disable=broad-except
+                    except Exception:  # pylint: disable=broad-except
                         address = None
                         d.msgbox(
                             "Please enter a valid IPv4 address.",
@@ -173,7 +177,7 @@ class Module(openmediavault.firstaid.IModule):
                         continue
                     try:
                         ipaddress.ip_address(netmask)
-                    except Exception: # pylint: disable=broad-except
+                    except Exception:  # pylint: disable=broad-except
                         netmask = None
                         d.msgbox(
                             "Please enter a valid netmask.",
@@ -196,7 +200,7 @@ class Module(openmediavault.firstaid.IModule):
                         return 0
                     try:
                         ipaddress.ip_address(gateway)
-                    except Exception: # pylint: disable=broad-except
+                    except Exception:  # pylint: disable=broad-except
                         gateway = None
                         d.msgbox(
                             "Please enter a valid gateway.",
@@ -265,7 +269,7 @@ class Module(openmediavault.firstaid.IModule):
                         continue
                     try:
                         ipaddress.ip_address(address6)
-                    except Exception: # pylint: disable=broad-except
+                    except Exception:  # pylint: disable=broad-except
                         address6 = None
                         d.msgbox(
                             "Please enter a valid IPv6 address.",
@@ -319,7 +323,7 @@ class Module(openmediavault.firstaid.IModule):
                         return 0
                     try:
                         ipaddress.ip_address(gateway6)
-                    except Exception: # pylint: disable=broad-except
+                    except Exception:  # pylint: disable=broad-except
                         gateway6 = None
                         d.msgbox(
                             "Please enter a valid gateway.",
@@ -347,7 +351,7 @@ class Module(openmediavault.firstaid.IModule):
                 try:
                     ipaddress.ip_address(dns_nameservers)
                     break
-                except Exception: # pylint: disable=broad-except
+                except Exception:  # pylint: disable=broad-except
                     dns_nameservers = ""
                     d.msgbox(
                         "Please enter a valid IP address.",

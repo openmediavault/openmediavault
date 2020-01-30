@@ -41,7 +41,7 @@ class Module(openmediavault.firstaid.IModule):
             manager = openmediavault.systemd.Manager()
             unit = manager.get_unit("postfix.service")
             active = unit.active
-        except Exception: # pylint: disable=broad-except
+        except Exception:  # pylint: disable=broad-except
             active = False
         if not active:
             d = dialog.Dialog(dialog="dialog")
@@ -103,7 +103,7 @@ class Module(openmediavault.firstaid.IModule):
                     openmediavault.subprocess.check_call(
                         ["omv-sysinfo"], stdout=out
                     )
-            except: # pylint: disable=try-except-raise
+            except:  # pylint: disable=try-except-raise
                 raise
             finally:
                 openmediavault.subprocess.check_call(
