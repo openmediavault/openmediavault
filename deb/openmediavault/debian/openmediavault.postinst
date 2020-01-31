@@ -167,13 +167,15 @@ case "$1" in
 		salt-call --local --retcode-passthrough --no-color state.orchestrate \
 			omv.stage.prepare >/dev/null
 
-		########################################################################
-		# Apply default system configuration.
-		########################################################################
-		echo "Setting up system ..."
-		# Don't use omv-salt here, because the locale is not setup correct.
-		salt-call --local --retcode-passthrough --no-color state.orchestrate \
-			omv.stage.setup >/dev/null
+    if [ -z "$2" ]; then
+      ########################################################################
+      # Apply default system configuration.
+      ########################################################################
+      echo "Setting up system ..."
+      # Don't use omv-salt here, because the locale is not setup correct.
+      salt-call --local --retcode-passthrough --no-color state.orchestrate \
+        omv.stage.setup >/dev/null
+    fi
 
 		########################################################################
 		# Deploy various services when the package is installed the first time.
