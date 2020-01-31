@@ -33,7 +33,7 @@ Vagrant.configure("2") do |config|
 		prov.name = hostname
 		prov.memory = "2048"
 		# Add some disks.
-		for i in 0..2 do
+		for i in 0..1 do
 			filename = "./disks/#{hostname}-disk#{i}.vmdk"
 			unless File.exist?(filename)
 				prov.customize ["createmedium", "disk", "--filename", filename,
@@ -47,7 +47,7 @@ Vagrant.configure("2") do |config|
 	config.vm.provider :libvirt do |prov|
 		prov.memory = "2048"
 		# Add some disks.
-		for i in 0..2 do
+		for i in 0..1 do
 			prov.storage :file, :size => "1G", :bus => "scsi"
 		end
 	end

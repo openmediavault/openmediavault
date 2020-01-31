@@ -29,6 +29,10 @@ export LANG=C.UTF-8
 export DEBIAN_FRONTEND=noninteractive
 export APT_LISTCHANGES_FRONTEND=none
 
+# Install required tools for development
+apt-get install build-essential fakeroot dh-make debhelper gettext python3-pip
+pip3 install setuptools
+pip3 install wheel
 # Install the openmediavault keyring manually.
 apt-get install --yes gnupg
 wget -O "/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.asc" https://packages.openmediavault.org/public/archive.key
