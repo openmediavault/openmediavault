@@ -7,7 +7,6 @@ Kind=bond
 [Bond]
 Mode={{ mode_map[interface.bondmode] }}
 PrimaryReselectPolicy={{ primary_reselect_policy }}
-PrimarySlave={{ interface.bondprimary }}
 MIIMonitorSec={{ interface.bondmiimon / 1000 | float }}s
 UpDelaySec={{ interface.bonddowndelay / 1000 | float }}s
 DownDelaySec={{ interface.bondupdelay / 1000 | float }}s
