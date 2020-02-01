@@ -1,0 +1,292 @@
+/**
+ * This file is part of OpenMediaVault.
+ *
+ * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @author    Volker Theile <volker.theile@openmediavault.org>
+ * @copyright Copyright (c) 2009-2020 Volker Theile
+ *
+ * OpenMediaVault is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * OpenMediaVault is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+@import 'defaults';
+
+/******************************************************************************/
+/* Miscellaneous */
+.x-body,
+.x-form-item-label-default,
+.x-form-cb-label-default,
+.x-form-text-default,
+.x-grid-item,
+.x-menu-item-text-default,
+.x-panel-body-default,
+.x-panel-header-title-default,
+.x-toolbar-text-default,
+.x-tree-node-text,
+.x-window-body-default {
+	font-weight: 400;
+}
+/******************************************************************************/
+/* Body */
+body > .x-mask {
+	background-color: rgba(47, 52, 63, 0.5);
+}
+/******************************************************************************/
+/* Form fieldset */
+.x-fieldset-header-default > .x-fieldset-header-text {
+	color: $omv-color-more-darker;
+}
+/* Fix Safari browser issue */
+/* https://github.com/openmediavault/openmediavault/issues/467 */
+.x-fieldset-header-default > .x-fieldset-header-text {
+	position: unset;
+}
+/******************************************************************************/
+/* Trigger field */
+.x-form-password-trigger:before {
+	content: "\f06e";
+}
+.x-form-add-trigger:before {
+	content: "\f067";
+}
+.x-form-folder-trigger:before {
+	content: "\f114";
+}
+.x-form-copy-trigger:before {
+	content: "\f0ea";
+}
+.x-form-trigger-default.x-form-trigger-over {
+	border-color: #dbdbdb;
+	background-image: none;
+	background-color: #ececec;
+}
+.x-form-trigger-wrap-default.x-form-trigger-wrap-focus {
+	border-color: $omv-color-default;
+}
+.x-form-trigger-wrap-default.x-form-trigger-wrap-invalid {
+	border-color: #cc3300;
+}
+/******************************************************************************/
+/* Spinner field */
+.x-form-spinner-default.x-form-spinner-over {
+	border-color: #dbdbdb;
+	background-color: #ececec;
+}
+/******************************************************************************/
+/* Panel */
+.x-panel-default {
+	border-color: $omv-color-default;
+}
+.x-panel-default-outer-border-l {
+	border-left-color: $omv-color-default !important;
+}
+.x-panel-default-outer-border-b {
+	border-bottom-color: $omv-color-default !important;
+}
+.x-panel-default-outer-border-trbl {
+	border-color: $omv-color-default !important;
+}
+.x-panel-default-outer-border-bl {
+	border-bottom-color: $omv-color-default !important;
+	border-left-color: $omv-color-default !important;
+}
+.x-panel-default-outer-border-r {
+	border-right-color: $omv-color-default !important;
+}
+.x-panel-default-outer-border-rl {
+	border-right-color: $omv-color-default !important;
+	border-left-color: $omv-color-default !important;
+}
+.x-panel-default-outer-border-rb {
+	border-right-color: $omv-color-default !important;
+	border-bottom-color: $omv-color-default !important;
+}
+.x-panel-default-outer-border-trl {
+	border-top-color: $omv-color-default !important;
+	border-right-color: $omv-color-default !important;
+	border-left-color: $omv-color-default !important;
+}
+.x-panel-default-outer-border-rbl {
+	border-right-color: $omv-color-default !important;
+	border-bottom-color: $omv-color-default !important;
+	border-left-color: $omv-color-default !important;
+}
+.x-panel-header-default-vertical {
+	background-color: $omv-color-default;
+}
+.x-panel-header-default .x-tool-tool-el {
+	background-color: $omv-color-default;
+}
+.x-panel-header-default {
+	border: 1px solid $omv-color-default;
+	background-color: $omv-color-default;
+}
+/******************************************************************************/
+/* Tree */
+.x-tree-icon, .x-tree-elbow-img {
+}
+.x-tree-icon-custom {
+	background-size: 16px 16px;
+}
+.x-tree-elbow-plus,
+.x-tree-elbow-end-plus,
+.x-tree-icon,
+.x-tree-icon-parent,
+.x-tree-icon-parent-expanded,
+.x-tree-icon-leaf,
+.x-grid-tree-node-expanded .x-tree-elbow-plus,
+.x-grid-tree-node-expanded .x-tree-elbow-end-plus {
+	color: #000000;
+}
+.x-grid-cell-inner-treecolumn {
+	padding-top: 5px;
+	padding-bottom: 4px;
+}
+/******************************************************************************/
+/* Grid */
+.x-grid-item-over {
+}
+.x-grid-item-focused .x-grid-cell-inner:before {
+	border-color: $omv-color-default;
+}
+.x-grid-group-hd-collapsed .x-grid-group-title:before,
+.x-grid-group-hd-collapsible .x-grid-group-title:before {
+	color: #000000;
+}
+/******************************************************************************/
+/* Workspace node tree */
+.x-workspace-node-tree .x-panel-header-default {
+	border: 0px;
+	background-color: #ececec; /* gray */
+}
+.x-workspace-node-tree .x-panel-header-default .x-tool-tool-el {
+	background-color: #ececec; /* gray */
+}
+.x-workspace-node-tree .x-tool-collapse-left:before {
+	color: black;
+}
+.x-workspace-node-tree .x-grid-row-over .x-grid-td {
+	cursor: pointer;
+}
+.x-workspace-node-tree .x-tree-icon-parent,
+.x-workspace-node-tree .x-tree-icon-parent-expanded {
+	width: 0px;
+	visibility: hidden;
+}
+.x-workspace-node-tree.x-tree-lines .x-tree-elbow-line {
+	visibility: hidden;
+}
+.x-workspace-node-tree .x-tree-elbow,
+.x-workspace-node-tree .x-tree-elbow-end {
+	width: 0px;
+	visibility: hidden;
+}
+/******************************************************************************/
+/* Workscape dashboard */
+.x-workspace-dashboard-widget-icon {
+}
+/******************************************************************************/
+/* Workspace navigation toolbar */
+.x-workspace-navigation-toolbar.x-toolbar-default {
+	background-color: #ececec; /* gray */
+}
+/******************************************************************************/
+/* Tabs */
+.x-tab.x-tab-active.x-tab-default .x-tab-inner-default {
+	color: $omv-color-default;
+}
+.x-tab-focus.x-tab-default {
+	outline: 1px solid $omv-color-default;
+}
+.x-tab-invalid {
+	background-color: #cc3300;
+}
+.x-box-scroller-tab-bar-default {
+	background-color: $omv-color-darker;
+}
+/******************************************************************************/
+/* Windows */
+.x-window-default {
+	border-color: $omv-color-more-darker;
+	border-width: 1px;
+}
+.x-window-body-default {
+	border-color: $omv-color-darker !important;
+}
+.x-window-header-default {
+	border-color: $omv-color-darker;
+	background-color: $omv-color-darker;
+}
+.x-window-header-default .x-tool-img {
+	background-color: $omv-color-darker;
+}
+/******************************************************************************/
+/* Buttons */
+.x-btn-default-small,
+.x-btn-default-toolbar-small {
+	border-radius: 3px;
+}
+.x-btn-default-small {
+	border-color: $omv-color-default;
+	background-color: $omv-color-default;
+}
+.x-btn-focus.x-btn-default-small {
+	border-color: $omv-color-darker;
+	background-color: $omv-color-darker;
+}
+.x-btn-focus.x-btn-default-small,
+.x-btn-focus.x-btn-over.x-btn-default-small,
+.x-btn-focus.x-btn-pressed.x-btn-default-small {
+	box-shadow: none;
+}
+.x-btn-over.x-btn-default-small {
+	border-color: $omv-color-darker;
+	background-color: $omv-color-darker;
+}
+.x-btn.x-btn-pressed.x-btn-default-small {
+	border-color: $omv-color-more-darker;
+	background-color: $omv-color-more-darker;
+}
+.x-btn.x-btn-disabled.x-btn-default-small {
+	border-color: $omv-color-lighter;
+	background-color: $omv-color-lighter;
+}
+/******************************************************************************/
+/* Checkbox */
+.x-form-checkbox-focus.x-form-checkbox-default {
+	color: $omv-color-default;
+}
+.x-form-checkbox-default:before,
+.x-form-cb-checked .x-form-checkbox-default:before {
+	content: none;
+}
+/******************************************************************************/
+/* Combobox */
+.x-boundlist-item-over {
+	background: $omv-color-lighter;
+	border-color: $omv-color-lighter;
+}
+.x-boundlist-selected {
+	background: $omv-color-default;
+	border-color: $omv-color-default;
+}
+/******************************************************************************/
+/* Menu */
+.x-menu-item-default.x-menu-item-focus,
+.x-menu-item-default.x-menu-item-active {
+	background-color: $omv-color-lighter;
+}
+.x-menu-item-default-menubar.x-menu-item-focus,
+.x-menu-item-default-menubar.x-menu-item-active {
+	background-color: $omv-color-lighter;
+}
