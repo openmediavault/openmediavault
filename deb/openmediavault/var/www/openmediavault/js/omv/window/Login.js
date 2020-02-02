@@ -37,9 +37,10 @@ Ext.define("OMV.window.Login", {
 		"OMV.form.Panel",
 		"OMV.form.field.Password",
 		"OMV.form.field.LanguageComboBox",
-		"OMV.window.MessageBox"
+		"OMV.window.MessageBox",
+		'Ext.rtl.*'
 	],
-
+	rtl: true,
 	title: _("Login"),
 	layout: "fit",
 	width: 350,
