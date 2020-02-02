@@ -895,6 +895,20 @@ class Filesystem extends \OMV\System\BlockDevice
 		$deviceFile = $mp->getDeviceFile();
 		$mngr = Backend\Manager::getInstance();
 		$backend = $mngr->getBackendById($deviceFile);
+		// if no backend found, try finding type and get backend by type
+		if (NULL == $backend) {
+			$type = "";
+			foreach ($mngr->enumerate() as $datak => $datav) {
+				if ($datav['devicefile'] == $dir) {
+					$type = $datav['type'];
+					break;
+				}
+			}
+			$backend = $mngr->getBackendByType($type);
+			// if still no backend, skip
+			if (NULL == $backend)
+				return NULL;
+		}
 		return $backend->getImpl($deviceFile);
 	}
 }
