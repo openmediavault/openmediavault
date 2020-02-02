@@ -67,4 +67,9 @@ div#headerrlogo {
   background-position: right center;
   direction: rtl; }
 
+/******************************************************************************/
+/* Misc */
+.x-rtl > .x-column {
+  float: left !important; }
+
 /*# sourceMappingURL=theme-all-rtl.min.css.map */
