@@ -165,7 +165,7 @@ EOF;
 				"extjs6/classic/theme-triton/theme-triton-debug.js"
 			], $jsList);
 		} else {
-			if ($this->renderRTL() == true) {
+			if ($this->renderRTL()) {
 				$jsList = array_merge([
 					"extjs6/ext-all-rtl.js"], $jsList);
 			} else {
