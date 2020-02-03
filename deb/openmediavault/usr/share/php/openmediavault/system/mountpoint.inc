@@ -201,16 +201,27 @@ class MountPoint {
 	 *   directory, e.g. '/dev/vda1'.
 	 */
 	public function getDeviceFile() {
+		$info = $this->getInfo();
+		return $info['source'];
+	}
+
+	/**
+	 * Get various information about the mount point, e.g. 'target',
+	 * 'source', 'fstype', 'label', 'uuid', 'size', 'avail', 'used',
+	 * 'maj:min' or 'options'.
+	 * @return Returns an object containing the filesystem information.
+	 */
+	public function getInfo() {
 		$cmdArgs = [];
 		$cmdArgs[] = "--first-only";
-		$cmdArgs[] = "--noheadings";
-		$cmdArgs[] = "--output=SOURCE";
-		$cmdArgs[] = "--raw";
+		$cmdArgs[] = "--output-all";
+		$cmdArgs[] = "--json";
 		$cmdArgs[] = escapeshellarg($this->getPath());
 		$cmd = new \OMV\System\Process("findmnt", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
-		return trim($output[0]);
+		$output = json_decode_safe(implode($output, ""), TRUE);
+		return $output['filesystems'][0];
 	}
 
 	/**
