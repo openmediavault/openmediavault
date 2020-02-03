@@ -93,6 +93,17 @@ abstract class ControlPanelAbstract {
 	}
 
 	/**
+	 * Detect RTL locale.
+	 */
+ 	public function isLocaleRTL() {
+		$locale_cookie = "X-OPENMEDIAVAULT-LOCALE";
+		if (isset($_COOKIE[$locale_cookie])) {
+			return in_array($_COOKIE[$locale_cookie], ['ar_SA']);
+		}
+		return FALSE;
+	}
+
+	/**
 	 * Renders the HTML page
 	 */
 	public function render() {
@@ -114,12 +125,20 @@ abstract class ControlPanelAbstract {
 EOF;
 
 		// Set core CSS files.
-		$cssList = [
-			"extjs6/classic/theme-triton/resources/theme-triton-all.css",
-			"css/theme-all.min.css",
-			"css/theme-triton.min.css",
-			"css/materialdesignicons.min.css"
-		];
+		if ($this->isLocaleRTL()) {
+			$cssList = [
+				"extjs6/classic/theme-triton/resources/theme-triton-all-rtl.css",
+				"css/theme-all.min.css",
+				"css/theme-all-rtl.min.css"
+			];
+		} else {
+			$cssList = [
+				"extjs6/classic/theme-triton/resources/theme-triton-all.css",
+				"css/theme-all.min.css"
+			];
+		}
+		$cssList[] = "css/theme-triton.min.css";
+		$cssList[] = "css/materialdesignicons.min.css";
 		// Add additional CSS files.
 		$cssList = array_merge($cssList, array_values(array_unique(
 		  $this->getCssIncludes())));
@@ -145,10 +164,12 @@ EOF;
 				"extjs6/classic/theme-triton/theme-triton-debug.js"
 			], $jsList);
 		} else {
-			$jsList = array_merge([
-				"extjs6/ext-all.js",
-				"extjs6/classic/theme-triton/theme-triton.js"
-			], $jsList);
+			if ($this->isLocaleRTL()) {
+				$jsList = array_merge(["extjs6/ext-all-rtl.js"], $jsList);
+			} else {
+				$jsList = array_merge(["extjs6/ext-all.js"], $jsList);
+			}
+			$jsList[] = "extjs6/classic/theme-triton/theme-triton.js";
 		}
 		foreach ($jsList as $jsListv) {
 			print "<script type='application/javascript' src='{$jsListv}'></script>\n";
