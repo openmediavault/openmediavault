@@ -65,6 +65,16 @@ OMV.util.i18n = function() {
 			Ext.util.Cookies.set(cookieName, locale, expires);
 		},
 
+		/**
+		 * Test if locale is RTL
+		 */
+		isRTL: function(v) {
+			locale = v;
+			if(locale === 'ar_SA')
+				return true
+			return false;
+		},
+
 		loadDictionary: function(data) {
 			dictionary = data;
 		},

@@ -37,9 +37,10 @@ Ext.define("OMV.window.Login", {
 		"OMV.form.Panel",
 		"OMV.form.field.Password",
 		"OMV.form.field.LanguageComboBox",
-		"OMV.window.MessageBox"
+		"OMV.window.MessageBox",
+		'Ext.rtl.*'
 	],
-
+	rtl: OMV.util.i18n.isRTL(OMV.util.i18n.getLocale()),
 	title: _("Login"),
 	layout: "fit",
 	width: 350,
@@ -47,7 +48,6 @@ Ext.define("OMV.window.Login", {
 	buttonAlign: "center",
 	enableResponsiveness: false,
 	stateful: false,
-
 	constructor: function() {
 		var me = this;
 		me.callParent(arguments);

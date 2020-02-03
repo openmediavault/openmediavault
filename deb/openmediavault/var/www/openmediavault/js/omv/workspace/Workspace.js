@@ -45,14 +45,15 @@ Ext.define("OMV.workspace.Workspace", {
 		"OMV.toolbar.ApplyCfg",
 		"OMV.toolbar.HostnameItem",
 		"OMV.window.MessageBox",
-		"OMV.workspace.node.tree.Panel"
+		"OMV.workspace.node.tree.Panel",
+		'Ext.rtl.*'
 	],
 	uses: [
 		"OMV.workspace.node.panel.Category",
 		"OMV.workspace.node.panel.Overview",
 		"OMV.workspace.tab.Panel"
 	],
-
+	rtl: OMV.util.i18n.isRTL(OMV.util.i18n.getLocale()),
 	layout: "border",
 
 	initComponent: function() {
