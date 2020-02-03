@@ -859,7 +859,8 @@ class Filesystem extends \OMV\System\BlockDevice
 
 	/**
 	 * @see Filesystem::getImpl()
-	 * @return object The object of the class implementing the given filesystem.
+	 * @return object The object of the class implementing the given
+	 *   filesystem.
 	 * @throw \OMV\AssertException
 	 */
 	public static function assertGetImpl($id) {
@@ -880,16 +881,19 @@ class Filesystem extends \OMV\System\BlockDevice
 	 *   OMV\System\Filesystem\FilesystemInterface) or NULL on failure.
 	 */
 	public static function getImplByMountPoint($dir) {
-		if (TRUE === empty($dir))
+		if (TRUE === empty($dir)) {
 			return NULL;
+		}
 		// Exit immediately if the specified directory is no mount point.
 		$mp = new \OMV\System\MountPoint($dir);
-		if (FALSE === $mp->isMountPoint())
+		if (FALSE === $mp->isMountPoint()) {
 			return NULL;
-		// Get the device file that is mounted on the given directory.
-		$deviceFile = $mp->getDeviceFile();
+		}
+		// Try to get the backend using the filesystem type. This has
+		// to be done especially when using union filesystems.
+		$info = $mp->getInfo();
 		$mngr = Backend\Manager::getInstance();
-		$backend = $mngr->getBackendById($deviceFile);
-		return $backend->getImpl($deviceFile);
+		$backend = $mngr->getBackendByType($info['fstype']);
+		return $backend->getImpl($info['source']);
 	}
 }
