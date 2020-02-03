@@ -622,3 +622,19 @@ div#headerrlogo {
 .x-webkit :not(.x-form-textarea-body) > .x-form-trigger-wrap {
 	height: initial;
 }
+/******************************************************************************/
+/* Fix dashboard widgets multi-cols alighment */
+.x-dashboard-column-first {
+	padding-left: 7px;
+	padding-right: 7px;
+}
+.x-dashboard-column-last {
+	padding-right: 7px;
+}
+div[class~="x-dashboard-column-first"][class~="x-dashboard-column-last"]{
+	padding-right: 0px;
+	padding-left: 7px;
+}
+.x-dashboard-panel {
+    margin-top: 10px;
+}
