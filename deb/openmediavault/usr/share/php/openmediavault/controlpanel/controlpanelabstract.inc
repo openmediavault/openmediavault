@@ -126,7 +126,7 @@ abstract class ControlPanelAbstract {
 EOF;
 
 		// Set core CSS files.	
-		if ($this->renderRTL() == true) {
+		if ($this->renderRTL()) {
 			$cssList = [
 				"extjs6/classic/theme-triton/resources/theme-triton-all-rtl_1.css",
 				"extjs6/classic/theme-triton/resources/theme-triton-all-rtl_2.css",
