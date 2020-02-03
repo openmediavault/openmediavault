@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the openmediavault-nut package.
 # 
 # Translators:
+# omv nas <myomv100@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-07 17:31+0100\n"
-"PO-Revision-Date: 2020-01-30 07:49+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2020-02-01 01:15+0000\n"
+"Last-Translator: omv nas <myomv100@gmail.com>\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/votdev/openmediavault/language/ar_SA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,96 +19,96 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 
 msgid "Charge"
-msgstr ""
+msgstr "شحن"
 
 msgid "Comment"
-msgstr ""
+msgstr "تعليق"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "التاريخ والوقت"
 
 msgid "Defines when the shutdown is initiated."
-msgstr ""
+msgstr "تحديد وقت ايقاف التشغيل"
 
 msgid "Driver configuration directives"
-msgstr ""
+msgstr "توجيهات تكوين برنامج التشغيل"
 
 msgid "Enable"
-msgstr ""
+msgstr "تمكين"
 
 msgid "Enable remote monitoring of the local connected UPS."
-msgstr ""
+msgstr "تمكين المراقبة عن بُعد لـ UPS المحلية المتصلة."
 
 msgid "General settings"
-msgstr ""
+msgstr "الإعدادات العامة"
 
 msgid "Identifier"
-msgstr ""
+msgstr "محدد"
 
 msgid "Load"
-msgstr ""
+msgstr "تحميل"
 
 msgid "Message"
-msgstr ""
+msgstr "رسالة"
 
 msgid "PID"
-msgstr ""
+msgstr "PID"
 
 msgid "Password"
-msgstr ""
+msgstr "كلمة المرور"
 
 msgid "Program"
-msgstr ""
+msgstr "برنامج"
 
 msgid "Remote monitoring"
-msgstr ""
+msgstr "مراقبة عن بعد"
 
 msgid "Service disabled"
-msgstr ""
+msgstr "الخدمة معطلة"
 
 msgid "Settings"
-msgstr ""
+msgstr "الإعدادات"
 
 msgid "Shutdown mode"
-msgstr ""
+msgstr "وضع إيقاف التشغيل"
 
 msgid "Shutdown timer"
-msgstr ""
+msgstr "مؤقت إيقاف التشغيل"
 
 msgid "Temperature"
-msgstr ""
+msgstr "درجة الحرارة"
 
 msgid "The name used to uniquely identify your UPS on this system."
-msgstr ""
+msgstr "الاسم المستخدم لتعريف UPS الخاص بك بشكل فريد على هذا النظام."
 
 msgid ""
 "The time in seconds until shutdown is initiated. If the UPS happens to come "
 "back before the time is up the shutdown is canceled."
-msgstr ""
+msgstr "الوقت بالثواني حتى يبدأ الاغلاق. إذا حدث أن تعود UPS قبل انتهاء الوقت ، فسيتم إلغاء الإغلاق."
 
 msgid ""
 "To get more information how to configure your UPS please check the Network "
 "UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
 "target='_blank'>documentation</a>."
-msgstr ""
+msgstr "للحصول على مزيد من المعلومات حول كيفية تكوين UPS الخاص بك  يرجى مراجعة وثائق الاستخدام"
 
 msgid "UPS"
-msgstr ""
+msgstr "UPS"
 
 msgid "UPS goes on battery"
-msgstr ""
+msgstr "UPS  محول إلى البطارية"
 
 msgid "UPS reaches low battery"
-msgstr ""
+msgstr "UPS يصل لمستوى بطارية منخفض"
 
 msgid "Used for remote authentication."
-msgstr ""
+msgstr "يستخدم للمصادقة عن بعد"
 
 msgid "Username"
-msgstr ""
+msgstr "اسم المستخدم"
 
 msgid "Variables"
-msgstr ""
+msgstr "المتغيرات"
 
 msgid "Voltage"
-msgstr ""
+msgstr "الفولتية"

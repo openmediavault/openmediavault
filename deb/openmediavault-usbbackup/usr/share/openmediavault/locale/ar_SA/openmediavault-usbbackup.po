@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
+# omv nas <myomv100@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-07 17:31+0100\n"
-"PO-Revision-Date: 2020-01-30 07:49+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2020-01-31 13:05+0000\n"
+"Last-Translator: omv nas <myomv100@gmail.com>\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/votdev/openmediavault/language/ar_SA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,181 +19,181 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 
 msgid "Add backup job"
-msgstr ""
+msgstr "إضافة وظيفة نسخ احتياطي"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "يتم إرسال رسالة بريد إلكتروني مع مخرجات الأمر (إن وجدت) إلى المسؤول."
 
 msgid "Archive"
-msgstr ""
+msgstr "الأرشيف"
 
 msgid "Backup jobs"
-msgstr ""
+msgstr "وظيفة نسخ احتياطي"
 
 msgid "Comment"
-msgstr ""
+msgstr "التعليق"
 
 msgid "Compress"
-msgstr ""
+msgstr "ضغط"
 
 msgid "Compress file data during the transfer."
-msgstr ""
+msgstr "ضغط بيانات الملف أثناء النقل"
 
 msgid "Delete"
-msgstr ""
+msgstr "حذف"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr ""
+msgstr "حذف الملفات على الجانب المتلقي والتي لا وجود لها على المرسل"
 
 msgid "Device"
-msgstr ""
+msgstr "الجهاز"
 
 msgid "Done ..."
-msgstr ""
+msgstr "تم ..."
 
 msgid "Edit backup job"
-msgstr ""
+msgstr "تحرير وظيفة نسخ إحتياطي"
 
 msgid "Enable"
-msgstr ""
+msgstr "تمكين"
 
 msgid "Enable archive mode."
-msgstr ""
+msgstr "تمكين وضع الأرشيف"
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr ""
+msgstr "تمكين هذا الخيار للاحتفاظ بالملفات المنقولة جزئيًا ، وإلا فسيتم حذفها إذا تمت مقاطعة النقل."
 
 msgid "Enabled"
-msgstr ""
+msgstr "ممكن"
 
 msgid "Execute backup job"
-msgstr ""
+msgstr "تنفيذ وظيفة النسخ الاحتياطي"
 
 msgid "External storage device"
-msgstr ""
+msgstr "جهاز التخزين الخارجي"
 
 msgid "Extra options"
-msgstr ""
+msgstr "خيارات إضافية"
 
 msgid "From external storage to shared folder"
-msgstr ""
+msgstr "من جهاز التخزين الخارجي إلى المجلد المشترك"
 
 msgid "From shared folder to external storage"
-msgstr ""
+msgstr "من المجلد المشترك إلى جهاز التخزين الخارجي"
 
 msgid "Keep partially transferred files"
-msgstr ""
+msgstr "الاحتفاظ بالملفات المنقولة جزئيًا"
 
 msgid "Mode"
-msgstr ""
+msgstr "الوضع"
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "الرجاء التحقق من <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'> صفحة الدليل </a> للحصول على مزيد من التفاصيل."
 
 msgid ""
 "Please note that the web interface is blocked until the manually started "
 "backup job has been finished. However the backup job is automatically "
 "executed in the background when the storage device is connected to the host."
-msgstr ""
+msgstr "يرجى الملاحظة أن صفحة الويب سيتم تعطيلها مؤقتا حتي ينتهي تنفيذ وظيفة النسخ الاحتياطي التي تم تشغيلها يدويا. على أية حال وظيفة النسخ الاحتياطي سيتم تنفيذها في الخلفية عندما يكون جهاز التخزين موصول بجهاز التخزين الشبكي"
 
 msgid "Preserve ACLs"
-msgstr ""
+msgstr "الحفاظ على قوائم ACL"
 
 msgid "Preserve extended attributes"
-msgstr ""
+msgstr "الحفاظ على السمات الموسعة"
 
 msgid "Preserve group"
-msgstr ""
+msgstr "الحفاظ على المجموعة"
 
 msgid "Preserve modification times"
-msgstr ""
+msgstr "الحفاظ على أوقات التعديل"
 
 msgid "Preserve owner"
-msgstr ""
+msgstr "الحفاظ على المالك"
 
 msgid "Preserve permissions"
-msgstr ""
+msgstr "الحفاظ على الأذونات"
 
 msgid "Quiet"
-msgstr ""
+msgstr "هادئ"
 
 msgid "Recurse into directories."
-msgstr ""
+msgstr "تضمين المجلدات الفرعية"
 
 msgid "Recursive"
-msgstr ""
+msgstr "متكرر"
 
 msgid "Run"
-msgstr ""
+msgstr "تشغيل"
 
 msgid "Scan"
-msgstr ""
+msgstr "مسح"
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "تحديد جهاز ..."
 
 msgid "Send command output via email."
-msgstr ""
+msgstr "إرسال مخرجات الأمر عبر البريد الإلكتروني"
 
 msgid "Send email"
-msgstr ""
+msgstr "إرسال بريد إلكتروني"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr ""
+msgstr "اضبط أذونات الوجهة لتكون هي نفس أذونات المصدر"
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "قم بتعيين مجموعة الملف الوجهة لتكون هي نفسها الملف المصدر."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr ""
+msgstr "عيّن مالك الملف الوجهة ليكون هو نفسه الملف المصدر ، ولكن فقط إذا كان rsync المستقبل قيد التشغيل كمستخدم فائق."
 
 msgid "Shared folder"
-msgstr ""
+msgstr "مجلد مشترك"
 
 msgid "Suppress non-error messages."
-msgstr ""
+msgstr "منع الرسائل غير المتعلقة بالأخطاء"
 
 msgid "Synchronise from/to directory on external storage device."
-msgstr ""
+msgstr "مزامنة من وإلى المجلد الموجود في جهاز التخزين الخارجي"
 
 msgid "The external storage device."
-msgstr ""
+msgstr "جهاز التخزين الخارجي"
 
 msgid ""
 "The shared folder content is synchronised from/to the root of the external "
 "storage device if this option is not set. The name of the directory is taken"
 " from the shared folder."
-msgstr ""
+msgstr "تتم مزامنة محتوى المجلد المشترك من / إلى المجلد الجذر في جهاز التخزين الخارجي إذا لم يتم تعيين هذا الخيار. يتم أخذ اسم المجلد من المجلد المشترك."
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
 "connected."
-msgstr ""
+msgstr "المجلد المشترك المراد مزامنته عند توصيل جهاز التخزين الخارجي."
 
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr ""
+msgstr "قم بنقل أوقات التعديل مع الملفات وتحديثها على النظام البعيد."
 
 msgid "USB Backup"
-msgstr ""
+msgstr "نسخ احتياطي USB"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr ""
+msgstr "قم بتحديث قوائم ACL الوجهة لتكون هي نفس قوائم ACL المصدر."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr ""
+msgstr "قم بتحديث السمات الموسعة للوجهة لتكون هي نفس السمات المحلية."
 
 msgid "n/a"
-msgstr ""
+msgstr "لا ينطبق"

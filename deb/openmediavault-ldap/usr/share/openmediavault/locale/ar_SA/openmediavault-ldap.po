@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the openmediavault-ldap package.
 # 
 # Translators:
+# omv nas <myomv100@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-07 17:31+0100\n"
-"PO-Revision-Date: 2020-01-30 07:49+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2020-01-31 13:04+0000\n"
+"Last-Translator: omv nas <myomv100@gmail.com>\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/votdev/openmediavault/language/ar_SA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,86 +19,86 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 
 msgid "Base DN"
-msgstr ""
+msgstr "Base DN"
 
 msgid "Directory Service"
-msgstr ""
+msgstr "خدمة دليل المستخدمين"
 
 msgid "Enable"
-msgstr ""
+msgstr "تمكين"
 
 msgid "Enable PAM"
-msgstr ""
+msgstr "تفعيل PAM"
 
 msgid "Enable SSL/TLS"
-msgstr ""
+msgstr "تمكين SSL/TLS"
 
 msgid "Enable secure connection."
-msgstr ""
+msgstr "تمكين اتصال آمن."
 
 msgid "Extra client options"
-msgstr ""
+msgstr "خيارات العميل الإضافية"
 
 msgid "Extra options"
-msgstr ""
+msgstr "الخيارات الإضافية"
 
 msgid "General settings"
-msgstr ""
+msgstr "الخيارات العامة"
 
 msgid "Groups suffix"
-msgstr ""
+msgstr "لاحقة المجموعات Groups suffix "
 
 msgid "Host"
-msgstr ""
+msgstr "المضيف"
 
 msgid "Password"
-msgstr ""
+msgstr "كلمة المرور"
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/ldap.conf' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "الرجاء التحقق من <a href='http://linux.die.net/man/5/ldap.conf' target='_blank'>صفحة الدليل</a> لمزيد من التفاصيل."
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/nss_ldap' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "الرجاء التحقق من <a href='http://linux.die.net/man/5/nss_ldap' target='_blank'>صفحة الدليل</a> لمزيد من التفاصيل."
 
 msgid "Root Bind DN"
-msgstr ""
+msgstr "Root Bind DN"
 
 msgid "Settings"
-msgstr ""
+msgstr "الإعدادات"
 
 msgid ""
 "Specifies the base distinguished name (DN) to use as search base, e.g. "
 "'dc=example,dc=net'."
-msgstr ""
+msgstr "تحديد الاسم المميز (DN)  وذلك لاستخدام البحث Search Base مثال 'dc=example,dc=net'."
 
 msgid "Specifies the credentials with which to bind."
-msgstr ""
+msgstr "تحديد بيانات الدخول الخاصة بالربط Bind Credentials"
 
 msgid ""
 "Specifies the distinguished name (DN) with which to bind to the directory "
 "server for lookups, e.g. 'cn=manager,dc=example,dc=net'."
-msgstr ""
+msgstr "تحديد الاسم المميز (DN) مع من سيتم الربط به من المستخدمين  في دليل  المستخدمين في عملية البحث مثال 'cn=manager,dc=example,dc=net'."
 
 msgid "Specifies the group suffix, e.g. 'ou=Groups'."
-msgstr ""
+msgstr "تحديد لاحقة المجموعة group suffix  مثال 'ou=Groups'"
 
 msgid "Specifies the port to connect to."
-msgstr ""
+msgstr "تحديد المنفذ الخاص بخادم مجلد المستخدمين"
 
 msgid "Specifies the user suffix, e.g. 'ou=Users'."
-msgstr ""
+msgstr "تحديد لاحقة المستخدم user suffix مثال 'ou=Users'"
 
 msgid "The FQDN or IP address of the server."
-msgstr ""
+msgstr "FDQN أو عنوان IP الخاص بخادم مجلد المستخدمين "
 
 msgid ""
 "Use LDAP for authentication system-wide along with other authentication "
 "sources."
-msgstr ""
+msgstr "استخدم LDAP للمصادقة في كل النظام بالإضافة إلى مصادر المصادقة الأخرى"
 
 msgid "Users suffix"
-msgstr ""
+msgstr "لاحقة المستخدمين Users suffix"

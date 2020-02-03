@@ -1,9 +1,11 @@
 openmediavault (5.2.7-1) unstable; urgency=low
 
+  * Update locales.
   * Fix issue in systemd-networkd configuration. Remove unknown 'UseDNS'
     option in 'Network' section.
   * Fix network bond configuration issue. Relocate PrimarySlave to
     systemd.network.
+  * Fix \OMV\System\Filesystem\Filesystem::getImplByMountPoint() method.
   * Issue #579: Add arabic translations.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 29 Jan 2020 20:48:19 +0100
