@@ -56,9 +56,9 @@ Ext.define("OMV.SessionManager", {
 	logout: function() {
 		var me = this;
 		// Mask the whole document body.
-		var bodyEl = Ext.getBody();
-		if (bodyEl && bodyEl.isElement)
-			bodyEl.mask("Logging out, please wait ...");
+		OMV.viewport.mask({
+			msg: _("Logging out, please wait ...")
+		});
 		// Notify backend.
 		OMV.Rpc.request({
 			scope: me,
@@ -74,9 +74,8 @@ Ext.define("OMV.SessionManager", {
 					document.location.reload(true);
 				} else {
 					// Unnask the document body and display the error.
-					if (bodyEl && bodyEl.isElement)
-						bodyEl.unmask();
-					OMV.MessageBox.error(null, error);
+					OMV.viewport.unmask();
+					OMV.MessageBox.error(null, response);
 				}
 			},
 			rpcData: {
