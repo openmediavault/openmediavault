@@ -95,7 +95,13 @@ abstract class ControlPanelAbstract {
 	/**
 	 * Detect RTL Locale 
 	 */
-	public function isLocaleRTL() {
+ 	public function isLocaleRTL() {
+		$locale_cookie = "X-OPENMEDIAVAULT-LOCALE";
+		if (isset($_COOKIE[$locale_cookie])) {
+			return in_array($_COOKIE[$locale_cookie], ['ar_SA'])
+		}
+		return FALSE;
+	}
 		$locale_cookie = "X-OPENMEDIAVAULT-LOCALE";
 		if (isset($_COOKIE[$locale_cookie])) {
 			if ($_COOKIE[$locale_cookie] == 'ar_SA')
