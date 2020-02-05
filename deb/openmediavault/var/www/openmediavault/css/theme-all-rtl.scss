@@ -67,19 +67,3 @@ div#headerrlogo {
 	background-position: right center;
 	direction: rtl;
 }
-/******************************************************************************/
-/* Fix dashboard widgets multi-cols alighment */
-.x-dashboard-column-first {
-	padding-right: 7px;
-	padding-left: 0px;
-}
-.x-dashboard-column-last {
-	padding-left: 7px;
-}
-div[class~="x-dashboard-column-first"][class~="x-dashboard-column-last"]{
-	padding-left: 0px;
-	padding-right: 7px;
-}
-.x-dashboard-panel {
-    margin-top: 10px;
-}

@@ -66,11 +66,10 @@ OMV.util.i18n = function() {
 		},
 
 		/**
-		 * Test if locale is RTL
+		 * Test if locale is right-to-left (RTL).
 		 */
 		isRTL: function() {
-			locale = this.getLocale();
-			return ['ar_SA'].includes(locale);
+			return ['ar_SA'].includes(this.getLocale());
 		},
 
 		loadDictionary: function(data) {
