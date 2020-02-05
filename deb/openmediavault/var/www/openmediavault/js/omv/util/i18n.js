@@ -72,11 +72,6 @@ OMV.util.i18n = function() {
 			locale = this.getLocale();
 			return ['ar_SA'].includes(locale);
 		},
-			locale = this.getLocale();
-			if(locale === 'ar_SA')
-				return true
-			return false;
-		},
 
 		loadDictionary: function(data) {
 			dictionary = data;
