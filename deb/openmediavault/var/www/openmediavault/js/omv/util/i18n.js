@@ -70,6 +70,9 @@ OMV.util.i18n = function() {
 		 */
 		isRTL: function() {
 			locale = this.getLocale();
+			return ['ar_SA'].includes(locale);
+		},
+			locale = this.getLocale();
 			if(locale === 'ar_SA')
 				return true
 			return false;
