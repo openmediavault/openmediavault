@@ -132,7 +132,8 @@ EOF;
 				"extjs6/classic/theme-triton/resources/theme-triton-all-rtl_2.css",
 				"extjs6/classic/theme-triton/resources/theme-triton-all-rtl.css",		
 				"css/theme-all.min.css",
-				"css/theme-all-rtl.min.css"];
+				"css/theme-all-rtl.min.css"
+			];
 		} else {
 			$cssList = [
 				"extjs6/classic/theme-triton/resources/theme-triton-all.css",
