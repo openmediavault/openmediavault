@@ -137,7 +137,8 @@ EOF;
 		} else {
 			$cssList = [
 				"extjs6/classic/theme-triton/resources/theme-triton-all.css",
-				"css/theme-all.min.css"];
+				"css/theme-all.min.css"
+			];
 		}
 		$cssList[] = "css/theme-triton.min.css";
 		$cssList[] = "css/materialdesignicons.min.css";
