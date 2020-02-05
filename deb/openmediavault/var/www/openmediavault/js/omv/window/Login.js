@@ -40,7 +40,7 @@ Ext.define("OMV.window.Login", {
 		"OMV.window.MessageBox",
 		'Ext.rtl.*'
 	],
-	rtl: OMV.util.i18n.isRTL(OMV.util.i18n.getLocale()),
+	rtl: OMV.util.i18n.isRTL(),
 	title: _("Login"),
 	layout: "fit",
 	width: 350,

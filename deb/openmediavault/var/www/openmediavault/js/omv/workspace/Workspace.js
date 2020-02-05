@@ -53,7 +53,7 @@ Ext.define("OMV.workspace.Workspace", {
 		"OMV.workspace.node.panel.Overview",
 		"OMV.workspace.tab.Panel"
 	],
-	rtl: OMV.util.i18n.isRTL(OMV.util.i18n.getLocale()),
+	rtl: OMV.util.i18n.isRTL(),
 	layout: "border",
 
 	initComponent: function() {
