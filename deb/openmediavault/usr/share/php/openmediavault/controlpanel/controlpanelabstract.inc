@@ -93,6 +93,17 @@ abstract class ControlPanelAbstract {
 	}
 
 	/**
+	 * Detect if locale is right-to-left (RTL).
+	 */
+ 	public function isLocaleRTL() {
+		$name = "X-OPENMEDIAVAULT-LOCALE";
+		if (isset($_COOKIE[$name])) {
+			return in_array($_COOKIE[$name], ['ar_SA']);
+		}
+		return FALSE;
+	}
+
+	/**
 	 * Renders the HTML page
 	 */
 	public function render() {
@@ -114,12 +125,20 @@ abstract class ControlPanelAbstract {
 EOF;
 
 		// Set core CSS files.
-		$cssList = [
-			"extjs6/classic/theme-triton/resources/theme-triton-all.css",
-			"css/theme-all.min.css",
-			"css/theme-triton.min.css",
-			"css/materialdesignicons.min.css"
-		];
+		if ($this->isLocaleRTL()) {
+			$cssList = [
+				"extjs6/classic/theme-triton/resources/theme-triton-all-rtl.css",
+				"css/theme-all.min.css",
+				"css/theme-all-rtl.min.css"
+			];
+		} else {
+			$cssList = [
+				"extjs6/classic/theme-triton/resources/theme-triton-all.css",
+				"css/theme-all.min.css"
+			];
+		}
+		$cssList[] = "css/theme-triton.min.css";
+		$cssList[] = "css/materialdesignicons.min.css";
 		// Add additional CSS files.
 		$cssList = array_merge($cssList, array_values(array_unique(
 		  $this->getCssIncludes())));
@@ -140,13 +159,19 @@ EOF;
 			"js/omv/globals.js"
 		];
 		if (TRUE === \OMV\Environment::getBoolean("OMV_DEBUG_EXTJS", FALSE)) {
+			// !!! The following files must be at the beginning of the list.
 			$jsList = array_merge([
-				"extjs6/ext-all-debug.js",
+				$this->isLocaleRTL() ?
+					"extjs6/ext-all-rtl-debug.js" :
+					"extjs6/ext-all-debug.js",
 				"extjs6/classic/theme-triton/theme-triton-debug.js"
 			], $jsList);
 		} else {
+			// !!! The following files must be at the beginning of the list.
 			$jsList = array_merge([
-				"extjs6/ext-all.js",
+				$this->isLocaleRTL() ?
+					"extjs6/ext-all-rtl.js" :
+					"extjs6/ext-all.js",
 				"extjs6/classic/theme-triton/theme-triton.js"
 			], $jsList);
 		}

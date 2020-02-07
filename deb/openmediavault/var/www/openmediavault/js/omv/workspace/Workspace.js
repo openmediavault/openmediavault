@@ -45,7 +45,8 @@ Ext.define("OMV.workspace.Workspace", {
 		"OMV.toolbar.ApplyCfg",
 		"OMV.toolbar.HostnameItem",
 		"OMV.window.MessageBox",
-		"OMV.workspace.node.tree.Panel"
+		"OMV.workspace.node.tree.Panel",
+		'Ext.rtl.*'
 	],
 	uses: [
 		"OMV.workspace.node.panel.Category",
@@ -54,6 +55,7 @@ Ext.define("OMV.workspace.Workspace", {
 	],
 
 	layout: "border",
+	rtl: OMV.util.i18n.isRTL(),
 
 	initComponent: function() {
 		var me = this;

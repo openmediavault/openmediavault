@@ -65,6 +65,13 @@ OMV.util.i18n = function() {
 			Ext.util.Cookies.set(cookieName, locale, expires);
 		},
 
+		/**
+		 * Test if locale is right-to-left (RTL).
+		 */
+		isRTL: function() {
+			return ['ar_SA'].includes(this.getLocale());
+		},
+
 		loadDictionary: function(data) {
 			dictionary = data;
 		},

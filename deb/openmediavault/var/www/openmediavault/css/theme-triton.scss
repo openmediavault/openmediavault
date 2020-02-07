@@ -18,8 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-
-@import 'defaults';
+@import "defaults";
 
 /******************************************************************************/
 /* Miscellaneous */
@@ -133,7 +132,8 @@ body > .x-mask {
 }
 /******************************************************************************/
 /* Tree */
-.x-tree-icon, .x-tree-elbow-img {
+.x-tree-icon,
+.x-tree-elbow-img {
 }
 .x-tree-icon-custom {
 	background-size: 16px 16px;

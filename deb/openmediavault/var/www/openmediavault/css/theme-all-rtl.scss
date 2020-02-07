@@ -1,0 +1,69 @@
+/**
+ * This file is part of OpenMediaVault.
+ *
+ * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @author    Volker Theile <volker.theile@openmediavault.org>
+ * @copyright Copyright (c) 2009-2020 Volker Theile
+ *
+ * OpenMediaVault is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * OpenMediaVault is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ */
+/******************************************************************************/
+/* Common pages                                                               */
+/******************************************************************************/
+.login-page .product-logo,
+.shutdown-page .product-logo,
+.error-page .product-logo {
+	left: 20px;
+	background-position: bottom left;
+}
+/******************************************************************************/
+/* Workspace page                                                             */
+/******************************************************************************/
+div#headerlogo {
+	float: right;
+	margin-right: 20px;
+	background-position: center right;
+}
+div#headerrlogo {
+	float: left;
+}
+/******************************************************************************/
+/* Globals                                                                    */
+/******************************************************************************/
+.x-form-cb-label-default.x-form-cb-label-after {
+	padding-right: 37px;
+}
+/******************************************************************************/
+/* Workspace dashboard */
+.x-workspace-dashboard-widget-icon {
+	background-size: 16px 16px;
+}
+/******************************************************************************/
+/* Workspace node view */
+.x-workspace-node-view-category-items .thumb-wrap {
+	float: right;
+}
+/******************************************************************************/
+/* About box */
+.x-box-aboutbox {
+	text-align: right;
+}
+/******************************************************************************/
+/* Loadmask */
+.x-mask-msg-text {
+	float: right;
+	padding: 5px 20px 5px 5px;
+	background-position: right center;
+	direction: rtl;
+}
