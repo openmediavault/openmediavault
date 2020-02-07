@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 17:31+0100\n"
-"PO-Revision-Date: 2020-02-02 21:53+0000\n"
+"POT-Creation-Date: 2020-02-05 12:10+0100\n"
+"PO-Revision-Date: 2020-02-07 07:05+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/votdev/openmediavault/language/ar_SA/)\n"
 "MIME-Version: 1.0\n"
@@ -175,7 +175,7 @@ msgid "9 months"
 msgstr "9 أشهر"
 
 msgid "ACL"
-msgstr "ACL قائمة التحكم بالدخول"
+msgstr "قائمة التحكم بالدخول ACL"
 
 msgid "ASCII"
 msgstr "ASCII"
@@ -220,7 +220,7 @@ msgid "Add bond connection"
 msgstr "إضافة اتصال ترابط"
 
 msgid "Add devices to RAID device"
-msgstr "إضافة أجهزة إلى جهاز RAID"
+msgstr "إضافة أجهزة إلى مصفوفة RAID"
 
 msgid "Add ethernet connection"
 msgstr "إضافة اتصال Ethernet"
@@ -232,7 +232,7 @@ msgid "Add group"
 msgstr "إضافة مجموعة"
 
 msgid "Add hot spares / recover RAID device"
-msgstr "إضافة قطع الغيار الساخنة / استرداد جهاز RAID"
+msgstr "إضافة جهاز بديل / استرداد مصفوفة RAID"
 
 msgid "Add module"
 msgstr "إضافة وحدة"
@@ -290,7 +290,7 @@ msgstr "أفغانستان"
 
 msgid ""
 "After the RAID has been grown you can resize the containing file system."
-msgstr "بعد زيادة حجم جهاز RAID ، يمكنك زيادة حجم نظام الملفات الموجود داخل هذا الجهاز."
+msgstr "بعد زيادة حجم مصفوفة RAID ، يمكنك زيادة حجم نظام الملفات الموجود داخل هذه المصفوفة."
 
 msgid "Aland Islands"
 msgstr "جزر ألاند"
@@ -623,7 +623,7 @@ msgid "Client address"
 msgstr "عنوان العميل"
 
 msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr "العملاء مسموح لهم بتمكين نظام الملفات ، على سبيل المثال 192.168.178.0/24."
+msgstr "العملاء مسموح لهم بتحميل نظام الملفات ، على سبيل المثال 192.168.178.0/24."
 
 msgid "Close"
 msgstr "إغلاق"
@@ -635,7 +635,7 @@ msgid "Colombia"
 msgstr "كولومبيا"
 
 msgid "Command"
-msgstr "القيادة"
+msgstr "أمر"
 
 msgid "Comment"
 msgstr "التعليق"
@@ -713,7 +713,7 @@ msgid "Create"
 msgstr "إنشاء"
 
 msgid "Create RAID device"
-msgstr "إنشاء جهاز RAID"
+msgstr "إنشاء مصفوفة RAID"
 
 msgid "Create file system"
 msgstr "إنشاء نظام ملفات"
@@ -896,71 +896,71 @@ msgid "Djibouti"
 msgstr "جيبوتي"
 
 msgid "Do you really want to apply the configuration changes?"
-msgstr "هل تريد فعلا تطبيق تغييرات التكوين؟"
+msgstr "هل تريد تطبيق تغييرات التكوين؟"
 
 msgid "Do you really want to clear the log file?"
-msgstr "هل تريد فعلا مسح ملف السجل؟"
+msgstr "هل تريد مسح ملف السجل؟"
 
 msgid "Do you really want to create the RAID device?"
-msgstr "هل تريد فعلا إنشاء جهاز RAID؟"
+msgstr "هل تريد إنشاء جهاز RAID؟"
 
 msgid "Do you really want to delete the file system? All data will be lost."
-msgstr "هل تريد فعلا حذف نظام الملفات؟ سيتم فقد جميع البيانات."
+msgstr "هل تريد حذف نظام الملفات؟ سيتم فقد جميع البيانات."
 
 msgid "Do you really want to delete the selected item(s)?"
-msgstr "هل تريد فعلا حذف العنصر (العناصر) المحدد؟"
+msgstr "هل تريد حذف العنصر (العناصر) المحدد؟"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
 "Please note that the file system creation may take some time."
-msgstr "هل تريد فعلا تهيئة هذا الجهاز؟ سيتم حذف جميع البيانات الموجودة عليه. يرجى ملاحظة أن إنشاء نظام الملفات قد يستغرق بعض الوقت."
+msgstr "هل تريد تهيئة هذا الجهاز؟ سيتم حذف جميع البيانات الموجودة عليه. يرجى ملاحظة أن إنشاء نظام الملفات قد يستغرق بعض الوقت."
 
 msgid "Do you really want to install the selected plugin(s)?"
-msgstr "هل تريد فعلا تثبيت المكوّن الإضافي المحدد؟"
+msgstr "هل تريد تثبيت المكوّن الإضافي المحدد؟"
 
 msgid "Do you really want to leave the page?"
-msgstr "هل تريد فعلا مغادرة الصفحة؟"
+msgstr "هل تريد مغادرة الصفحة؟"
 
 msgid "Do you really want to logout?"
-msgstr "هل تريد فعلا تسجيل الخروج؟"
+msgstr "هل تريد تسجيل الخروج؟"
 
 msgid "Do you really want to put the system into standby?"
-msgstr "هل تريد فعلا وضع النظام في وضع الاستعداد؟"
+msgstr "هل تريد وضع النظام في وضع الاستعداد؟"
 
 msgid "Do you really want to reboot the system?"
-msgstr "هل تريد فعلا إعادة تشغيل النظام؟"
+msgstr "هل تريد إعادة تشغيل النظام؟"
 
 msgid ""
 "Do you really want to relocate the shared folder? The content of the shared "
 "folder will not be moved automatically, you have to do this yourself."
-msgstr "هل تريد فعلا نقل المجلد المشترك؟ لن يتم نقل محتوى المجلد المشترك تلقائيًا ، يجب عليك القيام بذلك بنفسك."
+msgstr "هل تريد نقل المجلد المشترك؟ لن يتم نقل محتوى المجلد المشترك تلقائيًا ، يجب عليك القيام بذلك بنفسك."
 
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
 "permanently removed and cannot be recovered."
-msgstr "هل تريد فعلا إزالة محتوى المجلد المشترك؟ ستتم إزالته نهائيًا ولا يمكن استعادته."
+msgstr "هل تريد إزالة محتوى المجلد المشترك؟ ستتم إزالته نهائيًا ولا يمكن استعادته."
 
 msgid ""
 "Do you really want to reset the UI settings to their default values, e.g. "
 "the order of the grid columns?"
-msgstr "هل تريد فعلا إعادة تعيين إعدادات واجهة المستخدم إلى قيمها الافتراضية ، مثل ترتيب أعمدة الشبكة؟"
+msgstr "هل تريد إعادة تعيين إعدادات واجهة المستخدم إلى قيمها الافتراضية ، مثل ترتيب أعمدة الشبكة؟"
 
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
-msgstr "هل تريد فعلا تغيير حجم نظام الملفات المحدد؟ يجب عليك القيام بذلك بعد نمو RAID على سبيل المثال."
+msgstr "هل تريد تغيير حجم نظام الملفات المحدد؟ يجب عليك القيام بذلك بعد زيادة حجم مصفوفة RAID على سبيل المثال."
 
 msgid "Do you really want to revert the configuration changes?"
-msgstr "هل تريد فعلا التراجع عن تغييرات التكوين؟"
+msgstr "هل تريد التراجع عن تغييرات التكوين؟"
 
 msgid "Do you really want to shutdown the system?"
-msgstr "هل تريد فعلا إيقاف تشغيل النظام؟"
+msgstr "هل تريد إيقاف تشغيل النظام؟"
 
 msgid "Do you really want to uninstall the selected plugin(s)?"
-msgstr "هل تريد فعلا إلغاء تثبيت المكون الإضافي المحدد؟"
+msgstr "هل تريد إلغاء تثبيت المكون الإضافي المحدد؟"
 
 msgid "Do you really want to wipe the selected device?"
-msgstr "هل تريد فعلا مسح الجهاز المحدد؟"
+msgstr "هل تريد مسح الجهاز المحدد؟"
 
 msgid "Domain name"
 msgstr "اسم النطاق"
@@ -1031,7 +1031,7 @@ msgid "Edit ethernet connection"
 msgstr "تحرير اتصال Ethernet"
 
 msgid "Edit firewall rule"
-msgstr "تحرير قاعدة جدار الحماية"
+msgstr "تحرير قاعدة الجدار الناري"
 
 msgid "Edit group"
 msgstr "تحرير المجموعة"
@@ -1219,7 +1219,7 @@ msgid "Exactly"
 msgstr "بالضبط"
 
 msgid "Execute command"
-msgstr "تنفيذ الأوامر"
+msgstr "تنفيذ أمر"
 
 msgid "Execute cron job"
 msgstr "تنفيذ وظيفة كرون cron"
@@ -1318,7 +1318,7 @@ msgid "Finland"
 msgstr "فنلندا"
 
 msgid "Firewall"
-msgstr "جدار الحماية"
+msgstr "الجدار الناري"
 
 msgid "Firmware version"
 msgstr "إصدار البرنامج الثابت"
@@ -1414,10 +1414,10 @@ msgid "Groups"
 msgstr "المجموعات"
 
 msgid "Grow"
-msgstr "توسيع"
+msgstr "تكبير"
 
 msgid "Grow RAID device"
-msgstr "توسيع جهاز RAID "
+msgstr " زيادة حجم مصفوفة RAID "
 
 msgid "Guadeloupe"
 msgstr "جوادلوب"
@@ -1578,7 +1578,7 @@ msgid ""
 "this option is useful in order to allow passive tranfers to work. You have "
 "to use your public address and opening the passive ports used on your "
 "firewall as well."
-msgstr "إذا كان مضيفك يتصرف كبوابة NAT أو معيد توجيه المنفذ للخادم ، فإن هذا الخيار مفيد من أجل السماح للنقلين السلبيين بالعمل. عليك استخدام عنوانك العام وفتح المنافذ السلبية المستخدمة في جدار الحماية الخاص بك أيضًا. "
+msgstr "إذا كان مضيفك يعتبر بوابة NAT أو معيد توجيه المنفذ للخادم ، فإن هذا الخيار مفيد من أجل السماح للنقلين السلبيين بالعمل. عليك استخدام عنوانك العام وفتح المنافذ السلبية المستخدمة في الجدار الناري الخاص بك أيضًا. "
 
 msgid "Implicit SSL"
 msgstr "SSL الضمني"
@@ -1613,7 +1613,7 @@ msgid ""
 "greater than or equal to 1024). It is strongly recommended that the chosen "
 "range be large enough to handle many simultaneous passive connections (for "
 "example, 49152-65534, the IANA-registered ephemeral port range)."
-msgstr "في بعض الحالات ، يتعين عليك تحديد نطاق المنافذ المنفعلة إلى حدود جدار الحماية الالتفافية. تقيد المنافذ المنفعلة نطاق المنافذ الذي سيحدد منه الخادم عند إرسال أمر PASV من عميل. سيختار الخادم رقمًا بشكل عشوائي من داخل النطاق المحدد حتى يتم العثور على منفذ مفتوح. يجب أن يكون نطاق المنفذ المحدد في النطاق غير المميز (على سبيل المثال ، أكبر من أو يساوي 1024). يوصى بشدة أن يكون النطاق المحدد كبيرًا بما يكفي للتعامل مع العديد من الاتصالات المنفعلة المتزامنة (على سبيل المثال ، 49152-65534 ، نطاق المنفذ المؤقت المسجل IANA). "
+msgstr "في بعض الحالات ، يجب عليك تحديد نطاق المنافذ السلبية Passive Ports لتجاوز جوانب القصور في الجدار الناري. تعمل المنافذ السلبية على تقييد نطاق المنافذ الذي سيحدد منه الخادم عند إرسال أمر PASV من عميل ما. سيختار الخادم رقمًا عشوائيًا من داخل النطاق المحدد حتى يتم العثور على منفذ مفتوح. يجب أن يكون نطاق المنفذ المحدد في النطاق غير المميز Non-Privileged Port Range (على سبيل المثال ، أكبر من أو يساوي 1024). يوصى بشدة أن يكون النطاق المختار كبيرًا بما يكفي للتعامل مع العديد من الاتصالات السلبية Passive Connections المتزامنة (على سبيل المثال ، 49152-65534 ، نطاق المنافذ المؤقتة المسجل في IANA)."
 
 msgid "Incoming"
 msgstr "الواردة"
@@ -1847,6 +1847,9 @@ msgstr "الموقع"
 msgid "Log level"
 msgstr "مستوى السجل"
 
+msgid "Logging out, please wait ..."
+msgstr "يتم الآن تسجيل الخروج، يرجى الانتظار..."
+
 msgid "Login"
 msgstr "تسجيل الدخول"
 
@@ -2071,13 +2074,13 @@ msgid "Morocco"
 msgstr "المغرب"
 
 msgid "Mount"
-msgstr "تحميل القرص Mount "
+msgstr "تفعيل"
 
 msgid "Mount Point"
-msgstr "نقطة تحميل القرص Mount Point"
+msgstr "مجلد التفعيل"
 
 msgid "Mounted"
-msgstr "قرص تم تحميله Mounted Disk"
+msgstr "مفعل"
 
 msgid "Mozambique"
 msgstr "موزمبيق"
@@ -2661,7 +2664,7 @@ msgid "Remove"
 msgstr "إزالة"
 
 msgid "Remove devices from RAID device"
-msgstr "إزالة الأجهزة من جهاز RAID"
+msgstr "إزالة الأجهزة من مصفوفة RAID"
 
 msgid "Replace"
 msgstr "استبدال"
@@ -2913,10 +2916,10 @@ msgid "Select an authentication mode ..."
 msgstr "تحديد وضع مصادقة ..."
 
 msgid "Select devices to be added to the RAID device"
-msgstr "تحديد الأجهزة المراد إضافتها إلى جهاز RAID"
+msgstr "تحديد الأجهزة المراد إضافتها إلى مصفوفة RAID"
 
 msgid "Select devices to be removed from the RAID device."
-msgstr "حدد الأجهزة المراد إزالتها من جهاز RAID."
+msgstr "حدد الأجهزة المراد إزالتها من مصفوفة RAID."
 
 msgid "Select or enter a user name ..."
 msgstr "حدد أو أدخل اسم مستخدم ..."
@@ -2924,7 +2927,7 @@ msgstr "حدد أو أدخل اسم مستخدم ..."
 msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
-msgstr "حدد الأجهزة التي سيتم استخدامها لإنشاء جهاز RAID. لن يتم سرد الأجهزة المتصلة عبر USB (غير موثوق بها للغاية)."
+msgstr "حدد الأجهزة التي سيتم استخدامها لإنشاء مصفوفة RAID. لن يتم سرد الأجهزة المتصلة عبر USB (غير موثوق بها للغاية)."
 
 msgid "Self-test logs"
 msgstr "سجلات الاختبار الذاتي"
@@ -3137,7 +3140,7 @@ msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
 "masquerade address by resolving the IP address. Set this value to 0 to "
 "disable this option."
-msgstr "يحدد مقدار الوقت ، بالثواني ، بين فحص وتحديث عنوان المهزلة عن طريق حل عنوان IP. عيّن هذه القيمة على 0 لتعطيل هذا الخيار."
+msgstr "يحدد مقدار الوقت ، بالثواني ، بين فحص وتحديث عنوان Masquerade IP عن طريق حل عنوان IP. عيّن هذه القيمة إلى 0 لتعطيل هذا الخيار."
 
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "يحدد الوقت في hh: mm: ss بعد انتهاء صلاحية الحظر."
@@ -3174,7 +3177,7 @@ msgid ""
 msgstr "تحديد ما إذا كنت تريد مراقبة حالة النظام وتحديد مستوى وحدة المعالجة المركزية الأنسب."
 
 msgid "Specifies which slave is the primary device."
-msgstr "يحدد أي من العبد هو الجهاز الأساسي."
+msgstr "يحدد أي من جهاز ثانوي هو الجهاز الأساسي."
 
 msgid "Speed"
 msgstr "السرعة"
@@ -3792,7 +3795,7 @@ msgid "Unknown network interface type."
 msgstr "نوع بطاقة الشبكة غير معروف."
 
 msgid "Unmount"
-msgstr "إلغاء تحميل"
+msgstr "تعطيل "
 
 msgid "Up"
 msgstr "فوق"

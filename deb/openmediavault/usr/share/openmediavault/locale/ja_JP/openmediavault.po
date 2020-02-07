@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Toshihiro Kan <kansuke4649@gmail.com>, 2014-2019
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014-2020
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 17:31+0100\n"
-"PO-Revision-Date: 2019-12-20 02:06+0000\n"
+"POT-Creation-Date: 2020-02-05 12:10+0100\n"
+"PO-Revision-Date: 2020-02-06 04:17+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/votdev/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -1845,6 +1845,9 @@ msgstr "ロケーション"
 
 msgid "Log level"
 msgstr "ログレベル"
+
+msgid "Logging out, please wait ..."
+msgstr "ログアウトしています、しばらくお待ちください ..."
 
 msgid "Login"
 msgstr "ログイン"

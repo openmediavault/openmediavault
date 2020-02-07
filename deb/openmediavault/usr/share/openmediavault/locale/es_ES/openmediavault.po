@@ -5,14 +5,14 @@
 # Translators:
 # jmcainzos <jmcainzos@vodafone.es>, 2013
 # jmcainzos <jmcainzos@vodafone.es>, 2012
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2019
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2020
 # Volker <votdev@gmx.de>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 17:31+0100\n"
-"PO-Revision-Date: 2019-12-19 07:22+0000\n"
+"POT-Creation-Date: 2020-02-05 12:10+0100\n"
+"PO-Revision-Date: 2020-02-05 13:46+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/votdev/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -1848,6 +1848,9 @@ msgstr "Ubicación"
 
 msgid "Log level"
 msgstr "Nivel de Log"
+
+msgid "Logging out, please wait ..."
+msgstr "Finalizando sesión, por favor espere ..."
 
 msgid "Login"
 msgstr "Login"

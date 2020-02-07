@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-snmp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Milan Toet <milantoet@gmail.com>, 2020
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-07 17:31+0100\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
+"Last-Translator: Milan Toet <milantoet@gmail.com>, 2020\n"
 "Language-Team: Dutch (Netherlands) (https://www.transifex.com/votdev/teams/14254/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,57 +22,59 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Authentication and no privacy"
-msgstr ""
+msgstr "Authenticatie en geen privacy"
 
 msgid "Authentication and privacy"
-msgstr ""
+msgstr "Authenticatie en privacy"
 
 msgid "Authentication passphrase"
-msgstr ""
+msgstr "Authenticatie wachtwoord"
 
 msgid "Authentication type"
-msgstr ""
+msgstr "Authenticatie type"
 
 msgid "Community"
-msgstr ""
+msgstr "Gemeenschap"
 
 msgid "Contact"
-msgstr ""
+msgstr "Contact"
 
 msgid ""
 "Contact information, e.g. name or email address of the person responsible "
 "for this system."
 msgstr ""
+"Contactgegevens, bijv. naam of e-mailadres van de verantwoordelijke persoon "
+"voor dit systeem."
 
 msgid "Enable"
-msgstr ""
+msgstr "Inschakelen"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Extra opties"
 
 msgid "General settings"
-msgstr ""
+msgstr "Algemene instellingen"
 
 msgid "Host"
-msgstr ""
+msgstr "Host"
 
 msgid "Location"
-msgstr ""
+msgstr "Locatie"
 
 msgid "Location information, e.g. physical location of this system."
-msgstr ""
+msgstr "Locatieinformatie, bijv. fysieke locatie van dit systeem "
 
 msgid "No authentication and no privacy"
-msgstr ""
+msgstr "Geen authenticatie en geen privacy"
 
 msgid "Port"
-msgstr ""
+msgstr "Poort"
 
 msgid "Privacy passphrase"
-msgstr ""
+msgstr "Privacy wachtwoord"
 
 msgid "Privacy type"
-msgstr ""
+msgstr "Privacy type"
 
 msgid "SNMP"
 msgstr ""

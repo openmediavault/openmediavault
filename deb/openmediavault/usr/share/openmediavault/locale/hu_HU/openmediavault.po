@@ -5,7 +5,7 @@
 # Translators:
 # Ádám Balajti <balajtiadam@gmail.com>, 2012
 # Sári Gábor <sari.gabor@gmail.com>, 2017
-# Gyuris Gellért <bubu@ujevangelizacio.hu>, 2018-2019
+# Gyuris Gellért <bubu@ujevangelizacio.hu>, 2018-2020
 # Gyuris Gellért <bubu@ujevangelizacio.hu>, 2017
 # Sári Gábor <sari.gabor@gmail.com>, 2018
 # Grawens <szabolcs.szanyi@gmail.com>, 2014-2019
@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 17:31+0100\n"
-"PO-Revision-Date: 2019-12-19 20:39+0000\n"
+"POT-Creation-Date: 2020-02-05 12:10+0100\n"
+"PO-Revision-Date: 2020-02-05 13:26+0000\n"
 "Last-Translator: Gyuris Gellért <bubu@ujevangelizacio.hu>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -1850,6 +1850,9 @@ msgstr "Hely"
 
 msgid "Log level"
 msgstr "Naplózási szint"
+
+msgid "Logging out, please wait ..."
+msgstr "Kilépés, kis türelmet…"
 
 msgid "Login"
 msgstr "Bejelentkezés"

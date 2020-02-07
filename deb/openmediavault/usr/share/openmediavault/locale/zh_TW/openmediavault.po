@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# kochin <kochinc@outlook.com>, 2013-2019
+# kochin <kochinc@outlook.com>, 2013-2020
 # kochin <kochinc@outlook.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 17:31+0100\n"
-"PO-Revision-Date: 2019-12-27 15:38+0000\n"
+"POT-Creation-Date: 2020-02-05 12:10+0100\n"
+"PO-Revision-Date: 2020-02-05 15:54+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/votdev/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -1846,6 +1846,9 @@ msgstr "位置"
 
 msgid "Log level"
 msgstr "日誌層級"
+
+msgid "Logging out, please wait ..."
+msgstr "登出中，請稍候 ..."
 
 msgid "Login"
 msgstr "登入"
