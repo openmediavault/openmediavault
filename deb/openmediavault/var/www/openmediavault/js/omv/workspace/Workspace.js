@@ -53,8 +53,9 @@ Ext.define("OMV.workspace.Workspace", {
 		"OMV.workspace.node.panel.Overview",
 		"OMV.workspace.tab.Panel"
 	],
-	rtl: OMV.util.i18n.isRTL(),
+
 	layout: "border",
+	rtl: OMV.util.i18n.isRTL(),
 
 	initComponent: function() {
 		var me = this;

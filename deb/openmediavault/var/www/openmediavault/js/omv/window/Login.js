@@ -41,7 +41,6 @@ Ext.define("OMV.window.Login", {
 		'Ext.rtl.*'
 	],
 
-	rtl: OMV.util.i18n.isRTL(),
 	title: _("Login"),
 	layout: "fit",
 	width: 350,
@@ -49,6 +48,8 @@ Ext.define("OMV.window.Login", {
 	buttonAlign: "center",
 	enableResponsiveness: false,
 	stateful: false,
+	rtl: OMV.util.i18n.isRTL(),
+
 	constructor: function() {
 		var me = this;
 		me.callParent(arguments);

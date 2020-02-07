@@ -9,7 +9,7 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 end_of_line = lf
 
-[*.{js,php,inc,sh,xml,json,html,css}]
+[*.{js,php,inc,sh,xml,json,html,css,scss}]
 indent_size = 4
 indent_style = tab
 

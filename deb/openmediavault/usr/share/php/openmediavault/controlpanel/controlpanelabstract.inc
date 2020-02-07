@@ -93,12 +93,12 @@ abstract class ControlPanelAbstract {
 	}
 
 	/**
-	 * Detect RTL locale.
+	 * Detect if locale is right-to-left (RTL).
 	 */
  	public function isLocaleRTL() {
-		$locale_cookie = "X-OPENMEDIAVAULT-LOCALE";
-		if (isset($_COOKIE[$locale_cookie])) {
-			return in_array($_COOKIE[$locale_cookie], ['ar_SA']);
+		$name = "X-OPENMEDIAVAULT-LOCALE";
+		if (isset($_COOKIE[$name])) {
+			return in_array($_COOKIE[$name], ['ar_SA']);
 		}
 		return FALSE;
 	}
@@ -159,17 +159,21 @@ EOF;
 			"js/omv/globals.js"
 		];
 		if (TRUE === \OMV\Environment::getBoolean("OMV_DEBUG_EXTJS", FALSE)) {
+			// !!! The following files must be at the beginning of the list.
 			$jsList = array_merge([
-				"extjs6/ext-all-debug.js",
+				$this->isLocaleRTL() ?
+					"extjs6/ext-all-rtl-debug.js" :
+					"extjs6/ext-all-debug.js",
 				"extjs6/classic/theme-triton/theme-triton-debug.js"
 			], $jsList);
 		} else {
-			if ($this->isLocaleRTL()) {
-				$jsList = array_merge(["extjs6/ext-all-rtl.js"], $jsList);
-			} else {
-				$jsList = array_merge(["extjs6/ext-all.js"], $jsList);
-			}
-			$jsList[] = "extjs6/classic/theme-triton/theme-triton.js";
+			// !!! The following files must be at the beginning of the list.
+			$jsList = array_merge([
+				$this->isLocaleRTL() ?
+					"extjs6/ext-all-rtl.js" :
+					"extjs6/ext-all.js",
+				"extjs6/classic/theme-triton/theme-triton.js"
+			], $jsList);
 		}
 		foreach ($jsList as $jsListv) {
 			print "<script type='application/javascript' src='{$jsListv}'></script>\n";
