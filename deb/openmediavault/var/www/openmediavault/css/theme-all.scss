@@ -621,3 +621,14 @@ div#headerrlogo {
 .x-webkit :not(.x-form-textarea-body) > .x-form-trigger-wrap {
 	height: initial;
 }
+
+/******************************************************************************/
+/* Tags class for group cell in User grid panel */
+.x-group-tag {
+	display: inline-block;
+	border: 1px solid #d0d0d0;
+	padding: 0px 3px 0px 3px;
+	margin: 1px;
+	border-radius: 2px;
+	background-color: #f6f6f6;
+}

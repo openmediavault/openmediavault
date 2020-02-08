@@ -623,10 +623,14 @@ Ext.define("OMV.module.admin.privilege.user.Users", {
 		text: _("Groups"),
 		dataIndex: "groups",
 		stateId: "groups",
+		cellWrap: true,
+		width: 200,
 		renderer: function(value) {
-			if(Ext.isArray(value))
-				value = value.join(", ");
-			return OMV.util.Format.whitespace(value);
+			var items = value, value = '';
+			items.forEach(function(item) {
+				value += "<span class='x-group-tag'>"+item+"</span>";
+			});
+			return value;
 		}
 	}],
 
