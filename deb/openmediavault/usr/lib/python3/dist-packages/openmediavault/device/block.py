@@ -21,14 +21,14 @@
 import os
 import pyudev
 
+import openmediavault.subprocess
+
 from .utils import (
     is_block_device,
     is_device_file_by_id,
     is_device_file_by_path,
     is_device_file_by_uuid,
 )
-
-import openmediavault.subprocess
 
 
 class BlockDevice:
@@ -59,7 +59,8 @@ class BlockDevice:
     def exists(self):
         return is_block_device(self.device_file)
 
-    def get_device_links(self):
+    @property
+    def device_links(self):
         """
         Get all device file symlinks, e.g.
 
@@ -77,7 +78,8 @@ class BlockDevice:
         device = pyudev.Devices.from_device_file(context, self.device_file)
         return [device_link for device_link in device.device_links]
 
-    def get_predictable_device_file(self):
+    @property
+    def predictable_device_file(self):
         """
         Get a predictable device file in the following order:
 
@@ -89,9 +91,9 @@ class BlockDevice:
         :rtype: str
         """
         if self.has_device_file_by_id():
-            return self.get_device_file_by_id()
+            return self.device_file_by_id
         if self.has_device_file_by_path():
-            return self.get_device_file_by_path()
+            return self.device_file_by_path
         return self.canonical_device_file
 
     def has_device_file_by_id(self):
@@ -101,9 +103,10 @@ class BlockDevice:
             otherwise FALSE.
         :rtype: bool
         """
-        return is_device_file_by_id(self.get_device_file_by_id())
+        return is_device_file_by_id(self.device_file_by_id)
 
-    def get_device_file_by_id(self):
+    @property
+    def device_file_by_id(self):
         """
         Get the device file, e.g.
 
@@ -115,7 +118,7 @@ class BlockDevice:
             otherwise None.
         :rtype: str|None
         """
-        for device_link in self.get_device_links():
+        for device_link in self.device_links:
             if is_device_file_by_id(device_link):
                 return device_link
         return None
@@ -127,9 +130,10 @@ class BlockDevice:
             otherwise FALSE.
         :rtype: bool
         """
-        return is_device_file_by_path(self.get_device_file_by_path())
+        return is_device_file_by_path(self.device_file_by_path)
 
-    def get_device_file_by_path(self):
+    @property
+    def device_file_by_path(self):
         """
         Get the device file, e.g.
 
@@ -141,7 +145,7 @@ class BlockDevice:
             otherwise None.
         :rtype: str|None
         """
-        for device_link in self.get_device_links():
+        for device_link in self.device_links:
             if is_device_file_by_path(device_link):
                 return device_link
         return None
@@ -153,9 +157,10 @@ class BlockDevice:
             otherwise FALSE.
         :rtype: bool
         """
-        return is_device_file_by_uuid(self.get_device_file_by_uuid())
+        return is_device_file_by_uuid(self.device_file_by_uuid)
 
-    def get_device_file_by_uuid(self):
+    @property
+    def device_file_by_uuid(self):
         """
         Get the device file, e.g.
 
@@ -167,7 +172,7 @@ class BlockDevice:
             otherwise None.
         :rtype: str|None
         """
-        for device_link in self.get_device_links():
+        for device_link in self.device_links:
             if is_device_file_by_uuid(device_link):
                 return device_link
         return None
@@ -185,7 +190,8 @@ class BlockDevice:
             self.device_file if not canonical else self.canonical_device_file
         )
 
-    def get_device_number(self):
+    @property
+    def device_number(self):
         """
         The device number of the associated device as integer.
         See `<https://www.kernel.org/doc/Documentation/devices.txt> for more information`_.
@@ -195,25 +201,27 @@ class BlockDevice:
         device = pyudev.Devices.from_device_file(context, self.device_file)
         return device.device_number
 
-    def get_major_device_number(self):
+    @property
+    def major_device_number(self):
         """
         Get the major device number.
         See `<https://www.kernel.org/doc/Documentation/devices.txt> for more information`_.
         :return: Returns the major device number.
         :rtype: int
         """
-        return os.major(self.get_device_number())
+        return os.major(self.device_number)
 
-    def get_minor_device_number(self):
+    @property
+    def minor_device_number(self):
         """
         Get the minor device number.
         See `<https://www.kernel.org/doc/Documentation/devices.txt> for more information`_.
         :return: Returns the minor device number.
         :rtype: int
         """
-        return os.minor(self.get_device_number())
+        return os.minor(self.device_number)
 
-    def get_block_size(self):
+    def block_size(self):
         """
         Get the block size.
         :return: Returns the block size.
@@ -224,7 +232,7 @@ class BlockDevice:
         )
         return int(output.decode().strip())
 
-    def get_size(self):
+    def size(self):
         """
         Get the device size in bytes.
         :return: Returns the device size in bytes.
@@ -235,7 +243,8 @@ class BlockDevice:
         )
         return int(output.decode().strip())
 
-    def get_udev_properties(self):
+    @property
+    def udev_properties(self):
         """
         Get the udev properties.
 
@@ -304,10 +313,9 @@ class BlockDevice:
         :return: Returns True if the property exists, otherwise False.
         :rtype: bool
         """
-        properties = self.get_udev_properties()
-        return name in properties
+        return name in self.udev_properties
 
-    def get_udev_property(self, name, default=None):
+    def udev_property(self, name, default=None):
         """
         Get the specified udev property.
         :param name: The name of the property, e.g. ID_VENDOR, ID_MODEL
@@ -321,9 +329,8 @@ class BlockDevice:
         :raises: :exc:`~exceptions.KeyError`, if the given property is
             not defined and no default value is specified.
         """
-        properties = self.get_udev_properties()
         try:
-            return properties[name]
+            return self.udev_properties[name]
         except KeyError as e:
             if default is not None:
                 return default

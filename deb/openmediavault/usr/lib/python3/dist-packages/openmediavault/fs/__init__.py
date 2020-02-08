@@ -101,6 +101,7 @@ class Filesystem(openmediavault.device.BlockDevice):
             )
             device_file = device.device_node
         except pyudev.DeviceNotFoundByNumberError:
+            # Fallback if pyudev can't provide the necessary information.
             # If we are reaching this code path we are surely processing a Btrfs
             # filesystem. A Btrfs subvolume is an independently mountable POSIX
             # filetree and not a block device (and cannot be treated as one).
@@ -144,9 +145,10 @@ class Filesystem(openmediavault.device.BlockDevice):
         """
         if openmediavault.string.is_fs_uuid(self._id):
             return self._id
-        return self.get_udev_property('ID_FS_UUID')
+        return self.udev_property('ID_FS_UUID')
 
-    def get_parent_device_file(self):
+    @property
+    def parent_device_file(self):
         """
         Get the parent device.
 
@@ -170,19 +172,16 @@ class Filesystem(openmediavault.device.BlockDevice):
                     # /dev/sdb => /dev/sdb
                     return self.device_file
         except pyudev.DeviceNotFoundByFileError as e:
-            # If we are reaching this code path we are surely processing a Btrfs
-            # filesystem. A Btrfs subvolume is an independently mountable POSIX
-            # filetree and not a block device (and cannot be treated as one).
-            # Try to get the parent device manually.
-            # Check if we are processing a 'sd' driver device.
-            if re.match(r'^sd[a-z]+\d+$', self.device_name(True)):
-                # Simply cut-off the partition from the name of the device file.
-                return re.sub(r'\d+', '', self.canonical_device_file)
-            raise e
-        # Device mapper devices must be specially treated.
-        if re.match(r'^(dm-|md)\d+$', self.device_name(True)):
-            return self.device_file
-        return None
+            pass
+        # Fallback if pyudev can't provide the necessary information.
+        sd = openmediavault.device.StorageDevice.from_device_file(
+            self.device_file
+        )
+        if sd.parent is not None:
+            # /dev/sdb1 => /dev/sdb
+            return sd.parent.device_file
+        # /dev/sdb => /dev/sdb
+        return sd.device_file
 
     def has_label(self):
         """
@@ -200,7 +199,7 @@ class Filesystem(openmediavault.device.BlockDevice):
         :rtype: str
         """
         return openmediavault.string.unescape_blank(
-            self.get_udev_property('ID_FS_LABEL_ENC', '')
+            self.udev_property('ID_FS_LABEL_ENC', '')
         )
 
     def get_type(self):
@@ -209,7 +208,7 @@ class Filesystem(openmediavault.device.BlockDevice):
         :return: The filesystem type.
         :rtype: str
         """
-        return self.get_udev_property('ID_FS_TYPE')
+        return self.udev_property('ID_FS_TYPE')
 
     def get_partition_scheme(self):
         """
@@ -218,7 +217,7 @@ class Filesystem(openmediavault.device.BlockDevice):
             failure or if it does not exist.
         :rtype: str|None
         """
-        return self.get_udev_property('ID_PART_ENTRY_SCHEME', None)
+        return self.udev_property('ID_PART_ENTRY_SCHEME', None)
 
     def get_mount_point(self):
         """
