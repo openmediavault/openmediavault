@@ -248,7 +248,7 @@ class StorageDeviceMdadm extends StorageDevice {
 		//       311296 blocks super 1.2 512k chunks
 		//
 		// unused devices: <none>
-		$regex = sprintf('/^(%s\s*:.*?)^\s*$/ims', $this->getDeviceName());
+		$regex = sprintf('/^(%s\s*:.*?)^\s*$/ims', $this->getDeviceName(TRUE));
 		if (1 !== preg_match($regex, file_get_contents("/proc/mdstat"),
 		  $matches))
 			return FALSE;

@@ -252,7 +252,7 @@ class StorageDevice(openmediavault.device.StorageDevice):
             #
             # unused devices: <none>
             matches = re.match(
-                r'.*^({}\s*:.*?)^\s*$'.format(self.device_name()),
+                r'.*^({}\s*:.*?)^\s*$'.format(self.device_name(True)),
                 content,
                 flags=re.IGNORECASE | re.MULTILINE | re.DOTALL
             )
