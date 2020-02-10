@@ -1,5 +1,6 @@
 openmediavault (5.3.1-1) unstable; urgency=low
 
+  * Various improvements in the PHP and Python storage device backends.
   * Issue #597: Disable sorting of the column 'Device(s)' in the
     filesystem table.
 
