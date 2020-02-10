@@ -70,7 +70,11 @@ class LVM extends DM {
 		// LVM, CRYPT, DMRAID, MPATH, PART
 		// @see https://github.com/karelzak/util-linux/blob/master/misc-utils/lsblk.c#L389
 		$sd = new \OMV\System\Storage\StorageDeviceDM($deviceFile);
-		$parts = explode("-", $sd->getDeviceMapperUuid());
+		$uuid = $sd->getDeviceMapperUuid();
+		if (is_null($uuid)) {
+			return FALSE;
+		}
+		$parts = explode("-", $uuid);
 		return "lvm" === mb_strtolower(array_shift($parts));
 	}
 
