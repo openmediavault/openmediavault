@@ -35,25 +35,14 @@ class StorageDevicePlugin(openmediavault.device.IStorageDevicePlugin):
         return re.match(r'^(mapper/.+)|(dm-\d+)$', device_name) is not None
 
     def from_device_file(self, device_file):
-        # Get the type:
-        type_ = self._type(device_file)
-        if type_ == 'lvm':
+        sd = StorageDevice(device_file)
+        subsystem = sd.subsystem
+        if subsystem == 'lvm':
             return StorageDeviceLVM(device_file)
-        if type_ in ['crypt', 'dmraid', 'mpath', 'part']:
+        if subsystem in ['crypt', 'dmraid', 'mpath', 'part']:
             # Fall through to default implementation.
             pass
         return StorageDevice(device_file)
-
-    @staticmethod
-    def _type(device_file):
-        """
-        The DM_UUID prefix should be set to subsystem owning the device:
-        LVM, CRYPT, DMRAID, MPATH, PART
-        @see https://github.com/karelzak/util-linux/blob/master/misc-utils/lsblk.c#L389
-        """
-        sd = StorageDevice(device_file)
-        parts = sd.uuid.split('-')
-        return parts[0].lower()
 
 
 class StorageDevice(openmediavault.device.StorageDevice):
@@ -65,6 +54,29 @@ class StorageDevice(openmediavault.device.StorageDevice):
     @property
     def description(self):
         return 'Device Mapper'
+
+    @property
+    def subsystem(self):
+        """
+        Get the device mapper subsystem, e.g. 'lvm', 'crypt',
+        'dmraid', 'mpath', 'part', ...
+        :return: Returns the device mapper subsystem or ``None``
+            on failure.
+        :rtype: str|None
+        """
+        # The DM_UUID prefix should be set to subsystem owning the device:
+        # LVM, CRYPT, DMRAID, MPATH, PART
+        # @see https://github.com/karelzak/util-linux/blob/master/misc-utils/lsblk.c#L389
+        file = '/sys/block/{}/dm/uuid'.format(self.device_name(True))
+        try:
+            with open(file, 'r') as f:
+                content = f.readline().strip()
+                parts = content.split('-')
+                if len(parts) > 1:
+                    return parts[0].lower()
+        except (IOError, FileNotFoundError):
+            pass
+        return None
 
     @property
     def name(self):
