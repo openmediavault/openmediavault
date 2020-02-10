@@ -1,3 +1,10 @@
+openmediavault (5.3.1-1) unstable; urgency=low
+
+  * Issue #597: Disable sorting of the column 'Device(s)' in the
+    filesystem table.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 10 Feb 2020 14:27:27 +0100
+
 openmediavault (5.3.0-1) unstable; urgency=low
 
   * Update locales.
