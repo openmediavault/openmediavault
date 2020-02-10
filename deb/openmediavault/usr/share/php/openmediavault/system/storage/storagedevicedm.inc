@@ -28,6 +28,25 @@ namespace OMV\System\Storage;
  */
 class StorageDeviceDM extends StorageDevice {
 	/**
+	 * Get the device mapper subsystem, e.g. 'lvm', 'crypt', 'dmraid',
+	 * 'mpath', 'part', ...
+	 * @return Returns the device mapper subsystem, otherwise NULL.
+	 */
+	public function getDeviceMapperSubsystem() {
+		// The DM_UUID prefix should be set to subsystem owning the device:
+		// LVM, CRYPT, DMRAID, MPATH, PART
+		// @see https://github.com/karelzak/util-linux/blob/master/misc-utils/lsblk.c#L389
+		$path = sprintf("/sys/block/%s/dm/uuid", $this->getDeviceName(TRUE));
+		if (!file_exists($path))
+			return NULL;
+		$content = trim(file_get_contents($path));
+		$parts = explode("-", $content);
+		if (count($parts) > 1)
+			return mb_strtolower(array_shift($parts));
+		return NULL;
+	}
+
+	/**
 	 * Get the name of the device mapper device.
 	 * @return The name of the device mapper device, otherwise NULL.
 	 */
