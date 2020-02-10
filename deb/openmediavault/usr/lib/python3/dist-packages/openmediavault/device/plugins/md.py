@@ -28,6 +28,9 @@ import openmediavault.subprocess
 
 class StorageDevicePlugin(openmediavault.device.IStorageDevicePlugin):
     def match(self, device_file):
+        # Examples:
+        # - /dev/md2
+        # - /dev/md0p1
         device_name = re.sub(r'^/dev/', '', device_file)
         return re.match(r'^md\d+(p\d+)*$', device_name) is not None
 
@@ -42,15 +45,8 @@ class StorageDevice(openmediavault.device.StorageDevice):
     """
 
     def __init__(self, device_file):
-        """
-        :param device_file: Specifies the device file, e.g. /dev/dm-1,
-            /dev/vg0/lv0 or /dev/mapper/vg0-lv0.
-        :type device_file: str
-        """
-        # Call parent constructor.
         super().__init__(device_file)
-
-        # Init internals
+        # Init internals.
         self._name = None
         self._uuid = None
         self._level = None
@@ -61,6 +57,14 @@ class StorageDevice(openmediavault.device.StorageDevice):
         self._has_write_intent_bitmap = None
         self._details = None
         self._cached = False
+
+    @property
+    def parent(self):
+        # /dev/md0p1 -> /dev/md0
+        parent_device_file = re.sub(r'(p\d+)$', '', self.canonical_device_file)
+        if parent_device_file != self.canonical_device_file:
+            return self.__class__(parent_device_file)
+        return None
 
     def _get_data(self):
         if self._cached:

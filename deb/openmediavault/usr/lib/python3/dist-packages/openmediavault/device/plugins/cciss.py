@@ -64,7 +64,7 @@ class StorageDevice(openmediavault.device.StorageDevice):
 
     @property
     def smart_device_type(self):
-        m = re.match(r"^cciss!c(\d)d(\d)$", self.device_name())
+        m = re.match(r'^cciss!c(\d)d(\d)$', self.device_name())
         if m:
             return 'cciss,{}'.format(m.group(2))
         return ''

@@ -66,8 +66,12 @@ class LVM extends DM {
 		if (FALSE === parent::isTypeOf($deviceFile))
 			return FALSE;
 		// Check if it is a LVM logical volume.
-		$object = new \OMV\System\Storage\StorageDeviceLvm($deviceFile);
-		return $object->exists();
+		// The DM_UUID prefix should be set to subsystem owning the device:
+		// LVM, CRYPT, DMRAID, MPATH, PART
+		// @see https://github.com/karelzak/util-linux/blob/master/misc-utils/lsblk.c#L389
+		$sd = new \OMV\System\Storage\StorageDeviceDM($deviceFile);
+		$parts = explode("-", $sd->getDeviceMapperUuid());
+		return "lvm" === mb_strtolower(array_shift($parts));
 	}
 
 	function getImpl($args) {

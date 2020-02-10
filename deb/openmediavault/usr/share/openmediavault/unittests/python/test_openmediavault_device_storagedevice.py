@@ -190,6 +190,196 @@ class StorageDeviceTestCase(unittest.TestCase):
         sd = openmediavault.device.StorageDevice('/dev/sdx')
         self.assertTrue(sd.is_rotational)
 
+    def test_from_device_file_bcache(self):
+        sd = openmediavault.device.StorageDevice.from_device_file(
+            '/dev/bcache1'
+        )
+        self.assertIsInstance(
+            sd, openmediavault.device.plugins.bcache.StorageDevice
+        )
+
+    def test_from_device_file_cciss_1(self):
+        sd = openmediavault.device.StorageDevice.from_device_file(
+            '/dev/cciss/c0d0p2'
+        )
+        self.assertIsInstance(
+            sd, openmediavault.device.plugins.cciss.StorageDevice
+        )
+        self.assertEqual(sd.parent.device_file, '/dev/cciss/c0d0')
+        self.assertTrue(sd.is_raid)
+        self.assertEqual(sd.device_name(False), 'cciss!c0d0p2')
+        self.assertEqual(sd.smart_device_type, '')
+
+    def test_from_device_file_cciss_2(self):
+        sd = openmediavault.device.StorageDevice.from_device_file(
+            '/dev/cciss/c0d0'
+        )
+        self.assertIsInstance(
+            sd, openmediavault.device.plugins.cciss.StorageDevice
+        )
+        self.assertEqual(sd.device_name(False), 'cciss!c0d0')
+        self.assertEqual(sd.smart_device_type, 'cciss,0')
+
+    @mock.patch('pyudev.Devices.from_device_file')
+    def test_from_device_file_cdrom(self, mock_from_device_file):
+        mock_from_device_file.return_value = MockedPyUdevDevice(
+            {'ID_CDROM_MEDIA': '0'}
+        )
+        sd = openmediavault.device.StorageDevice.from_device_file('/dev/sr2')
+        self.assertIsInstance(
+            sd, openmediavault.device.plugins.cdrom.StorageDevice
+        )
+        self.assertTrue(sd.is_read_only)
+        self.assertFalse(sd.is_media_available)
+        self.assertEqual(sd.size(), 0)
+
+    @mock.patch('builtins.open', new=f_open)
+    @mock.patch('os.path.exists', new=f_os.path.exists)
+    @mock.patch('os.path.realpath', new=f_os.path.realpath)
+    def test_from_device_file_dm_1(self):
+        self.fs.create_symlink('/dev/mapper/test', '/dev/dm-1')
+        self.fs.create_file('/sys/block/dm-1/dm/name', contents='''foo\n''')
+        sd = openmediavault.device.StorageDevice.from_device_file(
+            '/dev/mapper/test'
+        )
+        self.assertIsInstance(
+            sd, openmediavault.device.plugins.dm.StorageDevice
+        )
+        self.assertEqual(sd.canonical_device_file, '/dev/dm-1')
+        self.assertEqual(sd.device_name(True), 'dm-1')
+        self.assertEqual(sd.name, 'foo')
+
+    @mock.patch('builtins.open', new=f_open)
+    @mock.patch('os.path.exists', new=f_os.path.exists)
+    def test_from_device_file_dm_2(self):
+        self.fs.create_file(
+            '/sys/block/dm-2/dm/uuid', contents='''CRYPT-gyhi31UL0XD8\n'''
+        )
+        sd = openmediavault.device.StorageDevice.from_device_file('/dev/dm-2')
+        self.assertIsInstance(
+            sd, openmediavault.device.plugins.dm.StorageDevice
+        )
+        self.assertEqual(sd.canonical_device_file, '/dev/dm-2')
+        self.assertEqual(sd.device_name(False), 'dm-2')
+        self.assertEqual(sd.uuid, 'CRYPT-gyhi31UL0XD8')
+
+    @mock.patch('builtins.open', new=f_open)
+    @mock.patch('os.path.exists', new=f_os.path.exists)
+    def test_from_device_file_dm_3(self):
+        self.fs.create_file(
+            '/sys/block/dm-3/dm/uuid', contents='''LVM-EOVOgvd6Wfgpb\n'''
+        )
+        sd = openmediavault.device.StorageDevice.from_device_file('/dev/dm-3')
+        self.assertIsInstance(
+            sd, openmediavault.device.plugins.dm.StorageDeviceLVM
+        )
+
+    def test_from_device_file_fio(self):
+        sd = openmediavault.device.StorageDevice.from_device_file('/dev/fioa1')
+        self.assertIsInstance(
+            sd, openmediavault.device.plugins.fio.StorageDevice
+        )
+        self.assertFalse(sd.is_rotational)
+        self.assertFalse(sd.has_smart_support)
+
+    def test_from_device_file_hd(self):
+        sd = openmediavault.device.StorageDevice.from_device_file('/dev/hdc3')
+        self.assertIsInstance(
+            sd, openmediavault.device.plugins.hd.StorageDevice
+        )
+        self.assertEqual(sd.parent.device_file, '/dev/hdc')
+        self.assertEqual(sd.smart_device_type, 'ata')
+
+    def test_from_device_file_i2o(self):
+        sd = openmediavault.device.StorageDevice.from_device_file(
+            '/dev/i2o/hdb1'
+        )
+        self.assertIsInstance(
+            sd, openmediavault.device.plugins.i2o.StorageDevice
+        )
+        self.assertEqual(sd.parent.device_file, '/dev/i2o/hdb')
+        self.assertTrue(sd.is_raid)
+
+    def test_from_device_file_loop(self):
+        sd = openmediavault.device.StorageDevice.from_device_file('/dev/loop2')
+        self.assertIsInstance(
+            sd, openmediavault.device.plugins.loop.StorageDevice
+        )
+
+    def test_from_device_file_md(self):
+        sd = openmediavault.device.StorageDevice.from_device_file('/dev/md0p1')
+        self.assertIsInstance(
+            sd, openmediavault.device.plugins.md.StorageDevice
+        )
+        self.assertEqual(sd.parent.device_file, '/dev/md0')
+        self.assertTrue(sd.is_raid)
+
+    def test_from_device_file_mmc(self):
+        sd = openmediavault.device.StorageDevice.from_device_file(
+            '/dev/mmcblk0p1'
+        )
+        self.assertIsInstance(
+            sd, openmediavault.device.plugins.mmc.StorageDevice
+        )
+        self.assertEqual(sd.parent.device_file, '/dev/mmcblk0')
+        self.assertFalse(sd.is_rotational)
+
+    def test_from_device_file_nvm(self):
+        sd = openmediavault.device.StorageDevice.from_device_file(
+            '/dev/nvme0n1p1'
+        )
+        self.assertIsInstance(
+            sd, openmediavault.device.plugins.nvm.StorageDevice
+        )
+        self.assertEqual(sd.parent.device_file, '/dev/nvme0n1')
+        self.assertFalse(sd.is_rotational)
+        self.assertEqual(sd.smart_device_type, 'nvme')
+
+    def test_from_device_file_rbd(self):
+        sd = openmediavault.device.StorageDevice.from_device_file('/dev/rbd1p1')
+        self.assertIsInstance(
+            sd, openmediavault.device.plugins.rbd.StorageDevice
+        )
+        self.assertEqual(sd.parent.device_file, '/dev/rbd1')
+        self.assertFalse(sd.is_rotational)
+
+    @mock.patch('pyudev.Devices.from_device_file')
+    def test_from_device_file_sd(self, mock_from_device_file):
+        mock_from_device_file.return_value = MockedPyUdevDevice(
+            {'ID_BUS': 'usb'}
+        )
+        sd = openmediavault.device.StorageDevice.from_device_file('/dev/sda1')
+        self.assertIsInstance(
+            sd, openmediavault.device.plugins.sd.StorageDevice
+        )
+        self.assertEqual(sd.parent.device_file, '/dev/sda')
+        self.assertTrue(sd.is_usb)
+        self.assertEqual(sd.smart_device_type, 'sat')
+
+    def test_from_device_file_sg(self):
+        sd = openmediavault.device.StorageDevice.from_device_file('/dev/sg17')
+        self.assertIsInstance(
+            sd, openmediavault.device.plugins.sg.StorageDevice
+        )
+        self.assertEqual(sd.smart_device_type, 'scsi')
+
+    def test_from_device_file_virtio(self):
+        sd = openmediavault.device.StorageDevice.from_device_file('/dev/vda1')
+        self.assertIsInstance(
+            sd, openmediavault.device.plugins.virtio.StorageDevice
+        )
+        self.assertEqual(sd.parent.device_file, '/dev/vda')
+        self.assertEqual(sd.smart_device_type, 'sat')
+
+    def test_from_device_file_xen(self):
+        sd = openmediavault.device.StorageDevice.from_device_file(
+            '/dev/xvdtq37'
+        )
+        self.assertIsInstance(
+            sd, openmediavault.device.plugins.xen.StorageDevice
+        )
+        self.assertEqual(sd.parent.device_file, '/dev/xvdtq')
+
 
 if __name__ == "__main__":
     unittest.main()

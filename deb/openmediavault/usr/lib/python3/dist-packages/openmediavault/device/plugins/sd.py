@@ -43,9 +43,9 @@ class StorageDevicePlugin(openmediavault.device.IStorageDevicePlugin):
             return StorageDeviceHPSA(device_file)
         return StorageDevice(device_file)
 
-    def _host_driver(self, device_file):
+    @staticmethod
+    def _host_driver(device_file):
         sd = openmediavault.device.StorageDevice(device_file)
-        assert sd.exists
         host_path = '/sys/block/{}/device/../..'.format(sd.device_name(True))
         driver_path = os.path.relpath('{}/../driver'.format(host_path))
         if not os.path.exists(driver_path):
