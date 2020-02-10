@@ -20,6 +20,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
 import pyudev
+import re
 
 import openmediavault.subprocess
 
@@ -186,7 +187,9 @@ class BlockDevice:
         :return: The device name.
         :rtype: str
         """
-        return os.path.basename(
+        return re.sub(
+            r'^/dev/',
+            '',
             self.device_file if not canonical else self.canonical_device_file
         )
 

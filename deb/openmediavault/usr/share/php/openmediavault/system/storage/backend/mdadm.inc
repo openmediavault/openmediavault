@@ -62,6 +62,10 @@ class Mdadm extends BackendAbstract {
 		return new \OMV\System\Storage\StorageDeviceMdadm($args);
 	}
 
+	function baseDeviceFile($deviceFile) {
+		return preg_replace("/(p\d+)$/", "", $deviceFile);
+	}
+
 	function fsDeviceFile($deviceFile, $partition = 1) {
 		return $deviceFile;
 	}
