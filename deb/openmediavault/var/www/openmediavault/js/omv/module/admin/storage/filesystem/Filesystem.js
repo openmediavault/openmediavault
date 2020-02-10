@@ -400,7 +400,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 	},{
 		xtype: "devicefilescolumn",
 		text: _("Device(s)"),
-		sortable: true,
+		sortable: false,
 		dataIndex: "devicefiles",
 		stateId: "devicefiles"
 	},{
