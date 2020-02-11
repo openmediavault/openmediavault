@@ -25,7 +25,7 @@
 {% set cron_scripts_dir = salt['pillar.get']('default:OMV_CRONSCRIPTS_DIR', '/var/lib/openmediavault/cron.d') %}
 {% set cron_script_prefix = salt['pillar.get']('default:OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT_PREFIX', 'clamdscan-') %}
 {% set clamav_clamd_logfile = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_LOGFILE', '/var/log/clamav/clamav.log') %}
-{% set clamav_clamd_user = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_USER', 'clamav') %}
+{% set clamav_clamd_user = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_USER', 'root') %}
 {% set clamav_freshclam_logfile = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_UPDATELOGFILE', '/var/log/clamav/freshclam.log') %}
 {% set clamav_freshclam_user = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_DATABASEOWNER', 'clamav') %}
 {% set clamav_config = salt['omv_conf.get']('conf.service.clamav') %}
@@ -49,26 +49,6 @@ remove_clamav_daemon_logrotate:
 remove_clamav_freshclam_logrotate:
   file.absent:
     - name: "/etc/logrotate.d/clamav-freshclam"
-
-create_clamav_onaccess_unit_file:
-  file.managed:
-    - name: "/etc/systemd/system/clamav-onaccess.service"
-    - contents: |
-        [Unit]
-        Description=Clam AntiVirus on-access daemon
-        After=clamav-daemon.service
-        BindsTo=clamav-daemon.service
-
-        [Service]
-        ExecStart=/usr/bin/clamonacc --foreground=true
-        Restart=on-failure
-        StandardOutput=syslog
-
-        [Install]
-        WantedBy=multi-user.target
-    - user: root
-    - group: root
-    - mode: 644
 
 {% if clamav_config.enable | to_bool %}
 

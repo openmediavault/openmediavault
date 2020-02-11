@@ -1,0 +1,12 @@
+[Unit]
+Description=Clam AntiVirus on-access daemon
+After=clamav-daemon.service
+BindsTo=clamav-daemon.service
+
+[Service]
+ExecStart=/usr/bin/clamonacc --foreground=true
+Restart=on-failure
+StandardOutput=syslog
+
+[Install]
+WantedBy=multi-user.target
