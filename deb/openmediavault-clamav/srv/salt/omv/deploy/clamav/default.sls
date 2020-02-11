@@ -212,4 +212,9 @@ stop_clamav_freshclam_service:
     - name: clamav-freshclam
     - enable: False
 
+stop_clamav_onaccess_service:
+  service.dead:
+    - name: clamav-onaccess
+    - enable: False
+
 {% endif %}
