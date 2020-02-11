@@ -154,7 +154,6 @@ OfficialDatabaseOnly {{ officialdatabaseonly }}
 CrossFilesystems {{ crossfilesystems }}
 VirusEvent {{ virusevent }}
 User {{ user }}
-{%- if config.onaccesspaths.onaccesspath | selectattr('enable') | list | length > 0 %}
 OnAccessMaxFileSize {{ onaccessmaxfilesize }}
 OnAccessMaxThreads {{ onaccessmaxthreads }}
 OnAccessDisableDDD {{ onaccessdisableddd }}
@@ -165,7 +164,6 @@ OnAccessRetryAttempts {{ onaccessretryattempts }}
 {%- for onaccesspath in config.onaccesspaths.onaccesspath | selectattr('enable') %}
 OnAccessIncludePath {{ salt['omv_conf.get_sharedfolder_path'](onaccesspath.sharedfolderref) }}
 {%- endfor -%}
-{%- endif %}
 {%- if config.clamd.extraoptions | length > 0 %}
 # Extra options
 {{ config.clamd.extraoptions }}
