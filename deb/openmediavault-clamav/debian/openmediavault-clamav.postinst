@@ -57,6 +57,11 @@ case "$1" in
 		########################################################################
 		# Action to be done depending on the previous version.
 		########################################################################
+		if dpkg --compare-versions "$2" lt-nl "5.0.3"; then
+		  # Create systemd clamav-onaccess.service unit file and rebuild
+		  # all configuration files.
+		  omv-salt deploy run --quiet clamav
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
