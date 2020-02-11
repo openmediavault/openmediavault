@@ -6,6 +6,7 @@ BindsTo=clamav-daemon.service
 [Service]
 ExecStart=/usr/bin/clamonacc --foreground=true
 Restart=on-failure
+RestartSec=5s
 StandardOutput=syslog
 
 [Install]
