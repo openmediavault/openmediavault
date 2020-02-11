@@ -63,11 +63,13 @@
 {% set officialdatabaseonly = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_OFFICIALDATABASEONLY', 'false') -%}
 {% set crossfilesystems = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_CROSSFILESYSTEMS', 'true') -%}
 {% set virusevent = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_VIRUSEVENT', '/bin/run-parts --lsbsysinit -- /etc/clamav/virusevent.d/') -%}
-{% set user = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_USER', 'clamav') -%}
+{% set user = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_USER', 'root') -%}
 {% set onaccessmaxfilesize = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ONACCESSMAXFILESIZE', '100M') -%}
+{% set onaccessmaxthreads = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ONACCESSMAXTHREADS', '5') -%}
 {% set onaccessdisableddd = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ONACCESSDISABLEDDD', 'false') -%}
 {% set onaccessprevention = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ONACCESSPREVENTION', 'true') -%}
 {% set onaccessextrascanning = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ONACCESSEXTRASCANNING', 'true') -%}
+{% set onaccessretryattempts = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ONACCESSRETRYATTEMPTS', '3') -%}
 
 {{ pillar['headers']['multiline'] }}
 LocalSocket {{ localsocket }}
@@ -151,16 +153,15 @@ BytecodeTimeout {{ bytecodetimeout }}
 OfficialDatabaseOnly {{ officialdatabaseonly }}
 CrossFilesystems {{ crossfilesystems }}
 VirusEvent {{ virusevent }}
-{%- if config.onaccesspaths.onaccesspath | selectattr('enable') | list | length == 0 %}
 User {{ user }}
-ScanOnAccess false
-{%- else %}
-User root
-ScanOnAccess true
+{%- if config.onaccesspaths.onaccesspath | selectattr('enable') | list | length > 0 %}
 OnAccessMaxFileSize {{ onaccessmaxfilesize }}
+OnAccessMaxThreads {{ onaccessmaxthreads }}
 OnAccessDisableDDD {{ onaccessdisableddd }}
 OnAccessPrevention {{ onaccessprevention }}
 OnAccessExtraScanning {{ onaccessextrascanning }}
+OnAccessExcludeUname {{ user }}
+OnAccessRetryAttempts {{ onaccessretryattempts }}
 {%- for onaccesspath in config.onaccesspaths.onaccesspath | selectattr('enable') %}
 OnAccessIncludePath {{ salt['omv_conf.get_sharedfolder_path'](onaccesspath.sharedfolderref) }}
 {%- endfor -%}

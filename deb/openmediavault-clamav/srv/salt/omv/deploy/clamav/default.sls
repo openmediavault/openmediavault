@@ -50,6 +50,26 @@ remove_clamav_freshclam_logrotate:
   file.absent:
     - name: "/etc/logrotate.d/clamav-freshclam"
 
+create_clamav_onaccess_unit_file:
+  file.managed:
+    - name: "/etc/systemd/system/clamav-onaccess.service"
+    - contents: |
+        [Unit]
+        Description=Clam AntiVirus on-access daemon
+        After=clamav-daemon.service
+        BindsTo=clamav-daemon.service
+
+        [Service]
+        ExecStart=/usr/bin/clamonacc --foreground=true
+        Restart=on-failure
+        StandardOutput=syslog
+
+        [Install]
+        WantedBy=multi-user.target
+    - user: root
+    - group: root
+    - mode: 644
+
 {% if clamav_config.enable | to_bool %}
 
 {% if clamav_config.freshclam.enable | to_bool %}
@@ -136,6 +156,22 @@ start_clamav_daemon_service:
     - enable: True
     - watch:
       - file: configure_clamav_daemon
+
+{% if clamav_config.onaccesspaths.onaccesspath | selectattr('enable') | list | length > 0 %}
+
+start_clamav_onaccess_service:
+  service.running:
+    - name: clamav-onaccess
+    - enable: True
+
+{% else %}
+
+stop_clamav_onaccess_service:
+  service.dead:
+    - name: clamav-onaccess
+    - enable: False
+
+{% endif %}
 
 configure_clamav_clamdscan_cron:
   file.managed:
