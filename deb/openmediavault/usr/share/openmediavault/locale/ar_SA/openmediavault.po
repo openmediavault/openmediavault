@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-05 12:10+0100\n"
-"PO-Revision-Date: 2020-02-07 07:05+0000\n"
+"PO-Revision-Date: 2020-02-10 22:55+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/votdev/openmediavault/language/ar_SA/)\n"
 "MIME-Version: 1.0\n"
@@ -638,7 +638,7 @@ msgid "Command"
 msgstr "أمر"
 
 msgid "Comment"
-msgstr "التعليق"
+msgstr "تعليق"
 
 msgid "Common Name"
 msgstr "الاسم الشائع"
@@ -1836,7 +1836,7 @@ msgid "Loading ..."
 msgstr "يتم التحميل ..."
 
 msgid "Loading, please wait ..."
-msgstr "يتم الآن التحميل ، برجاء الانتظار ..."
+msgstr "يتم الآن التحميل ، يرجى الانتظار ..."
 
 msgid "Local"
 msgstr "محلي"
@@ -1972,7 +1972,7 @@ msgid "Maximum upload rate (KiB/s)"
 msgstr "الحد الأقصى لمعدل التحميل (KiB / s)"
 
 msgid "Maximum {0} selected item(s) allowed"
-msgstr "الحد الأقصى {0} للعناصر المحددة المسموح بها"
+msgstr "مسموح اختيار {0} عنصر من القائمة كحد أقصى"
 
 msgid "May"
 msgstr "مايو"
@@ -2017,7 +2017,7 @@ msgid "Minimum performance, Minimum acoustic output"
 msgstr "الأداء الأدنى ، الحد الأدنى للإخراج الصوتي"
 
 msgid "Minimum {0} selected item(s) required"
-msgstr "الحد الأدنى {0} من العناصر المحددة مطلوب"
+msgstr "مطلوب اختيار {0} عنصر من القائمة على الأقل"
 
 msgid "Minute"
 msgstr "دقيقة"
@@ -2601,10 +2601,10 @@ msgid "Raw value"
 msgstr "القيمة الخام"
 
 msgid "Read only"
-msgstr "للقراءة فقط"
+msgstr "القراءة فقط"
 
 msgid "Read-only"
-msgstr "للقراءة فقط"
+msgstr "القراءة فقط"
 
 msgid "Read/Execute"
 msgstr "قراءة / تنفيذ"
@@ -2978,10 +2978,10 @@ msgid "Services"
 msgstr "الخدمات"
 
 msgid "Session expired."
-msgstr "انتهت الجلسة."
+msgstr "انتهاء الوقت الخاص بحلسة الويب"
 
 msgid "Session not authenticated."
-msgstr "الجلسة لم تتم المصادقة."
+msgstr "خطأ في التحقق من الجلسة"
 
 msgid "Set browseable"
 msgstr "ضبط التصفح"
@@ -3658,7 +3658,7 @@ msgid "This will create a recycle bin on the share."
 msgstr "سيؤدي هذا إلى إنشاء سلة محذوفات على المشاركة."
 
 msgid "Threshold"
-msgstr "Threshold"
+msgstr "الحد الفاصل"
 
 msgid "Thursday"
 msgstr "الخميس"
@@ -3798,7 +3798,7 @@ msgid "Unmount"
 msgstr "تعطيل "
 
 msgid "Up"
-msgstr "فوق"
+msgstr "أعلى"
 
 msgid "Up delay"
 msgstr "Up delay"
