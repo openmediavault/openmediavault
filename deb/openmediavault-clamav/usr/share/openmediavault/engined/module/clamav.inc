@@ -41,6 +41,8 @@ class OMVModuleClamAV extends \OMV\Engine\Module\ServiceAbstract implements
 	 * Stop the managed service.
 	 */
 	public function stopService() {
+		$systemCtl = new \OMV\System\SystemCtl("clamav-onaccess");
+		$systemCtl->disable(FALSE);
 		$systemCtl = new \OMV\System\SystemCtl("clamav-daemon");
 		$systemCtl->disable(TRUE);
 		$systemCtl = new \OMV\System\SystemCtl("clamav-freshclam");
@@ -55,6 +57,8 @@ class OMVModuleClamAV extends \OMV\Engine\Module\ServiceAbstract implements
 		$object = $db->get("conf.service.clamav");
 		if (TRUE !== $object->get("enable"))
 			return;
+		$systemCtl = new \OMV\System\SystemCtl("clamav-onaccess");
+		$systemCtl->enable();
 		$systemCtl = new \OMV\System\SystemCtl("clamav-daemon");
 		$systemCtl->enable(TRUE);
 		if (TRUE === $object->get("freshclam.enable")) {
