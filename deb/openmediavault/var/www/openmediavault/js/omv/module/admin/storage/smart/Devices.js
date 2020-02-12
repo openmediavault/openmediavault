@@ -118,8 +118,7 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Information", {
 			xtype: "textfield",
 			name: "devicefile",
 			fieldLabel: _("Device"),
-			emptyText: _("n/a"),
-			value: me.devicefile
+			emptyText: _("n/a")
 		},{
 			xtype: "textfield",
 			name: "devicemodel",

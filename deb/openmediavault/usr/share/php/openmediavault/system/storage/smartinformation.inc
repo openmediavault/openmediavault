@@ -322,12 +322,13 @@ class SmartInformation {
 		$this->getData();
 		// Initialize with default values. Note, the result list may
 		// contain additional key/value pairs.
-		$result = array(
+		$result = [
+			"devicefile" => $this->getDeviceFile(),
 			"devicemodel" => "",
 			"serialnumber" => "",
 			"firmwareversion" => "",
 			"usercapacity" => ""
-		);
+		];
 		// INFORMATION SECTION
 		// Parse command output:
 		// === START OF INFORMATION SECTION ===
