@@ -49,9 +49,9 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array containing physical disk device objects with the
-	 *   fields \em devicename, \em devicefile, \em devicelinks, \em model,
-	 *   \em size, \em description, \em vendor, \em serialnumber, \em israid,
-	 *   and \em isroot.
+	 *   fields \em devicename, \em canonicaldevicefile, \em devicefile,
+	 *   \em devicelinks, \em model, \em size, \em description, \em vendor,
+	 *   \em serialnumber, \em israid and \em isroot.
 	 * @throw \OMV\Exception
 	 */
 	public function enumerateDevices($params, $context) {
@@ -80,7 +80,8 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 				continue;
 			$objects[] = [
 				"devicename" => $sd->getDeviceName(),
-				"devicefile" => $sd->getPreferredDeviceFile(),
+				"canonicaldevicefile" => $sd->getCanonicalDeviceFile(),
+				"devicefile" => $sd->getPredictableDeviceFile(),
 				"devicelinks" => $sd->getDeviceFileSymlinks(),
 				"model" => $sd->getModel(),
 				"size" => $sd->getSize(),

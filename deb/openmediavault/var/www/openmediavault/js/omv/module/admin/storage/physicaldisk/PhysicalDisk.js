@@ -176,7 +176,7 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 		xtype: "textcolumn",
 		text: _("Device"),
 		sortable: true,
-		dataIndex: "devicefile",
+		dataIndex: "canonicaldevicefile",
 		stateId: "devicefile",
 	},{
 		xtype: "devicefilescolumn",
@@ -219,6 +219,7 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 				model: OMV.data.Model.createImplicit({
 					idProperty: "devicefile",
 					fields: [
+						{ name: "canonicaldevicefile", type: "string" },
 						{ name: "devicefile", type: "string" },
 						{ name: "devicelinks", type: "array" },
 						{ name: "model", type: "string" },

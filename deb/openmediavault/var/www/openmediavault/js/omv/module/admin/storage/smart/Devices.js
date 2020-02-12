@@ -557,6 +557,7 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 					idProperty: "devicefile",
 					fields: [
 						{ name: "uuid", type: "string" },
+						{ name: "canonicaldevicefile", type: "string" },
 						{ name: "devicefile", type: "string" },
 						{ name: "devicelinks", type: "array" },
 						{ name: "model", type: "string" },
