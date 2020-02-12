@@ -213,6 +213,7 @@ class MountPoint {
 	public function getInfo() {
 		$cmdArgs = [];
 		$cmdArgs[] = "--first-only";
+		$cmdArgs[] = "--nofsroot";
 		$cmdArgs[] = "--json";
 		$cmdArgs[] = escapeshellarg($this->getPath());
 		$cmd = new \OMV\System\Process("findmnt", $cmdArgs);

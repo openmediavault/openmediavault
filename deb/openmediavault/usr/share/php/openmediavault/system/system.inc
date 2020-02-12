@@ -48,12 +48,8 @@ class System {
 		// during the boot process via an udev rule does not work reliable.
 		//if (is_block_device("/dev/root"))
 		//	return realpath("/dev/root");
-		$cmd = new \OMV\System\Process("findmnt", "-f", "-n",
-		  "-o SOURCE", "/");
-		$cmd->setRedirect2to1();
-		$cmd->execute($output);
-		$rootDeviceFile = $output[0];
-		return $rootDeviceFile;
+		$mp = new \OMV\System\MountPoint("/");
+		return $mp->getDeviceFile();
 	}
 
 	/**
