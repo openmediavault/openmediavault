@@ -469,7 +469,7 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 	},{
 		text: _("Device"),
 		sortable: true,
-		dataIndex: "devicefile",
+		dataIndex: "canonicaldevicefile",
 		stateId: "devicefile"
 	},{
 		xtype: "devicefilescolumn",

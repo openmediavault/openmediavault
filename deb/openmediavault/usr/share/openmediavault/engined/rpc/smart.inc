@@ -57,9 +57,10 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array containing disk device objects with the
-	 *   following fields: \em devicename, \em devicefile, \em devicelinks,
-	 *   \em model, \em size, \em temperature, \em description, \em vendor
-	 *   and \em serialnumber.
+	 *   following fields: \em devicename, \em canonicaldevicefile,
+	 *   \em devicefile, \em devicelinks, \em model, \em size,
+	 *   \em temperature, \em description, \em vendor and
+	 *   \em serialnumber.
 	 * @throw \OMV\Exception
 	 */
 	public function enumerateDevices($params, $context) {
@@ -91,7 +92,8 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 				// Prepare device object
 				return [
 					"devicename" => $sd->getDeviceName(),
-					"devicefile" => $sd->getPreferredDeviceFile(),
+					"canonicaldevicefile" => $sd->getCanonicalDeviceFile(),
+					"devicefile" => $sd->getPredictableDeviceFile(),
 					"devicelinks" => $sd->getDeviceFileSymlinks(),
 					"model" => $sd->getModel(),
 					"size" => $sd->getSize(),
