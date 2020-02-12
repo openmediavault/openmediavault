@@ -165,7 +165,7 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 		align: "right"
 	},{
 		xtype: "tooltipcolumn",
-		text: _("Attribute name"),
+		text: _("Name"),
 		dataIndex: "attrname",
 		stateId: "attrname",
 		flex: 1,
