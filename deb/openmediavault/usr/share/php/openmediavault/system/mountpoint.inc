@@ -215,12 +215,39 @@ class MountPoint {
 		$cmdArgs = [];
 		$cmdArgs[] = "--first-only";
 		$cmdArgs[] = "--output-all";
+		$cmdArgs[] = "--nofsroot";
 		$cmdArgs[] = "--json";
 		$cmdArgs[] = escapeshellarg($this->getPath());
 		$cmd = new \OMV\System\Process("findmnt", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		$output = json_decode_safe(implode($output, ""), TRUE);
+		// {
+		//   "filesystems": [{
+		//     "source":"/dev/sda",
+		//     "target":"/srv/dev-disk-by-label-alfa",
+		//     "fstype":"btrfs",
+		//     "options":"rw,relatime,space_cache,subvolid=257,subvol=/data",
+		//     "vfs-options":"rw,relatime",
+		//     "fs-options":"rw,space_cache,subvolid=257,subvol=/data",
+		//     "label":"alfa",
+		//     "uuid":"343dab1d-edb7-4d89-813a-b4ad57c51f32",
+		//     "partlabel":null,
+		//     "partuuid":null,
+		//     "maj:min":"0:49",
+		//     "size":"7.3T",
+		//     "avail":"7.2T",
+		//     "used":"34.4G",
+		//     "use%":"0%",
+		//     "fsroot":"/data",
+		//     "tid":27897,
+		//     "id":225,
+		//     "opt-fields":"shared:123",
+		//     "propagation":"shared",
+		//     "freq":null,
+		//     "passno":null
+		//   }]
+		// }
 		return $output['filesystems'][0];
 	}
 
