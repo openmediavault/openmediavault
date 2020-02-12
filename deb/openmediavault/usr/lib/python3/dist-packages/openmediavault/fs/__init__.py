@@ -111,6 +111,7 @@ class Filesystem(openmediavault.device.BlockDevice):
                     'findmnt',
                     '--first-only',
                     '--noheadings',
+                    '--nofsroot',
                     '--output=SOURCE',
                     '--raw',
                     path,

@@ -1,6 +1,7 @@
 openmediavault (5.3.2-1) unstable; urgency=low
 
   * Fix issue in the S.M.A.R.T. scheduled tests page.
+  * Issue #601: Error listing mount points when using BTRFS subvolumes.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 12 Feb 2020 13:20:00 +0100
 
