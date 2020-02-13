@@ -328,16 +328,16 @@ class Schema {
 	protected function validateBoolean($value, $schema, $name) {
 		if (!is_bool($value)) {
 			throw new SchemaValidationException(
-			  "%s: The value '%s' is not a boolean.",
-			  $name, is_null($value) ? "NULL" : strval($value));
+				"%s: The value '%s' is not a boolean.",
+				$name, json_encode_safe($value));
 		}
 	}
 
 	protected function validateInteger($value, $schema, $name) {
 		if (!is_integer($value)) {
 			throw new SchemaValidationException(
-			  "%s: The value '%s' is not an integer.",
-			  $name, is_null($value) ? "NULL" : strval($value));
+				"%s: The value '%s' is not an integer.",
+				$name, json_encode_safe($value));
 		}
 		$this->checkMinimum($value, $schema, $name);
 		$this->checkExclusiveMinimum($value, $schema, $name);
@@ -350,8 +350,8 @@ class Schema {
 	protected function validateNumber($value, $schema, $name) {
 		if (!is_numeric($value)) {
 			throw new SchemaValidationException(
-			  "%s: The value '%s' is not a number.",
-			  $name, is_null($value) ? "NULL" : strval($value));
+				"%s: The value '%s' is not a number.",
+				$name, json_encode_safe($value));
 		}
 		$this->checkMinimum($value, $schema, $name);
 		$this->checkExclusiveMinimum($value, $schema, $name);
@@ -364,8 +364,8 @@ class Schema {
 	protected function validateString($value, $schema, $name) {
 		if (!is_string($value)) {
 			throw new SchemaValidationException(
-			  "%s: The value '%s' is not a string.",
-			  $name, is_null($value) ? "NULL" : strval($value));
+				"%s: The value '%s' is not a string.",
+				$name, json_encode_safe($value));
 		}
 		$this->checkPattern($value, $schema, $name);
 		$this->checkMinLength($value, $schema, $name);
@@ -378,8 +378,8 @@ class Schema {
 	protected function validateArray($value, $schema, $name) {
 		if (!is_array($value)) {
 			throw new SchemaValidationException(
-			  "%s: The value is not an array.",
-			  $name);
+				"%s: The value '%s' is not an array.",
+				$name, json_encode_safe($value));
 		}
 		$this->checkMinItems($value, $schema, $name);
 		$this->checkMaxItems($value, $schema, $name);
@@ -389,8 +389,8 @@ class Schema {
 	protected function validateObject($value, $schema, $name) {
 		if (!is_object($value)) {
 			throw new SchemaValidationException(
-			  "%s: The value is not an object.",
-			  $name);
+				"%s: The value '%s' is not an object.",
+				$name, json_encode_safe($value));
 		}
 		$this->checkProperties($value, $schema, $name);
 	}
@@ -398,8 +398,8 @@ class Schema {
 	protected function validateNull($value, $schema, $name) {
 		if (!is_null($value)) {
 			throw new SchemaValidationException(
-			  "%s: The value is not NULL.",
-			  $name);
+				"%s: The value '%s' is not NULL.",
+				$name, json_encode_safe($value));
 		}
 	}
 
@@ -408,7 +408,7 @@ class Schema {
 			return;
 		if ($schema['minimum'] > $value) {
 			throw new SchemaValidationException(
-			  "%s: The value %s is less than %s.",
+			  "%s: The value '%s' is less than %s.",
 			  $name, strval($value), strval($schema['minimum']));
 		}
 	}
@@ -418,7 +418,7 @@ class Schema {
 			return;
 		if ($schema['maximum'] < $value) {
 			throw new SchemaValidationException(
-			  "%s: The value %s is bigger than %s.",
+			  "%s: The value '%s' is bigger than %s.",
 			  $name, strval($value), strval($schema['maximum']));
 		}
 	}
@@ -431,7 +431,7 @@ class Schema {
 			return;
 		if ($value == $schema['minimum']) {
 			throw new SchemaValidationException(
-			  "%s: Invalid value %s, must be greater than %s.",
+			  "%s: Invalid value '%s', must be greater than %s.",
 			  $name, strval($value), strval($schema['minimum']));
 		}
 	}
@@ -444,7 +444,7 @@ class Schema {
 			return;
 		if ($value == $schema['maximum']) {
 			throw new SchemaValidationException(
-			  "%s: Invalid value %s, must be less than %s.",
+			  "%s: Invalid value '%s', must be less than %s.",
 			  $name, strval($value), strval($schema['maximum']));
 		}
 	}
