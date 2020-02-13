@@ -18,7 +18,11 @@
 		"type": "object",
 		"properties": {
 			"devices": {
-				"type": "string",
+				"type": "array",
+				"items": {
+					"type": "string",
+					"format": "devicefile"
+				},
 				"required": true
 			},
 			"name": {
@@ -51,7 +55,11 @@
 				"required": true
 			},
 			"devices": {
-				"type": "string",
+				"type": "array",
+				"items": {
+					"type": "string",
+					"format": "devicefile"
+				},
 				"required": true
 			}
 		}
@@ -68,7 +76,11 @@
 				"required": true
 			},
 			"devices": {
-				"type": "string",
+				"type": "array",
+				"items": {
+					"type": "string",
+					"format": "devicefile"
+				},
 				"required": true
 			}
 		}
@@ -85,7 +97,11 @@
 				"required": true
 			},
 			"devices": {
-				"type": "string",
+				"type": "array",
+				"items": {
+					"type": "string",
+					"format": "devicefile"
+				},
 				"required": true
 			}
 		}
