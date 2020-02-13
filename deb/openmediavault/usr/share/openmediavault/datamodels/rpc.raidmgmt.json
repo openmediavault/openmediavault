@@ -1,18 +1,5 @@
 [{
 	"type": "rpc",
-	"id": "rpc.raidmgmt.getslaves",
-	"params": {
-		"type": "object",
-		"properties": {
-			"devicefile": {
-				"type": "string",
-				"format": "devicefile",
-				"required": true
-			}
-		}
-	}
-},{
-	"type": "rpc",
 	"id": "rpc.raidmgmt.create",
 	"params": {
 		"type": "object",
@@ -102,32 +89,6 @@
 					"type": "string",
 					"format": "devicefile"
 				},
-				"required": true
-			}
-		}
-	}
-},{
-	"type": "rpc",
-	"id": "rpc.raidmgmt.delete",
-	"params": {
-		"type": "object",
-		"properties": {
-			"devicefile": {
-				"type": "string",
-				"format": "devicefile",
-				"required": true
-			}
-		}
-	}
-},{
-	"type": "rpc",
-	"id": "rpc.raidmgmt.getdetail",
-	"params": {
-		"type": "object",
-		"properties": {
-			"devicefile": {
-				"type": "string",
-				"format": "devicefile",
 				"required": true
 			}
 		}

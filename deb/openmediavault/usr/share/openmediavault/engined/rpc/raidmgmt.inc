@@ -37,6 +37,7 @@ class RaidMgmt extends \OMV\Rpc\ServiceAbstract {
 	public function initialize() {
 		$this->registerMethod("enumerateDevices");
 		$this->registerMethod("getList");
+		$this->registerMethod("get");
 		$this->registerMethod("getSlaves");
 		$this->registerMethod("getCandidates");
 		$this->registerMethod("create");
@@ -126,6 +127,41 @@ class RaidMgmt extends \OMV\Rpc\ServiceAbstract {
 	}
 
 	/**
+	 * Get details about the given RAID device.
+	 * @param params The method parameters.
+	 *   \em devicefile The RAID device file, e.g. /dev/md0.
+	 * @param context The context of the caller.
+	 * @return An object containing objects with the following fields:
+	 *   name, devicefile, uuid, level, numdevices, devices, size,
+	 *   state, description and _used.
+	 */
+	public function get($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.common.devicefile");
+		// Get the storage device.
+		$raid = new \OMV\System\Storage\StorageDeviceMdadm(
+			$params['devicefile']);
+		$raid->assertExists();
+		return [
+			"_used" => $used,
+			"name" => $raid->getName(),
+			"canonicaldevicefile" => $raid->getCanonicalDeviceFile(),
+			"devicefile" => $raid->getPredictableDeviceFile(),
+			"uuid" => $raid->getUuid(),
+			"level" => $raid->getLevel(),
+			"numdevices" => $raid->getNumDevices(),
+			"devices" => $raid->getSlaves(),
+			"size" => $raid->getSize(),
+			"state" => $raid->getState(),
+			"description" => $raid->getDescription()
+		];
+	}
+
+	/**
 	 * Get list of slave/component devices from the given RAID device.
 	 * @param params The method parameters.
 	 *   \em devicefile The RAID device file, e.g. /dev/md0.
@@ -139,7 +175,7 @@ class RaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.raidmgmt.getslaves");
+		$this->validateMethodParams($params, "rpc.common.devicefile");
 		// Get the storage device.
 		$raid = new \OMV\System\Storage\StorageDeviceMdadm(
 		  $params['devicefile']);
@@ -474,7 +510,7 @@ class RaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.raidmgmt.delete");
+		$this->validateMethodParams($params, "rpc.common.devicefile");
 		// Get software RAID device details to create notification message.
 		$raid = new \OMV\System\Storage\StorageDeviceMdadm(
 		  $params['devicefile']);
@@ -515,7 +551,7 @@ class RaidMgmt extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.raidmgmt.getdetail");
+		$this->validateMethodParams($params, "rpc.common.devicefile");
 		// Get the software RAID device and make sure it exists.
 		$raid = new \OMV\System\Storage\StorageDeviceMdadm(
 		  $params['devicefile']);
