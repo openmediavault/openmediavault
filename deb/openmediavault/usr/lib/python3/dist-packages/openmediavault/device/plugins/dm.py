@@ -71,8 +71,10 @@ class StorageDevice(openmediavault.device.StorageDevice):
         try:
             with open(file, 'r') as f:
                 content = f.readline().strip()
+                # LVM-EOVOgvd6WfgpbYBVvXdlde7g3Lsgyhi31UL0XD8KuxuPdI9awDCm8RSfUgn5TZQR
+                # CRYPT-LUKS2-f53432fa858947c1930fee05b2658b95-mytest
                 parts = content.split('-')
-                if len(parts) > 1:
+                if len(parts) >= 2:
                     return parts[0].lower()
         except (IOError, FileNotFoundError):
             pass
@@ -82,6 +84,7 @@ class StorageDevice(openmediavault.device.StorageDevice):
     def name(self):
         """
         Get the name of the device mapper device.
+        :return: Returns the name of the device or an empty string on failure.
         :rtype: str
         """
         file = '/sys/block/{}/dm/name'.format(self.device_name(True))
@@ -95,8 +98,11 @@ class StorageDevice(openmediavault.device.StorageDevice):
     @property
     def uuid(self):
         """
-        Get the UUID of the device mapper device.
-        Example: LVM-EOVOgvd6WfgpbYBVvXdlde7g3Lsgyhi31UL0XD8KuxuPdI9awDCm8RSfUgn5TZQR
+        Get the UUID of the device.
+        Examples:
+        - LVM-EOVOgvd6WfgpbYBVvXdlde7g3Lsgyhi31UL0XD8KuxuPdI9awDCm8RSfUgn5TZQR
+        - CRYPT-LUKS2-f53432fa858947c1930fee05b2658b95-mytest
+        :return: Returns the UUID of the device or an empty string on failure.
         :rtype: str
         """
         file = '/sys/block/{}/dm/uuid'.format(self.device_name(True))
