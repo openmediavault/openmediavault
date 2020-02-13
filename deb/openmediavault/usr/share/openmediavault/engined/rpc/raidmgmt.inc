@@ -219,8 +219,7 @@ class RaidMgmt extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Create a RAID device.
 	 * @param params The method parameters.
-	 *   \em devices The devices to be used. The devices must be seperated
-	 *   by comma.
+	 *   \em devices The devices to be used.
 	 *   \em name The name of the RAID device. Can be empty.
 	 *   \em level The RAID level, e.g. stripe, mirror, linear ,raid10,
 	 *   raid5 or raid6.
@@ -284,8 +283,7 @@ class RaidMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * Grow a RAID device.
 	 * @param params The method parameters.
 	 *   \em devicefile The RAID device file, e.g. /dev/md0.
-	 *   \em devices The devices to be added. The devices must be seperated
-	 *   by comma.
+	 *   \em devices The devices to be added.
 	 * @param context The context of the caller.
 	 * @return void
 	 */
@@ -354,8 +352,7 @@ class RaidMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * Add devices to a RAID device.
 	 * @param params The method parameters.
 	 *   \em devicefile The RAID device file, e.g. /dev/md0.
-	 *   \em devices The devices to be added. The devices must be seperated
-	 *   by comma.
+	 *   \em devices The devices to be added.
 	 * @param context The context of the caller.
 	 * @return void
 	 */
@@ -406,8 +403,7 @@ class RaidMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * devices is not affected or removed.
 	 * @param params The method parameters.
 	 *   \em devicefile The RAID device file, e.g. /dev/md0.
-	 *   \em devices The devices to be removed. The devices must be seperated
-	 *   by comma.
+	 *   \em devices The devices to be removed.
 	 * @param context The context of the caller.
 	 * @return void
 	 */
