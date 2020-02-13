@@ -140,7 +140,6 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Create", {
 			fieldLabel: _("Devices"),
 			valueField: "devicefile",
 			minSelections: 3, // Min. number of devices for RAID5
-			useStringValue: true,
 			minHeight: 170,
 			// flex: 1, // Hides the field info due render error
 			store: Ext.create("OMV.data.Store", {
@@ -288,7 +287,6 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Add", {
 			fieldLabel: _("Devices"),
 			valueField: "devicefile",
 			minSelections: 1,
-			useStringValue: true,
 			height: 170,
 			// flex: 1, // Hides the field info due render error
 			store: Ext.create("OMV.data.Store", {
@@ -453,7 +451,6 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Remove", {
 			valueField: "devicefile",
 			minSelections: 1,
 			maxSelections: maxSelections,
-			useStringValue: true,
 			height: 170,
 			// flex: 1, // Hides the field info due render error
 			store: Ext.create("OMV.data.Store", {

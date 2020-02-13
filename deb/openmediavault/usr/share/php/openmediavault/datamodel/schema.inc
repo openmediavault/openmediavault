@@ -51,7 +51,7 @@ class Schema extends \OMV\Json\Schema {
 			case "devicefile":
 				if (!preg_match('/^\/dev(\/disk\/by-id)?\/.+$/i', $value)) {
 					throw new \OMV\Json\SchemaValidationException(
-					  "%s: The value '%s' is no device file name.",
+					  "%s: The value '%s' is no device file.",
 					  $name, $value);
 				}
 				break;

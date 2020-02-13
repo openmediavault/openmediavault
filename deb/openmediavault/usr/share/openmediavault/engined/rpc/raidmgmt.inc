@@ -247,7 +247,7 @@ class RaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Generate the RAID device name.
 		$deviceName = \OMV\System\System::getNextDevice("disk", "md");
-		$devices = preg_split("/[,;]/", $params['devices']);
+		$devices = $params['devices'];
 		// Create the RAID device.
 		$cmdArgs = [];
 		$cmdArgs[] = sprintf("/dev/%s", $deviceName);
@@ -303,7 +303,7 @@ class RaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		$numDevices = $raid->getNumDevices();
 		$devices = $raid->getSlaves();
 		// Calculate new number of devices.
-		$newDevices = explode(",", $params['devices']);
+		$newDevices = $params['devices'];
 		$numDevices += count($newDevices);
 		// Add new devices to the RAID device.
 		$cmdArgs = [];
@@ -373,7 +373,7 @@ class RaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		$numDevices = $raid->getNumDevices();
 		$devices = $raid->getSlaves();
 		// Calculate new number of devices.
-		$newDevices = explode(",", $params['devices']);
+		$newDevices = $params['devices'];
 		$numDevices += count($newDevices);
 		// Add new devices to the RAID device.
 		$cmdArgs = [];
@@ -425,7 +425,7 @@ class RaidMgmt extends \OMV\Rpc\ServiceAbstract {
 		$numDevices = $raid->getNumDevices();
 		$devices = $raid->getSlaves();
 		// Calculate new number of devices.
-		$rmDevices = explode(",", $params['devices']);
+		$rmDevices = $params['devices'];
 		$numDevices += count($rmDevices);
 		// Remove the devices from the RAID device. The devices to remove
 		// must be marked as failed before they can be removed from the
