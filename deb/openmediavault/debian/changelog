@@ -1,3 +1,10 @@
+openmediavault (5.3.3-1) unstable; urgency=low
+
+  * Issue #605: Memory usage wrong in Dashboard and system information
+    pages.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 16 Feb 2020 13:54:00 +0100
+
 openmediavault (5.3.2-1) unstable; urgency=low
 
   * Update locales.
