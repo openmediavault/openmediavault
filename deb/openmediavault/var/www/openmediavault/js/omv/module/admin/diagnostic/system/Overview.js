@@ -158,9 +158,9 @@ Ext.define("OMV.module.admin.diagnostic.system.Overview", {
 			},{
 				"name": _("Memory usage"),
 				"value": {
-					"text": (info.memUsed / info.memTotal).toFixed(1) +
+					"text": ((info.memUsed / info.memTotal) * 100).toFixed(1) +
 						"% of " + parseInt(info.memTotal).binaryFormat(),
-					"value": info.memUsed / info.memTotal
+					"value": (info.memUsed / info.memTotal) * 100
 				},
 				"index": index++,
 				"type": "progress",
