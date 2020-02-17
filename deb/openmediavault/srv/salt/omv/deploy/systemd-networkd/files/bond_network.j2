@@ -49,9 +49,6 @@ Domains={{ dns_config.domainname }}
 {%- endif %}
 {%- endif %}
 BindCarrier={{ interface.slaves.replace(',', ' ') }}
-{%- if interface.bondmode in [1, 5, 6] %}
-PrimarySlave={{ interface.bondprimary }}
-{%- endif %}
 
 [Link]
 {%- if interface.mtu > 0 %}

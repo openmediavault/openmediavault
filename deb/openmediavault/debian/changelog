@@ -1,5 +1,7 @@
 openmediavault (5.3.3-1) unstable; urgency=low
 
+  * Issue #604: Wrong primary slave configuration for bond network
+    interfaces.
   * Issue #605: Memory usage wrong in Dashboard and system information
     pages.
 

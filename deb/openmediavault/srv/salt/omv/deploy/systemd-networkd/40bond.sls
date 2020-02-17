@@ -77,6 +77,7 @@ configure_interface_bond_{{ slave }}_network:
           Name: {{ slave }}
         Network:
           Bond: {{ interface.devicename }}
+          PrimarySlave: {{ (slave == interface.bondprimary) | to_bool }}
 
 {% endfor %}
 
