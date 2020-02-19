@@ -25,7 +25,7 @@
 {% set cron_scripts_dir = salt['pillar.get']('default:OMV_CRONSCRIPTS_DIR', '/var/lib/openmediavault/cron.d') %}
 {% set cron_script_prefix = salt['pillar.get']('default:OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT_PREFIX', 'clamdscan-') %}
 {% set clamav_clamd_logfile = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_LOGFILE', '/var/log/clamav/clamav.log') %}
-{% set clamav_clamd_user = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_USER', 'root') %}
+{% set clamav_clamd_user = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_USER', 'clamav') %}
 {% set clamav_freshclam_logfile = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_UPDATELOGFILE', '/var/log/clamav/freshclam.log') %}
 {% set clamav_freshclam_user = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_DATABASEOWNER', 'clamav') %}
 {% set clamav_config = salt['omv_conf.get']('conf.service.clamav') %}
@@ -49,6 +49,20 @@ remove_clamav_daemon_logrotate:
 remove_clamav_freshclam_logrotate:
   file.absent:
     - name: "/etc/logrotate.d/clamav-freshclam"
+
+# If Apparmor is installed and enabled, we need to make
+# sure that the shared folders are accessible by clamd.
+configure_clamav_apparmor_profile:
+  file.replace:
+    - name: "/etc/apparmor.d/usr.sbin.clamd"
+    - pattern: "#(include <local/usr\\.sbin\\.clamd>)"
+    - repl: "\\1"
+    - ignore_if_missing: True
+
+configure_clamav_apparmor_local_profile:
+  file.append:
+    - name: "/etc/apparmor.d/local/usr.sbin.clamd"
+    - text: "/srv/** krw,"
 
 {% if clamav_config.enable | to_bool %}
 

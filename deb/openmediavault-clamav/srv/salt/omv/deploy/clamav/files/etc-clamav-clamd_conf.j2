@@ -63,7 +63,7 @@
 {%- set officialdatabaseonly = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_OFFICIALDATABASEONLY', 'false') -%}
 {%- set crossfilesystems = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_CROSSFILESYSTEMS', 'true') -%}
 {%- set virusevent = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_VIRUSEVENT', '/bin/run-parts --lsbsysinit -- /etc/clamav/virusevent.d/') -%}
-{%- set user = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_USER', 'root') -%}
+{%- set user = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_USER', 'clamav') -%}
 {%- set onaccessmaxfilesize = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ONACCESSMAXFILESIZE', '100M') -%}
 {%- set onaccessmaxthreads = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ONACCESSMAXTHREADS', '5') -%}
 {%- set onaccessdisableddd = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ONACCESSDISABLEDDD', 'false') -%}
