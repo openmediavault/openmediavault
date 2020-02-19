@@ -10,6 +10,8 @@
 {% set compresslocaldatabase = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_COMPRESSLOCALDATABASE', 'no') -%}
 {% set notifyclamd = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_NOTIFYCLAMD', '/etc/clamav/clamd.conf') -%}
 {% set databasemirror = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_DATABASEMIRROR', 'database.clamav.net') -%}
+{% set connecttimeout = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_CONNECTTIMEOUT', '30') -%}
+{% set receivetimeout = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_RECEIVETIMEOUT', '300') -%}
 
 {{ pillar['headers']['multiline'] }}
 
@@ -26,8 +28,8 @@ Debug false
 MaxAttempts 5
 DatabaseDirectory {{ databasedirectory }}
 DNSDatabaseInfo {{ dnsdatabaseinfo }}
-ConnectTimeout 30
-ReceiveTimeout 30
+ConnectTimeout {{ connecttimeout }}
+ReceiveTimeout {{ receivetimeout }}
 TestDatabases yes
 ScriptedUpdates yes
 CompressLocalDatabase {{ compresslocaldatabase }}
