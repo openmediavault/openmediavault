@@ -4,6 +4,7 @@ After=clamav-daemon.service
 BindsTo=clamav-daemon.service
 
 [Service]
+ExecStartPre=-/sbin/sysctl fs.inotify.max_user_watches=524288
 ExecStart=/usr/bin/clamonacc --foreground=true
 Restart=on-failure
 RestartSec=5s

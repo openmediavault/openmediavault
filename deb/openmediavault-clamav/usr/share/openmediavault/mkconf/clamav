@@ -33,7 +33,7 @@ OMV_CLAMAV_CLAMD_CONFIG=${OMV_CLAMAV_CLAMD_CONFIG:-"/etc/clamav/clamd.conf"}
 OMV_CLAMAV_CLAMD_LOCALSOCKET=${OMV_CLAMAV_CLAMD_LOCALSOCKET:-"/var/run/clamav/clamd.ctl"}
 OMV_CLAMAV_CLAMD_LOCALSOCKETGROUP=${OMV_CLAMAV_CLAMD_LOCALSOCKETGROUP:-"clamav"}
 OMV_CLAMAV_CLAMD_LOCALSOCKETMODE=${OMV_CLAMAV_CLAMD_LOCALSOCKETMODE:-"666"}
-OMV_CLAMAV_CLAMD_USER=${OMV_CLAMAV_CLAMD_USER:-"root"}
+OMV_CLAMAV_CLAMD_USER=${OMV_CLAMAV_CLAMD_USER:-"clamav"}
 OMV_CLAMAV_CLAMD_MAXDIRECTORYRECURSION=${OMV_CLAMAV_CLAMD_MAXDIRECTORYRECURSION:-"15"}
 OMV_CLAMAV_CLAMD_READTIMEOUT=${OMV_CLAMAV_CLAMD_READTIMEOUT:-"180"}
 OMV_CLAMAV_CLAMD_MAXTHREADS=${OMV_CLAMAV_CLAMD_MAXTHREADS:-"12"}
@@ -117,6 +117,8 @@ OMV_CLAMAV_FRESHCLAM_DATABASEDIRECTORY=${OMV_CLAMAV_FRESHCLAM_DATABASEDIRECTORY:
 OMV_CLAMAV_FRESHCLAM_DNSDATABASEINFO=${OMV_CLAMAV_FRESHCLAM_DNSDATABASEINFO:-"current.cvd.clamav.net"}
 OMV_CLAMAV_FRESHCLAM_NOTIFYCLAMD=${OMV_CLAMAV_FRESHCLAM_NOTIFYCLAMD:-"/etc/clamav/clamd.conf"}
 OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG=${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG:-"/etc/logrotate.d/clamav-freshclam"}
+OMV_CLAMAV_FRESHCLAM_CONNECTTIMEOUT=${OMV_CLAMAV_FRESHCLAM_CONNECTTIMEOUT:-"30"}
+OMV_CLAMAV_FRESHCLAM_RECEIVETIMEOUT=${OMV_CLAMAV_FRESHCLAM_RECEIVETIMEOUT:-"300"}
 OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT=${OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT:-"/etc/cron.d/openmediavault-clamdscan"}
 OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT_MASK=${OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT_MASK:-"755"}
 OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT_TEMPLATE=${OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT_TEMPLATE:-"clamdscan-"}
@@ -211,7 +213,7 @@ xmlstarlet sel -t -m "//services/clamav/clamd" \
   -o "OnAccessDisableDDD ${OMV_CLAMAV_CLAMD_ONACCESSDISABLEDDD}" -n \
   -o "OnAccessPrevention ${OMV_CLAMAV_CLAMD_ONACCESSPREVENTION}" -n \
   -o "OnAccessExtraScanning ${OMV_CLAMAV_CLAMD_ONACCESSEXTRASCANNING}" -n \
-  -o "OnAccessExcludeUname root" -n \
+  -o "OnAccessExcludeUname ${OMV_CLAMAV_CLAMD_USER}" -n \
   -o "OnAccessRetryAttempts ${OMV_CLAMAV_CLAMD_ONACCESSRETRYATTEMPTS}" -n \
   -i "count(//services/clamav/onaccesspaths/onaccesspath[enable='1']) > 0" \
     -m "//services/clamav/onaccesspaths/onaccesspath[enable='1']" \
@@ -237,8 +239,8 @@ xmlstarlet sel -t \
     -o "MaxAttempts 5" -n \
     -o "DatabaseDirectory ${OMV_CLAMAV_FRESHCLAM_DATABASEDIRECTORY}" -n \
     -o "DNSDatabaseInfo ${OMV_CLAMAV_FRESHCLAM_DNSDATABASEINFO}" -n \
-    -o "ConnectTimeout 30" -n \
-    -o "ReceiveTimeout 30" -n \
+    -o "ConnectTimeout ${OMV_CLAMAV_FRESHCLAM_CONNECTTIMEOUT}" -n \
+    -o "ReceiveTimeout ${OMV_CLAMAV_FRESHCLAM_RECEIVETIMEOUT}" -n \
     -o "TestDatabases yes" -n \
     -o "ScriptedUpdates yes" -n \
     -o "CompressLocalDatabase ${OMV_CLAMAV_FRESHCLAM_COMPRESSLOCALDATABASE}" -n \
@@ -372,4 +374,11 @@ EOF
         chown ${OMV_CLAMAV_FRESHCLAM_DATABASEOWNER}:root "${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG}"
         chmod 0644 "${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG}"
     fi
+fi
+
+# If Apparmor is installed and enabled, we need to make sure that the
+# shared folders are accessible by clamd.
+sed --in-place --regexp-extended "s|#(include <local/usr\.sbin\.clamd>)|\1|" "/etc/apparmor.d/usr.sbin.clamd"
+if ! grep --fixed-strings "/srv/** krw," "/etc/apparmor.d/local/usr.sbin.clamd" >/dev/null; then
+  echo "/srv/** krw," >> "/etc/apparmor.d/local/usr.sbin.clamd"
 fi
