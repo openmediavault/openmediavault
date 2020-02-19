@@ -1,3 +1,13 @@
+openmediavault-clamav (4.1.13-1) stable; urgency=low
+
+  * Issue #607: Error using on-access scanner.
+  * Set ReceiveTimeout=300 (5 minutes) in freshclam.conf,
+    otherwise the database download will never succeed
+    because it will be restarted every 30 seconds when
+    the download was not successful during that time.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 19 Feb 2020 18:13:05 +0100
+
 openmediavault-clamav (4.1.12-1) stable; urgency=low
 
   * Adapt to ClamAV 0.102.
