@@ -1,6 +1,12 @@
 openmediavault (5.3.3-1) unstable; urgency=low
 
   * Use /run instead of /var/run and /run/lock instead of /var/lock.
+  * Disable the '/sharedfolder/<xyz>' feature by default on new
+    installations because it makes too much problems.
+    It can be enabled by setting the environment variable to
+    'OMV_SHAREDFOLDERS_DIR_ENABLED="YES"'. Finally run the command
+    'omv-salt stage run prepare' to apply the modified default values
+    and 'omv-salt deploy run systemd' to create the unit files.
   * Issue #604: Wrong primary slave configuration for bond network
     interfaces.
   * Issue #605: Memory usage wrong in Dashboard and system information
