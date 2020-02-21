@@ -1,7 +1,7 @@
 {%- set separator = ' ' -%}
 {%- set script_prefix = salt['pillar.get']('default:OMV_USBBACKUP_RSYNC_SCRIPT_PREFIX', 'rsync-') -%}
 {%- set logfile = salt['pillar.get']('default:OMV_USBBACKUP_LOGFILE', '/var/log/rsync.log') -%}
-{%- set runfile = '/var/run' | path_join(script_prefix ~ job.uuid) -%}
+{%- set runfile = '/run' | path_join(script_prefix ~ job.uuid) -%}
 {%- set id = job.devicefile | md5 -%}
 {%- set mount_path = id | make_mount_path -%}
 {%- if job.mode == 'push' -%}

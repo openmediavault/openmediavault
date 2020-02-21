@@ -1001,7 +1001,7 @@ omv_product_info() {
 # @return Returns 0 if the process is running, otherwise 1.
 omv_is_proc_running() {
 	local pidfile pid
-	pidfile=/var/run/$1.pid
+	pidfile=/run/$1.pid
 	[ ! -f "${pidfile}" ] && return 1
 	pid=$(cat ${pidfile})
 	omv_is_proc_running_pid ${pid} || return 1

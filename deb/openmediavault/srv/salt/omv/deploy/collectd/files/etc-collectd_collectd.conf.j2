@@ -1,4 +1,4 @@
-{% set pid_file = salt['pillar.get']('default:OMV_COLLECTD_PIDFILE', '/var/run/collectd.pid') -%}
+{% set pid_file = salt['pillar.get']('default:OMV_COLLECTD_PIDFILE', '/run/collectd.pid') -%}
 {% set hostname = salt['pillar.get']('default:OMV_COLLECTD_HOSTNAME', 'localhost') -%}
 {% set fqdn_lookup = salt['pillar.get']('default:OMV_COLLECTD_FQDNLOOKUP', 'true') -%}
 PIDFile "{{ pid_file }}"

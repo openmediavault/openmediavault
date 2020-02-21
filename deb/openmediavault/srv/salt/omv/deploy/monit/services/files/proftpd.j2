@@ -1,7 +1,7 @@
 # - Use the sysV init script here instead of the systemd unit file.
 # - Use 'restart' to start the daemon, thus the sysV init script takes
 #   care about the PID file which seems not to be cleaned up correctly.
-check process proftpd with pidfile /var/run/proftpd.pid
+check process proftpd with pidfile /run/proftpd.pid
     start program = "/etc/init.d/proftpd restart"
     stop program  = "/etc/init.d/proftpd stop"
     mode active

@@ -3,7 +3,7 @@
 {%- set ssh_keys_dir = salt['pillar.get']('default:OMV_SSH_KEYS_DIR', '/etc/ssh') -%}
 {%- set ssh_key_prefix = salt['pillar.get']('default:OMV_SSH_KEY_PREFIX', 'openmediavault-') -%}
 {%- set logfile = salt['pillar.get']('default:OMV_RSYNC_LOGFILE', '/var/log/rsync.log') -%}
-{%- set runfile = '/var/run' | path_join(script_prefix ~ job.uuid) -%}
+{%- set runfile = '/run' | path_join(script_prefix ~ job.uuid) -%}
 {%- if job.type == 'local' -%}
   {%- set srcuri = salt['omv_conf.get_sharedfolder_path'](job.src.sharedfolderref) -%}
   {%- set srcmntdir = salt['omv_conf.get_sharedfolder_mount_path'](job.src.sharedfolderref) -%}

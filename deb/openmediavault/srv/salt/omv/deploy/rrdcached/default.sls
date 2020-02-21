@@ -25,8 +25,8 @@
 {% set write_timeout = salt['pillar.get']('default:OMV_RRDCACHED_WRITETIMEOUT', '900') %}
 {% set base_path = salt['pillar.get']('default:OMV_RRDCACHED_BASEDIR', '/var/lib/rrdcached/db/') %}
 {% set journal_path = salt['pillar.get']('default:OMV_RRDCACHED_JOURNALDIR', '/var/lib/rrdcached/journal/') %}
-{% set pidfile = salt['pillar.get']('default:OMV_RRDCACHED_PIDFILE', '/var/run/rrdcached.pid') %}
-{% set sockfile = salt['pillar.get']('default:OMV_RRDCACHED_SOCKETFILE', '/var/run/rrdcached.sock') %}
+{% set pidfile = salt['pillar.get']('default:OMV_RRDCACHED_PIDFILE', '/run/rrdcached.pid') %}
+{% set sockfile = salt['pillar.get']('default:OMV_RRDCACHED_SOCKETFILE', '/run/rrdcached.sock') %}
 {% set flush_interval = salt['pillar.get']('default:OMV_RRDCACHED_FLUSHINTERVAL', '3600') %}
 {% set base_options = salt['pillar.get']('default:OMV_RRDCACHED_BASEOPTIONS', '-B -F -f ' ~ flush_interval) %}
 

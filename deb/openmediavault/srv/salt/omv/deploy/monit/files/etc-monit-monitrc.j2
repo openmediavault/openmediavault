@@ -3,7 +3,7 @@
 {%- set logfile = salt['pillar.get']('default:OMV_MONIT_LOGFILE', 'syslog facility log_daemon') -%}
 {%- set idfile = salt['pillar.get']('default:OMV_MONIT_IDFILE', '/var/lib/monit/id') -%}
 {%- set statefile = salt['pillar.get']('default:OMV_MONIT_STATEFILE', '/var/lib/monit/state') -%}
-{%- set unixsocket = salt['pillar.get']('default:OMV_MONIT_UNIXSOCKET', '/var/run/monit.sock') -%}
+{%- set unixsocket = salt['pillar.get']('default:OMV_MONIT_UNIXSOCKET', '/run/monit.sock') -%}
 {%- set eventqueue_basedir = salt['pillar.get']('default:OMV_MONIT_EVENTQUEUE_BASEDIR', '/var/lib/monit/events') -%}
 {%- set eventqueue_slots = salt['pillar.get']('default:OMV_MONIT_EVENTQUEUE_SLOTS', '100') -%}
 {%- set include_dir = salt['pillar.get']('default:OMV_MONIT_CONFIG_INCLUDE_DIR', '/etc/monit/conf.d') -%}

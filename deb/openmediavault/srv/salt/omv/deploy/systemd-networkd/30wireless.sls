@@ -56,7 +56,7 @@ configure_wpa_supplicant_{{ interface.devicename }}:
   file.managed:
     - name: "/etc/wpa_supplicant/wpa_supplicant-{{ interface.devicename }}.conf"
     - contents: |
-        ctrl_interface=/var/run/wpa_supplicant
+        ctrl_interface=/run/wpa_supplicant
         ctrl_interface_group=0
         update_config=1
         eapol_version=1

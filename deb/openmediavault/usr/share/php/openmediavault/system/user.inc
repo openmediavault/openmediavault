@@ -370,7 +370,7 @@ class User {
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
 		// Parse command output:
-		// proftpd:x:109:65534::/var/run/proftpd:/bin/false
+		// proftpd:x:109:65534::/run/proftpd:/bin/false
 		// ftp:x:110:65534::/home/ftp:/bin/false
 		// openmediavault:x:999:999::/home/openmediavault:/bin/sh
 		// admin:x:998:100:WebGUI administrator:/home/admin:/usr/sbin/nologin
