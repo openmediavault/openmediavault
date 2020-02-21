@@ -50,7 +50,7 @@ def main():
     default_config = {
         'defaults': [
             '--daemon', 'unix:{}'.format(openmediavault.getenv(
-                'OMV_RRDCACHED_SOCKETFILE', '/var/run/rrdcached.sock')),
+                'OMV_RRDCACHED_SOCKETFILE', '/run/rrdcached.sock')),
             '--imgformat', openmediavault.getenv(
                 'OMV_COLLECTD_RRDTOOL_GRAPH_IMGFORMAT', 'PNG'),
             '--width', openmediavault.getenv(

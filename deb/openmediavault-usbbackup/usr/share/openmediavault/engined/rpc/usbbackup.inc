@@ -132,7 +132,7 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract {
 			// Update the 'sharedfoldername' property.
 			$objectv->set("sharedfoldername", $sfObject->get("name"));
 			// Get job status.
-			$statusFile = sprintf("/var/run/openmediavault-usbbackup-%s",
+			$statusFile = sprintf("/run/openmediavault-usbbackup-%s",
 			  md5($objectv->get("devicefile")));
 			$objectv->set("running", file_exists($statusFile));
 			$objectsAssoc[] = $objectv->getAssoc();

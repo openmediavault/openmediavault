@@ -1,5 +1,6 @@
 openmediavault (5.3.3-1) unstable; urgency=low
 
+  * Use /run instead of /var/run and /run/lock instead of /var/lock.
   * Issue #604: Wrong primary slave configuration for bond network
     interfaces.
   * Issue #605: Memory usage wrong in Dashboard and system information

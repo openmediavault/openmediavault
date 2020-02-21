@@ -17,7 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set socket_file = salt['pillar.get']('default:OMV_COLLECTD_UNIXSOCK_SOCKETFILE', '/var/run/collectd.socket') %}
+{% set socket_file = salt['pillar.get']('default:OMV_COLLECTD_UNIXSOCK_SOCKETFILE', '/run/collectd.socket') %}
 {% set socket_group = salt['pillar.get']('default:OMV_COLLECTD_UNIXSOCK_SOCKETGROUP', 'root') %}
 {% set socket_perms = salt['pillar.get']('default:OMV_COLLECTD_UNIXSOCK_SOCKETPERMS', '0660') %}
 

@@ -1,4 +1,4 @@
-check process rrdcached with pidfile /var/run/rrdcached.pid
+check process rrdcached with pidfile /run/rrdcached.pid
     start program = "/bin/systemctl start rrdcached"
     stop program = "/bin/systemctl stop rrdcached"
     mode active

@@ -28,7 +28,7 @@
 # Testing:
 # rrdtool info /var/lib/rrdcached/db/localhost/<xxx>/<xxx>.rrd
 
-{% set rrdcached_socket_file = salt['pillar.get']('default:OMV_RRDCACHED_SOCKETFILE', '/var/run/rrdcached.sock') %}
+{% set rrdcached_socket_file = salt['pillar.get']('default:OMV_RRDCACHED_SOCKETFILE', '/run/rrdcached.sock') %}
 {% set data_dir = salt['pillar.get']('default:OMV_RRDCACHED_BASEDIR', '/var/lib/rrdcached/db/') %}
 {% set create_files = salt['pillar.get']('default:OMV_COLLECTD_RRDCACHED_CREATEFILES', 'true') %}
 {% set collect_statistics = salt['pillar.get']('default:OMV_COLLECTD_RRDCACHED_COLLECTSTATISTICS', 'true') %}

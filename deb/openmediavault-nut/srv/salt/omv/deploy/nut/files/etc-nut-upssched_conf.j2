@@ -1,6 +1,6 @@
 {%- set cmdscript = salt['pillar.get']('default:OMV_NUT_UPSSCHED_CMDSCRIPT', '/usr/bin/upssched-cmd') -%}
-{%- set pipefn = salt['pillar.get']('default:OMV_NUT_UPSSCHED_PIPEFN', '/var/run/nut/upssched.pipe') -%}
-{%- set lockfn = salt['pillar.get']('default:OMV_NUT_UPSSCHED_LOCKFN', '/var/run/nut/upssched.lock') -%}
+{%- set pipefn = salt['pillar.get']('default:OMV_NUT_UPSSCHED_PIPEFN', '/run/nut/upssched.pipe') -%}
+{%- set lockfn = salt['pillar.get']('default:OMV_NUT_UPSSCHED_LOCKFN', '/run/nut/upssched.lock') -%}
 {{ pillar['headers']['multiline'] -}}
 CMDSCRIPT {{ cmdscript }}
 PIPEFN {{ pipefn }}

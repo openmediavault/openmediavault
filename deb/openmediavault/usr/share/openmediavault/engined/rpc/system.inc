@@ -371,7 +371,7 @@ class System extends \OMV\Rpc\ServiceAbstract {
 				"configDirty" => \OMV\Rpc\Rpc::call(
 					"Config", "isDirty", NULL, $context
 				),
-				"rebootRequired" => file_exists("/var/run/reboot-required"),
+				"rebootRequired" => file_exists("/run/reboot-required"),
 				"pkgUpdatesAvailable" => !empty($pkgUpgradeList)
 			]);
 		}

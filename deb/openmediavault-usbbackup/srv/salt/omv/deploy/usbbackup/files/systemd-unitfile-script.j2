@@ -3,7 +3,7 @@
 {%- set usbbackup_systemd_unitfile_prefix = salt['pillar.get']('default:OMV_USBBACKUP_SYSTEMD_UNITFILE_PREFIX', 'openmediavault-usbbackup-') -%}
 {%- set id = devicefile | md5 -%}
 {%- set mount_path = id | make_mount_path -%}
-{%- set runfile = '/var/run' | path_join(usbbackup_systemd_unitfile_prefix ~ id) -%}
+{%- set runfile = '/run' | path_join(usbbackup_systemd_unitfile_prefix ~ id) -%}
 {%- set jobs = salt['omv_conf.get_by_filter'](
   'conf.service.usbbackup.job',
   {'operator': 'and', 'arg0': {'operator': 'stringEquals', 'arg0': 'devicefile', 'arg1': devicefile}, 'arg1': {'operator': 'equals', 'arg0': 'enable', 'arg1': '1'}}) -%}

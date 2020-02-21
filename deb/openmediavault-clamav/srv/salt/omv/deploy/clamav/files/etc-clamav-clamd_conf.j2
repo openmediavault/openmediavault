@@ -1,4 +1,4 @@
-{%- set localsocket = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_LOCALSOCKET', '/var/run/clamav/clamd.ctl') -%}
+{%- set localsocket = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_LOCALSOCKET', '/run/clamav/clamd.ctl') -%}
 {%- set localsocketgroup = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_LOCALSOCKETGROUP', 'clamav') -%}
 {%- set localsocketmode = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_LOCALSOCKETMODE', '666') -%}
 {%- set archiveblockencrypted = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ARCHIVEBLOCKENCRYPTED', 'false') -%}
