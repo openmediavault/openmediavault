@@ -145,7 +145,7 @@ configure_nut_udev_serialups_rule:
 
 configure_nut_udevadm_trigger:
   cmd.run:
-    - name: "/bin/udevadm trigger"
+    - name: "udevadm trigger"
     - onchanges:
       - configure_nut_udev_serialups_rule
 

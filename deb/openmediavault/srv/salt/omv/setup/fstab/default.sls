@@ -31,11 +31,11 @@
 # to detect non-rotational devices.
 udevadm_reload_rules:
   cmd.run:
-    - name: "/bin/udevadm control --reload-rules"
+    - name: "udevadm control --reload-rules"
 
 udevadm_trigger:
   cmd.run:
-    - name: "/bin/udevadm trigger"
+    - name: "udevadm trigger"
     - onchanges:
       - udevadm_reload_rules
 
