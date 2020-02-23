@@ -1,3 +1,10 @@
+openmediavault (5.3.4-1) unstable; urgency=low
+
+  * Fix the error 'The named service fstrim.timer is not available'
+    during installation.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 23 Feb 2020 20:21:03 +0100
+
 openmediavault (5.3.3-1) unstable; urgency=low
 
   * Use /run instead of /var/run and /run/lock instead of /var/lock.

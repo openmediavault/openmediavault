@@ -17,10 +17,14 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+{% if salt['service.available']('fstrim.timer') %}
+
 start_fstrim_timer:
   service.running:
     - name: fstrim.timer
     - enable: True
+
+{% endif %}
 
 enable_discard_in_lvm_conf:
   file.replace:
