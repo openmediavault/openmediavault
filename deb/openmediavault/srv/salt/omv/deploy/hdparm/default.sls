@@ -36,3 +36,20 @@ configure_hdparm_conf:
     - user: root
     - group: root
     - mode: 644
+
+# Usually '/lib/udev/hdparm' is executed by UDEV when a device is added
+# to apply the hdparm.conf settings. At runtime it is not possible to
+# force UDEV to do the same thing again to reload the settings, e.g.
+# by running 'udevadm trigger'. For this reason, we simply run the script
+# ourselves.
+{% for device in config %}
+{% if salt['omv_utils.is_block_device'](device.devicefile) %}
+reload_hdparm_{{ device.devicefile }}:
+  cmd.run:
+    - name: "/lib/udev/hdparm"
+    - env:
+      - DEVNAME: "{{ device.devicefile | path_realpath }}"
+    - onchanges:
+      - file: configure_hdparm_conf
+{% endif %}
+{% endfor %}

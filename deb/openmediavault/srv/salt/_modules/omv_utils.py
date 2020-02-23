@@ -310,6 +310,19 @@ def path_dirname(path):
     return os.path.dirname(path)
 
 
+@jinja_filter('path_realpath')
+def path_realpath(path):
+    """
+    Return the canonical path of the specified filename, eliminating any
+    symbolic links encountered in the path.
+    :param path: The path to process.
+    :type path: str
+    :return: Returns canonical path.
+    :rtype: str
+    """
+    return os.path.realpath(path)
+
+
 @jinja_filter('escape_blank')
 def escape_blank(value, octal=False):
     """
