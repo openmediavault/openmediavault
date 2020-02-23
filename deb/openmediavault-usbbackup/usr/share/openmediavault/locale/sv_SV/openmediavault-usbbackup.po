@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
-# Jonatan Nyberg, 2019
+# Jonatan Nyberg, 2019-2020
 # Jonatan Nyberg, 2017-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-07 17:31+0100\n"
-"PO-Revision-Date: 2019-11-02 10:11+0000\n"
+"PO-Revision-Date: 2020-02-23 13:33+0000\n"
 "Last-Translator: Jonatan Nyberg\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -95,13 +95,13 @@ msgstr "Läge"
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Se <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manualsidan</a> för mer detaljer."
+msgstr "Vänligen se <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manualsidan</a> för mer detaljer."
 
 msgid ""
 "Please note that the web interface is blocked until the manually started "
 "backup job has been finished. However the backup job is automatically "
 "executed in the background when the storage device is connected to the host."
-msgstr "Observera att webbgränssnittet är blockerat tills det manuellt startade säkerhetskopieringsjobbet har slutförts. Men säkerhetskopieringsjobbet utförs automatiskt i bakgrunden när lagringsenheten är ansluten till värden."
+msgstr "Vänligen observera att webbgränssnittet är blockerat tills det manuellt startade säkerhetskopieringsjobbet har slutförts. Men säkerhetskopieringsjobbet utförs automatiskt i bakgrunden när lagringsenheten är ansluten till värden."
 
 msgid "Preserve ACLs"
 msgstr "Bevara ACL:er"

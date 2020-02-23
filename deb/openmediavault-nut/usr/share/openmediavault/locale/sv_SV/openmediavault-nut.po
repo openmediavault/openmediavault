@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Henrik Sandström <inactive+sandstroem@transifex.com>, 2012
+# Jonatan Nyberg, 2020
 # Jonatan Nyberg, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-07 17:31+0100\n"
-"PO-Revision-Date: 2017-09-19 12:44+0000\n"
+"PO-Revision-Date: 2020-02-23 13:33+0000\n"
 "Last-Translator: Jonatan Nyberg\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -91,7 +92,7 @@ msgid ""
 "To get more information how to configure your UPS please check the Network "
 "UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
 "target='_blank'>documentation</a>."
-msgstr "För att få mer information hur din UPS ska konfigureras, besök Network UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>documentation</a>."
+msgstr "För att få mer information hur din UPS ska konfigureras, vänligen besök Network UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>dokumentation</a>."
 
 msgid "UPS"
 msgstr "UPS"

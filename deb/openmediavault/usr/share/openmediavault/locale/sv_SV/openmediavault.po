@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Henrik Sandström <inactive+sandstroem@transifex.com>, 2012
-# Jonatan Nyberg, 2018-2019
+# Jonatan Nyberg, 2018-2020
 # Jonatan Nyberg, 2017-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-05 12:10+0100\n"
-"PO-Revision-Date: 2020-02-05 11:13+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2020-02-23 13:40+0000\n"
+"Last-Translator: Jonatan Nyberg\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -323,7 +323,7 @@ msgid ""
 "An attempt to send the test email has been made. Please check your mailbox. "
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
-msgstr "Ett försök att skicka test-e-postmeddelandet har gjorts. Kontrollera din brevlåda. Om e-postmeddelandet inte kommer fram, kontrollera eventuella skräppostmappar och kontrollera också att det inte finns några postfix-relaterade fel i systemloggen."
+msgstr "Ett försök att skicka test e-postmeddelandet har gjorts. Vänligen kontrollera din brevlåda. Om e-postmeddelandet inte kommer fram, kontrollera eventuella skräppostmappar och kontrollera också att det inte finns några postfix-relaterade fel i systemloggen."
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -723,7 +723,7 @@ msgid "Create self-signed SSL certificate"
 msgstr "Skapa självsignerade SSL-certifikat "
 
 msgid "Creating the file system, please wait ..."
-msgstr "Skapar filsystemet, vänta ..."
+msgstr "Skapar filsystemet, vänligen vänta ..."
 
 msgid "Critical"
 msgstr "Kritisk"
@@ -914,7 +914,7 @@ msgstr "Vill du verkligen ta bort valda objekt?"
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
 "Please note that the file system creation may take some time."
-msgstr "Vill du verkligen formatera den här enheten? Alla data på den tas bort. Observera att skapandet av filsystemet kan ta tid."
+msgstr "Vill du verkligen formatera den här enheten? Alla data på den tas bort. Vänligen observera att skapandet av filsystemet kan ta tid."
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Vill du verkligen installera vald(a) insticksmodul(er)?"
@@ -988,7 +988,7 @@ msgid "Down delay"
 msgstr "Nedåt-fördröjning"
 
 msgid "Download"
-msgstr "Ladda ner"
+msgstr "Hämta"
 
 msgid "Downloading package information"
 msgstr "Hämtar paketinformation"
@@ -1325,7 +1325,7 @@ msgid "Firmware version"
 msgstr "Firmware-version"
 
 msgid "First Page"
-msgstr "Första sida"
+msgstr "Första sidan"
 
 msgid "Flags"
 msgstr "Flaggor"
@@ -1556,7 +1556,7 @@ msgid ""
 msgstr "Om det här alternativet är inställt, kommer demonen att chroot till sökvägen av den delade mappen innan filöverföringen med klienten. Då är det inte möjligt att kartlägga användare och grupper efter namn och demonen kan inte följa symboliska länkar som är antingen absoluta eller utanför den nya root sökvägen."
 
 msgid "If this option is set, then any attempted downloads will fail."
-msgstr "Om detta alternativ är inställt, kommer alla försök till nedladdning att misslyckas."
+msgstr "Om det här alternativet är inställt, kommer alla försök till hämtningar att misslyckas."
 
 msgid "If this option is set, then any attempted uploads will fail."
 msgstr "Om detta alternativ är inställt, kommer alla försök till uppladdning att misslyckas."
@@ -1837,7 +1837,7 @@ msgid "Loading ..."
 msgstr "Laddar ..."
 
 msgid "Loading, please wait ..."
-msgstr "Laddar, vänta ..."
+msgstr "Läser in, vänligen vänta ..."
 
 msgid "Local"
 msgstr "Lokal"
@@ -1849,7 +1849,7 @@ msgid "Log level"
 msgstr "Loggnivå"
 
 msgid "Logging out, please wait ..."
-msgstr ""
+msgstr "Loggar ut, vänligen vänta ..."
 
 msgid "Login"
 msgstr "Logga in"
@@ -2383,66 +2383,66 @@ msgstr "Pitcairnöarna"
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/exports' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Kontrollera <a href='http://linux.die.net/man/5/exports' target='_blank'>manualsidan</a> för mer information."
+msgstr "Vänligen kontrollera <a href='http://linux.die.net/man/5/exports' target='_blank'>manualsidan</a> för mer information."
 
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Kontrollera <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>manualsidan</a> för mer information."
+msgstr "Vänligen kontrollera <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>manualsidan</a> för mer information."
 
 msgid ""
 "Please check the <a "
 "href='http://www.proftpd.org/docs/directives/configuration_full.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Kontrollera <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>manualsidan</a> för mer information."
+msgstr "Vänligen kontrollera <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>manualsidan</a> för mer information."
 
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
 "name.html' target='_blank'>manual page</a> for more details."
-msgstr "Se <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>manualsidan</a> för mer detaljer."
+msgstr "Vänligen se <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>manualsidan</a> för mer detaljer."
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Kontrollera <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manualsidan</a> för mer information."
+msgstr "Vänligen kontrollera <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manualsidan</a> för mer information."
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Kontrollera <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manualsidan</a> för mer information."
+msgstr "Vänligen kontrollera <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manualsidan</a> för mer information."
 
 msgid ""
 "Please check the <a "
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Kontrollera <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manualsidan</a> för mer information."
+msgstr "Vänligen kontrollera <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manualsidan</a> för mer information."
 
 msgid ""
 "Please check the <a href='https://man.openbsd.org/sshd_config.5' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Kontrollera <a href='https://man.openbsd.org/sshd_config.5' target='_blank'>manualsidan</a> för mer detaljer."
+msgstr "Vänligen kontrollera <a href='https://man.openbsd.org/sshd_config.5' target='_blank'>manualsidan</a> för mer detaljer."
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
-msgstr "Välj en metod för att radera enheten eller välj 'Avbryt' "
+msgstr "Vänligen välj metoden för att rensa av enheten eller \"Avbryt\" för att avbryta."
 
 msgid "Please first select a device."
-msgstr "Välj först en enhet."
+msgstr "Vänligen välj först en enhet."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
-msgstr "Observera att ingen kommunikation med systemet är möjlig under detta test."
+msgstr "Vänligen observera att ingen kommunikation med systemet är möjlig under detta test."
 
 msgid "Please reload the page to let the changes take effect."
-msgstr "Ladda om sidan för att låta ändringarna träda i kraft."
+msgstr "Vänligen ladda om sidan för att låta ändringarna träda i kraft."
 
 msgid "Please wait ..."
-msgstr "Vänta ..."
+msgstr "Vänligen vänta ..."
 
 msgid ""
 "Please wait until the RAID has been initialized before creating a file "
 "system."
-msgstr "Vänta tills RAID har initierats innan du skapar ett filsystem."
+msgstr "Vänligen vänta tills RAID har initierats innan du skapar ett filsystem."
 
 msgid "Plugins"
 msgstr "Insticksmoduler"
@@ -3450,7 +3450,7 @@ msgstr "Arbetsgruppen som servern utger sig för att vara i när klienterna frå
 msgid ""
 "These settings are used by the services to configure the user access rights."
 " Please note that these settings have no effect on file system permissions."
-msgstr "Dessa inställningar används av tjänsterna för att konfigurera användarrättigheterna. Observera att dessa inställningar inte påverkar filsystembehörigheterna."
+msgstr "Dessa inställningar används av tjänsterna för att konfigurera användarrättigheterna. Vänligen observera att dessa inställningar inte påverkar filsystemsbehörigheterna."
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "

@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Henrik Sandström <inactive+sandstroem@transifex.com>, 2012
+# Jonatan Nyberg, 2020
 # Jonatan Nyberg, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-07 17:31+0100\n"
-"PO-Revision-Date: 2017-12-11 19:50+0000\n"
+"PO-Revision-Date: 2020-02-23 13:33+0000\n"
 "Last-Translator: Jonatan Nyberg\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -177,7 +178,7 @@ msgid ""
 "Please check the <a href='https://github.com/vrtadmin/clamav-"
 "faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
 "details."
-msgstr "Se <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>manualsidan</a> för mer detaljer."
+msgstr "Vänligen se <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>manualsidan</a> för mer detaljer."
 
 msgid "Quarantine"
 msgstr "Karantän"
