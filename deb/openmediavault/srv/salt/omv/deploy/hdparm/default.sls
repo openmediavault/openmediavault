@@ -29,7 +29,7 @@ configure_hdparm_conf:
   file.managed:
     - name: "/etc/hdparm.conf"
     - source:
-      - salt://{{ slspath }}/files/etc-hdparm.conf.j2
+      - salt://{{ tpldir }}/files/etc-hdparm.conf.j2
     - template: jinja
     - context:
         config: {{ config | json }}

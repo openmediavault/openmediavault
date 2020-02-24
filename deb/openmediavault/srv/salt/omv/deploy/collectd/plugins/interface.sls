@@ -36,7 +36,7 @@ configure_collectd_conf_interface_plugin:
   file.managed:
     - name: "/etc/collectd/collectd.conf.d/interface.conf"
     - source:
-      - salt://{{ slspath }}/files/collectd-interface.j2
+      - salt://{{ tpldir }}/files/collectd-interface.j2
     - template: jinja
     - context:
         interfaces: {{ interfaces | json }}

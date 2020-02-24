@@ -38,7 +38,7 @@ configure_avahi_service_smb:
   file.managed:
     - name: "/etc/avahi/services/smb.service"
     - source:
-      - salt://{{ slspath }}/files/smb.j2
+      - salt://{{ tpldir }}/files/smb.j2
     - template: jinja
     - context:
         type: "_smb._tcp"

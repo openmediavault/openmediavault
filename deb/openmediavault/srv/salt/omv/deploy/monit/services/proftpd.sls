@@ -30,7 +30,7 @@ configure_monit_proftpd_service:
   file.managed:
     - name: "/etc/monit/conf.d/openmediavault-proftpd.conf"
     - source:
-      - salt://{{ slspath }}/files/proftpd.j2
+      - salt://{{ tpldir }}/files/proftpd.j2
     - template: jinja
     - context:
         proftpd_config: {{ proftpd_config | json }}

@@ -30,7 +30,7 @@ configure_monit_shairport_sync_service:
   file.managed:
     - name: "/etc/monit/conf.d/openmediavault-shairportsync.conf"
     - source:
-      - salt://{{ slspath }}/files/shairport-sync.j2
+      - salt://{{ tpldir }}/files/shairport-sync.j2
     - template: jinja
     - context:
         email_config: {{ email_config | json }}

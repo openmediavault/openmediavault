@@ -36,7 +36,7 @@ configure_default_nfs-kernel-server:
   file.managed:
     - name: "/etc/default/nfs-kernel-server"
     - source:
-      - salt://{{ slspath }}/files/etc-default-nfs-kernel-server.j2
+      - salt://{{ tpldir }}/files/etc-default-nfs-kernel-server.j2
     - template: jinja
     - context:
         config: {{ config | json }}
@@ -48,7 +48,7 @@ configure_nfsd_exports:
   file.managed:
     - name: "/etc/exports"
     - source:
-      - salt://{{ slspath }}/files/etc-exports.j2
+      - salt://{{ tpldir }}/files/etc-exports.j2
     - template: jinja
     - user: root
     - group: root

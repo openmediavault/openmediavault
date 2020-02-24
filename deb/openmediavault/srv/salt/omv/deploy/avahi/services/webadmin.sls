@@ -33,7 +33,7 @@ configure_avahi_service_webadmin:
   file.managed:
     - name: "/etc/avahi/services/website.service"
     - source:
-      - salt://{{ slspath }}/files/webadmin.j2
+      - salt://{{ tpldir }}/files/webadmin.j2
     - template: jinja
     - context:
         name: "{{ webadmin_zeroconf_name }}"

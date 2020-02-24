@@ -23,7 +23,7 @@ configure_profile_proxy:
   file.managed:
     - name: "/etc/profile.d/10openmediavault-proxy.sh"
     - source:
-      - salt://{{ slspath }}/files/10proxy.j2
+      - salt://{{ tpldir }}/files/10proxy.j2
     - context:
         config: {{ config | json }}
     - template: jinja

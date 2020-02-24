@@ -30,7 +30,7 @@ configure_rsyncd_conf:
   file.managed:
     - name: "/etc/rsyncd.conf"
     - source:
-      - salt://{{ slspath }}/files/rsyncd.conf.j2
+      - salt://{{ tpldir }}/files/rsyncd.conf.j2
     - context:
         config: {{ config | json }}
     - template: jinja
@@ -51,7 +51,7 @@ configure_rsyncd_secrets_{{ module.name }}:
   file.managed:
     - name: "{{ secrets_dir | path_join('rsyncd-' ~ module.name ~ '.secrets') }}"
     - source:
-      - salt://{{ slspath }}/files/secrets.j2
+      - salt://{{ tpldir }}/files/secrets.j2
     - context:
         config: {{ module | json }}
     - template: jinja

@@ -30,7 +30,7 @@ configure_monit_collectd_service:
   file.managed:
     - name: "/etc/monit/conf.d/openmediavault-collectd.conf"
     - source:
-      - salt://{{ slspath }}/files/collectd.j2
+      - salt://{{ tpldir }}/files/collectd.j2
     - template: jinja
     - context:
         email_config: {{ email_config | json }}

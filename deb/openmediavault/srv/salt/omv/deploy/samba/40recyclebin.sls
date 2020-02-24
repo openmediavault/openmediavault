@@ -52,7 +52,7 @@ configure_samba_recyclebin_cron_script_{{ share.uuid }}:
   file.managed:
     - name: "{{ scripts_dir | path_join(cron_scripts_prefix ~ share.uuid) }}"
     - source:
-      - salt://{{ slspath }}/files/cron-recyclebin-script.j2
+      - salt://{{ tpldir }}/files/cron-recyclebin-script.j2
     - context:
         share: {{ share | json }}
     - template: jinja

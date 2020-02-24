@@ -23,7 +23,7 @@ configure_postfix_sasl_passwd:
   file.managed:
     - name: "/etc/postfix/sasl_passwd"
     - source:
-      - salt://{{ slspath }}/files/sasl_passwd.j2
+      - salt://{{ tpldir }}/files/sasl_passwd.j2
     - template: jinja
     - context:
         config: {{ config | json }}

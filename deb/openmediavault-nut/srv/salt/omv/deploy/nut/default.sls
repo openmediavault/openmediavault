@@ -53,7 +53,7 @@ configure_nut_ups_conf:
   file.managed:
     - name: "/etc/nut/ups.conf"
     - source:
-      - salt://{{ slspath }}/files/etc-nut-ups_conf.j2
+      - salt://{{ tpldir }}/files/etc-nut-ups_conf.j2
     - template: jinja
     - context:
         config: {{ nut_config | json }}
@@ -65,7 +65,7 @@ configure_nut_upsd_conf:
   file.managed:
     - name: "/etc/nut/upsd.conf"
     - source:
-      - salt://{{ slspath }}/files/etc-nut-upsd_conf.j2
+      - salt://{{ tpldir }}/files/etc-nut-upsd_conf.j2
     - template: jinja
     - context:
         config: {{ nut_config | json }}
@@ -77,7 +77,7 @@ configure_nut_upsd_users:
   file.managed:
     - name: "/etc/nut/upsd.users"
     - source:
-      - salt://{{ slspath }}/files/etc-nut-upsd_users.j2
+      - salt://{{ tpldir }}/files/etc-nut-upsd_users.j2
     - template: jinja
     - context:
         config: {{ nut_config | json }}
@@ -93,7 +93,7 @@ configure_nut_upsmon_conf:
   file.managed:
     - name: "/etc/nut/upsmon.conf"
     - source:
-      - salt://{{ slspath }}/files/etc-nut-upsmon_conf.j2
+      - salt://{{ tpldir }}/files/etc-nut-upsmon_conf.j2
     - template: jinja
     - context:
         config: {{ nut_config | json }}
@@ -107,7 +107,7 @@ configure_nut_upssched_conf:
   file.managed:
     - name: "/etc/nut/upssched.conf"
     - source:
-      - salt://{{ slspath }}/files/etc-nut-upssched_conf.j2
+      - salt://{{ tpldir }}/files/etc-nut-upssched_conf.j2
     - template: jinja
     - context:
         config: {{ nut_config | json }}

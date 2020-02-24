@@ -26,7 +26,7 @@ configure_snmpd:
   file.managed:
     - name: "/etc/snmp/snmpd.conf"
     - source:
-      - salt://{{ slspath }}/files/etc-snmp-snmpd_conf.j2
+      - salt://{{ tpldir }}/files/etc-snmp-snmpd_conf.j2
     - template: jinja
     - context:
         snmpd_config: {{ snmpd_config | json }}

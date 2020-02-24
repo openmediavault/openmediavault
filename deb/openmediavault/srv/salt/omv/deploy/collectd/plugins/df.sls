@@ -25,7 +25,7 @@ configure_collectd_conf_df_plugin:
   file.managed:
     - name: "/etc/collectd/collectd.conf.d/df.conf"
     - source:
-      - salt://{{ slspath }}/files/collectd-df.j2
+      - salt://{{ tpldir }}/files/collectd-df.j2
     - template: jinja
     - context:
         mountpoints: {{ mountpoints | json }}

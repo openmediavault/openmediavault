@@ -28,7 +28,7 @@ configure_default_cpufrequtils:
   file.managed:
     - name: "/etc/default/cpufrequtils"
     - source:
-      - salt://{{ slspath }}/files/cpufrequtils.j2
+      - salt://{{ tpldir }}/files/cpufrequtils.j2
     - template: jinja
     - context:
         cpufreq: {{ config.cpufreq }}
@@ -40,7 +40,7 @@ configure_default_loadcpufreq:
   file.managed:
     - name: "/etc/default/loadcpufreq"
     - source:
-      - salt://{{ slspath }}/files/loadcpufreq.j2
+      - salt://{{ tpldir }}/files/loadcpufreq.j2
     - template: jinja
     - context:
         cpufreq: {{ config.cpufreq }}

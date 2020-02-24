@@ -30,7 +30,7 @@ configure_collectd_conf:
   file.managed:
     - name: "/etc/collectd/collectd.conf"
     - source:
-      - salt://{{ slspath }}/files/etc-collectd_collectd.conf.j2
+      - salt://{{ tpldir }}/files/etc-collectd_collectd.conf.j2
     - template: jinja
     - user: root
     - group: root

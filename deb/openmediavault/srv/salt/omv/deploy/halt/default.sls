@@ -25,7 +25,7 @@ configure_default_halt:
   file.managed:
     - name: "/etc/default/halt"
     - source:
-      - salt://{{ slspath }}/files/etc-default-halt.j2
+      - salt://{{ tpldir }}/files/etc-default-halt.j2
     - template: jinja
     - user: root
     - group: root

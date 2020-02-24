@@ -30,7 +30,7 @@ configure_monit_rrdcached_service:
   file.managed:
     - name: "/etc/monit/conf.d/openmediavault-rrdcached.conf"
     - source:
-      - salt://{{ slspath }}/files/rrdcached.j2
+      - salt://{{ tpldir }}/files/rrdcached.j2
     - template: jinja
     - context:
         email_config: {{ email_config | json }}

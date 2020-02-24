@@ -30,7 +30,7 @@ configure_default_avahi_daemon:
   file.managed:
     - name: "/etc/default/avahi-daemon"
     - source:
-      - salt://{{ slspath }}/files/etc-default-avahi-daemon.j2
+      - salt://{{ tpldir }}/files/etc-default-avahi-daemon.j2
     - template: jinja
     - user: root
     - group: root
@@ -40,7 +40,7 @@ configure_avahi_daemon_conf:
   file.managed:
     - name: "/etc/avahi/avahi-daemon.conf"
     - source:
-      - salt://{{ slspath }}/files/etc-avahi-avahi-daemon_conf.j2
+      - salt://{{ tpldir }}/files/etc-avahi-avahi-daemon_conf.j2
     - template: jinja
     - user: root
     - group: root

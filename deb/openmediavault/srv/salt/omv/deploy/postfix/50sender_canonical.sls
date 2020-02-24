@@ -30,7 +30,7 @@ configure_postfix_sender_canonical:
   file.managed:
     - name: "/etc/postfix/sender_canonical"
     - source:
-      - salt://{{ slspath }}/files/sender_canonical.j2
+      - salt://{{ tpldir }}/files/sender_canonical.j2
     - template: jinja
     - context:
         config: {{ config | json }}

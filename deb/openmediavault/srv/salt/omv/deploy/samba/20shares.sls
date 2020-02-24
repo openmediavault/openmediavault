@@ -33,7 +33,7 @@ configure_samba_shares:
   file.append:
     - name: "/etc/samba/smb.conf"
     - sources:
-      - salt://{{ slspath }}/files/shares.j2
+      - salt://{{ tpldir }}/files/shares.j2
     - template: jinja
     - context:
         config: {{ config | json }}

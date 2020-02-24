@@ -26,7 +26,7 @@ configure_postfix_recipient_bcc:
   file.managed:
     - name: "/etc/postfix/recipient_bcc"
     - source:
-      - salt://{{ slspath }}/files/recipient_bcc.j2
+      - salt://{{ tpldir }}/files/recipient_bcc.j2
     - template: jinja
     - context:
         config: {{ config | json }}

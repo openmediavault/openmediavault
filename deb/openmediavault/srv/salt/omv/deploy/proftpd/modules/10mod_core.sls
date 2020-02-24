@@ -5,7 +5,7 @@ configure_proftpd_mod_core:
   file.managed:
     - name: "/etc/proftpd/proftpd.conf"
     - source:
-      - salt://{{ slspath }}/files/mod_core.j2
+      - salt://{{ tpldir }}/files/mod_core.j2
     - template: jinja
     - context:
         dns_config: {{ dns_config | json }}

@@ -62,7 +62,7 @@ configure_usbbackup_rsync_script_{{ job.uuid }}:
   file.managed:
     - name: "{{ usbbackup_scripts_dir | path_join(usbbackup_rsync_script_prefix ~ job.uuid) }}"
     - source:
-      - salt://{{ slspath }}/files/rsync-script.j2
+      - salt://{{ tpldir }}/files/rsync-script.j2
     - context:
         job: {{ job | json }}
     - template: jinja
@@ -81,7 +81,7 @@ configure_usbbackup_systemd_script_{{ job.devicefile | md5 }}:
   file.managed:
     - name: "{{ usbbackup_scripts_dir | path_join(usbbackup_systemd_script_prefix ~ job.devicefile | md5) }}"
     - source:
-      - salt://{{ slspath }}/files/systemd-unitfile-script.j2
+      - salt://{{ tpldir }}/files/systemd-unitfile-script.j2
     - context:
         devicefile: "{{ job.devicefile }}"
     - template: jinja
@@ -93,7 +93,7 @@ configure_usbbackup_systemd_unitfile_{{ job.devicefile | md5 }}:
   file.managed:
     - name: "{{ usbbackup_systemd_unitfile_dir | path_join(usbbackup_systemd_unitfile_prefix ~ job.devicefile | md5 ~ '.service') }}"
     - source:
-      - salt://{{ slspath }}/files/systemd-unitfile.j2
+      - salt://{{ tpldir }}/files/systemd-unitfile.j2
     - context:
         devicefile: "{{ job.devicefile }}"
     - template: jinja

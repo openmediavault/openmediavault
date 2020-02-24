@@ -72,7 +72,7 @@ configure_clamav_freshclam:
   file.managed:
     - name: "/etc/clamav/freshclam.conf"
     - source:
-      - salt://{{ slspath }}/files/etc-clamav-freshclam_conf.j2
+      - salt://{{ tpldir }}/files/etc-clamav-freshclam_conf.j2
     - template: jinja
     - context:
         clamav_config: {{ clamav_config | json }}
@@ -136,7 +136,7 @@ configure_clamav_daemon:
   file.managed:
     - name: "/etc/clamav/clamd.conf"
     - source:
-      - salt://{{ slspath }}/files/etc-clamav-clamd_conf.j2
+      - salt://{{ tpldir }}/files/etc-clamav-clamd_conf.j2
     - template: jinja
     - context:
         config: {{ clamav_config | json }}
@@ -171,7 +171,7 @@ configure_clamav_clamdscan_cron:
   file.managed:
     - name: "/etc/cron.d/openmediavault-clamdscan"
     - source:
-      - salt://{{ slspath }}/files/cron-clamdscan.j2
+      - salt://{{ tpldir }}/files/cron-clamdscan.j2
     - context:
         jobs: {{ clamav_config.jobs.job | json }}
     - template: jinja
@@ -185,7 +185,7 @@ configure_clamav_clamdscan_cron_script_{{ job.uuid }}:
   file.managed:
     - name: "{{ cron_scripts_dir | path_join(cron_script_prefix ~ job.uuid) }}"
     - source:
-      - salt://{{ slspath }}/files/cron-clamdscan-script.j2
+      - salt://{{ tpldir }}/files/cron-clamdscan-script.j2
     - context:
         clamav_config: {{ clamav_config | json }}
         job: {{ job | json }}

@@ -4,7 +4,7 @@ configure_proftpd_mod_auth:
   file.append:
     - name: "/etc/proftpd/proftpd.conf"
     - sources:
-      - salt://{{ slspath }}/files/mod_auth.j2
+      - salt://{{ tpldir }}/files/mod_auth.j2
     - template: jinja
     - context:
         config: {{ config | json }}

@@ -33,7 +33,7 @@ configure_avahi_service_tftpd-hpa:
   file.managed:
     - name: "/etc/avahi/services/tftp.service"
     - source:
-      - salt://{{ slspath }}/files/template.j2
+      - salt://{{ tpldir }}/files/template.j2
     - template: jinja
     - context:
         type: "_tftp._udp"

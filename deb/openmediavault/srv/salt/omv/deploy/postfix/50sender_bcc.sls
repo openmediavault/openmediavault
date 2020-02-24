@@ -24,7 +24,7 @@ configure_postfix_sender_bcc:
   file.managed:
     - name: "/etc/postfix/sender_bcc"
     - source:
-      - salt://{{ slspath }}/files/sender_bcc.j2
+      - salt://{{ tpldir }}/files/sender_bcc.j2
     - template: jinja
     - context:
         config: {{ config | json }}

@@ -36,7 +36,7 @@ configure_nginx_site_webgui:
   file.managed:
     - name: "/etc/nginx/sites-available/openmediavault-webgui"
     - source:
-      - salt://{{ slspath }}/files/site-webgui.j2
+      - salt://{{ tpldir }}/files/site-webgui.j2
     - template: jinja
     - context:
         config: {{ config | json }}
@@ -50,7 +50,7 @@ configure_nginx_security:
   file.managed:
     - name: "{{ include_dir }}/security.conf"
     - source:
-      - salt://{{ slspath }}/files/security.conf.j2
+      - salt://{{ tpldir }}/files/security.conf.j2
     - template: jinja
     - context:
         config: {{ config | json }}

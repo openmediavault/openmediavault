@@ -40,7 +40,7 @@
 # - Execute update-ca-certificates
 
 {% set config = salt['omv_conf.get']('conf.system.notification.email') %}
-{% set dirpath = '/srv/salt' | path_join(slspath) %}
+{% set dirpath = '/srv/salt' | path_join(tpldir) %}
 
 # Make sure the hostname configuration is applied.
 prereq_postfix_hostname:

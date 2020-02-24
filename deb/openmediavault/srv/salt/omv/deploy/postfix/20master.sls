@@ -23,7 +23,7 @@ configure_postfix_master:
   file.managed:
     - name: "/etc/postfix/master.cf"
     - source:
-      - salt://{{ slspath }}/files/master.cf.j2
+      - salt://{{ tpldir }}/files/master.cf.j2
     - template: jinja
     - user: root
     - group: root

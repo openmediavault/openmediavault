@@ -31,7 +31,7 @@ configure_monit_filesystem_service:
   file.managed:
     - name: "/etc/monit/conf.d/openmediavault-filesystem.conf"
     - source:
-      - salt://{{ slspath }}/files/filesystem.j2
+      - salt://{{ tpldir }}/files/filesystem.j2
     - template: jinja
     - context:
         mountpoints: {{ mountpoints | json }}

@@ -33,7 +33,7 @@ configure_rsync_cron:
   file.managed:
     - name: "/etc/cron.d/openmediavault-rsync"
     - source:
-      - salt://{{ slspath }}/files/cron-rsync.j2
+      - salt://{{ tpldir }}/files/cron-rsync.j2
     - context:
         jobs: {{ jobs | json }}
     - template: jinja
@@ -54,7 +54,7 @@ configure_rsync_cron_script_{{ job.uuid }}:
   file.managed:
     - name: "{{ scripts_dir | path_join(script_prefix ~ job.uuid) }}"
     - source:
-      - salt://{{ slspath }}/files/cron-rsync-script.j2
+      - salt://{{ tpldir }}/files/cron-rsync-script.j2
     - context:
         job: {{ job | json }}
     - template: jinja

@@ -32,7 +32,7 @@ configure_monit_system_service:
   file.managed:
     - name: "/etc/monit/conf.d/openmediavault-system.conf"
     - source:
-      - salt://{{ slspath }}/files/system.j2
+      - salt://{{ tpldir }}/files/system.j2
     - template: jinja
     - context:
         email_config: {{ email_config | json }}

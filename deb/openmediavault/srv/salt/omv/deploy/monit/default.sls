@@ -53,7 +53,7 @@ configure_monit_monitrc:
   file.managed:
     - name: "/etc/monit/monitrc"
     - source:
-      - salt://{{ slspath }}/files/etc-monit-monitrc.j2
+      - salt://{{ tpldir }}/files/etc-monit-monitrc.j2
     - template: jinja
     - context:
         email_config: {{ email_config | json }}

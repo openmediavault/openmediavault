@@ -23,7 +23,7 @@ configure_rsyslog_service:
   file.managed:
     - name: "/etc/rsyslog.d/openmediavault-remote.conf"
     - source:
-      - salt://{{ slspath }}/files/openmediavault-remote.conf.j2
+      - salt://{{ tpldir }}/files/openmediavault-remote.conf.j2
     - context:
         config: {{ config | json }}
     - template: jinja

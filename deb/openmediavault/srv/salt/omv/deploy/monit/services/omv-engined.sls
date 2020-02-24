@@ -26,7 +26,7 @@ configure_monit_omv-engined_service:
   file.managed:
     - name: "/etc/monit/conf.d/openmediavault-engined.conf"
     - source:
-      - salt://{{ slspath }}/files/omv-engined.j2
+      - salt://{{ tpldir }}/files/omv-engined.j2
     - template: jinja
     - context:
         email_config: {{ email_config | json }}

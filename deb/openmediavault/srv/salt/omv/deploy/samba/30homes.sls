@@ -28,7 +28,7 @@ configure_samba_homes:
   file.append:
     - name: "/etc/samba/smb.conf"
     - sources:
-      - salt://{{ slspath }}/files/homes.j2
+      - salt://{{ tpldir }}/files/homes.j2
     - template: jinja
     - context:
         config: {{ config | json }}

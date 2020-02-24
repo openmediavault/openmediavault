@@ -25,7 +25,7 @@ configure_apt_sources_list_openmediavault:
   file.managed:
     - name: "/etc/apt/sources.list.d/openmediavault.list"
     - source:
-      - salt://{{ slspath }}/files/etc-apt-sources_list_d-openmediavault_list.j2
+      - salt://{{ tpldir }}/files/etc-apt-sources_list_d-openmediavault_list.j2
     - template: jinja
     - context:
         config: {{ config | json }}
@@ -40,7 +40,7 @@ configure_apt_proxy:
   file.managed:
     - name: "/etc/apt/apt.conf.d/99openmediavault-proxy"
     - source:
-      - salt://{{ slspath }}/files/etc-apt-apt_conf_d-99openmediavault-proxy.j2
+      - salt://{{ tpldir }}/files/etc-apt-apt_conf_d-99openmediavault-proxy.j2
     - context:
         config: {{ proxy_config | json }}
     - template: jinja
@@ -72,7 +72,7 @@ configure_apt_pref_kernel_backports:
   file.managed:
     - name: "/etc/apt/preferences.d/openmediavault-kernel-backports.pref"
     - source:
-      - salt://{{ slspath }}/files/etc-apt-preferences_d-openmediavault-kernel-backports_pref.j2
+      - salt://{{ tpldir }}/files/etc-apt-preferences_d-openmediavault-kernel-backports_pref.j2
     - template: jinja
     - user: root
     - group: root
@@ -82,7 +82,7 @@ configure_apt_sources_list_kernel_backports:
   file.managed:
     - name: "/etc/apt/sources.list.d/openmediavault-kernel-backports.list"
     - source:
-      - salt://{{ slspath }}/files/etc-apt-sources_list_d-openmediavault-kernel-backports_list.j2
+      - salt://{{ tpldir }}/files/etc-apt-sources_list_d-openmediavault-kernel-backports_list.j2
     - template: jinja
     - user: root
     - group: root
@@ -110,7 +110,7 @@ configure_apt_sources_list_os_security:
   file.managed:
     - name: "/etc/apt/sources.list.d/openmediavault-os-security.list"
     - source:
-      - salt://{{ slspath }}/files/etc-apt-sources_list_d-openmediavault-os-security_list.j2
+      - salt://{{ tpldir }}/files/etc-apt-sources_list_d-openmediavault-os-security_list.j2
     - template: jinja
     - user: root
     - group: root

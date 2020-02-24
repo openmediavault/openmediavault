@@ -21,7 +21,7 @@ configure_issue:
   file.managed:
     - name: "/etc/issue"
     - source:
-      - salt://{{ slspath }}/files/etc-issue.j2
+      - salt://{{ tpldir }}/files/etc-issue.j2
     - template: jinja
     - user: root
     - group: root
