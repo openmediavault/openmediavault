@@ -46,9 +46,9 @@ server {
         fastcgi_param SCRIPT_FILENAME {{ fastcgi_param_script_filename }};
     }
 {%- if ipv6_enabled | to_bool %}
-    listen [::]:{{ config.port }} ipv6only=off;
+    listen [::]:{{ config.port }} default_server ipv6only=off;
 {%- else %}
-    listen {{ config.port }};
+    listen {{ config.port }} default_server;
 {%- endif %}
 {%- if config.enablessl | to_bool and config.forcesslonly | to_bool %}
       if ($scheme = http) {
@@ -58,9 +58,9 @@ server {
 {%- endif %}
 {%- if config.enablessl | to_bool %}
 {%- if ipv6_enabled | to_bool %}
-    listen [::]:{{ config.sslport }} ipv6only=off ssl deferred;
+    listen [::]:{{ config.sslport }} default_server ipv6only=off ssl deferred;
 {%- else %}
-    listen {{ config.sslport }} ssl deferred;
+    listen {{ config.sslport }} default_server ssl deferred;
 {%- endif %}
     ssl_certificate {{ ssl_cert_dir | path_join('certs', ssl_cert_prefix ~ config.sslcertificateref ~ '.crt') }};
     ssl_certificate_key {{ ssl_cert_dir | path_join('private', ssl_cert_prefix ~ config.sslcertificateref ~ '.key') }};
