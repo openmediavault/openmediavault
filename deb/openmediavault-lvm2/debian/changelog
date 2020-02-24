@@ -1,3 +1,9 @@
+openmediavault-lvm2 (5.0.2-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Feb 2020 20:21:12 +0100
+
 openmediavault-lvm2 (5.0.1-1) stable; urgency=low
 
   * Issue #346: Uninstallation of LVM plugin fails.
