@@ -44,7 +44,7 @@ configure_avahi_service_nfs_{{ sharedfolder.name }}:
   file.managed:
     - name: "/etc/avahi/services/nfs-{{ sharedfolder.name }}.service"
     - source:
-      - salt://{{ slspath }}/files/template.j2
+      - salt://{{ tpldir }}/files/template.j2
     - template: jinja
     - context:
         type: "_nfs._tcp"

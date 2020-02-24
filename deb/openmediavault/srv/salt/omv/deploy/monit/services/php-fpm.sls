@@ -26,7 +26,7 @@ configure_monit_php-fpm_service:
   file.managed:
     - name: "/etc/monit/conf.d/openmediavault-phpfpm.conf"
     - source:
-      - salt://{{ slspath }}/files/php-fpm.j2
+      - salt://{{ tpldir }}/files/php-fpm.j2
     - template: jinja
     - context:
         email_config: {{ email_config | json }}

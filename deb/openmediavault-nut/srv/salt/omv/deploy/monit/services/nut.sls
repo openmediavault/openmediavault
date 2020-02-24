@@ -30,7 +30,7 @@ configure_monit_nut_service:
   file.managed:
     - name: "/etc/monit/conf.d/openmediavault-nut.conf"
     - source:
-      - salt://{{ slspath }}/files/nut.j2
+      - salt://{{ tpldir }}/files/nut.j2
     - template: jinja
     - context:
         email_config: {{ email_config | json }}

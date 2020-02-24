@@ -32,7 +32,7 @@ configure_default_mdadm:
   file.managed:
     - name: "/etc/default/mdadm"
     - source:
-      - salt://{{ slspath }}/files/etc-default-mdadm.j2
+      - salt://{{ tpldir }}/files/etc-default-mdadm.j2
     - template: jinja
     - user: root
     - group: root
@@ -42,7 +42,7 @@ configure_mdadm_conf:
   file.managed:
     - name: "/etc/mdadm/mdadm.conf"
     - source:
-      - salt://{{ slspath }}/files/etc-mdadm-mdadm.conf.j2
+      - salt://{{ tpldir }}/files/etc-mdadm-mdadm.conf.j2
     - template: jinja
     - context:
         email_config: {{ email_config | json }}

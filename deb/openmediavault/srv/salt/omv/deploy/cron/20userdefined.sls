@@ -53,7 +53,7 @@ create_cron_userdefined:
   file.managed:
     - name: "/etc/cron.d/openmediavault-userdefined"
     - source:
-      - salt://{{ slspath }}/files/userdefined.j2
+      - salt://{{ tpldir }}/files/userdefined.j2
     - template: jinja
     - context:
         jobs: {{ cron_jobs | json }}

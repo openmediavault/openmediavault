@@ -22,7 +22,7 @@
 # http://www.tim-bormann.de/anleitung-installation-samba-server-als-dateiserver-unter-debian-linux
 
 {% set config = salt['omv_conf.get']('conf.service.smb') %}
-{% set dirpath = '/srv/salt' | path_join(slspath) %}
+{% set dirpath = '/srv/salt' | path_join(tpldir) %}
 {% set wsdd_enabled = salt['pillar.get']('default:OMV_WSDD_ENABLED', 1) %}
 
 include:

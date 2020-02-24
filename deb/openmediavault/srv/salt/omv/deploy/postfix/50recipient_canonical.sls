@@ -28,7 +28,7 @@ configure_postfix_recipient_canonical:
   file.managed:
     - name: "/etc/postfix/recipient_canonical"
     - source:
-      - salt://{{ slspath }}/files/recipient_canonical.j2
+      - salt://{{ tpldir }}/files/recipient_canonical.j2
     - template: jinja
     - context:
         email_config: {{ email_config | json }}

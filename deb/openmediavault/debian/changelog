@@ -2,6 +2,7 @@ openmediavault (5.3.4-1) unstable; urgency=low
 
   * Fix the error 'The named service fstrim.timer is not available'
     during installation.
+  * Adapt code for SaltStack 3000.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 23 Feb 2020 20:21:03 +0100
 

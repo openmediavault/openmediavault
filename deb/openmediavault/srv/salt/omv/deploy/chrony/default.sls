@@ -23,7 +23,7 @@ configure_chrony:
   file.managed:
     - name: "/etc/chrony/chrony.conf"
     - source:
-      - salt://{{ slspath }}/files/etc-chrony-chrony_conf.j2
+      - salt://{{ tpldir }}/files/etc-chrony-chrony_conf.j2
     - template: jinja
     - context:
         timeservers: "{{ config.ntp.timeservers }}"

@@ -33,7 +33,7 @@ configure_avahi_service_ssh:
   file.managed:
     - name: "/etc/avahi/services/ssh.service"
     - source:
-      - salt://{{ slspath }}/files/ssh.j2
+      - salt://{{ tpldir }}/files/ssh.j2
     - template: jinja
     - context:
         port: {{ ssh_config.port }}

@@ -35,7 +35,7 @@ configure_firewall_script:
   file.managed:
     - name: "/etc/iptables/openmediavault-firewall.sh"
     - source:
-      - salt://{{ slspath }}/files/etc_iptables_openmediavault-firewall.j2
+      - salt://{{ tpldir }}/files/etc_iptables_openmediavault-firewall.j2
     - template: jinja
     - context:
         rules: {{ rules_config | json }}

@@ -69,7 +69,7 @@ configure_collectd_conf_disk_plugin:
   file.managed:
     - name: "/etc/collectd/collectd.conf.d/disk.conf"
     - source:
-      - salt://{{ slspath }}/files/collectd-disk.j2
+      - salt://{{ tpldir }}/files/collectd-disk.j2
     - template: jinja
     - context:
         disks: {{ disks | unique | json }}

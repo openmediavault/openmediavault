@@ -32,7 +32,7 @@ configure_interface_wireless_{{ interface.devicename }}_network:
   file.managed:
     - name: "/etc/systemd/network/10-openmediavault-{{ interface.devicename }}.network"
     - source:
-      - salt://{{ slspath }}/files/wireless_network.j2
+      - salt://{{ tpldir }}/files/wireless_network.j2
     - template: jinja
     - context:
         interface: {{ interface | json }}
@@ -44,7 +44,7 @@ configure_interface_wireless_{{ interface.devicename }}_link:
   file.managed:
     - name: "/etc/systemd/network/10-openmediavault-{{ interface.devicename }}.link"
     - source:
-      - salt://{{ slspath }}/files/link.j2
+      - salt://{{ tpldir }}/files/link.j2
     - template: jinja
     - context:
         interface: {{ interface | json }}

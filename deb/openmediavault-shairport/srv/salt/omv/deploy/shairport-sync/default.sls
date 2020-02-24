@@ -25,7 +25,7 @@ configure_shairport_sync:
   file.managed:
     - name: "/etc/shairport-sync.conf"
     - source:
-      - salt://{{ slspath }}/files/etc-shairport-sync_conf.j2
+      - salt://{{ tpldir }}/files/etc-shairport-sync_conf.j2
     - template: jinja
     - context:
         config: {{ config | json }}

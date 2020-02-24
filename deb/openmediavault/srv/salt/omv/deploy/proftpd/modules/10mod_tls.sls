@@ -9,7 +9,7 @@ configure_proftpd_mod_tls:
   file.managed:
     - name: "/etc/proftpd/tls.conf"
     - source:
-      - salt://{{ slspath }}/files/mod_tls.j2
+      - salt://{{ tpldir }}/files/mod_tls.j2
     - template: jinja
     - context:
         config: {{ config.modules.mod_tls | json }}

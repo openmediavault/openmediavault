@@ -33,7 +33,7 @@ create_cron-apt_config:
   file.managed:
     - name: "/etc/cron-apt/config"
     - source:
-      - salt://{{ slspath }}/files/etc_cron-apt_config.j2
+      - salt://{{ tpldir }}/files/etc_cron-apt_config.j2
     - template: jinja
     - context:
         email_config: {{ email_config | json }}

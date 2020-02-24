@@ -27,7 +27,7 @@ configure_ssh_sshd_config:
   file.managed:
     - name: "/etc/ssh/sshd_config"
     - source:
-      - salt://{{ slspath }}/files/sshd_config.j2
+      - salt://{{ tpldir }}/files/sshd_config.j2
     - template: jinja
     - context:
         config: {{ config | json }}

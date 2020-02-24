@@ -1,3 +1,10 @@
+openmediavault-clamav (5.0.5-1) stable; urgency=low
+
+  * Update locales.
+  * Adapt code for SaltStack 3000.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Feb 2020 00:19:41 +0100
+
 openmediavault-clamav (5.0.4-1) stable; urgency=low
 
   * Issue #607: Error using on-access scanner.

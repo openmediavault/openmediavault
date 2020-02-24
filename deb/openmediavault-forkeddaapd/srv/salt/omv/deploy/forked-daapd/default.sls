@@ -25,7 +25,7 @@ configure_forked_daapd:
   file.managed:
     - name: "/etc/forked-daapd.conf"
     - source:
-      - salt://{{ slspath }}/files/etc-forked-daapd_conf.j2
+      - salt://{{ tpldir }}/files/etc-forked-daapd_conf.j2
     - template: jinja
     - context:
         config: {{ config | json }}

@@ -30,7 +30,7 @@ create_cron_powermanagement:
   file.managed:
     - name: "/etc/cron.d/openmediavault-powermngmt"
     - source:
-      - salt://{{ slspath }}/files/powermanagement.j2
+      - salt://{{ tpldir }}/files/powermanagement.j2
     - template: jinja
     - context:
         jobs: {{ cron_jobs | json }}

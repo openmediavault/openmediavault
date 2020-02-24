@@ -32,7 +32,7 @@ configure_interface_bond_{{ interface.devicename }}_netdev:
   file.managed:
     - name: "/etc/systemd/network/10-openmediavault-{{ interface.devicename }}.netdev"
     - source:
-      - salt://{{ slspath }}/files/bond_netdev.j2
+      - salt://{{ tpldir }}/files/bond_netdev.j2
     - template: jinja
     - context:
         interface: {{ interface | json }}
@@ -44,7 +44,7 @@ configure_interface_bond_{{ interface.devicename }}_network:
   file.managed:
     - name: "/etc/systemd/network/10-openmediavault-{{ interface.devicename }}.network"
     - source:
-      - salt://{{ slspath }}/files/bond_network.j2
+      - salt://{{ tpldir }}/files/bond_network.j2
     - template: jinja
     - context:
         interface: {{ interface | json }}
@@ -56,7 +56,7 @@ configure_interface_bond_{{ interface.bondprimary }}_link:
   file.managed:
     - name: "/etc/systemd/network/10-openmediavault-{{ interface.bondprimary }}.link"
     - source:
-      - salt://{{ slspath }}/files/link.j2
+      - salt://{{ tpldir }}/files/link.j2
     - template: jinja
     - context:
         interface: {{ interface | json }}

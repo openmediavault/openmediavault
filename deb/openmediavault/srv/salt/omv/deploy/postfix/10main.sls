@@ -28,7 +28,7 @@ configure_postfix_main:
   file.managed:
     - name: "/etc/postfix/main.cf"
     - source:
-      - salt://{{ slspath }}/files/main.cf.j2
+      - salt://{{ tpldir }}/files/main.cf.j2
     - template: jinja
     - context:
         config: {{ config | json }}

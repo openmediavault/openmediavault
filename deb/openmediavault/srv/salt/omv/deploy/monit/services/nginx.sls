@@ -27,7 +27,7 @@ configure_monit_nginx_service:
   file.managed:
     - name: "/etc/monit/conf.d/openmediavault-nginx.conf"
     - source:
-      - salt://{{ slspath }}/files/nginx.j2
+      - salt://{{ tpldir }}/files/nginx.j2
     - template: jinja
     - context:
         email_config: {{ email_config | json }}

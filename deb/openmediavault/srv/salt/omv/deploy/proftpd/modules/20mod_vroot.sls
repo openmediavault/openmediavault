@@ -23,7 +23,7 @@ configure_proftpd_mod_vroot:
   file.append:
     - name: "/etc/proftpd/proftpd.conf"
     - sources:
-      - salt://{{ slspath }}/files/mod_vroot.j2
+      - salt://{{ tpldir }}/files/mod_vroot.j2
     - template: jinja
     - context:
         config: {{ config | json }}

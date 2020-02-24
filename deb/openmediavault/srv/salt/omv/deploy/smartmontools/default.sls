@@ -28,7 +28,7 @@ configure_default_smartmontools:
   file.managed:
     - name: "/etc/default/smartmontools"
     - source:
-      - salt://{{ slspath }}/files/etc-default-smartmontools.j2
+      - salt://{{ tpldir }}/files/etc-default-smartmontools.j2
     - template: jinja
     - context:
         config: {{ config | json }}
@@ -40,7 +40,7 @@ configure_smartd_conf:
   file.managed:
     - name: "/etc/smartd.conf"
     - source:
-      - salt://{{ slspath }}/files/etc-smartd_conf.j2
+      - salt://{{ tpldir }}/files/etc-smartd_conf.j2
     - template: jinja
     - user: root
     - group: root

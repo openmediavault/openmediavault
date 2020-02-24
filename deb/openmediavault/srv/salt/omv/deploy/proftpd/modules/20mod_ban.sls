@@ -23,7 +23,7 @@ configure_proftpd_mod_ban:
   file.append:
     - name: "/etc/proftpd/proftpd.conf"
     - sources:
-      - salt://{{ slspath }}/files/mod_ban.j2
+      - salt://{{ tpldir }}/files/mod_ban.j2
     - template: jinja
     - context:
         config: {{ config.modules.mod_ban | json }}

@@ -33,7 +33,7 @@ configure_avahi_service_rsync:
   file.managed:
     - name: "/etc/avahi/services/rsync.service"
     - source:
-      - salt://{{ slspath }}/files/template.j2
+      - salt://{{ tpldir }}/files/template.j2
     - template: jinja
     - context:
         type: "_rsync._tcp"

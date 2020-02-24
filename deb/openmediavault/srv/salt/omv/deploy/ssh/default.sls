@@ -18,10 +18,10 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 {% set config = salt['omv_conf.get']('conf.service.ssh') %}
-{% set dirpath = '/srv/salt' | path_join(slspath) %}
+{% set dirpath = '/srv/salt' | path_join(tpldir) %}
 
 include:
-{% for file in salt['file.readdir'](dirpath) %}
+{% for file in salt['file.readdir'](dirpath) | sort %}
 {% if file not in ('.', '..', 'init.sls', 'default.sls') %}
 {% if file.endswith('.sls') %}
   - .{{ file | replace('.sls', '') }}

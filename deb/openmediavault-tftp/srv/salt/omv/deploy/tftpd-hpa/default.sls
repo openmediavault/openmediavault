@@ -25,7 +25,7 @@ configure_default_tftpd-hpa:
   file.managed:
     - name: "/etc/default/tftpd-hpa"
     - source:
-      - salt://{{ slspath }}/files/etc-default-tftpd-hpa.j2
+      - salt://{{ tpldir }}/files/etc-default-tftpd-hpa.j2
     - template: jinja
     - context:
         config: {{ config | json }}

@@ -28,7 +28,7 @@ configure_samba_global:
   file.managed:
     - name: "/etc/samba/smb.conf"
     - source:
-      - salt://{{ slspath }}/files/global.j2
+      - salt://{{ tpldir }}/files/global.j2
     - template: jinja
     - context:
         config: {{ config | json }}

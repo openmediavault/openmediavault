@@ -30,7 +30,7 @@ configure_monit_forked_daapd_service:
   file.managed:
     - name: "/etc/monit/conf.d/openmediavault-forkeddaapd.conf"
     - source:
-      - salt://{{ slspath }}/files/forked-daapd.j2
+      - salt://{{ tpldir }}/files/forked-daapd.j2
     - template: jinja
     - context:
         email_config: {{ email_config | json }}
