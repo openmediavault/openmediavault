@@ -32,3 +32,4 @@ enable_discard_in_lvm_conf:
     - pattern: 'issue_discards\s*=\s*0'
     - repl: 'issue_discards = 1'
     - ignore_if_missing: True
+    - backup: False

@@ -58,6 +58,7 @@ configure_clamav_apparmor_profile:
     - pattern: "#(include <local/usr\\.sbin\\.clamd>)"
     - repl: "\\1"
     - ignore_if_missing: True
+    - backup: False
 
 configure_clamav_apparmor_local_profile:
   file.append:

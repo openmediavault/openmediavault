@@ -30,3 +30,4 @@ modify_root_profile:
     - pattern: '^{{ 'mesg n || true' | regex_escape }}$'
     - repl: 'test -t 0 && mesg n || true'
     - ignore_if_missing: True
+    - backup: False
