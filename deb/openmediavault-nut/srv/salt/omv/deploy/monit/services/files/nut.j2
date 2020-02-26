@@ -15,3 +15,8 @@ check process nut-monitor with matching upsmon
 {%- if email_config.enable | to_bool and not notification_config.enable | to_bool %}
     noalert {{ email_config.primaryemail }}
 {%- endif %}
+
+check program nut-upsc-{{ nut_config.upsname }} with path "/usr/bin/upsc {{ nut_config.upsname }}"
+    group nut
+    start program = "/usr/sbin/upsdrvctl start"
+    if status != 0 for 2 cycles then restart

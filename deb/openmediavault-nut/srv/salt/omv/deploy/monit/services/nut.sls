@@ -33,6 +33,7 @@ configure_monit_nut_service:
       - salt://{{ tpldir }}/files/nut.j2
     - template: jinja
     - context:
+        nut_config: {{ nut_config | json }}
         email_config: {{ email_config | json }}
         notification_config: {{ notification_config | json }}
     - user: root
