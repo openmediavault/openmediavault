@@ -248,6 +248,17 @@ class StorageDeviceMdadm extends StorageDevice {
 		//       311296 blocks super 1.2 512k chunks
 		//
 		// unused devices: <none>
+		//
+		// Testing:
+		// --------
+		// - Get a degraded array
+		//   # mdadm /dev/md0 -f /dev/sde
+		//   # echo 1 > /sys/block/sde/device/delete
+		// - Get an inactive array
+		//   # echo 1 > /sys/block/sdX/device/delete
+		//   # echo 1 > /sys/block/sdY/device/delete
+		//   Use UI to scan for new devices. The previously removed devices
+		//   should reappear and the array becomes inactive.
 		$regex = sprintf('/^(%s\s*:.*?)^\s*$/ims', $this->getDeviceName(TRUE));
 		if (1 !== preg_match($regex, file_get_contents("/proc/mdstat"),
 		  $matches))
