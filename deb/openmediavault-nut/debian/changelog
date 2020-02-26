@@ -1,3 +1,10 @@
+openmediavault-nut (5.0.2-1) stable; urgency=low
+
+  * Restart the UPS driver in case of 2 erroneous checks
+    within 1 minute.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Feb 2020 17:36:33 +0100
+
 openmediavault-nut (5.0.1-1) stable; urgency=low
 
   * Update locales.
