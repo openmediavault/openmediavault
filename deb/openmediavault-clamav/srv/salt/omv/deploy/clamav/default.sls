@@ -52,7 +52,7 @@ remove_clamav_freshclam_logrotate:
 
 # If Apparmor is installed and enabled, we need to make
 # sure that the shared folders are accessible by clamd.
-configure_clamav_apparmor_profile:
+configure_clamd_apparmor_profile:
   file.replace:
     - name: "/etc/apparmor.d/usr.sbin.clamd"
     - pattern: "#(include <local/usr\\.sbin\\.clamd>)"
@@ -60,10 +60,20 @@ configure_clamav_apparmor_profile:
     - ignore_if_missing: True
     - backup: False
 
-configure_clamav_apparmor_local_profile:
+# https://wiki.ubuntuusers.de/AppArmor/#Berechtigungen
+configure_clamd_apparmor_local_profile:
   file.append:
     - name: "/etc/apparmor.d/local/usr.sbin.clamd"
     - text: "/srv/** krw,"
+
+# https://help.ubuntu.com/community/AppArmor#Reload_one_profile
+reload_clamd_apparmor_profile:
+  cmd.run:
+    - name: "apparmor_parser -r /etc/apparmor.d/usr.sbin.clamd"
+    - onlyif: "which apparmor_parser"
+    - onchanges:
+      - file: configure_clamd_apparmor_profile
+      - file: configure_clamd_apparmor_local_profile
 
 {% if clamav_config.enable | to_bool %}
 
