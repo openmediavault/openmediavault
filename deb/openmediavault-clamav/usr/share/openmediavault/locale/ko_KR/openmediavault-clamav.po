@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Chang-Eon Byeon <ksna0827@gmail.com>, 2014
-# Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015
+# 김지현 <potatogim@potatogim.net>, 2014-2015,2020
 # Thomas Sungjin Kang <potopro@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-07 17:31+0100\n"
-"PO-Revision-Date: 2017-11-18 10:08+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2020-02-26 14:18+0000\n"
+"Last-Translator: 김지현 <potatogim@potatogim.net>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,18 +21,18 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Add on-access scan"
-msgstr ""
+msgstr "접근 기반 바이러스 탐지 추가"
 
 msgid "Add scheduled job"
-msgstr ""
+msgstr "예약된 작업 추가"
 
 msgid "Algorithmic detection"
-msgstr "알고리즘적 감지"
+msgstr "알고리즘을 통한 감지"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr "(어떤 제품의 경우) 출력 명령이 관리자에게 이메일로 전송됩니다."
+msgstr "명령의 출력이 있다면 관리자에게 이메일로 전송됩니다."
 
 msgid "Antivirus"
 msgstr "안티바이러스"
@@ -62,13 +62,13 @@ msgid "Detect broken executables"
 msgstr "실행 파일의 손상을 검사"
 
 msgid "Done ..."
-msgstr ""
+msgstr "완료 ..."
 
 msgid "Edit on-access scan"
-msgstr ""
+msgstr "접근 기반 바이러스 탐지 편집"
 
 msgid "Edit scheduled job"
-msgstr ""
+msgstr "예약 작업 편집"
 
 msgid "Enable"
 msgstr "활성화"
@@ -115,7 +115,7 @@ msgid "Every N minute"
 msgstr "매 N분마다"
 
 msgid "Execute scheduled job"
-msgstr ""
+msgstr "예약 작업 실행"
 
 msgid "Extra options"
 msgstr "추가 옵션"
@@ -166,7 +166,7 @@ msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "요일당 데이터베이스 갱신을 검사할 횟수. 0은 비활성화."
 
 msgid "On Access Scans"
-msgstr ""
+msgstr "접근 기반 바이러스 탐지"
 
 msgid "On-access"
 msgstr "접근 기반"
@@ -178,7 +178,7 @@ msgid ""
 "Please check the <a href='https://github.com/vrtadmin/clamav-"
 "faq/raw/master/manual/clamdoc.pdf' target='_blank'>manual page</a> for more "
 "details."
-msgstr ""
+msgstr "자세한 내용은 <a href='https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf' target='_blank'>매뉴얼 페이지</a> 를 참고하세요.."
 
 msgid "Quarantine"
 msgstr "격리"
@@ -208,7 +208,7 @@ msgid "Scan the directory contents in parallel using available threads."
 msgstr "가용 스레드를 사용하여 병렬적으로 디렉터리 내용들을 검사합니다."
 
 msgid "Scheduled Jobs"
-msgstr ""
+msgstr "예약 작업"
 
 msgid "Send command output via email"
 msgstr "이메일로 명령 결과 전송"
@@ -223,7 +223,7 @@ msgid "Shared folder"
 msgstr "공유 폴더"
 
 msgid "The location of the files to scan on-access."
-msgstr ""
+msgstr "접근 기반 탐지를 수행할 파일의 위치"
 
 msgid "The location of the files to scan."
 msgstr "스캔할 파일 위치"

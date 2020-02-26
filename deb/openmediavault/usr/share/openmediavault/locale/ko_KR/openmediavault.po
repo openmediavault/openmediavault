@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Chang-Eon Byeon <ksna0827@gmail.com>, 2014-2016
-# Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018
+# 김지현 <potatogim@potatogim.net>, 2014-2015,2018,2020
 # Volker <votdev@gmx.de>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-05 12:10+0100\n"
-"PO-Revision-Date: 2020-02-05 11:13+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2020-02-26 14:27+0000\n"
+"Last-Translator: 김지현 <potatogim@potatogim.net>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -323,7 +323,7 @@ msgid ""
 "An attempt to send the test email has been made. Please check your mailbox. "
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
-msgstr ""
+msgstr "테스트 이메일을 보냈습니다. 메일함을 확인해 주세요. 이메일이 도착하지 않았다면 스팸 메일함을 확인해 주시고 시스템 로그에서 Postfix와 관련된 오류가 없는지 확인해 주세요."
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -354,7 +354,7 @@ msgid "Anonymous FTP"
 msgstr "익명 FTP"
 
 msgid "Another user is already authenticated."
-msgstr ""
+msgstr "다른 사용자가 이미 인증했습니다."
 
 msgid "Antarctica"
 msgstr "남극"
@@ -435,7 +435,7 @@ msgid "Auto"
 msgstr "자동"
 
 msgid "Auto logout"
-msgstr ""
+msgstr "자동 로그아웃"
 
 msgid "Auto logout after the specified idle period."
 msgstr "지정된 유휴 기간이 지난 후에 자동으로 로그아웃"
@@ -696,10 +696,10 @@ msgid "Cook Islands"
 msgstr "쿡 제도"
 
 msgid "Copy"
-msgstr ""
+msgstr "복사"
 
 msgid "Copy public SSH key"
-msgstr ""
+msgstr "SSH 공개키 복사"
 
 msgid "Copy to clipboard"
 msgstr "클립보드로 복사"
@@ -879,7 +879,7 @@ msgid "Disabled"
 msgstr "비활성화"
 
 msgid "Disallow the user to modify their account."
-msgstr ""
+msgstr "사용자가 자신의 계정을 수정할 수 없도록 합니다."
 
 msgid "Disk usage"
 msgstr "디스크 사용량"
@@ -1050,10 +1050,10 @@ msgid "Edit rule"
 msgstr "규칙 편집"
 
 msgid "Edit scheduled job"
-msgstr "예약된 작업 편집"
+msgstr "예약 작업 편집"
 
 msgid "Edit scheduled test"
-msgstr "예약된 검사 편집"
+msgstr "예약 검사 편집"
 
 msgid "Edit share"
 msgstr "공유 편집"
@@ -1092,7 +1092,7 @@ msgid "Enable SSL/TLS connections"
 msgstr "SSL/TLS 연결 활성화"
 
 msgid "Enable Time Machine support for this share."
-msgstr ""
+msgstr "이 공유에 대해 타임머신을 활성화합니다."
 
 msgid "Enable WINS server"
 msgstr "WINS 서버 활성화"
@@ -1169,7 +1169,7 @@ msgid "Enabled"
 msgstr "활성화됨"
 
 msgid "Encryption mode"
-msgstr ""
+msgstr "암호화 모드"
 
 msgid "Enter your password"
 msgstr "암호를 입력하세요"
@@ -1310,7 +1310,7 @@ msgid "Filesize"
 msgstr "파일 크기"
 
 msgid "Filesystem Type"
-msgstr ""
+msgstr "파일시스템 유형"
 
 msgid "Filesystems"
 msgstr "파일 시스템"
@@ -1448,7 +1448,7 @@ msgid "Guyana"
 msgstr "가이아나"
 
 msgid "HTTP 404 error"
-msgstr ""
+msgstr "HTTP 404 오류"
 
 msgid "HTTP-Proxy"
 msgstr "HTTP-프록시"
@@ -1529,7 +1529,7 @@ msgid "Identify"
 msgstr "식별"
 
 msgid "Identify As"
-msgstr ""
+msgstr "식별 대상"
 
 msgid "Identify network interface device"
 msgstr "네트워크 인터페이스 장치 식별"
@@ -1667,19 +1667,19 @@ msgstr "업데이트 설치 중 ..."
 msgid ""
 "Installs the public SSH key on a remote system as an authorized key. Make "
 "sure password authentication is enabled on that remote system."
-msgstr ""
+msgstr "원격지 시스템에 SSH 공개키를 인증된 키로써 설치합니다. 원격지 시스템에 비밀번호 인증이 사용 가능한지 확인하십시오."
 
 msgid "Interfaces"
 msgstr "인터페이스"
 
 msgid "Invalid IP address."
-msgstr ""
+msgstr "잘못된 IP 주소."
 
 msgid "Invalid SSH public key (RFC 4716)"
 msgstr "잘못된 SSH 공개 키 (RFC 4716)"
 
 msgid "Invalid User-Agent."
-msgstr ""
+msgstr "잘못된 User-Agent."
 
 msgid "Invalid domain name"
 msgstr "잘못된 도메인 이름"
@@ -1700,7 +1700,7 @@ msgid "Invalid user name"
 msgstr "잘못된 사용자 이름"
 
 msgid "Invalid user."
-msgstr ""
+msgstr "잘못된 사용자."
 
 msgid "Iran"
 msgstr "이란"
@@ -1849,7 +1849,7 @@ msgid "Log level"
 msgstr "기록 수준"
 
 msgid "Logging out, please wait ..."
-msgstr ""
+msgstr "로그아웃하는 중입니다. 잠시만 기다려주세요 ..."
 
 msgid "Login"
 msgstr "로그인"
@@ -2078,7 +2078,7 @@ msgid "Mount"
 msgstr "마운트"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "마운트 지점"
 
 msgid "Mounted"
 msgstr "마운트됨"
@@ -2117,7 +2117,7 @@ msgid "Network"
 msgstr "네트워크"
 
 msgid "Network Interfaces"
-msgstr ""
+msgstr "네트워크 인터페이스"
 
 msgid "Network interfaces"
 msgstr "네트워크 인터페이스"
@@ -2270,7 +2270,7 @@ msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "송신 SMTP 메일 서버 주소. 예를 들어, smtp.mycorp.com."
 
 msgid "Outlying Oceania"
-msgstr ""
+msgstr "오세아니아 외곽"
 
 msgid "Overview"
 msgstr "개요"
@@ -2279,7 +2279,7 @@ msgid "Owner"
 msgstr "소유자"
 
 msgid "Pacific Islands Trust Territory"
-msgstr ""
+msgstr "태평양 제도 신탁통치령"
 
 msgid "Package information"
 msgstr "패키지 정보"
@@ -2330,10 +2330,10 @@ msgid "Passwords don't match"
 msgstr "암호가 일치하지 않습니다."
 
 msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
-msgstr ""
+msgstr "X.509 PEM 포맷의 RSA 혹은 ECC 인증서를 여기에 붙여넣습니다."
 
 msgid "Paste a RSA or ECC private key in X.509 PEM format here."
-msgstr ""
+msgstr "X.509 PEM 포맷의 RSA 혹은 ECC 개인 키를 여기에 붙여넣습니다."
 
 msgid "Path"
 msgstr "경로"
@@ -2431,10 +2431,10 @@ msgstr "먼저 장치를 선택하세요."
 msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
-msgstr ""
+msgstr "이 테스트 중에는 시스템이 응답이 없을 수도 있음을 참고해 주세요."
 
 msgid "Please reload the page to let the changes take effect."
-msgstr ""
+msgstr "변경 사항을 적용하려면 페이지를 새로 고침 해주세요."
 
 msgid "Please wait ..."
 msgstr "잠시 기다려주십시오 ..."
@@ -2442,7 +2442,7 @@ msgstr "잠시 기다려주십시오 ..."
 msgid ""
 "Please wait until the RAID has been initialized before creating a file "
 "system."
-msgstr ""
+msgstr "파일 시스템을 만들기에 앞서 RAID가 초기화 될 때까지 기다려주세요"
 
 msgid "Plugins"
 msgstr "플러그인"
@@ -2478,13 +2478,13 @@ msgid "Preserve extended attributes"
 msgstr "확장 속성 보존"
 
 msgid "Preserve group"
-msgstr ""
+msgstr "소유 그룹 보존"
 
 msgid "Preserve modification times"
 msgstr "수정 시간 보존"
 
 msgid "Preserve owner"
-msgstr ""
+msgstr "소유 사용자 보존"
 
 msgid "Preserve permissions"
 msgstr "권한 보존"
@@ -2557,7 +2557,7 @@ msgid "Push"
 msgstr "밀어넣기"
 
 msgid "Qatar"
-msgstr ""
+msgstr "카타르"
 
 msgid "Quick"
 msgstr "빠르게"
@@ -2638,7 +2638,7 @@ msgid "Recycle bin"
 msgstr "휴지통"
 
 msgid "Referenced"
-msgstr ""
+msgstr "참조"
 
 msgid "Refresh"
 msgstr "새로 고침"
@@ -2679,12 +2679,12 @@ msgstr "보고"
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
 "last report. Set to 0 to disable this report."
-msgstr ""
+msgstr "마지막 보고 이후에 섭씨 온도가 최소 N도 이상 변화하면 보고합니다. 이 보고를 비활성화하려면 0으로 설정합니다."
 
 msgid ""
 "Report if the temperature is greater than or equal to N degrees Celsius. Set"
 " to 0 to disable this report."
-msgstr ""
+msgstr "섭씨 온도가 N도 이상이라면 보고합니다. 이 보고를 비활성화하려면 0으로 설정합니다."
 
 msgid "Repository"
 msgstr "저장소"
@@ -2693,7 +2693,7 @@ msgid "Require valid shell"
 msgstr "유효한 쉘이 필요합니다."
 
 msgid "Required"
-msgstr ""
+msgstr "필수"
 
 msgid "Reset"
 msgstr "재설정"
@@ -2704,7 +2704,7 @@ msgstr "UI를 기본값으로 재설정"
 msgid ""
 "Reset the UI settings to their default values, e.g. the order of the grid "
 "columns."
-msgstr ""
+msgstr "UI 설정을 기본값으로 재설정합니다. (그리드 열의 순서 등)"
 
 msgid "Resize"
 msgstr "크기 조정"
@@ -2761,7 +2761,7 @@ msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "선택된 장치에 대해 S.M.A.R.T 모니터링이 반드시 활성화되어야 합니다."
 
 msgid "S/N"
-msgstr ""
+msgstr "시리얼 번호"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -2797,7 +2797,7 @@ msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
 msgid "STARTTLS"
-msgstr ""
+msgstr "STARTTLS"
 
 msgid "Saint Helena"
 msgstr "세인트 헬레나"
@@ -2928,7 +2928,7 @@ msgstr "사용자 이름을 선택 또는 입력하세요 ..."
 msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
-msgstr ""
+msgstr "RAID 장치로 만들 장치들을 선택합니다. USB로 연결된 장치들은 신뢰할 수 없기에 목록에 나타나지 않습니다"
 
 msgid "Self-test logs"
 msgstr "자가진단 기록"
@@ -2996,12 +2996,12 @@ msgstr "원본 권한과 대상 권한이 똑같도록 설정합니다."
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "파일의 그룹을 동기화합니다."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr ""
+msgstr "파일 소유자를 동기화하며, 목적지의 rsync가 슈퍼-유저로 동작할 경우에만 가능합니다."
 
 msgid "Set write only"
 msgstr "쓰기 전용으로 설정"
@@ -3024,7 +3024,7 @@ msgid "Shared folder"
 msgstr "공유 폴더"
 
 msgid "Shared folder + content"
-msgstr ""
+msgstr "공유 폴더 + 내용"
 
 msgid "Shared folder must not be equal"
 msgstr "공유 폴더는 같을 수 없습니다."
@@ -3350,7 +3350,7 @@ msgid "The hostname is a label that identifies the system to the network."
 msgstr "호스트 이름은 네트워크 상에서 시스템을 식별하는 이름표입니다."
 
 msgid "The hostname of the remote system."
-msgstr ""
+msgstr "원격 시스템의 호스트 이름입니다."
 
 msgid ""
 "The information about available software is out-of-date. You need to reload "
@@ -3398,7 +3398,7 @@ msgid ""
 msgstr "새로운 파일과 경로의 권한은 기본적으로 생성 마스크와 디렉터리 마스크가 지배하지만 권한 상속 패러미터가 이것을 덮어씁니다. 많은 사용자에게 단일 공유를 허용하고 각 사용자에 의해 유동적으로 사용되는 시스템에 부분적으로 유용할 수 있습니다."
 
 msgid "The port on which SSH is running on the remote system."
-msgstr ""
+msgstr "원격 시스템상에서 SSH가 동작 중인 포트 번호입니다."
 
 msgid "The private RSA key in X.509 PEM format."
 msgstr "X.509 PEM 포맷의 개인 RSA 키"
@@ -3412,7 +3412,7 @@ msgid ""
 msgstr "저장소는 새롭거나 제거된, 또는 업그레이드된 소프트웨어 패키지를 검사할 것입니다."
 
 msgid "The requested page was not found."
-msgstr ""
+msgstr "요청하신 페이지를 찾을 수 없습니다."
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
@@ -3431,7 +3431,7 @@ msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "지정된 할당량이 최대값을 초과합니다. 가능한 값은 4TiB입니다."
 
 msgid "The system must be rebooted."
-msgstr ""
+msgstr "시스템이 재시작되어야 합니다."
 
 msgid "The system will reboot now. This may take some time ..."
 msgstr "시스템이 재시작됩니다. 몇 분이 소요될 수 있습니다 ..."
@@ -3542,14 +3542,14 @@ msgid "This field should only contain numbers separated by <,> or <;>"
 msgstr "이 영역은 <,> 또는 <;>으로 구분되는 숫자만을 포함할 수 있습니다."
 
 msgid "This field should only contain options separated by <,>"
-msgstr ""
+msgstr "이 항목은 <,> 기호로 구분될 수 있는 옵션들만을 포함해야 합니다."
 
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
 msgstr "이 영역은 <,> 또는 <;>으로 구분되는 포트 (0 - 65535)만을 포함할 수 있습니다."
 
 msgid "This field should only contain strings separated by <,>"
-msgstr ""
+msgstr "이 항목은 <,> 기호로 구분될 수 있는 문자열만을 포함해야 합니다."
 
 msgid "This field should only contain strings separated by <,> or <;>"
 msgstr "이 영역은 <,> 또는 <;>으로 구분되는 문자열만을 포함할 수 있습니다."
@@ -3659,7 +3659,7 @@ msgid "This will create a recycle bin on the share."
 msgstr "공유에 휴지통을 생성할 것입니다."
 
 msgid "Threshold"
-msgstr ""
+msgstr "임계치"
 
 msgid "Thursday"
 msgstr "목요일"
@@ -3671,7 +3671,7 @@ msgid "Time"
 msgstr "시간"
 
 msgid "Time Machine support"
-msgstr ""
+msgstr "타임머신 지원"
 
 msgid "Time interval"
 msgstr "시간 주기"
@@ -3709,7 +3709,7 @@ msgstr "전송 기록"
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr ""
+msgstr "파일의 수정 시간을 같이 동기화합니다."
 
 msgid "Transfer time"
 msgstr "전송 시간"
@@ -3827,7 +3827,7 @@ msgid "Updates"
 msgstr "업데이트"
 
 msgid "Updates available"
-msgstr ""
+msgstr "업데이트가 가능합니다"
 
 msgid "Updating ACL settings"
 msgstr "ACL 설정 업데이트"

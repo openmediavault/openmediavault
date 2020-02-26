@@ -1,5 +1,6 @@
 openmediavault-clamav (5.0.6-1) stable; urgency=low
 
+  * Update locales.
   * Reload clamd Apparmor profile if necessary.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Feb 2020 16:52:04 +0100

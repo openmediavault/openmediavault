@@ -1,5 +1,6 @@
 openmediavault-nut (5.0.2-1) stable; urgency=low
 
+  * Update locales.
   * Restart the UPS driver in case of 2 erroneous checks
     within 1 minute.
 

@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Chang-Eon Byeon <ksna0827@gmail.com>, 2014
-# Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015
+# 김지현 <potatogim@potatogim.net>, 2014-2015,2020
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-07 17:31+0100\n"
-"PO-Revision-Date: 2019-10-29 16:20+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2020-02-26 14:21+0000\n"
+"Last-Translator: 김지현 <potatogim@potatogim.net>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,7 +52,7 @@ msgid "Device"
 msgstr "장치"
 
 msgid "Done ..."
-msgstr ""
+msgstr "완료 ..."
 
 msgid "Edit backup job"
 msgstr "백업 작업 편집"
@@ -110,13 +110,13 @@ msgid "Preserve extended attributes"
 msgstr "확장 속성 보존"
 
 msgid "Preserve group"
-msgstr ""
+msgstr "소유 그룹 보존"
 
 msgid "Preserve modification times"
-msgstr ""
+msgstr "수정 시간 보존"
 
 msgid "Preserve owner"
-msgstr ""
+msgstr "소유 사용자 보존"
 
 msgid "Preserve permissions"
 msgstr "권한 보존"
@@ -151,12 +151,12 @@ msgstr "목적 권한을 원본 권한과 같게 설정"
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "목적지 파일의 소유 그룹을 원본 파일과 같게 설정합니다."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr ""
+msgstr "파일 소유자를 동기화하며, 목적지의 rsync가 슈퍼-유저로 동작할 경우에만 가능합니다."
 
 msgid "Shared folder"
 msgstr "공유 폴더"
@@ -184,7 +184,7 @@ msgstr "외부 저장 장치가 연결되었을 때 공유 폴더를 동기화�
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr ""
+msgstr "파일의 수정 시간을 같이 동기화합니다."
 
 msgid "USB Backup"
 msgstr "USB 백업"
