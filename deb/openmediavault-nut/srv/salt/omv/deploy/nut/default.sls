@@ -161,16 +161,23 @@ start_nut_driver_service:
   service.running:
     - name: nut-driver
     - enable: True
+    - watch:
+      - file: configure_nut_ups_conf
 
 start_nut_server_service:
   service.running:
     - name: nut-server
     - enable: True
+    - watch:
+      - file: configure_nut_upsd_conf
+      - file: configure_nut_upsmon_conf
 
 start_nut_monitor_service:
   service.running:
     - name: nut-monitor
     - enable: True
+    - watch:
+      - file: configure_nut_upsmon_conf
 
 monitor_nut_server_service:
   monit.monitor:
