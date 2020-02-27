@@ -1,6 +1,4 @@
 {{ pillar['headers']['multiline'] }}
 # Defaults for smartmontools initscript (/etc/init.d/smartmontools)
 # This is a POSIX shell fragment
-
-{%- if not config.enable | to_bool %}#{% endif %}start_smartd=yes
 smartd_opts="--quit=never --interval={{ config.interval }}"

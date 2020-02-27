@@ -61,18 +61,19 @@ enable_smart_on_{{ device.devicefile }}:
 
 {% endfor %}
 
-start_smartd_service:
+start_smartmontools_service:
   service.running:
-    - name: smartd
+    - name: smartmontools
     - enable: True
     - watch:
+      - file: configure_default_smartmontools
       - file: configure_smartd_conf
 
 {% else %}
 
-stop_smartd_service:
+stop_smartmontools_service:
   service.dead:
-    - name: smartd
+    - name: smartmontools
     - enable: False
 
 {% endif %}

@@ -1,3 +1,9 @@
+openmediavault (5.3.5-1) unstable; urgency=low
+
+  * Issue #627: Use the unit file smartmontools instead of smartd.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Feb 2020 17:31:38 +0100
+
 openmediavault (5.3.4-1) unstable; urgency=low
 
   * Fix the error 'The named service fstrim.timer is not available'
