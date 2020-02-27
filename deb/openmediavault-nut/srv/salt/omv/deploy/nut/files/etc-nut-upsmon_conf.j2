@@ -15,7 +15,7 @@
 {%- set nocommwarntime = salt['pillar.get']('default:OMV_NUT_UPSMON_NOCOMMWARNTIME', '300') -%}
 {%- set finaldelay = salt['pillar.get']('default:OMV_NUT_UPSMON_FINALDELAY', '5') -%}
 {{ pillar['headers']['multiline'] -}}
-MONITOR {{ config.upsname }}@localhost 1 {{ monitor_user }} {{ monitor_passwd }} master
+MONITOR {{ config.upsname }} 1 {{ monitor_user }} {{ monitor_passwd }} master
 MINSUPPLIES {{ minsupplies }}
 SHUTDOWNCMD "{{ shutdowncmd }}"
 NOTIFYCMD "{{ notifycmd }}"
