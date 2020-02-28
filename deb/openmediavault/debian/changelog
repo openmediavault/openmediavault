@@ -1,5 +1,7 @@
 openmediavault (5.3.5-1) unstable; urgency=low
 
+  * Customize collectd.service unit file. Make sure it is started
+    after the rrdcached service has been started.
   * Issue #627: Use the unit file smartmontools instead of smartd.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Feb 2020 17:31:38 +0100
