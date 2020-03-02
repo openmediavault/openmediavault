@@ -1,3 +1,10 @@
+openmediavault (4.1.35-1) stable; urgency=low
+
+  * Customize collectd.service unit file. Make sure it is started
+    after the rrdcached service has been started.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 02 Mar 2020 07:39:24 +0100
+
 openmediavault (4.1.34-1) stable; urgency=low
 
   * Issue #601: Error listing mount points when using BTRFS subvolumes.

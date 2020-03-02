@@ -1,3 +1,9 @@
+openmediavault-clamav (4.1.14-1) stable; urgency=low
+
+  * Improve clamav-onaccess.service unit file.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 02 Mar 2020 07:37:34 +0100
+
 openmediavault-clamav (4.1.13-1) stable; urgency=low
 
   * Issue #607: Error using on-access scanner.

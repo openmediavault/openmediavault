@@ -1,6 +1,7 @@
 [Unit]
 Description=Clam AntiVirus on-access daemon
 After=clamav-daemon.service
+Wants=clamav-daemon.service
 BindsTo=clamav-daemon.service
 
 [Service]
