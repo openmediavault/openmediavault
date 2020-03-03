@@ -25,3 +25,4 @@ symlink_systemd_resolvconf:
     - name: /etc/resolv.conf
     - target: /run/systemd/resolve/resolv.conf
     - force: True
+    - onlyif: "test -e /run/systemd/resolve/resolv.conf"
