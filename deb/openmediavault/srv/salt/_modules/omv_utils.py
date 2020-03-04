@@ -157,6 +157,39 @@ def is_rotational(path):
     return sd.is_rotational
 
 
+@jinja_filter('is_uuid4')
+def is_uuid4(value):
+    """
+    Finds out whether a variable is an UUID v4.
+    :param value: The variable being evaluated.
+    :type value: str
+    :return: Returns ``True`` if the variable is an UUIDv4,
+        otherwise ``False``.
+    :rtype: bool
+    """
+    return openmediavault.string.is_uuid4(value)
+
+
+@jinja_filter('is_fs_uuid')
+def is_fs_uuid(value):
+    """
+    Finds out whether a variable is a filesystem UUID.
+
+    Example:
+    - 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
+    - 7A48-BA97 (FAT)
+    - 2ED43920D438EC29 (NTFS)
+    - 2015-01-13-21-48-46-00 (ISO9660)
+
+    :param value: The variable being evaluated.
+    :type value: str
+    :return: Returns ``True`` if the variable is a filesystem UUID,
+        otherwise ``False``.
+    :rtype: bool
+    """
+    return openmediavault.string.is_fs_uuid(value)
+
+
 def get_fs_parent_device_file(id_):
     """
     Get the parent device file of the specified filesystem.

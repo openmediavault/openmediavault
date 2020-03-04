@@ -22,17 +22,22 @@
   {'operator': 'and', 'arg0': {'operator': 'equals', 'arg0': 'hidden', 'arg1': '0'}, 'arg1': {'operator': 'not', 'arg0': {'operator': 'or', 'arg0': {'operator': 'stringContains', 'arg0': 'opts', 'arg1': 'bind'}, 'arg1': {'operator': 'stringContains', 'arg0': 'opts', 'arg1': 'loop'}}}}) %}
 
 {% for mountpoint in mountpoints %}
+{% if mountpoint.fsname | is_fs_uuid %}
+{% set fsname = 'UUID=' + mountpoint.fsname %}
+{% else %}
+{% set fsname = mountpoint.fsname | replace('\\', '\\\\') %}
+{% endif %}
 create_filesystem_mountpoint_{{ mountpoint.uuid }}:
   file.accumulated:
     - filename: "/etc/fstab"
-    - text: "{{ mountpoint.fsname | replace('\\', '\\\\') }}\t\t{{ mountpoint.dir | escape_blank(True) | replace('\\', '\\\\') }}\t{{ mountpoint.type }}\t{{ mountpoint.opts }}\t{{ mountpoint.freq }} {{ mountpoint.passno }}"
+    - text: "{{ fsname }}\t\t{{ mountpoint.dir | escape_blank(True) | replace('\\', '\\\\') }}\t{{ mountpoint.type }}\t{{ mountpoint.opts }}\t{{ mountpoint.freq }} {{ mountpoint.passno }}"
     - require_in:
       - file: append_fstab_entries
 
 mount_filesystem_mountpoint_{{ mountpoint.uuid }}:
   mount.mounted:
     - name: {{ mountpoint.dir }}
-    - device: {{ mountpoint.fsname | replace('\\', '\\\\') }}
+    - device: {{ fsname }}
     - fstype: {{ mountpoint.type }}
     - opts: {{ mountpoint.opts }}
     - mkmnt: True
