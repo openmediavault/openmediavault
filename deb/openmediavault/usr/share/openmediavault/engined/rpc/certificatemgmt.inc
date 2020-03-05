@@ -256,36 +256,6 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.certificatemgmt.create");
-		// Make a copy of the openssl.cnf file to append additional
-		// configuration options.
-		$opensslCnfFile = \OMV\Environment::get("OMV_SSL_CONFIG",
-			"/etc/ssl/openssl.cnf");
-		$cnfFile = tempnam(sys_get_temp_dir(), "cnf");
-		if (FALSE === copy($opensslCnfFile, $cnfFile)) {
-			unlink($cnfFile);
-			throw new \OMV\Exception("Failed to copy the file %s.",
-				$opensslCnfFile);
-		}
-		file_put_contents($cnfFile,
-			"\n[ v3_ca_san ]\n".
-			"subjectKeyIdentifier = hash\n".
-			"authorityKeyIdentifier = keyid:always,issuer\n".
-			"basicConstraints = CA:true\n".
-			"subjectAltName = @alt_names\n".
-			"\n[ alt_names ]\n", FILE_APPEND);
-		if (!empty($params['cn'])) {
-			file_put_contents($cnfFile, sprintf(
-				"%s = %s\n",
-				is_ipaddr($params['cn']) ? "IP" : "DNS",
-				$params['cn']),
-				FILE_APPEND);
-		}
-		if (!empty($params['email'])) {
-			file_put_contents($cnfFile, sprintf(
-				"email = %s\n",
-				$params['email']),
-				FILE_APPEND);
-		}
 		// Generate the certificate subject string.
 		$rdnFields = [ "c", "st", "l", "o", "ou", "cn" ];
 		$subject = "";
@@ -330,16 +300,19 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs[] = sprintf("-newkey rsa:%d", $params['size']);
 		$cmdArgs[] = sprintf("-keyout %s", escapeshellarg($keyFile));
 		$cmdArgs[] = sprintf("-out %s", escapeshellarg($crtFile));
-		if (!empty($subject))
+		if (!empty($subject)) {
 			$cmdArgs[] = sprintf("-subj %s", escapeshellarg($subject));
-		$cmdArgs[] = "-extensions v3_ca_san";
-		$cmdArgs[] = sprintf("-config %s", escapeshellarg($cnfFile));
+		}
+		if (!empty($params['cn'])) {
+			$cmdArgs[] = sprintf("-addext 'subjectAltName=%s:%s'",
+				is_ipaddr($params['cn']) ? "IP" : "DNS",
+				$params['cn']);
+		}
 		$cmd = new \OMV\System\Process("openssl", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->setQuiet(TRUE);
 		$cmd->execute($output, $exitStatus);
 		if (0 !== $exitStatus) {
-			unlink($cnfFile);
 			unlink($keyFile);
 			unlink($crtFile);
 			throw new \OMV\ExecException($cmd->getCommandLine(), $output,
@@ -348,7 +321,6 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Read certificate and key content, then unlink the temporary files.
 		$keyData = file_get_contents($keyFile);
 		$crtData = file_get_contents($crtFile);
-		unlink($cnfFile);
 		unlink($keyFile);
 		unlink($crtFile);
 		// Finally import generated certificate.

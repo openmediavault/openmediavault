@@ -2,6 +2,8 @@ openmediavault (5.3.6-1) unstable; urgency=low
 
   * Fix bug in omv.deploy.fstab SLS when a fsname is a UUID instead
     of a device file.
+  * Fix 'Subject Alternative Name missing' error in self signed
+    SSL certificates.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 04 Mar 2020 00:18:23 +0100
 
