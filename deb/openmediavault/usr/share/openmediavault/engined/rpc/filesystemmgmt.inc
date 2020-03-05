@@ -883,6 +883,15 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Check for duplicates. Create a new mount point configuration
 			// object if necessary.
 			if (FALSE === $meObject) {
+				// Do not allow filesystems which labels contain blanks
+				// because SaltStack has a bug and can't handle such
+				// filesystems.
+				// See https://github.com/saltstack/salt/issues/54508
+				if ($fs->hasLabel() && (FALSE !== strpos(
+						$fs->getLabel(), " "))) {
+					throw new \OMV\Exception(
+						"The filesystem label contains blanks.");
+				}
 				\OMV\Rpc\Rpc::call("FsTab", "set", [
 					"uuid" => \OMV\Environment::get(
 						"OMV_CONFIGOBJECT_NEW_UUID"),
