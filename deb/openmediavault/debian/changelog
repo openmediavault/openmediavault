@@ -1,5 +1,7 @@
 openmediavault (5.3.7-1) unstable; urgency=low
 
+  * Raise an error when a filesystem with blanks in its label
+    is mounted via UI.
   * Fix 'Subject Alternative Name missing' error in self signed
     SSL certificates.
 
