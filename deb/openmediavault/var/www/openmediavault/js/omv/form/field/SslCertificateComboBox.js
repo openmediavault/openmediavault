@@ -24,6 +24,7 @@
 // require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/data/identifier/Empty.js")
 // require("js/omv/workspace/window/TextArea.js")
+// require("js/omv/util/Format.js")
 
 /**
  * @ingroup webgui
@@ -44,7 +45,8 @@ Ext.define("OMV.form.field.SslCertificateComboBox", {
 		"OMV.data.identifier.Empty"
 	],
 	uses: [
-		"OMV.workspace.window.TextArea"
+		"OMV.workspace.window.TextArea",
+		"OMV.util.Format"
 	],
 
 	allowNone: false,
@@ -52,7 +54,7 @@ Ext.define("OMV.form.field.SslCertificateComboBox", {
 
 	emptyText: _("Select a SSL certificate ..."),
 	editable: false,
-	displayField: "comment",
+	displayField: "description",
 	valueField: "uuid",
 	forceSelection: true,
 	forceEmptyValue: true,
@@ -73,7 +75,23 @@ Ext.define("OMV.form.field.SslCertificateComboBox", {
 					idProperty: "uuid",
 					fields: [
 						{ name: "uuid", type: "string" },
-						{ name: "comment", type: "string" }
+						{
+							name: "description",
+							type: "string",
+							convert: function(value, record) {
+								var validTo = record.get("validto");
+								if (!Ext.isNumber(validTo)) {
+									return record.get("comment");
+								}
+								validTo = OMV.util.Format.localeTime(
+									validTo);
+								return Ext.String.format(
+									"{0} [{1}: {2}]",
+									record.get("comment"),
+									_("Valid to"),
+									validTo);
+							}
+						}
 					]
 				}),
 				proxy: {
@@ -86,8 +104,9 @@ Ext.define("OMV.form.field.SslCertificateComboBox", {
 				listeners: {
 					scope: me,
 					load: function(store, records, successful, operation, eOpts) {
-						if (me.allowNone === false)
+						if (me.allowNone === false) {
 							return;
+						}
 						// Push the 'None' entry to the beginning of
 						// dropdown the list.
 						store.insert(0, {
