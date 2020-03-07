@@ -57,7 +57,7 @@ case "$1" in
 		########################################################################
 		# Action to be done depending on the previous version.
 		########################################################################
-		if dpkg --compare-versions "$2" lt-nl "4.1.12"; then
+		if dpkg --compare-versions "$2" lt-nl "4.1.15"; then
 			omv-mkconf clamav
 			deb-systemd-helper enable clamav-onaccess.service || :
 			deb-systemd-invoke restart clamav-daemon.service || :

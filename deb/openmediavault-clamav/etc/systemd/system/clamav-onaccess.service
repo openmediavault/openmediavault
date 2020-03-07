@@ -5,8 +5,9 @@ Wants=clamav-daemon.service
 BindsTo=clamav-daemon.service
 
 [Service]
+EnvironmentFile=-/etc/default/clamav-onaccess
 ExecStartPre=-/sbin/sysctl fs.inotify.max_user_watches=524288
-ExecStart=/usr/bin/clamonacc --foreground=true
+ExecStart=/usr/bin/clamonacc --fdpass --foreground=true ${CLAMONACC_OPTIONS}
 Restart=on-failure
 RestartSec=5s
 StandardOutput=syslog
