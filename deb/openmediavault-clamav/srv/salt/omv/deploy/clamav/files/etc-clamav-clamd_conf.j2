@@ -3,7 +3,7 @@
 {%- set localsocketmode = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_LOCALSOCKETMODE', '666') -%}
 {%- set archiveblockencrypted = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ARCHIVEBLOCKENCRYPTED', 'false') -%}
 {%- set maxdirectoryrecursion = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXDIRECTORYRECURSION', '15') -%}
-{%- set readtimeout = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_READTIMEOUT', '180') -%}
+{%- set readtimeout = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_READTIMEOUT', '120') -%}
 {%- set maxthreads = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXTHREADS', '12') -%}
 {%- set maxconnectionqueuelength = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXCONNECTIONQUEUELENGTH', '15') -%}
 {%- set logsyslog = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_LOGSYSLOG', 'false') -%}
@@ -31,8 +31,8 @@
 {%- set scanpartialmessages = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_SCANPARTIALMESSAGES', 'false') -%}
 {%- set heuristicscanprecedence = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_HEURISTICSCANPRECEDENCE', 'false') -%}
 {%- set structureddatadetection = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_STRUCTUREDDATADETECTION', 'false') -%}
-{%- set commandreadtimeout = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_COMMANDREADTIMEOUT', '5') -%}
-{%- set sendbuftimeout = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_SENDBUFTIMEOUT', '200') -%}
+{%- set commandreadtimeout = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_COMMANDREADTIMEOUT', '30') -%}
+{%- set sendbuftimeout = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_SENDBUFTIMEOUT', '500') -%}
 {%- set maxqueue = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXQUEUE', '100') -%}
 {%- set extendeddetectioninfo = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_EXTENDEDDETECTIONINFO', 'true') -%}
 {%- set ole2blockmacros = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_OLE2BLOCKMACROS', 'false') -%}

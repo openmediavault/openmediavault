@@ -1,3 +1,14 @@
+openmediavault-clamav (5.0.8-1) stable; urgency=low
+
+  * Fix permission denied issues.
+  * Set ReceiveTimeout=0 (disabled) in freshclam.conf.
+  * Fix various AppArmor issues.
+  * Improved clamav-onaccess.service unit file. Now it is possible to
+    customize the options via /etc/default/clamav-onaccess environment
+    file.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 06 Mar 2020 17:07:26 +0100
+
 openmediavault-clamav (5.0.7-1) stable; urgency=low
 
   * Improve clamav-onaccess.service unit file.

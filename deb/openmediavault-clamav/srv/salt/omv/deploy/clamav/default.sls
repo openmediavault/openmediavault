@@ -21,6 +21,7 @@
 # http://wiki.dreamhost.com/index.php/Crontab/
 # https://www.systutorials.com/docs/linux/man/5-clamd.conf/
 # https://www.systutorials.com/docs/linux/man/5-freshclam.conf/
+# https://blog.clamav.net/2019/09/understanding-and-transitioning-to.html
 
 {% set cron_scripts_dir = salt['pillar.get']('default:OMV_CRONSCRIPTS_DIR', '/var/lib/openmediavault/cron.d') %}
 {% set cron_script_prefix = salt['pillar.get']('default:OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT_PREFIX', 'clamdscan-') %}
@@ -64,7 +65,17 @@ configure_clamd_apparmor_profile:
 configure_clamd_apparmor_local_profile:
   file.append:
     - name: "/etc/apparmor.d/local/usr.sbin.clamd"
-    - text: "/srv/** krw,"
+    - text: |
+        # Allow mount dirs to be scanned. Need write access to be able to
+        # move/delete malicious files.
+        /srv/** krw,
+        /media/** krw,
+
+        # Allow an action to perform when clamav detects a malicious file.
+        # The scripts located in /etc/clamav/virusevent.d/ may require
+        # complex privileges, because of that we use the unconfined
+        # execute mode.
+        /usr/bin/dash muxr,
 
 # https://help.ubuntu.com/community/AppArmor#Reload_one_profile
 reload_clamd_apparmor_profile:
