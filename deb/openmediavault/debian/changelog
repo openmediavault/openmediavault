@@ -4,6 +4,7 @@ openmediavault (5.3.7-1) unstable; urgency=low
     is mounted via UI.
   * Fix 'Subject Alternative Name missing' error in self signed
     SSL certificates.
+  * Set correct config.system.email.tls default value in database.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 05 Mar 2020 23:53:27 +0100
 

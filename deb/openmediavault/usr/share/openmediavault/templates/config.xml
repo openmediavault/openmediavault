@@ -45,7 +45,7 @@
 			<enable>0</enable>
 			<server></server>
 			<port>25</port>
-			<tls>0</tls>
+			<tls>none</tls>
 			<sender></sender>
 			<authentication>
 				<!--
