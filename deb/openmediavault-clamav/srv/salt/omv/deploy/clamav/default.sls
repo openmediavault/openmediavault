@@ -124,8 +124,8 @@ wait_for_clamav_freshclam_db_download:
   file.exists:
     - name: "/var/lib/clamav/main.cvd"
     - retry:
-      - attempts: 60
-      - interval: 5
+        attempts: 60
+        interval: 5
 
 configure_clamav_freshclam_logrotate:
   file.managed:

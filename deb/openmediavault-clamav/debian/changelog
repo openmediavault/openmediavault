@@ -1,3 +1,10 @@
+openmediavault-clamav (5.0.9-1) stable; urgency=low
+
+  * The SLS execution is now correctly deferred for 5 minutes if
+    freshclam downloads the virus database.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Mar 2020 0:47:15 +0100
+
 openmediavault-clamav (5.0.8-1) stable; urgency=low
 
   * Fix permission denied issues.
