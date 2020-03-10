@@ -26,6 +26,8 @@ set -e
 
 OMV_INTERFACES_CONFIG=${OMV_INTERFACES_CONFIG:-"/etc/network/interfaces"}
 
+[ ! -e "${OMV_INTERFACES_CONFIG}" ] && exit 0
+
 # Get the DNS name servers.
 # Note, we are setting all name servers for each interface because this is
 # much less complicated.
