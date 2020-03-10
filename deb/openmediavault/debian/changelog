@@ -1,6 +1,8 @@
 openmediavault (5.3.8-1) unstable; urgency=low
 
   * Cleanup package dependencies.
+  * Adapt nginx SSL ciphers to latest intermediate profile according to
+    https://mozilla.github.io/server-side-tls/ssl-config-generator.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 10 Mar 2020 00:13:14 +0100
 

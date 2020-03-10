@@ -210,7 +210,10 @@ case "$1" in
 			omv-salt deploy run --quiet collectd chrony postfix
 		fi
 		if dpkg --compare-versions "$2" lt-nl "5.1.3"; then
-		  omv_module_set_dirty monit
+			omv_module_set_dirty monit
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.3.8"; then
+			omv_module_set_dirty nginx
 		fi
 
 		########################################################################
