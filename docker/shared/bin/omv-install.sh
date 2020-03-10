@@ -2,6 +2,8 @@
 
 set -e
 
+mkdir --mode=0755 --parents /run/sshd
+
 cat <<EOF >> /etc/apt/sources.list.d/openmediavault.list
 deb https://packages.openmediavault.org/public usul main
 # deb https://downloads.sourceforge.net/project/openmediavault/packages usul main
