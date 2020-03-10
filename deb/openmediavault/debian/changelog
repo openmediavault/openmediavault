@@ -1,3 +1,9 @@
+openmediavault (5.3.8-1) unstable; urgency=low
+
+  * Cleanup package dependencies.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 10 Mar 2020 00:13:14 +0100
+
 openmediavault (5.3.7-1) unstable; urgency=low
 
   * Raise an error when a filesystem with blanks in its label
