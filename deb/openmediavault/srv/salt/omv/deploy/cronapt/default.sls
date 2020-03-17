@@ -19,7 +19,7 @@
 
 {% set notification_config = salt['omv_conf.get_by_filter'](
   'conf.system.notification.notification',
-  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'cronapt'})[0] %}
+  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'cronapt'}) %}
 {% set email_config = salt['omv_conf.get']('conf.system.notification.email') %}
 {% set refrain_file = salt['pillar.get']('default:OMV_CRONAPT_REFRAINFILE', '/etc/cron-apt/refrain') %}
 
@@ -29,6 +29,8 @@ remove_cron-apt_refrain_file:
   file.absent:
     - name: "{{ refrain_file }}"
 
+{% if notification_config | length > 0 %}
+
 create_cron-apt_config:
   file.managed:
     - name: "/etc/cron-apt/config"
@@ -37,7 +39,9 @@ create_cron-apt_config:
     - template: jinja
     - context:
         email_config: {{ email_config | json }}
-        notification_config: {{ notification_config | json }}
+        notification_config: {{ notification_config[0] | json }}
     - user: root
     - group: root
     - mode: 644
+
+{% endif %}
