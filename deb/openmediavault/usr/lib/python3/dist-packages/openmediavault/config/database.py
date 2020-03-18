@@ -124,17 +124,19 @@ class Database:
         query = openmediavault.config.DatabaseGetByFilterQuery(id, filter)
         query.execute()
         if "min_result" in kwargs:
-            if len(query.response) < kwargs.get("min_result"):
+            min_result = kwargs.get("min_result")
+            if min_result is not None and len(query.response) < min_result:
                 raise DatabaseException(
-                    "The query does not return the "
-                    "minimum number of %d object(s)." % kwargs.get("min_result")
-                )
+                    "The query '{}' does not return the "
+                    "minimum number of {} object(s).".format(
+                        query.xpath, min_result))
         if "max_result" in kwargs:
-            if len(query.response) > kwargs.get("max_result"):
+            max_result = kwargs.get("max_result")
+            if max_result is not None and len(query.response) > max_result:
                 raise DatabaseException(
-                    "The query returns more than the "
-                    "maximum number of %d object(s)." % kwargs.get("max_result")
-                )
+                    "The query '{}' returns more than the "
+                    "maximum number of {} object(s).".format(
+                        query.xpath, max_result))
         return query.response
 
     def exists(self, id, filter=None):

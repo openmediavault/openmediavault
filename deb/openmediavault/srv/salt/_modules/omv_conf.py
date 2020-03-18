@@ -42,7 +42,7 @@ def get(id_, identifier=None):
     return objs.get_dict()
 
 
-def get_by_filter(id_, filter_):
+def get_by_filter(id_, filter_, **kwargs):
     """
     Get the iterable configuration objects that are matching the specified
     constraints.
@@ -79,7 +79,7 @@ def get_by_filter(id_, filter_):
         list of configuration objects.
     """
     db = openmediavault.config.Database()
-    objs = db.get_by_filter(id_, openmediavault.config.DatabaseFilter(filter_))
+    objs = db.get_by_filter(id_, openmediavault.config.DatabaseFilter(filter_), **kwargs)
     if isinstance(objs, list):
         return [obj.get_dict() for obj in objs]
     return objs.get_dict()
