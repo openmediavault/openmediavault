@@ -331,7 +331,8 @@ class DatabaseQuery(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
         """
         return self._response
 
-    @abc.abstractproperty
+    @property
+    @abc.abstractmethod
     def xpath(self):
         """
         Get the XPath string used to execute the database query.
