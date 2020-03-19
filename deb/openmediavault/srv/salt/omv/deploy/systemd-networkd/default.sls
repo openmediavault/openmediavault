@@ -32,7 +32,12 @@ cleanup_etc_network_interfaces:
     - contents: |
         {{ pillar['headers']['auto_generated'] }}
         {{ pillar['headers']['warning'] }}
-        # Use systemd-networkd to configure additional interface stanzas.
+
+        # interfaces(5) file used by ifup(8) and ifdown(8)
+        # Better use systemd-networkd to configure additional interface stanzas.
+
+        # Include files from /etc/network/interfaces.d:
+        source-directory /etc/network/interfaces.d
     - user: root
     - group: root
     - mode: 644
