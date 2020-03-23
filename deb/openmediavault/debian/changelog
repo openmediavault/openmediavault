@@ -1,6 +1,7 @@
 openmediavault (5.3.9-1) unstable; urgency=low
 
   * Various improvements.
+  * Add support to execute additional SLS files when deploying mdadm.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 17 Mar 2020 07:23:42 +0100
 
@@ -252,7 +253,7 @@ openmediavault (5.0.10-1) unstable; urgency=low
 
   * Fix group privileges issue in proftpd.
   * Fix bugs in NFS configuration file /etc/exports.
-  * Change /etc/fstab creation behaviour. Each * .sls file is responsible
+  * Change /etc/fstab creation behaviour. Each *.sls file is responsible
     for mounting the mount points processed by this file.
   * Fix /sharedfolders mounting issue.
 
