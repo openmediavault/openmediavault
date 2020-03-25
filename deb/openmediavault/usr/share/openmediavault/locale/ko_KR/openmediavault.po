@@ -5,13 +5,14 @@
 # Translators:
 # Chang-Eon Byeon <ksna0827@gmail.com>, 2014-2016
 # 김지현 <potatogim@potatogim.net>, 2014-2015,2018,2020
+# 김지현 <potatogim@potatogim.net>, 2020
 # Volker <votdev@gmx.de>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-05 12:10+0100\n"
-"PO-Revision-Date: 2020-02-26 14:27+0000\n"
+"PO-Revision-Date: 2020-03-20 02:55+0000\n"
 "Last-Translator: 김지현 <potatogim@potatogim.net>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -843,7 +844,7 @@ msgid "Device information"
 msgstr "장치 정보"
 
 msgid "Device is being used outside design parameters"
-msgstr ""
+msgstr "장치가 설계 매개변수의 한계를 초과해서 사용하고 있습니다"
 
 msgid "Device model"
 msgstr "장치 모델"
@@ -852,7 +853,7 @@ msgid "Device properties"
 msgstr "장치 속성"
 
 msgid "Device was used outside of design parameters in the past"
-msgstr ""
+msgstr "장치가 이전에 설계 매개변수의 한계를 넘어서 사용되었습니다."
 
 msgid "Device(s)"
 msgstr "장치(들)"

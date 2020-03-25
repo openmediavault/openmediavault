@@ -1,5 +1,6 @@
 openmediavault (5.3.9-1) unstable; urgency=low
 
+  * Update locales.
   * Various improvements.
   * Add support to execute additional SLS files when deploying mdadm.
 
