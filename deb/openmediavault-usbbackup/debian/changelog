@@ -1,3 +1,9 @@
+openmediavault-usbbackup (5.0.4-1) stable; urgency=low
+
+  * Issue #656: Build correct file path.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 28 Mar 2020 14:10:46 +0100
+
 openmediavault-usbbackup (5.0.3-1) stable; urgency=low
 
   * Update locales.
