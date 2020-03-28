@@ -50,9 +50,11 @@ case "$1" in
 		########################################################################
 		# Action to be done depending on the previous version.
 		########################################################################
-		echo "Updating configuration ..."
 		if dpkg --compare-versions "$2" lt-nl "4.0.7"; then
 			omv-mkconf usbbackup
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.0.4"; then
+		  omv_module_set_dirty usbbackup
 		fi
 	;;
 
