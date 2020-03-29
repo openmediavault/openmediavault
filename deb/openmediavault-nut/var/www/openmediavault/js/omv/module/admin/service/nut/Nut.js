@@ -62,6 +62,43 @@ Ext.define("OMV.module.admin.service.nut.Settings", {
 				"!allowBlank",
 				"!readOnly"
 			]
+		},{
+			name: [
+				"nutserver",
+				"nutserverlogin",
+				"nutserverpassword",
+				"powervalue",
+			],
+			conditions: [
+				{ name: "mode", value: "standalone"},
+			],
+			properties: [
+				"allowBlank",
+				"!show"
+			]
+
+		},{
+			name: "driverconf",
+			conditions: [
+				{ name: "mode", value: "netclient" }
+			],
+			properties: [
+				"allowBlank",
+				"!show"
+			]
+		},{
+			name: [
+				"remotemonitor",
+				"remoteuser",
+				"remotepassword"
+			],
+			conditions: [
+				{ name: "mode", value: "netclient" }
+			],
+			properties: [
+				"readOnly",
+				"allowBlank"
+			]
 		}]
 	}],
 
@@ -78,6 +115,28 @@ Ext.define("OMV.module.admin.service.nut.Settings", {
 				fieldLabel: _("Enable"),
 				checked: false
 			},{
+				xtype: "combo",
+				name: "mode",
+				fieldLabel: _("NUT mode"),
+				queryMode: "local",
+				store: Ext.create("Ext.data.ArrayStore", {
+					fields: [ "value", "text" ],
+					data: [
+						[ "netclient", _("netclient") ],
+						[ "standalone", _("standalone") ],
+					]
+				}),
+				displayField: "text",
+				valueField: "value",
+				allowBlank: false,
+				editable: false,
+				triggerAction: "all",
+				value: "standalone",
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("'standalone' for local UPS, 'netclient' for remote UPS on a NUT server"),
+				}]
+			},{
 				xtype: "textfield",
 				name: "upsname",
 				fieldLabel: _("Identifier"),
@@ -85,13 +144,40 @@ Ext.define("OMV.module.admin.service.nut.Settings", {
 				vtype: "upsname",
 				plugins: [{
 					ptype: "fieldinfo",
-					text: _("The name used to uniquely identify your UPS on this system.")
+					text: _("The name used to uniquely identify your UPS on local or remote system.")
 				}]
 			},{
 				xtype: "textfield",
 				name: "comment",
 				fieldLabel: _("Comment"),
 				allowBlank: true
+			},{
+				xtype: "textfield",
+				name: "nutserver",
+				fieldLabel: _("NUT server address"),
+				allowBlank: false
+			},{
+				xtype: "textfield",
+				name: "nutserverlogin",
+				fieldLabel: _("NUT server login"),
+				allowBlank: false
+			},{
+				xtype: "textfield",
+				name: "nutserverpassword",
+				fieldLabel: _("NUT server passowrd"),
+				allowBlank: false
+			},{
+				xtype: "numberfield",
+				name: "powervalue",
+				fieldLabel: _("Powervalue"),
+				minValue: 0,
+				allowDecimals: false,
+				allowBlank: false,
+				value: 1,
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("The number of power supplies that the UPS feeds on this system (usually 1), refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>UPSMON.CONF(5)</a> for more information.")
+				}]
 			},{
 				xtype: "textarea",
 				name: "driverconf",

@@ -88,13 +88,20 @@ class OMVModuleNetworkUPSTools extends \OMV\Engine\Module\ServiceAbstract
 		$cmd->setRedirect2to1();
 		$cmd->execute();
 		// Start this service and enable the unit file.
-		$systemCtlDrv = new \OMV\System\SystemCtl("nut-driver");
-		$systemCtlDrv->enable(TRUE);
-		$systemCtlSrv = new \OMV\System\SystemCtl("nut-server");
-		$systemCtlSrv->enable(TRUE);
-		$systemCtlSrv->waitUntilActive(15);
-		$systemCtlMon = new \OMV\System\SystemCtl("nut-monitor");
-		$systemCtlMon->enable(TRUE);
+		$mode = $object->get("mode");
+		if ("standalone" === $mode) {
+			$systemCtlDrv = new \OMV\System\SystemCtl("nut-driver");
+			$systemCtlDrv->enable(TRUE);
+			$systemCtlSrv = new \OMV\System\SystemCtl("nut-server");
+			$systemCtlSrv->enable(TRUE);
+			$systemCtlSrv->waitUntilActive(15);
+			$systemCtlMon = new \OMV\System\SystemCtl("nut-monitor");
+			$systemCtlMon->enable(TRUE);
+		} else if ("netclient" === $mode) {
+			$systemCtlMon = new \OMV\System\SystemCtl("nut-monitor");
+			$systemCtlMon->enable(TRUE);
+			$systemCtlMon->waitUntilActive(15);
+		}
 		// Enable monitoring of this service.
 		$monit = new \OMV\System\Monit("nut");
 		$monit->setGroup(TRUE);
@@ -107,7 +114,12 @@ class OMVModuleNetworkUPSTools extends \OMV\Engine\Module\ServiceAbstract
 	public function getStatus() {
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.service.nut");
-		$systemCtl = new \OMV\System\SystemCtl("nut-server");
+		$mode = $object->get("mode");
+		if ("netclient" === $mode) {
+			$systemCtl = new \OMV\System\SystemCtl("nut-monitor");
+		} else {
+			$systemCtl = new \OMV\System\SystemCtl("nut-server");
+		}
 		return [
 			"name" => $this->getName(),
 			"title" => gettext("UPS"),

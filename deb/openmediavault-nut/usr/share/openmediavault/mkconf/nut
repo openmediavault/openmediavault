@@ -69,8 +69,10 @@ OMV_NUT_UDEV_RULE_GROUP=${OMV_NUT_UDEV_RULE_GROUP:-"nut"}
 mkconf() {
 	# Create the '/etc/nut/nut.conf' file.
 	xmlstarlet sel -t -m "//services/nut" \
-	  -i "remotemonitor[. = '0']" -o "MODE=standalone" -b \
-	  -i "remotemonitor[. = '1']" -o "MODE=netserver" -b \
+	  -i "remotemonitor[. = '1']" -o "MODE=netserver" --else \
+		-i "mode[. = 'standalone']" -o "MODE=standalone" -b \
+		-i "mode[. = 'netclient']" -o "MODE=netclient" -b \
+	  -b \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NUT_NUT_CONFIG}
 
 	# Create the '/etc/nut/ups.conf'.
@@ -126,7 +128,12 @@ EOF
 		OMV_NUT_UPSMON_DEADTIME=$((${pollfreq} * 3))
 	fi
 	xmlstarlet sel -t -m "//services/nut" \
-	  -v "concat('MONITOR ',upsname,'@localhost 1 ${OMV_NUT_UPSDUSERS_MONITOR_USER} ${OMV_NUT_UPSDUSERS_MONITOR_PASSWORD} master')" -n \
+	  -i "mode[. = 'standalone']" \
+	    -v "concat('MONITOR ',upsname,'@localhost 1 ${OMV_NUT_UPSDUSERS_MONITOR_USER} ${OMV_NUT_UPSDUSERS_MONITOR_PASSWORD} master')" -n \
+	  -b \
+	  -i "mode[. = 'netclient']" \
+	    -v "concat('MONITOR ',upsname,'@',nutserver,' ',powervalue,' ',nutserverlogin,' ',nutserverpassword,' slave')" -n \
+	  -b \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NUT_UPSMON_CONFIG}
 	cat <<EOF >> ${OMV_NUT_UPSMON_CONFIG}
 MINSUPPLIES ${OMV_NUT_UPSMON_MINSUPPLIES}

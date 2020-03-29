@@ -17,6 +17,27 @@
 			    "type": "string",
 				"required": true
 			},
+			"mode": {
+				"type": "string",
+				"enum": [ "netclient", "standalone" ],
+				"required": true
+			},
+			"nutserver": {
+				"type": "string",
+				"required": true
+			},
+			"nutserverlogin": {
+				"type": "string",
+				"required": true
+			},
+			"nutserverpassword": {
+				"type": "string",
+				"required": true
+			},
+			"powervalue": {
+				"type": "integer",
+				"required": true
+			},
 			"driverconf": {
 			    "type": "string",
 				"required": true

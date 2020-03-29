@@ -33,6 +33,7 @@ rm -f "${OMV_COLLECTD_CONFIG_DIR}/nut.conf"
 xmlstarlet sel -t -m "//services/nut" \
   -o "LoadPlugin nut" -n \
   -o "<Plugin nut>" -n \
-  -v "concat('  UPS \"',upsname,'@localhost:${OMV_NUT_UPSD_PORT}\"')" -n \
+  -i "mode[. = 'standalone']" -v "concat('  UPS \"',upsname,'@localhost:${OMV_NUT_UPSD_PORT}\"')" -n -b \
+  -i "mode[. = 'netclient']" -v "concat('  UPS \"',upsname,'@',nutserver,'\"')" -n -b \
   -o "</Plugin>" -n \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > "${OMV_COLLECTD_CONFIG_DIR}/nut.conf"

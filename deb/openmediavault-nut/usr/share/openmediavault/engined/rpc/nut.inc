@@ -93,8 +93,14 @@ class OMVRpcServiceNetworkUPSTools extends \OMV\Rpc\ServiceAbstract {
 		if (FALSE === $object->get("enable")) {
 			$stats = gettext("Service disabled");
 		} else {
+			$mode = $object->get("mode");
 			$cmdArgs = [];
-			$cmdArgs[] = escapeshellarg($object->get("upsname"));
+			if ("standalone" === $mode) {
+				$cmdArgs[] = escapeshellarg($object->get("upsname"));
+			} else if ("netclient" ===  $mode) {
+				$remoteUps = $object->get("upsname")."@".$object->get("nutserver");
+				$cmdArgs[] = escapeshellarg($remoteUps);
+			}
 			$cmd = new \OMV\System\Process("upsc", $cmdArgs);
 			$cmd->setRedirect2to1();
 			$cmd->execute($output);

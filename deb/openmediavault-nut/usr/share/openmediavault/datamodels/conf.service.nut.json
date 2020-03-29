@@ -18,6 +18,27 @@
 		"comment": {
 			"type": "string"
 		},
+		"mode": {
+			"type": "string",
+			"enum": [ "netclient", "standalone" ],
+			"default": "standalone"
+		},
+		"nutserver": {
+			"type": "string"
+		},
+		"nutserverlogin": {
+			"type": "string",
+			"default": ""
+		},
+		"nutserverpassword": {
+			"type": "string",
+			"default": ""
+		},
+		"powervalue": {
+			"type": "integer",
+			"minimum": 0,
+			"default": 1
+		},
 		"driverconf": {
 			"type": "string"
 		},

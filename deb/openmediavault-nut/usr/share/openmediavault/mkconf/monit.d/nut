@@ -30,6 +30,7 @@ OMV_MONIT_SERVICE_NUT_MODE=${OMV_MONIT_SERVICE_NUT_MODE:-"active"}
 rm -f ${OMV_MONIT_SERVICE_NUT_CONFIG}
 [ "$(omv_config_get "//services/nut/enable")" != "1" ] && exit 0
 
+if [ "standalone" = "$(omv_config_get "//services/nut/mode")" ]; then
 cat <<EOF > ${OMV_MONIT_SERVICE_NUT_CONFIG}
 check process nut-server with matching upsd
   group nut
@@ -46,6 +47,7 @@ xmlstarlet sel -t -m "//system/email" \
   -b \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_MONIT_SERVICE_NUT_CONFIG}
+fi
 
 cat <<EOF >> ${OMV_MONIT_SERVICE_NUT_CONFIG}
 

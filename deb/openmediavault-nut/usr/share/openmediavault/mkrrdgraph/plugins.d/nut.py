@@ -22,6 +22,7 @@ import openmediavault.mkrrdgraph
 import openmediavault.subprocess
 import os
 import re
+import copy
 
 class Plugin(openmediavault.mkrrdgraph.IPlugin):
 	def create_graph(self, config):
@@ -49,10 +50,15 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
 			'nut', 'UPS')
 		for ups_config in ups_configs:
 			# Get the configuration name of the UPS.
-			m = re.match(r'^(\S+)@(\S+):(\d+)$', ups_config)
+			m = re.match(r'^(\S+)@([^\s:]+)(:(\d+))?$', ups_config)
 			if not m:
 				continue
 			config['upsname'] = m.group(1)
+			hostname = m.group(2)
+			if hostname != 'localhost':
+				config = copy.deepcopy(config) # Do not affect original data_dir
+				config['data_dir'] = os.path.abspath(os.path.join(
+					config['data_dir'], os.pardir, hostname))
 
 			image_filename = '{image_dir}/nut-charge-{period}.png'.format(**config)
 			if os.path.exists('{data_dir}/nut-{upsname}/percent-charge.rrd'.format(**config)):
