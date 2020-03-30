@@ -19,7 +19,8 @@
 
 {% set notification_config = salt['omv_conf.get_by_filter'](
   'conf.system.notification.notification',
-  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'cronapt'})[0] %}
+  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'cronapt'},
+  min_result=1, max_result=1)[0] %}
 {% set email_config = salt['omv_conf.get']('conf.system.notification.email') %}
 {% set refrain_file = salt['pillar.get']('default:OMV_CRONAPT_REFRAINFILE', '/etc/cron-apt/refrain') %}
 

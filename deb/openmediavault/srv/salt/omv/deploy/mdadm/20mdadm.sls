@@ -17,36 +17,34 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set dirpath = '/srv/salt' | path_join(tpldir) %}
+{% set email_config = salt['omv_conf.get']('conf.system.notification.email') %}
+{% set notification_config = salt['omv_conf.get_by_filter'](
+  'conf.system.notification.notification',
+  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'mdadm'})[0] %}
 
-include:
-{% for file in salt['file.readdir'](dirpath) | sort %}
-{% if file | regex_match('^(\d+.+).sls$', ignorecase=True) %}
-  - .{{ file | replace('.sls', '') }}
-{% endif %}
-{% endfor %}
-
-cleanup_etc_network_interfaces:
+configure_default_mdadm:
   file.managed:
-    - name: "/etc/network/interfaces"
-    - contents: |
-        {{ pillar['headers']['auto_generated'] }}
-        {{ pillar['headers']['warning'] }}
-
-        # interfaces(5) file used by ifup(8) and ifdown(8)
-        # Better use systemd-networkd to configure additional interface stanzas.
-
-        # Include files from /etc/network/interfaces.d:
-        source-directory /etc/network/interfaces.d
+    - name: "/etc/default/mdadm"
+    - source:
+      - salt://{{ tpldir }}/files/etc-default-mdadm.j2
+    - template: jinja
     - user: root
     - group: root
     - mode: 644
 
-restart_systemd_networkd:
-  # Force service.running to always restart the service.
-  test.succeed_with_changes:
-    - watch_in:
-      - service: restart_systemd_networkd
-  service.running:
-    - name: systemd-networkd
-    - enable: True
+configure_mdadm_conf:
+  file.managed:
+    - name: "/etc/mdadm/mdadm.conf"
+    - source:
+      - salt://{{ tpldir }}/files/etc-mdadm-mdadm.conf.j2
+    - template: jinja
+    - context:
+        email_config: {{ email_config | json }}
+        notification_config: {{ notification_config | json }}
+    - user: root
+    - group: root
+    - mode: 644
+
+mdadm_save_config:
+  cmd.run:
+    - name: "mdadm --detail --scan >> /etc/mdadm/mdadm.conf"

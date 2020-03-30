@@ -336,7 +336,7 @@ class Schema {
 	protected function validateInteger($value, $schema, $name) {
 		if (!is_integer($value)) {
 			throw new SchemaValidationException(
-				"%s: The value '%s' is not an integer.",
+				"%s: The value %s is not an integer.",
 				$name, json_encode_safe($value));
 		}
 		$this->checkMinimum($value, $schema, $name);
@@ -350,7 +350,7 @@ class Schema {
 	protected function validateNumber($value, $schema, $name) {
 		if (!is_numeric($value)) {
 			throw new SchemaValidationException(
-				"%s: The value '%s' is not a number.",
+				"%s: The value %s is not a number.",
 				$name, json_encode_safe($value));
 		}
 		$this->checkMinimum($value, $schema, $name);
@@ -364,7 +364,7 @@ class Schema {
 	protected function validateString($value, $schema, $name) {
 		if (!is_string($value)) {
 			throw new SchemaValidationException(
-				"%s: The value '%s' is not a string.",
+				"%s: The value %s is not a string.",
 				$name, json_encode_safe($value));
 		}
 		$this->checkPattern($value, $schema, $name);
@@ -378,7 +378,7 @@ class Schema {
 	protected function validateArray($value, $schema, $name) {
 		if (!is_array($value)) {
 			throw new SchemaValidationException(
-				"%s: The value '%s' is not an array.",
+				"%s: The value %s is not an array.",
 				$name, json_encode_safe($value));
 		}
 		$this->checkMinItems($value, $schema, $name);
@@ -389,7 +389,7 @@ class Schema {
 	protected function validateObject($value, $schema, $name) {
 		if (!is_object($value)) {
 			throw new SchemaValidationException(
-				"%s: The value '%s' is not an object.",
+				"%s: The value %s is not an object.",
 				$name, json_encode_safe($value));
 		}
 		$this->checkProperties($value, $schema, $name);
@@ -398,7 +398,7 @@ class Schema {
 	protected function validateNull($value, $schema, $name) {
 		if (!is_null($value)) {
 			throw new SchemaValidationException(
-				"%s: The value '%s' is not NULL.",
+				"%s: The value %s is not NULL.",
 				$name, json_encode_safe($value));
 		}
 	}
@@ -672,8 +672,8 @@ class Schema {
 			return;
 		if (!is_array($schema['oneOf'])) {
 			throw new SchemaException(
-			  "%s: The 'oneOf' attribute is not an array.",
-			  $name);
+				"%s: The 'oneOf' attribute is not an array.",
+				$name);
 		}
 		$valid = FALSE;
 		foreach ($schema['oneOf'] as $subSchemak => $subSchemav) {
@@ -689,8 +689,9 @@ class Schema {
 		}
 		if (!$valid) {
 			throw new SchemaValidationException(
-			  "%s: Failed to match exactly one schema.",
-			  $name);
+				"%s: The value %s does not match exactly one schema of %s.",
+				$name, json_encode_safe($value),
+				json_encode_safe($schema['oneOf']));
 		}
 	}
 }
