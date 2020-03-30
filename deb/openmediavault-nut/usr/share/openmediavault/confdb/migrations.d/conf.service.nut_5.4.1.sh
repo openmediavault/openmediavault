@@ -1,3 +1,5 @@
+#!/bin/sh
+#
 # This file is part of OpenMediaVault.
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
@@ -17,28 +19,14 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set config = salt['omv_conf.get']('conf.service.nut') %}
-{% set port = salt['pillar.get']('default:OMV_NUT_UPSD_PORT', '3493') %}
+set -e
 
-{% if config.enable | to_bool %}
+. /usr/share/openmediavault/scripts/helper-functions
 
-configure_collectd_conf_nut_plugin:
-  file.managed:
-    - name: "/etc/collectd/collectd.conf.d/nut.conf"
-    - contents: |
-        LoadPlugin nut
-        <Plugin nut>
-            {% if config.mode == 'netclient' -%}
-            UPS "{{ config.upsname }}@{{ config.netclienthostname }}"
-            {%- else -%}
-            UPS "{{ config.upsname }}@localhost:{{ port }}"
-            {%- endif %}
-        </Plugin>
+omv_config_add_key "/config/services/nut" "mode" "standalone"
+omv_config_add_key "/config/services/nut" "netclienthostname" ""
+omv_config_add_key "/config/services/nut" "netclientusername" ""
+omv_config_add_key "/config/services/nut" "netclientpassword" ""
+omv_config_add_key "/config/services/nut" "powervalue" "1"
 
-{% else %}
-
-remove_collectd_conf_nut_plugin:
-  file.absent:
-    - name: "/etc/collectd/collectd.conf.d/nut.conf"
-
-{% endif %}
+exit 0

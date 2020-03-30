@@ -11,12 +11,33 @@
 			"type": "boolean",
 			"default": false
 		},
+		"mode": {
+			"type": "string",
+			"enum": [ "netclient", "standalone" ],
+			"default": "standalone"
+		},
 		"upsname": {
 			"type": "string",
 			"pattern": "^[a-z0-9_-]+$"
 		},
 		"comment": {
 			"type": "string"
+		},
+		"netclienthostname": {
+			"type": "string"
+		},
+		"netclientusername": {
+			"type": "string",
+			"default": ""
+		},
+		"netclientpassword": {
+			"type": "string",
+			"default": ""
+		},
+		"powervalue": {
+			"type": "integer",
+			"minimum": 0,
+			"default": 1
 		},
 		"driverconf": {
 			"type": "string"
