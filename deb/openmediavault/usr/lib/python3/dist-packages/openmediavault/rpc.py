@@ -26,10 +26,11 @@ import openmediavault
 
 
 class RpcException(Exception):
-    def __init__(self, message, code, trace):
+    def __init__(self, message, code=None, trace=None, http_status_code=None):
         super().__init__(message)
         self._code = code
         self._trace = trace
+        self._http_status_code = http_status_code
 
     @property
     def code(self):
@@ -77,5 +78,6 @@ def call(service, method, params=None):
         chunks.append(chunk.decode())
     response = json.loads("".join(chunks))
     if response["error"] is not None:
+        print(response)
         raise RpcException(**response["error"])
     return response["response"]

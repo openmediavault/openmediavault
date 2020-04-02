@@ -1,3 +1,10 @@
+openmediavault (5.3.10-1) unstable; urgency=low
+
+  * Fix bug in the Python RPC error handling. This should fix the "got an
+    unexpected keyword argument 'http_status_code'" issue.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 02 Apr 2020 17:55:25 +0200
+
 openmediavault (5.3.9-1) unstable; urgency=low
 
   * Update locales.
