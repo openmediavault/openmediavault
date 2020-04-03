@@ -1,5 +1,6 @@
 {%- if email_config.enable | to_bool -%}
 root {{ email_config.primaryemail }}
+admin {{ email_config.primaryemail }}
 {%- for user in users %}
 {{ user.name }} {{ user.email }}
 {%- endfor %}
