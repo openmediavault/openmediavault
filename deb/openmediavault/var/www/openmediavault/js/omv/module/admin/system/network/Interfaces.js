@@ -962,7 +962,9 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		sortable: true,
 		dataIndex: "mtu",
 		stateId: "mtu",
-		width: 60
+		width: 60,
+		minValue: 1,
+		maxValue: 65535
 	},{
 		xtype: "booleantextcolumn",
 		text: _("WOL"),
