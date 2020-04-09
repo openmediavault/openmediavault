@@ -245,6 +245,7 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 				  $filter, 1);
 				// Append the configuration attributes.
 				$object = array_merge($object, $cfgObject->getAssoc());
+				$object['slaves'] = explode_safe(",", $object['slaves']);
 				// Is the interface device somewhere referenced?
 				$object['_used'] = $db->isReferenced($cfgObject);
 			}
@@ -348,6 +349,7 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 				$objectAssoc['_used'] = TRUE;
 				$objectAssoc['_readonly'] = TRUE;
 			}
+			$objectAssoc['slaves'] = explode_safe(",", $objectAssoc['slaves']);
 			$result[] = $objectAssoc;
 		}
 		return $result;
@@ -443,6 +445,7 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 		$result['dnsnameservers'] = str_replace(" ", ",",
 		  $result['dnsnameservers']);
 		$result['dnssearch'] = str_replace(" ", ",", $result['dnssearch']);
+		$result['slaves'] = explode_safe(",", $result['slaves']);
 		return $result;
 	}
 
@@ -650,7 +653,7 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 				]
 			], 1);
 			// Get interface details of the bonding slaves.
-			foreach (explode(",", $object->get("slaves")) as $slavek => $slavev)
+			foreach (explode_safe(",", $object->get("slaves")) as $slavek => $slavev)
 				$result[] = $this->getIfaceInfo($slavev);
 			// Remove the bond interface itself from the result list.
 			foreach ($result as $resultk => $resultv) {
@@ -703,7 +706,7 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 		if ($params['uuid'] == \OMV\Environment::get(
 		  "OMV_CONFIGOBJECT_NEW_UUID")) {
 			// Check if the slaves are already used by another bond interface.
-			foreach (explode(",", $params['slaves']) as $slavek => $slavev) {
+			foreach ($params['slaves'] as $slavek => $slavev) {
 				$db = \OMV\Config\Database::getInstance();
 				if ($db->exists("conf.system.network.interface", [
 					"operator" => "and",
@@ -727,6 +730,7 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 				getNextDeviceName();
 		}
 		// Set the configuration object.
+		$params['slaves'] = implode(",", $params['slaves']);
 		return $this->setInterfaceConfig($params, [
 			"type" => "bond",
 			"bondprimary" => $params['bondprimary'],

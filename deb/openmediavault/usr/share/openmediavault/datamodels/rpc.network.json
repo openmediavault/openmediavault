@@ -151,8 +151,11 @@
 			   "required": true
 		   },
 		   "slaves": {
-			   "type": "string",
-			   "pattern": "^(((eth|venet|wlan)\\d+|(en|veth|wl)\\S+),)*((eth|venet|wlan)\\d+|(en|veth|wl)\\S+)$",
+			   "type": "array",
+				"items": {
+					"type": "string",
+					"pattern": "^((eth|venet|wlan)\\d+|(en|veth|wl)\\S+)$"
+				},
 			   "required": true
 		   },
 		   "bondprimary": {
