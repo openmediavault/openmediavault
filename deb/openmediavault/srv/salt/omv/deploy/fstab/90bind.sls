@@ -25,13 +25,13 @@
 create_bind_mountpoint_{{ mountpoint.uuid }}:
   file.accumulated:
     - filename: "/etc/fstab"
-    - text: "{{ mountpoint.fsname | replace('\\', '\\\\') }}\t\t{{ mountpoint.dir | escape_blank(True) | replace('\\', '\\\\') }}\t{{ mountpoint.type }}\t{{ mountpoint.opts }}\t{{ mountpoint.freq }} {{ mountpoint.passno }}"
+    - text: "{{ mountpoint.fsname | escape_blank(True) | replace('\\', '\\\\') }}\t\t{{ mountpoint.dir | escape_blank(True) | replace('\\', '\\\\') }}\t{{ mountpoint.type }}\t{{ mountpoint.opts }}\t{{ mountpoint.freq }} {{ mountpoint.passno }}"
     - require_in:
       - file: append_fstab_entries
 
 mount_bind_mountpoint_{{ mountpoint.uuid }}:
   mount.mounted:
-    - name: {{ mountpoint.dir }}
+    - name: {{ mountpoint.dir | escape_blank(True) }}
     - device: {{ mountpoint.fsname | replace('\\', '\\\\') }}
     - fstype: none
     - opts: bind
