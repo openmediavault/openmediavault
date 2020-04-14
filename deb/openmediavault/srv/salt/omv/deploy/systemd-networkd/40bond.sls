@@ -66,9 +66,15 @@ configure_interface_bond_{{ interface.bondprimary }}_link:
 
 {% for slave in interface.slaves.split(',') %}
 
+# Populate the <DEVICE>.network files of the slave devices.
+# 1. Make sure the file exists (if this was not done already).
+# 2. Set additional options.
 configure_interface_bond_{{ slave }}_network:
-  file.touch:
+  file.managed:
     - name: "/etc/systemd/network/10-openmediavault-{{ slave }}.network"
+    - user: root
+    - group: root
+    - mode: 644
   ini.options_present:
     - name: "/etc/systemd/network/10-openmediavault-{{ slave }}.network"
     - separator: "="
