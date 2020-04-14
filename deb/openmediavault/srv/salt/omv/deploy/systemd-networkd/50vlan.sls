@@ -55,16 +55,38 @@ configure_interface_vlan_{{ interface.devicename }}_network:
 
 {% for devicename in interfaces | map(attribute='vlanrawdevice') | unique %}
 
-configure_interface_vlan_{{ devicename }}_network:
+# Populate the <DEVICE>.network file. The 'ini.options_present' state
+# could not be used here because the 'VLAN' option might appear multiple
+# times in the [Network] section.
+# 1. Make sure the file exists (if this was not done already).
+# 2. Get the options from the [Network] section.
+# 3. Purge the [Network] section.
+# 4. Write the origin [Network] section options and append the
+#    additional 'VLAN' options.
+pre_configure_interface_vlan_{{ devicename }}_network:
   file.managed:
     - name: "/etc/systemd/network/10-openmediavault-{{ devicename }}.network"
-    - source:
-      - salt://{{ tpldir }}/files/vlan_network.j2
-    - template: jinja
-    - context:
-        interfaces: {{ interfaces | selectattr('vlanrawdevice', 'equalto', devicename) | list | json }}
     - user: root
     - group: root
     - mode: 644
+{% set options = salt['ini.get_section'](
+  '/etc/systemd/network/10-openmediavault-' ~ devicename ~ '.network', 'Network') %}
+configure_interface_vlan_{{ devicename }}_network:
+  ini.sections_absent:
+    - name: "/etc/systemd/network/10-openmediavault-{{ devicename }}.network"
+    - separator: "="
+    - sections:
+        - Network
+  file.append:
+    - name: "/etc/systemd/network/10-openmediavault-{{ devicename }}.network"
+    - text: |
+
+        [Network]
+        {%- for key, value in options.items() %}
+        {{ key }}={{ value }}
+        {%- endfor %}
+        {%- for interface in interfaces %}
+        VLAN={{ interface.devicename }}
+        {%- endfor %}
 
 {% endfor %}
