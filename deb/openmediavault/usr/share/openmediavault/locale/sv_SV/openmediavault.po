@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Henrik Sandström <inactive+sandstroem@transifex.com>, 2012
-# Jonatan Nyberg, 2018-2020
-# Jonatan Nyberg, 2017-2018
+# Jonatan, 2018-2020
+# Jonatan, 2017-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-05 12:10+0100\n"
 "PO-Revision-Date: 2020-02-23 13:40+0000\n"
-"Last-Translator: Jonatan Nyberg\n"
+"Last-Translator: Jonatan\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
