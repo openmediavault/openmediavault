@@ -753,19 +753,21 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		// Get all unused network interface devices, except loopback and
-		// VLAN network interfaces.
-		$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
-		if (FALSE === ($devs = $mngr->enumerateUnused(
-		  OMV_NETWORK_INTERFACE_TYPE_ALL & ~(OMV_NETWORK_INTERFACE_TYPE_VLAN |
-		  OMV_NETWORK_INTERFACE_TYPE_LOOPBACK)))) {
-			throw new \OMV\Exception(
-			  "Failed to get list of unused network interface devices.");
-		}
+		// Get all configured network interfaces except VLANs.
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->getByFilter("conf.system.network.interface", [
+			"operator" => "not",
+			"arg0" => [
+				"operator" => "stringEquals",
+				"arg0" => "type",
+				"arg1" => "vlan"
+			]
+		]);
 		// Get the network interface information.
 		$result = [];
-		foreach ($devs as $devk => $devv)
-			$result[] = $this->getIfaceInfo($devv);
+		foreach ($objects as $objectk => $objectv) {
+			$result[] = $this->getIfaceInfo($objectv->get("devicename"));
+		}
 		return $result;
 	}
 

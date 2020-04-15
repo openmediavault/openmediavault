@@ -2,6 +2,8 @@ openmediavault (5.4.0-1) unstable; urgency=low
 
   * Modify interface of RPC "rpc.network.setbondiface". Return slaves as
     an array instead of a comma separated string.
+  * The RPC Network::getVlanCandidates will return only configured
+    network interfaces.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 15 Apr 2020 17:23:35 +0200
 
