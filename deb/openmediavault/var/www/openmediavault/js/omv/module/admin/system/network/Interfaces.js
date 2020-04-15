@@ -409,7 +409,6 @@ Ext.define("OMV.module.admin.system.network.interface.window.Bond", {
 				minSelections: 1,
 				allowBlank: false,
 				valueField: "devicename",
-				useStringValue: true,
 				store: Ext.create("OMV.data.Store", {
 					autoLoad: true,
 					model: OMV.data.Model.createImplicit({

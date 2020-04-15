@@ -144,7 +144,7 @@
 					<address6>xxxx:xxxx:...:xxxx</address6>
 					<netmask6>0-128</netmask6>
 					<gateway6>xxxx:xxxx:...:xxxx</gateway6>
-					<dnsnameservers></dnsnameservers>
+					<dnsnameservers>xxx yyy zzz</dnsnameservers>
 					<dnssearch></dnssearch>
 					<mtu>0...n</mtu>
 					<wol>0|1</wol>
