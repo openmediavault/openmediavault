@@ -139,7 +139,7 @@ Ext.define("OMV.module.admin.system.network.interface.window.Generic", {
 			Ext.Array.push(items, [{
 				xtype: "textfield",
 				name: "devicename",
-				fieldLabel: _("Name"),
+				fieldLabel: _("Device"),
 				readOnly: true,
 				allowBlank: true,
 				value: me.devicename
@@ -322,7 +322,7 @@ Ext.define("OMV.module.admin.system.network.interface.window.Ethernet", {
 				items = [{
 					xtype: "combo",
 					name: "devicename",
-					fieldLabel: _("Name"),
+					fieldLabel: _("Device"),
 					emptyText: _("Select a device ..."),
 					queryMode: "local",
 					store: Ext.create("OMV.data.Store", {
@@ -497,7 +497,7 @@ Ext.define("OMV.module.admin.system.network.interface.window.Bond", {
 				xtype: "combo",
 				name: "bondprimary",
 				fieldLabel: _("Primary"),
-				emptyText: _("Select a primary interface ..."),
+				emptyText: _("Select a device ..."),
 				queryMode: "local",
 				store: Ext.create("OMV.data.Store", {
 					model: OMV.data.Model.createImplicit({
@@ -645,8 +645,8 @@ Ext.define("OMV.module.admin.system.network.interface.window.Vlan", {
 			Ext.Array.push(items, [{
 				xtype: "combo",
 				name: "vlanrawdevice",
-				fieldLabel: _("Parent interface"),
-				emptyText: _("Select a parent interface ..."),
+				fieldLabel: _("Parent device"),
+				emptyText: _("Select a device ..."),
 				queryMode: "local",
 				store: Ext.create("OMV.data.Store", {
 					autoLoad: true,
@@ -726,7 +726,7 @@ Ext.define("OMV.module.admin.system.network.interface.window.Wireless", {
 				items = [{
 					xtype: "combo",
 					name: "devicename",
-					fieldLabel: _("Name"),
+					fieldLabel: _("Device"),
 					emptyText: _("Select a device ..."),
 					queryMode: "local",
 					store: Ext.create("OMV.data.Store", {
@@ -898,7 +898,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 	stateId: "85093f5d-9f9f-45bf-a46f-ead6bc36884a",
 	columns: [{
 		xtype: "textcolumn",
-		text: _("Name"),
+		text: _("Device"),
 		sortable: true,
 		dataIndex: "devicename",
 		stateId: "devicename",
