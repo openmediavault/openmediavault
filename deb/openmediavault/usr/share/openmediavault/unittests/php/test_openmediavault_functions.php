@@ -185,7 +185,7 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 
 	public function test_build_path_2() {
 		$path = build_path(DIRECTORY_SEPARATOR, "usr", "//local", "/share//");
-		$this->assertEquals($path, "usr/local/share");
+		$this->assertEquals($path, "usr/local/share/");
 	}
 
 	public function test_build_path_3() {
@@ -270,5 +270,17 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 	public function test_array_remove_key_not_exists() {
 		$d = ["b" => "yyy"];
 		$this->assertFalse(array_remove_key($d, "a"));
+	}
+
+	public function test_explode_safe_1() {
+		$parts = explode_safe(",", "");
+		$this->assertInternalType("array", $parts);
+		$this->assertEmpty($parts);
+	}
+
+	public function test_explode_safe_2() {
+		$parts = explode_safe(",", "1,2,3");
+		$this->assertInternalType("array", $parts);
+		$this->assertEquals($parts, ["1", "2", "3"]);
 	}
 }
