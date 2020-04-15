@@ -54,7 +54,7 @@ abstract class BackendAbstract {
 	 * @return A list of devicefile names, otherwise FALSE.
 	 */
 	public function enumerateSlaves() {
-		return array();
+		return [];
 	}
 
 	/**

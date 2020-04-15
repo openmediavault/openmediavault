@@ -1,3 +1,10 @@
+openmediavault (5.4.0-1) unstable; urgency=low
+
+  * Modify interface of RPC "rpc.network.setbondiface". Return slaves as
+    an array instead of a comma separated string.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 15 Apr 2020 17:23:35 +0200
+
 openmediavault (5.3.10-1) unstable; urgency=low
 
   * Fix bug in the Python RPC error handling. This should fix the "got an

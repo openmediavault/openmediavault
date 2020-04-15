@@ -914,3 +914,18 @@ function unescape_path($var, $octal = FALSE) {
 	$var = str_replace($octal ? "\\040" : "\\x20", " ", $var);
 	return $var;
 }
+
+/**
+ * Split a string by a string. If the string is empty, then an empty
+ * array is returned.
+ * @param string delimiter The boundary string.
+ * @param string string The input string.
+ * @return Returns an array of strings created by splitting the string
+ *   parameter on boundaries formed by the delimiter.
+ */
+function explode_safe($delimiter, $string) {
+	if (empty($string)) {
+		return [];
+	}
+	return explode($delimiter, $string);
+}
