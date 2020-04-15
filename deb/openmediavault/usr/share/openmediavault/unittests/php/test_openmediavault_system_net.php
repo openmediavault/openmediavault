@@ -102,6 +102,7 @@ class test_openmediavault_system_net extends \PHPUnit\Framework\TestCase {
 		// Get existing devices.
 		$devs = $mngr->enumerate(OMV_NETWORK_INTERFACE_TYPE_ETHERNET);
 		$this->assertInternalType("array", $devs);
+		$this->assertGreaterThan(1, count($devs));
 		// Create an interface device object.
 		$netIf = $mngr->getImpl($devs[0]);
 		$this->assertInstanceOf("OMV\System\Net\NetworkInterface", $netIf);
