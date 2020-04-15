@@ -19,15 +19,15 @@
 
 {% set interfaces = salt['omv_conf.get_by_filter'](
   'conf.system.network.interface',
-  {'operator': 'stringEquals', 'arg0': 'type', 'arg1': 'vlan'}) %}
+  {'operator': 'stringEquals', 'arg0': 'type', 'arg1': 'wireless'}) %}
 
 {% for interface in interfaces %}
 
-configure_netplan_vlan_{{ interface.devicename }}:
+configure_netplan_wifi_{{ interface.devicename }}:
   file.managed:
-    - name: "/etc/netplan/50-openmediavault-{{ interface.devicename }}.yaml"
+    - name: "/etc/netplan/30-openmediavault-{{ interface.devicename }}.yaml"
     - source:
-      - salt://{{ tpldir }}/files/vlan.j2
+      - salt://{{ tpldir }}/files/wifi.j2
     - template: jinja
     - context:
         interface: {{ interface | json }}

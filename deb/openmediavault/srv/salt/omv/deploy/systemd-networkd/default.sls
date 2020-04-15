@@ -26,27 +26,6 @@ include:
 {% endif %}
 {% endfor %}
 
-cleanup_etc_network_interfaces:
-  file.managed:
-    - name: "/etc/network/interfaces"
-    - contents: |
-        {{ pillar['headers']['auto_generated'] }}
-        {{ pillar['headers']['warning'] }}
-
-        # interfaces(5) file used by ifup(8) and ifdown(8)
-        # Better use systemd-networkd to configure additional interface stanzas.
-
-        # Include files from /etc/network/interfaces.d:
-        source-directory /etc/network/interfaces.d
-    - user: root
-    - group: root
-    - mode: 644
-
-restart_systemd_networkd:
-  # Force service.running to always restart the service.
-  test.succeed_with_changes:
-    - watch_in:
-      - service: restart_systemd_networkd
-  service.running:
-    - name: systemd-networkd
-    - enable: True
+apply_netplan_config:
+  cmd.run:
+    - name: "netplan apply"

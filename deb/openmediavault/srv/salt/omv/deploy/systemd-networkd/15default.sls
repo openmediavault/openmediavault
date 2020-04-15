@@ -17,22 +17,12 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set interfaces = salt['omv_conf.get_by_filter'](
-  'conf.system.network.interface',
-  {'operator': 'stringEquals', 'arg0': 'type', 'arg1': 'vlan'}) %}
-
-{% for interface in interfaces %}
-
-configure_netplan_vlan_{{ interface.devicename }}:
+configure_netplan_default:
   file.managed:
-    - name: "/etc/netplan/50-openmediavault-{{ interface.devicename }}.yaml"
+    - name: "/etc/netplan/10-openmediavault-default.yaml"
     - source:
-      - salt://{{ tpldir }}/files/vlan.j2
+      - salt://{{ tpldir }}/files/default.j2
     - template: jinja
-    - context:
-        interface: {{ interface | json }}
     - user: root
     - group: root
     - mode: 644
-
-{% endfor %}
