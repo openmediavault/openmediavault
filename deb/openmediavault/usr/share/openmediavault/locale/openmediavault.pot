@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-05 12:10+0100\n"
+"POT-Creation-Date: 2020-04-15 19:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -380,9 +380,6 @@ msgid "Asynchronous I/O"
 msgstr ""
 
 msgid "At reboot"
-msgstr ""
-
-msgid "Attribute name"
 msgstr ""
 
 msgid "Attributes"
@@ -2233,7 +2230,7 @@ msgstr ""
 msgid "Parent Device"
 msgstr ""
 
-msgid "Parent interface"
+msgid "Parent device"
 msgstr ""
 
 msgid "Passive FTP"
@@ -2774,12 +2771,6 @@ msgid "Select a group name ..."
 msgstr ""
 
 msgid "Select a language ..."
-msgstr ""
-
-msgid "Select a parent interface ..."
-msgstr ""
-
-msgid "Select a primary interface ..."
 msgstr ""
 
 msgid "Select a protocol ..."
