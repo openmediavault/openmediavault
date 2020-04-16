@@ -114,7 +114,7 @@
 				},
 				"protocol": {
 					"type": "string",
-					"pattern": "^(!?(tcp|udp|icmp))|all$",
+					"pattern": "^(!?(tcp|udp|icmpv6))|all$",
 					"required": true
 				},
 				"extraoptions": {
@@ -141,7 +141,7 @@
 			},
 			"rulenum": {
 				"type": "integer",
-				"minimum": 0,
+				"minimum": -1,
 				"required": true
 			},
 			"chain": {
@@ -177,7 +177,7 @@
 			},
 			"protocol": {
 				"type": "string",
-				"pattern": "^(!?(tcp|udp|icmp))|all$",
+				"pattern": "^(!?(tcp|udp|icmp|icmpv6))|all$",
 				"required": true
 			},
 			"extraoptions": {

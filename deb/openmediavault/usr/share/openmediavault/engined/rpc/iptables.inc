@@ -110,8 +110,9 @@ class Iptables extends \OMV\Rpc\ServiceAbstract {
 			"arg1" => $family
 		];
 		$db = \OMV\Config\Database::getInstance();
-		if ($db->exists("conf.system.network.iptables.rule", $filter))
+		if ($db->exists("conf.system.network.iptables.rule", $filter)) {
 			$db->deleteByFilter("conf.system.network.iptables.rule", $filter);
+		}
 		// Append the new iptables rules.
 		$objectsAssoc = [];
 		foreach ($objects as $objectk => $objectv) {
@@ -189,9 +190,15 @@ class Iptables extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.iptables.setrule");
+		// Append rule to the end of the existing rules if 'rulenum'
+		// is set to -1.
+		if (-1 == $params['rulenum']) {
+			$objects = $this->getRulesByFamily($params['family']);
+			$params['rulenum'] = count($objects);
+		}
 		// Prepare the configuration object.
 		$object = new \OMV\Config\ConfigObject(
-		  "conf.system.network.iptables.rule");
+			"conf.system.network.iptables.rule");
 		$object->setAssoc($params);
 		// Set the configuration object.
 		$db = \OMV\Config\Database::getInstance();
