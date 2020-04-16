@@ -46,7 +46,7 @@
 		},
 		"protocol": {
 			"type": "string",
-			"pattern": "^(!?(tcp|udp|icmp))|all$",
+			"pattern": "^(!?(tcp|udp|icmp|icmpv6))|all$",
 			"default": "tcp"
 		},
 		"extraoptions": {
