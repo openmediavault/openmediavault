@@ -172,7 +172,7 @@ Ext.define("OMV.module.admin.service.nut.Settings", {
 				value: 1,
 				plugins: [{
 					ptype: "fieldinfo",
-					text: _("The number of power supplies that the UPS feeds on this system (usually 1), refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>UPSMON.CONF(5)</a> for more information.")
+					text: _("The number of power supplies that the UPS feeds on this system (usually 1), refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf(5)</a> for more information.")
 				}]
 			},{
 				xtype: "textarea",
