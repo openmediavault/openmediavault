@@ -50,8 +50,13 @@ EOF
 )
 	omv_config_add_node "/config/services" "nut"
 	omv_config_add_key "/config/services/nut" "enable" "0"
+	omv_config_add_key "/config/services/nut" "mode" "standalone"
 	omv_config_add_key "/config/services/nut" "upsname" "ups"
 	omv_config_add_key "/config/services/nut" "comment" ""
+	omv_config_add_key "/config/services/nut" "netclienthostname" ""
+	omv_config_add_key "/config/services/nut" "netclientusername" ""
+	omv_config_add_key "/config/services/nut" "netclientpassword" ""
+	omv_config_add_key "/config/services/nut" "powervalue" "1"
 	omv_config_add_key "/config/services/nut" "driverconf" "${driverconf}"
 	omv_config_add_key "/config/services/nut" "shutdownmode" "onbatt"
 	omv_config_add_key "/config/services/nut" "shutdowntimer" "30"

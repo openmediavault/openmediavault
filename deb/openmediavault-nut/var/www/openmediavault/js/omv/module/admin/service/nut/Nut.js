@@ -47,7 +47,8 @@ Ext.define("OMV.module.admin.service.nut.Settings", {
 			],
 			conditions: [
 				{ name: "enable", value: true },
-				{ name: "remotemonitor", value: true }
+				{ name: "remotemonitor", value: true },
+				{ name: "mode", value: "standalone"}
 			],
 			properties: [
 				"!allowBlank",
@@ -61,6 +62,38 @@ Ext.define("OMV.module.admin.service.nut.Settings", {
 			properties: [
 				"!allowBlank",
 				"!readOnly"
+			]
+		},{
+			name: [
+				"netclienthostname",
+				"netclientusername",
+				"netclientpassword",
+				"powervalue",
+			],
+			conditions: [
+				{ name: "mode", value: "standalone"},
+			],
+			properties: [
+				"allowBlank",
+				"!show"
+			]
+		},{
+			name: "driverconf",
+			conditions: [
+				{ name: "mode", value: "netclient" }
+			],
+			properties: [
+				"allowBlank",
+				"!show"
+			]
+		},{
+			name: "remotemonitor",
+			conditions: [
+				{ name: "mode", value: "netclient" }
+			],
+			properties: [
+				"readOnly",
+				"!checked"
 			]
 		}]
 	}],
@@ -78,6 +111,28 @@ Ext.define("OMV.module.admin.service.nut.Settings", {
 				fieldLabel: _("Enable"),
 				checked: false
 			},{
+				xtype: "combo",
+				name: "mode",
+				fieldLabel: _("Mode"),
+				queryMode: "local",
+				store: Ext.create("Ext.data.ArrayStore", {
+					fields: [ "value", "text" ],
+					data: [
+						[ "netclient", _("Netclient") ],
+						[ "standalone", _("Standalone") ],
+					]
+				}),
+				displayField: "text",
+				valueField: "value",
+				allowBlank: false,
+				editable: false,
+				triggerAction: "all",
+				value: "standalone",
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."),
+				}]
+			},{
 				xtype: "textfield",
 				name: "upsname",
 				fieldLabel: _("Identifier"),
@@ -85,13 +140,40 @@ Ext.define("OMV.module.admin.service.nut.Settings", {
 				vtype: "upsname",
 				plugins: [{
 					ptype: "fieldinfo",
-					text: _("The name used to uniquely identify your UPS on this system.")
+					text: _("The name used to uniquely identify your UPS on local or remote system.")
 				}]
 			},{
 				xtype: "textfield",
 				name: "comment",
 				fieldLabel: _("Comment"),
 				allowBlank: true
+			},{
+				xtype: "textfield",
+				name: "netclienthostname",
+				fieldLabel: _("Netclient hostname"),
+				allowBlank: false
+			},{
+				xtype: "textfield",
+				name: "netclientusername",
+				fieldLabel: _("Netclient username"),
+				allowBlank: false
+			},{
+				xtype: "textfield",
+				name: "netclientpassword",
+				fieldLabel: _("Netclient password"),
+				allowBlank: false
+			},{
+				xtype: "numberfield",
+				name: "powervalue",
+				fieldLabel: _("Powervalue"),
+				minValue: 0,
+				allowDecimals: false,
+				allowBlank: false,
+				value: 1,
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("The number of power supplies that the UPS feeds on this system (usually 1), refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf(5)</a> for more information.")
+				}]
 			},{
 				xtype: "textarea",
 				name: "driverconf",
@@ -189,11 +271,12 @@ Ext.define("OMV.module.admin.service.nut.Settings", {
 		}
 		// Update remote monitoring settings
 		var remotemonitor = this.findField("remotemonitor").checked;
+		var standalone = (this.findField("mode") === "standalone");
 		fields = [ "remoteuser", "remotepassword" ];
 		for(var i = 0; i < fields.length; i++) {
 			var c = this.findField(fields[i]);
 			if(!Ext.isEmpty(c)) {
-				c.allowBlank = !(enable && remotemonitor);
+				c.allowBlank = !(enable && remotemonitor && standalone);
 				c.setReadOnly(!remotemonitor);
 			}
 		}

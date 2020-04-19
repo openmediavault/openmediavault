@@ -44,7 +44,7 @@ configure_nut_nut_conf:
     - contents: |
         {{ pillar['headers']['auto_generated'] }}
         {{ pillar['headers']['warning'] }}
-        MODE={{ "netserver" if nut_config.remotemonitor | to_bool else "standalone" }}
+        MODE={{ "netserver" if nut_config.remotemonitor | to_bool else nut_config.mode }}
     - user: root
     - group: nut
     - mode: 640
@@ -157,6 +157,8 @@ remove_nut_udev_serialups_rule:
 
 {% endif %}
 
+{% if nut_config.mode != 'netclient' %}
+
 start_nut_driver_service:
   service.running:
     - name: nut-driver
@@ -172,16 +174,18 @@ start_nut_server_service:
       - file: configure_nut_upsd_conf
       - file: configure_nut_upsmon_conf
 
+monitor_nut_server_service:
+  monit.monitor:
+    - name: nut-server
+
+{% endif %}
+
 start_nut_monitor_service:
   service.running:
     - name: nut-monitor
     - enable: True
     - watch:
       - file: configure_nut_upsmon_conf
-
-monitor_nut_server_service:
-  monit.monitor:
-    - name: nut-server
 
 monitor_nut_monitor_service:
   monit.monitor:
