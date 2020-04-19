@@ -1,3 +1,9 @@
+openmediavault-nut (5.1.0-1) stable; urgency=low
+
+  * Add UPS client support. Thanks to Daniel Tsai.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 26 Feb 2020 22:06:36 +0100
+
 openmediavault-nut (5.0.3-1) stable; urgency=low
 
   * Add IPv6 support.
