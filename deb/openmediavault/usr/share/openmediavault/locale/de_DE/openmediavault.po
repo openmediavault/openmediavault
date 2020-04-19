@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-05 12:10+0100\n"
-"PO-Revision-Date: 2020-02-05 11:13+0000\n"
+"POT-Creation-Date: 2020-04-15 19:10+0200\n"
+"PO-Revision-Date: 2020-04-15 17:14+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -401,9 +401,6 @@ msgstr "Asynchrones I/O"
 
 msgid "At reboot"
 msgstr "Beim Neustart"
-
-msgid "Attribute name"
-msgstr "Attributname"
 
 msgid "Attributes"
 msgstr "Attribute"
@@ -2321,8 +2318,8 @@ msgstr "Paraguay"
 msgid "Parent Device"
 msgstr "Übergeordnetes Gerät"
 
-msgid "Parent interface"
-msgstr "Übergeordnete Schnittstelle"
+msgid "Parent device"
+msgstr ""
 
 msgid "Passive FTP"
 msgstr "Passives FTP"
@@ -2901,12 +2898,6 @@ msgstr "Wähle einen Gruppennamen ..."
 
 msgid "Select a language ..."
 msgstr "Wähle eine Sprache ..."
-
-msgid "Select a parent interface ..."
-msgstr "Wähle eine übergeordnete Schnittstelle ..."
-
-msgid "Select a primary interface ..."
-msgstr "Wählen Sie eine primäre Schnittstelle ..."
 
 msgid "Select a protocol ..."
 msgstr "Wähle ein Protokoll ..."

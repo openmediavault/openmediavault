@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 17:31+0100\n"
-"PO-Revision-Date: 2017-09-19 12:44+0000\n"
+"POT-Creation-Date: 2020-04-19 15:47+0200\n"
+"PO-Revision-Date: 2020-04-19 13:55+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/votdev/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: no\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid ""
+"'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
+msgstr ""
 
 msgid "Charge"
 msgstr "Lade"
@@ -52,11 +56,29 @@ msgstr "Last"
 msgid "Message"
 msgstr ""
 
+msgid "Mode"
+msgstr ""
+
+msgid "Netclient"
+msgstr ""
+
+msgid "Netclient hostname"
+msgstr ""
+
+msgid "Netclient password"
+msgstr ""
+
+msgid "Netclient username"
+msgstr ""
+
 msgid "PID"
 msgstr ""
 
 msgid "Password"
 msgstr "Passord"
+
+msgid "Powervalue"
+msgstr ""
 
 msgid "Program"
 msgstr ""
@@ -76,11 +98,20 @@ msgstr "Avstengningsmodus"
 msgid "Shutdown timer"
 msgstr "Avstengningstimer"
 
+msgid "Standalone"
+msgstr ""
+
 msgid "Temperature"
 msgstr "Tempereatur"
 
-msgid "The name used to uniquely identify your UPS on this system."
-msgstr "Navnet brukt til unikt å identifisere UPS'en på ditt system"
+msgid "The name used to uniquely identify your UPS on local or remote system."
+msgstr ""
+
+msgid ""
+"The number of power supplies that the UPS feeds on this system (usually 1), "
+"refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
+"target='_blank'>upsmon.conf(5)</a> for more information."
+msgstr ""
 
 msgid ""
 "The time in seconds until shutdown is initiated. If the UPS happens to come "

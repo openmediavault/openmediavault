@@ -1,5 +1,6 @@
 openmediavault (5.4.0-1) unstable; urgency=low
 
+  * Update locales.
   * Modify interface of RPC "rpc.network.setbondiface". Return slaves as
     an array instead of a comma separated string.
   * The RPC Network::getVlanCandidates will return only configured

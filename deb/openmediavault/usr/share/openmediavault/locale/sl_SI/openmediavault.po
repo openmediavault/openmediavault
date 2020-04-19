@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-05 12:10+0100\n"
-"PO-Revision-Date: 2020-02-05 11:13+0000\n"
+"POT-Creation-Date: 2020-04-15 19:10+0200\n"
+"PO-Revision-Date: 2020-04-15 17:14+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/votdev/openmediavault/language/sl_SI/)\n"
 "MIME-Version: 1.0\n"
@@ -392,9 +392,6 @@ msgstr "Asinhron I/O"
 
 msgid "At reboot"
 msgstr "Ob ponovnem zagonu"
-
-msgid "Attribute name"
-msgstr "Ime atributa"
 
 msgid "Attributes"
 msgstr "Atributi"
@@ -2312,7 +2309,7 @@ msgstr "Paragvaj"
 msgid "Parent Device"
 msgstr ""
 
-msgid "Parent interface"
+msgid "Parent device"
 msgstr ""
 
 msgid "Passive FTP"
@@ -2892,12 +2889,6 @@ msgstr "izberi ime skupine ..."
 
 msgid "Select a language ..."
 msgstr "Izberi jezik ..."
-
-msgid "Select a parent interface ..."
-msgstr ""
-
-msgid "Select a primary interface ..."
-msgstr ""
 
 msgid "Select a protocol ..."
 msgstr "Izberi protokol ..."

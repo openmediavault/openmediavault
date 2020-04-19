@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-05 12:10+0100\n"
-"PO-Revision-Date: 2020-02-12 19:26+0000\n"
-"Last-Translator: omv nas <myomv100@gmail.com>\n"
+"POT-Creation-Date: 2020-04-15 19:10+0200\n"
+"PO-Revision-Date: 2020-04-15 17:14+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/votdev/openmediavault/language/ar_SA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -393,9 +393,6 @@ msgstr "Async I/O الدخل والخرج غير المتزامن"
 
 msgid "At reboot"
 msgstr "عند إعادة التشغيل"
-
-msgid "Attribute name"
-msgstr "اسم السمة"
 
 msgid "Attributes"
 msgstr "السمات"
@@ -2313,8 +2310,8 @@ msgstr "باراجواي"
 msgid "Parent Device"
 msgstr "الجهاز الرئيسي"
 
-msgid "Parent interface"
-msgstr "بطاقة الشبكة الأصل"
+msgid "Parent device"
+msgstr ""
 
 msgid "Passive FTP"
 msgstr "FTP السلبي"
@@ -2893,12 +2890,6 @@ msgstr "حدد اسم مجموعة ..."
 
 msgid "Select a language ..."
 msgstr "اختر لغة ..."
-
-msgid "Select a parent interface ..."
-msgstr "تحديد بطاقة الشبكة أصل ..."
-
-msgid "Select a primary interface ..."
-msgstr "تحديد بطاقة شبكة أساسية ..."
 
 msgid "Select a protocol ..."
 msgstr "تحديد بروتوكول ..."
