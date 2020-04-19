@@ -5,42 +5,64 @@
 		"type": "object",
 		"properties": {
 			"enable": {
-			    "type": "boolean",
+				"type": "boolean",
+				"required": true
+			},
+			"mode": {
+				"type": "string",
+				"enum": [ "netclient", "standalone" ],
 				"required": true
 			},
 			"upsname": {
-			    "type": "string",
-			    "pattern": "^[a-z0-9_-]+$",
+				"type": "string",
+				"pattern": "^[a-z0-9_-]+$",
 				"required": true
 			},
 			"comment": {
-			    "type": "string",
+				"type": "string",
+				"required": true
+			},
+			"netclienthostname": {
+				"type": "string",
+				"required": true
+			},
+			"netclientusername": {
+				"type": "string",
+				"required": true
+			},
+			"netclientpassword": {
+				"type": "string",
+				"required": true
+			},
+			"powervalue": {
+				"type": "integer",
+				"minimum": 0,
 				"required": true
 			},
 			"driverconf": {
-			    "type": "string",
+				"type": "string",
 				"required": true
 			},
 			"shutdownmode": {
-			    "type": "string",
-			    "enum":[ "fsd", "onbatt" ],
+				"type": "string",
+				"enum":[ "fsd", "onbatt" ],
 				"required": true
 			},
 			"shutdowntimer": {
-			    "type": "integer",
-			    "minimum": 1,
+				"type": "integer",
+				"minimum": 1,
 				"required": true
 			},
 			"remotemonitor": {
-			    "type": "boolean",
+				"type": "boolean",
 				"required": true
 			},
 			"remoteuser": {
-			    "type": "string",
+				"type": "string",
 				"required": true
 			},
 			"remotepassword": {
-			    "type": "string",
+				"type": "string",
 				"required": true
 			}
 		}
