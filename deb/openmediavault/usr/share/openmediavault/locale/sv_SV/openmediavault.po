@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-05 12:10+0100\n"
-"PO-Revision-Date: 2020-02-23 13:40+0000\n"
-"Last-Translator: Jonatan Nyberg\n"
+"POT-Creation-Date: 2020-04-15 19:10+0200\n"
+"PO-Revision-Date: 2020-04-15 17:14+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -394,9 +394,6 @@ msgstr "Asynchronous I/O"
 
 msgid "At reboot"
 msgstr "Vid omstart"
-
-msgid "Attribute name"
-msgstr "Attributnamn"
 
 msgid "Attributes"
 msgstr "Attribut"
@@ -2314,8 +2311,8 @@ msgstr "Paraguay"
 msgid "Parent Device"
 msgstr "Huvudenhet"
 
-msgid "Parent interface"
-msgstr "Huvudgränssnitt"
+msgid "Parent device"
+msgstr ""
 
 msgid "Passive FTP"
 msgstr "Passiv FTP"
@@ -2894,12 +2891,6 @@ msgstr "Välj ett gruppnamn ..."
 
 msgid "Select a language ..."
 msgstr "Välj ett språk ..."
-
-msgid "Select a parent interface ..."
-msgstr "Välj en huvudgränssnitt ..."
-
-msgid "Select a primary interface ..."
-msgstr "Välj ett primärt gränssnitt ..."
 
 msgid "Select a protocol ..."
 msgstr "Välj ett protokoll ..."

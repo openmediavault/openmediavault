@@ -11,15 +11,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 17:31+0100\n"
-"PO-Revision-Date: 2018-07-06 18:36+0000\n"
-"Last-Translator: Sári Gábor <sari.gabor@gmail.com>\n"
+"POT-Creation-Date: 2020-04-19 15:47+0200\n"
+"PO-Revision-Date: 2020-04-19 13:55+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid ""
+"'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
+msgstr ""
 
 msgid "Charge"
 msgstr "Töltés"
@@ -54,11 +58,29 @@ msgstr "Terhelés"
 msgid "Message"
 msgstr "Üzenet"
 
+msgid "Mode"
+msgstr ""
+
+msgid "Netclient"
+msgstr ""
+
+msgid "Netclient hostname"
+msgstr ""
+
+msgid "Netclient password"
+msgstr ""
+
+msgid "Netclient username"
+msgstr ""
+
 msgid "PID"
 msgstr "PID"
 
 msgid "Password"
 msgstr "Jelszó"
+
+msgid "Powervalue"
+msgstr ""
 
 msgid "Program"
 msgstr "Program"
@@ -78,11 +100,20 @@ msgstr "Leállítási mód"
 msgid "Shutdown timer"
 msgstr "Leállítás időzítése"
 
+msgid "Standalone"
+msgstr ""
+
 msgid "Temperature"
 msgstr "Hőmérséklet"
 
-msgid "The name used to uniquely identify your UPS on this system."
-msgstr "Az UPS egyedi azonosításához használt név ezen a rendszeren."
+msgid "The name used to uniquely identify your UPS on local or remote system."
+msgstr ""
+
+msgid ""
+"The number of power supplies that the UPS feeds on this system (usually 1), "
+"refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
+"target='_blank'>upsmon.conf(5)</a> for more information."
+msgstr ""
 
 msgid ""
 "The time in seconds until shutdown is initiated. If the UPS happens to come "

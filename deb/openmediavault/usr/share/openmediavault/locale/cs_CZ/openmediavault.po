@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-05 12:10+0100\n"
-"PO-Revision-Date: 2020-02-05 11:13+0000\n"
+"POT-Creation-Date: 2020-04-15 19:10+0200\n"
+"PO-Revision-Date: 2020-04-15 17:14+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -393,9 +393,6 @@ msgstr "Asynchronní vstup/výstup"
 
 msgid "At reboot"
 msgstr "Při restartu"
-
-msgid "Attribute name"
-msgstr "Název atributu"
 
 msgid "Attributes"
 msgstr "Atributy"
@@ -2313,8 +2310,8 @@ msgstr "Paraguay"
 msgid "Parent Device"
 msgstr "Nadřazené zařízení"
 
-msgid "Parent interface"
-msgstr "Nadřazené rozhraní"
+msgid "Parent device"
+msgstr ""
 
 msgid "Passive FTP"
 msgstr "Pasivní FTP"
@@ -2893,12 +2890,6 @@ msgstr "Vyberte název skupiny…"
 
 msgid "Select a language ..."
 msgstr "Vyberte jazyk…"
-
-msgid "Select a parent interface ..."
-msgstr "Vyberte nadřazené rozhraní"
-
-msgid "Select a primary interface ..."
-msgstr "Vyberte hlavní rozhraní…"
 
 msgid "Select a protocol ..."
 msgstr "Vyberte protokol…"

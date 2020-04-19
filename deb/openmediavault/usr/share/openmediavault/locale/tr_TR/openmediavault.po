@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-05 12:10+0100\n"
-"PO-Revision-Date: 2020-02-05 11:13+0000\n"
+"POT-Creation-Date: 2020-04-15 19:10+0200\n"
+"PO-Revision-Date: 2020-04-15 17:14+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/votdev/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -392,9 +392,6 @@ msgstr "Asenkron I/O"
 
 msgid "At reboot"
 msgstr "Yeniden başlatma sırasında"
-
-msgid "Attribute name"
-msgstr "Özellik adı"
 
 msgid "Attributes"
 msgstr "Özellikler"
@@ -2312,8 +2309,8 @@ msgstr "Paraguay"
 msgid "Parent Device"
 msgstr "Ana Cihaz"
 
-msgid "Parent interface"
-msgstr "Ana arabirim"
+msgid "Parent device"
+msgstr ""
 
 msgid "Passive FTP"
 msgstr "Pasif FTP"
@@ -2892,12 +2889,6 @@ msgstr "Bir grup adı seçiniz..."
 
 msgid "Select a language ..."
 msgstr "Bir dil seçiniz ..."
-
-msgid "Select a parent interface ..."
-msgstr "Ana arabirimi seç ..."
-
-msgid "Select a primary interface ..."
-msgstr "Birincil arabirimi seç ..."
 
 msgid "Select a protocol ..."
 msgstr "Bir iletişim kuralı seçin ..."

@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-05 12:10+0100\n"
-"PO-Revision-Date: 2020-02-05 15:54+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>\n"
+"POT-Creation-Date: 2020-04-15 19:10+0200\n"
+"PO-Revision-Date: 2020-04-15 17:14+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/votdev/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -393,9 +393,6 @@ msgstr "非同步 I/O"
 
 msgid "At reboot"
 msgstr "重新啟動時"
-
-msgid "Attribute name"
-msgstr "屬性名稱"
 
 msgid "Attributes"
 msgstr "屬性"
@@ -2313,8 +2310,8 @@ msgstr "巴拉圭"
 msgid "Parent Device"
 msgstr "上層裝置"
 
-msgid "Parent interface"
-msgstr "上層介面"
+msgid "Parent device"
+msgstr ""
 
 msgid "Passive FTP"
 msgstr "被動式 FTP"
@@ -2893,12 +2890,6 @@ msgstr "選擇一個群組名稱..."
 
 msgid "Select a language ..."
 msgstr "選擇一種語言 ..."
-
-msgid "Select a parent interface ..."
-msgstr "選擇一個上層介面 ..."
-
-msgid "Select a primary interface ..."
-msgstr "選擇一個主要介面 ..."
 
 msgid "Select a protocol ..."
 msgstr "選擇一個通訊協定 ..."

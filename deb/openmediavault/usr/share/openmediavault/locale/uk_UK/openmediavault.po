@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-05 12:10+0100\n"
-"PO-Revision-Date: 2020-02-05 11:13+0000\n"
+"POT-Creation-Date: 2020-04-15 19:10+0200\n"
+"PO-Revision-Date: 2020-04-15 17:14+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -394,9 +394,6 @@ msgstr "Асинхронний ввід/вивід"
 
 msgid "At reboot"
 msgstr "При перезавантаженні"
-
-msgid "Attribute name"
-msgstr "Назва атрибуту"
 
 msgid "Attributes"
 msgstr "Атрибути"
@@ -2314,8 +2311,8 @@ msgstr "Парагвай"
 msgid "Parent Device"
 msgstr "Батьківський пристрій"
 
-msgid "Parent interface"
-msgstr "Батьківський інтерфейс"
+msgid "Parent device"
+msgstr ""
 
 msgid "Passive FTP"
 msgstr "Пасивний режим FTP"
@@ -2894,12 +2891,6 @@ msgstr "Оберіть ім'я групи ..."
 
 msgid "Select a language ..."
 msgstr "Вибір мови..."
-
-msgid "Select a parent interface ..."
-msgstr "Обрати батьківський інтерфейс ..."
-
-msgid "Select a primary interface ..."
-msgstr "Обрати основний інтерфейс ..."
 
 msgid "Select a protocol ..."
 msgstr "Оберіть протокол ..."
