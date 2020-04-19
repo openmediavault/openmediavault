@@ -17,34 +17,17 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-# Documentation/Howto:
-# https://www.freedesktop.org/software/systemd/man/systemd.network.html
-# https://wiki.archlinux.org/index.php/Systemd-networkd
-# https://manpages.debian.org/systemd/systemd.link.5.en.html
-
 {% set interfaces = salt['omv_conf.get_by_filter'](
   'conf.system.network.interface',
   {'operator': 'stringEquals', 'arg0': 'type', 'arg1': 'ethernet'}) %}
 
 {% for interface in interfaces %}
 
-configure_interface_wired_{{ interface.devicename }}_network:
+configure_netplan_ethernet_{{ interface.devicename }}:
   file.managed:
-    - name: "/etc/systemd/network/10-openmediavault-{{ interface.devicename }}.network"
+    - name: "/etc/netplan/20-openmediavault-{{ interface.devicename }}.yaml"
     - source:
-      - salt://{{ tpldir }}/files/wired_network.j2
-    - template: jinja
-    - context:
-        interface: {{ interface | json }}
-    - user: root
-    - group: root
-    - mode: 644
-
-configure_interface_wired_{{ interface.devicename }}_link:
-  file.managed:
-    - name: "/etc/systemd/network/10-openmediavault-{{ interface.devicename }}.link"
-    - source:
-      - salt://{{ tpldir }}/files/link.j2
+      - salt://{{ tpldir }}/files/ethernet.j2
     - template: jinja
     - context:
         interface: {{ interface | json }}
