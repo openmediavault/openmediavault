@@ -17,45 +17,32 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-# Flush all network interfaces that are not configured anymore. To identify
-# devices that are not used/configured anymore, simply iterate through the
-# existing configuration files and extract the device names. Then check if
-# those devices exists in the database.
-# Note, systemd-networkd does not like that devices are flushed before they
-# are configured by the daemon. It will time out in such a case (bug???).
+configure_etc_network_interfaces:
+  file.managed:
+    - name: "/etc/network/interfaces"
+    - contents: |
+        {{ pillar['headers']['auto_generated'] }}
+        {{ pillar['headers']['warning'] }}
 
-# Get the network devices that are used after the configuration has
-# been applied.
-{% set interfaces_config = salt['omv_conf.get']('conf.system.network.interface') %}
-{% set used_devices_in_db = interfaces_config | map(attribute='devicename') | list %}
-{% for interface in interfaces_config %}
-{% for slave in interface.slaves.split(',') %}
-{% if slave %}
-{% set _ = used_devices_in_db.append(slave) %}
-{% endif %}
-{% endfor %}
-{% endfor %}
+        # interfaces(5) file used by ifup(8) and ifdown(8)
+        # Better use netplan.io or systemd-networkd to configure additional interface stanzas.
 
-# Get the network devices that are used at the moment BEFORE the new
-# configuration is applied.
-{% set used_devices = [] %}
-{% for file in salt['file.find']('/etc/systemd/network/', iname='^(*-)?openmediavault-*.network$', print='name') | sort %}
-{% set devicename = file | regex_search('^\d+-openmediavault-(.+)\.network$') | first %}
-{% set _ = used_devices.append(devicename) %}
-{% endfor %}
-
-{% for devicename in used_devices | difference(used_devices_in_db | unique) %}
-
-flush_interface_{{ devicename }}:
-  cmd.run:
-    - name: "ip addr flush dev {{ devicename }}"
-    - onlyif: "test -e /sys/class/net/{{ devicename }}"
-
-{% endfor %}
+        # Include files from /etc/network/interfaces.d:
+        source-directory /etc/network/interfaces.d
+    - user: root
+    - group: root
+    - mode: 644
 
 remove_systemd_networkd_config_files:
   module.run:
     - file.find:
       - path: "/etc/systemd/network/"
       - iname: "^(*-)?openmediavault-*"
+      - delete: "f"
+
+remove_netplan_config_files:
+  module.run:
+    - file.find:
+      - path: "/etc/netplan/"
+      - iname: "^(*-)?openmediavault-*.yaml"
       - delete: "f"

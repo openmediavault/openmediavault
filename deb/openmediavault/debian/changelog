@@ -4,6 +4,7 @@ openmediavault (5.4.0-1) unstable; urgency=low
     an array instead of a comma separated string.
   * The RPC Network::getVlanCandidates will return only configured
     network interfaces.
+  * Use netplan.io to deploy the network configuration.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 15 Apr 2020 17:23:35 +0200
 
