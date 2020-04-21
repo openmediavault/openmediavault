@@ -80,12 +80,21 @@ class Smb extends \OMV\Rpc\ServiceAbstract {
 		$object = $db->get("conf.service.smb");
 		$object->setAssoc($params);
 		// Do some validations:
-		// - Check if the user home directories are enabled.
-		if ($object->get("enable") && $object->get("homesenable")) {
-			$hdObject = $db->get("conf.system.usermngmnt.homedir");
-			if (FALSE === $hdObject->get("enable")) {
-				throw new \OMV\ConstraintException("Can't share user home ".
-					"directories because they are not enabled.");
+		if ($object->get("enable")) {
+			// - Check if the hostname is not longer than 15 characters.
+			//   https://wiki.samba.org/index.php/Active_Directory_Naming_FAQ#NetBIOS_Names
+			$dnsObject = $db->get("conf.system.network.dns");
+			if (strlen($dnsObject->get("hostname")) > 15) {
+				throw new \OMV\ConstraintException(
+					"The DNS hostname is limited to 15 characters when using SMB/CIFS.");
+			}
+			// - Check if the user home directories are enabled.
+			if ($object->get("homesenable")) {
+				$hdObject = $db->get("conf.system.usermngmnt.homedir");
+				if (FALSE === $hdObject->get("enable")) {
+					throw new \OMV\ConstraintException("Can't share user home ".
+						"directories because they are not enabled.");
+				}
 			}
 		}
 		// Set the configuration object.
