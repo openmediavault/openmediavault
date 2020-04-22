@@ -43,4 +43,8 @@ omv_config_add_key "/config/services/rsync/jobs/job" "optionowner" "1"
 
 omv_config_add_key "/config/services/smb/shares/share" "timemachine" "0"
 
+# It seems there are migrated OMV3 versions with invalid databases out there.
+# The datamodel has changed with version 3.0.16.
+omv_config_update "/config/system/network/interfaces/interface/mtu[.='']" "0"
+
 exit 0
