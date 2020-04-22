@@ -2,6 +2,7 @@ openmediavault (5.4.1-1) unstable; urgency=low
 
   * Raise an error when SMB/CIFS is activated and the DNS hostname
     is longer than 15 characters.
+  * Remove sysctl settings which have disabled IPv6 by default.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 21 Apr 2020 19:19:47 +0200
 
