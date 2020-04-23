@@ -2,6 +2,8 @@ openmediavault (5.4.2-1) stable; urgency=low
 
   * Fix bug in bond network interface configuration when no primary
     interface is selected.
+  * Cleanup empty systemd-networkd configuration files, otherwise
+    netplan.io will fail because of an udevadm error.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 23 Apr 2020 22:27:06 +0200
 
