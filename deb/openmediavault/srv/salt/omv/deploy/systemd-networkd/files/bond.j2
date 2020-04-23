@@ -66,8 +66,10 @@ network:
 {%- endfor %}
       parameters:
         mode: {{ mode_map[interface.bondmode] }}
+{%- if interface.bondprimary | length > 0 %}
         primary: {{ interface.bondprimary }}
+        primary-reselect-policy: {{ primary_reselect_policy }}
+{%- endif %}
         mii-monitor-interval: {{ interface.bondmiimon }}
         up-delay: {{ interface.bondupdelay }}
         down-delay: {{ interface.bonddowndelay }}
-        primary-reselect-policy: {{ primary_reselect_policy }}
