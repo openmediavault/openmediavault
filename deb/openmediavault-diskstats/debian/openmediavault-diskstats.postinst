@@ -27,7 +27,7 @@ set -e
 case "$1" in
 	configure)
 		if [ -z "$2" ]; then
-			LANG=C.UTF-8 omv-salt deploy run --quiet collectd
+			LANG=C.UTF-8 omv-salt deploy run --quiet collectd || :
 		fi
 
 		########################################################################
