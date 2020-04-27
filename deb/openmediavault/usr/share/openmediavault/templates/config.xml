@@ -150,9 +150,8 @@
 					<wol>0|1</wol>
 					<comment>xxx</comment>
 					# Optional arguments by type:
-					# - ethernet
 					# - bond
-					<slaves>((eth|wlan)\d+,)*(eth|wlan)\d+</slaves>
+					<slaves>(((eth|venet|wlan)\d+|(en|veth|wl)\S+),)*((eth|venet|wlan)\d+|(en|veth|wl)\S+)</slaves>
 					<bondprimary>(eth|wlan)\d+</bondprimary>
 					<bondmode>0|1|2|3|4|5|6</bondmode>
 					<bondmiimon>0</bondmiimon>
@@ -160,7 +159,7 @@
 					<bondupdelay>0</bondupdelay>
 					# - vlan
 					<vlanid>1-4095</vlanid>
-					<vlanrawdevice>(eth|wlan|bond)\d+</vlanrawdevice>
+					<vlanrawdevice>xxx</vlanrawdevice>
 					# - wireless
 					<wpassid>xxx</wpassid>
 					<wpapsk>xxx</wpapsk>
