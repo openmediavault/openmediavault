@@ -1,5 +1,5 @@
 {%- set dns_config = salt['omv_conf.get']('conf.system.network.dns') -%}
-{%- set mac_address = salt['grainss.get']('hwaddr_interfaces:' + interface.devicename) -%}
+{%- set mac_address = salt['grains.get']('hwaddr_interfaces:' + interface.devicename) -%}
 network:
   vlans:
     {{ interface.devicename }}:
