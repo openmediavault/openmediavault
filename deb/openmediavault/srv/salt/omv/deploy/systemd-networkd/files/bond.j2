@@ -1,6 +1,7 @@
 {%- set dns_config = salt['omv_conf.get']('conf.system.network.dns') -%}
 {%- set mode_map = {0: "balance-rr", 1: "active-backup", 2: "balance-xor", 3: "broadcast", 4: "802.3ad", 5: "balance-tlb", 6: "balance-alb"} -%}
 {%- set primary_reselect_policy = salt['pillar.get']('default:OMV_SYSTEMD_NETWORKD_BOND_PRIMARYRESELECTPOLICY', 'always') -%}
+{%- set mac_address = salt['grainss.get']('hwaddr_interfaces:' + interface.devicename) -%}
 network:
   ethernets:
 {%- for slave in interface.slaves.split(',') %}
@@ -11,6 +12,8 @@ network:
 {%- endfor %}
   bonds:
     {{ interface.devicename }}:
+    match:
+      macaddress: {{ mac_address }}
 {%- if interface.method == "static" or interface.method6 == "static" %}
       addresses:
 {%- if interface.method == "static" %}
