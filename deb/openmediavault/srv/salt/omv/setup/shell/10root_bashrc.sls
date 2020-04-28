@@ -17,15 +17,19 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-configure_root_bashrc:
+create_root_bashrc:
   file.managed:
-    - name: '/root/.bashrc'
-    - contents: |
-        {{ pillar['headers']['auto_generated'] }}
-        {{ pillar['headers']['warning'] }}
+    - name: "/root/.bashrc"
+    - user: root
+    - group: root
+    - mode: 600
+    - replace: False
 
-        # Enable bash completion in interactive shells.
-        # Added by openmediavault.
+configure_root_bashrc:
+  file.prepend:
+    - name: "/root/.bashrc"
+    - text: |
+        {{ pillar['headers']['added'] }}
         if ! shopt -oq posix; then
             if [ -f /usr/share/bash-completion/bash_completion ]; then
                 . /usr/share/bash-completion/bash_completion
@@ -33,6 +37,3 @@ configure_root_bashrc:
                 . /etc/bash_completion
             fi
         fi
-    - user: root
-    - group: root
-    - mode: 600
