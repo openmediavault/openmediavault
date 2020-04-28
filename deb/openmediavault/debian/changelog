@@ -1,6 +1,8 @@
 openmediavault (5.4.3-1) stable; urgency=low
 
   * Issue #689: Network MTU value doesn't get applied.
+  * Enhance storage host driver detection. This will fix a SMART issue
+    related to HPSA HBA.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 29 Apr 2020 08:07:24 +0200
 
