@@ -18,7 +18,6 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-import os
 import re
 
 import openmediavault.device
@@ -30,11 +29,11 @@ class StorageDevicePlugin(openmediavault.device.IStorageDevicePlugin):
         return re.match(r'^sd[a-z]+[0-9]*$', device_name) is not None
 
     def from_device_file(self, device_file):
-        host_driver = self._host_driver(device_file)
-        if host_driver == 'arcmsr':
+        sd = openmediavault.device.StorageDevice(device_file)
+        if sd.host_driver == 'arcmsr':
             # Areca RAID controller
             return StorageDeviceARCMSR(device_file)
-        if host_driver == 'hpsa':
+        if sd.host_driver == 'hpsa':
             # Logical drives from HP Smart Array RAID controllers
             # are accessed via the SCSI disk driver, so we need to
             # identify such drives because these must be handled
@@ -42,15 +41,6 @@ class StorageDevicePlugin(openmediavault.device.IStorageDevicePlugin):
             # @see https://linux.die.net/man/4/hpsa
             return StorageDeviceHPSA(device_file)
         return StorageDevice(device_file)
-
-    @staticmethod
-    def _host_driver(device_file):
-        sd = openmediavault.device.StorageDevice(device_file)
-        host_path = '/sys/block/{}/device/../..'.format(sd.device_name(True))
-        driver_path = os.path.relpath('{}/../driver'.format(host_path))
-        if not os.path.exists(driver_path):
-            return None
-        return os.path.basename(driver_path)
 
 
 class StorageDevice(openmediavault.device.StorageDevice):
