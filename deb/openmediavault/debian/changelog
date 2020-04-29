@@ -1,3 +1,9 @@
+openmediavault (5.4.3-1) stable; urgency=low
+
+  * Issue #689: Network MTU value doesn't get applied.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 29 Apr 2020 08:07:24 +0200
+
 openmediavault (5.4.2-1) stable; urgency=low
 
   * Fix bug in bond network interface configuration when no primary

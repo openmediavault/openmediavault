@@ -1,7 +1,10 @@
 {%- set dns_config = salt['omv_conf.get']('conf.system.network.dns') -%}
+{%- set mac_address = salt['grains.get']('hwaddr_interfaces:' + interface.devicename) -%}
 network:
   ethernets:
     {{ interface.devicename }}:
+      match:
+        macaddress: {{ mac_address }}
 {%- if interface.method == "static" or interface.method6 == "static" %}
       addresses:
 {%- if interface.method == "static" %}
