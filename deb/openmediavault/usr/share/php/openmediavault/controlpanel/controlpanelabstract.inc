@@ -235,11 +235,17 @@ EOF;
 	 * @return The page title string.
 	 */
 	protected function getTitle() {
-		$prd = new \OMV\ProductInfo();
-		$title = sprintf("%s %s", $prd->getName(), gettext("control panel"));
 		try {
-			$fqdn = \OMV\System\Net\Dns::getFqdn();
-			$title = sprintf("%s - %s", $title, $fqdn);
+			$prd = new \OMV\ProductInfo();
+			$map = [
+				"{{fqdn}}" => \OMV\System\Net\Dns::getFqdn(),
+				"{{prdname}}" => $prd->getName()
+			];
+			$title = \OMV\Environment::get("OMV_WEBGUI_TITLE",
+				"{{prdname}} control panel - {{fqdn}}");
+			foreach ($map as $mapk => $mapv) {
+				$title = str_replace($mapk, $mapv, $title);
+			}
 		} catch(\Exception $e) {
 			// Nothing to do here.
 		}
