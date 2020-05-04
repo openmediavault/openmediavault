@@ -36,7 +36,7 @@
 # enabled (quotaon does not like to be executed when it is already on).
 quota_off_{{ quota.fsuuid }}:
   cmd.run:
-    - name: quotaoff --group --user {{ device }}
+    - name: quotaoff --group --user "{{ device }}"
 
 {% if enabled | to_bool %}
 
@@ -46,23 +46,23 @@ quota_off_{{ quota.fsuuid }}:
 {% if fstype | check_whitelist_blacklist(blacklist=['xfs']) %}
 quota_check_{{ quota.fsuuid }}:
   cmd.run:
-    - name: quotacheck --user --group --create-files --try-remount --use-first-dquot --verbose {{ device }}
+    - name: quotacheck --user --group --create-files --try-remount --use-first-dquot --verbose "{{ device }}"
 {% endif %}
 
 quota_on_{{ quota.fsuuid }}:
   cmd.run:
-    - name: quotaon --group --user {{ device }}
+    - name: quotaon --group --user "{{ device }}"
 
 {% for usrquota in quota.usrquota %}
 quota_set_user_{{ quota.fsuuid }}_{{ usrquota.name }}:
   cmd.run:
-    - name: setquota --user {{ usrquota.name }} {{ usrquota.bsoftlimit }} {{ usrquota.bhardlimit }} {{ usrquota.isoftlimit }} {{ usrquota.ihardlimit }} {{ device }}
+    - name: setquota --user {{ usrquota.name }} {{ usrquota.bsoftlimit }} {{ usrquota.bhardlimit }} {{ usrquota.isoftlimit }} {{ usrquota.ihardlimit }} "{{ device }}"
 {% endfor %}
 
 {% for grpquota in quota.grpquota %}
 quota_set_group_{{ quota.fsuuid }}_{{ grpquota.name }}:
   cmd.run:
-    - name: setquota --group {{ grpquota.name }} {{ grpquota.bsoftlimit }} {{ grpquota.bhardlimit }} {{ grpquota.isoftlimit }} {{ grpquota.ihardlimit }} {{ device }}
+    - name: setquota --group {{ grpquota.name }} {{ grpquota.bsoftlimit }} {{ grpquota.bhardlimit }} {{ grpquota.isoftlimit }} {{ grpquota.ihardlimit }} "{{ device }}"
 {% endfor %}
 
 {% endif %}
