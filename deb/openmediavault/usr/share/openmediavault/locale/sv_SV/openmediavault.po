@@ -4,8 +4,8 @@
 # 
 # Translators:
 # Henrik Sandström <inactive+sandstroem@transifex.com>, 2012
-# Jonatan Nyberg, 2018-2020
-# Jonatan Nyberg, 2017-2018
+# Jonatan Nyberg <jonatan.nyberg.karl@gmail.com>, 2018-2020
+# Jonatan Nyberg <jonatan.nyberg.karl@gmail.com>, 2017-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
