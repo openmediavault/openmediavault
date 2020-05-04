@@ -56,8 +56,8 @@ configure_smartd_conf:
 
 enable_smart_on_{{ device.devicefile }}:
   cmd.run:
-    - name: "export LANG=C; smartctl -s on {{ device.devicefile }}"
-    - onlyif: "export LANG=C; smartctl -i {{ device.devicefile }} | grep -q 'SMART support is: Disabled'"
+    - name: "export LANG=C; smartctl -s on '{{ device.devicefile }}'"
+    - onlyif: "export LANG=C; smartctl -i '{{ device.devicefile }}' | grep -q 'SMART support is: Disabled'"
 
 {% endfor %}
 

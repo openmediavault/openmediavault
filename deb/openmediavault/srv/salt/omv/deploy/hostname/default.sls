@@ -25,5 +25,5 @@
 
 configure_hostname:
   cmd.run:
-    - name: hostnamectl set-hostname {{ fqdn }}
+    - name: hostnamectl set-hostname "{{ fqdn }}"
     - unless: test "{{ fqdn }}" = "$(hostname)"
