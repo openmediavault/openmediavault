@@ -1,4 +1,4 @@
-[	{
+[{
 	"type": "rpc",
 	"id": "rpc.quota.set",
 	"params": {
