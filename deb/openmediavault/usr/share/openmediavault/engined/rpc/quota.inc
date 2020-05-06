@@ -35,6 +35,8 @@ class Quota extends \OMV\Rpc\ServiceAbstract {
 	public function initialize() {
 		$this->registerMethod("get");
 		$this->registerMethod("set");
+		$this->registerMethod("getByTypeName");
+		$this->registerMethod("setByTypeName");
 		$this->registerMethod("delete");
 	}
 
@@ -161,7 +163,7 @@ class Quota extends \OMV\Rpc\ServiceAbstract {
 	 * Set the quota for the given filesystem.
 	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the filesystem.
-     *   \em quota. An array of quotas to set.
+	 *   \em quota An array of quotas to set.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
 	 */
@@ -225,6 +227,83 @@ class Quota extends \OMV\Rpc\ServiceAbstract {
 		$db->set($object);
 		// Return the configuration object.
 		return $object->getAssoc();
+	}
+
+	/**
+	 * Get the quota for the given filesystem and type/name.
+	 * @param params An array containing the following fields:
+	 *   \em uuid The UUID of the filesystem.
+	 *   \em name The name of the user/group.
+	 *   \em type The type, e.g. 'user' or 'group'.
+	 * @param context The context of the caller.
+	 * @return An object containing the fields \em uuid, \em type,
+	 *   \em name, \em bhardlimit and \em bunit.
+	 */
+	function getByTypeName($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.quota.getByTypeName");
+		// Get the quota configuration object.
+		$quota = $this->callMethod("get", [
+			"uuid" => $params['uuid']
+		], $this->getAdminContext());
+		// Try to find the given quota for type/name.
+		$result = NULL;
+		foreach($quota as $quotak => $quotav) {
+			if (($quotav['type'] == $params['type']) &&
+					($quotav['name'] == $params['name'])) {
+				$result = $quotav;
+				$result['uuid'] = $params['uuid'];
+				break;
+			}
+		}
+		if (is_null($result)) {
+			throw new \OMV\Exception("Failed to get quota.");
+		}
+		return $result;
+	}
+
+	/**
+	 * Set the quota for the given filesystem and type/name.
+	 * @param params An array containing the following fields:
+	 *   \em uuid The UUID of the filesystem.
+	 *   \em name The name of the user/group.
+	 *   \em type The type, e.g. 'user' or 'group'.
+	 *   \em bhardlimit The hard limit.
+	 *   \em bunit The unit, e.g. 'B', 'MiB' or 'PiB'.
+	 * @param context The context of the caller.
+	 * @return The stored configuration object.
+	 */
+	function setByTypeName($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.quota.setByTypeName");
+		// Get the quota configuration object.
+		$quota = $this->callMethod("get", [
+			"uuid" => $params['uuid']
+		], $this->getAdminContext());
+		// Update the given data.
+		foreach($quota as $quotak => &$quotav) {
+			if (($quotav['type'] == $params['type']) &&
+					($quotav['name'] == $params['name'])) {
+				$quotav['type'] = $params['type'];
+				$quotav['name'] = $params['name'];
+				$quotav['bhardlimit'] = $params['bhardlimit'];
+				$quotav['bunit'] = $params['bunit'];
+				break;
+			}
+		}
+		// Set the quota configuration.
+		return $this->callMethod("set", [
+			"uuid" => $params['uuid'],
+			"quota" => $quota
+		], $this->getAdminContext());
 	}
 
 	/**
