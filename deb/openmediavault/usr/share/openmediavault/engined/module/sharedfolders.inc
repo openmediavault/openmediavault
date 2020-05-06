@@ -42,8 +42,6 @@ class Sharedfolders extends \OMV\Engine\Module\ServiceAbstract
 	 * @param object The configuration object.
 	 */
 	final public function onDeleteSharedFolder($type, $path, $object) {
-		// Create a new task that will delete the network interface
-		// before the network configuration is deployed.
 		\OMV\Salt\Task::create("omv.task.sharedfolder_alias.disable", [
 			"name" => $object['name']
 		]);

@@ -20,7 +20,7 @@
 # Documentation/Howto:
 # https://www.freedesktop.org/software/systemd/man/bootup.html#System%20Manager%20Bootup
 
-{% set sharedfolders_dir_enabled = salt['pillar.get']('default:OMV_SHAREDFOLDERS_DIR_ENABLED', 'yes') %}
+{% set sharedfolders_dir_enabled = salt['pillar.get']('default:OMV_SHAREDFOLDERS_DIR_ENABLED', 'no') %}
 {% set sharedfolders_dir = salt['pillar.get']('default:OMV_SHAREDFOLDERS_DIR', '/sharedfolders') %}
 {% set sharedfolders_dir_escaped = salt['cmd.run']('systemd-escape --path ' ~ sharedfolders_dir) %}
 {% set sharedfolder_config = salt['omv_conf.get']('conf.system.sharedfolder') %}

@@ -23,7 +23,9 @@
 
 {% set data = salt['pillar.get']('data', None) %}
 {% set sharedfolders_path = salt['pillar.get']('default:OMV_SHAREDFOLDERS_DIR', '/sharedfolders') %}
+{% set sharedfolders_dir_enabled = salt['pillar.get']('default:OMV_SHAREDFOLDERS_DIR_ENABLED', 'no') %}
 
+{% if sharedfolders_dir_enabled | to_bool %}
 {% if data is not none %}
 
 {% set dir_path = sharedfolders_path | path_join(data.name) %}
@@ -37,6 +39,7 @@ disable_sharedfolder_{{ data.name }}_mount_unit:
 remove_sharedfolder_{{ data.name }}_mount_point:
   file.absent:
     - name: {{ dir_path }}
-    - unless: "mountpoint -q {{ dir_path }}"
+    - unless: "mountpoint -q '{{ dir_path }}'"
 
+{% endif %}
 {% endif %}
