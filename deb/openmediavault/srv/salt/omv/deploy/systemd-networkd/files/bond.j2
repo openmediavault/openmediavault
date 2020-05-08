@@ -8,6 +8,9 @@ network:
       addresses: []
       dhcp4: false
       dhcp6: false
+{%- if interface.wol | to_bool %}
+      wakeonlan: true
+{%- endif %}
 {%- endfor %}
   bonds:
     {{ interface.devicename }}:
@@ -56,9 +59,6 @@ network:
 {%- endif %}
 {%- if interface.mtu > 0 %}
       mtu: {{ interface.mtu }}
-{%- endif %}
-{%- if interface.wol | to_bool %}
-      wakeonlan: true
 {%- endif %}
       interfaces:
 {%- for slave in interface.slaves.split(',') %}

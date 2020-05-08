@@ -1,6 +1,7 @@
 openmediavault (5.4.4-1) stable; urgency=low
 
   * Fix issue related to /sharedfolders (if enabled).
+  * Issue #701: Fix bond WOL problem in netplan.io configuration.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 06 May 2020 18:11:03 +0200
 
