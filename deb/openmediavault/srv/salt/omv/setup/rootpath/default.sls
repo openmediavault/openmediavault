@@ -23,5 +23,4 @@
 fix_root_path_permissions:
   file.directory:
     - name: /
-    - create: False
     - mode: 0755
