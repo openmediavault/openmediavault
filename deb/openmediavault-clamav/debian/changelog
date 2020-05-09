@@ -1,3 +1,10 @@
+openmediavault-clamav (5.0.10-1) stable; urgency=low
+
+  * Update locales.
+  * Issue #702: Do not try to download main.cvd if main.cld exists.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 09 May 2020 18:10:47 +0200
+
 openmediavault-clamav (5.0.9-1) stable; urgency=low
 
   * The SLS execution is now correctly deferred for 5 minutes if

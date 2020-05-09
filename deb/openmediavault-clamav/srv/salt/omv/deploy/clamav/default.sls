@@ -126,6 +126,7 @@ wait_for_clamav_freshclam_db_download:
     - retry:
         attempts: 60
         interval: 5
+    - onlyif: "test ! -e /var/lib/clamav/main.cld"
 
 configure_clamav_freshclam_logrotate:
   file.managed:
