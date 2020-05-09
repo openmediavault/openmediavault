@@ -1,6 +1,6 @@
 openmediavault (5.4.5-1) stable; urgency=low
 
-  * Workaround proftpd start/stop problem.
+  * Fix proftpd start/stop problem.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 09 May 2020 15:34:54 +0200
 
