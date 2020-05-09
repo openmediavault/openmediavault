@@ -22,21 +22,25 @@
 include:
   - .modules
 
+# Workaround start/stop problem related to sysv-init start-stop-daemon
+# helper and --pidfile security. A syslog message looks like:
+# proftpd[16533]: Starting ftp server: proftpdstart-stop-daemon: matching on world-writable pidfile /run/proftpd.pid is insecure
+# See https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=960108
+proftpd_systemd_dropin:
+  file.managed:
+    - name: "/etc/systemd/system/proftpd.service.d/openmediavault.conf"
+    - makedirs: True
+    - contents: |
+        [Service]
+        ExecStop=
+        ExecStop=-/usr/bin/chmod 0644 /run/proftpd.pid
+        ExecStop=/etc/init.d/proftpd stop
+
 {% if config.enable | to_bool %}
 
 test_proftpd_service_config:
   cmd.run:
     - name: "proftpd --configtest"
-
-# It somehow happens that there is a PID file with incorrect permissions
-# that will let the sysvinit script fail:
-# proftpd[16533]: Starting ftp server: proftpdstart-stop-daemon: matching on world-writable pidfile /run/proftpd.pid is insecure
-chmod_proftpd_pidfile:
-  module.run:
-  - file.set_mode:
-    - path: /run/proftpd.pid
-    - mode: 644
-  - onlyif: "test -f /run/proftpd.pid"
 
 start_proftpd_service:
   service.running:
