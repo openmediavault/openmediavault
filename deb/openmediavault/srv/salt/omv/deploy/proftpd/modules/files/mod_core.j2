@@ -38,7 +38,6 @@ MaxInstances {{ max_instances }}
 DenyFilter {{ deny_filter }}
 User {{ user }}
 Group {{ group }}
-Umask {{ umask }}
 PersistentPasswd {{ persistent_passwd }}
 TimesGMT {{ times_gmt }}
 AllowOverwrite {{ allow_overwrite }}
@@ -94,6 +93,7 @@ DisplayLogin {{ display_login }}
   DirFakeGroup on ftp
   RequireValidShell off
   <Directory *>
+    Umask {{ umask }}
     HideFiles (welcome.msg)
     HideNoAccess on
     <Limit WRITE>
@@ -128,6 +128,7 @@ DisplayLogin {{ display_login }}
 {%- endif %}
 {%- endfor -%}
 <Directory /{{ sf_config.name }}>
+  Umask {{ umask }}
   <Limit ALL>
 {%- if limitall_allowuser | length > 0 %}
     AllowUser OR {{ limitall_allowuser | join(',') }}
