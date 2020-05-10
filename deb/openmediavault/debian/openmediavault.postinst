@@ -125,6 +125,8 @@ case "$1" in
 			deb-systemd-invoke start systemd-networkd.service || :
 			deb-systemd-helper enable systemd-resolved.service
 			deb-systemd-invoke start systemd-resolved.service || :
+			deb-systemd-helper enable systemd-journald.service
+			deb-systemd-invoke start systemd-journald.service || :
 		fi
 
 		# Create public/private SSH key pair for user root.
