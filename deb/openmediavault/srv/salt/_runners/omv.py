@@ -37,6 +37,7 @@ def populate_pillar():
     filename = '/srv/pillar/omv/default.sls'
     log.info('Writing {}'.format(filename))
     with open(filename, 'w') as fd:
+        fd.write('{% raw %}\n')
         fd.write(
             yaml.dump(
                 {'default': data},
@@ -44,6 +45,7 @@ def populate_pillar():
                 default_flow_style=False,
             )
         )
+        fd.write('{% endraw %}\n')
     # Create the pillar containing the product information.
     prod_info = openmediavault.productinfo.ProductInfo()
     data = prod_info.as_dict()
