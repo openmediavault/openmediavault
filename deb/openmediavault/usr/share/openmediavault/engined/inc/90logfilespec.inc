@@ -284,7 +284,11 @@ require_once("openmediavault/functions.inc");
 	  "servicename" => 7,
 	  "operation" => 8,
 	  "result" => 9,
-	  "filename" => 10
+	  "filepath" => 10,
+	  "filename" => [
+	      "index" => 10,
+	      "func" => function($v) { return basename($v); }
+	  ]
   ]]);
 
 // /var/log/rsync.log

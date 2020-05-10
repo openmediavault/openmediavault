@@ -88,6 +88,14 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.smb.Audit", {
 		stateId: "servicename"
 	},{
 		xtype: "textcolumn",
+		text: _("Filepath"),
+		hidden: true,
+		sortable: true,
+		dataIndex: "filepath",
+		stateId: "filepath",
+		flex: 1
+	},{
+		xtype: "textcolumn",
 		text: _("Filename"),
 		sortable: true,
 		dataIndex: "filename",
