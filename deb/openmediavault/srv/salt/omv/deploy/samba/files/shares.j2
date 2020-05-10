@@ -10,7 +10,7 @@
 {%- set recycle_exclude_dir = salt['pillar.get']('default:OMV_SAMBA_SHARE_RECYCLE_EXCLUDEDIR', '') -%}
 {%- set full_audit_prefix = salt['pillar.get']('default:OMV_SAMBA_SHARE_AUDIT_PREFIX', '%u|%I|%m|%P|%S') -%}
 {%- set full_audit_success = salt['pillar.get']('default:OMV_SAMBA_SHARE_AUDIT_SUCCESS', 'mkdir rename unlink rmdir pwrite') -%}
-{%- set full_audit_failure = salt['pillar.get']('default:OMV_SAMBA_SHARE_AUDIT_FAILURE', 'none') -%}
+{%- set full_audit_failure = salt['pillar.get']('default:OMV_SAMBA_SHARE_AUDIT_FAILURE', 'connect') -%}
 {%- set full_audit_facility = salt['pillar.get']('default:OMV_SAMBA_SHARE_AUDIT_FACILITY', 'local7') -%}
 {%- set full_audit_priority = salt['pillar.get']('default:OMV_SAMBA_SHARE_AUDIT_PRIORITY', 'NOTICE') -%}
 {%- set printable = salt['pillar.get']('default:OMV_SAMBA_SHARE_PRINTABLE', 'no') -%}

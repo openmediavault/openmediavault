@@ -75,6 +75,7 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.smb.Audit", {
 	},{
 		xtype: "textcolumn",
 		text: _("Shared folder path"),
+		hidden: true,
 		sortable: true,
 		dataIndex: "servicerootdir",
 		stateId: "servicerootdir",
