@@ -99,7 +99,7 @@ case "$1" in
 			# Setup all services.
 			####################################################################
 			echo "Updating service units ..."
-			# Stop/Disable various services.
+			# Stop and disable various services that are disabled by default.
 			deb-systemd-helper disable chrony.service
 			deb-systemd-invoke stop chrony.service || :
 			deb-systemd-helper disable smartmontools.service
@@ -120,13 +120,16 @@ case "$1" in
 			# running a masterless minion setup.
 			deb-systemd-invoke stop salt-minion.service || :
 
-			# Enable/Start various services.
+			# Enable and start various services that are necessary for
+			# openmediavault to work correct.
 			deb-systemd-helper enable systemd-networkd.service
 			deb-systemd-invoke start systemd-networkd.service || :
 			deb-systemd-helper enable systemd-resolved.service
 			deb-systemd-invoke start systemd-resolved.service || :
 			deb-systemd-helper enable systemd-journald.service
 			deb-systemd-invoke start systemd-journald.service || :
+			deb-systemd-helper enable rsyslog.service
+			deb-systemd-invoke start rsyslog.service || :
 		fi
 
 		# Create public/private SSH key pair for user root.
