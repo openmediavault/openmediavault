@@ -1,6 +1,8 @@
 openmediavault (5.4.6-1) stable; urgency=low
 
   * Issue #703: Using OMV_WEBGUI_TITLE breaks Salt rendering.
+  * Issue #704: Fix bug when deleting shared folders in conjunction
+    with OMV_SHAREDFOLDERS_DIR_ENABLED=No.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 10 May 2020 12:05:24 +0200
 
