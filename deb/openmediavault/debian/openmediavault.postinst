@@ -116,8 +116,10 @@ case "$1" in
 			deb-systemd-invoke stop nmbd.service || :
 			deb-systemd-helper disable postfix.service
 			deb-systemd-invoke stop postfix.service || :
+
 			# The salt-minion service does not need to be running when
 			# running a masterless minion setup.
+			deb-systemd-helper disable salt-minion.service
 			deb-systemd-invoke stop salt-minion.service || :
 
 			# Enable and start various services that are necessary for
@@ -203,6 +205,7 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "5.0"; then
 			# The salt-minion service does not need to be running when
 			# running a masterless minion setup.
+			deb-systemd-helper disable salt-minion.service
 			deb-systemd-invoke stop salt-minion.service || :
 			# Use chrony instead of ntp. Make sure all services are disabled.
 			# Finally enable chrony if necessary.
@@ -219,6 +222,12 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "5.3.8"; then
 			omv_module_set_dirty nginx
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.4.6"; then
+		  # The salt-minion service does not need to be running when
+			# running a masterless minion setup.
+			deb-systemd-helper disable salt-minion.service
+			deb-systemd-invoke stop salt-minion.service || :
 		fi
 
 		########################################################################
