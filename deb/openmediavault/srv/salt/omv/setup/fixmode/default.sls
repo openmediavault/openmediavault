@@ -17,5 +17,16 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-include:
-  - .{{ salt['pillar.get']('setup_rootpath', 'default') }}
+# Set correct mode of various paths to prevent errors like:
+# "Authentication refused: bad ownership or modes for directory /"
+# "ignoring unsafe /etc/daemon.conf (/etc is group writable)"
+# The issue seems to be related to live-build.
+fix_root_path_permissions:
+  file.directory:
+    - name: /
+    - mode: 0755
+
+fix_etc_path_permissions:
+  file.directory:
+    - name: /etc
+    - mode: 0755
