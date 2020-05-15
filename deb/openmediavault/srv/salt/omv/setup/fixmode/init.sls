@@ -17,10 +17,5 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-# Set correct mode of / to prevent the following SSH error:
-# "Authentication refused: bad ownership or modes for directory /"
-# The issue seems to be related to live-build.
-fix_root_path_permissions:
-  file.directory:
-    - name: /
-    - mode: 0755
+include:
+  - .{{ salt['pillar.get']('setup_fixmode', 'default') }}
