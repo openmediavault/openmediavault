@@ -213,10 +213,28 @@ class MountPoint {
 	 */
 	public function getInfo() {
 		$cmdArgs = [];
-		$cmdArgs[] = "--first-only";
 		$cmdArgs[] = "--output-all";
 		$cmdArgs[] = "--nofsroot";
 		$cmdArgs[] = "--json";
+		// We do not want to process 'autofs' entries for filesystems
+		// that are mounted by systemd via 'x-systemd.automount'.
+		// {
+		//   "filesystems": [
+		//     {
+		//       "target": "/srv/dev-disk-by-id-dm-name-sdb-crypt",
+		//       "source": "systemd-1",
+		//       "fstype": "autofs",
+		//       "options": "rw,relatime,fd=44,pgrp=1,timeout=0,minproto=5,maxproto=5,direct,pipe_ino=12136"
+		//     },
+		//     {
+		//       "target": "/srv/dev-disk-by-id-dm-name-sdb-crypt",
+		//       "source": "/dev/mapper/sdb-crypt",
+		//       "fstype": "ext4",
+		//       "options": "rw,noexec,relatime,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group"
+		//     }
+		//   ]
+		// }
+		$cmdArgs[] = "--types=noautofs"
 		$cmdArgs[] = escapeshellarg($this->getPath());
 		$cmd = new \OMV\System\Process("findmnt", $cmdArgs);
 		$cmd->setRedirect2to1();
