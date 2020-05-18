@@ -1,6 +1,7 @@
 openmediavault (5.4.7-1) stable; urgency=low
 
   * Various improvements.
+  * Issue #710: Ignore 'autofs' filesystems wherever necessary.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 12 May 2020 18:39:58 +0200
 

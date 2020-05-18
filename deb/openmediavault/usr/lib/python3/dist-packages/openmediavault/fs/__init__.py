@@ -114,6 +114,7 @@ class Filesystem(openmediavault.device.BlockDevice):
                     '--nofsroot',
                     '--output=SOURCE',
                     '--raw',
+                    '--types=noautofs',
                     path,
                 ]
             )
