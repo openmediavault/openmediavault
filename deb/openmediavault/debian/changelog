@@ -1,5 +1,6 @@
 openmediavault (5.4.7-1) stable; urgency=low
 
+  * Update locales.
   * Various improvements.
   * Issue #710: Ignore 'autofs' filesystems wherever necessary.
 
