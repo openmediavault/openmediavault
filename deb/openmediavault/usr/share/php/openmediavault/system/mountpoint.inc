@@ -234,7 +234,7 @@ class MountPoint {
 		//     }
 		//   ]
 		// }
-		$cmdArgs[] = "--types=noautofs"
+		$cmdArgs[] = "--types=noautofs";
 		$cmdArgs[] = escapeshellarg($this->getPath());
 		$cmd = new \OMV\System\Process("findmnt", $cmdArgs);
 		$cmd->setRedirect2to1();

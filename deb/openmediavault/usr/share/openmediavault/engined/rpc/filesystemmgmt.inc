@@ -853,17 +853,6 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				"Failed to get the '%s' filesystem implementation or '%s' ".
 				"does not exist.", $fsb->getType(), $params['id']);
 		}
-		// Get the parent storage device containing the filesystem, e.g.
-		// /dev/sdb or /dev/cciss/c0d0.
-		$parentDeviceFile = $fs->getParentDeviceFile();
-		if (FALSE === is_devicefile($parentDeviceFile)) {
-			throw new \OMV\Exception(
-				"Failed to get parent storage device file from '%s'.",
-				$fs->getDeviceFile());
-		}
-		// Get the according storage device object.
-		$sd = \OMV\System\Storage\StorageDevice::assertGetStorageDevice(
-			$parentDeviceFile);
 		// Get a predictable device file of the filesystem:
 		// - /dev/disk/by-label/xxx
 		// - /dev/disk/by-id/xxx
@@ -892,6 +881,18 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 					throw new \OMV\Exception(
 						"The filesystem label contains blanks.");
 				}
+				// Optionally try to get the parent storage device on
+				// which the filesystem is located. This device file
+				// is used to get more specific mount options for the
+				// filesystem.
+				// Note, layered filesystems do not provide that.
+				$sd = NULL;
+				$parentDeviceFile = $fs->getParentDeviceFile();
+				if (is_devicefile($parentDeviceFile)) {
+					$sd = \OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+						$parentDeviceFile);
+				}
+				// Create a new mount configuration object in the database.
 				\OMV\Rpc\Rpc::call("FsTab", "set", [
 					"uuid" => \OMV\Environment::get(
 						"OMV_CONFIGOBJECT_NEW_UUID"),
@@ -912,13 +913,15 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				// Check if the configuration is marked as dirty, otherwise
 				// the /etc/fstab file is not up-to-date and the mount fails
 				// because of missing entries.
-				if ($this->isModuleDirty("fstab"))
+				if ($this->isModuleDirty("fstab")) {
 					throw new \OMV\Config\ConfigDirtyException();
+				}
 				// Umount the mount point if it is already in use, which
 				// is the case when an USB device is unplugged without
 				// unmounting it.
-				if (TRUE === $fs->isMounted())
+				if (TRUE === $fs->isMounted()) {
 					$fs->umount();
+				}
 				// Does the mount directory exist? Re-create it if
 				// necessary.
 				$mp = new \OMV\System\MountPoint($meObject['dir']);
