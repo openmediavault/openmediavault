@@ -19,44 +19,15 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Net\NetworkInterfaceBackend;
+namespace OMV\System\Net;
 
 /**
- * Implements the network interface backend for bridge devices.
+ * This class provides a interface to handle Linux ethernet network
+ * interfaces.
  * @ingroup api
  */
-class Bridge extends BackendAbstract {
-	protected $regex = "/^br[0-9]+$/i";
-
-	function getType() {
-		return OMV_NETWORK_INTERFACE_TYPE_BRIDGE;
-	}
-
-	function enumerate() {
-		return $this->enumerateSysFs($this->regex);
-	}
-
-	function isTypeOf($deviceName) {
-		return $this->isTypeOfByName($deviceName, $this->regex);
-	}
-
-	function enumerateSlaves() {
-		if (FALSE === ($devs = $this->enumerate()))
-			return FALSE;
-		$result = [];
-		foreach ($devs as $devk => $devv) {
-			$object = $this->getImpl($devv);
-			if (!$object->exists())
-				continue;
-			$slaves = $object->getSlaves();
-			if (FALSE === $slaves)
-				continue;
-			$result = array_merge($result, $slaves);
-		}
-		return $result;
-	}
-
-	function getImpl($args) {
-		return new \OMV\System\Net\NetworkInterfaceBridge($args);
+class NetworkInterfaceEthernet extends NetworkInterface {
+	public function getType() {
+		return "ethernet";
 	}
 }

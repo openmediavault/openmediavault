@@ -20,7 +20,7 @@
 {% set interfaces = [] %}
 {% for interface in salt['omv_conf.get_by_filter'](
   'conf.system.network.interface',
-  {'operator': 'or', 'arg0': {'operator': 'stringEquals', 'arg0': 'type', 'arg1': 'ethernet'}, 'arg1': {'operator': 'stringEquals', 'arg0': 'type', 'arg1': 'wireless'}}) %}
+  {'operator': 'or', 'arg0': {'operator': 'stringEquals', 'arg0': 'type', 'arg1': 'ethernet'}, 'arg1': {'operator': 'stringEquals', 'arg0': 'type', 'arg1': 'wifi'}}) %}
 {% set used_by = salt['omv_conf.get_by_filter'](
   'conf.system.network.interface',
   {'operator': 'stringContains', 'arg0': 'slaves', 'arg1': interface.devicename}) %}

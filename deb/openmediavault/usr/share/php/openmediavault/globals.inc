@@ -51,7 +51,7 @@ define("OMV_NETWORK_INTERFACE_TYPE_ETHERNET", 0x1);
 define("OMV_NETWORK_INTERFACE_TYPE_BOND", 0x2);
 define("OMV_NETWORK_INTERFACE_TYPE_VLAN", 0x4);
 define("OMV_NETWORK_INTERFACE_TYPE_BRIDGE", 0x8);
-define("OMV_NETWORK_INTERFACE_TYPE_WIRELESS", 0x10);
+define("OMV_NETWORK_INTERFACE_TYPE_WIFI", 0x10);
 define("OMV_NETWORK_INTERFACE_TYPE_VIRTUAL", 0x20);
 define("OMV_NETWORK_INTERFACE_TYPE_LOOPBACK", 0x40);
 define("OMV_NETWORK_INTERFACE_TYPE_ALL", 0xFF);
@@ -90,15 +90,6 @@ define("OMV_NETWORK_INTERFACE_TYPE_ALL", 0xFF);
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_BIND", "nofail");
 \OMV\Environment::set("OMV_APT_PLUGINS_INDEX_FILE", "/var/lib/openmediavault/apt/pluginsindex.json");
 \OMV\Environment::set("OMV_APT_UPGRADE_INDEX_FILE", "/var/lib/openmediavault/apt/upgradeindex.json");
-\OMV\Environment::set("OMV_NETWORK_INTERFACE_TYPE_NAMES", [
-	OMV_NETWORK_INTERFACE_TYPE_ETHERNET => "ethernet",
-	OMV_NETWORK_INTERFACE_TYPE_BOND => "bond",
-	OMV_NETWORK_INTERFACE_TYPE_VLAN => "vlan",
-	OMV_NETWORK_INTERFACE_TYPE_BRIDGE => "bridge",
-	OMV_NETWORK_INTERFACE_TYPE_WIRELESS => "wireless",
-	OMV_NETWORK_INTERFACE_TYPE_VIRTUAL => "virtual",
-	OMV_NETWORK_INTERFACE_TYPE_LOOPBACK => "loopback"
-]);
 \OMV\Environment::set("OMV_DUNE_QUOTES", [ // http://www.nightsolo.net/dune/god.html
 	"The beginning of knowledge is the discovery of something ".
 		"we do not understand.",

@@ -330,7 +330,8 @@ Ext.define("OMV.module.admin.system.network.interface.window.Ethernet", {
 						model: OMV.data.Model.createImplicit({
 							idProperty: "devicename",
 							fields: [
-								{ name: "devicename", type: "string" }
+								{ name: "devicename", type: "string" },
+								{ name: "description", type: "string" }
 							]
 						}),
 						proxy: {
@@ -345,7 +346,7 @@ Ext.define("OMV.module.admin.system.network.interface.window.Ethernet", {
 							property: "devicename"
 						}]
 					}),
-					displayField: "devicename",
+					displayField: "description",
 					valueField: "devicename",
 					allowBlank: false,
 					forceSelection: true,
@@ -373,6 +374,7 @@ Ext.define("OMV.module.admin.system.network.interface.window.Bond", {
 		"OMV.form.field.CheckboxGrid"
 	],
 
+	width: 500,
 	rpcGetMethod: "getBondIface",
 	rpcSetMethod: "setBondIface",
 
@@ -444,6 +446,13 @@ Ext.define("OMV.module.admin.system.network.interface.window.Bond", {
 						sortable: true,
 						dataIndex: "devicename",
 						stateId: "devicename",
+						flex: 1
+					},{
+						xtype: "textcolumn",
+						text: _("Type"),
+						sortable: true,
+						dataIndex: "type",
+						stateId: "type",
 						flex: 1
 					},{
 						xtype: "textcolumn",
@@ -653,7 +662,8 @@ Ext.define("OMV.module.admin.system.network.interface.window.Vlan", {
 					model: OMV.data.Model.createImplicit({
 						idProperty: "devicename",
 						fields: [
-							{ name: "devicename", type: "string" }
+							{ name: "devicename", type: "string" },
+							{ name: "description", type: "string" }
 						]
 					}),
 					proxy: {
@@ -669,7 +679,7 @@ Ext.define("OMV.module.admin.system.network.interface.window.Vlan", {
 						property: "devicename"
 					}]
 				}),
-				displayField: "devicename",
+				displayField: "description",
 				valueField: "devicename",
 				allowBlank: false,
 				readOnly: me.uuid !== OMV.UUID_UNDEFINED,
@@ -693,10 +703,10 @@ Ext.define("OMV.module.admin.system.network.interface.window.Vlan", {
 });
 
 /**
- * @class OMV.module.admin.system.network.interface.window.Wireless
+ * @class OMV.module.admin.system.network.interface.window.Wifi
  * @derived OMV.module.admin.system.network.interface.window.Generic
  */
-Ext.define("OMV.module.admin.system.network.interface.window.Wireless", {
+Ext.define("OMV.module.admin.system.network.interface.window.Wifi", {
 	extend: "OMV.module.admin.system.network.interface.window.Generic",
 	requires: [
 		"OMV.form.field.Password",
@@ -709,7 +719,7 @@ Ext.define("OMV.module.admin.system.network.interface.window.Wireless", {
 		var me = this;
 		var config = me.callParent(arguments);
 		Ext.Array.push(config, {
-			id: "wireless",
+			id: "wifi",
 			position: 15,
 			title: _("Wi-Fi"),
 			correlations: []
@@ -734,7 +744,8 @@ Ext.define("OMV.module.admin.system.network.interface.window.Wireless", {
 						model: OMV.data.Model.createImplicit({
 							idProperty: "devicename",
 							fields: [
-								{ name: "devicename", type: "string" }
+								{ name: "devicename", type: "string" },
+								{ name: "description", type: "string" }
 							]
 						}),
 						proxy: {
@@ -749,7 +760,7 @@ Ext.define("OMV.module.admin.system.network.interface.window.Wireless", {
 							property: "devicename"
 						}]
 					}),
-					displayField: "devicename",
+					displayField: "description",
 					valueField: "devicename",
 					allowBlank: false,
 					forceSelection: true,
@@ -762,7 +773,7 @@ Ext.define("OMV.module.admin.system.network.interface.window.Wireless", {
 				}];
 			}
 			break;
-		case "wireless":
+		case "wifi":
 			Ext.Array.push(items, [{
 				xtype: "textfield",
 				name: "wpassid",
@@ -775,6 +786,105 @@ Ext.define("OMV.module.admin.system.network.interface.window.Wireless", {
 				fieldLabel: _("Password"),
 				allowBlank: false,
 				value: ""
+			}]);
+			break;
+		}
+		return items;
+	}
+});
+
+/**
+ * @class OMV.module.admin.system.network.interface.window.Bridge
+ * @derived OMV.module.admin.system.network.interface.window.Generic
+ */
+Ext.define("OMV.module.admin.system.network.interface.window.Bridge", {
+	extend: "OMV.module.admin.system.network.interface.window.Generic",
+	uses: [
+		"OMV.form.field.CheckboxGrid"
+	],
+
+
+	width: 500,
+	rpcGetMethod: "getBridgeIface",
+	rpcSetMethod: "setBridgeIface",
+
+	getFormSectionConfig: function() {
+		var me = this;
+		var config = me.callParent(arguments);
+		Ext.Array.push(config, {
+			id: "bridge",
+			position: 15,
+			title: _("Bridge"),
+			correlations: []
+		});
+		return config;
+	},
+
+	getFormItemsBySection: function(name) {
+		var me = this;
+		var items = me.callParent(arguments);
+		switch (name) {
+		case "bridge":
+			Ext.Array.push(items, [{
+				xtype: "checkboxgridfield",
+				name: "slaves",
+				fieldLabel: _("Interfaces"),
+				height: 105,
+				minSelections: 1,
+				allowBlank: false,
+				valueField: "devicename",
+				store: Ext.create("OMV.data.Store", {
+					autoLoad: true,
+					model: OMV.data.Model.createImplicit({
+						idProperty: "devicename",
+						fields: [
+							{ name: "devicename", type: "string" },
+							{ name: "ether", type: "string" }
+						]
+					}),
+					proxy: {
+						type: "rpc",
+						rpcData: {
+							service: "Network",
+							method: "enumerateBridgeSlaves"
+						},
+						extraParams: {
+							uuid: me.uuid,
+							unused: true
+						},
+						appendSortParams: false
+					},
+					sorters: [{
+						direction: "ASC",
+						property: "devicename"
+					}]
+				}),
+				gridConfig: {
+					stateful: true,
+					stateId: "c8b68148-9abc-11ea-a11c-53b783ac356b",
+					columns: [{
+						xtype: "textcolumn",
+						text: _("Device"),
+						sortable: true,
+						dataIndex: "devicename",
+						stateId: "devicename",
+						flex: 1
+					},{
+						xtype: "textcolumn",
+						text: _("Type"),
+						sortable: true,
+						dataIndex: "type",
+						stateId: "type",
+						flex: 1
+					},{
+						xtype: "textcolumn",
+						text: _("MAC address"),
+						sortable: true,
+						dataIndex: "ether",
+						stateId: "ether",
+						flex: 1
+					}]
+				}
 			}]);
 			break;
 		}
@@ -887,7 +997,8 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		"OMV.module.admin.system.network.interface.Identify",
 		"OMV.module.admin.system.network.interface.window.Ethernet",
 		"OMV.module.admin.system.network.interface.window.Bond",
-		"OMV.module.admin.system.network.interface.window.Vlan"
+		"OMV.module.admin.system.network.interface.window.Vlan",
+		"OMV.module.admin.system.network.interface.window.Bridge"
 	],
 	uses: [
 		"Ext.XTemplate"
@@ -902,6 +1013,14 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		sortable: true,
 		dataIndex: "devicename",
 		stateId: "devicename",
+		flex: 1
+	},{
+		xtype: "textcolumn",
+		text: _("Type"),
+		sortable: true,
+		dataIndex: "type",
+		stateId: "type",
+		hidden: true,
 		flex: 1
 	},{
 		text: _("Method"),
@@ -1043,14 +1162,19 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 				},{
 					iconCls: "mdi mdi-wifi",
 					text: _("Wi-Fi"),
-					value: "wireless"
+					value: "wifi"
 				},{
 					iconCls: "mdi mdi-link-variant",
 					text: _("Bond"),
 					value: "bond"
 				},{
+					iconCls: "mdi mdi-lan",
 					text: _("VLAN"),
 					value: "vlan"
+				},{
+					iconCls: "mdi mdi-bridge",
+					text: _("Bridge"),
+					value: "bridge"
 				}],
 				listeners: {
 					scope: me,
@@ -1127,9 +1251,13 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 			clsName = "OMV.module.admin.system.network.interface.window.Vlan";
 			title = _("Add VLAN connection");
 			break;
-		case "wireless":
-			clsName = "OMV.module.admin.system.network.interface.window.Wireless";
+		case "wifi":
+			clsName = "OMV.module.admin.system.network.interface.window.Wifi";
 			title = _("Add Wi-Fi connection");
+			break;
+		case "bridge":
+			clsName = "OMV.module.admin.system.network.interface.window.Bridge";
+			title = _("Add bridge connection");
 			break;
 		default:
 			OMV.MessageBox.error(null, _("Unknown network interface type."));
@@ -1168,9 +1296,13 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 			clsName = "OMV.module.admin.system.network.interface.window.Vlan";
 			title = _("Edit VLAN connection");
 			break;
-		case "wireless":
-			clsName = "OMV.module.admin.system.network.interface.window.Wireless";
+		case "wifi":
+			clsName = "OMV.module.admin.system.network.interface.window.Wifi";
 			title = _("Edit Wi-Fi connection");
+			break;
+		case "bridge":
+			clsName = "OMV.module.admin.system.network.interface.window.Bridge";
+			title = _("Edit bridge connection");
 			break;
 		default:
 			OMV.MessageBox.error(null, _("Unknown network interface type."));

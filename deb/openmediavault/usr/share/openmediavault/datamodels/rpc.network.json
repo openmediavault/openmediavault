@@ -358,6 +358,92 @@
 	}
 },{
 	"type": "rpc",
+	"id": "rpc.network.setbridgeiface",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"devicename": {
+				"type": "string",
+				"pattern": "^(br\\d+)?$",
+				"required": true
+			},
+			"method": {
+				"type": "string",
+				"enum": ["dhcp", "static", "manual"],
+				"required": true
+			},
+			"address": {
+				"type": "string",
+				"required": true
+			},
+			"netmask": {
+				"type": "string",
+				"required": true
+			},
+			"gateway": {
+				"type": "string",
+				"required": true
+			},
+			"method6": {
+				"type": "string",
+				"enum": ["auto", "static", "manual", "dhcp"],
+				"required": true
+			},
+			"address6": {
+				"type": "string",
+				"required": true
+			},
+			"netmask6": {
+				"type": "integer",
+				"minimum": 0,
+				"maximum": 128,
+				"required": true
+			},
+			"gateway6": {
+				"type": "string",
+				"required": true
+			},
+			"dnsnameservers": {
+				"type": "string",
+				"pattern": "^((\\S+[,;])*\\S+)?$",
+				"required": true
+			},
+			"dnssearch": {
+				"type": "string",
+				"pattern": "^((\\S+[,;])*\\S+)?$",
+				"required": true
+			},
+			"mtu": {
+				"type": "integer",
+				"minimum": 0,
+				"maximum": 65535,
+				"required": true
+			},
+			"wol": {
+				"type": "boolean",
+				"required": true
+			},
+			"comment": {
+				"type": "string",
+				"required": true
+			},
+			"slaves": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"pattern": "^((eth|venet|wlan)\\d+|(en|veth|wl)\\S+|(bond)\\d+)(\\.\\d+)?$"
+				},
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
 	"id": "rpc.network.setgeneralsettings",
 	"params": {
 		"type": "object",
@@ -401,6 +487,23 @@
 },{
 	"type": "rpc",
 	"id": "rpc.network.enumeratebondslaves",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				 "required": true
+			},
+			"unused":{
+				"type": "boolean",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.network.enumeratebridgeslaves",
 	"params": {
 		"type": "object",
 		"properties": {

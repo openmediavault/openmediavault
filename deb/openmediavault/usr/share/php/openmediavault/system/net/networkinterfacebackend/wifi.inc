@@ -22,10 +22,10 @@
 namespace OMV\System\Net\NetworkInterfaceBackend;
 
 /**
- * Implements the network interface backend for bridge devices.
+ * Implements the network interface backend for Wi-Fi devices.
  * @ingroup api
  */
-class Wireless extends BackendAbstract {
+class Wifi extends BackendAbstract {
 	// Examples:
 	// - wlan1
 	// - wlp3s0
@@ -54,7 +54,7 @@ class Wireless extends BackendAbstract {
 		"(P\d+)?p\d+s\d+(f\d+)?(u\d+)*(c\d+)?(i\d+)?)$/i";
 
 	function getType() {
-		return OMV_NETWORK_INTERFACE_TYPE_WIRELESS;
+		return OMV_NETWORK_INTERFACE_TYPE_WIFI;
 	}
 
 	function enumerate() {
@@ -63,5 +63,9 @@ class Wireless extends BackendAbstract {
 
 	function isTypeOf($deviceName) {
 		return $this->isTypeOfByName($deviceName, $this->regex);
+	}
+
+	function getImpl($args) {
+		return new \OMV\System\Net\NetworkInterfaceWifi($args);
 	}
 }

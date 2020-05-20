@@ -1,3 +1,5 @@
+#!/bin/sh
+#
 # This file is part of OpenMediaVault.
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
@@ -17,22 +19,10 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set interfaces = salt['omv_conf.get_by_filter'](
-  'conf.system.network.interface',
-  {'operator': 'stringEquals', 'arg0': 'type', 'arg1': 'wifi'}) %}
+set -e
 
-{% for interface in interfaces %}
+. /usr/share/openmediavault/scripts/helper-functions
 
-configure_netplan_wifi_{{ interface.devicename }}:
-  file.managed:
-    - name: "/etc/netplan/30-openmediavault-{{ interface.devicename }}.yaml"
-    - source:
-      - salt://{{ tpldir }}/files/wifi.j2
-    - template: jinja
-    - context:
-        interface: {{ interface | json }}
-    - user: root
-    - group: root
-    - mode: 644
+omv_config_update "/config/system/network/interfaces/interface/type[.='wireless']" "wifi"
 
-{% endfor %}
+exit 0

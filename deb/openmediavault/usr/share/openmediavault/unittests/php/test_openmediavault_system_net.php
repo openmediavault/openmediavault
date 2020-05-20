@@ -90,9 +90,9 @@ class test_openmediavault_system_net extends \PHPUnit\Framework\TestCase {
 		$this->assertEquals($mock->getState(), "UP");
 	}
 
-	public function test_isVlan_mocked() {
+	public function test_getType_mocked() {
 		$mock = $this->getNetworkInterfaceMock();
-		$this->assertFalse($mock->isVlan());
+		$this->assertEquals($mock->getType(), "unknown");
 	}
 
 	public function test_real_interface() {

@@ -15,7 +15,7 @@
 		},
 		"type": {
 			"type": "string",
-			"enum": [ "ethernet", "bond", "vlan", "wireless" ],
+			"enum": [ "ethernet", "bond", "vlan", "wifi", "bridge" ],
 			"default": "ethernet"
 		},
 		"devicename": {
@@ -75,7 +75,7 @@
 		},
 		"slaves": {
 			"type": "string",
-			"pattern": "^(((eth|venet|wlan)\\d+|(en|veth|wl)\\S+),)*((eth|venet|wlan)\\d+|(en|veth|wl)\\S+)$"
+			"pattern": "^(((eth|venet|wlan)\\d+|(en|veth|wl)\\S+|(bond)\\d+)(\\.\\d+)?,)*((eth|venet|wlan)\\d+|(en|veth|wl)\\S+|(bond)\\d+)(\\.\\d+)?$"
 		},
 		"bondprimary": {
 			"type": "string"

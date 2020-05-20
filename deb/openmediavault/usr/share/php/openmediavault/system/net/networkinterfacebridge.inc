@@ -21,31 +21,34 @@
  */
 namespace OMV\System\Net;
 
-require_once("openmediavault/functions.inc");
-
 /**
- * This class provides a interface to handle Linux bond network
+ * This class provides a interface to handle Linux bridge network
  * interfaces.
  * @ingroup api
  */
-class NetworkInterfaceBond extends NetworkInterface {
+class NetworkInterfaceBridge extends NetworkInterface {
 	public function getType() {
-		return "bond";
+		return "bridge";
 	}
 
 	/**
 	 * Get the slave devices.
-	 * @return A list of device names used in the array, otherwise FALSE.
+	 * @return A list of device names used by the bridge, otherwise FALSE.
 	 */
 	public function getSlaves() {
-		$filename = sprintf("/sys/class/net/%s/bonding/slaves",
+		$result = [];
+		$path = sprintf("/sys/class/net/%s/brif/",
 			$this->getDeviceName());
-		if (!file_exists($filename))
+		if (!file_exists($path))
 			return FALSE;
-		$content = file_get_contents($filename);
-		if (FALSE === $content)
-			return [];
-		return array_map("trim", explode_safe(" ", $content));
+		$dir = new \DirectoryIterator($path);
+		foreach ($dir as $item) {
+			// Skip everything that is not a symlink.
+			if ($item->isDot() || !$item->isLink())
+				continue;
+			$result[] = $item->getFilename();
+		}
+		return $result;
 	}
 
 	/**
@@ -65,17 +68,22 @@ class NetworkInterfaceBond extends NetworkInterface {
 	}
 
 	/**
-	 * Get a list of all bond network interfaces.
-	 * @return Returns an array containing the bond interface names.
+	 * Get a list of all bridge network interfaces.
+	 * @return Returns an array containing the bridge interface names.
 	 */
 	public static function enumerate() {
-		$filename = "/sys/class/net/bonding_masters";
-		if (!file_exists($filename))
-			return [];
-		$content = file_get_contents($filename);
-		if (FALSE === $content)
-			return [];
-		return array_map("trim", explode_safe(" ", $content));
+		$result = [];
+		$dir = new \DirectoryIterator("/sys/class/net");
+		foreach ($dir as $item) {
+			// Skip everything that is not a symlink.
+			if ($item->isDot() || !$item->isLink())
+				continue;
+			// Validate network interface name.
+			if (1 !== preg_match("/^br[0-9]+$/i", $item->getFilename()))
+				continue;
+			$result[] = $item->getFilename();
+		}
+		return $result;
 	}
 
 	/**
@@ -86,7 +94,7 @@ class NetworkInterfaceBond extends NetworkInterface {
 		$result = FALSE;
 		$deviceNames = self::enumerate();
 		for ($i = 0; $i <= 255; $i++) {
-			$deviceName = sprintf("bond%d", $i);
+			$deviceName = sprintf("br%d", $i);
 			if (FALSE === in_array($deviceName, $deviceNames)) {
 				$result = $deviceName;
 				break;
