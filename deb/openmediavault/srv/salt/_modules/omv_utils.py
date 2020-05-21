@@ -19,16 +19,18 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
+import re
 import socket
 
 import openmediavault.config
 import openmediavault.device
 import openmediavault.fs
+import openmediavault.net
 import openmediavault.string
 
 # Import Salt libs
 import salt.utils.network
-from salt.utils.decorators.jinja import jinja_filter
+from salt.utils.decorators.jinja import jinja_filter, jinja_test
 
 
 def register_jinja_filters():
@@ -377,3 +379,30 @@ def escape_blank(value, octal=False):
     """
     assert isinstance(value, str)
     return openmediavault.string.escape_blank(value, octal)
+
+
+@jinja_test('match_netif_type')
+def match_netif_type(name, type_):
+    """
+    Test a network interface name if it matches the given type.
+    :param name: The interface name to test.
+    :type name: str
+    :param type_: The interface type, e.g. 'ethernet', 'wifi', 'bond',
+      'bridge' or 'vlan'.
+    :type type_: str
+    :return: Returns ``True`` if the network interface name matches the
+      specified type.
+    :rtype: bool
+    """
+    result = False
+    if type_ == 'ethernet':
+        result = openmediavault.net.is_ethernet(name)
+    elif type_ == 'wifi':
+        result = openmediavault.net.is_wifi(name)
+    elif type_ == 'bond':
+        result = openmediavault.net.is_bond(name)
+    elif type_ == 'bridge':
+        result = openmediavault.net.is_bridge(name)
+    elif type_ == 'vlan':
+        result = openmediavault.net.is_vlan(name)
+    return result
