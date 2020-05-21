@@ -222,7 +222,7 @@ iSrj/B/KRCZkkrDdYcDAvqRs6dA+ScRZ
         <!--
 				<interface>
 					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
-					<type>ethernet|bond|vlan|wireless|...</type>
+					<type>ethernet|bond|vlan|wifi|bridge</type>
 					<devicename>xxx</devicename>
 					<method>dhcp|static|manual</method>
 					<address>xxx.xxx.xxx.xxx</address>
@@ -250,7 +250,7 @@ iSrj/B/KRCZkkrDdYcDAvqRs6dA+ScRZ
 					# - vlan
 					<vlanid>1-4095</vlanid>
 					<vlanrawdevice>(eth|wlan|bond)\d+</vlanrawdevice>
-					# - wireless
+					# - wifi
 					<wpassid>xxx</wpassid>
 					<wpapsk>xxx</wpapsk>
 				</interface>

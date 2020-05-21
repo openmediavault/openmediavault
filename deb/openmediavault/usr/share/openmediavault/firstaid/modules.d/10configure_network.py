@@ -24,6 +24,7 @@ import re
 import natsort
 import openmediavault
 import openmediavault.firstaid
+import openmediavault.net
 import openmediavault.rpc
 import openmediavault.string
 import dialog
@@ -392,7 +393,7 @@ class Module(openmediavault.firstaid.IModule):
             }
         )
         # Do we process a wireless network interface?
-        if re.match(r"^wlan[0-9]+$", device_name):
+        if openmediavault.net.is_wifi(device_name):
             rpc_method = "setWirelessIface"
             # Get the SSID.
             while not wpa_ssid:

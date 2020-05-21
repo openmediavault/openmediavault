@@ -35,7 +35,7 @@ ip_addr_flush_dev_{{ data.name }}:
     - name: "ip addr flush dev {{ data.name }}"
     - onlyif: "test -e /sys/class/net/{{ data.name }}"
 
-{% if data.type not in ('ethernet', 'wireless') %}
+{% if data.type not in ('ethernet', 'wifi') %}
 
 ip_link_del_dev_{{ data.name }}:
   cmd.run:
@@ -44,7 +44,7 @@ ip_link_del_dev_{{ data.name }}:
 
 {% endif %}
 
-{% if data.type == 'wireless' %}
+{% if data.type == 'wifi' %}
 
 stop_wpa_supplicant_{{ data.name }}:
   service.dead:

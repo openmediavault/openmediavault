@@ -69,4 +69,8 @@ class Ethernet extends BackendAbstract {
 	function isTypeOf($deviceName) {
 		return $this->isTypeOfByName($deviceName, $this->regex);
 	}
+
+	function getImpl($args) {
+		return new \OMV\System\Net\NetworkInterfaceEthernet($args);
+	}
 }

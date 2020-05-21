@@ -134,7 +134,7 @@
 				<!--
 				<interface>
 					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
-					<type>ethernet|bond|vlan|wireless|...</type>
+					<type>ethernet|bond|vlan|wifi|bridge</type>
 					<devicename>xxx</devicename>
 					<method>dhcp|static|manual</method>
 					<address>xxx.xxx.xxx.xxx</address>
@@ -160,9 +160,11 @@
 					# - vlan
 					<vlanid>1-4095</vlanid>
 					<vlanrawdevice>xxx</vlanrawdevice>
-					# - wireless
+					# - wifi
 					<wpassid>xxx</wpassid>
 					<wpapsk>xxx</wpapsk>
+					# - bridge
+					<slaves>(((eth|venet|wlan)\d+|(en|veth|wl)\S+),)*((eth|venet|wlan)\d+|(en|veth|wl)\S+)</slaves>
 				</interface>
 				-->
 			</interfaces>

@@ -22,10 +22,26 @@
 namespace OMV\System\Net;
 
 /**
- * This class provides a interface to handle Linux VLAN network interfaces.
+ * This class provides a interface to handle Linux VLAN network
+ * interfaces.
  * @ingroup api
  */
 class NetworkInterfaceVlan extends NetworkInterface {
+	public function getType() {
+		return "vlan";
+	}
+
+	/**
+	* Get VLAN ID of the network interface.
+	* @return The VLAN id, otherwise FALSE.
+	*/
+	public function getVlanId() {
+		$regex = "/^(\S+\d+)\.(\d+)$/i";
+		if (1 !== preg_match($regex, $this->getDeviceName(), $matches))
+			return FALSE;
+		return !empty($matches[2]) ? intval($matches[2]) : FALSE;
+	}
+
 	/**
 	 * Delete the network interface.
 	 * @throw \OMV\ExecException

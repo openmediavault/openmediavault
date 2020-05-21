@@ -25,7 +25,7 @@ namespace OMV\System\Net\NetworkInterfaceBackend;
 // Register default network interface backends.
 ///////////////////////////////////////////////////////////////////////////////
 $backends = [ "Bond", "Bridge", "Ethernet", "Infiniband", "Loopback",
-  "Virtual", "Vlan", "Wireless", "Thunderbolt" ];
+  "Virtual", "Vlan", "Wifi", "Thunderbolt" ];
 $mngr = Manager::getInstance();
 foreach ($backends as $backendk => $backendv) {
 	$className = sprintf("%s\%s", __NAMESPACE__, $backendv);

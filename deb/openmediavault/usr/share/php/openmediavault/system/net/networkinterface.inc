@@ -98,6 +98,23 @@ class NetworkInterface {
 	}
 
 	/**
+	 * Get the interface type, e.g. 'ethernet', 'wifi', 'vlan',
+	 * 'bond', 'bridge', 'virtual', 'loopback' or 'unknown'.
+	 */
+	public function getType() {
+		return "unknown";
+	}
+
+	/**
+	 * Get the description of the network interface device.
+	 * @return A description string.
+	 */
+	public function getDescription() {
+		return sprintf("%s [%s]", $this->getDeviceName(),
+			$this->getMAC());
+	}
+
+	/**
 	 * Get the network interface name, e.g. eth0 or ethx.
 	 * @return The network interface name.
 	 */
@@ -426,28 +443,5 @@ class NetworkInterface {
 		if (!file_exists($filename))
 			return FALSE;
 		return intval(file_get_contents($filename));
-	}
-
-	/**
-	 * Check if the network interface is a VLAN (802.1q) device.
-	 * @return TRUE if the network interface is a VLAN (802.1q) device,
-	 *   otherwise FALSE.
-	 */
-	public function isVlan() {
-		$regex = "/^(\S+\d+)\.(\d+)$/i";
-		if (1 !== preg_match($regex, $this->getDeviceName(), $matches))
-			return FALSE;
-		return TRUE;
-	}
-
-	/**
-	* Get VLAN ID of the network interface.
-	* @return The VLAN id, otherwise FALSE.
-	*/
-	public function getVlanId() {
-		$regex = "/^(\S+\d+)\.(\d+)$/i";
-		if (1 !== preg_match($regex, $this->getDeviceName(), $matches))
-			return FALSE;
-		return !empty($matches[2]) ? intval($matches[2]) : FALSE;
 	}
 }
