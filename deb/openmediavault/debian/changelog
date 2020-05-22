@@ -3,6 +3,7 @@ openmediavault (5.5.0-1) stable; urgency=low
   * Improve PHP network interface code.
   * Add support to configure bridge interfaces.
   * Improve network management UI.
+  * Issue #716: Update monit if FTP is enabled/disabled.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 May 2020 20:51:00 +0200
 
