@@ -66,11 +66,28 @@ class Proftpd extends \OMV\Engine\Module\ServiceAbstract implements
 		}
 	}
 
+	/**
+	 * Helper function that is called whenever the global service
+	 * settings have been modified.
+	 * @param type The event message type.
+	 * @param path The event message path.
+	 * @param object The new configuration object.
+	 * @param oldObject The previous configuration object.
+	 */
+	final public function onModifySettings($type, $path, $object, $oldObject) {
+		// Mark this module as dirty.
+		$this->setDirty();
+		// Mark 'monit' as dirty when this service is enabled/disabled.
+		if ($oldObject['enable'] !== $object['enable']) {
+			$this->setDirtyByName("monit");
+		}
+	}
+
 	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
 		$dispatcher->addListener(
 			OMV_NOTIFY_MODIFY,
 			"org.openmediavault.conf.service.ftp",
-			[$this, "setDirty"]);
+			[$this, "onModifySettings"]);
 		$dispatcher->addListener(
 			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 			"org.openmediavault.conf.service.ftp.share",
