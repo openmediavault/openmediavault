@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2018
+# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2018,2020
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-15 19:10+0200\n"
-"PO-Revision-Date: 2020-04-15 17:14+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2020-05-25 11:05+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/votdev/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -321,7 +321,7 @@ msgid ""
 "An attempt to send the test email has been made. Please check your mailbox. "
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
-msgstr ""
+msgstr "Et forsøg på, at sende en test email er udført. Kontroller venligst, din mailkonto. Hvis der ikke er kommet en email, kontroller da spam mappen og kontroller også, at der ikke er nogle Postfix relateret fejl i system logen."
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -352,7 +352,7 @@ msgid "Anonymous FTP"
 msgstr "Anonym FTP"
 
 msgid "Another user is already authenticated."
-msgstr ""
+msgstr "En anden bruger er allerede godkendt."
 
 msgid "Antarctica"
 msgstr "Antarctica"
@@ -430,10 +430,10 @@ msgid "Auto"
 msgstr "Auto"
 
 msgid "Auto logout"
-msgstr ""
+msgstr "Log ud automatisk"
 
 msgid "Auto logout after the specified idle period."
-msgstr ""
+msgstr "Log ud automatisk efter en given inaktiv periode."
 
 msgid "Automatic Acoustic Management"
 msgstr "Automatisk Akustisk Håndtering"
@@ -874,7 +874,7 @@ msgid "Disabled"
 msgstr "Deaktiver"
 
 msgid "Disallow the user to modify their account."
-msgstr ""
+msgstr "Forbyd bruger, at ændre deres konto."
 
 msgid "Disk usage"
 msgstr "Disk forbrug"
@@ -1087,7 +1087,7 @@ msgid "Enable SSL/TLS connections"
 msgstr "Aktiver SSL/TLS forbindelser"
 
 msgid "Enable Time Machine support for this share."
-msgstr ""
+msgstr "Aktiver Time Machine understøttelse for denne delte mappe."
 
 msgid "Enable WINS server"
 msgstr "Aktiver WINS-server"
@@ -1164,7 +1164,7 @@ msgid "Enabled"
 msgstr "Aktiveret"
 
 msgid "Encryption mode"
-msgstr ""
+msgstr "Krypterings tilstand"
 
 msgid "Enter your password"
 msgstr "Indtast din adgangskode"
@@ -1662,19 +1662,19 @@ msgstr "Installer opdateringer ..."
 msgid ""
 "Installs the public SSH key on a remote system as an authorized key. Make "
 "sure password authentication is enabled on that remote system."
-msgstr ""
+msgstr "Installer den offentlige SSH nøgle på et fjernsystem som en godkendt nøgle. Vær sikker på at adgangskode godkendelse er aktiveret på det fjernsystem."
 
 msgid "Interfaces"
 msgstr "Interfaces"
 
 msgid "Invalid IP address."
-msgstr ""
+msgstr "Ugyldig IP adresse."
 
 msgid "Invalid SSH public key (RFC 4716)"
 msgstr "Ugyldig SSH offentlig nøgle (RFC 4716)"
 
 msgid "Invalid User-Agent."
-msgstr ""
+msgstr "Ugyldig Bruger-Agent."
 
 msgid "Invalid domain name"
 msgstr "Ugyldig domænenavn"
@@ -1695,7 +1695,7 @@ msgid "Invalid user name"
 msgstr "Ugyldig brugernavn"
 
 msgid "Invalid user."
-msgstr ""
+msgstr "Ugyldig bruger."
 
 msgid "Iran"
 msgstr "Iran"
@@ -1844,7 +1844,7 @@ msgid "Log level"
 msgstr "Log niveau"
 
 msgid "Logging out, please wait ..."
-msgstr ""
+msgstr "Logger ud, vent venligst ..."
 
 msgid "Login"
 msgstr "Log ind"
@@ -2310,7 +2310,7 @@ msgid "Parent Device"
 msgstr "Overordnet Enhed"
 
 msgid "Parent device"
-msgstr ""
+msgstr "Overordnet enhed"
 
 msgid "Passive FTP"
 msgstr "Passiv FTP"
@@ -2325,10 +2325,10 @@ msgid "Passwords don't match"
 msgstr "Adgangskode stemmer ikke overens"
 
 msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
-msgstr ""
+msgstr "Indsæt et RSA eller ECC certifikat i X.509 PEM format her."
 
 msgid "Paste a RSA or ECC private key in X.509 PEM format here."
-msgstr ""
+msgstr "Indsæt en RSA eller ECC privat nøgle i X.509 PEM format her."
 
 msgid "Path"
 msgstr "Sti"
@@ -2415,7 +2415,7 @@ msgstr "Kontroller venligst <a href='http://www.samba.org/samba/docs/man/manpage
 msgid ""
 "Please check the <a href='https://man.openbsd.org/sshd_config.5' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Kontroller venligst <a href='https://man.openbsd.org/sshd_config.5' target='_blank'>manual page</a> for yderligere detaljer."
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "Vælg en metode til rydning af enheden eller tryk 'Annuller' for at afbryde."
@@ -2473,13 +2473,13 @@ msgid "Preserve extended attributes"
 msgstr "Bevar udvidede attributter"
 
 msgid "Preserve group"
-msgstr ""
+msgstr "Bevar gruppe"
 
 msgid "Preserve modification times"
 msgstr "Bevar ændrings antal"
 
 msgid "Preserve owner"
-msgstr ""
+msgstr "Bevar ejer"
 
 msgid "Preserve permissions"
 msgstr "Bevar tilladelser"
@@ -2679,7 +2679,7 @@ msgstr "Rapporter hvis temperaturen har ændret sig med mindst N grader Celsius 
 msgid ""
 "Report if the temperature is greater than or equal to N degrees Celsius. Set"
 " to 0 to disable this report."
-msgstr ""
+msgstr "Rapporter, hvis temperaturen er større end eller lig med N grader Celsius. Sæt til 0 for at deaktivere denne rapport."
 
 msgid "Repository"
 msgstr "Arkiv"
@@ -2792,7 +2792,7 @@ msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
 msgid "STARTTLS"
-msgstr ""
+msgstr "STARTTLS"
 
 msgid "Saint Helena"
 msgstr "Saint Helena"
@@ -2917,7 +2917,7 @@ msgstr "Vælg eller indtast et brugenavn ..."
 msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
-msgstr ""
+msgstr "Vælg enhederne som skal bruges til RAID enheden. Enheder forbundet via USB vil ikke blive vist (alt for upålidelig)."
 
 msgid "Self-test logs"
 msgstr "Selvtest logs"
@@ -2985,12 +2985,12 @@ msgstr "Sæt destination tilladelser til at være de samme som kilde tilladelser
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "Sæt gruppen på destination fil til at være den samme som kilde fil."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr ""
+msgstr "Sæt ejer på destinations filen til at være den samme som kilde filen, men kun hvis den modtagende rsync bliver kørt som super-bruger."
 
 msgid "Set write only"
 msgstr "Sæt kun skrivning"
@@ -3339,7 +3339,7 @@ msgid "The hostname is a label that identifies the system to the network."
 msgstr "Værtsnavnet er en label, der identificerer systemet på netværket."
 
 msgid "The hostname of the remote system."
-msgstr ""
+msgstr "Værtsnavn på fjernsystemet."
 
 msgid ""
 "The information about available software is out-of-date. You need to reload "
@@ -3387,7 +3387,7 @@ msgid ""
 msgstr "Rettighederne på nye filer og mapper er normalt styret af oprette-maske og biblioteks-maske, men nedarv tilladelser parameteren tilsidesætter dette. Dette kan være særligt nyttigt på systemer med mange brugere for at tillade en enkelt deling i at blive anvendt fleksibelt af hver enkelt bruger."
 
 msgid "The port on which SSH is running on the remote system."
-msgstr ""
+msgstr "Porten som SSH kører på fjernsystemet."
 
 msgid "The private RSA key in X.509 PEM format."
 msgstr "Den private RSA nøgle i X.509 PEM format."
@@ -3401,7 +3401,7 @@ msgid ""
 msgstr "Arkivet vil blive kontrolleret for ny, fjernet eller opgraderet software pakker."
 
 msgid "The requested page was not found."
-msgstr ""
+msgstr "Den ønskede side blev ikke fundet."
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
@@ -3420,7 +3420,7 @@ msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "Den angivne kvote overstiger den maks. mulige værdi af 4TiB."
 
 msgid "The system must be rebooted."
-msgstr ""
+msgstr "Systemet skal genstartes."
 
 msgid "The system will reboot now. This may take some time ..."
 msgstr "Systemet vil genstarte nu. Dette kan tage noget tid ..."
@@ -3531,14 +3531,14 @@ msgid "This field should only contain numbers separated by <,> or <;>"
 msgstr "Dette felt kan kun indeholde tal adskilt af <,> eller <;>"
 
 msgid "This field should only contain options separated by <,>"
-msgstr ""
+msgstr "Dette felt skal kun indeholde valgmuligheder adskilt af <,>"
 
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
 msgstr "Dette felt kan kun indeholde porte (0 - 65535) adskilt af <,> eller <;>"
 
 msgid "This field should only contain strings separated by <,>"
-msgstr ""
+msgstr "Dette felt skal kun indeholde strenge adskilt af <,>"
 
 msgid "This field should only contain strings separated by <,> or <;>"
 msgstr "Dette felt kan kun indeholde strenge adskilt af <,> eller <;>"
@@ -3648,7 +3648,7 @@ msgid "This will create a recycle bin on the share."
 msgstr "Dette vil oprette en papirkurv på delingen."
 
 msgid "Threshold"
-msgstr ""
+msgstr "Grænseværdi"
 
 msgid "Thursday"
 msgstr "Torsdag"
@@ -3660,7 +3660,7 @@ msgid "Time"
 msgstr "Tid"
 
 msgid "Time Machine support"
-msgstr ""
+msgstr "Time Machine understøttelse"
 
 msgid "Time interval"
 msgstr "Tids interval"
@@ -3698,7 +3698,7 @@ msgstr "Overførelses log"
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr ""
+msgstr "Overfør ændrings antal sammen med filerne, og opdater dem på fjernsystemet."
 
 msgid "Transfer time"
 msgstr "Overførelses tid"
@@ -3816,7 +3816,7 @@ msgid "Updates"
 msgstr "Opdateringer"
 
 msgid "Updates available"
-msgstr ""
+msgstr "Opdateringer tilgængelig"
 
 msgid "Updating ACL settings"
 msgstr "Opdater ACL indstillinger"
