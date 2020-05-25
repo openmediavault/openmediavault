@@ -1,5 +1,6 @@
 openmediavault (5.5.0-1) stable; urgency=low
 
+  * Update locales.
   * Improve PHP network interface code.
   * Add support to configure bridge interfaces.
   * Improve network management UI.

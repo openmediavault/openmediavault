@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the openmediavault-forkeddaapd package.
 # 
 # Translators:
-# Henrik Sandström <inactive+sandstroem@transifex.com>, 2012
+# d8527209fb8c70c5b5fcb33678ff7c94_64a2687 <02f319e914d16f5dcdd2de15d3144927_23340>, 2012
 # Jonatan Nyberg <jonatan.nyberg.karl@gmail.com>, 2017
 msgid ""
 msgstr ""

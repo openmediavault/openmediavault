@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-snmp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Stefan Thrane Overby <stoverby@gmail.com>, 2020
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-07 17:31+0100\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>, 2020\n"
 "Language-Team: Danish (https://www.transifex.com/votdev/teams/14254/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,78 +22,80 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Authentication and no privacy"
-msgstr ""
+msgstr "Godkendelse og ingen fortrolighed"
 
 msgid "Authentication and privacy"
-msgstr ""
+msgstr "Godkendelse og fortrolighed"
 
 msgid "Authentication passphrase"
-msgstr ""
+msgstr "Godkendelses løsen"
 
 msgid "Authentication type"
-msgstr ""
+msgstr "Godkendelses type"
 
 msgid "Community"
-msgstr ""
+msgstr "Fællesskab"
 
 msgid "Contact"
-msgstr ""
+msgstr "Kontakt"
 
 msgid ""
 "Contact information, e.g. name or email address of the person responsible "
 "for this system."
 msgstr ""
+"Kontakt oplysninger, f.eks. navn eller email adresse på den person der er "
+"ansvarlig for systemet."
 
 msgid "Enable"
-msgstr ""
+msgstr "Aktiver"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Ekstra valgmuligheder"
 
 msgid "General settings"
-msgstr ""
+msgstr "Generelle indstillinger"
 
 msgid "Host"
-msgstr ""
+msgstr "Vært"
 
 msgid "Location"
-msgstr ""
+msgstr "Placering"
 
 msgid "Location information, e.g. physical location of this system."
-msgstr ""
+msgstr "Placerings oplysninger, f.eks. fysisk placering af dette system."
 
 msgid "No authentication and no privacy"
-msgstr ""
+msgstr "Ingen godkendelse og ingen fortrolighed"
 
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 msgid "Privacy passphrase"
-msgstr ""
+msgstr "Fortroligheds løsen"
 
 msgid "Privacy type"
-msgstr ""
+msgstr "Fortroligheds type"
 
 msgid "SNMP"
-msgstr ""
+msgstr "SNMP"
 
 msgid "SNMP version 1/2c"
-msgstr ""
+msgstr "SNMP version 1/2c"
 
 msgid "SNMP version 3"
-msgstr ""
+msgstr "SNMP version 3"
 
 msgid "Security level"
-msgstr ""
+msgstr "Sikkerhedsniveau"
 
 msgid "Settings"
-msgstr ""
+msgstr "Indstillinger"
 
 msgid "Traps"
-msgstr ""
+msgstr "Fælder"
 
 msgid "Username"
-msgstr ""
+msgstr "Brugernavn"
 
 msgid "Version"
-msgstr ""
+msgstr "Version"
