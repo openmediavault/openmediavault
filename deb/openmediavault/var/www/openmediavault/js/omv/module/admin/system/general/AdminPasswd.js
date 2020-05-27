@@ -39,7 +39,7 @@ Ext.define("OMV.module.admin.system.general.AdminPasswd", {
 		return [{
 			xtype: "passwordfield",
 			name: "password",
-			fieldLabel: _("Password"),
+			fieldLabel: _("New password"),
 			allowBlank: true
 		},{
 			xtype: "passwordfield",
