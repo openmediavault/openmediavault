@@ -1,6 +1,8 @@
 openmediavault (5.5.1-1) stable; urgency=low
 
   * Issue #721: Secure PHP session cookie.
+  * Issue #725: Improve calculation of loadavg in monit
+    configuration.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 27 May 2020 11:54:31 +0200
 
