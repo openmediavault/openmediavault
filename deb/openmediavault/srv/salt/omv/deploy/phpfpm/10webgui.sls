@@ -67,6 +67,11 @@ configure_phpfpm_webgui:
         ; http://php.net/session.cookie-httponly
         php_value[session.cookie_httponly] = On
 
+        ; After this number of seconds, stored data will be seen as 'garbage' and
+        ; cleaned up by the garbage collection process.
+        ; http://php.net/session.gc-maxlifetime
+        php_value[session.gc_maxlifetime] = 86400
+
         ; Default timeout for socket based streams (seconds)
         ; http://php.net/default-socket-timeout
         php_value[default_socket_timeout] = 90
