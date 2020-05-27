@@ -61,10 +61,12 @@ full_audit:failure = {{ full_audit_failure }}
 full_audit:facility = {{ full_audit_facility }}
 full_audit:priority = {{ full_audit_priority }}
 {%- endif %}
-{%- if share.timemachine | to_bool %}
+{%- if enable_timemachine_vfs | to_bool %}
 {%- set _ = vfs_objects.append('catia') %}
 {%- set _ = vfs_objects.append('fruit') %}
 {%- set _ = vfs_objects.append('streams_xattr') %}
+{%- endif %}
+{%- if share.timemachine | to_bool %}
 fruit:encoding = {{ fruit_encoding }}
 fruit:locking = {{ fruit_locking }}
 fruit:metadata = {{ fruit_metadata }}
