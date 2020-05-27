@@ -62,6 +62,11 @@ configure_phpfpm_webgui:
         ; http://php.net/session.name
         php_value[session.name] = X-OPENMEDIAVAULT-SESSIONID
 
+        ; Whether or not to add the httpOnly flag to the cookie, which makes it
+        ; inaccessible to browser scripting languages such as JavaScript.
+        ; http://php.net/session.cookie-httponly
+        php_value[session.cookie_httponly] = On
+
         ; Default timeout for socket based streams (seconds)
         ; http://php.net/default-socket-timeout
         php_value[default_socket_timeout] = 90

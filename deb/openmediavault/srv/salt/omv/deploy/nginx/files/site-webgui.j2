@@ -44,6 +44,9 @@ server {
         fastcgi_read_timeout {{ fastcgi_read_timeout }};
         include fastcgi.conf;
         fastcgi_param SCRIPT_FILENAME {{ fastcgi_param_script_filename }};
+{%- if config.enablessl | to_bool and config.forcesslonly | to_bool %}
+        fastcgi_param PHP_ADMIN_VALUE session.cookie_secure=On;
+{%- endif %}
     }
 {%- if ipv6_enabled | to_bool %}
     listen [::]:{{ config.port }} default_server ipv6only=off;
@@ -53,7 +56,7 @@ server {
 {%- if config.enablessl | to_bool and config.forcesslonly | to_bool %}
       if ($scheme = http) {
           # Force redirection to HTTPS.
-        return 301 https://$host:{{ config.sslport }}$request_uri;
+          return 301 https://$host:{{ config.sslport }}$request_uri;
       }
 {%- endif %}
 {%- if config.enablessl | to_bool %}
