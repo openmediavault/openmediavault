@@ -572,16 +572,17 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		$result = [];
 		if (array_value($params, "unused", FALSE) === TRUE) {
-			// Get all unused ethernet and wireless network interface devices.
+			// Get all existing ethernet and WiFi network interface
+			// devices.
 			$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
-			if (FALSE === ($devs = $mngr->enumerateUnused(
+			if (FALSE === ($devs = $mngr->enumerate(
 					OMV_NETWORK_INTERFACE_TYPE_ETHERNET |
 					OMV_NETWORK_INTERFACE_TYPE_WIFI))) {
 				throw new \OMV\Exception(
 					"Failed to get list of unused network interface devices.");
 			}
-			// Get a list of configured ethernet network interfaces that are
-			// not used by any other config object.
+			// Get a list of ethernet and WiFi network interfaces
+			// that are not used by any other config object.
 			foreach ($devs as $devk => $devv) {
 				// Is network interface device referenced somewhere:
 				// - Check if the interface is already used by a bond
@@ -623,9 +624,9 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 				if ($db->exists("conf.system.network.interface", [
 					"operator" => "and",
 					"arg0" => [
-						"operator" => "stringEquals",
+						"operator" => "stringEnum",
 						"arg0" => "type",
-						"arg1" => "ethernet"
+						"arg1" => [ "ethernet", "wifi" ]
 					],
 					"arg1" => [
 						"operator" => "stringEquals",

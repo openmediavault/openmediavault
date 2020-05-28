@@ -1,5 +1,8 @@
 openmediavault (5.5.1-1) stable; urgency=low
 
+  * Improve bond network interface creation. Ethernet or WiFi
+    interfaces can be used for bonding immediately after their
+    configuration has been deleted.
   * Issue #721: Secure PHP session cookie.
   * Issue #725: Improve calculation of loadavg in monit
     configuration.
