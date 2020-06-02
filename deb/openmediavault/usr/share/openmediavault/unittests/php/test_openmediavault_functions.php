@@ -283,4 +283,56 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 		$this->assertInternalType("array", $parts);
 		$this->assertEquals($parts, ["1", "2", "3"]);
 	}
+
+	public function test_array_boolval_1() {
+		$this->assertTrue(array_boolval(["a" => "1"], "a"));
+	}
+
+	public function test_array_boolval_2() {
+		$this->assertTrue(array_boolval(["a" => "ON"], "a"));
+	}
+
+	public function test_array_boolval_3() {
+		$this->assertTrue(array_boolval(["a" => "yes"], "a"));
+	}
+
+	public function test_array_boolval_4() {
+		$this->assertTrue(array_boolval(["a" => "Y"], "a"));
+	}
+
+	public function test_array_boolval_5() {
+		$this->assertTrue(array_boolval(["a" => "true"], "a"));
+	}
+
+	public function test_array_boolval_6() {
+		$this->assertTrue(array_boolval(["a" => TRUE], "a"));
+	}
+
+	public function test_array_boolval_7() {
+		$this->assertTrue(array_boolval(["a" => 1], "a"));
+	}
+
+	public function test_array_boolval_8() {
+		$this->assertFalse(array_boolval(["b" => "no"], "b"));
+	}
+
+	public function test_array_boolval_9() {
+		$this->assertFalse(array_boolval(["b" => FALSE], "b"));
+	}
+
+	public function test_array_boolval_10() {
+		$this->assertFalse(array_boolval(["b" => 0], "b"));
+	}
+
+	public function test_array_boolval_11() {
+		$this->assertFalse(array_boolval(["a" => "b"], "c"));
+	}
+
+	public function test_array_boolval_12() {
+		$this->assertFalse(array_boolval("a", "c"));
+	}
+
+	public function test_array_boolval_13() {
+		$this->assertTrue(array_boolval("a", "c", TRUE));
+	}
 }

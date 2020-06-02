@@ -197,7 +197,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		if (!is_null($params)) {
 			$this->validateMethodParams($params,
-			  "rpc.filesystemmgmt.enumeratemountedfilesystems");
+				"rpc.filesystemmgmt.enumeratemountedfilesystems");
 		}
 		// Get list of mount points, except bind mounts.
 		$db = \OMV\Config\Database::getInstance();
@@ -210,9 +210,10 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			]
 		]);
 		// Append '/dev/root'?
-		if (TRUE === array_boolval($params, "includeroot", FALSE)) {
+		if (!is_null($params) && (TRUE === array_boolval($params,
+				"includeroot", FALSE))) {
 			$rootObject = new \OMV\Config\ConfigObject(
-			  "conf.system.filesystem.mountpoint");
+				"conf.system.filesystem.mountpoint");
 			$rootObject->set("fsname", \OMV\System\System::getRootDeviceFile());
 			$rootObject->set("dir", "/");
 			array_unshift($objects, $rootObject);
@@ -260,7 +261,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 					"size" => "-1", // as string
 					"percentage" => -1,
 					"description" => $fs->hasLabel() ? $fs->getLabel() :
-					  $fs->getDeviceFile(),
+						$fs->getDeviceFile(),
 					"propposixacl" => $fsb->hasPosixAclSupport(),
 					"propquota" => $fsb->hasQuotaSupport(),
 					"propresize" => $fsb->hasResizeSupport(),
@@ -278,9 +279,9 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 					$object['blocks'] = $fsStats['blocks'];
 					$object['size'] = $fsStats['size'];
 					$object['description'] = sprintf(
-					  gettext("%s (%s available)"), !empty($object['label']) ?
-					  $object['label'] : $object['devicefile'], binary_format(
-					  $object['available']));
+						gettext("%s (%s available)"), !empty($object['label']) ?
+						$object['label'] : $object['devicefile'], binary_format(
+						$object['available']));
 				}
 				return $object;
 			});
