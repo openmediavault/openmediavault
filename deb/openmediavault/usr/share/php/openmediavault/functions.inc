@@ -234,11 +234,13 @@ function array_rand_value(array $array, $num = 1) {
  * @ingroup api
  * @param array $array An array with keys.
  * @param string $key The key of the element.
+ * @param string $default The default value returned if not found.
  * @return Returns the boolean value of the given key.
  */
-function array_boolval(array $array, $key) {
-	if (!isset($array[$key]))
-		return false;
+function array_boolval($array, $key, $default = false) {
+	if (!is_array($array) || !array_key_exists($key, $array)) {
+		return $default;
+	}
 	return boolvalEx($array[$key]);
 }
 
