@@ -1,3 +1,9 @@
+openmediavault (5.5.2-1) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 02 Jun 2020 21:13:04 +0200
+
 openmediavault (5.5.1-1) stable; urgency=low
 
   * Improve bond network interface creation. Ethernet or WiFi
