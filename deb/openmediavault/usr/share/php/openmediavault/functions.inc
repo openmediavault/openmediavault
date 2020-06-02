@@ -241,7 +241,6 @@ function array_boolval($array, $key, $default = false) {
 	if (!is_array($array) || !isset($array[$key])) {
 		return $default;
 	}
-		return $default;
 	return boolvalEx($array[$key]);
 }
 
