@@ -238,7 +238,7 @@ function array_rand_value(array $array, $num = 1) {
  * @return Returns the boolean value of the given key.
  */
 function array_boolval($array, $key, $default = false) {
-	if (!is_array($array) || !isset($array[$key])) {
+	if (!is_array($array) || !array_key_exists($key, $array)) {
 		return $default;
 	}
 	return boolvalEx($array[$key]);
