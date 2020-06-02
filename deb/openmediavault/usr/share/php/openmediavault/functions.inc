@@ -237,7 +237,7 @@ function array_rand_value(array $array, $num = 1) {
  * @param string $default The default value returned if not found.
  * @return Returns the boolean value of the given key.
  */
-function array_boolval($array, $key, $default = false) {
+function array_boolval($array, $key, $default = FALSE) {
 	if (!is_array($array) || !array_key_exists($key, $array)) {
 		return $default;
 	}
@@ -252,7 +252,7 @@ function array_boolval($array, $key, $default = false) {
  * @return Returns the boolean value of the given value.
  */
 function boolvalEx($var) {
-	$result = false;
+	$result = FALSE;
 	// Boolean 'true' => '1'
 	switch (mb_strtolower(strval($var))) {
 		case "1":
@@ -602,7 +602,7 @@ function json_encode_safe($value, $options = 0) {
 *   NULL is returned if the json cannot be decoded or if the encoded data
 *   is deeper than the recursion limit.
 */
-function json_decode_safe($json, $assoc = false, $depth = 512, $options = 0) {
+function json_decode_safe($json, $assoc = FALSE, $depth = 512, $options = 0) {
 	return json_decode(var_utf8_encode($json), $assoc, $depth, $options);
 }
 
@@ -613,17 +613,17 @@ function json_decode_safe($json, $assoc = false, $depth = 512, $options = 0) {
  */
 if (!function_exists('json_last_error_msg')) {
     function json_last_error_msg() {
-        static $errorMsg = array(
-            JSON_ERROR_NONE	=> null,
+        static $errorMsg = [
+			JSON_ERROR_NONE	=> NULL,
 			JSON_ERROR_DEPTH =>	"The maximum stack depth has been exceeded",
 			JSON_ERROR_STATE_MISMATCH => "Invalid or malformed JSON",
 			JSON_ERROR_CTRL_CHAR => "Control character error, possibly incorrectly encoded",
 			JSON_ERROR_SYNTAX => "Syntax error",
 			JSON_ERROR_UTF8 => "Malformed UTF-8 characters, possibly incorrectly encoded"
-        );
+        ];
         $errno = json_last_error();
         return array_key_exists($errno, $errorMsg) ? $errorMsg[$errno] :
-          sprintf("Unknown error (%d)", $errno);
+        	sprintf("Unknown error (%d)", $errno);
     }
 }
 
