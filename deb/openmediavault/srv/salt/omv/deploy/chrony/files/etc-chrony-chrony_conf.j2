@@ -7,7 +7,7 @@
 
 {{ pillar['headers']['multiline'] }}
 
-{%- for timeserver in timeservers.replace(',', ' ').replace(';', ' ').split() %}
+{%- for timeserver in ntp_config.timeservers.replace(',', ' ').replace(';', ' ').split() %}
 server {{ timeserver }} iburst
 {%- endfor %}
 
@@ -39,3 +39,8 @@ rtcsync
 # Step the system clock instead of slewing it if the adjustment is larger than
 # one second, but only in the first three clock updates.
 makestep {{ makestep }}
+
+# Allow clients to request time with allow directives below.
+{%- for client in ntp_config.clients.replace(',', ' ').replace(';', ' ').split() %}
+allow {{ client }}
+{%- endfor %}

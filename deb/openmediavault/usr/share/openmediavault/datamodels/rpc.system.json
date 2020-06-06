@@ -15,6 +15,10 @@
 			"ntptimeservers": {
 				"type": "string",
 				"required": true
+			},
+			"ntpclients": {
+				"type": "string",
+				"required": false
 			}
 		}
 	}
