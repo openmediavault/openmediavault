@@ -70,6 +70,10 @@ class Schema {
 	 * 	      array (
 	 * 	        'type' => 'string',
 	 * 	      ),
+	 * 	      'clients' =>
+	 * 	      array (
+	 * 	        'type' => 'string',
+	 * 	      ),
 	 * 	  ),
 	 * 	  ),
 	 * 	),

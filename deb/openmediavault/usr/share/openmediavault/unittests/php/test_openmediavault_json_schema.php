@@ -47,6 +47,10 @@ class test_openmediavault_json_schema extends \PHPUnit\Framework\TestCase {
 						"timeservers" => [
 							"type" => "string",
 							"default" => "pool.ntp.org"
+						],
+						"clients" => [
+							"type" => "string",
+							"default" => ""
 						]
 					]
 				],

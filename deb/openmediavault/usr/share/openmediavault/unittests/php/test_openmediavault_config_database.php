@@ -54,6 +54,7 @@ class test_openmediavault_config_database extends \PHPUnit\Framework\TestCase {
 		$object = $db->get("conf.system.time");
 		$this->assertInstanceOf("OMV\Config\ConfigObject", $object);
 		$this->assertEquals($object->get("ntp.timeservers"), "pool.ntp.org");
+		$this->assertEquals($object->get("ntp.clients"), "");
 	}
 
 	public function testGet2() {

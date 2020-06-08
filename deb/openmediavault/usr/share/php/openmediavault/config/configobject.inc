@@ -111,6 +111,7 @@ class ConfigObject {
 	 *         (
 	 *             [enable] => 1
 	 *             [timeservers] => pool.ntp.org,pool1.ntp.org;pool2.ntp.org,sss
+	 *             [clients] => 10.0.0.0/16,192.168.1.0/24;10.1.0.1/32
 	 *         )
 	 * )
 	 * @endcode

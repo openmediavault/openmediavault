@@ -47,7 +47,8 @@ Ext.define("OMV.module.admin.system.time.Time", {
 				"hour",
 				"minute",
 				"second",
-				"ntptimeservers"
+				"ntptimeservers",
+				"ntpclients"
 			],
 			conditions: [
 				{ name: "ntpenable", value: true }
@@ -61,6 +62,12 @@ Ext.define("OMV.module.admin.system.time.Time", {
 			properties: "disabled"
 		},{
 			name: "ntptimeservers",
+			conditions: [
+				{ name: "ntpenable", value: true }
+			],
+			properties: [ "allowBlank", "!readOnly" ]
+		},{
+			name: "ntpclients",
 			conditions: [
 				{ name: "ntpenable", value: true }
 			],
@@ -141,6 +148,18 @@ Ext.define("OMV.module.admin.system.time.Time", {
 				allowBlank: true,
 				readOnly: true,
 				value: "pool.ntp.org"
+			},{
+				xtype: "textfield",
+				name: "ntpclients",
+				fieldLabel: _("Allowed clients"),
+				vtype: "hostnameIPNetCIDRList",
+				allowBlank: true,
+				readOnly: true,
+				value: "",
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("IP addresses in CIDR notation or host names of clients that are allowed to access the NTP server.")
+				}]
 			},{
 				xtype: "fieldcontainer",
 				fieldLabel: _("Manual"),

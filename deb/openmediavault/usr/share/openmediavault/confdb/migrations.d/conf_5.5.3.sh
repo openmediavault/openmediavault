@@ -1,3 +1,5 @@
+#!/bin/sh
+#
 # This file is part of OpenMediaVault.
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
@@ -17,34 +19,10 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-{% set config = salt['omv_conf.get']('conf.system.time') %}
+set -e
 
-configure_chrony:
-  file.managed:
-    - name: "/etc/chrony/chrony.conf"
-    - source:
-      - salt://{{ tpldir }}/files/etc-chrony-chrony_conf.j2
-    - template: jinja
-    - context:
-        ntp_config: {{ config.ntp | json }}
-    - user: root
-    - group: root
-    - mode: 644
+. /usr/share/openmediavault/scripts/helper-functions
 
-{% if config.ntp.enable | to_bool %}
+omv_config_add_key "/config/system/time/ntp" "clients" ""
 
-start_chrony_service:
-  service.running:
-    - name: chrony
-    - enable: True
-    - watch:
-      - file: configure_chrony
-
-{% else %}
-
-stop_chrony_service:
-  service.dead:
-    - name: chrony
-    - enable: False
-
-{% endif %}
+exit 0

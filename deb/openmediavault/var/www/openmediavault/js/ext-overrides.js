@@ -262,6 +262,30 @@ Ext.apply(Ext.form.field.VTypes, {
 	hostnameIPListText: _("This field should be a list of host names or IP addresses separated by <,> or <;>"),
 	hostnameIPListMask: /[a-z0-9:\-\.,;]/i,
 
+	hostnameIPNetCIDR: function(v) {
+		if(Ext.form.field.VTypes.hostname(v))
+			return true;
+		if(Ext.form.field.VTypes.IPNetCIDR(v))
+			return true;
+		return false;
+	},
+	hostnameIPNetCIDRText: _("This field should be a host name or an IP address in CIDR notation"),
+	hostnameIPNetCIDRMask: /[a-z0-9:\-\.\/]/i,
+
+	hostnameIPNetCIDRList: function(v) {
+		var valid = true;
+		var parts = v.split(new RegExp('[,;]')) || [];
+		Ext.Array.each(parts, function(part) {
+			if(!Ext.form.VTypes.hostnameIPNetCIDR(part)) {
+				valid = false;
+				return false;
+			}
+		}, this);
+		return valid;
+	},
+	hostnameIPNetCIDRListText: _("This field should be a list of host names or IP addresses in CIDR notation separated by <,> or <;>"),
+	hostnameIPNetCIDRListMask: /[a-z0-9:\-\.\/,;]/i,
+
 	domainname: function(v) {
 		// See http://shauninman.com/archive/2006/05/08/validating_domain_names
 		return /^[a-zA-Z0-9]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])?([.][a-zA-Z0-9]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])?)*$/.test(v);

@@ -35,6 +35,7 @@
 			<ntp>
 				<enable>0</enable>
 				<timeservers>pool.ntp.org</timeservers>
+				<clients></clients>
 			</ntp>
 		</time>
 		<email>

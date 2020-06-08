@@ -38,6 +38,10 @@ class SchemaTestCase(unittest.TestCase):
                                 "type": "string",
                                 "default": "pool.ntp.org",
                             },
+                            "clients": {
+                                "type": "string",
+                                "default": "",
+                            },
                         },
                     },
                     "privilege": {
