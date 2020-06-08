@@ -158,7 +158,7 @@ Ext.define("OMV.module.admin.system.time.Time", {
 				value: "",
 				plugins: [{
 					ptype: "fieldinfo",
-					text: _("IP addresses in CIDR notation (preferred) or host names of allowed clients.")
+					text: _("IP addresses in CIDR notation or host names of clients that are allowed to access the NTP server.")
 				}]
 			},{
 				xtype: "fieldcontainer",

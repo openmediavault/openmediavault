@@ -1,6 +1,6 @@
 openmediavault (5.5.3-1) stable; urgency=low
 
-  * Issue #730: Allow chrony to serve clients
+  * Issue #730: Allow chrony to serve clients.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 06 Jun 2020 23:09:16 +0200
 
