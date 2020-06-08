@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-15 19:10+0200\n"
+"POT-Creation-Date: 2020-06-08 23:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -217,6 +217,9 @@ msgstr ""
 msgid "Add bond connection"
 msgstr ""
 
+msgid "Add bridge connection"
+msgstr ""
+
 msgid "Add devices to RAID device"
 msgstr ""
 
@@ -308,6 +311,9 @@ msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr ""
 
 msgid "Allow this server to advertise itself as a time server to Windows clients"
+msgstr ""
+
+msgid "Allowed clients"
 msgstr ""
 
 msgid "American Samoa"
@@ -497,6 +503,9 @@ msgid "Bouvet Island"
 msgstr ""
 
 msgid "Brazil"
+msgstr ""
+
+msgid "Bridge"
 msgstr ""
 
 msgid "British Antarctic Territory"
@@ -994,6 +1003,9 @@ msgstr ""
 msgid "Edit bond connection"
 msgstr ""
 
+msgid "Edit bridge connection"
+msgstr ""
+
 msgid "Edit ethernet connection"
 msgstr ""
 
@@ -1255,6 +1267,9 @@ msgstr ""
 msgid "Filename"
 msgstr ""
 
+msgid "Filepath"
+msgstr ""
+
 msgid "Files in the recycle bin will be deleted automatically after the specified number of days. Set to 0 for manual deletion."
 msgstr ""
 
@@ -1463,6 +1478,9 @@ msgid "Hungary"
 msgstr ""
 
 msgid "ID"
+msgstr ""
+
+msgid "IP addresses in CIDR notation or host names of clients that are allowed to access the NTP server."
 msgstr ""
 
 msgid "IP addresses of domain name servers used to resolve host names."
@@ -2048,6 +2066,9 @@ msgid "New Caledonia"
 msgstr ""
 
 msgid "New Zealand"
+msgstr ""
+
+msgid "New password"
 msgstr ""
 
 msgid "Next Page"
@@ -3307,6 +3328,9 @@ msgstr ""
 msgid "This field should be a host name or an IP address"
 msgstr ""
 
+msgid "This field should be a host name or an IP address in CIDR notation"
+msgstr ""
+
 msgid "This field should be a host name or an IPv4 address"
 msgstr ""
 
@@ -3314,6 +3338,9 @@ msgid "This field should be a list of domain names or IP addresses"
 msgstr ""
 
 msgid "This field should be a list of domain names or IP addresses separated by <,> or <;>"
+msgstr ""
+
+msgid "This field should be a list of host names or IP addresses in CIDR notation separated by <,> or <;>"
 msgstr ""
 
 msgid "This field should be a list of host names or IP addresses separated by <,> or <;>"
@@ -3791,9 +3818,6 @@ msgid "Zambia"
 msgstr ""
 
 msgid "Zimbabwe"
-msgstr ""
-
-msgid "control panel"
 msgstr ""
 
 msgid "day"
