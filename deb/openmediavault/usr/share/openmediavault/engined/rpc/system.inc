@@ -254,7 +254,8 @@ class System extends \OMV\Rpc\ServiceAbstract {
 			],
 			"timezone" => $object->get("timezone"),
 			"ntpenable" => $object->get("ntp.enable"),
-			"ntptimeservers" => $object->get("ntp.timeservers")
+			"ntptimeservers" => $object->get("ntp.timeservers"),
+			"ntpclients" => $object->get("ntp.clients")
 		];
 	}
 
@@ -284,6 +285,7 @@ class System extends \OMV\Rpc\ServiceAbstract {
 		$object->set("timezone", $params['timezone']);
 		$object->set("ntp.enable", $params['ntpenable']);
 		$object->set("ntp.timeservers", $params['ntptimeservers']);
+		$object->set("ntp.clients", $params['ntpclients']);
 		// Set the configuration object.
 		$db->set($object);
 		// Return the configuration object.

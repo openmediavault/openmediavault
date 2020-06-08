@@ -64,6 +64,7 @@ class test_openmediavault_config_configobject extends \PHPUnit\Framework\TestCas
 		$this->assertFalse($object->get("ntp.enable"));
 		$this->assertEquals($object->get("ntp.timeservers"),
 			"pool.ntp.org,pool1.ntp.org;pool2.ntp.org");
+		$this->assertEquals($object->get("ntp.clients"), "");
 	}
 
 	public function testGetSet3() {

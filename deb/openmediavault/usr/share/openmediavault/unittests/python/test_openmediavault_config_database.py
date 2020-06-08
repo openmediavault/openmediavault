@@ -63,6 +63,7 @@ class DatabaseTestCase(unittest.TestCase):
         self.assertEqual(obj.get("timezone"), "Europe/Berlin")
         self.assertFalse(obj.get("ntp.enable"))
         self.assertEqual(obj.get("ntp.timeservers"), "pool.ntp.org")
+        self.assertEqual(obj.get("ntp.clients"), "")
 
     def test_get_2(self):
         db = openmediavault.config.Database()

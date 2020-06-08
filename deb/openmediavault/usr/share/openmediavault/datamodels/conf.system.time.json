@@ -20,6 +20,10 @@
 				"timeservers": {
 					"type": "string",
 					"default": "pool.ntp.org,pool1.ntp.org;pool2.ntp.org"
+				},
+				"clients": {
+					"type": "string",
+					"default": ""
 				}
 			}
 		}
