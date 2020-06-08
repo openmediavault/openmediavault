@@ -40,7 +40,7 @@ rtcsync
 # one second, but only in the first three clock updates.
 makestep {{ makestep }}
 
-# Allow clients to request time with allow directives below.
 {%- for client in ntp_config.clients.replace(',', ' ').replace(';', ' ').split() %}
+# Allow clients to request time with allow directives below.
 allow {{ client }}
 {%- endfor %}
