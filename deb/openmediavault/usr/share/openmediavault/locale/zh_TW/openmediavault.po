@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-15 19:10+0200\n"
-"PO-Revision-Date: 2020-04-20 04:11+0000\n"
+"POT-Creation-Date: 2020-06-08 23:06+0200\n"
+"PO-Revision-Date: 2020-06-10 20:11+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/votdev/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -219,6 +219,9 @@ msgstr "新增 Wi-Fi 連線"
 msgid "Add bond connection"
 msgstr "新增結合連線"
 
+msgid "Add bridge connection"
+msgstr "新增橋接"
+
 msgid "Add devices to RAID device"
 msgstr "新增裝置到 RAID 裝置中"
 
@@ -314,6 +317,9 @@ msgstr "允許客戶恢復被中斷的上傳和下載"
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "允許此伺服器對 Windows 客戶端宣告自己為時間伺服器"
+
+msgid "Allowed clients"
+msgstr "被允許客戶"
 
 msgid "American Samoa"
 msgstr "美屬薩摩亞"
@@ -510,6 +516,9 @@ msgstr "布維島"
 
 msgid "Brazil"
 msgstr "巴西"
+
+msgid "Bridge"
+msgstr "橋接"
 
 msgid "British Antarctic Territory"
 msgstr "英屬南極領地"
@@ -1024,6 +1033,9 @@ msgstr "編輯 Wi-Fi 連線"
 msgid "Edit bond connection"
 msgstr "編輯結合連線"
 
+msgid "Edit bridge connection"
+msgstr "編輯橋接"
+
 msgid "Edit ethernet connection"
 msgstr "編輯乙太網路連線"
 
@@ -1292,6 +1304,9 @@ msgstr "檔案系統"
 msgid "Filename"
 msgstr "檔案名稱"
 
+msgid "Filepath"
+msgstr "檔案路徑"
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1505,6 +1520,11 @@ msgstr "匈牙利"
 
 msgid "ID"
 msgstr "ID"
+
+msgid ""
+"IP addresses in CIDR notation or host names of clients that are allowed to "
+"access the NTP server."
+msgstr "被允許取用 NTP 伺服器之客戶端以 CIDR 標記法表達的 IP 地址或主機名稱。"
 
 msgid "IP addresses of domain name servers used to resolve host names."
 msgstr "用以解析主機名稱的網域名稱伺服器之 IP 地址"
@@ -2129,6 +2149,9 @@ msgstr "新卡里多尼亞"
 
 msgid "New Zealand"
 msgstr "紐西蘭"
+
+msgid "New password"
+msgstr "新密碼"
 
 msgid "Next Page"
 msgstr "下一頁"
@@ -3477,6 +3500,9 @@ msgstr "此欄位應該是一個網域名稱或 IPv4 地址"
 msgid "This field should be a host name or an IP address"
 msgstr "此欄位應該是一個主機名稱或 IP 地址"
 
+msgid "This field should be a host name or an IP address in CIDR notation"
+msgstr "此欄位應該為主機名稱或以 CIDR 記法表達的 IP 地址"
+
 msgid "This field should be a host name or an IPv4 address"
 msgstr "此欄位應該是一個主機名稱或 IPv4 地址"
 
@@ -3487,6 +3513,11 @@ msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
 msgstr "此欄位應該是一份以<,>或<;>分隔之網域名稱或 IP 地址的列表"
+
+msgid ""
+"This field should be a list of host names or IP addresses in CIDR notation "
+"separated by <,> or <;>"
+msgstr "此欄位應該是一份以<,>或<;>分隔之主機名稱或 IP 地址的列表"
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
@@ -4026,9 +4057,6 @@ msgstr "尚比亞"
 
 msgid "Zimbabwe"
 msgstr "辛巴威"
-
-msgid "control panel"
-msgstr "控制台"
 
 msgid "day"
 msgstr "天"

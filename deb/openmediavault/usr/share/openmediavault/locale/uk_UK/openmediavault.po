@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-15 19:10+0200\n"
-"PO-Revision-Date: 2020-04-15 17:14+0000\n"
+"POT-Creation-Date: 2020-06-08 23:06+0200\n"
+"PO-Revision-Date: 2020-06-08 21:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -220,6 +220,9 @@ msgstr "Додати Wi-Fi з'єднання"
 msgid "Add bond connection"
 msgstr "Додати bond з'єднання"
 
+msgid "Add bridge connection"
+msgstr ""
+
 msgid "Add devices to RAID device"
 msgstr "Додати диск до RAID"
 
@@ -315,6 +318,9 @@ msgstr "Дозволити клієнтам відновити перерван�
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Дозволити цьому серверу видавати себе в якості сервера часу для Windows клієнтів"
+
+msgid "Allowed clients"
+msgstr ""
 
 msgid "American Samoa"
 msgstr "Американське Самоа"
@@ -511,6 +517,9 @@ msgstr "Острів Буве"
 
 msgid "Brazil"
 msgstr "Бразилія"
+
+msgid "Bridge"
+msgstr ""
 
 msgid "British Antarctic Territory"
 msgstr "Британська антарктична територія"
@@ -1025,6 +1034,9 @@ msgstr "Редагувати Wi-Fi з’єднання"
 msgid "Edit bond connection"
 msgstr "Редагувати з’єднання bond"
 
+msgid "Edit bridge connection"
+msgstr ""
+
 msgid "Edit ethernet connection"
 msgstr "Редагувати ethernet з’єднання"
 
@@ -1293,6 +1305,9 @@ msgstr "Файлова система"
 msgid "Filename"
 msgstr "Ім'я файлу"
 
+msgid "Filepath"
+msgstr ""
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1506,6 +1521,11 @@ msgstr "Угорщина"
 
 msgid "ID"
 msgstr "ID"
+
+msgid ""
+"IP addresses in CIDR notation or host names of clients that are allowed to "
+"access the NTP server."
+msgstr ""
 
 msgid "IP addresses of domain name servers used to resolve host names."
 msgstr "IP-адреси серверів доменних імен використовується для розпізнавання імен хостів."
@@ -2130,6 +2150,9 @@ msgstr "Нова Каледонія"
 
 msgid "New Zealand"
 msgstr "Нова Зеландія"
+
+msgid "New password"
+msgstr ""
 
 msgid "Next Page"
 msgstr "Наступна Сторінка"
@@ -3478,6 +3501,9 @@ msgstr "Це поле повинно містити ім'я домену або 
 msgid "This field should be a host name or an IP address"
 msgstr "Це поле повинне містити ім'я хоста або IP адресу"
 
+msgid "This field should be a host name or an IP address in CIDR notation"
+msgstr ""
+
 msgid "This field should be a host name or an IPv4 address"
 msgstr "Це поле повинно містити назву хоста, або IPv4 адресу"
 
@@ -3488,6 +3514,11 @@ msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
 msgstr "Це поле повинно бути списком імен доменів або IP-адрес, розділених <,> або <;>"
+
+msgid ""
+"This field should be a list of host names or IP addresses in CIDR notation "
+"separated by <,> or <;>"
+msgstr ""
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
@@ -4027,9 +4058,6 @@ msgstr "Замбія"
 
 msgid "Zimbabwe"
 msgstr "Зімбабве"
-
-msgid "control panel"
-msgstr "Панель керування"
 
 msgid "day"
 msgstr "день"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-15 19:10+0200\n"
-"PO-Revision-Date: 2020-04-15 17:14+0000\n"
+"POT-Creation-Date: 2020-06-08 23:06+0200\n"
+"PO-Revision-Date: 2020-06-08 21:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/votdev/openmediavault/language/sl_SI/)\n"
 "MIME-Version: 1.0\n"
@@ -218,6 +218,9 @@ msgstr "Dodaj Wi-Fi povezavo"
 msgid "Add bond connection"
 msgstr ""
 
+msgid "Add bridge connection"
+msgstr ""
+
 msgid "Add devices to RAID device"
 msgstr "Dodaj diske v RAID polje"
 
@@ -312,6 +315,9 @@ msgstr ""
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
+msgstr ""
+
+msgid "Allowed clients"
 msgstr ""
 
 msgid "American Samoa"
@@ -509,6 +515,9 @@ msgstr "Bouvetov otok"
 
 msgid "Brazil"
 msgstr "Brazilija"
+
+msgid "Bridge"
+msgstr ""
 
 msgid "British Antarctic Territory"
 msgstr "Britansko antarktično ozemlje"
@@ -1023,6 +1032,9 @@ msgstr "Uredi Wi-Fi povezavo"
 msgid "Edit bond connection"
 msgstr ""
 
+msgid "Edit bridge connection"
+msgstr ""
+
 msgid "Edit ethernet connection"
 msgstr "Uredi povezavo ethernet"
 
@@ -1291,6 +1303,9 @@ msgstr "Datotečni sistem"
 msgid "Filename"
 msgstr "Ime datoteke"
 
+msgid "Filepath"
+msgstr ""
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1504,6 +1519,11 @@ msgstr "Madžarska"
 
 msgid "ID"
 msgstr "ID"
+
+msgid ""
+"IP addresses in CIDR notation or host names of clients that are allowed to "
+"access the NTP server."
+msgstr ""
 
 msgid "IP addresses of domain name servers used to resolve host names."
 msgstr ""
@@ -2128,6 +2148,9 @@ msgstr "Nova Kaledonija"
 
 msgid "New Zealand"
 msgstr "Nova Zelandija"
+
+msgid "New password"
+msgstr ""
 
 msgid "Next Page"
 msgstr "Naslednja stran"
@@ -3476,6 +3499,9 @@ msgstr "V tem polju mora biti vpisan domenski ali IPv4 naslov"
 msgid "This field should be a host name or an IP address"
 msgstr "V tem polju mora biti vpisano ime gostitelja ali IP naslov"
 
+msgid "This field should be a host name or an IP address in CIDR notation"
+msgstr ""
+
 msgid "This field should be a host name or an IPv4 address"
 msgstr "V tem polju mora biti vpisano ime gostitelja ali IPv4 naslov"
 
@@ -3485,6 +3511,11 @@ msgstr ""
 msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
+msgstr ""
+
+msgid ""
+"This field should be a list of host names or IP addresses in CIDR notation "
+"separated by <,> or <;>"
 msgstr ""
 
 msgid ""
@@ -4025,9 +4056,6 @@ msgstr "Zambija"
 
 msgid "Zimbabwe"
 msgstr "Zimbabve"
-
-msgid "control panel"
-msgstr "kontrolna plošča"
 
 msgid "day"
 msgstr "dan"

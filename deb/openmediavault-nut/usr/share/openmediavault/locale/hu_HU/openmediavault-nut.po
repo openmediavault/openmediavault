@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Ádám Balajti <balajtiadam@gmail.com>, 2012
+# Gyuris Gellért <bubu@ujevangelizacio.hu>, 2020
 # mersaint <mersaint@gmail.com>, 2012
 # Sári Gábor <sari.gabor@gmail.com>, 2018
 # Grawens <szabolcs.szanyi@gmail.com>, 2014
@@ -12,8 +13,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-19 15:47+0200\n"
-"PO-Revision-Date: 2020-04-19 13:55+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2020-06-09 09:47+0000\n"
+"Last-Translator: Gyuris Gellért <bubu@ujevangelizacio.hu>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +24,7 @@ msgstr ""
 
 msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
-msgstr ""
+msgstr "Helyi UPS esetén „önálló”, NUT-kizsolgálón lévő távoli UPS esetén „hálózati kliens”."
 
 msgid "Charge"
 msgstr "Töltés"
@@ -38,7 +39,7 @@ msgid "Defines when the shutdown is initiated."
 msgstr "Leállítási szabályok."
 
 msgid "Driver configuration directives"
-msgstr "Illesztőprogram irányelvek"
+msgstr "Illesztőprogrambeállítási direktívák"
 
 msgid "Enable"
 msgstr "Engedélyezés"
@@ -59,19 +60,19 @@ msgid "Message"
 msgstr "Üzenet"
 
 msgid "Mode"
-msgstr ""
+msgstr "Mód"
 
 msgid "Netclient"
-msgstr ""
+msgstr "Hálózati kliens"
 
 msgid "Netclient hostname"
-msgstr ""
+msgstr "Hálózati kliens gépneve"
 
 msgid "Netclient password"
-msgstr ""
+msgstr "Hálózati kliens jelszava"
 
 msgid "Netclient username"
-msgstr ""
+msgstr "Hálózati kliens felhasználói neve"
 
 msgid "PID"
 msgstr "PID"
@@ -80,7 +81,7 @@ msgid "Password"
 msgstr "Jelszó"
 
 msgid "Powervalue"
-msgstr ""
+msgstr "Áramérték"
 
 msgid "Program"
 msgstr "Program"
@@ -89,7 +90,7 @@ msgid "Remote monitoring"
 msgstr "Távfelügyelet"
 
 msgid "Service disabled"
-msgstr "Szolgáltatás kikapcsolva"
+msgstr "Szolgáltatás letiltva"
 
 msgid "Settings"
 msgstr "Beállítások"
@@ -101,19 +102,19 @@ msgid "Shutdown timer"
 msgstr "Leállítás időzítése"
 
 msgid "Standalone"
-msgstr ""
+msgstr "Önálló"
 
 msgid "Temperature"
 msgstr "Hőmérséklet"
 
 msgid "The name used to uniquely identify your UPS on local or remote system."
-msgstr ""
+msgstr "Az UPS egyedi azonosításához használt név a helyi vagy a távoli rendszeren."
 
 msgid ""
 "The number of power supplies that the UPS feeds on this system (usually 1), "
 "refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
 "target='_blank'>upsmon.conf(5)</a> for more information."
-msgstr ""
+msgstr "Az tápegységek száma, melyet az UPS táplál a rendszeren (általában 1). További információk az <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf(5)</a> leírásában találhatóak."
 
 msgid ""
 "The time in seconds until shutdown is initiated. If the UPS happens to come "
@@ -124,7 +125,7 @@ msgid ""
 "To get more information how to configure your UPS please check the Network "
 "UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
 "target='_blank'>documentation</a>."
-msgstr "További információkért a UPS beállításáról, nézze meg a Hálózati UPS Eszközök <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>dokumentumot</a>."
+msgstr "További információkért a UPS beállításáról, nézze meg a hálózati UPS eszközök <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>dokumentumot</a>."
 
 msgid "UPS"
 msgstr "UPS"

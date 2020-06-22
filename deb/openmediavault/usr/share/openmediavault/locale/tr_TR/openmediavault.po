@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-15 19:10+0200\n"
-"PO-Revision-Date: 2020-04-15 17:14+0000\n"
+"POT-Creation-Date: 2020-06-08 23:06+0200\n"
+"PO-Revision-Date: 2020-06-08 21:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/votdev/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -218,6 +218,9 @@ msgstr "Wi-Fi bağlantısı ekle"
 msgid "Add bond connection"
 msgstr "Birleştirilmiş bağlantı ekle"
 
+msgid "Add bridge connection"
+msgstr ""
+
 msgid "Add devices to RAID device"
 msgstr "RAID aygıtına ekle"
 
@@ -313,6 +316,9 @@ msgstr "Kullanıcıların kesilmiş yükleme ve indirmelerine devam etmesine izi
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Sunucunun Windows kullanıcılarına kendisini bir zaman sunucusu olarak tanıtmasına izin ver"
+
+msgid "Allowed clients"
+msgstr ""
 
 msgid "American Samoa"
 msgstr "Amerikan Samoa"
@@ -509,6 +515,9 @@ msgstr "Bouvet Adası"
 
 msgid "Brazil"
 msgstr "Brezilya"
+
+msgid "Bridge"
+msgstr ""
 
 msgid "British Antarctic Territory"
 msgstr "İngiliz Antartik Bölgesi"
@@ -1023,6 +1032,9 @@ msgstr "Wi-Fi bağlantısını düzenle"
 msgid "Edit bond connection"
 msgstr "Birleştirilmiş bağlantıyı düzenle"
 
+msgid "Edit bridge connection"
+msgstr ""
+
 msgid "Edit ethernet connection"
 msgstr "Ethernet bağlantısını düzenle"
 
@@ -1291,6 +1303,9 @@ msgstr "Dosya sistemi"
 msgid "Filename"
 msgstr "Dosya adı"
 
+msgid "Filepath"
+msgstr ""
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1504,6 +1519,11 @@ msgstr "Macaristan"
 
 msgid "ID"
 msgstr "ID"
+
+msgid ""
+"IP addresses in CIDR notation or host names of clients that are allowed to "
+"access the NTP server."
+msgstr ""
 
 msgid "IP addresses of domain name servers used to resolve host names."
 msgstr "Alan adı sunucularının IP adresleri, bilgisayar adlarını çözümlerken kullanılır."
@@ -2128,6 +2148,9 @@ msgstr "Yeni Kaledonya"
 
 msgid "New Zealand"
 msgstr "Yeni Zellanda"
+
+msgid "New password"
+msgstr ""
 
 msgid "Next Page"
 msgstr "Sonraki sayfa"
@@ -3476,6 +3499,9 @@ msgstr "Bu alan domain adı ya da IPv4 adresi olmalıdır."
 msgid "This field should be a host name or an IP address"
 msgstr "Bu alan sistem adı veya IP adresi olmalıdır"
 
+msgid "This field should be a host name or an IP address in CIDR notation"
+msgstr ""
+
 msgid "This field should be a host name or an IPv4 address"
 msgstr "Bu alan sistem adı veya IPv4 adresi olmalıdır"
 
@@ -3486,6 +3512,11 @@ msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
 msgstr "Bu alan <,> ya da <;> ile ayrılmış domain adları ya da IP adresleri listesi olmalıdır"
+
+msgid ""
+"This field should be a list of host names or IP addresses in CIDR notation "
+"separated by <,> or <;>"
+msgstr ""
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
@@ -4025,9 +4056,6 @@ msgstr "Zambiya"
 
 msgid "Zimbabwe"
 msgstr "Zimbabve"
-
-msgid "control panel"
-msgstr "kontrol paneli"
 
 msgid "day"
 msgstr "gün"

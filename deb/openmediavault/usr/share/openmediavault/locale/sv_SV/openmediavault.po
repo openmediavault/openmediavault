@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-15 19:10+0200\n"
-"PO-Revision-Date: 2020-05-21 12:13+0000\n"
+"POT-Creation-Date: 2020-06-08 23:06+0200\n"
+"PO-Revision-Date: 2020-06-16 16:56+0000\n"
 "Last-Translator: Jonatan Nyberg <jonatan.nyberg.karl@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/votdev/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -220,6 +220,9 @@ msgstr "Lägg till Wi-Fi-anslutning"
 msgid "Add bond connection"
 msgstr "Lägg till bond-anslutning"
 
+msgid "Add bridge connection"
+msgstr "Lägg till broanslutning"
+
 msgid "Add devices to RAID device"
 msgstr "Lägg till enheter till RAID-enhet"
 
@@ -315,6 +318,9 @@ msgstr "Låt klienter att återuppta avbrutna överföringar och hämtningar"
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Tillåt denna server att annonsera sig som en tidsserver till Windows-klienter"
+
+msgid "Allowed clients"
+msgstr "Tillåtna klienter"
 
 msgid "American Samoa"
 msgstr "Amerikanska Samoa"
@@ -511,6 +517,9 @@ msgstr "Bouvet Island"
 
 msgid "Brazil"
 msgstr "Brasilien"
+
+msgid "Bridge"
+msgstr "Bro"
 
 msgid "British Antarctic Territory"
 msgstr "Brittiska antarktis"
@@ -1025,6 +1034,9 @@ msgstr "Redigera Wi-Fi-anslutning"
 msgid "Edit bond connection"
 msgstr "Ändra bond-anslutning"
 
+msgid "Edit bridge connection"
+msgstr "Redigera broanslutning"
+
 msgid "Edit ethernet connection"
 msgstr "Redigera ethernet-anslutning"
 
@@ -1293,6 +1305,9 @@ msgstr "Filsystem"
 msgid "Filename"
 msgstr "Filnamn"
 
+msgid "Filepath"
+msgstr ""
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1506,6 +1521,11 @@ msgstr "Ungern"
 
 msgid "ID"
 msgstr "ID"
+
+msgid ""
+"IP addresses in CIDR notation or host names of clients that are allowed to "
+"access the NTP server."
+msgstr "IP-adresser i CIDR-notation eller värdnamn för klienter som får åtkomst till NTP-servern."
 
 msgid "IP addresses of domain name servers used to resolve host names."
 msgstr "IP-adresser till domännamnsservrar som används för att avgöra värdnamn."
@@ -2130,6 +2150,9 @@ msgstr "Nya Kaledonien"
 
 msgid "New Zealand"
 msgstr "Nya Zeeland"
+
+msgid "New password"
+msgstr "Nytt lösenord"
 
 msgid "Next Page"
 msgstr "Nästa sida"
@@ -3478,6 +3501,9 @@ msgstr "Detta fält bör vara ett domännamn eller en IPv4-adress"
 msgid "This field should be a host name or an IP address"
 msgstr "Detta fält bör vara ett värdnamn eller en IP-adress"
 
+msgid "This field should be a host name or an IP address in CIDR notation"
+msgstr "Detta fält ska vara ett värdnamn eller en IP-adress i CIDR-notation"
+
 msgid "This field should be a host name or an IPv4 address"
 msgstr "Detta fält bör vara ett värdnamn eller en IPv4-adress"
 
@@ -3488,6 +3514,11 @@ msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
 msgstr "Detta fält bör vara en lista över domännamn eller IP-adresser som är separerade av <,> eller <;>"
+
+msgid ""
+"This field should be a list of host names or IP addresses in CIDR notation "
+"separated by <,> or <;>"
+msgstr "Det här fältet bör vara en lista över värdnamn eller IP-adresser i CIDR-notering, separerade med <,> eller <;>"
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
@@ -4027,9 +4058,6 @@ msgstr "Zambia"
 
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
-
-msgid "control panel"
-msgstr "kontrollpanel"
 
 msgid "day"
 msgstr "dag"

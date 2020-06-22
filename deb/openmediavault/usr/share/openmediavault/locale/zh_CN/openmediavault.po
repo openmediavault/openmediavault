@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-15 19:10+0200\n"
-"PO-Revision-Date: 2020-04-20 02:49+0000\n"
+"POT-Creation-Date: 2020-06-08 23:06+0200\n"
+"PO-Revision-Date: 2020-06-10 01:30+0000\n"
 "Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/votdev/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -220,6 +220,9 @@ msgstr "添加 Wi-Fi 连接"
 msgid "Add bond connection"
 msgstr "添加链路汇聚"
 
+msgid "Add bridge connection"
+msgstr "添加桥接"
+
 msgid "Add devices to RAID device"
 msgstr "添加设备到 RAID 阵列"
 
@@ -315,6 +318,9 @@ msgstr "允许客户端恢复中断的上传和下载"
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "允许此服务器作为 Windows 客户端的时间服务器"
+
+msgid "Allowed clients"
+msgstr "允许的客户端"
 
 msgid "American Samoa"
 msgstr "美属萨摩亚"
@@ -511,6 +517,9 @@ msgstr "布维岛"
 
 msgid "Brazil"
 msgstr "巴西"
+
+msgid "Bridge"
+msgstr "桥接"
 
 msgid "British Antarctic Territory"
 msgstr "英属南极领地"
@@ -1025,6 +1034,9 @@ msgstr "编辑 Wi-Fi 连接"
 msgid "Edit bond connection"
 msgstr "编辑链路汇聚"
 
+msgid "Edit bridge connection"
+msgstr "编辑桥接"
+
 msgid "Edit ethernet connection"
 msgstr "编辑网络连接"
 
@@ -1293,6 +1305,9 @@ msgstr "文件系统"
 msgid "Filename"
 msgstr "文件名"
 
+msgid "Filepath"
+msgstr "文件路径"
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1506,6 +1521,11 @@ msgstr "匈牙利"
 
 msgid "ID"
 msgstr "ID"
+
+msgid ""
+"IP addresses in CIDR notation or host names of clients that are allowed to "
+"access the NTP server."
+msgstr "符合 CIDR 规范的IP地址或客户端主机名允许连接该 NTP 服务器。"
 
 msgid "IP addresses of domain name servers used to resolve host names."
 msgstr "解析域名服务器的 IP 地址为主机名。"
@@ -2130,6 +2150,9 @@ msgstr "新喀里多尼亚"
 
 msgid "New Zealand"
 msgstr "新西兰"
+
+msgid "New password"
+msgstr "新密码"
 
 msgid "Next Page"
 msgstr "下一页"
@@ -3478,6 +3501,9 @@ msgstr "此处应该是域名或者 IPv4 地址"
 msgid "This field should be a host name or an IP address"
 msgstr "此处应该是主机名或者 IP 地址"
 
+msgid "This field should be a host name or an IP address in CIDR notation"
+msgstr "此处需填写主机名或符合 CIDR 规范的 IP 地址"
+
 msgid "This field should be a host name or an IPv4 address"
 msgstr "此处应该是主机名或者 IPv4 地址"
 
@@ -3488,6 +3514,11 @@ msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
 msgstr "此处应该是域名或者 IP 地址列表，使用 <,> 或 <;> 隔开"
+
+msgid ""
+"This field should be a list of host names or IP addresses in CIDR notation "
+"separated by <,> or <;>"
+msgstr "此处需填写主机名或符合 CIDR 规范的 IP 地址列表，使用 <,> 或<;>隔开。"
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
@@ -4027,9 +4058,6 @@ msgstr "赞比亚"
 
 msgid "Zimbabwe"
 msgstr "津巴布韦"
-
-msgid "control panel"
-msgstr "控制面板"
 
 msgid "day"
 msgstr "天"

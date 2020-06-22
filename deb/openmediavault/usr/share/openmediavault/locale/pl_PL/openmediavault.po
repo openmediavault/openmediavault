@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-15 19:10+0200\n"
-"PO-Revision-Date: 2020-04-15 17:14+0000\n"
+"POT-Creation-Date: 2020-06-08 23:06+0200\n"
+"PO-Revision-Date: 2020-06-08 21:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/votdev/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -223,6 +223,9 @@ msgstr "Dodaj połączenie Wi-Fi"
 msgid "Add bond connection"
 msgstr "Dodaj połączenie redundantne"
 
+msgid "Add bridge connection"
+msgstr ""
+
 msgid "Add devices to RAID device"
 msgstr "Dodaj urządzenia do RAID"
 
@@ -318,6 +321,9 @@ msgstr "Zezwól klientom dokończyć przerwane transfery"
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Zezwalaj temu serwerowi przedstawiać się klientom Windows jako serwer czasu "
+
+msgid "Allowed clients"
+msgstr ""
 
 msgid "American Samoa"
 msgstr "American Samoa"
@@ -514,6 +520,9 @@ msgstr "Bouvet Island"
 
 msgid "Brazil"
 msgstr "Brazil"
+
+msgid "Bridge"
+msgstr ""
 
 msgid "British Antarctic Territory"
 msgstr "British Antarctic Territory"
@@ -1028,6 +1037,9 @@ msgstr "Edytuj połączenie Wi-Fi"
 msgid "Edit bond connection"
 msgstr "Edytuj redundantne połączenie"
 
+msgid "Edit bridge connection"
+msgstr ""
+
 msgid "Edit ethernet connection"
 msgstr "Edytuj połączenie ethernetowe"
 
@@ -1296,6 +1308,9 @@ msgstr "System plików"
 msgid "Filename"
 msgstr "Nazwa pliku"
 
+msgid "Filepath"
+msgstr ""
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1509,6 +1524,11 @@ msgstr "Hungary"
 
 msgid "ID"
 msgstr "ID"
+
+msgid ""
+"IP addresses in CIDR notation or host names of clients that are allowed to "
+"access the NTP server."
+msgstr ""
 
 msgid "IP addresses of domain name servers used to resolve host names."
 msgstr "Adresy IP serwerów nazw domen używanych do rozpoznawania nazw hostów."
@@ -2133,6 +2153,9 @@ msgstr "New Caledonia"
 
 msgid "New Zealand"
 msgstr "New Zealand"
+
+msgid "New password"
+msgstr ""
 
 msgid "Next Page"
 msgstr "Następna strona"
@@ -3481,6 +3504,9 @@ msgstr "To pole powinno być nazwą domeny lub adresem IPv4"
 msgid "This field should be a host name or an IP address"
 msgstr "To pole powinno być nazwą hosta lub adresem IP"
 
+msgid "This field should be a host name or an IP address in CIDR notation"
+msgstr ""
+
 msgid "This field should be a host name or an IPv4 address"
 msgstr "To pole powinno być nazwą hosta lub adresem IPv4"
 
@@ -3491,6 +3517,11 @@ msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
 msgstr "To pole powinno być listą nazw domen lub adresów IP oddzielonych  <,> lub <;>"
+
+msgid ""
+"This field should be a list of host names or IP addresses in CIDR notation "
+"separated by <,> or <;>"
+msgstr ""
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
@@ -4030,9 +4061,6 @@ msgstr "Zambia"
 
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
-
-msgid "control panel"
-msgstr "panel sterowania"
 
 msgid "day"
 msgstr "dzień"
