@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-15 19:10+0200\n"
-"PO-Revision-Date: 2020-05-15 09:44+0000\n"
+"POT-Creation-Date: 2020-06-08 23:06+0200\n"
+"PO-Revision-Date: 2020-06-17 10:51+0000\n"
 "Last-Translator: Kostas Moho\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/votdev/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -218,6 +218,9 @@ msgstr "Προσθήκη σύνδεσης Wi-Fi"
 msgid "Add bond connection"
 msgstr "Προσθήκη ομαδικής σύνδεσης"
 
+msgid "Add bridge connection"
+msgstr "Προσθήκη γέφυρας συνδέσεων"
+
 msgid "Add devices to RAID device"
 msgstr "Προσθήκη συσκευών σε συστοιχία RAID"
 
@@ -313,6 +316,9 @@ msgstr "Να επιτρέπεται στους πελάτες να συνεχί�
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Επιτρέπεται να διαφημίζεται ως ? σε πελάτες Windows"
+
+msgid "Allowed clients"
+msgstr "Επιτρεπόμενοι πελάτες"
 
 msgid "American Samoa"
 msgstr "American Samoa"
@@ -509,6 +515,9 @@ msgstr "Bouvet Island"
 
 msgid "Brazil"
 msgstr "Brazil"
+
+msgid "Bridge"
+msgstr "Γεφύρωμα"
 
 msgid "British Antarctic Territory"
 msgstr "British Antarctic Territory"
@@ -1023,6 +1032,9 @@ msgstr "Επεξεργασία σύνδεσης Wi-Fi"
 msgid "Edit bond connection"
 msgstr "Επεξεργασία ομαδικής σύνδεσης"
 
+msgid "Edit bridge connection"
+msgstr "Επεξεργασία γέφυρας συνδέσεων"
+
 msgid "Edit ethernet connection"
 msgstr "Επεξεργασία ενσύρματης σύνδεσης"
 
@@ -1291,6 +1303,9 @@ msgstr "Σύστημα αρχείων"
 msgid "Filename"
 msgstr "Όνομα αρχείου"
 
+msgid "Filepath"
+msgstr "Διαδρομή αρχείου"
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1504,6 +1519,11 @@ msgstr "Hungary"
 
 msgid "ID"
 msgstr "Αναγνωριστικό"
+
+msgid ""
+"IP addresses in CIDR notation or host names of clients that are allowed to "
+"access the NTP server."
+msgstr "Διευθύνσεις ΙΡ σε διατύπωση CIDR, ή όνομα δικτύου των πελατών που επιτρέπεται να προσπελάσουν τον διακομιστή ΝΤΡ."
 
 msgid "IP addresses of domain name servers used to resolve host names."
 msgstr "Διευθύνσεις ΙΡ που χρησιμοποιούνται για επίλυση ονομάτων."
@@ -2128,6 +2148,9 @@ msgstr "New Caledonia"
 
 msgid "New Zealand"
 msgstr "New Zealand"
+
+msgid "New password"
+msgstr "Νέος κωδικός"
 
 msgid "Next Page"
 msgstr "Επόμενη Σελίδα"
@@ -3476,6 +3499,9 @@ msgstr "Αυτό το πεδίο δέχεται όνομα τομέα ή διε�
 msgid "This field should be a host name or an IP address"
 msgstr "Αυτό το πεδίο δέχεται όνομα υπολογιστή ή διεύθυνση ΙΡ."
 
+msgid "This field should be a host name or an IP address in CIDR notation"
+msgstr "Το πεδίο δέχεται όνομα δικτύου ή διεύθυνση ΙΡ σε διατύπωση CIDR."
+
 msgid "This field should be a host name or an IPv4 address"
 msgstr "Αυτό το πεδίο δέχεται όνομα υπολογιστή ή διεύθυνση ΙΡv4"
 
@@ -3486,6 +3512,11 @@ msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
 msgstr "Αυτό το πεδίο δέχεται λίστα ονομάτων τομέα ή διευθύνσεις ΙΡ διαχωρισμένα με <,> ή <;>"
+
+msgid ""
+"This field should be a list of host names or IP addresses in CIDR notation "
+"separated by <,> or <;>"
+msgstr "Το πεδίο πρέπει να είναι λίστα ονομάτων δικτύου ή διευθύνσεων ΙΡ σε διατύπωση CIDR, διαχωρισμένα με <,> ή <;>"
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
@@ -4025,9 +4056,6 @@ msgstr "Zambia"
 
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
-
-msgid "control panel"
-msgstr "πίνακας ελέγχου"
 
 msgid "day"
 msgstr "ημέρα"

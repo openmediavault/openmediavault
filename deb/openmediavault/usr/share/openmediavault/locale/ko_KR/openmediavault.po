@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-15 19:10+0200\n"
-"PO-Revision-Date: 2020-04-15 17:14+0000\n"
+"POT-Creation-Date: 2020-06-08 23:06+0200\n"
+"PO-Revision-Date: 2020-06-08 21:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -221,6 +221,9 @@ msgstr "Wi-Fi 연결 추가"
 msgid "Add bond connection"
 msgstr "본드 연결 추가"
 
+msgid "Add bridge connection"
+msgstr ""
+
 msgid "Add devices to RAID device"
 msgstr "RAID 장치에 디바이스를 추가"
 
@@ -316,6 +319,9 @@ msgstr "중단된 올려주기와 내려받기를 이어서 할 수 있게 합�
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "이 서버가 Windows 클라이언트에게 자신을 시간 서버로 알리는 것을 가능하게 합니다."
+
+msgid "Allowed clients"
+msgstr ""
 
 msgid "American Samoa"
 msgstr "아메리칸 사모아"
@@ -512,6 +518,9 @@ msgstr "부베 섬"
 
 msgid "Brazil"
 msgstr "브라질"
+
+msgid "Bridge"
+msgstr ""
 
 msgid "British Antarctic Territory"
 msgstr "영국령 남극 영토"
@@ -1026,6 +1035,9 @@ msgstr "Wi-Fi 연결 편집"
 msgid "Edit bond connection"
 msgstr "본드 연결 편집"
 
+msgid "Edit bridge connection"
+msgstr ""
+
 msgid "Edit ethernet connection"
 msgstr "이더넷 연결 편집"
 
@@ -1294,6 +1306,9 @@ msgstr "파일 시스템"
 msgid "Filename"
 msgstr "파일 이름"
 
+msgid "Filepath"
+msgstr ""
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1507,6 +1522,11 @@ msgstr "헝가리"
 
 msgid "ID"
 msgstr "ID"
+
+msgid ""
+"IP addresses in CIDR notation or host names of clients that are allowed to "
+"access the NTP server."
+msgstr ""
 
 msgid "IP addresses of domain name servers used to resolve host names."
 msgstr "도메인 네임 서버의 IP주소는 호스트 이름을 해석하는 데에 사용됩니다."
@@ -2131,6 +2151,9 @@ msgstr "뉴칼레도니아"
 
 msgid "New Zealand"
 msgstr "뉴질랜드"
+
+msgid "New password"
+msgstr ""
 
 msgid "Next Page"
 msgstr "다음 페이지"
@@ -3479,6 +3502,9 @@ msgstr "이 항목은 도메인 이름이거나 IPv4 주소여야 합니다."
 msgid "This field should be a host name or an IP address"
 msgstr "이 항목은 호스트 이름이나 IP 주소여야 합니다."
 
+msgid "This field should be a host name or an IP address in CIDR notation"
+msgstr ""
+
 msgid "This field should be a host name or an IPv4 address"
 msgstr "이 항목은 호스트 이름이거나 IPv4 주소여야 합니다."
 
@@ -3489,6 +3515,11 @@ msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
 msgstr "이 항목은 <,> 또는 <;>으로 구분되는 도메인 이름의 목록이나 IP 주소여야 합니다."
+
+msgid ""
+"This field should be a list of host names or IP addresses in CIDR notation "
+"separated by <,> or <;>"
+msgstr ""
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
@@ -4028,9 +4059,6 @@ msgstr "잠비아"
 
 msgid "Zimbabwe"
 msgstr "짐바브웨"
-
-msgid "control panel"
-msgstr "제어 패널"
 
 msgid "day"
 msgstr "일"

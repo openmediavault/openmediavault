@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-15 19:10+0200\n"
-"PO-Revision-Date: 2020-04-16 11:39+0000\n"
+"POT-Creation-Date: 2020-06-08 23:06+0200\n"
+"PO-Revision-Date: 2020-06-09 06:21+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/votdev/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -221,6 +221,9 @@ msgstr "Añadir conexión Wi-Fi"
 msgid "Add bond connection"
 msgstr "Añadir conexión agrupada"
 
+msgid "Add bridge connection"
+msgstr "Añadir una conexión puente"
+
 msgid "Add devices to RAID device"
 msgstr "Añadir dispositivos al RAID"
 
@@ -316,6 +319,9 @@ msgstr "Permitir reanudar subidas/bajadas interrumpidas"
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Permitir a este servidor anunciarse a sí mismo como un servidor de hora de Windows"
+
+msgid "Allowed clients"
+msgstr "Clientes permitidos"
 
 msgid "American Samoa"
 msgstr "Samoa"
@@ -512,6 +518,9 @@ msgstr "Isla Bouvet (Noruega)"
 
 msgid "Brazil"
 msgstr "Brasil"
+
+msgid "Bridge"
+msgstr "Puente"
 
 msgid "British Antarctic Territory"
 msgstr "Territorio Británico Antártico"
@@ -1026,6 +1035,9 @@ msgstr "Editar conexiones Wi-Fi"
 msgid "Edit bond connection"
 msgstr "Editar conexiones agrupadas"
 
+msgid "Edit bridge connection"
+msgstr "Editar Puente"
+
 msgid "Edit ethernet connection"
 msgstr "Editar conexión ethernet"
 
@@ -1294,6 +1306,9 @@ msgstr "Sistema de Archivos"
 msgid "Filename"
 msgstr "Nombre de archivo"
 
+msgid "Filepath"
+msgstr "Ruta"
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1507,6 +1522,11 @@ msgstr "Hungría"
 
 msgid "ID"
 msgstr "ID"
+
+msgid ""
+"IP addresses in CIDR notation or host names of clients that are allowed to "
+"access the NTP server."
+msgstr "Dirección IP con notación CIDR o nombre de clientes que tengan permiso para acceder al servidor NTP."
 
 msgid "IP addresses of domain name servers used to resolve host names."
 msgstr "Dirección IP de los servidores DNS que deben resolver los nombres de host."
@@ -2131,6 +2151,9 @@ msgstr "Nueva Caledonia"
 
 msgid "New Zealand"
 msgstr "Nueva Zelanda"
+
+msgid "New password"
+msgstr "Nueva contraseña"
 
 msgid "Next Page"
 msgstr "Página siguiente"
@@ -3479,6 +3502,9 @@ msgstr "El campo debe ser un dominio o un IP tipo IPV4"
 msgid "This field should be a host name or an IP address"
 msgstr "El campo debe ser un nombre de host o una IP"
 
+msgid "This field should be a host name or an IP address in CIDR notation"
+msgstr "Este campo debe ser un nombre de host, o una IP con notación CIDR."
+
 msgid "This field should be a host name or an IPv4 address"
 msgstr "El campo debe ser un nombre de host o una IP tipo IPV4"
 
@@ -3489,6 +3515,11 @@ msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
 msgstr "El campo debe ser una lista de dominios o de direcciones IP separados por <,> o <;>"
+
+msgid ""
+"This field should be a list of host names or IP addresses in CIDR notation "
+"separated by <,> or <;>"
+msgstr "Este campo debe ser una lista de Hosts o direcciones IP con notación CIDR separados por  <,> or <;>"
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
@@ -4028,9 +4059,6 @@ msgstr "Zambia"
 
 msgid "Zimbabwe"
 msgstr "Zimbabue"
-
-msgid "control panel"
-msgstr "Panel de control"
 
 msgid "day"
 msgstr "dia"

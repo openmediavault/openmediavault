@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-15 19:10+0200\n"
-"PO-Revision-Date: 2020-04-20 02:49+0000\n"
-"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
+"POT-Creation-Date: 2020-06-08 23:06+0200\n"
+"PO-Revision-Date: 2020-06-08 21:08+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/votdev/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -218,6 +218,9 @@ msgstr "Wi-Fi接続を追加"
 msgid "Add bond connection"
 msgstr "ボンディング接続を追加"
 
+msgid "Add bridge connection"
+msgstr ""
+
 msgid "Add devices to RAID device"
 msgstr "RAIDデバイスへの追加"
 
@@ -313,6 +316,9 @@ msgstr "アップロードとダウンロードの中断時のレジュームを
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "このサーバがWindowsクライアントへのタイムサーバとして自身をアドバタイズすることを許可"
+
+msgid "Allowed clients"
+msgstr ""
 
 msgid "American Samoa"
 msgstr "アメリカ領サモア"
@@ -509,6 +515,9 @@ msgstr "ブーベ島"
 
 msgid "Brazil"
 msgstr "ブラジル"
+
+msgid "Bridge"
+msgstr ""
 
 msgid "British Antarctic Territory"
 msgstr "イギリス領南極地域"
@@ -1023,6 +1032,9 @@ msgstr "Wi-Fi接続を編集"
 msgid "Edit bond connection"
 msgstr "ボンディング接続を編集"
 
+msgid "Edit bridge connection"
+msgstr ""
+
 msgid "Edit ethernet connection"
 msgstr "イーサネット接続を編集"
 
@@ -1291,6 +1303,9 @@ msgstr "ファイルシステム"
 msgid "Filename"
 msgstr "ファイル名"
 
+msgid "Filepath"
+msgstr ""
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1504,6 +1519,11 @@ msgstr "ハンガリー"
 
 msgid "ID"
 msgstr "ID"
+
+msgid ""
+"IP addresses in CIDR notation or host names of clients that are allowed to "
+"access the NTP server."
+msgstr ""
 
 msgid "IP addresses of domain name servers used to resolve host names."
 msgstr "ドメインネームサーバのIPアドレスがホスト名を解決するために使用されます。"
@@ -2128,6 +2148,9 @@ msgstr "ニューカレドニア"
 
 msgid "New Zealand"
 msgstr "ニュージーランド"
+
+msgid "New password"
+msgstr ""
 
 msgid "Next Page"
 msgstr "次のページ"
@@ -3476,6 +3499,9 @@ msgstr "このフィールドはドメイン名かIPv4アドレスである必�
 msgid "This field should be a host name or an IP address"
 msgstr "このフィールドはホスト名かIPアドレスである必要があります"
 
+msgid "This field should be a host name or an IP address in CIDR notation"
+msgstr ""
+
 msgid "This field should be a host name or an IPv4 address"
 msgstr "このフィールドはホスト名かIPv4アドレスである必要があります"
 
@@ -3486,6 +3512,11 @@ msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
 msgstr "このフィールドは、<,>または<;>で区切られたドメイン名またはIPアドレスのリストである必要があります"
+
+msgid ""
+"This field should be a list of host names or IP addresses in CIDR notation "
+"separated by <,> or <;>"
+msgstr ""
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
@@ -4025,9 +4056,6 @@ msgstr "ザンビア"
 
 msgid "Zimbabwe"
 msgstr "ジンバブエ"
-
-msgid "control panel"
-msgstr "コントロールパネル"
 
 msgid "day"
 msgstr "日"

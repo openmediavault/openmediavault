@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-15 19:10+0200\n"
-"PO-Revision-Date: 2020-04-15 17:14+0000\n"
+"POT-Creation-Date: 2020-06-08 23:06+0200\n"
+"PO-Revision-Date: 2020-06-08 21:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/votdev/openmediavault/language/ar_SA/)\n"
 "MIME-Version: 1.0\n"
@@ -219,6 +219,9 @@ msgstr "إضافة اتصال Wi-Fi"
 msgid "Add bond connection"
 msgstr "إضافة اتصال ترابط"
 
+msgid "Add bridge connection"
+msgstr ""
+
 msgid "Add devices to RAID device"
 msgstr "إضافة أجهزة إلى مصفوفة RAID"
 
@@ -314,6 +317,9 @@ msgstr "السماح للمستخدمين باستئناف عمليات التح
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "اسمح لهذا الخادم بالإعلان عن نفسه كخادم وقت لعملاء Windows"
+
+msgid "Allowed clients"
+msgstr ""
 
 msgid "American Samoa"
 msgstr "ساموا الأمريكية"
@@ -510,6 +516,9 @@ msgstr "جزيرة بوفيت"
 
 msgid "Brazil"
 msgstr "البرازيل"
+
+msgid "Bridge"
+msgstr ""
 
 msgid "British Antarctic Territory"
 msgstr "إقليم القطب الجنوبي البريطاني"
@@ -1024,6 +1033,9 @@ msgstr "تحرير اتصال Wi-Fi"
 msgid "Edit bond connection"
 msgstr "تحرير اتصال Bond"
 
+msgid "Edit bridge connection"
+msgstr ""
+
 msgid "Edit ethernet connection"
 msgstr "تحرير اتصال Ethernet"
 
@@ -1292,6 +1304,9 @@ msgstr "نظام الملفات"
 msgid "Filename"
 msgstr "اسم الملف"
 
+msgid "Filepath"
+msgstr ""
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1505,6 +1520,11 @@ msgstr "هنغاريا"
 
 msgid "ID"
 msgstr "ID"
+
+msgid ""
+"IP addresses in CIDR notation or host names of clients that are allowed to "
+"access the NTP server."
+msgstr ""
 
 msgid "IP addresses of domain name servers used to resolve host names."
 msgstr "عناوين IP لخوادم اسم المجال المستخدمة لحل أسماء المضيفين."
@@ -2129,6 +2149,9 @@ msgstr "كاليدونيا الجديدة"
 
 msgid "New Zealand"
 msgstr "نيوزيلندا"
+
+msgid "New password"
+msgstr ""
 
 msgid "Next Page"
 msgstr "الصفحة التالية"
@@ -3477,6 +3500,9 @@ msgstr "يجب أن يكون هذا الحقل اسم مجال أو عنوان I
 msgid "This field should be a host name or an IP address"
 msgstr "يجب أن يكون هذا الحقل اسم مضيف أو عنوان IP"
 
+msgid "This field should be a host name or an IP address in CIDR notation"
+msgstr ""
+
 msgid "This field should be a host name or an IPv4 address"
 msgstr "يجب أن يكون هذا الحقل اسم مضيف أو عنوان IPv4"
 
@@ -3487,6 +3513,11 @@ msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
 msgstr "يجب أن يكون هذا الحقل قائمة بأسماء النطاقات أو عناوين IP مفصولة بـ <أو> أو <؛>"
+
+msgid ""
+"This field should be a list of host names or IP addresses in CIDR notation "
+"separated by <,> or <;>"
+msgstr ""
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
@@ -4026,9 +4057,6 @@ msgstr "زامبيا"
 
 msgid "Zimbabwe"
 msgstr "زيمبابوي"
-
-msgid "control panel"
-msgstr "لوحة التحكم"
 
 msgid "day"
 msgstr "اليوم"

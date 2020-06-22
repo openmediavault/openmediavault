@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-15 19:10+0200\n"
-"PO-Revision-Date: 2020-04-15 17:14+0000\n"
+"POT-Creation-Date: 2020-06-08 23:06+0200\n"
+"PO-Revision-Date: 2020-06-08 21:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/votdev/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -221,6 +221,9 @@ msgstr "Wi-Fi-verbinding toevoegen"
 msgid "Add bond connection"
 msgstr "bond-verbinding toevoegen"
 
+msgid "Add bridge connection"
+msgstr ""
+
 msgid "Add devices to RAID device"
 msgstr "Apparaten aan de RAID toevoegen"
 
@@ -316,6 +319,9 @@ msgstr "Cliënten toestaan om onderbroken uploads en downloads te hervatten"
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "De server toestaan om zichzelf als tijdserver te identificeren bij Windows clients"
+
+msgid "Allowed clients"
+msgstr ""
 
 msgid "American Samoa"
 msgstr "Amerikaans Samoa"
@@ -512,6 +518,9 @@ msgstr "Bouvet eiland"
 
 msgid "Brazil"
 msgstr "Brazilië "
+
+msgid "Bridge"
+msgstr ""
 
 msgid "British Antarctic Territory"
 msgstr "Brits Antarctica"
@@ -1026,6 +1035,9 @@ msgstr "Wi-Fi-verbinding bijwerken"
 msgid "Edit bond connection"
 msgstr "Bond-verbinding bijwerken"
 
+msgid "Edit bridge connection"
+msgstr ""
+
 msgid "Edit ethernet connection"
 msgstr "Ethernet-verbinding bijwerken"
 
@@ -1294,6 +1306,9 @@ msgstr "Bestandssysteem"
 msgid "Filename"
 msgstr "Bestandsnaam"
 
+msgid "Filepath"
+msgstr ""
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1507,6 +1522,11 @@ msgstr "Hongarije"
 
 msgid "ID"
 msgstr "ID"
+
+msgid ""
+"IP addresses in CIDR notation or host names of clients that are allowed to "
+"access the NTP server."
+msgstr ""
 
 msgid "IP addresses of domain name servers used to resolve host names."
 msgstr "IP-adressen van gebruikte domeinnaamserververs bij het ophalen van hostnamen"
@@ -2131,6 +2151,9 @@ msgstr "Nieuw-Caledonië"
 
 msgid "New Zealand"
 msgstr "Nieuw-Zeeland"
+
+msgid "New password"
+msgstr ""
 
 msgid "Next Page"
 msgstr "Volgende Pagina"
@@ -3479,6 +3502,9 @@ msgstr "Dit veld dient een domeinnaam of een IPv4-adres te zijn"
 msgid "This field should be a host name or an IP address"
 msgstr "Dit veld dient een hostnaam of een IP-adres te zijn"
 
+msgid "This field should be a host name or an IP address in CIDR notation"
+msgstr ""
+
 msgid "This field should be a host name or an IPv4 address"
 msgstr "Dit veld dient een hostnaam of een IPv4-adres te zijn"
 
@@ -3489,6 +3515,11 @@ msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
 msgstr "Dit veld dient een lijst te zijn met domeinnamen of IP-adressen te zijn die gescheiden worden door een <,> of een <;>"
+
+msgid ""
+"This field should be a list of host names or IP addresses in CIDR notation "
+"separated by <,> or <;>"
+msgstr ""
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
@@ -4028,9 +4059,6 @@ msgstr "Zambia"
 
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
-
-msgid "control panel"
-msgstr "controle paneel"
 
 msgid "day"
 msgstr "dag"

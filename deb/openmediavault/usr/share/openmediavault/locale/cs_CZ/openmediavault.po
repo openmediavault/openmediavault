@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-15 19:10+0200\n"
-"PO-Revision-Date: 2020-04-20 18:57+0000\n"
+"POT-Creation-Date: 2020-06-08 23:06+0200\n"
+"PO-Revision-Date: 2020-06-09 18:17+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -219,6 +219,9 @@ msgstr "Přidat Wi-Fi připojení"
 msgid "Add bond connection"
 msgstr "Přidat spřažené připojení"
 
+msgid "Add bridge connection"
+msgstr "Přidat připojení typu síťový most"
+
 msgid "Add devices to RAID device"
 msgstr "Přidat zařízení do RAID pole"
 
@@ -314,6 +317,9 @@ msgstr "Umožnit klientům pokračovat v přerušeném stahování nebo nahráv�
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
 msgstr "Povolit tomuto serveru propagovat se Windows klientům jako časový server"
+
+msgid "Allowed clients"
+msgstr "Klienti, kterým umožnit přístup"
 
 msgid "American Samoa"
 msgstr "Americká Samoa"
@@ -510,6 +516,9 @@ msgstr "Bouvetův ostrov"
 
 msgid "Brazil"
 msgstr "Brazílie"
+
+msgid "Bridge"
+msgstr "Síťový most"
 
 msgid "British Antarctic Territory"
 msgstr "Britské antarktické území"
@@ -1024,6 +1033,9 @@ msgstr "Upravit Wi-Fi připojení"
 msgid "Edit bond connection"
 msgstr "Upravit spřažené připojení"
 
+msgid "Edit bridge connection"
+msgstr "Upravit připojení typu síťový most"
+
 msgid "Edit ethernet connection"
 msgstr "Upravit ethernetové připojení"
 
@@ -1292,6 +1304,9 @@ msgstr "Souborový systém"
 msgid "Filename"
 msgstr "Název souboru"
 
+msgid "Filepath"
+msgstr "Popis umístění souboru"
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1505,6 +1520,11 @@ msgstr "Maďarsko"
 
 msgid "ID"
 msgstr "Identif."
+
+msgid ""
+"IP addresses in CIDR notation or host names of clients that are allowed to "
+"access the NTP server."
+msgstr "IP adresy (v CIDR zápisu) nebo názvy strojů klientů, kterým je dovoleno přistupovat k NTP serveru."
 
 msgid "IP addresses of domain name servers used to resolve host names."
 msgstr "IP adresy jmenných (DNS) serverů, sloužících pro překládání názvů strojů."
@@ -2129,6 +2149,9 @@ msgstr "Nová Kaledonie"
 
 msgid "New Zealand"
 msgstr "Nový Zéland"
+
+msgid "New password"
+msgstr "Nové heslo"
 
 msgid "Next Page"
 msgstr "Následující stránka"
@@ -3477,6 +3500,9 @@ msgstr "Tato kolonka by měla obsahovat doménový název nebo IPv4 adresu"
 msgid "This field should be a host name or an IP address"
 msgstr "Tato kolonka by měla obsahovat název stroje nebo jeho IP adresu"
 
+msgid "This field should be a host name or an IP address in CIDR notation"
+msgstr "Obsahem této kolonky by měl být název stroje nebo IP adresa (v CIDR zápisu)"
+
 msgid "This field should be a host name or an IPv4 address"
 msgstr "Tato kolonka by měla obsahovat název stroje nebo jeho IPv4 adresu"
 
@@ -3487,6 +3513,11 @@ msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
 msgstr "Tato kolonka by měla obsahovat pouze seznam doménových názvů nebo IP adres, oddělených znaky <,> (čárka) nebo <;> (středník)"
+
+msgid ""
+"This field should be a list of host names or IP addresses in CIDR notation "
+"separated by <,> or <;>"
+msgstr "Tato kolonka by měla obsahovat pouze názvy strojů nebo jejich IP adresy (v CIDR zápisu), oddělené znaky <,> (čárka) nebo <;> (středník)"
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
@@ -4026,9 +4057,6 @@ msgstr "Zambie"
 
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
-
-msgid "control panel"
-msgstr "ovládací panel"
 
 msgid "day"
 msgstr "den"
