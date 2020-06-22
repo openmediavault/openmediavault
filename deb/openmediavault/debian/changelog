@@ -2,6 +2,7 @@ openmediavault (5.5.3-1) stable; urgency=low
 
   * Update locales.
   * Allow adding custom Salt states for 'omv.deploy.hosts'.
+  * Remove download limit of 25 kB/s for cron-apt.
   * Issue #730: Allow chrony to serve clients.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 06 Jun 2020 23:09:16 +0200

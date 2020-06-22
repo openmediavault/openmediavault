@@ -229,6 +229,9 @@ case "$1" in
 			deb-systemd-helper disable salt-minion.service
 			deb-systemd-invoke stop salt-minion.service || :
 		fi
+		if dpkg --compare-versions "$2" lt-nl "5.5.3"; then
+			omv_module_set_dirty cronapt
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the
