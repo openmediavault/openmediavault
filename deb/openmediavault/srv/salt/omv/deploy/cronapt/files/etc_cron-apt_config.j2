@@ -1,6 +1,6 @@
 {%- set mailon = salt['pillar.get']('default:OMV_CRONAPT_MAILON', 'upgrade') -%}
 {%- set syslogon = salt['pillar.get']('default:OMV_CRONAPT_SYSLOGON', 'always') -%}
-{%- set options = salt['pillar.get']('default:OMV_CRONAPT_OPTIONS', '-o Acquire::http::Dl-Limit=25') -%}
+{%- set options = salt['pillar.get']('default:OMV_CRONAPT_OPTIONS', '') -%}
 {{ pillar['headers']['multiline'] }}
 # Configuration for cron-apt.
 # The cron config is located in /etc/cron.d/cron-apt
@@ -54,4 +54,5 @@ SYSLOGON="{{ syslogon }}"
 #  OPTIONS="-o quiet=1 -o APT::Get::AllowUnauthenticated=true -o aptitude::Cmdline::ignore-trust-violations=yes"
 # To limit the bandwidth used use the following line. This example limit the
 # bandwidth usage to 25 kB/s.
+#  OPTIONS="-o Acquire::http::Dl-Limit=25"
 OPTIONS="{{ options }}"
