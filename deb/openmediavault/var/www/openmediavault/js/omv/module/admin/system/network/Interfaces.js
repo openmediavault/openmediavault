@@ -268,7 +268,11 @@ Ext.define("OMV.module.admin.system.network.interface.window.Generic", {
 				allowDecimals: false,
 				minValue: 0,
 				maxValue: 65535,
-				value: 0
+				value: 0,
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("The maximum transmission unit in bytes to set for the device. Set to 0 to use the default value.")
+				}]
 			},{
 				xtype: "checkbox",
 				name: "wol",

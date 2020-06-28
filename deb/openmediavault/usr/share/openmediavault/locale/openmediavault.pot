@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-08 23:06+0200\n"
+"POT-Creation-Date: 2020-06-28 09:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3227,6 +3227,9 @@ msgid "The location of the files to share. The share will be accessible at /expo
 msgstr ""
 
 msgid "The location of the user home directories."
+msgstr ""
+
+msgid "The maximum transmission unit in bytes to set for the device. Set to 0 to use the default value."
 msgstr ""
 
 msgid "The name of the share."

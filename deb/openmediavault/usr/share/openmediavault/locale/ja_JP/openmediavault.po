@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-08 23:06+0200\n"
-"PO-Revision-Date: 2020-06-08 21:08+0000\n"
+"POT-Creation-Date: 2020-06-28 09:12+0200\n"
+"PO-Revision-Date: 2020-06-28 07:13+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/votdev/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -3379,6 +3379,11 @@ msgstr "共有するファイルの場所。共有は /export/<名前> でアク
 
 msgid "The location of the user home directories."
 msgstr "ユーザーのホームディレクトリの場所。"
+
+msgid ""
+"The maximum transmission unit in bytes to set for the device. Set to 0 to "
+"use the default value."
+msgstr ""
 
 msgid "The name of the share."
 msgstr "共有の名前。"

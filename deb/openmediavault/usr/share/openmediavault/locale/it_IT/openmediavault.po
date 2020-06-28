@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-08 23:06+0200\n"
-"PO-Revision-Date: 2020-06-08 21:08+0000\n"
+"POT-Creation-Date: 2020-06-28 09:12+0200\n"
+"PO-Revision-Date: 2020-06-28 07:13+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Italian (http://www.transifex.com/votdev/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -3384,6 +3384,11 @@ msgstr "Il percorso dei file da condividere. La condivisione sarà accessibile i
 
 msgid "The location of the user home directories."
 msgstr "Il percorso delle directory home dell'utente."
+
+msgid ""
+"The maximum transmission unit in bytes to set for the device. Set to 0 to "
+"use the default value."
+msgstr ""
 
 msgid "The name of the share."
 msgstr "Il nome della condivisione."

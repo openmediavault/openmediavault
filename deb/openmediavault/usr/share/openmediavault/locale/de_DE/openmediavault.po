@@ -8,7 +8,7 @@
 # mattjes04 <mattjes04@googlemail.com>, 2013
 # mattjes04 <mattjes04@googlemail.com>, 2012
 # Stephan Steiner, 2014
-# Volker <votdev@gmx.de>, 2013-2019
+# Volker <votdev@gmx.de>, 2013-2020
 # Volker <votdev@gmx.de>, 2012
 # Volker <votdev@gmx.de>, 2012
 # warhog <warhog@gmx.de>, 2013
@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-08 23:06+0200\n"
-"PO-Revision-Date: 2020-06-08 21:08+0000\n"
+"POT-Creation-Date: 2020-06-28 09:12+0200\n"
+"PO-Revision-Date: 2020-06-28 07:32+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -225,10 +225,10 @@ msgid "Add Wi-Fi connection"
 msgstr "Funknetzwerkverbindung hinzufügen"
 
 msgid "Add bond connection"
-msgstr "Bündel-Verbindung hinzufügen"
+msgstr "Gebündelte-Verbindung hinzufügen"
 
 msgid "Add bridge connection"
-msgstr ""
+msgstr "Bridge-Verbindung hinzufügen"
 
 msgid "Add devices to RAID device"
 msgstr "Laufwerk zu RAID hinzufügen"
@@ -327,7 +327,7 @@ msgid ""
 msgstr "Erlaube diesem Server sich selbst als Zeitserver für Windows Clients bekannt zu machen"
 
 msgid "Allowed clients"
-msgstr ""
+msgstr "Zulässige Clienten"
 
 msgid "American Samoa"
 msgstr "Amerikanisch-Samoa"
@@ -336,7 +336,7 @@ msgid ""
 "An attempt to send the test email has been made. Please check your mailbox. "
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
-msgstr ""
+msgstr "Es wurde versucht, die Test-E-Mail zu senden. Bitte überprüfen Sie Ihr Postfach. Wenn die E-Mail nicht eintrifft, überprüfen Sie alle Spam-Ordner und stellen Sie sicher, dass das Systemprotokoll keine Postfix-bezogenen Fehler enthält."
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -526,7 +526,7 @@ msgid "Brazil"
 msgstr "Brasilien"
 
 msgid "Bridge"
-msgstr ""
+msgstr "Netzwerkbrücke"
 
 msgid "British Antarctic Territory"
 msgstr "Britisches Antarktis-Territorium"
@@ -1039,10 +1039,10 @@ msgid "Edit Wi-Fi connection"
 msgstr "Funknetzwerkverbindung bearbeiten"
 
 msgid "Edit bond connection"
-msgstr "Bündel-Verbindung bearbeiten"
+msgstr "Gebündelte-Verbindung bearbeiten"
 
 msgid "Edit bridge connection"
-msgstr ""
+msgstr "Netzwerkbrücke bearbeiten"
 
 msgid "Edit ethernet connection"
 msgstr "Kabelnetzverbindung bearbeiten"
@@ -1313,7 +1313,7 @@ msgid "Filename"
 msgstr "Dateiname"
 
 msgid "Filepath"
-msgstr ""
+msgstr "Dateipfad"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1532,7 +1532,7 @@ msgstr "ID"
 msgid ""
 "IP addresses in CIDR notation or host names of clients that are allowed to "
 "access the NTP server."
-msgstr ""
+msgstr "IP-Adressen in CIDR-Notation oder Hostnamen von Clients, die auf den NTP-Server zugreifen dürfen."
 
 msgid "IP addresses of domain name servers used to resolve host names."
 msgstr "IP-Adressen von Domänennamen-Server, die zum Auflösen von Rechnernamen verwendet werden."
@@ -1873,7 +1873,7 @@ msgid "Log level"
 msgstr "Log Level"
 
 msgid "Logging out, please wait ..."
-msgstr ""
+msgstr "Abmelden, bitte warten ..."
 
 msgid "Login"
 msgstr "Anmelden"
@@ -2159,7 +2159,7 @@ msgid "New Zealand"
 msgstr "Neuseeland"
 
 msgid "New password"
-msgstr ""
+msgstr "Neues Passwort"
 
 msgid "Next Page"
 msgstr "Nächste Seite"
@@ -2342,7 +2342,7 @@ msgid "Parent Device"
 msgstr "Übergeordnetes Gerät"
 
 msgid "Parent device"
-msgstr ""
+msgstr "Übergeordnetes Gerät"
 
 msgid "Passive FTP"
 msgstr "Passives FTP"
@@ -3022,7 +3022,7 @@ msgstr "Setze die Gruppe der Zieldatei auf die selben wie die der Quelldatei."
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr ""
+msgstr "Stelle den Eigentümer der Zieldatei so ein, dass er mit der Quelldatei identisch ist, jedoch nur, wenn der empfangende Rsync als Superuser ausgeführt wird."
 
 msgid "Set write only"
 msgstr "Nur schreiben einstellen"
@@ -3153,7 +3153,7 @@ msgid "Special action flag"
 msgstr "Spezielles Aktionsignal"
 
 msgid "Specifies one of the bonding policies."
-msgstr "Bestimmt eine der bindenden Richtlinien"
+msgstr "Bestimmt eine der bündelnden Richtlinien"
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "Legt die MII Link-Überwachungsfrequenz in Millisekunden fest."
@@ -3389,6 +3389,11 @@ msgstr "Speicherort der freizugebenden Dateien. Die Freigabe wird unter /export/
 msgid "The location of the user home directories."
 msgstr "Der Speicherort der Heimatverzeichnisse der Benutzer."
 
+msgid ""
+"The maximum transmission unit in bytes to set for the device. Set to 0 to "
+"use the default value."
+msgstr "Die maximale Übertragungseinheit in Byte, die für das Gerät festgelegt werden soll. Auf 0 setzen, um den Standardwert zu verwenden."
+
 msgid "The name of the share."
 msgstr "Der Name der Freigabe."
 
@@ -3509,28 +3514,28 @@ msgid "This field should be a host name or an IP address"
 msgstr "Dieses Feld sollte einen Hostnamen oder eine IP Adresse enthalten"
 
 msgid "This field should be a host name or an IP address in CIDR notation"
-msgstr ""
+msgstr "Dieses Feld sollte einen Hostnamen oder eine IP-Adresse in CIDR Notation enthalten"
 
 msgid "This field should be a host name or an IPv4 address"
 msgstr "Dieses Feld sollte einen Hostnamen oder eine IPv4 Adresse enthalten"
 
 msgid "This field should be a list of domain names or IP addresses"
-msgstr "Dieses Feld erwartet einen Liste von Domainnamen oder IP Adressen"
+msgstr "Dieses Feld erwartet einen Liste von Domainnamen oder IP-Adressen"
 
 msgid ""
 "This field should be a list of domain names or IP addresses separated by <,>"
 " or <;>"
-msgstr "Dieses Feld erwartet einen Liste von Domainnamen oder IP Adressen welche mit <,> oder <;> getrennt werden"
+msgstr "Dieses Feld erwartet einen Liste von Domainnamen oder IP-Adressen welche mit <,> oder <;> getrennt werden"
 
 msgid ""
 "This field should be a list of host names or IP addresses in CIDR notation "
 "separated by <,> or <;>"
-msgstr ""
+msgstr "Dieses Feld erwartet eine Liste von Hostnamen oder IP-Adressen in CIDR Notation welche mit <,> oder <;> getrennt werden"
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
 "or <;>"
-msgstr "Dieses Feld erwartet eine Liste von Hostnamen oder IP Adressen welche mit <,> oder <;> getrennt werden"
+msgstr "Dieses Feld erwartet eine Liste von Hostnamen oder IP-Adressen welche mit <,> oder <;> getrennt werden"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3738,7 +3743,7 @@ msgstr "Übertragungsprotokoll"
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr ""
+msgstr "Übertrage die Änderungszeiten zusammen mit den Dateien und aktualisieren Sie sie auf dem Remote-System."
 
 msgid "Transfer time"
 msgstr "Übertragungszeit"
