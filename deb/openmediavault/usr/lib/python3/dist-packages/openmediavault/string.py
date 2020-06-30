@@ -70,6 +70,8 @@ def is_uuid4(value):
         otherwise ``False``.
     :rtype: bool
     """
+    if not isinstance(value, str):
+        return False
     try:
         _ = uuid.UUID(value, version=4)
     except ValueError:
@@ -94,6 +96,8 @@ def is_fs_uuid(value):
         otherwise ``False``.
     :rtype: bool
     """
+    if not isinstance(value, str):
+        return False
     # Check if it is an UUID v4.
     if is_uuid4(value):
         return True

@@ -55,6 +55,9 @@ udevadm_trigger:
 {% set root_fstab_entry = fstab_entries['/'] %}
 # Get the device file of the root filesystem.
 {% set root_fs_device = salt['omv_utils.get_root_filesystem']() %}
+
+{% if salt['omv_utils.is_device_file'](root_fs_device) %}
+
 # Get the parent device file of the root filesystem.
 {% set parent_root_fs_device = salt['omv_utils.get_fs_parent_device_file'](root_fs_device) %}
 
@@ -71,6 +74,8 @@ update_root_fstab_entry:
       - opts: "{{ nonrot_options | union(root_fstab_entry.opts) | join(',') }}"
       - dump: "{{ root_fstab_entry.dump }}"
       - pass_num: "{{ root_fstab_entry.pass }}"
+
+{% endif %}
 
 {% endif %}
 

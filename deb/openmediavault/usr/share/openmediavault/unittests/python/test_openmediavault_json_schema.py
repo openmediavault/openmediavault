@@ -119,7 +119,7 @@ class SchemaTestCase(unittest.TestCase):
     def test_check_format_regex(self):
         schema = openmediavault.json.Schema({})
         schema._check_format(
-            '^\d{4}-\d{2}-\d{2}$', {"format": "regex"}, "field1"
+            r'^\d{4}-\d{2}-\d{2}$', {"format": "regex"}, "field1"
         )
 
     def test_check_format_email(self):
