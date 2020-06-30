@@ -32,6 +32,8 @@ def is_block_device(path):
         otherwise ``False``.
     :rtype: bool
     """
+    if not isinstance(path, str):
+        return False
     try:
         st = os.stat(path)
     except FileNotFoundError:
@@ -48,6 +50,8 @@ def is_char_device(path):
         otherwise ``False``.
     :rtype: bool
     """
+    if not isinstance(path, str):
+        return False
     try:
         st = os.stat(path)
     except FileNotFoundError:

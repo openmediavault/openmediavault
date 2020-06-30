@@ -37,8 +37,20 @@ class StringTestCase(unittest.TestCase):
         )
         self.assertTrue(valid)
 
-    def test_is_uuid4_fail(self):
+    def test_is_uuid4_fail_1(self):
         valid = openmediavault.string.is_uuid4("abc")
+        self.assertFalse(valid)
+
+    def test_is_uuid4_fail_2(self):
+        valid = openmediavault.string.is_uuid4(None)
+        self.assertFalse(valid)
+
+    def test_is_uuid4_fail_3(self):
+        valid = openmediavault.string.is_uuid4("")
+        self.assertFalse(valid)
+
+    def test_is_uuid4_fail_4(self):
+        valid = openmediavault.string.is_uuid4(1234)
         self.assertFalse(valid)
 
     def test_is_fs_uuid_ext4(self):
@@ -59,8 +71,20 @@ class StringTestCase(unittest.TestCase):
         valid = openmediavault.string.is_fs_uuid("2015-01-13-21-48-46-00")
         self.assertTrue(valid)
 
-    def test_is_fs_uuid_fail(self):
+    def test_is_fs_uuid_fail_1(self):
         valid = openmediavault.string.is_fs_uuid("xyz")
+        self.assertFalse(valid)
+
+    def test_is_fs_uuid_fail_2(self):
+        valid = openmediavault.string.is_fs_uuid(None)
+        self.assertFalse(valid)
+
+    def test_is_fs_uuid_fail_3(self):
+        valid = openmediavault.string.is_fs_uuid("")
+        self.assertFalse(valid)
+
+    def test_is_fs_uuid_fail_4(self):
+        valid = openmediavault.string.is_fs_uuid(1234)
         self.assertFalse(valid)
 
     def test_escape_blank(self):

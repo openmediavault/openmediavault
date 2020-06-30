@@ -173,7 +173,7 @@ class Filesystem(openmediavault.device.BlockDevice):
                 else:
                     # /dev/sdb => /dev/sdb
                     return self.device_file
-        except pyudev.DeviceNotFoundByFileError as e:
+        except pyudev.DeviceNotFoundByFileError:
             pass
         # Fallback if pyudev can't provide the necessary information.
         sd = openmediavault.device.StorageDevice.from_device_file(
