@@ -623,7 +623,7 @@ finish:
 			"uid" => $object['uid'],
 			"groups" => $object['groups'],
 			"shell" => $object['shell'],
-			"password" => $params['password'],
+			"password" => array_value($params, 'password', ''),
 			"email" => $params['email'],
 			"comment" => $params['comment'],
 			"disallowusermod" => $object['disallowusermod'],

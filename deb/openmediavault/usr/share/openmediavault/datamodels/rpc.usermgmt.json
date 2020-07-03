@@ -93,7 +93,7 @@
 		"properties": {
 			"password": {
 				"type": "string",
-				"required": true
+				"required": false
 			},
 			"email": {
 				"type": "string",
