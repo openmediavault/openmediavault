@@ -49,11 +49,12 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.session.login");
 		$authenticated = FALSE;
+		$permissions = [];
 		// Authenticate the given user. Note, the OMV engine RPC is
 		// executed in another context which allows reading the shadow
 		// file, otherwise pam_auth() will fail.
 		$object = \OMV\Rpc\Rpc::call("UserMgmt", "authUser", $params,
-		  $this->getAdminContext(), \OMV\Rpc\Rpc::MODE_REMOTE, TRUE);
+			$this->getAdminContext(), \OMV\Rpc\Rpc::MODE_REMOTE, TRUE);
 		if (!is_null($object) && (TRUE === $object['authenticated'])) {
 			$session = &\OMV\Session::getInstance();
 			if ($session->isAuthenticated()) {
@@ -67,10 +68,11 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 			} else {
 				// Initialize session.
 				$role = ($params['username'] === "admin") ?
-				  OMV_ROLE_ADMINISTRATOR : OMV_ROLE_USER;
+					OMV_ROLE_ADMINISTRATOR : OMV_ROLE_USER;
 				$session->initialize($params['username'], $role);
 			}
 			$authenticated = $session->isAuthenticated();
+			$permissions = $object['permissions'];
 			$session->commit();
 		}
 		// Get the product information to customize the syslog identity
@@ -83,8 +85,8 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 		if (TRUE === $authenticated) {
 			// Log the successful login attempt via syslog.
 			syslog(LOG_ALERT, sprintf("Authorized login from %s ".
-			  "[username=%s, user-agent=%s]", $_SERVER['REMOTE_ADDR'],
-			  $params['username'], $_SERVER['HTTP_USER_AGENT']));
+				"[username=%s, user-agent=%s]", $_SERVER['REMOTE_ADDR'],
+				$params['username'], $_SERVER['HTTP_USER_AGENT']));
 			// Send an email to the user if a new web browser is used to log
 			// in to the control panel. If no special cookie is detected,
 			// then it is assumed that the web browser has not been used to
@@ -95,11 +97,12 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 				// Extract the hashed username. Note, the hash is encoded
 				// to meet RFC 2616.
 				$regex = sprintf('/^%s-(.+)$/', $prefix);
-				if (1 !== preg_match($regex, $cookiek, $matches))
+				if (1 !== preg_match($regex, $cookiek, $matches)) {
 					continue;
+				}
 				$hashedUsername = urldecode($matches[1]);
 				if (hash_equals($hashedUsername, crypt($params['username'],
-				  $hashedUsername))) {
+						$hashedUsername))) {
 					$firstLogIn = FALSE;
 					break;
 				}
@@ -107,40 +110,40 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 			if (TRUE === $firstLogIn) {
 				// Send the notification email to the user.
 				$subject = sprintf("Your user account was used to log in to ".
-				  "the %s control panel via a web browser.", $prd->getName());
+					"the %s control panel via a web browser.", $prd->getName());
 				$message = sprintf("Dear %s,\n\n".
-				  "your user account was used to log in to %s (%s) via a web browser.\n\n".
-				  "Date and time: %s\n".
-				  "Remote address: %s\n".
-				  "User agent: %s\n\n".
-				  "If you recently logged in to the control panel, you can disregard this email. ".
-				  "If you have not logged in recently and believe someone may have accessed ".
-				  "your account, you should reset your password.\n\n".
-				  "Sincerely,\n".
-				  "your %s system",
-				  $params['username'], \OMV\System\Net\Dns::getFqdn(),
-				  $_SERVER['SERVER_ADDR'], date('r'), $_SERVER['REMOTE_ADDR'],
-				  $_SERVER['HTTP_USER_AGENT'], $prd->getName());
+					"your user account was used to log in to %s (%s) via a web browser.\n\n".
+					"Date and time: %s\n".
+					"Remote address: %s\n".
+					"User agent: %s\n\n".
+					"If you recently logged in to the control panel, you can disregard this email. ".
+					"If you have not logged in recently and believe someone may have accessed ".
+					"your account, you should reset your password.\n\n".
+					"Sincerely,\n".
+					"your %s system",
+					$params['username'], \OMV\System\Net\Dns::getFqdn(),
+					$_SERVER['SERVER_ADDR'], date('r'), $_SERVER['REMOTE_ADDR'],
+					$_SERVER['HTTP_USER_AGENT'], $prd->getName());
 				$mail = new \OMV\Email("root", $params['username'],
-				  $subject, $message);
+					$subject, $message);
 				$mail->send();
 				// Set a cookie. It will expire after 60 days. The user name
 				// is crypted/hashed to be unable to reverse engineer the
 				// account names from the cookie. Finally encode the hashed
 				// user name to meet RFC 2616.
 				$hashedUsername = password_hash($params['username'],
-				  PASSWORD_DEFAULT);
+					PASSWORD_DEFAULT);
 				$key = sprintf("%s-%s", $prefix, urlencode($hashedUsername));
 				$value = array_rand_value(\OMV\Environment::get(
-				  "OMV_DUNE_QUOTES"));
+					"OMV_DUNE_QUOTES"));
 				$expire = time() + 60 * 60 * 24 * 60;
 				setcookie($key, $value, $expire);
 			}
 		} else {
 			// Log the unauthorized login attempt via syslog.
 			syslog(LOG_ALERT, sprintf("Unauthorized login attempt from %s ".
-			  "[username=%s, user-agent=%s]", $_SERVER['REMOTE_ADDR'],
-			  $params['username'], $_SERVER['HTTP_USER_AGENT']));
+				"[username=%s, user-agent=%s]", $_SERVER['REMOTE_ADDR'],
+				$params['username'], $_SERVER['HTTP_USER_AGENT']));
 			closelog();
 			throw new \OMV\HttpErrorException(400,
 				_("Incorrect username or password."));
@@ -148,7 +151,8 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 		closelog();
 		return [
 			"authenticated" => $authenticated,
-			"username" => $params['username']
+			"username" => $params['username'],
+			"permissions" => $permissions
 		];
 	}
 

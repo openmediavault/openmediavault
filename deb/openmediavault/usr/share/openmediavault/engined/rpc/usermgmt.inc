@@ -78,12 +78,16 @@ class UserMgmt extends \OMV\Rpc\ServiceAbstract {
 		// Authenticate the user.
 		$authenticated = FALSE;
 		$user = new \OMV\System\User($params['username']);
+		$permissions = [];
 		if ($user->exists()) {
 			if (FALSE === ($authenticated = $user->authenticate(
-			  $params['password'])))
+					$params['password']))) {
 				goto finish;
-			if ("admin" === $params['username'])
+			}
+			if ("admin" === $params['username']) {
+				$permissions['role'] = "admin";
 				goto finish;
+			}
 			if (TRUE === $user->getInactive()) {
 				$authenticated = FALSE;
 				goto finish;
@@ -92,11 +96,13 @@ class UserMgmt extends \OMV\Rpc\ServiceAbstract {
 				$authenticated = FALSE;
 				goto finish;
 			}
+			$permissions['role'] = "user";
 		}
 finish:
 		return [
 			"authenticated" => $authenticated,
-			"username" => $params['username']
+			"username" => $params['username'],
+			"permissions" => $permissions
 		];
 	}
 
