@@ -187,15 +187,17 @@ EOF;
 		$parts[] = $this->getCacheFileId();
 		$parts[] = "js";
 		$jsonFile = new \OMV\Json\File(sprintf("%s/cache.%s.json",
-		  \OMV\Environment::get("OMV_CACHE_DIR"),
-		  implode("_", array_filter($parts))));
+			\OMV\Environment::get("OMV_CACHE_DIR"),
+			implode("_", array_filter($parts))));
 		// Try to read the cache file if it exists.
 		if ($jsonFile->exists() && !(\OMV\Environment::getBoolean(
-		  "OMV_DEBUG_PHP", FALSE) || \OMV\Environment::getBoolean(
-		  "OMV_DEBUG_EXTJS", FALSE))) {
+				"OMV_DEBUG_PHP", FALSE) || \OMV\Environment::getBoolean(
+				"OMV_DEBUG_EXTJS", FALSE))) {
 			try {
 				$jsonFile->open("r");
 				$jsList = $jsonFile->read();
+			} catch(\Exception $e) {
+				// Ignore this exception.
 			} finally {
 				$jsonFile->close();
 			}
@@ -203,7 +205,7 @@ EOF;
 		// Recreate the cache file e.g. because of invalid JSON data?
 		if (TRUE === empty($jsList)) {
 			$jsList = array_values(array_unique(
-			  $this->getJavascriptIncludes()));
+				$this->getJavascriptIncludes()));
 			$jsonFile->open("w+");
 			$jsonFile->write($jsList);
 			$jsonFile->close();
