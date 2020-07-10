@@ -3,6 +3,7 @@ openmediavault (5.5.4-1) stable; urgency=low
   * Update locales.
   * Various improvements.
   * Ignore exceptions when loading empty control panel cache files.
+  * Issue #755: Fix xfs_growfs command line.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 28 Jun 2020 09:09:21 +0200
 
