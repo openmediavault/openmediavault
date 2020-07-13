@@ -52,13 +52,10 @@ Ext.define("OMV.module.admin.dashboard.view.SysInfo", {
 				hideHeaders: true,
 				disableSelection: true,
 				columns: [{
+					xtype: "whitespacecolumn",
 					dataIndex: "name",
 					stateId: "name",
-					width: 150,
-					tdCls: Ext.baseCSSPrefix + "grid-cell-gray",
-					renderer: function(value, metaData, record) {
-						return _(value);
-					}
+					width: 150
 				},{
 					dataIndex: "value",
 					stateId: "value",

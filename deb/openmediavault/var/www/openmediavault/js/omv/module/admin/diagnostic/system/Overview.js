@@ -44,12 +44,10 @@ Ext.define("OMV.module.admin.diagnostic.system.Overview", {
 	hideHeaders: true,
 	disableSelection: true,
 	columns: [{
+		xtype: "whitespacecolumn",
 		dataIndex: "name",
 		stateId: "name",
-		width: 150,
-		renderer: function(value, metaData, record) {
-			return _(value);
-		}
+		width: 150
 	},{
 		dataIndex: "value",
 		stateId: "value",
