@@ -137,7 +137,10 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 				$value = array_rand_value(\OMV\Environment::get(
 					"OMV_DUNE_QUOTES"));
 				$expire = time() + 60 * 60 * 24 * 60;
-				setcookie($key, $value, $expire);
+				setcookie($key, $value, [
+					'expires' => $expire,
+					'samesite' => 'Strict'
+				]);
 			}
 		} else {
 			// Log the unauthorized login attempt via syslog.
