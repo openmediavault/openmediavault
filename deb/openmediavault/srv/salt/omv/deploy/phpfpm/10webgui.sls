@@ -67,6 +67,11 @@ configure_phpfpm_webgui:
         ; http://php.net/session.cookie-httponly
         php_value[session.cookie_httponly] = On
 
+        ; Add SameSite attribute to cookie to help mitigate Cross-Site Request Forgery (CSRF/XSRF)
+        ; Current valid values are "Lax" or "Strict"
+        ; https://tools.ietf.org/html/draft-west-first-party-cookies-07
+        php_value[session.cookie_samesite] = "Strict"
+
         ; After this number of seconds, stored data will be seen as 'garbage' and
         ; cleaned up by the garbage collection process.
         ; http://php.net/session.gc-maxlifetime
