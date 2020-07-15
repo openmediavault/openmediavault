@@ -181,7 +181,7 @@ case "$1" in
 			echo "Setting up system ..."
 			# Don't use omv-salt here, because the locale is not setup correct.
 			salt-call --local --retcode-passthrough --no-color state.orchestrate \
-			omv.stage.setup >/dev/null
+			  omv.stage.setup >/dev/null
 		fi
 
 		########################################################################
