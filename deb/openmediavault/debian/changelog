@@ -1,6 +1,7 @@
 openmediavault (5.5.5-1) stable; urgency=low
 
   * Various improvements.
+  * Fix bug in 'omv.setup.fstab'.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 13 Jul 2020 21:02:53 +0200
 
