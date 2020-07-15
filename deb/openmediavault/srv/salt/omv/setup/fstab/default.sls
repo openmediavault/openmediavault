@@ -43,6 +43,7 @@ udevadm_trigger:
 {% if '/' in fstab_entries %}
 
 # Get the mount configuration for the root filesystem.
+# ATTENTION: It may happen that the UUID is quoted in /etc/fstab.
 # {
 #   "device": "UUID=199a4bbc-59c9-4a3b-b592-950eaffb2530",
 #   "pass": "1",
@@ -69,11 +70,11 @@ update_root_fstab_entry:
   module.run:
     - mount.set_fstab:
       - name: "/"
-      - device: "{{ root_fstab_entry.device }}"
-      - fstype: "{{ root_fstab_entry.fstype }}"
-      - opts: "{{ nonrot_options | union(root_fstab_entry.opts) | join(',') }}"
-      - dump: "{{ root_fstab_entry.dump }}"
-      - pass_num: "{{ root_fstab_entry.pass }}"
+      - device: {{ root_fstab_entry.device }}
+      - fstype: {{ root_fstab_entry.fstype }}
+      - opts: {{ nonrot_options | union(root_fstab_entry.opts) | join(',') }}
+      - dump: {{ root_fstab_entry.dump }}
+      - pass_num: {{ root_fstab_entry.pass }}
 
 {% endif %}
 
