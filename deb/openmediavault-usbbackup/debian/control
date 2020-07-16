@@ -9,7 +9,7 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault-usbbackup
 Architecture: all
-Depends: rsync, openmediavault (>= 5.3.4)
+Depends: rsync, eject, openmediavault (>= 5.3.4)
 Priority: optional
 Description: openmediavault USB/eSATA backup plugin
  Automatically synchronise a shared folder to an USB/eSATA device and vice

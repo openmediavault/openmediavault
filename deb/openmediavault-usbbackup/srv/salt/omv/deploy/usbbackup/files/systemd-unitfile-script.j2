@@ -17,8 +17,9 @@ cleanup() {
     # Remove temporary files.
     rm -f "{{ runfile }}"
     rm -f "${outfile}"
-    # Umount the storage device.
-    umount "{{ devicefile }}" || true
+    # Umount the filesystem, remove device node and eject tray/tape.
+    eject "{{ devicefile }}" || true
+    # Cleanup mount directory.
     rmdir "{{ mount_path }}" || true
     exit
 }
