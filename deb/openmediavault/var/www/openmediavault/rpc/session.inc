@@ -56,6 +56,7 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 		$object = \OMV\Rpc\Rpc::call("UserMgmt", "authUser", $params,
 			$this->getAdminContext(), \OMV\Rpc\Rpc::MODE_REMOTE, TRUE);
 		if (!is_null($object) && (TRUE === $object['authenticated'])) {
+			$permissions = $object['permissions'];
 			$session = &\OMV\Session::getInstance();
 			if ($session->isAuthenticated()) {
 				// Is the current session registered to the user to be
@@ -67,12 +68,11 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 				}
 			} else {
 				// Initialize session.
-				$role = ($params['username'] === "admin") ?
+				$role = ("admin" === $permissions['role']) ?
 					OMV_ROLE_ADMINISTRATOR : OMV_ROLE_USER;
 				$session->initialize($params['username'], $role);
 			}
 			$authenticated = $session->isAuthenticated();
-			$permissions = $object['permissions'];
 			$session->commit();
 		}
 		// Get the product information to customize the syslog identity
