@@ -222,4 +222,16 @@
 			}
 		}
 	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermgmt.setpasswordbycontext",
+	"params": {
+		"type": "object",
+		"properties": {
+			"password":{
+				"type": "string",
+				"required": true
+			}
+		}
+	}
 }]

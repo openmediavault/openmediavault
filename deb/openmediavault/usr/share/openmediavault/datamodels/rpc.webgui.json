@@ -36,16 +36,4 @@
 			}
 		}
 	}
-},{
-	"type": "rpc",
-	"id": "rpc.webgui.setpassword",
-	"params": {
-		"type": "object",
-		"properties": {
-			"password":{
-				"type": "string",
-				"required": true
-			}
-		}
-	}
 }]

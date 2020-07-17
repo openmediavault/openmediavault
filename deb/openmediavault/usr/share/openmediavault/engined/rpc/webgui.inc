@@ -35,7 +35,6 @@ class WebGui extends \OMV\Rpc\ServiceAbstract {
 	public function initialize() {
 		$this->registerMethod("getSettings");
 		$this->registerMethod("setSettings");
-		$this->registerMethod("setPassword");
 	}
 
 	/**
@@ -76,29 +75,5 @@ class WebGui extends \OMV\Rpc\ServiceAbstract {
 		$db->set($object);
 		// Return the configuration object.
 		return $object->getAssoc();
-	}
-
-	/**
-	 * Set the administrator password.
-	 * @param params An array containing the following fields:
-	 *   \em password The new password.
-	 * @param context The context of the caller.
-	 * @return void
-	 */
-	function setPassword($params, $context) {
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, [
-			"role" => OMV_ROLE_ADMINISTRATOR
-		]);
-		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.webgui.setpassword");
-		// Modify the 'admin' user password.
-		$cmdArgs = [];
-		$cmdArgs[] = sprintf("--password %s", escapeshellarg(crypt(
-		  $params['password'])));
-		$cmdArgs[] = "admin";
-		$cmd = new \OMV\System\Process("usermod", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute();
 	}
 }
