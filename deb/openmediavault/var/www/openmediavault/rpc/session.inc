@@ -36,6 +36,23 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 	}
 
 	/**
+	* Indicate if user is an administrator (member of group openmediavault-webgui)
+	* @param username The name of the user.
+	* @return TRUE is user is administrator, FALSE otherwise.
+	*/
+	private function isAdmin($username) {
+		$group = posix_getgrnam('openmediavault-webgui');
+		$adminList = $group ? $group['members'] : array();
+		
+		if (empty($adminList)) {
+			syslog(LOG_WARNING, 'No openmediavault administrator could be find in the group openmediavault-webgui');
+			// failback to name admin account
+			$adminList = array('admin');
+		}
+		return in_array($username, $adminList);
+	}
+
+	/**
 	 * Login user.
 	 * @param params The method parameters containing the following fields:
 	 *   \em username The name of the user.
@@ -67,7 +84,7 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 				}
 			} else {
 				// Initialize session.
-				$role = ($params['username'] === "admin") ?
+				$role = $this->isAdmin($params['username']) ?
 					OMV_ROLE_ADMINISTRATOR : OMV_ROLE_USER;
 				$session->initialize($params['username'], $role);
 			}

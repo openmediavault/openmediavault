@@ -75,6 +75,11 @@ case "$1" in
 					--comment 'openmediavault WebGUI Administrator' \
 					admin
 			fi
+			####################################################################
+			# User 'admin' is added to group 'openmediavault-webgui' to provide
+			# access to web interface.
+			####################################################################
+			adduser admin openmediavault-webgui
 
 			####################################################################
 			# Create various required files.
