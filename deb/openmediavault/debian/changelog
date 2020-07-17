@@ -2,6 +2,9 @@ openmediavault (5.5.5-1) stable; urgency=low
 
   * Various improvements.
   * Fix bug in 'omv.setup.fstab' when UUID is quoted.
+  * Added the ability to have multiple WebGUI administrators.
+    To do so simply assign users to the 'openmediavault-admin'
+    group.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 13 Jul 2020 21:02:53 +0200
 
