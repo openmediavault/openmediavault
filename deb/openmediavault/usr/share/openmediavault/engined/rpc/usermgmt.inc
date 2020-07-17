@@ -85,14 +85,20 @@ class UserMgmt extends \OMV\Rpc\ServiceAbstract {
 					$params['password']))) {
 				goto finish;
 			}
-			if ("admin" === $params['username']) {
-				$permissions['role'] = "admin";
-				goto finish;
-			}
+			// Deny access for inactive user accounts.
 			if (TRUE === $user->getInactive()) {
 				$authenticated = FALSE;
 				goto finish;
 			}
+			// Is the user a WebUI administrator?
+			// Note, this check must be carried out before checking
+			// whether the user is a system account.
+			if (in_array(\OMV\Environment::get("OMV_WEBGUI_ADMINGROUP_NAME"),
+					$user->getGroups())) {
+				$permissions['role'] = "admin";
+				goto finish;
+			}
+			// Deny access for 'system' user accounts.
 			if (TRUE === $user->isSystemAccount()) {
 				$authenticated = FALSE;
 				goto finish;
