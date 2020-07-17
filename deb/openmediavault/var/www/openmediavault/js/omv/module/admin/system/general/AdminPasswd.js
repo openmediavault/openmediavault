@@ -32,8 +32,8 @@ Ext.define("OMV.module.admin.system.general.AdminPasswd", {
 		"OMV.form.field.Password"
 	],
 
-	rpcService: "WebGui",
-	rpcSetMethod: "setPassword",
+	rpcService: "UserMgmt",
+	rpcSetMethod: "setPasswordByContext",
 
 	getFormItems: function() {
 		return [{
