@@ -86,7 +86,7 @@ case "$1" in
 					--password '$1$PjiW4uIZ$agjyA0foLeAcHClwOuad1.' \
 					--shell '/usr/sbin/nologin' \
 					--comment 'WebGUI administrator' \
-					--groups ${OMV_WEBGUI_ADMINGROUP_NAME}
+					--groups ${OMV_WEBGUI_ADMINGROUP_NAME} \
 					${OMV_WEBGUI_ADMINUSER_NAME}
 			fi
 
