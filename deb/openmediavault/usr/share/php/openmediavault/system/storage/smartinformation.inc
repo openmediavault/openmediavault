@@ -419,8 +419,9 @@ class SmartInformation {
 			if (TRUE === $found)
 				break;
 		}
-		// If the SMART attributes are not present then it may be an older
-		// SCSI device. Then the command output looks like:
+		// If the SMART attributes are not present then it may be a SAS
+		// or older SCSI device. Then the command output looks like:
+		//
 		// Device: SEAGATE  ST336605LSUN36G  Version: 0238
 		// Serial number: 3FP1J35V00007241EEC7
 		// Device type: disk
@@ -452,10 +453,11 @@ class SmartInformation {
 		// Critical Comp. Temperature Time:    0
 		// Temperature Sensor 1:               30 Celsius
 		// Temperature Sensor 2:               35 Celsius
+		// ...
 		if (FALSE === $found) {
+			$regex = '/^(Current Drive Temperature|Current Temperature|Temperature):'.
+				'\s+(\d+)\s+(C|Celsius)$/i';
 			foreach ($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
-				$regex = '/^(Current Drive Temperature|Current Temperature|Temperature):'.
-					'\s+(\d+)\s+(C|Celsius)$/i';
 				if (1 == preg_match($regex, $cmdOutputv, $matches)) {
 					$result = $matches[2];
 					$found = TRUE;
@@ -482,8 +484,29 @@ class SmartInformation {
 	public function getOverallStatus() {
 		if (FALSE === ($attributes = $this->getAttributes()))
 			return FALSE;
-		if (empty($attributes))
+		// If the SMART attributes are not present, e.g. SAS devices,
+		// then try to get the information from the 'SMART DATA SECTION'.
+		if (empty($attributes)) {
+			// === START OF READ SMART DATA SECTION ===
+			// SMART Health Status: OK
+			//
+			// Current Drive Temperature:     31 C
+			// ...
+			//
+			// Alternative output:
+			// Temperature Warning Enabled
+			// SMART Health Status: LOGICAL UNIT FAILURE PREDICTION THRESHOLD EXCEEDED [asc=5d, ascq=2]
+			//
+			// Current Drive Temperature:     39 C
+			// ...
+			$regex = '/^SMART Health Status:\s+OK$/i';
+			foreach ($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
+				if (1 == preg_match($regex, $cmdOutputv)) {
+					return self::SMART_ASSESSMENT_GOOD;
+				}
+			}
 			return self::SMART_ASSESSMENT_BAD_STATUS;
+		}
 		// Checks are adapted from libatasmart.
 		// See http://git.0pointer.net/libatasmart.git
 		// Get number of bad sectors.
