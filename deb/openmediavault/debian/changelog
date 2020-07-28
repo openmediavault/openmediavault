@@ -5,6 +5,9 @@ openmediavault (5.5.5-1) stable; urgency=low
   * Added the ability to have multiple WebGUI administrators.
     To do so simply assign users to the 'openmediavault-admin'
     group.
+  * Introduce an UDEV rules database which fixes the problem of
+    some USB PATA/SATA bridge controllers that they do not pass
+    on the serial number of the attached disks.
   * Issue #769: Get overall health status of SAS drives.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 13 Jul 2020 21:02:53 +0200
