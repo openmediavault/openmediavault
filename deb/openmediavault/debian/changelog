@@ -1,5 +1,6 @@
 openmediavault (5.5.5-1) stable; urgency=low
 
+  * Update locales.
   * Various improvements.
   * Fix bug in 'omv.setup.fstab' when UUID is quoted.
   * Added the ability to have multiple WebGUI administrators.
