@@ -1,0 +1,194 @@
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2020 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# There are many USB PATA/SATA bridge controllers that do not correctly
+# pass on the serial number of a hard drive. This will cause problems
+# because UDEV will create incorrect devicefiles. This collection tries
+# to workaround this problem.
+
+# Documentation/Howto:
+# https://www.freedesktop.org/software/systemd/man/udev.html
+# https://wiki.ubuntuusers.de/udev/
+
+# JMicron
+ACTION=="add", KERNEL=="sd*", SUBSYSTEMS=="usb", \
+  ENV{ID_VENDOR}=="JMicron", \
+  PROGRAM="/lib/udev/serial_id %N", \
+  ENV{ID_SERIAL}="USB-%c-$env{ID_INSTANCE}", \
+  ENV{ID_SERIAL_SHORT}="%c"
+
+# JMicron JM20337 USB PATA/SATA bridge on Orangepi PC2
+ACTION=="add", KERNEL=="sd*", SUBSYSTEMS=="usb", \
+  ATTRS{idVendor}=="152d", ATTRS{idProduct}=="2338", \
+  PROGRAM="/lib/udev/serial_id %N", \
+  ENV{ID_SERIAL}="USB-%c-$env{ID_INSTANCE}", \
+  ENV{ID_SERIAL_SHORT}="%c"
+
+# ORICO 2.5 inch Hard Drive Adapter (27UTS)
+# http://my.orico.cc/goods.php?id=6355
+ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
+  ATTRS{idVendor}=="0080", ATTRS{idProduct}=="a001", \
+  PROGRAM="/lib/udev/serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
+  ENV{ID_SERIAL_SHORT}="%c", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# ORICO 3.5 inch 5 Bay Magnetic-type USB3.0 Hard Drive Enclosure (DS500U3)
+# http://my.orico.cc/goods.php?id=6659
+# JMicron JMS567 SATA 6Gb/s bridge
+# https://devicehunt.com/search/type/usb/vendor/152D/device/0567
+#
+# P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-1/2-1.2/2-1.2:1.0/host1/target1:0:0/1:0:0:0/block/sdc
+# N: sdc
+# L: 0
+# S: disk/by-id/usb-External_USB3.0_DISK00_20170331000C3-0:0
+# S: disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.2:1.0-scsi-0:0:0:0
+# E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-1/2-1.2/2-1.2:1.0/host1/target1:0:0/1:0:0:0/block/sdc
+# E: DEVNAME=/dev/sdc
+# E: DEVTYPE=disk
+# E: MAJOR=8
+# E: MINOR=32
+# E: SUBSYSTEM=block
+# E: USEC_INITIALIZED=37574669
+# E: ID_VENDOR=External
+# E: ID_VENDOR_ENC=External
+# E: ID_VENDOR_ID=152d
+# E: ID_MODEL=USB3.0_DISK00
+# E: ID_MODEL_ENC=USB3.0\x20DISK00\x20\x20\x20
+# E: ID_MODEL_ID=0567
+# E: ID_REVISION=5203
+# E: ID_SERIAL=External_USB3.0_DISK00_20170331000C3-0:0
+# E: ID_SERIAL_SHORT=20170331000C3
+# E: ID_TYPE=disk
+# E: ID_INSTANCE=0:0
+# E: ID_BUS=usb
+# E: ID_USB_INTERFACES=:080650:
+# E: ID_USB_INTERFACE_NUM=00
+# E: ID_USB_DRIVER=usb-storage
+# E: ID_PATH=platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.2:1.0-scsi-0:0:0:0
+# E: ID_PATH_TAG=platform-fd500000_pcie-pci-0000_01_00_0-usb-0_1_2_1_0-scsi-0_0_0_0
+# E: ID_PART_TABLE_UUID=edb7f0ce-d545-411c-9e1c-52e9f8625e32
+# E: ID_PART_TABLE_TYPE=gpt
+# E: DEVLINKS=/dev/disk/by-id/usb-External_USB3.0_DISK00_20170331000C3-0:0 /dev/disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.2:1.0-scsi-0:0:0:0
+# E: TAGS=:systemd:
+ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
+  ENV{ID_VENDOR}=="External", ENV{ID_MODEL}=="USB3.0_DISK00", \
+  PROGRAM="/lib/udev/serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
+  ENV{ID_SERIAL_SHORT}="%c", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# QUAD SATA HAT KIT for your Raspberry Pi 4
+# https://shop.allnetchina.cn/products/quad-sata-hat-case-for-raspberry-pi-4?_pos=4&_sid=8298cd20c&_ss=r
+#
+# P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-2/2-2:1.0/host0/target0:0:0/0:0:0:0/block/sda
+# N: sda
+# L: 0
+# S: disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:2:1.0-scsi-0:0:0:0
+# S: disk/by-id/usb-ACASIS_Go_To_Final_Lap_1234567890123-0:0
+# S: disk/by-label/SDA2Tpictures
+# S: disk/by-uuid/cc08740f-b9db-460f-a89e-9d5fb4b334bd
+# E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-2/2-2:1.0/host0/target0:0:0/0:0:0:0/block/sda
+# E: DEVNAME=/dev/sda
+# E: DEVTYPE=disk
+# E: MAJOR=8
+# E: MINOR=0
+# E: SUBSYSTEM=block
+# E: USEC_INITIALIZED=11738857
+# E: ID_VENDOR=ACASIS
+# E: ID_VENDOR_ENC=ACASIS\x20\x20
+# E: ID_VENDOR_ID=1058
+# E: ID_MODEL=Go_To_Final_Lap
+# E: ID_MODEL_ENC=Go\x20To\x20Final\x20Lap
+# E: ID_MODEL_ID=0a10
+# E: ID_REVISION=8034
+# E: ID_SERIAL=ACASIS_Go_To_Final_Lap_1234567890123-0:0
+# E: ID_SERIAL_SHORT=1234567890123
+# E: ID_TYPE=disk
+# E: ID_INSTANCE=0:0
+# E: ID_BUS=usb
+# E: ID_USB_INTERFACES=:080650:080662:
+# E: ID_USB_INTERFACE_NUM=00
+# E: ID_USB_DRIVER=uas
+# E: ID_PATH=platform-fd500000.pcie-pci-0000:01:00.0-usb-0:2:1.0-scsi-0:0:0:0
+# E: ID_PATH_TAG=platform-fd500000_pcie-pci-0000_01_00_0-usb-0_2_1_0-scsi-0_0_0_0
+# E: ID_FS_LABEL=SDA2Tpictures
+# E: ID_FS_LABEL_ENC=SDA2Tpictures
+# E: ID_FS_UUID=cc08740f-b9db-460f-a89e-9d5fb4b334bd
+# E: ID_FS_UUID_ENC=cc08740f-b9db-460f-a89e-9d5fb4b334bd
+# E: ID_FS_VERSION=1.0
+# E: ID_FS_TYPE=ext4
+# E: ID_FS_USAGE=filesystem
+# E: DEVLINKS=/dev/disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:2:1.0-scsi-0:0:0:0 /dev/disk/by-id/usb-ACASIS_Go_To_Final_Lap_1234567890123-0:0 /dev/disk/by-label/SDA2Tpictures /dev/disk/by-uuid/cc08740f-b9db-460f-a89e-9d5fb4b334bd
+# E: TAGS=:systemd:
+ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
+  ENV{ID_VENDOR}=="ACASIS", ENV{ID_MODEL}=="Go_To_Final_Lap", \
+  PROGRAM="/lib/udev/serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
+  ENV{ID_SERIAL_SHORT}="%c", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# VL817 SATA Adaptor
+# https://devicehunt.com/view/type/usb/vendor/2109/device/0715
+# Sabrent EC-SS31 USB 3.1 (Type-A) to SSD / 2.5-Inch SATA Hard Drive Adapter
+# https://www.sabrent.com/product/EC-SS31/usb-3-1-type-ssd-2-5-inch-sata-hard-drive-adapter
+#
+# P: /devices/pci0000:00/0000:00:15.0/usb2/2-2/2-2:1.0/host4/target4:0:0/4:0:0:0/block/sda
+# N: sda
+# L: 0
+# S: disk/by-path/pci-0000:00:15.0-usb-0:2:1.0-scsi-0:0:0:0
+# S: disk/by-id/usb-SABRENT_SABRENT_000000123AD2-0:0
+# E: DEVPATH=/devices/pci0000:00/0000:00:15.0/usb2/2-2/2-2:1.0/host4/target4:0:0/4:0:0:0/block/sda
+# E: DEVNAME=/dev/sda
+# E: DEVTYPE=disk
+# E: MAJOR=8
+# E: MINOR=0
+# E: SUBSYSTEM=block
+# E: USEC_INITIALIZED=3427017
+# E: ID_VENDOR=SABRENT
+# E: ID_VENDOR_ENC=SABRENT
+# E: ID_VENDOR_ID=2109
+# E: ID_MODEL=SABRENT
+# E: ID_MODEL_ENC=SABRENT\x20\x20\x20\x20\x20\x20\x20\x20\x20
+# E: ID_MODEL_ID=0715
+# E: ID_REVISION=2210
+# E: ID_SERIAL=SABRENT_SABRENT_000000123AD2-0:0
+# E: ID_SERIAL_SHORT=000000123AD2
+# E: ID_TYPE=disk
+# E: ID_INSTANCE=0:0
+# E: ID_BUS=usb
+# E: ID_USB_INTERFACES=:080650:080662:
+# E: ID_USB_INTERFACE_NUM=00
+# E: ID_USB_DRIVER=uas
+# E: ID_PATH=pci-0000:00:15.0-usb-0:2:1.0-scsi-0:0:0:0
+# E: ID_PATH_TAG=pci-0000_00_15_0-usb-0_2_1_0-scsi-0_0_0_0
+# E: ID_PART_TABLE_UUID=24551388-5c28-4a0d-ae74-38861756e6eb
+# E: ID_PART_TABLE_TYPE=gpt
+# E: DEVLINKS=/dev/disk/by-path/pci-0000:00:15.0-usb-0:2:1.0-scsi-0:0:0:0 /dev/disk/by-id/usb-SABRENT_SABRENT_000000123AD2-0:0
+# E: TAGS=:systemd:
+ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
+  ENV{ID_VENDOR_ID}=="2109", ENV{ID_MODEL_ID}=="0715", \
+  PROGRAM="/lib/udev/serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
+  ENV{ID_SERIAL_SHORT}="%c", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
