@@ -78,7 +78,8 @@ class Module(openmediavault.firstaid.IModule):
                     width=30,
                 )
         print("Updating control panel administrator password. Please wait ...")
-        openmediavault.rpc.call("WebGui", "setPassword", {"password": password})
+        openmediavault.rpc.call("UserMgmt", "setPasswordByContext",
+                                {"password": password})
         # openmediavault.rpc.call("Config", "applyChanges",
         # 	{ "modules": [], "force": False })
         print(
