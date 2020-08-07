@@ -17,6 +17,9 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# Testing:
+# systemctl --all --full -t device
+
 {% set usbbackup_scripts_dir = salt['pillar.get']('default:OMV_USBBACKUP_SCRIPTS_DIR', '/var/lib/openmediavault/usbbackup.d') %}
 {% set usbbackup_systemd_unitfile_dir = salt['pillar.get']('default:OMV_USBBACKUP_SYSTEMD_UNITFILE_DIR', '/lib/systemd/system') %}
 {% set usbbackup_rsync_script_prefix = salt['pillar.get']('default:OMV_USBBACKUP_RSYNC_SCRIPT_PREFIX', 'rsync-') %}
@@ -25,20 +28,20 @@
 
 create_usbbackup_scripts_dir:
   file.directory:
-    - name: "{{ usbbackup_scripts_dir }}"
+    - name: {{ usbbackup_scripts_dir }}
     - clean: True
 
 remove_usbbackup_rsync_scripts:
   module.run:
     - file.find:
-      - path: "{{ usbbackup_scripts_dir }}"
+      - path: {{ usbbackup_scripts_dir }}
       - iname: "{{ usbbackup_rsync_script_prefix }}*"
       - delete: "f"
 
 remove_usbbackup_systemd_scripts:
   module.run:
     - file.find:
-      - path: "{{ usbbackup_scripts_dir }}"
+      - path: {{ usbbackup_scripts_dir }}
       - iname: "{{ usbbackup_systemd_script_prefix }}*"
       - delete: "f"
 
@@ -46,11 +49,11 @@ remove_usbbackup_systemd_scripts:
 {% if file | regex_match('^' ~ usbbackup_systemd_unitfile_prefix ~ '(.+).service$', ignorecase=True) %}
 disable_usbbackup_systemd_unitfile_{{ file }}:
   service.disabled:
-    - name: "{{ file }}"
+    - name: {{ file }}
 
 remove_usbbackup_systemd_unitfile_{{ file }}:
   file.absent:
-    - name: "{{ usbbackup_systemd_unitfile_dir | path_join(file) }}"
+    - name: {{ usbbackup_systemd_unitfile_dir | path_join(file) }}
 {% endif %}
 {% endfor %}
 
@@ -60,7 +63,7 @@ remove_usbbackup_systemd_unitfile_{{ file }}:
 # necessary to be able to run the job manually from within the UI.
 configure_usbbackup_rsync_script_{{ job.uuid }}:
   file.managed:
-    - name: "{{ usbbackup_scripts_dir | path_join(usbbackup_rsync_script_prefix ~ job.uuid) }}"
+    - name: {{ usbbackup_scripts_dir | path_join(usbbackup_rsync_script_prefix ~ job.uuid) }}
     - source:
       - salt://{{ tpldir }}/files/rsync-script.j2
     - context:
@@ -79,11 +82,11 @@ configure_usbbackup_rsync_script_{{ job.uuid }}:
 {% for job in jobs %}
 configure_usbbackup_systemd_script_{{ job.devicefile | md5 }}:
   file.managed:
-    - name: "{{ usbbackup_scripts_dir | path_join(usbbackup_systemd_script_prefix ~ job.devicefile | md5) }}"
+    - name: {{ usbbackup_scripts_dir | path_join(usbbackup_systemd_script_prefix ~ job.devicefile | md5) }}
     - source:
       - salt://{{ tpldir }}/files/systemd-unitfile-script.j2
     - context:
-        devicefile: "{{ job.devicefile }}"
+        devicefile: {{ job.devicefile }}
     - template: jinja
     - user: root
     - group: root
@@ -91,11 +94,11 @@ configure_usbbackup_systemd_script_{{ job.devicefile | md5 }}:
 
 configure_usbbackup_systemd_unitfile_{{ job.devicefile | md5 }}:
   file.managed:
-    - name: "{{ usbbackup_systemd_unitfile_dir | path_join(usbbackup_systemd_unitfile_prefix ~ job.devicefile | md5 ~ '.service') }}"
+    - name: {{ usbbackup_systemd_unitfile_dir | path_join(usbbackup_systemd_unitfile_prefix ~ job.devicefile | md5 ~ '.service') }}
     - source:
       - salt://{{ tpldir }}/files/systemd-unitfile.j2
     - context:
-        devicefile: "{{ job.devicefile }}"
+        devicefile: {{ job.devicefile }}
     - template: jinja
     - user: root
     - group: root
@@ -109,6 +112,6 @@ usbbackup_systemctl_daemon_reload:
 {% for job in jobs %}
 enable_usbbackup_systemd_unitfile_{{ job.devicefile | md5 }}:
   service.enabled:
-    - name: "{{ usbbackup_systemd_unitfile_prefix ~ job.devicefile | md5 }}"
+    - name: {{ usbbackup_systemd_unitfile_prefix ~ job.devicefile | md5 }}
     - enable: True
 {% endfor %}
