@@ -131,7 +131,7 @@ class Schema {
 		if (array_key_exists("type", $schema) && is_string($schema['type'])) {
 			switch ($schema['type']) {
 			case "array":
-				// Does 'items' exist and is it an array?
+				// Does 'items' exist?
 				if (!array_key_exists("items", $schema)) {
 					throw new SchemaPathException(
 					  "No 'items' attribute defined for path '%s'.",
@@ -140,8 +140,8 @@ class Schema {
 				return $this->_getSchemaByPath($path, $schema['items']);
 				break;
 			case "object":
-				// Does 'properties' exist and is it an array?
-				if (!(array_key_exists("properties", $schema) && is_array(
+				// Does 'properties' exist and is it an associative array?
+				if (!(array_key_exists("properties", $schema) && is_assoc_array(
 				  $schema['properties']))) {
 					throw new SchemaPathException(
 					  "No 'properties' attribute defined for path '%s'.",
@@ -638,15 +638,22 @@ class Schema {
 			  "%s: No 'items' attribute defined.",
 			  $name);
 		}
-		if (is_object($schema['items'])) {
+		if (is_assoc_array($schema['items'])) {
 			foreach ($value as $itemk => $itemv) {
 				$path = sprintf("%s[%d]", $name, $itemk);
-				$valid = TRUE;
+				$this->validateType($itemv, $schema['items'], $path);
+			}
+		} else if (is_array($schema['items'])) {
+			foreach ($value as $itemk => $itemv) {
+				$path = sprintf("%s[%d]", $name, $itemk);
+				$valid = FALSE;
 				foreach ($schema['items'] as $itemSchema) {
 					try {
 						$this->validateType($itemv, $itemSchema, $path);
+						$valid = TRUE;
+						break;
 					} catch (SchemaValidationException $e) {
-						$valid = FALSE;
+						// Nothing to do here.
 					}
 				}
 				if (!$valid) {
@@ -658,11 +665,6 @@ class Schema {
 					  "following types '%s'.",
 					  $path, implode(", ", $types));
 				}
-			}
-		} else if (is_array($schema['items'])) {
-			foreach ($value as $itemk => $itemv) {
-				$path = sprintf("%s[%d]", $name, $itemk);
-				$this->validateType($itemv, $schema['items'], $path);
 			}
 		} else {
 			throw new SchemaValidationException(
@@ -684,7 +686,7 @@ class Schema {
 			try {
 				$this->validateType($value, $subSchemav, $name);
 				// If validation succeeds for one of the schema, then we
-				// can exit immediatelly.
+				// can exit immediately.
 				$valid = TRUE;
 				break;
 			} catch (SchemaValidationException $e) {

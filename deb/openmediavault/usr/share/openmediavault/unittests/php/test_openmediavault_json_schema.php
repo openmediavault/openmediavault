@@ -216,4 +216,103 @@ class test_openmediavault_json_schema extends \PHPUnit\Framework\TestCase {
 			"hostname" => utf8_encode("ε体λñ-ι語ά1234")
 		]);
 	}
+
+	/**
+	 * @doesNotPerformAssertions
+	 */
+	public function testValidateItems1() {
+		$schema = new \OMV\Json\Schema([
+			"type" => "array",
+			"items" => [
+				"type" => "string",
+				"format" => "ipv4"
+			]
+		]);
+		$schema->validate([ "192.168.10.101" ]);
+	}
+
+	/**
+	 * @doesNotPerformAssertions
+	 */
+	public function testValidateItems2() {
+		$schema = new \OMV\Json\Schema([
+			"type" => "array",
+			"items" => [[
+				"type" => "string",
+				"format" => "ipv4"
+			],[
+				"type" => "string",
+				"format" => "ipv6"
+			]]
+		]);
+		$schema->validate([ "192.168.10.101" ]);
+	}
+
+	/**
+	 * @expectedException OMV\Json\SchemaValidationException
+	 */
+	public function testValidateItemsFail() {
+		$schema = new \OMV\Json\Schema([
+			"type" => "array",
+			"items" => [[
+				"type" => "string",
+				"format" => "ipv4"
+			],[
+				"type" => "string",
+				"format" => "ipv6"
+			]]
+		]);
+		$schema->validate([ 10, "192.168.10.101" ]);
+	}
+
+	/**
+	 * @doesNotPerformAssertions
+	 */
+	public function testValidateOneOf1() {
+		$schema = new \OMV\Json\Schema([
+			"type" => "string",
+			"oneOf" => [[
+				"type" => "string",
+				"format" => "ipv6"
+			],[
+				"type" => "string",
+				"format" => "ipv4"
+			]]
+		]);
+		$schema->validate("192.168.10.101");
+	}
+
+	/**
+	 * @doesNotPerformAssertions
+	 */
+	public function testValidateOneOf2() {
+		$schema = new \OMV\Json\Schema([
+			"type" => "string",
+			"oneOf" => [[
+				"type" => "string",
+				"format" => "email"
+			],[
+				"type" => "string",
+				"format" => "ipv4"
+			]]
+		]);
+		$schema->validate("test@test.com");
+	}
+
+	/**
+	 * @expectedException OMV\Json\SchemaValidationException
+	 */
+	public function testValidateOneOfFail() {
+		$schema = new \OMV\Json\Schema([
+			"type" => "string",
+			"oneOf" => [[
+				"type" => "string",
+				"format" => "email"
+			],[
+				"type" => "string",
+				"format" => "ipv4"
+			]]
+		]);
+		$schema->validate("xyz");
+	}
 }

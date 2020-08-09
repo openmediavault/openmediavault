@@ -38,10 +38,7 @@ class SchemaTestCase(unittest.TestCase):
                                 "type": "string",
                                 "default": "pool.ntp.org",
                             },
-                            "clients": {
-                                "type": "string",
-                                "default": "",
-                            },
+                            "clients": {"type": "string", "default": "",},
                         },
                     },
                     "privilege": {
@@ -162,6 +159,45 @@ class SchemaTestCase(unittest.TestCase):
         self.assertRaises(
             openmediavault.json.SchemaValidationException,
             lambda: schema.validate({"name": "Eggs", "slaves": "xyz0"}),
+        )
+
+    def test_check_items_1(self):
+        schema = openmediavault.json.Schema({})
+        schema._check_items(
+            ["192.168.10.101"],
+            {"type": "array", "items": {"type": "string", "format": "ipv4"}},
+            "foo",
+        )
+
+    def test_check_items_2(self):
+        schema = openmediavault.json.Schema({})
+        schema._check_items(
+            ["192.168.10.101"],
+            {
+                "type": "array",
+                "items": [
+                    {"type": "string", "format": "ipv4"},
+                    {"type": "string", "format": "ipv6"},
+                ],
+            },
+            "xyz",
+        )
+
+    def test_check_items_3(self):
+        schema = openmediavault.json.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_items(
+                [10, "192.168.10.101"],
+                {
+                    "type": "array",
+                    "items": [
+                        {"type": "string", "format": "ipv4"},
+                        {"type": "string", "format": "ipv6"},
+                    ],
+                },
+                "bar",
+            ),
         )
 
 
