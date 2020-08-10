@@ -247,8 +247,8 @@ case "$1" in
 			omv_module_set_dirty cronapt
 		fi
 		if dpkg --compare-versions "$2" lt-nl "5.5.5"; then
-		  omv_set_default "OMV_WEBGUI_ADMINUSER_NAME" ${OMV_WEBGUI_ADMINUSER_NAME} 0
-		  omv_set_default "OMV_WEBGUI_ADMINGROUP_NAME" ${OMV_WEBGUI_ADMINGROUP_NAME} 0
+			omv_set_default "OMV_WEBGUI_ADMINUSER_NAME" ${OMV_WEBGUI_ADMINUSER_NAME} 0
+			omv_set_default "OMV_WEBGUI_ADMINGROUP_NAME" ${OMV_WEBGUI_ADMINGROUP_NAME} 0
 			groupadd --system ${OMV_WEBGUI_ADMINGROUP_NAME} || :
 			usermod -a -G ${OMV_WEBGUI_ADMINGROUP_NAME} ${OMV_WEBGUI_ADMINUSER_NAME} || :
 		fi
