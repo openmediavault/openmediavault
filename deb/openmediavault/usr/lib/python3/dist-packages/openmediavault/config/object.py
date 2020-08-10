@@ -225,6 +225,15 @@ class Object:
         value = self.get(name)
         return not bool(value and value.strip())
 
+    def validate(self):
+        """
+        Validate the configuration object using the given data model.
+        :return: None
+        :raises openmediavault.json.SchemaException:
+        :raises openmediavault.json.SchemaValidationException:
+        """
+        self.model.validate(self.get_dict())
+
     def __str__(self):
         """
         Return the properties as JSON string.

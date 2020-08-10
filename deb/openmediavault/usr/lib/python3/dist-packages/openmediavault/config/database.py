@@ -464,13 +464,25 @@ class DatabaseQuery(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
             result = []
             for element in elements:
                 obj = openmediavault.config.Object(self.model.id)
+                # Do not validate the properties because they surely
+                # do not match the specified types of the model when
+                # they are loaded as string data from XML.
                 obj.set_dict(self._element_to_dict(element), False)
+                # Now we can validate the object after the properties
+                # have been auto-converted to their correct types.
+                obj.validate()
                 result.append(obj)
         else:
             result = None
             if 0 < len(elements):  # pylint: disable=len-as-condition
                 result = openmediavault.config.Object(self.model.id)
+                # Do not validate the properties because they surely
+                # do not match the specified types of the model when
+                # they are loaded as string data from XML.
                 result.set_dict(self._element_to_dict(elements[0]), False)
+                # Now we can validate the object after the properties
+                # have been auto-converted to their correct types.
+                result.validate()
         return result
 
     def _dict_to_elements(self, dictionary, element):
