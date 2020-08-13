@@ -1,3 +1,9 @@
+openmediavault (5.5.8-1) stable; urgency=low
+
+  * 
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 13 Aug 2020 18:13:18 +0200
+
 openmediavault (5.5.7-1) stable; urgency=low
 
   * Update locales.
