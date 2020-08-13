@@ -1,8 +1,14 @@
+openmediavault (5.5.7-1) stable; urgency=low
+
+  * Update locales.
+  * Install helper script which is used by the UDEV rules database
+    which fixes the problem of some USB PATA/SATA bridge controllers.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 13 Aug 2020 17:40:07 +0200
+
 openmediavault (5.5.6-1) stable; urgency=low
 
   * Fix bug in omv-firstaid when trying to set a new admin password.
-  * Install helper script which is used by the UDEV rules database
-    which fixes the problem of some USB PATA/SATA bridge controllers.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 04 Aug 2020 20:46:45 +0200
 
