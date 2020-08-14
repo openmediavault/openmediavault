@@ -56,7 +56,8 @@ class StorageDevice extends \OMV\System\BlockDevice
 				return trim(file_get_contents($filename));
 			return "";
 		}
-		$property = $this->getUdevProperty("ID_VENDOR");  		
+		$property = $this->getUdevProperty("ID_VENDOR");
+		return str_replace("_", " ", $property);
 	}
 
 	/**
