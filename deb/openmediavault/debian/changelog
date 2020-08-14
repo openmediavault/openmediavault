@@ -1,6 +1,7 @@
 openmediavault (5.5.8-1) stable; urgency=low
 
-  * 
+  * Issue #782: Make attribute 'slaves' optional in datamodel
+    'conf.system.network.interface'.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 13 Aug 2020 18:13:18 +0200
 

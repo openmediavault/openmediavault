@@ -75,7 +75,13 @@
 		},
 		"slaves": {
 			"type": "string",
-			"pattern": "^(((eth|venet|wlan)\\d+|(en|veth|wl)\\S+|(bond)\\d+)(\\.\\d+)?,)*((eth|venet|wlan)\\d+|(en|veth|wl)\\S+|(bond)\\d+)(\\.\\d+)?$"
+			"oneOf": [{
+				"type": "string",
+				"pattern": "^(((eth|venet|wlan)\\d+|(en|veth|wl)\\S+|(bond)\\d+)(\\.\\d+)?,)*((eth|venet|wlan)\\d+|(en|veth|wl)\\S+|(bond)\\d+)(\\.\\d+)?$"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}]
 		},
 		"bondprimary": {
 			"type": "string"
