@@ -33,11 +33,15 @@ class StorageDevice extends \OMV\System\BlockDevice
 	 * @return string The device model, otherwise an empty string.
 	 */
 	public function getModel() {
-		$filename = sprintf("/sys/block/%s/device/model",
-			$this->getDeviceName(TRUE));
-		if (file_exists($filename))
-			return trim(file_get_contents($filename));
-		return "";
+		if (FALSE === $this->hasUdevProperty("ID_MODEL")) {
+			$filename = sprintf("/sys/block/%s/device/model",
+				$this->getDeviceName(TRUE));
+			if (file_exists($filename))
+				return trim(file_get_contents($filename));
+			return "";
+		}
+		$property = $this->getUdevProperty("ID_MODEL");
+		return str_replace("_", " ", $property);
 	}
 
 	/**
@@ -45,11 +49,15 @@ class StorageDevice extends \OMV\System\BlockDevice
 	 * @return string The device vendor, otherwise an empty string.
 	 */
 	public function getVendor() {
-		$filename = sprintf("/sys/block/%s/device/vendor",
-			$this->getDeviceName(TRUE));
-		if (file_exists($filename))
-			return trim(file_get_contents($filename));
-		return "";
+		if (FALSE === $this->hasUdevProperty("ID_VENDOR")) {
+			$filename = sprintf("/sys/block/%s/device/vendor",
+				$this->getDeviceName(TRUE));
+			if (file_exists($filename))
+				return trim(file_get_contents($filename));
+			return "";
+		}
+		$property = $this->getUdevProperty("ID_VENDOR");
+		return str_replace("_", " ", $property);
 	}
 
 	/**
