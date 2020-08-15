@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-28 09:12+0200\n"
-"PO-Revision-Date: 2020-06-29 12:08+0000\n"
-"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
+"POT-Creation-Date: 2020-08-15 07:46+0200\n"
+"PO-Revision-Date: 2020-08-15 05:47+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/votdev/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,9 +31,6 @@ msgstr "%s [%s (%d%%) použito, %s k dispozici]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [na %s, %s]"
-
-msgid "'All' is not allowed"
-msgstr "Hodnotu „All“ (vše) není možné použít"
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 (nula) KiB/s znamená neomezené."
@@ -3420,6 +3417,10 @@ msgstr "Port na kterém je na protějším stroji spuštěné SSH."
 
 msgid "The private RSA key in X.509 PEM format."
 msgstr "Soukromá část RSA klíče ve formátu PEM dle normy X.509."
+
+msgid ""
+"The protocol is not supported in conjunction with a source/destination port"
+msgstr ""
 
 msgid "The public key in RFC 4716 SSH public key file format."
 msgstr "Veřejná část SSH klíče ve formě souboru dle normy RFC 4716."

@@ -167,20 +167,20 @@ Ext.define("OMV.module.admin.system.network.firewall.Rule", {
 
 	isValid: function() {
 		var me = this;
-		if(!me.callParent(arguments))
+		if (!me.callParent(arguments))
 			return false;
 		var valid = true;
 		// Do additional checks
 		var values = me.getValues();
-		if(!Ext.isEmpty(values.sport) && (values.protocol == "all")) {
+		if (!Ext.isEmpty(values.sport) && (values.protocol == "all")) {
 			me.markInvalid([
-				{ id: "protocol", msg: _("'All' is not allowed") }
+				{ id: "protocol", msg: _("The protocol is not supported in conjunction with a source/destination port") }
 			]);
 			valid = false;
 		}
-		if(!Ext.isEmpty(values.dport) && (values.protocol == "all")) {
+		if (!Ext.isEmpty(values.dport) && (values.protocol == "all")) {
 			me.markInvalid([
-				{ id: "protocol", msg: _("'All' is not allowed") }
+				{ id: "protocol", msg: _("The protocol is not supported in conjunction with a source/destination port") }
 			]);
 			valid = false;
 		}
