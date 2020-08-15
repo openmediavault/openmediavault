@@ -28,6 +28,7 @@ class NetTestCase(unittest.TestCase):
         self.assertFalse(openmediavault.net.is_ethernet('br1'))
 
     def test_is_wifi(self):
+        self.assertTrue(openmediavault.net.is_wifi('wlan0'))
         self.assertTrue(openmediavault.net.is_wifi('wlp3s0'))
         self.assertFalse(openmediavault.net.is_wifi('venet2'))
 
