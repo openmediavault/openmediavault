@@ -57,6 +57,9 @@ class Services extends \OMV\Rpc\ServiceAbstract {
 			if ($modulev instanceof \OMV\Engine\Module\IServiceStatus)
 				$status[] = $modulev->getStatus();
 		}
+		// Remove duplicate entries caused by the 'alias' feature
+		// of modules.
+		$status = array_unique_key($status, "name");
 		return [
 			"total" => count($status),
 			"data" => $status
