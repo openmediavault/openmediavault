@@ -21,6 +21,8 @@
  */
 namespace Engined\Rpc;
 
+require_once("openmediavault/functions.inc");
+
 class Services extends \OMV\Rpc\ServiceAbstract {
 	/**
 	 * Get the RPC service name.
