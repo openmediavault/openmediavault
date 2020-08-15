@@ -100,11 +100,15 @@ class StorageDeviceSG implements SmartInterface {
 	 * @return The device model, otherwise an empty string.
 	 */
 	public function getModel() {
-		$filename = sprintf("/sys/class/scsi_generic/%s/device/model",
-		  $this->getDeviceName());
-		if (file_exists($filename))
-			return trim(file_get_contents($filename));
-		return "";
+		if (FALSE === $this->hasUdevProperty("ID_MODEL")) {
+			$filename = sprintf("/sys/class/scsi_generic/%s/device/model",
+				$this->getDeviceName());
+			if (file_exists($filename))
+				return trim(file_get_contents($filename));
+			return "";
+		}
+		$property = $this->getUdevProperty("ID_MODEL");
+		return str_replace("_", " ", $property); 		
 	}
 
 	/**
@@ -112,11 +116,15 @@ class StorageDeviceSG implements SmartInterface {
 	 * @return The device vendor, otherwise an empty string.
 	 */
 	public function getVendor() {
-		$filename = sprintf("/sys/class/scsi_generic/%s/device/vendor",
-		  $this->getDeviceName());
-		if (file_exists($filename))
-			return trim(file_get_contents($filename));
-		return "";
+		if (FALSE === $this->hasUdevProperty("ID_VENDOR")) {		
+			$filename = sprintf("/sys/class/scsi_generic/%s/device/vendor",
+		  		$this->getDeviceName());
+			if (file_exists($filename))
+				return trim(file_get_contents($filename));
+			return "";
+		}
+		$property = $this->getUdevProperty("ID_VENDOR");
+		return str_replace("_", " ", $property);
 	}
 
 	/**
