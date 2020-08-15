@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-28 09:12+0200\n"
+"POT-Creation-Date: 2020-08-15 07:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,9 +28,6 @@ msgid "%s [%s (%d%%) used, %s available]"
 msgstr ""
 
 msgid "%s [on %s, %s]"
-msgstr ""
-
-msgid "'All' is not allowed"
 msgstr ""
 
 msgid "0 KiB/s means unlimited."
@@ -3257,6 +3254,9 @@ msgid "The port on which SSH is running on the remote system."
 msgstr ""
 
 msgid "The private RSA key in X.509 PEM format."
+msgstr ""
+
+msgid "The protocol is not supported in conjunction with a source/destination port"
 msgstr ""
 
 msgid "The public key in RFC 4716 SSH public key file format."

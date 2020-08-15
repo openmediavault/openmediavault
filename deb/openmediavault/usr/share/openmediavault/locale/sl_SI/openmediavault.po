@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-28 09:12+0200\n"
-"PO-Revision-Date: 2020-06-28 07:13+0000\n"
+"POT-Creation-Date: 2020-08-15 07:46+0200\n"
+"PO-Revision-Date: 2020-08-15 05:47+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/votdev/openmediavault/language/sl_SI/)\n"
 "MIME-Version: 1.0\n"
@@ -30,9 +30,6 @@ msgstr "%s [%s (%d%%) porabljeno, %s na voljo]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [na %s, %s]"
-
-msgid "'All' is not allowed"
-msgstr "\"Vse\" ni dovoljeno"
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s pomeni neomejeno."
@@ -3419,6 +3416,10 @@ msgstr ""
 
 msgid "The private RSA key in X.509 PEM format."
 msgstr "Privatni RSA ključ v X.509 PEM formatu."
+
+msgid ""
+"The protocol is not supported in conjunction with a source/destination port"
+msgstr ""
 
 msgid "The public key in RFC 4716 SSH public key file format."
 msgstr "Javni ključ v RFC 4716 SSH formatu javnega ključa."

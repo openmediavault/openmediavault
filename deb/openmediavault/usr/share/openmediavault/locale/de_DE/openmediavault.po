@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-28 09:12+0200\n"
-"PO-Revision-Date: 2020-07-14 16:13+0000\n"
+"POT-Creation-Date: 2020-08-15 07:46+0200\n"
+"PO-Revision-Date: 2020-08-15 05:48+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -39,9 +39,6 @@ msgstr "%s [%s (%d%%) belegt, %s verfügbar]"
 
 msgid "%s [on %s, %s]"
 msgstr "%s [auf %s, %s]"
-
-msgid "'All' is not allowed"
-msgstr "'Alle' ist nicht erlaubt"
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s bedeutet unbegrenzt."
@@ -3428,6 +3425,10 @@ msgstr "Der Port, auf dem SSH auf dem Remote-System ausgeführt wird."
 
 msgid "The private RSA key in X.509 PEM format."
 msgstr "Der private RSA Schlüssel im X.509 PEM Format."
+
+msgid ""
+"The protocol is not supported in conjunction with a source/destination port"
+msgstr "Das Protokoll wird in Verbindung mit einem Quell-/Zielport nicht unterstützt"
 
 msgid "The public key in RFC 4716 SSH public key file format."
 msgstr "Der öffentliche Schlüssel im RFC 4716 SSH Public-Key-Dateiformat."
