@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/lvm"
+  title: _("Logical Volume Management")
+  component: omv-storage-lvm-navigation-page

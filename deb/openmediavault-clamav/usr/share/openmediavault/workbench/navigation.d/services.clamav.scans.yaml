@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.clamav.scans"
+  text: _("Scheduled Scans")
+  position: 30
+  icon: "mdi:calendar-clock"
+  url: "/services/clamav/scans"

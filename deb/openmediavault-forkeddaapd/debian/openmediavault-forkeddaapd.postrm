@@ -29,8 +29,8 @@ remove_action() {
 	# way we can simply purge this service configuration file. Finally
 	# reload the monit configuration.
 	omv-salt deploy run --no-color monit
-	# Activate trigger to purge cached files.
-	dpkg-trigger update-fixperms
+	# Activate trigger to rebuild workbench configuration files.
+	dpkg-trigger update-workbench
 }
 
 case "$1" in

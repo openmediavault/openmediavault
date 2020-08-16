@@ -3,7 +3,7 @@ Section: net
 XB-Plugin-Section: monitoring
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
-Build-Depends: debhelper (>> 7), gettext
+Build-Depends: debhelper (>= 12), gettext
 Standards-Version: 3.9.6
 Homepage: http://www.openmediavault.org
 

@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "network.interfaces"
+  position: 20
+  text: _("Interfaces")
+  icon: "mdi:expansion-card"
+  url: "/network/interfaces"

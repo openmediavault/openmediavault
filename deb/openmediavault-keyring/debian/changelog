@@ -1,3 +1,9 @@
+openmediavault-keyring (1.0.1) stable; urgency=low
+
+  * Bump compat level to 12, build depending on debhelper (>= 12)
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 23 Mar 2021 10:28:35 +0100
+
 openmediavault-keyring (1.0) stable; urgency=low
 
   * Add new key.

@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "storage.shared-folders"
+  position: 50
+  text: _("Shared Folders")
+  icon: share
+  url: "/storage/shared-folders"

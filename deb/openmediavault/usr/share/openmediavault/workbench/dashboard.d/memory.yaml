@@ -1,0 +1,25 @@
+version: "1.0"
+type: dashboard-widget
+data:
+  id: 20ac67db-b6b5-429c-a304-9a1a4fbb9ea9
+  title: Memory
+  type: chart
+  permissions:
+    role:
+    - admin
+  chart:
+    type: advanced-doughnut
+    request:
+      service: System
+      method: getInformation
+    label:
+      display: true
+      formatter: template
+      formatterConfig: "{{ value | binaryunit }}"
+    dataConfig:
+    - label: Used
+      prop: memUsed
+      backgroundColor: "#4cd964"
+    - label: Free
+      prop: memFree
+      backgroundColor: "#0000001a"

@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/lvm/lvs"
+  title: _("Logical Volumes")
+  component: omv-storage-lvm-lv-datatable-page

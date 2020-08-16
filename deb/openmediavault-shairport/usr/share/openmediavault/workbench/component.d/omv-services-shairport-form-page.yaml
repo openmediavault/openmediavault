@@ -1,0 +1,44 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-shairport-form-page
+  type: formPage
+  config:
+    request:
+      service: Shairport
+      get:
+        method: get
+      post:
+        method: set
+    fields:
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        value: false
+      - type: textInput
+        name: name
+        label: _("Name")
+        hint: _("The name the service will advertise to clients. Leave this field empty to use the hostname by default.")
+        autocomplete: "off"
+        value: ""
+      - type: checkbox
+        name: passwordrequired
+        label: _("Authentication")
+        value: false
+        hint: _("A password is required to stream audio.")
+      - type: passwordInput
+        name: password
+        label: _("Password")
+        autocomplete: new-password
+        validators:
+          requiredIf:
+            operator: truthy
+            arg0:
+              prop: passwordrequired
+        value: ""
+    buttons:
+      - template: submit
+      - template: cancel
+        execute:
+          type: url
+          url: "/services"

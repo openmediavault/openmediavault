@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "system.workbench"
+  position: 10
+  text: _("Workbench")
+  icon: tune
+  url: "/system/workbench"

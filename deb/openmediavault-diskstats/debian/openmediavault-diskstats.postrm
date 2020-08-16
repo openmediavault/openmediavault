@@ -30,8 +30,8 @@ case "$1" in
 
 	remove)
 		LANG=C.UTF-8 omv-salt deploy run --no-color --quiet collectd
-		# Activate trigger to purge cached files.
-		dpkg-trigger update-fixperms
+		# Activate trigger to rebuild workbench configuration files.
+		dpkg-trigger update-workbench
 	;;
 
 	upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)

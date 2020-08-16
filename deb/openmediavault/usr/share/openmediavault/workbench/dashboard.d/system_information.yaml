@@ -1,0 +1,9 @@
+version: "1.0"
+type: dashboard-widget
+data:
+  id: bb8fa1b6-df13-11ea-9ef7-933dec0aeaf3
+  title: _("System Information")
+  type: system-information
+  permissions:
+    role:
+    - admin

@@ -25,8 +25,8 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 remove_action() {
-	# Activate trigger to purge cached files.
-	dpkg-trigger update-fixperms
+	# Activate trigger to rebuild workbench configuration files.
+	dpkg-trigger update-workbench
 }
 
 case "$1" in

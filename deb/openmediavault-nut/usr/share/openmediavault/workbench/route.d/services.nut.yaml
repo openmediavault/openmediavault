@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/nut"
+  title: _("UPS")
+  editing: true
+  notificationTitle: _("Updated UPS settings.")
+  component: omv-services-nut-form-page

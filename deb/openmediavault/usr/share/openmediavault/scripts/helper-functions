@@ -168,16 +168,6 @@ omv_ltrim() {
 	omv_trim -l $@
 }
 
-# omv_escapeshellarg <value>
-# Escape a string to be used as a shell argument.
-omv_escapeshellarg() {
-	perl - "$*" <<'EOF'
-my $arg = shift;
-$arg =~ s/'/'\\''/g;
-print "'" . $arg . "'";
-EOF
-}
-
 # omv_uuid
 # Create a UUID v4.
 omv_uuid() {
@@ -746,7 +736,6 @@ omv_is_gateway4() {
 # @return 0 if valid, otherwise 1.
 omv_is_ipaddr6() {
 	local _valid
-#	perl -ne "use Socket qw(AF_INET6 inet_pton); print inet_pton(AF_INET6, '$1');"
 	_valid=$(php7.3 -n -r "filter_var('$1', FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? print 0 : print 1;")
 	return ${_valid}
 }
@@ -766,7 +755,6 @@ omv_is_netmask6() {
 # @return 0 if valid, otherwise 1.
 omv_is_gateway6() {
 	local _valid
-#	perl -ne "use Socket qw(AF_INET6 inet_pton); print inet_pton(AF_INET6, '$1');"
 	_valid=$(php7.3 -n -r "filter_var('$1', FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? print 0 : print 1;")
 	return ${_valid}
 }
@@ -863,32 +851,6 @@ omv_is_mounted() {
 	fi
 	omv_debug "omv_is_mounted: Mount point '${1}' is mounted"
 	return 0
-}
-
-# omv_install_fixperms <docroot>
-# Set the module/plugin file permissions.
-# @param docroot The path of the document root to be processed.
-#   Defaults to OMV_DOCUMENTROOT_DIR.
-omv_install_fixperms() {
-	local _docroot
-	_docroot=$1
-	[ -z "${_docroot}" ] && _docroot=${OMV_DOCUMENTROOT_DIR}
-	chmod 755 ${_docroot}
-	chown -R ${OMV_WEBGUI_FILE_OWNERGROUP_NAME}:${OMV_WEBGUI_FILE_OWNERGROUP_NAME} ${_docroot}
-	find ${_docroot}/* -type d -exec chmod 775 {} +
-	find ${_docroot}/* -type f -exec chmod 664 {} +
-}
-
-# omv_install_locale
-# Install locale files
-omv_install_locale() {
-	omv-mki18ndict
-}
-
-# omv_purge_internal_cache
-# Purge the internal cache, e.g. used to speedup WebGUI loading.
-omv_purge_internal_cache() {
-	rm -f ${OMV_CACHE_DIR}/cache.*.json
 }
 
 # omv_set_default <key> <value> <override>

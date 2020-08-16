@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/snmp"
+  title: _("SNMP")
+  editing: true
+  notificationTitle: _("Updated SNMP settings.")
+  component: omv-services-snmp-form-page

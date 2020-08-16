@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "usermgmt.groups"
+  position: 30
+  text: _("Groups")
+  icon: group
+  url: "/usermgmt/groups"

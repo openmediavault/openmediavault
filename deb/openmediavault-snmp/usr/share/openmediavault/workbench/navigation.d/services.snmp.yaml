@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.snmp"
+  text: _("SNMP")
+  icon: "mdi:chart-bar"
+  url: "/services/snmp"

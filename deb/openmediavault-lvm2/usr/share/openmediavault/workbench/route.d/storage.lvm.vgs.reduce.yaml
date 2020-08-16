@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/lvm/vgs/reduce/:name"
+  title: _("Reduce")
+  editing: true
+  notificationTitle: _("Reduced volume group '{{ devicefile }}'.")
+  component: omv-storage-lvm-vg-reduce-form-page

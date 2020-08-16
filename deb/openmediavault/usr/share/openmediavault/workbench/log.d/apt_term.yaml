@@ -1,0 +1,18 @@
+version: "1.0"
+type: log
+data:
+  id: apt_term
+  text: _("Update Management")
+  columns:
+  - name: _("Message")
+    sortable: true
+    prop: message
+    flexGrow: 1
+  sorters:
+  - dir: desc
+    prop: ts
+  request:
+    service: LogFile
+    method: getList
+    params:
+      id: apt_term

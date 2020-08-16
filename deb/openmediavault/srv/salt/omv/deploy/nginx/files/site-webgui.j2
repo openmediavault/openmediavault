@@ -14,7 +14,7 @@
 server {
     server_name {{ server_name }};
     root {{ root }};
-    index index.php;
+    index index.html;
     autoindex off;
     server_tokens off;
     sendfile on;
@@ -22,22 +22,14 @@ server {
     client_max_body_size {{ client_max_body_size }};
     error_log {{ log_dir | path_join(server_name ~ '_error.log') }} {{ error_log_level }};
     access_log {{ log_dir | path_join(server_name ~ '_access.log') }} combined;
-    error_page 404 = /404.php;
-    location /404.html {
-        internal;
+    error_page 404 = $scheme://$host:$server_port/#/404;
+    location / {
+        try_files $uri $uri/ =404;
     }
-    location /extjs6/ {
-        alias /usr/share/javascript/extjs6/;
-        expires {{ expires }};
-    }
-    location ~ ^/(css|js|images)/ {
-        expires {{ expires }};
-    }
-    location /favicon {
+    location ^~ /assets/ {
         expires 14d;
     }
-    location ~ \.php$ {
-        try_files $uri =404;
+    location ~* \.php$ {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
         fastcgi_pass unix:/run/php/php7.3-fpm-openmediavault-webgui.sock;
         fastcgi_index index.php;

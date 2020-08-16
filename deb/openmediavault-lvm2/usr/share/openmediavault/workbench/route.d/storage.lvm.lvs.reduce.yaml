@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/lvm/lvs/reduce/:devicefile"
+  title: _("Reduce")
+  editing: true
+  notificationTitle: _("Extended logical volume '{{ devicefile }}'.")
+  component: omv-storage-lvm-lv-reduce-form-page

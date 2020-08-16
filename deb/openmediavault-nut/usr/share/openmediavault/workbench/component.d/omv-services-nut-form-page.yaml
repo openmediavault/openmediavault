@@ -1,0 +1,213 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-nut-form-page
+  type: formPage
+  config:
+    request:
+      service: Nut
+      get:
+        method: get
+      post:
+        method: set
+    fields:
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        value: false
+      - type: select
+        name: mode
+        label: _("Mode")
+        hint: _("'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server.")
+        value: "standalone"
+        store:
+          data:
+            - - "netclient"
+              - _("Netclient")
+            - - "standalone"
+              - _("Standalone")
+      - type: textInput
+        name: upsname
+        label: _("Identifier")
+        hint: _("The name used to uniquely identify your UPS on local or remote system.")
+        value: ""
+        validators:
+          required: true
+          pattern:
+            pattern: "^[a-zA-Z0-9_-]+$"
+            errorData?: _("Invalid identifier")
+      - type: textInput
+        name: comment
+        label: _("Comment")
+        value: ""
+      - type: textInput
+        name: netclienthostname
+        label: _("Netclient hostname")
+        value: ""
+        modifiers:
+          - type: visible
+            constraint:
+              operator: eq
+              arg0:
+                prop: mode
+              arg1: "netclient"
+        validators:
+          requiredIf:
+            operator: eq
+            arg0:
+              prop: mode
+            arg1: "netclient"
+      - type: textInput
+        name: netclientusername
+        label: _("Netclient username")
+        autocomplete: new-password
+        value: ""
+        modifiers:
+          - type: visible
+            constraint:
+              operator: eq
+              arg0:
+                prop: mode
+              arg1: "netclient"
+        validators:
+          requiredIf:
+            operator: eq
+            arg0:
+              prop: mode
+            arg1: "netclient"
+      - type: passwordInput
+        name: netclientpassword
+        label: _("Netclient password")
+        autocomplete: new-password
+        value: ""
+        modifiers:
+          - type: visible
+            constraint:
+              operator: eq
+              arg0:
+                prop: mode
+              arg1: "netclient"
+        validators:
+          requiredIf:
+            operator: eq
+            arg0:
+              prop: mode
+            arg1: "netclient"
+      - type: numberInput
+        name: powervalue
+        label: _("Powervalue")
+        value: 1
+        hint: _("The number of power supplies that the UPS feeds on this system (usually 1), refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf(5)</a> for more information.")
+        modifiers:
+          - type: visible
+            constraint:
+              operator: eq
+              arg0:
+                prop: mode
+              arg1: "netclient"
+        validators:
+          min: 0
+          requiredIf:
+            operator: eq
+            arg0:
+              prop: mode
+            arg1: "netclient"
+      - type: textarea
+        name: driverconf
+        label: _("Driver configuration directives")
+        hint: _("To get more information how to configure your UPS please check the Network UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>documentation</a>.")
+        value: ""
+        rows: 5
+        modifiers:
+          - type: visible
+            constraint:
+              operator: eq
+              arg0:
+                prop: mode
+              arg1: "standalone"
+        validators:
+          requiredIf:
+            operator: eq
+            arg0:
+              prop: mode
+            arg1: "standalone"
+      - type: select
+        name: shutdownmode
+        label: _("Shutdown mode")
+        hint: _("Defines when the shutdown is initiated.")
+        value: "onbatt"
+        store:
+          data:
+            - - "fsd"
+              - _("UPS reaches low battery")
+            - - "onbatt"
+              - _("UPS goes on battery")
+      - type: numberInput
+        name: shutdowntimer
+        label: _("Shutdown timer")
+        hint: _("The time in seconds until shutdown is initiated. If the UPS happens to come back before the time is up the shutdown is canceled.")
+        value: 30
+        modifiers:
+          - type: visible
+            constraint:
+              operator: eq
+              arg0:
+                prop: shutdownmode
+              arg1: "onbatt"
+        validators:
+          minValue: 1
+          requiredIf:
+            operator: eq
+            arg0:
+              prop: shutdownmode
+            arg1: "onbatt"
+      - type: paragraph
+        text: _("Remote monitoring")
+      - type: checkbox
+        name: remotemonitor
+        label: _("Enabled")
+        hint: _("Enable remote monitoring of the local connected UPS.")
+        value: false
+        modifiers:
+          - type: enabled
+            constraint:
+              operator: eq
+              arg0:
+                prop: mode
+              arg1: "standalone"
+          - type: unchecked
+            constraint:
+              operator: eq
+              arg0:
+                prop: mode
+              arg1: "netclient"
+      - type: passwordInput
+        name: remoteuser
+        label: _("Username")
+        hint: _("Used for remote authentication.")
+        autocomplete: new-password
+        modifiers:
+          - type: enabled
+            constraint:
+              operator: eq
+              arg0:
+                prop: mode
+              arg1: "standalone"
+      - type: passwordInput
+        name: remotepassword
+        label: _("Password")
+        hint: _("Used for remote authentication.")
+        autocomplete: new-password
+        modifiers:
+          - type: enabled
+            constraint:
+              operator: eq
+              arg0:
+                prop: mode
+              arg1: "standalone"
+    buttons:
+      - template: submit
+      - template: cancel
+        execute:
+          type: url
+          url: "/services"

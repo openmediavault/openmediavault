@@ -27,11 +27,9 @@ set -e
 case "$1" in
 	configure)
 		########################################################################
-		# Activate package triggers. These triggers are only set during the
-		# package installation.
+		# Activate trigger to rebuild workbench configuration files.
 		########################################################################
-		dpkg-trigger update-fixperms
-		dpkg-trigger update-locale
+		dpkg-trigger update-workbench
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

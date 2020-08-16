@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/lvm/pvs"
+  title: _("Physical Volumes")
+  component: omv-storage-lvm-pv-datatable-page

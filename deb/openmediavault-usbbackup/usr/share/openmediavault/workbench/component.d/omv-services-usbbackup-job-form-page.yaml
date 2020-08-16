@@ -1,0 +1,161 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-usbbackup-job-form-page
+  type: formPage
+  config:
+    request:
+      service: UsbBackup
+      get:
+        method: get
+        params:
+          uuid: "{{ _routeParams.uuid }}"
+      post:
+        method: set
+    fields:
+      - type: confObjUuid
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        value: false
+      - type: select
+        name: mode
+        label: _("Mode")
+        value: "push"
+        store:
+          data:
+            - - "push"
+              - _("From shared folder to external storage")
+            - - "pull"
+              - _("From external storage to shared folder")
+      - type: sharedFolderSelect
+        name: sharedfolderref
+        label: _("Shared folder")
+        hint: _("The shared folder to synchronise when the external storage device is connected.")
+        validators:
+          requiredIf:
+            operator: truthy
+            arg0:
+              prop: enable
+      - type: select
+        name: devicefile
+        label: _("Device")
+        placeholder: _("Select a device ...")
+        hint: _("The external storage device.")
+        valueField: devicefile
+        textField: description
+        store:
+          proxy:
+            service: UsbBackup
+            get:
+              method: getCandidates
+          sorters:
+            - dir: asc
+              prop: devicefile
+        validators:
+          requiredIf:
+            operator: truthy
+            arg0:
+              prop: enable
+      - type: checkbox
+        name: usesubdir
+        label: _("Synchronise from/to directory on external storage device")
+        hint: _("The shared folder content is synchronised from/to the root of the external storage device if this option is not set. The name of the directory is taken from the shared folder.")
+        value: true
+      - type: checkbox
+        name: sendemail
+        label: _("Send email")
+        value: true
+        hint: _("An email message with the command output (if any produced) is send to the administrator.")
+      - type: checkbox
+        name: optionquiet
+        label: _("Quiet")
+        hint: _("Suppress non-error messages.")
+        value: false
+      - type: checkbox
+        name: optionarchive
+        label: _("Archive")
+        hint: _("Enable archive mode.")
+        value: true
+      - type: checkbox
+        name: optionrecursive
+        label: _("Recursive")
+        hint: _("Recurse into directories.")
+        value: true
+        modifiers:
+          - type: checked
+            opposite: false
+            constraint:
+              operator: truthy
+              arg0:
+                prop: optionarchive
+      - type: checkbox
+        name: optionperms
+        label: _("Preserve permissions")
+        hint: _("Set the destination permissions to be the same as the source permissions.")
+        value: true
+      - type: checkbox
+        name: optiontimes
+        label: _("Preserve modification times")
+        hint: _("Transfer modification times along with the files and update them on the remote system.")
+        value: true
+        modifiers:
+          - type: checked
+            opposite: false
+            constraint:
+              operator: truthy
+              arg0:
+                prop: optionarchive
+      - type: checkbox
+        name: optiongroup
+        label: _("Preserve group")
+        hint: _("Set the group of the destination file to be the same as the source file.")
+        value: true
+      - type: checkbox
+        name: optionowner
+        label: _("Preserve owner")
+        hint: _("Set the owner of the destination file to be the same as the source file, but only if the receiving rsync is being run as the super-user.")
+        value: true
+      - type: checkbox
+        name: optioncompress
+        label: _("Compress")
+        hint: _("Compress file data during the transfer.")
+        value: false
+      - type: checkbox
+        name: optionacls
+        label: _("Preserve ACLs")
+        hint: _("Update the destination ACLs to be the same as the source ACLs.")
+        value: false
+      - type: checkbox
+        name: optionxattrs
+        label: _("Preserve extended attributes")
+        hint: _("Update the destination extended attributes to be the same as the local ones.")
+        value: false
+      - type: checkbox
+        name: optionpartial
+        label: _("Keep partially transferred files")
+        hint: _("Enable this option to keep partially transferred files, otherwise they will be deleted if the transfer is interrupted.")
+        value: false
+      - type: checkbox
+        name: optiondelete
+        label: _("Delete")
+        hint: _("Delete files on the receiving side that don't exist on sender.")
+        value: false
+      - type: textInput
+        name: extraoptions
+        label: _("Extra options")
+        hint: _("Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manual page</a> for more details.")
+        value: ""
+      - type: textInput
+        name: comment
+        label: _("Comment")
+        value: ""
+    buttons:
+      - template: submit
+        execute:
+          type: url
+          url: "/services/usbbackup"
+      - template: cancel
+        execute:
+          type: url
+          url: "/services/usbbackup"

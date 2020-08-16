@@ -6,4 +6,4 @@
 include ../openmediavault.mk
 
 %:
-	dh $@ --with systemd
+	dh $@

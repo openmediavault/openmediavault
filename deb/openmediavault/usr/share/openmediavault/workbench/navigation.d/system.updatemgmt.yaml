@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "system.updatemgmt"
+  position: 70
+  text: _("Update Management")
+  icon: mdi:download
+  url: "/system/updatemgmt"

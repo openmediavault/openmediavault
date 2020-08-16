@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.nfs.shares"
+  position: 20
+  text: _("Shares")
+  icon: share
+  url: "/services/nfs/shares"

@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/clamav/onaccess-scans/edit/:uuid"
+  title: _("Edit")
+  editing: true
+  notificationTitle: _("Updated on-access scan.")
+  component: omv-services-clamav-onaccess-scan-form-page

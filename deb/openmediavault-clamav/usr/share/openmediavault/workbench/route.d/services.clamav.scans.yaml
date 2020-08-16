@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/clamav/scans"
+  title: _("Scheduled Scans")
+  component: omv-services-clamav-scan-datatable-page

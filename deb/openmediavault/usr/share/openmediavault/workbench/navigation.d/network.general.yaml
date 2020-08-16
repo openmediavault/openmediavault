@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "network.general"
+  position: 10
+  text: _("General")
+  icon: tune
+  url: "/network/general"
