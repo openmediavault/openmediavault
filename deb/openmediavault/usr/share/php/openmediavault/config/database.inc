@@ -82,12 +82,24 @@ class Database {
 			$result = [];
 			foreach ($data as $datak => $datav) {
 				$object = new ConfigObject($id);
+				// Do not validate the properties because they surely
+				// do not match the specified types of the model when
+				// they are loaded as string data from XML.
 				$object->setAssoc($datav, FALSE);
+				// Now we can validate the object after the properties
+				// have been auto-converted to their correct types.
+				$object->validate();
 				$result[] = $object;
 			}
 		} else {
 			$result = new ConfigObject($id);
+			// Do not validate the properties because they surely
+			// do not match the specified types of the model when
+			// they are loaded as string data from XML.
 			$result->setAssoc($data, FALSE);
+			// Now we can validate the object after the properties
+			// have been auto-converted to their correct types.
+			$result->validate();
 		}
 		return $result;
 	}
@@ -164,7 +176,13 @@ class Database {
 			if (!is_null($maxResult) && ($datak >= $maxResult))
 				continue;
 			$object = new ConfigObject($id);
+			// Do not validate the properties because they surely
+			// do not match the specified types of the model when
+			// they are loaded as string data from XML.
 			$object->setAssoc($datav, FALSE);
+			// Now we can validate the object after the properties
+			// have been auto-converted to their correct types.
+			$object->validate();
 			$result[] = $object;
 		}
 		if (1 == $maxResult) {

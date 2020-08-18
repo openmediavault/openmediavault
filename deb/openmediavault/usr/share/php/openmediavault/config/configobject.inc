@@ -486,4 +486,14 @@ class ConfigObject {
 	public function getModelId() {
 		return $this->getModel()->getId();
 	}
+
+	/**
+	 * Validate the configuration object using the given data model.
+	 * @return void
+	 * @throw \OMV\Json\SchemaException
+	 * @throw \OMV\Json\SchemaValidationException
+	 */
+	public function validate() {
+		$this->getModel()->validate($this->getProperties());
+	}
 }
