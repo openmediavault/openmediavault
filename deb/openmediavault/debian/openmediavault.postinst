@@ -252,6 +252,9 @@ case "$1" in
 			groupadd --system ${OMV_WEBGUI_ADMINGROUP_NAME} || :
 			usermod -a -G ${OMV_WEBGUI_ADMINGROUP_NAME} ${OMV_WEBGUI_ADMINUSER_NAME} || :
 		fi
+		if dpkg --compare-versions "$2" lt-nl "5.5.9"; then
+		  omv_module_set_dirty proftpd
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the
