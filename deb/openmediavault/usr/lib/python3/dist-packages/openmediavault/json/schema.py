@@ -126,19 +126,19 @@ class Schema:
             if "type" in schema and isinstance(schema['type'], str):
                 if "array" == schema['type']:
                     if "items" not in schema:
-                        raise openmediavault.json.SchemaException(
-                            "No 'items' attribute defined at '%s'." % path
+                        raise SchemaException(
+                            "No 'items' attribute defined at '{}'.".format(path)
                         )
                     return _walk_schema(path, schema['items'])
                 elif "object" == schema['type']:
                     if "properties" not in schema:
-                        raise openmediavault.json.SchemaException(
-                            "No 'properties' attribute defined at '%s'." % path
+                        raise SchemaException(
+                            "No 'properties' attribute defined at '{}'.".format(path)
                         )
                     return _walk_schema(path, schema['properties'])
                 else:
                     raise SchemaException(
-                        "Unknown type '%s' at '%s'." % (schema['type'], path)
+                        "Unknown type '{}' at '{}'.".format(schema['type'], path)
                     )
             key = parts.pop(0)
             # Check if the node has the requested key/value pair.
@@ -208,7 +208,7 @@ class Schema:
                     valid = True
                 else:
                     raise SchemaException(
-                        "%s: The type '%s' is not defined." % (name, typev)
+                        "{}: The type '{}' is not defined.".format(name, typev)
                     )
             except SchemaValidationException as e:
                 # Continue with the next type but remember the exception.
@@ -448,7 +448,7 @@ class Schema:
                 )
         else:
             raise SchemaException(
-                "%s: The format '%s' is not defined." % (name, schema['format'])
+                "{}: The format '{}' is not defined.".format(name, schema['format'])
             )
 
     def _check_enum(self, value, schema, name):
@@ -456,7 +456,7 @@ class Schema:
             return
         if not isinstance(schema['enum'], list):
             raise SchemaException(
-                "The attribute 'enum' is not an array." % name
+                "{}: The attribute 'enum' is not a list.".format(name)
             )
         if not isinstance(value, list):
             value = [value]
@@ -488,10 +488,10 @@ class Schema:
 
     def _check_properties(self, value, schema, name):
         if "properties" not in schema:
-            raise SchemaException(name, "No 'properties' attribute defined.")
+            raise SchemaException("{}: No 'properties' attribute defined.".format(name))
         if not isinstance(schema['properties'], dict):
             raise SchemaException(
-                name, "The attribute 'properties' is not a dictionary."
+                "{}: The attribute 'properties' is not a dictionary.".format(name)
             )
         for propk, propv in schema['properties'].items():
             # Build the new path. Strip empty parts.
@@ -509,7 +509,7 @@ class Schema:
 
     def _check_items(self, value, schema, name):
         if "items" not in schema:
-            raise SchemaException("No 'items' attribute defined." % name)
+            raise SchemaException("{}: No 'items' attribute defined.".format(name))
         if isinstance(schema['items'], list):
             for itemk, itemv in enumerate(value):
                 path = "%s[%d]" % (name, itemk)
@@ -540,7 +540,7 @@ class Schema:
             return
         if not isinstance(schema['oneOf'], list):
             raise SchemaException(
-                "The 'oneOf' attribute is not an array." % name
+                "{}: The 'oneOf' attribute is not an array.".format(name)
             )
         valid = False
         for _, sub_schemav in enumerate(schema['oneOf']):
