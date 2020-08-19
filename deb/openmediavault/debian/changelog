@@ -1,6 +1,7 @@
 openmediavault (5.5.9-1) stable; urgency=low
 
   * Issue #784: Use UDEV over /sys to get model and vendor information.
+  * Issue #789: Read-only users or groups are not used in proftpd config.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 14 Aug 2020 15:31:45 +0200
 
