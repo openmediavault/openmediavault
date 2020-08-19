@@ -139,10 +139,10 @@ DisplayLogin {{ display_login }}
     DenyAll
   </Limit>
   <Limit READ DIRS>
-{%- if limitall_allowuser | length > 0 %}
+{%- if (limitall_allowuser + limitread_allowuser) | length > 0 %}
     AllowUser OR {{ (limitall_allowuser + limitread_allowuser) | join(',') }}
 {%- endif %}
-{%- if limitall_allowgroup | length > 0 %}
+{%- if (limitall_allowgroup + limitread_allowgroup) | length > 0 %}
     AllowGroup OR {{ (limitall_allowgroup + limitread_allowgroup) | join(',') }}
 {%- endif %}
     DenyAll
