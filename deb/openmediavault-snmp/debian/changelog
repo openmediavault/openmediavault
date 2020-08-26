@@ -1,3 +1,10 @@
+openmediavault-snmp (5.0.2-1) stable; urgency=low
+
+  * Update locales.
+  * Fix bug in snmpd.conf when using SNMP v3.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Aug 2020 18:25:10 +0200
+
 openmediavault-snmp (5.0.1-1) stable; urgency=low
 
   * Update locales.
