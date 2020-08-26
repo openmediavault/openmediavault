@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Quim Farriol <quim@iscinformatica.cat>, 2017-2018
+# Quim Farriol <quim@iscinformatica.cat>, 2017-2018,2020
 # Quim Farriol <quim@iscinformatica.cat>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-08-15 07:46+0200\n"
-"PO-Revision-Date: 2020-08-15 05:47+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2020-08-26 16:31+0000\n"
+"Last-Translator: Quim Farriol <quim@iscinformatica.cat>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/votdev/openmediavault/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -217,7 +217,7 @@ msgid "Add bond connection"
 msgstr "Afegir connexió agrupada"
 
 msgid "Add bridge connection"
-msgstr ""
+msgstr "Afegir una connexió pont"
 
 msgid "Add devices to RAID device"
 msgstr "Afegir dispositius al RAID"
@@ -316,7 +316,7 @@ msgid ""
 msgstr "Permetre a aquest servidor anunciar-se a si mateix com un servidor d’hora de Windows"
 
 msgid "Allowed clients"
-msgstr ""
+msgstr "Clients permesos"
 
 msgid "American Samoa"
 msgstr "Samoa"
@@ -325,7 +325,7 @@ msgid ""
 "An attempt to send the test email has been made. Please check your mailbox. "
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
-msgstr ""
+msgstr "S'ha intentat enviar el correu electrònic de prova. Comproveu la vostra bústia. Si el correu electrònic no arriba, comproveu les carpetes de correu brossa i també comproveu que no hi hagi errors relacionats amb la correcció de correus al registre del sistema."
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -356,7 +356,7 @@ msgid "Anonymous FTP"
 msgstr "FTP Anònim"
 
 msgid "Another user is already authenticated."
-msgstr ""
+msgstr "Un altre usuari ja està autenticat."
 
 msgid "Antarctica"
 msgstr "Antàrtida"
@@ -515,7 +515,7 @@ msgid "Brazil"
 msgstr "Brasil"
 
 msgid "Bridge"
-msgstr ""
+msgstr "Pont"
 
 msgid "British Antarctic Territory"
 msgstr "Territori Britànic Antàrtic"
@@ -698,10 +698,10 @@ msgid "Cook Islands"
 msgstr "Illes Cook"
 
 msgid "Copy"
-msgstr ""
+msgstr "Còpia"
 
 msgid "Copy public SSH key"
-msgstr ""
+msgstr "Copieu la clau pública SSH"
 
 msgid "Copy to clipboard"
 msgstr "Copiar al porta-papers"
@@ -881,7 +881,7 @@ msgid "Disabled"
 msgstr "Deshabilitat"
 
 msgid "Disallow the user to modify their account."
-msgstr ""
+msgstr "No permeteu a l'usuari que modifiqui el seu compte."
 
 msgid "Disk usage"
 msgstr "Ús del disc"
@@ -1031,7 +1031,7 @@ msgid "Edit bond connection"
 msgstr "Editar connexions agrupades"
 
 msgid "Edit bridge connection"
-msgstr ""
+msgstr "Edita la connexió pont"
 
 msgid "Edit ethernet connection"
 msgstr "Editar connexió ethernet"
@@ -1097,7 +1097,7 @@ msgid "Enable SSL/TLS connections"
 msgstr "Habilitar connexions SSL/TLS"
 
 msgid "Enable Time Machine support for this share."
-msgstr ""
+msgstr "Activa el suport de la màquina de temps per a aquest recurs."
 
 msgid "Enable WINS server"
 msgstr "Habilitar servidor WINS"
@@ -1174,7 +1174,7 @@ msgid "Enabled"
 msgstr "Habilitat"
 
 msgid "Encryption mode"
-msgstr ""
+msgstr "Mode de xifrat"
 
 msgid "Enter your password"
 msgstr "Introdueix la teva contrasenya"
@@ -1302,7 +1302,7 @@ msgid "Filename"
 msgstr "Nom d’arxiu"
 
 msgid "Filepath"
-msgstr ""
+msgstr "Ruta del fitxer"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1456,7 +1456,7 @@ msgid "Guyana"
 msgstr "República Cooperativa de Guyana"
 
 msgid "HTTP 404 error"
-msgstr ""
+msgstr "HTTP 404 error"
 
 msgid "HTTP-Proxy"
 msgstr "HTTP-Proxy"
@@ -1521,7 +1521,7 @@ msgstr "ID"
 msgid ""
 "IP addresses in CIDR notation or host names of clients that are allowed to "
 "access the NTP server."
-msgstr ""
+msgstr "Adreces IP en notació CIDR o noms d'amfitrió de clients als quals se'ls permet accedir al servidor NTP."
 
 msgid "IP addresses of domain name servers used to resolve host names."
 msgstr "Adreça IP dels servidors DNS que han de resoldre els noms de host."
@@ -1680,19 +1680,19 @@ msgstr "Instal·lant actualitzacions ..."
 msgid ""
 "Installs the public SSH key on a remote system as an authorized key. Make "
 "sure password authentication is enabled on that remote system."
-msgstr ""
+msgstr "Instal·la la clau pública SSH en un sistema remot com a clau autoritzada. Assegureu-vos que l’autenticació de contrasenya estigui habilitada en aquest sistema remot."
 
 msgid "Interfaces"
 msgstr "Interfícies"
 
 msgid "Invalid IP address."
-msgstr ""
+msgstr "Adreça IP no vàlida."
 
 msgid "Invalid SSH public key (RFC 4716)"
 msgstr "Clau pública SSH invàlida (RFC 4716)"
 
 msgid "Invalid User-Agent."
-msgstr ""
+msgstr "Usuari-agent no vàlid."
 
 msgid "Invalid domain name"
 msgstr "Nom de domini invàlid"

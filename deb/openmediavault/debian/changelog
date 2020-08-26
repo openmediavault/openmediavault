@@ -1,5 +1,6 @@
 openmediavault (5.5.9-1) stable; urgency=low
 
+  * Update locales.
   * Issue #784: Use UDEV over /sys to get model and vendor information.
   * Issue #789: Read-only users or groups are not used in proftpd config.
 
