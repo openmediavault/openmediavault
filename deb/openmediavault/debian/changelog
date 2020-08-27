@@ -1,3 +1,11 @@
+openmediavault (5.5.10-1) stable; urgency=low
+
+  * Fix bugs in date/time page. The field 'Time servers' was not marked as
+    required when 'Use NTP server' was enabled. The field 'Allowed clients'
+    was marked as required when 'Use NTP server' was disabled.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Aug 2020 08:09:21 +0200
+
 openmediavault (5.5.9-1) stable; urgency=low
 
   * Update locales.
