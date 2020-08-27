@@ -138,6 +138,24 @@
 	}
 },{
 	"type": "rpc",
+	"id": "rpc.sharemgmt.copyprivileges",
+	"params": {
+		"type": "object",
+		"properties": {
+			"src": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"dst": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
 	"id": "rpc.sharemgmt.getfileacl",
 	"params": {
 		"type": "object",
