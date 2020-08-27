@@ -65,13 +65,13 @@ Ext.define("OMV.module.admin.system.time.Time", {
 			conditions: [
 				{ name: "ntpenable", value: true }
 			],
-			properties: [ "allowBlank", "!readOnly" ]
+			properties: [ "!allowBlank", "!readOnly" ]
 		},{
 			name: "ntpclients",
 			conditions: [
 				{ name: "ntpenable", value: true }
 			],
-			properties: [ "allowBlank", "!readOnly" ]
+			properties: [ "!readOnly" ]
 		}]
 	}],
 
