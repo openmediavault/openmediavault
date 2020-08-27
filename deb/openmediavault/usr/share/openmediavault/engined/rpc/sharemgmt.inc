@@ -45,6 +45,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->registerMethod("setPrivileges");
 		$this->registerMethod("getPrivilegesByRole");
 		$this->registerMethod("setPrivilegesByRole");
+		$this->registerMethod("copyPrivileges");
 		$this->registerMethod("getFileACL");
 		$this->registerMethod("setFileACL");
 		$this->registerMethod("getPath");
@@ -745,6 +746,31 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			], $context);
 		}
 		return $result;
+	}
+
+	/**
+	 * Copy the shared folder privileges.
+	 * @param params An array containing the following fields:
+	 *   \em src The shared folder UUID that is used as source.
+	 *   \em dst The shared folder UUID that is used as destination.
+	 * @return An array of the stored configuration objects.
+	 */
+	public function copyPrivileges($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, [
+			"role" => OMV_ROLE_ADMINISTRATOR
+		]);
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.sharemgmt.copyprivileges");
+		// Copy the privileges from the source to the destination
+		// shared folder.
+		$privileges = $this->callMethod("getPrivileges", [
+			"uuid" => $params['src']
+		], $context);
+		return $this->callMethod("setPrivileges", [
+			"uuid" => $params['dst'],
+			"privileges" => $privileges
+		], $context);
 	}
 
 	/**
