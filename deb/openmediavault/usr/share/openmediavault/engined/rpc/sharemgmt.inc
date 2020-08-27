@@ -762,6 +762,10 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.sharemgmt.copyprivileges");
+		if ($params['src'] == $params['dst']) {
+			throw new \OMV\Exception(
+				"Source and destination shared folder must not be equal.");
+		}
 		// Copy the privileges from the source to the destination
 		// shared folder.
 		$privileges = $this->callMethod("getPrivileges", [
