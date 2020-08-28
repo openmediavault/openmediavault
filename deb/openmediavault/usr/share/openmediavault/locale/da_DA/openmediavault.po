@@ -1,4 +1,4 @@
-# SOME DESCRIPTIVE TITLE.
+﻿# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
 # 
@@ -336,7 +336,7 @@ msgid ""
 "user who performs the job."
 msgstr "En e-mail besked med kommandoens output (hvis nogen produceret) er sendt til brugeren der udfører opgaven."
 
-msgid "An error has occured"
+msgid "An error has occurred"
 msgstr "Der opstod en fejl"
 
 msgid "Andorra"

@@ -1,4 +1,4 @@
-# SOME DESCRIPTIVE TITLE.
+﻿# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
 # 
@@ -339,7 +339,7 @@ msgid ""
 "user who performs the job."
 msgstr "해당 작업을 수행하는 사용자에게 명령행 출력(있다면)을 전자 메일에 포함하여 전송합니다."
 
-msgid "An error has occured"
+msgid "An error has occurred"
 msgstr "오류가 발생했습니다."
 
 msgid "Andorra"

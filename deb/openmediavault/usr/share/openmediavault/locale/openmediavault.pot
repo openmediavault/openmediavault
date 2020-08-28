@@ -325,7 +325,7 @@ msgstr ""
 msgid "An email message with the command output (if any produced) is send to the user who performs the job."
 msgstr ""
 
-msgid "An error has occured"
+msgid "An error has occurred"
 msgstr ""
 
 msgid "Andorra"

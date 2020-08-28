@@ -1,4 +1,4 @@
-# SOME DESCRIPTIVE TITLE.
+﻿# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
 # 
@@ -337,7 +337,7 @@ msgid ""
 "user who performs the job."
 msgstr "一封含有指令輸出(如有產生)的電子信件會被送給執行該指令的用戶。"
 
-msgid "An error has occured"
+msgid "An error has occurred"
 msgstr "發生了一個錯誤"
 
 msgid "Andorra"
