@@ -241,7 +241,7 @@ Ext.define("OMV.window.MessageBox", {
 							me.baseCls + "-text"
 						],
 						html: (Ext.isEmpty(error.message) ?
-							_("An error has occured") :
+							_("An error has occurred") :
 							Ext.util.Format.htmlEncode(error.message))
 					}]
 				}]
@@ -313,7 +313,7 @@ Ext.define("OMV.window.MessageBox", {
 							me.baseCls + "-text"
 						],
 						html: (Ext.isEmpty(error.message) ?
-							_("An error has occured") :
+							_("An error has occurred") :
 							Ext.util.Format.htmlEncode(error.message))
 					}]
 				}]
