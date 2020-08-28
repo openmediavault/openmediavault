@@ -685,7 +685,7 @@ abstract class ServiceAbstract {
 					}
 					@socket_close($procv['socket']);
 					$data = unserialize($data);
-					// Handle errors that may have occured in the child
+					// Handle errors that may have occurred in the child
 					// process. Rethrow this exception again in this
 					// (the parent) process.
 					if (FALSE !== $data['error']) {
