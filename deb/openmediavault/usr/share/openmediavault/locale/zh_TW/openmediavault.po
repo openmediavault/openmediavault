@@ -1,4 +1,4 @@
-﻿# SOME DESCRIPTIVE TITLE.
+# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
 # 
@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-15 07:46+0200\n"
-"PO-Revision-Date: 2020-08-16 08:44+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>\n"
+"POT-Creation-Date: 2020-08-28 17:59+0200\n"
+"PO-Revision-Date: 2020-08-28 16:00+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/votdev/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -338,7 +338,7 @@ msgid ""
 msgstr "一封含有指令輸出(如有產生)的電子信件會被送給執行該指令的用戶。"
 
 msgid "An error has occurred"
-msgstr "發生了一個錯誤"
+msgstr ""
 
 msgid "Andorra"
 msgstr "安道爾"

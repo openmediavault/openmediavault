@@ -1,17 +1,17 @@
-﻿# SOME DESCRIPTIVE TITLE.
+# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Quim Farriol <quim@iscinformatica.cat>, 2017-2018,2020
-# Quim Farriol <quim@iscinformatica.cat>, 2016
+# Quim Farriol <qfarriol@valette.cat>, 2017-2018,2020
+# Quim Farriol <qfarriol@valette.cat>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-15 07:46+0200\n"
-"PO-Revision-Date: 2020-08-26 16:31+0000\n"
-"Last-Translator: Quim Farriol <quim@iscinformatica.cat>\n"
+"POT-Creation-Date: 2020-08-28 17:59+0200\n"
+"PO-Revision-Date: 2020-08-28 16:00+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/votdev/openmediavault/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -338,7 +338,7 @@ msgid ""
 msgstr "S’envia un missatge amb la sortida de la comanda (si n’hi ha) a l’usuari que llença el treball."
 
 msgid "An error has occurred"
-msgstr "Hi ha hagut un error"
+msgstr ""
 
 msgid "Andorra"
 msgstr "Andorra"
@@ -812,7 +812,7 @@ msgid ""
 "Destination address can be either a network IP address (with /mask), a IP "
 "range or a plain IP address. A '!' argument before the address specification"
 " inverts the sense of the address."
-msgstr "L’adreça de destí pot ser una adreça de ret IP (con /màscara), un rang d’IP's o una única adreça IP. Un \"!\" abans de l’adreça inverteix el significat."
+msgstr "L’adreça de destí pot ser una adreça de xarxa IP (con /màscara), un rang d’IP's o una única adreça IP. Un \"!\" abans de l’adreça inverteix el significat."
 
 msgid "Destination port"
 msgstr "Port destí"
@@ -1545,7 +1545,7 @@ msgid "Identify As"
 msgstr "Identificat com"
 
 msgid "Identify network interface device"
-msgstr "Identificar dispositiu de ret"
+msgstr "Identificar dispositiu de xarxa"
 
 msgid "Idle"
 msgstr "Inactivo"
@@ -1713,7 +1713,7 @@ msgid "Invalid user name"
 msgstr "Nom d’usuari invàlid"
 
 msgid "Invalid user."
-msgstr ""
+msgstr "Usuari no vàlid."
 
 msgid "Iran"
 msgstr "Iran"
@@ -1862,7 +1862,7 @@ msgid "Log level"
 msgstr "Nivell de Log"
 
 msgid "Logging out, please wait ..."
-msgstr ""
+msgstr "Tancant la sessió, espereu ..."
 
 msgid "Login"
 msgstr "Login"
@@ -2124,16 +2124,16 @@ msgid "Netherlands Antilles"
 msgstr "Antilles Holandeses"
 
 msgid "Netmask"
-msgstr "Mascara de Ret"
+msgstr "Mascara de Xarxa"
 
 msgid "Network"
-msgstr "Ret"
+msgstr "Xarxa"
 
 msgid "Network Interfaces"
-msgstr "Interfícies de ret"
+msgstr "Interfícies de xarxa"
 
 msgid "Network interfaces"
-msgstr "Interfícies de ret"
+msgstr "Interfícies de xarxa"
 
 msgid "Neutral Zone"
 msgstr "Zona neutral"
@@ -2148,7 +2148,7 @@ msgid "New Zealand"
 msgstr "Nova Zelanda"
 
 msgid "New password"
-msgstr ""
+msgstr "Nova contrasenya"
 
 msgid "Next Page"
 msgstr "Pàgina següent"
@@ -2331,7 +2331,7 @@ msgid "Parent Device"
 msgstr "Dispositiu pare"
 
 msgid "Parent device"
-msgstr ""
+msgstr "Dispositiu pare"
 
 msgid "Passive FTP"
 msgstr "FTP passiu"
@@ -2346,10 +2346,10 @@ msgid "Passwords don't match"
 msgstr "Les contrasenyes no coincideixen"
 
 msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
-msgstr ""
+msgstr "Enganxeu aquí un certificat RSA o ECC en format PEM X.509."
 
 msgid "Paste a RSA or ECC private key in X.509 PEM format here."
-msgstr ""
+msgstr "Enganxeu una clau privada RSA o ECC en format PEM X.509 aquí."
 
 msgid "Path"
 msgstr "Ruta"
@@ -2436,7 +2436,7 @@ msgstr "Per favor vegi: <a href='http://www.samba.org/samba/docs/man/manpages-3/
 msgid ""
 "Please check the <a href='https://man.openbsd.org/sshd_config.5' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Per a més detalls, consulteu la <a href='https://man.openbsd.org/sshd_config.5' target='_blank'>pàgina del manual</a>."
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "Per favor trii el mètode per a esborrar el dispositiu o premi 'Cancel·lar' per sortir."
@@ -2494,13 +2494,13 @@ msgid "Preserve extended attributes"
 msgstr "Mantenir atributs estesos"
 
 msgid "Preserve group"
-msgstr ""
+msgstr "Conserveu el grup"
 
 msgid "Preserve modification times"
 msgstr "Mantenir l’hora de modificació"
 
 msgid "Preserve owner"
-msgstr ""
+msgstr "Conserveu el propietari"
 
 msgid "Preserve permissions"
 msgstr "Conservar permisos"
@@ -2700,7 +2700,7 @@ msgstr "Avisar si la temperatura ha canviat al menys N graus Celsius des de l’
 msgid ""
 "Report if the temperature is greater than or equal to N degrees Celsius. Set"
 " to 0 to disable this report."
-msgstr ""
+msgstr "Informeu si la temperatura és superior o igual a N graus centígrads. Definiu 0 per desactivar aquest informe."
 
 msgid "Repository"
 msgstr "Repositori"
@@ -2813,7 +2813,7 @@ msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
 msgid "STARTTLS"
-msgstr ""
+msgstr "STARTTLS"
 
 msgid "Saint Helena"
 msgstr "Santa Helena"
@@ -2938,7 +2938,7 @@ msgstr "Seleccioni o escrigui un nom d'usuari ..."
 msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
-msgstr ""
+msgstr "Seleccioneu els dispositius que s'utilitzaran per crear el dispositiu RAID. Els dispositius connectats mitjançant USB no es mostraran a la llista (massa poc fiables)."
 
 msgid "Self-test logs"
 msgstr "Logs d’auto-Prova"
@@ -3006,12 +3006,12 @@ msgstr "Establir els permisos del destí com els permisos de l’origen"
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "Definiu el grup del fitxer de destinació al mateix que el fitxer font."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr ""
+msgstr "Definiu el propietari del fitxer de destinació al mateix que el fitxer font, però només si s'executa l'rsync receptor com a super-usuari."
 
 msgid "Set write only"
 msgstr "Establir només escriptura"
@@ -3115,7 +3115,7 @@ msgid ""
 "Source address can be either a network IP address (with /mask), a IP range "
 "or a plain IP address. A '!' argument before the address specification "
 "inverts the sense of the address."
-msgstr "L’adreça d’origen pot ser una adreça de ret IP (amb/màscara), un rang d’IP's o una única adreça IP. Un \"!\" abans de l’adreça inverteix el significat."
+msgstr "L’adreça d’origen pot ser una adreça de xarxa IP (amb/màscara), un rang d’IP's o una única adreça IP. Un \"!\" abans de l’adreça inverteix el significat."
 
 msgid "Source port"
 msgstr "Port d’origen"
@@ -3357,10 +3357,10 @@ msgid "The file system creation has completed successfully."
 msgstr "S’ha creat satisfactòriament el sistema d'arxius."
 
 msgid "The hostname is a label that identifies the system to the network."
-msgstr "El nom de host es una etiqueta que identifica al sistema a la ret."
+msgstr "El nom de host es una etiqueta que identifica al sistema a la xarxa."
 
 msgid "The hostname of the remote system."
-msgstr ""
+msgstr "El nom d'amfitrió del sistema remot."
 
 msgid ""
 "The information about available software is out-of-date. You need to reload "
@@ -3381,7 +3381,7 @@ msgstr "La ubicació dels directoris home dels usuaris"
 msgid ""
 "The maximum transmission unit in bytes to set for the device. Set to 0 to "
 "use the default value."
-msgstr ""
+msgstr "La unitat màxima de transmissió en bytes a configurar per al dispositiu. Estableix el valor 0 per utilitzar el valor predeterminat."
 
 msgid "The name of the share."
 msgstr "El nom del compartit"
@@ -3413,14 +3413,14 @@ msgid ""
 msgstr "Els permisos sobre els nous arxius i directoris s’estableixen per la màscara de creació i la màscara de directori, però el paràmetre d’herència de permisos preval. Pot ser útil especialment en sistemes amb molts usuaris per a permetre una utilització d’una mateixa compartició d’una forma flexible per a cada usuari."
 
 msgid "The port on which SSH is running on the remote system."
-msgstr ""
+msgstr "El port en el qual s’executa SSH al sistema remot."
 
 msgid "The private RSA key in X.509 PEM format."
 msgstr "La clau pública RSA en format X.509 PEM."
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port"
-msgstr ""
+msgstr "El protocol no és compatible juntament amb un port font / destinació"
 
 msgid "The public key in RFC 4716 SSH public key file format."
 msgstr "La clau pública SSH en format RFC 4716."
@@ -3431,7 +3431,7 @@ msgid ""
 msgstr "El repositori serà recarregat per a cercar nous, eliminats o millorats paquets de software."
 
 msgid "The requested page was not found."
-msgstr ""
+msgstr "No s'ha trobat la pàgina sol·licitada."
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
@@ -3450,7 +3450,7 @@ msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "La quota indicada excedeix el màxim possible de 4Tb."
 
 msgid "The system must be rebooted."
-msgstr ""
+msgstr "Cal reiniciar el sistema."
 
 msgid "The system will reboot now. This may take some time ..."
 msgstr "El sistema es reiniciarà ara. Pot tardar una mica ..."
@@ -3474,7 +3474,7 @@ msgstr "Aquestes opcions són usades per els serveis per a configurar els permis
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
 "a net view and in the browse list."
-msgstr "Controla si la compartició serà visible a la llista de comparticions disponibles a la vista de ret de la llista de navegació."
+msgstr "Controla si la compartició serà visible a la llista de comparticions disponibles a la vista de xarxa de la llista de navegació."
 
 msgid "This field does not allow blanks"
 msgstr "Aquest camp no admet espais"
@@ -3486,16 +3486,16 @@ msgid "This field must have the format hh:mm:ss"
 msgstr "Aquest camp ha d’estar en formato: hh:mm:ss"
 
 msgid "This field should be a IP network address in CIDR notation"
-msgstr "Hauria de ser una adreça de ret IPv4 en notació CIDR."
+msgstr "Hauria de ser una adreça de xarxa IPv4 en notació CIDR."
 
 msgid "This field should be a IPv4 network address"
-msgstr "Aquest camp ha de ser una adreça IP vàlida"
+msgstr "Aquest camp hauria de ser una adreça de xarxa IPv4"
 
 msgid "This field should be a IPv4 network address in CIDR notation"
-msgstr "Ha de ser una adreça de ret IPv4 en notació CIDR."
+msgstr "Ha de ser una adreça de xarxa IPv4 en notació CIDR."
 
 msgid "This field should be a IPv6 network address in CIDR notation"
-msgstr "Ha de ser una adreça de ret IPv46 en notació CIDR."
+msgstr "Ha de ser una adreça de xarxa IPv46 en notació CIDR."
 
 msgid "This field should be a domain name or an IP address"
 msgstr "El camp ha de ser un domini o una IP."
@@ -3507,7 +3507,7 @@ msgid "This field should be a host name or an IP address"
 msgstr "El camp ha de ser un nom de host o una IP"
 
 msgid "This field should be a host name or an IP address in CIDR notation"
-msgstr ""
+msgstr "Aquest camp ha de ser un nom d'amfitrió o una adreça IP en la notació CIDR"
 
 msgid "This field should be a host name or an IPv4 address"
 msgstr "El camp ha de ser un nom de host o una IP tipus IPV4"
@@ -3523,7 +3523,7 @@ msgstr "El camp ha de ser una llista de dominis o d’adreces IP separats per <,
 msgid ""
 "This field should be a list of host names or IP addresses in CIDR notation "
 "separated by <,> or <;>"
-msgstr ""
+msgstr "Aquest camp hauria de ser una llista de noms d'amfitrió o adreces IP en notació CIDR separats per <,> o <;>"
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
@@ -3532,7 +3532,7 @@ msgstr "Aquest camp ha de ser una llista de noms de host o d’adreces IP separa
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
-msgstr "Ha de ser una màscara de ret en el rang 128.0.0.0-255.255.255.252"
+msgstr "Ha de ser una màscara de xarxa en el rang 128.0.0.0-255.255.255.252"
 
 msgid "This field should be a port in the range of 1 - 65535"
 msgstr "Ha de ser un port del rang 1-65535"
@@ -3554,7 +3554,7 @@ msgid ""
 "This field should be either a IPv4 network address (with /mask), a IPv4 "
 "range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or "
 "192.168.178.20-192.168.178.254)"
-msgstr "Ha de ser una adreça de ret IPv4 (con /màscara), o un rang IPv4 o una única adreça IPv4 (p.e. 172.16.76.4 o !192.178.87/24 o 192.168.178.20-192.168.178.254)"
+msgstr "Ha de ser una adreça de xarxa IPv4 (con /màscara), o un rang IPv4 o una única adreça IPv4 (p.e. 172.16.76.4 o !192.178.87/24 o 192.168.178.20-192.168.178.254)"
 
 msgid ""
 "This field should be either a IPv6 network address (with /mask), a IPv6 "
@@ -3569,14 +3569,14 @@ msgid "This field should only contain numbers separated by <,> or <;>"
 msgstr "Aquest camp ha de contenir només números separats per <,> o <;>"
 
 msgid "This field should only contain options separated by <,>"
-msgstr ""
+msgstr "Aquest camp només ha de contenir opcions separades per <,>"
 
 msgid ""
 "This field should only contain ports (0 - 65535) separated by <,> or <;>"
 msgstr "Aquest camp ha de contenir només ports (0-65535) separats per <,> o <;>"
 
 msgid "This field should only contain strings separated by <,>"
-msgstr ""
+msgstr "Aquest camp només ha de contenir cadenes separades per <,>"
 
 msgid "This field should only contain strings separated by <,> or <;>"
 msgstr "Aquest camp ha de contenir només cadenes separades per <,> o <;>"
@@ -3686,7 +3686,7 @@ msgid "This will create a recycle bin on the share."
 msgstr "Crearà una paperera de reciclatge en la compartició."
 
 msgid "Threshold"
-msgstr ""
+msgstr "Llindar"
 
 msgid "Thursday"
 msgstr "Dijous"
@@ -3698,7 +3698,7 @@ msgid "Time"
 msgstr "Hora"
 
 msgid "Time Machine support"
-msgstr ""
+msgstr "Time Machine support"
 
 msgid "Time interval"
 msgstr "Interval"
@@ -3736,7 +3736,7 @@ msgstr "Log de transferència"
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr ""
+msgstr "Transferiu els temps de modificació juntament amb els fitxers i actualitzeu-los al sistema remot."
 
 msgid "Transfer time"
 msgstr "Temps de transferència"
@@ -3820,7 +3820,7 @@ msgid "Unknown"
 msgstr "Desconegut"
 
 msgid "Unknown network interface type."
-msgstr "Interfície de ret desconegut."
+msgstr "Interfície de xarxa desconegut."
 
 msgid "Unmount"
 msgstr "Desmuntar"
@@ -3854,7 +3854,7 @@ msgid "Updates"
 msgstr "Actualitzacions"
 
 msgid "Updates available"
-msgstr ""
+msgstr "Actualitzacions disponibles"
 
 msgid "Updating ACL settings"
 msgstr "Actualitzant configuració de les ACL"

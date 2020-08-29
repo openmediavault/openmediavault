@@ -1,4 +1,4 @@
-﻿# SOME DESCRIPTIVE TITLE.
+# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the openmediavault package.
 # 
@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-15 07:46+0200\n"
-"PO-Revision-Date: 2020-08-15 05:47+0000\n"
+"POT-Creation-Date: 2020-08-28 17:59+0200\n"
+"PO-Revision-Date: 2020-08-28 16:00+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/votdev/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -339,7 +339,7 @@ msgid ""
 msgstr "Повідомлення електронної пошти з виведення команди (якщо такі є), відправлено користувачу, який виконує роботу."
 
 msgid "An error has occurred"
-msgstr "Сталася помилка"
+msgstr ""
 
 msgid "Andorra"
 msgstr "Андорра"
