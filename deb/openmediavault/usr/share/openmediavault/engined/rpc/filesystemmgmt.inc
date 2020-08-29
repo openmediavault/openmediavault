@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * This file is part of OpenMediaVault.
  *
@@ -672,6 +672,21 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				$output, $bgOutputFilename))) {
 				throw new \OMV\ExecException($cmd->getCommandLine(), $output,
 					$exitStatus);
+			}
+			// Enable quotas on ext4 file systems
+			if ($fsb->getType() == "ext4"){
+				$this->writeBgProcOutput($bgOutputFilename,
+				"===== Configure quotas =====\n");
+				$cmdArgs = [];
+				$cmdArgs[] = "-u -g -c -m ";
+				$cmdArgs[] = escapeshellarg($fsbd->getDeviceFile());
+				$cmd = new \OMV\System\Process("quotacheck", $cmdArgs);
+			$cmd->setRedirect2to1();
+				if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
+					$output, $bgOutputFilename))) {
+					throw new \OMV\ExecException($cmd->getCommandLine(), $output,
+						$exitStatus);
+				}
 			}
 			// Notify configuration changes.
 			$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
