@@ -78,10 +78,5 @@ class FSTab extends \OMV\Engine\Module\ServiceAbstract
 			OMV_NOTIFY_DELETE,
 			"org.openmediavault.conf.system.filesystem.mountpoint",
 			[$this, "onDelete"]);
-		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
-		$dispatcher->addListener(
-			OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
-			"org.openmediavault.conf.system.filesystem.mountpoint",
-			[$moduleMngr->getModule("monit"), "setDirty"]);
 	}
 }
