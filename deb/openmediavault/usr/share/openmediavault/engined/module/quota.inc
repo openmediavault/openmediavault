@@ -27,6 +27,10 @@ class Quota extends \OMV\Engine\Module\ServiceAbstract
 		return "quota";
 	}
 
+	public function deployAfter(): array {
+		return ["fstab"];
+	}
+
 	/**
 	 * Delete the associated quota configuration after a filesystem has
 	 * been deleted.
@@ -58,6 +62,10 @@ class Quota extends \OMV\Engine\Module\ServiceAbstract
 		$dispatcher->addListener(
 			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
 			"org.openmediavault.conf.system.filesystem.quota",
+			[$this, "setDirty"]);
+		$dispatcher->addListener(
+			OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
+			"org.openmediavault.conf.system.filesystem.mountpoint",
 			[$this, "setDirty"]);
 	}
 }
