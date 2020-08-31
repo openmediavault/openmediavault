@@ -3,6 +3,7 @@ openmediavault (5.5.10-1) stable; urgency=low
   * Fix bugs in date/time page. The field 'Time servers' was not marked as
     required when 'Use NTP server' was enabled. The field 'Allowed clients'
     was marked as required when 'Use NTP server' was disabled.
+  * Fix bug in omv-firstaid when setting a static IPv6 address.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Aug 2020 08:09:21 +0200
 
