@@ -17,5 +17,8 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# Make sure custom Jinja filters are registered.
+{% set _ = salt['omv_utils.register_jinja_filters']() %}
+
 include:
   - .{{ salt['pillar.get']('deploy_quota', 'default') }}
