@@ -21,55 +21,82 @@
 # http://www.ibm.com/developerworks/linux/library/l-lpic1-v3-104-4/index.html
 # https://wiki.archlinux.org/index.php/disk_quota
 
-{% set config = salt['omv_conf.get']('conf.system.filesystem.quota') %}
+{% set mountpoints = salt['omv_conf.get_by_filter'](
+  'conf.system.filesystem.mountpoint',
+  {'operator': 'and', 'arg0': {'operator': 'equals', 'arg0': 'hidden', 'arg1': '0'}, 'arg1': {'operator': 'stringContains', 'arg0': 'opts', 'arg1': 'quota'}}) %}
 
 # Workaround for Jinja2 variables can't be modified from an inner block scope.
 {% set ns = namespace(enable_service=False) %}
 
-{% for quota in config %}
+{% for mountpoint in mountpoints %}
 
-{% set device = salt['cmd.run']('blkid -U ' ~ quota.fsuuid) %}
+{% if mountpoint.fsname | is_fs_uuid %}
+{% set fsuuid = mountpoint.fsname %}
+{% set device = salt['cmd.run']('blkid -U ' ~ mountpoint.fsname) %}
+{% else %}
+{% set fsuuid = salt['cmd.run']('blkid -o value -s UUID ' ~ mountpoint.fsname) %}
+{% set device = mountpoint.fsname %}
+{% endif %}
+
+{% set quotas = salt['omv_conf.get_by_filter'](
+  'conf.system.filesystem.quota',
+  {'operator': 'stringEquals', 'arg0': 'fsuuid', 'arg1': fsuuid}) %}
+
+{% if quotas | length == 0 %}
+
+# Make sure the files 'aquota.group' and 'aquota.user' are created,
+# though no quota is set.
+{% if mountpoint.type | check_whitelist_blacklist(blacklist=['xfs']) %}
+quota_check_create_files_{{ fsuuid }}:
+  cmd.run:
+    - name: quotacheck --user --group --create-files --no-remount --verbose {{ device }}
+{% endif %}
+
+{% else %}
+
+{% set quota = quotas | first %}
 {% set enabled = quota.usrquota | length > 0 or quota.grpquota | length > 0 %}
 
 # Always disable the quota and enable it later if necessary.
 # This is the easiest way to do not have to check if quota is already
 # enabled (quotaon does not like to be executed when it is already on).
-quota_off_{{ quota.fsuuid }}:
+quota_off_{{ fsuuid }}:
   cmd.run:
-    - name: quotaoff --group --user "{{ device }}"
+    - name: quotaoff --group --user {{ device }}
 
 {% if enabled | to_bool %}
 
 {% set ns.enable_service = True %}
 
-{% set fstype = salt['disk.fstype'](device) %}
-{% if fstype | check_whitelist_blacklist(blacklist=['xfs']) %}
-quota_check_{{ quota.fsuuid }}:
+{% if mountpoint.type | check_whitelist_blacklist(blacklist=['xfs']) %}
+quota_check_{{ fsuuid }}:
   cmd.run:
-    - name: quotacheck --user --group --create-files --try-remount --use-first-dquot --verbose "{{ device }}"
+    - name: quotacheck --user --group --create-files --try-remount --use-first-dquot --verbose {{ device }}
 {% endif %}
 
-quota_on_{{ quota.fsuuid }}:
+quota_on_{{ fsuuid }}:
   cmd.run:
-    - name: quotaon --group --user "{{ device }}"
+    - name: quotaon --group --user {{ device }}
 
 {% for usrquota in quota.usrquota %}
-quota_set_user_{{ quota.fsuuid }}_{{ usrquota.name }}:
+quota_set_user_{{ fsuuid }}_{{ usrquota.name }}:
   cmd.run:
-    - name: setquota --user {{ usrquota.name }} {{ usrquota.bsoftlimit }} {{ usrquota.bhardlimit }} {{ usrquota.isoftlimit }} {{ usrquota.ihardlimit }} "{{ device }}"
+    - name: setquota --user {{ usrquota.name }} {{ usrquota.bsoftlimit }} {{ usrquota.bhardlimit }} {{ usrquota.isoftlimit }} {{ usrquota.ihardlimit }} {{ device }}
 {% endfor %}
 
 {% for grpquota in quota.grpquota %}
-quota_set_group_{{ quota.fsuuid }}_{{ grpquota.name }}:
+quota_set_group_{{ fsuuid }}_{{ grpquota.name }}:
   cmd.run:
-    - name: setquota --group {{ grpquota.name }} {{ grpquota.bsoftlimit }} {{ grpquota.bhardlimit }} {{ grpquota.isoftlimit }} {{ grpquota.ihardlimit }} "{{ device }}"
+    - name: setquota --group {{ grpquota.name }} {{ grpquota.bsoftlimit }} {{ grpquota.bhardlimit }} {{ grpquota.isoftlimit }} {{ grpquota.ihardlimit }} {{ device }}
 {% endfor %}
+
+{% endif %}
 
 {% endif %}
 
 {% endfor %}
 
-# Enable or disable quota service.
+# Enable or disable quota.service unit.
 {% if ns.enable_service | to_bool %}
 
 enable_quota_service:
