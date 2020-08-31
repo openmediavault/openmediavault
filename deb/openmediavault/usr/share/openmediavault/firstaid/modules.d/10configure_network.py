@@ -300,7 +300,8 @@ class Module(openmediavault.firstaid.IModule):
                             width=32,
                         )
                         continue
-                    if int(netmask6) < 0 or int(netmask6) > 128:
+                    netmask6 = int(netmask6)
+                    if netmask6 < 0 or netmask6 > 128:
                         netmask6 = None
                         d.msgbox(
                             "Please enter a valid netmask.",
