@@ -33,6 +33,16 @@ ACTION=="add", KERNEL=="sd*", SUBSYSTEMS=="usb", \
   ENV{ID_SERIAL}="USB-%c-$env{ID_INSTANCE}", \
   ENV{ID_SERIAL_SHORT}="%c"
 
+# JMicron JMS561U two ports SATA 6Gb/s bridge
+ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
+  ENV{ID_VENDOR_ID}=="152d", ENV{ID_MODEL_ID}=="1561", \
+  PROGRAM="/usr/lib/udev/serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  ENV{ID_SERIAL_SHORT}="%c", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}" \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
 # JMicron JM20337 USB PATA/SATA bridge on Orangepi PC2
 ACTION=="add", KERNEL=="sd*", SUBSYSTEMS=="usb", \
   ATTRS{idVendor}=="152d", ATTRS{idProduct}=="2338", \
