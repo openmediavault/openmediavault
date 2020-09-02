@@ -29,14 +29,14 @@
 # JMicron
 ACTION=="add", KERNEL=="sd*", SUBSYSTEMS=="usb", \
   ENV{ID_VENDOR}=="JMicron", \
-  PROGRAM="serial_id %N", \
+  PROGRAM="/usr/lib/udev/serial_id %N", \
   ENV{ID_SERIAL}="USB-%c-$env{ID_INSTANCE}", \
   ENV{ID_SERIAL_SHORT}="%c"
 
 # JMicron JM20337 USB PATA/SATA bridge on Orangepi PC2
 ACTION=="add", KERNEL=="sd*", SUBSYSTEMS=="usb", \
   ATTRS{idVendor}=="152d", ATTRS{idProduct}=="2338", \
-  PROGRAM="serial_id %N", \
+  PROGRAM="/usr/lib/udev/serial_id %N", \
   ENV{ID_SERIAL}="USB-%c-$env{ID_INSTANCE}", \
   ENV{ID_SERIAL_SHORT}="%c"
 
@@ -44,7 +44,7 @@ ACTION=="add", KERNEL=="sd*", SUBSYSTEMS=="usb", \
 # http://my.orico.cc/goods.php?id=6355
 ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
   ATTRS{idVendor}=="0080", ATTRS{idProduct}=="a001", \
-  PROGRAM="serial_id %N", \
+  PROGRAM="/usr/lib/udev/serial_id %N", \
   ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
   ENV{ID_SERIAL_SHORT}="%c", \
   SYMLINK="disk/by-path/$env{ID_PATH}", \
@@ -90,7 +90,7 @@ ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
 # E: TAGS=:systemd:
 ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
   ENV{ID_VENDOR}=="External", ENV{ID_MODEL}=="USB3.0_DISK00", \
-  PROGRAM="serial_id %N", \
+  PROGRAM="/usr/lib/udev/serial_id %N", \
   ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
   ENV{ID_SERIAL_SHORT}="%c", \
   SYMLINK="disk/by-path/$env{ID_PATH}", \
@@ -141,7 +141,7 @@ ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
 # E: TAGS=:systemd:
 ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
   ENV{ID_VENDOR}=="ACASIS", ENV{ID_MODEL}=="Go_To_Final_Lap", \
-  PROGRAM="serial_id %N", \
+  PROGRAM="/usr/lib/udev/serial_id %N", \
   ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
   ENV{ID_SERIAL_SHORT}="%c", \
   SYMLINK="disk/by-path/$env{ID_PATH}", \
@@ -187,7 +187,7 @@ ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
 # E: TAGS=:systemd:
 ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
   ENV{ID_VENDOR_ID}=="2109", ENV{ID_MODEL_ID}=="0715", \
-  PROGRAM="serial_id %N", \
+  PROGRAM="/usr/lib/udev/serial_id %N", \
   ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
   ENV{ID_SERIAL_SHORT}="%c", \
   SYMLINK="disk/by-path/$env{ID_PATH}", \
