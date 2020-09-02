@@ -34,6 +34,7 @@ ACTION=="add", KERNEL=="sd*", SUBSYSTEMS=="usb", \
   ENV{ID_SERIAL_SHORT}="%c"
 
 # JMicron JMS561U two ports SATA 6Gb/s bridge
+# https://www.sabrent.com/product/EC-DFLT/usb-3-0-sata-external-hard-drive-lay-flat-docking-station-2-5-3-5in-hdd-ssd/
 ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
   ENV{ID_VENDOR_ID}=="152d", ENV{ID_MODEL_ID}=="1561", \
   PROGRAM="/usr/lib/udev/serial_id %N", \
