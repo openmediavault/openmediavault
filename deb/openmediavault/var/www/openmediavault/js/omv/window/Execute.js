@@ -281,7 +281,7 @@ Ext.define("OMV.window.Execute", {
 						  if ((false === this.progress) && (0 < response.pos))
 							  this.setLoading(false);
 						  // Update the command content.
-						  this.appendValue(response.output);
+						  this.appendValue(response.output.replaceAll("\r\n", "\n").replaceAll('\r', '\n'));
 						  // Update button states.
 						  if (true === this.adaptButtonState) {
 							  this.setButtonDisabled("start",
