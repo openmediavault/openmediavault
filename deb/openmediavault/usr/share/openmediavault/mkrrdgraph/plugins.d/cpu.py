@@ -63,9 +63,10 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
         args.append('AREA:waitio{color_cpu_waitio}:"Wait-IO":STACK'.format(**config))
         args.append('AREA:nice{color_cpu_nice}:"Nice":STACK'.format(**config))
         args.append('AREA:user{color_cpu_user}:"User":STACK'.format(**config))
-        args.append('AREA:softirq{color_cpu_softirq}:"Soft-IRQ\c":STACK'.format(**config))
+        args.append('AREA:softirq{color_cpu_softirq}:"Soft-IRQ":STACK'.format(**config))
         args.append('AREA:interrupt{color_cpu_irq}:"IRQ":STACK'.format(**config))
-        args.append('AREA:idle{color_cpu_idle}:"Idle\c":STACK'.format(**config))
+        args.append('AREA:idle{color_cpu_idle}:"Idle":STACK'.format(**config))
+        args.append('COMMENT:"\c"')
         args.append('COMMENT:"{last_update}"'.format(**config))
         # yapf: enable
         openmediavault.mkrrdgraph.call_rrdtool_graph(args)
