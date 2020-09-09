@@ -230,7 +230,7 @@ class MountPoint {
 		//       "target": "/srv/dev-disk-by-id-dm-name-sdb-crypt",
 		//       "source": "/dev/mapper/sdb-crypt",
 		//       "fstype": "ext4",
-		//       "options": "rw,noexec,relatime,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group"
+		//       "options": "rw,relatime,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group"
 		//     }
 		//   ]
 		// }

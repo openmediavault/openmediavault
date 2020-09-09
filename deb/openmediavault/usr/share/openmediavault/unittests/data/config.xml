@@ -580,7 +580,7 @@ iSrj/B/KRCZkkrDdYcDAvqRs6dA+ScRZ
         <fsname>fc056a72-3dd8-4b86-9340-c55ebb6c4f8e</fsname>
         <dir>/media/fc056a72-3dd8-4b86-9340-c55ebb6c4f8e</dir>
         <type>ext4</type>
-        <opts>defaults,nofail,user_xattr,noexec,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0,acl</opts>
+        <opts>defaults,nofail,user_xattr,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0,acl</opts>
         <freq>0</freq>
         <passno>2</passno>
         <hidden>0</hidden>
@@ -590,7 +590,7 @@ iSrj/B/KRCZkkrDdYcDAvqRs6dA+ScRZ
         <fsname>3983e163-67af-481a-a639-355bb9d82c89</fsname>
         <dir>/media/3983e163-67af-481a-a639-355bb9d82c89</dir>
         <type>ext4</type>
-        <opts>defaults,nofail,user_xattr,noexec,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0,discard,acl</opts>
+        <opts>defaults,nofail,user_xattr,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0,discard,acl</opts>
         <freq>0</freq>
         <passno>2</passno>
         <hidden>0</hidden>

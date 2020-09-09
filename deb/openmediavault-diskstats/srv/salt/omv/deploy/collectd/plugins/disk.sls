@@ -35,7 +35,7 @@
   #     "freq": 0,
   #     "fsname": "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-1-part1",
   #     "hidden": false,
-  #     "opts": "defaults,nofail,user_xattr,noexec,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0,acl",
+  #     "opts": "defaults,nofail,user_xattr,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0,acl",
   #     "passno": 2,
   #     "type": "ext4",
   #     "uuid": "dd838a0f-d39c-4158-afc0-1622bf8cde78"
