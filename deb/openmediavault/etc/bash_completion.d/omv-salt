@@ -22,7 +22,7 @@
 
 _omv-salt()
 {
-	local cur prev words cword
+	local cur words
 	_init_completion || return
 
 	case ${words[1]} in
