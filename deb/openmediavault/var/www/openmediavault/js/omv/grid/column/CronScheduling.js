@@ -30,7 +30,7 @@ Ext.define("OMV.grid.column.CronScheduling", {
 
 	defaultRenderer: function(value, metaData, record) {
 		var execution = record.get("execution");
-		if ("exactly" !== execution) {
+		if (execution && ("exactly" !== execution)) {
 			var mapExecution = {
 				"hourly": _("Hourly"),
 				"daily": _("Daily"),

@@ -638,6 +638,11 @@ Ext.define("OMV.module.admin.service.rsync.Jobs", {
 		dataIndex: "enable",
 		stateId: "enable"
 	},{
+		xtype: "cronscheduling",
+		text: _("Scheduling"),
+		sortable: true,
+		stateId: "scheduling"
+	},{
 		xtype: "mapcolumn",
 		text: _("Type"),
 		sortable: true,
