@@ -22,19 +22,51 @@
 
 _omv-confdbadm()
 {
-	local cur words
-	_init_completion || return
+  local cur words
+  _init_completion || return
 
-	case ${words[1]} in
-	read|create|delete|update)
-  	COMPREPLY=( $( compgen -W "$( command omv-confdbadm list-ids \
-  	  2>/dev/null )" -- "$cur" ) )
-		return 0
-		;;
-	*)
-		COMPREPLY=( $( compgen -W "create delete exists list-ids migrate populate read update" -- "$cur" ) )
-		return 0
-		;;
-	esac
+  local COMMANDS=("create" "delete" "exists" "list-ids"
+    "migrate" "populate" "read" "update")
+
+  local command i
+  for (( i=0; i < ${#words[@]}-1; i++ )); do
+    if [[ ${COMMANDS[@]} =~ ${words[i]} ]]; then
+      command=${words[i]}
+    fi
+  done
+
+  # supported options per command
+  if [[ "$cur" == -* ]]; then
+    case $command in
+    read)
+      COMPREPLY=( $( compgen -W '--prettify --defaults --uuid --filter' -- "$cur" ) )
+      return 0
+      ;;
+    delete)
+      COMPREPLY=( $( compgen -W '--uuid --filter' -- "$cur" ) )
+      return 0
+      ;;
+    exists)
+      COMPREPLY=( $( compgen -W '--filter' -- "$cur" ) )
+      return 0
+      ;;
+    esac
+  fi
+
+  if [[ -n "$command" ]]; then
+    case $command in
+    list-ids|populate)
+      return 0
+      ;;
+    *)
+      COMPREPLY=( $( compgen -W "$( command omv-confdbadm list-ids 2>/dev/null )" -- "$cur" ) )
+      return 0
+    esac
+  fi
+
+  # no command yet, show what commands we have
+  if [[ -z "$command" ]]; then
+    COMPREPLY=( $( compgen -W '${COMMANDS[@]}' -- "$cur" ) )
+  fi
 } &&
 complete -F _omv-confdbadm omv-confdbadm
