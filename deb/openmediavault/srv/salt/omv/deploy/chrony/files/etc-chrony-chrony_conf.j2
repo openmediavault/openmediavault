@@ -1,3 +1,4 @@
+{% set server_pool_directive = salt['pillar.get']('default:OMV_CHRONY_SERVER_POOL_DIRECTIVE', 'server') -%}
 {% set keyfile = salt['pillar.get']('default:OMV_CHRONY_KEYFILE', '/etc/chrony/chrony.keys') -%}
 {% set driftfile = salt['pillar.get']('default:OMV_CHRONY_DRIFTFILE', '/var/lib/chrony/chrony.drift') -%}
 {% set logdir = salt['pillar.get']('default:OMV_CHRONY_LOGDIR', '/var/log/chrony') -%}
@@ -8,7 +9,7 @@
 {{ pillar['headers']['multiline'] }}
 
 {%- for timeserver in ntp_config.timeservers.replace(',', ' ').replace(';', ' ').split() %}
-server {{ timeserver }} iburst
+{{ server_pool_directive }} {{ timeserver }} iburst
 {%- endfor %}
 
 # This directive specify the location of the file containing ID/key pairs for
