@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Jonatan Nyberg <jonatan.nyberg.karl@gmail.com>, 2017
+# Jonatan Nyberg <jonatan.nyberg.karl@gmail.com>, 2020
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-07 17:31+0100\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
-"Last-Translator: Jonatan Nyberg <jonatan.nyberg.karl@gmail.com>, 2017\n"
+"Last-Translator: Jonatan Nyberg <jonatan.nyberg.karl@gmail.com>, 2020\n"
 "Language-Team: Swedish (https://www.transifex.com/votdev/teams/14254/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,13 +22,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Authentication and no privacy"
-msgstr "Autentisering och ingen integritet"
+msgstr "Autentisering och ingen sekretess"
 
 msgid "Authentication and privacy"
-msgstr "Autentisering och integritet"
+msgstr "Autentisering och sekretess"
 
 msgid "Authentication passphrase"
-msgstr "Godkännande lösenordsfras"
+msgstr "Autentiseringslösenord"
 
 msgid "Authentication type"
 msgstr "Autentiseringstyp"
@@ -65,16 +65,16 @@ msgid "Location information, e.g. physical location of this system."
 msgstr "Platsinformation, t.ex. fysisk plats för detta system."
 
 msgid "No authentication and no privacy"
-msgstr "Ingen autentisering och ingen integritet"
+msgstr "Ingen autentisering och ingen sekretess"
 
 msgid "Port"
 msgstr "Port"
 
 msgid "Privacy passphrase"
-msgstr "Integritet lösenordsfras"
+msgstr "Sekretesslösenord"
 
 msgid "Privacy type"
-msgstr "Integritetstyp"
+msgstr "sekretesstyp"
 
 msgid "SNMP"
 msgstr "SNMP"
