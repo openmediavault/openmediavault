@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-nut package.
 # 
 # Translators:
-# Serhat SUT <serhat.sut@gmail.com>, 2012-2014
+# Serhat SUT <serhat.sut@gmail.com>, 2012-2014,2020
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-19 15:47+0200\n"
-"PO-Revision-Date: 2020-04-19 13:55+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2020-08-29 10:23+0000\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/votdev/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
-msgstr ""
+msgstr "Yerel KGK için 'Bağımsız', NUT sunucusuna uzaktan bağlı KGK için 'Netclient'."
 
 msgid "Charge"
 msgstr " Şarj"
@@ -56,19 +56,19 @@ msgid "Message"
 msgstr "Mesaj"
 
 msgid "Mode"
-msgstr ""
+msgstr "Mod"
 
 msgid "Netclient"
-msgstr ""
+msgstr "Ağ kullanıcısı"
 
 msgid "Netclient hostname"
-msgstr ""
+msgstr "Ağ kullanıcısı aygıt adı"
 
 msgid "Netclient password"
-msgstr ""
+msgstr "Ağ kullanıcısı şifresi"
 
 msgid "Netclient username"
-msgstr ""
+msgstr "Ağ kullanıcısı kullanıcı adı"
 
 msgid "PID"
 msgstr "PID"
@@ -77,7 +77,7 @@ msgid "Password"
 msgstr "Şifre"
 
 msgid "Powervalue"
-msgstr ""
+msgstr "Güç değeri"
 
 msgid "Program"
 msgstr "Program"
@@ -98,19 +98,19 @@ msgid "Shutdown timer"
 msgstr "Kapanma zamanlayıcısı"
 
 msgid "Standalone"
-msgstr ""
+msgstr "Bağımsız"
 
 msgid "Temperature"
 msgstr "Sıcaklık"
 
 msgid "The name used to uniquely identify your UPS on local or remote system."
-msgstr ""
+msgstr "Bu isim Kesintisiz Güç Kaynağınızı yerel ya da uzak sistemde benzersiz bir şekilde tanımlamakta kullanılacaktır."
 
 msgid ""
 "The number of power supplies that the UPS feeds on this system (usually 1), "
 "refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
 "target='_blank'>upsmon.conf(5)</a> for more information."
-msgstr ""
+msgstr "Kesintisiz Güç Kaynağının bu sistemde beslediği güç kaynaklarının sayısı (genellikle 1), daha ayrıntılı bilgi için <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf(5)</a> linkine başvurunuz."
 
 msgid ""
 "The time in seconds until shutdown is initiated. If the UPS happens to come "

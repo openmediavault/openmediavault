@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the openmediavault-nut package.
 # 
 # Translators:
-# Quim Farriol <quim@iscinformatica.cat>, 2016
+# Quim Farriol <qfarriol@valette.cat>, 2020
+# Quim Farriol <qfarriol@valette.cat>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-19 15:47+0200\n"
-"PO-Revision-Date: 2020-04-19 13:55+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2020-08-26 16:56+0000\n"
+"Last-Translator: Quim Farriol <qfarriol@valette.cat>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/votdev/openmediavault/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
-msgstr ""
+msgstr "\"Standalone\" per a SAI local, \"Netclient\" per a SAI remots en un servidor NUT."
 
 msgid "Charge"
 msgstr "Càrrega"
@@ -56,19 +57,19 @@ msgid "Message"
 msgstr "Missatge"
 
 msgid "Mode"
-msgstr ""
+msgstr "Mode"
 
 msgid "Netclient"
-msgstr ""
+msgstr "Client remot"
 
 msgid "Netclient hostname"
-msgstr ""
+msgstr "Nom de l'amfitrió del client remot "
 
 msgid "Netclient password"
-msgstr ""
+msgstr "Contrasenya del client remot"
 
 msgid "Netclient username"
-msgstr ""
+msgstr "Nom d'usuari del client remot"
 
 msgid "PID"
 msgstr "PID"
@@ -77,7 +78,7 @@ msgid "Password"
 msgstr "Contrasenya"
 
 msgid "Powervalue"
-msgstr ""
+msgstr "Powervalue"
 
 msgid "Program"
 msgstr "Programació"
@@ -98,19 +99,19 @@ msgid "Shutdown timer"
 msgstr "Temporitzador d'apagada"
 
 msgid "Standalone"
-msgstr ""
+msgstr "Autònom"
 
 msgid "Temperature"
 msgstr "Temperatura"
 
 msgid "The name used to uniquely identify your UPS on local or remote system."
-msgstr ""
+msgstr "El nom que s'utilitza per identificar exclusivament el vostre SAI en un sistema local o remot."
 
 msgid ""
 "The number of power supplies that the UPS feeds on this system (usually 1), "
 "refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
 "target='_blank'>upsmon.conf(5)</a> for more information."
-msgstr ""
+msgstr "El nombre de fonts d’alimentació que el SAI alimenta amb aquest sistema (generalment 1), consulteu l’opció <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf (5)</a> per obtenir més informació."
 
 msgid ""
 "The time in seconds until shutdown is initiated. If the UPS happens to come "
