@@ -44,10 +44,15 @@
 
 {% if quotas | length == 0 %}
 
+# No quotas are configured, so quota can be turned off for this device.
+quota_off_no_quotas_{{ fsuuid }}:
+  cmd.run:
+    - name: quotaoff --group --user {{ device }}
+
 # Make sure the files 'aquota.group' and 'aquota.user' are created,
-# though no quota is set.
+# though no quotas are configured.
 {% if mountpoint.type | check_whitelist_blacklist(blacklist=['xfs']) %}
-quota_check_create_files_{{ fsuuid }}:
+quota_check_no_quotas_{{ fsuuid }}:
   cmd.run:
     - name: quotacheck --user --group --create-files --no-remount --verbose {{ device }}
 {% endif %}
