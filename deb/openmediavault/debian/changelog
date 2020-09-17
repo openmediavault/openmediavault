@@ -1,3 +1,9 @@
+openmediavault (5.5.11-1) stable; urgency=low
+
+  * Issue #815: Disable quota if no quotas are configured for a device.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 17 Sep 2020 23:21:10 +0200
+
 openmediavault (5.5.10-1) stable; urgency=low
 
   * Update locales.
