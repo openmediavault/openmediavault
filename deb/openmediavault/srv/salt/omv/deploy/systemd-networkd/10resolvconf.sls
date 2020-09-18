@@ -18,12 +18,11 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# http://www.debian.org/doc/manuals/debian-reference/ch03.en.html#_the_hostname
+# https://www.redpill-linpro.com/techblog/2016/08/17/systemd-network.html
 
-{% set config = salt['omv_conf.get']('conf.system.network.dns') %}
-{% set fqdn = [config.hostname, config.domainname] | reject('equalto', '') | join('.') %}
-
-configure_hostname:
-  cmd.run:
-    - name: hostnamectl set-hostname "{{ fqdn }}"
-    - unless: test "{{ fqdn }}" = "$(hostname)"
+symlink_systemd_resolvconf:
+  file.symlink:
+    - name: /etc/resolv.conf
+    - target: /run/systemd/resolve/resolv.conf
+    - force: True
+    - onlyif: "test -e /run/systemd/resolve/resolv.conf"
