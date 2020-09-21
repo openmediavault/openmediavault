@@ -1,5 +1,6 @@
 openmediavault (5.5.11-1) stable; urgency=low
 
+  * Update locales.
   * Do not allow to create NFS shares using shared folders with
     blanks in their relative path. SaltStack can't handle such
     bind mounts (https://github.com/saltstack/salt/issues/54508).
