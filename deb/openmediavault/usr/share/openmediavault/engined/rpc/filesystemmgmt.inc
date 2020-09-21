@@ -877,8 +877,8 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				// because SaltStack has a bug and can't handle such
 				// filesystems.
 				// See https://github.com/saltstack/salt/issues/54508
-				if ($fs->hasLabel() && (FALSE !== strpos(
-						$fs->getLabel(), " "))) {
+				if ($fs->hasLabel() && (1 == preg_match("/ /",
+						$fs->getLabel()))) {
 					throw new \OMV\Exception(
 						"The filesystem label contains blanks.");
 				}

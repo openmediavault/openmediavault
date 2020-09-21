@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-28 17:59+0200\n"
+"POT-Creation-Date: 2020-09-21 16:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3244,9 +3244,6 @@ msgstr ""
 msgid "The password that is used for access via rsync daemon. Note, this is not used for remote shell transport such as ssh."
 msgstr ""
 
-msgid "The path of the folder to share. The specified folder will be created if it does not already exist."
-msgstr ""
-
 msgid "The permissions on new files and directories are normally governed by create mask and directory mask but the inherit permissions parameter overrides this. This can be particularly useful on systems with many users to allow a single share to be used flexibly by each user."
 msgstr ""
 
@@ -3260,6 +3257,9 @@ msgid "The protocol is not supported in conjunction with a source/destination po
 msgstr ""
 
 msgid "The public key in RFC 4716 SSH public key file format."
+msgstr ""
+
+msgid "The relative path of the folder to share. The specified folder will be created if it does not already exist."
 msgstr ""
 
 msgid "The repository will be checked for new, removed or upgraded software packages."

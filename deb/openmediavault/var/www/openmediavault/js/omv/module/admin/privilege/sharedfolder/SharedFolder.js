@@ -141,7 +141,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 			},
 			plugins: [{
 				ptype: "fieldinfo",
-				text: _("The path of the folder to share. The specified folder will be created if it does not already exist."),
+				text: _("The relative path of the folder to share. The specified folder will be created if it does not already exist."),
 			}],
 			onTriggerClick: function() {
 				// Get the UUID of the selected device.
