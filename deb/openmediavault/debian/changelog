@@ -1,5 +1,8 @@
 openmediavault (5.5.11-1) stable; urgency=low
 
+  * Do not allow to create NFS shares using shared folders with
+    blanks in their relative path. SaltStack can't handle such
+    bind mounts (https://github.com/saltstack/salt/issues/54508).
   * Issue #815: Disable quota if no quotas are configured for a device.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 17 Sep 2020 23:21:10 +0200

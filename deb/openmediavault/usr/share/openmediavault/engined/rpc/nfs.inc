@@ -163,6 +163,14 @@ class Nfs extends \OMV\Rpc\ServiceAbstract {
 			// Get the shared folder configuration object.
 			$sfObject = $db->get("conf.system.sharedfolder",
 			  $object->get("sharedfolderref"));
+			// The shared folder 'reldirpath' must not contain any blanks
+			// as this causes errors in SaltStack.
+			// See https://github.com/saltstack/salt/issues/54508
+			if (1 == preg_match("/ /", $sfObject->get("reldirpath"))) {
+				throw new \InvalidArgumentException(sprintf(
+					"The relative path of the shared folder '%s' contains blanks.",
+					$sfObject->get("name")));
+			}
 			// Get the mount point configuration object.
 			$meObject = $db->get("conf.system.filesystem.mountpoint",
 			  $sfObject->get("mntentref"));
