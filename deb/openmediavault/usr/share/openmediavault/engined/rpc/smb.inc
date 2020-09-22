@@ -272,6 +272,12 @@ class Smb extends \OMV\Rpc\ServiceAbstract {
 		if (FALSE === $object->get("enable")) {
 			$stats = gettext("Service disabled");
 		} else {
+			// Raise an exception if the module is marked as dirty,
+			// otherwise the 'smbstatus' command will return incorrect
+			// information because the SMB service has not been deployed
+			// until now.
+			if ($this->isModuleDirty("samba"))
+				throw new \OMV\Config\ConfigDirtyException();
 			$cmdArgs = [];
 			$cmdArgs[] = "-s";
 			$cmd = new \OMV\System\Process("smbstatus", $cmdArgs);

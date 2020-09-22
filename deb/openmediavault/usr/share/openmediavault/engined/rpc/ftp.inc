@@ -345,6 +345,12 @@ class Ftp extends \OMV\Rpc\ServiceAbstract {
 		if (FALSE === $object->get("enable")) {
 			$stats = gettext("Service disabled");
 		} else {
+			// Raise an exception if the module is marked as dirty,
+			// otherwise an exec exception is raised when the 'ftpwho'
+			// command is executed because the FTP service has not been
+			// deployed until now.
+			if ($this->isModuleDirty("proftpd"))
+				throw new \OMV\Config\ConfigDirtyException();
 			// Get users currently logged in.
 			$stats = sprintf("%s\n", gettext("Currently logged in users:"));
 			$cmdArgs = [];
