@@ -1,6 +1,7 @@
 openmediavault (5.5.12-1) stable; urgency=low
 
-  *
+  * Issue #816: If you have assigned a comment to a user, you
+    can't delete the comment.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 22 Sep 2020 02:38:41 +0200
 

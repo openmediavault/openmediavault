@@ -531,8 +531,7 @@ finish:
 			$cmdArgs[] = "--shell";
 			$cmdArgs[] = escapeshellarg($params['shell']);
 		}
-		if (array_key_exists("comment", $params) &&
-				!empty($params['comment'])) {
+		if (array_key_exists("comment", $params)) {
 			$cmdArgs[] = "--comment";
 			$cmdArgs[] = escapeshellarg($params['comment']);
 		}
