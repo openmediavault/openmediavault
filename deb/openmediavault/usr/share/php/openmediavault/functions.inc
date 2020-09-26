@@ -84,9 +84,11 @@ function array_sort_key(array &$array, $key) {
 	if (!is_multi_array($array))
 		return FALSE;
 	// Sort the array.
-	if (FALSE === uasort($array, create_function('$a, $b',
-		"return strnatcmp(strval(\$a['$key']), strval(\$b['$key']));")))
+	if (FALSE === uasort($array, function($a, $b) use($key) {
+		return strnatcmp(strval($a[$key]), strval($b[$key]));
+	})) {
 		return FALSE;
+	}
 	// Re-index the array.
 	$array = array_values($array);
 	return TRUE;
