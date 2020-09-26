@@ -335,4 +335,32 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 	public function test_array_boolval_13() {
 		$this->assertTrue(array_boolval("a", "c", TRUE));
 	}
+
+	public function test_array_sort_key_1() {
+		$d = [
+			['id' => 3, 'text' => 'b'],
+			['id' => 1, 'text' => 'a'],
+			['id' => 2, 'text' => 'c']
+		];
+		$this->assertTrue(array_sort_key($d, "id"));
+		$this->assertEquals($d, [
+			['id' => 1, 'text' => 'a'],
+			['id' => 2, 'text' => 'c'],
+			['id' => 3, 'text' => 'b']
+		]);
+	}
+
+	public function test_array_sort_key_2() {
+		$d = [
+			['id' => 3, 'text' => 'b'],
+			['id' => 1, 'text' => 'a'],
+			['id' => 2, 'text' => 'c']
+		];
+		$this->assertTrue(array_sort_key($d, "text"));
+		$this->assertEquals($d, [
+			['id' => 1, 'text' => 'a'],
+			['id' => 3, 'text' => 'b'],
+			['id' => 2, 'text' => 'c']
+		]);
+	}
 }
