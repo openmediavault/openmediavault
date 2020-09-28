@@ -5,14 +5,15 @@
 # Translators:
 # Benoit Maliar <maliarbenoit@msn.com>, 2014
 # Christophe Lherieau <skimpax@gmail.com>, 2013-2014
+# kevin LECLERCQ <nuklearstriker@gmail.com>, 2020
 # Nadley-Nahir Mohamed <nahirmoha@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-07 17:31+0100\n"
-"PO-Revision-Date: 2019-10-29 16:20+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2020-09-24 20:21+0000\n"
+"Last-Translator: kevin LECLERCQ <nuklearstriker@gmail.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/votdev/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,7 +54,7 @@ msgid "Device"
 msgstr "Périphérique"
 
 msgid "Done ..."
-msgstr ""
+msgstr "Terminé…"
 
 msgid "Edit backup job"
 msgstr "Modifier une tâche de sauvegarde"
@@ -111,13 +112,13 @@ msgid "Preserve extended attributes"
 msgstr "Preserver les attributs étendus"
 
 msgid "Preserve group"
-msgstr ""
+msgstr "Conserver le groupe"
 
 msgid "Preserve modification times"
-msgstr ""
+msgstr "Conserver la date de modification"
 
 msgid "Preserve owner"
-msgstr ""
+msgstr "Conserver le propriétaire"
 
 msgid "Preserve permissions"
 msgstr "Preserver les permissions"
@@ -152,12 +153,12 @@ msgstr "Configurer les permissions de la destionation à l'identique de celles d
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "Définir le groupe pour le fichier de destination identique au fichier d'origine"
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr ""
+msgstr "Définir le propriétaire pour le fichier de destination identique au fichier d'origine, seulement si la réception rsync est démarré en tant que super-utilisateur."
 
 msgid "Shared folder"
 msgstr "Dossier partagé"
@@ -185,7 +186,7 @@ msgstr "Le dossier partagé à synchroniser lorsque le périphérique de stockag
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr ""
+msgstr "Transférer les heures de modification avec les fichiers et les mettre à jour sur le système distant."
 
 msgid "USB Backup"
 msgstr "Sauvegarde USB"
