@@ -55,7 +55,9 @@ abstract class ServiceAbstract extends ModuleAbstract implements IService {
 	 */
 	public function deploy() {
 		$name = strtolower($this->getName());
-		$cmd = new \OMV\System\Process("omv-salt", ["deploy", "run", $name]);
+		$cmd = new \OMV\System\Process("omv-salt", [
+			"deploy", "run", "--no-color", $name
+		]);
 		$cmd->setRedirect2to1();
 		$cmd->execute();
 	}
