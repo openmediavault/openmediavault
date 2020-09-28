@@ -65,17 +65,24 @@ def stage_list():
 @stage.command(name='run', help='Run the specified stage.')
 @click.argument('name')
 @click.option(
+    '--no-color',
+    is_flag=True,
+    help='Disable all colored output.'
+)
+@click.option(
     '-q',
     '--quiet',
     is_flag=True,
     help='Quiet mode, no messages are displayed.'
 )
-def stage_run(name, quiet):
+def stage_run(name, no_color, quiet):
     mopts = salt.config.minion_config(__salt_minion_config_file)
     caller = salt.client.Caller(mopts=mopts)
     result = caller.cmd("state.orchestrate", "omv.stage.{}".format(name))
     rc = result["retcode"]
     if not quiet:
+        if no_color:
+            mopts["color"] = False
         if __out == "nested":
             result = {"local": result}
         salt.output.display_output(result, out=__out, opts=mopts)
@@ -101,12 +108,17 @@ def deploy_list():
 @deploy.command(name='run', help='Run the specified state(s).')
 @click.argument('names', nargs=-1, required=True)
 @click.option(
+    '--no-color',
+    is_flag=True,
+    help='Disable all colored output.'
+)
+@click.option(
     '-q',
     '--quiet',
     is_flag=True,
     help='Quiet mode, no messages are displayed.'
 )
-def deploy_run(names, quiet):
+def deploy_run(names, no_color, quiet):
     # Check if the states exists.
     for name in names:
         path = os.path.join(__deploy_scripts_dir, name)
@@ -122,6 +134,8 @@ def deploy_run(names, quiet):
     rc = result["retcode"]
     # Print the output.
     if not quiet:
+        if no_color:
+            mopts["color"] = False
         if __out == "nested":
             result = {"local": result}
         salt.output.display_output(result, out=__out, opts=mopts)
