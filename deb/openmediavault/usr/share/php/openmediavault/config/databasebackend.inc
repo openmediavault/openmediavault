@@ -362,12 +362,6 @@ class DatabaseBackend {
 		})) {
 			return FALSE;
 		}
-		if (FALSE === array_walk_recursive($data,
-		  create_function('&$item, $key', 'if (is_string($item)) { '.
-		  'if (!mb_check_encoding($item, "UTF-8")) { '.
-		  '$item = utf8_encode($item); } } else { '.
-		  '$item = utf8_encode(strval($item)); }')))
-			return FALSE;
 		// Compare the arrays.
 		// Note, we can not use `array_diff` here because this function
 		// does not support multidimensional arrays.
