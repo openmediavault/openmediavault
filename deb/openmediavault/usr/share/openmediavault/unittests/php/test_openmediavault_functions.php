@@ -189,4 +189,32 @@ class test_openmediavault_functions extends \PHPUnit_Framework_TestCase {
 		$k = "äöü$%#".chr(0x09).chr(0x0A).chr(0x0C).chr(0x0D);
 		$this->assertEquals($data['k'], $k);
 	}
+
+	public function test_array_sort_key_1() {
+		$d = [
+			['id' => 3, 'text' => 'b'],
+			['id' => 1, 'text' => 'a'],
+			['id' => 2, 'text' => 'c']
+		];
+		$this->assertTrue(array_sort_key($d, "id"));
+		$this->assertEquals($d, [
+			['id' => 1, 'text' => 'a'],
+			['id' => 2, 'text' => 'c'],
+			['id' => 3, 'text' => 'b']
+		]);
+	}
+
+	public function test_array_sort_key_2() {
+		$d = [
+			['id' => 3, 'text' => 'b'],
+			['id' => 1, 'text' => 'a'],
+			['id' => 2, 'text' => 'c']
+		];
+		$this->assertTrue(array_sort_key($d, "text"));
+		$this->assertEquals($d, [
+			['id' => 1, 'text' => 'a'],
+			['id' => 3, 'text' => 'b'],
+			['id' => 2, 'text' => 'c']
+		]);
+	}
 }

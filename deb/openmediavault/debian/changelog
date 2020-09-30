@@ -2,6 +2,8 @@ openmediavault (3.0.100) stable; urgency=low
 
   * Add Debian security repository.
   * Disable jessie-backports repository.
+  * Fix 'Authenticated PHP Code Injection' reported by
+    Anastasios Stasinopoulos (@ancst) – Obrela Labs Team.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 14 May 2018 07:30:56 +0200
 

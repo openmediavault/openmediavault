@@ -351,6 +351,17 @@ class DatabaseBackend {
 		// Convert all values to strings before comparison. This is necessary
 		// because the values returned from the configuration database are
 		// strings.
+		if (FALSE === array_walk_recursive($data, function(&$item, $key) {
+			if (is_string($item)) {
+				if (!mb_check_encoding($item, "UTF-8")) {
+					$item = utf8_encode($item);
+				}
+			} else {
+				$item = utf8_encode(strval($item));
+			}
+		})) {
+			return FALSE;
+		}
 		if (FALSE === array_walk_recursive($data,
 		  create_function('&$item, $key', 'if (is_string($item)) { '.
 		  'if (!mb_check_encoding($item, "UTF-8")) { '.
@@ -358,8 +369,12 @@ class DatabaseBackend {
 		  '$item = utf8_encode(strval($item)); }')))
 			return FALSE;
 		// Compare the arrays.
-		if (0 == count(array_diff($result, $data)))
+		// Note, we can not use `array_diff` here because this function
+		// does not support multidimensional arrays.
+		if (0 === strcmp(json_encode_safe($result),
+				json_encode_safe($data))) {
 			return 0;
+		}
 		return -1;
 	}
 
