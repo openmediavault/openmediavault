@@ -16,6 +16,7 @@
 {%- set smtp_header_checks = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTP_HEADER_CHECKS', '/etc/postfix/smtp_header_checks') -%}
 {%- set alias_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_ALIAS_MAPS', 'hash:/etc/aliases') -%}
 {%- set transport_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_TRANSPORT_MAPS', 'hash:/etc/postfix/transport') -%}
+{%- set message_size_limit = salt['pillar.get']('default:OMV_POSTFIX_MAIN_MAILBOX_SIZE_LIMIT', 10240000) -%}
 {{ pillar['headers']['multiline'] }}
 compatibility_level = {{ compatibility_level }}
 {%- if grains['domain'] | length > 0 %}
@@ -48,3 +49,4 @@ smtp_tls_CApath = {{ smtp_tls_CApath }}
 smtp_header_checks = regexp:{{ smtp_header_checks }}
 alias_maps = {{ alias_maps }}
 transport_maps = {{ transport_maps }}
+message_size_limit = {{ message_size_limit }}
