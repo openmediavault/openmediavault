@@ -45,9 +45,10 @@
 {% if quotas | length == 0 %}
 
 # No quotas are configured, so quota can be turned off for this device.
+# Note, XFS is a little bit tricky when 'quotaoff' is called multiple times.
 quota_off_no_quotas_{{ fsuuid }}:
   cmd.run:
-    - name: quotaoff --group --user {{ device }}
+    - name: quotaoff --group --user {{ device }} || true
 
 # Make sure the files 'aquota.group' and 'aquota.user' are created,
 # though no quotas are configured.
@@ -65,9 +66,10 @@ quota_check_no_quotas_{{ fsuuid }}:
 # Always disable the quota and enable it later if necessary.
 # This is the easiest way to do not have to check if quota is already
 # enabled (quotaon does not like to be executed when it is already on).
+# Note, XFS is a little bit tricky when 'quotaoff' is called multiple times.
 quota_off_{{ fsuuid }}:
   cmd.run:
-    - name: quotaoff --group --user {{ device }}
+    - name: quotaoff --group --user {{ device }} || true
 
 {% if enabled | to_bool %}
 
