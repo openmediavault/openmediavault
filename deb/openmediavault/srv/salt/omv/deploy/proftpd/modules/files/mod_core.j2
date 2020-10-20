@@ -21,6 +21,8 @@
 {%- set timeout_no_transfer = salt['pillar.get']('default:OMV_PROFTPD_TIMEOUTNOTRANSFER', '600') -%}
 {%- set timeout_stalled = salt['pillar.get']('default:OMV_PROFTPD_TIMEOUTSTALLED', '600') -%}
 {%- set delete_aborted_stores = salt['pillar.get']('default:OMV_PROFTPD_DELETEABORTEDSTORES', 'off') -%}
+{%- set anonymous_user = salt['pillar.get']('default:OMV_PROFTPD_ANONYMOUS_USER', 'ftp') -%}
+{%- set anonymous_group = salt['pillar.get']('default:OMV_PROFTPD_ANONYMOUS_GROUP', 'nogroup') -%}
 Include /etc/proftpd/modules.conf
 {%- if ftp_config.modules.mod_tls.enable | to_bool %}
 Include /etc/proftpd/tls.conf
@@ -85,17 +87,16 @@ DisplayLogin {{ display_login }}
   HideFiles (welcome.msg)
 </Directory>
 {%- if ftp_config.anonymous | to_bool %}
-<Anonymous ~ftp>
-  User ftp
-  Group nogroup
-  UserAlias anonymous ftp
-  DirFakeUser on ftp
-  DirFakeGroup on ftp
+<Anonymous ~{{ anonymous_user }}>
+  User {{ anonymous_user }}
+  Group {{ anonymous_group }}
+  UserAlias anonymous {{ anonymous_user }}
+  DirFakeUser on {{ anonymous_user }}
+  DirFakeGroup on {{ anonymous_user }}
   RequireValidShell off
   <Directory *>
     Umask {{ umask }}
     HideFiles (welcome.msg)
-    HideNoAccess on
     <Limit WRITE>
       DenyAll
     </Limit>
