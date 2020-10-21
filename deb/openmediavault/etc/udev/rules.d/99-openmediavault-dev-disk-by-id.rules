@@ -42,7 +42,7 @@ ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
   PROGRAM="/usr/lib/udev/serial_id %N", \
   ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
   ENV{ID_SERIAL_SHORT}="%c", \
-  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}" \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
   SYMLINK="disk/by-path/$env{ID_PATH}", \
   SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
 
@@ -51,7 +51,9 @@ ACTION=="add", KERNEL=="sd*", SUBSYSTEMS=="usb", \
   ATTRS{idVendor}=="152d", ATTRS{idProduct}=="2338", \
   PROGRAM="/usr/lib/udev/serial_id %N", \
   ENV{ID_SERIAL}="USB-%c-$env{ID_INSTANCE}", \
-  ENV{ID_SERIAL_SHORT}="%c"
+  ENV{ID_SERIAL_SHORT}="%c", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
 
 # ORICO 2.5 inch Hard Drive Adapter (27UTS)
 # http://my.orico.cc/goods.php?id=6355
