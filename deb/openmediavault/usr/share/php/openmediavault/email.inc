@@ -64,7 +64,7 @@ class Email {
 		if (!empty($this->from))
 			$headers[] = sprintf('From: %s', $this->from);
 		return mail($this->to, $this->subject, $this->message,
-		  implode("\r\n", $headers));
+			implode(PHP_EOL, $headers));
 	}
 
 	/**
