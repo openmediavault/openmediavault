@@ -1,6 +1,9 @@
 openmediavault (5.5.13-1) stable; urgency=low
 
   * Fix bug in quota deployment on XFS filesystems.
+  * Rename UDEV rules file 99-openmediavault-dev-disk-by-id.rules to
+    01-openmediavault-fix-serial.rules. It is used to fix the serial
+    number problem of some USB PATA/SATA bridge controllers.
   * Issue #829: Show the listing of directory entries to which the
     anonymous user normally has no access permissions.
 
