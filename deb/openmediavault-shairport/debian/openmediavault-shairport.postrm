@@ -28,7 +28,7 @@ remove_action() {
 	# Force the creation of the monit service configuration files. This
 	# way we can simply purge this service configuration file. Finally
 	# reload the monit configuration.
-	omv-salt deploy run monit
+	omv-salt deploy run --no-color monit
 	# Activate trigger to purge cached files.
 	dpkg-trigger update-fixperms
 }

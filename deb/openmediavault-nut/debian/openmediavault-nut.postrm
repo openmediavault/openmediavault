@@ -31,11 +31,11 @@ remove_action() {
 	# way we can simply purge this service configuration file. Finally
 	# reload the monit configuration.
 	rm -rf "/etc/monit/conf.d/openmediavault-nut.conf"
-	omv-salt deploy run monit
+	omv-salt deploy run --no-color monit
 	# Create new collectd configuration after nut plugin has been removed
 	# and restart the service if necessary.
 	rm -rf "/etc/collectd/collectd.conf.d/nut.conf"
-	omv-salt deploy run collectd
+	omv-salt deploy run --no-color collectd
 	# Remove udev-rule.
 	rm -f "${OMV_NUT_UDEV_RULE_CONFIG}"
 	udevadm control --reload-rules
