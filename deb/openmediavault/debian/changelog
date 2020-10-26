@@ -6,6 +6,7 @@ openmediavault (5.5.13-1) stable; urgency=low
   * Fixed some bugs in the UDEV rules file that address the problem
     of some USB PATA/SATA bridge controllers that they do not pass
     on the serial number of the attached disks.
+  * Convert '\r\n' and '\r' to '\n' in RPC 'Exec::getOutput'.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 20 Oct 2020 07:36:41 +0200
 
