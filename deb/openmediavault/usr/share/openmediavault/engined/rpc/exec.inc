@@ -119,7 +119,8 @@ class Exec extends \OMV\Rpc\ServiceAbstract {
 			// the end of the file.
 			fseek($fp, $params['pos'], SEEK_SET);
 			while (!feof($fp)) {
-				$result['output'] .= fread($fp, 1024);
+				$result['output'] .= str_replace([ "\r\n", "\r" ],
+					"\n", fread($fp, 1024));
 			}
 			// Get the current position within the command output file.
 			$result['pos'] = ftell($fp);
