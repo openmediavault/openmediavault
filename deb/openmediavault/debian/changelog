@@ -1,5 +1,6 @@
 openmediavault (5.5.13-1) stable; urgency=low
 
+  * Update locales.
   * Fixed bug in quota deployment on XFS filesystems.
   * Issue #829: Show the listing of directory entries to which the
     anonymous user normally has no access permissions.
