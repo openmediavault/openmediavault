@@ -21,5 +21,10 @@ clamdscan {{ cmd_args }}
 {%- if job.verbose | to_bool %}{{ separator }}--verbose{%- endif -%}
 {{ separator }}"{{ salt['omv_conf.get_sharedfolder_path'](job.sharedfolderref) }}" & wait $!
 {%- if not job.option_quiet | to_bool %}
-omv_log "\nThe scan has completed successfully."
+if [ $? -eq 0 ]; then
+    omv_log "The scan has completed successfully."
+else
+    omv_error "The scan failed."
+fi
 {%- endif %}
+exit 0

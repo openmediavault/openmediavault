@@ -1,3 +1,9 @@
+openmediavault (5.5.14-1) stable; urgency=low
+
+  * Issue #812: Cron script erroneously reports success though failed.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 29 Oct 2020 09:27:44 +0100
+
 openmediavault (5.5.13-1) stable; urgency=low
 
   * Update locales.

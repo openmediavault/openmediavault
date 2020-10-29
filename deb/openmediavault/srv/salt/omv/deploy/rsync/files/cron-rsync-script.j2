@@ -76,5 +76,10 @@ rsync --verbose --log-file="{{ logfile }}"
 {%- if job.extraoptions | length > 0 %}{{ separator }}{{ job.extraoptions }}{%- endif -%}
 {{ separator }}"{{ srcuri }}" "{{ desturi }}" & wait $!
 {%- if not job.optionquiet | to_bool %}
-omv_log "\nThe synchronisation has completed successfully."
+if [ $? -eq 0 ]; then
+    omv_log "The synchronisation has completed successfully."
+else
+    omv_error "The synchronisation failed."
+fi
 {%- endif %}
+exit 0

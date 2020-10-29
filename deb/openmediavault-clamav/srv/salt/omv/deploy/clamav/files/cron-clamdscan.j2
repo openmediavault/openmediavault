@@ -16,8 +16,6 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 {%- if not job.sendemail | to_bool -%}
 {{ separator }}>/dev/null 2>&1
 {%- else -%}
-{%- if job.comment | length > 0 -%}
-{{ separator }}| mail -E -s "ClamAV - {{ job.comment | replace('\n', ' ') }}" -a "From: Cron Daemon <{{ user }}>" {{ user }} >/dev/null 2>&1
-{%- endif -%}
+{{ separator }}2>&1 | mail -E -s "ClamAV{{ ' - ' ~ job.comment | replace('\n', ' ') if job.comment | length > 0 else '' }}" -a "From: Cron Daemon <{{ user }}>" {{ user }} >/dev/null 2>&1
 {%- endif -%}
 {%- endfor -%}
