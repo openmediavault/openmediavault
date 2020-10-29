@@ -1,3 +1,9 @@
+openmediavault-usbbackup (5.0.6-1) stable; urgency=low
+
+  * Issue #812: Cron script erroneously reports success though failed.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 29 Oct 2020 09:28:05 +0100
+
 openmediavault-usbbackup (5.0.5-1) stable; urgency=low
 
   * Issue #777: Error creating backup job when filesystem has

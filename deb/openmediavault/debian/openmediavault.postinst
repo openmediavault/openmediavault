@@ -259,6 +259,10 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "5.5.13"; then
 		  omv_module_set_dirty proftpd
 		fi
+		if dpkg --compare-versions "$2" lt-nl "5.5.14"; then
+		  omv_module_set_dirty cron
+		  omv_module_set_dirty rsync
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the
