@@ -254,14 +254,17 @@ case "$1" in
 			usermod -a -G ${OMV_WEBGUI_ADMINGROUP_NAME} ${OMV_WEBGUI_ADMINUSER_NAME} || :
 		fi
 		if dpkg --compare-versions "$2" lt-nl "5.5.9"; then
-		  omv_module_set_dirty proftpd
+			omv_module_set_dirty proftpd
 		fi
 		if dpkg --compare-versions "$2" lt-nl "5.5.13"; then
-		  omv_module_set_dirty proftpd
+			omv_module_set_dirty proftpd
 		fi
 		if dpkg --compare-versions "$2" lt-nl "5.5.14"; then
-		  omv_module_set_dirty cron
-		  omv_module_set_dirty rsync
+			omv_module_set_dirty cron
+			omv_module_set_dirty rsync
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.5.15"; then
+			omv_module_set_dirty avahi
 		fi
 
 		########################################################################

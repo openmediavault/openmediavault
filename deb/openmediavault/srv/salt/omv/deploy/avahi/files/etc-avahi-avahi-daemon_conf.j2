@@ -4,6 +4,8 @@
 {%- set allow_point_to_point = salt['pillar.get']('default:OMV_AVAHIDAEMON_ALLOW_POINT_TO_POINT', 'no') -%}
 {%- set enable_reflector = salt['pillar.get']('default:OMV_AVAHIDAEMON_ENABLE_REFLECTOR', 'no') -%}
 {%- set rlimit_nproc = salt['pillar.get']('default:OMV_AVAHIDAEMON_RLIMIT_NPROC', '3') -%}
+{%- set publish_hinfo = salt['pillar.get']('default:OMV_AVAHIDAEMON_PUBLISH_HINFO', 'no') -%}
+{%- set publish_workstation = salt['pillar.get']('default:OMV_AVAHIDAEMON_PUBLISH_WORKSTATION', 'no') -%}
 [server]
 #host-name=foo
 #domain-name=local
@@ -34,8 +36,8 @@ enable-wide-area=yes
 #disable-user-service-publishing=no
 #add-service-cookie=no
 #publish-addresses=yes
-#publish-hinfo=yes
-#publish-workstation=yes
+publish-hinfo={{ publish_hinfo }}
+publish-workstation={{ publish_workstation }}
 #publish-domain=yes
 #publish-dns-servers=192.168.50.1, 192.168.50.2
 #publish-resolv-conf-dns-servers=yes
@@ -48,9 +50,9 @@ enable-reflector={{ enable_reflector }}
 
 [rlimits]
 #rlimit-as=
-rlimit-core=0
-rlimit-data=4194304
-rlimit-fsize=0
-rlimit-nofile=768
-rlimit-stack=4194304
-rlimit-nproc={{ rlimit_nproc }}
+#rlimit-core=0
+#rlimit-data=4194304
+#rlimit-fsize=0
+#rlimit-nofile=768
+#rlimit-stack=4194304
+#rlimit-nproc={{ rlimit_nproc }}
