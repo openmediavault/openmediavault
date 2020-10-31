@@ -1,3 +1,9 @@
+openmediavault (5.5.15-1) stable; urgency=low
+
+  * Adapt Avahi configuration to latest changes in Debian.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 31 Oct 2020 09:06:34 +0100
+
 openmediavault (5.5.14-1) stable; urgency=low
 
   * Issue #812: Cron script erroneously reports success though failed.
