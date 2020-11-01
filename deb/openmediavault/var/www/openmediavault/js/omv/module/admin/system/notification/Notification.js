@@ -207,7 +207,8 @@ Ext.define("OMV.module.admin.system.notification.Settings", {
 				xtype: "passwordfield",
 				name: "password",
 				fieldLabel: _("Password"),
-				allowBlank: true
+				allowBlank: true,
+				autoComplete: false
 			}]
 		},{
 			xtype: "fieldset",

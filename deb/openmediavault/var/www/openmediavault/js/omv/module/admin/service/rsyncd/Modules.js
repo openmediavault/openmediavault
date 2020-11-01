@@ -264,7 +264,8 @@ Ext.define("OMV.module.admin.service.rsyncd.module.AuthUser", {
 			xtype: "passwordfield",
 			name: "password",
 			fieldLabel: _("Password"),
-			allowBlank: false
+			allowBlank: false,
+			autoComplete: false
 		}];
 	}
 });
