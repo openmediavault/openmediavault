@@ -293,6 +293,7 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 			name: "password",
 			fieldLabel: _("Password"),
 			allowBlank: true,
+			autoComplete: false,
 			hidden: true,
 			plugins: [{
 				ptype: "fieldinfo",

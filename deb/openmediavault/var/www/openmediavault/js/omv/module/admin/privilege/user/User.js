@@ -83,7 +83,8 @@ Ext.define("OMV.module.admin.privilege.user.user.General", {
 				xtype: "passwordfield",
 				name: "password",
 				fieldLabel: _("Password"),
-				allowBlank: me.editMode
+				allowBlank: me.editMode,
+				autoComplete: false
 			},{
 				xtype: "passwordfield",
 				name: "passwordconf",

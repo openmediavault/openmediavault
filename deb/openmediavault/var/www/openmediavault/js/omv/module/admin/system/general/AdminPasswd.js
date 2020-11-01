@@ -40,12 +40,14 @@ Ext.define("OMV.module.admin.system.general.AdminPasswd", {
 			xtype: "passwordfield",
 			name: "password",
 			fieldLabel: _("New password"),
-			allowBlank: true
+			allowBlank: true,
+			autoComplete: false
 		},{
 			xtype: "passwordfield",
 			name: "passwordconf",
 			fieldLabel: _("Confirm password"),
 			allowBlank: true,
+			autoComplete: false,
 			submitValue: false
 		}];
 	},

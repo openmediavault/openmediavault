@@ -103,7 +103,8 @@ Ext.define("OMV.module.admin.system.certificate.ssh.Copy", {
 			xtype: "passwordfield",
 			name: "password",
 			fieldLabel: _("Password"),
-			allowBlank: true
+			allowBlank: true,
+			autoComplete: false
 		}];
 	},
 
