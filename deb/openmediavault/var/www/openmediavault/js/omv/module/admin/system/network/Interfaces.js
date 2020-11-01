@@ -789,6 +789,7 @@ Ext.define("OMV.module.admin.system.network.interface.window.Wifi", {
 				name: "wpapsk",
 				fieldLabel: _("Password"),
 				allowBlank: false,
+				autoComplete: false,
 				value: ""
 			}]);
 			break;

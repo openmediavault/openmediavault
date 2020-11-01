@@ -66,12 +66,14 @@ Ext.define("OMV.module.user.privilege.user.User", {
 				xtype: "passwordfield",
 				name: "password",
 				fieldLabel: _("Password"),
-				allowBlank: true
+				allowBlank: true,
+				autoComplete: false
 			},{
 				xtype: "passwordfield",
 				name: "passwordconf",
 				fieldLabel: _("Confirm password"),
 				allowBlank: true,
+				autoComplete: false,
 				submitValue: false
 			}]
 		}];

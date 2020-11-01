@@ -96,7 +96,8 @@ Ext.define("OMV.module.admin.system.network.Proxy", {
 				xtype: "passwordfield",
 				fieldLabel: _("Password"),
 				name: "httppassword",
-				allowBlank: true
+				allowBlank: true,
+				autoComplete: false
 			}]
 		},{
 			xtype: "fieldset",
@@ -135,7 +136,8 @@ Ext.define("OMV.module.admin.system.network.Proxy", {
 				xtype: "passwordfield",
 				fieldLabel: _("Password"),
 				name: "httpspassword",
-				allowBlank: true
+				allowBlank: true,
+				autoComplete: false
 			}]
 		},{
 			xtype: "fieldset",
@@ -174,7 +176,8 @@ Ext.define("OMV.module.admin.system.network.Proxy", {
 				xtype: "passwordfield",
 				fieldLabel: _("Password"),
 				name: "ftppassword",
-				allowBlank: true
+				allowBlank: true,
+				autoComplete: false
 			}]
 		}];
 	}

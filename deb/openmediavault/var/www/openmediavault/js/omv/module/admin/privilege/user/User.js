@@ -90,6 +90,7 @@ Ext.define("OMV.module.admin.privilege.user.user.General", {
 				name: "passwordconf",
 				fieldLabel: _("Confirm password"),
 				allowBlank: me.editMode,
+				autoComplete: false,
 				submitValue: false
 			},{
 				xtype: "combo",

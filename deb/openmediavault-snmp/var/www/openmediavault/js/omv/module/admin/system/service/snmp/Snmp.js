@@ -183,6 +183,7 @@ Ext.define("OMV.module.admin.service.snmp.Settings", {
 				fieldLabel: _("Authentication passphrase"),
 				hidden: true,
 				allowBlank: true,
+				autoComplete: false,
 				minLength: 8
 			},{
 				xtype: "combo",
@@ -204,6 +205,7 @@ Ext.define("OMV.module.admin.service.snmp.Settings", {
 				fieldLabel: _("Privacy passphrase"),
 				hidden: true,
 				allowBlank: true,
+				autoComplete: false,
 				minLength: 8
 			},{
 				xtype: "textarea",
