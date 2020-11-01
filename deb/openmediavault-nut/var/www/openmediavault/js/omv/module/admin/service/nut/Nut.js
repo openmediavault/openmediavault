@@ -245,6 +245,7 @@ Ext.define("OMV.module.admin.service.nut.Settings", {
 				name: "remotepassword",
 				fieldLabel: _("Password"),
 				allowBlank: true,
+				autoComplete: false,
 				plugins: [{
 					ptype: "fieldinfo",
 					text: _("Used for remote authentication.")
