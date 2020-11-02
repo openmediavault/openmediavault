@@ -23,7 +23,7 @@ __all__ = ["IModule"]
 import abc
 
 
-class IModule(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
+class IModule(abc.ABC):
     @property
     @abc.abstractmethod
     def description(self):

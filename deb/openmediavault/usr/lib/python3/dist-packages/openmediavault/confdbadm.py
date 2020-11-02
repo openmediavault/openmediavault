@@ -34,7 +34,7 @@ import openmediavault.config.datamodel
 import openmediavault.string
 
 
-class ICommand(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
+class ICommand(abc.ABC):
     @property
     @abc.abstractmethod
     def description(self):

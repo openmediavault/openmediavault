@@ -28,7 +28,7 @@ import shutil
 import openmediavault
 
 
-class IPlugin(metaclass=abc.ABCMeta):  # lgtm[py/syntax-error]
+class IPlugin(abc.ABC):
     @abc.abstractmethod
     def create_graph(self, config):
         """
