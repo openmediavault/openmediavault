@@ -289,7 +289,7 @@ class StorageDevice(BlockDevice):
         return None
 
 
-class IStorageDevicePlugin(metaclass=abc.ABCMeta):
+class IStorageDevicePlugin(abc.ABC):
     @abc.abstractmethod
     def match(self, device_file):
         """
