@@ -265,6 +265,7 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "5.5.15"; then
 			omv_module_set_dirty avahi
+			omv_module_set_dirty samba
 		fi
 
 		########################################################################

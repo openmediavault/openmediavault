@@ -3,6 +3,7 @@ openmediavault (5.5.15-1) stable; urgency=low
   * Adapt Avahi configuration to latest changes in Debian.
   * Rename environment variable OMV_POSTFIX_MAIN_MAILBOX_SIZE_LIMIT to
     OMV_POSTFIX_MAIN_MESSAGE_SIZE_LIMIT.
+  * Cleanup SMB/CIFS 'vfs objects' configuration.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 31 Oct 2020 09:06:34 +0100
 
