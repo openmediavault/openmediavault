@@ -40,6 +40,25 @@ inherit permissions = {% if share.inheritpermissions | to_bool %}yes{% else %}no
 ea support = {% if share.easupport | to_bool %}yes{% else %}no{% endif %}
 store dos attributes = {% if share.storedosattributes | to_bool %}yes{% else %}no{% endif %}
 {%- set vfs_objects = vfs_objects.split(' ') %}
+{%- if share.audit | to_bool %}
+{%- set _ = vfs_objects.append('full_audit') %}
+full_audit:prefix = {{ full_audit_prefix }}
+full_audit:success = {{ full_audit_success }}
+full_audit:failure = {{ full_audit_failure }}
+full_audit:facility = {{ full_audit_facility }}
+full_audit:priority = {{ full_audit_priority }}
+{%- endif %}
+{%- if enable_timemachine_vfs | to_bool %}
+{%- set _ = vfs_objects.append('fruit') %}
+{%- set _ = vfs_objects.append('streams_xattr') %}
+{%- endif %}
+{%- if share.timemachine | to_bool %}
+fruit:encoding = {{ fruit_encoding }}
+fruit:locking = {{ fruit_locking }}
+fruit:metadata = {{ fruit_metadata }}
+fruit:resource = {{ fruit_resource }}
+fruit:time machine = yes
+{%- endif %}
 {%- if share.recyclebin | to_bool %}
 {%- set _ = vfs_objects.append('recycle') %}
 recycle:repository = {{ recycle_repository }}
@@ -52,26 +71,6 @@ recycle:subdir_mode = {{ recycle_subdir_mode }}
 recycle:exclude = {{ recycle_exclude }}
 recycle:exclude_dir = {{ recycle_exclude_dir }}
 recycle:maxsize = {{ share.recyclemaxsize }}
-{%- endif %}
-{%- if share.audit | to_bool %}
-{%- set _ = vfs_objects.append('full_audit') %}
-full_audit:prefix = {{ full_audit_prefix }}
-full_audit:success = {{ full_audit_success }}
-full_audit:failure = {{ full_audit_failure }}
-full_audit:facility = {{ full_audit_facility }}
-full_audit:priority = {{ full_audit_priority }}
-{%- endif %}
-{%- if enable_timemachine_vfs | to_bool %}
-{%- set _ = vfs_objects.append('catia') %}
-{%- set _ = vfs_objects.append('fruit') %}
-{%- set _ = vfs_objects.append('streams_xattr') %}
-{%- endif %}
-{%- if share.timemachine | to_bool %}
-fruit:encoding = {{ fruit_encoding }}
-fruit:locking = {{ fruit_locking }}
-fruit:metadata = {{ fruit_metadata }}
-fruit:resource = {{ fruit_resource }}
-fruit:time machine = yes
 {%- endif %}
 vfs objects = {{ vfs_objects | unique | join(' ') }}
 printable = {{ printable }}
