@@ -500,7 +500,8 @@ function is_multi_array($var) {
 }
 
 /**
- * Finds out whether a variable is an associative array.
+ * Finds out whether a variable is an associative array, e.g.
+ * ['foo' => 1, 'bar' => 'baz']
  * @ingroup api
  * @param mixed $var The variable being evaluated.
  * @return TRUE if the variable is an associative array, otherwise FALSE.

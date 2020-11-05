@@ -363,4 +363,26 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 			['id' => 2, 'text' => 'c']
 		]);
 	}
+
+	public function test_is_assoc_array_1() {
+		$this->assertTrue(is_assoc_array([
+			'foo' => 1, 'bar' => 'test', 'baz' => ['id' => 1]
+		]));
+	}
+
+	public function test_is_assoc_array_2() {
+		$this->assertFalse(is_assoc_array([
+			['id' => 3, 'text' => 'b'],
+			['id' => 1, 'text' => 'a'],
+			['id' => 2, 'text' => 'c']
+		]));
+	}
+
+	public function test_is_assoc_array_3() {
+		$this->assertFalse(is_assoc_array(['foo', 'bar']));
+	}
+
+	public function test_is_assoc_array_4() {
+		$this->assertFalse(is_assoc_array('foo'));
+	}
 }
