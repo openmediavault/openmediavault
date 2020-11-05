@@ -1,3 +1,9 @@
+openmediavault (5.5.16-1) stable; urgency=low
+
+  * Remove package dependency of initramfs-tools.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 05 Nov 2020 17:08:44 +0100
+
 openmediavault (5.5.15-1) stable; urgency=low
 
   * Adapt Avahi configuration to latest changes in Debian.
