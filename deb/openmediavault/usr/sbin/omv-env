@@ -1,0 +1,84 @@
+#!/usr/bin/env python3
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2017 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+import re
+import sys
+
+import click
+import natsort
+import openmediavault
+import openmediavault.settings
+import openmediavault.subprocess
+
+
+def grep_env_vars() -> list:
+    salt_root_dir = openmediavault.getenv(
+        'OMV_SALT_DIR', '/srv/salt/omv'
+    )
+    output = openmediavault.subprocess.check_output(
+        ['grep', '--recursive', 'default:OMV_', salt_root_dir]
+    )
+    result = set()
+    for line in output.splitlines():
+        m = re.match(r".+'default:(OMV_[\S_]+)'.+", line.decode())
+        if not m:
+            continue
+        result.add(m.group(1))
+    return natsort.humansorted(result)
+
+
+class Context:
+    verbose: bool
+
+
+pass_context = click.make_pass_decorator(Context, ensure=True)
+
+
+@click.group()
+@click.option('--verbose', is_flag=True, help='Shows verbose output.')
+@pass_context
+def cli(ctx, verbose):
+    ctx.verbose = verbose
+    return 0
+
+
+@cli.command(name='list', help='List all available environment variables.')
+@pass_context
+def list(ctx):
+    for env_var in grep_env_vars():
+        print(env_var)
+    sys.exit(0)
+
+
+@cli.command(name='show', help='Show all configured environment variables.')
+@pass_context
+def show(ctx):
+    env_vars = {k: v for k, v in openmediavault.settings.Environment.as_dict().items() if k.startswith('OMV_')}
+    for key, value in natsort.humansorted(env_vars.items()):
+        print('{}={}'.format(key, value))
+    sys.exit(0)
+
+
+def main():
+    cli()
+
+
+if __name__ == '__main__':
+    sys.exit(main())
