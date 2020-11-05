@@ -20,3 +20,4 @@
 mdadm_update_initramfs:
   cmd.run:
     - name: "update-initramfs -u"
+    - onlyif: "which update-initramfs"
