@@ -61,7 +61,7 @@ def cli(ctx, verbose):
 
 @cli.command(name='list', help='List all available environment variables.')
 @pass_context
-def list(ctx):
+def list(ctx):  # noqa
     for env_var in grep_env_vars():
         print(env_var)
     sys.exit(0)
@@ -70,7 +70,8 @@ def list(ctx):
 @cli.command(name='show', help='Show all configured environment variables.')
 @pass_context
 def show(ctx):
-    env_vars = {k: v for k, v in openmediavault.settings.Environment.as_dict().items() if k.startswith('OMV_')}
+    env_vars = dict(filter(lambda item: item[0].startswith('OMV_'),
+                           openmediavault.settings.Environment.as_dict().items()))
     for key, value in natsort.humansorted(env_vars.items()):
         print('{}={}'.format(key, value))
     sys.exit(0)
