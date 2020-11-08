@@ -17,7 +17,13 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-mdadm_update_initramfs:
+{% set installed_pkgs = salt['pkg.list_pkgs']() %}
+
+update_initramfs:
   cmd.run:
+{% if 'initramfs-tools' in installed_pkgs %}
     - name: "update-initramfs -u"
-    - onlyif: "which update-initramfs"
+{% endif %}
+{% if 'dracut' in installed_pkgs %}
+    - name: "dracut -f"
+{% endif %}
