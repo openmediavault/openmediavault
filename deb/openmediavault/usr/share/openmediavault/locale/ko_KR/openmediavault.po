@@ -4,16 +4,16 @@
 # 
 # Translators:
 # Chang-Eon Byeon <ksna0827@gmail.com>, 2014-2016
-# 김지현 <potatogim@potatogim.net>, 2014-2015,2018,2020
-# 김지현 <potatogim@potatogim.net>, 2020
+# Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015,2018,2020
+# Ji-Hyeon Gim <potatogim@potatogim.net>, 2020
 # Volker <votdev@gmx.de>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-21 16:43+0200\n"
-"PO-Revision-Date: 2020-09-21 14:45+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2020-11-02 08:41+0000\n"
+"Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -219,7 +219,7 @@ msgid "Add bond connection"
 msgstr "본드 연결 추가"
 
 msgid "Add bridge connection"
-msgstr ""
+msgstr "브리지 연결 추가"
 
 msgid "Add devices to RAID device"
 msgstr "RAID 장치에 디바이스를 추가"
@@ -318,7 +318,7 @@ msgid ""
 msgstr "이 서버가 Windows 클라이언트에게 자신을 시간 서버로 알리는 것을 가능하게 합니다."
 
 msgid "Allowed clients"
-msgstr ""
+msgstr "허용된 클라이언트"
 
 msgid "American Samoa"
 msgstr "아메리칸 사모아"
@@ -340,7 +340,7 @@ msgid ""
 msgstr "해당 작업을 수행하는 사용자에게 명령행 출력(있다면)을 전자 메일에 포함하여 전송합니다."
 
 msgid "An error has occurred"
-msgstr ""
+msgstr "오류가 발생했습니다"
 
 msgid "Andorra"
 msgstr "안도라"
@@ -517,7 +517,7 @@ msgid "Brazil"
 msgstr "브라질"
 
 msgid "Bridge"
-msgstr ""
+msgstr "브리지"
 
 msgid "British Antarctic Territory"
 msgstr "영국령 남극 영토"
@@ -1033,7 +1033,7 @@ msgid "Edit bond connection"
 msgstr "본드 연결 편집"
 
 msgid "Edit bridge connection"
-msgstr ""
+msgstr "브리지 연결 수정"
 
 msgid "Edit ethernet connection"
 msgstr "이더넷 연결 편집"
@@ -1304,7 +1304,7 @@ msgid "Filename"
 msgstr "파일 이름"
 
 msgid "Filepath"
-msgstr ""
+msgstr "파일 경로"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1523,7 +1523,7 @@ msgstr "ID"
 msgid ""
 "IP addresses in CIDR notation or host names of clients that are allowed to "
 "access the NTP server."
-msgstr ""
+msgstr "NTP 서버에 접근을 허용할 CIDR 표기법을 따르는 IP 주소들 혹은 클라이언트의 호스트 이름들입니다."
 
 msgid "IP addresses of domain name servers used to resolve host names."
 msgstr "도메인 네임 서버의 IP주소는 호스트 이름을 해석하는 데에 사용됩니다."
@@ -2150,7 +2150,7 @@ msgid "New Zealand"
 msgstr "뉴질랜드"
 
 msgid "New password"
-msgstr ""
+msgstr "새로운 암호"
 
 msgid "Next Page"
 msgstr "다음 페이지"
@@ -2333,7 +2333,7 @@ msgid "Parent Device"
 msgstr "부모 장치"
 
 msgid "Parent device"
-msgstr ""
+msgstr "상위 장치"
 
 msgid "Passive FTP"
 msgstr "수동 FTP"
@@ -3383,7 +3383,7 @@ msgstr "사용자 홈 디렉터리 위치"
 msgid ""
 "The maximum transmission unit in bytes to set for the device. Set to 0 to "
 "use the default value."
-msgstr ""
+msgstr "이 장치에 대한 최대 전송 단위(MTU)를 지정합니다. 기본값을 사용하려면 0으로 설정합니다."
 
 msgid "The name of the share."
 msgstr "공유 이름"
@@ -3417,7 +3417,7 @@ msgstr "X.509 PEM 포맷의 개인 RSA 키"
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port"
-msgstr ""
+msgstr "이 프로토콜은 출발지/목적지 포트와 함께 지정하는 것을 지원하지 않습니다"
 
 msgid "The public key in RFC 4716 SSH public key file format."
 msgstr "RFC 4716 공개 키 파일 포맷에 해당되는 공개 키."
@@ -3425,7 +3425,7 @@ msgstr "RFC 4716 공개 키 파일 포맷에 해당되는 공개 키."
 msgid ""
 "The relative path of the folder to share. The specified folder will be "
 "created if it does not already exist."
-msgstr ""
+msgstr "공유할 폴더의 상대 경로입니다. 지정된 폴더가 없다면 새로 만들어집니다."
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3509,7 +3509,7 @@ msgid "This field should be a host name or an IP address"
 msgstr "이 항목은 호스트 이름이나 IP 주소여야 합니다."
 
 msgid "This field should be a host name or an IP address in CIDR notation"
-msgstr ""
+msgstr "이 항목은 CIDR 표기법을 따르는 IP 주소이거나 호스트 이름이어야 합니다"
 
 msgid "This field should be a host name or an IPv4 address"
 msgstr "이 항목은 호스트 이름이거나 IPv4 주소여야 합니다."
@@ -3525,7 +3525,7 @@ msgstr "이 항목은 <,> 또는 <;>으로 구분되는 도메인 이름의 목�
 msgid ""
 "This field should be a list of host names or IP addresses in CIDR notation "
 "separated by <,> or <;>"
-msgstr ""
+msgstr "이 항목은 <,> 혹은 <;>로 구분되는 CIDR 표기법을 따르는 IP 주소 혹은 호스트 이름의 목록이어야 합니다"
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "

@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Chang-Eon Byeon <ksna0827@gmail.com>, 2014
-# 김지현 <potatogim@potatogim.net>, 2015
+# Ji-Hyeon Gim <potatogim@potatogim.net>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"

@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Chang-Eon Byeon <ksna0827@gmail.com>, 2014,2016
-# 김지현 <potatogim@potatogim.net>, 2017
+# Ji-Hyeon Gim <potatogim@potatogim.net>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-07 17:31+0100\n"
 "PO-Revision-Date: 2020-02-26 14:20+0000\n"
-"Last-Translator: 김지현 <potatogim@potatogim.net>\n"
+"Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/votdev/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
