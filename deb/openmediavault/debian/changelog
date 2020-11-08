@@ -1,8 +1,11 @@
 openmediavault (5.5.16-1) stable; urgency=low
 
+  * Update locales.
   * Remove package dependency of initramfs-tools.
   * Add command line tool 'omv-env' to list the available environment
     variables.
+  * Make sure the custom UDEV rules that address the problem of some
+    USB PATA/SATA bridge controllers are installed in the initramfs.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 05 Nov 2020 17:08:44 +0100
 
