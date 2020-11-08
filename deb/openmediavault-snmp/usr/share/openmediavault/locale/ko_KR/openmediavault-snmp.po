@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# 김지현 <potatogim@potatogim.net>, 2017
+# Ji-Hyeon Gim <potatogim@potatogim.net>, 2017
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-07 17:31+0100\n"
 "PO-Revision-Date: 2017-09-24 18:47+0000\n"
-"Last-Translator: 김지현 <potatogim@potatogim.net>, 2017\n"
+"Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2017\n"
 "Language-Team: Korean (Korea) (https://www.transifex.com/votdev/teams/14254/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
