@@ -25,5 +25,5 @@ update_initramfs:
     - name: "update-initramfs -u"
 {% endif %}
 {% if 'dracut' in installed_pkgs %}
-    - name: "dracut -f"
+    - name: "dracut -f /boot/initrd.img-{{ grains['kernelrelease'] }}"
 {% endif %}
