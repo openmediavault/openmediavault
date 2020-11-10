@@ -1,13 +1,16 @@
 {%- set separator = ' ' -%}
 #!/bin/sh
-{{ pillar['headers']['multiline'] }}
+{{ pillar['headers']['multiline'] -}}
+. /usr/share/openmediavault/scripts/helper-functions
+
 set -e
 
 # Make sure that only one instance of this shell script is running at
 # the same time.
 LOCK_FILE=/run/openmediavault-iptables.lock
-if ! mkdir ${LOCK_FILE} >/dev/null 2>&1; then
-    exit
+if ! mkdir "${LOCK_FILE}"; then
+    omv_error "Locking failed, another job is running"
+    exit 0
 fi
 
 trap "rm -rf ${LOCK_FILE}" 0 1 2 3 5 15
@@ -60,7 +63,7 @@ case "$1" in
         {%- if rule.extraoptions | length > 0 -%}
         {{ separator }}{{ rule.extraoptions }}
         {%- endif %}
-        {% endfor %}
+        {% endfor -%}
         ;;
 
     stop)
