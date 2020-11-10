@@ -1,6 +1,6 @@
 openmediavault (5.5.17-1) stable; urgency=low
 
-  *
+  * Issue #846: Fix locking issue in SMB recycle bin cleanup and iptables scripts.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 08 Nov 2020 23:04:13 +0100
 

@@ -1,11 +1,14 @@
 {%- set cron_scripts_prefix = salt['pillar.get']('default:OMV_SAMBA_SHARE_RECYCLE_CRONSCRIPT_PREFIX', 'samba-recycle-') -%}
 {%- set recycle_repository = salt['pillar.get']('default:OMV_SAMBA_SHARE_RECYCLE_REPOSITORY', '.recycle') -%}
-{%- set lock_file = '/run' | path_join(cron_scripts_prefix ~ share.uuid) -%}
+{%- set lock_file = '/run' | path_join(cron_scripts_prefix ~ share.uuid ~ '.lock') -%}
 {%- set sf_path = salt['omv_conf.get_sharedfolder_path'](share.sharedfolderref) -%}
 {%- set sf_recycle_repository = sf_path | path_join(recycle_repository) -%}
 #!/bin/sh
 {{ pillar['headers']['multiline'] -}}
+. /usr/share/openmediavault/scripts/helper-functions
+
 set -e
+
 amin={{ share.recyclemaxage * 24 * 60 }}
 lockfile="{{ lock_file }}"
 recycle_repository="{{ sf_recycle_repository }}"
@@ -20,14 +23,15 @@ done
 # Exit if 'recyclemaxage' is zero.
 [ "${amin}" -eq "0" ] && exit 0
 # Exit if another job is running.
-if ! mkdir "${lockfile}" >/dev/null 2>&1; then
+if ! mkdir "${lockfile}"; then
+	omv_error "Locking failed, another job is running"
 	exit 0
 fi
 # Initialize the trap to cleanup on exit.
 trap "rm -rf ${lockfile}; exit" 0 1 2 5 15
 # Exit if the recycle bin directory does not exist.
 [ ! -e "${recycle_repository}" ] && exit 0
-echo "Please wait, empty recyle bin of <{{ sf_path }}> ..."
+omv_log "Please wait, empty recyle bin of <{{ sf_path }}> ..."
 find "${recycle_repository}" -mindepth 1 -amin +${amin} -print0 | xargs -0r rm -rfv
 # Do a second run to remove empty directories.
 find "${recycle_repository}" -mindepth 1 -type d -empty -print0 | xargs -0r rm -rfv
