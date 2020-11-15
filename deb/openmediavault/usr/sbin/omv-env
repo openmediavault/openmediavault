@@ -21,6 +21,8 @@
 import re
 import sys
 
+from typing import List
+
 import click
 import natsort
 import openmediavault
@@ -28,7 +30,7 @@ import openmediavault.settings
 import openmediavault.subprocess
 
 
-def grep_env_vars() -> list:
+def grep_env_vars() -> List[str]:
     salt_root_dir = openmediavault.getenv(
         'OMV_SALT_DIR', '/srv/salt/omv'
     )
@@ -54,26 +56,54 @@ pass_context = click.make_pass_decorator(Context, ensure=True)
 @click.group()
 @click.option('--verbose', is_flag=True, help='Shows verbose output.')
 @pass_context
-def cli(ctx, verbose):
+def cli(ctx, verbose: bool):
     ctx.verbose = verbose
     return 0
 
 
 @cli.command(name='list', help='List all available environment variables.')
 @pass_context
-def list(ctx):  # noqa
+def list_cmd(ctx):  # noqa
     for env_var in grep_env_vars():
         print(env_var)
     sys.exit(0)
 
 
-@cli.command(name='show', help='Show all configured environment variables.')
+@cli.command(name='get', help='Get configured environment variables.')
+@click.argument('names', nargs=-1)
+@click.option(
+    '--value-only',
+    is_flag=True,
+    help='Print only the value of the environment variable.'
+)
 @pass_context
-def show(ctx):
+def get_cmd(ctx, names: List[str], value_only: bool):  # noqa
+    # Get all environment variables starting with 'OMV_'.
     env_vars = dict(filter(lambda item: item[0].startswith('OMV_'),
                            openmediavault.settings.Environment.as_dict().items()))
+    # Check if we should display only given variables.
+    if len(names) > 0:
+        env_vars = dict(filter(lambda item: item[0] in names,
+                               env_vars.items()))
+        if len(env_vars) == 0:
+            sys.exit(1)
     for key, value in natsort.humansorted(env_vars.items()):
-        print('{}={}'.format(key, value))
+        print(value if value_only else '{}={}'.format(key, value))
+    sys.exit(0)
+
+
+@cli.command(name='set', help='Set an environment variable.')
+@click.argument('key', required=True)
+@click.argument('value', required=True)
+@pass_context
+def set_cmd(ctx, key: str, value: str):  # noqa
+    if not key.startswith('OMV_'):
+        sys.stderr.write('Key must be prefixed with OMV_\n')
+        sys.exit(1)
+    environment = openmediavault.settings.Environment
+    environment.load()
+    environment.set(key, value)
+    environment.save()
     sys.exit(0)
 
 

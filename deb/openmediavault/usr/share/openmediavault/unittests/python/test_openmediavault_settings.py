@@ -23,6 +23,16 @@ import openmediavault.settings
 
 
 class EnvironmentTestCase(unittest.TestCase):
+    def test_clear_load(self):
+        env_vars = openmediavault.settings.Environment.as_dict()
+        self.assertGreater(len(env_vars.keys()), 0)
+        openmediavault.settings.Environment.clear()
+        env_vars = openmediavault.settings.Environment.as_dict()
+        self.assertEqual(len(env_vars.keys()), 0)
+        openmediavault.settings.Environment.load()
+        env_vars = openmediavault.settings.Environment.as_dict()
+        self.assertGreater(len(env_vars.keys()), 0)
+
     def test_get_bool(self):
         value = openmediavault.settings.Environment.get_str("OMV_DEBUG_SCRIPT")
         self.assertTrue(isinstance(value, str))
@@ -42,6 +52,16 @@ class EnvironmentTestCase(unittest.TestCase):
             "OMV_XXX_YYY_ZZZ", 10.50
         )
         self.assertTrue(isinstance(value, float))
+
+    def test_get(self):
+        value = openmediavault.settings.Environment.get('foo', 'bar')
+        self.assertEqual(value, 'bar')
+
+    def test_get_key_error(self):
+        with self.assertRaises(KeyError) as ctx:
+            openmediavault.settings.Environment.get('foo')
+            self.assertEqual(str(ctx.exception),
+                             'The environment variable \'foo\' does not exist in \'/etc/default/openmediavault\'')
 
 
 if __name__ == "__main__":
