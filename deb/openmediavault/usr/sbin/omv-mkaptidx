@@ -19,6 +19,8 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+import json
+import re
 # The following error might happen from time to time.
 #
 # Traceback (most recent call last):
@@ -32,11 +34,11 @@
 # To fix this error simply execute the following command:
 # rm -f /usr/lib/python3/dist-packages/__pycache__/openmediavault.cpython-32.pyc
 import sys
+
 import apt
-import json
-import re
-import openmediavault
 import openmediavault.productinfo
+
+import openmediavault
 
 pi = openmediavault.productinfo.ProductInfo()
 
@@ -99,11 +101,9 @@ for pkg in cache.get_changes():
         continue
     data.append({
         "name": pkg.name,
-        "oldversion": pkg.installed.version if pkg.is_installed
-            and pkg.installed is not None else "",
-        "repository": "%s/%s" % (pkg.candidate.origins[0].label,
-                                 pkg.candidate.origins[0].archive)
-                                 if pkg.candidate.origins is not None else "",
+        "oldversion": pkg.installed.version if pkg.is_installed and pkg.installed is not None else "",
+        "repository": "%s/%s".format(pkg.candidate.origins[0].label, pkg.candidate.origins[0].archive)
+        if pkg.candidate.origins is not None else "",
         "package": pkg.candidate.record.get("Package"),
         "source": pkg.candidate.source_name,
         "sourceversion": pkg.candidate.source_version,
@@ -118,8 +118,7 @@ for pkg in cache.get_changes():
         "abstract": pkg.candidate.summary,  # Deprecated
         "summary": pkg.candidate.summary,
         "description": pkg.candidate.record.get("Description", ""),
-        "extendeddescription": get_extended_description(
-            pkg.candidate.raw_description),
+        "extendeddescription": get_extended_description(pkg.candidate.raw_description),
         "homepage": pkg.candidate.homepage,
         "descriptionmd5": pkg.candidate.record.get("Description-md5", ""),
         "multiarch": pkg.candidate.record.get("Multi-Arch", ""),
@@ -133,7 +132,7 @@ for pkg in cache.get_changes():
         "sha256": get_value(lambda: pkg.candidate.sha256),
         "uri": pkg.candidate.uri,
         "uris": pkg.candidate.uris
-    })  # yapf: disable
+    })
 with open(
     openmediavault.getenv(
         'OMV_APT_UPGRADE_INDEX_FILE',
@@ -153,9 +152,8 @@ for pkg in filtered:
         continue
     data.append({
         "name": pkg.name,
-        "repository": "%s/%s" % (pkg.candidate.origins[0].label,
-                                 pkg.candidate.origins[0].archive)
-                                 if pkg.candidate.origins is not None else "",
+        "repository": "%s/%s".format(pkg.candidate.origins[0].label, pkg.candidate.origins[0].archive)
+        if pkg.candidate.origins is not None else "",
         "package": pkg.candidate.record.get("Package"),
         "version": pkg.candidate.version,
         "installedsize": pkg.candidate.size,
@@ -168,8 +166,7 @@ for pkg in filtered:
         "abstract": pkg.candidate.summary,  # Deprecated
         "summary": pkg.candidate.summary,
         "description": pkg.candidate.record.get("Description", ""),
-        "extendeddescription": get_extended_description(
-            pkg.candidate.raw_description),
+        "extendeddescription": get_extended_description(pkg.candidate.raw_description),
         "homepage": pkg.candidate.homepage,
         "descriptionmd5": pkg.candidate.record.get("Description-md5", ""),
         "multiarch": pkg.candidate.record.get("Multi-Arch", ""),
@@ -183,7 +180,7 @@ for pkg in filtered:
         "sha1": get_value(lambda: pkg.candidate.sha1),
         "sha256": get_value(lambda: pkg.candidate.sha256),
         "installed": pkg.is_installed
-    })  # yapf: disable
+    })
 with open(
     openmediavault.getenv(
         'OMV_APT_PLUGINS_INDEX_FILE',

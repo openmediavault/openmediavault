@@ -18,9 +18,10 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+import argparse
 import os.path
 import sys
-import argparse
+
 import openmediavault.confdbadm
 import openmediavault.config.database
 import openmediavault.config.object

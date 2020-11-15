@@ -18,16 +18,18 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+import argparse
 import os
 import os.path
 import re
 import sys
-import argparse
 from distutils.version import LooseVersion
-import openmediavault
+
 import openmediavault.confdbadm
 import openmediavault.log
 import openmediavault.subprocess
+
+import openmediavault
 
 
 class Command(

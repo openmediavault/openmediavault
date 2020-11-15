@@ -20,9 +20,10 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import re
 import sys
+
+import dialog
 import openmediavault.firstaid
 import openmediavault.subprocess
-import dialog
 
 
 class Module(openmediavault.firstaid.IModule):

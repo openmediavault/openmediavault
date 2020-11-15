@@ -22,11 +22,12 @@ import os
 import sys
 
 import click
-import openmediavault
 import openmediavault.log
 import salt.client
 import salt.config
 import salt.output
+
+import openmediavault
 
 __args = {'quiet': False}
 __out = "highstate"
@@ -127,7 +128,7 @@ def deploy_run(names, no_color, quiet):
             sys.exit(100)
     # Execute the states.
     # https://docs.saltstack.com/en/latest/ref/runners/all/salt.runners.state.html#salt.runners.state.orchestrate
-    names = list(map(lambda x: "omv.deploy.{}".format(x), names))  # pylint: disable=unnecessary-lambda
+    names = list(map(lambda x: "omv.deploy.{}".format(x), names))
     mopts = salt.config.minion_config(__salt_minion_config_file)
     caller = salt.client.Caller(mopts=mopts)
     result = caller.cmd("state.orchestrate", names)

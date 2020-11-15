@@ -18,11 +18,11 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-import mock
-import pyudev
 import unittest
 
+import mock
 import openmediavault.device
+import pyudev
 
 
 class MockedPyUdevDevice:

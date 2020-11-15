@@ -18,17 +18,19 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-import os
-import sys
-import glob
 import datetime
+import glob
+import os
 import subprocess
-import openmediavault
+import sys
+
+import dialog
 import openmediavault.config.database
 import openmediavault.firstaid
 import openmediavault.monit
 import openmediavault.subprocess
-import dialog
+
+import openmediavault
 
 
 class Module(openmediavault.firstaid.IModule):

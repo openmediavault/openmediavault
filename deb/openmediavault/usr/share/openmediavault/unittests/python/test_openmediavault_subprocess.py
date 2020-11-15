@@ -20,6 +20,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import subprocess
 import unittest
+
 import mock
 import openmediavault.subprocess
 

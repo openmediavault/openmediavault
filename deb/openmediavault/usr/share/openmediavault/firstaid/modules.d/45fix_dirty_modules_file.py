@@ -18,11 +18,13 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-import sys
-import os
 import json
-import openmediavault
+import os
+import sys
+
 import openmediavault.firstaid
+
+import openmediavault
 
 
 class Module(openmediavault.firstaid.IModule):

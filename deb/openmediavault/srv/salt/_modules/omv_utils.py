@@ -27,7 +27,6 @@ import openmediavault.device
 import openmediavault.fs
 import openmediavault.net
 import openmediavault.string
-
 # Import Salt libs
 import salt.utils.network
 from salt.utils.decorators.jinja import jinja_filter, jinja_test

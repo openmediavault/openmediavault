@@ -19,9 +19,10 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import sys
+
+import dialog
 import openmediavault.firstaid
 import openmediavault.rpc
-import dialog
 
 
 class Module(openmediavault.firstaid.IModule):
@@ -78,8 +79,9 @@ class Module(openmediavault.firstaid.IModule):
                     width=30,
                 )
         print("Updating control panel administrator password. Please wait ...")
-        openmediavault.rpc.call("UserMgmt", "setPasswordByContext",
-                                {"password": password})
+        openmediavault.rpc.call(
+            "UserMgmt", "setPasswordByContext", {"password": password}
+        )
         # openmediavault.rpc.call("Config", "applyChanges",
         # 	{ "modules": [], "force": False })
         print(

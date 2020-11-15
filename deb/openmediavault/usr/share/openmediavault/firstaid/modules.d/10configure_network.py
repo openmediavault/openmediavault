@@ -18,17 +18,19 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-import sys
 import ipaddress
 import re
+import sys
+
+import dialog
 import natsort
-import openmediavault
 import openmediavault.firstaid
 import openmediavault.net
 import openmediavault.rpc
 import openmediavault.string
-import dialog
 import pyudev
+
+import openmediavault
 
 
 class Module(openmediavault.firstaid.IModule):

@@ -41,6 +41,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
         args = []
         # yapf: disable
         # pylint: disable=line-too-long
+        # autopep8: off
         args.append('{image_dir}/cpu-0-{period}.png'.format(**config))
         args.extend(config['defaults'])
         args.extend(['--start', config['start']])
@@ -68,6 +69,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
         args.append('AREA:idle{color_cpu_idle}:"Idle":STACK'.format(**config))
         args.append('COMMENT:"\c"')
         args.append('COMMENT:"{last_update}"'.format(**config))
+        # autopep8: on
         # yapf: enable
         openmediavault.mkrrdgraph.call_rrdtool_graph(args)
         return 0

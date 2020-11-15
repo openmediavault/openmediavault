@@ -18,14 +18,16 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-import unittest
 import os
 import shutil
 import tempfile
+import unittest
+
 import lxml.etree
-import openmediavault
 import openmediavault.config.database
 import openmediavault.config.object
+
+import openmediavault
 
 
 class DatabaseTestCase(unittest.TestCase):
@@ -37,9 +39,9 @@ class DatabaseTestCase(unittest.TestCase):
 
     def _use_tmp_config_database(self):
         """
-		Create a copy of the database and use this. This is useful if the
-		database is modified during the test.
-		"""
+        Create a copy of the database and use this. This is useful if the
+        database is modified during the test.
+        """
         config_file = "%s/../data/config.xml" % os.getcwd()
         (fh, tmp_config_file) = tempfile.mkstemp()
         shutil.copy(config_file, tmp_config_file)

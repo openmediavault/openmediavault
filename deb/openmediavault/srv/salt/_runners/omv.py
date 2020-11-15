@@ -20,8 +20,9 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 import logging
-import openmediavault.settings
+
 import openmediavault.productinfo
+import openmediavault.settings
 import yaml
 
 log = logging.getLogger(__name__)

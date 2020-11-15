@@ -258,7 +258,7 @@ class StorageDevice(openmediavault.device.StorageDevice):
             matches = re.match(
                 r'.*^({}\s*:.*?)^\s*$'.format(self.device_name(True)),
                 content,
-                flags=re.IGNORECASE | re.MULTILINE | re.DOTALL
+                flags=re.IGNORECASE | re.MULTILINE | re.DOTALL,
             )
             if not matches:
                 return False
@@ -267,7 +267,7 @@ class StorageDevice(openmediavault.device.StorageDevice):
             matches = re.match(
                 r'^.+(resync|reshape|recovery)\s*=\s*(.+)$',
                 mdstat,
-                flags=re.IGNORECASE | re.MULTILINE
+                flags=re.IGNORECASE | re.MULTILINE,
             )
             if matches:
                 progress = matches.group(2).strip()

@@ -79,7 +79,9 @@ def get_by_filter(id_, filter_, **kwargs):
         list of configuration objects.
     """
     db = openmediavault.config.Database()
-    objs = db.get_by_filter(id_, openmediavault.config.DatabaseFilter(filter_), **kwargs)
+    objs = db.get_by_filter(
+        id_, openmediavault.config.DatabaseFilter(filter_), **kwargs
+    )
     if isinstance(objs, list):
         return [obj.get_dict() for obj in objs]
     return objs.get_dict()

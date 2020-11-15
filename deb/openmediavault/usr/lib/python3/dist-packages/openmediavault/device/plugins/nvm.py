@@ -32,7 +32,11 @@ class StorageDevicePlugin(openmediavault.device.IStorageDevicePlugin):
         # - /dev/nvme0n1p1
         device_name = re.sub(r'^/dev/', '', device_file)
         return (
-            re.match(r'^nvme[0-9]+n[0-9]+(p[0-9]+)*$', device_name,) is not None
+            re.match(
+                r'^nvme[0-9]+n[0-9]+(p[0-9]+)*$',
+                device_name,
+            )
+            is not None
         )
 
     def from_device_file(self, device_file):

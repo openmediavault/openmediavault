@@ -19,6 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import unittest
+
 import openmediavault.settings
 
 
@@ -60,8 +61,10 @@ class EnvironmentTestCase(unittest.TestCase):
     def test_get_key_error(self):
         with self.assertRaises(KeyError) as ctx:
             openmediavault.settings.Environment.get('foo')
-            self.assertEqual(str(ctx.exception),
-                             'The environment variable \'foo\' does not exist in \'/etc/default/openmediavault\'')
+            self.assertEqual(
+                str(ctx.exception),
+                'The environment variable \'foo\' does not exist in \'/etc/default/openmediavault\'',
+            )
 
 
 if __name__ == "__main__":

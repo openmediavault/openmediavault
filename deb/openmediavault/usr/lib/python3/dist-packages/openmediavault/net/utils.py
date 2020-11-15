@@ -59,11 +59,17 @@ def is_ethernet(name):
     #
     # Understanding systemd’s predictable network device names:
     # https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c
-    return True if re.match(
-        r'^(eth|venet)[0-9]+|veth[a-z0-9]+|'
-        r'en(b\d+|c\d+|o\d+(n\S+|d\d+)?|s\d+(f\d+)?(n\S+|d\d+)?|'
-        r'x[\da-f]{12}|(P\d+)?p\d+s\d+(f\d+)?(n\S+|d\d+)?|'
-        r'(P\d+)?p\d+s\d+(f\d+)?(u\d+)*(c\d+)?(i\d+)?)$', name) else False
+    return (
+        True
+        if re.match(
+            r'^(eth|venet)[0-9]+|veth[a-z0-9]+|'
+            r'en(b\d+|c\d+|o\d+(n\S+|d\d+)?|s\d+(f\d+)?(n\S+|d\d+)?|'
+            r'x[\da-f]{12}|(P\d+)?p\d+s\d+(f\d+)?(n\S+|d\d+)?|'
+            r'(P\d+)?p\d+s\d+(f\d+)?(u\d+)*(c\d+)?(i\d+)?)$',
+            name,
+        )
+        else False
+    )
 
 
 def is_wifi(name):
@@ -99,11 +105,17 @@ def is_wifi(name):
     #
     # Understanding systemd’s predictable network device names:
     # https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c
-    return True if re.match(
-        r'^wlan[0-9]+|wl(b\d+|c\d+|o\d+(n\S+|d\d+)?|'
-        r's\d+(f\d+)?(n\S+|d\d+)?|'
-        r'x[\da-f]{12}|(P\d+)?p\d+s\d+(f\d+)?(n\S+|d\d+)?|'
-        r'(P\d+)?p\d+s\d+(f\d+)?(u\d+)*(c\d+)?(i\d+)?)$', name) else False
+    return (
+        True
+        if re.match(
+            r'^wlan[0-9]+|wl(b\d+|c\d+|o\d+(n\S+|d\d+)?|'
+            r's\d+(f\d+)?(n\S+|d\d+)?|'
+            r'x[\da-f]{12}|(P\d+)?p\d+s\d+(f\d+)?(n\S+|d\d+)?|'
+            r'(P\d+)?p\d+s\d+(f\d+)?(u\d+)*(c\d+)?(i\d+)?)$',
+            name,
+        )
+        else False
+    )
 
 
 def is_bond(name):

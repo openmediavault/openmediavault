@@ -31,7 +31,10 @@ class StorageDevicePlugin(openmediavault.device.IStorageDevicePlugin):
         # - /dev/cciss/c0d0p2
         device_name = re.sub(r'^/dev/', '', device_file)
         return (
-            re.match(r'^cciss/c[0-9]+d[0-9]+(p[0-9]+)?$', device_name,)
+            re.match(
+                r'^cciss/c[0-9]+d[0-9]+(p[0-9]+)?$',
+                device_name,
+            )
             is not None
         )
 
