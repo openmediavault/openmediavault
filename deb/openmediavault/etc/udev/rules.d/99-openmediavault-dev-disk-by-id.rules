@@ -25,10 +25,43 @@
 # Documentation/Howto:
 # https://www.freedesktop.org/software/systemd/man/udev.html
 # https://wiki.ubuntuusers.de/udev/
+# https://www.tecmint.com/udev-for-device-detection-management-in-linux/
+
+ACTION=="remove", GOTO="omv_dev_disk_by_id_end"
+KERNEL!="sd*", GOTO="omv_dev_disk_by_id_end"
+SUBSYSTEM!="block", GOTO="omv_dev_disk_by_id_end"
+ENV{DEVTYPE}!="disk", GOTO="omv_dev_disk_by_id_end"
 
 # JMicron
-ACTION=="add", KERNEL=="sd*", SUBSYSTEMS=="usb", \
-  ENV{ID_VENDOR}=="JMicron", \
+# DEVPATH=/devices/platform/soc/soc:usb3-0/12000000.dwc3/xhci-hcd.3.auto/usb4/4-1/4-1:1.0/host0/target0:0:0/0:0:0:0/block/sda
+# DEVNAME=/dev/sda
+# DEVTYPE=disk
+# MAJOR=8
+# MINOR=0
+# SUBSYSTEM=block
+# USEC_INITIALIZED=16854982
+# ID_VENDOR=JMicron
+# ID_VENDOR_ENC=JMicron\x20
+# ID_VENDOR_ID=152d
+# ID_MODEL=USB_to_SATA_bridge
+# ID_MODEL_ENC=USB\x20to\x20SATA\x20bridge
+# ID_MODEL_ID=0578
+# ID_REVISION=0105
+# ID_SERIAL=USB-1832E14CEB27-0:0
+# ID_SERIAL_SHORT=1832E14CEB27
+# ID_TYPE=disk
+# ID_INSTANCE=0:0
+# ID_BUS=usb
+# ID_USB_INTERFACES=:080650:080662:
+# ID_USB_INTERFACE_NUM=00
+# ID_USB_DRIVER=uas
+# ID_PATH=platform-xhci-hcd.3.auto-usb-0:1:1.0-scsi-0:0:0:0
+# ID_PATH_TAG=platform-xhci-hcd_3_auto-usb-0_1_1_0-scsi-0_0_0_0
+# ID_PART_TABLE_UUID=485df466-d2c1-499a-8767-329d11af536b
+# ID_PART_TABLE_TYPE=gpt
+# DEVLINKS=...
+# TAGS=:systemd:
+ENV{ID_VENDOR}=="JMicron", \
   PROGRAM="/usr/lib/udev/serial_id %N", \
   ENV{ID_SERIAL}="USB-%c-$env{ID_INSTANCE}", \
   ENV{ID_SERIAL_SHORT}="%c", \
@@ -37,8 +70,8 @@ ACTION=="add", KERNEL=="sd*", SUBSYSTEMS=="usb", \
 
 # JMicron JMS561U two ports SATA 6Gb/s bridge
 # https://www.sabrent.com/product/EC-DFLT/usb-3-0-sata-external-hard-drive-lay-flat-docking-station-2-5-3-5in-hdd-ssd/
-ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
-  ENV{ID_VENDOR_ID}=="152d", ENV{ID_MODEL_ID}=="1561", \
+ENV{ID_VENDOR_ID}=="152d", \
+  ENV{ID_MODEL_ID}=="1561", \
   PROGRAM="/usr/lib/udev/serial_id %N", \
   ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
   ENV{ID_SERIAL_SHORT}="%c", \
@@ -47,8 +80,36 @@ ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
   SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
 
 # JMicron JM20337 USB PATA/SATA bridge on Orangepi PC2
-ACTION=="add", KERNEL=="sd*", SUBSYSTEMS=="usb", \
-  ATTRS{idVendor}=="152d", ATTRS{idProduct}=="2338", \
+# DEVPATH=/devices/platform/soc/1c1b000.usb/usb3/3-1/3-1:1.0/host0/target0:0:0/0:0:0:0/block/sda
+# DEVNAME=/dev/sda
+# DEVTYPE=disk
+# MAJOR=8
+# MINOR=0
+# SUBSYSTEM=block
+# USEC_INITIALIZED=7523465
+# ID_VENDOR=WDC_WD50
+# ID_VENDOR_ENC=WDC\x20WD50
+# ID_VENDOR_ID=152d
+# ID_MODEL=00AAKB-00H8A0
+# ID_MODEL_ENC=00AAKB-00H8A0\x20\x20\x20
+# ID_MODEL_ID=2338
+# ID_REVISION=0100
+# ID_SERIAL=WDC_WD50_00AAKB-00H8A0_7D5000AA5B50-0:0
+# ID_SERIAL_SHORT=7D5000AA5B50
+# ID_TYPE=disk
+# ID_INSTANCE=0:0
+# ID_BUS=usb
+# ID_USB_INTERFACES=:080650:
+# ID_USB_INTERFACE_NUM=00
+# ID_USB_DRIVER=usb-storage
+# ID_PATH=platform-1c1b000.usb-usb-0:1:1.0-scsi-0:0:0:0
+# ID_PATH_TAG=platform-1c1b000_usb-usb-0_1_1_0-scsi-0_0_0_0
+# ID_PART_TABLE_UUID=00049a1f
+# ID_PART_TABLE_TYPE=dos
+# DEVLINKS=...
+# TAGS=:systemd:
+ATTRS{idVendor}=="152d", \
+  ATTRS{idProduct}=="2338", \
   PROGRAM="/usr/lib/udev/serial_id %N", \
   ENV{ID_SERIAL}="USB-%c-$env{ID_INSTANCE}", \
   ENV{ID_SERIAL_SHORT}="%c", \
@@ -57,8 +118,8 @@ ACTION=="add", KERNEL=="sd*", SUBSYSTEMS=="usb", \
 
 # ORICO 2.5 inch Hard Drive Adapter (27UTS)
 # http://my.orico.cc/goods.php?id=6355
-ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
-  ATTRS{idVendor}=="0080", ATTRS{idProduct}=="a001", \
+ATTRS{idVendor}=="0080", \
+  ATTRS{idProduct}=="a001", \
   PROGRAM="/usr/lib/udev/serial_id %N", \
   ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
   ENV{ID_SERIAL_SHORT}="%c", \
@@ -103,8 +164,8 @@ ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
 # E: ID_PART_TABLE_TYPE=gpt
 # E: DEVLINKS=/dev/disk/by-id/usb-External_USB3.0_DISK00_20170331000C3-0:0 /dev/disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.2:1.0-scsi-0:0:0:0
 # E: TAGS=:systemd:
-ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
-  ENV{ID_VENDOR}=="External", ENV{ID_MODEL}=="USB3.0_DISK00", \
+ENV{ID_VENDOR}=="External", \
+  ENV{ID_MODEL}=="USB3.0_DISK00", \
   PROGRAM="/usr/lib/udev/serial_id %N", \
   ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
   ENV{ID_SERIAL_SHORT}="%c", \
@@ -154,8 +215,8 @@ ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
 # E: ID_FS_USAGE=filesystem
 # E: DEVLINKS=/dev/disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:2:1.0-scsi-0:0:0:0 /dev/disk/by-id/usb-ACASIS_Go_To_Final_Lap_1234567890123-0:0 /dev/disk/by-label/SDA2Tpictures /dev/disk/by-uuid/cc08740f-b9db-460f-a89e-9d5fb4b334bd
 # E: TAGS=:systemd:
-ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
-  ENV{ID_VENDOR}=="ACASIS", ENV{ID_MODEL}=="Go_To_Final_Lap", \
+ENV{ID_VENDOR}=="ACASIS", \
+  ENV{ID_MODEL}=="Go_To_Final_Lap", \
   PROGRAM="/usr/lib/udev/serial_id %N", \
   ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
   ENV{ID_SERIAL_SHORT}="%c", \
@@ -200,10 +261,17 @@ ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
 # E: ID_PART_TABLE_TYPE=gpt
 # E: DEVLINKS=/dev/disk/by-path/pci-0000:00:15.0-usb-0:2:1.0-scsi-0:0:0:0 /dev/disk/by-id/usb-SABRENT_SABRENT_000000123AD2-0:0
 # E: TAGS=:systemd:
-ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", \
-  ENV{ID_VENDOR_ID}=="2109", ENV{ID_MODEL_ID}=="0715", \
+ENV{ID_VENDOR_ID}=="2109", \
+  ENV{ID_MODEL_ID}=="0715", \
   PROGRAM="/usr/lib/udev/serial_id %N", \
   ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
   ENV{ID_SERIAL_SHORT}="%c", \
   SYMLINK="disk/by-path/$env{ID_PATH}", \
   SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# by-id (World Wide Name)
+SYMLINK=="*disk/by-id/wwn-*", GOTO="omv_skip_by_id_wwn"
+ENV{ID_WWN_WITH_EXTENSION}=="?*", SYMLINK+="disk/by-id/wwn-$env{ID_WWN_WITH_EXTENSION}"
+LABEL="omv_skip_by_id_wwn"
+
+LABEL="omv_dev_disk_by_id_end"
