@@ -18,13 +18,14 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-import os.path
-import sys
 import argparse
 import json
+import os.path
+import sys
+
 import openmediavault.confdbadm
-import openmediavault.config.object
 import openmediavault.config.database
+import openmediavault.config.object
 
 
 class Command(

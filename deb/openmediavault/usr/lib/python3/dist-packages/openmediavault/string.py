@@ -26,8 +26,8 @@ __all__ = [
     "is_fs_uuid",
 ]
 
-import re
 import json
+import re
 import uuid
 
 

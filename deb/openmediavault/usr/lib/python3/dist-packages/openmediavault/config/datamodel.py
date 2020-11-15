@@ -22,9 +22,10 @@ __all__ = ["Datamodel"]
 
 import os
 
-import openmediavault
 import openmediavault.datamodel.datamodel
 import openmediavault.json.schema
+
+import openmediavault
 
 
 class DatamodelNotFoundException(Exception):
@@ -282,7 +283,8 @@ class Datamodel(openmediavault.datamodel.Datamodel):
         prop_schema = self.schema.get_by_path(name)
         if isinstance(prop_schema['type'], list):
             raise openmediavault.json.SchemaException(
-                "The attribute 'type' must not be an array at '%s'." % name)
+                "The attribute 'type' must not be an array at '%s'." % name
+            )
         try:
             if "boolean" == prop_schema['type']:
                 result = openmediavault.bool(value)
@@ -296,8 +298,9 @@ class Datamodel(openmediavault.datamodel.Datamodel):
                 result = value
         except ValueError as e:
             # Re-raise the exception, but with a more meaningful message.
-            raise ValueError("Failed to convert property '{}': {}".format(
-                name, str(e)))
+            raise ValueError(
+                "Failed to convert property '{}': {}".format(name, str(e))
+            )
         return result
 
     def walk_schema(self, path, callback, user_data=None):

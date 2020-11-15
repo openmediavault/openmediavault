@@ -20,14 +20,14 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import re
 import sys
-
 from typing import List
 
 import click
 import natsort
-import openmediavault
 import openmediavault.settings
 import openmediavault.subprocess
+
+import openmediavault
 
 
 def grep_env_vars() -> List[str]:

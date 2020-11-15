@@ -19,8 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import unittest
-import openmediavault.json.schema
+
 import openmediavault.datamodel.schema
+import openmediavault.json.schema
 
 
 class SchemaTestCase(unittest.TestCase):

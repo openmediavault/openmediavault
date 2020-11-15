@@ -22,16 +22,17 @@ __all__ = ["ICommand"]
 
 import abc
 import argparse
-import os
-import shutil
 import json
+import os
 import re
+import shutil
 import sys
 import tempfile
 
-import openmediavault
 import openmediavault.config.datamodel
 import openmediavault.string
+
+import openmediavault
 
 
 class ICommand(abc.ABC):

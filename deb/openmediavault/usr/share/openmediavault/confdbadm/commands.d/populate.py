@@ -20,9 +20,11 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
 import sys
-import openmediavault
+
 import openmediavault.confdbadm
 import openmediavault.subprocess
+
+import openmediavault
 
 
 class Command(openmediavault.confdbadm.ICommand):

@@ -21,10 +21,10 @@
 __all__ = ["Environment"]
 
 import re
-
 from typing import Dict, Union
 
 import natsort
+
 import openmediavault
 
 DEFAULT_FILE = "/etc/default/openmediavault"
@@ -82,7 +82,9 @@ class Environment:
     @staticmethod
     def save():
         with open(DEFAULT_FILE, 'w') as fd:
-            for key, value in natsort.humansorted(Environment.as_dict().items()):
+            for key, value in natsort.humansorted(
+                Environment.as_dict().items()
+            ):
                 if key.startswith('OMV_'):
                     fd.write('{}={}\n'.format(key, value))
 
@@ -97,7 +99,10 @@ class Environment:
         is a string and the value a boolean, float, integer or string.
         :returns: Returns the environment variables as Python dictionary.
         """
-        return {key: env_var.value for (key, env_var) in Environment._env_vars.items()}
+        return {
+            key: env_var.value
+            for (key, env_var) in Environment._env_vars.items()
+        }
 
     @staticmethod
     def _get(key: str, default=None) -> EnvironmentVariable:

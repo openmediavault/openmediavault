@@ -23,12 +23,13 @@ __all__ = ["Object"]
 import json
 import uuid
 
-import openmediavault
-import openmediavault.string
-import openmediavault.config.datamodel
 import openmediavault.collections
+import openmediavault.config.datamodel
 import openmediavault.exceptions
 import openmediavault.json.schema
+import openmediavault.string
+
+import openmediavault
 
 
 class Object:

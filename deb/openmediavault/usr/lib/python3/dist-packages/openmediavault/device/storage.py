@@ -18,8 +18,6 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-from cached_property import cached_property
-
 import abc
 import importlib
 import os
@@ -27,6 +25,7 @@ import pkgutil
 import re
 
 import openmediavault.string
+from cached_property import cached_property
 
 from .block import BlockDevice
 
@@ -272,8 +271,9 @@ class StorageDevice(BlockDevice):
         # 'proc_name' is the "name of proc directory" of a driver, if
         # the driver maintained one.
         host_name = None
-        real_device_path = os.path.realpath('/sys/block/{}'.format(
-            self.device_name(True)))
+        real_device_path = os.path.realpath(
+            '/sys/block/{}'.format(self.device_name(True))
+        )
         for part in real_device_path.split('/'):
             if re.match(r'^host\d+$', part):
                 host_name = part
@@ -281,8 +281,8 @@ class StorageDevice(BlockDevice):
         if host_name:
             try:
                 with open(
-                        '/sys/class/scsi_host/{}/proc_name'.format(host_name),
-                        'r') as f:
+                    '/sys/class/scsi_host/{}/proc_name'.format(host_name), 'r'
+                ) as f:
                     return f.readline().strip()
             except (IOError, FileNotFoundError):
                 pass

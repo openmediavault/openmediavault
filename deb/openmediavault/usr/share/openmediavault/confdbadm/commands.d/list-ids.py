@@ -19,12 +19,14 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import glob
-import sys
 import os.path
-import openmediavault
+import sys
+
+import natsort
 import openmediavault.confdbadm
 import openmediavault.config.datamodel
-import natsort
+
+import openmediavault
 
 
 class Command(

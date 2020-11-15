@@ -19,13 +19,14 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
-import pyudev
 import subprocess
 
-import openmediavault
 import openmediavault.device
-import openmediavault.subprocess
 import openmediavault.string
+import openmediavault.subprocess
+import pyudev
+
+import openmediavault
 
 
 def make_mount_path(id_):

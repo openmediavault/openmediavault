@@ -20,12 +20,14 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
 import sys
+
 import dialog
 import natsort
-import openmediavault
 import openmediavault.firstaid
-import openmediavault.productinfo
 import openmediavault.log
+import openmediavault.productinfo
+
+import openmediavault
 
 
 def load_modules():
@@ -79,7 +81,7 @@ def main():
             module = modules[int(tag) - 1]
             try:
                 rc = module.execute()
-            except Exception as e: # pylint: disable=broad-except
+            except Exception as e:  # pylint: disable=broad-except
                 rc = 1
                 openmediavault.log.error(str(e))
             break

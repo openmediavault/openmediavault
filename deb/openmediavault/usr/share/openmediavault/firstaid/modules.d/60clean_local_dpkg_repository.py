@@ -21,9 +21,11 @@
 import glob
 import os
 import sys
-import openmediavault
+
 import openmediavault.firstaid
 import openmediavault.subprocess
+
+import openmediavault
 
 
 class Module(openmediavault.firstaid.IModule):

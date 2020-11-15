@@ -18,6 +18,6 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+from .database import *
 from .datamodel import *
 from .object import *
-from .database import *

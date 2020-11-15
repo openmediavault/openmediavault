@@ -21,6 +21,7 @@
 __all__ = ["ProductInfo"]
 
 import xml.etree.ElementTree
+
 import apt
 
 import openmediavault

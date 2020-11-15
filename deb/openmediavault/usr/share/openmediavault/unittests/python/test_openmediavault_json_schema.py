@@ -19,6 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import unittest
+
 import openmediavault.json.schema
 
 
@@ -38,7 +39,10 @@ class SchemaTestCase(unittest.TestCase):
                                 "type": "string",
                                 "default": "pool.ntp.org",
                             },
-                            "clients": {"type": "string", "default": "",},
+                            "clients": {
+                                "type": "string",
+                                "default": "",
+                            },
                         },
                     },
                     "privilege": {

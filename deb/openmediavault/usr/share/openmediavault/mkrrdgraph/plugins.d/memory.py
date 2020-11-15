@@ -37,6 +37,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
         args = []
         # yapf: disable
         # pylint: disable=line-too-long
+        # autopep8: off
         args.append('{image_dir}/memory-{period}.png'.format(**config))
         args.extend(config['defaults'])
         args.extend(['--start', config['start']])
@@ -78,6 +79,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
         args.append('GPRINT:fmax:MAX:"%5.1lf%sB Max"')
         args.append('GPRINT:favg:LAST:"%5.1lf%sB Last\l"')
         args.append('COMMENT:"{last_update}"'.format(**config))
+        # autopep8: on
         # yapf: enable
         openmediavault.mkrrdgraph.call_rrdtool_graph(args)
         return 0

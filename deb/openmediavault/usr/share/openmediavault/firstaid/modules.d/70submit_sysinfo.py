@@ -18,15 +18,16 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-import sys
-import tempfile
 import shutil
 import socket
+import sys
+import tempfile
 import time
+
+import dialog
 import openmediavault.firstaid
 import openmediavault.subprocess
 import openmediavault.systemd
-import dialog
 import pyudev
 
 

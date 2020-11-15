@@ -19,17 +19,13 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
-import pyudev
 import re
 
 import openmediavault.subprocess
+import pyudev
 
-from .utils import (
-    is_block_device,
-    is_device_file_by_id,
-    is_device_file_by_path,
-    is_device_file_by_uuid,
-)
+from .utils import (is_block_device, is_device_file_by_id,
+                    is_device_file_by_path, is_device_file_by_uuid)
 
 
 class BlockDevice:
@@ -190,7 +186,7 @@ class BlockDevice:
         return re.sub(
             r'^/dev/',
             '',
-            self.device_file if not canonical else self.canonical_device_file
+            self.device_file if not canonical else self.canonical_device_file,
         )
 
     @property
