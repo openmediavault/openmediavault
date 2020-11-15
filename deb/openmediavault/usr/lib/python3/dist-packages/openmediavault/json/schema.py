@@ -465,7 +465,7 @@ class Schema:
                 raise SchemaValidationException(
                     name,
                     "Invalid value '%s', allowed values are '%s'."
-                    % (valuev, ", ".join(schema['enum'])),
+                    % (valuev, ", ".join(map(str, schema['enum']))),
                 )
 
     def _check_min_items(self, value, schema, name):
