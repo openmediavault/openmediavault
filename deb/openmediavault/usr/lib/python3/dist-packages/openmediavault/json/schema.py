@@ -127,7 +127,8 @@ class Schema:
                 if "array" == schema['type']:
                     if "items" not in schema:
                         raise SchemaException(
-                            "No 'items' attribute defined at '{}'.".format(path)
+                            "No 'items' attribute defined at '{}'.".format(
+                                path)
                         )
                     return _walk_schema(path, schema['items'])
                 elif "object" == schema['type']:

@@ -63,7 +63,7 @@ omv_build_doc: debian/doxygen.conf
 	doxygen $<
 
 omv_beautify_py:
-	autopep8 --max-line-length 80 --in-place --recursive --verbose .
+	autopep8 --max-line-length 79 --in-place --recursive --verbose .
 	isort .
 
 omv_lint_py:

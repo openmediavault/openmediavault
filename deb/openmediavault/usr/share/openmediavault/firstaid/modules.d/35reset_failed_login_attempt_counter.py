@@ -57,7 +57,8 @@ class Module(openmediavault.firstaid.IModule):
             return 0
         username = tag
         print(
-            "Reset failed login attempt counter for user '{}'.".format(username)
+            "Reset failed login attempt counter for user '{}'.".format(
+                username)
         )
         openmediavault.subprocess.check_call(
             ["pam_tally2", "--quiet", "--reset=0", "--user", username]

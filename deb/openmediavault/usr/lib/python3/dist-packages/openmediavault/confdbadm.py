@@ -105,7 +105,8 @@ class CommandHelper:
             raise RuntimeError("No configuration backup exists.")
         if not self._backup_path:
             return
-        shutil.copy(self._backup_path, openmediavault.getenv("OMV_CONFIG_FILE"))
+        shutil.copy(self._backup_path,
+                    openmediavault.getenv("OMV_CONFIG_FILE"))
 
     def argparse_is_uuid4(self, arg):
         """
