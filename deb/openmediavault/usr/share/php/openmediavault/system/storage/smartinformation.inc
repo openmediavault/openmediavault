@@ -372,6 +372,27 @@ class SmartInformation {
 			// Append key/value to result array.
 			$result[$attrKey] = $matches[2];
 		}
+		// Map various keys if the user has installed an unsupported
+		// smartmontools version.
+		//
+		// smartctl 7.1 2019-12-30 r5022 ...
+		// ...
+		// === START OF INFORMATION SECTION ===
+		// Model Number:     WDC WD2502ABYS-02B7A0
+		// Serial Number:    WD-WCAV1B245569
+		// Firmware Version: 02.03B03
+		// ...
+		$attrKeyMap = [
+			'modelnumber' => 'devicemodel'
+		];
+		foreach($attrKeyMap as $attrKeyk => $attrKeyv) {
+			// Copy new attributes only if the origin attribute does
+			// not exist.
+			if (array_key_exists($attrKeyk) && !array_key_exists(
+					$attrKeyv)) {
+				$result[$attrKeyv] = $result[$attrKeyk];
+			}
+		}
 		return $result;
 	}
 
