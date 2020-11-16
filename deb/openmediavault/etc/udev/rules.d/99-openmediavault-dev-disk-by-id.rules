@@ -269,6 +269,69 @@ ENV{ID_VENDOR_ID}=="2109", \
   SYMLINK="disk/by-path/$env{ID_PATH}", \
   SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
 
+# JMS551 - Sharkoon SATA QuickPort Duo
+# https://devicehunt.com/view/type/usb/vendor/152D/device/0561
+# http://www.hornettek.com/hdd-enclosure/dual-bay/hornettek-usb-3-0-dual-2-5-hdd-sdd-enclosure-w-raid-ht-rab237.html
+#
+# P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-2/2-2:1.0/host0/target0:0:0/0:0:0:0/block/sda/sda1
+# N: sda1
+# L: 0
+# S: disk/by-uuid/ad0eff7e-b1b7-485a-831f-dd27d84c7065
+# S: disk/by-id/usb-SanDisk_SDSSDH3_1T02_RANDOM__622374CDBF83-0:0-part1
+# S: disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:2:1.0-scsi-0:0:0:0-part1
+# S: disk/by-partuuid/4b019603-fb86-47f5-a894-9b3e3ac951ff
+# S: disk/by-label/1TB
+# E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-2/2-2:1.0/host0/target0:0:0/0:0:0:0/block/sda/sda1
+# E: DEVNAME=/dev/sda1
+# E: DEVTYPE=partition
+# E: PARTN=1
+# E: MAJOR=8
+# E: MINOR=1
+# E: SUBSYSTEM=block
+# E: USEC_INITIALIZED=5674561
+# E: ID_VENDOR=SanDisk
+# E: ID_VENDOR_ENC=SanDisk\x20
+# E: ID_VENDOR_ID=152d
+# E: ID_MODEL=SDSSDH3_1T02
+# E: ID_MODEL_ENC=SDSSDH3\x201T02\x20\x20\x20\x20
+# E: ID_MODEL_ID=0561
+# E: ID_REVISION=0108
+# E: ID_SERIAL=SanDisk_SDSSDH3_1T02_RANDOM__622374CDBF83-0:0
+# E: ID_SERIAL_SHORT=RANDOM__622374CDBF83
+# E: ID_TYPE=disk
+# E: ID_INSTANCE=0:0
+# E: ID_BUS=usb
+# E: ID_USB_INTERFACES=:080650:080662:
+# E: ID_USB_INTERFACE_NUM=00
+# E: ID_USB_DRIVER=uas
+# E: ID_PATH=platform-fd500000.pcie-pci-0000:01:00.0-usb-0:2:1.0-scsi-0:0:0:0
+# E: ID_PATH_TAG=platform-fd500000_pcie-pci-0000_01_00_0-usb-0_2_1_0-scsi-0_0_0_0
+# E: ID_PART_TABLE_UUID=39c29a25-ee97-4738-a043-70457295818c
+# E: ID_PART_TABLE_TYPE=gpt
+# E: ID_FS_LABEL=1TB
+# E: ID_FS_LABEL_ENC=1TB
+# E: ID_FS_UUID=ad0eff7e-b1b7-485a-831f-dd27d84c7065
+# E: ID_FS_UUID_ENC=ad0eff7e-b1b7-485a-831f-dd27d84c7065
+# E: ID_FS_VERSION=1.0
+# E: ID_FS_TYPE=ext4
+# E: ID_FS_USAGE=filesystem
+# E: ID_PART_ENTRY_SCHEME=gpt
+# E: ID_PART_ENTRY_UUID=4b019603-fb86-47f5-a894-9b3e3ac951ff
+# E: ID_PART_ENTRY_TYPE=0fc63daf-8483-4772-8e79-3d69d8477de4
+# E: ID_PART_ENTRY_NUMBER=1
+# E: ID_PART_ENTRY_OFFSET=2048
+# E: ID_PART_ENTRY_SIZE=2000407183
+# E: ID_PART_ENTRY_DISK=8:0
+# E: DEVLINKS=...
+ENV{ID_VENDOR_ID}=="152d",
+  ENV{ID_MODEL_ID}=="0561", \
+  PROGRAM="/usr/lib/udev/serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  ENV{ID_SERIAL_SHORT}="%c", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
 # by-id (World Wide Name)
 SYMLINK=="*disk/by-id/wwn-*", GOTO="omv_skip_by_id_wwn"
 ENV{ID_WWN_WITH_EXTENSION}=="?*", SYMLINK+="disk/by-id/wwn-$env{ID_WWN_WITH_EXTENSION}"
