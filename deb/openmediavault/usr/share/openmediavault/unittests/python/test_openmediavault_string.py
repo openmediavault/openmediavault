@@ -136,7 +136,8 @@ class StringTestCase(unittest.TestCase):
         self.assertEqual(result['unit'], 'KiB')
 
     def test_binary_format_5(self):
-        result = openmediavault.string.binary_format(1073741824, max_unit='MiB')
+        result = openmediavault.string.binary_format(
+            1073741824, max_unit='MiB')
         self.assertIsInstance(result, str)
         self.assertEqual(result, '1024.00 MiB')
 

@@ -42,7 +42,8 @@ class SchemaTestCase(unittest.TestCase):
     def test_check_format_fsuuid_3(self):
         # NTFS
         schema = openmediavault.datamodel.Schema({})
-        schema._check_format("2ED43920D438EC29", {"format": "fsuuid"}, "field1")
+        schema._check_format("2ED43920D438EC29", {
+                             "format": "fsuuid"}, "field1")
 
     def test_check_format_fsuuid_3(self):
         # ISO9660
