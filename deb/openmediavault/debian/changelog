@@ -1,5 +1,6 @@
 openmediavault (5.5.17-1) stable; urgency=low
 
+  * Update locales.
   * Issue #842: Fix bug in UDEV rules to workaround a JMicron bug.
     If your USB controller reports the vendor 'JMICRON', then you might be
     affected by this issue. After installing this package your mounted filesystem
@@ -8,9 +9,10 @@ openmediavault (5.5.17-1) stable; urgency=low
     contains any shared folders, you can't unmount it, because of that you need to
     delete all shared folders that are located on the filesystem to be unmounted.
     That is only possible if the shared folders are not used by any service, so
-    make sure this applies to these shared folders. After you've unmounted and
-    mounted the filesystem again via the UI, you can reconfigure your shared
-    folders and services from scratch. Sorry for this inconvenience.
+    make sure this applies to these shared folders. After you've unmounted these
+    filesystems in the UI, apply the changes, reboot the system and the mount the
+    filesystems again. After that you can reconfigure your shared folders and
+    services from scratch. Sorry for this inconvenience.
   * Issue #846: Fix locking issue in SMB recycle bin cleanup and iptables scripts.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 08 Nov 2020 23:04:13 +0100
