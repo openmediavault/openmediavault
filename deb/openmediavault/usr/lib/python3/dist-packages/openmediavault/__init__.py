@@ -20,58 +20,47 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 __all__ = ["bool", "getenv", "setenv"]
 
+from typing import Any, Optional, Union
+
 import openmediavault.settings
+import openmediavault.util
 
 
 def bool(value):  # pylint: disable=redefined-builtin
     """
     Get the boolean value of a variable. A boolean True will be returned for
     the values 1, '1', 'on', 'yes', 'y' and 'true'.
-    >>> assert bool(True) == True
-    >>> assert bool("1") == True
-    >>> assert bool("true") == True
-    >>> assert bool("no") == False
-    >>> assert bool("False") == False
-    >>> assert bool(False) == False
+    @deprecated
     """
-    if (
-        type(value) == bool
-    ):  # pylint: disable=unidiomatic-typecheck,comparison-with-callable
-        return value
-    if str(value).lower() in ["1", "on", "yes", "y", "true", "t"]:
-        return True
-    return False
+    return openmediavault.util.to_bool(value)
 
 
-def getenv(key, default=None, type="str"):  # pylint: disable=redefined-builtin
+def getenv(key: str, default: Optional[Any] = None, return_type: Optional[str] = "str"):
     """
     Get an environment variable, return None if it doesn't exist.
-    :param key:     The name of the variable.
+    :param key: The name of the variable.
     :param default: The optional second argument can specify an alternate
-                    default. Defaults to None.
-    :param type:    The type in which the result value is converted.
-                    Defaults to 'str'.
-    :returns:       Returns the value of the requested environment variable.
+      default. Defaults to None.
+    :param return_type: The type in which the result value is converted.
+      Defaults to 'str'.
+    :returns: Returns the value of the requested environment variable.
     """
-    value = openmediavault.settings.Environment.get_str(key, default)
-    if "str" == type:
-        pass
-    elif "int" == type:
-        value = int(value)
-    elif "float" == type:
-        value = float(value)
-    elif "bool" == type:
-        value = openmediavault.bool(value)
-    else:
-        raise TypeError("Converting to '%s' is not supported." % type)
-    return value
+    if "str" == return_type:
+        return openmediavault.settings.Environment.get_str(key, default)
+    elif "int" == return_type:
+        return openmediavault.settings.Environment.get_int(key, default)
+    elif "float" == return_type:
+        return openmediavault.settings.Environment.get_float(key, default)
+    elif "bool" == return_type:
+        return openmediavault.settings.Environment.get_bool(key, default)
+    raise TypeError("Converting to '{}' is not supported.".format(return_type))
 
 
-def setenv(key, value):
+def setenv(key: str, value: Any) -> Any:
     """
     Set an environment variable.
-    :param key:		The name of the variable.
-    :param value:	The value to set.
-    :returns:		Returns the old value if it exists, otherwise None.
+    :param key: The name of the variable.
+    :param value: The value to set.
+    :returns: Returns the old value if it exists, otherwise None.
     """
     return openmediavault.settings.Environment.set(key, value)
