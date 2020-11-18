@@ -18,14 +18,13 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-__all__ = ["Environment"]
+__all__ = ["Environment", "EnvironmentVariable"]
 
 import re
 from typing import Dict, Union
 
 import natsort
-
-import openmediavault
+import openmediavault.util
 
 DEFAULT_FILE = "/etc/default/openmediavault"
 
@@ -41,7 +40,7 @@ class EnvironmentVariable:
         self.value = value
 
     def __bool__(self):
-        return openmediavault.bool(self.value)
+        return openmediavault.util.to_bool(self.value)
 
     def __str__(self):
         return str(self.value)
