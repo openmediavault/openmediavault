@@ -13,6 +13,7 @@
 # azlk azlk <phg.azlk@gmail.com>, 2012
 # Артур Мудрых <arturmon82@gmail.com>, 2012-2013,2015-2016
 # Артур Мудрых <arturmon82@gmail.com>, 2017-2019
+# Александр Каральский, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
@@ -904,7 +905,7 @@ msgid "Djibouti"
 msgstr "Джибути"
 
 msgid "Do you really want to apply the configuration changes?"
-msgstr "Вы действительно хотите, применить изменения в конфигурации?"
+msgstr "Вы действительно хотите применить изменения в конфигурации?"
 
 msgid "Do you really want to clear the log file?"
 msgstr "Вы действительно хотите очистить лог файл?"
@@ -933,7 +934,7 @@ msgid "Do you really want to logout?"
 msgstr "Вы действительно хотите выйти?"
 
 msgid "Do you really want to put the system into standby?"
-msgstr "Вы действительно хотите, перевести систему в режим ожидания?"
+msgstr "Вы действительно хотите перевести систему в режим ожидания?"
 
 msgid "Do you really want to reboot the system?"
 msgstr "Вы действительно хотите перезагрузить систему?"
@@ -941,12 +942,12 @@ msgstr "Вы действительно хотите перезагрузить 
 msgid ""
 "Do you really want to relocate the shared folder? The content of the shared "
 "folder will not be moved automatically, you have to do this yourself."
-msgstr "Вы действительно хотите переместить общую папку ? Содержимое общей папке не будут перемещено автоматически, вы должны сделать это сами."
+msgstr "Вы действительно хотите переместить общую папку? Содержимое общей папке не будут перемещено автоматически, вы должны сделать это сами."
 
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
 "permanently removed and cannot be recovered."
-msgstr "Вы действительно хотите удалить содержимое общей папки? Она будет навсегда удалена, и  не сможет быть восстановлена."
+msgstr "Вы действительно хотите удалить содержимое общей папки? Она будет навсегда удалена, и не сможет быть восстановлена."
 
 msgid ""
 "Do you really want to reset the UI settings to their default values, e.g. "
@@ -1548,7 +1549,7 @@ msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
 "access as guest. Always access as guest when 'Only guests' is selecting; in "
 "this case no password is required to connect to the share."
-msgstr "Если выбранно 'Гости разрешены' и не предусмотрено учетных пользователей, то доступ как гость. Всегда доступ в качестве гостя, когда выбранно «только гости»; в этом случае пароль не требуется для подключения к акции."
+msgstr "Если выбранно 'Гости разрешены' и не указаны учетные записи, используется гостевой доступ. Доступ в качестве гостя всегда, когда выбранно «только гости»; в этом случае пароль не требуется для подключения к сетевой папке."
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
