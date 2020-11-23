@@ -1,3 +1,9 @@
+openmediavault (5.5.17-3) stable; urgency=low
+
+  * Issue #860: Fix typo in UDEV rule for Sharkoon SATA QuickPort Duo.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 23 Nov 2020 07:00:02 +0100
+
 openmediavault (5.5.17-2) stable; urgency=low
 
   * Issue #854: Fix Python import issue.
