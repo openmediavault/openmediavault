@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-21 16:43+0200\n"
-"PO-Revision-Date: 2020-09-21 14:46+0000\n"
+"PO-Revision-Date: 2020-11-20 20:48+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/votdev/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -835,7 +835,7 @@ msgid "Detail"
 msgstr "Detail"
 
 msgid "Device"
-msgstr "Laufwerk"
+msgstr "Gerät"
 
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Device Mapper %s [%s, %s]"
@@ -865,13 +865,13 @@ msgid "Device was used outside of design parameters in the past"
 msgstr "Das Laufwerk wurde in der Vergangenheit außerhalb der erlaubten Betriebsbedingungen betrieben"
 
 msgid "Device(s)"
-msgstr "Laufwerk(e)"
+msgstr "Gerät(e)"
 
 msgid "Device/Label"
 msgstr "Laufwerk/Datenträgerbezeichnung"
 
 msgid "Devices"
-msgstr "Laufwerke"
+msgstr "Geräte"
 
 msgid "Diagnostics"
 msgstr "Diagnose"
