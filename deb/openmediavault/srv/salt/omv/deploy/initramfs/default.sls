@@ -19,6 +19,12 @@
 
 {% set installed_pkgs = salt['pkg.list_pkgs']() %}
 
+# Prevent empty rendering.
+update_initramfs_nop:
+  test.nop
+
+{% if 'initramfs-tools' in installed_pkgs or 'dracut' in installed_pkgs %}
+
 update_initramfs:
   cmd.run:
 {% if 'initramfs-tools' in installed_pkgs %}
@@ -26,4 +32,6 @@ update_initramfs:
 {% endif %}
 {% if 'dracut' in installed_pkgs %}
     - name: "dracut -f /boot/initrd.img-{{ grains['kernelrelease'] }}"
+{% endif %}
+
 {% endif %}
