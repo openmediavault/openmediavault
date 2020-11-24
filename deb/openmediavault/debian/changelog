@@ -1,3 +1,9 @@
+openmediavault (5.5.18-1) stable; urgency=low
+
+  * Fix bug in omv-mkaptidx.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 24 Nov 2020 07:50:46 +0100
+
 openmediavault (5.5.17-3) stable; urgency=low
 
   * Issue #860: Fix typo in UDEV rule for Sharkoon SATA QuickPort Duo.
