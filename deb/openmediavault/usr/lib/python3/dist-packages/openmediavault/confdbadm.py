@@ -53,7 +53,8 @@ class ICommand(abc.ABC):
 
 
 class CommandHelper:
-    _backup_path = None
+    def __init__(self):
+        self._backup_path = None
 
     def mkBackup(self):  # pylint: disable=invalid-name
         """

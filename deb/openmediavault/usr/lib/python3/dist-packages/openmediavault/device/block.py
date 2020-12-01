@@ -29,8 +29,6 @@ from .utils import (is_block_device, is_device_file_by_id,
 
 
 class BlockDevice:
-    _device_file = None
-
     def __init__(self, device_file):
         self._device_file = device_file
 

@@ -49,8 +49,6 @@ def make_mount_path(id_):
 
 
 class Filesystem(openmediavault.device.BlockDevice):
-    _id = None
-
     def __init__(self, id_):
         """
         :param id_: The filesystem UUID or device file, e.g.
