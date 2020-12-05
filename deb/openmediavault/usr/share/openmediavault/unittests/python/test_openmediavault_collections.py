@@ -184,6 +184,21 @@ class DotDictTestCase(unittest.TestCase):
             },
         )
 
+    def test_find_1(self):
+        c = [1, 2, 3, 4]
+        res = openmediavault.collections.find(c, lambda i: i >= 2)
+        self.assertEqual(res, 2)
+
+    def test_find_2(self):
+        c = [{'x': 0}, {'x': 1}, {'x': 2, 'y': 2}, {'x': 3, 'y': 3}]
+        res = openmediavault.collections.find(c, lambda d: d['x'] == 2)
+        self.assertEqual(res, {'x': 2, 'y': 2})
+
+    def test_find_3(self):
+        c = [{'x': 0}, {'x': 1}, {'x': 2, 'y': 2}, {'x': 3, 'y': 3}]
+        res = openmediavault.collections.find(c, lambda d: d['x'] > 3)
+        self.assertIsNone(res)
+
 
 if __name__ == "__main__":
     unittest.main()
