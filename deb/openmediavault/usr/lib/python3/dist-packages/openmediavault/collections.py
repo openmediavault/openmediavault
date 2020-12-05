@@ -21,10 +21,10 @@
 __all__ = ["flatten", "DotDict", "DotCollapsedDict"]
 
 import re
-from typing import Dict
+from typing import Any, Callable, Dict, Iterable, Optional
 
 
-def find(c, predicate):
+def find(c: Iterable[Any], predicate: Callable[[Any], Any]) -> Optional[Any]:
     """
     Iterates over elements of a collection, returning the first element
     that the predicate returns truthy for.
@@ -36,7 +36,7 @@ def find(c, predicate):
     return next(iter(filtered), None)
 
 
-def flatten(d, separator="."):
+def flatten(d: Dict, separator: str = "."):
     """
     Collapses a multi-dimensional Python dictionary into a single dimension
     Python dictionary using dot notation for the keys.
