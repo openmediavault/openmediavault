@@ -23,7 +23,19 @@ __all__ = ["flatten", "DotDict", "DotCollapsedDict"]
 import re
 
 
-def flatten(d, seperator="."):
+def find(c, predicate):
+    """
+    Iterates over elements of a collection, returning the first element
+    that the predicate returns truthy for.
+    :param c: Collection to iterate over.
+    :param predicate: Predicate applied per iteration.
+    :return: First element found or None.
+    """
+    filtered = filter(predicate, c)
+    return next(iter(filtered), None)
+
+
+def flatten(d, separator="."):
     """
     Collapses a multi-dimensional Python dictionary into a single dimension
     Python dictionary using dot notation for the keys.
@@ -34,7 +46,7 @@ def flatten(d, seperator="."):
     {'x':1, 'a.b.c': 100, 'k.0': 1, 'k.1': 2, 'k.2': 3}
     ``
     :param d:			The Python dictionary to flatten.
-    :param seperator:	The character used as separator. Defaults to '.'.
+    :param separator:	The character used as separator. Defaults to '.'.
     :returns:			A single-dimensional Python dictionary.
     """
     assert isinstance(d, dict)
@@ -43,10 +55,10 @@ def flatten(d, seperator="."):
     def _process_item(value, key=""):
         if isinstance(value, dict):
             for item_key, item_value in value.items():
-                _process_item(item_value, key + item_key + seperator)
+                _process_item(item_value, key + item_key + separator)
         elif isinstance(value, list):
             for item_key, item_value in enumerate(value):
-                _process_item(item_value, key + str(item_key) + seperator)
+                _process_item(item_value, key + str(item_key) + separator)
         else:
             result[key[:-1]] = value
 
