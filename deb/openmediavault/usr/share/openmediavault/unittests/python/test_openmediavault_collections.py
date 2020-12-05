@@ -199,6 +199,13 @@ class DotDictTestCase(unittest.TestCase):
         res = openmediavault.collections.find(c, lambda d: d['x'] > 3)
         self.assertIsNone(res)
 
+    def test_merge_1(self):
+        dst = {'a': 1, 'b': {'x': 2, 'y': 3}, 'c': 4, 'd': 0}
+        src1 = {'b': {'x': 2, 'y': 4}, 'c': 5}
+        src2 = {'d': 7}
+        openmediavault.collections.merge(dst, src1, src2)
+        self.assertEqual(dst, {'a': 1, 'b': {'x': 2, 'y': 4}, 'c': 5, 'd': 7})
+
 
 if __name__ == "__main__":
     unittest.main()

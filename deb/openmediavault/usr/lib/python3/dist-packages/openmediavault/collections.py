@@ -21,6 +21,7 @@
 __all__ = ["flatten", "DotDict", "DotCollapsedDict"]
 
 import re
+from typing import Dict
 
 
 def find(c, predicate):
@@ -64,6 +65,26 @@ def flatten(d, separator="."):
 
     _process_item(d)
     return result
+
+
+def merge(obj: Dict, *sources: Dict) -> Dict:
+    """
+    Recursively merges properties of the source object(s) into the
+    destination object. Subsequent sources will overwrite property
+    assignments of previous sources.
+    :param obj: Destination object to merge source(s) into.
+    :param sources: Source objects to merge from. Subsequent sources
+        overwrite previous ones.
+    :return: The modified destination object.
+    """
+    for source in sources:
+        for key, value in source.items():
+            if isinstance(value, dict):
+                node = obj.setdefault(key, {})
+                merge(node, value)
+            else:
+                obj[key] = value
+    return obj
 
 
 class DotDict(dict):
