@@ -81,5 +81,9 @@ class Nfs extends \OMV\Engine\Module\ServiceAbstract implements
 			OMV_NOTIFY_MODIFY,
 			"org.openmediavault.conf.service.nfs",
 			[$moduleMngr->getModule("zeroconf"), "setDirty"]);
+		$dispatcher->addListener(
+			OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
+			"org.openmediavault.conf.service.nfs.share",
+			[$moduleMngr->getModule("zeroconf"), "setDirty"]);
 	}
 }
