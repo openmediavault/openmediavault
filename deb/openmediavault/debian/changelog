@@ -5,6 +5,7 @@ openmediavault (5.5.18-1) stable; urgency=low
     error if there is no initramfs package installed.
   * Disable accepting router advertisements for static IPv6 network interfaces.
   * Issue #873: FTP IdentLookup setting is not honored in configuration file.
+  * Issue #875: Avahi is not refresh after adding new NFS share.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 24 Nov 2020 07:50:46 +0100
 
