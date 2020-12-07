@@ -44,7 +44,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
             args.append('{image_dir}/interface-{interface}-{period}.png'.format(**config))
             args.extend(config['defaults'])
             args.extend(['--start', config['start']])
-            args.extend(['--title', '"{interface} traffic{title_by_period}"'.format(**config)])
+            args.extend(['--title', '"Traffic [{interface}]{title_by_period}"'.format(**config)])
             args.append('--slope-mode')
             args.extend(['--lower-limit', '0'])
             args.extend(['--vertical-label', 'Bits/s'])
