@@ -1,3 +1,9 @@
+openmediavault-diskstats (5.0.7-1) stable; urgency=low
+
+  * Modify RRD graph title.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 07 Dec 2020 21:27:49 +0100
+
 openmediavault-diskstats (5.0.6-1) stable; urgency=low
 
   * Update locales.

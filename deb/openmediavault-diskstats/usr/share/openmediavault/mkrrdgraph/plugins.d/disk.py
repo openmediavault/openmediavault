@@ -55,7 +55,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.extend(
                     [
                         '--title',
-                        '"{devname} {title_disk_octets}"'.format(**config),
+                        '"{title_disk_octets} [{devname}]{title_by_period}"'.format(**config),
                     ]
                 )
                 args.append('--slope-mode')
@@ -123,7 +123,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.extend(config['defaults'])
                 args.extend(['--start', config['start']])
                 args.extend(
-                    ['--title', '"{devname} {title_disk_ops}"'.format(**config)]
+                    ['--title', '"{title_disk_ops} [{devname}]{title_by_period}"'.format(**config)]
                 )
                 args.append('--slope-mode')
                 args.extend(['--lower-limit', '0'])
@@ -192,7 +192,7 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.extend(
                     [
                         '--title',
-                        '"{devname} {title_disk_time}"'.format(**config),
+                        '"{title_disk_time} [{devname}]{title_by_period}"'.format(**config),
                     ]
                 )
                 args.append('--slope-mode')
