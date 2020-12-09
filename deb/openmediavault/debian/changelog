@@ -7,6 +7,7 @@ openmediavault (5.5.18-1) stable; urgency=low
   * Modify network interface RRD graph title.
   * Issue #873: FTP IdentLookup setting is not honored in configuration file.
   * Issue #875: Avahi is not refresh after adding new NFS share.
+  * Issue #877: Add F2FS file system support.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 24 Nov 2020 07:50:46 +0100
 
