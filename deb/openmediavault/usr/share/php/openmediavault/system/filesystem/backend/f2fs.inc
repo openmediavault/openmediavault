@@ -21,16 +21,17 @@
  */
 namespace OMV\System\Filesystem\Backend;
 
-///////////////////////////////////////////////////////////////////////////////
-// Register default filesystem backends.
-///////////////////////////////////////////////////////////////////////////////
-$backends = [ "Btrfs", "Ext", "Ext2", "Ext3", "Ext4", "Hfsplus",
-  "Iso9660", "Jfs", "Msdos", "None", "Ntfs", "Reiserfs", "Udf", "Ufs",
-  "Umsdos", "Exfat", "Vfat", "Xfs", "Fuseblk", "Swap", "F2fs" ];
-$mngr = Manager::getInstance();
-foreach ($backends as $backendk => $backendv) {
-	$className = sprintf("%s\%s", __NAMESPACE__, $backendv);
-	$mngr->registerBackend(new $className());
+/**
+ * https://www.kernel.org/doc/Documentation/filesystems/f2fs.txt
+ */
+class F2fs extends BackendAbstract {
+	public function __construct() {
+		$this->type = "f2fs";
+		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
+			self::PROP_DISCARD | self::PROP_MNTENT_DISCARD |
+			self::PROP_QUOTA | self::PROP_RESIZE;
+		$this->mkfsOptions = \OMV\Environment::get("OMV_MKFS_OPTIONS_F2FS");
+		$this->mntOptions = explode(",", \OMV\Environment::get(
+			"OMV_FSTAB_MNTOPS_F2FS"));
+	}
 }
-if (TRUE === $debug)
-	$mngr->dump();

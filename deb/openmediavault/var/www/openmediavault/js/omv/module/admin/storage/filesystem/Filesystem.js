@@ -123,6 +123,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Create", {
 				[ "btrfs", "BTRFS" ],
 				[ "ext3", "EXT3" ],
 				[ "ext4", "EXT4" ],
+				[ "f2fs", "F2FS" ],
 				[ "xfs", "XFS" ],
 				[ "jfs", "JFS" ]
 			],
