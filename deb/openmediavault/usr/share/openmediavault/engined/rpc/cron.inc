@@ -171,7 +171,8 @@ class Cron extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs = [];
 			$cmdArgs[] = "--shell";
 			$cmdArgs[] = "--non-interactive";
-			$cmdArgs[] = sprintf("--user=%s", $object->get("username"));
+			$cmdArgs[] = sprintf("--user=%s", escapeshellarg(
+				$object->get("username")));
 			$cmdArgs[] = "--";
 			$cmdArgs[] = build_path(DIRECTORY_SEPARATOR,
 				\OMV\Environment::get("OMV_CRONSCRIPTS_DIR"),
