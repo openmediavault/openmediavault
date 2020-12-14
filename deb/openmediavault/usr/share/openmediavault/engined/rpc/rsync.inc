@@ -240,26 +240,26 @@ class Rsync extends \OMV\Rpc\ServiceAbstract {
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
 		// Check if the module is marked as dirty. This is an indication
-		// that the rsync cron script has not been created or updated
+		// that the rsync cron scripts have not been created or updated
 		// until now.
 		if ($this->isModuleDirty("rsync"))
 			throw new \OMV\Config\ConfigDirtyException();
 		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
-		  use ($params) {
+				use ($params) {
 			// Execute the rsync cron script.
 			$cmdArgs = [];
 			$cmdArgs[] = "--shell";
 			$cmdArgs[] = "--non-interactive";
 			$cmdArgs[] = "--";
 			$cmdArgs[] = build_path(DIRECTORY_SEPARATOR,
-			  \OMV\Environment::get("OMV_CRONSCRIPTS_DIR"),
-			  sprintf("rsync-%s", $params['uuid']));
+				\OMV\Environment::get("OMV_CRONSCRIPTS_DIR"),
+				sprintf("rsync-%s", $params['uuid']));
 			$cmd = new \OMV\System\Process("sudo", $cmdArgs);
 			$cmd->setEnv("SHELL", "/bin/sh");
 			$cmd->setRedirect2to1();
 			if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
-				$output, $bgOutputFilename))) {
+					$output, $bgOutputFilename))) {
 				throw new \OMV\ExecException($cmd->getCommandLine(), $output,
 					$exitStatus);
 			}

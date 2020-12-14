@@ -154,13 +154,18 @@ class Cron extends \OMV\Rpc\ServiceAbstract {
 		]);
 		// Validate the parameters of the RPC service method.
 		$this->validateMethodParams($params, "rpc.common.objectuuid");
+		// Check if the module is marked as dirty. This is an indication
+		// that the user-defined cron scripts have not been created or
+		// updated until now.
+		if ($this->isModuleDirty("cron"))
+			throw new \OMV\Config\ConfigDirtyException();
 		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
-		  use ($params) {
+				use ($params) {
 			// Get the configuration object.
 			$db = \OMV\Config\Database::getInstance();
 			$object = $db->get("conf.system.cron.job", $params['uuid']);
-			// Execute the cron command line in a shell.
+			// Execute the user-defined cron script.
 			// Note, we need to set the shell, otherwise the users shell
 			// is used instead of the shebang of the command script.
 			$cmdArgs = [];
@@ -168,12 +173,14 @@ class Cron extends \OMV\Rpc\ServiceAbstract {
 			$cmdArgs[] = "--non-interactive";
 			$cmdArgs[] = sprintf("--user=%s", $object->get("username"));
 			$cmdArgs[] = "--";
-			$cmdArgs[] = $object->get("command");
+			$cmdArgs[] = build_path(DIRECTORY_SEPARATOR,
+				\OMV\Environment::get("OMV_CRONSCRIPTS_DIR"),
+				sprintf("userdefined-%s", $params['uuid']));
 			$cmd = new \OMV\System\Process("sudo", $cmdArgs);
 			$cmd->setEnv("SHELL", "/bin/sh");
 			$cmd->setRedirect2to1();
 			if (0 !== ($exitStatus = $this->exec($cmd->getCommandLine(),
-				$output, $bgOutputFilename))) {
+					$output, $bgOutputFilename))) {
 				throw new \OMV\ExecException($cmd->getCommandLine(), $output,
 					$exitStatus);
 			}
