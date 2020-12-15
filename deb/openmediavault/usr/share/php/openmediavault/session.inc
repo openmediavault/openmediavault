@@ -204,7 +204,7 @@ class Session {
 	 */
 	public function validate() {
 		$this->validateAuthentication();
-		$this->validateIpAddress();
+		// $this->validateIpAddress();
 		$this->validateUserAgent();
 		$this->validateTimeout();
 		$this->validateUser();
