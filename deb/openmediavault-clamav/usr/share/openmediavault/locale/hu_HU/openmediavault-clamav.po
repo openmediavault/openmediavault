@@ -5,7 +5,7 @@
 # Translators:
 # Ádám Balajti <balajtiadam@gmail.com>, 2012
 # Sári Gábor <sari.gabor@gmail.com>, 2017
-# Gyuris Gellért <bubu@ujevangelizacio.hu>, 2017
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2017
 # Sári Gábor <sari.gabor@gmail.com>, 2018
 # Grawens <szabolcs.szanyi@gmail.com>, 2014,2017
 msgid ""

@@ -1,5 +1,6 @@
 openmediavault (5.5.18-1) stable; urgency=low
 
+  * Update locales.
   * Fix bug in omv-mkaptidx.
   * Hardening omv.deploy.initramfs state to prevent an Salt render
     error if there is no initramfs package installed.
