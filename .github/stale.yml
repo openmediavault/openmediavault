@@ -49,6 +49,9 @@ pulls:
     appropriate. Thank you for your contribution!
 
 issues:
+  exemptLabels:
+    - "known issue"
+
   # Comment to post when marking as stale. Set to `false` to disable
   markComment: >
     This issue has been automatically marked as stale because it
