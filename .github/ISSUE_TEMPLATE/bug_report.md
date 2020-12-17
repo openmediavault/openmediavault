@@ -6,10 +6,12 @@ labels: ''
 assignees: ''
 
 ---
-**Before you open an issue please ask in the OMV Forum**
-Forum 
 
-Isuues for plugins are to be raised  here. 
+**Please only open an issue here, if advised by a moderator in OMV Forum**
+OMV Forum: https://forum.openmediavault.org/wsc/
+
+Note: Issues for plugins are to be raised in the corresponding https://github.com/OpenMediaVault-Plugin-Developers repository
+
 **Describe the bug**
 A clear and concise description of what the bug is.
 
