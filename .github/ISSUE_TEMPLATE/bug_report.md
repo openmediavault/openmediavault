@@ -6,7 +6,10 @@ labels: ''
 assignees: ''
 
 ---
+**Before you open an issue please ask in the OMV Forum**
+Forum 
 
+Isuues for plugins are to be raised  here. 
 **Describe the bug**
 A clear and concise description of what the bug is.
 
@@ -23,12 +26,11 @@ A clear and concise description of what you expected to happen.
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+**OpenMediaVault Server (please complete the following information):**
+ - OS Version: [uname -a]
+ - OMV Version: [dpkg -l | grep openmediavault]
 
-**Smartphone (please complete the following information):**
+**Client (please complete the following information):**
  - Device: [e.g. iPhone6]
  - OS: [e.g. iOS8.1]
  - Browser [e.g. stock browser, safari]
