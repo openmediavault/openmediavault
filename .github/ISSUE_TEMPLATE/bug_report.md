@@ -1,11 +1,3 @@
----
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
-
----
 
 **Please only open an issue here, if advised by a moderator in OMV Forum**
 OMV Forum: https://forum.openmediavault.org/wsc/
@@ -27,6 +19,9 @@ A clear and concise description of what you expected to happen.
 
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
+
+**Reference to Forum**
+URL link to forum post
 
 **OpenMediaVault Server (please complete the following information):**
  - OS Version: [uname -a]
