@@ -1,5 +1,5 @@
 
-**Please only open an issue here, if advised by a moderator in OMV Forum**
+**Please only open an issue here, when advised by a moderator in OMV Forum**
 
 OMV Forum: https://forum.openmediavault.org/wsc/
 
