@@ -18,8 +18,8 @@ check process nut-monitor with matching upsmon
 {%- endif %}
 
 {%- if nut_config.mode != 'netclient' %}
-check program nut-upsc-{{ nut_config.upsname }} with path "/usr/bin/upsc {{ nut_config.upsname }}"
+check program nut-upsc-{{ nut_config.upsname }} with path "/bin/upsc {{ nut_config.upsname }}"
     group nut
-    start program = "/usr/sbin/upsdrvctl start"
+    start program = "/sbin/upsdrvctl start"
     if status != 0 for 2 cycles then restart
 {%- endif %}
