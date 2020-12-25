@@ -32,7 +32,7 @@ URL link to forum post
 **openmediavault Server (please complete the following information):**
 
 - OS Version: [uname -a]
- - OMV Version: [dpkg -l | grep openmediavault]
+ - openmediavault Version: [dpkg -l | grep openmediavault]
 
 **Client (please complete the following information):**
 
