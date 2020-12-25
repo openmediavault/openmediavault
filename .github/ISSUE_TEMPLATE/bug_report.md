@@ -29,7 +29,7 @@ If applicable, add screenshots to help explain your problem.
 
 URL link to forum post
 
-**OpenMediaVault Server (please complete the following information):**
+**openmediavault Server (please complete the following information):**
 
 - OS Version: [uname -a]
  - OMV Version: [dpkg -l | grep openmediavault]
