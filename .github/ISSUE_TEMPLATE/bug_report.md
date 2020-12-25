@@ -1,7 +1,7 @@
 
 **Please only open an issue here, when advised by a moderator in openmediavault forum**
 
-Requests for support and questions shall be addressed first to OMV Forum: https://forum.openmediavault.org/
+Requests for support and questions shall be addressed first to openmediavault forum: https://forum.openmediavault.org/
 
 Note: Issues for non-core plugins are to be raised in the corresponding https://github.com/OpenMediaVault-Plugin-Developers repository
 
