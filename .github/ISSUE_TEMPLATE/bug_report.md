@@ -1,5 +1,5 @@
 
-**Please only open an issue here, when advised by a moderator in OMV Forum**
+**Please only open an issue here, when advised by a moderator in openmediavault forum**
 
 Requests for support and questions shall be addressed first to OMV Forum: https://forum.openmediavault.org/
 
