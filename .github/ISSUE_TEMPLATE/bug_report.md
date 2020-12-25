@@ -32,14 +32,14 @@ URL link to forum post
 **openmediavault Server (please complete the following information):**
 
 - OS Version: [uname -a]
- - openmediavault Version: [dpkg -l | grep openmediavault]
+- openmediavault Version: [dpkg -l | grep openmediavault]
 
 **Client (please complete the following information):**
 
 - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+- OS: [e.g. iOS8.1]
+- Browser [e.g. stock browser, safari]
+- Version [e.g. 22]
 
 **Additional context**
 
