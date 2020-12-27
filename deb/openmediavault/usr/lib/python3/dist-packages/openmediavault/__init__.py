@@ -20,7 +20,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 __all__ = ["bool", "getenv", "setenv"]
 
-from typing import Any, Optional, Union
+from typing import Any, Optional
 
 import openmediavault.settings
 import openmediavault.util
