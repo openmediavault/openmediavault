@@ -83,6 +83,28 @@ class Btrfs extends Filesystem {
 	}
 
 	/**
+	 * Get the device file in the following order:
+	 * <ul>
+	 * \li /dev/disk/by-label/xxx
+	 * \li /dev/disk/by-id/xxx
+	 * \li /dev/disk/by-path/xxx
+	 * \li /dev/xxx
+	 * </ul>
+	 * Note, /dev/disk/by-uuid is not supported by this filesystem
+	 * because of reasons.
+	 * @return Returns a device file.
+	 */
+	public function getPredictableDeviceFile() {
+		if (TRUE === $this->hasDeviceFileByLabel())
+			return $this->getDeviceFileByLabel();
+		else if (TRUE === $this->hasDeviceFileById())
+			return $this->getDeviceFileById();
+		else if (TRUE === $this->hasDeviceFileByPath())
+			return $this->getDeviceFileByPath();
+		return $this->getCanonicalDeviceFile();
+	}
+
+	/**
 	 * See parent class definition.
 	 */
 	public function getDeviceFiles() {
