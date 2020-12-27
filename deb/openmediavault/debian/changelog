@@ -7,7 +7,6 @@ openmediavault (5.5.20-1) stable; urgency=low
 openmediavault (5.5.19-1) stable; urgency=low
 
   * Issue #884: Do not bind session to IP address anymore.
-  * Issue #894: Disabled cron jobs are still executed.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 15 Dec 2020 21:31:52 +0100
 
