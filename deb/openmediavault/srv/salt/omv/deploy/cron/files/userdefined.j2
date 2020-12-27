@@ -5,7 +5,7 @@
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 # m h dom mon dow user    command
-{%- for job in jobs %}
+{%- for job in jobs | selectattr('enable') %}
 {% if job.execution == "exactly" -%}
 {% if job.everynminute | to_bool %}*/{{ job.minute }}{% else %}{{ job.minute }}{% endif -%}
 {{ separator }}{% if job.everynhour | to_bool %}*/{{ job.hour }}{% else %}{{ job.hour }}{% endif -%}
