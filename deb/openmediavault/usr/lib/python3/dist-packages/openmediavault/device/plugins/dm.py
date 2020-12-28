@@ -62,7 +62,7 @@ class StorageDevice(openmediavault.device.StorageDevice):
         'dmraid', 'mpath', 'part', ...
         :return: Returns the device mapper subsystem or ``None``
             on failure.
-        :rtype: str|None
+        :rtype: str | None
         """
         # The DM_UUID prefix should be set to subsystem owning the device:
         # LVM, CRYPT, DMRAID, MPATH, PART
