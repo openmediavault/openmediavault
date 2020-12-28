@@ -1,6 +1,8 @@
 openmediavault (5.5.20-1) stable; urgency=low
 
   * Issue #894: Disabled cron jobs are still executed.
+  * Issue #896: Improve UDEV rule to fix issues with JMS567 SATA 6Gb/s
+    bridge based USB enclosures.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 27 Dec 2020 05:00:34 +0100
 

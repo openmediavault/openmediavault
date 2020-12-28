@@ -128,6 +128,10 @@ ATTRS{idVendor}=="0080", \
 
 # ORICO 3.5 inch 5 Bay Magnetic-type USB3.0 Hard Drive Enclosure (DS500U3)
 # http://my.orico.cc/goods.php?id=6659
+#
+# ORICO 3.5-Inch Multi-Bay Hard Drive Enclosure (9548U3)
+# https://www.orico.cc/us/product/detail/6764/9528U3-BK.html
+#
 # JMicron JMS567 SATA 6Gb/s bridge
 # https://devicehunt.com/search/type/usb/vendor/152D/device/0567
 #
@@ -164,8 +168,40 @@ ATTRS{idVendor}=="0080", \
 # E: ID_PART_TABLE_TYPE=gpt
 # E: DEVLINKS=/dev/disk/by-id/usb-External_USB3.0_DISK00_20170331000C3-0:0 /dev/disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.2:1.0-scsi-0:0:0:0
 # E: TAGS=:systemd:
-ENV{ID_VENDOR}=="External", \
-  ENV{ID_MODEL}=="USB3.0_DISK00", \
+#
+# P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-2/2-2:1.0/host1/target1:0:0/1:0:0:0/block/sdb
+# N: sdb
+# L: 0
+# S: disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:2:1.0-scsi-0:0:0:0
+# S: disk/by-id/usb-External_USB3.0_DISK02_20170331000C3-0:0
+# E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-2/2-2:1.0/host1/target1:0:0/1:0:0:0/block/sdb
+# E: DEVNAME=/dev/sdb
+# E: DEVTYPE=disk
+# E: MAJOR=8
+# E: MINOR=16
+# E: SUBSYSTEM=block
+# E: USEC_INITIALIZED=14275296
+# E: ID_VENDOR=External
+# E: ID_VENDOR_ENC=External
+# E: ID_VENDOR_ID=152d
+# E: ID_MODEL=USB3.0_DISK02
+# E: ID_MODEL_ENC=USB3.0\x20DISK02\x20\x20\x20
+# E: ID_MODEL_ID=0567
+# E: ID_REVISION=5203
+# E: ID_SERIAL=External_USB3.0_DISK02_20170331000C3-0:0
+# E: ID_SERIAL_SHORT=20170331000C3
+# E: ID_TYPE=disk
+# E: ID_INSTANCE=0:0
+# E: ID_BUS=usb
+# E: ID_USB_INTERFACES=:080650:
+# E: ID_USB_INTERFACE_NUM=00
+# E: ID_USB_DRIVER=usb-storage
+# E: ID_PATH=platform-fd500000.pcie-pci-0000:01:00.0-usb-0:2:1.0-scsi-0:0:0:0
+# E: ID_PATH_TAG=platform-fd500000_pcie-pci-0000_01_00_0-usb-0_2_1_0-scsi-0_0_0_0
+# E: DEVLINKS=/dev/disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:2:1.0-scsi-0:0:0:0 /dev/disk/by-id/usb-External_USB3.0_DISK02_20170331000C3-0:0
+# E: TAGS=:systemd:
+ATTRS{idVendor}=="152d", \
+  ENV{ID_MODEL_ID}=="0567", \
   PROGRAM="/usr/lib/udev/serial_id %N", \
   ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
   ENV{ID_SERIAL_SHORT}="%c", \
