@@ -148,6 +148,8 @@ abstract class ModuleAbstract {
 		$tasks = $jsonFile->read();
 		// Get list of tasks to be executed.
 		$runTasks = array_filter_ex($tasks, "id", $id);
+		if (is_null($runTasks))
+			return;
 		foreach ($runTasks as $taskk => $taskv) {
 			$this->debug("Executing task (callback=%s::%s)",
 				get_class($this), $taskv['func']);
