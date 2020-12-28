@@ -239,29 +239,37 @@ class Btrfs extends Filesystem {
 		// Allocated but unused space in Metadata alone (or System
 		// or GlobalReserve, although they are small) is not included
 		// as it is not directly available for data usage.
-		$available = bcadd($unallocated, array_sum(array_filter(
-		  $allocatedUnusedRaw, function($type) {
-			  return in_array($type, [ 'Data', 'Data+Metadata' ]);
-		  }, ARRAY_FILTER_USE_KEY)));
+		$available = bcadd(
+			$unallocated,
+			array_sum(array_filter($allocatedUnusedRaw, function($type) {
+				return in_array($type, [ 'Data', 'Data+Metadata' ]);
+			}, ARRAY_FILTER_USE_KEY)));
 		// Data ratio is calculated based only on Data (or Data+Metadata).
-		$dataRatio = bcdiv(array_sum(array_filter($usedRaw, function($type) {
-			  return in_array($type, [ 'Data', 'Data+Metadata' ]);
-		  }, ARRAY_FILTER_USE_KEY)),
-		  array_sum(array_filter($used, function($type) {
-			  return in_array($type, [ 'Data', 'Data+Metadata' ]);
-		  }, ARRAY_FILTER_USE_KEY)), 2);
+		$dataRatio = bcdiv(
+			array_sum(array_filter($usedRaw, function($type) {
+				return in_array($type, [ 'Data', 'Data+Metadata' ]);
+			}, ARRAY_FILTER_USE_KEY)),
+			array_sum(array_filter($used, function($type) {
+				return in_array($type, [ 'Data', 'Data+Metadata' ]);
+			}, ARRAY_FILTER_USE_KEY)),
+			2);
+		// Catch and fix division-by-zero.
+		if (is_null($dataRatio)) {
+			$dataRatio = "1.0";
+		}
 
 		// Update the information.
 		// Raw disk(s) size.
-		$stats['size'] = $totalBytes;
-		$stats['blocks'] = bcdiv($totalBytes, "1024", 0);
-		// Usage by all profiles (excluding redundancy).
-		$stats['used'] = array_sum($used);
-		// Space available for Data, adjusted for average data ratio.
-		$stats['available'] = bcdiv($available, $dataRatio, 0);
-		// Raw disk usage, all profiles, divided by raw size.
-		$stats['percentage'] = bcmul(bcdiv(array_sum($usedRaw),
-		  $stats['size'], 3), 100, 0);
+		$stats = array_merge($stats, [
+			"size" => $totalBytes,
+			"blocks" => bcdiv($totalBytes, "1024", 0),
+			// Usage by all profiles (excluding redundancy).
+			"used" => array_sum($used),
+			// Space available for Data, adjusted for average data ratio.
+			"available" => bcdiv($available, $dataRatio, 0),
+			// Raw disk usage, all profiles, divided by raw size.
+			"percentage" => bcmul(bcdiv(array_sum($usedRaw), $totalBytes, 3), 100, 0)
+		]);
 
 		return $stats;
 	}
