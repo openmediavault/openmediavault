@@ -125,6 +125,11 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 		$this->assertEmpty($d_filtered);
 	}
 
+	public function test_array_filter_ex_fail() {
+		$d = array_filter_ex([1, 2, 3], "text", "b");
+		$this->assertNull($d);
+	}
+
 	public function test_boolvalEx() {
 		$this->assertTrue(boolvalEx(TRUE));
 		$this->assertTrue(boolvalEx("1"));
@@ -247,8 +252,7 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 
 	public function test_array_unique_key_fail() {
 		$d = array_unique_key([1, 2, 3], "text");
-		$this->assertInternalType("bool", $d);
-		$this->assertFalse($d);
+		$this->assertNull($d);
 	}
 
 	public function test_escape_path() {
