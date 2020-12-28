@@ -72,8 +72,14 @@ class Btrfs extends BackendAbstract {
 		foreach ($uniqueEnums as $uniqueEnumk => $uniqueEnumv) {
 			$canonicalDeviceFile = realpath(sprintf("/dev/disk/by-uuid/%s",
 				$uniqueEnumv['uuid']));
-			$result[] = array_filter_ex($enums, "devicefile",
-				$canonicalDeviceFile)[0];
+			$filtered = array_filter_ex($enums, "devicefile",
+				$canonicalDeviceFile);
+			if (empty($filtered)) {
+				// This should never happen. At least one element must
+				// be in the array.
+				continue;
+			}
+			$result[] = $filtered[0];
 		}
 		return $result;
 	}
