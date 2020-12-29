@@ -1,6 +1,6 @@
 openmediavault (5.5.21-1) stable; urgency=low
 
-  * 
+  * Fixing a bug related to BTRFS which crashed the filesystem UI page.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 29 Dec 2020 20:45:44 +0100
 
