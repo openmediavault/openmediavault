@@ -276,6 +276,7 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "5.5.20"; then
 			omv_module_set_dirty cron
+			omv_module_set_dirty initramfs
 		fi
 
 		########################################################################
