@@ -75,9 +75,25 @@ class Btrfs extends BackendAbstract {
 			$filtered = array_filter_ex($enums, "devicefile",
 				$canonicalDeviceFile);
 			if (empty($filtered)) {
-				// This should never happen. At least one element must
-				// be in the array.
-				continue;
+				// It seems there are situations where the symlink from
+				// /dev/disk/by-uuid/<UUID> -> /dev/xxx does not exist.
+				//
+				// Example:
+				// $ realpath /dev/disk/by-uuid/9c2f26b0-209c-43e5-8316-84280b0ddbd7
+				// /dev/disk/by-uuid/9c2f26b0-209c-43e5-8316-84280b0ddbd7
+				// $ findfs UUID=9c2f26b0-209c-43e5-8316-84280b0ddbd7
+				// /dev/sda
+				//
+				// Because this fallback is a really expensive action,
+				// it would be great to have a final solution here. The
+				// problem seems to be related to BTRFS and/or UDEV.
+				$cmdArgs = [];
+				$cmdArgs[] = sprintf("UUID=%s", $uniqueEnumv['uuid']);
+				$cmd = new \OMV\System\Process("findfs", $cmdArgs);
+				$cmd->setRedirect2to1();
+				$filtered[] = array_merge($uniqueEnumv, [
+					"devicefile" => $cmd->execute()
+				]);
 			}
 			$result[] = $filtered[0];
 		}
