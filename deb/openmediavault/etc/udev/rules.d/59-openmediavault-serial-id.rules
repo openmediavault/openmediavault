@@ -27,12 +27,22 @@
 # https://wiki.ubuntuusers.de/udev/
 # https://www.tecmint.com/udev-for-device-detection-management-in-linux/
 
-ACTION=="remove", GOTO="omv_dev_disk_by_id_end"
-KERNEL!="sd*", GOTO="omv_dev_disk_by_id_end"
-SUBSYSTEM!="block", GOTO="omv_dev_disk_by_id_end"
-ENV{DEVTYPE}!="disk", GOTO="omv_dev_disk_by_id_end"
+# These UDEV rules are used to workaround a bug of external USB enclosures
+# (mostly based on JMicron controllers) that are reporting the same serial
+# ID for all attached devices. This will break the /dev/disk/by-id behavior
+# because now a device can not be identified uniquely.
+# The fix is to replace the falsy ID_SERIAL and ID_SERIAL_SHORT properties
+# of those devices to let 60-persistent-storage.rules create correct and
+# unique device files.
 
-# JMicron
+ACTION=="remove", GOTO="omv_serial_id_end"
+KERNEL!="sd*", GOTO="omv_serial_id_end"
+SUBSYSTEM!="block", GOTO="omv_serial_id_end"
+ENV{DEVTYPE}!="disk", GOTO="omv_serial_id_end"
+
+# JMicron JMS578 SATA 6Gb/s
+# https://devicehunt.com/view/type/usb/vendor/152D/device/0578
+#
 # DEVPATH=/devices/platform/soc/soc:usb3-0/12000000.dwc3/xhci-hcd.3.auto/usb4/4-1/4-1:1.0/host0/target0:0:0/0:0:0:0/block/sda
 # DEVNAME=/dev/sda
 # DEVTYPE=disk
@@ -61,24 +71,24 @@ ENV{DEVTYPE}!="disk", GOTO="omv_dev_disk_by_id_end"
 # ID_PART_TABLE_TYPE=gpt
 # DEVLINKS=...
 # TAGS=:systemd:
-ENV{ID_VENDOR}=="JMicron", \
-  PROGRAM="/usr/lib/udev/serial_id %N", \
-  ENV{ID_SERIAL}="USB-%c-$env{ID_INSTANCE}", \
-  ENV{ID_SERIAL_SHORT}="%c", \
-  SYMLINK="disk/by-path/$env{ID_PATH}", \
-  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+ENV{ID_VENDOR_ID}=="152d", \
+  ENV{ID_MODEL_ID}=="0578", \
+  PROGRAM="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
+  ENV{ID_SERIAL_SHORT}="%c"
 
 # JMicron JMS561U two ports SATA 6Gb/s bridge
+# https://devicehunt.com/view/type/usb/vendor/152D/device/1561
 # https://www.sabrent.com/product/EC-DFLT/usb-3-0-sata-external-hard-drive-lay-flat-docking-station-2-5-3-5in-hdd-ssd/
 ENV{ID_VENDOR_ID}=="152d", \
   ENV{ID_MODEL_ID}=="1561", \
-  PROGRAM="/usr/lib/udev/serial_id %N", \
+  PROGRAM="serial_id %N", \
   ENV{ID_SERIAL_SHORT}="%c", \
-  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
-  SYMLINK="disk/by-path/$env{ID_PATH}", \
-  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}"
 
 # JMicron JM20337 USB PATA/SATA bridge on Orangepi PC2
+# https://devicehunt.com/view/type/usb/vendor/152D/device/2338
+#
 # DEVPATH=/devices/platform/soc/1c1b000.usb/usb3/3-1/3-1:1.0/host0/target0:0:0/0:0:0:0/block/sda
 # DEVNAME=/dev/sda
 # DEVTYPE=disk
@@ -107,32 +117,29 @@ ENV{ID_VENDOR_ID}=="152d", \
 # ID_PART_TABLE_TYPE=dos
 # DEVLINKS=...
 # TAGS=:systemd:
-ATTRS{idVendor}=="152d", \
-  ATTRS{idProduct}=="2338", \
-  PROGRAM="/usr/lib/udev/serial_id %N", \
-  ENV{ID_SERIAL}="USB-%c-$env{ID_INSTANCE}", \
-  ENV{ID_SERIAL_SHORT}="%c", \
-  SYMLINK="disk/by-path/$env{ID_PATH}", \
-  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+ENV{ID_VENDOR_ID}=="152d", \
+  ENV{ID_MODEL_ID}=="2338", \
+  PROGRAM="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
+  ENV{ID_SERIAL_SHORT}="%c"
 
-# ORICO 2.5 inch Hard Drive Adapter (27UTS)
+# ORICO 2.5 inch Hard Drive Adapter (27UTS) - JMS578 based SATA bridge
+# https://devicehunt.com/view/type/usb/vendor/0080/device/A001
 # http://my.orico.cc/goods.php?id=6355
 ATTRS{idVendor}=="0080", \
   ATTRS{idProduct}=="a001", \
-  PROGRAM="/usr/lib/udev/serial_id %N", \
+  PROGRAM="serial_id %N", \
   ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
-  ENV{ID_SERIAL_SHORT}="%c", \
-  SYMLINK="disk/by-path/$env{ID_PATH}", \
-  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+  ENV{ID_SERIAL_SHORT}="%c"
 
+# JMicron JMS567 SATA 6Gb/s bridge
+# https://devicehunt.com/search/type/usb/vendor/152D/device/0567
+#
 # ORICO 3.5 inch 5 Bay Magnetic-type USB3.0 Hard Drive Enclosure (DS500U3)
 # http://my.orico.cc/goods.php?id=6659
 #
 # ORICO 3.5-Inch Multi-Bay Hard Drive Enclosure (9548U3)
 # https://www.orico.cc/us/product/detail/6764/9528U3-BK.html
-#
-# JMicron JMS567 SATA 6Gb/s bridge
-# https://devicehunt.com/search/type/usb/vendor/152D/device/0567
 #
 # P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-1/2-1.2/2-1.2:1.0/host1/target1:0:0/1:0:0:0/block/sdc
 # N: sdc
@@ -199,13 +206,11 @@ ATTRS{idVendor}=="0080", \
 # E: ID_PATH_TAG=platform-fd500000_pcie-pci-0000_01_00_0-usb-0_2_1_0-scsi-0_0_0_0
 # E: DEVLINKS=/dev/disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:2:1.0-scsi-0:0:0:0 /dev/disk/by-id/usb-External_USB3.0_DISK02_20170331000C3-0:0
 # E: TAGS=:systemd:
-ATTRS{idVendor}=="152d", \
+ENV{ID_VENDOR_ID}=="152d", \
   ENV{ID_MODEL_ID}=="0567", \
-  PROGRAM="/usr/lib/udev/serial_id %N", \
+  PROGRAM="serial_id %N", \
   ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
-  ENV{ID_SERIAL_SHORT}="%c", \
-  SYMLINK="disk/by-path/$env{ID_PATH}", \
-  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+  ENV{ID_SERIAL_SHORT}="%c"
 
 # QUAD SATA HAT KIT for your Raspberry Pi 4
 # https://shop.allnetchina.cn/products/quad-sata-hat-case-for-raspberry-pi-4?_pos=4&_sid=8298cd20c&_ss=r
@@ -252,14 +257,13 @@ ATTRS{idVendor}=="152d", \
 # E: TAGS=:systemd:
 ENV{ID_VENDOR}=="ACASIS", \
   ENV{ID_MODEL}=="Go_To_Final_Lap", \
-  PROGRAM="/usr/lib/udev/serial_id %N", \
+  PROGRAM="serial_id %N", \
   ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
-  ENV{ID_SERIAL_SHORT}="%c", \
-  SYMLINK="disk/by-path/$env{ID_PATH}", \
-  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+  ENV{ID_SERIAL_SHORT}="%c"
 
 # VL817 SATA Adaptor
 # https://devicehunt.com/view/type/usb/vendor/2109/device/0715
+#
 # Sabrent EC-SS31 USB 3.1 (Type-A) to SSD / 2.5-Inch SATA Hard Drive Adapter
 # https://www.sabrent.com/product/EC-SS31/usb-3-1-type-ssd-2-5-inch-sata-hard-drive-adapter
 #
@@ -298,11 +302,9 @@ ENV{ID_VENDOR}=="ACASIS", \
 # E: TAGS=:systemd:
 ENV{ID_VENDOR_ID}=="2109", \
   ENV{ID_MODEL_ID}=="0715", \
-  PROGRAM="/usr/lib/udev/serial_id %N", \
+  PROGRAM="serial_id %N", \
   ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
-  ENV{ID_SERIAL_SHORT}="%c", \
-  SYMLINK="disk/by-path/$env{ID_PATH}", \
-  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+  ENV{ID_SERIAL_SHORT}="%c"
 
 # JMS551 - Sharkoon SATA QuickPort Duo
 # https://devicehunt.com/view/type/usb/vendor/152D/device/0561
@@ -360,15 +362,8 @@ ENV{ID_VENDOR_ID}=="2109", \
 # E: DEVLINKS=...
 ENV{ID_VENDOR_ID}=="152d", \
   ENV{ID_MODEL_ID}=="0561", \
-  PROGRAM="/usr/lib/udev/serial_id %N", \
+  PROGRAM="serial_id %N", \
   ENV{ID_SERIAL_SHORT}="%c", \
-  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
-  SYMLINK="disk/by-path/$env{ID_PATH}", \
-  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}"
 
-# by-id (World Wide Name)
-SYMLINK=="*disk/by-id/wwn-*", GOTO="omv_skip_by_id_wwn"
-ENV{ID_WWN_WITH_EXTENSION}=="?*", SYMLINK+="disk/by-id/wwn-$env{ID_WWN_WITH_EXTENSION}"
-LABEL="omv_skip_by_id_wwn"
-
-LABEL="omv_dev_disk_by_id_end"
+LABEL="omv_serial_id_end"
