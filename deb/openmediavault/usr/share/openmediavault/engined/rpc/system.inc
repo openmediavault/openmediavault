@@ -339,7 +339,7 @@ class System extends \OMV\Rpc\ServiceAbstract {
 	 * Get various system information.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
-	 * @return array An array of system information.
+	 * @return An object containing the system information.
 	 */
 	public function getInformation($params, $context) {
 		// The information everyone is allowed to see.
