@@ -73,7 +73,6 @@ ENV{ID_VENDOR}=="JMicron", \
 ENV{ID_VENDOR_ID}=="152d", \
   ENV{ID_MODEL_ID}=="1561", \
   PROGRAM="/usr/lib/udev/serial_id %N", \
-  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
   ENV{ID_SERIAL_SHORT}="%c", \
   ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
   SYMLINK="disk/by-path/$env{ID_PATH}", \
@@ -362,7 +361,6 @@ ENV{ID_VENDOR_ID}=="2109", \
 ENV{ID_VENDOR_ID}=="152d", \
   ENV{ID_MODEL_ID}=="0561", \
   PROGRAM="/usr/lib/udev/serial_id %N", \
-  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
   ENV{ID_SERIAL_SHORT}="%c", \
   ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_%c-$env{ID_INSTANCE}", \
   SYMLINK="disk/by-path/$env{ID_PATH}", \
