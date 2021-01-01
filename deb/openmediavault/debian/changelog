@@ -1,6 +1,25 @@
 openmediavault (5.5.21-1) stable; urgency=low
 
   * Fixing a bug related to BTRFS which crashed the filesystem UI page.
+  * Improve UDEV rules to workaround a JMicron bug. Debugging should be
+    easier now because the serial_id helper tool behaves like scsi_id and
+    prints out the environment variable ID_SERIAL_SHORT.
+    If your USB enclosure reports the vendor 'JMICRON' for the attached
+    devices, then this modification might break your configuration because
+    the UDEV rule for those devices has been improved to apply to all
+    JMicron JMS578 SATA 6Gb/s based enclosures. You need to manually take
+    action to fix your configuration.
+    After installing this package your mounted filesystem configuration
+    might be broken. To fix that, you need to unmount and remount the
+    filesystems that are connected via this USB enclosure. If the
+    filesystem contains any shared folders, you can't unmount it, because
+    of that you need to delete all shared folders that are located on the
+    filesystem to be unmounted. That is only possible if the shared
+    folders are not used by any service, so make sure this applies to
+    these shared folders. After you've unmounted these filesystems in
+    the UI, apply the changes, reboot the system and then mount the
+    filesystems again. After that you can reconfigure your shared folders
+    and services from scratch. Sorry for this inconvenience.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 29 Dec 2020 20:45:44 +0100
 
@@ -52,15 +71,15 @@ openmediavault (5.5.17-1) stable; urgency=low
 
   * Update locales.
   * Issue #842: Fix bug in UDEV rules to workaround a JMicron bug.
-    If your USB controller reports the vendor 'JMICRON', then you might be
+    If your USB enclosure reports the vendor 'JMICRON', then you might be
     affected by this issue. After installing this package your mounted filesystem
     configuration might be broken. To fix that, you need to unmount and remount
-    the filesystems that are connected via this USB controller. If the filesystem
+    the filesystems that are connected via this USB enclosure. If the filesystem
     contains any shared folders, you can't unmount it, because of that you need to
     delete all shared folders that are located on the filesystem to be unmounted.
     That is only possible if the shared folders are not used by any service, so
     make sure this applies to these shared folders. After you've unmounted these
-    filesystems in the UI, apply the changes, reboot the system and the mount the
+    filesystems in the UI, apply the changes, reboot the system and then mount the
     filesystems again. After that you can reconfigure your shared folders and
     services from scratch. Sorry for this inconvenience.
   * Issue #846: Fix locking issue in SMB recycle bin cleanup and iptables scripts.
