@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2020 Volker Theile
+# @copyright Copyright (c) 2009-2021 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -20,6 +20,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
 import re
+from typing import Any, Dict, List, Optional
 
 import openmediavault.subprocess
 import pyudev
@@ -29,6 +30,21 @@ from .utils import (is_block_device, is_device_file_by_id,
 
 
 class BlockDevice:
+    """
+    This class is a wrapper for block devices.
+    """
+
+    @classmethod
+    def list_devices(cls) -> List[str]:
+        """
+        Get a list of device files of all block devices, e.g.
+        ['/dev/sdb', '/dev/sdb1', '/dev/vda', '/dev/vda1']
+        :return: Returns a list of device files of all block devices.
+        """
+        context = pyudev.Context()
+        return [device.device_node for device in context.list_devices(
+            subsystem='block')]
+
     def __init__(self, device_file):
         self._device_file = device_file
 
@@ -37,7 +53,7 @@ class BlockDevice:
         return self._device_file
 
     @property
-    def canonical_device_file(self):
+    def canonical_device_file(self) -> str:
         """
         Get the canonical device file, e.g.
 
@@ -51,11 +67,11 @@ class BlockDevice:
         return os.path.realpath(self.device_file)
 
     @property
-    def exists(self):
+    def exists(self) -> bool:
         return is_block_device(self.device_file)
 
     @property
-    def device_links(self):
+    def device_links(self) -> List[str]:
         """
         Get all device file symlinks, e.g.
 
@@ -74,7 +90,7 @@ class BlockDevice:
         return [device_link for device_link in device.device_links]
 
     @property
-    def predictable_device_file(self):
+    def predictable_device_file(self) -> str:
         """
         Get a predictable device file in the following order:
 
@@ -87,21 +103,21 @@ class BlockDevice:
         """
         if self.has_device_file_by_id():
             return self.device_file_by_id
-        if self.has_device_file_by_path():
+        elif self.has_device_file_by_path():
             return self.device_file_by_path
         return self.canonical_device_file
 
-    def has_device_file_by_id(self):
+    def has_device_file_by_id(self) -> bool:
         """
         Check whether the device has a /dev/disk/by-id/xxx device path.
-        :return: Returns TRUE if a disk/by-id device path exists,
-            otherwise FALSE.
+        :return: Returns `True` if a disk/by-id device path exists,
+            otherwise `False`.
         :rtype: bool
         """
         return is_device_file_by_id(self.device_file_by_id)
 
     @property
-    def device_file_by_id(self):
+    def device_file_by_id(self) -> Optional[str]:
         """
         Get the device file, e.g.
 
@@ -110,25 +126,25 @@ class BlockDevice:
         * /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML-part2
 
         :return: Returns the device file (/dev/disk/by-id/xxx) if available,
-            otherwise None.
-        :rtype: str|None
+            otherwise `None`.
+        :rtype: str | None
         """
         for device_link in self.device_links:
             if is_device_file_by_id(device_link):
                 return device_link
         return None
 
-    def has_device_file_by_path(self):
+    def has_device_file_by_path(self) -> bool:
         """
         Check whether the device has a /dev/disk/by-path/xxx device path.
-        :return: Returns TRUE if a disk/by-path device path exists,
-            otherwise FALSE.
+        :return: Returns `True` if a disk/by-path device path exists,
+            otherwise `False`.
         :rtype: bool
         """
         return is_device_file_by_path(self.device_file_by_path)
 
     @property
-    def device_file_by_path(self):
+    def device_file_by_path(self) -> Optional[str]:
         """
         Get the device file, e.g.
 
@@ -137,25 +153,25 @@ class BlockDevice:
         * /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:1:0-part1
 
         :return: Returns the device file (/dev/disk/by-path/xxx) if available,
-            otherwise None.
-        :rtype: str|None
+            otherwise `None`.
+        :rtype: str | None
         """
         for device_link in self.device_links:
             if is_device_file_by_path(device_link):
                 return device_link
         return None
 
-    def has_device_file_by_uuid(self):
+    def has_device_file_by_uuid(self) -> bool:
         """
         Check whether the device has a /dev/disk/by-uuid/xxx device path.
-        :return: Returns TRUE if a disk/by-uuid device path exists,
-            otherwise FALSE.
+        :return: Returns `True` if a disk/by-uuid device path exists,
+            otherwise `False`.
         :rtype: bool
         """
         return is_device_file_by_uuid(self.device_file_by_uuid)
 
     @property
-    def device_file_by_uuid(self):
+    def device_file_by_uuid(self) -> Optional[str]:
         """
         Get the device file, e.g.
 
@@ -164,19 +180,19 @@ class BlockDevice:
         * /dev/disk/by-uuid/7A48-BA97 (FAT)
 
         :return: Returns the device file (/dev/disk/by-uuid/xxx) if available,
-            otherwise None.
-        :rtype: str|None
+            otherwise `None`.
+        :rtype: str | None
         """
         for device_link in self.device_links:
             if is_device_file_by_uuid(device_link):
                 return device_link
         return None
 
-    def device_name(self, canonical=False):
+    def device_name(self, canonical=False) -> str:
         """
         Get the device name, e.g. sda or hdb.
         :param canonical: If set to True the canonical device file will
-            be used. Defaults to False.
+            be used. Defaults to `False`.
         :type canonical: bool
         :return: The device name.
         :rtype: str
@@ -188,7 +204,7 @@ class BlockDevice:
         )
 
     @property
-    def device_number(self):
+    def device_number(self) -> int:
         """
         The device number of the associated device as integer.
         See `<https://www.kernel.org/doc/Documentation/devices.txt> for more information`_.
@@ -199,7 +215,7 @@ class BlockDevice:
         return device.device_number
 
     @property
-    def major_device_number(self):
+    def major_device_number(self) -> int:
         """
         Get the major device number.
         See `<https://www.kernel.org/doc/Documentation/devices.txt> for more information`_.
@@ -209,7 +225,7 @@ class BlockDevice:
         return os.major(self.device_number)
 
     @property
-    def minor_device_number(self):
+    def minor_device_number(self) -> int:
         """
         Get the minor device number.
         See `<https://www.kernel.org/doc/Documentation/devices.txt> for more information`_.
@@ -218,7 +234,7 @@ class BlockDevice:
         """
         return os.minor(self.device_number)
 
-    def block_size(self):
+    def block_size(self) -> int:
         """
         Get the block size.
         :return: Returns the block size.
@@ -229,7 +245,7 @@ class BlockDevice:
         )
         return int(output.decode().strip())
 
-    def size(self):
+    def size(self) -> int:
         """
         Get the device size in bytes.
         :return: Returns the device size in bytes.
@@ -241,7 +257,7 @@ class BlockDevice:
         return int(output.decode().strip())
 
     @property
-    def udev_properties(self):
+    def udev_properties(self) -> Dict:
         """
         Get the udev properties.
 
@@ -301,25 +317,25 @@ class BlockDevice:
             result[name] = device.properties[name]
         return result
 
-    def has_udev_property(self, name):
+    def has_udev_property(self, name) -> bool:
         """
         Checks if a udev property exists.
         :param name: The name of the property, e.g. ID_VENDOR, ID_MODEL
             or ID_SERIAL_SHORT.
         :type name: str
-        :return: Returns True if the property exists, otherwise False.
+        :return: Returns `True` if the property exists, otherwise `False`.
         :rtype: bool
         """
         return name in self.udev_properties
 
-    def udev_property(self, name, default=None):
+    def udev_property(self, name, default=None) -> Any:
         """
         Get the specified udev property.
         :param name: The name of the property, e.g. ID_VENDOR, ID_MODEL
             or ID_SERIAL_SHORT.
         :type name: str
         :param default: The default value if the property does not exist.
-            Defaults to None.
+            Defaults to `None`.
         :type default: str
         :return: Returns the requested property.
         :rtype: str

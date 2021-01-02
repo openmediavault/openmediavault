@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2020 Volker Theile
+# @copyright Copyright (c) 2009-2021 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@ import re
 import stat
 
 
-def is_block_device(path):
+def is_block_device(path) -> bool:
     """
     Check if path is a block device, e.g. /dev/sda1.
     :param path: The path to check.
@@ -41,7 +41,7 @@ def is_block_device(path):
     return stat.S_ISBLK(st.st_mode)
 
 
-def is_char_device(path):
+def is_char_device(path) -> bool:
     """
     Check if path is a character device, e.g. /dev/sg0.
     :param path: The path to check.
@@ -59,7 +59,7 @@ def is_char_device(path):
     return stat.S_ISCHR(st.st_mode)
 
 
-def is_device_file(path):
+def is_device_file(path) -> bool:
     """
     Check if path describes a device file, e.g. /dev/sda1.
     :param path: The path to check.
@@ -73,7 +73,7 @@ def is_device_file(path):
     return True if re.match(r'^/dev/.+$', path) else False
 
 
-def is_device_file_by(path):
+def is_device_file_by(path) -> bool:
     """
     Check if path describes a device file, e.g.
 
@@ -92,7 +92,7 @@ def is_device_file_by(path):
     return True if re.match(r'^/dev/disk/by-\S+/.+$', path) else False
 
 
-def is_device_file_by_uuid(path):
+def is_device_file_by_uuid(path) -> bool:
     """
     Check if path describes a device file, e.g.
 
@@ -110,7 +110,7 @@ def is_device_file_by_uuid(path):
     return True if re.match(r'^/dev/disk/by-uuid/.+$', path) else False
 
 
-def is_device_file_by_id(path):
+def is_device_file_by_id(path) -> bool:
     """
     Check if path describes a device file, e.g.
 
@@ -128,7 +128,7 @@ def is_device_file_by_id(path):
     return True if re.match(r'^/dev/disk/by-id/.+$', path) else False
 
 
-def is_device_file_by_label(path):
+def is_device_file_by_label(path) -> bool:
     """
     Check if path describes a device file, e.g. /dev/disk/by-label/data
     :param path: The path to check.
@@ -142,7 +142,7 @@ def is_device_file_by_label(path):
     return True if re.match(r'^/dev/disk/by-label/.+$', path) else False
 
 
-def is_device_file_by_path(path):
+def is_device_file_by_path(path) -> bool:
     """
     Check if path describes a device file, e.g.
 

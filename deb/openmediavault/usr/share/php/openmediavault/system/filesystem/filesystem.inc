@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2020 Volker Theile
+ * @copyright Copyright (c) 2009-2021 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -376,7 +376,8 @@ class Filesystem extends \OMV\System\BlockDevice
 	 * Get the device path by label, e.g. <ul>
 	 * \li /dev/disk/by-label/data
 	 * </ul>
-	 * @return The device path (/dev/disk/by-label/xxx).
+	 * @return Returns the escaped device path, e.g.
+	 *   '/dev/disk/by-label/My\x20Passport\x20Blue'.
 	 */
 	public function getDeviceFileByLabel() {
 		$this->getData();
@@ -442,6 +443,7 @@ class Filesystem extends \OMV\System\BlockDevice
 	/**
 	 * Get the device file in the following order:
 	 * <ul>
+	 * \li /dev/disk/by-uuid/xxx
 	 * \li /dev/disk/by-label/xxx
 	 * \li /dev/disk/by-id/xxx
 	 * \li /dev/disk/by-path/xxx
@@ -450,7 +452,9 @@ class Filesystem extends \OMV\System\BlockDevice
 	 * @return Returns a device file.
 	 */
 	public function getPredictableDeviceFile() {
-		if (TRUE === $this->hasDeviceFileByLabel())
+		if (TRUE === $this->hasDeviceFileByUuid())
+			return $this->getDeviceFileByUuid();
+		else if (TRUE === $this->hasDeviceFileByLabel())
 			return $this->getDeviceFileByLabel();
 		else if (TRUE === $this->hasDeviceFileById())
 			return $this->getDeviceFileById();

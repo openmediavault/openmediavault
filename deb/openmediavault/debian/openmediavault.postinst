@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2020 Volker Theile
+# @copyright Copyright (c) 2009-2021 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -273,6 +273,10 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "5.5.17"; then
 			omv_module_set_dirty iptables
 			omv_module_set_dirty samba
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.5.20"; then
+			omv_module_set_dirty cron
+			omv_module_set_dirty initramfs
 		fi
 
 		########################################################################

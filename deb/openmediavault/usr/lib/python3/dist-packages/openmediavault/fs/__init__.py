@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2020 Volker Theile
+# @copyright Copyright (c) 2009-2021 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -20,16 +20,18 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
 import subprocess
+from typing import List, Optional
 
 import openmediavault.device
 import openmediavault.string
 import openmediavault.subprocess
 import pyudev
+from openmediavault.device import is_device_file_by_label
 
 import openmediavault
 
 
-def make_mount_path(id_):
+def make_mount_path(id_) -> str:
     """
     Build the mount path from any given string, device file or
     file system UUID.
@@ -49,30 +51,23 @@ def make_mount_path(id_):
 
 
 class Filesystem(openmediavault.device.BlockDevice):
-    def __init__(self, id_):
-        """
-        :param id_: The filesystem UUID or device file, e.g.
-
-        * 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
-        * 7A48-BA97 (FAT)
-        * 2ED43920D438EC29 (NTFS)
-        * /dev/sde1
-        * /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6-part1
-        * /dev/disk/by-label/DATA
-        * /dev/disk/by-label/My\x20Passport\x20Blue
-        * /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0-part2
-        * /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
-        * /dev/cciss/c0d0p2
-        * /dev/disk/by-id/md-name-vmpc01:data
-        * /dev/disk/by-id/md-uuid-75de9de9:6beca92e:8442575c:73eabbc9
-
-        :type id_: str
-        """
-        self._id = id_
-        super().__init__(None)
+    """
+    This class is a wrapper for filesystem devices.
+    """
 
     @classmethod
-    def from_mount_point(cls, path):
+    def list_devices(cls) -> List[str]:
+        """
+        Get a list of device files of all filesystem, e.g.
+        ['/dev/sdb1', '/dev/sdc1', '/dev/vda1']
+        :return: Returns a list of device files of all filesystems.
+        """
+        context = pyudev.Context()
+        return [device.device_node for device in context.list_devices(
+            subsystem='block', DEVTYPE='partition')]
+
+    @classmethod
+    def from_mount_point(cls, path: str) -> 'Filesystem':
         """
         Create a new :class:`Filesystem` object for the specified mount
         point.
@@ -119,6 +114,28 @@ class Filesystem(openmediavault.device.BlockDevice):
             device_file = output.decode().strip()
         return Filesystem(device_file)
 
+    def __init__(self, id_: str):
+        """
+        :param id_: The filesystem UUID or device file, e.g.
+
+        * 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
+        * 7A48-BA97 (FAT)
+        * 2ED43920D438EC29 (NTFS)
+        * /dev/sde1
+        * /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6-part1
+        * /dev/disk/by-label/DATA
+        * /dev/disk/by-label/My\x20Passport\x20Blue
+        * /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0-part2
+        * /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
+        * /dev/cciss/c0d0p2
+        * /dev/disk/by-id/md-name-vmpc01:data
+        * /dev/disk/by-id/md-uuid-75de9de9:6beca92e:8442575c:73eabbc9
+
+        :type id_: str
+        """
+        self._id = id_
+        super().__init__(None)
+
     @property
     def device_file(self):
         if self._device_file is None:
@@ -134,8 +151,58 @@ class Filesystem(openmediavault.device.BlockDevice):
                 self._device_file = self._id
         return super().device_file
 
+    def has_device_file_by_label(self) -> bool:
+        """
+        Check whether the device has a /dev/disk/by-label/xxx device path.
+        :return: Returns `True` if a disk/by-label device path exists,
+            otherwise `False`.
+        :rtype: bool
+        """
+        return is_device_file_by_label(self.device_file_by_label)
+
     @property
-    def uuid(self):
+    def device_file_by_label(self) -> Optional[str]:
+        """
+        Get the device file, e.g.
+
+        * /dev/disk/by-label/DATA
+        * /dev/disk/by-label/My\x20Passport\x20Blue
+
+        :return: Returns the escaped device file if available,
+            otherwise `None`.
+        :rtype: str | None
+        """
+        for device_link in self.device_links:
+            if is_device_file_by_label(device_link):
+                return device_link
+        return None
+
+    @property
+    def predictable_device_file(self) -> str:
+        """
+        Get a predictable device file in the following order:
+
+        * /dev/disk/by-uuid/xxx
+        * /dev/disk/by-label/xxx
+        * /dev/disk/by-id/xxx
+        * /dev/disk/by-path/xxx
+        * /dev/xxx
+
+        :return: Returns a device file.
+        :rtype: str
+        """
+        if self.has_device_file_by_uuid():
+            return self.device_file_by_uuid
+        elif self.has_device_file_by_label():
+            return self.device_file_by_label
+        elif self.has_device_file_by_id():
+            return self.device_file_by_id
+        elif self.has_device_file_by_path():
+            return self.device_file_by_path
+        return self.canonical_device_file
+
+    @property
+    def uuid(self) -> str:
         """
         Get the UUID of the filesystem.
         @see http://wiki.ubuntuusers.de/UUID
@@ -148,7 +215,7 @@ class Filesystem(openmediavault.device.BlockDevice):
         return self.udev_property('ID_FS_UUID')
 
     @property
-    def parent_device_file(self):
+    def parent_device_file(self) -> Optional[str]:
         """
         Get the parent device.
 
@@ -159,7 +226,7 @@ class Filesystem(openmediavault.device.BlockDevice):
 
         :return: Returns the device file of the underlying storage device
             or ``None`` in case of an error.
-        :rtype: str|None
+        :rtype: str | None
         """
         try:
             context = pyudev.Context()
@@ -183,7 +250,7 @@ class Filesystem(openmediavault.device.BlockDevice):
         # /dev/sdb => /dev/sdb
         return sd.device_file
 
-    def has_label(self):
+    def has_label(self) -> bool:
         """
         Check if the filesystem has a label.
         :return: Returns ``True`` if the filesystem has a label,
@@ -192,7 +259,7 @@ class Filesystem(openmediavault.device.BlockDevice):
         """
         return self.has_udev_property('ID_FS_LABEL_ENC')
 
-    def get_label(self):
+    def get_label(self) -> str:
         """
         Get the filesystem label.
         :return: Returns the label of the filesystem.
@@ -202,7 +269,7 @@ class Filesystem(openmediavault.device.BlockDevice):
             self.udev_property('ID_FS_LABEL_ENC', '')
         )
 
-    def get_type(self):
+    def get_type(self) -> str:
         """
         Get the filesystem type, e.g. 'ext3' or 'vfat'.
         :return: The filesystem type.
@@ -210,20 +277,20 @@ class Filesystem(openmediavault.device.BlockDevice):
         """
         return self.udev_property('ID_FS_TYPE')
 
-    def get_partition_scheme(self):
+    def get_partition_scheme(self) -> Optional[str]:
         """
         Get the partition scheme, e.g. 'gpt', 'mbr', 'apm' or 'dos'.
         :return: Returns the partition scheme, otherwise ``None`` on
             failure or if it does not exist.
-        :rtype: str|None
+        :rtype: str | None
         """
         return self.udev_property('ID_PART_ENTRY_SCHEME', None)
 
-    def get_mount_point(self):
+    def get_mount_point(self) -> Optional[str]:
         """
         Get the mount point of the filesystem.
         :return: The mount point of the filesystem or None.
-        :rtype: str|None
+        :rtype: str | None
         """
         try:
             output = openmediavault.subprocess.check_output(
@@ -246,7 +313,7 @@ class Filesystem(openmediavault.device.BlockDevice):
             pass
         return None
 
-    def is_mounted(self):
+    def is_mounted(self) -> bool:
         """
         Check if a filesystem is mounted.
         """

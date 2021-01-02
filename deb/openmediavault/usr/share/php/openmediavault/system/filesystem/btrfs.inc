@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2020 Volker Theile
+ * @copyright Copyright (c) 2009-2021 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -80,6 +80,28 @@ class Btrfs extends Filesystem {
 		parent::refresh();
 		$this->setCached(FALSE);
 		$this->getData();
+	}
+
+	/**
+	 * Get the device file in the following order:
+	 * <ul>
+	 * \li /dev/disk/by-label/xxx
+	 * \li /dev/disk/by-id/xxx
+	 * \li /dev/disk/by-path/xxx
+	 * \li /dev/xxx
+	 * </ul>
+	 * Note, /dev/disk/by-uuid is not supported by this filesystem
+	 * because of reasons.
+	 * @return Returns a device file.
+	 */
+	public function getPredictableDeviceFile() {
+		if (TRUE === $this->hasDeviceFileByLabel())
+			return $this->getDeviceFileByLabel();
+		else if (TRUE === $this->hasDeviceFileById())
+			return $this->getDeviceFileById();
+		else if (TRUE === $this->hasDeviceFileByPath())
+			return $this->getDeviceFileByPath();
+		return $this->getCanonicalDeviceFile();
 	}
 
 	/**
@@ -239,29 +261,37 @@ class Btrfs extends Filesystem {
 		// Allocated but unused space in Metadata alone (or System
 		// or GlobalReserve, although they are small) is not included
 		// as it is not directly available for data usage.
-		$available = bcadd($unallocated, array_sum(array_filter(
-		  $allocatedUnusedRaw, function($type) {
-			  return in_array($type, [ 'Data', 'Data+Metadata' ]);
-		  }, ARRAY_FILTER_USE_KEY)));
+		$available = bcadd(
+			$unallocated,
+			array_sum(array_filter($allocatedUnusedRaw, function($type) {
+				return in_array($type, [ 'Data', 'Data+Metadata' ]);
+			}, ARRAY_FILTER_USE_KEY)));
 		// Data ratio is calculated based only on Data (or Data+Metadata).
-		$dataRatio = bcdiv(array_sum(array_filter($usedRaw, function($type) {
-			  return in_array($type, [ 'Data', 'Data+Metadata' ]);
-		  }, ARRAY_FILTER_USE_KEY)),
-		  array_sum(array_filter($used, function($type) {
-			  return in_array($type, [ 'Data', 'Data+Metadata' ]);
-		  }, ARRAY_FILTER_USE_KEY)), 2);
+		$dataRatio = bcdiv(
+			array_sum(array_filter($usedRaw, function($type) {
+				return in_array($type, [ 'Data', 'Data+Metadata' ]);
+			}, ARRAY_FILTER_USE_KEY)),
+			array_sum(array_filter($used, function($type) {
+				return in_array($type, [ 'Data', 'Data+Metadata' ]);
+			}, ARRAY_FILTER_USE_KEY)),
+			2);
+		// Catch and fix division-by-zero.
+		if (is_null($dataRatio)) {
+			$dataRatio = "1.0";
+		}
 
 		// Update the information.
 		// Raw disk(s) size.
-		$stats['size'] = $totalBytes;
-		$stats['blocks'] = bcdiv($totalBytes, "1024", 0);
-		// Usage by all profiles (excluding redundancy).
-		$stats['used'] = array_sum($used);
-		// Space available for Data, adjusted for average data ratio.
-		$stats['available'] = bcdiv($available, $dataRatio, 0);
-		// Raw disk usage, all profiles, divided by raw size.
-		$stats['percentage'] = bcmul(bcdiv(array_sum($usedRaw),
-		  $stats['size'], 3), 100, 0);
+		$stats = array_merge($stats, [
+			"size" => $totalBytes,
+			"blocks" => bcdiv($totalBytes, "1024", 0),
+			// Usage by all profiles (excluding redundancy).
+			"used" => array_sum($used),
+			// Space available for Data, adjusted for average data ratio.
+			"available" => bcdiv($available, $dataRatio, 0),
+			// Raw disk usage, all profiles, divided by raw size.
+			"percentage" => bcmul(bcdiv(array_sum($usedRaw), $totalBytes, 3), 100, 0)
+		]);
 
 		return $stats;
 	}

@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2020 Volker Theile
+ * @copyright Copyright (c) 2009-2021 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -80,9 +80,10 @@ function array_expand(array $array, $separator = ".") {
  * @param key The key used as sort criteria.
  * @return Returns TRUE on success or FALSE on failure.
  */
-function array_sort_key(array &$array, $key) {
-	if (!is_multi_array($array))
+function array_sort_key(array &$array, $key): bool {
+	if (!is_multi_array($array)) {
 		return FALSE;
+	}
 	// Sort the array.
 	if (FALSE === uasort($array, function($a, $b) use($key) {
 		return strnatcmp(strval($a[$key]), strval($b[$key]));
@@ -108,26 +109,26 @@ function array_remove_key(array &$array, $key) {
 }
 
 /**
- * Filter an array of by key and values.
+ * Filter a multi-dimensional array by key and value.
  * @ingroup api
  * @param array $array The array to process.
  * @param string $key The key used as filter criteria.
  * @param string $value The value used as filter criteria.
- * @return Returns the filtered array.
+ * @return Returns a new array containing only that elements that match
+ *   the given filter arguments or NULL on failure.
  */
-function array_filter_ex($array, $key, $value) {
-	$result = [];
-	if (!is_multi_array($array))
-		return $result;
-	if (is_array($array) && count($array) > 0) {
-		foreach (array_keys($array) as $keyv) {
-			$temp[$keyv] = $array[$keyv][$key];
-			if ($temp[$keyv] == $value)
-				$result[$keyv] = $array[$keyv];
-		}
+function array_filter_ex($array, $key, $value): ?array {
+	if (!is_multi_array($array)) {
+		return NULL;
 	}
-	// Re-index the array.
-	return array_values($result);
+	// Re-index the filtered array.
+	return array_values(
+		array_filter($array, function($v) use($key, $value) {
+			if (!array_key_exists($key, $v)) {
+				return FALSE;
+			}
+			return $v[$key] == $value;
+		}, ARRAY_FILTER_USE_BOTH));
 }
 
 /**
@@ -149,11 +150,12 @@ function array_keys_exists(array $keys, array $search, &$missing = NULL) {
  * Note, the first found duplicate will be inserted to the result.
  * @param array $array The array to process.
  * @param string $key The key used as filter criteria.
- * @return Returns the filtered array or FALSE on failure.
+ * @return Returns a new array without duplicates or NULL on failure.
  */
-function array_unique_key(array $array, $key) {
-	if (!is_multi_array($array))
-		return FALSE;
+function array_unique_key(array $array, $key): ?array {
+	if (!is_multi_array($array)) {
+		return NULL;
+	}
 	$result = [];
 	$values = [];
 	foreach ($array as $arrayk => $arrayv) {
@@ -486,12 +488,13 @@ function is_ipaddr6($var) {
 }
 
 /**
- * Finds out whether a variable is a multidimensional array.
+ * Finds out whether a variable is a multi-dimensional array.
  * @ingroup api
  * @param mixed $var The variable being evaluated.
- * @return TRUE if the variable is a multidimensional array, otherwise FALSE.
+ * @return TRUE if the variable is a multi-dimensional array,
+ *   otherwise FALSE.
  */
-function is_multi_array($var) {
+function is_multi_array($var): bool {
 	if (FALSE === is_array($var))
 		return FALSE;
 	if (count($var, COUNT_RECURSIVE) !== count($var))
@@ -506,7 +509,7 @@ function is_multi_array($var) {
  * @param mixed $var The variable being evaluated.
  * @return TRUE if the variable is an associative array, otherwise FALSE.
  */
-function is_assoc_array($var) {
+function is_assoc_array($var): bool {
 	if (FALSE === is_array($var))
 		return FALSE;
 	$keys = array_keys($var);

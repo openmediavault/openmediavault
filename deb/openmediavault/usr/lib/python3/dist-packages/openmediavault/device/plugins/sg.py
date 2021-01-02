@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2020 Volker Theile
+# @copyright Copyright (c) 2009-2021 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -56,7 +56,7 @@ class StorageDevice(openmediavault.device.StorageDevice):
         @see http://www.tldp.org/HOWTO/SCSI-Generic-HOWTO/proc.html
         :return: Returns the SCSI type, e.g. 0->disk, 5->cdrom, 6->scanner,
             otherwise ``False``.
-        :rtype: int|None
+        :rtype: int | None
         """
         file = '/sys/class/scsi_generic/{}/device/type'.format(
             self.device_name(True)

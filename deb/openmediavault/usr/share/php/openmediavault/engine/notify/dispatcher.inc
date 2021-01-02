@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2020 Volker Theile
+ * @copyright Copyright (c) 2009-2021 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -119,10 +119,10 @@ class Dispatcher {
 	function notify($type, $id /* [, $arg1 [, $... ]] */) {
 		// Filter list of registered listeners.
 		$listeners = array_filter_ex($this->listeners, "id", $id);
-		// Sort list of registered listeners.
-		array_sort_key($listeners, "seqnum");
 		// Call registered listeners.
-		if (!empty($listeners)) {
+		if (!is_null($listeners)) {
+			// Sort list of registered listeners.
+			array_sort_key($listeners, "seqnum");
 			foreach ($listeners as $listenerk => $listenerv) {
 				if ($listenerv['type'] & $type) {
 					$this->debug(sprintf("Notify listener (type=%s, " .
@@ -144,11 +144,14 @@ class Dispatcher {
 	function dumpListeners($id = "") {
 		$listeners = $this->listeners;
 		// Filter list of registered listeners.
-		if (!empty($id))
+		if (!empty($id)) {
 			$listeners = array_filter_ex($listeners, "id", $id);
-		// Sort list of registered listeners.
-		array_sort_key($listeners, "id");
-		// Dump registered listeners.
-		$this->debug($listeners);
+		}
+		if (!empty($listeners)) {
+			// Sort list of registered listeners.
+			array_sort_key($listeners, "id");
+			// Dump registered listeners.
+			$this->debug($listeners);
+		}
 	}
 }
