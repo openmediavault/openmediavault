@@ -3,7 +3,7 @@
 
 Requests for support and questions shall be addressed first to openmediavault forum: https://forum.openmediavault.org/
 
-Note: Issues for non-core plugins are to be raised in the corresponding https://github.com/OpenMediaVault-Plugin-Developers repository
+**Note:** Issues for non-core plugins are to be raised in the corresponding https://github.com/OpenMediaVault-Plugin-Developers repository
 
 **Describe the bug**
 
@@ -43,4 +43,4 @@ URL link to forum post
 
 **Additional context**
 
-Add any other context about the problem here. 
+Add any other context about the problem here.
