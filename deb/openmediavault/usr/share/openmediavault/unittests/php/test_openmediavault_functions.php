@@ -5,7 +5,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2020 Volker Theile
+ * @copyright Copyright (c) 2009-2021 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -123,6 +123,11 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 		$d = ["a" => 1, "c" => "3"];
 		$d_filtered = array_filter_ex($d, "prio", 10);
 		$this->assertEmpty($d_filtered);
+	}
+
+	public function test_array_filter_ex_fail() {
+		$d = array_filter_ex([1, 2, 3], "text", "b");
+		$this->assertNull($d);
 	}
 
 	public function test_boolvalEx() {
@@ -247,8 +252,7 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 
 	public function test_array_unique_key_fail() {
 		$d = array_unique_key([1, 2, 3], "text");
-		$this->assertInternalType("bool", $d);
-		$this->assertFalse($d);
+		$this->assertNull($d);
 	}
 
 	public function test_escape_path() {

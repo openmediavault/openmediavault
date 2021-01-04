@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2020 Volker Theile
+ * @copyright Copyright (c) 2009-2021 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -72,8 +72,30 @@ class Btrfs extends BackendAbstract {
 		foreach ($uniqueEnums as $uniqueEnumk => $uniqueEnumv) {
 			$canonicalDeviceFile = realpath(sprintf("/dev/disk/by-uuid/%s",
 				$uniqueEnumv['uuid']));
-			$result[] = array_filter_ex($enums, "devicefile",
-				$canonicalDeviceFile)[0];
+			$filtered = array_filter_ex($enums, "devicefile",
+				$canonicalDeviceFile);
+			if (empty($filtered)) {
+				// It seems there are situations where the symlink from
+				// /dev/disk/by-uuid/<UUID> -> /dev/xxx does not exist.
+				//
+				// Example:
+				// $ realpath /dev/disk/by-uuid/9c2f26b0-209c-43e5-8316-84280b0ddbd7
+				// /dev/disk/by-uuid/9c2f26b0-209c-43e5-8316-84280b0ddbd7
+				// $ findfs UUID=9c2f26b0-209c-43e5-8316-84280b0ddbd7
+				// /dev/sda
+				//
+				// Because this fallback is a really expensive action,
+				// it would be great to have a final solution here. The
+				// problem seems to be related to BTRFS and/or UDEV.
+				$cmdArgs = [];
+				$cmdArgs[] = sprintf("UUID=%s", $uniqueEnumv['uuid']);
+				$cmd = new \OMV\System\Process("findfs", $cmdArgs);
+				$cmd->setRedirect2to1();
+				$filtered[] = array_merge($uniqueEnumv, [
+					"devicefile" => $cmd->execute()
+				]);
+			}
+			$result[] = $filtered[0];
 		}
 		return $result;
 	}

@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2020 Volker Theile
+ * @copyright Copyright (c) 2009-2021 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -339,7 +339,7 @@ class System extends \OMV\Rpc\ServiceAbstract {
 	 * Get various system information.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
-	 * @return array An array of system information.
+	 * @return An object containing the system information.
 	 */
 	public function getInformation($params, $context) {
 		// The information everyone is allowed to see.

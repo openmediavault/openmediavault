@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2020 Volker Theile
+# @copyright Copyright (c) 2009-2021 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -23,16 +23,33 @@ import importlib
 import os
 import pkgutil
 import re
+from typing import List, Optional
 
 import openmediavault.string
+import pyudev
 from cached_property import cached_property
 
 from .block import BlockDevice
 
 
 class StorageDevice(BlockDevice):
+    """
+    This class is a wrapper for storage/disk devices.
+    """
+
+    @classmethod
+    def list_devices(cls) -> List[str]:
+        """
+        Get a list of device files of all disk devices, e.g.
+        ['/dev/sda', '/dev/sdb', '/dev/sdc', '/dev/vda']
+        :return: Returns a list of device files of all disk devices.
+        """
+        context = pyudev.Context()
+        return [device.device_node for device in context.list_devices(
+            subsystem='block', DEVTYPE='disk')]
+
     @property
-    def parent(self):
+    def parent(self) -> Optional['StorageDevice']:
         """
         Create a new instance from the parent device file.
         Examples:
@@ -51,7 +68,7 @@ class StorageDevice(BlockDevice):
         return None
 
     @property
-    def description(self):
+    def description(self) -> str:
         """
         Get the description of the device.
         :return: The device description.
@@ -60,7 +77,7 @@ class StorageDevice(BlockDevice):
         return ''
 
     @property
-    def model(self):
+    def model(self) -> str:
         """
         Get the device model.
         :return: The device model, otherwise an empty string.
@@ -71,7 +88,7 @@ class StorageDevice(BlockDevice):
         )
 
     @property
-    def vendor(self):
+    def vendor(self) -> str:
         """
         Get the device vendor.
         :return: The device vendor, otherwise an empty string.
@@ -82,7 +99,7 @@ class StorageDevice(BlockDevice):
         )
 
     @property
-    def serial(self):
+    def serial(self) -> str:
         """
         Get the device serial number.
         :return: The device serial number, otherwise an empty string.
@@ -92,7 +109,7 @@ class StorageDevice(BlockDevice):
         return serial.replace('_', ' ')
 
     @property
-    def is_rotational(self):
+    def is_rotational(self) -> bool:
         """
         Check if the device is of rotational or non-rotational type.
         See https://www.kernel.org/doc/Documentation/block/queue-sysfs.txt
@@ -120,7 +137,7 @@ class StorageDevice(BlockDevice):
         return 'SSD' not in self.model
 
     @property
-    def is_removable(self):
+    def is_removable(self) -> bool:
         """
         Check if the device is removable.
         :return: Returns ``True`` if the device is removable,
@@ -136,7 +153,7 @@ class StorageDevice(BlockDevice):
         return False
 
     @property
-    def is_usb(self):
+    def is_usb(self) -> bool:
         """
         Check if the given device is an USB device.
         :return: Returns ``True`` if the device is connected via USB,
@@ -162,7 +179,7 @@ class StorageDevice(BlockDevice):
         return False
 
     @property
-    def is_read_only(self):
+    def is_read_only(self) -> bool:
         """
         Check if the given device is read-only.
         :return: Returns ``True`` if the device is read-only,
@@ -172,7 +189,7 @@ class StorageDevice(BlockDevice):
         return False
 
     @property
-    def is_media_available(self):
+    def is_media_available(self) -> bool:
         """
         Check if a medium is available.
         :return: Returns ``True`` if the medium is available,
@@ -182,7 +199,7 @@ class StorageDevice(BlockDevice):
         return True
 
     @property
-    def is_raid(self):
+    def is_raid(self) -> bool:
         """
         Check if the given device is a hardware/software RAID device.
         :return: Returns ``True`` if the device is a hardware/software
@@ -192,7 +209,7 @@ class StorageDevice(BlockDevice):
         return False
 
     @property
-    def has_smart_support(self):
+    def has_smart_support(self) -> bool:
         """
         Check if the given device has S.M.A.R.T. support.
         :return: Returns ``True`` if the device supports S.M.A.R.T.,
@@ -202,7 +219,7 @@ class StorageDevice(BlockDevice):
         return True
 
     @property
-    def smart_device_type(self):
+    def smart_device_type(self) -> str:
         """
         Identify the device type required by the smartctl utility
         program.
@@ -222,7 +239,7 @@ class StorageDevice(BlockDevice):
         )
 
     @classmethod
-    def from_device_file(cls, device_file):
+    def from_device_file(cls, device_file) -> 'StorageDevice':
         """
         Create a new instance from the given device file.
         :param device_file: The canonical path of a device file.
@@ -255,7 +272,7 @@ class StorageDevice(BlockDevice):
         return StorageDevice(device_file)
 
     @cached_property
-    def host_driver(self):
+    def host_driver(self) -> Optional[str]:
         """
         Get the driver name of the host device this storage device is
         connected to, e.g. 'hpsa', 'arcmsr' or 'ahci'.
@@ -291,7 +308,7 @@ class StorageDevice(BlockDevice):
 
 class IStorageDevicePlugin(abc.ABC):
     @abc.abstractmethod
-    def match(self, device_file):
+    def match(self, device_file) -> bool:
         """
         Check whether the given device is implemented by
         this class.
@@ -305,7 +322,7 @@ class IStorageDevicePlugin(abc.ABC):
         """
 
     @abc.abstractmethod
-    def from_device_file(self, device_file):
+    def from_device_file(self, device_file) -> 'StorageDevice':
         """
         Create a new instance from the given device file.
         :param device_file: The path of a device file, e.g.
