@@ -278,6 +278,9 @@ case "$1" in
 			omv_module_set_dirty cron
 			omv_module_set_dirty initramfs
 		fi
+		if dpkg --compare-versions "$2" lt-nl "5.5.21"; then
+			omv_module_set_dirty initramfs
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the
