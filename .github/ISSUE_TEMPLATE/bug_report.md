@@ -1,5 +1,13 @@
+---
+name: Bug report
+about: Create a report to help us improve
+title: ''
+labels: ''
+assignees: ''
 
-**Please only open an issue here, when advised by a moderator in openmediavault forum**
+---
+
+**Please only open an issue here, when advised by a moderator in openmediavault forum.**
 
 Requests for support and questions shall be addressed first to openmediavault forum: https://forum.openmediavault.org/
 
@@ -31,8 +39,8 @@ URL link to forum post
 
 **openmediavault Server (please complete the following information):**
 
-- OS Version: [uname -a]
-- openmediavault Version: [dpkg -l | grep openmediavault]
+- OS version: [uname -a]
+- openmediavault version: [dpkg -l | grep openmediavault]
 
 **Client (please complete the following information):**
 
