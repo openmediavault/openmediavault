@@ -1,6 +1,14 @@
 # openmediavault
 openmediavault is the next generation network attached storage (NAS) solution based on Debian Linux. It contains services like SSH, (S)FTP, SMB/CIFS, DAAP media server, RSync, BitTorrent client and many more. Thanks to the modular design of the framework it can be enhanced via plugins. openmediavault is primarily designed to be used in home environments or small home offices, but is not limited to those scenarios. It is a simple and easy to use out-of-the-box solution that will allow everyone to install and administrate a Network Attached Storage without deeper knowledge.
 
+## Installation
+A detailed instruction about how to install openmediavault can be found [here](https://docs.openmediavault.org/en/stable/installation/index.html). 
+
+## Resources
+- [Documentation](https://docs.openmediavault.org)
+- [Forum](https://forum.openmediavault.org)
+- [Blog](https://blog.openmediavault.org)
+
 ## Donation
 
 openmediavault is free, but costs money and time to produce, support and distribute. This gift to the developer would demonstrate your appreciation of this software and help its future development.
