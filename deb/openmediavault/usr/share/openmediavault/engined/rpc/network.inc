@@ -484,18 +484,16 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
 		$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
-		// Get all unused network interface devices, except loopback and
-		// VLAN network interfaces.
+		// Get all unused ethernet network interface devices.
 		if (FALSE === ($devs = $mngr->enumerateUnused(
 				OMV_NETWORK_INTERFACE_TYPE_ETHERNET))) {
 			throw new \OMV\Exception(
-				"Failed to get list of unused network interface devices.");
+				"Failed to get list of network interface devices.");
 		}
-		// Get the network interface information.
+		// Process the identified devices and skip those that are
+		// already configured or in use.
 		$result = [];
 		foreach ($devs as $devk => $devv) {
-			// Does a configuration object exists for the given network
-			// interface device? In this case skip this device.
 			$db = \OMV\Config\Database::getInstance();
 			if ($db->exists("conf.system.network.interface", [
 				"operator" => "and",
@@ -572,17 +570,15 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		$result = [];
 		if (array_value($params, "unused", FALSE) === TRUE) {
-			// Get all existing ethernet and WiFi network interface
-			// devices.
+			// Get all existing ethernet network interface devices.
 			$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
 			if (FALSE === ($devs = $mngr->enumerate(
-					OMV_NETWORK_INTERFACE_TYPE_ETHERNET |
-					OMV_NETWORK_INTERFACE_TYPE_WIFI))) {
+					OMV_NETWORK_INTERFACE_TYPE_ETHERNET))) {
 				throw new \OMV\Exception(
-					"Failed to get list of unused network interface devices.");
+					"Failed to get list of network interface devices.");
 			}
-			// Get a list of ethernet and WiFi network interfaces
-			// that are not used by any other config object.
+			// Process the identified devices and skip those that are
+			// already configured or in use.
 			foreach ($devs as $devk => $devv) {
 				// Is network interface device referenced somewhere:
 				// - Check if the interface is already used by a bond
@@ -624,9 +620,9 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 				if ($db->exists("conf.system.network.interface", [
 					"operator" => "and",
 					"arg0" => [
-						"operator" => "stringEnum",
+						"operator" => "stringEquals",
 						"arg0" => "type",
-						"arg1" => [ "ethernet", "wifi" ]
+						"arg1" => "ethernet"
 					],
 					"arg1" => [
 						"operator" => "stringEquals",
@@ -827,19 +823,17 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		// Get all unused network interface devices, except loopback and
-		// VLAN network interfaces.
+		// Get all unused wifi network interface devices.
 		$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
 		if (FALSE === ($devs = $mngr->enumerateUnused(
 				OMV_NETWORK_INTERFACE_TYPE_WIFI))) {
 			throw new \OMV\Exception(
-				"Failed to get list of unused network interface devices.");
+				"Failed to get list of network interface devices.");
 		}
-		// Get the network interface information.
+		// Process the identified devices and skip those that are
+		// already configured or in use.
 		$result = [];
 		foreach ($devs as $devk => $devv) {
-			// Does a configuration object exists for the given network
-			// interface device? In this case skip this device.
 			$db = \OMV\Config\Database::getInstance();
 			if ($db->exists("conf.system.network.interface", [
 				"operator" => "and",
@@ -918,18 +912,19 @@ class Network extends \OMV\Rpc\ServiceAbstract {
 		$db = \OMV\Config\Database::getInstance();
 		$result = [];
 		if (array_value($params, "unused", FALSE) === TRUE) {
-			// Get all unused network interface devices, except bridge
-			// and loopback network interfaces.
+			// Get all unused network interface devices, except bridge,
+			// wifi and loopback network interfaces.
 			$mngr = \OMV\System\Net\NetworkInterfaceBackend\Manager::getInstance();
 			if (FALSE === ($devs = $mngr->enumerateUnused(
 					OMV_NETWORK_INTERFACE_TYPE_ALL &
 					~(OMV_NETWORK_INTERFACE_TYPE_BRIDGE |
+					OMV_NETWORK_INTERFACE_TYPE_WIFI |
 					OMV_NETWORK_INTERFACE_TYPE_LOOPBACK)))) {
 				throw new \OMV\Exception(
-					"Failed to get list of unused network interface devices.");
+					"Failed to get list of network interface devices.");
 			}
-			// Get a list of configured ethernet network interfaces that are
-			// not used by any other config object.
+			// Process the identified devices and skip those that are
+			// already configured or in use.
 			foreach ($devs as $devk => $devv) {
 				// Is network interface device referenced somewhere:
 				// - Check if the interface is already used by a bond
