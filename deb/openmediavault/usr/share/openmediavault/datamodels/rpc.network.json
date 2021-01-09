@@ -154,7 +154,7 @@
 			   "type": "array",
 				"items": {
 					"type": "string",
-					"pattern": "^((eth|venet|wlan)\\d+|(en|veth|wl)\\S+)$"
+					"pattern": "^((eth|venet)\\d+|(en|veth)\\S+)$"
 				},
 			   "required": true
 		   },
@@ -436,7 +436,7 @@
 				"type": "array",
 				"items": {
 					"type": "string",
-					"pattern": "^((eth|venet|wlan)\\d+|(en|veth|wl)\\S+|(bond)\\d+)(\\.\\d+)?$"
+					"pattern": "^((eth|venet)\\d+|(en|veth)\\S+|(bond)\\d+)(\\.\\d+)?$"
 				},
 				"required": true
 			}

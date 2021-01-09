@@ -2,7 +2,7 @@
 {%- set mode_map = {0: "balance-rr", 1: "active-backup", 2: "balance-xor", 3: "broadcast", 4: "802.3ad", 5: "balance-tlb", 6: "balance-alb"} -%}
 {%- set primary_reselect_policy = salt['pillar.get']('default:OMV_SYSTEMD_NETWORKD_BOND_PRIMARYRESELECTPOLICY', 'always') -%}
 network:
-{%- for type in ['ethernet', 'wifi'] %}
+{%- for type in ['ethernet'] %}
 {%- set slaves = interface.slaves.split(',') | select('match_netif_type', type) | list %}
 {%- if slaves | length > 0 %}
   {{ type }}s:
