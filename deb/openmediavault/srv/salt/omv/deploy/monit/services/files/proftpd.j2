@@ -5,7 +5,7 @@ check process proftpd with pidfile /run/proftpd.pid
     start program = "/etc/init.d/proftpd restart"
     stop program  = "/etc/init.d/proftpd stop"
     mode active
-    if failed port {{ proftpd_config.port }} protocol ftp for 3 cycles then restart
+    if failed port {{ proftpd_config.port }} protocol ftp {% if proftpd_config.modules.mod_tls.enable | to_bool %}with ssl {% endif %}for 3 cycles then restart
 {%- if email_config.enable | to_bool and not notification_config.enable | to_bool %}
     noalert {{ email_config.primaryemail }}
 {%- endif %}
