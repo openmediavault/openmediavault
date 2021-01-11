@@ -4,6 +4,8 @@ openmediavault (5.5.22-1) stable; urgency=low
   * Issue #921: Prevent using WLAN NICs for bond and bridge interfaces.
   * Issue #929: Set 'big_writes' as default mount option for NTFS
     filesystems.
+  * Issue #930: Add UDEV rule for OWC Mercury Elite Pro Dual mini
+    enclosure to fix the random serial ID issue.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 08 Jan 2021 16:10:43 +0100
 
