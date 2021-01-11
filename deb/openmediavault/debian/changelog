@@ -1,5 +1,6 @@
 openmediavault (5.5.22-1) stable; urgency=low
 
+  * Fix monit/proftpd issue when implicit TLS is enabled.
   * Issue #921: Prevent using WLAN NICs for bond and bridge interfaces.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 08 Jan 2021 16:10:43 +0100
