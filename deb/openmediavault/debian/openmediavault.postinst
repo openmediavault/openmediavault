@@ -283,6 +283,7 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "5.5.22"; then
 			omv_module_set_dirty monit
+			omv_module_set_dirty initramfs
 		fi
 
 		########################################################################

@@ -367,6 +367,43 @@ ENV{ID_VENDOR_ID}=="152d", \
   SYMLINK="disk/by-path/$env{ID_PATH}", \
   SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
 
+# https://www.owcdigital.com/products/mercury-elite-pro-dual-mini
+#
+# DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-1/2-1:1.0/host3/target3:0:0/3:0:0:0/block/sdd
+# DEVNAME=/dev/sdd
+# DEVTYPE=disk
+# MAJOR=8
+# MINOR=48
+# SUBSYSTEM=block
+# USEC_INITIALIZED=8654497300
+# ID_VENDOR=Elite
+# ID_VENDOR_ENC=Elite\x20\x20\x20
+# ID_VENDOR_ID=1e91
+# ID_MODEL=Pro_Dual-R1
+# ID_MODEL_ENC=Pro\x20Dual-R1\x20\x20\x20\x20\x20
+# ID_MODEL_ID=a3a6
+# ID_REVISION=0105
+# ID_SERIAL=Elite_Pro_Dual-R1_RANDOM__D61B6A084014-0:0
+# ID_SERIAL_SHORT=RANDOM__D61B6A084014
+# ID_TYPE=disk
+# ID_INSTANCE=0:0
+# ID_BUS=usb
+# ID_USB_INTERFACES=:080650:080662:
+# ID_USB_INTERFACE_NUM=00
+# ID_USB_DRIVER=usb-storage
+# ID_PATH=platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1:1.0-scsi-0:0:0:0
+# ID_PATH_TAG=platform-fd500000_pcie-pci-0000_01_00_0-usb-0_1_1_0-scsi-0_0_0_0
+# ID_PART_TABLE_UUID=93568ccc
+# ID_PART_TABLE_TYPE=dos
+# DEVLINKS=/dev/disk/by-id/usb-Elite_Pro_Dual-R1_RANDOM__D61B6A084014-0:0 /dev/disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1:1.0-scsi-0:0:0:0
+# TAGS=:systemd:
+ENV{ID_VENDOR}=="Elite", \
+  ENV{ID_MODEL}=="Pro_Dual-R1", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
 # by-id (World Wide Name)
 SYMLINK=="*disk/by-id/wwn-*", GOTO="omv_skip_by_id_wwn"
 ENV{ID_WWN_WITH_EXTENSION}=="?*", SYMLINK+="disk/by-id/wwn-$env{ID_WWN_WITH_EXTENSION}"
