@@ -83,7 +83,7 @@ define("OMV_NETWORK_INTERFACE_TYPE_ALL", 0xFF);
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_XFS", "defaults,nofail,usrquota,grpquota");
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_EXFAT", "defaults,nofail");
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_VFAT", "defaults,nofail");
-\OMV\Environment::set("OMV_FSTAB_MNTOPS_NTFS", "defaults,nofail");
+\OMV\Environment::set("OMV_FSTAB_MNTOPS_NTFS", "defaults,nofail,big_writes");
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_HFSPLUS", "defaults,nofail,force");
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_BTRFS", "defaults,nofail");
 \OMV\Environment::set("OMV_FSTAB_MNTOPS_ISO9660", "ro");
