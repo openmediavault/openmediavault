@@ -1,5 +1,8 @@
 openmediavault (5.5.22-1) stable; urgency=low
 
+  * Fixing package management issue with new UDEV rules. The old
+    file was not removed automatically. Because of that please notice
+    the information about the new UDEV rules in 5.5.21.
   * Fix monit/proftpd issue when implicit TLS is enabled.
   * Issue #921: Prevent using WLAN NICs for bond and bridge interfaces.
   * Issue #929: Set 'big_writes' as default mount option for NTFS
