@@ -101,8 +101,7 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 					continue;
 				}
 				$hashedUsername = urldecode($matches[1]);
-				if (hash_equals($hashedUsername, crypt($params['username'],
-						$hashedUsername))) {
+				if (password_verify($params['username'], $hashedUsername)) {
 					$firstLogIn = FALSE;
 					break;
 				}
