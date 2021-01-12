@@ -195,7 +195,7 @@ case "$1" in
 			echo "Setting up system ..."
 			# Don't use omv-salt here, because the locale is not setup correct.
 			salt-call --local --retcode-passthrough --no-color state.orchestrate \
-			  omv.stage.setup >/dev/null
+				omv.stage.setup >/dev/null
 		fi
 
 		########################################################################
@@ -282,6 +282,7 @@ case "$1" in
 			omv_module_set_dirty initramfs
 		fi
 		if dpkg --compare-versions "$2" lt-nl "5.5.22"; then
+			rm -f /etc/udev/rules.d/99-openmediavault-dev-disk-by-id.rules
 			omv_module_set_dirty monit
 			omv_module_set_dirty initramfs
 		fi
