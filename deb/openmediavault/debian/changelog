@@ -1,3 +1,10 @@
+openmediavault (5.5.23-1) stable; urgency=low
+
+  * Issue #926: Refactor code that is responsible for sending the
+    notification email on first UI log in.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 12 Jan 2021 13:11:06 +0100
+
 openmediavault (5.5.22-1) stable; urgency=low
 
   * Fixing package management issue with new UDEV rules. The old
