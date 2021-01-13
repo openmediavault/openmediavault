@@ -42,3 +42,12 @@ create_cron-apt_config:
     - user: root
     - group: root
     - mode: 644
+
+create_cron-apt_download_msg:
+  file.managed:
+    - name: "/etc/cron-apt/mailmsg.d/3-download"
+    - source:
+      - salt://{{ tpldir }}/files/etc_cron-apt_mailmsgd_3-download.j2
+    - user: root
+    - group: root
+    - mode: 644
