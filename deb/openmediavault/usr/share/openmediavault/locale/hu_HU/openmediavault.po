@@ -8,15 +8,15 @@
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2018-2020
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2017
 # Sári Gábor <sari.gabor@gmail.com>, 2018
-# Grawens <szabolcs.szanyi@gmail.com>, 2014-2020
+# Grawens <szabolcs.szanyi@gmail.com>, 2014-2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-21 16:43+0200\n"
-"PO-Revision-Date: 2020-09-21 17:16+0000\n"
-"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>\n"
-"Language-Team: Hungarian (Hungary) (http://www.transifex.com/votdev/openmediavault/language/hu_HU/)\n"
+"PO-Revision-Date: 2021-01-17 08:33+0000\n"
+"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
+"Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3858,7 +3858,7 @@ msgid "Updates"
 msgstr "Frissítések"
 
 msgid "Updates available"
-msgstr "Frissítések érhetőek el"
+msgstr "Elérhető frissítések"
 
 msgid "Updating ACL settings"
 msgstr "ACL beállítások frissítése"
