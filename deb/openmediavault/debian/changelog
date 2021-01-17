@@ -1,5 +1,6 @@
 openmediavault (5.5.23-1) stable; urgency=low
 
+  * Update locales.
   * Issue #505: Prepend explanation to cron-apt notifications.
   * Issue #926: Refactor code that is responsible for sending the
     notification email on first UI log in.
