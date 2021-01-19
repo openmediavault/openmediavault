@@ -32,7 +32,7 @@ configure_samba_recyclebin_cron:
         #!/bin/sh
         {{ pillar['headers']['multiline'] | indent(8) }}
         set -e
-        run-parts --regex='{{ cron_scripts_prefix }}*' {{ scripts_dir }} &>/dev/null
+        run-parts --new-session --regex='{{ cron_scripts_prefix }}*' {{ scripts_dir }} &>/dev/null
     - user: root
     - group: root
     - mode: 750
