@@ -134,7 +134,9 @@ abstract class BackendAbstract {
 		foreach(file("/proc/partitions") as $outputk => $outputv) {
 			if (1 !== preg_match($regex, $outputv, $matches))
 				continue;
-			$result[] = sprintf("/dev/%s", $matches[4]);
+			$deviceName = sprintf("/dev/%s", $matches[4]);
+			if (file_exists($deviceName))
+				$result[] = $deviceName;
 		}
 		return $result;
 	}
