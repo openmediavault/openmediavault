@@ -4,8 +4,8 @@
 [Unit]
 Description=Execute the rsync backup jobs when {{ devicefile }} is plugged in
 BindsTo={{ devicefile_escaped }}.device
-After={{ devicefile_escaped }}.device
-Requisite={{ devicefile_escaped }}.device
+After=local-fs.target {{ devicefile_escaped }}.device
+Requisite=local-fs.target {{ devicefile_escaped }}.device
 
 [Service]
 Type=oneshot

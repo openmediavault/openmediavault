@@ -1,3 +1,9 @@
+openmediavault-usbbackup (5.0.7-1) stable; urgency=low
+
+  * Issue #720: Execute backup job only when filesystems are up.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 19 Jan 2021 09:38:55 +0100
+
 openmediavault-usbbackup (5.0.6-1) stable; urgency=low
 
   * Issue #812: Cron script erroneously reports success though failed.
