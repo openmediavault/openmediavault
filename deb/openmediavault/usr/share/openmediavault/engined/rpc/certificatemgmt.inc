@@ -392,10 +392,10 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 		$cmdArgs[] = "-m PEM";
 		$cmdArgs[] = "-P ''";
 		$cmdArgs[] = sprintf("-C %s", escapeshellarg(trim(array_value(
-		  $params, "comment", ""))));
+			$params, "comment", ""))));
 		$cmdArgs[] = sprintf("-f %s", escapeshellarg($file));
 		$cmd = sprintf("export LANG=C; (echo y) | ssh-keygen %s 2>&1",
-		  implode(" ", $cmdArgs));
+			implode(" ", $cmdArgs));
 		if (0 !== ($exitStatus = $this->exec($cmd, $output))) {
 			// Unlink the temporary files.
 			unlink($file);
@@ -403,17 +403,17 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 			throw new \OMV\ExecException($cmd, $output, $exitStatus);
 		}
 		// Read certificate and key content, then unlink the temporary files.
-		$privatekey = file_get_contents($file);
-		$publickey = file_get_contents($file.".pub");
+		$privateKey = file_get_contents($file);
+		$publicKey = file_get_contents($file.".pub");
 		unlink($file);
 		unlink($file.".pub");
 		// Finally import generated certificate.
 		return $this->callMethod("setSsh", [
-			  "uuid" => \OMV\Environment::get("OMV_CONFIGOBJECT_NEW_UUID"),
-			  "publickey" => $publickey,
-			  "privatekey" => $privatekey,
-			  "comment" => array_value($params, "comment", "")
-		  ], $context);
+			"uuid" => \OMV\Environment::get("OMV_CONFIGOBJECT_NEW_UUID"),
+			"publickey" => trim($publicKey),
+			"privatekey" => trim($privateKey),
+			"comment" => array_value($params, "comment", "")
+		], $context);
 	}
 
 	/**
@@ -421,7 +421,9 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract {
 	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
-	 * @return The requested configuration object.
+	 * @return The requested configuration object. Note, the
+	 *   private key is not included in the response because of
+	 *   security issues.
 	 */
 	function getSsh($params, $context) {
 		// Validate the RPC caller context.
