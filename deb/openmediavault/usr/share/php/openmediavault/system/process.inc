@@ -31,6 +31,7 @@ class Process {
 	private $redirect1toFile = FALSE;
 	private $redirect2toFile = FALSE;
 	private $inputFromFile = FALSE;
+	private $inputFromStdin = FALSE;
 	private $quiet = FALSE;
 	private $background = FALSE;
 	private $env = [
@@ -102,6 +103,16 @@ class Process {
 	}
 
 	/**
+	 * Accept input from a STDIN. Set to FALSE to do not accept input from
+	 * STDIN.
+	 * @param data The string data.
+	 * @return void
+	 */
+	public function setInputFromStdin($data) {
+		$this->inputFromStdin = $data;
+	}
+
+	/**
 	 * Do not throw an error exception if the command execution fails.
 	 * @param quiet Set to TRUE to do not throw an exception.
 	 *   Defaults to TRUE.
@@ -157,6 +168,8 @@ class Process {
 			$cmdArgs[] = sprintf("2>%s", $this->redirect2toFile);
 		if (FALSE === empty($this->inputFromFile))
 			$cmdArgs[] = sprintf("<%s", $this->inputFromFile);
+		if (FALSE === empty($this->inputFromStdin))
+			$cmdArgs[] = sprintf("<<<%s", $this->inputFromStdin);
 		if (TRUE === $this->background)
 			$cmdArgs[] = "&";
 		return implode(" ", $cmdArgs);
