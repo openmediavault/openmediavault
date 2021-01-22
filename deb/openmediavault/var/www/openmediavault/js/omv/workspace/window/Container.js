@@ -40,7 +40,7 @@
  * @param hideCloseButton True to hide the 'Close' button.
  *   Defaults to true.
  * @param hideResetButton True to hide the 'Reset' button.
- *   Defaults to true.
+ *   Defaults to false.
  * @param okButtonText The button text. Defaults to 'Save'.
  * @param resetButtonText The button text. Defaults to 'Reset'.
  * @param cancelButtonText The button text. Defaults to 'Cancel'.

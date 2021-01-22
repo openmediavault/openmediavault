@@ -22,6 +22,7 @@
 // require("js/omv/workspace/grid/Panel.js")
 // require("js/omv/workspace/window/Form.js")
 // require("js/omv/workspace/window/plugin/ConfigObject.js")
+// require("js/omv/window/MessageBox.js")
 // require("js/omv/Rpc.js")
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")
@@ -37,7 +38,8 @@
 Ext.define("OMV.module.admin.system.certificate.ssh.Copy", {
 	extend: "OMV.workspace.window.Form",
 	requires: [
-		"OMV.form.field.Password"
+		"OMV.form.field.Password",
+		"OMV.window.MessageBox"
 	],
 	uses: [
 		"OMV.Rpc",
@@ -46,6 +48,7 @@ Ext.define("OMV.module.admin.system.certificate.ssh.Copy", {
 
 	title: _("Copy public SSH key"),
 	okButtonText: _("Copy"),
+	hideResetButton: true,
 	mode: "local",
 
 	initComponent: function() {
@@ -112,12 +115,17 @@ Ext.define("OMV.module.admin.system.certificate.ssh.Copy", {
 		var me = this;
 		var params = me.getValues();
 		Ext.apply(params, { uuid: me.uuid });
+		me.setButtonDisabled("ok", true);
 		OMV.Rpc.request({
 			scope: me,
 			callback: function(id, success, response) {
-				me.superclass.doSubmit.call(me);
+				if (!success) {
+					me.setButtonDisabled("ok", false);
+					OMV.MessageBox.error(null, response);
+				} else {
+					me.superclass.doSubmit.call(me);
+				}
 			},
-			relayErrors: false,
 			rpcData: {
 				service: "CertificateMgmt",
 				method: "copySshId",
