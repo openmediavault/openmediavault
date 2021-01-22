@@ -114,7 +114,7 @@ Ext.define("OMV.module.user.privilege.user.User", {
 		// account data
 		if (true === values._readonly) {
 			me.setReadOnly(true);
-			me.setButtonDisabled("ok", true)
+			me.setButtonDisabled("ok", true);
 		}
 		return result;
 	}

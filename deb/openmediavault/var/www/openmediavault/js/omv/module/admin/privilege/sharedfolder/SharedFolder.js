@@ -21,6 +21,7 @@
 // require("js/omv/WorkspaceManager.js")
 // require("js/omv/tree/Folder.js")
 // require("js/omv/window/Window.js")
+// require("js/omv/window/Execute.js")
 // require("js/omv/window/FolderBrowser.js")
 // require("js/omv/grid/Privileges.js")
 // require("js/omv/toolbar/Tip.js")
@@ -326,7 +327,8 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 		"OMV.form.CompositeField",
 		"OMV.form.field.UnixFilePermComboBox",
 		"OMV.form.field.GroupComboBox",
-		"OMV.form.field.UserComboBox"
+		"OMV.form.field.UserComboBox",
+		"OMV.window.Execute"
 	],
 
 	readOnly: false,
