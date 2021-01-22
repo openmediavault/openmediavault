@@ -31,7 +31,7 @@ class Process {
 	private $redirect1toFile = FALSE;
 	private $redirect2toFile = FALSE;
 	private $inputFromFile = FALSE;
-	private $inputFromStdin = FALSE;
+	private $inputFromHereString = FALSE;
 	private $quiet = FALSE;
 	private $background = FALSE;
 	private $env = [
@@ -103,13 +103,13 @@ class Process {
 	}
 
 	/**
-	 * Accept input from a STDIN. Set to FALSE to do not accept input from
-	 * STDIN.
-	 * @param data The string data.
+	 * Accept input from a 'here-string'. Set to FALSE to do not accept
+	 * input from 'here-string'.
+	 * @param data The input string.
 	 * @return void
 	 */
-	public function setInputFromStdin($data) {
-		$this->inputFromStdin = $data;
+	public function setInputFromHereString($data) {
+		$this->inputFromHereString = $data;
 	}
 
 	/**
@@ -168,8 +168,8 @@ class Process {
 			$cmdArgs[] = sprintf("2>%s", $this->redirect2toFile);
 		if (FALSE === empty($this->inputFromFile))
 			$cmdArgs[] = sprintf("<%s", $this->inputFromFile);
-		if (FALSE === empty($this->inputFromStdin))
-			$cmdArgs[] = sprintf("<<<%s", $this->inputFromStdin);
+		if (FALSE === empty($this->inputFromHereString))
+			$cmdArgs[] = sprintf("<<<\"%s\"", $this->inputFromHereString);
 		if (TRUE === $this->background)
 			$cmdArgs[] = "&";
 		return implode(" ", $cmdArgs);
