@@ -135,8 +135,13 @@ abstract class BackendAbstract {
 			if (1 !== preg_match($regex, $outputv, $matches))
 				continue;
 			$deviceName = sprintf("/dev/%s", $matches[4]);
-			if (file_exists($deviceName))
-				$result[] = $deviceName;
+			if (!file_exists($deviceName)) {
+				// Skip this device if it does not exist.
+				// This code path should only be entered when running in
+				// container environments like LXC.
+				continue;
+			}
+			$result[] = $deviceName;
 		}
 		return $result;
 	}
