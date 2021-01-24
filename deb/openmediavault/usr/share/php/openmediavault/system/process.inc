@@ -185,7 +185,7 @@ class Process {
 	 * @return The last line from the result of the command.
 	 * @throw \OMV\ExecException
 	 */
-	public function execute(array &$output = NULL, &$exitStatus = NULL) {
+	public function execute(array &$output = NULL, &$exitStatus = NULL): string {
 		// Build the command line.
 		$cmdLine = $this->getCommandLine();
 		// Execute the command.

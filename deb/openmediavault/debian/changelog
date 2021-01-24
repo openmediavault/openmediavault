@@ -1,5 +1,7 @@
 openmediavault (5.5.24-1) stable; urgency=low
 
+  * Improve UI to import a users public SSH key. Now SSH public keys
+    in RFC 4716 and OpenSSH format can be imported.
   * Fix a SMB recycle bin cleanup script issue. Execute run-args with
     the '--new-session' option to ensure the scripts will run until
     completion. This should prevent subsequent locks.
