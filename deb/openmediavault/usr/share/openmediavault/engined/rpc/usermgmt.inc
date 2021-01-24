@@ -481,9 +481,16 @@ finish:
 		$user = new \OMV\System\User($params['name']);
 		if ($user->exists() && $user->isSystemAccount()) {
 			throw new \OMV\Exception(
-			  "Unauthorized attempt to modify the system user account '%s'",
-			  $params['name']);
+				"Unauthorized attempt to modify the system user account '%s'",
+				$params['name']);
 		}
+		// Convert all public SSH keys to RFC 4716 format and make sure
+		// that they are all unique.
+		foreach ($params['sshpubkeys'] as $sshPubKeyk => &$sshPubKeyv) {
+			$pubKey = new \OMV\Ssh\PublicKey($sshPubKeyv);
+			$sshPubKeyv = $pubKey->toRfc4716();
+		}
+		$params['sshpubkeys'] = array_unique($params['sshpubkeys']);
 		// Try to get existing configuration object.
 		$filter = [
 			"operator" => "stringEquals",
@@ -495,7 +502,7 @@ finish:
 			// Get the user configuration object. Due the fact that a user
 			// name is unique, we can simply use the first found object.
 			$object = $db->getByFilter("conf.system.usermngmnt.user",
-			  $filter, 1);
+				$filter, 1);
 			$object->set("email", $params['email']);
 			$object->set("disallowusermod", $params['disallowusermod']);
 			$object->set("email", $params['email']);
@@ -504,7 +511,7 @@ finish:
 			]);
 		} else {
 			$object = new \OMV\Config\ConfigObject(
-			  "conf.system.usermngmnt.user");
+				"conf.system.usermngmnt.user");
 			$object->setNew();
 			$object->set("name", $params['name']);
 			$object->set("email", $params['email']);
@@ -520,13 +527,13 @@ finish:
 		$cmdArgs = [];
 		$cmdArgs[] = "--gid";
 		$cmdArgs[] = escapeshellarg(\OMV\Environment::get(
-		  "OMV_USERMGMT_DEFAULT_GROUP"));
+			"OMV_USERMGMT_DEFAULT_GROUP"));
 		if (array_key_exists("shell", $params) &&
 				!empty($params['shell'])) {
 			// Make sure the shell exists.
 			if (!file_exists($params['shell'])) {
 				throw new \OMV\Exception("The shell '%s' does not exist.",
-						$params['shell']);
+					$params['shell']);
 			}
 			$cmdArgs[] = "--shell";
 			$cmdArgs[] = escapeshellarg($params['shell']);
@@ -560,12 +567,12 @@ finish:
 			if (TRUE === $hdsobject->get("enable")) {
 				// Get the absolute shared folder path.
 				$sfpath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath",
-				  array("uuid" => $hdsobject->get("sharedfolderref")),
-				  $context);
+					array("uuid" => $hdsobject->get("sharedfolderref")),
+					$context);
 				$cmdArgs[] = "--create-home";
 				$cmdArgs[] = "--home";
 				$cmdArgs[] = escapeshellarg(build_path(DIRECTORY_SEPARATOR,
-				  $sfpath, $params['name']));
+					$sfpath, $params['name']));
 			}
 			$cmdArgs[] = escapeshellarg($params['name']);
 			// Create the new user.
@@ -575,7 +582,7 @@ finish:
 		} else {
 			// Append additional arguments.
 			if (array_key_exists("password", $params) &&
-			  !empty($params['password'])) {
+					!empty($params['password'])) {
 				$cmdArgs[] = "--password";
 				$cmdArgs[] = escapeshellarg(crypt($params['password']));
 			}
@@ -590,8 +597,8 @@ finish:
 		// Notify configuration changes.
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.conf.system.usermngmnt.user",
-		  $objectAssoc);
+			"org.openmediavault.conf.system.usermngmnt.user",
+			$objectAssoc);
 		// Return the configuration object.
 		return $objectAssoc;
 	}

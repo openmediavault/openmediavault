@@ -64,16 +64,14 @@ class Schema extends \OMV\Json\Schema {
 				}
 				break;
 			case "sshpubkey-openssh":
-				if (!preg_match('/^ssh-rsa AAAA[0-9A-Za-z+\/]+[=]{0,3}\s*'.
-				  '([^@]+@[^@]+|.+)*$/', $value)) {
+				if (!\OMV\Ssh\PublicKey::isOpenSSH($value)) {
 					throw new \OMV\Json\SchemaValidationException(
 					  "%s: The value '%s' is no SSH public key (OpenSSH).",
 					  $name, $value);
 				}
 				break;
 			case "sshpubkey-rfc4716":
-				if (!preg_match('/^---- BEGIN SSH2 PUBLIC KEY ----(\n|\r|\f)(.+)'.
-				  '(\n|\r|\f)---- END SSH2 PUBLIC KEY ----$/sm', $value)) {
+				if (!\OMV\Ssh\PublicKey::isRfc4716($value)) {
 					throw new \OMV\Json\SchemaValidationException(
 					  "%s: The value '%s' is no SSH public key (RFC4716).",
 					  $name, $value);

@@ -318,7 +318,7 @@ Ext.define("OMV.module.admin.privilege.user.user.sshpubkeys.PubKey", {
 	textAreaConfig: {
 		readOnly: false,
 		allowBlank: false,
-		vtype: "sshPubKeyRFC4716"
+		vtype: "sshPubKey"
 	},
 
 	initComponent: function() {
@@ -329,7 +329,7 @@ Ext.define("OMV.module.admin.privilege.user.user.sshpubkeys.PubKey", {
 			xtype: "tiptoolbar",
 			dock: "bottom",
 			ui: "footer",
-			text: _("The public key in RFC 4716 SSH public key file format.")
+			text: _("The SSH public key in OpenSSH or RFC 4716 format.")
 		});
 	}
 });
