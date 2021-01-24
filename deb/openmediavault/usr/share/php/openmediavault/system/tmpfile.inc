@@ -27,18 +27,18 @@ namespace OMV\System;
  * @ingroup api
  */
 class TmpFile {
-	private $delete;
+	private $autoUnlink;
 	private $filename;
 
 	/**
 	 * Constructor
 	 * @param string prefix The prefix of the generated temporary filename.
 	 *   Defaults to empty string.
-	 * @param bool delete If set to FALSE, the file will not be unlinked
+	 * @param bool autoUnlink If set to FALSE, the file will not be unlinked
 	 *   on object destruction. Defaults to TRUE.
 	 */
-	function __construct($prefix = "", $delete = TRUE) {
-		$this->delete = $delete;
+	function __construct(string $prefix = "", bool $autoUnlink = TRUE) {
+		$this->autoUnlink = $autoUnlink;
 		$this->filename = tempnam(sys_get_temp_dir(), $prefix);
 	}
 
@@ -46,7 +46,7 @@ class TmpFile {
 	 * Destructor
 	 */
 	function __destruct() {
-		if ($this->delete) {
+		if ($this->autoUnlink) {
 			$this->unlink();
 		}
 	}
@@ -54,7 +54,7 @@ class TmpFile {
 	/**
 	 * @return string The full file name.
 	 */
-	public function getFileName() {
+	public function getFileName(): string {
 		return $this->filename;
 	}
 
@@ -81,7 +81,7 @@ class TmpFile {
 	 * Unlink the temporary file.
 	 * @return bool Returns TRUE on success or FALSE on failure.
 	 */
-	public function unlink() {
+	public function unlink(): bool {
 		return unlink($this->getFileName());
 	}
 }

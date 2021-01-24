@@ -419,19 +419,29 @@ Ext.apply(Ext.form.field.VTypes, {
 		return /^(")?(?:[^\."])(?:(?:[\.])?(?:[\w\-!#$%&'*+/=?^_`{|}~]))*\1@(\w[\-\w]*\.){1,5}([A-Za-z]){2,}$/.test(v);
 	},
 
+	sshPubKey: function(v) {
+		if (Ext.form.field.VTypes.sshPubKeyOpenSSH(v))
+			return true;
+		if (Ext.form.field.VTypes.sshPubKeyRFC4716(v))
+			return true;
+		return false;
+	},
+	sshPubKeyText: _("Invalid SSH public key (OpenSSH or RFC 4716 format)"),
+	sshPubKeyMask: /[a-zA-Z0-9@+/=\- ]/,
+
 	sshPubKeyRFC4716: function(v) {
 		// See https://tools.ietf.org/html/rfc4716#section-3.4
 		return RegExp("^---- BEGIN SSH2 PUBLIC KEY ----(\n|\r|\f)((.+)?" +
 		  "((\n|\r|\f).+)*)(\n|\r|\f)---- END SSH2 PUBLIC KEY ----" +
 		  "[\n\r\f]*$").test(v);
 	},
-	sshPubKeyRFC4716Text: _("Invalid SSH public key (RFC 4716)"),
+	sshPubKeyRFC4716Text: _("Invalid SSH public key (RFC 4716 format)"),
 	sshPubKeyRFC4716Mask: /[a-zA-Z0-9+/=\- ]/,
 
 	sshPubKeyOpenSSH: function(v) {
-		return /^ssh-rsa AAAA[0-9A-Za-z+/]+[=]{0,3}\s*([^@]+@[^@]+|.+)*$/.test(v);
+		return /^ssh-rsa AAAA[0-9A-Za-z+/]+[=]{0,3}\s*(.+)?$/.test(v);
 	},
-	sshPubKeyOpenSSHText: _("Invalid SSH public key"),
+	sshPubKeyOpenSSHText: _("Invalid SSH public key (OpenSSH format)"),
 	sshPubKeyOpenSSHMask: /[a-zA-Z0-9@+/=\- ]/,
 
 	nfsOptionList: function(v) {

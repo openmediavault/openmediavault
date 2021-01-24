@@ -73,15 +73,21 @@
 	        },
 	        "disallowusermod": {
 	            "type": "boolean",
-				"required": true
+	            "required": true
 	        },
 	        "sshpubkeys": {
 	            "type": "array",
 	            "items": {
 	                "type": "string",
-					"format": "sshpubkey-rfc4716"
+	                "oneOf": [{
+	                    "type": "string",
+	                    "format": "sshpubkey-rfc4716"
+	                },{
+	                    "type": "string",
+	                    "format": "sshpubkey-openssh"
+	                }]
 	            },
-				"required": true
+	            "required": true
 	        }
 		}
 	}
