@@ -63,6 +63,9 @@ case "$1" in
 			# Delete old and incompatible database file.
 			rm -f /var/cache/forked-daapd/songs3.db
 		fi
+		if dpkg --compare-versions "$2" lt-nl "5.0.3"; then
+			omv_module_set_dirty forked-daapd
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

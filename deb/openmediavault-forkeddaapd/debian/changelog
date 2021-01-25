@@ -1,3 +1,13 @@
+openmediavault-forkeddaapd (5.0.3-1) stable; urgency=low
+
+  * Update locales.
+  * Fix bug in configuration file.
+  * Disable MPD support by default. Can be enabled by settings the
+    environment variable OMV_FORKEDDAAPD_MPD_PORT to 6600 or any
+    other value.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 25 Jan 2021 18:07:43 +0100
+
 openmediavault-forkeddaapd (5.0.2-1) stable; urgency=low
 
   * Update locales.
