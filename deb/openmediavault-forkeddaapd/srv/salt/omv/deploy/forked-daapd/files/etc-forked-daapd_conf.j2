@@ -7,6 +7,7 @@
 {%- set library_itunes_overrides = salt['pillar.get']('default:OMV_FORKEDDAAPD_LIBRARY_ITUNESOVERRIDES', 'false') -%}
 {%- set audio_nickname = salt['pillar.get']('default:OMV_FORKEDDAAPD_AUDIO_NICKNAME', 'Computer') -%}
 {%- set audio_type = salt['pillar.get']('default:OMV_FORKEDDAAPD_AUDIO_TYPE', 'dummy') -%}
+{%- set mpd_port = salt['pillar.get']('default:OMV_FORKEDDAAPD_MPD_PORT', '0') -%}
 {{ pillar['headers']['multiline'] -}}
 general {
     # Username
@@ -238,10 +239,10 @@ audio {
 #}
 
 # MPD configuration (only have effect if MPD enabled - see README/INSTALL)
-#mpd {
+mpd {
     # TCP port to listen on for MPD client requests.
     # Default port is 6600, set to 0 to disable MPD support.
-#   port = 6600
+    port = {{ mpd_port }}
 
     # HTTP port to listen for artwork requests (only supported by some MPD
     # clients and will need additional configuration in the MPD client to
@@ -253,7 +254,7 @@ audio {
     # the playlist like MPD does. Note that some dacp clients do not show
     # the playqueue if playback is stopped.
 #   clear_queue_on_stop_disable = false
-#}
+}
 
 # SQLite configuration (allows to modify the operation of the SQLite databases)
 # Make sure to read the SQLite documentation for the corresponding PRAGMA
