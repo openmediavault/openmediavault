@@ -8,9 +8,8 @@
   TLSEngine {% if config.enable | to_bool %}on{% else %}off{% endif %}
   TLSLog {{ tls_log }}
   TLSProtocol {{ tls_protocol }}
-{%- if config.nocertrequest | to_bool or config.nosessionreuserequired | to_bool or config.useimplicitssl | to_bool %}
+{%- if config.nosessionreuserequired | to_bool or config.useimplicitssl | to_bool %}
   TLSOptions
-{%- if config.nocertrequest | to_bool %} NoCertRequest{% endif -%}
 {%- if config.nosessionreuserequired | to_bool %} NoSessionReuseRequired{% endif -%}
 {%- if config.useimplicitssl | to_bool %} UseImplicitSSL{% endif -%}
 {%- endif %}

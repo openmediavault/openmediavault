@@ -87,12 +87,6 @@ Ext.define("OMV.module.admin.service.ftp.Tls", {
 				boxLabel: _("This option requires clients to use FTP over TLS when talking to this server.")
 			},{
 				xtype: "checkbox",
-				name: "nocertrequest",
-				fieldLabel: _("No certificate request"),
-				checked: false,
-				boxLabel: _("This option causes the server to not send a certificate request during a SSL handshake.")
-			},{
-				xtype: "checkbox",
 				name: "nosessionreuserequired",
 				fieldLabel: _("No session reuse required"),
 				checked: false,
