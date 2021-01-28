@@ -33,7 +33,7 @@
 		<time>
 			<timezone>Etc/UTC</timezone>
 			<ntp>
-				<enable>0</enable>
+				<enable>1</enable>
 				<timeservers>pool.ntp.org</timeservers>
 				<clients></clients>
 			</ntp>
