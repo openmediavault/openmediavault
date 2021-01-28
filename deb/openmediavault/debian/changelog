@@ -5,6 +5,7 @@ openmediavault (5.5.24-1) stable; urgency=low
   * Fix a SMB recycle bin cleanup script issue. Execute run-args with
     the '--new-session' option to ensure the scripts will run until
     completion. This should prevent subsequent locks.
+  * Enable NTP by default on new installations.
   * Issue #944: Hardening storage backend to prevent errors in LXC.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 19 Jan 2021 21:00:39 +0100
