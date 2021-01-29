@@ -220,10 +220,6 @@
 							}],
 							"default": ""
 						},
-						"nocertrequest": {
-							"type": "boolean",
-							"default": false
-						},
 						"nosessionreuserequired": {
 							"type": "boolean",
 							"default": false

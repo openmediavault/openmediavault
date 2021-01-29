@@ -213,10 +213,6 @@
 				}],
 				"required": true
 			},
-			"nocertrequest": {
-				"type": "boolean",
-				"required": true
-			},
 			"nosessionreuserequired": {
 				"type": "boolean",
 				"required": true

@@ -436,7 +436,6 @@
 					<enable>0</enable>
 					<required>0</required>
 					<sslcertificateref></sslcertificateref>
-					<nocertrequest>0</nocertrequest>
 					<nosessionreuserequired>0</nosessionreuserequired>
 					<useimplicitssl>0</useimplicitssl>
 					<extraoptions></extraoptions>
