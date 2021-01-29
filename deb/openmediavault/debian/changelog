@@ -5,6 +5,10 @@ openmediavault (5.5.24-1) stable; urgency=low
   * Fix a SMB recycle bin cleanup script issue. Execute run-args with
     the '--new-session' option to ensure the scripts will run until
     completion. This should prevent subsequent locks.
+  * Remove 'No certificate request' option from 'FTP | SSL/TLS' page
+    because it is deprecated in proftpd.
+  * Improve monit/proftpd connection test. This should prevent errors
+    when SSL/TLS is enabled.
   * Enable NTP by default on new installations.
   * Issue #944: Hardening storage backend to prevent errors in LXC.
 
