@@ -213,6 +213,14 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 		$this->assertEquals($path, "./../../");
 	}
 
+	public function test_build_path_7() {
+		$path = build_path(DIRECTORY_SEPARATOR,
+			"/srv/dev-disk-by-uuid-702d5556-0f91-4c45-94da-3415965011a2",
+			"data/");
+		$this->assertEquals($path,
+			"/srv/dev-disk-by-uuid-702d5556-0f91-4c45-94da-3415965011a2/data/");
+	}
+
 	public function test_json_encode_safe() {
 		$data = [
 			"z" => [1, 2, 3],
