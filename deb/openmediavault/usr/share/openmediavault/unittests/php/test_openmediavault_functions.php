@@ -397,4 +397,10 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 	public function test_is_assoc_array_4() {
 		$this->assertFalse(is_assoc_array('foo'));
 	}
+
+	public function test_strpdate() {
+		$ts = strpdate('Oct 19 04:24:38', 'M j G:i:s');
+		$this->assertInternalType('int', $ts);
+		$this->assertEquals($ts, 1634617478);
+	}
 }
