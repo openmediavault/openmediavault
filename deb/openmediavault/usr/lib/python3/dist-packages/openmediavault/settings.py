@@ -85,7 +85,7 @@ class Environment:
                 Environment.as_dict().items()
             ):
                 if key.startswith('OMV_'):
-                    fd.write('{}={}\n'.format(key, value))
+                    fd.write('{}="{}"\n'.format(key, value))
 
     @staticmethod
     def clear():
