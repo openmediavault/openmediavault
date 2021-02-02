@@ -30,7 +30,7 @@ require_once("openmediavault/autoloader.inc");
  * @param string $parent_key The parent key. Defaults to empty.
  * @return A single-dimensional array.
  */
-function array_flatten(array $array, $separator = ".", $parent_key = "") {
+function array_flatten(array $array, $separator = ".", $parent_key = ""): ?array {
 	if (!is_array($array))
 		return FALSE;
 	$result = [];
@@ -52,7 +52,7 @@ function array_flatten(array $array, $separator = ".", $parent_key = "") {
  * @param string $separator The character used as separator. Defaults to '.'.
  * @return A multi-dimensional array.
  */
-function array_expand(array $array, $separator = ".") {
+function array_expand(array $array, $separator = "."): ?array {
 	if (!is_array($array))
 		return FALSE;
 	$return = [];
@@ -101,7 +101,7 @@ function array_sort_key(array &$array, $key): bool {
  * @param mixed $key The key to be removed.
  * @return Returns TRUE on success, otherwise FALSE.
  */
-function array_remove_key(array &$array, $key) {
+function array_remove_key(array &$array, $key): bool {
 	if (FALSE === array_key_exists($key, $array))
 		return FALSE;
 	unset($array[$key]);
@@ -140,7 +140,7 @@ function array_filter_ex($array, $key, $value): ?array {
  *   function fails. Defaults to NULL.
  * @return Returns TRUE on success or FALSE on failure.
  */
-function array_keys_exists(array $keys, array $search, &$missing = NULL) {
+function array_keys_exists(array $keys, array $search, &$missing = NULL): bool {
 	$missing = array_values(array_diff($keys, array_keys($search)));
 	return !(count($missing) > 0);
 }
@@ -174,7 +174,7 @@ function array_unique_key(array $array, $key): ?array {
  * @return Returns an associative array of defined object accessible
  *   non-static properties for the specified object  in scope.
  */
-function toArray($object) {
+function toArray($object): array {
 	if (is_object($object))
 		$object = get_object_vars($object);
 	return is_array($object) ? array_map(__FUNCTION__, $object) : $object;
@@ -205,7 +205,7 @@ function array_value(array $array, $key, $default = NULL) {
  *   entries is returned. Trying to pick more elements than there are
  *   in the array NULL will be returned.
  */
-function array_rand_value(array $array, $num = 1) {
+function array_rand_value(array $array, $num = 1): mixed {
 	$keys = array_rand($array, $num);
 	if (is_null($keys))
 		return NULL;
@@ -241,7 +241,7 @@ function array_rand_value(array $array, $num = 1) {
  * @param string $default The default value returned if not found.
  * @return Returns the boolean value of the given key.
  */
-function array_boolval($array, $key, $default = FALSE) {
+function array_boolval($array, $key, $default = FALSE): bool {
 	if (!is_array($array) || !array_key_exists($key, $array)) {
 		return $default;
 	}
@@ -255,7 +255,7 @@ function array_boolval($array, $key, $default = FALSE) {
  * @param mixed $var The scalar value being converted to a boolean.
  * @return Returns the boolean value of the given value.
  */
-function boolvalEx($var) {
+function boolvalEx($var): bool {
 	$result = FALSE;
 	// Boolean 'true' => '1'
 	switch (mb_strtolower(strval($var))) {
@@ -264,7 +264,7 @@ function boolvalEx($var) {
 		case "yes":
 		case "y":
 		case "true":
-			$result = true;
+			$result = TRUE;
 			break;
 		default:
 			break;
@@ -278,7 +278,7 @@ function boolvalEx($var) {
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable is an UUID, otherwise FALSE.
  */
-function is_uuid($var) {
+function is_uuid($var): bool {
 	return \OMV\Uuid::isUuid4($var);
 }
 
@@ -294,7 +294,7 @@ function is_uuid($var) {
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable is a filesystem UUID, otherwise FALSE.
  */
-function is_fs_uuid($var) {
+function is_fs_uuid($var): bool {
 	// Check if it is an UUID v4.
 	if (is_uuid($var))
 		return TRUE;
@@ -314,7 +314,7 @@ function is_fs_uuid($var) {
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable describes a device file, otherwise FALSE.
  */
-function is_devicefile($var) {
+function is_devicefile($var): bool {
 	if (FALSE === is_string($var))
 		return FALSE;
 	return preg_match('/^\/dev\/.+$/i', $var) ? TRUE : FALSE;
@@ -331,7 +331,7 @@ function is_devicefile($var) {
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable describes a device file, otherwise FALSE.
  */
-function is_devicefile_by($var) {
+function is_devicefile_by($var): bool {
 	if (FALSE === is_string($var))
 		return FALSE;
 	return preg_match('/^\/dev\/disk\/by-\S+\/.+$/i', $var) ? TRUE : FALSE;
@@ -346,7 +346,7 @@ function is_devicefile_by($var) {
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable describes a device file, otherwise FALSE.
  */
-function is_devicefile_by_uuid($var) {
+function is_devicefile_by_uuid($var): bool {
 	if (FALSE === is_string($var))
 		return FALSE;
 	return preg_match('/^\/dev\/disk\/by-uuid\/.+$/i', $var) ? TRUE : FALSE;
@@ -360,7 +360,7 @@ function is_devicefile_by_uuid($var) {
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable describes a device file, otherwise FALSE.
  */
-function is_devicefile_by_id($var) {
+function is_devicefile_by_id($var): bool {
 	if (FALSE === is_string($var))
 		return FALSE;
 	return preg_match('/^\/dev\/disk\/by-id\/.+$/i', $var) ? TRUE : FALSE;
@@ -374,7 +374,7 @@ function is_devicefile_by_id($var) {
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable describes a device file, otherwise FALSE.
  */
-function is_devicefile_by_label($var) {
+function is_devicefile_by_label($var): bool {
 	if (FALSE === is_string($var))
 		return FALSE;
 	return preg_match('/^\/dev\/disk\/by-label\/.+$/i', $var) ? TRUE : FALSE;
@@ -389,7 +389,7 @@ function is_devicefile_by_label($var) {
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable describes a device file, otherwise FALSE.
  */
-function is_devicefile_by_path($var) {
+function is_devicefile_by_path($var): bool {
 	if (FALSE === is_string($var))
 		return FALSE;
 	return preg_match('/^\/dev\/disk\/by-path\/.+$/i', $var) ? TRUE : FALSE;
@@ -402,7 +402,7 @@ function is_devicefile_by_path($var) {
  * @param bool $dereference Follow links. Defaults to TRUE.
  * @return Returns TRUE if the file is a block device, FALSE otherwise.
  */
-function is_block_device($filename, $dereference = TRUE) {
+function is_block_device($filename, $dereference = TRUE): bool {
 	if (FALSE === is_string($filename))
 		return FALSE;
 	if (FALSE === file_exists($filename))
@@ -420,7 +420,7 @@ function is_block_device($filename, $dereference = TRUE) {
  * @param bool $dereference Follow links. Defaults to TRUE.
  * @return Returns TRUE if the file is a block device, FALSE otherwise.
  */
-function is_char_device($filename, $dereference = TRUE) {
+function is_char_device($filename, $dereference = TRUE): bool {
 	if (FALSE === is_string($filename))
 		return FALSE;
 	if (FALSE === file_exists($filename))
@@ -437,7 +437,7 @@ function is_char_device($filename, $dereference = TRUE) {
  * @param mixed $var The variable being evaluated.
  * @return TRUE if the variable is JSON, otherwise FALSE.
  */
-function is_json($var) {
+function is_json($var): bool {
 	if (!is_string($var))
 		return FALSE;
 	// An empty string is not a valid JSON value.
@@ -457,7 +457,7 @@ function is_json($var) {
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable is an IP address, otherwise FALSE.
  */
-function is_ipaddr($var) {
+function is_ipaddr($var): bool {
 	if (!is_string($var))
 		return FALSE;
 	return filter_var($var, FILTER_VALIDATE_IP);
@@ -469,7 +469,7 @@ function is_ipaddr($var) {
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable is an IPv4 address, otherwise FALSE.
  */
-function is_ipaddr4($var) {
+function is_ipaddr4($var): bool {
 	if (!is_string($var))
 		return FALSE;
 	return filter_var($var, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4);
@@ -481,7 +481,7 @@ function is_ipaddr4($var) {
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable is an IPv6 address, otherwise FALSE.
  */
-function is_ipaddr6($var) {
+function is_ipaddr6($var): bool {
 	if (!is_string($var))
 		return FALSE;
 	return filter_var($var, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6);
@@ -521,7 +521,7 @@ function is_assoc_array($var): bool {
  * @ingroup api
  * @return TRUE if 64bit, otherwise FALSE.
  */
-function is_64bits() {
+function is_64bits(): bool {
 	return (PHP_INT_SIZE == 8);
 }
 
@@ -530,7 +530,7 @@ function is_64bits() {
  * @param mixed $var The value to check.
  * @return Returns TRUE if \em $var is a closure, FALSE otherwise.
  */
-function is_closure($var) {
+function is_closure($var): bool {
 	try {
     	$reflection = new \ReflectionFunction($var);
     	$result = $reflection->isClosure();
@@ -550,7 +550,7 @@ function is_closure($var) {
  *   messages if validation fails. Defaults to NULL.
  * @return TRUE if successful, otherwise FALSE.
  */
-function json_validate($data, $schema, &$errors = NULL) {
+function json_validate($data, $schema, &$errors = NULL): bool {
 	$result = FALSE;
 	try {
 		$jsonSchema = new \OMV\Json\Schema($schema);
@@ -618,7 +618,7 @@ function json_decode_safe($json, $assoc = FALSE, $depth = 512, $options = 0) {
  * @return Returns the error message on success or NULL with wrong parameters.
  */
 if (!function_exists('json_last_error_msg')) {
-    function json_last_error_msg() {
+    function json_last_error_msg(): string {
         static $errorMsg = [
 			JSON_ERROR_NONE	=> NULL,
 			JSON_ERROR_DEPTH =>	"The maximum stack depth has been exceeded",
@@ -688,7 +688,7 @@ function binary_format($number, $options = NULL) {
  * @param int $decimalPlaces The number of decimal places. Defaults to 0.
  * @return The converted number as string or FALSE on failure.
  */
-function binary_convert($number, $fromPrefix, $toPrefix, $decimalPlaces = 0) {
+function binary_convert($number, $fromPrefix, $toPrefix, $decimalPlaces = 0): ?string {
 	$prefixes = [ "B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB" ];
 	$fromIndex = array_search($fromPrefix, $prefixes);
 	$toIndex = array_search($toPrefix, $prefixes);
@@ -718,7 +718,7 @@ function binary_convert($number, $fromPrefix, $toPrefix, $decimalPlaces = 0) {
  * @param string $format The format used in date.
  * @return Returns a Unix timestamp on success, FALSE otherwise.
  */
-function strpdate($date, $format) {
+function strpdate($date, $format): ?int {
 	if (FALSE === ($dt = DateTime::createFromFormat($format, $date)))
 		return FALSE;
 	return $dt->getTimestamp();
@@ -749,7 +749,7 @@ function build_path($separator, ...$parts) {
  * @param int $sortFlags Modify the sorting behavior. Defaults to SORT_NATURAL.
  * @return Returns an array of files from the directory.
  */
-function listdir($directory, $extension = "", $sortFlags = SORT_NATURAL) {
+function listdir($directory, $extension = "", $sortFlags = SORT_NATURAL): array {
 	$files = [];
 	foreach (new \DirectoryIterator($directory) as $item) {
 		if ($item->isDot())
@@ -773,7 +773,7 @@ function listdir($directory, $extension = "", $sortFlags = SORT_NATURAL) {
  * @param int $mode The mode of the temporary directory. Defaults to 0700.
  * @return Returns the full path of the created directory, or FALSE on failure.
  */
-function mkdtemp($prefix = "", $mode = 0700) {
+function mkdtemp($prefix = "", $mode = 0700): ?string {
 	$directory = build_path(DIRECTORY_SEPARATOR, sys_get_temp_dir(),
 	  uniqid($prefix));
 	if (is_dir($directory))
@@ -807,7 +807,7 @@ function inet_getnetmask($bits, $forceipv6 = FALSE) {
  * @param int $max The maximum value of the sequence.
  * @return TRUE if the value is within the range, otherwise FALSE.
  */
-function in_range($var, $min, $max) {
+function in_range($var, $min, $max): bool {
 	// See http://php.net/manual/en/filter.filters.validate.php.
 	return (FALSE !== filter_var($var, FILTER_VALIDATE_INT, [
 	  'options' => [
@@ -823,7 +823,7 @@ function in_range($var, $min, $max) {
  * @param string $uuid2 The second UUID v4.
  * @return Returns TRUE when the two strings are equal, FALSE otherwise.
  */
-function uuid_equals($uuid1, $uuid2) {
+function uuid_equals($uuid1, $uuid2): bool {
 	if (!is_uuid($uuid1) || !is_uuid($uuid2))
 		return FALSE;
 	return ($uuid1 == $uuid2);
@@ -837,7 +837,7 @@ function uuid_equals($uuid1, $uuid2) {
  * @param string $uuid2 The second file system UUID.
  * @return Returns TRUE when the two strings are equal, FALSE otherwise.
  */
-function fs_uuid_equals($uuid1, $uuid2) {
+function fs_uuid_equals($uuid1, $uuid2): bool {
 	if (!is_fs_uuid($uuid1) || !is_fs_uuid($uuid2))
 		return FALSE;
 	return ($uuid1 == $uuid2);
@@ -851,7 +851,7 @@ function fs_uuid_equals($uuid1, $uuid2) {
  * @return Returns an array of the names of the declared classes in the
  *   current script that match the specified criteria.
  */
-function get_declared_subclasses($class) {
+function get_declared_subclasses($class): array {
 	$classNames = [];
 	foreach (get_declared_classes() as $className) {
 		$wanted = TRUE;
@@ -875,7 +875,7 @@ function get_declared_subclasses($class) {
  * @param sig One of the PCNTL signals constants.
  * @return Returns TRUE on success or FALSE on failure.
  */
-function posix_kill_ex($pid, $sig) {
+function posix_kill_ex($pid, $sig): bool {
 	exec("ps --no-headers -e -o pid,ppid", $output, $exitStatus);
 	if ($exitStatus)
 		return FALSE;
@@ -901,7 +901,7 @@ function posix_kill_ex($pid, $sig) {
  *   Defaults to FALSE.
  * @return The escaped string.
  */
-function escape_path($var, $octal = FALSE) {
+function escape_path($var, $octal = FALSE): string {
 	$var = str_replace(" ", $octal ? "\\040" : "\\x20", $var);
 	return $var;
 }
@@ -918,7 +918,7 @@ function escape_path($var, $octal = FALSE) {
  *   Defaults to FALSE.
  * @return The unescaped string.
  */
-function unescape_path($var, $octal = FALSE) {
+function unescape_path($var, $octal = FALSE): string {
 	$var = str_replace($octal ? "\\040" : "\\x20", " ", $var);
 	return $var;
 }
@@ -931,7 +931,7 @@ function unescape_path($var, $octal = FALSE) {
  * @return Returns an array of strings created by splitting the string
  *   parameter on boundaries formed by the delimiter.
  */
-function explode_safe($delimiter, $string) {
+function explode_safe($delimiter, $string): array {
 	if (empty($string)) {
 		return [];
 	}
