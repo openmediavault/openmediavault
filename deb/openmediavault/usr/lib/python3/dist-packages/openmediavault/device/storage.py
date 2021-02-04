@@ -27,7 +27,6 @@ from typing import List, Optional
 
 import openmediavault.string
 import pyudev
-from cached_property import cached_property
 
 from .block import BlockDevice
 
@@ -270,40 +269,6 @@ class StorageDevice(BlockDevice):
         # If no plugin is responsible, then return an instance of
         # the default class.
         return StorageDevice(device_file)
-
-    @cached_property
-    def host_driver(self) -> Optional[str]:
-        """
-        Get the driver name of the host device this storage device is
-        connected to, e.g. 'hpsa', 'arcmsr' or 'ahci'.
-        :return: Returns the driver name of the host device or None.
-        :rtype: str | None
-        """
-        # Try to get the driver via 'driver'.
-        host_path = '/sys/block/{}/device/../..'.format(self.device_name(True))
-        driver_path = os.path.realpath('{}/../driver'.format(host_path))
-        if os.path.exists(driver_path):
-            return os.path.basename(driver_path)
-        # Try to get the driver via 'proc_name'.
-        # 'proc_name' is the "name of proc directory" of a driver, if
-        # the driver maintained one.
-        host_name = None
-        real_device_path = os.path.realpath(
-            '/sys/block/{}'.format(self.device_name(True))
-        )
-        for part in real_device_path.split('/'):
-            if re.match(r'^host\d+$', part):
-                host_name = part
-                break
-        if host_name:
-            try:
-                with open(
-                    '/sys/class/scsi_host/{}/proc_name'.format(host_name), 'r'
-                ) as f:
-                    return f.readline().strip()
-            except (IOError, FileNotFoundError):
-                pass
-        return None
 
 
 class IStorageDevicePlugin(abc.ABC):

@@ -44,14 +44,7 @@ trait SmartTrait {
 	 * See \OMV\System\Storage\SmartInterface interface definition.
 	 */
 	public function getSmartInformation() {
-		$smartInfo = new SmartInformation($this->getDeviceFile(),
-		  $this->getSmartDeviceType(), $this);
-		if (is_null($smartInfo)) {
-			throw new \OMV\Exception(
-			  "Failed to get S.M.A.R.T. information for device '%s'.",
-			  $this->getDeviceFile());
-		}
-		return $smartInfo;
+		return new SmartInformation($this);
 	}
 
 	/**
