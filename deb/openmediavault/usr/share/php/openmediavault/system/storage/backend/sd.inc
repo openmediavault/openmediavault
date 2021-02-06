@@ -88,7 +88,7 @@ class SD extends BackendAbstract {
 			$sd->getDeviceName(TRUE)));
 		$hostName = "";
 		foreach (explode("/", $realDevicePath) as $partk => $partv) {
-			if (1 == preg_match("^host\d+$", $partv)) {
+			if (1 == preg_match("/^host\d+$/", $partv)) {
 				$hostName = $partv;
 				break;
 			}
