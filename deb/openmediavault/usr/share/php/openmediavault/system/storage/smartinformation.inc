@@ -27,12 +27,10 @@ namespace OMV\System\Storage;
  * @ingroup api
  */
 class SmartInformation {
-	protected $deviceFile = "";
-	protected $type = "";
 	protected $sd = NULL;
 	private $cmdOutput = NULL;
 	private $dataCached = FALSE;
-	private $attrDesc = array(
+	private $attrDesc = [
 		1 => "Frequency of errors while reading raw data from the disk",
 		2 => "Average efficiency of the disk",
 		3 => "Time needed to spin up the disk",
@@ -88,7 +86,7 @@ class SmartInformation {
 		251 => "Number of remaining spare blocks as a percentage of the total number of spare blocks available",
 		252 => "Total number of bad flash blocks the drive detected since it was first initialized in manufacturing",
 		254 => "Number of detected free fall events"
-	);
+	];
 
 	const SMART_ASSESSMENT_GOOD = "GOOD";
 	const SMART_ASSESSMENT_BAD_ATTRIBUTE_IN_THE_PAST = "BAD_ATTRIBUTE_IN_THE_PAST";
@@ -99,39 +97,11 @@ class SmartInformation {
 
 	/**
 	 * Constructor
-	 * @param string deviceFile Specifies the device file, e.g.
-	 *   <ul>
-	 *   \li /dev/sdb
-	 *   \li /dev/cciss/c0d0
-	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6
-	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
-	 *   </ul>
-	 * @param string type Specifies the type of the device, e.g. 'ata',
-	 *   'cciss' or '3ware'. For more details please check the option '-d'
-	 *   at http://smartmontools.sourceforge.net/man5/smartd.conf.5.html.
 	 * @param sd The storage device object. Defaults to NULL.
 	 */
-	public function __construct($deviceFile, $type, $sd = null) {
-		$this->deviceFile = $deviceFile;
-		$this->type = $type;
+	public function __construct($sd) {
+		$sd->assertHasSmartSupport();
 		$this->sd = $sd;
-	}
-
-	/**
-	 * Get the device path, e.g. /dev/sda.
-	 * @return string The device path.
-	 */
-	public function getDeviceFile() {
-		return $this->deviceFile;
-	}
-
-	/**
-	 * Get the type of the device, e.g. 'ata', 'scsi', 'sat', 'cciss'
-	 * or '3ware'. Note, this can be an empty string.
-	 * @return string The device type.
-	 */
-	public function getType() {
-		return $this->type;
 	}
 
 	/**
@@ -147,13 +117,14 @@ class SmartInformation {
 		// Deny the parallel execution of the smartctl command for
 		// this device. This is necessary to prevent an increasing
 		// of the ATA error count of the device.
-		$mutex = new \OMV\Mutex(__CLASS__.__METHOD__.$this->getDeviceFile());
+		$mutex = new \OMV\Mutex(__CLASS__.__METHOD__.$this->sd->getDeviceFile());
 
 		// Get all available S.M.A.R.T. information.
 		$cmdArgs = [];
-		$cmdArgs[] = sprintf("-x %s", escapeshellarg($this->deviceFile));
-		if (!empty($this->type))
-			$cmdArgs[] = sprintf("-d %s", $this->type);
+		$cmdArgs[] = "--xall";
+		if (!empty($this->sd->getSmartDeviceType()))
+			$cmdArgs[] = sprintf("--device=%s", $this->sd->getSmartDeviceType());
+		$cmdArgs[] = $this->sd->getDeviceFile();
 		$cmd = new \OMV\System\Process("smartctl", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->setQuiet(TRUE);
@@ -194,7 +165,7 @@ class SmartInformation {
 	 * Get the S.M.A.R.T. attributes data structure.
 	 * @return array An array of S.M.A.R.T. attributes data.
 	 */
-	public function getAttributes() {
+	public function getAttributes(): array {
 		$this->getData();
 		$result = [];
 		foreach ($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
@@ -209,7 +180,7 @@ class SmartInformation {
 			//   5 Reallocated_Sector_Ct   PO--CK   252   252   010    -    0
 			//   7 Seek_Error_Rate         -OSR-K   252   252   051    -    0
 			$regex = '/^\s*(\d+)\s+(\S+)\s+([POSRCK-]+)\s+(\d+)\s+(\d+)\s+'.
-			  '(\d+|---)\s+(\S+)\s+(.+)$/i';
+				'(\d+|---)\s+(\S+)\s+(.+)$/i';
 			if (1 == preg_match($regex, $cmdOutputv, $matches)) {
 				$id = intval($matches[1]);
 				$attrData = array(
@@ -288,7 +259,7 @@ class SmartInformation {
 	 * Get the S.M.A.R.T. Self-test log structure.
 	 * @return array An array of S.M.A.R.T. self-test logs.
 	 */
-	public function getSelfTestLogs() {
+	public function getSelfTestLogs(): array {
 		$this->getData();
 		$result = [];
 		foreach ($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
@@ -318,12 +289,12 @@ class SmartInformation {
 	 * Get various device information.
 	 * @return array An array of strings.
 	 */
-	public function getInformation() {
+	public function getInformation(): array {
 		$this->getData();
 		// Initialize with default values. Note, the result list may
 		// contain additional key/value pairs.
 		$result = [
-			"devicefile" => $this->getDeviceFile(),
+			"devicefile" => $this->sd->getDeviceFile(),
 			"devicemodel" => "",
 			"serialnumber" => "",
 			"firmwareversion" => "",
@@ -388,8 +359,8 @@ class SmartInformation {
 		foreach($attrKeyMap as $attrKeyk => $attrKeyv) {
 			// Copy new attributes only if the origin attribute does
 			// not exist.
-			if (array_key_exists($attrKeyk) && !array_key_exists(
-					$attrKeyv)) {
+			if (array_key_exists($attrKeyk, $result) &&
+					!array_key_exists($attrKeyv, $result)) {
 				$result[$attrKeyv] = $result[$attrKeyk];
 			}
 		}
@@ -427,11 +398,11 @@ class SmartInformation {
 				// 231 Temperature_Celsius     0x0013   100   100   010    Pre-fail  Always       -       0
 				$regex = '/^(\d+)(\s+(.+))*$/';
 				if (1 !== preg_match($regex, $attrv['rawvalue'], $matches))
-					continue;
+					break;
 				// Verify temperature.
 				$temp = intval($matches[1]);
 				if ((-15 > $temp) || (100 < $temp))
-					continue;
+					break;
 				if (!$found || ($temp > $result))
 					$result = $temp;
 				$found = TRUE;
