@@ -21,6 +21,8 @@
  */
 namespace OMV\System\Storage;
 
+require_once("openmediavault/functions.inc");
+
 /**
  * This class provides a simple interface to handle SCSI disk devices.
  * @ingroup api
@@ -69,5 +71,63 @@ class StorageDeviceSD extends StorageDevice implements SmartInterface {
 	 */
 	public function getSmartDeviceType() {
 		return (TRUE === $this->isUsb()) ? "sat" : "";
+	}
+
+	/**
+	 * Get the SCSI address of the device.
+	 *
+	 * The following fields are included:
+	 * - HBA number [host]
+	 * - Channel on the HBA [channel]
+	 * - SCSI target ID [target]
+	 * - LUN [lun]
+	 *
+	 * See https://tldp.org/HOWTO/SCSI-2.4-HOWTO/scsiaddr.html
+	 *
+	 * @return array Returns an object containing the host, bus, target
+	 *   and lun.
+	 */
+	public function getHCTL(): array {
+		// The path '/sys/<DEVPATH>/device/' points to the necessary information.
+		// Examples:
+		// $ ls -alh /sys/devices/pci0000:00/0000:00:17.0/ata3/host2/target2:0:0/2:0:0:0/block/sda
+		// lrwxrwxrwx  1 root root    0 Feb  6 08:26 device -> ../../../2:0:1:0
+		// $ ls -alh /sys/devices/pci0000:00/0000:00:02.2/0000:02:00.0/host1/scsi_host/host1/port-1:6/end_device-1:6/target1:0:5/1:0:5:0/block/sde
+		// lrwxrwxrwx  1 root root    0 Oct  12 10:45 device -> ../../../1:0:5:0
+		$path = realpath(build_path(DIRECTORY_SEPARATOR, "/sys",
+			$this->getUdevProperty("DEVPATH"), "device/"));
+		$parts = explode(":", basename($path));
+		return [
+			"host" => intval($parts[0]),
+			"bus" => intval($parts[1]),
+			"target" => intval($parts[2]),
+			"lun" => intval($parts[3])
+		];
+	}
+
+	/**
+	 * Get the driver name of the host device this storage device is
+	 * connected to, e.g. 'hpsa', 'arcmsr' or 'ahci'.
+	 * @return Returns the driver name of the host device or an empty
+	 *   string.
+	 */
+	public function getHostDriver(): string {
+		// Try to get the driver via 'driver'.
+		$hostPath = sprintf("/sys/block/%s/device/../..",
+			$this->getDeviceName(TRUE));
+		$driverPath = realpath(sprintf("%s/../driver", $hostPath));
+		if (file_exists($driverPath)) {
+			return basename($driverPath);
+		}
+		// Try to get the driver via /sys/class/scsi_host/hostN/proc_name.
+		// 'proc_name' is the "name of proc directory" of a driver, if
+		// the driver maintained one.
+		$hctl = $this->getHCTL();
+		$procNamePath = sprintf("/sys/class/scsi_host/host%d/proc_name",
+			$hctl['host']);
+		if (file_exists($procNamePath)) {
+			return trim(file_get_contents($procNamePath));
+		}
+		return "";
 	}
 }

@@ -18,9 +18,50 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+import os
 import re
+from typing import NamedTuple, Optional
 
 import openmediavault.device
+from cached_property import cached_property
+
+
+class HCTL(NamedTuple):
+    """
+    The SCSI address of a device.
+
+    The following fields are included:
+    - HBA number [host]
+    - Channel on the HBA [channel]
+    - SCSI target ID [target]
+    - LUN [lun]
+    """
+    host: int
+    channel: int
+    target: int
+    lun: int
+
+    @classmethod
+    def from_dev_path(cls, dev_path: str):
+        """
+        Get SCSI address from a given devpath.
+
+        Example:
+        /devices/pci0000:00/0000:00:17.0/ata3/host2/target2:0:0/2:0:0:0/block/sda
+
+        :param dev_path: The devpath to process.
+        :return: The SCSI address of the given devpath.
+        """
+        # The path '/sys/<DEVPATH>/device/' points to the necessary information.
+        # Examples:
+        # $ ls -alh /sys/devices/pci0000:00/0000:00:17.0/ata3/host2/target2:0:0/2:0:0:0/block/sda
+        # lrwxrwxrwx  1 root root    0 Feb  6 08:26 device -> ../../../2:0:1:0
+        # $ ls -alh /sys/devices/pci0000:00/0000:00:02.2/0000:02:00.0/host1/scsi_host/host1/port-1:6/end_device-1:6/target1:0:5/1:0:5:0/block/sde
+        # lrwxrwxrwx  1 root root    0 Oct  12 10:45 device -> ../../../1:0:5:0
+        path = os.path.realpath(os.path.join(
+            '/sys', dev_path.strip('/'), 'device/'))
+        parts = os.path.basename(path).split(':')
+        return cls(*map(int, parts))
 
 
 class StorageDevicePlugin(openmediavault.device.IStorageDevicePlugin):
@@ -29,7 +70,7 @@ class StorageDevicePlugin(openmediavault.device.IStorageDevicePlugin):
         return re.match(r'^sd[a-z]+[0-9]*$', device_name) is not None
 
     def from_device_file(self, device_file):
-        sd = openmediavault.device.StorageDevice(device_file)
+        sd = StorageDevice(device_file)
         if sd.host_driver == 'arcmsr':
             # Areca RAID controller
             return StorageDeviceARCMSR(device_file)
@@ -40,7 +81,7 @@ class StorageDevicePlugin(openmediavault.device.IStorageDevicePlugin):
             # different in some cases (e.g. S.M.A.R.T.).
             # @see https://linux.die.net/man/4/hpsa
             return StorageDeviceHPSA(device_file)
-        return StorageDevice(device_file)
+        return sd
 
 
 class StorageDevice(openmediavault.device.StorageDevice):
@@ -63,6 +104,49 @@ class StorageDevice(openmediavault.device.StorageDevice):
     @property
     def smart_device_type(self):
         return 'sat' if self.is_usb else ''
+
+    @cached_property
+    def hctl(self) -> HCTL:
+        """
+        Get the SCSI address of the device.
+
+        The following fields are included:
+        - HBA number [host]
+        - Channel on the HBA [channel]
+        - SCSI target ID [target]
+        - LUN [lun]
+
+        See https://tldp.org/HOWTO/SCSI-2.4-HOWTO/scsiaddr.html
+
+        :return: Returns a named tuple with the fields host, bus, target
+          and lun.
+        """
+        return HCTL.from_dev_path(self.udev_property('DEVPATH'))
+
+    @cached_property
+    def host_driver(self) -> Optional[str]:
+        """
+        Get the driver name of the host device this storage device is
+        connected to, e.g. 'hpsa', 'arcmsr' or 'ahci'.
+        :return: Returns the driver name of the host device or None.
+        :rtype: str | None
+        """
+        # Try to get the driver via 'driver'.
+        host_path = '/sys/block/{}/device/../..'.format(self.device_name(True))
+        driver_path = os.path.realpath('{}/../driver'.format(host_path))
+        if os.path.exists(driver_path):
+            return os.path.basename(driver_path)
+        # Try to get the driver via /sys/class/scsi_host/hostN/proc_name.
+        # 'proc_name' is the "name of proc directory" of a driver, if
+        # the driver maintained one.
+        proc_name_path = '/sys/class/scsi_host/host{}/proc_name'.format(
+            self.hctl.host)
+        try:
+            with open(proc_name_path, 'r') as f:
+                return f.readline().strip()
+        except (IOError, FileNotFoundError):
+            pass
+        return None
 
 
 class StorageDeviceARCMSR(StorageDevice):
@@ -91,3 +175,24 @@ class StorageDeviceHPSA(StorageDevice):
     @property
     def is_raid(self):
         return True
+
+    @property
+    def smart_device_type(self):
+        # $ hpssacli ctrl slot=0 pd all show detail
+        # ...
+        # physicaldrive 1I:1:5
+        # Port: 1I
+        # Box: 1
+        # Bay: 5
+        # Status: OK
+        # Disk Name: /dev/sde
+        # ...
+
+        # The drive bay is encoded in the devpath of the device via the
+        # SCSI address (HCTL), e.g.
+        # /devices/pci0000:00/0000:00:02.2/0000:02:00.0/host1/scsi_host/host1/port-1:6/end_device-1:6/target1:0:5/1:0:5:0/block/sde
+
+        # Return 'cciss,N'. The non-negative integer N (in the
+        # range from 0 to 15 inclusive) denotes which disk on the
+        # controller is monitored.
+        return 'cciss,{}'.format(self.hctl.target - 1)

@@ -26,8 +26,33 @@ namespace OMV\System\Storage;
  * controllers using the hpsa driver.
  * @ingroup api
  */
-class StorageDeviceHPSA extends StorageDevice {
+class StorageDeviceHPSA extends StorageDeviceSD {
 	public function isRaid() {
 		return TRUE;
+	}
+
+	/**
+	 * See \OMV\System\Storage\SmartInterface interface definition.
+	 */
+	public function getSmartDeviceType() {
+		// $ hpssacli ctrl slot=0 pd all show detail
+		// ...
+		// physicaldrive 1I:1:5
+		// Port: 1I
+		// Box: 1
+		// Bay: 5
+		// Status: OK
+		// Disk Name: /dev/sde
+		// ...
+
+		// The drive bay is encoded in the devpath of the device via the
+		// SCSI address (HCTL), e.g.
+		// /devices/pci0000:00/0000:00:02.2/0000:02:00.0/host1/scsi_host/host1/port-1:6/end_device-1:6/target1:0:5/1:0:5:0/block/sde
+
+		// Return 'cciss,N'. The non-negative integer N (in the
+		// range from 0 to 15 inclusive) denotes which disk on the
+		// controller is monitored.
+		$hctl = $this->getHCTL();
+		return sprintf("cciss,%d", $hctl['target'] - 1);
 	}
 }
