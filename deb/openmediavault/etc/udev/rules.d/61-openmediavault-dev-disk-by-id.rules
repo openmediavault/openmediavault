@@ -138,6 +138,9 @@ ATTRS{idVendor}=="0080", \
 # ORICO 3.5-Inch Multi-Bay Hard Drive Enclosure (9548U3)
 # https://www.orico.cc/us/product/detail/6764/9528U3-BK.html
 #
+# Icy Dock Black Vortex MB174U3S-4SB Quad Bay usb 3.0 eSATA external 3.5" SATA HDD Enclosure 
+# https://www.icydock.com/goods.php?id=191
+#
 # P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-1/2-1.2/2-1.2:1.0/host1/target1:0:0/1:0:0:0/block/sdc
 # N: sdc
 # L: 0
