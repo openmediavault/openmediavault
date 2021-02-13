@@ -200,12 +200,12 @@ function array_value(array $array, $key, $default = NULL) {
  * @ingroup api
  * @param array $array The input array.
  * @param int $num Specifies how many entries should be picked. Defaults to 1.
- * @return When picking only one entry, the function returns the value
+ * @return mixed When picking only one entry, the function returns the value
  *   for a random entry. Otherwise, an array of values for the random
  *   entries is returned. Trying to pick more elements than there are
  *   in the array NULL will be returned.
  */
-function array_rand_value(array $array, $num = 1): mixed {
+function array_rand_value(array $array, $num = 1) {
 	$keys = array_rand($array, $num);
 	if (is_null($keys))
 		return NULL;
