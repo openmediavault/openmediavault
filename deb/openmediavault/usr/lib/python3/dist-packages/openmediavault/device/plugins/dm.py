@@ -21,7 +21,7 @@
 import os
 import re
 
-import openmediavault.collections
+import openmediavault.collectiontools
 import openmediavault.device
 import openmediavault.subprocess
 
@@ -303,5 +303,5 @@ class StorageDeviceLVM(StorageDevice):
 
     @property
     def is_media_available(self):
-        attr = openmediavault.collections.DotDict(self.lv_attributes)
+        attr = openmediavault.collectiontools.DotDict(self.lv_attributes)
         return attr.get('state.active')

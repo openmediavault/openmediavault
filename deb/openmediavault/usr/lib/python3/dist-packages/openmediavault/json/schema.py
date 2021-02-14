@@ -31,7 +31,7 @@ import re
 import socket
 import urllib.parse
 
-import openmediavault.collections
+import openmediavault.collectiontools
 import openmediavault.string
 
 
@@ -65,13 +65,13 @@ class Schema:
         """
         :param schema: A JSON object (Python dictionary) describing the schema.
         """
-        self._schema = openmediavault.collections.DotDict(schema)
+        self._schema = openmediavault.collectiontools.DotDict(schema)
 
     @property
     def schema(self):
         """
         Get the JSON schema as Python dictionary.
-        :returns: Returns the JSON schema as openmediavault.collections.DotDict
+        :returns: Returns the JSON schema as openmediavault.collectiontools.DotDict
                   dictionary.
         """
         return self.as_dict()

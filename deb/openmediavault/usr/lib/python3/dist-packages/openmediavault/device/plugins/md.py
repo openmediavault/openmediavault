@@ -21,7 +21,7 @@
 import os
 import re
 
-import openmediavault.collections
+import openmediavault.collectiontools
 import openmediavault.device
 import openmediavault.subprocess
 
