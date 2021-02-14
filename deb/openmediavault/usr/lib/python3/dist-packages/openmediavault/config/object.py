@@ -23,7 +23,7 @@ __all__ = ["Object"]
 import json
 import uuid
 
-import openmediavault.collections
+import openmediavault.collectiontools
 import openmediavault.config.datamodel
 import openmediavault.exceptions
 import openmediavault.json.schema
@@ -56,7 +56,7 @@ class Object:
         """
         Get the configuration object properties.
         :returns: Returns the properties of the configuration object as
-                  openmediavault.collections.DotDict dictionary.
+                  openmediavault.collectiontools.DotDict dictionary.
         """
         return self._properties
 
@@ -108,7 +108,7 @@ class Object:
         """
         Get the default values as defined in the data model.
         :returns: Returns the default values as defined in the data model
-                  as openmediavault.collections.DotDict dictionary.
+                  as openmediavault.collectiontools.DotDict dictionary.
         """
 
         def callback(
@@ -124,7 +124,7 @@ class Object:
             if schema['type'] == "array":
                 return False
 
-        defaults = openmediavault.collections.DotDict()
+        defaults = openmediavault.collectiontools.DotDict()
         self.model.walk_schema("", callback, defaults)
         return defaults
 
@@ -167,7 +167,7 @@ class Object:
         """
         Get the properties.
         :returns: Returns the properties of the configuration object as
-                  openmediavault.collections.DotDict dictionary.
+                  openmediavault.collectiontools.DotDict dictionary.
         """
         return self.properties
 
@@ -201,7 +201,7 @@ class Object:
             raise TypeError("Expected dictionary")
         # Create a flat representation of the dictionary and set the
         # key/value pairs.
-        values_flat = openmediavault.collections.flatten(values)
+        values_flat = openmediavault.collectiontools.flatten(values)
         for key, value in values_flat.items():
             if ignore and not self.exists(key):
                 continue

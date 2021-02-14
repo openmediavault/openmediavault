@@ -37,7 +37,7 @@ import fcntl
 import os
 
 import lxml.etree
-import openmediavault.collections
+import openmediavault.collectiontools
 import openmediavault.config.datamodel
 import openmediavault.config.object
 
@@ -66,7 +66,7 @@ class DatabaseQueryNotFoundException(DatabaseQueryException):
         super().__init__(xpath, model, "No such object: %s" % xpath)
 
 
-class DatabaseFilter(openmediavault.collections.DotDict):
+class DatabaseFilter(openmediavault.collectiontools.DotDict):
     pass
 
 
