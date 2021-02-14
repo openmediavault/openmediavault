@@ -348,10 +348,14 @@ class StorageDeviceTestCase(unittest.TestCase):
         self.assertFalse(sd.is_rotational)
 
     @mock.patch('pyudev.Devices.from_device_file')
-    def test_from_device_file_sd(self, mock_from_device_file):
-        mock_from_device_file.return_value = MockedPyUdevDevice(
-            {'ID_BUS': 'usb'}
-        )
+    @mock.patch('openmediavault.device.plugins.sd.HCTL.from_dev_path')
+    def test_from_device_file_sd(self, mock_hctl, mock_from_device_file):
+        mock_hctl.return_value = openmediavault.device.plugins.sd.HCTL(
+            2, 0, 0, 0)
+        mock_from_device_file.return_value = MockedPyUdevDevice({
+            'ID_BUS': 'usb',
+            'DEVPATH': '/devices/pci0000:00/0000:00:17.0/ata3/host2/target2:0:0/2:0:0:0/block/sda'
+        })
         sd = openmediavault.device.StorageDevice.from_device_file('/dev/sda1')
         self.assertIsInstance(
             sd, openmediavault.device.plugins.sd.StorageDevice
