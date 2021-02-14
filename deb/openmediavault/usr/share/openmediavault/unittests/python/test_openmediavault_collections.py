@@ -20,12 +20,12 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import unittest
 
-import openmediavault.collections
+import openmediavault.collectiontools
 
 
 class DotDictTestCase(unittest.TestCase):
     def _get_dict(self):
-        return openmediavault.collections.DotDict(
+        return openmediavault.collectiontools.DotDict(
             {
                 'x': 3,
                 'a': {'b': {'c': 100}},
@@ -63,7 +63,7 @@ class DotDictTestCase(unittest.TestCase):
         self.assertEqual(d['a'], {'z': 2.3})
 
     def test_6(self):
-        d = openmediavault.collections.DotDict()
+        d = openmediavault.collectiontools.DotDict()
         d['a'] = False
         self.assertEqual(d['a'], False)
 
@@ -116,7 +116,7 @@ class DotDictTestCase(unittest.TestCase):
         )
 
     def test_set_5(self):
-        d = openmediavault.collections.DotDict({'jobs': {'job': []}})
+        d = openmediavault.collectiontools.DotDict({'jobs': {'job': []}})
         d["jobs.job.0"] = {'acls': 0}
         self.assertEqual(d["jobs.job"], [{'acls': 0}])
         d["jobs.job.0.comment"] = ""
@@ -126,7 +126,7 @@ class DotDictTestCase(unittest.TestCase):
         )
 
     def test_set_6(self):
-        d = openmediavault.collections.DotDict({'modules': {'module': []}})
+        d = openmediavault.collectiontools.DotDict({'modules': {'module': []}})
         self.assertIsInstance(d.modules, object)
         self.assertIsInstance(d['modules.module'], list)
         d['modules.module[0]'] = {
@@ -146,7 +146,7 @@ class DotDictTestCase(unittest.TestCase):
 
     def test_flatten(self):
         d = self._get_dict()
-        d_flat = openmediavault.collections.flatten(d)
+        d_flat = openmediavault.collectiontools.flatten(d)
         self.assertEqual(
             d_flat,
             {
@@ -166,7 +166,7 @@ class DotDictTestCase(unittest.TestCase):
 
     def test_dotcollapseddict(self):
         d = self._get_dict()
-        d_flat = openmediavault.collections.DotCollapsedDict(d)
+        d_flat = openmediavault.collectiontools.DotCollapsedDict(d)
         self.assertEqual(
             d_flat,
             {
@@ -186,24 +186,24 @@ class DotDictTestCase(unittest.TestCase):
 
     def test_find_1(self):
         c = [1, 2, 3, 4]
-        res = openmediavault.collections.find(c, lambda i: i >= 2)
+        res = openmediavault.collectiontools.find(c, lambda i: i >= 2)
         self.assertEqual(res, 2)
 
     def test_find_2(self):
         c = [{'x': 0}, {'x': 1}, {'x': 2, 'y': 2}, {'x': 3, 'y': 3}]
-        res = openmediavault.collections.find(c, lambda d: d['x'] == 2)
+        res = openmediavault.collectiontools.find(c, lambda d: d['x'] == 2)
         self.assertEqual(res, {'x': 2, 'y': 2})
 
     def test_find_3(self):
         c = [{'x': 0}, {'x': 1}, {'x': 2, 'y': 2}, {'x': 3, 'y': 3}]
-        res = openmediavault.collections.find(c, lambda d: d['x'] > 3)
+        res = openmediavault.collectiontools.find(c, lambda d: d['x'] > 3)
         self.assertIsNone(res)
 
     def test_merge_1(self):
         dst = {'a': 1, 'b': {'x': 2, 'y': 3}, 'c': 4, 'd': 0}
         src1 = {'b': {'x': 2, 'y': 4}, 'c': 5}
         src2 = {'d': 7}
-        openmediavault.collections.merge(dst, src1, src2)
+        openmediavault.collectiontools.merge(dst, src1, src2)
         self.assertEqual(dst, {'a': 1, 'b': {'x': 2, 'y': 4}, 'c': 5, 'd': 7})
 
 
