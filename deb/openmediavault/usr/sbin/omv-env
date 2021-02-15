@@ -24,8 +24,8 @@ from typing import List
 
 import click
 import natsort
+import openmediavault.procutils
 import openmediavault.settings
-import openmediavault.subprocess
 
 import openmediavault
 
@@ -34,7 +34,7 @@ def grep_env_vars() -> List[str]:
     salt_root_dir = openmediavault.getenv(
         'OMV_SALT_DIR', '/srv/salt/omv'
     )
-    output = openmediavault.subprocess.check_output(
+    output = openmediavault.procutils.check_output(
         ['grep', '--recursive', 'default:OMV_', salt_root_dir]
     )
     result = set()

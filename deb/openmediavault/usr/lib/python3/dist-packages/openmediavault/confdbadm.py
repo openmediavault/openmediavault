@@ -30,7 +30,7 @@ import sys
 import tempfile
 
 import openmediavault.config.datamodel
-import openmediavault.string
+import openmediavault.stringutils
 
 import openmediavault
 
@@ -116,7 +116,7 @@ class CommandHelper:
         :returns: The specified value.
         :raises argparse.ArgumentTypeError:
         """
-        if not openmediavault.string.is_uuid4(arg):
+        if not openmediavault.stringutils.is_uuid4(arg):
             raise argparse.ArgumentTypeError("No valid UUID4.")
         return arg
 
@@ -127,7 +127,7 @@ class CommandHelper:
         :returns: The specified value as Python dictionary.
         :raises argparse.ArgumentTypeError:
         """
-        if not openmediavault.string.is_json(arg):
+        if not openmediavault.stringutils.is_json(arg):
             raise argparse.ArgumentTypeError("No valid JSON.")
         return json.loads(arg)
 

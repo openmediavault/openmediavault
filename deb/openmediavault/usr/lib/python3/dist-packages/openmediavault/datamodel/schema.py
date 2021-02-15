@@ -23,7 +23,7 @@ __all__ = ["Schema"]
 import re
 
 import openmediavault.json.schema
-import openmediavault.string
+import openmediavault.stringutils
 
 
 class Schema(openmediavault.json.Schema):
@@ -35,12 +35,12 @@ class Schema(openmediavault.json.Schema):
             super()._check_format(value, schema, name)
         except openmediavault.json.SchemaException:
             if "uuidv4" == schema['format']:
-                if not openmediavault.string.is_uuid4(value):
+                if not openmediavault.stringutils.is_uuid4(value):
                     raise openmediavault.json.SchemaValidationException(
                         name, "The value '%s' is not a valid UUIDv4." % value
                     )
             elif "fsuuid" == schema['format']:
-                if not openmediavault.string.is_fs_uuid(value):
+                if not openmediavault.stringutils.is_fs_uuid(value):
                     raise openmediavault.json.SchemaValidationException(
                         name,
                         "The value '%s' is not a valid filesystem UUID."

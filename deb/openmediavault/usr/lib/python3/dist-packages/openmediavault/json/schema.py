@@ -32,7 +32,7 @@ import socket
 import urllib.parse
 
 import openmediavault.collectiontools
-import openmediavault.string
+import openmediavault.stringutils
 
 
 class SchemaException(Exception):
@@ -169,7 +169,7 @@ class Schema:
         if isinstance(value, (dict, list)):
             value = json.dumps(value)
         # Convert JSON string to dictionary.
-        if openmediavault.string.is_json(value):
+        if openmediavault.stringutils.is_json(value):
             value = json.loads(value)
         schema = self.get_by_path(name)
         self._validate_type(value, schema, name)

@@ -23,7 +23,7 @@ __all__ = ['Monit']
 import re
 import subprocess
 
-import openmediavault.subprocess
+import openmediavault.procutils
 
 
 class Monit:
@@ -36,7 +36,7 @@ class Monit:
 
     def _exec(self, action, quiet):
         try:
-            openmediavault.subprocess.check_call(
+            openmediavault.procutils.check_call(
                 ['monit', action, self.name],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
@@ -94,7 +94,7 @@ class Monit:
         """
         Get the status of a monitored process.
         """
-        output = openmediavault.subprocess.check_output(
+        output = openmediavault.procutils.check_output(
             ['monit', '-B', 'summary']
         )
         # Parse the command output.
