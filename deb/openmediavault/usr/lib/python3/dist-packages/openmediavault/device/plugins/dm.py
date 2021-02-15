@@ -23,7 +23,7 @@ import re
 
 import openmediavault.collectiontools
 import openmediavault.device
-import openmediavault.subprocess
+import openmediavault.procutils
 
 
 class StorageDevicePlugin(openmediavault.device.IStorageDevicePlugin):
@@ -177,7 +177,7 @@ class StorageDeviceLVM(StorageDevice):
         if self._cached:
             return
 
-        output = openmediavault.subprocess.check_output(
+        output = openmediavault.procutils.check_output(
             [
                 'lvdisplay',
                 '--noheadings',

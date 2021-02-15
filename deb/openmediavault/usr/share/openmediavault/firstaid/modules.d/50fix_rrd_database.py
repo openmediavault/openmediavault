@@ -28,7 +28,7 @@ import dialog
 import openmediavault.config.database
 import openmediavault.firstaid
 import openmediavault.monit
-import openmediavault.subprocess
+import openmediavault.procutils
 
 import openmediavault
 
@@ -56,7 +56,7 @@ class Module(openmediavault.firstaid.IModule):
             output = None
             remove_rrd = False
             try:
-                output = openmediavault.subprocess.check_output(
+                output = openmediavault.procutils.check_output(
                     ["rrdtool", "last", rrd_file], stderr=subprocess.PIPE
                 )
             except subprocess.CalledProcessError as e:

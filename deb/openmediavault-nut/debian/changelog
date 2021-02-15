@@ -1,3 +1,9 @@
+openmediavault-nut (5.2.0-1) stable; urgency=low
+
+  * Adapt to modified OMV Python API.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 14 Feb 2021 22:41:06 +0100
+
 openmediavault-nut (5.1.1-1) stable; urgency=low
 
   * Update locales.

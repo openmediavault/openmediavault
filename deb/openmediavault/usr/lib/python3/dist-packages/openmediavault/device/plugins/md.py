@@ -23,7 +23,7 @@ import re
 
 import openmediavault.collectiontools
 import openmediavault.device
-import openmediavault.subprocess
+import openmediavault.procutils
 
 
 class StorageDevicePlugin(openmediavault.device.IStorageDevicePlugin):
@@ -70,7 +70,7 @@ class StorageDevice(openmediavault.device.StorageDevice):
         if self._cached:
             return
 
-        output = openmediavault.subprocess.check_output(
+        output = openmediavault.procutils.check_output(
             ['mdadm', '--detail', '--brief', '--verbose', self.device_file]
         )
         # ARRAY /dev/md0 level=raid5 num-devices=3 metadata=1.2 name=xxxx:0 UUID=a4266bf7:c671b343:c3d6e535:ca455e37
@@ -86,7 +86,7 @@ class StorageDevice(openmediavault.device.StorageDevice):
                 pass
 
         # Get more information.
-        output = openmediavault.subprocess.check_output(
+        output = openmediavault.procutils.check_output(
             ['mdadm', '--detail', self.device_file]
         )
         # /dev/md0:

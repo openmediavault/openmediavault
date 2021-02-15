@@ -24,7 +24,7 @@ import os
 
 import openmediavault.datamodel.datamodel
 import openmediavault.json.schema
-import openmediavault.util
+import openmediavault.utils
 
 import openmediavault
 
@@ -288,7 +288,7 @@ class Datamodel(openmediavault.datamodel.Datamodel):
             )
         try:
             if "boolean" == prop_schema['type']:
-                result = openmediavault.util.to_bool(value)
+                result = openmediavault.utils.to_bool(value)
             elif "integer" == prop_schema['type']:
                 result = int(value)
             elif prop_schema['type'] in ['number', 'double', 'float']:

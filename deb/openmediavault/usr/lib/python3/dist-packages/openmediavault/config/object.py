@@ -27,7 +27,7 @@ import openmediavault.collectiontools
 import openmediavault.config.datamodel
 import openmediavault.exceptions
 import openmediavault.json.schema
-import openmediavault.string
+import openmediavault.stringutils
 
 import openmediavault
 
@@ -100,7 +100,7 @@ class Object:
         :returns: Returns True if the configuration object is identified as
                   new, otherwise False.
         """
-        if not openmediavault.string.is_uuid4(self.id):
+        if not openmediavault.stringutils.is_uuid4(self.id):
             return False
         return self.id == openmediavault.getenv("OMV_CONFIGOBJECT_NEW_UUID")
 

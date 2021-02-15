@@ -23,7 +23,7 @@ import os
 import sys
 
 import openmediavault.firstaid
-import openmediavault.subprocess
+import openmediavault.procutils
 
 import openmediavault
 
@@ -43,11 +43,11 @@ class Module(openmediavault.firstaid.IModule):
         )
         for f in glob.glob("{}/*.deb".format(path)):
             os.remove(f)
-        openmediavault.subprocess.check_call(
+        openmediavault.procutils.check_call(
             "cd {} && apt-ftparchive packages . > Packages".format(path),
             shell=True,
         )
-        openmediavault.subprocess.check_call(["apt-get", "update"])
+        openmediavault.procutils.check_call(["apt-get", "update"])
         return 0
 
 

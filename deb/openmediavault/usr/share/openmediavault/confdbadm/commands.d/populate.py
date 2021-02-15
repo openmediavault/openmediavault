@@ -22,7 +22,7 @@ import os
 import sys
 
 import openmediavault.confdbadm
-import openmediavault.subprocess
+import openmediavault.procutils
 
 import openmediavault
 
@@ -47,7 +47,7 @@ class Command(openmediavault.confdbadm.ICommand):
                 raise RuntimeError(
                     "The script '%s' is not executable" % script_name
                 )
-            openmediavault.subprocess.check_call([script_path])
+            openmediavault.procutils.check_call([script_path])
         return 0
 
 

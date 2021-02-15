@@ -23,7 +23,7 @@ __all__ = ["bool", "getenv", "setenv"]
 from typing import Any, Optional
 
 import openmediavault.settings
-import openmediavault.util
+import openmediavault.utils
 
 
 def bool(value):  # pylint: disable=redefined-builtin
@@ -32,7 +32,7 @@ def bool(value):  # pylint: disable=redefined-builtin
     the values 1, '1', 'on', 'yes', 'y' and 'true'.
     @deprecated
     """
-    return openmediavault.util.to_bool(value)
+    return openmediavault.utils.to_bool(value)
 
 
 def getenv(key: str, default: Optional[Any] = None, return_type: Optional[str] = "str"):

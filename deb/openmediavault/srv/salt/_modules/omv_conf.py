@@ -22,7 +22,7 @@ import os
 
 import openmediavault.config
 import openmediavault.device
-import openmediavault.string
+import openmediavault.stringutils
 
 
 def get(id_, identifier=None):
@@ -98,7 +98,7 @@ def get_sharedfolder_path(uuid):
     """
     sf_obj = get('conf.system.sharedfolder', uuid)
     mp_obj = get('conf.system.filesystem.mountpoint', sf_obj['mntentref'])
-    return openmediavault.string.path_prettify(
+    return openmediavault.stringutils.path_prettify(
         # !!! Attention !!! If a component is an absolute path, all previous
         # components are thrown away and joining continues from the absolute
         # path component.
@@ -129,4 +129,4 @@ def get_sharedfolder_mount_path(uuid):
     """
     sf_obj = get('conf.system.sharedfolder', uuid)
     mp_obj = get('conf.system.filesystem.mountpoint', sf_obj['mntentref'])
-    return openmediavault.string.path_prettify(mp_obj['dir'])
+    return openmediavault.stringutils.path_prettify(mp_obj['dir'])

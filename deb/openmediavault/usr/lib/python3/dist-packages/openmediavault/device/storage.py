@@ -25,7 +25,7 @@ import pkgutil
 import re
 from typing import List, Optional
 
-import openmediavault.string
+import openmediavault.stringutils
 import pyudev
 
 from .block import BlockDevice
@@ -82,7 +82,7 @@ class StorageDevice(BlockDevice):
         :return: The device model, otherwise an empty string.
         :rtype: str
         """
-        return openmediavault.string.unescape_blank(
+        return openmediavault.stringutils.unescape_blank(
             self.udev_property('ID_MODEL_ENC', '')
         )
 
@@ -93,7 +93,7 @@ class StorageDevice(BlockDevice):
         :return: The device vendor, otherwise an empty string.
         :rtype: str
         """
-        return openmediavault.string.unescape_blank(
+        return openmediavault.stringutils.unescape_blank(
             self.udev_property('ID_VENDOR_ENC', '')
         )
 

@@ -33,7 +33,7 @@ do not understand.
 __all__ = ["Popen", "call", "check_call", "check_output"]
 
 import os
-import subprocess  # lgtm[py/import-own-module]
+import subprocess
 
 
 def _modify_kwargs(kwargs):
@@ -66,4 +66,4 @@ def check_output(*popenargs, **kwargs):
 class Popen(subprocess.Popen):
     def __init__(self, *popenargs, **kwargs):
         _modify_kwargs(kwargs)
-        super().__init__(*popenargs, **kwargs)  # lgtm[py/super-in-old-style]
+        super().__init__(*popenargs, **kwargs)

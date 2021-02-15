@@ -23,7 +23,7 @@ import sys
 
 import dialog
 import openmediavault.firstaid
-import openmediavault.subprocess
+import openmediavault.procutils
 
 
 class Module(openmediavault.firstaid.IModule):
@@ -33,7 +33,7 @@ class Module(openmediavault.firstaid.IModule):
 
     def execute(self):
         choices = []
-        output = openmediavault.subprocess.check_output(["pam_tally2"])
+        output = openmediavault.procutils.check_output(["pam_tally2"])
         for line in output.splitlines():
             m = re.match(r"^(\S+)\s+((\d+)\s+(.+))$", line.decode().strip())
             if not m:
@@ -60,7 +60,7 @@ class Module(openmediavault.firstaid.IModule):
             "Reset failed login attempt counter for user '{}'.".format(
                 username)
         )
-        openmediavault.subprocess.check_call(
+        openmediavault.procutils.check_call(
             ["pam_tally2", "--quiet", "--reset=0", "--user", username]
         )
         return 0

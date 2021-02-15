@@ -24,7 +24,7 @@ import re
 from typing import Dict, Union
 
 import natsort
-import openmediavault.util
+import openmediavault.utils
 
 DEFAULT_FILE = "/etc/default/openmediavault"
 
@@ -40,7 +40,7 @@ class EnvironmentVariable:
         self.value = value
 
     def __bool__(self):
-        return openmediavault.util.to_bool(self.value)
+        return openmediavault.utils.to_bool(self.value)
 
     def __str__(self):
         return str(self.value)
