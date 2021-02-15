@@ -23,8 +23,8 @@ import subprocess
 from typing import List, Optional
 
 import openmediavault.device
-import openmediavault.string
-import openmediavault.subprocess
+import openmediavault.procutils
+import openmediavault.stringutils
 import pyudev
 from openmediavault.device import is_device_file_by_label
 
@@ -47,7 +47,7 @@ def make_mount_path(id_) -> str:
     mount_path = os.path.join(
         openmediavault.getenv("OMV_MOUNT_DIR", "/srv"), id_.replace('/', '_')
     )
-    return openmediavault.string.path_prettify(mount_path)
+    return openmediavault.stringutils.path_prettify(mount_path)
 
 
 class Filesystem(openmediavault.device.BlockDevice):
@@ -99,7 +99,7 @@ class Filesystem(openmediavault.device.BlockDevice):
             # filesystem. A Btrfs subvolume is an independently mountable POSIX
             # filetree and not a block device (and cannot be treated as one).
             # So let the findmnt command do the (more expensive) job as fallback.
-            output = openmediavault.subprocess.check_output(
+            output = openmediavault.procutils.check_output(
                 [
                     'findmnt',
                     '--first-only',
@@ -139,9 +139,9 @@ class Filesystem(openmediavault.device.BlockDevice):
     @property
     def device_file(self):
         if self._device_file is None:
-            if openmediavault.string.is_fs_uuid(self._id):
+            if openmediavault.stringutils.is_fs_uuid(self._id):
                 # Find the filesystem.
-                output = openmediavault.subprocess.check_output(
+                output = openmediavault.procutils.check_output(
                     ['findfs', 'UUID={}'.format(self._id)]
                 )
                 self._device_file = output.decode().strip()
@@ -210,7 +210,7 @@ class Filesystem(openmediavault.device.BlockDevice):
             an exception.
         :rtype: str
         """
-        if openmediavault.string.is_fs_uuid(self._id):
+        if openmediavault.stringutils.is_fs_uuid(self._id):
             return self._id
         return self.udev_property('ID_FS_UUID')
 
@@ -265,7 +265,7 @@ class Filesystem(openmediavault.device.BlockDevice):
         :return: Returns the label of the filesystem.
         :rtype: str
         """
-        return openmediavault.string.unescape_blank(
+        return openmediavault.stringutils.unescape_blank(
             self.udev_property('ID_FS_LABEL_ENC', '')
         )
 
@@ -293,7 +293,7 @@ class Filesystem(openmediavault.device.BlockDevice):
         :rtype: str | None
         """
         try:
-            output = openmediavault.subprocess.check_output(
+            output = openmediavault.procutils.check_output(
                 [
                     'findmnt',
                     '--canonicalize',
@@ -308,7 +308,7 @@ class Filesystem(openmediavault.device.BlockDevice):
             # /media/8c982ec2-8aa7-4fe2-a912-7478f0429e06
             # /srv/_dev_disk_by-id_dm-name-vg01-lv01
             # /srv/dev-disk-by-label-xx\x20yy
-            return openmediavault.string.unescape_blank(output.decode().strip())
+            return openmediavault.stringutils.unescape_blank(output.decode().strip())
         except subprocess.CalledProcessError:
             pass
         return None
@@ -318,7 +318,7 @@ class Filesystem(openmediavault.device.BlockDevice):
         Check if a filesystem is mounted.
         """
         try:
-            _ = openmediavault.subprocess.check_output(
+            _ = openmediavault.procutils.check_output(
                 [
                     'findmnt',
                     '--canonicalize',
@@ -343,7 +343,7 @@ class Filesystem(openmediavault.device.BlockDevice):
         args = ['mount', '--verbose', '--source', self.device_file]
         if path is not None:
             args.append(path)
-        _ = openmediavault.subprocess.check_output(args)
+        _ = openmediavault.procutils.check_output(args)
 
     def umount(self, force=False, lazy=False):
         """
@@ -363,7 +363,7 @@ class Filesystem(openmediavault.device.BlockDevice):
         if lazy:
             args.append('--lazy')
         args.append(self.device_file)
-        _ = openmediavault.subprocess.check_output(args)
+        _ = openmediavault.procutils.check_output(args)
 
     def remove(self):
         """
@@ -374,7 +374,7 @@ class Filesystem(openmediavault.device.BlockDevice):
         # wipefs: error: / dev / sdh1: appears to contain 'dos' partition table
         if self.get_partition_scheme() in ['dos', 'vfat']:
             # http://en.wikipedia.org / wiki / Master_boot_record
-            _ = openmediavault.subprocess.check_output(
+            _ = openmediavault.procutils.check_output(
                 [
                     'dd',
                     'if=/dev/zero',
@@ -382,7 +382,7 @@ class Filesystem(openmediavault.device.BlockDevice):
                     'count=1',
                 ]
             )
-        _ = openmediavault.subprocess.check_output(
+        _ = openmediavault.procutils.check_output(
             ['wipefs', '--all', self.device_file]
         )
 

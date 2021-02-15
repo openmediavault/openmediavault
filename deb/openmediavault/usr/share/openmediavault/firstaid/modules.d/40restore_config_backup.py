@@ -25,7 +25,7 @@ import sys
 import dialog
 import natsort
 import openmediavault.firstaid
-import openmediavault.subprocess
+import openmediavault.procutils
 
 import openmediavault
 
@@ -53,7 +53,7 @@ class Module(openmediavault.firstaid.IModule):
         # Get the latest configuration backup file.
         configbak = configbaks.pop()
         # Only show a diff, if there's a difference.
-        rc = openmediavault.subprocess.call(  # yapf: disable
+        rc = openmediavault.procutils.call(  # yapf: disable
             [
                 "diff",
                 "--brief",
@@ -87,7 +87,7 @@ class Module(openmediavault.firstaid.IModule):
                 "All lines with '-' will be changed to the lines with '+'\n"
                 "===================================================================\n"
             )
-            p = openmediavault.subprocess.Popen(
+            p = openmediavault.procutils.Popen(
                 [
                     "diff",
                     "--unified=1",

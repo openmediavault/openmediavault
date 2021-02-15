@@ -24,7 +24,7 @@ import sys
 
 import openmediavault.confdbadm
 import openmediavault.log
-import openmediavault.subprocess
+import openmediavault.procutils
 
 import openmediavault
 
@@ -74,7 +74,7 @@ class Command(
                     "The script '%s' is not executable" % script_name
                 )
             # Execute the script.
-            openmediavault.subprocess.check_call([script_path])
+            openmediavault.procutils.check_call([script_path])
             rc = 0
         except Exception as e:
             # Display the exception message.

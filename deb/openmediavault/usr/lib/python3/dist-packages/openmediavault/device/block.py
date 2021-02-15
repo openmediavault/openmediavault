@@ -22,7 +22,7 @@ import os
 import re
 from typing import Any, Dict, List, Optional
 
-import openmediavault.subprocess
+import openmediavault.procutils
 import pyudev
 
 from .utils import (is_block_device, is_device_file_by_id,
@@ -240,7 +240,7 @@ class BlockDevice:
         :return: Returns the block size.
         :rtype: int
         """
-        output = openmediavault.subprocess.check_output(
+        output = openmediavault.procutils.check_output(
             ['blockdev', '--getbsz', self.device_file]
         )
         return int(output.decode().strip())
@@ -251,7 +251,7 @@ class BlockDevice:
         :return: Returns the device size in bytes.
         :rtype: int
         """
-        output = openmediavault.subprocess.check_output(
+        output = openmediavault.procutils.check_output(
             ['blockdev', '--getsize64', self.device_file]
         )
         return int(output.decode().strip())

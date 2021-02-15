@@ -20,48 +20,48 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import unittest
 
-import openmediavault.util
+import openmediavault.utils
 
 
 class UtilTestCase(unittest.TestCase):
     def test_to_bool_true_1(self):
-        value = openmediavault.util.to_bool('yes')
+        value = openmediavault.utils.to_bool('yes')
         self.assertEqual(value, True)
 
     def test_to_bool_true_2(self):
-        value = openmediavault.util.to_bool(True)
+        value = openmediavault.utils.to_bool(True)
         self.assertEqual(value, True)
 
     def test_to_bool_true_3(self):
-        value = openmediavault.util.to_bool(1)
+        value = openmediavault.utils.to_bool(1)
         self.assertEqual(value, True)
 
     def test_to_bool_true_4(self):
-        value = openmediavault.util.to_bool('1')
+        value = openmediavault.utils.to_bool('1')
         self.assertEqual(value, True)
 
     def test_to_bool_true_5(self):
-        value = openmediavault.util.to_bool('oN')
+        value = openmediavault.utils.to_bool('oN')
         self.assertEqual(value, True)
 
     def test_to_bool_true_6(self):
-        value = openmediavault.util.to_bool('Y')
+        value = openmediavault.utils.to_bool('Y')
         self.assertEqual(value, True)
 
     def test_to_bool_true_7(self):
-        value = openmediavault.util.to_bool('True')
+        value = openmediavault.utils.to_bool('True')
         self.assertEqual(value, True)
 
     def test_to_bool_false_1(self):
-        value = openmediavault.util.to_bool('No')
+        value = openmediavault.utils.to_bool('No')
         self.assertEqual(value, False)
 
     def test_to_bool_false_2(self):
-        value = openmediavault.util.to_bool(False)
+        value = openmediavault.utils.to_bool(False)
         self.assertEqual(value, False)
 
     def test_to_bool_false_3(self):
-        value = openmediavault.util.to_bool(0)
+        value = openmediavault.utils.to_bool(0)
         self.assertEqual(value, False)
 
 

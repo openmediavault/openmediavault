@@ -22,7 +22,7 @@ import subprocess
 import unittest
 
 import mock
-import openmediavault.subprocess
+import openmediavault.procutils
 
 
 class SubprocessTestCase(unittest.TestCase):
@@ -35,24 +35,24 @@ class SubprocessTestCase(unittest.TestCase):
 
     def test_popen(self):
         with mock.patch("subprocess.Popen.__init__") as mock_call:
-            p = openmediavault.subprocess.Popen(
+            p = openmediavault.procutils.Popen(
                 ["cat", "/proc/uptime"], stdout=subprocess.PIPE, shell=False
             )
             self._validate_call_args(mock_call.call_args_list[0])
 
     def test_call(self):
         with mock.patch("subprocess.call") as mock_call:
-            openmediavault.subprocess.call(["whoami"])
+            openmediavault.procutils.call(["whoami"])
             self._validate_call_args(mock_call.call_args_list[0])
 
     def test_check_call(self):
         with mock.patch("subprocess.check_call") as mock_check_call:
-            openmediavault.subprocess.check_call(["ls"])
+            openmediavault.procutils.check_call(["ls"])
             self._validate_call_args(mock_check_call.call_args_list[0])
 
     def test_check_output(self):
         with mock.patch("subprocess.check_output") as mock_check_output:
-            openmediavault.subprocess.check_output(["uname"])
+            openmediavault.procutils.check_output(["uname"])
             self._validate_call_args(mock_check_output.call_args_list[0])
 
 

@@ -27,7 +27,7 @@ import natsort
 import openmediavault.firstaid
 import openmediavault.net
 import openmediavault.rpc
-import openmediavault.string
+import openmediavault.stringutils
 import pyudev
 
 import openmediavault
@@ -83,7 +83,8 @@ class Module(openmediavault.firstaid.IModule):
                 description = device.properties.get(prop)
                 break
             choices.append(
-                [sys_name, openmediavault.string.truncate(description, 50)]
+                [sys_name, openmediavault.stringutils.truncate(
+                    description, 50)]
             )
         if not choices:
             raise Exception("No network interfaces found.")

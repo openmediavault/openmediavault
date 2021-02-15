@@ -27,7 +27,7 @@ from distutils.version import LooseVersion
 
 import openmediavault.confdbadm
 import openmediavault.log
-import openmediavault.subprocess
+import openmediavault.procutils
 
 import openmediavault
 
@@ -104,7 +104,7 @@ class Command(
                     )
                 # Execute the script.
                 print("  Running migration %s" % name)
-                openmediavault.subprocess.check_call([path])
+                openmediavault.procutils.check_call([path])
             rc = 0
         except Exception as e:
             # Display the exception message.

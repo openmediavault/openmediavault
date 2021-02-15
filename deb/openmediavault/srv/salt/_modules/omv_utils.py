@@ -19,14 +19,13 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 import os
-import re
 import socket
 
 import openmediavault.config
 import openmediavault.device
 import openmediavault.fs
 import openmediavault.net
-import openmediavault.string
+import openmediavault.stringutils
 # Import Salt libs
 import salt.utils.network
 from salt.utils.decorators.jinja import jinja_filter, jinja_test
@@ -168,7 +167,7 @@ def is_uuid4(value):
         otherwise ``False``.
     :rtype: bool
     """
-    return openmediavault.string.is_uuid4(value)
+    return openmediavault.stringutils.is_uuid4(value)
 
 
 @jinja_filter('is_fs_uuid')
@@ -188,7 +187,7 @@ def is_fs_uuid(value):
         otherwise ``False``.
     :rtype: bool
     """
-    return openmediavault.string.is_fs_uuid(value)
+    return openmediavault.stringutils.is_fs_uuid(value)
 
 
 def get_fs_parent_device_file(id_):
@@ -305,7 +304,7 @@ def add_slashes(value):
         * double quote (")
     :rtype: str
     """
-    return openmediavault.string.add_slashes(value)
+    return openmediavault.stringutils.add_slashes(value)
 
 
 @jinja_filter('path_prettify')
@@ -317,7 +316,7 @@ def path_prettify(path):
     :return: Returns the prettified path.
     :rtype: str
     """
-    return openmediavault.string.path_prettify(path)
+    return openmediavault.stringutils.path_prettify(path)
 
 
 @jinja_filter('path_basename')
@@ -377,7 +376,7 @@ def escape_blank(value, octal=False):
     :rtype: str
     """
     assert isinstance(value, str)
-    return openmediavault.string.escape_blank(value, octal)
+    return openmediavault.stringutils.escape_blank(value, octal)
 
 
 @jinja_test('match_netif_type')

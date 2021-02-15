@@ -26,7 +26,7 @@ import time
 
 import dialog
 import openmediavault.firstaid
-import openmediavault.subprocess
+import openmediavault.procutils
 import openmediavault.systemd
 import pyudev
 
@@ -97,17 +97,17 @@ class Module(openmediavault.firstaid.IModule):
                 outfile = "{}/sysinfo-{}-{}.txt".format(
                     mntdir, socket.gethostname(), time.strftime("%Y%m%d%H%M")
                 )
-                openmediavault.subprocess.check_call(
+                openmediavault.procutils.check_call(
                     ["mount", device.get("DEVNAME"), mntdir]
                 )
                 with open(outfile, "w") as out:
-                    openmediavault.subprocess.check_call(
+                    openmediavault.procutils.check_call(
                         ["omv-sysinfo"], stdout=out
                     )
             except:  # pylint: disable=try-except-raise
                 raise
             finally:
-                openmediavault.subprocess.check_call(
+                openmediavault.procutils.check_call(
                     ["umount", device.get("DEVNAME")]
                 )
                 shutil.rmtree(mntdir)
@@ -123,7 +123,7 @@ class Module(openmediavault.firstaid.IModule):
                 "administrator account. Please check your email "
                 "mailbox ..."
             )
-            openmediavault.subprocess.check_call(
+            openmediavault.procutils.check_call(
                 [
                     "omv-sysinfo",
                     "|",

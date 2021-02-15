@@ -21,7 +21,7 @@
 import sys
 
 import openmediavault.firstaid
-import openmediavault.subprocess
+import openmediavault.procutils
 
 
 class Module(openmediavault.firstaid.IModule):
@@ -31,7 +31,7 @@ class Module(openmediavault.firstaid.IModule):
 
     def execute(self):
         print("Clearing the web control panel cache. Please wait ...")
-        openmediavault.subprocess.check_call(
+        openmediavault.procutils.check_call(
             ". /usr/share/openmediavault/scripts/helper-functions;"
             "omv_purge_internal_cache",
             shell=True,
