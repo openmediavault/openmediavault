@@ -19,11 +19,17 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 from collections import deque
-from typing import Deque, Dict, Generic, List, TypeVar
+from functools import total_ordering
+from typing import Deque, Dict, Generic, List, Set, TypeVar
 
 T = TypeVar('T')
 
 
+class CycleError(ValueError):
+    pass
+
+
+@total_ordering
 class NodeInfo(Generic[T]):
     __slots__ = 'node', 'num_predecessors', 'successors'
 
@@ -31,6 +37,12 @@ class NodeInfo(Generic[T]):
         self.node: T = node
         self.num_predecessors: int = 0
         self.successors: List[NodeInfo[T]] = []
+
+    def __hash__(self):
+        return hash(self.node)
+
+    def __eq__(self, other):
+        return self.node == other.node
 
     def __lt__(self, other) -> bool:
         return self.node < other.node
@@ -59,6 +71,10 @@ class TopologicalSorter(Generic[T]):
 
     def sort(self) -> List[T]:
         result: List[T] = []
+
+        if not self.is_acyclic():
+            raise CycleError
+
         ready_nodes: Deque[NodeInfo] = deque(
             [n for n in self._nodes.values() if n.num_predecessors == 0])
         while ready_nodes:
@@ -70,11 +86,35 @@ class TopologicalSorter(Generic[T]):
             result.append(current_node.node)
         return result
 
+    def is_acyclic(self):
+        visited: Set[NodeInfo[T]] = set()
+        stack: List[NodeInfo[T]] = []
+
+        def find_cycle(u: NodeInfo[T]) -> bool:
+            for v in u.successors:
+                if v in stack:
+                    # We found a cycle.
+                    return True
+                visited.add(v)
+                stack.append(v)
+                if find_cycle(v):
+                    return True
+                stack.pop()
+
+        for _, node in self._nodes.items():
+            if node in visited:
+                continue
+            if find_cycle(node):
+                return False
+
+        return True
+
 
 if __name__ == "__main__":
     ts: TopologicalSorter[int] = TopologicalSorter()
     ts.add_predecessors(1, [0])
     ts.add_predecessors(3, [2, 1])
+    print("True" if ts.is_acyclic() else "False")
     print(ts.sort())  # [0, 2, 1, 3]
 
     ts: TopologicalSorter[str] = TopologicalSorter()
@@ -122,3 +162,19 @@ if __name__ == "__main__":
     ts.add(5, [2, 4])
     ts.add(6, [2])
     print(ts.sort())  # [0, 1, 3, 6, 5, 2, 4]
+
+    ts: TopologicalSorter[int] = TopologicalSorter()
+    ts.add_predecessors(1, [0])
+    ts.add_predecessors(3, [2, 1])
+    ts.add(3, [0])  # Cycle
+    print("True" if ts.is_acyclic() else "False")
+
+    ts: TopologicalSorter[int] = TopologicalSorter()
+    ts.add(0, [2, 5])
+    ts.add(1, [3, 6])
+    ts.add(2, [4])
+    ts.add(3, [5])
+    ts.add(5, [2, 4])
+    ts.add(6, [2])
+    ts.add(4, [3])  # Cycle
+    print("True" if ts.is_acyclic() else "False")
