@@ -84,7 +84,7 @@ class Quota extends \OMV\Rpc\ServiceAbstract {
 			$resObj = [
 				"type" => "user",
 				"name" => $userv['name'],
-				"bused" => 0,
+				"bused" => "0 B",
 				"bhardlimit" => 0,
 				"bunit" => "MiB"
 			];
@@ -124,7 +124,7 @@ class Quota extends \OMV\Rpc\ServiceAbstract {
 			$resObj = [
 				"type" => "group",
 				"name" => $groupv['name'],
-				"bused" => 0,
+				"bused" => "0 B",
 				"bhardlimit" => 0,
 				"bunit" => "MiB"
 			];
