@@ -403,4 +403,14 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase {
 		$this->assertInternalType('int', $ts);
 		$this->assertEquals($ts, 1634617478);
 	}
+
+	public function test_binary_format_1() {
+		$str = binary_format(126, [ "fromPrefix" => "KiB" ]);
+		$this->assertEquals($str, "126 KiB");
+	}
+
+	public function test_binary_format_2() {
+		$str = binary_format(449364, [ "fromPrefix" => "KiB" ]);
+		$this->assertEquals($str, "438.83 MiB");
+	}
 }
