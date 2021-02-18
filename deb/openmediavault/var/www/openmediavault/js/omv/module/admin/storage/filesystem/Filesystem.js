@@ -288,8 +288,8 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 					fields: [
 						{ name: "type", type: "string" },
 						{ name: "name", type: "string" },
-						{ name: "bused", type: "int" },
-						{ name: "bhardlimit", type: "int" },
+						{ name: "bused", type: "auto" },
+						{ name: "bhardlimit", type: "auto" },
 						{ name: "bunit", type: "string" }
 					]
 				}),
