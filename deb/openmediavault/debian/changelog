@@ -15,6 +15,7 @@ openmediavault (5.6.0-1) stable; urgency=low
   * Rename various OMV Python modules because of import issues.
   * Issue #944: Hardening storage backend to prevent errors in LXC.
   * Issue #959: Improve SMART support for HPSA HBA.
+  * Issue #968: Configured quota is not displayed correct.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 19 Jan 2021 21:00:39 +0100
 
