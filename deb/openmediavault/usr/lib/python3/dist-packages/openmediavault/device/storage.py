@@ -285,6 +285,7 @@ class IStorageDevicePlugin(abc.ABC):
             given device file, otherwise ``False``.
         :rtype: bool
         """
+        pass
 
     @abc.abstractmethod
     def from_device_file(self, device_file) -> 'StorageDevice':
@@ -297,3 +298,4 @@ class IStorageDevicePlugin(abc.ABC):
         :return: Returns a :class:`StorageDevice`.
         :rtype: :class:`StorageDevice`
         """
+        pass
