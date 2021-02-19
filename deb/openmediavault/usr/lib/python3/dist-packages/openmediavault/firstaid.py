@@ -30,9 +30,11 @@ class IModule(abc.ABC):
         """
         Get the module description.
         """
+        pass
 
     @abc.abstractmethod
     def execute(self):
         """
         Execute the module implementation.
         """
+        pass

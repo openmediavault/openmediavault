@@ -99,6 +99,7 @@ class Datamodel:
         :param data: The JSON data to validate.
         :returns: None.
         """
+        pass
 
     def __str__(self):
         """

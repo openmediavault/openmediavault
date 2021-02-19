@@ -340,12 +340,14 @@ class DatabaseQuery(abc.ABC):
         Get the XPath string used to execute the database query.
         :returns: The XPath string for this database query.
         """
+        pass
 
     @abc.abstractmethod
     def execute(self):
         """
         Execute the database query.
         """
+        pass
 
     def _parse_model(self):
         """

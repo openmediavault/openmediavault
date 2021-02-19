@@ -42,6 +42,7 @@ class ICommand(abc.ABC):
         """
         Get the module description.
         """
+        pass
 
     @abc.abstractmethod
     def execute(self, *args):
@@ -50,6 +51,7 @@ class ICommand(abc.ABC):
         :param args: The command arguments.
         :returns: Returns the return code.
         """
+        pass
 
 
 class CommandHelper:

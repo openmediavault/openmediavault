@@ -34,6 +34,7 @@ class IPlugin(abc.ABC):
         """
         Build the RRD graph.
         """
+        pass
 
 
 def call_rrdtool_graph(args):
