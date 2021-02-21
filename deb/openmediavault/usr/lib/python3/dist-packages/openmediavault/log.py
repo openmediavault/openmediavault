@@ -33,7 +33,8 @@ def _log(priority, msg, args, verbose=True):
     }
     msg = msg % args if args else msg
     if verbose:
-        sys.stderr.write("{}: {}\n".format(tag[priority], msg))
+        fd = sys.stderr if priority is syslog.LOG_ERR else sys.stdout
+        fd.write("{}: {}\n".format(tag[priority], msg))
     syslog.openlog(facility=syslog.LOG_SYSLOG)
     syslog.syslog(priority, msg)
     syslog.closelog()
