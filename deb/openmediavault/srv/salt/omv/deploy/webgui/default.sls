@@ -21,9 +21,7 @@
 
 include:
 {% for file in salt['file.readdir'](dirpath) | sort %}
-{% if not file.endswith('.sls') %}
-{% if file not in ('.', '..') %}
-  - .{{ file }}
-{% endif %}
+{% if file | regex_match('^(\d+.+).sls$', ignorecase=True) %}
+  - .{{ file | replace('.sls', '') }}
 {% endif %}
 {% endfor %}

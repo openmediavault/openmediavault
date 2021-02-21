@@ -33,6 +33,11 @@ remove_sharedfolder_mount_unit_files:
       - delete: "f"
 
 {% if sharedfolders_dir_enabled | to_bool %}
+
+create_sharedfolders_dir:
+  file.directory:
+    - name: {{ sharedfolders_dir }}
+
 {% for sharedfolder in sharedfolder_config %}
 {% set mntdir = salt['omv_conf.get_sharedfolder_mount_path'](sharedfolder.uuid) %}
 {% set what = salt['omv_conf.get_sharedfolder_path'](sharedfolder.uuid) %}
