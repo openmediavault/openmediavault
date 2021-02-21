@@ -17,5 +17,9 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-include:
-  - .{{ salt['pillar.get']('deploy_webgui_locale', 'default') }}
+{% set document_root = salt['pillar.get']('default:OMV_DOCUMENTROOT_DIR', '/var/www/openmediavault') %}
+{% set user = salt['pillar.get']('default:OMV_WEBGUI_FILE_OWNERGROUP_NAME', 'openmediavault-webgui') %}
+
+webgui_document_root_perms_recursive:
+  cmd.run:
+    - name: "chown -R '{{ user }}:{{ user }}' '{{ document_root }}'"
