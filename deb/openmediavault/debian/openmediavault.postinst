@@ -300,9 +300,11 @@ case "$1" in
 		########################################################################
 		# Show help text.
 		########################################################################
-		db_input high openmediavault/run-initsystem || :
-		db_go
-		db_stop
+		if [ -z "$2" ]; then
+			db_input high openmediavault/run-initsystem || :
+			db_go
+			db_stop
+		fi
 	;;
 
 	triggered)
