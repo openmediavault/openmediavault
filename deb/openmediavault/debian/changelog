@@ -1,6 +1,7 @@
 openmediavault (5.6.1-1) stable; urgency=low
 
-  *
+  * Issue #970: HPSA HBA improvements causing a regression when
+    controller is in RAID mode.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 21 Feb 2021 13:16:58 +0100
 
