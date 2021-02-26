@@ -71,11 +71,17 @@ class Exec extends \OMV\Rpc\ServiceAbstract {
 	 * @param params An array containing the following fields:
 	 *   \em filename The name of the background process status file.
 	 *   \em pos The file position within the command output file.
-	 * @return An array with the fields \em filename containing the background
-	 *   process status file, \em running which indicates the command execution
-	 *   state, \em output which contains the command output and \em pos which
-	 *   is the current position within the output file (more detailed it is
-	 *   the size of the output file or EOF position) will be returned.
+	 *   \em length Maximum number of bytes to be read. Note,
+	 *   the command output is read in 1KiB chunks.
+	 * @return Returns an array with the fields \em filename containing
+	 *   the background process status file, \em running which indicates
+	 *   the command execution state, \em output which contains the
+	 *   command output, \em pos which is the current position within
+	 *   the command output file and \em pendingOutput is TRUE when the
+	 *   command output has not been read completely (only if parameter
+	 *   \em length has been set). If all command output is read and
+	 *   \em pendingOutput is set to FALSE then \em pos contains the size
+	 *   of the command output file and EOF position.
 	 * @throw \OMV\Exception
 	 * @throw \OMV\Rpc\TraceException
 	 */
@@ -95,13 +101,14 @@ class Exec extends \OMV\Rpc\ServiceAbstract {
 		if ($status->hasError()) {
 			$error = $status->getError();
 			throw new \OMV\Rpc\TraceException($error['message'],
-			  $error['code'], $error['trace']);
+				$error['code'], $error['trace']);
 		}
 		// Prepare the result object.
 		$result = [
 			"filename" => $params['filename'],
 			"pos" => 0,
 			"output" => "",
+			"pendingOutput" => FALSE,
 			"running" => $status->isRunning()
 		];
 		// Check if there is a background process output file and try to
@@ -112,23 +119,35 @@ class Exec extends \OMV\Rpc\ServiceAbstract {
 			// Read the command output from the given file.
 			if (FALSE === ($fp = fopen($bgOutputFilename, "r"))) {
 				throw new \OMV\Exception(
-				  "Failed to open the command output file (filename=%s).",
-				  $bgOutputFilename);
+					"Failed to open the command output file (filename=%s).",
+					$bgOutputFilename);
 			}
 			// Get the requested command output from the given position to
 			// the end of the file.
 			fseek($fp, $params['pos'], SEEK_SET);
+			// Read the file content and convert line breaks.
+			$bytesRead = 0;
+			$chunkLength = 1024; // 1KiB
 			while (!feof($fp)) {
+				if (array_key_exists("length", $params)) {
+					if ($bytesRead >= $params['length']) {
+						$result['pendingOutput'] = TRUE;
+						break;
+					}
+				}
 				$result['output'] .= str_replace([ "\r\n", "\r" ],
-					"\n", fread($fp, 1024));
+					"\n", fread($fp, $chunkLength));
+				$bytesRead += $chunkLength;
 			}
 			// Get the current position within the command output file.
 			$result['pos'] = ftell($fp);
 			fclose($fp);
 		}
-		// Cleanup if process is not running anymore.
-		if (FALSE === $status->isRunning())
+		// Cleanup if the process is not running anymore and all command
+		// output has been read.
+		if (!$status->isRunning() && !$result['pendingOutput']) {
 			$this->unlinkBgProcStatus($params['filename']);
+		}
 		return $result;
 	}
 
