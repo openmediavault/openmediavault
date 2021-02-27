@@ -82,34 +82,104 @@ class SchemaTestCase(unittest.TestCase):
             openmediavault.json.SchemaValidationException,
             lambda: schema._check_format(
                 "/media/a/../../b/c", {"format": "dirpath"}, "field1"
-            ),
+            )
         )
 
     def test_check_format_sharename(self):
         schema = openmediavault.datamodel.Schema({})
         schema._check_format("data", {"format": "sharename"}, "field1")
 
-    def test_check_format_sharename_fail(self):
+    def test_check_format_sharename_fail_1(self):
         schema = openmediavault.datamodel.Schema({})
         self.assertRaises(
             openmediavault.json.SchemaValidationException,
             lambda: schema._check_format(
                 ".foo", {"format": "sharename"}, "field1"
-            ),
+            )
+        )
+
+    def test_check_format_sharename_fail_2(self):
+        schema = openmediavault.datamodel.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "bar..foo", {"format": "sharename"}, "xyz"
+            )
         )
 
     def test_check_format_domainname(self):
         schema = openmediavault.datamodel.Schema({})
         schema._check_format("test.com", {"format": "domainname"}, "field1")
 
-    def test_check_format_domainname_fail(self):
+    def test_check_format_domainname_fail_1(self):
         schema = openmediavault.datamodel.Schema({})
         self.assertRaises(
             openmediavault.json.SchemaValidationException,
             lambda: schema._check_format(
                 "te:t#com", {"format": "domainname"}, "field1"
-            ),
+            )
         )
+
+    def test_check_format_domainname_fail_2(self):
+        schema = openmediavault.datamodel.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "x" * 65 + ".local", {"format": "domainname"}, "field1"
+            )
+        )
+
+    def test_check_format_sshpubkey_openssh(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format("ssh-rsa AAAAB3NzaC1yc2ADkcdByshQm577 bar@baz",
+                             {"format": "sshpubkey-openssh"}, "foo")
+
+    def test_check_format_sshpubkey_openssh_fail(self):
+        schema = openmediavault.datamodel.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "sh-ra AAAAB3NzaC1yc2ADkcdByshQm577", {"format": "sshpubkey-openssh"}, "foo")
+        )
+
+    def test_check_format_sshpubkey_rfc4716(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format(
+            "---- BEGIN SSH2 PUBLIC KEY ----\n"
+            "AAAAB3NzaC1yc2EAAAABJQAAAQBZ9s5nqsH6bwB1ljF3DHBRs05PpeWIZEYnYRF5\n"
+            "qU9YwfGHe6ZRXTpV/5XvSXvkIr3moKyXiCAzSD20yffEAXT7\n"
+            "---- END SSH2 PUBLIC KEY ----",
+            {"format": "sshpubkey-rfc4716"}, "bar")
+
+    def test_check_format_sshpubkey_rfc4716_fail(self):
+        schema = openmediavault.datamodel.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "---- BEGIN SSH2 PUBLIC KEY ----\n"
+                "AAAAB3NzaC1yc2EAAAABJQAAAQBZ9s5nqsH6bwB1ljF3DHBRs05PpeWIZEYnYRF5\n"
+                "qU9YwfGHe6ZRXTpV/5XvSXvkIr3moKyXiCAzSD20yffEAXT7\n",
+                {"format": "sshpubkey-rfc4716"}, "bar"))
+
+    def test_check_format_sshprivkey_rsa(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format(
+            "-----BEGIN RSA PRIVATE KEY-----\n"
+            "MIIEogIBAAKCAQEAka7AN9KaHJnZ4huPlWhbaYJFIQ7AXKEZ5mpUWoa4yudmldSs\n"
+            "xLB4BNdDK0Qj5QmgGVYJsywqriabe+OfSciUUpFO5+AIFTHoSQM=\n"
+            "-----END RSA PRIVATE KEY-----",
+            {"format": "sshprivkey-rsa"}, "foo")
+
+    def test_check_format_sshprivkey_rsa_fail(self):
+        schema = openmediavault.datamodel.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "---BEGIN RSA PRIVATE KEY----\n"
+                "MIIEogIBAAKCAQEAka7AN9KaHJnZ4huPlWhbaYJFIQ7AXKEZ5mpUWoa4yudmldSs\n"
+                "xLB4BNdDK0Qj5QmgGVYJsywqriabe+OfSciUUpFO5+AIFTHoSQM=\n"
+                "-----END RSA PRIVATE KEY-----",
+                {"format": "sshprivkey-rsa"}, "foo"))
 
 
 if __name__ == "__main__":
