@@ -99,7 +99,7 @@ class StorageDeviceSD extends StorageDevice implements SmartInterface {
 		$parts = explode(":", basename($path));
 		return [
 			"host" => intval($parts[0]),
-			"bus" => intval($parts[1]),
+			"channel" => intval($parts[1]),
 			"target" => intval($parts[2]),
 			"lun" => intval($parts[3])
 		];
