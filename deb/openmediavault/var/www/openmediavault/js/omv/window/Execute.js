@@ -293,7 +293,7 @@ Ext.define("OMV.window.Execute", {
 						  }
 						  // If command is still running then do another RPC
 						  // request.
-						  if (this.cmdIsRunning === true) {
+						  if (this.cmdIsRunning || response.pendingOutput) {
 							  Ext.Function.defer(this.doGetOutput,
 								this.rpcDelay, this);
 						  } else {
@@ -353,7 +353,8 @@ Ext.define("OMV.window.Execute", {
 					  method: "getOutput",
 					  params: {
 						  filename: me.bgStatusFilename,
-						  pos: me.cmdContentPos
+						  pos: me.cmdContentPos,
+						  length: 1024
 					  }
 				  }
 			  });
