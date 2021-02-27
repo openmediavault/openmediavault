@@ -354,7 +354,7 @@ Ext.define("OMV.window.Execute", {
 					  params: {
 						  filename: me.bgStatusFilename,
 						  pos: me.cmdContentPos,
-						  length: 1024
+						  length: 1024 * 1024
 					  }
 				  }
 			  });
