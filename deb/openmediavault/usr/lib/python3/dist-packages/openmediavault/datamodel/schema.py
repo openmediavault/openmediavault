@@ -66,7 +66,7 @@ class Schema(openmediavault.json.Schema):
             elif "sshpubkey-openssh" == schema['format']:
                 if not re.match(
                     r'^ssh-rsa AAAA[0-9A-Za-z+\/]+[=]{0,3}\s*'
-                    '([^@]+@[^@]+|.+)*$',
+                    r'([^@]+@[^@]+|.+)*$',
                     value,
                 ):
                     raise openmediavault.json.SchemaValidationException(
@@ -77,8 +77,8 @@ class Schema(openmediavault.json.Schema):
             elif "sshpubkey-rfc4716" == schema['format']:
                 if not re.match(
                     r'^---- BEGIN SSH2 PUBLIC KEY ----'
-                    '(\n|\r|\f)(.+)(\n|\r|\f)'
-                    '---- END SSH2 PUBLIC KEY ----$',
+                    r'(\n|\r|\f)(.+)(\n|\r|\f)'
+                    r'---- END SSH2 PUBLIC KEY ----$',
                     value,
                     flags=re.DOTALL | re.MULTILINE,
                 ):
@@ -90,8 +90,8 @@ class Schema(openmediavault.json.Schema):
             elif "sshprivkey-rsa" == schema['format']:
                 if not re.match(
                     r'^-----BEGIN RSA PRIVATE KEY-----'
-                    '(\n|\r|\f)(.+)(\n|\r|\f)'
-                    '-----END RSA PRIVATE KEY-----$',
+                    r'(\n|\r|\f)(.+)(\n|\r|\f)'
+                    r'-----END RSA PRIVATE KEY-----$',
                     value,
                     flags=re.DOTALL | re.MULTILINE,
                 ):
@@ -112,8 +112,8 @@ class Schema(openmediavault.json.Schema):
                 # http://tools.ietf.org/html/draft-leach-cifs-v1-spec-01
                 # http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx
                 if not re.match(
-                    r'^[^.]([^"/\\\[\]:+|<>=;,*?. ]+){0,1}([.]'
-                    '[^"/\\\[\]:+|<>=;,*?. ]+){0,}$',
+                    r'^[^.]([^"/\\\[\]:+|<>=;,*?. ]+)?([.]'
+                    r'[^"/\\\[\]:+|<>=;,*?. ]+)*$',
                     value,
                 ):
                     raise openmediavault.json.SchemaValidationException(
@@ -127,8 +127,8 @@ class Schema(openmediavault.json.Schema):
             elif "domainname" == schema['format']:
                 if not re.match(
                     r'^[a-zA-Z0-9]([-a-zA-Z0-9]{0,61}'
-                    '[a-zA-Z0-9])?([.][a-zA-Z0-9]([-a-zA-Z0-9]{0,61}'
-                    '[a-zA-Z0-9])?)*$',
+                    r'[a-zA-Z0-9])?([.][a-zA-Z0-9]([-a-zA-Z0-9]{0,61}'
+                    r'[a-zA-Z0-9])?)*$',
                     value,
                 ):
                     raise openmediavault.json.SchemaValidationException(
