@@ -1,5 +1,6 @@
 openmediavault (5.6.1-1) stable; urgency=low
 
+  * Update locales.
   * Issue #970: HPSA HBA improvements causing a regression when
     controller is in RAID mode.
   * Issue #972: Improve Exec::getOutput RPC to prevent running into
