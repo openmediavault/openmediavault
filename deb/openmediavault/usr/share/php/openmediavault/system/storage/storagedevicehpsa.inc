@@ -28,13 +28,18 @@ namespace OMV\System\Storage;
  */
 class StorageDeviceHPSA extends StorageDeviceSD {
 	public function isRaid() {
-		return TRUE;
+		return "RAID" == substr($this->getRaidLevel(), 0, 4);
 	}
 
 	/**
 	 * See \OMV\System\Storage\SmartInterface interface definition.
 	 */
 	public function getSmartDeviceType() {
+		// Note, we need to distinguish between RAID and HBA mode here.
+		if (TRUE === $this->isRaid()) {
+			return parent::getSmartDeviceType();
+		}
+		//
 		// $ hpssacli ctrl slot=0 pd all show detail
 		// ...
 		// physicaldrive 1I:1:5
@@ -54,5 +59,28 @@ class StorageDeviceHPSA extends StorageDeviceSD {
 		// controller is monitored.
 		$hctl = $this->getHCTL();
 		return sprintf("cciss,%d", $hctl['target'] - 1);
+	}
+
+	/**
+	 * Get the RAID level of the device. If it is a logical device,
+	 * then 'N/A' will be returned, otherwise 'RAID 0', 'RAID 1(+0)'
+	 * or 'RAID <N>'.
+	 *
+	 * @link https://www.kernel.org/doc/html/latest/scsi/hpsa.html#hpsa-specific-disk-attributes
+	 * @link https://github.com/torvalds/linux/blob/master/drivers/scsi/hpsa.c#L654
+	 * @link https://github.com/torvalds/linux/blob/master/drivers/scsi/hpsa.c#L694
+	 * @link https://github.com/torvalds/linux/blob/master/drivers/scsi/hpsa.c#L702
+	 *
+	 * @return string Returns the RAID level.
+	 */
+	public function getRaidLevel(): string {
+		$hctl = $this->getHCTL();
+		$filePath = sprintf(
+			"/sys/class/scsi_disk/%d:%d:%d:%d/device/raid_level",
+			$hctl['host'], $hctl['channel'], $hctl['target'],
+			$hctl['lun']);
+		if (!file_exists($filePath))
+			return "N/A";
+		return trim(file_get_contents($filePath));
 	}
 }

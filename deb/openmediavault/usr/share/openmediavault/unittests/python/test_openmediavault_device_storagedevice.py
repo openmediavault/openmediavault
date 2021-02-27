@@ -388,6 +388,51 @@ class StorageDeviceTestCase(unittest.TestCase):
         )
         self.assertEqual(sd.parent.device_file, '/dev/xvdtq')
 
+    @mock.patch('builtins.open', new=f_open)
+    @mock.patch('pyudev.Devices.from_device_file')
+    @mock.patch('openmediavault.device.plugins.sd.HCTL.from_dev_path')
+    def test_hpsa_raid(self, mock_hctl, mock_from_device_file):
+        self.fs.create_file('/sys/class/scsi_disk/0:1:0:0/device/raid_level',
+                            contents='''RAID 1(+0)\n''')
+        self.fs.create_file('/sys/class/scsi_host/host0/proc_name',
+                            contents='''hpsa\n''')
+        mock_hctl.return_value = openmediavault.device.plugins.sd.HCTL(
+            0, 1, 0, 0)
+        mock_from_device_file.return_value = MockedPyUdevDevice({
+            'ID_BUS': 'scsi',
+            'DEVPATH': '/devices/pci0000:00/0000:00:01.0/0000:04:00.0/host0'
+                       '/target0:1:0/0:1:0:0/block/sdd'
+        })
+        sd = openmediavault.device.StorageDevice.from_device_file('/dev/sdd')
+        self.assertIsInstance(
+            sd, openmediavault.device.plugins.sd.StorageDeviceHPSA
+        )
+        self.assertTrue(sd.is_raid)
+        self.assertEqual(sd.smart_device_type, '')
+
+    @mock.patch('builtins.open', new=f_open)
+    @mock.patch('pyudev.Devices.from_device_file')
+    @mock.patch('openmediavault.device.plugins.sd.HCTL.from_dev_path')
+    def test_hpsa_hba(self, mock_hctl, mock_from_device_file):
+        self.fs.create_file('/sys/class/scsi_disk/1:0:5:0/device/raid_level',
+                            contents='''N/A\n''')
+        self.fs.create_file('/sys/class/scsi_host/host1/proc_name',
+                            contents='''hpsa\n''')
+        mock_hctl.return_value = openmediavault.device.plugins.sd.HCTL(
+            1, 0, 5, 0)
+        mock_from_device_file.return_value = MockedPyUdevDevice({
+            'ID_BUS': 'scsi',
+            'DEVPATH': '/devices/pci0000:00/0000:00:02.2/0000:02:00.0/host1'
+                       '/scsi_host/host1/port-1:6/end_device-1:6/target1:0:5'
+                       '/1:0:5:0/block/sde'
+        })
+        sd = openmediavault.device.StorageDevice.from_device_file('/dev/sde')
+        self.assertIsInstance(
+            sd, openmediavault.device.plugins.sd.StorageDeviceHPSA
+        )
+        self.assertFalse(sd.is_raid)
+        self.assertEqual(sd.smart_device_type, 'cciss,4')
+
 
 if __name__ == "__main__":
     unittest.main()

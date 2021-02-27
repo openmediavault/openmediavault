@@ -63,6 +63,9 @@ class HCTL(NamedTuple):
         parts = os.path.basename(path).split(':')
         return cls(*map(int, parts))
 
+    def __str__(self):
+        return f'{self.host}:{self.channel}:{self.target}:{self.lun}'
+
 
 class StorageDevicePlugin(openmediavault.device.IStorageDevicePlugin):
     def match(self, device_file):
@@ -174,10 +177,13 @@ class StorageDeviceHPSA(StorageDevice):
 
     @property
     def is_raid(self):
-        return True
+        return self.raid_level.startswith('RAID')
 
     @property
     def smart_device_type(self):
+        # Note, we need to distinguish between RAID and HBA mode here.
+        if self.is_raid:
+            return super().smart_device_type
         # $ hpssacli ctrl slot=0 pd all show detail
         # ...
         # physicaldrive 1I:1:5
@@ -196,3 +202,24 @@ class StorageDeviceHPSA(StorageDevice):
         # range from 0 to 15 inclusive) denotes which disk on the
         # controller is monitored.
         return 'cciss,{}'.format(self.hctl.target - 1)
+
+    @property
+    def raid_level(self) -> str:
+        """
+        Get the RAID level of the device. If it is a logical device,
+        then 'N/A' will be returned, otherwise 'RAID 0', 'RAID 1(+0)'
+        or 'RAID <N>'.
+
+        `https://www.kernel.org/doc/html/latest/scsi/hpsa.html#hpsa-specific-disk-attributes`
+        `https://github.com/torvalds/linux/blob/master/drivers/scsi/hpsa.c#L654`
+        `https://github.com/torvalds/linux/blob/master/drivers/scsi/hpsa.c#L694`
+        `https://github.com/torvalds/linux/blob/master/drivers/scsi/hpsa.c#L702`
+        """
+        file_path = '/sys/class/scsi_disk/{}/device/raid_level'.format(
+            str(self.hctl))
+        try:
+            with open(file_path, 'r') as f:
+                return f.readline().strip()
+        except (IOError, FileNotFoundError):
+            pass
+        return 'N/A'
