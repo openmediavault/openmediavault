@@ -27,14 +27,14 @@ import openmediavault.log
 
 class LogTestCase(unittest.TestCase):
     @mock.patch('syslog.syslog')
-    @mock.patch('sys.stderr.write')
+    @mock.patch('sys.stdout.write')
     def test_info(self, mock_write, mock_syslog):
         openmediavault.log.info('This is a test')
         mock_write.assert_called_with('INFO: This is a test\n')
         mock_syslog.assert_called_with(syslog.LOG_INFO, 'This is a test')
 
     @mock.patch('syslog.syslog')
-    @mock.patch('sys.stderr.write')
+    @mock.patch('sys.stdout.write')
     def test_warning(self, mock_write, mock_syslog):
         openmediavault.log.warning('%s - %d', 'foo', 1)
         mock_write.assert_called_with('WARNING: foo - 1\n')
