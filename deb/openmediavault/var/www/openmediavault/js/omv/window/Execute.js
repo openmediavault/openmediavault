@@ -275,7 +275,7 @@ Ext.define("OMV.window.Execute", {
 				  callback: function(id, success, response) {
 					  if (success) {
 						  this.cmdContentPos = response.pos;
-						  this.cmdIsRunning = response.running;
+						  this.cmdIsRunning = response.running || response.pendingOutput;
 						  // Hide the waiting mask if the first content is
 						  // transmitted.
 						  if ((false === this.progress) && (0 < response.pos))
@@ -293,7 +293,7 @@ Ext.define("OMV.window.Execute", {
 						  }
 						  // If command is still running then do another RPC
 						  // request.
-						  if (this.cmdIsRunning || response.pendingOutput) {
+						  if (this.cmdIsRunning) {
 							  Ext.Function.defer(this.doGetOutput,
 								this.rpcDelay, this);
 						  } else {
@@ -407,8 +407,23 @@ Ext.define("OMV.window.Execute", {
 	 */
 	appendValue: function(value) {
 		var me = this;
-		if(false === me.progress) {
+		if (false === me.progress) {
 			var content = me.getValue();
+			// Make sure we do not exceed a max. size of displayed
+			// content to keep the memory consumption low.
+			// Allow displaying up to 100.000 lines (80 char per line) of
+			// content, then reduce to 75.000 lines in one step (smaller
+			// steps may be repeated to often which is too costly).
+			// Note, if your task is crossing this border, please keep in
+			// mind that this dialog is not meant to be used for such
+			// excessive tasks.
+			if (content.length > 100000 * 80) {
+				// Search for the first line break after the specified
+				// position and cut it there if found.
+				let startSearch = content.length - (75000 * 80);
+				let pos = content.indexOf('\n', startSearch);
+				content = content.slice((pos > 0) ? pos : startSearch);
+			}
 			me.setValue(content + value);
 		} else {
 			me.content += value;
