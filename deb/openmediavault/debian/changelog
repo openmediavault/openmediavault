@@ -3,7 +3,7 @@ openmediavault (5.6.2-1) stable; urgency=low
   * Fix bug in GID processing at the user import dialog.
   * Issue #972: UI crashes when backend sends too much data
     in the 'Execute' dialog.
-  * Isse #975: Improve handling of blanks in user/group names in
+  * Issue #975: Improve handling of blanks in user/group names in
     the ACL dialog.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 28 Feb 2021 21:16:48 +0100
