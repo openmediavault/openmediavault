@@ -47,8 +47,8 @@ class User {
 	 * @param id The name or UID of the system user.
 	 */
 	public function __construct($id) {
-		if (is_int($id))
-			$this->uid = $id;
+		if (is_numeric($id))
+			$this->uid = intval($id);
 		else
 			$this->name = $id;
 	}
