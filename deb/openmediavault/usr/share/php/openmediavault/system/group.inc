@@ -36,8 +36,8 @@ class Group {
 	 * @param id The name or GID of the system group.
 	 */
 	public function __construct($id) {
-		if (is_int($id))
-			$this->gid = $id;
+		if (is_numeric($id))
+			$this->gid = intval($id);
 		else
 			$this->name = $id;
 	}
