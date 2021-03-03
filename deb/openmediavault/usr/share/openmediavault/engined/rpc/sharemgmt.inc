@@ -844,7 +844,13 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			$regex = '/^# (file|owner|group): (.+)$/';
 			if (1 !== preg_match($regex, $outputv, $matches))
 				continue;
-			$result[$matches[1]] = $matches[2];
+			// Convert special characters, e.g.
+			// # file: foo
+			// # owner: root
+			// # group: domain\040users
+			// user::rwx
+			// ...
+			$result[$matches[1]] = unescape_blank($matches[2], TRUE);
 		}
 		// Get the user, group and other file mode permission bits.
 		foreach ($output as $outputk => $outputv) {
@@ -863,7 +869,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				$result['acl']["{$matches[1]}s"][] = [
 					// Convert special characters, e.g.
 					// group:Domain\040Computers:---
-					"name" => str_replace('\040', ' ', $matches[2]),
+					"name" => unescape_blank($matches[2], TRUE),
 					"perms" => $perms
 				];
 			} else {

@@ -890,6 +890,23 @@ function posix_kill_ex($pid, $sig): bool {
 }
 
 /**
+ * Escape a string to be used in a shell environment. Various characters will
+ * be replaced with their hexadecimal/octal representation, e.g. a whitespace
+ * will be replaced by \x20 or \040.
+ * Example:
+ * /srv/dev-disk-by-label-xx yy => /srv/dev-disk-by-label-xx\x20yy
+ * /srv/dev-disk-by-label-xx yy => /srv/dev-disk-by-label-xx\040yy
+ * @param string $var The variable that will be escaped.
+ * @param boolean $octal If TRUE, convert octal values, otherwise hexadecimal.
+ *   Defaults to FALSE.
+ * @return The escaped string.
+ */
+function escape_blank($var, $octal = FALSE): string {
+	$var = str_replace(" ", $octal ? "\\040" : "\\x20", $var);
+	return $var;
+}
+
+/**
  * Escape a path to be used in a shell environment. Various characters will
  * be replaced with their hexadecimal/octal representation, e.g. a whitespace
  * will be replaced by \x20 or \040.
@@ -902,7 +919,23 @@ function posix_kill_ex($pid, $sig): bool {
  * @return The escaped string.
  */
 function escape_path($var, $octal = FALSE): string {
-	$var = str_replace(" ", $octal ? "\\040" : "\\x20", $var);
+	return escape_blank($var, $octal);
+}
+
+/**
+ * Unescape a string. Various hexadecimal/octal characters will be replaced
+ * with their ASCII representation, e.g. \x20 or \040 will be replaced by
+ * a whitespace.
+ * Example:
+ * /srv/dev-disk-by-label-xx\x20yy => /srv/dev-disk-by-label-xx yy
+ * /srv/dev-disk-by-label-xx\040yy => /srv/dev-disk-by-label-xx yy
+ * @param string $var The variable that will be unescaped.
+ * @param boolean $octal If TRUE, convert octal values, otherwise hexadecimal.
+ *   Defaults to FALSE.
+ * @return The unescaped string.
+ */
+function unescape_blank($var, $octal = FALSE): string {
+	$var = str_replace($octal ? "\\040" : "\\x20", " ", $var);
 	return $var;
 }
 
@@ -919,8 +952,7 @@ function escape_path($var, $octal = FALSE): string {
  * @return The unescaped string.
  */
 function unescape_path($var, $octal = FALSE): string {
-	$var = str_replace($octal ? "\\040" : "\\x20", " ", $var);
-	return $var;
+	return unescape_blank($var, $octal);
 }
 
 /**
