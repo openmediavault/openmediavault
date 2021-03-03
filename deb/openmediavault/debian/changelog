@@ -1,3 +1,10 @@
+openmediavault (5.6.2-1) stable; urgency=low
+
+  * Issue #972: UI crashes when backend sends too much data
+    in the 'Execute' dialog.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 28 Feb 2021 21:16:48 +0100
+
 openmediavault (5.6.1-1) stable; urgency=low
 
   * Update locales.
