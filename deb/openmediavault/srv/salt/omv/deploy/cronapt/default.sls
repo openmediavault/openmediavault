@@ -23,6 +23,13 @@
   min_result=1, max_result=1)[0] %}
 {% set email_config = salt['omv_conf.get']('conf.system.notification.email') %}
 {% set refrain_file = salt['pillar.get']('default:OMV_CRONAPT_REFRAINFILE', '/etc/cron-apt/refrain') %}
+{% set security_upgrades_enabled = salt['pillar.get']('default:OMV_CRONAPT_SECURITY_UPGRADES_ENABLED', 1) %}
+
+{% set pkg_repos = [] %}
+{% for value in salt['pkg.list_repos']().values() %}
+{% set _ = pkg_repos.extend(value) %}
+{% endfor %}
+{% set security_pkg_repos = pkg_repos | rejectattr('disabled') | selectattr('type', 'equalto', 'deb') | selectattr('uri', 'match', '^https?://security.(debian.org|ubuntu.com)/.*-security$') | list %}
 
 # If this file exist cron-apt will silently exit, so make sure
 # it does not exist.
@@ -51,3 +58,50 @@ create_cron-apt_download_msg:
     - user: root
     - group: root
     - mode: 644
+
+# Install security updates automatically if a security repository
+# is configured.
+remove_cron-apt_config_install_security_upgrades:
+  file.absent:
+    - name: "/etc/cron-apt/config.d/5-openmediavault-security"
+
+remove_cron-apt_action_install_security_upgrades:
+  file.absent:
+    - name: "/etc/cron-apt/action.d/5-openmediavault-security"
+
+remove_cron-apt_install_security_upgrades_msg:
+  file.absent:
+    - name: "/etc/cron-apt/mailmsg.d/5-openmediavault-security"
+
+{% if security_pkg_repos | length > 0 and security_upgrades_enabled | to_bool %}
+
+{% set security_pkg_repo = security_pkg_repos | first %}
+
+create_cron-apt_config_install_security_upgrades:
+  file.managed:
+    - name: "/etc/cron-apt/config.d/5-openmediavault-security"
+    - contents: |
+        OPTIONS="--option quiet=1 --option APT::Get::List-Cleanup=false --option Dir::Etc::SourceList={{ security_pkg_repo.file }} --option Dir::Etc::SourceParts=\"/dev/null\""
+    - user: root
+    - group: root
+    - mode: 644
+
+create_cron-apt_action_install_security_upgrades:
+  file.managed:
+    - name: "/etc/cron-apt/action.d/5-openmediavault-security"
+    - contents: |
+        dist-upgrade --yes --option APT::Get::Show-Upgraded=true
+    - user: root
+    - group: root
+    - mode: 644
+
+create_cron-apt_install_security_upgrades_msg:
+  file.managed:
+    - name: "/etc/cron-apt/mailmsg.d/5-openmediavault-security"
+    - source:
+      - salt://{{ tpldir }}/files/etc_cron-apt_mailmsgd_5-openmediavault-security.j2
+    - user: root
+    - group: root
+    - mode: 644
+
+{% endif %}
