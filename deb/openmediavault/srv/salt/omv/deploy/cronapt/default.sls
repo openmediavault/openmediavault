@@ -37,6 +37,12 @@ remove_cron-apt_refrain_file:
   file.absent:
     - name: "{{ refrain_file }}"
 
+# Remove the '/etc/cron.d/cron-apt' file installed by the cron-apt package,
+# it is replaced by '/etc/cron.daily/openmediavault-cron-apt'.
+remove_cron-apt_cron_d_file:
+  file.absent:
+    - name: "/etc/cron.d/cron-apt"
+
 create_cron-apt_config:
   file.managed:
     - name: "/etc/cron-apt/config"
