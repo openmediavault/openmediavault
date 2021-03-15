@@ -21,6 +21,12 @@
 {% set use_kernel_backports = salt['pillar.get']('default:OMV_APT_USE_KERNEL_BACKPORTS', True) -%}
 {% set proxy_config = salt['omv_conf.get']('conf.system.network.proxy') %}
 
+{% set pkg_repos = [] %}
+{% for value in salt['pkg.list_repos']().values() %}
+{% set _ = pkg_repos.extend(value) %}
+{% endfor %}
+{% set security_pkg_repos = pkg_repos | rejectattr('disabled') | selectattr('type', 'equalto', 'deb') | selectattr('uri', 'match', '^https?://security.(debian.org|ubuntu.com)/.*-security$') | list %}
+
 configure_apt_sources_list_openmediavault:
   file.managed:
     - name: "/etc/apt/sources.list.d/openmediavault.list"
@@ -90,21 +96,19 @@ configure_apt_sources_list_kernel_backports:
 
 {% endif %}
 
+# Remove file used on older openmediavault versions.
 remove_apt_sources_list_debian_security:
   file.absent:
     - name: "/etc/apt/sources.list.d/openmediavault-debian-security.list"
 
-remove_apt_sources_list_os_security:
-  file.absent:
-    - name: "/etc/apt/sources.list.d/openmediavault-os-security.list"
-
-# Check if the Debian or Ubuntu security repository is already configured (e.g.
-# in /etc/apt/sources.list). Only add it if this is not the case.
-{% set repos = [] %}
-{% for value in salt['pkg.list_repos']().values() %}
-{% set _ = repos.extend(value) %}
+# Delete all security repositories from source lists to prevent APT
+# errors related to duplicate definitions.
+{% for security_pkg_repo in security_pkg_repos %}
+remove_apt_sources_list_security_{{ loop.index0 }}:
+  module.run:
+    - pkg.del_repo:
+      - repo: "{{ security_pkg_repo.line }}"
 {% endfor %}
-{% if repos | rejectattr('disabled') | selectattr('type', 'equalto', 'deb') | selectattr('uri', 'match', '^https?://security.(debian.org|ubuntu.com)/.*-security$') | list | length == 0 %}
 
 configure_apt_sources_list_os_security:
   file.managed:
@@ -115,8 +119,6 @@ configure_apt_sources_list_os_security:
     - user: root
     - group: root
     - mode: 644
-
-{% endif %}
 
 refresh_apt_database:
   module.run:
