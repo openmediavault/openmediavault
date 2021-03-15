@@ -2,6 +2,8 @@ openmediavault (5.6.3-1) stable; urgency=low
 
   * Install security updates automatically. This can be disabled via
     the OMV_CRONAPT_SECURITY_UPGRADES_ENABLED environment variable.
+  * Send an email to the administrator if the system needs to be
+    rebooted to complete a package upgrade.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 11 Mar 2021 22:09:51 +0100
 
