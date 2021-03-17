@@ -498,11 +498,12 @@ finish:
 			"arg1" => $params['name']
 		];
 		$db = \OMV\Config\Database::getInstance();
+		$oldObject = NULL;
 		if ($db->exists("conf.system.usermngmnt.user", $filter)) {
 			// Get the user configuration object. Due the fact that a user
 			// name is unique, we can simply use the first found object.
-			$object = $db->getByFilter("conf.system.usermngmnt.user",
-				$filter, 1);
+			$object = $oldObject = $db->getByFilter(
+				"conf.system.usermngmnt.user", $filter, 1);
 			$object->set("email", $params['email']);
 			$object->set("disallowusermod", $params['disallowusermod']);
 			$object->set("email", $params['email']);
@@ -598,7 +599,7 @@ finish:
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 			"org.openmediavault.conf.system.usermngmnt.user",
-			$objectAssoc);
+			$objectAssoc, $oldObject->getAssoc());
 		// Return the configuration object.
 		return $objectAssoc;
 	}
