@@ -599,7 +599,7 @@ finish:
 		$dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
 		$dispatcher->notify($isNew ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 			"org.openmediavault.conf.system.usermngmnt.user",
-			$objectAssoc, $oldObject->getAssoc());
+			$objectAssoc, $isNew ? [] : $oldObject->getAssoc());
 		// Return the configuration object.
 		return $objectAssoc;
 	}
