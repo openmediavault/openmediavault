@@ -4,6 +4,8 @@ openmediavault (5.6.3-1) stable; urgency=low
     the OMV_CRONAPT_SECURITY_UPGRADES_ENABLED environment variable.
   * Send an email to the administrator if the system needs to be
     rebooted to complete a package upgrade.
+  * Rebuild SSH authorized keys even if the last public key of a user
+    has been deleted.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 11 Mar 2021 22:09:51 +0100
 
