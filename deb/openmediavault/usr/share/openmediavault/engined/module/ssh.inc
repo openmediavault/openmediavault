@@ -46,7 +46,7 @@ class Ssh extends \OMV\Engine\Module\ServiceAbstract implements
 	 * @param path The event message path.
 	 * @param object The configuration object.
 	 */
-	final public function onUser($type, $path, $object, $oldObject) {
+	final public function onUser($type, $path, $object, $oldObject = NULL) {
 		switch ($type) {
 		case OMV_NOTIFY_CREATE:
 		case OMV_NOTIFY_DELETE:
