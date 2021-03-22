@@ -1,5 +1,7 @@
 {%- if grains['os'] == 'Ubuntu' %}
-deb mirror://mirrors.ubuntu.com/mirrors.txt {{ grains['oscodename'] }}-backports main restricted universe
-{%- else %}
-deb http://httpredir.debian.org/debian {{ grains['oscodename'] }}-backports main contrib non-free
+{%- set repo_url = salt['pillar.get']('default:OMV_APT_KERNEL_BACKPORTS_REPOSITORY_URL', 'mirror://mirrors.ubuntu.com/mirrors.txt') -%}
+deb {{ repo_url }} {{ grains['oscodename'] }}-backports main restricted universe
+{%- else -%}
+{%- set repo_url = salt['pillar.get']('default:OMV_APT_KERNEL_BACKPORTS_REPOSITORY_URL', 'http://httpredir.debian.org/debian') -%}
+deb {{ repo_url }} {{ grains['oscodename'] }}-backports main contrib non-free
 {%- endif %}

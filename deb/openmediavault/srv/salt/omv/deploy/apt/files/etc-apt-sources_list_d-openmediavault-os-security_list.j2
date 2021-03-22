@@ -1,7 +1,9 @@
 {%- if grains['os'] == 'Ubuntu' -%}
-deb http://security.ubuntu.com/ubuntu {{ grains['oscodename'] }}-security main restricted universe
-deb-src http://security.ubuntu.com/ubuntu {{ grains['oscodename'] }}-security main restricted universe
+{%- set repo_url = salt['pillar.get']('default:OMV_APT_SECURITY_REPOSITORY_URL', 'http://security.ubuntu.com/ubuntu') -%}
+deb {{ repo_url }} {{ grains['oscodename'] }}-security main restricted universe
+deb-src {{ repo_url }} {{ grains['oscodename'] }}-security main restricted universe
 {%- else -%}
-deb http://security.debian.org/debian-security {{ grains['oscodename'] }}/updates main contrib non-free
-deb-src http://security.debian.org/debian-security {{ grains['oscodename'] }}/updates main contrib non-free
+{%- set repo_url = salt['pillar.get']('default:OMV_APT_SECURITY_REPOSITORY_URL', 'http://security.debian.org/debian-security') -%}
+deb {{ repo_url }} {{ grains['oscodename'] }}/updates main contrib non-free
+deb-src {{ repo_url }} {{ grains['oscodename'] }}/updates main contrib non-free
 {%- endif %}
