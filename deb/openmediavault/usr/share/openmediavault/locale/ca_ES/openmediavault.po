@@ -1553,7 +1553,7 @@ msgstr "Inactivo"
 
 msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
-"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"access as guest. Always access as guest when 'Only guests' is selected; in "
 "this case no password is required to connect to the share."
 msgstr "Si selecciona 'Permetre convidats' i no es proporcionen credencials usuari/contrasenya, llavors s’accedirà com a convidat. Sempre s’accedeix com a convidat si s’ha seleccionat 'Només convidats', en aquest cas no caldrà usuari i contrasenya."
 

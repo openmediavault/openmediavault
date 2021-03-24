@@ -1560,7 +1560,7 @@ msgstr "Leerlauf"
 
 msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
-"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"access as guest. Always access as guest when 'Only guests' is selected; in "
 "this case no password is required to connect to the share."
 msgstr "Wenn 'Gäste sind zugelassen' ausgewählt und keine Anmeldeinformationen angegeben wurden, immer als Gast zugreifen. Immer als Gast zugreifen wenn 'Nur Gäste' ausgewählt ist; in diesem Fall wird kein Passwort benötigt um auf die Freigabe zuzugreifen."
 

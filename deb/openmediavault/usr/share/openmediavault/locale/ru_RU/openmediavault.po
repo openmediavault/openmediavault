@@ -1546,7 +1546,7 @@ msgstr "Бездействие"
 
 msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
-"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"access as guest. Always access as guest when 'Only guests' is selected; in "
 "this case no password is required to connect to the share."
 msgstr "Если выбранно 'Гости разрешены' и не предусмотрено учетных пользователей, то доступ как гость. Всегда доступ в качестве гостя, когда выбранно «только гости»; в этом случае пароль не требуется для подключения к акции."
 

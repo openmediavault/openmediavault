@@ -122,7 +122,7 @@ Ext.define("OMV.module.admin.service.smb.Share", {
 			value: "no",
 			plugins: [{
 				ptype: "fieldinfo",
-				text: _("If 'Guests allowed' is selected and no login credential is provided, then access as guest. Always access as guest when 'Only guests' is selecting; in this case no password is required to connect to the share.")
+				text: _("If 'Guests allowed' is selected and no login credential is provided, then access as guest. Always access as guest when 'Only guests' is selected; in this case no password is required to connect to the share.")
 			}]
 		},{
 			xtype: "checkbox",
