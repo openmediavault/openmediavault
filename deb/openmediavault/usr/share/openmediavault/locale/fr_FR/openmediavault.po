@@ -1559,7 +1559,7 @@ msgstr "Idle"
 
 msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
-"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"access as guest. Always access as guest when 'Only guests' is selected; in "
 "this case no password is required to connect to the share."
 msgstr "Si 'Invités autorisés' est sélectionné et qu'aucun paramètre de connexion n'est fourni, alors l'accès ce fait en tant qu'invité. Si 'Invités uniquement' est sélectionné, l'accès se fait systématiquement en tant qu'invité. Dans ce cas, aucun mot de passe n'est requis pour se connecter au partage."
 

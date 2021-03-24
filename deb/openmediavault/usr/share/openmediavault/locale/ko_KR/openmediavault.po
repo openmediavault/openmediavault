@@ -1554,7 +1554,7 @@ msgstr "유휴"
 
 msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
-"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"access as guest. Always access as guest when 'Only guests' is selected; in "
 "this case no password is required to connect to the share."
 msgstr "\"게스트 허용\"이 선택되고 로그인 자격 증명이 제공되지 않는 경우, 게스트로 접근됩니다. \"게스트만\"이 선택된 경우, 항상 게스트로 접근되며 공유에 연결하기 위한 암호가 필요하지 않습니다."
 

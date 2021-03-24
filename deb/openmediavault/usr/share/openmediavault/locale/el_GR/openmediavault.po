@@ -1551,7 +1551,7 @@ msgstr "Αδρανές"
 
 msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
-"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"access as guest. Always access as guest when 'Only guests' is selected; in "
 "this case no password is required to connect to the share."
 msgstr "Αν είναι επιλεγμένο το 'Επιτρέπονται επισκέπτες' και δεν δωθούν στοιχεία σύνδεσης, τότε η πρόσβαση γίνεται ως επισκέπτης. Αν είναι επιλεγμένο το 'Μόνο επισκέπτες' τότε η πρόσβαση γίνεται πάντα ως επισκέπτης, χωρίς να χρειάζεται συνθηματικό για την σύνδεση."
 
