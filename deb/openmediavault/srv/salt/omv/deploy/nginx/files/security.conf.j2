@@ -7,6 +7,7 @@
 {%- set csp_header = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SECURITY_CSP', 'default-src \'self\' \'unsafe-inline\' \'unsafe-eval\'; img-src \'self\' data:;') -%}
 {%- set xframe_enabled = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SECURITY_XFRAMEOPTIONS_ENABLE', 'yes') -%}
 {%- set xframe_header = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SECURITY_XFRAMEOPTIONS', 'SAMEORIGIN') -%}
+{%- set permissions_policy_header = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SECURITY_PERMISSIONS_POLICY', 'microphone \'none\'; camera \'none\'; geolocation \'none\'; payment \'none\';') -%}
 {{ pillar['headers']['multiline'] }}
 {%- if config.enablessl | to_bool %}
 # PFS (Perfect Forward Secrecy)
@@ -36,3 +37,5 @@ add_header X-Content-Type-Options "nosniff";
 # https://wiki.mozilla.org/Security/Features/XSS_Filter
 # http://blogs.msdn.com/b/ieinternals/archive/2011/01/31/controlling-the-internet-explorer-xss-filter-with-the-x-xss-protection-http-header.aspx
 add_header X-XSS-Protection "1; mode=block";
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy
+add_header Permissions-Policy "{{ permissions_policy_header }}" always;
