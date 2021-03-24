@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-21 16:43+0200\n"
-"PO-Revision-Date: 2020-09-21 14:45+0000\n"
+"POT-Creation-Date: 2021-03-24 14:53+0100\n"
+"PO-Revision-Date: 2021-03-24 13:57+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/openmediavault/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -1688,8 +1688,8 @@ msgstr "Interfaces"
 msgid "Invalid IP address."
 msgstr ""
 
-msgid "Invalid SSH public key (RFC 4716)"
-msgstr "Importar chave pública (RFC 4716) SSH"
+msgid "Invalid SSH public key (RFC 4716 format)"
+msgstr ""
 
 msgid "Invalid User-Agent."
 msgstr ""
@@ -2173,9 +2173,6 @@ msgstr "Sem acesso"
 
 msgid "No action"
 msgstr "Sem acção"
-
-msgid "No certificate request"
-msgstr "Sem pedido de certificado"
 
 msgid "No connections"
 msgstr "Sem ligações"
@@ -3319,6 +3316,9 @@ msgstr "A chave pública RSA no formato OpenSSH."
 msgid "The SSH certificate used for authentication."
 msgstr ""
 
+msgid "The SSH public key in OpenSSH or RFC 4716 format."
+msgstr ""
+
 msgid "The SSL certificate."
 msgstr "O certificado SSL."
 
@@ -3416,9 +3416,6 @@ msgstr "A chave privada RSA no formato X.509 PEM."
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port"
 msgstr ""
-
-msgid "The public key in RFC 4716 SSH public key file format."
-msgstr "A chave pública no formato de arquivo de chave pública RFC4716 SSH."
 
 msgid ""
 "The relative path of the folder to share. The specified folder will be "
@@ -3594,11 +3591,6 @@ msgid ""
 "faster. Samba automatically turns this off for clients that use protocol "
 "levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
 msgstr "Isto pode fazer um uso mais eficiente do CPU do sistema e tornar o Samba mais rápido. o Samba desligará isto automaticamente para os clientes que usam os níveis de protocolo inferiores que NT LM 0.12 e quando deteta cliente com Windows 9x."
-
-msgid ""
-"This option causes the server to not send a certificate request during a SSL"
-" handshake."
-msgstr "Esta opção faz com que o servidor não envie um pedido de certificado durante um cumprimento SSL."
 
 msgid ""
 "This option determines if this module should be listed when the client asks "

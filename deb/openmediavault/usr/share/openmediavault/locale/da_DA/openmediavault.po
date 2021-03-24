@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2018,2020
+# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2018,2020-2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-21 16:43+0200\n"
-"PO-Revision-Date: 2020-09-21 14:45+0000\n"
+"POT-Creation-Date: 2021-03-24 14:53+0100\n"
+"PO-Revision-Date: 2021-03-24 13:57+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/openmediavault/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -1164,7 +1164,7 @@ msgid "Enable user authentication"
 msgstr "Aktiver bruger godkendelse"
 
 msgid "Enable user home directories"
-msgstr "Aktiver bruger hjemme bibliotekker"
+msgstr "Aktiver brugers hjemme biblioteker"
 
 msgid "Enable write-cache."
 msgstr "Aktiver skrive-cache."
@@ -1553,7 +1553,7 @@ msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
 "access as guest. Always access as guest when 'Only guests' is selected; in "
 "this case no password is required to connect to the share."
-msgstr "Hvis 'Gæster tilladt' er valgt og ingen log ind legitimationsoplysninger er fastsat vil tilgang være som gæst. Tilgå altid som gæst når 'Kun gæster' bliver valgt; i dette tilfælde er ingen adgangkode nødvendig for at forbinde til delingen."
+msgstr ""
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1687,8 +1687,8 @@ msgstr "Interfaces"
 msgid "Invalid IP address."
 msgstr "Ugyldig IP adresse."
 
-msgid "Invalid SSH public key (RFC 4716)"
-msgstr "Ugyldig SSH offentlig nøgle (RFC 4716)"
+msgid "Invalid SSH public key (RFC 4716 format)"
+msgstr ""
 
 msgid "Invalid User-Agent."
 msgstr "Ugyldig Bruger-Agent."
@@ -2172,9 +2172,6 @@ msgstr "Ingen adgang"
 
 msgid "No action"
 msgstr "Ingen handling"
-
-msgid "No certificate request"
-msgstr "Ingen certifikat forespørgsel"
 
 msgid "No connections"
 msgstr "Ingen forbindelser"
@@ -3318,6 +3315,9 @@ msgstr "Den offentlige RSA nøgle i OpenSSH format. "
 msgid "The SSH certificate used for authentication."
 msgstr "SSH certifikatet brugt til godkendelse."
 
+msgid "The SSH public key in OpenSSH or RFC 4716 format."
+msgstr ""
+
 msgid "The SSL certificate."
 msgstr "SSL certifikat."
 
@@ -3415,9 +3415,6 @@ msgstr "Den private RSA nøgle i X.509 PEM format."
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port"
 msgstr ""
-
-msgid "The public key in RFC 4716 SSH public key file format."
-msgstr "Den offentlige nøgle i RFC 4716 SSH offentlig nøgle filformat."
 
 msgid ""
 "The relative path of the folder to share. The specified folder will be "
@@ -3593,11 +3590,6 @@ msgid ""
 "faster. Samba automatically turns this off for clients that use protocol "
 "levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
 msgstr "Dette kan få en mere effektiv udnyttelse af systemets CPU'er og få Samba til at være hurtigere. Samba deaktiverer automatisk dette for klienter, der bruger et protokol niveau lavere end NT LM 0.12 og når den registrerer at en klient er Windows 9x."
-
-msgid ""
-"This option causes the server to not send a certificate request during a SSL"
-" handshake."
-msgstr "Denne valgmulighed får serveren til ikke at sende en certifikat anmodning under et SSL håndtryk."
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
@@ -3915,7 +3907,7 @@ msgid "User accounts"
 msgstr "Bruger kontoer"
 
 msgid "User home directory"
-msgstr "Bruger hjemme bibliotek"
+msgstr "Brugers hjemme bibliotek"
 
 msgid "User information"
 msgstr "Bruger oplysninger"
