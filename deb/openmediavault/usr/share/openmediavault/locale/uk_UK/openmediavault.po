@@ -1553,7 +1553,7 @@ msgstr "Неактивний"
 
 msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
-"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"access as guest. Always access as guest when 'Only guests' is selected; in "
 "this case no password is required to connect to the share."
 msgstr "Якщо вибрати 'Гості дозволені' і не передбачено облікових користувачів, то доступ як гість. Завжди доступ в якості гостя, коли вибрано «тільки гості»; в цьому випадку пароль не потрібно для підключення до ресурсу."
 

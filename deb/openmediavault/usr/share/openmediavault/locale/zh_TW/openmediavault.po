@@ -1552,7 +1552,7 @@ msgstr "閒置"
 
 msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
-"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"access as guest. Always access as guest when 'Only guests' is selected; in "
 "this case no password is required to connect to the share."
 msgstr "如果 '允許訪客' 被選用，但用戶沒提供登入憑證，則會讓他以訪客身分存取。當 '只允許訪客' 被選用，則永遠讓用戶以訪客身分存取；在這情況下，不需要密碼即可連接上共享。"
 

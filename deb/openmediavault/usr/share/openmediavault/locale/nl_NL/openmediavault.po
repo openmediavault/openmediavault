@@ -1556,9 +1556,9 @@ msgstr "Pauzestand"
 
 msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
-"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"access as guest. Always access as guest when 'Only guests' is selected; in "
 "this case no password is required to connect to the share."
-msgstr "If 'Guests allowed' is selected and no login credential is provided, then access as guest. Always access as guest when 'Only guests' is selecting; in this case no password is required to connect to the share."
+msgstr "If 'Guests allowed' is selected and no login credential is provided, then access as guest. Always access as guest when 'Only guests' is selected; in this case no password is required to connect to the share."
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "

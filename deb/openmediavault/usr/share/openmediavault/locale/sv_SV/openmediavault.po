@@ -1553,7 +1553,7 @@ msgstr "Tomgångsläge"
 
 msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
-"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"access as guest. Always access as guest when 'Only guests' is selected; in "
 "this case no password is required to connect to the share."
 msgstr "Om \"Gäster tillåtet\" är vald och inga inloggningsuppgifter lämnas, får du tillgång som gäst. Alltid tillgång som gäst när 'Endast gäster' är valt; I detta fall krävs inget lösenord för att ansluta till den delade resursen."
 

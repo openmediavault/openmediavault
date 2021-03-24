@@ -1551,7 +1551,7 @@ msgstr "Boş"
 
 msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
-"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"access as guest. Always access as guest when 'Only guests' is selected; in "
 "this case no password is required to connect to the share."
 msgstr "Eğer 'Misafirler müsade edilmiştir' seçilmiş ve herhangi bir giriş bilgisi verilmemişse misafir olarak giriş yapınız. 'Sadece misafirler' seçili ise misafir olarak giriş yapınız; bu durumda paylaşıma ulaşmak için şifreye ihtiyacınız olmayacaktır."
 

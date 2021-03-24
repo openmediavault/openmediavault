@@ -1552,7 +1552,7 @@ msgstr "Nečinnost"
 
 msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
-"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"access as guest. Always access as guest when 'Only guests' is selected; in "
 "this case no password is required to connect to the share."
 msgstr "Pokud je zvoleno „Přístup hostům umožněn“ a při přístupu nejsou poskytnuty přihlašovací údaje, pak přistupovat jako host. Vždy přistupovat jako host, když je zvoleno „Pouze hosté“ – v takovém případě pro přístup ke sdílení není vyžadováno žádné heslo."
 

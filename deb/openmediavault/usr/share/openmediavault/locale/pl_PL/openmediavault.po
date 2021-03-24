@@ -1556,7 +1556,7 @@ msgstr "Zajęty"
 
 msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
-"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"access as guest. Always access as guest when 'Only guests' is selected; in "
 "this case no password is required to connect to the share."
 msgstr "Jeśli zaznaczone jest \"Dopuść gości\" niepotrzebne jest logowanie, dostęp jako gość. Zawsze dopuszczanie jako gościa kiedy wybrane jest \"Tylko goście. Nie wymagane jest żadne hasło do zasobu\""
 
