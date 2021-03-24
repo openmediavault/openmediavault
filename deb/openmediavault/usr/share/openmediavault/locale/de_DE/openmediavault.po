@@ -8,7 +8,7 @@
 # mattjes04 <mattjes04@googlemail.com>, 2013
 # mattjes04 <mattjes04@googlemail.com>, 2012
 # Stephan Steiner, 2014
-# Volker <votdev@gmx.de>, 2013-2020
+# Volker <votdev@gmx.de>, 2013-2021
 # Volker <votdev@gmx.de>, 2012
 # Volker <votdev@gmx.de>, 2012
 # warhog <warhog@gmx.de>, 2013
@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-21 16:43+0200\n"
-"PO-Revision-Date: 2020-11-20 20:48+0000\n"
+"POT-Creation-Date: 2021-03-24 14:53+0100\n"
+"PO-Revision-Date: 2021-03-24 14:00+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/openmediavault/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -1696,8 +1696,8 @@ msgstr "Schnittstellen"
 msgid "Invalid IP address."
 msgstr "IP Adresse ungültig"
 
-msgid "Invalid SSH public key (RFC 4716)"
-msgstr "Ungültiger SSH Public-Key (RFC 4716)"
+msgid "Invalid SSH public key (RFC 4716 format)"
+msgstr "Ungültiger SSH Public-Key (RFC 4716 Format)"
 
 msgid "Invalid User-Agent."
 msgstr "User-Agent ungültig."
@@ -2181,9 +2181,6 @@ msgstr "Kein Zugriff"
 
 msgid "No action"
 msgstr "Keine Aktion"
-
-msgid "No certificate request"
-msgstr "Keine Zertifikat-Anforderung"
 
 msgid "No connections"
 msgstr "Keine Verbindungen"
@@ -3327,6 +3324,9 @@ msgstr "Der öffentliche RSA Schlüssel im OpenSSH Format."
 msgid "The SSH certificate used for authentication."
 msgstr "Das für die Authentifizierung zu verwendende SSH Zertifikat."
 
+msgid "The SSH public key in OpenSSH or RFC 4716 format."
+msgstr "Der öffentliche SSH Schlüssel im OpenSSH oder RFC 4716 Format."
+
 msgid "The SSL certificate."
 msgstr "Das zu benutzende SSL-Zertifikat."
 
@@ -3424,9 +3424,6 @@ msgstr "Der private RSA Schlüssel im X.509 PEM Format."
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port"
 msgstr "Das Protokoll wird in Verbindung mit einem Quell-/Zielport nicht unterstützt"
-
-msgid "The public key in RFC 4716 SSH public key file format."
-msgstr "Der öffentliche Schlüssel im RFC 4716 SSH Public-Key-Dateiformat."
 
 msgid ""
 "The relative path of the folder to share. The specified folder will be "
@@ -3602,11 +3599,6 @@ msgid ""
 "faster. Samba automatically turns this off for clients that use protocol "
 "levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
 msgstr "Durch das effizientere Nutzen der CPU kann Samba mit dieser Option beschleunigt werden. Wird von Samba automatisch ausgeschaltet, falls das vom Client verwendete Protokoll kleiner als NT LM 0.12 ist oder der Client Windows 9x benutzt."
-
-msgid ""
-"This option causes the server to not send a certificate request during a SSL"
-" handshake."
-msgstr "Diese Einstellung veranlasst den Server kein Zertifikat während einem SSL-Handshake anzufordern."
 
 msgid ""
 "This option determines if this module should be listed when the client asks "

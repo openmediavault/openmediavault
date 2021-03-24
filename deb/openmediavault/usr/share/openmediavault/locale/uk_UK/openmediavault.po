@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Андрей Чапалда <ansilent@gmail.com>, 2012
-# zubr139, 2013-2019
+# zubr139, 2013-2019,2021
 # Андрей Чапалда <ansilent@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-21 16:43+0200\n"
-"PO-Revision-Date: 2020-09-21 14:45+0000\n"
+"POT-Creation-Date: 2021-03-24 14:53+0100\n"
+"PO-Revision-Date: 2021-03-24 13:57+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -218,7 +218,7 @@ msgid "Add bond connection"
 msgstr "Додати bond з'єднання"
 
 msgid "Add bridge connection"
-msgstr ""
+msgstr "Додати мостове з’єднання"
 
 msgid "Add devices to RAID device"
 msgstr "Додати диск до RAID"
@@ -317,7 +317,7 @@ msgid ""
 msgstr "Дозволити цьому серверу видавати себе в якості сервера часу для Windows клієнтів"
 
 msgid "Allowed clients"
-msgstr ""
+msgstr "Дозволені клієнти"
 
 msgid "American Samoa"
 msgstr "Американське Самоа"
@@ -326,7 +326,7 @@ msgid ""
 "An attempt to send the test email has been made. Please check your mailbox. "
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
-msgstr ""
+msgstr "Була зроблена спроба надіслати тестовий електронний лист. Перевірте свою поштову скриньку. Якщо електронне повідомлення не надійшло, перевірте теки зі спамом, а також переконайтеся, що в системному журналі немає помилок, пов’язаних із Postfix."
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -339,7 +339,7 @@ msgid ""
 msgstr "Повідомлення електронної пошти з виведення команди (якщо такі є), відправлено користувачу, який виконує роботу."
 
 msgid "An error has occurred"
-msgstr ""
+msgstr "Сталася помилка"
 
 msgid "Andorra"
 msgstr "Андорра"
@@ -357,7 +357,7 @@ msgid "Anonymous FTP"
 msgstr "Анонімний FTP"
 
 msgid "Another user is already authenticated."
-msgstr ""
+msgstr "Інший користувач уже автентифікований."
 
 msgid "Antarctica"
 msgstr "Антарктида"
@@ -516,7 +516,7 @@ msgid "Brazil"
 msgstr "Бразилія"
 
 msgid "Bridge"
-msgstr ""
+msgstr "Міст"
 
 msgid "British Antarctic Territory"
 msgstr "Британська антарктична територія"
@@ -882,7 +882,7 @@ msgid "Disabled"
 msgstr "Вимкнено"
 
 msgid "Disallow the user to modify their account."
-msgstr ""
+msgstr "Заборонити користувачеві змінювати свій обліковий запис."
 
 msgid "Disk usage"
 msgstr "Використання диску"
@@ -1032,7 +1032,7 @@ msgid "Edit bond connection"
 msgstr "Редагувати з’єднання bond"
 
 msgid "Edit bridge connection"
-msgstr ""
+msgstr "Редагувати з’єднання мостом"
 
 msgid "Edit ethernet connection"
 msgstr "Редагувати ethernet з’єднання"
@@ -1098,7 +1098,7 @@ msgid "Enable SSL/TLS connections"
 msgstr "Увімкнути SSL/TLS з'єднання"
 
 msgid "Enable Time Machine support for this share."
-msgstr ""
+msgstr "Увімкнути підтримку Time Machine для цього спільного ресурсу."
 
 msgid "Enable WINS server"
 msgstr "Увімкнути WINS сервер"
@@ -1175,7 +1175,7 @@ msgid "Enabled"
 msgstr "Увімкнено"
 
 msgid "Encryption mode"
-msgstr ""
+msgstr "Режим шифрування"
 
 msgid "Enter your password"
 msgstr "Уведіть ваш пароль"
@@ -1303,7 +1303,7 @@ msgid "Filename"
 msgstr "Ім'я файлу"
 
 msgid "Filepath"
-msgstr ""
+msgstr "Шлях до файлу"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1522,7 +1522,7 @@ msgstr "ID"
 msgid ""
 "IP addresses in CIDR notation or host names of clients that are allowed to "
 "access the NTP server."
-msgstr ""
+msgstr "IP-адреси в нотації CIDR або імена хостів клієнтів, яким дозволено отримати доступ до сервера NTP."
 
 msgid "IP addresses of domain name servers used to resolve host names."
 msgstr "IP-адреси серверів доменних імен використовується для розпізнавання імен хостів."
@@ -1555,7 +1555,7 @@ msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
 "access as guest. Always access as guest when 'Only guests' is selected; in "
 "this case no password is required to connect to the share."
-msgstr "Якщо вибрати 'Гості дозволені' і не передбачено облікових користувачів, то доступ як гість. Завжди доступ в якості гостя, коли вибрано «тільки гості»; в цьому випадку пароль не потрібно для підключення до ресурсу."
+msgstr ""
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1687,13 +1687,13 @@ msgid "Interfaces"
 msgstr "Інтерфейси"
 
 msgid "Invalid IP address."
-msgstr ""
+msgstr "Невірна IP адреса."
 
-msgid "Invalid SSH public key (RFC 4716)"
-msgstr "Неправильний відкритий ключ SSH (RFC 4716)"
+msgid "Invalid SSH public key (RFC 4716 format)"
+msgstr ""
 
 msgid "Invalid User-Agent."
-msgstr ""
+msgstr "Недійсний агент користувача."
 
 msgid "Invalid domain name"
 msgstr "Невірна назва домену"
@@ -1714,7 +1714,7 @@ msgid "Invalid user name"
 msgstr "Невірне ім'я користувача"
 
 msgid "Invalid user."
-msgstr ""
+msgstr "Недійсний користувач."
 
 msgid "Iran"
 msgstr "Іран"
@@ -1863,7 +1863,7 @@ msgid "Log level"
 msgstr "Рівень входу"
 
 msgid "Logging out, please wait ..."
-msgstr ""
+msgstr "Вихід, зачекайте ..."
 
 msgid "Login"
 msgstr "Увійти"
@@ -2149,7 +2149,7 @@ msgid "New Zealand"
 msgstr "Нова Зеландія"
 
 msgid "New password"
-msgstr ""
+msgstr "Новий пароль"
 
 msgid "Next Page"
 msgstr "Наступна Сторінка"
@@ -2174,9 +2174,6 @@ msgstr "Немає доступу"
 
 msgid "No action"
 msgstr "Жодних дій"
-
-msgid "No certificate request"
-msgstr "Немає запиту сертифіката"
 
 msgid "No connections"
 msgstr "Немає з'єднання"
@@ -2332,7 +2329,7 @@ msgid "Parent Device"
 msgstr "Батьківський пристрій"
 
 msgid "Parent device"
-msgstr ""
+msgstr "Батьківський пристрій"
 
 msgid "Passive FTP"
 msgstr "Пасивний режим FTP"
@@ -2347,10 +2344,10 @@ msgid "Passwords don't match"
 msgstr "Паролі не співпадають"
 
 msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
-msgstr ""
+msgstr "Сюди вставте сертифікат RSA або ECC у форматі X.509 PEM."
 
 msgid "Paste a RSA or ECC private key in X.509 PEM format here."
-msgstr ""
+msgstr "Сюди вставте закритий ключ RSA або ECC у форматі X.509 PEM."
 
 msgid "Path"
 msgstr "Шлях"
@@ -2495,13 +2492,13 @@ msgid "Preserve extended attributes"
 msgstr "Зберегти розширені атрибути"
 
 msgid "Preserve group"
-msgstr ""
+msgstr "Зберегти групу"
 
 msgid "Preserve modification times"
 msgstr "Зберигти модифіковані пункти"
 
 msgid "Preserve owner"
-msgstr ""
+msgstr "Зберегти власника"
 
 msgid "Preserve permissions"
 msgstr "Зберегти права доступу"
@@ -2701,7 +2698,7 @@ msgstr "Повідомити, якщо температура змінилася
 msgid ""
 "Report if the temperature is greater than or equal to N degrees Celsius. Set"
 " to 0 to disable this report."
-msgstr ""
+msgstr "Повідомте, якщо температура вища або рівна N градусам Цельсія. Встановіть значення 0, щоб вимкнути цей звіт."
 
 msgid "Repository"
 msgstr "Репозиторій"
@@ -2814,7 +2811,7 @@ msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
 msgid "STARTTLS"
-msgstr ""
+msgstr "STARTTLS"
 
 msgid "Saint Helena"
 msgstr "Острів Святої Єлени"
@@ -3007,12 +3004,12 @@ msgstr "Встановити дозволи призначення такі ж, 
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr ""
+msgstr "Встановіть групу файлу призначення таким самим, що і вихідний файл."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr ""
+msgstr "Встановіть власника цільового файлу таким самим, що і вихідний файл, але лише в тому випадку, якщо отримувач rsync запускається як суперкористувач."
 
 msgid "Set write only"
 msgstr "Встановити лише для запису"
@@ -3320,6 +3317,9 @@ msgstr "Відкритий ключ RSA у форматі OpenSSH."
 msgid "The SSH certificate used for authentication."
 msgstr "Сертифікат SSH використовується для перевірки автентичності."
 
+msgid "The SSH public key in OpenSSH or RFC 4716 format."
+msgstr ""
+
 msgid "The SSL certificate."
 msgstr "Сертифікат SSL."
 
@@ -3382,7 +3382,7 @@ msgstr "Розташування домашнього каталога кори�
 msgid ""
 "The maximum transmission unit in bytes to set for the device. Set to 0 to "
 "use the default value."
-msgstr ""
+msgstr "Максимальна одиниця передачі в байтах, встановлена ​​для пристрою. Встановіть 0, щоб використовувати типове значення."
 
 msgid "The name of the share."
 msgstr "Назва спільного ресурсу"
@@ -3416,15 +3416,12 @@ msgstr "Секретний ключ RSA в форматі X.509 PEM."
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port"
-msgstr ""
-
-msgid "The public key in RFC 4716 SSH public key file format."
-msgstr "Відкритий ключ в форматі відкритого ключа файлу RFC4716 SSH."
+msgstr "Протокол не підтримується разом із портом джерела/призначення"
 
 msgid ""
 "The relative path of the folder to share. The specified folder will be "
 "created if it does not already exist."
-msgstr ""
+msgstr "Відносний шлях до спільної теки. Вказану теку буде створено, якщо вона ще не існує."
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3451,7 +3448,7 @@ msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "Вказана квота перевищує макс. можливе значення 4TiB."
 
 msgid "The system must be rebooted."
-msgstr ""
+msgstr "Систему необхідно перезавантажити."
 
 msgid "The system will reboot now. This may take some time ..."
 msgstr "Зараз система буде перезавантажена. Це може зайняти деякий час..."
@@ -3508,7 +3505,7 @@ msgid "This field should be a host name or an IP address"
 msgstr "Це поле повинне містити ім'я хоста або IP адресу"
 
 msgid "This field should be a host name or an IP address in CIDR notation"
-msgstr ""
+msgstr "Це поле повинно містити ім'ям хоста або IP-адресу в позначенні CIDR"
 
 msgid "This field should be a host name or an IPv4 address"
 msgstr "Це поле повинно містити назву хоста, або IPv4 адресу"
@@ -3524,7 +3521,7 @@ msgstr "Це поле повинно бути списком імен домен
 msgid ""
 "This field should be a list of host names or IP addresses in CIDR notation "
 "separated by <,> or <;>"
-msgstr ""
+msgstr "Це поле повинно бути списком хостів або IP-адрес у позначенні CIDR, розділених <,> або <;>"
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
@@ -3595,11 +3592,6 @@ msgid ""
 "faster. Samba automatically turns this off for clients that use protocol "
 "levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
 msgstr "Збільшує ефективність використання ЦП і прискорює роботу Samba. Samba автоматично відключає цю опцію для клієнтів, що використовують рівні протоколу нижче, ніж NT LM 0.12, і, коли виявляє клієнт Windows 9x."
-
-msgid ""
-"This option causes the server to not send a certificate request during a SSL"
-" handshake."
-msgstr "Вказує серверу не посилати запит на сертифікат SSL під час привітання"
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
@@ -3687,7 +3679,7 @@ msgid "This will create a recycle bin on the share."
 msgstr "Це створює кошика на спільному ресурсі."
 
 msgid "Threshold"
-msgstr ""
+msgstr "Поріг"
 
 msgid "Thursday"
 msgstr "Четвер"
@@ -3699,7 +3691,7 @@ msgid "Time"
 msgstr "Час"
 
 msgid "Time Machine support"
-msgstr ""
+msgstr "Підтримка Time Machine"
 
 msgid "Time interval"
 msgstr "Інтервал часу"
@@ -3737,7 +3729,7 @@ msgstr "Протокол передачі"
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr ""
+msgstr "Передайте час модифікації разом із файлами та оновіть їх у віддаленій системі."
 
 msgid "Transfer time"
 msgstr "Час передачі"
@@ -3855,7 +3847,7 @@ msgid "Updates"
 msgstr "Оновлення"
 
 msgid "Updates available"
-msgstr ""
+msgstr "Доступні оновлення"
 
 msgid "Updating ACL settings"
 msgstr "Оновлення параметрів списку контролю доступом ACL"
