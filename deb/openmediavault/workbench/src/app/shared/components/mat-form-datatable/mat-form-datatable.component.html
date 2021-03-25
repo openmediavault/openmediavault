@@ -1,0 +1,19 @@
+<omv-datatable [data]="store.data"
+               [autoReload]="false"
+               [hasReloadButton]="false"
+               [columns]="columns"
+               [columnMode]="columnMode"
+               [hasActionBar]="hasActionBar"
+               [hasSearchField]="hasSearchField"
+               [hasHeader]="hasHeader"
+               [hasFooter]="hasFooter"
+               [selectionType]="selectionType"
+               (selectionChangeEvent)="onSelectionChange($event)"
+               [limit]="limit"
+               [sorters]="sorters">
+  <omv-datatable-actions fxFlex
+                         [actions]="actions"
+                         [selection]="selection"
+                         [data]="store">
+  </omv-datatable-actions>
+</omv-datatable>

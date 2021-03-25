@@ -1,0 +1,20 @@
+<mat-form-field fxFlex
+                [formGroup]="formGroup">
+  <mat-label>{{ config.label }}</mat-label>
+  <mat-select [formControlName]="config.name"
+              [placeholder]="config.placeholder | translate"
+              [required]="config.validators?.required">
+    <mat-option *ngFor="let option of config.store.data"
+                [value]="option[config.valueField]">
+      {{option[config.textField]}}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="formGroup.invalid">
+    <span *ngIf="formGroup.hasError('required', config.name)">
+      This field is required.
+    </span>
+  </mat-error>
+  <mat-hint *ngIf="config.hint?.length > 0"
+            [innerHTML]="config.hint">
+  </mat-hint>
+</mat-form-field>

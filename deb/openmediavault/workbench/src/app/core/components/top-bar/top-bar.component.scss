@@ -1,0 +1,18 @@
+@import 'src/styles';
+
+.mat-toolbar {
+  height: 64px;
+
+  button .mat-icon {
+    color: $omv-color-primary-complementary;
+  }
+
+  .omv-top-bar-brand-logo {
+    margin-left: 10px;
+    width: 330px;
+    height: 42px;
+    right: 20px;
+    bottom: 20px;
+    background: no-repeat 100%/100% url('/assets/images/openmediavault_logo.svg');
+  }
+}

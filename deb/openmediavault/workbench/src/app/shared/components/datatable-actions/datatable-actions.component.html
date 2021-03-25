@@ -1,0 +1,51 @@
+<ng-container *ngFor="let action of actions">
+  <ng-container [ngSwitch]="action.type">
+    <ng-template [ngSwitchCase]="'button'">
+      <button mat-button
+              [disabled]="isDisabled(action)"
+              (click)="onButtonClick(action)">
+        {{ action.text | translate }}
+      </button>
+    </ng-template>
+    <ng-template [ngSwitchCase]="'iconButton'">
+      <button mat-icon-button
+              [disabled]="isDisabled(action)"
+              matTooltip="{{ action.tooltip | translate }}"
+              (click)="onButtonClick(action)">
+        <mat-icon svgIcon="{{ action.icon }}"></mat-icon>
+      </button>
+    </ng-template>
+    <ng-template [ngSwitchCase]="'menu'">
+      <button mat-icon-button
+              matTooltip="{{ action.tooltip | translate }}"
+              [matMenuTriggerFor]="menu">
+        <mat-icon svgIcon="{{ action.icon }}"></mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button *ngFor="let action of action.actions"
+                mat-menu-item
+                [disabled]="isDisabled(action)"
+                (click)="onButtonClick(action)">
+          <mat-icon svgIcon="{{ action.icon }}"></mat-icon>
+          <span>{{ action.text | translate }}</span>
+        </button>
+      </mat-menu>
+    </ng-template>
+    <ng-template [ngSwitchCase]="'select'">
+      <mat-form-field>
+        <mat-label></mat-label>
+        <mat-select [disabled]="isDisabled(action)"
+                    placeholder="{{ action.placeholder | translate }}"
+                    (selectionChange)="onSelectionChange($event, action)">
+          <mat-option *ngFor="let option of action.store.data"
+                      [value]="option[action.valueField]">
+            {{ option[action.textField] | translate }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </ng-template>
+    <ng-template [ngSwitchCase]="'divider'">
+      <mat-divider [vertical]="true"></mat-divider>
+    </ng-template>
+  </ng-container>
+</ng-container>

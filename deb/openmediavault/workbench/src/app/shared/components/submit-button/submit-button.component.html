@@ -1,0 +1,8 @@
+<button [type]="type"
+        [attr.form]="form"
+        [disabled]="disabled"
+        mat-flat-button
+        class="omv-background-color-theme-primary"
+        (click)="onSubmit($event)">
+  <ng-content></ng-content>
+</button>

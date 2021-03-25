@@ -1,0 +1,66 @@
+<mat-card>
+  <mat-card-content>
+    <div cdkDropListGroup
+         fxLayout="row"
+         fxLayoutGap="16px">
+      <div class="dragdrop-container"
+           fxFlex="50">
+        <div mat-subheader>{{ "Enabled" | translate }}</div>
+        <mat-list class="dragdrop-list"
+                  cdkDropList
+                  [cdkDropListData]="enabled"
+                  (cdkDropListDropped)="onDrop($event)">
+          <mat-list-item *ngFor="let widget of enabled"
+                         class="dragdrop-list-item"
+                         matRipple
+                         cdkDrag>
+            <div fxFlexFill
+                 fxLayout="row"
+                 fxLayoutAlign="start center">
+              <span fxFlex>{{ widget.title | translate }}</span>
+              <button mat-icon-button
+                      (click)="onEnabledPull(widget)">
+                <mat-icon svgIcon="{{ icon.remove }}"></mat-icon>
+              </button>
+              <mat-icon svgIcon="{{ icon.menu }}"></mat-icon>
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+      <div class="dragdrop-container"
+           fxFlex="50">
+        <div mat-subheader>{{ "Available" | translate }}</div>
+        <mat-list class="dragdrop-list"
+                  cdkDropList
+                  [cdkDropListData]="available"
+                  (cdkDropListDropped)="onDrop($event)">
+          <mat-list-item *ngFor="let widget of available"
+                         class="dragdrop-list-item"
+                         matRipple
+                         cdkDrag>
+            <div fxFlexFill
+                 fxLayout="row"
+                 fxLayoutAlign="start center">
+              <span fxFlex>{{ widget.title | translate }}</span>
+              <button mat-icon-button
+                      (click)="onEnabledPush(widget)">
+                <mat-icon svgIcon="{{ icon.add }}"></mat-icon>
+              </button>
+              <mat-icon svgIcon="{{ icon.menu }}"></mat-icon>
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions fxLayoutAlign="left">
+    <omv-submit-button (buttonClick)="onSubmit()">
+      {{ "Save" | translate }}
+    </omv-submit-button>
+    <button mat-flat-button
+            class="omv-background-color-theme-accent"
+            routerLink="/dashboard">
+      {{ "Cancel" | translate }}
+    </button>
+  </mat-card-actions>
+</mat-card>

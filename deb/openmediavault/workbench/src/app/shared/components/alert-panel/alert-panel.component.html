@@ -1,0 +1,14 @@
+<mat-card [ngClass]="{'omv-background-color-theme-info': type == 'info', 'omv-background-color-theme-success': type == 'success', 'omv-background-color-theme-warning': type == 'warning', 'omv-background-color-theme-error': type == 'error', 'omv-background-color-theme-tip': type == 'tip'}">
+  <div fxLayout="row">
+    <mat-icon mat-card-avatar
+              svgIcon="{{ icon }}"></mat-icon>
+    <div>
+      <mat-card-title *ngIf="hasTitle">
+        {{ title }}
+      </mat-card-title>
+      <mat-card-content>
+        <ng-content></ng-content>
+      </mat-card-content>
+    </div>
+  </div>
+</mat-card>

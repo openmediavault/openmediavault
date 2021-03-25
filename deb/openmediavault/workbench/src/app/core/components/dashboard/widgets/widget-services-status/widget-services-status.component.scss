@@ -1,0 +1,14 @@
+@import 'styles.scss';
+
+.omv-dashboard-widget-services-status {
+  padding: $omv-padding;
+
+  .mat-card {
+    &.running {
+      @extend .omv-background-color-theme-success;
+    }
+    &.not-running {
+      @extend .omv-background-color-theme-error;
+    }
+  }
+}

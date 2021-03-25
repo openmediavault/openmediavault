@@ -1,0 +1,415 @@
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+  SimpleChange,
+  SimpleChanges,
+  TemplateRef,
+  ViewChild
+} from '@angular/core';
+import { DatatableComponent as NgxDatatableComponent, SortPropDir } from '@swimlane/ngx-datatable';
+import * as _ from 'lodash';
+import { Subscription, timer } from 'rxjs';
+
+import { translate } from '~/app/i18n.helper';
+import { Icon } from '~/app/shared/enum/icon.enum';
+import { DatatableColumn } from '~/app/shared/models/datatable-column.type';
+import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
+import { UserStorageService } from '~/app/shared/services/user-storage.service';
+
+export interface IDataTableLoadParams {
+  dir?: 'asc' | 'desc';
+  prop?: string;
+  offset?: number;
+  limit?: number;
+}
+
+@Component({
+  selector: 'omv-datatable',
+  templateUrl: './datatable.component.html',
+  styleUrls: ['./datatable.component.scss']
+})
+export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
+  @ViewChild('table', { static: true })
+  table: NgxDatatableComponent;
+  @ViewChild('checkIconTpl', { static: true })
+  checkIconTpl: TemplateRef<any>;
+  @ViewChild('checkBoxTpl', { static: true })
+  checkBoxTpl: TemplateRef<any>;
+  @ViewChild('joinTpl', { static: true })
+  joinTpl: TemplateRef<any>;
+  @ViewChild('truncateTpl', { static: true })
+  truncateTpl: TemplateRef<any>;
+  @ViewChild('placeholderTpl', { static: true })
+  placeholderTpl: TemplateRef<any>;
+  @ViewChild('progressBarTpl', { static: true })
+  progressBarTpl: TemplateRef<any>;
+  @ViewChild('notAvailableTpl', { static: true })
+  notAvailableTpl: TemplateRef<any>;
+  @ViewChild('shapeShifterTpl', { static: true })
+  shapeShifterTpl: TemplateRef<any>;
+  @ViewChild('localeDateTimeTpl', { static: true })
+  localeDateTimeTpl: TemplateRef<any>;
+  @ViewChild('relativeTimeTpl', { static: true })
+  relativeTimeTpl: TemplateRef<any>;
+  @ViewChild('chipTpl', { static: true })
+  chipTpl: TemplateRef<any>;
+  @ViewChild('binaryUnitTpl', { static: true })
+  binaryUnitTpl: TemplateRef<any>;
+  @ViewChild('unsortedListTpl', { static: true })
+  unsortedListTpl: TemplateRef<any>;
+  @ViewChild('templateTpl', { static: true })
+  templateTpl: TemplateRef<any>;
+  @ViewChild('buttonToggleTpl', { static: true })
+  buttonToogleTpl: TemplateRef<any>;
+
+  // Define a query selector if the datatable is used in an
+  // overflow container.
+  @Input()
+  ownerContainer?: string;
+
+  // The data to be shown.
+  @Input()
+  data: any[];
+
+  // The column configuration.
+  @Input()
+  get columns(): DatatableColumn[] {
+    return this.rawColumns;
+  }
+  set columns(columns: DatatableColumn[]) {
+    this.sanitizeColumns(columns);
+    this.rawColumns = [...columns];
+  }
+
+  // Show the linear loading bar.
+  @Input()
+  loadingIndicator?: false;
+
+  // An identifier, e.g. an UUID, which identifies this datatable
+  // uniquely. This is used to store/restore the column state.
+  @Input()
+  stateId?: string;
+
+  // The name of the property that identifies a row uniquely.
+  @Input()
+  rowId?: string;
+
+  @Input()
+  columnMode?: 'standard' | 'flex' | 'force' = 'flex';
+
+  @Input()
+  reorderable? = false;
+
+  // Display the toolbar above the datatable that includes
+  // the custom and default (e.g. 'Reload') action buttons?
+  @Input()
+  hasActionBar? = true;
+
+  // Use a fixed action bar so that it does not leave the viewport
+  // even when scrolled.
+  @Input()
+  hasStickyActionBar? = false;
+
+  // Show/Hide the reload button. If 'autoReload' is set to `true`,
+  // then the button is automatically hidden.
+  @Input()
+  hasReloadButton? = true;
+
+  // Show/Hide the search field. Defaults to `false`.
+  @Input()
+  hasSearchField? = false;
+
+  // Display the datatable header?
+  @Input()
+  hasHeader? = true;
+
+  // Display the datatable footer?
+  @Input()
+  hasFooter? = true;
+
+  @Input()
+  selectionType?: 'none' | 'single' | 'multi' = 'multi';
+
+  // By default selected items will be updated on reload.
+  @Input()
+  updateSelectionOnReload: 'always' | 'onChange' | 'never' = 'always';
+
+  // Automatically load the data after datatable has been
+  // initialized. If set to false, the autoReload configuration
+  // is not taken into action. Defaults to `true`.
+  @Input()
+  autoLoad? = true;
+
+  // The frequency in milliseconds with which the data
+  // should be reloaded. Defaults to `false`.
+  @Input()
+  autoReload?: boolean | number = false;
+
+  // Page size to show. To disable paging, set the limit to 0.
+  @Input()
+  limit? = 25;
+
+  // Total count of all rows.
+  @Input()
+  count? = 0;
+
+  // Use remote paging instead of client-side.
+  @Input()
+  remotePaging = false;
+
+  // Use remote sorting instead of client-side.
+  @Input()
+  remoteSorting = false;
+
+  // Ordered array of objects used to determine sorting by column.
+  @Input()
+  sorters?: SortPropDir[] = [];
+
+  // Event emitted when the data must be loaded.
+  @Output()
+  readonly loadDataEvent = new EventEmitter<IDataTableLoadParams>();
+
+  // Event emitted when the selection has been changed.
+  @Output()
+  readonly selectionChangeEvent = new EventEmitter<DatatableSelection>();
+
+  // Internal
+  public icon = Icon;
+  public rows = [];
+  public offset = 0;
+  public selection = new DatatableSelection();
+  public filteredColumns: DatatableColumn[];
+
+  private subscriptions = new Subscription();
+  private cellTemplates: { [key: string]: TemplateRef<any> };
+  private rawColumns: DatatableColumn[] = [];
+  private searchFilter = '';
+
+  constructor(private userStorageService: UserStorageService) {}
+
+  ngOnInit(): void {
+    // Init cell templates.
+    this.initTemplates();
+    // Sanitize configuration.
+    this.sanitizeConfig();
+    // Initialize timer or simply load the data once.
+    // Note, we'll also use the RxJS timer when loading the data only once,
+    // that's because this will prevent us from getting an 'Expression has
+    // changed after it was checked' error.
+    if (this.autoLoad) {
+      const period = _.isNumber(this.autoReload) ? (this.autoReload as number) : null;
+      this.subscriptions.add(
+        timer(0, period).subscribe(() => {
+          this.reloadData();
+        })
+      );
+    }
+    this.updateColumns();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    _.forIn(changes, (_change: SimpleChange, propName: string) => {
+      switch (propName) {
+        case 'data': {
+          if (!this.data) {
+            return;
+          }
+          if (this.searchFilter !== '') {
+            this.applySearchFilter();
+          } else {
+            this.rows = [...this.data];
+          }
+          this.updateSelection();
+        }
+      }
+    });
+  }
+
+  reloadData() {
+    const params: IDataTableLoadParams = {};
+    if (this.remotePaging) {
+      _.merge(params, { offset: this.offset, limit: this.limit });
+    }
+    if (this.remoteSorting && !_.isEmpty(this.sorters)) {
+      _.merge(params, { dir: this.sorters[0].dir, prop: this.sorters[0].prop });
+    }
+    this.loadDataEvent.emit(params);
+  }
+
+  updateSelection() {
+    if (this.updateSelectionOnReload === 'never') {
+      return;
+    }
+    // Get the new selected rows.
+    const newSelected: any[] = [];
+    _.forEach(this.selection.selected, (item) => {
+      const row = _.find(this.data, [this.rowId, _.get(item, this.rowId)]);
+      if (!_.isUndefined(row)) {
+        newSelected.push(row);
+      }
+    });
+    if (
+      this.updateSelectionOnReload === 'onChange' &&
+      _.isEqual(this.selection.selected, newSelected)
+    ) {
+      return;
+    }
+    this.selection.set(newSelected);
+    this.onSelect();
+  }
+
+  onSelect() {
+    // Update the selection.
+    this.selection.update();
+    // Make a copy of the selection and emit it to the subscribers.
+    this.selectionChangeEvent.emit(_.clone(this.selection));
+  }
+
+  onSort({ sorts }) {
+    if (this.remotePaging) {
+      this.offset = 0;
+    }
+    if (this.remoteSorting) {
+      this.sorters = sorts;
+      this.reloadData();
+    }
+  }
+
+  onPage({ count, pageSize, limit, offset }) {
+    if (this.remotePaging) {
+      this.offset = offset;
+      this.reloadData();
+    }
+  }
+
+  onToggleColumn(column: DatatableColumn) {
+    column.hidden = !column.hidden;
+    this.saveColumnState();
+    this.updateColumns();
+  }
+
+  updateColumns() {
+    // Load the custom column configuration from the browser
+    // local store and filter hidden columns.
+    this.loadColumnState();
+    this.filteredColumns = this.rawColumns.filter((column) => !column.hidden);
+  }
+
+  clearSearchFilter() {
+    this.searchFilter = '';
+    this.rows = [...this.data];
+  }
+
+  applySearchFilter() {
+    this.rows = _.filter(this.data, (o) =>
+      _.some(this.columns, (column) => {
+        let value = _.get(o, column.prop);
+        if (!_.isUndefined(column.pipe)) {
+          value = column.pipe.transform(value);
+        }
+        if (value === '' || _.isUndefined(value) || _.isNull(value)) {
+          return false;
+        }
+        if (_.isObjectLike(value)) {
+          value = JSON.stringify(value);
+        } else if (_.isArray(value)) {
+          value = _.join(value, ' ');
+        } else if (_.isNumber(value) || _.isBoolean(value)) {
+          value = value.toString();
+        }
+        return _.includes(_.lowerCase(value), _.lowerCase(this.searchFilter));
+      })
+    );
+    this.offset = 0;
+  }
+
+  protected initTemplates(): void {
+    this.cellTemplates = {
+      checkIcon: this.checkIconTpl,
+      checkBox: this.checkBoxTpl,
+      join: this.joinTpl,
+      truncate: this.truncateTpl,
+      placeholder: this.placeholderTpl,
+      progressBar: this.progressBarTpl,
+      notAvailable: this.notAvailableTpl,
+      shapeShifter: this.shapeShifterTpl,
+      localeDateTime: this.localeDateTimeTpl,
+      relativeTime: this.relativeTimeTpl,
+      chip: this.chipTpl,
+      binaryUnit: this.binaryUnitTpl,
+      unsortedList: this.unsortedListTpl,
+      template: this.templateTpl,
+      buttonToogle: this.buttonToogleTpl
+    };
+  }
+
+  protected sanitizeConfig(): void {
+    // Always hide the 'Reload' action button if 'autoReload'
+    // is enabled.
+    if (this.autoReload) {
+      this.hasReloadButton = false;
+    }
+    this.sanitizeColumns(this.columns);
+  }
+
+  /**
+   * Sanitize the column configuration, e.g.
+   * - convert cellTemplateName => cellTemplate
+   * - translate the column headers
+   */
+  protected sanitizeColumns(columns: DatatableColumn[]) {
+    if (!this.cellTemplates) {
+      return;
+    }
+    columns.forEach((column) => {
+      column.hidden = !!column.hidden;
+      // Convert column configuration.
+      if (_.isString(column.cellTemplateName) && column.cellTemplateName.length) {
+        column.cellTemplate = this.cellTemplates[column.cellTemplateName];
+      }
+      // Translate the column header.
+      if (_.isString(column.name) && column.name.length) {
+        column.name = translate(column.name);
+      }
+    });
+  }
+
+  private loadColumnState() {
+    if (!this.stateId) {
+      return;
+    }
+    const value = this.userStorageService.get(`datatable_state_${this.stateId}`);
+    if (value) {
+      const columnsConfig = JSON.parse(value);
+      _.forEach(columnsConfig, (columnConfig: Record<string, any>) => {
+        const column = _.find(this.columns, ['name', _.get(columnConfig, 'name')]);
+        if (column) {
+          _.merge(column, columnConfig);
+        }
+      });
+    }
+  }
+
+  private saveColumnState() {
+    if (!this.stateId) {
+      return;
+    }
+    const columnsConfig = [];
+    _.forEach(this.columns, (column: DatatableColumn) => {
+      columnsConfig.push({
+        name: column.name,
+        hidden: column.hidden
+      });
+    });
+    this.userStorageService.set(`datatable_state_${this.stateId}`, JSON.stringify(columnsConfig));
+  }
+}

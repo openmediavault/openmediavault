@@ -1,0 +1,25 @@
+@import 'src/styles';
+
+.mat-card {
+  margin: $omv-margin;
+  padding: unset;
+
+  .mat-toolbar {
+    border-top-left-radius: $omv-radius;
+    border-top-right-radius: $omv-radius;
+    color: $omv-color-primary;
+  }
+  .mat-card-content {
+    padding: $omv-padding;
+
+    img {
+      border: 0 none;
+      padding-bottom: $omv-padding;
+      object-fit: contain;
+      flex: min-content;
+    }
+    img:last-child {
+      padding-bottom: unset;
+    }
+  }
+}

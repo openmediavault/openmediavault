@@ -1,0 +1,84 @@
+@import 'src/styles';
+
+.omv-login-page {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+
+  .omv-login-page-background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: $omv-color-corporate-light;
+    background-image: url('../../../../assets/images/benjamin-lehman-GNyjCePVRs8-unsplash.jpg');
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    animation-name: ken-burns-top-left;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+  }
+
+  .omv-login-page-logo {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url('../../../../assets/images/openmediavault_logo.svg');
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position: center bottom $omv-margin;
+  }
+
+  .omv-login-page-content {
+    width: 100%;
+    height: 100%;
+
+    mat-toolbar {
+      @extend .omv-background-color-theme-transparent;
+      position: absolute;
+    }
+
+    omv-limn-form-page {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      ::ng-deep .mat-card {
+        color: $omv-color-white;
+        background-color: rgba(92, 172, 223, 0.4);
+
+        .mat-form-field .mat-form-field-wrapper {
+          .mat-form-field-infix .mat-form-field-label {
+            color: $omv-color-white;
+          }
+          .mat-form-field-underline {
+            background-color: $omv-color-white;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes ken-burns-top-left {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  95% {
+    animation-timing-function: ease-in-out;
+    opacity: 1;
+    transform: scale3d(1.5, 1.5, 1) translate3d(-20px, -15px, 0px);
+    transform-origin: top left;
+  }
+  100% {
+    opacity: 0;
+    transform: scale3d(2, 2, 1) translate3d(-20px, -15px, 0px);
+    transform-origin: top left;
+  }
+}

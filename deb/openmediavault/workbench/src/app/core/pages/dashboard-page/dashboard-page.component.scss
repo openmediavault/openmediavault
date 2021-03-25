@@ -1,0 +1,17 @@
+@import 'styles.scss';
+
+.omv-dashboard-page {
+  margin: $omv-margin;
+
+  .omv-dashboard-page-content {
+    .mat-card {
+      padding: unset;
+
+      .mat-card-title-group {
+        border-top-left-radius: $omv-radius;
+        border-top-right-radius: $omv-radius;
+        padding: $omv-padding $omv-padding ($omv-padding / 2) $omv-padding;
+      }
+    }
+  }
+}

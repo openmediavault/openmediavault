@@ -1,0 +1,29 @@
+@import 'src/defaults';
+
+.mat-card {
+  margin: $omv-margin;
+  padding: unset;
+
+  .mat-card-header,
+  .mat-card-title-group {
+    padding: $omv-padding;
+  }
+  .mat-card-header {
+    padding-bottom: unset;
+  }
+  .mat-card-content {
+    margin-bottom: unset;
+
+    ::ng-deep omv-datatable:not(.has-card-header) {
+      .mat-toolbar {
+        border-top-left-radius: $omv-radius;
+        border-top-right-radius: $omv-radius;
+      }
+    }
+  }
+  .mat-card-actions {
+    margin: unset;
+    padding-bottom: $omv-padding;
+    padding-left: $omv-padding;
+  }
+}

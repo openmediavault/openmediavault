@@ -1,0 +1,54 @@
+<mat-progress-bar *ngIf="loading && firstLoad"
+                  mode="indeterminate">
+</mat-progress-bar>
+<div *ngIf="data"
+     class="omv-dashboard-widget-system-information"
+     gdGap="8px"
+     gdColumns="repeat(2, 1fr)">
+  <div class="omv-grid-cell">
+    <div class="omv-grid-cell-title"
+         translate>Hostname</div>
+    <div>{{ data?.hostname }}</div>
+  </div>
+  <div class="omv-grid-cell">
+    <div class="omv-grid-cell-title"
+         translate>Version</div>
+    <div>{{ data?.version }}</div>
+  </div>
+  <div class="omv-grid-cell">
+    <div class="omv-grid-cell-title"
+         translate>Processor</div>
+    <div>{{ data?.cpuModelName }}</div>
+  </div>
+  <div class="omv-grid-cell">
+    <div class="omv-grid-cell-title"
+         translate>Kernel</div>
+    <div>{{ data?.kernel }}</div>
+  </div>
+  <div class="omv-grid-cell">
+    <div class="omv-grid-cell-title"
+         translate>System time</div>
+    <div>{{ data?.ts | localeDate:'datetime' }}</div>
+  </div>
+  <div class="omv-grid-cell">
+    <div class="omv-grid-cell-title"
+         translate>Uptime</div>
+    <div>{{ data?.uptime | localeDate:'relative':true }}</div>
+  </div>
+  <div *ngIf="data?.pkgUpdatesAvailable"
+       class="omv-grid-cell">
+    <div class="omv-grid-cell-title"
+         translate>Updates available</div>
+    <div>
+      <mat-icon svgIcon="mdi:check"></mat-icon>
+    </div>
+  </div>
+  <div *ngIf="data?.rebootRequired"
+       class="omv-grid-cell">
+    <div class="omv-grid-cell-title"
+         translate>Reboot required</div>
+    <div>
+      <mat-icon svgIcon="mdi:check"></mat-icon>
+    </div>
+  </div>
+</div>

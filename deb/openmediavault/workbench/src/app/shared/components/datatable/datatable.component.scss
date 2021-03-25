@@ -1,0 +1,204 @@
+@import '~@angular/material/theming';
+@import 'src/styles';
+
+$mat-typography-config: mat-typography-config();
+
+// Toolbar
+::ng-deep omv-datatable .mat-toolbar {
+  .mat-button,
+  .mat-icon-button,
+  .mat-form-field {
+    color: $omv-color-primary;
+  }
+
+  .mat-form-field {
+    font-size: mat-font-size($mat-typography-config, body-1);
+
+    .mat-form-field-infix {
+      padding-bottom: unset;
+    }
+  }
+}
+
+// Progress bar
+.omv-datatable-progress-bar {
+  position: relative;
+
+  .mat-progress-bar {
+    position: absolute;
+  }
+}
+
+// Templates
+.omv-datatable-template-unsorted-list {
+  margin: unset;
+  padding-left: 20px;
+}
+
+// Datatable
+::ng-deep omv-datatable .ngx-datatable {
+  box-shadow: none;
+
+  &.single-selection,
+  &.multi-selection,
+  &.multi-click-selection {
+    .datatable-body-row {
+      &.active,
+      &.active .datatable-row-group {
+        @extend .omv-background-color-theme-accent;
+      }
+
+      &.active:hover,
+      &.active:hover .datatable-row-group {
+        @extend .omv-background-color-theme-accent;
+        background-color: map-get($omv-color-yellow-palette, 800) !important;
+        transition-property: background;
+        transition-duration: 0.3s;
+        transition-timing-function: linear;
+      }
+
+      &.active:focus,
+      &.active:focus .datatable-row-group {
+        @extend .omv-background-color-theme-accent;
+        background-color: map-get($omv-color-yellow-palette, 700) !important;
+      }
+    }
+  }
+
+  &:not(.cell-selection) {
+    .datatable-body-row {
+      &:hover,
+      &:hover .datatable-row-group {
+        @extend .omv-background-color-theme-primary;
+        transition-property: background;
+        transition-duration: 0.3s;
+        transition-timing-function: linear;
+      }
+
+      &:focus,
+      &:focus .datatable-row-group {
+        @extend .omv-background-color-theme-primary;
+        background-color: map-get($omv-color-corporate-palette, 700);
+      }
+    }
+  }
+
+  /**
+   * Header Styles
+   */
+  .datatable-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+
+    .datatable-header-cell {
+      text-align: left;
+      padding: 0.9rem 1.2rem;
+      vertical-align: bottom;
+
+      .datatable-header-cell-wrapper {
+        position: relative;
+      }
+    }
+
+    .resize-handle {
+      border-right: solid 1px #eee;
+    }
+  }
+
+  /**
+   * Body Styles
+   */
+  .datatable-body {
+    .datatable-row-detail {
+      background: $omv-color-whitesmoke;
+      padding: 10px;
+    }
+
+    .datatable-group-header {
+      background: $omv-color-whitesmoke;
+      border-bottom: solid 1px #d9d8d9;
+      border-top: solid 1px #d9d8d9;
+    }
+
+    .empty-row {
+      border-top: 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      text-align: left;
+      padding: 0.5rem 1.2rem;
+      vertical-align: top;
+    }
+
+    .datatable-body-row {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+
+      .datatable-body-cell {
+        text-align: left;
+        padding: 0.9rem 1.2rem;
+        vertical-align: top;
+        border-top: 0;
+      }
+      .datatable-body-group-cell {
+        text-align: left;
+        padding: 0.9rem 1.2rem;
+        vertical-align: top;
+        border-top: 0;
+      }
+    }
+  }
+
+  /**
+   * Footer Styles
+   */
+  .datatable-footer {
+    .page-count {
+      line-height: 50px;
+      height: 50px;
+      padding: 0 1.2rem;
+    }
+
+    .datatable-pager {
+      margin: 0 10px;
+
+      li {
+        vertical-align: middle;
+
+        &.disabled a {
+          color: rgba(0, 0, 0, 0.26) !important;
+          background-color: transparent !important;
+        }
+
+        &.active a {
+          background-color: rgba(158, 158, 158, 0.2);
+          font-weight: bold;
+        }
+      }
+
+      a {
+        height: 22px;
+        min-width: 24px;
+        line-height: 22px;
+        padding: 0 6px;
+        border-radius: 3px;
+        margin: 6px 3px;
+        text-align: center;
+        vertical-align: top;
+        color: rgba(0, 0, 0, 0.54);
+        text-decoration: none;
+        vertical-align: bottom;
+
+        &:hover {
+          color: rgba(0, 0, 0, 0.75);
+          background-color: rgba(158, 158, 158, 0.2);
+        }
+      }
+
+      .datatable-icon-left,
+      .datatable-icon-skip,
+      .datatable-icon-right,
+      .datatable-icon-prev {
+        font-size: 20px;
+        line-height: 20px;
+        padding: 0 3px;
+      }
+    }
+  }
+}

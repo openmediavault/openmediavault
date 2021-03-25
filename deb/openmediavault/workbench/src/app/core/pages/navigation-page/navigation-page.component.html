@@ -1,0 +1,21 @@
+<div class="omv-navigation-page"
+     fxLayout="row wrap"
+     fxLayout.xs="column">
+  <div *ngFor="let item of menuItems"
+       fxFlex="15"
+       fxFlex.lt-lg="25"
+       fxFlex.lt-md="50"
+       fxFlex.xs="100">
+    <mat-card mat-ripple
+              fxLayout="column"
+              fxLayoutAlign="center center"
+              (click)="onClick(item)">
+      <mat-icon *ngIf="item.icon"
+                class="omv-icon-color-default"
+                svgIcon="{{ item.icon }}"></mat-icon>
+      <span class="omv-text-center">
+        {{ item.text | translate }}
+      </span>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+@import 'src/defaults';
+
+.mat-card {
+  margin: $omv-margin;
+
+  .mat-card-actions {
+    padding-top: unset;
+    padding-bottom: $omv-padding / 2;
+    padding-left: $omv-padding / 2;
+  }
+}

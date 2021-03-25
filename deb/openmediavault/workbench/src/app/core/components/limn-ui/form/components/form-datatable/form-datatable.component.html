@@ -1,0 +1,26 @@
+<mat-form-field fxFlex
+                [formGroup]="formGroup">
+  <mat-label>{{ config.label | translate }}</mat-label>
+  <mat-form-datatable [formControlName]="config.name"
+                      [columns]="config.columns"
+                      [columnMode]="config.columnMode"
+                      [actions]="config.actions"
+                      [hasActionBar]="config.hasActionBar || config.actions.length > 0"
+                      [hasSearchField]="config.hasSearchField"
+                      [hasFooter]="config.hasFooter"
+                      [hasHeader]="config.hasHeader"
+                      [selectionType]="config.selectionType"
+                      [limit]="config.limit"
+                      [sorters]="config.sorters"
+                      [valueType]="config.valueType">
+  </mat-form-datatable>
+  <mat-error *ngIf="formGroup.invalid">
+    <span *ngIf="formGroup.hasError('required', config.name)"
+          translate>
+      This field is required.
+    </span>
+  </mat-error>
+  <mat-hint *ngIf="config.hint?.length > 0"
+            [innerHTML]="config.hint | translate">
+  </mat-hint>
+</mat-form-field>

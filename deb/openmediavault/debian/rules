@@ -8,6 +8,17 @@ include ../openmediavault.mk
 %:
 	dh $@
 
+override_dh_auto_clean:
+	rm -rf workbench/node_modules/
+	rm -rf workbench/dist/
+
+override_dh_auto_build:
+	cd workbench && npm install
+	cd workbench && npm run build:prod
+
+override_dh_auto_install:
+	dh_install --verbose workbench/dist/openmediavault-workbench/* var/www/openmediavault
+
 override_dh_installinit:
 	# Install the /etc/default/openmediavault file.
 	dh_installinit --noscripts --name=openmediavault

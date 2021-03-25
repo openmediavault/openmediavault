@@ -1,0 +1,37 @@
+<ng-container *ngIf="config.singleRoute">
+  <mat-tab-group>
+    <mat-tab *ngFor="let tab of config.tabs"
+             [label]="tab.label">
+      <ng-container [ngSwitch]="tab.type">
+        <ng-template [ngSwitchCase]="'form'">
+          <omv-limn-form-page [config]="tab.config"></omv-limn-form-page>
+        </ng-template>
+
+        <ng-template [ngSwitchCase]="'datatable'">
+          <omv-limn-datatable-page [config]="tab.config"></omv-limn-datatable-page>
+        </ng-template>
+
+        <ng-template [ngSwitchCase]="'text'">
+          <omv-limn-text-page [config]="tab.config"></omv-limn-text-page>
+        </ng-template>
+
+        <ng-template [ngSwitchCase]="'selectionlist'">
+          <omv-limn-selection-list-page [config]="tab.config"></omv-limn-selection-list-page>
+        </ng-template>
+      </ng-container>
+    </mat-tab>
+  </mat-tab-group>
+</ng-container>
+<ng-container *ngIf="!config.singleRoute">
+  <nav mat-tab-nav-bar>
+    <a *ngFor="let tab of config.tabs"
+       mat-tab-link
+       [routerLink]="tab.url"
+       routerLinkActive
+       #rla="routerLinkActive"
+       [active]="rla.isActive">
+      <span>{{ tab.label }}</span>
+    </a>
+  </nav>
+  <router-outlet></router-outlet>
+</ng-container>

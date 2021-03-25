@@ -1,0 +1,458 @@
+@import '~@angular/material/theming';
+@import 'defaults';
+
+@include mat-core();
+
+/******************************************************************************/
+/* Initialize Material theme
+/******************************************************************************/
+
+$omv-light-theme-primary-palette: mat-palette($omv-color-corporate-palette);
+$omv-light-theme-accent-palette: map-merge(
+  mat-palette($omv-color-yellow-palette),
+  (
+    // https://paletton.com/#uid=11v0u0kw0v7jRCppdxByzopDWj8
+    default-contrast: #988200
+  )
+);
+$omv-light-theme-warn-palette: mat-palette($omv-color-red-palette);
+
+$omv-light-theme: mat-light-theme(
+  $omv-light-theme-primary-palette,
+  $omv-light-theme-accent-palette,
+  $omv-light-theme-warn-palette
+);
+
+@include angular-material-theme($omv-light-theme);
+
+$mat-typography-config: mat-typography-config();
+
+$omv-color-primary: mat-color(map-get($omv-light-theme, primary));
+$omv-color-primary-complementary: $omv-color-white;
+$omv-color-accent: mat-color(map-get($omv-light-theme, accent));
+$omv-color-accent-complementary: mat-color(map-get($omv-light-theme, accent), default-contrast);
+
+$omv-color-themes: (
+  'primary': (
+    background-color: $omv-color-primary,
+    color: $omv-color-primary-complementary
+  ),
+  'accent': (
+    background-color: $omv-color-accent,
+    color: $omv-color-accent-complementary
+  ),
+  'green': (
+    background-color: $omv-color-green,
+    color: $omv-color-white
+  ),
+  'yellow': (
+    background-color: $omv-color-yellow,
+    color: $omv-color-accent-complementary
+  ),
+  'red': (
+    background-color: $omv-color-red,
+    color: $omv-color-white
+  ),
+  'blue': (
+    background-color: $omv-color-blue,
+    color: $omv-color-white
+  ),
+  'dark': (
+    background-color: $omv-color-black,
+    color: $omv-color-white
+  ),
+  'gray': (
+    background-color: $omv-color-gray,
+    color: $omv-color-white
+  ),
+  'white': (
+    background-color: $omv-color-white,
+    color: rgba(0, 0, 0, 0.87)
+  ),
+  'whitesmoke': (
+    background-color: $omv-color-whitesmoke,
+    color: rgba(0, 0, 0, 0.87)
+  ),
+  'error': (
+    background-color: $omv-color-error,
+    color: $omv-color-white
+  ),
+  'success': (
+    background-color: $omv-color-success,
+    color: $omv-color-white
+  ),
+  'info': (
+    background-color: $omv-color-info,
+    color: $omv-color-white
+  ),
+  'warning': (
+    background-color: $omv-color-warning,
+    color: $omv-color-white
+  )
+);
+
+/******************************************************************************/
+/* Global
+/******************************************************************************/
+
+////////////////////////////////////////////////////////////////////////////////
+// Orientation
+.omv-vertical-align {
+  display: flex;
+  align-items: center;
+}
+.omv-horizontal-align {
+  display: flex;
+  justify-content: center;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Colors
+.omv-color-primary {
+  color: $omv-color-primary;
+}
+.omv-color-accent {
+  color: $omv-color-accent;
+}
+.omv-color-black {
+  color: $omv-color-black;
+}
+.omv-color-gray {
+  color: $omv-color-gray;
+}
+.omv-color-white {
+  color: $omv-color-white;
+}
+.omv-color-green,
+.omv-color-success,
+.omv-color-enabled {
+  color: $omv-color-success;
+}
+.omv-color-red,
+.omv-color-error {
+  color: $omv-color-error;
+}
+.omv-color-yellow,
+.omv-color-warning {
+  color: $omv-color-warning;
+}
+.omv-color-blue,
+.omv-color-info {
+  color: $omv-color-info;
+}
+.omv-color-primary-complementary {
+  color: $omv-color-primary-complementary;
+}
+.omv-color-white-complementary {
+  color: $omv-color-transparent-black;
+}
+
+@each $name, $map in $omv-color-themes {
+  .omv-background-color-theme-#{$name} {
+    color: map-get($map, color);
+    background-color: map-get($map, background-color);
+  }
+}
+.omv-background-color-theme-transparent {
+  background-color: transparent;
+}
+.omv-background-color-theme-tip {
+}
+
+// mat-chip colors must use '!important' to get them applied.
+@each $name, $map in $omv-color-themes {
+  .omv-chip-theme-#{$name} {
+    color: map-get($map, color) !important;
+    background-color: map-get($map, background-color) !important;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Display
+.omv-display-none {
+  display: none !important;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Text
+.omv-text-center {
+  text-align: center !important;
+}
+.omv-text-monospaced {
+  font-family: monospace !important;
+  white-space: pre;
+}
+.omv-text-no-wrap {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.omv-text-no-decoration {
+  text-decoration: none;
+}
+.omv-text-bold {
+  font-weight: bold;
+}
+// Use this when the background color is white.
+.omv-text-color-default {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Icon
+.omv-icon-lg {
+  height: 40px !important;
+  width: 40px !important;
+  flex-shrink: 0;
+}
+// Use this when the background color is white.
+.omv-icon-color-default {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Scrollbar
+@mixin omv-scrollbar {
+  scrollbar-color: $omv-color-primary transparent;
+  scrollbar-width: thin;
+  --scrollbar-border-radius: 0px !important;
+  // Using variables does not work somehow.
+  // --scrollbar-thumb-color: $omv-color-primary;
+  --scrollbar-thumb-color: #5dacdf !important;
+  --scrollbar-thumb-hover-color: var(--scrollbar-thumb-color) !important;
+}
+.omv-scrollable-xy,
+.omv-scrollable-y {
+  @include omv-scrollbar;
+}
+.omv-scrollable-xy {
+  overflow: auto;
+}
+.omv-scrollable-y {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/******************************************************************************/
+/* Customize HTML elements
+/******************************************************************************/
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background-color: $omv-color-corporate-light;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Links
+a {
+  color: inherit;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Textarea
+textarea {
+  @include omv-scrollbar;
+}
+
+/******************************************************************************/
+/* Customize Material
+/******************************************************************************/
+
+////////////////////////////////////////////////////////////////////////////////
+// Select
+.mat-select-panel {
+  @include omv-scrollbar;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Checkbox
+// Workaround for https://github.com/angular/components/issues/8416
+.mat-checkbox-layout {
+  white-space: normal !important;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Menu
+.mat-menu-panel {
+  @include omv-scrollbar;
+}
+.mat-menu-item {
+  border-left: 3px solid transparent !important;
+
+  &.active {
+    border-left: 3px solid $omv-color-corporate-default !important;
+  }
+  &:hover {
+    border-left: 3px solid $omv-color-yellow !important;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Sidenav
+.mat-sidenav-container {
+  height: 100%;
+  background-color: map-get($omv-color-gray-palette, 50);
+}
+.mat-sidenav {
+  background-color: map-get($omv-color-gray-palette, 500);
+
+  .mat-list-base .mat-list-item {
+    color: $omv-color-white;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Dialog
+.mat-dialog-content {
+  font-family: mat-font-family($mat-typography-config);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Buttons
+.mat-flat-button:not(:first-child) {
+  margin-left: 8px !important;
+}
+.mat-button-toggle.mat-button-toggle-checked {
+  @extend .omv-background-color-theme-accent;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Forms
+// Workaround for https://github.com/angular/material2/issues/4580.
+@mixin mat-form-field-multiline-workaround($typography-config: null) {
+  @if $typography-config == null {
+    $typography-config: mat-typography-config();
+  }
+
+  .mat-form-field {
+    // Copy-paste from @mat-form-field-typography();
+    $line-height: mat-line-height($typography-config, input);
+    $subscript-font-scale: 0.75;
+
+    & & {
+      &-underline {
+        position: static;
+      }
+
+      &-subscript-wrapper {
+        $subscript-margin-top: 0.5em / $subscript-font-scale;
+        $subscript-min-height: $line-height * 1em;
+        $subscript-margin-bottom: -#{$subscript-margin-top + $line-height};
+
+        position: static;
+        min-height: $subscript-min-height;
+        margin-bottom: $subscript-margin-bottom;
+      }
+    }
+
+    &-appearance-legacy &-subscript-wrapper {
+      // Copy-paste from @mat-form-field-legacy-typography();
+      $line-spacing: ($line-height - 1) / 2;
+      $subscript-margin-top: 0.5em / $subscript-font-scale - ($line-spacing * 2);
+
+      $subscript-min-height: $line-height * 1em;
+      $subscript-margin-bottom: -#{$subscript-margin-top + $line-height};
+
+      min-height: $subscript-min-height;
+      margin-bottom: $subscript-margin-bottom;
+    }
+  }
+}
+@include mat-form-field-multiline-workaround($mat-typography-config);
+
+/******************************************************************************/
+/* Customize BlockUI
+/******************************************************************************/
+.block-ui-wrapper {
+  background: $omv-color-transparent-black !important;
+}
+
+/******************************************************************************/
+/* Customize ngx-scrollbar
+/******************************************************************************/
+.ng-scrollbar {
+  @include omv-scrollbar;
+}
+
+/******************************************************************************/
+/* Customize Toastr
+/******************************************************************************/
+.ngx-toastr {
+  font-family: mat-font-family($mat-typography-config);
+  font-size: mat-font-size($mat-typography-config, body-1);
+}
+.toast-error {
+  background-color: $omv-color-error;
+}
+.toast-success {
+  background-color: $omv-color-success;
+}
+.toast-info {
+  background-color: $omv-color-info;
+}
+.toast-warning {
+  background-color: $omv-color-yellow;
+}
+
+/******************************************************************************/
+/* Swimlane ngx-charts
+/******************************************************************************/
+ngx-charts-gauge {
+  font-size: mat-font-size($mat-typography-config, body-1);
+}
+ngx-charts-advanced-pie-chart {
+  .advanced-pie-legend {
+    .legend-items-container .legend-items {
+      overflow: initial;
+
+      .legend-item {
+        .item-value {
+          font-size: mat-font-size($mat-typography-config, body-1);
+        }
+
+        .item-label {
+          font-size: mat-font-size($mat-typography-config, caption);
+        }
+
+        .item-percent {
+          font-size: mat-font-size($mat-typography-config, body-1);
+        }
+      }
+    }
+    .total-value {
+      font-size: mat-font-size($mat-typography-config, subheading-2);
+    }
+    .total-label {
+      font-size: mat-font-size($mat-typography-config, body-1);
+    }
+  }
+}
+
+/******************************************************************************/
+/* Customize openmediavault components & directives
+/******************************************************************************/
+
+////////////////////////////////////////////////////////////////////////////////
+// Datatable
+.omv-datatable-cell-title {
+  font-weight: mat-font-weight($mat-typography-config, title);
+  font-size: mat-font-size($mat-typography-config, title);
+}
+.omv-datatable-cell-subtitle {
+  font-size: mat-font-size($mat-typography-config, subheading-2);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Customize 'sticky' directive
+.omv-sticky {
+  position: sticky;
+  top: 0px;
+  overflow: hidden;
+  z-index: $cdk-z-index-overlay + 1;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}

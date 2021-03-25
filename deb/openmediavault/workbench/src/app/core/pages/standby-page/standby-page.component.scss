@@ -1,0 +1,28 @@
+@import 'src/styles';
+
+.omv-standby-page {
+  @extend .omv-background-color-theme-primary;
+
+  align-items: center;
+  background-image: url('../../../../assets/images/openmediavault_logo.svg');
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  background-position: center bottom $omv-margin;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+
+  .omv-standby-page-icon,
+  .omv-standby-page-icon-background {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .omv-standby-page-icon-background {
+    width: 14%;
+    height: 14%;
+  }
+}

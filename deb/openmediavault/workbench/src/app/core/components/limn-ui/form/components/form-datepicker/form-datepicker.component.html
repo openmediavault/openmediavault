@@ -1,0 +1,23 @@
+<mat-form-field fxFlex
+                [formGroup]="formGroup">
+  <mat-label>{{ config.label }}</mat-label>
+  <input matInput
+         [formControlName]="config.name"
+         [matDatepicker]="picker"
+         [placeholder]="config.placeholder"
+         [required]="config.validators?.required"
+         [min]="config.validators?.min"
+         [max]="config.validators?.max">
+  <mat-datepicker-toggle matSuffix
+                         [for]="picker">
+  </mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+  <mat-error *ngIf="formGroup.invalid">
+    <span *ngIf="formGroup.hasError('required', config.name)">
+      This field is required.
+    </span>
+  </mat-error>
+  <mat-hint *ngIf="config.hint?.length > 0"
+            [innerHTML]="config.hint">
+  </mat-hint>
+</mat-form-field>

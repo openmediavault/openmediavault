@@ -1,0 +1,13 @@
+<mat-form-field fxFlex
+                [formGroup]="formGroup">
+  <mat-label>{{ config.label | translate }}</mat-label>
+  <mat-form-button [formControlName]="config.name"
+                   [autofocus]="config.autofocus"
+                   matTooltip="{{ config.tooltip | translate }}"
+                   (click)="onClick()">
+    {{ config.text | translate }}
+  </mat-form-button>
+  <mat-hint *ngIf="config.hint?.length > 0"
+            [innerHTML]="config.hint | translate">
+  </mat-hint>
+</mat-form-field>

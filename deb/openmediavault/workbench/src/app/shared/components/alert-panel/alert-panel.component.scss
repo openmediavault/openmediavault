@@ -1,0 +1,12 @@
+@import 'src/defaults';
+
+.mat-card {
+  margin: $omv-margin;
+
+  .mat-icon {
+    margin-right: 16px;
+  }
+  .mat-card-content {
+    margin-bottom: unset;
+  }
+}

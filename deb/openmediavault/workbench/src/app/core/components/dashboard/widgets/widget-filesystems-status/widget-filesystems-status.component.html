@@ -1,0 +1,36 @@
+<mat-progress-bar *ngIf="loading && firstLoad"
+                  mode="indeterminate">
+</mat-progress-bar>
+<div *ngIf="data"
+     class="omv-dashboard-widget-filesystems-status"
+     gdGap="8px"
+     gdColumns="repeat(auto-fit, minmax(100px, 1fr))">
+  <div *ngFor="let item of data.data"
+       class="item"
+       [ngClass]="{'error': item.status === 3, 'warning': (item.status === 1) && !item.mounted}"
+       fxLayout="column"
+       fxLayoutAlign="start stretch">
+    <div class="item-text omv-text-no-wrap">
+      {{ item.canonicaldevicefile }}
+    </div>
+    <div *ngIf="item.mounted"
+         class="item-subtext omv-text-no-wrap">
+      {{ item.size | binaryUnit }}
+    </div>
+    <omv-progress-bar *ngIf="item.mounted"
+                      class="item-subtext"
+                      [value]="item.percentage | max:0"
+                      warningThreshold="85">
+    </omv-progress-bar>
+    <div *ngIf="(item.status === 1) && !item.mounted"
+         class="item-subtext omv-text-no-wrap"
+         translate>
+      Not mounted
+    </div>
+    <div *ngIf="item.status === 3"
+         class="item-subtext omv-text-no-wrap"
+         translate>
+      Missing
+    </div>
+  </div>
+</div>

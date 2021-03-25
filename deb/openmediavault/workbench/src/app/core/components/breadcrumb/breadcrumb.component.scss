@@ -1,0 +1,38 @@
+@import '~@angular/material/theming';
+@import 'src/defaults';
+
+$mat-typography-config: mat-typography-config();
+
+.breadcrumb {
+  float: left;
+  height: 40px !important;
+  min-height: 40px !important;
+  padding: 0 $omv-padding;
+
+  .breadcrumb-list {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      float: left;
+      line-height: 40px;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+  }
+
+  .mat-button {
+    @include mat-typography-level-to-styles($mat-typography-config, subheading-2);
+  }
+
+  .mat-divider {
+    border-color: inherit;
+    display: unset;
+    margin-left: $omv-margin / 3;
+    margin-right: $omv-margin / 3;
+  }
+}

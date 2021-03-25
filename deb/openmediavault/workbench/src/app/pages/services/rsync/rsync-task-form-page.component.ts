@@ -1,0 +1,684 @@
+import { Component } from '@angular/core';
+import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
+
+import { FormPageConfig } from '~/app/core/components/limn-ui/models/form-page-config.type';
+
+@Component({
+  template: '<omv-limn-form-page [config]="this.config"></omv-limn-form-page>'
+})
+export class RsyncTaskFormPageComponent {
+  public config: FormPageConfig = {
+    request: {
+      service: 'Rsync',
+      get: {
+        method: 'get',
+        params: {
+          uuid: '{{ _routeParams.uuid }}'
+        }
+      },
+      post: {
+        method: 'set'
+      }
+    },
+    fields: [
+      /* eslint-disable max-len */
+      {
+        type: 'confObjUuid'
+      },
+      {
+        type: 'checkbox',
+        name: 'enable',
+        label: gettext('Enabled'),
+        value: true
+      },
+      {
+        type: 'select',
+        name: 'type',
+        label: gettext('Type'),
+        value: 'local',
+        store: {
+          data: [
+            ['local', gettext('Local')],
+            ['remote', gettext('Remote')]
+          ]
+        }
+      },
+      {
+        type: 'select',
+        name: 'mode',
+        label: gettext('Mode'),
+        value: 'push',
+        store: {
+          data: [
+            ['push', gettext('Push')],
+            ['pull', gettext('Pull')]
+          ]
+        },
+        modifiers: [
+          {
+            type: 'visible',
+            constraint: { operator: 'eq', arg0: { prop: 'type' }, arg1: 'remote' }
+          }
+        ]
+      },
+      {
+        type: 'sharedFolderSelect',
+        name: 'srcsharedfolderref',
+        hasEmptyOption: true,
+        label: gettext('Source shared folder'),
+        hint: gettext('The source shared folder.'),
+        modifiers: [
+          {
+            type: 'hidden',
+            constraint: {
+              operator: 'not',
+              arg0: {
+                operator: 'or',
+                arg0: { operator: 'eq', arg0: { prop: 'type' }, arg1: 'local' },
+                arg1: {
+                  operator: 'and',
+                  arg0: { operator: 'eq', arg0: { prop: 'type' }, arg1: 'remote' },
+                  arg1: { operator: 'eq', arg0: { prop: 'mode' }, arg1: 'push' }
+                }
+              }
+            }
+          }
+        ],
+        validators: {
+          requiredIf: {
+            operator: 'or',
+            arg0: { operator: 'eq', arg0: { prop: 'type' }, arg1: 'local' },
+            arg1: {
+              operator: 'and',
+              arg0: { operator: 'eq', arg0: { prop: 'type' }, arg1: 'remote' },
+              arg1: { operator: 'eq', arg0: { prop: 'mode' }, arg1: 'push' }
+            }
+          }
+        }
+      },
+      {
+        type: 'textInput',
+        name: 'srcuri',
+        label: gettext('Source server'),
+        value: '',
+        hint: gettext(
+          'The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or rsync://[USER@]HOST[:PORT]/SRC.'
+        ),
+        modifiers: [
+          {
+            type: 'hidden',
+            constraint: {
+              operator: 'not',
+              arg0: {
+                operator: 'and',
+                arg0: { operator: 'eq', arg0: { prop: 'type' }, arg1: 'remote' },
+                arg1: { operator: 'eq', arg0: { prop: 'mode' }, arg1: 'pull' }
+              }
+            }
+          }
+        ],
+        validators: {
+          requiredIf: {
+            operator: 'and',
+            arg0: { operator: 'eq', arg0: { prop: 'type' }, arg1: 'remote' },
+            arg1: { operator: 'eq', arg0: { prop: 'mode' }, arg1: 'pull' }
+          }
+        }
+      },
+
+      {
+        type: 'sharedFolderSelect',
+        name: 'destsharedfolderref',
+        hasEmptyOption: true,
+        label: gettext('Destination shared folder'),
+        hint: gettext('The destination shared folder.'),
+        modifiers: [
+          {
+            type: 'hidden',
+            constraint: {
+              operator: 'not',
+              arg0: {
+                operator: 'or',
+                arg0: { operator: 'eq', arg0: { prop: 'type' }, arg1: 'local' },
+                arg1: {
+                  operator: 'and',
+                  arg0: { operator: 'eq', arg0: { prop: 'type' }, arg1: 'remote' },
+                  arg1: { operator: 'eq', arg0: { prop: 'mode' }, arg1: 'pull' }
+                }
+              }
+            }
+          }
+        ],
+        validators: {
+          requiredIf: {
+            operator: 'or',
+            arg0: { operator: 'eq', arg0: { prop: 'type' }, arg1: 'local' },
+            arg1: {
+              operator: 'and',
+              arg0: { operator: 'eq', arg0: { prop: 'type' }, arg1: 'remote' },
+              arg1: { operator: 'eq', arg0: { prop: 'mode' }, arg1: 'pull' }
+            }
+          }
+        }
+      },
+      {
+        type: 'textInput',
+        name: 'desturi',
+        label: gettext('Destination server'),
+        value: '',
+        hint: gettext(
+          'The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or rsync://[USER@]HOST[:PORT]/DEST.'
+        ),
+        modifiers: [
+          {
+            type: 'hidden',
+            constraint: {
+              operator: 'not',
+              arg0: {
+                operator: 'and',
+                arg0: { operator: 'eq', arg0: { prop: 'type' }, arg1: 'remote' },
+                arg1: { operator: 'eq', arg0: { prop: 'mode' }, arg1: 'push' }
+              }
+            }
+          }
+        ],
+        validators: {
+          requiredIf: {
+            operator: 'and',
+            arg0: { operator: 'eq', arg0: { prop: 'type' }, arg1: 'remote' },
+            arg1: { operator: 'eq', arg0: { prop: 'mode' }, arg1: 'push' }
+          }
+        }
+      },
+      {
+        type: 'select',
+        name: 'authentication',
+        label: gettext('Authentication'),
+        placeholder: gettext('Select an authentication mode ...'),
+        value: 'password',
+        store: {
+          data: [
+            ['password', gettext('Password')],
+            ['pubkey', gettext('Public key')]
+          ]
+        },
+        modifiers: [
+          {
+            type: 'hidden',
+            constraint: { operator: 'eq', arg0: { prop: 'type' }, arg1: 'local' }
+          }
+        ]
+      },
+
+      {
+        type: 'numberInput',
+        name: 'sshport',
+        label: gettext('SSH port'),
+        value: 22,
+        modifiers: [
+          {
+            type: 'hidden',
+            constraint: {
+              operator: 'or',
+              arg0: { operator: 'eq', arg0: { prop: 'type' }, arg1: 'local' },
+              arg1: { operator: 'eq', arg0: { prop: 'authentication' }, arg1: 'password' }
+            }
+          }
+        ],
+        validators: {
+          min: 1,
+          max: 65535,
+          requiredIf: {
+            operator: 'and',
+            arg0: { operator: 'eq', arg0: { prop: 'type' }, arg1: 'remote' },
+            arg1: { operator: 'eq', arg0: { prop: 'authentication' }, arg1: 'pubkey' }
+          }
+        }
+      },
+      {
+        type: 'sslCertSelect',
+        name: 'sshcertificateref',
+        hasEmptyOption: true,
+        label: gettext('SSH certificate'),
+        hint: gettext('The SSH certificate used for authentication.'),
+        modifiers: [
+          {
+            type: 'hidden',
+            constraint: {
+              operator: 'or',
+              arg0: { operator: 'eq', arg0: { prop: 'type' }, arg1: 'local' },
+              arg1: { operator: 'eq', arg0: { prop: 'authentication' }, arg1: 'password' }
+            }
+          }
+        ],
+        validators: {
+          requiredIf: {
+            operator: 'and',
+            arg0: { operator: 'eq', arg0: { prop: 'type' }, arg1: 'remote' },
+            arg1: { operator: 'eq', arg0: { prop: 'authentication' }, arg1: 'pubkey' }
+          }
+        }
+      },
+      {
+        type: 'passwordInput',
+        name: 'password',
+        label: gettext('Password'),
+        hint: gettext(
+          'The password that is used for access via rsync daemon. Note, this is not used for remote shell transport such as SSH.'
+        ),
+        value: '',
+        autocomplete: 'new-password',
+        modifiers: [
+          {
+            type: 'hidden',
+            constraint: {
+              operator: 'or',
+              arg0: { operator: 'eq', arg0: { prop: 'type' }, arg1: 'local' },
+              arg1: { operator: 'eq', arg0: { prop: 'authentication' }, arg1: 'pubkey' }
+            }
+          }
+        ],
+        validators: {
+          requiredIf: {
+            operator: 'and',
+            arg0: { operator: 'eq', arg0: { prop: 'type' }, arg1: 'remote' },
+            arg1: { operator: 'eq', arg0: { prop: 'authentication' }, arg1: 'password' }
+          }
+        }
+      },
+      {
+        type: 'container',
+        fields: [
+          {
+            type: 'select',
+            name: 'minute',
+            label: gettext('Minute'),
+            value: '{{ moment("H:mm:ss") | split(":") | get(1) }}',
+            store: {
+              data: [
+                ['*', '*'],
+                ['0', '0'],
+                ['1', '1'],
+                ['2', '2'],
+                ['3', '3'],
+                ['4', '4'],
+                ['5', '5'],
+                ['6', '6'],
+                ['7', '7'],
+                ['8', '8'],
+                ['9', '9'],
+                ['10', '10'],
+                ['11', '11'],
+                ['12', '12'],
+                ['13', '13'],
+                ['14', '14'],
+                ['15', '15'],
+                ['16', '16'],
+                ['17', '17'],
+                ['18', '18'],
+                ['19', '19'],
+                ['20', '20'],
+                ['21', '21'],
+                ['22', '22'],
+                ['23', '23'],
+                ['24', '24'],
+                ['25', '25'],
+                ['26', '26'],
+                ['27', '27'],
+                ['28', '28'],
+                ['29', '29'],
+                ['30', '30'],
+                ['31', '31'],
+                ['32', '32'],
+                ['33', '33'],
+                ['34', '34'],
+                ['35', '35'],
+                ['36', '36'],
+                ['37', '37'],
+                ['38', '38'],
+                ['39', '39'],
+                ['40', '40'],
+                ['41', '41'],
+                ['42', '42'],
+                ['43', '43'],
+                ['44', '44'],
+                ['45', '45'],
+                ['46', '46'],
+                ['47', '47'],
+                ['48', '48'],
+                ['49', '49'],
+                ['50', '50'],
+                ['51', '51'],
+                ['52', '52'],
+                ['53', '53'],
+                ['54', '54'],
+                ['55', '55'],
+                ['56', '56'],
+                ['57', '57'],
+                ['58', '58'],
+                ['59', '59']
+              ]
+            }
+          },
+          {
+            type: 'checkbox',
+            name: 'everynminute',
+            label: gettext('Every N minute'),
+            value: false
+          }
+        ]
+      },
+      {
+        type: 'container',
+        fields: [
+          {
+            type: 'select',
+            name: 'hour',
+            label: gettext('Hour'),
+            value: '{{ moment("H:mm:ss") | split(":") | get(0) }}',
+            store: {
+              data: [
+                ['*', '*'],
+                ['0', '0'],
+                ['1', '1'],
+                ['2', '2'],
+                ['3', '3'],
+                ['4', '4'],
+                ['5', '5'],
+                ['6', '6'],
+                ['7', '7'],
+                ['8', '8'],
+                ['9', '9'],
+                ['10', '10'],
+                ['11', '11'],
+                ['12', '12'],
+                ['13', '13'],
+                ['14', '14'],
+                ['15', '15'],
+                ['16', '16'],
+                ['17', '17'],
+                ['18', '18'],
+                ['19', '19'],
+                ['20', '20'],
+                ['21', '21'],
+                ['22', '22'],
+                ['23', '23']
+              ]
+            }
+          },
+          {
+            type: 'checkbox',
+            name: 'everynhour',
+            label: gettext('Every N hour'),
+            value: false
+          }
+        ]
+      },
+      {
+        type: 'container',
+        fields: [
+          {
+            type: 'select',
+            name: 'dayofmonth',
+            label: gettext('Day of month'),
+            value: '*',
+            store: {
+              data: [
+                ['*', '*'],
+                ['1', '1'],
+                ['2', '2'],
+                ['3', '3'],
+                ['4', '4'],
+                ['5', '5'],
+                ['6', '6'],
+                ['7', '7'],
+                ['8', '8'],
+                ['9', '9'],
+                ['10', '10'],
+                ['11', '11'],
+                ['12', '12'],
+                ['13', '13'],
+                ['14', '14'],
+                ['15', '15'],
+                ['16', '16'],
+                ['17', '17'],
+                ['18', '18'],
+                ['19', '19'],
+                ['20', '20'],
+                ['21', '21'],
+                ['22', '22'],
+                ['23', '23'],
+                ['24', '24'],
+                ['25', '25'],
+                ['26', '26'],
+                ['27', '27'],
+                ['28', '28'],
+                ['29', '29'],
+                ['30', '30'],
+                ['31', '31']
+              ]
+            }
+          },
+          {
+            type: 'checkbox',
+            name: 'everyndayofmonth',
+            label: gettext('Every N day of month'),
+            value: false
+          }
+        ]
+      },
+      {
+        type: 'select',
+        name: 'month',
+        label: gettext('Month'),
+        value: '*',
+        store: {
+          data: [
+            ['*', '*'],
+            ['1', gettext('January')],
+            ['2', gettext('February')],
+            ['3', gettext('March')],
+            ['4', gettext('April')],
+            ['5', gettext('May')],
+            ['6', gettext('June')],
+            ['7', gettext('July')],
+            ['8', gettext('August')],
+            ['9', gettext('September')],
+            ['10', gettext('October')],
+            ['11', gettext('November')],
+            ['12', gettext('December')]
+          ]
+        }
+      },
+      {
+        type: 'select',
+        name: 'dayofweek',
+        label: gettext('Day of week'),
+        value: '*',
+        store: {
+          data: [
+            ['*', '*'],
+            ['1', gettext('Monday')],
+            ['2', gettext('Tuesday')],
+            ['3', gettext('Wednesday')],
+            ['4', gettext('Thursday')],
+            ['5', gettext('Friday')],
+            ['6', gettext('Saturday')],
+            ['7', gettext('Sunday')]
+          ]
+        }
+      },
+      {
+        type: 'checkbox',
+        name: 'sendemail',
+        label: gettext('Send command output via email'),
+        value: false,
+        hint: gettext(
+          'An email message with the command output (if any produced) is send to the administrator.'
+        )
+      },
+      {
+        type: 'checkbox',
+        name: 'optiondryrun',
+        label: gettext('Trial run'),
+        hint: gettext('Perform a trial run with no changes made'),
+        value: false
+      },
+      {
+        type: 'checkbox',
+        name: 'optionquiet',
+        label: gettext('Suppress non-error messages'),
+        value: false
+      },
+      {
+        type: 'checkbox',
+        name: 'optionarchive',
+        label: gettext('Archive mode'),
+        value: true
+      },
+      {
+        type: 'checkbox',
+        name: 'optionrecursive',
+        label: gettext('Recurse into directories'),
+        value: true,
+        modifiers: [
+          {
+            type: 'checked',
+            opposite: false,
+            constraint: { operator: 'truthy', arg0: { prop: 'optionarchive' } }
+          }
+        ]
+      },
+      {
+        type: 'checkbox',
+        name: 'optionperms',
+        label: gettext('Preserve permissions'),
+        hint: gettext('Set the destination permissions to be the same as the source permissions.'),
+        value: true,
+        modifiers: [
+          {
+            type: 'checked',
+            opposite: false,
+            constraint: { operator: 'truthy', arg0: { prop: 'optionarchive' } }
+          }
+        ]
+      },
+      {
+        type: 'checkbox',
+        name: 'optiontimes',
+        label: gettext('Preserve modification times'),
+        hint: gettext(
+          'Transfer modification times along with the files and update them on the remote system.'
+        ),
+        value: true,
+        modifiers: [
+          {
+            type: 'checked',
+            opposite: false,
+            constraint: { operator: 'truthy', arg0: { prop: 'optionarchive' } }
+          }
+        ]
+      },
+      {
+        type: 'checkbox',
+        name: 'optiongroup',
+        label: gettext('Preserve group'),
+        hint: gettext('"Set the group of the destination file to be the same as the source file.'),
+        value: true,
+        modifiers: [
+          {
+            type: 'checked',
+            opposite: false,
+            constraint: { operator: 'truthy', arg0: { prop: 'optionarchive' } }
+          }
+        ]
+      },
+      {
+        type: 'checkbox',
+        name: 'optionowner',
+        label: gettext('Preserve owner'),
+        hint: gettext(
+          'Set the owner of the destination file to be the same as the source file, but only if the receiving rsync is being run as the super-user.'
+        ),
+        value: true,
+        modifiers: [
+          {
+            type: 'checked',
+            opposite: false,
+            constraint: { operator: 'truthy', arg0: { prop: 'optionarchive' } }
+          }
+        ]
+      },
+      {
+        type: 'checkbox',
+        name: 'optioncompress',
+        label: gettext('Compress'),
+        hint: gettext('Compress file data during the transfer.'),
+        value: false
+      },
+      {
+        type: 'checkbox',
+        name: 'optionacls',
+        label: gettext('Preserve ACLs'),
+        hint: gettext('Update the destination ACLs to be the same as the source ACLs.'),
+        value: false
+      },
+      {
+        type: 'checkbox',
+        name: 'optionxattrs',
+        label: gettext('Preserve extended attributes'),
+        hint: gettext(
+          'Update the destination extended attributes to be the same as the local ones.'
+        ),
+        value: false
+      },
+      {
+        type: 'checkbox',
+        name: 'optionpartial',
+        label: gettext('Keep partially transferred files'),
+        hint: gettext(
+          'Enable this option to keep partially transferred files, otherwise they will be deleted if the transfer is interrupted.'
+        ),
+        value: false
+      },
+      {
+        type: 'checkbox',
+        name: 'optiondelete',
+        label: gettext('Delete'),
+        hint: gettext('Delete files on the receiving side that don\'t exist on sender.'),
+        value: false
+      },
+      {
+        type: 'textarea',
+        name: 'extraoptions',
+        label: gettext('Extra options'),
+        hint: gettext(
+          'Please check the <a href="http://www.samba.org/ftp/rsync/rsync.html" target="_blank">manual page</a> for more details.'
+        ),
+        value: ''
+      },
+      {
+        type: 'textInput',
+        name: 'comment',
+        label: gettext('Comment'),
+        value: ''
+      }
+    ],
+    buttons: [
+      {
+        template: 'submit',
+        execute: {
+          type: 'url',
+          url: '/services/rsync/tasks'
+        }
+      },
+      {
+        template: 'cancel',
+        execute: {
+          type: 'url',
+          url: '/services/rsync/tasks'
+        }
+      }
+    ]
+  };
+}

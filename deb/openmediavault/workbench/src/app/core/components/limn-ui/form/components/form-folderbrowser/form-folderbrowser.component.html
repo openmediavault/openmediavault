@@ -1,0 +1,108 @@
+<mat-form-field #origin="cdkOverlayOrigin"
+                #trigger
+                cdkOverlayOrigin
+                fxFlex
+                [formGroup]="formGroup">
+  <div *ngIf="config.icon"
+       matPrefix>
+    <mat-icon [svgIcon]="config.icon"></mat-icon>
+  </div>
+  <mat-label>{{ config.label | translate }}</mat-label>
+  <input
+         matInput
+         type="text"
+         [ngClass]="{'omv-text-monospaced': config.monospaced}"
+         [formControlName]="config.name"
+         [placeholder]="config.placeholder | translate"
+         [readonly]="config.readonly"
+         [autofocus]="config.autofocus"
+         [required]="config.validators?.required"
+         [minlength]="config.validators?.minLength"
+         [maxlength]="config.validators?.maxLength">
+  <mat-icon *ngIf="formGroup.controls[config.dirRefIdField].value"
+            class="omv-icon-color-default"
+            matSuffix
+            svgIcon="mdi:file-tree"
+            matTooltip="{{ 'Browse directory' | translate }}"
+            (click)="open()">
+  </mat-icon>
+  <mat-error *ngIf="formGroup.invalid">
+    <span *ngIf="formGroup.hasError('required', config.name)"
+          translate>
+      This field is required.
+    </span>
+    <span *ngIf="formGroup.hasError('minlength', config.name)"
+          translate>
+      The value must be at least {{ config.validators.minLength }} characters long.
+    </span>
+    <span *ngIf="formGroup.hasError('maxlength', config.name)"
+          translate>
+      The value cannot exceed {{ config.validators.maxLength }} characters.
+    </span>
+    <span *ngIf="formGroup.hasError('constraint', config.name)">
+      {{ formGroup.getError('constraint', config.name) | translate }}
+    </span>
+    <span *ngIf="formGroup.hasError('pattern', config.name)">
+      {{ formGroup.getError('pattern', config.name) | translate }}
+    </span>
+  </mat-error>
+  <mat-hint *ngIf="config.hint?.length > 0"
+            [innerHTML]="config.hint | translate">
+  </mat-hint>
+</mat-form-field>
+
+<ng-template cdkConnectedOverlay
+             cdkConnectedOverlayLockPosition
+             cdkConnectedOverlayHasBackdrop
+             cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"
+             [cdkConnectedOverlayPositions]="positions"
+             [cdkConnectedOverlayOrigin]="origin"
+             [cdkConnectedOverlayOpen]="isOpen"
+             [cdkConnectedOverlayMinWidth]="triggerRect?.width!"
+             (backdropClick)="close()"
+             (detach)="close()">
+  <div class="mat-select-panel-wrap">
+    <div class="mat-select-panel mat-primary"
+         fxLayout="column">
+      <div class="omv-scrollable-y">
+        <mat-selection-list [multiple]="false"
+                            (selectionChange)="onSelectionChange($event)">
+          <mat-list-option *ngIf="!folders.length"
+                           disabled>
+            <mat-icon matListIcon
+                      svgIcon="{{ icon.folder }}"></mat-icon>
+            <span class="mat-option-text">.</span>
+          </mat-list-option>
+          <mat-list-option *ngFor="let folder of folders"
+                           [value]="folder">
+            <mat-icon *ngIf="'..' === folder"
+                      matListIcon
+                      svgIcon="{{ icon.chevronUp }}"></mat-icon>
+            <mat-icon *ngIf="!['..'].includes(folder)"
+                      matListIcon
+                      svgIcon="{{ icon.folder }}"></mat-icon>
+            <span class="mat-option-text">{{ folder }}</span>
+          </mat-list-option>
+        </mat-selection-list>
+      </div>
+      <div class="omv-selection-actions"
+           fxLayout="row"
+           fxLayoutAlign="center">
+        <input type="text"
+               readonly
+               [value]="buildCurrentPath()">
+        <span fxFlex></span>
+        <button mat-flat-button
+                class="omv-background-color-theme-accent"
+                (click)="close()">
+          {{ 'Cancel' | translate }}
+        </button>
+        <button mat-flat-button
+                class="omv-background-color-theme-primary"
+                (click)="choose()">
+          {{ 'Choose' | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-template>

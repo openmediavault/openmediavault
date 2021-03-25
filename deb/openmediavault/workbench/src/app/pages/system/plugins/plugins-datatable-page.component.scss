@@ -1,0 +1,13 @@
+@import 'styles.scss';
+
+$mat-typography-config: mat-typography-config();
+
+.omv-datatable-cell-package-info {
+  .omv-datatable-cell-header {
+    align-items: center;
+
+    .mat-chip-list {
+      margin-left: 24px;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.mat-card {
+  box-shadow: unset;
+  position: relative;
+  padding: unset;
+  border-radius: unset;
+  background: transparent;
+  margin: unset;
+}
+omv-submit-button:not(:first-child) {
+  margin-left: 8px !important;
+}
