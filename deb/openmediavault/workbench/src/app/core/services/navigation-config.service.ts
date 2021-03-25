@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
-import { BehaviorSubject, Observable, of } from "rxjs";
-import { catchError, map, tap } from "rxjs/operators";
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { Permissions } from '~/app/shared/models/permissions.model';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
