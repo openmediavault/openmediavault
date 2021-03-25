@@ -1,5 +1,4 @@
 usr/share/openmediavault/* usr/share/openmediavault/
 usr/bin/* usr/bin/
 etc/rsyslog.d/* etc/rsyslog.d/
-var/www/openmediavault/* var/www/openmediavault/
 srv/* srv/

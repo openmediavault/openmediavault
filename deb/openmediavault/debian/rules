@@ -6,24 +6,27 @@
 include ../openmediavault.mk
 
 %:
-	dh $@ --with systemd
+	dh $@
+
+override_dh_auto_clean:
+	rm -rf workbench/node_modules/
+	rm -rf workbench/dist/
+
+override_dh_auto_build:
+	cd workbench && npm install
+	cd workbench && npm run build:prod
+
+override_dh_auto_install:
+	dh_install --verbose workbench/dist/openmediavault-workbench/* var/www/openmediavault
 
 override_dh_installinit:
 	# Install the /etc/default/openmediavault file.
 	dh_installinit --noscripts --name=openmediavault
 
-override_dh_systemd_enable:
-	dh_systemd_enable --name=openmediavault-beep-up
-	dh_systemd_enable --name=openmediavault-beep-down
-	dh_systemd_enable --name=openmediavault-cleanup-monit
-	dh_systemd_enable --name=openmediavault-cleanup-php
-	dh_systemd_enable --name=openmediavault-engined
-	dh_systemd_enable --name=openmediavault-issue
-
-override_dh_systemd_start:
-	dh_systemd_start -r --no-start --name=openmediavault-beep-up
-	dh_systemd_start -r --no-start --name=openmediavault-beep-down
-	dh_systemd_start -r --no-start --name=openmediavault-cleanup-monit
-	dh_systemd_start -r --no-start --name=openmediavault-cleanup-php
-	dh_systemd_start -r --no-start --name=openmediavault-engined
-	dh_systemd_start -r --no-start --name=openmediavault-issue
+override_dh_installsystemd:
+	dh_installsystemd -r --no-start --name=openmediavault-beep-up
+	dh_installsystemd -r --no-start --name=openmediavault-beep-down
+	dh_installsystemd -r --no-start --name=openmediavault-cleanup-monit
+	dh_installsystemd -r --no-start --name=openmediavault-cleanup-php
+	dh_installsystemd -r --no-start --name=openmediavault-engined
+	dh_installsystemd -r --no-start --name=openmediavault-issue

@@ -1,0 +1,28 @@
+<div class="omv-login-page">
+  <div class="omv-login-page-background"></div>
+  <div class="omv-login-page-logo"></div>
+  <div class="omv-login-page-content"
+       fxLayout="column">
+    <mat-toolbar fxLayout="row"
+                 fxLayoutAlign="end center">
+      <button mat-icon-button
+              matTooltip="{{ 'Language' | translate }}"
+              [matMenuTriggerFor]="localeMenu">
+        <mat-icon svgIcon="mdi:earth"
+                  class="omv-color-white">
+        </mat-icon>
+      </button>
+    </mat-toolbar>
+    <omv-limn-form-page [config]="this.config"></omv-limn-form-page>
+  </div>
+</div>
+
+<mat-menu #localeMenu="matMenu">
+  <button *ngFor="let locale of locales | keyvalue"
+          mat-menu-item
+          [ngClass]="{'active': locale.key === currentLocale}"
+          [disabled]="locale.key === currentLocale"
+          (click)="onSelectLocale(locale.key)">
+    <span>{{ locale.value }}</span>
+  </button>
+</mat-menu>

@@ -365,6 +365,7 @@ class System extends \OMV\Rpc\ServiceAbstract {
 				"cpuModelName" => $cpuStats['modelname'],
 				"cpuUsage" => $cpuStats['usage'],
 				"memTotal" => $memStats['mem']['total'],
+				"memFree" => $memStats['mem']['free'],
 				"memUsed" => $memStats['mem']['used'],
 				"kernel" => sprintf("%s %s", $uname['sysname'],
 					$uname['release']),

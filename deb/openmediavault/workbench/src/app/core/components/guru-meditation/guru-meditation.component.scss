@@ -1,0 +1,28 @@
+.message {
+  background-color: #000000;
+  padding: 12px 0px 12px 0px;
+  border: solid 6px #ff0000;
+  color: #f72000;
+  font-family: courier, 'Courier New', monospace;
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+  -webkit-animation: omv-guru-meditation-flash 2s infinite;
+  -moz-animation: omv-guru-meditation-flash 2s infinite;
+  -o-animation: omv-guru-meditation-flash 2s infinite;
+  animation: omv-guru-meditation-flash 2s infinite;
+}
+@keyframes omv-guru-meditation-flash {
+  0% {
+    border-color: #ff0000;
+  }
+  50% {
+    border-color: #ff0000;
+  }
+  51% {
+    border-color: #000000;
+  }
+  100% {
+    border-color: #000000;
+  }
+}

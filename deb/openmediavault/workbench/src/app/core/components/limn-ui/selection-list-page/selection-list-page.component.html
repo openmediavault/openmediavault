@@ -1,0 +1,48 @@
+<ng-container *ngIf="loading">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  <omv-alert-panel type="info">
+    {{ "Please wait, the data is being loaded ..." | translate }}
+  </omv-alert-panel>
+</ng-container>
+<omv-alert-panel *ngIf="error && !loading"
+                 type="error">
+  {{ error | httpErrorResponse:'message' }}
+</omv-alert-panel>
+<mat-card [ngClass]="{'omv-display-none': loading || error}">
+  <mat-card-title-group *ngIf="config.title || config.subTitle">
+    <mat-card-title *ngIf="config.title">
+      {{ config.title | translate }}
+    </mat-card-title>
+    <mat-card-subtitle *ngIf="config.subTitle">
+      {{ config.subTitle | translate }}
+    </mat-card-subtitle>
+  </mat-card-title-group>
+  <mat-card-content>
+    <mat-selection-list #list
+                        [multiple]="config.multiple"
+                        (selectionChange)="onSelectionChange($event)">
+      <mat-list-option *ngFor="let option of config.store.data"
+                       checkboxPosition="before"
+                       [value]="option[config.valueProp]"
+                       [selected]="config.value.includes(option[config.valueProp])">
+        {{ option[config.textProp] | translate }}
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-card-content>
+  <mat-card-actions *ngIf="config.buttons.length"
+                    [fxLayoutAlign]="config.buttonAlign">
+    <ng-container *ngFor="let button of config.buttons">
+      <omv-submit-button *ngIf="button.template === 'submit'"
+                         [disabled]="pristine"
+                         (buttonClick)="onButtonClick(button)">
+        {{ button.text | translate }}
+      </omv-submit-button>
+      <button *ngIf="button.template !== 'submit'"
+              mat-flat-button
+              [class]="button.class ? button.class : 'omv-background-color-theme-accent'"
+              (click)="onButtonClick(button)">
+        {{ button.text | translate }}
+      </button>
+    </ng-container>
+  </mat-card-actions>
+</mat-card>

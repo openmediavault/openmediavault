@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "diagnostics.services.nut"
+  text: _("UPS")
+  icon: "mdi:car-battery"
+  url: "/diagnostics/services/nut"

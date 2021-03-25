@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "storage.smart"
+  position: 30
+  text: _("S.M.A.R.T.")
+  icon: "mdi:pulse"
+  url: "/storage/smart"

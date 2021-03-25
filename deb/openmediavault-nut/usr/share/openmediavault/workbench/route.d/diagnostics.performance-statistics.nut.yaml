@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/diagnostics/performance-statistics/nut"
+  title: _("UPS")
+  component: omv-diagnostics-performance-statistics-nut-rrd-page

@@ -134,31 +134,11 @@ class System {
 
 	/**
 	 * Tell how long the system has been running.
-	 * @param indexed Set to FALSE to get the uptime as string, otherwise an
-	 *   indexed array with the fields \em seconds, \em minutes, \em hours
-	 *   and \em days will be returned. Defaults to FALSE.
-	 * @return The uptime as formated string, indexed array or FALSE on
-	 *   failure.
+	 * @return The uptime in seconds.
 	 */
-	public static function uptime($indexed = FALSE) {
+	public static function uptime(): float {
 		$uptime = explode(" ", trim(file_get_contents("/proc/uptime")));
-		$days = intval($uptime[0] / 86400);
-		$hours = intval(($uptime[0] / 3600) % 24);
-		$mins = intval(($uptime[0] / 60) % 60);
-		$secs = intval($uptime[0] % 60);
-		if (FALSE === $indexed)
-			return sprintf("%d %s %d %s %d %s %d %s",
-			  $days, ($days == 1) ? gettext("day") : gettext("days"),
-			  $hours, ($hours == 1) ? gettext("hour") : gettext("hours"),
-			  $mins, ($mins == 1) ? gettext("minute") : gettext("minutes"),
-			  $secs, gettext("seconds"));
-		else
-			return [
-				"seconds" => $secs,
-				"minutes" => $mins,
-				"hours" => $hours,
-				"days" => $days
-			];
+		return floatval($uptime[0]);
 	}
 
 	/**
@@ -168,7 +148,11 @@ class System {
 	 */
 	public static function getLoadAverage() {
 		$loadavg = explode(" ", trim(file_get_contents("/proc/loadavg")));
-		return sprintf("%s, %s, %s", $loadavg[0], $loadavg[1], $loadavg[2]);
+		return [
+			"1min" => floatval($loadavg[0]),
+			"5min" => floatval($loadavg[1]),
+			"15min" => floatval($loadavg[2])
+		];
 	}
 
 	/**

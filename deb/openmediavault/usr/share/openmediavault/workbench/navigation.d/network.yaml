@@ -1,0 +1,11 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "network"
+  position: 30
+  text: _("Network")
+  icon: network
+  url: "/network"
+  permissions:
+    role:
+    - admin

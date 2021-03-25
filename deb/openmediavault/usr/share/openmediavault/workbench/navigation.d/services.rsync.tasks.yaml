@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.rsync.tasks"
+  position: 10
+  text: _("Tasks")
+  icon: "mdi:calendar-clock"
+  url: "/services/rsync/tasks"

@@ -1,0 +1,6 @@
+.mat-flat-button {
+  color: #fff;
+}
+:host ::ng-deep button * {
+  pointer-events: none;
+}

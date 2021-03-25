@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <productinfo>
 	<name>openmediavault</name>
-	<versionname>Usul</versionname>
+	<versionname>Shaitan</versionname>
 	<url>https://www.openmediavault.org</url>
 	<copyright>Copyright (C) 2009-2021 by Volker Theile. All rights reserved.</copyright>
 	<packagename>openmediavault</packagename>
-	<distribution>usul</distribution>
+	<distribution>shaitan</distribution>
 </productinfo>

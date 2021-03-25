@@ -1,0 +1,28 @@
+<omv-limn-datatable-page [config]="this.config"></omv-limn-datatable-page>
+
+<ng-template #pluginInfoTpl
+             let-row="row">
+  <div class="omv-datatable-cell-package-info">
+    <div fxLayout="row"
+         class="omv-datatable-cell-header">
+      <div class="omv-datatable-cell-header-text">
+        <div class="omv-datatable-cell-title">{{ row.name }} {{ row.version }}</div>
+        <div class="omv-datatable-cell-subtitle">{{ row.summary }}</div>
+      </div>
+      <mat-chip-list *ngIf="row.installed">
+        <mat-chip class="omv-chip-theme-green"
+                  [selectable]="false"
+                  [disableRipple]="true">
+          {{ 'Installed' | translate }}
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+    <br/>
+    <ng-container *ngIf="row.extendeddescription"><span>{{ row.extendeddescription }}</span><br/><br/></ng-container>
+    <ng-container *ngIf="row.pluginsection"><span>{{ 'Section' | translate }}: {{ row.pluginsection | titlecase }}</span><br/></ng-container>
+    <ng-container *ngIf="row.maintainer"><span>{{ 'Maintainer' | translate }}: {{ row.maintainer }}</span><br/></ng-container>
+    <ng-container *ngIf="row.homepage"><span>{{ 'Homepage' | translate }}: {{ row.homepage }}</span><br/></ng-container>
+    <ng-container *ngIf="row.repository"><span>{{ 'Repository' | translate }}: {{ row.repository }}</span><br/></ng-container>
+    <ng-container *ngIf="row.size"><span>{{ 'Size' | translate }}: {{ row.size | binaryUnit }}</span><br/></ng-container>
+  </div>
+</ng-template>

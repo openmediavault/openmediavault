@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/diagnostics/performance-statistics/diskio"
+  title: _("Disk I/O")
+  component: omv-diagnostics-performance-statistics-diskio-rrd-page

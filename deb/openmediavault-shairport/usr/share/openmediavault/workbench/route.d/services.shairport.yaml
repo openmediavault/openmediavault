@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/shairport"
+  title: _("Shairport")
+  editing: true
+  notificationTitle: _("Updated Shairport settings.")
+  component: omv-services-shairport-form-page

@@ -1,0 +1,52 @@
+<ng-container *ngIf="loading">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  <omv-alert-panel type="info">
+    {{ "Please wait, the data is being loaded ..." | translate }}
+  </omv-alert-panel>
+</ng-container>
+<omv-alert-panel *ngIf="error && !loading"
+                 type="error">
+  {{ error | httpErrorResponse:'message' }}
+</omv-alert-panel>
+<mat-card [ngClass]="{'omv-display-none': loading || error}">
+  <mat-toolbar *ngIf="config.hasCopyToClipboardButton || (config.hasReloadButton && !config.autoReload)"
+               sticky
+               [scrollContainer]="'#omv-workbench-router-outlet'"
+               fxLayout="row">
+    <button *ngIf="config.hasCopyToClipboardButton"
+            mat-icon-button
+            matTooltip="{{ 'Copy to clipboard' | translate }}"
+            (click)="onCopyToClipboard()">
+      <mat-icon svgIcon="{{ icon.copy }}">
+      </mat-icon>
+    </button>
+    <span fxFlex></span>
+    <button *ngIf="config.hasReloadButton && !config.autoReload"
+            mat-icon-button
+            matTooltip="{{ 'Reload' | translate }}"
+            (click)="loadData()">
+      <mat-icon svgIcon="{{ icon.reload }}">
+      </mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-card-title-group *ngIf="config.title || config.subTitle">
+    <mat-card-title *ngIf="config.title">
+      {{ config.title | translate }}
+    </mat-card-title>
+    <mat-card-subtitle *ngIf="config.subTitle">
+      {{ config.subTitle | translate }}
+    </mat-card-subtitle>
+  </mat-card-title-group>
+  <mat-card-content class="omv-scrollable-xy">
+    <span class="omv-text-monospaced">{{ text }}</span>
+  </mat-card-content>
+  <mat-card-actions *ngIf="config.buttons.length"
+                    [fxLayoutAlign]="config.buttonAlign">
+    <button *ngFor="let button of config.buttons"
+            mat-flat-button
+            [class]="button.class ? button.class : 'omv-background-color-theme-accent'"
+            (click)="onButtonClick(button)">
+      {{ button.text | translate }}
+    </button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,19 @@
+<mat-toolbar fxLayout="row">
+  <mat-icon class="omv-icon-lg"
+            svgIcon="{{ icon.information }}">
+  </mat-icon>
+  <span class="omv-apply-config-message">
+    {{ 'Pending configuration changes. You must apply these changes in order for them to take effect.' | translate }}
+  </span>
+  <span fxFlex></span>
+  <button mat-icon-button
+          matTooltip="{{ 'Apply' | translate }}"
+          (click)="onApplyPendingChanges()">
+    <mat-icon svgIcon="{{ icon.check }}"></mat-icon>
+  </button>
+  <button mat-icon-button
+          matTooltip="{{ 'Undo' | translate }}"
+          (click)="onUndoPendingChanges()">
+    <mat-icon svgIcon="{{ icon.undo }}"></mat-icon>
+  </button>
+</mat-toolbar>

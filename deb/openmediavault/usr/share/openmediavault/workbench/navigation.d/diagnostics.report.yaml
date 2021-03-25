@@ -1,0 +1,11 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "diagnostics.report"
+  position: 60
+  text: _("Report")
+  icon: "mdi:text"
+  url: "/diagnostics/report"
+  permissions:
+    role:
+    - admin

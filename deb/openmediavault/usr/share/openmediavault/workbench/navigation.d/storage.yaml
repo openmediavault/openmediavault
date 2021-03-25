@@ -1,0 +1,11 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "storage"
+  position: 50
+  text: _("Storage")
+  icon: nas
+  url: "/storage"
+  permissions:
+    role:
+    - admin

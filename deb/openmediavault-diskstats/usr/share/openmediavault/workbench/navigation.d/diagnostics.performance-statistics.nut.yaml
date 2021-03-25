@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "diagnostics.performance-statistics.diskio"
+  text: _("Disk I/O")
+  icon: "mdi:harddisk"
+  url: "/diagnostics/performance-statistics/diskio"

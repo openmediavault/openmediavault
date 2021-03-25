@@ -1,0 +1,9 @@
+<div class="omv-form-paragraph-wrapper">
+  <span *ngIf="config.text"
+        class="omv-form-field-paragraph-text">
+    {{ config.text | translate }}
+  </span>
+  <mat-divider *ngIf="config.hasDivider"
+               inset>
+  </mat-divider>
+</div>

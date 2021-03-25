@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "storage.disks"
+  position: 10
+  text: _("Disks")
+  icon: harddisk
+  url: "/storage/disks"

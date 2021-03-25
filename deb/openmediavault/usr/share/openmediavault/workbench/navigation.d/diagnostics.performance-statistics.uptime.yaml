@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "diagnostics.performance-statistics.uptime"
+  text: _("Uptime")
+  icon: "mdi:timer-outline"
+  url: "/diagnostics/performance-statistics/uptime"

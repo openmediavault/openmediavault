@@ -1,0 +1,39 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
+import { TranslateModule } from '@ngx-translate/core';
+import { ToastrModule } from 'ngx-toastr';
+
+import { LoginPageComponent } from '~/app/core/pages/login-page/login-page.component';
+import { PagesModule } from '~/app/core/pages/pages.module';
+
+describe('LoginPageComponent', () => {
+  let component: LoginPageComponent;
+  let fixture: ComponentFixture<LoginPageComponent>;
+
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [
+          BrowserAnimationsModule,
+          PagesModule,
+          HttpClientTestingModule,
+          RouterTestingModule,
+          ToastrModule.forRoot(),
+          TranslateModule.forRoot()
+        ]
+      }).compileComponents();
+    })
+  );
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(LoginPageComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

@@ -1,0 +1,13 @@
+.omv-form-container {
+  align-items: baseline;
+
+  .omv-form-container-item:not(:first-child) {
+    margin-left: 12px;
+  }
+}
+
+::ng-deep form {
+  .mat-form-field .mat-hint ul {
+    padding-left: 12px;
+  }
+}

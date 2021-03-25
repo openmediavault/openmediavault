@@ -44,7 +44,7 @@ __salt_minion_config_file = openmediavault.getenv(
 
 @click.group()
 def cli():
-    return 0
+    pass
 
 
 @cli.group()
@@ -145,6 +145,7 @@ def deploy_run(names, no_color, quiet):
 
 def main():
     cli()
+    return 0
 
 
 if __name__ == '__main__':

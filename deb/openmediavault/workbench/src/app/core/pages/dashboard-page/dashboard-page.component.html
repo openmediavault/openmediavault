@@ -1,0 +1,56 @@
+<div class="omv-dashboard-page">
+  <omv-alert-panel *ngIf="!widgets.length"
+                   type="info">
+    <ng-container translate>The dashboard has not yet been configured. To personalize it please go to the <a routerLink="/dashboard/settings">settings page</a>.</ng-container>
+  </omv-alert-panel>
+  <div class="omv-dashboard-page-content"
+       gdGap="24px"
+       gdColumns="repeat(auto-fit, minmax(350px, 1fr))">
+    <div *ngFor="let widget of widgets">
+      <ng-container [ngTemplateOutlet]="renderWidget"
+                    [ngTemplateOutletContext]="{ $implicit: widget }">
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<ng-template #renderWidget
+             let-widget>
+  <mat-card>
+    <mat-card-title-group>
+      <mat-card-title>{{ widget.title | translate }}</mat-card-title>
+    </mat-card-title-group>
+    <mat-card-content class="omv-scrollable-xy"
+                      [ngSwitch]="widget.type">
+      <ng-template [ngSwitchCase]="'datatable'">
+        <omv-dashboard-widget-datatable [config]="widget">
+        </omv-dashboard-widget-datatable>
+      </ng-template>
+
+      <ng-template [ngSwitchCase]="'rrd'">
+        <omv-dashboard-widget-rrd [config]="widget">
+        </omv-dashboard-widget-rrd>
+      </ng-template>
+
+      <ng-template [ngSwitchCase]="'chart'">
+        <omv-dashboard-widget-chart [config]="widget">
+        </omv-dashboard-widget-chart>
+      </ng-template>
+
+      <ng-template [ngSwitchCase]="'system-information'">
+        <omv-dashboard-widget-system-information [config]="widget">
+        </omv-dashboard-widget-system-information>
+      </ng-template>
+
+      <ng-template [ngSwitchCase]="'services-status'">
+        <omv-dashboard-widget-services-status [config]="widget">
+        </omv-dashboard-widget-services-status>
+      </ng-template>
+
+      <ng-template [ngSwitchCase]="'filesystems-status'">
+        <omv-dashboard-widget-filesystems-status [config]="widget">
+        </omv-dashboard-widget-filesystems-status>
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
+</ng-template>

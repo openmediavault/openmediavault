@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.smb.shares"
+  position: 20
+  text: _("Shares")
+  icon: share
+  url: "/services/smb/shares"

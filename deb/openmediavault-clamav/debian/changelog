@@ -1,3 +1,9 @@
+openmediavault-clamav (6.0-1) UNRELEASED; urgency=low
+
+  * Reimplement UI.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 13 Dec 2020 21:23:54 +0100
+
 openmediavault-clamav (5.0.11-1) stable; urgency=low
 
   * Issue #812: Cron script erroneously reports success though failed.

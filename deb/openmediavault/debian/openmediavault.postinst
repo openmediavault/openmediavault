@@ -98,9 +98,9 @@ case "$1" in
 			####################################################################
 			# Setup various file permissions.
 			####################################################################
-			# Allow the web interface to read/write cached files.
 			chmod 775 "${OMV_CACHE_DIR}"
-			chown ":${OMV_WEBGUI_FILE_OWNERGROUP_NAME}" "${OMV_CACHE_DIR}"
+			chown -R "${OMV_WEBGUI_FILE_OWNERGROUP_NAME}:${OMV_WEBGUI_FILE_OWNERGROUP_NAME}" \
+				"${OMV_DOCUMENTROOT_DIR}"
 
 			####################################################################
 			# Update the local plugin packages archive. The 'packages' command
@@ -160,14 +160,9 @@ case "$1" in
 		deb-systemd-helper enable openmediavault-issue.service
 
 		########################################################################
-		# Trigger file permission update.
+		# Activate trigger to rebuild workbench configuration files.
 		########################################################################
-		dpkg-trigger update-fixperms || :
-
-		########################################################################
-		# Trigger locale files creation/update.
-		########################################################################
-		dpkg-trigger update-locale || :
+		dpkg-trigger update-workbench
 
 		########################################################################
 		# Migrate configuration database.
@@ -228,7 +223,7 @@ case "$1" in
 			# - collectd: uptime plugin has been added
 			# - chrony: The ntp replacement
 			# - postfix: Config must be recreated
-			omv-salt deploy run --no-color --quiet collectd chrony postfix
+			LANG=C.UTF-8 omv-salt deploy run --no-color --quiet collectd chrony postfix || :
 		fi
 		if dpkg --compare-versions "$2" lt-nl "5.1.3"; then
 			omv_module_set_dirty monit
@@ -291,7 +286,10 @@ case "$1" in
 			omv_module_set_dirty samba
 		fi
 		if dpkg --compare-versions "$2" lt-nl "5.6.3"; then
-			omv-salt deploy run --no-color --quiet apt cronapt
+			LANG=C.UTF-8 omv-salt deploy run --no-color --quiet apt cronapt || :
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0"; then
+		  LANG=C.UTF-8 omv-salt deploy run --no-color --quiet nginx || :
 		fi
 
 		########################################################################
@@ -316,20 +314,9 @@ case "$1" in
 		########################################################################
 		for trigger in $2; do
 			case "${trigger}" in
-				update-locale)
-					echo "Updating locale files ..."
-					omv_install_locale
-				;;
-
-				update-fixperms)
-					# Update the file permissions of new installed files.
-					echo "Updating file permissions ..."
-					omv_install_fixperms
-					# Purge cached files. In most cases this is necessary
-					# because Debian package updates may install or remove
-					# files.
-					echo "Purging internal cache ..."
-					omv_purge_internal_cache
+				update-workbench)
+					echo "Updating workbench configuration files ..."
+					omv-mkworkbench all || :
 				;;
 
 				restart-engined)

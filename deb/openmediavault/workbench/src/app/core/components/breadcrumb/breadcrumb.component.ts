@@ -1,0 +1,70 @@
+import { Component, OnDestroy } from '@angular/core';
+import {
+  ActivatedRoute,
+  ActivatedRouteSnapshot,
+  Event,
+  NavigationEnd,
+  Router,
+  UrlSegment
+} from '@angular/router';
+import * as _ from 'lodash';
+import { Subscription } from 'rxjs';
+import { filter, startWith } from 'rxjs/operators';
+
+import { Icon } from '~/app/shared/enum/icon.enum';
+
+export type Breadcrumb = {
+  text: string;
+  url: string;
+};
+
+@Component({
+  selector: 'omv-breadcrumb',
+  templateUrl: './breadcrumb.component.html',
+  styleUrls: ['./breadcrumb.component.scss']
+})
+export class BreadcrumbComponent implements OnDestroy {
+  public breadcrumbs: Breadcrumb[] = [];
+  public icon = Icon;
+
+  private routerSubscription: Subscription;
+
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
+    this.routerSubscription = this.router.events
+      .pipe(
+        filter((event: Event) => event instanceof NavigationEnd),
+        // The first 'NavigationEnd' event is already fired on page
+        // load when this component is instantiated, so simply emit
+        // a value before the router regularly begins to emit events
+        // to render the breadcrumbs of the current activated route.
+        startWith(true)
+      )
+      .subscribe(() => {
+        const breadcrumbs = this.parseRoute(this.activatedRoute.snapshot.root);
+        this.breadcrumbs = _.uniqWith(breadcrumbs, _.isEqual);
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.routerSubscription.unsubscribe();
+  }
+
+  private parseRoute(routeSnapshot: ActivatedRouteSnapshot): Breadcrumb[] {
+    let routeParts: Breadcrumb[] = [];
+    if (routeSnapshot.data.title) {
+      let urlSegments: UrlSegment[] = [];
+      routeSnapshot.pathFromRoot.forEach((routerState: ActivatedRouteSnapshot) => {
+        urlSegments = urlSegments.concat(routerState.url);
+      });
+      const url = urlSegments.map((urlSegment) => urlSegment.path).join('/');
+      routeParts.push({
+        text: routeSnapshot.data.title,
+        url: '/' + url
+      });
+    }
+    if (routeSnapshot.firstChild) {
+      routeParts = routeParts.concat(this.parseRoute(routeSnapshot.firstChild));
+    }
+    return routeParts;
+  }
+}

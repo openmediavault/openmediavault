@@ -1,0 +1,15 @@
+<mat-progress-bar *ngIf="loading && firstLoad"
+                  mode="indeterminate">
+</mat-progress-bar>
+<div *ngIf="data"
+     class="omv-dashboard-widget-services-status"
+     gdGap="8px"
+     gdColumns="repeat(auto-fit, minmax(100px, 1fr))">
+  <mat-card *ngFor="let item of data.data"
+            [ngClass]="{'running': item.running, 'not-running': !item.running}"
+            [matTooltip]="tooltipText[item.running] | translate">
+    <mat-card-content class="omv-text-center">
+      <span>{{ item.title }}</span>
+    </mat-card-content>
+  </mat-card>
+</div>

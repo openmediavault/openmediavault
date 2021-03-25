@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "diagnostics.performance-statistics.cpu"
+  text: _("CPU")
+  icon: "mdi:cpu-64-bit"
+  url: "/diagnostics/performance-statistics/cpu"

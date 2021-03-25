@@ -1,0 +1,10 @@
+@import 'styles.scss';
+
+.omv-dashboard-widget-rrd {
+  padding: $omv-padding;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}

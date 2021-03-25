@@ -1,0 +1,363 @@
+#!/usr/bin/env python3
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2017 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+import copy
+import glob
+import json
+import os
+import re
+import shutil
+import sys
+from typing import Any, Callable, Dict, List, Union
+
+import click
+import openmediavault.collectiontools
+import openmediavault.datamodel.schema
+import openmediavault.json.schema
+import openmediavault.log
+import polib
+import yaml
+
+import openmediavault
+
+
+def strip_gettext(value: Any) -> Any:
+    if isinstance(value, dict):
+        for k, v in value.items():
+            value[k] = strip_gettext(v)
+    elif isinstance(value, list):
+        value = [strip_gettext(i) for i in value]
+    elif isinstance(value, str):
+        matches = re.match(r'^_\(["\'](.+)["\']\)$', value)
+        if matches is not None:
+            value = matches.group(1)
+    return value
+
+
+def load_yaml_files(schema: openmediavault.datamodel.Schema,
+                    dir_path: str,
+                    skip_invalid: bool = True,
+                    verbose: bool = False,
+                    *,
+                    validate: Callable[[str, Dict, List[Dict]], None] = None) -> List[Dict]:
+    result = []
+    for name in glob.iglob(os.path.join(dir_path, '*.yaml')):
+        with open(name, 'r') as fd:
+            content = strip_gettext(yaml.load(fd))
+            openmediavault.log.info('Processing manifest "%s" ...',
+                                    name, verbose=verbose)
+        try:
+            schema.validate(content)
+        except openmediavault.json.schema.SchemaValidationException as e:
+            if skip_invalid:
+                openmediavault.log.warning(
+                    'Skipping invalid manifest "%s".', name)
+                continue
+            openmediavault.log.error('The file "%s" is malformed: %s',
+                                     name, str(e))
+            sys.exit(1)
+        data = content['data']
+        if callable(validate):
+            validate(name, data, result)
+        result.append(data)
+    return result
+
+
+def write_json_file(file_path: str, data: Union[Dict, List], verbose: bool = False) -> None:
+    """
+    :param file_path: The path of the file containing the merged JSON data.
+    :param data: The data written to the file.
+    :param verbose: Print information to STDOUT. Defaults to `False`.
+    """
+    user = openmediavault.getenv(
+        'OMV_WEBGUI_FILE_OWNERGROUP_NAME', 'openmediavault-webgui')
+    with open(file_path, 'w') as fd:
+        fd.write(json.dumps(data, indent=2, sort_keys=True))
+    shutil.chown(file_path, user, user)
+    openmediavault.log.info('Successfully created "%s".',
+                            file_path, verbose=verbose)
+
+
+def load_components(skip_invalid: bool = True, verbose: bool = False) -> Dict:
+    component_dir = openmediavault.getenv(
+        'OMV_WORKBENCH_COMPONENT_CONFIG_DIR',
+        '/usr/share/openmediavault/workbench/component.d'
+    )
+    component_schema = openmediavault.datamodel.Schema({
+        'type': 'object',
+        'properties': {
+            'version': {'type': 'string', 'required': True},
+            'type': {'type': 'string', 'enum': ['component'], 'required': True},
+            'data': {'type': 'object', 'properties': {
+                'name': {'type': 'string', 'required': True},
+                'type': {'type': 'string', 'enum': [
+                    'navigationPage',
+                    'formPage',
+                    'selectionListPage',
+                    'textPage',
+                    'tabsPage',
+                    'datatablePage',
+                    'rrdPage'
+                ], 'required': True},
+                'extends': {'type': 'string'},
+                'config': {'type': 'object', 'properties': {}}
+            }, 'required': True}
+        }
+    })
+
+    def validate(name: str, component_config: Dict, components: List[Dict]) -> None:
+        if openmediavault.collectiontools.find(components, lambda d: d['name'] == component_config['name']):
+            openmediavault.log.error(
+                "The component %s defined in %s already exists.", component_config['name'], name)
+            sys.exit(1)
+
+    component_list = load_yaml_files(
+        component_schema, component_dir, skip_invalid, verbose, validate=validate)
+    component_dict = {c['name']: c for c in component_list}
+
+    for k, v in component_dict.items():
+        if 'extends' not in v:
+            continue
+        if v['extends'] not in component_dict:
+            openmediavault.log.error(
+                "Failed to extend component '%s', component '%s' not found.",
+                k, v['extends'])
+            sys.exit(1)
+        v['config'] = openmediavault.collectiontools.merge(
+            copy.deepcopy(component_dict[v['extends']]['config']),
+            v['config'])
+        v.pop('extends')
+
+    return component_dict
+
+
+class Context:
+    verbose: bool
+    skip_invalid: bool
+
+
+pass_context = click.make_pass_decorator(Context, ensure=True)
+
+
+@click.group()
+@click.option('--verbose', is_flag=True, help='Shows verbose output.')
+@click.option('--skip-invalid', is_flag=True, help='Skip invalid files.')
+@pass_context
+def cli(ctx, verbose, skip_invalid):
+    ctx.verbose = verbose
+    ctx.skip_invalid = skip_invalid
+
+
+@cli.command(name='all', help='Build all configuration files.')
+def all_():
+    ctx = click.get_current_context()
+    ctx.invoke(dashboard)
+    ctx.invoke(navigation)
+    ctx.invoke(route)
+    ctx.invoke(log)
+
+
+@cli.command(name='dashboard', help='Build the dashboard widget configuration file.')
+@pass_context
+def dashboard(ctx):
+    widget_dir = openmediavault.getenv(
+        'OMV_WORKBENCH_DASHBOARD_WIDGET_CONFIG_DIR',
+        '/usr/share/openmediavault/workbench/dashboard.d'
+    )
+    widget_file = openmediavault.getenv(
+        'OMV_WORKBENCH_DASHBOARD_WIDGET_CONFIG_ASSETS_FILE',
+        '/var/www/openmediavault/assets/dashboard-widget-config.json'
+    )
+    widget_schema = openmediavault.datamodel.Schema({
+        'type': 'object',
+        'properties': {
+            'version': {'type': 'string', 'required': True},
+            'type': {'type': 'string', 'enum': ['dashboard-widget'], 'required': True},
+            'data': {'type': 'object', 'properties': {
+                'id': {'type': 'string', 'format': 'uuidv4', 'required': True},
+                'type': {'type': 'string', 'enum': ['datatable', 'rrd', 'chart', 'system-information', 'services-status', 'filesystems-status'], 'required': True},
+                'title': {'type': 'string', 'required': True},
+                'permissions': {'type': 'object', 'properties': {
+                    'role': {'type': 'array', 'items': {'type': 'string', 'enum': ['admin', 'user']}}
+                }},
+                'datatable': {'type': 'object', 'properties': {}},
+                'rrd': {'type': 'object', 'properties': {}}
+            }}
+        }
+    })
+    openmediavault.log.info(
+        'Creating dashboard configuration file ...', verbose=ctx.verbose)
+    widget_configs = load_yaml_files(widget_schema, widget_dir,
+                                     ctx.skip_invalid, ctx.verbose)
+    write_json_file(widget_file, widget_configs, ctx.verbose)
+
+
+@cli.command(name='navigation', help='Build the navigation configuration file.')
+@pass_context
+def navigation(ctx):
+    navigation_dir = openmediavault.getenv(
+        'OMV_WORKBENCH_NAVIGATION_CONFIG_DIR',
+        '/usr/share/openmediavault/workbench/navigation.d'
+    )
+    navigation_file = openmediavault.getenv(
+        'OMV_WORKBENCH_NAVIGATION_CONFIG_ASSETS_FILE',
+        '/var/www/openmediavault/assets/navigation-config.json'
+    )
+    navigation_schema = openmediavault.datamodel.Schema({
+        'type': 'object',
+        'properties': {
+            'version': {'type': 'string', 'required': True},
+            'type': {'type': 'string', 'enum': ['navigation-item'], 'required': True},
+            'data': {'type': 'object', 'properties': {
+                'path': {'type': 'string', 'required': True},
+                'position': {'type': 'integer'},
+                'text': {'type': 'string', 'required': True},
+                'icon': {'type': 'string', 'required': True},
+                'url': {'type': 'string', 'required': True},
+                'permissions': {'type': 'object', 'properties': {
+                    'role': {'type': 'array', 'items': {'type': 'string', 'enum': ['admin', 'user']}}
+                }},
+                'hidden': {'type': 'boolean'}
+            }}
+        }
+    })
+    openmediavault.log.info(
+        'Creating navigation configuration file ...', verbose=ctx.verbose)
+    navigation_configs = load_yaml_files(
+        navigation_schema, navigation_dir, ctx.skip_invalid, ctx.verbose)
+    write_json_file(navigation_file, navigation_configs, ctx.verbose)
+
+
+@cli.command(name='route', help='Build the route configuration file.')
+@pass_context
+def route(ctx):
+    route_dir = openmediavault.getenv(
+        'OMV_WORKBENCH_ROUTE_CONFIG_DIR',
+        '/usr/share/openmediavault/workbench/route.d'
+    )
+    route_file = openmediavault.getenv(
+        'OMV_WORKBENCH_ROUTE_CONFIG_ASSETS_FILE',
+        '/var/www/openmediavault/assets/route-config.json'
+    )
+    route_schema = openmediavault.datamodel.Schema({
+        'type': 'object',
+        'properties': {
+            'version': {'type': 'string', 'required': True},
+            'type': {'type': 'string', 'enum': ['route'], 'required': True},
+            'data': {'type': 'object', 'properties': {
+                'url': {'type': 'string', 'required': True},
+                'title': {'type': 'string'},
+                'editing': {'type': 'boolean'},
+                'notificationTitle': {'type': 'string'},
+                'component': {'type': 'string', 'required': True}
+            }}
+        }
+    })
+    openmediavault.log.info(
+        'Creating route configuration file ...', verbose=ctx.verbose)
+    components = load_components(ctx.skip_invalid, ctx.verbose)
+    route_configs = load_yaml_files(
+        route_schema, route_dir, ctx.skip_invalid, ctx.verbose)
+    for route_config in route_configs:
+        openmediavault.log.info(
+            'Injecting component configuration for route "%s" ...',
+            route_config['url'], verbose=ctx.verbose)
+        if route_config['component'] not in components:
+            openmediavault.log.error(
+                "Failed process route '%s', component '%s' not found.",
+                route_config['url'], route_config['component'])
+            sys.exit(1)
+        route_config['component'] = components[route_config['component']].copy()
+        del route_config['component']['name']
+    write_json_file(route_file, route_configs, ctx.verbose)
+
+
+@cli.command(name='log', help='Build the log configuration file.')
+@pass_context
+def log(ctx):
+    log_dir = openmediavault.getenv(
+        'OMV_WORKBENCH_LOG_CONFIG_DIR',
+        '/usr/share/openmediavault/workbench/log.d'
+    )
+    log_file = openmediavault.getenv(
+        'OMV_WORKBENCH_LOG_CONFIG_ASSETS_FILE',
+        '/var/www/openmediavault/assets/log-config.json'
+    )
+    log_schema = openmediavault.datamodel.Schema({
+        'type': 'object',
+        'properties': {
+            'version': {'type': 'string', 'required': True},
+            'type': {'type': 'string', 'enum': ['log'], 'required': True},
+            'data': {'type': 'object', 'properties': {
+                'id': {'type': 'string', 'required': True},
+                'text': {'type': 'string', 'required': True},
+                'columns': {'type': 'array', 'items': {}, 'required': True},
+                'sorters': {'type': 'array', 'items': {}},
+                'request': {'type': 'object', 'properties': {
+                    'service': {'type': 'string', 'required': True},
+                    'method': {'type': 'string', 'required': True},
+                    'params': {'type': 'object', 'properties': {}, 'required': True}
+                }, 'required': True}
+            }}
+        }
+    })
+    openmediavault.log.info(
+        'Creating log configuration file ...', verbose=ctx.verbose)
+    log_configs = load_yaml_files(
+        log_schema, log_dir, ctx.skip_invalid, ctx.verbose)
+    write_json_file(log_file, log_configs, ctx.verbose)
+
+
+@cli.command(name='i18n', help='Build the translation files.')
+@pass_context
+def i18n(ctx):
+    locale_dir = openmediavault.getenv(
+        'OMV_I18N_LOCALE_DIR',
+        '/usr/share/openmediavault/locale'
+    )
+    assets_i18n_dir = openmediavault.getenv(
+        'OMV_WORKBENCH_I18N_ASSETS_DIR',
+        '/var/www/openmediavault/assets/i18n/'
+    )
+    openmediavault.log.info(
+        'Creating translation files ...', verbose=ctx.verbose)
+    for lang_dir in glob.iglob(os.path.join(locale_dir, '*')):
+        if not os.path.isdir(lang_dir):
+            continue
+        lang = os.path.basename(lang_dir)
+        lang_file_path = os.path.join(assets_i18n_dir, f'{lang}.json')
+        translations = {}
+        for po_file_path in glob.iglob(os.path.join(lang_dir, '*.po')):
+            po_file = polib.pofile(po_file_path)
+            openmediavault.log.info(
+                'Processing PO file "%s" ...', po_file_path, verbose=ctx.verbose)
+            for entry in po_file.translated_entries():
+                if entry.msgid and entry.msgstr:
+                    translations[entry.msgid] = entry.msgstr
+        write_json_file(lang_file_path, translations, ctx.verbose)
+
+
+def main():
+    cli()
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

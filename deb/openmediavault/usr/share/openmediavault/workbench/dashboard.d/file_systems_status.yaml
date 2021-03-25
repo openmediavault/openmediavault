@@ -1,0 +1,10 @@
+version: "1.0"
+type: dashboard-widget
+data:
+  id: 0f64ac92-8bde-11eb-9a6a-fbacf67258dc
+  permissions:
+    role:
+      - admin
+  title: _("File Systems Status")
+  type: filesystems-status
+  reloadPeriod: 10000

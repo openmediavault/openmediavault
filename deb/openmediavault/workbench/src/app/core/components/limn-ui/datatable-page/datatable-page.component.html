@@ -1,0 +1,73 @@
+<mat-card>
+  <ng-container *ngTemplateOutlet="renderCardHeader"></ng-container>
+  <mat-card-content>
+    <omv-datatable #table
+                   [ngClass]="{'has-card-header': config.title || config.subTitle }"
+                   [stateId]="config.stateId"
+                   [loadingIndicator]="loading"
+                   [rowId]="config.rowId"
+                   [data]="config.store.data"
+                   [autoLoad]="config.autoLoad"
+                   [autoReload]="config.autoReload"
+                   [count]="count"
+                   [columns]="config.columns"
+                   [columnMode]="config.columnMode"
+                   [hasActionBar]="config.hasActionBar"
+                   [hasStickyActionBar]="true"
+                   [ownerContainer]="'#omv-workbench-router-outlet'"
+                   [hasHeader]="config.hasHeader"
+                   [hasFooter]="config.hasFooter"
+                   [hasSearchField]="config.hasSearchField"
+                   [limit]="config.limit"
+                   [selectionType]="config.selectionType"
+                   (selectionChangeEvent)="onSelectionChange($event)"
+                   [updateSelectionOnReload]="config.updateSelectionOnReload"
+                   (loadDataEvent)="loadData($event)"
+                   [remoteSorting]="config.remoteSorting"
+                   [remotePaging]="config.remotePaging"
+                   [sorters]="config.sorters">
+      <omv-datatable-actions fxFlex
+                             [actions]="config.actions"
+                             [selection]="selection"
+                             [data]="config.store">
+      </omv-datatable-actions>
+    </omv-datatable>
+  </mat-card-content>
+  <mat-card-actions *ngIf="config.buttons.length"
+                    [fxLayoutAlign]="config.buttonAlign">
+    <button *ngFor="let button of config.buttons"
+            mat-flat-button
+            [class]="button.class ? button.class : 'omv-background-color-theme-accent'"
+            (click)="onButtonClick(button)">
+      {{ button.text | translate }}
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+<ng-template #renderCardHeader>
+  <ng-container *ngIf="config.title || config.subTitle">
+    <ng-container *ngIf="config.icon">
+      <mat-card-header>
+        <mat-icon mat-card-avatar
+                  svgIcon="{{ config.icon }}">
+        </mat-icon>
+        <mat-card-title *ngIf="config.title">
+          {{ config.title }}
+        </mat-card-title>
+        <mat-card-subtitle *ngIf="config.subTitle">
+          {{ config.subTitle }}
+        </mat-card-subtitle>
+      </mat-card-header>
+    </ng-container>
+    <ng-container *ngIf="!config.icon">
+      <mat-card-title-group>
+        <mat-card-title *ngIf="config.title">
+          {{ config.title }}
+        </mat-card-title>
+        <mat-card-subtitle *ngIf="config.subTitle">
+          {{ config.subTitle }}
+        </mat-card-subtitle>
+      </mat-card-title-group>
+    </ng-container>
+  </ng-container>
+</ng-template>

@@ -1,0 +1,34 @@
+<mat-form-field fxFlex
+                [formGroup]="formGroup">
+  <div *ngIf="config.icon"
+       matPrefix>
+    <mat-icon [svgIcon]="config.icon"></mat-icon>
+  </div>
+  <mat-label>{{ config.label }}</mat-label>
+  <input #sliderInput
+         matInput
+         hidden
+         type="number"
+         [formControlName]="config.name">
+  <mat-slider [value]="sliderInput.value"
+              (change)="onChange($event)"
+              [max]="config?.validators?.max"
+              [min]="config?.validators?.min"
+              [step]="config.step"
+              thumbLabel="true">
+  </mat-slider>
+  <mat-error *ngIf="formGroup.invalid">
+    <span *ngIf="formGroup.hasError('required', config.name)">
+      This field is required.
+    </span>
+    <span *ngIf="formGroup.hasError('min', config.name)">
+      The value must be at least {{ config.validators.min }}.
+    </span>
+    <span *ngIf="formGroup.hasError('max', config.name)">
+      The value cannot exceed {{ config.validators.max }}.
+    </span>
+  </mat-error>
+  <mat-hint *ngIf="config.hint?.length > 0"
+            [innerHTML]="config.hint">
+  </mat-hint>
+</mat-form-field>

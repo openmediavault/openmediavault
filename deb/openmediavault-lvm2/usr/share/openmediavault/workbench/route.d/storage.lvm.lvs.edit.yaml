@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/lvm/lvs/edit/:devicefile"
+  title: _("Edit")
+  editing: true
+  notificationTitle: _("Updated logical volume '{{ devicefile }}'.")
+  component: omv-storage-lvm-lv-edit-form-page

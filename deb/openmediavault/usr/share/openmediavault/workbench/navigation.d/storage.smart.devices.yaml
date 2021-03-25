@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "storage.smart.devices"
+  position: 20
+  text: _("Devices")
+  icon: harddisk
+  url: "/storage/smart/devices"

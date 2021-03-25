@@ -42,8 +42,8 @@ remove_action() {
 	# Reload rsyslog configuration because the nut configuration
 	# file has been removed by the package management.
 	deb-systemd-invoke force-reload rsyslog || :
-	# Activate trigger to purge cached files.
-	dpkg-trigger update-fixperms
+	# Activate trigger to rebuild workbench configuration files.
+	dpkg-trigger update-workbench
 }
 
 case "$1" in

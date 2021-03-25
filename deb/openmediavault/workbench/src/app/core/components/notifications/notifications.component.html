@@ -1,0 +1,76 @@
+<mat-toolbar>
+  <button mat-icon-button
+          matTooltip="{{ 'Remove all' | translate }}"
+          [disabled]="!notifications.length"
+          (click)="onRemoveAllNotifications()">
+    <mat-icon class="omv-icon-color-default"
+              svgIcon="{{ icon.delete }}"></mat-icon>
+  </button>
+</mat-toolbar>
+<mat-list role="list">
+  <mat-list-item *ngIf="!notifications.length"
+                 role="listitem">
+    <mat-icon mat-list-icon
+              class="omv-color-info"
+              svgIcon="{{ icon.information }}">
+    </mat-icon>
+    <p mat-line
+       class="omv-notification-list-item-title"
+       translate>
+      There are no notifications.
+    </p>
+  </mat-list-item>
+  <mat-list-item *ngFor="let notification of notifications"
+                 role="listitem">
+    <!-- Templates won't work here, the icons will be rendered incorrect. -->
+    <mat-icon *ngIf="notification.type === 'success'"
+              mat-list-icon
+              class="omv-color-success"
+              svgIcon="{{ icon.success }}">
+    </mat-icon>
+    <mat-icon *ngIf="notification.type === 'error'"
+              mat-list-icon
+              class="omv-color-error"
+              svgIcon="{{ icon.error }}">
+    </mat-icon>
+    <mat-icon *ngIf="notification.type === 'warning'"
+              mat-list-icon
+              class="omv-color-warning"
+              svgIcon="{{ icon.warning }}">
+    </mat-icon>
+    <mat-icon *ngIf="notification.type === 'info'"
+              mat-list-icon
+              class="omv-color-info"
+              svgIcon="{{ icon.information }}">
+    </mat-icon>
+    <span mat-line
+          class="omv-notification-list-item-title">
+      {{ notification.title | translate | truncate:100 }}
+    </span>
+    <span mat-line
+          class="omv-notification-list-item-message">
+      {{ notification.message | translate | truncate:100 }}
+    </span>
+    <span mat-line
+          class="omv-notification-list-item-timestamp">
+      {{ notification.timestamp | localeDate:'relative' }}
+    </span>
+    <button mat-icon-button
+            [matMenuTriggerFor]="actionMenu">
+      <mat-icon svgIcon="{{ icon.dotmenu }}"></mat-icon>
+    </button>
+    <mat-menu #actionMenu="matMenu">
+      <button mat-menu-item
+              [disabled]="!notification.message?.length"
+              (click)="onCopyNotification(notification)">
+        <mat-icon svgIcon="{{ icon.copy }}"></mat-icon>
+        <span translate>Copy to clipboard</span>
+      </button>
+      <button mat-menu-item
+              (click)="onRemoveNotification(notification)">
+        <mat-icon svgIcon="{{ icon.delete }}"></mat-icon>
+        <span translate>Remove</span>
+      </button>
+    </mat-menu>
+  </mat-list-item>
+</mat-list>

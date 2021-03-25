@@ -1,0 +1,24 @@
+version: "1.0"
+type: component
+data:
+  name: omv-diagnostics-performance-statistics-diskio-rrd-page
+  type: rrdPage
+  config:
+    graphs:
+      - name: "disk-octets-{{ parentdevicefile | replace('/dev/', '') }}"
+        label: _("Traffic")
+      - name: "disk-ops-{{ parentdevicefile | replace('/dev/', '') }}"
+        label: _("Operations")
+      - name: "disk-time-{{ parentdevicefile | replace('/dev/', '') }}"
+        label: _("Time per operation")
+    label: '{{ parentdevicefile }}'
+    store:
+      proxy:
+        service: FileSystemMgmt
+        get:
+          method: enumerateMountedFilesystems
+          params:
+            includeroot: true
+      sorters:
+        - prop: parentdevicefile
+          dir: asc

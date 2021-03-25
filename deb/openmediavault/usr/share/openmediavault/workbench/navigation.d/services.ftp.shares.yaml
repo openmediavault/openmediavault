@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.ftp.shares"
+  position: 40
+  text: _("Shares")
+  icon: share
+  url: "/services/ftp/shares"

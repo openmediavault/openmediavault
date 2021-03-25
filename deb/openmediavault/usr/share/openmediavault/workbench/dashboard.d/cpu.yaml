@@ -1,0 +1,24 @@
+version: "1.0"
+type: dashboard-widget
+data:
+  id: 9984d6cc-741b-4fda-85bf-fc6471a61e97
+  permissions:
+    role:
+      - admin
+  title: _("CPU Usage")
+  type: chart
+  chart:
+    type: gauge
+    min: 0
+    max: 100
+    displayValue: true
+    request:
+      service: System
+      method: getInformation
+    label:
+      formatter: template
+      formatterConfig: "{{ value | tofixed(1) }}%"
+    dataConfig:
+      - label: Usage
+        prop: cpuUsage
+        backgroundColor: "#4cd964"

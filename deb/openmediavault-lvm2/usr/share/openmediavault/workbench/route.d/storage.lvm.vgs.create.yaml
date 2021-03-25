@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/lvm/vgs/create"
+  title: _("Create")
+  notificationTitle: _("Created volume group '{{ name }}'.")
+  component: omv-storage-lvm-vg-create-form-page

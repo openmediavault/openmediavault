@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.ssh"
+  text: _("SSH")
+  icon: ssh
+  url: "/services/ssh"

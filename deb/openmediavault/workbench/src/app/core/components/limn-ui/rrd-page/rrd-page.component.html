@@ -1,0 +1,75 @@
+<ng-container *ngIf="!config.store">
+  <ng-container [ngTemplateOutlet]="renderRrdGraphs"
+                [ngTemplateOutletContext]="{ $implicit: config.graphs }">
+  </ng-container>
+</ng-container>
+
+<ng-container *ngIf="config.store">
+  <ng-container *ngIf="loading">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    <omv-alert-panel type="info">
+      {{ "Please wait, the data is being loaded ..." | translate }}
+    </omv-alert-panel>
+  </ng-container>
+  <omv-alert-panel *ngIf="error && !loading"
+                   type="error">
+    {{ error | httpErrorResponse:'message' }}
+  </omv-alert-panel>
+  <mat-tab-group [ngClass]="{'omv-display-none': loading || error}">
+    <mat-tab *ngFor="let tab of tabs"
+             [label]="tab.label">
+      <ng-container [ngTemplateOutlet]="renderRrdGraphs"
+                    [ngTemplateOutletContext]="{ $implicit: tab.graphs }">
+      </ng-container>
+    </mat-tab>
+  </mat-tab-group>
+</ng-container>
+
+<ng-template #renderRrdGraphs
+             let-graphs>
+  <ng-container *ngIf="graphs.length === 1">
+    <ng-container [ngTemplateOutlet]="renderRrdGraph"
+                  [ngTemplateOutletContext]="{ $implicit: graphs[0].name }">
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="graphs.length > 1">
+    <mat-tab-group>
+      <mat-tab *ngFor="let graph of graphs"
+               [label]="graph.label">
+        <ng-container [ngTemplateOutlet]="renderRrdGraph"
+                      [ngTemplateOutletContext]="{ $implicit: graph.name }">
+        </ng-container>
+      </mat-tab>
+    </mat-tab-group>
+  </ng-container>
+</ng-template>
+
+<ng-template #renderRrdGraph
+             let-name>
+  <mat-card>
+    <mat-toolbar fxLayout="row"
+                 sticky
+                 [scrollContainer]="'#omv-workbench-router-outlet'">
+      <span fxFlex></span>
+      <button mat-icon-button
+              matTooltip="{{ 'Reload' | translate }}"
+              (click)="onGenerate()">
+        <mat-icon svgIcon="{{ icon.reload }}">
+        </mat-icon>
+      </button>
+    </mat-toolbar>
+    <mat-card-content fxLayout="column"
+                      fxLayoutAlign="center">
+      <img src="rrd.php?name={{ name }}-hour.png&time={{ time }}"
+           alt="RRD graph - by hour"/>
+      <img src="rrd.php?name={{ name }}-day.png&time={{ time }}"
+           alt="RRD graph - by day"/>
+      <img src="rrd.php?name={{ name }}-week.png&time={{ time }}"
+           alt="RRD graph - by week"/>
+      <img src="rrd.php?name={{ name }}-month.png&time={{ time }}"
+           alt="RRD graph - by month"/>
+      <img src="rrd.php?name={{ name }}-year.png&time={{ time }}"
+           alt="RRD graph - by year"/>
+    </mat-card-content>
+  </mat-card>
+</ng-template>

@@ -1,0 +1,11 @@
+@import 'styles.scss';
+
+.omv-dashboard-widget-system-information {
+  padding: $omv-padding;
+
+  .omv-grid-cell {
+    .omv-grid-cell-title {
+      @extend .omv-text-bold;
+    }
+  }
+}

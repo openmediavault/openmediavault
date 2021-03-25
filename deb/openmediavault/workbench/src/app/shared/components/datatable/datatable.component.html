@@ -1,0 +1,232 @@
+<mat-toolbar *ngIf="hasActionBar"
+             sticky
+             [disabled]="!hasStickyActionBar"
+             [scrollContainer]="ownerContainer"
+             fxLayout="row">
+  <!-- Custom action buttons -->
+  <ng-content select="omv-datatable-actions"></ng-content>
+  <span fxFlex></span>
+  <!-- Default action buttons -->
+  <button *ngIf="stateId"
+          mat-icon-button
+          matTooltip="{{ 'Show/Hide columns' | translate }}"
+          [matMenuTriggerFor]="columnMenu">
+    <mat-icon svgIcon="{{ icon.table }}"></mat-icon>
+  </button>
+  <div *ngIf="hasSearchField">
+    <mat-form-field>
+      <mat-icon matPrefix
+                svgIcon="{{ icon.search }}">
+      </mat-icon>
+      <input matInput
+             type="search"
+             [(ngModel)]="searchFilter"
+             (keyup)="applySearchFilter()">
+      <mat-icon matSuffix
+                svgIcon="{{ icon.clear }}"
+                matTooltip="{{ 'Clear' | translate }}"
+                (click)="clearSearchFilter()">
+      </mat-icon>
+    </mat-form-field>
+  </div>
+  <button *ngIf="hasReloadButton"
+          mat-icon-button
+          matTooltip="{{ 'Reload' | translate }}"
+          (click)="reloadData()">
+    <mat-icon svgIcon="{{ icon.reload }}"></mat-icon>
+  </button>
+</mat-toolbar>
+<div class="omv-datatable-progress-bar">
+  <mat-progress-bar *ngIf="loadingIndicator"
+                    mode="indeterminate">
+  </mat-progress-bar>
+</div>
+<ngx-datatable #table
+               [rows]="rows"
+               [columns]="filteredColumns"
+               [columnMode]="columnMode"
+               [reorderable]="reorderable"
+               [headerHeight]="hasHeader ? '50' : 0"
+               [footerHeight]="hasFooter ? '50' : 0"
+               [rowHeight]="'auto'"
+               [limit]="limit > 0 ? limit : undefined"
+               [count]="count"
+               [offset]="offset"
+               [selectionType]="selectionType !== 'none' ? selectionType : undefined"
+               [selected]="selection.selected"
+               (select)="onSelect()"
+               [externalPaging]="remotePaging"
+               [externalSorting]="remoteSorting"
+               [sorts]="sorters"
+               (sort)="onSort($event)"
+               (page)="onPage($event)">
+</ngx-datatable>
+
+<mat-menu #columnMenu="matMenu">
+  <button *ngFor="let column of columns"
+          mat-menu-item
+          (click)="onToggleColumn(column)">
+    <mat-icon *ngIf="!column.hidden"
+              svgIcon="{{ icon.checkBox }}">
+    </mat-icon>
+    <mat-icon *ngIf="column.hidden"
+              svgIcon="{{ icon.checkBoxBlank }}">
+    </mat-icon>
+    <span>{{ column.name }}</span>
+  </button>
+</mat-menu>
+
+<ng-template #checkIconTpl
+             let-value="value"
+             let-column="column"
+             let-row="row">
+  <mat-icon *ngIf="(!column?.cellTemplateConfig ? value : (column?.cellTemplateConfig | template:row)) | toBoolean"
+            svgIcon="{{ icon.check }}">
+  </mat-icon>
+</ng-template>
+
+<ng-template #checkBoxTpl
+             let-value="value"
+             let-column="column"
+             let-row="row">
+  <mat-checkbox [checked]="(!column?.cellTemplateConfig ? value : (column?.cellTemplateConfig | template:row)) | toBoolean"></mat-checkbox>
+</ng-template>
+
+<ng-template #joinTpl
+             let-value="value"
+             let-column="column">
+  <span [innerHTML]="value | join:column?.cellTemplateConfig"></span>
+</ng-template>
+
+<ng-template #truncateTpl
+             let-value="value"
+             let-column="column">
+  <span [matTooltip]="value">{{ value | truncate:column?.cellTemplateConfig?.length:column?.cellTemplateConfig?.omission:column?.cellTemplateConfig?.separator }}</span>
+</ng-template>
+
+<ng-template #placeholderTpl
+             let-value="value">
+  {{ value | defaultTo:'-' }}
+</ng-template>
+
+<ng-template #notAvailableTpl
+             let-value="value">
+  {{ value | notAvailable }}
+</ng-template>
+
+<ng-template #binaryUnitTpl
+             let-value="value"
+             let-column="column">
+  {{ value | binaryUnit:column?.cellTemplateConfig }}
+</ng-template>
+
+<ng-template #localeDateTimeTpl
+             let-value="value">
+  {{ value | localeDate:'datetime' }}
+</ng-template>
+
+<ng-template #relativeTimeTpl
+             let-value="value">
+  {{ value | localeDate:'relative':true }}
+</ng-template>
+
+<ng-template #progressBarTpl
+             let-value="value"
+             let-column="column"
+             let-row="row">
+  <omv-progress-bar [value]="value"
+                    [text]="column?.cellTemplateConfig?.text | template:row"
+                    [warningThreshold]="column?.cellTemplateConfig?.warningThreshold">
+  </omv-progress-bar>
+</ng-template>
+
+<ng-template #chipTpl
+             let-value="value"
+             let-column="column"
+             let-row="row">
+  <mat-chip-list>
+    <mat-chip *ngFor="let item of (value | array)"
+              [selectable]="false"
+              [disableRipple]="true"
+              [ngClass]="(column?.cellTemplateConfig?.map && column?.cellTemplateConfig?.map[item]?.class) ? column.cellTemplateConfig.map[item].class : (column?.cellTemplateConfig?.class ? column.cellTemplateConfig.class : 'omv-chip-theme-gray')"
+              [matTooltip]="(column?.cellTemplateConfig?.map && column?.cellTemplateConfig?.map[item]?.tooltip) ? column?.cellTemplateConfig?.map[item]?.tooltip : undefined">
+      <span class="omv-text-no-wrap">{{ (column?.cellTemplateConfig?.map && column?.cellTemplateConfig?.map[item]?.value) ? (column.cellTemplateConfig.map[item].value | template:row) : (column?.cellTemplateConfig?.template ? (column.cellTemplateConfig.template | template:row) : item) }}</span>
+    </mat-chip>
+  </mat-chip-list>
+</ng-template>
+
+<ng-template #unsortedListTpl
+             let-value="value">
+  <ul class="omv-datatable-template-unsorted-list">
+    <li *ngFor="let item of (value | array)">
+      {{ item }}
+    </li>
+  </ul>
+</ng-template>
+
+<ng-template #buttonToggleTpl
+             let-value="value"
+             let-column="column"
+             let-row="row">
+  <mat-button-toggle-group #group="matButtonToggleGroup"
+                           fxLayout="row"
+                           value="{{ value }}"
+                           (change)="row[column.prop] = group.value">
+    <mat-button-toggle *ngFor="let item of column.cellTemplateConfig"
+                       fxFlex
+                       [value]="item.value">
+      <span>{{ item.text }}</span>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</ng-template>
+
+<ng-template #templateTpl
+             let-column="column"
+             let-row="row">
+  <span [innerHTML]="column.cellTemplateConfig | template:row | trustHtml"></span>
+</ng-template>
+
+<ng-template #shapeShifterTpl
+             let-config="value">
+  <ng-container [ngSwitch]="config.type">
+    <ng-template [ngSwitchCase]="'text'">
+      {{ config.value }}
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="'bold'">
+      <strong>{{ config.value }}</strong>
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="'placeholder'">
+      {{ config.value | defaultTo:'-' }}
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="'notAvailable'">
+      {{ config.value | notAvailable }}
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="'join'">
+      {{ config.value | join }}
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="'checkIcon'">
+      <mat-icon svgIcon="{{ icon.check }}"
+                [hidden]="!config.value">
+      </mat-icon>
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="'progressBar'">
+      <omv-progress-bar [value]="config.value"
+                        [text]="config.text">
+      </omv-progress-bar>
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="'localeDateTime'">
+      {{ config.value | localeDate:'datetime' }}
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="'relativeTime'">
+      {{ config.value | localeDate:'relative':true }}
+    </ng-template>
+  </ng-container>
+</ng-template>

@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "system.notification"
+  position: 30
+  text: _("Notification")
+  icon: email
+  url: "/system/notification"

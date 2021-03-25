@@ -1,0 +1,12 @@
+{
+  "attributes": {
+    "quotes": "double",
+    "vertical-align": true,
+    "whitespace": 0
+  },
+  "files": ["src/**/*.html"],
+  "indentation": {
+    "char": "space",
+    "number": 2
+  }
+}

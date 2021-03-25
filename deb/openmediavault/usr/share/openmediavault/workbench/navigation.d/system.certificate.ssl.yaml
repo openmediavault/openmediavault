@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "system.certificate.ssl"
+  position: 20
+  text: _("SSL")
+  icon: ssl
+  url: "/system/certificate/ssl"

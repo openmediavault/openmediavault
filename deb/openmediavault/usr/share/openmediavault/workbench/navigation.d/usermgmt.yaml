@@ -1,0 +1,11 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "usermgmt"
+  position: 40
+  text: _("User Management")
+  icon: users
+  url: "/usermgmt"
+  permissions:
+    role:
+    - admin

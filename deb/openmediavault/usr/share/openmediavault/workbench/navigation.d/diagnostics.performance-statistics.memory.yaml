@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "diagnostics.performance-statistics.memory"
+  text: _("Memory Usage")
+  icon: "mdi:memory"
+  url: "/diagnostics/performance-statistics/memory"

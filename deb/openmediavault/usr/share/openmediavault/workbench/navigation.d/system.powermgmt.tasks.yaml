@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "system.powermgmt.tasks"
+  position: 20
+  text: _("Scheduled Tasks")
+  icon: "mdi:calendar-clock"
+  url: "/system/powermgmt/tasks"

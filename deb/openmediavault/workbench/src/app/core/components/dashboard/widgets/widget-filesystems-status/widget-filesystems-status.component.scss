@@ -1,0 +1,27 @@
+@import 'styles.scss';
+
+$mat-typography-config: mat-typography-config();
+
+.omv-dashboard-widget-filesystems-status {
+  padding: $omv-padding;
+
+  .item {
+    border-left: 3px solid;
+    border-left-color: $omv-color-success;
+    padding-left: 8px;
+
+    .item-text {
+      font-size: mat-font-size($mat-typography-config, body-1);
+    }
+    .item-subtext {
+      font-size: mat-font-size($mat-typography-config, caption);
+    }
+
+    &.warning {
+      border-left-color: $omv-color-warning;
+    }
+    &.error {
+      border-left-color: $omv-color-error;
+    }
+  }
+}

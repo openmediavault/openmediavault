@@ -1,0 +1,53 @@
+version: "1.0"
+type: log
+data:
+  id: proftpd_xferlog
+  text: _("FTP - Transfer log")
+  columns:
+  - name: _("Date & Time")
+    sortable: true
+    prop: ts
+    cellTemplateName: localeDateTime
+    flexGrow: 1
+  - name: _("Remote host")
+    sortable: true
+    prop: remotehost
+  - name: _("Filename")
+    sortable: true
+    prop: filename
+    flexGrow: 1
+  - name: _("Filesize")
+    sortable: true
+    prop: filesize
+  - name: _("Transfer time")
+    sortable: true
+    prop: transfertime
+  - name: _("Direction")
+    sortable: true
+    prop: direction
+  - name: _("Access mode")
+    sortable: true
+    prop: accessmode
+  - name: _("Username")
+    sortable: true
+    prop: username
+  - name: _("Transfer type")
+    sortable: true
+    prop: transfertype
+  - name: _("Special action flag")
+    sortable: true
+    prop: specialactionflag
+  - name: _("Authentication method")
+    sortable: true
+    prop: authenticationmethod
+  - name: _("Authenticated user ID")
+    sortable: true
+    prop: authenticateduserid
+  - name: _("Completion status")
+    sortable: true
+    prop: completionstatus
+  request:
+    service: LogFile
+    method: getList
+    params:
+      id: proftpd_xferlog

@@ -1,0 +1,17 @@
+@import 'styles.scss';
+
+.mat-dialog-title {
+  display: flex;
+  align-items: center;
+
+  .mat-icon {
+    margin-right: 10px;
+  }
+}
+
+.mat-dialog-content {
+  .omv-task-dialog-content {
+    @extend .omv-background-color-theme-whitesmoke;
+    height: 300px;
+  }
+}

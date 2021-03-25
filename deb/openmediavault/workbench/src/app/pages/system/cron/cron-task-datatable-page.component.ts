@@ -1,0 +1,128 @@
+import { Component } from '@angular/core';
+import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
+
+import { DatatablePageConfig } from '~/app/core/components/limn-ui/models/datatable-page-config.type';
+
+@Component({
+  template: '<omv-limn-datatable-page [config]="this.config"></omv-limn-datatable-page>'
+})
+export class CronTaskDatatablePageComponent {
+  public config: DatatablePageConfig = {
+    autoReload: false,
+    stateId: '43b8eb04-2594-11ea-8bd6-fb7a107fca0e',
+    sorters: [
+      {
+        dir: 'asc',
+        prop: 'enable'
+      }
+    ],
+    store: {
+      proxy: {
+        service: 'Cron',
+        get: {
+          method: 'getList',
+          params: {
+            type: ['userdefined']
+          }
+        }
+      }
+    },
+    columns: [
+      {
+        name: gettext('Enabled'),
+        prop: 'enable',
+        flexGrow: 1,
+        sortable: true,
+        cellTemplateName: 'checkIcon'
+      },
+      {
+        name: gettext('Scheduling'),
+        prop: '',
+        flexGrow: 1,
+        cellTemplateName: 'template',
+        cellTemplateConfig:
+          '{% if execution == "exactly" %}' +
+          '{% set _minute = minute %}' +
+          '{% set _hour = hour %}' +
+          '{% set _dayofmonth = dayofmonth %}' +
+          '{% if everynminute %}{% set _minute %}*/{{ minute }}{% endset %}{% endif %}' +
+          '{% if everynhour %}{% set _hour %}*/{{ hour }}{% endset %}{% endif %}' +
+          '{% if everyndayofmonth %}{% set _dayofmonth %}*/{{ dayofmonth }}{% endset %}{% endif %}' +
+          '{{ _minute }} {{ _hour }} {{ _dayofmonth }} {{ month }} {{ dayofweek }}' +
+          '{% else %}' +
+          '{{ execution | capitalize | translate }}' +
+          '{% endif %}'
+      },
+      {
+        name: gettext('User'),
+        prop: 'username',
+        flexGrow: 1,
+        sortable: true
+      },
+      {
+        name: gettext('Command'),
+        prop: 'command',
+        flexGrow: 1,
+        sortable: true
+      },
+      {
+        name: gettext('Comment'),
+        prop: 'comment',
+        flexGrow: 1,
+        sortable: true
+      }
+    ],
+    actions: [
+      {
+        template: 'create',
+        execute: {
+          type: 'url',
+          url: '/system/cron/create'
+        }
+      },
+      {
+        template: 'edit',
+        execute: {
+          type: 'url',
+          url: '/system/cron/edit/{{ _selected[0].uuid }}'
+        }
+      },
+      {
+        type: 'iconButton',
+        icon: 'start',
+        tooltip: gettext('Run'),
+        enabledConstraints: {
+          minSelected: 1,
+          maxSelected: 1
+        },
+        execute: {
+          type: 'taskDialog',
+          taskDialog: {
+            title: gettext('Run scheduled task'),
+            width: '75%',
+            request: {
+              service: 'Cron',
+              method: 'execute',
+              params: {
+                uuid: '{{ _selected[0].uuid }}'
+              }
+            }
+          }
+        }
+      },
+      {
+        template: 'delete',
+        execute: {
+          type: 'request',
+          request: {
+            service: 'Cron',
+            method: 'delete',
+            params: {
+              uuid: '{{ _selected[0].uuid }}'
+            }
+          }
+        }
+      }
+    ]
+  };
+}

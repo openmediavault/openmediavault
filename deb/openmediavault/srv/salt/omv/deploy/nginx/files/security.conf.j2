@@ -4,7 +4,7 @@
 {%- set ssl_ecdh_curve = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SSL_ECDH_CURVE', 'X25519:secp384r1:prime256v1') -%}
 {%- set hsts_header = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SECURITY_HSTS', 'max-age=15768000; includeSubDomains') -%}
 {%- set csp_enabled = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SECURITY_CSP_ENABLE', 'yes') -%}
-{%- set csp_header = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SECURITY_CSP', 'default-src \'self\' \'unsafe-inline\' \'unsafe-eval\'; img-src \'self\' data:;') -%}
+{%- set csp_header = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SECURITY_CSP', 'default-src \'self\'; script-src \'self\' \'unsafe-eval\'; style-src \'self\' \'unsafe-inline\'; img-src \'self\' data:;') -%}
 {%- set xframe_enabled = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SECURITY_XFRAMEOPTIONS_ENABLE', 'yes') -%}
 {%- set xframe_header = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SECURITY_XFRAMEOPTIONS', 'SAMEORIGIN') -%}
 {%- set permissions_policy_header = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SECURITY_PERMISSIONS_POLICY', 'microphone \'none\'; camera \'none\'; geolocation \'none\'; payment \'none\';') -%}
@@ -26,16 +26,16 @@ add_header Strict-Transport-Security "{{ hsts_header }}" always;
 {%- if csp_enabled | to_bool %}
 # Content Security Policy (CSP)
 # https://www.owasp.org/index.php/Content_Security_Policy
-add_header Content-Security-Policy "{{ csp_header }}";
+add_header Content-Security-Policy "{{ csp_header }}" always;
 {%- endif %}
 {%- if xframe_enabled | to_bool %}
 # https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options
-add_header X-Frame-Options "{{ xframe_header }}";
+add_header X-Frame-Options "{{ xframe_header }}" always;
 {%- endif %}
 # http://blogs.msdn.com/b/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx
-add_header X-Content-Type-Options "nosniff";
+add_header X-Content-Type-Options "nosniff" always;
 # https://wiki.mozilla.org/Security/Features/XSS_Filter
 # http://blogs.msdn.com/b/ieinternals/archive/2011/01/31/controlling-the-internet-explorer-xss-filter-with-the-x-xss-protection-http-header.aspx
-add_header X-XSS-Protection "1; mode=block";
+add_header X-XSS-Protection "1; mode=block" always;
 # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy
 add_header Permissions-Policy "{{ permissions_policy_header }}" always;

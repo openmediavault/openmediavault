@@ -267,7 +267,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	/**
 	 * Create the logical volume.
 	 * @param name The name for the new logical volume.
-	 * @param size The size of bytes to allocate for the new logical volume.
+	 * @param size The size in percent to allocate for the new logical volume.
 	 * @param vgName The name of the volume group where to create the
 	 *   logical volume.
 	 * @return void
@@ -276,7 +276,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 	public static function create($name, $size, $vgName) {
 		$cmdArgs = [];
 		$cmdArgs[] = sprintf("--name %s", escapeshellarg($name));
-		$cmdArgs[] = sprintf("--size %sK", binary_convert($size, "B", "KiB"));
+		$cmdArgs[] = sprintf("--extents %d%%VG", $size);
 		$cmdArgs[] = escapeshellarg($vgName);
 		$cmd = new \OMV\System\Process("lvcreate", $cmdArgs);
 		$cmd->setRedirect2to1();
@@ -333,14 +333,13 @@ class StorageDeviceLvm extends StorageDeviceDM {
 
 	/**
 	 * Extend the logical volume.
-	 * @param size Gives the size of bytes to extend the logical volume.
+	 * @param size The percentage of the total space in the volume group.
 	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function extend($size) {
-		// Convert size to KiB to ensure it is a multiple of 512.
 		$cmdArgs = [];
-		$cmdArgs[] = sprintf("--size %sK", binary_convert($size, "B", "KiB"));
+		$cmdArgs[] = sprintf("--extents %d%%VG", $size);
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("lvextend", $cmdArgs);
 		$cmd->setRedirect2to1();
@@ -349,15 +348,15 @@ class StorageDeviceLvm extends StorageDeviceDM {
 
 	/**
 	 * Reduce the logical volume.
-	 * @param size Gives the size of bytes to extend the logical volume.
+	 * @param size The percentage of the total space in the volume group.
 	 * @return void
 	 * @throw \OMV\ExecException
 	 */
 	public function reduce($size) {
-		// Convert size to KiB to ensure it is a multiple of 512.
 		$cmdArgs = [];
-		$cmdArgs[] = sprintf("--size %sK", binary_convert($size, "B", "KiB"));
+		$cmdArgs[] = sprintf("--extents %d%%VG", $size);
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
+		$cmdArgs[] = "--force";
 		$cmd = new \OMV\System\Process("lvreduce", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute();

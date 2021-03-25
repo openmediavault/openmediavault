@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.nfs"
+  text: _("NFS")
+  icon: "mdi:folder-network"
+  url: "/services/nfs"

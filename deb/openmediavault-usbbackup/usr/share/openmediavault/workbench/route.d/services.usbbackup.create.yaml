@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/usbbackup/create"
+  title: _("Create")
+  notificationTitle: _("Created USB backup job.")
+  component: omv-services-usbbackup-job-form-page

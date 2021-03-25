@@ -83,7 +83,10 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				}
 				// Set default values.
 				$object = [
+					"devicename" => $fs->getDeviceName(),
 					"devicefile" => $fs->getPreferredDeviceFile(),
+					"predictabledevicefile" => $fs->getPredictableDeviceFile(),
+					"canonicaldevicefile" => $fs->getCanonicalDeviceFile(),
 					"parentdevicefile" => $fs->getParentDeviceFile(),
 					"uuid" => $fs->getUuid(),
 					"label" => $fs->getLabel(),
@@ -249,7 +252,10 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				}
 				// Get the filesystem details.
 				$object = [
+					"devicename" => $fs->getDeviceName(),
 					"devicefile" => $fs->getPreferredDeviceFile(),
+					"predictabledevicefile" => $fs->getPredictableDeviceFile(),
+					"canonicaldevicefile" => $fs->getCanonicalDeviceFile(),
 					"parentdevicefile" => $fs->getParentDeviceFile(),
 					"uuid" => $fs->getUuid(),
 					"label" => $fs->getLabel(),

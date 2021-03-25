@@ -1,0 +1,78 @@
+import { Injectable, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+import * as _ from 'lodash';
+import { EMPTY, Observable, of, ReplaySubject, Subscription } from 'rxjs';
+import { catchError, delay, filter, mergeMap, repeat, tap } from 'rxjs/operators';
+
+import { RpcService } from '~/app/shared/services/rpc.service';
+
+export type SystemInformation = {
+  ts: number;
+  time: string;
+  hostname: string;
+  version?: string;
+  cpuModelName?: string;
+  cpuUsage?: number;
+  memTotal?: number;
+  memUsed?: number;
+  kernel?: string;
+  uptime?: number;
+  loadAverage?: string;
+  configDirty?: boolean;
+  rebootRequired?: boolean;
+  pkgUpdatesAvailable?: boolean;
+};
+
+@Injectable({
+  providedIn: 'root'
+})
+export class SystemInformationService implements OnDestroy {
+  public systemInfo$: Observable<SystemInformation>;
+
+  private subscription: Subscription;
+  private systemInfoSource = new ReplaySubject<SystemInformation>(1);
+
+  constructor(private router: Router, private rpcService: RpcService) {
+    this.systemInfo$ = this.systemInfoSource.asObservable();
+    // Poll the system system-information every 5 seconds. Continue, even
+    // if there is a connection problem AND do not display an error
+    // notification.
+    this.subscription = of(true)
+      .pipe(
+        // Do not request system information if we are at the log-in page.
+        filter(() => this.router.url !== '/login'),
+        // Request the system information via HTTP.
+        mergeMap(() =>
+          this.rpcService.request('System', 'getInformation', null, { updatelastaccess: false })
+        ),
+        catchError((error) => {
+          // Do not show an error notification.
+          if (_.isFunction(error.preventDefault)) {
+            error.preventDefault();
+          }
+          return EMPTY;
+        }),
+        // Notify subscribers.
+        tap((res: { [key: string]: any }) => {
+          // We need to convert some properties to numbers because
+          // they are strings due to the 32bit compatibility of the
+          // PHP backend.
+          if (_.isString(res.memUsed)) {
+            res.memUsed = _.parseInt(res.memUsed);
+          }
+          if (_.isString(res.memTotal)) {
+            res.memTotal = _.parseInt(res.memTotal);
+          }
+          this.systemInfoSource.next(res as SystemInformation);
+        }),
+        // Delay 5 seconds before performing the next request.
+        delay(5000),
+        repeat()
+      )
+      .subscribe();
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+}

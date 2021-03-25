@@ -1,4 +1,0 @@
-build/classic/ usr/share/javascript/extjs6
-build/modern/ usr/share/javascript/extjs6
-build/packages/ usr/share/javascript/extjs6
-build/*.js usr/share/javascript/extjs6
