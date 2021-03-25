@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import dayjs from 'dayjs';
+import updateLocale from 'dayjs/plugin/updateLocale';
 import { ToastrModule } from 'ngx-toastr';
 import { tap } from 'rxjs/operators';
 
@@ -59,7 +60,8 @@ import { SharedModule } from '~/app/shared/shared.module';
           .pipe(
             tap(() => {
               // Translate various day.js locale strings.
-              dayjs.locale('en', {
+              dayjs.extend(updateLocale);
+              dayjs.updateLocale('en', {
                 relativeTime: {
                   /* eslint-disable @typescript-eslint/naming-convention */
                   future: translate(gettext('in %s')),

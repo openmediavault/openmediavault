@@ -70,6 +70,13 @@ describe('functions.helper', () => {
     expect(format('{{ foo | max(10) }}', data)).toBe('10');
   });
 
+  it('should format string [3]', () => {
+    expect(_.isString(format('{{ moment("H:mm:ss") }}', {}))).toBeTruthy();
+    expect(format('{{ "17:29:59" | split(":") }}', {})).toBe('17,29,59');
+    expect(format('{{ items | get(0) }}', { items: ['17', '29', '59'] })).toBe('17');
+    expect(format('{{ items | get(2) }}', { items: ['17', '29', '59'] })).toBe('59');
+  });
+
   it('should format deep [1]', () => {
     const data = { foo: { bar: 'xyz' } };
     expect(formatDeep('My name is {{ foo.bar }}', data)).toEqual('My name is xyz');
