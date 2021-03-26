@@ -40,7 +40,9 @@
     <div class="omv-grid-cell-title"
          translate>Updates available</div>
     <div>
-      <mat-icon svgIcon="mdi:check"></mat-icon>
+      <a routerLink="/system/updatemgmt/updates">
+        <mat-icon svgIcon="mdi:check"></mat-icon>
+      </a>
     </div>
   </div>
   <div *ngIf="data?.rebootRequired"
