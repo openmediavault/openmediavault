@@ -6,6 +6,7 @@ openmediavault (5.6.3-1) stable; urgency=low
     rebooted to complete a package upgrade.
   * Rebuild SSH authorized keys even if the last public key of a user
     has been deleted.
+  * Replace omv-update by omv-upgrade.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 11 Mar 2021 22:09:51 +0100
 
