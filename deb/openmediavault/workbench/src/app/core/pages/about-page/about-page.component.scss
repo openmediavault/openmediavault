@@ -8,6 +8,30 @@
 
   .mat-card {
     margin: $omv-margin;
+
+    .logo {
+      @extend .omv-text-monospaced;
+
+      .ascii-art {
+        margin: unset;
+      }
+
+      .side-scroller {
+        overflow: hidden;
+        white-space: nowrap;
+
+        .text {
+          padding-left: 100%;
+          animation: scrollText 30s infinite linear;
+        }
+      }
+    }
+  }
+}
+
+@keyframes scrollText {
+  to {
+    transform: translateX(-100%);
   }
 }
 
