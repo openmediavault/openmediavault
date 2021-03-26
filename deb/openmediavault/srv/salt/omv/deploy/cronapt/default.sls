@@ -87,7 +87,7 @@ create_cron-apt_config_install_security_upgrades:
   file.managed:
     - name: "/etc/cron-apt/config.d/5-openmediavault-security"
     - contents: |
-        OPTIONS="--option quiet=1 --option APT::Get::List-Cleanup=false --option Dir::Etc::SourceList={{ security_pkg_repo.file }} --option Dir::Etc::SourceParts=\"/dev/null\""
+        OPTIONS="--option quiet=1 --option APT::Get::List-Cleanup=false --option Dir::Etc::SourceList={{ security_pkg_repo.file }} --option Dir::Etc::SourceParts=\"/dev/null\" --option DPkg::Options::=\"--force-confold\""
     - user: root
     - group: root
     - mode: 644
