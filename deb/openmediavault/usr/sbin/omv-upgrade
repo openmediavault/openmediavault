@@ -21,9 +21,17 @@
 
 set -e
 
-. /usr/share/openmediavault/scripts/helper-functions
+export LANG=C
+export DEBIAN_FRONTEND=noninteractive
 
-omv_warning "omv-update is deprecated, please use omv-upgrade instead."
-omv-upgrade
+# Update package database and update distribution. This is done via
+# 'dist-upgrade' because newer version have modified package dependencies
+# which can not be resolved by 'upgrade'. Configuration files modified by
+# the user will be overwritten, otherwise it is not possible to install
+# packages non-interactively.
+apt-get update
+apt-get --yes --allow-downgrades --allow-change-held-packages --fix-missing \
+	--auto-remove --allow-unauthenticated \
+	--show-upgraded --option DPkg::Options::="--force-confold" dist-upgrade
 
 exit 0
