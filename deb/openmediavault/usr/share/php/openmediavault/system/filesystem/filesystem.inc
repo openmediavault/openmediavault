@@ -444,9 +444,9 @@ class Filesystem extends \OMV\System\BlockDevice
 	 * Get the device file in the following order:
 	 * <ul>
 	 * \li /dev/disk/by-uuid/xxx
-	 * \li /dev/disk/by-label/xxx
 	 * \li /dev/disk/by-id/xxx
 	 * \li /dev/disk/by-path/xxx
+	 * \li /dev/disk/by-label/xxx
 	 * \li /dev/xxx
 	 * </ul>
 	 * @return Returns a device file.
@@ -454,12 +454,12 @@ class Filesystem extends \OMV\System\BlockDevice
 	public function getPredictableDeviceFile() {
 		if (TRUE === $this->hasDeviceFileByUuid())
 			return $this->getDeviceFileByUuid();
-		else if (TRUE === $this->hasDeviceFileByLabel())
-			return $this->getDeviceFileByLabel();
 		else if (TRUE === $this->hasDeviceFileById())
 			return $this->getDeviceFileById();
 		else if (TRUE === $this->hasDeviceFileByPath())
 			return $this->getDeviceFileByPath();
+		else if (TRUE === $this->hasDeviceFileByLabel())
+			return $this->getDeviceFileByLabel();
 		return $this->getCanonicalDeviceFile();
 	}
 
