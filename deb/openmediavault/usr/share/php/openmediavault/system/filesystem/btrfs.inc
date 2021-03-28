@@ -85,9 +85,9 @@ class Btrfs extends Filesystem {
 	/**
 	 * Get the device file in the following order:
 	 * <ul>
-	 * \li /dev/disk/by-label/xxx
 	 * \li /dev/disk/by-id/xxx
 	 * \li /dev/disk/by-path/xxx
+	 * \li /dev/disk/by-label/xxx
 	 * \li /dev/xxx
 	 * </ul>
 	 * Note, /dev/disk/by-uuid is not supported by this filesystem
@@ -95,12 +95,12 @@ class Btrfs extends Filesystem {
 	 * @return Returns a device file.
 	 */
 	public function getPredictableDeviceFile() {
-		if (TRUE === $this->hasDeviceFileByLabel())
-			return $this->getDeviceFileByLabel();
-		else if (TRUE === $this->hasDeviceFileById())
+		if (TRUE === $this->hasDeviceFileById())
 			return $this->getDeviceFileById();
 		else if (TRUE === $this->hasDeviceFileByPath())
 			return $this->getDeviceFileByPath();
+		else if (TRUE === $this->hasDeviceFileByLabel())
+			return $this->getDeviceFileByLabel();
 		return $this->getCanonicalDeviceFile();
 	}
 
