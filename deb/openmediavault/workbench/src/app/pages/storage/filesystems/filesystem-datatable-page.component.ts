@@ -31,7 +31,7 @@ export class FilesystemDatatablePageComponent {
     columns: [
       {
         name: gettext('Device'),
-        prop: 'devicefile',
+        prop: 'canonicaldevicefile',
         flexGrow: 1,
         sortable: true
       },
