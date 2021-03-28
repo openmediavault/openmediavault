@@ -886,7 +886,9 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 				if ($fs->hasLabel() && (1 == preg_match("/ /",
 						$fs->getLabel()))) {
 					throw new \OMV\Exception(
-						"The filesystem label contains blanks.");
+						"The filesystem label contains blanks. Please ".
+						"remove them by renaming the filesystem to be ".
+						"able to mount it.");
 				}
 				// Optionally try to get the parent storage device on
 				// which the filesystem is located. This device file
