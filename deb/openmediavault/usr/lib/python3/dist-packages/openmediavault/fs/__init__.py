@@ -183,9 +183,9 @@ class Filesystem(openmediavault.device.BlockDevice):
         Get a predictable device file in the following order:
 
         * /dev/disk/by-uuid/xxx
-        * /dev/disk/by-label/xxx
         * /dev/disk/by-id/xxx
         * /dev/disk/by-path/xxx
+        * /dev/disk/by-label/xxx
         * /dev/xxx
 
         :return: Returns a device file.
@@ -193,12 +193,12 @@ class Filesystem(openmediavault.device.BlockDevice):
         """
         if self.has_device_file_by_uuid():
             return self.device_file_by_uuid
-        elif self.has_device_file_by_label():
-            return self.device_file_by_label
         elif self.has_device_file_by_id():
             return self.device_file_by_id
         elif self.has_device_file_by_path():
             return self.device_file_by_path
+        elif self.has_device_file_by_label():
+            return self.device_file_by_label
         return self.canonical_device_file
 
     @property
