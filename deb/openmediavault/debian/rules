@@ -13,8 +13,7 @@ override_dh_auto_clean:
 	rm -rf workbench/dist/
 
 override_dh_auto_build:
-	cd workbench && npm install
-	cd workbench && npm run build:prod
+	cd workbench && npm install && npm run build:prod
 
 override_dh_auto_install:
 	dh_install --verbose workbench/dist/openmediavault-workbench/* var/www/openmediavault
