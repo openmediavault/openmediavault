@@ -23,7 +23,7 @@
     <omv-progress-bar *ngIf="item.mounted"
                       class="item-subtext"
                       [value]="item.percentage | max:0"
-                      warningThreshold="85">
+                      [warningThreshold]="item.usagewarnthreshold | defaultTo:0">
     </omv-progress-bar>
     <div *ngIf="(item.status === 1) && !item.mounted"
          class="item-subtext omv-text-no-wrap"

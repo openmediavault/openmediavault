@@ -75,7 +75,7 @@ class FsTab extends \OMV\Rpc\ServiceAbstract {
 		// Get the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		return $db->getAssoc("conf.system.filesystem.mountpoint",
-		  $params['uuid']);
+			$params['uuid']);
 	}
 
 	/**
@@ -88,10 +88,13 @@ class FsTab extends \OMV\Rpc\ServiceAbstract {
 	 *   \em type The type of the filesystem.
 	 *   \em opts The mount options associated with the filesystem.
 	 *   \em freq This option is used for these filesystems by the dump(8)
-	 *   command to determine which filesystems need to be dumped.
+	 *     command to determine which filesystems need to be dumped.
 	 *   \em passno This field is used by the fsck(8) program to determine
-	 *   the order in which filesystem checks are done at reboot time.
+	 *     the order in which filesystem checks are done at reboot time.
 	 *   \em hidden Set to 0 to write the mount point entry to /etc/fstab.
+	 *   \em usagewarnthreshold The threshold in percent when to warn the
+	 *      device is running out of disk space.
+	 *   \em comment Any text string. This field is optional.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
 	 */
@@ -108,7 +111,7 @@ class FsTab extends \OMV\Rpc\ServiceAbstract {
 		$fsb = $fsbMngr->getBackendByType($params['type']);
 		// Prepare the configuration object.
 		$object = new \OMV\Config\ConfigObject(
-		  "conf.system.filesystem.mountpoint");
+			"conf.system.filesystem.mountpoint");
 		$object->setAssoc($params);
 		$object->set("hidden", !$fsb->hasFstabSupport());
 		// Set the configuration object.
@@ -143,7 +146,7 @@ class FsTab extends \OMV\Rpc\ServiceAbstract {
 		// Delete the configuration object.
 		$db = \OMV\Config\Database::getInstance();
 		$object = $db->get("conf.system.filesystem.mountpoint",
-		  $params['uuid']);
+			$params['uuid']);
 		$db->delete($object);
 		// Return the deleted configuration object.
 		return $object->getAssoc();
@@ -174,39 +177,26 @@ class FsTab extends \OMV\Rpc\ServiceAbstract {
 		// Get the values we are searching for.
 		$fsNames = [];
 		$fsNames[] = $params['fsname'];
-		// Get all existing device files and the UUID of the file system to
-		// add them to the search arguments. This is done to increase the
+		// If the file system exists, then get all available device
+		// files and append them to the search filter to increase the
 		// probability to find the mount point configuration object.
 		$fs = \OMV\System\Filesystem\Filesystem::getImpl($params['fsname']);
 		if (!is_null($fs) && $fs->exists()) {
+			$fsNames[] = $fs->getCanonicalDeviceFile();
 			$fsNames = array_merge($fsNames, $fs->getDeviceFileSymlinks());
 			if (TRUE === $fs->hasUuid()) {
+				// To keep backward compatibility we need to search for
+				// the file system UUID, too.
 				$fsNames[] = $fs->getUuid();
 			}
-			// Remove duplicates and re-index the array.
-			$fsNames = array_values(array_unique($fsNames));
-		}
-		// Build the filter and try to find the configuration object matching
-		// the given search arguments.
-		$filter = [
-			"operator" => "stringEquals",
-			"arg0" => "fsname",
-			"arg1" => array_shift($fsNames)
-		];
-		foreach ($fsNames as $fsNamek => $fsNamev) {
-			$filter = [
-				"operator" => "or",
-				"arg0" => $filter,
-				"arg1" => [
-					"operator" => "stringEquals",
-					"arg0" => "fsname",
-					"arg1" => $fsNamev
-				]
-			];
 		}
 		$db = \OMV\Config\Database::getInstance();
-		$objects = $db->getByFilter("conf.system.filesystem.mountpoint",
-			$filter);
+		$objects = $db->getByFilter("conf.system.filesystem.mountpoint", [
+			"operator" => "stringEnum",
+			"arg0" => "fsname",
+			// Remove duplicates and re-index the array.
+			"arg1" => array_values(array_unique($fsNames))
+		]);
 		if (empty($objects)) {
 			return FALSE;
 		}

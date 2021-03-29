@@ -7,8 +7,9 @@ import { NavigationPageComponent } from '~/app/core/pages/navigation-page/naviga
 import { RouteConfigService } from '~/app/core/services/route-config.service';
 import { DiskDatatablePageComponent } from '~/app/pages/storage/disks/disk-datatable-page.component';
 import { DiskFormPageComponent } from '~/app/pages/storage/disks/disk-form-page.component';
+import { FilesystemCreateFormPageComponent } from '~/app/pages/storage/filesystems/filesystem-create-form-page.component';
 import { FilesystemDatatablePageComponent } from '~/app/pages/storage/filesystems/filesystem-datatable-page.component';
-import { FilesystemFormPageComponent } from '~/app/pages/storage/filesystems/filesystem-form-page.component';
+import { FilesystemMountFormPageComponent } from '~/app/pages/storage/filesystems/filesystem-mount-form-page.component';
 import { FilesystemQuotaDatatablePageComponent } from '~/app/pages/storage/filesystems/filesystem-quota-datatable-page.component';
 import { FilesystemQuotaFormPageComponent } from '~/app/pages/storage/filesystems/filesystem-quota-form-page.component';
 import { MdDatatablePageComponent } from '~/app/pages/storage/md/md-datatable-page.component';
@@ -168,13 +169,18 @@ const routes: Routes = [
   },
   {
     path: 'filesystems',
-    data: { title: gettext('Filesystems') },
+    data: { title: gettext('File Systems') },
     children: [
       { path: '', component: FilesystemDatatablePageComponent },
       {
         path: 'create',
-        component: FilesystemFormPageComponent,
+        component: FilesystemCreateFormPageComponent,
         data: { title: gettext('Create'), editing: false }
+      },
+      {
+        path: 'mount',
+        component: FilesystemMountFormPageComponent,
+        data: { title: gettext('Mount'), editing: false }
       },
       {
         path: 'quota/:uuid',

@@ -44,8 +44,9 @@ export class SharedFolderFormPageComponent {
       {
         type: 'select',
         name: 'mntentref',
-        label: gettext('Device'),
-        placeholder: gettext('Select a device ...'),
+        label: gettext('File system'),
+        placeholder: gettext('Select a file system ...'),
+        hint: gettext('The file system on which the shared folder is to be created.'),
         valueField: 'uuid',
         textField: 'description',
         store: {

@@ -6,8 +6,9 @@ import { CoreModule } from '~/app/core/core.module';
 import { MaterialModule } from '~/app/material.module';
 import { DiskDatatablePageComponent } from '~/app/pages/storage/disks/disk-datatable-page.component';
 import { DiskFormPageComponent } from '~/app/pages/storage/disks/disk-form-page.component';
+import { FilesystemCreateFormPageComponent } from '~/app/pages/storage/filesystems/filesystem-create-form-page.component';
 import { FilesystemDatatablePageComponent } from '~/app/pages/storage/filesystems/filesystem-datatable-page.component';
-import { FilesystemFormPageComponent } from '~/app/pages/storage/filesystems/filesystem-form-page.component';
+import { FilesystemMountFormPageComponent } from '~/app/pages/storage/filesystems/filesystem-mount-form-page.component';
 import { FilesystemQuotaDatatablePageComponent } from '~/app/pages/storage/filesystems/filesystem-quota-datatable-page.component';
 import { FilesystemQuotaFormPageComponent } from '~/app/pages/storage/filesystems/filesystem-quota-form-page.component';
 import { MdDatatablePageComponent } from '~/app/pages/storage/md/md-datatable-page.component';
@@ -48,7 +49,8 @@ import { StorageRoutingModule } from '~/app/pages/storage/storage-routing.module
     MdRecoverFormPageComponent,
     SharedFolderFormPageComponent,
     SharedFolderPrivilegesDatatablePageComponent,
-    FilesystemFormPageComponent,
+    FilesystemCreateFormPageComponent,
+    FilesystemMountFormPageComponent,
     FilesystemQuotaDatatablePageComponent,
     FilesystemQuotaFormPageComponent,
     SharedFolderAclFormPageComponent

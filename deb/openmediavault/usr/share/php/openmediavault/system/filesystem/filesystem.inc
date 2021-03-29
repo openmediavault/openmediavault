@@ -446,7 +446,6 @@ class Filesystem extends \OMV\System\BlockDevice
 	 * \li /dev/disk/by-uuid/xxx
 	 * \li /dev/disk/by-id/xxx
 	 * \li /dev/disk/by-path/xxx
-	 * \li /dev/disk/by-label/xxx
 	 * \li /dev/xxx
 	 * </ul>
 	 * @return Returns a device file.
@@ -458,8 +457,6 @@ class Filesystem extends \OMV\System\BlockDevice
 			return $this->getDeviceFileById();
 		else if (TRUE === $this->hasDeviceFileByPath())
 			return $this->getDeviceFileByPath();
-		else if (TRUE === $this->hasDeviceFileByLabel())
-			return $this->getDeviceFileByLabel();
 		return $this->getCanonicalDeviceFile();
 	}
 
@@ -782,17 +779,19 @@ class Filesystem extends \OMV\System\BlockDevice
 	 */
 	public function getDescription() {
 		$this->getData();
-		// Use the device file as default.
-		$result = $this->getDeviceFile();
-		// If the file system has a label, then use this as an alternative.
-		if (TRUE === $this->hasLabel())
-			$result = $this->getLabel();
+		$deviceFile = $this->getCanonicalDeviceFile();
+		// Display the size of the device, since this information is
+		// available even if the file system is not mounted.
+		$result = sprintf("%s [%s, %s]", $deviceFile, strtoupper(
+			$this->getType()), binary_format($this->getSize()));
 		// Try to get the file system statistics to get a more detailed
 		// description.
 		if (FALSE !== ($stats = $this->getStatistics())) {
-			$result = sprintf(gettext("%s [%s (%d%%) used, %s available]"),
-			  $result, binary_format($stats['used']),
-			  $stats['percentage'], binary_format($stats['available']));
+			$result = sprintf(
+				gettext("%s [%s, %s (%d%%) used, %s available]"),
+				$deviceFile, strtoupper($this->getType()),
+				binary_format($stats['used']), $stats['percentage'],
+				binary_format($stats['available']));
 		}
 		return $result;
 	}
@@ -876,8 +875,8 @@ class Filesystem extends \OMV\System\BlockDevice
 		$result = self::getImpl($id);
 		if (is_null($result) || !$result->exists()) {
 			throw new \OMV\Exception(
-			  "Failed to get the filesystem implementation for '%s' ".
-			  "or the filesystem does not exist.", $id);
+			  "Failed to get the file system implementation for '%s' ".
+			  "or the file system does not exist.", $id);
 		}
 		return $result;
 	}

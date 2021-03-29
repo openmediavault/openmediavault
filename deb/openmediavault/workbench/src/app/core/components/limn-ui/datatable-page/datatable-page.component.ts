@@ -235,7 +235,10 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
       if (_.isString(data.message)) {
         data.message = format(data.message, this.pageContext);
       }
-      const dialogRef = this.matDialog.open(ModalDialogComponent, { data });
+      const dialogRef = this.matDialog.open(ModalDialogComponent, {
+        width: _.get(data, 'width', '50%'),
+        data: _.omit(data, ['width'])
+      });
       dialogRef.afterClosed().subscribe((res) => {
         if (true === res) {
           postConfirmFn();

@@ -1,6 +1,10 @@
 openmediavault (6.0-1) UNRELEASED; urgency=low
 
   * Reimplement UI.
+  * /dev/disk/by-label filesystem device files are not supported
+    anymore because they are not unique and predictable.
+  * Change file system handling in UI.
+  * Adapt 'FileSystemMgmt' RPCs to new workflow.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 14 Dec 2020 20:28:37 +0100
 

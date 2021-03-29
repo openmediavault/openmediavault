@@ -52,7 +52,8 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 	}
 
 	/**
-	 * Get list of mount points that can be used for shared folders.
+	 * Get list of candidates (file systems) that can be used for shared
+	 * folders.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array containing objects with the following fields:

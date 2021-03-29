@@ -11,7 +11,8 @@ export type TaskDialogConfig = {
   // Start the action on dialog initialization. If set to `true`,
   // then the 'Start' button gets hidden. Defaults to `false`.
   startOnInit?: boolean;
-  // The button configurations.
+  // The custom button configurations. They are merged with the
+  // default settings.
   // The defaults are:
   // - start:
   //   - The button text defaults to `Start`.
@@ -30,7 +31,8 @@ export type TaskDialogConfig = {
   //   - The button is disabled by default.
   //   - The button is focused by default.
   //   - The value submitted when the dialog gets closed defaults
-  //     to `false`.
+  //     to `false`. If the request was successfully, it will be
+  //     set to `true`.
   buttons?: {
     start?: TaskDialogButtonConfig;
     stop?: TaskDialogButtonConfig;
@@ -57,6 +59,6 @@ export type TaskDialogButtonConfig = {
   // Is the button auto-focused?
   autofocus?: boolean;
   // The dialog close input. This can be a boolean, string or
-  // anything else.
+  // anything else. Internal only.
   dialogResult?: any;
 };

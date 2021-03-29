@@ -15,7 +15,7 @@ export class FilesystemDatatablePageComponent {
     sorters: [
       {
         dir: 'asc',
-        prop: 'devicefile'
+        prop: 'canonicaldevicefile'
       }
     ],
     store: {
@@ -32,6 +32,12 @@ export class FilesystemDatatablePageComponent {
       {
         name: gettext('Device'),
         prop: 'canonicaldevicefile',
+        flexGrow: 1,
+        sortable: true
+      },
+      {
+        name: gettext('Comment'),
+        prop: 'comment',
         flexGrow: 1,
         sortable: true
       },
@@ -80,6 +86,7 @@ export class FilesystemDatatablePageComponent {
         prop: 'size',
         flexGrow: 1,
         sortable: true,
+        hidden: true,
         cellTemplateName: 'template',
         cellTemplateConfig: '{{ size | tobytes | binaryunit | notavailable("-") }}'
       },
@@ -99,7 +106,7 @@ export class FilesystemDatatablePageComponent {
         cellTemplateName: 'progressBar',
         cellTemplateConfig: {
           text: '{{ used | tobytes | binaryunit | notavailable("-") }}',
-          warningThreshold: 85
+          warningThreshold: '{{ usagewarnthreshold | default(0) }}'
         }
       },
       {
@@ -140,11 +147,27 @@ export class FilesystemDatatablePageComponent {
     ],
     actions: [
       {
-        template: 'create',
-        execute: {
-          type: 'url',
-          url: '/storage/filesystems/create'
-        }
+        type: 'menu',
+        icon: 'add',
+        tooltip: gettext('Create | Mount'),
+        actions: [
+          {
+            template: 'create',
+            execute: {
+              type: 'url',
+              url: '/storage/filesystems/create'
+            }
+          },
+          {
+            type: 'iconButton',
+            text: gettext('Mount'),
+            icon: 'start',
+            execute: {
+              type: 'url',
+              url: '/storage/filesystems/mount'
+            }
+          }
+        ]
       },
       {
         type: 'iconButton',
@@ -203,78 +226,9 @@ export class FilesystemDatatablePageComponent {
         }
       },
       {
-        type: 'iconButton',
-        icon: 'start',
-        tooltip: gettext('Mount'),
-        enabledConstraints: {
-          minSelected: 1,
-          maxSelected: 1,
-          constraint: [
-            // Enable button if file systems is online.
-            { operator: 'eq', arg0: { prop: 'status' }, arg1: 1 },
-            // Enable button if file system supports fstab
-            // mount entries.
-            { operator: 'truthy', arg0: { prop: 'propfstab' } },
-            // Enable button if the file system is not mounted.
-            { operator: 'falsy', arg0: { prop: 'mounted' } }
-          ]
-        },
-        confirmationDialogConfig: {
-          template: 'confirmation',
-          message: gettext('Do you really want to mount the file system?')
-        },
-        execute: {
-          type: 'request',
-          request: {
-            service: 'FileSystemMgmt',
-            method: 'mount',
-            params: {
-              id: '{{ _selected[0].devicefile }}',
-              fstab: true
-            },
-            progressMessage: gettext('Please wait, the file system is being mounted ...')
-          }
-        }
-      },
-      {
-        type: 'iconButton',
-        icon: 'eject',
-        tooltip: gettext('Unmount'),
-        enabledConstraints: {
-          minSelected: 1,
-          maxSelected: 1,
-          constraint: [
-            // Enable button if file system is not in use.
-            {
-              operator: 'if',
-              arg0: { operator: 'has', arg0: { prop: '_used' } },
-              arg1: { operator: 'falsy', arg0: { prop: '_used' } }
-            },
-            // Enable button if file system supports fstab
-            // mount entries.
-            { operator: 'truthy', arg0: { prop: 'propfstab' } },
-            // Enable button if the file system is mounted.
-            { operator: 'truthy', arg0: { prop: 'mounted' } }
-          ]
-        },
-        confirmationDialogConfig: {
-          template: 'confirmation-danger',
-          message: gettext('Do you really want to unmount the file system?')
-        },
-        execute: {
-          type: 'request',
-          request: {
-            service: 'FileSystemMgmt',
-            method: 'umount',
-            params: {
-              id: '{{ _selected[0].devicefile }}',
-              fstab: true
-            }
-          }
-        }
-      },
-      {
         template: 'delete',
+        icon: 'stop',
+        tooltip: gettext('Unmount'),
         enabledConstraints: {
           constraint: [
             // Disable button if file system is in use or read-only.
@@ -297,17 +251,23 @@ export class FilesystemDatatablePageComponent {
           ]
         },
         confirmationDialogConfig: {
-          template: 'confirmation-danger',
-          message: gettext('Do you really want to delete the file system? All data will be lost.')
+          title: gettext('Unmount'),
+          template: 'confirmation',
+          message: gettext(
+            // eslint-disable-next-line max-len
+            'Do you really want to unmount this file system? Please make sure that the file system is not used by any service before unmounting. Note, the file system will not be deleted by this action.'
+          )
         },
         execute: {
           type: 'request',
           request: {
             service: 'FileSystemMgmt',
-            method: 'delete',
+            method: 'umount',
             params: {
-              id: '{{ _selected[0].devicefile }}'
-            }
+              id: '{{ _selected[0].devicefile }}',
+              fstab: true
+            },
+            progressMessage: gettext('Please wait, unmounting the file system ...')
           }
         }
       }
