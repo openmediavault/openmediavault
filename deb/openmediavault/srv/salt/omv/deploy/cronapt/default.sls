@@ -17,6 +17,10 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# Testing:
+# apt-get install --reinstall python3-lxml=4.3.2-1+deb10u2
+# cron-apt -s
+
 {% set notification_config = salt['omv_conf.get_by_filter'](
   'conf.system.notification.notification',
   {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'cronapt'},
@@ -87,7 +91,7 @@ create_cron-apt_config_install_security_upgrades:
   file.managed:
     - name: "/etc/cron-apt/config.d/5-openmediavault-security"
     - contents: |
-        OPTIONS="--option quiet=1 --option APT::Get::List-Cleanup=false --option Dir::Etc::SourceList={{ security_pkg_repo.file }} --option Dir::Etc::SourceParts=\"/dev/null\" --option DPkg::Options::=\"--force-confold\""
+        OPTIONS="--option quiet=1 --option APT::Get::List-Cleanup=false --option Dir::Etc::SourceList={{ security_pkg_repo.file }} --option Dir::Etc::SourceParts=\"/dev/null\" --option DPkg::Options::=--force-confold"
     - user: root
     - group: root
     - mode: 644
