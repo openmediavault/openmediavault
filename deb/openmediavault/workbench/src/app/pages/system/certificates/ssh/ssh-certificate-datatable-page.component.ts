@@ -28,6 +28,7 @@ export class SshCertificateDatatablePageComponent {
       {
         type: 'menu',
         icon: 'add',
+        tooltip: gettext('Create | Import'),
         actions: [
           {
             template: 'create',

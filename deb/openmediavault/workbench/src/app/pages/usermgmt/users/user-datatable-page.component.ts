@@ -45,7 +45,7 @@ export class UserDatatablePageComponent {
       {
         type: 'menu',
         icon: 'add',
-        tooltip: gettext('Create'),
+        tooltip: gettext('Create | Import'),
         actions: [
           {
             template: 'create',

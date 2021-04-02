@@ -44,6 +44,7 @@ export class GroupDatatablePageComponent {
       {
         type: 'menu',
         icon: 'add',
+        tooltip: gettext('Create | Import'),
         actions: [
           {
             template: 'create',
