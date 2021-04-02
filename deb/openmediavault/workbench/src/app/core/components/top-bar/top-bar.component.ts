@@ -75,44 +75,55 @@ export class TopBarComponent implements OnInit {
   }
 
   onLogout() {
-    this.showDialog(gettext('Logout'), gettext('Do you really want to logout?'), () => {
-      this.blockUI.start(translate(gettext('Please wait ...')));
-      this.authService.logout().subscribe();
-    });
+    this.showDialog(
+      gettext('Logout'),
+      gettext('Do you really want to logout?'),
+      'confirmation',
+      () => {
+        this.blockUI.start(translate(gettext('Please wait ...')));
+        this.authService.logout().subscribe();
+      }
+    );
   }
 
   onReboot() {
-    this.showDialog(gettext('Reboot'), gettext('Do you really want to reboot the system?'), () => {
-      this.rpcService.request('System', 'reboot', { delay: 0 }).subscribe(() => {
-        this.blockUI.start(
-          translate(gettext('The system will reboot now. This may take some time ...'))
-        );
-        const subscription = of(true)
-          .pipe(delay(5000))
-          .pipe(
-            concatMap(() => this.rpcService.request('System', 'noop')),
-            catchError((error) => {
-              // Do not show an error notification.
-              error.preventDefault();
-              // If we get a HTTP 401 Unauthorized status, then unblock UI.
-              if (error.status === 401) {
-                subscription.unsubscribe();
-                this.blockUI.stop();
-              }
-              return EMPTY;
-            }),
-            delay(500),
-            repeat()
-          )
-          .subscribe();
-      });
-    });
+    this.showDialog(
+      gettext('Reboot'),
+      gettext('Do you really want to reboot the system?'),
+      'confirmation-danger',
+      () => {
+        this.rpcService.request('System', 'reboot', { delay: 0 }).subscribe(() => {
+          this.blockUI.start(
+            translate(gettext('The system will reboot now. This may take some time ...'))
+          );
+          const subscription = of(true)
+            .pipe(delay(5000))
+            .pipe(
+              concatMap(() => this.rpcService.request('System', 'noop')),
+              catchError((error) => {
+                // Do not show an error notification.
+                error.preventDefault();
+                // If we get a HTTP 401 Unauthorized status, then unblock UI.
+                if (error.status === 401) {
+                  subscription.unsubscribe();
+                  this.blockUI.stop();
+                }
+                return EMPTY;
+              }),
+              delay(500),
+              repeat()
+            )
+            .subscribe();
+        });
+      }
+    );
   }
 
   onStandby() {
     this.showDialog(
       gettext('Standby'),
       gettext('Do you really want to put the system into standby?'),
+      'confirmation-danger',
       () => {
         this.rpcService.request('System', 'standby', { delay: 0 }).subscribe(() => {
           this.router.navigate(['/standby']);
@@ -125,6 +136,7 @@ export class TopBarComponent implements OnInit {
     this.showDialog(
       gettext('Shutdown'),
       gettext('Do you really want to shutdown the system?'),
+      'confirmation-danger',
       () => {
         this.rpcService.request('System', 'shutdown', { delay: 0 }).subscribe(() => {
           this.router.navigate(['/shutdown']);
@@ -144,6 +156,7 @@ export class TopBarComponent implements OnInit {
     this.showDialog(
       gettext('Reset UI to defaults'),
       gettext('Do you really want to reset the UI settings to their default values?'),
+      'confirmation',
       () => {
         this.userStorageService.clear();
         document.location.replace('');
@@ -151,9 +164,9 @@ export class TopBarComponent implements OnInit {
     );
   }
 
-  private showDialog(title: string, message: string, callback: () => void) {
+  private showDialog(title: string, message: string, template: string, callback: () => void) {
     const dialogRef = this.matDialog.open(ModalDialogComponent, {
-      data: { template: 'confirmation', title, message }
+      data: { template, title, message }
     });
     dialogRef.afterClosed().subscribe((res) => {
       if (res) {
