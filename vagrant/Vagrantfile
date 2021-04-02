@@ -20,7 +20,7 @@
 # along with openmediavault. If not, see <http://www.gnu.org/licenses/>.
 
 # Default values.
-hostname = "omv5box"
+hostname = "omv6box"
 
 Vagrant.configure("2") do |config|
 	config.vm.box = "debian/buster64"
