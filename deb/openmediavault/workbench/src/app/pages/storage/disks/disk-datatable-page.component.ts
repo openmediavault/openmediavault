@@ -23,7 +23,7 @@ export class DiskDatatablePageComponent {
     sorters: [
       {
         dir: 'asc',
-        prop: 'devicefile'
+        prop: 'canonicaldevicefile'
       }
     ],
     columns: [
