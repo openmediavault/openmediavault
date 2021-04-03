@@ -13,5 +13,6 @@
   .omv-task-dialog-content {
     @extend .omv-background-color-theme-whitesmoke;
     height: 300px;
+    white-space: break-spaces;
   }
 }
