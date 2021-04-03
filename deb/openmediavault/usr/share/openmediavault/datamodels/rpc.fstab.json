@@ -43,6 +43,14 @@
 				"type": "integer",
 				"enum": [ 0, 1, 2 ],
 				"required": true
+			},
+			"usagewarnthreshold": {
+				"type": "integer",
+				"required": false
+			},
+			"comment": {
+				"type": "string",
+				"required": false
 			}
 		}
 	}

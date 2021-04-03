@@ -60,6 +60,7 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
     this.config.buttons.start.disabled = true;
     this.config.buttons.stop.disabled = false;
     this.config.buttons.close.disabled = true;
+    this.config.buttons.close.dialogResult = false;
     this.content.nativeElement.innerHTML = '';
     this.running = true;
     this.subscription = this.rpcService
@@ -101,6 +102,10 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
           }
         },
         complete: () => {
+          // Set the result value to `true` because the request finished
+          // successfully.
+          this.config.buttons.close.dialogResult = true;
+          // Notify all subscribers.
           this.finishEvent.emit(this.content.nativeElement.innerHTML);
         }
       });

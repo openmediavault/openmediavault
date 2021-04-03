@@ -18,12 +18,6 @@ data:
       flexGrow: 1
       sortable: true
       hidden: true
-    - name: _("Total")
-      prop: size
-      flexGrow: 1
-      sortable: true
-      cellTemplateName: template
-      cellTemplateConfig: '{{ size | tobytes | binaryunit | notavailable("-") }}'
     - name: _("Available")
       prop: available
       flexGrow: 1
@@ -37,12 +31,12 @@ data:
       cellTemplateName: progressBar
       cellTemplateConfig:
         text: '{{ used | tobytes | binaryunit | notavailable("-") }}'
-        warningThreshold: 85
+        warningThreshold: '{{ usagewarnthreshold | default(0) }}'
     store:
       proxy:
         service: FileSystemMgmt
         get:
-          method: enumerateFilesystems
+          method: enumerateMountedFilesystems
     sorters:
     - dir: asc
       prop: canonicaldevicefile

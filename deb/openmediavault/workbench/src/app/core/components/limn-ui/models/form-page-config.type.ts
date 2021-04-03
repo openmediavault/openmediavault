@@ -1,6 +1,7 @@
 import { FormFieldConfig } from '~/app/core/components/limn-ui/models/form-field-config.type';
 import { Constraint } from '~/app/shared/models/constraint.type';
 import { ModalDialogConfig } from '~/app/shared/models/modal-dialog-config.type';
+import { TaskDialogConfig } from '~/app/shared/models/task-dialog-config.type';
 
 export type FormPageConfig = {
   // Specifies a unique ID for the form.
@@ -107,7 +108,7 @@ export type FormPageButtonConfig = {
 };
 
 export type FormPageButtonExecute = {
-  type: 'url' | 'request' | 'click';
+  type: 'url' | 'request' | 'taskDialog' | 'click';
   // Navigate to this URL when the button has been clicked.
   url?: string;
   // Execute the specified RPC when the button has been clicked.
@@ -126,6 +127,12 @@ export type FormPageButtonExecute = {
     progressMessage?: string;
     // Display a notification when the request was successful.
     successNotification?: string;
+    // Navigate to this URL when the request was successful.
+    successUrl?: string;
+  };
+  // Display a dialog that shows the output of the given RPC.
+  taskDialog?: {
+    config: TaskDialogConfig;
     // Navigate to this URL when the request was successful.
     successUrl?: string;
   };

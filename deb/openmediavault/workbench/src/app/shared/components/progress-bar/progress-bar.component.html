@@ -4,7 +4,7 @@
     <span *ngIf="!text">{{ value.toFixed(fractionDigits) }}%</span>
   </div>
   <div class="omv-progress-bar-fill"
-       [ngClass]="{'warning': warningThreshold && value > warningThreshold}"
+       [ngClass]="{'warning': warningThreshold && warningThreshold > 0 && value > warningThreshold}"
        [style.width]="(value | max:0)  + '%'">
     <div class="omv-progress-bar-text">
       <span *ngIf="text">{{ text }}</span>

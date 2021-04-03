@@ -24,10 +24,6 @@
 			"type": {
 				"type": "string",
 				"required": true
-			},
-			"label": {
-				"type": "string",
-				"required": true
 			}
 		}
 	}
@@ -46,26 +42,7 @@
 	}
 },{
 	"type": "rpc",
-	"id": "rpc.filesystemmgmt.delete",
-	"params": {
-		"type": "object",
-		"properties": {
-			"id": {
-				"type": "string",
-				"oneOf": [{
-					"type": "string",
-					"format": "fsuuid"
-				},{
-					"type": "string",
-					"format": "devicefile"
-				}],
-				"required": true
-			}
-		}
-	}
-},{
-	"type": "rpc",
-	"id": "rpc.filesystemmgmt.mount",
+	"id": "rpc.filesystemmgmt.setMountPoint",
 	"params": {
 		"type": "object",
 		"properties": {
@@ -80,9 +57,15 @@
 				}],
 				"required": true
 			},
-			"fstab": {
-				"type": "boolean",
-				"required": true
+			"usagewarnthreshold": {
+				"type": "number",
+				"minimum": 0,
+				"maximum": 100,
+				"required": false
+			},
+			"comment": {
+				"type": "string",
+				"required": false
 			}
 		}
 	}
@@ -101,10 +84,6 @@
 					"type": "string",
 					"format": "devicefile"
 				}],
-				"required": true
-			},
-			"fstab": {
-				"type": "boolean",
 				"required": true
 			}
 		}

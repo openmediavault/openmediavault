@@ -22,6 +22,7 @@ import {
 import { format, formatDeep, formatURI, isFormatable, toBoolean } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
+import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
@@ -244,6 +245,30 @@ export class FormPageComponent
               });
           }
           break;
+        case 'taskDialog':
+          const taskDialog = _.cloneDeep(buttonConfig.execute.taskDialog);
+          // Process tokenized configuration properties.
+          _.forEach(['request.params'], (path) => {
+            const value = _.get(taskDialog.config, path);
+            if (isFormatable(value)) {
+              _.set(
+                taskDialog.config,
+                path,
+                formatDeep(value, _.merge({}, values, this.pageContext))
+              );
+            }
+          });
+          const dialog = this.matDialog.open(TaskDialogComponent, {
+            width: _.get(taskDialog.config, 'width', '50%'),
+            data: _.omit(taskDialog.config, ['width'])
+          });
+          // Navigate to the specified URL if pressed button returns `true`.
+          dialog
+            .afterClosed()
+            .subscribe(
+              (res) => res && taskDialog.successUrl && this.router.navigate([taskDialog.successUrl])
+            );
+          break;
       }
     };
     // Closure that handles the button pre-action.
@@ -254,7 +279,10 @@ export class FormPageComponent
         if (_.isString(data.message)) {
           data.message = format(data.message, values);
         }
-        const dialogRef = this.matDialog.open(ModalDialogComponent, { data });
+        const dialogRef = this.matDialog.open(ModalDialogComponent, {
+          width: _.get(data, 'width', '50%'),
+          data: _.omit(data, ['width'])
+        });
         dialogRef.afterClosed().subscribe((res: any) => {
           if (true === res) {
             doButtonActionFn();
@@ -315,7 +343,10 @@ export class FormPageComponent
           if (_.isString(data.message)) {
             data.message = format(data.message, values);
           }
-          const dialogRef = this.matDialog.open(ModalDialogComponent, { data });
+          const dialogRef = this.matDialog.open(ModalDialogComponent, {
+            width: _.get(data, 'width', '50%'),
+            data: _.omit(data, ['width'])
+          });
           dialogRef.afterClosed().subscribe((res: any) => {
             if (true === res) {
               // Execute the RPC request.

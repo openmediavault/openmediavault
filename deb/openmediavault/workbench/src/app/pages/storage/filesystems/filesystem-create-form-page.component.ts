@@ -6,21 +6,8 @@ import { FormPageConfig } from '~/app/core/components/limn-ui/models/form-page-c
 @Component({
   template: '<omv-limn-form-page [config]="this.config"></omv-limn-form-page>'
 })
-export class FilesystemFormPageComponent {
+export class FilesystemCreateFormPageComponent {
   public config: FormPageConfig = {
-    request: {
-      service: 'FileSystemMgmt',
-      post: {
-        method: 'create',
-        confirmationDialogConfig: {
-          template: 'confirmation-danger',
-          message: gettext(
-            // eslint-disable-next-line max-len
-            'Do you really want to create the file system? All data on the device will be deleted. Please note that the file system creation may take some time.'
-          )
-        }
-      }
-    },
     fields: [
       {
         type: 'select',
@@ -50,41 +37,6 @@ export class FilesystemFormPageComponent {
         }
       },
       {
-        type: 'textInput',
-        name: 'label',
-        label: gettext('Label'),
-        hint: gettext('The label of the file system.'),
-        value: '',
-        validators: {
-          maxLength: 16,
-          pattern: {
-            pattern: '[a-zA-Z0-9]+',
-            errorData: gettext('The value may only contain letters and numbers.')
-          },
-          custom: [
-            {
-              constraint: {
-                operator: 'if',
-                arg0: {
-                  operator: 'eq',
-                  arg0: { prop: 'type' },
-                  arg1: 'xfs'
-                },
-                arg1: {
-                  operator: '<=',
-                  arg0: {
-                    operator: 'length',
-                    arg0: { prop: 'label' }
-                  },
-                  arg1: 12
-                }
-              },
-              errorData: gettext('The label cannot exceed 12 characters.')
-            }
-          ]
-        }
-      },
-      {
         type: 'select',
         name: 'type',
         label: gettext('Type'),
@@ -99,6 +51,12 @@ export class FilesystemFormPageComponent {
             ['f2fs', gettext('F2FS')],
             ['xfs', gettext('XFS')],
             ['jfs', gettext('JFS')]
+          ],
+          sorters: [
+            {
+              dir: 'asc',
+              prop: 'value'
+            }
           ]
         },
         validators: {
@@ -110,8 +68,27 @@ export class FilesystemFormPageComponent {
       {
         template: 'submit',
         execute: {
-          type: 'url',
-          url: '/storage/filesystems'
+          type: 'taskDialog',
+          taskDialog: {
+            config: {
+              title: gettext('Create file system'),
+              startOnInit: true,
+              request: {
+                service: 'FileSystemMgmt',
+                method: 'create',
+                params: {
+                  devicefile: '{{ devicefile }}',
+                  type: '{{ type }}'
+                }
+              },
+              buttons: {
+                stop: {
+                  hidden: true
+                }
+              }
+            },
+            successUrl: '/storage/filesystems/mount'
+          }
         }
       },
       {

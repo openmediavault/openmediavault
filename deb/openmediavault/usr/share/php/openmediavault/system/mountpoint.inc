@@ -86,7 +86,7 @@ class MountPoint {
 	 * @throw \OMV\ExecException
 	 */
 	public function create($mode = "0700") {
-		// Exit immediatelly if the directory already exists.
+		// Exit immediately if the directory already exists.
 		if (TRUE === $this->exists())
 			return;
 		$cmdArgs = [];
@@ -105,12 +105,14 @@ class MountPoint {
 	 * @throw \OMV\ExecException
 	 */
 	public function unlink($force = TRUE) {
-		// Exit immediatelly if the directory doesn't exists.
+		// Exit immediately if the directory doesn't exists.
 		if (FALSE === $this->exists())
 			return;
 		$cmdArgs = [];
 		$cmdArgs[] = "--recursive";
-		$cmdArgs[] = "--force";
+		if (TRUE === $force) {
+			$cmdArgs[] = "--force";
+		}
 		$cmdArgs[] = escapeshellarg($this->getPath());
 		$cmd = new \OMV\System\Process("rm", $cmdArgs);
 		$cmd->setRedirect2to1();
@@ -155,7 +157,7 @@ class MountPoint {
 
 	/**
 	 * Mount the this mountpoint.
-	 * @param options An array or comma seperated string of additional mount
+	 * @param options An array or comma separated string of additional mount
 	 *   options. Defaults to "".
 	 * @return void
 	 * @throw \OMV\ExecException
@@ -298,5 +300,27 @@ class MountPoint {
 		}
 		return build_path(DIRECTORY_SEPARATOR, \OMV\Environment::get(
 			"OMV_MOUNT_DIR"), $id);
+	}
+
+	/**
+	 * Create a new instance by device file or UUID.
+	 * @param id string The device file or UUID of the file system, e.g.
+	 *   <ul>
+	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
+	 *   \li 7A48-BA97 (FAT)
+	 *   \li 2ED43920D438EC29 (NTFS)
+	 *   \li /dev/sda2
+	 *   \li /dev/sdb
+	 *   \li /dev/md1
+	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6
+	 *   \li /dev/disk/by-id/wwn-0x5000cca211cc703c-part1
+	 *   \li /dev/disk/by-id/md-name-vmpc01:data
+	 *   \li /dev/disk/by-id/md-uuid-75de9de9:6beca92e:8442575c:73eabbc9
+	 *   \li /dev/disk/by-label/xx\x20yy
+	 *   </ul>
+	 */
+	public static function fromId($id) {
+		$dir = \OMV\System\MountPoint::buildPath($id);
+		return new \OMV\System\MountPoint($dir);
 	}
 }

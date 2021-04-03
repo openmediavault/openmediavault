@@ -63,8 +63,7 @@ export type DatatablePageActionExecute = {
     // The notification can contain route config/params tokens.
     successNotification?: string;
   };
-  // Display a dialog that shows the output of a RPC that
-  // is running in the background.
+  // Display a dialog that shows the output the given RPC.
   taskDialog?: TaskDialogConfig;
   // Display a dialog with the specified form fields.
   formDialog?: FormDialogConfig;
