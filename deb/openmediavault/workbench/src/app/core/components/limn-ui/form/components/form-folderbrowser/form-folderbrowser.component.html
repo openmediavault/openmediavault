@@ -22,6 +22,7 @@
   <mat-icon *ngIf="formGroup.controls[config.dirRefIdField].value"
             class="omv-icon-color-default"
             matSuffix
+            matRipple
             svgIcon="mdi:file-tree"
             matTooltip="{{ 'Browse directory' | translate }}"
             (click)="open()">

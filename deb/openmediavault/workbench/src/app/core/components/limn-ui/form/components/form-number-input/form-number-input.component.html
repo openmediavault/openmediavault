@@ -18,6 +18,7 @@
          [max]="config.validators?.max">
   <mat-icon *ngIf="config.hasCopyToClipboardButton"
             matSuffix
+            matRipple
             svgIcon="{{ icon.copy }}"
             matTooltip="{{ 'Copy to clipboard' | translate }}"
             (click)="onCopyToClipboard()">
