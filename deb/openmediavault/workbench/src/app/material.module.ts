@@ -70,7 +70,7 @@ export class MaterialModule {
   ) {
     matIconRegistry.addSvgIconSetInNamespace(
       'mdi',
-      domSanitizer.bypassSecurityTrustResourceUrl('./assets/mdi.svg')
+      domSanitizer.bypassSecurityTrustResourceUrl('/assets/mdi.svg')
     );
     dateAdapter.setLocale(navigator.language);
   }
