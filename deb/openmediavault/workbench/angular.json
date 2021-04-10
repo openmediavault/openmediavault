@@ -23,7 +23,9 @@
           "options": {
             "allowedCommonJsDependencies": [
               "lodash",
-              "strip-ansi"
+              "strip-ansi",
+              "chart.js",
+              "chartjs-plugin-datalabels"
             ],
             "aot": true,
             "outputPath": "dist/openmediavault-workbench",
@@ -49,9 +51,7 @@
               "src/styles.scss"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "src"
-              ]
+              "includePaths": ["src"]
             },
             "scripts": []
           },
@@ -109,13 +109,9 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "",
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "src"
-              ]
+              "includePaths": ["src"]
             },
             "scripts": [],
             "assets": [
@@ -129,10 +125,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }
@@ -157,10 +150,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "e2e/**/*.ts",
-              "e2e/**/*.html"
-            ]
+            "lintFilePatterns": ["e2e/**/*.ts", "e2e/**/*.html"]
           }
         }
       }
