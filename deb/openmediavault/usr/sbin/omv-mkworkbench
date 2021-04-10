@@ -172,6 +172,7 @@ def all_():
     ctx.invoke(navigation)
     ctx.invoke(route)
     ctx.invoke(log)
+    ctx.invoke(i18n)
 
 
 @cli.command(name='dashboard', help='Build the dashboard widget configuration file.')
@@ -336,6 +337,7 @@ def i18n(ctx):
         'OMV_WORKBENCH_I18N_ASSETS_DIR',
         '/var/www/openmediavault/assets/i18n/'
     )
+    os.makedirs(assets_i18n_dir, exist_ok=True)
     openmediavault.log.info(
         'Creating translation files ...', verbose=ctx.verbose)
     for lang_dir in glob.iglob(os.path.join(locale_dir, '*')):
