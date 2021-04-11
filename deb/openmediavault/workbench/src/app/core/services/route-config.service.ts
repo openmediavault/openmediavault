@@ -41,6 +41,11 @@ type RouteConfig = {
   };
 };
 
+const getSegments = (path: string): Array<string> => {
+  const result = _.split(_.trim(path, '/'), '/');
+  return result;
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -90,11 +95,19 @@ export class RouteConfigService {
    */
   public inject(rootSegment: string, targetNode: Routes): void {
     this.configs$.subscribe((customRoutes) => {
-      // Get the custom routes to inject at the given node.
-      const filteredRoutes: Routes = _.filter(customRoutes, (customRoute: Route) => {
-        const segments = _.split(_.trim(customRoute.path, '/'), '/');
-        return segments[0] === rootSegment;
-      });
+      // Get the custom routes to inject at the given node. Sort the
+      // filtered routes by the number of segments, thus new child
+      // nodes are created in the correct order.
+      const filteredRoutes: Routes = _.sortBy(
+        _.filter(customRoutes, (customRoute: Route) => {
+          const segments = getSegments(customRoute.path);
+          return segments[0] === rootSegment;
+        }),
+        (customRoute: Route) => {
+          const segments = getSegments(customRoute.path);
+          return segments;
+        }
+      );
       _.forEach(filteredRoutes, (filteredRoute: Route) => {
         // eslint-disable-next-line no-shadow
         const getParentNode = (routes: Routes, segments: Array<string>): Routes => {
@@ -141,7 +154,7 @@ export class RouteConfigService {
         };
 
         // Process the path.
-        const segments: Array<string> = _.split(_.trim(filteredRoute.path, '/'), '/');
+        const segments: Array<string> = getSegments(filteredRoute.path);
         // Remove the first segment.
         segments.shift();
         // Remove the last segment.
