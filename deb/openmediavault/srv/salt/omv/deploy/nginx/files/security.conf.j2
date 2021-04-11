@@ -7,7 +7,7 @@
 {%- set csp_header = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SECURITY_CSP', 'default-src \'self\'; script-src \'self\' \'unsafe-eval\'; style-src \'self\' \'unsafe-inline\'; img-src \'self\' data:;') -%}
 {%- set xframe_enabled = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SECURITY_XFRAMEOPTIONS_ENABLE', 'yes') -%}
 {%- set xframe_header = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SECURITY_XFRAMEOPTIONS', 'SAMEORIGIN') -%}
-{%- set permissions_policy_header = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SECURITY_PERMISSIONS_POLICY', 'microphone \'none\'; camera \'none\'; geolocation \'none\'; payment \'none\';') -%}
+{%- set permissions_policy_header = salt['pillar.get']('default:OMV_NGINX_SITE_WEBGUI_SECURITY_PERMISSIONS_POLICY', 'microphone=(), camera=(), geolocation=(), payment=()') -%}
 {{ pillar['headers']['multiline'] }}
 {%- if config.enablessl | to_bool %}
 # PFS (Perfect Forward Secrecy)
