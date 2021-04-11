@@ -200,8 +200,15 @@ omv_log() {
 	omv_syslog_info $*
 }
 
+# omv_info <message>
+# Print message to standard out (STDOUT) and syslog.
+omv_info() {
+	omv_msg "INFO:" $*
+	omv_syslog_info $*
+}
+
 # omv_warning <message>
-# Print message to standard error (STDERR) and syslog.
+# Print message to standard out (STDOUT) and syslog.
 omv_warning() {
 	omv_msg "WARNING:" $*
 	omv_syslog_warning $*
@@ -437,7 +444,7 @@ omv_config_add_node() {
 	# Make sure the node does not exist.
 	targetxpath="$(omv_rtrim -c "/" ${xpath})/${name}"
 	if omv_config_exists "${targetxpath}"; then
-		omv_warning "The node '${name}' already exists at XPath '${xpath}'."
+		omv_info "The node '${name}' already exists at XPath '${xpath}'."
 	else
 		# !Attention! It is necessary to redirect the modified XML data to
 		# another file because xmlstarlet does not like to use the same file
@@ -476,7 +483,7 @@ omv_config_add_key() {
 	# Make sure the key does not exist.
 	targetxpath="$(omv_rtrim -c "/" ${xpath})/${name}"
 	if omv_config_exists "${targetxpath}"; then
-		omv_warning "The node '${name}' already exists at XPath '${xpath}'."
+		omv_info "The node '${name}' already exists at XPath '${xpath}'."
 	else
 		# !Attention! It is necessary to redirect the modified XML data to
 		# another file because xmlstarlet does not like to use the same file
