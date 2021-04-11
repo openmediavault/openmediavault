@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import dayjs from 'dayjs';
 import * as _ from 'lodash';
+import { Subscription } from 'rxjs';
 
 import { DatatablePageConfig } from '~/app/core/components/limn-ui/models/datatable-page-config.type';
 import { format } from '~/app/functions.helper';
@@ -14,7 +15,7 @@ import {
 @Component({
   template: '<omv-limn-datatable-page [config]="this.config"></omv-limn-datatable-page>'
 })
-export class SystemInformationDatatablePageComponent implements OnInit {
+export class SystemInformationDatatablePageComponent implements OnDestroy {
   public config: DatatablePageConfig = {
     limit: 0,
     autoReload: false,
@@ -41,93 +42,98 @@ export class SystemInformationDatatablePageComponent implements OnInit {
       fields: ['name', 'value']
     }
   };
+  private subscriptions = new Subscription();
 
   constructor(
     private binaryUnitPipe: BinaryUnitPipe,
     private systemInformationService: SystemInformationService
-  ) {}
+  ) {
+    this.subscriptions.add(
+      this.systemInformationService.systemInfo$.subscribe((res: SystemInformation) => {
+        const data = [];
+        const rows = {
+          hostname: {
+            name: gettext('Hostname'),
+            value: {
+              type: 'text',
+              value: _.get(res, 'hostname')
+            }
+          },
+          version: {
+            name: gettext('Version'),
+            value: {
+              type: 'text',
+              value: _.get(res, 'version')
+            }
+          },
+          cpuModelName: {
+            name: gettext('Processor'),
+            value: {
+              type: 'text',
+              value: _.get(res, 'cpuModelName')
+            }
+          },
+          kernel: {
+            name: gettext('Kernel'),
+            value: {
+              type: 'text',
+              value: _.get(res, 'kernel')
+            }
+          },
+          time: {
+            name: gettext('System Time'),
+            value: {
+              type: 'localeDateTime',
+              value: _.get(res, 'ts')
+            }
+          },
+          uptime: {
+            name: gettext('Uptime'),
+            value: {
+              type: 'relativeTime',
+              value: dayjs().unix() - _.get(res, 'uptime')
+            }
+          },
+          loadAverage: {
+            name: gettext('Load Average'),
+            value: {
+              type: 'text',
+              value: format(
+                '{{ loadAverage.1min | tofixed(2) }}, {{ loadAverage.5min | tofixed(2) }}, {{ loadAverage.15min | tofixed(2) }}',
+                res
+              )
+            }
+          },
+          cpuUsage: {
+            name: gettext('CPU Usage'),
+            value: {
+              type: 'progressBar',
+              text: `${res.cpuUsage?.toFixed(1)}%`,
+              value: res.cpuUsage?.toFixed(1)
+            }
+          },
+          memUsed: {
+            name: gettext('Memory Usage'),
+            value: {
+              type: 'progressBar',
+              text: `${(res.memUsed / res.memTotal).toFixed(1)}% of ${this.binaryUnitPipe.transform(
+                res.memTotal
+              )}`,
+              value: (res.memUsed / res.memTotal).toFixed(1)
+            }
+          }
+        };
+        _.forEach(rows, (value: Record<any, any>, key: string) => {
+          if (_.has(res, key)) {
+            data.push(value);
+          }
+        });
+        this.config.store.data = data;
+      })
+    );
+  }
 
-  ngOnInit(): void {
-    this.systemInformationService.systemInfo$.subscribe((res: SystemInformation) => {
-      const data = [];
-      const rows = {
-        hostname: {
-          name: gettext('Hostname'),
-          value: {
-            type: 'text',
-            value: _.get(res, 'hostname')
-          }
-        },
-        version: {
-          name: gettext('Version'),
-          value: {
-            type: 'text',
-            value: _.get(res, 'version')
-          }
-        },
-        cpuModelName: {
-          name: gettext('Processor'),
-          value: {
-            type: 'text',
-            value: _.get(res, 'cpuModelName')
-          }
-        },
-        kernel: {
-          name: gettext('Kernel'),
-          value: {
-            type: 'text',
-            value: _.get(res, 'kernel')
-          }
-        },
-        time: {
-          name: gettext('System Time'),
-          value: {
-            type: 'localeDateTime',
-            value: _.get(res, 'ts')
-          }
-        },
-        uptime: {
-          name: gettext('Uptime'),
-          value: {
-            type: 'relativeTime',
-            value: dayjs().unix() - _.get(res, 'uptime')
-          }
-        },
-        loadAverage: {
-          name: gettext('Load Average'),
-          value: {
-            type: 'text',
-            value: format(
-              '{{ loadAverage.1min | tofixed(2) }}, {{ loadAverage.5min | tofixed(2) }}, {{ loadAverage.15min | tofixed(2) }}',
-              res
-            )
-          }
-        },
-        cpuUsage: {
-          name: gettext('CPU Usage'),
-          value: {
-            type: 'progressBar',
-            text: `${res.cpuUsage?.toFixed(1)}%`,
-            value: res.cpuUsage?.toFixed(1)
-          }
-        },
-        memUsed: {
-          name: gettext('Memory Usage'),
-          value: {
-            type: 'progressBar',
-            text: `${(res.memUsed / res.memTotal).toFixed(1)}% of ${this.binaryUnitPipe.transform(
-              res.memTotal
-            )}`,
-            value: (res.memUsed / res.memTotal).toFixed(1)
-          }
-        }
-      };
-      _.forEach(rows, (value: Record<any, any>, key: string) => {
-        if (_.has(res, key)) {
-          data.push(value);
-        }
-      });
-      this.config.store.data = data;
-    });
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 }

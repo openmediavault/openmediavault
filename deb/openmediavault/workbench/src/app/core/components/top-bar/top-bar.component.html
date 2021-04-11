@@ -7,6 +7,8 @@
   </button>
   <div class="omv-top-bar-brand-logo"></div>
   <span fxFlex></span>
+  <span class="omv-top-bar-hostname">{{ hostname }}</span>
+  <mat-divider vertical="true"></mat-divider>
   <button *ngIf="permissions?.role.includes(roles.admin)"
           mat-icon-button
           matTooltip="{{ 'Notifications' | translate }}"

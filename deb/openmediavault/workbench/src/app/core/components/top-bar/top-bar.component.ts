@@ -1,10 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
-import { EMPTY, of } from 'rxjs';
+import { EMPTY, of, Subscription } from 'rxjs';
 import { catchError, delay, repeat } from 'rxjs/operators';
 import { concatMap } from 'rxjs/operators';
 
@@ -18,6 +18,7 @@ import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { LocaleService } from '~/app/shared/services/locale.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
+import { SystemInformationService } from '~/app/shared/services/system-information.service';
 import { UserStorageService } from '~/app/shared/services/user-storage.service';
 
 @Component({
@@ -25,7 +26,7 @@ import { UserStorageService } from '~/app/shared/services/user-storage.service';
   templateUrl: './top-bar.component.html',
   styleUrls: ['./top-bar.component.scss']
 })
-export class TopBarComponent implements OnInit {
+export class TopBarComponent implements OnDestroy {
   // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('navigationSidenav')
   navigationSidenav: MatSidenav;
@@ -41,9 +42,12 @@ export class TopBarComponent implements OnInit {
   public currentLocale: string;
   public locales: Record<string, string> = {};
   public username: string;
+  public hostname: string;
   public permissions: Permissions;
   public readonly roles = Roles;
   public numNotifications: undefined | number;
+
+  private subscriptions = new Subscription();
 
   constructor(
     private router: Router,
@@ -52,18 +56,27 @@ export class TopBarComponent implements OnInit {
     private rpcService: RpcService,
     private userStorageService: UserStorageService,
     private matDialog: MatDialog,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private systemInformationService: SystemInformationService
   ) {
     this.currentLocale = LocaleService.getLocale();
     this.locales = LocaleService.getLocales();
-  }
-
-  ngOnInit(): void {
     this.username = this.authSessionService.getUsername();
     this.permissions = this.authSessionService.getPermissions();
-    this.notificationService.notifications$.subscribe((notifications: Notification[]) => {
-      this.numNotifications = notifications.length ? notifications.length : undefined;
-    });
+    this.subscriptions.add(
+      this.notificationService.notifications$.subscribe((notifications: Notification[]) => {
+        this.numNotifications = notifications.length ? notifications.length : undefined;
+      })
+    );
+    this.subscriptions.add(
+      this.systemInformationService.systemInfo$.subscribe((sysInfo) => {
+        this.hostname = sysInfo.hostname;
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
   onToggleNavigationSidenav() {
