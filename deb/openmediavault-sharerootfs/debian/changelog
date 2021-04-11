@@ -1,3 +1,9 @@
+openmediavault-sharerootfs (6.0-1) UNRELEASED; urgency=low
+
+  * Reimplement UI.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 11 Apr 2021 12:05:15 +0200
+
 openmediavault-sharerootfs (5.0.2-1) stable; urgency=low
 
   * Log warning if no root filesystem has been found.
