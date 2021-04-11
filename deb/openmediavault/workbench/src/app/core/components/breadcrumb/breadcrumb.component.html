@@ -9,7 +9,7 @@
                   svgIcon="{{ icon.home }}"></mat-icon>
       </a>
       <mat-divider *ngIf="breadcrumbs.length"
-                   [vertical]="true">
+                   vertical="true">
       </mat-divider>
     </li>
     <li *ngFor="let breadcrumb of breadcrumbs; let last = last"
@@ -20,7 +20,7 @@
         <span class="omv-text-color-default">{{ breadcrumb.text | translate }}</span>
       </a>
       <mat-divider *ngIf="!last"
-                   [vertical]="true">
+                   vertical="true">
       </mat-divider>
     </li>
   </ul>
