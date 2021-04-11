@@ -28,8 +28,8 @@ data:
         name: quarantine_sharedfolderref
         label: _("Quarantine")
         hint: _("The location which is used as quarantine.")
-        validators:
-          required: true
+        hasEmptyOption: true
+        value: ""
       - type: checkbox
         name: logclean
         label: _("Log clean files")
