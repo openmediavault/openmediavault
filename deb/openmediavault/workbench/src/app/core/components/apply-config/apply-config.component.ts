@@ -37,10 +37,16 @@ export class ApplyConfigComponent {
           translate(gettext('Please wait, the configuration changes are being applied ...'))
         );
         this.rpcService
-          .requestTask('Config', 'applyChangesBg', {
-            modules: [],
-            force: false
-          })
+          .requestTask(
+            'Config',
+            'applyChangesBg',
+            {
+              modules: [],
+              force: false
+            },
+            undefined,
+            1000
+          )
           .pipe(
             finalize(() => {
               this.blockUI.stop();
