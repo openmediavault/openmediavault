@@ -36,15 +36,15 @@ apt-key add "/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.asc"
 
 # Install openmediavault.
 cat <<EOF >> /etc/apt/sources.list.d/openmediavault.list
-deb http://packages.openmediavault.org/public usul main
-# deb http://downloads.sourceforge.net/project/openmediavault/packages usul main
+deb http://packages.openmediavault.org/public shaitan main
+# deb http://downloads.sourceforge.net/project/openmediavault/packages shaitan main
 ## Uncomment the following line to add software from the proposed repository.
-# deb http://packages.openmediavault.org/public usul-proposed main
-# deb http://downloads.sourceforge.net/project/openmediavault/packages usul-proposed main
+# deb http://packages.openmediavault.org/public shaitan-proposed main
+# deb http://downloads.sourceforge.net/project/openmediavault/packages shaitan-proposed main
 ## This software is not part of OpenMediaVault, but is offered by third-party
 ## developers as a service to OpenMediaVault users.
-# deb http://packages.openmediavault.org/public usul partner
-# deb http://downloads.sourceforge.net/project/openmediavault/packages usul partner
+# deb http://packages.openmediavault.org/public shaitan partner
+# deb http://downloads.sourceforge.net/project/openmediavault/packages shaitan partner
 EOF
 apt-get update
 apt-get --yes --auto-remove --show-upgraded \
