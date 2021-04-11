@@ -3,5 +3,5 @@ type: route
 data:
   url: "/services/clamav/settings"
   title: _("Settings")
-  notificationTitle: gettext('Updated Antivirus settings.')
+  notificationTitle: _('Updated Antivirus settings.')
   component: omv-services-clamav-settings-form-page
