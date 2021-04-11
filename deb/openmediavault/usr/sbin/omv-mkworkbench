@@ -340,6 +340,8 @@ def i18n(ctx):
     os.makedirs(assets_i18n_dir, exist_ok=True)
     openmediavault.log.info(
         'Creating translation files ...', verbose=ctx.verbose)
+    write_json_file(os.path.join(assets_i18n_dir, 'en_GB.json'),
+                    {}, ctx.verbose)
     for lang_dir in glob.iglob(os.path.join(locale_dir, '*')):
         if not os.path.isdir(lang_dir):
             continue
