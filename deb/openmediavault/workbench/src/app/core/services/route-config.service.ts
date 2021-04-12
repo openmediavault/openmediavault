@@ -154,17 +154,17 @@ export class RouteConfigService {
         };
 
         // Process the path.
-        const segments: Array<string> = getSegments(filteredRoute.path);
+        const routeSegments: Array<string> = getSegments(filteredRoute.path);
         // Remove the first segment.
-        segments.shift();
+        routeSegments.shift();
         // Remove the last segment.
-        let childPath: string = segments.pop();
+        let childPath: string = routeSegments.pop();
         if (_.startsWith(childPath, ':')) {
           // Process paths like 'edit/:name'.
-          childPath = [segments.pop(), childPath].join('/');
+          childPath = [routeSegments.pop(), childPath].join('/');
         }
 
-        const parentNode = getParentNode(targetNode, segments);
+        const parentNode = getParentNode(targetNode, routeSegments);
         if (!_.isUndefined(parentNode)) {
           const childNode = _.find(parentNode, ['path', childPath]);
           if (childNode) {
