@@ -391,8 +391,8 @@ data:
       - template: submit
         execute:
           type: url
-          url: "/services/clamav/onaccess-scans"
+          url: "/services/clamav/scans"
       - template: cancel
         execute:
           type: url
-          url: "/services/clamav/onaccess-scans"
+          url: "/services/clamav/scans"
