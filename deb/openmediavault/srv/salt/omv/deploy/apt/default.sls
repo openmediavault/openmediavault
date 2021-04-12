@@ -111,7 +111,7 @@ remove_apt_sources_list_security_{{ loop.index0 }}:
       - repo: "{{ security_pkg_repo.line }}"
 {% endfor %}
 
-{% if not rpi | to_bool %}
+{% if not use_os_security | to_bool %}
 
 configure_apt_sources_list_os_security:
   file.managed:
