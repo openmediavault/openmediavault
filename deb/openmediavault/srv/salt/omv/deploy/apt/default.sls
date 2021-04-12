@@ -20,7 +20,7 @@
 {% set config = salt['omv_conf.get']('conf.system.apt.distribution') %}
 {% set use_kernel_backports = salt['pillar.get']('default:OMV_APT_USE_KERNEL_BACKPORTS', True) -%}
 {% set proxy_config = salt['omv_conf.get']('conf.system.network.proxy') %}
-{% set rpi = salt['pillar.get']('default:OMV_IS_RPI', False) %}
+{% set use_os_security = salt['pillar.get']('default:OMV_APT_USE_OS_SECURITY', False) %}
 
 {% set pkg_repos = [] %}
 {% for value in salt['pkg.list_repos']().values() %}
