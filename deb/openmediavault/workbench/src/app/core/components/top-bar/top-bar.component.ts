@@ -1,5 +1,4 @@
 import { Component, Input, OnDestroy } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
@@ -15,6 +14,7 @@ import { Notification } from '~/app/shared/models/notification.model';
 import { Permissions, Roles } from '~/app/shared/models/permissions.model';
 import { AuthService } from '~/app/shared/services/auth.service';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
+import { DialogService } from '~/app/shared/services/dialog.service';
 import { LocaleService } from '~/app/shared/services/locale.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
@@ -55,7 +55,7 @@ export class TopBarComponent implements OnDestroy {
     private authSessionService: AuthSessionService,
     private rpcService: RpcService,
     private userStorageService: UserStorageService,
-    private matDialog: MatDialog,
+    private dialogService: DialogService,
     private notificationService: NotificationService,
     private systemInformationService: SystemInformationService
   ) {
@@ -178,7 +178,7 @@ export class TopBarComponent implements OnDestroy {
   }
 
   private showDialog(title: string, message: string, template: string, callback: () => void) {
-    const dialogRef = this.matDialog.open(ModalDialogComponent, {
+    const dialogRef = this.dialogService.open(ModalDialogComponent, {
       data: { template, title, message }
     });
     dialogRef.afterClosed().subscribe((res) => {

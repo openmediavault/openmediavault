@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { finalize } from 'rxjs/operators';
@@ -8,6 +7,7 @@ import { translate } from '~/app/i18n.helper';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
+import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
@@ -23,7 +23,7 @@ export class ApplyConfigComponent {
   public icon = Icon;
 
   constructor(
-    private matDialog: MatDialog,
+    private dialogService: DialogService,
     private notificationService: NotificationService,
     private rpcService: RpcService
   ) {}
@@ -88,7 +88,7 @@ export class ApplyConfigComponent {
   }
 
   private showDialog(title: string, message: string, callback: () => void): void {
-    const dialogRef = this.matDialog.open(ModalDialogComponent, {
+    const dialogRef = this.dialogService.open(ModalDialogComponent, {
       data: { template: 'confirmation', title, message }
     });
     dialogRef.afterClosed().subscribe((res) => {

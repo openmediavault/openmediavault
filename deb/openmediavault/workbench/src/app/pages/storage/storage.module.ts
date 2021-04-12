@@ -28,6 +28,7 @@ import { SmartSettingsFormPageComponent } from '~/app/pages/storage/smart/smart-
 import { SmartTaskDatatablePageComponent } from '~/app/pages/storage/smart/smart-task-datatable-page.component';
 import { SmartTaskFormPageComponent } from '~/app/pages/storage/smart/smart-task-form-page.component';
 import { StorageRoutingModule } from '~/app/pages/storage/storage-routing.module';
+import { SharedModule } from '~/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,6 @@ import { StorageRoutingModule } from '~/app/pages/storage/storage-routing.module
     FilesystemQuotaFormPageComponent,
     SharedFolderAclFormPageComponent
   ],
-  imports: [CommonModule, CoreModule, MaterialModule, StorageRoutingModule]
+  imports: [CommonModule, CoreModule, MaterialModule, SharedModule, StorageRoutingModule]
 })
 export class StorageModule {}

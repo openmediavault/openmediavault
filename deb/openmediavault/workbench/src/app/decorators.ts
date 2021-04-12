@@ -3,7 +3,7 @@ import * as _ from 'lodash';
 /**
  * Decorator to automatically unsubscribe subscriptions.
  */
-// eslint-disable-next-line @typescript-eslint/naming-convention
+// eslint-disable-next-line @typescript-eslint/naming-convention,prefer-arrow/prefer-arrow-functions
 export function Unsubscribe() {
   return (constructor) => {
     const originalFn = constructor.prototype.ngOnDestroy;

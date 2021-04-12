@@ -1,5 +1,4 @@
 import { Component, Inject, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
@@ -30,6 +29,7 @@ import { DatatableSelection } from '~/app/shared/models/datatable-selection.mode
 import { RpcListResponse } from '~/app/shared/models/rpc.model';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
+import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
@@ -55,7 +55,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     private dataStoreService: DataStoreService,
     private router: Router,
     private rpcService: RpcService,
-    private matDialog: MatDialog,
+    private dialogService: DialogService,
     private notificationService: NotificationService
   ) {
     super(activatedRoute, authSessionService);
@@ -202,7 +202,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
               _.set(taskDialogConfig, path, formatDeep(value, this.pageContext));
             }
           });
-          const taskDialog = this.matDialog.open(TaskDialogComponent, {
+          const taskDialog = this.dialogService.open(TaskDialogComponent, {
             width: _.get(taskDialogConfig, 'width', '50%'),
             data: _.omit(taskDialogConfig, ['width'])
           });
@@ -220,7 +220,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
               }
             });
           });
-          const formDialog = this.matDialog.open(FormDialogComponent, {
+          const formDialog = this.dialogService.open(FormDialogComponent, {
             width: _.get(formDialogConfig, 'width', '50%'),
             data: _.omit(formDialogConfig, ['width'])
           });
@@ -235,7 +235,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
       if (_.isString(data.message)) {
         data.message = format(data.message, this.pageContext);
       }
-      const dialogRef = this.matDialog.open(ModalDialogComponent, {
+      const dialogRef = this.dialogService.open(ModalDialogComponent, {
         width: _.get(data, 'width', '50%'),
         data: _.omit(data, ['width'])
       });

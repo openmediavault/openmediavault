@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
@@ -10,6 +9,7 @@ import { format, formatURI, isUUIDv4 } from '~/app/functions.helper';
 import { ModalDialogComponent } from '~/app/shared/components/modal-dialog/modal-dialog.component';
 import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
+import { DialogService } from '~/app/shared/services/dialog.service';
 
 @Component({
   template: '<omv-limn-datatable-page [config]="this.config"></omv-limn-datatable-page>'
@@ -110,7 +110,7 @@ export class DiskDatatablePageComponent {
     ]
   };
 
-  constructor(private matDialog: MatDialog, private router: Router) {}
+  constructor(private dialogService: DialogService, private router: Router) {}
 
   onEdit(action: DatatablePageActionConfig, selection: DatatableSelection) {
     const selected = selection.first();
@@ -125,7 +125,7 @@ export class DiskDatatablePageComponent {
 
   onWipe(action: DatatablePageActionConfig, selection: DatatableSelection) {
     const selected = selection.first();
-    this.matDialog
+    this.dialogService
       .open(ModalDialogComponent, {
         data: {
           template: 'confirmation-danger',
@@ -140,7 +140,7 @@ export class DiskDatatablePageComponent {
       .afterClosed()
       .subscribe((choice: boolean) => {
         if (choice) {
-          this.matDialog
+          this.dialogService
             .open(ModalDialogComponent, {
               data: {
                 template: 'confirmation',
@@ -167,8 +167,7 @@ export class DiskDatatablePageComponent {
             .afterClosed()
             .subscribe((mode: boolean | string) => {
               if (mode) {
-                this.matDialog.open(TaskDialogComponent, {
-                  width: '50%',
+                this.dialogService.open(TaskDialogComponent, {
                   data: {
                     title: gettext('Wiping device'),
                     startOnInit: true,

@@ -2,7 +2,6 @@
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Component, Input, OnChanges, OnDestroy, OnInit, Optional, Self } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 import { MatFormFieldControl } from '@angular/material/form-field';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
@@ -16,6 +15,7 @@ import { DatatableColumn } from '~/app/shared/models/datatable-column.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
 import { Sorter } from '~/app/shared/models/sorter.type';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
+import { DialogService } from '~/app/shared/services/dialog.service';
 
 let nextUniqueId = 0;
 
@@ -80,7 +80,7 @@ export class MatFormDatatableComponent
   constructor(
     @Optional() @Self() public ngControl: NgControl,
     private dataStoreService: DataStoreService,
-    private matDialog: MatDialog
+    private dialogService: DialogService
   ) {
     // Replace the provider from above with this.
     if (!_.isNull(this.ngControl)) {
@@ -222,7 +222,7 @@ export class MatFormDatatableComponent
             }
           });
         }
-        const formDialogRef = this.matDialog.open(FormDialogComponent, {
+        const formDialogRef = this.dialogService.open(FormDialogComponent, {
           data,
           width: _.get(dialogConfig, 'width', '50%'),
           height: _.get(dialogConfig, 'height')
@@ -241,7 +241,7 @@ export class MatFormDatatableComponent
         });
         break;
       case 'delete':
-        const modalDialogRef = this.matDialog.open(ModalDialogComponent, {
+        const modalDialogRef = this.dialogService.open(ModalDialogComponent, {
           data: {
             template: 'confirmation',
             title: gettext('Delete'),

@@ -1,6 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import * as _ from 'lodash';
@@ -28,6 +27,7 @@ import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { RpcObjectResponse } from '~/app/shared/models/rpc.model';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { ConstraintService } from '~/app/shared/services/constraint.service';
+import { DialogService } from '~/app/shared/services/dialog.service';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
@@ -63,7 +63,7 @@ export class FormPageComponent
     @Inject(AuthSessionService) authSessionService: AuthSessionService,
     private router: Router,
     private rpcService: RpcService,
-    private matDialog: MatDialog,
+    private dialogService: DialogService,
     private notificationService: NotificationService
   ) {
     super(activatedRoute, authSessionService);
@@ -258,7 +258,7 @@ export class FormPageComponent
               );
             }
           });
-          const dialog = this.matDialog.open(TaskDialogComponent, {
+          const dialog = this.dialogService.open(TaskDialogComponent, {
             width: _.get(taskDialog.config, 'width', '50%'),
             data: _.omit(taskDialog.config, ['width'])
           });
@@ -279,7 +279,7 @@ export class FormPageComponent
         if (_.isString(data.message)) {
           data.message = format(data.message, values);
         }
-        const dialogRef = this.matDialog.open(ModalDialogComponent, {
+        const dialogRef = this.dialogService.open(ModalDialogComponent, {
           width: _.get(data, 'width', '50%'),
           data: _.omit(data, ['width'])
         });
@@ -343,7 +343,7 @@ export class FormPageComponent
           if (_.isString(data.message)) {
             data.message = format(data.message, values);
           }
-          const dialogRef = this.matDialog.open(ModalDialogComponent, {
+          const dialogRef = this.dialogService.open(ModalDialogComponent, {
             width: _.get(data, 'width', '50%'),
             data: _.omit(data, ['width'])
           });
