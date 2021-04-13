@@ -40,4 +40,4 @@ data:
             service: ClamAV
             method: deleteOnAccessPath
             params:
-              uuid: "{{ _selected[0].uuid }}"
+              uuid: "{{ uuid }}"

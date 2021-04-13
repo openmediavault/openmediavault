@@ -83,4 +83,4 @@ data:
             service: LogicalVolumeMgmt
             method: deleteVolumeGroup
             params:
-              name: "{{ _selected[0].name }}"
+              name: "{{ name }}"

@@ -91,7 +91,7 @@ export class SmartTaskDatatablePageComponent {
             service: 'Smart',
             method: 'deleteScheduledTest',
             params: {
-              uuid: '{{ _selected[0].uuid }}'
+              uuid: '{{ uuid }}'
             }
           }
         }

@@ -63,7 +63,7 @@ export class NfsShareDatatablePageComponent {
             service: 'NFS',
             method: 'deleteShare',
             params: {
-              uuid: '{{ _selected[0].uuid }}'
+              uuid: '{{ uuid }}'
             }
           }
         }

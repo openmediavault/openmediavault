@@ -203,7 +203,7 @@ export class InterfaceDatatablePageComponent {
             service: 'Network',
             method: 'deleteInterface',
             params: {
-              uuid: '{{ _selected[0].uuid }}'
+              uuid: '{{ uuid }}'
             }
           }
         }

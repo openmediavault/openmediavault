@@ -60,7 +60,7 @@ export class FtpShareDatatablePageComponent {
             service: 'FTP',
             method: 'deleteShare',
             params: {
-              uuid: '{{ _selected[0].uuid }}'
+              uuid: '{{ uuid }}'
             }
           }
         }

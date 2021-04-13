@@ -96,7 +96,7 @@ export class GroupDatatablePageComponent {
             service: 'UserMgmt',
             method: 'deleteGroup',
             params: {
-              name: '{{ _selected[0].name }}'
+              name: '{{ name }}'
             }
           }
         }

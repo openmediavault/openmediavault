@@ -74,7 +74,7 @@ export class RsyncModuleDatatablePageComponent {
             service: 'Rsyncd',
             method: 'deleteModule',
             params: {
-              uuid: '{{ _selected[0].uuid }}'
+              uuid: '{{ uuid }}'
             }
           }
         }

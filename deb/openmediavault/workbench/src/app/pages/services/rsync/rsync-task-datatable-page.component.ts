@@ -123,7 +123,7 @@ export class RsyncTaskDatatablePageComponent {
             service: 'Rsync',
             method: 'delete',
             params: {
-              uuid: '{{ _selected[0].uuid }}'
+              uuid: '{{ uuid }}'
             }
           }
         }

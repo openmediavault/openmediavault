@@ -71,4 +71,4 @@ data:
             service: ClamAV
             method: deleteJob
             params:
-              uuid: "{{ _selected[0].uuid }}"
+              uuid: "{{ uuid }}"
