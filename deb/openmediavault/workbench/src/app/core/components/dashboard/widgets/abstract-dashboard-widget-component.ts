@@ -1,7 +1,7 @@
 import { Directive, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import * as _ from 'lodash';
-import { EMPTY, Observable, Subscription } from 'rxjs';
-import { catchError, finalize } from 'rxjs/operators';
+import { EMPTY, Observable, Subscription, timer } from 'rxjs';
+import { catchError, finalize, take } from 'rxjs/operators';
 
 import { DashboardWidgetConfig } from '~/app/core/components/dashboard/models/dashboard-widget-config.model';
 
@@ -38,6 +38,10 @@ export abstract class AbstractDashboardWidgetComponent<T> implements OnInit, OnD
 
   protected reloadData(): void {
     this.loading = true;
+    // Store the subscription to clean it up correctly when the
+    // component is destroyed before the subscription completes.
+    // `take(1)` will unsubscribe the subscription automatically
+    // otherwise.
     this.subscriptions.add(
       this.loadData()
         .pipe(
@@ -51,13 +55,21 @@ export abstract class AbstractDashboardWidgetComponent<T> implements OnInit, OnD
           }),
           finalize(() => {
             this.loading = false;
-            // Reload the data after N seconds.
+            // Reload the data after N seconds?
             if (this.isAutoReloadable()) {
-              setTimeout(() => {
-                this.reloadData();
-              }, this.config.reloadPeriod);
+              // Store the timer subscription to unsubscribe
+              // correctly when the widget component is destroyed
+              // before the subscription completes.
+              this.subscriptions.add(
+                timer(this.config.reloadPeriod)
+                  .pipe(take(1))
+                  .subscribe(() => {
+                    this.reloadData();
+                  })
+              );
             }
-          })
+          }),
+          take(1)
         )
         .subscribe((data) => {
           this.error = false;

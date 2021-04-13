@@ -4,6 +4,7 @@ data:
   id: bb8fa1b6-df13-11ea-9ef7-933dec0aeaf3
   title: _("System Information")
   type: system-information
+  reloadPeriod: 5000
   permissions:
     role:
     - admin
