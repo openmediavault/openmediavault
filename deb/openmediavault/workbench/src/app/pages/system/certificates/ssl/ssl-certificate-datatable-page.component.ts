@@ -69,7 +69,7 @@ export class SslCertificateDatatablePageComponent {
             service: 'CertificateMgmt',
             method: 'delete',
             params: {
-              uuid: '{{ _selected[0].uuid }}'
+              uuid: '{{ uuid }}'
             }
           }
         }

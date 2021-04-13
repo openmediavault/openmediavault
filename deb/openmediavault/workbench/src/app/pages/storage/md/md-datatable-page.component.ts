@@ -179,7 +179,7 @@ export class MdDatatablePageComponent {
             service: 'RaidMgmt',
             method: 'delete',
             params: {
-              devicefile: '{{ _selected[0].devicefile }}'
+              devicefile: '{{ devicefile }}'
             }
           }
         }

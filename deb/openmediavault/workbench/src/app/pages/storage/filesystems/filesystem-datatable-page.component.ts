@@ -264,7 +264,7 @@ export class FilesystemDatatablePageComponent {
             service: 'FileSystemMgmt',
             method: 'umount',
             params: {
-              id: '{{ _selected[0].devicefile }}',
+              id: '{{ devicefile }}',
               fstab: true
             },
             progressMessage: gettext('Please wait, unmounting the file system ...')

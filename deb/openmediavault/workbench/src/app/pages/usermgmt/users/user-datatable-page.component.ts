@@ -93,7 +93,7 @@ export class UserDatatablePageComponent {
             service: 'UserMgmt',
             method: 'deleteUser',
             params: {
-              name: '{{ _selected[0].name }}'
+              name: '{{ name }}'
             }
           }
         }

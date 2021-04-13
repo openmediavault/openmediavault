@@ -135,7 +135,7 @@ export class FirewallRuleInet6DatatablePageComponent {
             service: 'Iptables',
             method: 'deleteRule',
             params: {
-              uuid: '{{ _selected[0].uuid }}'
+              uuid: '{{ uuid }}'
             }
           }
         }

@@ -66,4 +66,4 @@ data:
             service: LogicalVolumeMgmt
             method: deletePhysicalVolume
             params:
-              devicefile: "{{ _selected[0].devicefile }}"
+              devicefile: "{{devicefile }}"

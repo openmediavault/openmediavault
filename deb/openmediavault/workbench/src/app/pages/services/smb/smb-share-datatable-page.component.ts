@@ -88,7 +88,7 @@ export class SmbShareDatatablePageComponent {
             service: 'SMB',
             method: 'deleteShare',
             params: {
-              uuid: '{{ _selected[0].uuid }}'
+              uuid: '{{ uuid }}'
             }
           }
         }

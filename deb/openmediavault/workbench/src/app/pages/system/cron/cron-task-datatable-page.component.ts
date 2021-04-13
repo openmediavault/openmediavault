@@ -118,7 +118,7 @@ export class CronTaskDatatablePageComponent {
             service: 'Cron',
             method: 'delete',
             params: {
-              uuid: '{{ _selected[0].uuid }}'
+              uuid: '{{ uuid }}'
             }
           }
         }

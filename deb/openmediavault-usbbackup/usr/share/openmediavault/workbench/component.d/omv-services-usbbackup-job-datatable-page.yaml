@@ -63,4 +63,4 @@ data:
             service: UsbBackup
             method: delete
             params:
-              uuid: "{{ _selected[0].uuid }}"
+              uuid: "{{ uuid }}"

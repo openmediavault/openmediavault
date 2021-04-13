@@ -55,7 +55,7 @@ export class FtpBanRuleDatatablePageComponent {
             service: 'FTP',
             method: 'deleteModBanRule',
             params: {
-              uuid: '{{ _selected[0].uuid }}'
+              uuid: '{{ uuid }}'
             }
           }
         }

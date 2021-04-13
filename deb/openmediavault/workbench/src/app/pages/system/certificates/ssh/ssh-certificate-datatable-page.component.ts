@@ -143,7 +143,7 @@ export class SshCertificateDatatablePageComponent {
             service: 'CertificateMgmt',
             method: 'deleteSsh',
             params: {
-              uuid: '{{ _selected[0].uuid }}'
+              uuid: '{{ uuid }}'
             }
           }
         }
