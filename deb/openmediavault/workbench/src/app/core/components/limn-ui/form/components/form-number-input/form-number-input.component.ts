@@ -20,4 +20,13 @@ export class FormNumberInputComponent extends AbstractFormFieldComponent {
     const control = this.formGroup.get(this.config.name);
     this.clipboardService.copy(control.value);
   }
+
+  protected sanitizeConfig() {
+    super.sanitizeConfig();
+    // Hide the 'Copy to clipboard' button if the browser does not
+    // support that feature.
+    if (!this.clipboardService.canCopy()) {
+      this.config.hasCopyToClipboardButton = false;
+    }
+  }
 }
