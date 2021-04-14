@@ -63,9 +63,15 @@ export class FormButtonComponent extends AbstractFormFieldComponent {
           }
           // Navigate to a specified URL?
           if (_.isString(request.successUrl)) {
-            const url = formatURI(request.successUrl, _.merge({
-              _response: res
-            }, formValues));
+            const url = formatURI(
+              request.successUrl,
+              _.merge(
+                {
+                  _response: res
+                },
+                formValues
+              )
+            );
             this.router.navigate([url]);
           }
         });
