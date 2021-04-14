@@ -170,7 +170,12 @@ export type FormFieldConfig = {
     successNotification?: string;
     // Navigate to this URL when the request was successful.
     // The URL will be formatted using the values from the parent
-    // form.
+    // form. The RPC response is accessible via '_response'.
+    // Example:
+    // /foo/bar/{{ xyz }}/{{ _response['baz'] }}
+    // where `xyz` will be replaced by the value of the form field
+    // named `xyz` and `_response['baz']` by the property `baz` of
+    // the map/object returned by the RPC.
     successUrl?: string;
   };
   // The URL will be formatted using the parent form field values.

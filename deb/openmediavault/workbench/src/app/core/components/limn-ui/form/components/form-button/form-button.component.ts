@@ -56,14 +56,16 @@ export class FormButtonComponent extends AbstractFormFieldComponent {
             }
           })
         )
-        .subscribe(() => {
+        .subscribe((res: any) => {
           // Display a notification?
           if (_.isString(request.successNotification)) {
             this.notificationService.show(NotificationType.success, request.successNotification);
           }
           // Navigate to a specified URL?
           if (_.isString(request.successUrl)) {
-            const url = formatURI(request.successUrl, formValues);
+            const url = formatURI(request.successUrl, _.merge({
+              _response: res
+            }, formValues));
             this.router.navigate([url]);
           }
         });
