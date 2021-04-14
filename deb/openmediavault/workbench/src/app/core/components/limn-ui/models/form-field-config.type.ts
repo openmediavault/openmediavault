@@ -158,9 +158,8 @@ export type FormFieldConfig = {
     service: string;
     // The name of the RPC.
     method: string;
-    // The RPC parameters. The value can be a
-    // tokenized string that will be formatted using
-    // the values from the processed datatable row.
+    // The RPC parameters. The parameters will be formatted using
+    // the values from the parent form.
     params?: Record<string, any>;
     // Set `true` if the RPC is a background task.
     task?: boolean;
@@ -169,7 +168,12 @@ export type FormFieldConfig = {
     progressMessage?: string;
     // Display a notification when the request was successful.
     successNotification?: string;
+    // Navigate to this URL when the request was successful.
+    // The URL will be formatted using the values from the parent
+    // form.
+    successUrl?: string;
   };
+  // The URL will be formatted using the parent form field values.
   url?: string;
 
   // --- folderBrowser ---

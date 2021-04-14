@@ -66,6 +66,7 @@ export type FormDialogButtonExecute = {
     // Display a notification when the request was successful.
     successNotification?: string;
     // Navigate to this URL when the request was successful.
+    // The URL will be formatted with the form field values.
     successUrl?: string;
   };
 };

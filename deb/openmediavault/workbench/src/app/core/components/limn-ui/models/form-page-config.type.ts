@@ -110,6 +110,8 @@ export type FormPageButtonConfig = {
 export type FormPageButtonExecute = {
   type: 'url' | 'request' | 'taskDialog' | 'click';
   // Navigate to this URL when the button has been clicked.
+  // The URL is formatted with the form field values and the page
+  // context (please see AbstractPageComponent::pageContext).
   url?: string;
   // Execute the specified RPC when the button has been clicked.
   request?: {
@@ -128,12 +130,16 @@ export type FormPageButtonExecute = {
     // Display a notification when the request was successful.
     successNotification?: string;
     // Navigate to this URL when the request was successful.
+    // The URL is formatted with the form field values and the page
+    // context (please see AbstractPageComponent::pageContext).
     successUrl?: string;
   };
   // Display a dialog that shows the output of the given RPC.
   taskDialog?: {
     config: TaskDialogConfig;
     // Navigate to this URL when the request was successful.
+    // The URL is formatted with the form field values and the page
+    // context (please see AbstractPageComponent::pageContext).
     successUrl?: string;
   };
   // A callback function. Internal only.

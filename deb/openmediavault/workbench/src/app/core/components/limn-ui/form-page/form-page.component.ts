@@ -263,11 +263,12 @@ export class FormPageComponent
             data: _.omit(taskDialog.config, ['width'])
           });
           // Navigate to the specified URL if pressed button returns `true`.
-          dialog
-            .afterClosed()
-            .subscribe(
-              (res) => res && taskDialog.successUrl && this.router.navigate([taskDialog.successUrl])
-            );
+          dialog.afterClosed().subscribe((res) => {
+            if (res && taskDialog.successUrl) {
+              const url = formatURI(taskDialog.successUrl, _.merge({}, values, this.pageContext));
+              this.router.navigate([url]);
+            }
+          });
           break;
       }
     };

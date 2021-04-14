@@ -29,17 +29,18 @@ export class FormButtonComponent extends AbstractFormFieldComponent {
   }
 
   onClick() {
+    const formValues = this.formGroup.getRawValue();
     if (_.isFunction(this.config.click)) {
       // Call the callback function.
       this.config.click();
     } else if (_.isString(this.config.url)) {
       // Navigate to the specified URL.
-      const url = formatURI(this.config.url, this.formGroup.getRawValue());
+      const url = formatURI(this.config.url, formValues);
       this.router.navigate([url]);
     } else if (_.isPlainObject(this.config.request)) {
       // Execute the specified request.
       const request = this.config.request;
-      const params = formatDeep(request.params, this.formGroup.getRawValue());
+      const params = formatDeep(request.params, formValues);
       if (_.isString(request.progressMessage)) {
         this.blockUI.start(translate(request.progressMessage));
       }
@@ -56,8 +57,14 @@ export class FormButtonComponent extends AbstractFormFieldComponent {
           })
         )
         .subscribe(() => {
+          // Display a notification?
           if (_.isString(request.successNotification)) {
             this.notificationService.show(NotificationType.success, request.successNotification);
+          }
+          // Navigate to a specified URL?
+          if (_.isString(request.successUrl)) {
+            const url = formatURI(request.successUrl, formValues);
+            this.router.navigate([url]);
           }
         });
     }
