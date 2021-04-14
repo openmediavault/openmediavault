@@ -14,7 +14,7 @@ export class ClipboardService {
 
   /**
    * Check if the Clipboard API exists and copy to clipboard is possible.
-   * The following prerequisites have to be fulfilled:
+   * The following requirements must be met:
    * - The HTTPS protocol is used. localhost is also supported.
    * - The site is not embedded in an iFrame.
    */

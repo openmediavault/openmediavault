@@ -192,6 +192,10 @@ export type FormFieldConfig = {
 
   // --- numberInput | password | textInput ---
   autocomplete?: string;
+  // Note, this button is only visible if the browser supports
+  // that. The following requirements must be met:
+  // - The HTTPS protocol is used. localhost is also supported.
+  // - The site is not embedded in an iFrame.
   hasCopyToClipboardButton?: boolean;
 
   // --- textarea ---
