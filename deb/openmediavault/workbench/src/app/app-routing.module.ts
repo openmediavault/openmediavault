@@ -137,7 +137,7 @@ const routes: Routes = [
       useValue: (route: ActivatedRouteSnapshot) => {
         // Get the external URL to redirect to.
         // Example: /externalRedirect/https%3A%2F%2Fwww.openmediavault.org
-        const url = route.paramMap.get('url');
+        const url = decodeURIComponent(route.paramMap.get('url'));
         if (_.isString(url)) {
           window.open(url, '_blank');
         }
