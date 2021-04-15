@@ -20,6 +20,7 @@
 {% set config = salt['omv_conf.get']('conf.system.apt.distribution') %}
 {% set use_kernel_backports = salt['pillar.get']('default:OMV_APT_USE_KERNEL_BACKPORTS', True) -%}
 {% set proxy_config = salt['omv_conf.get']('conf.system.network.proxy') %}
+{% set use_os_security = salt['pillar.get']('default:OMV_APT_USE_OS_SECURITY', True) %}
 
 {% set pkg_repos = [] %}
 {% for value in salt['pkg.list_repos']().values() %}
@@ -110,6 +111,8 @@ remove_apt_sources_list_security_{{ loop.index0 }}:
       - repo: "{{ security_pkg_repo.line }}"
 {% endfor %}
 
+{% if use_os_security | to_bool %}
+
 configure_apt_sources_list_os_security:
   file.managed:
     - name: "/etc/apt/sources.list.d/openmediavault-os-security.list"
@@ -119,6 +122,8 @@ configure_apt_sources_list_os_security:
     - user: root
     - group: root
     - mode: 644
+
+{% endif %}
 
 refresh_apt_database:
   module.run:
