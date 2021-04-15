@@ -8,6 +8,7 @@ import { ComponentsModule } from '~/app/core/components/components.module';
 import { DashboardModule } from '~/app/core/components/dashboard/dashboard.module';
 import { AboutPageComponent } from '~/app/core/pages/about-page/about-page.component';
 import { DashboardPageComponent } from '~/app/core/pages/dashboard-page/dashboard-page.component';
+import { EmptyPageComponent } from '~/app/core/pages/empty-page/empty-page.component';
 import { GuruMeditationPageComponent } from '~/app/core/pages/guru-meditation-page/guru-meditation-page.component';
 import { LoginPageComponent } from '~/app/core/pages/login-page/login-page.component';
 import { NavigationPageComponent } from '~/app/core/pages/navigation-page/navigation-page.component';
@@ -24,7 +25,8 @@ import { SharedModule } from '~/app/shared/shared.module';
     ShutdownPageComponent,
     StandbyPageComponent,
     DashboardPageComponent,
-    AboutPageComponent
+    AboutPageComponent,
+    EmptyPageComponent
   ],
   exports: [
     GuruMeditationPageComponent,
@@ -33,7 +35,8 @@ import { SharedModule } from '~/app/shared/shared.module';
     ShutdownPageComponent,
     StandbyPageComponent,
     DashboardPageComponent,
-    AboutPageComponent
+    AboutPageComponent,
+    EmptyPageComponent
   ],
   imports: [
     CommonModule,

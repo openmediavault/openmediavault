@@ -176,6 +176,10 @@ export type FormFieldConfig = {
     // where `xyz` will be replaced by the value of the form field
     // named `xyz` and `_response['baz']` by the property `baz` of
     // the map/object returned by the RPC.
+    // Example:
+    // /externalRedirect/{{ _response['url'] }}
+    // Redirect to an external URL. The URL must not be escaped,
+    // this will be done automatically.
     successUrl?: string;
   };
   // The URL will be formatted using the parent form field values.
