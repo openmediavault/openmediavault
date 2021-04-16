@@ -229,17 +229,23 @@ export class FormPageComponent
                   }
                 })
               )
-              .subscribe(() => {
+              .subscribe((res: any) => {
                 // Display a notification?
                 if (_.isString(request.successNotification)) {
                   this.notificationService.show(
                     NotificationType.success,
-                    format(request.successNotification, _.merge({}, this.pageContext, values))
+                    format(
+                      request.successNotification,
+                      _.merge({ _response: res }, this.pageContext, values)
+                    )
                   );
                 }
                 // Navigate to a specified URL?
                 if (_.isString(request.successUrl)) {
-                  const url = formatURI(request.successUrl, _.merge({}, values, this.pageContext));
+                  const url = formatURI(
+                    request.successUrl,
+                    _.merge({ _response: res }, this.pageContext, values)
+                  );
                   this.router.navigate([url]);
                 }
               });

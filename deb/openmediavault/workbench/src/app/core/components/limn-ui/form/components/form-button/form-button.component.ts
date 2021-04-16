@@ -5,7 +5,7 @@ import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { finalize } from 'rxjs/operators';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/limn-ui/form/components/abstract-form-field-component';
-import { formatDeep, formatURI } from '~/app/functions.helper';
+import { format, formatDeep, formatURI } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { NotificationService } from '~/app/shared/services/notification.service';
@@ -59,7 +59,10 @@ export class FormButtonComponent extends AbstractFormFieldComponent {
         .subscribe((res: any) => {
           // Display a notification?
           if (_.isString(request.successNotification)) {
-            this.notificationService.show(NotificationType.success, request.successNotification);
+            this.notificationService.show(
+              NotificationType.success,
+              format(request.successNotification, _.merge({ _response: res }, formValues))
+            );
           }
           // Navigate to a specified URL?
           if (_.isString(request.successUrl)) {
