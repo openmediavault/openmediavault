@@ -26,7 +26,7 @@
 {% for value in salt['pkg.list_repos']().values() %}
 {% set _ = pkg_repos.extend(value) %}
 {% endfor %}
-{% set security_pkg_repos = pkg_repos | rejectattr('disabled') | selectattr('type', 'equalto', 'deb') | selectattr('uri', 'match', '^https?://security.(debian.org|ubuntu.com)/.*-security$') | list %}
+{% set security_pkg_repos = pkg_repos | rejectattr('disabled') | selectattr('uri', 'match', '^https?://security.(debian.org|ubuntu.com)/.*-security$') | list %}
 
 configure_apt_sources_list_openmediavault:
   file.managed:
@@ -98,7 +98,7 @@ configure_apt_sources_list_kernel_backports:
 {% endif %}
 
 # Remove file used on older openmediavault versions.
-remove_apt_sources_list_debian_security:
+remove_apt_sources_list_omv_security_obsolete:
   file.absent:
     - name: "/etc/apt/sources.list.d/openmediavault-debian-security.list"
 
