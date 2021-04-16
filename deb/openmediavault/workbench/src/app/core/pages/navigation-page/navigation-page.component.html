@@ -1,11 +1,7 @@
 <div class="omv-navigation-page"
-     fxLayout="row wrap"
-     fxLayout.xs="column">
-  <div *ngFor="let item of menuItems"
-       fxFlex="15"
-       fxFlex.lt-lg="25"
-       fxFlex.lt-md="50"
-       fxFlex.xs="100">
+     gdGap="12px"
+     gdColumns="repeat(auto-fit, minmax(150px, 1fr))">
+  <div *ngFor="let item of menuItems">
     <mat-card mat-ripple
               fxLayout="column"
               fxLayoutAlign="center center"

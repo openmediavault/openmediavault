@@ -1,10 +1,10 @@
 @import 'src/styles';
 
 .omv-navigation-page {
+  margin: $omv-margin;
+
   .mat-card {
     cursor: pointer;
-    margin: $omv-margin;
     min-height: 100px;
-    min-width: 150px;
   }
 }
