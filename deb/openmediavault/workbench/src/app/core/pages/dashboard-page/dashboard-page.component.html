@@ -3,9 +3,7 @@
                    type="info">
     <ng-container translate>The dashboard has not yet been configured. To personalize it please go to the <a routerLink="/dashboard/settings">settings page</a>.</ng-container>
   </omv-alert-panel>
-  <div class="omv-dashboard-page-content"
-       gdGap="24px"
-       gdColumns="repeat(auto-fit, minmax(350px, 1fr))">
+  <div class="omv-dashboard-page-content">
     <div *ngFor="let widget of widgets">
       <ng-container [ngTemplateOutlet]="renderWidget"
                     [ngTemplateOutletContext]="{ $implicit: widget }">

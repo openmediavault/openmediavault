@@ -4,14 +4,40 @@
   margin: $omv-margin;
 
   .omv-dashboard-page-content {
+    box-sizing: border-box;
+    column-count: 1;
+    column-gap: $omv-margin / 2;
+
     .mat-card {
+      box-sizing: inherit;
+      display: inline-block;
+      margin-bottom: $omv-margin / 2;
       padding: unset;
+      width: 100%;
 
       .mat-card-title-group {
         border-top-left-radius: $omv-radius;
         border-top-right-radius: $omv-radius;
         padding: $omv-padding $omv-padding ($omv-padding / 2) $omv-padding;
       }
+    }
+  }
+
+  @media only screen and (min-width: 600px) {
+    .omv-dashboard-page-content {
+      column-count: 2;
+    }
+  }
+
+  @media only screen and (min-width: 1280px) {
+    .omv-dashboard-page-content {
+      column-count: 3;
+    }
+  }
+
+  @media only screen and (min-width: 1920px) {
+    .omv-dashboard-page-content {
+      column-count: 4;
     }
   }
 }
