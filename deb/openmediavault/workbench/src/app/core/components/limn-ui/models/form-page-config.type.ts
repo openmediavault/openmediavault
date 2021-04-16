@@ -132,6 +132,12 @@ export type FormPageButtonExecute = {
     // Navigate to this URL when the request was successful.
     // The URL is formatted with the form field values and the page
     // context (please see AbstractPageComponent::pageContext).
+    // The RPC response is accessible via '_response'.
+    // Example:
+    // /foo/bar/{{ xyz }}/{{ _response['baz'] }}
+    // where `xyz` will be replaced by the value of the form field
+    // named `xyz` and `_response['baz']` by the property `baz` of
+    // the map/object returned by the RPC.
     successUrl?: string;
   };
   // Display a dialog that shows the output of the given RPC.
