@@ -1,6 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import * as _ from 'lodash';
 import { Subscription } from 'rxjs';
+import { delay, map } from 'rxjs/operators';
 
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { Notification } from '~/app/shared/models/notification.model';
@@ -14,7 +15,7 @@ import { NotificationService } from '~/app/shared/services/notification.service'
 })
 export class NotificationsComponent implements OnDestroy {
   public icon = Icon;
-  public notifications: Notification[];
+  public notifications: Notification[] = [];
 
   private subscription: Subscription;
 
@@ -22,13 +23,14 @@ export class NotificationsComponent implements OnDestroy {
     private clipboardService: ClipboardService,
     private notificationService: NotificationService
   ) {
-    this.subscription = this.notificationService.notifications$.subscribe(
-      (notifications: Notification[]) => {
-        const data = _.clone(notifications);
-        _.reverse(data);
-        this.notifications = data;
-      }
-    );
+    this.subscription = this.notificationService.notifications$
+      .pipe(
+        map((notifications) => _.reverse(_.clone(notifications))),
+        delay(0)
+      )
+      .subscribe((notifications: Notification[]) => {
+        this.notifications = notifications;
+      });
   }
 
   ngOnDestroy(): void {
