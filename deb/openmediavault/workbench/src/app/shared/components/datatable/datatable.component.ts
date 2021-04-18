@@ -11,6 +11,7 @@ import {
   TemplateRef,
   ViewChild
 } from '@angular/core';
+import { marker as gettext } from '@biesbjerg/ngx-translate-extract-marker';
 import { DatatableComponent as NgxDatatableComponent, SortPropDir } from '@swimlane/ngx-datatable';
 import * as _ from 'lodash';
 import { Subscription, timer } from 'rxjs';
@@ -184,13 +185,24 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
   public offset = 0;
   public selection = new DatatableSelection();
   public filteredColumns: DatatableColumn[];
+  public messages: {
+    emptyMessage: string;
+    totalMessage: string;
+    selectedMessage: string;
+  };
 
   private subscriptions = new Subscription();
   private cellTemplates: { [key: string]: TemplateRef<any> };
   private rawColumns: DatatableColumn[] = [];
   private searchFilter = '';
 
-  constructor(private userStorageService: UserStorageService) {}
+  constructor(private userStorageService: UserStorageService) {
+    this.messages = {
+      emptyMessage: translate(gettext('No data to display.')),
+      totalMessage: translate(gettext('total')),
+      selectedMessage: translate(gettext('selected'))
+    };
+  }
 
   ngOnInit(): void {
     // Init cell templates.
