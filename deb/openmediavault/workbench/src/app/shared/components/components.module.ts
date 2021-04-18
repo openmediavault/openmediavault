@@ -49,7 +49,6 @@ import { PipesModule } from '~/app/shared/pipes/pipes.module';
     FormsModule,
     FlexLayoutModule,
     DirectivesModule
-  ],
-  entryComponents: [AlertPanelComponent, ModalDialogComponent, TaskDialogComponent]
+  ]
 })
 export class ComponentsModule {}

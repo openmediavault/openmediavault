@@ -78,7 +78,6 @@ import { SharedModule } from '~/app/shared/shared.module';
     ReactiveFormsModule,
     TranslateModule.forChild(),
     RouterModule
-  ],
-  entryComponents: [FormDialogComponent]
+  ]
 })
 export class LimnUiModule {}
