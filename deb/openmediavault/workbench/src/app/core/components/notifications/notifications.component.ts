@@ -37,15 +37,15 @@ export class NotificationsComponent implements OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  onRemoveNotification(notification: Notification) {
+  onRemoveNotification(notification: Notification): void {
     this.notificationService.remove(notification);
   }
 
-  onRemoveAllNotifications() {
+  onRemoveAllNotifications(): void {
     this.notificationService.removeAll();
   }
 
-  onCopyNotification(notification: Notification) {
+  onCopyNotification(notification: Notification): void {
     this.clipboardService.copy(`${notification.message}\n\n${notification.traceback}`);
   }
 }
