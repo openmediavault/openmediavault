@@ -13,9 +13,12 @@ OMV_NOTIFICATION_SUBJECT
 OMV_NOTIFICATION_DATE
 OMV_NOTIFICATION_MESSAGE_FILE
 
-Additionaly the scripts/executables are executed with the following command
+Additionally the scripts/executables are executed with the following command
 line arguments:
 
 $1 The path of the file containing the message text (OMV_NOTIFICATION_MESSAGE_FILE)
 $2 The FROM email address (OMV_NOTIFICATION_FROM)
-$3 The TO recipient email adresses (OMV_NOTIFICATION_RECIPIENT)
+$3 The TO recipient email addresses (OMV_NOTIFICATION_RECIPIENT)
+
+Please note, because of security reasons the scripts are executed with the
+dedicated system user/group 'openmediavault-notify'.
