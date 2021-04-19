@@ -1,4 +1,5 @@
 {%- set runner_script = salt['pillar.get']('default:OMV_POSTFIX_MASTER_NOTIFICATION_RUNNER', '/usr/share/openmediavault/notification/postfix-runner.sh') -%}
+{%- set runner_user = salt['pillar.get']('default:OMV_POSTFIX_MASTER_NOTIFICATION_RUNNER_USER', 'openmediavault-notify') -%}
 {{ pillar['headers']['multiline'] }}
 # ==========================================================================
 # service type  private unpriv  chroot  wakeup  maxproc command + args
@@ -30,4 +31,4 @@ lmtp      unix  -       -       n       -       -       lmtp
 anvil     unix  -       -       n       -       1       anvil
 scache    unix  -       -       n       -       1       scache
 postlog   unix-dgram n  -       n       -       1       postlogd
-omvnotificationfilter unix  -       n       n       -       -       pipe flags=qX user=nobody argv={{ runner_script }} ${sender}
+omvnotificationfilter unix  -       n       n       -       -       pipe flags=qX user={{ runner_user }} argv={{ runner_script }} ${sender}

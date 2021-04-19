@@ -89,6 +89,15 @@ case "$1" in
 					--groups ${OMV_WEBGUI_ADMINGROUP_NAME} \
 					${OMV_WEBGUI_ADMINUSER_NAME}
 			fi
+			####################################################################
+			# Create the user/group 'openmediavault-notify' which is used by
+			# the notification backend.
+			####################################################################
+			if ! omv_user_id_exists openmediavault-notify; then
+				useradd --system --user-group --no-create-home \
+					--shell '/usr/sbin/nologin' \
+					openmediavault-notify
+			fi
 
 			####################################################################
 			# Create various required files.
@@ -289,6 +298,9 @@ case "$1" in
 			LANG=C.UTF-8 omv-salt deploy run --no-color --quiet apt cronapt || :
 		fi
 		if dpkg --compare-versions "$2" lt-nl "5.6.4"; then
+			useradd --system --user-group --no-create-home \
+				--shell '/usr/sbin/nologin' openmediavault-notify || :
+			omv_module_set_dirty postfix
 			omv_module_set_dirty nginx
 		fi
 		if dpkg --compare-versions "$2" lt-nl "6.0"; then
