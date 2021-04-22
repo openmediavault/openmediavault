@@ -152,7 +152,10 @@ export class WidgetChartComponent
 
   protected initDatasets(): Array<ChartDataSets> {
     const dataSets: Array<ChartDataSets> = [];
-    const backgroundColor: ChartColor = _.map(this.config.chart.dataConfig, 'backgroundColor');
+    const backgroundColor: Array<ChartColor> = _.map(
+      this.config.chart.dataConfig,
+      'backgroundColor'
+    );
     switch (this.config.chart.type) {
       case 'doughnut':
       case 'advanced-doughnut':
