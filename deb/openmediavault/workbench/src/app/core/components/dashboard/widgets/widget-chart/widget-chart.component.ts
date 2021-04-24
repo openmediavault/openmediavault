@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Chart, ChartColor, ChartDataSets } from 'chart.js';
+import { ArcElement, Chart, ChartDataset, Color, DoughnutController, Tooltip } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import * as _ from 'lodash';
 import { EMPTY, Observable } from 'rxjs';
@@ -10,6 +10,8 @@ import { AbstractDashboardWidgetComponent } from '~/app/core/components/dashboar
 import { formatDeep, renderTemplate } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
 import { RpcService } from '~/app/shared/services/rpc.service';
+
+Chart.register(ArcElement, DoughnutController, Tooltip);
 
 @Component({
   selector: 'omv-dashboard-widget-chart',
@@ -123,8 +125,8 @@ export class WidgetChartComponent
           align: 'center',
           anchor: 'center'
         },
-        circumference: 2 * Math.PI,
-        rotation: -0.5 * Math.PI,
+        circumference: 360,
+        rotation: 0,
         tooltips: false,
         legend: {
           position: 'bottom'
@@ -150,12 +152,9 @@ export class WidgetChartComponent
     }
   }
 
-  protected initDatasets(): Array<ChartDataSets> {
-    const dataSets: Array<ChartDataSets> = [];
-    const backgroundColor: Array<ChartColor> = _.map(
-      this.config.chart.dataConfig,
-      'backgroundColor'
-    );
+  protected initDatasets(): Array<ChartDataset> {
+    const dataSets: Array<ChartDataset> = [];
+    const backgroundColor: Array<Color> = _.map(this.config.chart.dataConfig, 'backgroundColor');
     switch (this.config.chart.type) {
       case 'doughnut':
       case 'advanced-doughnut':
@@ -167,6 +166,8 @@ export class WidgetChartComponent
         break;
       case 'gauge':
       case 'advanced-gauge':
+        // Set the fill color.
+        backgroundColor.push('#0000001a');
         // This type of chart can have multiple datasets.
         _.forEach(this.config.chart.dataConfig, (dataConfig) => {
           dataSets.push({
@@ -181,36 +182,33 @@ export class WidgetChartComponent
   }
 
   protected createChart(): Chart {
-    let type: string;
-    let cutoutPercentage: number;
+    const type = 'doughnut';
+    let cutout: string;
     let displayLegend: boolean;
     let displayDataLabels: boolean;
-    let circumference: number | undefined = this.config.chart.circumference;
-    let rotation: number | undefined = this.config.chart.rotation;
+    let circumference: number = this.config.chart.circumference;
+    let rotation: number = this.config.chart.rotation;
     switch (this.config.chart.type) {
       case 'doughnut':
         this.chartWidth = 100;
-        type = 'doughnut';
-        cutoutPercentage = 50;
+        cutout = '50%';
         displayLegend = _.defaultTo(this.config.chart.legend.display, true);
         displayDataLabels = _.defaultTo(this.config.chart.label.display, false);
         break;
       case 'advanced-doughnut':
         this.chartWidth = 50;
-        type = 'doughnut';
-        cutoutPercentage = 75;
+        cutout = '75%';
         displayLegend = false;
         displayDataLabels = false;
         break;
       case 'gauge':
       case 'advanced-gauge':
         this.chartWidth = this.config.chart.type === 'advanced-gauge' ? 50 : 100;
-        type = 'doughnut';
-        cutoutPercentage = 80 - this.config.chart.dataConfig.length * 5;
+        cutout = `${80 - this.config.chart.dataConfig.length * 5}%`;
         displayLegend = _.defaultTo(this.config.chart.legend.display, false);
         displayDataLabels = false;
-        circumference = 1.5 * Math.PI;
-        rotation = -1.25 * Math.PI;
+        circumference = 270;
+        rotation = -135;
         break;
     }
     return new Chart(this.chartCtx.nativeElement, {
@@ -221,29 +219,27 @@ export class WidgetChartComponent
       },
       plugins: [ChartDataLabels],
       options: {
+        // @ts-ignore
         circumference,
         rotation,
         responsive: true,
-        maintainAspectRatio: false,
-        cutoutPercentage,
-        legend: {
-          display: displayLegend,
-          position: this.config.chart.legend.position
-        },
-        tooltips: {
-          enabled: this.config.chart.tooltips,
-          callbacks: {
-            label: (tooltipItem, data): string => {
-              const index = tooltipItem.index;
-              const dataSet = data.datasets[tooltipItem.datasetIndex];
-              const value = dataSet.data[index];
-              const label = translate(data.labels[index] as string);
-              const formattedValue = this.labelFormatter(value, this.chartCtx);
-              return `${label}: ${formattedValue}`;
-            }
-          }
-        },
+        maintainAspectRatio: true,
+        cutout,
         plugins: {
+          legend: {
+            display: displayLegend,
+            position: this.config.chart.legend.position
+          },
+          tooltip: {
+            enabled: this.config.chart.tooltips,
+            callbacks: {
+              label: (tooltipItem): string => {
+                const label = translate(tooltipItem.label);
+                const formattedValue = this.labelFormatter(tooltipItem.raw, this.chartCtx);
+                return `${label}: ${formattedValue}`;
+              }
+            }
+          },
           datalabels: {
             display: displayDataLabels,
             color: this.config.chart.label.color,

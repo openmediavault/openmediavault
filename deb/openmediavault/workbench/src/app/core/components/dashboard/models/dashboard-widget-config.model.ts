@@ -62,7 +62,12 @@ export type DashboardWidgetConfig = {
     };
     dataConfig: Array<ChartDataConfig>;
     tooltips?: boolean;
+    // Max. height/width of the chart, e.g. `150px`.
+    maxHeight?: string;
+    maxWidth?: string;
+    // In degrees. Defaults to 360.
     circumference?: number;
+    // In degrees. Defaults to 0.
     rotation?: number;
     request?: {
       service: string;
@@ -70,7 +75,8 @@ export type DashboardWidgetConfig = {
       params?: Record<string, any>;
       transform?: Record<string, string>;
     };
-    // Gauge related properties:
+
+    // --- gauge | advanced-gauge ---
     min?: number;
     max?: number;
     displayValue?: boolean;

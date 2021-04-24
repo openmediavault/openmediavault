@@ -9,6 +9,8 @@ data:
     - admin
   chart:
     type: advanced-doughnut
+    maxHeight: "150px"
+    maxWidth: "150px"
     request:
       service: System
       method: getInformation
@@ -19,7 +21,7 @@ data:
     dataConfig:
     - label: Used
       prop: memUsed
-      backgroundColor: "#4cd964"
+      backgroundColor: "#ff3b30"
     - label: Free
       prop: memFree
-      backgroundColor: "#0000001a"
+      backgroundColor: "#4cd964"

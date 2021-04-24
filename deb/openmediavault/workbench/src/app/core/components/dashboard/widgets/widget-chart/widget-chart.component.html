@@ -12,7 +12,8 @@
          fxLayoutAlign="end center">
       <span class="value">{{ labelFormatter(getMaxValue(), chartCtx) }}</span>
     </div>
-    <canvas #chartCtx>
+    <canvas #chartCtx
+            [style]="{'max-height': config.chart.maxHeight, 'max-width': config.chart.maxWidth}">
       {{ chart }}
     </canvas>
   </div>
