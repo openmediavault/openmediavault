@@ -82,17 +82,16 @@ start_rrdcached_service:
 
 monitor_rrdcached_service:
   module.run:
-    - name: monit.monitor
-    - m_name: rrdcached
+    - monit.monitor:
+      - name: rrdcached
     - require:
       - service: start_rrdcached_service
 
 {% else %}
 
 unmonitor_rrdcached_service:
-  module.run:
-    - name: monit.unmonitor
-    - m_name: rrdcached
+  cmd.run:
+    - name: monit unmonitor rrdcached || true
 
 stop_rrdcached_service:
   service.dead:

@@ -4,6 +4,12 @@ openmediavault-nut (6.0-1) UNRELEASED; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 06 Dec 2020 21:13:15 +0100
 
+openmediavault-nut (5.2.1-1) stable; urgency=low
+
+  * Adapt SaltStack module.run calls to new syntax.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 24 Apr 2021 14:26:48 +0200
+
 openmediavault-nut (5.2.0-1) stable; urgency=low
 
   * Adapt to modified OMV Python API.

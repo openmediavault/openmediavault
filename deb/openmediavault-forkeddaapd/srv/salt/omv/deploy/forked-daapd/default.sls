@@ -42,17 +42,16 @@ start_forked_daapd_service:
 
 monitor_forked_daapd_service:
   module.run:
-    - name: monit.monitor
-    - m_name: forked-daapd
+    - monit.monitor:
+      - name: forked-daapd
     - require:
       - service: start_forked_daapd_service
 
 {% else %}
 
 unmonitor_forked_daapd_service:
-  module.run:
-    - name: monit.unmonitor
-    - m_name: forked-daapd
+  cmd.run:
+    - name: monit unmonitor forked-daapd || true
 
 stop_forked_daapd_service:
   service.dead:

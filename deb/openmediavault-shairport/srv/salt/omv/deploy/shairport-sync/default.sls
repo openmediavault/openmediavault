@@ -42,17 +42,16 @@ start_shairport_sync_service:
 
 monitor_shairport_sync_service:
   module.run:
-    - name: monit.monitor
-    - m_name: shairport-sync
+    - monit.monitor:
+      - name: shairport-sync
     - require:
       - service: start_shairport_sync_service
 
 {% else %}
 
 unmonitor_shairport_sync_service:
-  module.run:
-    - name: monit.unmonitor
-    - m_name: shairport-sync
+  cmd.run:
+    - name: monit unmonitor shairport-sync || true
 
 stop_shairport_sync_service:
   service.dead:
