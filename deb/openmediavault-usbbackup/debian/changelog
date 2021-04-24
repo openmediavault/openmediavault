@@ -1,3 +1,9 @@
+openmediavault-usbbackup (5.0.8-1) stable; urgency=low
+
+  * Adapt SaltStack module.run calls to new syntax.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 24 Apr 2021 12:17:13 +0200
+
 openmediavault-usbbackup (5.0.7-1) stable; urgency=low
 
   * Issue #720: Execute backup job only when filesystems are up.

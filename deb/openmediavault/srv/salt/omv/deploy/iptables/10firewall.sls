@@ -70,7 +70,7 @@ configure_firewall_unit_file:
 
 iptables_systemctl_daemon_reload:
   module.run:
-    - name: service.systemctl_reload
+    - service.systemctl_reload:
 
 enable_firewall_service:
   service.enabled:

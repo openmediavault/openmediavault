@@ -1,3 +1,9 @@
+openmediavault-shairport (5.0.3-1) stable; urgency=low
+
+  * Adapt SaltStack module.run calls to new syntax.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 24 Apr 2021 12:16:31 +0200
+
 openmediavault-shairport (5.0.2-1) stable; urgency=low
 
   * Update locales.

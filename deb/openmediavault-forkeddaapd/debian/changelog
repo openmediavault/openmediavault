@@ -1,3 +1,9 @@
+openmediavault-forkeddaapd (5.0.4-1) stable; urgency=low
+
+  * Adapt SaltStack module.run calls to new syntax.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 24 Apr 2021 12:14:59 +0200
+
 openmediavault-forkeddaapd (5.0.3-2) stable; urgency=low
 
   * Backported #951 to fix bug in forked-daapd.conf.

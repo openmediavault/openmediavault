@@ -37,6 +37,6 @@ configure_tmp_mount_unit_file:
 
 tmp_mount_unit_systemctl_daemon_reload:
   module.run:
-    - name: service.systemctl_reload
+    - service.systemctl_reload:
     - onchanges:
       - file: configure_tmp_mount_unit_file

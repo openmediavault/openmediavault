@@ -175,8 +175,9 @@ start_nut_server_service:
       - file: configure_nut_upsmon_conf
 
 monitor_nut_server_service:
-  monit.monitor:
-    - name: nut-server
+  module.run:
+    - monit.monitor:
+      - name: nut-server
 
 {% endif %}
 
@@ -188,8 +189,9 @@ start_nut_monitor_service:
       - file: configure_nut_upsmon_conf
 
 monitor_nut_monitor_service:
-  monit.monitor:
-    - name: nut-monitor
+  module.run:
+    - monit.monitor:
+      - name: nut-monitor
 
 {% else %}
 
@@ -198,12 +200,12 @@ remove_nut_udev_serialups_rule:
   - name: "/etc/udev/rules.d/99-openmediavault-nut-serialups.rules"
 
 unmonitor_nut_monitor_service:
-  monit.unmonitor:
-    - name: nut-monitor
+  cmd.run:
+    - name: monit unmonitor nut-monitor || true
 
 unmonitor_nut_server_service:
-  monit.unmonitor:
-    - name: nut-server
+  cmd.run:
+    - name: monit unmonitor nut-server || true
 
 stop_nut_monitor_service:
   service.dead:

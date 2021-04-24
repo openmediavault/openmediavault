@@ -107,7 +107,7 @@ configure_usbbackup_systemd_unitfile_{{ job.devicefile | md5 }}:
 
 usbbackup_systemctl_daemon_reload:
   module.run:
-    - name: service.systemctl_reload
+    - service.systemctl_reload:
 
 {% for job in jobs %}
 enable_usbbackup_systemd_unitfile_{{ job.devicefile | md5 }}:

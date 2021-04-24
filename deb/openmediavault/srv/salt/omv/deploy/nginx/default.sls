@@ -42,7 +42,7 @@ restart_nginx_service:
 
 monitor_nginx_service:
   module.run:
-    - name: monit.monitor
-    - m_name: nginx
+    - monit.monitor:
+      - name: nginx
     - require:
       - service: restart_nginx_service

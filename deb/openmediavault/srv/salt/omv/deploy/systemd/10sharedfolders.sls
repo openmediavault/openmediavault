@@ -78,7 +78,7 @@ configure_sharedfolder_{{ sharedfolder.name }}_mount_unit_file:
 
 sharedfolder_mount_units_systemctl_daemon_reload:
   module.run:
-    - name: service.systemctl_reload
+    - service.systemctl_reload:
 
 {% if sharedfolders_dir_enabled | to_bool %}
 {% for sharedfolder in sharedfolder_config %}

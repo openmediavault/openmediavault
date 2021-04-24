@@ -51,8 +51,8 @@ start_collectd_service:
 
 monitor_collectd_service:
   module.run:
-    - name: monit.monitor
-    - m_name: collectd
+    - monit.monitor:
+      - name: collectd
     - require:
       - service: start_collectd_service
 
@@ -78,9 +78,8 @@ remove_mkrrdgraph_cron_job:
     - name: "/etc/cron.d/openmediavault-mkrrdgraph"
 
 unmonitor_collectd_service:
-  module.run:
-    - name: monit.unmonitor
-    - m_name: collectd
+  cmd.run:
+    - name: monit unmonitor collectd || true
 
 stop_collectd_service:
   service.dead:
