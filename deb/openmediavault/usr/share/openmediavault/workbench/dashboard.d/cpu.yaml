@@ -9,6 +9,7 @@ data:
   type: chart
   chart:
     type: gauge
+    maxHeight: "150px"
     min: 0
     max: 100
     displayValue: true

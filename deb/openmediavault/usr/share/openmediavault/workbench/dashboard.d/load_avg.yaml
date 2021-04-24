@@ -9,6 +9,8 @@ data:
   type: chart
   chart:
     type: advanced-gauge
+    maxHeight: "150px"
+    maxWidth: "150px"
     request:
       service: System
       method: getInformation
