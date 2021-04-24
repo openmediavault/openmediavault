@@ -17,6 +17,7 @@
     </ng-template>
     <ng-template [ngSwitchCase]="'menu'">
       <button mat-icon-button
+              [disabled]="isDisabled(action)"
               matTooltip="{{ action.tooltip | translate }}"
               [matMenuTriggerFor]="menu">
         <mat-icon svgIcon="{{ action.icon }}"></mat-icon>
