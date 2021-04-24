@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# kochin <kochinc@outlook.com>, 2013-2020
+# kochin <kochinc@outlook.com>, 2013-2021
 # kochin <kochinc@outlook.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2021-03-24 13:57+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-04-04 02:12+0000\n"
+"Last-Translator: kochin <kochinc@outlook.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1554,7 +1554,7 @@ msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
 "access as guest. Always access as guest when 'Only guests' is selected; in "
 "this case no password is required to connect to the share."
-msgstr "如果 '允許訪客' 被選用，但用戶沒提供登入憑證，則會讓他以訪客身分存取。當 '只允許訪客' 被選用，則永遠讓用戶以訪客身分存取；在這情況下，不需要密碼即可連接上共享。"
+msgstr "如果 '允許訪客' 被選用，但用戶沒提供登入憑證，則會讓他以訪客身分存取。當 '只允許訪客' 被選用，則永遠只讓用戶以訪客身分存取；在這情況下，不需要密碼即可連接上共享。"
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1688,8 +1688,8 @@ msgstr "介面"
 msgid "Invalid IP address."
 msgstr "無效的 IP 地址。"
 
-msgid "Invalid SSH public key (RFC 4716)"
-msgstr "無效 SSH 公鑰 (RFC 4716)"
+msgid "Invalid SSH public key (RFC 4716 format)"
+msgstr "無效 SSH 公鑰 (RFC 4716 格式)"
 
 msgid "Invalid User-Agent."
 msgstr "無效的 User-Agent。"
@@ -3317,7 +3317,7 @@ msgid "The SSH certificate used for authentication."
 msgstr "用來鑑別的 SSH 憑證"
 
 msgid "The SSH public key in OpenSSH or RFC 4716 format."
-msgstr ""
+msgstr "SSH 公鑰用的是 OpenSSH 或 RFC 4716 格式。"
 
 msgid "The SSL certificate."
 msgstr "SSL 憑證。"

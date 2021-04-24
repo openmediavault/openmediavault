@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Toshihiro Kan <kansuke4649@gmail.com>, 2014-2020
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014-2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2021-03-24 13:57+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-03-25 00:27+0000\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1553,7 +1553,7 @@ msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
 "access as guest. Always access as guest when 'Only guests' is selected; in "
 "this case no password is required to connect to the share."
-msgstr ""
+msgstr "'ゲストに許可'が選択され、ログイン資格情報が提供されない場合はゲストとしてアクセスします。'ゲストのみ'が選択された場合は、常にゲストとしてアクセスします。このケースでは共有に接続する際にパスワードは要求されません。"
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1688,7 +1688,7 @@ msgid "Invalid IP address."
 msgstr "不正なIPアドレスです。"
 
 msgid "Invalid SSH public key (RFC 4716 format)"
-msgstr ""
+msgstr "無効なSSH公開鍵 (RFC 4716形式)"
 
 msgid "Invalid User-Agent."
 msgstr "不正なUser-Agentです。"
@@ -3316,7 +3316,7 @@ msgid "The SSH certificate used for authentication."
 msgstr "SSH証明書が認証に使用されます。"
 
 msgid "The SSH public key in OpenSSH or RFC 4716 format."
-msgstr ""
+msgstr "OpenSSHまたはRFC4716形式のSSH公開鍵。"
 
 msgid "The SSL certificate."
 msgstr "SSL証明書。"

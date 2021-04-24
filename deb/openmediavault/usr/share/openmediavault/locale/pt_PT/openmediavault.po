@@ -1554,7 +1554,7 @@ msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
 "access as guest. Always access as guest when 'Only guests' is selected; in "
 "this case no password is required to connect to the share."
-msgstr "Se estiver seleccionado 'Permitido visitante' e nenhum dado de acesso foi fornecido, então entre como convidado. Aceda sempre como convidado quando 'Apenas Visitantes' está seleccionado; neste caso não será necessária senha de acesso para ligar à partilha."
+msgstr ""
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
