@@ -42,7 +42,7 @@ restart_phpfpm_service:
 
 monitor_phpfpm_service:
   module.run:
-    - name: monit.monitor
-    - m_name: php-fpm
+    - monit.monitor:
+      - name: php-fpm
     - require:
       - service: restart_phpfpm_service

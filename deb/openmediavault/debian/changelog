@@ -2,6 +2,7 @@ openmediavault (5.6.5-1) stable; urgency=low
 
   * Update locales.
   * Fix permission-policy configuration in nginx.
+  * Adapt SaltStack module.run calls to new syntax.
   * Issue #1007: Run postfix notification scripts with dedicated user
     openmediavault-notify.
 

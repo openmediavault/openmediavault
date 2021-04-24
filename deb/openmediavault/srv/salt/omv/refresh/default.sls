@@ -17,10 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-refresh_pillar:
-  module.run:
-    - name: saltutil.refresh_pillar
-
 refresh_grains:
   module.run:
-    - name: saltutil.refresh_grains
+    - saltutil.refresh_grains:
+      - refresh_pillar: True

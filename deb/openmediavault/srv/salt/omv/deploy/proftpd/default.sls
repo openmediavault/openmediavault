@@ -37,8 +37,8 @@ start_proftpd_service:
 
 monitor_proftpd_service:
   module.run:
-    - name: monit.monitor
-    - m_name: proftpd
+    - monit.monitor:
+      - name: proftpd
     - require:
       - service: start_proftpd_service
 
@@ -48,9 +48,8 @@ start_proftpd_service:
   test.nop
 
 unmonitor_proftpd_service:
-  module.run:
-    - name: monit.unmonitor
-    - m_name: proftpd
+  cmd.run:
+    - name: monit unmonitor proftpd || true
 
 stop_proftpd_service:
   service.dead:

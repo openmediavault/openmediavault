@@ -127,4 +127,4 @@ configure_apt_sources_list_os_security:
 
 refresh_apt_database:
   module.run:
-    - name: pkg.refresh_db
+    - pkg.refresh_db:
