@@ -26,8 +26,8 @@ server {
     location / {
         try_files $uri $uri/ =404;
     }
-    location ^~ /assets/ {
-        expires 14d;
+    location ~* \.json$ {
+        expires -1;
     }
     location ~* \.php$ {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
