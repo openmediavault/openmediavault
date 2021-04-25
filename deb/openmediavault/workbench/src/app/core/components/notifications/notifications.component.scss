@@ -1,3 +1,11 @@
+@import 'src/styles';
+
+::ng-deep .mat-toolbar {
+  .mat-icon-button {
+    color: $omv-color-primary;
+  }
+}
+
 .mat-list-item {
   .omv-notification-list-item-title {
     font-weight: bold;

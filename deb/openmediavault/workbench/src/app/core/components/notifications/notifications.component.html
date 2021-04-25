@@ -3,8 +3,7 @@
           matTooltip="{{ 'Remove all' | translate }}"
           [disabled]="!notifications.length"
           (click)="onRemoveAllNotifications()">
-    <mat-icon class="omv-icon-color-default"
-              svgIcon="{{ icon.delete }}"></mat-icon>
+    <mat-icon svgIcon="{{ icon.delete }}"></mat-icon>
   </button>
 </mat-toolbar>
 <mat-list role="list">
