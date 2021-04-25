@@ -109,19 +109,21 @@ export class UpdateDatatablePageComponent {
         execute: {
           type: 'taskDialog',
           taskDialog: {
-            title: gettext('Upgrade system'),
-            startOnInit: true,
-            buttons: {
-              start: {
-                hidden: true
+            config: {
+              title: gettext('Upgrade system'),
+              startOnInit: true,
+              buttons: {
+                start: {
+                  hidden: true
+                },
+                stop: {
+                  hidden: true
+                }
               },
-              stop: {
-                hidden: true
+              request: {
+                service: 'Apt',
+                method: 'upgrade'
               }
-            },
-            request: {
-              service: 'Apt',
-              method: 'upgrade'
             }
           }
         }
@@ -137,23 +139,25 @@ export class UpdateDatatablePageComponent {
         execute: {
           type: 'taskDialog',
           taskDialog: {
-            title: gettext('Changelog'),
-            width: '75%',
-            autoScroll: false,
-            startOnInit: true,
-            buttons: {
-              start: {
-                hidden: true
+            config: {
+              title: gettext('Changelog'),
+              width: '75%',
+              autoScroll: false,
+              startOnInit: true,
+              buttons: {
+                start: {
+                  hidden: true
+                },
+                stop: {
+                  hidden: true
+                }
               },
-              stop: {
-                hidden: true
-              }
-            },
-            request: {
-              service: 'Apt',
-              method: 'getChangeLog',
-              params: {
-                filename: '{{ _selected[0].filename }}'
+              request: {
+                service: 'Apt',
+                method: 'getChangeLog',
+                params: {
+                  filename: '{{ _selected[0].filename }}'
+                }
               }
             }
           }

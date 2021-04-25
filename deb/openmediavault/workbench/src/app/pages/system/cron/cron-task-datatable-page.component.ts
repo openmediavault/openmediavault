@@ -98,13 +98,15 @@ export class CronTaskDatatablePageComponent {
         execute: {
           type: 'taskDialog',
           taskDialog: {
-            title: gettext('Run scheduled task'),
-            width: '75%',
-            request: {
-              service: 'Cron',
-              method: 'execute',
-              params: {
-                uuid: '{{ _selected[0].uuid }}'
+            config: {
+              title: gettext('Run scheduled task'),
+              width: '75%',
+              request: {
+                service: 'Cron',
+                method: 'execute',
+                params: {
+                  uuid: '{{ _selected[0].uuid }}'
+                }
               }
             }
           }

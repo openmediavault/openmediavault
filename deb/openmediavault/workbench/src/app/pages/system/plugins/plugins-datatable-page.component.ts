@@ -122,23 +122,26 @@ export class PluginsDatatablePageComponent implements OnInit {
         execute: {
           type: 'taskDialog',
           taskDialog: {
-            title: gettext('Install plugin'),
-            startOnInit: true,
-            buttons: {
-              start: {
-                hidden: true
+            config: {
+              title: gettext('Install plugin'),
+              startOnInit: true,
+              buttons: {
+                start: {
+                  hidden: true
+                },
+                stop: {
+                  hidden: true
+                }
               },
-              stop: {
-                hidden: true
+              request: {
+                service: 'Plugin',
+                method: 'install',
+                params: {
+                  packages: ['{{ _selected[0].name }}']
+                }
               }
             },
-            request: {
-              service: 'Plugin',
-              method: 'install',
-              params: {
-                packages: ['{{ _selected[0].name }}']
-              }
-            }
+            successUrl: '/reload'
           }
         }
       },
@@ -158,23 +161,26 @@ export class PluginsDatatablePageComponent implements OnInit {
         execute: {
           type: 'taskDialog',
           taskDialog: {
-            title: gettext('Uninstall plugin'),
-            startOnInit: true,
-            buttons: {
-              start: {
-                hidden: true
+            config: {
+              title: gettext('Uninstall plugin'),
+              startOnInit: true,
+              buttons: {
+                start: {
+                  hidden: true
+                },
+                stop: {
+                  hidden: true
+                }
               },
-              stop: {
-                hidden: true
+              request: {
+                service: 'Plugin',
+                method: 'remove',
+                params: {
+                  packages: ['{{ _selected[0].name }}']
+                }
               }
             },
-            request: {
-              service: 'Plugin',
-              method: 'remove',
-              params: {
-                packages: ['{{ _selected[0].name }}']
-              }
-            }
+            successUrl: '/reload'
           }
         }
       }

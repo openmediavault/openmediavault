@@ -135,10 +135,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     const postConfirmFn = () => {
       switch (action?.execute?.type) {
         case 'url':
-          // Encode each value to ensure we can safely use them as
-          // URL parameters.
-          const url = formatURI(action.execute.url, this.pageContext);
-          this.router.navigate([url]);
+          this.navigate(action.execute.url);
           break;
         case 'request':
           const observables = [];
@@ -194,20 +191,29 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
             });
           break;
         case 'taskDialog':
-          const taskDialogConfig = _.cloneDeep(action.execute.taskDialog);
+          const taskDialog = _.cloneDeep(action.execute.taskDialog);
           // Process tokenized configuration properties.
           _.forEach(['request.params'], (path) => {
-            const value = _.get(taskDialogConfig, path);
+            const value = _.get(taskDialog.config, path);
             if (isFormatable(value)) {
-              _.set(taskDialogConfig, path, formatDeep(value, this.pageContext));
+              _.set(taskDialog.config, path, formatDeep(value, this.pageContext));
             }
           });
-          const taskDialog = this.dialogService.open(TaskDialogComponent, {
-            width: _.get(taskDialogConfig, 'width', '50%'),
-            data: _.omit(taskDialogConfig, ['width'])
+          const dialog = this.dialogService.open(TaskDialogComponent, {
+            width: _.get(taskDialog.config, 'width', '50%'),
+            data: _.omit(taskDialog.config, ['width'])
           });
-          // Reload datatable if pressed button returns `true`.
-          taskDialog.afterClosed().subscribe((res) => res && this.reloadData());
+          dialog.afterClosed().subscribe((res) => {
+            // Navigate to the configured URL or reload the datatable,
+            // but only if the dialog close input is `true`.
+            if (res) {
+              if (_.isString(taskDialog.successUrl)) {
+                this.navigate(taskDialog.successUrl);
+              } else {
+                this.reloadData();
+              }
+            }
+          });
           break;
         case 'formDialog':
           const formDialogConfig = _.cloneDeep(action.execute.formDialog);
@@ -253,8 +259,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     if (_.isFunction(buttonConfig.click)) {
       buttonConfig.click(buttonConfig, this.config.store);
     } else {
-      const url = formatURI(buttonConfig.url, this.pageContext);
-      this.router.navigate([url]);
+      this.navigate(buttonConfig.url);
     }
   }
 
@@ -373,5 +378,10 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
           break;
       }
     });
+  }
+
+  private navigate(url: string) {
+    const formattedUrl = formatURI(url, this.pageContext);
+    this.router.navigate([formattedUrl]);
   }
 }

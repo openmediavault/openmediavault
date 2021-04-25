@@ -161,7 +161,7 @@ export class TopBarComponent implements OnDestroy {
   onLocale(locale) {
     // Update browser cookie and reload page.
     LocaleService.setLocale(locale);
-    document.location.replace('');
+    this.router.navigate(['/reload']);
   }
 
   onClearStateStorage() {
@@ -172,7 +172,7 @@ export class TopBarComponent implements OnDestroy {
       'confirmation',
       () => {
         this.userStorageService.clear();
-        document.location.replace('');
+        this.router.navigate(['/reload']);
       }
     );
   }

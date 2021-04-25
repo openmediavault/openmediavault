@@ -42,7 +42,7 @@ export class DatatableActionsComponent implements OnInit {
       const validators = [];
       if (_.isBoolean(action.enabledConstraints.hasData)) {
         validators.push((selected, data) =>
-          action.enabledConstraints.hasData ? data.length : !data.length
+          action.enabledConstraints.hasData ? data?.length : !data?.length
         );
       }
       if (_.isNumber(action.enabledConstraints.minSelected)) {

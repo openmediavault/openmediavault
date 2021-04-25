@@ -50,12 +50,13 @@ data:
         execute:
           type: taskDialog
           taskDialog:
-            title: _("Run backup job")
-            request:
-              service: UsbBackup
-              method: execute
-              params:
-                uuid: "{{ _selected[0].uuid }}"
+            config:
+              title: _("Run backup job")
+              request:
+                service: UsbBackup
+                method: execute
+                params:
+                  uuid: "{{ _selected[0].uuid }}"
       - template: delete
         execute:
           type: request

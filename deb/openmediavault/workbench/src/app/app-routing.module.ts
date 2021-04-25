@@ -100,6 +100,13 @@ const routes: Routes = [
         component: EmptyPageComponent
       },
       {
+        path: 'reload',
+        resolve: {
+          url: 'reloadResolver'
+        },
+        component: EmptyPageComponent
+      },
+      {
         path: '404',
         component: GuruMeditationPageComponent,
         data: { message: gettext('The requested page was not found.') }
@@ -141,6 +148,14 @@ const routes: Routes = [
         if (_.isString(url)) {
           window.open(url, '_blank');
         }
+        return EMPTY;
+      }
+    },
+    {
+      provide: 'reloadResolver',
+      useValue: () => {
+        // Reload the whole page.
+        document.location.reload();
         return EMPTY;
       }
     }

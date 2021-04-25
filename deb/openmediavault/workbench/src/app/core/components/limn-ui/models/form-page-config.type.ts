@@ -143,7 +143,8 @@ export type FormPageButtonExecute = {
   // Display a dialog that shows the output of the given RPC.
   taskDialog?: {
     config: TaskDialogConfig;
-    // Navigate to this URL when the request was successful.
+    // Navigate to this URL after the dialog has been closed, but only
+    // if the specified request was previously successfully completed.
     // The URL is formatted with the form field values and the page
     // context (please see AbstractPageComponent::pageContext).
     successUrl?: string;

@@ -58,12 +58,13 @@ data:
         execute:
           type: taskDialog
           taskDialog:
-            title: _("Execute scheduled scan")
-            request:
-              service: ClamAV
-              method: executeJob
-              params:
-                uuid: "{{ _selected[0].uuid }}"
+            config:
+              title: _("Execute scheduled scan")
+              request:
+                service: ClamAV
+                method: executeJob
+                params:
+                  uuid: "{{ _selected[0].uuid }}"
       - template: delete
         execute:
           type: request

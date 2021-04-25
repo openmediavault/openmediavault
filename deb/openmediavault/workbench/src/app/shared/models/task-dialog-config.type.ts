@@ -31,8 +31,8 @@ export type TaskDialogConfig = {
   //   - The button is disabled by default.
   //   - The button is focused by default.
   //   - The value submitted when the dialog gets closed defaults
-  //     to `false`. If the request was successfully, it will be
-  //     set to `true`.
+  //     to `false`. If the request finished successfully, it will
+  //     be set to `true`.
   buttons?: {
     start?: TaskDialogButtonConfig;
     stop?: TaskDialogButtonConfig;
@@ -41,8 +41,8 @@ export type TaskDialogConfig = {
   request?: {
     // The name of the RPC service.
     service: string;
-    // The name of the RPC. Note, this MUST be implemented as
-    // background task.
+    // The name of the RPC. This RPC must return the file name that
+    // is used to communicate with the background task.
     method: string;
     // Additional parameters.
     params?: Record<string, any>;

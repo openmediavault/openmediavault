@@ -95,6 +95,6 @@ export class LoginPageComponent implements OnInit {
   onSelectLocale(locale) {
     // Update the browser cookie and reload the page.
     LocaleService.setLocale(locale);
-    document.location.replace('');
+    this.router.navigate(['/reload']);
   }
 }

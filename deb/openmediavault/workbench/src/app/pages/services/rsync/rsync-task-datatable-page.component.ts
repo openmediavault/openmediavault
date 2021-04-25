@@ -104,12 +104,14 @@ export class RsyncTaskDatatablePageComponent {
         execute: {
           type: 'taskDialog',
           taskDialog: {
-            title: gettext('Run rsync task'),
-            request: {
-              service: 'Rsync',
-              method: 'execute',
-              params: {
-                uuid: '{{ _selected[0].uuid }}'
+            config: {
+              title: gettext('Run rsync task'),
+              request: {
+                service: 'Rsync',
+                method: 'execute',
+                params: {
+                  uuid: '{{ _selected[0].uuid }}'
+                }
               }
             }
           }
