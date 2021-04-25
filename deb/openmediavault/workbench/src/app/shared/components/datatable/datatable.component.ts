@@ -392,6 +392,10 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
       if (_.isString(column.name) && column.name.length) {
         column.name = translate(column.name);
       }
+      // Disable column resizing if mode is `flex`.
+      if ('flex' === this.columnMode) {
+        column.resizeable = false;
+      }
     });
   }
 
