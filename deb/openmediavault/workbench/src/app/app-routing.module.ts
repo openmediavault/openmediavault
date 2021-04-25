@@ -155,7 +155,7 @@ const routes: Routes = [
       provide: 'reloadResolver',
       useValue: () => {
         // Reload the whole page.
-        document.location.reload();
+        document.location.replace('');
         return EMPTY;
       }
     }
