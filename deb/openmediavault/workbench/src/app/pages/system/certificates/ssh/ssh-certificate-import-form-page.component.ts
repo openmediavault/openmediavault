@@ -36,10 +36,11 @@ export class SshCertificateImportFormPageComponent {
         type: 'confObjUuid'
       },
       {
-        type: 'textarea',
+        type: 'fileInput',
         name: 'privatekey',
         value: '',
         monospaced: true,
+        accept: '.key,.pem',
         label: gettext('Private key'),
         hint: gettext('The private RSA key in X.509 PEM format.'),
         validators: {
@@ -47,14 +48,17 @@ export class SshCertificateImportFormPageComponent {
         }
       },
       {
-        type: 'textInput',
+        type: 'fileInput',
         name: 'publickey',
         value: '',
         monospaced: true,
+        rows: 1,
+        accept: '.pub',
         label: gettext('Public key'),
         hint: gettext('The RSA public key in OpenSSH format.'),
         validators: {
-          required: true
+          required: true,
+          patternType: 'sshPubKeyOpenSsh'
         }
       },
       {

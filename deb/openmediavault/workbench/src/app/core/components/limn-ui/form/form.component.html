@@ -119,5 +119,11 @@
         </div>
       </div>
     </ng-template>
+
+    <ng-template [ngSwitchCase]="'fileInput'">
+      <omv-form-file-input [config]="field"
+                           [formGroup]="formGroup">
+      </omv-form-file-input>
+    </ng-template>
   </ng-container>
 </ng-template>

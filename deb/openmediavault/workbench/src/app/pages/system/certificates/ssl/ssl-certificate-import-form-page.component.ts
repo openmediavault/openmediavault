@@ -36,10 +36,11 @@ export class SslCertificateImportFormPageComponent {
         type: 'confObjUuid'
       },
       {
-        type: 'textarea',
+        type: 'fileInput',
         name: 'privatekey',
         value: '',
         monospaced: true,
+        accept: '.key,.pem',
         label: gettext('Private key'),
         hint: gettext('Paste a RSA or ECC private key in X.509 PEM format here.'),
         validators: {
@@ -47,10 +48,11 @@ export class SslCertificateImportFormPageComponent {
         }
       },
       {
-        type: 'textarea',
+        type: 'fileInput',
         name: 'certificate',
         value: '',
         monospaced: true,
+        accept: '.crt,.pem',
         label: gettext('Certificate'),
         hint: gettext('Paste a RSA or ECC certificate in X.509 PEM format here.'),
         validators: {

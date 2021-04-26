@@ -12,6 +12,7 @@ import { FormCheckboxComponent } from '~/app/core/components/limn-ui/form/compon
 import { FormDatatableComponent } from '~/app/core/components/limn-ui/form/components/form-datatable/form-datatable.component';
 import { FormDatepickerComponent } from '~/app/core/components/limn-ui/form/components/form-datepicker/form-datepicker.component';
 import { FormDividerComponent } from '~/app/core/components/limn-ui/form/components/form-divider/form-divider.component';
+import { FormFileInputComponent } from '~/app/core/components/limn-ui/form/components/form-file-input/form-file-input.component';
 import { FormFolderbrowserComponent } from '~/app/core/components/limn-ui/form/components/form-folderbrowser/form-folderbrowser.component';
 import { FormIconButtonComponent } from '~/app/core/components/limn-ui/form/components/form-icon-button/form-icon-button.component';
 import { FormNumberInputComponent } from '~/app/core/components/limn-ui/form/components/form-number-input/form-number-input.component';
@@ -57,6 +58,7 @@ import { SharedModule } from '~/app/shared/shared.module';
     FormSslcertSelectComponent,
     TabsPageComponent,
     FormFolderbrowserComponent,
+    FormFileInputComponent,
     SelectionListPageComponent,
     RrdPageComponent
   ],
