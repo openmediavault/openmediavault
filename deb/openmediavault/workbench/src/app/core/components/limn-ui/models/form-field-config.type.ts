@@ -47,6 +47,7 @@ export type FormFieldConfig = {
     | 'numberInput'
     | 'checkbox'
     | 'textarea'
+    | 'fileInput'
     | 'select'
     | 'sharedFolderSelect'
     | 'sslCertSelect'
@@ -219,13 +220,16 @@ export type FormFieldConfig = {
   // - The site is not embedded in an iFrame.
   hasCopyToClipboardButton?: boolean;
 
-  // --- textarea ---
+  // --- textarea | fileInput ---
   rows?: number;
   cols?: number;
 
-  // --- textarea | textInput ---
+  // --- textarea | textInput | fileInput ---
   // Use a monospaced font.
   monospaced?: boolean;
+
+  // --- fileInput ---
+  accept?: string;
 
   // --- select ---
   multiple?: boolean;
