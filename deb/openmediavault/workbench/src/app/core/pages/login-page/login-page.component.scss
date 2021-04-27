@@ -65,12 +65,30 @@
         color: $omv-color-white;
         background-color: rgba(92, 172, 223, 0.4);
 
-        .mat-form-field .mat-form-field-wrapper {
-          .mat-form-field-infix .mat-form-field-label {
+        .mat-form-field {
+          .mat-input-element {
+            caret-color: $omv-color-primary;
+          }
+          .mat-form-field-label,
+          .mat-hint {
             color: $omv-color-white;
           }
           .mat-form-field-underline {
             background-color: $omv-color-white;
+          }
+          .mat-form-field-ripple {
+            background-color: $omv-color-primary;
+          }
+          &.mat-form-field-invalid {
+            .mat-input-element {
+              caret-color: $omv-color-error;
+            }
+            .mat-form-field-label {
+              color: $omv-color-error;
+            }
+            .mat-form-field-ripple {
+              background-color: $omv-color-error;
+            }
           }
         }
       }
