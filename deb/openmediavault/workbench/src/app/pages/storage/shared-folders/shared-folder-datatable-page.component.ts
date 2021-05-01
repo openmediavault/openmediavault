@@ -41,6 +41,9 @@ export class SharedFolderDatatablePageComponent {
         get: {
           method: 'getList'
         }
+      },
+      transform: {
+        absdirpath: '/{{ [mntent.dir, reldirpath] | map("strip", "/")  | compact() | join("/") }}'
       }
     },
     columns: [
@@ -66,10 +69,7 @@ export class SharedFolderDatatablePageComponent {
         name: gettext('Absolute Path'),
         prop: 'absdirpath',
         flexGrow: 2,
-        sortable: true,
-        cellTemplateName: 'template',
-        cellTemplateConfig:
-          '/{{ [mntent.dir, reldirpath] | map("strip", "/")  | compact() | join("/") }}'
+        sortable: true
       },
       {
         name: gettext('Referenced'),
