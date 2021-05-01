@@ -188,6 +188,12 @@ $omv-color-themes: (
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+// Cursors
+.omv-cursor-pointer {
+  cursor: pointer;
+}
+
+////////////////////////////////////////////////////////////////////////////////
 // Display
 .omv-display-none {
   display: none !important;
@@ -220,9 +226,14 @@ $omv-color-themes: (
 
 ////////////////////////////////////////////////////////////////////////////////
 // Icon
-.omv-icon-lg {
-  height: 40px !important;
-  width: 40px !important;
+.omv-icon-sm {
+  height: 0.875em !important;
+  width: 0.875em !important;
+  flex-shrink: 0;
+}
+.omv-icon-2x {
+  height: 2em !important;
+  width: 2em !important;
   flex-shrink: 0;
 }
 // Use this when the background color is white.

@@ -23,6 +23,7 @@
              [(ngModel)]="searchFilter"
              (keyup)="applySearchFilter()">
       <mat-icon matSuffix
+                class="omv-cursor-pointer"
                 svgIcon="{{ icon.clear }}"
                 matTooltip="{{ 'Clear' | translate }}"
                 (click)="clearSearchFilter()">
@@ -179,6 +180,18 @@
       <span>{{ item.text }}</span>
     </mat-button-toggle>
   </mat-button-toggle-group>
+</ng-template>
+
+<ng-template #copyToClipboardTpl
+             let-value="value">
+  <span>
+    {{ value }}
+    <mat-icon class="omv-icon-sm omv-cursor-pointer"
+              svgIcon="{{ icon.copy }}"
+              matTooltip="{{ 'Copy to clipboard' | translate }}"
+              (click)="onCopyToClipboard(value)">
+    </mat-icon>
+  </span>
 </ng-template>
 
 <ng-template #templateTpl

@@ -17,6 +17,7 @@
          [minlength]="config.validators?.minLength"
          [maxlength]="config.validators?.maxLength">
   <mat-icon *ngIf="config.hasCopyToClipboardButton"
+            class="omv-cursor-pointer"
             matSuffix
             matRipple
             svgIcon="{{ icon.copy }}"

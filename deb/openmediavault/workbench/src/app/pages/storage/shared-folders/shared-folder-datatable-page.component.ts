@@ -69,7 +69,8 @@ export class SharedFolderDatatablePageComponent {
         name: gettext('Absolute Path'),
         prop: 'absdirpath',
         flexGrow: 2,
-        sortable: true
+        sortable: true,
+        cellTemplateName: 'copyToClipboard'
       },
       {
         name: gettext('Referenced'),

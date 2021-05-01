@@ -67,6 +67,8 @@ export type DatatableColumn = TableColumn & {
    *        }
    * binaryUnit - Convert the value into the highest possible binary unit.
    * unsortedList - Display a list of values as unsorted list.
+   * copyToClipboard - Display a button to copy the cell content to the
+   *                   clipboard.
    * template - Render a Nunjucks/Jinja2 template.
    * shapeShifter - Render the column based on the specified type:
    *                text - Plain text.
@@ -93,6 +95,7 @@ export type DatatableColumn = TableColumn & {
     | 'chip'
     | 'binaryUnit'
     | 'unsortedList'
+    | 'copyToClipboard'
     | 'template';
   cellTemplateConfig?: any; // Custom cell template configuration.
 };

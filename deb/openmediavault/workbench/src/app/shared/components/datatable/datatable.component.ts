@@ -37,6 +37,7 @@ import { translate } from '~/app/i18n.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { DatatableColumn } from '~/app/shared/models/datatable-column.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
+import { ClipboardService } from '~/app/shared/services/clipboard.service';
 import { UserStorageService } from '~/app/shared/services/user-storage.service';
 
 export interface IDataTableLoadParams {
@@ -84,6 +85,8 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
   templateTpl: TemplateRef<any>;
   @ViewChild('buttonToggleTpl', { static: true })
   buttonToogleTpl: TemplateRef<any>;
+  @ViewChild('copyToClipboardTpl', { static: true })
+  copyToClipboardTpl: TemplateRef<any>;
 
   // Define a query selector if the datatable is used in an
   // overflow container.
@@ -213,7 +216,10 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
   private rawColumns: DatatableColumn[] = [];
   private searchFilter = '';
 
-  constructor(private userStorageService: UserStorageService) {
+  constructor(
+    private clipboardService: ClipboardService,
+    private userStorageService: UserStorageService
+  ) {
     this.messages = {
       emptyMessage: translate(gettext('No data to display.')),
       totalMessage: translate(gettext('total')),
@@ -326,6 +332,10 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
     this.updateColumns();
   }
 
+  onCopyToClipboard(value: any) {
+    this.clipboardService.copy(value);
+  }
+
   updateColumns() {
     // Load the custom column configuration from the browser
     // local store and filter hidden columns.
@@ -377,7 +387,8 @@ export class DatatableComponent implements OnInit, OnDestroy, OnChanges {
       binaryUnit: this.binaryUnitTpl,
       unsortedList: this.unsortedListTpl,
       template: this.templateTpl,
-      buttonToogle: this.buttonToogleTpl
+      buttonToogle: this.buttonToogleTpl,
+      copyToClipboard: this.copyToClipboardTpl
     };
   }
 
