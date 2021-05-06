@@ -31,6 +31,8 @@ export abstract class AbstractFormFieldComponent implements OnInit {
   @Input()
   formGroup: FormGroup;
 
+  public icon = Icon;
+
   ngOnInit(): void {
     this.sanitizeConfig();
   }

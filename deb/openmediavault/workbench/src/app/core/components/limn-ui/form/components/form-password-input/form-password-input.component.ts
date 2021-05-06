@@ -18,7 +18,6 @@
 import { Component } from '@angular/core';
 
 import { AbstractFormFieldComponent } from '~/app/core/components/limn-ui/form/components/abstract-form-field-component';
-import { Icon } from '~/app/shared/enum/icon.enum';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
 
 @Component({
@@ -28,7 +27,6 @@ import { ClipboardService } from '~/app/shared/services/clipboard.service';
 })
 export class FormPasswordInputComponent extends AbstractFormFieldComponent {
   public type = 'password';
-  public icon = Icon;
 
   constructor(private clipboardService: ClipboardService) {
     super();

@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
 
-import { FormFileInputComponent } from './form-file-input.component';
+import { FormFileInputComponent } from '~/app/core/components/limn-ui/form/components/form-file-input/form-file-input.component';
+import { LimnUiModule } from '~/app/core/components/limn-ui/limn-ui.module';
 
 describe('FormFileInputComponent', () => {
   let component: FormFileInputComponent;
@@ -8,7 +10,7 @@ describe('FormFileInputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FormFileInputComponent]
+      imports: [LimnUiModule, TranslateModule.forRoot()]
     }).compileComponents();
   });
 
