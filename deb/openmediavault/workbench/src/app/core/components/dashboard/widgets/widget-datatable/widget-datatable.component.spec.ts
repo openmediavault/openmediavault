@@ -1,6 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { TranslateModule } from '@ngx-translate/core';
+import { ToastrModule } from 'ngx-toastr';
 
 import { DashboardModule } from '~/app/core/components/dashboard/dashboard.module';
 import { WidgetDatatableComponent } from '~/app/core/components/dashboard/widgets/widget-datatable/widget-datatable.component';
@@ -12,7 +13,12 @@ describe('WidgetDatatableComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [DashboardModule, HttpClientTestingModule, TranslateModule.forRoot()]
+        imports: [
+          DashboardModule,
+          HttpClientTestingModule,
+          ToastrModule.forRoot(),
+          TranslateModule.forRoot()
+        ]
       }).compileComponents();
     })
   );

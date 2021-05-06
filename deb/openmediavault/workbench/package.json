@@ -63,7 +63,7 @@
     "ngx-toastr": "^13.2.1",
     "nunjucks": "^3.2.3",
     "rxjs": "^6.6.7",
-    "strip-ansi": "^7.0.0",
+    "strip-ansi": "^6.0.0",
     "tslib": "^2.2.0",
     "zone.js": "^0.11.4"
   },

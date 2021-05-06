@@ -1,5 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ToastrModule } from 'ngx-toastr';
 
 import { ComponentsModule } from '~/app/shared/components/components.module';
 import { MatFormDatatableComponent } from '~/app/shared/components/mat-form-datatable/mat-form-datatable.component';
@@ -11,7 +12,7 @@ describe('MatFormDatatableComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [ComponentsModule, HttpClientTestingModule]
+        imports: [ComponentsModule, HttpClientTestingModule, ToastrModule.forRoot()]
       }).compileComponents();
     })
   );
