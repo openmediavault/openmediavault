@@ -8,7 +8,7 @@ openmediavault (6.0-5) UNRELEASED; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 14 Dec 2020 20:28:37 +0100
 
-openmediavault (5.6.5-1) stable; urgency=low
+openmediavault (5.6.5-2) stable; urgency=low
 
   * Update locales.
   * Fix permission-policy configuration in nginx.
