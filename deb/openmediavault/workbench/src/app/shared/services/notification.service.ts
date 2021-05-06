@@ -31,7 +31,7 @@ export class NotificationService {
 
   private notificationsSource = new BehaviorSubject<Notification[]>([]);
 
-  constructor(private toastr: ToastrService) {
+  constructor(private toastrService: ToastrService) {
     this.notifications$ = this.notificationsSource.asObservable();
   }
 
@@ -53,7 +53,7 @@ export class NotificationService {
       // Store the notification.
       this.add(notification);
       // Show the notification as toasty.
-      const fn = _.bind(this.toastr[notification.type], this.toastr);
+      const fn = _.bind(this.toastrService[notification.type], this.toastrService);
       fn(notification.message, notification.title);
     }, 5);
   }

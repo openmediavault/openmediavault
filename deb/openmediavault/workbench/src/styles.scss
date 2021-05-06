@@ -412,9 +412,16 @@ textarea {
 /******************************************************************************/
 /* Customize Toastr
 /******************************************************************************/
-.ngx-toastr {
+.toast-container {
   font-family: mat-font-family($mat-typography-config);
   font-size: mat-font-size($mat-typography-config, body-1);
+
+  .ngx-toastr {
+    box-shadow: unset;
+    &:hover {
+      box-shadow: unset;
+    }
+  }
 }
 .toast-error {
   background-color: $omv-color-error;
