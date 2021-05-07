@@ -302,7 +302,7 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "5.6.3"; then
 			omv-salt deploy run --no-color --quiet apt cronapt
 		fi
-		if dpkg --compare-versions "$2" lt-nl "5.6.5"; then
+		if dpkg --compare-versions "$2" lt-nl "5.6.6"; then
 			useradd --system --user-group --no-create-home \
 				--shell '/usr/sbin/nologin' openmediavault-notify || :
 			omv_module_set_dirty postfix
