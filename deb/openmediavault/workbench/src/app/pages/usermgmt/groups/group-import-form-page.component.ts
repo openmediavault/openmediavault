@@ -36,7 +36,7 @@ export class GroupImportFormPageComponent {
       {
         type: 'textarea',
         name: 'csv',
-        value: '# <name>;<gid>;<comment>',
+        value: '# <groupname>;<gid>;<comment>',
         hint: gettext('Each line represents a group.'),
         monospaced: true
       }

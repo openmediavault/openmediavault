@@ -45,10 +45,14 @@ class User {
 	/**
 	 * Constructor
 	 * @param id The name or UID of the system user.
+	 *   If \em id is an integer, then it is assumed to be an UID,
+	 *   otherwise it is handled as an user name. Numeric strings
+	 *   are always handled as user names.
+	 * @see https://manpages.debian.org/buster/passwd/useradd.8.en.html#CAVEATS
 	 */
 	public function __construct($id) {
-		if (is_numeric($id))
-			$this->uid = intval($id);
+		if (is_int($id))
+			$this->uid = $id;
 		else
 			$this->name = $id;
 	}
