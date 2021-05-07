@@ -34,10 +34,14 @@ class Group {
 	/**
 	 * Constructor
 	 * @param id The name or GID of the system group.
+	 *   If \em id is an integer, then it is assumed to be a GID,
+	 *   otherwise it is handled as a group name. Numeric strings
+	 *   are always handled as group names.
+	 * @see https://manpages.debian.org/buster/passwd/groupadd.8.en.html#CAVEATS
 	 */
 	public function __construct($id) {
-		if (is_numeric($id))
-			$this->gid = intval($id);
+		if (is_int($id))
+			$this->gid = $id;
 		else
 			$this->name = $id;
 	}
