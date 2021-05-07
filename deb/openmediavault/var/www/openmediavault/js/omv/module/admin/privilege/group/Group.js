@@ -278,7 +278,7 @@ Ext.define("OMV.module.admin.privilege.group.Import", {
 	getTextAreaConfig: function() {
 		return {
 			allowBlank: false,
-			value: "# <name>;<gid>;<comment>"
+			value: "# <groupname>;<gid>;<comment>"
 		};
 	},
 

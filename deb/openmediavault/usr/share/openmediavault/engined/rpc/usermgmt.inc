@@ -114,8 +114,8 @@ finish:
 	}
 
 	/**
-	 * Return info about an user by name or id.
-	 * @param id The user identifier.
+	 * Return info about an user by their name or UID.
+	 * @param id The user identifier; name or UID.
 	 * @return Returns an associative array with the user information
 	 *   or FALSE if the user does not exist.
 	 */
@@ -230,8 +230,8 @@ finish:
 	}
 
 	/**
-	 * Return info about a group by name or id.
-	 * @param id The group identifier.
+	 * Return info about a group by their name or GID.
+	 * @param id The group identifier; name or GID.
 	 * @return Returns an associative array with the group information
 	 *   or FALSE if the group does not exist.
 	 */
@@ -545,7 +545,10 @@ finish:
 		}
 		if (array_key_exists("groups", $params) &&
 				!empty($params['groups'])) {
-			// Make sure the specified groups exists.
+			// Make sure the specified groups exists. Note, the groups
+			// are handled as group names and NOT as GIDs. This is the
+			// only way to support numeric group names.
+			// https://manpages.debian.org/buster/passwd/groupadd.8.en.html#CAVEATS
 			foreach ($params['groups'] as $groupk => $groupv) {
 				$group = new \OMV\System\Group($groupv);
 				$group->assertExists();
