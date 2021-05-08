@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
-# efef6ec5b435a041fce803c7f8af77d2_2341d43, 2019-2020
+# Jonatan Nyberg <jonatan.nyberg.karl@gmail.com>, 2019-2021
 # efef6ec5b435a041fce803c7f8af77d2_2341d43, 2017-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2020-08-29 13:56+0000\n"
-"Last-Translator: efef6ec5b435a041fce803c7f8af77d2_2341d43\n"
+"PO-Revision-Date: 2021-05-06 17:41+0000\n"
+"Last-Translator: Jonatan Nyberg <jonatan.nyberg.karl@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,7 +46,7 @@ msgid "Delete"
 msgstr "Ta bort"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr "Ta bort filer på mottagningssidan som inte finns hos avsändaren."
+msgstr "Ta bort filer på mottagningssidan som inte finns på avsändarsidan."
 
 msgid "Device"
 msgstr "Enhet"
@@ -66,7 +66,7 @@ msgstr "Aktivera arkivläge."
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr "Aktivera det här alternativet för att behålla delvis överförda filer, annars kommer de att raderas om överföringen avbryts."
+msgstr "Aktivera det här alternativet för att behålla delvis överförda filer, annars kommer de att tas bort om överföringen avbryts."
 
 msgid "Enabled"
 msgstr "Aktiverad"

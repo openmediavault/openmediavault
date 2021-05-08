@@ -4,15 +4,15 @@
 # 
 # Translators:
 # d8527209fb8c70c5b5fcb33678ff7c94_64a2687 <02f319e914d16f5dcdd2de15d3144927_23340>, 2012
-# efef6ec5b435a041fce803c7f8af77d2_2341d43, 2018-2020
+# Jonatan Nyberg <jonatan.nyberg.karl@gmail.com>, 2018-2021
 # efef6ec5b435a041fce803c7f8af77d2_2341d43, 2017-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2021-03-24 13:57+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-05-07 04:32+0000\n"
+"Last-Translator: Jonatan Nyberg <jonatan.nyberg.karl@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -83,7 +83,7 @@ msgid "180 minutes"
 msgstr "180 minuter"
 
 msgid "192 - Intermediate power usage without standby"
-msgstr "192 - Mellanliggande strömförbrukning utan viloläge"
+msgstr "192 - Mellanliggande strömförbrukning utan vänteläge"
 
 msgid "2 days"
 msgstr "2 dagar"
@@ -167,7 +167,7 @@ msgid "60 minutes"
 msgstr "60 minuter"
 
 msgid "64 - Intermediate power usage with standby"
-msgstr "64 - Mellanliggande strömförbrukning med viloläge"
+msgstr "64 - Mellanliggande strömförbrukning med vänteläge"
 
 msgid "9 months"
 msgstr "9 månader"
@@ -203,7 +203,7 @@ msgid "Action"
 msgstr "Åtgärd"
 
 msgid "Activate S.M.A.R.T. monitoring."
-msgstr "Aktivera S.M.A.R.T-övervakning"
+msgstr "Aktivera S.M.A.R.T-övervakning."
 
 msgid "Add"
 msgstr "Lägg till"
@@ -233,7 +233,7 @@ msgid "Add group"
 msgstr "Lägg till grupp"
 
 msgid "Add hot spares / recover RAID device"
-msgstr "Lägg till 'hot-spares' / reparera RAID-enhet"
+msgstr "Lägg till \"hot-spares\" / reparera RAID-enhet"
 
 msgid "Add module"
 msgstr "Lägg till modul"
@@ -372,7 +372,7 @@ msgid "Apply configuration changes"
 msgstr "Tillämpa konfigurationsändringar"
 
 msgid "Apply permissions to files and subfolders"
-msgstr "Applicera behörigheter till filer och undermappar"
+msgstr "Tillämpa behörigheter på filer och undermappar"
 
 msgid "April"
 msgstr "April"
@@ -723,7 +723,7 @@ msgid "Create file system"
 msgstr "Skapa filsystem"
 
 msgid "Create self-signed SSL certificate"
-msgstr "Skapa självsignerade SSL-certifikat "
+msgstr "Skapa självsignerade SSL-certifikat"
 
 msgid "Creating the file system, please wait ..."
 msgstr "Skapar filsystemet, vänligen vänta ..."
@@ -771,13 +771,13 @@ msgid "Date"
 msgstr "Datum"
 
 msgid "Date & Time"
-msgstr "Datum & Tid"
+msgstr "Datum & tid"
 
 msgid "Day of month"
 msgstr "Dag i månad"
 
 msgid "Day of week"
-msgstr "Dag i vecka"
+msgstr "Veckodag"
 
 msgid "Debug"
 msgstr "Felsök"
@@ -786,13 +786,13 @@ msgid "December"
 msgstr "December"
 
 msgid "Delete"
-msgstr "Radera"
+msgstr "Ta bort"
 
 msgid "Delete file system"
 msgstr "Ta bort filsystem"
 
 msgid "Delete files on the receiving side that don't exist on sender"
-msgstr "Radera "
+msgstr "Ta bort filer på mottagarsidan som inte finns hos avsändarsidan"
 
 msgid "Deleting selected item(s)"
 msgstr "Borttagning av valda objekt"
@@ -900,7 +900,7 @@ msgid "Djibouti"
 msgstr "Djibouti"
 
 msgid "Do you really want to apply the configuration changes?"
-msgstr "Vill du verkligen använda konfigurationsändringarna?"
+msgstr "Vill du verkligen tillämpa konfigurationsändringarna?"
 
 msgid "Do you really want to clear the log file?"
 msgstr "Vill du verkligen rensa loggfilen?"
@@ -1143,7 +1143,7 @@ msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
 "incoming active mode data connections and outgoing passive mode data "
 "connections."
-msgstr "Aktivera så omvänd DNS-uppslagning får utföras mot fjärrvärdens IP-adress för inkommande aktiva dataanslutningar och utgående passiva dataanslutningar."
+msgstr "Aktivera omvänd DNS-uppslagning som utförs mot fjärrvärdens IP-adress för inkommande aktiva dataanslutningar och utgående passiva dataanslutningar."
 
 msgid "Enable secure connection."
 msgstr "Aktivera säker anslutning."
@@ -1484,7 +1484,7 @@ msgid "Home directories"
 msgstr "Hemkataloger"
 
 msgid "Homepage"
-msgstr "Hemsida"
+msgstr "Webbplats"
 
 msgid "Honduras"
 msgstr "Honduras"
@@ -1555,7 +1555,7 @@ msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
 "access as guest. Always access as guest when 'Only guests' is selected; in "
 "this case no password is required to connect to the share."
-msgstr ""
+msgstr "Om \"Gäster tillåtna\" har valts och ingen inloggningsuppgift tillhandahålls får du åtkomst som gäst. Åtkomst alltid som gäst när \"Endast gäster\" är valt; i det här fallet krävs inget lösenord för att ansluta till resursen."
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1649,7 +1649,7 @@ msgid "Info"
 msgstr "Info"
 
 msgid "Informal"
-msgstr "Informellt"
+msgstr "Informell"
 
 msgid "Information"
 msgstr "Information"
@@ -1690,7 +1690,7 @@ msgid "Invalid IP address."
 msgstr "Ogiltig IP-adress."
 
 msgid "Invalid SSH public key (RFC 4716 format)"
-msgstr ""
+msgstr "Ogiltig publik SSH-nyckel (RFC 4716-format)"
 
 msgid "Invalid User-Agent."
 msgstr "Ogiltig användaragent."
@@ -1768,7 +1768,7 @@ msgid "Kenya"
 msgstr "Kenya"
 
 msgid "Kernel"
-msgstr "Kernel"
+msgstr "Kärna"
 
 msgid "Key size"
 msgstr "Nyckelstorlek"
@@ -1902,7 +1902,7 @@ msgid "Madagascar"
 msgstr "Madagaskar"
 
 msgid "Maintainer"
-msgstr "Upprätthållaren"
+msgstr "Upprätthållare"
 
 msgid "Malawi"
 msgstr "Malawi"
@@ -1969,7 +1969,7 @@ msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
 "timer completely (clients can stay connected for ever, without sending "
 "data)."
-msgstr "Längsta inaktiva tid i sekunder. Ställer du timeout för vilotid till 0 inaktiveras tidtagaren för vilotid helt (klienter kan hålla kontakten för alltid, utan att skicka data)."
+msgstr "Längsta inaktiva tid i sekunder. Ställer du tidsgräns för vilotid till 0 inaktiveras tidtagaren för vilotid helt (klienter kan hålla kontakten för alltid, utan att skicka data)."
 
 msgid "Maximum number of allowed password attempts before disconnection."
 msgstr "Högsta antal tillåtna lösenordsförsök innan frånkoppling."
@@ -2368,7 +2368,7 @@ msgid "Permissions"
 msgstr "Behörigheter"
 
 msgid "Permissions of group."
-msgstr "Gruppbehörigheter"
+msgstr "Gruppbehörigheter."
 
 msgid "Permissions of others (e.g. anonymous FTP users)."
 msgstr "Behörigheter för andra (t.ex. anonyma FTP-användare)."
@@ -2480,7 +2480,7 @@ msgid "Power mode"
 msgstr "Effektläge"
 
 msgid "Pre-release updates."
-msgstr "Försläppta uppdateringar"
+msgstr "Försläppta uppdateringar."
 
 msgid "Prefix length"
 msgstr "Prefixlängd"
@@ -2514,7 +2514,7 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr "Förhindra en skiva från att spinner upp när den regelbundet tillfrågas.<br/><ul><li>Aldrig - Kontrollera enheten oberoende av dess strömläge. Detta kan leda till att en skiva som är uppspunnen spinner upp när den kontrolleras.</li><li>Sömn - Kontrollera enheten om den inte är i SLEEP-läge.</li><li>Standby - Kontrollera enheten om den inte är i SLEEP- eller STANDBY-läge. I dessa lägen spinner de flesta skivor inte, så om du vill förhindra att en skiva spinner upp vid varje kontroll är det förmodligen det du vill ha.</li><li>Idle - Kontrollera enheten om den inte är i SLEEP, STANDBY eller IDLE-läge. I IDLE-tillståndet spinner de flesta skivor fortfarande, så det här är nog inte vad du vill ha.</li></ul>"
+msgstr "Förhindra en skiva från att spinner upp när den regelbundet tillfrågas.<br/><ul><li>Aldrig - Kontrollera enheten oberoende av dess strömläge. Detta kan leda till att en skiva som är uppspunnen spinner upp när den kontrolleras.</li><li>Sömn - Kontrollera enheten om den inte är i SÖMN-läge.</li><li>Vänteläge - Kontrollera enheten om den inte är i SÖMN- eller VÄNTELÄGE-läge. I dessa lägen spinner de flesta skivor inte, så om du vill förhindra att en skiva spinner upp vid varje kontroll är det förmodligen det du vill ha.</li><li>Idle - Kontrollera enheten om den inte är i SÖMN-, VÄNTE- eller IDLE-läge. I IDLE-tillståndet spinner de flesta skivor fortfarande, så det här är nog inte vad du vill ha.</li></ul>"
 
 msgid "Previous Page"
 msgstr "Föregående sida"
@@ -3098,7 +3098,7 @@ msgid "Software RAID"
 msgstr "Mjukvaru RAID"
 
 msgid "Software updates"
-msgstr "Mjukvara uppdateringar"
+msgstr "Mjukvaruuppdateringar"
 
 msgid "Solomon Islands"
 msgstr "Salomonöarna"
@@ -3318,7 +3318,7 @@ msgid "The SSH certificate used for authentication."
 msgstr "SSH-certifikatet används för autentisering."
 
 msgid "The SSH public key in OpenSSH or RFC 4716 format."
-msgstr ""
+msgstr "Den publika SSH-nyckeln i OpenSSH- eller RFC 4716-format."
 
 msgid "The SSL certificate."
 msgstr "SSL certifikat."
@@ -4040,7 +4040,7 @@ msgid "Xen virtual disk device"
 msgstr "Xen virtuell diskenhet"
 
 msgid "Yearly"
-msgstr "Årligen"
+msgstr "Årlig"
 
 msgid "Yemen"
 msgstr "Yemen"

@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
-# Kostas Moho, 2012-2020
+# Kostas Moho, 2012-2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2021-03-24 13:57+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-03-27 07:26+0000\n"
+"Last-Translator: Kostas Moho\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1553,7 +1553,7 @@ msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
 "access as guest. Always access as guest when 'Only guests' is selected; in "
 "this case no password is required to connect to the share."
-msgstr ""
+msgstr "Αν είναι επιλεγμένο το 'Επιτρέπονται επισκέπτες' και δεν δωθούν στοιχεία σύνδεσης, τότε η πρόσβαση γίνεται ως επισκέπτης. Αν είναι επιλεγμένο το 'Μόνο επισκέπτες' τότε η πρόσβαση γίνεται πάντα ως επισκέπτης, χωρίς να χρειάζεται συνθηματικό για την σύνδεση."
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1688,7 +1688,7 @@ msgid "Invalid IP address."
 msgstr "Άκυρη διεύθυνση ΙΡ."
 
 msgid "Invalid SSH public key (RFC 4716 format)"
-msgstr ""
+msgstr "Μη αποδεκτό δημόσιο κλειδί SSH (RFC 4716)"
 
 msgid "Invalid User-Agent."
 msgstr "Άκυρος Πράκτορας Χρήστη."
@@ -3316,7 +3316,7 @@ msgid "The SSH certificate used for authentication."
 msgstr "Το πιστοποιητικό SSH που θα χρησιμοποιείται."
 
 msgid "The SSH public key in OpenSSH or RFC 4716 format."
-msgstr ""
+msgstr "Το δημόσιο κλειδί SSH σε μορφοποίηση OpenSSH ή RFC 4716."
 
 msgid "The SSL certificate."
 msgstr "Το πιστοποιητικό SSL."
