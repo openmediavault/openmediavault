@@ -311,7 +311,7 @@ case "$1" in
 			omv_module_set_dirty hostname
 		fi
 		if dpkg --compare-versions "$2" lt-nl "6.0"; then
-			LANG=C.UTF-8 omv-salt deploy run --no-color --quiet nginx || :
+			LANG=C.UTF-8 omv-salt deploy run --no-color --quiet nginx rsyslog || :
 		fi
 
 		########################################################################

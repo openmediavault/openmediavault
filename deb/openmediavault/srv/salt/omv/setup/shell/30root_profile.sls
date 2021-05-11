@@ -27,7 +27,7 @@
 modify_root_profile:
   file.replace:
     - name: '/root/.profile'
-    - pattern: '^{{ 'mesg n || true' | regex_escape }}$'
-    - repl: 'test -t 0 && mesg n || true'
+    - pattern: '^{{ 'mesg n 2> /dev/null || true' | regex_escape }}$'
+    - repl: 'test -t 0 && mesg n 2> /dev/null || true'
     - ignore_if_missing: True
     - backup: False

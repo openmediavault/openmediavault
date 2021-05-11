@@ -18,12 +18,59 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-import re
+import glob
+import os
+import struct
 import sys
+from typing import List, NamedTuple
 
 import dialog
 import openmediavault.firstaid
 import openmediavault.procutils
+
+
+class Tally(NamedTuple):
+    source: str
+    reserved: int
+    status: int
+    time: int
+
+    # https://github.com/linux-pam/linux-pam/blob/master/modules/pam_faillock/faillock.h
+    FORMAT = '52sHHQ'
+    STATUS_VALID = 0x1  # the tally file entry is valid
+    STATUS_RHOST = 0x2  # the source is rhost
+    STATUS_TTY = 0x4  # the source is tty
+
+    @property
+    def valid(self):
+        return self.status & self.STATUS_VALID
+
+
+class TallyFile:
+    def __init__(self, path):
+        self.path: str = path
+        self.records: List[Tally] = []
+
+    @property
+    def name(self) -> str:
+        """
+        Get the name of the user.
+        :return: Returns the name of the user.
+        """
+        return os.path.basename(self.path)
+
+    def read(self) -> None:
+        with open(self.path, 'rb') as f:
+            while True:
+                data = f.read(struct.calcsize(Tally.FORMAT))
+                if not data:
+                    break
+                record = Tally._make(struct.unpack(Tally.FORMAT, data))
+                self.records.append(record)
+
+    @property
+    def valid_records(self) -> List[Tally]:
+        return [r for r in self.records if r.valid]
 
 
 class Module(openmediavault.firstaid.IModule):
@@ -33,22 +80,23 @@ class Module(openmediavault.firstaid.IModule):
 
     def execute(self):
         choices = []
-        output = openmediavault.procutils.check_output(["pam_tally2"])
-        for line in output.splitlines():
-            m = re.match(r"^(\S+)\s+((\d+)\s+(.+))$", line.decode().strip())
-            if not m:
-                continue
-            choices.append([m.group(1), m.group(2)])
+        for path in glob.glob('/var/run/faillock/*'):
+            f = TallyFile(path)
+            f.read()
+            failed_attempts = len(f.valid_records)
+            if failed_attempts:
+                choices.append([f.name, f'{failed_attempts} failed attempts'])
         if not choices:
             print("No locked/banned users or candidates exists.")
             return 0
         d = dialog.Dialog(dialog="dialog")
         (code, tag) = d.menu(
-            "Please select a user to reset the failed "
-            "login attempt counter.",
+            "Please select an user to reset the failed login attempt "
+            "counter. The maximum number of unsuccessful attempts does "
+            "not mean that the user has been locked.",
             backtitle=self.description,
             clear=True,
-            height=13,
+            height=15,
             width=68,
             menu_height=5,
             choices=choices,
@@ -61,7 +109,7 @@ class Module(openmediavault.firstaid.IModule):
                 username)
         )
         openmediavault.procutils.check_call(
-            ["pam_tally2", "--quiet", "--reset=0", "--user", username]
+            ["faillock", "--reset", "--user", username]
         )
         return 0
 

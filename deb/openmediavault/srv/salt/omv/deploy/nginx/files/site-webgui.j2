@@ -31,7 +31,7 @@ server {
     }
     location ~* \.php$ {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass unix:/run/php/php7.3-fpm-openmediavault-webgui.sock;
+        fastcgi_pass unix:/run/php/php7.4-fpm-openmediavault-webgui.sock;
         fastcgi_index index.php;
         fastcgi_read_timeout {{ fastcgi_read_timeout }};
         include fastcgi.conf;

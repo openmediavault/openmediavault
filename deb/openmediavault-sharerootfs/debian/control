@@ -9,7 +9,7 @@ Homepage: https://www.openmediavault.org
 
 Package: openmediavault-sharerootfs
 Architecture: all
-Depends: openmediavault (>= 5.2.5)
+Depends: openmediavault (>= 6.0)
 Priority: optional
 Description: openmediavault share root filesystem plugin
  The plugin enables the ability to create shared folders in the

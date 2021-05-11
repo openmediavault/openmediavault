@@ -5,6 +5,8 @@ openmediavault (6.0-6) UNRELEASED; urgency=low
     anymore because they are not unique and predictable.
   * Change file system handling in UI.
   * Adapt 'FileSystemMgmt' RPCs to new workflow.
+  * Upgrade to Debian 11.
+    - Replace pam_tally2 by pam_faillock
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 14 Dec 2020 20:28:37 +0100
 

@@ -14,6 +14,8 @@ use-ipv4={{ use_ipv4 }}
 use-ipv6={{ use_ipv6 }}
 {%- if allow_interfaces | length > 0 %}
 allow-interfaces={{ allow_interfaces }}
+{%- else -%}
+#allow-interfaces=eth0
 {%- endif %}
 #deny-interfaces=eth1
 #check-response-ttl=no
@@ -47,12 +49,13 @@ publish-workstation={{ publish_workstation }}
 [reflector]
 enable-reflector={{ enable_reflector }}
 #reflect-ipv=no
+#reflect-filters=_airplay._tcp.local,_raop._tcp.local
 
 [rlimits]
 #rlimit-as=
 #rlimit-core=0
-#rlimit-data=4194304
+#rlimit-data=8388608
 #rlimit-fsize=0
 #rlimit-nofile=768
-#rlimit-stack=4194304
+#rlimit-stack=8388608
 #rlimit-nproc={{ rlimit_nproc }}

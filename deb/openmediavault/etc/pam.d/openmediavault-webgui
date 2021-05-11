@@ -8,7 +8,7 @@
 # Standard Un*x authentication.
 @include common-auth
 
-account     required        pam_tally2.so
+account     required        pam_faillock.so
 
 # Standard Un*x authorization.
 @include common-account
