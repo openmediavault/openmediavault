@@ -303,6 +303,10 @@ case "$1" in
 			omv_module_set_dirty postfix
 			omv_module_set_dirty nginx
 		fi
+		if dpkg --compare-versions "$2" lt-nl "5.6.7"; then
+		  omv_module_set_dirty apt
+		  omv_module_set_dirty cronapt
+		fi
 		if dpkg --compare-versions "$2" lt-nl "6.0"; then
 			LANG=C.UTF-8 omv-salt deploy run --no-color --quiet nginx || :
 		fi
