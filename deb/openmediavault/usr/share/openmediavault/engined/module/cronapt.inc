@@ -28,7 +28,7 @@ class CronApt extends \OMV\Engine\Module\ServiceAbstract
 	}
 
 	public function deployAfter(): array {
-		return ["email"];
+		return ["apt", "email"];
 	}
 
 	public function getNotificationConfig() {
