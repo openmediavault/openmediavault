@@ -237,7 +237,7 @@ case "$1" in
 			# - collectd: uptime plugin has been added
 			# - chrony: The ntp replacement
 			# - postfix: Config must be recreated
-			omv-salt deploy run --no-color --quiet collectd chrony postfix
+			LANG=C.UTF-8 omv-salt deploy run --no-color --quiet collectd chrony postfix || :
 		fi
 		if dpkg --compare-versions "$2" lt-nl "5.1.3"; then
 			omv_module_set_dirty monit
