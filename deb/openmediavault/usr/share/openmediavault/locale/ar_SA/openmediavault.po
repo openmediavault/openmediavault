@@ -4,14 +4,14 @@
 # 
 # Translators:
 # omv nas <myomv100@gmail.com>, 2020
-# omv nas <myomv100@gmail.com>, 2020
+# omv nas <myomv100@gmail.com>, 2020-2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-24 14:53+0100\n"
-"PO-Revision-Date: 2021-03-24 13:57+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2021-05-09 03:19+0000\n"
+"Last-Translator: omv nas <myomv100@gmail.com>\n"
 "Language-Team: Arabic (Saudi Arabia) (http://www.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -217,7 +217,7 @@ msgid "Add bond connection"
 msgstr "إضافة اتصال ترابط"
 
 msgid "Add bridge connection"
-msgstr ""
+msgstr "أضف اتصال bridge"
 
 msgid "Add devices to RAID device"
 msgstr "إضافة أجهزة إلى مصفوفة RAID"
@@ -316,7 +316,7 @@ msgid ""
 msgstr "اسمح لهذا الخادم بالإعلان عن نفسه كخادم وقت لعملاء Windows"
 
 msgid "Allowed clients"
-msgstr ""
+msgstr "العملاء المسموح لهم"
 
 msgid "American Samoa"
 msgstr "ساموا الأمريكية"
@@ -338,7 +338,7 @@ msgid ""
 msgstr "يتم إرسال رسالة بريد إلكتروني مع مخرجات الأمر (إن وجدت) إلى المستخدم الذي يؤدي المهمة."
 
 msgid "An error has occurred"
-msgstr ""
+msgstr "حدث خطأ ما"
 
 msgid "Andorra"
 msgstr "أندورا"
@@ -515,7 +515,7 @@ msgid "Brazil"
 msgstr "البرازيل"
 
 msgid "Bridge"
-msgstr ""
+msgstr "اتصال Bridge"
 
 msgid "British Antarctic Territory"
 msgstr "إقليم القطب الجنوبي البريطاني"
@@ -1031,7 +1031,7 @@ msgid "Edit bond connection"
 msgstr "تحرير اتصال Bond"
 
 msgid "Edit bridge connection"
-msgstr ""
+msgstr "تحرير اتصال bridge"
 
 msgid "Edit ethernet connection"
 msgstr "تحرير اتصال Ethernet"
@@ -1302,7 +1302,7 @@ msgid "Filename"
 msgstr "اسم الملف"
 
 msgid "Filepath"
-msgstr ""
+msgstr "مسار الملف"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1521,7 +1521,7 @@ msgstr "ID"
 msgid ""
 "IP addresses in CIDR notation or host names of clients that are allowed to "
 "access the NTP server."
-msgstr ""
+msgstr "عناوين IP في قيمة CIDR أو أسماء المضيف hosts للعملاء المسموح لهم بالوصول إلى خادم NTP."
 
 msgid "IP addresses of domain name servers used to resolve host names."
 msgstr "عناوين IP لخوادم اسم المجال المستخدمة لحل أسماء المضيفين."
@@ -1554,7 +1554,7 @@ msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
 "access as guest. Always access as guest when 'Only guests' is selected; in "
 "this case no password is required to connect to the share."
-msgstr ""
+msgstr "إذا تم تحديد \"الضيوف المسموح لهم\" ولم يتم توفير بيانات اعتماد تسجيل الدخول ، فقم بالوصول كضيف. الوصول دائمًا كضيف عند تحديد \"الضيوف فقط\" ؛ في هذه الحالة ، لا يلزم وجود كلمة مرور للاتصال بالمشاركة."
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1689,7 +1689,7 @@ msgid "Invalid IP address."
 msgstr "عنوان IP غير صالح."
 
 msgid "Invalid SSH public key (RFC 4716 format)"
-msgstr ""
+msgstr "مفتاح SSH العمومي غير صالح (تنسيق RFC 4716)"
 
 msgid "Invalid User-Agent."
 msgstr "وكيل مستخدم غير صالح."
@@ -2148,7 +2148,7 @@ msgid "New Zealand"
 msgstr "نيوزيلندا"
 
 msgid "New password"
-msgstr ""
+msgstr "كلمة السر الجديدة"
 
 msgid "Next Page"
 msgstr "الصفحة التالية"
@@ -2328,7 +2328,7 @@ msgid "Parent Device"
 msgstr "الجهاز الرئيسي"
 
 msgid "Parent device"
-msgstr ""
+msgstr "الجهاز الأب"
 
 msgid "Passive FTP"
 msgstr "FTP السلبي"
@@ -3317,7 +3317,7 @@ msgid "The SSH certificate used for authentication."
 msgstr "شهادة SSH المستخدمة للمصادقة."
 
 msgid "The SSH public key in OpenSSH or RFC 4716 format."
-msgstr ""
+msgstr "مفتاح SSH العمومي بتنسيق OpenSSH أو RFC 4716."
 
 msgid "The SSL certificate."
 msgstr "شهادة SSL."
@@ -3381,7 +3381,7 @@ msgstr "موقع مجلدات المستخدم الرئيسية."
 msgid ""
 "The maximum transmission unit in bytes to set for the device. Set to 0 to "
 "use the default value."
-msgstr ""
+msgstr "قيمة الإرسال القصوى بالبايت المطلوب ضبطها للجهاز. اضبط على 0 لاستخدام القيمة الافتراضية."
 
 msgid "The name of the share."
 msgstr "اسم المشاركة."
@@ -3415,12 +3415,12 @@ msgstr "مفتاح RSA الخاص بتنسيق X.509 PEM."
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port"
-msgstr ""
+msgstr "لا يمكن دعم البروتوكول مع منفذ المصدر / الوجهة"
 
 msgid ""
 "The relative path of the folder to share. The specified folder will be "
 "created if it does not already exist."
-msgstr ""
+msgstr "المسار النسبي للمجلد المراد مشاركته. سيتم إنشاء المجلد المحدد إذا لم يكن موجودًا بالفعل."
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3504,7 +3504,7 @@ msgid "This field should be a host name or an IP address"
 msgstr "يجب أن يكون هذا الحقل اسم مضيف أو عنوان IP"
 
 msgid "This field should be a host name or an IP address in CIDR notation"
-msgstr ""
+msgstr "يجب أن يكون هذا الحقل اسم مضيف host أو عنوان IP في قيمة CIDR"
 
 msgid "This field should be a host name or an IPv4 address"
 msgstr "يجب أن يكون هذا الحقل اسم مضيف أو عنوان IPv4"
@@ -3520,7 +3520,7 @@ msgstr "يجب أن يكون هذا الحقل قائمة بأسماء النط�
 msgid ""
 "This field should be a list of host names or IP addresses in CIDR notation "
 "separated by <,> or <;>"
-msgstr ""
+msgstr "يجب أن يكون هذا الحقل عبارة عن قائمة بأسماء المضيف أو عناوين IP في قيمة CIDR مفصولة بعلامة <،> أو <؛>"
 
 msgid ""
 "This field should be a list of host names or IP addresses separated by <,> "
